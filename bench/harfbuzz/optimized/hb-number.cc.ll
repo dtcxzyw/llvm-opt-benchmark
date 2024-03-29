@@ -170,8 +170,8 @@ _resume.preheader.i:                              ; preds = %while.end.i
 
 _resume.i:                                        ; preds = %if.end62.i, %_resume.preheader.i
   %exp_neg.0.i = phi i8 [ %exp_neg.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
-  %exp_overflow.0.i = phi i8 [ %exp_overflow.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
-  %neg.0.i = phi i8 [ %neg.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
+  %exp_overflow.0.i = phi i1 [ %exp_overflow.1.i, %if.end62.i ], [ false, %_resume.preheader.i ]
+  %neg.0.i = phi i1 [ %neg.1.i, %if.end62.i ], [ false, %_resume.preheader.i ]
   %exp.0.i = phi i32 [ %exp.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
   %frac_count.0.i = phi double [ %frac_count.1.i, %if.end62.i ], [ 0.000000e+00, %_resume.preheader.i ]
   %cs.0.i = phi i32 [ %conv28.i, %if.end62.i ], [ 1, %_resume.preheader.i ]
@@ -257,15 +257,15 @@ sw.bb50.i:                                        ; preds = %if.end34.i
   %mul.i = mul i32 %exp.0.i, 10
   %sub52.i = add i32 %mul.i, -48
   %add.i = add i32 %sub52.i, %conv13.i
-  %cmp53.i = icmp ult i32 %add.i, 2048
-  %exp_overflow.0..i = select i1 %cmp53.i, i8 %exp_overflow.0.i, i8 1
-  %add.exp.0.i = select i1 %cmp53.i, i32 %add.i, i32 %exp.0.i
+  %cmp53.i = icmp ugt i32 %add.i, 2047
+  %exp_overflow.0..i = select i1 %cmp53.i, i1 true, i1 %exp_overflow.0.i
+  %add.exp.0.i = select i1 %cmp53.i, i32 %exp.0.i, i32 %add.i
   br label %_again.i
 
 _again.i:                                         ; preds = %sw.bb50.i, %if.then45.i, %sw.bb43.i, %sw.bb39.i, %sw.bb38.i, %sw.bb.i, %if.end34.i, %cond.end.i
   %exp_neg.1.i = phi i8 [ %exp_neg.0.i, %cond.end.i ], [ %exp_neg.0.i, %if.end34.i ], [ %exp_neg.0.i, %if.then45.i ], [ %exp_neg.0.i, %sw.bb43.i ], [ %exp_neg.0.i, %sw.bb39.i ], [ 1, %sw.bb38.i ], [ %exp_neg.0.i, %sw.bb.i ], [ %exp_neg.0.i, %sw.bb50.i ]
-  %exp_overflow.1.i = phi i8 [ %exp_overflow.0.i, %cond.end.i ], [ %exp_overflow.0.i, %if.end34.i ], [ %exp_overflow.0.i, %if.then45.i ], [ %exp_overflow.0.i, %sw.bb43.i ], [ %exp_overflow.0.i, %sw.bb39.i ], [ %exp_overflow.0.i, %sw.bb38.i ], [ %exp_overflow.0.i, %sw.bb.i ], [ %exp_overflow.0..i, %sw.bb50.i ]
-  %neg.1.i = phi i8 [ %neg.0.i, %cond.end.i ], [ %neg.0.i, %if.end34.i ], [ %neg.0.i, %if.then45.i ], [ %neg.0.i, %sw.bb43.i ], [ %neg.0.i, %sw.bb39.i ], [ %neg.0.i, %sw.bb38.i ], [ 1, %sw.bb.i ], [ %neg.0.i, %sw.bb50.i ]
+  %exp_overflow.1.i = phi i1 [ %exp_overflow.0.i, %cond.end.i ], [ %exp_overflow.0.i, %if.end34.i ], [ %exp_overflow.0.i, %if.then45.i ], [ %exp_overflow.0.i, %sw.bb43.i ], [ %exp_overflow.0.i, %sw.bb39.i ], [ %exp_overflow.0.i, %sw.bb38.i ], [ %exp_overflow.0.i, %sw.bb.i ], [ %exp_overflow.0..i, %sw.bb50.i ]
+  %neg.1.i = phi i1 [ %neg.0.i, %cond.end.i ], [ %neg.0.i, %if.end34.i ], [ %neg.0.i, %if.then45.i ], [ %neg.0.i, %sw.bb43.i ], [ %neg.0.i, %sw.bb39.i ], [ %neg.0.i, %sw.bb38.i ], [ true, %sw.bb.i ], [ %neg.0.i, %sw.bb50.i ]
   %exp.1.i = phi i32 [ %exp.0.i, %cond.end.i ], [ %exp.0.i, %if.end34.i ], [ %exp.0.i, %if.then45.i ], [ %exp.0.i, %sw.bb43.i ], [ %exp.0.i, %sw.bb39.i ], [ %exp.0.i, %sw.bb38.i ], [ %exp.0.i, %sw.bb.i ], [ %add.exp.0.i, %sw.bb50.i ]
   %frac_count.1.i = phi double [ %frac_count.0.i, %cond.end.i ], [ %frac_count.0.i, %if.end34.i ], [ %inc.i, %if.then45.i ], [ %frac_count.0.i, %sw.bb43.i ], [ %frac_count.0.i, %sw.bb39.i ], [ %frac_count.0.i, %sw.bb38.i ], [ %frac_count.0.i, %sw.bb.i ], [ %frac_count.0.i, %sw.bb50.i ]
   %frac.1.i = phi double [ %frac.0.i, %cond.end.i ], [ %frac.0.i, %if.end34.i ], [ %16, %if.then45.i ], [ %frac.0.i, %sw.bb43.i ], [ %frac.0.i, %sw.bb39.i ], [ %frac.0.i, %sw.bb38.i ], [ %frac.0.i, %sw.bb.i ], [ %frac.0.i, %sw.bb50.i ]
@@ -314,29 +314,24 @@ _ZL6_pow10j.exit.i:                               ; preds = %for.inc.i.i
 
 if.end71.i:                                       ; preds = %_ZL6_pow10j.exit.i, %_out.i
   %value.3.i = phi double [ %add70.i, %_ZL6_pow10j.exit.i ], [ %value.1.i, %_out.i ]
-  %18 = and i8 %neg.1.i, 1
-  %tobool72.not.i = icmp eq i8 %18, 0
   %mul74.i = fneg double %value.3.i
-  %value.4.i = select i1 %tobool72.not.i, double %value.3.i, double %mul74.i
-  %19 = and i8 %exp_overflow.1.i, 1
-  %tobool76.not.i = icmp eq i8 %19, 0
-  br i1 %tobool76.not.i, label %if.end88.i, label %if.then77.i
+  %value.4.i = select i1 %neg.1.i, double %mul74.i, double %value.3.i
+  br i1 %exp_overflow.1.i, label %if.then77.i, label %if.end88.i
 
 if.then77.i:                                      ; preds = %if.end71.i
   %cmp78.i = fcmp oeq double %value.4.i, 0.000000e+00
   br i1 %cmp78.i, label %_ZL9strtod_rlPKcPS0_.exit, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then77.i
-  %20 = and i8 %exp_neg.1.i, 1
-  %tobool81.not.i = icmp eq i8 %20, 0
-  br i1 %tobool81.not.i, label %if.else85.i, label %if.then82.i
+  %tobool81.i = trunc i8 %exp_neg.1.i to i1
+  br i1 %tobool81.i, label %if.then82.i, label %if.else85.i
 
 if.then82.i:                                      ; preds = %if.end80.i
-  %cond84.i = select i1 %tobool72.not.i, double 0x10000000000000, double 0x8010000000000000
+  %cond84.i = select i1 %neg.1.i, double 0x8010000000000000, double 0x10000000000000
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 if.else85.i:                                      ; preds = %if.end80.i
-  %cond87.i = select i1 %tobool72.not.i, double 0x7FEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF
+  %cond87.i = select i1 %neg.1.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 if.end88.i:                                       ; preds = %if.end71.i
@@ -344,9 +339,8 @@ if.end88.i:                                       ; preds = %if.end71.i
   br i1 %tobool89.not.i, label %_ZL9strtod_rlPKcPS0_.exit, label %if.then90.i
 
 if.then90.i:                                      ; preds = %if.end88.i
-  %21 = and i8 %exp_neg.1.i, 1
-  %tobool91.not.i = icmp eq i8 %21, 0
-  br i1 %tobool91.not.i, label %for.body.i57.i, label %for.body.i43.i
+  %tobool91.i = trunc i8 %exp_neg.1.i to i1
+  br i1 %tobool91.i, label %for.body.i43.i, label %for.body.i57.i
 
 for.body.i43.i:                                   ; preds = %if.then90.i, %for.inc.i51.i
   %power.07.i44.i = phi ptr [ %incdec.ptr.i53.i, %for.inc.i51.i ], [ @_ZZL6_pow10jE13_powers_of_10, %if.then90.i ]
@@ -357,8 +351,8 @@ for.body.i43.i:                                   ; preds = %if.then90.i, %for.i
   br i1 %tobool1.not.i48.i, label %for.inc.i51.i, label %if.then.i49.i
 
 if.then.i49.i:                                    ; preds = %for.body.i43.i
-  %22 = load double, ptr %power.07.i44.i, align 8
-  %mul.i50.i = fmul double %result.06.i45.i, %22
+  %18 = load double, ptr %power.07.i44.i, align 8
+  %mul.i50.i = fmul double %result.06.i45.i, %18
   br label %for.inc.i51.i
 
 for.inc.i51.i:                                    ; preds = %if.then.i49.i, %for.body.i43.i
@@ -381,8 +375,8 @@ for.body.i57.i:                                   ; preds = %if.then90.i, %for.i
   br i1 %tobool1.not.i62.i, label %for.inc.i65.i, label %if.then.i63.i
 
 if.then.i63.i:                                    ; preds = %for.body.i57.i
-  %23 = load double, ptr %power.07.i58.i, align 8
-  %mul.i64.i = fmul double %result.06.i59.i, %23
+  %19 = load double, ptr %power.07.i58.i, align 8
+  %mul.i64.i = fmul double %result.06.i59.i, %19
   br label %for.inc.i65.i
 
 for.inc.i65.i:                                    ; preds = %if.then.i63.i, %for.body.i57.i
@@ -397,22 +391,22 @@ _ZL6_pow10j.exit70.i:                             ; preds = %for.inc.i65.i
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 _ZL9strtod_rlPKcPS0_.exit:                        ; preds = %while.end.i, %if.then77.i, %if.then82.i, %if.else85.i, %if.end88.i, %_ZL6_pow10j.exit56.i, %_ZL6_pow10j.exit70.i
-  %pend.0 = phi ptr [ %end, %while.end.i ], [ %p.addr.2.i, %if.end88.i ], [ %p.addr.2.i, %_ZL6_pow10j.exit70.i ], [ %p.addr.2.i, %_ZL6_pow10j.exit56.i ], [ %p.addr.2.i, %if.then77.i ], [ %p.addr.2.i, %if.else85.i ], [ %p.addr.2.i, %if.then82.i ]
-  %retval.0.i = phi double [ 0.000000e+00, %while.end.i ], [ %value.4.i, %if.end88.i ], [ %mul97.i, %_ZL6_pow10j.exit70.i ], [ %div94.i, %_ZL6_pow10j.exit56.i ], [ %value.4.i, %if.then77.i ], [ %cond87.i, %if.else85.i ], [ %cond84.i, %if.then82.i ]
+  %pend.0 = phi ptr [ %end, %while.end.i ], [ %p.addr.2.i, %if.then77.i ], [ %p.addr.2.i, %if.then82.i ], [ %p.addr.2.i, %if.else85.i ], [ %p.addr.2.i, %if.end88.i ], [ %p.addr.2.i, %_ZL6_pow10j.exit56.i ], [ %p.addr.2.i, %_ZL6_pow10j.exit70.i ]
+  %retval.0.i = phi double [ 0.000000e+00, %while.end.i ], [ %value.4.i, %if.then77.i ], [ %cond84.i, %if.then82.i ], [ %cond87.i, %if.else85.i ], [ %value.4.i, %if.end88.i ], [ %div94.i, %_ZL6_pow10j.exit56.i ], [ %mul97.i, %_ZL6_pow10j.exit70.i ]
   store double %retval.0.i, ptr %pv, align 8
-  %24 = load ptr, ptr %pp, align 8
-  %cmp = icmp eq ptr %24, %pend.0
+  %20 = load ptr, ptr %pp, align 8
+  %cmp = icmp eq ptr %20, %pend.0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL9strtod_rlPKcPS0_.exit
   store ptr %pend.0, ptr %pp, align 8
   %cmp1 = icmp eq ptr %pend.0, %end
   %not.whole_buffer = xor i1 %whole_buffer, true
-  %25 = or i1 %cmp1, %not.whole_buffer
+  %21 = or i1 %cmp1, %not.whole_buffer
   br label %return
 
 return:                                           ; preds = %_ZL9strtod_rlPKcPS0_.exit, %if.end
-  %retval.0 = phi i1 [ %25, %if.end ], [ false, %_ZL9strtod_rlPKcPS0_.exit ]
+  %retval.0 = phi i1 [ %21, %if.end ], [ false, %_ZL9strtod_rlPKcPS0_.exit ]
   ret i1 %retval.0
 }
 

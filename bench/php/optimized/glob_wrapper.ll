@@ -107,9 +107,8 @@ define i32 @_php_glob_stream_get_count(ptr nocapture noundef readonly %0, ptr no
 9:                                                ; preds = %6, %5
   %10 = getelementptr inbounds i8, ptr %4, i64 136
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %17, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %4, i64 128
@@ -151,22 +150,21 @@ define internal noundef i64 @php_glob_stream_read(ptr nocapture noundef readonly
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %5, i64 136
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %php_glob_stream_get_result_count.exit, label %php_glob_stream_get_result_count.exit.thread
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %php_glob_stream_get_result_count.exit, label %php_glob_stream_get_result_count.exit.thread
 
 php_glob_stream_get_result_count.exit:            ; preds = %8
-  %12 = load i64, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
-  %14 = load i64, ptr %13, align 8
-  %sext39 = shl i64 %12, 32
-  %15 = ashr exact i64 %sext39, 32
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %26, label %57
+  %12 = getelementptr inbounds i8, ptr %5, i64 128
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 72
+  %15 = load i64, ptr %14, align 8
+  %sext37 = shl i64 %13, 32
+  %16 = ashr exact i64 %sext37, 32
+  %17 = icmp ult i64 %15, %16
+  br i1 %17, label %23, label %57
 
 php_glob_stream_get_result_count.exit.thread:     ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %5, i64 128
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 72
   %20 = load i64, ptr %19, align 8
   %sext = shl i64 %18, 32
@@ -174,19 +172,19 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %.thread, label %57
 
-.thread:                                          ; preds = %php_glob_stream_get_result_count.exit.thread
-  %23 = getelementptr inbounds i8, ptr %5, i64 120
-  %24 = load ptr, ptr %23, align 8
-  %.not36 = icmp eq ptr %24, null
-  %25 = getelementptr inbounds i64, ptr %24, i64 %20
-  %spec.select = select i1 %.not36, ptr %19, ptr %25
+23:                                               ; preds = %php_glob_stream_get_result_count.exit
+  %24 = getelementptr inbounds i8, ptr %5, i64 120
+  %25 = load ptr, ptr %24, align 8
+  %.not35 = icmp eq ptr %25, null
+  %26 = getelementptr inbounds i64, ptr %25, i64 %15
+  %spec.select = select i1 %.not35, ptr %14, ptr %26
   %.pre = load i64, ptr %spec.select, align 8
-  br label %26
+  br label %.thread
 
-26:                                               ; preds = %php_glob_stream_get_result_count.exit, %.thread
-  %27 = phi i64 [ %20, %.thread ], [ %14, %php_glob_stream_get_result_count.exit ]
-  %28 = phi i64 [ %.pre, %.thread ], [ %14, %php_glob_stream_get_result_count.exit ]
-  %29 = phi ptr [ %19, %.thread ], [ %13, %php_glob_stream_get_result_count.exit ]
+.thread:                                          ; preds = %php_glob_stream_get_result_count.exit.thread, %23
+  %27 = phi i64 [ %15, %23 ], [ %20, %php_glob_stream_get_result_count.exit.thread ]
+  %28 = phi i64 [ %.pre, %23 ], [ %20, %php_glob_stream_get_result_count.exit.thread ]
+  %29 = phi ptr [ %14, %23 ], [ %19, %php_glob_stream_get_result_count.exit.thread ]
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %28
@@ -195,13 +193,13 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 32
   %37 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %33, i32 noundef 47) #9
-  %.not.i37 = icmp eq ptr %37, null
+  %.not.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %37, i64 1
-  %spec.select.i = select i1 %.not.i37, ptr %33, ptr %38
+  %spec.select.i = select i1 %.not.i, ptr %33, ptr %38
   %.not18.i = icmp eq i32 %36, 0
   br i1 %.not18.i, label %php_glob_stream_path_split.exit, label %39
 
-39:                                               ; preds = %26
+39:                                               ; preds = %.thread
   %40 = getelementptr inbounds i8, ptr %5, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not19.i = icmp eq ptr %41, null
@@ -224,11 +222,11 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   store i64 %49, ptr %50, align 8
   %51 = tail call noalias ptr @_estrndup(ptr noundef %33, i64 noundef %49) #10
   store ptr %51, ptr %40, align 8
-  %.pre40 = load i64, ptr %29, align 8
+  %.pre38 = load i64, ptr %29, align 8
   br label %php_glob_stream_path_split.exit
 
-php_glob_stream_path_split.exit:                  ; preds = %26, %43
-  %52 = phi i64 [ %27, %26 ], [ %.pre40, %43 ]
+php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
+  %52 = phi i64 [ %27, %.thread ], [ %.pre38, %43 ]
   %53 = add i64 %52, 1
   store i64 %53, ptr %29, align 8
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #9
@@ -241,8 +239,8 @@ php_glob_stream_path_split.exit:                  ; preds = %26, %43
   br label %63
 
 57:                                               ; preds = %php_glob_stream_get_result_count.exit.thread, %php_glob_stream_get_result_count.exit
-  %58 = phi i64 [ %21, %php_glob_stream_get_result_count.exit.thread ], [ %15, %php_glob_stream_get_result_count.exit ]
-  %59 = phi ptr [ %19, %php_glob_stream_get_result_count.exit.thread ], [ %13, %php_glob_stream_get_result_count.exit ]
+  %58 = phi i64 [ %21, %php_glob_stream_get_result_count.exit.thread ], [ %16, %php_glob_stream_get_result_count.exit ]
+  %59 = phi ptr [ %19, %php_glob_stream_get_result_count.exit.thread ], [ %14, %php_glob_stream_get_result_count.exit ]
   store i64 %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %5, i64 88
   %61 = load ptr, ptr %60, align 8

@@ -181,37 +181,31 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist6PrintfENS_13EJournalLevelENS_16EJournalCategoryEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #3 align 2 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %5)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_16EJournalCategoryEiiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 align 2 {
   %7 = alloca [1024 x i8], align 16
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
-  %.not71 = icmp eq i64 %8, 0
-  br i1 %.not71, label %.loopexit54, label %.preheader53.lr.ph
+  %.not70 = icmp eq i64 %8, 0
+  br i1 %.not70, label %.loopexit54, label %.preheader53.lr.ph
 
 .preheader53.lr.ph:                               ; preds = %6
   %9 = icmp sgt i32 %4, 0
-  %10 = icmp slt i32 %3, 1
+  %10 = icmp sgt i32 %3, 0
   %11 = zext i32 %3 to i64
   br label %.preheader53
 
 .preheader53:                                     ; preds = %.preheader53.lr.ph, %.loopexit
   %.04669 = phi i32 [ 0, %.preheader53.lr.ph ], [ %3, %.loopexit ]
-  %.04768 = phi i8 [ 1, %.preheader53.lr.ph ], [ %.148, %.loopexit ]
+  %.04768 = phi i1 [ true, %.preheader53.lr.ph ], [ false, %.loopexit ]
   %.04967 = phi i64 [ 0, %.preheader53.lr.ph ], [ %.3, %.loopexit ]
   br i1 %9, label %.lr.ph.preheader, label %.critedge
 
@@ -227,7 +221,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %.15055 = phi i64 [ %.04967, %.lr.ph.preheader ], [ %spec.select, %16 ]
   %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %15 = icmp ult i64 %.04557, %14
-  br i1 %15, label %16, label %.critedge.loopexit.split.loop.exit78
+  br i1 %15, label %16, label %.critedge.loopexit.split.loop.exit77
 
 16:                                               ; preds = %.lr.ph
   %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.04557) #20
@@ -244,14 +238,14 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %exitcond.not = icmp eq i32 %24, %4
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
-.critedge.loopexit.split.loop.exit78:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit77:             ; preds = %.lr.ph
   %25 = trunc i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %.critedge.loopexit.split.loop.exit78, %.preheader53
-  %.150.lcssa = phi i64 [ %.04967, %.preheader53 ], [ %.15055, %.critedge.loopexit.split.loop.exit78 ], [ %spec.select, %16 ]
-  %.1.lcssa = phi i32 [ %.04669, %.preheader53 ], [ %25, %.critedge.loopexit.split.loop.exit78 ], [ %13, %16 ]
-  %.045.lcssa = phi i64 [ %.04967, %.preheader53 ], [ %.04557, %.critedge.loopexit.split.loop.exit78 ], [ %23, %16 ]
+.critedge:                                        ; preds = %16, %.critedge.loopexit.split.loop.exit77, %.preheader53
+  %.150.lcssa = phi i64 [ %.04967, %.preheader53 ], [ %.15055, %.critedge.loopexit.split.loop.exit77 ], [ %spec.select, %16 ]
+  %.1.lcssa = phi i32 [ %.04669, %.preheader53 ], [ %25, %.critedge.loopexit.split.loop.exit77 ], [ %13, %16 ]
+  %.045.lcssa = phi i64 [ %.04967, %.preheader53 ], [ %.04557, %.critedge.loopexit.split.loop.exit77 ], [ %23, %16 ]
   %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %27 = icmp eq i64 %.045.lcssa, %26
   br i1 %27, label %28, label %34
@@ -309,41 +303,37 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   call void (ptr, i32, i32, ptr, ...) %60(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
-  %61 = and i8 %.04768, 1
-  %.not = icmp eq i8 %61, 0
-  %brmerge = or i1 %.not, %10
-  %.04768.mux = select i1 %.not, i8 %.04768, i8 0
-  br i1 %brmerge, label %.loopexit, label %.lr.ph66.preheader
+  %brmerge.not = and i1 %10, %.04768
+  br i1 %brmerge.not, label %.lr.ph66.preheader, label %.loopexit
 
 .lr.ph66.preheader:                               ; preds = %57
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %11, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph66.preheader, %57
-  %.148 = phi i8 [ %.04768.mux, %57 ], [ 0, %.lr.ph66.preheader ]
-  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
-  %63 = icmp ult i64 %.3, %62
-  br i1 %63, label %.preheader53, label %.loopexit54, !llvm.loop !7
+  %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
+  %62 = icmp ult i64 %.3, %61
+  br i1 %62, label %.preheader53, label %.loopexit54, !llvm.loop !7
 
 .loopexit54:                                      ; preds = %.loopexit, %6, %28
   ret void
 }
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist14PrintfIndentedENS_13EJournalLevelENS_16EJournalCategoryEiPKcz(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ...) unnamed_addr #3 align 2 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %6)
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -374,7 +364,7 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %.lr.ph
-  call void @llvm.va_copy(ptr nonnull %6, ptr %4)
+  call void @llvm.va_copy.p0(ptr nonnull %6, ptr %4)
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -382,7 +372,7 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
   %29 = getelementptr inbounds i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(176) %27, i32 noundef %2, i32 noundef %1, ptr noundef %3, ptr noundef nonnull %6)
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br label %31
 
 31:                                               ; preds = %.lr.ph, %24
@@ -400,9 +390,6 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
 ._crit_edge:                                      ; preds = %31, %5
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJournalCategoryEiPKcP13__va_list_tag(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 align 2 {
@@ -460,7 +447,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
-  call void @llvm.va_copy(ptr nonnull %7, ptr %5)
+  call void @llvm.va_copy.p0(ptr nonnull %7, ptr %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %41, i64 %indvars.iv24
   %43 = load ptr, ptr %42, align 8
@@ -468,7 +455,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   %45 = getelementptr inbounds i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(176) %43, i32 noundef %2, i32 noundef %1, ptr noundef %4, ptr noundef nonnull %7)
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   br label %26
 
 .lr.ph20.split:                                   ; preds = %.lr.ph20, %60
@@ -483,7 +470,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   br i1 %53, label %.preheader, label %60
 
 .preheader:                                       ; preds = %.lr.ph20.split
-  call void @llvm.va_copy(ptr nonnull %7, ptr %5)
+  call void @llvm.va_copy.p0(ptr nonnull %7, ptr %5)
   %54 = load ptr, ptr %8, align 8
   %55 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
@@ -491,7 +478,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   %58 = getelementptr inbounds i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(176) %56, i32 noundef %2, i32 noundef %1, ptr noundef %4, ptr noundef nonnull %7)
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   br label %60
 
 60:                                               ; preds = %.lr.ph20.split, %.preheader
@@ -686,7 +673,7 @@ _ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit:        ; preds = %24, %19, %16, %14
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt10Journalist14AddFileJournalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_13EJournalLevelEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -823,10 +810,10 @@ _ZN5Ipopt8SmartPtrINS_11FileJournalEED2Ev.exit24: ; preds = %64, %_ZN5Ipopt8Smar
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist11FlushBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
@@ -1160,7 +1147,7 @@ define void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt7JournalD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #1 align 2 {
@@ -1172,13 +1159,13 @@ define void @_ZN5Ipopt7JournalD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN5Ipopt7JournalD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define void @_ZN5Ipopt7JournalD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt7Journal4NameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #3 align 2 {
@@ -1188,7 +1175,7 @@ define void @_ZN5Ipopt7Journal4NameB5cxx11Ev(ptr dead_on_unwind noalias nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5Ipopt7Journal10IsAcceptedENS_16EJournalCategoryENS_13EJournalLevelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK5Ipopt7Journal10IsAcceptedENS_16EJournalCategoryENS_13EJournalLevelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %5
@@ -1207,7 +1194,7 @@ define void @_ZN5Ipopt7Journal13SetPrintLevelENS_16EJournalCategoryENS_13EJourna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5Ipopt7Journal17SetAllPrintLevelsENS_13EJournalLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define void @_ZN5Ipopt7Journal17SetAllPrintLevelsENS_13EJournalLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   br label %4
 
@@ -1285,7 +1272,7 @@ define void @_ZN5Ipopt11FileJournalD2Ev(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt11FileJournalD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #1 align 2 {
@@ -1295,7 +1282,7 @@ define void @_ZN5Ipopt11FileJournalD0Ev(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1345,13 +1332,13 @@ define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJournalLevelEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3) unnamed_addr #13 align 2 {
+define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJournalLevelEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3) unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1366,7 +1353,7 @@ define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJourna
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN5Ipopt11FileJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #13 align 2 {
+define void @_ZN5Ipopt11FileJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #12 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1381,10 +1368,10 @@ define void @_ZN5Ipopt11FileJournal10PrintfImplENS_16EJournalCategoryENS_13EJour
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN5Ipopt11FileJournal15FlushBufferImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #13 align 2 {
+define void @_ZN5Ipopt11FileJournal15FlushBufferImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1399,7 +1386,7 @@ define void @_ZN5Ipopt11FileJournal15FlushBufferImplEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(32952) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1457,7 +1444,7 @@ define void @_ZN5Ipopt13StreamJournal9PrintImplENS_16EJournalCategoryENS_13EJour
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #7
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(32952) %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #3 align 2 {
@@ -1478,7 +1465,7 @@ define void @_ZN5Ipopt13StreamJournal10PrintfImplENS_16EJournalCategoryENS_13EJo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal15FlushBufferImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32952) %0) unnamed_addr #3 align 2 {
@@ -1495,9 +1482,9 @@ define void @_ZN5Ipopt13StreamJournal15FlushBufferImplEv(ptr nocapture noundef n
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #7
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #7
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13StreamJournalD2Ev(ptr noundef nonnull align 8 dereferenceable(32952) %0) unnamed_addr #1 comdat align 2 {
@@ -1731,13 +1718,22 @@ _ZNSt12_Vector_baseIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE13_M_deallocateEPS3_
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
@@ -1758,18 +1754,18 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

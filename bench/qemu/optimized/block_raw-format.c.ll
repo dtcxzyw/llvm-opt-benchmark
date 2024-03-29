@@ -215,23 +215,22 @@ if.end12:                                         ; preds = %if.end3
   store i32 %and26, ptr %supported_truncate_flags27, align 4
   %probed = getelementptr inbounds i8, ptr %bs, i64 6
   %10 = load i8, ptr %probed, align 2
-  %11 = and i8 %10, 1
-  %tobool28.not = icmp eq i8 %11, 0
-  br i1 %tobool28.not, label %if.end36, label %land.lhs.true
+  %tobool28 = trunc i8 %10 to i1
+  br i1 %tobool28, label %land.lhs.true, label %if.end36
 
 land.lhs.true:                                    ; preds = %if.end12
   %call29 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #9
   br i1 %call29, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr %file, align 8
-  %13 = load ptr, ptr %12, align 8
-  tail call void @bdrv_refresh_filename(ptr noundef %13) #9
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = load ptr, ptr %file, align 8
-  %16 = load ptr, ptr %15, align 8
-  %filename = getelementptr inbounds i8, ptr %16, i64 49
-  %call35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.18, ptr noundef nonnull %filename) #12
+  %11 = load ptr, ptr %file, align 8
+  %12 = load ptr, ptr %11, align 8
+  tail call void @bdrv_refresh_filename(ptr noundef %12) #9
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr %file, align 8
+  %15 = load ptr, ptr %14, align 8
+  %filename = getelementptr inbounds i8, ptr %15, i64 49
+  %call35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.18, ptr noundef nonnull %filename) #12
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then30, %land.lhs.true, %if.end12
@@ -249,16 +248,15 @@ if.end42:                                         ; preds = %if.end36
   br i1 %call43, label %land.lhs.true44, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 land.lhs.true44:                                  ; preds = %if.end42
-  %17 = load i64, ptr %0, align 8
-  %tobool46.not = icmp eq i64 %17, 0
+  %16 = load i64, ptr %0, align 8
+  %tobool46.not = icmp eq i64 %16, 0
   br i1 %tobool46.not, label %lor.lhs.false47, label %if.then50
 
 lor.lhs.false47:                                  ; preds = %land.lhs.true44
   %has_size48 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load i8, ptr %has_size48, align 8
-  %19 = and i8 %18, 1
-  %tobool49.not = icmp eq i8 %19, 0
-  br i1 %tobool49.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then50
+  %17 = load i8, ptr %has_size48, align 8
+  %tobool49 = trunc i8 %17 to i1
+  br i1 %tobool49, label %if.then50, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then50:                                        ; preds = %lor.lhs.false47, %land.lhs.true44
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 535, ptr noundef nonnull @__func__.raw_open, ptr noundef nonnull @.str.19) #9
@@ -299,14 +297,13 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %has_variable_length = getelementptr inbounds i8, ptr %1, i64 16548
   %2 = load i8, ptr %has_variable_length, align 4
-  %3 = and i8 %2, 1
   %has_variable_length3 = getelementptr inbounds i8, ptr %bs, i64 16548
-  store i8 %3, ptr %has_variable_length3, align 4
+  %frombool = and i8 %2, 1
+  store i8 %frombool, ptr %has_variable_length3, align 4
   %probed = getelementptr inbounds i8, ptr %bs, i64 6
-  %4 = load i8, ptr %probed, align 2
-  %5 = and i8 %4, 1
-  %tobool4.not = icmp eq i8 %5, 0
-  br i1 %tobool4.not, label %if.end, label %if.then
+  %3 = load i8, ptr %probed, align 2
+  %tobool4 = trunc i8 %3 to i1
+  br i1 %tobool4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %bl2 = getelementptr inbounds i8, ptr %bs, i64 16464
@@ -368,15 +365,14 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %has_size = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i8, ptr %has_size, align 8
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  br i1 %tobool1.not, label %if.end, label %return
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %4 = load ptr, ptr %file, align 8
-  %5 = load ptr, ptr %4, align 8
-  %call = tail call i32 @bdrv_probe_geometry(ptr noundef %5, ptr noundef %geo) #9
+  %3 = load ptr, ptr %file, align 8
+  %4 = load ptr, ptr %3, align 8
+  %call = tail call i32 @bdrv_probe_geometry(ptr noundef %4, ptr noundef %geo) #9
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -409,41 +405,40 @@ entry:
   %bs.val = load ptr, ptr %0, align 8
   %has_size.i = getelementptr inbounds i8, ptr %bs.val, i64 16
   %1 = load i8, ptr %has_size.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
-  %3 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %3, %offset
-  %sub.i = sub i64 %3, %offset
+  %2 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp ult i64 %2, %offset
+  %sub.i = sub i64 %2, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %4 = load i64, ptr %bs.val, align 8
-  %sub5.i = sub i64 9223372036854775807, %4
+  %3 = load i64, ptr %bs.val, align 8
+  %sub5.i = sub i64 9223372036854775807, %3
   %cmp6.i = icmp ult i64 %sub5.i, %offset
   br i1 %cmp6.i, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end.i
-  %add.i = add i64 %4, %offset
+  %add.i = add i64 %3, %offset
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %5 = load ptr, ptr %file, align 8
-  %tobool1.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %file, align 8
+  %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %do.end, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %6 = load ptr, ptr %5, align 8
-  tail call void @bdrv_co_debug_event(ptr noundef %6, i32 noundef 9) #9
+  %5 = load ptr, ptr %4, align 8
+  tail call void @bdrv_co_debug_event(ptr noundef %5, i32 noundef 9) #9
   %.pre = load ptr, ptr %file, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then2
-  %7 = phi ptr [ null, %do.body ], [ %.pre, %if.then2 ]
-  %call7 = tail call i32 @bdrv_co_preadv(ptr noundef %7, i64 noundef %add.i, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #9
+  %6 = phi ptr [ null, %do.body ], [ %.pre, %if.then2 ]
+  %call7 = tail call i32 @bdrv_co_preadv(ptr noundef %6, i64 noundef %add.i, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #9
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end.i, %do.end
@@ -457,8 +452,7 @@ entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
   %probed = getelementptr inbounds i8, ptr %bs, i64 6
   %0 = load i8, ptr %probed, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp = icmp slt i64 %offset, 512
   %or.cond = and i1 %cmp, %tobool
   %tobool2 = icmp ne i64 %bytes, 0
@@ -477,34 +471,34 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %2 = load ptr, ptr %file, align 8
-  %3 = load ptr, ptr %2, align 8
-  %call = tail call ptr @qemu_try_blockalign(ptr noundef %3, i64 noundef 512) #9
+  %1 = load ptr, ptr %file, align 8
+  %2 = load ptr, ptr %1, align 8
+  %call = tail call ptr @qemu_try_blockalign(ptr noundef %2, i64 noundef 512) #9
   %tobool8.not = icmp eq ptr %call, null
   br i1 %tobool8.not, label %fail, label %if.end10
 
 if.end10:                                         ; preds = %if.end
   %call11 = tail call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef 0, ptr noundef nonnull %call, i64 noundef 512) #9
-  %4 = and i64 %call11, 4294967295
-  %cmp12.not = icmp eq i64 %4, 512
+  %3 = and i64 %call11, 4294967295
+  %cmp12.not = icmp eq i64 %3, 512
   br i1 %cmp12.not, label %if.end15, label %fail
 
 if.end15:                                         ; preds = %if.end10
   %call16 = tail call ptr @bdrv_probe_all(ptr noundef nonnull %call, i32 noundef 512, ptr noundef null) #9
   %drv17 = getelementptr inbounds i8, ptr %bs, i64 16
-  %5 = load ptr, ptr %drv17, align 8
-  %cmp18.not = icmp eq ptr %call16, %5
+  %4 = load ptr, ptr %drv17, align 8
+  %cmp18.not = icmp eq ptr %call16, %4
   br i1 %cmp18.not, label %if.end21, label %fail
 
 if.end21:                                         ; preds = %if.end15
   %niov = getelementptr inbounds i8, ptr %qiov, i64 8
-  %6 = load i32, ptr %niov, align 8
-  %add = add i32 %6, 1
+  %5 = load i32, ptr %niov, align 8
+  %add = add i32 %5, 1
   call void @qemu_iovec_init(ptr noundef nonnull %local_qiov, i32 noundef %add) #9
   call void @qemu_iovec_add(ptr noundef nonnull %local_qiov, ptr noundef nonnull %call, i64 noundef 512) #9
   %size = getelementptr inbounds i8, ptr %qiov, i64 32
-  %7 = load i64, ptr %size, align 8
-  %sub = add i64 %7, -512
+  %6 = load i64, ptr %size, align 8
+  %sub = add i64 %6, -512
   call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef 512, i64 noundef %sub) #9
   %and = and i32 %flags, -9
   br label %if.end22
@@ -513,45 +507,44 @@ if.end22:                                         ; preds = %if.end21, %entry
   %flags.addr.0 = phi i32 [ %and, %if.end21 ], [ %flags, %entry ]
   %buf.0 = phi ptr [ %call, %if.end21 ], [ null, %entry ]
   %qiov.addr.0 = phi ptr [ %local_qiov, %if.end21 ], [ %qiov, %entry ]
-  %8 = getelementptr i8, ptr %bs, i64 24
-  %bs.val = load ptr, ptr %8, align 8
+  %7 = getelementptr i8, ptr %bs, i64 24
+  %bs.val = load ptr, ptr %7, align 8
   %has_size.i = getelementptr inbounds i8, ptr %bs.val, i64 16
-  %9 = load i8, ptr %has_size.i, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %8 = load i8, ptr %has_size.i, align 8
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end22
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
-  %11 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %11, %offset
-  %sub.i = sub i64 %11, %offset
+  %9 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp ult i64 %9, %offset
+  %sub.i = sub i64 %9, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %fail, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end22
-  %12 = load i64, ptr %bs.val, align 8
-  %sub5.i = sub i64 9223372036854775807, %12
+  %10 = load i64, ptr %bs.val, align 8
+  %sub5.i = sub i64 9223372036854775807, %10
   %cmp6.i = icmp ult i64 %sub5.i, %offset
   br i1 %cmp6.i, label %fail, label %do.body
 
 do.body:                                          ; preds = %if.end.i
-  %add.i = add i64 %12, %offset
+  %add.i = add i64 %10, %offset
   %file27 = getelementptr inbounds i8, ptr %bs, i64 16840
-  %13 = load ptr, ptr %file27, align 8
-  %tobool28.not = icmp eq ptr %13, null
+  %11 = load ptr, ptr %file27, align 8
+  %tobool28.not = icmp eq ptr %11, null
   br i1 %tobool28.not, label %do.end, label %if.then29
 
 if.then29:                                        ; preds = %do.body
-  %14 = load ptr, ptr %13, align 8
-  call void @bdrv_co_debug_event(ptr noundef %14, i32 noundef 12) #9
+  %12 = load ptr, ptr %11, align 8
+  call void @bdrv_co_debug_event(ptr noundef %12, i32 noundef 12) #9
   %.pre = load ptr, ptr %file27, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then29
-  %15 = phi ptr [ null, %do.body ], [ %.pre, %if.then29 ]
-  %call34 = call i32 @bdrv_co_pwritev(ptr noundef %15, i64 noundef %add.i, i64 noundef %bytes, ptr noundef %qiov.addr.0, i32 noundef %flags.addr.0) #9
+  %13 = phi ptr [ null, %do.body ], [ %.pre, %if.then29 ]
+  %call34 = call i32 @bdrv_co_pwritev(ptr noundef %13, i64 noundef %add.i, i64 noundef %bytes, ptr noundef %qiov.addr.0, i32 noundef %flags.addr.0) #9
   br label %fail
 
 fail:                                             ; preds = %land.lhs.true.i, %if.end.i, %if.end15, %if.end10, %if.end, %do.end
@@ -577,30 +570,29 @@ entry:
   %bs.val = load ptr, ptr %0, align 8
   %has_size.i = getelementptr inbounds i8, ptr %bs.val, i64 16
   %1 = load i8, ptr %has_size.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
-  %3 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %3, %offset
-  %sub.i = sub i64 %3, %offset
+  %2 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp ult i64 %2, %offset
+  %sub.i = sub i64 %2, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %4 = load i64, ptr %bs.val, align 8
-  %sub5.i = sub i64 9223372036854775807, %4
+  %3 = load i64, ptr %bs.val, align 8
+  %sub5.i = sub i64 9223372036854775807, %3
   %cmp6.i = icmp ult i64 %sub5.i, %offset
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %add.i = add i64 %4, %offset
+  %add.i = add i64 %3, %offset
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %5 = load ptr, ptr %file, align 8
-  %call1 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %5, i64 noundef %add.i, i64 noundef %bytes, i32 noundef %flags) #9
+  %4 = load ptr, ptr %file, align 8
+  %call1 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %4, i64 noundef %add.i, i64 noundef %bytes, i32 noundef %flags) #9
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end.i, %if.end
@@ -615,30 +607,29 @@ entry:
   %bs.val = load ptr, ptr %0, align 8
   %has_size.i = getelementptr inbounds i8, ptr %bs.val, i64 16
   %1 = load i8, ptr %has_size.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
-  %3 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %3, %offset
-  %sub.i = sub i64 %3, %offset
+  %2 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp ult i64 %2, %offset
+  %sub.i = sub i64 %2, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %4 = load i64, ptr %bs.val, align 8
-  %sub5.i = sub i64 9223372036854775807, %4
+  %3 = load i64, ptr %bs.val, align 8
+  %sub5.i = sub i64 9223372036854775807, %3
   %cmp6.i = icmp ult i64 %sub5.i, %offset
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %add.i = add i64 %4, %offset
+  %add.i = add i64 %3, %offset
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %5 = load ptr, ptr %file, align 8
-  %call1 = tail call i32 @bdrv_co_pdiscard(ptr noundef %5, i64 noundef %add.i, i64 noundef %bytes) #9
+  %4 = load ptr, ptr %file, align 8
+  %call1 = tail call i32 @bdrv_co_pdiscard(ptr noundef %4, i64 noundef %add.i, i64 noundef %bytes) #9
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end.i, %if.end
@@ -653,30 +644,29 @@ entry:
   %bs.val = load ptr, ptr %0, align 8
   %has_size.i = getelementptr inbounds i8, ptr %bs.val, i64 16
   %1 = load i8, ptr %has_size.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
-  %3 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %3, %src_offset
-  %sub.i = sub i64 %3, %src_offset
+  %2 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp ult i64 %2, %src_offset
+  %sub.i = sub i64 %2, %src_offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %4 = load i64, ptr %bs.val, align 8
-  %sub5.i = sub i64 9223372036854775807, %4
+  %3 = load i64, ptr %bs.val, align 8
+  %sub5.i = sub i64 9223372036854775807, %3
   %cmp6.i = icmp ult i64 %sub5.i, %src_offset
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %add.i = add i64 %4, %src_offset
+  %add.i = add i64 %3, %src_offset
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %5 = load ptr, ptr %file, align 8
-  %call1 = tail call i32 @bdrv_co_copy_range_from(ptr noundef %5, i64 noundef %add.i, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #9
+  %4 = load ptr, ptr %file, align 8
+  %call1 = tail call i32 @bdrv_co_copy_range_from(ptr noundef %4, i64 noundef %add.i, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #9
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end.i, %if.end
@@ -691,30 +681,29 @@ entry:
   %bs.val = load ptr, ptr %0, align 8
   %has_size.i = getelementptr inbounds i8, ptr %bs.val, i64 16
   %1 = load i8, ptr %has_size.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
-  %3 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %3, %dst_offset
-  %sub.i = sub i64 %3, %dst_offset
+  %2 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp ult i64 %2, %dst_offset
+  %sub.i = sub i64 %2, %dst_offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %4 = load i64, ptr %bs.val, align 8
-  %sub5.i = sub i64 9223372036854775807, %4
+  %3 = load i64, ptr %bs.val, align 8
+  %sub5.i = sub i64 9223372036854775807, %3
   %cmp6.i = icmp ult i64 %sub5.i, %dst_offset
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %add.i = add i64 %4, %dst_offset
+  %add.i = add i64 %3, %dst_offset
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %5 = load ptr, ptr %file, align 8
-  %call1 = tail call i32 @bdrv_co_copy_range_to(ptr noundef %src, i64 noundef %src_offset, ptr noundef %5, i64 noundef %add.i, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #9
+  %4 = load ptr, ptr %file, align 8
+  %call1 = tail call i32 @bdrv_co_copy_range_to(ptr noundef %src, i64 noundef %src_offset, ptr noundef %4, i64 noundef %add.i, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #9
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end.i, %if.end
@@ -745,9 +734,8 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %has_size = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %has_size, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 421, ptr noundef nonnull @__func__.raw_co_truncate, ptr noundef nonnull @.str.21) #9
@@ -755,8 +743,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 9223372036854775807, %offset
-  %3 = load i64, ptr %0, align 8
-  %cmp = icmp ult i64 %sub, %3
+  %2 = load i64, ptr %0, align 8
+  %cmp = icmp ult i64 %sub, %2
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -766,10 +754,10 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %size = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %offset, ptr %size, align 8
-  %add = add i64 %3, %offset
+  %add = add i64 %2, %offset
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %4 = load ptr, ptr %file, align 8
-  %call = tail call i32 @bdrv_co_truncate(ptr noundef %4, i64 noundef %add, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef %errp) #9
+  %3 = load ptr, ptr %file, align 8
+  %call = tail call i32 @bdrv_co_truncate(ptr noundef %3, i64 noundef %add, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef %errp) #9
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -802,15 +790,14 @@ if.then3:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %has_size = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i8, ptr %has_size, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.else9, label %if.then4
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then4, label %if.else9
 
 if.then4:                                         ; preds = %if.else
   %size5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i64, ptr %size5, align 8
+  %5 = load i64, ptr %size5, align 8
   %sub = sub nsw i64 %call, %3
-  %cond = tail call i64 @llvm.umin.i64(i64 %6, i64 %sub)
+  %cond = tail call i64 @llvm.umin.i64(i64 %5, i64 %sub)
   store i64 %cond, ptr %size5, align 8
   br label %return
 
@@ -933,16 +920,15 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %has_size = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i8, ptr %has_size, align 8
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  br i1 %tobool1.not, label %if.end, label %return
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %4 = load ptr, ptr %file, align 8
-  %5 = load ptr, ptr %4, align 8
+  %3 = load ptr, ptr %file, align 8
+  %4 = load ptr, ptr %3, align 8
   %conv = trunc i64 %req to i32
-  %call = tail call i32 @bdrv_co_ioctl(ptr noundef %5, i32 noundef %conv, ptr noundef %buf) #9
+  %call = tail call i32 @bdrv_co_ioctl(ptr noundef %4, i32 noundef %conv, ptr noundef %buf) #9
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end

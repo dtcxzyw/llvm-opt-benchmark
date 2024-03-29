@@ -291,32 +291,31 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [6 x i8], ptr %m_springEnabled, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %for.inc, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %arrayidx3 = getelementptr inbounds float, ptr %m_calculatedLinearDiff, i64 %indvars.iv
-  %2 = load float, ptr %arrayidx3, align 4
+  %1 = load float, ptr %arrayidx3, align 4
   %arrayidx5 = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint, i64 0, i64 %indvars.iv
-  %3 = load float, ptr %arrayidx5, align 4
-  %sub = fsub float %2, %3
+  %2 = load float, ptr %arrayidx5, align 4
+  %sub = fsub float %1, %2
   %arrayidx7 = getelementptr inbounds [6 x float], ptr %m_springStiffness, i64 0, i64 %indvars.iv
-  %4 = load float, ptr %arrayidx7, align 4
-  %mul = fmul float %sub, %4
-  %5 = load float, ptr %info, align 8
+  %3 = load float, ptr %arrayidx7, align 4
+  %mul = fmul float %sub, %3
+  %4 = load float, ptr %info, align 8
   %arrayidx9 = getelementptr inbounds [6 x float], ptr %m_springDamping, i64 0, i64 %indvars.iv
-  %6 = load float, ptr %arrayidx9, align 4
-  %mul10 = fmul float %5, %6
-  %7 = load i32, ptr %m_numIterations, align 8
-  %conv = sitofp i32 %7 to float
+  %5 = load float, ptr %arrayidx9, align 4
+  %mul10 = fmul float %4, %5
+  %6 = load i32, ptr %m_numIterations, align 8
+  %conv = sitofp i32 %6 to float
   %div = fdiv float %mul10, %conv
   %mul11 = fmul float %mul, %div
   %arrayidx14 = getelementptr inbounds float, ptr %m_targetVelocity, i64 %indvars.iv
   store float %mul11, ptr %arrayidx14, align 4
-  %8 = tail call noundef float @llvm.fabs.f32(float %mul)
+  %7 = tail call noundef float @llvm.fabs.f32(float %mul)
   %arrayidx19 = getelementptr inbounds float, ptr %m_maxMotorForce, i64 %indvars.iv
-  store float %8, ptr %arrayidx19, align 4
+  store float %7, ptr %arrayidx19, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -326,37 +325,36 @@ for.inc:                                          ; preds = %for.body, %if.then
 
 for.body22:                                       ; preds = %for.cond20.preheader, %for.inc64
   %indvars.iv26 = phi i64 [ 0, %for.cond20.preheader ], [ %indvars.iv.next27, %for.inc64 ]
-  %9 = add nuw nsw i64 %indvars.iv26, 3
-  %arrayidx25 = getelementptr inbounds [6 x i8], ptr %m_springEnabled, i64 0, i64 %9
-  %10 = load i8, ptr %arrayidx25, align 1
-  %11 = and i8 %10, 1
-  %tobool26.not = icmp eq i8 %11, 0
-  br i1 %tobool26.not, label %for.inc64, label %if.then27
+  %8 = add nuw nsw i64 %indvars.iv26, 3
+  %arrayidx25 = getelementptr inbounds [6 x i8], ptr %m_springEnabled, i64 0, i64 %8
+  %9 = load i8, ptr %arrayidx25, align 1
+  %tobool26 = trunc i8 %9 to i1
+  br i1 %tobool26, label %if.then27, label %for.inc64
 
 if.then27:                                        ; preds = %for.body22
   %arrayidx31 = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff, i64 %indvars.iv26
-  %12 = load float, ptr %arrayidx31, align 4
-  %arrayidx36 = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint, i64 0, i64 %9
-  %13 = load float, ptr %arrayidx36, align 4
-  %sub37 = fsub float %12, %13
+  %10 = load float, ptr %arrayidx31, align 4
+  %arrayidx36 = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint, i64 0, i64 %8
+  %11 = load float, ptr %arrayidx36, align 4
+  %sub37 = fsub float %10, %11
   %fneg = fneg float %sub37
-  %arrayidx42 = getelementptr inbounds [6 x float], ptr %m_springStiffness, i64 0, i64 %9
-  %14 = load float, ptr %arrayidx42, align 4
-  %mul43 = fmul float %14, %fneg
-  %15 = load float, ptr %info, align 8
-  %arrayidx49 = getelementptr inbounds [6 x float], ptr %m_springDamping, i64 0, i64 %9
-  %16 = load float, ptr %arrayidx49, align 4
-  %mul50 = fmul float %15, %16
-  %17 = load i32, ptr %m_numIterations, align 8
-  %conv52 = sitofp i32 %17 to float
+  %arrayidx42 = getelementptr inbounds [6 x float], ptr %m_springStiffness, i64 0, i64 %8
+  %12 = load float, ptr %arrayidx42, align 4
+  %mul43 = fmul float %12, %fneg
+  %13 = load float, ptr %info, align 8
+  %arrayidx49 = getelementptr inbounds [6 x float], ptr %m_springDamping, i64 0, i64 %8
+  %14 = load float, ptr %arrayidx49, align 4
+  %mul50 = fmul float %13, %14
+  %15 = load i32, ptr %m_numIterations, align 8
+  %conv52 = sitofp i32 %15 to float
   %div53 = fdiv float %mul50, %conv52
   %mul54 = fmul float %mul43, %div53
   %arrayidx56 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits, i64 0, i64 %indvars.iv26
   %m_targetVelocity57 = getelementptr inbounds i8, ptr %arrayidx56, i64 8
   store float %mul54, ptr %m_targetVelocity57, align 4
-  %18 = tail call noundef float @llvm.fabs.f32(float %mul43)
+  %16 = tail call noundef float @llvm.fabs.f32(float %mul43)
   %m_maxMotorForce62 = getelementptr inbounds i8, ptr %arrayidx56, i64 12
-  store float %18, ptr %m_maxMotorForce62, align 8
+  store float %16, ptr %m_maxMotorForce62, align 8
   br label %for.inc64
 
 for.inc64:                                        ; preds = %for.body22, %if.then27
@@ -390,32 +388,31 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [6 x i8], ptr %m_springEnabled.i, i64 0, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
   %arrayidx3.i = getelementptr inbounds float, ptr %m_calculatedLinearDiff.i, i64 %indvars.iv.i
-  %2 = load float, ptr %arrayidx3.i, align 4
+  %1 = load float, ptr %arrayidx3.i, align 4
   %arrayidx5.i = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint.i, i64 0, i64 %indvars.iv.i
-  %3 = load float, ptr %arrayidx5.i, align 4
-  %sub.i = fsub float %2, %3
+  %2 = load float, ptr %arrayidx5.i, align 4
+  %sub.i = fsub float %1, %2
   %arrayidx7.i = getelementptr inbounds [6 x float], ptr %m_springStiffness.i, i64 0, i64 %indvars.iv.i
-  %4 = load float, ptr %arrayidx7.i, align 4
-  %mul.i = fmul float %sub.i, %4
-  %5 = load float, ptr %info, align 8
+  %3 = load float, ptr %arrayidx7.i, align 4
+  %mul.i = fmul float %sub.i, %3
+  %4 = load float, ptr %info, align 8
   %arrayidx9.i = getelementptr inbounds [6 x float], ptr %m_springDamping.i, i64 0, i64 %indvars.iv.i
-  %6 = load float, ptr %arrayidx9.i, align 4
-  %mul10.i = fmul float %5, %6
-  %7 = load i32, ptr %m_numIterations.i, align 8
-  %conv.i = sitofp i32 %7 to float
+  %5 = load float, ptr %arrayidx9.i, align 4
+  %mul10.i = fmul float %4, %5
+  %6 = load i32, ptr %m_numIterations.i, align 8
+  %conv.i = sitofp i32 %6 to float
   %div.i = fdiv float %mul10.i, %conv.i
   %mul11.i = fmul float %mul.i, %div.i
   %arrayidx14.i = getelementptr inbounds float, ptr %m_targetVelocity.i, i64 %indvars.iv.i
   store float %mul11.i, ptr %arrayidx14.i, align 4
-  %8 = tail call noundef float @llvm.fabs.f32(float %mul.i)
+  %7 = tail call noundef float @llvm.fabs.f32(float %mul.i)
   %arrayidx19.i = getelementptr inbounds float, ptr %m_maxMotorForce.i, i64 %indvars.iv.i
-  store float %8, ptr %arrayidx19.i, align 4
+  store float %7, ptr %arrayidx19.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -425,37 +422,36 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 
 for.body22.i:                                     ; preds = %for.inc64.i, %for.cond20.preheader.i
   %indvars.iv26.i = phi i64 [ 0, %for.cond20.preheader.i ], [ %indvars.iv.next27.i, %for.inc64.i ]
-  %9 = add nuw nsw i64 %indvars.iv26.i, 3
-  %arrayidx25.i = getelementptr inbounds [6 x i8], ptr %m_springEnabled.i, i64 0, i64 %9
-  %10 = load i8, ptr %arrayidx25.i, align 1
-  %11 = and i8 %10, 1
-  %tobool26.not.i = icmp eq i8 %11, 0
-  br i1 %tobool26.not.i, label %for.inc64.i, label %if.then27.i
+  %8 = add nuw nsw i64 %indvars.iv26.i, 3
+  %arrayidx25.i = getelementptr inbounds [6 x i8], ptr %m_springEnabled.i, i64 0, i64 %8
+  %9 = load i8, ptr %arrayidx25.i, align 1
+  %tobool26.i = trunc i8 %9 to i1
+  br i1 %tobool26.i, label %if.then27.i, label %for.inc64.i
 
 if.then27.i:                                      ; preds = %for.body22.i
   %arrayidx31.i = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff.i, i64 %indvars.iv26.i
-  %12 = load float, ptr %arrayidx31.i, align 4
-  %arrayidx36.i = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint.i, i64 0, i64 %9
-  %13 = load float, ptr %arrayidx36.i, align 4
-  %sub37.i = fsub float %12, %13
+  %10 = load float, ptr %arrayidx31.i, align 4
+  %arrayidx36.i = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint.i, i64 0, i64 %8
+  %11 = load float, ptr %arrayidx36.i, align 4
+  %sub37.i = fsub float %10, %11
   %fneg.i = fneg float %sub37.i
-  %arrayidx42.i = getelementptr inbounds [6 x float], ptr %m_springStiffness.i, i64 0, i64 %9
-  %14 = load float, ptr %arrayidx42.i, align 4
-  %mul43.i = fmul float %14, %fneg.i
-  %15 = load float, ptr %info, align 8
-  %arrayidx49.i = getelementptr inbounds [6 x float], ptr %m_springDamping.i, i64 0, i64 %9
-  %16 = load float, ptr %arrayidx49.i, align 4
-  %mul50.i = fmul float %15, %16
-  %17 = load i32, ptr %m_numIterations.i, align 8
-  %conv52.i = sitofp i32 %17 to float
+  %arrayidx42.i = getelementptr inbounds [6 x float], ptr %m_springStiffness.i, i64 0, i64 %8
+  %12 = load float, ptr %arrayidx42.i, align 4
+  %mul43.i = fmul float %12, %fneg.i
+  %13 = load float, ptr %info, align 8
+  %arrayidx49.i = getelementptr inbounds [6 x float], ptr %m_springDamping.i, i64 0, i64 %8
+  %14 = load float, ptr %arrayidx49.i, align 4
+  %mul50.i = fmul float %13, %14
+  %15 = load i32, ptr %m_numIterations.i, align 8
+  %conv52.i = sitofp i32 %15 to float
   %div53.i = fdiv float %mul50.i, %conv52.i
   %mul54.i = fmul float %mul43.i, %div53.i
   %arrayidx56.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv26.i
   %m_targetVelocity57.i = getelementptr inbounds i8, ptr %arrayidx56.i, i64 8
   store float %mul54.i, ptr %m_targetVelocity57.i, align 4
-  %18 = tail call noundef float @llvm.fabs.f32(float %mul43.i)
+  %16 = tail call noundef float @llvm.fabs.f32(float %mul43.i)
   %m_maxMotorForce62.i = getelementptr inbounds i8, ptr %arrayidx56.i, i64 12
-  store float %18, ptr %m_maxMotorForce62.i, align 8
+  store float %16, ptr %m_maxMotorForce62.i, align 8
   br label %for.inc64.i
 
 for.inc64.i:                                      ; preds = %if.then27.i, %for.body22.i

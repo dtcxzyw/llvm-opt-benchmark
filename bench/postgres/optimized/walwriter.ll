@@ -74,38 +74,35 @@ define dso_local void @WalWriterMain() local_unnamed_addr #0 {
   store ptr %23, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %32, %20
-  %.011 = phi i8 [ 0, %20 ], [ %.112, %32 ]
-  %.010 = phi i32 [ 50, %20 ], [ %.1, %32 ]
+26:                                               ; preds = %30, %20
+  %.011 = phi i1 [ false, %20 ], [ %.112, %30 ]
+  %.010 = phi i32 [ 50, %20 ], [ %.1, %30 ]
   %27 = icmp slt i32 %.010, 2
-  %28 = and i8 %.011, 1
-  %29 = icmp eq i8 %28, 0
-  %.not13 = xor i1 %27, %29
-  br i1 %.not13, label %32, label %30
+  %28 = xor i1 %.011, %27
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %26
-  %31 = zext i1 %27 to i8
+29:                                               ; preds = %26
   call void @SetWalWriterSleeping(i1 noundef zeroext %27) #4
-  br label %32
+  br label %30
 
-32:                                               ; preds = %30, %26
-  %.112 = phi i8 [ %31, %30 ], [ %.011, %26 ]
-  %33 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %33) #4
+30:                                               ; preds = %29, %26
+  %.112 = phi i1 [ %27, %29 ], [ %.011, %26 ]
+  %31 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %31) #4
   call void @HandleMainLoopInterrupts() #4
-  %34 = call zeroext i1 @XLogBackgroundFlush() #4
-  %35 = icmp sgt i32 %.010, 0
-  %36 = sext i1 %35 to i32
-  %spec.select = add nsw i32 %.010, %36
-  %.1 = select i1 %34, i32 50, i32 %spec.select
+  %32 = call zeroext i1 @XLogBackgroundFlush() #4
+  %33 = icmp sgt i32 %.010, 0
+  %34 = sext i1 %33 to i32
+  %spec.select = add nsw i32 %.010, %34
+  %.1 = select i1 %32, i32 50, i32 %spec.select
   call void @pgstat_report_wal(i1 noundef zeroext false) #4
-  %37 = icmp sgt i32 %.1, 0
-  %38 = load i32, ptr @WalWriterDelay, align 4
-  %39 = mul i32 %38, 25
-  %.0.in = select i1 %37, i32 %38, i32 %39
+  %35 = icmp sgt i32 %.1, 0
+  %36 = load i32, ptr @WalWriterDelay, align 4
+  %37 = mul i32 %36, 25
+  %.0.in = select i1 %35, i32 %36, i32 %37
   %.0 = sext i32 %.0.in to i64
-  %40 = load ptr, ptr @MyLatch, align 8
-  %41 = call i32 @WaitLatch(ptr noundef %40, i32 noundef 41, i64 noundef %.0, i32 noundef 83886095) #4
+  %38 = load ptr, ptr @MyLatch, align 8
+  %39 = call i32 @WaitLatch(ptr noundef %38, i32 noundef 41, i64 noundef %.0, i32 noundef 83886095) #4
   br label %26
 }
 

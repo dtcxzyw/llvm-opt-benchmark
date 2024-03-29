@@ -305,10 +305,9 @@ define hidden void @_ZN7nanogui6Window4drawEP10NVGcontext(ptr noundef nonnull al
   tail call void @nvgRoundedRect(ptr noundef %1, float noundef %16, float noundef %19, float noundef %22, float noundef %25, float noundef %26)
   %27 = getelementptr inbounds i8, ptr %0, i64 91
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
+  %29 = trunc i8 %28 to i1
   %30 = load ptr, ptr %6, align 8
-  %.v = select i1 %.not, i64 328, i64 344
+  %.v = select i1 %29, i64 344, i64 328
   %31 = getelementptr inbounds i8, ptr %30, i64 %.v
   %.sroa.013.0.copyload = load <2 x float>, ptr %31, align 4
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
@@ -471,11 +470,10 @@ define hidden void @_ZN7nanogui6Window4drawEP10NVGcontext(ptr noundef nonnull al
   call void @nvgFontBlur(ptr noundef %1, float noundef 0.000000e+00)
   %132 = getelementptr inbounds i8, ptr %0, i64 90
   %133 = load i8, ptr %132, align 2
-  %134 = and i8 %133, 1
-  %.not74 = icmp eq i8 %134, 0
+  %134 = trunc i8 %133 to i1
   %135 = load ptr, ptr %6, align 8
-  %.v75 = select i1 %.not74, i64 360, i64 376
-  %136 = getelementptr inbounds i8, ptr %135, i64 %.v75
+  %.v74 = select i1 %134, i64 376, i64 360
+  %136 = getelementptr inbounds i8, ptr %135, i64 %.v74
   %.sroa.0.0.copyload = load <2 x float>, ptr %136, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %136, i64 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
@@ -595,11 +593,10 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5ArrayIiL
 define hidden noundef zeroext i1 @_ZN7nanogui6Window16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr nocapture noundef nonnull align 8 dereferenceable(186) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, i32 noundef %3, i32 %4) unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 185
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp ne i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = and i32 %3, 1
-  %.not4 = icmp ne i32 %9, 0
-  %or.cond.not = and i1 %.not4, %.not
+  %.not = icmp ne i32 %9, 0
+  %or.cond.not = and i1 %.not, %8
   br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge, label %30
 
 _ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge:   ; preds = %5

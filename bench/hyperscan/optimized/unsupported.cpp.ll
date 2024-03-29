@@ -508,24 +508,21 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ucp = getelementptr inbounds i8, ptr %c, i64 25
   %0 = load i8, ptr %ucp, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %prefilter = getelementptr inbounds i8, ptr %c, i64 26
-  %2 = load i8, ptr %prefilter, align 2
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.then, label %if.end
+  %1 = load i8, ptr %prefilter, align 2
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str)
   %negated = getelementptr inbounds i8, ptr %c, i64 24
-  %4 = load i8, ptr %negated, align 8
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  %.str.9..str.8 = select i1 %tobool3.not, ptr @.str.8, ptr @.str.9
+  %2 = load i8, ptr %negated, align 8
+  %tobool3 = trunc i8 %2 to i1
+  %.str.9..str.8 = select i1 %tobool3, ptr @.str.9, ptr @.str.8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str, ptr noundef nonnull %.str.9..str.8)
           to label %invoke.cont unwind label %lpad
 
@@ -535,8 +532,8 @@ invoke.cont:                                      ; preds = %if.then
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %loc = getelementptr inbounds i8, ptr %c, i64 16
-  %6 = load i32, ptr %loc, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %6)
+  %3 = load i32, ptr %loc, align 8
+  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %3)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -553,7 +550,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %ehcleanup.thread9
 
 ehcleanup.thread9:                                ; preds = %invoke.cont11
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #8
   br label %cleanup.action
@@ -564,28 +561,28 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont4, %invoke.cont, %if.then
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup14
 
 ehcleanup.thread:                                 ; preds = %invoke.cont8
-  %9 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont13
-  %10 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #8
   br label %ehcleanup14
 
 cleanup.action:                                   ; preds = %ehcleanup.thread9, %ehcleanup.thread
-  %.pn8 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %7, %ehcleanup.thread9 ]
+  %.pn8 = phi { ptr, i32 } [ %6, %ehcleanup.thread ], [ %4, %ehcleanup.thread9 ]
   call void @__cxa_free_exception(ptr %exception) #8
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup, %cleanup.action, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn8, %cleanup.action ], [ %10, %ehcleanup ], [ %8, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn8, %cleanup.action ], [ %7, %ehcleanup ], [ %5, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str) #8
   resume { ptr, i32 } %.pn.pn
 

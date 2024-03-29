@@ -18,9 +18,8 @@ define i32 @pthread_rwlock_trywrlock(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not11 = icmp eq i8 %9, 0
-  br i1 %.not11, label %10, label %11
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
   store i8 1, ptr %7, align 8
@@ -57,60 +56,58 @@ define i32 @pthread_rwlock_clockwrlock(ptr noundef %0, i32 noundef %1, ptr nound
   store i32 %10, ptr %6, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %.not28 = icmp eq ptr %2, null
+  %.not27 = icmp eq ptr %2, null
   %13 = getelementptr inbounds i8, ptr %0, i64 48
-  br i1 %.not28, label %.split.us, label %.split
+  br i1 %.not27, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %9, %.critedge.us
   %14 = load i8, ptr %11, align 8
-  %15 = and i8 %14, 1
-  %.not26.us = icmp eq i8 %15, 0
-  br i1 %.not26.us, label %16, label %.critedge.us
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.critedge.us, label %16
 
 16:                                               ; preds = %.split.us
   %17 = load i32, ptr %12, align 8
-  %.not27.us = icmp eq i32 %17, 0
-  br i1 %.not27.us, label %.split35.us, label %.critedge.us
+  %.not26.us = icmp eq i32 %17, 0
+  br i1 %.not26.us, label %.split34.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %16, %.split.us
   %18 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %13, ptr noundef nonnull %0) #2
-  %.not29.us = icmp eq i32 %18, 0
-  br i1 %.not29.us, label %.split.us, label %.split37.us, !llvm.loop !6
+  %.not28.us = icmp eq i32 %18, 0
+  br i1 %.not28.us, label %.split.us, label %.split36.us, !llvm.loop !6
 
 .split:                                           ; preds = %9, %.critedge
   %19 = load i8, ptr %11, align 8
-  %20 = and i8 %19, 1
-  %.not26 = icmp eq i8 %20, 0
-  br i1 %.not26, label %21, label %.critedge
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %.split
   %22 = load i32, ptr %12, align 8
-  %.not27 = icmp eq i32 %22, 0
-  br i1 %.not27, label %.split35.us, label %.critedge
+  %.not26 = icmp eq i32 %22, 0
+  br i1 %.not26, label %.split34.us, label %.critedge
 
 .critedge:                                        ; preds = %.split, %21
   %23 = tail call i32 @pthread_cond_clockwait(ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
-  %.not29 = icmp eq i32 %23, 0
-  br i1 %.not29, label %.split, label %.split37.us, !llvm.loop !6
+  %.not28 = icmp eq i32 %23, 0
+  br i1 %.not28, label %.split, label %.split36.us, !llvm.loop !6
 
-.split35.us:                                      ; preds = %21, %16
+.split34.us:                                      ; preds = %21, %16
   store i8 1, ptr %11, align 8
   br label %25
 
-.split37.us:                                      ; preds = %.critedge, %.critedge.us
+.split36.us:                                      ; preds = %.critedge, %.critedge.us
   %.us-phi = phi i32 [ %18, %.critedge.us ], [ %23, %.critedge ]
   %24 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %13) #2
   br label %25
 
-25:                                               ; preds = %.split37.us, %.split35.us
-  %.231 = phi i32 [ %.us-phi, %.split37.us ], [ 0, %.split35.us ]
+25:                                               ; preds = %.split36.us, %.split34.us
+  %.230 = phi i32 [ %.us-phi, %.split36.us ], [ 0, %.split34.us ]
   %26 = load i32, ptr %6, align 4
   %27 = add i32 %26, -1
   store i32 %27, ptr %6, align 4
   br label %28
 
 28:                                               ; preds = %5, %25
-  %.3 = phi i32 [ %.231, %25 ], [ 11, %5 ]
+  %.3 = phi i32 [ %.230, %25 ], [ 11, %5 ]
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %30
 
@@ -155,37 +152,36 @@ define i32 @pthread_rwlock_wrlock(ptr noundef %0) local_unnamed_addr #0 {
 
 .split.us.i:                                      ; preds = %.critedge.us.i, %7
   %12 = load i8, ptr %9, align 8
-  %13 = and i8 %12, 1
-  %.not26.us.i = icmp eq i8 %13, 0
-  br i1 %.not26.us.i, label %14, label %.critedge.us.i
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %.critedge.us.i, label %14
 
 14:                                               ; preds = %.split.us.i
   %15 = load i32, ptr %10, align 8
-  %.not27.us.i = icmp eq i32 %15, 0
-  br i1 %.not27.us.i, label %.split35.us.i, label %.critedge.us.i
+  %.not26.us.i = icmp eq i32 %15, 0
+  br i1 %.not26.us.i, label %.split34.us.i, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %14, %.split.us.i
   %16 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %11, ptr noundef nonnull %0) #2
-  %.not29.us.i = icmp eq i32 %16, 0
-  br i1 %.not29.us.i, label %.split.us.i, label %.split37.us.i, !llvm.loop !6
+  %.not28.us.i = icmp eq i32 %16, 0
+  br i1 %.not28.us.i, label %.split.us.i, label %.split36.us.i, !llvm.loop !6
 
-.split35.us.i:                                    ; preds = %14
+.split34.us.i:                                    ; preds = %14
   store i8 1, ptr %9, align 8
   br label %18
 
-.split37.us.i:                                    ; preds = %.critedge.us.i
+.split36.us.i:                                    ; preds = %.critedge.us.i
   %17 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %11) #2
   br label %18
 
-18:                                               ; preds = %.split37.us.i, %.split35.us.i
-  %.231.i = phi i32 [ %16, %.split37.us.i ], [ 0, %.split35.us.i ]
+18:                                               ; preds = %.split36.us.i, %.split34.us.i
+  %.230.i = phi i32 [ %16, %.split36.us.i ], [ 0, %.split34.us.i ]
   %19 = load i32, ptr %4, align 4
   %20 = add i32 %19, -1
   store i32 %20, ptr %4, align 4
   br label %21
 
 21:                                               ; preds = %18, %3
-  %.3.i = phi i32 [ %.231.i, %18 ], [ 11, %3 ]
+  %.3.i = phi i32 [ %.230.i, %18 ], [ 11, %3 ]
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %pthread_rwlock_clockwrlock.exit
 

@@ -372,9 +372,8 @@ define dso_local noundef zeroext i1 @_ZN20cmFindProgramCommand11InitialPassERKSt
   store i8 %15, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 560
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %20, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %10
   tail call void @_ZN10cmFindBase19NormalizeFindResultEv(ptr noundef nonnull align 8 dereferenceable(600) %0)
@@ -411,16 +410,14 @@ define dso_local void @_ZN20cmFindProgramCommand11FindProgramB5cxx11Ev(ptr dead_
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %6 = getelementptr inbounds i8, ptr %1, i64 371
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %13
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %13, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 372
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %.not3 = icmp eq i8 %12, 0
-  br i1 %.not3, label %18, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9, %2
   invoke void @_ZN20cmFindProgramCommand13FindAppBundleB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(600) %1)
@@ -444,16 +441,14 @@ define dso_local void @_ZN20cmFindProgramCommand11FindProgramB5cxx11Ev(ptr dead_
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %1, i64 372
   %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  %.not4 = icmp eq i8 %23, 0
-  br i1 %.not4, label %24, label %31
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %31, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %1, i64 520
   %26 = load i8, ptr %25, align 8, !noalias !7
-  %27 = and i8 %26, 1
-  %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %29, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %24
   invoke void @_ZN20cmFindProgramCommand28FindNormalProgramNamesPerDirB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(600) %1)
@@ -475,9 +470,8 @@ _ZN20cmFindProgramCommand17FindNormalProgramB5cxx11Ev.exit: ; preds = %28, %29
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %1, i64 373
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not5 = icmp eq i8 %36, 0
-  br i1 %.not5, label %40, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
   invoke void @_ZN20cmFindProgramCommand13FindAppBundleB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(600) %1)
@@ -661,9 +655,8 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 define dso_local void @_ZN20cmFindProgramCommand17FindNormalProgramB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(600) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 520
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
   tail call void @_ZN20cmFindProgramCommand28FindNormalProgramNamesPerDirB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(600) %1)

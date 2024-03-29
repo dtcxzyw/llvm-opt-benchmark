@@ -222,9 +222,8 @@ define internal i32 @ompi_osc_monitoring_portals4_put(ptr noundef %0, i32 nounde
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -316,9 +315,8 @@ define internal i32 @ompi_osc_monitoring_portals4_get(ptr noundef %0, i32 nounde
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -411,9 +409,8 @@ define internal i32 @ompi_osc_monitoring_portals4_accumulate(ptr noundef %0, i32
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -505,9 +502,8 @@ define internal i32 @ompi_osc_monitoring_portals4_compare_and_swap(ptr noundef %
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -598,9 +594,8 @@ define internal i32 @ompi_osc_monitoring_portals4_fetch_and_op(ptr noundef %0, p
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -691,9 +686,8 @@ define internal i32 @ompi_osc_monitoring_portals4_get_accumulate(ptr noundef %0,
 33:                                               ; preds = %23
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
-  %36 = and i8 %35, 1
-  %.not.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i.i, label %39, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = atomicrmw volatile add ptr %34, i32 1 monotonic, align 4
@@ -790,9 +784,8 @@ define internal i32 @ompi_osc_monitoring_portals4_rput(ptr noundef %0, i32 nound
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -884,9 +877,8 @@ define internal i32 @ompi_osc_monitoring_portals4_rget(ptr noundef %0, i32 nound
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -979,9 +971,8 @@ define internal i32 @ompi_osc_monitoring_portals4_raccumulate(ptr noundef %0, i3
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i, label %37, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   %36 = atomicrmw volatile add ptr %32, i32 1 monotonic, align 4
@@ -1073,9 +1064,8 @@ define internal i32 @ompi_osc_monitoring_portals4_rget_accumulate(ptr noundef %0
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = and i8 %36, 1
-  %.not.i.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i.i, label %40, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %34
   %39 = atomicrmw volatile add ptr %35, i32 1 monotonic, align 4
@@ -1355,9 +1345,8 @@ define internal i32 @ompi_osc_monitoring_rdma_put(ptr noundef %0, i32 noundef %1
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -1449,9 +1438,8 @@ define internal i32 @ompi_osc_monitoring_rdma_get(ptr noundef %0, i32 noundef %1
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -1544,9 +1532,8 @@ define internal i32 @ompi_osc_monitoring_rdma_accumulate(ptr noundef %0, i32 nou
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -1638,9 +1625,8 @@ define internal i32 @ompi_osc_monitoring_rdma_compare_and_swap(ptr noundef %0, p
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -1731,9 +1717,8 @@ define internal i32 @ompi_osc_monitoring_rdma_fetch_and_op(ptr noundef %0, ptr n
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -1824,9 +1809,8 @@ define internal i32 @ompi_osc_monitoring_rdma_get_accumulate(ptr noundef %0, i32
 33:                                               ; preds = %23
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
-  %36 = and i8 %35, 1
-  %.not.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i.i, label %39, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = atomicrmw volatile add ptr %34, i32 1 monotonic, align 4
@@ -1923,9 +1907,8 @@ define internal i32 @ompi_osc_monitoring_rdma_rput(ptr noundef %0, i32 noundef %
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -2017,9 +2000,8 @@ define internal i32 @ompi_osc_monitoring_rdma_rget(ptr noundef %0, i32 noundef %
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -2112,9 +2094,8 @@ define internal i32 @ompi_osc_monitoring_rdma_raccumulate(ptr noundef %0, i32 no
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i, label %37, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   %36 = atomicrmw volatile add ptr %32, i32 1 monotonic, align 4
@@ -2206,9 +2187,8 @@ define internal i32 @ompi_osc_monitoring_rdma_rget_accumulate(ptr noundef %0, i3
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = and i8 %36, 1
-  %.not.i.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i.i, label %40, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %34
   %39 = atomicrmw volatile add ptr %35, i32 1 monotonic, align 4
@@ -2431,9 +2411,8 @@ define internal i32 @ompi_osc_monitoring_ucx_put(ptr noundef %0, i32 noundef %1,
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -2525,9 +2504,8 @@ define internal i32 @ompi_osc_monitoring_ucx_get(ptr noundef %0, i32 noundef %1,
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -2620,9 +2598,8 @@ define internal i32 @ompi_osc_monitoring_ucx_accumulate(ptr noundef %0, i32 noun
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -2714,9 +2691,8 @@ define internal i32 @ompi_osc_monitoring_ucx_compare_and_swap(ptr noundef %0, pt
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -2807,9 +2783,8 @@ define internal i32 @ompi_osc_monitoring_ucx_fetch_and_op(ptr noundef %0, ptr no
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -2900,9 +2875,8 @@ define internal i32 @ompi_osc_monitoring_ucx_get_accumulate(ptr noundef %0, i32 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
-  %36 = and i8 %35, 1
-  %.not.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i.i, label %39, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = atomicrmw volatile add ptr %34, i32 1 monotonic, align 4
@@ -2999,9 +2973,8 @@ define internal i32 @ompi_osc_monitoring_ucx_rput(ptr noundef %0, i32 noundef %1
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -3093,9 +3066,8 @@ define internal i32 @ompi_osc_monitoring_ucx_rget(ptr noundef %0, i32 noundef %1
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -3188,9 +3160,8 @@ define internal i32 @ompi_osc_monitoring_ucx_raccumulate(ptr noundef %0, i32 nou
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i, label %37, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   %36 = atomicrmw volatile add ptr %32, i32 1 monotonic, align 4
@@ -3282,9 +3253,8 @@ define internal i32 @ompi_osc_monitoring_ucx_rget_accumulate(ptr noundef %0, i32
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = and i8 %36, 1
-  %.not.i.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i.i, label %40, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %34
   %39 = atomicrmw volatile add ptr %35, i32 1 monotonic, align 4
@@ -3507,9 +3477,8 @@ define internal i32 @ompi_osc_monitoring_sm_put(ptr noundef %0, i32 noundef %1, 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -3601,9 +3570,8 @@ define internal i32 @ompi_osc_monitoring_sm_get(ptr noundef %0, i32 noundef %1, 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 monotonic, align 4
@@ -3696,9 +3664,8 @@ define internal i32 @ompi_osc_monitoring_sm_accumulate(ptr noundef %0, i32 nound
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -3790,9 +3757,8 @@ define internal i32 @ompi_osc_monitoring_sm_compare_and_swap(ptr noundef %0, ptr
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -3883,9 +3849,8 @@ define internal i32 @ompi_osc_monitoring_sm_fetch_and_op(ptr noundef %0, ptr nou
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4
@@ -3976,9 +3941,8 @@ define internal i32 @ompi_osc_monitoring_sm_get_accumulate(ptr noundef %0, i32 n
 33:                                               ; preds = %23
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
-  %36 = and i8 %35, 1
-  %.not.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i.i, label %39, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = atomicrmw volatile add ptr %34, i32 1 monotonic, align 4
@@ -4075,9 +4039,8 @@ define internal i32 @ompi_osc_monitoring_sm_rput(ptr noundef %0, i32 noundef %1,
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -4169,9 +4132,8 @@ define internal i32 @ompi_osc_monitoring_sm_rget(ptr noundef %0, i32 noundef %1,
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -4264,9 +4226,8 @@ define internal i32 @ompi_osc_monitoring_sm_raccumulate(ptr noundef %0, i32 noun
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i, label %37, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   %36 = atomicrmw volatile add ptr %32, i32 1 monotonic, align 4
@@ -4358,9 +4319,8 @@ define internal i32 @ompi_osc_monitoring_sm_rget_accumulate(ptr noundef %0, i32 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = and i8 %36, 1
-  %.not.i.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i.i, label %40, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %34
   %39 = atomicrmw volatile add ptr %35, i32 1 monotonic, align 4

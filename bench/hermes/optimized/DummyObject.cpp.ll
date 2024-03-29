@@ -125,16 +125,15 @@ _ZNKSt8functionIFvPN6hermes2vm6GCCellERNS1_15WeakRefAcceptorEEEclES3_S5_.exit: ;
 if.end:                                           ; preds = %_ZNKSt8functionIFvPN6hermes2vm6GCCellERNS1_15WeakRefAcceptorEEEclES3_S5_.exit, %entry
   %hasVal.i = getelementptr inbounds i8, ptr %cell, i64 72
   %3 = load i8, ptr %hasVal.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %if.end7, label %if.then4
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
   %weak = getelementptr inbounds i8, ptr %cell, i64 64
   %vtable = load ptr, ptr %acceptor, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %weak) #10
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %weak) #10
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
@@ -190,9 +189,8 @@ entry:
 land.rhs.i.i:                                     ; preds = %entry
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %gc, i64 7657
   %3 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8152) %gc, i64 -1688849860263936) #10
@@ -200,19 +198,18 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit: ; preds = %entry, %land.rhs.i.i, %if.then.i.i
   store i64 -1407374883553279, ptr %hvBool, align 8
-  %5 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %6 = ptrtoint ptr %hvDouble to i64
-  %and.i.i.i.i7 = and i64 %6, -4194304
-  %7 = inttoptr i64 %and.i.i.i.i7 to ptr
-  %cmp.i.i.i8 = icmp eq ptr %5, %7
+  %4 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %5 = ptrtoint ptr %hvDouble to i64
+  %and.i.i.i.i7 = and i64 %5, -4194304
+  %6 = inttoptr i64 %and.i.i.i.i7 to ptr
+  %cmp.i.i.i8 = icmp eq ptr %4, %6
   br i1 %cmp.i.i.i8, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit14, label %land.rhs.i.i9
 
 land.rhs.i.i9:                                    ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit
   %ogMarkingBarriers_.i.i10 = getelementptr inbounds i8, ptr %gc, i64 7657
-  %8 = load i8, ptr %ogMarkingBarriers_.i.i10, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i.i11 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i11, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit14, label %if.then.i.i12
+  %7 = load i8, ptr %ogMarkingBarriers_.i.i10, align 1
+  %tobool.i.i11 = trunc i8 %7 to i1
+  br i1 %tobool.i.i11, label %if.then.i.i12, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit14
 
 if.then.i.i12:                                    ; preds = %land.rhs.i.i9
   %agg.tmp.sroa.0.0.copyload.i.i13 = load i64, ptr %hvDouble, align 8
@@ -221,19 +218,18 @@ if.then.i.i12:                                    ; preds = %land.rhs.i.i9
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit14: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit, %land.rhs.i.i9, %if.then.i.i12
   store i64 4614253070214989087, ptr %hvDouble, align 8
-  %10 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %11 = ptrtoint ptr %hvNative to i64
-  %and.i.i.i.i16 = and i64 %11, -4194304
-  %12 = inttoptr i64 %and.i.i.i.i16 to ptr
-  %cmp.i.i.i17 = icmp eq ptr %10, %12
+  %8 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %9 = ptrtoint ptr %hvNative to i64
+  %and.i.i.i.i16 = and i64 %9, -4194304
+  %10 = inttoptr i64 %and.i.i.i.i16 to ptr
+  %cmp.i.i.i17 = icmp eq ptr %8, %10
   br i1 %cmp.i.i.i17, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit23, label %land.rhs.i.i18
 
 land.rhs.i.i18:                                   ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit14
   %ogMarkingBarriers_.i.i19 = getelementptr inbounds i8, ptr %gc, i64 7657
-  %13 = load i8, ptr %ogMarkingBarriers_.i.i19, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i.i20 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i.i20, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit23, label %if.then.i.i21
+  %11 = load i8, ptr %ogMarkingBarriers_.i.i19, align 1
+  %tobool.i.i20 = trunc i8 %11 to i1
+  br i1 %tobool.i.i20, label %if.then.i.i21, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit23
 
 if.then.i.i21:                                    ; preds = %land.rhs.i.i18
   %agg.tmp.sroa.0.0.copyload.i.i22 = load i64, ptr %hvNative, align 8
@@ -242,19 +238,18 @@ if.then.i.i21:                                    ; preds = %land.rhs.i.i18
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit23: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit14, %land.rhs.i.i18, %if.then.i.i21
   store i64 -1125899906842610, ptr %hvNative, align 8
-  %15 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %16 = ptrtoint ptr %hvUndefined to i64
-  %and.i.i.i.i25 = and i64 %16, -4194304
-  %17 = inttoptr i64 %and.i.i.i.i25 to ptr
-  %cmp.i.i.i26 = icmp eq ptr %15, %17
+  %12 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %13 = ptrtoint ptr %hvUndefined to i64
+  %and.i.i.i.i25 = and i64 %13, -4194304
+  %14 = inttoptr i64 %and.i.i.i.i25 to ptr
+  %cmp.i.i.i26 = icmp eq ptr %12, %14
   br i1 %cmp.i.i.i26, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit32, label %land.rhs.i.i27
 
 land.rhs.i.i27:                                   ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit23
   %ogMarkingBarriers_.i.i28 = getelementptr inbounds i8, ptr %gc, i64 7657
-  %18 = load i8, ptr %ogMarkingBarriers_.i.i28, align 1
-  %19 = and i8 %18, 1
-  %tobool.not.i.i29 = icmp eq i8 %19, 0
-  br i1 %tobool.not.i.i29, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit32, label %if.then.i.i30
+  %15 = load i8, ptr %ogMarkingBarriers_.i.i28, align 1
+  %tobool.i.i29 = trunc i8 %15 to i1
+  br i1 %tobool.i.i29, label %if.then.i.i30, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit32
 
 if.then.i.i30:                                    ; preds = %land.rhs.i.i27
   %agg.tmp.sroa.0.0.copyload.i.i31 = load i64, ptr %hvUndefined, align 8
@@ -263,19 +258,18 @@ if.then.i.i30:                                    ; preds = %land.rhs.i.i27
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit32: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit23, %land.rhs.i.i27, %if.then.i.i30
   store i64 -1688849860263936, ptr %hvUndefined, align 8
-  %20 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %21 = ptrtoint ptr %hvEmpty to i64
-  %and.i.i.i.i34 = and i64 %21, -4194304
-  %22 = inttoptr i64 %and.i.i.i.i34 to ptr
-  %cmp.i.i.i35 = icmp eq ptr %20, %22
+  %16 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %17 = ptrtoint ptr %hvEmpty to i64
+  %and.i.i.i.i34 = and i64 %17, -4194304
+  %18 = inttoptr i64 %and.i.i.i.i34 to ptr
+  %cmp.i.i.i35 = icmp eq ptr %16, %18
   br i1 %cmp.i.i.i35, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit41, label %land.rhs.i.i36
 
 land.rhs.i.i36:                                   ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit32
   %ogMarkingBarriers_.i.i37 = getelementptr inbounds i8, ptr %gc, i64 7657
-  %23 = load i8, ptr %ogMarkingBarriers_.i.i37, align 1
-  %24 = and i8 %23, 1
-  %tobool.not.i.i38 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i.i38, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit41, label %if.then.i.i39
+  %19 = load i8, ptr %ogMarkingBarriers_.i.i37, align 1
+  %tobool.i.i38 = trunc i8 %19 to i1
+  br i1 %tobool.i.i38, label %if.then.i.i39, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit41
 
 if.then.i.i39:                                    ; preds = %land.rhs.i.i36
   %agg.tmp.sroa.0.0.copyload.i.i40 = load i64, ptr %hvEmpty, align 8
@@ -284,19 +278,18 @@ if.then.i.i39:                                    ; preds = %land.rhs.i.i36
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit41: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit32, %land.rhs.i.i36, %if.then.i.i39
   store i64 -1970324836974592, ptr %hvEmpty, align 8
-  %25 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %26 = ptrtoint ptr %hvNull to i64
-  %and.i.i.i.i43 = and i64 %26, -4194304
-  %27 = inttoptr i64 %and.i.i.i.i43 to ptr
-  %cmp.i.i.i44 = icmp eq ptr %25, %27
+  %20 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %21 = ptrtoint ptr %hvNull to i64
+  %and.i.i.i.i43 = and i64 %21, -4194304
+  %22 = inttoptr i64 %and.i.i.i.i43 to ptr
+  %cmp.i.i.i44 = icmp eq ptr %20, %22
   br i1 %cmp.i.i.i44, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit50, label %land.rhs.i.i45
 
 land.rhs.i.i45:                                   ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit41
   %ogMarkingBarriers_.i.i46 = getelementptr inbounds i8, ptr %gc, i64 7657
-  %28 = load i8, ptr %ogMarkingBarriers_.i.i46, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i.i47 = icmp eq i8 %29, 0
-  br i1 %tobool.not.i.i47, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit50, label %if.then.i.i48
+  %23 = load i8, ptr %ogMarkingBarriers_.i.i46, align 1
+  %tobool.i.i47 = trunc i8 %23 to i1
+  br i1 %tobool.i.i47, label %if.then.i.i48, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit50
 
 if.then.i.i48:                                    ; preds = %land.rhs.i.i45
   %agg.tmp.sroa.0.0.copyload.i.i49 = load i64, ptr %hvNull, align 8

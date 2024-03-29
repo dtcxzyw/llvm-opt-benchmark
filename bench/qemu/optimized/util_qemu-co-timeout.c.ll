@@ -37,9 +37,8 @@ if.end:                                           ; preds = %entry
   tail call void @aio_co_enter(ptr noundef %call6, ptr noundef %call5) #4
   tail call void @qemu_co_sleep_ns_wakeable(ptr noundef nonnull %.compoundliteral.sroa.3.0..sroa_idx, i32 noundef 0, i64 noundef %timeout_ns) #4
   %0 = load i8, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end10, label %if.then9
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
   tail call void @g_free(ptr noundef nonnull %call) #4
@@ -68,14 +67,13 @@ entry:
   tail call void %0(ptr noundef %1) #4
   %marker = getelementptr inbounds i8, ptr %opaque, i64 24
   %2 = load i8, ptr %marker, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.else10, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.else10
 
 if.then:                                          ; preds = %entry
   %sleep_state = getelementptr inbounds i8, ptr %opaque, i64 16
-  %4 = load ptr, ptr %sleep_state, align 8
-  %tobool3.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %sleep_state, align 8
+  %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -84,13 +82,13 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %clean = getelementptr inbounds i8, ptr %opaque, i64 32
-  %5 = load ptr, ptr %clean, align 8
-  %tobool5.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %clean, align 8
+  %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %6 = load ptr, ptr %opaque2, align 8
-  tail call void %5(ptr noundef %6) #4
+  %5 = load ptr, ptr %opaque2, align 8
+  tail call void %4(ptr noundef %5) #4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end

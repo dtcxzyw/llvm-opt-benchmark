@@ -1016,9 +1016,9 @@ define { i1, i1 } @_ZN10grep_regex3ast11AstAnalysis8from_ast17hdb6b8d9a014ea309E
   store i8 0, ptr %3, align 1
   call void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd2556dbf19E.llvm.3382553183864397122(ptr noalias noundef nonnull align 1 dereferenceable(2) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
   %4 = load i8, ptr %2, align 1, !range !212, !noundef !16
-  %5 = icmp ne i8 %4, 0
+  %5 = trunc i8 %4 to i1
   %6 = load i8, ptr %3, align 1, !range !212, !noundef !16
-  %7 = icmp ne i8 %6, 0
+  %7 = trunc i8 %6 to i1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
   %8 = insertvalue { i1, i1 } poison, i1 %5, 0
   %9 = insertvalue { i1, i1 } %8, i1 %7, 1
@@ -1028,7 +1028,7 @@ define { i1, i1 } @_ZN10grep_regex3ast11AstAnalysis8from_ast17hdb6b8d9a014ea309E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN10grep_regex3ast11AstAnalysis13any_uppercase17h38c68148424f5fddE(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #13 {
   %2 = load i8, ptr %0, align 1, !range !212, !noundef !16
-  %3 = icmp ne i8 %2, 0
+  %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
@@ -1036,7 +1036,7 @@ define hidden noundef zeroext i1 @_ZN10grep_regex3ast11AstAnalysis13any_uppercas
 define hidden noundef zeroext i1 @_ZN10grep_regex3ast11AstAnalysis11any_literal17ha24011e1959bad3cE(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !range !212, !noundef !16
-  %4 = icmp ne i8 %3, 0
+  %4 = trunc i8 %3 to i1
   ret i1 %4
 }
 
@@ -1050,15 +1050,15 @@ define hidden void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd255
   %.val = load i8, ptr %0, align 1, !range !212, !noundef !16
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %.val4 = load i8, ptr %3, align 1
-  %.not.i = icmp ne i8 %.val, 0
-  %4 = icmp ne i8 %.val4, 0
-  %.0.i = select i1 %.not.i, i1 %4, i1 false
+  %4 = trunc i8 %.val to i1
+  %5 = trunc i8 %.val4 to i1
+  %.0.i = select i1 %4, i1 %5, i1 false
   br i1 %.0.i, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %2, %tailrecurse.backedge
-  %.tr2139 = phi ptr [ %.tr21.be, %tailrecurse.backedge ], [ %1, %2 ]
-  %5 = load i64, ptr %.tr2139, align 8, !range !213, !noundef !16
-  switch i64 %5, label %default.unreachable66 [
+  %.tr2039 = phi ptr [ %.tr20.be, %tailrecurse.backedge ], [ %1, %2 ]
+  %6 = load i64, ptr %.tr2039, align 8, !range !213, !noundef !16
+  switch i64 %6, label %default.unreachable66 [
     i64 0, label %.loopexit
     i64 1, label %.loopexit
     i64 2, label %.split
@@ -1067,7 +1067,7 @@ define hidden void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd255
     i64 5, label %.loopexit
     i64 6, label %.loopexit
     i64 7, label %.split47
-    i64 8, label %18
+    i64 8, label %19
     i64 9, label %tailrecurse.backedge
     i64 10, label %.split50
     i64 11, label %.split53
@@ -1080,84 +1080,84 @@ default.unreachable66:                            ; preds = %.lr.ph.split
   ret void
 
 .split:                                           ; preds = %.lr.ph.split
-  %6 = getelementptr inbounds i8, ptr %.tr2139, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !16, !align !214, !noundef !16
-  %8 = getelementptr i8, ptr %7, i64 48
-  %.val5 = load i32, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %.tr2039, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !16, !align !214, !noundef !16
+  %9 = getelementptr i8, ptr %8, i64 48
+  %.val5 = load i32, ptr %9, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
   store i8 1, ptr %3, align 1, !alias.scope !215
-  %9 = add nsw i32 %.val5, -65
-  %or.cond.i = icmp ult i32 %9, 26
-  %or.cond1.i = select i1 %.not.i, i1 true, i1 %or.cond.i
-  br i1 %or.cond1.i, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, label %10
+  %10 = add nsw i32 %.val5, -65
+  %or.cond.i = icmp ult i32 %10, 26
+  %or.cond1.i = select i1 %4, i1 true, i1 %or.cond.i
+  br i1 %or.cond1.i, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, label %11
 
-10:                                               ; preds = %.split
-  %11 = icmp ugt i32 %.val5, 127
-  br i1 %11, label %12, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
+11:                                               ; preds = %.split
+  %12 = icmp ugt i32 %.val5, 127
+  br i1 %12, label %13, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
-12:                                               ; preds = %10
-  %13 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %.val5), !noalias !215
-  %14 = zext i1 %13 to i8
+13:                                               ; preds = %11
+  %14 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %.val5), !noalias !215
+  %15 = zext i1 %14 to i8
   br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
-_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; preds = %.split, %10, %12
-  %.0.i11 = phi i8 [ %14, %12 ], [ 1, %.split ], [ 0, %10 ]
-  store i8 %.0.i11, ptr %0, align 1, !alias.scope !215
+_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; preds = %.split, %11, %13
+  %.0.i10 = phi i8 [ %15, %13 ], [ 1, %.split ], [ 0, %11 ]
+  store i8 %.0.i10, ptr %0, align 1, !alias.scope !215
   br label %.loopexit
 
 .split47:                                         ; preds = %.lr.ph.split
-  %15 = getelementptr inbounds i8, ptr %.tr2139, i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !16, !align !214, !noundef !16
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %17)
+  %16 = getelementptr inbounds i8, ptr %.tr2039, i64 8
+  %17 = load ptr, ptr %16, align 8, !nonnull !16, !align !214, !noundef !16
+  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %18)
   br label %.loopexit
 
-18:                                               ; preds = %.lr.ph.split
+19:                                               ; preds = %.lr.ph.split
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %.lr.ph.split, %18
-  %.sink74 = phi i64 [ 48, %18 ], [ 88, %.lr.ph.split ]
-  %19 = getelementptr inbounds i8, ptr %.tr2139, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !16, !align !214, !noundef !16
-  %21 = getelementptr inbounds i8, ptr %20, i64 %.sink74
-  %.tr21.be = load ptr, ptr %21, align 8, !nonnull !16, !align !214, !noundef !16
+tailrecurse.backedge:                             ; preds = %.lr.ph.split, %19
+  %.sink74 = phi i64 [ 48, %19 ], [ 88, %.lr.ph.split ]
+  %20 = getelementptr inbounds i8, ptr %.tr2039, i64 8
+  %21 = load ptr, ptr %20, align 8, !nonnull !16, !align !214, !noundef !16
+  %22 = getelementptr inbounds i8, ptr %21, i64 %.sink74
+  %.tr20.be = load ptr, ptr %22, align 8, !nonnull !16, !align !214, !noundef !16
   br label %.lr.ph.split
 
 .split50:                                         ; preds = %.lr.ph.split
-  %22 = getelementptr inbounds i8, ptr %.tr2139, i64 8
-  %23 = load ptr, ptr %22, align 8, !nonnull !16, !align !214, !noundef !16
-  %24 = getelementptr i8, ptr %23, i64 8
-  %.val8 = load ptr, ptr %24, align 8, !nonnull !16, !noundef !16
-  %25 = getelementptr i8, ptr %23, i64 16
-  %.val9 = load i64, ptr %25, align 8, !noundef !16
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.val8, i64 %.val9
-  %27 = icmp eq i64 %.val9, 0
-  br i1 %27, label %.loopexit, label %.lr.ph58
+  %23 = getelementptr inbounds i8, ptr %.tr2039, i64 8
+  %24 = load ptr, ptr %23, align 8, !nonnull !16, !align !214, !noundef !16
+  %25 = getelementptr i8, ptr %24, i64 8
+  %.val8 = load ptr, ptr %25, align 8, !nonnull !16, !noundef !16
+  %26 = getelementptr i8, ptr %24, i64 16
+  %.val9 = load i64, ptr %26, align 8, !noundef !16
+  %27 = getelementptr inbounds { i64, [1 x i64] }, ptr %.val8, i64 %.val9
+  %28 = icmp eq i64 %.val9, 0
+  br i1 %28, label %.loopexit, label %.lr.ph58
 
 .split53:                                         ; preds = %.lr.ph.split
-  %28 = getelementptr inbounds i8, ptr %.tr2139, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !16, !align !214, !noundef !16
-  %30 = getelementptr i8, ptr %29, i64 8
-  %.val6 = load ptr, ptr %30, align 8, !nonnull !16, !noundef !16
-  %31 = getelementptr i8, ptr %29, i64 16
-  %.val7 = load i64, ptr %31, align 8, !noundef !16
-  %32 = getelementptr inbounds { i64, [1 x i64] }, ptr %.val6, i64 %.val7
-  %33 = icmp eq i64 %.val7, 0
-  br i1 %33, label %.loopexit, label %.lr.ph56
+  %29 = getelementptr inbounds i8, ptr %.tr2039, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !16, !align !214, !noundef !16
+  %31 = getelementptr i8, ptr %30, i64 8
+  %.val6 = load ptr, ptr %31, align 8, !nonnull !16, !noundef !16
+  %32 = getelementptr i8, ptr %30, i64 16
+  %.val7 = load i64, ptr %32, align 8, !noundef !16
+  %33 = getelementptr inbounds { i64, [1 x i64] }, ptr %.val6, i64 %.val7
+  %34 = icmp eq i64 %.val7, 0
+  br i1 %34, label %.loopexit, label %.lr.ph56
 
 .lr.ph58:                                         ; preds = %.split50, %.lr.ph58
-  %.sroa.0.057 = phi ptr [ %34, %.lr.ph58 ], [ %.val8, %.split50 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.057, i64 16
+  %.sroa.0.057 = phi ptr [ %35, %.lr.ph58 ], [ %.val8, %.split50 ]
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.057, i64 16
   tail call void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd2556dbf19E.llvm.3382553183864397122(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.057)
-  %35 = icmp eq ptr %34, %26
-  br i1 %35, label %.loopexit, label %.lr.ph58
+  %36 = icmp eq ptr %35, %27
+  br i1 %36, label %.loopexit, label %.lr.ph58
 
 .lr.ph56:                                         ; preds = %.split53, %.lr.ph56
-  %.sroa.015.055 = phi ptr [ %36, %.lr.ph56 ], [ %.val6, %.split53 ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.015.055, i64 16
-  tail call void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd2556dbf19E.llvm.3382553183864397122(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.015.055)
-  %37 = icmp eq ptr %36, %32
-  br i1 %37, label %.loopexit, label %.lr.ph56
+  %.sroa.014.055 = phi ptr [ %37, %.lr.ph56 ], [ %.val6, %.split53 ]
+  %37 = getelementptr inbounds i8, ptr %.sroa.014.055, i64 16
+  tail call void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd2556dbf19E.llvm.3382553183864397122(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.014.055)
+  %38 = icmp eq ptr %37, %33
+  br i1 %38, label %.loopexit, label %.lr.ph56
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1165,35 +1165,35 @@ define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_se
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %.val4 = load i8, ptr %0, align 1, !range !212, !noundef !16
   %.val15 = load i8, ptr %3, align 1
-  %.not.i6 = icmp ne i8 %.val4, 0
-  %4 = icmp ne i8 %.val15, 0
-  %.0.i7 = select i1 %.not.i6, i1 %4, i1 false
-  br i1 %.0.i7, label %.loopexit, label %.lr.ph
+  %4 = trunc i8 %.val4 to i1
+  %5 = trunc i8 %.val15 to i1
+  %.0.i6 = select i1 %4, i1 %5, i1 false
+  br i1 %.0.i6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr28 = phi ptr [ %11, %tailrecurse ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.tr28, i64 152
-  %6 = load i32, ptr %5, align 8, !range !218, !noundef !16
-  %7 = icmp eq i32 %6, 1114120
-  br i1 %7, label %tailrecurse, label %8
+  %.tr27 = phi ptr [ %12, %tailrecurse ], [ %1, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.tr27, i64 152
+  %7 = load i32, ptr %6, align 8, !range !218, !noundef !16
+  %8 = icmp eq i32 %7, 1114120
+  br i1 %8, label %tailrecurse, label %9
 
-8:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.tr28)
+9:                                                ; preds = %.lr.ph
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.tr27)
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %9 = load ptr, ptr %.tr28, align 8, !nonnull !16, !align !214, !noundef !16
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %9)
-  %10 = getelementptr inbounds i8, ptr %.tr28, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !16, !align !214, !noundef !16
+  %10 = load ptr, ptr %.tr27, align 8, !nonnull !16, !align !214, !noundef !16
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %10)
+  %11 = getelementptr inbounds i8, ptr %.tr27, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !16, !align !214, !noundef !16
   %.val = load i8, ptr %0, align 1, !range !212, !noundef !16
   %.val1 = load i8, ptr %3, align 1
-  %.not.i = icmp ne i8 %.val, 0
-  %12 = icmp ne i8 %.val1, 0
-  %.0.i = select i1 %.not.i, i1 %12, i1 false
+  %13 = trunc i8 %.val to i1
+  %14 = trunc i8 %.val1 to i1
+  %.0.i = select i1 %13, i1 %14, i1 false
   br i1 %.0.i, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %tailrecurse, %2, %8
+.loopexit:                                        ; preds = %tailrecurse, %2, %9
   ret void
 }
 
@@ -1202,123 +1202,123 @@ define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_se
   %.val = load i8, ptr %0, align 1, !range !212, !noundef !16
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %.val2 = load i8, ptr %3, align 1
-  %.not.i = icmp ne i8 %.val, 0
-  %4 = icmp ne i8 %.val2, 0
-  %.0.i = select i1 %.not.i, i1 %4, i1 false
-  br i1 %.0.i, label %.loopexit, label %5
+  %4 = trunc i8 %.val to i1
+  %5 = trunc i8 %.val2 to i1
+  %.0.i = select i1 %4, i1 %5, i1 false
+  br i1 %.0.i, label %.loopexit, label %6
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 152
-  %7 = load i32, ptr %6, align 8, !range !219, !noundef !16
-  %8 = add nsw i32 %7, -1114112
-  %9 = icmp ult i32 %8, 8
-  %narrow = select i1 %9, i32 %8, i32 2
-  switch i32 %narrow, label %10 [
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 152
+  %8 = load i32, ptr %7, align 8, !range !219, !noundef !16
+  %9 = add nsw i32 %8, -1114112
+  %10 = icmp ult i32 %9, 8
+  %narrow = select i1 %10, i32 %9, i32 2
+  switch i32 %narrow, label %11 [
     i32 0, label %.loopexit
-    i32 1, label %11
-    i32 2, label %19
+    i32 1, label %12
+    i32 2, label %20
     i32 3, label %.loopexit
     i32 4, label %.loopexit
     i32 5, label %.loopexit
-    i32 6, label %33
-    i32 7, label %36
+    i32 6, label %35
+    i32 7, label %38
   ]
 
-10:                                               ; preds = %5
+11:                                               ; preds = %6
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph, %36, %2, %33, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit19, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, %5, %5, %5, %5
+.loopexit:                                        ; preds = %.lr.ph, %38, %2, %35, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, %6, %6, %6, %6
   ret void
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val3 = load i32, ptr %12, align 8
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %.val3 = load i32, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   store i8 1, ptr %3, align 1, !alias.scope !220
-  %13 = add nsw i32 %.val3, -65
-  %or.cond.i = icmp ult i32 %13, 26
-  %or.cond1.i = select i1 %.not.i, i1 true, i1 %or.cond.i
-  br i1 %or.cond1.i, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, label %14
+  %14 = add nsw i32 %.val3, -65
+  %or.cond.i = icmp ult i32 %14, 26
+  %or.cond1.i = select i1 %4, i1 true, i1 %or.cond.i
+  br i1 %or.cond1.i, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, label %15
 
-14:                                               ; preds = %11
-  %15 = icmp ugt i32 %.val3, 127
-  br i1 %15, label %16, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
+15:                                               ; preds = %12
+  %16 = icmp ugt i32 %.val3, 127
+  br i1 %16, label %17, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
-16:                                               ; preds = %14
-  %17 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %.val3), !noalias !220
-  %18 = zext i1 %17 to i8
+17:                                               ; preds = %15
+  %18 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %.val3), !noalias !220
+  %19 = zext i1 %18 to i8
   br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
-_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; preds = %11, %14, %16
-  %.0.i9 = phi i8 [ %18, %16 ], [ 1, %11 ], [ 0, %14 ]
-  store i8 %.0.i9, ptr %0, align 1, !alias.scope !220
+_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; preds = %12, %15, %17
+  %.0.i8 = phi i8 [ %19, %17 ], [ 1, %12 ], [ 0, %15 ]
+  store i8 %.0.i8, ptr %0, align 1, !alias.scope !220
   br label %.loopexit
 
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %1, i64 96
-  %.val4 = load i32, ptr %20, align 8
+20:                                               ; preds = %6
+  %21 = getelementptr inbounds i8, ptr %1, i64 96
+  %.val4 = load i32, ptr %21, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   store i8 1, ptr %3, align 1, !alias.scope !223
-  %21 = add nsw i32 %.val4, -65
-  %or.cond.i11 = icmp ult i32 %21, 26
-  %or.cond1.i12 = select i1 %.not.i, i1 true, i1 %or.cond.i11
-  br i1 %or.cond1.i12, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit19, label %22
+  %22 = add nsw i32 %.val4, -65
+  %or.cond.i9 = icmp ult i32 %22, 26
+  %or.cond1.i10 = select i1 %4, i1 true, i1 %or.cond.i9
+  br i1 %or.cond1.i10, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16, label %23
 
-22:                                               ; preds = %19
-  %23 = icmp ugt i32 %.val4, 127
-  br i1 %23, label %24, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit14
+23:                                               ; preds = %20
+  %24 = icmp ugt i32 %.val4, 127
+  br i1 %24, label %25, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12
 
-24:                                               ; preds = %22
-  %25 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %.val4), !noalias !223
-  %26 = zext i1 %25 to i8
-  br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit14
+25:                                               ; preds = %23
+  %26 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %.val4), !noalias !223
+  %27 = zext i1 %26 to i8
+  br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12
 
-_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit14: ; preds = %22, %24
-  %.0.i13 = phi i8 [ %26, %24 ], [ 0, %22 ]
-  store i8 %.0.i13, ptr %0, align 1, !alias.scope !223
+_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12: ; preds = %23, %25
+  %.0.i11 = phi i8 [ %27, %25 ], [ 0, %23 ]
+  store i8 %.0.i11, ptr %0, align 1, !alias.scope !223
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   store i8 1, ptr %3, align 1, !alias.scope !226
-  %.not.i15 = icmp ne i8 %.0.i13, 0
-  %27 = add nsw i32 %7, -65
-  %or.cond.i16 = icmp ult i32 %27, 26
-  %or.cond1.i17 = select i1 %.not.i15, i1 true, i1 %or.cond.i16
-  br i1 %or.cond1.i17, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit19, label %28
+  %28 = trunc i8 %.0.i11 to i1
+  %29 = add nsw i32 %8, -65
+  %or.cond.i13 = icmp ult i32 %29, 26
+  %or.cond1.i14 = select i1 %28, i1 true, i1 %or.cond.i13
+  br i1 %or.cond1.i14, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16, label %30
 
-28:                                               ; preds = %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit14
-  %29 = icmp ugt i32 %7, 127
-  br i1 %29, label %30, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit19
+30:                                               ; preds = %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12
+  %31 = icmp ugt i32 %8, 127
+  br i1 %31, label %32, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16
 
-30:                                               ; preds = %28
-  %31 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %7), !noalias !226
-  %32 = zext i1 %31 to i8
-  br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit19
+32:                                               ; preds = %30
+  %33 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef %8), !noalias !226
+  %34 = zext i1 %33 to i8
+  br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16
 
-_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit19: ; preds = %19, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit14, %28, %30
-  %.0.i18 = phi i8 [ %32, %30 ], [ 1, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit14 ], [ 0, %28 ], [ 1, %19 ]
-  store i8 %.0.i18, ptr %0, align 1, !alias.scope !226
+_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16: ; preds = %20, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12, %30, %32
+  %.0.i15 = phi i8 [ %34, %32 ], [ 1, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12 ], [ 0, %30 ], [ 1, %20 ]
+  store i8 %.0.i15, ptr %0, align 1, !alias.scope !226
   br label %.loopexit
 
-33:                                               ; preds = %5
-  %34 = load ptr, ptr %1, align 8, !nonnull !16, !align !214, !noundef !16
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %35)
+35:                                               ; preds = %6
+  %36 = load ptr, ptr %1, align 8, !nonnull !16, !align !214, !noundef !16
+  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %37)
   br label %.loopexit
 
-36:                                               ; preds = %5
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val6 = load ptr, ptr %37, align 8, !nonnull !16, !noundef !16
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val7 = load i64, ptr %38, align 8, !noundef !16
-  %39 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %.val6, i64 %.val7
-  %40 = icmp eq i64 %.val7, 0
-  br i1 %40, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %36, %.lr.ph
-  %.sroa.0.023 = phi ptr [ %41, %.lr.ph ], [ %.val6, %36 ]
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 160
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.sroa.0.023)
-  %42 = icmp eq ptr %41, %39
+38:                                               ; preds = %6
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val6 = load ptr, ptr %39, align 8, !nonnull !16, !noundef !16
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %.val7 = load i64, ptr %40, align 8, !noundef !16
+  %41 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %.val6, i64 %.val7
+  %42 = icmp eq i64 %.val7, 0
   br i1 %42, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %38, %.lr.ph
+  %.sroa.0.024 = phi ptr [ %43, %.lr.ph ], [ %.val6, %38 ]
+  %43 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 160
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.sroa.0.024)
+  %44 = icmp eq ptr %43, %41
+  br i1 %44, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

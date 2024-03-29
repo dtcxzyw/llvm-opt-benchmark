@@ -122,24 +122,21 @@ sw.bb4.i.i:                                       ; preds = %entry
   br i1 %cmp.i.not5.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON4cvc58internal10overloadedIJZNS6_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISG_mSt4lessISG_ESaISt4pairIKSG_mEEEEEE3$_0ZNS8_5printES9_SR_E3$_1ZNS8_5printES9_SR_E3$_2ZNS8_5printES9_SR_E3$_3ZNS8_5printES9_SR_E3$_4EEESR_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESY_SR_.exit.i.i", label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %sw.bb4.i.i, %if.end.i.i.i.i.i.i
-  %first.07.i.i.i.i.i.i = phi i8 [ %first.1.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ 1, %sw.bb4.i.i ]
+  %first.07.i.i.i.i.i.i = phi i1 [ false, %if.end.i.i.i.i.i.i ], [ true, %sw.bb4.i.i ]
   %__begin3.sroa.0.06.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %1, %sw.bb4.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06.i.i.i.i.i.i, i64 32
-  %2 = and i8 %first.07.i.i.i.i.i.i, 1
-  %tobool.not.i.i.i.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %first.07.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
   %call7.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
   br label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %first.1.i.i.i.i.i.i = phi i8 [ %first.07.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ]
   %call9.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i.i)
   %call10.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9.i.i.i.i.i.i, ptr noundef nonnull @.str.4)
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06.i.i.i.i.i.i, i64 64
-  %3 = load i64, ptr %second.i.i.i.i.i.i, align 8
-  %call11.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call10.i.i.i.i.i.i, i64 noundef %3)
+  %2 = load i64, ptr %second.i.i.i.i.i.i, align 8
+  %call11.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call10.i.i.i.i.i.i, i64 noundef %2)
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.06.i.i.i.i.i.i) #14
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON4cvc58internal10overloadedIJZNS6_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISG_mSt4lessISG_ESaISt4pairIKSG_mEEEEEE3$_0ZNS8_5printES9_SR_E3$_1ZNS8_5printES9_SR_E3$_2ZNS8_5printES9_SR_E3$_3ZNS8_5printES9_SR_E3$_4EEESR_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESY_SR_.exit.i.i", label %for.body.i.i.i.i.i.i
@@ -328,9 +325,8 @@ entry:
   %0 = load i64, ptr %d_duration.i, align 8
   %d_running.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %d_running.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
@@ -341,7 +337,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
 
 _ZNK4cvc58internal19StatisticTimerValue3getEv.exit: ; preds = %entry, %if.then.i
-  %data.sroa.0.0.i = phi i64 [ %0, %entry ], [ %add.i.i, %if.then.i ]
+  %data.sroa.0.0.i = phi i64 [ %add.i.i, %if.then.i ], [ %0, %entry ]
   %div.i.i = sdiv i64 %data.sroa.0.0.i, 1000000
   call void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i64 noundef %div.i.i)
   %call.i12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str)
@@ -357,10 +353,10 @@ invoke.cont:                                      ; preds = %_ZNK4cvc58internal1
   ret void
 
 lpad:                                             ; preds = %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #12
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -514,9 +510,8 @@ entry:
   %0 = load i64, ptr %d_duration, align 8
   %d_running = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %d_running, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
@@ -527,7 +522,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %data.sroa.0.0 = phi i64 [ %0, %entry ], [ %add.i, %if.then ]
+  %data.sroa.0.0 = phi i64 [ %add.i, %if.then ], [ %0, %entry ]
   %div.i = sdiv i64 %data.sroa.0.0, 1000000
   ret i64 %div.i
 }
@@ -540,13 +535,13 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19StatisticTimerValue9isDefa
 entry:
   %d_running = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %d_running, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %d_duration = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i64, ptr %d_duration, align 8
-  %cmp = icmp eq i64 %2, 0
-  %3 = select i1 %tobool.not, i1 %cmp, i1 false
-  ret i1 %3
+  %1 = load i64, ptr %d_duration, align 8
+  %cmp = icmp eq i64 %1, 0
+  %not.tobool = xor i1 %tobool, true
+  %2 = select i1 %not.tobool, i1 %cmp, i1 false
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -559,9 +554,8 @@ entry:
   %0 = load i64, ptr %d_duration.i, align 8
   %d_running.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %d_running.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
@@ -572,7 +566,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
 
 _ZNK4cvc58internal19StatisticTimerValue3getEv.exit: ; preds = %entry, %if.then.i
-  %data.sroa.0.0.i = phi i64 [ %0, %entry ], [ %add.i.i, %if.then.i ]
+  %data.sroa.0.0.i = phi i64 [ %add.i.i, %if.then.i ], [ %0, %entry ]
   %div.i.i = sdiv i64 %data.sroa.0.0.i, 1000000
   store i64 %div.i.i, ptr %ref.tmp, align 8
   call void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %fd, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -589,7 +583,7 @@ call.i3.noexc:                                    ; preds = %_ZNK4cvc58internal1
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   br label %ehcleanup
@@ -604,18 +598,18 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %call.i3.noexc, %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad4
-  %.pn = phi { ptr, i32 } [ %5, %lpad4 ], [ %4, %lpad ], [ %3, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad4 ], [ %3, %lpad ], [ %2, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #12
   resume { ptr, i32 } %.pn
 }

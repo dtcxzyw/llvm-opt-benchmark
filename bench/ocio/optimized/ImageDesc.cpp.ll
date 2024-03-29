@@ -573,13 +573,14 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc17isPackedFloatRGBAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #10 align 2 {
 entry:
+  %m_isFloat = getelementptr inbounds i8, ptr %this, i64 81
+  %0 = load i8, ptr %m_isFloat, align 1
+  %tobool = trunc i8 %0 to i1
   %m_isRGBAPacked = getelementptr inbounds i8, ptr %this, i64 80
-  %0 = load <2 x i8>, ptr %m_isRGBAPacked, align 8
-  %1 = trunc <2 x i8> %0 to <2 x i1>
-  %2 = extractelement <2 x i1> %1, i64 0
-  %3 = extractelement <2 x i1> %1, i64 1
-  %4 = select i1 %3, i1 %2, i1 false
-  ret i1 %4
+  %1 = load i8, ptr %m_isRGBAPacked, align 8
+  %tobool2 = trunc i8 %1 to i1
+  %2 = select i1 %tobool, i1 %tobool2, i1 false
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -587,8 +588,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12i
 entry:
   %m_isRGBAPacked = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %m_isRGBAPacked, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -597,8 +597,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc7is
 entry:
   %m_isFloat = getelementptr inbounds i8, ptr %this, i64 81
   %0 = load i8, ptr %m_isFloat, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1565,8 +1564,7 @@ entry:
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_isRGBAPacked = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i8, ptr %m_isRGBAPacked, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -1577,8 +1575,7 @@ entry:
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_isFloat = getelementptr inbounds i8, ptr %0, i64 97
   %1 = load i8, ptr %m_isFloat, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -1994,8 +1991,7 @@ entry:
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_isFloat = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i8, ptr %m_isFloat, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 

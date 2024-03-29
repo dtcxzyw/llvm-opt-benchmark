@@ -5236,18 +5236,17 @@ for.inc.i:                                        ; preds = %if.end43.i, %if.end
   br i1 %exitcond.not.i, label %for.body52.lr.ph.i, label %for.body.i, !llvm.loop !20
 
 for.body52.i:                                     ; preds = %for.inc138.i, %for.body52.lr.ph.i
-  %spec.select.i91 = phi i32 [ 0, %for.body52.lr.ph.i ], [ %spec.select.i90, %for.inc138.i ]
-  %arr.0.i82 = phi ptr [ null, %for.body52.lr.ph.i ], [ %arr.0.i, %for.inc138.i ]
-  %add.i.i.i74 = phi i32 [ 0, %for.body52.lr.ph.i ], [ %add.i.i.i, %for.inc138.i ]
+  %spec.select.i89 = phi i32 [ 0, %for.body52.lr.ph.i ], [ %spec.select.i88, %for.inc138.i ]
+  %arr.0.i80 = phi ptr [ null, %for.body52.lr.ph.i ], [ %arr.0.i, %for.inc138.i ]
+  %11 = phi i32 [ 0, %for.body52.lr.ph.i ], [ %add.i.i.i, %for.inc138.i ]
   %arr.0.i2766 = phi ptr [ null, %for.body52.lr.ph.i ], [ %arr.0.i2765, %for.inc138.i ]
   %spec.select.i3655 = phi i32 [ 0, %for.body52.lr.ph.i ], [ %spec.select.i3656, %for.inc138.i ]
   %conv4955.i = phi i64 [ 0, %for.body52.lr.ph.i ], [ %conv49.i, %for.inc138.i ]
   %i47.054.i = phi i32 [ 0, %for.body52.lr.ph.i ], [ %inc139.i, %for.inc138.i ]
   %arrayidx54.i = getelementptr i8, ptr %call1.i, i64 %conv4955.i
-  %11 = load i8, ptr %arrayidx54.i, align 1
-  %12 = and i8 %11, 1
-  %tobool55.not.i = icmp eq i8 %12, 0
-  br i1 %tobool55.not.i, label %if.end62.i, label %if.then56.i
+  %12 = load i8, ptr %arrayidx54.i, align 1
+  %tobool55.i = trunc i8 %12 to i1
+  br i1 %tobool55.i, label %if.then56.i, label %if.end62.i
 
 if.then56.i:                                      ; preds = %for.body52.i
   %cmp.i7 = icmp eq ptr %arr.0.i2766, null
@@ -5322,7 +5321,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _PyCompile_InstructionSequence_UseLabel.exit.i:   ; preds = %for.body.i.i, %for.cond.preheader.i.i
   %arrayidx7.i.i = getelementptr i32, ptr %arr.0.i27, i64 %conv4955.i
-  store i32 %add.i.i.i74, ptr %arrayidx7.i.i, align 4
+  store i32 %11, ptr %arrayidx7.i.i, align 4
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %_PyCompile_InstructionSequence_UseLabel.exit.i, %for.body52.i
@@ -5412,13 +5411,13 @@ if.end132.i:                                      ; preds = %if.end124.i
   %loc.sroa.5.8.insert.ext.i = shl i64 %call127.i, 32
   %loc.sroa.3.8.insert.ext.i = and i64 %call119.i, 4294967295
   %loc.sroa.3.8.insert.insert.i = or disjoint i64 %loc.sroa.5.8.insert.ext.i, %loc.sroa.3.8.insert.ext.i
-  %add.i.i.i = add i32 %add.i.i.i74, 1
-  %cmp.i4 = icmp eq ptr %arr.0.i82, null
+  %add.i.i.i = add i32 %11, 1
+  %cmp.i4 = icmp eq ptr %arr.0.i80, null
   br i1 %cmp.i4, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end132.i
   %cmp1.not.i = icmp slt i32 %add.i.i.i, 100
-  %29 = add i32 %add.i.i.i74, 101
+  %29 = add i32 %11, 101
   %spec.select.i = select i1 %cmp1.not.i, i32 100, i32 %29
   %conv.i6 = sext i32 %spec.select.i to i64
   %call.i = tail call ptr @PyObject_Calloc(i64 noundef %conv.i6, i64 noundef 44) #11
@@ -5430,19 +5429,19 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %instructions_to_instr_sequence.exit.thread50
 
 if.else.i:                                        ; preds = %if.end132.i
-  %cmp8.not.i = icmp sgt i32 %spec.select.i91, %add.i.i.i
+  %cmp8.not.i = icmp sgt i32 %spec.select.i89, %add.i.i.i
   br i1 %cmp8.not.i, label %instr_sequence_next_inst.exit.i.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
-  %conv11.i = sext i32 %spec.select.i91 to i64
+  %conv11.i = sext i32 %spec.select.i89 to i64
   %mul.i = mul nsw i64 %conv11.i, 44
-  %shl.i = shl i32 %spec.select.i91, 1
+  %shl.i = shl i32 %spec.select.i89, 1
   %cmp13.not.i = icmp sgt i32 %shl.i, %add.i.i.i
-  %add16.i = add i32 %add.i.i.i74, 101
+  %add16.i = add i32 %11, 101
   %spec.select27.i = select i1 %cmp13.not.i, i32 %shl.i, i32 %add16.i
   %conv18.i = sext i32 %spec.select27.i to i64
   %mul19.i = mul nsw i64 %conv18.i, 44
-  %cmp20.i = icmp slt i32 %spec.select.i91, 0
+  %cmp20.i = icmp slt i32 %spec.select.i89, 0
   br i1 %cmp20.i, label %if.then22.i, label %if.end24.i
 
 if.then22.i:                                      ; preds = %if.then10.i
@@ -5450,7 +5449,7 @@ if.then22.i:                                      ; preds = %if.then10.i
   br label %instructions_to_instr_sequence.exit.thread50
 
 if.end24.i:                                       ; preds = %if.then10.i
-  %call25.i = tail call ptr @PyObject_Realloc(ptr noundef nonnull %arr.0.i82, i64 noundef %mul19.i) #11
+  %call25.i = tail call ptr @PyObject_Realloc(ptr noundef nonnull %arr.0.i80, i64 noundef %mul19.i) #11
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %if.then28.i, label %if.end30.i
 
@@ -5465,13 +5464,13 @@ if.end30.i:                                       ; preds = %if.end24.i
   br label %instr_sequence_next_inst.exit.i.i
 
 instr_sequence_next_inst.exit.i.i:                ; preds = %if.then.i, %if.end30.i, %if.else.i
-  %spec.select.i90 = phi i32 [ %spec.select27.i, %if.end30.i ], [ %spec.select.i91, %if.else.i ], [ %spec.select.i, %if.then.i ]
-  %arr.0.i = phi ptr [ %call25.i, %if.end30.i ], [ %arr.0.i82, %if.else.i ], [ %call.i, %if.then.i ]
-  %cmp.i43.i = icmp eq i32 %add.i.i.i74, -1
+  %spec.select.i88 = phi i32 [ %spec.select27.i, %if.end30.i ], [ %spec.select.i89, %if.else.i ], [ %spec.select.i, %if.then.i ]
+  %arr.0.i = phi ptr [ %call25.i, %if.end30.i ], [ %arr.0.i80, %if.else.i ], [ %call.i, %if.then.i ]
+  %cmp.i43.i = icmp eq i32 %11, -1
   br i1 %cmp.i43.i, label %instructions_to_instr_sequence.exit.thread50, label %for.inc138.i
 
 for.inc138.i:                                     ; preds = %instr_sequence_next_inst.exit.i.i
-  %idxprom.i.i = sext i32 %add.i.i.i74 to i64
+  %idxprom.i.i = sext i32 %11 to i64
   %arrayidx.i44.i = getelementptr %struct._PyCompile_Instruction, ptr %arr.0.i, i64 %idxprom.i.i
   store i32 %conv80.i, ptr %arrayidx.i44.i, align 4
   %i_oparg.i.i = getelementptr inbounds i8, ptr %arrayidx.i44.i, i64 4
@@ -5486,7 +5485,7 @@ for.inc138.i:                                     ; preds = %instr_sequence_next
   br i1 %cmp50.i, label %for.body52.i, label %if.end.loopexit, !llvm.loop !21
 
 error.sink.split.i:                               ; preds = %lor.lhs.false38.i, %if.end35.i, %lor.lhs.false.i, %for.body.i, %lor.lhs.false70.i, %if.end62.i
-  %30 = phi ptr [ %arr.0.i82, %if.end62.i ], [ %arr.0.i82, %lor.lhs.false70.i ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ null, %if.end35.i ], [ null, %lor.lhs.false38.i ]
+  %30 = phi ptr [ %arr.0.i80, %if.end62.i ], [ %arr.0.i80, %lor.lhs.false70.i ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ null, %if.end35.i ], [ null, %lor.lhs.false38.i ]
   %31 = phi ptr [ %arr.0.i2765, %if.end62.i ], [ %arr.0.i2765, %lor.lhs.false70.i ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ null, %if.end35.i ], [ null, %lor.lhs.false38.i ]
   %.str.396.sink.i = phi ptr [ @.str.396, %if.end62.i ], [ @.str.396, %lor.lhs.false70.i ], [ @.str.397, %lor.lhs.false38.i ], [ @.str.397, %if.end35.i ], [ @.str.396, %lor.lhs.false.i ], [ @.str.396, %for.body.i ]
   %32 = load ptr, ptr @PyExc_ValueError, align 8
@@ -5494,7 +5493,7 @@ error.sink.split.i:                               ; preds = %lor.lhs.false38.i, 
   br label %instructions_to_instr_sequence.exit.thread50
 
 instructions_to_instr_sequence.exit.thread50:     ; preds = %if.then27.i, %if.end8.i, %instr_sequence_next_inst.exit.i.i, %if.end124.i, %if.end116.i, %if.end108.i, %if.end100.i, %if.then91.i, %if.end75.i, %error.sink.split.i, %if.then5.i41, %if.then22.i31, %if.then28.i29, %if.then5.i, %if.then22.i, %if.then28.i
-  %33 = phi ptr [ %30, %error.sink.split.i ], [ %arr.0.i82, %if.then5.i41 ], [ %arr.0.i82, %if.then22.i31 ], [ %arr.0.i82, %if.then28.i29 ], [ null, %if.then5.i ], [ %arr.0.i82, %if.then22.i ], [ %arr.0.i82, %if.then28.i ], [ %arr.0.i82, %if.end75.i ], [ %arr.0.i82, %if.then91.i ], [ %arr.0.i82, %if.end100.i ], [ %arr.0.i82, %if.end108.i ], [ %arr.0.i82, %if.end116.i ], [ %arr.0.i82, %if.end124.i ], [ %arr.0.i, %instr_sequence_next_inst.exit.i.i ], [ null, %if.end8.i ], [ null, %if.then27.i ]
+  %33 = phi ptr [ %30, %error.sink.split.i ], [ %arr.0.i80, %if.then5.i41 ], [ %arr.0.i80, %if.then22.i31 ], [ %arr.0.i80, %if.then28.i29 ], [ null, %if.then5.i ], [ %arr.0.i80, %if.then22.i ], [ %arr.0.i80, %if.then28.i ], [ %arr.0.i80, %if.end75.i ], [ %arr.0.i80, %if.then91.i ], [ %arr.0.i80, %if.end100.i ], [ %arr.0.i80, %if.end108.i ], [ %arr.0.i80, %if.end116.i ], [ %arr.0.i80, %if.end124.i ], [ %arr.0.i, %instr_sequence_next_inst.exit.i.i ], [ null, %if.end8.i ], [ null, %if.then27.i ]
   %34 = phi ptr [ %31, %error.sink.split.i ], [ null, %if.then5.i41 ], [ %arr.0.i2766, %if.then22.i31 ], [ %arr.0.i2766, %if.then28.i29 ], [ %arr.0.i2765, %if.then5.i ], [ %arr.0.i2765, %if.then22.i ], [ %arr.0.i2765, %if.then28.i ], [ %arr.0.i2765, %if.end75.i ], [ %arr.0.i2765, %if.then91.i ], [ %arr.0.i2765, %if.end100.i ], [ %arr.0.i2765, %if.end108.i ], [ %arr.0.i2765, %if.end116.i ], [ %arr.0.i2765, %if.end124.i ], [ %arr.0.i2765, %instr_sequence_next_inst.exit.i.i ], [ null, %if.end8.i ], [ null, %if.then27.i ]
   tail call void @PyMem_Free(ptr noundef nonnull %call1.i) #11
   br label %error
@@ -5504,7 +5503,7 @@ if.end.loopexit:                                  ; preds = %for.inc138.i
   store ptr %arr.0.i2765, ptr %s_labelmap.i.i, align 8
   store i32 %add.i.i.i, ptr %s_used.i.i, align 4
   store ptr %arr.0.i, ptr %seq, align 8
-  store i32 %spec.select.i90, ptr %s_allocated.i.i.i, align 8
+  store i32 %spec.select.i88, ptr %s_allocated.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.cond.preheader.i
@@ -5522,10 +5521,10 @@ error:                                            ; preds = %entry, %instruction
   br label %return
 
 return:                                           ; preds = %if.end, %error
-  %.sink185 = phi ptr [ %38, %error ], [ %36, %if.end ]
+  %.sink183 = phi ptr [ %38, %error ], [ %36, %if.end ]
   %.sink = phi ptr [ %37, %error ], [ %35, %if.end ]
   %retval.0 = phi ptr [ null, %error ], [ %call1, %if.end ]
-  tail call void @PyObject_Free(ptr noundef %.sink185) #11
+  tail call void @PyObject_Free(ptr noundef %.sink183) #11
   tail call void @PyObject_Free(ptr noundef %.sink) #11
   ret ptr %retval.0
 }
@@ -16961,9 +16960,9 @@ declare i32 @_PyUnicode_EqualToASCIIString(ptr noundef, ptr noundef) local_unnam
 define internal void @compiler_error(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %format, ...) unnamed_addr #1 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #11
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -17045,13 +17044,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @PyUnicode_FromFormatV(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare ptr @PyErr_ProgramTextObject(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -23653,7 +23646,7 @@ _PyCompile_InstructionSequence_Addop.exit:        ; preds = %entry, %instr_seque
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %attr) unnamed_addr #8 {
+define internal fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %attr) unnamed_addr #7 {
 entry:
   %loc.sroa.0.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.0.sroa.7.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -25274,9 +25267,9 @@ return:                                           ; preds = %return.sink.split, 
 define internal noundef i32 @compiler_warn(ptr nocapture noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %format, ...) unnamed_addr #1 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #11
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -34809,6 +34802,12 @@ declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #2
 
 declare i32 @_PyCfg_ToInstructionSequence(ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9
 
@@ -34831,8 +34830,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }

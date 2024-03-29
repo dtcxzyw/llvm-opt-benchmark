@@ -1834,66 +1834,65 @@ define void @_ZN13duDisplayList3endEv(ptr nocapture nonnull readnone align 8 %0)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %41, label %3
+  br i1 %.not, label %40, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not10 = icmp eq i32 %5, 0
-  br i1 %.not10, label %41, label %6
+  br i1 %.not10, label %40, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %10)
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
-  %17 = load float, ptr %16, align 4
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %15, float noundef %17)
-  %21 = load i32, ptr %4, align 8
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %._crit_edge
+  %9 = trunc i8 %8 to i1
+  %10 = load ptr, ptr %1, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %9)
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = load float, ptr %15, align 4
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %14, float noundef %16)
+  %20 = load i32, ptr %4, align 8
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %25
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = load ptr, ptr %23, align 8
-  %27 = mul nuw nsw i64 %indvars.iv, 3
-  %28 = getelementptr inbounds float, ptr %26, i64 %27
-  %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %28, i32 noundef %31)
+24:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %25 = load ptr, ptr %22, align 8
+  %26 = mul nuw nsw i64 %indvars.iv, 3
+  %27 = getelementptr inbounds float, ptr %25, i64 %26
+  %28 = load ptr, ptr %23, align 8
+  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %27, i32 noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %4, align 8
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %25, label %._crit_edge, !llvm.loop !18
+  %34 = load i32, ptr %4, align 8
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %indvars.iv.next, %35
+  br i1 %36, label %24, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %25, %6
-  %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 72
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %41
+._crit_edge:                                      ; preds = %24, %6
+  %37 = load ptr, ptr %1, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 72
+  %39 = load ptr, ptr %38, align 8
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %40
 
-41:                                               ; preds = %3, %2, %._crit_edge
+40:                                               ; preds = %3, %2, %._crit_edge
   ret void
 }
 

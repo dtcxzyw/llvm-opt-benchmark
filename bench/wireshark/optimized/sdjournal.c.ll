@@ -114,7 +114,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 16:                                               ; preds = %10
   tail call void @extcap_help_print(ptr noundef %6) #14
-  br label %72
+  br label %70
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.outer
   %17 = call i32 @ws_getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef nonnull @longopts, ptr noundef nonnull %4) #14
@@ -128,11 +128,11 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %.preheader
   call void @extcap_help_print(ptr noundef %6) #14
-  br label %72
+  br label %70
 
 19:                                               ; preds = %.preheader
   call void @extcap_version_print(ptr noundef %6) #14
-  br label %72
+  br label %70
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr @ws_optarg, align 8
@@ -145,23 +145,21 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 26:                                               ; preds = %20
   %27 = load ptr, ptr @ws_optarg, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 410, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.16, ptr noundef %27) #14
-  br label %72
+  br label %70
 
 28:                                               ; preds = %20
   %29 = trunc i64 %22 to i32
   %30 = load ptr, ptr @ws_optarg, align 8
   %char0 = load i8, ptr %30, align 1
-  %.not37 = icmp eq i8 %char0, 0
-  %31 = icmp eq i8 %char0, 43
-  %spec.select = select i1 %31, i8 0, i8 %.027.ph
-  %.128 = select i1 %.not37, i8 %.027.ph, i8 %spec.select
+  %31 = icmp ne i8 %char0, 43
+  %.128 = select i1 %31, i1 %.027.ph, i1 false
   %32 = icmp slt i32 %29, 0
-  %spec.select39 = select i1 %32, i8 1, i8 %.128
+  %spec.select39 = select i1 %32, i1 true, i1 %.128
   %spec.select40 = call i32 @llvm.abs.i32(i32 %29, i1 false)
   br label %.preheader.outer, !llvm.loop !5
 
 .preheader.outer:                                 ; preds = %10, %28
-  %.027.ph = phi i8 [ %spec.select39, %28 ], [ 1, %10 ]
+  %.027.ph = phi i1 [ %spec.select39, %28 ], [ true, %10 ]
   %.0.ph = phi i32 [ %spec.select40, %28 ], [ 10, %10 ]
   br label %.preheader
 
@@ -190,13 +188,13 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %46 = getelementptr ptr, ptr %1, i64 %45
   %47 = load ptr, ptr %46, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 430, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.18, ptr noundef %47) #14
-  br label %72
+  br label %70
 
 48:                                               ; preds = %.preheader
   call void @extcap_cmdline_debug(ptr noundef nonnull %1, i32 noundef %0) #14
   %49 = call zeroext i8 @extcap_base_handle_interface(ptr noundef %6) #14
   %.not34 = icmp eq i8 %49, 0
-  br i1 %.not34, label %50, label %72
+  br i1 %.not34, label %50, label %70
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %5, align 8
@@ -234,24 +232,22 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 list_config.exit:                                 ; preds = %57, %60, %61
   %.0.i = phi i32 [ 1, %60 ], [ 0, %61 ], [ 1, %57 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %72
+  br label %70
 
 63:                                               ; preds = %50
   %64 = getelementptr inbounds i8, ptr %51, i64 64
   %65 = load i8, ptr %64, align 8
   %.not36 = icmp eq i8 %65, 0
-  br i1 %.not36, label %72, label %66
+  br i1 %.not36, label %70, label %66
 
 66:                                               ; preds = %63
-  %67 = and i8 %.027.ph, 1
-  %68 = icmp ne i8 %67, 0
-  %69 = getelementptr inbounds i8, ptr %51, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %68, ptr noundef %70), !range !7
-  br label %72
+  %67 = getelementptr inbounds i8, ptr %51, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.027.ph, ptr noundef %68), !range !7
+  br label %70
 
-72:                                               ; preds = %63, %48, %66, %list_config.exit, %42, %26, %19, %18, %16
-  %.026 = phi i32 [ 1, %16 ], [ 1, %42 ], [ 1, %26 ], [ 0, %19 ], [ 0, %18 ], [ %.0.i, %list_config.exit ], [ %71, %66 ], [ 0, %48 ], [ 1, %63 ]
+70:                                               ; preds = %63, %48, %66, %list_config.exit, %42, %26, %19, %18, %16
+  %.026 = phi i32 [ 1, %16 ], [ 1, %42 ], [ 1, %26 ], [ 0, %19 ], [ 0, %18 ], [ %.0.i, %list_config.exit ], [ %69, %66 ], [ 0, %48 ], [ 1, %63 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5) #14
   ret i32 %.026
 }

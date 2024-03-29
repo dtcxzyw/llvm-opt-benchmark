@@ -1249,9 +1249,8 @@ define internal fastcc void @make_interclust_chain(ptr noundef %0, ptr noundef %
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 400
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %15, label %map_interclust_node.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %map_interclust_node.exit, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %11, i64 392
@@ -1270,16 +1269,15 @@ map_interclust_node.exit:                         ; preds = %3, %9, %15
   %25 = getelementptr inbounds i8, ptr %24, i64 336
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %map_interclust_node.exit12, label %28
+  br i1 %27, label %map_interclust_node.exit11, label %28
 
 28:                                               ; preds = %map_interclust_node.exit
   %29 = getelementptr inbounds i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 400
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not.i10 = icmp eq i8 %33, 0
-  br i1 %.not.i10, label %34, label %map_interclust_node.exit12
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %map_interclust_node.exit11, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %30, i64 392
@@ -1289,12 +1287,12 @@ map_interclust_node.exit:                         ; preds = %3, %9, %15
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8
-  br label %map_interclust_node.exit12
+  br label %map_interclust_node.exit11
 
-map_interclust_node.exit12:                       ; preds = %map_interclust_node.exit, %28, %34
-  %.0.i11 = phi ptr [ %41, %34 ], [ %1, %28 ], [ %1, %map_interclust_node.exit ]
+map_interclust_node.exit11:                       ; preds = %map_interclust_node.exit, %28, %34
+  %.0.i10 = phi ptr [ %41, %34 ], [ %1, %28 ], [ %1, %map_interclust_node.exit ]
   %42 = icmp eq ptr %.0.i, %0
-  %43 = icmp eq ptr %.0.i11, %1
+  %43 = icmp eq ptr %.0.i10, %1
   %or.cond = select i1 %42, i1 %43, i1 false
   %.0 = select i1 %or.cond, i32 1, i32 5
   %44 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1311,16 +1309,16 @@ map_interclust_node.exit12:                       ; preds = %map_interclust_node
   %54 = icmp eq ptr %53, %.0.i
   br i1 %54, label %55, label %61
 
-55:                                               ; preds = %map_interclust_node.exit12
+55:                                               ; preds = %map_interclust_node.exit11
   %56 = icmp eq i32 %49, 2
   %.idx107.i = select i1 %56, i64 0, i64 -64
   %57 = getelementptr inbounds i8, ptr %47, i64 %.idx107.i
   %58 = getelementptr inbounds i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %.0.i11
+  %60 = icmp eq ptr %59, %.0.i10
   br i1 %60, label %map_path.exit, label %61
 
-61:                                               ; preds = %55, %map_interclust_node.exit12
+61:                                               ; preds = %55, %map_interclust_node.exit11
   %62 = getelementptr inbounds i8, ptr %47, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 224
@@ -1330,7 +1328,7 @@ map_interclust_node.exit12:                       ; preds = %map_interclust_node
 
 67:                                               ; preds = %61
   store ptr null, ptr %46, align 8
-  %68 = getelementptr inbounds i8, ptr %.0.i11, i64 16
+  %68 = getelementptr inbounds i8, ptr %.0.i10, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 360
   %71 = load i32, ptr %70, align 8
@@ -1343,7 +1341,7 @@ map_interclust_node.exit12:                       ; preds = %map_interclust_node
   br i1 %77, label %78, label %93
 
 78:                                               ; preds = %67
-  %79 = tail call ptr @find_fast_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i11) #9
+  %79 = tail call ptr @find_fast_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i10) #9
   %.not116.i = icmp eq ptr %79, null
   br i1 %.not116.i, label %93, label %80
 
@@ -1502,7 +1500,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   br label %188
 
 188:                                              ; preds = %clone_vn.exit.i, %102
-  %.097.i = phi ptr [ %155, %clone_vn.exit.i ], [ %.0.i11, %102 ]
+  %.097.i = phi ptr [ %155, %clone_vn.exit.i ], [ %.0.i10, %102 ]
   %189 = tail call ptr @virtual_edge(ptr noundef %.098127.i, ptr noundef nonnull %.097.i, ptr noundef %2) #9
   %190 = getelementptr inbounds i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
@@ -1534,7 +1532,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   br i1 %213, label %102, label %map_path.exit
 
 214:                                              ; preds = %61
-  %215 = getelementptr inbounds i8, ptr %.0.i11, i64 16
+  %215 = getelementptr inbounds i8, ptr %.0.i10, i64 16
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 360
   %218 = load i32, ptr %217, align 8
@@ -1547,9 +1545,9 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   br i1 %224, label %225, label %258
 
 225:                                              ; preds = %214
-  %226 = tail call ptr @find_fast_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i11) #9
-  %.not.i14 = icmp eq ptr %226, null
-  br i1 %.not.i14, label %250, label %227
+  %226 = tail call ptr @find_fast_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i10) #9
+  %.not.i = icmp eq ptr %226, null
+  br i1 %.not.i, label %250, label %227
 
 227:                                              ; preds = %225
   %228 = tail call i32 @ports_eq(ptr noundef nonnull %2, ptr noundef nonnull %226) #9
@@ -1591,7 +1589,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   %251 = load ptr, ptr %44, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 232
   store ptr null, ptr %252, align 8
-  %253 = tail call ptr @virtual_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i11, ptr noundef nonnull %2) #9
+  %253 = tail call ptr @virtual_edge(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i10, ptr noundef nonnull %2) #9
   %254 = trunc i32 %.0 to i8
   %255 = getelementptr inbounds i8, ptr %253, i64 16
   %256 = load ptr, ptr %255, align 8
@@ -1648,10 +1646,10 @@ clone_vn.exit.i:                                  ; preds = %133, %106
 286:                                              ; preds = %274, %267
   %.pre-phi.i = phi i32 [ %269, %267 ], [ %.pre135.i, %274 ]
   %287 = phi i32 [ %261, %267 ], [ %.pre133.i, %274 ]
-  %.0.i13 = phi ptr [ %.1101.i, %267 ], [ %283, %274 ]
+  %.0.i12 = phi ptr [ %.1101.i, %267 ], [ %283, %274 ]
   %288 = icmp eq i32 %.pre-phi.i, 2
   %.idx112121.i = select i1 %288, i64 0, i64 -64
-  %289 = getelementptr inbounds i8, ptr %.0.i13, i64 %.idx112121.i
+  %289 = getelementptr inbounds i8, ptr %.0.i12, i64 %.idx112121.i
   %290 = getelementptr inbounds i8, ptr %289, i64 56
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %291, i64 16
@@ -1681,10 +1679,10 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   br i1 %.not113.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %286
-  %.1.lcssa.i = phi ptr [ %.0.i13, %286 ], [ %299, %.lr.ph.i ]
+  %.1.lcssa.i = phi ptr [ %.0.i12, %286 ], [ %299, %.lr.ph.i ]
   %.lcssa120.i = phi i32 [ %.pre-phi.i, %286 ], [ %301, %.lr.ph.i ]
   %.lcssa.i = phi ptr [ %291, %286 ], [ %305, %.lr.ph.i ]
-  %.not114.i = icmp eq ptr %.lcssa.i, %.0.i11
+  %.not114.i = icmp eq ptr %.lcssa.i, %.0.i10
   br i1 %.not114.i, label %map_path.exit, label %310
 
 310:                                              ; preds = %._crit_edge.i
@@ -1693,7 +1691,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   %312 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 %.idx115.i
   %313 = getelementptr inbounds i8, ptr %312, i64 56
   %314 = load ptr, ptr %313, align 8
-  %315 = tail call ptr @virtual_edge(ptr noundef %314, ptr noundef nonnull %.0.i11, ptr noundef %2) #9
+  %315 = tail call ptr @virtual_edge(ptr noundef %314, ptr noundef nonnull %.0.i10, ptr noundef %2) #9
   %316 = trunc i32 %.0 to i8
   %317 = getelementptr inbounds i8, ptr %315, i64 16
   %318 = load ptr, ptr %317, align 8

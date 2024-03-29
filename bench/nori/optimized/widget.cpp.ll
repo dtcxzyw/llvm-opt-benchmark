@@ -421,35 +421,34 @@ define hidden noundef ptr @_ZN7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(p
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !noalias !5
   %7 = load ptr, ptr %4, align 8, !noalias !8
-  %.not31 = icmp eq ptr %6, %7
+  %.not30 = icmp eq ptr %6, %7
   %.pre = load i32, ptr %1, align 4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
-  %.pre34 = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert35 = getelementptr inbounds i8, ptr %1, i64 4
-  %.pre36 = load i32, ptr %.phi.trans.insert35, align 4
-  %.phi.trans.insert37 = getelementptr inbounds i8, ptr %0, i64 44
-  %.pre38 = load i32, ptr %.phi.trans.insert37, align 4
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.pre33 = load i32, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert34 = getelementptr inbounds i8, ptr %1, i64 4
+  %.pre35 = load i32, ptr %.phi.trans.insert34, align 4
+  %.phi.trans.insert36 = getelementptr inbounds i8, ptr %0, i64 44
+  %.pre37 = load i32, ptr %.phi.trans.insert36, align 4
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.sroa.014.032 = phi ptr [ %8, %.critedge ], [ %6, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.014.032, i64 -8
+  %.sroa.014.031 = phi ptr [ %8, %.critedge ], [ %6, %2 ]
+  %8 = getelementptr inbounds i8, ptr %.sroa.014.031, i64 -8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not24 = icmp eq i8 %12, 0
-  br i1 %.not24, label %.critedge, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %9, i64 40
   %14 = load i32, ptr %13, align 4
-  %15 = add i32 %.pre34, %14
+  %15 = add i32 %.pre33, %14
   %16 = sub i32 %.pre, %15
   %17 = getelementptr inbounds i8, ptr %9, i64 44
   %18 = load i32, ptr %17, align 4
-  %19 = add i32 %.pre38, %18
-  %20 = sub i32 %.pre36, %19
+  %19 = add i32 %.pre37, %18
+  %20 = sub i32 %.pre35, %19
   %21 = or i32 %20, %16
   %or.cond.i = icmp sgt i32 %21, -1
   %22 = getelementptr inbounds i8, ptr %9, i64 48
@@ -465,8 +464,8 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiE
   br i1 %27, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge, label %.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
-  %28 = sub nsw i32 %.pre, %.pre34
-  %29 = sub nsw i32 %.pre36, %.pre38
+  %28 = sub nsw i32 %.pre, %.pre33
+  %29 = sub nsw i32 %.pre35, %.pre37
   store i32 %28, ptr %3, align 4
   %.sroa_idx18 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %29, ptr %.sroa_idx18, align 4
@@ -478,8 +477,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Wid
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.critedge, %2
-  %31 = sub nsw i32 %.pre, %.pre34
-  %32 = sub nsw i32 %.pre36, %.pre38
+  %31 = sub nsw i32 %.pre, %.pre33
+  %32 = sub nsw i32 %.pre35, %.pre37
   %33 = or i32 %32, %31
   %or.cond.i10 = icmp sgt i32 %33, -1
   %34 = getelementptr inbounds i8, ptr %0, i64 48
@@ -508,35 +507,34 @@ define hidden noundef ptr @_ZNK7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !noalias !13
   %7 = load ptr, ptr %4, align 8, !noalias !16
-  %.not31 = icmp eq ptr %6, %7
+  %.not30 = icmp eq ptr %6, %7
   %.pre = load i32, ptr %1, align 4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
-  %.pre34 = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert35 = getelementptr inbounds i8, ptr %1, i64 4
-  %.pre36 = load i32, ptr %.phi.trans.insert35, align 4
-  %.phi.trans.insert37 = getelementptr inbounds i8, ptr %0, i64 44
-  %.pre38 = load i32, ptr %.phi.trans.insert37, align 4
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.pre33 = load i32, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert34 = getelementptr inbounds i8, ptr %1, i64 4
+  %.pre35 = load i32, ptr %.phi.trans.insert34, align 4
+  %.phi.trans.insert36 = getelementptr inbounds i8, ptr %0, i64 44
+  %.pre37 = load i32, ptr %.phi.trans.insert36, align 4
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.sroa.014.032 = phi ptr [ %8, %.critedge ], [ %6, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.014.032, i64 -8
+  %.sroa.014.031 = phi ptr [ %8, %.critedge ], [ %6, %2 ]
+  %8 = getelementptr inbounds i8, ptr %.sroa.014.031, i64 -8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not24 = icmp eq i8 %12, 0
-  br i1 %.not24, label %.critedge, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %9, i64 40
   %14 = load i32, ptr %13, align 4
-  %15 = add i32 %.pre34, %14
+  %15 = add i32 %.pre33, %14
   %16 = sub i32 %.pre, %15
   %17 = getelementptr inbounds i8, ptr %9, i64 44
   %18 = load i32, ptr %17, align 4
-  %19 = add i32 %.pre38, %18
-  %20 = sub i32 %.pre36, %19
+  %19 = add i32 %.pre37, %18
+  %20 = sub i32 %.pre35, %19
   %21 = or i32 %20, %16
   %or.cond.i = icmp sgt i32 %21, -1
   %22 = getelementptr inbounds i8, ptr %9, i64 48
@@ -552,8 +550,8 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiE
   br i1 %27, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge, label %.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
-  %28 = sub nsw i32 %.pre, %.pre34
-  %29 = sub nsw i32 %.pre36, %.pre38
+  %28 = sub nsw i32 %.pre, %.pre33
+  %29 = sub nsw i32 %.pre35, %.pre37
   store i32 %28, ptr %3, align 4
   %.sroa_idx18 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %29, ptr %.sroa_idx18, align 4
@@ -565,8 +563,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Wid
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.critedge, %2
-  %31 = sub nsw i32 %.pre, %.pre34
-  %32 = sub nsw i32 %.pre36, %.pre38
+  %31 = sub nsw i32 %.pre, %.pre33
+  %32 = sub nsw i32 %.pre35, %.pre37
   %33 = or i32 %32, %31
   %or.cond.i10 = icmp sgt i32 %33, -1
   %34 = getelementptr inbounds i8, ptr %0, i64 48
@@ -595,26 +593,25 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5A
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8, !noalias !20
   %10 = load ptr, ptr %7, align 8, !noalias !23
-  %.not37 = icmp eq ptr %9, %10
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %9, %10
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = getelementptr inbounds i8, ptr %1, i64 4
   %13 = getelementptr inbounds i8, ptr %0, i64 44
-  %.sroa_idx20 = getelementptr inbounds i8, ptr %6, i64 4
+  %.sroa_idx19 = getelementptr inbounds i8, ptr %6, i64 4
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.critedge
   %15 = phi ptr [ %10, %.lr.ph ], [ %46, %.critedge ]
-  %.sroa.016.033 = phi ptr [ %9, %.lr.ph ], [ %16, %.critedge ]
-  %16 = getelementptr inbounds i8, ptr %.sroa.016.033, i64 -8
+  %.sroa.015.030 = phi ptr [ %9, %.lr.ph ], [ %16, %.critedge ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.015.030, i64 -8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 88
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not26 = icmp eq i8 %20, 0
-  br i1 %.not26, label %.critedge, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %14
   %21 = load i32, ptr %1, align 4
@@ -641,27 +638,27 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiE
   %37 = getelementptr inbounds i8, ptr %17, i64 52
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %32, %38
-  br i1 %39, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge, label %.critedge
+  br i1 %39, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge, label %.critedge
 
-_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
   %40 = sub nsw i32 %21, %22
   %41 = sub nsw i32 %23, %24
   store i32 %40, ptr %6, align 4
-  store i32 %41, ptr %.sroa_idx20, align 4
+  store i32 %41, ptr %.sroa_idx19, align 4
   %42 = load ptr, ptr %17, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(140) %17, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4)
-  br i1 %45, label %.loopexit, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge..critedge_crit_edge
+  br i1 %45, label %.loopexit, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge
 
-_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge..critedge_crit_edge: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge
   %.pre = load ptr, ptr %7, align 8, !noalias !23
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge..critedge_crit_edge, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %14, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
-  %46 = phi ptr [ %.pre, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge..critedge_crit_edge ], [ %15, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %15, %14 ], [ %15, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit ]
-  %.not38 = icmp eq ptr %16, %46
-  br i1 %.not38, label %._crit_edge, label %14, !llvm.loop !26
+.critedge:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %14, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
+  %46 = phi ptr [ %.pre, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge ], [ %15, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %15, %14 ], [ %15, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit ]
+  %.not34 = icmp eq ptr %16, %46
+  br i1 %.not34, label %._crit_edge, label %14, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.critedge, %5
   %47 = icmp eq i32 %2, 0
@@ -671,9 +668,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge..critedge_crit_edge: ; pred
 48:                                               ; preds = %._crit_edge
   %49 = getelementptr inbounds i8, ptr %0, i64 90
   %50 = load i8, ptr %49, align 2
-  %51 = and i8 %50, 1
-  %.not = icmp eq i8 %51, 0
-  br i1 %.not, label %.preheader, label %.loopexit
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %48, %.preheader
   %.0.i = phi ptr [ %53, %.preheader ], [ %0, %48 ]
@@ -686,8 +682,8 @@ _ZN7nanogui6Widget13request_focusEv.exit:         ; preds = %.preheader
   call void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(384) %.0.i, ptr noundef nonnull %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge, %48, %_ZN7nanogui6Widget13request_focusEv.exit, %._crit_edge
-  %54 = phi i1 [ false, %48 ], [ false, %_ZN7nanogui6Widget13request_focusEv.exit ], [ false, %._crit_edge ], [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit14.critedge ]
+.loopexit:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge, %48, %_ZN7nanogui6Widget13request_focusEv.exit, %._crit_edge
+  %54 = phi i1 [ false, %48 ], [ false, %_ZN7nanogui6Widget13request_focusEv.exit ], [ false, %._crit_edge ], [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge ]
   ret i1 %54
 }
 
@@ -714,23 +710,22 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Widget18mouse_motion_eventERKNS_5A
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8, !noalias !28
   %10 = load ptr, ptr %7, align 8, !noalias !31
-  %.not64 = icmp eq ptr %9, %10
-  br i1 %.not64, label %._crit_edge, label %.lr.ph
+  %.not63 = icmp eq ptr %9, %10
+  br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   br label %12
 
-12:                                               ; preds = %.lr.ph, %65
-  %.066 = phi i8 [ 0, %.lr.ph ], [ %.2, %65 ]
-  %.sroa.037.065 = phi ptr [ %9, %.lr.ph ], [ %13, %65 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.037.065, i64 -8
+12:                                               ; preds = %.lr.ph, %63
+  %.065 = phi i1 [ false, %.lr.ph ], [ %.2, %63 ]
+  %.sroa.037.064 = phi ptr [ %9, %.lr.ph ], [ %13, %63 ]
+  %13 = getelementptr inbounds i8, ptr %.sroa.037.064, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 88
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not50 = icmp eq i8 %17, 0
-  br i1 %.not50, label %65, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %63
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %12
   %18 = getelementptr inbounds i8, ptr %14, i64 40
@@ -769,14 +764,14 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiE
   br i1 %or.cond8.i26, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
-  br i1 %34, label %46, label %54
+  br i1 %34, label %46, label %53
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
   %42 = getelementptr inbounds i8, ptr %14, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = icmp slt i32 %39, %43
   %45 = xor i1 %34, %44
-  br i1 %45, label %46, label %54
+  br i1 %45, label %46, label %53
 
 46:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27
   %47 = phi i1 [ false, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge ], [ %44, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27 ]
@@ -784,42 +779,35 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27: ; preds = %_ZNK7nanogui
   %49 = getelementptr inbounds i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(140) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, i1 noundef zeroext %34)
-  %52 = zext i1 %51 to i8
-  %53 = or i8 %.066, %52
-  br label %54
+  %52 = or i1 %.065, %51
+  br label %53
 
-54:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge, %46, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27
-  %55 = phi i1 [ %47, %46 ], [ %44, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27 ], [ false, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge ]
-  %.1 = phi i8 [ %53, %46 ], [ %.066, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27 ], [ %.066, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge ]
-  %brmerge = or i1 %34, %55
-  br i1 %brmerge, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge, label %65
+53:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge, %46, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27
+  %54 = phi i1 [ %47, %46 ], [ %44, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27 ], [ false, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge ]
+  %.1 = phi i1 [ %52, %46 ], [ %.065, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27 ], [ %.065, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit24._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit27_crit_edge ]
+  %brmerge = or i1 %34, %54
+  br i1 %brmerge, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge, label %63
 
-_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge: ; preds = %54
-  %56 = load <2 x i32>, ptr %1, align 4
-  %57 = load <2 x i32>, ptr %11, align 8
-  %58 = sub nsw <2 x i32> %56, %57
-  store <2 x i32> %58, ptr %6, align 8
-  %59 = load ptr, ptr %14, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(140) %14, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4)
-  %63 = zext i1 %62 to i8
-  %64 = or i8 %.1, %63
-  br label %65
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge: ; preds = %53
+  %55 = load <2 x i32>, ptr %1, align 4
+  %56 = load <2 x i32>, ptr %11, align 8
+  %57 = sub nsw <2 x i32> %55, %56
+  store <2 x i32> %57, ptr %6, align 8
+  %58 = load ptr, ptr %14, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(140) %14, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4)
+  %62 = or i1 %.1, %61
+  br label %63
 
-65:                                               ; preds = %54, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge, %12
-  %.2 = phi i8 [ %64, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge ], [ %.066, %12 ], [ %.1, %54 ]
-  %66 = load ptr, ptr %7, align 8, !noalias !31
-  %.not = icmp eq ptr %13, %66
-  br i1 %.not, label %._crit_edge.loopexit, label %12, !llvm.loop !34
+63:                                               ; preds = %53, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge, %12
+  %.2 = phi i1 [ %62, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit29.critedge ], [ %.065, %12 ], [ %.1, %53 ]
+  %64 = load ptr, ptr %7, align 8, !noalias !31
+  %.not = icmp eq ptr %13, %64
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !34
 
-._crit_edge.loopexit:                             ; preds = %65
-  %67 = and i8 %.2, 1
-  %68 = icmp ne i8 %67, 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.0.lcssa = phi i1 [ false, %5 ], [ %68, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %63, %5
+  %.0.lcssa = phi i1 [ false, %5 ], [ %.2, %63 ]
   ret i1 %.0.lcssa
 }
 
@@ -830,8 +818,8 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Widget12scroll_eventERKNS_5ArrayIi
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !noalias !35
   %8 = load ptr, ptr %5, align 8, !noalias !38
-  %.not27 = icmp eq ptr %7, %8
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %7, %8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -847,9 +835,8 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Widget12scroll_eventERKNS_5ArrayIi
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %.critedge, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %12
   %19 = load i32, ptr %1, align 4
@@ -895,8 +882,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge..critedge_crit_edge: ; preds
 
 .critedge:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge..critedge_crit_edge, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %12
   %44 = phi ptr [ %.pre, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge..critedge_crit_edge ], [ %13, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %13, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit ], [ %13, %12 ]
-  %.not28 = icmp eq ptr %14, %44
-  br i1 %.not28, label %._crit_edge, label %12, !llvm.loop !41
+  %.not27 = icmp eq ptr %14, %44
+  br i1 %.not27, label %._crit_edge, label %12, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge, %.critedge, %3
   %.lcssa = phi i1 [ false, %3 ], [ false, %.critedge ], [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge ]
@@ -1554,17 +1541,16 @@ define hidden void @_ZN7nanogui6Widget4drawEP10NVGcontext(ptr nocapture noundef 
   tail call void @nvgTranslate(ptr noundef %1, float noundef %11, float noundef %14)
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %5, align 8
-  %.not19 = icmp eq ptr %15, %16
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %15, %16
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %37
-  %.sroa.015.020 = phi ptr [ %38, %37 ], [ %15, %8 ]
-  %17 = load ptr, ptr %.sroa.015.020, align 8
+  %.sroa.015.019 = phi ptr [ %38, %37 ], [ %15, %8 ]
+  %17 = load ptr, ptr %.sroa.015.019, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 88
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not18 = icmp eq i8 %20, 0
-  br i1 %.not18, label %37, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %37
 
 21:                                               ; preds = %.lr.ph
   tail call void @nvgSave(ptr noundef %1)
@@ -1589,7 +1575,7 @@ define hidden void @_ZN7nanogui6Widget4drawEP10NVGcontext(ptr nocapture noundef 
   br label %37
 
 37:                                               ; preds = %.lr.ph, %21
-  %38 = getelementptr inbounds i8, ptr %.sroa.015.020, i64 8
+  %38 = getelementptr inbounds i8, ptr %.sroa.015.019, i64 8
   %.not = icmp eq ptr %38, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

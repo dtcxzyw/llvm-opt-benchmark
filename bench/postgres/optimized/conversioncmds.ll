@@ -126,10 +126,9 @@ define dso_local { i64, i32 } @CreateConversionCommand(ptr nocapture noundef rea
   %64 = call i32 @GetUserId() #4
   %65 = getelementptr inbounds i8, ptr %0, i64 40
   %66 = load i8, ptr %65, align 8
-  %67 = and i8 %66, 1
-  %68 = icmp ne i8 %67, 0
-  %69 = call { i64, i32 } @ConversionCreate(ptr noundef %63, i32 noundef %12, i32 noundef %64, i32 noundef %18, i32 noundef %25, i32 noundef %39, i1 noundef zeroext %68) #4
-  ret { i64, i32 } %69
+  %67 = trunc i8 %66 to i1
+  %68 = call { i64, i32 } @ConversionCreate(ptr noundef %63, i32 noundef %12, i32 noundef %64, i32 noundef %18, i32 noundef %25, i32 noundef %39, i1 noundef zeroext %67) #4
+  ret { i64, i32 } %68
 }
 
 declare i32 @QualifiedNameGetCreationNamespace(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -81,14 +81,13 @@ if.end:                                           ; preds = %entry, %if.end7
   tail call void @_ZdlPv(ptr noundef %atomic-temp.i.0.i5) #9
   %dropped_.i = getelementptr inbounds i8, ptr %4, i64 61
   %5 = load atomic i8, ptr %dropped_.i monotonic, align 1
-  %6 = and i8 %5, 1
-  %tobool.i.i.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.i.i.not, label %return, label %if.end7
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call noundef zeroext i1 @_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv(ptr noundef nonnull align 8 dereferenceable(2656) %4)
-  %7 = load atomic i64, ptr %this monotonic, align 8
-  %cmp = icmp eq i64 %7, 0
+  %6 = load atomic i64, ptr %this monotonic, align 8
+  %cmp = icmp eq i64 %6, 0
   br i1 %cmp, label %return, label %if.end, !llvm.loop !6
 
 return:                                           ; preds = %if.end7, %if.end, %entry
@@ -127,10 +126,10 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   tail call void @_ZdlPv(ptr noundef %atomic-temp.i.0.i5.i) #9
   %dropped_.i.i = getelementptr inbounds i8, ptr %4, i64 61
   %5 = load atomic i8, ptr %dropped_.i.i monotonic, align 1
-  %call2 = tail call noundef zeroext i1 @_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv(ptr noundef nonnull align 8 dereferenceable(2656) %4)
+  %call8.i = tail call noundef zeroext i1 @_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv(ptr noundef nonnull align 8 dereferenceable(2656) %4)
   %6 = load atomic i64, ptr %this monotonic, align 8
-  %cmp6.i = icmp eq i64 %6, 0
-  br i1 %cmp6.i, label %while.end, label %if.end.i, !llvm.loop !7
+  %cmp.i = icmp eq i64 %6, 0
+  br i1 %cmp.i, label %while.end, label %if.end.i, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end.i, %entry
   ret void
@@ -171,4 +170,3 @@ attributes #11 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}

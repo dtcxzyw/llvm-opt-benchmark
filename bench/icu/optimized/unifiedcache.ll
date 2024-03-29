@@ -1531,17 +1531,16 @@ lpad.loopexit.split-lp:                           ; preds = %_ZNSt11unique_lockI
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit28, %lpad.loopexit ], [ %lpad.loopexit.split-lp29, %lpad.loopexit.split-lp ]
   %15 = load i8, ptr %_M_owns.i, align 8
-  %16 = and i8 %15, 1
-  %tobool.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.else.i.i
+  %tobool.i = trunc i8 %15 to i1
+  br i1 %tobool.i, label %if.else.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 if.else.i.i:                                      ; preds = %lpad
-  %17 = load ptr, ptr %lock, align 8
-  %tobool2.not.i.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %lock, align 8
+  %tobool2.not.i.i = icmp eq ptr %16, null
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #14
+  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #14
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i, %if.then3.i.i
@@ -1550,55 +1549,55 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i,
 if.then:                                          ; preds = %if.then2.i.i, %_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i, %invoke.cont2
   %key.i.i.le = getelementptr inbounds i8, ptr %element.0, i64 16
   %value2.i.i.le = getelementptr inbounds i8, ptr %element.0, i64 8
-  %18 = load ptr, ptr %key.i.i.le, align 8
-  %fCreationStatus.i = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load i32, ptr %fCreationStatus.i, align 8
-  store i32 %19, ptr %status, align 4
-  %20 = load ptr, ptr %value, align 8
-  %tobool.not.i.i = icmp eq ptr %20, null
+  %17 = load ptr, ptr %key.i.i.le, align 8
+  %fCreationStatus.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i32, ptr %fCreationStatus.i, align 8
+  store i32 %18, ptr %status, align 4
+  %19 = load ptr, ptr %value, align 8
+  %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.then
-  %hardRefCount.i.i = getelementptr inbounds i8, ptr %20, i64 12
-  %21 = atomicrmw sub ptr %hardRefCount.i.i, i32 1 seq_cst, align 4
-  %cmp.i.i10 = icmp eq i32 %21, 1
+  %hardRefCount.i.i = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = atomicrmw sub ptr %hardRefCount.i.i, i32 1 seq_cst, align 4
+  %cmp.i.i10 = icmp eq i32 %20, 1
   br i1 %cmp.i.i10, label %if.then2.i.i11, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
 
 if.then2.i.i11:                                   ; preds = %if.then.i.i9
-  %22 = load i32, ptr %fNumValuesInUse.i10.i.i, align 8
-  %dec.i.i13 = add nsw i32 %22, -1
+  %21 = load i32, ptr %fNumValuesInUse.i10.i.i, align 8
+  %dec.i.i13 = add nsw i32 %21, -1
   store i32 %dec.i.i13, ptr %fNumValuesInUse.i10.i.i, align 8
   br label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
 
 _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = %if.then2.i.i11, %if.then.i.i9, %if.then
-  %23 = load ptr, ptr %value2.i.i.le, align 8
-  store ptr %23, ptr %value, align 8
-  %tobool.not.i4.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %value2.i.i.le, align 8
+  store ptr %22, ptr %value, align 8
+  %tobool.not.i4.i = icmp eq ptr %22, null
   br i1 %tobool.not.i4.i, label %cleanup, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
-  %hardRefCount.i6.i = getelementptr inbounds i8, ptr %23, i64 12
-  %24 = atomicrmw add ptr %hardRefCount.i6.i, i32 1 seq_cst, align 4
-  %cmp.i7.i = icmp eq i32 %24, 0
+  %hardRefCount.i6.i = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = atomicrmw add ptr %hardRefCount.i6.i, i32 1 seq_cst, align 4
+  %cmp.i7.i = icmp eq i32 %23, 0
   br i1 %cmp.i7.i, label %if.then2.i9.i, label %cleanup
 
 if.then2.i9.i:                                    ; preds = %if.then.i5.i
-  %25 = load i32, ptr %fNumValuesInUse.i10.i.i, align 8
-  %inc.i.i = add nsw i32 %25, 1
+  %24 = load i32, ptr %fNumValuesInUse.i10.i.i, align 8
+  %inc.i.i = add nsw i32 %24, 1
   store i32 %inc.i.i, ptr %fNumValuesInUse.i10.i.i, align 8
   br label %cleanup
 
 if.end:                                           ; preds = %while.cond
-  %26 = load ptr, ptr %fNoValue.i4.i, align 8
-  %27 = load i32, ptr %status, align 4
-  %cmp.i.i14 = icmp slt i32 %27, 1
+  %25 = load ptr, ptr %fNoValue.i4.i, align 8
+  %26 = load i32, ptr %status, align 4
+  %cmp.i.i14 = icmp slt i32 %26, 1
   br i1 %cmp.i.i14, label %if.end.i, label %cleanup
 
 if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %key, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %28 = load ptr, ptr %vfn.i, align 8
-  %call2.i18 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(13) %key)
+  %27 = load ptr, ptr %vfn.i, align 8
+  %call2.i18 = invoke noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(13) %key)
           to label %call2.i.noexc unwind label %lpad.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %if.end.i
@@ -1612,55 +1611,54 @@ if.then3.i:                                       ; preds = %call2.i.noexc
 if.end4.i:                                        ; preds = %call2.i.noexc
   %fCreationStatus.i15 = getelementptr inbounds i8, ptr %call2.i18, i64 8
   store i32 0, ptr %fCreationStatus.i15, align 8
-  %softRefCount.i = getelementptr inbounds i8, ptr %26, i64 8
-  %29 = load i32, ptr %softRefCount.i, align 8
-  %cmp5.i = icmp eq i32 %29, 0
+  %softRefCount.i = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = load i32, ptr %softRefCount.i, align 8
+  %cmp5.i = icmp eq i32 %28, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end4.i
   %fIsPrimary.i.i = getelementptr inbounds i8, ptr %call2.i18, i64 12
   store i8 1, ptr %fIsPrimary.i.i, align 4
-  %cachePtr.i.i = getelementptr inbounds i8, ptr %26, i64 16
+  %cachePtr.i.i = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %this, ptr %cachePtr.i.i, align 8
   %fNumValuesTotal.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %30 = load <2 x i32>, ptr %fNumValuesTotal.i.i, align 4
-  %31 = add nsw <2 x i32> %30, <i32 1, i32 1>
-  store <2 x i32> %31, ptr %fNumValuesTotal.i.i, align 4
+  %29 = load <2 x i32>, ptr %fNumValuesTotal.i.i, align 4
+  %30 = add nsw <2 x i32> %29, <i32 1, i32 1>
+  store <2 x i32> %30, ptr %fNumValuesTotal.i.i, align 4
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i
-  %32 = load ptr, ptr %fHashtable, align 8
-  %call8.i19 = invoke ptr @uhash_put_75(ptr noundef %32, ptr noundef nonnull %call2.i18, ptr noundef nonnull %26, ptr noundef nonnull %status)
+  %31 = load ptr, ptr %fHashtable, align 8
+  %call8.i19 = invoke ptr @uhash_put_75(ptr noundef %31, ptr noundef nonnull %call2.i18, ptr noundef nonnull %25, ptr noundef nonnull %status)
           to label %call8.i.noexc unwind label %lpad.loopexit.split-lp
 
 call8.i.noexc:                                    ; preds = %if.end7.i
-  %33 = load i32, ptr %status, align 4
-  %cmp.i10.i = icmp sgt i32 %33, 0
+  %32 = load i32, ptr %status, align 4
+  %cmp.i10.i = icmp sgt i32 %32, 0
   br i1 %cmp.i10.i, label %cleanup, label %if.then11.i
 
 if.then11.i:                                      ; preds = %call8.i.noexc
-  %34 = load i32, ptr %softRefCount.i, align 8
-  %inc.i = add nsw i32 %34, 1
+  %33 = load i32, ptr %softRefCount.i, align 8
+  %inc.i = add nsw i32 %33, 1
   store i32 %inc.i, ptr %softRefCount.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then11.i, %call8.i.noexc, %if.then3.i, %if.end, %if.then2.i9.i, %if.then.i5.i, %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
   %retval.0 = phi i8 [ 1, %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i ], [ 1, %if.then.i5.i ], [ 1, %if.then2.i9.i ], [ 0, %if.end ], [ 0, %if.then3.i ], [ 0, %call8.i.noexc ], [ 0, %if.then11.i ]
-  %35 = load i8, ptr %_M_owns.i, align 8
-  %36 = and i8 %35, 1
-  %tobool.not.i21 = icmp eq i8 %36, 0
-  br i1 %tobool.not.i21, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27, label %if.else.i.i22
+  %34 = load i8, ptr %_M_owns.i, align 8
+  %tobool.i21 = trunc i8 %34 to i1
+  br i1 %tobool.i21, label %if.else.i.i23, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27
 
-if.else.i.i22:                                    ; preds = %cleanup
-  %37 = load ptr, ptr %lock, align 8
-  %tobool2.not.i.i23 = icmp eq ptr %37, null
-  br i1 %tobool2.not.i.i23, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27, label %if.then3.i.i24
+if.else.i.i23:                                    ; preds = %cleanup
+  %35 = load ptr, ptr %lock, align 8
+  %tobool2.not.i.i24 = icmp eq ptr %35, null
+  br i1 %tobool2.not.i.i24, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27, label %if.then3.i.i25
 
-if.then3.i.i24:                                   ; preds = %if.else.i.i22
-  %call1.i.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #14
+if.then3.i.i25:                                   ; preds = %if.else.i.i23
+  %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #14
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit27
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit27:          ; preds = %cleanup, %if.else.i.i22, %if.then3.i.i24
+_ZNSt11unique_lockISt5mutexED2Ev.exit27:          ; preds = %cleanup, %if.else.i.i23, %if.then3.i.i25
   ret i8 %retval.0
 }
 

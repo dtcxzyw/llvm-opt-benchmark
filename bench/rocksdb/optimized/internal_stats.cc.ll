@@ -2787,15 +2787,14 @@ define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleCFStatsPeriodicEPNS
 entry:
   %has_cf_change_since_dump_ = getelementptr inbounds i8, ptr %this, i64 1544
   %0 = load i8, ptr %has_cf_change_since_dump_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %for.cond.preheader, label %if.then11
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then11, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
   %number_levels_ = getelementptr inbounds i8, ptr %this, i64 1912
-  %2 = load i32, ptr %number_levels_, align 8
-  %cmp10 = icmp sgt i32 %2, 0
-  br i1 %cmp10, label %for.body.lr.ph, label %for.end
+  %1 = load i32, ptr %number_levels_, align 8
+  %cmp10 = icmp sgt i32 %1, 0
+  br i1 %cmp10, label %for.body.lr.ph, label %for.end.thread
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %file_read_latency_ = getelementptr inbounds i8, ptr %this, i64 552
@@ -2804,45 +2803,57 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %new_histogram_num.011 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
-  %3 = load ptr, ptr %file_read_latency_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %3, i64 %indvars.iv
+  %2 = load ptr, ptr %file_read_latency_, align 8
+  %add.ptr.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %2, i64 %indvars.iv
   %vtable = load ptr, ptr %add.ptr.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
-  %4 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(968) %add.ptr.i)
+  %3 = load ptr, ptr %vfn, align 8
+  %call3 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(968) %add.ptr.i)
   %add = add i64 %call3, %new_histogram_num.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = load i32, ptr %number_levels_, align 8
-  %6 = sext i32 %5 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %6
+  %4 = load i32, ptr %number_levels_, align 8
+  %5 = sext i32 %4 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
-for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %new_histogram_num.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %for.body ]
+for.end:                                          ; preds = %for.body
   %num_.i.i = getelementptr inbounds i8, ptr %this, i64 600
-  %7 = load atomic i64, ptr %num_.i.i monotonic, align 8
-  %add5 = add i64 %7, %new_histogram_num.0.lcssa
+  %6 = load atomic i64, ptr %num_.i.i monotonic, align 8
+  %add5 = add i64 %6, %add
   %last_histogram_num = getelementptr inbounds i8, ptr %this, i64 1552
-  %8 = load i64, ptr %last_histogram_num, align 8
-  %cmp6.not = icmp eq i64 %add5, %8
-  br i1 %cmp6.not, label %if.else, label %if.then7
+  %7 = load i64, ptr %last_histogram_num, align 8
+  %cmp6.not = icmp eq i64 %add5, %7
+  br i1 %cmp6.not, label %if.end9, label %if.end9.thread
 
-if.then7:                                         ; preds = %for.end
-  store i64 %add5, ptr %last_histogram_num, align 8
+for.end.thread:                                   ; preds = %for.cond.preheader
+  %num_.i.i16 = getelementptr inbounds i8, ptr %this, i64 600
+  %8 = load atomic i64, ptr %num_.i.i16 monotonic, align 8
+  %last_histogram_num18 = getelementptr inbounds i8, ptr %this, i64 1552
+  %9 = load i64, ptr %last_histogram_num18, align 8
+  %cmp6.not19 = icmp eq i64 %8, %9
+  br i1 %cmp6.not19, label %if.else, label %if.end9.thread
+
+if.end9.thread:                                   ; preds = %for.end.thread, %for.end
+  %last_histogram_num21 = phi ptr [ %last_histogram_num18, %for.end.thread ], [ %last_histogram_num, %for.end ]
+  %add520 = phi i64 [ %8, %for.end.thread ], [ %add5, %for.end ]
+  store i64 %add520, ptr %last_histogram_num21, align 8
   br label %if.then11
 
-if.then11:                                        ; preds = %if.then7, %entry
+if.end9:                                          ; preds = %for.end
+  br i1 %tobool, label %if.then11, label %if.else
+
+if.then11:                                        ; preds = %entry, %if.end9.thread, %if.end9
   %no_cf_change_period_since_dump_ = getelementptr inbounds i8, ptr %this, i64 1548
   store i32 0, ptr %no_cf_change_period_since_dump_, align 4
   store i8 0, ptr %has_cf_change_since_dump_, align 8
   br label %if.end23
 
-if.else:                                          ; preds = %for.end
+if.else:                                          ; preds = %for.end.thread, %if.end9
   %no_cf_change_period_since_dump_13 = getelementptr inbounds i8, ptr %this, i64 1548
-  %9 = load i32, ptr %no_cf_change_period_since_dump_13, align 4
-  %inc14 = add nsw i32 %9, 1
+  %10 = load i32, ptr %no_cf_change_period_since_dump_13, align 4
+  %inc14 = add nsw i32 %10, 1
   store i32 %inc14, ptr %no_cf_change_period_since_dump_13, align 4
-  %cmp15 = icmp sgt i32 %9, 0
+  %cmp15 = icmp sgt i32 %10, 0
   br i1 %cmp15, label %if.then16, label %if.end23
 
 if.then16:                                        ; preds = %if.else
@@ -4676,9 +4687,8 @@ lor.lhs.false:                                    ; preds = %entry
   %4 = load ptr, ptr %super_version_.i, align 8
   %allow_compaction = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load i8, ptr %allow_compaction, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %rate_limiter_priority.i = getelementptr inbounds i8, ptr %read_options, i64 44
@@ -4709,30 +4719,30 @@ if.end:                                           ; preds = %lor.lhs.false
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %collection, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %current_.i = getelementptr inbounds i8, ptr %2, i64 48
-  %7 = load ptr, ptr %current_.i, align 8
-  invoke void @_ZN7rocksdb7Version24GetPropertiesOfAllTablesERKNS_11ReadOptionsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS_15TablePropertiesEESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SE_EEE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 16 dereferenceable(4953) %7, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull %collection)
+  %6 = load ptr, ptr %current_.i, align 8
+  invoke void @_ZN7rocksdb7Version24GetPropertiesOfAllTablesERKNS_11ReadOptionsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS_15TablePropertiesEESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SE_EEE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 16 dereferenceable(4953) %6, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull %collection)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.end
-  %8 = load i8, ptr %s, align 8
-  %cmp.i = icmp eq i8 %8, 0
+  %7 = load i8, ptr %s, align 8
+  %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %if.end12, label %cleanup
 
 lpad:                                             ; preds = %if.end
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad8:                                            ; preds = %if.then29
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %state_.i = getelementptr inbounds i8, ptr %s, i64 8
-  %11 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %lpad8
-  call void @_ZdaPv(ptr noundef nonnull %11) #27
+  call void @_ZdaPv(ptr noundef nonnull %10) #27
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad8, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -4741,35 +4751,35 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad8, %_ZNKSt14def
 
 if.end12:                                         ; preds = %invoke.cont9
   store i64 -1, ptr %value, align 8
-  %12 = load ptr, ptr %_M_before_begin.i.i, align 8
-  %cmp.i11.not28 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %_M_before_begin.i.i, align 8
+  %cmp.i11.not28 = icmp eq ptr %11, null
   br i1 %cmp.i11.not28, label %if.then29, label %for.body
 
 for.body:                                         ; preds = %if.end12, %for.inc
-  %13 = phi i64 [ %16, %for.inc ], [ -1, %if.end12 ]
-  %__begin1.sroa.0.029 = phi ptr [ %17, %for.inc ], [ %12, %if.end12 ]
+  %12 = phi i64 [ %15, %for.inc ], [ -1, %if.end12 ]
+  %__begin1.sroa.0.029 = phi ptr [ %16, %for.inc ], [ %11, %if.end12 ]
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 40
-  %14 = load ptr, ptr %second, align 8
-  %oldest_key_time = getelementptr inbounds i8, ptr %14, i64 160
-  %15 = load i64, ptr %oldest_key_time, align 8
-  %16 = call i64 @llvm.umin.i64(i64 %15, i64 %13)
-  store i64 %16, ptr %value, align 8
-  %cmp24 = icmp eq i64 %15, 0
+  %13 = load ptr, ptr %second, align 8
+  %oldest_key_time = getelementptr inbounds i8, ptr %13, i64 160
+  %14 = load i64, ptr %oldest_key_time, align 8
+  %15 = call i64 @llvm.umin.i64(i64 %14, i64 %12)
+  store i64 %15, ptr %value, align 8
+  %cmp24 = icmp eq i64 %14, 0
   br i1 %cmp24, label %cleanup, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %17 = load ptr, ptr %__begin1.sroa.0.029, align 8
-  %cmp.i11.not = icmp eq ptr %17, null
+  %16 = load ptr, ptr %__begin1.sroa.0.029, align 8
+  %cmp.i11.not = icmp eq ptr %16, null
   br i1 %cmp.i11.not, label %if.then29, label %for.body
 
 if.then29:                                        ; preds = %for.inc, %if.end12
-  %18 = load ptr, ptr %cfd_, align 8
-  %mem_.i = getelementptr inbounds i8, ptr %18, i64 2400
-  %19 = load ptr, ptr %mem_.i, align 8
-  %oldest_key_time_.i = getelementptr inbounds i8, ptr %19, i64 3384
-  %20 = load atomic i64, ptr %oldest_key_time_.i monotonic, align 8
-  store i64 %20, ptr %ref.tmp, align 8
-  %imm_.i = getelementptr inbounds i8, ptr %18, i64 2408
+  %17 = load ptr, ptr %cfd_, align 8
+  %mem_.i = getelementptr inbounds i8, ptr %17, i64 2400
+  %18 = load ptr, ptr %mem_.i, align 8
+  %oldest_key_time_.i = getelementptr inbounds i8, ptr %18, i64 3384
+  %19 = load atomic i64, ptr %oldest_key_time_.i monotonic, align 8
+  store i64 %19, ptr %ref.tmp, align 8
+  %imm_.i = getelementptr inbounds i8, ptr %17, i64 2408
   %call39 = invoke noundef i64 @_ZNK7rocksdb12MemTableList24ApproximateOldestKeyTimeEv(ptr noundef nonnull align 8 dereferenceable(41) %imm_.i)
           to label %invoke.cont38 unwind label %lpad8
 
@@ -4777,88 +4787,88 @@ invoke.cont38:                                    ; preds = %if.then29
   %arrayinit.element.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %call39, ptr %arrayinit.element.ptr, align 8
   %arrayinit.element40 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %21 = load i64, ptr %value, align 8
-  store i64 %21, ptr %arrayinit.element40, align 8
+  %20 = load i64, ptr %value, align 8
+  store i64 %20, ptr %arrayinit.element40, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %invoke.cont38
-  %22 = phi i64 [ %24, %while.body.i.i ], [ %20, %invoke.cont38 ]
+  %21 = phi i64 [ %23, %while.body.i.i ], [ %19, %invoke.cont38 ]
   %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 8, %invoke.cont38 ]
   %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %invoke.cont38 ]
   %incdec.ptr11.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
-  %23 = load i64, ptr %incdec.ptr11.i.i.ptr, align 8
-  %cmp.i.i.i = icmp ult i64 %23, %22
-  %24 = call i64 @llvm.umin.i64(i64 %23, i64 %22)
+  %22 = load i64, ptr %incdec.ptr11.i.i.ptr, align 8
+  %cmp.i.i.i = icmp ult i64 %22, %21
+  %23 = call i64 @llvm.umin.i64(i64 %22, i64 %21)
   %spec.select.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr11.i.i.ptr, ptr %__result.010.i.i
   %incdec.ptr11.i.i.add = add nuw nsw i64 %incdec.ptr11.i.i.idx, 8
   %cmp1.not.i.i = icmp eq i64 %incdec.ptr11.i.i.add, 24
   br i1 %cmp1.not.i.i, label %if.end43, label %while.body.i.i, !llvm.loop !12
 
 if.end43:                                         ; preds = %while.body.i.i
-  %25 = load i64, ptr %spec.select.i.i, align 8
-  store i64 %25, ptr %value, align 8
-  %26 = add i64 %25, -1
-  %spec.select = icmp ult i64 %26, -2
+  %24 = load i64, ptr %spec.select.i.i, align 8
+  store i64 %24, ptr %value, align 8
+  %25 = add i64 %24, -1
+  %spec.select = icmp ult i64 %25, -2
   br label %cleanup
 
 cleanup:                                          ; preds = %for.body, %if.end43, %invoke.cont9
   %retval.0 = phi i1 [ false, %invoke.cont9 ], [ %spec.select, %if.end43 ], [ false, %for.body ]
   %state_.i13 = getelementptr inbounds i8, ptr %s, i64 8
-  %27 = load ptr, ptr %state_.i13, align 8
-  %cmp.not.i.i14 = icmp eq ptr %27, null
+  %26 = load ptr, ptr %state_.i13, align 8
+  %cmp.not.i.i14 = icmp eq ptr %26, null
   br i1 %cmp.not.i.i14, label %_ZN7rocksdb6StatusD2Ev.exit16, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i15
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i15: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %27) #27
+  call void @_ZdaPv(ptr noundef nonnull %26) #27
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i15
   store ptr null, ptr %state_.i13, align 8
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN7rocksdb15TablePropertiesEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %collection) #28
-  %28 = load ptr, ptr %collection, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %28
+  %27 = load ptr, ptr %collection, align 8
+  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %27
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN7rocksdb15TablePropertiesEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @_ZdlPv(ptr noundef %28) #27
+  call void @_ZdlPv(ptr noundef %27) #27
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN7rocksdb15TablePropertiesEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN7rocksdb15TablePropertiesEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit16, %if.end.i.i.i.i
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
-  %29 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %29, null
+  %28 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN7rocksdb15TablePropertiesEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
-  %call.i.i.i = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #31
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #31
   unreachable
 
 ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %_ZN7rocksdb6StatusD2Ev.exit ], [ %9, %lpad ]
+  %.pn = phi { ptr, i32 } [ %9, %_ZN7rocksdb6StatusD2Ev.exit ], [ %8, %lpad ]
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN7rocksdb15TablePropertiesEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %collection) #28
   %_M_manager.i.i.i17 = getelementptr inbounds i8, ptr %read_options, i64 136
-  %32 = load ptr, ptr %_M_manager.i.i.i17, align 8
-  %tobool.not.i.i.i18 = icmp eq ptr %32, null
+  %31 = load ptr, ptr %_M_manager.i.i.i17, align 8
+  %tobool.not.i.i.i18 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i18, label %_ZN7rocksdb11ReadOptionsD2Ev.exit23, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %ehcleanup
   %table_filter.i20 = getelementptr inbounds i8, ptr %read_options, i64 120
-  %call.i.i.i21 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i20, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i20, i32 noundef 3)
+  %call.i.i.i21 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i20, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i20, i32 noundef 3)
           to label %_ZN7rocksdb11ReadOptionsD2Ev.exit23 unwind label %terminate.lpad.i.i.i22
 
 terminate.lpad.i.i.i22:                           ; preds = %if.then.i.i.i19
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #31
   unreachable
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit23:              ; preds = %ehcleanup, %if.then.i.i.i19
@@ -10584,23 +10594,22 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   %13 = load ptr, ptr %__begin2.sroa.0.0147, align 8
   %being_compacted = getelementptr inbounds i8, ptr %13, i64 180
   %14 = load i8, ptr %being_compacted, align 4
-  %15 = and i8 %14, 1
-  %tobool.not = icmp eq i8 %15, 0
-  br i1 %tobool.not, label %for.inc36, label %if.then
+  %tobool = trunc i8 %14 to i1
+  br i1 %tobool, label %if.then, label %for.inc36
 
 if.then:                                          ; preds = %for.body31
-  %16 = load i32, ptr %add.ptr.i51, align 4
-  %inc35 = add nsw i32 %16, 1
+  %15 = load i32, ptr %add.ptr.i51, align 4
+  %inc35 = add nsw i32 %15, 1
   store i32 %inc35, ptr %add.ptr.i51, align 4
   br label %for.inc36
 
 lpad17:                                           ; preds = %if.end.i.i.i.i.i.i.i35
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup136
 
 ehcleanup.thread:                                 ; preds = %if.then64
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i111
 
@@ -10616,14 +10625,14 @@ for.inc39:                                        ; preds = %for.inc36, %for.bod
 
 for.end41:                                        ; preds = %for.inc39
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 144
-  %19 = load i64, ptr %arrayidx, align 8
+  %18 = load i64, ptr %arrayidx, align 8
   %arrayidx43 = getelementptr inbounds i8, ptr %this, i64 152
-  %20 = load i64, ptr %arrayidx43, align 8
-  %add = add i64 %20, %19
+  %19 = load i64, ptr %arrayidx43, align 8
+  %add = add i64 %19, %18
   store i32 0, ptr %level44, align 4
   %files_.i52 = getelementptr inbounds i8, ptr %vstorage, i64 2712
   %comp_stats_ = getelementptr inbounds i8, ptr %this, i64 312
-  %21 = getelementptr inbounds i8, ptr %level_stats, i64 8
+  %20 = getelementptr inbounds i8, ptr %level_stats, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %level_stats, i64 16
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %level_stats, i64 24
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %level_stats, i64 32
@@ -10633,78 +10642,78 @@ for.end41:                                        ; preds = %for.inc39
   br label %for.body48
 
 for.body48:                                       ; preds = %for.end41, %for.inc114
-  %22 = phi i32 [ %3, %for.end41 ], [ %50, %for.inc114 ]
+  %21 = phi i32 [ %3, %for.end41 ], [ %49, %for.inc114 ]
   %total_files.0154 = phi i32 [ 0, %for.end41 ], [ %add51, %for.inc114 ]
   %total_files_being_compacted.0153 = phi i32 [ 0, %for.end41 ], [ %add54, %for.inc114 ]
   %total_file_size.0152 = phi double [ 0.000000e+00, %for.end41 ], [ %total_file_size.1, %for.inc114 ]
   %storemerge151 = phi i32 [ 0, %for.end41 ], [ %inc115, %for.inc114 ]
-  %23 = load ptr, ptr %files_.i52, align 8
+  %22 = load ptr, ptr %files_.i52, align 8
   %idxprom.i53 = sext i32 %storemerge151 to i64
-  %arrayidx.i54 = getelementptr inbounds %"class.std::vector.304", ptr %23, i64 %idxprom.i53
+  %arrayidx.i54 = getelementptr inbounds %"class.std::vector.304", ptr %22, i64 %idxprom.i53
   %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx.i54, i64 8
-  %24 = load ptr, ptr %_M_finish.i.i, align 8
-  %25 = load ptr, ptr %arrayidx.i54, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %25 to i64
+  %23 = load ptr, ptr %_M_finish.i.i, align 8
+  %24 = load ptr, ptr %arrayidx.i54, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i55 = trunc i64 %sub.ptr.div.i.i to i32
   %add51 = add nsw i32 %total_files.0154, %conv.i55
   %add.ptr.i56 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i50, i64 %idxprom.i53
-  %26 = load i32, ptr %add.ptr.i56, align 4
-  %add54 = add nsw i32 %26, %total_files_being_compacted.0153
-  %27 = load ptr, ptr %comp_stats_, align 8
-  %add.ptr.i57 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %27, i64 %idxprom.i53
-  %28 = load i64, ptr %add.ptr.i57, align 8
-  %cmp57.not = icmp eq i64 %28, 0
+  %25 = load i32, ptr %add.ptr.i56, align 4
+  %add54 = add nsw i32 %25, %total_files_being_compacted.0153
+  %26 = load ptr, ptr %comp_stats_, align 8
+  %add.ptr.i57 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %26, i64 %idxprom.i53
+  %27 = load i64, ptr %add.ptr.i57, align 8
+  %cmp57.not = icmp eq i64 %27, 0
   br i1 %cmp57.not, label %lor.lhs.false, label %if.then64
 
 lor.lhs.false:                                    ; preds = %for.body48
   %cpu_micros = getelementptr inbounds i8, ptr %add.ptr.i57, i64 8
-  %29 = load i64, ptr %cpu_micros, align 8
-  %cmp61 = icmp ne i64 %29, 0
+  %28 = load i64, ptr %cpu_micros, align 8
+  %cmp61 = icmp ne i64 %28, 0
   %cmp63 = icmp sgt i32 %conv.i55, 0
   %or.cond = or i1 %cmp63, %cmp61
   br i1 %or.cond, label %if.then64, label %for.inc114
 
 if.then64:                                        ; preds = %lor.lhs.false, %for.body48
   call void @_ZN7rocksdb13InternalStats15CompactionStats3AddERKS1_(ptr noundef nonnull align 8 dereferenceable(188) %compaction_stats_sum, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i57)
-  %30 = load i32, ptr %level44, align 4
-  %call70 = invoke noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4112) %vstorage, i32 noundef %30)
+  %29 = load i32, ptr %level44, align 4
+  %call70 = invoke noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4112) %vstorage, i32 noundef %29)
           to label %invoke.cont69 unwind label %ehcleanup.thread
 
 invoke.cont69:                                    ; preds = %if.then64
   %conv71 = uitofp i64 %call70 to double
   %add72 = fadd double %total_file_size.0152, %conv71
-  %31 = load i32, ptr %level44, align 4
-  %cmp73 = icmp eq i32 %31, 0
+  %30 = load i32, ptr %level44, align 4
+  %cmp73 = icmp eq i32 %30, 0
   br i1 %cmp73, label %if.end82, label %if.else
 
 if.else:                                          ; preds = %invoke.cont69
-  %conv76 = sext i32 %31 to i64
-  %32 = load ptr, ptr %comp_stats_, align 8
-  %add.ptr.i60 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %32, i64 %conv76
+  %conv76 = sext i32 %30 to i64
+  %31 = load ptr, ptr %comp_stats_, align 8
+  %add.ptr.i60 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %31, i64 %conv76
   %bytes_read_non_output_levels = getelementptr inbounds i8, ptr %add.ptr.i60, i64 16
-  %33 = load i64, ptr %bytes_read_non_output_levels, align 8
+  %32 = load i64, ptr %bytes_read_non_output_levels, align 8
   %bytes_read_blob = getelementptr inbounds i8, ptr %add.ptr.i60, i64 32
-  %34 = load i64, ptr %bytes_read_blob, align 8
-  %add81 = add i64 %34, %33
+  %33 = load i64, ptr %bytes_read_blob, align 8
+  %add81 = add i64 %33, %32
   br label %if.end82
 
 if.end82:                                         ; preds = %invoke.cont69, %if.else
   %input_bytes.0 = phi i64 [ %add81, %if.else ], [ %add, %invoke.cont69 ]
   %cmp83 = icmp eq i64 %input_bytes.0, 0
-  %.pre170 = sext i32 %31 to i64
+  %.pre170 = sext i32 %30 to i64
   br i1 %cmp83, label %cond.end95, label %cond.false85
 
 cond.false85:                                     ; preds = %if.end82
-  %35 = load ptr, ptr %comp_stats_, align 8
-  %add.ptr.i62 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %35, i64 %.pre170
+  %34 = load ptr, ptr %comp_stats_, align 8
+  %add.ptr.i62 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %34, i64 %.pre170
   %bytes_written = getelementptr inbounds i8, ptr %add.ptr.i62, i64 40
-  %36 = load i64, ptr %bytes_written, align 8
+  %35 = load i64, ptr %bytes_written, align 8
   %bytes_written_blob = getelementptr inbounds i8, ptr %add.ptr.i62, i64 48
-  %37 = load i64, ptr %bytes_written_blob, align 8
-  %add92 = add i64 %37, %36
+  %36 = load i64, ptr %bytes_written_blob, align 8
+  %add92 = add i64 %36, %35
   %conv93 = uitofp i64 %add92 to double
   %conv94 = uitofp i64 %input_bytes.0 to double
   %div = fdiv double %conv93, %conv94
@@ -10712,44 +10721,44 @@ cond.false85:                                     ; preds = %if.end82
 
 cond.end95:                                       ; preds = %if.end82, %cond.false85
   %cond96 = phi double [ %div, %cond.false85 ], [ 0.000000e+00, %if.end82 ]
-  store i32 0, ptr %21, align 8
+  store i32 0, ptr %20, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  store ptr %21, ptr %_M_left.i.i.i.i.i, align 8
-  store ptr %21, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %20, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %20, ptr %_M_right.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %add.ptr.i64 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i50, i64 %.pre170
-  %38 = load i32, ptr %add.ptr.i64, align 4
-  %call101 = invoke noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4112) %vstorage, i32 noundef %31)
+  %37 = load i32, ptr %add.ptr.i64, align 4
+  %call101 = invoke noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4112) %vstorage, i32 noundef %30)
           to label %invoke.cont100 unwind label %ehcleanup.thread182
 
 invoke.cont100:                                   ; preds = %cond.end95
   %conv102 = uitofp i64 %call101 to double
-  %39 = load i32, ptr %level44, align 4
-  %conv103 = sext i32 %39 to i64
+  %38 = load i32, ptr %level44, align 4
+  %conv103 = sext i32 %38 to i64
   %add.ptr.i65 = getelementptr inbounds double, ptr %compaction_score.sroa.0.0, i64 %conv103
-  %40 = load double, ptr %add.ptr.i65, align 8
-  %41 = load ptr, ptr %comp_stats_, align 8
-  %add.ptr.i66 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %41, i64 %conv103
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats, i32 noundef %conv.i55, i32 noundef %38, double noundef %conv102, double noundef %40, double noundef %cond96, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i66)
+  %39 = load double, ptr %add.ptr.i65, align 8
+  %40 = load ptr, ptr %comp_stats_, align 8
+  %add.ptr.i66 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %40, i64 %conv103
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats, i32 noundef %conv.i55, i32 noundef %37, double noundef %conv102, double noundef %39, double noundef %cond96, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i66)
           to label %invoke.cont108 unwind label %ehcleanup.thread182
 
 invoke.cont108:                                   ; preds = %invoke.cont100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %42 = load ptr, ptr %_M_parent.i.i.i.i.i67, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %42, null
+  %41 = load ptr, ptr %_M_parent.i.i.i.i.i67, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont108
-  %43 = load i32, ptr %level44, align 4
+  %42 = load i32, ptr %level44, align 4
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %42, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
+  %__x.addr.07.i.i.i.i = phi ptr [ %41, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %__y.addr.06.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %44 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp slt i32 %44, %43
+  %43 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i = icmp slt i32 %43, %42
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
@@ -10763,8 +10772,8 @@ _ZNSt3mapIiS_IN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEES2_IiESaI
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIiS_IN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEES2_IiESaIS4_IKiS8_EEE11lower_boundERSA_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %45 = load i32, ptr %_M_storage.i.i.i, align 4
-  %cmp.i3.i = icmp slt i32 %43, %45
+  %44 = load i32, ptr %_M_storage.i.i.i, align 4
+  %cmp.i3.i = icmp slt i32 %42, %44
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont109
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIiS_IN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEES2_IiESaIS4_IKiS8_EEE11lower_boundERSA_.exit.i, %invoke.cont108
@@ -10782,8 +10791,8 @@ invoke.cont109:                                   ; preds = %lor.rhs.i, %if.then
           to label %invoke.cont111 unwind label %ehcleanup.thread182
 
 invoke.cont111:                                   ; preds = %invoke.cont109
-  %46 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7rocksdb13LevelStatTypeESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %level_stats, ptr noundef %46)
+  %45 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN7rocksdb13LevelStatTypeESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %level_stats, ptr noundef %45)
           to label %invoke.cont111.for.inc114_crit_edge unwind label %terminate.lpad.i.i
 
 invoke.cont111.for.inc114_crit_edge:              ; preds = %invoke.cont111
@@ -10792,25 +10801,25 @@ invoke.cont111.for.inc114_crit_edge:              ; preds = %invoke.cont111
   br label %for.inc114
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont111
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #31
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #31
   unreachable
 
 ehcleanup.thread182:                              ; preds = %cond.end95, %invoke.cont100, %if.then.i, %invoke.cont109
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %level_stats) #28
   br label %if.then.i.i.i111
 
 for.inc114:                                       ; preds = %invoke.cont111.for.inc114_crit_edge, %lor.lhs.false
-  %50 = phi i32 [ %22, %lor.lhs.false ], [ %.pre169, %invoke.cont111.for.inc114_crit_edge ]
-  %51 = phi i32 [ %storemerge151, %lor.lhs.false ], [ %.pre, %invoke.cont111.for.inc114_crit_edge ]
+  %49 = phi i32 [ %21, %lor.lhs.false ], [ %.pre169, %invoke.cont111.for.inc114_crit_edge ]
+  %50 = phi i32 [ %storemerge151, %lor.lhs.false ], [ %.pre, %invoke.cont111.for.inc114_crit_edge ]
   %total_file_size.1 = phi double [ %total_file_size.0152, %lor.lhs.false ], [ %add72, %invoke.cont111.for.inc114_crit_edge ]
-  %inc115 = add nsw i32 %51, 1
+  %inc115 = add nsw i32 %50, 1
   store i32 %inc115, ptr %level44, align 4
-  %cmp47 = icmp slt i32 %inc115, %50
+  %cmp47 = icmp slt i32 %inc115, %49
   br i1 %cmp47, label %for.body48, label %for.end116, !llvm.loop !82
 
 for.end116:                                       ; preds = %for.inc114, %for.end41.thread
@@ -10824,10 +10833,10 @@ for.end116:                                       ; preds = %for.inc114, %for.en
 
 cond.false120:                                    ; preds = %for.end116
   %bytes_written121 = getelementptr inbounds i8, ptr %compaction_stats_sum, i64 40
-  %52 = load i64, ptr %bytes_written121, align 8
+  %51 = load i64, ptr %bytes_written121, align 8
   %bytes_written_blob122 = getelementptr inbounds i8, ptr %compaction_stats_sum, i64 48
-  %53 = load i64, ptr %bytes_written_blob122, align 8
-  %add123 = add i64 %53, %52
+  %52 = load i64, ptr %bytes_written_blob122, align 8
+  %add123 = add i64 %52, %51
   %conv124 = uitofp i64 %add123 to double
   %conv125 = uitofp i64 %add181 to double
   %div126 = fdiv double %conv124, %conv125
@@ -10835,14 +10844,14 @@ cond.false120:                                    ; preds = %for.end116
 
 cond.end127:                                      ; preds = %for.end116, %cond.false120
   %cond128 = phi double [ %div126, %cond.false120 ], [ 0.000000e+00, %for.end116 ]
-  %54 = getelementptr inbounds i8, ptr %sum_stats, i64 8
-  store i32 0, ptr %54, align 8
+  %53 = getelementptr inbounds i8, ptr %sum_stats, i64 8
+  store i32 0, ptr %53, align 8
   %_M_parent.i.i.i.i.i72 = getelementptr inbounds i8, ptr %sum_stats, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i72, align 8
   %_M_left.i.i.i.i.i73 = getelementptr inbounds i8, ptr %sum_stats, i64 24
-  store ptr %54, ptr %_M_left.i.i.i.i.i73, align 8
+  store ptr %53, ptr %_M_left.i.i.i.i.i73, align 8
   %_M_right.i.i.i.i.i74 = getelementptr inbounds i8, ptr %sum_stats, i64 32
-  store ptr %54, ptr %_M_right.i.i.i.i.i74, align 8
+  store ptr %53, ptr %_M_right.i.i.i.i.i74, align 8
   %_M_node_count.i.i.i.i.i75 = getelementptr inbounds i8, ptr %sum_stats, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i75, align 8
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %sum_stats, i32 noundef %total_files.0.lcssa, i32 noundef %total_files_being_compacted.0.lcssa, double noundef %total_file_size.0.lcssa, double noundef 0.000000e+00, double noundef %cond128, ptr noundef nonnull align 8 dereferenceable(188) %compaction_stats_sum)
@@ -10853,17 +10862,17 @@ invoke.cont130:                                   ; preds = %cond.end127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i76)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i77)
   %_M_parent.i.i.i.i.i78 = getelementptr inbounds i8, ptr %levels_stats, i64 16
-  %55 = load ptr, ptr %_M_parent.i.i.i.i.i78, align 8
+  %54 = load ptr, ptr %_M_parent.i.i.i.i.i78, align 8
   %add.ptr.i.i.i.i79 = getelementptr inbounds i8, ptr %levels_stats, i64 8
-  %cmp.not5.i.i.i.i80 = icmp eq ptr %55, null
+  %cmp.not5.i.i.i.i80 = icmp eq ptr %54, null
   br i1 %cmp.not5.i.i.i.i80, label %if.then.i99, label %while.body.i.i.i.i82
 
 while.body.i.i.i.i82:                             ; preds = %invoke.cont130, %while.body.i.i.i.i82
-  %__x.addr.07.i.i.i.i83 = phi ptr [ %__x.addr.1.i.i.i.i90, %while.body.i.i.i.i82 ], [ %55, %invoke.cont130 ]
+  %__x.addr.07.i.i.i.i83 = phi ptr [ %__x.addr.1.i.i.i.i90, %while.body.i.i.i.i82 ], [ %54, %invoke.cont130 ]
   %__y.addr.06.i.i.i.i84 = phi ptr [ %__y.addr.1.i.i.i.i87, %while.body.i.i.i.i82 ], [ %add.ptr.i.i.i.i79, %invoke.cont130 ]
   %_M_storage.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i83, i64 32
-  %56 = load i32, ptr %_M_storage.i.i.i.i.i.i85, align 4
-  %cmp.i.i.i.i.i86 = icmp slt i32 %56, -1
+  %55 = load i32, ptr %_M_storage.i.i.i.i.i.i85, align 4
+  %cmp.i.i.i.i.i86 = icmp slt i32 %55, -1
   %__y.addr.1.i.i.i.i87 = select i1 %cmp.i.i.i.i.i86, ptr %__y.addr.06.i.i.i.i84, ptr %__x.addr.07.i.i.i.i83
   %__x.addr.1.in.v.i.i.i.i88 = select i1 %cmp.i.i.i.i.i86, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i89 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i83, i64 %__x.addr.1.in.v.i.i.i.i88
@@ -10877,8 +10886,8 @@ _ZNSt3mapIiS_IN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEES2_IiESaI
 
 lor.rhs.i94:                                      ; preds = %_ZNSt3mapIiS_IN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEES2_IiESaIS4_IKiS8_EEE11lower_boundERSA_.exit.i92
   %_M_storage.i.i.i95 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i87, i64 32
-  %57 = load i32, ptr %_M_storage.i.i.i95, align 4
-  %cmp.i3.i96 = icmp sgt i32 %57, -1
+  %56 = load i32, ptr %_M_storage.i.i.i95, align 4
+  %cmp.i3.i96 = icmp sgt i32 %56, -1
   br i1 %cmp.i3.i96, label %if.then.i99, label %invoke.cont132
 
 if.then.i99:                                      ; preds = %lor.rhs.i94, %_ZNSt3mapIiS_IN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEES2_IiESaIS4_IKiS8_EEE11lower_boundERSA_.exit.i92, %invoke.cont130
@@ -10896,15 +10905,15 @@ invoke.cont132:                                   ; preds = %lor.rhs.i94, %if.th
           to label %invoke.cont134 unwind label %ehcleanup
 
 invoke.cont134:                                   ; preds = %invoke.cont132
-  %58 = load ptr, ptr %_M_parent.i.i.i.i.i72, align 8
-  invoke void @_ZNSt8_Rb_treeIN7rocksdb13LevelStatTypeESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %sum_stats, ptr noundef %58)
+  %57 = load ptr, ptr %_M_parent.i.i.i.i.i72, align 8
+  invoke void @_ZNSt8_Rb_treeIN7rocksdb13LevelStatTypeESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %sum_stats, ptr noundef %57)
           to label %_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEED2Ev.exit107 unwind label %terminate.lpad.i.i106
 
 terminate.lpad.i.i106:                            ; preds = %invoke.cont134
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #31
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #31
   unreachable
 
 _ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEED2Ev.exit107: ; preds = %invoke.cont134
@@ -10927,7 +10936,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   ret void
 
 ehcleanup:                                        ; preds = %cond.end127, %if.then.i99, %invoke.cont132
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sum_stats) #28
   %tobool.not.i.i.i110 = icmp eq ptr %files_being_compacted.sroa.0.0172180, null
@@ -10935,12 +10944,12 @@ ehcleanup:                                        ; preds = %cond.end127, %if.th
 
 if.then.i.i.i111:                                 ; preds = %ehcleanup.thread182, %ehcleanup.thread, %ehcleanup
   %files_being_compacted.sroa.0.0173 = phi ptr [ %call5.i.i.i.i2.i.i50, %ehcleanup.thread ], [ %files_being_compacted.sroa.0.0172180, %ehcleanup ], [ %call5.i.i.i.i2.i.i50, %ehcleanup.thread182 ]
-  %.pn133 = phi { ptr, i32 } [ %18, %ehcleanup.thread ], [ %61, %ehcleanup ], [ %49, %ehcleanup.thread182 ]
+  %.pn133 = phi { ptr, i32 } [ %17, %ehcleanup.thread ], [ %60, %ehcleanup ], [ %48, %ehcleanup.thread182 ]
   call void @_ZdlPv(ptr noundef nonnull %files_being_compacted.sroa.0.0173) #27
   br label %ehcleanup136
 
 ehcleanup136:                                     ; preds = %if.then.i.i.i111, %ehcleanup, %lpad17
-  %.pn.pn = phi { ptr, i32 } [ %17, %lpad17 ], [ %61, %ehcleanup ], [ %.pn133, %if.then.i.i.i111 ]
+  %.pn.pn = phi { ptr, i32 } [ %16, %lpad17 ], [ %60, %ehcleanup ], [ %.pn133, %if.then.i.i.i111 ]
   %tobool.not.i.i.i113 = icmp eq ptr %compaction_score.sroa.0.0, null
   br i1 %tobool.not.i.i.i113, label %eh.resume, label %if.then.i.i.i114
 
@@ -13270,9 +13279,9 @@ entry:
   %__args = alloca [1 x %struct.__va_list_tag], align 16
   %ref.tmp = alloca %"class.std::allocator.3", align 1
   %0 = alloca i8, i64 %__n, align 16
-  call void @llvm.va_start(ptr nonnull %__args)
+  call void @llvm.va_start.p0(ptr nonnull %__args)
   %call = call noundef i32 %__convf(ptr noundef nonnull %0, i64 noundef %__n, ptr noundef %__fmt, ptr noundef nonnull %__args)
-  call void @llvm.va_end(ptr nonnull %__args)
+  call void @llvm.va_end.p0(ptr nonnull %__args)
   %idx.ext = sext i32 %call to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
@@ -13312,12 +13321,6 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #18
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13413,7 +13416,7 @@ declare noundef i64 @_ZNK7rocksdb22SharedBlobFileMetaData15GetBlobFileSizeEv(ptr
 declare void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13565,10 +13568,10 @@ invoke.cont2:                                     ; preds = %_ZNSt8__detail16_Ha
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS4_ESaIS0_IKS4_dEEEESt10_Select1stISB_ES5_IiESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13906,13 +13909,13 @@ return:                                           ; preds = %if.end12.i78, %if.t
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #20
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #19
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #20
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #19
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #21
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -14291,7 +14294,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #20
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14626,14 +14629,14 @@ entry:
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %__it.sroa.0.021 = load ptr, ptr %_M_before_begin.i.i, align 8
-  %cmp.i.not22 = icmp eq ptr %__it.sroa.0.021, null
-  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i.not22
+  %__it.sroa.0.023 = load ptr, ptr %_M_before_begin.i.i, align 8
+  %cmp.i.not24 = icmp eq ptr %__it.sroa.0.023, null
+  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i.not24
   br i1 %or.cond, label %if.end13, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__it.sroa.0.023 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.021, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %__it.sroa.0.023, i64 8
+  %__it.sroa.0.025 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.023, %entry ]
+  %add.ptr = getelementptr inbounds i8, ptr %__it.sroa.0.025, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #28
   %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #28
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
@@ -14652,7 +14655,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %1, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14DBPropertyInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISB_Lb1EEE.exit
-  %__it.sroa.0.0 = load ptr, ptr %__it.sroa.0.023, align 8
+  %__it.sroa.0.0 = load ptr, ptr %__it.sroa.0.025, align 8
   %cmp.i.not = icmp eq ptr %__it.sroa.0.0, null
   br i1 %cmp.i.not, label %if.end13, label %for.body, !llvm.loop !109
 
@@ -14724,9 +14727,9 @@ unreachable.i.i.i:                                ; preds = %invoke.cont12.i.i.i
   unreachable
 
 _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N7rocksdb14DBPropertyInfoEENS_10_AllocNodeISaINS_10_Hash_nodeISF_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSN_.exit: ; preds = %if.end25
-  %second.i10 = getelementptr inbounds i8, ptr %__v, i64 32
+  %second.i11 = getelementptr inbounds i8, ptr %__v, i64 32
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %second.i10, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %second.i11, i64 72, i1 false)
   store ptr %this, ptr %__node26, align 8
   %_M_node.i = getelementptr inbounds i8, ptr %__node26, i64 8
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
@@ -14740,7 +14743,7 @@ lpad:                                             ; preds = %_ZNSt8__detail12_No
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14DBPropertyInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISB_Lb1EEE.exit, %land.rhs.i.i.i, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N7rocksdb14DBPropertyInfoEENS_10_AllocNodeISaINS_10_Hash_nodeISF_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSN_.exit, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit
-  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N7rocksdb14DBPropertyInfoEENS_10_AllocNodeISaINS_10_Hash_nodeISF_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSN_.exit ], [ %__it.sroa.0.023, %land.rhs.i.i.i ], [ %__it.sroa.0.023, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14DBPropertyInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISB_Lb1EEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N7rocksdb14DBPropertyInfoEENS_10_AllocNodeISaINS_10_Hash_nodeISF_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSN_.exit ], [ %__it.sroa.0.025, %land.rhs.i.i.i ], [ %__it.sroa.0.025, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14DBPropertyInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISB_Lb1EEE.exit ]
   %retval.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N7rocksdb14DBPropertyInfoEENS_10_AllocNodeISaINS_10_Hash_nodeISF_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSN_.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14DBPropertyInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISB_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
@@ -14759,95 +14762,94 @@ entry:
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = extractvalue { i8, i64 } %call3, 1
-  invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %5)
+  %4 = extractvalue { i8, i64 } %call3, 1
+  invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %4)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #28
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #28
   store i64 %0, ptr %_M_next_resize.i, align 8
   invoke void @__cxa_rethrow() #32
           to label %unreachable.i unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %lpad.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
 eh.resume.i:                                      ; preds = %lpad2.i
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 terminate.lpad.i:                                 ; preds = %lpad2.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #31
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #31
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
   unreachable
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit: ; preds = %if.then
-  %12 = load i64, ptr %_M_bucket_count, align 8
-  %rem.i.i.i = urem i64 %__code, %12
+  %11 = load i64, ptr %_M_bucket_count, align 8
+  %rem.i.i.i = urem i64 %__code, %11
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %__node, i64 112
   store i64 %__code, ptr %add.ptr, align 8
-  %13 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %__bkt.addr.0
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i = icmp eq ptr %14, null
+  %12 = load ptr, ptr %this, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %13 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %__node, align 8
-  %16 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %16, i64 %__bkt.addr.0
-  %17 = load ptr, ptr %arrayidx6.i, align 8
-  store ptr %__node, ptr %17, align 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %__node, align 8
+  %15 = load ptr, ptr %this, align 8
+  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %16 = load ptr, ptr %arrayidx6.i, align 8
+  store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
   %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load ptr, ptr %_M_before_begin.i, align 8
-  store ptr %18, ptr %__node, align 8
+  %17 = load ptr, ptr %_M_before_begin.i, align 8
+  store ptr %17, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
-  %19 = load ptr, ptr %__node, align 8
-  %tobool13.not.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %__node, align 8
+  %tobool13.not.i = icmp eq ptr %18, null
   br i1 %tobool13.not.i, label %if.end.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.else.i
-  %20 = load ptr, ptr %this, align 8
-  %21 = load i64, ptr %_M_bucket_count, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 112
-  %22 = load i64, ptr %add.ptr.i.i.i, align 8
-  %rem.i.i.i.i = urem i64 %22, %21
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i.i
+  %19 = load ptr, ptr %this, align 8
+  %20 = load i64, ptr %_M_bucket_count, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 112
+  %21 = load i64, ptr %add.ptr.i.i.i, align 8
+  %rem.i.i.i.i = urem i64 %21, %20
+  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
-  %23 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %23, i64 %__bkt.addr.0
+  %22 = load ptr, ptr %this, align 8
+  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb14DBPropertyInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit: ; preds = %if.then.i, %if.end.i
-  %24 = load i64, ptr %_M_element_count, align 8
-  %inc = add i64 %24, 1
+  %23 = load i64, ptr %_M_element_count, align 8
+  %inc = add i64 %23, 1
   store i64 %inc, ptr %_M_element_count, align 8
   ret ptr %__node
 }
@@ -15041,7 +15043,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb13HistogramImplESaIS1_EE21_M_default_initializeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15182,7 +15184,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 declare { i64, i64 } @_ZN7rocksdb8CacheKey30CreateUniqueForProcessLifetimeEv() local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #20
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
@@ -15499,7 +15501,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #22 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #21 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args3.val = load i64, ptr %__args3, align 8
@@ -17032,14 +17034,14 @@ ehcleanup.i:                                      ; preds = %arraydestroy.body81
 
 ehcleanup86.i:                                    ; preds = %ehcleanup.i, %lpad66.i
   %.pn.i = phi { ptr, i32 } [ %21, %ehcleanup.i ], [ %20, %lpad66.i ]
-  %cleanup.isactive.0.i = phi i1 [ true, %ehcleanup.i ], [ false, %lpad66.i ]
+  %23 = phi i1 [ true, %ehcleanup.i ], [ false, %lpad66.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61.i) #28
   br label %ehcleanup87.i
 
 ehcleanup87.i:                                    ; preds = %ehcleanup86.i, %lpad64.i, %lpad.i67.i
   %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.element68.i, %ehcleanup86.i ], [ %arrayinit.element59.i, %lpad.i67.i ], [ %arrayinit.element59.i, %lpad64.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup86.i ], [ %10, %lpad.i67.i ], [ %19, %lpad64.i ]
-  %cleanup.isactive.1.i = phi i1 [ %cleanup.isactive.0.i, %ehcleanup86.i ], [ false, %lpad.i67.i ], [ false, %lpad64.i ]
+  %cleanup.isactive.1.i = phi i1 [ %23, %ehcleanup86.i ], [ false, %lpad.i67.i ], [ false, %lpad64.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i) #28
   br label %ehcleanup89.i
@@ -17109,7 +17111,7 @@ arraydestroy.body103.i:                           ; preds = %ehcleanup101.i, %ar
   br i1 %arraydestroy.done106.i, label %common.resume, label %arraydestroy.body103.i
 
 common.resume:                                    ; preds = %arraydestroy.body103.i, %arraydestroy.body.i677, %arraydestroy.body501.i, %ehcleanup101.thread.i, %ehcleanup101.i, %lpad.i.i671, %lpad.i.i669, %lpad.i.i667, %lpad.i.i665, %lpad.i.i663, %lpad.i.i661, %lpad.i.i659, %lpad.i.i657, %lpad.i.i655, %lpad.i.i653, %lpad.i.i651, %lpad.i.i649, %lpad.i.i647, %lpad.i.i645, %lpad.i.i643, %lpad.i.i641, %lpad.i.i639, %lpad.i.i637, %lpad.i.i635, %lpad.i.i633, %lpad.i.i631, %lpad.i.i629, %lpad.i.i627, %lpad.i.i625, %lpad.i.i623, %lpad.i.i621, %lpad.i.i619, %lpad.i.i617, %lpad.i.i615, %lpad.i.i613, %lpad.i.i611, %lpad.i.i609, %lpad.i.i607, %lpad.i.i605, %lpad.i.i603, %lpad.i.i601, %lpad.i.i599, %lpad.i.i597, %lpad.i.i595, %lpad.i.i593, %lpad.i.i591, %lpad.i.i589, %lpad.i.i587, %lpad.i.i585, %lpad.i.i583, %lpad.i.i581, %lpad.i.i579, %lpad.i.i577, %lpad.i.i575, %lpad.i.i573, %lpad.i.i571, %lpad.i.i569, %lpad.i.i567, %lpad.i.i565, %lpad.i.i563, %lpad.i.i561, %lpad.i.i559, %lpad.i.i557, %lpad.i.i555, %lpad.i.i553, %lpad.i.i551, %lpad.i.i549, %lpad.body.i542, %lpad.body.i533, %lpad.body.i524, %lpad.body.i515, %lpad.body.i506, %lpad.body.i497, %lpad.body.i488, %lpad.body.i479, %lpad.body.i470, %lpad.body.i461, %lpad.body.i452, %lpad.body.i443, %lpad.body.i434, %lpad.body.i425, %lpad.body.i416, %lpad.body.i407, %lpad.body.i398, %lpad.i.i394, %lpad.body.i388, %lpad.body.i379, %lpad.body.i370, %lpad.body.i361, %lpad.body.i352, %lpad.body.i343, %lpad.body.i334, %lpad.body.i325, %lpad.body.i316, %lpad.body.i307, %lpad.body.i298, %lpad.body.i289, %lpad.body.i280, %lpad.body.i271, %lpad.body.i262, %lpad.body.i253, %lpad.body.i244, %lpad.body.i235, %lpad.body.i226, %lpad.body.i217, %lpad.body.i208, %lpad.body.i199, %lpad.body.i190, %lpad.body.i181, %lpad.body.i172, %lpad.body.i163, %lpad.body.i154, %lpad.body.i145, %lpad.body.i136, %lpad.body.i127, %lpad.body.i118, %lpad.body.i109, %lpad.body.i100, %lpad.body.i91, %lpad.body.i82, %lpad.body.i73, %lpad.body.i64, %lpad.body.i55, %lpad.body.i46, %lpad.body.i37, %lpad.body.i28, %lpad.body.i19, %lpad.body.i10, %lpad.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %eh.lpad-body.i11, %lpad.body.i10 ], [ %eh.lpad-body.i20, %lpad.body.i19 ], [ %eh.lpad-body.i29, %lpad.body.i28 ], [ %eh.lpad-body.i38, %lpad.body.i37 ], [ %eh.lpad-body.i47, %lpad.body.i46 ], [ %eh.lpad-body.i56, %lpad.body.i55 ], [ %eh.lpad-body.i65, %lpad.body.i64 ], [ %eh.lpad-body.i74, %lpad.body.i73 ], [ %eh.lpad-body.i83, %lpad.body.i82 ], [ %eh.lpad-body.i92, %lpad.body.i91 ], [ %eh.lpad-body.i101, %lpad.body.i100 ], [ %eh.lpad-body.i110, %lpad.body.i109 ], [ %eh.lpad-body.i119, %lpad.body.i118 ], [ %eh.lpad-body.i128, %lpad.body.i127 ], [ %eh.lpad-body.i137, %lpad.body.i136 ], [ %eh.lpad-body.i146, %lpad.body.i145 ], [ %eh.lpad-body.i155, %lpad.body.i154 ], [ %eh.lpad-body.i164, %lpad.body.i163 ], [ %eh.lpad-body.i173, %lpad.body.i172 ], [ %eh.lpad-body.i182, %lpad.body.i181 ], [ %eh.lpad-body.i191, %lpad.body.i190 ], [ %eh.lpad-body.i200, %lpad.body.i199 ], [ %eh.lpad-body.i209, %lpad.body.i208 ], [ %eh.lpad-body.i218, %lpad.body.i217 ], [ %eh.lpad-body.i227, %lpad.body.i226 ], [ %eh.lpad-body.i236, %lpad.body.i235 ], [ %eh.lpad-body.i245, %lpad.body.i244 ], [ %eh.lpad-body.i254, %lpad.body.i253 ], [ %eh.lpad-body.i263, %lpad.body.i262 ], [ %eh.lpad-body.i272, %lpad.body.i271 ], [ %eh.lpad-body.i281, %lpad.body.i280 ], [ %eh.lpad-body.i290, %lpad.body.i289 ], [ %eh.lpad-body.i299, %lpad.body.i298 ], [ %eh.lpad-body.i308, %lpad.body.i307 ], [ %eh.lpad-body.i317, %lpad.body.i316 ], [ %eh.lpad-body.i326, %lpad.body.i325 ], [ %eh.lpad-body.i335, %lpad.body.i334 ], [ %eh.lpad-body.i344, %lpad.body.i343 ], [ %eh.lpad-body.i353, %lpad.body.i352 ], [ %eh.lpad-body.i362, %lpad.body.i361 ], [ %eh.lpad-body.i371, %lpad.body.i370 ], [ %eh.lpad-body.i380, %lpad.body.i379 ], [ %eh.lpad-body.i389, %lpad.body.i388 ], [ %172, %lpad.i.i394 ], [ %eh.lpad-body.i399, %lpad.body.i398 ], [ %eh.lpad-body.i408, %lpad.body.i407 ], [ %eh.lpad-body.i417, %lpad.body.i416 ], [ %eh.lpad-body.i426, %lpad.body.i425 ], [ %eh.lpad-body.i435, %lpad.body.i434 ], [ %eh.lpad-body.i444, %lpad.body.i443 ], [ %eh.lpad-body.i453, %lpad.body.i452 ], [ %eh.lpad-body.i462, %lpad.body.i461 ], [ %eh.lpad-body.i471, %lpad.body.i470 ], [ %eh.lpad-body.i480, %lpad.body.i479 ], [ %eh.lpad-body.i489, %lpad.body.i488 ], [ %eh.lpad-body.i498, %lpad.body.i497 ], [ %eh.lpad-body.i507, %lpad.body.i506 ], [ %eh.lpad-body.i516, %lpad.body.i515 ], [ %eh.lpad-body.i525, %lpad.body.i524 ], [ %eh.lpad-body.i534, %lpad.body.i533 ], [ %eh.lpad-body.i543, %lpad.body.i542 ], [ %229, %lpad.i.i549 ], [ %231, %lpad.i.i551 ], [ %233, %lpad.i.i553 ], [ %235, %lpad.i.i555 ], [ %237, %lpad.i.i557 ], [ %239, %lpad.i.i559 ], [ %241, %lpad.i.i561 ], [ %243, %lpad.i.i563 ], [ %245, %lpad.i.i565 ], [ %247, %lpad.i.i567 ], [ %249, %lpad.i.i569 ], [ %251, %lpad.i.i571 ], [ %253, %lpad.i.i573 ], [ %255, %lpad.i.i575 ], [ %257, %lpad.i.i577 ], [ %259, %lpad.i.i579 ], [ %261, %lpad.i.i581 ], [ %263, %lpad.i.i583 ], [ %265, %lpad.i.i585 ], [ %267, %lpad.i.i587 ], [ %269, %lpad.i.i589 ], [ %271, %lpad.i.i591 ], [ %273, %lpad.i.i593 ], [ %275, %lpad.i.i595 ], [ %277, %lpad.i.i597 ], [ %279, %lpad.i.i599 ], [ %281, %lpad.i.i601 ], [ %283, %lpad.i.i603 ], [ %285, %lpad.i.i605 ], [ %287, %lpad.i.i607 ], [ %289, %lpad.i.i609 ], [ %291, %lpad.i.i611 ], [ %293, %lpad.i.i613 ], [ %295, %lpad.i.i615 ], [ %297, %lpad.i.i617 ], [ %299, %lpad.i.i619 ], [ %301, %lpad.i.i621 ], [ %303, %lpad.i.i623 ], [ %305, %lpad.i.i625 ], [ %307, %lpad.i.i627 ], [ %309, %lpad.i.i629 ], [ %311, %lpad.i.i631 ], [ %313, %lpad.i.i633 ], [ %315, %lpad.i.i635 ], [ %317, %lpad.i.i637 ], [ %319, %lpad.i.i639 ], [ %321, %lpad.i.i641 ], [ %323, %lpad.i.i643 ], [ %325, %lpad.i.i645 ], [ %327, %lpad.i.i647 ], [ %329, %lpad.i.i649 ], [ %331, %lpad.i.i651 ], [ %333, %lpad.i.i653 ], [ %335, %lpad.i.i655 ], [ %337, %lpad.i.i657 ], [ %339, %lpad.i.i659 ], [ %341, %lpad.i.i661 ], [ %343, %lpad.i.i663 ], [ %345, %lpad.i.i665 ], [ %347, %lpad.i.i667 ], [ %349, %lpad.i.i669 ], [ %351, %lpad.i.i671 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %ehcleanup101.thread.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup101.i ], [ %354, %arraydestroy.body501.i ], [ %353, %arraydestroy.body.i677 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %arraydestroy.body103.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %eh.lpad-body.i11, %lpad.body.i10 ], [ %eh.lpad-body.i20, %lpad.body.i19 ], [ %eh.lpad-body.i29, %lpad.body.i28 ], [ %eh.lpad-body.i38, %lpad.body.i37 ], [ %eh.lpad-body.i47, %lpad.body.i46 ], [ %eh.lpad-body.i56, %lpad.body.i55 ], [ %eh.lpad-body.i65, %lpad.body.i64 ], [ %eh.lpad-body.i74, %lpad.body.i73 ], [ %eh.lpad-body.i83, %lpad.body.i82 ], [ %eh.lpad-body.i92, %lpad.body.i91 ], [ %eh.lpad-body.i101, %lpad.body.i100 ], [ %eh.lpad-body.i110, %lpad.body.i109 ], [ %eh.lpad-body.i119, %lpad.body.i118 ], [ %eh.lpad-body.i128, %lpad.body.i127 ], [ %eh.lpad-body.i137, %lpad.body.i136 ], [ %eh.lpad-body.i146, %lpad.body.i145 ], [ %eh.lpad-body.i155, %lpad.body.i154 ], [ %eh.lpad-body.i164, %lpad.body.i163 ], [ %eh.lpad-body.i173, %lpad.body.i172 ], [ %eh.lpad-body.i182, %lpad.body.i181 ], [ %eh.lpad-body.i191, %lpad.body.i190 ], [ %eh.lpad-body.i200, %lpad.body.i199 ], [ %eh.lpad-body.i209, %lpad.body.i208 ], [ %eh.lpad-body.i218, %lpad.body.i217 ], [ %eh.lpad-body.i227, %lpad.body.i226 ], [ %eh.lpad-body.i236, %lpad.body.i235 ], [ %eh.lpad-body.i245, %lpad.body.i244 ], [ %eh.lpad-body.i254, %lpad.body.i253 ], [ %eh.lpad-body.i263, %lpad.body.i262 ], [ %eh.lpad-body.i272, %lpad.body.i271 ], [ %eh.lpad-body.i281, %lpad.body.i280 ], [ %eh.lpad-body.i290, %lpad.body.i289 ], [ %eh.lpad-body.i299, %lpad.body.i298 ], [ %eh.lpad-body.i308, %lpad.body.i307 ], [ %eh.lpad-body.i317, %lpad.body.i316 ], [ %eh.lpad-body.i326, %lpad.body.i325 ], [ %eh.lpad-body.i335, %lpad.body.i334 ], [ %eh.lpad-body.i344, %lpad.body.i343 ], [ %eh.lpad-body.i353, %lpad.body.i352 ], [ %eh.lpad-body.i362, %lpad.body.i361 ], [ %eh.lpad-body.i371, %lpad.body.i370 ], [ %eh.lpad-body.i380, %lpad.body.i379 ], [ %eh.lpad-body.i389, %lpad.body.i388 ], [ %173, %lpad.i.i394 ], [ %eh.lpad-body.i399, %lpad.body.i398 ], [ %eh.lpad-body.i408, %lpad.body.i407 ], [ %eh.lpad-body.i417, %lpad.body.i416 ], [ %eh.lpad-body.i426, %lpad.body.i425 ], [ %eh.lpad-body.i435, %lpad.body.i434 ], [ %eh.lpad-body.i444, %lpad.body.i443 ], [ %eh.lpad-body.i453, %lpad.body.i452 ], [ %eh.lpad-body.i462, %lpad.body.i461 ], [ %eh.lpad-body.i471, %lpad.body.i470 ], [ %eh.lpad-body.i480, %lpad.body.i479 ], [ %eh.lpad-body.i489, %lpad.body.i488 ], [ %eh.lpad-body.i498, %lpad.body.i497 ], [ %eh.lpad-body.i507, %lpad.body.i506 ], [ %eh.lpad-body.i516, %lpad.body.i515 ], [ %eh.lpad-body.i525, %lpad.body.i524 ], [ %eh.lpad-body.i534, %lpad.body.i533 ], [ %eh.lpad-body.i543, %lpad.body.i542 ], [ %230, %lpad.i.i549 ], [ %232, %lpad.i.i551 ], [ %234, %lpad.i.i553 ], [ %236, %lpad.i.i555 ], [ %238, %lpad.i.i557 ], [ %240, %lpad.i.i559 ], [ %242, %lpad.i.i561 ], [ %244, %lpad.i.i563 ], [ %246, %lpad.i.i565 ], [ %248, %lpad.i.i567 ], [ %250, %lpad.i.i569 ], [ %252, %lpad.i.i571 ], [ %254, %lpad.i.i573 ], [ %256, %lpad.i.i575 ], [ %258, %lpad.i.i577 ], [ %260, %lpad.i.i579 ], [ %262, %lpad.i.i581 ], [ %264, %lpad.i.i583 ], [ %266, %lpad.i.i585 ], [ %268, %lpad.i.i587 ], [ %270, %lpad.i.i589 ], [ %272, %lpad.i.i591 ], [ %274, %lpad.i.i593 ], [ %276, %lpad.i.i595 ], [ %278, %lpad.i.i597 ], [ %280, %lpad.i.i599 ], [ %282, %lpad.i.i601 ], [ %284, %lpad.i.i603 ], [ %286, %lpad.i.i605 ], [ %288, %lpad.i.i607 ], [ %290, %lpad.i.i609 ], [ %292, %lpad.i.i611 ], [ %294, %lpad.i.i613 ], [ %296, %lpad.i.i615 ], [ %298, %lpad.i.i617 ], [ %300, %lpad.i.i619 ], [ %302, %lpad.i.i621 ], [ %304, %lpad.i.i623 ], [ %306, %lpad.i.i625 ], [ %308, %lpad.i.i627 ], [ %310, %lpad.i.i629 ], [ %312, %lpad.i.i631 ], [ %314, %lpad.i.i633 ], [ %316, %lpad.i.i635 ], [ %318, %lpad.i.i637 ], [ %320, %lpad.i.i639 ], [ %322, %lpad.i.i641 ], [ %324, %lpad.i.i643 ], [ %326, %lpad.i.i645 ], [ %328, %lpad.i.i647 ], [ %330, %lpad.i.i649 ], [ %332, %lpad.i.i651 ], [ %334, %lpad.i.i653 ], [ %336, %lpad.i.i655 ], [ %338, %lpad.i.i657 ], [ %340, %lpad.i.i659 ], [ %342, %lpad.i.i661 ], [ %344, %lpad.i.i663 ], [ %346, %lpad.i.i665 ], [ %348, %lpad.i.i667 ], [ %350, %lpad.i.i669 ], [ %352, %lpad.i.i671 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %ehcleanup101.thread.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup101.i ], [ %355, %arraydestroy.body501.i ], [ %354, %arraydestroy.body.i677 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %arraydestroy.body103.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.39.exit:                    ; preds = %arraydestroy.body.i
@@ -17130,7 +17132,7 @@ __cxx_global_var_init.39.exit:                    ; preds = %arraydestroy.body.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #28
-  %23 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN7rocksdb13InternalStats19InternalDBStatsTypeENS0_10DBStatInfoESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev, ptr nonnull @_ZN7rocksdb13InternalStats21db_stats_type_to_infoE, ptr nonnull @__dso_handle) #28
+  %24 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN7rocksdb13InternalStats19InternalDBStatsTypeENS0_10DBStatInfoESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev, ptr nonnull @_ZN7rocksdb13InternalStats21db_stats_type_to_infoE, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
@@ -17166,10 +17168,10 @@ call.i.noexc.i3:                                  ; preds = %__cxx_global_var_in
           to label %if.end.i693 unwind label %terminate.lpad.i.i692
 
 terminate.lpad.i.i692:                            ; preds = %.noexc.i4
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #31
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #31
   unreachable
 
 if.end.i693:                                      ; preds = %.noexc.i4
@@ -17184,26 +17186,26 @@ invoke.cont.i696:                                 ; preds = %if.end.i693
           to label %__cxx_global_var_init.48.exit unwind label %lpad.i695
 
 lpad.i695:                                        ; preds = %invoke.cont.i696, %if.end.i693
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i690) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E) #28
   br label %lpad.body.i
 
 lpad.i2:                                          ; preds = %call.i.noexc.i3, %__cxx_global_var_init.39.exit
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad.i2, %lpad.i695
-  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %lpad.i2 ], [ %26, %lpad.i695 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %28, %lpad.i2 ], [ %27, %lpad.i695 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #28
   br label %common.resume
 
 __cxx_global_var_init.48.exit:                    ; preds = %invoke.cont.i696
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i690)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #28
-  %28 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL14rocksdb_prefixB5cxx11E, ptr nonnull @__dso_handle) #28
+  %29 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL14rocksdb_prefixB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i7) #28
@@ -17219,24 +17221,24 @@ call.i.noexc.i12:                                 ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.50.exit unwind label %lpad.i.i14
 
 lpad.i.i14:                                       ; preds = %.noexc.i13
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL25num_files_at_level_prefixB5cxx11E) #28
   br label %lpad.body.i10
 
 lpad.i9:                                          ; preds = %call.i.noexc.i12, %__cxx_global_var_init.48.exit
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i10
 
 lpad.body.i10:                                    ; preds = %lpad.i9, %lpad.i.i14
-  %eh.lpad-body.i11 = phi { ptr, i32 } [ %30, %lpad.i9 ], [ %29, %lpad.i.i14 ]
+  %eh.lpad-body.i11 = phi { ptr, i32 } [ %31, %lpad.i9 ], [ %30, %lpad.i.i14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i7) #28
   br label %common.resume
 
 __cxx_global_var_init.50.exit:                    ; preds = %.noexc.i13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i7) #28
-  %31 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25num_files_at_level_prefixB5cxx11E, ptr nonnull @__dso_handle) #28
+  %32 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25num_files_at_level_prefixB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i16)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i16) #28
@@ -17252,24 +17254,24 @@ call.i.noexc.i21:                                 ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.52.exit unwind label %lpad.i.i23
 
 lpad.i.i23:                                       ; preds = %.noexc.i22
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL33compression_ratio_at_level_prefixB5cxx11E) #28
   br label %lpad.body.i19
 
 lpad.i18:                                         ; preds = %call.i.noexc.i21, %__cxx_global_var_init.50.exit
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i19
 
 lpad.body.i19:                                    ; preds = %lpad.i18, %lpad.i.i23
-  %eh.lpad-body.i20 = phi { ptr, i32 } [ %33, %lpad.i18 ], [ %32, %lpad.i.i23 ]
+  %eh.lpad-body.i20 = phi { ptr, i32 } [ %34, %lpad.i18 ], [ %33, %lpad.i.i23 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i16) #28
   br label %common.resume
 
 __cxx_global_var_init.52.exit:                    ; preds = %.noexc.i22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i16) #28
-  %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL33compression_ratio_at_level_prefixB5cxx11E, ptr nonnull @__dso_handle) #28
+  %35 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL33compression_ratio_at_level_prefixB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i16)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i25)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #28
@@ -17286,10 +17288,10 @@ call.i.noexc.i30:                                 ; preds = %__cxx_global_var_in
           to label %if.end.i703 unwind label %terminate.lpad.i.i702
 
 terminate.lpad.i.i702:                            ; preds = %.noexc.i31
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #31
   unreachable
 
 if.end.i703:                                      ; preds = %.noexc.i31
@@ -17304,26 +17306,26 @@ invoke.cont.i706:                                 ; preds = %if.end.i703
           to label %__cxx_global_var_init.54.exit unwind label %lpad.i705
 
 lpad.i705:                                        ; preds = %invoke.cont.i706, %if.end.i703
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i700) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL8allstatsB5cxx11E) #28
   br label %lpad.body.i28
 
 lpad.i27:                                         ; preds = %call.i.noexc.i30, %__cxx_global_var_init.52.exit
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i28
 
 lpad.body.i28:                                    ; preds = %lpad.i27, %lpad.i705
-  %eh.lpad-body.i29 = phi { ptr, i32 } [ %38, %lpad.i27 ], [ %37, %lpad.i705 ]
+  %eh.lpad-body.i29 = phi { ptr, i32 } [ %39, %lpad.i27 ], [ %38, %lpad.i705 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #28
   br label %common.resume
 
 __cxx_global_var_init.54.exit:                    ; preds = %invoke.cont.i706
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i700)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #28
-  %39 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL8allstatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %40 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL8allstatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i34)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i34) #28
@@ -17340,10 +17342,10 @@ call.i.noexc.i39:                                 ; preds = %__cxx_global_var_in
           to label %if.end.i713 unwind label %terminate.lpad.i.i712
 
 terminate.lpad.i.i712:                            ; preds = %.noexc.i40
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #31
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #31
   unreachable
 
 if.end.i713:                                      ; preds = %.noexc.i40
@@ -17358,26 +17360,26 @@ invoke.cont.i716:                                 ; preds = %if.end.i713
           to label %__cxx_global_var_init.56.exit unwind label %lpad.i715
 
 lpad.i715:                                        ; preds = %invoke.cont.i716, %if.end.i713
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i710) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL8sstablesB5cxx11E) #28
   br label %lpad.body.i37
 
 lpad.i36:                                         ; preds = %call.i.noexc.i39, %__cxx_global_var_init.54.exit
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i37
 
 lpad.body.i37:                                    ; preds = %lpad.i36, %lpad.i715
-  %eh.lpad-body.i38 = phi { ptr, i32 } [ %43, %lpad.i36 ], [ %42, %lpad.i715 ]
+  %eh.lpad-body.i38 = phi { ptr, i32 } [ %44, %lpad.i36 ], [ %43, %lpad.i715 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i34) #28
   br label %common.resume
 
 __cxx_global_var_init.56.exit:                    ; preds = %invoke.cont.i716
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i710)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i34) #28
-  %44 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL8sstablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %45 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL8sstablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i34)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i43)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43) #28
@@ -17394,10 +17396,10 @@ call.i.noexc.i48:                                 ; preds = %__cxx_global_var_in
           to label %if.end.i723 unwind label %terminate.lpad.i.i722
 
 terminate.lpad.i.i722:                            ; preds = %.noexc.i49
-  %45 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #31
   unreachable
 
 if.end.i723:                                      ; preds = %.noexc.i49
@@ -17412,26 +17414,26 @@ invoke.cont.i726:                                 ; preds = %if.end.i723
           to label %__cxx_global_var_init.58.exit unwind label %lpad.i725
 
 lpad.i725:                                        ; preds = %invoke.cont.i726, %if.end.i723
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i720) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL7cfstatsB5cxx11E) #28
   br label %lpad.body.i46
 
 lpad.i45:                                         ; preds = %call.i.noexc.i48, %__cxx_global_var_init.56.exit
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i46
 
 lpad.body.i46:                                    ; preds = %lpad.i45, %lpad.i725
-  %eh.lpad-body.i47 = phi { ptr, i32 } [ %48, %lpad.i45 ], [ %47, %lpad.i725 ]
+  %eh.lpad-body.i47 = phi { ptr, i32 } [ %49, %lpad.i45 ], [ %48, %lpad.i725 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43) #28
   br label %common.resume
 
 __cxx_global_var_init.58.exit:                    ; preds = %invoke.cont.i726
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i720)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43) #28
-  %49 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL7cfstatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %50 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL7cfstatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i43)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i52)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #28
@@ -17447,24 +17449,24 @@ call.i.noexc.i57:                                 ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.60.exit unwind label %lpad.i.i59
 
 lpad.i.i59:                                       ; preds = %.noexc.i58
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL25cfstats_no_file_histogramB5cxx11E) #28
   br label %lpad.body.i55
 
 lpad.i54:                                         ; preds = %call.i.noexc.i57, %__cxx_global_var_init.58.exit
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i55
 
 lpad.body.i55:                                    ; preds = %lpad.i54, %lpad.i.i59
-  %eh.lpad-body.i56 = phi { ptr, i32 } [ %51, %lpad.i54 ], [ %50, %lpad.i.i59 ]
+  %eh.lpad-body.i56 = phi { ptr, i32 } [ %52, %lpad.i54 ], [ %51, %lpad.i.i59 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #28
   br label %common.resume
 
 __cxx_global_var_init.60.exit:                    ; preds = %.noexc.i58
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #28
-  %52 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25cfstats_no_file_histogramB5cxx11E, ptr nonnull @__dso_handle) #28
+  %53 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25cfstats_no_file_histogramB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i52)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i61)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i61) #28
@@ -17480,24 +17482,24 @@ call.i.noexc.i66:                                 ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.62.exit unwind label %lpad.i.i68
 
 lpad.i.i68:                                       ; preds = %.noexc.i67
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL17cf_file_histogramB5cxx11E) #28
   br label %lpad.body.i64
 
 lpad.i63:                                         ; preds = %call.i.noexc.i66, %__cxx_global_var_init.60.exit
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i64
 
 lpad.body.i64:                                    ; preds = %lpad.i63, %lpad.i.i68
-  %eh.lpad-body.i65 = phi { ptr, i32 } [ %54, %lpad.i63 ], [ %53, %lpad.i.i68 ]
+  %eh.lpad-body.i65 = phi { ptr, i32 } [ %55, %lpad.i63 ], [ %54, %lpad.i.i68 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i61) #28
   br label %common.resume
 
 __cxx_global_var_init.62.exit:                    ; preds = %.noexc.i67
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i61) #28
-  %55 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17cf_file_histogramB5cxx11E, ptr nonnull @__dso_handle) #28
+  %56 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17cf_file_histogramB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i61)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i70)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i70) #28
@@ -17513,24 +17515,24 @@ call.i.noexc.i75:                                 ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.64.exit unwind label %lpad.i.i77
 
 lpad.i.i77:                                       ; preds = %.noexc.i76
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL20cf_write_stall_statsB5cxx11E) #28
   br label %lpad.body.i73
 
 lpad.i72:                                         ; preds = %call.i.noexc.i75, %__cxx_global_var_init.62.exit
-  %57 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i73
 
 lpad.body.i73:                                    ; preds = %lpad.i72, %lpad.i.i77
-  %eh.lpad-body.i74 = phi { ptr, i32 } [ %57, %lpad.i72 ], [ %56, %lpad.i.i77 ]
+  %eh.lpad-body.i74 = phi { ptr, i32 } [ %58, %lpad.i72 ], [ %57, %lpad.i.i77 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i70) #28
   br label %common.resume
 
 __cxx_global_var_init.64.exit:                    ; preds = %.noexc.i76
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i70) #28
-  %58 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20cf_write_stall_statsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %59 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20cf_write_stall_statsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i70)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i79)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i79) #28
@@ -17547,10 +17549,10 @@ call.i.noexc.i84:                                 ; preds = %__cxx_global_var_in
           to label %if.end.i733 unwind label %terminate.lpad.i.i732
 
 terminate.lpad.i.i732:                            ; preds = %.noexc.i85
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #31
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #31
   unreachable
 
 if.end.i733:                                      ; preds = %.noexc.i85
@@ -17565,26 +17567,26 @@ invoke.cont.i736:                                 ; preds = %if.end.i733
           to label %__cxx_global_var_init.66.exit unwind label %lpad.i735
 
 lpad.i735:                                        ; preds = %invoke.cont.i736, %if.end.i733
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i730) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL7dbstatsB5cxx11E) #28
   br label %lpad.body.i82
 
 lpad.i81:                                         ; preds = %call.i.noexc.i84, %__cxx_global_var_init.64.exit
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i82
 
 lpad.body.i82:                                    ; preds = %lpad.i81, %lpad.i735
-  %eh.lpad-body.i83 = phi { ptr, i32 } [ %62, %lpad.i81 ], [ %61, %lpad.i735 ]
+  %eh.lpad-body.i83 = phi { ptr, i32 } [ %63, %lpad.i81 ], [ %62, %lpad.i735 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i79) #28
   br label %common.resume
 
 __cxx_global_var_init.66.exit:                    ; preds = %invoke.cont.i736
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i730)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i79) #28
-  %63 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL7dbstatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %64 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL7dbstatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i79)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i88)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i88) #28
@@ -17600,24 +17602,24 @@ call.i.noexc.i93:                                 ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.68.exit unwind label %lpad.i.i95
 
 lpad.i.i95:                                       ; preds = %.noexc.i94
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL20db_write_stall_statsB5cxx11E) #28
   br label %lpad.body.i91
 
 lpad.i90:                                         ; preds = %call.i.noexc.i93, %__cxx_global_var_init.66.exit
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i91
 
 lpad.body.i91:                                    ; preds = %lpad.i90, %lpad.i.i95
-  %eh.lpad-body.i92 = phi { ptr, i32 } [ %65, %lpad.i90 ], [ %64, %lpad.i.i95 ]
+  %eh.lpad-body.i92 = phi { ptr, i32 } [ %66, %lpad.i90 ], [ %65, %lpad.i.i95 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i88) #28
   br label %common.resume
 
 __cxx_global_var_init.68.exit:                    ; preds = %.noexc.i94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i88) #28
-  %66 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20db_write_stall_statsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %67 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20db_write_stall_statsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i88)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i97)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i97) #28
@@ -17634,10 +17636,10 @@ call.i.noexc.i102:                                ; preds = %__cxx_global_var_in
           to label %if.end.i743 unwind label %terminate.lpad.i.i742
 
 terminate.lpad.i.i742:                            ; preds = %.noexc.i103
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #31
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #31
   unreachable
 
 if.end.i743:                                      ; preds = %.noexc.i103
@@ -17652,26 +17654,26 @@ invoke.cont.i746:                                 ; preds = %if.end.i743
           to label %__cxx_global_var_init.70.exit unwind label %lpad.i745
 
 lpad.i745:                                        ; preds = %invoke.cont.i746, %if.end.i743
-  %69 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i740) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL10levelstatsB5cxx11E) #28
   br label %lpad.body.i100
 
 lpad.i99:                                         ; preds = %call.i.noexc.i102, %__cxx_global_var_init.68.exit
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i100
 
 lpad.body.i100:                                   ; preds = %lpad.i99, %lpad.i745
-  %eh.lpad-body.i101 = phi { ptr, i32 } [ %70, %lpad.i99 ], [ %69, %lpad.i745 ]
+  %eh.lpad-body.i101 = phi { ptr, i32 } [ %71, %lpad.i99 ], [ %70, %lpad.i745 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i97) #28
   br label %common.resume
 
 __cxx_global_var_init.70.exit:                    ; preds = %invoke.cont.i746
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i740)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i97) #28
-  %71 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL10levelstatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %72 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL10levelstatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i97)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i106)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i106) #28
@@ -17687,24 +17689,24 @@ call.i.noexc.i111:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.72.exit unwind label %lpad.i.i113
 
 lpad.i.i113:                                      ; preds = %.noexc.i112
-  %72 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23block_cache_entry_statsB5cxx11E) #28
   br label %lpad.body.i109
 
 lpad.i108:                                        ; preds = %call.i.noexc.i111, %__cxx_global_var_init.70.exit
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i109
 
 lpad.body.i109:                                   ; preds = %lpad.i108, %lpad.i.i113
-  %eh.lpad-body.i110 = phi { ptr, i32 } [ %73, %lpad.i108 ], [ %72, %lpad.i.i113 ]
+  %eh.lpad-body.i110 = phi { ptr, i32 } [ %74, %lpad.i108 ], [ %73, %lpad.i.i113 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i106) #28
   br label %common.resume
 
 __cxx_global_var_init.72.exit:                    ; preds = %.noexc.i112
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i106) #28
-  %74 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23block_cache_entry_statsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %75 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23block_cache_entry_statsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i106)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i115)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i115) #28
@@ -17720,24 +17722,24 @@ call.i.noexc.i120:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.74.exit unwind label %lpad.i.i122
 
 lpad.i.i122:                                      ; preds = %.noexc.i121
-  %75 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL28fast_block_cache_entry_statsB5cxx11E) #28
   br label %lpad.body.i118
 
 lpad.i117:                                        ; preds = %call.i.noexc.i120, %__cxx_global_var_init.72.exit
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i118
 
 lpad.body.i118:                                   ; preds = %lpad.i117, %lpad.i.i122
-  %eh.lpad-body.i119 = phi { ptr, i32 } [ %76, %lpad.i117 ], [ %75, %lpad.i.i122 ]
+  %eh.lpad-body.i119 = phi { ptr, i32 } [ %77, %lpad.i117 ], [ %76, %lpad.i.i122 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i115) #28
   br label %common.resume
 
 __cxx_global_var_init.74.exit:                    ; preds = %.noexc.i121
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i115) #28
-  %77 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL28fast_block_cache_entry_statsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %78 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL28fast_block_cache_entry_statsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i115)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i124)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i124) #28
@@ -17753,24 +17755,24 @@ call.i.noexc.i129:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.76.exit unwind label %lpad.i.i131
 
 lpad.i.i131:                                      ; preds = %.noexc.i130
-  %78 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23num_immutable_mem_tableB5cxx11E) #28
   br label %lpad.body.i127
 
 lpad.i126:                                        ; preds = %call.i.noexc.i129, %__cxx_global_var_init.74.exit
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i127
 
 lpad.body.i127:                                   ; preds = %lpad.i126, %lpad.i.i131
-  %eh.lpad-body.i128 = phi { ptr, i32 } [ %79, %lpad.i126 ], [ %78, %lpad.i.i131 ]
+  %eh.lpad-body.i128 = phi { ptr, i32 } [ %80, %lpad.i126 ], [ %79, %lpad.i.i131 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i124) #28
   br label %common.resume
 
 __cxx_global_var_init.76.exit:                    ; preds = %.noexc.i130
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i124) #28
-  %80 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23num_immutable_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %81 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23num_immutable_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i124)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i133)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i133) #28
@@ -17786,24 +17788,24 @@ call.i.noexc.i138:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.78.exit unwind label %lpad.i.i140
 
 lpad.i.i140:                                      ; preds = %.noexc.i139
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL31num_immutable_mem_table_flushedB5cxx11E) #28
   br label %lpad.body.i136
 
 lpad.i135:                                        ; preds = %call.i.noexc.i138, %__cxx_global_var_init.76.exit
-  %82 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i136
 
 lpad.body.i136:                                   ; preds = %lpad.i135, %lpad.i.i140
-  %eh.lpad-body.i137 = phi { ptr, i32 } [ %82, %lpad.i135 ], [ %81, %lpad.i.i140 ]
+  %eh.lpad-body.i137 = phi { ptr, i32 } [ %83, %lpad.i135 ], [ %82, %lpad.i.i140 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i133) #28
   br label %common.resume
 
 __cxx_global_var_init.78.exit:                    ; preds = %.noexc.i139
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i133) #28
-  %83 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL31num_immutable_mem_table_flushedB5cxx11E, ptr nonnull @__dso_handle) #28
+  %84 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL31num_immutable_mem_table_flushedB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i133)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i142)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i142) #28
@@ -17819,24 +17821,24 @@ call.i.noexc.i147:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.80.exit unwind label %lpad.i.i149
 
 lpad.i.i149:                                      ; preds = %.noexc.i148
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23mem_table_flush_pendingB5cxx11E) #28
   br label %lpad.body.i145
 
 lpad.i144:                                        ; preds = %call.i.noexc.i147, %__cxx_global_var_init.78.exit
-  %85 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i145
 
 lpad.body.i145:                                   ; preds = %lpad.i144, %lpad.i.i149
-  %eh.lpad-body.i146 = phi { ptr, i32 } [ %85, %lpad.i144 ], [ %84, %lpad.i.i149 ]
+  %eh.lpad-body.i146 = phi { ptr, i32 } [ %86, %lpad.i144 ], [ %85, %lpad.i.i149 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i142) #28
   br label %common.resume
 
 __cxx_global_var_init.80.exit:                    ; preds = %.noexc.i148
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i142) #28
-  %86 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23mem_table_flush_pendingB5cxx11E, ptr nonnull @__dso_handle) #28
+  %87 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23mem_table_flush_pendingB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i142)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i151)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i151) #28
@@ -17852,24 +17854,24 @@ call.i.noexc.i156:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.82.exit unwind label %lpad.i.i158
 
 lpad.i.i158:                                      ; preds = %.noexc.i157
-  %87 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL18compaction_pendingB5cxx11E) #28
   br label %lpad.body.i154
 
 lpad.i153:                                        ; preds = %call.i.noexc.i156, %__cxx_global_var_init.80.exit
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i154
 
 lpad.body.i154:                                   ; preds = %lpad.i153, %lpad.i.i158
-  %eh.lpad-body.i155 = phi { ptr, i32 } [ %88, %lpad.i153 ], [ %87, %lpad.i.i158 ]
+  %eh.lpad-body.i155 = phi { ptr, i32 } [ %89, %lpad.i153 ], [ %88, %lpad.i.i158 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i151) #28
   br label %common.resume
 
 __cxx_global_var_init.82.exit:                    ; preds = %.noexc.i157
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i151) #28
-  %89 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL18compaction_pendingB5cxx11E, ptr nonnull @__dso_handle) #28
+  %90 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL18compaction_pendingB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i151)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i160)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i160) #28
@@ -17885,24 +17887,24 @@ call.i.noexc.i165:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.84.exit unwind label %lpad.i.i167
 
 lpad.i.i167:                                      ; preds = %.noexc.i166
-  %90 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL17background_errorsB5cxx11E) #28
   br label %lpad.body.i163
 
 lpad.i162:                                        ; preds = %call.i.noexc.i165, %__cxx_global_var_init.82.exit
-  %91 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i163
 
 lpad.body.i163:                                   ; preds = %lpad.i162, %lpad.i.i167
-  %eh.lpad-body.i164 = phi { ptr, i32 } [ %91, %lpad.i162 ], [ %90, %lpad.i.i167 ]
+  %eh.lpad-body.i164 = phi { ptr, i32 } [ %92, %lpad.i162 ], [ %91, %lpad.i.i167 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i160) #28
   br label %common.resume
 
 __cxx_global_var_init.84.exit:                    ; preds = %.noexc.i166
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i160) #28
-  %92 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17background_errorsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %93 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17background_errorsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i160)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i169)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i169) #28
@@ -17918,24 +17920,24 @@ call.i.noexc.i174:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.86.exit unwind label %lpad.i.i176
 
 lpad.i.i176:                                      ; preds = %.noexc.i175
-  %93 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL25cur_size_active_mem_tableB5cxx11E) #28
   br label %lpad.body.i172
 
 lpad.i171:                                        ; preds = %call.i.noexc.i174, %__cxx_global_var_init.84.exit
-  %94 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i172
 
 lpad.body.i172:                                   ; preds = %lpad.i171, %lpad.i.i176
-  %eh.lpad-body.i173 = phi { ptr, i32 } [ %94, %lpad.i171 ], [ %93, %lpad.i.i176 ]
+  %eh.lpad-body.i173 = phi { ptr, i32 } [ %95, %lpad.i171 ], [ %94, %lpad.i.i176 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i169) #28
   br label %common.resume
 
 __cxx_global_var_init.86.exit:                    ; preds = %.noexc.i175
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i169) #28
-  %95 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25cur_size_active_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %96 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25cur_size_active_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i169)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i178)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i178) #28
@@ -17951,24 +17953,24 @@ call.i.noexc.i183:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.88.exit unwind label %lpad.i.i185
 
 lpad.i.i185:                                      ; preds = %.noexc.i184
-  %96 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23cur_size_all_mem_tablesB5cxx11E) #28
   br label %lpad.body.i181
 
 lpad.i180:                                        ; preds = %call.i.noexc.i183, %__cxx_global_var_init.86.exit
-  %97 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i181
 
 lpad.body.i181:                                   ; preds = %lpad.i180, %lpad.i.i185
-  %eh.lpad-body.i182 = phi { ptr, i32 } [ %97, %lpad.i180 ], [ %96, %lpad.i.i185 ]
+  %eh.lpad-body.i182 = phi { ptr, i32 } [ %98, %lpad.i180 ], [ %97, %lpad.i.i185 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i178) #28
   br label %common.resume
 
 __cxx_global_var_init.88.exit:                    ; preds = %.noexc.i184
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i178) #28
-  %98 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23cur_size_all_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %99 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23cur_size_all_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i178)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i187)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i187) #28
@@ -17984,24 +17986,24 @@ call.i.noexc.i192:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.90.exit unwind label %lpad.i.i194
 
 lpad.i.i194:                                      ; preds = %.noexc.i193
-  %99 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL19size_all_mem_tablesB5cxx11E) #28
   br label %lpad.body.i190
 
 lpad.i189:                                        ; preds = %call.i.noexc.i192, %__cxx_global_var_init.88.exit
-  %100 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i190
 
 lpad.body.i190:                                   ; preds = %lpad.i189, %lpad.i.i194
-  %eh.lpad-body.i191 = phi { ptr, i32 } [ %100, %lpad.i189 ], [ %99, %lpad.i.i194 ]
+  %eh.lpad-body.i191 = phi { ptr, i32 } [ %101, %lpad.i189 ], [ %100, %lpad.i.i194 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i187) #28
   br label %common.resume
 
 __cxx_global_var_init.90.exit:                    ; preds = %.noexc.i193
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i187) #28
-  %101 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19size_all_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %102 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19size_all_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i187)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i196)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i196) #28
@@ -18017,24 +18019,24 @@ call.i.noexc.i201:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.92.exit unwind label %lpad.i.i203
 
 lpad.i.i203:                                      ; preds = %.noexc.i202
-  %102 = landingpad { ptr, i32 }
+  %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL28num_entries_active_mem_tableB5cxx11E) #28
   br label %lpad.body.i199
 
 lpad.i198:                                        ; preds = %call.i.noexc.i201, %__cxx_global_var_init.90.exit
-  %103 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i199
 
 lpad.body.i199:                                   ; preds = %lpad.i198, %lpad.i.i203
-  %eh.lpad-body.i200 = phi { ptr, i32 } [ %103, %lpad.i198 ], [ %102, %lpad.i.i203 ]
+  %eh.lpad-body.i200 = phi { ptr, i32 } [ %104, %lpad.i198 ], [ %103, %lpad.i.i203 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i196) #28
   br label %common.resume
 
 __cxx_global_var_init.92.exit:                    ; preds = %.noexc.i202
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i196) #28
-  %104 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL28num_entries_active_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %105 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL28num_entries_active_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i196)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i205)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i205) #28
@@ -18050,24 +18052,24 @@ call.i.noexc.i210:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.94.exit unwind label %lpad.i.i212
 
 lpad.i.i212:                                      ; preds = %.noexc.i211
-  %105 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL26num_entries_imm_mem_tablesB5cxx11E) #28
   br label %lpad.body.i208
 
 lpad.i207:                                        ; preds = %call.i.noexc.i210, %__cxx_global_var_init.92.exit
-  %106 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i208
 
 lpad.body.i208:                                   ; preds = %lpad.i207, %lpad.i.i212
-  %eh.lpad-body.i209 = phi { ptr, i32 } [ %106, %lpad.i207 ], [ %105, %lpad.i.i212 ]
+  %eh.lpad-body.i209 = phi { ptr, i32 } [ %107, %lpad.i207 ], [ %106, %lpad.i.i212 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i205) #28
   br label %common.resume
 
 __cxx_global_var_init.94.exit:                    ; preds = %.noexc.i211
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i205) #28
-  %107 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26num_entries_imm_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %108 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26num_entries_imm_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i205)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i214)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i214) #28
@@ -18083,24 +18085,24 @@ call.i.noexc.i219:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.96.exit unwind label %lpad.i.i221
 
 lpad.i.i221:                                      ; preds = %.noexc.i220
-  %108 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL28num_deletes_active_mem_tableB5cxx11E) #28
   br label %lpad.body.i217
 
 lpad.i216:                                        ; preds = %call.i.noexc.i219, %__cxx_global_var_init.94.exit
-  %109 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i217
 
 lpad.body.i217:                                   ; preds = %lpad.i216, %lpad.i.i221
-  %eh.lpad-body.i218 = phi { ptr, i32 } [ %109, %lpad.i216 ], [ %108, %lpad.i.i221 ]
+  %eh.lpad-body.i218 = phi { ptr, i32 } [ %110, %lpad.i216 ], [ %109, %lpad.i.i221 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i214) #28
   br label %common.resume
 
 __cxx_global_var_init.96.exit:                    ; preds = %.noexc.i220
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i214) #28
-  %110 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL28num_deletes_active_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %111 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL28num_deletes_active_mem_tableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i214)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i223)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i223) #28
@@ -18116,24 +18118,24 @@ call.i.noexc.i228:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.98.exit unwind label %lpad.i.i230
 
 lpad.i.i230:                                      ; preds = %.noexc.i229
-  %111 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL26num_deletes_imm_mem_tablesB5cxx11E) #28
   br label %lpad.body.i226
 
 lpad.i225:                                        ; preds = %call.i.noexc.i228, %__cxx_global_var_init.96.exit
-  %112 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i226
 
 lpad.body.i226:                                   ; preds = %lpad.i225, %lpad.i.i230
-  %eh.lpad-body.i227 = phi { ptr, i32 } [ %112, %lpad.i225 ], [ %111, %lpad.i.i230 ]
+  %eh.lpad-body.i227 = phi { ptr, i32 } [ %113, %lpad.i225 ], [ %112, %lpad.i.i230 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i223) #28
   br label %common.resume
 
 __cxx_global_var_init.98.exit:                    ; preds = %.noexc.i229
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i223) #28
-  %113 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26num_deletes_imm_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %114 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26num_deletes_imm_mem_tablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i223)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i232)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i232) #28
@@ -18149,24 +18151,24 @@ call.i.noexc.i237:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.100.exit unwind label %lpad.i.i239
 
 lpad.i.i239:                                      ; preds = %.noexc.i238
-  %114 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL17estimate_num_keysB5cxx11E) #28
   br label %lpad.body.i235
 
 lpad.i234:                                        ; preds = %call.i.noexc.i237, %__cxx_global_var_init.98.exit
-  %115 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i235
 
 lpad.body.i235:                                   ; preds = %lpad.i234, %lpad.i.i239
-  %eh.lpad-body.i236 = phi { ptr, i32 } [ %115, %lpad.i234 ], [ %114, %lpad.i.i239 ]
+  %eh.lpad-body.i236 = phi { ptr, i32 } [ %116, %lpad.i234 ], [ %115, %lpad.i.i239 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i232) #28
   br label %common.resume
 
 __cxx_global_var_init.100.exit:                   ; preds = %.noexc.i238
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i232) #28
-  %116 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17estimate_num_keysB5cxx11E, ptr nonnull @__dso_handle) #28
+  %117 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17estimate_num_keysB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i232)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i241)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i241) #28
@@ -18182,24 +18184,24 @@ call.i.noexc.i246:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.102.exit unwind label %lpad.i.i248
 
 lpad.i.i248:                                      ; preds = %.noexc.i247
-  %117 = landingpad { ptr, i32 }
+  %118 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL26estimate_table_readers_memB5cxx11E) #28
   br label %lpad.body.i244
 
 lpad.i243:                                        ; preds = %call.i.noexc.i246, %__cxx_global_var_init.100.exit
-  %118 = landingpad { ptr, i32 }
+  %119 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i244
 
 lpad.body.i244:                                   ; preds = %lpad.i243, %lpad.i.i248
-  %eh.lpad-body.i245 = phi { ptr, i32 } [ %118, %lpad.i243 ], [ %117, %lpad.i.i248 ]
+  %eh.lpad-body.i245 = phi { ptr, i32 } [ %119, %lpad.i243 ], [ %118, %lpad.i.i248 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i241) #28
   br label %common.resume
 
 __cxx_global_var_init.102.exit:                   ; preds = %.noexc.i247
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i241) #28
-  %119 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26estimate_table_readers_memB5cxx11E, ptr nonnull @__dso_handle) #28
+  %120 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26estimate_table_readers_memB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i241)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i250)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i250) #28
@@ -18215,24 +18217,24 @@ call.i.noexc.i255:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.104.exit unwind label %lpad.i.i257
 
 lpad.i.i257:                                      ; preds = %.noexc.i256
-  %120 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL25is_file_deletions_enabledB5cxx11E) #28
   br label %lpad.body.i253
 
 lpad.i252:                                        ; preds = %call.i.noexc.i255, %__cxx_global_var_init.102.exit
-  %121 = landingpad { ptr, i32 }
+  %122 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i253
 
 lpad.body.i253:                                   ; preds = %lpad.i252, %lpad.i.i257
-  %eh.lpad-body.i254 = phi { ptr, i32 } [ %121, %lpad.i252 ], [ %120, %lpad.i.i257 ]
+  %eh.lpad-body.i254 = phi { ptr, i32 } [ %122, %lpad.i252 ], [ %121, %lpad.i.i257 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i250) #28
   br label %common.resume
 
 __cxx_global_var_init.104.exit:                   ; preds = %.noexc.i256
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i250) #28
-  %122 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25is_file_deletions_enabledB5cxx11E, ptr nonnull @__dso_handle) #28
+  %123 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25is_file_deletions_enabledB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i250)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i259)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i259) #28
@@ -18249,10 +18251,10 @@ call.i.noexc.i264:                                ; preds = %__cxx_global_var_in
           to label %if.end.i753 unwind label %terminate.lpad.i.i752
 
 terminate.lpad.i.i752:                            ; preds = %.noexc.i265
-  %123 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #31
+  %125 = extractvalue { ptr, i32 } %124, 0
+  call void @__clang_call_terminate(ptr %125) #31
   unreachable
 
 if.end.i753:                                      ; preds = %.noexc.i265
@@ -18267,26 +18269,26 @@ invoke.cont.i756:                                 ; preds = %if.end.i753
           to label %__cxx_global_var_init.106.exit unwind label %lpad.i755
 
 lpad.i755:                                        ; preds = %invoke.cont.i756, %if.end.i753
-  %125 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i750) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL13num_snapshotsB5cxx11E) #28
   br label %lpad.body.i262
 
 lpad.i261:                                        ; preds = %call.i.noexc.i264, %__cxx_global_var_init.104.exit
-  %126 = landingpad { ptr, i32 }
+  %127 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i262
 
 lpad.body.i262:                                   ; preds = %lpad.i261, %lpad.i755
-  %eh.lpad-body.i263 = phi { ptr, i32 } [ %126, %lpad.i261 ], [ %125, %lpad.i755 ]
+  %eh.lpad-body.i263 = phi { ptr, i32 } [ %127, %lpad.i261 ], [ %126, %lpad.i755 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i259) #28
   br label %common.resume
 
 __cxx_global_var_init.106.exit:                   ; preds = %invoke.cont.i756
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i750)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i259) #28
-  %127 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL13num_snapshotsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %128 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL13num_snapshotsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i259)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i268)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i268) #28
@@ -18302,24 +18304,24 @@ call.i.noexc.i273:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.108.exit unwind label %lpad.i.i275
 
 lpad.i.i275:                                      ; preds = %.noexc.i274
-  %128 = landingpad { ptr, i32 }
+  %129 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL20oldest_snapshot_timeB5cxx11E) #28
   br label %lpad.body.i271
 
 lpad.i270:                                        ; preds = %call.i.noexc.i273, %__cxx_global_var_init.106.exit
-  %129 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i271
 
 lpad.body.i271:                                   ; preds = %lpad.i270, %lpad.i.i275
-  %eh.lpad-body.i272 = phi { ptr, i32 } [ %129, %lpad.i270 ], [ %128, %lpad.i.i275 ]
+  %eh.lpad-body.i272 = phi { ptr, i32 } [ %130, %lpad.i270 ], [ %129, %lpad.i.i275 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i268) #28
   br label %common.resume
 
 __cxx_global_var_init.108.exit:                   ; preds = %.noexc.i274
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i268) #28
-  %130 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20oldest_snapshot_timeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %131 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20oldest_snapshot_timeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i268)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i277)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i277) #28
@@ -18335,24 +18337,24 @@ call.i.noexc.i282:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.110.exit unwind label %lpad.i.i284
 
 lpad.i.i284:                                      ; preds = %.noexc.i283
-  %131 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL24oldest_snapshot_sequenceB5cxx11E) #28
   br label %lpad.body.i280
 
 lpad.i279:                                        ; preds = %call.i.noexc.i282, %__cxx_global_var_init.108.exit
-  %132 = landingpad { ptr, i32 }
+  %133 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i280
 
 lpad.body.i280:                                   ; preds = %lpad.i279, %lpad.i.i284
-  %eh.lpad-body.i281 = phi { ptr, i32 } [ %132, %lpad.i279 ], [ %131, %lpad.i.i284 ]
+  %eh.lpad-body.i281 = phi { ptr, i32 } [ %133, %lpad.i279 ], [ %132, %lpad.i.i284 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i277) #28
   br label %common.resume
 
 __cxx_global_var_init.110.exit:                   ; preds = %.noexc.i283
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i277) #28
-  %133 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL24oldest_snapshot_sequenceB5cxx11E, ptr nonnull @__dso_handle) #28
+  %134 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL24oldest_snapshot_sequenceB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i277)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i286)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i286) #28
@@ -18368,24 +18370,24 @@ call.i.noexc.i291:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.112.exit unwind label %lpad.i.i293
 
 lpad.i.i293:                                      ; preds = %.noexc.i292
-  %134 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL17num_live_versionsB5cxx11E) #28
   br label %lpad.body.i289
 
 lpad.i288:                                        ; preds = %call.i.noexc.i291, %__cxx_global_var_init.110.exit
-  %135 = landingpad { ptr, i32 }
+  %136 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i289
 
 lpad.body.i289:                                   ; preds = %lpad.i288, %lpad.i.i293
-  %eh.lpad-body.i290 = phi { ptr, i32 } [ %135, %lpad.i288 ], [ %134, %lpad.i.i293 ]
+  %eh.lpad-body.i290 = phi { ptr, i32 } [ %136, %lpad.i288 ], [ %135, %lpad.i.i293 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i286) #28
   br label %common.resume
 
 __cxx_global_var_init.112.exit:                   ; preds = %.noexc.i292
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i286) #28
-  %136 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17num_live_versionsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %137 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17num_live_versionsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i286)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i295)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i295) #28
@@ -18401,24 +18403,24 @@ call.i.noexc.i300:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.114.exit unwind label %lpad.i.i302
 
 lpad.i.i302:                                      ; preds = %.noexc.i301
-  %137 = landingpad { ptr, i32 }
+  %138 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL22current_version_numberB5cxx11E) #28
   br label %lpad.body.i298
 
 lpad.i297:                                        ; preds = %call.i.noexc.i300, %__cxx_global_var_init.112.exit
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i298
 
 lpad.body.i298:                                   ; preds = %lpad.i297, %lpad.i.i302
-  %eh.lpad-body.i299 = phi { ptr, i32 } [ %138, %lpad.i297 ], [ %137, %lpad.i.i302 ]
+  %eh.lpad-body.i299 = phi { ptr, i32 } [ %139, %lpad.i297 ], [ %138, %lpad.i.i302 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i295) #28
   br label %common.resume
 
 __cxx_global_var_init.114.exit:                   ; preds = %.noexc.i301
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i295) #28
-  %139 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL22current_version_numberB5cxx11E, ptr nonnull @__dso_handle) #28
+  %140 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL22current_version_numberB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i295)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i304)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i304) #28
@@ -18434,24 +18436,24 @@ call.i.noexc.i309:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.116.exit unwind label %lpad.i.i311
 
 lpad.i.i311:                                      ; preds = %.noexc.i310
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23estimate_live_data_sizeB5cxx11E) #28
   br label %lpad.body.i307
 
 lpad.i306:                                        ; preds = %call.i.noexc.i309, %__cxx_global_var_init.114.exit
-  %141 = landingpad { ptr, i32 }
+  %142 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i307
 
 lpad.body.i307:                                   ; preds = %lpad.i306, %lpad.i.i311
-  %eh.lpad-body.i308 = phi { ptr, i32 } [ %141, %lpad.i306 ], [ %140, %lpad.i.i311 ]
+  %eh.lpad-body.i308 = phi { ptr, i32 } [ %142, %lpad.i306 ], [ %141, %lpad.i.i311 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i304) #28
   br label %common.resume
 
 __cxx_global_var_init.116.exit:                   ; preds = %.noexc.i310
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i304) #28
-  %142 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23estimate_live_data_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %143 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23estimate_live_data_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i304)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i313)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i313) #28
@@ -18467,24 +18469,24 @@ call.i.noexc.i318:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.118.exit unwind label %lpad.i.i320
 
 lpad.i.i320:                                      ; preds = %.noexc.i319
-  %143 = landingpad { ptr, i32 }
+  %144 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL26min_log_number_to_keep_strB5cxx11E) #28
   br label %lpad.body.i316
 
 lpad.i315:                                        ; preds = %call.i.noexc.i318, %__cxx_global_var_init.116.exit
-  %144 = landingpad { ptr, i32 }
+  %145 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i316
 
 lpad.body.i316:                                   ; preds = %lpad.i315, %lpad.i.i320
-  %eh.lpad-body.i317 = phi { ptr, i32 } [ %144, %lpad.i315 ], [ %143, %lpad.i.i320 ]
+  %eh.lpad-body.i317 = phi { ptr, i32 } [ %145, %lpad.i315 ], [ %144, %lpad.i.i320 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i313) #28
   br label %common.resume
 
 __cxx_global_var_init.118.exit:                   ; preds = %.noexc.i319
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i313) #28
-  %145 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26min_log_number_to_keep_strB5cxx11E, ptr nonnull @__dso_handle) #28
+  %146 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL26min_log_number_to_keep_strB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i313)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i322)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i322) #28
@@ -18500,24 +18502,24 @@ call.i.noexc.i327:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.120.exit unwind label %lpad.i.i329
 
 lpad.i.i329:                                      ; preds = %.noexc.i328
-  %146 = landingpad { ptr, i32 }
+  %147 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL35min_obsolete_sst_number_to_keep_strB5cxx11E) #28
   br label %lpad.body.i325
 
 lpad.i324:                                        ; preds = %call.i.noexc.i327, %__cxx_global_var_init.118.exit
-  %147 = landingpad { ptr, i32 }
+  %148 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i325
 
 lpad.body.i325:                                   ; preds = %lpad.i324, %lpad.i.i329
-  %eh.lpad-body.i326 = phi { ptr, i32 } [ %147, %lpad.i324 ], [ %146, %lpad.i.i329 ]
+  %eh.lpad-body.i326 = phi { ptr, i32 } [ %148, %lpad.i324 ], [ %147, %lpad.i.i329 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i322) #28
   br label %common.resume
 
 __cxx_global_var_init.120.exit:                   ; preds = %.noexc.i328
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i322) #28
-  %148 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL35min_obsolete_sst_number_to_keep_strB5cxx11E, ptr nonnull @__dso_handle) #28
+  %149 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL35min_obsolete_sst_number_to_keep_strB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i322)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i331)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i331) #28
@@ -18534,10 +18536,10 @@ call.i.noexc.i336:                                ; preds = %__cxx_global_var_in
           to label %if.end.i763 unwind label %terminate.lpad.i.i762
 
 terminate.lpad.i.i762:                            ; preds = %.noexc.i337
-  %149 = landingpad { ptr, i32 }
+  %150 = landingpad { ptr, i32 }
           catch ptr null
-  %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #31
+  %151 = extractvalue { ptr, i32 } %150, 0
+  call void @__clang_call_terminate(ptr %151) #31
   unreachable
 
 if.end.i763:                                      ; preds = %.noexc.i337
@@ -18552,26 +18554,26 @@ invoke.cont.i766:                                 ; preds = %if.end.i763
           to label %__cxx_global_var_init.122.exit unwind label %lpad.i765
 
 lpad.i765:                                        ; preds = %invoke.cont.i766, %if.end.i763
-  %151 = landingpad { ptr, i32 }
+  %152 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i760) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL14base_level_strB5cxx11E) #28
   br label %lpad.body.i334
 
 lpad.i333:                                        ; preds = %call.i.noexc.i336, %__cxx_global_var_init.120.exit
-  %152 = landingpad { ptr, i32 }
+  %153 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i334
 
 lpad.body.i334:                                   ; preds = %lpad.i333, %lpad.i765
-  %eh.lpad-body.i335 = phi { ptr, i32 } [ %152, %lpad.i333 ], [ %151, %lpad.i765 ]
+  %eh.lpad-body.i335 = phi { ptr, i32 } [ %153, %lpad.i333 ], [ %152, %lpad.i765 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i331) #28
   br label %common.resume
 
 __cxx_global_var_init.122.exit:                   ; preds = %invoke.cont.i766
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i760)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i331) #28
-  %153 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL14base_level_strB5cxx11E, ptr nonnull @__dso_handle) #28
+  %154 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL14base_level_strB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i331)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i340)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i340) #28
@@ -18587,24 +18589,24 @@ call.i.noexc.i345:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.124.exit unwind label %lpad.i.i347
 
 lpad.i.i347:                                      ; preds = %.noexc.i346
-  %154 = landingpad { ptr, i32 }
+  %155 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL20total_sst_files_sizeB5cxx11E) #28
   br label %lpad.body.i343
 
 lpad.i342:                                        ; preds = %call.i.noexc.i345, %__cxx_global_var_init.122.exit
-  %155 = landingpad { ptr, i32 }
+  %156 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i343
 
 lpad.body.i343:                                   ; preds = %lpad.i342, %lpad.i.i347
-  %eh.lpad-body.i344 = phi { ptr, i32 } [ %155, %lpad.i342 ], [ %154, %lpad.i.i347 ]
+  %eh.lpad-body.i344 = phi { ptr, i32 } [ %156, %lpad.i342 ], [ %155, %lpad.i.i347 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i340) #28
   br label %common.resume
 
 __cxx_global_var_init.124.exit:                   ; preds = %.noexc.i346
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i340) #28
-  %156 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20total_sst_files_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %157 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20total_sst_files_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i340)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i349)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i349) #28
@@ -18620,24 +18622,24 @@ call.i.noexc.i354:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.126.exit unwind label %lpad.i.i356
 
 lpad.i.i356:                                      ; preds = %.noexc.i355
-  %157 = landingpad { ptr, i32 }
+  %158 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL19live_sst_files_sizeB5cxx11E) #28
   br label %lpad.body.i352
 
 lpad.i351:                                        ; preds = %call.i.noexc.i354, %__cxx_global_var_init.124.exit
-  %158 = landingpad { ptr, i32 }
+  %159 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i352
 
 lpad.body.i352:                                   ; preds = %lpad.i351, %lpad.i.i356
-  %eh.lpad-body.i353 = phi { ptr, i32 } [ %158, %lpad.i351 ], [ %157, %lpad.i.i356 ]
+  %eh.lpad-body.i353 = phi { ptr, i32 } [ %159, %lpad.i351 ], [ %158, %lpad.i.i356 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i349) #28
   br label %common.resume
 
 __cxx_global_var_init.126.exit:                   ; preds = %.noexc.i355
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i349) #28
-  %159 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19live_sst_files_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %160 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19live_sst_files_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i349)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i358)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i358) #28
@@ -18653,24 +18655,24 @@ call.i.noexc.i363:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.128.exit unwind label %lpad.i.i365
 
 lpad.i.i365:                                      ; preds = %.noexc.i364
-  %160 = landingpad { ptr, i32 }
+  %161 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23obsolete_sst_files_sizeB5cxx11E) #28
   br label %lpad.body.i361
 
 lpad.i360:                                        ; preds = %call.i.noexc.i363, %__cxx_global_var_init.126.exit
-  %161 = landingpad { ptr, i32 }
+  %162 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i361
 
 lpad.body.i361:                                   ; preds = %lpad.i360, %lpad.i.i365
-  %eh.lpad-body.i362 = phi { ptr, i32 } [ %161, %lpad.i360 ], [ %160, %lpad.i.i365 ]
+  %eh.lpad-body.i362 = phi { ptr, i32 } [ %162, %lpad.i360 ], [ %161, %lpad.i.i365 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i358) #28
   br label %common.resume
 
 __cxx_global_var_init.128.exit:                   ; preds = %.noexc.i364
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i358) #28
-  %162 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23obsolete_sst_files_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %163 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23obsolete_sst_files_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i358)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i367)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i367) #28
@@ -18686,24 +18688,24 @@ call.i.noexc.i372:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.130.exit unwind label %lpad.i.i374
 
 lpad.i.i374:                                      ; preds = %.noexc.i373
-  %163 = landingpad { ptr, i32 }
+  %164 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL34live_sst_files_size_at_temperatureB5cxx11E) #28
   br label %lpad.body.i370
 
 lpad.i369:                                        ; preds = %call.i.noexc.i372, %__cxx_global_var_init.128.exit
-  %164 = landingpad { ptr, i32 }
+  %165 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i370
 
 lpad.body.i370:                                   ; preds = %lpad.i369, %lpad.i.i374
-  %eh.lpad-body.i371 = phi { ptr, i32 } [ %164, %lpad.i369 ], [ %163, %lpad.i.i374 ]
+  %eh.lpad-body.i371 = phi { ptr, i32 } [ %165, %lpad.i369 ], [ %164, %lpad.i.i374 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i367) #28
   br label %common.resume
 
 __cxx_global_var_init.130.exit:                   ; preds = %.noexc.i373
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i367) #28
-  %165 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL34live_sst_files_size_at_temperatureB5cxx11E, ptr nonnull @__dso_handle) #28
+  %166 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL34live_sst_files_size_at_temperatureB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i367)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i376)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i376) #28
@@ -18719,24 +18721,24 @@ call.i.noexc.i381:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.132.exit unwind label %lpad.i.i383
 
 lpad.i.i383:                                      ; preds = %.noexc.i382
-  %166 = landingpad { ptr, i32 }
+  %167 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL27estimate_pending_comp_bytesB5cxx11E) #28
   br label %lpad.body.i379
 
 lpad.i378:                                        ; preds = %call.i.noexc.i381, %__cxx_global_var_init.130.exit
-  %167 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i379
 
 lpad.body.i379:                                   ; preds = %lpad.i378, %lpad.i.i383
-  %eh.lpad-body.i380 = phi { ptr, i32 } [ %167, %lpad.i378 ], [ %166, %lpad.i.i383 ]
+  %eh.lpad-body.i380 = phi { ptr, i32 } [ %168, %lpad.i378 ], [ %167, %lpad.i.i383 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i376) #28
   br label %common.resume
 
 __cxx_global_var_init.132.exit:                   ; preds = %.noexc.i382
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i376) #28
-  %168 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL27estimate_pending_comp_bytesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %169 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL27estimate_pending_comp_bytesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i376)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i385)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i385) #28
@@ -18752,37 +18754,37 @@ call.i.noexc.i390:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.134.exit unwind label %lpad.i.i392
 
 lpad.i.i392:                                      ; preds = %.noexc.i391
-  %169 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL27aggregated_table_propertiesB5cxx11E) #28
   br label %lpad.body.i388
 
 lpad.i387:                                        ; preds = %call.i.noexc.i390, %__cxx_global_var_init.132.exit
-  %170 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i388
 
 lpad.body.i388:                                   ; preds = %lpad.i387, %lpad.i.i392
-  %eh.lpad-body.i389 = phi { ptr, i32 } [ %170, %lpad.i387 ], [ %169, %lpad.i.i392 ]
+  %eh.lpad-body.i389 = phi { ptr, i32 } [ %171, %lpad.i387 ], [ %170, %lpad.i.i392 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i385) #28
   br label %common.resume
 
 __cxx_global_var_init.134.exit:                   ; preds = %.noexc.i391
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i385) #28
-  %171 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL27aggregated_table_propertiesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %172 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL27aggregated_table_propertiesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i385)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL36aggregated_table_properties_at_levelB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL27aggregated_table_propertiesB5cxx11E)
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL36aggregated_table_properties_at_levelB5cxx11E, ptr noundef nonnull @.str.137)
           to label %__cxx_global_var_init.136.exit unwind label %lpad.i.i394
 
 lpad.i.i394:                                      ; preds = %__cxx_global_var_init.134.exit
-  %172 = landingpad { ptr, i32 }
+  %173 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL36aggregated_table_properties_at_levelB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.136.exit:                   ; preds = %__cxx_global_var_init.134.exit
-  %173 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL36aggregated_table_properties_at_levelB5cxx11E, ptr nonnull @__dso_handle) #28
+  %174 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL36aggregated_table_properties_at_levelB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i395)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i395) #28
   %call.i1.i396 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23num_running_compactionsB5cxx11E)
@@ -18797,24 +18799,24 @@ call.i.noexc.i400:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.138.exit unwind label %lpad.i.i402
 
 lpad.i.i402:                                      ; preds = %.noexc.i401
-  %174 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23num_running_compactionsB5cxx11E) #28
   br label %lpad.body.i398
 
 lpad.i397:                                        ; preds = %call.i.noexc.i400, %__cxx_global_var_init.136.exit
-  %175 = landingpad { ptr, i32 }
+  %176 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i398
 
 lpad.body.i398:                                   ; preds = %lpad.i397, %lpad.i.i402
-  %eh.lpad-body.i399 = phi { ptr, i32 } [ %175, %lpad.i397 ], [ %174, %lpad.i.i402 ]
+  %eh.lpad-body.i399 = phi { ptr, i32 } [ %176, %lpad.i397 ], [ %175, %lpad.i.i402 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i395) #28
   br label %common.resume
 
 __cxx_global_var_init.138.exit:                   ; preds = %.noexc.i401
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i395) #28
-  %176 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23num_running_compactionsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %177 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23num_running_compactionsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i395)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i404)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i404) #28
@@ -18830,24 +18832,24 @@ call.i.noexc.i409:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.140.exit unwind label %lpad.i.i411
 
 lpad.i.i411:                                      ; preds = %.noexc.i410
-  %177 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL19num_running_flushesB5cxx11E) #28
   br label %lpad.body.i407
 
 lpad.i406:                                        ; preds = %call.i.noexc.i409, %__cxx_global_var_init.138.exit
-  %178 = landingpad { ptr, i32 }
+  %179 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i407
 
 lpad.body.i407:                                   ; preds = %lpad.i406, %lpad.i.i411
-  %eh.lpad-body.i408 = phi { ptr, i32 } [ %178, %lpad.i406 ], [ %177, %lpad.i.i411 ]
+  %eh.lpad-body.i408 = phi { ptr, i32 } [ %179, %lpad.i406 ], [ %178, %lpad.i.i411 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i404) #28
   br label %common.resume
 
 __cxx_global_var_init.140.exit:                   ; preds = %.noexc.i410
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i404) #28
-  %179 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19num_running_flushesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %180 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19num_running_flushesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i404)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i413)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i413) #28
@@ -18863,24 +18865,24 @@ call.i.noexc.i418:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.142.exit unwind label %lpad.i.i420
 
 lpad.i.i420:                                      ; preds = %.noexc.i419
-  %180 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL25actual_delayed_write_rateB5cxx11E) #28
   br label %lpad.body.i416
 
 lpad.i415:                                        ; preds = %call.i.noexc.i418, %__cxx_global_var_init.140.exit
-  %181 = landingpad { ptr, i32 }
+  %182 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i416
 
 lpad.body.i416:                                   ; preds = %lpad.i415, %lpad.i.i420
-  %eh.lpad-body.i417 = phi { ptr, i32 } [ %181, %lpad.i415 ], [ %180, %lpad.i.i420 ]
+  %eh.lpad-body.i417 = phi { ptr, i32 } [ %182, %lpad.i415 ], [ %181, %lpad.i.i420 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i413) #28
   br label %common.resume
 
 __cxx_global_var_init.142.exit:                   ; preds = %.noexc.i419
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i413) #28
-  %182 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25actual_delayed_write_rateB5cxx11E, ptr nonnull @__dso_handle) #28
+  %183 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL25actual_delayed_write_rateB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i413)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i422)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i422) #28
@@ -18896,24 +18898,24 @@ call.i.noexc.i427:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.144.exit unwind label %lpad.i.i429
 
 lpad.i.i429:                                      ; preds = %.noexc.i428
-  %183 = landingpad { ptr, i32 }
+  %184 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL16is_write_stoppedB5cxx11E) #28
   br label %lpad.body.i425
 
 lpad.i424:                                        ; preds = %call.i.noexc.i427, %__cxx_global_var_init.142.exit
-  %184 = landingpad { ptr, i32 }
+  %185 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i425
 
 lpad.body.i425:                                   ; preds = %lpad.i424, %lpad.i.i429
-  %eh.lpad-body.i426 = phi { ptr, i32 } [ %184, %lpad.i424 ], [ %183, %lpad.i.i429 ]
+  %eh.lpad-body.i426 = phi { ptr, i32 } [ %185, %lpad.i424 ], [ %184, %lpad.i.i429 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i422) #28
   br label %common.resume
 
 __cxx_global_var_init.144.exit:                   ; preds = %.noexc.i428
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i422) #28
-  %185 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL16is_write_stoppedB5cxx11E, ptr nonnull @__dso_handle) #28
+  %186 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL16is_write_stoppedB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i422)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i431)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i431) #28
@@ -18929,24 +18931,24 @@ call.i.noexc.i436:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.146.exit unwind label %lpad.i.i438
 
 lpad.i.i438:                                      ; preds = %.noexc.i437
-  %186 = landingpad { ptr, i32 }
+  %187 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL24estimate_oldest_key_timeB5cxx11E) #28
   br label %lpad.body.i434
 
 lpad.i433:                                        ; preds = %call.i.noexc.i436, %__cxx_global_var_init.144.exit
-  %187 = landingpad { ptr, i32 }
+  %188 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i434
 
 lpad.body.i434:                                   ; preds = %lpad.i433, %lpad.i.i438
-  %eh.lpad-body.i435 = phi { ptr, i32 } [ %187, %lpad.i433 ], [ %186, %lpad.i.i438 ]
+  %eh.lpad-body.i435 = phi { ptr, i32 } [ %188, %lpad.i433 ], [ %187, %lpad.i.i438 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i431) #28
   br label %common.resume
 
 __cxx_global_var_init.146.exit:                   ; preds = %.noexc.i437
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i431) #28
-  %188 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL24estimate_oldest_key_timeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %189 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL24estimate_oldest_key_timeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i431)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i440)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i440) #28
@@ -18962,24 +18964,24 @@ call.i.noexc.i445:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.148.exit unwind label %lpad.i.i447
 
 lpad.i.i447:                                      ; preds = %.noexc.i446
-  %189 = landingpad { ptr, i32 }
+  %190 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL20block_cache_capacityB5cxx11E) #28
   br label %lpad.body.i443
 
 lpad.i442:                                        ; preds = %call.i.noexc.i445, %__cxx_global_var_init.146.exit
-  %190 = landingpad { ptr, i32 }
+  %191 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i443
 
 lpad.body.i443:                                   ; preds = %lpad.i442, %lpad.i.i447
-  %eh.lpad-body.i444 = phi { ptr, i32 } [ %190, %lpad.i442 ], [ %189, %lpad.i.i447 ]
+  %eh.lpad-body.i444 = phi { ptr, i32 } [ %191, %lpad.i442 ], [ %190, %lpad.i.i447 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i440) #28
   br label %common.resume
 
 __cxx_global_var_init.148.exit:                   ; preds = %.noexc.i446
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i440) #28
-  %191 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20block_cache_capacityB5cxx11E, ptr nonnull @__dso_handle) #28
+  %192 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20block_cache_capacityB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i440)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i449)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i449) #28
@@ -18995,24 +18997,24 @@ call.i.noexc.i454:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.150.exit unwind label %lpad.i.i456
 
 lpad.i.i456:                                      ; preds = %.noexc.i455
-  %192 = landingpad { ptr, i32 }
+  %193 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL17block_cache_usageB5cxx11E) #28
   br label %lpad.body.i452
 
 lpad.i451:                                        ; preds = %call.i.noexc.i454, %__cxx_global_var_init.148.exit
-  %193 = landingpad { ptr, i32 }
+  %194 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i452
 
 lpad.body.i452:                                   ; preds = %lpad.i451, %lpad.i.i456
-  %eh.lpad-body.i453 = phi { ptr, i32 } [ %193, %lpad.i451 ], [ %192, %lpad.i.i456 ]
+  %eh.lpad-body.i453 = phi { ptr, i32 } [ %194, %lpad.i451 ], [ %193, %lpad.i.i456 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i449) #28
   br label %common.resume
 
 __cxx_global_var_init.150.exit:                   ; preds = %.noexc.i455
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i449) #28
-  %194 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17block_cache_usageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %195 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL17block_cache_usageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i449)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i458)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i458) #28
@@ -19028,24 +19030,24 @@ call.i.noexc.i463:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.152.exit unwind label %lpad.i.i465
 
 lpad.i.i465:                                      ; preds = %.noexc.i464
-  %195 = landingpad { ptr, i32 }
+  %196 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL24block_cache_pinned_usageB5cxx11E) #28
   br label %lpad.body.i461
 
 lpad.i460:                                        ; preds = %call.i.noexc.i463, %__cxx_global_var_init.150.exit
-  %196 = landingpad { ptr, i32 }
+  %197 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i461
 
 lpad.body.i461:                                   ; preds = %lpad.i460, %lpad.i.i465
-  %eh.lpad-body.i462 = phi { ptr, i32 } [ %196, %lpad.i460 ], [ %195, %lpad.i.i465 ]
+  %eh.lpad-body.i462 = phi { ptr, i32 } [ %197, %lpad.i460 ], [ %196, %lpad.i.i465 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i458) #28
   br label %common.resume
 
 __cxx_global_var_init.152.exit:                   ; preds = %.noexc.i464
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i458) #28
-  %197 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL24block_cache_pinned_usageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %198 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL24block_cache_pinned_usageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i458)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i467)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i467) #28
@@ -19061,24 +19063,24 @@ call.i.noexc.i472:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.154.exit unwind label %lpad.i.i474
 
 lpad.i.i474:                                      ; preds = %.noexc.i473
-  %198 = landingpad { ptr, i32 }
+  %199 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL18options_statisticsB5cxx11E) #28
   br label %lpad.body.i470
 
 lpad.i469:                                        ; preds = %call.i.noexc.i472, %__cxx_global_var_init.152.exit
-  %199 = landingpad { ptr, i32 }
+  %200 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i470
 
 lpad.body.i470:                                   ; preds = %lpad.i469, %lpad.i.i474
-  %eh.lpad-body.i471 = phi { ptr, i32 } [ %199, %lpad.i469 ], [ %198, %lpad.i.i474 ]
+  %eh.lpad-body.i471 = phi { ptr, i32 } [ %200, %lpad.i469 ], [ %199, %lpad.i.i474 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i467) #28
   br label %common.resume
 
 __cxx_global_var_init.154.exit:                   ; preds = %.noexc.i473
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i467) #28
-  %200 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL18options_statisticsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %201 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL18options_statisticsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i467)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i476)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i476) #28
@@ -19095,10 +19097,10 @@ call.i.noexc.i481:                                ; preds = %__cxx_global_var_in
           to label %if.end.i773 unwind label %terminate.lpad.i.i772
 
 terminate.lpad.i.i772:                            ; preds = %.noexc.i482
-  %201 = landingpad { ptr, i32 }
+  %202 = landingpad { ptr, i32 }
           catch ptr null
-  %202 = extractvalue { ptr, i32 } %201, 0
-  call void @__clang_call_terminate(ptr %202) #31
+  %203 = extractvalue { ptr, i32 } %202, 0
+  call void @__clang_call_terminate(ptr %203) #31
   unreachable
 
 if.end.i773:                                      ; preds = %.noexc.i482
@@ -19113,26 +19115,26 @@ invoke.cont.i776:                                 ; preds = %if.end.i773
           to label %__cxx_global_var_init.156.exit unwind label %lpad.i775
 
 lpad.i775:                                        ; preds = %invoke.cont.i776, %if.end.i773
-  %203 = landingpad { ptr, i32 }
+  %204 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i770) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL14num_blob_filesB5cxx11E) #28
   br label %lpad.body.i479
 
 lpad.i478:                                        ; preds = %call.i.noexc.i481, %__cxx_global_var_init.154.exit
-  %204 = landingpad { ptr, i32 }
+  %205 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i479
 
 lpad.body.i479:                                   ; preds = %lpad.i478, %lpad.i775
-  %eh.lpad-body.i480 = phi { ptr, i32 } [ %204, %lpad.i478 ], [ %203, %lpad.i775 ]
+  %eh.lpad-body.i480 = phi { ptr, i32 } [ %205, %lpad.i478 ], [ %204, %lpad.i775 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i476) #28
   br label %common.resume
 
 __cxx_global_var_init.156.exit:                   ; preds = %invoke.cont.i776
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i770)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i476) #28
-  %205 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL14num_blob_filesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %206 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL14num_blob_filesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i476)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i485)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i485) #28
@@ -19149,10 +19151,10 @@ call.i.noexc.i490:                                ; preds = %__cxx_global_var_in
           to label %if.end.i783 unwind label %terminate.lpad.i.i782
 
 terminate.lpad.i.i782:                            ; preds = %.noexc.i491
-  %206 = landingpad { ptr, i32 }
+  %207 = landingpad { ptr, i32 }
           catch ptr null
-  %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #31
+  %208 = extractvalue { ptr, i32 } %207, 0
+  call void @__clang_call_terminate(ptr %208) #31
   unreachable
 
 if.end.i783:                                      ; preds = %.noexc.i491
@@ -19167,26 +19169,26 @@ invoke.cont.i786:                                 ; preds = %if.end.i783
           to label %__cxx_global_var_init.158.exit unwind label %lpad.i785
 
 lpad.i785:                                        ; preds = %invoke.cont.i786, %if.end.i783
-  %208 = landingpad { ptr, i32 }
+  %209 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i780) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL10blob_statsB5cxx11E) #28
   br label %lpad.body.i488
 
 lpad.i487:                                        ; preds = %call.i.noexc.i490, %__cxx_global_var_init.156.exit
-  %209 = landingpad { ptr, i32 }
+  %210 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i488
 
 lpad.body.i488:                                   ; preds = %lpad.i487, %lpad.i785
-  %eh.lpad-body.i489 = phi { ptr, i32 } [ %209, %lpad.i487 ], [ %208, %lpad.i785 ]
+  %eh.lpad-body.i489 = phi { ptr, i32 } [ %210, %lpad.i487 ], [ %209, %lpad.i785 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i485) #28
   br label %common.resume
 
 __cxx_global_var_init.158.exit:                   ; preds = %invoke.cont.i786
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i780)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i485) #28
-  %210 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL10blob_statsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %211 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL10blob_statsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i485)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i494)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i494) #28
@@ -19202,24 +19204,24 @@ call.i.noexc.i499:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.160.exit unwind label %lpad.i.i501
 
 lpad.i.i501:                                      ; preds = %.noexc.i500
-  %211 = landingpad { ptr, i32 }
+  %212 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL20total_blob_file_sizeB5cxx11E) #28
   br label %lpad.body.i497
 
 lpad.i496:                                        ; preds = %call.i.noexc.i499, %__cxx_global_var_init.158.exit
-  %212 = landingpad { ptr, i32 }
+  %213 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i497
 
 lpad.body.i497:                                   ; preds = %lpad.i496, %lpad.i.i501
-  %eh.lpad-body.i498 = phi { ptr, i32 } [ %212, %lpad.i496 ], [ %211, %lpad.i.i501 ]
+  %eh.lpad-body.i498 = phi { ptr, i32 } [ %213, %lpad.i496 ], [ %212, %lpad.i.i501 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i494) #28
   br label %common.resume
 
 __cxx_global_var_init.160.exit:                   ; preds = %.noexc.i500
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i494) #28
-  %213 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20total_blob_file_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %214 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL20total_blob_file_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i494)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i503)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i503) #28
@@ -19235,24 +19237,24 @@ call.i.noexc.i508:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.162.exit unwind label %lpad.i.i510
 
 lpad.i.i510:                                      ; preds = %.noexc.i509
-  %214 = landingpad { ptr, i32 }
+  %215 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL19live_blob_file_sizeB5cxx11E) #28
   br label %lpad.body.i506
 
 lpad.i505:                                        ; preds = %call.i.noexc.i508, %__cxx_global_var_init.160.exit
-  %215 = landingpad { ptr, i32 }
+  %216 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i506
 
 lpad.body.i506:                                   ; preds = %lpad.i505, %lpad.i.i510
-  %eh.lpad-body.i507 = phi { ptr, i32 } [ %215, %lpad.i505 ], [ %214, %lpad.i.i510 ]
+  %eh.lpad-body.i507 = phi { ptr, i32 } [ %216, %lpad.i505 ], [ %215, %lpad.i.i510 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i503) #28
   br label %common.resume
 
 __cxx_global_var_init.162.exit:                   ; preds = %.noexc.i509
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i503) #28
-  %216 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19live_blob_file_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %217 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19live_blob_file_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i503)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i512)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i512) #28
@@ -19268,24 +19270,24 @@ call.i.noexc.i517:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.164.exit unwind label %lpad.i.i519
 
 lpad.i.i519:                                      ; preds = %.noexc.i518
-  %217 = landingpad { ptr, i32 }
+  %218 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL27live_blob_file_garbage_sizeB5cxx11E) #28
   br label %lpad.body.i515
 
 lpad.i514:                                        ; preds = %call.i.noexc.i517, %__cxx_global_var_init.162.exit
-  %218 = landingpad { ptr, i32 }
+  %219 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i515
 
 lpad.body.i515:                                   ; preds = %lpad.i514, %lpad.i.i519
-  %eh.lpad-body.i516 = phi { ptr, i32 } [ %218, %lpad.i514 ], [ %217, %lpad.i.i519 ]
+  %eh.lpad-body.i516 = phi { ptr, i32 } [ %219, %lpad.i514 ], [ %218, %lpad.i.i519 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i512) #28
   br label %common.resume
 
 __cxx_global_var_init.164.exit:                   ; preds = %.noexc.i518
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i512) #28
-  %219 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL27live_blob_file_garbage_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %220 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL27live_blob_file_garbage_sizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i512)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i521)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i521) #28
@@ -19301,24 +19303,24 @@ call.i.noexc.i526:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.166.exit unwind label %lpad.i.i528
 
 lpad.i.i528:                                      ; preds = %.noexc.i527
-  %220 = landingpad { ptr, i32 }
+  %221 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL19blob_cache_capacityB5cxx11E) #28
   br label %lpad.body.i524
 
 lpad.i523:                                        ; preds = %call.i.noexc.i526, %__cxx_global_var_init.164.exit
-  %221 = landingpad { ptr, i32 }
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i524
 
 lpad.body.i524:                                   ; preds = %lpad.i523, %lpad.i.i528
-  %eh.lpad-body.i525 = phi { ptr, i32 } [ %221, %lpad.i523 ], [ %220, %lpad.i.i528 ]
+  %eh.lpad-body.i525 = phi { ptr, i32 } [ %222, %lpad.i523 ], [ %221, %lpad.i.i528 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i521) #28
   br label %common.resume
 
 __cxx_global_var_init.166.exit:                   ; preds = %.noexc.i527
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i521) #28
-  %222 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19blob_cache_capacityB5cxx11E, ptr nonnull @__dso_handle) #28
+  %223 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL19blob_cache_capacityB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i521)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i530)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i530) #28
@@ -19334,24 +19336,24 @@ call.i.noexc.i535:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.168.exit unwind label %lpad.i.i537
 
 lpad.i.i537:                                      ; preds = %.noexc.i536
-  %223 = landingpad { ptr, i32 }
+  %224 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL16blob_cache_usageB5cxx11E) #28
   br label %lpad.body.i533
 
 lpad.i532:                                        ; preds = %call.i.noexc.i535, %__cxx_global_var_init.166.exit
-  %224 = landingpad { ptr, i32 }
+  %225 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i533
 
 lpad.body.i533:                                   ; preds = %lpad.i532, %lpad.i.i537
-  %eh.lpad-body.i534 = phi { ptr, i32 } [ %224, %lpad.i532 ], [ %223, %lpad.i.i537 ]
+  %eh.lpad-body.i534 = phi { ptr, i32 } [ %225, %lpad.i532 ], [ %224, %lpad.i.i537 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i530) #28
   br label %common.resume
 
 __cxx_global_var_init.168.exit:                   ; preds = %.noexc.i536
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i530) #28
-  %225 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL16blob_cache_usageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %226 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL16blob_cache_usageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i530)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i539)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i539) #28
@@ -19367,769 +19369,769 @@ call.i.noexc.i544:                                ; preds = %__cxx_global_var_in
           to label %__cxx_global_var_init.170.exit unwind label %lpad.i.i546
 
 lpad.i.i546:                                      ; preds = %.noexc.i545
-  %226 = landingpad { ptr, i32 }
+  %227 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdbL23blob_cache_pinned_usageB5cxx11E) #28
   br label %lpad.body.i542
 
 lpad.i541:                                        ; preds = %call.i.noexc.i544, %__cxx_global_var_init.168.exit
-  %227 = landingpad { ptr, i32 }
+  %228 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i542
 
 lpad.body.i542:                                   ; preds = %lpad.i541, %lpad.i.i546
-  %eh.lpad-body.i543 = phi { ptr, i32 } [ %227, %lpad.i541 ], [ %226, %lpad.i.i546 ]
+  %eh.lpad-body.i543 = phi { ptr, i32 } [ %228, %lpad.i541 ], [ %227, %lpad.i.i546 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i539) #28
   br label %common.resume
 
 __cxx_global_var_init.170.exit:                   ; preds = %.noexc.i545
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i539) #28
-  %228 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23blob_cache_pinned_usageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %229 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdbL23blob_cache_pinned_usageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i539)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kNumFilesAtLevelPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i548 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kNumFilesAtLevelPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL25num_files_at_level_prefixB5cxx11E)
           to label %__cxx_global_var_init.172.exit unwind label %lpad.i.i549
 
 lpad.i.i549:                                      ; preds = %__cxx_global_var_init.170.exit
-  %229 = landingpad { ptr, i32 }
+  %230 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kNumFilesAtLevelPrefixB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.172.exit:                   ; preds = %__cxx_global_var_init.170.exit
-  %230 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kNumFilesAtLevelPrefixB5cxx11E, ptr nonnull @__dso_handle) #28
+  %231 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kNumFilesAtLevelPrefixB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties30kCompressionRatioAtLevelPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i550 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties30kCompressionRatioAtLevelPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL33compression_ratio_at_level_prefixB5cxx11E)
           to label %__cxx_global_var_init.173.exit unwind label %lpad.i.i551
 
 lpad.i.i551:                                      ; preds = %__cxx_global_var_init.172.exit
-  %231 = landingpad { ptr, i32 }
+  %232 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties30kCompressionRatioAtLevelPrefixB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.173.exit:                   ; preds = %__cxx_global_var_init.172.exit
-  %232 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties30kCompressionRatioAtLevelPrefixB5cxx11E, ptr nonnull @__dso_handle) #28
+  %233 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties30kCompressionRatioAtLevelPrefixB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties6kStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i552 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties6kStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL8allstatsB5cxx11E)
           to label %__cxx_global_var_init.174.exit unwind label %lpad.i.i553
 
 lpad.i.i553:                                      ; preds = %__cxx_global_var_init.173.exit
-  %233 = landingpad { ptr, i32 }
+  %234 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties6kStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.174.exit:                   ; preds = %__cxx_global_var_init.173.exit
-  %234 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties6kStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %235 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties6kStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties9kSSTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i554 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties9kSSTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL8sstablesB5cxx11E)
           to label %__cxx_global_var_init.175.exit unwind label %lpad.i.i555
 
 lpad.i.i555:                                      ; preds = %__cxx_global_var_init.174.exit
-  %235 = landingpad { ptr, i32 }
+  %236 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties9kSSTablesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.175.exit:                   ; preds = %__cxx_global_var_init.174.exit
-  %236 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties9kSSTablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %237 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties9kSSTablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kCFStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i556 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kCFStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL7cfstatsB5cxx11E)
           to label %__cxx_global_var_init.176.exit unwind label %lpad.i.i557
 
 lpad.i.i557:                                      ; preds = %__cxx_global_var_init.175.exit
-  %237 = landingpad { ptr, i32 }
+  %238 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kCFStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.176.exit:                   ; preds = %__cxx_global_var_init.175.exit
-  %238 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties8kCFStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %239 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties8kCFStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kCFStatsNoFileHistogramB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i558 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kCFStatsNoFileHistogramB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL25cfstats_no_file_histogramB5cxx11E)
           to label %__cxx_global_var_init.177.exit unwind label %lpad.i.i559
 
 lpad.i.i559:                                      ; preds = %__cxx_global_var_init.176.exit
-  %239 = landingpad { ptr, i32 }
+  %240 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kCFStatsNoFileHistogramB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.177.exit:                   ; preds = %__cxx_global_var_init.176.exit
-  %240 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kCFStatsNoFileHistogramB5cxx11E, ptr nonnull @__dso_handle) #28
+  %241 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kCFStatsNoFileHistogramB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kCFFileHistogramB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i560 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kCFFileHistogramB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL17cf_file_histogramB5cxx11E)
           to label %__cxx_global_var_init.178.exit unwind label %lpad.i.i561
 
 lpad.i.i561:                                      ; preds = %__cxx_global_var_init.177.exit
-  %241 = landingpad { ptr, i32 }
+  %242 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kCFFileHistogramB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.178.exit:                   ; preds = %__cxx_global_var_init.177.exit
-  %242 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kCFFileHistogramB5cxx11E, ptr nonnull @__dso_handle) #28
+  %243 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kCFFileHistogramB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kCFWriteStallStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i562 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kCFWriteStallStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL20cf_write_stall_statsB5cxx11E)
           to label %__cxx_global_var_init.179.exit unwind label %lpad.i.i563
 
 lpad.i.i563:                                      ; preds = %__cxx_global_var_init.178.exit
-  %243 = landingpad { ptr, i32 }
+  %244 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kCFWriteStallStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.179.exit:                   ; preds = %__cxx_global_var_init.178.exit
-  %244 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kCFWriteStallStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %245 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kCFWriteStallStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kDBWriteStallStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i564 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kDBWriteStallStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL20db_write_stall_statsB5cxx11E)
           to label %__cxx_global_var_init.180.exit unwind label %lpad.i.i565
 
 lpad.i.i565:                                      ; preds = %__cxx_global_var_init.179.exit
-  %245 = landingpad { ptr, i32 }
+  %246 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kDBWriteStallStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.180.exit:                   ; preds = %__cxx_global_var_init.179.exit
-  %246 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kDBWriteStallStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %247 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kDBWriteStallStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kDBStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i566 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kDBStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL7dbstatsB5cxx11E)
           to label %__cxx_global_var_init.181.exit unwind label %lpad.i.i567
 
 lpad.i.i567:                                      ; preds = %__cxx_global_var_init.180.exit
-  %247 = landingpad { ptr, i32 }
+  %248 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kDBStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.181.exit:                   ; preds = %__cxx_global_var_init.180.exit
-  %248 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties8kDBStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %249 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties8kDBStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties11kLevelStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i568 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties11kLevelStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL10levelstatsB5cxx11E)
           to label %__cxx_global_var_init.182.exit unwind label %lpad.i.i569
 
 lpad.i.i569:                                      ; preds = %__cxx_global_var_init.181.exit
-  %249 = landingpad { ptr, i32 }
+  %250 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties11kLevelStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.182.exit:                   ; preds = %__cxx_global_var_init.181.exit
-  %250 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties11kLevelStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %251 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties11kLevelStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kBlockCacheEntryStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i570 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kBlockCacheEntryStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23block_cache_entry_statsB5cxx11E)
           to label %__cxx_global_var_init.183.exit unwind label %lpad.i.i571
 
 lpad.i.i571:                                      ; preds = %__cxx_global_var_init.182.exit
-  %251 = landingpad { ptr, i32 }
+  %252 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kBlockCacheEntryStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.183.exit:                   ; preds = %__cxx_global_var_init.182.exit
-  %252 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kBlockCacheEntryStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %253 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kBlockCacheEntryStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kFastBlockCacheEntryStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i572 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kFastBlockCacheEntryStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL28fast_block_cache_entry_statsB5cxx11E)
           to label %__cxx_global_var_init.184.exit unwind label %lpad.i.i573
 
 lpad.i.i573:                                      ; preds = %__cxx_global_var_init.183.exit
-  %253 = landingpad { ptr, i32 }
+  %254 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kFastBlockCacheEntryStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.184.exit:                   ; preds = %__cxx_global_var_init.183.exit
-  %254 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties25kFastBlockCacheEntryStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %255 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties25kFastBlockCacheEntryStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kNumImmutableMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i574 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kNumImmutableMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23num_immutable_mem_tableB5cxx11E)
           to label %__cxx_global_var_init.185.exit unwind label %lpad.i.i575
 
 lpad.i.i575:                                      ; preds = %__cxx_global_var_init.184.exit
-  %255 = landingpad { ptr, i32 }
+  %256 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kNumImmutableMemTableB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.185.exit:                   ; preds = %__cxx_global_var_init.184.exit
-  %256 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kNumImmutableMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %257 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kNumImmutableMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties28kNumImmutableMemTableFlushedB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i576 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties28kNumImmutableMemTableFlushedB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL31num_immutable_mem_table_flushedB5cxx11E)
           to label %__cxx_global_var_init.186.exit unwind label %lpad.i.i577
 
 lpad.i.i577:                                      ; preds = %__cxx_global_var_init.185.exit
-  %257 = landingpad { ptr, i32 }
+  %258 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties28kNumImmutableMemTableFlushedB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.186.exit:                   ; preds = %__cxx_global_var_init.185.exit
-  %258 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties28kNumImmutableMemTableFlushedB5cxx11E, ptr nonnull @__dso_handle) #28
+  %259 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties28kNumImmutableMemTableFlushedB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kMemTableFlushPendingB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i578 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kMemTableFlushPendingB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23mem_table_flush_pendingB5cxx11E)
           to label %__cxx_global_var_init.187.exit unwind label %lpad.i.i579
 
 lpad.i.i579:                                      ; preds = %__cxx_global_var_init.186.exit
-  %259 = landingpad { ptr, i32 }
+  %260 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kMemTableFlushPendingB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.187.exit:                   ; preds = %__cxx_global_var_init.186.exit
-  %260 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kMemTableFlushPendingB5cxx11E, ptr nonnull @__dso_handle) #28
+  %261 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kMemTableFlushPendingB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kCompactionPendingB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i580 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kCompactionPendingB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL18compaction_pendingB5cxx11E)
           to label %__cxx_global_var_init.188.exit unwind label %lpad.i.i581
 
 lpad.i.i581:                                      ; preds = %__cxx_global_var_init.187.exit
-  %261 = landingpad { ptr, i32 }
+  %262 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kCompactionPendingB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.188.exit:                   ; preds = %__cxx_global_var_init.187.exit
-  %262 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kCompactionPendingB5cxx11E, ptr nonnull @__dso_handle) #28
+  %263 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kCompactionPendingB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kNumRunningCompactionsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i582 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kNumRunningCompactionsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23num_running_compactionsB5cxx11E)
           to label %__cxx_global_var_init.189.exit unwind label %lpad.i.i583
 
 lpad.i.i583:                                      ; preds = %__cxx_global_var_init.188.exit
-  %263 = landingpad { ptr, i32 }
+  %264 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kNumRunningCompactionsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.189.exit:                   ; preds = %__cxx_global_var_init.188.exit
-  %264 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kNumRunningCompactionsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %265 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kNumRunningCompactionsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kNumRunningFlushesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i584 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kNumRunningFlushesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL19num_running_flushesB5cxx11E)
           to label %__cxx_global_var_init.190.exit unwind label %lpad.i.i585
 
 lpad.i.i585:                                      ; preds = %__cxx_global_var_init.189.exit
-  %265 = landingpad { ptr, i32 }
+  %266 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kNumRunningFlushesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.190.exit:                   ; preds = %__cxx_global_var_init.189.exit
-  %266 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kNumRunningFlushesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %267 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kNumRunningFlushesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kBackgroundErrorsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i586 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kBackgroundErrorsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL17background_errorsB5cxx11E)
           to label %__cxx_global_var_init.191.exit unwind label %lpad.i.i587
 
 lpad.i.i587:                                      ; preds = %__cxx_global_var_init.190.exit
-  %267 = landingpad { ptr, i32 }
+  %268 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kBackgroundErrorsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.191.exit:                   ; preds = %__cxx_global_var_init.190.exit
-  %268 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kBackgroundErrorsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %269 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kBackgroundErrorsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kCurSizeActiveMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i588 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kCurSizeActiveMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL25cur_size_active_mem_tableB5cxx11E)
           to label %__cxx_global_var_init.192.exit unwind label %lpad.i.i589
 
 lpad.i.i589:                                      ; preds = %__cxx_global_var_init.191.exit
-  %269 = landingpad { ptr, i32 }
+  %270 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kCurSizeActiveMemTableB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.192.exit:                   ; preds = %__cxx_global_var_init.191.exit
-  %270 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kCurSizeActiveMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %271 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kCurSizeActiveMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties20kCurSizeAllMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i590 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties20kCurSizeAllMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23cur_size_all_mem_tablesB5cxx11E)
           to label %__cxx_global_var_init.193.exit unwind label %lpad.i.i591
 
 lpad.i.i591:                                      ; preds = %__cxx_global_var_init.192.exit
-  %271 = landingpad { ptr, i32 }
+  %272 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties20kCurSizeAllMemTablesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.193.exit:                   ; preds = %__cxx_global_var_init.192.exit
-  %272 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties20kCurSizeAllMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %273 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties20kCurSizeAllMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kSizeAllMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i592 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kSizeAllMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL19size_all_mem_tablesB5cxx11E)
           to label %__cxx_global_var_init.194.exit unwind label %lpad.i.i593
 
 lpad.i.i593:                                      ; preds = %__cxx_global_var_init.193.exit
-  %273 = landingpad { ptr, i32 }
+  %274 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kSizeAllMemTablesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.194.exit:                   ; preds = %__cxx_global_var_init.193.exit
-  %274 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kSizeAllMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %275 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kSizeAllMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kNumEntriesActiveMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i594 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kNumEntriesActiveMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL28num_entries_active_mem_tableB5cxx11E)
           to label %__cxx_global_var_init.195.exit unwind label %lpad.i.i595
 
 lpad.i.i595:                                      ; preds = %__cxx_global_var_init.194.exit
-  %275 = landingpad { ptr, i32 }
+  %276 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kNumEntriesActiveMemTableB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.195.exit:                   ; preds = %__cxx_global_var_init.194.exit
-  %276 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties25kNumEntriesActiveMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %277 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties25kNumEntriesActiveMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kNumEntriesImmMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i596 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kNumEntriesImmMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL26num_entries_imm_mem_tablesB5cxx11E)
           to label %__cxx_global_var_init.196.exit unwind label %lpad.i.i597
 
 lpad.i.i597:                                      ; preds = %__cxx_global_var_init.195.exit
-  %277 = landingpad { ptr, i32 }
+  %278 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kNumEntriesImmMemTablesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.196.exit:                   ; preds = %__cxx_global_var_init.195.exit
-  %278 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kNumEntriesImmMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %279 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kNumEntriesImmMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kNumDeletesActiveMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i598 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kNumDeletesActiveMemTableB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL28num_deletes_active_mem_tableB5cxx11E)
           to label %__cxx_global_var_init.197.exit unwind label %lpad.i.i599
 
 lpad.i.i599:                                      ; preds = %__cxx_global_var_init.196.exit
-  %279 = landingpad { ptr, i32 }
+  %280 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties25kNumDeletesActiveMemTableB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.197.exit:                   ; preds = %__cxx_global_var_init.196.exit
-  %280 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties25kNumDeletesActiveMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
+  %281 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties25kNumDeletesActiveMemTableB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kNumDeletesImmMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i600 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kNumDeletesImmMemTablesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL26num_deletes_imm_mem_tablesB5cxx11E)
           to label %__cxx_global_var_init.198.exit unwind label %lpad.i.i601
 
 lpad.i.i601:                                      ; preds = %__cxx_global_var_init.197.exit
-  %281 = landingpad { ptr, i32 }
+  %282 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kNumDeletesImmMemTablesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.198.exit:                   ; preds = %__cxx_global_var_init.197.exit
-  %282 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kNumDeletesImmMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %283 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kNumDeletesImmMemTablesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kEstimateNumKeysB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i602 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kEstimateNumKeysB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL17estimate_num_keysB5cxx11E)
           to label %__cxx_global_var_init.199.exit unwind label %lpad.i.i603
 
 lpad.i.i603:                                      ; preds = %__cxx_global_var_init.198.exit
-  %283 = landingpad { ptr, i32 }
+  %284 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kEstimateNumKeysB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.199.exit:                   ; preds = %__cxx_global_var_init.198.exit
-  %284 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kEstimateNumKeysB5cxx11E, ptr nonnull @__dso_handle) #28
+  %285 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kEstimateNumKeysB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties24kEstimateTableReadersMemB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i604 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties24kEstimateTableReadersMemB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL26estimate_table_readers_memB5cxx11E)
           to label %__cxx_global_var_init.200.exit unwind label %lpad.i.i605
 
 lpad.i.i605:                                      ; preds = %__cxx_global_var_init.199.exit
-  %285 = landingpad { ptr, i32 }
+  %286 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties24kEstimateTableReadersMemB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.200.exit:                   ; preds = %__cxx_global_var_init.199.exit
-  %286 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties24kEstimateTableReadersMemB5cxx11E, ptr nonnull @__dso_handle) #28
+  %287 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties24kEstimateTableReadersMemB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kIsFileDeletionsEnabledB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i606 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kIsFileDeletionsEnabledB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL25is_file_deletions_enabledB5cxx11E)
           to label %__cxx_global_var_init.201.exit unwind label %lpad.i.i607
 
 lpad.i.i607:                                      ; preds = %__cxx_global_var_init.200.exit
-  %287 = landingpad { ptr, i32 }
+  %288 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kIsFileDeletionsEnabledB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.201.exit:                   ; preds = %__cxx_global_var_init.200.exit
-  %288 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kIsFileDeletionsEnabledB5cxx11E, ptr nonnull @__dso_handle) #28
+  %289 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kIsFileDeletionsEnabledB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties13kNumSnapshotsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i608 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties13kNumSnapshotsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL13num_snapshotsB5cxx11E)
           to label %__cxx_global_var_init.202.exit unwind label %lpad.i.i609
 
 lpad.i.i609:                                      ; preds = %__cxx_global_var_init.201.exit
-  %289 = landingpad { ptr, i32 }
+  %290 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties13kNumSnapshotsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.202.exit:                   ; preds = %__cxx_global_var_init.201.exit
-  %290 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties13kNumSnapshotsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %291 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties13kNumSnapshotsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kOldestSnapshotTimeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i610 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kOldestSnapshotTimeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL20oldest_snapshot_timeB5cxx11E)
           to label %__cxx_global_var_init.203.exit unwind label %lpad.i.i611
 
 lpad.i.i611:                                      ; preds = %__cxx_global_var_init.202.exit
-  %291 = landingpad { ptr, i32 }
+  %292 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kOldestSnapshotTimeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.203.exit:                   ; preds = %__cxx_global_var_init.202.exit
-  %292 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties19kOldestSnapshotTimeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %293 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties19kOldestSnapshotTimeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kOldestSnapshotSequenceB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i612 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kOldestSnapshotSequenceB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL24oldest_snapshot_sequenceB5cxx11E)
           to label %__cxx_global_var_init.204.exit unwind label %lpad.i.i613
 
 lpad.i.i613:                                      ; preds = %__cxx_global_var_init.203.exit
-  %293 = landingpad { ptr, i32 }
+  %294 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kOldestSnapshotSequenceB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.204.exit:                   ; preds = %__cxx_global_var_init.203.exit
-  %294 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kOldestSnapshotSequenceB5cxx11E, ptr nonnull @__dso_handle) #28
+  %295 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kOldestSnapshotSequenceB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kNumLiveVersionsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i614 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kNumLiveVersionsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL17num_live_versionsB5cxx11E)
           to label %__cxx_global_var_init.205.exit unwind label %lpad.i.i615
 
 lpad.i.i615:                                      ; preds = %__cxx_global_var_init.204.exit
-  %295 = landingpad { ptr, i32 }
+  %296 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kNumLiveVersionsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.205.exit:                   ; preds = %__cxx_global_var_init.204.exit
-  %296 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kNumLiveVersionsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %297 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kNumLiveVersionsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties26kCurrentSuperVersionNumberB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i616 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties26kCurrentSuperVersionNumberB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL22current_version_numberB5cxx11E)
           to label %__cxx_global_var_init.206.exit unwind label %lpad.i.i617
 
 lpad.i.i617:                                      ; preds = %__cxx_global_var_init.205.exit
-  %297 = landingpad { ptr, i32 }
+  %298 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties26kCurrentSuperVersionNumberB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.206.exit:                   ; preds = %__cxx_global_var_init.205.exit
-  %298 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties26kCurrentSuperVersionNumberB5cxx11E, ptr nonnull @__dso_handle) #28
+  %299 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties26kCurrentSuperVersionNumberB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kEstimateLiveDataSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i618 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kEstimateLiveDataSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23estimate_live_data_sizeB5cxx11E)
           to label %__cxx_global_var_init.207.exit unwind label %lpad.i.i619
 
 lpad.i.i619:                                      ; preds = %__cxx_global_var_init.206.exit
-  %299 = landingpad { ptr, i32 }
+  %300 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kEstimateLiveDataSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.207.exit:                   ; preds = %__cxx_global_var_init.206.exit
-  %300 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kEstimateLiveDataSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %301 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kEstimateLiveDataSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kMinLogNumberToKeepB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i620 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kMinLogNumberToKeepB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL26min_log_number_to_keep_strB5cxx11E)
           to label %__cxx_global_var_init.208.exit unwind label %lpad.i.i621
 
 lpad.i.i621:                                      ; preds = %__cxx_global_var_init.207.exit
-  %301 = landingpad { ptr, i32 }
+  %302 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kMinLogNumberToKeepB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.208.exit:                   ; preds = %__cxx_global_var_init.207.exit
-  %302 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties19kMinLogNumberToKeepB5cxx11E, ptr nonnull @__dso_handle) #28
+  %303 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties19kMinLogNumberToKeepB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties27kMinObsoleteSstNumberToKeepB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i622 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties27kMinObsoleteSstNumberToKeepB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL35min_obsolete_sst_number_to_keep_strB5cxx11E)
           to label %__cxx_global_var_init.209.exit unwind label %lpad.i.i623
 
 lpad.i.i623:                                      ; preds = %__cxx_global_var_init.208.exit
-  %303 = landingpad { ptr, i32 }
+  %304 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties27kMinObsoleteSstNumberToKeepB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.209.exit:                   ; preds = %__cxx_global_var_init.208.exit
-  %304 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties27kMinObsoleteSstNumberToKeepB5cxx11E, ptr nonnull @__dso_handle) #28
+  %305 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties27kMinObsoleteSstNumberToKeepB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kTotalSstFilesSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i624 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kTotalSstFilesSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL20total_sst_files_sizeB5cxx11E)
           to label %__cxx_global_var_init.210.exit unwind label %lpad.i.i625
 
 lpad.i.i625:                                      ; preds = %__cxx_global_var_init.209.exit
-  %305 = landingpad { ptr, i32 }
+  %306 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kTotalSstFilesSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.210.exit:                   ; preds = %__cxx_global_var_init.209.exit
-  %306 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kTotalSstFilesSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %307 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kTotalSstFilesSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kLiveSstFilesSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i626 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kLiveSstFilesSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL19live_sst_files_sizeB5cxx11E)
           to label %__cxx_global_var_init.211.exit unwind label %lpad.i.i627
 
 lpad.i.i627:                                      ; preds = %__cxx_global_var_init.210.exit
-  %307 = landingpad { ptr, i32 }
+  %308 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kLiveSstFilesSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.211.exit:                   ; preds = %__cxx_global_var_init.210.exit
-  %308 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kLiveSstFilesSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %309 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kLiveSstFilesSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kObsoleteSstFilesSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i628 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kObsoleteSstFilesSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23obsolete_sst_files_sizeB5cxx11E)
           to label %__cxx_global_var_init.212.exit unwind label %lpad.i.i629
 
 lpad.i.i629:                                      ; preds = %__cxx_global_var_init.211.exit
-  %309 = landingpad { ptr, i32 }
+  %310 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kObsoleteSstFilesSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.212.exit:                   ; preds = %__cxx_global_var_init.211.exit
-  %310 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kObsoleteSstFilesSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %311 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kObsoleteSstFilesSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties10kBaseLevelB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i630 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties10kBaseLevelB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14base_level_strB5cxx11E)
           to label %__cxx_global_var_init.213.exit unwind label %lpad.i.i631
 
 lpad.i.i631:                                      ; preds = %__cxx_global_var_init.212.exit
-  %311 = landingpad { ptr, i32 }
+  %312 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties10kBaseLevelB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.213.exit:                   ; preds = %__cxx_global_var_init.212.exit
-  %312 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties10kBaseLevelB5cxx11E, ptr nonnull @__dso_handle) #28
+  %313 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties10kBaseLevelB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties31kEstimatePendingCompactionBytesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i632 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties31kEstimatePendingCompactionBytesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL27estimate_pending_comp_bytesB5cxx11E)
           to label %__cxx_global_var_init.214.exit unwind label %lpad.i.i633
 
 lpad.i.i633:                                      ; preds = %__cxx_global_var_init.213.exit
-  %313 = landingpad { ptr, i32 }
+  %314 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties31kEstimatePendingCompactionBytesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.214.exit:                   ; preds = %__cxx_global_var_init.213.exit
-  %314 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties31kEstimatePendingCompactionBytesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %315 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties31kEstimatePendingCompactionBytesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties26kAggregatedTablePropertiesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i634 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties26kAggregatedTablePropertiesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL27aggregated_table_propertiesB5cxx11E)
           to label %__cxx_global_var_init.215.exit unwind label %lpad.i.i635
 
 lpad.i.i635:                                      ; preds = %__cxx_global_var_init.214.exit
-  %315 = landingpad { ptr, i32 }
+  %316 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties26kAggregatedTablePropertiesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.215.exit:                   ; preds = %__cxx_global_var_init.214.exit
-  %316 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties26kAggregatedTablePropertiesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %317 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties26kAggregatedTablePropertiesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties33kAggregatedTablePropertiesAtLevelB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i636 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties33kAggregatedTablePropertiesAtLevelB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL36aggregated_table_properties_at_levelB5cxx11E)
           to label %__cxx_global_var_init.216.exit unwind label %lpad.i.i637
 
 lpad.i.i637:                                      ; preds = %__cxx_global_var_init.215.exit
-  %317 = landingpad { ptr, i32 }
+  %318 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties33kAggregatedTablePropertiesAtLevelB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.216.exit:                   ; preds = %__cxx_global_var_init.215.exit
-  %318 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties33kAggregatedTablePropertiesAtLevelB5cxx11E, ptr nonnull @__dso_handle) #28
+  %319 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties33kAggregatedTablePropertiesAtLevelB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kActualDelayedWriteRateB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i638 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kActualDelayedWriteRateB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL25actual_delayed_write_rateB5cxx11E)
           to label %__cxx_global_var_init.217.exit unwind label %lpad.i.i639
 
 lpad.i.i639:                                      ; preds = %__cxx_global_var_init.216.exit
-  %319 = landingpad { ptr, i32 }
+  %320 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties23kActualDelayedWriteRateB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.217.exit:                   ; preds = %__cxx_global_var_init.216.exit
-  %320 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kActualDelayedWriteRateB5cxx11E, ptr nonnull @__dso_handle) #28
+  %321 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties23kActualDelayedWriteRateB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties15kIsWriteStoppedB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i640 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties15kIsWriteStoppedB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL16is_write_stoppedB5cxx11E)
           to label %__cxx_global_var_init.218.exit unwind label %lpad.i.i641
 
 lpad.i.i641:                                      ; preds = %__cxx_global_var_init.217.exit
-  %321 = landingpad { ptr, i32 }
+  %322 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties15kIsWriteStoppedB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.218.exit:                   ; preds = %__cxx_global_var_init.217.exit
-  %322 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties15kIsWriteStoppedB5cxx11E, ptr nonnull @__dso_handle) #28
+  %323 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties15kIsWriteStoppedB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kEstimateOldestKeyTimeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i642 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kEstimateOldestKeyTimeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL24estimate_oldest_key_timeB5cxx11E)
           to label %__cxx_global_var_init.219.exit unwind label %lpad.i.i643
 
 lpad.i.i643:                                      ; preds = %__cxx_global_var_init.218.exit
-  %323 = landingpad { ptr, i32 }
+  %324 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kEstimateOldestKeyTimeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.219.exit:                   ; preds = %__cxx_global_var_init.218.exit
-  %324 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kEstimateOldestKeyTimeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %325 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kEstimateOldestKeyTimeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kBlockCacheCapacityB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i644 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kBlockCacheCapacityB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL20block_cache_capacityB5cxx11E)
           to label %__cxx_global_var_init.220.exit unwind label %lpad.i.i645
 
 lpad.i.i645:                                      ; preds = %__cxx_global_var_init.219.exit
-  %325 = landingpad { ptr, i32 }
+  %326 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties19kBlockCacheCapacityB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.220.exit:                   ; preds = %__cxx_global_var_init.219.exit
-  %326 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties19kBlockCacheCapacityB5cxx11E, ptr nonnull @__dso_handle) #28
+  %327 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties19kBlockCacheCapacityB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kBlockCacheUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i646 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kBlockCacheUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL17block_cache_usageB5cxx11E)
           to label %__cxx_global_var_init.221.exit unwind label %lpad.i.i647
 
 lpad.i.i647:                                      ; preds = %__cxx_global_var_init.220.exit
-  %327 = landingpad { ptr, i32 }
+  %328 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties16kBlockCacheUsageB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.221.exit:                   ; preds = %__cxx_global_var_init.220.exit
-  %328 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kBlockCacheUsageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %329 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties16kBlockCacheUsageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kBlockCachePinnedUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i648 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kBlockCachePinnedUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL24block_cache_pinned_usageB5cxx11E)
           to label %__cxx_global_var_init.222.exit unwind label %lpad.i.i649
 
 lpad.i.i649:                                      ; preds = %__cxx_global_var_init.221.exit
-  %329 = landingpad { ptr, i32 }
+  %330 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties22kBlockCachePinnedUsageB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.222.exit:                   ; preds = %__cxx_global_var_init.221.exit
-  %330 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kBlockCachePinnedUsageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %331 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties22kBlockCachePinnedUsageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kOptionsStatisticsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i650 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kOptionsStatisticsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL18options_statisticsB5cxx11E)
           to label %__cxx_global_var_init.223.exit unwind label %lpad.i.i651
 
 lpad.i.i651:                                      ; preds = %__cxx_global_var_init.222.exit
-  %331 = landingpad { ptr, i32 }
+  %332 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kOptionsStatisticsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.223.exit:                   ; preds = %__cxx_global_var_init.222.exit
-  %332 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kOptionsStatisticsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %333 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kOptionsStatisticsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties30kLiveSstFilesSizeAtTemperatureB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i652 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties30kLiveSstFilesSizeAtTemperatureB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL34live_sst_files_size_at_temperatureB5cxx11E)
           to label %__cxx_global_var_init.224.exit unwind label %lpad.i.i653
 
 lpad.i.i653:                                      ; preds = %__cxx_global_var_init.223.exit
-  %333 = landingpad { ptr, i32 }
+  %334 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties30kLiveSstFilesSizeAtTemperatureB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.224.exit:                   ; preds = %__cxx_global_var_init.223.exit
-  %334 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties30kLiveSstFilesSizeAtTemperatureB5cxx11E, ptr nonnull @__dso_handle) #28
+  %335 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties30kLiveSstFilesSizeAtTemperatureB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties13kNumBlobFilesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i654 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties13kNumBlobFilesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14num_blob_filesB5cxx11E)
           to label %__cxx_global_var_init.225.exit unwind label %lpad.i.i655
 
 lpad.i.i655:                                      ; preds = %__cxx_global_var_init.224.exit
-  %335 = landingpad { ptr, i32 }
+  %336 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties13kNumBlobFilesB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.225.exit:                   ; preds = %__cxx_global_var_init.224.exit
-  %336 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties13kNumBlobFilesB5cxx11E, ptr nonnull @__dso_handle) #28
+  %337 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties13kNumBlobFilesB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties10kBlobStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i656 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties10kBlobStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL10blob_statsB5cxx11E)
           to label %__cxx_global_var_init.226.exit unwind label %lpad.i.i657
 
 lpad.i.i657:                                      ; preds = %__cxx_global_var_init.225.exit
-  %337 = landingpad { ptr, i32 }
+  %338 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties10kBlobStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.226.exit:                   ; preds = %__cxx_global_var_init.225.exit
-  %338 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties10kBlobStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %339 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties10kBlobStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kTotalBlobFileSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i658 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kTotalBlobFileSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL20total_blob_file_sizeB5cxx11E)
           to label %__cxx_global_var_init.227.exit unwind label %lpad.i.i659
 
 lpad.i.i659:                                      ; preds = %__cxx_global_var_init.226.exit
-  %339 = landingpad { ptr, i32 }
+  %340 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kTotalBlobFileSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.227.exit:                   ; preds = %__cxx_global_var_init.226.exit
-  %340 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kTotalBlobFileSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %341 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kTotalBlobFileSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kLiveBlobFileSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i660 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kLiveBlobFileSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL19live_blob_file_sizeB5cxx11E)
           to label %__cxx_global_var_init.228.exit unwind label %lpad.i.i661
 
 lpad.i.i661:                                      ; preds = %__cxx_global_var_init.227.exit
-  %341 = landingpad { ptr, i32 }
+  %342 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties17kLiveBlobFileSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.228.exit:                   ; preds = %__cxx_global_var_init.227.exit
-  %342 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kLiveBlobFileSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %343 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties17kLiveBlobFileSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties24kLiveBlobFileGarbageSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i662 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties24kLiveBlobFileGarbageSizeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL27live_blob_file_garbage_sizeB5cxx11E)
           to label %__cxx_global_var_init.229.exit unwind label %lpad.i.i663
 
 lpad.i.i663:                                      ; preds = %__cxx_global_var_init.228.exit
-  %343 = landingpad { ptr, i32 }
+  %344 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties24kLiveBlobFileGarbageSizeB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.229.exit:                   ; preds = %__cxx_global_var_init.228.exit
-  %344 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties24kLiveBlobFileGarbageSizeB5cxx11E, ptr nonnull @__dso_handle) #28
+  %345 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties24kLiveBlobFileGarbageSizeB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kBlobCacheCapacityB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i664 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kBlobCacheCapacityB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL19blob_cache_capacityB5cxx11E)
           to label %__cxx_global_var_init.230.exit unwind label %lpad.i.i665
 
 lpad.i.i665:                                      ; preds = %__cxx_global_var_init.229.exit
-  %345 = landingpad { ptr, i32 }
+  %346 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties18kBlobCacheCapacityB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.230.exit:                   ; preds = %__cxx_global_var_init.229.exit
-  %346 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kBlobCacheCapacityB5cxx11E, ptr nonnull @__dso_handle) #28
+  %347 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties18kBlobCacheCapacityB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties15kBlobCacheUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i666 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties15kBlobCacheUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL16blob_cache_usageB5cxx11E)
           to label %__cxx_global_var_init.231.exit unwind label %lpad.i.i667
 
 lpad.i.i667:                                      ; preds = %__cxx_global_var_init.230.exit
-  %347 = landingpad { ptr, i32 }
+  %348 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties15kBlobCacheUsageB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.231.exit:                   ; preds = %__cxx_global_var_init.230.exit
-  %348 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties15kBlobCacheUsageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %349 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties15kBlobCacheUsageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kBlobCachePinnedUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL14rocksdb_prefixB5cxx11E)
   %call.i.i668 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kBlobCachePinnedUsageB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL23blob_cache_pinned_usageB5cxx11E)
           to label %__cxx_global_var_init.232.exit unwind label %lpad.i.i669
 
 lpad.i.i669:                                      ; preds = %__cxx_global_var_init.231.exit
-  %349 = landingpad { ptr, i32 }
+  %350 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties21kBlobCachePinnedUsageB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.232.exit:                   ; preds = %__cxx_global_var_init.231.exit
-  %350 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kBlobCachePinnedUsageB5cxx11E, ptr nonnull @__dso_handle) #28
+  %351 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb2DB10Properties21kBlobCachePinnedUsageB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb13InternalStats16kPeriodicCFStatsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb2DB10Properties8kCFStatsB5cxx11E)
   %call.i.i670 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb13InternalStats16kPeriodicCFStatsB5cxx11E, ptr noundef nonnull @.str.234)
           to label %__cxx_global_var_init.233.exit unwind label %lpad.i.i671
 
 lpad.i.i671:                                      ; preds = %__cxx_global_var_init.232.exit
-  %351 = landingpad { ptr, i32 }
+  %352 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb13InternalStats16kPeriodicCFStatsB5cxx11E) #28
   br label %common.resume
 
 __cxx_global_var_init.233.exit:                   ; preds = %__cxx_global_var_init.232.exit
-  %352 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb13InternalStats16kPeriodicCFStatsB5cxx11E, ptr nonnull @__dso_handle) #28
+  %353 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7rocksdb13InternalStats16kPeriodicCFStatsB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.start.p0(i64 6448, ptr nonnull %ref.tmp.i672)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp490.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp491.i)
@@ -20945,7 +20947,7 @@ arraydestroy.body495.i:                           ; preds = %invoke.cont488.i, %
 
 lpad.i675:                                        ; preds = %invoke.cont480.i, %invoke.cont472.i, %invoke.cont464.i, %invoke.cont456.i, %invoke.cont448.i, %invoke.cont440.i, %invoke.cont432.i, %invoke.cont424.i, %invoke.cont416.i, %invoke.cont408.i, %invoke.cont400.i, %invoke.cont392.i, %invoke.cont384.i, %invoke.cont376.i, %invoke.cont368.i, %invoke.cont360.i, %invoke.cont352.i, %invoke.cont344.i, %invoke.cont336.i, %invoke.cont328.i, %invoke.cont320.i, %invoke.cont312.i, %invoke.cont304.i, %invoke.cont296.i, %invoke.cont288.i, %invoke.cont280.i, %invoke.cont272.i, %invoke.cont264.i, %invoke.cont256.i, %invoke.cont248.i, %invoke.cont240.i, %invoke.cont232.i, %invoke.cont224.i, %invoke.cont216.i, %invoke.cont208.i, %invoke.cont200.i, %invoke.cont192.i, %invoke.cont184.i, %invoke.cont176.i, %invoke.cont168.i, %invoke.cont160.i, %invoke.cont152.i, %invoke.cont144.i, %invoke.cont136.i, %invoke.cont128.i, %invoke.cont120.i, %invoke.cont112.i, %invoke.cont104.i, %invoke.cont96.i, %invoke.cont88.i, %invoke.cont80.i, %invoke.cont72.i685, %invoke.cont64.i, %invoke.cont56.i684, %invoke.cont48.i, %invoke.cont40.i, %invoke.cont32.i, %invoke.cont24.i, %invoke.cont16.i, %invoke.cont8.i, %__cxx_global_var_init.233.exit
   %arrayinit.endOfInit.0.i676 = phi ptr [ %arrayinit.element.i674, %__cxx_global_var_init.233.exit ], [ %arrayinit.element9.i, %invoke.cont8.i ], [ %arrayinit.element17.i, %invoke.cont16.i ], [ %arrayinit.element25.i, %invoke.cont24.i ], [ %arrayinit.element33.i, %invoke.cont32.i ], [ %arrayinit.element41.i683, %invoke.cont40.i ], [ %arrayinit.element49.i, %invoke.cont48.i ], [ %arrayinit.element57.i, %invoke.cont56.i684 ], [ %arrayinit.element65.i, %invoke.cont64.i ], [ %arrayinit.element73.i, %invoke.cont72.i685 ], [ %arrayinit.element81.i, %invoke.cont80.i ], [ %arrayinit.element89.i, %invoke.cont88.i ], [ %arrayinit.element97.i, %invoke.cont96.i ], [ %arrayinit.element105.i, %invoke.cont104.i ], [ %arrayinit.element113.i, %invoke.cont112.i ], [ %arrayinit.element121.i, %invoke.cont120.i ], [ %arrayinit.element129.i, %invoke.cont128.i ], [ %arrayinit.element137.i, %invoke.cont136.i ], [ %arrayinit.element145.i, %invoke.cont144.i ], [ %arrayinit.element153.i, %invoke.cont152.i ], [ %arrayinit.element161.i, %invoke.cont160.i ], [ %arrayinit.element169.i, %invoke.cont168.i ], [ %arrayinit.element177.i, %invoke.cont176.i ], [ %arrayinit.element185.i, %invoke.cont184.i ], [ %arrayinit.element193.i, %invoke.cont192.i ], [ %arrayinit.element201.i, %invoke.cont200.i ], [ %arrayinit.element209.i, %invoke.cont208.i ], [ %arrayinit.element217.i, %invoke.cont216.i ], [ %arrayinit.element225.i, %invoke.cont224.i ], [ %arrayinit.element233.i, %invoke.cont232.i ], [ %arrayinit.element241.i, %invoke.cont240.i ], [ %arrayinit.element249.i, %invoke.cont248.i ], [ %arrayinit.element257.i, %invoke.cont256.i ], [ %arrayinit.element265.i, %invoke.cont264.i ], [ %arrayinit.element273.i, %invoke.cont272.i ], [ %arrayinit.element281.i, %invoke.cont280.i ], [ %arrayinit.element289.i, %invoke.cont288.i ], [ %arrayinit.element297.i, %invoke.cont296.i ], [ %arrayinit.element305.i, %invoke.cont304.i ], [ %arrayinit.element313.i, %invoke.cont312.i ], [ %arrayinit.element321.i, %invoke.cont320.i ], [ %arrayinit.element329.i, %invoke.cont328.i ], [ %arrayinit.element337.i, %invoke.cont336.i ], [ %arrayinit.element345.i, %invoke.cont344.i ], [ %arrayinit.element353.i, %invoke.cont352.i ], [ %arrayinit.element361.i, %invoke.cont360.i ], [ %arrayinit.element369.i, %invoke.cont368.i ], [ %arrayinit.element377.i, %invoke.cont376.i ], [ %arrayinit.element385.i, %invoke.cont384.i ], [ %arrayinit.element393.i, %invoke.cont392.i ], [ %arrayinit.element401.i, %invoke.cont400.i ], [ %arrayinit.element409.i, %invoke.cont408.i ], [ %arrayinit.element417.i, %invoke.cont416.i ], [ %arrayinit.element425.i, %invoke.cont424.i ], [ %arrayinit.element433.i, %invoke.cont432.i ], [ %arrayinit.element441.i, %invoke.cont440.i ], [ %arrayinit.element449.i, %invoke.cont448.i ], [ %arrayinit.element457.i, %invoke.cont456.i ], [ %arrayinit.element465.i, %invoke.cont464.i ], [ %arrayinit.element473.i, %invoke.cont472.i ], [ %arrayinit.element481.i, %invoke.cont480.i ]
-  %353 = landingpad { ptr, i32 }
+  %354 = landingpad { ptr, i32 }
           cleanup
   br label %arraydestroy.body.i677
 
@@ -20957,7 +20959,7 @@ arraydestroy.body.i677:                           ; preds = %arraydestroy.body.i
   br i1 %arraydestroy.done.i680, label %common.resume, label %arraydestroy.body.i677
 
 lpad493.i:                                        ; preds = %invoke.cont488.i
-  %354 = landingpad { ptr, i32 }
+  %355 = landingpad { ptr, i32 }
           cleanup
   br label %arraydestroy.body501.i
 
@@ -20969,13 +20971,19 @@ arraydestroy.body501.i:                           ; preds = %arraydestroy.body50
   br i1 %arraydestroy.done504.i, label %common.resume, label %arraydestroy.body501.i
 
 __cxx_global_var_init.235.exit:                   ; preds = %arraydestroy.body495.i
-  %355 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14DBPropertyInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev, ptr nonnull @_ZN7rocksdb13InternalStats16ppt_name_to_infoB5cxx11E, ptr nonnull @__dso_handle) #28
+  %356 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14DBPropertyInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev, ptr nonnull @_ZN7rocksdb13InternalStats16ppt_name_to_infoB5cxx11E, ptr nonnull @__dso_handle) #28
   call void @llvm.lifetime.end.p0(i64 6448, ptr nonnull %ref.tmp.i672)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp490.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp491.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp492.i)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23
@@ -21025,11 +21033,11 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { nofree nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #17 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #20 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #21 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #19 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #20 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

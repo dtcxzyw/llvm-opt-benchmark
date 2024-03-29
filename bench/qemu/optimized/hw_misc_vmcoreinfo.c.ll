@@ -95,9 +95,8 @@ if.end:                                           ; preds = %vmcoreinfo_find.exi
 lor.lhs.false:                                    ; preds = %if.end
   %dma_enabled = getelementptr inbounds i8, ptr %call1, i64 892
   %0 = load i8, ptr %dma_enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool4.not = icmp eq i8 %1, 0
-  br i1 %tobool4.not, label %if.then5, label %if.end6
+  %tobool4 = trunc i8 %0 to i1
+  br i1 %tobool4, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.8, i32 noundef 56, ptr noundef nonnull @__func__.vmcoreinfo_realize, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str) #3

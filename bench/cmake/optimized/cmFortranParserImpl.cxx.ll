@@ -1105,9 +1105,8 @@ _ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEE3topEv.exit: ; preds = %9, %13
 31:                                               ; preds = %_ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEE3topEv.exit
   %32 = getelementptr inbounds i8, ptr %19, i64 -8
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not16 = icmp eq i8 %34, 0
-  br i1 %.not16, label %35, label %36
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %36, label %35
 
 35:                                               ; preds = %31
   store i8 10, ptr %1, align 1
@@ -1172,9 +1171,8 @@ define dso_local void @_Z30cmFortranParser_SetInInterfaceP17cmFortranParser_sb(p
 define dso_local noundef zeroext i1 @_Z30cmFortranParser_GetInInterfaceP17cmFortranParser_s(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1613,9 +1611,8 @@ define dso_local void @_Z26cmFortranParser_RuleModuleP17cmFortranParser_sPKc(ptr
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 272
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not10 = icmp eq i8 %12, 0
-  br i1 %.not10, label %13, label %40
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %40, label %13
 
 13:                                               ; preds = %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
@@ -1624,13 +1621,13 @@ define dso_local void @_Z26cmFortranParser_RuleModuleP17cmFortranParser_sPKc(ptr
 
 .noexc:                                           ; preds = %13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %.noexc15 unwind label %32
+          to label %.noexc14 unwind label %32
 
-.noexc15:                                         ; preds = %.noexc
+.noexc14:                                         ; preds = %.noexc
   %15 = icmp eq ptr %1, null
   br i1 %15, label %16, label %20
 
-16:                                               ; preds = %.noexc15
+16:                                               ; preds = %.noexc14
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #25
           to label %17 unwind label %18
 
@@ -1643,7 +1640,7 @@ define dso_local void @_Z26cmFortranParser_RuleModuleP17cmFortranParser_sPKc(ptr
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   br label %.body
 
-20:                                               ; preds = %.noexc15
+20:                                               ; preds = %.noexc14
   %21 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %22 = getelementptr inbounds i8, ptr %1, i64 %21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %1, ptr noundef nonnull %22)
@@ -1659,19 +1656,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %24 = getelementptr inbounds i8, ptr %0, i64 416
   %25 = load ptr, ptr %24, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %.noexc16 unwind label %36
+          to label %.noexc15 unwind label %36
 
-.noexc16:                                         ; preds = %23
+.noexc15:                                         ; preds = %23
   %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str)
           to label %_ZNK17cmFortranParser_s7ModNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %27
 
-27:                                               ; preds = %.noexc16
+27:                                               ; preds = %.noexc15
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  br label %.body17
+  br label %.body16
 
-_ZNK17cmFortranParser_s7ModNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc16
+_ZNK17cmFortranParser_s7ModNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc15
   %29 = getelementptr inbounds i8, ptr %25, i64 32
   %30 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %31 unwind label %38
@@ -1700,25 +1697,25 @@ _ZNK17cmFortranParser_s7ModNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 36:                                               ; preds = %23
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %.body17
+  br label %.body16
 
 38:                                               ; preds = %_ZNK17cmFortranParser_s7ModNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  br label %.body17
+  br label %.body16
 
-.body17:                                          ; preds = %36, %27, %38
-  %.pn12 = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ], [ %28, %27 ]
+.body16:                                          ; preds = %36, %27, %38
+  %.pn11 = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ], [ %28, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   br label %41
 
 40:                                               ; preds = %2, %31, %9
   ret void
 
-41:                                               ; preds = %.body17, %.body
-  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %.body17 ], [ %.pn, %.body ]
-  resume { ptr, i32 } %.pn12.pn
+41:                                               ; preds = %.body16, %.body
+  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %.body16 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn11.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2751,15 +2748,14 @@ _ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit:        ; preds = %7, %11
   %17 = phi ptr [ %16, %11 ], [ %4, %7 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %25, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %25
 
 21:                                               ; preds = %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 328
   %23 = load i64, ptr %22, align 8
-  %.not4 = icmp eq i64 %23, 0
-  br i1 %.not4, label %24, label %25
+  %.not = icmp eq i64 %23, 0
+  br i1 %.not, label %24, label %25
 
 24:                                               ; preds = %21
   store i64 1, ptr %22, align 8
@@ -2802,9 +2798,8 @@ _ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit:        ; preds = %11, %15
   %21 = phi ptr [ %20, %15 ], [ %8, %11 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %25, label %.sink.split
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.sink.split, label %25
 
 25:                                               ; preds = %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit, %5
   br label %.sink.split

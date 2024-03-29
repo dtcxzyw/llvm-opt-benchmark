@@ -2853,12 +2853,11 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
 
 40:                                               ; preds = %32
   %41 = load i8, ptr %5, align 1
-  %42 = and i8 %41, 1
-  %.not = icmp eq i8 %42, 0
+  %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds i8, ptr %30, i64 80
   %44 = load i32, ptr %43, align 8
   %.not.i = icmp eq i32 %44, 2
-  br i1 %.not, label %.critedge.i, label %45
+  br i1 %42, label %45, label %.critedge.i
 
 45:                                               ; preds = %40
   br i1 %.not.i, label %php_set_attribute_id.exit, label %46
@@ -2960,12 +2959,11 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
 
 43:                                               ; preds = %35
   %44 = load i8, ptr %7, align 1
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
+  %45 = trunc i8 %44 to i1
   %46 = getelementptr inbounds i8, ptr %33, i64 80
   %47 = load i32, ptr %46, align 8
   %.not.i = icmp eq i32 %47, 2
-  br i1 %.not, label %.critedge.i, label %48
+  br i1 %45, label %48, label %.critedge.i
 
 48:                                               ; preds = %43
   br i1 %.not.i, label %php_set_attribute_id.exit, label %49
@@ -3079,12 +3077,11 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
 
 50:                                               ; preds = %41
   %51 = load i8, ptr %4, align 1
-  %52 = and i8 %51, 1
-  %.not15 = icmp eq i8 %52, 0
+  %52 = trunc i8 %51 to i1
   %53 = getelementptr inbounds i8, ptr %43, i64 80
   %54 = load i32, ptr %53, align 8
   %.not.i = icmp eq i32 %54, 2
-  br i1 %.not15, label %.critedge.i, label %55
+  br i1 %52, label %55, label %.critedge.i
 
 55:                                               ; preds = %50
   br i1 %.not.i, label %php_set_attribute_id.exit, label %56
@@ -3907,18 +3904,16 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   %58 = call fastcc ptr @dom_get_dom1_attribute(ptr noundef nonnull %30, ptr noundef %57)
   %59 = icmp eq ptr %58, null
   %60 = load i8, ptr %6, align 1
-  %61 = and i8 %60, 1
-  %.not33 = icmp eq i8 %61, 0
+  %61 = trunc i8 %60 to i1
   br i1 %59, label %62, label %86
 
 62:                                               ; preds = %56
-  br i1 %.not33, label %63, label %66
+  br i1 %61, label %66, label %63
 
 63:                                               ; preds = %62
   %64 = load i8, ptr %5, align 1
-  %65 = and i8 %64, 1
-  %.not34 = icmp eq i8 %65, 0
-  br i1 %.not34, label %dom_create_attribute.exit, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %dom_create_attribute.exit
 
 66:                                               ; preds = %63, %62
   %67 = load ptr, ptr %3, align 8
@@ -3932,8 +3927,8 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   %72 = add nsw i32 %71, 1
   %73 = sext i32 %72 to i64
   %74 = call i32 @strncmp(ptr noundef %.pre, ptr noundef nonnull @.str.24, i64 noundef %73) #9
-  %.not35 = icmp eq i32 %74, 0
-  br i1 %.not35, label %81, label %75
+  %.not31 = icmp eq i32 %74, 0
+  br i1 %.not31, label %81, label %75
 
 75:                                               ; preds = %70, %66
   %76 = call i32 @xmlStrEqual(ptr noundef %.pre, ptr noundef nonnull @.str.6) #8
@@ -3956,13 +3951,12 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   br label %dom_create_attribute.exit
 
 86:                                               ; preds = %56
-  br i1 %.not33, label %87, label %90
+  br i1 %61, label %90, label %87
 
 87:                                               ; preds = %86
   %88 = load i8, ptr %5, align 1
-  %89 = and i8 %88, 1
-  %.not32 = icmp eq i8 %89, 0
-  br i1 %.not32, label %90, label %dom_create_attribute.exit
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %dom_create_attribute.exit, label %90
 
 90:                                               ; preds = %87, %86
   call fastcc void @dom_remove_attribute(ptr noundef nonnull %30, ptr noundef nonnull %58)
@@ -3970,8 +3964,8 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
 
 dom_create_attribute.exit:                        ; preds = %79, %77, %87, %63, %81, %90
   %.022 = phi i32 [ 2, %90 ], [ 3, %81 ], [ 2, %63 ], [ 3, %87 ], [ 3, %77 ], [ 3, %79 ]
-  %.not36 = icmp eq ptr %.0, null
-  br i1 %.not36, label %92, label %91
+  %.not32 = icmp eq ptr %.0, null
+  br i1 %.not32, label %92, label %91
 
 91:                                               ; preds = %dom_create_attribute.exit
   call void @_efree(ptr noundef nonnull %.0) #8

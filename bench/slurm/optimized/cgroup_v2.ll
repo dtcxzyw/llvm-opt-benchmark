@@ -373,10 +373,9 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
 
 65:                                               ; preds = %62
   %66 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 13), align 8
-  %67 = and i8 %66, 1
-  %.not1.i = icmp eq i8 %67, 0
+  %67 = trunc i8 %66 to i1
   %68 = load ptr, ptr @stepd_scope_path, align 8
-  br i1 %.not1.i, label %83, label %69
+  br i1 %67, label %69, label %83
 
 69:                                               ; preds = %65
   %70 = call i32 @mkdir(ptr noundef %68, i32 noundef 493) #15
@@ -527,8 +526,8 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
 
 134:                                              ; preds = %91
   %135 = call i32 @waitpid(i32 noundef %89, ptr noundef nonnull %3, i32 noundef 0) #15
-  %.not.i5.i = icmp eq i32 %135, %89
-  br i1 %.not.i5.i, label %136, label %139
+  %.not.i3.i = icmp eq i32 %135, %89
+  br i1 %.not.i3.i, label %136, label %139
 
 136:                                              ; preds = %134
   %137 = load i32, ptr %3, align 4
@@ -553,15 +552,14 @@ _init_new_scope_dbus.exit.i:                      ; preds = %136
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %142 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 14), align 1
-  %143 = and i8 %142, 1
-  %.not3.i = icmp eq i8 %143, 0
-  br i1 %.not3.i, label %166, label %144
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %166
 
 144:                                              ; preds = %141
   %145 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %146 = and i64 %145, 36028797018963968
-  %.not4.i = icmp eq i64 %146, 0
-  br i1 %.not4.i, label %151, label %147
+  %.not2.i = icmp eq i64 %146, 0
+  br i1 %.not2.i, label %151, label %147
 
 147:                                              ; preds = %144
   %148 = call i32 @get_log_level() #15
@@ -575,14 +573,14 @@ _init_new_scope_dbus.exit.i:                      ; preds = %136
 151:                                              ; preds = %150, %147, %144
   %152 = load ptr, ptr @stepd_scope_path, align 8
   %153 = call i32 @mkdir(ptr noundef %152, i32 noundef 493) #15
-  %.not.i7.i = icmp eq i32 %153, 0
-  br i1 %.not.i7.i, label %159, label %154
+  %.not.i5.i = icmp eq i32 %153, 0
+  br i1 %.not.i5.i, label %159, label %154
 
 154:                                              ; preds = %151
   %155 = tail call ptr @__errno_location() #17
   %156 = load i32, ptr %155, align 4
-  %.not4.i8.i = icmp eq i32 %156, 17
-  br i1 %.not4.i8.i, label %159, label %157
+  %.not4.i6.i = icmp eq i32 %156, 17
+  br i1 %.not4.i6.i, label %159, label %157
 
 157:                                              ; preds = %154
   %158 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef %152) #15
@@ -591,8 +589,8 @@ _init_new_scope_dbus.exit.i:                      ; preds = %136
 159:                                              ; preds = %154, %151
   %160 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %161 = and i64 %160, 36028797018963968
-  %.not5.i10.i = icmp eq i64 %161, 0
-  br i1 %.not5.i10.i, label %169, label %162
+  %.not5.i8.i = icmp eq i64 %161, 0
+  br i1 %.not5.i8.i, label %169, label %162
 
 162:                                              ; preds = %159
   %163 = call i32 @get_log_level() #15
@@ -1997,7 +1995,7 @@ define internal i32 @_find_pid_task(ptr noundef %0, ptr nocapture noundef readon
 define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq i32 %1, 2
-  br i1 %5, label %92, label %6
+  br i1 %5, label %91, label %6
 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %1, 1
@@ -2007,11 +2005,11 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   %9 = icmp eq i32 %spec.store.select2, 4
   %spec.store.select1 = select i1 %9, i32 6, i32 %spec.store.select2
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %92, label %10
+  br i1 %.not, label %91, label %10
 
 10:                                               ; preds = %6
-  switch i32 %0, label %90 [
-    i32 0, label %92
+  switch i32 %0, label %89 [
+    i32 0, label %91
     i32 1, label %11
     i32 2, label %25
     i32 3, label %48
@@ -2020,67 +2018,67 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
-  %.not66 = icmp eq ptr %13, null
-  br i1 %.not66, label %18, label %14
+  %.not65 = icmp eq ptr %13, null
+  br i1 %.not65, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = zext i32 %spec.store.select1 to i64
   %16 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %15
   %17 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %16, ptr noundef nonnull @.str.34, ptr noundef nonnull %13) #15
-  %.not67 = icmp ne i32 %17, 0
-  %spec.select = sext i1 %.not67 to i32
+  %.not66 = icmp ne i32 %17, 0
+  %spec.select = sext i1 %.not66 to i32
   br label %18
 
 18:                                               ; preds = %14, %11
   %.045 = phi i32 [ 0, %11 ], [ %spec.select, %14 ]
   %19 = getelementptr inbounds i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
-  %.not68 = icmp eq ptr %20, null
-  br i1 %.not68, label %92, label %21
+  %.not67 = icmp eq ptr %20, null
+  br i1 %.not67, label %91, label %21
 
 21:                                               ; preds = %18
   %22 = zext i32 %spec.store.select1 to i64
   %23 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %22
   %24 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %23, ptr noundef nonnull @.str.35, ptr noundef nonnull %20) #15
-  %.not69 = icmp eq i32 %24, 0
-  %spec.select70 = select i1 %.not69, i32 %.045, i32 -1
-  br label %92
+  %.not68 = icmp eq i32 %24, 0
+  %spec.select69 = select i1 %.not68, i32 %.045, i32 -1
+  br label %91
 
 25:                                               ; preds = %10
   %26 = getelementptr inbounds i8, ptr %2, i64 64
   %27 = load i64, ptr %26, align 8
-  %.not60 = icmp eq i64 %27, -2
-  br i1 %.not60, label %32, label %28
+  %.not59 = icmp eq i64 %27, -2
+  br i1 %.not59, label %32, label %28
 
 28:                                               ; preds = %25
   %29 = zext i32 %spec.store.select1 to i64
   %30 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %29
   %31 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %30, ptr noundef nonnull @.str.36, i64 noundef %27) #15
-  %.not61 = icmp ne i32 %31, 0
-  %spec.select71 = sext i1 %.not61 to i32
+  %.not60 = icmp ne i32 %31, 0
+  %spec.select70 = sext i1 %.not60 to i32
   br label %32
 
 32:                                               ; preds = %28, %25
-  %.1 = phi i32 [ 0, %25 ], [ %spec.select71, %28 ]
+  %.1 = phi i32 [ 0, %25 ], [ %spec.select70, %28 ]
   %33 = getelementptr inbounds i8, ptr %2, i64 72
   %34 = load i64, ptr %33, align 8
-  %.not62 = icmp eq i64 %34, -2
-  br i1 %.not62, label %39, label %35
+  %.not61 = icmp eq i64 %34, -2
+  br i1 %.not61, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = zext i32 %spec.store.select1 to i64
   %37 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %36
   %38 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %37, ptr noundef nonnull @.str.37, i64 noundef %34) #15
-  %.not63 = icmp eq i32 %38, 0
-  %spec.select72 = select i1 %.not63, i32 %.1, i32 -1
+  %.not62 = icmp eq i32 %38, 0
+  %spec.select71 = select i1 %.not62, i32 %.1, i32 -1
   br label %39
 
 39:                                               ; preds = %35, %32
-  %.2 = phi i32 [ %.1, %32 ], [ %spec.select72, %35 ]
+  %.2 = phi i32 [ %.1, %32 ], [ %spec.select71, %35 ]
   %40 = getelementptr inbounds i8, ptr %2, i64 80
   %41 = load i64, ptr %40, align 8
-  %.not64 = icmp eq i64 %41, -2
-  br i1 %.not64, label %92, label %42
+  %.not63 = icmp eq i64 %41, -2
+  br i1 %.not63, label %91, label %42
 
 42:                                               ; preds = %39
   %43 = zext i32 %spec.store.select1 to i64
@@ -2088,9 +2086,9 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   %45 = load i64, ptr %26, align 8
   %46 = sub i64 %41, %45
   %47 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %44, ptr noundef nonnull @.str.38, i64 noundef %46) #15
-  %.not65 = icmp eq i32 %47, 0
-  %spec.select73 = select i1 %.not65, i32 %.2, i32 -1
-  br label %92
+  %.not64 = icmp eq i32 %47, 0
+  %spec.select72 = select i1 %.not64, i32 %.2, i32 -1
+  br label %91
 
 48:                                               ; preds = %10
   switch i32 %spec.store.select1, label %61 [
@@ -2114,7 +2112,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 56:                                               ; preds = %52
   %57 = load i32, ptr %54, align 8
   %58 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, i32 noundef %57) #15
-  br label %92
+  br label %91
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds i8, ptr %55, i64 48
@@ -2123,7 +2121,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 61:                                               ; preds = %48
   %62 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, i32 noundef %spec.store.select1) #15
   %63 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %spec.store.select1) #15
-  br label %92
+  br label %91
 
 64:                                               ; preds = %59, %49
   %.044.ph = phi ptr [ %51, %49 ], [ %60, %59 ]
@@ -2132,12 +2130,11 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   store ptr %66, ptr %4, align 8
   %67 = getelementptr inbounds i8, ptr %2, i64 48
   %68 = load i8, ptr %67, align 8
-  %69 = and i8 %68, 1
-  %.not57 = icmp eq i8 %69, 0
+  %69 = trunc i8 %68 to i1
   %70 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %71 = and i64 %70, 36028797018963968
   %.not58 = icmp eq i64 %71, 0
-  br i1 %.not57, label %76, label %72
+  br i1 %69, label %72, label %76
 
 72:                                               ; preds = %64
   br i1 %.not58, label %80, label %73
@@ -2166,23 +2163,22 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   %82 = load i32, ptr %81, align 4
   %switch.selectcmp = icmp eq i32 %82, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 -2
-  %switch.selectcmp74 = icmp eq i32 %82, 1
-  %switch.select75 = select i1 %switch.selectcmp74, i32 1, i32 %switch.select
+  %switch.selectcmp73 = icmp eq i32 %82, 1
+  %switch.select74 = select i1 %switch.selectcmp73, i32 1, i32 %switch.select
   %83 = load i32, ptr %65, align 4
   %84 = getelementptr inbounds i8, ptr %2, i64 56
   %85 = load i32, ptr %84, align 4
   %86 = load i8, ptr %67, align 8
-  %87 = and i8 %86, 1
-  %88 = icmp ne i8 %87, 0
-  %89 = call i32 @add_device_ebpf_prog(ptr noundef nonnull %.044.ph, i32 noundef %switch.select75, i32 noundef %83, i32 noundef %85, i1 noundef zeroext %88) #15
-  br label %92
+  %87 = trunc i8 %86 to i1
+  %88 = call i32 @add_device_ebpf_prog(ptr noundef nonnull %.044.ph, i32 noundef %switch.select74, i32 noundef %83, i32 noundef %85, i1 noundef zeroext %87) #15
+  br label %91
 
-90:                                               ; preds = %10
-  %91 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, i32 noundef %0) #15
-  br label %92
+89:                                               ; preds = %10
+  %90 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, i32 noundef %0) #15
+  br label %91
 
-92:                                               ; preds = %42, %21, %80, %90, %10, %18, %39, %6, %3, %61, %56
-  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %90 ], [ %89, %80 ], [ %.2, %39 ], [ %.045, %18 ], [ %0, %10 ], [ %spec.select70, %21 ], [ %spec.select73, %42 ]
+91:                                               ; preds = %42, %21, %80, %89, %10, %18, %39, %6, %3, %61, %56
+  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %89 ], [ %88, %80 ], [ %.2, %39 ], [ %.045, %18 ], [ %0, %10 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
   ret i32 %.043
 }
 
@@ -3079,13 +3075,12 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 3), align 8
   %7 = tail call zeroext i1 @running_in_slurmd() #15
-  br i1 %7, label %8, label %46
+  br i1 %7, label %8, label %47
 
 8:                                                ; preds = %0
   %9 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 15), align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %46, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %47
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
@@ -3103,8 +3098,8 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   br i1 %.not.i, label %16, label %15
 
 15:                                               ; preds = %11
-  %.not13.i = icmp eq ptr %12, null
-  br i1 %.not13.i, label %_enable_system_controllers.exit, label %.sink.split.i
+  %.not11.i = icmp eq ptr %12, null
+  br i1 %.not11.i, label %_enable_system_controllers.exit, label %.sink.split.i
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @slurm_cgroup_conf, align 8
@@ -3123,58 +3118,55 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   %28 = tail call ptr @xstrdup(ptr noundef %27) #15
   store ptr %28, ptr %6, align 8
   %29 = call ptr @strtok_r(ptr noundef %28, ptr noundef nonnull @.str.92, ptr noundef nonnull %5) #15
-  %.not714.i = icmp eq ptr %29, null
-  br i1 %.not714.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not712.i = icmp eq ptr %29, null
+  br i1 %.not712.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.critedge.i
-  %.016.i = phi i8 [ %.1.i, %.critedge.i ], [ 0, %16 ]
-  %.0515.i = phi ptr [ %42, %.critedge.i ], [ %29, %16 ]
-  %30 = and i8 %.016.i, 1
-  %.not8.i = icmp eq i8 %30, 0
-  br i1 %.not8.i, label %31, label %34
+  %.014.i = phi i8 [ %.1.i, %.critedge.i ], [ 0, %16 ]
+  %.0513.i = phi ptr [ %43, %.critedge.i ], [ %29, %16 ]
+  %30 = trunc i8 %.014.i to i1
+  br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.lr.ph.i
   %32 = load ptr, ptr @slurm_cgroup_conf, align 8
   %33 = call i32 @xstrcmp(ptr noundef %22, ptr noundef %32) #15
-  %.not9.i = icmp eq i32 %33, 0
-  %spec.select.i = select i1 %.not9.i, i8 1, i8 %.016.i
-  %.pre.i = and i8 %spec.select.i, 1
+  %.not8.i = icmp eq i32 %33, 0
+  %spec.select.i = select i1 %.not8.i, i8 1, i8 %.014.i
   br label %34
 
 34:                                               ; preds = %31, %.lr.ph.i
-  %.pre-phi.i = phi i8 [ %.pre.i, %31 ], [ 1, %.lr.ph.i ]
-  %.1.i = phi i8 [ %spec.select.i, %31 ], [ %.016.i, %.lr.ph.i ]
-  %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef %26, ptr noundef nonnull %.0515.i) #15
+  %.1.i = phi i8 [ %.014.i, %.lr.ph.i ], [ %spec.select.i, %31 ]
+  %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef %26, ptr noundef nonnull %.0513.i) #15
   %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %22) #15
-  %.not10.i = icmp eq i8 %.pre-phi.i, 0
-  br i1 %.not10.i, label %.critedge.i, label %37
+  %37 = trunc i8 %.1.i to i1
+  br i1 %37, label %38, label %.critedge.i
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 1), align 8
-  %39 = call i32 @xstrcmp(ptr noundef %26, ptr noundef %38) #15
-  %.not11.i = icmp eq i32 %39, 0
-  br i1 %.not11.i, label %._crit_edge.i, label %40
+38:                                               ; preds = %34
+  %39 = load ptr, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 1), align 8
+  %40 = call i32 @xstrcmp(ptr noundef %26, ptr noundef %39) #15
+  %.not9.i = icmp eq i32 %40, 0
+  br i1 %.not9.i, label %._crit_edge.i, label %41
 
-40:                                               ; preds = %37
-  %41 = call fastcc i32 @_enable_subtree_control(ptr noundef %26, ptr noundef %12), !range !6
+41:                                               ; preds = %38
+  %42 = call fastcc i32 @_enable_subtree_control(ptr noundef %26, ptr noundef %12), !range !6
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %40, %34
-  %42 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %5) #15
-  %.not7.i = icmp eq ptr %42, null
+.critedge.i:                                      ; preds = %41, %34
+  %43 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %5) #15
+  %.not7.i = icmp eq ptr %43, null
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %.critedge.i, %37, %16
+._crit_edge.i:                                    ; preds = %.critedge.i, %38, %16
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   call void @slurm_xfree(ptr noundef nonnull %3) #15
-  %43 = load ptr, ptr @stepd_scope_path, align 8
-  %44 = call ptr @xdirname(ptr noundef %43) #15
-  store ptr %44, ptr %1, align 8
-  %45 = call fastcc i32 @_enable_subtree_control(ptr noundef %44, ptr noundef %12), !range !6
+  %44 = load ptr, ptr @stepd_scope_path, align 8
+  %45 = call ptr @xdirname(ptr noundef %44) #15
+  store ptr %45, ptr %1, align 8
+  %46 = call fastcc i32 @_enable_subtree_control(ptr noundef %45, ptr noundef %12), !range !6
   call void @slurm_xfree(ptr noundef nonnull %1) #15
-  %.not12.i = icmp eq ptr %12, null
-  br i1 %.not12.i, label %_enable_system_controllers.exit, label %.sink.split.i
+  %.not10.i = icmp eq ptr %12, null
+  br i1 %.not10.i, label %_enable_system_controllers.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge.i, %15
   call void @slurm_bit_free(ptr noundef nonnull %2) #15
@@ -3187,13 +3179,13 @@ _enable_system_controllers.exit:                  ; preds = %15, %._crit_edge.i,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %46
+  br label %47
 
-46:                                               ; preds = %_enable_system_controllers.exit, %8, %0
-  %47 = load ptr, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 1), align 8
-  %48 = load ptr, ptr @int_cg_ns, align 8
-  %49 = call fastcc i32 @_get_controllers(ptr noundef %47, ptr noundef %48), !range !6
-  ret i32 %49
+47:                                               ; preds = %_enable_system_controllers.exit, %8, %0
+  %48 = load ptr, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 1), align 8
+  %49 = load ptr, ptr @int_cg_ns, align 8
+  %50 = call fastcc i32 @_get_controllers(ptr noundef %48, ptr noundef %49), !range !6
+  ret i32 %50
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

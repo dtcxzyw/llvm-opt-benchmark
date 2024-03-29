@@ -301,9 +301,8 @@ entry:
   store i64 %key_prefix_slice.coerce1, ptr %0, align 8
   %is_first_record_ = getelementptr inbounds i8, ptr %this, i64 1888
   %1 = load i8, ptr %is_first_record_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %lor.rhs, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %prev_key_prefix_ = getelementptr inbounds i8, ptr %this, i64 1944
@@ -336,19 +335,18 @@ cleanup.done:                                     ; preds = %land.rhs.i.i
 
 if.then:                                          ; preds = %entry, %cleanup.done.thread1, %cleanup.done
   %num_prefixes_ = getelementptr inbounds i8, ptr %this, i64 1892
-  %3 = load i32, ptr %num_prefixes_, align 4
-  %inc = add i32 %3, 1
+  %2 = load i32, ptr %num_prefixes_, align 4
+  %inc = add i32 %2, 1
   store i32 %inc, ptr %num_prefixes_, align 4
-  %4 = load i8, ptr %is_first_record_, align 8
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end
+  %3 = load i8, ptr %is_first_record_, align 8
+  %tobool3 = trunc i8 %3 to i1
+  br i1 %tobool3, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %keys_per_prefix_hist_ = getelementptr inbounds i8, ptr %this, i64 872
   %num_keys_per_prefix_ = getelementptr inbounds i8, ptr %this, i64 1896
-  %6 = load i32, ptr %num_keys_per_prefix_, align 8
-  %conv = zext i32 %6 to i64
+  %4 = load i32, ptr %num_keys_per_prefix_, align 8
+  %conv = zext i32 %4 to i64
   call void @_ZN7rocksdb13HistogramImpl3AddEm(ptr noundef nonnull align 8 dereferenceable(968) %keys_per_prefix_hist_, i64 noundef %conv)
   br label %if.end
 
@@ -359,9 +357,9 @@ if.end:                                           ; preds = %if.then4, %if.then
   %prev_key_prefix_7 = getelementptr inbounds i8, ptr %this, i64 1944
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %prev_key_prefix_7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
-  %7 = load ptr, ptr %key_prefix_slice, align 8
-  %8 = load i64, ptr %0, align 8
-  %call2.i = call noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %7, i64 noundef %8, i32 noundef 397)
+  %5 = load ptr, ptr %key_prefix_slice, align 8
+  %6 = load i64, ptr %0, align 8
+  %call2.i = call noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %5, i64 noundef %6, i32 noundef 397)
   %prev_key_prefix_hash_ = getelementptr inbounds i8, ptr %this, i64 1900
   store i32 %call2.i, ptr %prev_key_prefix_hash_, align 4
   %due_index_ = getelementptr inbounds i8, ptr %this, i64 1889
@@ -370,19 +368,18 @@ if.end:                                           ; preds = %if.then4, %if.then
 
 if.end10:                                         ; preds = %cleanup.done.thread3, %if.end, %cleanup.done
   %due_index_11 = getelementptr inbounds i8, ptr %this, i64 1889
-  %9 = load i8, ptr %due_index_11, align 1
-  %10 = and i8 %9, 1
-  %tobool12.not = icmp eq i8 %10, 0
-  br i1 %tobool12.not, label %if.end16, label %if.then13
+  %7 = load i8, ptr %due_index_11, align 1
+  %tobool12 = trunc i8 %7 to i1
+  br i1 %tobool12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.end10
   %record_list_ = getelementptr inbounds i8, ptr %this, i64 1840
   %prev_key_prefix_hash_14 = getelementptr inbounds i8, ptr %this, i64 1900
-  %11 = load i32, ptr %prev_key_prefix_hash_14, align 4
+  %8 = load i32, ptr %prev_key_prefix_hash_14, align 4
   %num_records_in_current_group_.i = getelementptr inbounds i8, ptr %this, i64 1880
-  %12 = load i64, ptr %num_records_in_current_group_.i, align 8
-  %13 = load i64, ptr %record_list_, align 8
-  %cmp.i = icmp eq i64 %12, %13
+  %9 = load i64, ptr %num_records_in_current_group_.i, align 8
+  %10 = load i64, ptr %record_list_, align 8
+  %cmp.i = icmp eq i64 %9, %10
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %if.then13
@@ -397,12 +394,12 @@ if.then.i:                                        ; preds = %if.then13
   br label %_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit
 
 _ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i
-  %14 = phi i64 [ %12, %entry.if.end_crit_edge.i ], [ 0, %if.then.i ]
-  %15 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
-  %inc.i = add i64 %14, 1
+  %11 = phi i64 [ %9, %entry.if.end_crit_edge.i ], [ 0, %if.then.i ]
+  %12 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
+  %inc.i = add i64 %11, 1
   store i64 %inc.i, ptr %num_records_in_current_group_.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %15, i64 %14
-  store i32 %11, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %12, i64 %11
+  store i32 %8, ptr %arrayidx.i, align 8
   %offset6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 %key_offset, ptr %offset6.i, align 4
   %next.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -412,17 +409,17 @@ _ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit: ; preds 
 
 if.end16:                                         ; preds = %_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit, %if.end10
   %num_keys_per_prefix_17 = getelementptr inbounds i8, ptr %this, i64 1896
-  %16 = load i32, ptr %num_keys_per_prefix_17, align 8
-  %inc18 = add i32 %16, 1
+  %13 = load i32, ptr %num_keys_per_prefix_17, align 8
+  %inc18 = add i32 %13, 1
   store i32 %inc18, ptr %num_keys_per_prefix_17, align 8
   %index_sparseness_ = getelementptr inbounds i8, ptr %this, i64 1904
-  %17 = load i64, ptr %index_sparseness_, align 8
-  %cmp = icmp eq i64 %17, 0
+  %14 = load i64, ptr %index_sparseness_, align 8
+  %cmp = icmp eq i64 %14, 0
   br i1 %cmp, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end16
   %conv20 = zext i32 %inc18 to i64
-  %rem = urem i64 %conv20, %17
+  %rem = urem i64 %conv20, %14
   %cmp22 = icmp eq i64 %rem, 0
   br i1 %cmp22, label %if.then23, label %if.end25
 
@@ -568,13 +565,13 @@ for.body.i:                                       ; preds = %invoke.cont8, %for.
 for.end.i:                                        ; preds = %for.body.i, %invoke.cont8
   %sub_index_size_.i = getelementptr inbounds i8, ptr %this, i64 1916
   store i32 0, ptr %sub_index_size_.i, align 4
-  %cmp.i.not25.i = icmp eq ptr %3, %5
-  br i1 %cmp.i.not25.i, label %invoke.cont10, label %for.body17.i
+  %cmp.i.not23.i = icmp eq ptr %3, %5
+  br i1 %cmp.i.not23.i, label %invoke.cont10, label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.end.i, %for.inc30.i
-  %__begin1.sroa.0.026.i = phi ptr [ %incdec.ptr.i.i, %for.inc30.i ], [ %3, %for.end.i ]
+  %__begin1.sroa.0.024.i = phi ptr [ %incdec.ptr.i.i, %for.inc30.i ], [ %3, %for.end.i ]
   %17 = phi i32 [ %19, %for.inc30.i ], [ 0, %for.end.i ]
-  %18 = load i32, ptr %__begin1.sroa.0.026.i, align 4
+  %18 = load i32, ptr %__begin1.sroa.0.024.i, align 4
   %cmp19.i = icmp ult i32 %18, 2
   br i1 %cmp19.i, label %for.inc30.i, label %if.end21.i
 
@@ -604,7 +601,7 @@ _ZN7rocksdb12VarintLengthEm.exit.i:               ; preds = %while.body.i.i, %if
 
 for.inc30.i:                                      ; preds = %_ZN7rocksdb12VarintLengthEm.exit.i, %for.body17.i
   %19 = phi i32 [ %17, %for.body17.i ], [ %add28.i, %_ZN7rocksdb12VarintLengthEm.exit.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026.i, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024.i, i64 4
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %5
   br i1 %cmp.i.not.i, label %invoke.cont10, label %for.body17.i
 
@@ -785,13 +782,13 @@ for.end:                                          ; preds = %for.body, %entry
   %14 = load ptr, ptr %entries_per_bucket, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %entries_per_bucket, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not25 = icmp eq ptr %14, %15
-  br i1 %cmp.i.not25, label %for.end32, label %for.body17
+  %cmp.i.not23 = icmp eq ptr %14, %15
+  br i1 %cmp.i.not23, label %for.end32, label %for.body17
 
 for.body17:                                       ; preds = %for.end, %for.inc30
-  %__begin1.sroa.0.026 = phi ptr [ %incdec.ptr.i, %for.inc30 ], [ %14, %for.end ]
+  %__begin1.sroa.0.024 = phi ptr [ %incdec.ptr.i, %for.inc30 ], [ %14, %for.end ]
   %16 = phi i32 [ %18, %for.inc30 ], [ 0, %for.end ]
-  %17 = load i32, ptr %__begin1.sroa.0.026, align 4
+  %17 = load i32, ptr %__begin1.sroa.0.024, align 4
   %cmp19 = icmp ult i32 %17, 2
   br i1 %cmp19, label %for.inc30, label %if.end21
 
@@ -821,7 +818,7 @@ _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %while.body.i, %if.e
 
 for.inc30:                                        ; preds = %for.body17, %_ZN7rocksdb12VarintLengthEm.exit
   %18 = phi i32 [ %16, %for.body17 ], [ %add28, %_ZN7rocksdb12VarintLengthEm.exit ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %15
   br i1 %cmp.i.not, label %for.end32, label %for.body17
 

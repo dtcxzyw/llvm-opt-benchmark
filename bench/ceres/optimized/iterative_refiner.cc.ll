@@ -844,7 +844,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
 26:                                               ; preds = %18, %13, %21
   %27 = phi ptr [ %20, %18 ], [ null, %13 ], [ %22, %21 ]
   %28 = phi ptr [ %20, %18 ], [ %14, %13 ], [ %22, %21 ]
-  %29 = icmp ult i64 %9, 16385
+  %29 = icmp ugt i64 %9, 16384
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 16
@@ -861,7 +861,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
           to label %38 unwind label %40
 
 38:                                               ; preds = %26
-  br i1 %29, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, label %39
+  br i1 %29, label %39, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
 39:                                               ; preds = %38
   call void @free(ptr noundef %27) #14
@@ -873,13 +873,13 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %38, %39
 40:                                               ; preds = %26
   %41 = landingpad { ptr, i32 }
           cleanup
-  br i1 %29, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit44, label %42
+  br i1 %29, label %42, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit43
 
 42:                                               ; preds = %40
   call void @free(ptr noundef %27) #14
-  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit44
+  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit43
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit44: ; preds = %40, %42
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit43: ; preds = %40, %42
   resume { ptr, i32 } %41
 }
 

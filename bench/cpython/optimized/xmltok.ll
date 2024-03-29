@@ -4063,13 +4063,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %for.cond
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 25034759, %switch.maskindex
-  %3 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %3, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table.normal_nameLength, i64 0, i64 %4
+  %3 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table.normal_nameLength, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %add.ptr6 = getelementptr i8, ptr %ptr.addr.0, i64 %switch.load
   br label %for.cond
@@ -10035,13 +10034,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %cond.end
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 25034759, %switch.maskindex
-  %5 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %5, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table.big2_nameLength, i64 0, i64 %6
+  %5 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table.big2_nameLength, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog
 
@@ -16108,13 +16106,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %cond.end
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 25034759, %switch.maskindex
-  %5 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %5, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table.big2_nameLength, i64 0, i64 %6
+  %5 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table.big2_nameLength, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog
 

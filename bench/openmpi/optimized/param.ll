@@ -409,36 +409,36 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   %.val = load i64, ptr %8, align 8
   %9 = trunc i64 %.val to i32
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph32.preheader, label %._crit_edge33
+  br i1 %10, label %.lr.ph30.preheader, label %._crit_edge31
 
-.lr.ph32.preheader:                               ; preds = %1
+.lr.ph30.preheader:                               ; preds = %1
   %wide.trip.count = and i64 %.val, 2147483647
   %11 = getelementptr inbounds i8, ptr %0, i64 168
-  br label %.lr.ph32
+  br label %.lr.ph30
 
-.lr.ph32:                                         ; preds = %.lr.ph32.preheader, %44
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next41, %44 ]
-  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv40
+.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %44
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next39, %44 ]
+  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv38
   %13 = load i32, ptr %12, align 4
   %14 = call i32 @pmix_mca_base_var_get(i32 noundef %13, ptr noundef nonnull %3) #8
   %.not22 = icmp eq i32 %14, 0
   br i1 %.not22, label %15, label %44
 
-15:                                               ; preds = %.lr.ph32
+15:                                               ; preds = %.lr.ph30
   %16 = load i32, ptr %12, align 4
   %17 = load i8, ptr @prte_info_pretty, align 1
   %18 = and i8 %17, 1
   %19 = xor i8 %18, 1
   %20 = zext nneg i8 %19 to i32
   %21 = call i32 @pmix_mca_base_var_dump(i32 noundef %16, ptr noundef nonnull %4, i32 noundef %20) #8
-  %.not24 = icmp eq i32 %21, 0
-  br i1 %.not24, label %.preheader, label %44
+  %.not23 = icmp eq i32 %21, 0
+  br i1 %.not23, label %.preheader, label %44
 
 .preheader:                                       ; preds = %15
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %22, align 8
-  %.not2528 = icmp eq ptr %23, null
-  br i1 %.not2528, label %._crit_edge, label %.lr.ph
+  %.not2426 = icmp eq ptr %23, null
+  br i1 %.not2426, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader ]
@@ -448,9 +448,8 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
 
 26:                                               ; preds = %.lr.ph
   %27 = load i8, ptr @prte_info_pretty, align 1
-  %28 = and i8 %27, 1
-  %.not26 = icmp eq i8 %28, 0
-  br i1 %.not26, label %36, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %11, align 8
@@ -476,51 +475,51 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8
-  %.not25 = icmp eq ptr %43, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  %.not24 = icmp eq ptr %43, null
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %37, %.preheader
   %.lcssa = phi ptr [ %22, %.preheader ], [ %41, %37 ]
   call void @free(ptr noundef nonnull %.lcssa) #8
   br label %44
 
-44:                                               ; preds = %15, %.lr.ph32, %._crit_edge
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !11
+44:                                               ; preds = %15, %.lr.ph30, %._crit_edge
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !11
 
-._crit_edge33:                                    ; preds = %44, %1
+._crit_edge31:                                    ; preds = %44, %1
   %45 = getelementptr inbounds i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %0, i64 328
-  %.val27 = load i64, ptr %47, align 8
-  %48 = trunc i64 %.val27 to i32
+  %.val25 = load i64, ptr %47, align 8
+  %48 = trunc i64 %.val25 to i32
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph36.preheader, label %._crit_edge37
+  br i1 %49, label %.lr.ph34.preheader, label %._crit_edge35
 
-.lr.ph36.preheader:                               ; preds = %._crit_edge33
-  %wide.trip.count46 = and i64 %.val27, 2147483647
-  br label %.lr.ph36
+.lr.ph34.preheader:                               ; preds = %._crit_edge31
+  %wide.trip.count44 = and i64 %.val25, 2147483647
+  br label %.lr.ph34
 
-.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %55
-  %indvars.iv43 = phi i64 [ 0, %.lr.ph36.preheader ], [ %indvars.iv.next44, %55 ]
-  %50 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv43
+.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %55
+  %indvars.iv41 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next42, %55 ]
+  %50 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv41
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @pmix_mca_base_var_group_get(i32 noundef %51, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %53, label %55
 
-53:                                               ; preds = %.lr.ph36
+53:                                               ; preds = %.lr.ph34
   %54 = load ptr, ptr %2, align 8
   call fastcc void @prte_info_show_mca_group_params(ptr noundef %54)
   br label %55
 
-55:                                               ; preds = %.lr.ph36, %53
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !12
+55:                                               ; preds = %.lr.ph34, %53
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
+  br i1 %exitcond45.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !12
 
-._crit_edge37:                                    ; preds = %55, %._crit_edge33
+._crit_edge35:                                    ; preds = %55, %._crit_edge31
   ret void
 }
 

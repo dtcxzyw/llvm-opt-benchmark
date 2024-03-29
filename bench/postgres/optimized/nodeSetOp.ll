@@ -159,9 +159,8 @@ define internal ptr @ExecSetOp(ptr noundef %0) #0 {
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 224
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not14 = icmp eq i8 %19, 0
-  br i1 %.not14, label %20, label %setop_retrieve_hash_table.exit
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %setop_retrieve_hash_table.exit, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %5, i64 108
@@ -172,9 +171,8 @@ define internal ptr @ExecSetOp(ptr noundef %0) #0 {
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 272
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not15 = icmp eq i8 %27, 0
-  br i1 %.not15, label %28, label %90
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %90, label %28
 
 28:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -189,8 +187,8 @@ define internal ptr @ExecSetOp(ptr noundef %0) #0 {
   %37 = getelementptr inbounds i8, ptr %33, i64 24
   %38 = getelementptr inbounds i8, ptr %0, i64 256
   %39 = getelementptr inbounds i8, ptr %31, i64 40
-  %.not.i30.i = icmp eq i32 %35, 0
-  %.sink.idx.i.i = select i1 %.not.i30.i, i64 0, i64 8
+  %.not.i29.i = icmp eq i32 %35, 0
+  %.sink.idx.i.i = select i1 %.not.i29.i, i64 0, i64 8
   br label %40
 
 40:                                               ; preds = %85, %28
@@ -244,9 +242,8 @@ fetch_tuple_flag.exit.i:                          ; preds = %slot_getsomeattrs.e
 65:                                               ; preds = %fetch_tuple_flag.exit.i
   %66 = call ptr @LookupTupleHashEntry(ptr noundef %64, ptr noundef nonnull %44, ptr noundef nonnull %3, ptr noundef null) #7
   %67 = load i8, ptr %3, align 1
-  %68 = and i8 %67, 1
-  %.not29.i = icmp eq i8 %68, 0
-  br i1 %.not29.i, label %75, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %75
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %38, align 8
@@ -272,16 +269,16 @@ fetch_tuple_flag.exit.i:                          ; preds = %slot_getsomeattrs.e
 80:                                               ; preds = %78
   %81 = getelementptr inbounds i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8
-  %.not.i31.i = icmp eq i32 %62, 0
-  %.sink.idx.i32.i = select i1 %.not.i31.i, i64 0, i64 8
-  %.sink.i33.i = getelementptr inbounds i8, ptr %82, i64 %.sink.idx.i32.i
+  %.not.i30.i = icmp eq i32 %62, 0
+  %.sink.idx.i31.i = select i1 %.not.i30.i, i64 0, i64 8
+  %.sink.i32.i = getelementptr inbounds i8, ptr %82, i64 %.sink.idx.i31.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %80, %75
-  %.sink.i33.sink35.i = phi ptr [ %.sink.i33.i, %80 ], [ %.sink.i.i, %75 ]
-  %83 = load i64, ptr %.sink.i33.sink35.i, align 8
+  %.sink.i32.sink34.i = phi ptr [ %.sink.i32.i, %80 ], [ %.sink.i.i, %75 ]
+  %83 = load i64, ptr %.sink.i32.sink34.i, align 8
   %84 = add i64 %83, 1
-  store i64 %84, ptr %.sink.i33.sink35.i, align 8
+  store i64 %84, ptr %.sink.i32.sink34.i, align 8
   br label %85
 
 85:                                               ; preds = %.sink.split.i, %78
@@ -306,14 +303,13 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit.i
 
 94:                                               ; preds = %106, %90
   %95 = load i8, ptr %17, align 8
-  %96 = and i8 %95, 1
-  %.not.i16 = icmp eq i8 %96, 0
-  br i1 %.not.i16, label %97, label %115
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %115, label %97
 
 97:                                               ; preds = %94
   %98 = load volatile i32, ptr @InterruptPending, align 4
-  %.not16.i = icmp eq i32 %98, 0
-  br i1 %.not16.i, label %100, label %99
+  %.not.i14 = icmp eq i32 %98, 0
+  br i1 %.not.i14, label %100, label %99
 
 99:                                               ; preds = %97
   call void @ProcessInterrupts() #7
@@ -373,9 +369,8 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit.i
 
 136:                                              ; preds = %205, %120
   %137 = load i8, ptr %17, align 8
-  %138 = and i8 %137, 1
-  %.not.i17 = icmp eq i8 %138, 0
-  br i1 %.not.i17, label %139, label %210
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %210, label %139
 
 139:                                              ; preds = %136
   %140 = load ptr, ptr %128, align 8
@@ -384,25 +379,25 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit.i
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %129, align 8
-  %.not.i.i23 = icmp eq ptr %143, null
-  br i1 %.not.i.i23, label %ExecProcNode.exit.i24, label %144
+  %.not.i.i20 = icmp eq ptr %143, null
+  br i1 %.not.i.i20, label %ExecProcNode.exit.i21, label %144
 
 144:                                              ; preds = %142
   call void @ExecReScan(ptr noundef nonnull %124) #7
-  br label %ExecProcNode.exit.i24
+  br label %ExecProcNode.exit.i21
 
-ExecProcNode.exit.i24:                            ; preds = %144, %142
+ExecProcNode.exit.i21:                            ; preds = %144, %142
   %145 = load ptr, ptr %130, align 8
   %146 = call ptr %145(ptr noundef nonnull %124) #7
   %147 = icmp eq ptr %146, null
   br i1 %147, label %158, label %148
 
-148:                                              ; preds = %ExecProcNode.exit.i24
+148:                                              ; preds = %ExecProcNode.exit.i21
   %149 = getelementptr inbounds i8, ptr %146, i64 4
   %150 = load i16, ptr %149, align 4
   %151 = and i16 %150, 2
-  %.not44.i = icmp eq i16 %151, 0
-  br i1 %.not44.i, label %152, label %158
+  %.not.i22 = icmp eq i16 %151, 0
+  br i1 %.not.i22, label %152, label %158
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds i8, ptr %146, i64 8
@@ -413,7 +408,7 @@ ExecProcNode.exit.i24:                            ; preds = %144, %142
   store ptr %157, ptr %128, align 8
   br label %159
 
-158:                                              ; preds = %148, %ExecProcNode.exit.i24
+158:                                              ; preds = %148, %ExecProcNode.exit.i21
   store i8 1, ptr %17, align 8
   br label %setop_retrieve_hash_table.exit
 
@@ -422,63 +417,63 @@ ExecProcNode.exit.i24:                            ; preds = %144, %142
   %161 = call ptr @ExecStoreHeapTuple(ptr noundef %160, ptr noundef %127, i1 noundef zeroext true) #7
   store ptr null, ptr %128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
-  %.val.i19 = load ptr, ptr %4, align 8
-  %162 = getelementptr i8, ptr %.val.i19, i64 144
-  %.val.val.i20 = load i16, ptr %162, align 8
+  %.val.i15 = load ptr, ptr %4, align 8
+  %162 = getelementptr i8, ptr %.val.i15, i64 144
+  %.val.val.i16 = load i16, ptr %162, align 8
   %163 = load i16, ptr %131, align 2
-  %164 = icmp slt i16 %163, %.val.val.i20
-  br i1 %164, label %fetch_tuple_flag.exit.i21.sink.split, label %fetch_tuple_flag.exit.i21.preheader
+  %164 = icmp slt i16 %163, %.val.val.i16
+  br i1 %164, label %fetch_tuple_flag.exit.i17.sink.split, label %fetch_tuple_flag.exit.i17.preheader
 
-fetch_tuple_flag.exit.i21.sink.split:             ; preds = %200, %159
-  %.val46.val.i.sink = phi i16 [ %.val.val.i20, %159 ], [ %.val46.val.i, %200 ]
+fetch_tuple_flag.exit.i17.sink.split:             ; preds = %200, %159
+  %.val45.val.i.sink = phi i16 [ %.val.val.i16, %159 ], [ %.val45.val.i, %200 ]
   %.sink = phi ptr [ %127, %159 ], [ %177, %200 ]
-  %165 = sext i16 %.val46.val.i.sink to i32
+  %165 = sext i16 %.val45.val.i.sink to i32
   call void @slot_getsomeattrs_int(ptr noundef nonnull %.sink, i32 noundef %165) #7
-  br label %fetch_tuple_flag.exit.i21.preheader
+  br label %fetch_tuple_flag.exit.i17.preheader
 
-fetch_tuple_flag.exit.i21.preheader:              ; preds = %159, %fetch_tuple_flag.exit.i21.sink.split
-  %.pn.i.ph = phi ptr [ %.sink, %fetch_tuple_flag.exit.i21.sink.split ], [ %127, %159 ]
-  %.val46.val.sink.i.ph = phi i16 [ %.val46.val.i.sink, %fetch_tuple_flag.exit.i21.sink.split ], [ %.val.val.i20, %159 ]
-  br label %fetch_tuple_flag.exit.i21
+fetch_tuple_flag.exit.i17.preheader:              ; preds = %159, %fetch_tuple_flag.exit.i17.sink.split
+  %.pn.i.ph = phi ptr [ %.sink, %fetch_tuple_flag.exit.i17.sink.split ], [ %127, %159 ]
+  %.val45.val.sink.i.ph = phi i16 [ %.val45.val.i.sink, %fetch_tuple_flag.exit.i17.sink.split ], [ %.val.val.i16, %159 ]
+  br label %fetch_tuple_flag.exit.i17
 
-fetch_tuple_flag.exit.i21:                        ; preds = %fetch_tuple_flag.exit.i21.preheader, %200
-  %.pn.i = phi ptr [ %177, %200 ], [ %.pn.i.ph, %fetch_tuple_flag.exit.i21.preheader ]
-  %.val46.val.sink.i = phi i16 [ %.val46.val.i, %200 ], [ %.val46.val.sink.i.ph, %fetch_tuple_flag.exit.i21.preheader ]
-  %.sink69.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %166 = load ptr, ptr %.sink69.i, align 8
-  %167 = sext i16 %.val46.val.sink.i to i64
+fetch_tuple_flag.exit.i17:                        ; preds = %fetch_tuple_flag.exit.i17.preheader, %200
+  %.pn.i = phi ptr [ %177, %200 ], [ %.pn.i.ph, %fetch_tuple_flag.exit.i17.preheader ]
+  %.val45.val.sink.i = phi i16 [ %.val45.val.i, %200 ], [ %.val45.val.sink.i.ph, %fetch_tuple_flag.exit.i17.preheader ]
+  %.sink68.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
+  %166 = load ptr, ptr %.sink68.i, align 8
+  %167 = sext i16 %.val45.val.sink.i to i64
   %168 = getelementptr i64, ptr %166, i64 %167
   %169 = getelementptr i8, ptr %168, i64 -8
   %170 = load i64, ptr %169, align 8
   %171 = and i64 %170, 4294967295
-  %.not.i52.i = icmp eq i64 %171, 0
-  %.sink.idx.i53.i = select i1 %.not.i52.i, i64 0, i64 8
-  %.sink.i54.i = getelementptr inbounds i8, ptr %126, i64 %.sink.idx.i53.i
-  %172 = load i64, ptr %.sink.i54.i, align 8
+  %.not.i51.i = icmp eq i64 %171, 0
+  %.sink.idx.i52.i = select i1 %.not.i51.i, i64 0, i64 8
+  %.sink.i53.i = getelementptr inbounds i8, ptr %126, i64 %.sink.idx.i52.i
+  %172 = load i64, ptr %.sink.i53.i, align 8
   %173 = add i64 %172, 1
-  store i64 %173, ptr %.sink.i54.i, align 8
+  store i64 %173, ptr %.sink.i53.i, align 8
   %174 = load ptr, ptr %129, align 8
-  %.not.i48.i = icmp eq ptr %174, null
-  br i1 %.not.i48.i, label %ExecProcNode.exit49.i, label %175
+  %.not.i47.i = icmp eq ptr %174, null
+  br i1 %.not.i47.i, label %ExecProcNode.exit48.i, label %175
 
-175:                                              ; preds = %fetch_tuple_flag.exit.i21
+175:                                              ; preds = %fetch_tuple_flag.exit.i17
   call void @ExecReScan(ptr noundef nonnull %124) #7
-  br label %ExecProcNode.exit49.i
+  br label %ExecProcNode.exit48.i
 
-ExecProcNode.exit49.i:                            ; preds = %175, %fetch_tuple_flag.exit.i21
+ExecProcNode.exit48.i:                            ; preds = %175, %fetch_tuple_flag.exit.i17
   %176 = load ptr, ptr %130, align 8
   %177 = call ptr %176(ptr noundef nonnull %124) #7
   %178 = icmp eq ptr %177, null
   br i1 %178, label %183, label %179
 
-179:                                              ; preds = %ExecProcNode.exit49.i
+179:                                              ; preds = %ExecProcNode.exit48.i
   %180 = getelementptr inbounds i8, ptr %177, i64 4
   %181 = load i16, ptr %180, align 4
   %182 = and i16 %181, 2
-  %.not45.i = icmp eq i16 %182, 0
-  br i1 %.not45.i, label %184, label %183
+  %.not44.i = icmp eq i16 %182, 0
+  br i1 %.not44.i, label %184, label %183
 
-183:                                              ; preds = %179, %ExecProcNode.exit49.i
+183:                                              ; preds = %179, %ExecProcNode.exit48.i
   store i8 1, ptr %17, align 8
   br label %205
 
@@ -504,11 +499,11 @@ ExecQualAndReset.exit.i:                          ; preds = %184
   %191 = load ptr, ptr %190, align 8
   %192 = call i64 %191(ptr noundef nonnull %185, ptr noundef nonnull %122, ptr noundef nonnull %2) #7
   store ptr %189, ptr @CurrentMemoryContext, align 8
-  %.not56.i = icmp eq i64 %192, 0
+  %.not55.i = icmp eq i64 %192, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %193 = load ptr, ptr %135, align 8
   call void @MemoryContextReset(ptr noundef %193) #7
-  br i1 %.not56.i, label %194, label %200
+  br i1 %.not55.i, label %194, label %200
 
 194:                                              ; preds = %ExecQualAndReset.exit.i
   %195 = getelementptr inbounds i8, ptr %177, i64 8
@@ -520,13 +515,13 @@ ExecQualAndReset.exit.i:                          ; preds = %184
   br label %205
 
 200:                                              ; preds = %ExecQualAndReset.exit.i, %ExecQualAndReset.exit.thread.i
-  %.val46.i = load ptr, ptr %4, align 8
-  %201 = getelementptr i8, ptr %.val46.i, i64 144
-  %.val46.val.i = load i16, ptr %201, align 8
+  %.val45.i = load ptr, ptr %4, align 8
+  %201 = getelementptr i8, ptr %.val45.i, i64 144
+  %.val45.val.i = load i16, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %177, i64 6
   %203 = load i16, ptr %202, align 2
-  %204 = icmp slt i16 %203, %.val46.val.i
-  br i1 %204, label %fetch_tuple_flag.exit.i21.sink.split, label %fetch_tuple_flag.exit.i21
+  %204 = icmp slt i16 %203, %.val45.val.i
+  br i1 %204, label %fetch_tuple_flag.exit.i17.sink.split, label %fetch_tuple_flag.exit.i17
 
 205:                                              ; preds = %194, %183
   call fastcc void @set_output_count(ptr noundef nonnull %0, ptr noundef nonnull %126)
@@ -615,9 +610,8 @@ define dso_local void @ExecReScanSetOp(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 272
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %52, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %52
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %3, i64 104
@@ -636,8 +630,8 @@ define dso_local void @ExecReScanSetOp(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %21, %1
   %31 = getelementptr inbounds i8, ptr %0, i64 248
   %32 = load ptr, ptr %31, align 8
-  %.not20 = icmp eq ptr %32, null
-  br i1 %.not20, label %34, label %33
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %34, label %33
 
 33:                                               ; preds = %30
   tail call void @heap_freetuple(ptr noundef nonnull %32) #7
@@ -647,8 +641,8 @@ define dso_local void @ExecReScanSetOp(ptr noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %33, %30
   %35 = getelementptr inbounds i8, ptr %0, i64 264
   %36 = load ptr, ptr %35, align 8
-  %.not21 = icmp eq ptr %36, null
-  br i1 %.not21, label %38, label %37
+  %.not20 = icmp eq ptr %36, null
+  br i1 %.not20, label %38, label %37
 
 37:                                               ; preds = %34
   tail call void @MemoryContextReset(ptr noundef nonnull %36) #7

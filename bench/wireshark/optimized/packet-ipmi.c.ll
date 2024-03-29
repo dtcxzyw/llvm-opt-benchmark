@@ -676,9 +676,8 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define hidden void @ipmi_fmt_500ms_0based(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = add i32 %1, 1
   %4 = lshr i32 %3, 1
-  %5 = and i32 %1, 1
-  %.not.i.not = icmp eq i32 %5, 0
-  %6 = select i1 %.not.i.not, i32 500, i32 0
+  %5 = trunc i32 %3 to i1
+  %6 = select i1 %5, i32 500, i32 0
   %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.12, i32 noundef %4, i32 noundef %6) #13
   ret void
 }
@@ -686,9 +685,8 @@ define hidden void @ipmi_fmt_500ms_0based(ptr nocapture noundef writeonly %0, i3
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @ipmi_fmt_500ms_1based(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = lshr i32 %1, 1
-  %4 = and i32 %1, 1
-  %.not = icmp eq i32 %4, 0
-  %5 = select i1 %.not, i32 0, i32 500
+  %4 = trunc i32 %1 to i1
+  %5 = select i1 %4, i32 500, i32 0
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.12, i32 noundef %3, i32 noundef %5) #13
   ret void
 }

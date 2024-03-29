@@ -788,9 +788,8 @@ cleanup:                                          ; preds = %if.end87, %for.cond
   %retval.sroa.0.0 = phi i32 [ %call136, %if.then131 ], [ %call153, %if.then148 ], [ %call179, %if.then174 ], [ %call114, %if.then108 ], [ 1, %if.then82 ], [ 0, %if.end44 ], [ 0, %for.cond ], [ 0, %if.end87 ]
   %retval.sroa.13.0 = phi i64 [ undef, %if.then131 ], [ undef, %if.then148 ], [ undef, %if.then174 ], [ undef, %if.then108 ], [ %retval.sroa.0.0.copyload.i93, %if.then82 ], [ undef, %if.end44 ], [ undef, %for.cond ], [ undef, %if.end87 ]
   %49 = load i8, ptr %hasVal.i.i.i, align 8
-  %50 = and i8 %49, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %50, 0
-  br i1 %tobool.not.i.i.i.i, label %cleanup181, label %if.then.i.i.i.i
+  %tobool.i.i.i.i = trunc i8 %49 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %cleanup181
 
 if.then.i.i.i.i:                                  ; preds = %cleanup
   store i8 0, ptr %hasVal.i.i.i, align 8

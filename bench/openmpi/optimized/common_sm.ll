@@ -206,72 +206,69 @@ define noundef i32 @mca_common_sm_local_proc_reorder(ptr noundef %0, i64 noundef
   %4 = icmp eq ptr %2, null
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %32, label %.preheader
+  br i1 %or.cond, label %31, label %.preheader
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %30
-  %.042 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
-  %.03141 = phi i8 [ %.2, %30 ], [ 0, %.preheader ]
-  %.03240 = phi i64 [ %.133, %30 ], [ 0, %.preheader ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %.042
+.lr.ph:                                           ; preds = %.preheader, %29
+  %.041 = phi i64 [ %30, %29 ], [ 0, %.preheader ]
+  %.03140 = phi i1 [ %.2, %29 ], [ false, %.preheader ]
+  %.03239 = phi i64 [ %.133, %29 ], [ 0, %.preheader ]
+  %6 = getelementptr inbounds ptr, ptr %0, i64 %.041
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 52
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 12
-  %or.cond39.not = icmp eq i16 %10, 12
-  br i1 %or.cond39.not, label %11, label %30
+  %or.cond38.not = icmp eq i16 %10, 12
+  br i1 %or.cond38.not, label %11, label %29
 
 11:                                               ; preds = %.lr.ph
-  %12 = and i8 %.03141, 1
-  %.not38 = icmp eq i8 %12, 0
-  br i1 %.not38, label %13, label %14
+  br i1 %.03140, label %13, label %12
+
+12:                                               ; preds = %11
+  store ptr %7, ptr %0, align 8
+  br label %27
 
 13:                                               ; preds = %11
-  store ptr %7, ptr %0, align 8
-  br label %28
+  %14 = getelementptr inbounds ptr, ptr %0, i64 %.03239
+  store ptr %7, ptr %14, align 8
+  %15 = load ptr, ptr @opal_compare_proc, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %20 = load i64, ptr %17, align 8
+  %21 = load i64, ptr %19, align 8
+  %22 = tail call i32 %15(i64 %20, i64 %21) #7
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %27
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %.03240
-  store ptr %7, ptr %15, align 8
-  %16 = load ptr, ptr @opal_compare_proc, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
-  %21 = load i64, ptr %18, align 8
-  %22 = load i64, ptr %20, align 8
-  %23 = tail call i32 %16(i64 %21, i64 %22) #7
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %28
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %0, align 8
+  %26 = load ptr, ptr %6, align 8
+  store ptr %26, ptr %0, align 8
+  store ptr %25, ptr %14, align 8
+  br label %27
 
-25:                                               ; preds = %14
-  %26 = load ptr, ptr %0, align 8
-  %27 = load ptr, ptr %6, align 8
-  store ptr %27, ptr %0, align 8
-  store ptr %26, ptr %15, align 8
-  br label %28
+27:                                               ; preds = %13, %24, %12
+  %28 = add i64 %.03239, 1
+  br label %29
 
-28:                                               ; preds = %14, %25, %13
-  %.1 = phi i8 [ %.03141, %25 ], [ %.03141, %14 ], [ 1, %13 ]
-  %29 = add i64 %.03240, 1
-  br label %30
-
-30:                                               ; preds = %.lr.ph, %28
-  %.133 = phi i64 [ %29, %28 ], [ %.03240, %.lr.ph ]
-  %.2 = phi i8 [ %.1, %28 ], [ %.03141, %.lr.ph ]
-  %31 = add nuw i64 %.042, 1
-  %exitcond.not = icmp eq i64 %31, %1
+29:                                               ; preds = %.lr.ph, %27
+  %.133 = phi i64 [ %28, %27 ], [ %.03239, %.lr.ph ]
+  %.2 = phi i1 [ true, %27 ], [ %.03140, %.lr.ph ]
+  %30 = add nuw i64 %.041, 1
+  %exitcond.not = icmp eq i64 %30, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %30, %.preheader
-  %.032.lcssa = phi i64 [ 0, %.preheader ], [ %.133, %30 ]
+._crit_edge:                                      ; preds = %29, %.preheader
+  %.032.lcssa = phi i64 [ 0, %.preheader ], [ %.133, %29 ]
   store i64 %.032.lcssa, ptr %2, align 8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %3, %._crit_edge
+31:                                               ; preds = %3, %._crit_edge
   %.034 = phi i32 [ 0, %._crit_edge ], [ -5, %3 ]
   ret i32 %.034
 }

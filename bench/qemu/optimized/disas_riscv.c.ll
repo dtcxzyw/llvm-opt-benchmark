@@ -3479,12 +3479,11 @@ if.then.i244.i:                                   ; preds = %sw.bb29.i
   %414 = load ptr, ptr %dec, align 8
   %ext_zfinx.i = getelementptr inbounds i8, ptr %414, i64 45
   %415 = load i8, ptr %ext_zfinx.i, align 1
-  %416 = and i8 %415, 1
-  %tobool30.not.i = icmp eq i8 %416, 0
-  %rv_freg_name_sym.rv_ireg_name_sym.i = select i1 %tobool30.not.i, ptr @rv_freg_name_sym, ptr @rv_ireg_name_sym
-  %417 = load i8, ptr %rd237.i, align 1
-  %idxprom37.i = zext i8 %417 to i64
-  %arrayidx38.i = getelementptr [32 x [5 x i8]], ptr %rv_freg_name_sym.rv_ireg_name_sym.i, i64 0, i64 %idxprom37.i
+  %tobool30.i = trunc i8 %415 to i1
+  %rv_ireg_name_sym.rv_freg_name_sym.i = select i1 %tobool30.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
+  %416 = load i8, ptr %rd237.i, align 1
+  %idxprom33.i = zext i8 %416 to i64
+  %arrayidx38.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym.i, i64 0, i64 %idxprom33.i
   %sub.i245.i = sub i64 128, %call.i242.i
   %call3.i246.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx38.i, i64 noundef %sub.i245.i) #12
   br label %sw.epilog321.i
@@ -3495,15 +3494,14 @@ sw.bb40.i:                                        ; preds = %while.cond.i
   br i1 %cmp.not.i249.i, label %sw.epilog321.i, label %if.then.i250.i
 
 if.then.i250.i:                                   ; preds = %sw.bb40.i
-  %418 = load ptr, ptr %dec, align 8
-  %ext_zfinx42.i = getelementptr inbounds i8, ptr %418, i64 45
-  %419 = load i8, ptr %ext_zfinx42.i, align 1
-  %420 = and i8 %419, 1
-  %tobool43.not.i = icmp eq i8 %420, 0
-  %rv_freg_name_sym.rv_ireg_name_sym568.i = select i1 %tobool43.not.i, ptr @rv_freg_name_sym, ptr @rv_ireg_name_sym
-  %421 = load i8, ptr %rs1242.i, align 4
-  %idxprom52.i = zext i8 %421 to i64
-  %arrayidx53.i = getelementptr [32 x [5 x i8]], ptr %rv_freg_name_sym.rv_ireg_name_sym568.i, i64 0, i64 %idxprom52.i
+  %417 = load ptr, ptr %dec, align 8
+  %ext_zfinx42.i = getelementptr inbounds i8, ptr %417, i64 45
+  %418 = load i8, ptr %ext_zfinx42.i, align 1
+  %tobool43.i = trunc i8 %418 to i1
+  %rv_ireg_name_sym.rv_freg_name_sym568.i = select i1 %tobool43.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
+  %419 = load i8, ptr %rs1242.i, align 4
+  %idxprom47.i = zext i8 %419 to i64
+  %arrayidx53.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym568.i, i64 0, i64 %idxprom47.i
   %sub.i251.i = sub i64 128, %call.i248.i
   %call3.i252.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx53.i, i64 noundef %sub.i251.i) #12
   br label %sw.epilog321.i
@@ -3514,15 +3512,14 @@ sw.bb57.i:                                        ; preds = %while.cond.i
   br i1 %cmp.not.i255.i, label %sw.epilog321.i, label %if.then.i256.i
 
 if.then.i256.i:                                   ; preds = %sw.bb57.i
-  %422 = load ptr, ptr %dec, align 8
-  %ext_zfinx59.i = getelementptr inbounds i8, ptr %422, i64 45
-  %423 = load i8, ptr %ext_zfinx59.i, align 1
-  %424 = and i8 %423, 1
-  %tobool60.not.i = icmp eq i8 %424, 0
-  %rv_freg_name_sym.rv_ireg_name_sym569.i = select i1 %tobool60.not.i, ptr @rv_freg_name_sym, ptr @rv_ireg_name_sym
-  %425 = load i8, ptr %rs2247.i, align 1
-  %idxprom69.i = zext i8 %425 to i64
-  %arrayidx70.i = getelementptr [32 x [5 x i8]], ptr %rv_freg_name_sym.rv_ireg_name_sym569.i, i64 0, i64 %idxprom69.i
+  %420 = load ptr, ptr %dec, align 8
+  %ext_zfinx59.i = getelementptr inbounds i8, ptr %420, i64 45
+  %421 = load i8, ptr %ext_zfinx59.i, align 1
+  %tobool60.i = trunc i8 %421 to i1
+  %rv_ireg_name_sym.rv_freg_name_sym569.i = select i1 %tobool60.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
+  %422 = load i8, ptr %rs2247.i, align 1
+  %idxprom64.i = zext i8 %422 to i64
+  %arrayidx70.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym569.i, i64 0, i64 %idxprom64.i
   %sub.i257.i = sub i64 128, %call.i254.i
   %call3.i258.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx70.i, i64 noundef %sub.i257.i) #12
   br label %sw.epilog321.i
@@ -3533,22 +3530,21 @@ sw.bb74.i:                                        ; preds = %while.cond.i
   br i1 %cmp.not.i261.i, label %sw.epilog321.i, label %if.then.i262.i
 
 if.then.i262.i:                                   ; preds = %sw.bb74.i
-  %426 = load ptr, ptr %dec, align 8
-  %ext_zfinx76.i = getelementptr inbounds i8, ptr %426, i64 45
-  %427 = load i8, ptr %ext_zfinx76.i, align 1
-  %428 = and i8 %427, 1
-  %tobool77.not.i = icmp eq i8 %428, 0
-  %rv_freg_name_sym.rv_ireg_name_sym570.i = select i1 %tobool77.not.i, ptr @rv_freg_name_sym, ptr @rv_ireg_name_sym
-  %429 = load i8, ptr %rs3252.i, align 2
-  %idxprom85.i = zext i8 %429 to i64
-  %arrayidx86.i = getelementptr [32 x [5 x i8]], ptr %rv_freg_name_sym.rv_ireg_name_sym570.i, i64 0, i64 %idxprom85.i
+  %423 = load ptr, ptr %dec, align 8
+  %ext_zfinx76.i = getelementptr inbounds i8, ptr %423, i64 45
+  %424 = load i8, ptr %ext_zfinx76.i, align 1
+  %tobool77.i = trunc i8 %424 to i1
+  %rv_ireg_name_sym.rv_freg_name_sym570.i = select i1 %tobool77.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
+  %425 = load i8, ptr %rs3252.i, align 2
+  %idxprom80.i = zext i8 %425 to i64
+  %arrayidx86.i = getelementptr [32 x [5 x i8]], ptr %rv_ireg_name_sym.rv_freg_name_sym570.i, i64 0, i64 %idxprom80.i
   %sub.i263.i = sub i64 128, %call.i260.i
   %call3.i264.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx86.i, i64 noundef %sub.i263.i) #12
   br label %sw.epilog321.i
 
 sw.bb90.i:                                        ; preds = %while.cond.i
-  %430 = load i8, ptr %rs1242.i, align 4
-  %conv93.i55 = zext i8 %430 to i32
+  %426 = load i8, ptr %rs1242.i, align 4
+  %conv93.i55 = zext i8 %426 to i32
   %call94.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %conv93.i55) #12
   %call.i266.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i267.i = icmp eq i64 %call.i266.i, 127
@@ -3560,8 +3556,8 @@ if.then.i268.i:                                   ; preds = %sw.bb90.i
   br label %sw.epilog321.i
 
 sw.bb96.i:                                        ; preds = %while.cond.i
-  %431 = load i32, ptr %imm316.i, align 8
-  %call98.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %431) #12
+  %427 = load i32, ptr %imm316.i, align 8
+  %call98.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %427) #12
   %call.i272.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i273.i = icmp eq i64 %call.i272.i, 127
   br i1 %cmp.not.i273.i, label %sw.epilog321.i, label %if.then.i274.i
@@ -3572,8 +3568,8 @@ if.then.i274.i:                                   ; preds = %sw.bb96.i
   br label %sw.epilog321.i
 
 sw.bb100.i:                                       ; preds = %while.cond.i
-  %432 = load i32, ptr %imm316.i, align 8
-  %and.i = and i32 %432, 63
+  %428 = load i32, ptr %imm316.i, align 8
+  %and.i = and i32 %428, 63
   %call103.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.959, i32 noundef %and.i) #12
   %call.i278.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i279.i = icmp eq i64 %call.i278.i, 127
@@ -3585,8 +3581,8 @@ if.then.i280.i:                                   ; preds = %sw.bb100.i
   br label %sw.epilog321.i
 
 sw.bb105.i:                                       ; preds = %while.cond.i
-  %433 = load i32, ptr %imm1.i28, align 4
-  %call107.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %433) #12
+  %429 = load i32, ptr %imm1.i28, align 4
+  %call107.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %429) #12
   %call.i284.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i285.i = icmp eq i64 %call.i284.i, 127
   br i1 %cmp.not.i285.i, label %sw.epilog321.i, label %if.then.i286.i
@@ -3597,8 +3593,8 @@ if.then.i286.i:                                   ; preds = %sw.bb105.i
   br label %sw.epilog321.i
 
 sw.bb109.i:                                       ; preds = %while.cond.i
-  %434 = load i32, ptr %imm316.i, align 8
-  %call112.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %434) #12
+  %430 = load i32, ptr %imm316.i, align 8
+  %call112.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %430) #12
   %call.i290.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i291.i = icmp eq i64 %call.i290.i, 127
   br i1 %cmp.not.i291.i, label %append.exit295.i, label %if.then.i292.i
@@ -3622,10 +3618,10 @@ append.exit301.i:                                 ; preds = %append.exit295.i, %
   br i1 %cmp.i, label %append.exit301.i, label %while.end.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %append.exit301.i, %append.exit295.i
-  %435 = load i64, ptr %pc1, align 8
-  %436 = load i32, ptr %imm316.i, align 8
-  %conv120.i54 = sext i32 %436 to i64
-  %add.i = add i64 %435, %conv120.i54
+  %431 = load i64, ptr %pc1, align 8
+  %432 = load i32, ptr %imm316.i, align 8
+  %conv120.i54 = sext i32 %432 to i64
+  %add.i = add i64 %431, %conv120.i54
   %call121.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.961, i64 noundef %add.i) #12
   %call.i302.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i303.i = icmp eq i64 %call.i302.i, 127
@@ -3638,8 +3634,8 @@ if.then.i304.i:                                   ; preds = %while.end.i
 
 sw.bb123.i:                                       ; preds = %while.cond.i
   %incdec.ptr.i53 = getelementptr i8, ptr %fmt.0.i, i64 1
-  %437 = load i32, ptr %imm316.i, align 8
-  %shr.i = ashr i32 %437, 12
+  %433 = load i32, ptr %imm316.i, align 8
+  %shr.i = ashr i32 %433, 12
   %call126.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %shr.i) #12
   %call.i308.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i309.i = icmp eq i64 %call.i308.i, 127
@@ -3651,8 +3647,8 @@ if.then.i310.i:                                   ; preds = %sw.bb123.i
   br label %append.exit313.i
 
 append.exit313.i:                                 ; preds = %if.then.i310.i, %sw.bb123.i
-  %438 = load i8, ptr %incdec.ptr.i53, align 1
-  %cmp129.i = icmp eq i8 %438, 111
+  %434 = load i8, ptr %incdec.ptr.i53, align 1
+  %cmp129.i = icmp eq i8 %434, 111
   br i1 %cmp129.i, label %while.cond131.preheader.i, label %sw.epilog321.i
 
 while.cond131.preheader.i:                        ; preds = %append.exit313.i
@@ -3669,10 +3665,10 @@ append.exit319.i:                                 ; preds = %while.cond131.prehe
   br i1 %cmp134.i, label %append.exit319.i, label %while.end137.i, !llvm.loop !11
 
 while.end137.i:                                   ; preds = %append.exit319.i, %while.cond131.preheader.i
-  %439 = load i64, ptr %pc1, align 8
-  %440 = load i32, ptr %imm316.i, align 8
-  %conv141.i = sext i32 %440 to i64
-  %add142.i = add i64 %439, %conv141.i
+  %435 = load i64, ptr %pc1, align 8
+  %436 = load i32, ptr %imm316.i, align 8
+  %conv141.i = sext i32 %436 to i64
+  %add142.i = add i64 %435, %conv141.i
   %call143.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.961, i64 noundef %add142.i) #12
   %call.i320.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i321.i = icmp eq i64 %call.i320.i, 127
@@ -3684,8 +3680,8 @@ if.then.i322.i:                                   ; preds = %while.end137.i
   br label %sw.epilog321.i
 
 sw.bb145.i:                                       ; preds = %while.cond.i
-  %441 = load i32, ptr %imm316.i, align 8
-  %and148.i = and i32 %441, 4095
+  %437 = load i32, ptr %imm316.i, align 8
+  %and148.i = and i32 %437, 4095
   switch i32 %and148.i, label %if.else.i [
     i32 0, label %if.then151.i
     i32 1, label %sw.bb1.i.i
@@ -4529,10 +4525,10 @@ if.then.i334.i:                                   ; preds = %if.else.i
   br label %sw.epilog321.i
 
 sw.bb158.i:                                       ; preds = %while.cond.i
-  %442 = load i8, ptr %rm.i27, align 1
+  %438 = load i8, ptr %rm.i27, align 1
   %call.i374.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i375.i = icmp eq i64 %call.i374.i, 127
-  switch i8 %442, label %sw.default.i [
+  switch i8 %438, label %sw.default.i [
     i8 0, label %sw.bb160.i
     i8 1, label %sw.bb161.i35
     i8 2, label %sw.bb162.i
@@ -4598,9 +4594,9 @@ if.then.i376.i:                                   ; preds = %sw.default.i
   br label %sw.epilog321.i
 
 sw.bb166.i:                                       ; preds = %while.cond.i
-  %443 = load i8, ptr %pred.i26, align 8
-  %444 = and i8 %443, 8
-  %tobool169.not.i = icmp eq i8 %444, 0
+  %439 = load i8, ptr %pred.i26, align 8
+  %440 = and i8 %439, 8
+  %tobool169.not.i = icmp eq i8 %440, 0
   br i1 %tobool169.not.i, label %if.end171.i, label %if.then170.i
 
 if.then170.i:                                     ; preds = %sw.bb166.i
@@ -4614,8 +4610,8 @@ if.then.i382.i:                                   ; preds = %if.then170.i
   br label %if.end171.i
 
 if.end171.i:                                      ; preds = %if.then.i382.i, %if.then170.i, %sw.bb166.i
-  %445 = and i8 %443, 4
-  %tobool175.not.i = icmp eq i8 %445, 0
+  %441 = and i8 %439, 4
+  %tobool175.not.i = icmp eq i8 %441, 0
   br i1 %tobool175.not.i, label %if.end177.i, label %if.then176.i
 
 if.then176.i:                                     ; preds = %if.end171.i
@@ -4629,8 +4625,8 @@ if.then.i388.i:                                   ; preds = %if.then176.i
   br label %if.end177.i
 
 if.end177.i:                                      ; preds = %if.then.i388.i, %if.then176.i, %if.end171.i
-  %446 = and i8 %443, 2
-  %tobool181.not.i = icmp eq i8 %446, 0
+  %442 = and i8 %439, 2
+  %tobool181.not.i = icmp eq i8 %442, 0
   br i1 %tobool181.not.i, label %if.end183.i, label %if.then182.i
 
 if.then182.i:                                     ; preds = %if.end177.i
@@ -4644,8 +4640,8 @@ if.then.i394.i:                                   ; preds = %if.then182.i
   br label %if.end183.i
 
 if.end183.i:                                      ; preds = %if.then.i394.i, %if.then182.i, %if.end177.i
-  %447 = and i8 %443, 1
-  %tobool187.not.i = icmp eq i8 %447, 0
+  %443 = and i8 %439, 1
+  %tobool187.not.i = icmp eq i8 %443, 0
   br i1 %tobool187.not.i, label %sw.epilog321.i, label %if.then188.i
 
 if.then188.i:                                     ; preds = %if.end183.i
@@ -4659,9 +4655,9 @@ if.then.i400.i:                                   ; preds = %if.then188.i
   br label %sw.epilog321.i
 
 sw.bb190.i:                                       ; preds = %while.cond.i
-  %448 = load i8, ptr %succ.i25, align 1
-  %449 = and i8 %448, 8
-  %tobool193.not.i = icmp eq i8 %449, 0
+  %444 = load i8, ptr %succ.i25, align 1
+  %445 = and i8 %444, 8
+  %tobool193.not.i = icmp eq i8 %445, 0
   br i1 %tobool193.not.i, label %if.end195.i, label %if.then194.i
 
 if.then194.i:                                     ; preds = %sw.bb190.i
@@ -4675,8 +4671,8 @@ if.then.i406.i:                                   ; preds = %if.then194.i
   br label %if.end195.i
 
 if.end195.i:                                      ; preds = %if.then.i406.i, %if.then194.i, %sw.bb190.i
-  %450 = and i8 %448, 4
-  %tobool199.not.i = icmp eq i8 %450, 0
+  %446 = and i8 %444, 4
+  %tobool199.not.i = icmp eq i8 %446, 0
   br i1 %tobool199.not.i, label %if.end201.i, label %if.then200.i
 
 if.then200.i:                                     ; preds = %if.end195.i
@@ -4690,8 +4686,8 @@ if.then.i412.i:                                   ; preds = %if.then200.i
   br label %if.end201.i
 
 if.end201.i:                                      ; preds = %if.then.i412.i, %if.then200.i, %if.end195.i
-  %451 = and i8 %448, 2
-  %tobool205.not.i = icmp eq i8 %451, 0
+  %447 = and i8 %444, 2
+  %tobool205.not.i = icmp eq i8 %447, 0
   br i1 %tobool205.not.i, label %if.end207.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.end201.i
@@ -4705,8 +4701,8 @@ if.then.i418.i:                                   ; preds = %if.then206.i
   br label %if.end207.i
 
 if.end207.i:                                      ; preds = %if.then.i418.i, %if.then206.i, %if.end201.i
-  %452 = and i8 %448, 1
-  %tobool211.not.i = icmp eq i8 %452, 0
+  %448 = and i8 %444, 1
+  %tobool211.not.i = icmp eq i8 %448, 0
   br i1 %tobool211.not.i, label %sw.epilog321.i, label %if.then212.i
 
 if.then212.i:                                     ; preds = %if.end207.i
@@ -4728,8 +4724,8 @@ append.exit433.i:                                 ; preds = %while.cond215.prehe
   br i1 %cmp217.i, label %append.exit433.i, label %sw.epilog321.i, !llvm.loop !12
 
 sw.bb221.i34:                                     ; preds = %while.cond.i
-  %453 = load i8, ptr %aq.i24, align 2
-  %tobool222.not.i = icmp eq i8 %453, 0
+  %449 = load i8, ptr %aq.i24, align 2
+  %tobool222.not.i = icmp eq i8 %449, 0
   br i1 %tobool222.not.i, label %sw.epilog321.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %sw.bb221.i34
@@ -4743,8 +4739,8 @@ if.then.i436.i:                                   ; preds = %if.then223.i
   br label %sw.epilog321.i
 
 sw.bb225.i:                                       ; preds = %while.cond.i
-  %454 = load i8, ptr %rl.i23, align 1
-  %tobool226.not.i = icmp eq i8 %454, 0
+  %450 = load i8, ptr %rl.i23, align 1
+  %tobool226.not.i = icmp eq i8 %450, 0
   br i1 %tobool226.not.i, label %sw.epilog321.i, label %if.then227.i
 
 if.then227.i:                                     ; preds = %sw.bb225.i
@@ -4768,8 +4764,8 @@ if.then.i448.i:                                   ; preds = %sw.bb229.i33
   br label %sw.epilog321.i
 
 sw.bb230.i:                                       ; preds = %while.cond.i
-  %455 = load i8, ptr %vm.i22, align 2
-  %cmp232.i = icmp eq i8 %455, 0
+  %451 = load i8, ptr %vm.i22, align 2
+  %cmp232.i = icmp eq i8 %451, 0
   br i1 %cmp232.i, label %if.then234.i, label %sw.epilog321.i
 
 if.then234.i:                                     ; preds = %sw.bb230.i
@@ -4788,8 +4784,8 @@ sw.bb236.i:                                       ; preds = %while.cond.i
   br i1 %cmp.not.i459.i, label %sw.epilog321.i, label %if.then.i460.i
 
 if.then.i460.i:                                   ; preds = %sw.bb236.i
-  %456 = load i8, ptr %rd237.i, align 1
-  %idxprom238.i = zext i8 %456 to i64
+  %452 = load i8, ptr %rd237.i, align 1
+  %idxprom238.i = zext i8 %452 to i64
   %arrayidx239.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom238.i
   %sub.i461.i = sub i64 128, %call.i458.i
   %call3.i462.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx239.i, i64 noundef %sub.i461.i) #12
@@ -4801,8 +4797,8 @@ sw.bb241.i:                                       ; preds = %while.cond.i
   br i1 %cmp.not.i465.i, label %sw.epilog321.i, label %if.then.i466.i
 
 if.then.i466.i:                                   ; preds = %sw.bb241.i
-  %457 = load i8, ptr %rs1242.i, align 4
-  %idxprom243.i = zext i8 %457 to i64
+  %453 = load i8, ptr %rs1242.i, align 4
+  %idxprom243.i = zext i8 %453 to i64
   %arrayidx244.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom243.i
   %sub.i467.i = sub i64 128, %call.i464.i
   %call3.i468.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx244.i, i64 noundef %sub.i467.i) #12
@@ -4814,8 +4810,8 @@ sw.bb246.i:                                       ; preds = %while.cond.i
   br i1 %cmp.not.i471.i, label %sw.epilog321.i, label %if.then.i472.i
 
 if.then.i472.i:                                   ; preds = %sw.bb246.i
-  %458 = load i8, ptr %rs2247.i, align 1
-  %idxprom248.i = zext i8 %458 to i64
+  %454 = load i8, ptr %rs2247.i, align 1
+  %idxprom248.i = zext i8 %454 to i64
   %arrayidx249.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom248.i
   %sub.i473.i = sub i64 128, %call.i470.i
   %call3.i474.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx249.i, i64 noundef %sub.i473.i) #12
@@ -4827,8 +4823,8 @@ sw.bb251.i32:                                     ; preds = %while.cond.i
   br i1 %cmp.not.i477.i, label %sw.epilog321.i, label %if.then.i478.i
 
 if.then.i478.i:                                   ; preds = %sw.bb251.i32
-  %459 = load i8, ptr %rs3252.i, align 2
-  %idxprom253.i = zext i8 %459 to i64
+  %455 = load i8, ptr %rs3252.i, align 2
+  %idxprom253.i = zext i8 %455 to i64
   %arrayidx254.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom253.i
   %sub.i479.i = sub i64 128, %call.i476.i
   %call3.i480.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx254.i, i64 noundef %sub.i479.i) #12
@@ -4836,18 +4832,18 @@ if.then.i478.i:                                   ; preds = %sw.bb251.i32
 
 sw.bb256.i:                                       ; preds = %while.cond.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %nbuf.i, i8 0, i64 32, i1 false)
-  %460 = load i32, ptr %vzimm.i21, align 8
-  %shr257.i = lshr i32 %460, 3
+  %456 = load i32, ptr %vzimm.i21, align 8
+  %shr257.i = lshr i32 %456, 3
   %and258.i = and i32 %shr257.i, 7
   %shl.i = shl nuw nsw i32 8, %and258.i
   %call261.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %nbuf.i, ptr noundef nonnull dereferenceable(1) @.str.958, i32 noundef %shl.i) #12
-  %461 = load i32, ptr %vzimm.i21, align 8
-  %and263.i = and i32 %461, 3
-  %462 = and i32 %461, 64
-  %tobool270.not.i = icmp eq i32 %462, 0
+  %457 = load i32, ptr %vzimm.i21, align 8
+  %and263.i = and i32 %457, 3
+  %458 = and i32 %457, 64
+  %tobool270.not.i = icmp eq i32 %458, 0
   %cond271.i = select i1 %tobool270.not.i, ptr @.str.979, ptr @.str.978
-  %463 = and i32 %461, 128
-  %tobool275.not.i = icmp eq i32 %463, 0
+  %459 = and i32 %457, 128
+  %tobool275.not.i = icmp eq i32 %459, 0
   %cond276.i = select i1 %tobool275.not.i, ptr @.str.981, ptr @.str.980
   %call.i482.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i483.i = icmp eq i64 %call.i482.i, 127
@@ -4879,8 +4875,8 @@ if.then.i496.i:                                   ; preds = %append.exit493.i
   br label %append.exit499.i
 
 append.exit499.i:                                 ; preds = %if.then.i496.i, %append.exit493.i
-  %464 = and i32 %461, 4
-  %tobool278.not.i = icmp eq i32 %464, 0
+  %460 = and i32 %457, 4
+  %tobool278.not.i = icmp eq i32 %460, 0
   br i1 %tobool278.not.i, label %if.else291.i, label %if.then279.i
 
 if.then279.i:                                     ; preds = %append.exit499.i
@@ -4961,8 +4957,8 @@ if.then.i532.i:                                   ; preds = %append.exit529.i
   br label %sw.epilog321.i
 
 sw.bb297.i:                                       ; preds = %while.cond.i
-  %465 = load i8, ptr %rlist.i20, align 4
-  switch i8 %465, label %sw.default308.i [
+  %461 = load i8, ptr %rlist.i20, align 4
+  switch i8 %461, label %sw.default308.i [
     i8 4, label %sw.bb299.i
     i8 5, label %sw.bb302.i
     i8 15, label %sw.bb305.i
@@ -4981,7 +4977,7 @@ sw.bb305.i:                                       ; preds = %sw.bb297.i
   br label %sw.epilog313.i
 
 sw.default308.i:                                  ; preds = %sw.bb297.i
-  %conv298.i = zext i8 %465 to i32
+  %conv298.i = zext i8 %461 to i32
   %sub.i = add nsw i32 %conv298.i, -5
   %call312.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.990, i32 noundef %sub.i) #12
   br label %sw.epilog313.i
@@ -5002,8 +4998,8 @@ sw.bb315.i:                                       ; preds = %while.cond.i
   br i1 %cmp.not.i543.i, label %sw.epilog321.i, label %if.then.i544.i
 
 if.then.i544.i:                                   ; preds = %sw.bb315.i
-  %466 = load i32, ptr %imm316.i, align 8
-  %idxprom317.i = sext i32 %466 to i64
+  %462 = load i32, ptr %imm316.i, align 8
+  %idxprom317.i = sext i32 %462 to i64
   %arrayidx318.i = getelementptr [32 x [9 x i8]], ptr @rv_fli_name_const, i64 0, i64 %idxprom317.i
   %sub.i545.i = sub i64 128, %call.i542.i
   %call3.i546.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx318.i, i64 noundef %sub.i545.i) #12
@@ -5258,12 +5254,11 @@ if.else135:                                       ; preds = %sw.bb132
   %9 = load ptr, ptr %dec, align 8
   %ext_zcmp = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i8, ptr %ext_zcmp, align 4
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  %12 = and i64 %0, 4096
-  %tobool138.not = icmp eq i64 %12, 0
-  %or.cond = or i1 %tobool138.not, %tobool.not
-  br i1 %or.cond, label %if.else167, label %if.then139
+  %tobool = trunc i8 %10 to i1
+  %11 = and i64 %0, 4096
+  %tobool138.not = icmp ne i64 %11, 0
+  %or.cond.not = and i1 %tobool138.not, %tobool
+  br i1 %or.cond.not, label %if.then139, label %if.else167
 
 if.then139:                                       ; preds = %if.else135
   %shr140 = lshr i64 %0, 8
@@ -5276,26 +5271,26 @@ if.then139:                                       ; preds = %if.else135
   ]
 
 sw.bb142:                                         ; preds = %if.then139
-  %13 = and i64 %0, 192
-  %cmp145.not = icmp eq i64 %13, 0
+  %12 = and i64 %0, 192
+  %cmp145.not = icmp eq i64 %12, 0
   %spec.select257 = select i1 %cmp145.not, i16 261, i16 781
   br label %sw.epilog1655
 
 sw.bb148:                                         ; preds = %if.then139
-  %14 = and i64 %0, 192
-  %cmp151.not = icmp eq i64 %14, 0
+  %13 = and i64 %0, 192
+  %cmp151.not = icmp eq i64 %13, 0
   %spec.select258 = select i1 %cmp151.not, i16 261, i16 782
   br label %sw.epilog1655
 
 sw.bb154:                                         ; preds = %if.then139
-  %15 = and i64 %0, 192
-  %cmp157.not = icmp eq i64 %15, 0
+  %14 = and i64 %0, 192
+  %cmp157.not = icmp eq i64 %14, 0
   %spec.select259 = select i1 %cmp157.not, i16 261, i16 784
   br label %sw.epilog1655
 
 sw.bb160:                                         ; preds = %if.then139
-  %16 = and i64 %0, 192
-  %cmp163.not = icmp eq i64 %16, 0
+  %15 = and i64 %0, 192
+  %cmp163.not = icmp eq i64 %15, 0
   %spec.select260 = select i1 %cmp163.not, i16 261, i16 783
   br label %sw.epilog1655
 
@@ -5309,19 +5304,18 @@ if.else167:                                       ; preds = %if.else135
 
 sw.bb170:                                         ; preds = %if.else167
   %ext_zcmt = getelementptr inbounds i8, ptr %9, i64 13
-  %17 = load i8, ptr %ext_zcmt, align 1
-  %18 = and i8 %17, 1
-  %tobool172.not = icmp eq i8 %18, 0
-  br i1 %tobool172.not, label %sw.epilog1655, label %if.end174
+  %16 = load i8, ptr %ext_zcmt, align 1
+  %tobool172 = trunc i8 %16 to i1
+  br i1 %tobool172, label %if.end174, label %sw.epilog1655
 
 if.end174:                                        ; preds = %sw.bb170
-  %19 = and i64 %0, 896
-  %cmp177.not = icmp eq i64 %19, 0
+  %17 = and i64 %0, 896
+  %cmp177.not = icmp eq i64 %17, 0
   %.261 = select i1 %cmp177.not, i16 787, i16 788
   br label %sw.epilog1655
 
 sw.bb181:                                         ; preds = %if.else167
-  br i1 %tobool.not, label %sw.epilog1655, label %if.end186
+  br i1 %tobool, label %if.end186, label %sw.epilog1655
 
 if.end186:                                        ; preds = %sw.bb181
   %shr187 = lshr i64 %0, 5
@@ -5395,13 +5389,13 @@ sw.bb217:                                         ; preds = %sw.bb202
 sw.bb220:                                         ; preds = %sw.bb217
   %shr221 = lshr i64 %0, 20
   %and222 = and i64 %shr221, 4095
-  %20 = add nsw i64 %and222, -40
-  %21 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 55)
-  %22 = icmp ult i64 %21, 8
-  br i1 %22, label %switch.lookup351, label %sw.epilog227
+  %18 = add nsw i64 %and222, -40
+  %19 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 55)
+  %20 = icmp ult i64 %19, 8
+  br i1 %20, label %switch.lookup351, label %sw.epilog227
 
 switch.lookup351:                                 ; preds = %sw.bb220
-  %switch.gep352 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.4, i64 0, i64 %21
+  %switch.gep352 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.4, i64 0, i64 %19
   %switch.load353 = load i16, ptr %switch.gep352, align 2
   br label %sw.epilog227
 
@@ -5454,13 +5448,13 @@ sw.bb244:                                         ; preds = %sw.bb217
 sw.bb245:                                         ; preds = %sw.bb217
   %shr246 = lshr i64 %0, 20
   %and247 = and i64 %shr246, 4095
-  %23 = add nsw i64 %and247, -40
-  %24 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 55)
-  %25 = icmp ult i64 %24, 8
-  br i1 %25, label %switch.lookup354, label %sw.epilog252
+  %21 = add nsw i64 %and247, -40
+  %22 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 55)
+  %23 = icmp ult i64 %22, 8
+  br i1 %23, label %switch.lookup354, label %sw.epilog252
 
 switch.lookup354:                                 ; preds = %sw.bb245
-  %switch.gep355 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.5, i64 0, i64 %24
+  %switch.gep355 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.5, i64 0, i64 %22
   %switch.load356 = load i16, ptr %switch.gep355, align 2
   br label %sw.epilog252
 
@@ -5500,13 +5494,13 @@ sw.bb263:                                         ; preds = %sw.epilog252
 sw.bb265:                                         ; preds = %sw.bb217
   %shr266 = lshr i64 %0, 20
   %and267 = and i64 %shr266, 4095
-  %26 = add nsw i64 %and267, -40
-  %27 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 55)
-  %28 = icmp ult i64 %27, 8
-  br i1 %28, label %switch.lookup357, label %sw.epilog272
+  %24 = add nsw i64 %and267, -40
+  %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 55)
+  %26 = icmp ult i64 %25, 8
+  br i1 %26, label %switch.lookup357, label %sw.epilog272
 
 switch.lookup357:                                 ; preds = %sw.bb265
-  %switch.gep358 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.6, i64 0, i64 %27
+  %switch.gep358 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.6, i64 0, i64 %25
   %switch.load359 = load i16, ptr %switch.gep358, align 2
   br label %sw.epilog272
 
@@ -5546,13 +5540,13 @@ sw.bb283:                                         ; preds = %sw.epilog272
 sw.bb285:                                         ; preds = %sw.bb217
   %shr286 = lshr i64 %0, 20
   %and287 = and i64 %shr286, 4095
-  %29 = add nsw i64 %and287, -40
-  %30 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 55)
-  %31 = icmp ult i64 %30, 8
-  br i1 %31, label %switch.lookup360, label %sw.epilog292
+  %27 = add nsw i64 %and287, -40
+  %28 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 55)
+  %29 = icmp ult i64 %28, 8
+  br i1 %29, label %switch.lookup360, label %sw.epilog292
 
 switch.lookup360:                                 ; preds = %sw.bb285
-  %switch.gep361 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.7, i64 0, i64 %30
+  %switch.gep361 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.7, i64 0, i64 %28
   %switch.load362 = load i16, ptr %switch.gep361, align 2
   br label %sw.epilog292
 
@@ -5592,8 +5586,8 @@ sw.bb303:                                         ; preds = %sw.epilog292
 sw.bb306:                                         ; preds = %sw.bb202
   %shr307 = lshr i64 %0, 12
   %and308 = and i64 %shr307, 7
-  %32 = icmp ult i64 %and308, 3
-  br i1 %32, label %switch.lookup363, label %sw.epilog1655
+  %30 = icmp ult i64 %and308, 3
+  br i1 %30, label %switch.lookup363, label %sw.epilog1655
 
 sw.bb313:                                         ; preds = %sw.bb202
   %shr314 = lshr i64 %0, 12
@@ -5627,28 +5621,28 @@ sw.bb320:                                         ; preds = %sw.bb317
   br label %sw.epilog1655
 
 sw.bb321:                                         ; preds = %sw.bb317
-  %33 = and i64 %0, 133169152
-  %cond26 = icmp eq i64 %33, 15728640
+  %31 = and i64 %0, 133169152
+  %cond26 = icmp eq i64 %31, 15728640
   %spec.select265 = select i1 %cond26, i16 396, i16 0
   br label %sw.epilog1655
 
 sw.bb326:                                         ; preds = %sw.bb317
   %shr327 = lshr i64 %0, 20
   %and328 = and i64 %shr327, 127
-  %34 = icmp ult i64 %and328, 10
-  br i1 %34, label %switch.lookup364, label %sw.epilog1655
+  %32 = icmp ult i64 %and328, 10
+  br i1 %32, label %switch.lookup364, label %sw.epilog1655
 
 sw.bb340:                                         ; preds = %sw.bb317
   br label %sw.epilog1655
 
 sw.bb341:                                         ; preds = %sw.bb317
-  %35 = and i64 %0, 133169152
-  %cond25 = icmp eq i64 %35, 0
+  %33 = and i64 %0, 133169152
+  %cond25 = icmp eq i64 %33, 0
   br i1 %cond25, label %sw.epilog1655, label %sw.default345
 
 sw.default345:                                    ; preds = %sw.bb341
-  %36 = and i64 %0, 117440512
-  %cmp348 = icmp eq i64 %36, 16777216
+  %34 = and i64 %0, 117440512
+  %cmp348 = icmp eq i64 %34, 16777216
   %spec.select266 = select i1 %cmp348, i16 366, i16 0
   br label %sw.epilog1655
 
@@ -5661,8 +5655,8 @@ sw.bb353:                                         ; preds = %sw.bb317
 sw.bb354:                                         ; preds = %sw.bb317
   %shr355 = lshr i64 %0, 20
   %and356 = and i64 %shr355, 127
-  %37 = icmp ult i64 %and356, 6
-  br i1 %37, label %switch.lookup367, label %sw.epilog1655
+  %35 = icmp ult i64 %and356, 6
+  br i1 %35, label %switch.lookup367, label %sw.epilog1655
 
 sw.bb364:                                         ; preds = %sw.bb313
   br label %sw.epilog1655
@@ -5690,8 +5684,8 @@ sw.bb370:                                         ; preds = %sw.bb367
   br label %sw.epilog1655
 
 sw.bb371:                                         ; preds = %sw.bb367
-  %38 = and i64 %0, 133169152
-  %cond24 = icmp eq i64 %38, 15728640
+  %36 = and i64 %0, 133169152
+  %cond24 = icmp eq i64 %36, 15728640
   %spec.select267 = select i1 %cond24, i16 395, i16 0
   br label %sw.epilog1655
 
@@ -5764,8 +5758,8 @@ sw.bb400:                                         ; preds = %sw.bb396
 sw.bb401:                                         ; preds = %sw.bb396
   %shr402 = lshr i64 %0, 20
   %and403 = and i64 %shr402, 31
-  %39 = icmp ult i64 %and403, 3
-  br i1 %39, label %switch.lookup370, label %sw.epilog1655
+  %37 = icmp ult i64 %and403, 3
+  br i1 %37, label %switch.lookup370, label %sw.epilog1655
 
 sw.bb409:                                         ; preds = %sw.bb392
   %shr410 = lshr i64 %0, 25
@@ -5788,8 +5782,8 @@ sw.bb414:                                         ; preds = %sw.bb409
 sw.bb417:                                         ; preds = %sw.bb202
   %shr418 = lshr i64 %0, 12
   %and419 = and i64 %shr418, 7
-  %40 = icmp ult i64 %and419, 5
-  br i1 %40, label %switch.lookup373, label %sw.epilog1655
+  %38 = icmp ult i64 %and419, 5
+  br i1 %38, label %switch.lookup373, label %sw.epilog1655
 
 sw.bb426:                                         ; preds = %sw.bb202
   %shr427 = lshr i64 %0, 12
@@ -5808,13 +5802,13 @@ sw.bb426:                                         ; preds = %sw.bb202
 sw.bb429:                                         ; preds = %sw.bb426
   %shr430 = lshr i64 %0, 20
   %and431 = and i64 %shr430, 4095
-  %41 = add nsw i64 %and431, -40
-  %42 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 55)
-  %43 = icmp ult i64 %42, 8
-  br i1 %43, label %switch.lookup376, label %sw.epilog436
+  %39 = add nsw i64 %and431, -40
+  %40 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 55)
+  %41 = icmp ult i64 %40, 8
+  br i1 %41, label %switch.lookup376, label %sw.epilog436
 
 switch.lookup376:                                 ; preds = %sw.bb429
-  %switch.gep377 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.11, i64 0, i64 %42
+  %switch.gep377 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.11, i64 0, i64 %40
   %switch.load378 = load i16, ptr %switch.gep377, align 2
   br label %sw.epilog436
 
@@ -5871,8 +5865,8 @@ sw.bb453:                                         ; preds = %sw.bb426
   ]
 
 sw.bb456:                                         ; preds = %sw.bb453
-  %44 = and i64 %0, 32505856
-  %cond23 = icmp eq i64 %44, 0
+  %42 = and i64 %0, 32505856
+  %cond23 = icmp eq i64 %42, 0
   %spec.select268 = select i1 %cond23, i16 404, i16 0
   br label %sw.epilog1655
 
@@ -5896,8 +5890,8 @@ sw.bb465:                                         ; preds = %sw.bb426
   ]
 
 sw.bb468:                                         ; preds = %sw.bb465
-  %45 = and i64 %0, 32505856
-  %cond22 = icmp eq i64 %45, 0
+  %43 = and i64 %0, 32505856
+  %cond22 = icmp eq i64 %43, 0
   %spec.select269 = select i1 %cond22, i16 405, i16 0
   br label %sw.epilog1655
 
@@ -5921,8 +5915,8 @@ sw.bb477:                                         ; preds = %sw.bb426
   ]
 
 sw.bb480:                                         ; preds = %sw.bb477
-  %46 = and i64 %0, 32505856
-  %cond21 = icmp eq i64 %46, 0
+  %44 = and i64 %0, 32505856
+  %cond21 = icmp eq i64 %44, 0
   %spec.select270 = select i1 %cond21, i16 406, i16 0
   br label %sw.epilog1655
 
@@ -5997,20 +5991,20 @@ sw.bb501:                                         ; preds = %sw.bb490
   br label %sw.epilog1655
 
 sw.bb502:                                         ; preds = %sw.bb490
-  %47 = and i64 %0, 32505856
-  %cond20 = icmp eq i64 %47, 0
+  %45 = and i64 %0, 32505856
+  %cond20 = icmp eq i64 %45, 0
   %spec.select271 = select i1 %cond20, i16 82, i16 0
   br label %sw.epilog1655
 
 sw.bb507:                                         ; preds = %sw.bb490
-  %48 = and i64 %0, 32505856
-  %cond19 = icmp eq i64 %48, 0
+  %46 = and i64 %0, 32505856
+  %cond19 = icmp eq i64 %46, 0
   %spec.select272 = select i1 %cond19, i16 93, i16 0
   br label %sw.epilog1655
 
 sw.bb512:                                         ; preds = %sw.bb490
-  %49 = and i64 %0, 32505856
-  %cond18 = icmp eq i64 %49, 0
+  %47 = and i64 %0, 32505856
+  %cond18 = icmp eq i64 %47, 0
   %spec.select273 = select i1 %cond18, i16 104, i16 0
   br label %sw.epilog1655
 
@@ -6198,8 +6192,8 @@ sw.bb563:                                         ; preds = %sw.bb542
   br label %sw.epilog607
 
 sw.bb564:                                         ; preds = %sw.bb542
-  %50 = and i64 %0, 32505856
-  %cond17 = icmp eq i64 %50, 0
+  %48 = and i64 %0, 32505856
+  %cond17 = icmp eq i64 %48, 0
   %.274 = select i1 %cond17, i16 355, i16 392
   br label %sw.epilog607
 
@@ -6319,8 +6313,8 @@ sw.epilog607:                                     ; preds = %sw.bb564, %sw.bb606
   %shr608 = lshr i64 %0, 25
   %and609 = and i64 %shr608, 31
   %switch.tableidx = add nsw i64 %and609, -17
-  %51 = icmp ult i64 %switch.tableidx, 10
-  br i1 %51, label %switch.hole_check, label %sw.epilog1655
+  %49 = icmp ult i64 %switch.tableidx, 10
+  br i1 %49, label %switch.hole_check, label %sw.epilog1655
 
 sw.bb617:                                         ; preds = %sw.bb202
   br label %sw.epilog1655
@@ -6379,8 +6373,8 @@ sw.bb632:                                         ; preds = %sw.bb618
   br label %sw.epilog1655
 
 sw.bb633:                                         ; preds = %sw.bb618
-  %52 = and i64 %0, 32505856
-  %cond16 = icmp eq i64 %52, 0
+  %50 = and i64 %0, 32505856
+  %cond16 = icmp eq i64 %50, 0
   %.275 = select i1 %cond16, i16 355, i16 394
   br label %sw.epilog1655
 
@@ -6406,29 +6400,29 @@ sw.bb645:                                         ; preds = %sw.bb618
   br label %sw.epilog1655
 
 sw.bb647:                                         ; preds = %sw.bb202
-  %53 = lshr i64 %0, 21
-  %switch.shiftamt384 = and i64 %53, 48
+  %51 = lshr i64 %0, 21
+  %switch.shiftamt384 = and i64 %51, 48
   %switch.downshift385 = lshr i64 54887620469260421, %switch.shiftamt384
   %switch.masked386 = trunc i64 %switch.downshift385 to i16
   br label %sw.epilog1655
 
 sw.bb654:                                         ; preds = %sw.bb202
-  %54 = lshr i64 %0, 21
-  %switch.shiftamt388 = and i64 %54, 48
+  %52 = lshr i64 %0, 21
+  %switch.shiftamt388 = and i64 %52, 48
   %switch.downshift389 = lshr i64 55169095446036614, %switch.shiftamt388
   %switch.masked390 = trunc i64 %switch.downshift389 to i16
   br label %sw.epilog1655
 
 sw.bb661:                                         ; preds = %sw.bb202
-  %55 = lshr i64 %0, 21
-  %switch.shiftamt392 = and i64 %55, 48
+  %53 = lshr i64 %0, 21
+  %switch.shiftamt392 = and i64 %53, 48
   %switch.downshift393 = lshr i64 55450570422812807, %switch.shiftamt392
   %switch.masked394 = trunc i64 %switch.downshift393 to i16
   br label %sw.epilog1655
 
 sw.bb668:                                         ; preds = %sw.bb202
-  %56 = lshr i64 %0, 21
-  %switch.shiftamt396 = and i64 %56, 48
+  %54 = lshr i64 %0, 21
+  %switch.shiftamt396 = and i64 %54, 48
   %switch.downshift397 = lshr i64 55732045399589000, %switch.shiftamt396
   %switch.masked398 = trunc i64 %switch.downshift397 to i16
   br label %sw.epilog1655
@@ -6524,32 +6518,32 @@ sw.bb689:                                         ; preds = %sw.bb675
 sw.bb690:                                         ; preds = %sw.bb675
   %shr691 = lshr i64 %0, 12
   %and692 = and i64 %shr691, 7
-  %57 = icmp ult i64 %and692, 3
-  br i1 %57, label %switch.lookup399, label %sw.epilog1655
+  %55 = icmp ult i64 %and692, 3
+  br i1 %55, label %switch.lookup399, label %sw.epilog1655
 
 sw.bb697:                                         ; preds = %sw.bb675
   %shr698 = lshr i64 %0, 12
   %and699 = and i64 %shr698, 7
-  %58 = icmp ult i64 %and699, 3
-  br i1 %58, label %switch.lookup402, label %sw.epilog1655
+  %56 = icmp ult i64 %and699, 3
+  br i1 %56, label %switch.lookup402, label %sw.epilog1655
 
 sw.bb704:                                         ; preds = %sw.bb675
   %shr705 = lshr i64 %0, 12
   %and706 = and i64 %shr705, 7
-  %59 = icmp ult i64 %and706, 3
-  br i1 %59, label %switch.lookup405, label %sw.epilog1655
+  %57 = icmp ult i64 %and706, 3
+  br i1 %57, label %switch.lookup405, label %sw.epilog1655
 
 sw.bb711:                                         ; preds = %sw.bb675
   %shr712 = lshr i64 %0, 12
   %and713 = and i64 %shr712, 7
-  %60 = icmp ult i64 %and713, 4
-  br i1 %60, label %switch.lookup408, label %sw.epilog1655
+  %58 = icmp ult i64 %and713, 4
+  br i1 %58, label %switch.lookup408, label %sw.epilog1655
 
 sw.bb719:                                         ; preds = %sw.bb675
   %shr720 = lshr i64 %0, 12
   %and721 = and i64 %shr720, 7
-  %61 = icmp ult i64 %and721, 4
-  br i1 %61, label %switch.lookup412, label %sw.epilog1655
+  %59 = icmp ult i64 %and721, 4
+  br i1 %59, label %switch.lookup412, label %sw.epilog1655
 
 sw.bb727:                                         ; preds = %sw.bb675
   %shr728 = lshr i64 %0, 12
@@ -6563,64 +6557,64 @@ sw.bb727:                                         ; preds = %sw.bb675
 sw.bb733:                                         ; preds = %sw.bb675
   %shr734 = lshr i64 %0, 12
   %and735 = and i64 %shr734, 7
-  %62 = icmp ult i64 %and735, 4
-  br i1 %62, label %switch.lookup416, label %sw.epilog1655
+  %60 = icmp ult i64 %and735, 4
+  br i1 %60, label %switch.lookup416, label %sw.epilog1655
 
 sw.bb741:                                         ; preds = %sw.bb675
   %shr742 = lshr i64 %0, 20
   %and743 = and i64 %shr742, 31
   %switch.tableidx421 = add nsw i64 %and743, -1
-  %63 = icmp ult i64 %switch.tableidx421, 6
-  br i1 %63, label %switch.lookup420, label %sw.epilog1655
+  %61 = icmp ult i64 %switch.tableidx421, 6
+  br i1 %61, label %switch.lookup420, label %sw.epilog1655
 
 sw.bb750:                                         ; preds = %sw.bb675
   %shr751 = lshr i64 %0, 20
   %and752 = and i64 %shr751, 31
-  %64 = icmp ult i64 %and752, 6
-  br i1 %64, label %switch.lookup424, label %sw.epilog1655
+  %62 = icmp ult i64 %and752, 6
+  br i1 %62, label %switch.lookup424, label %sw.epilog1655
 
 sw.bb758:                                         ; preds = %sw.bb675
   %shr759 = lshr i64 %0, 20
   %and760 = and i64 %shr759, 31
   %switch.tableidx428 = add nsw i64 %and760, -4
-  %65 = icmp ult i64 %switch.tableidx428, 5
-  br i1 %65, label %switch.lookup427, label %sw.epilog1655
+  %63 = icmp ult i64 %switch.tableidx428, 5
+  br i1 %63, label %switch.lookup427, label %sw.epilog1655
 
 sw.bb765:                                         ; preds = %sw.bb675
   %shr766 = lshr i64 %0, 20
   %and767 = and i64 %shr766, 31
-  %66 = icmp ult i64 %and767, 6
-  br i1 %66, label %switch.lookup431, label %sw.epilog1655
+  %64 = icmp ult i64 %and767, 6
+  br i1 %64, label %switch.lookup431, label %sw.epilog1655
 
 sw.bb773:                                         ; preds = %sw.bb675
-  %67 = and i64 %0, 32505856
-  %cond15 = icmp eq i64 %67, 0
+  %65 = and i64 %0, 32505856
+  %cond15 = icmp eq i64 %65, 0
   %spec.select280 = select i1 %cond15, i16 146, i16 0
   br label %sw.epilog1655
 
 sw.bb778:                                         ; preds = %sw.bb675
-  %68 = and i64 %0, 32505856
-  %cond14 = icmp eq i64 %68, 0
+  %66 = and i64 %0, 32505856
+  %cond14 = icmp eq i64 %66, 0
   %spec.select281 = select i1 %cond14, i16 178, i16 0
   br label %sw.epilog1655
 
 sw.bb783:                                         ; preds = %sw.bb675
-  %69 = and i64 %0, 32505856
-  %cond13 = icmp eq i64 %69, 0
+  %67 = and i64 %0, 32505856
+  %cond13 = icmp eq i64 %67, 0
   %spec.select282 = select i1 %cond13, i16 212, i16 0
   br label %sw.epilog1655
 
 sw.bb788:                                         ; preds = %sw.bb675
   %shr789 = lshr i64 %0, 12
   %and790 = and i64 %shr789, 7
-  %70 = icmp ult i64 %and790, 6
-  br i1 %70, label %switch.lookup434, label %sw.epilog1655
+  %68 = icmp ult i64 %and790, 6
+  br i1 %68, label %switch.lookup434, label %sw.epilog1655
 
 sw.bb797:                                         ; preds = %sw.bb675
   %shr798 = lshr i64 %0, 12
   %and799 = and i64 %shr798, 7
-  %71 = icmp ult i64 %and799, 6
-  br i1 %71, label %switch.lookup437, label %sw.epilog1655
+  %69 = icmp ult i64 %and799, 6
+  br i1 %69, label %switch.lookup437, label %sw.epilog1655
 
 sw.bb806:                                         ; preds = %sw.bb675
   %shr807 = lshr i64 %0, 12
@@ -6634,56 +6628,56 @@ sw.bb806:                                         ; preds = %sw.bb675
 sw.bb812:                                         ; preds = %sw.bb675
   %shr813 = lshr i64 %0, 12
   %and814 = and i64 %shr813, 7
-  %72 = icmp ult i64 %and814, 6
-  br i1 %72, label %switch.lookup440, label %sw.epilog1655
+  %70 = icmp ult i64 %and814, 6
+  br i1 %70, label %switch.lookup440, label %sw.epilog1655
 
 sw.bb821:                                         ; preds = %sw.bb675
-  %73 = and i64 %0, 28672
-  %cond12 = icmp eq i64 %73, 0
+  %71 = and i64 %0, 28672
+  %cond12 = icmp eq i64 %71, 0
   %spec.select287 = select i1 %cond12, i16 823, i16 0
   br label %sw.epilog1655
 
 sw.bb826:                                         ; preds = %sw.bb675
-  %74 = and i64 %0, 28672
-  %cond11 = icmp eq i64 %74, 0
+  %72 = and i64 %0, 28672
+  %cond11 = icmp eq i64 %72, 0
   %spec.select288 = select i1 %cond11, i16 825, i16 0
   br label %sw.epilog1655
 
 sw.bb831:                                         ; preds = %sw.bb675
   %shr832 = lshr i64 %0, 20
   %and833 = and i64 %shr832, 31
-  %75 = icmp ult i64 %and833, 4
-  br i1 %75, label %switch.lookup443, label %sw.epilog1655
+  %73 = icmp ult i64 %and833, 4
+  br i1 %73, label %switch.lookup443, label %sw.epilog1655
 
 sw.bb839:                                         ; preds = %sw.bb675
   %shr840 = lshr i64 %0, 20
   %and841 = and i64 %shr840, 31
-  %76 = icmp ult i64 %and841, 9
-  br i1 %76, label %switch.lookup447, label %sw.epilog1655
+  %74 = icmp ult i64 %and841, 9
+  br i1 %74, label %switch.lookup447, label %sw.epilog1655
 
 sw.bb848:                                         ; preds = %sw.bb675
   %shr849 = lshr i64 %0, 20
   %and850 = and i64 %shr849, 31
-  %77 = icmp ult i64 %and850, 4
-  br i1 %77, label %switch.lookup450, label %sw.epilog1655
+  %75 = icmp ult i64 %and850, 4
+  br i1 %75, label %switch.lookup450, label %sw.epilog1655
 
 sw.bb856:                                         ; preds = %sw.bb675
   %shr857 = lshr i64 %0, 20
   %and858 = and i64 %shr857, 31
-  %78 = icmp ult i64 %and858, 4
-  br i1 %78, label %switch.lookup454, label %sw.epilog1655
+  %76 = icmp ult i64 %and858, 4
+  br i1 %76, label %switch.lookup454, label %sw.epilog1655
 
 sw.bb864:                                         ; preds = %sw.bb675
   %shr865 = lshr i64 %0, 20
   %and866 = and i64 %shr865, 31
-  %79 = icmp ult i64 %and866, 4
-  br i1 %79, label %switch.lookup458, label %sw.epilog1655
+  %77 = icmp ult i64 %and866, 4
+  br i1 %77, label %switch.lookup458, label %sw.epilog1655
 
 sw.bb872:                                         ; preds = %sw.bb675
   %shr873 = lshr i64 %0, 20
   %and874 = and i64 %shr873, 31
-  %80 = icmp ult i64 %and874, 4
-  br i1 %80, label %switch.lookup462, label %sw.epilog1655
+  %78 = icmp ult i64 %and874, 4
+  br i1 %78, label %switch.lookup462, label %sw.epilog1655
 
 sw.bb880:                                         ; preds = %sw.bb675
   %shr881 = lshr i64 %0, 17
@@ -6903,8 +6897,8 @@ sw.bb971:                                         ; preds = %sw.bb957
   br label %sw.epilog1655
 
 sw.bb972:                                         ; preds = %sw.bb957
-  %81 = and i64 %0, 33554432
-  %cmp975 = icmp eq i64 %81, 0
+  %79 = and i64 %0, 33554432
+  %cmp975 = icmp eq i64 %79, 0
   %spec.select310 = select i1 %cmp975, i16 480, i16 0
   br label %sw.epilog1655
 
@@ -6912,8 +6906,8 @@ sw.bb978:                                         ; preds = %sw.bb957
   br label %sw.epilog1655
 
 sw.bb979:                                         ; preds = %sw.bb957
-  %82 = and i64 %0, 33554432
-  %cmp982 = icmp eq i64 %82, 0
+  %80 = and i64 %0, 33554432
+  %cmp982 = icmp eq i64 %80, 0
   %spec.select311 = select i1 %cmp982, i16 486, i16 0
   br label %sw.epilog1655
 
@@ -6927,13 +6921,13 @@ sw.bb987:                                         ; preds = %sw.bb957
   br label %sw.epilog1655
 
 sw.bb988:                                         ; preds = %sw.bb957
-  %83 = and i64 %0, 66060288
-  %cmp991 = icmp eq i64 %83, 33554432
+  %81 = and i64 %0, 66060288
+  %cmp991 = icmp eq i64 %81, 33554432
   br i1 %cmp991, label %sw.epilog1655, label %if.else993
 
 if.else993:                                       ; preds = %sw.bb988
-  %84 = and i64 %0, 33554432
-  %cmp996 = icmp eq i64 %84, 0
+  %82 = and i64 %0, 33554432
+  %cmp996 = icmp eq i64 %82, 0
   %spec.select312 = select i1 %cmp996, i16 582, i16 0
   br label %sw.epilog1655
 
@@ -7086,16 +7080,16 @@ sw.bb1037:                                        ; preds = %sw.bb1024
   br label %sw.epilog1655
 
 sw.bb1038:                                        ; preds = %sw.bb1024
-  %85 = and i64 %0, 34570240
-  %or.cond313.not = icmp eq i64 %85, 33554432
+  %83 = and i64 %0, 34570240
+  %or.cond313.not = icmp eq i64 %83, 33554432
   %spec.select346 = select i1 %or.cond313.not, i16 743, i16 0
   br label %sw.epilog1655
 
 sw.bb1048:                                        ; preds = %sw.bb1024
   %shr1049 = lshr i64 %0, 15
   %and1050 = and i64 %shr1049, 31
-  %86 = icmp ult i64 %and1050, 30
-  br i1 %86, label %switch.lookup466, label %sw.epilog1655
+  %84 = icmp ult i64 %and1050, 30
+  br i1 %84, label %switch.lookup466, label %sw.epilog1655
 
 sw.bb1075:                                        ; preds = %sw.bb1024
   %shr1076 = lshr i64 %0, 15
@@ -7307,8 +7301,8 @@ sw.bb1127:                                        ; preds = %sw.bb1110
   ]
 
 sw.bb1130:                                        ; preds = %sw.bb1127
-  %87 = and i64 %0, 33554432
-  %tobool1133.not = icmp eq i64 %87, 0
+  %85 = and i64 %0, 33554432
+  %tobool1133.not = icmp eq i64 %85, 0
   %spec.select314 = select i1 %tobool1133.not, i16 0, i16 741
   br label %sw.epilog1655
 
@@ -7322,8 +7316,8 @@ sw.bb1139:                                        ; preds = %sw.bb1110
   %shr1140 = lshr i64 %0, 15
   %and1141 = and i64 %shr1140, 31
   %switch.tableidx470 = add nsw i64 %and1141, -2
-  %88 = icmp ult i64 %switch.tableidx470, 13
-  br i1 %88, label %switch.lookup469, label %sw.epilog1655
+  %86 = icmp ult i64 %switch.tableidx470, 13
+  br i1 %86, label %switch.lookup469, label %sw.epilog1655
 
 sw.bb1155:                                        ; preds = %sw.bb1110
   %shr1156 = lshr i64 %0, 15
@@ -7349,62 +7343,62 @@ sw.bb1161:                                        ; preds = %sw.bb1155
   br label %sw.epilog1655
 
 sw.bb1162:                                        ; preds = %sw.bb1155
-  %89 = and i64 %0, 32505856
-  %cmp1165 = icmp eq i64 %89, 0
+  %87 = and i64 %0, 32505856
+  %cmp1165 = icmp eq i64 %87, 0
   %spec.select315 = select i1 %cmp1165, i16 740, i16 0
   br label %sw.epilog1655
 
 sw.bb1169:                                        ; preds = %sw.bb1110
-  %90 = and i64 %0, 33554432
-  %tobool1172.not = icmp eq i64 %90, 0
+  %88 = and i64 %0, 33554432
+  %tobool1172.not = icmp eq i64 %88, 0
   %spec.select316 = select i1 %tobool1172.not, i16 0, i16 755
   br label %sw.epilog1655
 
 sw.bb1175:                                        ; preds = %sw.bb1110
-  %91 = and i64 %0, 33554432
-  %tobool1178.not = icmp eq i64 %91, 0
+  %89 = and i64 %0, 33554432
+  %tobool1178.not = icmp eq i64 %89, 0
   %spec.select317 = select i1 %tobool1178.not, i16 0, i16 728
   br label %sw.epilog1655
 
 sw.bb1181:                                        ; preds = %sw.bb1110
-  %92 = and i64 %0, 33554432
-  %tobool1184.not = icmp eq i64 %92, 0
+  %90 = and i64 %0, 33554432
+  %tobool1184.not = icmp eq i64 %90, 0
   %spec.select318 = select i1 %tobool1184.not, i16 0, i16 726
   br label %sw.epilog1655
 
 sw.bb1187:                                        ; preds = %sw.bb1110
-  %93 = and i64 %0, 33554432
-  %tobool1190.not = icmp eq i64 %93, 0
+  %91 = and i64 %0, 33554432
+  %tobool1190.not = icmp eq i64 %91, 0
   %spec.select319 = select i1 %tobool1190.not, i16 0, i16 730
   br label %sw.epilog1655
 
 sw.bb1193:                                        ; preds = %sw.bb1110
-  %94 = and i64 %0, 33554432
-  %tobool1196.not = icmp eq i64 %94, 0
+  %92 = and i64 %0, 33554432
+  %tobool1196.not = icmp eq i64 %92, 0
   %spec.select320 = select i1 %tobool1196.not, i16 0, i16 729
   br label %sw.epilog1655
 
 sw.bb1199:                                        ; preds = %sw.bb1110
-  %95 = and i64 %0, 33554432
-  %tobool1202.not = icmp eq i64 %95, 0
+  %93 = and i64 %0, 33554432
+  %tobool1202.not = icmp eq i64 %93, 0
   %spec.select321 = select i1 %tobool1202.not, i16 0, i16 732
   br label %sw.epilog1655
 
 sw.bb1205:                                        ; preds = %sw.bb1110
-  %96 = and i64 %0, 33554432
-  %tobool1208.not = icmp eq i64 %96, 0
+  %94 = and i64 %0, 33554432
+  %tobool1208.not = icmp eq i64 %94, 0
   %spec.select322 = select i1 %tobool1208.not, i16 0, i16 727
   br label %sw.epilog1655
 
 sw.bb1211:                                        ; preds = %sw.bb1110
-  %97 = and i64 %0, 33554432
-  %tobool1214.not = icmp eq i64 %97, 0
+  %95 = and i64 %0, 33554432
+  %tobool1214.not = icmp eq i64 %95, 0
   %spec.select323 = select i1 %tobool1214.not, i16 0, i16 731
   br label %sw.epilog1655
 
 sw.bb1217:                                        ; preds = %sw.bb1110
-  %98 = and i64 %0, 33554432
-  %tobool1220.not = icmp eq i64 %98, 0
+  %96 = and i64 %0, 33554432
+  %tobool1220.not = icmp eq i64 %96, 0
   %spec.select324 = select i1 %tobool1220.not, i16 0, i16 733
   br label %sw.epilog1655
 
@@ -7549,8 +7543,8 @@ sw.bb1260:                                        ; preds = %sw.bb1250
   br label %sw.epilog1655
 
 sw.bb1261:                                        ; preds = %sw.bb1250
-  %99 = and i64 %0, 33554432
-  %cmp1264 = icmp eq i64 %99, 0
+  %97 = and i64 %0, 33554432
+  %cmp1264 = icmp eq i64 %97, 0
   %spec.select325 = select i1 %cmp1264, i16 482, i16 0
   br label %sw.epilog1655
 
@@ -7561,13 +7555,13 @@ sw.bb1268:                                        ; preds = %sw.bb1250, %sw.bb12
   br label %sw.epilog1655
 
 sw.bb1269:                                        ; preds = %sw.bb1250
-  %100 = and i64 %0, 66060288
-  %cmp1272 = icmp eq i64 %100, 33554432
+  %98 = and i64 %0, 66060288
+  %cmp1272 = icmp eq i64 %98, 33554432
   br i1 %cmp1272, label %sw.epilog1655, label %if.else1274
 
 if.else1274:                                      ; preds = %sw.bb1269
-  %101 = and i64 %0, 33554432
-  %cmp1277 = icmp eq i64 %101, 0
+  %99 = and i64 %0, 33554432
+  %cmp1277 = icmp eq i64 %99, 0
   %spec.select326 = select i1 %cmp1277, i16 584, i16 0
   br label %sw.epilog1655
 
@@ -7601,8 +7595,8 @@ sw.bb1289:                                        ; preds = %sw.bb1250
 sw.bb1290:                                        ; preds = %sw.bb1250
   %shr1291 = lshr i64 %0, 15
   %and1292 = and i64 %shr1291, 31
-  %102 = icmp ult i64 %and1292, 8
-  br i1 %102, label %switch.lookup473, label %sw.epilog1655
+  %100 = icmp ult i64 %and1292, 8
+  br i1 %100, label %switch.lookup473, label %sw.epilog1655
 
 sw.bb1298:                                        ; preds = %sw.bb1250
   br label %sw.epilog1655
@@ -7724,8 +7718,8 @@ sw.bb1324:                                        ; preds = %sw.bb1308
   br label %sw.epilog1655
 
 sw.bb1325:                                        ; preds = %sw.bb1308
-  %103 = and i64 %0, 33554432
-  %cmp1328 = icmp eq i64 %103, 0
+  %101 = and i64 %0, 33554432
+  %cmp1328 = icmp eq i64 %101, 0
   %spec.select327 = select i1 %cmp1328, i16 481, i16 0
   br label %sw.epilog1655
 
@@ -7733,8 +7727,8 @@ sw.bb1331:                                        ; preds = %sw.bb1308
   br label %sw.epilog1655
 
 sw.bb1332:                                        ; preds = %sw.bb1308
-  %104 = and i64 %0, 33554432
-  %cmp1335 = icmp eq i64 %104, 0
+  %102 = and i64 %0, 33554432
+  %cmp1335 = icmp eq i64 %102, 0
   %spec.select328 = select i1 %cmp1335, i16 487, i16 0
   br label %sw.epilog1655
 
@@ -7748,13 +7742,13 @@ sw.bb1340:                                        ; preds = %sw.bb1308
   br label %sw.epilog1655
 
 sw.bb1341:                                        ; preds = %sw.bb1308
-  %105 = and i64 %0, 66060288
-  %cmp1344 = icmp eq i64 %105, 33554432
+  %103 = and i64 %0, 66060288
+  %cmp1344 = icmp eq i64 %103, 33554432
   br i1 %cmp1344, label %sw.epilog1655, label %if.else1346
 
 if.else1346:                                      ; preds = %sw.bb1341
-  %106 = and i64 %0, 33554432
-  %cmp1349 = icmp eq i64 %106, 0
+  %104 = and i64 %0, 33554432
+  %cmp1349 = icmp eq i64 %104, 0
   %spec.select329 = select i1 %cmp1349, i16 583, i16 0
   br label %sw.epilog1655
 
@@ -7900,19 +7894,19 @@ sw.bb1388:                                        ; preds = %sw.bb1377
   br label %sw.epilog1655
 
 sw.bb1389:                                        ; preds = %sw.bb1377
-  %107 = and i64 %0, 66060288
-  %or.cond330.not = icmp eq i64 %107, 33554432
+  %105 = and i64 %0, 66060288
+  %or.cond330.not = icmp eq i64 %105, 33554432
   %spec.select347 = select i1 %or.cond330.not, i16 744, i16 0
   br label %sw.epilog1655
 
 sw.bb1399:                                        ; preds = %sw.bb1377
-  %108 = and i64 %0, 33554432
-  %cmp1402 = icmp eq i64 %108, 0
+  %106 = and i64 %0, 33554432
+  %cmp1402 = icmp eq i64 %106, 0
   br i1 %cmp1402, label %sw.epilog1655, label %if.else1404
 
 if.else1404:                                      ; preds = %sw.bb1399
-  %109 = and i64 %0, 66060288
-  %cmp1407 = icmp eq i64 %109, 33554432
+  %107 = and i64 %0, 66060288
+  %cmp1407 = icmp eq i64 %107, 33554432
   %spec.select331 = select i1 %cmp1407, i16 688, i16 0
   br label %sw.epilog1655
 
@@ -8067,8 +8061,8 @@ sw.bb1450:                                        ; preds = %sw.bb1440
   br label %sw.epilog1655
 
 sw.bb1451:                                        ; preds = %sw.bb1440
-  %110 = and i64 %0, 66060288
-  %or.cond332.not = icmp eq i64 %110, 33554432
+  %108 = and i64 %0, 66060288
+  %or.cond332.not = icmp eq i64 %108, 33554432
   %spec.select348 = select i1 %or.cond332.not, i16 742, i16 0
   br label %sw.epilog1655
 
@@ -8154,18 +8148,18 @@ sw.bb1487:                                        ; preds = %sw.bb1440
   br label %sw.epilog1655
 
 sw.bb1489:                                        ; preds = %sw.bb954
-  %111 = and i64 %0, 2147483648
-  %cmp1492 = icmp eq i64 %111, 0
+  %109 = and i64 %0, 2147483648
+  %cmp1492 = icmp eq i64 %109, 0
   br i1 %cmp1492, label %sw.epilog1655, label %if.else1494
 
 if.else1494:                                      ; preds = %sw.bb1489
-  %112 = and i64 %0, 1073741824
-  %tobool1497.not = icmp eq i64 %112, 0
+  %110 = and i64 %0, 1073741824
+  %tobool1497.not = icmp eq i64 %110, 0
   br i1 %tobool1497.not, label %if.else1499, label %sw.epilog1655
 
 if.else1499:                                      ; preds = %if.else1494
-  %113 = and i64 %0, 1040187392
-  %cmp1502 = icmp eq i64 %113, 0
+  %111 = and i64 %0, 1040187392
+  %cmp1502 = icmp eq i64 %111, 0
   %spec.select333 = select i1 %cmp1502, i16 768, i16 0
   br label %sw.epilog1655
 
@@ -8182,8 +8176,8 @@ sw.bb1511:                                        ; preds = %sw.bb1508
   br label %sw.epilog1655
 
 sw.bb1512:                                        ; preds = %sw.bb1508
-  %114 = and i64 %0, 4227858432
-  %cond6 = icmp eq i64 %114, 0
+  %112 = and i64 %0, 4227858432
+  %cond6 = icmp eq i64 %112, 0
   %spec.select334 = select i1 %cond6, i16 56, i16 0
   br label %sw.epilog1655
 
@@ -8197,8 +8191,8 @@ sw.bb1517:                                        ; preds = %sw.bb1508
   br label %sw.epilog1655
 
 sw.bb1534:                                        ; preds = %sw.bb202
-  %115 = and i64 %0, 28672
-  %cond5 = icmp eq i64 %115, 0
+  %113 = and i64 %0, 28672
+  %cond5 = icmp eq i64 %113, 0
   %spec.select339 = select i1 %cond5, i16 4, i16 0
   br label %sw.epilog1655
 
@@ -8260,8 +8254,8 @@ sw.bb1556:                                        ; preds = %sw.bb1543
   ]
 
 sw.bb1559:                                        ; preds = %sw.bb1556
-  %116 = and i64 %0, 1015808
-  %cond4 = icmp eq i64 %116, 0
+  %114 = and i64 %0, 1015808
+  %cond4 = icmp eq i64 %114, 0
   %spec.select340 = select i1 %cond4, i16 118, i16 0
   br label %sw.epilog1655
 
@@ -8269,8 +8263,8 @@ sw.bb1564:                                        ; preds = %sw.bb1556
   br label %sw.epilog1655
 
 sw.bb1565:                                        ; preds = %sw.bb1556
-  %117 = and i64 %0, 1015808
-  %cond3 = icmp eq i64 %117, 0
+  %115 = and i64 %0, 1015808
+  %cond3 = icmp eq i64 %115, 0
   %spec.select341 = select i1 %cond3, i16 124, i16 0
   br label %sw.epilog1655
 
@@ -8278,20 +8272,20 @@ sw.bb1571:                                        ; preds = %sw.bb1543
   br label %sw.epilog1655
 
 sw.bb1572:                                        ; preds = %sw.bb1543
-  %118 = and i64 %0, 33521664
-  %cond2 = icmp eq i64 %118, 2097152
+  %116 = and i64 %0, 33521664
+  %cond2 = icmp eq i64 %116, 2097152
   %spec.select342 = select i1 %cond2, i16 119, i16 0
   br label %sw.epilog1655
 
 sw.bb1577:                                        ; preds = %sw.bb1543
-  %119 = and i64 %0, 33521664
-  %cond1 = icmp eq i64 %119, 2097152
+  %117 = and i64 %0, 33521664
+  %cond1 = icmp eq i64 %117, 2097152
   %spec.select343 = select i1 %cond1, i16 120, i16 0
   br label %sw.epilog1655
 
 sw.bb1582:                                        ; preds = %sw.bb1543
-  %120 = and i64 %0, 33521664
-  %cond = icmp eq i64 %120, 18874368
+  %118 = and i64 %0, 33521664
+  %cond = icmp eq i64 %118, 18874368
   %spec.select344 = select i1 %cond, i16 121, i16 0
   br label %sw.epilog1655
 
@@ -8314,8 +8308,8 @@ sw.bb1593:                                        ; preds = %sw.bb1540
   br label %sw.epilog1655
 
 sw.bb1595:                                        ; preds = %sw.bb202
-  %121 = and i64 %0, 33583104
-  %or.cond345 = icmp eq i64 %121, 33562624
+  %119 = and i64 %0, 33583104
+  %or.cond345 = icmp eq i64 %119, 33562624
   br i1 %or.cond345, label %if.then1603, label %sw.epilog1655
 
 if.then1603:                                      ; preds = %sw.bb1595
@@ -8509,9 +8503,8 @@ switch.lookup373:                                 ; preds = %sw.bb417
 switch.hole_check:                                ; preds = %sw.epilog607
   %switch.maskindex = trunc i64 %switch.tableidx to i16
   %switch.shifted = lshr i16 725, %switch.maskindex
-  %122 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %122, 0
-  br i1 %switch.lobit.not, label %sw.epilog1655, label %switch.lookup380
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup380, label %sw.epilog1655
 
 switch.lookup380:                                 ; preds = %switch.hole_check
   %switch.gep381 = getelementptr inbounds [10 x i16], ptr @switch.table.decode_inst_opcode.12, i64 0, i64 %switch.tableidx
@@ -8655,8 +8648,7 @@ define internal zeroext i1 @has_xtheadba_p(ptr nocapture noundef readonly %cfg) 
 entry:
   %ext_xtheadba = getelementptr inbounds i8, ptr %cfg, i64 104
   %0 = load i8, ptr %ext_xtheadba, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8667,8 +8659,7 @@ define internal zeroext i1 @has_xtheadbb_p(ptr nocapture noundef readonly %cfg) 
 entry:
   %ext_xtheadbb = getelementptr inbounds i8, ptr %cfg, i64 105
   %0 = load i8, ptr %ext_xtheadbb, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8679,8 +8670,7 @@ define internal zeroext i1 @has_xtheadbs_p(ptr nocapture noundef readonly %cfg) 
 entry:
   %ext_xtheadbs = getelementptr inbounds i8, ptr %cfg, i64 106
   %0 = load i8, ptr %ext_xtheadbs, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8691,8 +8681,7 @@ define internal zeroext i1 @has_xtheadcmo_p(ptr nocapture noundef readonly %cfg)
 entry:
   %ext_xtheadcmo = getelementptr inbounds i8, ptr %cfg, i64 107
   %0 = load i8, ptr %ext_xtheadcmo, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8703,8 +8692,7 @@ define internal zeroext i1 @has_xtheadcondmov_p(ptr nocapture noundef readonly %
 entry:
   %ext_xtheadcondmov = getelementptr inbounds i8, ptr %cfg, i64 108
   %0 = load i8, ptr %ext_xtheadcondmov, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8715,8 +8703,7 @@ define internal zeroext i1 @has_xtheadfmemidx_p(ptr nocapture noundef readonly %
 entry:
   %ext_xtheadfmemidx = getelementptr inbounds i8, ptr %cfg, i64 109
   %0 = load i8, ptr %ext_xtheadfmemidx, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8727,8 +8714,7 @@ define internal zeroext i1 @has_xtheadfmv_p(ptr nocapture noundef readonly %cfg)
 entry:
   %ext_xtheadfmv = getelementptr inbounds i8, ptr %cfg, i64 110
   %0 = load i8, ptr %ext_xtheadfmv, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8739,8 +8725,7 @@ define internal zeroext i1 @has_xtheadmac_p(ptr nocapture noundef readonly %cfg)
 entry:
   %ext_xtheadmac = getelementptr inbounds i8, ptr %cfg, i64 111
   %0 = load i8, ptr %ext_xtheadmac, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8751,8 +8736,7 @@ define internal zeroext i1 @has_xtheadmemidx_p(ptr nocapture noundef readonly %c
 entry:
   %ext_xtheadmemidx = getelementptr inbounds i8, ptr %cfg, i64 112
   %0 = load i8, ptr %ext_xtheadmemidx, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8763,8 +8747,7 @@ define internal zeroext i1 @has_xtheadmempair_p(ptr nocapture noundef readonly %
 entry:
   %ext_xtheadmempair = getelementptr inbounds i8, ptr %cfg, i64 113
   %0 = load i8, ptr %ext_xtheadmempair, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8775,8 +8758,7 @@ define internal zeroext i1 @has_xtheadsync_p(ptr nocapture noundef readonly %cfg
 entry:
   %ext_xtheadsync = getelementptr inbounds i8, ptr %cfg, i64 114
   %0 = load i8, ptr %ext_xtheadsync, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -8787,8 +8769,7 @@ define internal zeroext i1 @has_XVentanaCondOps_p(ptr nocapture noundef readonly
 entry:
   %ext_XVentanaCondOps = getelementptr inbounds i8, ptr %cfg, i64 115
   %0 = load i8, ptr %ext_XVentanaCondOps, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

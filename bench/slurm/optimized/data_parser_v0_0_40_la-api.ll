@@ -324,9 +324,8 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 80
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not8 = icmp eq i8 %26, 0
-  br i1 %.not8, label %30, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 72
@@ -336,8 +335,8 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %23, %27
   %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %32 = and i64 %31, 256
-  %.not9 = icmp eq i64 %32, 0
-  br i1 %.not9, label %38, label %33
+  %.not8 = icmp eq i64 %32, 0
+  br i1 %.not8, label %38, label %33
 
 33:                                               ; preds = %30
   %34 = tail call i32 @get_log_level() #3

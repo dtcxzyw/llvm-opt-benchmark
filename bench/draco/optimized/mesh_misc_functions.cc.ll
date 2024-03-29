@@ -49,7 +49,7 @@ define void @_ZN5draco30CreateCornerTableFromAttributeEPKNS_4MeshENS_17GeometryA
 
 8:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit17
+  br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit16
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 192
@@ -85,34 +85,33 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
   %26 = and i64 %17, 4294967295
   br label %27
 
-27:                                               ; preds = %.lr.ph, %.split26.us
-  %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %.split26.us ]
-  %28 = getelementptr %"struct.std::array.32", ptr %13, i64 %indvars.iv31
+27:                                               ; preds = %.lr.ph, %.split25.us
+  %indvars.iv32 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next33, %.split25.us ]
+  %28 = getelementptr %"struct.std::array.32", ptr %13, i64 %indvars.iv32
   %29 = load i8, ptr %24, align 4
-  %30 = and i8 %29, 1
-  %.not.i = icmp eq i8 %30, 0
-  br i1 %.not.i, label %.split.us, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.preheader
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader, label %.split
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.preheader: ; preds = %27
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader: ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
-  br label %.split26.us
+  br label %.split25.us
 
-.split.us:                                        ; preds = %27
+.split:                                           ; preds = %27
   %31 = load ptr, ptr %25, align 8
-  br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
+  br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us: ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ 0, %.split.us ]
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %.split, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
+  %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %32 = getelementptr inbounds [3 x %"class.draco::IndexType.33"], ptr %28, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload.us = load i32, ptr %32, align 4
-  %33 = zext i32 %.sroa.0.0.copyload.us to i64
+  %.sroa.0.0.copyload = load i32, ptr %32, align 4
+  %33 = zext i32 %.sroa.0.0.copyload to i64
   %34 = getelementptr inbounds %"class.draco::IndexType.34", ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %5, i64 0, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split26.us, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, !llvm.loop !4
+  br i1 %exitcond.not, label %.split25.us, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !4
 
 37:                                               ; preds = %._crit_edge
   %38 = landingpad { ptr, i32 }
@@ -128,27 +127,27 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit: ; preds = %37, %40
   resume { ptr, i32 } %38
 
-.split26.us:                                      ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.preheader
-  %41 = getelementptr inbounds %"struct.std::array", ptr %20, i64 %indvars.iv31
+.split25.us:                                      ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.preheader
+  %41 = getelementptr inbounds %"struct.std::array", ptr %20, i64 %indvars.iv32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %42 = icmp ult i64 %indvars.iv.next32, %26
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %42 = icmp ult i64 %indvars.iv.next33, %26
   br i1 %42, label %27, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.split26.us, %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm3EESaIS5_EEC2EmRKS6_.exit.thread.i.i.thread
+._crit_edge:                                      ; preds = %.split25.us, %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm3EESaIS5_EEC2EmRKS6_.exit.thread.i.i.thread
   invoke void @_ZN5draco11CornerTable6CreateERKNS_15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS2_IjNS_21VertexIndex_tag_type_EEELm3EEEE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %43 unwind label %37
 
 43:                                               ; preds = %._crit_edge
   %44 = load ptr, ptr %4, align 8
-  %.not.i.i.i.i16 = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i16, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit17, label %45
+  %.not.i.i.i.i15 = icmp eq ptr %44, null
+  br i1 %.not.i.i.i.i15, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit16, label %45
 
 45:                                               ; preds = %43
   call void @_ZdlPv(ptr noundef nonnull %44) #11
-  br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit17
+  br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit16
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit17: ; preds = %45, %43, %8
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit16: ; preds = %45, %43, %8
   ret void
 }
 

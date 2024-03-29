@@ -262,14 +262,14 @@ entry:
   store i32 0, ptr %m_index, align 8
   %collideConnected = getelementptr inbounds i8, ptr %def, i64 32
   %3 = load i8, ptr %collideConnected, align 8
-  %4 = and i8 %3, 1
   %m_collideConnected = getelementptr inbounds i8, ptr %this, i64 117
-  store i8 %4, ptr %m_collideConnected, align 1
+  %frombool = and i8 %3, 1
+  store i8 %frombool, ptr %m_collideConnected, align 1
   %m_islandFlag = getelementptr inbounds i8, ptr %this, i64 116
   store i8 0, ptr %m_islandFlag, align 4
   %userData = getelementptr inbounds i8, ptr %def, i64 8
-  %5 = load i64, ptr %userData, align 8
-  store i64 %5, ptr %m_userData, align 8
+  %4 = load i64, ptr %userData, align 8
+  store i64 %4, ptr %m_userData, align 8
   %m_edgeA3 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_edgeA3, i8 0, i64 64, i1 false)
   ret void

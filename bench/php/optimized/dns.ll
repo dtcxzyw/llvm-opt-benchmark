@@ -1080,21 +1080,21 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   %11 = getelementptr inbounds i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, -6
-  %or.cond380 = icmp ult i32 %13, -5
-  br i1 %or.cond380, label %14, label %15
+  %or.cond378 = icmp ult i32 %13, -5
+  br i1 %or.cond378, label %14, label %15
 
 14:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 5) #12
-  br label %.thread430
+  br label %.thread428
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = getelementptr inbounds i8, ptr %0, i64 88
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 6
-  br i1 %19, label %.thread403, label %21
+  br i1 %19, label %.thread401, label %21
 
-.thread403:                                       ; preds = %15
+.thread401:                                       ; preds = %15
   %20 = load ptr, ptr %16, align 8
   store ptr %20, ptr %3, align 8
   br label %24
@@ -1102,83 +1102,83 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 21:                                               ; preds = %15
   %22 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 1) #12
   %23 = load ptr, ptr %3, align 8
-  br i1 %22, label %24, label %.thread430
+  br i1 %22, label %24, label %.thread428
 
-24:                                               ; preds = %.thread403, %21
-  %.pn = phi ptr [ %20, %.thread403 ], [ %23, %21 ]
+24:                                               ; preds = %.thread401, %21
+  %.pn = phi ptr [ %20, %.thread401 ], [ %23, %21 ]
   %25 = getelementptr inbounds i8, ptr %.pn, i64 24
   %26 = icmp eq i32 %12, 1
-  br i1 %26, label %.thread463, label %27
+  br i1 %26, label %.thread461, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 4
-  br i1 %31, label %.critedge382, label %33
+  br i1 %31, label %.critedge380, label %33
 
-.critedge382:                                     ; preds = %27
+.critedge380:                                     ; preds = %27
   %32 = load i64, ptr %28, align 8
   store i64 %32, ptr %4, align 8
   br label %35
 
 33:                                               ; preds = %27
   %34 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 2) #12
-  br i1 %34, label %35, label %.thread430
+  br i1 %34, label %35, label %.thread428
 
-35:                                               ; preds = %33, %.critedge382
+35:                                               ; preds = %33, %.critedge380
   %36 = icmp ult i32 %12, 3
-  br i1 %36, label %.thread463, label %37
+  br i1 %36, label %.thread461, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %0, i64 112
   %39 = icmp eq i32 %12, 3
-  br i1 %39, label %.thread444, label %40
+  br i1 %39, label %.thread442, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 128
   %.not = icmp eq i32 %12, 5
-  br i1 %.not, label %42, label %.thread444
+  br i1 %.not, label %42, label %.thread442
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %0, i64 152
   %44 = load i8, ptr %43, align 8
   switch i8 %44, label %46 [
-    i8 3, label %.thread499
+    i8 3, label %.thread497
     i8 2, label %45
   ]
 
 45:                                               ; preds = %42
-  br label %.thread499
+  br label %.thread497
 
-.thread499:                                       ; preds = %45, %42
+.thread497:                                       ; preds = %45, %42
   %storemerge = phi i8 [ 0, %45 ], [ 1, %42 ]
   store i8 %storemerge, ptr %7, align 1
-  br label %.thread444
+  br label %.thread442
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %0, i64 144
   %48 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %47, ptr noundef nonnull %7, i32 noundef 5) #12
-  %cond.fr405 = freeze i1 %48
-  br i1 %cond.fr405, label %.thread444, label %.thread430
+  %cond.fr403 = freeze i1 %48
+  br i1 %cond.fr403, label %.thread442, label %.thread428
 
-.thread430:                                       ; preds = %46, %33, %21, %14
-  %.0302442 = phi i32 [ 9, %33 ], [ 9, %21 ], [ 1, %14 ], [ 9, %46 ]
-  %.0304441 = phi i32 [ 0, %33 ], [ 4, %21 ], [ 0, %14 ], [ 2, %46 ]
-  %.0305440 = phi ptr [ %28, %33 ], [ %16, %21 ], [ null, %14 ], [ %47, %46 ]
-  %.0306439 = phi i32 [ 2, %33 ], [ 1, %21 ], [ 0, %14 ], [ 5, %46 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0302442, i32 noundef %.0306439, ptr noundef null, i32 noundef %.0304441, ptr noundef %.0305440) #12
+.thread428:                                       ; preds = %46, %33, %21, %14
+  %.0302440 = phi i32 [ 9, %33 ], [ 9, %21 ], [ 1, %14 ], [ 9, %46 ]
+  %.0304439 = phi i32 [ 0, %33 ], [ 4, %21 ], [ 0, %14 ], [ 2, %46 ]
+  %.0305438 = phi ptr [ %28, %33 ], [ %16, %21 ], [ null, %14 ], [ %47, %46 ]
+  %.0306437 = phi i32 [ 2, %33 ], [ 1, %21 ], [ 0, %14 ], [ 5, %46 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0302440, i32 noundef %.0306437, ptr noundef null, i32 noundef %.0304439, ptr noundef %.0305438) #12
   br label %.loopexit
 
-.thread444:                                       ; preds = %46, %.thread499, %40, %37
-  %.0340427450 = phi ptr [ %41, %40 ], [ null, %37 ], [ %41, %.thread499 ], [ %41, %46 ]
+.thread442:                                       ; preds = %46, %.thread497, %40, %37
+  %.0340425448 = phi ptr [ %41, %40 ], [ null, %37 ], [ %41, %.thread497 ], [ %41, %46 ]
   %49 = call ptr @_zend_new_array_0() #12
   %50 = getelementptr inbounds i8, ptr %0, i64 120
   %51 = load i8, ptr %50, align 8
   %52 = icmp eq i8 %51, 10
   br i1 %52, label %53, label %63
 
-53:                                               ; preds = %.thread444
+53:                                               ; preds = %.thread442
   %54 = load ptr, ptr %38, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
@@ -1195,8 +1195,8 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   %62 = getelementptr inbounds i8, ptr %54, i64 8
   br label %63
 
-63:                                               ; preds = %61, %.thread444
-  %.0307 = phi ptr [ %62, %61 ], [ %38, %.thread444 ]
+63:                                               ; preds = %61, %.thread442
+  %.0307 = phi ptr [ %62, %61 ], [ %38, %.thread442 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %.0307) #12
   store ptr %49, ptr %.0307, align 8
   %64 = getelementptr inbounds i8, ptr %.0307, i64 8
@@ -1211,18 +1211,18 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 
 68:                                               ; preds = %63, %57
   %.0303.ph = phi ptr [ %60, %57 ], [ %.0307, %63 ]
-  %.not358 = icmp eq ptr %.0340427450, null
-  br i1 %.not358, label %.thread463, label %69
+  %.not358 = icmp eq ptr %.0340425448, null
+  br i1 %.not358, label %.thread461, label %69
 
 69:                                               ; preds = %68
   %70 = call ptr @_zend_new_array_0() #12
-  %71 = getelementptr inbounds i8, ptr %.0340427450, i64 8
+  %71 = getelementptr inbounds i8, ptr %.0340425448, i64 8
   %72 = load i8, ptr %71, align 8
   %73 = icmp eq i8 %72, 10
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %69
-  %75 = load ptr, ptr %.0340427450, align 8
+  %75 = load ptr, ptr %.0340425448, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8
   %.not359 = icmp eq ptr %77, null
@@ -1232,19 +1232,19 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   %79 = call i32 @zend_try_assign_typed_ref_arr(ptr noundef nonnull %75, ptr noundef %70) #12
   %80 = icmp eq i32 %79, -1
   %81 = getelementptr inbounds i8, ptr %75, i64 8
-  br i1 %80, label %86, label %.thread463
+  br i1 %80, label %86, label %.thread461
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds i8, ptr %75, i64 8
   br label %84
 
 84:                                               ; preds = %82, %69
-  %.0301 = phi ptr [ %83, %82 ], [ %.0340427450, %69 ]
+  %.0301 = phi ptr [ %83, %82 ], [ %.0340425448, %69 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %.0301) #12
   store ptr %70, ptr %.0301, align 8
   %85 = getelementptr inbounds i8, ptr %.0301, i64 8
   store i32 775, ptr %85, align 8
-  br label %.thread463
+  br label %.thread461
 
 86:                                               ; preds = %78
   %87 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
@@ -1252,21 +1252,20 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   call void @llvm.assume(i1 %88)
   br label %.loopexit
 
-.thread463:                                       ; preds = %78, %84, %35, %24, %68
-  %.1339469 = phi ptr [ %.0303.ph, %68 ], [ null, %24 ], [ null, %35 ], [ %.0303.ph, %84 ], [ %.0303.ph, %78 ]
+.thread461:                                       ; preds = %78, %84, %35, %24, %68
+  %.1339467 = phi ptr [ %.0303.ph, %68 ], [ null, %24 ], [ null, %35 ], [ %.0303.ph, %84 ], [ %.0303.ph, %78 ]
   %.1341 = phi ptr [ null, %68 ], [ null, %24 ], [ null, %35 ], [ %.0301, %84 ], [ %81, %78 ]
   %89 = load i8, ptr %7, align 1
-  %90 = and i8 %89, 1
-  %.not361 = icmp eq i8 %90, 0
+  %90 = trunc i8 %89 to i1
   %91 = load i64, ptr %4, align 8
-  br i1 %.not361, label %92, label %99
+  br i1 %90, label %99, label %92
 
-92:                                               ; preds = %.thread463
+92:                                               ; preds = %.thread461
   %93 = and i64 %91, -251721780
   %94 = icmp ne i64 %93, 0
   %95 = icmp ne i64 %91, 268435456
   %or.cond = and i1 %95, %94
-  br i1 %or.cond, label %96, label %.preheader526
+  br i1 %or.cond, label %96, label %.preheader524
 
 96:                                               ; preds = %92
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.19) #12
@@ -1275,10 +1274,10 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   call void @llvm.assume(i1 %98)
   br label %.loopexit
 
-99:                                               ; preds = %.thread463
+99:                                               ; preds = %.thread461
   %100 = add i64 %91, -65536
   %or.cond3 = icmp ult i64 %100, -65535
-  br i1 %or.cond3, label %101, label %.preheader526
+  br i1 %or.cond3, label %101, label %.preheader524
 
 101:                                              ; preds = %99
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.20) #12
@@ -1287,35 +1286,34 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   call void @llvm.assume(i1 %103)
   br label %.loopexit
 
-.preheader526:                                    ; preds = %92, %99
+.preheader524:                                    ; preds = %92, %99
   %104 = call ptr @_zend_new_array_0() #12
   store ptr %104, ptr %1, align 8
   %105 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %105, align 8
   %106 = load i8, ptr %7, align 1
-  %107 = and i8 %106, 1
-  %.not362 = icmp eq i8 %107, 0
+  %107 = trunc i8 %106 to i1
   %108 = load i64, ptr %4, align 8
   %109 = icmp eq i64 %108, 268435456
-  %.385 = select i1 %109, i32 14, i32 0
+  %.383 = select i1 %109, i32 14, i32 0
   %110 = icmp ne ptr %.1341, null
   %111 = select i1 %110, i32 15, i32 13
   %112 = getelementptr inbounds i8, ptr %6, i64 12
   %113 = getelementptr inbounds i8, ptr %8, i64 8
-  %114 = icmp ne ptr %.1339469, null
+  %114 = icmp ne ptr %.1339467, null
   %or.cond9 = or i1 %114, %110
   %115 = zext i1 %114 to i32
   %116 = getelementptr inbounds i8, ptr %9, i64 8
   %117 = getelementptr inbounds i8, ptr %10, i64 8
   %118 = getelementptr inbounds i8, ptr %5, i64 536
   %119 = getelementptr inbounds i8, ptr %5, i64 496
-  %spec.select = select i1 %.not362, i32 %.385, i32 -1
+  %spec.select = select i1 %107, i32 -1, i32 %.383
   br label %120
 
-120:                                              ; preds = %.preheader526, %_php_dns_free_res.exit399
-  %.0311519 = phi i32 [ %.1, %_php_dns_free_res.exit399 ], [ 1, %.preheader526 ]
-  %.1314518 = phi i32 [ %273, %_php_dns_free_res.exit399 ], [ %spec.select, %.preheader526 ]
-  switch i32 %.1314518, label %.thread486 [
+120:                                              ; preds = %.preheader524, %_php_dns_free_res.exit397
+  %.0311517 = phi i32 [ %.1, %_php_dns_free_res.exit397 ], [ 1, %.preheader524 ]
+  %.1314516 = phi i32 [ %270, %_php_dns_free_res.exit397 ], [ %spec.select, %.preheader524 ]
+  switch i32 %.1314516, label %.thread484 [
     i32 -1, label %121
     i32 0, label %124
     i32 1, label %128
@@ -1330,7 +1328,7 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
     i32 10, label %158
     i32 11, label %161
     i32 12, label %164
-    i32 13, label %_php_dns_free_res.exit399
+    i32 13, label %_php_dns_free_res.exit397
   ]
 
 121:                                              ; preds = %120
@@ -1353,32 +1351,32 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 132:                                              ; preds = %120
   %133 = load i64, ptr %4, align 8
   %134 = and i64 %133, 16
-  %.not373 = icmp eq i64 %134, 0
-  br i1 %.not373, label %_php_dns_free_res.exit399, label %.thread486
+  %.not371 = icmp eq i64 %134, 0
+  br i1 %.not371, label %_php_dns_free_res.exit397, label %.thread484
 
 135:                                              ; preds = %120
   %136 = load i64, ptr %4, align 8
   %137 = and i64 %136, 32
-  %.not372 = icmp eq i64 %137, 0
-  br i1 %.not372, label %_php_dns_free_res.exit399, label %.thread486
+  %.not370 = icmp eq i64 %137, 0
+  br i1 %.not370, label %_php_dns_free_res.exit397, label %.thread484
 
 138:                                              ; preds = %120
   %139 = load i64, ptr %4, align 8
   %140 = and i64 %139, 2048
-  %.not371 = icmp eq i64 %140, 0
-  br i1 %.not371, label %_php_dns_free_res.exit399, label %.thread486
+  %.not369 = icmp eq i64 %140, 0
+  br i1 %.not369, label %_php_dns_free_res.exit397, label %.thread484
 
 141:                                              ; preds = %120
   %142 = load i64, ptr %4, align 8
   %143 = and i64 %142, 4096
-  %.not370 = icmp eq i64 %143, 0
-  br i1 %.not370, label %_php_dns_free_res.exit399, label %.thread486
+  %.not368 = icmp eq i64 %143, 0
+  br i1 %.not368, label %_php_dns_free_res.exit397, label %.thread484
 
 144:                                              ; preds = %120
   %145 = load i64, ptr %4, align 8
   %146 = and i64 %145, 16384
-  %.not369 = icmp eq i64 %146, 0
-  br i1 %.not369, label %_php_dns_free_res.exit399, label %.thread486
+  %.not367 = icmp eq i64 %146, 0
+  br i1 %.not367, label %_php_dns_free_res.exit397, label %.thread484
 
 147:                                              ; preds = %120
   %148 = load i64, ptr %4, align 8
@@ -1390,55 +1388,55 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 152:                                              ; preds = %120
   %153 = load i64, ptr %4, align 8
   %154 = and i64 %153, 134217728
-  %.not367 = icmp eq i64 %154, 0
-  br i1 %.not367, label %_php_dns_free_res.exit399, label %.thread486
+  %.not365 = icmp eq i64 %154, 0
+  br i1 %.not365, label %_php_dns_free_res.exit397, label %.thread484
 
 155:                                              ; preds = %120
   %156 = load i64, ptr %4, align 8
   %157 = and i64 %156, 33554432
-  %.not366 = icmp eq i64 %157, 0
-  br i1 %.not366, label %_php_dns_free_res.exit399, label %.thread486
+  %.not364 = icmp eq i64 %157, 0
+  br i1 %.not364, label %_php_dns_free_res.exit397, label %.thread484
 
 158:                                              ; preds = %120
   %159 = load i64, ptr %4, align 8
   %160 = and i64 %159, 67108864
-  %.not365 = icmp eq i64 %160, 0
-  br i1 %.not365, label %_php_dns_free_res.exit399, label %.thread486
+  %.not363 = icmp eq i64 %160, 0
+  br i1 %.not363, label %_php_dns_free_res.exit397, label %.thread484
 
 161:                                              ; preds = %120
   %162 = load i64, ptr %4, align 8
   %163 = and i64 %162, 16777216
-  %.not364 = icmp eq i64 %163, 0
-  br i1 %.not364, label %_php_dns_free_res.exit399, label %.thread486
+  %.not362 = icmp eq i64 %163, 0
+  br i1 %.not362, label %_php_dns_free_res.exit397, label %.thread484
 
 164:                                              ; preds = %120
   %165 = load i64, ptr %4, align 8
   %166 = and i64 %165, 8192
-  %.not363 = icmp eq i64 %166, 0
-  br i1 %.not363, label %_php_dns_free_res.exit399, label %.thread486
+  %.not361 = icmp eq i64 %166, 0
+  br i1 %.not361, label %_php_dns_free_res.exit397, label %.thread484
 
 167:                                              ; preds = %147, %128, %124, %121
   %.0324 = phi i32 [ %151, %147 ], [ %131, %128 ], [ %127, %124 ], [ %123, %121 ]
   %.2 = phi i32 [ 7, %147 ], [ 1, %128 ], [ 0, %124 ], [ 12, %121 ]
-  %.not376 = icmp eq i32 %.0324, 0
-  br i1 %.not376, label %_php_dns_free_res.exit399, label %.thread486
+  %.not374 = icmp eq i32 %.0324, 0
+  br i1 %.not374, label %_php_dns_free_res.exit397, label %.thread484
 
-.thread486:                                       ; preds = %120, %132, %135, %138, %141, %144, %152, %155, %158, %161, %164, %167
-  %.2491 = phi i32 [ %.2, %167 ], [ %.1314518, %120 ], [ 2, %132 ], [ 3, %135 ], [ 4, %138 ], [ 5, %141 ], [ 6, %144 ], [ 8, %152 ], [ 9, %155 ], [ 10, %158 ], [ 11, %161 ], [ 12, %164 ]
-  %.0324490 = phi i32 [ %.0324, %167 ], [ 255, %120 ], [ 5, %132 ], [ 6, %135 ], [ 12, %138 ], [ 13, %141 ], [ 15, %144 ], [ 28, %152 ], [ 33, %155 ], [ 35, %158 ], [ 38, %161 ], [ 257, %164 ]
+.thread484:                                       ; preds = %120, %132, %135, %138, %141, %144, %152, %155, %158, %161, %164, %167
+  %.2489 = phi i32 [ %.2, %167 ], [ %.1314516, %120 ], [ 2, %132 ], [ 3, %135 ], [ 4, %138 ], [ 5, %141 ], [ 6, %144 ], [ 8, %152 ], [ 9, %155 ], [ 10, %158 ], [ 11, %161 ], [ 12, %164 ]
+  %.0324488 = phi i32 [ %.0324, %167 ], [ 255, %120 ], [ 5, %132 ], [ 6, %135 ], [ 12, %138 ], [ 13, %141 ], [ 15, %144 ], [ 28, %152 ], [ 33, %155 ], [ 35, %158 ], [ 38, %161 ], [ 257, %164 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %5, i8 0, i64 568, i1 false)
   %168 = call i32 @__res_ninit(ptr noundef nonnull %5) #12
-  %.not377 = icmp eq i32 %168, 0
-  br i1 %.not377, label %171, label %169
+  %.not375 = icmp eq i32 %168, 0
+  br i1 %.not375, label %171, label %169
 
-169:                                              ; preds = %.thread486
+169:                                              ; preds = %.thread484
   %170 = load ptr, ptr %1, align 8
   call void @zend_array_destroy(ptr noundef %170) #12
   store i32 2, ptr %105, align 8
   br label %.loopexit
 
-171:                                              ; preds = %.thread486
-  %172 = call i32 @res_nsearch(ptr noundef nonnull %5, ptr noundef nonnull %25, i32 noundef 1, i32 noundef %.0324490, ptr noundef nonnull %6, i32 noundef 65536) #12
+171:                                              ; preds = %.thread484
+  %172 = call i32 @res_nsearch(ptr noundef nonnull %5, ptr noundef nonnull %25, i32 noundef 1, i32 noundef %.0324488, ptr noundef nonnull %6, i32 noundef 65536) #12
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %174, label %183
 
@@ -1466,20 +1464,20 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
 
 _php_dns_free_res.exit:                           ; preds = %180
   switch i32 %175, label %181 [
-    i32 4, label %_php_dns_free_res.exit399
-    i32 1, label %_php_dns_free_res.exit399
-    i32 3, label %.loopexit529
-    i32 2, label %.loopexit532
+    i32 4, label %_php_dns_free_res.exit397
+    i32 1, label %_php_dns_free_res.exit397
+    i32 3, label %.loopexit527
+    i32 2, label %.loopexit530
   ]
 
-.loopexit529:                                     ; preds = %_php_dns_free_res.exit
+.loopexit527:                                     ; preds = %_php_dns_free_res.exit
   br label %181
 
-.loopexit532:                                     ; preds = %_php_dns_free_res.exit
+.loopexit530:                                     ; preds = %_php_dns_free_res.exit
   br label %181
 
-181:                                              ; preds = %_php_dns_free_res.exit, %.loopexit532, %.loopexit529
-  %.str.23.sink = phi ptr [ @.str.21, %.loopexit529 ], [ @.str.22, %.loopexit532 ], [ @.str.23, %_php_dns_free_res.exit ]
+181:                                              ; preds = %_php_dns_free_res.exit, %.loopexit530, %.loopexit527
+  %.str.23.sink = phi ptr [ @.str.21, %.loopexit527 ], [ @.str.22, %.loopexit530 ], [ @.str.23, %_php_dns_free_res.exit ]
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.23.sink) #12
   %182 = load ptr, ptr %1, align 8
   call void @zend_array_destroy(ptr noundef %182) #12
@@ -1505,28 +1503,28 @@ _php_dns_free_res.exit:                           ; preds = %180
   %199 = trunc i96 %198 to i16
   %200 = call zeroext i16 @ntohs(i16 noundef zeroext %199) #13
   %201 = zext i16 %200 to i32
-  %.not520 = icmp eq i16 %189, 0
-  br i1 %.not520, label %.preheader502, label %.lr.ph.preheader
+  %.not518 = icmp eq i16 %189, 0
+  br i1 %.not518, label %.preheader500, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %183
   %202 = zext i16 %189 to i32
   br label %.lr.ph
 
-.preheader502:                                    ; preds = %215, %183
+.preheader500:                                    ; preds = %215, %183
   %.0319.lcssa = phi ptr [ %112, %183 ], [ %219, %215 ]
   %203 = icmp ne i16 %192, 0
   %204 = icmp ult ptr %.0319.lcssa, %185
-  %or.cond386505 = select i1 %203, i1 %204, i1 false
-  br i1 %or.cond386505, label %.lr.ph507, label %.critedge
+  %or.cond384503 = select i1 %203, i1 %204, i1 false
+  br i1 %or.cond384503, label %.lr.ph505, label %.critedge
 
-.lr.ph507:                                        ; preds = %.preheader502
-  %205 = icmp ne i32 %.0311519, 0
+.lr.ph505:                                        ; preds = %.preheader500
+  %205 = icmp ne i32 %.0311517, 0
   br label %221
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %215
   %.in = phi i32 [ %216, %215 ], [ %202, %.lr.ph.preheader ]
-  %.0319504 = phi ptr [ %219, %215 ], [ %112, %.lr.ph.preheader ]
-  %206 = call i32 @dn_skipname(ptr noundef nonnull %.0319504, ptr noundef nonnull %185) #12
+  %.0319502 = phi ptr [ %219, %215 ], [ %112, %.lr.ph.preheader ]
+  %206 = call i32 @dn_skipname(ptr noundef nonnull %.0319502, ptr noundef nonnull %185) #12
   %207 = icmp slt i32 %206, 0
   br i1 %207, label %208, label %215
 
@@ -1538,11 +1536,11 @@ _php_dns_free_res.exit:                           ; preds = %180
   br label %210
 
 210:                                              ; preds = %214, %208
-  %indvars.iv.i390 = phi i64 [ 0, %208 ], [ %indvars.iv.next.i392, %214 ]
-  %211 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv.i390
+  %indvars.iv.i388 = phi i64 [ 0, %208 ], [ %indvars.iv.next.i390, %214 ]
+  %211 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv.i388
   %212 = load ptr, ptr %211, align 8
-  %.not.i391 = icmp eq ptr %212, null
-  br i1 %.not.i391, label %214, label %213
+  %.not.i389 = icmp eq ptr %212, null
+  br i1 %.not.i389, label %214, label %213
 
 213:                                              ; preds = %210
   call void @free(ptr noundef nonnull %212) #12
@@ -1550,11 +1548,11 @@ _php_dns_free_res.exit:                           ; preds = %180
   br label %214
 
 214:                                              ; preds = %213, %210
-  %indvars.iv.next.i392 = add nuw nsw i64 %indvars.iv.i390, 1
-  %exitcond.not.i393 = icmp eq i64 %indvars.iv.next.i392, 3
-  br i1 %exitcond.not.i393, label %_php_dns_free_res.exit394, label %210
+  %indvars.iv.next.i390 = add nuw nsw i64 %indvars.iv.i388, 1
+  %exitcond.not.i391 = icmp eq i64 %indvars.iv.next.i390, 3
+  br i1 %exitcond.not.i391, label %_php_dns_free_res.exit392, label %210
 
-_php_dns_free_res.exit394:                        ; preds = %214
+_php_dns_free_res.exit392:                        ; preds = %214
   store i32 2, ptr %105, align 8
   br label %.loopexit
 
@@ -1562,139 +1560,136 @@ _php_dns_free_res.exit394:                        ; preds = %214
   %216 = add nsw i32 %.in, -1
   %217 = add nuw nsw i32 %206, 4
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds i8, ptr %.0319504, i64 %218
+  %219 = getelementptr inbounds i8, ptr %.0319502, i64 %218
   %220 = icmp sgt i32 %.in, 1
-  br i1 %220, label %.lr.ph, label %.preheader502
+  br i1 %220, label %.lr.ph, label %.preheader500
 
-221:                                              ; preds = %.lr.ph507, %232
-  %.in521 = phi i32 [ %193, %.lr.ph507 ], [ %222, %232 ]
-  %.1320506 = phi ptr [ %.0319.lcssa, %.lr.ph507 ], [ %226, %232 ]
-  %222 = add nsw i32 %.in521, -1
+221:                                              ; preds = %.lr.ph505, %231
+  %.in519 = phi i32 [ %193, %.lr.ph505 ], [ %222, %231 ]
+  %.1320504 = phi ptr [ %.0319.lcssa, %.lr.ph505 ], [ %225, %231 ]
+  %222 = add nsw i32 %.in519, -1
   %223 = load i8, ptr %7, align 1
-  %224 = and i8 %223, 1
-  %225 = icmp ne i8 %224, 0
-  %226 = call fastcc ptr @php_parserr(ptr noundef nonnull %.1320506, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef %.0324490, i32 noundef %.0311519, i1 noundef zeroext %225, ptr noundef nonnull %8)
-  %227 = load i8, ptr %113, align 8
-  %228 = icmp ne i8 %227, 0
-  %or.cond7 = select i1 %228, i1 %205, i1 false
-  br i1 %or.cond7, label %229, label %232
+  %224 = trunc i8 %223 to i1
+  %225 = call fastcc ptr @php_parserr(ptr noundef nonnull %.1320504, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef %.0324488, i32 noundef %.0311517, i1 noundef zeroext %224, ptr noundef nonnull %8)
+  %226 = load i8, ptr %113, align 8
+  %227 = icmp ne i8 %226, 0
+  %or.cond7 = select i1 %227, i1 %205, i1 false
+  br i1 %or.cond7, label %228, label %231
 
-229:                                              ; preds = %221
-  %230 = load ptr, ptr %1, align 8
-  %231 = call ptr @zend_hash_next_index_insert(ptr noundef %230, ptr noundef nonnull %8) #12
-  br label %232
+228:                                              ; preds = %221
+  %229 = load ptr, ptr %1, align 8
+  %230 = call ptr @zend_hash_next_index_insert(ptr noundef %229, ptr noundef nonnull %8) #12
+  br label %231
 
-232:                                              ; preds = %229, %221
-  %233 = icmp ne i32 %222, 0
-  %234 = icmp ne ptr %226, null
-  %or.cond5 = select i1 %233, i1 %234, i1 false
-  %235 = icmp ult ptr %226, %185
-  %or.cond386 = select i1 %or.cond5, i1 %235, i1 false
-  br i1 %or.cond386, label %221, label %.critedge
+231:                                              ; preds = %228, %221
+  %232 = icmp ne i32 %222, 0
+  %233 = icmp ne ptr %225, null
+  %or.cond5 = select i1 %232, i1 %233, i1 false
+  %234 = icmp ult ptr %225, %185
+  %or.cond384 = select i1 %or.cond5, i1 %234, i1 false
+  br i1 %or.cond384, label %221, label %.critedge
 
-.critedge:                                        ; preds = %232, %.preheader502
-  %.1320.lcssa = phi ptr [ %.0319.lcssa, %.preheader502 ], [ %226, %232 ]
-  br i1 %or.cond9, label %.preheader501, label %.critedge17
+.critedge:                                        ; preds = %231, %.preheader500
+  %.1320.lcssa = phi ptr [ %.0319.lcssa, %.preheader500 ], [ %225, %231 ]
+  br i1 %or.cond9, label %.preheader499, label %.critedge17
 
-.preheader501:                                    ; preds = %.critedge
-  %236 = icmp ne i16 %196, 0
-  %237 = icmp ne ptr %.1320.lcssa, null
-  %or.cond11509 = select i1 %236, i1 %237, i1 false
-  %238 = icmp ult ptr %.1320.lcssa, %185
-  %or.cond387510 = select i1 %or.cond11509, i1 %238, i1 false
-  br i1 %or.cond387510, label %.lr.ph512, label %.critedge13
+.preheader499:                                    ; preds = %.critedge
+  %235 = icmp ne i16 %196, 0
+  %236 = icmp ne ptr %.1320.lcssa, null
+  %or.cond11507 = select i1 %235, i1 %236, i1 false
+  %237 = icmp ult ptr %.1320.lcssa, %185
+  %or.cond385508 = select i1 %or.cond11507, i1 %237, i1 false
+  br i1 %or.cond385508, label %.lr.ph510, label %.critedge13
 
-.lr.ph512:                                        ; preds = %.preheader501, %248
-  %.in522 = phi i32 [ %239, %248 ], [ %197, %.preheader501 ]
-  %.2321511 = phi ptr [ %243, %248 ], [ %.1320.lcssa, %.preheader501 ]
-  %239 = add nsw i32 %.in522, -1
-  %240 = load i8, ptr %7, align 1
-  %241 = and i8 %240, 1
-  %242 = icmp ne i8 %241, 0
-  %243 = call fastcc ptr @php_parserr(ptr noundef nonnull %.2321511, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef %115, i1 noundef zeroext %242, ptr noundef nonnull %9)
-  %244 = load i8, ptr %116, align 8
-  %.not379 = icmp eq i8 %244, 0
-  br i1 %.not379, label %248, label %245
+.lr.ph510:                                        ; preds = %.preheader499, %246
+  %.in520 = phi i32 [ %238, %246 ], [ %197, %.preheader499 ]
+  %.2321509 = phi ptr [ %241, %246 ], [ %.1320.lcssa, %.preheader499 ]
+  %238 = add nsw i32 %.in520, -1
+  %239 = load i8, ptr %7, align 1
+  %240 = trunc i8 %239 to i1
+  %241 = call fastcc ptr @php_parserr(ptr noundef nonnull %.2321509, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef %115, i1 noundef zeroext %240, ptr noundef nonnull %9)
+  %242 = load i8, ptr %116, align 8
+  %.not377 = icmp eq i8 %242, 0
+  br i1 %.not377, label %246, label %243
 
-245:                                              ; preds = %.lr.ph512
-  %246 = load ptr, ptr %.1339469, align 8
-  %247 = call ptr @zend_hash_next_index_insert(ptr noundef %246, ptr noundef nonnull %9) #12
-  br label %248
+243:                                              ; preds = %.lr.ph510
+  %244 = load ptr, ptr %.1339467, align 8
+  %245 = call ptr @zend_hash_next_index_insert(ptr noundef %244, ptr noundef nonnull %9) #12
+  br label %246
 
-248:                                              ; preds = %245, %.lr.ph512
-  %249 = icmp sgt i32 %.in522, 1
-  %250 = icmp ne ptr %243, null
-  %or.cond11 = select i1 %249, i1 %250, i1 false
-  %251 = icmp ult ptr %243, %185
-  %or.cond387 = select i1 %or.cond11, i1 %251, i1 false
-  br i1 %or.cond387, label %.lr.ph512, label %.critedge13
+246:                                              ; preds = %243, %.lr.ph510
+  %247 = icmp sgt i32 %.in520, 1
+  %248 = icmp ne ptr %241, null
+  %or.cond11 = select i1 %247, i1 %248, i1 false
+  %249 = icmp ult ptr %241, %185
+  %or.cond385 = select i1 %or.cond11, i1 %249, i1 false
+  br i1 %or.cond385, label %.lr.ph510, label %.critedge13
 
-.critedge13:                                      ; preds = %248, %.preheader501
-  %.2321.lcssa = phi ptr [ %.1320.lcssa, %.preheader501 ], [ %243, %248 ]
+.critedge13:                                      ; preds = %246, %.preheader499
+  %.2321.lcssa = phi ptr [ %.1320.lcssa, %.preheader499 ], [ %241, %246 ]
   br i1 %110, label %.preheader, label %.critedge17
 
 .preheader:                                       ; preds = %.critedge13
-  %252 = icmp ne i16 %200, 0
-  %253 = icmp ne ptr %.2321.lcssa, null
-  %or.cond15514 = select i1 %252, i1 %253, i1 false
-  %254 = icmp ult ptr %.2321.lcssa, %185
-  %or.cond388515 = select i1 %or.cond15514, i1 %254, i1 false
-  br i1 %or.cond388515, label %.lr.ph517, label %.critedge17
+  %250 = icmp ne i16 %200, 0
+  %251 = icmp ne ptr %.2321.lcssa, null
+  %or.cond15512 = select i1 %250, i1 %251, i1 false
+  %252 = icmp ult ptr %.2321.lcssa, %185
+  %or.cond386513 = select i1 %or.cond15512, i1 %252, i1 false
+  br i1 %or.cond386513, label %.lr.ph515, label %.critedge17
 
-.lr.ph517:                                        ; preds = %.preheader, %264
-  %.in523 = phi i32 [ %255, %264 ], [ %201, %.preheader ]
-  %.4516 = phi ptr [ %259, %264 ], [ %.2321.lcssa, %.preheader ]
-  %255 = add nsw i32 %.in523, -1
-  %256 = load i8, ptr %7, align 1
-  %257 = and i8 %256, 1
-  %258 = icmp ne i8 %257, 0
-  %259 = call fastcc ptr @php_parserr(ptr noundef nonnull %.4516, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef 1, i1 noundef zeroext %258, ptr noundef nonnull %10)
-  %260 = load i8, ptr %117, align 8
-  %.not378 = icmp eq i8 %260, 0
-  br i1 %.not378, label %264, label %261
+.lr.ph515:                                        ; preds = %.preheader, %261
+  %.in521 = phi i32 [ %253, %261 ], [ %201, %.preheader ]
+  %.4514 = phi ptr [ %256, %261 ], [ %.2321.lcssa, %.preheader ]
+  %253 = add nsw i32 %.in521, -1
+  %254 = load i8, ptr %7, align 1
+  %255 = trunc i8 %254 to i1
+  %256 = call fastcc ptr @php_parserr(ptr noundef nonnull %.4514, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef 1, i1 noundef zeroext %255, ptr noundef nonnull %10)
+  %257 = load i8, ptr %117, align 8
+  %.not376 = icmp eq i8 %257, 0
+  br i1 %.not376, label %261, label %258
 
-261:                                              ; preds = %.lr.ph517
-  %262 = load ptr, ptr %.1341, align 8
-  %263 = call ptr @zend_hash_next_index_insert(ptr noundef %262, ptr noundef nonnull %10) #12
-  br label %264
+258:                                              ; preds = %.lr.ph515
+  %259 = load ptr, ptr %.1341, align 8
+  %260 = call ptr @zend_hash_next_index_insert(ptr noundef %259, ptr noundef nonnull %10) #12
+  br label %261
 
-264:                                              ; preds = %261, %.lr.ph517
-  %265 = icmp sgt i32 %.in523, 1
-  %266 = icmp ne ptr %259, null
-  %or.cond15 = select i1 %265, i1 %266, i1 false
-  %267 = icmp ult ptr %259, %185
-  %or.cond388 = select i1 %or.cond15, i1 %267, i1 false
-  br i1 %or.cond388, label %.lr.ph517, label %.critedge17
+261:                                              ; preds = %258, %.lr.ph515
+  %262 = icmp sgt i32 %.in521, 1
+  %263 = icmp ne ptr %256, null
+  %or.cond15 = select i1 %262, i1 %263, i1 false
+  %264 = icmp ult ptr %256, %185
+  %or.cond386 = select i1 %or.cond15, i1 %264, i1 false
+  br i1 %or.cond386, label %.lr.ph515, label %.critedge17
 
-.critedge17:                                      ; preds = %264, %.preheader, %.critedge, %.critedge13
+.critedge17:                                      ; preds = %261, %.preheader, %.critedge, %.critedge13
   call void @__res_nclose(ptr noundef nonnull %5) #12
-  br label %268
+  br label %265
 
-268:                                              ; preds = %272, %.critedge17
-  %indvars.iv.i395 = phi i64 [ 0, %.critedge17 ], [ %indvars.iv.next.i397, %272 ]
-  %269 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv.i395
-  %270 = load ptr, ptr %269, align 8
-  %.not.i396 = icmp eq ptr %270, null
-  br i1 %.not.i396, label %272, label %271
+265:                                              ; preds = %269, %.critedge17
+  %indvars.iv.i393 = phi i64 [ 0, %.critedge17 ], [ %indvars.iv.next.i395, %269 ]
+  %266 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv.i393
+  %267 = load ptr, ptr %266, align 8
+  %.not.i394 = icmp eq ptr %267, null
+  br i1 %.not.i394, label %269, label %268
 
-271:                                              ; preds = %268
-  call void @free(ptr noundef nonnull %270) #12
-  store ptr null, ptr %269, align 8
-  br label %272
+268:                                              ; preds = %265
+  call void @free(ptr noundef nonnull %267) #12
+  store ptr null, ptr %266, align 8
+  br label %269
 
-272:                                              ; preds = %271, %268
-  %indvars.iv.next.i397 = add nuw nsw i64 %indvars.iv.i395, 1
-  %exitcond.not.i398 = icmp eq i64 %indvars.iv.next.i397, 3
-  br i1 %exitcond.not.i398, label %_php_dns_free_res.exit399, label %268
+269:                                              ; preds = %268, %265
+  %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i393, 1
+  %exitcond.not.i396 = icmp eq i64 %indvars.iv.next.i395, 3
+  br i1 %exitcond.not.i396, label %_php_dns_free_res.exit397, label %265
 
-_php_dns_free_res.exit399:                        ; preds = %272, %132, %135, %138, %141, %144, %152, %155, %158, %161, %164, %120, %167, %_php_dns_free_res.exit, %_php_dns_free_res.exit
-  %.3 = phi i32 [ %.2491, %_php_dns_free_res.exit ], [ %.2491, %_php_dns_free_res.exit ], [ %.2, %167 ], [ %.1314518, %120 ], [ 12, %164 ], [ 11, %161 ], [ 10, %158 ], [ 9, %155 ], [ 8, %152 ], [ 6, %144 ], [ 5, %141 ], [ 4, %138 ], [ 3, %135 ], [ 2, %132 ], [ %.2491, %272 ]
-  %.1 = phi i32 [ %.0311519, %_php_dns_free_res.exit ], [ %.0311519, %_php_dns_free_res.exit ], [ %.0311519, %167 ], [ 0, %120 ], [ %.0311519, %164 ], [ %.0311519, %161 ], [ %.0311519, %158 ], [ %.0311519, %155 ], [ %.0311519, %152 ], [ %.0311519, %144 ], [ %.0311519, %141 ], [ %.0311519, %138 ], [ %.0311519, %135 ], [ %.0311519, %132 ], [ %.0311519, %272 ]
-  %273 = add nsw i32 %.3, 1
-  %274 = icmp slt i32 %273, %111
-  br i1 %274, label %120, label %.loopexit
+_php_dns_free_res.exit397:                        ; preds = %269, %132, %135, %138, %141, %144, %152, %155, %158, %161, %164, %120, %167, %_php_dns_free_res.exit, %_php_dns_free_res.exit
+  %.3 = phi i32 [ %.2489, %_php_dns_free_res.exit ], [ %.2489, %_php_dns_free_res.exit ], [ %.2, %167 ], [ %.1314516, %120 ], [ 12, %164 ], [ 11, %161 ], [ 10, %158 ], [ 9, %155 ], [ 8, %152 ], [ 6, %144 ], [ 5, %141 ], [ 4, %138 ], [ 3, %135 ], [ 2, %132 ], [ %.2489, %269 ]
+  %.1 = phi i32 [ %.0311517, %_php_dns_free_res.exit ], [ %.0311517, %_php_dns_free_res.exit ], [ %.0311517, %167 ], [ 0, %120 ], [ %.0311517, %164 ], [ %.0311517, %161 ], [ %.0311517, %158 ], [ %.0311517, %155 ], [ %.0311517, %152 ], [ %.0311517, %144 ], [ %.0311517, %141 ], [ %.0311517, %138 ], [ %.0311517, %135 ], [ %.0311517, %132 ], [ %.0311517, %269 ]
+  %270 = add nsw i32 %.3, 1
+  %271 = icmp slt i32 %270, %111
+  br i1 %271, label %120, label %.loopexit
 
-.loopexit:                                        ; preds = %_php_dns_free_res.exit399, %_php_dns_free_res.exit394, %181, %169, %101, %96, %86, %65, %.thread430
+.loopexit:                                        ; preds = %_php_dns_free_res.exit397, %_php_dns_free_res.exit392, %181, %169, %101, %96, %86, %65, %.thread428
   ret void
 }
 

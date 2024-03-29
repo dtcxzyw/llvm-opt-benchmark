@@ -71,9 +71,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %is_overflow, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %if.then1
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
   %cmp.i.not = icmp eq ptr %error_details, null

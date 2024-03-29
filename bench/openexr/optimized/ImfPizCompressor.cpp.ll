@@ -129,7 +129,7 @@ invoke.cont20:                                    ; preds = %invoke.cont15
 
 for.cond:                                         ; preds = %invoke.cont20, %for.body
   %c.sroa.0.0 = phi ptr [ %call.i.i, %for.body ], [ %call23, %invoke.cont20 ]
-  %onlyHalfChannels.0 = phi i8 [ %spec.select, %for.body ], [ 1, %invoke.cont20 ]
+  %onlyHalfChannels.0 = phi i1 [ %spec.select, %for.body ], [ true, %invoke.cont20 ]
   %call26 = invoke ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %call21)
           to label %invoke.cont29 unwind label %lpad.loopexit
 
@@ -144,7 +144,7 @@ for.body:                                         ; preds = %invoke.cont29
   %second.i = getelementptr inbounds i8, ptr %c.sroa.0.0, i64 288
   %5 = load i32, ptr %second.i, align 4
   %cmp.not = icmp eq i32 %5, 1
-  %spec.select = select i1 %cmp.not, i8 %onlyHalfChannels.0, i8 0
+  %spec.select = select i1 %cmp.not, i1 %onlyHalfChannels.0, i1 false
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0) #18
   br label %for.cond, !llvm.loop !4
 
@@ -188,9 +188,7 @@ invoke.cont41:                                    ; preds = %invoke.cont38
   %11 = load i32, ptr %y, align 4
   %_maxY = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %11, ptr %_maxY, align 8
-  %12 = and i8 %onlyHalfChannels.0, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.end51, label %land.lhs.true
+  br i1 %onlyHalfChannels.0, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %invoke.cont41
   %call46 = invoke noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef 1)

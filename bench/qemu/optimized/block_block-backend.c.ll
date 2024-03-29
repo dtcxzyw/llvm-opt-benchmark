@@ -1835,9 +1835,8 @@ do.end.i:                                         ; preds = %do.end
 land.lhs.true.i:                                  ; preds = %do.end.i
   %disable_perm.i = getelementptr inbounds i8, ptr %blk, i64 824
   %1 = load i8, ptr %disable_perm.i, align 8
-  %2 = and i8 %1, 1
-  %tobool1.not.i = icmp eq i8 %2, 0
-  br i1 %tobool1.not.i, label %if.then2.i, label %if.end7.i
+  %tobool1.i = trunc i8 %1 to i1
+  br i1 %tobool1.i, label %if.end7.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
   %call4.i = tail call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %0, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp) #16
@@ -1876,9 +1875,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %do.end
   %disable_perm = getelementptr inbounds i8, ptr %blk, i64 824
   %1 = load i8, ptr %disable_perm, align 8
-  %2 = and i8 %1, 1
-  %tobool1.not = icmp eq i8 %2, 0
-  br i1 %tobool1.not, label %if.then2, label %if.end7
+  %tobool1 = trunc i8 %1 to i1
+  br i1 %tobool1, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %land.lhs.true
   %call4 = tail call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %0, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp) #16
@@ -1975,21 +1973,20 @@ if.else.i6:                                       ; preds = %blk_ref.exit
 do.end.i:                                         ; preds = %blk_ref.exit
   %iostatus_enabled.i.i = getelementptr inbounds i8, ptr %blk, i64 800
   %3 = load i8, ptr %iostatus_enabled.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %return, label %land.rhs.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %do.end.i
   %on_write_error.i.i = getelementptr inbounds i8, ptr %blk, i64 796
-  %5 = load i32, ptr %on_write_error.i.i, align 4
-  %6 = and i32 %5, -2
-  %switch.i.i = icmp eq i32 %6, 2
+  %4 = load i32, ptr %on_write_error.i.i, align 4
+  %5 = and i32 %4, -2
+  %switch.i.i = icmp eq i32 %5, 2
   br i1 %switch.i.i, label %if.then2.i, label %blk_iostatus_is_enabled.exit.i
 
 blk_iostatus_is_enabled.exit.i:                   ; preds = %land.rhs.i.i
   %on_read_error.i.i = getelementptr inbounds i8, ptr %blk, i64 792
-  %7 = load i32, ptr %on_read_error.i.i, align 8
-  %cmp3.i.i = icmp eq i32 %7, 3
+  %6 = load i32, ptr %on_read_error.i.i, align 8
+  %cmp3.i.i = icmp eq i32 %6, 3
   br i1 %cmp3.i.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %blk_iostatus_is_enabled.exit.i, %land.rhs.i.i
@@ -2017,21 +2014,20 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %iostatus_enabled.i = getelementptr inbounds i8, ptr %blk, i64 800
   %0 = load i8, ptr %iostatus_enabled.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end3, label %land.rhs.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %land.rhs.i, label %if.end3
 
 land.rhs.i:                                       ; preds = %do.end
   %on_write_error.i = getelementptr inbounds i8, ptr %blk, i64 796
-  %2 = load i32, ptr %on_write_error.i, align 4
-  %3 = and i32 %2, -2
-  %switch.i = icmp eq i32 %3, 2
+  %1 = load i32, ptr %on_write_error.i, align 4
+  %2 = and i32 %1, -2
+  %switch.i = icmp eq i32 %2, 2
   br i1 %switch.i, label %if.then2, label %blk_iostatus_is_enabled.exit
 
 blk_iostatus_is_enabled.exit:                     ; preds = %land.rhs.i
   %on_read_error.i = getelementptr inbounds i8, ptr %blk, i64 792
-  %4 = load i32, ptr %on_read_error.i, align 8
-  %cmp3.i = icmp eq i32 %4, 3
+  %3 = load i32, ptr %on_read_error.i, align 8
+  %cmp3.i = icmp eq i32 %3, 3
   br i1 %cmp3.i, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %land.rhs.i, %blk_iostatus_is_enabled.exit
@@ -2480,26 +2476,25 @@ define dso_local zeroext i1 @blk_iostatus_is_enabled(ptr nocapture noundef reado
 entry:
   %iostatus_enabled = getelementptr inbounds i8, ptr %blk, i64 800
   %0 = load i8, ptr %iostatus_enabled, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.end, label %land.rhs
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %on_write_error = getelementptr inbounds i8, ptr %blk, i64 796
-  %2 = load i32, ptr %on_write_error, align 4
-  %3 = and i32 %2, -2
-  %switch = icmp eq i32 %3, 2
+  %1 = load i32, ptr %on_write_error, align 4
+  %2 = and i32 %1, -2
+  %switch = icmp eq i32 %2, 2
   br i1 %switch, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
   %on_read_error = getelementptr inbounds i8, ptr %blk, i64 792
-  %4 = load i32, ptr %on_read_error, align 8
-  %cmp3 = icmp eq i32 %4, 3
+  %3 = load i32, ptr %on_read_error, align 8
+  %cmp3 = icmp eq i32 %3, 3
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.rhs, %entry
-  %5 = phi i1 [ false, %entry ], [ %cmp3, %lor.rhs ], [ true, %land.rhs ]
-  ret i1 %5
+  %4 = phi i1 [ false, %entry ], [ %cmp3, %lor.rhs ], [ true, %land.rhs ]
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2539,21 +2534,20 @@ define dso_local void @blk_iostatus_set_err(ptr nocapture noundef %blk, i32 noun
 entry:
   %iostatus_enabled.i = getelementptr inbounds i8, ptr %blk, i64 800
   %0 = load i8, ptr %iostatus_enabled.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else, label %land.rhs.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %land.rhs.i, label %if.else
 
 land.rhs.i:                                       ; preds = %entry
   %on_write_error.i = getelementptr inbounds i8, ptr %blk, i64 796
-  %2 = load i32, ptr %on_write_error.i, align 4
-  %3 = and i32 %2, -2
-  %switch.i = icmp eq i32 %3, 2
+  %1 = load i32, ptr %on_write_error.i, align 4
+  %2 = and i32 %1, -2
+  %switch.i = icmp eq i32 %2, 2
   br i1 %switch.i, label %if.end, label %blk_iostatus_is_enabled.exit
 
 blk_iostatus_is_enabled.exit:                     ; preds = %land.rhs.i
   %on_read_error.i = getelementptr inbounds i8, ptr %blk, i64 792
-  %4 = load i32, ptr %on_read_error.i, align 8
-  %cmp3.i = icmp eq i32 %4, 3
+  %3 = load i32, ptr %on_read_error.i, align 8
+  %cmp3.i = icmp eq i32 %3, 3
   br i1 %cmp3.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry, %blk_iostatus_is_enabled.exit
@@ -2562,8 +2556,8 @@ if.else:                                          ; preds = %entry, %blk_iostatu
 
 if.end:                                           ; preds = %land.rhs.i, %blk_iostatus_is_enabled.exit
   %iostatus = getelementptr inbounds i8, ptr %blk, i64 804
-  %5 = load i32, ptr %iostatus, align 4
-  %cmp = icmp eq i32 %5, 0
+  %4 = load i32, ptr %iostatus, align 4
+  %cmp = icmp eq i32 %4, 0
   br i1 %cmp, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %if.end
@@ -2684,16 +2678,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %2 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not.i = icmp eq i8 %3, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %2 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %4(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %5 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -2702,7 +2695,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %6 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -2710,43 +2703,42 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.compoundliteral.i)
   call void @bdrv_graph_co_rdlock() #16
   %root.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %8 = load ptr, ptr %root.i, align 8
-  %tobool.not.i17 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %root.i, align 8
+  %tobool.not.i17 = icmp eq ptr %7, null
   br i1 %tobool.not.i17, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %blk_wait_while_drained.exit
-  %9 = load ptr, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %blk_wait_while_drained.exit, %cond.true.i
-  %cond.i = phi ptr [ %9, %cond.true.i ], [ null, %blk_wait_while_drained.exit ]
+  %cond.i = phi ptr [ %8, %cond.true.i ], [ null, %blk_wait_while_drained.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_BLK_CO_PREADV_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %11, 0
+  %9 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %9, 0
+  %10 = load i16, ptr @_TRACE_BLK_CO_PREADV_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %10, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_blk_co_preadv.exit
 
 land.lhs.true5.i.i:                               ; preds = %blk_bs.exit
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %12, 32768
+  %11 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %11, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_blk_co_preadv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %14 = and i8 %13, 1
-  %tobool7.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %12 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %12 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
-  %15 = load i64, ptr %_now.i.i, align 8
+  %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %16 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %blk, ptr noundef %cond.i, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #16
+  %14 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %blk, ptr noundef %cond.i, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #16
   br label %trace_blk_co_preadv.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -2762,8 +2754,8 @@ trace_blk_co_preadv.exit:                         ; preds = %blk_bs.exit, %land.
 if.end:                                           ; preds = %trace_blk_co_preadv.exit
   call void @bdrv_inc_in_flight(ptr noundef %cond.i) #16
   %throttle_state = getelementptr inbounds i8, ptr %blk, i64 168
-  %17 = load ptr, ptr %throttle_state, align 8
-  %tobool.not = icmp eq ptr %17, null
+  %15 = load ptr, ptr %throttle_state, align 8
+  %tobool.not = icmp eq ptr %15, null
   br i1 %tobool.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -2772,8 +2764,8 @@ if.then3:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.end
-  %18 = load ptr, ptr %root.i, align 8
-  %call7 = call i32 @bdrv_co_preadv_part(ptr noundef %18, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #16
+  %16 = load ptr, ptr %root.i, align 8
+  %call7 = call i32 @bdrv_co_preadv_part(ptr noundef %16, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #16
   call void @bdrv_dec_in_flight(ptr noundef %cond.i) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
@@ -2838,16 +2830,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %2 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not.i = icmp eq i8 %3, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %2 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %4(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %5 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -2856,7 +2847,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %6 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -2864,43 +2855,42 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.compoundliteral.i)
   call void @bdrv_graph_co_rdlock() #16
   %root.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %8 = load ptr, ptr %root.i, align 8
-  %tobool.not.i19 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %root.i, align 8
+  %tobool.not.i19 = icmp eq ptr %7, null
   br i1 %tobool.not.i19, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %blk_wait_while_drained.exit
-  %9 = load ptr, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %blk_wait_while_drained.exit, %cond.true.i
-  %cond.i = phi ptr [ %9, %cond.true.i ], [ null, %blk_wait_while_drained.exit ]
+  %cond.i = phi ptr [ %8, %cond.true.i ], [ null, %blk_wait_while_drained.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_BLK_CO_PWRITEV_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %11, 0
+  %9 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %9, 0
+  %10 = load i16, ptr @_TRACE_BLK_CO_PWRITEV_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %10, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_blk_co_pwritev.exit
 
 land.lhs.true5.i.i:                               ; preds = %blk_bs.exit
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %12, 32768
+  %11 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %11, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_blk_co_pwritev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %14 = and i8 %13, 1
-  %tobool7.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %12 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %12 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
-  %15 = load i64, ptr %_now.i.i, align 8
+  %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %16 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %blk, ptr noundef %cond.i, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #16
+  %14 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %blk, ptr noundef %cond.i, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #16
   br label %trace_blk_co_pwritev.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -2916,8 +2906,8 @@ trace_blk_co_pwritev.exit:                        ; preds = %blk_bs.exit, %land.
 if.end:                                           ; preds = %trace_blk_co_pwritev.exit
   call void @bdrv_inc_in_flight(ptr noundef %cond.i) #16
   %throttle_state = getelementptr inbounds i8, ptr %blk, i64 168
-  %17 = load ptr, ptr %throttle_state, align 8
-  %tobool.not = icmp eq ptr %17, null
+  %15 = load ptr, ptr %throttle_state, align 8
+  %tobool.not = icmp eq ptr %15, null
   br i1 %tobool.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -2927,13 +2917,12 @@ if.then3:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then3, %if.end
   %enable_write_cache = getelementptr inbounds i8, ptr %blk, i64 280
-  %18 = load i8, ptr %enable_write_cache, align 8
-  %19 = and i8 %18, 1
-  %tobool7.not = icmp eq i8 %19, 0
+  %16 = load i8, ptr %enable_write_cache, align 8
+  %tobool7 = trunc i8 %16 to i1
   %or = or i32 %flags, 16
-  %spec.select = select i1 %tobool7.not, i32 %or, i32 %flags
-  %20 = load ptr, ptr %root.i, align 8
-  %call10 = call i32 @bdrv_co_pwritev_part(ptr noundef %20, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %spec.select) #16
+  %spec.select = select i1 %tobool7, i32 %flags, i32 %or
+  %17 = load ptr, ptr %root.i, align 8
+  %call10 = call i32 @bdrv_co_pwritev_part(ptr noundef %17, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %spec.select) #16
   call void @bdrv_dec_in_flight(ptr noundef %cond.i) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
@@ -3208,19 +3197,18 @@ if.end:                                           ; preds = %entry.split, %lor.l
   store i32 %phi.call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %10 = load i8, ptr %has_returned.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %if.end
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %12 = load ptr, ptr %cb.i, align 8
+  %11 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %13 = load ptr, ptr %opaque.i, align 8
-  tail call void %12(ptr noundef %13, i32 noundef %phi.call) #16
-  %14 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %14, i64 948
-  %15 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %12 = load ptr, ptr %opaque.i, align 8
+  tail call void %11(ptr noundef %12, i32 noundef %phi.call) #16
+  %13 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %13, i64 948
+  %14 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -3532,19 +3520,18 @@ if.end:                                           ; preds = %entry
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %6 = load i8, ptr %has_returned.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %if.end
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %8 = load ptr, ptr %cb.i, align 8
+  %7 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %9 = load ptr, ptr %opaque.i, align 8
-  tail call void %8(ptr noundef %9, i32 noundef %call) #16
-  %10 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %10, i64 948
-  %11 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %8 = load ptr, ptr %opaque.i, align 8
+  tail call void %7(ptr noundef %8, i32 noundef %call) #16
+  %9 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %9, i64 948
+  %10 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -3671,16 +3658,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %2 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not.i = icmp eq i8 %3, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %2 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %4(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %5 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -3689,7 +3675,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %6 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -3697,8 +3683,8 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.compoundliteral.i)
   call void @bdrv_graph_co_rdlock() #16
   %root.i.i.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %8 = load ptr, ptr %root.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %root.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %blk_bs.exit.thread.i.i, label %blk_bs.exit.i.i
 
 blk_bs.exit.thread.i.i:                           ; preds = %blk_wait_while_drained.exit
@@ -3706,44 +3692,44 @@ blk_bs.exit.thread.i.i:                           ; preds = %blk_wait_while_drai
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
 blk_bs.exit.i.i:                                  ; preds = %blk_wait_while_drained.exit
-  %9 = load ptr, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8
   call void @assert_bdrv_graph_readable() #16
-  %tobool.not.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GraphLockable.exit, label %blk_co_is_inserted.exit.i
 
 blk_co_is_inserted.exit.i:                        ; preds = %blk_bs.exit.i.i
-  %call1.i.i = call zeroext i1 @bdrv_co_is_inserted(ptr noundef nonnull %9) #16
+  %call1.i.i = call zeroext i1 @bdrv_co_is_inserted(ptr noundef nonnull %8) #16
   br i1 %call1.i.i, label %land.rhs.i, label %glib_autoptr_cleanup_GraphLockable.exit
 
 land.rhs.i:                                       ; preds = %blk_co_is_inserted.exit.i
   %dev_ops.i.i.i = getelementptr inbounds i8, ptr %blk, i64 256
-  %10 = load ptr, ptr %dev_ops.i.i.i, align 8
-  %tobool.not.i.i2.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %dev_ops.i.i.i, align 8
+  %tobool.not.i.i2.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i2.i, label %if.end, label %blk_dev_has_tray.exit.i.i
 
 blk_dev_has_tray.exit.i.i:                        ; preds = %land.rhs.i
-  %is_tray_open.i.i.i = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load ptr, ptr %is_tray_open.i.i.i, align 8
-  %tobool2.i.not.i.i = icmp eq ptr %11, null
+  %is_tray_open.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = load ptr, ptr %is_tray_open.i.i.i, align 8
+  %tobool2.i.not.i.i = icmp eq ptr %10, null
   br i1 %tobool2.i.not.i.i, label %if.end, label %blk_co_is_available.exit
 
 blk_co_is_available.exit:                         ; preds = %blk_dev_has_tray.exit.i.i
   %dev_opaque.i.i = getelementptr inbounds i8, ptr %blk, i64 264
-  %12 = load ptr, ptr %dev_opaque.i.i, align 8
-  %call1.i3.i = call zeroext i1 %11(ptr noundef %12) #16
+  %11 = load ptr, ptr %dev_opaque.i.i, align 8
+  %call1.i3.i = call zeroext i1 %10(ptr noundef %11) #16
   br i1 %call1.i3.i, label %glib_autoptr_cleanup_GraphLockable.exit, label %if.end
 
 if.end:                                           ; preds = %land.rhs.i, %blk_dev_has_tray.exit.i.i, %blk_co_is_available.exit
-  %13 = load ptr, ptr %root.i.i.i, align 8
-  %tobool.not.i3 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %root.i.i.i, align 8
+  %tobool.not.i3 = icmp eq ptr %12, null
   br i1 %tobool.not.i3, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %14 = load ptr, ptr %13, align 8
+  %13 = load ptr, ptr %12, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %14, %cond.true.i ], [ null, %if.end ]
+  %cond.i = phi ptr [ %13, %cond.true.i ], [ null, %if.end ]
   %conv = trunc i64 %req to i32
   %call3 = call i32 @bdrv_co_ioctl(ptr noundef %cond.i, i32 noundef %conv, ptr noundef %buf) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
@@ -3816,19 +3802,18 @@ entry:
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %3 = load i8, ptr %has_returned.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %5 = load ptr, ptr %cb.i, align 8
+  %4 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %6 = load ptr, ptr %opaque.i, align 8
-  tail call void %5(ptr noundef %6, i32 noundef %call) #16
-  %7 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %7, i64 948
-  %8 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %5 = load ptr, ptr %opaque.i, align 8
+  tail call void %4(ptr noundef %5, i32 noundef %call) #16
+  %6 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %6, i64 948
+  %7 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -3899,19 +3884,18 @@ entry:
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %3 = load i8, ptr %has_returned.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %5 = load ptr, ptr %cb.i, align 8
+  %4 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %6 = load ptr, ptr %opaque.i, align 8
-  tail call void %5(ptr noundef %6, i32 noundef %call) #16
-  %7 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %7, i64 948
-  %8 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %5 = load ptr, ptr %opaque.i, align 8
+  tail call void %4(ptr noundef %5, i32 noundef %call) #16
+  %6 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %6, i64 948
+  %7 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -3954,16 +3938,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %2 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not.i = icmp eq i8 %3, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %2 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %4(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %5 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -3972,7 +3955,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %6 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -3985,8 +3968,8 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
 
 if.end:                                           ; preds = %blk_wait_while_drained.exit
   %root = getelementptr inbounds i8, ptr %blk, i64 16
-  %8 = load ptr, ptr %root, align 8
-  %call2 = call i32 @bdrv_co_pdiscard(ptr noundef %8, i64 noundef %offset, i64 noundef %bytes) #16
+  %7 = load ptr, ptr %root, align 8
+  %call2 = call i32 @bdrv_co_pdiscard(ptr noundef %7, i64 noundef %offset, i64 noundef %bytes) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
 glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %blk_wait_while_drained.exit, %if.end
@@ -4051,19 +4034,18 @@ entry:
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %1 = load i8, ptr %has_returned.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %3 = load ptr, ptr %cb.i, align 8
+  %2 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %4 = load ptr, ptr %opaque.i, align 8
-  tail call void %3(ptr noundef %4, i32 noundef %call) #16
-  %5 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %5, i64 948
-  %6 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %3 = load ptr, ptr %opaque.i, align 8
+  tail call void %2(ptr noundef %3, i32 noundef %call) #16
+  %4 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %4, i64 948
+  %5 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -4106,16 +4088,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %2 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not.i = icmp eq i8 %3, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %2 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %4(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %5 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -4124,7 +4105,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %6 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -4132,8 +4113,8 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.compoundliteral.i)
   call void @bdrv_graph_co_rdlock() #16
   %root.i.i.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %8 = load ptr, ptr %root.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %root.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %blk_bs.exit.thread.i.i, label %blk_bs.exit.i.i
 
 blk_bs.exit.thread.i.i:                           ; preds = %blk_wait_while_drained.exit
@@ -4141,44 +4122,44 @@ blk_bs.exit.thread.i.i:                           ; preds = %blk_wait_while_drai
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
 blk_bs.exit.i.i:                                  ; preds = %blk_wait_while_drained.exit
-  %9 = load ptr, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8
   call void @assert_bdrv_graph_readable() #16
-  %tobool.not.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GraphLockable.exit, label %blk_co_is_inserted.exit.i
 
 blk_co_is_inserted.exit.i:                        ; preds = %blk_bs.exit.i.i
-  %call1.i.i = call zeroext i1 @bdrv_co_is_inserted(ptr noundef nonnull %9) #16
+  %call1.i.i = call zeroext i1 @bdrv_co_is_inserted(ptr noundef nonnull %8) #16
   br i1 %call1.i.i, label %land.rhs.i, label %glib_autoptr_cleanup_GraphLockable.exit
 
 land.rhs.i:                                       ; preds = %blk_co_is_inserted.exit.i
   %dev_ops.i.i.i = getelementptr inbounds i8, ptr %blk, i64 256
-  %10 = load ptr, ptr %dev_ops.i.i.i, align 8
-  %tobool.not.i.i2.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %dev_ops.i.i.i, align 8
+  %tobool.not.i.i2.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i2.i, label %if.end, label %blk_dev_has_tray.exit.i.i
 
 blk_dev_has_tray.exit.i.i:                        ; preds = %land.rhs.i
-  %is_tray_open.i.i.i = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load ptr, ptr %is_tray_open.i.i.i, align 8
-  %tobool2.i.not.i.i = icmp eq ptr %11, null
+  %is_tray_open.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = load ptr, ptr %is_tray_open.i.i.i, align 8
+  %tobool2.i.not.i.i = icmp eq ptr %10, null
   br i1 %tobool2.i.not.i.i, label %if.end, label %blk_co_is_available.exit
 
 blk_co_is_available.exit:                         ; preds = %blk_dev_has_tray.exit.i.i
   %dev_opaque.i.i = getelementptr inbounds i8, ptr %blk, i64 264
-  %12 = load ptr, ptr %dev_opaque.i.i, align 8
-  %call1.i3.i = call zeroext i1 %11(ptr noundef %12) #16
+  %11 = load ptr, ptr %dev_opaque.i.i, align 8
+  %call1.i3.i = call zeroext i1 %10(ptr noundef %11) #16
   br i1 %call1.i3.i, label %glib_autoptr_cleanup_GraphLockable.exit, label %if.end
 
 if.end:                                           ; preds = %land.rhs.i, %blk_dev_has_tray.exit.i.i, %blk_co_is_available.exit
-  %13 = load ptr, ptr %root.i.i.i, align 8
-  %tobool.not.i3 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %root.i.i.i, align 8
+  %tobool.not.i3 = icmp eq ptr %12, null
   br i1 %tobool.not.i3, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %14 = load ptr, ptr %13, align 8
+  %13 = load ptr, ptr %12, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %14, %cond.true.i ], [ null, %if.end ]
+  %cond.i = phi ptr [ %13, %cond.true.i ], [ null, %if.end ]
   %call3 = call i32 @bdrv_co_flush(ptr noundef %cond.i) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
@@ -4256,19 +4237,18 @@ entry:
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %5 = load i8, ptr %has_returned.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %7 = load ptr, ptr %cb.i, align 8
+  %6 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %8 = load ptr, ptr %opaque.i, align 8
-  tail call void %7(ptr noundef %8, i32 noundef %call) #16
-  %9 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %9, i64 948
-  %10 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %7 = load ptr, ptr %opaque.i, align 8
+  tail call void %6(ptr noundef %7, i32 noundef %call) #16
+  %8 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %8, i64 948
+  %9 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -4284,9 +4264,8 @@ define internal void @blk_aio_complete_bh(ptr noundef %opaque) #0 {
 entry:
   %has_returned = getelementptr inbounds i8, ptr %opaque, i64 80
   %0 = load i8, ptr %has_returned, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %blk_aio_complete.exit
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %blk_aio_complete.exit, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 1589, ptr noundef nonnull @__PRETTY_FUNCTION__.blk_aio_complete_bh) #17
@@ -4294,16 +4273,16 @@ if.else:                                          ; preds = %entry
 
 blk_aio_complete.exit:                            ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %2 = load ptr, ptr %cb.i, align 8
+  %1 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %3 = load ptr, ptr %opaque.i, align 8
+  %2 = load ptr, ptr %opaque.i, align 8
   %rwco.i = getelementptr inbounds i8, ptr %opaque, i64 40
   %ret.i = getelementptr inbounds i8, ptr %opaque, i64 64
-  %4 = load i32, ptr %ret.i, align 8
-  tail call void %2(ptr noundef %3, i32 noundef %4) #16
-  %5 = load ptr, ptr %rwco.i, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %5, i64 948
-  %6 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %3 = load i32, ptr %ret.i, align 8
+  tail call void %1(ptr noundef %2, i32 noundef %3) #16
+  %4 = load ptr, ptr %rwco.i, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %4, i64 948
+  %5 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   ret void
@@ -4377,19 +4356,18 @@ entry:
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %5 = load i8, ptr %has_returned.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %7 = load ptr, ptr %cb.i, align 8
+  %6 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %8 = load ptr, ptr %opaque.i, align 8
-  tail call void %7(ptr noundef %8, i32 noundef %call) #16
-  %9 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %9, i64 948
-  %10 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %7 = load ptr, ptr %opaque.i, align 8
+  tail call void %6(ptr noundef %7, i32 noundef %call) #16
+  %8 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %8, i64 948
+  %9 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -4464,19 +4442,18 @@ entry:
   store i32 %call, ptr %ret, align 8
   %has_returned.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %5 = load i8, ptr %has_returned.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %blk_aio_complete.exit, label %if.then.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then.i, label %blk_aio_complete.exit
 
 if.then.i:                                        ; preds = %entry
   %cb.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %7 = load ptr, ptr %cb.i, align 8
+  %6 = load ptr, ptr %cb.i, align 8
   %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
-  %8 = load ptr, ptr %opaque.i, align 8
-  tail call void %7(ptr noundef %8, i32 noundef %call) #16
-  %9 = load ptr, ptr %rwco1, align 8
-  %in_flight.i.i = getelementptr inbounds i8, ptr %9, i64 948
-  %10 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
+  %7 = load ptr, ptr %opaque.i, align 8
+  tail call void %6(ptr noundef %7, i32 noundef %call) #16
+  %8 = load ptr, ptr %rwco1, align 8
+  %in_flight.i.i = getelementptr inbounds i8, ptr %8, i64 948
+  %9 = atomicrmw sub ptr %in_flight.i.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #16
   br label %blk_aio_complete.exit
@@ -4509,16 +4486,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %3 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %4 = and i8 %3, 1
-  %tobool8.not.i = icmp eq i8 %4, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %3 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
+  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %6(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %7 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -4527,7 +4503,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %8 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -4539,22 +4515,22 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
 
 if.end:                                           ; preds = %blk_wait_while_drained.exit
   %root.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %9 = load ptr, ptr %root.i, align 8
-  %tobool.not.i8 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %root.i, align 8
+  %tobool.not.i8 = icmp eq ptr %8, null
   br i1 %tobool.not.i8, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %10 = load ptr, ptr %9, align 8
+  %9 = load ptr, ptr %8, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %10, %cond.true.i ], [ null, %if.end ]
+  %cond.i = phi ptr [ %9, %cond.true.i ], [ null, %if.end ]
   %call3 = call i32 @bdrv_co_zone_report(ptr noundef %cond.i, i64 noundef %offset, ptr noundef %nr_zones, ptr noundef %zones) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
 glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %blk_wait_while_drained.exit, %blk_bs.exit
   %retval.0 = phi i32 [ %call3, %blk_bs.exit ], [ -123, %blk_wait_while_drained.exit ]
-  %11 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  %10 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @aio_wait_kick() #16
   call void @bdrv_graph_co_rdunlock() #16
   ret i32 %retval.0
@@ -4582,16 +4558,15 @@ while.end:                                        ; preds = %entry
 while.end5:                                       ; preds = %while.end
   %disable_request_queuing = getelementptr inbounds i8, ptr %blk, i64 928
   %2 = load atomic i8, ptr %disable_request_queuing monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not = icmp eq i8 %3, 0
-  br i1 %tobool8.not, label %while.end15, label %if.end21
+  %tobool8 = trunc i8 %2 to i1
+  br i1 %tobool8, label %if.end21, label %while.end15
 
 while.end15:                                      ; preds = %while.end5
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   %queued_requests_lock = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %5(ptr noundef nonnull %queued_requests_lock, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %6 = atomicrmw sub ptr %in_flight, i32 1 seq_cst, align 4
+  tail call void %4(ptr noundef nonnull %queued_requests_lock, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %5 = atomicrmw sub ptr %in_flight, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock, ptr %.compoundliteral, align 8
@@ -4600,7 +4575,7 @@ while.end15:                                      ; preds = %while.end5
   %unlock = getelementptr inbounds i8, ptr %.compoundliteral, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #16
-  %7 = atomicrmw add ptr %in_flight, i32 1 seq_cst, align 4
+  %6 = atomicrmw add ptr %in_flight, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %if.end21
 
@@ -4636,16 +4611,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %3 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %4 = and i8 %3, 1
-  %tobool8.not.i = icmp eq i8 %4, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %3 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
+  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %6(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %7 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -4654,7 +4628,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %8 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -4667,22 +4641,22 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
 
 if.end:                                           ; preds = %blk_wait_while_drained.exit
   %root.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %9 = load ptr, ptr %root.i, align 8
-  %tobool.not.i12 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %root.i, align 8
+  %tobool.not.i12 = icmp eq ptr %8, null
   br i1 %tobool.not.i12, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %10 = load ptr, ptr %9, align 8
+  %9 = load ptr, ptr %8, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %10, %cond.true.i ], [ null, %if.end ]
+  %cond.i = phi ptr [ %9, %cond.true.i ], [ null, %if.end ]
   %call3 = call i32 @bdrv_co_zone_mgmt(ptr noundef %cond.i, i32 noundef %op, i64 noundef %offset, i64 noundef %len) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
 glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %blk_wait_while_drained.exit, %blk_bs.exit
   %retval.0 = phi i32 [ %call3, %blk_bs.exit ], [ %call1, %blk_wait_while_drained.exit ]
-  %11 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  %10 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @aio_wait_kick() #16
   call void @bdrv_graph_co_rdunlock() #16
   ret i32 %retval.0
@@ -4739,21 +4713,20 @@ if.end2:                                          ; preds = %land.rhs.i, %blk_de
 if.end5:                                          ; preds = %if.end2
   %allow_write_beyond_eof = getelementptr inbounds i8, ptr %blk, i64 826
   %5 = load i8, ptr %allow_write_beyond_eof, align 2
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.then6, label %if.end18
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.end18, label %if.then6
 
 if.then6:                                         ; preds = %if.end5
-  %7 = load ptr, ptr %root.i.i.i, align 8
-  %tobool.not.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %root.i.i.i, align 8
+  %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then6
-  %8 = load ptr, ptr %7, align 8
+  %7 = load ptr, ptr %6, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %if.then6, %cond.true.i
-  %cond.i = phi ptr [ %8, %cond.true.i ], [ null, %if.then6 ]
+  %cond.i = phi ptr [ %7, %cond.true.i ], [ null, %if.then6 ]
   %call8 = tail call i64 @bdrv_co_getlength(ptr noundef %cond.i) #16
   %cmp9 = icmp slt i64 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end11
@@ -4803,16 +4776,15 @@ while.end.i:                                      ; preds = %entry
 while.end5.i:                                     ; preds = %while.end.i
   %disable_request_queuing.i = getelementptr inbounds i8, ptr %blk, i64 928
   %3 = load atomic i8, ptr %disable_request_queuing.i monotonic, align 8
-  %4 = and i8 %3, 1
-  %tobool8.not.i = icmp eq i8 %4, 0
-  br i1 %tobool8.not.i, label %while.end15.i, label %blk_wait_while_drained.exit
+  %tobool8.i = trunc i8 %3 to i1
+  br i1 %tobool8.i, label %blk_wait_while_drained.exit, label %while.end15.i
 
 while.end15.i:                                    ; preds = %while.end5.i
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
+  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
   %queued_requests_lock.i = getelementptr inbounds i8, ptr %blk, i64 864
-  tail call void %6(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
-  %7 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  tail call void %5(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1334) #16
+  %6 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #16
   %queued_requests.i = getelementptr inbounds i8, ptr %blk, i64 912
   store ptr %queued_requests_lock.i, ptr %.compoundliteral.i, align 8
@@ -4821,7 +4793,7 @@ while.end15.i:                                    ; preds = %while.end5.i
   %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   store ptr @qemu_mutex_unlock, ptr %unlock.i, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %queued_requests.i, ptr noundef nonnull %.compoundliteral.i, i32 noundef 0) #16
-  %8 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
+  %7 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queued_requests_lock.i, ptr noundef nonnull @.str.1, i32 noundef 1338) #16
   br label %blk_wait_while_drained.exit
 
@@ -4833,22 +4805,22 @@ blk_wait_while_drained.exit:                      ; preds = %while.end.i, %while
 
 if.end:                                           ; preds = %blk_wait_while_drained.exit
   %root.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %9 = load ptr, ptr %root.i, align 8
-  %tobool.not.i8 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %root.i, align 8
+  %tobool.not.i8 = icmp eq ptr %8, null
   br i1 %tobool.not.i8, label %blk_bs.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %10 = load ptr, ptr %9, align 8
+  %9 = load ptr, ptr %8, align 8
   br label %blk_bs.exit
 
 blk_bs.exit:                                      ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %10, %cond.true.i ], [ null, %if.end ]
+  %cond.i = phi ptr [ %9, %cond.true.i ], [ null, %if.end ]
   %call3 = call i32 @bdrv_co_zone_append(ptr noundef %cond.i, ptr noundef %offset, ptr noundef %qiov, i32 noundef %flags) #16
   br label %glib_autoptr_cleanup_GraphLockable.exit
 
 glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %blk_wait_while_drained.exit, %blk_bs.exit
   %retval.0 = phi i32 [ %call3, %blk_bs.exit ], [ -123, %blk_wait_while_drained.exit ]
-  %11 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
+  %10 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @aio_wait_kick() #16
   call void @bdrv_graph_co_rdunlock() #16
   ret i32 %retval.0
@@ -5002,21 +4974,20 @@ do.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %do.end
   %iostatus_enabled.i.i = getelementptr inbounds i8, ptr %blk, i64 800
   %0 = load i8, ptr %iostatus_enabled.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i, label %land.rhs.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %land.rhs.i.i, label %if.else.i
 
 land.rhs.i.i:                                     ; preds = %if.then2
   %on_write_error.i.i = getelementptr inbounds i8, ptr %blk, i64 796
-  %2 = load i32, ptr %on_write_error.i.i, align 4
-  %3 = and i32 %2, -2
-  %switch.i.i = icmp eq i32 %3, 2
+  %1 = load i32, ptr %on_write_error.i.i, align 4
+  %2 = and i32 %1, -2
+  %switch.i.i = icmp eq i32 %2, 2
   br i1 %switch.i.i, label %if.end.i, label %blk_iostatus_is_enabled.exit.i
 
 blk_iostatus_is_enabled.exit.i:                   ; preds = %land.rhs.i.i
   %on_read_error.i.i = getelementptr inbounds i8, ptr %blk, i64 792
-  %4 = load i32, ptr %on_read_error.i.i, align 8
-  %cmp3.i.i = icmp eq i32 %4, 3
+  %3 = load i32, ptr %on_read_error.i.i, align 8
+  %cmp3.i.i = icmp eq i32 %3, 3
   br i1 %cmp3.i.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %blk_iostatus_is_enabled.exit.i, %if.then2
@@ -5025,8 +4996,8 @@ if.else.i:                                        ; preds = %blk_iostatus_is_ena
 
 if.end.i:                                         ; preds = %blk_iostatus_is_enabled.exit.i, %land.rhs.i.i
   %iostatus.i = getelementptr inbounds i8, ptr %blk, i64 804
-  %5 = load i32, ptr %iostatus.i, align 4
-  %cmp.i = icmp eq i32 %5, 0
+  %4 = load i32, ptr %iostatus.i, align 4
+  %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.then1.i, label %blk_iostatus_set_err.exit
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -5038,111 +5009,109 @@ if.then1.i:                                       ; preds = %if.end.i
 blk_iostatus_set_err.exit:                        ; preds = %if.end.i, %if.then1.i
   tail call void @qemu_system_vmstop_request_prepare() #16
   %root.i.i = getelementptr inbounds i8, ptr %blk, i64 16
-  %6 = load ptr, ptr %root.i.i, align 8
-  %tobool.not.i.i9 = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i9, label %blk_bs.exit.thread.i, label %blk_bs.exit.i
+  %5 = load ptr, ptr %root.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i, label %blk_bs.exit.thread.i, label %blk_bs.exit.i
 
 blk_bs.exit.thread.i:                             ; preds = %blk_iostatus_set_err.exit
-  %7 = load ptr, ptr %blk, align 8
-  %tobool.not.i59.i = icmp eq ptr %7, null
-  %cond.i610.i = select i1 %tobool.not.i59.i, ptr @.str.10, ptr %7
+  %6 = load ptr, ptr %blk, align 8
+  %tobool.not.i58.i = icmp eq ptr %6, null
+  %cond.i69.i = select i1 %tobool.not.i58.i, ptr @.str.10, ptr %6
   br label %cond.end.i
 
 blk_bs.exit.i:                                    ; preds = %blk_iostatus_set_err.exit
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %blk, align 8
-  %tobool.not.i5.i = icmp eq ptr %9, null
-  %cond.i6.i = select i1 %tobool.not.i5.i, ptr @.str.10, ptr %9
-  %tobool2.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %blk, align 8
+  %tobool.not.i5.i = icmp eq ptr %8, null
+  %cond.i6.i = select i1 %tobool.not.i5.i, ptr @.str.10, ptr %8
+  %tobool2.not.i = icmp eq ptr %7, null
   br i1 %tobool2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %blk_bs.exit.i
-  %call3.i = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %8) #16
+  %call3.i = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %7) #16
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %blk_bs.exit.i, %blk_bs.exit.thread.i
-  %cond.i612.i = phi ptr [ %cond.i6.i, %cond.true.i ], [ %cond.i6.i, %blk_bs.exit.i ], [ %cond.i610.i, %blk_bs.exit.thread.i ]
+  %cond.i611.i = phi ptr [ %cond.i6.i, %cond.true.i ], [ %cond.i6.i, %blk_bs.exit.i ], [ %cond.i69.i, %blk_bs.exit.thread.i ]
   %cond4.i = phi ptr [ %call3.i, %cond.true.i ], [ null, %blk_bs.exit.i ], [ null, %blk_bs.exit.thread.i ]
-  %10 = load i8, ptr %iostatus_enabled.i.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i7.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i7.i, label %send_qmp_error_event.exit, label %land.rhs.i.i11
+  %9 = load i8, ptr %iostatus_enabled.i.i, align 8
+  %tobool.i.i10 = trunc i8 %9 to i1
+  br i1 %tobool.i.i10, label %land.rhs.i.i14, label %send_qmp_error_event.exit
 
-land.rhs.i.i11:                                   ; preds = %cond.end.i
-  %12 = load i32, ptr %on_write_error.i.i, align 4
-  %13 = and i32 %12, -2
-  %switch.i.i13 = icmp eq i32 %13, 2
-  br i1 %switch.i.i13, label %send_qmp_error_event.exit, label %lor.rhs.i.i
+land.rhs.i.i14:                                   ; preds = %cond.end.i
+  %10 = load i32, ptr %on_write_error.i.i, align 4
+  %11 = and i32 %10, -2
+  %switch.i.i16 = icmp eq i32 %11, 2
+  br i1 %switch.i.i16, label %send_qmp_error_event.exit, label %lor.rhs.i.i
 
-lor.rhs.i.i:                                      ; preds = %land.rhs.i.i11
-  %on_read_error.i.i14 = getelementptr inbounds i8, ptr %blk, i64 792
-  %14 = load i32, ptr %on_read_error.i.i14, align 8
-  %cmp3.i.i15 = icmp eq i32 %14, 3
+lor.rhs.i.i:                                      ; preds = %land.rhs.i.i14
+  %on_read_error.i.i17 = getelementptr inbounds i8, ptr %blk, i64 792
+  %12 = load i32, ptr %on_read_error.i.i17, align 8
+  %cmp3.i.i18 = icmp eq i32 %12, 3
   br label %send_qmp_error_event.exit
 
-send_qmp_error_event.exit:                        ; preds = %cond.end.i, %land.rhs.i.i11, %lor.rhs.i.i
-  %15 = phi i1 [ false, %cond.end.i ], [ %cmp3.i.i15, %lor.rhs.i.i ], [ true, %land.rhs.i.i11 ]
+send_qmp_error_event.exit:                        ; preds = %cond.end.i, %land.rhs.i.i14, %lor.rhs.i.i
+  %13 = phi i1 [ false, %cond.end.i ], [ %cmp3.i.i18, %lor.rhs.i.i ], [ true, %land.rhs.i.i14 ]
   %not.is_read.i = xor i1 %is_read, true
-  %cond.i17 = zext i1 %not.is_read.i to i32
-  %cmp.i18 = icmp eq i32 %error, 28
+  %cond.i12 = zext i1 %not.is_read.i to i32
+  %cmp.i13 = icmp eq i32 %error, 28
   %call6.i = tail call ptr @strerror(i32 noundef %error) #16
-  tail call void @qapi_event_send_block_io_error(ptr noundef nonnull %cond.i612.i, ptr noundef %cond4.i, i32 noundef %cond.i17, i32 noundef 2, i1 noundef zeroext %15, i1 noundef zeroext %cmp.i18, ptr noundef %call6.i) #16
+  tail call void @qapi_event_send_block_io_error(ptr noundef nonnull %cond.i611.i, ptr noundef %cond4.i, i32 noundef %cond.i12, i32 noundef 2, i1 noundef zeroext %13, i1 noundef zeroext %cmp.i13, ptr noundef %call6.i) #16
   tail call void @qemu_system_vmstop_request(i32 noundef 3) #16
   br label %if.end5
 
 if.else3:                                         ; preds = %do.end
   %root.i.i19 = getelementptr inbounds i8, ptr %blk, i64 16
-  %16 = load ptr, ptr %root.i.i19, align 8
-  %tobool.not.i.i20 = icmp eq ptr %16, null
+  %14 = load ptr, ptr %root.i.i19, align 8
+  %tobool.not.i.i20 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i20, label %blk_bs.exit.thread.i43, label %blk_bs.exit.i21
 
 blk_bs.exit.thread.i43:                           ; preds = %if.else3
-  %17 = load ptr, ptr %blk, align 8
-  %tobool.not.i59.i44 = icmp eq ptr %17, null
-  %cond.i610.i45 = select i1 %tobool.not.i59.i44, ptr @.str.10, ptr %17
+  %15 = load ptr, ptr %blk, align 8
+  %tobool.not.i58.i44 = icmp eq ptr %15, null
+  %cond.i69.i45 = select i1 %tobool.not.i58.i44, ptr @.str.10, ptr %15
   br label %cond.end.i27
 
 blk_bs.exit.i21:                                  ; preds = %if.else3
-  %18 = load ptr, ptr %16, align 8
-  %19 = load ptr, ptr %blk, align 8
-  %tobool.not.i5.i22 = icmp eq ptr %19, null
-  %cond.i6.i23 = select i1 %tobool.not.i5.i22, ptr @.str.10, ptr %19
-  %tobool2.not.i24 = icmp eq ptr %18, null
+  %16 = load ptr, ptr %14, align 8
+  %17 = load ptr, ptr %blk, align 8
+  %tobool.not.i5.i22 = icmp eq ptr %17, null
+  %cond.i6.i23 = select i1 %tobool.not.i5.i22, ptr @.str.10, ptr %17
+  %tobool2.not.i24 = icmp eq ptr %16, null
   br i1 %tobool2.not.i24, label %cond.end.i27, label %cond.true.i25
 
 cond.true.i25:                                    ; preds = %blk_bs.exit.i21
-  %call3.i26 = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %18) #16
+  %call3.i26 = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %16) #16
   br label %cond.end.i27
 
 cond.end.i27:                                     ; preds = %cond.true.i25, %blk_bs.exit.i21, %blk_bs.exit.thread.i43
-  %cond.i612.i28 = phi ptr [ %cond.i6.i23, %cond.true.i25 ], [ %cond.i6.i23, %blk_bs.exit.i21 ], [ %cond.i610.i45, %blk_bs.exit.thread.i43 ]
+  %cond.i611.i28 = phi ptr [ %cond.i6.i23, %cond.true.i25 ], [ %cond.i6.i23, %blk_bs.exit.i21 ], [ %cond.i69.i45, %blk_bs.exit.thread.i43 ]
   %cond4.i29 = phi ptr [ %call3.i26, %cond.true.i25 ], [ null, %blk_bs.exit.i21 ], [ null, %blk_bs.exit.thread.i43 ]
   %iostatus_enabled.i.i30 = getelementptr inbounds i8, ptr %blk, i64 800
-  %20 = load i8, ptr %iostatus_enabled.i.i30, align 8
-  %21 = and i8 %20, 1
-  %tobool.not.i7.i31 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i7.i31, label %send_qmp_error_event.exit46, label %land.rhs.i.i32
+  %18 = load i8, ptr %iostatus_enabled.i.i30, align 8
+  %tobool.i.i31 = trunc i8 %18 to i1
+  br i1 %tobool.i.i31, label %land.rhs.i.i37, label %send_qmp_error_event.exit46
 
-land.rhs.i.i32:                                   ; preds = %cond.end.i27
-  %on_write_error.i.i33 = getelementptr inbounds i8, ptr %blk, i64 796
-  %22 = load i32, ptr %on_write_error.i.i33, align 4
-  %23 = and i32 %22, -2
-  %switch.i.i34 = icmp eq i32 %23, 2
-  br i1 %switch.i.i34, label %send_qmp_error_event.exit46, label %lor.rhs.i.i35
+land.rhs.i.i37:                                   ; preds = %cond.end.i27
+  %on_write_error.i.i38 = getelementptr inbounds i8, ptr %blk, i64 796
+  %19 = load i32, ptr %on_write_error.i.i38, align 4
+  %20 = and i32 %19, -2
+  %switch.i.i39 = icmp eq i32 %20, 2
+  br i1 %switch.i.i39, label %send_qmp_error_event.exit46, label %lor.rhs.i.i40
 
-lor.rhs.i.i35:                                    ; preds = %land.rhs.i.i32
-  %on_read_error.i.i36 = getelementptr inbounds i8, ptr %blk, i64 792
-  %24 = load i32, ptr %on_read_error.i.i36, align 8
-  %cmp3.i.i37 = icmp eq i32 %24, 3
+lor.rhs.i.i40:                                    ; preds = %land.rhs.i.i37
+  %on_read_error.i.i41 = getelementptr inbounds i8, ptr %blk, i64 792
+  %21 = load i32, ptr %on_read_error.i.i41, align 8
+  %cmp3.i.i42 = icmp eq i32 %21, 3
   br label %send_qmp_error_event.exit46
 
-send_qmp_error_event.exit46:                      ; preds = %cond.end.i27, %land.rhs.i.i32, %lor.rhs.i.i35
-  %25 = phi i1 [ false, %cond.end.i27 ], [ %cmp3.i.i37, %lor.rhs.i.i35 ], [ true, %land.rhs.i.i32 ]
-  %not.is_read.i39 = xor i1 %is_read, true
-  %cond.i40 = zext i1 %not.is_read.i39 to i32
-  %cmp.i41 = icmp eq i32 %error, 28
-  %call6.i42 = tail call ptr @strerror(i32 noundef %error) #16
-  tail call void @qapi_event_send_block_io_error(ptr noundef nonnull %cond.i612.i28, ptr noundef %cond4.i29, i32 noundef %cond.i40, i32 noundef %action, i1 noundef zeroext %25, i1 noundef zeroext %cmp.i41, ptr noundef %call6.i42) #16
+send_qmp_error_event.exit46:                      ; preds = %cond.end.i27, %land.rhs.i.i37, %lor.rhs.i.i40
+  %22 = phi i1 [ false, %cond.end.i27 ], [ %cmp3.i.i42, %lor.rhs.i.i40 ], [ true, %land.rhs.i.i37 ]
+  %not.is_read.i33 = xor i1 %is_read, true
+  %cond.i34 = zext i1 %not.is_read.i33 to i32
+  %cmp.i35 = icmp eq i32 %error, 28
+  %call6.i36 = tail call ptr @strerror(i32 noundef %error) #16
+  tail call void @qapi_event_send_block_io_error(ptr noundef nonnull %cond.i611.i28, ptr noundef %cond4.i29, i32 noundef %cond.i34, i32 noundef %action, i1 noundef zeroext %22, i1 noundef zeroext %cmp.i35, ptr noundef %call6.i36) #16
   br label %if.end5
 
 if.end5:                                          ; preds = %send_qmp_error_event.exit46, %send_qmp_error_event.exit
@@ -5248,8 +5217,7 @@ define dso_local zeroext i1 @blk_enable_write_cache(ptr nocapture noundef readon
 entry:
   %enable_write_cache = getelementptr inbounds i8, ptr %blk, i64 280
   %0 = load i8, ptr %enable_write_cache, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -5808,10 +5776,10 @@ if.end3:                                          ; preds = %do.end
   tail call void @bdrv_ref(ptr noundef nonnull %1) #16
   %allow_aio_context_change = getelementptr inbounds i8, ptr %blk, i64 825
   %2 = load i8, ptr %allow_aio_context_change, align 1
-  %3 = and i8 %2, 1
+  %frombool = and i8 %2, 1
   store i8 1, ptr %allow_aio_context_change, align 1
   %call6 = tail call i32 @bdrv_try_change_aio_context(ptr noundef nonnull %1, ptr noundef %new_context, ptr noundef null, ptr noundef %errp) #16
-  store i8 %3, ptr %allow_aio_context_change, align 1
+  store i8 %frombool, ptr %allow_aio_context_change, align 1
   tail call void @bdrv_unref(ptr noundef nonnull %1) #16
   br label %return
 
@@ -6140,21 +6108,20 @@ if.end7:                                          ; preds = %blk_bs.exit
 land.lhs.true:                                    ; preds = %if.end7
   %enable_write_cache = getelementptr inbounds i8, ptr %blk, i64 280
   %2 = load i8, ptr %enable_write_cache, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.then9, label %if.end12
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %4 = load ptr, ptr %root.i, align 8
-  %tobool.not.i11 = icmp eq ptr %4, null
+  %3 = load ptr, ptr %root.i, align 8
+  %tobool.not.i11 = icmp eq ptr %3, null
   br i1 %tobool.not.i11, label %blk_bs.exit14, label %cond.true.i12
 
 cond.true.i12:                                    ; preds = %if.then9
-  %5 = load ptr, ptr %4, align 8
+  %4 = load ptr, ptr %3, align 8
   br label %blk_bs.exit14
 
 blk_bs.exit14:                                    ; preds = %if.then9, %cond.true.i12
-  %cond.i13 = phi ptr [ %5, %cond.true.i12 ], [ null, %if.then9 ]
+  %cond.i13 = phi ptr [ %4, %cond.true.i12 ], [ null, %if.then9 ]
   %call11 = tail call i32 @bdrv_flush(ptr noundef %cond.i13) #16
   br label %if.end12
 
@@ -6848,16 +6815,15 @@ entry:
   store ptr null, ptr %local_err, align 8
   %disable_perm = getelementptr inbounds i8, ptr %0, i64 824
   %1 = load i8, ptr %disable_perm, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end21, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.end21
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %disable_perm, align 8
   %shared_perm = getelementptr inbounds i8, ptr %0, i64 816
-  %3 = load i64, ptr %shared_perm, align 8
+  %2 = load i64, ptr %shared_perm, align 8
   %perm = getelementptr inbounds i8, ptr %0, i64 808
-  %4 = load i64, ptr %perm, align 8
+  %3 = load i64, ptr %perm, align 8
   %call.i = tail call zeroext i1 @qemu_in_main_thread() #16
   br i1 %call.i, label %do.end.i, label %if.else.i
 
@@ -6867,45 +6833,44 @@ if.else.i:                                        ; preds = %if.end
 
 do.end.i:                                         ; preds = %if.end
   %root.i = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %root.i, align 8
-  %tobool.not.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %root.i, align 8
+  %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end7.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.end.i
-  %6 = load i8, ptr %disable_perm, align 8
-  %7 = and i8 %6, 1
-  %tobool1.not.i = icmp eq i8 %7, 0
-  br i1 %tobool1.not.i, label %if.then2.i, label %if.end7.i
+  %5 = load i8, ptr %disable_perm, align 8
+  %tobool1.i = trunc i8 %5 to i1
+  br i1 %tobool1.i, label %if.end7.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  %call4.i = call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %5, i64 noundef %4, i64 noundef 15, ptr noundef nonnull %local_err) #16
+  %call4.i = call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %4, i64 noundef %3, i64 noundef 15, ptr noundef nonnull %local_err) #16
   %cmp.i = icmp slt i32 %call4.i, 0
   br i1 %cmp.i, label %blk_set_perm_locked.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then2.i, %land.lhs.true.i, %do.end.i
-  store i64 %4, ptr %perm, align 8
+  store i64 %3, ptr %perm, align 8
   store i64 15, ptr %shared_perm, align 8
   br label %blk_set_perm_locked.exit
 
 blk_set_perm_locked.exit:                         ; preds = %if.then2.i, %if.end7.i
-  %8 = load ptr, ptr %local_err, align 8
-  %tobool2.not = icmp eq ptr %8, null
+  %6 = load ptr, ptr %local_err, align 8
+  %tobool2.not = icmp eq ptr %6, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %blk_set_perm_locked.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %8) #16
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #16
   store i8 1, ptr %disable_perm, align 8
   br label %if.end21
 
 if.end5:                                          ; preds = %blk_set_perm_locked.exit
-  store i64 %3, ptr %shared_perm, align 8
+  store i64 %2, ptr %shared_perm, align 8
   %call7 = call zeroext i1 @runstate_check(i32 noundef 1) #16
   br i1 %call7, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.end5
   %vmsh = getelementptr inbounds i8, ptr %0, i64 936
-  %9 = load ptr, ptr %vmsh, align 8
-  %tobool9.not = icmp eq ptr %9, null
+  %7 = load ptr, ptr %vmsh, align 8
+  %tobool9.not = icmp eq ptr %7, null
   br i1 %tobool9.not, label %if.then10, label %if.end21
 
 if.then10:                                        ; preds = %if.then8
@@ -6914,8 +6879,8 @@ if.then10:                                        ; preds = %if.then8
   br label %if.end21
 
 if.end14:                                         ; preds = %if.end5
-  %10 = load i64, ptr %perm, align 8
-  %11 = load i64, ptr %shared_perm, align 8
+  %8 = load i64, ptr %perm, align 8
+  %9 = load i64, ptr %shared_perm, align 8
   %call.i16 = call zeroext i1 @qemu_in_main_thread() #16
   br i1 %call.i16, label %do.end.i18, label %if.else.i17
 
@@ -6924,33 +6889,32 @@ if.else.i17:                                      ; preds = %if.end14
   unreachable
 
 do.end.i18:                                       ; preds = %if.end14
-  %12 = load ptr, ptr %root.i, align 8
-  %tobool.not.i20 = icmp eq ptr %12, null
-  br i1 %tobool.not.i20, label %if.end7.i24, label %land.lhs.true.i21
+  %10 = load ptr, ptr %root.i, align 8
+  %tobool.not.i20 = icmp eq ptr %10, null
+  br i1 %tobool.not.i20, label %if.end7.i27, label %land.lhs.true.i21
 
 land.lhs.true.i21:                                ; preds = %do.end.i18
-  %13 = load i8, ptr %disable_perm, align 8
-  %14 = and i8 %13, 1
-  %tobool1.not.i23 = icmp eq i8 %14, 0
-  br i1 %tobool1.not.i23, label %if.then2.i28, label %if.end7.i24
+  %11 = load i8, ptr %disable_perm, align 8
+  %tobool1.i23 = trunc i8 %11 to i1
+  br i1 %tobool1.i23, label %if.end7.i27, label %if.then2.i24
 
-if.then2.i28:                                     ; preds = %land.lhs.true.i21
-  %call4.i29 = call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %12, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %local_err) #16
-  %cmp.i30 = icmp slt i32 %call4.i29, 0
-  br i1 %cmp.i30, label %blk_set_perm_locked.exit31, label %if.end7.i24
+if.then2.i24:                                     ; preds = %land.lhs.true.i21
+  %call4.i25 = call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %10, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %local_err) #16
+  %cmp.i26 = icmp slt i32 %call4.i25, 0
+  br i1 %cmp.i26, label %blk_set_perm_locked.exit31, label %if.end7.i27
 
-if.end7.i24:                                      ; preds = %if.then2.i28, %land.lhs.true.i21, %do.end.i18
-  store i64 %10, ptr %perm, align 8
-  store i64 %11, ptr %shared_perm, align 8
+if.end7.i27:                                      ; preds = %if.then2.i24, %land.lhs.true.i21, %do.end.i18
+  store i64 %8, ptr %perm, align 8
+  store i64 %9, ptr %shared_perm, align 8
   br label %blk_set_perm_locked.exit31
 
-blk_set_perm_locked.exit31:                       ; preds = %if.then2.i28, %if.end7.i24
-  %15 = load ptr, ptr %local_err, align 8
-  %tobool18.not = icmp eq ptr %15, null
+blk_set_perm_locked.exit31:                       ; preds = %if.then2.i24, %if.end7.i27
+  %12 = load ptr, ptr %local_err, align 8
+  %tobool18.not = icmp eq ptr %12, null
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %blk_set_perm_locked.exit31
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %15) #16
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #16
   store i8 1, ptr %disable_perm, align 8
   br label %if.end21
 
@@ -6965,47 +6929,45 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %disable_perm = getelementptr inbounds i8, ptr %0, i64 824
   %1 = load i8, ptr %disable_perm, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %dev.i = getelementptr inbounds i8, ptr %0, i64 248
-  %3 = load ptr, ptr %dev.i, align 8
-  %tobool.not.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %dev.i, align 8
+  %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end2
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %4 = load ptr, ptr %0, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
-  %cond.i.i = select i1 %tobool.not.i.i, ptr @.str.10, ptr %4
-  %5 = load i8, ptr %cond.i.i, align 1
-  %tobool1.not.i = icmp eq i8 %5, 0
+  %3 = load ptr, ptr %0, align 8
+  %tobool.not.i.i = icmp eq ptr %3, null
+  %cond.i.i = select i1 %tobool.not.i.i, ptr @.str.10, ptr %3
+  %4 = load i8, ptr %cond.i.i, align 1
+  %tobool1.not.i = icmp eq i8 %4, 0
   br i1 %tobool1.not.i, label %if.end.i, label %if.end2
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %perm.i = getelementptr inbounds i8, ptr %0, i64 808
-  %6 = load i64, ptr %perm.i, align 8
-  %and.i = and i64 %6, 6
+  %5 = load i64, ptr %perm.i, align 8
+  %and.i = and i64 %5, 6
   %tobool2.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool2.not.i, label %if.end2, label %blk_can_inactivate.exit
 
 blk_can_inactivate.exit:                          ; preds = %if.end.i
   %force_allow_inactivate.i = getelementptr inbounds i8, ptr %0, i64 944
-  %7 = load i8, ptr %force_allow_inactivate.i, align 8
-  %8 = and i8 %7, 1
-  %tobool5.i.not = icmp eq i8 %8, 0
-  br i1 %tobool5.i.not, label %return, label %if.end2
+  %6 = load i8, ptr %force_allow_inactivate.i, align 8
+  %tobool5.i = trunc i8 %6 to i1
+  br i1 %tobool5.i, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end.i, %if.end, %lor.lhs.false.i, %blk_can_inactivate.exit
   store i8 1, ptr %disable_perm, align 8
   %root = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load ptr, ptr %root, align 8
-  %tobool4.not = icmp eq ptr %9, null
+  %7 = load ptr, ptr %root, align 8
+  %tobool4.not = icmp eq ptr %7, null
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end2
-  %call7 = tail call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %9, i64 noundef 0, i64 noundef 15, ptr noundef nonnull @error_abort) #16
+  %call7 = tail call i32 @bdrv_child_try_set_perm(ptr noundef nonnull %7, i64 noundef 0, i64 noundef 15, ptr noundef nonnull @error_abort) #16
   br label %return
 
 return:                                           ; preds = %if.end2, %if.then5, %blk_can_inactivate.exit, %entry
@@ -7036,17 +6998,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %child, ptr noundef %0, ptr noundef %1) #16
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %child, ptr noundef %0, ptr noundef %1) #16
   br label %trace_blk_root_attach.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -7062,13 +7023,13 @@ trace_blk_root_attach.exit:                       ; preds = %entry, %land.lhs.tr
 
 for.body:                                         ; preds = %trace_blk_root_attach.exit, %for.body
   %notifier.011 = phi ptr [ %notifier.0, %for.body ], [ %notifier.09, %trace_blk_root_attach.exit ]
-  %9 = load ptr, ptr %child, align 8
-  %10 = load ptr, ptr %notifier.011, align 8
+  %8 = load ptr, ptr %child, align 8
+  %9 = load ptr, ptr %notifier.011, align 8
   %detach_aio_context = getelementptr inbounds i8, ptr %notifier.011, i64 8
-  %11 = load ptr, ptr %detach_aio_context, align 8
+  %10 = load ptr, ptr %detach_aio_context, align 8
   %opaque2 = getelementptr inbounds i8, ptr %notifier.011, i64 16
-  %12 = load ptr, ptr %opaque2, align 8
-  tail call void @bdrv_add_aio_context_notifier(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #16
+  %11 = load ptr, ptr %opaque2, align 8
+  tail call void @bdrv_add_aio_context_notifier(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #16
   %list = getelementptr inbounds i8, ptr %notifier.011, i64 24
   %notifier.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %notifier.0, null
@@ -7101,17 +7062,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %child, ptr noundef %0, ptr noundef %1) #16
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %child, ptr noundef %0, ptr noundef %1) #16
   br label %trace_blk_root_detach.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -7127,13 +7087,13 @@ trace_blk_root_detach.exit:                       ; preds = %entry, %land.lhs.tr
 
 for.body:                                         ; preds = %trace_blk_root_detach.exit, %for.body
   %notifier.011 = phi ptr [ %notifier.0, %for.body ], [ %notifier.09, %trace_blk_root_detach.exit ]
-  %9 = load ptr, ptr %child, align 8
-  %10 = load ptr, ptr %notifier.011, align 8
+  %8 = load ptr, ptr %child, align 8
+  %9 = load ptr, ptr %notifier.011, align 8
   %detach_aio_context = getelementptr inbounds i8, ptr %notifier.011, i64 8
-  %11 = load ptr, ptr %detach_aio_context, align 8
+  %10 = load ptr, ptr %detach_aio_context, align 8
   %opaque2 = getelementptr inbounds i8, ptr %notifier.011, i64 16
-  %12 = load ptr, ptr %opaque2, align 8
-  tail call void @bdrv_remove_aio_context_notifier(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #16
+  %11 = load ptr, ptr %opaque2, align 8
+  tail call void @bdrv_remove_aio_context_notifier(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #16
   %list = getelementptr inbounds i8, ptr %notifier.011, i64 24
   %notifier.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %notifier.0, null
@@ -7310,19 +7270,18 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %allow_aio_context_change = getelementptr inbounds i8, ptr %0, i64 825
   %1 = load i8, ptr %allow_aio_context_change, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end4
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %0, align 8
-  %tobool1.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %0, align 8
+  %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %dev = getelementptr inbounds i8, ptr %0, i64 248
-  %4 = load ptr, ptr %dev, align 8
-  %tobool2.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %dev, align 8
+  %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.then

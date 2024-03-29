@@ -303,7 +303,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 24:                                               ; preds = %76
   %25 = landingpad { ptr, i32 }
           cleanup
-  br i1 %trunc.not.not, label %.thread40, label %.thread43
+  br i1 %trunc, label %.thread43, label %.thread40
 
 .thread:                                          ; preds = %31, %4, %.noexc
   %26 = landingpad { ptr, i32 }
@@ -357,10 +357,10 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %99
 
 43:                                               ; preds = %31
-  %trunc.not.not = icmp eq i8 %32, 0
+  %trunc = trunc i8 %32 to i1
   %44 = getelementptr inbounds i8, ptr %1, i64 24
   %45 = getelementptr inbounds i8, ptr %1, i64 40
-  br i1 %trunc.not.not, label %46, label %55
+  br i1 %trunc, label %55, label %46
 
 46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -467,7 +467,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %90 = add i64 %89, 1
   store i64 %90, ptr %72, align 8, !alias.scope !120
   store i64 -9223372036854775798, ptr %0, align 8
-  br i1 %trunc.not.not, label %92, label %91
+  br i1 %trunc, label %91, label %92
 
 91:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hde73cd3b8a3ebddbE.exit30", %84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -537,7 +537,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 15:                                               ; preds = %67
   %16 = landingpad { ptr, i32 }
           cleanup
-  br i1 %trunc.not.not, label %.thread36, label %.thread39
+  br i1 %trunc, label %.thread39, label %.thread36
 
 .thread:                                          ; preds = %4, %22
   %17 = landingpad { ptr, i32 }
@@ -592,10 +592,10 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %90
 
 34:                                               ; preds = %22
-  %trunc.not.not = icmp eq i8 %23, 0
+  %trunc = trunc i8 %23 to i1
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = getelementptr inbounds i8, ptr %1, i64 40
-  br i1 %trunc.not.not, label %37, label %46
+  br i1 %trunc, label %46, label %37
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -702,7 +702,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %81 = add i64 %80, 1
   store i64 %81, ptr %63, align 8, !alias.scope !152
   store i64 -9223372036854775798, ptr %0, align 8
-  br i1 %trunc.not.not, label %83, label %82
+  br i1 %trunc, label %82, label %83
 
 82:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hde73cd3b8a3ebddbE.exit28", %75
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)

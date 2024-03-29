@@ -3967,13 +3967,13 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr nocapture noundef
 
 7:                                                ; preds = %5, %29
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %29 ]
-  %.032 = phi i32 [ %6, %5 ], [ %30, %29 ]
-  %.02730 = phi i8 [ 0, %5 ], [ %.1, %29 ]
+  %.031 = phi i32 [ %6, %5 ], [ %30, %29 ]
+  %.02729 = phi i1 [ false, %5 ], [ %.1, %29 ]
   %8 = getelementptr inbounds %struct.Vector2, ptr %1, i64 %indvars.iv
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load float, ptr %9, align 4
   %11 = fcmp ogt float %10, %.sroa.0.4.vec.extract
-  %12 = sext i32 %.032 to i64
+  %12 = sext i32 %.031 to i64
   %13 = getelementptr inbounds %struct.Vector2, ptr %1, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load float, ptr %14, align 4
@@ -3994,23 +3994,18 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr nocapture noundef
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %17
-  %28 = xor i8 %.02730, 1
+  %28 = xor i1 %.02729, true
   br label %29
 
 29:                                               ; preds = %7, %17, %27
-  %.1 = phi i8 [ %28, %27 ], [ %.02730, %17 ], [ %.02730, %7 ]
+  %.1 = phi i1 [ %28, %27 ], [ %.02729, %17 ], [ %.02729, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = trunc i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %7
+  br i1 %exitcond.not, label %.loopexit, label %7
 
-.loopexit.loopexit:                               ; preds = %29
-  %31 = and i8 %.1, 1
-  %32 = icmp ne i8 %31, 0
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.2 = phi i1 [ false, %3 ], [ %32, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %29, %3
+  %.2 = phi i1 [ false, %3 ], [ %.1, %29 ]
   ret i1 %.2
 }
 
@@ -4194,8 +4189,8 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
   br label %.thread
 
 .thread:                                          ; preds = %77, %67, %57, %47, %83, %84, %5
-  %85 = phi i1 [ true, %84 ], [ true, %83 ], [ false, %5 ], [ false, %47 ], [ false, %57 ], [ false, %67 ], [ false, %77 ]
-  ret i1 %85
+  %.1 = phi i1 [ true, %84 ], [ true, %83 ], [ false, %5 ], [ false, %47 ], [ false, %57 ], [ false, %67 ], [ false, %77 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -449,8 +449,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @__func__.PCIE_SLOT) #9
   %hotplug = getelementptr inbounds i8, ptr %call.i, i64 7165
   %1 = load i8, ptr %hotplug, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 

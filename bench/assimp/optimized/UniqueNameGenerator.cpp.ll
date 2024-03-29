@@ -1598,13 +1598,12 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %_M_finish.i11 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %_M_finish.i11, align 8
   %8 = load ptr, ptr %6, align 8
-  %cmp16.not = icmp eq ptr %7, %8
-  br i1 %cmp16.not, label %for.end, label %for.body
+  %cmp16 = icmp eq ptr %7, %8
+  br i1 %cmp16, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9
   %9 = phi ptr [ %14, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9 ], [ %8, %if.end ]
   %i.018 = phi i64 [ %inc, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9 ], [ 0, %if.end ]
-  %found_identical_name.017 = phi i8 [ %11, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9 ], [ 0, %if.end ]
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %i.018
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #14
@@ -1628,7 +1627,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9: ; preds = %for.body, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
-  %11 = phi i8 [ 1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %found_identical_name.017, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %found_identical_name.017, %for.body ]
+  %11 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %for.body ]
   %inc = add nuw i64 %i.018, 1
   %12 = load ptr, ptr %2, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %12, i64 8
@@ -1638,24 +1637,22 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  %15 = and i8 %11, 1
-  %tobool6.not = icmp eq i8 %15, 0
-  %16 = select i1 %cmp, i1 %tobool6.not, i1 false
-  br i1 %16, label %for.body, label %for.end, !llvm.loop !14
+  %cmp = icmp uge i64 %inc, %sub.ptr.div.i
+  %.not = or i1 %cmp, %11
+  br i1 %.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9, %if.end
-  %tobool6.not.lcssa = phi i1 [ true, %if.end ], [ %tobool6.not, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9 ]
+  %found_identical_name.0.lcssa = phi i1 [ false, %if.end ], [ %11, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread9 ]
   br i1 %tried_with_base_name_only.0, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %for.end
-  %17 = load i64, ptr %next_id, align 8
-  %inc14 = add i64 %17, 1
+  %15 = load i64, ptr %next_id, align 8
+  %inc14 = add i64 %15, 1
   store i64 %inc14, ptr %next_id, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %for.end
-  br i1 %tobool6.not.lcssa, label %nrvo.skipdtor, label %do.body, !llvm.loop !15
+  br i1 %found_identical_name.0.lcssa, label %do.body, label %nrvo.skipdtor, !llvm.loop !15
 
 nrvo.skipdtor:                                    ; preds = %if.end15
   ret void

@@ -233,39 +233,37 @@ define hidden noundef zeroext i1 @ftype_similar_types(i32 noundef %0, i32 nounde
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 146260426751, %switch.maskindex
-  %4 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %4, 0
-  br i1 %switch.lobit.not, label %same_ftype.exit, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %same_ftype.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [38 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %5
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [38 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %same_ftype.exit
 
 same_ftype.exit:                                  ; preds = %2, %switch.hole_check, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %0, %switch.hole_check ], [ %0, %2 ]
   %switch.tableidx5 = add i32 %1, -4
-  %6 = icmp ult i32 %switch.tableidx5, 38
-  br i1 %6, label %switch.hole_check6, label %same_ftype.exit3
+  %5 = icmp ult i32 %switch.tableidx5, 38
+  br i1 %5, label %switch.hole_check6, label %same_ftype.exit3
 
 switch.hole_check6:                               ; preds = %same_ftype.exit
   %switch.maskindex8 = zext nneg i32 %switch.tableidx5 to i64
   %switch.shifted9 = lshr i64 146260426751, %switch.maskindex8
-  %7 = and i64 %switch.shifted9, 1
-  %switch.lobit10.not = icmp eq i64 %7, 0
-  br i1 %switch.lobit10.not, label %same_ftype.exit3, label %switch.lookup7
+  %switch.lobit10 = trunc i64 %switch.shifted9 to i1
+  br i1 %switch.lobit10, label %switch.lookup7, label %same_ftype.exit3
 
 switch.lookup7:                                   ; preds = %switch.hole_check6
-  %8 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep11 = getelementptr inbounds [38 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %8
+  %6 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.gep11 = getelementptr inbounds [38 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %6
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   br label %same_ftype.exit3
 
 same_ftype.exit3:                                 ; preds = %same_ftype.exit, %switch.hole_check6, %switch.lookup7
   %.0.i2 = phi i32 [ %switch.load12, %switch.lookup7 ], [ %1, %switch.hole_check6 ], [ %1, %same_ftype.exit ]
-  %9 = icmp eq i32 %.0.i, %.0.i2
-  ret i1 %9
+  %7 = icmp eq i32 %.0.i, %.0.i2
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1723,9 +1721,8 @@ define zeroext i1 @fvalue_contains(ptr noundef %0, ptr noundef %1) local_unnamed
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #9
   %.not = icmp ne i32 %7, 0
   %8 = load i8, ptr %3, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %.0 = select i1 %.not, i1 true, i1 %10
+  %9 = trunc i8 %8 to i1
+  %.0 = select i1 %.not, i1 true, i1 %9
   ret i1 %.0
 }
 
@@ -1738,9 +1735,8 @@ define zeroext i1 @fvalue_matches(ptr noundef %0, ptr noundef %1) local_unnamed_
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #9
   %.not = icmp ne i32 %7, 0
   %8 = load i8, ptr %3, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %.0 = select i1 %.not, i1 true, i1 %10
+  %9 = trunc i8 %8 to i1
+  %.0 = select i1 %.not, i1 true, i1 %9
   ret i1 %.0
 }
 
@@ -2109,9 +2105,8 @@ declare void @drange_foreach_drange_node(ptr noundef, ptr noundef, ptr noundef) 
 define internal void @slice_func(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %52
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %52, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8

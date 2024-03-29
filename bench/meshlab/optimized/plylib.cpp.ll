@@ -1459,9 +1459,9 @@ define noundef i32 @_ZN3vcg3ply9ReadAsciiEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr 
 .preheader:                                       ; preds = %16
   %19 = load i32, ptr %9, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph55, label %.loopexit
+  br i1 %20, label %.lr.ph54, label %.loopexit
 
-.lr.ph55:                                         ; preds = %.preheader
+.lr.ph54:                                         ; preds = %.preheader
   %21 = getelementptr inbounds i8, ptr %1, i64 32
   br label %80
 
@@ -1524,9 +1524,8 @@ define noundef i32 @_ZN3vcg3ply9ReadAsciiEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr 
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, %34, %36, %38, %39, %41
   %43 = getelementptr inbounds i8, ptr %1, i64 129
   %44 = load i8, ptr %43, align 1
-  %45 = and i8 %44, 1
-  %.not40 = icmp eq i8 %45, 0
-  br i1 %.not40, label %58, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %58
 
 46:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %47 = sext i32 %28 to i64
@@ -1560,31 +1559,31 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   br label %68
 
 66:                                               ; preds = %68
-  %67 = add nuw nsw i32 %.03451, 1
+  %67 = add nuw nsw i32 %.03450, 1
   %exitcond.not = icmp eq i32 %67, %28
   br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !27
 
 68:                                               ; preds = %.lr.ph, %66
-  %.03451 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
+  %.03450 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
   %69 = load i32, ptr %63, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
-  %73 = mul nsw i32 %72, %.03451
+  %73 = mul nsw i32 %72, %.03450
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %.0, i64 %74
   %76 = load i32, ptr %65, align 8
   %77 = tail call fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr noundef %0, ptr noundef %75, i32 noundef %76, i32 noundef %69)
-  %.not41 = icmp eq i32 %77, 0
-  br i1 %.not41, label %.loopexit, label %66
+  %.not40 = icmp eq i32 %77, 0
+  br i1 %.not40, label %.loopexit, label %66
 
 78:                                               ; preds = %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit
-  %79 = add nuw nsw i32 %.154, 1
-  %exitcond60.not = icmp eq i32 %79, %19
-  br i1 %exitcond60.not, label %.loopexit, label %80, !llvm.loop !28
+  %79 = add nuw nsw i32 %.153, 1
+  %exitcond59.not = icmp eq i32 %79, %19
+  br i1 %exitcond59.not, label %.loopexit, label %80, !llvm.loop !28
 
-80:                                               ; preds = %.lr.ph55, %78
-  %.154 = phi i32 [ 0, %.lr.ph55 ], [ %79, %78 ]
+80:                                               ; preds = %.lr.ph54, %78
+  %.153 = phi i32 [ 0, %.lr.ph54 ], [ %79, %78 ]
   %81 = load i32, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -1643,7 +1642,7 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %82, %85
   %102 = load i32, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  switch i32 %102, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit45 [
+  switch i32 %102, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44 [
     i32 1, label %103
     i32 2, label %103
     i32 3, label %103
@@ -1657,23 +1656,23 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %82, %85
 103:                                              ; preds = %100, %100, %100, %100, %100, %100
   %104 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %5)
   %105 = icmp eq i32 %104, -1
-  %spec.store.select.i.i44 = select i1 %105, i32 0, i32 %104
-  br label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit45
+  %spec.store.select.i.i43 = select i1 %105, i32 0, i32 %104
+  br label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44
 
 106:                                              ; preds = %100, %100
   %107 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull %6)
   %108 = icmp eq i32 %107, -1
-  %spec.store.select.i3.i42 = select i1 %108, i32 0, i32 %107
-  br label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit45
+  %spec.store.select.i3.i41 = select i1 %108, i32 0, i32 %107
+  br label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44
 
-_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit45:     ; preds = %100, %103, %106
-  %.0.i43 = phi i32 [ %spec.store.select.i3.i42, %106 ], [ %spec.store.select.i.i44, %103 ], [ 0, %100 ]
+_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44:     ; preds = %100, %103, %106
+  %.0.i42 = phi i32 [ %spec.store.select.i3.i41, %106 ], [ %spec.store.select.i.i43, %103 ], [ 0, %100 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %68, %66, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit, %78, %62, %.preheader, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, %12, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit45, %91
-  %.035 = phi i32 [ %99, %91 ], [ %.0.i43, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit45 ], [ 0, %12 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread ], [ 1, %.preheader ], [ 1, %62 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit ], [ 1, %78 ], [ 0, %68 ], [ 1, %66 ]
+.loopexit:                                        ; preds = %68, %66, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit, %78, %62, %.preheader, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, %12, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44, %91
+  %.035 = phi i32 [ %99, %91 ], [ %.0.i42, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44 ], [ 0, %12 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread ], [ 1, %.preheader ], [ 1, %62 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit ], [ 1, %78 ], [ 0, %68 ], [ 1, %66 ]
   ret i32 %.035
 }
 
@@ -1704,7 +1703,7 @@ define noundef i32 @_ZN3vcg3ply7ReadBinEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr no
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   %18 = load i32, ptr %7, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph51, label %.loopexit
+  br i1 %19, label %.lr.ph50, label %.loopexit
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %1, i64 144
@@ -1765,9 +1764,8 @@ define noundef i32 @_ZN3vcg3ply7ReadBinEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr no
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, %32, %34, %36, %37, %39
   %41 = getelementptr inbounds i8, ptr %1, i64 129
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %.not43 = icmp eq i8 %43, 0
-  br i1 %.not43, label %56, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %56
 
 44:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %45 = sext i32 %26 to i64
@@ -1801,31 +1799,31 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   br label %66
 
 64:                                               ; preds = %66
-  %65 = add nuw nsw i32 %.03747, 1
+  %65 = add nuw nsw i32 %.03746, 1
   %exitcond.not = icmp eq i32 %65, %26
   br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !29
 
 66:                                               ; preds = %.lr.ph, %64
-  %.03747 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
+  %.03746 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
   %67 = load i32, ptr %61, align 4
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
-  %71 = mul nsw i32 %70, %.03747
+  %71 = mul nsw i32 %70, %.03746
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %.0, i64 %72
   %74 = load i32, ptr %63, align 8
   %75 = tail call fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarBEP8_IO_FILEPviii(ptr noundef %0, ptr noundef %73, i32 noundef %74, i32 noundef %67, i32 noundef %3)
-  %.not44 = icmp eq i32 %75, 0
-  br i1 %.not44, label %.loopexit, label %64
+  %.not43 = icmp eq i32 %75, 0
+  br i1 %.not43, label %.loopexit, label %64
 
-76:                                               ; preds = %.lr.ph51
-  %77 = add nuw nsw i32 %.150, 1
-  %exitcond57.not = icmp eq i32 %77, %18
-  br i1 %exitcond57.not, label %.loopexit, label %.lr.ph51, !llvm.loop !30
+76:                                               ; preds = %.lr.ph50
+  %77 = add nuw nsw i32 %.149, 1
+  %exitcond56.not = icmp eq i32 %77, %18
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph50, !llvm.loop !30
 
-.lr.ph51:                                         ; preds = %.preheader, %76
-  %.150 = phi i32 [ %77, %76 ], [ 0, %.preheader ]
+.lr.ph50:                                         ; preds = %.preheader, %76
+  %.149 = phi i32 [ %77, %76 ], [ 0, %.preheader ]
   %78 = load i32, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %79 = sext i32 %78 to i64
@@ -1868,8 +1866,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %64, %.lr.ph51, %76, %60, %.preheader, %10, %97, %88
-  %.038 = phi i32 [ %96, %88 ], [ %105, %97 ], [ 0, %10 ], [ 1, %.preheader ], [ 1, %60 ], [ 0, %.lr.ph51 ], [ 1, %76 ], [ 0, %66 ], [ 1, %64 ]
+.loopexit:                                        ; preds = %66, %64, %.lr.ph50, %76, %60, %.preheader, %10, %97, %88
+  %.038 = phi i32 [ %96, %88 ], [ %105, %97 ], [ 0, %10 ], [ 1, %.preheader ], [ 1, %60 ], [ 0, %.lr.ph50 ], [ 1, %76 ], [ 0, %66 ], [ 1, %64 ]
   ret i32 %.038
 }
 
@@ -3409,9 +3407,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_read_list_asciiEP8_IO_FILEP
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %20, %22, %24, %25, %27
   %29 = getelementptr inbounds i8, ptr %2, i64 81
   %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %44, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %44
 
 32:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %33 = sext i32 %14 to i64
@@ -3445,27 +3442,27 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   br label %56
 
 52:                                               ; preds = %56
-  %53 = add nuw nsw i32 %.01922, 1
+  %53 = add nuw nsw i32 %.01921, 1
   %54 = load i32, ptr %4, align 4
   %55 = icmp slt i32 %53, %54
   br i1 %55, label %56, label %.loopexit, !llvm.loop !46
 
 56:                                               ; preds = %.lr.ph, %52
-  %.01922 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
+  %.01921 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
   %57 = load i32, ptr %49, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = mul nsw i32 %60, %.01922
+  %61 = mul nsw i32 %60, %.01921
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %.0, i64 %62
   %64 = load i32, ptr %51, align 8
   %65 = call fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr noundef %0, ptr noundef %63, i32 noundef %64, i32 noundef %57)
-  %.not21.not = icmp ne i32 %65, 0
-  br i1 %.not21.not, label %52, label %.loopexit
+  %.not.not = icmp ne i32 %65, 0
+  br i1 %.not.not, label %52, label %.loopexit
 
 .loopexit:                                        ; preds = %56, %52, %48, %3
-  %.020 = phi i1 [ false, %3 ], [ true, %48 ], [ %.not21.not, %52 ], [ %.not21.not, %56 ]
+  %.020 = phi i1 [ false, %3 ], [ true, %48 ], [ %.not.not, %52 ], [ %.not.not, %56 ]
   ret i1 %.020
 }
 
@@ -3597,9 +3594,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %19, %20, %22, %23, %25
   %27 = getelementptr inbounds i8, ptr %2, i64 81
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %36, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %31 = zext i8 %13 to i64
@@ -3618,8 +3614,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %
 
 40:                                               ; preds = %36, %30
   %.0 = phi ptr [ %32, %30 ], [ %39, %36 ]
-  %.not20 = icmp eq i8 %13, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %13, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %40
   %wide.trip.count = zext i8 %13 to i64
@@ -3629,14 +3625,14 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %41 = getelementptr inbounds i8, ptr %.0, i64 %indvars.iv
   %42 = tail call i64 @fread(ptr noundef %41, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
+  %.not21 = icmp ne i64 %42, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %.not22, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %.not21, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %40 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %40 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -3706,9 +3702,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chshEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -3727,8 +3722,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -3737,8 +3732,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -3751,7 +3746,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -3821,9 +3816,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chinEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -3842,8 +3836,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -3852,8 +3846,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -3866,7 +3860,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -3936,9 +3930,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chucEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -3957,8 +3950,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -3967,8 +3960,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -3979,7 +3972,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4049,9 +4042,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chusEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4070,8 +4062,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -4080,8 +4072,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4094,7 +4086,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4164,9 +4156,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chuiEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4185,8 +4176,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -4195,8 +4186,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4209,7 +4200,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4279,9 +4270,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4300,8 +4290,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -4310,8 +4300,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4324,7 +4314,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4394,9 +4384,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chdoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4415,8 +4404,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -4425,8 +4414,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4439,7 +4428,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4509,9 +4498,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shchEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4530,8 +4518,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -4553,8 +4541,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4566,7 +4554,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -4636,9 +4624,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shshEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4657,8 +4644,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -4680,8 +4667,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4693,7 +4680,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !57
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -4763,9 +4750,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shinEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4784,8 +4770,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -4807,8 +4793,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4821,7 +4807,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !58
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -4891,9 +4877,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shucEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -4912,8 +4897,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -4935,8 +4920,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4948,7 +4933,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !59
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5018,9 +5003,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shusEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -5039,8 +5023,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5062,8 +5046,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5075,7 +5059,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !60
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5145,9 +5129,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shuiEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -5166,8 +5149,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5189,8 +5172,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5203,7 +5186,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !61
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5273,9 +5256,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -5294,8 +5276,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5317,8 +5299,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5331,7 +5313,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !62
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5401,9 +5383,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shdoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -5422,8 +5403,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5445,8 +5426,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5459,7 +5440,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5529,9 +5510,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inchEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -5550,8 +5530,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5573,8 +5553,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -5586,7 +5566,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -5656,9 +5636,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inshEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -5677,8 +5656,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5700,8 +5679,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -5714,7 +5693,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !65
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -5883,9 +5862,8 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %50, %55
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %62, %68, %70, %72, %73, %75, %77, %78, %80
   %82 = getelementptr inbounds i8, ptr %2, i64 81
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not = icmp eq i8 %84, 0
-  br i1 %.not, label %91, label %85
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %91
 
 85:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %86 = sext i32 %.030 to i64
@@ -5929,14 +5907,14 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %62, %68, %70, %72, 
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32:       ; preds = %98, %104
   %107 = and i64 %102, 4294967295
-  %.not36 = icmp ne i64 %107, 0
+  %.not = icmp ne i64 %107, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %.not36, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %98, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32, %95, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %18, %11
-  %.031 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ false, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ false, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ true, %95 ], [ %.not36, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32 ]
+  %.031 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ false, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ false, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ true, %95 ], [ %.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32 ]
   ret i1 %.031
 }
 
@@ -6006,9 +5984,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inucEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6027,8 +6004,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -6050,8 +6027,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6063,7 +6040,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !67
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6133,9 +6110,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inusEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6154,8 +6130,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -6177,8 +6153,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6191,7 +6167,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !68
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6261,9 +6237,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inuiEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6282,8 +6257,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -6305,8 +6280,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6318,7 +6293,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !69
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6388,9 +6363,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6409,8 +6383,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -6432,8 +6406,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6446,7 +6420,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !70
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6516,9 +6490,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_indoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6537,8 +6510,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -6560,8 +6533,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6574,7 +6547,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !71
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6644,9 +6617,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucchEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6665,8 +6637,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -6675,8 +6647,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -6687,7 +6659,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -6757,9 +6729,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucshEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6778,8 +6749,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -6788,8 +6759,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -6802,7 +6773,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -6872,9 +6843,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucinEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -6893,8 +6863,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -6903,8 +6873,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -6917,7 +6887,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -6987,9 +6957,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucucEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7008,8 +6977,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -7018,8 +6987,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7030,7 +6999,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7100,9 +7069,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucusEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7121,8 +7089,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -7131,8 +7099,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7145,7 +7113,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7215,9 +7183,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucuiEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7236,8 +7203,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -7246,8 +7213,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7260,7 +7227,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7330,9 +7297,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7351,8 +7317,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -7361,8 +7327,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7375,7 +7341,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7445,9 +7411,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucdoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7466,8 +7431,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -7476,8 +7441,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not22 = icmp ne i64 %42, 0
-  br i1 %.not22, label %43, label %.loopexit
+  %.not21 = icmp ne i64 %42, 0
+  br i1 %.not21, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7490,7 +7455,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %43 ], [ %.not22, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7560,9 +7525,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uschEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7581,8 +7545,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -7604,8 +7568,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7617,7 +7581,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !80
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -7687,9 +7651,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usshEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7708,8 +7671,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -7731,8 +7694,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7744,7 +7707,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !81
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -7814,9 +7777,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usinEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7835,8 +7797,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -7858,8 +7820,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7872,7 +7834,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !82
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -7942,9 +7904,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usucEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -7963,8 +7924,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -7986,8 +7947,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7999,7 +7960,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !83
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8069,9 +8030,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ususEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8090,8 +8050,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8113,8 +8073,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8126,7 +8086,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8196,9 +8156,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usuiEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8217,8 +8176,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8240,8 +8199,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8254,7 +8213,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !85
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8324,9 +8283,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8345,8 +8303,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8368,8 +8326,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8382,7 +8340,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !86
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8452,9 +8410,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usdoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8473,8 +8430,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8496,8 +8453,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8510,7 +8467,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !87
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8580,9 +8537,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uichEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8601,8 +8557,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8624,8 +8580,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8637,7 +8593,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !88
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -8707,9 +8663,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uishEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8728,8 +8683,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8751,8 +8706,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8765,7 +8720,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !89
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -8835,9 +8790,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiinEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8856,8 +8810,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -8879,8 +8833,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8892,7 +8846,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !90
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -8962,9 +8916,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiucEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -8983,8 +8936,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9006,8 +8959,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9019,7 +8972,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !91
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9089,9 +9042,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiusEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9110,8 +9062,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9133,8 +9085,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9147,7 +9099,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9217,9 +9169,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiuiEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9238,8 +9189,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9261,8 +9212,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9274,7 +9225,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !93
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9344,9 +9295,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9365,8 +9315,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9388,8 +9338,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9402,7 +9352,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !94
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9472,9 +9422,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uidoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9493,8 +9442,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9516,8 +9465,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9530,7 +9479,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !95
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9600,9 +9549,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_flflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9621,8 +9569,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9644,8 +9592,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit
   %52 = load float, ptr %5, align 4
@@ -9657,7 +9605,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !96
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
   ret i1 %.017
 }
 
@@ -9727,9 +9675,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_fldoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9748,8 +9695,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not20 = icmp eq i8 %14, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds i8, ptr %2, i64 104
@@ -9771,8 +9718,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not22 = icmp ne i64 %50, 0
-  br i1 %.not22, label %51, label %.loopexit
+  %.not21 = icmp ne i64 %50, 0
+  br i1 %.not21, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit
   %52 = load float, ptr %5, align 4
@@ -9785,7 +9732,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !97
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %51 ], [ %.not22, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
   ret i1 %.017
 }
 
@@ -9855,9 +9802,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_doflEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9876,8 +9822,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not21 = icmp eq i8 %14, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -9887,8 +9833,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %43 = and i64 %42, 4294967295
-  %.not23 = icmp ne i64 %43, 0
-  br i1 %.not23, label %44, label %.loopexit
+  %.not22 = icmp ne i64 %43, 0
+  br i1 %.not22, label %44, label %.loopexit
 
 44:                                               ; preds = %.lr.ph
   %45 = load double, ptr %5, align 8
@@ -9901,7 +9847,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not23, %44 ], [ %.not23, %.lr.ph ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %44 ], [ %.not22, %.lr.ph ]
   ret i1 %.017
 }
 
@@ -9971,9 +9917,8 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_dodoEP8_IO_FILEPv
 _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %20, %21, %23, %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 81
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
@@ -9992,8 +9937,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 41:                                               ; preds = %37, %31
   %.0 = phi ptr [ %33, %31 ], [ %40, %37 ]
-  %.not21 = icmp eq i8 %14, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i8 %14 to i64
@@ -10003,8 +9948,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %43 = and i64 %42, 4294967295
-  %.not23 = icmp ne i64 %43, 0
-  br i1 %.not23, label %44, label %.loopexit
+  %.not22 = icmp ne i64 %43, 0
+  br i1 %.not22, label %44, label %.loopexit
 
 44:                                               ; preds = %.lr.ph
   %45 = load double, ptr %5, align 8
@@ -10016,7 +9961,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not23, %44 ], [ %.not23, %.lr.ph ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %44 ], [ %.not22, %.lr.ph ]
   ret i1 %.017
 }
 

@@ -1383,8 +1383,8 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.13846770185197118408(ptr noalias noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !275, !noundef !4
-  %trunc.not.i = icmp eq i64 %2, 0
-  br i1 %trunc.not.i, label %3, label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h327933f79673d7fdE.exit"
+  %trunc.i = trunc i64 %2 to i1
+  br i1 %trunc.i, label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h327933f79673d7fdE.exit", label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) %0)
@@ -1766,8 +1766,8 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfcd361936b0948c7E.llvm.13846770185197118408"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = load i64, ptr %0, align 8, !range !274, !noundef !4
-  %trunc.not = icmp eq i64 %6, 0
-  br i1 %trunc.not, label %7, label %14
+  %trunc = trunc i64 %6 to i1
+  br i1 %trunc, label %14, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1815,8 +1815,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h79c194c208b61acc
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !448, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -1877,8 +1877,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h7b4a0e3500c205df
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !457, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -1939,8 +1939,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h83227d805056b24e
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !466, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -2001,8 +2001,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h991c62f1dc1a95a7
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !475, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -2063,8 +2063,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hbb2c26315a092f4f
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !484, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -2125,8 +2125,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hcc92cf9116842f8b
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !493, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -2187,8 +2187,8 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hd47b527f80d84611
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !502, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i.i, label %8, label %.noexc.thread
+  %trunc.i.i = trunc i64 %7 to i1
+  br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hfbf11dfd3c200ca5E.llvm.15446807259584384000"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)

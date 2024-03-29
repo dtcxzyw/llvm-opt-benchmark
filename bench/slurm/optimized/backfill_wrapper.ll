@@ -37,15 +37,14 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @init() local_unnamed_addr #0 {
   %1 = alloca %union.pthread_attr_t, align 8
   %2 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 9), align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %45
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %45, label %4
 
 4:                                                ; preds = %0
   tail call void (ptr, ...) @sched_verbose(ptr noundef nonnull @.str) #5
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @thread_flag_mutex) #5
-  %.not25 = icmp eq i32 %5, 0
-  br i1 %.not25, label %8, label %6
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = tail call ptr @__errno_location() #6
@@ -55,8 +54,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 8:                                                ; preds = %4
   %9 = load i64, ptr @backfill_thread, align 8
-  %.not26 = icmp eq i64 %9, 0
-  br i1 %.not26, label %18, label %10
+  %.not25 = icmp eq i64 %9, 0
+  br i1 %.not25, label %18, label %10
 
 10:                                               ; preds = %8
   %11 = tail call i32 @get_log_level() #5
@@ -69,8 +68,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 14:                                               ; preds = %10, %13
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @thread_flag_mutex) #5
-  %.not33 = icmp eq i32 %15, 0
-  br i1 %.not33, label %45, label %16
+  %.not32 = icmp eq i32 %15, 0
+  br i1 %.not32, label %45, label %16
 
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #6
@@ -80,8 +79,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 18:                                               ; preds = %8
   %19 = call i32 @pthread_attr_init(ptr noundef nonnull %1) #5
-  %.not27 = icmp eq i32 %19, 0
-  br i1 %.not27, label %22, label %20
+  %.not26 = icmp eq i32 %19, 0
+  br i1 %.not26, label %22, label %20
 
 20:                                               ; preds = %18
   %21 = tail call ptr @__errno_location() #6
@@ -91,8 +90,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 22:                                               ; preds = %18
   %23 = call i32 @pthread_attr_setscope(ptr noundef nonnull %1, i32 noundef 0) #5
-  %.not28 = icmp eq i32 %23, 0
-  br i1 %.not28, label %27, label %24
+  %.not27 = icmp eq i32 %23, 0
+  br i1 %.not27, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @__errno_location() #6
@@ -102,8 +101,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 27:                                               ; preds = %24, %22
   %28 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %1, i64 noundef 1048576) #5
-  %.not29 = icmp eq i32 %28, 0
-  br i1 %.not29, label %32, label %29
+  %.not28 = icmp eq i32 %28, 0
+  br i1 %.not28, label %32, label %29
 
 29:                                               ; preds = %27
   %30 = tail call ptr @__errno_location() #6
@@ -113,8 +112,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 32:                                               ; preds = %27, %29
   %33 = call i32 @pthread_create(ptr noundef nonnull @backfill_thread, ptr noundef nonnull %1, ptr noundef nonnull @backfill_agent, ptr noundef null) #5
-  %.not30 = icmp eq i32 %33, 0
-  br i1 %.not30, label %36, label %34
+  %.not29 = icmp eq i32 %33, 0
+  br i1 %.not29, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__errno_location() #6
@@ -124,8 +123,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 36:                                               ; preds = %32
   %37 = call i32 @pthread_attr_destroy(ptr noundef nonnull %1) #5
-  %.not31 = icmp eq i32 %37, 0
-  br i1 %.not31, label %41, label %38
+  %.not30 = icmp eq i32 %37, 0
+  br i1 %.not30, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = tail call ptr @__errno_location() #6
@@ -135,8 +134,8 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 
 41:                                               ; preds = %36, %38
   %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @thread_flag_mutex) #5
-  %.not32 = icmp eq i32 %42, 0
-  br i1 %.not32, label %45, label %43
+  %.not31 = icmp eq i32 %42, 0
+  br i1 %.not31, label %45, label %43
 
 43:                                               ; preds = %41
   %44 = tail call ptr @__errno_location() #6

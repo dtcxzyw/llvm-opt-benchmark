@@ -100,15 +100,14 @@ entry:
   store i64 %bandwidth.coerce, ptr %bandwidth, align 8
   %call = call noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(8) %bandwidth, i64 %rtt.coerce0, i64 %rtt.coerce1)
   %0 = load i8, ptr @FLAGS_quic_no_lower_bw_resumption_limit, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
-  %2 = load i64, ptr %min_congestion_window_, align 8
-  %3 = call i64 @llvm.umin.i64(i64 %call, i64 292000)
-  %4 = call i64 @llvm.umax.i64(i64 %2, i64 %3)
+  %1 = load i64, ptr %min_congestion_window_, align 8
+  %2 = call i64 @llvm.umin.i64(i64 %call, i64 292000)
+  %3 = call i64 @llvm.umax.i64(i64 %1, i64 %2)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -117,9 +116,9 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi i64 [ %.sroa.speculated, %if.else ], [ %4, %if.then ]
-  %5 = getelementptr inbounds i8, ptr %this, i64 240
-  store i64 %.sink, ptr %5, align 8
+  %.sroa.speculated.sink = phi i64 [ %3, %if.then ], [ %.sroa.speculated, %if.else ]
+  %4 = getelementptr inbounds i8, ptr %this, i64 240
+  store i64 %.sroa.speculated.sink, ptr %4, align 8
   ret void
 }
 
@@ -179,72 +178,69 @@ entry:
 if.then:                                          ; preds = %entry
   %last_cutback_exited_slowstart_ = getelementptr inbounds i8, ptr %this, i64 137
   %1 = load i8, ptr %last_cutback_exited_slowstart_, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then
   %stats_ = getelementptr inbounds i8, ptr %this, i64 96
-  %3 = load ptr, ptr %stats_, align 8
-  %slowstart_packets_lost = getelementptr inbounds i8, ptr %3, i64 112
-  %4 = load i64, ptr %slowstart_packets_lost, align 8
-  %inc = add i64 %4, 1
+  %2 = load ptr, ptr %stats_, align 8
+  %slowstart_packets_lost = getelementptr inbounds i8, ptr %2, i64 112
+  %3 = load i64, ptr %slowstart_packets_lost, align 8
+  %inc = add i64 %3, 1
   store i64 %inc, ptr %slowstart_packets_lost, align 8
-  %5 = load ptr, ptr %stats_, align 8
-  %slowstart_bytes_lost = getelementptr inbounds i8, ptr %5, i64 120
-  %6 = load i64, ptr %slowstart_bytes_lost, align 8
-  %add = add i64 %6, %lost_bytes
+  %4 = load ptr, ptr %stats_, align 8
+  %slowstart_bytes_lost = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = load i64, ptr %slowstart_bytes_lost, align 8
+  %add = add i64 %5, %lost_bytes
   store i64 %add, ptr %slowstart_bytes_lost, align 8
   %slow_start_large_reduction_ = getelementptr inbounds i8, ptr %this, i64 138
-  %7 = load i8, ptr %slow_start_large_reduction_, align 2
-  %8 = and i8 %7, 1
-  %tobool4.not = icmp eq i8 %8, 0
-  br i1 %tobool4.not, label %return, label %if.then5
+  %6 = load i8, ptr %slow_start_large_reduction_, align 2
+  %tobool4 = trunc i8 %6 to i1
+  br i1 %tobool4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then2
   %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
-  %9 = load i64, ptr %congestion_window_, align 8
-  %sub = sub i64 %9, %lost_bytes
+  %7 = load i64, ptr %congestion_window_, align 8
+  %sub = sub i64 %7, %lost_bytes
   %min_slow_start_exit_window_ = getelementptr inbounds i8, ptr %this, i64 288
-  %10 = load i64, ptr %min_slow_start_exit_window_, align 8
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %sub, i64 %10)
+  %8 = load i64, ptr %min_slow_start_exit_window_, align 8
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %sub, i64 %8)
   store i64 %.sroa.speculated, ptr %congestion_window_, align 8
   br label %return.sink.split
 
 if.end9:                                          ; preds = %entry
   %stats_10 = getelementptr inbounds i8, ptr %this, i64 96
-  %11 = load ptr, ptr %stats_10, align 8
-  %tcp_loss_events = getelementptr inbounds i8, ptr %11, i64 232
-  %12 = load i32, ptr %tcp_loss_events, align 8
-  %inc11 = add i32 %12, 1
+  %9 = load ptr, ptr %stats_10, align 8
+  %tcp_loss_events = getelementptr inbounds i8, ptr %9, i64 232
+  %10 = load i32, ptr %tcp_loss_events, align 8
+  %inc11 = add i32 %10, 1
   store i32 %inc11, ptr %tcp_loss_events, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
-  %13 = load ptr, ptr %vfn, align 8
-  %call12 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %11 = load ptr, ptr %vfn, align 8
+  %call12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(141) %this)
   %last_cutback_exited_slowstart_13 = getelementptr inbounds i8, ptr %this, i64 137
   %frombool = zext i1 %call12 to i8
   store i8 %frombool, ptr %last_cutback_exited_slowstart_13, align 1
   %vtable14 = load ptr, ptr %this, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 104
-  %14 = load ptr, ptr %vfn15, align 8
-  %call16 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %12 = load ptr, ptr %vfn15, align 8
+  %call16 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end9
-  %15 = load ptr, ptr %stats_10, align 8
-  %slowstart_packets_lost19 = getelementptr inbounds i8, ptr %15, i64 112
-  %16 = load i64, ptr %slowstart_packets_lost19, align 8
-  %inc20 = add i64 %16, 1
+  %13 = load ptr, ptr %stats_10, align 8
+  %slowstart_packets_lost19 = getelementptr inbounds i8, ptr %13, i64 112
+  %14 = load i64, ptr %slowstart_packets_lost19, align 8
+  %inc20 = add i64 %14, 1
   store i64 %inc20, ptr %slowstart_packets_lost19, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end9
   %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
-  %17 = load i8, ptr %no_prr_, align 4
-  %18 = and i8 %17, 1
-  %tobool22.not = icmp eq i8 %18, 0
-  br i1 %tobool22.not, label %if.then23, label %if.end24
+  %15 = load i8, ptr %no_prr_, align 4
+  %tobool22 = trunc i8 %15 to i1
+  br i1 %tobool22, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
   %prr_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -253,49 +249,47 @@ if.then23:                                        ; preds = %if.end21
 
 if.end24:                                         ; preds = %if.then23, %if.end21
   %slow_start_large_reduction_25 = getelementptr inbounds i8, ptr %this, i64 138
-  %19 = load i8, ptr %slow_start_large_reduction_25, align 2
-  %20 = and i8 %19, 1
-  %tobool26.not = icmp eq i8 %20, 0
-  br i1 %tobool26.not, label %if.else46, label %land.lhs.true
+  %16 = load i8, ptr %slow_start_large_reduction_25, align 2
+  %tobool26 = trunc i8 %16 to i1
+  br i1 %tobool26, label %land.lhs.true, label %if.else46
 
 land.lhs.true:                                    ; preds = %if.end24
   %vtable27 = load ptr, ptr %this, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 104
-  %21 = load ptr, ptr %vfn28, align 8
-  %call29 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %17 = load ptr, ptr %vfn28, align 8
+  %call29 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call29, label %if.end36, label %if.else46
 
 if.end36:                                         ; preds = %land.lhs.true
   %congestion_window_37 = getelementptr inbounds i8, ptr %this, i64 240
-  %22 = load i64, ptr %congestion_window_37, align 8
+  %18 = load i64, ptr %congestion_window_37, align 8
   %initial_tcp_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 272
-  %23 = load i64, ptr %initial_tcp_congestion_window_, align 8
-  %mul = shl i64 %23, 1
-  %cmp38.not = icmp ult i64 %22, %mul
+  %19 = load i64, ptr %initial_tcp_congestion_window_, align 8
+  %mul = shl i64 %19, 1
+  %cmp38.not = icmp ult i64 %18, %mul
   br i1 %cmp38.not, label %if.end42, label %if.then39
 
 if.then39:                                        ; preds = %if.end36
-  %div3 = lshr i64 %22, 1
+  %div3 = lshr i64 %18, 1
   %min_slow_start_exit_window_41 = getelementptr inbounds i8, ptr %this, i64 288
   store i64 %div3, ptr %min_slow_start_exit_window_41, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then39, %if.end36
-  %sub44 = add i64 %22, -1460
+  %sub44 = add i64 %18, -1460
   store i64 %sub44, ptr %congestion_window_37, align 8
   br label %if.end59
 
 if.else46:                                        ; preds = %land.lhs.true, %if.end24
   %reno_ = getelementptr inbounds i8, ptr %this, i64 104
-  %24 = load i8, ptr %reno_, align 8
-  %25 = and i8 %24, 1
-  %tobool47.not = icmp eq i8 %25, 0
-  br i1 %tobool47.not, label %if.else54, label %if.then48
+  %20 = load i8, ptr %reno_, align 8
+  %tobool47 = trunc i8 %20 to i1
+  br i1 %tobool47, label %if.then48, label %if.else54
 
 if.then48:                                        ; preds = %if.else46
   %congestion_window_49 = getelementptr inbounds i8, ptr %this, i64 240
-  %26 = load i64, ptr %congestion_window_49, align 8
-  %conv = uitofp i64 %26 to float
+  %21 = load i64, ptr %congestion_window_49, align 8
+  %conv = uitofp i64 %21 to float
   %call50 = tail call noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull align 8 dereferenceable(141) %this)
   %mul51 = fmul float %call50, %conv
   %conv52 = fptoui float %mul51 to i64
@@ -305,30 +299,30 @@ if.then48:                                        ; preds = %if.else46
 if.else54:                                        ; preds = %if.else46
   %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
   %congestion_window_55 = getelementptr inbounds i8, ptr %this, i64 240
-  %27 = load i64, ptr %congestion_window_55, align 8
-  %call56 = tail call noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, i64 noundef %27)
+  %22 = load i64, ptr %congestion_window_55, align 8
+  %call56 = tail call noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, i64 noundef %22)
   store i64 %call56, ptr %congestion_window_55, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then48, %if.else54, %if.end42
-  %28 = phi i64 [ %conv52, %if.then48 ], [ %call56, %if.else54 ], [ %sub44, %if.end42 ]
+  %23 = phi i64 [ %conv52, %if.then48 ], [ %call56, %if.else54 ], [ %sub44, %if.end42 ]
   %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
-  %29 = load i64, ptr %min_congestion_window_, align 8
-  %cmp61 = icmp ult i64 %28, %29
+  %24 = load i64, ptr %min_congestion_window_, align 8
+  %cmp61 = icmp ult i64 %23, %24
   br i1 %cmp61, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %if.end59
   %congestion_window_60 = getelementptr inbounds i8, ptr %this, i64 240
-  store i64 %29, ptr %congestion_window_60, align 8
+  store i64 %24, ptr %congestion_window_60, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then62, %if.end59
-  %30 = phi i64 [ %29, %if.then62 ], [ %28, %if.end59 ]
+  %25 = phi i64 [ %24, %if.then62 ], [ %23, %if.end59 ]
   %slowstart_threshold_67 = getelementptr inbounds i8, ptr %this, i64 264
-  store i64 %30, ptr %slowstart_threshold_67, align 8
+  store i64 %25, ptr %slowstart_threshold_67, align 8
   %largest_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 112
-  %31 = load i64, ptr %largest_sent_packet_number_, align 8
-  store i64 %31, ptr %largest_sent_at_last_cutback_, align 8
+  %26 = load i64, ptr %largest_sent_packet_number_, align 8
+  store i64 %26, ptr %largest_sent_at_last_cutback_, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end65, %if.then5
@@ -430,42 +424,41 @@ if.then17:                                        ; preds = %if.end13
 if.end19:                                         ; preds = %if.end13
   %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load i8, ptr %reno_, align 8
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %if.else, label %if.then20
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end19
   %num_acked_packets_ = getelementptr inbounds i8, ptr %this, i64 232
-  %8 = load i64, ptr %num_acked_packets_, align 8
-  %inc = add i64 %8, 1
+  %7 = load i64, ptr %num_acked_packets_, align 8
+  %inc = add i64 %7, 1
   store i64 %inc, ptr %num_acked_packets_, align 8
   %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
-  %9 = load i32, ptr %num_connections_, align 4
-  %conv = zext i32 %9 to i64
+  %8 = load i32, ptr %num_connections_, align 4
+  %conv = zext i32 %8 to i64
   %mul = mul i64 %inc, %conv
-  %10 = load i64, ptr %congestion_window_, align 8
-  %div = udiv i64 %10, 1460
+  %9 = load i64, ptr %congestion_window_, align 8
+  %div = udiv i64 %9, 1460
   %cmp23.not = icmp ult i64 %mul, %div
   br i1 %cmp23.not, label %if.end37, label %if.then24
 
 if.then24:                                        ; preds = %if.then20
-  %add26 = add i64 %10, 1460
+  %add26 = add i64 %9, 1460
   store i64 %add26, ptr %congestion_window_, align 8
   store i64 0, ptr %num_acked_packets_, align 8
   br label %if.end37
 
 if.else:                                          ; preds = %if.end19
   %cubic_31 = getelementptr inbounds i8, ptr %this, i64 144
-  %11 = load i64, ptr %congestion_window_, align 8
+  %10 = load i64, ptr %congestion_window_, align 8
   %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
-  %12 = load ptr, ptr %rtt_stats_, align 8
-  %min_rtt_.i = getelementptr inbounds i8, ptr %12, i64 16
+  %11 = load ptr, ptr %rtt_stats_, align 8
+  %min_rtt_.i = getelementptr inbounds i8, ptr %11, i64 16
   %retval.sroa.0.0.copyload.i = load i64, ptr %min_rtt_.i, align 8
-  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
+  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 24
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.min_rtt_.sroa_idx.i, align 8
-  %call34 = call noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_31, i64 noundef %acked_bytes, i64 noundef %11, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i)
-  %13 = load i64, ptr %max_congestion_window_, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %call34, i64 %13)
+  %call34 = call noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_31, i64 noundef %acked_bytes, i64 noundef %10, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i)
+  %12 = load i64, ptr %max_congestion_window_, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %call34, i64 %12)
   store i64 %.sroa.speculated, ptr %congestion_window_, align 8
   br label %if.end37
 
@@ -531,9 +524,8 @@ define dso_local noundef i32 @_ZNK3net19TcpCubicSenderBytes24GetCongestionContro
 entry:
   %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %reno_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, i32 1, i32 3
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, i32 3, i32 1
   ret i32 %cond
 }
 

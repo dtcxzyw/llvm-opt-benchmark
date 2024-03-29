@@ -94,9 +94,8 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
 43:                                               ; preds = %34
   %44 = getelementptr inbounds i8, ptr %38, i64 8
   %45 = load i8, ptr @opal_uses_threads, align 1
-  %46 = and i8 %45, 1
-  %.not.i.i.i.i = icmp eq i8 %46, 0
-  br i1 %.not.i.i.i.i, label %49, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
   %48 = atomicrmw volatile add ptr %44, i32 1 monotonic, align 4

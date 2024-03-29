@@ -77,9 +77,8 @@ define internal void @__ompi_datatype_release(ptr noundef %0) #1 {
   %20 = load ptr, ptr %16, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i8, ptr @opal_uses_threads, align 1
-  %23 = and i8 %22, 1
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %27, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
   %25 = atomicrmw volatile add ptr %21, i32 -1 monotonic, align 4
@@ -113,8 +112,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %24, %27
   tail call void %38(ptr noundef nonnull %33) #6
   %39 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %40 = load ptr, ptr %39, align 8
-  %.not.i19 = icmp eq ptr %40, null
-  br i1 %.not.i19, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %40, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %16, align 8
@@ -194,9 +193,8 @@ define noundef i32 @ompi_datatype_destroy(ptr nocapture noundef %0) local_unname
 9:                                                ; preds = %1, %5
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i8, ptr @opal_uses_threads, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
   %14 = atomicrmw volatile add ptr %10, i32 -1 monotonic, align 4
@@ -229,8 +227,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %13, %16
   tail call void %26(ptr noundef nonnull %2) #6
   %27 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %28 = load ptr, ptr %27, align 8
-  %.not.i9 = icmp eq ptr %28, null
-  br i1 %.not.i9, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   tail call void @free(ptr noundef %2) #6

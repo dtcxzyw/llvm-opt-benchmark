@@ -94,11 +94,10 @@ if.end:                                           ; preds = %entry, %if.then
   %3 = load i32, ptr %formatWidth, align 8
   %padPosition = getelementptr inbounds i8, ptr %properties, i64 384
   %4 = load i8, ptr %padPosition, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
+  %tobool.i = trunc i8 %4 to i1
   %fValue.i = getelementptr inbounds i8, ptr %properties, i64 388
-  %6 = load i32, ptr %fValue.i, align 4
-  %cond.i4 = select i1 %tobool.not.i, i32 %6, i32 0
+  %5 = load i32, ptr %fValue.i, align 4
+  %cond.i4 = select i1 %tobool.i, i32 0, i32 %5
   call void @_ZN6icu_756number4impl6PadderC1Eii24UNumberFormatPadPosition(ptr noundef nonnull align 4 dereferenceable(12) %retval, i32 noundef %padCp.0, i32 noundef %3, i32 noundef %cond.i4)
   %retval.coerce.sroa.0.0.copyload = load i64, ptr %retval, align 8
   %retval.coerce.sroa.2.0.retval.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8

@@ -159,39 +159,34 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
   %vm_running.i.i = getelementptr inbounds i8, ptr %call.i, i64 434
   %0 = load i8, ptr %vm_running.i.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %virtio_device_should_start.exit.i, label %if.end.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %virtio_device_should_start.exit.i
 
 if.end.i.i:                                       ; preds = %entry
   %use_started.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 438
-  %2 = load i8, ptr %use_started.i.i.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %virtio_device_should_start.exit.i, label %if.then.i.i.i
+  %1 = load i8, ptr %use_started.i.i.i, align 2
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %virtio_device_should_start.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %started.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 439
-  %4 = load i8, ptr %started.i.i.i, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
+  %2 = load i8, ptr %started.i.i.i, align 1
+  %tobool1.i.i.i = trunc i8 %2 to i1
   br label %virtio_device_should_start.exit.i
 
-virtio_device_should_start.exit.i:                ; preds = %if.then.i.i.i, %if.end.i.i, %entry
-  %retval.0.i.i = phi i1 [ false, %entry ], [ %6, %if.then.i.i.i ], [ false, %if.end.i.i ]
+virtio_device_should_start.exit.i:                ; preds = %if.end.i.i, %if.then.i.i.i, %entry
+  %retval.0.i.i = phi i1 [ false, %entry ], [ %tobool1.i.i.i, %if.then.i.i.i ], [ false, %if.end.i.i ]
   %connected.i = getelementptr inbounds i8, ptr %call.i.i, i64 1264
-  %7 = load i8, ptr %connected.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i, label %vu_scmi_set_status.exit, label %if.end.i
+  %3 = load i8, ptr %connected.i, align 8
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.end.i, label %vu_scmi_set_status.exit
 
 if.end.i:                                         ; preds = %virtio_device_should_start.exit.i
-  %9 = getelementptr i8, ptr %call.i.i, i64 1088
-  %vhost_dev.val.i = load i8, ptr %9, align 8
-  %10 = and i8 %vhost_dev.val.i, 1
-  %tobool.i.i = icmp ne i8 %10, 0
-  %11 = xor i1 %retval.0.i.i, %tobool.i.i
-  br i1 %11, label %if.end7.i, label %vu_scmi_set_status.exit
+  %4 = getelementptr i8, ptr %call.i.i, i64 1088
+  %vhost_dev.val.i = load i8, ptr %4, align 8
+  %tobool.i6.i = trunc i8 %vhost_dev.val.i to i1
+  %5 = xor i1 %retval.0.i.i, %tobool.i6.i
+  br i1 %5, label %if.end7.i, label %vu_scmi_set_status.exit
 
 if.end7.i:                                        ; preds = %if.end.i
   br i1 %retval.0.i.i, label %if.then9.i, label %if.else.i
@@ -208,14 +203,14 @@ vu_scmi_set_status.exit:                          ; preds = %virtio_device_shoul
   %vhost_dev = getelementptr inbounds i8, ptr %call.i4, i64 584
   tail call void @vhost_dev_cleanup(ptr noundef nonnull %vhost_dev) #4
   %cmd_vq.i = getelementptr inbounds i8, ptr %call.i4, i64 1248
-  %12 = load ptr, ptr %cmd_vq.i, align 8
-  tail call void @virtio_delete_queue(ptr noundef %12) #4
+  %6 = load ptr, ptr %cmd_vq.i, align 8
+  tail call void @virtio_delete_queue(ptr noundef %6) #4
   %event_vq.i = getelementptr inbounds i8, ptr %call.i4, i64 1256
-  %13 = load ptr, ptr %event_vq.i, align 8
-  tail call void @virtio_delete_queue(ptr noundef %13) #4
+  %7 = load ptr, ptr %event_vq.i, align 8
+  tail call void @virtio_delete_queue(ptr noundef %7) #4
   %vqs.i = getelementptr inbounds i8, ptr %call.i4, i64 1016
-  %14 = load ptr, ptr %vqs.i, align 8
-  tail call void @g_free(ptr noundef %14) #4
+  %8 = load ptr, ptr %vqs.i, align 8
+  tail call void @g_free(ptr noundef %8) #4
   tail call void @virtio_cleanup(ptr noundef nonnull %call.i) #4
   %vhost_user.i = getelementptr inbounds i8, ptr %call.i4, i64 1224
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user.i) #4
@@ -237,47 +232,39 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
   %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %virtio_device_should_start.exit, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %virtio_device_should_start.exit
 
 if.end.i:                                         ; preds = %entry
   %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
-  %2 = load i8, ptr %use_started.i.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %1 = load i8, ptr %use_started.i.i, align 2
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
-  %4 = load i8, ptr %started.i.i, align 1
-  %5 = and i8 %4, 1
-  br label %virtio_device_started.exit.i
-
-if.end.i.i:                                       ; preds = %if.end.i
-  %6 = and i8 %status, 4
-  br label %virtio_device_started.exit.i
-
-virtio_device_started.exit.i:                     ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.in.i.i = phi i8 [ %5, %if.then.i.i ], [ %6, %if.end.i.i ]
-  %retval.0.i.i = icmp ne i8 %retval.0.in.i.i, 0
+  %2 = load i8, ptr %started.i.i, align 1
+  %tobool1.i.i = trunc i8 %2 to i1
   br label %virtio_device_should_start.exit
 
-virtio_device_should_start.exit:                  ; preds = %entry, %virtio_device_started.exit.i
-  %retval.0.i = phi i1 [ %retval.0.i.i, %virtio_device_started.exit.i ], [ false, %entry ]
+if.end.i.i:                                       ; preds = %if.end.i
+  %3 = and i8 %status, 4
+  %tobool2.i.i = icmp ne i8 %3, 0
+  br label %virtio_device_should_start.exit
+
+virtio_device_should_start.exit:                  ; preds = %entry, %if.then.i.i, %if.end.i.i
+  %retval.0.i = phi i1 [ false, %entry ], [ %tobool1.i.i, %if.then.i.i ], [ %tobool2.i.i, %if.end.i.i ]
   %connected = getelementptr inbounds i8, ptr %call.i, i64 1264
-  %7 = load i8, ptr %connected, align 8
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end11, label %if.end
+  %4 = load i8, ptr %connected, align 8
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.end, label %if.end11
 
 if.end:                                           ; preds = %virtio_device_should_start.exit
-  %9 = getelementptr i8, ptr %call.i, i64 1088
-  %vhost_dev.val = load i8, ptr %9, align 8
-  %10 = and i8 %vhost_dev.val, 1
-  %tobool.i = icmp ne i8 %10, 0
-  %11 = xor i1 %retval.0.i, %tobool.i
-  br i1 %11, label %if.end7, label %if.end11
+  %5 = getelementptr i8, ptr %call.i, i64 1088
+  %vhost_dev.val = load i8, ptr %5, align 8
+  %tobool.i6 = trunc i8 %vhost_dev.val to i1
+  %6 = xor i1 %retval.0.i, %tobool.i6
+  br i1 %6, label %if.end7, label %if.end11
 
 if.end7:                                          ; preds = %if.end
   br i1 %retval.0.i, label %if.then9, label %if.else
@@ -357,36 +344,30 @@ sw.bb:                                            ; preds = %entry
   %call.i5.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
   %connected.i = getelementptr inbounds i8, ptr %call.i5.i, i64 1264
   %0 = load i8, ptr %connected.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %sw.epilog
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
   store i8 1, ptr %connected.i, align 8
   %use_started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 438
-  %2 = load i8, ptr %use_started.i.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %1 = load i8, ptr %use_started.i.i, align 2
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %virtio_device_started.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 439
-  %4 = load i8, ptr %started.i.i, align 1
-  %5 = and i8 %4, 1
-  br label %virtio_device_started.exit.i
+  %2 = load i8, ptr %started.i.i, align 1
+  %tobool1.i.i = trunc i8 %2 to i1
+  br i1 %tobool1.i.i, label %if.then4.i, label %sw.epilog
 
-if.end.i.i:                                       ; preds = %if.end.i
+virtio_device_started.exit.i:                     ; preds = %if.end.i
   %status.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
-  %6 = load i8, ptr %status.i, align 8
-  %7 = and i8 %6, 4
-  br label %virtio_device_started.exit.i
+  %3 = load i8, ptr %status.i, align 8
+  %4 = and i8 %3, 4
+  %tobool2.i.not.i = icmp eq i8 %4, 0
+  br i1 %tobool2.i.not.i, label %sw.epilog, label %if.then4.i
 
-virtio_device_started.exit.i:                     ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.in.i.i = phi i8 [ %5, %if.then.i.i ], [ %7, %if.end.i.i ]
-  %retval.0.i.not.i = icmp eq i8 %retval.0.in.i.i, 0
-  br i1 %retval.0.i.not.i, label %sw.epilog, label %if.then4.i
-
-if.then4.i:                                       ; preds = %virtio_device_started.exit.i
+if.then4.i:                                       ; preds = %virtio_device_started.exit.i, %if.then.i.i
   tail call fastcc void @vu_scmi_start(ptr noundef nonnull %call.i.i)
   br label %sw.epilog
 
@@ -394,24 +375,22 @@ sw.bb1:                                           ; preds = %entry
   %call.i.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #4
   %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
   %connected.i3 = getelementptr inbounds i8, ptr %call.i4.i, i64 1264
-  %8 = load i8, ptr %connected.i3, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i4 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i4, label %sw.epilog, label %if.end.i5
+  %5 = load i8, ptr %connected.i3, align 8
+  %tobool.i4 = trunc i8 %5 to i1
+  br i1 %tobool.i4, label %if.end.i5, label %sw.epilog
 
 if.end.i5:                                        ; preds = %sw.bb1
   store i8 0, ptr %connected.i3, align 8
-  %10 = getelementptr i8, ptr %call.i4.i, i64 1088
-  %vhost_dev.val.i = load i8, ptr %10, align 8
-  %11 = and i8 %vhost_dev.val.i, 1
-  %tobool.i.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.not.i, label %sw.epilog, label %if.then4.i6
+  %6 = getelementptr i8, ptr %call.i4.i, i64 1088
+  %vhost_dev.val.i = load i8, ptr %6, align 8
+  %tobool.i.i6 = trunc i8 %vhost_dev.val.i to i1
+  br i1 %tobool.i.i6, label %if.then4.i7, label %sw.epilog
 
-if.then4.i6:                                      ; preds = %if.end.i5
+if.then4.i7:                                      ; preds = %if.end.i5
   tail call fastcc void @vu_scmi_stop(ptr noundef %call.i.i2)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then4.i6, %if.end.i5, %sw.bb1, %if.then4.i, %virtio_device_started.exit.i, %sw.bb, %entry
+sw.epilog:                                        ; preds = %if.then4.i7, %if.end.i5, %sw.bb1, %if.then4.i, %virtio_device_started.exit.i, %if.then.i.i, %sw.bb, %entry
   ret void
 }
 
@@ -534,25 +513,24 @@ entry:
   %vhost_dev5 = getelementptr inbounds i8, ptr %call.i, i64 584
   %started_vu = getelementptr inbounds i8, ptr %call.i, i64 1265
   %0 = load i8, ptr %started_vu, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %started_vu, align 1
   %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
-  %2 = load ptr, ptr %set_guest_notifiers, align 8
-  %tobool7.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %set_guest_notifiers, align 8
+  %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   tail call void @vhost_dev_stop(ptr noundef nonnull %vhost_dev5, ptr noundef %vdev, i1 noundef zeroext true) #4
-  %3 = load ptr, ptr %set_guest_notifiers, align 8
+  %2 = load ptr, ptr %set_guest_notifiers, align 8
   %parent = getelementptr inbounds i8, ptr %call.i12, i64 40
-  %4 = load ptr, ptr %parent, align 8
+  %3 = load ptr, ptr %parent, align 8
   %nvqs = getelementptr inbounds i8, ptr %call.i, i64 1024
-  %5 = load i32, ptr %nvqs, align 8
-  %call11 = tail call i32 %3(ptr noundef %4, i32 noundef %5, i1 noundef zeroext false) #4
+  %4 = load i32, ptr %nvqs, align 8
+  %call11 = tail call i32 %2(ptr noundef %3, i32 noundef %4, i1 noundef zeroext false) #4
   %cmp = icmp slt i32 %call11, 0
   br i1 %cmp, label %if.then12, label %if.end13
 

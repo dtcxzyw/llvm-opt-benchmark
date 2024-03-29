@@ -85,9 +85,8 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
 
 19:                                               ; preds = %12
   %20 = load i8, ptr %3, align 1
-  %21 = and i8 %20, 1
-  %.not33 = icmp eq i8 %21, 0
-  br i1 %.not33, label %65, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %65
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %7, align 8
@@ -99,15 +98,15 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
 24:                                               ; preds = %22
   %.val = load ptr, ptr %6, align 8
   %25 = getelementptr i8, ptr %0, i64 24
-  %.val38 = load ptr, ptr %25, align 8
-  %26 = getelementptr i8, ptr %.val38, i64 672
-  %.val38.val = load i32, ptr %26, align 8
+  %.val37 = load ptr, ptr %25, align 8
+  %26 = getelementptr i8, ptr %.val37, i64 672
+  %.val37.val = load i32, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 2376
   %28 = load ptr, ptr %27, align 8
   %.not12.i = icmp eq ptr %28, null
   %29 = getelementptr inbounds i8, ptr %1, i64 5092
   %.0.i = select i1 %.not12.i, ptr %29, ptr %28
-  %30 = and i32 %.val38.val, 4096
+  %30 = and i32 %.val37.val, 4096
   %.not.i = icmp eq i32 %30, 0
   %31 = select i1 %.not.i, ptr @.str.3, ptr @.str.2
   %32 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -118,8 +117,8 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %32, ptr noundef nonnull @.str.4, ptr noundef nonnull %31, ptr noundef nonnull %.0.i, ptr noundef nonnull %33, i32 noundef %35, i32 noundef %37) #3
   store i32 %38, ptr %5, align 4
-  %.not34 = icmp eq i32 %38, 0
-  br i1 %.not34, label %39, label %.thread40
+  %.not33 = icmp eq i32 %38, 0
+  br i1 %.not33, label %39, label %.thread39
 
 39:                                               ; preds = %24
   store i32 1, ptr %7, align 8
@@ -128,8 +127,8 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
 40:                                               ; preds = %39, %22
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   %42 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %41) #3
-  %.not35 = icmp eq i64 %42, 0
-  br i1 %.not35, label %53, label %43
+  %.not34 = icmp eq i64 %42, 0
+  br i1 %.not34, label %53, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %0, i64 32
@@ -143,8 +142,8 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
   %50 = sub i64 %42, %47
   %51 = call i32 @Curl_dyn_tail(ptr noundef nonnull %41, i64 noundef %50) #3
   %52 = call i64 @Curl_dyn_len(ptr noundef nonnull %41) #3
-  %.not36 = icmp eq i64 %52, 0
-  br i1 %.not36, label %53, label %.thread
+  %.not35 = icmp eq i64 %52, 0
+  br i1 %.not35, label %53, label %.thread
 
 53:                                               ; preds = %49, %40
   store i32 2, ptr %7, align 8
@@ -157,16 +156,16 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
 
 56:                                               ; preds = %43, %54
   %.pr = load i32, ptr %5, align 4
-  %.not37 = icmp eq i32 %.pr, 0
-  br i1 %.not37, label %.thread, label %.thread40
+  %.not36 = icmp eq i32 %.pr, 0
+  br i1 %.not36, label %.thread, label %.thread39
 
 .thread:                                          ; preds = %49, %56
   %57 = load i32, ptr %7, align 8
   %58 = icmp eq i32 %57, 2
   %59 = zext i1 %58 to i8
-  br label %.thread40
+  br label %.thread39
 
-.thread40:                                        ; preds = %24, %.thread, %56
+.thread39:                                        ; preds = %24, %.thread, %56
   %60 = phi i32 [ %.pr, %56 ], [ 0, %.thread ], [ %38, %24 ]
   %61 = phi i8 [ 0, %56 ], [ %59, %.thread ], [ 0, %24 ]
   store i8 %61, ptr %3, align 1
@@ -176,8 +175,8 @@ define internal i32 @cf_haproxy_connect(ptr nocapture noundef %0, ptr noundef %1
   store i8 %64, ptr %8, align 4
   br label %65
 
-65:                                               ; preds = %12, %19, %.thread40, %11
-  %.0 = phi i32 [ 0, %11 ], [ %60, %.thread40 ], [ 0, %19 ], [ %18, %12 ]
+65:                                               ; preds = %12, %19, %.thread39, %11
+  %.0 = phi i32 [ 0, %11 ], [ %60, %.thread39 ], [ 0, %19 ], [ %18, %12 ]
   ret i32 %.0
 }
 

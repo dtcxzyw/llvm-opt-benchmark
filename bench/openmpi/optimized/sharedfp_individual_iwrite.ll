@@ -108,9 +108,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %0, i64 160
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %18, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4) #4
@@ -136,8 +135,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
 
 28:                                               ; preds = %18
   %29 = tail call i32 @mca_sharedfp_individual_collaborate_data(ptr noundef nonnull %9, ptr noundef nonnull %0) #4
-  %.not72 = icmp eq i32 %29, 0
-  br i1 %.not72, label %30, label %95
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %30, label %95
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %0, i64 20
@@ -165,8 +164,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
   %48 = getelementptr inbounds i8, ptr %45, i64 152
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 %47(ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %.060, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %43, ptr noundef %49) #4
-  %.not73 = icmp eq i32 %50, 0
-  br i1 %.not73, label %51, label %.sink.split
+  %.not72 = icmp eq i32 %50, 0
+  br i1 %.not72, label %51, label %.sink.split
 
 51:                                               ; preds = %41
   %52 = load i32, ptr %31, align 4
@@ -189,9 +188,9 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
 .preheader:                                       ; preds = %.lr.ph, %54
   %.0.lcssa = phi i64 [ %55, %54 ], [ %68, %.lr.ph ]
   %60 = icmp sgt i32 %58, 0
-  br i1 %60, label %.lr.ph83.preheader, label %.loopexit
+  br i1 %60, label %.lr.ph82.preheader, label %.loopexit
 
-.lr.ph83.preheader:                               ; preds = %.preheader
+.lr.ph82.preheader:                               ; preds = %.preheader
   %61 = add nsw i32 %58, -1
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds i64, ptr %.060, i64 %62
@@ -202,18 +201,18 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %66 = phi i64 [ %56, %.lr.ph.preheader ], [ %69, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.079 = phi i64 [ %55, %.lr.ph.preheader ], [ %68, %.lr.ph ]
+  %.078 = phi i64 [ %55, %.lr.ph.preheader ], [ %68, %.lr.ph ]
   %67 = getelementptr inbounds i64, ptr %.060, i64 %indvars.iv
   %68 = load i64, ptr %67, align 8
-  %69 = add nsw i64 %66, %.079
+  %69 = add nsw i64 %66, %.078
   store i64 %69, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !4
 
-.loopexit:                                        ; preds = %.lr.ph83.preheader, %.preheader
-  %.lcssa81 = phi i64 [ %65, %.lr.ph83.preheader ], [ 0, %.preheader ]
-  store i64 %.lcssa81, ptr %6, align 8
+.loopexit:                                        ; preds = %.lr.ph82.preheader, %.preheader
+  %.lcssa80 = phi i64 [ %65, %.lr.ph82.preheader ], [ 0, %.preheader ]
+  store i64 %.lcssa80, ptr %6, align 8
   br label %70
 
 70:                                               ; preds = %.loopexit, %51
@@ -225,8 +224,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
   %76 = getelementptr inbounds i8, ptr %73, i64 248
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 %75(ptr noundef %.060, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %71, ptr noundef %77) #4
-  %.not74 = icmp eq i32 %78, 0
-  br i1 %.not74, label %79, label %.sink.split
+  %.not73 = icmp eq i32 %78, 0
+  br i1 %.not73, label %79, label %.sink.split
 
 79:                                               ; preds = %70
   %80 = load ptr, ptr %42, align 8
@@ -237,8 +236,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
   %85 = getelementptr inbounds i8, ptr %82, i64 120
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 %84(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %80, ptr noundef %86) #4
-  %.not75 = icmp eq i32 %87, 0
-  br i1 %.not75, label %88, label %.sink.split
+  %.not74 = icmp eq i32 %87, 0
+  br i1 %.not74, label %88, label %.sink.split
 
 88:                                               ; preds = %79
   %89 = load i64, ptr %6, align 8
@@ -247,8 +246,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
   %91 = getelementptr inbounds i8, ptr %0, i64 152
   %92 = call i32 @mca_common_ompio_file_iwrite_at_all(ptr noundef nonnull %0, i64 noundef %90, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %91) #4
   store i8 1, ptr %14, align 8
-  %.not76 = icmp eq i32 %92, 0
-  br i1 %.not76, label %93, label %.sink.split
+  %.not75 = icmp eq i32 %92, 0
+  br i1 %.not75, label %93, label %.sink.split
 
 .sink.split:                                      ; preds = %88, %79, %70, %41
   %.str.9.sink = phi ptr [ @.str.6, %41 ], [ @.str.7, %70 ], [ @.str.8, %79 ], [ @.str.9, %88 ]
@@ -258,8 +257,8 @@ define i32 @mca_sharedfp_individual_write_ordered_begin(ptr noundef %0, ptr noun
 
 93:                                               ; preds = %.sink.split, %88
   %.062 = phi i32 [ 0, %88 ], [ %.062.ph, %.sink.split ]
-  %.not77 = icmp eq ptr %.060, null
-  br i1 %.not77, label %95, label %94
+  %.not76 = icmp eq ptr %.060, null
+  br i1 %.not76, label %95, label %94
 
 94:                                               ; preds = %93
   call void @free(ptr noundef nonnull %.060) #4

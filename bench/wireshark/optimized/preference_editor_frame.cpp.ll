@@ -2079,7 +2079,7 @@ define void @_ZN21PreferenceEditorFrame22uintLineEditTextEditedERK7QString(ptr n
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef 1024)
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %19, i1 noundef zeroext true)
-  br label %45
+  br label %43
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2090,43 +2090,41 @@ define void @_ZN21PreferenceEditorFrame22uintLineEditTextEditedERK7QString(ptr n
 
 _ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %20
   store i8 0, ptr %3, align 1
-  br label %27
+  br label %26
 
 _ZNK7QString6toUIntEPbi.exit:                     ; preds = %20
   %.pre = load i8, ptr %3, align 1
-  %24 = and i8 %.pre, 1
-  %25 = icmp eq i8 %24, 0
-  %26 = trunc i64 %23 to i32
-  br i1 %25, label %27, label %31
+  %24 = trunc i8 %.pre to i1
+  %25 = trunc i64 %23 to i32
+  br i1 %24, label %30, label %26
 
-27:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit.thread, %_ZNK7QString6toUIntEPbi.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @prefs_get_uint_value_real(ptr noundef %29, i32 noundef 1)
-  br label %31
+26:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit.thread, %_ZNK7QString6toUIntEPbi.exit
+  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 @prefs_get_uint_value_real(ptr noundef %28, i32 noundef 1)
+  br label %30
 
-31:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit, %27
-  %.sink = phi i32 [ %30, %27 ], [ %26, %_ZNK7QString6toUIntEPbi.exit ]
-  %.sink5 = phi i32 [ 2, %27 ], [ 4, %_ZNK7QString6toUIntEPbi.exit ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %.sink, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
-  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable(185) %36, i32 noundef %.sink5)
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
-  %40 = load ptr, ptr %39, align 8
-  %41 = call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef 1024)
-  %42 = load i8, ptr %3, align 1
-  %43 = and i8 %42, 1
-  %44 = icmp ne i8 %43, 0
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %41, i1 noundef zeroext %44)
-  br label %45
+30:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit, %26
+  %.sink = phi i32 [ %29, %26 ], [ %25, %_ZNK7QString6toUIntEPbi.exit ]
+  %.sink4 = phi i32 [ 2, %26 ], [ 4, %_ZNK7QString6toUIntEPbi.exit ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %.sink, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = load ptr, ptr %34, align 8
+  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable(185) %35, i32 noundef %.sink4)
+  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %39 = load ptr, ptr %38, align 8
+  %40 = call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %39, i32 noundef 1024)
+  %41 = load i8, ptr %3, align 1
+  %42 = trunc i8 %41 to i1
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %40, i1 noundef zeroext %42)
+  br label %43
 
-45:                                               ; preds = %31, %7
+43:                                               ; preds = %30, %7
   ret void
 }
 

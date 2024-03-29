@@ -38,39 +38,37 @@ entry:
   store i8 0, ptr %wce, align 8
   %has_logical_block_size = getelementptr inbounds i8, ptr %opts, i64 56
   %0 = load i8, ptr %has_logical_block_size, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %logical_block_size1 = getelementptr inbounds i8, ptr %opts, i64 64
-  %2 = load i64, ptr %logical_block_size1, align 8
+  %1 = load i64, ptr %logical_block_size1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %logical_block_size.0 = phi i64 [ %2, %if.then ], [ 512, %entry ]
+  %logical_block_size.0 = phi i64 [ %1, %if.then ], [ 512, %entry ]
   %id = getelementptr inbounds i8, ptr %exp, i64 8
-  %3 = load ptr, ptr %id, align 8
-  call void @check_block_size(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef %logical_block_size.0, ptr noundef nonnull %local_err) #9
-  %4 = load ptr, ptr %local_err, align 8
-  %tobool2.not = icmp eq ptr %4, null
+  %2 = load ptr, ptr %id, align 8
+  call void @check_block_size(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef %logical_block_size.0, ptr noundef nonnull %local_err) #9
+  %3 = load ptr, ptr %local_err, align 8
+  %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #9
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #9
   br label %return
 
 if.end4:                                          ; preds = %if.end
   %has_num_queues = getelementptr inbounds i8, ptr %opts, i64 72
-  %5 = load i8, ptr %has_num_queues, align 8
-  %6 = and i8 %5, 1
-  %tobool5.not = icmp eq i8 %6, 0
-  br i1 %tobool5.not, label %if.end11, label %if.end8
+  %4 = load i8, ptr %has_num_queues, align 8
+  %tobool5 = trunc i8 %4 to i1
+  br i1 %tobool5, label %if.end8, label %if.end11
 
 if.end8:                                          ; preds = %if.end4
   %num_queues7 = getelementptr inbounds i8, ptr %opts, i64 74
-  %7 = load i16, ptr %num_queues7, align 2
-  %cmp = icmp eq i16 %7, 0
+  %5 = load i16, ptr %num_queues7, align 2
+  %cmp = icmp eq i16 %5, 0
   br i1 %cmp, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end8
@@ -78,11 +76,11 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 if.end11:                                         ; preds = %if.end4, %if.end8
-  %num_queues.031 = phi i16 [ %7, %if.end8 ], [ 1, %if.end4 ]
+  %num_queues.031 = phi i16 [ %5, %if.end8 ], [ 1, %if.end4 ]
   %blk = getelementptr inbounds i8, ptr %exp, i64 32
-  %8 = load ptr, ptr %blk, align 8
+  %6 = load ptr, ptr %blk, align 8
   %handler = getelementptr inbounds i8, ptr %exp, i64 1608
-  store ptr %8, ptr %handler, align 8
+  store ptr %6, ptr %handler, align 8
   %call = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #9
   %serial = getelementptr inbounds i8, ptr %exp, i64 1616
   store ptr %call, ptr %serial, align 8
@@ -90,12 +88,12 @@ if.end11:                                         ; preds = %if.end4, %if.end8
   %logical_block_size16 = getelementptr inbounds i8, ptr %exp, i64 1624
   store i32 %conv14, ptr %logical_block_size16, align 8
   %writable = getelementptr inbounds i8, ptr %opts, i64 41
-  %9 = load i8, ptr %writable, align 1
-  %10 = and i8 %9, 1
+  %7 = load i8, ptr %writable, align 1
   %writable19 = getelementptr inbounds i8, ptr %exp, i64 1628
-  store i8 %10, ptr %writable19, align 4
-  %11 = load ptr, ptr %blk, align 8
-  %call21 = call ptr @blk_bs(ptr noundef %11) #9
+  %frombool = and i8 %7, 1
+  store i8 %frombool, ptr %writable19, align 4
+  %8 = load ptr, ptr %blk, align 8
+  %call21 = call ptr @blk_bs(ptr noundef %8) #9
   %call.i = call i64 @bdrv_getlength(ptr noundef %call21) #9
   %shr.i = ashr i64 %call.i, 9
   store i64 %shr.i, ptr %blkcfg, align 1
@@ -122,22 +120,22 @@ if.end11:                                         ; preds = %if.end4, %if.end8
   store i32 32768, ptr %max_write_zeroes_sectors.i, align 1
   %max_write_zeroes_seg.i = getelementptr inbounds i8, ptr %exp, i64 1692
   store i32 1, ptr %max_write_zeroes_seg.i, align 1
-  %12 = load ptr, ptr %blk, align 8
-  call void @blk_add_aio_context_notifier(ptr noundef %12, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #9
-  %13 = load ptr, ptr %blk, align 8
-  call void @blk_set_dev_ops(ptr noundef %13, ptr noundef nonnull @vu_blk_dev_ops, ptr noundef nonnull %exp) #9
+  %9 = load ptr, ptr %blk, align 8
+  call void @blk_add_aio_context_notifier(ptr noundef %9, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #9
+  %10 = load ptr, ptr %blk, align 8
+  call void @blk_set_dev_ops(ptr noundef %10, ptr noundef nonnull @vu_blk_dev_ops, ptr noundef nonnull %exp) #9
   %vu_server = getelementptr inbounds i8, ptr %exp, i64 56
-  %14 = load ptr, ptr %u, align 8
+  %11 = load ptr, ptr %u, align 8
   %ctx = getelementptr inbounds i8, ptr %exp, i64 24
-  %15 = load ptr, ptr %ctx, align 8
-  %call26 = call zeroext i1 @vhost_user_server_start(ptr noundef nonnull %vu_server, ptr noundef %14, ptr noundef %15, i16 noundef zeroext %num_queues.031, ptr noundef nonnull @vu_blk_iface, ptr noundef %errp) #9
+  %12 = load ptr, ptr %ctx, align 8
+  %call26 = call zeroext i1 @vhost_user_server_start(ptr noundef nonnull %vu_server, ptr noundef %11, ptr noundef %12, i16 noundef zeroext %num_queues.031, ptr noundef nonnull @vu_blk_iface, ptr noundef %errp) #9
   br i1 %call26, label %return, label %if.then27
 
 if.then27:                                        ; preds = %if.end11
-  %16 = load ptr, ptr %blk, align 8
-  call void @blk_remove_aio_context_notifier(ptr noundef %16, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #9
-  %17 = load ptr, ptr %serial, align 8
-  call void @g_free(ptr noundef %17) #9
+  %13 = load ptr, ptr %blk, align 8
+  call void @blk_remove_aio_context_notifier(ptr noundef %13, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #9
+  %14 = load ptr, ptr %serial, align 8
+  call void @g_free(ptr noundef %14) #9
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then27, %if.then10, %if.then3
@@ -287,9 +285,8 @@ define internal i64 @vu_blk_get_features(ptr nocapture noundef readonly %dev) #3
 entry:
   %writable = getelementptr i8, ptr %dev, i64 1524
   %0 = load i8, ptr %writable, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %spec.select = select i1 %tobool.not, i64 6174047846, i64 6174047814
+  %tobool = trunc i8 %0 to i1
+  %spec.select = select i1 %tobool, i64 6174047814, i64 6174047846
   ret i64 %spec.select
 }
 

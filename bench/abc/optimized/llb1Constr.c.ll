@@ -395,10 +395,10 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
 Aig_ManObj.exit:                                  ; preds = %70, %71
   %75 = phi ptr [ %74, %71 ], [ null, %70 ]
   %76 = tail call ptr @Llb_ManComputeIndCase_rec(ptr noundef nonnull %0, ptr noundef %75, ptr noundef %1, ptr noundef nonnull %6)
-  %trunc.not = icmp eq i32 %69, 0
+  %trunc = trunc i32 %69 to i1
   %77 = getelementptr inbounds i8, ptr %75, i64 40
   %78 = load ptr, ptr %77, align 8
-  br i1 %trunc.not, label %79, label %87
+  br i1 %trunc, label %87, label %79
 
 79:                                               ; preds = %Aig_ManObj.exit
   %80 = ptrtoint ptr %78 to i64

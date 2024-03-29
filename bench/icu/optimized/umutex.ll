@@ -242,46 +242,44 @@ lpad:                                             ; preds = %while.body
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load i8, ptr %_M_owns.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i4 = icmp eq i8 %7, 0
-  br i1 %tobool.not.i4, label %common.resume, label %if.else.i.i
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %if.else.i.i, label %common.resume
 
 if.else.i.i:                                      ; preds = %lpad
-  %8 = load ptr, ptr %lock, align 8
-  %tobool2.not.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %lock, align 8
+  %tobool2.not.i.i = icmp eq ptr %7, null
   br i1 %tobool2.not.i.i, label %common.resume, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #11
+  %call1.i.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #11
   br label %common.resume
 
 while.cond:                                       ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %while.body
-  %9 = load atomic i32, ptr %uio acquire, align 4
-  %cmp6 = icmp eq i32 %9, 1
+  %8 = load atomic i32, ptr %uio acquire, align 4
+  %cmp6 = icmp eq i32 %8, 1
   br i1 %cmp6, label %while.body, label %cleanup
 
 while.body:                                       ; preds = %while.cond
-  %10 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_113initConditionE, align 8
-  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(9) %lock)
+  %9 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_113initConditionE, align 8
+  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(9) %lock)
           to label %while.cond unwind label %lpad, !llvm.loop !6
 
 cleanup:                                          ; preds = %while.cond, %if.then
   %retval.0 = phi i8 [ 1, %if.then ], [ 0, %while.cond ]
-  %11 = load i8, ptr %_M_owns.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i7 = icmp eq i8 %12, 0
-  br i1 %tobool.not.i7, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12, label %if.else.i.i8
+  %10 = load i8, ptr %_M_owns.i, align 8
+  %tobool.i6 = trunc i8 %10 to i1
+  br i1 %tobool.i6, label %if.else.i.i7, label %_ZNSt11unique_lockISt5mutexED2Ev.exit11
 
-if.else.i.i8:                                     ; preds = %cleanup
-  %13 = load ptr, ptr %lock, align 8
-  %tobool2.not.i.i9 = icmp eq ptr %13, null
-  br i1 %tobool2.not.i.i9, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12, label %if.then3.i.i10
+if.else.i.i7:                                     ; preds = %cleanup
+  %11 = load ptr, ptr %lock, align 8
+  %tobool2.not.i.i8 = icmp eq ptr %11, null
+  br i1 %tobool2.not.i.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit11, label %if.then3.i.i9
 
-if.then3.i.i10:                                   ; preds = %if.else.i.i8
-  %call1.i.i.i.i11 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #11
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit12
+if.then3.i.i9:                                    ; preds = %if.else.i.i7
+  %call1.i.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #11
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit11
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit12:          ; preds = %cleanup, %if.else.i.i8, %if.then3.i.i10
+_ZNSt11unique_lockISt5mutexED2Ev.exit11:          ; preds = %cleanup, %if.else.i.i7, %if.then3.i.i9
   ret i8 %retval.0
 }
 

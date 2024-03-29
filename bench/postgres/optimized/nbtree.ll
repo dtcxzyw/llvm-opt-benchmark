@@ -172,9 +172,8 @@ define dso_local ptr @btbulkdelete(ptr noundef %0, ptr noundef %1, ptr noundef %
 define dso_local noundef ptr @btvacuumcleanup(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %31
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %31, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %1, null
@@ -203,9 +202,8 @@ define dso_local noundef ptr @btvacuumcleanup(ptr noundef %0, ptr noundef %1) #0
   tail call void @_bt_set_cleanup_info(ptr noundef %20, i32 noundef %19) #8
   %21 = getelementptr inbounds i8, ptr %0, i64 18
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not20 = icmp eq i8 %23, 0
-  br i1 %.not20, label %24, label %31
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %31, label %24
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %.017, i64 8
@@ -306,8 +304,8 @@ define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2,
   %8 = getelementptr inbounds i8, ptr %7, i64 96
   %9 = getelementptr inbounds i8, ptr %7, i64 112
   %10 = load i32, ptr %9, align 8
-  %.not36 = icmp eq i32 %10, -1
-  br i1 %.not36, label %23, label %11
+  %.not35 = icmp eq i32 %10, -1
+  br i1 %.not35, label %23, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %7, i64 64
@@ -321,8 +319,8 @@ define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2,
 
 16:                                               ; preds = %11, %15
   %17 = load i32, ptr %8, align 8
-  %.not37 = icmp eq i32 %17, 0
-  br i1 %.not37, label %19, label %18
+  %.not36 = icmp eq i32 %17, 0
+  br i1 %.not36, label %19, label %18
 
 18:                                               ; preds = %16
   tail call void @ReleaseBuffer(i32 noundef %17) #8
@@ -346,8 +344,8 @@ define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2,
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 13720
   %27 = load i32, ptr %26, align 8
-  %.not38 = icmp eq i32 %27, 0
-  br i1 %.not38, label %29, label %28
+  %.not37 = icmp eq i32 %27, 0
+  br i1 %.not37, label %29, label %28
 
 28:                                               ; preds = %23
   tail call void @ReleaseBuffer(i32 noundef %27) #8
@@ -365,9 +363,8 @@ define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2,
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %45, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %45
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds i8, ptr %7, i64 72
@@ -384,8 +381,8 @@ define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2,
   br label %45
 
 45:                                               ; preds = %41, %37, %29
-  %.not35 = icmp eq ptr %1, null
-  br i1 %.not35, label %55, label %46
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %55, label %46
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds i8, ptr %0, i64 24
@@ -422,8 +419,8 @@ define dso_local noundef zeroext i1 @btgettuple(ptr noundef %0, i32 noundef %1) 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 112
   %10 = load i32, ptr %9, align 8
-  %.not29 = icmp eq i32 %10, -1
-  br i1 %.not29, label %11, label %14
+  %.not28 = icmp eq i32 %10, -1
+  br i1 %.not28, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = icmp slt i32 %7, 0
@@ -443,14 +440,13 @@ define dso_local noundef zeroext i1 @btgettuple(ptr noundef %0, i32 noundef %1) 
 
 20:                                               ; preds = %45, %14
   %21 = load i32, ptr %15, align 8
-  %.not30 = icmp eq i32 %21, -1
-  br i1 %.not30, label %41, label %22
+  %.not29 = icmp eq i32 %21, -1
+  br i1 %.not29, label %41, label %22
 
 22:                                               ; preds = %20
   %23 = load i8, ptr %16, align 2
-  %24 = and i8 %23, 1
-  %.not26 = icmp eq i8 %24, 0
-  br i1 %.not26, label %39, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %39
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %17, align 8
@@ -487,8 +483,8 @@ define dso_local noundef zeroext i1 @btgettuple(ptr noundef %0, i32 noundef %1) 
 
 43:                                               ; preds = %39, %41
   %44 = load i32, ptr %6, align 4
-  %.not27 = icmp eq i32 %44, 0
-  br i1 %.not27, label %.critedge, label %45
+  %.not26 = icmp eq i32 %44, 0
+  br i1 %.not26, label %.critedge, label %45
 
 45:                                               ; preds = %43
   %46 = tail call zeroext i1 @_bt_advance_array_keys(ptr noundef %0, i32 noundef %1) #8
@@ -937,9 +933,7 @@ define dso_local zeroext i1 @_bt_parallel_seize(ptr nocapture noundef readonly %
   %14 = getelementptr inbounds i8, ptr %9, i64 16
   br label %15
 
-15:                                               ; preds = %30, %2
-  %.019 = phi i8 [ 1, %2 ], [ %.120, %30 ]
-  %.0 = phi i8 [ 0, %2 ], [ %.1, %30 ]
+15:                                               ; preds = %26, %2
   %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #8, !srcloc !9
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %19, label %17
@@ -952,44 +946,37 @@ define dso_local zeroext i1 @_bt_parallel_seize(ptr nocapture noundef readonly %
   %20 = load i32, ptr %12, align 8
   %21 = load i32, ptr %13, align 4
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %27, label %23
+  br i1 %22, label %.thread31, label %23
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %11, align 4
-  switch i32 %24, label %25 [
-    i32 3, label %27
-    i32 1, label %.fold.split
+  switch i32 %24, label %.thread [
+    i32 3, label %.thread31
+    i32 1, label %26
   ]
 
-25:                                               ; preds = %23
+.thread:                                          ; preds = %23
   store i32 1, ptr %11, align 4
-  %26 = load i32, ptr %9, align 4
-  store i32 %26, ptr %1, align 4
-  br label %27
+  %25 = load i32, ptr %9, align 4
+  store i32 %25, ptr %1, align 4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  br label %.loopexit.sink.split
 
-.fold.split:                                      ; preds = %23
-  br label %27
+.thread31:                                        ; preds = %19, %23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  br label %.loopexit.sink.split
 
-27:                                               ; preds = %23, %.fold.split, %19, %25
-  %.120 = phi i8 [ %.019, %25 ], [ 0, %19 ], [ 0, %23 ], [ %.019, %.fold.split ]
-  %.1 = phi i8 [ 1, %25 ], [ %.0, %19 ], [ %.0, %23 ], [ %.0, %.fold.split ]
+26:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   store i8 0, ptr %10, align 4
-  %28 = and i8 %.1, 1
-  %.not23 = icmp ne i8 %28, 0
-  %29 = and i8 %.120, 1
-  %.not24 = icmp eq i8 %29, 0
-  %or.cond = select i1 %.not23, i1 true, i1 %.not24
-  br i1 %or.cond, label %31, label %30
-
-30:                                               ; preds = %27
   tail call void @ConditionVariableSleep(ptr noundef nonnull %14, i32 noundef 134217735) #8
   br label %15
 
-31:                                               ; preds = %27
-  %32 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  %33 = icmp ne i8 %29, 0
-  ret i1 %33
+.loopexit.sink.split:                             ; preds = %.thread, %.thread31
+  %.pre-phi.ph = phi i1 [ false, %.thread31 ], [ true, %.thread ]
+  store i8 0, ptr %10, align 4
+  %27 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
+  ret i1 %.pre-phi.ph
 }
 
 declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1166,9 +1153,8 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef %1, ptr no
   call void @_bt_pendingfsm_init(ptr noundef %9, ptr noundef nonnull %8, i1 noundef zeroext %21) #8
   %22 = getelementptr inbounds i8, ptr %9, i64 32
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %25, label %29
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %29, label %25
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds i8, ptr %9, i64 40
@@ -1201,9 +1187,8 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef %1, ptr no
 36:                                               ; preds = %32, %34
   %37 = phi i32 [ %35, %34 ], [ %33, %32 ]
   %38 = load i8, ptr %31, align 1
-  %39 = and i8 %38, 1
-  %.not34 = icmp eq i8 %39, 0
-  br i1 %.not34, label %42, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %36
   %41 = zext i32 %37 to i64
@@ -1211,8 +1196,8 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef %1, ptr no
   br label %42
 
 42:                                               ; preds = %40, %36
-  %.not35 = icmp ult i32 %.0, %37
-  br i1 %.not35, label %.preheader.preheader, label %265
+  %.not = icmp ult i32 %.0, %37
+  br i1 %.not, label %.preheader.preheader, label %265
 
 .preheader.preheader:                             ; preds = %42
   %43 = zext i32 %.0 to i64
@@ -1704,9 +1689,8 @@ btvacuumpage.exit:                                ; preds = %260, %.loopexit218.
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 3264, ptr nonnull %7)
   %261 = load i8, ptr %31, align 1
-  %262 = and i8 %261, 1
-  %.not36 = icmp eq i8 %262, 0
-  br i1 %.not36, label %264, label %263
+  %262 = trunc i8 %261 to i1
+  br i1 %262, label %263, label %264
 
 263:                                              ; preds = %btvacuumpage.exit
   call void @pgstat_progress_update_param(i32 noundef 16, i64 noundef %indvars.iv) #8
@@ -1723,8 +1707,8 @@ btvacuumpage.exit:                                ; preds = %260, %.loopexit218.
   call void @MemoryContextDelete(ptr noundef %266) #8
   call void @_bt_pendingfsm_finalize(ptr noundef %9, ptr noundef nonnull %8) #8
   %267 = load i32, ptr %12, align 8
-  %.not37 = icmp eq i32 %267, 0
-  br i1 %.not37, label %269, label %268
+  %.not34 = icmp eq i32 %267, 0
+  br i1 %.not34, label %269, label %268
 
 268:                                              ; preds = %265
   call void @IndexFreeSpaceMapVacuum(ptr noundef %9) #8

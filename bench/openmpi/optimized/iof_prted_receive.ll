@@ -202,23 +202,23 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %37
 
 37:                                               ; preds = %33, %28, %26
-  %.035 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1, i32 1), align 8
-  %.not3036 = icmp eq ptr %.035, getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1)
-  br i1 %.not3036, label %.loopexit, label %.lr.ph
+  %.034 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1, i32 1), align 8
+  %.not3035 = icmp eq ptr %.034, getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1)
+  br i1 %.not3035, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %38 = getelementptr inbounds i8, ptr %10, i64 256
   br label %39
 
 39:                                               ; preds = %.lr.ph, %72
-  %.037 = phi ptr [ %.035, %.lr.ph ], [ %.0, %72 ]
-  %40 = getelementptr inbounds i8, ptr %.037, i64 144
+  %.036 = phi ptr [ %.034, %.lr.ph ], [ %.0, %72 ]
+  %40 = getelementptr inbounds i8, ptr %.036, i64 144
   %41 = call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull %10, ptr noundef nonnull %40) #2
   br i1 %41, label %42, label %72
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %38, align 4
-  %44 = getelementptr inbounds i8, ptr %.037, i64 400
+  %44 = getelementptr inbounds i8, ptr %.036, i64 400
   %45 = load i32, ptr %44, align 8
   %46 = call zeroext i1 @PMIx_Check_rank(i32 noundef %43, i32 noundef %45) #2
   br i1 %46, label %47, label %72
@@ -242,7 +242,7 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %57
 
 57:                                               ; preds = %54, %49, %47
-  %58 = getelementptr inbounds i8, ptr %.037, i64 408
+  %58 = getelementptr inbounds i8, ptr %.036, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %72, label %61
@@ -258,9 +258,8 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
 
 68:                                               ; preds = %61
   %69 = load i8, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 2), align 8
-  %70 = and i8 %69, 1
-  %.not31 = icmp eq i8 %70, 0
-  br i1 %.not31, label %71, label %72
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %72, label %71
 
 71:                                               ; preds = %68
   store i8 1, ptr getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 2), align 8
@@ -268,7 +267,7 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %72
 
 72:                                               ; preds = %39, %61, %71, %68, %42, %57
-  %73 = getelementptr inbounds i8, ptr %.037, i64 120
+  %73 = getelementptr inbounds i8, ptr %.036, i64 120
   %.0 = load ptr, ptr %73, align 8
   %.not30 = icmp eq ptr %.0, getelementptr inbounds (%struct.prte_mca_iof_prted_component_t, ptr @prte_mca_iof_prted_component, i64 0, i32 1, i32 1)
   br i1 %.not30, label %.loopexit, label %39, !llvm.loop !4

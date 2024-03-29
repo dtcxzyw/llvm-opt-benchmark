@@ -62,16 +62,15 @@ define internal noundef i32 @opal_timer_linux_open() #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.timespec, align 8
   %6 = load i8, ptr @mca_timer_base_monotonic, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %16, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %0
   %9 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 -2147483641) #9, !srcloc !4
   %10 = extractvalue { i32, i32, i64 } %9, 1
   %11 = and i32 %10, 256
-  %.not4 = icmp eq i32 %11, 0
-  br i1 %.not4, label %12, label %16
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %16
 
 12:                                               ; preds = %8
   %13 = call i32 @clock_getres(i32 noundef 1, ptr noundef nonnull %5) #9

@@ -353,9 +353,8 @@ entry:
   %1 = load ptr, ptr %d_engine, align 8
   %d_interrupted = getelementptr inbounds i8, ptr %1, i64 1272
   %2 = load i8, ptr %d_interrupted, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #11
@@ -368,10 +367,10 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %exception) #11
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %entry
   ret void

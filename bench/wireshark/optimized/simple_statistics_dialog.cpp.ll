@@ -404,9 +404,8 @@ _ZN5QHashIK7QStringP18_stat_tap_table_uiE6detachEv.exit: ; preds = %.noexc, %_ZN
   call void @_ZN12QHashPrivate4DataINS_4NodeIK7QStringP18_stat_tap_table_uiEEE12findOrInsertERS3_(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<const QString, _stat_tap_table_ui *>>::InsertionResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %1) #20
   %18 = getelementptr inbounds i8, ptr %4, i64 16
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %48
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %48, label %21
 
 21:                                               ; preds = %_ZN5QHashIK7QStringP18_stat_tap_table_uiE6detachEv.exit
   %22 = load ptr, ptr %4, align 8

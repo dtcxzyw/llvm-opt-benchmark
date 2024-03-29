@@ -705,9 +705,8 @@ declare void @_ZN13cmPropertyMap14AppendPropertyERKNSt7__cxx1112basic_stringIcSt
 define dso_local noundef zeroext i1 @_ZNK6cmTest21GetCommandExpandListsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

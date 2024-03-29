@@ -104,8 +104,7 @@ entry:
 define noundef zeroext i1 @_ZNK3zmq14tipc_address_t9is_randomEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %this, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -346,9 +345,8 @@ lpad:                                             ; preds = %invoke.cont78, %inv
 
 lor.lhs.false37:                                  ; preds = %if.end
   %6 = load i8, ptr %this, align 4
-  %7 = and i8 %6, 1
-  %tobool.i.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.not, label %if.else83, label %if.then39
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %if.then39, label %if.else83
 
 if.then39:                                        ; preds = %if.end, %lor.lhs.false37
   %add.ptr40 = getelementptr inbounds i8, ptr %s, i64 16
@@ -362,8 +360,8 @@ invoke.cont41:                                    ; preds = %if.then39
 invoke.cont43:                                    ; preds = %invoke.cont41
   %addr46 = getelementptr inbounds i8, ptr %this, i64 8
   %node = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %node, align 4
-  %shr.i = lshr i32 %8, 24
+  %7 = load i32, ptr %node, align 4
+  %shr.i = lshr i32 %7, 24
   %call50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call44, i32 noundef %shr.i)
           to label %invoke.cont49 unwind label %lpad
 
@@ -372,10 +370,10 @@ invoke.cont49:                                    ; preds = %invoke.cont43
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %invoke.cont49
-  %9 = load i32, ptr %node, align 4
-  %10 = lshr i32 %9, 12
-  %11 = and i32 %10, 4095
-  %call60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call53, i32 noundef %11)
+  %8 = load i32, ptr %node, align 4
+  %9 = lshr i32 %8, 12
+  %10 = and i32 %9, 4095
+  %call60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call53, i32 noundef %10)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %invoke.cont52
@@ -383,9 +381,9 @@ invoke.cont59:                                    ; preds = %invoke.cont52
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %invoke.cont59
-  %12 = load i32, ptr %node, align 4
-  %13 = and i32 %12, 4095
-  %call70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call63, i32 noundef %13)
+  %11 = load i32, ptr %node, align 4
+  %12 = and i32 %11, 4095
+  %call70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call63, i32 noundef %12)
           to label %invoke.cont69 unwind label %lpad
 
 invoke.cont69:                                    ; preds = %invoke.cont62
@@ -393,8 +391,8 @@ invoke.cont69:                                    ; preds = %invoke.cont62
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont69
-  %14 = load i32, ptr %addr46, align 4
-  %call77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call73, i32 noundef %14)
+  %13 = load i32, ptr %addr46, align 4
+  %call77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call73, i32 noundef %13)
           to label %invoke.cont76 unwind label %lpad
 
 invoke.cont76:                                    ; preds = %invoke.cont72

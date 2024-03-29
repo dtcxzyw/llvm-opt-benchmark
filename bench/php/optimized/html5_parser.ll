@@ -554,14 +554,14 @@ define hidden void @lexbor_libxml2_bridge_copy_observations(ptr nocapture nounde
   store i8 %5, ptr %1, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 84
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 %8, ptr %9, align 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = and i8 %7, 1
+  store i8 %9, ptr %8, align 1
   %10 = getelementptr inbounds i8, ptr %0, i64 85
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 %12, ptr %13, align 1
+  %12 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 1
   ret void
 }
 

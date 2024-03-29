@@ -1741,14 +1741,14 @@ prefs_set_module_effect_flags.exit64:             ; preds = %prefs_register_subt
   store i32 %.sink.i, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %85, i64 28
   %104 = load i8, ptr %103, align 4
-  %105 = and i8 %104, 1
-  %106 = getelementptr inbounds i8, ptr %86, i64 28
-  store i8 %105, ptr %106, align 4
+  %105 = getelementptr inbounds i8, ptr %86, i64 28
+  %106 = and i8 %104, 1
+  store i8 %106, ptr %105, align 4
   %107 = getelementptr inbounds i8, ptr %85, i64 29
   %108 = load i8, ptr %107, align 1
-  %109 = and i8 %108, 1
-  %110 = getelementptr inbounds i8, ptr %86, i64 29
-  store i8 %109, ptr %110, align 1
+  %109 = getelementptr inbounds i8, ptr %86, i64 29
+  %110 = and i8 %108, 1
+  store i8 %110, ptr %109, align 1
   %111 = load ptr, ptr %84, align 8
   %112 = tail call ptr @g_list_append(ptr noundef %111, ptr noundef nonnull %86) #24
   store ptr %112, ptr %84, align 8
@@ -10584,40 +10584,39 @@ prefs_find_preference.exit:                       ; preds = %12, %21
   %27 = getelementptr inbounds i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %.not1823 = icmp eq ptr %29, null
-  br i1 %.not1823, label %._crit_edge, label %.lr.ph
+  %.not1822 = icmp eq ptr %29, null
+  br i1 %.not1822, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds i8, ptr %9, i64 8
   br label %31
 
 31:                                               ; preds = %.lr.ph, %41
-  %.025 = phi i32 [ 1, %.lr.ph ], [ %44, %41 ]
-  %.01524 = phi ptr [ %29, %.lr.ph ], [ %43, %41 ]
-  %32 = load ptr, ptr %.01524, align 8
+  %.024 = phi i32 [ 1, %.lr.ph ], [ %44, %41 ]
+  %.01523 = phi ptr [ %29, %.lr.ph ], [ %43, %41 ]
+  %32 = load ptr, ptr %.01523, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 28
   %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, 1
-  %.not19 = icmp eq i8 %35, 0
-  br i1 %.not19, label %36, label %41
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %41, label %36
 
 36:                                               ; preds = %31
   %37 = load i64, ptr %30, align 8
-  %.not20 = icmp eq i64 %37, 0
-  br i1 %.not20, label %40, label %38
+  %.not19 = icmp eq i64 %37, 0
+  br i1 %.not19, label %40, label %38
 
 38:                                               ; preds = %36
   %39 = call ptr @g_string_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.29) #24
   br label %40
 
 40:                                               ; preds = %38, %36
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.461, i32 noundef %.025) #24
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.461, i32 noundef %.024) #24
   br label %41
 
 41:                                               ; preds = %40, %31
-  %42 = getelementptr inbounds i8, ptr %.01524, i64 8
+  %42 = getelementptr inbounds i8, ptr %.01523, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = add i32 %.025, 1
+  %44 = add i32 %.024, 1
   %.not18 = icmp eq ptr %43, null
   br i1 %.not18, label %._crit_edge, label %31, !llvm.loop !43
 
@@ -10801,16 +10800,16 @@ prefs_find_preference.exit:                       ; preds = %12, %21
   %27 = getelementptr inbounds i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %.not2633 = icmp eq ptr %29, null
-  br i1 %.not2633, label %._crit_edge, label %.lr.ph
+  %.not2631 = icmp eq ptr %29, null
+  br i1 %.not2631, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds i8, ptr %9, i64 8
   br label %31
 
 31:                                               ; preds = %.lr.ph, %62
-  %.02234 = phi ptr [ %29, %.lr.ph ], [ %64, %62 ]
-  %32 = load ptr, ptr %.02234, align 8
+  %.02232 = phi ptr [ %29, %.lr.ph ], [ %64, %62 ]
+  %32 = load ptr, ptr %.02232, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 4
@@ -10829,9 +10828,8 @@ prefs_find_preference.exit:                       ; preds = %12, %21
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %32, i64 29
   %45 = load i8, ptr %44, align 1
-  %46 = and i8 %45, 1
-  %.not28 = icmp eq i8 %46, 0
-  %47 = select i1 %.not28, i32 85, i32 82
+  %46 = trunc i8 %45 to i1
+  %47 = select i1 %46, i32 82, i32 85
   %48 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.463, ptr noundef %40, ptr noundef %41, i32 noundef %43, i32 noundef %47) #24
   br label %52
 
@@ -10844,14 +10842,13 @@ prefs_find_preference.exit:                       ; preds = %12, %21
   %.0 = phi ptr [ %48, %39 ], [ %51, %49 ]
   %53 = getelementptr inbounds i8, ptr %32, i64 28
   %54 = load i8, ptr %53, align 4
-  %55 = and i8 %54, 1
-  %.not29 = icmp eq i8 %55, 0
-  br i1 %.not29, label %56, label %62
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %62, label %56
 
 56:                                               ; preds = %52
   %57 = load i64, ptr %30, align 8
-  %.not30 = icmp eq i64 %57, 0
-  br i1 %.not30, label %60, label %58
+  %.not28 = icmp eq i64 %57, 0
+  br i1 %.not28, label %60, label %58
 
 58:                                               ; preds = %56
   %59 = call ptr @g_string_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.29) #24
@@ -10863,7 +10860,7 @@ prefs_find_preference.exit:                       ; preds = %12, %21
 
 62:                                               ; preds = %60, %52
   call void @g_free(ptr noundef %.0) #24
-  %63 = getelementptr inbounds i8, ptr %.02234, i64 8
+  %63 = getelementptr inbounds i8, ptr %.02232, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not26 = icmp eq ptr %64, null
   br i1 %.not26, label %._crit_edge, label %31, !llvm.loop !45
@@ -10992,14 +10989,14 @@ free_col_info.exit:                               ; preds = %.lr.ph.i, %1
   store i32 %.sink, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %14, i64 28
   %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %35 = getelementptr inbounds i8, ptr %15, i64 28
-  store i8 %34, ptr %35, align 4
+  %34 = getelementptr inbounds i8, ptr %15, i64 28
+  %35 = and i8 %33, 1
+  store i8 %35, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %14, i64 29
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %39 = getelementptr inbounds i8, ptr %15, i64 29
-  store i8 %38, ptr %39, align 1
+  %38 = getelementptr inbounds i8, ptr %15, i64 29
+  %39 = and i8 %37, 1
+  store i8 %39, ptr %38, align 1
   %40 = load ptr, ptr %3, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @g_list_append(ptr noundef %41, ptr noundef nonnull %15) #24
@@ -11478,16 +11475,16 @@ define internal ptr @column_format_to_str_cb(ptr nocapture noundef readonly %0, 
   %.in = phi ptr [ %4, %3 ], [ %7, %5 ]
   %9 = load ptr, ptr %.in, align 8
   %10 = tail call ptr @g_list_first(ptr noundef %9) #24
-  %.not2326 = icmp eq ptr %10, null
-  br i1 %.not2326, label %._crit_edge, label %.lr.ph
+  %.not2325 = icmp eq ptr %10, null
+  br i1 %.not2325, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %34
-  %.028 = phi ptr [ %37, %34 ], [ %10, %8 ]
-  %.02127 = phi ptr [ %35, %34 ], [ null, %8 ]
-  %11 = load ptr, ptr %.028, align 8
+  %.027 = phi ptr [ %37, %34 ], [ %10, %8 ]
+  %.02126 = phi ptr [ %35, %34 ], [ null, %8 ]
+  %11 = load ptr, ptr %.027, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #24
-  %14 = tail call ptr @g_list_append(ptr noundef %.02127, ptr noundef %13) #24
+  %14 = tail call ptr @g_list_append(ptr noundef %.02126, ptr noundef %13) #24
   %15 = getelementptr inbounds i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 4
@@ -11506,9 +11503,8 @@ define internal ptr @column_format_to_str_cb(ptr nocapture noundef readonly %0, 
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %11, i64 29
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not25 = icmp eq i8 %28, 0
-  %29 = select i1 %.not25, i32 85, i32 82
+  %28 = trunc i8 %27 to i1
+  %29 = select i1 %28, i32 82, i32 85
   %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.463, ptr noundef %22, ptr noundef %23, i32 noundef %25, i32 noundef %29) #24
   br label %34
 
@@ -11520,7 +11516,7 @@ define internal ptr @column_format_to_str_cb(ptr nocapture noundef readonly %0, 
 34:                                               ; preds = %31, %21
   %.020 = phi ptr [ %30, %21 ], [ %33, %31 ]
   %35 = tail call ptr @g_list_append(ptr noundef %14, ptr noundef %.020) #24
-  %36 = getelementptr inbounds i8, ptr %.028, i64 8
+  %36 = getelementptr inbounds i8, ptr %.027, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not23 = icmp eq ptr %37, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !50

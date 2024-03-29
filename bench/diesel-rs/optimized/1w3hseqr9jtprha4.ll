@@ -54,37 +54,37 @@ define void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de.
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17he580c7949e02bb32E"(ptr align 8 %1) #5
-          to label %18 unwind label %16
+          to label %19 unwind label %17
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %3, align 8, !range !3, !noundef !4
   %10 = icmp eq i64 %9, 2
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %4, align 8, !range !5, !noundef !4
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %14, label %5
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %5, label %15
 
-13:                                               ; preds = %8
+14:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
-  br label %15
+  br label %16
 
-14:                                               ; preds = %11
+15:                                               ; preds = %11
   store i64 2, ptr %0, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %13
+16:                                               ; preds = %15, %14
   call void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17he580c7949e02bb32E"(ptr align 8 %1)
   ret void
 
-16:                                               ; preds = %6
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %6
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #6
   unreachable
 
-18:                                               ; preds = %6
+19:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -98,22 +98,22 @@ define void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de.
   call void @_ZN5serde2de9MapAccess10next_entry17h5bdf8bde1d147a29E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %3, ptr align 4 %1)
   %6 = load i64, ptr %3, align 8, !range !3, !noundef !4
   %7 = icmp eq i64 %6, 2
-  br i1 %7, label %8, label %10
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = load i8, ptr %4, align 8, !range !5, !noundef !4
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %11, label %5
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %5, label %12
 
-10:                                               ; preds = %5
+11:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
-  br label %12
+  br label %13
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   store i64 2, ptr %0, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %11, %10
+13:                                               ; preds = %12, %11
   ret void
 }
 
@@ -131,37 +131,37 @@ define void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de.
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h7ea0a2c177db47d2E"(ptr align 8 %1) #5
-          to label %18 unwind label %16
+          to label %19 unwind label %17
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %3, align 8, !range !3, !noundef !4
   %10 = icmp eq i64 %9, 2
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %4, align 8, !range !5, !noundef !4
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %14, label %5
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %5, label %15
 
-13:                                               ; preds = %8
+14:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
-  br label %15
+  br label %16
 
-14:                                               ; preds = %11
+15:                                               ; preds = %11
   store i64 2, ptr %0, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %13
+16:                                               ; preds = %15, %14
   call void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h7ea0a2c177db47d2E"(ptr align 8 %1)
   ret void
 
-16:                                               ; preds = %6
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %6
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #6
   unreachable
 
-18:                                               ; preds = %6
+19:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 

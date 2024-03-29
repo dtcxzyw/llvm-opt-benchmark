@@ -60,13 +60,12 @@ lpad:                                             ; preds = %sw.epilog
 switch.hole_check:                                ; preds = %while.end20
   %switch.maskindex = zext nneg i32 %type_id to i64
   %switch.shifted = lshr i64 8793408667647, %switch.maskindex
-  %2 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %2, 0
-  br i1 %switch.lobit.not, label %sw.epilog, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %type_id to i64
-  %switch.gep = getelementptr inbounds [43 x i32], ptr @switch.table._ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi, i64 0, i64 %3
+  %2 = zext nneg i32 %type_id to i64
+  %switch.gep = getelementptr inbounds [43 x i32], ptr @switch.table._ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

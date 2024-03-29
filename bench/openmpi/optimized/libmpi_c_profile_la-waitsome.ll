@@ -22,9 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %41, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %41
 
 8:                                                ; preds = %5
   %9 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -51,7 +50,7 @@ define i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %.04152 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %34 ]
+  %.04151 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %34 ]
   %17 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -68,21 +67,21 @@ define i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %22
-  %27 = icmp eq ptr %.04152, null
+  %27 = icmp eq ptr %.04151, null
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.04152, i64 152
+  %29 = getelementptr inbounds i8, ptr %.04151, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %24, i64 336
   %.val = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %30, i64 336
-  %.val50 = load ptr, ptr %32, align 8
-  %33 = icmp eq ptr %.val, %.val50
+  %.val49 = load ptr, ptr %32, align 8
+  %33 = icmp eq ptr %.val, %.val49
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %26, %28, %22, %20
-  %.1 = phi ptr [ %.04152, %20 ], [ %.04152, %22 ], [ %.04152, %28 ], [ %18, %26 ]
+  %.1 = phi ptr [ %.04151, %20 ], [ %.04151, %22 ], [ %.04151, %28 ], [ %18, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -97,8 +96,8 @@ define i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %38 = icmp slt i32 %0, 0
   %or.cond7 = or i1 %38, %or.cond5
   %spec.select = select i1 %or.cond7, i32 13, i32 %.042
-  %.not48 = icmp eq i32 %spec.select, 0
-  br i1 %.not48, label %41, label %39
+  %.not = icmp eq i32 %spec.select, 0
+  br i1 %.not, label %41, label %39
 
 39:                                               ; preds = %.loopexit
   %40 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %spec.select, ptr noundef nonnull @FUNC_NAME) #2
@@ -121,8 +120,8 @@ define i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 49:                                               ; preds = %44
   %50 = tail call i32 @ompi_errhandler_request_invoke(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @FUNC_NAME) #2
-  %.not49 = icmp eq i32 %50, 0
-  %. = select i1 %.not49, i32 0, i32 18
+  %.not48 = icmp eq i32 %50, 0
+  %. = select i1 %.not48, i32 0, i32 18
   br label %51
 
 51:                                               ; preds = %49, %44, %43, %39

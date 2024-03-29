@@ -840,13 +840,13 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i72, 
   store i32 %51, ptr %53, align 4
   store i32 %49, ptr %50, align 4
   %58 = trunc i64 %indvars.iv103 to i32
-  %59 = shl nuw i32 2, %58
-  %60 = and i32 %.495.us, %59
-  %61 = icmp ne i32 %60, 0
-  %62 = shl nuw i32 1, %58
-  %63 = and i32 %.495.us, %62
-  %64 = icmp eq i32 %63, 0
-  %.not68.us = xor i1 %61, %64
+  %59 = lshr i32 %.495.us, %58
+  %60 = shl nuw i32 2, %58
+  %61 = and i32 %.495.us, %60
+  %62 = trunc i32 %59 to i1
+  %63 = icmp eq i32 %61, 0
+  %.not68.us = xor i1 %63, %62
+  %64 = shl nuw i32 1, %58
   %65 = shl i32 3, %58
   %66 = select i1 %.not68.us, i32 0, i32 %65
   %.5.us = xor i32 %.495.us, %66
@@ -919,7 +919,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i72, 
   %102 = load i64, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %101, i64 8
   %104 = load i64, ptr %103, align 8
-  %105 = zext nneg i32 %62 to i64
+  %105 = zext nneg i32 %64 to i64
   %106 = getelementptr inbounds i8, ptr %101, i64 16
   %107 = load i64, ptr %106, align 8
   br label %108
@@ -1161,15 +1161,15 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
   %64 = shufflevector <2 x i32> %63, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %64, ptr %54, align 4
   %65 = trunc i64 %indvars.iv126 to i32
-  %66 = shl nuw i32 2, %65
-  %67 = and i32 %.4118.us, %66
-  %68 = icmp ne i32 %67, 0
-  %69 = shl nuw i32 1, %65
-  %70 = and i32 %.4118.us, %69
-  %71 = icmp eq i32 %70, 0
-  %.not89.us = xor i1 %68, %71
-  %72 = xor i32 %.4118.us, %69
-  %73 = xor i32 %72, %66
+  %66 = lshr i32 %.4118.us, %65
+  %67 = shl nuw i32 2, %65
+  %68 = and i32 %.4118.us, %67
+  %69 = trunc i32 %66 to i1
+  %70 = icmp eq i32 %68, 0
+  %.not89.us = xor i1 %70, %69
+  %71 = shl nuw i32 1, %65
+  %72 = xor i32 %.4118.us, %71
+  %73 = xor i32 %72, %67
   %.5.us = select i1 %.not89.us, i32 %.4118.us, i32 %73
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5)
   %74 = icmp ult i64 %indvars.iv126, 5
@@ -1240,7 +1240,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
   %109 = load i64, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %108, i64 8
   %111 = load i64, ptr %110, align 8
-  %112 = zext nneg i32 %69 to i64
+  %112 = zext nneg i32 %71 to i64
   %113 = getelementptr inbounds i8, ptr %108, i64 16
   %114 = load i64, ptr %113, align 8
   br label %115

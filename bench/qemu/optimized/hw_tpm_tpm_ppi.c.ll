@@ -46,7 +46,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_tpm_ppi_memset.exit
-  %block.014 = phi ptr [ %3, %for.body.lr.ph ], [ %22, %trace_tpm_ppi_memset.exit ]
+  %block.014 = phi ptr [ %3, %for.body.lr.ph ], [ %21, %trace_tpm_ppi_memset.exit ]
   %host_addr = getelementptr inbounds i8, ptr %block.014, i64 16
   %4 = load ptr, ptr %host_addr, align 8
   %mr = getelementptr inbounds i8, ptr %block.014, i64 24
@@ -76,16 +76,15 @@ land.lhs.true5.i.i:                               ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %12 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = call i32 @qemu_get_thread_id() #6
-  %14 = load i64, ptr %_now.i.i, align 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.1, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %6, i64 noundef %sub) #6
+  %13 = load i64, ptr %_now.i.i, align 8
+  %14 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.1, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %6, i64 noundef %sub) #6
   br label %trace_tpm_ppi_memset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -94,19 +93,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_tpm_ppi_memset.exit:                        ; preds = %for.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %16 = load ptr, ptr %host_addr, align 8
-  %17 = load i64, ptr %target_end, align 8
-  %18 = load i64, ptr %block.014, align 8
-  %sub6 = sub i64 %17, %18
-  call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %sub6, i1 false)
-  %19 = load ptr, ptr %mr, align 8
-  %20 = load i64, ptr %target_end, align 8
-  %21 = load i64, ptr %block.014, align 8
-  %sub10 = sub i64 %20, %21
-  call void @memory_region_set_dirty(ptr noundef %19, i64 noundef %sub.ptr.sub, i64 noundef %sub10) #6
+  %15 = load ptr, ptr %host_addr, align 8
+  %16 = load i64, ptr %target_end, align 8
+  %17 = load i64, ptr %block.014, align 8
+  %sub6 = sub i64 %16, %17
+  call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %sub6, i1 false)
+  %18 = load ptr, ptr %mr, align 8
+  %19 = load i64, ptr %target_end, align 8
+  %20 = load i64, ptr %block.014, align 8
+  %sub10 = sub i64 %19, %20
+  call void @memory_region_set_dirty(ptr noundef %18, i64 noundef %sub.ptr.sub, i64 noundef %sub10) #6
   %next = getelementptr inbounds i8, ptr %block.014, i64 32
-  %22 = load ptr, ptr %next, align 8
-  %tobool1.not = icmp eq ptr %22, null
+  %21 = load ptr, ptr %next, align 8
+  %tobool1.not = icmp eq ptr %21, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %trace_tpm_ppi_memset.exit, %if.then

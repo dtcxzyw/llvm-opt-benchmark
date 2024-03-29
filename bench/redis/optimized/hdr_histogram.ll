@@ -2310,9 +2310,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i8, ptr %specifics, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   store i8 1, ptr %specifics, align 8
@@ -2322,15 +2321,15 @@ if.end:                                           ; preds = %if.then
 
 if.end3:                                          ; preds = %entry
   %counts_index = getelementptr inbounds i8, ptr %iter, i64 8
-  %4 = load i32, ptr %counts_index, align 8
-  %cmp = icmp eq i32 %4, -1
+  %3 = load i32, ptr %counts_index, align 8
+  %cmp = icmp eq i32 %3, -1
   br i1 %cmp, label %lor.lhs.false.i, label %if.end6
 
 lor.lhs.false.i:                                  ; preds = %if.end3
-  %5 = load ptr, ptr %iter, align 8
-  %counts_len.i = getelementptr inbounds i8, ptr %5, i64 80
-  %6 = load i32, ptr %counts_len.i, align 8
-  %cmp.not.i = icmp sgt i32 %6, -1
+  %4 = load ptr, ptr %iter, align 8
+  %counts_len.i = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = load i32, ptr %counts_len.i, align 8
+  %cmp.not.i = icmp sgt i32 %5, -1
   br i1 %cmp.not.i, label %basic_iter_next.exit.thread, label %return
 
 basic_iter_next.exit.thread:                      ; preds = %lor.lhs.false.i
@@ -2343,44 +2342,44 @@ if.end6:                                          ; preds = %basic_iter_next.exi
   br label %do.body
 
 do.body:                                          ; preds = %basic_iter_next.exit31, %if.end6
-  %7 = load ptr, ptr %iter, align 8
-  %8 = load i64, ptr %count, align 8
-  %cmp8.not = icmp eq i64 %8, 0
+  %6 = load ptr, ptr %iter, align 8
+  %7 = load i64, ptr %count, align 8
+  %cmp8.not = icmp eq i64 %7, 0
   %iter.val4.i22.pre = load i64, ptr %1, align 8
   br i1 %cmp8.not, label %do.cond, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %do.body
   %conv = sitofp i64 %iter.val4.i22.pre to double
   %mul = fmul double %conv, 1.000000e+02
-  %total_count = getelementptr inbounds i8, ptr %7, i64 88
-  %9 = load i64, ptr %total_count, align 8
-  %conv7 = sitofp i64 %9 to double
+  %total_count = getelementptr inbounds i8, ptr %6, i64 88
+  %8 = load i64, ptr %total_count, align 8
+  %conv7 = sitofp i64 %8 to double
   %div = fdiv double %mul, %conv7
-  %10 = load double, ptr %percentile_to_iterate_to, align 8
-  %cmp11 = fcmp ugt double %10, %div
+  %9 = load double, ptr %percentile_to_iterate_to, align 8
+  %cmp11 = fcmp ugt double %9, %div
   br i1 %cmp11, label %do.cond, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true10
   %value = getelementptr inbounds i8, ptr %iter, i64 40
-  %11 = load i64, ptr %value, align 8
-  %sub_bucket_mask.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %12 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
-  %or.i.i.i.i = or i64 %12, %11
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %13 to i32
-  %sub_bucket_half_count_magnitude.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
-  %14 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
-  %15 = add i32 %14, %cast.i.i.i.i.i
-  %add.i.i.i.i = sub i32 63, %15
+  %10 = load i64, ptr %value, align 8
+  %sub_bucket_mask.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
+  %or.i.i.i.i = or i64 %11, %10
+  %12 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
+  %cast.i.i.i.i.i = trunc i64 %12 to i32
+  %sub_bucket_half_count_magnitude.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
+  %14 = add i32 %13, %cast.i.i.i.i.i
+  %add.i.i.i.i = sub i32 63, %14
   %sh_prom.i.i.i.i = zext nneg i32 %add.i.i.i.i to i64
-  %shr.i.i.i.i = ashr i64 %11, %sh_prom.i.i.i.i
+  %shr.i.i.i.i = ashr i64 %10, %sh_prom.i.i.i.i
   %sext.i.i.i = shl i64 %shr.i.i.i.i, 32
   %conv.i5.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %shl.i.i.i.i = shl i64 %conv.i5.i.i.i, %sh_prom.i.i.i.i
   %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
-  %sub_bucket_count.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  %16 = load i32, ptr %sub_bucket_count.i.i.i, align 8
-  %cmp.not.i.i.i = icmp sle i32 %16, %conv.i.i.i.i
+  %sub_bucket_count.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load i32, ptr %sub_bucket_count.i.i.i, align 8
+  %cmp.not.i.i.i = icmp sle i32 %15, %conv.i.i.i.i
   %add.i.i.i = zext i1 %cmp.not.i.i.i to i32
   %add3.i.i.i = add i32 %add.i.i.i.i, %add.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %add3.i.i.i to i64
@@ -2388,13 +2387,13 @@ if.then13:                                        ; preds = %land.lhs.true10
   %add.i.i = add i64 %shl.i.i.i.i, -1
   %sub.i = add i64 %add.i.i, %shl.i.i.i
   %value_iterated_to.i = getelementptr inbounds i8, ptr %iter, i64 80
-  %17 = load i64, ptr %value_iterated_to.i, align 8
+  %16 = load i64, ptr %value_iterated_to.i, align 8
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
-  store i64 %17, ptr %value_iterated_from.i, align 8
+  store i64 %16, ptr %value_iterated_from.i, align 8
   store i64 %sub.i, ptr %value_iterated_to.i, align 8
   %percentile17 = getelementptr inbounds i8, ptr %iter, i64 104
-  store double %10, ptr %percentile17, align 8
-  %sub = fsub double 1.000000e+02, %10
+  store double %9, ptr %percentile17, align 8
+  %sub = fsub double 1.000000e+02, %9
   %div19 = fdiv double 1.000000e+02, %sub
   %call20 = tail call double @log(double noundef %div19) #21
   %div22 = fdiv double %call20, 0x3FE62E42FEFA39EF
@@ -2404,13 +2403,13 @@ if.then13:                                        ; preds = %land.lhs.true10
   %exp2 = tail call double @exp2(double %conv24) #21
   %conv26 = fptosi double %exp2 to i64
   %ticks_per_half_distance = getelementptr inbounds i8, ptr %iter, i64 92
-  %18 = load i32, ptr %ticks_per_half_distance, align 4
-  %conv27 = sext i32 %18 to i64
+  %17 = load i32, ptr %ticks_per_half_distance, align 4
+  %conv27 = sext i32 %17 to i64
   %mul28 = mul nsw i64 %conv27, %conv26
   %conv29 = sitofp i64 %mul28 to double
   %div30 = fdiv double 1.000000e+02, %conv29
-  %19 = load double, ptr %percentile_to_iterate_to, align 8
-  %add32 = fadd double %19, %div30
+  %18 = load double, ptr %percentile_to_iterate_to, align 8
+  %add32 = fadd double %18, %div30
   store double %add32, ptr %percentile_to_iterate_to, align 8
   br label %return
 
@@ -2420,10 +2419,10 @@ do.cond:                                          ; preds = %do.body, %land.lhs.
   br i1 %cmp.i.i23, label %lor.lhs.false.i25, label %return
 
 lor.lhs.false.i25:                                ; preds = %do.cond
-  %20 = load i32, ptr %counts_index, align 8
-  %counts_len.i27 = getelementptr inbounds i8, ptr %7, i64 80
-  %21 = load i32, ptr %counts_len.i27, align 8
-  %cmp.not.i28 = icmp slt i32 %20, %21
+  %19 = load i32, ptr %counts_index, align 8
+  %counts_len.i27 = getelementptr inbounds i8, ptr %6, i64 80
+  %20 = load i32, ptr %counts_len.i27, align 8
+  %cmp.not.i28 = icmp slt i32 %19, %20
   br i1 %cmp.not.i28, label %basic_iter_next.exit31, label %return
 
 basic_iter_next.exit31:                           ; preds = %lor.lhs.false.i25

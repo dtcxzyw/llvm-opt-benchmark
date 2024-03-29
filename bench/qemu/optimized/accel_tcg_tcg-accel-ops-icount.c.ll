@@ -179,9 +179,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
   %1 = load i8, ptr %can_do_io, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %land.lhs.true1, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
   %not = xor i32 %0, -1

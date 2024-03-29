@@ -65,9 +65,8 @@ define dso_local ptr @smgropen(i64 %0, i32 %1, i32 noundef %2) local_unnamed_add
   store i32 %2, ptr %15, align 4
   %16 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #11
   %17 = load i8, ptr %5, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %19, label %30
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %30, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %16, i64 16
@@ -641,9 +640,8 @@ define dso_local void @smgrwriteback(ptr noundef %0, i32 noundef %1, i32 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @InRecovery, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %._crit_edge, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %.pre = sext i32 %1 to i64
@@ -654,8 +652,8 @@ define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_
   %7 = sext i32 %1 to i64
   %8 = getelementptr [4 x i32], ptr %6, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %.not5.i = icmp eq i32 %9, -1
-  br i1 %.not5.i, label %10, label %smgrnblocks_cached.exit
+  %.not.i = icmp eq i32 %9, -1
+  br i1 %.not.i, label %10, label %smgrnblocks_cached.exit
 
 10:                                               ; preds = %._crit_edge, %5
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %7, %5 ]
@@ -678,17 +676,16 @@ smgrnblocks_cached.exit:                          ; preds = %5, %10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @smgrnblocks_cached(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load i8, ptr @InRecovery, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
   %8 = getelementptr [4 x i32], ptr %6, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %.not5 = icmp eq i32 %9, -1
-  br i1 %.not5, label %10, label %11
+  %.not = icmp eq i32 %9, -1
+  br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %5, %2
   br label %11

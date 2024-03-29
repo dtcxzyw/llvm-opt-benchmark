@@ -245,15 +245,14 @@ for.inc:                                          ; preds = %do.body.i.i43, %ret
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load i32, ptr %cur_len_.i, align 4
   %.pre58 = load i32, ptr %path8, align 8
-  %22 = and i8 %success.1, 1
-  %23 = icmp ne i8 %22, 0
+  %22 = trunc i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
-  %24 = phi i32 [ %9, %if.then ], [ %.pre58, %for.end.loopexit ]
-  %25 = phi i32 [ %9, %if.then ], [ %.pre, %for.end.loopexit ]
-  %success.0.lcssa = phi i1 [ true, %if.then ], [ %23, %for.end.loopexit ]
-  %sub = sub nsw i32 %25, %24
+  %23 = phi i32 [ %9, %if.then ], [ %.pre58, %for.end.loopexit ]
+  %24 = phi i32 [ %9, %if.then ], [ %.pre, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %if.then ], [ %22, %for.end.loopexit ]
+  %sub = sub nsw i32 %24, %23
   br label %if.end31
 
 if.else29:                                        ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
@@ -267,10 +266,10 @@ if.end31:                                         ; preds = %if.else29, %for.end
   %len.i52 = getelementptr inbounds i8, ptr %new_parsed, i64 44
   store i32 %.sink, ptr %len.i52, align 4
   %query = getelementptr inbounds i8, ptr %source, i64 48
-  %26 = load ptr, ptr %query, align 8
+  %25 = load ptr, ptr %query, align 8
   %query32 = getelementptr inbounds i8, ptr %parsed, i64 48
   %query33 = getelementptr inbounds i8, ptr %new_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %query32, ptr noundef null, ptr noundef nonnull %output, ptr noundef nonnull %query33)
+  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %25, ptr noundef nonnull align 4 dereferenceable(8) %query32, ptr noundef null, ptr noundef nonnull %output, ptr noundef nonnull %query33)
   ret i1 %success.2
 }
 
@@ -444,15 +443,14 @@ for.inc.i:                                        ; preds = %do.body.i.i43.i, %r
 for.end.loopexit.i:                               ; preds = %for.inc.i
   %.pre.i = load i32, ptr %cur_len_.i.i, align 4
   %.pre58.i = load i32, ptr %path8.i, align 8
-  %22 = and i8 %success.1.i, 1
-  %23 = icmp ne i8 %22, 0
+  %22 = trunc i8 %success.1.i to i1
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then.i
-  %24 = phi i32 [ %9, %if.then.i ], [ %.pre58.i, %for.end.loopexit.i ]
-  %25 = phi i32 [ %9, %if.then.i ], [ %.pre.i, %for.end.loopexit.i ]
-  %success.0.lcssa.i = phi i1 [ true, %if.then.i ], [ %23, %for.end.loopexit.i ]
-  %sub.i = sub nsw i32 %25, %24
+  %23 = phi i32 [ %9, %if.then.i ], [ %.pre58.i, %for.end.loopexit.i ]
+  %24 = phi i32 [ %9, %if.then.i ], [ %.pre.i, %for.end.loopexit.i ]
+  %success.0.lcssa.i = phi i1 [ true, %if.then.i ], [ %22, %for.end.loopexit.i ]
+  %sub.i = sub nsw i32 %24, %23
   br label %_ZN3url12_GLOBAL__N_123DoCanonicalizeMailtoURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_12CanonOutputTIcEEPS7_.exit
 
 if.else30.i:                                      ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i

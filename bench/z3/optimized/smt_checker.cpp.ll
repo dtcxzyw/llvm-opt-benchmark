@@ -141,14 +141,13 @@ _ZNK7obj_mapI4exprbE4findEPS0_Rb.exit:            ; preds = %if.then.i.i.i, %if.
   %retval.0.i.i.i = phi ptr [ %curr.133.i.i.i, %if.then22.i.i.i ], [ %curr.031.i.i.i, %if.then.i.i.i ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %11 = load i8, ptr %m_value.i, align 8
-  %12 = and i8 %11, 1
   br label %_ZN3smt7checker5checkEP4exprb.exit
 
 if.end.i:                                         ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %for.body
   %call5.i = call noundef zeroext i1 @_ZN3smt7checker10check_coreEP4exprb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %2, i1 noundef zeroext %is_true)
   %frombool6.i = zext i1 %call5.i to i8
-  %13 = load i32, ptr %m_ref_count.i6, align 4
-  %cmp8.i = icmp ugt i32 %13, 1
+  %12 = load i32, ptr %m_ref_count.i6, align 4
+  %cmp8.i = icmp ugt i32 %12, 1
   br i1 %cmp8.i, label %if.then9.i, label %_ZN3smt7checker5checkEP4exprb.exit
 
 if.then9.i:                                       ; preds = %if.end.i
@@ -160,15 +159,15 @@ if.then9.i:                                       ; preds = %if.end.i
   br label %_ZN3smt7checker5checkEP4exprb.exit
 
 _ZN3smt7checker5checkEP4exprb.exit:               ; preds = %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit, %if.end.i, %if.then9.i
-  %r.i.2 = phi i8 [ %12, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %frombool6.i, %if.then9.i ], [ %frombool6.i, %if.end.i ]
-  %retval.0.i.not.not = icmp ne i8 %r.i.2, 0
+  %r.i.2 = phi i8 [ %11, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %frombool6.i, %if.then9.i ], [ %frombool6.i, %if.end.i ]
+  %retval.0.i = trunc i8 %r.i.2 to i1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.016, i64 8
   %cmp.not = icmp ne ptr %incdec.ptr, %add.ptr.i.ptr
-  %or.cond.not = select i1 %retval.0.i.not.not, i1 %cmp.not, i1 false
+  %or.cond.not = select i1 %retval.0.i, i1 %cmp.not, i1 false
   br i1 %or.cond.not, label %for.body, label %return
 
 return:                                           ; preds = %_ZN3smt7checker5checkEP4exprb.exit, %entry
-  %cmp.not.lcssa = phi i1 [ true, %entry ], [ %retval.0.i.not.not, %_ZN3smt7checker5checkEP4exprb.exit ]
+  %cmp.not.lcssa = phi i1 [ true, %entry ], [ %retval.0.i, %_ZN3smt7checker5checkEP4exprb.exit ]
   ret i1 %cmp.not.lcssa
 }
 
@@ -251,14 +250,13 @@ _ZNK7obj_mapI4exprbE4findEPS0_Rb.exit:            ; preds = %if.then.i.i.i, %if.
   %retval.0.i.i.i = phi ptr [ %curr.133.i.i.i, %if.then22.i.i.i ], [ %curr.031.i.i.i, %if.then.i.i.i ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %8 = load i8, ptr %m_value.i, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
+  %9 = trunc i8 %8 to i1
   br label %return
 
 if.end:                                           ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %entry
   %call5 = tail call noundef zeroext i1 @_ZN3smt7checker10check_coreEP4exprb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %n, i1 noundef zeroext %is_true)
-  %11 = load i32, ptr %m_ref_count.i, align 4
-  %cmp8 = icmp ugt i32 %11, 1
+  %10 = load i32, ptr %m_ref_count.i, align 4
+  %cmp8 = icmp ugt i32 %10, 1
   br i1 %cmp8, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end
@@ -275,7 +273,7 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit, %if.end, %if.then9
-  %r.1 = phi i1 [ %10, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %call5, %if.then9 ], [ %call5, %if.end ]
+  %r.1 = phi i1 [ %9, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %call5, %if.then9 ], [ %call5, %if.end ]
   ret i1 %r.1
 }
 

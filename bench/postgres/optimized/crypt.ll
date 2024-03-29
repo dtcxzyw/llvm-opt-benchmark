@@ -32,9 +32,8 @@ define dso_local ptr @get_role_password(ptr noundef %0, ptr nocapture noundef wr
 8:                                                ; preds = %2
   %9 = call i64 @SysCacheGetAttr(i32 noundef 10, ptr noundef nonnull %5, i16 noundef signext 11, ptr noundef nonnull %3) #6
   %10 = load i8, ptr %3, align 1
-  %11 = and i8 %10, 1
-  %.not18 = icmp eq i8 %11, 0
-  br i1 %.not18, label %14, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
   call void @ReleaseSysCache(ptr noundef nonnull %5) #6
@@ -48,14 +47,12 @@ define dso_local ptr @get_role_password(ptr noundef %0, ptr nocapture noundef wr
   %18 = load i8, ptr %3, align 1
   call void @ReleaseSysCache(ptr noundef nonnull %5) #6
   %19 = load i8, ptr %3, align 1
-  %20 = and i8 %19, 1
-  %.not20 = icmp eq i8 %20, 0
-  br i1 %.not20, label %21, label %27
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %27, label %21
 
 21:                                               ; preds = %14
-  %22 = and i8 %18, 1
-  %.not19 = icmp eq i8 %22, 0
-  %spec.select = select i1 %.not19, i64 %17, i64 0
+  %22 = trunc i8 %18 to i1
+  %spec.select = select i1 %22, i64 0, i64 %17
   %23 = call i64 @GetCurrentTimestamp() #6
   %24 = icmp slt i64 %spec.select, %23
   br i1 %24, label %25, label %27

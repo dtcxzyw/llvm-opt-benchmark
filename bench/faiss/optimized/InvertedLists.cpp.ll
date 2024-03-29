@@ -2782,10 +2782,9 @@ define void @_ZN5faiss13InvertedListsD2Ev(ptr nocapture nonnull readnone align 8
 define noundef zeroext i1 @_ZNK5faiss13InvertedLists8is_emptyEmPv(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not.not.not = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = load ptr, ptr %0, align 8
-  br i1 %.not.not.not, label %.thread, label %8
+  br i1 %6, label %8, label %16
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %7, i64 24
@@ -2797,33 +2796,33 @@ define noundef zeroext i1 @_ZNK5faiss13InvertedLists8is_emptyEmPv(ptr noundef no
   %15 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit10
 
-.thread:                                          ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %1)
-  %19 = icmp eq i64 %18, 0
-  br label %24
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %1)
+  %20 = icmp eq i64 %19, 0
+  br label %25
 
 _ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit: ; preds = %8
-  %20 = xor i1 %15, true
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
-  br label %24
+  %21 = xor i1 %15, true
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  br label %25
 
-24:                                               ; preds = %.thread, %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit
-  %25 = phi i1 [ %19, %.thread ], [ %20, %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit ]
-  ret i1 %25
+25:                                               ; preds = %16, %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit
+  %26 = phi i1 [ %21, %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit ], [ %20, %16 ]
+  ret i1 %26
 
 _ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit10: ; preds = %8
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
-  resume { ptr, i32 } %26
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  resume { ptr, i32 } %27
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -330,7 +330,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr dso_local noundef zeroext i1 @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef %first, ptr noundef %last, i32 noundef %0, ptr noundef %pName, ...) local_unnamed_addr #0 comdat {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %cmp.not21 = icmp eq ptr %first, %last
   br i1 %cmp.not21, label %if.then15, label %for.body.lr.ph
 
@@ -431,9 +431,8 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
 for.end13:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc6.us, %for.inc.us ], [ %inc6, %for.inc ]
   %bReturnValue.0.lcssa = phi i8 [ %bReturnValue.1.us, %for.inc.us ], [ %bReturnValue.1, %for.inc ]
-  %12 = and i8 %bReturnValue.0.lcssa, 1
-  %tobool14.not = icmp eq i8 %12, 0
-  br i1 %tobool14.not, label %if.end49, label %if.then15
+  %tobool14 = trunc i8 %bReturnValue.0.lcssa to i1
+  br i1 %tobool14, label %if.then15, label %if.end49
 
 if.then15:                                        ; preds = %entry, %for.end13
   %bReturnValue.0.lcssa48 = phi i8 [ %bReturnValue.0.lcssa, %for.end13 ], [ 1, %entry ]
@@ -443,12 +442,12 @@ if.then15:                                        ; preds = %entry, %for.end13
   br i1 %fits_in_gp19, label %vaarg.in_reg20, label %vaarg.in_mem22
 
 vaarg.in_reg20:                                   ; preds = %if.then15
-  %13 = getelementptr inbounds i8, ptr %args, i64 16
-  %reg_save_area21 = load ptr, ptr %13, align 16
-  %14 = zext nneg i32 %gp_offset18 to i64
-  %15 = getelementptr i8, ptr %reg_save_area21, i64 %14
-  %16 = add nuw nsw i32 %gp_offset18, 8
-  store i32 %16, ptr %args, align 16
+  %12 = getelementptr inbounds i8, ptr %args, i64 16
+  %reg_save_area21 = load ptr, ptr %12, align 16
+  %13 = zext nneg i32 %gp_offset18 to i64
+  %14 = getelementptr i8, ptr %reg_save_area21, i64 %13
+  %15 = add nuw nsw i32 %gp_offset18, 8
+  store i32 %15, ptr %args, align 16
   br label %vaarg.end26
 
 vaarg.in_mem22:                                   ; preds = %if.then15
@@ -459,16 +458,16 @@ vaarg.in_mem22:                                   ; preds = %if.then15
   br label %vaarg.end26
 
 vaarg.end26:                                      ; preds = %vaarg.in_mem22, %vaarg.in_reg20
-  %args.promoted = phi i32 [ %16, %vaarg.in_reg20 ], [ %gp_offset18, %vaarg.in_mem22 ]
-  %vaarg.addr27 = phi ptr [ %15, %vaarg.in_reg20 ], [ %overflow_arg_area24, %vaarg.in_mem22 ]
-  %17 = load i32, ptr %vaarg.addr27, align 4
-  %cmp28 = icmp eq i32 %17, -1
+  %args.promoted = phi i32 [ %15, %vaarg.in_reg20 ], [ %gp_offset18, %vaarg.in_mem22 ]
+  %vaarg.addr27 = phi ptr [ %14, %vaarg.in_reg20 ], [ %overflow_arg_area24, %vaarg.in_mem22 ]
+  %16 = load i32, ptr %vaarg.addr27, align 4
+  %cmp28 = icmp eq i32 %16, -1
   br i1 %cmp28, label %if.end49, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end26
   %overflow_arg_area_p38 = getelementptr inbounds i8, ptr %args, i64 8
-  %18 = getelementptr inbounds i8, ptr %args, i64 16
-  %reg_save_area36 = load ptr, ptr %18, align 16
+  %17 = getelementptr inbounds i8, ptr %args, i64 16
+  %reg_save_area36 = load ptr, ptr %17, align 16
   %overflow_arg_area_p38.promoted = load ptr, ptr %overflow_arg_area_p38, align 8
   br label %do.body
 
@@ -481,10 +480,10 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %fits_in_gp34, label %vaarg.in_reg35, label %vaarg.in_mem37
 
 vaarg.in_reg35:                                   ; preds = %do.body
-  %19 = zext nneg i32 %gp_offset3337 to i64
-  %20 = getelementptr i8, ptr %reg_save_area36, i64 %19
-  %21 = add nuw nsw i32 %gp_offset3337, 8
-  store i32 %21, ptr %args, align 16
+  %18 = zext nneg i32 %gp_offset3337 to i64
+  %19 = getelementptr i8, ptr %reg_save_area36, i64 %18
+  %20 = add nuw nsw i32 %gp_offset3337, 8
+  store i32 %20, ptr %args, align 16
   br label %vaarg.end41
 
 vaarg.in_mem37:                                   ; preds = %do.body
@@ -494,10 +493,10 @@ vaarg.in_mem37:                                   ; preds = %do.body
 
 vaarg.end41:                                      ; preds = %vaarg.in_mem37, %vaarg.in_reg35
   %overflow_arg_area3938 = phi ptr [ %overflow_arg_area3939, %vaarg.in_reg35 ], [ %overflow_arg_area.next40, %vaarg.in_mem37 ]
-  %gp_offset3336 = phi i32 [ %21, %vaarg.in_reg35 ], [ %gp_offset3337, %vaarg.in_mem37 ]
-  %vaarg.addr42 = phi ptr [ %20, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
-  %22 = load i32, ptr %vaarg.addr42, align 4
-  %cmp43.not = icmp eq i32 %22, -1
+  %gp_offset3336 = phi i32 [ %20, %vaarg.in_reg35 ], [ %gp_offset3337, %vaarg.in_mem37 ]
+  %vaarg.addr42 = phi ptr [ %19, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
+  %21 = load i32, ptr %vaarg.addr42, align 4
+  %cmp43.not = icmp eq i32 %21, -1
   br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %vaarg.end41
@@ -514,9 +513,8 @@ if.else46:                                        ; preds = %do.end
 
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end26, %for.end13
   %bReturnValue.2 = phi i8 [ %bReturnValue.0.lcssa48, %vaarg.end26 ], [ %bReturnValue.0.lcssa, %for.end13 ], [ 0, %if.else46 ], [ 0, %if.then45 ]
-  call void @llvm.va_end(ptr nonnull %args)
-  %23 = and i8 %bReturnValue.2, 1
-  %tobool51 = icmp ne i8 %23, 0
+  call void @llvm.va_end.p0(ptr nonnull %args)
+  %tobool51 = trunc i8 %bReturnValue.2 to i1
   ret i1 %tobool51
 }
 
@@ -575,13 +573,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare void @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -625,25 +617,25 @@ if.then12.i:                                      ; preds = %if.then7.i
   %call13.i = tail call noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pLowerBound.0.lcssa21.i)
   %mValue17.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 32
   %.pre = load i64, ptr %mValue17.i.phi.trans.insert, align 8
-  %.pre13 = load i64, ptr %mValue.i, align 8
+  %.pre14 = load i64, ptr %mValue.i, align 8
   br label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
 
 _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit: ; preds = %while.end.i, %if.then12.i
-  %3 = phi i64 [ %.pre13, %if.then12.i ], [ %0, %while.end.i ]
+  %3 = phi i64 [ %.pre14, %if.then12.i ], [ %0, %while.end.i ]
   %4 = phi i64 [ %.pre, %if.then12.i ], [ %1, %while.end.i ]
   %pLowerBound.0.lcssa22.i = phi ptr [ %pLowerBound.0.lcssa21.i, %if.then12.i ], [ %pCurrent.017.i, %while.end.i ]
   %pLowerBound.1.i = phi ptr [ %call13.i, %if.then12.i ], [ %pCurrent.017.i, %while.end.i ]
-  %cmp.i.i14.i.not = icmp ult i64 %4, %3
-  br i1 %cmp.i.i14.i.not, label %if.then, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit
+  %cmp.i.i14.i = icmp ult i64 %4, %3
+  br i1 %cmp.i.i14.i, label %if.then, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit
 
 if.then:                                          ; preds = %if.then7.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
   %5 = phi i64 [ %3, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit ], [ %0, %if.then7.i ]
-  %retval.0.i12 = phi ptr [ %pLowerBound.0.lcssa22.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit ], [ %pLowerBound.0.lcssa21.i, %if.then7.i ]
-  %cmp.i = icmp eq ptr %retval.0.i12, %this
+  %retval.0.i13 = phi ptr [ %pLowerBound.0.lcssa22.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit ], [ %pLowerBound.0.lcssa21.i, %if.then7.i ]
+  %cmp.i = icmp eq ptr %retval.0.i13, %this
   br i1 %cmp.i, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.then
-  %mValue.i6 = getelementptr inbounds i8, ptr %retval.0.i12, i64 32
+  %mValue.i6 = getelementptr inbounds i8, ptr %retval.0.i13, i64 32
   %6 = load i64, ptr %mValue.i6, align 8
   %cmp.i.i.i7 = icmp uge i64 %5, %6
   %spec.select.i = zext i1 %cmp.i.i.i7 to i32
@@ -651,7 +643,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %retval.0.i12, ptr noundef nonnull %this, i32 noundef %side.0.i)
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i)
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i64, ptr %mnSize.i, align 8
   %inc.i = add i64 %7, 1
@@ -663,8 +655,8 @@ _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNo
   br label %return
 
 return:                                           ; preds = %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit
-  %retval.sroa.0.0 = phi ptr [ %pLowerBound.1.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit ], [ %call.i.i.i.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit ]
-  %retval.sroa.3.0 = phi i8 [ 0, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit ], [ 1, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %call.i.i.i.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit ], [ %pLowerBound.1.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit ]
+  %retval.sroa.3.0 = phi i8 [ 1, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit ], [ 0, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -673,6 +665,12 @@ return:                                           ; preds = %_ZN5eastl6rbtreeImm
 declare noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef) local_unnamed_addr #1
 
 declare void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

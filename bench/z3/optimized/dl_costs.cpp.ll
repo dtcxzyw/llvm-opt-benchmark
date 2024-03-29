@@ -307,17 +307,16 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %m_stopwatch.i.i, align 8
   %m_running.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i8, ptr %m_running.i.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZNK9stopwatch19get_current_secondsEv.exit.i.i, label %_ZN9stopwatch4stopEv.exit.i.i.i.i
+  %tobool.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN9stopwatch4stopEv.exit.i.i.i.i, label %_ZNK9stopwatch19get_current_secondsEv.exit.i.i
 
 _ZN9stopwatch4stopEv.exit.i.i.i.i:                ; preds = %if.then
   %call.i.i.i.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i = load i64, ptr %1, align 8
   %sub.i.i.i.i.i.i.i = sub i64 %call.i.i.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i
   %m_elapsed.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load i64, ptr %m_elapsed.i.i.i.i.i, align 8
-  %add.i.i.i.i.i.i = add nsw i64 %sub.i.i.i.i.i.i.i, %4
+  %3 = load i64, ptr %m_elapsed.i.i.i.i.i, align 8
+  %add.i.i.i.i.i.i = add nsw i64 %sub.i.i.i.i.i.i.i, %3
   store i64 %add.i.i.i.i.i.i, ptr %m_elapsed.i.i.i.i.i, align 8
   store i8 0, ptr %m_running.i.i.i.i, align 8
   %call.i.i4.i.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
@@ -327,29 +326,29 @@ _ZN9stopwatch4stopEv.exit.i.i.i.i:                ; preds = %if.then
   br label %_ZNK9stopwatch19get_current_secondsEv.exit.i.i
 
 _ZNK9stopwatch19get_current_secondsEv.exit.i.i:   ; preds = %_ZN9stopwatch4stopEv.exit.i.i.i.i, %if.then
-  %5 = phi ptr [ %.pre, %_ZN9stopwatch4stopEv.exit.i.i.i.i ], [ %0, %if.then ]
+  %4 = phi ptr [ %.pre, %_ZN9stopwatch4stopEv.exit.i.i.i.i ], [ %0, %if.then ]
   %m_elapsed.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %m_elapsed.i.i.i.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %6, 1000000
+  %5 = load i64, ptr %m_elapsed.i.i.i.i, align 8
+  %div.i.i.i.i.i.i = sdiv i64 %5, 1000000
   %conv.i.i.i.i = sitofp i64 %div.i.i.i.i.i.i to double
   %div.i.i.i.i = fdiv double %conv.i.i.i.i, 1.000000e+03
   %mul.i.i = fmul double %div.i.i.i.i, 1.000000e+03
   %conv.i.i = fptoui double %mul.i.i to i64
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZN7datalog13cost_recorder6finishEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK9stopwatch19get_current_secondsEv.exit.i.i
   %m_last_time.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load i64, ptr %m_last_time.i.i, align 8
-  %sub.i.i = sub i64 %conv.i.i, %7
+  %6 = load i64, ptr %m_last_time.i.i, align 8
+  %sub.i.i = sub i64 %conv.i.i, %6
   %conv2.i.i = trunc i64 %sub.i.i to i32
-  %m_current_cost.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = load <2 x i32>, ptr %m_current_cost.i.i.i, align 4
-  %9 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %conv2.i.i, i64 0
-  %10 = add <2 x i32> %8, %9
-  store <2 x i32> %10, ptr %m_current_cost.i.i.i, align 4
-  %11 = load ptr, ptr %this, align 8
-  %m_being_recorded.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %m_current_cost.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = load <2 x i32>, ptr %m_current_cost.i.i.i, align 4
+  %8 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %conv2.i.i, i64 0
+  %9 = add <2 x i32> %7, %8
+  store <2 x i32> %9, ptr %m_current_cost.i.i.i, align 4
+  %10 = load ptr, ptr %this, align 8
+  %m_being_recorded.i.i = getelementptr inbounds i8, ptr %10, i64 32
   store i8 0, ptr %m_being_recorded.i.i, align 8
   br label %_ZN7datalog13cost_recorder6finishEv.exit
 
@@ -363,22 +362,22 @@ _ZN7datalog13cost_recorder6finishEv.exit:         ; preds = %_ZNK9stopwatch19get
 
 if.end:                                           ; preds = %_ZN7datalog13cost_recorder6finishEv.exit, %entry
   %m_stopwatch = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %m_stopwatch, align 8
-  %cmp.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %m_stopwatch, align 8
+  %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %invoke.cont2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %12)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %11)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.end, %if.end.i
   ret void
 
 terminate.lpad:                                   ; preds = %if.end.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #12
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #12
   unreachable
 }
 
@@ -389,17 +388,16 @@ entry:
   %0 = load ptr, ptr %m_stopwatch, align 8
   %m_running.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %m_running.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZNK9stopwatch19get_current_secondsEv.exit, label %_ZN9stopwatch4stopEv.exit.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN9stopwatch4stopEv.exit.i.i, label %_ZNK9stopwatch19get_current_secondsEv.exit
 
 _ZN9stopwatch4stopEv.exit.i.i:                    ; preds = %entry
   %call.i.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %retval.sroa.0.0.copyload.i1.i.i.i.i = load i64, ptr %0, align 8
   %sub.i.i.i.i.i = sub i64 %call.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i
   %m_elapsed.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %m_elapsed.i.i.i, align 8
-  %add.i.i.i.i = add nsw i64 %sub.i.i.i.i.i, %3
+  %2 = load i64, ptr %m_elapsed.i.i.i, align 8
+  %add.i.i.i.i = add nsw i64 %sub.i.i.i.i.i, %2
   store i64 %add.i.i.i.i, ptr %m_elapsed.i.i.i, align 8
   store i8 0, ptr %m_running.i.i, align 8
   %call.i.i4.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
@@ -409,28 +407,28 @@ _ZN9stopwatch4stopEv.exit.i.i:                    ; preds = %entry
 
 _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %entry, %_ZN9stopwatch4stopEv.exit.i.i
   %m_elapsed.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %m_elapsed.i.i, align 8
-  %div.i.i.i.i = sdiv i64 %4, 1000000
+  %3 = load i64, ptr %m_elapsed.i.i, align 8
+  %div.i.i.i.i = sdiv i64 %3, 1000000
   %conv.i.i = sitofp i64 %div.i.i.i.i to double
   %div.i.i = fdiv double %conv.i.i, 1.000000e+03
   %mul = fmul double %div.i.i, 1.000000e+03
   %conv = fptoui double %mul to i64
-  %5 = load ptr, ptr %this, align 8
-  %tobool.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %this, align 8
+  %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK9stopwatch19get_current_secondsEv.exit
   %m_last_time = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load i64, ptr %m_last_time, align 8
-  %sub = sub i64 %conv, %6
+  %5 = load i64, ptr %m_last_time, align 8
+  %sub = sub i64 %conv, %5
   %conv2 = trunc i64 %sub to i32
-  %m_current_cost.i = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = load <2 x i32>, ptr %m_current_cost.i, align 4
-  %8 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %conv2, i64 0
-  %9 = add <2 x i32> %7, %8
-  store <2 x i32> %9, ptr %m_current_cost.i, align 4
-  %10 = load ptr, ptr %this, align 8
-  %m_being_recorded = getelementptr inbounds i8, ptr %10, i64 32
+  %m_current_cost.i = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load <2 x i32>, ptr %m_current_cost.i, align 4
+  %7 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %conv2, i64 0
+  %8 = add <2 x i32> %6, %7
+  store <2 x i32> %8, ptr %m_current_cost.i, align 4
+  %9 = load ptr, ptr %this, align 8
+  %m_being_recorded = getelementptr inbounds i8, ptr %9, i64 32
   store i8 0, ptr %m_being_recorded, align 8
   br label %if.end
 

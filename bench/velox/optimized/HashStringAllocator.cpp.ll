@@ -2545,18 +2545,18 @@ if.then11.i:                                      ; preds = %if.end.i
   %sh_prom.i28.i = zext nneg i32 %sub13.i to i64
   %notmask.i29.i = shl nsw i64 -1, %sh_prom.i28.i
   %sub.i30.i = xor i64 %notmask.i29.i, -1
-  %idxprom2.i31.i = zext nneg i32 %div12.i to i64
-  %arrayidx3.i32.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom2.i31.i
-  %13 = load i64, ptr %arrayidx3.i32.i, align 8
-  %and.i36.i = and i64 %13, %sub.i30.i
-  %tobool4.not.i37.i = icmp eq i64 %and.i36.i, 0
-  br i1 %tobool4.not.i37.i, label %for.cond.i.preheader, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i
+  %idxprom.i31.i = zext nneg i32 %div12.i to i64
+  %arrayidx.i32.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom.i31.i
+  %13 = load i64, ptr %arrayidx.i32.i, align 8
+  %and.i35.i = and i64 %13, %sub.i30.i
+  %tobool4.not.i36.i = icmp eq i64 %and.i35.i, 0
+  br i1 %tobool4.not.i36.i, label %for.cond.i.preheader, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i
 
-_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i: ; preds = %if.then11.i
-  %add.i40.i = or i32 %.sroa.speculated.i, 63
-  %14 = tail call i64 @llvm.ctlz.i64(i64 %and.i36.i, i1 true), !range !31
-  %cast.i41.i = trunc i64 %14 to i32
-  %sub.i42.i = sub nuw nsw i32 %add.i40.i, %cast.i41.i
+_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i: ; preds = %if.then11.i
+  %add.i39.i = or i32 %.sroa.speculated.i, 63
+  %14 = tail call i64 @llvm.ctlz.i64(i64 %and.i35.i, i1 true), !range !31
+  %cast.i40.i = trunc i64 %14 to i32
+  %sub.i41.i = sub nuw nsw i32 %add.i39.i, %cast.i40.i
   br label %if.end13
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
@@ -2567,21 +2567,21 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %i.0.i = add nsw i32 %i.0.in.i, -64
   %div21.i = lshr exact i32 %i.0.i, 6
-  %idxprom2.i44.i = zext nneg i32 %div21.i to i64
-  %arrayidx3.i45.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom2.i44.i
-  %15 = load i64, ptr %arrayidx3.i45.i, align 8
-  %tobool4.not.i49.i = icmp eq i64 %15, 0
-  br i1 %tobool4.not.i49.i, label %for.cond.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, !llvm.loop !32
+  %idxprom.i43.i = zext nneg i32 %div21.i to i64
+  %arrayidx.i44.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom.i43.i
+  %15 = load i64, ptr %arrayidx.i44.i, align 8
+  %tobool4.not.i47.i = icmp eq i64 %15, 0
+  br i1 %tobool4.not.i47.i, label %for.cond.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, !llvm.loop !32
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i: ; preds = %for.body.i
   %16 = tail call i64 @llvm.ctlz.i64(i64 %15, i1 true), !range !31
-  %cast.i52.i = trunc i64 %16 to i32
-  %17 = xor i32 %cast.i52.i, -1
-  %sub.i53.i = add nsw i32 %i.0.in.i, %17
+  %cast.i50.i = trunc i64 %16 to i32
+  %17 = xor i32 %cast.i50.i, -1
+  %sub.i51.i = add nsw i32 %i.0.in.i, %17
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
-  %available.0 = phi i32 [ %sub.i53.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i ], [ %sub.i42.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ]
+if.end13:                                         ; preds = %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
+  %available.0 = phi i32 [ %sub.i51.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ]
   %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.0)
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.then18, label %return
@@ -4496,7 +4496,7 @@ entry:
 entry.if.end9_crit_edge:                          ; preds = %entry
   %chunkMask_.i34.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load i64, ptr %chunkMask_.i34.phi.trans.insert, align 8
-  %.pre64 = load ptr, ptr %this, align 8
+  %.pre65 = load ptr, ptr %this, align 8
   br label %if.end9
 
 if.then:                                          ; preds = %entry
@@ -4512,9 +4512,9 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %if.end18.i
-  %index.i.063 = phi i64 [ %hp.coerce0, %if.then ], [ %add.i, %if.end18.i ]
-  %tries.i.062 = phi i64 [ 0, %if.then ], [ %inc.i, %if.end18.i ]
-  %and.i = and i64 %1, %index.i.063
+  %index.i.064 = phi i64 [ %hp.coerce0, %if.then ], [ %add.i, %if.end18.i ]
+  %tries.i.063 = phi i64 [ 0, %if.then ], [ %inc.i, %if.end18.i ]
+  %and.i = and i64 %1, %index.i.064
   %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i
   %rawItems_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 144
@@ -4529,8 +4529,8 @@ for.body.i:                                       ; preds = %if.then, %if.end18.
 
 while.cond.i:                                     ; preds = %while.body.i, %for.body.i
   %hits.i.sroa.0.0 = phi i32 [ %and.i27, %for.body.i ], [ %and.i29, %while.body.i ]
-  %cmp.i.not61 = icmp eq i32 %hits.i.sroa.0.0, 0
-  br i1 %cmp.i.not61, label %while.end.i, label %while.body.i
+  %cmp.i.not62 = icmp eq i32 %hits.i.sroa.0.0, 0
+  br i1 %cmp.i.not62, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
   %8 = tail call noundef i32 @llvm.cttz.i32(i32 %hits.i.sroa.0.0, i1 true), !range !8
@@ -4547,13 +4547,13 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp15.i, label %if.end9, label %if.end18.i
 
 if.end18.i:                                       ; preds = %while.end.i
-  %add.i = add i64 %add.i25, %index.i.063
-  %inc.i = add i64 %tries.i.062, 1
+  %add.i = add i64 %add.i25, %index.i.064
+  %inc.i = add i64 %tries.i.063, 1
   %cmp.i.not = icmp ugt i64 %inc.i, %1
   br i1 %cmp.i.not, label %if.end9, label %for.body.i, !llvm.loop !22
 
 if.end9:                                          ; preds = %if.end18.i, %while.end.i, %entry.if.end9_crit_edge
-  %10 = phi ptr [ %.pre64, %entry.if.end9_crit_edge ], [ %2, %while.end.i ], [ %2, %if.end18.i ]
+  %10 = phi ptr [ %.pre65, %entry.if.end9_crit_edge ], [ %2, %while.end.i ], [ %2, %if.end18.i ]
   %11 = phi i64 [ %.pre, %entry.if.end9_crit_edge ], [ %1, %while.end.i ], [ %1, %if.end18.i ]
   %chunkMask_.i34 = getelementptr inbounds i8, ptr %this, i64 8
   %add2.i = add i64 %11, 1
@@ -4607,13 +4607,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForIn
   %.pn.i.i.i = phi i64 [ %shl.i.i.i, %if.end34.i.i.i ], [ 1, %if.else.i.i.i ], [ 1, %if.then.i.i.i ]
   %desiredCapacity.addr.0.pn.i.i.i = phi i64 [ 12, %if.end34.i.i.i ], [ %spec.select.i.i.i, %if.else.i.i.i ], [ 2, %if.then.i.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0, i64 noundef %add2.i, i64 noundef %conv2.i.i, i64 noundef %.pn.i.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i.i)
-  %.pre65 = load ptr, ptr %this, align 8
-  %.pre66 = load i64, ptr %chunkMask_.i34, align 8
+  %.pre66 = load ptr, ptr %this, align 8
+  %.pre67 = load i64, ptr %chunkMask_.i34, align 8
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16reserveForInsertEm.exit
 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16reserveForInsertEm.exit: ; preds = %if.end9, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i
-  %15 = phi i64 [ %11, %if.end9 ], [ %.pre66, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i ]
-  %16 = phi ptr [ %10, %if.end9 ], [ %.pre65, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i ]
+  %15 = phi i64 [ %11, %if.end9 ], [ %.pre67, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i ]
+  %16 = phi ptr [ %10, %if.end9 ], [ %.pre66, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i ]
   %and = and i64 %15, %hp.coerce0
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %16, i64 %and
   %17 = load <16 x i8>, ptr %add.ptr, align 16
@@ -4642,13 +4642,13 @@ do.body:                                          ; preds = %_ZN5folly3f146detai
 if.then.i40:                                      ; preds = %do.body
   %inc.i41 = add nuw i8 %24, 1
   store i8 %inc.i41, ptr %outboundOverflowCount_.i38, align 1
-  %.pre67 = load ptr, ptr %this, align 8
-  %.pre68 = load i64, ptr %chunkMask_.i34, align 8
+  %.pre68 = load ptr, ptr %this, align 8
+  %.pre69 = load i64, ptr %chunkMask_.i34, align 8
   br label %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit
 
 _ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit: ; preds = %do.body, %if.then.i40
-  %25 = phi i64 [ %22, %do.body ], [ %.pre68, %if.then.i40 ]
-  %26 = phi ptr [ %23, %do.body ], [ %.pre67, %if.then.i40 ]
+  %25 = phi i64 [ %22, %do.body ], [ %.pre69, %if.then.i40 ]
+  %26 = phi ptr [ %23, %do.body ], [ %.pre68, %if.then.i40 ]
   %add = add i64 %add.i37, %index.0
   %and17 = and i64 %25, %add
   %add.ptr18 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %26, i64 %and17
@@ -5052,9 +5052,9 @@ while.cond79:                                     ; preds = %while.cond79, %whil
   %32 = load i8, ptr %arrayidx, align 1
   %cmp81 = icmp eq i8 %32, 0
   %dec83 = add i64 %i.0, -1
-  br i1 %cmp81, label %while.cond79, label %if.then.i76, !llvm.loop !58
+  br i1 %cmp81, label %while.cond79, label %if.then.i75, !llvm.loop !58
 
-if.then.i76:                                      ; preds = %while.cond79
+if.then.i75:                                      ; preds = %while.cond79
   %33 = load ptr, ptr %this, align 8
   %conv90 = zext nneg i8 %32 to i64
   %sub91 = add nsw i64 %conv90, -1
@@ -5068,52 +5068,50 @@ if.then.i76:                                      ; preds = %while.cond79
   store i64 %or.i.i72, ptr %packedBegin_.i73, align 8
   br i1 %cmp30.not, label %invoke.cont4.i.i.i79, label %if.end98
 
-invoke.cont4.i.i.i79:                             ; preds = %if.then.i76
+invoke.cont4.i.i.i79:                             ; preds = %if.then.i75
   call void @_ZdlPv(ptr noundef nonnull %fullness.0) #25
   br label %if.end98
 
-if.end98:                                         ; preds = %invoke.cont4.i.i.i79, %if.then.i76, %invoke.cont25, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16initializeChunksEPhmm.exit.loopexit
+if.end98:                                         ; preds = %invoke.cont4.i.i.i79, %if.then.i75, %invoke.cont25, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16initializeChunksEPhmm.exit.loopexit
   store i8 1, ptr %success, align 1
   %35 = load i8, ptr %SCOPE_EXIT_STATE3, align 8
-  %36 = and i8 %35, 1
-  %tobool.not.i81 = icmp eq i8 %36, 0
-  br i1 %tobool.not.i81, label %if.then.i83, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPvmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
+  %tobool.i81 = trunc i8 %35 to i1
+  br i1 %tobool.i81, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPvmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %if.then.i82
 
-if.then.i83:                                      ; preds = %if.end98
-  %37 = load ptr, ptr %function_.i.i.i, align 8
-  %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %tobool.not.i.i.i = icmp eq i8 %39, 0
-  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+if.then.i82:                                      ; preds = %if.end98
+  %36 = load ptr, ptr %function_.i.i.i, align 8
+  %37 = load i8, ptr %36, align 1
+  %tobool.i.i.i = trunc i8 %37 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i83
-  %40 = load ptr, ptr %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx, align 8
-  %41 = load i64, ptr %40, align 8
-  %cmp.not.i.i.i = icmp eq i64 %41, 0
+if.then.i.i.i:                                    ; preds = %if.then.i82
+  %38 = load ptr, ptr %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx, align 8
+  %39 = load i64, ptr %38, align 8
+  %cmp.not.i.i.i = icmp eq i64 %39, 0
   br i1 %cmp.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPvmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
-  %42 = load ptr, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
-  %43 = load ptr, ptr %42, align 8
+  %40 = load ptr, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
+  %41 = load ptr, ptr %40, align 8
   br label %if.end3.i.i.i
 
-if.else.i.i.i:                                    ; preds = %if.then.i83
-  %44 = load ptr, ptr %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx, align 8
-  %45 = load ptr, ptr %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx, align 8
+if.else.i.i.i:                                    ; preds = %if.then.i82
+  %42 = load ptr, ptr %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx, align 8
+  %43 = load ptr, ptr %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx, align 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %44, align 8
-  %49 = load ptr, ptr %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx, align 8
-  %50 = load i64, ptr %49, align 8
-  %sub.i.i.i85 = add i64 %50, -1
-  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
-  store i64 %sub.i.i.i85, ptr %chunkMask_.i.i.i, align 8
+  store ptr %46, ptr %42, align 8
+  %47 = load ptr, ptr %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx, align 8
+  %48 = load i64, ptr %47, align 8
+  %sub.i.i.i84 = add i64 %48, -1
+  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
+  store i64 %sub.i.i.i84, ptr %chunkMask_.i.i.i, align 8
   call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5checkEv() #24
   br label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then2.i.i.i
-  %finishedRawAllocation.0.i.i.i = phi ptr [ %43, %if.then2.i.i.i ], [ %46, %if.else.i.i.i ]
+  %finishedRawAllocation.0.i.i.i = phi ptr [ %41, %if.then2.i.i.i ], [ %44, %if.else.i.i.i ]
   %cmp.not.i.i.i.i = icmp eq ptr %finishedRawAllocation.0.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPvmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %invoke.cont.i.i.i.i
 
@@ -5163,52 +5161,50 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 define linkonce_odr void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPvmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %function_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %function_.i, align 8
-  %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %1 = load ptr, ptr %function_.i, align 8
+  %2 = load i8, ptr %1, align 1
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %5 = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %cmp.not.i.i = icmp eq i64 %7, 0
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %4, align 8
+  %cmp.not.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not.i.i, label %if.end, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %8 = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %9, align 8
+  %6 = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %7, align 8
   br label %if.end3.i.i
 
 if.else.i.i:                                      ; preds = %if.then
-  %11 = getelementptr inbounds i8, ptr %this, i64 56
+  %9 = getelementptr inbounds i8, ptr %this, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %this, i64 40
-  %14 = load ptr, ptr %13, align 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load ptr, ptr %16, align 8
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %10, align 8
+  %17 = getelementptr inbounds i8, ptr %this, i64 64
   %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %this, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %20, align 8
-  %sub.i.i = add i64 %21, -1
-  %chunkMask_.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = load i64, ptr %18, align 8
+  %sub.i.i = add i64 %19, -1
+  %chunkMask_.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %sub.i.i, ptr %chunkMask_.i.i, align 8
   tail call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5checkEv() #24
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.else.i.i, %if.then2.i.i
-  %finishedRawAllocation.0.i.i = phi ptr [ %10, %if.then2.i.i ], [ %15, %if.else.i.i ]
+  %finishedRawAllocation.0.i.i = phi ptr [ %8, %if.then2.i.i ], [ %13, %if.else.i.i ]
   %cmp.not.i.i.i = icmp eq ptr %finishedRawAllocation.0.i.i, null
   br i1 %cmp.not.i.i.i, label %if.end, label %invoke.cont.i.i.i
 

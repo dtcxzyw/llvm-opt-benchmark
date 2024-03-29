@@ -160,8 +160,8 @@ define void @slurm_print_federation(ptr noundef readonly %0) local_unnamed_addr 
 .loopexit:                                        ; preds = %14, %20
   call void @list_iterator_reset(ptr noundef %13) #3
   %38 = call ptr @list_next(ptr noundef %13) #3
-  %.not5061 = icmp eq ptr %38, null
-  br i1 %.not5061, label %._crit_edge, label %.lr.ph
+  %.not5060 = icmp eq ptr %38, null
+  br i1 %.not5060, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit, %.backedge
   %39 = phi ptr [ %71, %.backedge ], [ %38, %.loopexit ]
@@ -184,7 +184,7 @@ define void @slurm_print_federation(ptr noundef readonly %0) local_unnamed_addr 
   %51 = getelementptr inbounds i8, ptr %39, i64 152
   %52 = load ptr, ptr %51, align 8
   %.not52 = icmp eq ptr %52, null
-  %spec.select58 = select i1 %.not52, ptr @.str.4, ptr %52
+  %spec.select57 = select i1 %.not52, ptr @.str.4, ptr %52
   %53 = getelementptr inbounds i8, ptr %39, i64 160
   %54 = load i32, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %39, i64 184
@@ -204,10 +204,9 @@ define void @slurm_print_federation(ptr noundef readonly %0) local_unnamed_addr 
   %65 = select i1 %.not56, ptr @.str.8, ptr @.str.7
   %66 = getelementptr inbounds i8, ptr %39, i64 220
   %67 = load i8, ptr %66, align 4
-  %68 = and i8 %67, 1
-  %.not57 = icmp eq i8 %68, 0
-  %69 = select i1 %.not57, ptr @.str.8, ptr @.str.7
-  %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 11, ptr noundef nonnull @.str.6, ptr noundef %50, ptr noundef nonnull %spec.select58, i32 noundef %54, i32 noundef %56, ptr noundef nonnull %57, ptr noundef nonnull %59, ptr noundef nonnull %62, ptr noundef nonnull %65, ptr noundef nonnull %69)
+  %68 = trunc i8 %67 to i1
+  %69 = select i1 %68, ptr @.str.7, ptr @.str.8
+  %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 11, ptr noundef nonnull @.str.6, ptr noundef %50, ptr noundef nonnull %spec.select57, i32 noundef %54, i32 noundef %56, ptr noundef nonnull %57, ptr noundef nonnull %59, ptr noundef nonnull %62, ptr noundef nonnull %65, ptr noundef nonnull %69)
   call void @slurm_xfree(ptr noundef nonnull %3) #3
   br label %.backedge
 

@@ -118,7 +118,7 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder12EncodeValuesER
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %11, %12
-  br i1 %.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18, label %.lr.ph
+  br i1 %.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds i8, ptr %2, i64 32
@@ -130,15 +130,14 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder12EncodeValuesER
   %17 = phi ptr [ %12, %.lr.ph ], [ %51, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
   %18 = phi ptr [ %11, %.lr.ph ], [ %52, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
   %19 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %53, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
+  %.020 = phi i32 [ 0, %.lr.ph ], [ %53, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds %"class.draco::IndexType.54", ptr %17, i64 %19
   %.sroa.01.0.copyload = load i32, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %20, i64 100
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not.i = icmp eq i8 %24, 0
-  br i1 %.not.i, label %25, label %31
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %31, label %25
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds i8, ptr %20, i64 72
@@ -177,20 +176,20 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder12EncodeValuesER
 
 ._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge: ; preds = %44
   %.pre = load ptr, ptr %10, align 8
-  %.pre22 = load ptr, ptr %1, align 8
+  %.pre21 = load ptr, ptr %1, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge, %31
-  %51 = phi ptr [ %.pre22, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge ], [ %17, %31 ]
+  %51 = phi ptr [ %.pre21, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge ], [ %17, %31 ]
   %52 = phi ptr [ %.pre, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge ], [ %18, %31 ]
-  %53 = add i32 %.021, 1
+  %53 = add i32 %.020, 1
   %54 = zext i32 %53 to i64
   %55 = ptrtoint ptr %52 to i64
   %56 = ptrtoint ptr %51 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 2
   %59 = icmp ugt i64 %58, %54
-  br i1 %59, label %16, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18, !llvm.loop !4
+  br i1 %59, label %16, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit17, !llvm.loop !4
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %44
   %60 = landingpad { ptr, i32 }
@@ -198,7 +197,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %44
   tail call void @_ZdaPv(ptr noundef nonnull %9) #16
   resume { ptr, i32 } %60
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18: ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %3
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit17: ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %3
   tail call void @_ZdaPv(ptr noundef nonnull %9) #16
   ret i1 true
 }

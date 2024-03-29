@@ -2263,9 +2263,8 @@ _ZN5QHashIi16ft_framenum_typeE6detachEv.exit:     ; preds = %.noexc, %_ZN5QHashI
   call void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, ft_framenum_type>>::InsertionResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 4 dereferenceable(4) %1) #15
   %18 = getelementptr inbounds i8, ptr %4, i64 16
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %40
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %40, label %21
 
 21:                                               ; preds = %_ZN5QHashIi16ft_framenum_typeE6detachEv.exit
   %22 = load ptr, ptr %4, align 8

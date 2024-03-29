@@ -122,77 +122,75 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i8, ptr %_M_engaged.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not, label %invoke.cont, label %if.then
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then, label %invoke.cont
 
 if.then:                                          ; preds = %land.lhs.true
   %materialized_status = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = load i64, ptr %materialized_status, align 8
-  store i64 %3, ptr %agg.result, align 8
-  %and.i.i.i = and i64 %3, 1
+  %2 = load i64, ptr %materialized_status, align 8
+  store i64 %2, ptr %agg.result, align 8
+  %and.i.i.i = and i64 %2, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i.i = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i.i.i to ptr
-  %5 = atomicrmw add ptr %4, i32 1 monotonic, align 4
+  %sub.i.i.i = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i.i.i to ptr
+  %4 = atomicrmw add ptr %3, i32 1 monotonic, align 4
   br label %return
 
 invoke.cont:                                      ; preds = %entry, %land.lhs.true
   tail call void @_ZNK9grpc_core16HpackParseResult17BuildMaterializedEv(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %6 = load i64, ptr %agg.result, align 8
-  %cmp.i1 = icmp eq i64 %6, 0
+  %5 = load i64, ptr %agg.result, align 8
+  %cmp.i1 = icmp eq i64 %5, 0
   br i1 %cmp.i1, label %return, label %if.then10
 
 if.then10:                                        ; preds = %invoke.cont
-  %7 = load ptr, ptr %this, align 8
-  %materialized_status14 = getelementptr inbounds i8, ptr %7, i64 72
-  %_M_engaged.i.i2 = getelementptr inbounds i8, ptr %7, i64 80
-  %8 = load i8, ptr %_M_engaged.i.i2, align 8
-  %9 = and i8 %8, 1
-  %tobool.i.not.i = icmp eq i8 %9, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %6 = load ptr, ptr %this, align 8
+  %materialized_status14 = getelementptr inbounds i8, ptr %6, i64 72
+  %_M_engaged.i.i2 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = load i8, ptr %_M_engaged.i.i2, align 8
+  %tobool.i.i3 = trunc i8 %7 to i1
+  br i1 %tobool.i.i3, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
-  %10 = load i64, ptr %materialized_status14, align 8
-  %cmp.not.i.i = icmp eq i64 %6, %10
-  br i1 %cmp.not.i.i, label %return, label %if.then.i.i3
+  %8 = load i64, ptr %materialized_status14, align 8
+  %cmp.not.i.i = icmp eq i64 %5, %8
+  br i1 %cmp.not.i.i, label %return, label %if.then.i.i4
 
-if.then.i.i3:                                     ; preds = %if.then.i
-  %and.i.i.i.i = and i64 %6, 1
+if.then.i.i4:                                     ; preds = %if.then.i
+  %and.i.i.i.i = and i64 %5, 1
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN4absl12lts_202308026Status3RefEm.exit.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i.i3
-  %sub.i.i.i.i = add nsw i64 %6, -1
-  %11 = inttoptr i64 %sub.i.i.i.i to ptr
-  %12 = atomicrmw add ptr %11, i32 1 monotonic, align 4
+if.then.i.i.i:                                    ; preds = %if.then.i.i4
+  %sub.i.i.i.i = add nsw i64 %5, -1
+  %9 = inttoptr i64 %sub.i.i.i.i to ptr
+  %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4
   %.pre.i.i = load i64, ptr %agg.result, align 8
   br label %_ZN4absl12lts_202308026Status3RefEm.exit.i.i
 
-_ZN4absl12lts_202308026Status3RefEm.exit.i.i:     ; preds = %if.then.i.i.i, %if.then.i.i3
-  %13 = phi i64 [ %6, %if.then.i.i3 ], [ %.pre.i.i, %if.then.i.i.i ]
-  store i64 %13, ptr %materialized_status14, align 8
-  %and.i.i5.i.i = and i64 %10, 1
+_ZN4absl12lts_202308026Status3RefEm.exit.i.i:     ; preds = %if.then.i.i.i, %if.then.i.i4
+  %11 = phi i64 [ %5, %if.then.i.i4 ], [ %.pre.i.i, %if.then.i.i.i ]
+  store i64 %11, ptr %materialized_status14, align 8
+  %and.i.i5.i.i = and i64 %8, 1
   %cmp.i.i6.i.i = icmp eq i64 %and.i.i5.i.i, 0
   br i1 %cmp.i.i6.i.i, label %return, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZN4absl12lts_202308026Status3RefEm.exit.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %10)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %8)
           to label %return unwind label %lpad
 
 if.else.i:                                        ; preds = %if.then10
-  store i64 %6, ptr %materialized_status14, align 8
-  %and.i.i.i.i.i.i.i = and i64 %6, 1
+  store i64 %5, ptr %materialized_status14, align 8
+  %and.i.i.i.i.i.i.i = and i64 %5, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt19_Optional_base_implIN4absl12lts_202308026StatusESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRS2_EEEvDpOT_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else.i
-  %sub.i.i.i.i.i.i.i = add nsw i64 %6, -1
-  %14 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
-  %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4
+  %sub.i.i.i.i.i.i.i = add nsw i64 %5, -1
+  %12 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
+  %13 = atomicrmw add ptr %12, i32 1 monotonic, align 4
   br label %_ZNSt19_Optional_base_implIN4absl12lts_202308026StatusESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRS2_EEEvDpOT_.exit.i
 
 _ZNSt19_Optional_base_implIN4absl12lts_202308026StatusESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRS2_EEEvDpOT_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %if.else.i
@@ -200,10 +198,10 @@ _ZNSt19_Optional_base_implIN4absl12lts_202308026StatusESt14_Optional_baseIS2_Lb0
   br label %return
 
 lpad:                                             ; preds = %if.then.i7.i.i
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #11
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 
 return:                                           ; preds = %_ZNSt19_Optional_base_implIN4absl12lts_202308026StatusESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRS2_EEEvDpOT_.exit.i, %_ZN4absl12lts_202308026Status3RefEm.exit.i.i, %if.then.i, %if.then.i7.i.i, %if.then.i.i, %if.then, %invoke.cont
   ret void

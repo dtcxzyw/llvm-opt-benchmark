@@ -851,24 +851,23 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i8, ptr %done, align 1
-  %1 = and i8 %0, 1
-  %tobool1.not = icmp eq i8 %1, 0
-  br i1 %tobool1.not, label %do.end, label %out
+  %tobool1 = trunc i8 %0 to i1
+  br i1 %tobool1, label %out, label %do.end
 
 do.end:                                           ; preds = %lor.lhs.false
-  %2 = load i64, ptr %consumed, align 8
+  %1 = load i64, ptr %consumed, align 8
   %header = getelementptr inbounds i8, ptr %data, i64 411
   %bf.load = load i16, ptr %header, align 1
   %bf.clear = and i16 %bf.load, 1
   %tobool4.not = icmp eq i16 %bf.clear, 0
-  %tobool5.not = icmp ne i64 %2, %blen
+  %tobool5.not = icmp ne i64 %1, %blen
   %brmerge = or i1 %tobool5.not, %is_eos
   %or.cond = select i1 %tobool4.not, i1 %brmerge, i1 false
   br i1 %or.cond, label %if.then8, label %out
 
 if.then8:                                         ; preds = %do.end
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %2
-  %sub = sub i64 %blen, %2
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %1
+  %sub = sub i64 %blen, %1
   %spec.select = select i1 %is_eos, i32 129, i32 1
   %call12 = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef %spec.select, ptr noundef %add.ptr, i64 noundef %sub) #12
   br label %out

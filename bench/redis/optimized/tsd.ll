@@ -177,31 +177,29 @@ do.body:                                          ; preds = %tsd_state_compute.e
 
 if.end.i:                                         ; preds = %do.body
   %1 = load i8, ptr @malloc_slow, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %lor.lhs.false.i, label %tsd_state_compute.exit
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %tsd_state_compute.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %3 = load i8, ptr %tsd, align 1
-  %4 = and i8 %3, 1
-  %tobool.i.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i.i, label %tsd_state_compute.exit, label %tsd_local_slow.exit.i
+  %2 = load i8, ptr %tsd, align 1
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %tsd_local_slow.exit.i, label %tsd_state_compute.exit
 
 tsd_local_slow.exit.i:                            ; preds = %lor.lhs.false.i
-  %5 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %cmp.i3.i = icmp sgt i8 %5, 0
+  %3 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %cmp.i3.i = icmp sgt i8 %3, 0
   br i1 %cmp.i3.i, label %tsd_state_compute.exit, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %tsd_local_slow.exit.i
-  %6 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i = icmp ne i32 %6, 0
+  %4 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i = icmp ne i32 %4, 0
   %spec.select.i = zext i1 %cmp.i4.not.i to i8
   br label %tsd_state_compute.exit
 
 tsd_state_compute.exit:                           ; preds = %do.body, %if.end.i, %lor.lhs.false.i, %tsd_local_slow.exit.i, %lor.lhs.false3.i
   %retval.0.i = phi i8 [ 1, %tsd_local_slow.exit.i ], [ 1, %if.end.i ], [ %spec.select.i, %lor.lhs.false3.i ], [ %tsd.val.i, %do.body ], [ 1, %lor.lhs.false.i ]
-  %7 = atomicrmw xchg ptr %0, i8 %retval.0.i acquire, align 1
-  %cmp = icmp eq i8 %7, 2
+  %5 = atomicrmw xchg ptr %0, i8 %retval.0.i acquire, align 1
+  %cmp = icmp eq i8 %5, 2
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %tsd_state_compute.exit
@@ -376,31 +374,29 @@ do.body.i:                                        ; preds = %tsd_state_compute.e
 
 if.end.i.i29:                                     ; preds = %do.body.i
   %27 = load i8, ptr @malloc_slow, align 1
-  %28 = and i8 %27, 1
-  %tobool.not.i.i = icmp eq i8 %28, 0
-  br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %tsd_state_compute.exit.i
+  %tobool.i.i = trunc i8 %27 to i1
+  br i1 %tobool.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i29
-  %29 = load i8, ptr %tsd, align 1
-  %30 = and i8 %29, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %30, 0
-  br i1 %tobool.i.not.i.i.i, label %tsd_state_compute.exit.i, label %tsd_local_slow.exit.i.i
+  %28 = load i8, ptr %tsd, align 1
+  %tobool.i.i.i.i = trunc i8 %28 to i1
+  br i1 %tobool.i.i.i.i, label %tsd_local_slow.exit.i.i, label %tsd_state_compute.exit.i
 
 tsd_local_slow.exit.i.i:                          ; preds = %lor.lhs.false.i.i
-  %31 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %cmp.i3.i.i = icmp sgt i8 %31, 0
+  %29 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
+  %cmp.i3.i.i = icmp sgt i8 %29, 0
   br i1 %cmp.i3.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false3.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %tsd_local_slow.exit.i.i
-  %32 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i.i = icmp ne i32 %32, 0
+  %30 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i.i = icmp ne i32 %30, 0
   %spec.select.i.i = zext i1 %cmp.i4.not.i.i to i8
   br label %tsd_state_compute.exit.i
 
 tsd_state_compute.exit.i:                         ; preds = %lor.lhs.false3.i.i, %tsd_local_slow.exit.i.i, %lor.lhs.false.i.i, %if.end.i.i29, %do.body.i
   %retval.0.i.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %if.end.i.i29 ], [ %spec.select.i.i, %lor.lhs.false3.i.i ], [ %tsd.val.i.i, %do.body.i ], [ 1, %lor.lhs.false.i.i ]
-  %33 = atomicrmw xchg ptr %state, i8 %retval.0.i.i acquire, align 1
-  %cmp.i28 = icmp eq i8 %33, 2
+  %31 = atomicrmw xchg ptr %state, i8 %retval.0.i.i acquire, align 1
+  %cmp.i28 = icmp eq i8 %31, 2
   br i1 %cmp.i28, label %do.body.i, label %tsd_slow_update.exit, !llvm.loop !5
 
 tsd_slow_update.exit:                             ; preds = %tsd_state_compute.exit.i
@@ -439,31 +435,29 @@ do.body.i:                                        ; preds = %do.body.ithread-pre
 
 if.end.i.i:                                       ; preds = %do.body.i
   %1 = load i8, ptr @malloc_slow, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %tsd_state_compute.exit.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %3 = load i8, ptr %tsd, align 1
-  %4 = and i8 %3, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i.i.i, label %tsd_state_compute.exit.i, label %tsd_local_slow.exit.i.i
+  %2 = load i8, ptr %tsd, align 1
+  %tobool.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i, label %tsd_local_slow.exit.i.i, label %tsd_state_compute.exit.i
 
 tsd_local_slow.exit.i.i:                          ; preds = %lor.lhs.false.i.i
-  %5 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %cmp.i3.i.i = icmp sgt i8 %5, 0
+  %3 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
+  %cmp.i3.i.i = icmp sgt i8 %3, 0
   br i1 %cmp.i3.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false3.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %tsd_local_slow.exit.i.i
-  %6 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i.i = icmp ne i32 %6, 0
+  %4 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i.i = icmp ne i32 %4, 0
   %spec.select.i.i = zext i1 %cmp.i4.not.i.i to i8
   br label %tsd_state_compute.exit.i
 
 tsd_state_compute.exit.i:                         ; preds = %lor.lhs.false3.i.i, %tsd_local_slow.exit.i.i, %lor.lhs.false.i.i, %if.end.i.i, %do.body.i
   %retval.0.i.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %if.end.i.i ], [ %spec.select.i.i, %lor.lhs.false3.i.i ], [ %tsd.val.i.i, %do.body.i ], [ 1, %lor.lhs.false.i.i ]
-  %7 = atomicrmw xchg ptr %state.i56, i8 %retval.0.i.i acquire, align 1
-  %cmp.i = icmp eq i8 %7, 2
+  %5 = atomicrmw xchg ptr %state.i56, i8 %retval.0.i.i acquire, align 1
+  %cmp.i = icmp eq i8 %5, 2
   br i1 %cmp.i, label %do.body.ithread-pre-split, label %tsd_slow_update.exit, !llvm.loop !5
 
 tsd_slow_update.exit:                             ; preds = %tsd_state_compute.exit.i
@@ -474,10 +468,9 @@ if.then12:                                        ; preds = %entry
   br i1 %minimal, label %if.else17, label %if.then13
 
 if.then13:                                        ; preds = %if.then12
-  %8 = load i8, ptr @tsd_booted, align 1
-  %9 = and i8 %8, 1
-  %tobool14.not = icmp eq i8 %9, 0
-  br i1 %tobool14.not, label %if.end48, label %if.then15
+  %6 = load i8, ptr @tsd_booted, align 1
+  %tobool14 = trunc i8 %6 to i1
+  br i1 %tobool14, label %if.then15, label %if.end48
 
 if.then15:                                        ; preds = %if.then13
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 0)
@@ -490,56 +483,53 @@ do.body.i30:                                      ; preds = %tsd_state_compute.e
   br i1 %cmp.i.i.i32, label %if.end.i.i36, label %tsd_state_compute.exit.i33
 
 if.end.i.i36:                                     ; preds = %do.body.i30
-  %10 = load i8, ptr @malloc_slow, align 1
-  %11 = and i8 %10, 1
-  %tobool.not.i.i37 = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i37, label %lor.lhs.false.i.i38, label %tsd_state_compute.exit.i33
+  %7 = load i8, ptr @malloc_slow, align 1
+  %tobool.i.i37 = trunc i8 %7 to i1
+  br i1 %tobool.i.i37, label %tsd_state_compute.exit.i33, label %lor.lhs.false.i.i38
 
 lor.lhs.false.i.i38:                              ; preds = %if.end.i.i36
-  %12 = load i8, ptr %tsd, align 1
-  %13 = and i8 %12, 1
-  %tobool.i.not.i.i.i39 = icmp eq i8 %13, 0
-  br i1 %tobool.i.not.i.i.i39, label %tsd_state_compute.exit.i33, label %tsd_local_slow.exit.i.i40
+  %8 = load i8, ptr %tsd, align 1
+  %tobool.i.i.i.i39 = trunc i8 %8 to i1
+  br i1 %tobool.i.i.i.i39, label %tsd_local_slow.exit.i.i40, label %tsd_state_compute.exit.i33
 
 tsd_local_slow.exit.i.i40:                        ; preds = %lor.lhs.false.i.i38
-  %14 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i29, align 1
-  %cmp.i3.i.i41 = icmp sgt i8 %14, 0
+  %9 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i29, align 1
+  %cmp.i3.i.i41 = icmp sgt i8 %9, 0
   br i1 %cmp.i3.i.i41, label %tsd_state_compute.exit.i33, label %lor.lhs.false3.i.i42
 
 lor.lhs.false3.i.i42:                             ; preds = %tsd_local_slow.exit.i.i40
-  %15 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i.i43 = icmp ne i32 %15, 0
+  %10 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i.i43 = icmp ne i32 %10, 0
   %spec.select.i.i44 = zext i1 %cmp.i4.not.i.i43 to i8
   br label %tsd_state_compute.exit.i33
 
 tsd_state_compute.exit.i33:                       ; preds = %lor.lhs.false3.i.i42, %tsd_local_slow.exit.i.i40, %lor.lhs.false.i.i38, %if.end.i.i36, %do.body.i30
   %retval.0.i.i34 = phi i8 [ 1, %tsd_local_slow.exit.i.i40 ], [ 1, %if.end.i.i36 ], [ %spec.select.i.i44, %lor.lhs.false3.i.i42 ], [ %tsd.val.i.i31, %do.body.i30 ], [ 1, %lor.lhs.false.i.i38 ]
-  %16 = atomicrmw xchg ptr %state.i56, i8 %retval.0.i.i34 acquire, align 1
-  %cmp.i35 = icmp eq i8 %16, 2
+  %11 = atomicrmw xchg ptr %state.i56, i8 %retval.0.i.i34 acquire, align 1
+  %cmp.i35 = icmp eq i8 %11, 2
   br i1 %cmp.i35, label %do.body.i30, label %tsd_slow_update.exit45, !llvm.loop !5
 
 tsd_slow_update.exit45:                           ; preds = %tsd_state_compute.exit.i33
   tail call void @te_recompute_fast_threshold(ptr noundef nonnull %tsd) #7
-  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %cmp.i72.not = icmp eq ptr %17, %tsd
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %cmp.i72.not = icmp eq ptr %12, %tsd
   br i1 %cmp.i72.not, label %if.end.i76, label %if.then.i83
 
 if.then.i83:                                      ; preds = %tsd_slow_update.exit45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2720) %17, ptr noundef nonnull align 8 dereferenceable(2720) %tsd, i64 2720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2720) %12, ptr noundef nonnull align 8 dereferenceable(2720) %tsd, i64 2720, i1 false)
   br label %if.end.i76
 
 if.end.i76:                                       ; preds = %if.then.i83, %tsd_slow_update.exit45
-  %18 = load i32, ptr @tsd_tsd, align 4
-  %call.i77 = tail call i32 @pthread_setspecific(i32 noundef %18, ptr noundef nonnull %17) #7
+  %13 = load i32, ptr @tsd_tsd, align 4
+  %call.i77 = tail call i32 @pthread_setspecific(i32 noundef %13, ptr noundef nonnull %12) #7
   %cmp2.i78.not = icmp eq i32 %call.i77, 0
   br i1 %cmp2.i78.not, label %tsd_set.exit84, label %if.then4.i79
 
 if.then4.i79:                                     ; preds = %if.end.i76
   tail call void @malloc_write(ptr noundef nonnull @.str.1) #7
-  %19 = load i8, ptr @opt_abort, align 1
-  %20 = and i8 %19, 1
-  %tobool5.i80.not = icmp eq i8 %20, 0
-  br i1 %tobool5.i80.not, label %tsd_set.exit84, label %if.then6.i82
+  %14 = load i8, ptr @opt_abort, align 1
+  %tobool5.i80 = trunc i8 %14 to i1
+  br i1 %tobool5.i80, label %if.then6.i82, label %tsd_set.exit84
 
 if.then6.i82:                                     ; preds = %if.then4.i79
   tail call void @abort() #8
@@ -548,9 +538,9 @@ if.then6.i82:                                     ; preds = %if.then4.i79
 tsd_set.exit84:                                   ; preds = %if.then4.i79, %if.end.i76
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsd, i64 448
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i) #7
-  %21 = ptrtoint ptr %tsd to i64
+  %15 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 112
-  store i64 %21, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i, align 8
+  store i64 %15, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i, align 8
   tail call void @tsd_te_init(ptr noundef %tsd) #7
   tail call void @tsd_san_init(ptr noundef %tsd) #7
   %call1.i = tail call zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef %tsd) #7
@@ -558,26 +548,25 @@ tsd_set.exit84:                                   ; preds = %if.then4.i79, %if.e
 
 if.else17:                                        ; preds = %if.then12
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 3)
-  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %cmp.i58.not = icmp eq ptr %22, %tsd
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %cmp.i58.not = icmp eq ptr %16, %tsd
   br i1 %cmp.i58.not, label %if.end.i62, label %if.then.i69
 
 if.then.i69:                                      ; preds = %if.else17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2720) %22, ptr noundef nonnull align 8 dereferenceable(2720) %tsd, i64 2720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2720) %16, ptr noundef nonnull align 8 dereferenceable(2720) %tsd, i64 2720, i1 false)
   br label %if.end.i62
 
 if.end.i62:                                       ; preds = %if.then.i69, %if.else17
-  %23 = load i32, ptr @tsd_tsd, align 4
-  %call.i63 = tail call i32 @pthread_setspecific(i32 noundef %23, ptr noundef nonnull %22) #7
+  %17 = load i32, ptr @tsd_tsd, align 4
+  %call.i63 = tail call i32 @pthread_setspecific(i32 noundef %17, ptr noundef nonnull %16) #7
   %cmp2.i64.not = icmp eq i32 %call.i63, 0
   br i1 %cmp2.i64.not, label %tsd_set.exit70, label %if.then4.i65
 
 if.then4.i65:                                     ; preds = %if.end.i62
   tail call void @malloc_write(ptr noundef nonnull @.str.1) #7
-  %24 = load i8, ptr @opt_abort, align 1
-  %25 = and i8 %24, 1
-  %tobool5.i66.not = icmp eq i8 %25, 0
-  br i1 %tobool5.i66.not, label %tsd_set.exit70, label %if.then6.i68
+  %18 = load i8, ptr @opt_abort, align 1
+  %tobool5.i66 = trunc i8 %18 to i1
+  br i1 %tobool5.i66, label %if.then6.i68, label %tsd_set.exit70
 
 if.then6.i68:                                     ; preds = %if.then4.i65
   tail call void @abort() #8
@@ -589,9 +578,9 @@ tsd_set.exit70:                                   ; preds = %if.then4.i65, %if.e
   store i8 0, ptr %tsd, align 1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i, align 1
-  %26 = ptrtoint ptr %tsd to i64
+  %19 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i47 = getelementptr inbounds i8, ptr %tsd, i64 112
-  store i64 %26, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i47, align 8
+  store i64 %19, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i47, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
   br label %if.end48
@@ -602,8 +591,8 @@ if.then25:                                        ; preds = %entry
 if.then27:                                        ; preds = %if.then25
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 0)
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds i8, ptr %tsd, i64 1
-  %27 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %dec = add i8 %27, -1
+  %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
+  %dec = add i8 %20, -1
   store i8 %dec, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
   br label %do.body.i49
 
@@ -613,41 +602,39 @@ do.body.i49:                                      ; preds = %tsd_state_compute.e
   br i1 %cmp.i.i.i51, label %if.end.i.i55, label %tsd_state_compute.exit.i52
 
 if.end.i.i55:                                     ; preds = %do.body.i49
-  %28 = load i8, ptr @malloc_slow, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i.i56 = icmp eq i8 %29, 0
-  br i1 %tobool.not.i.i56, label %lor.lhs.false.i.i57, label %tsd_state_compute.exit.i52
+  %21 = load i8, ptr @malloc_slow, align 1
+  %tobool.i.i56 = trunc i8 %21 to i1
+  br i1 %tobool.i.i56, label %tsd_state_compute.exit.i52, label %lor.lhs.false.i.i57
 
 lor.lhs.false.i.i57:                              ; preds = %if.end.i.i55
-  %30 = load i8, ptr %tsd, align 1
-  %31 = and i8 %30, 1
-  %tobool.i.not.i.i.i58 = icmp eq i8 %31, 0
-  br i1 %tobool.i.not.i.i.i58, label %tsd_state_compute.exit.i52, label %tsd_local_slow.exit.i.i59
+  %22 = load i8, ptr %tsd, align 1
+  %tobool.i.i.i.i58 = trunc i8 %22 to i1
+  br i1 %tobool.i.i.i.i58, label %tsd_local_slow.exit.i.i59, label %tsd_state_compute.exit.i52
 
 tsd_local_slow.exit.i.i59:                        ; preds = %lor.lhs.false.i.i57
-  %32 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %cmp.i3.i.i60 = icmp sgt i8 %32, 0
+  %23 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
+  %cmp.i3.i.i60 = icmp sgt i8 %23, 0
   br i1 %cmp.i3.i.i60, label %tsd_state_compute.exit.i52, label %lor.lhs.false3.i.i61
 
 lor.lhs.false3.i.i61:                             ; preds = %tsd_local_slow.exit.i.i59
-  %33 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i.i62 = icmp ne i32 %33, 0
+  %24 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i.i62 = icmp ne i32 %24, 0
   %spec.select.i.i63 = zext i1 %cmp.i4.not.i.i62 to i8
   br label %tsd_state_compute.exit.i52
 
 tsd_state_compute.exit.i52:                       ; preds = %lor.lhs.false3.i.i61, %tsd_local_slow.exit.i.i59, %lor.lhs.false.i.i57, %if.end.i.i55, %do.body.i49
   %retval.0.i.i53 = phi i8 [ 1, %tsd_local_slow.exit.i.i59 ], [ 1, %if.end.i.i55 ], [ %spec.select.i.i63, %lor.lhs.false3.i.i61 ], [ %tsd.val.i.i50, %do.body.i49 ], [ 1, %lor.lhs.false.i.i57 ]
-  %34 = atomicrmw xchg ptr %state.i56, i8 %retval.0.i.i53 acquire, align 1
-  %cmp.i54 = icmp eq i8 %34, 2
+  %25 = atomicrmw xchg ptr %state.i56, i8 %retval.0.i.i53 acquire, align 1
+  %cmp.i54 = icmp eq i8 %25, 2
   br i1 %cmp.i54, label %do.body.i49, label %tsd_slow_update.exit64, !llvm.loop !5
 
 tsd_slow_update.exit64:                           ; preds = %tsd_state_compute.exit.i52
   tail call void @te_recompute_fast_threshold(ptr noundef nonnull %tsd) #7
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i65 = getelementptr inbounds i8, ptr %tsd, i64 448
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i65) #7
-  %35 = ptrtoint ptr %tsd to i64
+  %26 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i66 = getelementptr inbounds i8, ptr %tsd, i64 112
-  store i64 %35, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i66, align 8
+  store i64 %26, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i66, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
   %call1.i67 = tail call zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef nonnull %tsd) #7
@@ -655,26 +642,25 @@ tsd_slow_update.exit64:                           ; preds = %tsd_state_compute.e
 
 if.then39:                                        ; preds = %entry
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 5)
-  %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %cmp.i.not = icmp eq ptr %36, %tsd
+  %27 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %cmp.i.not = icmp eq ptr %27, %tsd
   br i1 %cmp.i.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2720) %36, ptr noundef nonnull align 8 dereferenceable(2720) %tsd, i64 2720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2720) %27, ptr noundef nonnull align 8 dereferenceable(2720) %tsd, i64 2720, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then39
-  %37 = load i32, ptr @tsd_tsd, align 4
-  %call.i = tail call i32 @pthread_setspecific(i32 noundef %37, ptr noundef nonnull %36) #7
+  %28 = load i32, ptr @tsd_tsd, align 4
+  %call.i = tail call i32 @pthread_setspecific(i32 noundef %28, ptr noundef nonnull %27) #7
   %cmp2.i.not = icmp eq i32 %call.i, 0
   br i1 %cmp2.i.not, label %tsd_set.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   tail call void @malloc_write(ptr noundef nonnull @.str.1) #7
-  %38 = load i8, ptr @opt_abort, align 1
-  %39 = and i8 %38, 1
-  %tobool5.i.not = icmp eq i8 %39, 0
-  br i1 %tobool5.i.not, label %tsd_set.exit, label %if.then6.i
+  %29 = load i8, ptr @opt_abort, align 1
+  %tobool5.i = trunc i8 %29 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %tsd_set.exit
 
 if.then6.i:                                       ; preds = %if.then4.i
   tail call void @abort() #8
@@ -686,9 +672,9 @@ tsd_set.exit:                                     ; preds = %if.then4.i, %if.end
   store i8 0, ptr %tsd, align 1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i69 = getelementptr inbounds i8, ptr %tsd, i64 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i69, align 1
-  %40 = ptrtoint ptr %tsd to i64
+  %30 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i70 = getelementptr inbounds i8, ptr %tsd, i64 112
-  store i64 %40, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i70, align 8
+  store i64 %30, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i70, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
   br label %if.end48
@@ -758,9 +744,8 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb2
 if.then4.i:                                       ; preds = %if.end.i
   tail call void @malloc_write(ptr noundef nonnull @.str.1) #7
   %3 = load i8, ptr @opt_abort, align 1
-  %4 = and i8 %3, 1
-  %tobool5.i.not = icmp eq i8 %4, 0
-  br i1 %tobool5.i.not, label %sw.epilog, label %if.then6.i
+  %tobool5.i = trunc i8 %3 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %sw.epilog
 
 if.then6.i:                                       ; preds = %if.then4.i
   tail call void @abort() #8
@@ -827,31 +812,29 @@ do.body.i:                                        ; preds = %tsd_state_compute.e
 
 if.end.i.i:                                       ; preds = %do.body.i
   %2 = load i8, ptr @malloc_slow, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %tsd_state_compute.exit.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %4 = load i8, ptr %0, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i.i.i, label %tsd_state_compute.exit.i, label %tsd_local_slow.exit.i.i
+  %3 = load i8, ptr %0, align 8
+  %tobool.i.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i.i, label %tsd_local_slow.exit.i.i, label %tsd_state_compute.exit.i
 
 tsd_local_slow.exit.i.i:                          ; preds = %lor.lhs.false.i.i
-  %6 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %cmp.i3.i.i = icmp sgt i8 %6, 0
+  %4 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
+  %cmp.i3.i.i = icmp sgt i8 %4, 0
   br i1 %cmp.i3.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false3.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %tsd_local_slow.exit.i.i
-  %7 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i.i = icmp ne i32 %7, 0
+  %5 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i.i = icmp ne i32 %5, 0
   %spec.select.i.i = zext i1 %cmp.i4.not.i.i to i8
   br label %tsd_state_compute.exit.i
 
 tsd_state_compute.exit.i:                         ; preds = %lor.lhs.false3.i.i, %tsd_local_slow.exit.i.i, %lor.lhs.false.i.i, %if.end.i.i, %do.body.i
   %retval.0.i.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %if.end.i.i ], [ %spec.select.i.i, %lor.lhs.false3.i.i ], [ %tsd.val.i.i, %do.body.i ], [ 1, %lor.lhs.false.i.i ]
-  %8 = atomicrmw xchg ptr %state.i.i, i8 %retval.0.i.i acquire, align 1
-  %cmp.i = icmp eq i8 %8, 2
+  %6 = atomicrmw xchg ptr %state.i.i, i8 %retval.0.i.i acquire, align 1
+  %cmp.i = icmp eq i8 %6, 2
   br i1 %cmp.i, label %do.body.i, label %tsd_slow_update.exit, !llvm.loop !5
 
 tsd_slow_update.exit:                             ; preds = %tsd_state_compute.exit.i

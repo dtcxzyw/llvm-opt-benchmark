@@ -387,23 +387,22 @@ declare i64 @qemu_iovec_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @blkverify_err(ptr nocapture noundef readonly %r, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #5 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %0 = load ptr, ptr @stderr, align 8
   %is_write = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load i8, ptr %is_write, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %cond = select i1 %tobool.not, ptr @.str.16, ptr @.str.15
+  %tobool = trunc i8 %1 to i1
+  %cond = select i1 %tobool, ptr @.str.15, ptr @.str.16
   %offset = getelementptr inbounds i8, ptr %r, i64 24
-  %3 = load i64, ptr %offset, align 8
+  %2 = load i64, ptr %offset, align 8
   %bytes = getelementptr inbounds i8, ptr %r, i64 32
-  %4 = load i64, ptr %bytes, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, i64 noundef %3, i64 noundef %4) #11
+  %3 = load i64, ptr %bytes, align 8
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, i64 noundef %2, i64 noundef %3) #11
+  %4 = load ptr, ptr @stderr, align 8
+  %call2 = call i32 @vfprintf(ptr noundef %4, ptr noundef %fmt, ptr noundef nonnull %ap) #11
   %5 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 @vfprintf(ptr noundef %5, ptr noundef %fmt, ptr noundef nonnull %ap) #11
-  %6 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %6)
-  call void @llvm.va_end(ptr nonnull %ap)
+  %fputc = call i32 @fputc(i32 10, ptr %5)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @exit(i32 noundef 1) #12
   unreachable
 }
@@ -493,24 +492,24 @@ declare void @bdrv_graph_co_rdunlock() #1
 
 declare void @qemu_coroutine_enter_if_inactive(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
-
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare i32 @bdrv_co_flush(ptr noundef) #1
 
 declare i64 @bdrv_co_getlength(ptr noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
@@ -521,8 +520,8 @@ attributes #2 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-l
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }

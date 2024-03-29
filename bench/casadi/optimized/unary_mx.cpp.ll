@@ -4109,9 +4109,8 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6casadi7UnaryMX9get_unaryEx(ptr dead_on_unwind noalias writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = load i8, ptr @_ZN6casadi13GlobalOptions25simplification_on_the_flyE, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %7
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
   tail call void @_ZNK6casadi6MXNode9get_unaryEx(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %2)
@@ -4754,9 +4753,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 72
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %.noexc7, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %.noexc7
 
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -4864,9 +4862,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNS
   %16 = alloca %"class.std::vector.5", align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %82, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %82
 
 20:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17

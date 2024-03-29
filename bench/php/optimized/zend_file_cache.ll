@@ -74,9 +74,8 @@ define hidden noundef i32 @zend_file_cache_script_store(ptr noundef %0, i1 nound
   %3 = alloca [3 x %struct.iovec], align 16
   %4 = alloca %struct._zend_file_cache_metainfo, align 8
   %5 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 1), align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %zend_file_cache_get_bin_file_path.exit, label %126
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %126, label %zend_file_cache_get_bin_file_path.exit
 
 zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   %7 = load ptr, ptr %0, align 8
@@ -147,8 +146,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
 41:                                               ; preds = %38
   %42 = tail call ptr @__errno_location() #20
   %43 = load i32, ptr %42, align 4
-  %.not142 = icmp eq i32 %43, 17
-  br i1 %.not142, label %46, label %44
+  %.not141 = icmp eq i32 %43, 17
+  br i1 %.not141, label %46, label %44
 
 44:                                               ; preds = %41
   %45 = tail call ptr @strerror(i32 noundef %43) #19
@@ -161,8 +160,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
 
 47:                                               ; preds = %38
   %48 = tail call i32 @flock(i32 noundef %39, i32 noundef 2) #19
-  %.not138 = icmp eq i32 %48, 0
-  br i1 %.not138, label %51, label %49
+  %.not137 = icmp eq i32 %48, 0
+  br i1 %.not137, label %51, label %49
 
 49:                                               ; preds = %47
   %50 = tail call i32 @close(i32 noundef %39) #19
@@ -254,8 +253,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   %96 = getelementptr inbounds i8, ptr %67, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, 64
-  %.not139 = icmp eq i32 %98, 0
-  br i1 %.not139, label %99, label %105
+  %.not138 = icmp eq i32 %98, 0
+  br i1 %.not138, label %99, label %105
 
 99:                                               ; preds = %92
   %100 = load i32, ptr %67, align 4
@@ -282,8 +281,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   %109 = getelementptr inbounds i8, ptr %67, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 64
-  %.not140 = icmp eq i32 %111, 0
-  br i1 %.not140, label %112, label %118
+  %.not139 = icmp eq i32 %111, 0
+  br i1 %.not139, label %112, label %118
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %67, align 4
@@ -301,8 +300,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
 118:                                              ; preds = %112, %117, %108
   call void @_efree(ptr noundef %55) #19
   %119 = call i32 @flock(i32 noundef %39, i32 noundef 8) #19
-  %.not141 = icmp eq i32 %119, 0
-  br i1 %.not141, label %124, label %120
+  %.not140 = icmp eq i32 %119, 0
+  br i1 %.not140, label %124, label %120
 
 120:                                              ; preds = %118
   %121 = tail call ptr @__errno_location() #20
@@ -392,7 +391,7 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %28 = getelementptr inbounds i8, ptr %24, i64 184
   %29 = load ptr, ptr %28, align 8
   %30 = icmp ult ptr %22, %29
-  br i1 %30, label %31, label %.thread86
+  br i1 %30, label %31, label %.thread85
 
 31:                                               ; preds = %27
   %32 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %22, ptr noundef nonnull %1)
@@ -403,35 +402,34 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %.not57 = icmp ult ptr %22, %34
   br i1 %.not57, label %44, label %36
 
-.thread86:                                        ; preds = %27
+.thread85:                                        ; preds = %27
   %35 = load ptr, ptr %9, align 8
-  %.not5787 = icmp ult ptr %22, %35
-  br i1 %.not5787, label %.thread88, label %36
+  %.not5786 = icmp ult ptr %22, %35
+  br i1 %.not5786, label %.thread87, label %36
 
-36:                                               ; preds = %.thread86, %33
-  %37 = phi ptr [ %35, %.thread86 ], [ %34, %33 ]
+36:                                               ; preds = %.thread85, %33
+  %37 = phi ptr [ %35, %.thread85 ], [ %34, %33 ]
   %38 = load i64, ptr %5, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 %38
   %.not58 = icmp ule ptr %22, %39
   %brmerge = or i1 %.not56, %.not58
-  br i1 %brmerge, label %44, label %.thread88
+  br i1 %brmerge, label %44, label %.thread87
 
-.thread88:                                        ; preds = %.thread86, %36
-  %40 = phi ptr [ %37, %36 ], [ %35, %.thread86 ]
+.thread87:                                        ; preds = %.thread85, %36
+  %40 = phi ptr [ %37, %36 ], [ %35, %.thread85 ]
   %41 = getelementptr inbounds i8, ptr %24, i64 184
   %42 = load ptr, ptr %41, align 8
   %43 = icmp ult ptr %22, %42
   br label %44
 
-44:                                               ; preds = %33, %36, %.thread88
-  %45 = phi ptr [ %37, %36 ], [ %40, %.thread88 ], [ %34, %33 ]
-  %46 = phi i1 [ %.not58, %36 ], [ %43, %.thread88 ], [ false, %33 ]
+44:                                               ; preds = %33, %36, %.thread87
+  %45 = phi ptr [ %37, %36 ], [ %40, %.thread87 ], [ %34, %33 ]
+  %46 = phi i1 [ %.not58, %36 ], [ %43, %.thread87 ], [ false, %33 ]
   tail call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %0, i64 384
   %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, 1
-  %.not60 = icmp eq i8 %49, 0
-  br i1 %.not60, label %58, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %58
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %22, i64 4
@@ -444,11 +442,11 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %57 = and i32 %56, -257
   store i32 %57, ptr %55, align 4
   %.pre = load ptr, ptr %21, align 8
-  %.pre85 = load ptr, ptr %9, align 8
+  %.pre84 = load ptr, ptr %9, align 8
   br label %58
 
 58:                                               ; preds = %50, %44
-  %59 = phi ptr [ %.pre85, %50 ], [ %45, %44 ]
+  %59 = phi ptr [ %.pre84, %50 ], [ %45, %44 ]
   %60 = phi ptr [ %.pre, %50 ], [ %22, %44 ]
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %59 to i64
@@ -512,8 +510,8 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %spec.select.i = select i1 %.not105.i, ptr null, ptr %92
   %93 = getelementptr inbounds i8, ptr %21, i64 388
   %94 = load i32, ptr %93, align 4
-  %.not128.i = icmp eq i32 %94, 0
-  br i1 %.not128.i, label %zend_file_cache_serialize_warnings.exit, label %.lr.ph.i
+  %.not126.i = icmp eq i32 %94, 0
+  br i1 %.not126.i, label %zend_file_cache_serialize_warnings.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %86
   %95 = getelementptr inbounds i8, ptr %21, i64 424
@@ -561,11 +559,11 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   store ptr %118, ptr %98, align 8
   %.not110.i = icmp eq ptr %99, %101
   %119 = getelementptr inbounds i8, ptr %2, i64 %117
-  %spec.select126.i = select i1 %.not110.i, ptr null, ptr %119
+  %spec.select124.i = select i1 %.not110.i, ptr null, ptr %119
   br label %.thread.i
 
 .thread.i:                                        ; preds = %113, %97
-  %.0.i = phi ptr [ null, %97 ], [ %spec.select126.i, %113 ]
+  %.0.i = phi ptr [ null, %97 ], [ %spec.select124.i, %113 ]
   %120 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %121 = load ptr, ptr %120, align 8
   %.not111.i = icmp eq ptr %121, null
@@ -582,7 +580,7 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %127 = getelementptr inbounds i8, ptr %123, i64 184
   %128 = load ptr, ptr %127, align 8
   %129 = icmp ult ptr %121, %128
-  br i1 %129, label %130, label %.thread133.i
+  br i1 %129, label %130, label %.thread131.i
 
 130:                                              ; preds = %126
   %131 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %121, ptr noundef nonnull %1)
@@ -596,31 +594,30 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
 .thread:                                          ; preds = %132
   %134 = load i64, ptr %95, align 8
   %135 = getelementptr inbounds i8, ptr %133, i64 %134
-  %.not114.i71 = icmp ule ptr %121, %135
+  %.not114.i70 = icmp ule ptr %121, %135
   br label %140
 
-.thread133.i:                                     ; preds = %126
+.thread131.i:                                     ; preds = %126
   %136 = load ptr, ptr %72, align 8
-  %.not113134.i = icmp ult ptr %121, %136
-  br i1 %.not113134.i, label %.thread135.i, label %137
+  %.not113132.i = icmp ult ptr %121, %136
+  br i1 %.not113132.i, label %.thread133.i, label %137
 
-137:                                              ; preds = %.thread133.i
+137:                                              ; preds = %.thread131.i
   %138 = load i64, ptr %95, align 8
   %139 = getelementptr inbounds i8, ptr %136, i64 %138
   %.not114.i.not = icmp ugt ptr %121, %139
-  br i1 %.not114.i.not, label %.thread135.i, label %140
+  br i1 %.not114.i.not, label %.thread133.i, label %140
 
-.thread135.i:                                     ; preds = %137, %.thread133.i
+.thread133.i:                                     ; preds = %137, %.thread131.i
   br label %140
 
-140:                                              ; preds = %.thread, %.thread135.i, %137, %132
-  %141 = phi ptr [ %136, %137 ], [ %136, %.thread135.i ], [ %133, %132 ], [ %133, %.thread ]
-  %142 = phi i1 [ true, %137 ], [ false, %.thread135.i ], [ false, %132 ], [ %.not114.i71, %.thread ]
+140:                                              ; preds = %.thread, %.thread133.i, %137, %132
+  %141 = phi ptr [ %136, %137 ], [ %136, %.thread133.i ], [ %133, %132 ], [ %133, %.thread ]
+  %142 = phi i1 [ true, %137 ], [ false, %.thread133.i ], [ false, %132 ], [ %.not114.i70, %.thread ]
   tail call void @llvm.assume(i1 %142)
   %143 = load i8, ptr %96, align 8
-  %144 = and i8 %143, 1
-  %.not116.i = icmp eq i8 %144, 0
-  br i1 %.not116.i, label %153, label %145
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %153
 
 145:                                              ; preds = %140
   %146 = getelementptr inbounds i8, ptr %121, i64 4
@@ -633,11 +630,11 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %152 = and i32 %151, -257
   store i32 %152, ptr %150, align 4
   %.pre.i = load ptr, ptr %120, align 8
-  %.pre130.i = load ptr, ptr %72, align 8
+  %.pre128.i = load ptr, ptr %72, align 8
   br label %153
 
 153:                                              ; preds = %145, %140
-  %154 = phi ptr [ %.pre130.i, %145 ], [ %141, %140 ]
+  %154 = phi ptr [ %.pre128.i, %145 ], [ %141, %140 ]
   %155 = phi ptr [ %.pre.i, %145 ], [ %121, %140 ]
   %156 = ptrtoint ptr %155 to i64
   %157 = ptrtoint ptr %154 to i64
@@ -653,59 +650,58 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
 160:                                              ; preds = %.sink.split.i, %.thread.i
   %161 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %162 = load ptr, ptr %161, align 8
-  %.not117.i = icmp eq ptr %162, null
-  br i1 %.not117.i, label %201, label %163
+  %.not116.i = icmp eq ptr %162, null
+  br i1 %.not116.i, label %201, label %163
 
 163:                                              ; preds = %160
   %164 = load ptr, ptr @accel_shared_globals, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 176
   %166 = load ptr, ptr %165, align 8
-  %.not118.i = icmp ult ptr %162, %166
-  br i1 %.not118.i, label %173, label %167
+  %.not117.i = icmp ult ptr %162, %166
+  br i1 %.not117.i, label %173, label %167
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds i8, ptr %164, i64 184
   %169 = load ptr, ptr %168, align 8
   %170 = icmp ult ptr %162, %169
-  br i1 %170, label %171, label %.thread136.i
+  br i1 %170, label %171, label %.thread134.i
 
 171:                                              ; preds = %167
   %172 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %162, ptr noundef nonnull %1)
-  br label %.sink.split139.i
+  br label %.sink.split137.i
 
 173:                                              ; preds = %163
   %174 = load ptr, ptr %72, align 8
-  %.not119.i = icmp ult ptr %162, %174
-  br i1 %.not119.i, label %181, label %.thread73
+  %.not118.i = icmp ult ptr %162, %174
+  br i1 %.not118.i, label %181, label %.thread72
 
-.thread73:                                        ; preds = %173
+.thread72:                                        ; preds = %173
   %175 = load i64, ptr %95, align 8
   %176 = getelementptr inbounds i8, ptr %174, i64 %175
-  %.not120.i74 = icmp ule ptr %162, %176
+  %.not119.i73 = icmp ule ptr %162, %176
   br label %181
 
-.thread136.i:                                     ; preds = %167
+.thread134.i:                                     ; preds = %167
   %177 = load ptr, ptr %72, align 8
-  %.not119137.i = icmp ult ptr %162, %177
-  br i1 %.not119137.i, label %.thread138.i, label %178
+  %.not118135.i = icmp ult ptr %162, %177
+  br i1 %.not118135.i, label %.thread136.i, label %178
 
-178:                                              ; preds = %.thread136.i
+178:                                              ; preds = %.thread134.i
   %179 = load i64, ptr %95, align 8
   %180 = getelementptr inbounds i8, ptr %177, i64 %179
-  %.not120.i.not = icmp ugt ptr %162, %180
-  br i1 %.not120.i.not, label %.thread138.i, label %181
+  %.not119.i.not = icmp ugt ptr %162, %180
+  br i1 %.not119.i.not, label %.thread136.i, label %181
 
-.thread138.i:                                     ; preds = %178, %.thread136.i
+.thread136.i:                                     ; preds = %178, %.thread134.i
   br label %181
 
-181:                                              ; preds = %.thread73, %.thread138.i, %178, %173
-  %182 = phi ptr [ %177, %178 ], [ %177, %.thread138.i ], [ %174, %173 ], [ %174, %.thread73 ]
-  %183 = phi i1 [ true, %178 ], [ false, %.thread138.i ], [ false, %173 ], [ %.not120.i74, %.thread73 ]
+181:                                              ; preds = %.thread72, %.thread136.i, %178, %173
+  %182 = phi ptr [ %177, %178 ], [ %177, %.thread136.i ], [ %174, %173 ], [ %174, %.thread72 ]
+  %183 = phi i1 [ true, %178 ], [ false, %.thread136.i ], [ false, %173 ], [ %.not119.i73, %.thread72 ]
   tail call void @llvm.assume(i1 %183)
   %184 = load i8, ptr %96, align 8
-  %185 = and i8 %184, 1
-  %.not122.i = icmp eq i8 %185, 0
-  br i1 %.not122.i, label %194, label %186
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %194
 
 186:                                              ; preds = %181
   %187 = getelementptr inbounds i8, ptr %162, i64 4
@@ -717,25 +713,25 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %192 = load i32, ptr %191, align 4
   %193 = and i32 %192, -257
   store i32 %193, ptr %191, align 4
-  %.pre131.i = load ptr, ptr %161, align 8
-  %.pre132.i = load ptr, ptr %72, align 8
+  %.pre129.i = load ptr, ptr %161, align 8
+  %.pre130.i = load ptr, ptr %72, align 8
   br label %194
 
 194:                                              ; preds = %186, %181
-  %195 = phi ptr [ %.pre132.i, %186 ], [ %182, %181 ]
-  %196 = phi ptr [ %.pre131.i, %186 ], [ %162, %181 ]
+  %195 = phi ptr [ %.pre130.i, %186 ], [ %182, %181 ]
+  %196 = phi ptr [ %.pre129.i, %186 ], [ %162, %181 ]
   %197 = ptrtoint ptr %196 to i64
   %198 = ptrtoint ptr %195 to i64
   %199 = sub i64 %197, %198
   %200 = inttoptr i64 %199 to ptr
-  br label %.sink.split139.i
+  br label %.sink.split137.i
 
-.sink.split139.i:                                 ; preds = %194, %171
-  %.sink140.i = phi ptr [ %172, %171 ], [ %200, %194 ]
-  store ptr %.sink140.i, ptr %161, align 8
+.sink.split137.i:                                 ; preds = %194, %171
+  %.sink138.i = phi ptr [ %172, %171 ], [ %200, %194 ]
+  store ptr %.sink138.i, ptr %161, align 8
   br label %201
 
-201:                                              ; preds = %.sink.split139.i, %160
+201:                                              ; preds = %.sink.split137.i, %160
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %202 = load i32, ptr %93, align 4
   %203 = zext i32 %202 to i64
@@ -745,8 +741,8 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
 zend_file_cache_serialize_warnings.exit:          ; preds = %201, %65, %86
   %205 = getelementptr inbounds i8, ptr %21, i64 408
   %206 = load ptr, ptr %205, align 8
-  %.not.i61 = icmp eq ptr %206, null
-  br i1 %.not.i61, label %zend_file_cache_serialize_early_bindings.exit, label %207
+  %.not.i60 = icmp eq ptr %206, null
+  br i1 %.not.i60, label %zend_file_cache_serialize_early_bindings.exit, label %207
 
 207:                                              ; preds = %zend_file_cache_serialize_warnings.exit
   %208 = getelementptr inbounds i8, ptr %21, i64 416
@@ -784,20 +780,20 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %201, %65, %86
   store ptr %227, ptr %205, align 8
   %.not136.i = icmp eq ptr %206, %209
   %228 = getelementptr inbounds i8, ptr %2, i64 %226
-  %spec.select.i62 = select i1 %.not136.i, ptr null, ptr %228
+  %spec.select.i61 = select i1 %.not136.i, ptr null, ptr %228
   %229 = getelementptr inbounds i8, ptr %21, i64 392
   %230 = load i32, ptr %229, align 8
-  %.not160.i = icmp eq i32 %230, 0
-  br i1 %.not160.i, label %zend_file_cache_serialize_early_bindings.exit, label %.lr.ph.i63
+  %.not157.i = icmp eq i32 %230, 0
+  br i1 %.not157.i, label %zend_file_cache_serialize_early_bindings.exit, label %.lr.ph.i62
 
-.lr.ph.i63:                                       ; preds = %222
+.lr.ph.i62:                                       ; preds = %222
   %231 = getelementptr inbounds i8, ptr %21, i64 424
   %232 = getelementptr inbounds i8, ptr %21, i64 384
   br label %233
 
-233:                                              ; preds = %356, %.lr.ph.i63
-  %indvars.iv.i64 = phi i64 [ 0, %.lr.ph.i63 ], [ %indvars.iv.next.i70, %356 ]
-  %234 = getelementptr inbounds %struct._zend_early_binding, ptr %spec.select.i62, i64 %indvars.iv.i64
+233:                                              ; preds = %356, %.lr.ph.i62
+  %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i68, %356 ]
+  %234 = getelementptr inbounds %struct._zend_early_binding, ptr %spec.select.i61, i64 %indvars.iv.i63
   %235 = load ptr, ptr %234, align 8
   %.not137.i = icmp eq ptr %235, null
   br i1 %.not137.i, label %274, label %236
@@ -813,45 +809,44 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %201, %65, %86
   %241 = getelementptr inbounds i8, ptr %237, i64 184
   %242 = load ptr, ptr %241, align 8
   %243 = icmp ult ptr %235, %242
-  br i1 %243, label %244, label %.thread.i65
+  br i1 %243, label %244, label %.thread.i64
 
 244:                                              ; preds = %240
   %245 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %235, ptr noundef nonnull %1)
-  br label %.sink.split.i68
+  br label %.sink.split.i66
 
 246:                                              ; preds = %236
   %247 = load ptr, ptr %208, align 8
   %.not139.i = icmp ult ptr %235, %247
-  br i1 %.not139.i, label %254, label %.thread76
+  br i1 %.not139.i, label %254, label %.thread75
 
-.thread76:                                        ; preds = %246
+.thread75:                                        ; preds = %246
   %248 = load i64, ptr %231, align 8
   %249 = getelementptr inbounds i8, ptr %247, i64 %248
-  %.not140.i77 = icmp ule ptr %235, %249
+  %.not140.i76 = icmp ule ptr %235, %249
   br label %254
 
-.thread.i65:                                      ; preds = %240
+.thread.i64:                                      ; preds = %240
   %250 = load ptr, ptr %208, align 8
-  %.not139167.i = icmp ult ptr %235, %250
-  br i1 %.not139167.i, label %.thread168.i, label %251
+  %.not139164.i = icmp ult ptr %235, %250
+  br i1 %.not139164.i, label %.thread165.i, label %251
 
-251:                                              ; preds = %.thread.i65
+251:                                              ; preds = %.thread.i64
   %252 = load i64, ptr %231, align 8
   %253 = getelementptr inbounds i8, ptr %250, i64 %252
   %.not140.i.not = icmp ugt ptr %235, %253
-  br i1 %.not140.i.not, label %.thread168.i, label %254
+  br i1 %.not140.i.not, label %.thread165.i, label %254
 
-.thread168.i:                                     ; preds = %251, %.thread.i65
+.thread165.i:                                     ; preds = %251, %.thread.i64
   br label %254
 
-254:                                              ; preds = %.thread76, %.thread168.i, %251, %246
-  %255 = phi ptr [ %250, %251 ], [ %250, %.thread168.i ], [ %247, %246 ], [ %247, %.thread76 ]
-  %256 = phi i1 [ true, %251 ], [ false, %.thread168.i ], [ false, %246 ], [ %.not140.i77, %.thread76 ]
+254:                                              ; preds = %.thread75, %.thread165.i, %251, %246
+  %255 = phi ptr [ %250, %251 ], [ %250, %.thread165.i ], [ %247, %246 ], [ %247, %.thread75 ]
+  %256 = phi i1 [ true, %251 ], [ false, %.thread165.i ], [ false, %246 ], [ %.not140.i76, %.thread75 ]
   tail call void @llvm.assume(i1 %256)
   %257 = load i8, ptr %232, align 8
-  %258 = and i8 %257, 1
-  %.not142.i = icmp eq i8 %258, 0
-  br i1 %.not142.i, label %267, label %259
+  %258 = trunc i8 %257 to i1
+  br i1 %258, label %259, label %267
 
 259:                                              ; preds = %254
   %260 = getelementptr inbounds i8, ptr %235, i64 4
@@ -863,80 +858,79 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %201, %65, %86
   %265 = load i32, ptr %264, align 4
   %266 = and i32 %265, -257
   store i32 %266, ptr %264, align 4
-  %.pre.i67 = load ptr, ptr %234, align 8
-  %.pre162.i = load ptr, ptr %208, align 8
+  %.pre.i69 = load ptr, ptr %234, align 8
+  %.pre159.i = load ptr, ptr %208, align 8
   br label %267
 
 267:                                              ; preds = %259, %254
-  %268 = phi ptr [ %.pre162.i, %259 ], [ %255, %254 ]
-  %269 = phi ptr [ %.pre.i67, %259 ], [ %235, %254 ]
+  %268 = phi ptr [ %.pre159.i, %259 ], [ %255, %254 ]
+  %269 = phi ptr [ %.pre.i69, %259 ], [ %235, %254 ]
   %270 = ptrtoint ptr %269 to i64
   %271 = ptrtoint ptr %268 to i64
   %272 = sub i64 %270, %271
   %273 = inttoptr i64 %272 to ptr
-  br label %.sink.split.i68
+  br label %.sink.split.i66
 
-.sink.split.i68:                                  ; preds = %267, %244
-  %.sink.i69 = phi ptr [ %245, %244 ], [ %273, %267 ]
-  store ptr %.sink.i69, ptr %234, align 8
+.sink.split.i66:                                  ; preds = %267, %244
+  %.sink.i67 = phi ptr [ %245, %244 ], [ %273, %267 ]
+  store ptr %.sink.i67, ptr %234, align 8
   br label %274
 
-274:                                              ; preds = %.sink.split.i68, %233
+274:                                              ; preds = %.sink.split.i66, %233
   %275 = getelementptr inbounds i8, ptr %234, i64 8
   %276 = load ptr, ptr %275, align 8
-  %.not143.i = icmp eq ptr %276, null
-  br i1 %.not143.i, label %315, label %277
+  %.not142.i = icmp eq ptr %276, null
+  br i1 %.not142.i, label %315, label %277
 
 277:                                              ; preds = %274
   %278 = load ptr, ptr @accel_shared_globals, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 176
   %280 = load ptr, ptr %279, align 8
-  %.not144.i = icmp ult ptr %276, %280
-  br i1 %.not144.i, label %287, label %281
+  %.not143.i = icmp ult ptr %276, %280
+  br i1 %.not143.i, label %287, label %281
 
 281:                                              ; preds = %277
   %282 = getelementptr inbounds i8, ptr %278, i64 184
   %283 = load ptr, ptr %282, align 8
   %284 = icmp ult ptr %276, %283
-  br i1 %284, label %285, label %.thread169.i
+  br i1 %284, label %285, label %.thread166.i
 
 285:                                              ; preds = %281
   %286 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %276, ptr noundef nonnull %1)
-  br label %.sink.split175.i
+  br label %.sink.split172.i
 
 287:                                              ; preds = %277
   %288 = load ptr, ptr %208, align 8
-  %.not145.i = icmp ult ptr %276, %288
-  br i1 %.not145.i, label %295, label %.thread79
+  %.not144.i = icmp ult ptr %276, %288
+  br i1 %.not144.i, label %295, label %.thread78
 
-.thread79:                                        ; preds = %287
+.thread78:                                        ; preds = %287
   %289 = load i64, ptr %231, align 8
   %290 = getelementptr inbounds i8, ptr %288, i64 %289
-  %.not146.i80 = icmp ule ptr %276, %290
+  %.not145.i79 = icmp ule ptr %276, %290
   br label %295
 
-.thread169.i:                                     ; preds = %281
+.thread166.i:                                     ; preds = %281
   %291 = load ptr, ptr %208, align 8
-  %.not145170.i = icmp ult ptr %276, %291
-  br i1 %.not145170.i, label %.thread171.i, label %292
+  %.not144167.i = icmp ult ptr %276, %291
+  br i1 %.not144167.i, label %.thread168.i, label %292
 
-292:                                              ; preds = %.thread169.i
+292:                                              ; preds = %.thread166.i
   %293 = load i64, ptr %231, align 8
   %294 = getelementptr inbounds i8, ptr %291, i64 %293
-  %.not146.i.not = icmp ugt ptr %276, %294
-  br i1 %.not146.i.not, label %.thread171.i, label %295
+  %.not145.i.not = icmp ugt ptr %276, %294
+  br i1 %.not145.i.not, label %.thread168.i, label %295
 
-.thread171.i:                                     ; preds = %292, %.thread169.i
+.thread168.i:                                     ; preds = %292, %.thread166.i
   br label %295
 
-295:                                              ; preds = %.thread79, %.thread171.i, %292, %287
-  %296 = phi ptr [ %291, %292 ], [ %291, %.thread171.i ], [ %288, %287 ], [ %288, %.thread79 ]
-  %297 = phi i1 [ true, %292 ], [ false, %.thread171.i ], [ false, %287 ], [ %.not146.i80, %.thread79 ]
+295:                                              ; preds = %.thread78, %.thread168.i, %292, %287
+  %296 = phi ptr [ %291, %292 ], [ %291, %.thread168.i ], [ %288, %287 ], [ %288, %.thread78 ]
+  %297 = phi i1 [ true, %292 ], [ false, %.thread168.i ], [ false, %287 ], [ %.not145.i79, %.thread78 ]
   tail call void @llvm.assume(i1 %297)
   %298 = load i8, ptr %232, align 8
-  %299 = and i8 %298, 1
-  %.not148.i = icmp eq i8 %299, 0
-  br i1 %.not148.i, label %308, label %300
+  %299 = trunc i8 %298 to i1
+  br i1 %299, label %300, label %308
 
 300:                                              ; preds = %295
   %301 = getelementptr inbounds i8, ptr %276, i64 4
@@ -948,80 +942,79 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %201, %65, %86
   %306 = load i32, ptr %305, align 4
   %307 = and i32 %306, -257
   store i32 %307, ptr %305, align 4
-  %.pre163.i = load ptr, ptr %275, align 8
-  %.pre164.i = load ptr, ptr %208, align 8
+  %.pre160.i = load ptr, ptr %275, align 8
+  %.pre161.i = load ptr, ptr %208, align 8
   br label %308
 
 308:                                              ; preds = %300, %295
-  %309 = phi ptr [ %.pre164.i, %300 ], [ %296, %295 ]
-  %310 = phi ptr [ %.pre163.i, %300 ], [ %276, %295 ]
+  %309 = phi ptr [ %.pre161.i, %300 ], [ %296, %295 ]
+  %310 = phi ptr [ %.pre160.i, %300 ], [ %276, %295 ]
   %311 = ptrtoint ptr %310 to i64
   %312 = ptrtoint ptr %309 to i64
   %313 = sub i64 %311, %312
   %314 = inttoptr i64 %313 to ptr
-  br label %.sink.split175.i
+  br label %.sink.split172.i
 
-.sink.split175.i:                                 ; preds = %308, %285
-  %.sink176.i = phi ptr [ %286, %285 ], [ %314, %308 ]
-  store ptr %.sink176.i, ptr %275, align 8
+.sink.split172.i:                                 ; preds = %308, %285
+  %.sink173.i = phi ptr [ %286, %285 ], [ %314, %308 ]
+  store ptr %.sink173.i, ptr %275, align 8
   br label %315
 
-315:                                              ; preds = %.sink.split175.i, %274
+315:                                              ; preds = %.sink.split172.i, %274
   %316 = getelementptr inbounds i8, ptr %234, i64 16
   %317 = load ptr, ptr %316, align 8
-  %.not149.i = icmp eq ptr %317, null
-  br i1 %.not149.i, label %356, label %318
+  %.not147.i = icmp eq ptr %317, null
+  br i1 %.not147.i, label %356, label %318
 
 318:                                              ; preds = %315
   %319 = load ptr, ptr @accel_shared_globals, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 176
   %321 = load ptr, ptr %320, align 8
-  %.not150.i = icmp ult ptr %317, %321
-  br i1 %.not150.i, label %328, label %322
+  %.not148.i = icmp ult ptr %317, %321
+  br i1 %.not148.i, label %328, label %322
 
 322:                                              ; preds = %318
   %323 = getelementptr inbounds i8, ptr %319, i64 184
   %324 = load ptr, ptr %323, align 8
   %325 = icmp ult ptr %317, %324
-  br i1 %325, label %326, label %.thread172.i
+  br i1 %325, label %326, label %.thread169.i
 
 326:                                              ; preds = %322
   %327 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %317, ptr noundef nonnull %1)
-  br label %.sink.split177.i
+  br label %.sink.split174.i
 
 328:                                              ; preds = %318
   %329 = load ptr, ptr %208, align 8
-  %.not151.i = icmp ult ptr %317, %329
-  br i1 %.not151.i, label %336, label %.thread82
+  %.not149.i = icmp ult ptr %317, %329
+  br i1 %.not149.i, label %336, label %.thread81
 
-.thread82:                                        ; preds = %328
+.thread81:                                        ; preds = %328
   %330 = load i64, ptr %231, align 8
   %331 = getelementptr inbounds i8, ptr %329, i64 %330
-  %.not152.i83 = icmp ule ptr %317, %331
+  %.not150.i82 = icmp ule ptr %317, %331
   br label %336
 
-.thread172.i:                                     ; preds = %322
+.thread169.i:                                     ; preds = %322
   %332 = load ptr, ptr %208, align 8
-  %.not151173.i = icmp ult ptr %317, %332
-  br i1 %.not151173.i, label %.thread174.i, label %333
+  %.not149170.i = icmp ult ptr %317, %332
+  br i1 %.not149170.i, label %.thread171.i, label %333
 
-333:                                              ; preds = %.thread172.i
+333:                                              ; preds = %.thread169.i
   %334 = load i64, ptr %231, align 8
   %335 = getelementptr inbounds i8, ptr %332, i64 %334
-  %.not152.i.not = icmp ugt ptr %317, %335
-  br i1 %.not152.i.not, label %.thread174.i, label %336
+  %.not150.i.not = icmp ugt ptr %317, %335
+  br i1 %.not150.i.not, label %.thread171.i, label %336
 
-.thread174.i:                                     ; preds = %333, %.thread172.i
+.thread171.i:                                     ; preds = %333, %.thread169.i
   br label %336
 
-336:                                              ; preds = %.thread82, %.thread174.i, %333, %328
-  %337 = phi ptr [ %332, %333 ], [ %332, %.thread174.i ], [ %329, %328 ], [ %329, %.thread82 ]
-  %338 = phi i1 [ true, %333 ], [ false, %.thread174.i ], [ false, %328 ], [ %.not152.i83, %.thread82 ]
+336:                                              ; preds = %.thread81, %.thread171.i, %333, %328
+  %337 = phi ptr [ %332, %333 ], [ %332, %.thread171.i ], [ %329, %328 ], [ %329, %.thread81 ]
+  %338 = phi i1 [ true, %333 ], [ false, %.thread171.i ], [ false, %328 ], [ %.not150.i82, %.thread81 ]
   tail call void @llvm.assume(i1 %338)
   %339 = load i8, ptr %232, align 8
-  %340 = and i8 %339, 1
-  %.not154.i = icmp eq i8 %340, 0
-  br i1 %.not154.i, label %349, label %341
+  %340 = trunc i8 %339 to i1
+  br i1 %340, label %341, label %349
 
 341:                                              ; preds = %336
   %342 = getelementptr inbounds i8, ptr %317, i64 4
@@ -1033,29 +1026,29 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %201, %65, %86
   %347 = load i32, ptr %346, align 4
   %348 = and i32 %347, -257
   store i32 %348, ptr %346, align 4
-  %.pre165.i = load ptr, ptr %316, align 8
-  %.pre166.i = load ptr, ptr %208, align 8
+  %.pre162.i = load ptr, ptr %316, align 8
+  %.pre163.i = load ptr, ptr %208, align 8
   br label %349
 
 349:                                              ; preds = %341, %336
-  %350 = phi ptr [ %.pre166.i, %341 ], [ %337, %336 ]
-  %351 = phi ptr [ %.pre165.i, %341 ], [ %317, %336 ]
+  %350 = phi ptr [ %.pre163.i, %341 ], [ %337, %336 ]
+  %351 = phi ptr [ %.pre162.i, %341 ], [ %317, %336 ]
   %352 = ptrtoint ptr %351 to i64
   %353 = ptrtoint ptr %350 to i64
   %354 = sub i64 %352, %353
   %355 = inttoptr i64 %354 to ptr
-  br label %.sink.split177.i
+  br label %.sink.split174.i
 
-.sink.split177.i:                                 ; preds = %349, %326
-  %.sink178.i = phi ptr [ %327, %326 ], [ %355, %349 ]
-  store ptr %.sink178.i, ptr %316, align 8
+.sink.split174.i:                                 ; preds = %349, %326
+  %.sink175.i = phi ptr [ %327, %326 ], [ %355, %349 ]
+  store ptr %.sink175.i, ptr %316, align 8
   br label %356
 
-356:                                              ; preds = %.sink.split177.i, %315
-  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i64, 1
+356:                                              ; preds = %.sink.split174.i, %315
+  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i63, 1
   %357 = load i32, ptr %229, align 8
   %358 = zext i32 %357 to i64
-  %359 = icmp ult i64 %indvars.iv.next.i70, %358
+  %359 = icmp ult i64 %indvars.iv.next.i68, %358
   br i1 %359, label %233, label %zend_file_cache_serialize_early_bindings.exit
 
 zend_file_cache_serialize_early_bindings.exit:    ; preds = %356, %zend_file_cache_serialize_warnings.exit, %222
@@ -1160,21 +1153,20 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 
 44:                                               ; preds = %38
   %45 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 7), align 2
-  %46 = and i8 %45, 1
-  %.not248 = icmp eq i8 %46, 0
-  br i1 %.not248, label %57, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %57
 
 47:                                               ; preds = %44
   %48 = call i64 @zend_get_file_handle_timestamp(ptr noundef nonnull %0, ptr noundef null) #19
   %49 = getelementptr inbounds i8, ptr %2, i64 64
   %50 = load i64, ptr %49, align 8
-  %.not249 = icmp eq i64 %48, %50
-  br i1 %.not249, label %57, label %51
+  %.not248 = icmp eq i64 %48, %50
+  br i1 %.not248, label %57, label %51
 
 51:                                               ; preds = %47
   %52 = call i32 @flock(i32 noundef %20, i32 noundef 8) #19
-  %.not262 = icmp eq i32 %52, 0
-  br i1 %.not262, label %54, label %53
+  %.not255 = icmp eq i32 %52, 0
+  br i1 %.not255, label %54, label %53
 
 53:                                               ; preds = %51
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %12) #19
@@ -1201,8 +1193,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %69 = ptrtoint ptr %68 to i64
   %70 = ptrtoint ptr %59 to i64
   %71 = sub i64 %69, %70
-  %.not250 = icmp ugt i64 %66, %71
-  br i1 %.not250, label %74, label %72
+  %.not249 = icmp ugt i64 %66, %71
+  br i1 %.not249, label %74, label %72
 
 72:                                               ; preds = %57
   %73 = getelementptr inbounds i8, ptr %59, i64 %66
@@ -1233,8 +1225,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %86 = and i64 %85, -64
   %87 = inttoptr i64 %86 to ptr
   %88 = call i64 @read(i32 noundef %20, ptr noundef %87, i64 noundef %64) #19
-  %.not251 = icmp eq i64 %88, %64
-  br i1 %.not251, label %106, label %89
+  %.not250 = icmp eq i64 %88, %64
+  br i1 %.not250, label %106, label %89
 
 89:                                               ; preds = %84
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %12) #19
@@ -1250,10 +1242,10 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   br i1 %98, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %89, %.lr.ph
-  %.0264 = phi ptr [ %100, %.lr.ph ], [ %93, %89 ]
-  %99 = getelementptr inbounds i8, ptr %.0264, i64 16
+  %.0257 = phi ptr [ %100, %.lr.ph ], [ %93, %89 ]
+  %99 = getelementptr inbounds i8, ptr %.0257, i64 16
   %100 = load ptr, ptr %99, align 8
-  call void @_efree(ptr noundef nonnull %.0264) #19
+  call void @_efree(ptr noundef nonnull %.0257) #19
   store ptr %100, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
@@ -1270,8 +1262,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 
 106:                                              ; preds = %84
   %107 = call i32 @flock(i32 noundef %20, i32 noundef 8) #19
-  %.not252 = icmp eq i32 %107, 0
-  br i1 %.not252, label %109, label %108
+  %.not251 = icmp eq i32 %107, 0
+  br i1 %.not251, label %109, label %108
 
 108:                                              ; preds = %106
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %12) #19
@@ -1280,17 +1272,16 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 109:                                              ; preds = %108, %106
   %110 = call i32 @close(i32 noundef %20) #19
   %111 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 5, i32 29), align 1
-  %112 = and i8 %111, 1
-  %.not253 = icmp eq i8 %112, 0
-  br i1 %.not253, label %133, label %113
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %133
 
 113:                                              ; preds = %109
   %114 = trunc i64 %64 to i32
   %115 = call i32 @zend_adler32(i32 noundef 1, ptr noundef %87, i32 noundef %114) #19
   %116 = getelementptr inbounds i8, ptr %2, i64 72
   %117 = load i32, ptr %116, align 8
-  %.not254 = icmp eq i32 %115, %117
-  br i1 %.not254, label %133, label %118
+  %.not252 = icmp eq i32 %115, %117
+  br i1 %.not252, label %133, label %118
 
 118:                                              ; preds = %113
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, i32 noundef %117, i32 noundef %115) #19
@@ -1301,55 +1292,51 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %123 = icmp ugt ptr %59, %122
   %124 = icmp ule ptr %59, %120
   %125 = or i1 %124, %123
-  br i1 %125, label %.lr.ph267, label %._crit_edge268
+  br i1 %125, label %.lr.ph260, label %._crit_edge261
 
-.lr.ph267:                                        ; preds = %118, %.lr.ph267
-  %.0220265 = phi ptr [ %127, %.lr.ph267 ], [ %120, %118 ]
-  %126 = getelementptr inbounds i8, ptr %.0220265, i64 16
+.lr.ph260:                                        ; preds = %118, %.lr.ph260
+  %.0220258 = phi ptr [ %127, %.lr.ph260 ], [ %120, %118 ]
+  %126 = getelementptr inbounds i8, ptr %.0220258, i64 16
   %127 = load ptr, ptr %126, align 8
-  call void @_efree(ptr noundef nonnull %.0220265) #19
+  call void @_efree(ptr noundef nonnull %.0220258) #19
   store ptr %127, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = icmp ugt ptr %59, %129
   %131 = icmp ule ptr %59, %127
   %132 = or i1 %131, %130
-  br i1 %132, label %.lr.ph267, label %._crit_edge268
+  br i1 %132, label %.lr.ph260, label %._crit_edge261
 
-._crit_edge268:                                   ; preds = %.lr.ph267, %118
-  %.0220.lcssa = phi ptr [ %120, %118 ], [ %127, %.lr.ph267 ]
+._crit_edge261:                                   ; preds = %.lr.ph260, %118
+  %.0220.lcssa = phi ptr [ %120, %118 ], [ %127, %.lr.ph260 ]
   store ptr %59, ptr %.0220.lcssa, align 8
   call void @_efree(ptr noundef %12) #19
   br label %587
 
 133:                                              ; preds = %113, %109
   %134 = load i8, ptr @file_cache_only, align 1
-  %135 = and i8 %134, 1
-  %.not255 = icmp eq i8 %135, 0
-  br i1 %.not255, label %136, label %196
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %196, label %136
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr @accel_shared_globals, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 121
   %139 = load i8, ptr %138, align 1
-  %140 = and i8 %139, 1
-  %.not256 = icmp eq i8 %140, 0
-  br i1 %.not256, label %141, label %196
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %196, label %141
 
 141:                                              ; preds = %136
   %142 = getelementptr inbounds i8, ptr %137, i64 113
   %143 = load i8, ptr %142, align 1
-  %144 = and i8 %143, 1
-  %.not257 = icmp eq i8 %144, 0
-  br i1 %.not257, label %145, label %196
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %196, label %145
 
 145:                                              ; preds = %141
   %146 = load ptr, ptr @smm_shared_globals, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 32
   %148 = load i8, ptr %147, align 8
-  %149 = and i8 %148, 1
-  %.not258 = icmp eq i8 %149, 0
-  br i1 %.not258, label %150, label %196
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %196, label %150
 
 150:                                              ; preds = %145
   %151 = call i32 @accelerator_shm_read_lock() #19
@@ -1361,17 +1348,16 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %154 = load ptr, ptr @accel_shared_globals, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 48
   %156 = call ptr @zend_accel_hash_find_entry(ptr noundef nonnull %155, ptr noundef nonnull %5) #19
-  %.not259 = icmp eq ptr %156, null
-  br i1 %.not259, label %177, label %157
+  %.not253 = icmp eq ptr %156, null
+  br i1 %.not253, label %177, label %157
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %156, i64 24
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 384
   %161 = load i8, ptr %160, align 8
-  %162 = and i8 %161, 1
-  %.not260 = icmp eq i8 %162, 0
-  br i1 %.not260, label %163, label %177
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %177, label %163
 
 163:                                              ; preds = %157
   call void @zend_shared_alloc_unlock() #19
@@ -1381,23 +1367,23 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %167 = icmp ugt ptr %59, %166
   %168 = icmp ule ptr %59, %164
   %169 = or i1 %168, %167
-  br i1 %169, label %.lr.ph272, label %._crit_edge273
+  br i1 %169, label %.lr.ph265, label %._crit_edge266
 
-.lr.ph272:                                        ; preds = %163, %.lr.ph272
-  %.0223270 = phi ptr [ %171, %.lr.ph272 ], [ %164, %163 ]
-  %170 = getelementptr inbounds i8, ptr %.0223270, i64 16
+.lr.ph265:                                        ; preds = %163, %.lr.ph265
+  %.0223263 = phi ptr [ %171, %.lr.ph265 ], [ %164, %163 ]
+  %170 = getelementptr inbounds i8, ptr %.0223263, i64 16
   %171 = load ptr, ptr %170, align 8
-  call void @_efree(ptr noundef nonnull %.0223270) #19
+  call void @_efree(ptr noundef nonnull %.0223263) #19
   store ptr %171, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = icmp ugt ptr %59, %173
   %175 = icmp ule ptr %59, %171
   %176 = or i1 %175, %174
-  br i1 %176, label %.lr.ph272, label %._crit_edge273
+  br i1 %176, label %.lr.ph265, label %._crit_edge266
 
-._crit_edge273:                                   ; preds = %.lr.ph272, %163
-  %.0223.lcssa = phi ptr [ %164, %163 ], [ %171, %.lr.ph272 ]
+._crit_edge266:                                   ; preds = %.lr.ph265, %163
+  %.0223.lcssa = phi ptr [ %164, %163 ], [ %171, %.lr.ph265 ]
   store ptr %59, ptr %.0223.lcssa, align 8
   call void @_efree(ptr noundef %12) #19
   br label %587
@@ -1407,8 +1393,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %179 = getelementptr i8, ptr %178, i64 64
   %.val = load i32, ptr %179, align 8
   %180 = getelementptr i8, ptr %178, i64 68
-  %.val263 = load i32, ptr %180, align 4
-  %181 = icmp eq i32 %.val, %.val263
+  %.val256 = load i32, ptr %180, align 4
+  %181 = icmp eq i32 %.val, %.val256
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %177
@@ -1424,8 +1410,8 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %188 = ptrtoint ptr %187 to i64
   %189 = add i64 %188, 63
   %190 = and i64 %189, -64
-  %.not261 = icmp eq i64 %190, 0
-  br i1 %.not261, label %.sink.split.sink.split, label %191
+  %.not254 = icmp eq i64 %190, 0
+  br i1 %.not254, label %.sink.split.sink.split, label %191
 
 191:                                              ; preds = %185
   %192 = inttoptr i64 %190 to ptr
@@ -1478,12 +1464,11 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
 
 213:                                              ; preds = %210
   %214 = load i8, ptr %202, align 8
-  %215 = and i8 %214, 1
-  %.not31.i = icmp eq i8 %215, 0
+  %215 = trunc i8 %214 to i1
   %216 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %217 = and i64 %211, -2
   %218 = getelementptr inbounds i8, ptr %216, i64 %217
-  br i1 %.not31.i, label %219, label %zend_file_cache_unserialize_interned.exit.i
+  br i1 %215, label %zend_file_cache_unserialize_interned.exit.i, label %219
 
 219:                                              ; preds = %213
   %220 = call ptr @accel_new_interned_string(ptr noundef %218) #19
@@ -1525,11 +1510,10 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
   %236 = getelementptr inbounds i8, ptr %.0222, i64 %211
   store ptr %236, ptr %200, align 8
   %237 = load i8, ptr %202, align 8
-  %238 = and i8 %237, 1
-  %.not30.i = icmp eq i8 %238, 0
+  %238 = trunc i8 %237 to i1
   %239 = getelementptr inbounds i8, ptr %236, i64 4
   %240 = load i32, ptr %239, align 4
-  br i1 %.not30.i, label %241, label %243
+  br i1 %238, label %243, label %241
 
 241:                                              ; preds = %231
   %242 = or i32 %240, 320
@@ -1555,8 +1539,8 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
   call fastcc void @zend_file_cache_unserialize_op_array(ptr noundef nonnull %252, ptr noundef nonnull %200, ptr noundef nonnull %.0222)
   %253 = getelementptr inbounds i8, ptr %200, i64 400
   %254 = load ptr, ptr %253, align 8
-  %.not.i32.i = icmp eq ptr %254, null
-  br i1 %.not.i32.i, label %zend_file_cache_unserialize_warnings.exit.i, label %255
+  %.not.i30.i = icmp eq ptr %254, null
+  br i1 %.not.i30.i, label %zend_file_cache_unserialize_warnings.exit.i, label %255
 
 255:                                              ; preds = %249
   %256 = getelementptr inbounds i8, ptr %200, i64 424
@@ -1569,8 +1553,8 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
   store ptr %261, ptr %253, align 8
   %262 = getelementptr inbounds i8, ptr %200, i64 388
   %263 = load i32, ptr %262, align 4
-  %.not84.i.i = icmp eq i32 %263, 0
-  br i1 %.not84.i.i, label %zend_file_cache_unserialize_warnings.exit.i, label %.lr.ph.i.i
+  %.not80.i.i = icmp eq i32 %263, 0
+  br i1 %.not80.i.i, label %zend_file_cache_unserialize_warnings.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %255, %382
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %382 ], [ 0, %255 ]
@@ -1586,8 +1570,8 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
   store ptr %271, ptr %265, align 8
   %.pre.i.i = load ptr, ptr %253, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %indvars.iv.i.i
-  %.pre86.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %272 = getelementptr inbounds i8, ptr %.pre86.i.i, i64 8
+  %.pre82.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
+  %272 = getelementptr inbounds i8, ptr %.pre82.i.i, i64 8
   %273 = load ptr, ptr %272, align 8
   %.not72.i.i = icmp eq ptr %273, null
   br i1 %.not72.i.i, label %325, label %274
@@ -1600,12 +1584,11 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %229, %219, %213
 
 277:                                              ; preds = %274
   %278 = load i8, ptr %202, align 8
-  %279 = and i8 %278, 1
-  %.not75.i.i = icmp eq i8 %279, 0
+  %279 = trunc i8 %278 to i1
   %280 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %281 = and i64 %275, -2
   %282 = getelementptr inbounds i8, ptr %280, i64 %281
-  br i1 %.not75.i.i, label %283, label %zend_file_cache_unserialize_interned.exit.i.i
+  br i1 %279, label %zend_file_cache_unserialize_interned.exit.i.i, label %283
 
 283:                                              ; preds = %277
   %284 = call ptr @accel_new_interned_string(ptr noundef %282) #19
@@ -1650,8 +1633,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %293, %283, %277
   %303 = getelementptr inbounds i8, ptr %.0222, i64 %275
   store ptr %303, ptr %272, align 8
   %304 = load i8, ptr %202, align 8
-  %305 = and i8 %304, 1
-  %.not74.i.i = icmp eq i8 %305, 0
+  %305 = trunc i8 %304 to i1
   %306 = load ptr, ptr %253, align 8
   %307 = getelementptr inbounds ptr, ptr %306, i64 %indvars.iv.i.i
   %308 = load ptr, ptr %307, align 8
@@ -1659,7 +1641,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %293, %283, %277
   %310 = load ptr, ptr %309, align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 4
   %312 = load i32, ptr %311, align 4
-  br i1 %.not74.i.i, label %313, label %315
+  br i1 %305, label %315, label %313
 
 313:                                              ; preds = %299
   %314 = or i32 %312, 320
@@ -1686,36 +1668,35 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %293, %283, %277
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 16
   %330 = load ptr, ptr %329, align 8
-  %.not76.i.i = icmp eq ptr %330, null
-  br i1 %.not76.i.i, label %382, label %331
+  %.not74.i.i = icmp eq ptr %330, null
+  br i1 %.not74.i.i, label %382, label %331
 
 331:                                              ; preds = %325
   %332 = ptrtoint ptr %330 to i64
   %333 = and i64 %332, 1
-  %.not77.i.i = icmp eq i64 %333, 0
-  br i1 %.not77.i.i, label %356, label %334
+  %.not75.i.i = icmp eq i64 %333, 0
+  br i1 %.not75.i.i, label %356, label %334
 
 334:                                              ; preds = %331
   %335 = load i8, ptr %202, align 8
-  %336 = and i8 %335, 1
-  %.not79.i.i = icmp eq i8 %336, 0
+  %336 = trunc i8 %335 to i1
   %337 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %338 = and i64 %332, -2
   %339 = getelementptr inbounds i8, ptr %337, i64 %338
-  br i1 %.not79.i.i, label %340, label %zend_file_cache_unserialize_interned.exit82.i.i
+  br i1 %336, label %zend_file_cache_unserialize_interned.exit78.i.i, label %340
 
 340:                                              ; preds = %334
   %341 = call ptr @accel_new_interned_string(ptr noundef %339) #19
   %342 = icmp eq ptr %341, %339
-  br i1 %342, label %343, label %zend_file_cache_unserialize_interned.exit82.i.i
+  br i1 %342, label %343, label %zend_file_cache_unserialize_interned.exit78.i.i
 
 343:                                              ; preds = %340
   %344 = getelementptr inbounds i8, ptr %339, i64 16
   %345 = load i64, ptr %344, align 8
   %346 = add i64 %345, 25
   %347 = call ptr @zend_shared_alloc(i64 noundef %346) #19
-  %.not.i81.i.i = icmp eq ptr %347, null
-  br i1 %.not.i81.i.i, label %348, label %350
+  %.not.i77.i.i = icmp eq ptr %347, null
+  br i1 %.not.i77.i.i, label %348, label %350
 
 348:                                              ; preds = %343
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -1728,15 +1709,15 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %293, %283, %277
   store i32 1, ptr %347, align 4
   %351 = getelementptr inbounds i8, ptr %347, i64 4
   store i32 470, ptr %351, align 4
-  br label %zend_file_cache_unserialize_interned.exit82.i.i
+  br label %zend_file_cache_unserialize_interned.exit78.i.i
 
-zend_file_cache_unserialize_interned.exit82.i.i:  ; preds = %350, %340, %334
-  %.0.i80.i.i = phi ptr [ %339, %334 ], [ %347, %350 ], [ %341, %340 ]
+zend_file_cache_unserialize_interned.exit78.i.i:  ; preds = %350, %340, %334
+  %.0.i76.i.i = phi ptr [ %339, %334 ], [ %347, %350 ], [ %341, %340 ]
   %352 = load ptr, ptr %253, align 8
   %353 = getelementptr inbounds ptr, ptr %352, i64 %indvars.iv.i.i
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 16
-  store ptr %.0.i80.i.i, ptr %355, align 8
+  store ptr %.0.i76.i.i, ptr %355, align 8
   br label %382
 
 356:                                              ; preds = %331
@@ -1747,8 +1728,7 @@ zend_file_cache_unserialize_interned.exit82.i.i:  ; preds = %350, %340, %334
   %360 = getelementptr inbounds i8, ptr %.0222, i64 %332
   store ptr %360, ptr %329, align 8
   %361 = load i8, ptr %202, align 8
-  %362 = and i8 %361, 1
-  %.not78.i.i = icmp eq i8 %362, 0
+  %362 = trunc i8 %361 to i1
   %363 = load ptr, ptr %253, align 8
   %364 = getelementptr inbounds ptr, ptr %363, i64 %indvars.iv.i.i
   %365 = load ptr, ptr %364, align 8
@@ -1756,7 +1736,7 @@ zend_file_cache_unserialize_interned.exit82.i.i:  ; preds = %350, %340, %334
   %367 = load ptr, ptr %366, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 4
   %369 = load i32, ptr %368, align 4
-  br i1 %.not78.i.i, label %370, label %372
+  br i1 %362, label %372, label %370
 
 370:                                              ; preds = %356
   %371 = or i32 %369, 320
@@ -1777,7 +1757,7 @@ zend_file_cache_unserialize_interned.exit82.i.i:  ; preds = %350, %340, %334
   store i32 %381, ptr %379, align 4
   br label %382
 
-382:                                              ; preds = %372, %370, %zend_file_cache_unserialize_interned.exit82.i.i, %325
+382:                                              ; preds = %372, %370, %zend_file_cache_unserialize_interned.exit78.i.i, %325
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %383 = load i32, ptr %262, align 4
   %384 = zext i32 %383 to i64
@@ -1787,8 +1767,8 @@ zend_file_cache_unserialize_interned.exit82.i.i:  ; preds = %350, %340, %334
 zend_file_cache_unserialize_warnings.exit.i:      ; preds = %382, %255, %249
   %386 = getelementptr inbounds i8, ptr %200, i64 408
   %387 = load ptr, ptr %386, align 8
-  %.not.i33.i = icmp eq ptr %387, null
-  br i1 %.not.i33.i, label %zend_file_cache_unserialize.exit, label %388
+  %.not.i31.i = icmp eq ptr %387, null
+  br i1 %.not.i31.i, label %zend_file_cache_unserialize.exit, label %388
 
 388:                                              ; preds = %zend_file_cache_unserialize_warnings.exit.i
   %389 = getelementptr inbounds i8, ptr %200, i64 424
@@ -1801,18 +1781,18 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %382, %255, %249
   store ptr %394, ptr %386, align 8
   %395 = getelementptr inbounds i8, ptr %200, i64 392
   %396 = load i32, ptr %395, align 8
-  %.not104.i.i = icmp eq i32 %396, 0
-  br i1 %.not104.i.i, label %zend_file_cache_unserialize.exit, label %.lr.ph.i34.i
+  %.not98.i.i = icmp eq i32 %396, 0
+  br i1 %.not98.i.i, label %zend_file_cache_unserialize.exit, label %.lr.ph.i32.i
 
-.lr.ph.i34.i:                                     ; preds = %388, %543
-  %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i38.i, %543 ], [ 0, %388 ]
+.lr.ph.i32.i:                                     ; preds = %388, %543
+  %indvars.iv.i33.i = phi i64 [ %indvars.iv.next.i36.i, %543 ], [ 0, %388 ]
   %397 = load ptr, ptr %386, align 8
-  %398 = getelementptr inbounds %struct._zend_early_binding, ptr %397, i64 %indvars.iv.i35.i
+  %398 = getelementptr inbounds %struct._zend_early_binding, ptr %397, i64 %indvars.iv.i33.i
   %399 = load ptr, ptr %398, align 8
   %.not85.i.i = icmp eq ptr %399, null
   br i1 %.not85.i.i, label %445, label %400
 
-400:                                              ; preds = %.lr.ph.i34.i
+400:                                              ; preds = %.lr.ph.i32.i
   %401 = ptrtoint ptr %399 to i64
   %402 = and i64 %401, 1
   %.not86.i.i = icmp eq i64 %402, 0
@@ -1820,25 +1800,24 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %382, %255, %249
 
 403:                                              ; preds = %400
   %404 = load i8, ptr %202, align 8
-  %405 = and i8 %404, 1
-  %.not88.i.i = icmp eq i8 %405, 0
+  %405 = trunc i8 %404 to i1
   %406 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %407 = and i64 %401, -2
   %408 = getelementptr inbounds i8, ptr %406, i64 %407
-  br i1 %.not88.i.i, label %409, label %zend_file_cache_unserialize_interned.exit.i36.i
+  br i1 %405, label %zend_file_cache_unserialize_interned.exit.i34.i, label %409
 
 409:                                              ; preds = %403
   %410 = call ptr @accel_new_interned_string(ptr noundef %408) #19
   %411 = icmp eq ptr %410, %408
-  br i1 %411, label %412, label %zend_file_cache_unserialize_interned.exit.i36.i
+  br i1 %411, label %412, label %zend_file_cache_unserialize_interned.exit.i34.i
 
 412:                                              ; preds = %409
   %413 = getelementptr inbounds i8, ptr %408, i64 16
   %414 = load i64, ptr %413, align 8
   %415 = add i64 %414, 25
   %416 = call ptr @zend_shared_alloc(i64 noundef %415) #19
-  %.not.i.i39.i = icmp eq ptr %416, null
-  br i1 %.not.i.i39.i, label %417, label %419
+  %.not.i.i37.i = icmp eq ptr %416, null
+  br i1 %.not.i.i37.i, label %417, label %419
 
 417:                                              ; preds = %412
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -1851,13 +1830,13 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %382, %255, %249
   store i32 1, ptr %416, align 4
   %420 = getelementptr inbounds i8, ptr %416, i64 4
   store i32 470, ptr %420, align 4
-  br label %zend_file_cache_unserialize_interned.exit.i36.i
+  br label %zend_file_cache_unserialize_interned.exit.i34.i
 
-zend_file_cache_unserialize_interned.exit.i36.i:  ; preds = %419, %409, %403
-  %.0.i.i37.i = phi ptr [ %408, %403 ], [ %416, %419 ], [ %410, %409 ]
+zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %419, %409, %403
+  %.0.i.i35.i = phi ptr [ %408, %403 ], [ %416, %419 ], [ %410, %409 ]
   %421 = load ptr, ptr %386, align 8
-  %422 = getelementptr inbounds %struct._zend_early_binding, ptr %421, i64 %indvars.iv.i35.i
-  store ptr %.0.i.i37.i, ptr %422, align 8
+  %422 = getelementptr inbounds %struct._zend_early_binding, ptr %421, i64 %indvars.iv.i33.i
+  store ptr %.0.i.i35.i, ptr %422, align 8
   br label %445
 
 423:                                              ; preds = %400
@@ -1868,14 +1847,13 @@ zend_file_cache_unserialize_interned.exit.i36.i:  ; preds = %419, %409, %403
   %427 = getelementptr inbounds i8, ptr %.0222, i64 %401
   store ptr %427, ptr %398, align 8
   %428 = load i8, ptr %202, align 8
-  %429 = and i8 %428, 1
-  %.not87.i.i = icmp eq i8 %429, 0
+  %429 = trunc i8 %428 to i1
   %430 = load ptr, ptr %386, align 8
-  %431 = getelementptr inbounds %struct._zend_early_binding, ptr %430, i64 %indvars.iv.i35.i
+  %431 = getelementptr inbounds %struct._zend_early_binding, ptr %430, i64 %indvars.iv.i33.i
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds i8, ptr %432, i64 4
   %434 = load i32, ptr %433, align 4
-  br i1 %.not87.i.i, label %435, label %437
+  br i1 %429, label %437, label %435
 
 435:                                              ; preds = %423
   %436 = or i32 %434, 320
@@ -1886,7 +1864,7 @@ zend_file_cache_unserialize_interned.exit.i36.i:  ; preds = %419, %409, %403
   %438 = or i32 %434, 64
   store i32 %438, ptr %433, align 4
   %439 = load ptr, ptr %386, align 8
-  %440 = getelementptr inbounds %struct._zend_early_binding, ptr %439, i64 %indvars.iv.i35.i
+  %440 = getelementptr inbounds %struct._zend_early_binding, ptr %439, i64 %indvars.iv.i33.i
   %441 = load ptr, ptr %440, align 8
   %442 = getelementptr inbounds i8, ptr %441, i64 4
   %443 = load i32, ptr %442, align 4
@@ -1894,40 +1872,39 @@ zend_file_cache_unserialize_interned.exit.i36.i:  ; preds = %419, %409, %403
   store i32 %444, ptr %442, align 4
   br label %445
 
-445:                                              ; preds = %437, %435, %zend_file_cache_unserialize_interned.exit.i36.i, %.lr.ph.i34.i
+445:                                              ; preds = %437, %435, %zend_file_cache_unserialize_interned.exit.i34.i, %.lr.ph.i32.i
   %446 = load ptr, ptr %386, align 8
-  %447 = getelementptr inbounds %struct._zend_early_binding, ptr %446, i64 %indvars.iv.i35.i, i32 1
+  %447 = getelementptr inbounds %struct._zend_early_binding, ptr %446, i64 %indvars.iv.i33.i, i32 1
   %448 = load ptr, ptr %447, align 8
-  %.not89.i.i = icmp eq ptr %448, null
-  br i1 %.not89.i.i, label %494, label %449
+  %.not87.i.i = icmp eq ptr %448, null
+  br i1 %.not87.i.i, label %494, label %449
 
 449:                                              ; preds = %445
   %450 = ptrtoint ptr %448 to i64
   %451 = and i64 %450, 1
-  %.not90.i.i = icmp eq i64 %451, 0
-  br i1 %.not90.i.i, label %472, label %452
+  %.not88.i.i = icmp eq i64 %451, 0
+  br i1 %.not88.i.i, label %472, label %452
 
 452:                                              ; preds = %449
   %453 = load i8, ptr %202, align 8
-  %454 = and i8 %453, 1
-  %.not92.i.i = icmp eq i8 %454, 0
+  %454 = trunc i8 %453 to i1
   %455 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %456 = and i64 %450, -2
   %457 = getelementptr inbounds i8, ptr %455, i64 %456
-  br i1 %.not92.i.i, label %458, label %zend_file_cache_unserialize_interned.exit99.i.i
+  br i1 %454, label %zend_file_cache_unserialize_interned.exit93.i.i, label %458
 
 458:                                              ; preds = %452
   %459 = call ptr @accel_new_interned_string(ptr noundef %457) #19
   %460 = icmp eq ptr %459, %457
-  br i1 %460, label %461, label %zend_file_cache_unserialize_interned.exit99.i.i
+  br i1 %460, label %461, label %zend_file_cache_unserialize_interned.exit93.i.i
 
 461:                                              ; preds = %458
   %462 = getelementptr inbounds i8, ptr %457, i64 16
   %463 = load i64, ptr %462, align 8
   %464 = add i64 %463, 25
   %465 = call ptr @zend_shared_alloc(i64 noundef %464) #19
-  %.not.i98.i.i = icmp eq ptr %465, null
-  br i1 %.not.i98.i.i, label %466, label %468
+  %.not.i92.i.i = icmp eq ptr %465, null
+  br i1 %.not.i92.i.i, label %466, label %468
 
 466:                                              ; preds = %461
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -1940,13 +1917,13 @@ zend_file_cache_unserialize_interned.exit.i36.i:  ; preds = %419, %409, %403
   store i32 1, ptr %465, align 4
   %469 = getelementptr inbounds i8, ptr %465, i64 4
   store i32 470, ptr %469, align 4
-  br label %zend_file_cache_unserialize_interned.exit99.i.i
+  br label %zend_file_cache_unserialize_interned.exit93.i.i
 
-zend_file_cache_unserialize_interned.exit99.i.i:  ; preds = %468, %458, %452
-  %.0.i97.i.i = phi ptr [ %457, %452 ], [ %465, %468 ], [ %459, %458 ]
+zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %468, %458, %452
+  %.0.i91.i.i = phi ptr [ %457, %452 ], [ %465, %468 ], [ %459, %458 ]
   %470 = load ptr, ptr %386, align 8
-  %471 = getelementptr inbounds %struct._zend_early_binding, ptr %470, i64 %indvars.iv.i35.i, i32 1
-  store ptr %.0.i97.i.i, ptr %471, align 8
+  %471 = getelementptr inbounds %struct._zend_early_binding, ptr %470, i64 %indvars.iv.i33.i, i32 1
+  store ptr %.0.i91.i.i, ptr %471, align 8
   br label %494
 
 472:                                              ; preds = %449
@@ -1957,14 +1934,13 @@ zend_file_cache_unserialize_interned.exit99.i.i:  ; preds = %468, %458, %452
   %476 = getelementptr inbounds i8, ptr %.0222, i64 %450
   store ptr %476, ptr %447, align 8
   %477 = load i8, ptr %202, align 8
-  %478 = and i8 %477, 1
-  %.not91.i.i = icmp eq i8 %478, 0
+  %478 = trunc i8 %477 to i1
   %479 = load ptr, ptr %386, align 8
-  %480 = getelementptr inbounds %struct._zend_early_binding, ptr %479, i64 %indvars.iv.i35.i, i32 1
+  %480 = getelementptr inbounds %struct._zend_early_binding, ptr %479, i64 %indvars.iv.i33.i, i32 1
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 4
   %483 = load i32, ptr %482, align 4
-  br i1 %.not91.i.i, label %484, label %486
+  br i1 %478, label %486, label %484
 
 484:                                              ; preds = %472
   %485 = or i32 %483, 320
@@ -1975,7 +1951,7 @@ zend_file_cache_unserialize_interned.exit99.i.i:  ; preds = %468, %458, %452
   %487 = or i32 %483, 64
   store i32 %487, ptr %482, align 4
   %488 = load ptr, ptr %386, align 8
-  %489 = getelementptr inbounds %struct._zend_early_binding, ptr %488, i64 %indvars.iv.i35.i, i32 1
+  %489 = getelementptr inbounds %struct._zend_early_binding, ptr %488, i64 %indvars.iv.i33.i, i32 1
   %490 = load ptr, ptr %489, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 4
   %492 = load i32, ptr %491, align 4
@@ -1983,40 +1959,39 @@ zend_file_cache_unserialize_interned.exit99.i.i:  ; preds = %468, %458, %452
   store i32 %493, ptr %491, align 4
   br label %494
 
-494:                                              ; preds = %486, %484, %zend_file_cache_unserialize_interned.exit99.i.i, %445
+494:                                              ; preds = %486, %484, %zend_file_cache_unserialize_interned.exit93.i.i, %445
   %495 = load ptr, ptr %386, align 8
-  %496 = getelementptr inbounds %struct._zend_early_binding, ptr %495, i64 %indvars.iv.i35.i, i32 2
+  %496 = getelementptr inbounds %struct._zend_early_binding, ptr %495, i64 %indvars.iv.i33.i, i32 2
   %497 = load ptr, ptr %496, align 8
-  %.not93.i.i = icmp eq ptr %497, null
-  br i1 %.not93.i.i, label %543, label %498
+  %.not89.i.i = icmp eq ptr %497, null
+  br i1 %.not89.i.i, label %543, label %498
 
 498:                                              ; preds = %494
   %499 = ptrtoint ptr %497 to i64
   %500 = and i64 %499, 1
-  %.not94.i.i = icmp eq i64 %500, 0
-  br i1 %.not94.i.i, label %521, label %501
+  %.not90.i.i = icmp eq i64 %500, 0
+  br i1 %.not90.i.i, label %521, label %501
 
 501:                                              ; preds = %498
   %502 = load i8, ptr %202, align 8
-  %503 = and i8 %502, 1
-  %.not96.i.i = icmp eq i8 %503, 0
+  %503 = trunc i8 %502 to i1
   %504 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %505 = and i64 %499, -2
   %506 = getelementptr inbounds i8, ptr %504, i64 %505
-  br i1 %.not96.i.i, label %507, label %zend_file_cache_unserialize_interned.exit102.i.i
+  br i1 %503, label %zend_file_cache_unserialize_interned.exit96.i.i, label %507
 
 507:                                              ; preds = %501
   %508 = call ptr @accel_new_interned_string(ptr noundef %506) #19
   %509 = icmp eq ptr %508, %506
-  br i1 %509, label %510, label %zend_file_cache_unserialize_interned.exit102.i.i
+  br i1 %509, label %510, label %zend_file_cache_unserialize_interned.exit96.i.i
 
 510:                                              ; preds = %507
   %511 = getelementptr inbounds i8, ptr %506, i64 16
   %512 = load i64, ptr %511, align 8
   %513 = add i64 %512, 25
   %514 = call ptr @zend_shared_alloc(i64 noundef %513) #19
-  %.not.i101.i.i = icmp eq ptr %514, null
-  br i1 %.not.i101.i.i, label %515, label %517
+  %.not.i95.i.i = icmp eq ptr %514, null
+  br i1 %.not.i95.i.i, label %515, label %517
 
 515:                                              ; preds = %510
   call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -2029,13 +2004,13 @@ zend_file_cache_unserialize_interned.exit99.i.i:  ; preds = %468, %458, %452
   store i32 1, ptr %514, align 4
   %518 = getelementptr inbounds i8, ptr %514, i64 4
   store i32 470, ptr %518, align 4
-  br label %zend_file_cache_unserialize_interned.exit102.i.i
+  br label %zend_file_cache_unserialize_interned.exit96.i.i
 
-zend_file_cache_unserialize_interned.exit102.i.i: ; preds = %517, %507, %501
-  %.0.i100.i.i = phi ptr [ %506, %501 ], [ %514, %517 ], [ %508, %507 ]
+zend_file_cache_unserialize_interned.exit96.i.i:  ; preds = %517, %507, %501
+  %.0.i94.i.i = phi ptr [ %506, %501 ], [ %514, %517 ], [ %508, %507 ]
   %519 = load ptr, ptr %386, align 8
-  %520 = getelementptr inbounds %struct._zend_early_binding, ptr %519, i64 %indvars.iv.i35.i, i32 2
-  store ptr %.0.i100.i.i, ptr %520, align 8
+  %520 = getelementptr inbounds %struct._zend_early_binding, ptr %519, i64 %indvars.iv.i33.i, i32 2
+  store ptr %.0.i94.i.i, ptr %520, align 8
   br label %543
 
 521:                                              ; preds = %498
@@ -2046,14 +2021,13 @@ zend_file_cache_unserialize_interned.exit102.i.i: ; preds = %517, %507, %501
   %525 = getelementptr inbounds i8, ptr %.0222, i64 %499
   store ptr %525, ptr %496, align 8
   %526 = load i8, ptr %202, align 8
-  %527 = and i8 %526, 1
-  %.not95.i.i = icmp eq i8 %527, 0
+  %527 = trunc i8 %526 to i1
   %528 = load ptr, ptr %386, align 8
-  %529 = getelementptr inbounds %struct._zend_early_binding, ptr %528, i64 %indvars.iv.i35.i, i32 2
+  %529 = getelementptr inbounds %struct._zend_early_binding, ptr %528, i64 %indvars.iv.i33.i, i32 2
   %530 = load ptr, ptr %529, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 4
   %532 = load i32, ptr %531, align 4
-  br i1 %.not95.i.i, label %533, label %535
+  br i1 %527, label %535, label %533
 
 533:                                              ; preds = %521
   %534 = or i32 %532, 320
@@ -2064,7 +2038,7 @@ zend_file_cache_unserialize_interned.exit102.i.i: ; preds = %517, %507, %501
   %536 = or i32 %532, 64
   store i32 %536, ptr %531, align 4
   %537 = load ptr, ptr %386, align 8
-  %538 = getelementptr inbounds %struct._zend_early_binding, ptr %537, i64 %indvars.iv.i35.i, i32 2
+  %538 = getelementptr inbounds %struct._zend_early_binding, ptr %537, i64 %indvars.iv.i33.i, i32 2
   %539 = load ptr, ptr %538, align 8
   %540 = getelementptr inbounds i8, ptr %539, i64 4
   %541 = load i32, ptr %540, align 4
@@ -2072,12 +2046,12 @@ zend_file_cache_unserialize_interned.exit102.i.i: ; preds = %517, %507, %501
   store i32 %542, ptr %540, align 4
   br label %543
 
-543:                                              ; preds = %535, %533, %zend_file_cache_unserialize_interned.exit102.i.i, %494
-  %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i35.i, 1
+543:                                              ; preds = %535, %533, %zend_file_cache_unserialize_interned.exit96.i.i, %494
+  %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %544 = load i32, ptr %395, align 8
   %545 = zext i32 %544 to i64
-  %546 = icmp ult i64 %indvars.iv.next.i38.i, %545
-  br i1 %546, label %.lr.ph.i34.i, label %zend_file_cache_unserialize.exit
+  %546 = icmp ult i64 %indvars.iv.next.i36.i, %545
+  br i1 %546, label %.lr.ph.i32.i, label %zend_file_cache_unserialize.exit
 
 zend_file_cache_unserialize.exit.thread:          ; preds = %196
   store ptr %204, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
@@ -2095,23 +2069,23 @@ zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_fi
   %551 = icmp ugt ptr %59, %550
   %552 = icmp ule ptr %59, %548
   %553 = or i1 %552, %551
-  br i1 %553, label %.lr.ph277, label %._crit_edge278
+  br i1 %553, label %.lr.ph270, label %._crit_edge271
 
-.lr.ph277:                                        ; preds = %547, %.lr.ph277
-  %.0224275 = phi ptr [ %555, %.lr.ph277 ], [ %548, %547 ]
-  %554 = getelementptr inbounds i8, ptr %.0224275, i64 16
+.lr.ph270:                                        ; preds = %547, %.lr.ph270
+  %.0224268 = phi ptr [ %555, %.lr.ph270 ], [ %548, %547 ]
+  %554 = getelementptr inbounds i8, ptr %.0224268, i64 16
   %555 = load ptr, ptr %554, align 8
-  call void @_efree(ptr noundef nonnull %.0224275) #19
+  call void @_efree(ptr noundef nonnull %.0224268) #19
   store ptr %555, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   %556 = getelementptr inbounds i8, ptr %555, i64 8
   %557 = load ptr, ptr %556, align 8
   %558 = icmp ugt ptr %59, %557
   %559 = icmp ule ptr %59, %555
   %560 = or i1 %559, %558
-  br i1 %560, label %.lr.ph277, label %._crit_edge278
+  br i1 %560, label %.lr.ph270, label %._crit_edge271
 
-._crit_edge278:                                   ; preds = %.lr.ph277, %547
-  %.0224.lcssa = phi ptr [ %548, %547 ], [ %555, %.lr.ph277 ]
+._crit_edge271:                                   ; preds = %.lr.ph270, %547
+  %.0224.lcssa = phi ptr [ %548, %547 ], [ %555, %.lr.ph270 ]
   store ptr %59, ptr %.0224.lcssa, align 8
   call void @_efree(ptr noundef %12) #19
   br label %587
@@ -2138,32 +2112,32 @@ zend_file_cache_unserialize.exit:                 ; preds = %543, %388, %zend_fi
   %576 = icmp ugt ptr %59, %575
   %577 = icmp ule ptr %59, %573
   %578 = or i1 %577, %576
-  br i1 %578, label %.lr.ph282, label %._crit_edge283
+  br i1 %578, label %.lr.ph275, label %._crit_edge276
 
-.lr.ph282:                                        ; preds = %561, %.lr.ph282
-  %.0225280 = phi ptr [ %580, %.lr.ph282 ], [ %573, %561 ]
-  %579 = getelementptr inbounds i8, ptr %.0225280, i64 16
+.lr.ph275:                                        ; preds = %561, %.lr.ph275
+  %.0225273 = phi ptr [ %580, %.lr.ph275 ], [ %573, %561 ]
+  %579 = getelementptr inbounds i8, ptr %.0225273, i64 16
   %580 = load ptr, ptr %579, align 8
-  call void @_efree(ptr noundef nonnull %.0225280) #19
+  call void @_efree(ptr noundef nonnull %.0225273) #19
   store ptr %580, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   %581 = getelementptr inbounds i8, ptr %580, i64 8
   %582 = load ptr, ptr %581, align 8
   %583 = icmp ugt ptr %59, %582
   %584 = icmp ule ptr %59, %580
   %585 = or i1 %584, %583
-  br i1 %585, label %.lr.ph282, label %._crit_edge283
+  br i1 %585, label %.lr.ph275, label %._crit_edge276
 
-._crit_edge283:                                   ; preds = %.lr.ph282, %561
-  %.0225.lcssa = phi ptr [ %573, %561 ], [ %580, %.lr.ph282 ]
+._crit_edge276:                                   ; preds = %.lr.ph275, %561
+  %.0225.lcssa = phi ptr [ %573, %561 ], [ %580, %.lr.ph275 ]
   store ptr %59, ptr %.0225.lcssa, align 8
   br label %586
 
-586:                                              ; preds = %._crit_edge283, %zend_file_cache_unserialize.exit
+586:                                              ; preds = %._crit_edge276, %zend_file_cache_unserialize.exit
   call void @_efree(ptr noundef %12) #19
   br label %587
 
-587:                                              ; preds = %1, %586, %._crit_edge278, %._crit_edge273, %._crit_edge268, %._crit_edge, %54, %40, %34, %29, %25, %22
-  %.0227 = phi ptr [ null, %22 ], [ null, %25 ], [ null, %29 ], [ null, %34 ], [ null, %40 ], [ null, %54 ], [ null, %._crit_edge ], [ null, %._crit_edge268 ], [ %200, %586 ], [ null, %._crit_edge278 ], [ %159, %._crit_edge273 ], [ null, %1 ]
+587:                                              ; preds = %1, %586, %._crit_edge271, %._crit_edge266, %._crit_edge261, %._crit_edge, %54, %40, %34, %29, %25, %22
+  %.0227 = phi ptr [ null, %22 ], [ null, %25 ], [ null, %29 ], [ null, %34 ], [ null, %40 ], [ null, %54 ], [ null, %._crit_edge ], [ null, %._crit_edge261 ], [ %200, %586 ], [ null, %._crit_edge271 ], [ %159, %._crit_edge266 ], [ null, %1 ]
   ret ptr %.0227
 }
 
@@ -2360,18 +2334,18 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
   %.not99 = icmp ult ptr %12, %19
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
   %.not100 = icmp ugt ptr %12, %20
-  %or.cond115 = select i1 %.not99, i1 true, i1 %.not100
+  %or.cond114 = select i1 %.not99, i1 true, i1 %.not100
   br i1 %.not98, label %47, label %21
 
 21:                                               ; preds = %16
-  br i1 %or.cond115, label %22, label %30
+  br i1 %or.cond114, label %22, label %30
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr @accel_shared_globals, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 8
-  %.not112 = icmp ult ptr %12, %25
-  br i1 %.not112, label %30, label %26
+  %.not111 = icmp ult ptr %12, %25
+  br i1 %.not111, label %30, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %23, i64 184
@@ -2387,34 +2361,34 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
   %34 = sub i64 %32, %33
   %35 = inttoptr i64 %34 to ptr
   store ptr %35, ptr %9, align 8
-  %.not113 = icmp eq ptr %12, %19
+  %.not112 = icmp eq ptr %12, %19
   %36 = getelementptr inbounds i8, ptr %3, i64 %34
-  %spec.select = select i1 %.not113, ptr null, ptr %36
+  %spec.select = select i1 %.not112, ptr null, ptr %36
   %37 = getelementptr inbounds i8, ptr %0, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %struct._zval_struct, ptr %spec.select, i64 %39
-  %.not121 = icmp eq i32 %38, 0
-  br i1 %.not121, label %.loopexit, label %.lr.ph
+  %.not120 = icmp eq i32 %38, 0
+  br i1 %.not120, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %44
-  %.1118 = phi ptr [ %45, %44 ], [ %spec.select, %30 ]
-  %41 = getelementptr inbounds i8, ptr %.1118, i64 8
+  %.1117 = phi ptr [ %45, %44 ], [ %spec.select, %30 ]
+  %41 = getelementptr inbounds i8, ptr %.1117, i64 8
   %42 = load i8, ptr %41, align 8
-  %.not114 = icmp eq i8 %42, 0
-  br i1 %.not114, label %44, label %43
+  %.not113 = icmp eq i8 %42, 0
+  br i1 %.not113, label %44, label %43
 
 43:                                               ; preds = %.lr.ph
-  tail call void %4(ptr noundef nonnull %.1118, ptr noundef %1, ptr noundef %2, ptr noundef %3) #19
+  tail call void %4(ptr noundef nonnull %.1117, ptr noundef %1, ptr noundef %2, ptr noundef %3) #19
   br label %44
 
 44:                                               ; preds = %43, %.lr.ph
-  %45 = getelementptr inbounds i8, ptr %.1118, i64 16
+  %45 = getelementptr inbounds i8, ptr %.1117, i64 16
   %46 = icmp ult ptr %45, %40
   br i1 %46, label %.lr.ph, label %.loopexit
 
 47:                                               ; preds = %16
-  br i1 %or.cond115, label %48, label %56
+  br i1 %or.cond114, label %48, label %56
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr @accel_shared_globals, align 8
@@ -2439,27 +2413,27 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
   store ptr %61, ptr %9, align 8
   %.not102 = icmp eq ptr %12, %19
   %62 = getelementptr inbounds i8, ptr %3, i64 %60
-  %spec.select116 = select i1 %.not102, ptr null, ptr %62
+  %spec.select115 = select i1 %.not102, ptr null, ptr %62
   %63 = getelementptr inbounds i8, ptr %0, i64 24
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds %struct._Bucket, ptr %spec.select116, i64 %65
-  %.not122 = icmp eq i32 %64, 0
-  br i1 %.not122, label %.loopexit, label %.lr.ph120
+  %66 = getelementptr inbounds %struct._Bucket, ptr %spec.select115, i64 %65
+  %.not121 = icmp eq i32 %64, 0
+  br i1 %.not121, label %.loopexit, label %.lr.ph119
 
-.lr.ph120:                                        ; preds = %56
+.lr.ph119:                                        ; preds = %56
   %67 = getelementptr inbounds i8, ptr %1, i64 384
   br label %68
 
-68:                                               ; preds = %.lr.ph120, %116
-  %.183119 = phi ptr [ %spec.select116, %.lr.ph120 ], [ %117, %116 ]
-  %69 = getelementptr inbounds i8, ptr %.183119, i64 8
+68:                                               ; preds = %.lr.ph119, %116
+  %.183118 = phi ptr [ %spec.select115, %.lr.ph119 ], [ %117, %116 ]
+  %69 = getelementptr inbounds i8, ptr %.183118, i64 8
   %70 = load i8, ptr %69, align 8
   %.not103 = icmp eq i8 %70, 0
   br i1 %.not103, label %116, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %.183119, i64 24
+  %72 = getelementptr inbounds i8, ptr %.183118, i64 24
   %73 = load ptr, ptr %72, align 8
   %.not104 = icmp eq ptr %73, null
   br i1 %.not104, label %115, label %74
@@ -2488,8 +2462,8 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
 
 .thread:                                          ; preds = %78
   %86 = load ptr, ptr %18, align 8
-  %.not106125 = icmp ult ptr %73, %86
-  br i1 %.not106125, label %.thread126, label %87
+  %.not106124 = icmp ult ptr %73, %86
+  br i1 %.not106124, label %.thread125, label %87
 
 87:                                               ; preds = %.thread, %84
   %88 = phi ptr [ %86, %.thread ], [ %85, %84 ]
@@ -2497,23 +2471,22 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
   %90 = getelementptr inbounds i8, ptr %88, i64 %89
   %.not107 = icmp ule ptr %73, %90
   %brmerge = or i1 %.not105, %.not107
-  br i1 %brmerge, label %95, label %.thread126
+  br i1 %brmerge, label %95, label %.thread125
 
-.thread126:                                       ; preds = %.thread, %87
+.thread125:                                       ; preds = %.thread, %87
   %91 = phi ptr [ %88, %87 ], [ %86, %.thread ]
   %92 = getelementptr inbounds i8, ptr %75, i64 184
   %93 = load ptr, ptr %92, align 8
   %94 = icmp ult ptr %73, %93
   br label %95
 
-95:                                               ; preds = %84, %87, %.thread126
-  %96 = phi ptr [ %88, %87 ], [ %91, %.thread126 ], [ %85, %84 ]
-  %97 = phi i1 [ %.not107, %87 ], [ %94, %.thread126 ], [ false, %84 ]
+95:                                               ; preds = %84, %87, %.thread125
+  %96 = phi ptr [ %88, %87 ], [ %91, %.thread125 ], [ %85, %84 ]
+  %97 = phi i1 [ %.not107, %87 ], [ %94, %.thread125 ], [ false, %84 ]
   tail call void @llvm.assume(i1 %97)
   %98 = load i8, ptr %67, align 8
-  %99 = and i8 %98, 1
-  %.not109 = icmp eq i8 %99, 0
-  br i1 %.not109, label %108, label %100
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %100, label %108
 
 100:                                              ; preds = %95
   %101 = getelementptr inbounds i8, ptr %73, i64 4
@@ -2526,11 +2499,11 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
   %107 = and i32 %106, -257
   store i32 %107, ptr %105, align 4
   %.pre = load ptr, ptr %72, align 8
-  %.pre124 = load ptr, ptr %18, align 8
+  %.pre123 = load ptr, ptr %18, align 8
   br label %108
 
 108:                                              ; preds = %100, %95
-  %109 = phi ptr [ %.pre124, %100 ], [ %96, %95 ]
+  %109 = phi ptr [ %.pre123, %100 ], [ %96, %95 ]
   %110 = phi ptr [ %.pre, %100 ], [ %73, %95 ]
   %111 = ptrtoint ptr %110 to i64
   %112 = ptrtoint ptr %109 to i64
@@ -2544,11 +2517,11 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
   br label %115
 
 115:                                              ; preds = %.sink.split, %71
-  tail call void %4(ptr noundef nonnull %.183119, ptr noundef %1, ptr noundef %2, ptr noundef %3) #19
+  tail call void %4(ptr noundef nonnull %.183118, ptr noundef %1, ptr noundef %2, ptr noundef %3) #19
   br label %116
 
 116:                                              ; preds = %115, %68
-  %117 = getelementptr inbounds i8, ptr %.183119, i64 32
+  %117 = getelementptr inbounds i8, ptr %.183118, i64 32
   %118 = icmp ult ptr %117, %66
   br i1 %118, label %68, label %.loopexit
 
@@ -2598,11 +2571,11 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   store ptr %26, ptr %0, align 8
   %.not1107 = icmp eq ptr %5, %8
   %27 = getelementptr inbounds i8, ptr %3, i64 %25
-  %spec.select1395 = select i1 %.not1107, ptr null, ptr %27
+  %spec.select1381 = select i1 %.not1107, ptr null, ptr %27
   br label %.thread
 
 .thread:                                          ; preds = %21, %4
-  %.0906 = phi ptr [ null, %4 ], [ %spec.select1395, %21 ]
+  %.0906 = phi ptr [ null, %4 ], [ %spec.select1381, %21 ]
   %28 = getelementptr inbounds i8, ptr %.0906, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not1108 = icmp eq ptr %29, null
@@ -2619,7 +2592,7 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %35 = getelementptr inbounds i8, ptr %31, i64 184
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ult ptr %29, %36
-  br i1 %37, label %38, label %.thread1474
+  br i1 %37, label %38, label %.thread1460
 
 38:                                               ; preds = %34
   %39 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %29, ptr noundef %2)
@@ -2631,40 +2604,39 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %.not1110 = icmp ult ptr %29, %42
   br i1 %.not1110, label %56, label %45
 
-.thread1474:                                      ; preds = %34
+.thread1460:                                      ; preds = %34
   %43 = getelementptr inbounds i8, ptr %1, i64 416
   %44 = load ptr, ptr %43, align 8
-  %.not11101475 = icmp ult ptr %29, %44
-  br i1 %.not11101475, label %.thread1476, label %45
+  %.not11101461 = icmp ult ptr %29, %44
+  br i1 %.not11101461, label %.thread1462, label %45
 
-45:                                               ; preds = %.thread1474, %40
-  %46 = phi ptr [ %44, %.thread1474 ], [ %42, %40 ]
-  %47 = phi ptr [ %43, %.thread1474 ], [ %41, %40 ]
+45:                                               ; preds = %.thread1460, %40
+  %46 = phi ptr [ %44, %.thread1460 ], [ %42, %40 ]
+  %47 = phi ptr [ %43, %.thread1460 ], [ %41, %40 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 424
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
   %.not1111 = icmp ule ptr %29, %50
   %brmerge = or i1 %.not1109, %.not1111
-  br i1 %brmerge, label %56, label %.thread1476
+  br i1 %brmerge, label %56, label %.thread1462
 
-.thread1476:                                      ; preds = %.thread1474, %45
-  %51 = phi ptr [ %46, %45 ], [ %44, %.thread1474 ]
-  %52 = phi ptr [ %47, %45 ], [ %43, %.thread1474 ]
+.thread1462:                                      ; preds = %.thread1460, %45
+  %51 = phi ptr [ %46, %45 ], [ %44, %.thread1460 ]
+  %52 = phi ptr [ %47, %45 ], [ %43, %.thread1460 ]
   %53 = getelementptr inbounds i8, ptr %31, i64 184
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ult ptr %29, %54
   br label %56
 
-56:                                               ; preds = %40, %45, %.thread1476
-  %57 = phi ptr [ %46, %45 ], [ %51, %.thread1476 ], [ %42, %40 ]
-  %58 = phi ptr [ %47, %45 ], [ %52, %.thread1476 ], [ %41, %40 ]
-  %59 = phi i1 [ %.not1111, %45 ], [ %55, %.thread1476 ], [ false, %40 ]
+56:                                               ; preds = %40, %45, %.thread1462
+  %57 = phi ptr [ %46, %45 ], [ %51, %.thread1462 ], [ %42, %40 ]
+  %58 = phi ptr [ %47, %45 ], [ %52, %.thread1462 ], [ %41, %40 ]
+  %59 = phi i1 [ %.not1111, %45 ], [ %55, %.thread1462 ], [ false, %40 ]
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds i8, ptr %1, i64 384
   %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, 1
-  %.not1113 = icmp eq i8 %62, 0
-  br i1 %.not1113, label %71, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %71
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds i8, ptr %29, i64 4
@@ -2677,11 +2649,11 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %70 = and i32 %69, -257
   store i32 %70, ptr %68, align 4
   %.pre = load ptr, ptr %28, align 8
-  %.pre1438 = load ptr, ptr %58, align 8
+  %.pre1424 = load ptr, ptr %58, align 8
   br label %71
 
 71:                                               ; preds = %63, %56
-  %72 = phi ptr [ %.pre1438, %63 ], [ %57, %56 ]
+  %72 = phi ptr [ %.pre1424, %63 ], [ %57, %56 ]
   %73 = phi ptr [ %.pre, %63 ], [ %29, %56 ]
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %72 to i64
@@ -2697,73 +2669,72 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 78:                                               ; preds = %.sink.split, %.thread
   %79 = getelementptr inbounds i8, ptr %.0906, i64 16
   %80 = load ptr, ptr %79, align 8
-  %.not1114 = icmp eq ptr %80, null
-  br i1 %.not1114, label %154, label %81
+  %.not1113 = icmp eq ptr %80, null
+  br i1 %.not1113, label %154, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds i8, ptr %.0906, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 8
-  %.not1115 = icmp eq i32 %84, 0
-  br i1 %.not1115, label %85, label %133
+  %.not1114 = icmp eq i32 %84, 0
+  br i1 %.not1114, label %85, label %133
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr @accel_shared_globals, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 176
   %88 = load ptr, ptr %87, align 8
-  %.not1116 = icmp ult ptr %80, %88
-  br i1 %.not1116, label %95, label %89
+  %.not1115 = icmp ult ptr %80, %88
+  br i1 %.not1115, label %95, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %86, i64 184
   %91 = load ptr, ptr %90, align 8
   %92 = icmp ult ptr %80, %91
-  br i1 %92, label %93, label %.thread1477
+  br i1 %92, label %93, label %.thread1463
 
 93:                                               ; preds = %89
   %94 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %80, ptr noundef %2)
-  br label %.sink.split1520
+  br label %.sink.split1506
 
 95:                                               ; preds = %85
   %96 = getelementptr inbounds i8, ptr %1, i64 416
   %97 = load ptr, ptr %96, align 8
-  %.not1117 = icmp ult ptr %80, %97
-  br i1 %.not1117, label %111, label %100
+  %.not1116 = icmp ult ptr %80, %97
+  br i1 %.not1116, label %111, label %100
 
-.thread1477:                                      ; preds = %89
+.thread1463:                                      ; preds = %89
   %98 = getelementptr inbounds i8, ptr %1, i64 416
   %99 = load ptr, ptr %98, align 8
-  %.not11171478 = icmp ult ptr %80, %99
-  br i1 %.not11171478, label %.thread1479, label %100
+  %.not11161464 = icmp ult ptr %80, %99
+  br i1 %.not11161464, label %.thread1465, label %100
 
-100:                                              ; preds = %.thread1477, %95
-  %101 = phi ptr [ %99, %.thread1477 ], [ %97, %95 ]
-  %102 = phi ptr [ %98, %.thread1477 ], [ %96, %95 ]
+100:                                              ; preds = %.thread1463, %95
+  %101 = phi ptr [ %99, %.thread1463 ], [ %97, %95 ]
+  %102 = phi ptr [ %98, %.thread1463 ], [ %96, %95 ]
   %103 = getelementptr inbounds i8, ptr %1, i64 424
   %104 = load i64, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %101, i64 %104
-  %.not1118 = icmp ule ptr %80, %105
-  %brmerge1362 = or i1 %.not1116, %.not1118
-  br i1 %brmerge1362, label %111, label %.thread1479
+  %.not1117 = icmp ule ptr %80, %105
+  %brmerge1348 = or i1 %.not1115, %.not1117
+  br i1 %brmerge1348, label %111, label %.thread1465
 
-.thread1479:                                      ; preds = %.thread1477, %100
-  %106 = phi ptr [ %101, %100 ], [ %99, %.thread1477 ]
-  %107 = phi ptr [ %102, %100 ], [ %98, %.thread1477 ]
+.thread1465:                                      ; preds = %.thread1463, %100
+  %106 = phi ptr [ %101, %100 ], [ %99, %.thread1463 ]
+  %107 = phi ptr [ %102, %100 ], [ %98, %.thread1463 ]
   %108 = getelementptr inbounds i8, ptr %86, i64 184
   %109 = load ptr, ptr %108, align 8
   %110 = icmp ult ptr %80, %109
   br label %111
 
-111:                                              ; preds = %95, %100, %.thread1479
-  %112 = phi ptr [ %101, %100 ], [ %106, %.thread1479 ], [ %97, %95 ]
-  %113 = phi ptr [ %102, %100 ], [ %107, %.thread1479 ], [ %96, %95 ]
-  %114 = phi i1 [ %.not1118, %100 ], [ %110, %.thread1479 ], [ false, %95 ]
+111:                                              ; preds = %95, %100, %.thread1465
+  %112 = phi ptr [ %101, %100 ], [ %106, %.thread1465 ], [ %97, %95 ]
+  %113 = phi ptr [ %102, %100 ], [ %107, %.thread1465 ], [ %96, %95 ]
+  %114 = phi i1 [ %.not1117, %100 ], [ %110, %.thread1465 ], [ false, %95 ]
   tail call void @llvm.assume(i1 %114)
   %115 = getelementptr inbounds i8, ptr %1, i64 384
   %116 = load i8, ptr %115, align 8
-  %117 = and i8 %116, 1
-  %.not1120 = icmp eq i8 %117, 0
-  br i1 %.not1120, label %126, label %118
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %126
 
 118:                                              ; preds = %111
   %119 = getelementptr inbounds i8, ptr %80, i64 4
@@ -2775,38 +2746,38 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %124, -257
   store i32 %125, ptr %123, align 4
-  %.pre1439 = load ptr, ptr %79, align 8
-  %.pre1440 = load ptr, ptr %113, align 8
+  %.pre1425 = load ptr, ptr %79, align 8
+  %.pre1426 = load ptr, ptr %113, align 8
   br label %126
 
 126:                                              ; preds = %118, %111
-  %127 = phi ptr [ %.pre1440, %118 ], [ %112, %111 ]
-  %128 = phi ptr [ %.pre1439, %118 ], [ %80, %111 ]
+  %127 = phi ptr [ %.pre1426, %118 ], [ %112, %111 ]
+  %128 = phi ptr [ %.pre1425, %118 ], [ %80, %111 ]
   %129 = ptrtoint ptr %128 to i64
   %130 = ptrtoint ptr %127 to i64
   %131 = sub i64 %129, %130
   %132 = inttoptr i64 %131 to ptr
-  br label %.sink.split1520
+  br label %.sink.split1506
 
 133:                                              ; preds = %81
   %134 = getelementptr inbounds i8, ptr %1, i64 416
   %135 = load ptr, ptr %134, align 8
-  %.not1121 = icmp ult ptr %80, %135
-  br i1 %.not1121, label %140, label %136
+  %.not1119 = icmp ult ptr %80, %135
+  br i1 %.not1119, label %140, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds i8, ptr %1, i64 424
   %138 = load i64, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %135, i64 %138
-  %.not1122 = icmp ugt ptr %80, %139
-  br i1 %.not1122, label %140, label %148
+  %.not1120 = icmp ugt ptr %80, %139
+  br i1 %.not1120, label %140, label %148
 
 140:                                              ; preds = %136, %133
   %141 = load ptr, ptr @accel_shared_globals, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 176
   %143 = load ptr, ptr %142, align 8
-  %.not1123 = icmp ult ptr %80, %143
-  br i1 %.not1123, label %148, label %144
+  %.not1121 = icmp ult ptr %80, %143
+  br i1 %.not1121, label %148, label %144
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds i8, ptr %141, i64 184
@@ -2821,40 +2792,40 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %151 = ptrtoint ptr %135 to i64
   %152 = sub i64 %150, %151
   %153 = inttoptr i64 %152 to ptr
-  br label %.sink.split1520
+  br label %.sink.split1506
 
-.sink.split1520:                                  ; preds = %148, %93, %126
-  %.sink1521 = phi ptr [ %132, %126 ], [ %94, %93 ], [ %153, %148 ]
-  store ptr %.sink1521, ptr %79, align 8
+.sink.split1506:                                  ; preds = %148, %93, %126
+  %.sink1507 = phi ptr [ %132, %126 ], [ %94, %93 ], [ %153, %148 ]
+  store ptr %.sink1507, ptr %79, align 8
   br label %154
 
-154:                                              ; preds = %.sink.split1520, %78
+154:                                              ; preds = %.sink.split1506, %78
   %155 = getelementptr inbounds i8, ptr %.0906, i64 64
   tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef nonnull %155, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_func)
   %156 = getelementptr inbounds i8, ptr %.0906, i64 40
   %157 = load ptr, ptr %156, align 8
-  %.not1124 = icmp eq ptr %157, null
-  br i1 %.not1124, label %.loopexit1402, label %158
+  %.not1122 = icmp eq ptr %157, null
+  br i1 %.not1122, label %.loopexit1388, label %158
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds i8, ptr %1, i64 416
   %160 = load ptr, ptr %159, align 8
-  %.not1125 = icmp ult ptr %157, %160
-  br i1 %.not1125, label %165, label %161
+  %.not1123 = icmp ult ptr %157, %160
+  br i1 %.not1123, label %165, label %161
 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds i8, ptr %1, i64 424
   %163 = load i64, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %160, i64 %163
-  %.not1126 = icmp ugt ptr %157, %164
-  br i1 %.not1126, label %165, label %173
+  %.not1124 = icmp ugt ptr %157, %164
+  br i1 %.not1124, label %165, label %173
 
 165:                                              ; preds = %161, %158
   %166 = load ptr, ptr @accel_shared_globals, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 176
   %168 = load ptr, ptr %167, align 8
-  %.not1127 = icmp ult ptr %157, %168
-  br i1 %.not1127, label %173, label %169
+  %.not1125 = icmp ult ptr %157, %168
+  br i1 %.not1125, label %173, label %169
 
 169:                                              ; preds = %165
   %170 = getelementptr inbounds i8, ptr %166, i64 184
@@ -2870,48 +2841,48 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %177 = sub i64 %175, %176
   %178 = inttoptr i64 %177 to ptr
   store ptr %178, ptr %156, align 8
-  %.not1128 = icmp eq ptr %157, %160
+  %.not1126 = icmp eq ptr %157, %160
   %179 = getelementptr inbounds i8, ptr %3, i64 %177
-  %spec.select = select i1 %.not1128, ptr null, ptr %179
+  %spec.select = select i1 %.not1126, ptr null, ptr %179
   %180 = getelementptr inbounds i8, ptr %.0906, i64 32
   %181 = load i32, ptr %180, align 8
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds %struct._zval_struct, ptr %spec.select, i64 %182
   %184 = icmp sgt i32 %181, 0
-  br i1 %184, label %.lr.ph, label %.loopexit1402
+  br i1 %184, label %.lr.ph, label %.loopexit1388
 
 .lr.ph:                                           ; preds = %173, %.lr.ph
-  %.19101403 = phi ptr [ %185, %.lr.ph ], [ %spec.select, %173 ]
-  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19101403, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %185 = getelementptr inbounds i8, ptr %.19101403, i64 16
+  %.19101389 = phi ptr [ %185, %.lr.ph ], [ %spec.select, %173 ]
+  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19101389, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %185 = getelementptr inbounds i8, ptr %.19101389, i64 16
   %186 = icmp ult ptr %185, %183
-  br i1 %186, label %.lr.ph, label %.loopexit1402
+  br i1 %186, label %.lr.ph, label %.loopexit1388
 
-.loopexit1402:                                    ; preds = %.lr.ph, %173, %154
+.loopexit1388:                                    ; preds = %.lr.ph, %173, %154
   %187 = getelementptr inbounds i8, ptr %.0906, i64 48
   %188 = load ptr, ptr %187, align 8
-  %.not1129 = icmp eq ptr %188, null
-  br i1 %.not1129, label %.loopexit1401, label %189
+  %.not1127 = icmp eq ptr %188, null
+  br i1 %.not1127, label %.loopexit1387, label %189
 
-189:                                              ; preds = %.loopexit1402
+189:                                              ; preds = %.loopexit1388
   %190 = getelementptr inbounds i8, ptr %1, i64 416
   %191 = load ptr, ptr %190, align 8
-  %.not1130 = icmp ult ptr %188, %191
-  br i1 %.not1130, label %196, label %192
+  %.not1128 = icmp ult ptr %188, %191
+  br i1 %.not1128, label %196, label %192
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds i8, ptr %1, i64 424
   %194 = load i64, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %191, i64 %194
-  %.not1131 = icmp ugt ptr %188, %195
-  br i1 %.not1131, label %196, label %204
+  %.not1129 = icmp ugt ptr %188, %195
+  br i1 %.not1129, label %196, label %204
 
 196:                                              ; preds = %192, %189
   %197 = load ptr, ptr @accel_shared_globals, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 176
   %199 = load ptr, ptr %198, align 8
-  %.not1132 = icmp ult ptr %188, %199
-  br i1 %.not1132, label %204, label %200
+  %.not1130 = icmp ult ptr %188, %199
+  br i1 %.not1130, label %204, label %200
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds i8, ptr %197, i64 184
@@ -2927,88 +2898,87 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %208 = sub i64 %206, %207
   %209 = inttoptr i64 %208 to ptr
   store ptr %209, ptr %187, align 8
-  %.not1133 = icmp eq ptr %188, %191
+  %.not1131 = icmp eq ptr %188, %191
   %210 = getelementptr inbounds i8, ptr %3, i64 %208
-  %spec.select1364 = select i1 %.not1133, ptr null, ptr %210
+  %spec.select1350 = select i1 %.not1131, ptr null, ptr %210
   %211 = getelementptr inbounds i8, ptr %.0906, i64 36
   %212 = load i32, ptr %211, align 4
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %struct._zval_struct, ptr %spec.select1364, i64 %213
+  %214 = getelementptr inbounds %struct._zval_struct, ptr %spec.select1350, i64 %213
   %215 = icmp sgt i32 %212, 0
-  br i1 %215, label %.lr.ph1405, label %.loopexit1401
+  br i1 %215, label %.lr.ph1391, label %.loopexit1387
 
-.lr.ph1405:                                       ; preds = %204, %.lr.ph1405
-  %.19081404 = phi ptr [ %216, %.lr.ph1405 ], [ %spec.select1364, %204 ]
-  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19081404, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %216 = getelementptr inbounds i8, ptr %.19081404, i64 16
+.lr.ph1391:                                       ; preds = %204, %.lr.ph1391
+  %.19081390 = phi ptr [ %216, %.lr.ph1391 ], [ %spec.select1350, %204 ]
+  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19081390, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %216 = getelementptr inbounds i8, ptr %.19081390, i64 16
   %217 = icmp ult ptr %216, %214
-  br i1 %217, label %.lr.ph1405, label %.loopexit1401
+  br i1 %217, label %.lr.ph1391, label %.loopexit1387
 
-.loopexit1401:                                    ; preds = %.lr.ph1405, %204, %.loopexit1402
+.loopexit1387:                                    ; preds = %.lr.ph1391, %204, %.loopexit1388
   %218 = getelementptr inbounds i8, ptr %.0906, i64 176
   tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef nonnull %218, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_class_constant)
   %219 = getelementptr inbounds i8, ptr %.0906, i64 496
   %220 = load ptr, ptr %219, align 8
-  %.not1134 = icmp eq ptr %220, null
-  br i1 %.not1134, label %269, label %221
+  %.not1132 = icmp eq ptr %220, null
+  br i1 %.not1132, label %269, label %221
 
-221:                                              ; preds = %.loopexit1401
+221:                                              ; preds = %.loopexit1387
   %222 = load ptr, ptr @accel_shared_globals, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 176
   %224 = load ptr, ptr %223, align 8
-  %.not1135 = icmp ult ptr %220, %224
-  br i1 %.not1135, label %231, label %225
+  %.not1133 = icmp ult ptr %220, %224
+  br i1 %.not1133, label %231, label %225
 
 225:                                              ; preds = %221
   %226 = getelementptr inbounds i8, ptr %222, i64 184
   %227 = load ptr, ptr %226, align 8
   %228 = icmp ult ptr %220, %227
-  br i1 %228, label %229, label %.thread1480
+  br i1 %228, label %229, label %.thread1466
 
 229:                                              ; preds = %225
   %230 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %220, ptr noundef %2)
-  br label %.sink.split1522
+  br label %.sink.split1508
 
 231:                                              ; preds = %221
   %232 = getelementptr inbounds i8, ptr %1, i64 416
   %233 = load ptr, ptr %232, align 8
-  %.not1136 = icmp ult ptr %220, %233
-  br i1 %.not1136, label %247, label %236
+  %.not1134 = icmp ult ptr %220, %233
+  br i1 %.not1134, label %247, label %236
 
-.thread1480:                                      ; preds = %225
+.thread1466:                                      ; preds = %225
   %234 = getelementptr inbounds i8, ptr %1, i64 416
   %235 = load ptr, ptr %234, align 8
-  %.not11361481 = icmp ult ptr %220, %235
-  br i1 %.not11361481, label %.thread1482, label %236
+  %.not11341467 = icmp ult ptr %220, %235
+  br i1 %.not11341467, label %.thread1468, label %236
 
-236:                                              ; preds = %.thread1480, %231
-  %237 = phi ptr [ %235, %.thread1480 ], [ %233, %231 ]
-  %238 = phi ptr [ %234, %.thread1480 ], [ %232, %231 ]
+236:                                              ; preds = %.thread1466, %231
+  %237 = phi ptr [ %235, %.thread1466 ], [ %233, %231 ]
+  %238 = phi ptr [ %234, %.thread1466 ], [ %232, %231 ]
   %239 = getelementptr inbounds i8, ptr %1, i64 424
   %240 = load i64, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %237, i64 %240
-  %.not1137 = icmp ule ptr %220, %241
-  %brmerge1365 = or i1 %.not1135, %.not1137
-  br i1 %brmerge1365, label %247, label %.thread1482
+  %.not1135 = icmp ule ptr %220, %241
+  %brmerge1351 = or i1 %.not1133, %.not1135
+  br i1 %brmerge1351, label %247, label %.thread1468
 
-.thread1482:                                      ; preds = %.thread1480, %236
-  %242 = phi ptr [ %237, %236 ], [ %235, %.thread1480 ]
-  %243 = phi ptr [ %238, %236 ], [ %234, %.thread1480 ]
+.thread1468:                                      ; preds = %.thread1466, %236
+  %242 = phi ptr [ %237, %236 ], [ %235, %.thread1466 ]
+  %243 = phi ptr [ %238, %236 ], [ %234, %.thread1466 ]
   %244 = getelementptr inbounds i8, ptr %222, i64 184
   %245 = load ptr, ptr %244, align 8
   %246 = icmp ult ptr %220, %245
   br label %247
 
-247:                                              ; preds = %231, %236, %.thread1482
-  %248 = phi ptr [ %237, %236 ], [ %242, %.thread1482 ], [ %233, %231 ]
-  %249 = phi ptr [ %238, %236 ], [ %243, %.thread1482 ], [ %232, %231 ]
-  %250 = phi i1 [ %.not1137, %236 ], [ %246, %.thread1482 ], [ false, %231 ]
+247:                                              ; preds = %231, %236, %.thread1468
+  %248 = phi ptr [ %237, %236 ], [ %242, %.thread1468 ], [ %233, %231 ]
+  %249 = phi ptr [ %238, %236 ], [ %243, %.thread1468 ], [ %232, %231 ]
+  %250 = phi i1 [ %.not1135, %236 ], [ %246, %.thread1468 ], [ false, %231 ]
   tail call void @llvm.assume(i1 %250)
   %251 = getelementptr inbounds i8, ptr %1, i64 384
   %252 = load i8, ptr %251, align 8
-  %253 = and i8 %252, 1
-  %.not1139 = icmp eq i8 %253, 0
-  br i1 %.not1139, label %262, label %254
+  %253 = trunc i8 %252 to i1
+  br i1 %253, label %254, label %262
 
 254:                                              ; preds = %247
   %255 = getelementptr inbounds i8, ptr %220, i64 4
@@ -3020,87 +2990,86 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %260 = load i32, ptr %259, align 4
   %261 = and i32 %260, -257
   store i32 %261, ptr %259, align 4
-  %.pre1441 = load ptr, ptr %219, align 8
-  %.pre1442 = load ptr, ptr %249, align 8
+  %.pre1427 = load ptr, ptr %219, align 8
+  %.pre1428 = load ptr, ptr %249, align 8
   br label %262
 
 262:                                              ; preds = %254, %247
-  %263 = phi ptr [ %.pre1442, %254 ], [ %248, %247 ]
-  %264 = phi ptr [ %.pre1441, %254 ], [ %220, %247 ]
+  %263 = phi ptr [ %.pre1428, %254 ], [ %248, %247 ]
+  %264 = phi ptr [ %.pre1427, %254 ], [ %220, %247 ]
   %265 = ptrtoint ptr %264 to i64
   %266 = ptrtoint ptr %263 to i64
   %267 = sub i64 %265, %266
   %268 = inttoptr i64 %267 to ptr
-  br label %.sink.split1522
+  br label %.sink.split1508
 
-.sink.split1522:                                  ; preds = %262, %229
-  %.sink1523 = phi ptr [ %230, %229 ], [ %268, %262 ]
-  store ptr %.sink1523, ptr %219, align 8
+.sink.split1508:                                  ; preds = %262, %229
+  %.sink1509 = phi ptr [ %230, %229 ], [ %268, %262 ]
+  store ptr %.sink1509, ptr %219, align 8
   br label %269
 
-269:                                              ; preds = %.sink.split1522, %.loopexit1401
+269:                                              ; preds = %.sink.split1508, %.loopexit1387
   %270 = getelementptr inbounds i8, ptr %.0906, i64 488
   %271 = load ptr, ptr %270, align 8
-  %.not1140 = icmp eq ptr %271, null
-  br i1 %.not1140, label %320, label %272
+  %.not1137 = icmp eq ptr %271, null
+  br i1 %.not1137, label %320, label %272
 
 272:                                              ; preds = %269
   %273 = load ptr, ptr @accel_shared_globals, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 176
   %275 = load ptr, ptr %274, align 8
-  %.not1141 = icmp ult ptr %271, %275
-  br i1 %.not1141, label %282, label %276
+  %.not1138 = icmp ult ptr %271, %275
+  br i1 %.not1138, label %282, label %276
 
 276:                                              ; preds = %272
   %277 = getelementptr inbounds i8, ptr %273, i64 184
   %278 = load ptr, ptr %277, align 8
   %279 = icmp ult ptr %271, %278
-  br i1 %279, label %280, label %.thread1483
+  br i1 %279, label %280, label %.thread1469
 
 280:                                              ; preds = %276
   %281 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %271, ptr noundef %2)
-  br label %.sink.split1524
+  br label %.sink.split1510
 
 282:                                              ; preds = %272
   %283 = getelementptr inbounds i8, ptr %1, i64 416
   %284 = load ptr, ptr %283, align 8
-  %.not1142 = icmp ult ptr %271, %284
-  br i1 %.not1142, label %298, label %287
+  %.not1139 = icmp ult ptr %271, %284
+  br i1 %.not1139, label %298, label %287
 
-.thread1483:                                      ; preds = %276
+.thread1469:                                      ; preds = %276
   %285 = getelementptr inbounds i8, ptr %1, i64 416
   %286 = load ptr, ptr %285, align 8
-  %.not11421484 = icmp ult ptr %271, %286
-  br i1 %.not11421484, label %.thread1485, label %287
+  %.not11391470 = icmp ult ptr %271, %286
+  br i1 %.not11391470, label %.thread1471, label %287
 
-287:                                              ; preds = %.thread1483, %282
-  %288 = phi ptr [ %286, %.thread1483 ], [ %284, %282 ]
-  %289 = phi ptr [ %285, %.thread1483 ], [ %283, %282 ]
+287:                                              ; preds = %.thread1469, %282
+  %288 = phi ptr [ %286, %.thread1469 ], [ %284, %282 ]
+  %289 = phi ptr [ %285, %.thread1469 ], [ %283, %282 ]
   %290 = getelementptr inbounds i8, ptr %1, i64 424
   %291 = load i64, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %288, i64 %291
-  %.not1143 = icmp ule ptr %271, %292
-  %brmerge1367 = or i1 %.not1141, %.not1143
-  br i1 %brmerge1367, label %298, label %.thread1485
+  %.not1140 = icmp ule ptr %271, %292
+  %brmerge1353 = or i1 %.not1138, %.not1140
+  br i1 %brmerge1353, label %298, label %.thread1471
 
-.thread1485:                                      ; preds = %.thread1483, %287
-  %293 = phi ptr [ %288, %287 ], [ %286, %.thread1483 ]
-  %294 = phi ptr [ %289, %287 ], [ %285, %.thread1483 ]
+.thread1471:                                      ; preds = %.thread1469, %287
+  %293 = phi ptr [ %288, %287 ], [ %286, %.thread1469 ]
+  %294 = phi ptr [ %289, %287 ], [ %285, %.thread1469 ]
   %295 = getelementptr inbounds i8, ptr %273, i64 184
   %296 = load ptr, ptr %295, align 8
   %297 = icmp ult ptr %271, %296
   br label %298
 
-298:                                              ; preds = %282, %287, %.thread1485
-  %299 = phi ptr [ %288, %287 ], [ %293, %.thread1485 ], [ %284, %282 ]
-  %300 = phi ptr [ %289, %287 ], [ %294, %.thread1485 ], [ %283, %282 ]
-  %301 = phi i1 [ %.not1143, %287 ], [ %297, %.thread1485 ], [ false, %282 ]
+298:                                              ; preds = %282, %287, %.thread1471
+  %299 = phi ptr [ %288, %287 ], [ %293, %.thread1471 ], [ %284, %282 ]
+  %300 = phi ptr [ %289, %287 ], [ %294, %.thread1471 ], [ %283, %282 ]
+  %301 = phi i1 [ %.not1140, %287 ], [ %297, %.thread1471 ], [ false, %282 ]
   tail call void @llvm.assume(i1 %301)
   %302 = getelementptr inbounds i8, ptr %1, i64 384
   %303 = load i8, ptr %302, align 8
-  %304 = and i8 %303, 1
-  %.not1145 = icmp eq i8 %304, 0
-  br i1 %.not1145, label %313, label %305
+  %304 = trunc i8 %303 to i1
+  br i1 %304, label %305, label %313
 
 305:                                              ; preds = %298
   %306 = getelementptr inbounds i8, ptr %271, i64 4
@@ -3112,52 +3081,52 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %311 = load i32, ptr %310, align 4
   %312 = and i32 %311, -257
   store i32 %312, ptr %310, align 4
-  %.pre1443 = load ptr, ptr %270, align 8
-  %.pre1444 = load ptr, ptr %300, align 8
+  %.pre1429 = load ptr, ptr %270, align 8
+  %.pre1430 = load ptr, ptr %300, align 8
   br label %313
 
 313:                                              ; preds = %305, %298
-  %314 = phi ptr [ %.pre1444, %305 ], [ %299, %298 ]
-  %315 = phi ptr [ %.pre1443, %305 ], [ %271, %298 ]
+  %314 = phi ptr [ %.pre1430, %305 ], [ %299, %298 ]
+  %315 = phi ptr [ %.pre1429, %305 ], [ %271, %298 ]
   %316 = ptrtoint ptr %315 to i64
   %317 = ptrtoint ptr %314 to i64
   %318 = sub i64 %316, %317
   %319 = inttoptr i64 %318 to ptr
-  br label %.sink.split1524
+  br label %.sink.split1510
 
-.sink.split1524:                                  ; preds = %313, %280
-  %.sink1525 = phi ptr [ %281, %280 ], [ %319, %313 ]
-  store ptr %.sink1525, ptr %270, align 8
+.sink.split1510:                                  ; preds = %313, %280
+  %.sink1511 = phi ptr [ %281, %280 ], [ %319, %313 ]
+  store ptr %.sink1511, ptr %270, align 8
   br label %320
 
-320:                                              ; preds = %.sink.split1524, %269
+320:                                              ; preds = %.sink.split1510, %269
   %321 = getelementptr inbounds i8, ptr %.0906, i64 464
   %322 = load ptr, ptr %321, align 8
-  %.not1146 = icmp eq ptr %322, null
-  br i1 %.not1146, label %346, label %323
+  %.not1142 = icmp eq ptr %322, null
+  br i1 %.not1142, label %346, label %323
 
 323:                                              ; preds = %320
   %324 = getelementptr inbounds i8, ptr %1, i64 424
   %325 = load i64, ptr %324, align 8
   %326 = inttoptr i64 %325 to ptr
-  %.not1147 = icmp ugt ptr %322, %326
-  br i1 %.not1147, label %327, label %346
+  %.not1143 = icmp ugt ptr %322, %326
+  br i1 %.not1143, label %327, label %346
 
 327:                                              ; preds = %323
   %328 = getelementptr inbounds i8, ptr %1, i64 416
   %329 = load ptr, ptr %328, align 8
-  %.not1148 = icmp ult ptr %322, %329
+  %.not1144 = icmp ult ptr %322, %329
   %330 = getelementptr inbounds i8, ptr %329, i64 %325
-  %.not1149 = icmp ugt ptr %322, %330
-  %or.cond = select i1 %.not1148, i1 true, i1 %.not1149
+  %.not1145 = icmp ugt ptr %322, %330
+  %or.cond = select i1 %.not1144, i1 true, i1 %.not1145
   br i1 %or.cond, label %331, label %339
 
 331:                                              ; preds = %327
   %332 = load ptr, ptr @accel_shared_globals, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 176
   %334 = load ptr, ptr %333, align 8
-  %.not1150 = icmp ult ptr %322, %334
-  br i1 %.not1150, label %339, label %335
+  %.not1146 = icmp ult ptr %322, %334
+  br i1 %.not1146, label %339, label %335
 
 335:                                              ; preds = %331
   %336 = getelementptr inbounds i8, ptr %332, i64 184
@@ -3173,10 +3142,10 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %343 = sub i64 %341, %342
   %344 = inttoptr i64 %343 to ptr
   store ptr %344, ptr %321, align 8
-  %.not1151 = icmp eq ptr %322, %329
+  %.not1147 = icmp eq ptr %322, %329
   %345 = getelementptr inbounds i8, ptr %3, i64 %343
-  %spec.select1369 = select i1 %.not1151, ptr null, ptr %345
-  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select1369, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
+  %spec.select1355 = select i1 %.not1147, ptr null, ptr %345
+  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select1355, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
   br label %346
 
 346:                                              ; preds = %320, %323, %339
@@ -3184,28 +3153,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef nonnull %347, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_prop_info)
   %348 = getelementptr inbounds i8, ptr %.0906, i64 248
   %349 = load ptr, ptr %348, align 8
-  %.not1152 = icmp eq ptr %349, null
-  br i1 %.not1152, label %.loopexit1400, label %350
+  %.not1148 = icmp eq ptr %349, null
+  br i1 %.not1148, label %.loopexit1386, label %350
 
 350:                                              ; preds = %346
   %351 = getelementptr inbounds i8, ptr %1, i64 416
   %352 = load ptr, ptr %351, align 8
-  %.not1153 = icmp ult ptr %349, %352
-  br i1 %.not1153, label %357, label %353
+  %.not1149 = icmp ult ptr %349, %352
+  br i1 %.not1149, label %357, label %353
 
 353:                                              ; preds = %350
   %354 = getelementptr inbounds i8, ptr %1, i64 424
   %355 = load i64, ptr %354, align 8
   %356 = getelementptr inbounds i8, ptr %352, i64 %355
-  %.not1154 = icmp ugt ptr %349, %356
-  br i1 %.not1154, label %357, label %365
+  %.not1150 = icmp ugt ptr %349, %356
+  br i1 %.not1150, label %357, label %365
 
 357:                                              ; preds = %353, %350
   %358 = load ptr, ptr @accel_shared_globals, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 176
   %360 = load ptr, ptr %359, align 8
-  %.not1155 = icmp ult ptr %349, %360
-  br i1 %.not1155, label %365, label %361
+  %.not1151 = icmp ult ptr %349, %360
+  br i1 %.not1151, label %365, label %361
 
 361:                                              ; preds = %357
   %362 = getelementptr inbounds i8, ptr %358, i64 184
@@ -3221,43 +3190,43 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %369 = sub i64 %367, %368
   %370 = inttoptr i64 %369 to ptr
   store ptr %370, ptr %348, align 8
-  %.not1156 = icmp eq ptr %349, %352
+  %.not1152 = icmp eq ptr %349, %352
   %371 = getelementptr inbounds i8, ptr %3, i64 %369
-  %spec.select1370 = select i1 %.not1156, ptr null, ptr %371
+  %spec.select1356 = select i1 %.not1152, ptr null, ptr %371
   %372 = getelementptr inbounds i8, ptr %.0906, i64 32
   %373 = load i32, ptr %372, align 8
-  %.not1424 = icmp eq i32 %373, 0
-  br i1 %.not1424, label %.loopexit1400, label %.lr.ph1407
+  %.not1410 = icmp eq i32 %373, 0
+  br i1 %.not1410, label %.loopexit1386, label %.lr.ph1393
 
-.lr.ph1407:                                       ; preds = %365
+.lr.ph1393:                                       ; preds = %365
   %374 = getelementptr inbounds i8, ptr %1, i64 424
   br label %375
 
-375:                                              ; preds = %.lr.ph1407, %398
-  %376 = phi i32 [ %373, %.lr.ph1407 ], [ %399, %398 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph1407 ], [ %indvars.iv.next, %398 ]
-  %377 = getelementptr inbounds ptr, ptr %spec.select1370, i64 %indvars.iv
+375:                                              ; preds = %.lr.ph1393, %398
+  %376 = phi i32 [ %373, %.lr.ph1393 ], [ %399, %398 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph1393 ], [ %indvars.iv.next, %398 ]
+  %377 = getelementptr inbounds ptr, ptr %spec.select1356, i64 %indvars.iv
   %378 = load ptr, ptr %377, align 8
-  %.not1352 = icmp eq ptr %378, null
-  br i1 %.not1352, label %398, label %379
+  %.not1338 = icmp eq ptr %378, null
+  br i1 %.not1338, label %398, label %379
 
 379:                                              ; preds = %375
   %380 = load ptr, ptr %351, align 8
-  %.not1353 = icmp ult ptr %378, %380
-  br i1 %.not1353, label %384, label %381
+  %.not1339 = icmp ult ptr %378, %380
+  br i1 %.not1339, label %384, label %381
 
 381:                                              ; preds = %379
   %382 = load i64, ptr %374, align 8
   %383 = getelementptr inbounds i8, ptr %380, i64 %382
-  %.not1354 = icmp ugt ptr %378, %383
-  br i1 %.not1354, label %384, label %392
+  %.not1340 = icmp ugt ptr %378, %383
+  br i1 %.not1340, label %384, label %392
 
 384:                                              ; preds = %381, %379
   %385 = load ptr, ptr @accel_shared_globals, align 8
   %386 = getelementptr inbounds i8, ptr %385, i64 176
   %387 = load ptr, ptr %386, align 8
-  %.not1355 = icmp ult ptr %378, %387
-  br i1 %.not1355, label %392, label %388
+  %.not1341 = icmp ult ptr %378, %387
+  br i1 %.not1341, label %392, label %388
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds i8, ptr %385, i64 184
@@ -3273,52 +3242,52 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %396 = sub i64 %394, %395
   %397 = inttoptr i64 %396 to ptr
   store ptr %397, ptr %377, align 8
-  %.pre1445 = load i32, ptr %372, align 8
+  %.pre1431 = load i32, ptr %372, align 8
   br label %398
 
 398:                                              ; preds = %392, %375
-  %399 = phi i32 [ %.pre1445, %392 ], [ %376, %375 ]
+  %399 = phi i32 [ %.pre1431, %392 ], [ %376, %375 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %400 = zext i32 %399 to i64
   %401 = icmp ult i64 %indvars.iv.next, %400
-  br i1 %401, label %375, label %.loopexit1400
+  br i1 %401, label %375, label %.loopexit1386
 
-.loopexit1400:                                    ; preds = %398, %365, %346
+.loopexit1386:                                    ; preds = %398, %365, %346
   %402 = getelementptr inbounds i8, ptr %.0906, i64 424
   %403 = load i32, ptr %402, align 8
-  %.not1157 = icmp eq i32 %403, 0
-  br i1 %.not1157, label %.loopexit1399, label %404
+  %.not1153 = icmp eq i32 %403, 0
+  br i1 %.not1153, label %.loopexit1385, label %404
 
-404:                                              ; preds = %.loopexit1400
+404:                                              ; preds = %.loopexit1386
   %405 = getelementptr inbounds i8, ptr %.0906, i64 28
   %406 = load i32, ptr %405, align 4
   %407 = and i32 %406, 8
-  %.not1158 = icmp eq i32 %407, 0
-  tail call void @llvm.assume(i1 %.not1158)
+  %.not1154 = icmp eq i32 %407, 0
+  tail call void @llvm.assume(i1 %.not1154)
   %408 = getelementptr inbounds i8, ptr %.0906, i64 432
   %409 = load ptr, ptr %408, align 8
-  %.not1159 = icmp eq ptr %409, null
-  br i1 %.not1159, label %.lr.ph1409, label %410
+  %.not1155 = icmp eq ptr %409, null
+  br i1 %.not1155, label %.lr.ph1395, label %410
 
 410:                                              ; preds = %404
   %411 = getelementptr inbounds i8, ptr %1, i64 416
   %412 = load ptr, ptr %411, align 8
-  %.not1160 = icmp ult ptr %409, %412
-  br i1 %.not1160, label %417, label %413
+  %.not1156 = icmp ult ptr %409, %412
+  br i1 %.not1156, label %417, label %413
 
 413:                                              ; preds = %410
   %414 = getelementptr inbounds i8, ptr %1, i64 424
   %415 = load i64, ptr %414, align 8
   %416 = getelementptr inbounds i8, ptr %412, i64 %415
-  %.not1161 = icmp ugt ptr %409, %416
-  br i1 %.not1161, label %417, label %425
+  %.not1157 = icmp ugt ptr %409, %416
+  br i1 %.not1157, label %417, label %425
 
 417:                                              ; preds = %413, %410
   %418 = load ptr, ptr @accel_shared_globals, align 8
   %419 = getelementptr inbounds i8, ptr %418, i64 176
   %420 = load ptr, ptr %419, align 8
-  %.not1162 = icmp ult ptr %409, %420
-  br i1 %.not1162, label %425, label %421
+  %.not1158 = icmp ult ptr %409, %420
+  br i1 %.not1158, label %425, label %421
 
 421:                                              ; preds = %417
   %422 = getelementptr inbounds i8, ptr %418, i64 184
@@ -3334,75 +3303,74 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %429 = sub i64 %427, %428
   %430 = inttoptr i64 %429 to ptr
   store ptr %430, ptr %408, align 8
-  %.not1163 = icmp eq ptr %409, %412
+  %.not1159 = icmp eq ptr %409, %412
   %431 = getelementptr inbounds i8, ptr %3, i64 %429
-  %spec.select1396 = select i1 %.not1163, ptr null, ptr %431
-  br label %.lr.ph1409
+  %spec.select1382 = select i1 %.not1159, ptr null, ptr %431
+  br label %.lr.ph1395
 
-.lr.ph1409:                                       ; preds = %404, %425
-  %.0901 = phi ptr [ null, %404 ], [ %spec.select1396, %425 ]
+.lr.ph1395:                                       ; preds = %404, %425
+  %.0901 = phi ptr [ null, %404 ], [ %spec.select1382, %425 ]
   %432 = getelementptr inbounds i8, ptr %1, i64 416
   %433 = getelementptr inbounds i8, ptr %1, i64 424
   %434 = getelementptr inbounds i8, ptr %1, i64 384
   br label %435
 
-435:                                              ; preds = %.lr.ph1409, %523
-  %indvars.iv1429 = phi i64 [ 0, %.lr.ph1409 ], [ %indvars.iv.next1430, %523 ]
-  %436 = getelementptr inbounds %struct._zend_class_name, ptr %.0901, i64 %indvars.iv1429
+435:                                              ; preds = %.lr.ph1395, %523
+  %indvars.iv1415 = phi i64 [ 0, %.lr.ph1395 ], [ %indvars.iv.next1416, %523 ]
+  %436 = getelementptr inbounds %struct._zend_class_name, ptr %.0901, i64 %indvars.iv1415
   %437 = load ptr, ptr %436, align 8
-  %.not1340 = icmp eq ptr %437, null
-  br i1 %.not1340, label %479, label %438
+  %.not1328 = icmp eq ptr %437, null
+  br i1 %.not1328, label %479, label %438
 
 438:                                              ; preds = %435
   %439 = load ptr, ptr @accel_shared_globals, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 176
   %441 = load ptr, ptr %440, align 8
-  %.not1341 = icmp ult ptr %437, %441
-  br i1 %.not1341, label %448, label %442
+  %.not1329 = icmp ult ptr %437, %441
+  br i1 %.not1329, label %448, label %442
 
 442:                                              ; preds = %438
   %443 = getelementptr inbounds i8, ptr %439, i64 184
   %444 = load ptr, ptr %443, align 8
   %445 = icmp ult ptr %437, %444
-  br i1 %445, label %446, label %.thread1486
+  br i1 %445, label %446, label %.thread1472
 
 446:                                              ; preds = %442
   %447 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %437, ptr noundef %2)
-  br label %.sink.split1526
+  br label %.sink.split1512
 
 448:                                              ; preds = %438
   %449 = load ptr, ptr %432, align 8
-  %.not1342 = icmp ult ptr %437, %449
-  br i1 %.not1342, label %459, label %451
+  %.not1330 = icmp ult ptr %437, %449
+  br i1 %.not1330, label %459, label %451
 
-.thread1486:                                      ; preds = %442
+.thread1472:                                      ; preds = %442
   %450 = load ptr, ptr %432, align 8
-  %.not13421487 = icmp ult ptr %437, %450
-  br i1 %.not13421487, label %.thread1488, label %451
+  %.not13301473 = icmp ult ptr %437, %450
+  br i1 %.not13301473, label %.thread1474, label %451
 
-451:                                              ; preds = %.thread1486, %448
-  %452 = phi ptr [ %450, %.thread1486 ], [ %449, %448 ]
+451:                                              ; preds = %.thread1472, %448
+  %452 = phi ptr [ %450, %.thread1472 ], [ %449, %448 ]
   %453 = load i64, ptr %433, align 8
   %454 = getelementptr inbounds i8, ptr %452, i64 %453
-  %.not1343 = icmp ule ptr %437, %454
-  %brmerge1371 = or i1 %.not1341, %.not1343
-  br i1 %brmerge1371, label %459, label %.thread1488
+  %.not1331 = icmp ule ptr %437, %454
+  %brmerge1357 = or i1 %.not1329, %.not1331
+  br i1 %brmerge1357, label %459, label %.thread1474
 
-.thread1488:                                      ; preds = %.thread1486, %451
-  %455 = phi ptr [ %452, %451 ], [ %450, %.thread1486 ]
+.thread1474:                                      ; preds = %.thread1472, %451
+  %455 = phi ptr [ %452, %451 ], [ %450, %.thread1472 ]
   %456 = getelementptr inbounds i8, ptr %439, i64 184
   %457 = load ptr, ptr %456, align 8
   %458 = icmp ult ptr %437, %457
   br label %459
 
-459:                                              ; preds = %448, %451, %.thread1488
-  %460 = phi ptr [ %452, %451 ], [ %455, %.thread1488 ], [ %449, %448 ]
-  %461 = phi i1 [ %.not1343, %451 ], [ %458, %.thread1488 ], [ false, %448 ]
+459:                                              ; preds = %448, %451, %.thread1474
+  %460 = phi ptr [ %452, %451 ], [ %455, %.thread1474 ], [ %449, %448 ]
+  %461 = phi i1 [ %.not1331, %451 ], [ %458, %.thread1474 ], [ false, %448 ]
   tail call void @llvm.assume(i1 %461)
   %462 = load i8, ptr %434, align 8
-  %463 = and i8 %462, 1
-  %.not1345 = icmp eq i8 %463, 0
-  br i1 %.not1345, label %472, label %464
+  %463 = trunc i8 %462 to i1
+  br i1 %463, label %464, label %472
 
 464:                                              ; preds = %459
   %465 = getelementptr inbounds i8, ptr %437, i64 4
@@ -3414,80 +3382,79 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %470 = load i32, ptr %469, align 4
   %471 = and i32 %470, -257
   store i32 %471, ptr %469, align 4
-  %.pre1446 = load ptr, ptr %436, align 8
-  %.pre1447 = load ptr, ptr %432, align 8
+  %.pre1432 = load ptr, ptr %436, align 8
+  %.pre1433 = load ptr, ptr %432, align 8
   br label %472
 
 472:                                              ; preds = %464, %459
-  %473 = phi ptr [ %.pre1447, %464 ], [ %460, %459 ]
-  %474 = phi ptr [ %.pre1446, %464 ], [ %437, %459 ]
+  %473 = phi ptr [ %.pre1433, %464 ], [ %460, %459 ]
+  %474 = phi ptr [ %.pre1432, %464 ], [ %437, %459 ]
   %475 = ptrtoint ptr %474 to i64
   %476 = ptrtoint ptr %473 to i64
   %477 = sub i64 %475, %476
   %478 = inttoptr i64 %477 to ptr
-  br label %.sink.split1526
+  br label %.sink.split1512
 
-.sink.split1526:                                  ; preds = %472, %446
-  %.sink1527 = phi ptr [ %447, %446 ], [ %478, %472 ]
-  store ptr %.sink1527, ptr %436, align 8
+.sink.split1512:                                  ; preds = %472, %446
+  %.sink1513 = phi ptr [ %447, %446 ], [ %478, %472 ]
+  store ptr %.sink1513, ptr %436, align 8
   br label %479
 
-479:                                              ; preds = %.sink.split1526, %435
+479:                                              ; preds = %.sink.split1512, %435
   %480 = getelementptr inbounds i8, ptr %436, i64 8
   %481 = load ptr, ptr %480, align 8
-  %.not1346 = icmp eq ptr %481, null
-  br i1 %.not1346, label %523, label %482
+  %.not1333 = icmp eq ptr %481, null
+  br i1 %.not1333, label %523, label %482
 
 482:                                              ; preds = %479
   %483 = load ptr, ptr @accel_shared_globals, align 8
   %484 = getelementptr inbounds i8, ptr %483, i64 176
   %485 = load ptr, ptr %484, align 8
-  %.not1347 = icmp ult ptr %481, %485
-  br i1 %.not1347, label %492, label %486
+  %.not1334 = icmp ult ptr %481, %485
+  br i1 %.not1334, label %492, label %486
 
 486:                                              ; preds = %482
   %487 = getelementptr inbounds i8, ptr %483, i64 184
   %488 = load ptr, ptr %487, align 8
   %489 = icmp ult ptr %481, %488
-  br i1 %489, label %490, label %.thread1489
+  br i1 %489, label %490, label %.thread1475
 
 490:                                              ; preds = %486
   %491 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %481, ptr noundef %2)
-  br label %.sink.split1528
+  br label %.sink.split1514
 
 492:                                              ; preds = %482
   %493 = load ptr, ptr %432, align 8
-  %.not1348 = icmp ult ptr %481, %493
-  br i1 %.not1348, label %503, label %495
+  %.not1335 = icmp ult ptr %481, %493
+  br i1 %.not1335, label %503, label %495
 
-.thread1489:                                      ; preds = %486
+.thread1475:                                      ; preds = %486
   %494 = load ptr, ptr %432, align 8
-  %.not13481490 = icmp ult ptr %481, %494
-  br i1 %.not13481490, label %.thread1491, label %495
+  %.not13351476 = icmp ult ptr %481, %494
+  br i1 %.not13351476, label %.thread1477, label %495
 
-495:                                              ; preds = %.thread1489, %492
-  %496 = phi ptr [ %494, %.thread1489 ], [ %493, %492 ]
+495:                                              ; preds = %.thread1475, %492
+  %496 = phi ptr [ %494, %.thread1475 ], [ %493, %492 ]
   %497 = load i64, ptr %433, align 8
   %498 = getelementptr inbounds i8, ptr %496, i64 %497
-  %.not1349 = icmp ule ptr %481, %498
-  %brmerge1373 = or i1 %.not1347, %.not1349
-  br i1 %brmerge1373, label %503, label %.thread1491
+  %.not1336 = icmp ule ptr %481, %498
+  %brmerge1359 = or i1 %.not1334, %.not1336
+  br i1 %brmerge1359, label %503, label %.thread1477
 
-.thread1491:                                      ; preds = %.thread1489, %495
-  %499 = phi ptr [ %496, %495 ], [ %494, %.thread1489 ]
+.thread1477:                                      ; preds = %.thread1475, %495
+  %499 = phi ptr [ %496, %495 ], [ %494, %.thread1475 ]
   %500 = getelementptr inbounds i8, ptr %483, i64 184
   %501 = load ptr, ptr %500, align 8
   %502 = icmp ult ptr %481, %501
   br label %503
 
-503:                                              ; preds = %492, %495, %.thread1491
-  %504 = phi ptr [ %496, %495 ], [ %499, %.thread1491 ], [ %493, %492 ]
-  %505 = phi i1 [ %.not1349, %495 ], [ %502, %.thread1491 ], [ false, %492 ]
+503:                                              ; preds = %492, %495, %.thread1477
+  %504 = phi ptr [ %496, %495 ], [ %499, %.thread1477 ], [ %493, %492 ]
+  %505 = phi i1 [ %.not1336, %495 ], [ %502, %.thread1477 ], [ false, %492 ]
   tail call void @llvm.assume(i1 %505)
   %506 = load i8, ptr %434, align 8
-  %507 = and i8 %506, 1
-  %.not1351 = icmp eq i8 %507, 0
-  br i1 %.not1351, label %516, label %508
+  %507 = trunc i8 %506 to i1
+  br i1 %507, label %508, label %516
 
 508:                                              ; preds = %503
   %509 = getelementptr inbounds i8, ptr %481, i64 4
@@ -3499,62 +3466,62 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %514 = load i32, ptr %513, align 4
   %515 = and i32 %514, -257
   store i32 %515, ptr %513, align 4
-  %.pre1448 = load ptr, ptr %480, align 8
-  %.pre1449 = load ptr, ptr %432, align 8
+  %.pre1434 = load ptr, ptr %480, align 8
+  %.pre1435 = load ptr, ptr %432, align 8
   br label %516
 
 516:                                              ; preds = %508, %503
-  %517 = phi ptr [ %.pre1449, %508 ], [ %504, %503 ]
-  %518 = phi ptr [ %.pre1448, %508 ], [ %481, %503 ]
+  %517 = phi ptr [ %.pre1435, %508 ], [ %504, %503 ]
+  %518 = phi ptr [ %.pre1434, %508 ], [ %481, %503 ]
   %519 = ptrtoint ptr %518 to i64
   %520 = ptrtoint ptr %517 to i64
   %521 = sub i64 %519, %520
   %522 = inttoptr i64 %521 to ptr
-  br label %.sink.split1528
+  br label %.sink.split1514
 
-.sink.split1528:                                  ; preds = %516, %490
-  %.sink1529 = phi ptr [ %491, %490 ], [ %522, %516 ]
-  store ptr %.sink1529, ptr %480, align 8
+.sink.split1514:                                  ; preds = %516, %490
+  %.sink1515 = phi ptr [ %491, %490 ], [ %522, %516 ]
+  store ptr %.sink1515, ptr %480, align 8
   br label %523
 
-523:                                              ; preds = %.sink.split1528, %479
-  %indvars.iv.next1430 = add nuw nsw i64 %indvars.iv1429, 1
+523:                                              ; preds = %.sink.split1514, %479
+  %indvars.iv.next1416 = add nuw nsw i64 %indvars.iv1415, 1
   %524 = load i32, ptr %402, align 8
   %525 = zext i32 %524 to i64
-  %526 = icmp ult i64 %indvars.iv.next1430, %525
-  br i1 %526, label %435, label %.loopexit1399
+  %526 = icmp ult i64 %indvars.iv.next1416, %525
+  br i1 %526, label %435, label %.loopexit1385
 
-.loopexit1399:                                    ; preds = %523, %.loopexit1400
+.loopexit1385:                                    ; preds = %523, %.loopexit1386
   %527 = getelementptr inbounds i8, ptr %.0906, i64 428
   %528 = load i32, ptr %527, align 4
-  %.not1164 = icmp eq i32 %528, 0
-  br i1 %.not1164, label %.loopexit, label %529
+  %.not1160 = icmp eq i32 %528, 0
+  br i1 %.not1160, label %.loopexit, label %529
 
-529:                                              ; preds = %.loopexit1399
+529:                                              ; preds = %.loopexit1385
   %530 = getelementptr inbounds i8, ptr %.0906, i64 440
   %531 = load ptr, ptr %530, align 8
-  %.not1165 = icmp eq ptr %531, null
-  br i1 %.not1165, label %.lr.ph1411, label %532
+  %.not1161 = icmp eq ptr %531, null
+  br i1 %.not1161, label %.lr.ph1397, label %532
 
 532:                                              ; preds = %529
   %533 = getelementptr inbounds i8, ptr %1, i64 416
   %534 = load ptr, ptr %533, align 8
-  %.not1166 = icmp ult ptr %531, %534
-  br i1 %.not1166, label %539, label %535
+  %.not1162 = icmp ult ptr %531, %534
+  br i1 %.not1162, label %539, label %535
 
 535:                                              ; preds = %532
   %536 = getelementptr inbounds i8, ptr %1, i64 424
   %537 = load i64, ptr %536, align 8
   %538 = getelementptr inbounds i8, ptr %534, i64 %537
-  %.not1167 = icmp ugt ptr %531, %538
-  br i1 %.not1167, label %539, label %547
+  %.not1163 = icmp ugt ptr %531, %538
+  br i1 %.not1163, label %539, label %547
 
 539:                                              ; preds = %535, %532
   %540 = load ptr, ptr @accel_shared_globals, align 8
   %541 = getelementptr inbounds i8, ptr %540, i64 176
   %542 = load ptr, ptr %541, align 8
-  %.not1168 = icmp ult ptr %531, %542
-  br i1 %.not1168, label %547, label %543
+  %.not1164 = icmp ult ptr %531, %542
+  br i1 %.not1164, label %547, label %543
 
 543:                                              ; preds = %539
   %544 = getelementptr inbounds i8, ptr %540, i64 184
@@ -3570,75 +3537,74 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %551 = sub i64 %549, %550
   %552 = inttoptr i64 %551 to ptr
   store ptr %552, ptr %530, align 8
-  %.not1169 = icmp eq ptr %531, %534
+  %.not1165 = icmp eq ptr %531, %534
   %553 = getelementptr inbounds i8, ptr %3, i64 %551
-  %spec.select1397 = select i1 %.not1169, ptr null, ptr %553
-  br label %.lr.ph1411
+  %spec.select1383 = select i1 %.not1165, ptr null, ptr %553
+  br label %.lr.ph1397
 
-.lr.ph1411:                                       ; preds = %529, %547
-  %.0899 = phi ptr [ null, %529 ], [ %spec.select1397, %547 ]
+.lr.ph1397:                                       ; preds = %529, %547
+  %.0899 = phi ptr [ null, %529 ], [ %spec.select1383, %547 ]
   %554 = getelementptr inbounds i8, ptr %1, i64 416
   %555 = getelementptr inbounds i8, ptr %1, i64 424
   %556 = getelementptr inbounds i8, ptr %1, i64 384
   br label %557
 
-557:                                              ; preds = %.lr.ph1411, %645
-  %indvars.iv1432 = phi i64 [ 0, %.lr.ph1411 ], [ %indvars.iv.next1433, %645 ]
-  %558 = getelementptr inbounds %struct._zend_class_name, ptr %.0899, i64 %indvars.iv1432
+557:                                              ; preds = %.lr.ph1397, %645
+  %indvars.iv1418 = phi i64 [ 0, %.lr.ph1397 ], [ %indvars.iv.next1419, %645 ]
+  %558 = getelementptr inbounds %struct._zend_class_name, ptr %.0899, i64 %indvars.iv1418
   %559 = load ptr, ptr %558, align 8
-  %.not1328 = icmp eq ptr %559, null
-  br i1 %.not1328, label %601, label %560
+  %.not1318 = icmp eq ptr %559, null
+  br i1 %.not1318, label %601, label %560
 
 560:                                              ; preds = %557
   %561 = load ptr, ptr @accel_shared_globals, align 8
   %562 = getelementptr inbounds i8, ptr %561, i64 176
   %563 = load ptr, ptr %562, align 8
-  %.not1329 = icmp ult ptr %559, %563
-  br i1 %.not1329, label %570, label %564
+  %.not1319 = icmp ult ptr %559, %563
+  br i1 %.not1319, label %570, label %564
 
 564:                                              ; preds = %560
   %565 = getelementptr inbounds i8, ptr %561, i64 184
   %566 = load ptr, ptr %565, align 8
   %567 = icmp ult ptr %559, %566
-  br i1 %567, label %568, label %.thread1492
+  br i1 %567, label %568, label %.thread1478
 
 568:                                              ; preds = %564
   %569 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %559, ptr noundef %2)
-  br label %.sink.split1530
+  br label %.sink.split1516
 
 570:                                              ; preds = %560
   %571 = load ptr, ptr %554, align 8
-  %.not1330 = icmp ult ptr %559, %571
-  br i1 %.not1330, label %581, label %573
+  %.not1320 = icmp ult ptr %559, %571
+  br i1 %.not1320, label %581, label %573
 
-.thread1492:                                      ; preds = %564
+.thread1478:                                      ; preds = %564
   %572 = load ptr, ptr %554, align 8
-  %.not13301493 = icmp ult ptr %559, %572
-  br i1 %.not13301493, label %.thread1494, label %573
+  %.not13201479 = icmp ult ptr %559, %572
+  br i1 %.not13201479, label %.thread1480, label %573
 
-573:                                              ; preds = %.thread1492, %570
-  %574 = phi ptr [ %572, %.thread1492 ], [ %571, %570 ]
+573:                                              ; preds = %.thread1478, %570
+  %574 = phi ptr [ %572, %.thread1478 ], [ %571, %570 ]
   %575 = load i64, ptr %555, align 8
   %576 = getelementptr inbounds i8, ptr %574, i64 %575
-  %.not1331 = icmp ule ptr %559, %576
-  %brmerge1375 = or i1 %.not1329, %.not1331
-  br i1 %brmerge1375, label %581, label %.thread1494
+  %.not1321 = icmp ule ptr %559, %576
+  %brmerge1361 = or i1 %.not1319, %.not1321
+  br i1 %brmerge1361, label %581, label %.thread1480
 
-.thread1494:                                      ; preds = %.thread1492, %573
-  %577 = phi ptr [ %574, %573 ], [ %572, %.thread1492 ]
+.thread1480:                                      ; preds = %.thread1478, %573
+  %577 = phi ptr [ %574, %573 ], [ %572, %.thread1478 ]
   %578 = getelementptr inbounds i8, ptr %561, i64 184
   %579 = load ptr, ptr %578, align 8
   %580 = icmp ult ptr %559, %579
   br label %581
 
-581:                                              ; preds = %570, %573, %.thread1494
-  %582 = phi ptr [ %574, %573 ], [ %577, %.thread1494 ], [ %571, %570 ]
-  %583 = phi i1 [ %.not1331, %573 ], [ %580, %.thread1494 ], [ false, %570 ]
+581:                                              ; preds = %570, %573, %.thread1480
+  %582 = phi ptr [ %574, %573 ], [ %577, %.thread1480 ], [ %571, %570 ]
+  %583 = phi i1 [ %.not1321, %573 ], [ %580, %.thread1480 ], [ false, %570 ]
   tail call void @llvm.assume(i1 %583)
   %584 = load i8, ptr %556, align 8
-  %585 = and i8 %584, 1
-  %.not1333 = icmp eq i8 %585, 0
-  br i1 %.not1333, label %594, label %586
+  %585 = trunc i8 %584 to i1
+  br i1 %585, label %586, label %594
 
 586:                                              ; preds = %581
   %587 = getelementptr inbounds i8, ptr %559, i64 4
@@ -3650,80 +3616,79 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %592 = load i32, ptr %591, align 4
   %593 = and i32 %592, -257
   store i32 %593, ptr %591, align 4
-  %.pre1450 = load ptr, ptr %558, align 8
-  %.pre1451 = load ptr, ptr %554, align 8
+  %.pre1436 = load ptr, ptr %558, align 8
+  %.pre1437 = load ptr, ptr %554, align 8
   br label %594
 
 594:                                              ; preds = %586, %581
-  %595 = phi ptr [ %.pre1451, %586 ], [ %582, %581 ]
-  %596 = phi ptr [ %.pre1450, %586 ], [ %559, %581 ]
+  %595 = phi ptr [ %.pre1437, %586 ], [ %582, %581 ]
+  %596 = phi ptr [ %.pre1436, %586 ], [ %559, %581 ]
   %597 = ptrtoint ptr %596 to i64
   %598 = ptrtoint ptr %595 to i64
   %599 = sub i64 %597, %598
   %600 = inttoptr i64 %599 to ptr
-  br label %.sink.split1530
+  br label %.sink.split1516
 
-.sink.split1530:                                  ; preds = %594, %568
-  %.sink1531 = phi ptr [ %569, %568 ], [ %600, %594 ]
-  store ptr %.sink1531, ptr %558, align 8
+.sink.split1516:                                  ; preds = %594, %568
+  %.sink1517 = phi ptr [ %569, %568 ], [ %600, %594 ]
+  store ptr %.sink1517, ptr %558, align 8
   br label %601
 
-601:                                              ; preds = %.sink.split1530, %557
+601:                                              ; preds = %.sink.split1516, %557
   %602 = getelementptr inbounds i8, ptr %558, i64 8
   %603 = load ptr, ptr %602, align 8
-  %.not1334 = icmp eq ptr %603, null
-  br i1 %.not1334, label %645, label %604
+  %.not1323 = icmp eq ptr %603, null
+  br i1 %.not1323, label %645, label %604
 
 604:                                              ; preds = %601
   %605 = load ptr, ptr @accel_shared_globals, align 8
   %606 = getelementptr inbounds i8, ptr %605, i64 176
   %607 = load ptr, ptr %606, align 8
-  %.not1335 = icmp ult ptr %603, %607
-  br i1 %.not1335, label %614, label %608
+  %.not1324 = icmp ult ptr %603, %607
+  br i1 %.not1324, label %614, label %608
 
 608:                                              ; preds = %604
   %609 = getelementptr inbounds i8, ptr %605, i64 184
   %610 = load ptr, ptr %609, align 8
   %611 = icmp ult ptr %603, %610
-  br i1 %611, label %612, label %.thread1495
+  br i1 %611, label %612, label %.thread1481
 
 612:                                              ; preds = %608
   %613 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %603, ptr noundef %2)
-  br label %.sink.split1532
+  br label %.sink.split1518
 
 614:                                              ; preds = %604
   %615 = load ptr, ptr %554, align 8
-  %.not1336 = icmp ult ptr %603, %615
-  br i1 %.not1336, label %625, label %617
+  %.not1325 = icmp ult ptr %603, %615
+  br i1 %.not1325, label %625, label %617
 
-.thread1495:                                      ; preds = %608
+.thread1481:                                      ; preds = %608
   %616 = load ptr, ptr %554, align 8
-  %.not13361496 = icmp ult ptr %603, %616
-  br i1 %.not13361496, label %.thread1497, label %617
+  %.not13251482 = icmp ult ptr %603, %616
+  br i1 %.not13251482, label %.thread1483, label %617
 
-617:                                              ; preds = %.thread1495, %614
-  %618 = phi ptr [ %616, %.thread1495 ], [ %615, %614 ]
+617:                                              ; preds = %.thread1481, %614
+  %618 = phi ptr [ %616, %.thread1481 ], [ %615, %614 ]
   %619 = load i64, ptr %555, align 8
   %620 = getelementptr inbounds i8, ptr %618, i64 %619
-  %.not1337 = icmp ule ptr %603, %620
-  %brmerge1377 = or i1 %.not1335, %.not1337
-  br i1 %brmerge1377, label %625, label %.thread1497
+  %.not1326 = icmp ule ptr %603, %620
+  %brmerge1363 = or i1 %.not1324, %.not1326
+  br i1 %brmerge1363, label %625, label %.thread1483
 
-.thread1497:                                      ; preds = %.thread1495, %617
-  %621 = phi ptr [ %618, %617 ], [ %616, %.thread1495 ]
+.thread1483:                                      ; preds = %.thread1481, %617
+  %621 = phi ptr [ %618, %617 ], [ %616, %.thread1481 ]
   %622 = getelementptr inbounds i8, ptr %605, i64 184
   %623 = load ptr, ptr %622, align 8
   %624 = icmp ult ptr %603, %623
   br label %625
 
-625:                                              ; preds = %614, %617, %.thread1497
-  %626 = phi ptr [ %618, %617 ], [ %621, %.thread1497 ], [ %615, %614 ]
-  %627 = phi i1 [ %.not1337, %617 ], [ %624, %.thread1497 ], [ false, %614 ]
+625:                                              ; preds = %614, %617, %.thread1483
+  %626 = phi ptr [ %618, %617 ], [ %621, %.thread1483 ], [ %615, %614 ]
+  %627 = phi i1 [ %.not1326, %617 ], [ %624, %.thread1483 ], [ false, %614 ]
   tail call void @llvm.assume(i1 %627)
   %628 = load i8, ptr %556, align 8
-  %629 = and i8 %628, 1
-  %.not1339 = icmp eq i8 %629, 0
-  br i1 %.not1339, label %638, label %630
+  %629 = trunc i8 %628 to i1
+  br i1 %629, label %630, label %638
 
 630:                                              ; preds = %625
   %631 = getelementptr inbounds i8, ptr %603, i64 4
@@ -3735,56 +3700,56 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %636 = load i32, ptr %635, align 4
   %637 = and i32 %636, -257
   store i32 %637, ptr %635, align 4
-  %.pre1452 = load ptr, ptr %602, align 8
-  %.pre1453 = load ptr, ptr %554, align 8
+  %.pre1438 = load ptr, ptr %602, align 8
+  %.pre1439 = load ptr, ptr %554, align 8
   br label %638
 
 638:                                              ; preds = %630, %625
-  %639 = phi ptr [ %.pre1453, %630 ], [ %626, %625 ]
-  %640 = phi ptr [ %.pre1452, %630 ], [ %603, %625 ]
+  %639 = phi ptr [ %.pre1439, %630 ], [ %626, %625 ]
+  %640 = phi ptr [ %.pre1438, %630 ], [ %603, %625 ]
   %641 = ptrtoint ptr %640 to i64
   %642 = ptrtoint ptr %639 to i64
   %643 = sub i64 %641, %642
   %644 = inttoptr i64 %643 to ptr
-  br label %.sink.split1532
+  br label %.sink.split1518
 
-.sink.split1532:                                  ; preds = %638, %612
-  %.sink1533 = phi ptr [ %613, %612 ], [ %644, %638 ]
-  store ptr %.sink1533, ptr %602, align 8
+.sink.split1518:                                  ; preds = %638, %612
+  %.sink1519 = phi ptr [ %613, %612 ], [ %644, %638 ]
+  store ptr %.sink1519, ptr %602, align 8
   br label %645
 
-645:                                              ; preds = %.sink.split1532, %601
-  %indvars.iv.next1433 = add nuw nsw i64 %indvars.iv1432, 1
+645:                                              ; preds = %.sink.split1518, %601
+  %indvars.iv.next1419 = add nuw nsw i64 %indvars.iv1418, 1
   %646 = load i32, ptr %527, align 4
   %647 = zext i32 %646 to i64
-  %648 = icmp ult i64 %indvars.iv.next1433, %647
+  %648 = icmp ult i64 %indvars.iv.next1419, %647
   br i1 %648, label %557, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %645
   %649 = getelementptr inbounds i8, ptr %.0906, i64 448
   %650 = load ptr, ptr %649, align 8
-  %.not1170 = icmp eq ptr %650, null
-  br i1 %.not1170, label %.loopexit1398, label %651
+  %.not1166 = icmp eq ptr %650, null
+  br i1 %.not1166, label %.loopexit1384, label %651
 
 651:                                              ; preds = %._crit_edge
   %652 = getelementptr inbounds i8, ptr %1, i64 416
   %653 = load ptr, ptr %652, align 8
-  %.not1171 = icmp ult ptr %650, %653
-  br i1 %.not1171, label %658, label %654
+  %.not1167 = icmp ult ptr %650, %653
+  br i1 %.not1167, label %658, label %654
 
 654:                                              ; preds = %651
   %655 = getelementptr inbounds i8, ptr %1, i64 424
   %656 = load i64, ptr %655, align 8
   %657 = getelementptr inbounds i8, ptr %653, i64 %656
-  %.not1172 = icmp ugt ptr %650, %657
-  br i1 %.not1172, label %658, label %666
+  %.not1168 = icmp ugt ptr %650, %657
+  br i1 %.not1168, label %658, label %666
 
 658:                                              ; preds = %654, %651
   %659 = load ptr, ptr @accel_shared_globals, align 8
   %660 = getelementptr inbounds i8, ptr %659, i64 176
   %661 = load ptr, ptr %660, align 8
-  %.not1173 = icmp ult ptr %650, %661
-  br i1 %.not1173, label %666, label %662
+  %.not1169 = icmp ult ptr %650, %661
+  br i1 %.not1169, label %666, label %662
 
 662:                                              ; preds = %658
   %663 = getelementptr inbounds i8, ptr %659, i64 184
@@ -3802,33 +3767,33 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   store ptr %671, ptr %649, align 8
   %672 = getelementptr inbounds i8, ptr %3, i64 %670
   %673 = load ptr, ptr %672, align 8
-  %.not11751412 = icmp eq ptr %673, null
-  br i1 %.not11751412, label %.loopexit1398, label %.lr.ph1415
+  %.not11711398 = icmp eq ptr %673, null
+  br i1 %.not11711398, label %.loopexit1384, label %.lr.ph1401
 
-.lr.ph1415:                                       ; preds = %666
+.lr.ph1401:                                       ; preds = %666
   %674 = getelementptr inbounds i8, ptr %1, i64 424
   %675 = getelementptr inbounds i8, ptr %1, i64 384
   br label %676
 
-676:                                              ; preds = %.lr.ph1415, %827
-  %677 = phi ptr [ %673, %.lr.ph1415 ], [ %829, %827 ]
-  %.18981413 = phi ptr [ %672, %.lr.ph1415 ], [ %828, %827 ]
+676:                                              ; preds = %.lr.ph1401, %827
+  %677 = phi ptr [ %673, %.lr.ph1401 ], [ %829, %827 ]
+  %.18981399 = phi ptr [ %672, %.lr.ph1401 ], [ %828, %827 ]
   %678 = load ptr, ptr %652, align 8
-  %.not1306 = icmp ult ptr %677, %678
-  br i1 %.not1306, label %682, label %679
+  %.not1299 = icmp ult ptr %677, %678
+  br i1 %.not1299, label %682, label %679
 
 679:                                              ; preds = %676
   %680 = load i64, ptr %674, align 8
   %681 = getelementptr inbounds i8, ptr %678, i64 %680
-  %.not1307 = icmp ugt ptr %677, %681
-  br i1 %.not1307, label %682, label %690
+  %.not1300 = icmp ugt ptr %677, %681
+  br i1 %.not1300, label %682, label %690
 
 682:                                              ; preds = %679, %676
   %683 = load ptr, ptr @accel_shared_globals, align 8
   %684 = getelementptr inbounds i8, ptr %683, i64 176
   %685 = load ptr, ptr %684, align 8
-  %.not1308 = icmp ult ptr %677, %685
-  br i1 %.not1308, label %690, label %686
+  %.not1301 = icmp ult ptr %677, %685
+  br i1 %.not1301, label %690, label %686
 
 686:                                              ; preds = %682
   %687 = getelementptr inbounds i8, ptr %683, i64 184
@@ -3843,149 +3808,147 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %693 = ptrtoint ptr %678 to i64
   %694 = sub i64 %692, %693
   %695 = inttoptr i64 %694 to ptr
-  store ptr %695, ptr %.18981413, align 8
-  %.not1309 = icmp eq ptr %677, %678
+  store ptr %695, ptr %.18981399, align 8
+  %.not1302 = icmp eq ptr %677, %678
   %696 = getelementptr inbounds i8, ptr %3, i64 %694
-  %spec.select1380 = select i1 %.not1309, ptr null, ptr %696
-  %697 = load ptr, ptr %spec.select1380, align 8
-  %.not1310 = icmp eq ptr %697, null
-  br i1 %.not1310, label %739, label %698
+  %spec.select1366 = select i1 %.not1302, ptr null, ptr %696
+  %697 = load ptr, ptr %spec.select1366, align 8
+  %.not1303 = icmp eq ptr %697, null
+  br i1 %.not1303, label %739, label %698
 
 698:                                              ; preds = %690
   %699 = load ptr, ptr @accel_shared_globals, align 8
   %700 = getelementptr inbounds i8, ptr %699, i64 176
   %701 = load ptr, ptr %700, align 8
-  %.not1311 = icmp ult ptr %697, %701
-  br i1 %.not1311, label %708, label %702
+  %.not1304 = icmp ult ptr %697, %701
+  br i1 %.not1304, label %708, label %702
 
 702:                                              ; preds = %698
   %703 = getelementptr inbounds i8, ptr %699, i64 184
   %704 = load ptr, ptr %703, align 8
   %705 = icmp ult ptr %697, %704
-  br i1 %705, label %706, label %.thread1498
+  br i1 %705, label %706, label %.thread1484
 
 706:                                              ; preds = %702
   %707 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %697, ptr noundef %2)
-  br label %.sink.split1534
+  br label %.sink.split1520
 
 708:                                              ; preds = %698
   %709 = load ptr, ptr %652, align 8
-  %.not1312 = icmp ult ptr %697, %709
-  br i1 %.not1312, label %719, label %711
+  %.not1305 = icmp ult ptr %697, %709
+  br i1 %.not1305, label %719, label %711
 
-.thread1498:                                      ; preds = %702
+.thread1484:                                      ; preds = %702
   %710 = load ptr, ptr %652, align 8
-  %.not13121499 = icmp ult ptr %697, %710
-  br i1 %.not13121499, label %.thread1500, label %711
+  %.not13051485 = icmp ult ptr %697, %710
+  br i1 %.not13051485, label %.thread1486, label %711
 
-711:                                              ; preds = %.thread1498, %708
-  %712 = phi ptr [ %710, %.thread1498 ], [ %709, %708 ]
+711:                                              ; preds = %.thread1484, %708
+  %712 = phi ptr [ %710, %.thread1484 ], [ %709, %708 ]
   %713 = load i64, ptr %674, align 8
   %714 = getelementptr inbounds i8, ptr %712, i64 %713
-  %.not1313 = icmp ule ptr %697, %714
-  %brmerge1381 = or i1 %.not1311, %.not1313
-  br i1 %brmerge1381, label %719, label %.thread1500
+  %.not1306 = icmp ule ptr %697, %714
+  %brmerge1367 = or i1 %.not1304, %.not1306
+  br i1 %brmerge1367, label %719, label %.thread1486
 
-.thread1500:                                      ; preds = %.thread1498, %711
-  %715 = phi ptr [ %712, %711 ], [ %710, %.thread1498 ]
+.thread1486:                                      ; preds = %.thread1484, %711
+  %715 = phi ptr [ %712, %711 ], [ %710, %.thread1484 ]
   %716 = getelementptr inbounds i8, ptr %699, i64 184
   %717 = load ptr, ptr %716, align 8
   %718 = icmp ult ptr %697, %717
   br label %719
 
-719:                                              ; preds = %708, %711, %.thread1500
-  %720 = phi ptr [ %712, %711 ], [ %715, %.thread1500 ], [ %709, %708 ]
-  %721 = phi i1 [ %.not1313, %711 ], [ %718, %.thread1500 ], [ false, %708 ]
+719:                                              ; preds = %708, %711, %.thread1486
+  %720 = phi ptr [ %712, %711 ], [ %715, %.thread1486 ], [ %709, %708 ]
+  %721 = phi i1 [ %.not1306, %711 ], [ %718, %.thread1486 ], [ false, %708 ]
   tail call void @llvm.assume(i1 %721)
   %722 = load i8, ptr %675, align 8
-  %723 = and i8 %722, 1
-  %.not1315 = icmp eq i8 %723, 0
-  br i1 %.not1315, label %732, label %724
+  %723 = trunc i8 %722 to i1
+  br i1 %723, label %724, label %732
 
 724:                                              ; preds = %719
   %725 = getelementptr inbounds i8, ptr %697, i64 4
   %726 = load i32, ptr %725, align 4
   %727 = or i32 %726, 64
   store i32 %727, ptr %725, align 4
-  %728 = load ptr, ptr %spec.select1380, align 8
+  %728 = load ptr, ptr %spec.select1366, align 8
   %729 = getelementptr inbounds i8, ptr %728, i64 4
   %730 = load i32, ptr %729, align 4
   %731 = and i32 %730, -257
   store i32 %731, ptr %729, align 4
-  %.pre1454 = load ptr, ptr %spec.select1380, align 8
-  %.pre1455 = load ptr, ptr %652, align 8
+  %.pre1440 = load ptr, ptr %spec.select1366, align 8
+  %.pre1441 = load ptr, ptr %652, align 8
   br label %732
 
 732:                                              ; preds = %724, %719
-  %733 = phi ptr [ %.pre1455, %724 ], [ %720, %719 ]
-  %734 = phi ptr [ %.pre1454, %724 ], [ %697, %719 ]
+  %733 = phi ptr [ %.pre1441, %724 ], [ %720, %719 ]
+  %734 = phi ptr [ %.pre1440, %724 ], [ %697, %719 ]
   %735 = ptrtoint ptr %734 to i64
   %736 = ptrtoint ptr %733 to i64
   %737 = sub i64 %735, %736
   %738 = inttoptr i64 %737 to ptr
-  br label %.sink.split1534
+  br label %.sink.split1520
 
-.sink.split1534:                                  ; preds = %732, %706
-  %.sink1535 = phi ptr [ %707, %706 ], [ %738, %732 ]
-  store ptr %.sink1535, ptr %spec.select1380, align 8
+.sink.split1520:                                  ; preds = %732, %706
+  %.sink1521 = phi ptr [ %707, %706 ], [ %738, %732 ]
+  store ptr %.sink1521, ptr %spec.select1366, align 8
   br label %739
 
-739:                                              ; preds = %.sink.split1534, %690
-  %740 = getelementptr inbounds i8, ptr %spec.select1380, i64 8
+739:                                              ; preds = %.sink.split1520, %690
+  %740 = getelementptr inbounds i8, ptr %spec.select1366, i64 8
   %741 = load ptr, ptr %740, align 8
-  %.not1316 = icmp eq ptr %741, null
-  br i1 %.not1316, label %783, label %742
+  %.not1308 = icmp eq ptr %741, null
+  br i1 %.not1308, label %783, label %742
 
 742:                                              ; preds = %739
   %743 = load ptr, ptr @accel_shared_globals, align 8
   %744 = getelementptr inbounds i8, ptr %743, i64 176
   %745 = load ptr, ptr %744, align 8
-  %.not1317 = icmp ult ptr %741, %745
-  br i1 %.not1317, label %752, label %746
+  %.not1309 = icmp ult ptr %741, %745
+  br i1 %.not1309, label %752, label %746
 
 746:                                              ; preds = %742
   %747 = getelementptr inbounds i8, ptr %743, i64 184
   %748 = load ptr, ptr %747, align 8
   %749 = icmp ult ptr %741, %748
-  br i1 %749, label %750, label %.thread1501
+  br i1 %749, label %750, label %.thread1487
 
 750:                                              ; preds = %746
   %751 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %741, ptr noundef %2)
-  br label %.sink.split1536
+  br label %.sink.split1522
 
 752:                                              ; preds = %742
   %753 = load ptr, ptr %652, align 8
-  %.not1318 = icmp ult ptr %741, %753
-  br i1 %.not1318, label %763, label %755
+  %.not1310 = icmp ult ptr %741, %753
+  br i1 %.not1310, label %763, label %755
 
-.thread1501:                                      ; preds = %746
+.thread1487:                                      ; preds = %746
   %754 = load ptr, ptr %652, align 8
-  %.not13181502 = icmp ult ptr %741, %754
-  br i1 %.not13181502, label %.thread1503, label %755
+  %.not13101488 = icmp ult ptr %741, %754
+  br i1 %.not13101488, label %.thread1489, label %755
 
-755:                                              ; preds = %.thread1501, %752
-  %756 = phi ptr [ %754, %.thread1501 ], [ %753, %752 ]
+755:                                              ; preds = %.thread1487, %752
+  %756 = phi ptr [ %754, %.thread1487 ], [ %753, %752 ]
   %757 = load i64, ptr %674, align 8
   %758 = getelementptr inbounds i8, ptr %756, i64 %757
-  %.not1319 = icmp ule ptr %741, %758
-  %brmerge1383 = or i1 %.not1317, %.not1319
-  br i1 %brmerge1383, label %763, label %.thread1503
+  %.not1311 = icmp ule ptr %741, %758
+  %brmerge1369 = or i1 %.not1309, %.not1311
+  br i1 %brmerge1369, label %763, label %.thread1489
 
-.thread1503:                                      ; preds = %.thread1501, %755
-  %759 = phi ptr [ %756, %755 ], [ %754, %.thread1501 ]
+.thread1489:                                      ; preds = %.thread1487, %755
+  %759 = phi ptr [ %756, %755 ], [ %754, %.thread1487 ]
   %760 = getelementptr inbounds i8, ptr %743, i64 184
   %761 = load ptr, ptr %760, align 8
   %762 = icmp ult ptr %741, %761
   br label %763
 
-763:                                              ; preds = %752, %755, %.thread1503
-  %764 = phi ptr [ %756, %755 ], [ %759, %.thread1503 ], [ %753, %752 ]
-  %765 = phi i1 [ %.not1319, %755 ], [ %762, %.thread1503 ], [ false, %752 ]
+763:                                              ; preds = %752, %755, %.thread1489
+  %764 = phi ptr [ %756, %755 ], [ %759, %.thread1489 ], [ %753, %752 ]
+  %765 = phi i1 [ %.not1311, %755 ], [ %762, %.thread1489 ], [ false, %752 ]
   tail call void @llvm.assume(i1 %765)
   %766 = load i8, ptr %675, align 8
-  %767 = and i8 %766, 1
-  %.not1321 = icmp eq i8 %767, 0
-  br i1 %.not1321, label %776, label %768
+  %767 = trunc i8 %766 to i1
+  br i1 %767, label %768, label %776
 
 768:                                              ; preds = %763
   %769 = getelementptr inbounds i8, ptr %741, i64 4
@@ -3997,80 +3960,79 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %774 = load i32, ptr %773, align 4
   %775 = and i32 %774, -257
   store i32 %775, ptr %773, align 4
-  %.pre1456 = load ptr, ptr %740, align 8
-  %.pre1457 = load ptr, ptr %652, align 8
+  %.pre1442 = load ptr, ptr %740, align 8
+  %.pre1443 = load ptr, ptr %652, align 8
   br label %776
 
 776:                                              ; preds = %768, %763
-  %777 = phi ptr [ %.pre1457, %768 ], [ %764, %763 ]
-  %778 = phi ptr [ %.pre1456, %768 ], [ %741, %763 ]
+  %777 = phi ptr [ %.pre1443, %768 ], [ %764, %763 ]
+  %778 = phi ptr [ %.pre1442, %768 ], [ %741, %763 ]
   %779 = ptrtoint ptr %778 to i64
   %780 = ptrtoint ptr %777 to i64
   %781 = sub i64 %779, %780
   %782 = inttoptr i64 %781 to ptr
-  br label %.sink.split1536
+  br label %.sink.split1522
 
-.sink.split1536:                                  ; preds = %776, %750
-  %.sink1537 = phi ptr [ %751, %750 ], [ %782, %776 ]
-  store ptr %.sink1537, ptr %740, align 8
+.sink.split1522:                                  ; preds = %776, %750
+  %.sink1523 = phi ptr [ %751, %750 ], [ %782, %776 ]
+  store ptr %.sink1523, ptr %740, align 8
   br label %783
 
-783:                                              ; preds = %.sink.split1536, %739
-  %784 = getelementptr inbounds i8, ptr %spec.select1380, i64 16
+783:                                              ; preds = %.sink.split1522, %739
+  %784 = getelementptr inbounds i8, ptr %spec.select1366, i64 16
   %785 = load ptr, ptr %784, align 8
-  %.not1322 = icmp eq ptr %785, null
-  br i1 %.not1322, label %827, label %786
+  %.not1313 = icmp eq ptr %785, null
+  br i1 %.not1313, label %827, label %786
 
 786:                                              ; preds = %783
   %787 = load ptr, ptr @accel_shared_globals, align 8
   %788 = getelementptr inbounds i8, ptr %787, i64 176
   %789 = load ptr, ptr %788, align 8
-  %.not1323 = icmp ult ptr %785, %789
-  br i1 %.not1323, label %796, label %790
+  %.not1314 = icmp ult ptr %785, %789
+  br i1 %.not1314, label %796, label %790
 
 790:                                              ; preds = %786
   %791 = getelementptr inbounds i8, ptr %787, i64 184
   %792 = load ptr, ptr %791, align 8
   %793 = icmp ult ptr %785, %792
-  br i1 %793, label %794, label %.thread1504
+  br i1 %793, label %794, label %.thread1490
 
 794:                                              ; preds = %790
   %795 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %785, ptr noundef %2)
-  br label %.sink.split1538
+  br label %.sink.split1524
 
 796:                                              ; preds = %786
   %797 = load ptr, ptr %652, align 8
-  %.not1324 = icmp ult ptr %785, %797
-  br i1 %.not1324, label %807, label %799
+  %.not1315 = icmp ult ptr %785, %797
+  br i1 %.not1315, label %807, label %799
 
-.thread1504:                                      ; preds = %790
+.thread1490:                                      ; preds = %790
   %798 = load ptr, ptr %652, align 8
-  %.not13241505 = icmp ult ptr %785, %798
-  br i1 %.not13241505, label %.thread1506, label %799
+  %.not13151491 = icmp ult ptr %785, %798
+  br i1 %.not13151491, label %.thread1492, label %799
 
-799:                                              ; preds = %.thread1504, %796
-  %800 = phi ptr [ %798, %.thread1504 ], [ %797, %796 ]
+799:                                              ; preds = %.thread1490, %796
+  %800 = phi ptr [ %798, %.thread1490 ], [ %797, %796 ]
   %801 = load i64, ptr %674, align 8
   %802 = getelementptr inbounds i8, ptr %800, i64 %801
-  %.not1325 = icmp ule ptr %785, %802
-  %brmerge1385 = or i1 %.not1323, %.not1325
-  br i1 %brmerge1385, label %807, label %.thread1506
+  %.not1316 = icmp ule ptr %785, %802
+  %brmerge1371 = or i1 %.not1314, %.not1316
+  br i1 %brmerge1371, label %807, label %.thread1492
 
-.thread1506:                                      ; preds = %.thread1504, %799
-  %803 = phi ptr [ %800, %799 ], [ %798, %.thread1504 ]
+.thread1492:                                      ; preds = %.thread1490, %799
+  %803 = phi ptr [ %800, %799 ], [ %798, %.thread1490 ]
   %804 = getelementptr inbounds i8, ptr %787, i64 184
   %805 = load ptr, ptr %804, align 8
   %806 = icmp ult ptr %785, %805
   br label %807
 
-807:                                              ; preds = %796, %799, %.thread1506
-  %808 = phi ptr [ %800, %799 ], [ %803, %.thread1506 ], [ %797, %796 ]
-  %809 = phi i1 [ %.not1325, %799 ], [ %806, %.thread1506 ], [ false, %796 ]
+807:                                              ; preds = %796, %799, %.thread1492
+  %808 = phi ptr [ %800, %799 ], [ %803, %.thread1492 ], [ %797, %796 ]
+  %809 = phi i1 [ %.not1316, %799 ], [ %806, %.thread1492 ], [ false, %796 ]
   tail call void @llvm.assume(i1 %809)
   %810 = load i8, ptr %675, align 8
-  %811 = and i8 %810, 1
-  %.not1327 = icmp eq i8 %811, 0
-  br i1 %.not1327, label %820, label %812
+  %811 = trunc i8 %810 to i1
+  br i1 %811, label %812, label %820
 
 812:                                              ; preds = %807
   %813 = getelementptr inbounds i8, ptr %785, i64 4
@@ -4082,55 +4044,55 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %818 = load i32, ptr %817, align 4
   %819 = and i32 %818, -257
   store i32 %819, ptr %817, align 4
-  %.pre1458 = load ptr, ptr %784, align 8
-  %.pre1459 = load ptr, ptr %652, align 8
+  %.pre1444 = load ptr, ptr %784, align 8
+  %.pre1445 = load ptr, ptr %652, align 8
   br label %820
 
 820:                                              ; preds = %812, %807
-  %821 = phi ptr [ %.pre1459, %812 ], [ %808, %807 ]
-  %822 = phi ptr [ %.pre1458, %812 ], [ %785, %807 ]
+  %821 = phi ptr [ %.pre1445, %812 ], [ %808, %807 ]
+  %822 = phi ptr [ %.pre1444, %812 ], [ %785, %807 ]
   %823 = ptrtoint ptr %822 to i64
   %824 = ptrtoint ptr %821 to i64
   %825 = sub i64 %823, %824
   %826 = inttoptr i64 %825 to ptr
-  br label %.sink.split1538
+  br label %.sink.split1524
 
-.sink.split1538:                                  ; preds = %820, %794
-  %.sink1539 = phi ptr [ %795, %794 ], [ %826, %820 ]
-  store ptr %.sink1539, ptr %784, align 8
+.sink.split1524:                                  ; preds = %820, %794
+  %.sink1525 = phi ptr [ %795, %794 ], [ %826, %820 ]
+  store ptr %.sink1525, ptr %784, align 8
   br label %827
 
-827:                                              ; preds = %.sink.split1538, %783
-  %828 = getelementptr inbounds i8, ptr %.18981413, i64 8
+827:                                              ; preds = %.sink.split1524, %783
+  %828 = getelementptr inbounds i8, ptr %.18981399, i64 8
   %829 = load ptr, ptr %828, align 8
-  %.not1175 = icmp eq ptr %829, null
-  br i1 %.not1175, label %.loopexit1398, label %676
+  %.not1171 = icmp eq ptr %829, null
+  br i1 %.not1171, label %.loopexit1384, label %676
 
-.loopexit1398:                                    ; preds = %827, %666, %._crit_edge
+.loopexit1384:                                    ; preds = %827, %666, %._crit_edge
   %830 = getelementptr inbounds i8, ptr %.0906, i64 456
   %831 = load ptr, ptr %830, align 8
-  %.not1176 = icmp eq ptr %831, null
-  br i1 %.not1176, label %.loopexit, label %832
+  %.not1172 = icmp eq ptr %831, null
+  br i1 %.not1172, label %.loopexit, label %832
 
-832:                                              ; preds = %.loopexit1398
+832:                                              ; preds = %.loopexit1384
   %833 = getelementptr inbounds i8, ptr %1, i64 416
   %834 = load ptr, ptr %833, align 8
-  %.not1177 = icmp ult ptr %831, %834
-  br i1 %.not1177, label %839, label %835
+  %.not1173 = icmp ult ptr %831, %834
+  br i1 %.not1173, label %839, label %835
 
 835:                                              ; preds = %832
   %836 = getelementptr inbounds i8, ptr %1, i64 424
   %837 = load i64, ptr %836, align 8
   %838 = getelementptr inbounds i8, ptr %834, i64 %837
-  %.not1178 = icmp ugt ptr %831, %838
-  br i1 %.not1178, label %839, label %847
+  %.not1174 = icmp ugt ptr %831, %838
+  br i1 %.not1174, label %839, label %847
 
 839:                                              ; preds = %835, %832
   %840 = load ptr, ptr @accel_shared_globals, align 8
   %841 = getelementptr inbounds i8, ptr %840, i64 176
   %842 = load ptr, ptr %841, align 8
-  %.not1179 = icmp ult ptr %831, %842
-  br i1 %.not1179, label %847, label %843
+  %.not1175 = icmp ult ptr %831, %842
+  br i1 %.not1175, label %847, label %843
 
 843:                                              ; preds = %839
   %844 = getelementptr inbounds i8, ptr %840, i64 184
@@ -4148,33 +4110,33 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   store ptr %852, ptr %830, align 8
   %853 = getelementptr inbounds i8, ptr %3, i64 %851
   %854 = load ptr, ptr %853, align 8
-  %.not11811420 = icmp eq ptr %854, null
-  br i1 %.not11811420, label %.loopexit, label %.lr.ph1423
+  %.not11771406 = icmp eq ptr %854, null
+  br i1 %.not11771406, label %.loopexit, label %.lr.ph1409
 
-.lr.ph1423:                                       ; preds = %847
+.lr.ph1409:                                       ; preds = %847
   %855 = getelementptr inbounds i8, ptr %1, i64 424
   %856 = getelementptr inbounds i8, ptr %1, i64 384
   br label %857
 
-857:                                              ; preds = %.lr.ph1423, %._crit_edge1419
-  %858 = phi ptr [ %854, %.lr.ph1423 ], [ %1017, %._crit_edge1419 ]
-  %.11421 = phi ptr [ %853, %.lr.ph1423 ], [ %1016, %._crit_edge1419 ]
+857:                                              ; preds = %.lr.ph1409, %._crit_edge1405
+  %858 = phi ptr [ %854, %.lr.ph1409 ], [ %1017, %._crit_edge1405 ]
+  %.11407 = phi ptr [ %853, %.lr.ph1409 ], [ %1016, %._crit_edge1405 ]
   %859 = load ptr, ptr %833, align 8
-  %.not1284 = icmp ult ptr %858, %859
-  br i1 %.not1284, label %863, label %860
+  %.not1280 = icmp ult ptr %858, %859
+  br i1 %.not1280, label %863, label %860
 
 860:                                              ; preds = %857
   %861 = load i64, ptr %855, align 8
   %862 = getelementptr inbounds i8, ptr %859, i64 %861
-  %.not1285 = icmp ugt ptr %858, %862
-  br i1 %.not1285, label %863, label %871
+  %.not1281 = icmp ugt ptr %858, %862
+  br i1 %.not1281, label %863, label %871
 
 863:                                              ; preds = %860, %857
   %864 = load ptr, ptr @accel_shared_globals, align 8
   %865 = getelementptr inbounds i8, ptr %864, i64 176
   %866 = load ptr, ptr %865, align 8
-  %.not1286 = icmp ult ptr %858, %866
-  br i1 %.not1286, label %871, label %867
+  %.not1282 = icmp ult ptr %858, %866
+  br i1 %.not1282, label %871, label %867
 
 867:                                              ; preds = %863
   %868 = getelementptr inbounds i8, ptr %864, i64 184
@@ -4189,149 +4151,147 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %874 = ptrtoint ptr %859 to i64
   %875 = sub i64 %873, %874
   %876 = inttoptr i64 %875 to ptr
-  store ptr %876, ptr %.11421, align 8
-  %.not1287 = icmp eq ptr %858, %859
+  store ptr %876, ptr %.11407, align 8
+  %.not1283 = icmp eq ptr %858, %859
   %877 = getelementptr inbounds i8, ptr %3, i64 %875
-  %spec.select1388 = select i1 %.not1287, ptr null, ptr %877
-  %878 = load ptr, ptr %spec.select1388, align 8
-  %.not1288 = icmp eq ptr %878, null
-  br i1 %.not1288, label %920, label %879
+  %spec.select1374 = select i1 %.not1283, ptr null, ptr %877
+  %878 = load ptr, ptr %spec.select1374, align 8
+  %.not1284 = icmp eq ptr %878, null
+  br i1 %.not1284, label %920, label %879
 
 879:                                              ; preds = %871
   %880 = load ptr, ptr @accel_shared_globals, align 8
   %881 = getelementptr inbounds i8, ptr %880, i64 176
   %882 = load ptr, ptr %881, align 8
-  %.not1289 = icmp ult ptr %878, %882
-  br i1 %.not1289, label %889, label %883
+  %.not1285 = icmp ult ptr %878, %882
+  br i1 %.not1285, label %889, label %883
 
 883:                                              ; preds = %879
   %884 = getelementptr inbounds i8, ptr %880, i64 184
   %885 = load ptr, ptr %884, align 8
   %886 = icmp ult ptr %878, %885
-  br i1 %886, label %887, label %.thread1507
+  br i1 %886, label %887, label %.thread1493
 
 887:                                              ; preds = %883
   %888 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %878, ptr noundef %2)
-  br label %.sink.split1540
+  br label %.sink.split1526
 
 889:                                              ; preds = %879
   %890 = load ptr, ptr %833, align 8
-  %.not1290 = icmp ult ptr %878, %890
-  br i1 %.not1290, label %900, label %892
+  %.not1286 = icmp ult ptr %878, %890
+  br i1 %.not1286, label %900, label %892
 
-.thread1507:                                      ; preds = %883
+.thread1493:                                      ; preds = %883
   %891 = load ptr, ptr %833, align 8
-  %.not12901508 = icmp ult ptr %878, %891
-  br i1 %.not12901508, label %.thread1509, label %892
+  %.not12861494 = icmp ult ptr %878, %891
+  br i1 %.not12861494, label %.thread1495, label %892
 
-892:                                              ; preds = %.thread1507, %889
-  %893 = phi ptr [ %891, %.thread1507 ], [ %890, %889 ]
+892:                                              ; preds = %.thread1493, %889
+  %893 = phi ptr [ %891, %.thread1493 ], [ %890, %889 ]
   %894 = load i64, ptr %855, align 8
   %895 = getelementptr inbounds i8, ptr %893, i64 %894
-  %.not1291 = icmp ule ptr %878, %895
-  %brmerge1389 = or i1 %.not1289, %.not1291
-  br i1 %brmerge1389, label %900, label %.thread1509
+  %.not1287 = icmp ule ptr %878, %895
+  %brmerge1375 = or i1 %.not1285, %.not1287
+  br i1 %brmerge1375, label %900, label %.thread1495
 
-.thread1509:                                      ; preds = %.thread1507, %892
-  %896 = phi ptr [ %893, %892 ], [ %891, %.thread1507 ]
+.thread1495:                                      ; preds = %.thread1493, %892
+  %896 = phi ptr [ %893, %892 ], [ %891, %.thread1493 ]
   %897 = getelementptr inbounds i8, ptr %880, i64 184
   %898 = load ptr, ptr %897, align 8
   %899 = icmp ult ptr %878, %898
   br label %900
 
-900:                                              ; preds = %889, %892, %.thread1509
-  %901 = phi ptr [ %893, %892 ], [ %896, %.thread1509 ], [ %890, %889 ]
-  %902 = phi i1 [ %.not1291, %892 ], [ %899, %.thread1509 ], [ false, %889 ]
+900:                                              ; preds = %889, %892, %.thread1495
+  %901 = phi ptr [ %893, %892 ], [ %896, %.thread1495 ], [ %890, %889 ]
+  %902 = phi i1 [ %.not1287, %892 ], [ %899, %.thread1495 ], [ false, %889 ]
   tail call void @llvm.assume(i1 %902)
   %903 = load i8, ptr %856, align 8
-  %904 = and i8 %903, 1
-  %.not1293 = icmp eq i8 %904, 0
-  br i1 %.not1293, label %913, label %905
+  %904 = trunc i8 %903 to i1
+  br i1 %904, label %905, label %913
 
 905:                                              ; preds = %900
   %906 = getelementptr inbounds i8, ptr %878, i64 4
   %907 = load i32, ptr %906, align 4
   %908 = or i32 %907, 64
   store i32 %908, ptr %906, align 4
-  %909 = load ptr, ptr %spec.select1388, align 8
+  %909 = load ptr, ptr %spec.select1374, align 8
   %910 = getelementptr inbounds i8, ptr %909, i64 4
   %911 = load i32, ptr %910, align 4
   %912 = and i32 %911, -257
   store i32 %912, ptr %910, align 4
-  %.pre1460 = load ptr, ptr %spec.select1388, align 8
-  %.pre1461 = load ptr, ptr %833, align 8
+  %.pre1446 = load ptr, ptr %spec.select1374, align 8
+  %.pre1447 = load ptr, ptr %833, align 8
   br label %913
 
 913:                                              ; preds = %905, %900
-  %914 = phi ptr [ %.pre1461, %905 ], [ %901, %900 ]
-  %915 = phi ptr [ %.pre1460, %905 ], [ %878, %900 ]
+  %914 = phi ptr [ %.pre1447, %905 ], [ %901, %900 ]
+  %915 = phi ptr [ %.pre1446, %905 ], [ %878, %900 ]
   %916 = ptrtoint ptr %915 to i64
   %917 = ptrtoint ptr %914 to i64
   %918 = sub i64 %916, %917
   %919 = inttoptr i64 %918 to ptr
-  br label %.sink.split1540
+  br label %.sink.split1526
 
-.sink.split1540:                                  ; preds = %913, %887
-  %.sink1541 = phi ptr [ %888, %887 ], [ %919, %913 ]
-  store ptr %.sink1541, ptr %spec.select1388, align 8
+.sink.split1526:                                  ; preds = %913, %887
+  %.sink1527 = phi ptr [ %888, %887 ], [ %919, %913 ]
+  store ptr %.sink1527, ptr %spec.select1374, align 8
   br label %920
 
-920:                                              ; preds = %.sink.split1540, %871
-  %921 = getelementptr inbounds i8, ptr %spec.select1388, i64 8
+920:                                              ; preds = %.sink.split1526, %871
+  %921 = getelementptr inbounds i8, ptr %spec.select1374, i64 8
   %922 = load ptr, ptr %921, align 8
-  %.not1294 = icmp eq ptr %922, null
-  br i1 %.not1294, label %964, label %923
+  %.not1289 = icmp eq ptr %922, null
+  br i1 %.not1289, label %964, label %923
 
 923:                                              ; preds = %920
   %924 = load ptr, ptr @accel_shared_globals, align 8
   %925 = getelementptr inbounds i8, ptr %924, i64 176
   %926 = load ptr, ptr %925, align 8
-  %.not1295 = icmp ult ptr %922, %926
-  br i1 %.not1295, label %933, label %927
+  %.not1290 = icmp ult ptr %922, %926
+  br i1 %.not1290, label %933, label %927
 
 927:                                              ; preds = %923
   %928 = getelementptr inbounds i8, ptr %924, i64 184
   %929 = load ptr, ptr %928, align 8
   %930 = icmp ult ptr %922, %929
-  br i1 %930, label %931, label %.thread1510
+  br i1 %930, label %931, label %.thread1496
 
 931:                                              ; preds = %927
   %932 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %922, ptr noundef %2)
-  br label %.sink.split1542
+  br label %.sink.split1528
 
 933:                                              ; preds = %923
   %934 = load ptr, ptr %833, align 8
-  %.not1296 = icmp ult ptr %922, %934
-  br i1 %.not1296, label %944, label %936
+  %.not1291 = icmp ult ptr %922, %934
+  br i1 %.not1291, label %944, label %936
 
-.thread1510:                                      ; preds = %927
+.thread1496:                                      ; preds = %927
   %935 = load ptr, ptr %833, align 8
-  %.not12961511 = icmp ult ptr %922, %935
-  br i1 %.not12961511, label %.thread1512, label %936
+  %.not12911497 = icmp ult ptr %922, %935
+  br i1 %.not12911497, label %.thread1498, label %936
 
-936:                                              ; preds = %.thread1510, %933
-  %937 = phi ptr [ %935, %.thread1510 ], [ %934, %933 ]
+936:                                              ; preds = %.thread1496, %933
+  %937 = phi ptr [ %935, %.thread1496 ], [ %934, %933 ]
   %938 = load i64, ptr %855, align 8
   %939 = getelementptr inbounds i8, ptr %937, i64 %938
-  %.not1297 = icmp ule ptr %922, %939
-  %brmerge1391 = or i1 %.not1295, %.not1297
-  br i1 %brmerge1391, label %944, label %.thread1512
+  %.not1292 = icmp ule ptr %922, %939
+  %brmerge1377 = or i1 %.not1290, %.not1292
+  br i1 %brmerge1377, label %944, label %.thread1498
 
-.thread1512:                                      ; preds = %.thread1510, %936
-  %940 = phi ptr [ %937, %936 ], [ %935, %.thread1510 ]
+.thread1498:                                      ; preds = %.thread1496, %936
+  %940 = phi ptr [ %937, %936 ], [ %935, %.thread1496 ]
   %941 = getelementptr inbounds i8, ptr %924, i64 184
   %942 = load ptr, ptr %941, align 8
   %943 = icmp ult ptr %922, %942
   br label %944
 
-944:                                              ; preds = %933, %936, %.thread1512
-  %945 = phi ptr [ %937, %936 ], [ %940, %.thread1512 ], [ %934, %933 ]
-  %946 = phi i1 [ %.not1297, %936 ], [ %943, %.thread1512 ], [ false, %933 ]
+944:                                              ; preds = %933, %936, %.thread1498
+  %945 = phi ptr [ %937, %936 ], [ %940, %.thread1498 ], [ %934, %933 ]
+  %946 = phi i1 [ %.not1292, %936 ], [ %943, %.thread1498 ], [ false, %933 ]
   tail call void @llvm.assume(i1 %946)
   %947 = load i8, ptr %856, align 8
-  %948 = and i8 %947, 1
-  %.not1299 = icmp eq i8 %948, 0
-  br i1 %.not1299, label %957, label %949
+  %948 = trunc i8 %947 to i1
+  br i1 %948, label %949, label %957
 
 949:                                              ; preds = %944
   %950 = getelementptr inbounds i8, ptr %922, i64 4
@@ -4343,91 +4303,90 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %955 = load i32, ptr %954, align 4
   %956 = and i32 %955, -257
   store i32 %956, ptr %954, align 4
-  %.pre1462 = load ptr, ptr %921, align 8
-  %.pre1463 = load ptr, ptr %833, align 8
+  %.pre1448 = load ptr, ptr %921, align 8
+  %.pre1449 = load ptr, ptr %833, align 8
   br label %957
 
 957:                                              ; preds = %949, %944
-  %958 = phi ptr [ %.pre1463, %949 ], [ %945, %944 ]
-  %959 = phi ptr [ %.pre1462, %949 ], [ %922, %944 ]
+  %958 = phi ptr [ %.pre1449, %949 ], [ %945, %944 ]
+  %959 = phi ptr [ %.pre1448, %949 ], [ %922, %944 ]
   %960 = ptrtoint ptr %959 to i64
   %961 = ptrtoint ptr %958 to i64
   %962 = sub i64 %960, %961
   %963 = inttoptr i64 %962 to ptr
-  br label %.sink.split1542
+  br label %.sink.split1528
 
-.sink.split1542:                                  ; preds = %957, %931
-  %.sink1543 = phi ptr [ %932, %931 ], [ %963, %957 ]
-  store ptr %.sink1543, ptr %921, align 8
+.sink.split1528:                                  ; preds = %957, %931
+  %.sink1529 = phi ptr [ %932, %931 ], [ %963, %957 ]
+  store ptr %.sink1529, ptr %921, align 8
   br label %964
 
-964:                                              ; preds = %.sink.split1542, %920
-  %965 = getelementptr inbounds i8, ptr %spec.select1388, i64 16
+964:                                              ; preds = %.sink.split1528, %920
+  %965 = getelementptr inbounds i8, ptr %spec.select1374, i64 16
   %966 = load i32, ptr %965, align 8
-  %.not1427 = icmp eq i32 %966, 0
-  br i1 %.not1427, label %._crit_edge1419, label %.lr.ph1418
+  %.not1413 = icmp eq i32 %966, 0
+  br i1 %.not1413, label %._crit_edge1405, label %.lr.ph1404
 
-.lr.ph1418:                                       ; preds = %964
-  %967 = getelementptr inbounds i8, ptr %spec.select1388, i64 24
+.lr.ph1404:                                       ; preds = %964
+  %967 = getelementptr inbounds i8, ptr %spec.select1374, i64 24
   br label %968
 
-968:                                              ; preds = %.lr.ph1418, %1012
-  %indvars.iv1435 = phi i64 [ 0, %.lr.ph1418 ], [ %indvars.iv.next1436, %1012 ]
-  %969 = getelementptr inbounds [1 x ptr], ptr %967, i64 0, i64 %indvars.iv1435
+968:                                              ; preds = %.lr.ph1404, %1012
+  %indvars.iv1421 = phi i64 [ 0, %.lr.ph1404 ], [ %indvars.iv.next1422, %1012 ]
+  %969 = getelementptr inbounds [1 x ptr], ptr %967, i64 0, i64 %indvars.iv1421
   %970 = load ptr, ptr %969, align 8
-  %.not1300 = icmp eq ptr %970, null
-  br i1 %.not1300, label %1012, label %971
+  %.not1294 = icmp eq ptr %970, null
+  br i1 %.not1294, label %1012, label %971
 
 971:                                              ; preds = %968
   %972 = load ptr, ptr @accel_shared_globals, align 8
   %973 = getelementptr inbounds i8, ptr %972, i64 176
   %974 = load ptr, ptr %973, align 8
-  %.not1301 = icmp ult ptr %970, %974
-  br i1 %.not1301, label %981, label %975
+  %.not1295 = icmp ult ptr %970, %974
+  br i1 %.not1295, label %981, label %975
 
 975:                                              ; preds = %971
   %976 = getelementptr inbounds i8, ptr %972, i64 184
   %977 = load ptr, ptr %976, align 8
   %978 = icmp ult ptr %970, %977
-  br i1 %978, label %979, label %.thread1513
+  br i1 %978, label %979, label %.thread1499
 
 979:                                              ; preds = %975
   %980 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %970, ptr noundef %2)
-  br label %.sink.split1544
+  br label %.sink.split1530
 
 981:                                              ; preds = %971
   %982 = load ptr, ptr %833, align 8
-  %.not1302 = icmp ult ptr %970, %982
-  br i1 %.not1302, label %992, label %984
+  %.not1296 = icmp ult ptr %970, %982
+  br i1 %.not1296, label %992, label %984
 
-.thread1513:                                      ; preds = %975
+.thread1499:                                      ; preds = %975
   %983 = load ptr, ptr %833, align 8
-  %.not13021514 = icmp ult ptr %970, %983
-  br i1 %.not13021514, label %.thread1515, label %984
+  %.not12961500 = icmp ult ptr %970, %983
+  br i1 %.not12961500, label %.thread1501, label %984
 
-984:                                              ; preds = %.thread1513, %981
-  %985 = phi ptr [ %983, %.thread1513 ], [ %982, %981 ]
+984:                                              ; preds = %.thread1499, %981
+  %985 = phi ptr [ %983, %.thread1499 ], [ %982, %981 ]
   %986 = load i64, ptr %855, align 8
   %987 = getelementptr inbounds i8, ptr %985, i64 %986
-  %.not1303 = icmp ule ptr %970, %987
-  %brmerge1393 = or i1 %.not1301, %.not1303
-  br i1 %brmerge1393, label %992, label %.thread1515
+  %.not1297 = icmp ule ptr %970, %987
+  %brmerge1379 = or i1 %.not1295, %.not1297
+  br i1 %brmerge1379, label %992, label %.thread1501
 
-.thread1515:                                      ; preds = %.thread1513, %984
-  %988 = phi ptr [ %985, %984 ], [ %983, %.thread1513 ]
+.thread1501:                                      ; preds = %.thread1499, %984
+  %988 = phi ptr [ %985, %984 ], [ %983, %.thread1499 ]
   %989 = getelementptr inbounds i8, ptr %972, i64 184
   %990 = load ptr, ptr %989, align 8
   %991 = icmp ult ptr %970, %990
   br label %992
 
-992:                                              ; preds = %981, %984, %.thread1515
-  %993 = phi ptr [ %985, %984 ], [ %988, %.thread1515 ], [ %982, %981 ]
-  %994 = phi i1 [ %.not1303, %984 ], [ %991, %.thread1515 ], [ false, %981 ]
+992:                                              ; preds = %981, %984, %.thread1501
+  %993 = phi ptr [ %985, %984 ], [ %988, %.thread1501 ], [ %982, %981 ]
+  %994 = phi i1 [ %.not1297, %984 ], [ %991, %.thread1501 ], [ false, %981 ]
   tail call void @llvm.assume(i1 %994)
   %995 = load i8, ptr %856, align 8
-  %996 = and i8 %995, 1
-  %.not1305 = icmp eq i8 %996, 0
-  br i1 %.not1305, label %1005, label %997
+  %996 = trunc i8 %995 to i1
+  br i1 %996, label %997, label %1005
 
 997:                                              ; preds = %992
   %998 = getelementptr inbounds i8, ptr %970, i64 4
@@ -4439,62 +4398,62 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1003 = load i32, ptr %1002, align 4
   %1004 = and i32 %1003, -257
   store i32 %1004, ptr %1002, align 4
-  %.pre1464 = load ptr, ptr %969, align 8
-  %.pre1465 = load ptr, ptr %833, align 8
+  %.pre1450 = load ptr, ptr %969, align 8
+  %.pre1451 = load ptr, ptr %833, align 8
   br label %1005
 
 1005:                                             ; preds = %997, %992
-  %1006 = phi ptr [ %.pre1465, %997 ], [ %993, %992 ]
-  %1007 = phi ptr [ %.pre1464, %997 ], [ %970, %992 ]
+  %1006 = phi ptr [ %.pre1451, %997 ], [ %993, %992 ]
+  %1007 = phi ptr [ %.pre1450, %997 ], [ %970, %992 ]
   %1008 = ptrtoint ptr %1007 to i64
   %1009 = ptrtoint ptr %1006 to i64
   %1010 = sub i64 %1008, %1009
   %1011 = inttoptr i64 %1010 to ptr
-  br label %.sink.split1544
+  br label %.sink.split1530
 
-.sink.split1544:                                  ; preds = %1005, %979
-  %.sink1545 = phi ptr [ %980, %979 ], [ %1011, %1005 ]
-  store ptr %.sink1545, ptr %969, align 8
+.sink.split1530:                                  ; preds = %1005, %979
+  %.sink1531 = phi ptr [ %980, %979 ], [ %1011, %1005 ]
+  store ptr %.sink1531, ptr %969, align 8
   br label %1012
 
-1012:                                             ; preds = %.sink.split1544, %968
-  %indvars.iv.next1436 = add nuw nsw i64 %indvars.iv1435, 1
+1012:                                             ; preds = %.sink.split1530, %968
+  %indvars.iv.next1422 = add nuw nsw i64 %indvars.iv1421, 1
   %1013 = load i32, ptr %965, align 8
   %1014 = zext i32 %1013 to i64
-  %1015 = icmp ult i64 %indvars.iv.next1436, %1014
-  br i1 %1015, label %968, label %._crit_edge1419
+  %1015 = icmp ult i64 %indvars.iv.next1422, %1014
+  br i1 %1015, label %968, label %._crit_edge1405
 
-._crit_edge1419:                                  ; preds = %1012, %964
-  %1016 = getelementptr inbounds i8, ptr %.11421, i64 8
+._crit_edge1405:                                  ; preds = %1012, %964
+  %1016 = getelementptr inbounds i8, ptr %.11407, i64 8
   %1017 = load ptr, ptr %1016, align 8
-  %.not1181 = icmp eq ptr %1017, null
-  br i1 %.not1181, label %.loopexit, label %857
+  %.not1177 = icmp eq ptr %1017, null
+  br i1 %.not1177, label %.loopexit, label %857
 
-.loopexit:                                        ; preds = %._crit_edge1419, %847, %.loopexit1399, %.loopexit1398
+.loopexit:                                        ; preds = %._crit_edge1405, %847, %.loopexit1385, %.loopexit1384
   %1018 = getelementptr inbounds i8, ptr %.0906, i64 256
   %1019 = load ptr, ptr %1018, align 8
-  %.not1182 = icmp eq ptr %1019, null
-  br i1 %.not1182, label %1041, label %1020
+  %.not1178 = icmp eq ptr %1019, null
+  br i1 %.not1178, label %1041, label %1020
 
 1020:                                             ; preds = %.loopexit
   %1021 = getelementptr inbounds i8, ptr %1, i64 416
   %1022 = load ptr, ptr %1021, align 8
-  %.not1183 = icmp ult ptr %1019, %1022
-  br i1 %.not1183, label %1027, label %1023
+  %.not1179 = icmp ult ptr %1019, %1022
+  br i1 %.not1179, label %1027, label %1023
 
 1023:                                             ; preds = %1020
   %1024 = getelementptr inbounds i8, ptr %1, i64 424
   %1025 = load i64, ptr %1024, align 8
   %1026 = getelementptr inbounds i8, ptr %1022, i64 %1025
-  %.not1184 = icmp ugt ptr %1019, %1026
-  br i1 %.not1184, label %1027, label %1035
+  %.not1180 = icmp ugt ptr %1019, %1026
+  br i1 %.not1180, label %1027, label %1035
 
 1027:                                             ; preds = %1023, %1020
   %1028 = load ptr, ptr @accel_shared_globals, align 8
   %1029 = getelementptr inbounds i8, ptr %1028, i64 176
   %1030 = load ptr, ptr %1029, align 8
-  %.not1185 = icmp ult ptr %1019, %1030
-  br i1 %.not1185, label %1035, label %1031
+  %.not1181 = icmp ult ptr %1019, %1030
+  br i1 %.not1181, label %1035, label %1031
 
 1031:                                             ; preds = %1027
   %1032 = getelementptr inbounds i8, ptr %1028, i64 184
@@ -4515,28 +4474,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1041:                                             ; preds = %1035, %.loopexit
   %1042 = getelementptr inbounds i8, ptr %.0906, i64 264
   %1043 = load ptr, ptr %1042, align 8
-  %.not1186 = icmp eq ptr %1043, null
-  br i1 %.not1186, label %1065, label %1044
+  %.not1182 = icmp eq ptr %1043, null
+  br i1 %.not1182, label %1065, label %1044
 
 1044:                                             ; preds = %1041
   %1045 = getelementptr inbounds i8, ptr %1, i64 416
   %1046 = load ptr, ptr %1045, align 8
-  %.not1187 = icmp ult ptr %1043, %1046
-  br i1 %.not1187, label %1051, label %1047
+  %.not1183 = icmp ult ptr %1043, %1046
+  br i1 %.not1183, label %1051, label %1047
 
 1047:                                             ; preds = %1044
   %1048 = getelementptr inbounds i8, ptr %1, i64 424
   %1049 = load i64, ptr %1048, align 8
   %1050 = getelementptr inbounds i8, ptr %1046, i64 %1049
-  %.not1188 = icmp ugt ptr %1043, %1050
-  br i1 %.not1188, label %1051, label %1059
+  %.not1184 = icmp ugt ptr %1043, %1050
+  br i1 %.not1184, label %1051, label %1059
 
 1051:                                             ; preds = %1047, %1044
   %1052 = load ptr, ptr @accel_shared_globals, align 8
   %1053 = getelementptr inbounds i8, ptr %1052, i64 176
   %1054 = load ptr, ptr %1053, align 8
-  %.not1189 = icmp ult ptr %1043, %1054
-  br i1 %.not1189, label %1059, label %1055
+  %.not1185 = icmp ult ptr %1043, %1054
+  br i1 %.not1185, label %1059, label %1055
 
 1055:                                             ; preds = %1051
   %1056 = getelementptr inbounds i8, ptr %1052, i64 184
@@ -4557,28 +4516,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1065:                                             ; preds = %1059, %1041
   %1066 = getelementptr inbounds i8, ptr %.0906, i64 272
   %1067 = load ptr, ptr %1066, align 8
-  %.not1190 = icmp eq ptr %1067, null
-  br i1 %.not1190, label %1089, label %1068
+  %.not1186 = icmp eq ptr %1067, null
+  br i1 %.not1186, label %1089, label %1068
 
 1068:                                             ; preds = %1065
   %1069 = getelementptr inbounds i8, ptr %1, i64 416
   %1070 = load ptr, ptr %1069, align 8
-  %.not1191 = icmp ult ptr %1067, %1070
-  br i1 %.not1191, label %1075, label %1071
+  %.not1187 = icmp ult ptr %1067, %1070
+  br i1 %.not1187, label %1075, label %1071
 
 1071:                                             ; preds = %1068
   %1072 = getelementptr inbounds i8, ptr %1, i64 424
   %1073 = load i64, ptr %1072, align 8
   %1074 = getelementptr inbounds i8, ptr %1070, i64 %1073
-  %.not1192 = icmp ugt ptr %1067, %1074
-  br i1 %.not1192, label %1075, label %1083
+  %.not1188 = icmp ugt ptr %1067, %1074
+  br i1 %.not1188, label %1075, label %1083
 
 1075:                                             ; preds = %1071, %1068
   %1076 = load ptr, ptr @accel_shared_globals, align 8
   %1077 = getelementptr inbounds i8, ptr %1076, i64 176
   %1078 = load ptr, ptr %1077, align 8
-  %.not1193 = icmp ult ptr %1067, %1078
-  br i1 %.not1193, label %1083, label %1079
+  %.not1189 = icmp ult ptr %1067, %1078
+  br i1 %.not1189, label %1083, label %1079
 
 1079:                                             ; preds = %1075
   %1080 = getelementptr inbounds i8, ptr %1076, i64 184
@@ -4599,28 +4558,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1089:                                             ; preds = %1083, %1065
   %1090 = getelementptr inbounds i8, ptr %.0906, i64 280
   %1091 = load ptr, ptr %1090, align 8
-  %.not1194 = icmp eq ptr %1091, null
-  br i1 %.not1194, label %1113, label %1092
+  %.not1190 = icmp eq ptr %1091, null
+  br i1 %.not1190, label %1113, label %1092
 
 1092:                                             ; preds = %1089
   %1093 = getelementptr inbounds i8, ptr %1, i64 416
   %1094 = load ptr, ptr %1093, align 8
-  %.not1195 = icmp ult ptr %1091, %1094
-  br i1 %.not1195, label %1099, label %1095
+  %.not1191 = icmp ult ptr %1091, %1094
+  br i1 %.not1191, label %1099, label %1095
 
 1095:                                             ; preds = %1092
   %1096 = getelementptr inbounds i8, ptr %1, i64 424
   %1097 = load i64, ptr %1096, align 8
   %1098 = getelementptr inbounds i8, ptr %1094, i64 %1097
-  %.not1196 = icmp ugt ptr %1091, %1098
-  br i1 %.not1196, label %1099, label %1107
+  %.not1192 = icmp ugt ptr %1091, %1098
+  br i1 %.not1192, label %1099, label %1107
 
 1099:                                             ; preds = %1095, %1092
   %1100 = load ptr, ptr @accel_shared_globals, align 8
   %1101 = getelementptr inbounds i8, ptr %1100, i64 176
   %1102 = load ptr, ptr %1101, align 8
-  %.not1197 = icmp ult ptr %1091, %1102
-  br i1 %.not1197, label %1107, label %1103
+  %.not1193 = icmp ult ptr %1091, %1102
+  br i1 %.not1193, label %1107, label %1103
 
 1103:                                             ; preds = %1099
   %1104 = getelementptr inbounds i8, ptr %1100, i64 184
@@ -4641,28 +4600,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1113:                                             ; preds = %1107, %1089
   %1114 = getelementptr inbounds i8, ptr %.0906, i64 288
   %1115 = load ptr, ptr %1114, align 8
-  %.not1198 = icmp eq ptr %1115, null
-  br i1 %.not1198, label %1137, label %1116
+  %.not1194 = icmp eq ptr %1115, null
+  br i1 %.not1194, label %1137, label %1116
 
 1116:                                             ; preds = %1113
   %1117 = getelementptr inbounds i8, ptr %1, i64 416
   %1118 = load ptr, ptr %1117, align 8
-  %.not1199 = icmp ult ptr %1115, %1118
-  br i1 %.not1199, label %1123, label %1119
+  %.not1195 = icmp ult ptr %1115, %1118
+  br i1 %.not1195, label %1123, label %1119
 
 1119:                                             ; preds = %1116
   %1120 = getelementptr inbounds i8, ptr %1, i64 424
   %1121 = load i64, ptr %1120, align 8
   %1122 = getelementptr inbounds i8, ptr %1118, i64 %1121
-  %.not1200 = icmp ugt ptr %1115, %1122
-  br i1 %.not1200, label %1123, label %1131
+  %.not1196 = icmp ugt ptr %1115, %1122
+  br i1 %.not1196, label %1123, label %1131
 
 1123:                                             ; preds = %1119, %1116
   %1124 = load ptr, ptr @accel_shared_globals, align 8
   %1125 = getelementptr inbounds i8, ptr %1124, i64 176
   %1126 = load ptr, ptr %1125, align 8
-  %.not1201 = icmp ult ptr %1115, %1126
-  br i1 %.not1201, label %1131, label %1127
+  %.not1197 = icmp ult ptr %1115, %1126
+  br i1 %.not1197, label %1131, label %1127
 
 1127:                                             ; preds = %1123
   %1128 = getelementptr inbounds i8, ptr %1124, i64 184
@@ -4683,28 +4642,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1137:                                             ; preds = %1131, %1113
   %1138 = getelementptr inbounds i8, ptr %.0906, i64 312
   %1139 = load ptr, ptr %1138, align 8
-  %.not1202 = icmp eq ptr %1139, null
-  br i1 %.not1202, label %1161, label %1140
+  %.not1198 = icmp eq ptr %1139, null
+  br i1 %.not1198, label %1161, label %1140
 
 1140:                                             ; preds = %1137
   %1141 = getelementptr inbounds i8, ptr %1, i64 416
   %1142 = load ptr, ptr %1141, align 8
-  %.not1203 = icmp ult ptr %1139, %1142
-  br i1 %.not1203, label %1147, label %1143
+  %.not1199 = icmp ult ptr %1139, %1142
+  br i1 %.not1199, label %1147, label %1143
 
 1143:                                             ; preds = %1140
   %1144 = getelementptr inbounds i8, ptr %1, i64 424
   %1145 = load i64, ptr %1144, align 8
   %1146 = getelementptr inbounds i8, ptr %1142, i64 %1145
-  %.not1204 = icmp ugt ptr %1139, %1146
-  br i1 %.not1204, label %1147, label %1155
+  %.not1200 = icmp ugt ptr %1139, %1146
+  br i1 %.not1200, label %1147, label %1155
 
 1147:                                             ; preds = %1143, %1140
   %1148 = load ptr, ptr @accel_shared_globals, align 8
   %1149 = getelementptr inbounds i8, ptr %1148, i64 176
   %1150 = load ptr, ptr %1149, align 8
-  %.not1205 = icmp ult ptr %1139, %1150
-  br i1 %.not1205, label %1155, label %1151
+  %.not1201 = icmp ult ptr %1139, %1150
+  br i1 %.not1201, label %1155, label %1151
 
 1151:                                             ; preds = %1147
   %1152 = getelementptr inbounds i8, ptr %1148, i64 184
@@ -4725,28 +4684,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1161:                                             ; preds = %1155, %1137
   %1162 = getelementptr inbounds i8, ptr %.0906, i64 344
   %1163 = load ptr, ptr %1162, align 8
-  %.not1206 = icmp eq ptr %1163, null
-  br i1 %.not1206, label %1185, label %1164
+  %.not1202 = icmp eq ptr %1163, null
+  br i1 %.not1202, label %1185, label %1164
 
 1164:                                             ; preds = %1161
   %1165 = getelementptr inbounds i8, ptr %1, i64 416
   %1166 = load ptr, ptr %1165, align 8
-  %.not1207 = icmp ult ptr %1163, %1166
-  br i1 %.not1207, label %1171, label %1167
+  %.not1203 = icmp ult ptr %1163, %1166
+  br i1 %.not1203, label %1171, label %1167
 
 1167:                                             ; preds = %1164
   %1168 = getelementptr inbounds i8, ptr %1, i64 424
   %1169 = load i64, ptr %1168, align 8
   %1170 = getelementptr inbounds i8, ptr %1166, i64 %1169
-  %.not1208 = icmp ugt ptr %1163, %1170
-  br i1 %.not1208, label %1171, label %1179
+  %.not1204 = icmp ugt ptr %1163, %1170
+  br i1 %.not1204, label %1171, label %1179
 
 1171:                                             ; preds = %1167, %1164
   %1172 = load ptr, ptr @accel_shared_globals, align 8
   %1173 = getelementptr inbounds i8, ptr %1172, i64 176
   %1174 = load ptr, ptr %1173, align 8
-  %.not1209 = icmp ult ptr %1163, %1174
-  br i1 %.not1209, label %1179, label %1175
+  %.not1205 = icmp ult ptr %1163, %1174
+  br i1 %.not1205, label %1179, label %1175
 
 1175:                                             ; preds = %1171
   %1176 = getelementptr inbounds i8, ptr %1172, i64 184
@@ -4767,28 +4726,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1185:                                             ; preds = %1179, %1161
   %1186 = getelementptr inbounds i8, ptr %.0906, i64 352
   %1187 = load ptr, ptr %1186, align 8
-  %.not1210 = icmp eq ptr %1187, null
-  br i1 %.not1210, label %1209, label %1188
+  %.not1206 = icmp eq ptr %1187, null
+  br i1 %.not1206, label %1209, label %1188
 
 1188:                                             ; preds = %1185
   %1189 = getelementptr inbounds i8, ptr %1, i64 416
   %1190 = load ptr, ptr %1189, align 8
-  %.not1211 = icmp ult ptr %1187, %1190
-  br i1 %.not1211, label %1195, label %1191
+  %.not1207 = icmp ult ptr %1187, %1190
+  br i1 %.not1207, label %1195, label %1191
 
 1191:                                             ; preds = %1188
   %1192 = getelementptr inbounds i8, ptr %1, i64 424
   %1193 = load i64, ptr %1192, align 8
   %1194 = getelementptr inbounds i8, ptr %1190, i64 %1193
-  %.not1212 = icmp ugt ptr %1187, %1194
-  br i1 %.not1212, label %1195, label %1203
+  %.not1208 = icmp ugt ptr %1187, %1194
+  br i1 %.not1208, label %1195, label %1203
 
 1195:                                             ; preds = %1191, %1188
   %1196 = load ptr, ptr @accel_shared_globals, align 8
   %1197 = getelementptr inbounds i8, ptr %1196, i64 176
   %1198 = load ptr, ptr %1197, align 8
-  %.not1213 = icmp ult ptr %1187, %1198
-  br i1 %.not1213, label %1203, label %1199
+  %.not1209 = icmp ult ptr %1187, %1198
+  br i1 %.not1209, label %1203, label %1199
 
 1199:                                             ; preds = %1195
   %1200 = getelementptr inbounds i8, ptr %1196, i64 184
@@ -4809,28 +4768,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1209:                                             ; preds = %1203, %1185
   %1210 = getelementptr inbounds i8, ptr %.0906, i64 304
   %1211 = load ptr, ptr %1210, align 8
-  %.not1214 = icmp eq ptr %1211, null
-  br i1 %.not1214, label %1233, label %1212
+  %.not1210 = icmp eq ptr %1211, null
+  br i1 %.not1210, label %1233, label %1212
 
 1212:                                             ; preds = %1209
   %1213 = getelementptr inbounds i8, ptr %1, i64 416
   %1214 = load ptr, ptr %1213, align 8
-  %.not1215 = icmp ult ptr %1211, %1214
-  br i1 %.not1215, label %1219, label %1215
+  %.not1211 = icmp ult ptr %1211, %1214
+  br i1 %.not1211, label %1219, label %1215
 
 1215:                                             ; preds = %1212
   %1216 = getelementptr inbounds i8, ptr %1, i64 424
   %1217 = load i64, ptr %1216, align 8
   %1218 = getelementptr inbounds i8, ptr %1214, i64 %1217
-  %.not1216 = icmp ugt ptr %1211, %1218
-  br i1 %.not1216, label %1219, label %1227
+  %.not1212 = icmp ugt ptr %1211, %1218
+  br i1 %.not1212, label %1219, label %1227
 
 1219:                                             ; preds = %1215, %1212
   %1220 = load ptr, ptr @accel_shared_globals, align 8
   %1221 = getelementptr inbounds i8, ptr %1220, i64 176
   %1222 = load ptr, ptr %1221, align 8
-  %.not1217 = icmp ult ptr %1211, %1222
-  br i1 %.not1217, label %1227, label %1223
+  %.not1213 = icmp ult ptr %1211, %1222
+  br i1 %.not1213, label %1227, label %1223
 
 1223:                                             ; preds = %1219
   %1224 = getelementptr inbounds i8, ptr %1220, i64 184
@@ -4851,28 +4810,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1233:                                             ; preds = %1227, %1209
   %1234 = getelementptr inbounds i8, ptr %.0906, i64 296
   %1235 = load ptr, ptr %1234, align 8
-  %.not1218 = icmp eq ptr %1235, null
-  br i1 %.not1218, label %1257, label %1236
+  %.not1214 = icmp eq ptr %1235, null
+  br i1 %.not1214, label %1257, label %1236
 
 1236:                                             ; preds = %1233
   %1237 = getelementptr inbounds i8, ptr %1, i64 416
   %1238 = load ptr, ptr %1237, align 8
-  %.not1219 = icmp ult ptr %1235, %1238
-  br i1 %.not1219, label %1243, label %1239
+  %.not1215 = icmp ult ptr %1235, %1238
+  br i1 %.not1215, label %1243, label %1239
 
 1239:                                             ; preds = %1236
   %1240 = getelementptr inbounds i8, ptr %1, i64 424
   %1241 = load i64, ptr %1240, align 8
   %1242 = getelementptr inbounds i8, ptr %1238, i64 %1241
-  %.not1220 = icmp ugt ptr %1235, %1242
-  br i1 %.not1220, label %1243, label %1251
+  %.not1216 = icmp ugt ptr %1235, %1242
+  br i1 %.not1216, label %1243, label %1251
 
 1243:                                             ; preds = %1239, %1236
   %1244 = load ptr, ptr @accel_shared_globals, align 8
   %1245 = getelementptr inbounds i8, ptr %1244, i64 176
   %1246 = load ptr, ptr %1245, align 8
-  %.not1221 = icmp ult ptr %1235, %1246
-  br i1 %.not1221, label %1251, label %1247
+  %.not1217 = icmp ult ptr %1235, %1246
+  br i1 %.not1217, label %1251, label %1247
 
 1247:                                             ; preds = %1243
   %1248 = getelementptr inbounds i8, ptr %1244, i64 184
@@ -4893,28 +4852,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1257:                                             ; preds = %1251, %1233
   %1258 = getelementptr inbounds i8, ptr %.0906, i64 328
   %1259 = load ptr, ptr %1258, align 8
-  %.not1222 = icmp eq ptr %1259, null
-  br i1 %.not1222, label %1281, label %1260
+  %.not1218 = icmp eq ptr %1259, null
+  br i1 %.not1218, label %1281, label %1260
 
 1260:                                             ; preds = %1257
   %1261 = getelementptr inbounds i8, ptr %1, i64 416
   %1262 = load ptr, ptr %1261, align 8
-  %.not1223 = icmp ult ptr %1259, %1262
-  br i1 %.not1223, label %1267, label %1263
+  %.not1219 = icmp ult ptr %1259, %1262
+  br i1 %.not1219, label %1267, label %1263
 
 1263:                                             ; preds = %1260
   %1264 = getelementptr inbounds i8, ptr %1, i64 424
   %1265 = load i64, ptr %1264, align 8
   %1266 = getelementptr inbounds i8, ptr %1262, i64 %1265
-  %.not1224 = icmp ugt ptr %1259, %1266
-  br i1 %.not1224, label %1267, label %1275
+  %.not1220 = icmp ugt ptr %1259, %1266
+  br i1 %.not1220, label %1267, label %1275
 
 1267:                                             ; preds = %1263, %1260
   %1268 = load ptr, ptr @accel_shared_globals, align 8
   %1269 = getelementptr inbounds i8, ptr %1268, i64 176
   %1270 = load ptr, ptr %1269, align 8
-  %.not1225 = icmp ult ptr %1259, %1270
-  br i1 %.not1225, label %1275, label %1271
+  %.not1221 = icmp ult ptr %1259, %1270
+  br i1 %.not1221, label %1275, label %1271
 
 1271:                                             ; preds = %1267
   %1272 = getelementptr inbounds i8, ptr %1268, i64 184
@@ -4935,28 +4894,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1281:                                             ; preds = %1275, %1257
   %1282 = getelementptr inbounds i8, ptr %.0906, i64 320
   %1283 = load ptr, ptr %1282, align 8
-  %.not1226 = icmp eq ptr %1283, null
-  br i1 %.not1226, label %1305, label %1284
+  %.not1222 = icmp eq ptr %1283, null
+  br i1 %.not1222, label %1305, label %1284
 
 1284:                                             ; preds = %1281
   %1285 = getelementptr inbounds i8, ptr %1, i64 416
   %1286 = load ptr, ptr %1285, align 8
-  %.not1227 = icmp ult ptr %1283, %1286
-  br i1 %.not1227, label %1291, label %1287
+  %.not1223 = icmp ult ptr %1283, %1286
+  br i1 %.not1223, label %1291, label %1287
 
 1287:                                             ; preds = %1284
   %1288 = getelementptr inbounds i8, ptr %1, i64 424
   %1289 = load i64, ptr %1288, align 8
   %1290 = getelementptr inbounds i8, ptr %1286, i64 %1289
-  %.not1228 = icmp ugt ptr %1283, %1290
-  br i1 %.not1228, label %1291, label %1299
+  %.not1224 = icmp ugt ptr %1283, %1290
+  br i1 %.not1224, label %1291, label %1299
 
 1291:                                             ; preds = %1287, %1284
   %1292 = load ptr, ptr @accel_shared_globals, align 8
   %1293 = getelementptr inbounds i8, ptr %1292, i64 176
   %1294 = load ptr, ptr %1293, align 8
-  %.not1229 = icmp ult ptr %1283, %1294
-  br i1 %.not1229, label %1299, label %1295
+  %.not1225 = icmp ult ptr %1283, %1294
+  br i1 %.not1225, label %1299, label %1295
 
 1295:                                             ; preds = %1291
   %1296 = getelementptr inbounds i8, ptr %1292, i64 184
@@ -4977,28 +4936,28 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1305:                                             ; preds = %1299, %1281
   %1306 = getelementptr inbounds i8, ptr %.0906, i64 336
   %1307 = load ptr, ptr %1306, align 8
-  %.not1230 = icmp eq ptr %1307, null
-  br i1 %.not1230, label %1329, label %1308
+  %.not1226 = icmp eq ptr %1307, null
+  br i1 %.not1226, label %1329, label %1308
 
 1308:                                             ; preds = %1305
   %1309 = getelementptr inbounds i8, ptr %1, i64 416
   %1310 = load ptr, ptr %1309, align 8
-  %.not1231 = icmp ult ptr %1307, %1310
-  br i1 %.not1231, label %1315, label %1311
+  %.not1227 = icmp ult ptr %1307, %1310
+  br i1 %.not1227, label %1315, label %1311
 
 1311:                                             ; preds = %1308
   %1312 = getelementptr inbounds i8, ptr %1, i64 424
   %1313 = load i64, ptr %1312, align 8
   %1314 = getelementptr inbounds i8, ptr %1310, i64 %1313
-  %.not1232 = icmp ugt ptr %1307, %1314
-  br i1 %.not1232, label %1315, label %1323
+  %.not1228 = icmp ugt ptr %1307, %1314
+  br i1 %.not1228, label %1315, label %1323
 
 1315:                                             ; preds = %1311, %1308
   %1316 = load ptr, ptr @accel_shared_globals, align 8
   %1317 = getelementptr inbounds i8, ptr %1316, i64 176
   %1318 = load ptr, ptr %1317, align 8
-  %.not1233 = icmp ult ptr %1307, %1318
-  br i1 %.not1233, label %1323, label %1319
+  %.not1229 = icmp ult ptr %1307, %1318
+  br i1 %.not1229, label %1323, label %1319
 
 1319:                                             ; preds = %1315
   %1320 = getelementptr inbounds i8, ptr %1316, i64 184
@@ -5019,33 +4978,33 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1329:                                             ; preds = %1305, %1323
   %1330 = getelementptr inbounds i8, ptr %.0906, i64 368
   %1331 = load ptr, ptr %1330, align 8
-  %.not1234 = icmp eq ptr %1331, null
-  br i1 %.not1234, label %1501, label %1332
+  %.not1230 = icmp eq ptr %1331, null
+  br i1 %.not1230, label %1501, label %1332
 
 1332:                                             ; preds = %1329
   %1333 = load ptr, ptr %1331, align 8
-  %.not1235 = icmp eq ptr %1333, null
-  br i1 %.not1235, label %1355, label %1334
+  %.not1231 = icmp eq ptr %1333, null
+  br i1 %.not1231, label %1355, label %1334
 
 1334:                                             ; preds = %1332
   %1335 = getelementptr inbounds i8, ptr %1, i64 416
   %1336 = load ptr, ptr %1335, align 8
-  %.not1236 = icmp ult ptr %1333, %1336
-  br i1 %.not1236, label %1341, label %1337
+  %.not1232 = icmp ult ptr %1333, %1336
+  br i1 %.not1232, label %1341, label %1337
 
 1337:                                             ; preds = %1334
   %1338 = getelementptr inbounds i8, ptr %1, i64 424
   %1339 = load i64, ptr %1338, align 8
   %1340 = getelementptr inbounds i8, ptr %1336, i64 %1339
-  %.not1237 = icmp ugt ptr %1333, %1340
-  br i1 %.not1237, label %1341, label %1349
+  %.not1233 = icmp ugt ptr %1333, %1340
+  br i1 %.not1233, label %1341, label %1349
 
 1341:                                             ; preds = %1337, %1334
   %1342 = load ptr, ptr @accel_shared_globals, align 8
   %1343 = getelementptr inbounds i8, ptr %1342, i64 176
   %1344 = load ptr, ptr %1343, align 8
-  %.not1238 = icmp ult ptr %1333, %1344
-  br i1 %.not1238, label %1349, label %1345
+  %.not1234 = icmp ult ptr %1333, %1344
+  br i1 %.not1234, label %1349, label %1345
 
 1345:                                             ; preds = %1341
   %1346 = getelementptr inbounds i8, ptr %1342, i64 184
@@ -5061,35 +5020,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1353 = sub i64 %1351, %1352
   %1354 = inttoptr i64 %1353 to ptr
   store ptr %1354, ptr %1331, align 8
-  %.pre1466 = load ptr, ptr %1330, align 8
+  %.pre1452 = load ptr, ptr %1330, align 8
   br label %1355
 
 1355:                                             ; preds = %1349, %1332
-  %1356 = phi ptr [ %.pre1466, %1349 ], [ %1331, %1332 ]
+  %1356 = phi ptr [ %.pre1452, %1349 ], [ %1331, %1332 ]
   %1357 = getelementptr inbounds i8, ptr %1356, i64 40
   %1358 = load ptr, ptr %1357, align 8
-  %.not1239 = icmp eq ptr %1358, null
-  br i1 %.not1239, label %1380, label %1359
+  %.not1235 = icmp eq ptr %1358, null
+  br i1 %.not1235, label %1380, label %1359
 
 1359:                                             ; preds = %1355
   %1360 = getelementptr inbounds i8, ptr %1, i64 416
   %1361 = load ptr, ptr %1360, align 8
-  %.not1240 = icmp ult ptr %1358, %1361
-  br i1 %.not1240, label %1366, label %1362
+  %.not1236 = icmp ult ptr %1358, %1361
+  br i1 %.not1236, label %1366, label %1362
 
 1362:                                             ; preds = %1359
   %1363 = getelementptr inbounds i8, ptr %1, i64 424
   %1364 = load i64, ptr %1363, align 8
   %1365 = getelementptr inbounds i8, ptr %1361, i64 %1364
-  %.not1241 = icmp ugt ptr %1358, %1365
-  br i1 %.not1241, label %1366, label %1374
+  %.not1237 = icmp ugt ptr %1358, %1365
+  br i1 %.not1237, label %1366, label %1374
 
 1366:                                             ; preds = %1362, %1359
   %1367 = load ptr, ptr @accel_shared_globals, align 8
   %1368 = getelementptr inbounds i8, ptr %1367, i64 176
   %1369 = load ptr, ptr %1368, align 8
-  %.not1242 = icmp ult ptr %1358, %1369
-  br i1 %.not1242, label %1374, label %1370
+  %.not1238 = icmp ult ptr %1358, %1369
+  br i1 %.not1238, label %1374, label %1370
 
 1370:                                             ; preds = %1366
   %1371 = getelementptr inbounds i8, ptr %1367, i64 184
@@ -5105,35 +5064,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1378 = sub i64 %1376, %1377
   %1379 = inttoptr i64 %1378 to ptr
   store ptr %1379, ptr %1357, align 8
-  %.pre1467 = load ptr, ptr %1330, align 8
+  %.pre1453 = load ptr, ptr %1330, align 8
   br label %1380
 
 1380:                                             ; preds = %1374, %1355
-  %1381 = phi ptr [ %.pre1467, %1374 ], [ %1356, %1355 ]
+  %1381 = phi ptr [ %.pre1453, %1374 ], [ %1356, %1355 ]
   %1382 = getelementptr inbounds i8, ptr %1381, i64 8
   %1383 = load ptr, ptr %1382, align 8
-  %.not1243 = icmp eq ptr %1383, null
-  br i1 %.not1243, label %1405, label %1384
+  %.not1239 = icmp eq ptr %1383, null
+  br i1 %.not1239, label %1405, label %1384
 
 1384:                                             ; preds = %1380
   %1385 = getelementptr inbounds i8, ptr %1, i64 416
   %1386 = load ptr, ptr %1385, align 8
-  %.not1244 = icmp ult ptr %1383, %1386
-  br i1 %.not1244, label %1391, label %1387
+  %.not1240 = icmp ult ptr %1383, %1386
+  br i1 %.not1240, label %1391, label %1387
 
 1387:                                             ; preds = %1384
   %1388 = getelementptr inbounds i8, ptr %1, i64 424
   %1389 = load i64, ptr %1388, align 8
   %1390 = getelementptr inbounds i8, ptr %1386, i64 %1389
-  %.not1245 = icmp ugt ptr %1383, %1390
-  br i1 %.not1245, label %1391, label %1399
+  %.not1241 = icmp ugt ptr %1383, %1390
+  br i1 %.not1241, label %1391, label %1399
 
 1391:                                             ; preds = %1387, %1384
   %1392 = load ptr, ptr @accel_shared_globals, align 8
   %1393 = getelementptr inbounds i8, ptr %1392, i64 176
   %1394 = load ptr, ptr %1393, align 8
-  %.not1246 = icmp ult ptr %1383, %1394
-  br i1 %.not1246, label %1399, label %1395
+  %.not1242 = icmp ult ptr %1383, %1394
+  br i1 %.not1242, label %1399, label %1395
 
 1395:                                             ; preds = %1391
   %1396 = getelementptr inbounds i8, ptr %1392, i64 184
@@ -5149,35 +5108,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1403 = sub i64 %1401, %1402
   %1404 = inttoptr i64 %1403 to ptr
   store ptr %1404, ptr %1382, align 8
-  %.pre1468 = load ptr, ptr %1330, align 8
+  %.pre1454 = load ptr, ptr %1330, align 8
   br label %1405
 
 1405:                                             ; preds = %1399, %1380
-  %1406 = phi ptr [ %.pre1468, %1399 ], [ %1381, %1380 ]
+  %1406 = phi ptr [ %.pre1454, %1399 ], [ %1381, %1380 ]
   %1407 = getelementptr inbounds i8, ptr %1406, i64 24
   %1408 = load ptr, ptr %1407, align 8
-  %.not1247 = icmp eq ptr %1408, null
-  br i1 %.not1247, label %1430, label %1409
+  %.not1243 = icmp eq ptr %1408, null
+  br i1 %.not1243, label %1430, label %1409
 
 1409:                                             ; preds = %1405
   %1410 = getelementptr inbounds i8, ptr %1, i64 416
   %1411 = load ptr, ptr %1410, align 8
-  %.not1248 = icmp ult ptr %1408, %1411
-  br i1 %.not1248, label %1416, label %1412
+  %.not1244 = icmp ult ptr %1408, %1411
+  br i1 %.not1244, label %1416, label %1412
 
 1412:                                             ; preds = %1409
   %1413 = getelementptr inbounds i8, ptr %1, i64 424
   %1414 = load i64, ptr %1413, align 8
   %1415 = getelementptr inbounds i8, ptr %1411, i64 %1414
-  %.not1249 = icmp ugt ptr %1408, %1415
-  br i1 %.not1249, label %1416, label %1424
+  %.not1245 = icmp ugt ptr %1408, %1415
+  br i1 %.not1245, label %1416, label %1424
 
 1416:                                             ; preds = %1412, %1409
   %1417 = load ptr, ptr @accel_shared_globals, align 8
   %1418 = getelementptr inbounds i8, ptr %1417, i64 176
   %1419 = load ptr, ptr %1418, align 8
-  %.not1250 = icmp ult ptr %1408, %1419
-  br i1 %.not1250, label %1424, label %1420
+  %.not1246 = icmp ult ptr %1408, %1419
+  br i1 %.not1246, label %1424, label %1420
 
 1420:                                             ; preds = %1416
   %1421 = getelementptr inbounds i8, ptr %1417, i64 184
@@ -5193,35 +5152,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1428 = sub i64 %1426, %1427
   %1429 = inttoptr i64 %1428 to ptr
   store ptr %1429, ptr %1407, align 8
-  %.pre1469 = load ptr, ptr %1330, align 8
+  %.pre1455 = load ptr, ptr %1330, align 8
   br label %1430
 
 1430:                                             ; preds = %1424, %1405
-  %1431 = phi ptr [ %.pre1469, %1424 ], [ %1406, %1405 ]
+  %1431 = phi ptr [ %.pre1455, %1424 ], [ %1406, %1405 ]
   %1432 = getelementptr inbounds i8, ptr %1431, i64 16
   %1433 = load ptr, ptr %1432, align 8
-  %.not1251 = icmp eq ptr %1433, null
-  br i1 %.not1251, label %1455, label %1434
+  %.not1247 = icmp eq ptr %1433, null
+  br i1 %.not1247, label %1455, label %1434
 
 1434:                                             ; preds = %1430
   %1435 = getelementptr inbounds i8, ptr %1, i64 416
   %1436 = load ptr, ptr %1435, align 8
-  %.not1252 = icmp ult ptr %1433, %1436
-  br i1 %.not1252, label %1441, label %1437
+  %.not1248 = icmp ult ptr %1433, %1436
+  br i1 %.not1248, label %1441, label %1437
 
 1437:                                             ; preds = %1434
   %1438 = getelementptr inbounds i8, ptr %1, i64 424
   %1439 = load i64, ptr %1438, align 8
   %1440 = getelementptr inbounds i8, ptr %1436, i64 %1439
-  %.not1253 = icmp ugt ptr %1433, %1440
-  br i1 %.not1253, label %1441, label %1449
+  %.not1249 = icmp ugt ptr %1433, %1440
+  br i1 %.not1249, label %1441, label %1449
 
 1441:                                             ; preds = %1437, %1434
   %1442 = load ptr, ptr @accel_shared_globals, align 8
   %1443 = getelementptr inbounds i8, ptr %1442, i64 176
   %1444 = load ptr, ptr %1443, align 8
-  %.not1254 = icmp ult ptr %1433, %1444
-  br i1 %.not1254, label %1449, label %1445
+  %.not1250 = icmp ult ptr %1433, %1444
+  br i1 %.not1250, label %1449, label %1445
 
 1445:                                             ; preds = %1441
   %1446 = getelementptr inbounds i8, ptr %1442, i64 184
@@ -5237,35 +5196,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1453 = sub i64 %1451, %1452
   %1454 = inttoptr i64 %1453 to ptr
   store ptr %1454, ptr %1432, align 8
-  %.pre1470 = load ptr, ptr %1330, align 8
+  %.pre1456 = load ptr, ptr %1330, align 8
   br label %1455
 
 1455:                                             ; preds = %1449, %1430
-  %1456 = phi ptr [ %.pre1470, %1449 ], [ %1431, %1430 ]
+  %1456 = phi ptr [ %.pre1456, %1449 ], [ %1431, %1430 ]
   %1457 = getelementptr inbounds i8, ptr %1456, i64 32
   %1458 = load ptr, ptr %1457, align 8
-  %.not1255 = icmp eq ptr %1458, null
-  br i1 %.not1255, label %.thread1516, label %1459
+  %.not1251 = icmp eq ptr %1458, null
+  br i1 %.not1251, label %.thread1502, label %1459
 
 1459:                                             ; preds = %1455
   %1460 = getelementptr inbounds i8, ptr %1, i64 416
   %1461 = load ptr, ptr %1460, align 8
-  %.not1256 = icmp ult ptr %1458, %1461
-  br i1 %.not1256, label %1466, label %1462
+  %.not1252 = icmp ult ptr %1458, %1461
+  br i1 %.not1252, label %1466, label %1462
 
 1462:                                             ; preds = %1459
   %1463 = getelementptr inbounds i8, ptr %1, i64 424
   %1464 = load i64, ptr %1463, align 8
   %1465 = getelementptr inbounds i8, ptr %1461, i64 %1464
-  %.not1257 = icmp ugt ptr %1458, %1465
-  br i1 %.not1257, label %1466, label %1474
+  %.not1253 = icmp ugt ptr %1458, %1465
+  br i1 %.not1253, label %1466, label %1474
 
 1466:                                             ; preds = %1462, %1459
   %1467 = load ptr, ptr @accel_shared_globals, align 8
   %1468 = getelementptr inbounds i8, ptr %1467, i64 176
   %1469 = load ptr, ptr %1468, align 8
-  %.not1258 = icmp ult ptr %1458, %1469
-  br i1 %.not1258, label %1474, label %1470
+  %.not1254 = icmp ult ptr %1458, %1469
+  br i1 %.not1254, label %1474, label %1470
 
 1470:                                             ; preds = %1466
   %1471 = getelementptr inbounds i8, ptr %1467, i64 184
@@ -5282,29 +5241,29 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1479 = inttoptr i64 %1478 to ptr
   store ptr %1479, ptr %1457, align 8
   %.pr = load ptr, ptr %1330, align 8
-  %.not1259 = icmp eq ptr %.pr, null
-  br i1 %.not1259, label %1501, label %.thread1516
+  %.not1255 = icmp eq ptr %.pr, null
+  br i1 %.not1255, label %1501, label %.thread1502
 
-.thread1516:                                      ; preds = %1455, %1474
+.thread1502:                                      ; preds = %1455, %1474
   %1480 = phi ptr [ %.pr, %1474 ], [ %1456, %1455 ]
   %1481 = getelementptr inbounds i8, ptr %1, i64 416
   %1482 = load ptr, ptr %1481, align 8
-  %.not1260 = icmp ult ptr %1480, %1482
-  br i1 %.not1260, label %1487, label %1483
+  %.not1256 = icmp ult ptr %1480, %1482
+  br i1 %.not1256, label %1487, label %1483
 
-1483:                                             ; preds = %.thread1516
+1483:                                             ; preds = %.thread1502
   %1484 = getelementptr inbounds i8, ptr %1, i64 424
   %1485 = load i64, ptr %1484, align 8
   %1486 = getelementptr inbounds i8, ptr %1482, i64 %1485
-  %.not1261 = icmp ugt ptr %1480, %1486
-  br i1 %.not1261, label %1487, label %1495
+  %.not1257 = icmp ugt ptr %1480, %1486
+  br i1 %.not1257, label %1487, label %1495
 
-1487:                                             ; preds = %1483, %.thread1516
+1487:                                             ; preds = %1483, %.thread1502
   %1488 = load ptr, ptr @accel_shared_globals, align 8
   %1489 = getelementptr inbounds i8, ptr %1488, i64 176
   %1490 = load ptr, ptr %1489, align 8
-  %.not1262 = icmp ult ptr %1480, %1490
-  br i1 %.not1262, label %1495, label %1491
+  %.not1258 = icmp ult ptr %1480, %1490
+  br i1 %.not1258, label %1495, label %1491
 
 1491:                                             ; preds = %1487
   %1492 = getelementptr inbounds i8, ptr %1488, i64 184
@@ -5325,33 +5284,33 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 1501:                                             ; preds = %1495, %1474, %1329
   %1502 = getelementptr inbounds i8, ptr %.0906, i64 376
   %1503 = load ptr, ptr %1502, align 8
-  %.not1263 = icmp eq ptr %1503, null
-  br i1 %.not1263, label %1623, label %1504
+  %.not1259 = icmp eq ptr %1503, null
+  br i1 %.not1259, label %1623, label %1504
 
 1504:                                             ; preds = %1501
   %1505 = load ptr, ptr %1503, align 8
-  %.not1264 = icmp eq ptr %1505, null
-  br i1 %.not1264, label %1527, label %1506
+  %.not1260 = icmp eq ptr %1505, null
+  br i1 %.not1260, label %1527, label %1506
 
 1506:                                             ; preds = %1504
   %1507 = getelementptr inbounds i8, ptr %1, i64 416
   %1508 = load ptr, ptr %1507, align 8
-  %.not1265 = icmp ult ptr %1505, %1508
-  br i1 %.not1265, label %1513, label %1509
+  %.not1261 = icmp ult ptr %1505, %1508
+  br i1 %.not1261, label %1513, label %1509
 
 1509:                                             ; preds = %1506
   %1510 = getelementptr inbounds i8, ptr %1, i64 424
   %1511 = load i64, ptr %1510, align 8
   %1512 = getelementptr inbounds i8, ptr %1508, i64 %1511
-  %.not1266 = icmp ugt ptr %1505, %1512
-  br i1 %.not1266, label %1513, label %1521
+  %.not1262 = icmp ugt ptr %1505, %1512
+  br i1 %.not1262, label %1513, label %1521
 
 1513:                                             ; preds = %1509, %1506
   %1514 = load ptr, ptr @accel_shared_globals, align 8
   %1515 = getelementptr inbounds i8, ptr %1514, i64 176
   %1516 = load ptr, ptr %1515, align 8
-  %.not1267 = icmp ult ptr %1505, %1516
-  br i1 %.not1267, label %1521, label %1517
+  %.not1263 = icmp ult ptr %1505, %1516
+  br i1 %.not1263, label %1521, label %1517
 
 1517:                                             ; preds = %1513
   %1518 = getelementptr inbounds i8, ptr %1514, i64 184
@@ -5367,35 +5326,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1525 = sub i64 %1523, %1524
   %1526 = inttoptr i64 %1525 to ptr
   store ptr %1526, ptr %1503, align 8
-  %.pre1471 = load ptr, ptr %1502, align 8
+  %.pre1457 = load ptr, ptr %1502, align 8
   br label %1527
 
 1527:                                             ; preds = %1521, %1504
-  %1528 = phi ptr [ %.pre1471, %1521 ], [ %1503, %1504 ]
+  %1528 = phi ptr [ %.pre1457, %1521 ], [ %1503, %1504 ]
   %1529 = getelementptr inbounds i8, ptr %1528, i64 8
   %1530 = load ptr, ptr %1529, align 8
-  %.not1268 = icmp eq ptr %1530, null
-  br i1 %.not1268, label %1552, label %1531
+  %.not1264 = icmp eq ptr %1530, null
+  br i1 %.not1264, label %1552, label %1531
 
 1531:                                             ; preds = %1527
   %1532 = getelementptr inbounds i8, ptr %1, i64 416
   %1533 = load ptr, ptr %1532, align 8
-  %.not1269 = icmp ult ptr %1530, %1533
-  br i1 %.not1269, label %1538, label %1534
+  %.not1265 = icmp ult ptr %1530, %1533
+  br i1 %.not1265, label %1538, label %1534
 
 1534:                                             ; preds = %1531
   %1535 = getelementptr inbounds i8, ptr %1, i64 424
   %1536 = load i64, ptr %1535, align 8
   %1537 = getelementptr inbounds i8, ptr %1533, i64 %1536
-  %.not1270 = icmp ugt ptr %1530, %1537
-  br i1 %.not1270, label %1538, label %1546
+  %.not1266 = icmp ugt ptr %1530, %1537
+  br i1 %.not1266, label %1538, label %1546
 
 1538:                                             ; preds = %1534, %1531
   %1539 = load ptr, ptr @accel_shared_globals, align 8
   %1540 = getelementptr inbounds i8, ptr %1539, i64 176
   %1541 = load ptr, ptr %1540, align 8
-  %.not1271 = icmp ult ptr %1530, %1541
-  br i1 %.not1271, label %1546, label %1542
+  %.not1267 = icmp ult ptr %1530, %1541
+  br i1 %.not1267, label %1546, label %1542
 
 1542:                                             ; preds = %1538
   %1543 = getelementptr inbounds i8, ptr %1539, i64 184
@@ -5411,35 +5370,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1550 = sub i64 %1548, %1549
   %1551 = inttoptr i64 %1550 to ptr
   store ptr %1551, ptr %1529, align 8
-  %.pre1472 = load ptr, ptr %1502, align 8
+  %.pre1458 = load ptr, ptr %1502, align 8
   br label %1552
 
 1552:                                             ; preds = %1546, %1527
-  %1553 = phi ptr [ %.pre1472, %1546 ], [ %1528, %1527 ]
+  %1553 = phi ptr [ %.pre1458, %1546 ], [ %1528, %1527 ]
   %1554 = getelementptr inbounds i8, ptr %1553, i64 16
   %1555 = load ptr, ptr %1554, align 8
-  %.not1272 = icmp eq ptr %1555, null
-  br i1 %.not1272, label %1577, label %1556
+  %.not1268 = icmp eq ptr %1555, null
+  br i1 %.not1268, label %1577, label %1556
 
 1556:                                             ; preds = %1552
   %1557 = getelementptr inbounds i8, ptr %1, i64 416
   %1558 = load ptr, ptr %1557, align 8
-  %.not1273 = icmp ult ptr %1555, %1558
-  br i1 %.not1273, label %1563, label %1559
+  %.not1269 = icmp ult ptr %1555, %1558
+  br i1 %.not1269, label %1563, label %1559
 
 1559:                                             ; preds = %1556
   %1560 = getelementptr inbounds i8, ptr %1, i64 424
   %1561 = load i64, ptr %1560, align 8
   %1562 = getelementptr inbounds i8, ptr %1558, i64 %1561
-  %.not1274 = icmp ugt ptr %1555, %1562
-  br i1 %.not1274, label %1563, label %1571
+  %.not1270 = icmp ugt ptr %1555, %1562
+  br i1 %.not1270, label %1563, label %1571
 
 1563:                                             ; preds = %1559, %1556
   %1564 = load ptr, ptr @accel_shared_globals, align 8
   %1565 = getelementptr inbounds i8, ptr %1564, i64 176
   %1566 = load ptr, ptr %1565, align 8
-  %.not1275 = icmp ult ptr %1555, %1566
-  br i1 %.not1275, label %1571, label %1567
+  %.not1271 = icmp ult ptr %1555, %1566
+  br i1 %.not1271, label %1571, label %1567
 
 1567:                                             ; preds = %1563
   %1568 = getelementptr inbounds i8, ptr %1564, i64 184
@@ -5455,35 +5414,35 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1575 = sub i64 %1573, %1574
   %1576 = inttoptr i64 %1575 to ptr
   store ptr %1576, ptr %1554, align 8
-  %.pre1473 = load ptr, ptr %1502, align 8
+  %.pre1459 = load ptr, ptr %1502, align 8
   br label %1577
 
 1577:                                             ; preds = %1571, %1552
-  %1578 = phi ptr [ %.pre1473, %1571 ], [ %1553, %1552 ]
+  %1578 = phi ptr [ %.pre1459, %1571 ], [ %1553, %1552 ]
   %1579 = getelementptr inbounds i8, ptr %1578, i64 24
   %1580 = load ptr, ptr %1579, align 8
-  %.not1276 = icmp eq ptr %1580, null
-  br i1 %.not1276, label %.thread1518, label %1581
+  %.not1272 = icmp eq ptr %1580, null
+  br i1 %.not1272, label %.thread1504, label %1581
 
 1581:                                             ; preds = %1577
   %1582 = getelementptr inbounds i8, ptr %1, i64 416
   %1583 = load ptr, ptr %1582, align 8
-  %.not1277 = icmp ult ptr %1580, %1583
-  br i1 %.not1277, label %1588, label %1584
+  %.not1273 = icmp ult ptr %1580, %1583
+  br i1 %.not1273, label %1588, label %1584
 
 1584:                                             ; preds = %1581
   %1585 = getelementptr inbounds i8, ptr %1, i64 424
   %1586 = load i64, ptr %1585, align 8
   %1587 = getelementptr inbounds i8, ptr %1583, i64 %1586
-  %.not1278 = icmp ugt ptr %1580, %1587
-  br i1 %.not1278, label %1588, label %1596
+  %.not1274 = icmp ugt ptr %1580, %1587
+  br i1 %.not1274, label %1588, label %1596
 
 1588:                                             ; preds = %1584, %1581
   %1589 = load ptr, ptr @accel_shared_globals, align 8
   %1590 = getelementptr inbounds i8, ptr %1589, i64 176
   %1591 = load ptr, ptr %1590, align 8
-  %.not1279 = icmp ult ptr %1580, %1591
-  br i1 %.not1279, label %1596, label %1592
+  %.not1275 = icmp ult ptr %1580, %1591
+  br i1 %.not1275, label %1596, label %1592
 
 1592:                                             ; preds = %1588
   %1593 = getelementptr inbounds i8, ptr %1589, i64 184
@@ -5499,30 +5458,30 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %1600 = sub i64 %1598, %1599
   %1601 = inttoptr i64 %1600 to ptr
   store ptr %1601, ptr %1579, align 8
-  %.pr1361 = load ptr, ptr %1502, align 8
-  %.not1280 = icmp eq ptr %.pr1361, null
-  br i1 %.not1280, label %1623, label %.thread1518
+  %.pr1347 = load ptr, ptr %1502, align 8
+  %.not1276 = icmp eq ptr %.pr1347, null
+  br i1 %.not1276, label %1623, label %.thread1504
 
-.thread1518:                                      ; preds = %1577, %1596
-  %1602 = phi ptr [ %.pr1361, %1596 ], [ %1578, %1577 ]
+.thread1504:                                      ; preds = %1577, %1596
+  %1602 = phi ptr [ %.pr1347, %1596 ], [ %1578, %1577 ]
   %1603 = getelementptr inbounds i8, ptr %1, i64 416
   %1604 = load ptr, ptr %1603, align 8
-  %.not1281 = icmp ult ptr %1602, %1604
-  br i1 %.not1281, label %1609, label %1605
+  %.not1277 = icmp ult ptr %1602, %1604
+  br i1 %.not1277, label %1609, label %1605
 
-1605:                                             ; preds = %.thread1518
+1605:                                             ; preds = %.thread1504
   %1606 = getelementptr inbounds i8, ptr %1, i64 424
   %1607 = load i64, ptr %1606, align 8
   %1608 = getelementptr inbounds i8, ptr %1604, i64 %1607
-  %.not1282 = icmp ugt ptr %1602, %1608
-  br i1 %.not1282, label %1609, label %1617
+  %.not1278 = icmp ugt ptr %1602, %1608
+  br i1 %.not1278, label %1609, label %1617
 
-1609:                                             ; preds = %1605, %.thread1518
+1609:                                             ; preds = %1605, %.thread1504
   %1610 = load ptr, ptr @accel_shared_globals, align 8
   %1611 = getelementptr inbounds i8, ptr %1610, i64 176
   %1612 = load ptr, ptr %1611, align 8
-  %.not1283 = icmp ult ptr %1602, %1612
-  br i1 %.not1283, label %1617, label %1613
+  %.not1279 = icmp ult ptr %1602, %1612
+  br i1 %.not1279, label %1617, label %1613
 
 1613:                                             ; preds = %1609
   %1614 = getelementptr inbounds i8, ptr %1610, i64 184
@@ -5641,27 +5600,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr inttoptr (i64 -1 to ptr), ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
-  %.not774 = icmp eq ptr %22, null
-  br i1 %.not774, label %43, label %23
+  %.not769 = icmp eq ptr %22, null
+  br i1 %.not769, label %43, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 416
   %25 = load ptr, ptr %24, align 8
-  %.not775 = icmp ult ptr %22, %25
-  br i1 %.not775, label %29, label %26
+  %.not770 = icmp ult ptr %22, %25
+  br i1 %.not770, label %29, label %26
 
 26:                                               ; preds = %23
   %27 = load i64, ptr %9, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  %.not776 = icmp ugt ptr %22, %28
-  br i1 %.not776, label %29, label %37
+  %.not771 = icmp ugt ptr %22, %28
+  br i1 %.not771, label %29, label %37
 
 29:                                               ; preds = %26, %23
   %30 = load ptr, ptr @accel_shared_globals, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 176
   %32 = load ptr, ptr %31, align 8
-  %.not777 = icmp ult ptr %22, %32
-  br i1 %.not777, label %37, label %33
+  %.not772 = icmp ult ptr %22, %32
+  br i1 %.not772, label %37, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %30, i64 184
@@ -5682,27 +5641,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 43:                                               ; preds = %37, %19
   %44 = getelementptr inbounds i8, ptr %0, i64 176
   %45 = load ptr, ptr %44, align 8
-  %.not778 = icmp eq ptr %45, null
-  br i1 %.not778, label %66, label %46
+  %.not773 = icmp eq ptr %45, null
+  br i1 %.not773, label %66, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %1, i64 416
   %48 = load ptr, ptr %47, align 8
-  %.not779 = icmp ult ptr %45, %48
-  br i1 %.not779, label %52, label %49
+  %.not774 = icmp ult ptr %45, %48
+  br i1 %.not774, label %52, label %49
 
 49:                                               ; preds = %46
   %50 = load i64, ptr %9, align 8
   %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %.not780 = icmp ugt ptr %45, %51
-  br i1 %.not780, label %52, label %60
+  %.not775 = icmp ugt ptr %45, %51
+  br i1 %.not775, label %52, label %60
 
 52:                                               ; preds = %49, %46
   %53 = load ptr, ptr @accel_shared_globals, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 176
   %55 = load ptr, ptr %54, align 8
-  %.not781 = icmp ult ptr %45, %55
-  br i1 %.not781, label %60, label %56
+  %.not776 = icmp ult ptr %45, %55
+  br i1 %.not776, label %60, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %53, i64 184
@@ -5722,27 +5681,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 
 66:                                               ; preds = %60, %43
   %67 = load ptr, ptr %7, align 8
-  %.not782 = icmp eq ptr %67, null
-  br i1 %.not782, label %88, label %68
+  %.not777 = icmp eq ptr %67, null
+  br i1 %.not777, label %88, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %1, i64 416
   %70 = load ptr, ptr %69, align 8
-  %.not783 = icmp ult ptr %67, %70
-  br i1 %.not783, label %74, label %71
+  %.not778 = icmp ult ptr %67, %70
+  br i1 %.not778, label %74, label %71
 
 71:                                               ; preds = %68
   %72 = load i64, ptr %9, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %.not784 = icmp ugt ptr %67, %73
-  br i1 %.not784, label %74, label %82
+  %.not779 = icmp ugt ptr %67, %73
+  br i1 %.not779, label %74, label %82
 
 74:                                               ; preds = %71, %68
   %75 = load ptr, ptr @accel_shared_globals, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 176
   %77 = load ptr, ptr %76, align 8
-  %.not785 = icmp ult ptr %67, %77
-  br i1 %.not785, label %82, label %78
+  %.not780 = icmp ult ptr %67, %77
+  br i1 %.not780, label %82, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %75, i64 184
@@ -5763,27 +5722,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 88:                                               ; preds = %82, %66
   %89 = getelementptr inbounds i8, ptr %0, i64 40
   %90 = load ptr, ptr %89, align 8
-  %.not786 = icmp eq ptr %90, null
-  br i1 %.not786, label %111, label %91
+  %.not781 = icmp eq ptr %90, null
+  br i1 %.not781, label %111, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %1, i64 416
   %93 = load ptr, ptr %92, align 8
-  %.not787 = icmp ult ptr %90, %93
-  br i1 %.not787, label %97, label %94
+  %.not782 = icmp ult ptr %90, %93
+  br i1 %.not782, label %97, label %94
 
 94:                                               ; preds = %91
   %95 = load i64, ptr %9, align 8
   %96 = getelementptr inbounds i8, ptr %93, i64 %95
-  %.not788 = icmp ugt ptr %90, %96
-  br i1 %.not788, label %97, label %105
+  %.not783 = icmp ugt ptr %90, %96
+  br i1 %.not783, label %97, label %105
 
 97:                                               ; preds = %94, %91
   %98 = load ptr, ptr @accel_shared_globals, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 176
   %100 = load ptr, ptr %99, align 8
-  %.not789 = icmp ult ptr %90, %100
-  br i1 %.not789, label %105, label %101
+  %.not784 = icmp ult ptr %90, %100
+  br i1 %.not784, label %105, label %101
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds i8, ptr %98, i64 184
@@ -5804,27 +5763,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 111:                                              ; preds = %105, %88
   %112 = getelementptr inbounds i8, ptr %0, i64 112
   %113 = load ptr, ptr %112, align 8
-  %.not790 = icmp eq ptr %113, null
-  br i1 %.not790, label %134, label %114
+  %.not785 = icmp eq ptr %113, null
+  br i1 %.not785, label %134, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds i8, ptr %1, i64 416
   %116 = load ptr, ptr %115, align 8
-  %.not791 = icmp ult ptr %113, %116
-  br i1 %.not791, label %120, label %117
+  %.not786 = icmp ult ptr %113, %116
+  br i1 %.not786, label %120, label %117
 
 117:                                              ; preds = %114
   %118 = load i64, ptr %9, align 8
   %119 = getelementptr inbounds i8, ptr %116, i64 %118
-  %.not792 = icmp ugt ptr %113, %119
-  br i1 %.not792, label %120, label %128
+  %.not787 = icmp ugt ptr %113, %119
+  br i1 %.not787, label %120, label %128
 
 120:                                              ; preds = %117, %114
   %121 = load ptr, ptr @accel_shared_globals, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 176
   %123 = load ptr, ptr %122, align 8
-  %.not793 = icmp ult ptr %113, %123
-  br i1 %.not793, label %128, label %124
+  %.not788 = icmp ult ptr %113, %123
+  br i1 %.not788, label %128, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %121, i64 184
@@ -5845,21 +5804,21 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 134:                                              ; preds = %128, %111
   %135 = getelementptr inbounds i8, ptr %0, i64 8
   %136 = load ptr, ptr %135, align 8
-  %.not794 = icmp eq ptr %136, null
-  br i1 %.not794, label %184, label %137
+  %.not789 = icmp eq ptr %136, null
+  br i1 %.not789, label %184, label %137
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr @accel_shared_globals, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 176
   %140 = load ptr, ptr %139, align 8
-  %.not795 = icmp ult ptr %136, %140
-  br i1 %.not795, label %147, label %141
+  %.not790 = icmp ult ptr %136, %140
+  br i1 %.not790, label %147, label %141
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds i8, ptr %138, i64 184
   %143 = load ptr, ptr %142, align 8
   %144 = icmp ult ptr %136, %143
-  br i1 %144, label %145, label %.thread902
+  br i1 %144, label %145, label %.thread894
 
 145:                                              ; preds = %141
   %146 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %136, ptr noundef %2)
@@ -5868,42 +5827,41 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 147:                                              ; preds = %137
   %148 = getelementptr inbounds i8, ptr %1, i64 416
   %149 = load ptr, ptr %148, align 8
-  %.not796 = icmp ult ptr %136, %149
-  br i1 %.not796, label %162, label %152
+  %.not791 = icmp ult ptr %136, %149
+  br i1 %.not791, label %162, label %152
 
-.thread902:                                       ; preds = %141
+.thread894:                                       ; preds = %141
   %150 = getelementptr inbounds i8, ptr %1, i64 416
   %151 = load ptr, ptr %150, align 8
-  %.not796903 = icmp ult ptr %136, %151
-  br i1 %.not796903, label %.thread904, label %152
+  %.not791895 = icmp ult ptr %136, %151
+  br i1 %.not791895, label %.thread896, label %152
 
-152:                                              ; preds = %.thread902, %147
-  %153 = phi ptr [ %151, %.thread902 ], [ %149, %147 ]
-  %154 = phi ptr [ %150, %.thread902 ], [ %148, %147 ]
+152:                                              ; preds = %.thread894, %147
+  %153 = phi ptr [ %151, %.thread894 ], [ %149, %147 ]
+  %154 = phi ptr [ %150, %.thread894 ], [ %148, %147 ]
   %155 = load i64, ptr %9, align 8
   %156 = getelementptr inbounds i8, ptr %153, i64 %155
-  %.not797 = icmp ule ptr %136, %156
-  %brmerge = or i1 %.not795, %.not797
-  br i1 %brmerge, label %162, label %.thread904
+  %.not792 = icmp ule ptr %136, %156
+  %brmerge = or i1 %.not790, %.not792
+  br i1 %brmerge, label %162, label %.thread896
 
-.thread904:                                       ; preds = %.thread902, %152
-  %157 = phi ptr [ %153, %152 ], [ %151, %.thread902 ]
-  %158 = phi ptr [ %154, %152 ], [ %150, %.thread902 ]
+.thread896:                                       ; preds = %.thread894, %152
+  %157 = phi ptr [ %153, %152 ], [ %151, %.thread894 ]
+  %158 = phi ptr [ %154, %152 ], [ %150, %.thread894 ]
   %159 = getelementptr inbounds i8, ptr %138, i64 184
   %160 = load ptr, ptr %159, align 8
   %161 = icmp ult ptr %136, %160
   br label %162
 
-162:                                              ; preds = %147, %152, %.thread904
-  %163 = phi ptr [ %153, %152 ], [ %157, %.thread904 ], [ %149, %147 ]
-  %164 = phi ptr [ %154, %152 ], [ %158, %.thread904 ], [ %148, %147 ]
-  %165 = phi i1 [ %.not797, %152 ], [ %161, %.thread904 ], [ false, %147 ]
+162:                                              ; preds = %147, %152, %.thread896
+  %163 = phi ptr [ %153, %152 ], [ %157, %.thread896 ], [ %149, %147 ]
+  %164 = phi ptr [ %154, %152 ], [ %158, %.thread896 ], [ %148, %147 ]
+  %165 = phi i1 [ %.not792, %152 ], [ %161, %.thread896 ], [ false, %147 ]
   tail call void @llvm.assume(i1 %165)
   %166 = getelementptr inbounds i8, ptr %1, i64 384
   %167 = load i8, ptr %166, align 8
-  %168 = and i8 %167, 1
-  %.not799 = icmp eq i8 %168, 0
-  br i1 %.not799, label %177, label %169
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %169, label %177
 
 169:                                              ; preds = %162
   %170 = getelementptr inbounds i8, ptr %136, i64 4
@@ -5916,11 +5874,11 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %176 = and i32 %175, -257
   store i32 %176, ptr %174, align 4
   %.pre = load ptr, ptr %135, align 8
-  %.pre886 = load ptr, ptr %164, align 8
+  %.pre878 = load ptr, ptr %164, align 8
   br label %177
 
 177:                                              ; preds = %169, %162
-  %178 = phi ptr [ %.pre886, %169 ], [ %163, %162 ]
+  %178 = phi ptr [ %.pre878, %169 ], [ %163, %162 ]
   %179 = phi ptr [ %.pre, %169 ], [ %136, %162 ]
   %180 = ptrtoint ptr %179 to i64
   %181 = ptrtoint ptr %178 to i64
@@ -5936,65 +5894,64 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 184:                                              ; preds = %.sink.split, %134
   %185 = getelementptr inbounds i8, ptr %0, i64 152
   %186 = load ptr, ptr %185, align 8
-  %.not800 = icmp eq ptr %186, null
-  br i1 %.not800, label %234, label %187
+  %.not794 = icmp eq ptr %186, null
+  br i1 %.not794, label %234, label %187
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr @accel_shared_globals, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 176
   %190 = load ptr, ptr %189, align 8
-  %.not801 = icmp ult ptr %186, %190
-  br i1 %.not801, label %197, label %191
+  %.not795 = icmp ult ptr %186, %190
+  br i1 %.not795, label %197, label %191
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds i8, ptr %188, i64 184
   %193 = load ptr, ptr %192, align 8
   %194 = icmp ult ptr %186, %193
-  br i1 %194, label %195, label %.thread905
+  br i1 %194, label %195, label %.thread897
 
 195:                                              ; preds = %191
   %196 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %186, ptr noundef %2)
-  br label %.sink.split930
+  br label %.sink.split922
 
 197:                                              ; preds = %187
   %198 = getelementptr inbounds i8, ptr %1, i64 416
   %199 = load ptr, ptr %198, align 8
-  %.not802 = icmp ult ptr %186, %199
-  br i1 %.not802, label %212, label %202
+  %.not796 = icmp ult ptr %186, %199
+  br i1 %.not796, label %212, label %202
 
-.thread905:                                       ; preds = %191
+.thread897:                                       ; preds = %191
   %200 = getelementptr inbounds i8, ptr %1, i64 416
   %201 = load ptr, ptr %200, align 8
-  %.not802906 = icmp ult ptr %186, %201
-  br i1 %.not802906, label %.thread907, label %202
+  %.not796898 = icmp ult ptr %186, %201
+  br i1 %.not796898, label %.thread899, label %202
 
-202:                                              ; preds = %.thread905, %197
-  %203 = phi ptr [ %201, %.thread905 ], [ %199, %197 ]
-  %204 = phi ptr [ %200, %.thread905 ], [ %198, %197 ]
+202:                                              ; preds = %.thread897, %197
+  %203 = phi ptr [ %201, %.thread897 ], [ %199, %197 ]
+  %204 = phi ptr [ %200, %.thread897 ], [ %198, %197 ]
   %205 = load i64, ptr %9, align 8
   %206 = getelementptr inbounds i8, ptr %203, i64 %205
-  %.not803 = icmp ule ptr %186, %206
-  %brmerge842 = or i1 %.not801, %.not803
-  br i1 %brmerge842, label %212, label %.thread907
+  %.not797 = icmp ule ptr %186, %206
+  %brmerge834 = or i1 %.not795, %.not797
+  br i1 %brmerge834, label %212, label %.thread899
 
-.thread907:                                       ; preds = %.thread905, %202
-  %207 = phi ptr [ %203, %202 ], [ %201, %.thread905 ]
-  %208 = phi ptr [ %204, %202 ], [ %200, %.thread905 ]
+.thread899:                                       ; preds = %.thread897, %202
+  %207 = phi ptr [ %203, %202 ], [ %201, %.thread897 ]
+  %208 = phi ptr [ %204, %202 ], [ %200, %.thread897 ]
   %209 = getelementptr inbounds i8, ptr %188, i64 184
   %210 = load ptr, ptr %209, align 8
   %211 = icmp ult ptr %186, %210
   br label %212
 
-212:                                              ; preds = %197, %202, %.thread907
-  %213 = phi ptr [ %203, %202 ], [ %207, %.thread907 ], [ %199, %197 ]
-  %214 = phi ptr [ %204, %202 ], [ %208, %.thread907 ], [ %198, %197 ]
-  %215 = phi i1 [ %.not803, %202 ], [ %211, %.thread907 ], [ false, %197 ]
+212:                                              ; preds = %197, %202, %.thread899
+  %213 = phi ptr [ %203, %202 ], [ %207, %.thread899 ], [ %199, %197 ]
+  %214 = phi ptr [ %204, %202 ], [ %208, %.thread899 ], [ %198, %197 ]
+  %215 = phi i1 [ %.not797, %202 ], [ %211, %.thread899 ], [ false, %197 ]
   tail call void @llvm.assume(i1 %215)
   %216 = getelementptr inbounds i8, ptr %1, i64 384
   %217 = load i8, ptr %216, align 8
-  %218 = and i8 %217, 1
-  %.not805 = icmp eq i8 %218, 0
-  br i1 %.not805, label %227, label %219
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %219, label %227
 
 219:                                              ; preds = %212
   %220 = getelementptr inbounds i8, ptr %186, i64 4
@@ -6006,48 +5963,48 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %225 = load i32, ptr %224, align 4
   %226 = and i32 %225, -257
   store i32 %226, ptr %224, align 4
-  %.pre887 = load ptr, ptr %185, align 8
-  %.pre888 = load ptr, ptr %214, align 8
+  %.pre879 = load ptr, ptr %185, align 8
+  %.pre880 = load ptr, ptr %214, align 8
   br label %227
 
 227:                                              ; preds = %219, %212
-  %228 = phi ptr [ %.pre888, %219 ], [ %213, %212 ]
-  %229 = phi ptr [ %.pre887, %219 ], [ %186, %212 ]
+  %228 = phi ptr [ %.pre880, %219 ], [ %213, %212 ]
+  %229 = phi ptr [ %.pre879, %219 ], [ %186, %212 ]
   %230 = ptrtoint ptr %229 to i64
   %231 = ptrtoint ptr %228 to i64
   %232 = sub i64 %230, %231
   %233 = inttoptr i64 %232 to ptr
-  br label %.sink.split930
+  br label %.sink.split922
 
-.sink.split930:                                   ; preds = %227, %195
-  %.sink931 = phi ptr [ %196, %195 ], [ %233, %227 ]
-  store ptr %.sink931, ptr %185, align 8
+.sink.split922:                                   ; preds = %227, %195
+  %.sink923 = phi ptr [ %196, %195 ], [ %233, %227 ]
+  store ptr %.sink923, ptr %185, align 8
   br label %234
 
-234:                                              ; preds = %.sink.split930, %184
+234:                                              ; preds = %.sink.split922, %184
   %235 = getelementptr inbounds i8, ptr %0, i64 136
   %236 = load ptr, ptr %235, align 8
-  %.not806 = icmp eq ptr %236, null
-  br i1 %.not806, label %257, label %237
+  %.not799 = icmp eq ptr %236, null
+  br i1 %.not799, label %257, label %237
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds i8, ptr %1, i64 416
   %239 = load ptr, ptr %238, align 8
-  %.not807 = icmp ult ptr %236, %239
-  br i1 %.not807, label %243, label %240
+  %.not800 = icmp ult ptr %236, %239
+  br i1 %.not800, label %243, label %240
 
 240:                                              ; preds = %237
   %241 = load i64, ptr %9, align 8
   %242 = getelementptr inbounds i8, ptr %239, i64 %241
-  %.not808 = icmp ugt ptr %236, %242
-  br i1 %.not808, label %243, label %251
+  %.not801 = icmp ugt ptr %236, %242
+  br i1 %.not801, label %243, label %251
 
 243:                                              ; preds = %240, %237
   %244 = load ptr, ptr @accel_shared_globals, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 176
   %246 = load ptr, ptr %245, align 8
-  %.not809 = icmp ult ptr %236, %246
-  br i1 %.not809, label %251, label %247
+  %.not802 = icmp ult ptr %236, %246
+  br i1 %.not802, label %251, label %247
 
 247:                                              ; preds = %243
   %248 = getelementptr inbounds i8, ptr %244, i64 184
@@ -6067,27 +6024,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 
 257:                                              ; preds = %251, %234
   %258 = load ptr, ptr %12, align 8
-  %.not810 = icmp eq ptr %258, null
-  br i1 %.not810, label %279, label %259
+  %.not803 = icmp eq ptr %258, null
+  br i1 %.not803, label %279, label %259
 
 259:                                              ; preds = %257
   %260 = getelementptr inbounds i8, ptr %1, i64 416
   %261 = load ptr, ptr %260, align 8
-  %.not811 = icmp ult ptr %258, %261
-  br i1 %.not811, label %265, label %262
+  %.not804 = icmp ult ptr %258, %261
+  br i1 %.not804, label %265, label %262
 
 262:                                              ; preds = %259
   %263 = load i64, ptr %9, align 8
   %264 = getelementptr inbounds i8, ptr %261, i64 %263
-  %.not812 = icmp ugt ptr %258, %264
-  br i1 %.not812, label %265, label %273
+  %.not805 = icmp ugt ptr %258, %264
+  br i1 %.not805, label %265, label %273
 
 265:                                              ; preds = %262, %259
   %266 = load ptr, ptr @accel_shared_globals, align 8
   %267 = getelementptr inbounds i8, ptr %266, i64 176
   %268 = load ptr, ptr %267, align 8
-  %.not813 = icmp ult ptr %258, %268
-  br i1 %.not813, label %273, label %269
+  %.not806 = icmp ult ptr %258, %268
+  br i1 %.not806, label %273, label %269
 
 269:                                              ; preds = %265
   %270 = getelementptr inbounds i8, ptr %266, i64 184
@@ -6108,65 +6065,64 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 279:                                              ; preds = %273, %257
   %280 = getelementptr inbounds i8, ptr %0, i64 64
   %281 = load ptr, ptr %280, align 8
-  %.not814 = icmp eq ptr %281, null
-  br i1 %.not814, label %329, label %282
+  %.not807 = icmp eq ptr %281, null
+  br i1 %.not807, label %329, label %282
 
 282:                                              ; preds = %279
   %283 = load ptr, ptr @accel_shared_globals, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 176
   %285 = load ptr, ptr %284, align 8
-  %.not815 = icmp ult ptr %281, %285
-  br i1 %.not815, label %292, label %286
+  %.not808 = icmp ult ptr %281, %285
+  br i1 %.not808, label %292, label %286
 
 286:                                              ; preds = %282
   %287 = getelementptr inbounds i8, ptr %283, i64 184
   %288 = load ptr, ptr %287, align 8
   %289 = icmp ult ptr %281, %288
-  br i1 %289, label %290, label %.thread908
+  br i1 %289, label %290, label %.thread900
 
 290:                                              ; preds = %286
   %291 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %281, ptr noundef %2)
-  br label %.sink.split932
+  br label %.sink.split924
 
 292:                                              ; preds = %282
   %293 = getelementptr inbounds i8, ptr %1, i64 416
   %294 = load ptr, ptr %293, align 8
-  %.not816 = icmp ult ptr %281, %294
-  br i1 %.not816, label %307, label %297
+  %.not809 = icmp ult ptr %281, %294
+  br i1 %.not809, label %307, label %297
 
-.thread908:                                       ; preds = %286
+.thread900:                                       ; preds = %286
   %295 = getelementptr inbounds i8, ptr %1, i64 416
   %296 = load ptr, ptr %295, align 8
-  %.not816909 = icmp ult ptr %281, %296
-  br i1 %.not816909, label %.thread910, label %297
+  %.not809901 = icmp ult ptr %281, %296
+  br i1 %.not809901, label %.thread902, label %297
 
-297:                                              ; preds = %.thread908, %292
-  %298 = phi ptr [ %296, %.thread908 ], [ %294, %292 ]
-  %299 = phi ptr [ %295, %.thread908 ], [ %293, %292 ]
+297:                                              ; preds = %.thread900, %292
+  %298 = phi ptr [ %296, %.thread900 ], [ %294, %292 ]
+  %299 = phi ptr [ %295, %.thread900 ], [ %293, %292 ]
   %300 = load i64, ptr %9, align 8
   %301 = getelementptr inbounds i8, ptr %298, i64 %300
-  %.not817 = icmp ule ptr %281, %301
-  %brmerge844 = or i1 %.not815, %.not817
-  br i1 %brmerge844, label %307, label %.thread910
+  %.not810 = icmp ule ptr %281, %301
+  %brmerge836 = or i1 %.not808, %.not810
+  br i1 %brmerge836, label %307, label %.thread902
 
-.thread910:                                       ; preds = %.thread908, %297
-  %302 = phi ptr [ %298, %297 ], [ %296, %.thread908 ]
-  %303 = phi ptr [ %299, %297 ], [ %295, %.thread908 ]
+.thread902:                                       ; preds = %.thread900, %297
+  %302 = phi ptr [ %298, %297 ], [ %296, %.thread900 ]
+  %303 = phi ptr [ %299, %297 ], [ %295, %.thread900 ]
   %304 = getelementptr inbounds i8, ptr %283, i64 184
   %305 = load ptr, ptr %304, align 8
   %306 = icmp ult ptr %281, %305
   br label %307
 
-307:                                              ; preds = %292, %297, %.thread910
-  %308 = phi ptr [ %298, %297 ], [ %302, %.thread910 ], [ %294, %292 ]
-  %309 = phi ptr [ %299, %297 ], [ %303, %.thread910 ], [ %293, %292 ]
-  %310 = phi i1 [ %.not817, %297 ], [ %306, %.thread910 ], [ false, %292 ]
+307:                                              ; preds = %292, %297, %.thread902
+  %308 = phi ptr [ %298, %297 ], [ %302, %.thread902 ], [ %294, %292 ]
+  %309 = phi ptr [ %299, %297 ], [ %303, %.thread902 ], [ %293, %292 ]
+  %310 = phi i1 [ %.not810, %297 ], [ %306, %.thread902 ], [ false, %292 ]
   tail call void @llvm.assume(i1 %310)
   %311 = getelementptr inbounds i8, ptr %1, i64 384
   %312 = load i8, ptr %311, align 8
-  %313 = and i8 %312, 1
-  %.not819 = icmp eq i8 %313, 0
-  br i1 %.not819, label %322, label %314
+  %313 = trunc i8 %312 to i1
+  br i1 %313, label %314, label %322
 
 314:                                              ; preds = %307
   %315 = getelementptr inbounds i8, ptr %281, i64 4
@@ -6178,51 +6134,51 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %320 = load i32, ptr %319, align 4
   %321 = and i32 %320, -257
   store i32 %321, ptr %319, align 4
-  %.pre889 = load ptr, ptr %280, align 8
-  %.pre890 = load ptr, ptr %309, align 8
+  %.pre881 = load ptr, ptr %280, align 8
+  %.pre882 = load ptr, ptr %309, align 8
   br label %322
 
 322:                                              ; preds = %314, %307
-  %323 = phi ptr [ %.pre890, %314 ], [ %308, %307 ]
-  %324 = phi ptr [ %.pre889, %314 ], [ %281, %307 ]
+  %323 = phi ptr [ %.pre882, %314 ], [ %308, %307 ]
+  %324 = phi ptr [ %.pre881, %314 ], [ %281, %307 ]
   %325 = ptrtoint ptr %324 to i64
   %326 = ptrtoint ptr %323 to i64
   %327 = sub i64 %325, %326
   %328 = inttoptr i64 %327 to ptr
-  br label %.sink.split932
+  br label %.sink.split924
 
-.sink.split932:                                   ; preds = %322, %290
-  %.sink933 = phi ptr [ %291, %290 ], [ %328, %322 ]
-  store ptr %.sink933, ptr %280, align 8
+.sink.split924:                                   ; preds = %322, %290
+  %.sink925 = phi ptr [ %291, %290 ], [ %328, %322 ]
+  store ptr %.sink925, ptr %280, align 8
   br label %329
 
-329:                                              ; preds = %.sink.split932, %279
+329:                                              ; preds = %.sink.split924, %279
   %330 = getelementptr inbounds i8, ptr %0, i64 48
   %331 = load ptr, ptr %330, align 8
-  %.not820 = icmp eq ptr %331, null
-  br i1 %.not820, label %354, label %332
+  %.not812 = icmp eq ptr %331, null
+  br i1 %.not812, label %354, label %332
 
 332:                                              ; preds = %329
   %333 = load i64, ptr %9, align 8
   %334 = inttoptr i64 %333 to ptr
-  %.not821 = icmp ugt ptr %331, %334
-  br i1 %.not821, label %335, label %354
+  %.not813 = icmp ugt ptr %331, %334
+  br i1 %.not813, label %335, label %354
 
 335:                                              ; preds = %332
   %336 = getelementptr inbounds i8, ptr %1, i64 416
   %337 = load ptr, ptr %336, align 8
-  %.not822 = icmp ult ptr %331, %337
+  %.not814 = icmp ult ptr %331, %337
   %338 = getelementptr inbounds i8, ptr %337, i64 %333
-  %.not823 = icmp ugt ptr %331, %338
-  %or.cond = select i1 %.not822, i1 true, i1 %.not823
+  %.not815 = icmp ugt ptr %331, %338
+  %or.cond = select i1 %.not814, i1 true, i1 %.not815
   br i1 %or.cond, label %339, label %347
 
 339:                                              ; preds = %335
   %340 = load ptr, ptr @accel_shared_globals, align 8
   %341 = getelementptr inbounds i8, ptr %340, i64 176
   %342 = load ptr, ptr %341, align 8
-  %.not824 = icmp ult ptr %331, %342
-  br i1 %.not824, label %347, label %343
+  %.not816 = icmp ult ptr %331, %342
+  br i1 %.not816, label %347, label %343
 
 343:                                              ; preds = %339
   %344 = getelementptr inbounds i8, ptr %340, i64 184
@@ -6238,36 +6194,36 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %351 = sub i64 %349, %350
   %352 = inttoptr i64 %351 to ptr
   store ptr %352, ptr %330, align 8
-  %.not825 = icmp eq ptr %331, %337
+  %.not817 = icmp eq ptr %331, %337
   %353 = getelementptr inbounds i8, ptr %3, i64 %351
-  %spec.select846 = select i1 %.not825, ptr null, ptr %353
-  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select846, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
+  %spec.select838 = select i1 %.not817, ptr null, ptr %353
+  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select838, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
   br label %354
 
 354:                                              ; preds = %347, %332, %329
   %355 = getelementptr inbounds i8, ptr %0, i64 144
   %356 = load ptr, ptr %355, align 8
-  %.not826 = icmp eq ptr %356, null
-  br i1 %.not826, label %377, label %357
+  %.not818 = icmp eq ptr %356, null
+  br i1 %.not818, label %377, label %357
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds i8, ptr %1, i64 416
   %359 = load ptr, ptr %358, align 8
-  %.not827 = icmp ult ptr %356, %359
-  br i1 %.not827, label %363, label %360
+  %.not819 = icmp ult ptr %356, %359
+  br i1 %.not819, label %363, label %360
 
 360:                                              ; preds = %357
   %361 = load i64, ptr %9, align 8
   %362 = getelementptr inbounds i8, ptr %359, i64 %361
-  %.not828 = icmp ugt ptr %356, %362
-  br i1 %.not828, label %363, label %371
+  %.not820 = icmp ugt ptr %356, %362
+  br i1 %.not820, label %363, label %371
 
 363:                                              ; preds = %360, %357
   %364 = load ptr, ptr @accel_shared_globals, align 8
   %365 = getelementptr inbounds i8, ptr %364, i64 176
   %366 = load ptr, ptr %365, align 8
-  %.not829 = icmp ult ptr %356, %366
-  br i1 %.not829, label %371, label %367
+  %.not821 = icmp ult ptr %356, %366
+  br i1 %.not821, label %371, label %367
 
 367:                                              ; preds = %363
   %368 = getelementptr inbounds i8, ptr %364, i64 184
@@ -6288,27 +6244,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 377:                                              ; preds = %371, %354
   %378 = getelementptr inbounds i8, ptr %0, i64 24
   %379 = load ptr, ptr %378, align 8
-  %.not830 = icmp eq ptr %379, null
-  br i1 %.not830, label %993, label %380
+  %.not822 = icmp eq ptr %379, null
+  br i1 %.not822, label %993, label %380
 
 380:                                              ; preds = %377
   %381 = getelementptr inbounds i8, ptr %1, i64 416
   %382 = load ptr, ptr %381, align 8
-  %.not831 = icmp ult ptr %379, %382
-  br i1 %.not831, label %386, label %383
+  %.not823 = icmp ult ptr %379, %382
+  br i1 %.not823, label %386, label %383
 
 383:                                              ; preds = %380
   %384 = load i64, ptr %9, align 8
   %385 = getelementptr inbounds i8, ptr %382, i64 %384
-  %.not832 = icmp ugt ptr %379, %385
-  br i1 %.not832, label %386, label %394
+  %.not824 = icmp ugt ptr %379, %385
+  br i1 %.not824, label %386, label %394
 
 386:                                              ; preds = %383, %380
   %387 = load ptr, ptr @accel_shared_globals, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 176
   %389 = load ptr, ptr %388, align 8
-  %.not833 = icmp ult ptr %379, %389
-  br i1 %.not833, label %394, label %390
+  %.not825 = icmp ult ptr %379, %389
+  br i1 %.not825, label %394, label %390
 
 390:                                              ; preds = %386
   %391 = getelementptr inbounds i8, ptr %387, i64 184
@@ -6372,8 +6328,8 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr %424, ptr %403, align 8
   %.not687 = icmp eq ptr %404, %407
   %425 = getelementptr inbounds i8, ptr %3, i64 %423
-  %spec.select847 = select i1 %.not687, ptr null, ptr %425
-  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select847, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_zval)
+  %spec.select839 = select i1 %.not687, ptr null, ptr %425
+  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select839, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_zval)
   br label %426
 
 426:                                              ; preds = %419, %402
@@ -6417,18 +6373,18 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr %448, ptr %427, align 8
   %.not692 = icmp eq ptr %428, %431
   %449 = getelementptr inbounds i8, ptr %3, i64 %447
-  %spec.select848 = select i1 %.not692, ptr null, ptr %449
+  %spec.select840 = select i1 %.not692, ptr null, ptr %449
   %450 = getelementptr inbounds i8, ptr %0, i64 168
   %451 = load i32, ptr %450, align 8
   %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds %struct._zval_struct, ptr %spec.select848, i64 %452
+  %453 = getelementptr inbounds %struct._zval_struct, ptr %spec.select840, i64 %452
   %454 = icmp sgt i32 %451, 0
   br i1 %454, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %443, %.lr.ph
-  %.1561871 = phi ptr [ %455, %.lr.ph ], [ %spec.select848, %443 ]
-  tail call void @zend_file_cache_serialize_zval(ptr noundef %.1561871, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %455 = getelementptr inbounds i8, ptr %.1561871, i64 16
+  %.1561863 = phi ptr [ %455, %.lr.ph ], [ %spec.select840, %443 ]
+  tail call void @zend_file_cache_serialize_zval(ptr noundef %.1561863, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %455 = getelementptr inbounds i8, ptr %.1561863, i64 16
   %456 = icmp ult ptr %455, %453
   br i1 %456, label %.lr.ph, label %._crit_edge.loopexit
 
@@ -6454,7 +6410,7 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %.0556 = phi ptr [ %462, %457 ], [ null, %._crit_edge ], [ null, %426 ]
   %463 = load ptr, ptr %7, align 8
   %.not694 = icmp eq ptr %463, null
-  br i1 %.not694, label %.thread836, label %464
+  br i1 %.not694, label %.thread828, label %464
 
 464:                                              ; preds = %.thread
   %465 = getelementptr inbounds i8, ptr %1, i64 416
@@ -6491,34 +6447,34 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr %483, ptr %7, align 8
   %.not698 = icmp eq ptr %463, %466
   %484 = getelementptr inbounds i8, ptr %3, i64 %482
-  %spec.select866 = select i1 %.not698, ptr null, ptr %484
-  br label %.thread836
+  %spec.select858 = select i1 %.not698, ptr null, ptr %484
+  br label %.thread828
 
-.thread836:                                       ; preds = %478, %.thread
-  %.0558 = phi ptr [ null, %.thread ], [ %spec.select866, %478 ]
+.thread828:                                       ; preds = %478, %.thread
+  %.0558 = phi ptr [ null, %.thread ], [ %spec.select858, %478 ]
   %485 = getelementptr inbounds i8, ptr %0, i64 84
   %486 = load i32, ptr %485, align 4
   %487 = zext i32 %486 to i64
   %488 = getelementptr inbounds %struct._zend_op, ptr %.0558, i64 %487
-  %.not883 = icmp eq i32 %486, 0
-  br i1 %.not883, label %._crit_edge874, label %.lr.ph873
+  %.not875 = icmp eq i32 %486, 0
+  br i1 %.not875, label %._crit_edge866, label %.lr.ph865
 
-.lr.ph873:                                        ; preds = %.thread836
+.lr.ph865:                                        ; preds = %.thread828
   %489 = ptrtoint ptr %.0556 to i64
   br label %490
 
-490:                                              ; preds = %.lr.ph873, %516
-  %.1559872 = phi ptr [ %.0558, %.lr.ph873 ], [ %517, %516 ]
-  %491 = getelementptr inbounds i8, ptr %.1559872, i64 29
+490:                                              ; preds = %.lr.ph865, %516
+  %.1559864 = phi ptr [ %.0558, %.lr.ph865 ], [ %517, %516 ]
+  %491 = getelementptr inbounds i8, ptr %.1559864, i64 29
   %492 = load i8, ptr %491, align 1
   %493 = icmp eq i8 %492, 1
   br i1 %493, label %494, label %503
 
 494:                                              ; preds = %490
-  %495 = getelementptr inbounds i8, ptr %.1559872, i64 8
+  %495 = getelementptr inbounds i8, ptr %.1559864, i64 8
   %496 = load i32, ptr %495, align 8
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds i8, ptr %.1559872, i64 %497
+  %498 = getelementptr inbounds i8, ptr %.1559864, i64 %497
   %499 = ptrtoint ptr %498 to i64
   %500 = sub i64 %499, %489
   %501 = lshr exact i64 %500, 4
@@ -6527,16 +6483,16 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   br label %503
 
 503:                                              ; preds = %494, %490
-  %504 = getelementptr inbounds i8, ptr %.1559872, i64 30
+  %504 = getelementptr inbounds i8, ptr %.1559864, i64 30
   %505 = load i8, ptr %504, align 2
   %506 = icmp eq i8 %505, 1
   br i1 %506, label %507, label %516
 
 507:                                              ; preds = %503
-  %508 = getelementptr inbounds i8, ptr %.1559872, i64 12
+  %508 = getelementptr inbounds i8, ptr %.1559864, i64 12
   %509 = load i32, ptr %508, align 4
   %510 = sext i32 %509 to i64
-  %511 = getelementptr inbounds i8, ptr %.1559872, i64 %510
+  %511 = getelementptr inbounds i8, ptr %.1559864, i64 %510
   %512 = ptrtoint ptr %511 to i64
   %513 = sub i64 %512, %489
   %514 = lshr exact i64 %513, 4
@@ -6545,18 +6501,18 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   br label %516
 
 516:                                              ; preds = %507, %503
-  tail call void @zend_serialize_opcode_handler(ptr noundef nonnull %.1559872) #19
-  %517 = getelementptr inbounds i8, ptr %.1559872, i64 32
+  tail call void @zend_serialize_opcode_handler(ptr noundef nonnull %.1559864) #19
+  %517 = getelementptr inbounds i8, ptr %.1559864, i64 32
   %518 = icmp ult ptr %517, %488
-  br i1 %518, label %490, label %._crit_edge874
+  br i1 %518, label %490, label %._crit_edge866
 
-._crit_edge874:                                   ; preds = %516, %.thread836
+._crit_edge866:                                   ; preds = %516, %.thread828
   %519 = getelementptr inbounds i8, ptr %0, i64 40
   %520 = load ptr, ptr %519, align 8
   %.not699 = icmp eq ptr %520, null
-  br i1 %.not699, label %.loopexit870, label %521
+  br i1 %.not699, label %.loopexit862, label %521
 
-521:                                              ; preds = %._crit_edge874
+521:                                              ; preds = %._crit_edge866
   %522 = getelementptr inbounds i8, ptr %1, i64 416
   %523 = load ptr, ptr %522, align 8
   %.not700 = icmp ult ptr %520, %523
@@ -6591,49 +6547,49 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr %540, ptr %519, align 8
   %.not703 = icmp eq ptr %520, %523
   %541 = getelementptr inbounds i8, ptr %3, i64 %539
-  %spec.select849 = select i1 %.not703, ptr null, ptr %541
+  %spec.select841 = select i1 %.not703, ptr null, ptr %541
   %542 = getelementptr inbounds i8, ptr %0, i64 32
   %543 = load i32, ptr %542, align 8
   %544 = zext i32 %543 to i64
-  %545 = getelementptr inbounds %struct._zend_arg_info, ptr %spec.select849, i64 %544
+  %545 = getelementptr inbounds %struct._zend_arg_info, ptr %spec.select841, i64 %544
   %546 = getelementptr inbounds i8, ptr %0, i64 4
   %547 = load i32, ptr %546, align 4
   %548 = and i32 %547, 8192
   %.not704 = icmp eq i32 %548, 0
   %spec.select.idx = select i1 %.not704, i64 0, i64 -32
-  %spec.select = getelementptr inbounds i8, ptr %spec.select849, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %spec.select841, i64 %spec.select.idx
   %549 = lshr i32 %547, 9
   %550 = and i32 %549, 32
   %.0553.idx = zext nneg i32 %550 to i64
   %.0553 = getelementptr inbounds i8, ptr %545, i64 %.0553.idx
   %551 = icmp ult ptr %spec.select, %.0553
-  br i1 %551, label %.lr.ph877, label %.loopexit870
+  br i1 %551, label %.lr.ph869, label %.loopexit862
 
-.lr.ph877:                                        ; preds = %535
+.lr.ph869:                                        ; preds = %535
   %552 = getelementptr inbounds i8, ptr %1, i64 384
   br label %553
 
-553:                                              ; preds = %.lr.ph877, %596
-  %.2875 = phi ptr [ %spec.select, %.lr.ph877 ], [ %598, %596 ]
-  %554 = load ptr, ptr %.2875, align 8
+553:                                              ; preds = %.lr.ph869, %596
+  %.2867 = phi ptr [ %spec.select, %.lr.ph869 ], [ %598, %596 ]
+  %554 = load ptr, ptr %.2867, align 8
   %555 = load i64, ptr %9, align 8
   %556 = inttoptr i64 %555 to ptr
-  %.not768 = icmp ugt ptr %554, %556
-  br i1 %.not768, label %557, label %596
+  %.not764 = icmp ugt ptr %554, %556
+  br i1 %.not764, label %557, label %596
 
 557:                                              ; preds = %553
   %558 = load ptr, ptr @accel_shared_globals, align 8
   %559 = getelementptr inbounds i8, ptr %558, i64 176
   %560 = load ptr, ptr %559, align 8
-  %.not769 = icmp ult ptr %554, %560
-  br i1 %.not769, label %.thread911, label %563
+  %.not765 = icmp ult ptr %554, %560
+  br i1 %.not765, label %.thread903, label %563
 
-.thread911:                                       ; preds = %557
+.thread903:                                       ; preds = %557
   %561 = load ptr, ptr %522, align 8
-  %.not770912 = icmp uge ptr %554, %561
+  %.not766904 = icmp uge ptr %554, %561
   %562 = getelementptr inbounds i8, ptr %561, i64 %555
-  %.not771913 = icmp ule ptr %554, %562
-  %or.cond850.not864914 = select i1 %.not770912, i1 %.not771913, i1 false
+  %.not767905 = icmp ule ptr %554, %562
+  %or.cond842.not856906 = select i1 %.not766904, i1 %.not767905, i1 false
   br label %576
 
 563:                                              ; preds = %557
@@ -6644,16 +6600,16 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 
 567:                                              ; preds = %563
   %568 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %554, ptr noundef %2)
-  br label %.sink.split934
+  br label %.sink.split926
 
 569:                                              ; preds = %563
   %570 = load ptr, ptr %522, align 8
-  %.not770 = icmp uge ptr %554, %570
+  %.not766 = icmp uge ptr %554, %570
   %571 = getelementptr inbounds i8, ptr %570, i64 %555
-  %.not771 = icmp ule ptr %554, %571
-  %or.cond850.not864 = select i1 %.not770, i1 %.not771, i1 false
-  %brmerge851 = or i1 %.not769, %or.cond850.not864
-  br i1 %brmerge851, label %576, label %572
+  %.not767 = icmp ule ptr %554, %571
+  %or.cond842.not856 = select i1 %.not766, i1 %.not767, i1 false
+  %brmerge843 = or i1 %.not765, %or.cond842.not856
+  br i1 %brmerge843, label %576, label %572
 
 572:                                              ; preds = %569
   %573 = getelementptr inbounds i8, ptr %558, i64 184
@@ -6661,57 +6617,56 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %575 = icmp ult ptr %554, %574
   br label %576
 
-576:                                              ; preds = %.thread911, %569, %572
-  %577 = phi ptr [ %570, %572 ], [ %570, %569 ], [ %561, %.thread911 ]
-  %578 = phi i1 [ %575, %572 ], [ %or.cond850.not864, %569 ], [ %or.cond850.not864914, %.thread911 ]
+576:                                              ; preds = %.thread903, %569, %572
+  %577 = phi ptr [ %570, %572 ], [ %570, %569 ], [ %561, %.thread903 ]
+  %578 = phi i1 [ %575, %572 ], [ %or.cond842.not856, %569 ], [ %or.cond842.not856906, %.thread903 ]
   tail call void @llvm.assume(i1 %578)
   %579 = load i8, ptr %552, align 8
-  %580 = and i8 %579, 1
-  %.not773 = icmp eq i8 %580, 0
-  br i1 %.not773, label %589, label %581
+  %580 = trunc i8 %579 to i1
+  br i1 %580, label %581, label %589
 
 581:                                              ; preds = %576
   %582 = getelementptr inbounds i8, ptr %554, i64 4
   %583 = load i32, ptr %582, align 4
   %584 = or i32 %583, 64
   store i32 %584, ptr %582, align 4
-  %585 = load ptr, ptr %.2875, align 8
+  %585 = load ptr, ptr %.2867, align 8
   %586 = getelementptr inbounds i8, ptr %585, i64 4
   %587 = load i32, ptr %586, align 4
   %588 = and i32 %587, -257
   store i32 %588, ptr %586, align 4
-  %.pre892 = load ptr, ptr %.2875, align 8
-  %.pre893 = load ptr, ptr %522, align 8
+  %.pre884 = load ptr, ptr %.2867, align 8
+  %.pre885 = load ptr, ptr %522, align 8
   br label %589
 
 589:                                              ; preds = %581, %576
-  %590 = phi ptr [ %.pre893, %581 ], [ %577, %576 ]
-  %591 = phi ptr [ %.pre892, %581 ], [ %554, %576 ]
+  %590 = phi ptr [ %.pre885, %581 ], [ %577, %576 ]
+  %591 = phi ptr [ %.pre884, %581 ], [ %554, %576 ]
   %592 = ptrtoint ptr %591 to i64
   %593 = ptrtoint ptr %590 to i64
   %594 = sub i64 %592, %593
   %595 = inttoptr i64 %594 to ptr
-  br label %.sink.split934
+  br label %.sink.split926
 
-.sink.split934:                                   ; preds = %589, %567
-  %.sink935 = phi ptr [ %568, %567 ], [ %595, %589 ]
-  store ptr %.sink935, ptr %.2875, align 8
+.sink.split926:                                   ; preds = %589, %567
+  %.sink927 = phi ptr [ %568, %567 ], [ %595, %589 ]
+  store ptr %.sink927, ptr %.2867, align 8
   br label %596
 
-596:                                              ; preds = %.sink.split934, %553
-  %597 = getelementptr inbounds i8, ptr %.2875, i64 8
+596:                                              ; preds = %.sink.split926, %553
+  %597 = getelementptr inbounds i8, ptr %.2867, i64 8
   tail call fastcc void @zend_file_cache_serialize_type(ptr noundef nonnull %597, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  %598 = getelementptr inbounds i8, ptr %.2875, i64 32
+  %598 = getelementptr inbounds i8, ptr %.2867, i64 32
   %599 = icmp ult ptr %598, %.0553
-  br i1 %599, label %553, label %.loopexit870
+  br i1 %599, label %553, label %.loopexit862
 
-.loopexit870:                                     ; preds = %596, %535, %._crit_edge874
+.loopexit862:                                     ; preds = %596, %535, %._crit_edge866
   %600 = getelementptr inbounds i8, ptr %0, i64 112
   %601 = load ptr, ptr %600, align 8
   %.not706 = icmp eq ptr %601, null
-  br i1 %.not706, label %.loopexit869, label %602
+  br i1 %.not706, label %.loopexit861, label %602
 
-602:                                              ; preds = %.loopexit870
+602:                                              ; preds = %.loopexit862
   %603 = getelementptr inbounds i8, ptr %1, i64 416
   %604 = load ptr, ptr %603, align 8
   %.not707 = icmp ult ptr %601, %604
@@ -6746,39 +6701,39 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr %621, ptr %600, align 8
   %.not710 = icmp eq ptr %601, %604
   %622 = getelementptr inbounds i8, ptr %3, i64 %620
-  %spec.select853 = select i1 %.not710, ptr null, ptr %622
+  %spec.select845 = select i1 %.not710, ptr null, ptr %622
   %623 = getelementptr inbounds i8, ptr %0, i64 80
   %624 = load i32, ptr %623, align 8
   %625 = sext i32 %624 to i64
-  %626 = getelementptr inbounds ptr, ptr %spec.select853, i64 %625
+  %626 = getelementptr inbounds ptr, ptr %spec.select845, i64 %625
   %627 = icmp sgt i32 %624, 0
-  br i1 %627, label %.lr.ph880, label %.loopexit869
+  br i1 %627, label %.lr.ph872, label %.loopexit861
 
-.lr.ph880:                                        ; preds = %616
+.lr.ph872:                                        ; preds = %616
   %628 = getelementptr inbounds i8, ptr %1, i64 384
   br label %629
 
-629:                                              ; preds = %.lr.ph880, %672
-  %.1878 = phi ptr [ %spec.select853, %.lr.ph880 ], [ %673, %672 ]
-  %630 = load ptr, ptr %.1878, align 8
+629:                                              ; preds = %.lr.ph872, %672
+  %.1870 = phi ptr [ %spec.select845, %.lr.ph872 ], [ %673, %672 ]
+  %630 = load ptr, ptr %.1870, align 8
   %631 = load i64, ptr %9, align 8
   %632 = inttoptr i64 %631 to ptr
-  %.not762 = icmp ugt ptr %630, %632
-  br i1 %.not762, label %633, label %672
+  %.not759 = icmp ugt ptr %630, %632
+  br i1 %.not759, label %633, label %672
 
 633:                                              ; preds = %629
   %634 = load ptr, ptr @accel_shared_globals, align 8
   %635 = getelementptr inbounds i8, ptr %634, i64 176
   %636 = load ptr, ptr %635, align 8
-  %.not763 = icmp ult ptr %630, %636
-  br i1 %.not763, label %.thread916, label %639
+  %.not760 = icmp ult ptr %630, %636
+  br i1 %.not760, label %.thread908, label %639
 
-.thread916:                                       ; preds = %633
+.thread908:                                       ; preds = %633
   %637 = load ptr, ptr %603, align 8
-  %.not764917 = icmp uge ptr %630, %637
+  %.not761909 = icmp uge ptr %630, %637
   %638 = getelementptr inbounds i8, ptr %637, i64 %631
-  %.not765918 = icmp ule ptr %630, %638
-  %or.cond854.not865919 = select i1 %.not764917, i1 %.not765918, i1 false
+  %.not762910 = icmp ule ptr %630, %638
+  %or.cond846.not857911 = select i1 %.not761909, i1 %.not762910, i1 false
   br label %652
 
 639:                                              ; preds = %633
@@ -6789,16 +6744,16 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 
 643:                                              ; preds = %639
   %644 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %630, ptr noundef %2)
-  br label %.sink.split936
+  br label %.sink.split928
 
 645:                                              ; preds = %639
   %646 = load ptr, ptr %603, align 8
-  %.not764 = icmp uge ptr %630, %646
+  %.not761 = icmp uge ptr %630, %646
   %647 = getelementptr inbounds i8, ptr %646, i64 %631
-  %.not765 = icmp ule ptr %630, %647
-  %or.cond854.not865 = select i1 %.not764, i1 %.not765, i1 false
-  %brmerge855 = or i1 %.not763, %or.cond854.not865
-  br i1 %brmerge855, label %652, label %648
+  %.not762 = icmp ule ptr %630, %647
+  %or.cond846.not857 = select i1 %.not761, i1 %.not762, i1 false
+  %brmerge847 = or i1 %.not760, %or.cond846.not857
+  br i1 %brmerge847, label %652, label %648
 
 648:                                              ; preds = %645
   %649 = getelementptr inbounds i8, ptr %634, i64 184
@@ -6806,59 +6761,58 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %651 = icmp ult ptr %630, %650
   br label %652
 
-652:                                              ; preds = %.thread916, %645, %648
-  %653 = phi ptr [ %646, %648 ], [ %646, %645 ], [ %637, %.thread916 ]
-  %654 = phi i1 [ %651, %648 ], [ %or.cond854.not865, %645 ], [ %or.cond854.not865919, %.thread916 ]
+652:                                              ; preds = %.thread908, %645, %648
+  %653 = phi ptr [ %646, %648 ], [ %646, %645 ], [ %637, %.thread908 ]
+  %654 = phi i1 [ %651, %648 ], [ %or.cond846.not857, %645 ], [ %or.cond846.not857911, %.thread908 ]
   tail call void @llvm.assume(i1 %654)
   %655 = load i8, ptr %628, align 8
-  %656 = and i8 %655, 1
-  %.not767 = icmp eq i8 %656, 0
-  br i1 %.not767, label %665, label %657
+  %656 = trunc i8 %655 to i1
+  br i1 %656, label %657, label %665
 
 657:                                              ; preds = %652
   %658 = getelementptr inbounds i8, ptr %630, i64 4
   %659 = load i32, ptr %658, align 4
   %660 = or i32 %659, 64
   store i32 %660, ptr %658, align 4
-  %661 = load ptr, ptr %.1878, align 8
+  %661 = load ptr, ptr %.1870, align 8
   %662 = getelementptr inbounds i8, ptr %661, i64 4
   %663 = load i32, ptr %662, align 4
   %664 = and i32 %663, -257
   store i32 %664, ptr %662, align 4
-  %.pre894 = load ptr, ptr %.1878, align 8
-  %.pre895 = load ptr, ptr %603, align 8
+  %.pre886 = load ptr, ptr %.1870, align 8
+  %.pre887 = load ptr, ptr %603, align 8
   br label %665
 
 665:                                              ; preds = %657, %652
-  %666 = phi ptr [ %.pre895, %657 ], [ %653, %652 ]
-  %667 = phi ptr [ %.pre894, %657 ], [ %630, %652 ]
+  %666 = phi ptr [ %.pre887, %657 ], [ %653, %652 ]
+  %667 = phi ptr [ %.pre886, %657 ], [ %630, %652 ]
   %668 = ptrtoint ptr %667 to i64
   %669 = ptrtoint ptr %666 to i64
   %670 = sub i64 %668, %669
   %671 = inttoptr i64 %670 to ptr
-  br label %.sink.split936
+  br label %.sink.split928
 
-.sink.split936:                                   ; preds = %665, %643
-  %.sink937 = phi ptr [ %644, %643 ], [ %671, %665 ]
-  store ptr %.sink937, ptr %.1878, align 8
+.sink.split928:                                   ; preds = %665, %643
+  %.sink929 = phi ptr [ %644, %643 ], [ %671, %665 ]
+  store ptr %.sink929, ptr %.1870, align 8
   br label %672
 
-672:                                              ; preds = %.sink.split936, %629
-  %673 = getelementptr inbounds i8, ptr %.1878, i64 8
+672:                                              ; preds = %.sink.split928, %629
+  %673 = getelementptr inbounds i8, ptr %.1870, i64 8
   %674 = icmp ult ptr %673, %626
-  br i1 %674, label %629, label %.loopexit869
+  br i1 %674, label %629, label %.loopexit861
 
-.loopexit869:                                     ; preds = %672, %616, %.loopexit870
+.loopexit861:                                     ; preds = %672, %616, %.loopexit862
   %675 = getelementptr inbounds i8, ptr %0, i64 172
   %676 = load i32, ptr %675, align 4
   %.not711 = icmp eq i32 %676, 0
   br i1 %.not711, label %.loopexit, label %677
 
-677:                                              ; preds = %.loopexit869
+677:                                              ; preds = %.loopexit861
   %678 = getelementptr inbounds i8, ptr %0, i64 184
   %679 = load ptr, ptr %678, align 8
   %.not712 = icmp eq ptr %679, null
-  br i1 %.not712, label %.lr.ph882, label %680
+  br i1 %.not712, label %.lr.ph874, label %680
 
 680:                                              ; preds = %677
   %681 = getelementptr inbounds i8, ptr %1, i64 416
@@ -6895,38 +6849,38 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   store ptr %699, ptr %678, align 8
   %.not716 = icmp eq ptr %679, %682
   %700 = getelementptr inbounds i8, ptr %3, i64 %698
-  %spec.select867 = select i1 %.not716, ptr null, ptr %700
-  br label %.lr.ph882
+  %spec.select859 = select i1 %.not716, ptr null, ptr %700
+  br label %.lr.ph874
 
-.lr.ph882:                                        ; preds = %677, %694
-  %.0550 = phi ptr [ null, %677 ], [ %spec.select867, %694 ]
+.lr.ph874:                                        ; preds = %677, %694
+  %.0550 = phi ptr [ null, %677 ], [ %spec.select859, %694 ]
   %701 = getelementptr inbounds i8, ptr %1, i64 416
   br label %702
 
-702:                                              ; preds = %.lr.ph882, %.thread840
-  %indvars.iv = phi i64 [ 0, %.lr.ph882 ], [ %indvars.iv.next, %.thread840 ]
+702:                                              ; preds = %.lr.ph874, %.thread832
+  %indvars.iv = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next, %.thread832 ]
   %703 = getelementptr inbounds ptr, ptr %.0550, i64 %indvars.iv
   %704 = load ptr, ptr %703, align 8
-  %.not757 = icmp eq ptr %704, null
-  br i1 %.not757, label %.thread840, label %705
+  %.not754 = icmp eq ptr %704, null
+  br i1 %.not754, label %.thread832, label %705
 
 705:                                              ; preds = %702
   %706 = load ptr, ptr %701, align 8
-  %.not758 = icmp ult ptr %704, %706
-  br i1 %.not758, label %710, label %707
+  %.not755 = icmp ult ptr %704, %706
+  br i1 %.not755, label %710, label %707
 
 707:                                              ; preds = %705
   %708 = load i64, ptr %9, align 8
   %709 = getelementptr inbounds i8, ptr %706, i64 %708
-  %.not759 = icmp ugt ptr %704, %709
-  br i1 %.not759, label %710, label %718
+  %.not756 = icmp ugt ptr %704, %709
+  br i1 %.not756, label %710, label %718
 
 710:                                              ; preds = %707, %705
   %711 = load ptr, ptr @accel_shared_globals, align 8
   %712 = getelementptr inbounds i8, ptr %711, i64 176
   %713 = load ptr, ptr %712, align 8
-  %.not760 = icmp ult ptr %704, %713
-  br i1 %.not760, label %718, label %714
+  %.not757 = icmp ult ptr %704, %713
+  br i1 %.not757, label %718, label %714
 
 714:                                              ; preds = %710
   %715 = getelementptr inbounds i8, ptr %711, i64 184
@@ -6942,13 +6896,13 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %722 = sub i64 %720, %721
   %723 = inttoptr i64 %722 to ptr
   store ptr %723, ptr %703, align 8
-  %.not761 = icmp eq ptr %704, %706
+  %.not758 = icmp eq ptr %704, %706
   %724 = getelementptr inbounds i8, ptr %3, i64 %722
-  %spec.select868 = select i1 %.not761, ptr null, ptr %724
-  br label %.thread840
+  %spec.select860 = select i1 %.not758, ptr null, ptr %724
+  br label %.thread832
 
-.thread840:                                       ; preds = %718, %702
-  %.0548 = phi ptr [ null, %702 ], [ %spec.select868, %718 ]
+.thread832:                                       ; preds = %718, %702
+  %.0548 = phi ptr [ null, %702 ], [ %spec.select860, %718 ]
   tail call fastcc void @zend_file_cache_serialize_op_array(ptr noundef %.0548, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %725 = load i32, ptr %675, align 4
@@ -6956,7 +6910,7 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %727 = icmp ult i64 %indvars.iv.next, %726
   br i1 %727, label %702, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread840, %.loopexit869
+.loopexit:                                        ; preds = %.thread832, %.loopexit861
   %728 = getelementptr inbounds i8, ptr %0, i64 8
   %729 = load ptr, ptr %728, align 8
   %.not717 = icmp eq ptr %729, null
@@ -6973,11 +6927,11 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %735 = getelementptr inbounds i8, ptr %731, i64 184
   %736 = load ptr, ptr %735, align 8
   %737 = icmp ult ptr %729, %736
-  br i1 %737, label %738, label %.thread921
+  br i1 %737, label %738, label %.thread913
 
 738:                                              ; preds = %734
   %739 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %729, ptr noundef %2)
-  br label %.sink.split938
+  br label %.sink.split930
 
 740:                                              ; preds = %730
   %741 = getelementptr inbounds i8, ptr %1, i64 416
@@ -6985,39 +6939,38 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %.not719 = icmp ult ptr %729, %742
   br i1 %.not719, label %755, label %745
 
-.thread921:                                       ; preds = %734
+.thread913:                                       ; preds = %734
   %743 = getelementptr inbounds i8, ptr %1, i64 416
   %744 = load ptr, ptr %743, align 8
-  %.not719922 = icmp ult ptr %729, %744
-  br i1 %.not719922, label %.thread923, label %745
+  %.not719914 = icmp ult ptr %729, %744
+  br i1 %.not719914, label %.thread915, label %745
 
-745:                                              ; preds = %.thread921, %740
-  %746 = phi ptr [ %744, %.thread921 ], [ %742, %740 ]
-  %747 = phi ptr [ %743, %.thread921 ], [ %741, %740 ]
+745:                                              ; preds = %.thread913, %740
+  %746 = phi ptr [ %744, %.thread913 ], [ %742, %740 ]
+  %747 = phi ptr [ %743, %.thread913 ], [ %741, %740 ]
   %748 = load i64, ptr %9, align 8
   %749 = getelementptr inbounds i8, ptr %746, i64 %748
   %.not720 = icmp ule ptr %729, %749
-  %brmerge857 = or i1 %.not718, %.not720
-  br i1 %brmerge857, label %755, label %.thread923
+  %brmerge849 = or i1 %.not718, %.not720
+  br i1 %brmerge849, label %755, label %.thread915
 
-.thread923:                                       ; preds = %.thread921, %745
-  %750 = phi ptr [ %746, %745 ], [ %744, %.thread921 ]
-  %751 = phi ptr [ %747, %745 ], [ %743, %.thread921 ]
+.thread915:                                       ; preds = %.thread913, %745
+  %750 = phi ptr [ %746, %745 ], [ %744, %.thread913 ]
+  %751 = phi ptr [ %747, %745 ], [ %743, %.thread913 ]
   %752 = getelementptr inbounds i8, ptr %731, i64 184
   %753 = load ptr, ptr %752, align 8
   %754 = icmp ult ptr %729, %753
   br label %755
 
-755:                                              ; preds = %740, %745, %.thread923
-  %756 = phi ptr [ %746, %745 ], [ %750, %.thread923 ], [ %742, %740 ]
-  %757 = phi ptr [ %747, %745 ], [ %751, %.thread923 ], [ %741, %740 ]
-  %758 = phi i1 [ %.not720, %745 ], [ %754, %.thread923 ], [ false, %740 ]
+755:                                              ; preds = %740, %745, %.thread915
+  %756 = phi ptr [ %746, %745 ], [ %750, %.thread915 ], [ %742, %740 ]
+  %757 = phi ptr [ %747, %745 ], [ %751, %.thread915 ], [ %741, %740 ]
+  %758 = phi i1 [ %.not720, %745 ], [ %754, %.thread915 ], [ false, %740 ]
   tail call void @llvm.assume(i1 %758)
   %759 = getelementptr inbounds i8, ptr %1, i64 384
   %760 = load i8, ptr %759, align 8
-  %761 = and i8 %760, 1
-  %.not722 = icmp eq i8 %761, 0
-  br i1 %.not722, label %770, label %762
+  %761 = trunc i8 %760 to i1
+  br i1 %761, label %762, label %770
 
 762:                                              ; preds = %755
   %763 = getelementptr inbounds i8, ptr %729, i64 4
@@ -7029,86 +6982,85 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %768 = load i32, ptr %767, align 4
   %769 = and i32 %768, -257
   store i32 %769, ptr %767, align 4
-  %.pre896 = load ptr, ptr %728, align 8
-  %.pre897 = load ptr, ptr %757, align 8
+  %.pre888 = load ptr, ptr %728, align 8
+  %.pre889 = load ptr, ptr %757, align 8
   br label %770
 
 770:                                              ; preds = %762, %755
-  %771 = phi ptr [ %.pre897, %762 ], [ %756, %755 ]
-  %772 = phi ptr [ %.pre896, %762 ], [ %729, %755 ]
+  %771 = phi ptr [ %.pre889, %762 ], [ %756, %755 ]
+  %772 = phi ptr [ %.pre888, %762 ], [ %729, %755 ]
   %773 = ptrtoint ptr %772 to i64
   %774 = ptrtoint ptr %771 to i64
   %775 = sub i64 %773, %774
   %776 = inttoptr i64 %775 to ptr
-  br label %.sink.split938
+  br label %.sink.split930
 
-.sink.split938:                                   ; preds = %770, %738
-  %.sink939 = phi ptr [ %739, %738 ], [ %776, %770 ]
-  store ptr %.sink939, ptr %728, align 8
+.sink.split930:                                   ; preds = %770, %738
+  %.sink931 = phi ptr [ %739, %738 ], [ %776, %770 ]
+  store ptr %.sink931, ptr %728, align 8
   br label %777
 
-777:                                              ; preds = %.sink.split938, %.loopexit
+777:                                              ; preds = %.sink.split930, %.loopexit
   %778 = getelementptr inbounds i8, ptr %0, i64 152
   %779 = load ptr, ptr %778, align 8
-  %.not723 = icmp eq ptr %779, null
-  br i1 %.not723, label %827, label %780
+  %.not722 = icmp eq ptr %779, null
+  br i1 %.not722, label %827, label %780
 
 780:                                              ; preds = %777
   %781 = load ptr, ptr @accel_shared_globals, align 8
   %782 = getelementptr inbounds i8, ptr %781, i64 176
   %783 = load ptr, ptr %782, align 8
-  %.not724 = icmp ult ptr %779, %783
-  br i1 %.not724, label %790, label %784
+  %.not723 = icmp ult ptr %779, %783
+  br i1 %.not723, label %790, label %784
 
 784:                                              ; preds = %780
   %785 = getelementptr inbounds i8, ptr %781, i64 184
   %786 = load ptr, ptr %785, align 8
   %787 = icmp ult ptr %779, %786
-  br i1 %787, label %788, label %.thread924
+  br i1 %787, label %788, label %.thread916
 
 788:                                              ; preds = %784
   %789 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %779, ptr noundef %2)
-  br label %.sink.split940
+  br label %.sink.split932
 
 790:                                              ; preds = %780
   %791 = getelementptr inbounds i8, ptr %1, i64 416
   %792 = load ptr, ptr %791, align 8
-  %.not725 = icmp ult ptr %779, %792
-  br i1 %.not725, label %805, label %795
+  %.not724 = icmp ult ptr %779, %792
+  br i1 %.not724, label %805, label %795
 
-.thread924:                                       ; preds = %784
+.thread916:                                       ; preds = %784
   %793 = getelementptr inbounds i8, ptr %1, i64 416
   %794 = load ptr, ptr %793, align 8
-  %.not725925 = icmp ult ptr %779, %794
-  br i1 %.not725925, label %.thread926, label %795
+  %.not724917 = icmp ult ptr %779, %794
+  br i1 %.not724917, label %.thread918, label %795
 
-795:                                              ; preds = %.thread924, %790
-  %796 = phi ptr [ %794, %.thread924 ], [ %792, %790 ]
-  %797 = phi ptr [ %793, %.thread924 ], [ %791, %790 ]
+795:                                              ; preds = %.thread916, %790
+  %796 = phi ptr [ %794, %.thread916 ], [ %792, %790 ]
+  %797 = phi ptr [ %793, %.thread916 ], [ %791, %790 ]
   %798 = load i64, ptr %9, align 8
   %799 = getelementptr inbounds i8, ptr %796, i64 %798
-  %.not726 = icmp ule ptr %779, %799
-  %brmerge859 = or i1 %.not724, %.not726
-  br i1 %brmerge859, label %805, label %.thread926
+  %.not725 = icmp ule ptr %779, %799
+  %brmerge851 = or i1 %.not723, %.not725
+  br i1 %brmerge851, label %805, label %.thread918
 
-.thread926:                                       ; preds = %.thread924, %795
-  %800 = phi ptr [ %796, %795 ], [ %794, %.thread924 ]
-  %801 = phi ptr [ %797, %795 ], [ %793, %.thread924 ]
+.thread918:                                       ; preds = %.thread916, %795
+  %800 = phi ptr [ %796, %795 ], [ %794, %.thread916 ]
+  %801 = phi ptr [ %797, %795 ], [ %793, %.thread916 ]
   %802 = getelementptr inbounds i8, ptr %781, i64 184
   %803 = load ptr, ptr %802, align 8
   %804 = icmp ult ptr %779, %803
   br label %805
 
-805:                                              ; preds = %790, %795, %.thread926
-  %806 = phi ptr [ %796, %795 ], [ %800, %.thread926 ], [ %792, %790 ]
-  %807 = phi ptr [ %797, %795 ], [ %801, %.thread926 ], [ %791, %790 ]
-  %808 = phi i1 [ %.not726, %795 ], [ %804, %.thread926 ], [ false, %790 ]
+805:                                              ; preds = %790, %795, %.thread918
+  %806 = phi ptr [ %796, %795 ], [ %800, %.thread918 ], [ %792, %790 ]
+  %807 = phi ptr [ %797, %795 ], [ %801, %.thread918 ], [ %791, %790 ]
+  %808 = phi i1 [ %.not725, %795 ], [ %804, %.thread918 ], [ false, %790 ]
   tail call void @llvm.assume(i1 %808)
   %809 = getelementptr inbounds i8, ptr %1, i64 384
   %810 = load i8, ptr %809, align 8
-  %811 = and i8 %810, 1
-  %.not728 = icmp eq i8 %811, 0
-  br i1 %.not728, label %820, label %812
+  %811 = trunc i8 %810 to i1
+  br i1 %811, label %812, label %820
 
 812:                                              ; preds = %805
   %813 = getelementptr inbounds i8, ptr %779, i64 4
@@ -7120,48 +7072,48 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %818 = load i32, ptr %817, align 4
   %819 = and i32 %818, -257
   store i32 %819, ptr %817, align 4
-  %.pre898 = load ptr, ptr %778, align 8
-  %.pre899 = load ptr, ptr %807, align 8
+  %.pre890 = load ptr, ptr %778, align 8
+  %.pre891 = load ptr, ptr %807, align 8
   br label %820
 
 820:                                              ; preds = %812, %805
-  %821 = phi ptr [ %.pre899, %812 ], [ %806, %805 ]
-  %822 = phi ptr [ %.pre898, %812 ], [ %779, %805 ]
+  %821 = phi ptr [ %.pre891, %812 ], [ %806, %805 ]
+  %822 = phi ptr [ %.pre890, %812 ], [ %779, %805 ]
   %823 = ptrtoint ptr %822 to i64
   %824 = ptrtoint ptr %821 to i64
   %825 = sub i64 %823, %824
   %826 = inttoptr i64 %825 to ptr
-  br label %.sink.split940
+  br label %.sink.split932
 
-.sink.split940:                                   ; preds = %820, %788
-  %.sink941 = phi ptr [ %789, %788 ], [ %826, %820 ]
-  store ptr %.sink941, ptr %778, align 8
+.sink.split932:                                   ; preds = %820, %788
+  %.sink933 = phi ptr [ %789, %788 ], [ %826, %820 ]
+  store ptr %.sink933, ptr %778, align 8
   br label %827
 
-827:                                              ; preds = %.sink.split940, %777
+827:                                              ; preds = %.sink.split932, %777
   %828 = getelementptr inbounds i8, ptr %0, i64 136
   %829 = load ptr, ptr %828, align 8
-  %.not729 = icmp eq ptr %829, null
-  br i1 %.not729, label %850, label %830
+  %.not727 = icmp eq ptr %829, null
+  br i1 %.not727, label %850, label %830
 
 830:                                              ; preds = %827
   %831 = getelementptr inbounds i8, ptr %1, i64 416
   %832 = load ptr, ptr %831, align 8
-  %.not730 = icmp ult ptr %829, %832
-  br i1 %.not730, label %836, label %833
+  %.not728 = icmp ult ptr %829, %832
+  br i1 %.not728, label %836, label %833
 
 833:                                              ; preds = %830
   %834 = load i64, ptr %9, align 8
   %835 = getelementptr inbounds i8, ptr %832, i64 %834
-  %.not731 = icmp ugt ptr %829, %835
-  br i1 %.not731, label %836, label %844
+  %.not729 = icmp ugt ptr %829, %835
+  br i1 %.not729, label %836, label %844
 
 836:                                              ; preds = %833, %830
   %837 = load ptr, ptr @accel_shared_globals, align 8
   %838 = getelementptr inbounds i8, ptr %837, i64 176
   %839 = load ptr, ptr %838, align 8
-  %.not732 = icmp ult ptr %829, %839
-  br i1 %.not732, label %844, label %840
+  %.not730 = icmp ult ptr %829, %839
+  br i1 %.not730, label %844, label %840
 
 840:                                              ; preds = %836
   %841 = getelementptr inbounds i8, ptr %837, i64 184
@@ -7181,27 +7133,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 
 850:                                              ; preds = %844, %827
   %851 = load ptr, ptr %12, align 8
-  %.not733 = icmp eq ptr %851, null
-  br i1 %.not733, label %872, label %852
+  %.not731 = icmp eq ptr %851, null
+  br i1 %.not731, label %872, label %852
 
 852:                                              ; preds = %850
   %853 = getelementptr inbounds i8, ptr %1, i64 416
   %854 = load ptr, ptr %853, align 8
-  %.not734 = icmp ult ptr %851, %854
-  br i1 %.not734, label %858, label %855
+  %.not732 = icmp ult ptr %851, %854
+  br i1 %.not732, label %858, label %855
 
 855:                                              ; preds = %852
   %856 = load i64, ptr %9, align 8
   %857 = getelementptr inbounds i8, ptr %854, i64 %856
-  %.not735 = icmp ugt ptr %851, %857
-  br i1 %.not735, label %858, label %866
+  %.not733 = icmp ugt ptr %851, %857
+  br i1 %.not733, label %858, label %866
 
 858:                                              ; preds = %855, %852
   %859 = load ptr, ptr @accel_shared_globals, align 8
   %860 = getelementptr inbounds i8, ptr %859, i64 176
   %861 = load ptr, ptr %860, align 8
-  %.not736 = icmp ult ptr %851, %861
-  br i1 %.not736, label %866, label %862
+  %.not734 = icmp ult ptr %851, %861
+  br i1 %.not734, label %866, label %862
 
 862:                                              ; preds = %858
   %863 = getelementptr inbounds i8, ptr %859, i64 184
@@ -7222,65 +7174,64 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 872:                                              ; preds = %866, %850
   %873 = getelementptr inbounds i8, ptr %0, i64 64
   %874 = load ptr, ptr %873, align 8
-  %.not737 = icmp eq ptr %874, null
-  br i1 %.not737, label %922, label %875
+  %.not735 = icmp eq ptr %874, null
+  br i1 %.not735, label %922, label %875
 
 875:                                              ; preds = %872
   %876 = load ptr, ptr @accel_shared_globals, align 8
   %877 = getelementptr inbounds i8, ptr %876, i64 176
   %878 = load ptr, ptr %877, align 8
-  %.not738 = icmp ult ptr %874, %878
-  br i1 %.not738, label %885, label %879
+  %.not736 = icmp ult ptr %874, %878
+  br i1 %.not736, label %885, label %879
 
 879:                                              ; preds = %875
   %880 = getelementptr inbounds i8, ptr %876, i64 184
   %881 = load ptr, ptr %880, align 8
   %882 = icmp ult ptr %874, %881
-  br i1 %882, label %883, label %.thread927
+  br i1 %882, label %883, label %.thread919
 
 883:                                              ; preds = %879
   %884 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %874, ptr noundef %2)
-  br label %.sink.split942
+  br label %.sink.split934
 
 885:                                              ; preds = %875
   %886 = getelementptr inbounds i8, ptr %1, i64 416
   %887 = load ptr, ptr %886, align 8
-  %.not739 = icmp ult ptr %874, %887
-  br i1 %.not739, label %900, label %890
+  %.not737 = icmp ult ptr %874, %887
+  br i1 %.not737, label %900, label %890
 
-.thread927:                                       ; preds = %879
+.thread919:                                       ; preds = %879
   %888 = getelementptr inbounds i8, ptr %1, i64 416
   %889 = load ptr, ptr %888, align 8
-  %.not739928 = icmp ult ptr %874, %889
-  br i1 %.not739928, label %.thread929, label %890
+  %.not737920 = icmp ult ptr %874, %889
+  br i1 %.not737920, label %.thread921, label %890
 
-890:                                              ; preds = %.thread927, %885
-  %891 = phi ptr [ %889, %.thread927 ], [ %887, %885 ]
-  %892 = phi ptr [ %888, %.thread927 ], [ %886, %885 ]
+890:                                              ; preds = %.thread919, %885
+  %891 = phi ptr [ %889, %.thread919 ], [ %887, %885 ]
+  %892 = phi ptr [ %888, %.thread919 ], [ %886, %885 ]
   %893 = load i64, ptr %9, align 8
   %894 = getelementptr inbounds i8, ptr %891, i64 %893
-  %.not740 = icmp ule ptr %874, %894
-  %brmerge861 = or i1 %.not738, %.not740
-  br i1 %brmerge861, label %900, label %.thread929
+  %.not738 = icmp ule ptr %874, %894
+  %brmerge853 = or i1 %.not736, %.not738
+  br i1 %brmerge853, label %900, label %.thread921
 
-.thread929:                                       ; preds = %.thread927, %890
-  %895 = phi ptr [ %891, %890 ], [ %889, %.thread927 ]
-  %896 = phi ptr [ %892, %890 ], [ %888, %.thread927 ]
+.thread921:                                       ; preds = %.thread919, %890
+  %895 = phi ptr [ %891, %890 ], [ %889, %.thread919 ]
+  %896 = phi ptr [ %892, %890 ], [ %888, %.thread919 ]
   %897 = getelementptr inbounds i8, ptr %876, i64 184
   %898 = load ptr, ptr %897, align 8
   %899 = icmp ult ptr %874, %898
   br label %900
 
-900:                                              ; preds = %885, %890, %.thread929
-  %901 = phi ptr [ %891, %890 ], [ %895, %.thread929 ], [ %887, %885 ]
-  %902 = phi ptr [ %892, %890 ], [ %896, %.thread929 ], [ %886, %885 ]
-  %903 = phi i1 [ %.not740, %890 ], [ %899, %.thread929 ], [ false, %885 ]
+900:                                              ; preds = %885, %890, %.thread921
+  %901 = phi ptr [ %891, %890 ], [ %895, %.thread921 ], [ %887, %885 ]
+  %902 = phi ptr [ %892, %890 ], [ %896, %.thread921 ], [ %886, %885 ]
+  %903 = phi i1 [ %.not738, %890 ], [ %899, %.thread921 ], [ false, %885 ]
   tail call void @llvm.assume(i1 %903)
   %904 = getelementptr inbounds i8, ptr %1, i64 384
   %905 = load i8, ptr %904, align 8
-  %906 = and i8 %905, 1
-  %.not742 = icmp eq i8 %906, 0
-  br i1 %.not742, label %915, label %907
+  %906 = trunc i8 %905 to i1
+  br i1 %906, label %907, label %915
 
 907:                                              ; preds = %900
   %908 = getelementptr inbounds i8, ptr %874, i64 4
@@ -7292,51 +7243,51 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %913 = load i32, ptr %912, align 4
   %914 = and i32 %913, -257
   store i32 %914, ptr %912, align 4
-  %.pre900 = load ptr, ptr %873, align 8
-  %.pre901 = load ptr, ptr %902, align 8
+  %.pre892 = load ptr, ptr %873, align 8
+  %.pre893 = load ptr, ptr %902, align 8
   br label %915
 
 915:                                              ; preds = %907, %900
-  %916 = phi ptr [ %.pre901, %907 ], [ %901, %900 ]
-  %917 = phi ptr [ %.pre900, %907 ], [ %874, %900 ]
+  %916 = phi ptr [ %.pre893, %907 ], [ %901, %900 ]
+  %917 = phi ptr [ %.pre892, %907 ], [ %874, %900 ]
   %918 = ptrtoint ptr %917 to i64
   %919 = ptrtoint ptr %916 to i64
   %920 = sub i64 %918, %919
   %921 = inttoptr i64 %920 to ptr
-  br label %.sink.split942
+  br label %.sink.split934
 
-.sink.split942:                                   ; preds = %915, %883
-  %.sink943 = phi ptr [ %884, %883 ], [ %921, %915 ]
-  store ptr %.sink943, ptr %873, align 8
+.sink.split934:                                   ; preds = %915, %883
+  %.sink935 = phi ptr [ %884, %883 ], [ %921, %915 ]
+  store ptr %.sink935, ptr %873, align 8
   br label %922
 
-922:                                              ; preds = %.sink.split942, %872
+922:                                              ; preds = %.sink.split934, %872
   %923 = getelementptr inbounds i8, ptr %0, i64 48
   %924 = load ptr, ptr %923, align 8
-  %.not743 = icmp eq ptr %924, null
-  br i1 %.not743, label %947, label %925
+  %.not740 = icmp eq ptr %924, null
+  br i1 %.not740, label %947, label %925
 
 925:                                              ; preds = %922
   %926 = load i64, ptr %9, align 8
   %927 = inttoptr i64 %926 to ptr
-  %.not744 = icmp ugt ptr %924, %927
-  br i1 %.not744, label %928, label %947
+  %.not741 = icmp ugt ptr %924, %927
+  br i1 %.not741, label %928, label %947
 
 928:                                              ; preds = %925
   %929 = getelementptr inbounds i8, ptr %1, i64 416
   %930 = load ptr, ptr %929, align 8
-  %.not745 = icmp ult ptr %924, %930
+  %.not742 = icmp ult ptr %924, %930
   %931 = getelementptr inbounds i8, ptr %930, i64 %926
-  %.not746 = icmp ugt ptr %924, %931
-  %or.cond834 = select i1 %.not745, i1 true, i1 %.not746
-  br i1 %or.cond834, label %932, label %940
+  %.not743 = icmp ugt ptr %924, %931
+  %or.cond826 = select i1 %.not742, i1 true, i1 %.not743
+  br i1 %or.cond826, label %932, label %940
 
 932:                                              ; preds = %928
   %933 = load ptr, ptr @accel_shared_globals, align 8
   %934 = getelementptr inbounds i8, ptr %933, i64 176
   %935 = load ptr, ptr %934, align 8
-  %.not747 = icmp ult ptr %924, %935
-  br i1 %.not747, label %940, label %936
+  %.not744 = icmp ult ptr %924, %935
+  br i1 %.not744, label %940, label %936
 
 936:                                              ; preds = %932
   %937 = getelementptr inbounds i8, ptr %933, i64 184
@@ -7352,36 +7303,36 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %944 = sub i64 %942, %943
   %945 = inttoptr i64 %944 to ptr
   store ptr %945, ptr %923, align 8
-  %.not748 = icmp eq ptr %924, %930
+  %.not745 = icmp eq ptr %924, %930
   %946 = getelementptr inbounds i8, ptr %3, i64 %944
-  %spec.select863 = select i1 %.not748, ptr null, ptr %946
-  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select863, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
+  %spec.select855 = select i1 %.not745, ptr null, ptr %946
+  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select855, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
   br label %947
 
 947:                                              ; preds = %940, %925, %922
   %948 = getelementptr inbounds i8, ptr %0, i64 144
   %949 = load ptr, ptr %948, align 8
-  %.not749 = icmp eq ptr %949, null
-  br i1 %.not749, label %970, label %950
+  %.not746 = icmp eq ptr %949, null
+  br i1 %.not746, label %970, label %950
 
 950:                                              ; preds = %947
   %951 = getelementptr inbounds i8, ptr %1, i64 416
   %952 = load ptr, ptr %951, align 8
-  %.not750 = icmp ult ptr %949, %952
-  br i1 %.not750, label %956, label %953
+  %.not747 = icmp ult ptr %949, %952
+  br i1 %.not747, label %956, label %953
 
 953:                                              ; preds = %950
   %954 = load i64, ptr %9, align 8
   %955 = getelementptr inbounds i8, ptr %952, i64 %954
-  %.not751 = icmp ugt ptr %949, %955
-  br i1 %.not751, label %956, label %964
+  %.not748 = icmp ugt ptr %949, %955
+  br i1 %.not748, label %956, label %964
 
 956:                                              ; preds = %953, %950
   %957 = load ptr, ptr @accel_shared_globals, align 8
   %958 = getelementptr inbounds i8, ptr %957, i64 176
   %959 = load ptr, ptr %958, align 8
-  %.not752 = icmp ult ptr %949, %959
-  br i1 %.not752, label %964, label %960
+  %.not749 = icmp ult ptr %949, %959
+  br i1 %.not749, label %964, label %960
 
 960:                                              ; preds = %956
   %961 = getelementptr inbounds i8, ptr %957, i64 184
@@ -7402,27 +7353,27 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
 970:                                              ; preds = %964, %947
   %971 = getelementptr inbounds i8, ptr %0, i64 24
   %972 = load ptr, ptr %971, align 8
-  %.not753 = icmp eq ptr %972, null
-  br i1 %.not753, label %993, label %973
+  %.not750 = icmp eq ptr %972, null
+  br i1 %.not750, label %993, label %973
 
 973:                                              ; preds = %970
   %974 = getelementptr inbounds i8, ptr %1, i64 416
   %975 = load ptr, ptr %974, align 8
-  %.not754 = icmp ult ptr %972, %975
-  br i1 %.not754, label %979, label %976
+  %.not751 = icmp ult ptr %972, %975
+  br i1 %.not751, label %979, label %976
 
 976:                                              ; preds = %973
   %977 = load i64, ptr %9, align 8
   %978 = getelementptr inbounds i8, ptr %975, i64 %977
-  %.not755 = icmp ugt ptr %972, %978
-  br i1 %.not755, label %979, label %987
+  %.not752 = icmp ugt ptr %972, %978
+  br i1 %.not752, label %979, label %987
 
 979:                                              ; preds = %976, %973
   %980 = load ptr, ptr @accel_shared_globals, align 8
   %981 = getelementptr inbounds i8, ptr %980, i64 176
   %982 = load ptr, ptr %981, align 8
-  %.not756 = icmp ult ptr %972, %982
-  br i1 %.not756, label %987, label %983
+  %.not753 = icmp ult ptr %972, %982
+  br i1 %.not753, label %987, label %983
 
 983:                                              ; preds = %979
   %984 = getelementptr inbounds i8, ptr %980, i64 184
@@ -7480,10 +7431,10 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
 .thread:                                          ; preds = %12
   %16 = getelementptr inbounds i8, ptr %1, i64 416
   %17 = load ptr, ptr %16, align 8
-  %.not112120 = icmp uge ptr %8, %17
+  %.not112119 = icmp uge ptr %8, %17
   %18 = getelementptr inbounds i8, ptr %17, i64 %10
-  %.not113121 = icmp ule ptr %8, %18
-  %or.cond117.not118122 = select i1 %.not112120, i1 %.not113121, i1 false
+  %.not113120 = icmp ule ptr %8, %18
+  %or.cond116.not117121 = select i1 %.not112119, i1 %.not113120, i1 false
   br label %33
 
 19:                                               ; preds = %12
@@ -7503,8 +7454,8 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %.not112 = icmp uge ptr %8, %27
   %28 = getelementptr inbounds i8, ptr %27, i64 %10
   %.not113 = icmp ule ptr %8, %28
-  %or.cond117.not118 = select i1 %.not112, i1 %.not113, i1 false
-  %brmerge = or i1 %.not111, %or.cond117.not118
+  %or.cond116.not117 = select i1 %.not112, i1 %.not113, i1 false
+  %brmerge = or i1 %.not111, %or.cond116.not117
   br i1 %brmerge, label %33, label %29
 
 29:                                               ; preds = %25
@@ -7516,13 +7467,12 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
 33:                                               ; preds = %.thread, %25, %29
   %34 = phi ptr [ %27, %29 ], [ %27, %25 ], [ %17, %.thread ]
   %35 = phi ptr [ %26, %29 ], [ %26, %25 ], [ %16, %.thread ]
-  %36 = phi i1 [ %32, %29 ], [ %or.cond117.not118, %25 ], [ %or.cond117.not118122, %.thread ]
+  %36 = phi i1 [ %32, %29 ], [ %or.cond116.not117, %25 ], [ %or.cond116.not117121, %.thread ]
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds i8, ptr %1, i64 384
   %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  %.not115 = icmp eq i8 %39, 0
-  br i1 %.not115, label %48, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %48
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds i8, ptr %8, i64 4
@@ -7535,11 +7485,11 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %47 = and i32 %46, -257
   store i32 %47, ptr %45, align 4
   %.pre = load ptr, ptr %0, align 8
-  %.pre119 = load ptr, ptr %35, align 8
+  %.pre118 = load ptr, ptr %35, align 8
   br label %48
 
 48:                                               ; preds = %40, %33
-  %49 = phi ptr [ %.pre119, %40 ], [ %34, %33 ]
+  %49 = phi ptr [ %.pre118, %40 ], [ %34, %33 ]
   %50 = phi ptr [ %.pre, %40 ], [ %8, %33 ]
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %49 to i64
@@ -7606,8 +7556,8 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %.not101 = icmp ult ptr %80, %86
   %87 = getelementptr inbounds i8, ptr %86, i64 %82
   %.not102 = icmp ugt ptr %80, %87
-  %or.cond116 = select i1 %.not101, i1 true, i1 %.not102
-  br i1 %or.cond116, label %88, label %96
+  %or.cond115 = select i1 %.not101, i1 true, i1 %.not102
+  br i1 %or.cond115, label %88, label %96
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr @accel_shared_globals, align 8
@@ -7740,8 +7690,8 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
   %.not107 = icmp ult ptr %29, %33
   %34 = getelementptr inbounds i8, ptr %33, i64 %30
   %.not108 = icmp ugt ptr %29, %34
-  %or.cond122 = select i1 %.not107, i1 true, i1 %.not108
-  br i1 %or.cond122, label %35, label %43
+  %or.cond121 = select i1 %.not107, i1 true, i1 %.not108
+  br i1 %or.cond121, label %35, label %43
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @accel_shared_globals, align 8
@@ -7794,8 +7744,8 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
 
 .thread:                                          ; preds = %55
   %63 = load ptr, ptr %10, align 8
-  %.not112126 = icmp ult ptr %50, %63
-  br i1 %.not112126, label %.thread127, label %64
+  %.not112125 = icmp ult ptr %50, %63
+  br i1 %.not112125, label %.thread126, label %64
 
 64:                                               ; preds = %.thread, %61
   %65 = phi ptr [ %63, %.thread ], [ %62, %61 ]
@@ -7803,24 +7753,23 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
   %67 = getelementptr inbounds i8, ptr %65, i64 %66
   %.not113 = icmp ule ptr %50, %67
   %brmerge = or i1 %.not111, %.not113
-  br i1 %brmerge, label %72, label %.thread127
+  br i1 %brmerge, label %72, label %.thread126
 
-.thread127:                                       ; preds = %.thread, %64
+.thread126:                                       ; preds = %.thread, %64
   %68 = phi ptr [ %65, %64 ], [ %63, %.thread ]
   %69 = getelementptr inbounds i8, ptr %52, i64 184
   %70 = load ptr, ptr %69, align 8
   %71 = icmp ult ptr %50, %70
   br label %72
 
-72:                                               ; preds = %61, %64, %.thread127
-  %73 = phi ptr [ %65, %64 ], [ %68, %.thread127 ], [ %62, %61 ]
-  %74 = phi i1 [ %.not113, %64 ], [ %71, %.thread127 ], [ false, %61 ]
+72:                                               ; preds = %61, %64, %.thread126
+  %73 = phi ptr [ %65, %64 ], [ %68, %.thread126 ], [ %62, %61 ]
+  %74 = phi i1 [ %.not113, %64 ], [ %71, %.thread126 ], [ false, %61 ]
   tail call void @llvm.assume(i1 %74)
   %75 = getelementptr inbounds i8, ptr %1, i64 384
   %76 = load i8, ptr %75, align 8
-  %77 = and i8 %76, 1
-  %.not115 = icmp eq i8 %77, 0
-  br i1 %.not115, label %86, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %86
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds i8, ptr %50, i64 4
@@ -7833,11 +7782,11 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
   %85 = and i32 %84, -257
   store i32 %85, ptr %83, align 4
   %.pre = load ptr, ptr %49, align 8
-  %.pre125 = load ptr, ptr %10, align 8
+  %.pre124 = load ptr, ptr %10, align 8
   br label %86
 
 86:                                               ; preds = %78, %72
-  %87 = phi ptr [ %.pre125, %78 ], [ %73, %72 ]
+  %87 = phi ptr [ %.pre124, %78 ], [ %73, %72 ]
   %88 = phi ptr [ %.pre, %78 ], [ %50, %72 ]
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %87 to i64
@@ -7853,29 +7802,29 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
 93:                                               ; preds = %.sink.split, %43
   %94 = getelementptr inbounds i8, ptr %spec.select, i64 24
   %95 = load ptr, ptr %94, align 8
-  %.not116 = icmp eq ptr %95, null
-  br i1 %.not116, label %117, label %96
+  %.not115 = icmp eq ptr %95, null
+  br i1 %.not115, label %117, label %96
 
 96:                                               ; preds = %93
   %97 = load i64, ptr %6, align 8
   %98 = inttoptr i64 %97 to ptr
-  %.not117 = icmp ugt ptr %95, %98
-  br i1 %.not117, label %99, label %117
+  %.not116 = icmp ugt ptr %95, %98
+  br i1 %.not116, label %99, label %117
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %10, align 8
-  %.not118 = icmp ult ptr %95, %100
+  %.not117 = icmp ult ptr %95, %100
   %101 = getelementptr inbounds i8, ptr %100, i64 %97
-  %.not119 = icmp ugt ptr %95, %101
-  %or.cond123 = select i1 %.not118, i1 true, i1 %.not119
-  br i1 %or.cond123, label %102, label %110
+  %.not118 = icmp ugt ptr %95, %101
+  %or.cond122 = select i1 %.not117, i1 true, i1 %.not118
+  br i1 %or.cond122, label %102, label %110
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr @accel_shared_globals, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 176
   %105 = load ptr, ptr %104, align 8
-  %.not120 = icmp ult ptr %95, %105
-  br i1 %.not120, label %110, label %106
+  %.not119 = icmp ult ptr %95, %105
+  br i1 %.not119, label %110, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %103, i64 184
@@ -7891,10 +7840,10 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
   %114 = sub i64 %112, %113
   %115 = inttoptr i64 %114 to ptr
   store ptr %115, ptr %94, align 8
-  %.not121 = icmp eq ptr %95, %100
+  %.not120 = icmp eq ptr %95, %100
   %116 = getelementptr inbounds i8, ptr %3, i64 %114
-  %spec.select124 = select i1 %.not121, ptr null, ptr %116
-  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select124, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
+  %spec.select123 = select i1 %.not120, ptr null, ptr %116
+  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select123, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
   br label %117
 
 117:                                              ; preds = %93, %96, %110
@@ -7968,7 +7917,7 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %34 = getelementptr inbounds i8, ptr %30, i64 184
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ult ptr %28, %35
-  br i1 %36, label %37, label %.thread147
+  br i1 %36, label %37, label %.thread144
 
 37:                                               ; preds = %33
   %38 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %28, ptr noundef %2)
@@ -7980,40 +7929,39 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %.not118 = icmp ult ptr %28, %41
   br i1 %.not118, label %55, label %44
 
-.thread147:                                       ; preds = %33
+.thread144:                                       ; preds = %33
   %42 = getelementptr inbounds i8, ptr %1, i64 416
   %43 = load ptr, ptr %42, align 8
-  %.not118148 = icmp ult ptr %28, %43
-  br i1 %.not118148, label %.thread149, label %44
+  %.not118145 = icmp ult ptr %28, %43
+  br i1 %.not118145, label %.thread146, label %44
 
-44:                                               ; preds = %.thread147, %39
-  %45 = phi ptr [ %43, %.thread147 ], [ %41, %39 ]
-  %46 = phi ptr [ %42, %.thread147 ], [ %40, %39 ]
+44:                                               ; preds = %.thread144, %39
+  %45 = phi ptr [ %43, %.thread144 ], [ %41, %39 ]
+  %46 = phi ptr [ %42, %.thread144 ], [ %40, %39 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 424
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %45, i64 %48
   %.not119 = icmp ule ptr %28, %49
   %brmerge = or i1 %.not117, %.not119
-  br i1 %brmerge, label %55, label %.thread149
+  br i1 %brmerge, label %55, label %.thread146
 
-.thread149:                                       ; preds = %.thread147, %44
-  %50 = phi ptr [ %45, %44 ], [ %43, %.thread147 ]
-  %51 = phi ptr [ %46, %44 ], [ %42, %.thread147 ]
+.thread146:                                       ; preds = %.thread144, %44
+  %50 = phi ptr [ %45, %44 ], [ %43, %.thread144 ]
+  %51 = phi ptr [ %46, %44 ], [ %42, %.thread144 ]
   %52 = getelementptr inbounds i8, ptr %30, i64 184
   %53 = load ptr, ptr %52, align 8
   %54 = icmp ult ptr %28, %53
   br label %55
 
-55:                                               ; preds = %39, %44, %.thread149
-  %56 = phi ptr [ %45, %44 ], [ %50, %.thread149 ], [ %41, %39 ]
-  %57 = phi ptr [ %46, %44 ], [ %51, %.thread149 ], [ %40, %39 ]
-  %58 = phi i1 [ %.not119, %44 ], [ %54, %.thread149 ], [ false, %39 ]
+55:                                               ; preds = %39, %44, %.thread146
+  %56 = phi ptr [ %45, %44 ], [ %50, %.thread146 ], [ %41, %39 ]
+  %57 = phi ptr [ %46, %44 ], [ %51, %.thread146 ], [ %40, %39 ]
+  %58 = phi i1 [ %.not119, %44 ], [ %54, %.thread146 ], [ false, %39 ]
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds i8, ptr %1, i64 384
   %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not121 = icmp eq i8 %61, 0
-  br i1 %.not121, label %70, label %62
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %70
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds i8, ptr %28, i64 4
@@ -8026,11 +7974,11 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %69 = and i32 %68, -257
   store i32 %69, ptr %67, align 4
   %.pre = load ptr, ptr %.095, align 8
-  %.pre142 = load ptr, ptr %57, align 8
+  %.pre139 = load ptr, ptr %57, align 8
   br label %70
 
 70:                                               ; preds = %62, %55
-  %71 = phi ptr [ %.pre142, %62 ], [ %56, %55 ]
+  %71 = phi ptr [ %.pre139, %62 ], [ %56, %55 ]
   %72 = phi ptr [ %.pre, %62 ], [ %28, %55 ]
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %71 to i64
@@ -8046,66 +7994,65 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
 77:                                               ; preds = %.sink.split, %.thread
   %78 = getelementptr inbounds i8, ptr %.095, i64 8
   %79 = load ptr, ptr %78, align 8
-  %.not122 = icmp eq ptr %79, null
-  br i1 %.not122, label %128, label %80
+  %.not121 = icmp eq ptr %79, null
+  br i1 %.not121, label %128, label %80
 
 80:                                               ; preds = %77
   %81 = load ptr, ptr @accel_shared_globals, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 176
   %83 = load ptr, ptr %82, align 8
-  %.not123 = icmp ult ptr %79, %83
-  br i1 %.not123, label %90, label %84
+  %.not122 = icmp ult ptr %79, %83
+  br i1 %.not122, label %90, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %81, i64 184
   %86 = load ptr, ptr %85, align 8
   %87 = icmp ult ptr %79, %86
-  br i1 %87, label %88, label %.thread150
+  br i1 %87, label %88, label %.thread147
 
 88:                                               ; preds = %84
   %89 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %79, ptr noundef %2)
-  br label %.sink.split156
+  br label %.sink.split153
 
 90:                                               ; preds = %80
   %91 = getelementptr inbounds i8, ptr %1, i64 416
   %92 = load ptr, ptr %91, align 8
-  %.not124 = icmp ult ptr %79, %92
-  br i1 %.not124, label %106, label %95
+  %.not123 = icmp ult ptr %79, %92
+  br i1 %.not123, label %106, label %95
 
-.thread150:                                       ; preds = %84
+.thread147:                                       ; preds = %84
   %93 = getelementptr inbounds i8, ptr %1, i64 416
   %94 = load ptr, ptr %93, align 8
-  %.not124151 = icmp ult ptr %79, %94
-  br i1 %.not124151, label %.thread152, label %95
+  %.not123148 = icmp ult ptr %79, %94
+  br i1 %.not123148, label %.thread149, label %95
 
-95:                                               ; preds = %.thread150, %90
-  %96 = phi ptr [ %94, %.thread150 ], [ %92, %90 ]
-  %97 = phi ptr [ %93, %.thread150 ], [ %91, %90 ]
+95:                                               ; preds = %.thread147, %90
+  %96 = phi ptr [ %94, %.thread147 ], [ %92, %90 ]
+  %97 = phi ptr [ %93, %.thread147 ], [ %91, %90 ]
   %98 = getelementptr inbounds i8, ptr %1, i64 424
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %96, i64 %99
-  %.not125 = icmp ule ptr %79, %100
-  %brmerge135 = or i1 %.not123, %.not125
-  br i1 %brmerge135, label %106, label %.thread152
+  %.not124 = icmp ule ptr %79, %100
+  %brmerge132 = or i1 %.not122, %.not124
+  br i1 %brmerge132, label %106, label %.thread149
 
-.thread152:                                       ; preds = %.thread150, %95
-  %101 = phi ptr [ %96, %95 ], [ %94, %.thread150 ]
-  %102 = phi ptr [ %97, %95 ], [ %93, %.thread150 ]
+.thread149:                                       ; preds = %.thread147, %95
+  %101 = phi ptr [ %96, %95 ], [ %94, %.thread147 ]
+  %102 = phi ptr [ %97, %95 ], [ %93, %.thread147 ]
   %103 = getelementptr inbounds i8, ptr %81, i64 184
   %104 = load ptr, ptr %103, align 8
   %105 = icmp ult ptr %79, %104
   br label %106
 
-106:                                              ; preds = %90, %95, %.thread152
-  %107 = phi ptr [ %96, %95 ], [ %101, %.thread152 ], [ %92, %90 ]
-  %108 = phi ptr [ %97, %95 ], [ %102, %.thread152 ], [ %91, %90 ]
-  %109 = phi i1 [ %.not125, %95 ], [ %105, %.thread152 ], [ false, %90 ]
+106:                                              ; preds = %90, %95, %.thread149
+  %107 = phi ptr [ %96, %95 ], [ %101, %.thread149 ], [ %92, %90 ]
+  %108 = phi ptr [ %97, %95 ], [ %102, %.thread149 ], [ %91, %90 ]
+  %109 = phi i1 [ %.not124, %95 ], [ %105, %.thread149 ], [ false, %90 ]
   tail call void @llvm.assume(i1 %109)
   %110 = getelementptr inbounds i8, ptr %1, i64 384
   %111 = load i8, ptr %110, align 8
-  %112 = and i8 %111, 1
-  %.not127 = icmp eq i8 %112, 0
-  br i1 %.not127, label %121, label %113
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %121
 
 113:                                              ; preds = %106
   %114 = getelementptr inbounds i8, ptr %79, i64 4
@@ -8117,29 +8064,29 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, -257
   store i32 %120, ptr %118, align 4
-  %.pre143 = load ptr, ptr %78, align 8
-  %.pre144 = load ptr, ptr %108, align 8
+  %.pre140 = load ptr, ptr %78, align 8
+  %.pre141 = load ptr, ptr %108, align 8
   br label %121
 
 121:                                              ; preds = %113, %106
-  %122 = phi ptr [ %.pre144, %113 ], [ %107, %106 ]
-  %123 = phi ptr [ %.pre143, %113 ], [ %79, %106 ]
+  %122 = phi ptr [ %.pre141, %113 ], [ %107, %106 ]
+  %123 = phi ptr [ %.pre140, %113 ], [ %79, %106 ]
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %122 to i64
   %126 = sub i64 %124, %125
   %127 = inttoptr i64 %126 to ptr
-  br label %.sink.split156
+  br label %.sink.split153
 
-.sink.split156:                                   ; preds = %88, %121
-  %.sink157 = phi ptr [ %127, %121 ], [ %89, %88 ]
-  store ptr %.sink157, ptr %78, align 8
+.sink.split153:                                   ; preds = %88, %121
+  %.sink154 = phi ptr [ %127, %121 ], [ %89, %88 ]
+  store ptr %.sink154, ptr %78, align 8
   br label %128
 
-128:                                              ; preds = %.sink.split156, %77
+128:                                              ; preds = %.sink.split153, %77
   %129 = getelementptr inbounds i8, ptr %.095, i64 28
   %130 = load i32, ptr %129, align 4
-  %.not140 = icmp eq i32 %130, 0
-  br i1 %.not140, label %._crit_edge, label %.lr.ph
+  %.not137 = icmp eq i32 %130, 0
+  br i1 %.not137, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %128
   %131 = getelementptr inbounds i8, ptr %.095, i64 32
@@ -8152,59 +8099,58 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %179 ]
   %136 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %131, i64 0, i64 %indvars.iv
   %137 = load ptr, ptr %136, align 8
-  %.not128 = icmp eq ptr %137, null
-  br i1 %.not128, label %179, label %138
+  %.not126 = icmp eq ptr %137, null
+  br i1 %.not126, label %179, label %138
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr @accel_shared_globals, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 176
   %141 = load ptr, ptr %140, align 8
-  %.not129 = icmp ult ptr %137, %141
-  br i1 %.not129, label %148, label %142
+  %.not127 = icmp ult ptr %137, %141
+  br i1 %.not127, label %148, label %142
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds i8, ptr %139, i64 184
   %144 = load ptr, ptr %143, align 8
   %145 = icmp ult ptr %137, %144
-  br i1 %145, label %146, label %.thread153
+  br i1 %145, label %146, label %.thread150
 
 146:                                              ; preds = %142
   %147 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %137, ptr noundef %2)
-  br label %.sink.split158
+  br label %.sink.split155
 
 148:                                              ; preds = %138
   %149 = load ptr, ptr %132, align 8
-  %.not130 = icmp ult ptr %137, %149
-  br i1 %.not130, label %159, label %151
+  %.not128 = icmp ult ptr %137, %149
+  br i1 %.not128, label %159, label %151
 
-.thread153:                                       ; preds = %142
+.thread150:                                       ; preds = %142
   %150 = load ptr, ptr %132, align 8
-  %.not130154 = icmp ult ptr %137, %150
-  br i1 %.not130154, label %.thread155, label %151
+  %.not128151 = icmp ult ptr %137, %150
+  br i1 %.not128151, label %.thread152, label %151
 
-151:                                              ; preds = %.thread153, %148
-  %152 = phi ptr [ %150, %.thread153 ], [ %149, %148 ]
+151:                                              ; preds = %.thread150, %148
+  %152 = phi ptr [ %150, %.thread150 ], [ %149, %148 ]
   %153 = load i64, ptr %133, align 8
   %154 = getelementptr inbounds i8, ptr %152, i64 %153
-  %.not131 = icmp ule ptr %137, %154
-  %brmerge137 = or i1 %.not129, %.not131
-  br i1 %brmerge137, label %159, label %.thread155
+  %.not129 = icmp ule ptr %137, %154
+  %brmerge134 = or i1 %.not127, %.not129
+  br i1 %brmerge134, label %159, label %.thread152
 
-.thread155:                                       ; preds = %.thread153, %151
-  %155 = phi ptr [ %152, %151 ], [ %150, %.thread153 ]
+.thread152:                                       ; preds = %.thread150, %151
+  %155 = phi ptr [ %152, %151 ], [ %150, %.thread150 ]
   %156 = getelementptr inbounds i8, ptr %139, i64 184
   %157 = load ptr, ptr %156, align 8
   %158 = icmp ult ptr %137, %157
   br label %159
 
-159:                                              ; preds = %148, %151, %.thread155
-  %160 = phi ptr [ %152, %151 ], [ %155, %.thread155 ], [ %149, %148 ]
-  %161 = phi i1 [ %.not131, %151 ], [ %158, %.thread155 ], [ false, %148 ]
+159:                                              ; preds = %148, %151, %.thread152
+  %160 = phi ptr [ %152, %151 ], [ %155, %.thread152 ], [ %149, %148 ]
+  %161 = phi i1 [ %.not129, %151 ], [ %158, %.thread152 ], [ false, %148 ]
   tail call void @llvm.assume(i1 %161)
   %162 = load i8, ptr %134, align 8
-  %163 = and i8 %162, 1
-  %.not133 = icmp eq i8 %163, 0
-  br i1 %.not133, label %172, label %164
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %172
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %137, i64 4
@@ -8216,25 +8162,25 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %170 = load i32, ptr %169, align 4
   %171 = and i32 %170, -257
   store i32 %171, ptr %169, align 4
-  %.pre145 = load ptr, ptr %136, align 8
-  %.pre146 = load ptr, ptr %132, align 8
+  %.pre142 = load ptr, ptr %136, align 8
+  %.pre143 = load ptr, ptr %132, align 8
   br label %172
 
 172:                                              ; preds = %164, %159
-  %173 = phi ptr [ %.pre146, %164 ], [ %160, %159 ]
-  %174 = phi ptr [ %.pre145, %164 ], [ %137, %159 ]
+  %173 = phi ptr [ %.pre143, %164 ], [ %160, %159 ]
+  %174 = phi ptr [ %.pre142, %164 ], [ %137, %159 ]
   %175 = ptrtoint ptr %174 to i64
   %176 = ptrtoint ptr %173 to i64
   %177 = sub i64 %175, %176
   %178 = inttoptr i64 %177 to ptr
-  br label %.sink.split158
+  br label %.sink.split155
 
-.sink.split158:                                   ; preds = %146, %172
-  %.sink159 = phi ptr [ %178, %172 ], [ %147, %146 ]
-  store ptr %.sink159, ptr %136, align 8
+.sink.split155:                                   ; preds = %146, %172
+  %.sink156 = phi ptr [ %178, %172 ], [ %147, %146 ]
+  store ptr %.sink156, ptr %136, align 8
   br label %179
 
-179:                                              ; preds = %.sink.split158, %135
+179:                                              ; preds = %.sink.split155, %135
   %180 = getelementptr inbounds i8, ptr %136, i64 8
   tail call void @zend_file_cache_serialize_zval(ptr noundef nonnull %180, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8313,8 +8259,8 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
   %.not128 = icmp ult ptr %29, %39
   %40 = getelementptr inbounds i8, ptr %39, i64 %36
   %.not129 = icmp ugt ptr %29, %40
-  %or.cond149 = select i1 %.not128, i1 true, i1 %.not129
-  br i1 %or.cond149, label %41, label %49
+  %or.cond147 = select i1 %.not128, i1 true, i1 %.not129
+  br i1 %or.cond147, label %41, label %49
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @accel_shared_globals, align 8
@@ -8366,8 +8312,8 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
 
 .thread:                                          ; preds = %61
   %69 = load ptr, ptr %10, align 8
-  %.not133157 = icmp ult ptr %56, %69
-  br i1 %.not133157, label %.thread158, label %70
+  %.not133155 = icmp ult ptr %56, %69
+  br i1 %.not133155, label %.thread156, label %70
 
 70:                                               ; preds = %.thread, %67
   %71 = phi ptr [ %69, %.thread ], [ %68, %67 ]
@@ -8375,24 +8321,23 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
   %73 = getelementptr inbounds i8, ptr %71, i64 %72
   %.not134 = icmp ule ptr %56, %73
   %brmerge = or i1 %.not132, %.not134
-  br i1 %brmerge, label %78, label %.thread158
+  br i1 %brmerge, label %78, label %.thread156
 
-.thread158:                                       ; preds = %.thread, %70
+.thread156:                                       ; preds = %.thread, %70
   %74 = phi ptr [ %71, %70 ], [ %69, %.thread ]
   %75 = getelementptr inbounds i8, ptr %58, i64 184
   %76 = load ptr, ptr %75, align 8
   %77 = icmp ult ptr %56, %76
   br label %78
 
-78:                                               ; preds = %67, %70, %.thread158
-  %79 = phi ptr [ %71, %70 ], [ %74, %.thread158 ], [ %68, %67 ]
-  %80 = phi i1 [ %.not134, %70 ], [ %77, %.thread158 ], [ false, %67 ]
+78:                                               ; preds = %67, %70, %.thread156
+  %79 = phi ptr [ %71, %70 ], [ %74, %.thread156 ], [ %68, %67 ]
+  %80 = phi i1 [ %.not134, %70 ], [ %77, %.thread156 ], [ false, %67 ]
   tail call void @llvm.assume(i1 %80)
   %81 = getelementptr inbounds i8, ptr %1, i64 384
   %82 = load i8, ptr %81, align 8
-  %83 = and i8 %82, 1
-  %.not136 = icmp eq i8 %83, 0
-  br i1 %.not136, label %92, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %92
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds i8, ptr %56, i64 4
@@ -8405,11 +8350,11 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
   %91 = and i32 %90, -257
   store i32 %91, ptr %89, align 4
   %.pre = load ptr, ptr %55, align 8
-  %.pre154 = load ptr, ptr %10, align 8
+  %.pre152 = load ptr, ptr %10, align 8
   br label %92
 
 92:                                               ; preds = %84, %78
-  %93 = phi ptr [ %.pre154, %84 ], [ %79, %78 ]
+  %93 = phi ptr [ %.pre152, %84 ], [ %79, %78 ]
   %94 = phi ptr [ %.pre, %84 ], [ %56, %78 ]
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %93 to i64
@@ -8425,60 +8370,59 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
 99:                                               ; preds = %.sink.split, %49
   %100 = getelementptr inbounds i8, ptr %spec.select, i64 16
   %101 = load ptr, ptr %100, align 8
-  %.not137 = icmp eq ptr %101, null
-  br i1 %.not137, label %144, label %102
+  %.not136 = icmp eq ptr %101, null
+  br i1 %.not136, label %144, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr @accel_shared_globals, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 176
   %105 = load ptr, ptr %104, align 8
-  %.not138 = icmp ult ptr %101, %105
-  br i1 %.not138, label %112, label %106
+  %.not137 = icmp ult ptr %101, %105
+  br i1 %.not137, label %112, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %103, i64 184
   %108 = load ptr, ptr %107, align 8
   %109 = icmp ult ptr %101, %108
-  br i1 %109, label %110, label %.thread159
+  br i1 %109, label %110, label %.thread157
 
 110:                                              ; preds = %106
   %111 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %101, ptr noundef %2)
-  br label %.sink.split162
+  br label %.sink.split160
 
 112:                                              ; preds = %102
   %113 = load ptr, ptr %10, align 8
-  %.not139 = icmp ult ptr %101, %113
-  br i1 %.not139, label %123, label %115
+  %.not138 = icmp ult ptr %101, %113
+  br i1 %.not138, label %123, label %115
 
-.thread159:                                       ; preds = %106
+.thread157:                                       ; preds = %106
   %114 = load ptr, ptr %10, align 8
-  %.not139160 = icmp ult ptr %101, %114
-  br i1 %.not139160, label %.thread161, label %115
+  %.not138158 = icmp ult ptr %101, %114
+  br i1 %.not138158, label %.thread159, label %115
 
-115:                                              ; preds = %.thread159, %112
-  %116 = phi ptr [ %114, %.thread159 ], [ %113, %112 ]
+115:                                              ; preds = %.thread157, %112
+  %116 = phi ptr [ %114, %.thread157 ], [ %113, %112 ]
   %117 = load i64, ptr %6, align 8
   %118 = getelementptr inbounds i8, ptr %116, i64 %117
-  %.not140 = icmp ule ptr %101, %118
-  %brmerge151 = or i1 %.not138, %.not140
-  br i1 %brmerge151, label %123, label %.thread161
+  %.not139 = icmp ule ptr %101, %118
+  %brmerge149 = or i1 %.not137, %.not139
+  br i1 %brmerge149, label %123, label %.thread159
 
-.thread161:                                       ; preds = %.thread159, %115
-  %119 = phi ptr [ %116, %115 ], [ %114, %.thread159 ]
+.thread159:                                       ; preds = %.thread157, %115
+  %119 = phi ptr [ %116, %115 ], [ %114, %.thread157 ]
   %120 = getelementptr inbounds i8, ptr %103, i64 184
   %121 = load ptr, ptr %120, align 8
   %122 = icmp ult ptr %101, %121
   br label %123
 
-123:                                              ; preds = %112, %115, %.thread161
-  %124 = phi ptr [ %116, %115 ], [ %119, %.thread161 ], [ %113, %112 ]
-  %125 = phi i1 [ %.not140, %115 ], [ %122, %.thread161 ], [ false, %112 ]
+123:                                              ; preds = %112, %115, %.thread159
+  %124 = phi ptr [ %116, %115 ], [ %119, %.thread159 ], [ %113, %112 ]
+  %125 = phi i1 [ %.not139, %115 ], [ %122, %.thread159 ], [ false, %112 ]
   tail call void @llvm.assume(i1 %125)
   %126 = getelementptr inbounds i8, ptr %1, i64 384
   %127 = load i8, ptr %126, align 8
-  %128 = and i8 %127, 1
-  %.not142 = icmp eq i8 %128, 0
-  br i1 %.not142, label %137, label %129
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %137
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds i8, ptr %101, i64 4
@@ -8490,50 +8434,50 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, -257
   store i32 %136, ptr %134, align 4
-  %.pre155 = load ptr, ptr %100, align 8
-  %.pre156 = load ptr, ptr %10, align 8
+  %.pre153 = load ptr, ptr %100, align 8
+  %.pre154 = load ptr, ptr %10, align 8
   br label %137
 
 137:                                              ; preds = %129, %123
-  %138 = phi ptr [ %.pre156, %129 ], [ %124, %123 ]
-  %139 = phi ptr [ %.pre155, %129 ], [ %101, %123 ]
+  %138 = phi ptr [ %.pre154, %129 ], [ %124, %123 ]
+  %139 = phi ptr [ %.pre153, %129 ], [ %101, %123 ]
   %140 = ptrtoint ptr %139 to i64
   %141 = ptrtoint ptr %138 to i64
   %142 = sub i64 %140, %141
   %143 = inttoptr i64 %142 to ptr
-  br label %.sink.split162
+  br label %.sink.split160
 
-.sink.split162:                                   ; preds = %110, %137
-  %.sink163 = phi ptr [ %143, %137 ], [ %111, %110 ]
-  store ptr %.sink163, ptr %100, align 8
+.sink.split160:                                   ; preds = %110, %137
+  %.sink161 = phi ptr [ %143, %137 ], [ %111, %110 ]
+  store ptr %.sink161, ptr %100, align 8
   br label %144
 
-144:                                              ; preds = %.sink.split162, %99
+144:                                              ; preds = %.sink.split160, %99
   %145 = getelementptr inbounds i8, ptr %spec.select, i64 24
   %146 = load ptr, ptr %145, align 8
-  %.not143 = icmp eq ptr %146, null
-  br i1 %.not143, label %168, label %147
+  %.not141 = icmp eq ptr %146, null
+  br i1 %.not141, label %168, label %147
 
 147:                                              ; preds = %144
   %148 = load i64, ptr %6, align 8
   %149 = inttoptr i64 %148 to ptr
-  %.not144 = icmp ugt ptr %146, %149
-  br i1 %.not144, label %150, label %168
+  %.not142 = icmp ugt ptr %146, %149
+  br i1 %.not142, label %150, label %168
 
 150:                                              ; preds = %147
   %151 = load ptr, ptr %10, align 8
-  %.not145 = icmp ult ptr %146, %151
+  %.not143 = icmp ult ptr %146, %151
   %152 = getelementptr inbounds i8, ptr %151, i64 %148
-  %.not146 = icmp ugt ptr %146, %152
-  %or.cond150 = select i1 %.not145, i1 true, i1 %.not146
-  br i1 %or.cond150, label %153, label %161
+  %.not144 = icmp ugt ptr %146, %152
+  %or.cond148 = select i1 %.not143, i1 true, i1 %.not144
+  br i1 %or.cond148, label %153, label %161
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr @accel_shared_globals, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 176
   %156 = load ptr, ptr %155, align 8
-  %.not147 = icmp ult ptr %146, %156
-  br i1 %.not147, label %161, label %157
+  %.not145 = icmp ult ptr %146, %156
+  br i1 %.not145, label %161, label %157
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %154, i64 184
@@ -8549,10 +8493,10 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
   %165 = sub i64 %163, %164
   %166 = inttoptr i64 %165 to ptr
   store ptr %166, ptr %145, align 8
-  %.not148 = icmp eq ptr %146, %151
+  %.not146 = icmp eq ptr %146, %151
   %167 = getelementptr inbounds i8, ptr %3, i64 %165
-  %spec.select153 = select i1 %.not148, ptr null, ptr %167
-  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select153, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
+  %spec.select151 = select i1 %.not146, ptr null, ptr %167
+  tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select151, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_attribute)
   br label %168
 
 168:                                              ; preds = %144, %147, %161
@@ -8730,28 +8674,28 @@ define internal fastcc void @zend_file_cache_serialize_type(ptr nocapture nounde
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %.not66 = icmp eq ptr %9, null
-  br i1 %.not66, label %.thread, label %10
+  %.not65 = icmp eq ptr %9, null
+  br i1 %.not65, label %.thread, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 416
   %12 = load ptr, ptr %11, align 8
-  %.not67 = icmp ult ptr %9, %12
-  br i1 %.not67, label %17, label %13
+  %.not66 = icmp ult ptr %9, %12
+  br i1 %.not66, label %17, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %1, i64 424
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  %.not68 = icmp ugt ptr %9, %16
-  br i1 %.not68, label %17, label %25
+  %.not67 = icmp ugt ptr %9, %16
+  br i1 %.not67, label %17, label %25
 
 17:                                               ; preds = %13, %10
   %18 = load ptr, ptr @accel_shared_globals, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %.not69 = icmp ult ptr %9, %20
-  br i1 %.not69, label %25, label %21
+  %.not68 = icmp ult ptr %9, %20
+  br i1 %.not68, label %25, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %18, i64 184
@@ -8767,9 +8711,9 @@ define internal fastcc void @zend_file_cache_serialize_type(ptr nocapture nounde
   %29 = sub i64 %27, %28
   %30 = inttoptr i64 %29 to ptr
   store ptr %30, ptr %0, align 8
-  %.not70 = icmp eq ptr %9, %12
+  %.not69 = icmp eq ptr %9, %12
   %31 = getelementptr inbounds i8, ptr %3, i64 %29
-  %spec.select = select i1 %.not70, ptr null, ptr %31
+  %spec.select = select i1 %.not69, ptr null, ptr %31
   br label %.thread
 
 .thread:                                          ; preds = %8, %25
@@ -8778,19 +8722,19 @@ define internal fastcc void @zend_file_cache_serialize_type(ptr nocapture nounde
   %33 = zext i32 %32 to i64
   %.idx = shl nuw nsw i64 %33, 4
   %.add = or disjoint i64 %.idx, 8
-  %.ptr74 = getelementptr inbounds i8, ptr %.1, i64 %.add
-  %.not75 = icmp eq i32 %32, 0
-  br i1 %.not75, label %.loopexit, label %.lr.ph.preheader
+  %.ptr73 = getelementptr inbounds i8, ptr %.1, i64 %.add
+  %.not74 = icmp eq i32 %32, 0
+  br i1 %.not74, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread
   %.ptr = getelementptr inbounds i8, ptr %.1, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05273 = phi ptr [ %34, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  tail call fastcc void @zend_file_cache_serialize_type(ptr noundef nonnull %.05273, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %34 = getelementptr inbounds i8, ptr %.05273, i64 16
-  %35 = icmp ult ptr %34, %.ptr74
+  %.05272 = phi ptr [ %34, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  tail call fastcc void @zend_file_cache_serialize_type(ptr noundef nonnull %.05272, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %34 = getelementptr inbounds i8, ptr %.05272, i64 16
+  %35 = icmp ult ptr %34, %.ptr73
   br i1 %35, label %.lr.ph, label %.loopexit
 
 36:                                               ; preds = %4
@@ -8814,7 +8758,7 @@ define internal fastcc void @zend_file_cache_serialize_type(ptr nocapture nounde
   %45 = getelementptr inbounds i8, ptr %41, i64 184
   %46 = load ptr, ptr %45, align 8
   %47 = icmp ult ptr %39, %46
-  br i1 %47, label %48, label %.thread76
+  br i1 %47, label %48, label %.thread75
 
 48:                                               ; preds = %44
   %49 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %39, ptr noundef %2)
@@ -8826,40 +8770,39 @@ define internal fastcc void @zend_file_cache_serialize_type(ptr nocapture nounde
   %.not62 = icmp ult ptr %39, %52
   br i1 %.not62, label %66, label %55
 
-.thread76:                                        ; preds = %44
+.thread75:                                        ; preds = %44
   %53 = getelementptr inbounds i8, ptr %1, i64 416
   %54 = load ptr, ptr %53, align 8
-  %.not6277 = icmp ult ptr %39, %54
-  br i1 %.not6277, label %.thread78, label %55
+  %.not6276 = icmp ult ptr %39, %54
+  br i1 %.not6276, label %.thread77, label %55
 
-55:                                               ; preds = %.thread76, %50
-  %56 = phi ptr [ %54, %.thread76 ], [ %52, %50 ]
-  %57 = phi ptr [ %53, %.thread76 ], [ %51, %50 ]
+55:                                               ; preds = %.thread75, %50
+  %56 = phi ptr [ %54, %.thread75 ], [ %52, %50 ]
+  %57 = phi ptr [ %53, %.thread75 ], [ %51, %50 ]
   %58 = getelementptr inbounds i8, ptr %1, i64 424
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 %59
   %.not63 = icmp ule ptr %39, %60
   %brmerge = or i1 %.not61, %.not63
-  br i1 %brmerge, label %66, label %.thread78
+  br i1 %brmerge, label %66, label %.thread77
 
-.thread78:                                        ; preds = %.thread76, %55
-  %61 = phi ptr [ %56, %55 ], [ %54, %.thread76 ]
-  %62 = phi ptr [ %57, %55 ], [ %53, %.thread76 ]
+.thread77:                                        ; preds = %.thread75, %55
+  %61 = phi ptr [ %56, %55 ], [ %54, %.thread75 ]
+  %62 = phi ptr [ %57, %55 ], [ %53, %.thread75 ]
   %63 = getelementptr inbounds i8, ptr %41, i64 184
   %64 = load ptr, ptr %63, align 8
   %65 = icmp ult ptr %39, %64
   br label %66
 
-66:                                               ; preds = %50, %55, %.thread78
-  %67 = phi ptr [ %56, %55 ], [ %61, %.thread78 ], [ %52, %50 ]
-  %68 = phi ptr [ %57, %55 ], [ %62, %.thread78 ], [ %51, %50 ]
-  %69 = phi i1 [ %.not63, %55 ], [ %65, %.thread78 ], [ false, %50 ]
+66:                                               ; preds = %50, %55, %.thread77
+  %67 = phi ptr [ %56, %55 ], [ %61, %.thread77 ], [ %52, %50 ]
+  %68 = phi ptr [ %57, %55 ], [ %62, %.thread77 ], [ %51, %50 ]
+  %69 = phi i1 [ %.not63, %55 ], [ %65, %.thread77 ], [ false, %50 ]
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds i8, ptr %1, i64 384
   %71 = load i8, ptr %70, align 8
-  %72 = and i8 %71, 1
-  %.not65 = icmp eq i8 %72, 0
-  br i1 %.not65, label %78, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %78
 
 73:                                               ; preds = %66
   %74 = getelementptr inbounds i8, ptr %39, i64 4
@@ -8905,17 +8848,16 @@ define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noun
 
 .loopexit.sink.split:                             ; preds = %5
   %10 = load i8, ptr @file_cache_only, align 1
-  %11 = and i8 %10, 1
-  %.not76 = icmp eq i8 %11, 0
+  %11 = trunc i8 %10 to i1
   %12 = load ptr, ptr @accel_shared_globals, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 144
-  %.sink86 = select i1 %.not76, ptr %13, ptr @uninitialized_bucket
+  %.sink83 = select i1 %11, ptr @uninitialized_bucket, ptr %13
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 0, %15
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = getelementptr inbounds i8, ptr %.sink86, i64 %18
+  %19 = getelementptr inbounds i8, ptr %.sink83, i64 %18
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %19, ptr %20, align 8
   br label %.loopexit
@@ -8970,47 +8912,47 @@ define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noun
   %49 = getelementptr inbounds i8, ptr %0, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %.not82 = icmp eq i32 %50, 0
+  %.not79 = icmp eq i32 %50, 0
   br i1 %.not69, label %60, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds %struct._zval_struct, ptr %47, i64 %51
-  br i1 %.not82, label %.loopexit, label %.lr.ph
+  br i1 %.not79, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52, %57
-  %.078 = phi ptr [ %58, %57 ], [ %47, %52 ]
-  %54 = getelementptr inbounds i8, ptr %.078, i64 8
+  %.075 = phi ptr [ %58, %57 ], [ %47, %52 ]
+  %54 = getelementptr inbounds i8, ptr %.075, i64 8
   %55 = load i8, ptr %54, align 8
-  %.not75 = icmp eq i8 %55, 0
-  br i1 %.not75, label %57, label %56
+  %.not73 = icmp eq i8 %55, 0
+  br i1 %.not73, label %57, label %56
 
 56:                                               ; preds = %.lr.ph
-  tail call void %3(ptr noundef nonnull %.078, ptr noundef %1, ptr noundef %2) #19
+  tail call void %3(ptr noundef nonnull %.075, ptr noundef %1, ptr noundef %2) #19
   br label %57
 
 57:                                               ; preds = %56, %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %.078, i64 16
+  %58 = getelementptr inbounds i8, ptr %.075, i64 16
   %59 = icmp ult ptr %58, %53
   br i1 %59, label %.lr.ph, label %.loopexit
 
 60:                                               ; preds = %46
   %61 = getelementptr inbounds %struct._Bucket, ptr %47, i64 %51
-  br i1 %.not82, label %.loopexit, label %.lr.ph80
+  br i1 %.not79, label %.loopexit, label %.lr.ph77
 
-.lr.ph80:                                         ; preds = %60
+.lr.ph77:                                         ; preds = %60
   %62 = getelementptr inbounds i8, ptr %1, i64 384
   %63 = getelementptr inbounds i8, ptr %1, i64 424
   br label %64
 
-64:                                               ; preds = %.lr.ph80, %109
-  %.05979 = phi ptr [ %47, %.lr.ph80 ], [ %110, %109 ]
-  %65 = getelementptr inbounds i8, ptr %.05979, i64 8
+64:                                               ; preds = %.lr.ph77, %109
+  %.05976 = phi ptr [ %47, %.lr.ph77 ], [ %110, %109 ]
+  %65 = getelementptr inbounds i8, ptr %.05976, i64 8
   %66 = load i8, ptr %65, align 8
   %.not70 = icmp eq i8 %66, 0
   br i1 %.not70, label %109, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.05979, i64 24
+  %68 = getelementptr inbounds i8, ptr %.05976, i64 24
   %69 = load ptr, ptr %68, align 8
   %.not71 = icmp eq ptr %69, null
   br i1 %.not71, label %108, label %70
@@ -9023,12 +8965,11 @@ define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noun
 
 73:                                               ; preds = %70
   %74 = load i8, ptr %62, align 8
-  %75 = and i8 %74, 1
-  %.not74 = icmp eq i8 %75, 0
+  %75 = trunc i8 %74 to i1
   %76 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %77 = and i64 %71, -2
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
-  br i1 %.not74, label %79, label %zend_file_cache_unserialize_interned.exit
+  br i1 %75, label %zend_file_cache_unserialize_interned.exit, label %79
 
 79:                                               ; preds = %73
   %80 = tail call ptr @accel_new_interned_string(ptr noundef %78) #19
@@ -9069,11 +9010,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %73, %79, %89
   %95 = getelementptr inbounds i8, ptr %2, i64 %71
   store ptr %95, ptr %68, align 8
   %96 = load i8, ptr %62, align 8
-  %97 = and i8 %96, 1
-  %.not73 = icmp eq i8 %97, 0
+  %97 = trunc i8 %96 to i1
   %98 = getelementptr inbounds i8, ptr %95, i64 4
   %99 = load i32, ptr %98, align 4
-  br i1 %.not73, label %100, label %102
+  br i1 %97, label %102, label %100
 
 100:                                              ; preds = %91
   %101 = or i32 %99, 320
@@ -9091,11 +9031,11 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %73, %79, %89
   br label %108
 
 108:                                              ; preds = %67, %100, %102, %zend_file_cache_unserialize_interned.exit
-  tail call void %3(ptr noundef nonnull %.05979, ptr noundef %1, ptr noundef %2) #19
+  tail call void %3(ptr noundef nonnull %.05976, ptr noundef %1, ptr noundef %2) #19
   br label %109
 
 109:                                              ; preds = %108, %64
-  %110 = getelementptr inbounds i8, ptr %.05979, i64 32
+  %110 = getelementptr inbounds i8, ptr %.05976, i64 32
   %111 = icmp ult ptr %110, %61
   br i1 %111, label %64, label %.loopexit
 
@@ -9128,12 +9068,11 @@ define internal void @zend_file_cache_unserialize_class(ptr nocapture noundef %0
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %1, i64 384
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not634 = icmp eq i8 %19, 0
+  %19 = trunc i8 %18 to i1
   %20 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %21 = and i64 %14, -2
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  br i1 %.not634, label %23, label %zend_file_cache_unserialize_interned.exit
+  br i1 %19, label %zend_file_cache_unserialize_interned.exit, label %23
 
 23:                                               ; preds = %16
   %24 = tail call ptr @accel_new_interned_string(ptr noundef %22) #19
@@ -9176,11 +9115,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %16, %23, %33
   store ptr %40, ptr %11, align 8
   %41 = getelementptr inbounds i8, ptr %1, i64 384
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not633 = icmp eq i8 %43, 0
+  %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %40, i64 4
   %45 = load i32, ptr %44, align 4
-  br i1 %.not633, label %46, label %48
+  br i1 %43, label %48, label %46
 
 46:                                               ; preds = %35
   %47 = or i32 %45, 320
@@ -9201,16 +9139,15 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %16, %23, %33
   %55 = getelementptr inbounds i8, ptr %10, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 4
-  %.not635 = icmp eq i32 %57, 0
-  br i1 %.not635, label %58, label %66
+  %.not633 = icmp eq i32 %57, 0
+  br i1 %.not633, label %58, label %66
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %1, i64 384
   %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not636 = icmp eq i8 %61, 0
+  %61 = trunc i8 %60 to i1
   %62 = load ptr, ptr %11, align 8
-  br i1 %.not636, label %63, label %65
+  br i1 %61, label %65, label %63
 
 63:                                               ; preds = %58
   %64 = tail call i32 @zend_accel_get_class_name_map_ptr(ptr noundef %62) #19
@@ -9223,43 +9160,42 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %16, %23, %33
 66:                                               ; preds = %63, %65, %54
   %67 = getelementptr inbounds i8, ptr %10, i64 16
   %68 = load ptr, ptr %67, align 8
-  %.not637 = icmp eq ptr %68, null
-  br i1 %.not637, label %120, label %69
+  %.not634 = icmp eq ptr %68, null
+  br i1 %.not634, label %120, label %69
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %55, align 4
   %71 = and i32 %70, 8
-  %.not638 = icmp eq i32 %71, 0
-  br i1 %.not638, label %72, label %113
+  %.not635 = icmp eq i32 %71, 0
+  br i1 %.not635, label %72, label %113
 
 72:                                               ; preds = %69
   %73 = ptrtoint ptr %68 to i64
   %74 = and i64 %73, 1
-  %.not639 = icmp eq i64 %74, 0
-  br i1 %.not639, label %94, label %75
+  %.not636 = icmp eq i64 %74, 0
+  br i1 %.not636, label %94, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %1, i64 384
   %77 = load i8, ptr %76, align 8
-  %78 = and i8 %77, 1
-  %.not641 = icmp eq i8 %78, 0
+  %78 = trunc i8 %77 to i1
   %79 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %80 = and i64 %73, -2
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  br i1 %.not641, label %82, label %zend_file_cache_unserialize_interned.exit738
+  br i1 %78, label %zend_file_cache_unserialize_interned.exit708, label %82
 
 82:                                               ; preds = %75
   %83 = tail call ptr @accel_new_interned_string(ptr noundef %81) #19
   %84 = icmp eq ptr %83, %81
-  br i1 %84, label %85, label %zend_file_cache_unserialize_interned.exit738
+  br i1 %84, label %85, label %zend_file_cache_unserialize_interned.exit708
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %81, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 25
   %89 = tail call ptr @zend_shared_alloc(i64 noundef %88) #19
-  %.not.i737 = icmp eq ptr %89, null
-  br i1 %.not.i737, label %90, label %92
+  %.not.i707 = icmp eq ptr %89, null
+  br i1 %.not.i707, label %90, label %92
 
 90:                                               ; preds = %85
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -9272,11 +9208,11 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %16, %23, %33
   store i32 1, ptr %89, align 4
   %93 = getelementptr inbounds i8, ptr %89, i64 4
   store i32 470, ptr %93, align 4
-  br label %zend_file_cache_unserialize_interned.exit738
+  br label %zend_file_cache_unserialize_interned.exit708
 
-zend_file_cache_unserialize_interned.exit738:     ; preds = %75, %82, %92
-  %.0.i736 = phi ptr [ %81, %75 ], [ %89, %92 ], [ %83, %82 ]
-  store ptr %.0.i736, ptr %67, align 8
+zend_file_cache_unserialize_interned.exit708:     ; preds = %75, %82, %92
+  %.0.i706 = phi ptr [ %81, %75 ], [ %89, %92 ], [ %83, %82 ]
+  store ptr %.0.i706, ptr %67, align 8
   br label %120
 
 94:                                               ; preds = %72
@@ -9289,11 +9225,10 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %75, %82, %92
   store ptr %99, ptr %67, align 8
   %100 = getelementptr inbounds i8, ptr %1, i64 384
   %101 = load i8, ptr %100, align 8
-  %102 = and i8 %101, 1
-  %.not640 = icmp eq i8 %102, 0
+  %102 = trunc i8 %101 to i1
   %103 = getelementptr inbounds i8, ptr %99, i64 4
   %104 = load i32, ptr %103, align 4
-  br i1 %.not640, label %105, label %107
+  br i1 %102, label %107, label %105
 
 105:                                              ; preds = %94
   %106 = or i32 %104, 320
@@ -9321,13 +9256,13 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %75, %82, %92
   store ptr %119, ptr %67, align 8
   br label %120
 
-120:                                              ; preds = %105, %107, %zend_file_cache_unserialize_interned.exit738, %113, %66
+120:                                              ; preds = %105, %107, %zend_file_cache_unserialize_interned.exit708, %113, %66
   %121 = getelementptr inbounds i8, ptr %10, i64 64
   tail call fastcc void @zend_file_cache_unserialize_hash(ptr noundef nonnull %121, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @zend_file_cache_unserialize_func, ptr noundef nonnull @zend_function_dtor)
   %122 = getelementptr inbounds i8, ptr %10, i64 40
   %123 = load ptr, ptr %122, align 8
-  %.not642 = icmp eq ptr %123, null
-  br i1 %.not642, label %.loopexit779, label %124
+  %.not637 = icmp eq ptr %123, null
+  br i1 %.not637, label %.loopexit749, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %1, i64 424
@@ -9343,22 +9278,22 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %75, %82, %92
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds %struct._zval_struct, ptr %130, i64 %133
   %135 = icmp sgt i32 %132, 0
-  br i1 %135, label %.lr.ph, label %.loopexit779
+  br i1 %135, label %.lr.ph, label %.loopexit749
 
 .lr.ph:                                           ; preds = %124, %.lr.ph
-  %.0570780 = phi ptr [ %136, %.lr.ph ], [ %130, %124 ]
-  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0570780, ptr noundef %1, ptr noundef %2)
-  %136 = getelementptr inbounds i8, ptr %.0570780, i64 16
+  %.0570750 = phi ptr [ %136, %.lr.ph ], [ %130, %124 ]
+  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0570750, ptr noundef %1, ptr noundef %2)
+  %136 = getelementptr inbounds i8, ptr %.0570750, i64 16
   %137 = icmp ult ptr %136, %134
-  br i1 %137, label %.lr.ph, label %.loopexit779
+  br i1 %137, label %.lr.ph, label %.loopexit749
 
-.loopexit779:                                     ; preds = %.lr.ph, %124, %120
+.loopexit749:                                     ; preds = %.lr.ph, %124, %120
   %138 = getelementptr inbounds i8, ptr %10, i64 48
   %139 = load ptr, ptr %138, align 8
-  %.not643 = icmp eq ptr %139, null
-  br i1 %.not643, label %.loopexit778, label %140
+  %.not638 = icmp eq ptr %139, null
+  br i1 %.not638, label %.loopexit748, label %140
 
-140:                                              ; preds = %.loopexit779
+140:                                              ; preds = %.loopexit749
   %141 = getelementptr inbounds i8, ptr %1, i64 424
   %142 = load i64, ptr %141, align 8
   %143 = inttoptr i64 %142 to ptr
@@ -9372,51 +9307,50 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %75, %82, %92
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds %struct._zval_struct, ptr %146, i64 %149
   %151 = icmp sgt i32 %148, 0
-  br i1 %151, label %.lr.ph782, label %.loopexit778
+  br i1 %151, label %.lr.ph752, label %.loopexit748
 
-.lr.ph782:                                        ; preds = %140, %.lr.ph782
-  %.0572781 = phi ptr [ %152, %.lr.ph782 ], [ %146, %140 ]
-  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0572781, ptr noundef %1, ptr noundef %2)
-  %152 = getelementptr inbounds i8, ptr %.0572781, i64 16
+.lr.ph752:                                        ; preds = %140, %.lr.ph752
+  %.0572751 = phi ptr [ %152, %.lr.ph752 ], [ %146, %140 ]
+  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0572751, ptr noundef %1, ptr noundef %2)
+  %152 = getelementptr inbounds i8, ptr %.0572751, i64 16
   %153 = icmp ult ptr %152, %150
-  br i1 %153, label %.lr.ph782, label %.loopexit778
+  br i1 %153, label %.lr.ph752, label %.loopexit748
 
-.loopexit778:                                     ; preds = %.lr.ph782, %140, %.loopexit779
+.loopexit748:                                     ; preds = %.lr.ph752, %140, %.loopexit749
   %154 = getelementptr inbounds i8, ptr %10, i64 176
   tail call fastcc void @zend_file_cache_unserialize_hash(ptr noundef nonnull %154, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @zend_file_cache_unserialize_class_constant, ptr noundef null)
   %155 = getelementptr inbounds i8, ptr %10, i64 496
   %156 = load ptr, ptr %155, align 8
-  %.not644 = icmp eq ptr %156, null
-  br i1 %.not644, label %198, label %157
+  %.not639 = icmp eq ptr %156, null
+  br i1 %.not639, label %198, label %157
 
-157:                                              ; preds = %.loopexit778
+157:                                              ; preds = %.loopexit748
   %158 = ptrtoint ptr %156 to i64
   %159 = and i64 %158, 1
-  %.not645 = icmp eq i64 %159, 0
-  br i1 %.not645, label %179, label %160
+  %.not640 = icmp eq i64 %159, 0
+  br i1 %.not640, label %179, label %160
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds i8, ptr %1, i64 384
   %162 = load i8, ptr %161, align 8
-  %163 = and i8 %162, 1
-  %.not647 = icmp eq i8 %163, 0
+  %163 = trunc i8 %162 to i1
   %164 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %165 = and i64 %158, -2
   %166 = getelementptr inbounds i8, ptr %164, i64 %165
-  br i1 %.not647, label %167, label %zend_file_cache_unserialize_interned.exit741
+  br i1 %163, label %zend_file_cache_unserialize_interned.exit711, label %167
 
 167:                                              ; preds = %160
   %168 = tail call ptr @accel_new_interned_string(ptr noundef %166) #19
   %169 = icmp eq ptr %168, %166
-  br i1 %169, label %170, label %zend_file_cache_unserialize_interned.exit741
+  br i1 %169, label %170, label %zend_file_cache_unserialize_interned.exit711
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds i8, ptr %166, i64 16
   %172 = load i64, ptr %171, align 8
   %173 = add i64 %172, 25
   %174 = tail call ptr @zend_shared_alloc(i64 noundef %173) #19
-  %.not.i740 = icmp eq ptr %174, null
-  br i1 %.not.i740, label %175, label %177
+  %.not.i710 = icmp eq ptr %174, null
+  br i1 %.not.i710, label %175, label %177
 
 175:                                              ; preds = %170
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -9429,11 +9363,11 @@ zend_file_cache_unserialize_interned.exit738:     ; preds = %75, %82, %92
   store i32 1, ptr %174, align 4
   %178 = getelementptr inbounds i8, ptr %174, i64 4
   store i32 470, ptr %178, align 4
-  br label %zend_file_cache_unserialize_interned.exit741
+  br label %zend_file_cache_unserialize_interned.exit711
 
-zend_file_cache_unserialize_interned.exit741:     ; preds = %160, %167, %177
-  %.0.i739 = phi ptr [ %166, %160 ], [ %174, %177 ], [ %168, %167 ]
-  store ptr %.0.i739, ptr %155, align 8
+zend_file_cache_unserialize_interned.exit711:     ; preds = %160, %167, %177
+  %.0.i709 = phi ptr [ %166, %160 ], [ %174, %177 ], [ %168, %167 ]
+  store ptr %.0.i709, ptr %155, align 8
   br label %198
 
 179:                                              ; preds = %157
@@ -9446,11 +9380,10 @@ zend_file_cache_unserialize_interned.exit741:     ; preds = %160, %167, %177
   store ptr %184, ptr %155, align 8
   %185 = getelementptr inbounds i8, ptr %1, i64 384
   %186 = load i8, ptr %185, align 8
-  %187 = and i8 %186, 1
-  %.not646 = icmp eq i8 %187, 0
+  %187 = trunc i8 %186 to i1
   %188 = getelementptr inbounds i8, ptr %184, i64 4
   %189 = load i32, ptr %188, align 4
-  br i1 %.not646, label %190, label %192
+  br i1 %187, label %192, label %190
 
 190:                                              ; preds = %179
   %191 = or i32 %189, 320
@@ -9467,40 +9400,39 @@ zend_file_cache_unserialize_interned.exit741:     ; preds = %160, %167, %177
   store i32 %197, ptr %195, align 4
   br label %198
 
-198:                                              ; preds = %zend_file_cache_unserialize_interned.exit741, %192, %190, %.loopexit778
+198:                                              ; preds = %zend_file_cache_unserialize_interned.exit711, %192, %190, %.loopexit748
   %199 = getelementptr inbounds i8, ptr %10, i64 488
   %200 = load ptr, ptr %199, align 8
-  %.not648 = icmp eq ptr %200, null
-  br i1 %.not648, label %242, label %201
+  %.not641 = icmp eq ptr %200, null
+  br i1 %.not641, label %242, label %201
 
 201:                                              ; preds = %198
   %202 = ptrtoint ptr %200 to i64
   %203 = and i64 %202, 1
-  %.not649 = icmp eq i64 %203, 0
-  br i1 %.not649, label %223, label %204
+  %.not642 = icmp eq i64 %203, 0
+  br i1 %.not642, label %223, label %204
 
 204:                                              ; preds = %201
   %205 = getelementptr inbounds i8, ptr %1, i64 384
   %206 = load i8, ptr %205, align 8
-  %207 = and i8 %206, 1
-  %.not651 = icmp eq i8 %207, 0
+  %207 = trunc i8 %206 to i1
   %208 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %209 = and i64 %202, -2
   %210 = getelementptr inbounds i8, ptr %208, i64 %209
-  br i1 %.not651, label %211, label %zend_file_cache_unserialize_interned.exit744
+  br i1 %207, label %zend_file_cache_unserialize_interned.exit714, label %211
 
 211:                                              ; preds = %204
   %212 = tail call ptr @accel_new_interned_string(ptr noundef %210) #19
   %213 = icmp eq ptr %212, %210
-  br i1 %213, label %214, label %zend_file_cache_unserialize_interned.exit744
+  br i1 %213, label %214, label %zend_file_cache_unserialize_interned.exit714
 
 214:                                              ; preds = %211
   %215 = getelementptr inbounds i8, ptr %210, i64 16
   %216 = load i64, ptr %215, align 8
   %217 = add i64 %216, 25
   %218 = tail call ptr @zend_shared_alloc(i64 noundef %217) #19
-  %.not.i743 = icmp eq ptr %218, null
-  br i1 %.not.i743, label %219, label %221
+  %.not.i713 = icmp eq ptr %218, null
+  br i1 %.not.i713, label %219, label %221
 
 219:                                              ; preds = %214
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -9513,11 +9445,11 @@ zend_file_cache_unserialize_interned.exit741:     ; preds = %160, %167, %177
   store i32 1, ptr %218, align 4
   %222 = getelementptr inbounds i8, ptr %218, i64 4
   store i32 470, ptr %222, align 4
-  br label %zend_file_cache_unserialize_interned.exit744
+  br label %zend_file_cache_unserialize_interned.exit714
 
-zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
-  %.0.i742 = phi ptr [ %210, %204 ], [ %218, %221 ], [ %212, %211 ]
-  store ptr %.0.i742, ptr %199, align 8
+zend_file_cache_unserialize_interned.exit714:     ; preds = %204, %211, %221
+  %.0.i712 = phi ptr [ %210, %204 ], [ %218, %221 ], [ %212, %211 ]
+  store ptr %.0.i712, ptr %199, align 8
   br label %242
 
 223:                                              ; preds = %201
@@ -9530,11 +9462,10 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   store ptr %228, ptr %199, align 8
   %229 = getelementptr inbounds i8, ptr %1, i64 384
   %230 = load i8, ptr %229, align 8
-  %231 = and i8 %230, 1
-  %.not650 = icmp eq i8 %231, 0
+  %231 = trunc i8 %230 to i1
   %232 = getelementptr inbounds i8, ptr %228, i64 4
   %233 = load i32, ptr %232, align 4
-  br i1 %.not650, label %234, label %236
+  br i1 %231, label %236, label %234
 
 234:                                              ; preds = %223
   %235 = or i32 %233, 320
@@ -9551,31 +9482,31 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   store i32 %241, ptr %239, align 4
   br label %242
 
-242:                                              ; preds = %zend_file_cache_unserialize_interned.exit744, %236, %234, %198
+242:                                              ; preds = %zend_file_cache_unserialize_interned.exit714, %236, %234, %198
   %243 = getelementptr inbounds i8, ptr %10, i64 464
   %244 = load ptr, ptr %243, align 8
-  %.not652 = icmp eq ptr %244, null
-  br i1 %.not652, label %267, label %245
+  %.not643 = icmp eq ptr %244, null
+  br i1 %.not643, label %267, label %245
 
 245:                                              ; preds = %242
   %246 = getelementptr inbounds i8, ptr %1, i64 416
   %247 = load ptr, ptr %246, align 8
-  %.not653 = icmp ult ptr %244, %247
-  br i1 %.not653, label %252, label %248
+  %.not644 = icmp ult ptr %244, %247
+  br i1 %.not644, label %252, label %248
 
 248:                                              ; preds = %245
   %249 = getelementptr inbounds i8, ptr %1, i64 424
   %250 = load i64, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %247, i64 %250
-  %.not654 = icmp ugt ptr %244, %251
-  br i1 %.not654, label %252, label %267
+  %.not645 = icmp ugt ptr %244, %251
+  br i1 %.not645, label %252, label %267
 
 252:                                              ; preds = %248, %245
   %253 = load ptr, ptr @accel_shared_globals, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 176
   %255 = load ptr, ptr %254, align 8
-  %.not655 = icmp ult ptr %244, %255
-  br i1 %.not655, label %260, label %256
+  %.not646 = icmp ult ptr %244, %255
+  br i1 %.not646, label %260, label %256
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds i8, ptr %253, i64 184
@@ -9600,8 +9531,8 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   tail call fastcc void @zend_file_cache_unserialize_hash(ptr noundef nonnull %268, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @zend_file_cache_unserialize_prop_info, ptr noundef null)
   %269 = getelementptr inbounds i8, ptr %10, i64 248
   %270 = load ptr, ptr %269, align 8
-  %.not657 = icmp eq ptr %270, null
-  br i1 %.not657, label %.loopexit777, label %271
+  %.not648 = icmp eq ptr %270, null
+  br i1 %.not648, label %.loopexit747, label %271
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds i8, ptr %1, i64 424
@@ -9614,19 +9545,19 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   store ptr %277, ptr %269, align 8
   %278 = getelementptr inbounds i8, ptr %10, i64 32
   %279 = load i32, ptr %278, align 8
-  %.not801 = icmp eq i32 %279, 0
-  br i1 %.not801, label %.loopexit777, label %.lr.ph784
+  %.not771 = icmp eq i32 %279, 0
+  br i1 %.not771, label %.loopexit747, label %.lr.ph754
 
-.lr.ph784:                                        ; preds = %271, %290
+.lr.ph754:                                        ; preds = %271, %290
   %280 = phi i32 [ %291, %290 ], [ %279, %271 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %290 ], [ 0, %271 ]
   %281 = load ptr, ptr %269, align 8
   %282 = getelementptr inbounds ptr, ptr %281, i64 %indvars.iv
   %283 = load ptr, ptr %282, align 8
-  %.not735 = icmp eq ptr %283, null
-  br i1 %.not735, label %290, label %284
+  %.not705 = icmp eq ptr %283, null
+  br i1 %.not705, label %290, label %284
 
-284:                                              ; preds = %.lr.ph784
+284:                                              ; preds = %.lr.ph754
   %285 = load i64, ptr %272, align 8
   %286 = inttoptr i64 %285 to ptr
   %287 = icmp ule ptr %283, %286
@@ -9637,28 +9568,28 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   %.pre = load i32, ptr %278, align 8
   br label %290
 
-290:                                              ; preds = %284, %.lr.ph784
-  %291 = phi i32 [ %.pre, %284 ], [ %280, %.lr.ph784 ]
+290:                                              ; preds = %284, %.lr.ph754
+  %291 = phi i32 [ %.pre, %284 ], [ %280, %.lr.ph754 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %292 = zext i32 %291 to i64
   %293 = icmp ult i64 %indvars.iv.next, %292
-  br i1 %293, label %.lr.ph784, label %.loopexit777
+  br i1 %293, label %.lr.ph754, label %.loopexit747
 
-.loopexit777:                                     ; preds = %290, %271, %267
+.loopexit747:                                     ; preds = %290, %271, %267
   %294 = getelementptr inbounds i8, ptr %10, i64 424
   %295 = load i32, ptr %294, align 8
-  %.not658 = icmp eq i32 %295, 0
-  br i1 %.not658, label %.loopexit776, label %296
+  %.not649 = icmp eq i32 %295, 0
+  br i1 %.not649, label %.loopexit746, label %296
 
-296:                                              ; preds = %.loopexit777
+296:                                              ; preds = %.loopexit747
   %297 = load i32, ptr %55, align 4
   %298 = and i32 %297, 8
-  %.not659 = icmp eq i32 %298, 0
-  tail call void @llvm.assume(i1 %.not659)
+  %.not650 = icmp eq i32 %298, 0
+  tail call void @llvm.assume(i1 %.not650)
   %299 = getelementptr inbounds i8, ptr %10, i64 432
   %300 = load ptr, ptr %299, align 8
-  %.not660 = icmp eq ptr %300, null
-  br i1 %.not660, label %.lr.ph786, label %301
+  %.not651 = icmp eq ptr %300, null
+  br i1 %.not651, label %.lr.ph756, label %301
 
 301:                                              ; preds = %296
   %302 = getelementptr inbounds i8, ptr %1, i64 424
@@ -9669,48 +9600,47 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   %306 = ptrtoint ptr %300 to i64
   %307 = getelementptr inbounds i8, ptr %2, i64 %306
   store ptr %307, ptr %299, align 8
-  br label %.lr.ph786
+  br label %.lr.ph756
 
-.lr.ph786:                                        ; preds = %301, %296
+.lr.ph756:                                        ; preds = %301, %296
   %308 = getelementptr inbounds i8, ptr %1, i64 384
   %309 = getelementptr inbounds i8, ptr %1, i64 424
   br label %310
 
-310:                                              ; preds = %.lr.ph786, %408
-  %indvars.iv806 = phi i64 [ 0, %.lr.ph786 ], [ %indvars.iv.next807, %408 ]
+310:                                              ; preds = %.lr.ph756, %408
+  %indvars.iv776 = phi i64 [ 0, %.lr.ph756 ], [ %indvars.iv.next777, %408 ]
   %311 = load ptr, ptr %299, align 8
-  %312 = getelementptr inbounds %struct._zend_class_name, ptr %311, i64 %indvars.iv806
+  %312 = getelementptr inbounds %struct._zend_class_name, ptr %311, i64 %indvars.iv776
   %313 = load ptr, ptr %312, align 8
-  %.not727 = icmp eq ptr %313, null
-  br i1 %.not727, label %359, label %314
+  %.not701 = icmp eq ptr %313, null
+  br i1 %.not701, label %359, label %314
 
 314:                                              ; preds = %310
   %315 = ptrtoint ptr %313 to i64
   %316 = and i64 %315, 1
-  %.not728 = icmp eq i64 %316, 0
-  br i1 %.not728, label %337, label %317
+  %.not702 = icmp eq i64 %316, 0
+  br i1 %.not702, label %337, label %317
 
 317:                                              ; preds = %314
   %318 = load i8, ptr %308, align 8
-  %319 = and i8 %318, 1
-  %.not730 = icmp eq i8 %319, 0
+  %319 = trunc i8 %318 to i1
   %320 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %321 = and i64 %315, -2
   %322 = getelementptr inbounds i8, ptr %320, i64 %321
-  br i1 %.not730, label %323, label %zend_file_cache_unserialize_interned.exit747
+  br i1 %319, label %zend_file_cache_unserialize_interned.exit717, label %323
 
 323:                                              ; preds = %317
   %324 = tail call ptr @accel_new_interned_string(ptr noundef %322) #19
   %325 = icmp eq ptr %324, %322
-  br i1 %325, label %326, label %zend_file_cache_unserialize_interned.exit747
+  br i1 %325, label %326, label %zend_file_cache_unserialize_interned.exit717
 
 326:                                              ; preds = %323
   %327 = getelementptr inbounds i8, ptr %322, i64 16
   %328 = load i64, ptr %327, align 8
   %329 = add i64 %328, 25
   %330 = tail call ptr @zend_shared_alloc(i64 noundef %329) #19
-  %.not.i746 = icmp eq ptr %330, null
-  br i1 %.not.i746, label %331, label %333
+  %.not.i716 = icmp eq ptr %330, null
+  br i1 %.not.i716, label %331, label %333
 
 331:                                              ; preds = %326
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -9723,13 +9653,13 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %204, %211, %221
   store i32 1, ptr %330, align 4
   %334 = getelementptr inbounds i8, ptr %330, i64 4
   store i32 470, ptr %334, align 4
-  br label %zend_file_cache_unserialize_interned.exit747
+  br label %zend_file_cache_unserialize_interned.exit717
 
-zend_file_cache_unserialize_interned.exit747:     ; preds = %317, %323, %333
-  %.0.i745 = phi ptr [ %322, %317 ], [ %330, %333 ], [ %324, %323 ]
+zend_file_cache_unserialize_interned.exit717:     ; preds = %317, %323, %333
+  %.0.i715 = phi ptr [ %322, %317 ], [ %330, %333 ], [ %324, %323 ]
   %335 = load ptr, ptr %299, align 8
-  %336 = getelementptr inbounds %struct._zend_class_name, ptr %335, i64 %indvars.iv806
-  store ptr %.0.i745, ptr %336, align 8
+  %336 = getelementptr inbounds %struct._zend_class_name, ptr %335, i64 %indvars.iv776
+  store ptr %.0.i715, ptr %336, align 8
   br label %359
 
 337:                                              ; preds = %314
@@ -9740,14 +9670,13 @@ zend_file_cache_unserialize_interned.exit747:     ; preds = %317, %323, %333
   %341 = getelementptr inbounds i8, ptr %2, i64 %315
   store ptr %341, ptr %312, align 8
   %342 = load i8, ptr %308, align 8
-  %343 = and i8 %342, 1
-  %.not729 = icmp eq i8 %343, 0
+  %343 = trunc i8 %342 to i1
   %344 = load ptr, ptr %299, align 8
-  %345 = getelementptr inbounds %struct._zend_class_name, ptr %344, i64 %indvars.iv806
+  %345 = getelementptr inbounds %struct._zend_class_name, ptr %344, i64 %indvars.iv776
   %346 = load ptr, ptr %345, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 4
   %348 = load i32, ptr %347, align 4
-  br i1 %.not729, label %349, label %351
+  br i1 %343, label %351, label %349
 
 349:                                              ; preds = %337
   %350 = or i32 %348, 320
@@ -9758,7 +9687,7 @@ zend_file_cache_unserialize_interned.exit747:     ; preds = %317, %323, %333
   %352 = or i32 %348, 64
   store i32 %352, ptr %347, align 4
   %353 = load ptr, ptr %299, align 8
-  %354 = getelementptr inbounds %struct._zend_class_name, ptr %353, i64 %indvars.iv806
+  %354 = getelementptr inbounds %struct._zend_class_name, ptr %353, i64 %indvars.iv776
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 4
   %357 = load i32, ptr %356, align 4
@@ -9766,40 +9695,39 @@ zend_file_cache_unserialize_interned.exit747:     ; preds = %317, %323, %333
   store i32 %358, ptr %356, align 4
   br label %359
 
-359:                                              ; preds = %zend_file_cache_unserialize_interned.exit747, %351, %349, %310
+359:                                              ; preds = %zend_file_cache_unserialize_interned.exit717, %351, %349, %310
   %360 = load ptr, ptr %299, align 8
-  %361 = getelementptr inbounds %struct._zend_class_name, ptr %360, i64 %indvars.iv806, i32 1
+  %361 = getelementptr inbounds %struct._zend_class_name, ptr %360, i64 %indvars.iv776, i32 1
   %362 = load ptr, ptr %361, align 8
-  %.not731 = icmp eq ptr %362, null
-  br i1 %.not731, label %408, label %363
+  %.not703 = icmp eq ptr %362, null
+  br i1 %.not703, label %408, label %363
 
 363:                                              ; preds = %359
   %364 = ptrtoint ptr %362 to i64
   %365 = and i64 %364, 1
-  %.not732 = icmp eq i64 %365, 0
-  br i1 %.not732, label %386, label %366
+  %.not704 = icmp eq i64 %365, 0
+  br i1 %.not704, label %386, label %366
 
 366:                                              ; preds = %363
   %367 = load i8, ptr %308, align 8
-  %368 = and i8 %367, 1
-  %.not734 = icmp eq i8 %368, 0
+  %368 = trunc i8 %367 to i1
   %369 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %370 = and i64 %364, -2
   %371 = getelementptr inbounds i8, ptr %369, i64 %370
-  br i1 %.not734, label %372, label %zend_file_cache_unserialize_interned.exit750
+  br i1 %368, label %zend_file_cache_unserialize_interned.exit720, label %372
 
 372:                                              ; preds = %366
   %373 = tail call ptr @accel_new_interned_string(ptr noundef %371) #19
   %374 = icmp eq ptr %373, %371
-  br i1 %374, label %375, label %zend_file_cache_unserialize_interned.exit750
+  br i1 %374, label %375, label %zend_file_cache_unserialize_interned.exit720
 
 375:                                              ; preds = %372
   %376 = getelementptr inbounds i8, ptr %371, i64 16
   %377 = load i64, ptr %376, align 8
   %378 = add i64 %377, 25
   %379 = tail call ptr @zend_shared_alloc(i64 noundef %378) #19
-  %.not.i749 = icmp eq ptr %379, null
-  br i1 %.not.i749, label %380, label %382
+  %.not.i719 = icmp eq ptr %379, null
+  br i1 %.not.i719, label %380, label %382
 
 380:                                              ; preds = %375
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -9812,13 +9740,13 @@ zend_file_cache_unserialize_interned.exit747:     ; preds = %317, %323, %333
   store i32 1, ptr %379, align 4
   %383 = getelementptr inbounds i8, ptr %379, i64 4
   store i32 470, ptr %383, align 4
-  br label %zend_file_cache_unserialize_interned.exit750
+  br label %zend_file_cache_unserialize_interned.exit720
 
-zend_file_cache_unserialize_interned.exit750:     ; preds = %366, %372, %382
-  %.0.i748 = phi ptr [ %371, %366 ], [ %379, %382 ], [ %373, %372 ]
+zend_file_cache_unserialize_interned.exit720:     ; preds = %366, %372, %382
+  %.0.i718 = phi ptr [ %371, %366 ], [ %379, %382 ], [ %373, %372 ]
   %384 = load ptr, ptr %299, align 8
-  %385 = getelementptr inbounds %struct._zend_class_name, ptr %384, i64 %indvars.iv806, i32 1
-  store ptr %.0.i748, ptr %385, align 8
+  %385 = getelementptr inbounds %struct._zend_class_name, ptr %384, i64 %indvars.iv776, i32 1
+  store ptr %.0.i718, ptr %385, align 8
   br label %408
 
 386:                                              ; preds = %363
@@ -9829,14 +9757,13 @@ zend_file_cache_unserialize_interned.exit750:     ; preds = %366, %372, %382
   %390 = getelementptr inbounds i8, ptr %2, i64 %364
   store ptr %390, ptr %361, align 8
   %391 = load i8, ptr %308, align 8
-  %392 = and i8 %391, 1
-  %.not733 = icmp eq i8 %392, 0
+  %392 = trunc i8 %391 to i1
   %393 = load ptr, ptr %299, align 8
-  %394 = getelementptr inbounds %struct._zend_class_name, ptr %393, i64 %indvars.iv806, i32 1
+  %394 = getelementptr inbounds %struct._zend_class_name, ptr %393, i64 %indvars.iv776, i32 1
   %395 = load ptr, ptr %394, align 8
   %396 = getelementptr inbounds i8, ptr %395, i64 4
   %397 = load i32, ptr %396, align 4
-  br i1 %.not733, label %398, label %400
+  br i1 %392, label %400, label %398
 
 398:                                              ; preds = %386
   %399 = or i32 %397, 320
@@ -9847,7 +9774,7 @@ zend_file_cache_unserialize_interned.exit750:     ; preds = %366, %372, %382
   %401 = or i32 %397, 64
   store i32 %401, ptr %396, align 4
   %402 = load ptr, ptr %299, align 8
-  %403 = getelementptr inbounds %struct._zend_class_name, ptr %402, i64 %indvars.iv806, i32 1
+  %403 = getelementptr inbounds %struct._zend_class_name, ptr %402, i64 %indvars.iv776, i32 1
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr inbounds i8, ptr %404, i64 4
   %406 = load i32, ptr %405, align 4
@@ -9855,24 +9782,24 @@ zend_file_cache_unserialize_interned.exit750:     ; preds = %366, %372, %382
   store i32 %407, ptr %405, align 4
   br label %408
 
-408:                                              ; preds = %zend_file_cache_unserialize_interned.exit750, %400, %398, %359
-  %indvars.iv.next807 = add nuw nsw i64 %indvars.iv806, 1
+408:                                              ; preds = %zend_file_cache_unserialize_interned.exit720, %400, %398, %359
+  %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
   %409 = load i32, ptr %294, align 8
   %410 = zext i32 %409 to i64
-  %411 = icmp ult i64 %indvars.iv.next807, %410
-  br i1 %411, label %310, label %.loopexit776
+  %411 = icmp ult i64 %indvars.iv.next777, %410
+  br i1 %411, label %310, label %.loopexit746
 
-.loopexit776:                                     ; preds = %408, %.loopexit777
+.loopexit746:                                     ; preds = %408, %.loopexit747
   %412 = getelementptr inbounds i8, ptr %10, i64 428
   %413 = load i32, ptr %412, align 4
-  %.not661 = icmp eq i32 %413, 0
-  br i1 %.not661, label %.loopexit, label %414
+  %.not652 = icmp eq i32 %413, 0
+  br i1 %.not652, label %.loopexit, label %414
 
-414:                                              ; preds = %.loopexit776
+414:                                              ; preds = %.loopexit746
   %415 = getelementptr inbounds i8, ptr %10, i64 440
   %416 = load ptr, ptr %415, align 8
-  %.not662 = icmp eq ptr %416, null
-  br i1 %.not662, label %.lr.ph788, label %417
+  %.not653 = icmp eq ptr %416, null
+  br i1 %.not653, label %.lr.ph758, label %417
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds i8, ptr %1, i64 424
@@ -9883,48 +9810,47 @@ zend_file_cache_unserialize_interned.exit750:     ; preds = %366, %372, %382
   %422 = ptrtoint ptr %416 to i64
   %423 = getelementptr inbounds i8, ptr %2, i64 %422
   store ptr %423, ptr %415, align 8
-  br label %.lr.ph788
+  br label %.lr.ph758
 
-.lr.ph788:                                        ; preds = %417, %414
+.lr.ph758:                                        ; preds = %417, %414
   %424 = getelementptr inbounds i8, ptr %1, i64 384
   %425 = getelementptr inbounds i8, ptr %1, i64 424
   br label %426
 
-426:                                              ; preds = %.lr.ph788, %524
-  %indvars.iv809 = phi i64 [ 0, %.lr.ph788 ], [ %indvars.iv.next810, %524 ]
+426:                                              ; preds = %.lr.ph758, %524
+  %indvars.iv779 = phi i64 [ 0, %.lr.ph758 ], [ %indvars.iv.next780, %524 ]
   %427 = load ptr, ptr %415, align 8
-  %428 = getelementptr inbounds %struct._zend_class_name, ptr %427, i64 %indvars.iv809
+  %428 = getelementptr inbounds %struct._zend_class_name, ptr %427, i64 %indvars.iv779
   %429 = load ptr, ptr %428, align 8
-  %.not719 = icmp eq ptr %429, null
-  br i1 %.not719, label %475, label %430
+  %.not697 = icmp eq ptr %429, null
+  br i1 %.not697, label %475, label %430
 
 430:                                              ; preds = %426
   %431 = ptrtoint ptr %429 to i64
   %432 = and i64 %431, 1
-  %.not720 = icmp eq i64 %432, 0
-  br i1 %.not720, label %453, label %433
+  %.not698 = icmp eq i64 %432, 0
+  br i1 %.not698, label %453, label %433
 
 433:                                              ; preds = %430
   %434 = load i8, ptr %424, align 8
-  %435 = and i8 %434, 1
-  %.not722 = icmp eq i8 %435, 0
+  %435 = trunc i8 %434 to i1
   %436 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %437 = and i64 %431, -2
   %438 = getelementptr inbounds i8, ptr %436, i64 %437
-  br i1 %.not722, label %439, label %zend_file_cache_unserialize_interned.exit753
+  br i1 %435, label %zend_file_cache_unserialize_interned.exit723, label %439
 
 439:                                              ; preds = %433
   %440 = tail call ptr @accel_new_interned_string(ptr noundef %438) #19
   %441 = icmp eq ptr %440, %438
-  br i1 %441, label %442, label %zend_file_cache_unserialize_interned.exit753
+  br i1 %441, label %442, label %zend_file_cache_unserialize_interned.exit723
 
 442:                                              ; preds = %439
   %443 = getelementptr inbounds i8, ptr %438, i64 16
   %444 = load i64, ptr %443, align 8
   %445 = add i64 %444, 25
   %446 = tail call ptr @zend_shared_alloc(i64 noundef %445) #19
-  %.not.i752 = icmp eq ptr %446, null
-  br i1 %.not.i752, label %447, label %449
+  %.not.i722 = icmp eq ptr %446, null
+  br i1 %.not.i722, label %447, label %449
 
 447:                                              ; preds = %442
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -9937,13 +9863,13 @@ zend_file_cache_unserialize_interned.exit750:     ; preds = %366, %372, %382
   store i32 1, ptr %446, align 4
   %450 = getelementptr inbounds i8, ptr %446, i64 4
   store i32 470, ptr %450, align 4
-  br label %zend_file_cache_unserialize_interned.exit753
+  br label %zend_file_cache_unserialize_interned.exit723
 
-zend_file_cache_unserialize_interned.exit753:     ; preds = %433, %439, %449
-  %.0.i751 = phi ptr [ %438, %433 ], [ %446, %449 ], [ %440, %439 ]
+zend_file_cache_unserialize_interned.exit723:     ; preds = %433, %439, %449
+  %.0.i721 = phi ptr [ %438, %433 ], [ %446, %449 ], [ %440, %439 ]
   %451 = load ptr, ptr %415, align 8
-  %452 = getelementptr inbounds %struct._zend_class_name, ptr %451, i64 %indvars.iv809
-  store ptr %.0.i751, ptr %452, align 8
+  %452 = getelementptr inbounds %struct._zend_class_name, ptr %451, i64 %indvars.iv779
+  store ptr %.0.i721, ptr %452, align 8
   br label %475
 
 453:                                              ; preds = %430
@@ -9954,14 +9880,13 @@ zend_file_cache_unserialize_interned.exit753:     ; preds = %433, %439, %449
   %457 = getelementptr inbounds i8, ptr %2, i64 %431
   store ptr %457, ptr %428, align 8
   %458 = load i8, ptr %424, align 8
-  %459 = and i8 %458, 1
-  %.not721 = icmp eq i8 %459, 0
+  %459 = trunc i8 %458 to i1
   %460 = load ptr, ptr %415, align 8
-  %461 = getelementptr inbounds %struct._zend_class_name, ptr %460, i64 %indvars.iv809
+  %461 = getelementptr inbounds %struct._zend_class_name, ptr %460, i64 %indvars.iv779
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 4
   %464 = load i32, ptr %463, align 4
-  br i1 %.not721, label %465, label %467
+  br i1 %459, label %467, label %465
 
 465:                                              ; preds = %453
   %466 = or i32 %464, 320
@@ -9972,7 +9897,7 @@ zend_file_cache_unserialize_interned.exit753:     ; preds = %433, %439, %449
   %468 = or i32 %464, 64
   store i32 %468, ptr %463, align 4
   %469 = load ptr, ptr %415, align 8
-  %470 = getelementptr inbounds %struct._zend_class_name, ptr %469, i64 %indvars.iv809
+  %470 = getelementptr inbounds %struct._zend_class_name, ptr %469, i64 %indvars.iv779
   %471 = load ptr, ptr %470, align 8
   %472 = getelementptr inbounds i8, ptr %471, i64 4
   %473 = load i32, ptr %472, align 4
@@ -9980,40 +9905,39 @@ zend_file_cache_unserialize_interned.exit753:     ; preds = %433, %439, %449
   store i32 %474, ptr %472, align 4
   br label %475
 
-475:                                              ; preds = %zend_file_cache_unserialize_interned.exit753, %467, %465, %426
+475:                                              ; preds = %zend_file_cache_unserialize_interned.exit723, %467, %465, %426
   %476 = load ptr, ptr %415, align 8
-  %477 = getelementptr inbounds %struct._zend_class_name, ptr %476, i64 %indvars.iv809, i32 1
+  %477 = getelementptr inbounds %struct._zend_class_name, ptr %476, i64 %indvars.iv779, i32 1
   %478 = load ptr, ptr %477, align 8
-  %.not723 = icmp eq ptr %478, null
-  br i1 %.not723, label %524, label %479
+  %.not699 = icmp eq ptr %478, null
+  br i1 %.not699, label %524, label %479
 
 479:                                              ; preds = %475
   %480 = ptrtoint ptr %478 to i64
   %481 = and i64 %480, 1
-  %.not724 = icmp eq i64 %481, 0
-  br i1 %.not724, label %502, label %482
+  %.not700 = icmp eq i64 %481, 0
+  br i1 %.not700, label %502, label %482
 
 482:                                              ; preds = %479
   %483 = load i8, ptr %424, align 8
-  %484 = and i8 %483, 1
-  %.not726 = icmp eq i8 %484, 0
+  %484 = trunc i8 %483 to i1
   %485 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %486 = and i64 %480, -2
   %487 = getelementptr inbounds i8, ptr %485, i64 %486
-  br i1 %.not726, label %488, label %zend_file_cache_unserialize_interned.exit756
+  br i1 %484, label %zend_file_cache_unserialize_interned.exit726, label %488
 
 488:                                              ; preds = %482
   %489 = tail call ptr @accel_new_interned_string(ptr noundef %487) #19
   %490 = icmp eq ptr %489, %487
-  br i1 %490, label %491, label %zend_file_cache_unserialize_interned.exit756
+  br i1 %490, label %491, label %zend_file_cache_unserialize_interned.exit726
 
 491:                                              ; preds = %488
   %492 = getelementptr inbounds i8, ptr %487, i64 16
   %493 = load i64, ptr %492, align 8
   %494 = add i64 %493, 25
   %495 = tail call ptr @zend_shared_alloc(i64 noundef %494) #19
-  %.not.i755 = icmp eq ptr %495, null
-  br i1 %.not.i755, label %496, label %498
+  %.not.i725 = icmp eq ptr %495, null
+  br i1 %.not.i725, label %496, label %498
 
 496:                                              ; preds = %491
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10026,13 +9950,13 @@ zend_file_cache_unserialize_interned.exit753:     ; preds = %433, %439, %449
   store i32 1, ptr %495, align 4
   %499 = getelementptr inbounds i8, ptr %495, i64 4
   store i32 470, ptr %499, align 4
-  br label %zend_file_cache_unserialize_interned.exit756
+  br label %zend_file_cache_unserialize_interned.exit726
 
-zend_file_cache_unserialize_interned.exit756:     ; preds = %482, %488, %498
-  %.0.i754 = phi ptr [ %487, %482 ], [ %495, %498 ], [ %489, %488 ]
+zend_file_cache_unserialize_interned.exit726:     ; preds = %482, %488, %498
+  %.0.i724 = phi ptr [ %487, %482 ], [ %495, %498 ], [ %489, %488 ]
   %500 = load ptr, ptr %415, align 8
-  %501 = getelementptr inbounds %struct._zend_class_name, ptr %500, i64 %indvars.iv809, i32 1
-  store ptr %.0.i754, ptr %501, align 8
+  %501 = getelementptr inbounds %struct._zend_class_name, ptr %500, i64 %indvars.iv779, i32 1
+  store ptr %.0.i724, ptr %501, align 8
   br label %524
 
 502:                                              ; preds = %479
@@ -10043,14 +9967,13 @@ zend_file_cache_unserialize_interned.exit756:     ; preds = %482, %488, %498
   %506 = getelementptr inbounds i8, ptr %2, i64 %480
   store ptr %506, ptr %477, align 8
   %507 = load i8, ptr %424, align 8
-  %508 = and i8 %507, 1
-  %.not725 = icmp eq i8 %508, 0
+  %508 = trunc i8 %507 to i1
   %509 = load ptr, ptr %415, align 8
-  %510 = getelementptr inbounds %struct._zend_class_name, ptr %509, i64 %indvars.iv809, i32 1
+  %510 = getelementptr inbounds %struct._zend_class_name, ptr %509, i64 %indvars.iv779, i32 1
   %511 = load ptr, ptr %510, align 8
   %512 = getelementptr inbounds i8, ptr %511, i64 4
   %513 = load i32, ptr %512, align 4
-  br i1 %.not725, label %514, label %516
+  br i1 %508, label %516, label %514
 
 514:                                              ; preds = %502
   %515 = or i32 %513, 320
@@ -10061,7 +9984,7 @@ zend_file_cache_unserialize_interned.exit756:     ; preds = %482, %488, %498
   %517 = or i32 %513, 64
   store i32 %517, ptr %512, align 4
   %518 = load ptr, ptr %415, align 8
-  %519 = getelementptr inbounds %struct._zend_class_name, ptr %518, i64 %indvars.iv809, i32 1
+  %519 = getelementptr inbounds %struct._zend_class_name, ptr %518, i64 %indvars.iv779, i32 1
   %520 = load ptr, ptr %519, align 8
   %521 = getelementptr inbounds i8, ptr %520, i64 4
   %522 = load i32, ptr %521, align 4
@@ -10069,18 +9992,18 @@ zend_file_cache_unserialize_interned.exit756:     ; preds = %482, %488, %498
   store i32 %523, ptr %521, align 4
   br label %524
 
-524:                                              ; preds = %zend_file_cache_unserialize_interned.exit756, %516, %514, %475
-  %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
+524:                                              ; preds = %zend_file_cache_unserialize_interned.exit726, %516, %514, %475
+  %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
   %525 = load i32, ptr %412, align 4
   %526 = zext i32 %525 to i64
-  %527 = icmp ult i64 %indvars.iv.next810, %526
+  %527 = icmp ult i64 %indvars.iv.next780, %526
   br i1 %527, label %426, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %524
   %528 = getelementptr inbounds i8, ptr %10, i64 448
   %529 = load ptr, ptr %528, align 8
-  %.not663 = icmp eq ptr %529, null
-  br i1 %.not663, label %.loopexit775, label %530
+  %.not654 = icmp eq ptr %529, null
+  br i1 %.not654, label %.loopexit745, label %530
 
 530:                                              ; preds = %._crit_edge
   %531 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10092,54 +10015,53 @@ zend_file_cache_unserialize_interned.exit756:     ; preds = %482, %488, %498
   %536 = getelementptr inbounds i8, ptr %2, i64 %535
   store ptr %536, ptr %528, align 8
   %537 = load ptr, ptr %536, align 8
-  %.not664789 = icmp eq ptr %537, null
-  br i1 %.not664789, label %.loopexit775, label %.lr.ph792
+  %.not655759 = icmp eq ptr %537, null
+  br i1 %.not655759, label %.loopexit745, label %.lr.ph762
 
-.lr.ph792:                                        ; preds = %530
+.lr.ph762:                                        ; preds = %530
   %538 = getelementptr inbounds i8, ptr %1, i64 384
   br label %539
 
-539:                                              ; preds = %.lr.ph792, %667
-  %540 = phi ptr [ %537, %.lr.ph792 ], [ %669, %667 ]
-  %.0573790 = phi ptr [ %536, %.lr.ph792 ], [ %668, %667 ]
+539:                                              ; preds = %.lr.ph762, %667
+  %540 = phi ptr [ %537, %.lr.ph762 ], [ %669, %667 ]
+  %.0573760 = phi ptr [ %536, %.lr.ph762 ], [ %668, %667 ]
   %541 = load i64, ptr %531, align 8
   %542 = inttoptr i64 %541 to ptr
   %543 = icmp ule ptr %540, %542
   tail call void @llvm.assume(i1 %543)
   %544 = ptrtoint ptr %540 to i64
   %545 = getelementptr inbounds i8, ptr %2, i64 %544
-  store ptr %545, ptr %.0573790, align 8
+  store ptr %545, ptr %.0573760, align 8
   %546 = load ptr, ptr %545, align 8
-  %.not707 = icmp eq ptr %546, null
-  br i1 %.not707, label %585, label %547
+  %.not691 = icmp eq ptr %546, null
+  br i1 %.not691, label %585, label %547
 
 547:                                              ; preds = %539
   %548 = ptrtoint ptr %546 to i64
   %549 = and i64 %548, 1
-  %.not708 = icmp eq i64 %549, 0
-  br i1 %.not708, label %568, label %550
+  %.not692 = icmp eq i64 %549, 0
+  br i1 %.not692, label %568, label %550
 
 550:                                              ; preds = %547
   %551 = load i8, ptr %538, align 8
-  %552 = and i8 %551, 1
-  %.not710 = icmp eq i8 %552, 0
+  %552 = trunc i8 %551 to i1
   %553 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %554 = and i64 %548, -2
   %555 = getelementptr inbounds i8, ptr %553, i64 %554
-  br i1 %.not710, label %556, label %zend_file_cache_unserialize_interned.exit759
+  br i1 %552, label %zend_file_cache_unserialize_interned.exit729, label %556
 
 556:                                              ; preds = %550
   %557 = tail call ptr @accel_new_interned_string(ptr noundef %555) #19
   %558 = icmp eq ptr %557, %555
-  br i1 %558, label %559, label %zend_file_cache_unserialize_interned.exit759
+  br i1 %558, label %559, label %zend_file_cache_unserialize_interned.exit729
 
 559:                                              ; preds = %556
   %560 = getelementptr inbounds i8, ptr %555, i64 16
   %561 = load i64, ptr %560, align 8
   %562 = add i64 %561, 25
   %563 = tail call ptr @zend_shared_alloc(i64 noundef %562) #19
-  %.not.i758 = icmp eq ptr %563, null
-  br i1 %.not.i758, label %564, label %566
+  %.not.i728 = icmp eq ptr %563, null
+  br i1 %.not.i728, label %564, label %566
 
 564:                                              ; preds = %559
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10152,11 +10074,11 @@ zend_file_cache_unserialize_interned.exit756:     ; preds = %482, %488, %498
   store i32 1, ptr %563, align 4
   %567 = getelementptr inbounds i8, ptr %563, i64 4
   store i32 470, ptr %567, align 4
-  br label %zend_file_cache_unserialize_interned.exit759
+  br label %zend_file_cache_unserialize_interned.exit729
 
-zend_file_cache_unserialize_interned.exit759:     ; preds = %550, %556, %566
-  %.0.i757 = phi ptr [ %555, %550 ], [ %563, %566 ], [ %557, %556 ]
-  store ptr %.0.i757, ptr %545, align 8
+zend_file_cache_unserialize_interned.exit729:     ; preds = %550, %556, %566
+  %.0.i727 = phi ptr [ %555, %550 ], [ %563, %566 ], [ %557, %556 ]
+  store ptr %.0.i727, ptr %545, align 8
   br label %585
 
 568:                                              ; preds = %547
@@ -10167,11 +10089,10 @@ zend_file_cache_unserialize_interned.exit759:     ; preds = %550, %556, %566
   %572 = getelementptr inbounds i8, ptr %2, i64 %548
   store ptr %572, ptr %545, align 8
   %573 = load i8, ptr %538, align 8
-  %574 = and i8 %573, 1
-  %.not709 = icmp eq i8 %574, 0
+  %574 = trunc i8 %573 to i1
   %575 = getelementptr inbounds i8, ptr %572, i64 4
   %576 = load i32, ptr %575, align 4
-  br i1 %.not709, label %577, label %579
+  br i1 %574, label %579, label %577
 
 577:                                              ; preds = %568
   %578 = or i32 %576, 320
@@ -10188,39 +10109,38 @@ zend_file_cache_unserialize_interned.exit759:     ; preds = %550, %556, %566
   store i32 %584, ptr %582, align 4
   br label %585
 
-585:                                              ; preds = %zend_file_cache_unserialize_interned.exit759, %579, %577, %539
+585:                                              ; preds = %zend_file_cache_unserialize_interned.exit729, %579, %577, %539
   %586 = getelementptr inbounds i8, ptr %545, i64 8
   %587 = load ptr, ptr %586, align 8
-  %.not711 = icmp eq ptr %587, null
-  br i1 %.not711, label %626, label %588
+  %.not693 = icmp eq ptr %587, null
+  br i1 %.not693, label %626, label %588
 
 588:                                              ; preds = %585
   %589 = ptrtoint ptr %587 to i64
   %590 = and i64 %589, 1
-  %.not712 = icmp eq i64 %590, 0
-  br i1 %.not712, label %609, label %591
+  %.not694 = icmp eq i64 %590, 0
+  br i1 %.not694, label %609, label %591
 
 591:                                              ; preds = %588
   %592 = load i8, ptr %538, align 8
-  %593 = and i8 %592, 1
-  %.not714 = icmp eq i8 %593, 0
+  %593 = trunc i8 %592 to i1
   %594 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %595 = and i64 %589, -2
   %596 = getelementptr inbounds i8, ptr %594, i64 %595
-  br i1 %.not714, label %597, label %zend_file_cache_unserialize_interned.exit762
+  br i1 %593, label %zend_file_cache_unserialize_interned.exit732, label %597
 
 597:                                              ; preds = %591
   %598 = tail call ptr @accel_new_interned_string(ptr noundef %596) #19
   %599 = icmp eq ptr %598, %596
-  br i1 %599, label %600, label %zend_file_cache_unserialize_interned.exit762
+  br i1 %599, label %600, label %zend_file_cache_unserialize_interned.exit732
 
 600:                                              ; preds = %597
   %601 = getelementptr inbounds i8, ptr %596, i64 16
   %602 = load i64, ptr %601, align 8
   %603 = add i64 %602, 25
   %604 = tail call ptr @zend_shared_alloc(i64 noundef %603) #19
-  %.not.i761 = icmp eq ptr %604, null
-  br i1 %.not.i761, label %605, label %607
+  %.not.i731 = icmp eq ptr %604, null
+  br i1 %.not.i731, label %605, label %607
 
 605:                                              ; preds = %600
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10233,11 +10153,11 @@ zend_file_cache_unserialize_interned.exit759:     ; preds = %550, %556, %566
   store i32 1, ptr %604, align 4
   %608 = getelementptr inbounds i8, ptr %604, i64 4
   store i32 470, ptr %608, align 4
-  br label %zend_file_cache_unserialize_interned.exit762
+  br label %zend_file_cache_unserialize_interned.exit732
 
-zend_file_cache_unserialize_interned.exit762:     ; preds = %591, %597, %607
-  %.0.i760 = phi ptr [ %596, %591 ], [ %604, %607 ], [ %598, %597 ]
-  store ptr %.0.i760, ptr %586, align 8
+zend_file_cache_unserialize_interned.exit732:     ; preds = %591, %597, %607
+  %.0.i730 = phi ptr [ %596, %591 ], [ %604, %607 ], [ %598, %597 ]
+  store ptr %.0.i730, ptr %586, align 8
   br label %626
 
 609:                                              ; preds = %588
@@ -10248,11 +10168,10 @@ zend_file_cache_unserialize_interned.exit762:     ; preds = %591, %597, %607
   %613 = getelementptr inbounds i8, ptr %2, i64 %589
   store ptr %613, ptr %586, align 8
   %614 = load i8, ptr %538, align 8
-  %615 = and i8 %614, 1
-  %.not713 = icmp eq i8 %615, 0
+  %615 = trunc i8 %614 to i1
   %616 = getelementptr inbounds i8, ptr %613, i64 4
   %617 = load i32, ptr %616, align 4
-  br i1 %.not713, label %618, label %620
+  br i1 %615, label %620, label %618
 
 618:                                              ; preds = %609
   %619 = or i32 %617, 320
@@ -10269,39 +10188,38 @@ zend_file_cache_unserialize_interned.exit762:     ; preds = %591, %597, %607
   store i32 %625, ptr %623, align 4
   br label %626
 
-626:                                              ; preds = %zend_file_cache_unserialize_interned.exit762, %620, %618, %585
+626:                                              ; preds = %zend_file_cache_unserialize_interned.exit732, %620, %618, %585
   %627 = getelementptr inbounds i8, ptr %545, i64 16
   %628 = load ptr, ptr %627, align 8
-  %.not715 = icmp eq ptr %628, null
-  br i1 %.not715, label %667, label %629
+  %.not695 = icmp eq ptr %628, null
+  br i1 %.not695, label %667, label %629
 
 629:                                              ; preds = %626
   %630 = ptrtoint ptr %628 to i64
   %631 = and i64 %630, 1
-  %.not716 = icmp eq i64 %631, 0
-  br i1 %.not716, label %650, label %632
+  %.not696 = icmp eq i64 %631, 0
+  br i1 %.not696, label %650, label %632
 
 632:                                              ; preds = %629
   %633 = load i8, ptr %538, align 8
-  %634 = and i8 %633, 1
-  %.not718 = icmp eq i8 %634, 0
+  %634 = trunc i8 %633 to i1
   %635 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %636 = and i64 %630, -2
   %637 = getelementptr inbounds i8, ptr %635, i64 %636
-  br i1 %.not718, label %638, label %zend_file_cache_unserialize_interned.exit765
+  br i1 %634, label %zend_file_cache_unserialize_interned.exit735, label %638
 
 638:                                              ; preds = %632
   %639 = tail call ptr @accel_new_interned_string(ptr noundef %637) #19
   %640 = icmp eq ptr %639, %637
-  br i1 %640, label %641, label %zend_file_cache_unserialize_interned.exit765
+  br i1 %640, label %641, label %zend_file_cache_unserialize_interned.exit735
 
 641:                                              ; preds = %638
   %642 = getelementptr inbounds i8, ptr %637, i64 16
   %643 = load i64, ptr %642, align 8
   %644 = add i64 %643, 25
   %645 = tail call ptr @zend_shared_alloc(i64 noundef %644) #19
-  %.not.i764 = icmp eq ptr %645, null
-  br i1 %.not.i764, label %646, label %648
+  %.not.i734 = icmp eq ptr %645, null
+  br i1 %.not.i734, label %646, label %648
 
 646:                                              ; preds = %641
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10314,11 +10232,11 @@ zend_file_cache_unserialize_interned.exit762:     ; preds = %591, %597, %607
   store i32 1, ptr %645, align 4
   %649 = getelementptr inbounds i8, ptr %645, i64 4
   store i32 470, ptr %649, align 4
-  br label %zend_file_cache_unserialize_interned.exit765
+  br label %zend_file_cache_unserialize_interned.exit735
 
-zend_file_cache_unserialize_interned.exit765:     ; preds = %632, %638, %648
-  %.0.i763 = phi ptr [ %637, %632 ], [ %645, %648 ], [ %639, %638 ]
-  store ptr %.0.i763, ptr %627, align 8
+zend_file_cache_unserialize_interned.exit735:     ; preds = %632, %638, %648
+  %.0.i733 = phi ptr [ %637, %632 ], [ %645, %648 ], [ %639, %638 ]
+  store ptr %.0.i733, ptr %627, align 8
   br label %667
 
 650:                                              ; preds = %629
@@ -10329,11 +10247,10 @@ zend_file_cache_unserialize_interned.exit765:     ; preds = %632, %638, %648
   %654 = getelementptr inbounds i8, ptr %2, i64 %630
   store ptr %654, ptr %627, align 8
   %655 = load i8, ptr %538, align 8
-  %656 = and i8 %655, 1
-  %.not717 = icmp eq i8 %656, 0
+  %656 = trunc i8 %655 to i1
   %657 = getelementptr inbounds i8, ptr %654, i64 4
   %658 = load i32, ptr %657, align 4
-  br i1 %.not717, label %659, label %661
+  br i1 %656, label %661, label %659
 
 659:                                              ; preds = %650
   %660 = or i32 %658, 320
@@ -10350,19 +10267,19 @@ zend_file_cache_unserialize_interned.exit765:     ; preds = %632, %638, %648
   store i32 %666, ptr %664, align 4
   br label %667
 
-667:                                              ; preds = %zend_file_cache_unserialize_interned.exit765, %661, %659, %626
-  %668 = getelementptr inbounds i8, ptr %.0573790, i64 8
+667:                                              ; preds = %zend_file_cache_unserialize_interned.exit735, %661, %659, %626
+  %668 = getelementptr inbounds i8, ptr %.0573760, i64 8
   %669 = load ptr, ptr %668, align 8
-  %.not664 = icmp eq ptr %669, null
-  br i1 %.not664, label %.loopexit775, label %539
+  %.not655 = icmp eq ptr %669, null
+  br i1 %.not655, label %.loopexit745, label %539
 
-.loopexit775:                                     ; preds = %667, %530, %._crit_edge
+.loopexit745:                                     ; preds = %667, %530, %._crit_edge
   %670 = getelementptr inbounds i8, ptr %10, i64 456
   %671 = load ptr, ptr %670, align 8
-  %.not665 = icmp eq ptr %671, null
-  br i1 %.not665, label %.loopexit, label %672
+  %.not656 = icmp eq ptr %671, null
+  br i1 %.not656, label %.loopexit, label %672
 
-672:                                              ; preds = %.loopexit775
+672:                                              ; preds = %.loopexit745
   %673 = getelementptr inbounds i8, ptr %1, i64 424
   %674 = load i64, ptr %673, align 8
   %675 = inttoptr i64 %674 to ptr
@@ -10372,54 +10289,53 @@ zend_file_cache_unserialize_interned.exit765:     ; preds = %632, %638, %648
   %678 = getelementptr inbounds i8, ptr %2, i64 %677
   store ptr %678, ptr %670, align 8
   %679 = load ptr, ptr %678, align 8
-  %.not666797 = icmp eq ptr %679, null
-  br i1 %.not666797, label %.loopexit, label %.lr.ph800
+  %.not657767 = icmp eq ptr %679, null
+  br i1 %.not657767, label %.loopexit, label %.lr.ph770
 
-.lr.ph800:                                        ; preds = %672
+.lr.ph770:                                        ; preds = %672
   %680 = getelementptr inbounds i8, ptr %1, i64 384
   br label %681
 
-681:                                              ; preds = %.lr.ph800, %._crit_edge796
-  %682 = phi ptr [ %679, %.lr.ph800 ], [ %818, %._crit_edge796 ]
-  %.0571798 = phi ptr [ %678, %.lr.ph800 ], [ %817, %._crit_edge796 ]
+681:                                              ; preds = %.lr.ph770, %._crit_edge766
+  %682 = phi ptr [ %679, %.lr.ph770 ], [ %818, %._crit_edge766 ]
+  %.0571768 = phi ptr [ %678, %.lr.ph770 ], [ %817, %._crit_edge766 ]
   %683 = load i64, ptr %673, align 8
   %684 = inttoptr i64 %683 to ptr
   %685 = icmp ule ptr %682, %684
   tail call void @llvm.assume(i1 %685)
   %686 = ptrtoint ptr %682 to i64
   %687 = getelementptr inbounds i8, ptr %2, i64 %686
-  store ptr %687, ptr %.0571798, align 8
+  store ptr %687, ptr %.0571768, align 8
   %688 = load ptr, ptr %687, align 8
-  %.not695 = icmp eq ptr %688, null
-  br i1 %.not695, label %727, label %689
+  %.not685 = icmp eq ptr %688, null
+  br i1 %.not685, label %727, label %689
 
 689:                                              ; preds = %681
   %690 = ptrtoint ptr %688 to i64
   %691 = and i64 %690, 1
-  %.not696 = icmp eq i64 %691, 0
-  br i1 %.not696, label %710, label %692
+  %.not686 = icmp eq i64 %691, 0
+  br i1 %.not686, label %710, label %692
 
 692:                                              ; preds = %689
   %693 = load i8, ptr %680, align 8
-  %694 = and i8 %693, 1
-  %.not698 = icmp eq i8 %694, 0
+  %694 = trunc i8 %693 to i1
   %695 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %696 = and i64 %690, -2
   %697 = getelementptr inbounds i8, ptr %695, i64 %696
-  br i1 %.not698, label %698, label %zend_file_cache_unserialize_interned.exit768
+  br i1 %694, label %zend_file_cache_unserialize_interned.exit738, label %698
 
 698:                                              ; preds = %692
   %699 = tail call ptr @accel_new_interned_string(ptr noundef %697) #19
   %700 = icmp eq ptr %699, %697
-  br i1 %700, label %701, label %zend_file_cache_unserialize_interned.exit768
+  br i1 %700, label %701, label %zend_file_cache_unserialize_interned.exit738
 
 701:                                              ; preds = %698
   %702 = getelementptr inbounds i8, ptr %697, i64 16
   %703 = load i64, ptr %702, align 8
   %704 = add i64 %703, 25
   %705 = tail call ptr @zend_shared_alloc(i64 noundef %704) #19
-  %.not.i767 = icmp eq ptr %705, null
-  br i1 %.not.i767, label %706, label %708
+  %.not.i737 = icmp eq ptr %705, null
+  br i1 %.not.i737, label %706, label %708
 
 706:                                              ; preds = %701
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10432,11 +10348,11 @@ zend_file_cache_unserialize_interned.exit765:     ; preds = %632, %638, %648
   store i32 1, ptr %705, align 4
   %709 = getelementptr inbounds i8, ptr %705, i64 4
   store i32 470, ptr %709, align 4
-  br label %zend_file_cache_unserialize_interned.exit768
+  br label %zend_file_cache_unserialize_interned.exit738
 
-zend_file_cache_unserialize_interned.exit768:     ; preds = %692, %698, %708
-  %.0.i766 = phi ptr [ %697, %692 ], [ %705, %708 ], [ %699, %698 ]
-  store ptr %.0.i766, ptr %687, align 8
+zend_file_cache_unserialize_interned.exit738:     ; preds = %692, %698, %708
+  %.0.i736 = phi ptr [ %697, %692 ], [ %705, %708 ], [ %699, %698 ]
+  store ptr %.0.i736, ptr %687, align 8
   br label %727
 
 710:                                              ; preds = %689
@@ -10447,11 +10363,10 @@ zend_file_cache_unserialize_interned.exit768:     ; preds = %692, %698, %708
   %714 = getelementptr inbounds i8, ptr %2, i64 %690
   store ptr %714, ptr %687, align 8
   %715 = load i8, ptr %680, align 8
-  %716 = and i8 %715, 1
-  %.not697 = icmp eq i8 %716, 0
+  %716 = trunc i8 %715 to i1
   %717 = getelementptr inbounds i8, ptr %714, i64 4
   %718 = load i32, ptr %717, align 4
-  br i1 %.not697, label %719, label %721
+  br i1 %716, label %721, label %719
 
 719:                                              ; preds = %710
   %720 = or i32 %718, 320
@@ -10468,39 +10383,38 @@ zend_file_cache_unserialize_interned.exit768:     ; preds = %692, %698, %708
   store i32 %726, ptr %724, align 4
   br label %727
 
-727:                                              ; preds = %zend_file_cache_unserialize_interned.exit768, %721, %719, %681
+727:                                              ; preds = %zend_file_cache_unserialize_interned.exit738, %721, %719, %681
   %728 = getelementptr inbounds i8, ptr %687, i64 8
   %729 = load ptr, ptr %728, align 8
-  %.not699 = icmp eq ptr %729, null
-  br i1 %.not699, label %768, label %730
+  %.not687 = icmp eq ptr %729, null
+  br i1 %.not687, label %768, label %730
 
 730:                                              ; preds = %727
   %731 = ptrtoint ptr %729 to i64
   %732 = and i64 %731, 1
-  %.not700 = icmp eq i64 %732, 0
-  br i1 %.not700, label %751, label %733
+  %.not688 = icmp eq i64 %732, 0
+  br i1 %.not688, label %751, label %733
 
 733:                                              ; preds = %730
   %734 = load i8, ptr %680, align 8
-  %735 = and i8 %734, 1
-  %.not702 = icmp eq i8 %735, 0
+  %735 = trunc i8 %734 to i1
   %736 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %737 = and i64 %731, -2
   %738 = getelementptr inbounds i8, ptr %736, i64 %737
-  br i1 %.not702, label %739, label %zend_file_cache_unserialize_interned.exit771
+  br i1 %735, label %zend_file_cache_unserialize_interned.exit741, label %739
 
 739:                                              ; preds = %733
   %740 = tail call ptr @accel_new_interned_string(ptr noundef %738) #19
   %741 = icmp eq ptr %740, %738
-  br i1 %741, label %742, label %zend_file_cache_unserialize_interned.exit771
+  br i1 %741, label %742, label %zend_file_cache_unserialize_interned.exit741
 
 742:                                              ; preds = %739
   %743 = getelementptr inbounds i8, ptr %738, i64 16
   %744 = load i64, ptr %743, align 8
   %745 = add i64 %744, 25
   %746 = tail call ptr @zend_shared_alloc(i64 noundef %745) #19
-  %.not.i770 = icmp eq ptr %746, null
-  br i1 %.not.i770, label %747, label %749
+  %.not.i740 = icmp eq ptr %746, null
+  br i1 %.not.i740, label %747, label %749
 
 747:                                              ; preds = %742
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10513,11 +10427,11 @@ zend_file_cache_unserialize_interned.exit768:     ; preds = %692, %698, %708
   store i32 1, ptr %746, align 4
   %750 = getelementptr inbounds i8, ptr %746, i64 4
   store i32 470, ptr %750, align 4
-  br label %zend_file_cache_unserialize_interned.exit771
+  br label %zend_file_cache_unserialize_interned.exit741
 
-zend_file_cache_unserialize_interned.exit771:     ; preds = %733, %739, %749
-  %.0.i769 = phi ptr [ %738, %733 ], [ %746, %749 ], [ %740, %739 ]
-  store ptr %.0.i769, ptr %728, align 8
+zend_file_cache_unserialize_interned.exit741:     ; preds = %733, %739, %749
+  %.0.i739 = phi ptr [ %738, %733 ], [ %746, %749 ], [ %740, %739 ]
+  store ptr %.0.i739, ptr %728, align 8
   br label %768
 
 751:                                              ; preds = %730
@@ -10528,11 +10442,10 @@ zend_file_cache_unserialize_interned.exit771:     ; preds = %733, %739, %749
   %755 = getelementptr inbounds i8, ptr %2, i64 %731
   store ptr %755, ptr %728, align 8
   %756 = load i8, ptr %680, align 8
-  %757 = and i8 %756, 1
-  %.not701 = icmp eq i8 %757, 0
+  %757 = trunc i8 %756 to i1
   %758 = getelementptr inbounds i8, ptr %755, i64 4
   %759 = load i32, ptr %758, align 4
-  br i1 %.not701, label %760, label %762
+  br i1 %757, label %762, label %760
 
 760:                                              ; preds = %751
   %761 = or i32 %759, 320
@@ -10549,50 +10462,49 @@ zend_file_cache_unserialize_interned.exit771:     ; preds = %733, %739, %749
   store i32 %767, ptr %765, align 4
   br label %768
 
-768:                                              ; preds = %zend_file_cache_unserialize_interned.exit771, %762, %760, %727
+768:                                              ; preds = %zend_file_cache_unserialize_interned.exit741, %762, %760, %727
   %769 = getelementptr inbounds i8, ptr %687, i64 16
   %770 = load i32, ptr %769, align 8
-  %.not804 = icmp eq i32 %770, 0
-  br i1 %.not804, label %._crit_edge796, label %.lr.ph795
+  %.not774 = icmp eq i32 %770, 0
+  br i1 %.not774, label %._crit_edge766, label %.lr.ph765
 
-.lr.ph795:                                        ; preds = %768
+.lr.ph765:                                        ; preds = %768
   %771 = getelementptr inbounds i8, ptr %687, i64 24
   br label %772
 
-772:                                              ; preds = %.lr.ph795, %813
-  %indvars.iv812 = phi i64 [ 0, %.lr.ph795 ], [ %indvars.iv.next813, %813 ]
-  %773 = getelementptr inbounds [1 x ptr], ptr %771, i64 0, i64 %indvars.iv812
+772:                                              ; preds = %.lr.ph765, %813
+  %indvars.iv782 = phi i64 [ 0, %.lr.ph765 ], [ %indvars.iv.next783, %813 ]
+  %773 = getelementptr inbounds [1 x ptr], ptr %771, i64 0, i64 %indvars.iv782
   %774 = load ptr, ptr %773, align 8
-  %.not703 = icmp eq ptr %774, null
-  br i1 %.not703, label %813, label %775
+  %.not689 = icmp eq ptr %774, null
+  br i1 %.not689, label %813, label %775
 
 775:                                              ; preds = %772
   %776 = ptrtoint ptr %774 to i64
   %777 = and i64 %776, 1
-  %.not704 = icmp eq i64 %777, 0
-  br i1 %.not704, label %796, label %778
+  %.not690 = icmp eq i64 %777, 0
+  br i1 %.not690, label %796, label %778
 
 778:                                              ; preds = %775
   %779 = load i8, ptr %680, align 8
-  %780 = and i8 %779, 1
-  %.not706 = icmp eq i8 %780, 0
+  %780 = trunc i8 %779 to i1
   %781 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %782 = and i64 %776, -2
   %783 = getelementptr inbounds i8, ptr %781, i64 %782
-  br i1 %.not706, label %784, label %zend_file_cache_unserialize_interned.exit774
+  br i1 %780, label %zend_file_cache_unserialize_interned.exit744, label %784
 
 784:                                              ; preds = %778
   %785 = tail call ptr @accel_new_interned_string(ptr noundef %783) #19
   %786 = icmp eq ptr %785, %783
-  br i1 %786, label %787, label %zend_file_cache_unserialize_interned.exit774
+  br i1 %786, label %787, label %zend_file_cache_unserialize_interned.exit744
 
 787:                                              ; preds = %784
   %788 = getelementptr inbounds i8, ptr %783, i64 16
   %789 = load i64, ptr %788, align 8
   %790 = add i64 %789, 25
   %791 = tail call ptr @zend_shared_alloc(i64 noundef %790) #19
-  %.not.i773 = icmp eq ptr %791, null
-  br i1 %.not.i773, label %792, label %794
+  %.not.i743 = icmp eq ptr %791, null
+  br i1 %.not.i743, label %792, label %794
 
 792:                                              ; preds = %787
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -10605,11 +10517,11 @@ zend_file_cache_unserialize_interned.exit771:     ; preds = %733, %739, %749
   store i32 1, ptr %791, align 4
   %795 = getelementptr inbounds i8, ptr %791, i64 4
   store i32 470, ptr %795, align 4
-  br label %zend_file_cache_unserialize_interned.exit774
+  br label %zend_file_cache_unserialize_interned.exit744
 
-zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
-  %.0.i772 = phi ptr [ %783, %778 ], [ %791, %794 ], [ %785, %784 ]
-  store ptr %.0.i772, ptr %773, align 8
+zend_file_cache_unserialize_interned.exit744:     ; preds = %778, %784, %794
+  %.0.i742 = phi ptr [ %783, %778 ], [ %791, %794 ], [ %785, %784 ]
+  store ptr %.0.i742, ptr %773, align 8
   br label %813
 
 796:                                              ; preds = %775
@@ -10620,11 +10532,10 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %800 = getelementptr inbounds i8, ptr %2, i64 %776
   store ptr %800, ptr %773, align 8
   %801 = load i8, ptr %680, align 8
-  %802 = and i8 %801, 1
-  %.not705 = icmp eq i8 %802, 0
+  %802 = trunc i8 %801 to i1
   %803 = getelementptr inbounds i8, ptr %800, i64 4
   %804 = load i32, ptr %803, align 4
-  br i1 %.not705, label %805, label %807
+  br i1 %802, label %807, label %805
 
 805:                                              ; preds = %796
   %806 = or i32 %804, 320
@@ -10641,24 +10552,24 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   store i32 %812, ptr %810, align 4
   br label %813
 
-813:                                              ; preds = %zend_file_cache_unserialize_interned.exit774, %807, %805, %772
-  %indvars.iv.next813 = add nuw nsw i64 %indvars.iv812, 1
+813:                                              ; preds = %zend_file_cache_unserialize_interned.exit744, %807, %805, %772
+  %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %814 = load i32, ptr %769, align 8
   %815 = zext i32 %814 to i64
-  %816 = icmp ult i64 %indvars.iv.next813, %815
-  br i1 %816, label %772, label %._crit_edge796
+  %816 = icmp ult i64 %indvars.iv.next783, %815
+  br i1 %816, label %772, label %._crit_edge766
 
-._crit_edge796:                                   ; preds = %813, %768
-  %817 = getelementptr inbounds i8, ptr %.0571798, i64 8
+._crit_edge766:                                   ; preds = %813, %768
+  %817 = getelementptr inbounds i8, ptr %.0571768, i64 8
   %818 = load ptr, ptr %817, align 8
-  %.not666 = icmp eq ptr %818, null
-  br i1 %.not666, label %.loopexit, label %681
+  %.not657 = icmp eq ptr %818, null
+  br i1 %.not657, label %.loopexit, label %681
 
-.loopexit:                                        ; preds = %._crit_edge796, %672, %.loopexit776, %.loopexit775
+.loopexit:                                        ; preds = %._crit_edge766, %672, %.loopexit746, %.loopexit745
   %819 = getelementptr inbounds i8, ptr %10, i64 256
   %820 = load ptr, ptr %819, align 8
-  %.not667 = icmp eq ptr %820, null
-  br i1 %.not667, label %828, label %821
+  %.not658 = icmp eq ptr %820, null
+  br i1 %.not658, label %828, label %821
 
 821:                                              ; preds = %.loopexit
   %822 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10674,8 +10585,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 828:                                              ; preds = %821, %.loopexit
   %829 = getelementptr inbounds i8, ptr %10, i64 264
   %830 = load ptr, ptr %829, align 8
-  %.not668 = icmp eq ptr %830, null
-  br i1 %.not668, label %838, label %831
+  %.not659 = icmp eq ptr %830, null
+  br i1 %.not659, label %838, label %831
 
 831:                                              ; preds = %828
   %832 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10691,8 +10602,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 838:                                              ; preds = %831, %828
   %839 = getelementptr inbounds i8, ptr %10, i64 272
   %840 = load ptr, ptr %839, align 8
-  %.not669 = icmp eq ptr %840, null
-  br i1 %.not669, label %848, label %841
+  %.not660 = icmp eq ptr %840, null
+  br i1 %.not660, label %848, label %841
 
 841:                                              ; preds = %838
   %842 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10708,8 +10619,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 848:                                              ; preds = %841, %838
   %849 = getelementptr inbounds i8, ptr %10, i64 280
   %850 = load ptr, ptr %849, align 8
-  %.not670 = icmp eq ptr %850, null
-  br i1 %.not670, label %858, label %851
+  %.not661 = icmp eq ptr %850, null
+  br i1 %.not661, label %858, label %851
 
 851:                                              ; preds = %848
   %852 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10725,8 +10636,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 858:                                              ; preds = %851, %848
   %859 = getelementptr inbounds i8, ptr %10, i64 288
   %860 = load ptr, ptr %859, align 8
-  %.not671 = icmp eq ptr %860, null
-  br i1 %.not671, label %868, label %861
+  %.not662 = icmp eq ptr %860, null
+  br i1 %.not662, label %868, label %861
 
 861:                                              ; preds = %858
   %862 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10742,8 +10653,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 868:                                              ; preds = %861, %858
   %869 = getelementptr inbounds i8, ptr %10, i64 312
   %870 = load ptr, ptr %869, align 8
-  %.not672 = icmp eq ptr %870, null
-  br i1 %.not672, label %878, label %871
+  %.not663 = icmp eq ptr %870, null
+  br i1 %.not663, label %878, label %871
 
 871:                                              ; preds = %868
   %872 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10759,8 +10670,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 878:                                              ; preds = %871, %868
   %879 = getelementptr inbounds i8, ptr %10, i64 344
   %880 = load ptr, ptr %879, align 8
-  %.not673 = icmp eq ptr %880, null
-  br i1 %.not673, label %888, label %881
+  %.not664 = icmp eq ptr %880, null
+  br i1 %.not664, label %888, label %881
 
 881:                                              ; preds = %878
   %882 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10776,8 +10687,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 888:                                              ; preds = %881, %878
   %889 = getelementptr inbounds i8, ptr %10, i64 352
   %890 = load ptr, ptr %889, align 8
-  %.not674 = icmp eq ptr %890, null
-  br i1 %.not674, label %898, label %891
+  %.not665 = icmp eq ptr %890, null
+  br i1 %.not665, label %898, label %891
 
 891:                                              ; preds = %888
   %892 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10793,8 +10704,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 898:                                              ; preds = %891, %888
   %899 = getelementptr inbounds i8, ptr %10, i64 304
   %900 = load ptr, ptr %899, align 8
-  %.not675 = icmp eq ptr %900, null
-  br i1 %.not675, label %908, label %901
+  %.not666 = icmp eq ptr %900, null
+  br i1 %.not666, label %908, label %901
 
 901:                                              ; preds = %898
   %902 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10810,8 +10721,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 908:                                              ; preds = %901, %898
   %909 = getelementptr inbounds i8, ptr %10, i64 296
   %910 = load ptr, ptr %909, align 8
-  %.not676 = icmp eq ptr %910, null
-  br i1 %.not676, label %918, label %911
+  %.not667 = icmp eq ptr %910, null
+  br i1 %.not667, label %918, label %911
 
 911:                                              ; preds = %908
   %912 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10827,8 +10738,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 918:                                              ; preds = %911, %908
   %919 = getelementptr inbounds i8, ptr %10, i64 328
   %920 = load ptr, ptr %919, align 8
-  %.not677 = icmp eq ptr %920, null
-  br i1 %.not677, label %928, label %921
+  %.not668 = icmp eq ptr %920, null
+  br i1 %.not668, label %928, label %921
 
 921:                                              ; preds = %918
   %922 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10844,8 +10755,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 928:                                              ; preds = %921, %918
   %929 = getelementptr inbounds i8, ptr %10, i64 320
   %930 = load ptr, ptr %929, align 8
-  %.not678 = icmp eq ptr %930, null
-  br i1 %.not678, label %938, label %931
+  %.not669 = icmp eq ptr %930, null
+  br i1 %.not669, label %938, label %931
 
 931:                                              ; preds = %928
   %932 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10861,8 +10772,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 938:                                              ; preds = %931, %928
   %939 = getelementptr inbounds i8, ptr %10, i64 336
   %940 = load ptr, ptr %939, align 8
-  %.not679 = icmp eq ptr %940, null
-  br i1 %.not679, label %948, label %941
+  %.not670 = icmp eq ptr %940, null
+  br i1 %.not670, label %948, label %941
 
 941:                                              ; preds = %938
   %942 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10878,8 +10789,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 948:                                              ; preds = %938, %941
   %949 = getelementptr inbounds i8, ptr %10, i64 368
   %950 = load ptr, ptr %949, align 8
-  %.not680 = icmp eq ptr %950, null
-  br i1 %.not680, label %1015, label %951
+  %.not671 = icmp eq ptr %950, null
+  br i1 %.not671, label %1015, label %951
 
 951:                                              ; preds = %948
   %952 = getelementptr inbounds i8, ptr %1, i64 424
@@ -10891,8 +10802,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %957 = getelementptr inbounds i8, ptr %2, i64 %956
   store ptr %957, ptr %949, align 8
   %958 = load ptr, ptr %957, align 8
-  %.not681 = icmp eq ptr %958, null
-  br i1 %.not681, label %965, label %959
+  %.not672 = icmp eq ptr %958, null
+  br i1 %.not672, label %965, label %959
 
 959:                                              ; preds = %951
   %960 = load i64, ptr %952, align 8
@@ -10902,15 +10813,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %963 = ptrtoint ptr %958 to i64
   %964 = getelementptr inbounds i8, ptr %2, i64 %963
   store ptr %964, ptr %957, align 8
-  %.pre815 = load ptr, ptr %949, align 8
+  %.pre785 = load ptr, ptr %949, align 8
   br label %965
 
 965:                                              ; preds = %959, %951
-  %966 = phi ptr [ %.pre815, %959 ], [ %957, %951 ]
+  %966 = phi ptr [ %.pre785, %959 ], [ %957, %951 ]
   %967 = getelementptr inbounds i8, ptr %966, i64 40
   %968 = load ptr, ptr %967, align 8
-  %.not682 = icmp eq ptr %968, null
-  br i1 %.not682, label %975, label %969
+  %.not673 = icmp eq ptr %968, null
+  br i1 %.not673, label %975, label %969
 
 969:                                              ; preds = %965
   %970 = load i64, ptr %952, align 8
@@ -10920,15 +10831,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %973 = ptrtoint ptr %968 to i64
   %974 = getelementptr inbounds i8, ptr %2, i64 %973
   store ptr %974, ptr %967, align 8
-  %.pre816 = load ptr, ptr %949, align 8
+  %.pre786 = load ptr, ptr %949, align 8
   br label %975
 
 975:                                              ; preds = %969, %965
-  %976 = phi ptr [ %.pre816, %969 ], [ %966, %965 ]
+  %976 = phi ptr [ %.pre786, %969 ], [ %966, %965 ]
   %977 = getelementptr inbounds i8, ptr %976, i64 8
   %978 = load ptr, ptr %977, align 8
-  %.not683 = icmp eq ptr %978, null
-  br i1 %.not683, label %985, label %979
+  %.not674 = icmp eq ptr %978, null
+  br i1 %.not674, label %985, label %979
 
 979:                                              ; preds = %975
   %980 = load i64, ptr %952, align 8
@@ -10938,15 +10849,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %983 = ptrtoint ptr %978 to i64
   %984 = getelementptr inbounds i8, ptr %2, i64 %983
   store ptr %984, ptr %977, align 8
-  %.pre817 = load ptr, ptr %949, align 8
+  %.pre787 = load ptr, ptr %949, align 8
   br label %985
 
 985:                                              ; preds = %979, %975
-  %986 = phi ptr [ %.pre817, %979 ], [ %976, %975 ]
+  %986 = phi ptr [ %.pre787, %979 ], [ %976, %975 ]
   %987 = getelementptr inbounds i8, ptr %986, i64 24
   %988 = load ptr, ptr %987, align 8
-  %.not684 = icmp eq ptr %988, null
-  br i1 %.not684, label %995, label %989
+  %.not675 = icmp eq ptr %988, null
+  br i1 %.not675, label %995, label %989
 
 989:                                              ; preds = %985
   %990 = load i64, ptr %952, align 8
@@ -10956,15 +10867,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %993 = ptrtoint ptr %988 to i64
   %994 = getelementptr inbounds i8, ptr %2, i64 %993
   store ptr %994, ptr %987, align 8
-  %.pre818 = load ptr, ptr %949, align 8
+  %.pre788 = load ptr, ptr %949, align 8
   br label %995
 
 995:                                              ; preds = %989, %985
-  %996 = phi ptr [ %.pre818, %989 ], [ %986, %985 ]
+  %996 = phi ptr [ %.pre788, %989 ], [ %986, %985 ]
   %997 = getelementptr inbounds i8, ptr %996, i64 16
   %998 = load ptr, ptr %997, align 8
-  %.not685 = icmp eq ptr %998, null
-  br i1 %.not685, label %1005, label %999
+  %.not676 = icmp eq ptr %998, null
+  br i1 %.not676, label %1005, label %999
 
 999:                                              ; preds = %995
   %1000 = load i64, ptr %952, align 8
@@ -10974,15 +10885,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %1003 = ptrtoint ptr %998 to i64
   %1004 = getelementptr inbounds i8, ptr %2, i64 %1003
   store ptr %1004, ptr %997, align 8
-  %.pre819 = load ptr, ptr %949, align 8
+  %.pre789 = load ptr, ptr %949, align 8
   br label %1005
 
 1005:                                             ; preds = %999, %995
-  %1006 = phi ptr [ %.pre819, %999 ], [ %996, %995 ]
+  %1006 = phi ptr [ %.pre789, %999 ], [ %996, %995 ]
   %1007 = getelementptr inbounds i8, ptr %1006, i64 32
   %1008 = load ptr, ptr %1007, align 8
-  %.not686 = icmp eq ptr %1008, null
-  br i1 %.not686, label %1015, label %1009
+  %.not677 = icmp eq ptr %1008, null
+  br i1 %.not677, label %1015, label %1009
 
 1009:                                             ; preds = %1005
   %1010 = load i64, ptr %952, align 8
@@ -10997,8 +10908,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 1015:                                             ; preds = %1009, %1005, %948
   %1016 = getelementptr inbounds i8, ptr %10, i64 376
   %1017 = load ptr, ptr %1016, align 8
-  %.not687 = icmp eq ptr %1017, null
-  br i1 %.not687, label %1062, label %1018
+  %.not678 = icmp eq ptr %1017, null
+  br i1 %.not678, label %1062, label %1018
 
 1018:                                             ; preds = %1015
   %1019 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11010,8 +10921,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %1024 = getelementptr inbounds i8, ptr %2, i64 %1023
   store ptr %1024, ptr %1016, align 8
   %1025 = load ptr, ptr %1024, align 8
-  %.not688 = icmp eq ptr %1025, null
-  br i1 %.not688, label %1032, label %1026
+  %.not679 = icmp eq ptr %1025, null
+  br i1 %.not679, label %1032, label %1026
 
 1026:                                             ; preds = %1018
   %1027 = load i64, ptr %1019, align 8
@@ -11021,15 +10932,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %1030 = ptrtoint ptr %1025 to i64
   %1031 = getelementptr inbounds i8, ptr %2, i64 %1030
   store ptr %1031, ptr %1024, align 8
-  %.pre820 = load ptr, ptr %1016, align 8
+  %.pre790 = load ptr, ptr %1016, align 8
   br label %1032
 
 1032:                                             ; preds = %1026, %1018
-  %1033 = phi ptr [ %.pre820, %1026 ], [ %1024, %1018 ]
+  %1033 = phi ptr [ %.pre790, %1026 ], [ %1024, %1018 ]
   %1034 = getelementptr inbounds i8, ptr %1033, i64 8
   %1035 = load ptr, ptr %1034, align 8
-  %.not689 = icmp eq ptr %1035, null
-  br i1 %.not689, label %1042, label %1036
+  %.not680 = icmp eq ptr %1035, null
+  br i1 %.not680, label %1042, label %1036
 
 1036:                                             ; preds = %1032
   %1037 = load i64, ptr %1019, align 8
@@ -11039,15 +10950,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %1040 = ptrtoint ptr %1035 to i64
   %1041 = getelementptr inbounds i8, ptr %2, i64 %1040
   store ptr %1041, ptr %1034, align 8
-  %.pre821 = load ptr, ptr %1016, align 8
+  %.pre791 = load ptr, ptr %1016, align 8
   br label %1042
 
 1042:                                             ; preds = %1036, %1032
-  %1043 = phi ptr [ %.pre821, %1036 ], [ %1033, %1032 ]
+  %1043 = phi ptr [ %.pre791, %1036 ], [ %1033, %1032 ]
   %1044 = getelementptr inbounds i8, ptr %1043, i64 16
   %1045 = load ptr, ptr %1044, align 8
-  %.not690 = icmp eq ptr %1045, null
-  br i1 %.not690, label %1052, label %1046
+  %.not681 = icmp eq ptr %1045, null
+  br i1 %.not681, label %1052, label %1046
 
 1046:                                             ; preds = %1042
   %1047 = load i64, ptr %1019, align 8
@@ -11057,15 +10968,15 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   %1050 = ptrtoint ptr %1045 to i64
   %1051 = getelementptr inbounds i8, ptr %2, i64 %1050
   store ptr %1051, ptr %1044, align 8
-  %.pre822 = load ptr, ptr %1016, align 8
+  %.pre792 = load ptr, ptr %1016, align 8
   br label %1052
 
 1052:                                             ; preds = %1046, %1042
-  %1053 = phi ptr [ %.pre822, %1046 ], [ %1043, %1042 ]
+  %1053 = phi ptr [ %.pre792, %1046 ], [ %1043, %1042 ]
   %1054 = getelementptr inbounds i8, ptr %1053, i64 24
   %1055 = load ptr, ptr %1054, align 8
-  %.not691 = icmp eq ptr %1055, null
-  br i1 %.not691, label %1062, label %1056
+  %.not682 = icmp eq ptr %1055, null
+  br i1 %.not682, label %1062, label %1056
 
 1056:                                             ; preds = %1052
   %1057 = load i64, ptr %1019, align 8
@@ -11080,11 +10991,10 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 1062:                                             ; preds = %1056, %1052, %1015
   %1063 = getelementptr inbounds i8, ptr %1, i64 384
   %1064 = load i8, ptr %1063, align 8
-  %1065 = and i8 %1064, 1
-  %.not692 = icmp eq i8 %1065, 0
+  %1065 = trunc i8 %1064 to i1
   %1066 = load i32, ptr %55, align 4
   %1067 = and i32 %1066, -134217857
-  br i1 %.not692, label %1068, label %1076
+  br i1 %1065, label %1076, label %1068
 
 1068:                                             ; preds = %1062
   %1069 = or disjoint i32 %1067, 128
@@ -11094,8 +11004,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
   store ptr %1070, ptr %1071, align 8
   %1072 = getelementptr inbounds i8, ptr %10, i64 36
   %1073 = load i32, ptr %1072, align 4
-  %.not693 = icmp eq i32 %1073, 0
-  br i1 %.not693, label %1080, label %1074
+  %.not683 = icmp eq i32 %1073, 0
+  br i1 %.not683, label %1080, label %1074
 
 1074:                                             ; preds = %1068
   %1075 = tail call ptr @zend_map_ptr_new() #19
@@ -11117,8 +11027,8 @@ zend_file_cache_unserialize_interned.exit774:     ; preds = %778, %784, %794
 1080:                                             ; preds = %.sink.split, %1068
   %1081 = load i32, ptr %55, align 4
   %1082 = and i32 %1081, 268435456
-  %.not694 = icmp eq i32 %1082, 0
-  %1083 = select i1 %.not694, ptr @std_object_handlers, ptr @zend_enum_object_handlers
+  %.not684 = icmp eq i32 %1082, 0
+  %1083 = select i1 %.not684, ptr @std_object_handlers, ptr @zend_enum_object_handlers
   %1084 = getelementptr inbounds i8, ptr %10, i64 360
   store ptr %1083, ptr %1084, align 8
   ret void
@@ -11150,16 +11060,15 @@ declare void @zend_function_dtor(ptr noundef) #2
 define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 384
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %22
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not422 = icmp eq ptr %8, %0
+  %.not = icmp eq ptr %8, %0
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  br i1 %.not422, label %14, label %11
+  br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %7
   %12 = or i32 %10, 128
@@ -11169,8 +11078,8 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 
 14:                                               ; preds = %7
   %15 = and i32 %10, 128
-  %.not423 = icmp eq i32 %15, 0
-  tail call void @llvm.assume(i1 %.not423)
+  %.not422 = icmp eq i32 %15, 0
+  tail call void @llvm.assume(i1 %.not422)
   br label %16
 
 16:                                               ; preds = %14, %11
@@ -11179,8 +11088,8 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
   store ptr %.sink, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
-  %.not424 = icmp eq ptr %19, null
-  br i1 %.not424, label %28, label %20
+  %.not423 = icmp eq ptr %19, null
+  br i1 %.not423, label %28, label %20
 
 20:                                               ; preds = %16
   %21 = tail call ptr @zend_map_ptr_new() #19
@@ -11196,10 +11105,10 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %20
-  %.sink544 = phi i64 [ 96, %20 ], [ 56, %22 ]
-  %.sink542 = phi ptr [ %21, %20 ], [ null, %22 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 %.sink544
-  store ptr %.sink542, ptr %27, align 8
+  %.sink527 = phi i64 [ 96, %20 ], [ 56, %22 ]
+  %.sink525 = phi ptr [ %21, %20 ], [ null, %22 ]
+  %27 = getelementptr inbounds i8, ptr %0, i64 %.sink527
+  store ptr %.sink525, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %.sink.split, %16
@@ -11207,22 +11116,22 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 416
   %32 = load ptr, ptr %31, align 8
-  %.not425 = icmp ult ptr %30, %32
-  br i1 %.not425, label %37, label %33
+  %.not424 = icmp ult ptr %30, %32
+  br i1 %.not424, label %37, label %33
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %1, i64 424
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %.not426 = icmp ugt ptr %30, %36
-  br i1 %.not426, label %37, label %45
+  %.not425 = icmp ugt ptr %30, %36
+  br i1 %.not425, label %37, label %45
 
 37:                                               ; preds = %33, %28
   %38 = load ptr, ptr @accel_shared_globals, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 176
   %40 = load ptr, ptr %39, align 8
-  %.not427 = icmp ult ptr %30, %40
-  br i1 %.not427, label %49, label %41
+  %.not426 = icmp ult ptr %30, %40
+  br i1 %.not426, label %49, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %38, i64 184
@@ -11240,15 +11149,15 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 49:                                               ; preds = %41, %37
   %50 = getelementptr inbounds i8, ptr %0, i64 120
   %51 = load ptr, ptr %50, align 8
-  %.not428 = icmp eq ptr %51, null
-  br i1 %.not428, label %290, label %52
+  %.not427 = icmp eq ptr %51, null
+  br i1 %.not427, label %290, label %52
 
 52:                                               ; preds = %49
   store ptr null, ptr %50, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 104
   %54 = load ptr, ptr %53, align 8
-  %.not475 = icmp eq ptr %54, null
-  br i1 %.not475, label %62, label %55
+  %.not464 = icmp eq ptr %54, null
+  br i1 %.not464, label %62, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11264,8 +11173,8 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 62:                                               ; preds = %55, %52
   %63 = getelementptr inbounds i8, ptr %0, i64 176
   %64 = load ptr, ptr %63, align 8
-  %.not476 = icmp eq ptr %64, null
-  br i1 %.not476, label %72, label %65
+  %.not465 = icmp eq ptr %64, null
+  br i1 %.not465, label %72, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11279,8 +11188,8 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
   br label %72
 
 72:                                               ; preds = %65, %62
-  %.not477 = icmp eq ptr %30, null
-  br i1 %.not477, label %80, label %73
+  %.not466 = icmp eq ptr %30, null
+  br i1 %.not466, label %80, label %73
 
 73:                                               ; preds = %72
   %74 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11296,8 +11205,8 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 80:                                               ; preds = %73, %72
   %81 = getelementptr inbounds i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8
-  %.not478 = icmp eq ptr %82, null
-  br i1 %.not478, label %90, label %83
+  %.not467 = icmp eq ptr %82, null
+  br i1 %.not467, label %90, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11313,8 +11222,8 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 90:                                               ; preds = %83, %80
   %91 = getelementptr inbounds i8, ptr %0, i64 112
   %92 = load ptr, ptr %91, align 8
-  %.not479 = icmp eq ptr %92, null
-  br i1 %.not479, label %100, label %93
+  %.not468 = icmp eq ptr %92, null
+  br i1 %.not468, label %100, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11330,23 +11239,22 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 100:                                              ; preds = %93, %90
   %101 = getelementptr inbounds i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8
-  %.not480 = icmp eq ptr %102, null
-  br i1 %.not480, label %142, label %103
+  %.not469 = icmp eq ptr %102, null
+  br i1 %.not469, label %142, label %103
 
 103:                                              ; preds = %100
   %104 = ptrtoint ptr %102 to i64
   %105 = and i64 %104, 1
-  %.not481 = icmp eq i64 %105, 0
-  br i1 %.not481, label %124, label %106
+  %.not470 = icmp eq i64 %105, 0
+  br i1 %.not470, label %124, label %106
 
 106:                                              ; preds = %103
   %107 = load i8, ptr %4, align 8
-  %108 = and i8 %107, 1
-  %.not483 = icmp eq i8 %108, 0
+  %108 = trunc i8 %107 to i1
   %109 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %110 = and i64 %104, -2
   %111 = getelementptr inbounds i8, ptr %109, i64 %110
-  br i1 %.not483, label %112, label %zend_file_cache_unserialize_interned.exit
+  br i1 %108, label %zend_file_cache_unserialize_interned.exit, label %112
 
 112:                                              ; preds = %106
   %113 = tail call ptr @accel_new_interned_string(ptr noundef %111) #19
@@ -11388,11 +11296,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %106, %112, %122
   %129 = getelementptr inbounds i8, ptr %2, i64 %104
   store ptr %129, ptr %101, align 8
   %130 = load i8, ptr %4, align 8
-  %131 = and i8 %130, 1
-  %.not482 = icmp eq i8 %131, 0
+  %131 = trunc i8 %130 to i1
   %132 = getelementptr inbounds i8, ptr %129, i64 4
   %133 = load i32, ptr %132, align 4
-  br i1 %.not482, label %134, label %136
+  br i1 %131, label %136, label %134
 
 134:                                              ; preds = %124
   %135 = or i32 %133, 320
@@ -11412,36 +11319,35 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %106, %112, %122
 142:                                              ; preds = %zend_file_cache_unserialize_interned.exit, %136, %134, %100
   %143 = getelementptr inbounds i8, ptr %0, i64 152
   %144 = load ptr, ptr %143, align 8
-  %.not484 = icmp eq ptr %144, null
-  br i1 %.not484, label %184, label %145
+  %.not471 = icmp eq ptr %144, null
+  br i1 %.not471, label %184, label %145
 
 145:                                              ; preds = %142
   %146 = ptrtoint ptr %144 to i64
   %147 = and i64 %146, 1
-  %.not485 = icmp eq i64 %147, 0
-  br i1 %.not485, label %166, label %148
+  %.not472 = icmp eq i64 %147, 0
+  br i1 %.not472, label %166, label %148
 
 148:                                              ; preds = %145
   %149 = load i8, ptr %4, align 8
-  %150 = and i8 %149, 1
-  %.not487 = icmp eq i8 %150, 0
+  %150 = trunc i8 %149 to i1
   %151 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %152 = and i64 %146, -2
   %153 = getelementptr inbounds i8, ptr %151, i64 %152
-  br i1 %.not487, label %154, label %zend_file_cache_unserialize_interned.exit503
+  br i1 %150, label %zend_file_cache_unserialize_interned.exit486, label %154
 
 154:                                              ; preds = %148
   %155 = tail call ptr @accel_new_interned_string(ptr noundef %153) #19
   %156 = icmp eq ptr %155, %153
-  br i1 %156, label %157, label %zend_file_cache_unserialize_interned.exit503
+  br i1 %156, label %157, label %zend_file_cache_unserialize_interned.exit486
 
 157:                                              ; preds = %154
   %158 = getelementptr inbounds i8, ptr %153, i64 16
   %159 = load i64, ptr %158, align 8
   %160 = add i64 %159, 25
   %161 = tail call ptr @zend_shared_alloc(i64 noundef %160) #19
-  %.not.i502 = icmp eq ptr %161, null
-  br i1 %.not.i502, label %162, label %164
+  %.not.i485 = icmp eq ptr %161, null
+  br i1 %.not.i485, label %162, label %164
 
 162:                                              ; preds = %157
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -11454,11 +11360,11 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %106, %112, %122
   store i32 1, ptr %161, align 4
   %165 = getelementptr inbounds i8, ptr %161, i64 4
   store i32 470, ptr %165, align 4
-  br label %zend_file_cache_unserialize_interned.exit503
+  br label %zend_file_cache_unserialize_interned.exit486
 
-zend_file_cache_unserialize_interned.exit503:     ; preds = %148, %154, %164
-  %.0.i501 = phi ptr [ %153, %148 ], [ %161, %164 ], [ %155, %154 ]
-  store ptr %.0.i501, ptr %143, align 8
+zend_file_cache_unserialize_interned.exit486:     ; preds = %148, %154, %164
+  %.0.i484 = phi ptr [ %153, %148 ], [ %161, %164 ], [ %155, %154 ]
+  store ptr %.0.i484, ptr %143, align 8
   br label %184
 
 166:                                              ; preds = %145
@@ -11470,11 +11376,10 @@ zend_file_cache_unserialize_interned.exit503:     ; preds = %148, %154, %164
   %171 = getelementptr inbounds i8, ptr %2, i64 %146
   store ptr %171, ptr %143, align 8
   %172 = load i8, ptr %4, align 8
-  %173 = and i8 %172, 1
-  %.not486 = icmp eq i8 %173, 0
+  %173 = trunc i8 %172 to i1
   %174 = getelementptr inbounds i8, ptr %171, i64 4
   %175 = load i32, ptr %174, align 4
-  br i1 %.not486, label %176, label %178
+  br i1 %173, label %178, label %176
 
 176:                                              ; preds = %166
   %177 = or i32 %175, 320
@@ -11491,11 +11396,11 @@ zend_file_cache_unserialize_interned.exit503:     ; preds = %148, %154, %164
   store i32 %183, ptr %181, align 4
   br label %184
 
-184:                                              ; preds = %zend_file_cache_unserialize_interned.exit503, %178, %176, %142
+184:                                              ; preds = %zend_file_cache_unserialize_interned.exit486, %178, %176, %142
   %185 = getelementptr inbounds i8, ptr %0, i64 136
   %186 = load ptr, ptr %185, align 8
-  %.not488 = icmp eq ptr %186, null
-  br i1 %.not488, label %194, label %187
+  %.not473 = icmp eq ptr %186, null
+  br i1 %.not473, label %194, label %187
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11511,8 +11416,8 @@ zend_file_cache_unserialize_interned.exit503:     ; preds = %148, %154, %164
 194:                                              ; preds = %187, %184
   %195 = getelementptr inbounds i8, ptr %0, i64 16
   %196 = load ptr, ptr %195, align 8
-  %.not489 = icmp eq ptr %196, null
-  br i1 %.not489, label %204, label %197
+  %.not474 = icmp eq ptr %196, null
+  br i1 %.not474, label %204, label %197
 
 197:                                              ; preds = %194
   %198 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11528,36 +11433,35 @@ zend_file_cache_unserialize_interned.exit503:     ; preds = %148, %154, %164
 204:                                              ; preds = %197, %194
   %205 = getelementptr inbounds i8, ptr %0, i64 64
   %206 = load ptr, ptr %205, align 8
-  %.not490 = icmp eq ptr %206, null
-  br i1 %.not490, label %246, label %207
+  %.not475 = icmp eq ptr %206, null
+  br i1 %.not475, label %246, label %207
 
 207:                                              ; preds = %204
   %208 = ptrtoint ptr %206 to i64
   %209 = and i64 %208, 1
-  %.not491 = icmp eq i64 %209, 0
-  br i1 %.not491, label %228, label %210
+  %.not476 = icmp eq i64 %209, 0
+  br i1 %.not476, label %228, label %210
 
 210:                                              ; preds = %207
   %211 = load i8, ptr %4, align 8
-  %212 = and i8 %211, 1
-  %.not493 = icmp eq i8 %212, 0
+  %212 = trunc i8 %211 to i1
   %213 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %214 = and i64 %208, -2
   %215 = getelementptr inbounds i8, ptr %213, i64 %214
-  br i1 %.not493, label %216, label %zend_file_cache_unserialize_interned.exit506
+  br i1 %212, label %zend_file_cache_unserialize_interned.exit489, label %216
 
 216:                                              ; preds = %210
   %217 = tail call ptr @accel_new_interned_string(ptr noundef %215) #19
   %218 = icmp eq ptr %217, %215
-  br i1 %218, label %219, label %zend_file_cache_unserialize_interned.exit506
+  br i1 %218, label %219, label %zend_file_cache_unserialize_interned.exit489
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds i8, ptr %215, i64 16
   %221 = load i64, ptr %220, align 8
   %222 = add i64 %221, 25
   %223 = tail call ptr @zend_shared_alloc(i64 noundef %222) #19
-  %.not.i505 = icmp eq ptr %223, null
-  br i1 %.not.i505, label %224, label %226
+  %.not.i488 = icmp eq ptr %223, null
+  br i1 %.not.i488, label %224, label %226
 
 224:                                              ; preds = %219
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -11570,11 +11474,11 @@ zend_file_cache_unserialize_interned.exit503:     ; preds = %148, %154, %164
   store i32 1, ptr %223, align 4
   %227 = getelementptr inbounds i8, ptr %223, i64 4
   store i32 470, ptr %227, align 4
-  br label %zend_file_cache_unserialize_interned.exit506
+  br label %zend_file_cache_unserialize_interned.exit489
 
-zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
-  %.0.i504 = phi ptr [ %215, %210 ], [ %223, %226 ], [ %217, %216 ]
-  store ptr %.0.i504, ptr %205, align 8
+zend_file_cache_unserialize_interned.exit489:     ; preds = %210, %216, %226
+  %.0.i487 = phi ptr [ %215, %210 ], [ %223, %226 ], [ %217, %216 ]
+  store ptr %.0.i487, ptr %205, align 8
   br label %246
 
 228:                                              ; preds = %207
@@ -11586,11 +11490,10 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
   %233 = getelementptr inbounds i8, ptr %2, i64 %208
   store ptr %233, ptr %205, align 8
   %234 = load i8, ptr %4, align 8
-  %235 = and i8 %234, 1
-  %.not492 = icmp eq i8 %235, 0
+  %235 = trunc i8 %234 to i1
   %236 = getelementptr inbounds i8, ptr %233, i64 4
   %237 = load i32, ptr %236, align 4
-  br i1 %.not492, label %238, label %240
+  br i1 %235, label %240, label %238
 
 238:                                              ; preds = %228
   %239 = or i32 %237, 320
@@ -11607,30 +11510,30 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
   store i32 %245, ptr %243, align 4
   br label %246
 
-246:                                              ; preds = %zend_file_cache_unserialize_interned.exit506, %240, %238, %204
+246:                                              ; preds = %zend_file_cache_unserialize_interned.exit489, %240, %238, %204
   %247 = getelementptr inbounds i8, ptr %0, i64 48
   %248 = load ptr, ptr %247, align 8
-  %.not494 = icmp eq ptr %248, null
-  br i1 %.not494, label %270, label %249
+  %.not477 = icmp eq ptr %248, null
+  br i1 %.not477, label %270, label %249
 
 249:                                              ; preds = %246
   %250 = load ptr, ptr %31, align 8
-  %.not495 = icmp ult ptr %248, %250
-  br i1 %.not495, label %255, label %251
+  %.not478 = icmp ult ptr %248, %250
+  br i1 %.not478, label %255, label %251
 
 251:                                              ; preds = %249
   %252 = getelementptr inbounds i8, ptr %1, i64 424
   %253 = load i64, ptr %252, align 8
   %254 = getelementptr inbounds i8, ptr %250, i64 %253
-  %.not496 = icmp ugt ptr %248, %254
-  br i1 %.not496, label %255, label %270
+  %.not479 = icmp ugt ptr %248, %254
+  br i1 %.not479, label %255, label %270
 
 255:                                              ; preds = %251, %249
   %256 = load ptr, ptr @accel_shared_globals, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 176
   %258 = load ptr, ptr %257, align 8
-  %.not497 = icmp ult ptr %248, %258
-  br i1 %.not497, label %263, label %259
+  %.not480 = icmp ult ptr %248, %258
+  br i1 %.not480, label %263, label %259
 
 259:                                              ; preds = %255
   %260 = getelementptr inbounds i8, ptr %256, i64 184
@@ -11653,8 +11556,8 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
 270:                                              ; preds = %263, %259, %251, %246
   %271 = getelementptr inbounds i8, ptr %0, i64 144
   %272 = load ptr, ptr %271, align 8
-  %.not499 = icmp eq ptr %272, null
-  br i1 %.not499, label %280, label %273
+  %.not482 = icmp eq ptr %272, null
+  br i1 %.not482, label %280, label %273
 
 273:                                              ; preds = %270
   %274 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11670,8 +11573,8 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
 280:                                              ; preds = %273, %270
   %281 = getelementptr inbounds i8, ptr %0, i64 24
   %282 = load ptr, ptr %281, align 8
-  %.not500 = icmp eq ptr %282, null
-  br i1 %.not500, label %722, label %283
+  %.not483 = icmp eq ptr %282, null
+  br i1 %.not483, label %722, label %283
 
 283:                                              ; preds = %280
   %284 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11687,8 +11590,8 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
 290:                                              ; preds = %49
   %291 = getelementptr inbounds i8, ptr %0, i64 104
   %292 = load ptr, ptr %291, align 8
-  %.not429 = icmp eq ptr %292, null
-  br i1 %.not429, label %300, label %293
+  %.not428 = icmp eq ptr %292, null
+  br i1 %.not428, label %300, label %293
 
 293:                                              ; preds = %290
   %294 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11705,8 +11608,8 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
 300:                                              ; preds = %293, %290
   %301 = getelementptr inbounds i8, ptr %0, i64 176
   %302 = load ptr, ptr %301, align 8
-  %.not430 = icmp eq ptr %302, null
-  br i1 %.not430, label %.loopexit525, label %303
+  %.not429 = icmp eq ptr %302, null
+  br i1 %.not429, label %.loopexit508, label %303
 
 303:                                              ; preds = %300
   %304 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11722,21 +11625,21 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
   %312 = sext i32 %311 to i64
   %313 = getelementptr inbounds %struct._zval_struct, ptr %309, i64 %312
   %314 = icmp sgt i32 %311, 0
-  br i1 %314, label %.lr.ph, label %.loopexit525
+  br i1 %314, label %.lr.ph, label %.loopexit508
 
 .lr.ph:                                           ; preds = %303, %.lr.ph
-  %.0526 = phi ptr [ %315, %.lr.ph ], [ %309, %303 ]
-  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0526, ptr noundef %1, ptr noundef %2)
-  %315 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %.0509 = phi ptr [ %315, %.lr.ph ], [ %309, %303 ]
+  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0509, ptr noundef %1, ptr noundef %2)
+  %315 = getelementptr inbounds i8, ptr %.0509, i64 16
   %316 = icmp ult ptr %315, %313
-  br i1 %316, label %.lr.ph, label %.loopexit525
+  br i1 %316, label %.lr.ph, label %.loopexit508
 
-.loopexit525:                                     ; preds = %.lr.ph, %303, %300
+.loopexit508:                                     ; preds = %.lr.ph, %303, %300
   %317 = load ptr, ptr %29, align 8
-  %.not431 = icmp eq ptr %317, null
-  br i1 %.not431, label %325, label %318
+  %.not430 = icmp eq ptr %317, null
+  br i1 %.not430, label %325, label %318
 
-318:                                              ; preds = %.loopexit525
+318:                                              ; preds = %.loopexit508
   %319 = getelementptr inbounds i8, ptr %1, i64 424
   %320 = load i64, ptr %319, align 8
   %321 = inttoptr i64 %320 to ptr
@@ -11747,65 +11650,65 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
   store ptr %324, ptr %29, align 8
   br label %325
 
-325:                                              ; preds = %.loopexit525, %318
-  %326 = phi ptr [ null, %.loopexit525 ], [ %324, %318 ]
+325:                                              ; preds = %.loopexit508, %318
+  %326 = phi ptr [ null, %.loopexit508 ], [ %324, %318 ]
   %327 = getelementptr inbounds i8, ptr %0, i64 84
   %328 = load i32, ptr %327, align 4
   %329 = zext i32 %328 to i64
   %330 = getelementptr inbounds %struct._zend_op, ptr %326, i64 %329
-  %.not538 = icmp eq i32 %328, 0
-  br i1 %.not538, label %._crit_edge, label %.lr.ph528
+  %.not521 = icmp eq i32 %328, 0
+  br i1 %.not521, label %._crit_edge, label %.lr.ph511
 
-.lr.ph528:                                        ; preds = %325, %358
-  %.0371527 = phi ptr [ %359, %358 ], [ %326, %325 ]
-  %331 = getelementptr inbounds i8, ptr %.0371527, i64 29
+.lr.ph511:                                        ; preds = %325, %358
+  %.0371510 = phi ptr [ %359, %358 ], [ %326, %325 ]
+  %331 = getelementptr inbounds i8, ptr %.0371510, i64 29
   %332 = load i8, ptr %331, align 1
   %333 = icmp eq i8 %332, 1
   br i1 %333, label %334, label %344
 
-334:                                              ; preds = %.lr.ph528
+334:                                              ; preds = %.lr.ph511
   %335 = load ptr, ptr %301, align 8
-  %336 = getelementptr inbounds i8, ptr %.0371527, i64 8
+  %336 = getelementptr inbounds i8, ptr %.0371510, i64 8
   %337 = load i32, ptr %336, align 8
   %338 = zext i32 %337 to i64
   %339 = getelementptr inbounds %struct._zval_struct, ptr %335, i64 %338
   %340 = ptrtoint ptr %339 to i64
-  %341 = ptrtoint ptr %.0371527 to i64
+  %341 = ptrtoint ptr %.0371510 to i64
   %342 = sub i64 %340, %341
   %343 = trunc i64 %342 to i32
   store i32 %343, ptr %336, align 8
   br label %344
 
-344:                                              ; preds = %334, %.lr.ph528
-  %345 = getelementptr inbounds i8, ptr %.0371527, i64 30
+344:                                              ; preds = %334, %.lr.ph511
+  %345 = getelementptr inbounds i8, ptr %.0371510, i64 30
   %346 = load i8, ptr %345, align 2
   %347 = icmp eq i8 %346, 1
   br i1 %347, label %348, label %358
 
 348:                                              ; preds = %344
   %349 = load ptr, ptr %301, align 8
-  %350 = getelementptr inbounds i8, ptr %.0371527, i64 12
+  %350 = getelementptr inbounds i8, ptr %.0371510, i64 12
   %351 = load i32, ptr %350, align 4
   %352 = zext i32 %351 to i64
   %353 = getelementptr inbounds %struct._zval_struct, ptr %349, i64 %352
   %354 = ptrtoint ptr %353 to i64
-  %355 = ptrtoint ptr %.0371527 to i64
+  %355 = ptrtoint ptr %.0371510 to i64
   %356 = sub i64 %354, %355
   %357 = trunc i64 %356 to i32
   store i32 %357, ptr %350, align 4
   br label %358
 
 358:                                              ; preds = %348, %344
-  tail call void @zend_deserialize_opcode_handler(ptr noundef nonnull %.0371527) #19
-  %359 = getelementptr inbounds i8, ptr %.0371527, i64 32
+  tail call void @zend_deserialize_opcode_handler(ptr noundef nonnull %.0371510) #19
+  %359 = getelementptr inbounds i8, ptr %.0371510, i64 32
   %360 = icmp ult ptr %359, %330
-  br i1 %360, label %.lr.ph528, label %._crit_edge
+  br i1 %360, label %.lr.ph511, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %358, %325
   %361 = getelementptr inbounds i8, ptr %0, i64 16
   %362 = load ptr, ptr %361, align 8
-  %.not432 = icmp eq ptr %362, null
-  br i1 %.not432, label %370, label %363
+  %.not431 = icmp eq ptr %362, null
+  br i1 %.not431, label %370, label %363
 
 363:                                              ; preds = %._crit_edge
   %364 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11821,8 +11724,8 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
 370:                                              ; preds = %._crit_edge, %363
   %371 = getelementptr inbounds i8, ptr %0, i64 40
   %372 = load ptr, ptr %371, align 8
-  %.not433 = icmp eq ptr %372, null
-  br i1 %.not433, label %.loopexit524, label %373
+  %.not432 = icmp eq ptr %372, null
+  br i1 %.not432, label %.loopexit507, label %373
 
 373:                                              ; preds = %370
   %374 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11840,75 +11743,74 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
   %384 = getelementptr inbounds i8, ptr %0, i64 4
   %385 = load i32, ptr %384, align 4
   %386 = and i32 %385, 8192
-  %.not434 = icmp eq i32 %386, 0
-  %.0374.idx = select i1 %.not434, i64 0, i64 -32
+  %.not433 = icmp eq i32 %386, 0
+  %.0374.idx = select i1 %.not433, i64 0, i64 -32
   %.0374 = getelementptr inbounds i8, ptr %379, i64 %.0374.idx
   %387 = lshr i32 %385, 9
   %388 = and i32 %387, 32
   %.0373.idx = zext nneg i32 %388 to i64
   %.0373 = getelementptr inbounds i8, ptr %383, i64 %.0373.idx
   %389 = icmp ult ptr %.0374, %.0373
-  br i1 %389, label %.lr.ph531, label %.loopexit524
+  br i1 %389, label %.lr.ph514, label %.loopexit507
 
-.lr.ph531:                                        ; preds = %373, %442
-  %.1529 = phi ptr [ %444, %442 ], [ %.0374, %373 ]
-  %390 = load ptr, ptr %.1529, align 8
+.lr.ph514:                                        ; preds = %373, %442
+  %.1512 = phi ptr [ %444, %442 ], [ %.0374, %373 ]
+  %390 = load ptr, ptr %.1512, align 8
   %391 = load ptr, ptr %31, align 8
-  %.not467 = icmp ult ptr %390, %391
-  br i1 %.not467, label %395, label %392
+  %.not458 = icmp ult ptr %390, %391
+  br i1 %.not458, label %395, label %392
 
-392:                                              ; preds = %.lr.ph531
+392:                                              ; preds = %.lr.ph514
   %393 = load i64, ptr %374, align 8
   %394 = getelementptr inbounds i8, ptr %391, i64 %393
-  %.not468 = icmp ugt ptr %390, %394
-  br i1 %.not468, label %395, label %442
+  %.not459 = icmp ugt ptr %390, %394
+  br i1 %.not459, label %395, label %442
 
-395:                                              ; preds = %392, %.lr.ph531
+395:                                              ; preds = %392, %.lr.ph514
   %396 = load ptr, ptr @accel_shared_globals, align 8
   %397 = getelementptr inbounds i8, ptr %396, i64 176
   %398 = load ptr, ptr %397, align 8
-  %.not469 = icmp ult ptr %390, %398
-  br i1 %.not469, label %403, label %399
+  %.not460 = icmp ult ptr %390, %398
+  br i1 %.not460, label %403, label %399
 
 399:                                              ; preds = %395
   %400 = getelementptr inbounds i8, ptr %396, i64 184
   %401 = load ptr, ptr %400, align 8
   %402 = icmp ult ptr %390, %401
-  %.not470 = icmp eq ptr %390, null
-  %or.cond = or i1 %.not470, %402
+  %.not461 = icmp eq ptr %390, null
+  %or.cond = or i1 %.not461, %402
   br i1 %or.cond, label %442, label %404
 
 403:                                              ; preds = %395
-  %.not470.old = icmp eq ptr %390, null
-  br i1 %.not470.old, label %442, label %404
+  %.not461.old = icmp eq ptr %390, null
+  br i1 %.not461.old, label %442, label %404
 
 404:                                              ; preds = %399, %403
   %405 = ptrtoint ptr %390 to i64
   %406 = and i64 %405, 1
-  %.not471 = icmp eq i64 %406, 0
-  br i1 %.not471, label %425, label %407
+  %.not462 = icmp eq i64 %406, 0
+  br i1 %.not462, label %425, label %407
 
 407:                                              ; preds = %404
   %408 = load i8, ptr %4, align 8
-  %409 = and i8 %408, 1
-  %.not473 = icmp eq i8 %409, 0
+  %409 = trunc i8 %408 to i1
   %410 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %411 = and i64 %405, -2
   %412 = getelementptr inbounds i8, ptr %410, i64 %411
-  br i1 %.not473, label %413, label %zend_file_cache_unserialize_interned.exit509
+  br i1 %409, label %zend_file_cache_unserialize_interned.exit492, label %413
 
 413:                                              ; preds = %407
   %414 = tail call ptr @accel_new_interned_string(ptr noundef %412) #19
   %415 = icmp eq ptr %414, %412
-  br i1 %415, label %416, label %zend_file_cache_unserialize_interned.exit509
+  br i1 %415, label %416, label %zend_file_cache_unserialize_interned.exit492
 
 416:                                              ; preds = %413
   %417 = getelementptr inbounds i8, ptr %412, i64 16
   %418 = load i64, ptr %417, align 8
   %419 = add i64 %418, 25
   %420 = tail call ptr @zend_shared_alloc(i64 noundef %419) #19
-  %.not.i508 = icmp eq ptr %420, null
-  br i1 %.not.i508, label %421, label %423
+  %.not.i491 = icmp eq ptr %420, null
+  br i1 %.not.i491, label %421, label %423
 
 421:                                              ; preds = %416
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -11921,11 +11823,11 @@ zend_file_cache_unserialize_interned.exit506:     ; preds = %210, %216, %226
   store i32 1, ptr %420, align 4
   %424 = getelementptr inbounds i8, ptr %420, i64 4
   store i32 470, ptr %424, align 4
-  br label %zend_file_cache_unserialize_interned.exit509
+  br label %zend_file_cache_unserialize_interned.exit492
 
-zend_file_cache_unserialize_interned.exit509:     ; preds = %407, %413, %423
-  %.0.i507 = phi ptr [ %412, %407 ], [ %420, %423 ], [ %414, %413 ]
-  store ptr %.0.i507, ptr %.1529, align 8
+zend_file_cache_unserialize_interned.exit492:     ; preds = %407, %413, %423
+  %.0.i490 = phi ptr [ %412, %407 ], [ %420, %423 ], [ %414, %413 ]
+  store ptr %.0.i490, ptr %.1512, align 8
   br label %442
 
 425:                                              ; preds = %404
@@ -11934,13 +11836,12 @@ zend_file_cache_unserialize_interned.exit509:     ; preds = %407, %413, %423
   %428 = icmp ule ptr %390, %427
   tail call void @llvm.assume(i1 %428)
   %429 = getelementptr inbounds i8, ptr %2, i64 %405
-  store ptr %429, ptr %.1529, align 8
+  store ptr %429, ptr %.1512, align 8
   %430 = load i8, ptr %4, align 8
-  %431 = and i8 %430, 1
-  %.not472 = icmp eq i8 %431, 0
+  %431 = trunc i8 %430 to i1
   %432 = getelementptr inbounds i8, ptr %429, i64 4
   %433 = load i32, ptr %432, align 4
-  br i1 %.not472, label %434, label %436
+  br i1 %431, label %436, label %434
 
 434:                                              ; preds = %425
   %435 = or i32 %433, 320
@@ -11950,27 +11851,27 @@ zend_file_cache_unserialize_interned.exit509:     ; preds = %407, %413, %423
 436:                                              ; preds = %425
   %437 = or i32 %433, 64
   store i32 %437, ptr %432, align 4
-  %438 = load ptr, ptr %.1529, align 8
+  %438 = load ptr, ptr %.1512, align 8
   %439 = getelementptr inbounds i8, ptr %438, i64 4
   %440 = load i32, ptr %439, align 4
   %441 = and i32 %440, -257
   store i32 %441, ptr %439, align 4
   br label %442
 
-442:                                              ; preds = %zend_file_cache_unserialize_interned.exit509, %436, %434, %403, %399, %392
-  %443 = getelementptr inbounds i8, ptr %.1529, i64 8
+442:                                              ; preds = %zend_file_cache_unserialize_interned.exit492, %436, %434, %403, %399, %392
+  %443 = getelementptr inbounds i8, ptr %.1512, i64 8
   tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %443, ptr noundef nonnull %1, ptr noundef %2)
-  %444 = getelementptr inbounds i8, ptr %.1529, i64 32
+  %444 = getelementptr inbounds i8, ptr %.1512, i64 32
   %445 = icmp ult ptr %444, %.0373
-  br i1 %445, label %.lr.ph531, label %.loopexit524
+  br i1 %445, label %.lr.ph514, label %.loopexit507
 
-.loopexit524:                                     ; preds = %442, %373, %370
+.loopexit507:                                     ; preds = %442, %373, %370
   %446 = getelementptr inbounds i8, ptr %0, i64 112
   %447 = load ptr, ptr %446, align 8
-  %.not436 = icmp eq ptr %447, null
-  br i1 %.not436, label %.loopexit523, label %448
+  %.not435 = icmp eq ptr %447, null
+  br i1 %.not435, label %.loopexit506, label %448
 
-448:                                              ; preds = %.loopexit524
+448:                                              ; preds = %.loopexit507
   %449 = getelementptr inbounds i8, ptr %1, i64 424
   %450 = load i64, ptr %449, align 8
   %451 = inttoptr i64 %450 to ptr
@@ -11984,67 +11885,66 @@ zend_file_cache_unserialize_interned.exit509:     ; preds = %407, %413, %423
   %457 = sext i32 %456 to i64
   %458 = getelementptr inbounds ptr, ptr %454, i64 %457
   %459 = icmp sgt i32 %456, 0
-  br i1 %459, label %.lr.ph534, label %.loopexit523
+  br i1 %459, label %.lr.ph517, label %.loopexit506
 
-.lr.ph534:                                        ; preds = %448, %512
-  %.0372532 = phi ptr [ %513, %512 ], [ %454, %448 ]
-  %460 = load ptr, ptr %.0372532, align 8
+.lr.ph517:                                        ; preds = %448, %512
+  %.0372515 = phi ptr [ %513, %512 ], [ %454, %448 ]
+  %460 = load ptr, ptr %.0372515, align 8
   %461 = load ptr, ptr %31, align 8
-  %.not460 = icmp ult ptr %460, %461
-  br i1 %.not460, label %465, label %462
+  %.not453 = icmp ult ptr %460, %461
+  br i1 %.not453, label %465, label %462
 
-462:                                              ; preds = %.lr.ph534
+462:                                              ; preds = %.lr.ph517
   %463 = load i64, ptr %449, align 8
   %464 = getelementptr inbounds i8, ptr %461, i64 %463
-  %.not461 = icmp ugt ptr %460, %464
-  br i1 %.not461, label %465, label %512
+  %.not454 = icmp ugt ptr %460, %464
+  br i1 %.not454, label %465, label %512
 
-465:                                              ; preds = %462, %.lr.ph534
+465:                                              ; preds = %462, %.lr.ph517
   %466 = load ptr, ptr @accel_shared_globals, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 176
   %468 = load ptr, ptr %467, align 8
-  %.not462 = icmp ult ptr %460, %468
-  br i1 %.not462, label %473, label %469
+  %.not455 = icmp ult ptr %460, %468
+  br i1 %.not455, label %473, label %469
 
 469:                                              ; preds = %465
   %470 = getelementptr inbounds i8, ptr %466, i64 184
   %471 = load ptr, ptr %470, align 8
   %472 = icmp ult ptr %460, %471
-  %.not463 = icmp eq ptr %460, null
-  %or.cond522 = or i1 %.not463, %472
-  br i1 %or.cond522, label %512, label %474
+  %.not456 = icmp eq ptr %460, null
+  %or.cond505 = or i1 %.not456, %472
+  br i1 %or.cond505, label %512, label %474
 
 473:                                              ; preds = %465
-  %.not463.old = icmp eq ptr %460, null
-  br i1 %.not463.old, label %512, label %474
+  %.not456.old = icmp eq ptr %460, null
+  br i1 %.not456.old, label %512, label %474
 
 474:                                              ; preds = %469, %473
   %475 = ptrtoint ptr %460 to i64
   %476 = and i64 %475, 1
-  %.not464 = icmp eq i64 %476, 0
-  br i1 %.not464, label %495, label %477
+  %.not457 = icmp eq i64 %476, 0
+  br i1 %.not457, label %495, label %477
 
 477:                                              ; preds = %474
   %478 = load i8, ptr %4, align 8
-  %479 = and i8 %478, 1
-  %.not466 = icmp eq i8 %479, 0
+  %479 = trunc i8 %478 to i1
   %480 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %481 = and i64 %475, -2
   %482 = getelementptr inbounds i8, ptr %480, i64 %481
-  br i1 %.not466, label %483, label %zend_file_cache_unserialize_interned.exit512
+  br i1 %479, label %zend_file_cache_unserialize_interned.exit495, label %483
 
 483:                                              ; preds = %477
   %484 = tail call ptr @accel_new_interned_string(ptr noundef %482) #19
   %485 = icmp eq ptr %484, %482
-  br i1 %485, label %486, label %zend_file_cache_unserialize_interned.exit512
+  br i1 %485, label %486, label %zend_file_cache_unserialize_interned.exit495
 
 486:                                              ; preds = %483
   %487 = getelementptr inbounds i8, ptr %482, i64 16
   %488 = load i64, ptr %487, align 8
   %489 = add i64 %488, 25
   %490 = tail call ptr @zend_shared_alloc(i64 noundef %489) #19
-  %.not.i511 = icmp eq ptr %490, null
-  br i1 %.not.i511, label %491, label %493
+  %.not.i494 = icmp eq ptr %490, null
+  br i1 %.not.i494, label %491, label %493
 
 491:                                              ; preds = %486
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -12057,11 +11957,11 @@ zend_file_cache_unserialize_interned.exit509:     ; preds = %407, %413, %423
   store i32 1, ptr %490, align 4
   %494 = getelementptr inbounds i8, ptr %490, i64 4
   store i32 470, ptr %494, align 4
-  br label %zend_file_cache_unserialize_interned.exit512
+  br label %zend_file_cache_unserialize_interned.exit495
 
-zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
-  %.0.i510 = phi ptr [ %482, %477 ], [ %490, %493 ], [ %484, %483 ]
-  store ptr %.0.i510, ptr %.0372532, align 8
+zend_file_cache_unserialize_interned.exit495:     ; preds = %477, %483, %493
+  %.0.i493 = phi ptr [ %482, %477 ], [ %490, %493 ], [ %484, %483 ]
+  store ptr %.0.i493, ptr %.0372515, align 8
   br label %512
 
 495:                                              ; preds = %474
@@ -12070,13 +11970,12 @@ zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
   %498 = icmp ule ptr %460, %497
   tail call void @llvm.assume(i1 %498)
   %499 = getelementptr inbounds i8, ptr %2, i64 %475
-  store ptr %499, ptr %.0372532, align 8
+  store ptr %499, ptr %.0372515, align 8
   %500 = load i8, ptr %4, align 8
-  %501 = and i8 %500, 1
-  %.not465 = icmp eq i8 %501, 0
+  %501 = trunc i8 %500 to i1
   %502 = getelementptr inbounds i8, ptr %499, i64 4
   %503 = load i32, ptr %502, align 4
-  br i1 %.not465, label %504, label %506
+  br i1 %501, label %506, label %504
 
 504:                                              ; preds = %495
   %505 = or i32 %503, 320
@@ -12086,29 +11985,29 @@ zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
 506:                                              ; preds = %495
   %507 = or i32 %503, 64
   store i32 %507, ptr %502, align 4
-  %508 = load ptr, ptr %.0372532, align 8
+  %508 = load ptr, ptr %.0372515, align 8
   %509 = getelementptr inbounds i8, ptr %508, i64 4
   %510 = load i32, ptr %509, align 4
   %511 = and i32 %510, -257
   store i32 %511, ptr %509, align 4
   br label %512
 
-512:                                              ; preds = %zend_file_cache_unserialize_interned.exit512, %506, %504, %473, %469, %462
-  %513 = getelementptr inbounds i8, ptr %.0372532, i64 8
+512:                                              ; preds = %zend_file_cache_unserialize_interned.exit495, %506, %504, %473, %469, %462
+  %513 = getelementptr inbounds i8, ptr %.0372515, i64 8
   %514 = icmp ult ptr %513, %458
-  br i1 %514, label %.lr.ph534, label %.loopexit523
+  br i1 %514, label %.lr.ph517, label %.loopexit506
 
-.loopexit523:                                     ; preds = %512, %448, %.loopexit524
+.loopexit506:                                     ; preds = %512, %448, %.loopexit507
   %515 = getelementptr inbounds i8, ptr %0, i64 172
   %516 = load i32, ptr %515, align 4
-  %.not437 = icmp eq i32 %516, 0
-  br i1 %.not437, label %.loopexit, label %517
+  %.not436 = icmp eq i32 %516, 0
+  br i1 %.not436, label %.loopexit, label %517
 
-517:                                              ; preds = %.loopexit523
+517:                                              ; preds = %.loopexit506
   %518 = getelementptr inbounds i8, ptr %0, i64 184
   %519 = load ptr, ptr %518, align 8
-  %.not438 = icmp eq ptr %519, null
-  br i1 %.not438, label %.lr.ph537, label %520
+  %.not437 = icmp eq ptr %519, null
+  br i1 %.not437, label %.lr.ph520, label %520
 
 520:                                              ; preds = %517
   %521 = getelementptr inbounds i8, ptr %1, i64 424
@@ -12119,19 +12018,19 @@ zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
   %525 = ptrtoint ptr %519 to i64
   %526 = getelementptr inbounds i8, ptr %2, i64 %525
   store ptr %526, ptr %518, align 8
-  br label %.lr.ph537
+  br label %.lr.ph520
 
-.lr.ph537:                                        ; preds = %520, %517
+.lr.ph520:                                        ; preds = %520, %517
   %527 = getelementptr inbounds i8, ptr %1, i64 424
   br label %528
 
-528:                                              ; preds = %.lr.ph537, %538
-  %indvars.iv = phi i64 [ 0, %.lr.ph537 ], [ %indvars.iv.next, %538 ]
+528:                                              ; preds = %.lr.ph520, %538
+  %indvars.iv = phi i64 [ 0, %.lr.ph520 ], [ %indvars.iv.next, %538 ]
   %529 = load ptr, ptr %518, align 8
   %530 = getelementptr inbounds ptr, ptr %529, i64 %indvars.iv
   %531 = load ptr, ptr %530, align 8
-  %.not459 = icmp eq ptr %531, null
-  br i1 %.not459, label %538, label %532
+  %.not452 = icmp eq ptr %531, null
+  br i1 %.not452, label %538, label %532
 
 532:                                              ; preds = %528
   %533 = load i64, ptr %527, align 8
@@ -12143,11 +12042,11 @@ zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
   store ptr %537, ptr %530, align 8
   %.pre = load ptr, ptr %518, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
-  %.pre541 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre524 = load ptr, ptr %.phi.trans.insert, align 8
   br label %538
 
 538:                                              ; preds = %528, %532
-  %539 = phi ptr [ null, %528 ], [ %.pre541, %532 ]
+  %539 = phi ptr [ null, %528 ], [ %.pre524, %532 ]
   tail call fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %539, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %540 = load i32, ptr %515, align 4
@@ -12155,39 +12054,38 @@ zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
   %542 = icmp ult i64 %indvars.iv.next, %541
   br i1 %542, label %528, label %.loopexit
 
-.loopexit:                                        ; preds = %538, %.loopexit523
+.loopexit:                                        ; preds = %538, %.loopexit506
   %543 = getelementptr inbounds i8, ptr %0, i64 8
   %544 = load ptr, ptr %543, align 8
-  %.not439 = icmp eq ptr %544, null
-  br i1 %.not439, label %584, label %545
+  %.not438 = icmp eq ptr %544, null
+  br i1 %.not438, label %584, label %545
 
 545:                                              ; preds = %.loopexit
   %546 = ptrtoint ptr %544 to i64
   %547 = and i64 %546, 1
-  %.not440 = icmp eq i64 %547, 0
-  br i1 %.not440, label %566, label %548
+  %.not439 = icmp eq i64 %547, 0
+  br i1 %.not439, label %566, label %548
 
 548:                                              ; preds = %545
   %549 = load i8, ptr %4, align 8
-  %550 = and i8 %549, 1
-  %.not442 = icmp eq i8 %550, 0
+  %550 = trunc i8 %549 to i1
   %551 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %552 = and i64 %546, -2
   %553 = getelementptr inbounds i8, ptr %551, i64 %552
-  br i1 %.not442, label %554, label %zend_file_cache_unserialize_interned.exit515
+  br i1 %550, label %zend_file_cache_unserialize_interned.exit498, label %554
 
 554:                                              ; preds = %548
   %555 = tail call ptr @accel_new_interned_string(ptr noundef %553) #19
   %556 = icmp eq ptr %555, %553
-  br i1 %556, label %557, label %zend_file_cache_unserialize_interned.exit515
+  br i1 %556, label %557, label %zend_file_cache_unserialize_interned.exit498
 
 557:                                              ; preds = %554
   %558 = getelementptr inbounds i8, ptr %553, i64 16
   %559 = load i64, ptr %558, align 8
   %560 = add i64 %559, 25
   %561 = tail call ptr @zend_shared_alloc(i64 noundef %560) #19
-  %.not.i514 = icmp eq ptr %561, null
-  br i1 %.not.i514, label %562, label %564
+  %.not.i497 = icmp eq ptr %561, null
+  br i1 %.not.i497, label %562, label %564
 
 562:                                              ; preds = %557
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -12200,11 +12098,11 @@ zend_file_cache_unserialize_interned.exit512:     ; preds = %477, %483, %493
   store i32 1, ptr %561, align 4
   %565 = getelementptr inbounds i8, ptr %561, i64 4
   store i32 470, ptr %565, align 4
-  br label %zend_file_cache_unserialize_interned.exit515
+  br label %zend_file_cache_unserialize_interned.exit498
 
-zend_file_cache_unserialize_interned.exit515:     ; preds = %548, %554, %564
-  %.0.i513 = phi ptr [ %553, %548 ], [ %561, %564 ], [ %555, %554 ]
-  store ptr %.0.i513, ptr %543, align 8
+zend_file_cache_unserialize_interned.exit498:     ; preds = %548, %554, %564
+  %.0.i496 = phi ptr [ %553, %548 ], [ %561, %564 ], [ %555, %554 ]
+  store ptr %.0.i496, ptr %543, align 8
   br label %584
 
 566:                                              ; preds = %545
@@ -12216,11 +12114,10 @@ zend_file_cache_unserialize_interned.exit515:     ; preds = %548, %554, %564
   %571 = getelementptr inbounds i8, ptr %2, i64 %546
   store ptr %571, ptr %543, align 8
   %572 = load i8, ptr %4, align 8
-  %573 = and i8 %572, 1
-  %.not441 = icmp eq i8 %573, 0
+  %573 = trunc i8 %572 to i1
   %574 = getelementptr inbounds i8, ptr %571, i64 4
   %575 = load i32, ptr %574, align 4
-  br i1 %.not441, label %576, label %578
+  br i1 %573, label %578, label %576
 
 576:                                              ; preds = %566
   %577 = or i32 %575, 320
@@ -12237,39 +12134,38 @@ zend_file_cache_unserialize_interned.exit515:     ; preds = %548, %554, %564
   store i32 %583, ptr %581, align 4
   br label %584
 
-584:                                              ; preds = %zend_file_cache_unserialize_interned.exit515, %578, %576, %.loopexit
+584:                                              ; preds = %zend_file_cache_unserialize_interned.exit498, %578, %576, %.loopexit
   %585 = getelementptr inbounds i8, ptr %0, i64 152
   %586 = load ptr, ptr %585, align 8
-  %.not443 = icmp eq ptr %586, null
-  br i1 %.not443, label %626, label %587
+  %.not440 = icmp eq ptr %586, null
+  br i1 %.not440, label %626, label %587
 
 587:                                              ; preds = %584
   %588 = ptrtoint ptr %586 to i64
   %589 = and i64 %588, 1
-  %.not444 = icmp eq i64 %589, 0
-  br i1 %.not444, label %608, label %590
+  %.not441 = icmp eq i64 %589, 0
+  br i1 %.not441, label %608, label %590
 
 590:                                              ; preds = %587
   %591 = load i8, ptr %4, align 8
-  %592 = and i8 %591, 1
-  %.not446 = icmp eq i8 %592, 0
+  %592 = trunc i8 %591 to i1
   %593 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %594 = and i64 %588, -2
   %595 = getelementptr inbounds i8, ptr %593, i64 %594
-  br i1 %.not446, label %596, label %zend_file_cache_unserialize_interned.exit518
+  br i1 %592, label %zend_file_cache_unserialize_interned.exit501, label %596
 
 596:                                              ; preds = %590
   %597 = tail call ptr @accel_new_interned_string(ptr noundef %595) #19
   %598 = icmp eq ptr %597, %595
-  br i1 %598, label %599, label %zend_file_cache_unserialize_interned.exit518
+  br i1 %598, label %599, label %zend_file_cache_unserialize_interned.exit501
 
 599:                                              ; preds = %596
   %600 = getelementptr inbounds i8, ptr %595, i64 16
   %601 = load i64, ptr %600, align 8
   %602 = add i64 %601, 25
   %603 = tail call ptr @zend_shared_alloc(i64 noundef %602) #19
-  %.not.i517 = icmp eq ptr %603, null
-  br i1 %.not.i517, label %604, label %606
+  %.not.i500 = icmp eq ptr %603, null
+  br i1 %.not.i500, label %604, label %606
 
 604:                                              ; preds = %599
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -12282,11 +12178,11 @@ zend_file_cache_unserialize_interned.exit515:     ; preds = %548, %554, %564
   store i32 1, ptr %603, align 4
   %607 = getelementptr inbounds i8, ptr %603, i64 4
   store i32 470, ptr %607, align 4
-  br label %zend_file_cache_unserialize_interned.exit518
+  br label %zend_file_cache_unserialize_interned.exit501
 
-zend_file_cache_unserialize_interned.exit518:     ; preds = %590, %596, %606
-  %.0.i516 = phi ptr [ %595, %590 ], [ %603, %606 ], [ %597, %596 ]
-  store ptr %.0.i516, ptr %585, align 8
+zend_file_cache_unserialize_interned.exit501:     ; preds = %590, %596, %606
+  %.0.i499 = phi ptr [ %595, %590 ], [ %603, %606 ], [ %597, %596 ]
+  store ptr %.0.i499, ptr %585, align 8
   br label %626
 
 608:                                              ; preds = %587
@@ -12298,11 +12194,10 @@ zend_file_cache_unserialize_interned.exit518:     ; preds = %590, %596, %606
   %613 = getelementptr inbounds i8, ptr %2, i64 %588
   store ptr %613, ptr %585, align 8
   %614 = load i8, ptr %4, align 8
-  %615 = and i8 %614, 1
-  %.not445 = icmp eq i8 %615, 0
+  %615 = trunc i8 %614 to i1
   %616 = getelementptr inbounds i8, ptr %613, i64 4
   %617 = load i32, ptr %616, align 4
-  br i1 %.not445, label %618, label %620
+  br i1 %615, label %620, label %618
 
 618:                                              ; preds = %608
   %619 = or i32 %617, 320
@@ -12319,11 +12214,11 @@ zend_file_cache_unserialize_interned.exit518:     ; preds = %590, %596, %606
   store i32 %625, ptr %623, align 4
   br label %626
 
-626:                                              ; preds = %zend_file_cache_unserialize_interned.exit518, %620, %618, %584
+626:                                              ; preds = %zend_file_cache_unserialize_interned.exit501, %620, %618, %584
   %627 = getelementptr inbounds i8, ptr %0, i64 136
   %628 = load ptr, ptr %627, align 8
-  %.not447 = icmp eq ptr %628, null
-  br i1 %.not447, label %636, label %629
+  %.not442 = icmp eq ptr %628, null
+  br i1 %.not442, label %636, label %629
 
 629:                                              ; preds = %626
   %630 = getelementptr inbounds i8, ptr %1, i64 424
@@ -12339,36 +12234,35 @@ zend_file_cache_unserialize_interned.exit518:     ; preds = %590, %596, %606
 636:                                              ; preds = %629, %626
   %637 = getelementptr inbounds i8, ptr %0, i64 64
   %638 = load ptr, ptr %637, align 8
-  %.not448 = icmp eq ptr %638, null
-  br i1 %.not448, label %678, label %639
+  %.not443 = icmp eq ptr %638, null
+  br i1 %.not443, label %678, label %639
 
 639:                                              ; preds = %636
   %640 = ptrtoint ptr %638 to i64
   %641 = and i64 %640, 1
-  %.not449 = icmp eq i64 %641, 0
-  br i1 %.not449, label %660, label %642
+  %.not444 = icmp eq i64 %641, 0
+  br i1 %.not444, label %660, label %642
 
 642:                                              ; preds = %639
   %643 = load i8, ptr %4, align 8
-  %644 = and i8 %643, 1
-  %.not451 = icmp eq i8 %644, 0
+  %644 = trunc i8 %643 to i1
   %645 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %646 = and i64 %640, -2
   %647 = getelementptr inbounds i8, ptr %645, i64 %646
-  br i1 %.not451, label %648, label %zend_file_cache_unserialize_interned.exit521
+  br i1 %644, label %zend_file_cache_unserialize_interned.exit504, label %648
 
 648:                                              ; preds = %642
   %649 = tail call ptr @accel_new_interned_string(ptr noundef %647) #19
   %650 = icmp eq ptr %649, %647
-  br i1 %650, label %651, label %zend_file_cache_unserialize_interned.exit521
+  br i1 %650, label %651, label %zend_file_cache_unserialize_interned.exit504
 
 651:                                              ; preds = %648
   %652 = getelementptr inbounds i8, ptr %647, i64 16
   %653 = load i64, ptr %652, align 8
   %654 = add i64 %653, 25
   %655 = tail call ptr @zend_shared_alloc(i64 noundef %654) #19
-  %.not.i520 = icmp eq ptr %655, null
-  br i1 %.not.i520, label %656, label %658
+  %.not.i503 = icmp eq ptr %655, null
+  br i1 %.not.i503, label %656, label %658
 
 656:                                              ; preds = %651
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -12381,11 +12275,11 @@ zend_file_cache_unserialize_interned.exit518:     ; preds = %590, %596, %606
   store i32 1, ptr %655, align 4
   %659 = getelementptr inbounds i8, ptr %655, i64 4
   store i32 470, ptr %659, align 4
-  br label %zend_file_cache_unserialize_interned.exit521
+  br label %zend_file_cache_unserialize_interned.exit504
 
-zend_file_cache_unserialize_interned.exit521:     ; preds = %642, %648, %658
-  %.0.i519 = phi ptr [ %647, %642 ], [ %655, %658 ], [ %649, %648 ]
-  store ptr %.0.i519, ptr %637, align 8
+zend_file_cache_unserialize_interned.exit504:     ; preds = %642, %648, %658
+  %.0.i502 = phi ptr [ %647, %642 ], [ %655, %658 ], [ %649, %648 ]
+  store ptr %.0.i502, ptr %637, align 8
   br label %678
 
 660:                                              ; preds = %639
@@ -12397,11 +12291,10 @@ zend_file_cache_unserialize_interned.exit521:     ; preds = %642, %648, %658
   %665 = getelementptr inbounds i8, ptr %2, i64 %640
   store ptr %665, ptr %637, align 8
   %666 = load i8, ptr %4, align 8
-  %667 = and i8 %666, 1
-  %.not450 = icmp eq i8 %667, 0
+  %667 = trunc i8 %666 to i1
   %668 = getelementptr inbounds i8, ptr %665, i64 4
   %669 = load i32, ptr %668, align 4
-  br i1 %.not450, label %670, label %672
+  br i1 %667, label %672, label %670
 
 670:                                              ; preds = %660
   %671 = or i32 %669, 320
@@ -12418,30 +12311,30 @@ zend_file_cache_unserialize_interned.exit521:     ; preds = %642, %648, %658
   store i32 %677, ptr %675, align 4
   br label %678
 
-678:                                              ; preds = %zend_file_cache_unserialize_interned.exit521, %672, %670, %636
+678:                                              ; preds = %zend_file_cache_unserialize_interned.exit504, %672, %670, %636
   %679 = getelementptr inbounds i8, ptr %0, i64 48
   %680 = load ptr, ptr %679, align 8
-  %.not452 = icmp eq ptr %680, null
-  br i1 %.not452, label %702, label %681
+  %.not445 = icmp eq ptr %680, null
+  br i1 %.not445, label %702, label %681
 
 681:                                              ; preds = %678
   %682 = load ptr, ptr %31, align 8
-  %.not453 = icmp ult ptr %680, %682
-  br i1 %.not453, label %687, label %683
+  %.not446 = icmp ult ptr %680, %682
+  br i1 %.not446, label %687, label %683
 
 683:                                              ; preds = %681
   %684 = getelementptr inbounds i8, ptr %1, i64 424
   %685 = load i64, ptr %684, align 8
   %686 = getelementptr inbounds i8, ptr %682, i64 %685
-  %.not454 = icmp ugt ptr %680, %686
-  br i1 %.not454, label %687, label %702
+  %.not447 = icmp ugt ptr %680, %686
+  br i1 %.not447, label %687, label %702
 
 687:                                              ; preds = %683, %681
   %688 = load ptr, ptr @accel_shared_globals, align 8
   %689 = getelementptr inbounds i8, ptr %688, i64 176
   %690 = load ptr, ptr %689, align 8
-  %.not455 = icmp ult ptr %680, %690
-  br i1 %.not455, label %695, label %691
+  %.not448 = icmp ult ptr %680, %690
+  br i1 %.not448, label %695, label %691
 
 691:                                              ; preds = %687
   %692 = getelementptr inbounds i8, ptr %688, i64 184
@@ -12464,8 +12357,8 @@ zend_file_cache_unserialize_interned.exit521:     ; preds = %642, %648, %658
 702:                                              ; preds = %695, %691, %683, %678
   %703 = getelementptr inbounds i8, ptr %0, i64 144
   %704 = load ptr, ptr %703, align 8
-  %.not457 = icmp eq ptr %704, null
-  br i1 %.not457, label %712, label %705
+  %.not450 = icmp eq ptr %704, null
+  br i1 %.not450, label %712, label %705
 
 705:                                              ; preds = %702
   %706 = getelementptr inbounds i8, ptr %1, i64 424
@@ -12481,8 +12374,8 @@ zend_file_cache_unserialize_interned.exit521:     ; preds = %642, %648, %658
 712:                                              ; preds = %705, %702
   %713 = getelementptr inbounds i8, ptr %0, i64 24
   %714 = load ptr, ptr %713, align 8
-  %.not458 = icmp eq ptr %714, null
-  br i1 %.not458, label %722, label %715
+  %.not451 = icmp eq ptr %714, null
+  br i1 %.not451, label %722, label %715
 
 715:                                              ; preds = %712
   %716 = getelementptr inbounds i8, ptr %1, i64 424
@@ -12530,8 +12423,8 @@ define internal void @zend_file_cache_unserialize_zval(ptr nocapture noundef %0,
   %.not77 = icmp eq i64 %12, 0
   %or.cond = and i1 %.not76, %.not77
   %.not78 = icmp eq ptr %7, null
-  %or.cond83 = or i1 %.not78, %or.cond
-  br i1 %or.cond83, label %108, label %13
+  %or.cond81 = or i1 %.not78, %or.cond
+  br i1 %or.cond81, label %108, label %13
 
 13:                                               ; preds = %6
   br i1 %.not77, label %33, label %14
@@ -12539,12 +12432,11 @@ define internal void @zend_file_cache_unserialize_zval(ptr nocapture noundef %0,
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %1, i64 384
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not81 = icmp eq i8 %17, 0
+  %17 = trunc i8 %16 to i1
   %18 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %19 = and i64 %11, -2
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  br i1 %.not81, label %21, label %zend_file_cache_unserialize_interned.exit
+  br i1 %17, label %zend_file_cache_unserialize_interned.exit, label %21
 
 21:                                               ; preds = %14
   %22 = tail call ptr @accel_new_interned_string(ptr noundef %20) #19
@@ -12584,11 +12476,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %14, %21, %31
   store ptr %35, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 384
   %37 = load i8, ptr %36, align 8
-  %38 = and i8 %37, 1
-  %.not80 = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %35, i64 4
   %40 = load i32, ptr %39, align 4
-  br i1 %.not80, label %41, label %43
+  br i1 %38, label %43, label %41
 
 41:                                               ; preds = %33
   %42 = or i32 %40, 320
@@ -12810,12 +12701,11 @@ define internal void @zend_file_cache_unserialize_class_constant(ptr nocapture n
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %1, i64 384
   %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, 1
-  %.not90 = icmp eq i8 %59, 0
+  %59 = trunc i8 %58 to i1
   %60 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %61 = and i64 %54, -2
   %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  br i1 %.not90, label %63, label %zend_file_cache_unserialize_interned.exit
+  br i1 %59, label %zend_file_cache_unserialize_interned.exit, label %63
 
 63:                                               ; preds = %56
   %64 = tail call ptr @accel_new_interned_string(ptr noundef %62) #19
@@ -12857,11 +12747,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %56, %63, %73
   store ptr %79, ptr %51, align 8
   %80 = getelementptr inbounds i8, ptr %1, i64 384
   %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, 1
-  %.not89 = icmp eq i8 %82, 0
+  %82 = trunc i8 %81 to i1
   %83 = getelementptr inbounds i8, ptr %79, i64 4
   %84 = load i32, ptr %83, align 4
-  br i1 %.not89, label %85, label %87
+  br i1 %82, label %87, label %85
 
 85:                                               ; preds = %75
   %86 = or i32 %84, 320
@@ -12881,26 +12770,26 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %56, %63, %73
 93:                                               ; preds = %44, %85, %87, %zend_file_cache_unserialize_interned.exit
   %94 = getelementptr inbounds i8, ptr %29, i64 24
   %95 = load ptr, ptr %94, align 8
-  %.not91 = icmp eq ptr %95, null
-  br i1 %.not91, label %115, label %96
+  %.not89 = icmp eq ptr %95, null
+  br i1 %.not89, label %115, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %5, align 8
-  %.not92 = icmp ult ptr %95, %97
-  br i1 %.not92, label %101, label %98
+  %.not90 = icmp ult ptr %95, %97
+  br i1 %.not90, label %101, label %98
 
 98:                                               ; preds = %96
   %99 = load i64, ptr %45, align 8
   %100 = getelementptr inbounds i8, ptr %97, i64 %99
-  %.not93 = icmp ugt ptr %95, %100
-  br i1 %.not93, label %101, label %115
+  %.not91 = icmp ugt ptr %95, %100
+  br i1 %.not91, label %101, label %115
 
 101:                                              ; preds = %98, %96
   %102 = load ptr, ptr @accel_shared_globals, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 176
   %104 = load ptr, ptr %103, align 8
-  %.not94 = icmp ult ptr %95, %104
-  br i1 %.not94, label %109, label %105
+  %.not92 = icmp ult ptr %95, %104
+  br i1 %.not92, label %109, label %105
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds i8, ptr %102, i64 184
@@ -12952,12 +12841,11 @@ define internal void @zend_file_cache_unserialize_attribute(ptr nocapture nounde
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %1, i64 384
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not72 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %20 = and i64 %13, -2
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  br i1 %.not72, label %22, label %zend_file_cache_unserialize_interned.exit
+  br i1 %18, label %zend_file_cache_unserialize_interned.exit, label %22
 
 22:                                               ; preds = %15
   %23 = tail call ptr @accel_new_interned_string(ptr noundef %21) #19
@@ -13000,11 +12888,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %15, %22, %32
   store ptr %39, ptr %10, align 8
   %40 = getelementptr inbounds i8, ptr %1, i64 384
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not71 = icmp eq i8 %42, 0
+  %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds i8, ptr %39, i64 4
   %44 = load i32, ptr %43, align 4
-  br i1 %.not71, label %45, label %47
+  br i1 %42, label %47, label %45
 
 45:                                               ; preds = %34
   %46 = or i32 %44, 320
@@ -13024,37 +12911,36 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %15, %22, %32
 53:                                               ; preds = %zend_file_cache_unserialize_interned.exit, %47, %45, %3
   %54 = getelementptr inbounds i8, ptr %10, i64 8
   %55 = load ptr, ptr %54, align 8
-  %.not73 = icmp eq ptr %55, null
-  br i1 %.not73, label %97, label %56
+  %.not71 = icmp eq ptr %55, null
+  br i1 %.not71, label %97, label %56
 
 56:                                               ; preds = %53
   %57 = ptrtoint ptr %55 to i64
   %58 = and i64 %57, 1
-  %.not74 = icmp eq i64 %58, 0
-  br i1 %.not74, label %78, label %59
+  %.not72 = icmp eq i64 %58, 0
+  br i1 %.not72, label %78, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %1, i64 384
   %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, 1
-  %.not76 = icmp eq i8 %62, 0
+  %62 = trunc i8 %61 to i1
   %63 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %64 = and i64 %57, -2
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
-  br i1 %.not76, label %66, label %zend_file_cache_unserialize_interned.exit83
+  br i1 %62, label %zend_file_cache_unserialize_interned.exit77, label %66
 
 66:                                               ; preds = %59
   %67 = tail call ptr @accel_new_interned_string(ptr noundef %65) #19
   %68 = icmp eq ptr %67, %65
-  br i1 %68, label %69, label %zend_file_cache_unserialize_interned.exit83
+  br i1 %68, label %69, label %zend_file_cache_unserialize_interned.exit77
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %65, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 25
   %73 = tail call ptr @zend_shared_alloc(i64 noundef %72) #19
-  %.not.i82 = icmp eq ptr %73, null
-  br i1 %.not.i82, label %74, label %76
+  %.not.i76 = icmp eq ptr %73, null
+  br i1 %.not.i76, label %74, label %76
 
 74:                                               ; preds = %69
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -13067,11 +12953,11 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %15, %22, %32
   store i32 1, ptr %73, align 4
   %77 = getelementptr inbounds i8, ptr %73, i64 4
   store i32 470, ptr %77, align 4
-  br label %zend_file_cache_unserialize_interned.exit83
+  br label %zend_file_cache_unserialize_interned.exit77
 
-zend_file_cache_unserialize_interned.exit83:      ; preds = %59, %66, %76
-  %.0.i81 = phi ptr [ %65, %59 ], [ %73, %76 ], [ %67, %66 ]
-  store ptr %.0.i81, ptr %54, align 8
+zend_file_cache_unserialize_interned.exit77:      ; preds = %59, %66, %76
+  %.0.i75 = phi ptr [ %65, %59 ], [ %73, %76 ], [ %67, %66 ]
+  store ptr %.0.i75, ptr %54, align 8
   br label %97
 
 78:                                               ; preds = %56
@@ -13084,11 +12970,10 @@ zend_file_cache_unserialize_interned.exit83:      ; preds = %59, %66, %76
   store ptr %83, ptr %54, align 8
   %84 = getelementptr inbounds i8, ptr %1, i64 384
   %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not75 = icmp eq i8 %86, 0
+  %86 = trunc i8 %85 to i1
   %87 = getelementptr inbounds i8, ptr %83, i64 4
   %88 = load i32, ptr %87, align 4
-  br i1 %.not75, label %89, label %91
+  br i1 %86, label %91, label %89
 
 89:                                               ; preds = %78
   %90 = or i32 %88, 320
@@ -13105,11 +12990,11 @@ zend_file_cache_unserialize_interned.exit83:      ; preds = %59, %66, %76
   store i32 %96, ptr %94, align 4
   br label %97
 
-97:                                               ; preds = %53, %89, %91, %zend_file_cache_unserialize_interned.exit83
+97:                                               ; preds = %53, %89, %91, %zend_file_cache_unserialize_interned.exit77
   %98 = getelementptr inbounds i8, ptr %10, i64 28
   %99 = load i32, ptr %98, align 4
-  %.not88 = icmp eq i32 %99, 0
-  br i1 %.not88, label %._crit_edge, label %.lr.ph
+  %.not82 = icmp eq i32 %99, 0
+  br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %97
   %100 = getelementptr inbounds i8, ptr %10, i64 32
@@ -13121,36 +13006,35 @@ zend_file_cache_unserialize_interned.exit83:      ; preds = %59, %66, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
   %104 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %100, i64 0, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
-  %.not77 = icmp eq ptr %105, null
-  br i1 %.not77, label %144, label %106
+  %.not73 = icmp eq ptr %105, null
+  br i1 %.not73, label %144, label %106
 
 106:                                              ; preds = %103
   %107 = ptrtoint ptr %105 to i64
   %108 = and i64 %107, 1
-  %.not78 = icmp eq i64 %108, 0
-  br i1 %.not78, label %127, label %109
+  %.not74 = icmp eq i64 %108, 0
+  br i1 %.not74, label %127, label %109
 
 109:                                              ; preds = %106
   %110 = load i8, ptr %101, align 8
-  %111 = and i8 %110, 1
-  %.not80 = icmp eq i8 %111, 0
+  %111 = trunc i8 %110 to i1
   %112 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %113 = and i64 %107, -2
   %114 = getelementptr inbounds i8, ptr %112, i64 %113
-  br i1 %.not80, label %115, label %zend_file_cache_unserialize_interned.exit86
+  br i1 %111, label %zend_file_cache_unserialize_interned.exit80, label %115
 
 115:                                              ; preds = %109
   %116 = tail call ptr @accel_new_interned_string(ptr noundef %114) #19
   %117 = icmp eq ptr %116, %114
-  br i1 %117, label %118, label %zend_file_cache_unserialize_interned.exit86
+  br i1 %117, label %118, label %zend_file_cache_unserialize_interned.exit80
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i8, ptr %114, i64 16
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, 25
   %122 = tail call ptr @zend_shared_alloc(i64 noundef %121) #19
-  %.not.i85 = icmp eq ptr %122, null
-  br i1 %.not.i85, label %123, label %125
+  %.not.i79 = icmp eq ptr %122, null
+  br i1 %.not.i79, label %123, label %125
 
 123:                                              ; preds = %118
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -13163,11 +13047,11 @@ zend_file_cache_unserialize_interned.exit83:      ; preds = %59, %66, %76
   store i32 1, ptr %122, align 4
   %126 = getelementptr inbounds i8, ptr %122, i64 4
   store i32 470, ptr %126, align 4
-  br label %zend_file_cache_unserialize_interned.exit86
+  br label %zend_file_cache_unserialize_interned.exit80
 
-zend_file_cache_unserialize_interned.exit86:      ; preds = %109, %115, %125
-  %.0.i84 = phi ptr [ %114, %109 ], [ %122, %125 ], [ %116, %115 ]
-  store ptr %.0.i84, ptr %104, align 8
+zend_file_cache_unserialize_interned.exit80:      ; preds = %109, %115, %125
+  %.0.i78 = phi ptr [ %114, %109 ], [ %122, %125 ], [ %116, %115 ]
+  store ptr %.0.i78, ptr %104, align 8
   br label %144
 
 127:                                              ; preds = %106
@@ -13178,11 +13062,10 @@ zend_file_cache_unserialize_interned.exit86:      ; preds = %109, %115, %125
   %131 = getelementptr inbounds i8, ptr %2, i64 %107
   store ptr %131, ptr %104, align 8
   %132 = load i8, ptr %101, align 8
-  %133 = and i8 %132, 1
-  %.not79 = icmp eq i8 %133, 0
+  %133 = trunc i8 %132 to i1
   %134 = getelementptr inbounds i8, ptr %131, i64 4
   %135 = load i32, ptr %134, align 4
-  br i1 %.not79, label %136, label %138
+  br i1 %133, label %138, label %136
 
 136:                                              ; preds = %127
   %137 = or i32 %135, 320
@@ -13199,7 +13082,7 @@ zend_file_cache_unserialize_interned.exit86:      ; preds = %109, %115, %125
   store i32 %143, ptr %141, align 4
   br label %144
 
-144:                                              ; preds = %103, %136, %138, %zend_file_cache_unserialize_interned.exit86
+144:                                              ; preds = %103, %136, %138, %zend_file_cache_unserialize_interned.exit80
   %145 = getelementptr inbounds i8, ptr %104, i64 8
   tail call void @zend_file_cache_unserialize_zval(ptr noundef nonnull %145, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -13318,12 +13201,11 @@ define internal void @zend_file_cache_unserialize_prop_info(ptr nocapture nounde
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %1, i64 384
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %.not104 = icmp eq i8 %64, 0
+  %64 = trunc i8 %63 to i1
   %65 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %66 = and i64 %59, -2
   %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  br i1 %.not104, label %68, label %zend_file_cache_unserialize_interned.exit
+  br i1 %64, label %zend_file_cache_unserialize_interned.exit, label %68
 
 68:                                               ; preds = %61
   %69 = tail call ptr @accel_new_interned_string(ptr noundef %67) #19
@@ -13366,11 +13248,10 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %61, %68, %78
   store ptr %85, ptr %56, align 8
   %86 = getelementptr inbounds i8, ptr %1, i64 384
   %87 = load i8, ptr %86, align 8
-  %88 = and i8 %87, 1
-  %.not103 = icmp eq i8 %88, 0
+  %88 = trunc i8 %87 to i1
   %89 = getelementptr inbounds i8, ptr %85, i64 4
   %90 = load i32, ptr %89, align 4
-  br i1 %.not103, label %91, label %93
+  br i1 %88, label %93, label %91
 
 91:                                               ; preds = %80
   %92 = or i32 %90, 320
@@ -13390,37 +13271,36 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %61, %68, %78
 99:                                               ; preds = %55, %91, %93, %zend_file_cache_unserialize_interned.exit
   %100 = getelementptr inbounds i8, ptr %25, i64 16
   %101 = load ptr, ptr %100, align 8
-  %.not105 = icmp eq ptr %101, null
-  br i1 %.not105, label %143, label %102
+  %.not103 = icmp eq ptr %101, null
+  br i1 %.not103, label %143, label %102
 
 102:                                              ; preds = %99
   %103 = ptrtoint ptr %101 to i64
   %104 = and i64 %103, 1
-  %.not106 = icmp eq i64 %104, 0
-  br i1 %.not106, label %124, label %105
+  %.not104 = icmp eq i64 %104, 0
+  br i1 %.not104, label %124, label %105
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds i8, ptr %1, i64 384
   %107 = load i8, ptr %106, align 8
-  %108 = and i8 %107, 1
-  %.not108 = icmp eq i8 %108, 0
+  %108 = trunc i8 %107 to i1
   %109 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %110 = and i64 %103, -2
   %111 = getelementptr inbounds i8, ptr %109, i64 %110
-  br i1 %.not108, label %112, label %zend_file_cache_unserialize_interned.exit116
+  br i1 %108, label %zend_file_cache_unserialize_interned.exit112, label %112
 
 112:                                              ; preds = %105
   %113 = tail call ptr @accel_new_interned_string(ptr noundef %111) #19
   %114 = icmp eq ptr %113, %111
-  br i1 %114, label %115, label %zend_file_cache_unserialize_interned.exit116
+  br i1 %114, label %115, label %zend_file_cache_unserialize_interned.exit112
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds i8, ptr %111, i64 16
   %117 = load i64, ptr %116, align 8
   %118 = add i64 %117, 25
   %119 = tail call ptr @zend_shared_alloc(i64 noundef %118) #19
-  %.not.i115 = icmp eq ptr %119, null
-  br i1 %.not.i115, label %120, label %122
+  %.not.i111 = icmp eq ptr %119, null
+  br i1 %.not.i111, label %120, label %122
 
 120:                                              ; preds = %115
   tail call void @zend_accel_schedule_restart_if_necessary(i32 noundef 0) #19
@@ -13433,11 +13313,11 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %61, %68, %78
   store i32 1, ptr %119, align 4
   %123 = getelementptr inbounds i8, ptr %119, i64 4
   store i32 470, ptr %123, align 4
-  br label %zend_file_cache_unserialize_interned.exit116
+  br label %zend_file_cache_unserialize_interned.exit112
 
-zend_file_cache_unserialize_interned.exit116:     ; preds = %105, %112, %122
-  %.0.i114 = phi ptr [ %111, %105 ], [ %119, %122 ], [ %113, %112 ]
-  store ptr %.0.i114, ptr %100, align 8
+zend_file_cache_unserialize_interned.exit112:     ; preds = %105, %112, %122
+  %.0.i110 = phi ptr [ %111, %105 ], [ %119, %122 ], [ %113, %112 ]
+  store ptr %.0.i110, ptr %100, align 8
   br label %143
 
 124:                                              ; preds = %102
@@ -13450,11 +13330,10 @@ zend_file_cache_unserialize_interned.exit116:     ; preds = %105, %112, %122
   store ptr %129, ptr %100, align 8
   %130 = getelementptr inbounds i8, ptr %1, i64 384
   %131 = load i8, ptr %130, align 8
-  %132 = and i8 %131, 1
-  %.not107 = icmp eq i8 %132, 0
+  %132 = trunc i8 %131 to i1
   %133 = getelementptr inbounds i8, ptr %129, i64 4
   %134 = load i32, ptr %133, align 4
-  br i1 %.not107, label %135, label %137
+  br i1 %132, label %137, label %135
 
 135:                                              ; preds = %124
   %136 = or i32 %134, 320
@@ -13471,30 +13350,30 @@ zend_file_cache_unserialize_interned.exit116:     ; preds = %105, %112, %122
   store i32 %142, ptr %140, align 4
   br label %143
 
-143:                                              ; preds = %99, %135, %137, %zend_file_cache_unserialize_interned.exit116
+143:                                              ; preds = %99, %135, %137, %zend_file_cache_unserialize_interned.exit112
   %144 = getelementptr inbounds i8, ptr %25, i64 24
   %145 = load ptr, ptr %144, align 8
-  %.not109 = icmp eq ptr %145, null
-  br i1 %.not109, label %167, label %146
+  %.not105 = icmp eq ptr %145, null
+  br i1 %.not105, label %167, label %146
 
 146:                                              ; preds = %143
   %147 = load ptr, ptr %5, align 8
-  %.not110 = icmp ult ptr %145, %147
-  br i1 %.not110, label %152, label %148
+  %.not106 = icmp ult ptr %145, %147
+  br i1 %.not106, label %152, label %148
 
 148:                                              ; preds = %146
   %149 = getelementptr inbounds i8, ptr %1, i64 424
   %150 = load i64, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %147, i64 %150
-  %.not111 = icmp ugt ptr %145, %151
-  br i1 %.not111, label %152, label %167
+  %.not107 = icmp ugt ptr %145, %151
+  br i1 %.not107, label %152, label %167
 
 152:                                              ; preds = %148, %146
   %153 = load ptr, ptr @accel_shared_globals, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 176
   %155 = load ptr, ptr %154, align 8
-  %.not112 = icmp ult ptr %145, %155
-  br i1 %.not112, label %160, label %156
+  %.not108 = icmp ult ptr %145, %155
+  br i1 %.not108, label %160, label %156
 
 156:                                              ; preds = %152
   %157 = getelementptr inbounds i8, ptr %153, i64 184
@@ -13681,8 +13560,8 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %.not50 = icmp eq ptr %8, null
-  br i1 %.not50, label %16, label %9
+  %.not47 = icmp eq ptr %8, null
+  br i1 %.not47, label %16, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %1, i64 424
@@ -13701,19 +13580,19 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
   %18 = zext i32 %17 to i64
   %.idx = shl nuw nsw i64 %18, 4
   %.add = or disjoint i64 %.idx, 8
-  %.ptr52 = getelementptr inbounds i8, ptr %.039, i64 %.add
-  %.not53 = icmp eq i32 %17, 0
-  br i1 %.not53, label %.loopexit, label %.lr.ph.preheader
+  %.ptr49 = getelementptr inbounds i8, ptr %.039, i64 %.add
+  %.not50 = icmp eq i32 %17, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
   %.ptr = getelementptr inbounds i8, ptr %.039, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04051 = phi ptr [ %19, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %.04051, ptr noundef %1, ptr noundef %2)
-  %19 = getelementptr inbounds i8, ptr %.04051, i64 16
-  %20 = icmp ult ptr %19, %.ptr52
+  %.04048 = phi ptr [ %19, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %.04048, ptr noundef %1, ptr noundef %2)
+  %19 = getelementptr inbounds i8, ptr %.04048, i64 16
+  %20 = icmp ult ptr %19, %.ptr49
   br i1 %20, label %.lr.ph, label %.loopexit
 
 21:                                               ; preds = %3
@@ -13735,12 +13614,11 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %1, i64 384
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not48 = icmp eq i8 %31, 0
+  %31 = trunc i8 %30 to i1
   %32 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 19), align 8
   %33 = and i64 %26, -2
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  br i1 %.not48, label %35, label %zend_file_cache_unserialize_interned.exit
+  br i1 %31, label %zend_file_cache_unserialize_interned.exit, label %35
 
 35:                                               ; preds = %28
   %36 = tail call ptr @accel_new_interned_string(ptr noundef %34) #19
@@ -13777,11 +13655,10 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
   %52 = getelementptr inbounds i8, ptr %2, i64 %26
   %53 = getelementptr inbounds i8, ptr %1, i64 384
   %54 = load i8, ptr %53, align 8
-  %55 = and i8 %54, 1
-  %.not47 = icmp eq i8 %55, 0
+  %55 = trunc i8 %54 to i1
   %56 = getelementptr inbounds i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
-  br i1 %.not47, label %58, label %60
+  br i1 %55, label %60, label %58
 
 58:                                               ; preds = %47
   %59 = or i32 %57, 320
@@ -13799,9 +13676,8 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %45, %35, %28, %23, 
   store ptr %.0, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %1, i64 384
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not49 = icmp eq i8 %65, 0
-  br i1 %.not49, label %66, label %68
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %68, label %66
 
 66:                                               ; preds = %zend_file_cache_unserialize_interned.exit
   %67 = tail call i32 @zend_accel_get_class_name_map_ptr(ptr noundef %.0) #19

@@ -184,9 +184,9 @@ define hidden void @_ZN5ceres8internal12LinearSolver6CreateERKNS1_7OptionsE(ptr 
   %34 = sub i64 %32, %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %30, %31
-  br i1 %.not.i.i.i.i.i, label %.noexc25.thread, label %38
+  br i1 %.not.i.i.i.i.i, label %.noexc23.thread, label %38
 
-.noexc25.thread:                                  ; preds = %26
+.noexc23.thread:                                  ; preds = %26
   %35 = getelementptr inbounds i8, ptr %6, i64 72
   %36 = getelementptr inbounds i8, ptr null, i64 %34
   %37 = getelementptr inbounds i8, ptr %6, i64 80
@@ -219,9 +219,9 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %38
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %40, ptr align 4 %31, i64 %34, i1 false)
   br label %45
 
-45:                                               ; preds = %41, %.noexc25.thread
-  %46 = phi ptr [ %35, %.noexc25.thread ], [ %42, %41 ]
-  %47 = phi ptr [ null, %.noexc25.thread ], [ %40, %41 ]
+45:                                               ; preds = %41, %.noexc23.thread
+  %46 = phi ptr [ %35, %.noexc23.thread ], [ %42, %41 ]
+  %47 = phi ptr [ null, %.noexc23.thread ], [ %40, %41 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 %34
   store ptr %48, ptr %46, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 88
@@ -249,24 +249,24 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_ptrI
 54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit27
+  br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit25
 
 56:                                               ; preds = %45
   %57 = landingpad { ptr, i32 }
           cleanup
   %58 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i26 = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i26, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit27, label %59
+  %.not.i.i.i.i24 = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i24, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit25, label %59
 
 59:                                               ; preds = %56
   call void @_ZdlPv(ptr noundef nonnull %58) #17
-  br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit27
+  br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit25
 
-common.resume:                                    ; preds = %89, %84, %76, %72, %68, %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit27
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit27 ], [ %69, %68 ], [ %73, %72 ], [ %77, %76 ], [ %85, %84 ], [ %90, %89 ]
+common.resume:                                    ; preds = %89, %84, %76, %72, %68, %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit25
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit25 ], [ %69, %68 ], [ %73, %72 ], [ %77, %76 ], [ %85, %84 ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit27: ; preds = %59, %56, %54
+_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit25: ; preds = %59, %56, %54
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ], [ %57, %59 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   br label %common.resume
@@ -280,9 +280,8 @@ _ZNSt10unique_ptrIN5ceres8internal10CgnrSolverESt14default_deleteIS2_EED2Ev.exit
 61:                                               ; preds = %.critedge
   %62 = getelementptr inbounds i8, ptr %1, i64 24
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %.not23 = icmp eq i8 %64, 0
-  br i1 %.not23, label %66, label %_ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %_ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, label %66
 
 _ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %61
   call void @_ZSt11make_uniqueIN5ceres8internal33DynamicSparseNormalCholeskySolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.22") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %1)
@@ -338,14 +337,13 @@ _ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_delet
 78:                                               ; preds = %.critedge
   %79 = getelementptr inbounds i8, ptr %1, i64 25
   %80 = load i8, ptr %79, align 1
-  %81 = and i8 %80, 1
-  %.not22 = icmp eq i8 %81, 0
-  br i1 %.not22, label %_ZNSt10unique_ptrIN5ceres8internal30IterativeSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, label %82
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %_ZNSt10unique_ptrIN5ceres8internal30IterativeSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit
 
 82:                                               ; preds = %78
   %83 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #16, !noalias !13
   invoke void @_ZN5ceres8internal27SparseSchurComplementSolverC1ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) %83, ptr noundef nonnull align 8 dereferenceable(128) %1)
-          to label %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit36 unwind label %84, !noalias !13
+          to label %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit34 unwind label %84, !noalias !13
 
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
@@ -353,7 +351,7 @@ _ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_delet
   tail call void @_ZdlPv(ptr noundef nonnull %83) #17, !noalias !13
   br label %common.resume
 
-_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit36: ; preds = %82
+_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit34: ; preds = %82
   store ptr %83, ptr %0, align 8
   br label %102
 
@@ -408,7 +406,7 @@ _ZNSt10unique_ptrIN5ceres8internal25DenseNormalCholeskySolverESt14default_delete
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #13
   unreachable
 
-102:                                              ; preds = %_ZNSt10unique_ptrIN5ceres8internal25DenseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal13DenseQRSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal30IterativeSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit36, %_ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal26SparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal10CgnrSolverESt14default_deleteIS2_EED2Ev.exit, %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
+102:                                              ; preds = %_ZNSt10unique_ptrIN5ceres8internal25DenseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal13DenseQRSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal30IterativeSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit34, %_ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal26SparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal10CgnrSolverESt14default_deleteIS2_EED2Ev.exit, %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
   ret void
 }
 

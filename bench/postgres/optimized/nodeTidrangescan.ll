@@ -260,9 +260,8 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 244
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %18, label %99
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %99, label %18
 
 18:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2)
@@ -311,9 +310,8 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   store ptr %38, ptr @CurrentMemoryContext, align 8
   %42 = inttoptr i64 %41 to ptr
   %43 = load i8, ptr %4, align 1
-  %44 = and i8 %43, 1
-  %.not22.i = icmp eq i8 %44, 0
-  br i1 %.not22.i, label %45, label %TidRangeEval.exit
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %TidRangeEval.exit, label %45
 
 45:                                               ; preds = %.lr.ph
   %46 = load i32, ptr %34, align 8
@@ -326,9 +324,8 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %42, i64 6, i1 false)
   %48 = getelementptr inbounds i8, ptr %34, i64 16
   %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, 1
-  %.not24.i = icmp eq i8 %50, 0
-  br i1 %.not24.i, label %51, label %52
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %52, label %51
 
 51:                                               ; preds = %47
   call void @ItemPointerInc(ptr noundef nonnull %5) #7
@@ -347,9 +344,8 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %42, i64 6, i1 false)
   %57 = getelementptr inbounds i8, ptr %34, i64 16
   %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, 1
-  %.not23.i = icmp eq i8 %59, 0
-  br i1 %.not23.i, label %60, label %61
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %61, label %60
 
 60:                                               ; preds = %56
   call void @ItemPointerDec(ptr noundef nonnull %6) #7

@@ -402,12 +402,12 @@ define hidden void @"_ZN72_$LT$diesel..sqlite..backend..SqliteType$u20$as$u20$co
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h781d2f0a335a696eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, %3
-  br i1 %.not, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit
+  br i1 %.not, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit"
 
 .preheader:                                       ; preds = %4, %6
   %5 = phi i64 [ %7, %6 ], [ 0, %4 ]
-  %exitcond = icmp eq i64 %5, %1
-  br i1 %exitcond, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit, label %6
+  %exitcond.not = icmp eq i64 %5, %1
+  br i1 %exitcond.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit", label %6
 
 6:                                                ; preds = %.preheader
   %7 = add i64 %5, 1
@@ -416,10 +416,10 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.fca.0.extract.val.i = load i8, ptr %8, align 1, !range !20, !noalias !56, !noundef !4
   %.fca.1.extract.val.i = load i8, ptr %9, align 1, !range !20, !noalias !56, !noundef !4
   %.not.i = icmp eq i8 %.fca.0.extract.val.i, %.fca.1.extract.val.i
-  br i1 %.not.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit
+  br i1 %.not.i, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit"
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit: ; preds = %6, %.preheader, %4
-  %.0 = phi i1 [ false, %4 ], [ %exitcond, %.preheader ], [ %exitcond, %6 ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit": ; preds = %.preheader, %6, %4
+  %.0 = phi i1 [ false, %4 ], [ %exitcond.not, %6 ], [ %exitcond.not, %.preheader ]
   ret i1 %.0
 }
 
@@ -427,18 +427,19 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1, !range !59, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !59, !noundef !4
-  %5 = icmp ne i8 %4, 0
-  %6 = icmp eq i8 %3, %4
-  %trunc.not = icmp ne i8 %3, 0
-  %or.cond.not = and i1 %trunc.not, %6
-  br i1 %or.cond.not, label %8, label %7
+  %5 = icmp eq i8 %3, %4
+  br i1 %5, label %.sink.split, label %8
 
-7:                                                ; preds = %2, %8
-  ret i1 %6
+.sink.split:                                      ; preds = %2
+  %6 = trunc i8 %4 to i1
+  %trunc = trunc i8 %3 to i1
+  %7 = icmp eq i8 %3, 0
+  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  tail call void @llvm.assume(i1 %spec.select)
+  br label %8
 
-8:                                                ; preds = %2
-  tail call void @llvm.assume(i1 %5)
-  br label %7
+8:                                                ; preds = %.sink.split, %2
+  ret i1 %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

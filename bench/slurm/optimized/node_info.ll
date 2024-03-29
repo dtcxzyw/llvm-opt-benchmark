@@ -1286,9 +1286,9 @@ define internal fastcc noundef i32 @_load_cluster_nodes(ptr noundef %0, ptr noca
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %7, i64 204
   %15 = load i16, ptr %14, align 4
-  switch i16 %15, label %57 [
+  switch i16 %15, label %58 [
     i16 2008, label %16
-    i16 8001, label %51
+    i16 8001, label %52
   ]
 
 16:                                               ; preds = %13
@@ -1313,8 +1313,8 @@ define internal fastcc noundef i32 @_load_cluster_nodes(ptr noundef %0, ptr noca
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_set_node_mixed_op.exit.i, %.lr.ph.preheader.i
-  %.015.i = phi i32 [ %47, %_set_node_mixed_op.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0614.i = phi ptr [ %48, %_set_node_mixed_op.exit.i ], [ %24, %.lr.ph.preheader.i ]
+  %.015.i = phi i32 [ %48, %_set_node_mixed_op.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0614.i = phi ptr [ %49, %_set_node_mixed_op.exit.i ], [ %24, %.lr.ph.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i16 0, ptr %5, align 2
@@ -1333,7 +1333,7 @@ define internal fastcc noundef i32 @_load_cluster_nodes(ptr noundef %0, ptr noca
 
 34:                                               ; preds = %.lr.ph.i
   %35 = load i16, ptr %28, align 2
-  %36 = icmp uge i16 %31, %35
+  %36 = icmp ult i16 %31, %35
   %37 = load ptr, ptr %6, align 8
   %.not11.i.i = icmp eq ptr %37, null
   br i1 %.not11.i.i, label %42, label %39
@@ -1349,54 +1349,54 @@ define internal fastcc noundef i32 @_load_cluster_nodes(ptr noundef %0, ptr noca
 
 39:                                               ; preds = %.thread._crit_edge.i, %34
   %40 = phi i16 [ %.pre.i, %.thread._crit_edge.i ], [ %35, %34 ]
-  %.0.i10.i = phi i1 [ true, %.thread._crit_edge.i ], [ %36, %34 ]
-  %41 = icmp ne i16 %31, %40
-  %or.cond.i.i = select i1 %41, i1 %.0.i10.i, i1 false
-  br i1 %or.cond.i.i, label %_set_node_mixed_op.exit.i, label %.thread.i.i
+  %.0.i10.i = phi i1 [ false, %.thread._crit_edge.i ], [ %36, %34 ]
+  %41 = icmp eq i16 %31, %40
+  %spec.select12.i.i = select i1 %41, i1 true, i1 %.0.i10.i
+  br i1 %spec.select12.i.i, label %43, label %_set_node_mixed_op.exit.i
 
 42:                                               ; preds = %34
-  br i1 %36, label %_set_node_mixed_op.exit.i, label %.thread.i.i
+  br i1 %36, label %43, label %_set_node_mixed_op.exit.i
 
-.thread.i.i:                                      ; preds = %42, %39
-  %43 = getelementptr inbounds i8, ptr %.0614.i, i64 224
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, -16
-  %46 = or disjoint i32 %45, 5
-  store i32 %46, ptr %43, align 8
+43:                                               ; preds = %42, %39
+  %44 = getelementptr inbounds i8, ptr %.0614.i, i64 224
+  %45 = load i32, ptr %44, align 8
+  %46 = and i32 %45, -16
+  %47 = or disjoint i32 %46, 5
+  store i32 %47, ptr %44, align 8
   br label %_set_node_mixed_op.exit.i
 
-_set_node_mixed_op.exit.i:                        ; preds = %.thread.i.i, %42, %39, %.thread.i
+_set_node_mixed_op.exit.i:                        ; preds = %43, %42, %39, %.thread.i
   call void @slurm_xfree(ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %47 = add nuw nsw i32 %.015.i, 1
-  %48 = getelementptr inbounds i8, ptr %.0614.i, i64 368
-  %49 = load i32, ptr %21, align 8
-  %50 = icmp ult i32 %47, %49
-  br i1 %50, label %.lr.ph.i, label %_set_node_mixed.exit, !llvm.loop !16
+  %48 = add nuw nsw i32 %.015.i, 1
+  %49 = getelementptr inbounds i8, ptr %.0614.i, i64 368
+  %50 = load i32, ptr %21, align 8
+  %51 = icmp ult i32 %48, %50
+  br i1 %51, label %.lr.ph.i, label %_set_node_mixed.exit, !llvm.loop !16
 
-51:                                               ; preds = %13
-  %52 = getelementptr inbounds i8, ptr %7, i64 192
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %53, align 4
-  call void @slurm_free_return_code_msg(ptr noundef nonnull %53) #14
-  %.not10 = icmp eq i32 %54, 0
-  br i1 %.not10, label %56, label %55
+52:                                               ; preds = %13
+  %53 = getelementptr inbounds i8, ptr %7, i64 192
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i32, ptr %54, align 4
+  call void @slurm_free_return_code_msg(ptr noundef nonnull %54) #14
+  %.not10 = icmp eq i32 %55, 0
+  br i1 %.not10, label %57, label %56
 
-55:                                               ; preds = %51
-  call void @slurm_seterrno(i32 noundef %54) #14
+56:                                               ; preds = %52
+  call void @slurm_seterrno(i32 noundef %55) #14
   br label %_set_node_mixed.exit
 
-56:                                               ; preds = %51
+57:                                               ; preds = %52
   store ptr null, ptr %1, align 8
   br label %_set_node_mixed.exit
 
-57:                                               ; preds = %13
+58:                                               ; preds = %13
   call void @slurm_seterrno(i32 noundef 1000) #14
   br label %_set_node_mixed.exit
 
-_set_node_mixed.exit:                             ; preds = %_set_node_mixed_op.exit.i, %20, %56, %16, %10, %57, %55
-  %.0 = phi i32 [ -1, %57 ], [ -1, %55 ], [ -1, %10 ], [ 0, %16 ], [ 0, %56 ], [ 0, %20 ], [ 0, %_set_node_mixed_op.exit.i ]
+_set_node_mixed.exit:                             ; preds = %_set_node_mixed_op.exit.i, %20, %57, %16, %10, %58, %56
+  %.0 = phi i32 [ -1, %58 ], [ -1, %56 ], [ -1, %10 ], [ 0, %16 ], [ 0, %57 ], [ 0, %20 ], [ 0, %_set_node_mixed_op.exit.i ]
   ret i32 %.0
 }
 

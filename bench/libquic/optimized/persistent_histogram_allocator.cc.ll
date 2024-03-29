@@ -449,11 +449,11 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i1
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   %.pre.pre = load ptr, ptr %found_, align 8
-  %.pre86.pre = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre84.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  %.pre86 = phi ptr [ %.pre86.pre, %if.then.i.i ], [ %1, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
+  %.pre84 = phi ptr [ %.pre84.pre, %if.then.i.i ], [ %1, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
   %.pre = phi ptr [ %.pre.pre, %if.then.i.i ], [ %0, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
   store ptr %call5.i.i.i.i19, ptr %records_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i19, i64 %sub.ptr.sub.i
@@ -464,7 +464,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %if.then.i.i, %
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %if.end.i
   %6 = phi ptr [ %call5.i.i.i.i19, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %3, %if.end.i ]
-  %7 = phi ptr [ %.pre86, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %1, %if.end.i ]
+  %7 = phi ptr [ %.pre84, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %1, %if.end.i ]
   %8 = phi ptr [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %0, %if.end.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
   invoke void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %records_, ptr %add.ptr.i.i, ptr %8, ptr %7)
@@ -506,7 +506,6 @@ _ZN4base8AutoLockD2Ev.exit:                       ; preds = %lpad
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont.i.i, %invoke.cont20, %entry
-  %found.0 = phi i8 [ 0, %entry ], [ 1, %invoke.cont20 ], [ 1, %invoke.cont.i.i ]
   %sample_map_id_ = getelementptr inbounds i8, ptr %sample_map_records, i64 8
   %13 = load i64, ptr %sample_map_id_, align 8
   %record_iterator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -516,9 +515,8 @@ if.end:                                           ; preds = %invoke.cont.i.i, %i
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %tobool85 = phi i1 [ %cmp.i.i, %if.end ], [ %tobool, %for.inc ]
-  %found.184 = phi i8 [ %found.0, %if.end ], [ %found.2, %for.inc ]
-  %count.083 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
+  %found.183 = phi i1 [ %cmp.i.i, %if.end ], [ %found.2, %for.inc ]
+  %count.082 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
   %call25 = invoke noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16) %record_iterator_, ptr noundef nonnull %found_id)
           to label %invoke.cont24 unwind label %lpad.loopexit
 
@@ -667,28 +665,26 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i63, %if.then.i37, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i29
-  %found.2 = phi i8 [ 1, %if.then.i29 ], [ 1, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %found.184, %if.then.i37 ], [ %found.184, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i63 ]
-  %inc = add nuw nsw i32 %count.083, 1
-  %25 = and i8 %found.2, 1
-  %tobool = icmp ne i8 %25, 0
-  %cmp = icmp ugt i32 %count.083, 8
-  %.not = select i1 %tobool, i1 %cmp, i1 false
+  %found.2 = phi i1 [ true, %if.then.i29 ], [ true, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %found.183, %if.then.i37 ], [ %found.183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i63 ]
+  %inc = add nuw nsw i32 %count.082, 1
+  %cmp = icmp ugt i32 %count.082, 8
+  %.not = select i1 %found.2, i1 %cmp, i1 false
   br i1 %.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %invoke.cont24, %for.inc
-  %tobool.lcssa = phi i1 [ %tobool85, %invoke.cont24 ], [ true, %for.inc ]
+  %found.1.lcssa = phi i1 [ %found.183, %invoke.cont24 ], [ true, %for.inc ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %_ZN4base8AutoLockD2Ev.exit72 unwind label %terminate.lpad.i71
 
 terminate.lpad.i71:                               ; preds = %for.end
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #20
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #20
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit72:                     ; preds = %for.end
-  ret i1 %tobool.lcssa
+  ret i1 %found.1.lcssa
 }
 
 declare noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1

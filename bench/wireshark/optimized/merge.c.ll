@@ -142,7 +142,7 @@ define internal fastcc i32 @merge_files_common(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph:                                           ; preds = %15
   %25 = getelementptr inbounds i8, ptr %22, i64 8
-  %.not85.i = icmp eq ptr %10, null
+  %.not84.i = icmp eq ptr %10, null
   %26 = getelementptr inbounds i8, ptr %10, i64 8
   %27 = getelementptr inbounds i8, ptr %23, i64 4
   %.not31.i = icmp eq ptr %9, null
@@ -177,14 +177,14 @@ define internal fastcc i32 @merge_files_common(ptr noundef %0, ptr noundef %1, p
   %43 = zext i32 %40 to i64
   %44 = mul nuw nsw i64 %43, 360
   %45 = call noalias ptr @g_malloc0(i64 noundef %44) #15
-  %.not220.i = icmp eq i32 %40, 0
-  br i1 %.not220.i, label %.loopexit.i, label %.lr.ph.i
+  %.not219.i = icmp eq i32 %40, 0
+  br i1 %.not219.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39, %.outer.i
-  %indvars.iv210.i = phi i32 [ %indvars.iv.next211.i, %.outer.i ], [ 1, %39 ]
+  %indvars.iv209.i = phi i32 [ %indvars.iv.next210.i, %.outer.i ], [ 1, %39 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.outer.i ], [ 0, %39 ]
   %46 = phi i1 [ %121, %.outer.i ], [ true, %39 ]
-  %.0.ph167.i = phi i8 [ %.us-phi111.i, %.outer.i ], [ 0, %39 ]
+  %.0.ph166.i = phi i1 [ %.us-phi110.i, %.outer.i ], [ false, %39 ]
   %47 = getelementptr ptr, ptr %42, i64 %indvars.iv.i
   %48 = getelementptr %struct.merge_in_file_s, ptr %45, i64 %indvars.iv.i
   %49 = getelementptr inbounds i8, ptr %48, i64 8
@@ -200,27 +200,26 @@ define internal fastcc i32 @merge_files_common(ptr noundef %0, ptr noundef %1, p
   store ptr %57, ptr %49, align 8
   store i32 1, ptr %50, align 8
   store i32 0, ptr %51, align 4
-  %.not.us121159.i = icmp eq ptr %57, null
+  %.not.us120158.i = icmp eq ptr %57, null
   br i1 %52, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  br i1 %.not.us121159.i, label %.preheader.i, label %.split.us.i
+  br i1 %.not.us120158.i, label %.preheader.i, label %.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %46, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i, !llvm.loop !7
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i
-  br i1 %.not.us121159.i, label %.lr.ph161.i, label %.split.us.i
+  br i1 %.not.us120158.i, label %.lr.ph160.i, label %.split.us.i
 
-.lr.ph161.i:                                      ; preds = %.lr.ph.split.split.us.i, %raise_limit.exit.us.i
-  %.0109.us120160.i = phi i8 [ 1, %raise_limit.exit.us.i ], [ %.0.ph167.i, %.lr.ph.split.split.us.i ]
+.lr.ph160.i:                                      ; preds = %.lr.ph.split.split.us.i, %raise_limit.exit.us.i
+  %.0108.us119159.i = phi i1 [ true, %raise_limit.exit.us.i ], [ %.0.ph166.i, %.lr.ph.split.split.us.i ]
   %58 = load i32, ptr %11, align 4
   %59 = icmp eq i32 %58, 24
   br i1 %59, label %60, label %.preheader.i
 
-60:                                               ; preds = %.lr.ph161.i
-  %.not84.us.i = icmp eq i8 %.0109.us120160.i, 0
-  br i1 %.not84.us.i, label %61, label %.loopexit88.i
+60:                                               ; preds = %.lr.ph160.i
+  br i1 %.0108.us119159.i, label %.loopexit87.i, label %61
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
@@ -251,28 +250,27 @@ raise_limit.exit.us.i:                            ; preds = %68
   store ptr %75, ptr %49, align 8
   store i32 1, ptr %50, align 8
   store i32 0, ptr %51, align 4
-  %.not.us121.i = icmp eq ptr %75, null
-  br i1 %.not.us121.i, label %.lr.ph161.i, label %.split.us.i
+  %.not.us120.i = icmp eq ptr %75, null
+  br i1 %.not.us120.i, label %.lr.ph160.i, label %.split.us.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i
-  br i1 %.not.us121159.i, label %76, label %.split.us.i
+  br i1 %.not.us120158.i, label %76, label %.split.us.i
 
 76:                                               ; preds = %.lr.ph.split.split.i
   %77 = load i32, ptr %11, align 4
   %78 = icmp eq i32 %77, 24
   br i1 %78, label %79, label %.preheader.i
 
-.preheader.i:                                     ; preds = %76, %.lr.ph.split.us.i, %.lr.ph161.i
-  %.not171.i = icmp eq i32 %53, 0
-  br i1 %.not171.i, label %merge_open_in_files.exit.thread.sink.split, label %.lr.ph170.preheader.i
+.preheader.i:                                     ; preds = %76, %.lr.ph.split.us.i, %.lr.ph160.i
+  %.not170.i = icmp eq i32 %53, 0
+  br i1 %.not170.i, label %merge_open_in_files.exit.thread.sink.split, label %.lr.ph169.preheader.i
 
-.lr.ph170.preheader.i:                            ; preds = %.preheader.i
-  %wide.trip.count205.i = and i64 %indvars.iv.i, 4294967295
-  br label %.lr.ph170.i
+.lr.ph169.preheader.i:                            ; preds = %.preheader.i
+  %wide.trip.count204.i = and i64 %indvars.iv.i, 4294967295
+  br label %.lr.ph169.i
 
 79:                                               ; preds = %76
-  %.not84.i = icmp eq i8 %.0.ph167.i, 0
-  br i1 %.not84.i, label %80, label %.loopexit88.i
+  br i1 %.0.ph166.i, label %.loopexit87.i, label %80
 
 80:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
@@ -298,13 +296,13 @@ raise_limit.exit.us.i:                            ; preds = %68
 raise_limit.exit.thread.i:                        ; preds = %68, %64, %61, %87, %83, %80
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   %.pre.i = load i32, ptr %11, align 4
-  br label %.loopexit88.i
+  br label %.loopexit87.i
 
 raise_limit.exit.i:                               ; preds = %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   br label %.loopexit.i
 
-.loopexit88.i:                                    ; preds = %60, %raise_limit.exit.thread.i, %79
+.loopexit87.i:                                    ; preds = %60, %raise_limit.exit.thread.i, %79
   %93 = phi i32 [ 24, %79 ], [ %.pre.i, %raise_limit.exit.thread.i ], [ 24, %60 ]
   %94 = call ptr @g_strerror(i32 noundef %93) #16
   call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.6, i32 noundef %40, i32 noundef %53, ptr noundef %94) #14
@@ -313,9 +311,9 @@ raise_limit.exit.i:                               ; preds = %87
   store i32 0, ptr %11, align 4
   br label %.loopexit.i
 
-.lr.ph170.i:                                      ; preds = %.lr.ph170.i, %.lr.ph170.preheader.i
-  %indvars.iv202.i = phi i64 [ 0, %.lr.ph170.preheader.i ], [ %indvars.iv.next203.i, %.lr.ph170.i ]
-  %97 = getelementptr %struct.merge_in_file_s, ptr %45, i64 %indvars.iv202.i
+.lr.ph169.i:                                      ; preds = %.lr.ph169.i, %.lr.ph169.preheader.i
+  %indvars.iv201.i = phi i64 [ 0, %.lr.ph169.preheader.i ], [ %indvars.iv.next202.i, %.lr.ph169.i ]
+  %97 = getelementptr %struct.merge_in_file_s, ptr %45, i64 %indvars.iv201.i
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   call void @wtap_close(ptr noundef %99) #14
@@ -328,24 +326,24 @@ raise_limit.exit.i:                               ; preds = %87
   call void @wtap_rec_cleanup(ptr noundef nonnull %103) #14
   %104 = getelementptr inbounds i8, ptr %97, i64 296
   call void @ws_buffer_free(ptr noundef nonnull %104) #14
-  %indvars.iv.next203.i = add nuw nsw i64 %indvars.iv202.i, 1
-  %exitcond206.not.i = icmp eq i64 %indvars.iv.next203.i, %wide.trip.count205.i
-  br i1 %exitcond206.not.i, label %merge_open_in_files.exit.thread.sink.split, label %.lr.ph170.i, !llvm.loop !8
+  %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
+  %exitcond205.not.i = icmp eq i64 %indvars.iv.next202.i, %wide.trip.count204.i
+  br i1 %exitcond205.not.i, label %merge_open_in_files.exit.thread.sink.split, label %.lr.ph169.i, !llvm.loop !8
 
 .split.us.i:                                      ; preds = %raise_limit.exit.us.i, %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.i
-  %.us-phi110.i = phi ptr [ %57, %.lr.ph.split.us.i ], [ %57, %.lr.ph.split.split.us.i ], [ %57, %.lr.ph.split.split.i ], [ %75, %raise_limit.exit.us.i ]
-  %.us-phi111.i = phi i8 [ %.0.ph167.i, %.lr.ph.split.us.i ], [ %.0.ph167.i, %.lr.ph.split.split.us.i ], [ %.0.ph167.i, %.lr.ph.split.split.i ], [ 1, %raise_limit.exit.us.i ]
-  %105 = call i64 @wtap_file_size(ptr noundef nonnull %.us-phi110.i, ptr noundef %11) #14
+  %.us-phi109.i = phi ptr [ %57, %.lr.ph.split.us.i ], [ %57, %.lr.ph.split.split.us.i ], [ %57, %.lr.ph.split.split.i ], [ %75, %raise_limit.exit.us.i ]
+  %.us-phi110.i = phi i1 [ %.0.ph166.i, %.lr.ph.split.us.i ], [ %.0.ph166.i, %.lr.ph.split.split.us.i ], [ %.0.ph166.i, %.lr.ph.split.split.i ], [ true, %raise_limit.exit.us.i ]
+  %105 = call i64 @wtap_file_size(ptr noundef nonnull %.us-phi109.i, ptr noundef %11) #14
   %106 = icmp eq i64 %105, -1
-  br i1 %106, label %.preheader87.i, label %.outer.i
+  br i1 %106, label %.preheader86.i, label %.outer.i
 
-.preheader87.i:                                   ; preds = %.split.us.i
-  %wide.trip.count218.i = zext i32 %indvars.iv210.i to i64
+.preheader86.i:                                   ; preds = %.split.us.i
+  %wide.trip.count217.i = zext i32 %indvars.iv209.i to i64
   br label %107
 
-107:                                              ; preds = %107, %.preheader87.i
-  %indvars.iv207.i = phi i64 [ 0, %.preheader87.i ], [ %indvars.iv.next208.i, %107 ]
-  %108 = getelementptr %struct.merge_in_file_s, ptr %45, i64 %indvars.iv207.i
+107:                                              ; preds = %107, %.preheader86.i
+  %indvars.iv206.i = phi i64 [ 0, %.preheader86.i ], [ %indvars.iv.next207.i, %107 ]
+  %108 = getelementptr %struct.merge_in_file_s, ptr %45, i64 %indvars.iv206.i
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
   call void @wtap_close(ptr noundef %110) #14
@@ -358,9 +356,9 @@ raise_limit.exit.i:                               ; preds = %87
   call void @wtap_rec_cleanup(ptr noundef nonnull %114) #14
   %115 = getelementptr inbounds i8, ptr %108, i64 296
   call void @ws_buffer_free(ptr noundef nonnull %115) #14
-  %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
-  %exitcond219.not.i = icmp eq i64 %indvars.iv.next208.i, %wide.trip.count218.i
-  br i1 %exitcond219.not.i, label %merge_open_in_files.exit.thread.sink.split, label %107, !llvm.loop !9
+  %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
+  %exitcond218.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count217.i
+  br i1 %exitcond218.not.i, label %merge_open_in_files.exit.thread.sink.split, label %107, !llvm.loop !9
 
 .outer.i:                                         ; preds = %.split.us.i
   %116 = getelementptr inbounds i8, ptr %48, i64 16
@@ -375,13 +373,13 @@ raise_limit.exit.i:                               ; preds = %87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %121 = icmp ult i64 %indvars.iv.next.i, %43
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %43
-  %indvars.iv.next211.i = add i32 %indvars.iv210.i, 1
+  %indvars.iv.next210.i = add i32 %indvars.iv209.i, 1
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
-.loopexit.i:                                      ; preds = %.outer.i, %.loopexit88.i, %raise_limit.exit.i, %39
-  %.078.i = phi i32 [ %53, %.loopexit88.i ], [ 0, %39 ], [ %40, %raise_limit.exit.i ], [ %40, %.outer.i ]
-  %.075.i = phi ptr [ %96, %.loopexit88.i ], [ %45, %39 ], [ %45, %raise_limit.exit.i ], [ %45, %.outer.i ]
-  br i1 %.not85.i, label %merge_open_in_files.exit, label %122
+.loopexit.i:                                      ; preds = %.outer.i, %.loopexit87.i, %raise_limit.exit.i, %39
+  %.078.i = phi i32 [ %53, %.loopexit87.i ], [ 0, %39 ], [ %40, %raise_limit.exit.i ], [ %40, %.outer.i ]
+  %.075.i = phi ptr [ %96, %.loopexit87.i ], [ %45, %39 ], [ %45, %raise_limit.exit.i ], [ %45, %.outer.i ]
+  br i1 %.not84.i, label %merge_open_in_files.exit, label %122
 
 122:                                              ; preds = %.loopexit.i
   %123 = load ptr, ptr %10, align 8
@@ -393,7 +391,7 @@ merge_open_in_files.exit:                         ; preds = %.loopexit.i, %122
   %126 = icmp eq i32 %.078.i, 0
   br i1 %126, label %merge_open_in_files.exit.thread, label %127
 
-merge_open_in_files.exit.thread.sink.split:       ; preds = %.lr.ph170.i, %107, %.preheader.i
+merge_open_in_files.exit.thread.sink.split:       ; preds = %.lr.ph169.i, %107, %.preheader.i
   call void @g_free(ptr noundef nonnull %45) #14
   store i32 %53, ptr %13, align 4
   br label %merge_open_in_files.exit.thread
@@ -440,7 +438,7 @@ merge_open_in_files.exit.thread:                  ; preds = %merge_open_in_files
 
 merge_select_frame_type.exit:                     ; preds = %134, %.lr.ph.i160, %139, %127, %.preheader.i158
   %.0.i = phi i32 [ 0, %127 ], [ %131, %.preheader.i158 ], [ %131, %134 ], [ -1, %139 ], [ 0, %.lr.ph.i160 ]
-  br i1 %.not85.i, label %144, label %140
+  br i1 %.not84.i, label %144, label %140
 
 140:                                              ; preds = %merge_select_frame_type.exit
   %141 = load ptr, ptr %10, align 8
@@ -897,7 +895,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i183, %.thre
 311:                                              ; preds = %.thread209, %291
   %.2213 = phi ptr [ %.1, %.thread209 ], [ %.0117318, %291 ]
   %.0128212 = phi ptr [ %281, %.thread209 ], [ %.0128, %291 ]
-  br i1 %.not85.i, label %.split, label %.split134
+  br i1 %.not84.i, label %.split, label %.split134
 
 .split:                                           ; preds = %311
   %312 = call fastcc i32 @merge_process_packets(ptr noundef nonnull %.0128212, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.2203, i32 noundef %spec.store.select, ptr noundef null, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14), !range !21

@@ -67,9 +67,8 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds i8, ptr %2, i64 1
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not65 = icmp eq i8 %48, 0
-  br i1 %.not65, label %80, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %80
 
 49:                                               ; preds = %40
   store i8 1, ptr %2, align 8
@@ -77,8 +76,8 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %51 = ptrtoint ptr %50 to i64
   %52 = load i8, ptr %9, align 1
   %53 = and i8 %52, 1
-  %.not66 = icmp eq i8 %53, 0
-  %54 = select i1 %.not66, ptr %18, ptr %17
+  %.not65 = icmp eq i8 %53, 0
+  %54 = select i1 %.not65, ptr %18, ptr %17
   %55 = ptrtoint ptr %54 to i64
   %56 = zext i8 %52 to i32
   %57 = icmp eq i8 %52, 1
@@ -89,16 +88,16 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %60 = icmp eq i8 %59, 1
   %61 = and i8 %59, -2
   %62 = icmp eq i8 %61, 2
-  %or.cond75 = or i1 %60, %62
+  %or.cond74 = or i1 %60, %62
   %63 = icmp eq i8 %59, 18
   %64 = select i1 %63, i32 16, i32 0
-  %65 = select i1 %or.cond75, i32 8, i32 %64
+  %65 = select i1 %or.cond74, i32 8, i32 %64
   br label %75
 
 66:                                               ; preds = %49
   %67 = and i32 %56, 1
-  %.not67 = icmp eq i32 %67, 0
-  br i1 %.not67, label %71, label %68
+  %.not66 = icmp eq i32 %67, 0
+  br i1 %.not66, label %71, label %68
 
 68:                                               ; preds = %66
   %69 = lshr i32 %56, 1
@@ -116,14 +115,14 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %77 = sext i32 %76 to i64
   %78 = call i64 @FunctionCall4Coll(ptr noundef nonnull %11, i32 noundef 0, i64 noundef %51, i64 noundef %55, i64 noundef %77, i64 noundef %43) #3
   %79 = inttoptr i64 %78 to ptr
-  %.not68 = icmp eq i64 %78, 0
-  %spec.select = select i1 %.not68, ptr %45, ptr %79
+  %.not67 = icmp eq i64 %78, 0
+  %spec.select = select i1 %.not67, ptr %45, ptr %79
   br label %80
 
 80:                                               ; preds = %75, %40
   %.057 = phi ptr [ %45, %40 ], [ %spec.select, %75 ]
-  %.not69 = icmp eq ptr %.057, null
-  br i1 %.not69, label %81, label %.preheader
+  %.not68 = icmp eq ptr %.057, null
+  br i1 %.not68, label %81, label %.preheader
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %0, i64 28
@@ -134,9 +133,9 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %.056 = phi ptr [ %85, %.preheader ], [ %.057, %80 ]
   %83 = getelementptr inbounds i8, ptr %.056, i64 8
   %84 = load ptr, ptr %83, align 8
-  %.not70 = icmp eq ptr %84, null
+  %.not69 = icmp eq ptr %84, null
   %85 = getelementptr i8, ptr %.056, i64 16
-  br i1 %.not70, label %86, label %.preheader, !llvm.loop !5
+  br i1 %.not69, label %86, label %.preheader, !llvm.loop !5
 
 86:                                               ; preds = %.preheader
   %87 = ptrtoint ptr %.056 to i64
@@ -146,24 +145,24 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %91 = call ptr @palloc(i64 noundef %90) #3
   %92 = getelementptr inbounds i8, ptr %.057, i64 8
   %93 = load ptr, ptr %92, align 8
-  %.not7176 = icmp eq ptr %93, null
-  br i1 %.not7176, label %._crit_edge, label %.lr.ph
+  %.not7075 = icmp eq ptr %93, null
+  br i1 %.not7075, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %.lr.ph
   %94 = phi ptr [ %103, %.lr.ph ], [ %93, %86 ]
-  %.177 = phi ptr [ %101, %.lr.ph ], [ %.057, %86 ]
+  %.176 = phi ptr [ %101, %.lr.ph ], [ %.057, %86 ]
   %95 = call ptr @cstring_to_text(ptr noundef nonnull %94) #3
   %96 = ptrtoint ptr %95 to i64
-  %97 = ptrtoint ptr %.177 to i64
+  %97 = ptrtoint ptr %.176 to i64
   %98 = sub i64 %97, %88
   %99 = ashr exact i64 %98, 4
   %100 = getelementptr i64, ptr %91, i64 %99
   store i64 %96, ptr %100, align 8
-  %101 = getelementptr i8, ptr %.177, i64 16
-  %102 = getelementptr i8, ptr %.177, i64 24
+  %101 = getelementptr i8, ptr %.176, i64 16
+  %102 = getelementptr i8, ptr %.176, i64 24
   %103 = load ptr, ptr %102, align 8
-  %.not71 = icmp eq ptr %103, null
-  br i1 %.not71, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  %.not70 = icmp eq ptr %103, null
+  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = ptrtoint ptr %101 to i64
@@ -176,13 +175,13 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %106 = trunc i64 %105 to i32
   %107 = call ptr @construct_array_builtin(ptr noundef %91, i32 noundef %106, i32 noundef 25) #3
   %108 = load ptr, ptr %92, align 8
-  %.not7278 = icmp eq ptr %108, null
-  br i1 %.not7278, label %._crit_edge82, label %.lr.ph81
+  %.not7177 = icmp eq ptr %108, null
+  br i1 %.not7177, label %._crit_edge81, label %.lr.ph80
 
-.lr.ph81:                                         ; preds = %._crit_edge, %.lr.ph81
-  %109 = phi ptr [ %118, %.lr.ph81 ], [ %92, %._crit_edge ]
-  %.279 = phi ptr [ %117, %.lr.ph81 ], [ %.057, %._crit_edge ]
-  %110 = ptrtoint ptr %.279 to i64
+.lr.ph80:                                         ; preds = %._crit_edge, %.lr.ph80
+  %109 = phi ptr [ %118, %.lr.ph80 ], [ %92, %._crit_edge ]
+  %.278 = phi ptr [ %117, %.lr.ph80 ], [ %.057, %._crit_edge ]
+  %110 = ptrtoint ptr %.278 to i64
   %111 = sub i64 %110, %88
   %112 = ashr exact i64 %111, 4
   %113 = getelementptr i64, ptr %91, i64 %112
@@ -191,20 +190,20 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   call void @pfree(ptr noundef %115) #3
   %116 = load ptr, ptr %109, align 8
   call void @pfree(ptr noundef %116) #3
-  %117 = getelementptr i8, ptr %.279, i64 16
-  %118 = getelementptr i8, ptr %.279, i64 24
+  %117 = getelementptr i8, ptr %.278, i64 16
+  %118 = getelementptr i8, ptr %.278, i64 24
   %119 = load ptr, ptr %118, align 8
-  %.not72 = icmp eq ptr %119, null
-  br i1 %.not72, label %._crit_edge82, label %.lr.ph81, !llvm.loop !8
+  %.not71 = icmp eq ptr %119, null
+  br i1 %.not71, label %._crit_edge81, label %.lr.ph80, !llvm.loop !8
 
-._crit_edge82:                                    ; preds = %.lr.ph81, %._crit_edge
+._crit_edge81:                                    ; preds = %.lr.ph80, %._crit_edge
   call void @pfree(ptr noundef nonnull %.057) #3
   call void @pfree(ptr noundef %91) #3
   %120 = ptrtoint ptr %107 to i64
   br label %121
 
-121:                                              ; preds = %._crit_edge82, %81
-  %.0 = phi i64 [ %120, %._crit_edge82 ], [ 0, %81 ]
+121:                                              ; preds = %._crit_edge81, %81
+  %.0 = phi i64 [ %120, %._crit_edge81 ], [ 0, %81 ]
   ret i64 %.0
 }
 

@@ -382,8 +382,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer8isStrictEv(ptr noca
 entry:
   %d_isStrict = getelementptr inbounds i8, ptr %this, i64 32920
   %0 = load i8, ptr %d_isStrict, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -392,8 +391,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer7isSygusEv(ptr nocap
 entry:
   %d_isSygus = getelementptr inbounds i8, ptr %this, i64 32921
   %0 = load i8, ptr %d_isSygus, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1161,55 +1159,53 @@ define linkonce_odr hidden noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr nou
 entry:
   %d_peekedChar = getelementptr inbounds i8, ptr %this, i64 32884
   %0 = load i8, ptr %d_peekedChar, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %d_chPeeked = getelementptr inbounds i8, ptr %this, i64 32888
-  %2 = load i32, ptr %d_chPeeked, align 8
+  %1 = load i32, ptr %d_chPeeked, align 8
   store i8 0, ptr %d_peekedChar, align 4
   br label %if.end11
 
 if.else:                                          ; preds = %entry
   %d_bufferPos.i = getelementptr inbounds i8, ptr %this, i64 32864
-  %3 = load i64, ptr %d_bufferPos.i, align 8
+  %2 = load i64, ptr %d_bufferPos.i, align 8
   %d_bufferEnd.i = getelementptr inbounds i8, ptr %this, i64 32872
-  %4 = load i64, ptr %d_bufferEnd.i, align 8
-  %cmp.i = icmp ult i64 %3, %4
+  %3 = load i64, ptr %d_bufferEnd.i, align 8
+  %cmp.i = icmp ult i64 %2, %3
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
   %d_buffer.i = getelementptr inbounds i8, ptr %this, i64 89
-  %arrayidx.i = getelementptr inbounds [32768 x i8], ptr %d_buffer.i, i64 0, i64 %3
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %5 to i32
+  %arrayidx.i = getelementptr inbounds [32768 x i8], ptr %d_buffer.i, i64 0, i64 %2
+  %4 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = sext i8 %4 to i32
   %d_ch.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 %conv.i, ptr %d_ch.i, align 8
-  %inc.i = add nuw i64 %3, 1
+  %inc.i = add nuw i64 %2, 1
   store i64 %inc.i, ptr %d_bufferPos.i, align 8
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 if.else.i:                                        ; preds = %if.else
   %d_isInteractive.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load i8, ptr %d_isInteractive.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  %d_istream7.i = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %d_istream7.i, align 8
-  br i1 %tobool.not.i, label %if.else6.i, label %if.then4.i
+  %5 = load i8, ptr %d_isInteractive.i, align 8
+  %tobool.i = trunc i8 %5 to i1
+  %d_istream.i = getelementptr inbounds i8, ptr %this, i64 80
+  %6 = load ptr, ptr %d_istream.i, align 8
+  br i1 %tobool.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %call.i = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %call.i = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %d_ch5.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 %call.i, ptr %d_ch5.i, align 8
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 if.else6.i:                                       ; preds = %if.else.i
   %d_buffer8.i = getelementptr inbounds i8, ptr %this, i64 89
-  %call9.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %d_buffer8.i, i64 noundef 32768)
-  %9 = load ptr, ptr %d_istream7.i, align 8
-  %call11.i = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %call9.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %d_buffer8.i, i64 noundef 32768)
+  %7 = load ptr, ptr %d_istream.i, align 8
+  %call11.i = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   store i64 %call11.i, ptr %d_bufferEnd.i, align 8
   %cmp14.i = icmp eq i64 %call11.i, 0
   br i1 %cmp14.i, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread, label %if.else18.i
@@ -1221,37 +1217,37 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread: ; preds = %if.else6.i
   br label %if.else6
 
 if.else18.i:                                      ; preds = %if.else6.i
-  %10 = load i8, ptr %d_buffer8.i, align 1
-  %conv21.i = sext i8 %10 to i32
+  %8 = load i8, ptr %d_buffer8.i, align 1
+  %conv21.i = sext i8 %8 to i32
   %d_ch22.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 %conv21.i, ptr %d_ch22.i, align 8
   store i64 1, ptr %d_bufferPos.i, align 8
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit:       ; preds = %if.then.i, %if.then4.i, %if.else18.i
-  %11 = phi i32 [ %call.i, %if.then4.i ], [ %conv21.i, %if.else18.i ], [ %conv.i, %if.then.i ]
-  %cmp = icmp eq i32 %11, 10
+  %9 = phi i32 [ %call.i, %if.then4.i ], [ %conv21.i, %if.else18.i ], [ %conv.i, %if.then.i ]
+  %cmp = icmp eq i32 %9, 10
   br i1 %cmp, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit
   %d_end = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load i32, ptr %d_end, align 8
-  %inc = add i32 %12, 1
+  %10 = load i32, ptr %d_end, align 8
+  %inc = add i32 %10, 1
   store i32 %inc, ptr %d_end, align 8
   %d_column = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %d_column, align 4
   br label %if.end11
 
 if.else6:                                         ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread, %_ZN4cvc56parser5Lexer12readNextCharEv.exit
-  %13 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread ], [ %11, %_ZN4cvc56parser5Lexer12readNextCharEv.exit ]
+  %11 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread ], [ %9, %_ZN4cvc56parser5Lexer12readNextCharEv.exit ]
   %d_column9 = getelementptr inbounds i8, ptr %this, i64 20
-  %14 = load i32, ptr %d_column9, align 4
-  %inc10 = add i32 %14, 1
+  %12 = load i32, ptr %d_column9, align 4
+  %inc10 = add i32 %12, 1
   store i32 %inc10, ptr %d_column9, align 4
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then3, %if.else6, %if.then
-  %res.0 = phi i32 [ %2, %if.then ], [ 10, %if.then3 ], [ %13, %if.else6 ]
+  %res.0 = phi i32 [ %1, %if.then ], [ 10, %if.then3 ], [ %11, %if.else6 ]
   ret i32 %res.0
 }
 

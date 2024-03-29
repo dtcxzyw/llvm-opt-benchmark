@@ -127,8 +127,8 @@ define noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE() unnamed_a
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN3std3env4_var17h4926a1e139a7b97fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 @anon.a6d557859d0675d687d6045e54bc0e3d.7, i64 noundef 15)
   %6 = load i64, ptr %5, align 8, !range !4, !noundef !5
-  %trunc.not = icmp eq i64 %6, 0
-  br i1 %trunc.not, label %7, label %13
+  %trunc = trunc i64 %6 to i1
+  br i1 %trunc, label %13, label %7
 
 7:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -154,12 +154,12 @@ define noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE() unnamed_a
 
 17:                                               ; preds = %7
   %18 = load i8, ptr %3, align 8, !range !40, !noundef !5
-  %trunc5.not = icmp ne i8 %18, 0
+  %trunc5 = trunc i8 %18 to i1
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not10 = icmp eq i64 %20, 0
-  %.not = select i1 %trunc5.not, i1 true, i1 %.not10
+  %.not = select i1 %trunc5, i1 true, i1 %.not10
   br i1 %.not, label %21, label %23
 
 21:                                               ; preds = %17
@@ -409,8 +409,8 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17hd560b5c1f76ddff5E(ptr noali
 
 29:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.exit"
   %30 = load i8, ptr %25, align 8, !range !40, !noundef !5
-  %trunc.not = icmp eq i8 %30, 0
-  br i1 %trunc.not, label %32, label %37
+  %trunc = trunc i8 %30 to i1
+  br i1 %trunc, label %37, label %32
 
 31:                                               ; preds = %37, %26, %18
   ret void

@@ -16487,10 +16487,9 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   unreachable
 
 38:                                               ; preds = %rb_io_check_closed.exit
-  %39 = and i32 %31, 1
-  %40 = icmp eq i32 %39, 0
-  %.not41 = xor i1 %4, %40
-  br i1 %.not41, label %50, label %41
+  %39 = trunc i32 %31 to i1
+  %40 = xor i1 %4, %39
+  br i1 %40, label %41, label %50
 
 41:                                               ; preds = %38
   %42 = and i32 %31, -2
@@ -16563,10 +16562,9 @@ rb_io_check_closed.exit51:                        ; preds = %rb_io_check_initial
   unreachable
 
 76:                                               ; preds = %rb_io_check_closed.exit51
-  %77 = and i32 %69, 1
-  %78 = icmp eq i32 %77, 0
-  %.not44 = xor i1 %4, %78
-  br i1 %.not44, label %88, label %79
+  %77 = trunc i32 %69 to i1
+  %78 = xor i1 %4, %77
+  br i1 %78, label %79, label %88
 
 79:                                               ; preds = %76
   %80 = and i32 %69, -2

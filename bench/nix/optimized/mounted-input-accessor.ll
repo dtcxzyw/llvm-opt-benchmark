@@ -2382,9 +2382,8 @@ _ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairI
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not.i.i.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 26:                                               ; preds = %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev.exit
   store i8 0, ptr %23, align 8
@@ -2411,8 +2410,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i, %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev.exit
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %.not.i.i.i.i2.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i2.i, label %_ZN3nix13InputAccessorD2Ev.exit, label %35
+  %.not.i.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i.i, label %_ZN3nix13InputAccessorD2Ev.exit, label %35
 
 35:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
   %36 = getelementptr inbounds i8, ptr %34, i64 12

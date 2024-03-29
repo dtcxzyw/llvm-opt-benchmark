@@ -141,8 +141,7 @@ define dso_local zeroext i1 @qmp_command_is_enabled(ptr nocapture noundef readon
 entry:
   %enabled = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load i8, ptr %enabled, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

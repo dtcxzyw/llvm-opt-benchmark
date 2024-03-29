@@ -365,17 +365,16 @@ land.lhs.true5.i.i:                               ; preds = %cond.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
-  %10 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef %add, i32 noundef %stop_bits.0) #10
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef %add, i32 noundef %stop_bits.0) #10
   br label %trace_serial_update_parameters.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -633,17 +632,16 @@ land.lhs.true5.i.i:                               ; preds = %sw.epilog
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %29 = load i8, ptr @message_with_timestamp, align 1
-  %30 = and i8 %29, 1
-  %tobool7.not.i.i = icmp eq i8 %30, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %29 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %31 = load i64, ptr %_now.i.i, align 8
+  %30 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %32 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %31, i64 noundef %32, i32 noundef %conv116, i32 noundef %ret.1) #10
+  %31 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %conv116, i32 noundef %ret.1) #10
   br label %trace_serial_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -690,24 +688,23 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  %7 = trunc i64 %val to i32
-  %conv12.i.i = and i32 %7, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv, i32 noundef %conv12.i.i) #10
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  %6 = trunc i64 %val to i32
+  %conv12.i.i = and i32 %6, 255
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv12.i.i) #10
   br label %trace_serial_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %8 = trunc i64 %val to i32
-  %conv14.i.i = and i32 %8, 255
+  %7 = trunc i64 %val to i32
+  %conv14.i.i = and i32 %7, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %conv, i32 noundef %conv14.i.i) #10
   br label %trace_serial_write.exit
 
@@ -725,8 +722,8 @@ trace_serial_write.exit:                          ; preds = %if.end, %land.lhs.t
 
 sw.bb:                                            ; preds = %trace_serial_write.exit
   %lcr = getelementptr inbounds i8, ptr %opaque, i64 167
-  %9 = load i8, ptr %lcr, align 1
-  %tobool.not = icmp sgt i8 %9, -1
+  %8 = load i8, ptr %lcr, align 1
+  %tobool.not = icmp sgt i8 %8, -1
   br i1 %tobool.not, label %if.else10, label %if.then4
 
 if.then4:                                         ; preds = %sw.bb
@@ -741,8 +738,8 @@ deposit32.exit:                                   ; preds = %if.then4
   %conv6 = shl nuw nsw i32 %conv, 3
   %conv7 = trunc i64 %val to i32
   %divider = getelementptr inbounds i8, ptr %opaque, i64 160
-  %10 = load i16, ptr %divider, align 16
-  %conv5 = zext i16 %10 to i32
+  %9 = load i16, ptr %divider, align 16
+  %conv5 = zext i16 %9 to i32
   %shl.i = shl nuw i32 255, %conv6
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %conv5, %not.i
@@ -758,9 +755,9 @@ if.else10:                                        ; preds = %sw.bb
   %thr = getelementptr inbounds i8, ptr %opaque, i64 163
   store i8 %conv2, ptr %thr, align 1
   %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
-  %11 = load i8, ptr %fcr, align 4
-  %12 = and i8 %11, 1
-  %tobool14.not = icmp eq i8 %12, 0
+  %10 = load i8, ptr %fcr, align 4
+  %11 = and i8 %10, 1
+  %tobool14.not = icmp eq i8 %11, 0
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %if.else10
@@ -773,21 +770,21 @@ if.then17:                                        ; preds = %if.then15
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.then15
-  %13 = load i8, ptr %thr, align 1
-  tail call void @fifo8_push(ptr noundef nonnull %xmit_fifo, i8 noundef zeroext %13) #10
+  %12 = load i8, ptr %thr, align 1
+  tail call void @fifo8_push(ptr noundef nonnull %xmit_fifo, i8 noundef zeroext %12) #10
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end20, %if.else10
   %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 0, ptr %thr_ipending, align 16
   %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
-  %14 = load i8, ptr %lsr, align 1
-  %15 = and i8 %14, -97
-  store i8 %15, ptr %lsr, align 1
+  %13 = load i8, ptr %lsr, align 1
+  %14 = and i8 %13, -97
+  store i8 %14, ptr %lsr, align 1
   tail call fastcc void @serial_update_irq(ptr noundef nonnull %opaque)
   %tsr_retry = getelementptr inbounds i8, ptr %opaque, i64 256
-  %16 = load i32, ptr %tsr_retry, align 16
-  %cmp31 = icmp eq i32 %16, 0
+  %15 = load i32, ptr %tsr_retry, align 16
+  %cmp31 = icmp eq i32 %15, 0
   br i1 %cmp31, label %if.then33, label %sw.epilog
 
 if.then33:                                        ; preds = %if.end23
@@ -796,26 +793,26 @@ if.then33:                                        ; preds = %if.end23
 
 sw.bb36:                                          ; preds = %trace_serial_write.exit
   %lcr37 = getelementptr inbounds i8, ptr %opaque, i64 167
-  %17 = load i8, ptr %lcr37, align 1
-  %tobool40.not = icmp sgt i8 %17, -1
+  %16 = load i8, ptr %lcr37, align 1
+  %tobool40.not = icmp sgt i8 %16, -1
   br i1 %tobool40.not, label %if.else50, label %deposit32.exit88
 
 deposit32.exit88:                                 ; preds = %sw.bb36
   %divider42 = getelementptr inbounds i8, ptr %opaque, i64 160
-  %18 = load i16, ptr %divider42, align 16
+  %17 = load i16, ptr %divider42, align 16
   %conv46 = trunc i64 %val to i16
-  %19 = and i16 %18, 255
+  %18 = and i16 %17, 255
   %shl57.i85 = shl i16 %conv46, 8
-  %or.i87 = or disjoint i16 %shl57.i85, %19
+  %or.i87 = or disjoint i16 %shl57.i85, %18
   store i16 %or.i87, ptr %divider42, align 16
   tail call fastcc void @serial_update_parameters(ptr noundef nonnull %opaque)
   br label %sw.epilog
 
 if.else50:                                        ; preds = %sw.bb36
   %ier = getelementptr inbounds i8, ptr %opaque, i64 165
-  %20 = load i8, ptr %ier, align 1
-  %21 = xor i8 %20, %conv2
-  %conv53 = and i8 %21, 15
+  %19 = load i8, ptr %ier, align 1
+  %20 = xor i8 %19, %conv2
+  %conv53 = and i8 %20, 15
   %conv55 = and i8 %conv2, 15
   store i8 %conv55, ptr %ier, align 1
   %tobool59.not = icmp ult i8 %conv53, 8
@@ -823,8 +820,8 @@ if.else50:                                        ; preds = %sw.bb36
 
 land.lhs.true60:                                  ; preds = %if.else50
   %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
-  %22 = load i32, ptr %poll_msl, align 8
-  %cmp61 = icmp sgt i32 %22, -1
+  %21 = load i32, ptr %poll_msl, align 8
+  %cmp61 = icmp sgt i32 %21, -1
   br i1 %cmp61, label %if.then63, label %if.end73
 
 if.then63:                                        ; preds = %land.lhs.true60
@@ -839,27 +836,27 @@ if.then68:                                        ; preds = %if.then63
 
 if.else70:                                        ; preds = %if.then63
   %modem_status_poll = getelementptr inbounds i8, ptr %opaque, i64 368
-  %23 = load ptr, ptr %modem_status_poll, align 16
-  tail call void @timer_del(ptr noundef %23) #10
+  %22 = load ptr, ptr %modem_status_poll, align 16
+  tail call void @timer_del(ptr noundef %22) #10
   store i32 0, ptr %poll_msl, align 8
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then68, %if.else70, %land.lhs.true60, %if.else50
-  %24 = and i8 %21, 2
-  %tobool76.not = icmp eq i8 %24, 0
+  %23 = and i8 %20, 2
+  %tobool76.not = icmp eq i8 %23, 0
   br i1 %tobool76.not, label %if.end92, label %if.then77
 
 if.then77:                                        ; preds = %if.end73
-  %25 = load i8, ptr %ier, align 1
-  %26 = and i8 %25, 2
-  %tobool81.not = icmp eq i8 %26, 0
+  %24 = load i8, ptr %ier, align 1
+  %25 = and i8 %24, 2
+  %tobool81.not = icmp eq i8 %25, 0
   br i1 %tobool81.not, label %if.else89, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.then77
   %lsr83 = getelementptr inbounds i8, ptr %opaque, i64 169
-  %27 = load i8, ptr %lsr83, align 1
-  %28 = and i8 %27, 32
-  %tobool86.not = icmp eq i8 %28, 0
+  %26 = load i8, ptr %lsr83, align 1
+  %27 = and i8 %26, 32
+  %tobool86.not = icmp eq i8 %27, 0
   br i1 %tobool86.not, label %if.else89, label %if.end92.sink.split
 
 if.else89:                                        ; preds = %land.lhs.true82, %if.then77
@@ -881,8 +878,8 @@ if.then94:                                        ; preds = %if.end92
 
 sw.bb97:                                          ; preds = %trace_serial_write.exit
   %fcr98 = getelementptr inbounds i8, ptr %opaque, i64 172
-  %29 = load i8, ptr %fcr98, align 4
-  %conv99 = zext i8 %29 to i64
+  %28 = load i8, ptr %fcr98, align 4
+  %conv99 = zext i8 %28 to i64
   %xor100 = xor i64 %conv99, %val
   %and101 = and i64 %xor100, 1
   %tobool102.not = icmp eq i64 %and101, 0
@@ -894,12 +891,12 @@ sw.bb97:                                          ; preds = %trace_serial_write.
 
 if.then107:                                       ; preds = %sw.bb97
   %lsr108 = getelementptr inbounds i8, ptr %opaque, i64 169
-  %30 = load i8, ptr %lsr108, align 1
-  %31 = and i8 %30, -18
-  store i8 %31, ptr %lsr108, align 1
+  %29 = load i8, ptr %lsr108, align 1
+  %30 = and i8 %29, -18
+  store i8 %30, ptr %lsr108, align 1
   %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
-  %32 = load ptr, ptr %fifo_timeout_timer, align 16
-  tail call void @timer_del(ptr noundef %32) #10
+  %31 = load ptr, ptr %fifo_timeout_timer, align 16
+  tail call void @timer_del(ptr noundef %31) #10
   %timeout_ipending = getelementptr inbounds i8, ptr %opaque, i64 344
   store i32 0, ptr %timeout_ipending, align 8
   %recv_fifo = getelementptr inbounds i8, ptr %opaque, i64 280
@@ -913,9 +910,9 @@ if.end112:                                        ; preds = %if.then107, %sw.bb9
 
 if.then115:                                       ; preds = %if.end112
   %lsr116 = getelementptr inbounds i8, ptr %opaque, i64 169
-  %33 = load i8, ptr %lsr116, align 1
-  %34 = or i8 %33, 32
-  store i8 %34, ptr %lsr116, align 1
+  %32 = load i8, ptr %lsr116, align 1
+  %33 = or i8 %32, 32
+  store i8 %33, ptr %lsr116, align 1
   %thr_ipending120 = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 1, ptr %thr_ipending120, align 16
   %xmit_fifo121 = getelementptr inbounds i8, ptr %opaque, i64 304
@@ -923,22 +920,22 @@ if.then115:                                       ; preds = %if.end112
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then115, %if.end112
-  %35 = trunc i64 %spec.select to i8
-  %conv124 = and i8 %35, -55
+  %34 = trunc i64 %spec.select to i8
+  %conv124 = and i8 %34, -55
   store i8 %conv124, ptr %fcr98, align 4
   %conv.i = zext i8 %conv124 to i32
   %and.i89 = and i32 %conv.i, 1
   %tobool.not.i = icmp eq i32 %and.i89, 0
   %iir11.i = getelementptr inbounds i8, ptr %opaque, i64 166
-  %36 = load i8, ptr %iir11.i, align 2
+  %35 = load i8, ptr %iir11.i, align 2
   br i1 %tobool.not.i, label %if.else.i90, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end122
-  %37 = or i8 %36, -64
-  store i8 %37, ptr %iir11.i, align 2
-  %38 = lshr i32 %conv.i, 6
+  %36 = or i8 %35, -64
+  store i8 %36, ptr %iir11.i, align 2
+  %37 = lshr i32 %conv.i, 6
   %recv_fifo_itl.i = getelementptr inbounds i8, ptr %opaque, i64 328
-  switch i32 %38, label %default.unreachable [
+  switch i32 %37, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb5.i
     i32 2, label %sw.bb7.i
@@ -965,8 +962,8 @@ default.unreachable:                              ; preds = %if.then.i
   unreachable
 
 if.else.i90:                                      ; preds = %if.end122
-  %39 = and i8 %36, 63
-  store i8 %39, ptr %iir11.i, align 2
+  %38 = and i8 %35, 63
+  store i8 %38, ptr %iir11.i, align 2
   br label %serial_write_fcr.exit
 
 serial_write_fcr.exit:                            ; preds = %sw.bb.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %if.else.i90
@@ -977,13 +974,13 @@ sw.bb125:                                         ; preds = %trace_serial_write.
   %lcr127 = getelementptr inbounds i8, ptr %opaque, i64 167
   store i8 %conv2, ptr %lcr127, align 1
   tail call fastcc void @serial_update_parameters(ptr noundef %opaque)
-  %40 = trunc i64 %val to i32
-  %41 = lshr i32 %40, 6
-  %conv129 = and i32 %41, 1
+  %39 = trunc i64 %val to i32
+  %40 = lshr i32 %39, 6
+  %conv129 = and i32 %40, 1
   store i32 %conv129, ptr %break_enable, align 4
   %last_break_enable = getelementptr inbounds i8, ptr %opaque, i64 248
-  %42 = load i32, ptr %last_break_enable, align 8
-  %cmp130.not = icmp eq i32 %conv129, %42
+  %41 = load i32, ptr %last_break_enable, align 8
+  %cmp130.not = icmp eq i32 %conv129, %41
   br i1 %cmp130.not, label %sw.epilog, label %if.then132
 
 if.then132:                                       ; preds = %sw.bb125
@@ -994,7 +991,7 @@ if.then132:                                       ; preds = %sw.bb125
 
 sw.bb136:                                         ; preds = %trace_serial_write.exit
   %mcr = getelementptr inbounds i8, ptr %opaque, i64 168
-  %43 = load i8, ptr %mcr, align 8
+  %42 = load i8, ptr %mcr, align 8
   %conv139 = and i8 %conv2, 31
   store i8 %conv139, ptr %mcr, align 8
   %and141 = and i64 %val, 16
@@ -1003,9 +1000,9 @@ sw.bb136:                                         ; preds = %trace_serial_write.
 
 if.end144:                                        ; preds = %sw.bb136
   %poll_msl145 = getelementptr inbounds i8, ptr %opaque, i64 360
-  %44 = load i32, ptr %poll_msl145, align 8
-  %cmp146 = icmp slt i32 %44, 0
-  %cmp151.not = icmp eq i8 %43, %conv139
+  %43 = load i32, ptr %poll_msl145, align 8
+  %cmp146 = icmp slt i32 %43, 0
+  %cmp151.not = icmp eq i8 %42, %conv139
   %or.cond79 = select i1 %cmp146, i1 true, i1 %cmp151.not
   br i1 %or.cond79, label %sw.epilog, label %if.then153
 
@@ -1013,32 +1010,32 @@ if.then153:                                       ; preds = %if.end144
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
   %chr.i = getelementptr inbounds i8, ptr %opaque, i64 192
   %call.i = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr.i, i32 noundef 14, ptr noundef nonnull %flags.i) #10
-  %45 = load i32, ptr %flags.i, align 4
-  %and.i91 = and i32 %45, -7
+  %44 = load i32, ptr %flags.i, align 4
+  %and.i91 = and i32 %44, -7
   store i32 %and.i91, ptr %flags.i, align 4
-  %46 = load i8, ptr %mcr, align 8
-  %47 = and i8 %46, 3
-  %.not.i = icmp eq i8 %47, 0
-  br i1 %.not.i, label %serial_update_tiocm.exit, label %48
+  %45 = load i8, ptr %mcr, align 8
+  %46 = and i8 %45, 3
+  %.not.i = icmp eq i8 %46, 0
+  br i1 %.not.i, label %serial_update_tiocm.exit, label %47
 
-48:                                               ; preds = %if.then153
-  %49 = shl i8 %46, 1
-  %50 = and i8 %49, 6
-  %51 = zext nneg i8 %50 to i32
-  %simplifycfg.merge.i = or disjoint i32 %and.i91, %51
+47:                                               ; preds = %if.then153
+  %48 = shl i8 %45, 1
+  %49 = and i8 %48, 6
+  %50 = zext nneg i8 %49 to i32
+  %simplifycfg.merge.i = or disjoint i32 %and.i91, %50
   store i32 %simplifycfg.merge.i, ptr %flags.i, align 4
   br label %serial_update_tiocm.exit
 
-serial_update_tiocm.exit:                         ; preds = %if.then153, %48
+serial_update_tiocm.exit:                         ; preds = %if.then153, %47
   %call10.i = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr.i, i32 noundef 13, ptr noundef nonnull %flags.i) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
   %modem_status_poll154 = getelementptr inbounds i8, ptr %opaque, i64 368
-  %52 = load ptr, ptr %modem_status_poll154, align 16
+  %51 = load ptr, ptr %modem_status_poll154, align 16
   %call155 = call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %char_transmit_time = getelementptr inbounds i8, ptr %opaque, i64 352
-  %53 = load i64, ptr %char_transmit_time, align 16
-  %add = add i64 %53, %call155
-  call void @timer_mod(ptr noundef %52, i64 noundef %add) #10
+  %52 = load i64, ptr %char_transmit_time, align 16
+  %add = add i64 %52, %call155
+  call void @timer_mod(ptr noundef %51, i64 noundef %add) #10
   br label %sw.epilog
 
 sw.bb159:                                         ; preds = %trace_serial_write.exit
@@ -1405,9 +1402,8 @@ define internal void @serial_receive1(ptr noundef %opaque, ptr nocapture noundef
 entry:
   %wakeup = getelementptr inbounds i8, ptr %opaque, i64 264
   %0 = load i8, ptr %wakeup, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @qemu_system_wakeup_request(i32 noundef 3, ptr noundef null) #10
@@ -1415,9 +1411,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
-  %2 = load i8, ptr %fcr, align 4
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
+  %1 = load i8, ptr %fcr, align 4
+  %2 = and i8 %1, 1
+  %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
@@ -1433,18 +1429,18 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %recv_fifo_put.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %recv_fifo_put.exit ]
   %arrayidx = getelementptr i8, ptr %buf, i64 %indvars.iv
-  %4 = load i8, ptr %arrayidx, align 1
+  %3 = load i8, ptr %arrayidx, align 1
   %call.i = tail call zeroext i1 @fifo8_is_full(ptr noundef nonnull %recv_fifo.i) #10
   br i1 %call.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  tail call void @fifo8_push(ptr noundef nonnull %recv_fifo.i, i8 noundef zeroext %4) #10
+  tail call void @fifo8_push(ptr noundef nonnull %recv_fifo.i, i8 noundef zeroext %3) #10
   br label %recv_fifo_put.exit
 
 if.else.i:                                        ; preds = %for.body
-  %5 = load i8, ptr %lsr.i, align 1
-  %6 = or i8 %5, 2
-  store i8 %6, ptr %lsr.i, align 1
+  %4 = load i8, ptr %lsr.i, align 1
+  %5 = or i8 %4, 2
+  store i8 %5, ptr %lsr.i, align 1
   br label %recv_fifo_put.exit
 
 recv_fifo_put.exit:                               ; preds = %if.then.i, %if.else.i
@@ -1454,38 +1450,38 @@ recv_fifo_put.exit:                               ; preds = %if.then.i, %if.else
 
 for.end:                                          ; preds = %recv_fifo_put.exit, %for.cond.preheader
   %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
-  %7 = load i8, ptr %lsr, align 1
-  %8 = or i8 %7, 1
-  store i8 %8, ptr %lsr, align 1
+  %6 = load i8, ptr %lsr, align 1
+  %7 = or i8 %6, 1
+  store i8 %7, ptr %lsr, align 1
   %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
-  %9 = load ptr, ptr %fifo_timeout_timer, align 16
+  %8 = load ptr, ptr %fifo_timeout_timer, align 16
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %char_transmit_time = getelementptr inbounds i8, ptr %opaque, i64 352
-  %10 = load i64, ptr %char_transmit_time, align 16
-  %mul = shl i64 %10, 2
+  %9 = load i64, ptr %char_transmit_time, align 16
+  %mul = shl i64 %9, 2
   %add = add i64 %mul, %call
-  tail call void @timer_mod(ptr noundef %9, i64 noundef %add) #10
+  tail call void @timer_mod(ptr noundef %8, i64 noundef %add) #10
   br label %if.end21
 
 if.else:                                          ; preds = %if.end
   %lsr6 = getelementptr inbounds i8, ptr %opaque, i64 169
-  %11 = load i8, ptr %lsr6, align 1
-  %12 = and i8 %11, 1
-  %tobool9.not = icmp eq i8 %12, 0
+  %10 = load i8, ptr %lsr6, align 1
+  %11 = and i8 %10, 1
+  %tobool9.not = icmp eq i8 %11, 0
   br i1 %tobool9.not, label %if.end15, label %if.then10
 
 if.then10:                                        ; preds = %if.else
-  %or13 = or i8 %11, 2
+  %or13 = or i8 %10, 2
   store i8 %or13, ptr %lsr6, align 1
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then10, %if.else
-  %13 = phi i8 [ %or13, %if.then10 ], [ %11, %if.else ]
-  %14 = load i8, ptr %buf, align 1
+  %12 = phi i8 [ %or13, %if.then10 ], [ %10, %if.else ]
+  %13 = load i8, ptr %buf, align 1
   %rbr = getelementptr inbounds i8, ptr %opaque, i64 162
-  store i8 %14, ptr %rbr, align 2
-  %15 = or i8 %13, 1
-  store i8 %15, ptr %lsr6, align 1
+  store i8 %13, ptr %rbr, align 2
+  %14 = or i8 %12, 1
+  store i8 %14, ptr %lsr6, align 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end15, %for.end

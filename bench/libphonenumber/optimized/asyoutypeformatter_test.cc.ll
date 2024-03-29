@@ -2419,9 +2419,8 @@ _ZNK4i18n12phonenumbers22AsYouTypeFormatterTest28ConvertUnicodeStringPositionERK
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %42, %43
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %44 = load i8, ptr %2, align 8
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %50, label %72
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %72, label %50
 
 46:                                               ; preds = %43, %42, %_ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit
   %47 = landingpad { ptr, i32 }
@@ -2563,9 +2562,8 @@ _ZNK4i18n12phonenumbers22AsYouTypeFormatterTest28ConvertUnicodeStringPositionERK
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit42: ; preds = %85, %86
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   %87 = load i8, ptr %8, align 8
-  %88 = and i8 %87, 1
-  %.not114 = icmp eq i8 %88, 0
-  br i1 %.not114, label %94, label %116
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %116, label %94
 
 89:                                               ; preds = %_ZN7testing7MessageD2Ev.exit32, %48
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit32 ], [ %49, %48 ]
@@ -2712,9 +2710,8 @@ _ZNK4i18n12phonenumbers22AsYouTypeFormatterTest28ConvertUnicodeStringPositionERK
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit62: ; preds = %129, %130
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %131 = load i8, ptr %14, align 8
-  %132 = and i8 %131, 1
-  %.not115 = icmp eq i8 %132, 0
-  br i1 %.not115, label %138, label %160
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %160, label %138
 
 133:                                              ; preds = %_ZN7testing7MessageD2Ev.exit50, %92
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZN7testing7MessageD2Ev.exit50 ], [ %93, %92 ]
@@ -2861,9 +2858,8 @@ _ZNK4i18n12phonenumbers22AsYouTypeFormatterTest28ConvertUnicodeStringPositionERK
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit82: ; preds = %173, %174
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   %175 = load i8, ptr %20, align 8
-  %176 = and i8 %175, 1
-  %.not116 = icmp eq i8 %176, 0
-  br i1 %.not116, label %182, label %204
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %204, label %182
 
 177:                                              ; preds = %_ZN7testing7MessageD2Ev.exit70, %136
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit70 ], [ %137, %136 ]
@@ -3009,9 +3005,8 @@ _ZNK4i18n12phonenumbers22AsYouTypeFormatterTest28ConvertUnicodeStringPositionERK
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit102: ; preds = %216, %217
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   %218 = load i8, ptr %26, align 8
-  %219 = and i8 %218, 1
-  %.not117 = icmp eq i8 %219, 0
-  br i1 %.not117, label %225, label %247
+  %219 = trunc i8 %218 to i1
+  br i1 %219, label %247, label %225
 
 220:                                              ; preds = %_ZN7testing7MessageD2Ev.exit90, %180
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN7testing7MessageD2Ev.exit90 ], [ %181, %180 ]
@@ -3414,9 +3409,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %53, %54
   %55 = load i8, ptr %4, align 8
-  %56 = and i8 %55, 1
-  %.not = icmp eq i8 %56, 0
-  br i1 %.not, label %63, label %85
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %85, label %63
 
 57:                                               ; preds = %.noexc, %1
   %58 = landingpad { ptr, i32 }
@@ -3536,9 +3530,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %92, %93
   %94 = load i8, ptr %7, align 8
-  %95 = and i8 %94, 1
-  %.not185 = icmp eq i8 %95, 0
-  br i1 %.not185, label %99, label %121
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %121, label %99
 
 96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit72, %61
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZN7testing7MessageD2Ev.exit72 ], [ %62, %61 ]
@@ -3647,9 +3640,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %121, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %128, %129
   %130 = load i8, ptr %10, align 8
-  %131 = and i8 %130, 1
-  %.not186 = icmp eq i8 %131, 0
-  br i1 %.not186, label %135, label %157
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %157, label %135
 
 132:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %97
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %_ZN7testing7MessageD2Ev.exit81 ], [ %98, %97 ]
@@ -3758,9 +3750,8 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %157, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %164, %165
   %166 = load i8, ptr %13, align 8
-  %167 = and i8 %166, 1
-  %.not187 = icmp eq i8 %167, 0
-  br i1 %.not187, label %171, label %193
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %193, label %171
 
 168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit92, %133
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit92 ], [ %134, %133 ]
@@ -3869,9 +3860,8 @@ _ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %193, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %200, %201
   %202 = load i8, ptr %16, align 8
-  %203 = and i8 %202, 1
-  %.not188 = icmp eq i8 %203, 0
-  br i1 %.not188, label %207, label %229
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %229, label %207
 
 204:                                              ; preds = %_ZN7testing7MessageD2Ev.exit103, %169
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit103 ], [ %170, %169 ]
@@ -3980,9 +3970,8 @@ _ZN7testing15AssertionResultD2Ev.exit117:         ; preds = %229, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %236, %237
   %238 = load i8, ptr %19, align 8
-  %239 = and i8 %238, 1
-  %.not189 = icmp eq i8 %239, 0
-  br i1 %.not189, label %243, label %265
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %265, label %243
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit114, %205
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit114 ], [ %206, %205 ]
@@ -4091,9 +4080,8 @@ _ZN7testing15AssertionResultD2Ev.exit128:         ; preds = %265, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %272, %273
   %274 = load i8, ptr %22, align 8
-  %275 = and i8 %274, 1
-  %.not190 = icmp eq i8 %275, 0
-  br i1 %.not190, label %279, label %301
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %301, label %279
 
 276:                                              ; preds = %_ZN7testing7MessageD2Ev.exit125, %241
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit125 ], [ %242, %241 ]
@@ -4202,9 +4190,8 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %301, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %308, %309
   %310 = load i8, ptr %25, align 8
-  %311 = and i8 %310, 1
-  %.not191 = icmp eq i8 %311, 0
-  br i1 %.not191, label %315, label %337
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %337, label %315
 
 312:                                              ; preds = %_ZN7testing7MessageD2Ev.exit136, %277
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit136 ], [ %278, %277 ]
@@ -4313,9 +4300,8 @@ _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %337, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %344, %345
   %346 = load i8, ptr %28, align 8
-  %347 = and i8 %346, 1
-  %.not192 = icmp eq i8 %347, 0
-  br i1 %.not192, label %351, label %373
+  %347 = trunc i8 %346 to i1
+  br i1 %347, label %373, label %351
 
 348:                                              ; preds = %_ZN7testing7MessageD2Ev.exit147, %313
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit147 ], [ %314, %313 ]
@@ -4424,9 +4410,8 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %373, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit162: ; preds = %380, %381
   %382 = load i8, ptr %31, align 8
-  %383 = and i8 %382, 1
-  %.not193 = icmp eq i8 %383, 0
-  br i1 %.not193, label %387, label %409
+  %383 = trunc i8 %382 to i1
+  br i1 %383, label %409, label %387
 
 384:                                              ; preds = %_ZN7testing7MessageD2Ev.exit158, %349
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit158 ], [ %350, %349 ]
@@ -4535,9 +4520,8 @@ _ZN7testing15AssertionResultD2Ev.exit173:         ; preds = %409, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %416, %417
   %418 = load i8, ptr %34, align 8
-  %419 = and i8 %418, 1
-  %.not194 = icmp eq i8 %419, 0
-  br i1 %.not194, label %423, label %445
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %445, label %423
 
 420:                                              ; preds = %_ZN7testing7MessageD2Ev.exit170, %385
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit170 ], [ %386, %385 ]
@@ -4751,9 +4735,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %68, %69
   %70 = load i8, ptr %4, align 8
-  %71 = and i8 %70, 1
-  %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %78, label %100
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %100, label %78
 
 72:                                               ; preds = %.noexc, %1
   %73 = landingpad { ptr, i32 }
@@ -4873,9 +4856,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %100, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %107, %108
   %109 = load i8, ptr %7, align 8
-  %110 = and i8 %109, 1
-  %.not266 = icmp eq i8 %110, 0
-  br i1 %.not266, label %114, label %136
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %136, label %114
 
 111:                                              ; preds = %_ZN7testing7MessageD2Ev.exit97, %76
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit97 ], [ %77, %76 ]
@@ -4984,9 +4966,8 @@ _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %136, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %143, %144
   %145 = load i8, ptr %10, align 8
-  %146 = and i8 %145, 1
-  %.not267 = icmp eq i8 %146, 0
-  br i1 %.not267, label %150, label %172
+  %146 = trunc i8 %145 to i1
+  br i1 %146, label %172, label %150
 
 147:                                              ; preds = %_ZN7testing7MessageD2Ev.exit106, %112
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZN7testing7MessageD2Ev.exit106 ], [ %113, %112 ]
@@ -5095,9 +5076,8 @@ _ZN7testing15AssertionResultD2Ev.exit120:         ; preds = %172, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %179, %180
   %181 = load i8, ptr %13, align 8
-  %182 = and i8 %181, 1
-  %.not268 = icmp eq i8 %182, 0
-  br i1 %.not268, label %186, label %208
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %208, label %186
 
 183:                                              ; preds = %_ZN7testing7MessageD2Ev.exit117, %148
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %_ZN7testing7MessageD2Ev.exit117 ], [ %149, %148 ]
@@ -5206,9 +5186,8 @@ _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %208, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %215, %216
   %217 = load i8, ptr %16, align 8
-  %218 = and i8 %217, 1
-  %.not269 = icmp eq i8 %218, 0
-  br i1 %.not269, label %222, label %244
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %244, label %222
 
 219:                                              ; preds = %_ZN7testing7MessageD2Ev.exit128, %184
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %_ZN7testing7MessageD2Ev.exit128 ], [ %185, %184 ]
@@ -5317,9 +5296,8 @@ _ZN7testing15AssertionResultD2Ev.exit142:         ; preds = %244, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %251, %252
   %253 = load i8, ptr %19, align 8
-  %254 = and i8 %253, 1
-  %.not270 = icmp eq i8 %254, 0
-  br i1 %.not270, label %258, label %280
+  %254 = trunc i8 %253 to i1
+  br i1 %254, label %280, label %258
 
 255:                                              ; preds = %_ZN7testing7MessageD2Ev.exit139, %220
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %_ZN7testing7MessageD2Ev.exit139 ], [ %221, %220 ]
@@ -5428,9 +5406,8 @@ _ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %280, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %287, %288
   %289 = load i8, ptr %22, align 8
-  %290 = and i8 %289, 1
-  %.not271 = icmp eq i8 %290, 0
-  br i1 %.not271, label %294, label %316
+  %290 = trunc i8 %289 to i1
+  br i1 %290, label %316, label %294
 
 291:                                              ; preds = %_ZN7testing7MessageD2Ev.exit150, %256
   %.pn59.pn = phi { ptr, i32 } [ %.pn59, %_ZN7testing7MessageD2Ev.exit150 ], [ %257, %256 ]
@@ -5539,9 +5516,8 @@ _ZN7testing15AssertionResultD2Ev.exit164:         ; preds = %316, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %323, %324
   %325 = load i8, ptr %25, align 8
-  %326 = and i8 %325, 1
-  %.not272 = icmp eq i8 %326, 0
-  br i1 %.not272, label %330, label %352
+  %326 = trunc i8 %325 to i1
+  br i1 %326, label %352, label %330
 
 327:                                              ; preds = %_ZN7testing7MessageD2Ev.exit161, %292
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %_ZN7testing7MessageD2Ev.exit161 ], [ %293, %292 ]
@@ -5650,9 +5626,8 @@ _ZN7testing15AssertionResultD2Ev.exit175:         ; preds = %352, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %359, %360
   %361 = load i8, ptr %28, align 8
-  %362 = and i8 %361, 1
-  %.not273 = icmp eq i8 %362, 0
-  br i1 %.not273, label %366, label %388
+  %362 = trunc i8 %361 to i1
+  br i1 %362, label %388, label %366
 
 363:                                              ; preds = %_ZN7testing7MessageD2Ev.exit172, %328
   %.pn65.pn = phi { ptr, i32 } [ %.pn65, %_ZN7testing7MessageD2Ev.exit172 ], [ %329, %328 ]
@@ -5761,9 +5736,8 @@ _ZN7testing15AssertionResultD2Ev.exit186:         ; preds = %388, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %395, %396
   %397 = load i8, ptr %31, align 8
-  %398 = and i8 %397, 1
-  %.not274 = icmp eq i8 %398, 0
-  br i1 %.not274, label %402, label %424
+  %398 = trunc i8 %397 to i1
+  br i1 %398, label %424, label %402
 
 399:                                              ; preds = %_ZN7testing7MessageD2Ev.exit183, %364
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %_ZN7testing7MessageD2Ev.exit183 ], [ %365, %364 ]
@@ -5872,9 +5846,8 @@ _ZN7testing15AssertionResultD2Ev.exit197:         ; preds = %424, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %431, %432
   %433 = load i8, ptr %34, align 8
-  %434 = and i8 %433, 1
-  %.not275 = icmp eq i8 %434, 0
-  br i1 %.not275, label %438, label %460
+  %434 = trunc i8 %433 to i1
+  br i1 %434, label %460, label %438
 
 435:                                              ; preds = %_ZN7testing7MessageD2Ev.exit194, %400
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZN7testing7MessageD2Ev.exit194 ], [ %401, %400 ]
@@ -5983,9 +5956,8 @@ _ZN7testing15AssertionResultD2Ev.exit208:         ; preds = %460, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %467, %468
   %469 = load i8, ptr %37, align 8
-  %470 = and i8 %469, 1
-  %.not276 = icmp eq i8 %470, 0
-  br i1 %.not276, label %474, label %496
+  %470 = trunc i8 %469 to i1
+  br i1 %470, label %496, label %474
 
 471:                                              ; preds = %_ZN7testing7MessageD2Ev.exit205, %436
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZN7testing7MessageD2Ev.exit205 ], [ %437, %436 ]
@@ -6094,9 +6066,8 @@ _ZN7testing15AssertionResultD2Ev.exit219:         ; preds = %496, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %503, %504
   %505 = load i8, ptr %40, align 8
-  %506 = and i8 %505, 1
-  %.not277 = icmp eq i8 %506, 0
-  br i1 %.not277, label %510, label %532
+  %506 = trunc i8 %505 to i1
+  br i1 %506, label %532, label %510
 
 507:                                              ; preds = %_ZN7testing7MessageD2Ev.exit216, %472
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %_ZN7testing7MessageD2Ev.exit216 ], [ %473, %472 ]
@@ -6205,9 +6176,8 @@ _ZN7testing15AssertionResultD2Ev.exit230:         ; preds = %532, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %539, %540
   %541 = load i8, ptr %43, align 8
-  %542 = and i8 %541, 1
-  %.not278 = icmp eq i8 %542, 0
-  br i1 %.not278, label %546, label %568
+  %542 = trunc i8 %541 to i1
+  br i1 %542, label %568, label %546
 
 543:                                              ; preds = %_ZN7testing7MessageD2Ev.exit227, %508
   %.pn80.pn = phi { ptr, i32 } [ %.pn80, %_ZN7testing7MessageD2Ev.exit227 ], [ %509, %508 ]
@@ -6316,9 +6286,8 @@ _ZN7testing15AssertionResultD2Ev.exit241:         ; preds = %568, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit242: ; preds = %575, %576
   %577 = load i8, ptr %46, align 8
-  %578 = and i8 %577, 1
-  %.not279 = icmp eq i8 %578, 0
-  br i1 %.not279, label %582, label %604
+  %578 = trunc i8 %577 to i1
+  br i1 %578, label %604, label %582
 
 579:                                              ; preds = %_ZN7testing7MessageD2Ev.exit238, %544
   %.pn83.pn = phi { ptr, i32 } [ %.pn83, %_ZN7testing7MessageD2Ev.exit238 ], [ %545, %544 ]
@@ -6427,9 +6396,8 @@ _ZN7testing15AssertionResultD2Ev.exit253:         ; preds = %604, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit254: ; preds = %611, %612
   %613 = load i8, ptr %49, align 8
-  %614 = and i8 %613, 1
-  %.not280 = icmp eq i8 %614, 0
-  br i1 %.not280, label %618, label %640
+  %614 = trunc i8 %613 to i1
+  br i1 %614, label %640, label %618
 
 615:                                              ; preds = %_ZN7testing7MessageD2Ev.exit250, %580
   %.pn86.pn = phi { ptr, i32 } [ %.pn86, %_ZN7testing7MessageD2Ev.exit250 ], [ %581, %580 ]
@@ -6617,9 +6585,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %44, %45
   %46 = load i8, ptr %4, align 8
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %54, label %76
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %76, label %54
 
 48:                                               ; preds = %.noexc, %1
   %49 = landingpad { ptr, i32 }
@@ -6739,9 +6706,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %76, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %83, %84
   %85 = load i8, ptr %7, align 8
-  %86 = and i8 %85, 1
-  %.not134 = icmp eq i8 %86, 0
-  br i1 %.not134, label %90, label %112
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %112, label %90
 
 87:                                               ; preds = %_ZN7testing7MessageD2Ev.exit55, %52
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %_ZN7testing7MessageD2Ev.exit55 ], [ %53, %52 ]
@@ -6850,9 +6816,8 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %112, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %119, %120
   %121 = load i8, ptr %10, align 8
-  %122 = and i8 %121, 1
-  %.not135 = icmp eq i8 %122, 0
-  br i1 %.not135, label %126, label %148
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %148, label %126
 
 123:                                              ; preds = %_ZN7testing7MessageD2Ev.exit64, %88
   %.pn29.pn = phi { ptr, i32 } [ %.pn29, %_ZN7testing7MessageD2Ev.exit64 ], [ %89, %88 ]
@@ -6961,9 +6926,8 @@ _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %148, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %155, %156
   %157 = load i8, ptr %13, align 8
-  %158 = and i8 %157, 1
-  %.not136 = icmp eq i8 %158, 0
-  br i1 %.not136, label %162, label %184
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %184, label %162
 
 159:                                              ; preds = %_ZN7testing7MessageD2Ev.exit75, %124
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %_ZN7testing7MessageD2Ev.exit75 ], [ %125, %124 ]
@@ -7072,9 +7036,8 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %184, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %191, %192
   %193 = load i8, ptr %16, align 8
-  %194 = and i8 %193, 1
-  %.not137 = icmp eq i8 %194, 0
-  br i1 %.not137, label %198, label %220
+  %194 = trunc i8 %193 to i1
+  br i1 %194, label %220, label %198
 
 195:                                              ; preds = %_ZN7testing7MessageD2Ev.exit86, %160
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN7testing7MessageD2Ev.exit86 ], [ %161, %160 ]
@@ -7183,9 +7146,8 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %220, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %227, %228
   %229 = load i8, ptr %19, align 8
-  %230 = and i8 %229, 1
-  %.not138 = icmp eq i8 %230, 0
-  br i1 %.not138, label %234, label %256
+  %230 = trunc i8 %229 to i1
+  br i1 %230, label %256, label %234
 
 231:                                              ; preds = %_ZN7testing7MessageD2Ev.exit97, %196
   %.pn38.pn = phi { ptr, i32 } [ %.pn38, %_ZN7testing7MessageD2Ev.exit97 ], [ %197, %196 ]
@@ -7294,9 +7256,8 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %256, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %263, %264
   %265 = load i8, ptr %22, align 8
-  %266 = and i8 %265, 1
-  %.not139 = icmp eq i8 %266, 0
-  br i1 %.not139, label %270, label %292
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %292, label %270
 
 267:                                              ; preds = %_ZN7testing7MessageD2Ev.exit108, %232
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %_ZN7testing7MessageD2Ev.exit108 ], [ %233, %232 ]
@@ -7405,9 +7366,8 @@ _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %292, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %299, %300
   %301 = load i8, ptr %25, align 8
-  %302 = and i8 %301, 1
-  %.not140 = icmp eq i8 %302, 0
-  br i1 %.not140, label %306, label %328
+  %302 = trunc i8 %301 to i1
+  br i1 %302, label %328, label %306
 
 303:                                              ; preds = %_ZN7testing7MessageD2Ev.exit119, %268
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit119 ], [ %269, %268 ]
@@ -7601,9 +7561,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %50, %51
   %52 = load i8, ptr %4, align 8
-  %53 = and i8 %52, 1
-  %.not = icmp eq i8 %53, 0
-  br i1 %.not, label %60, label %82
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %82, label %60
 
 54:                                               ; preds = %.noexc, %1
   %55 = landingpad { ptr, i32 }
@@ -7723,9 +7682,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %82, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %89, %90
   %91 = load i8, ptr %7, align 8
-  %92 = and i8 %91, 1
-  %.not168 = icmp eq i8 %92, 0
-  br i1 %.not168, label %96, label %118
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %118, label %96
 
 93:                                               ; preds = %_ZN7testing7MessageD2Ev.exit67, %58
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %_ZN7testing7MessageD2Ev.exit67 ], [ %59, %58 ]
@@ -7834,9 +7792,8 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %118, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %125, %126
   %127 = load i8, ptr %10, align 8
-  %128 = and i8 %127, 1
-  %.not169 = icmp eq i8 %128, 0
-  br i1 %.not169, label %132, label %154
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %154, label %132
 
 129:                                              ; preds = %_ZN7testing7MessageD2Ev.exit76, %94
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN7testing7MessageD2Ev.exit76 ], [ %95, %94 ]
@@ -7945,9 +7902,8 @@ _ZN7testing15AssertionResultD2Ev.exit90:          ; preds = %154, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %161, %162
   %163 = load i8, ptr %13, align 8
-  %164 = and i8 %163, 1
-  %.not170 = icmp eq i8 %164, 0
-  br i1 %.not170, label %168, label %190
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %190, label %168
 
 165:                                              ; preds = %_ZN7testing7MessageD2Ev.exit87, %130
   %.pn38.pn = phi { ptr, i32 } [ %.pn38, %_ZN7testing7MessageD2Ev.exit87 ], [ %131, %130 ]
@@ -8056,9 +8012,8 @@ _ZN7testing15AssertionResultD2Ev.exit101:         ; preds = %190, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %197, %198
   %199 = load i8, ptr %16, align 8
-  %200 = and i8 %199, 1
-  %.not171 = icmp eq i8 %200, 0
-  br i1 %.not171, label %204, label %226
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %226, label %204
 
 201:                                              ; preds = %_ZN7testing7MessageD2Ev.exit98, %166
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %_ZN7testing7MessageD2Ev.exit98 ], [ %167, %166 ]
@@ -8167,9 +8122,8 @@ _ZN7testing15AssertionResultD2Ev.exit112:         ; preds = %226, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %233, %234
   %235 = load i8, ptr %19, align 8
-  %236 = and i8 %235, 1
-  %.not172 = icmp eq i8 %236, 0
-  br i1 %.not172, label %240, label %262
+  %236 = trunc i8 %235 to i1
+  br i1 %236, label %262, label %240
 
 237:                                              ; preds = %_ZN7testing7MessageD2Ev.exit109, %202
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit109 ], [ %203, %202 ]
@@ -8278,9 +8232,8 @@ _ZN7testing15AssertionResultD2Ev.exit123:         ; preds = %262, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %269, %270
   %271 = load i8, ptr %22, align 8
-  %272 = and i8 %271, 1
-  %.not173 = icmp eq i8 %272, 0
-  br i1 %.not173, label %276, label %298
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %298, label %276
 
 273:                                              ; preds = %_ZN7testing7MessageD2Ev.exit120, %238
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZN7testing7MessageD2Ev.exit120 ], [ %239, %238 ]
@@ -8389,9 +8342,8 @@ _ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %298, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %305, %306
   %307 = load i8, ptr %25, align 8
-  %308 = and i8 %307, 1
-  %.not174 = icmp eq i8 %308, 0
-  br i1 %.not174, label %312, label %334
+  %308 = trunc i8 %307 to i1
+  br i1 %308, label %334, label %312
 
 309:                                              ; preds = %_ZN7testing7MessageD2Ev.exit131, %274
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %_ZN7testing7MessageD2Ev.exit131 ], [ %275, %274 ]
@@ -8500,9 +8452,8 @@ _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %334, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %341, %342
   %343 = load i8, ptr %28, align 8
-  %344 = and i8 %343, 1
-  %.not175 = icmp eq i8 %344, 0
-  br i1 %.not175, label %348, label %370
+  %344 = trunc i8 %343 to i1
+  br i1 %344, label %370, label %348
 
 345:                                              ; preds = %_ZN7testing7MessageD2Ev.exit142, %310
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %_ZN7testing7MessageD2Ev.exit142 ], [ %311, %310 ]
@@ -8611,9 +8562,8 @@ _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %370, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %377, %378
   %379 = load i8, ptr %31, align 8
-  %380 = and i8 %379, 1
-  %.not176 = icmp eq i8 %380, 0
-  br i1 %.not176, label %384, label %406
+  %380 = trunc i8 %379 to i1
+  br i1 %380, label %406, label %384
 
 381:                                              ; preds = %_ZN7testing7MessageD2Ev.exit153, %346
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %_ZN7testing7MessageD2Ev.exit153 ], [ %347, %346 ]
@@ -9014,9 +8964,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %257, %258
   %259 = load i8, ptr %4, align 8
-  %260 = and i8 %259, 1
-  %.not = icmp eq i8 %260, 0
-  br i1 %.not, label %267, label %289
+  %260 = trunc i8 %259 to i1
+  br i1 %260, label %289, label %267
 
 261:                                              ; preds = %.noexc, %1
   %262 = landingpad { ptr, i32 }
@@ -9136,9 +9085,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %289, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %296, %297
   %298 = load i8, ptr %7, align 8
-  %299 = and i8 %298, 1
-  %.not1380 = icmp eq i8 %299, 0
-  br i1 %.not1380, label %303, label %325
+  %299 = trunc i8 %298 to i1
+  br i1 %299, label %325, label %303
 
 300:                                              ; preds = %_ZN7testing7MessageD2Ev.exit462, %265
   %.pn220.pn = phi { ptr, i32 } [ %.pn220, %_ZN7testing7MessageD2Ev.exit462 ], [ %266, %265 ]
@@ -9247,9 +9195,8 @@ _ZN7testing15AssertionResultD2Ev.exit474:         ; preds = %325, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %332, %333
   %334 = load i8, ptr %10, align 8
-  %335 = and i8 %334, 1
-  %.not1381 = icmp eq i8 %335, 0
-  br i1 %.not1381, label %339, label %361
+  %335 = trunc i8 %334 to i1
+  br i1 %335, label %361, label %339
 
 336:                                              ; preds = %_ZN7testing7MessageD2Ev.exit471, %301
   %.pn223.pn = phi { ptr, i32 } [ %.pn223, %_ZN7testing7MessageD2Ev.exit471 ], [ %302, %301 ]
@@ -9358,9 +9305,8 @@ _ZN7testing15AssertionResultD2Ev.exit485:         ; preds = %361, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %368, %369
   %370 = load i8, ptr %13, align 8
-  %371 = and i8 %370, 1
-  %.not1382 = icmp eq i8 %371, 0
-  br i1 %.not1382, label %375, label %397
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %397, label %375
 
 372:                                              ; preds = %_ZN7testing7MessageD2Ev.exit482, %337
   %.pn226.pn = phi { ptr, i32 } [ %.pn226, %_ZN7testing7MessageD2Ev.exit482 ], [ %338, %337 ]
@@ -9469,9 +9415,8 @@ _ZN7testing15AssertionResultD2Ev.exit496:         ; preds = %397, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %404, %405
   %406 = load i8, ptr %16, align 8
-  %407 = and i8 %406, 1
-  %.not1383 = icmp eq i8 %407, 0
-  br i1 %.not1383, label %411, label %433
+  %407 = trunc i8 %406 to i1
+  br i1 %407, label %433, label %411
 
 408:                                              ; preds = %_ZN7testing7MessageD2Ev.exit493, %373
   %.pn229.pn = phi { ptr, i32 } [ %.pn229, %_ZN7testing7MessageD2Ev.exit493 ], [ %374, %373 ]
@@ -9580,9 +9525,8 @@ _ZN7testing15AssertionResultD2Ev.exit507:         ; preds = %433, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %440, %441
   %442 = load i8, ptr %19, align 8
-  %443 = and i8 %442, 1
-  %.not1384 = icmp eq i8 %443, 0
-  br i1 %.not1384, label %447, label %469
+  %443 = trunc i8 %442 to i1
+  br i1 %443, label %469, label %447
 
 444:                                              ; preds = %_ZN7testing7MessageD2Ev.exit504, %409
   %.pn232.pn = phi { ptr, i32 } [ %.pn232, %_ZN7testing7MessageD2Ev.exit504 ], [ %410, %409 ]
@@ -9691,9 +9635,8 @@ _ZN7testing15AssertionResultD2Ev.exit518:         ; preds = %469, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %476, %477
   %478 = load i8, ptr %22, align 8
-  %479 = and i8 %478, 1
-  %.not1385 = icmp eq i8 %479, 0
-  br i1 %.not1385, label %483, label %505
+  %479 = trunc i8 %478 to i1
+  br i1 %479, label %505, label %483
 
 480:                                              ; preds = %_ZN7testing7MessageD2Ev.exit515, %445
   %.pn235.pn = phi { ptr, i32 } [ %.pn235, %_ZN7testing7MessageD2Ev.exit515 ], [ %446, %445 ]
@@ -9802,9 +9745,8 @@ _ZN7testing15AssertionResultD2Ev.exit529:         ; preds = %505, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %512, %513
   %514 = load i8, ptr %25, align 8
-  %515 = and i8 %514, 1
-  %.not1386 = icmp eq i8 %515, 0
-  br i1 %.not1386, label %519, label %541
+  %515 = trunc i8 %514 to i1
+  br i1 %515, label %541, label %519
 
 516:                                              ; preds = %_ZN7testing7MessageD2Ev.exit526, %481
   %.pn238.pn = phi { ptr, i32 } [ %.pn238, %_ZN7testing7MessageD2Ev.exit526 ], [ %482, %481 ]
@@ -9913,9 +9855,8 @@ _ZN7testing15AssertionResultD2Ev.exit540:         ; preds = %541, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %548, %549
   %550 = load i8, ptr %28, align 8
-  %551 = and i8 %550, 1
-  %.not1387 = icmp eq i8 %551, 0
-  br i1 %.not1387, label %555, label %577
+  %551 = trunc i8 %550 to i1
+  br i1 %551, label %577, label %555
 
 552:                                              ; preds = %_ZN7testing7MessageD2Ev.exit537, %517
   %.pn241.pn = phi { ptr, i32 } [ %.pn241, %_ZN7testing7MessageD2Ev.exit537 ], [ %518, %517 ]
@@ -10024,9 +9965,8 @@ _ZN7testing15AssertionResultD2Ev.exit551:         ; preds = %577, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %584, %585
   %586 = load i8, ptr %31, align 8
-  %587 = and i8 %586, 1
-  %.not1388 = icmp eq i8 %587, 0
-  br i1 %.not1388, label %591, label %613
+  %587 = trunc i8 %586 to i1
+  br i1 %587, label %613, label %591
 
 588:                                              ; preds = %_ZN7testing7MessageD2Ev.exit548, %553
   %.pn244.pn = phi { ptr, i32 } [ %.pn244, %_ZN7testing7MessageD2Ev.exit548 ], [ %554, %553 ]
@@ -10137,9 +10077,8 @@ _ZN7testing15AssertionResultD2Ev.exit562:         ; preds = %613, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit563: ; preds = %621, %622
   %623 = load i8, ptr %34, align 8
-  %624 = and i8 %623, 1
-  %.not1389 = icmp eq i8 %624, 0
-  br i1 %.not1389, label %628, label %650
+  %624 = trunc i8 %623 to i1
+  br i1 %624, label %650, label %628
 
 625:                                              ; preds = %_ZN7testing7MessageD2Ev.exit559, %589
   %.pn247.pn = phi { ptr, i32 } [ %.pn247, %_ZN7testing7MessageD2Ev.exit559 ], [ %590, %589 ]
@@ -10248,9 +10187,8 @@ _ZN7testing15AssertionResultD2Ev.exit574:         ; preds = %650, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit575: ; preds = %657, %658
   %659 = load i8, ptr %37, align 8
-  %660 = and i8 %659, 1
-  %.not1390 = icmp eq i8 %660, 0
-  br i1 %.not1390, label %664, label %686
+  %660 = trunc i8 %659 to i1
+  br i1 %660, label %686, label %664
 
 661:                                              ; preds = %_ZN7testing7MessageD2Ev.exit571, %626
   %.pn250.pn = phi { ptr, i32 } [ %.pn250, %_ZN7testing7MessageD2Ev.exit571 ], [ %627, %626 ]
@@ -10359,9 +10297,8 @@ _ZN7testing15AssertionResultD2Ev.exit586:         ; preds = %686, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %693, %694
   %695 = load i8, ptr %40, align 8
-  %696 = and i8 %695, 1
-  %.not1391 = icmp eq i8 %696, 0
-  br i1 %.not1391, label %700, label %722
+  %696 = trunc i8 %695 to i1
+  br i1 %696, label %722, label %700
 
 697:                                              ; preds = %_ZN7testing7MessageD2Ev.exit583, %662
   %.pn253.pn = phi { ptr, i32 } [ %.pn253, %_ZN7testing7MessageD2Ev.exit583 ], [ %663, %662 ]
@@ -10470,9 +10407,8 @@ _ZN7testing15AssertionResultD2Ev.exit597:         ; preds = %722, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit598: ; preds = %729, %730
   %731 = load i8, ptr %43, align 8
-  %732 = and i8 %731, 1
-  %.not1392 = icmp eq i8 %732, 0
-  br i1 %.not1392, label %736, label %758
+  %732 = trunc i8 %731 to i1
+  br i1 %732, label %758, label %736
 
 733:                                              ; preds = %_ZN7testing7MessageD2Ev.exit594, %698
   %.pn256.pn = phi { ptr, i32 } [ %.pn256, %_ZN7testing7MessageD2Ev.exit594 ], [ %699, %698 ]
@@ -10581,9 +10517,8 @@ _ZN7testing15AssertionResultD2Ev.exit609:         ; preds = %758, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit610: ; preds = %765, %766
   %767 = load i8, ptr %46, align 8
-  %768 = and i8 %767, 1
-  %.not1393 = icmp eq i8 %768, 0
-  br i1 %.not1393, label %772, label %794
+  %768 = trunc i8 %767 to i1
+  br i1 %768, label %794, label %772
 
 769:                                              ; preds = %_ZN7testing7MessageD2Ev.exit606, %734
   %.pn259.pn = phi { ptr, i32 } [ %.pn259, %_ZN7testing7MessageD2Ev.exit606 ], [ %735, %734 ]
@@ -10692,9 +10627,8 @@ _ZN7testing15AssertionResultD2Ev.exit621:         ; preds = %794, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit622: ; preds = %801, %802
   %803 = load i8, ptr %49, align 8
-  %804 = and i8 %803, 1
-  %.not1394 = icmp eq i8 %804, 0
-  br i1 %.not1394, label %808, label %830
+  %804 = trunc i8 %803 to i1
+  br i1 %804, label %830, label %808
 
 805:                                              ; preds = %_ZN7testing7MessageD2Ev.exit618, %770
   %.pn262.pn = phi { ptr, i32 } [ %.pn262, %_ZN7testing7MessageD2Ev.exit618 ], [ %771, %770 ]
@@ -10803,9 +10737,8 @@ _ZN7testing15AssertionResultD2Ev.exit633:         ; preds = %830, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %837, %838
   %839 = load i8, ptr %52, align 8
-  %840 = and i8 %839, 1
-  %.not1395 = icmp eq i8 %840, 0
-  br i1 %.not1395, label %844, label %866
+  %840 = trunc i8 %839 to i1
+  br i1 %840, label %866, label %844
 
 841:                                              ; preds = %_ZN7testing7MessageD2Ev.exit630, %806
   %.pn265.pn = phi { ptr, i32 } [ %.pn265, %_ZN7testing7MessageD2Ev.exit630 ], [ %807, %806 ]
@@ -10914,9 +10847,8 @@ _ZN7testing15AssertionResultD2Ev.exit644:         ; preds = %866, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit645: ; preds = %873, %874
   %875 = load i8, ptr %55, align 8
-  %876 = and i8 %875, 1
-  %.not1396 = icmp eq i8 %876, 0
-  br i1 %.not1396, label %880, label %902
+  %876 = trunc i8 %875 to i1
+  br i1 %876, label %902, label %880
 
 877:                                              ; preds = %_ZN7testing7MessageD2Ev.exit641, %842
   %.pn268.pn = phi { ptr, i32 } [ %.pn268, %_ZN7testing7MessageD2Ev.exit641 ], [ %843, %842 ]
@@ -11025,9 +10957,8 @@ _ZN7testing15AssertionResultD2Ev.exit656:         ; preds = %902, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit657: ; preds = %909, %910
   %911 = load i8, ptr %58, align 8
-  %912 = and i8 %911, 1
-  %.not1397 = icmp eq i8 %912, 0
-  br i1 %.not1397, label %916, label %938
+  %912 = trunc i8 %911 to i1
+  br i1 %912, label %938, label %916
 
 913:                                              ; preds = %_ZN7testing7MessageD2Ev.exit653, %878
   %.pn271.pn = phi { ptr, i32 } [ %.pn271, %_ZN7testing7MessageD2Ev.exit653 ], [ %879, %878 ]
@@ -11136,9 +11067,8 @@ _ZN7testing15AssertionResultD2Ev.exit668:         ; preds = %938, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %945, %946
   %947 = load i8, ptr %61, align 8
-  %948 = and i8 %947, 1
-  %.not1398 = icmp eq i8 %948, 0
-  br i1 %.not1398, label %952, label %974
+  %948 = trunc i8 %947 to i1
+  br i1 %948, label %974, label %952
 
 949:                                              ; preds = %_ZN7testing7MessageD2Ev.exit665, %914
   %.pn274.pn = phi { ptr, i32 } [ %.pn274, %_ZN7testing7MessageD2Ev.exit665 ], [ %915, %914 ]
@@ -11247,9 +11177,8 @@ _ZN7testing15AssertionResultD2Ev.exit679:         ; preds = %974, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %981, %982
   %983 = load i8, ptr %64, align 8
-  %984 = and i8 %983, 1
-  %.not1399 = icmp eq i8 %984, 0
-  br i1 %.not1399, label %988, label %1010
+  %984 = trunc i8 %983 to i1
+  br i1 %984, label %1010, label %988
 
 985:                                              ; preds = %_ZN7testing7MessageD2Ev.exit676, %950
   %.pn277.pn = phi { ptr, i32 } [ %.pn277, %_ZN7testing7MessageD2Ev.exit676 ], [ %951, %950 ]
@@ -11360,9 +11289,8 @@ _ZN7testing15AssertionResultD2Ev.exit690:         ; preds = %1010, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit691: ; preds = %1018, %1019
   %1020 = load i8, ptr %67, align 8
-  %1021 = and i8 %1020, 1
-  %.not1400 = icmp eq i8 %1021, 0
-  br i1 %.not1400, label %1025, label %1047
+  %1021 = trunc i8 %1020 to i1
+  br i1 %1021, label %1047, label %1025
 
 1022:                                             ; preds = %_ZN7testing7MessageD2Ev.exit687, %986
   %.pn280.pn = phi { ptr, i32 } [ %.pn280, %_ZN7testing7MessageD2Ev.exit687 ], [ %987, %986 ]
@@ -11471,9 +11399,8 @@ _ZN7testing15AssertionResultD2Ev.exit702:         ; preds = %1047, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit703: ; preds = %1054, %1055
   %1056 = load i8, ptr %70, align 8
-  %1057 = and i8 %1056, 1
-  %.not1401 = icmp eq i8 %1057, 0
-  br i1 %.not1401, label %1061, label %1083
+  %1057 = trunc i8 %1056 to i1
+  br i1 %1057, label %1083, label %1061
 
 1058:                                             ; preds = %_ZN7testing7MessageD2Ev.exit699, %1023
   %.pn283.pn = phi { ptr, i32 } [ %.pn283, %_ZN7testing7MessageD2Ev.exit699 ], [ %1024, %1023 ]
@@ -11582,9 +11509,8 @@ _ZN7testing15AssertionResultD2Ev.exit714:         ; preds = %1083, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit715: ; preds = %1090, %1091
   %1092 = load i8, ptr %73, align 8
-  %1093 = and i8 %1092, 1
-  %.not1402 = icmp eq i8 %1093, 0
-  br i1 %.not1402, label %1097, label %1119
+  %1093 = trunc i8 %1092 to i1
+  br i1 %1093, label %1119, label %1097
 
 1094:                                             ; preds = %_ZN7testing7MessageD2Ev.exit711, %1059
   %.pn286.pn = phi { ptr, i32 } [ %.pn286, %_ZN7testing7MessageD2Ev.exit711 ], [ %1060, %1059 ]
@@ -11693,9 +11619,8 @@ _ZN7testing15AssertionResultD2Ev.exit726:         ; preds = %1119, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit727: ; preds = %1126, %1127
   %1128 = load i8, ptr %76, align 8
-  %1129 = and i8 %1128, 1
-  %.not1403 = icmp eq i8 %1129, 0
-  br i1 %.not1403, label %1133, label %1155
+  %1129 = trunc i8 %1128 to i1
+  br i1 %1129, label %1155, label %1133
 
 1130:                                             ; preds = %_ZN7testing7MessageD2Ev.exit723, %1095
   %.pn289.pn = phi { ptr, i32 } [ %.pn289, %_ZN7testing7MessageD2Ev.exit723 ], [ %1096, %1095 ]
@@ -11804,9 +11729,8 @@ _ZN7testing15AssertionResultD2Ev.exit738:         ; preds = %1155, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit739: ; preds = %1162, %1163
   %1164 = load i8, ptr %79, align 8
-  %1165 = and i8 %1164, 1
-  %.not1404 = icmp eq i8 %1165, 0
-  br i1 %.not1404, label %1169, label %1191
+  %1165 = trunc i8 %1164 to i1
+  br i1 %1165, label %1191, label %1169
 
 1166:                                             ; preds = %_ZN7testing7MessageD2Ev.exit735, %1131
   %.pn292.pn = phi { ptr, i32 } [ %.pn292, %_ZN7testing7MessageD2Ev.exit735 ], [ %1132, %1131 ]
@@ -11915,9 +11839,8 @@ _ZN7testing15AssertionResultD2Ev.exit750:         ; preds = %1191, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit751: ; preds = %1198, %1199
   %1200 = load i8, ptr %82, align 8
-  %1201 = and i8 %1200, 1
-  %.not1405 = icmp eq i8 %1201, 0
-  br i1 %.not1405, label %1205, label %1227
+  %1201 = trunc i8 %1200 to i1
+  br i1 %1201, label %1227, label %1205
 
 1202:                                             ; preds = %_ZN7testing7MessageD2Ev.exit747, %1167
   %.pn295.pn = phi { ptr, i32 } [ %.pn295, %_ZN7testing7MessageD2Ev.exit747 ], [ %1168, %1167 ]
@@ -12026,9 +11949,8 @@ _ZN7testing15AssertionResultD2Ev.exit762:         ; preds = %1227, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit763: ; preds = %1234, %1235
   %1236 = load i8, ptr %85, align 8
-  %1237 = and i8 %1236, 1
-  %.not1406 = icmp eq i8 %1237, 0
-  br i1 %.not1406, label %1241, label %1263
+  %1237 = trunc i8 %1236 to i1
+  br i1 %1237, label %1263, label %1241
 
 1238:                                             ; preds = %_ZN7testing7MessageD2Ev.exit759, %1203
   %.pn298.pn = phi { ptr, i32 } [ %.pn298, %_ZN7testing7MessageD2Ev.exit759 ], [ %1204, %1203 ]
@@ -12137,9 +12059,8 @@ _ZN7testing15AssertionResultD2Ev.exit774:         ; preds = %1263, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit775: ; preds = %1270, %1271
   %1272 = load i8, ptr %88, align 8
-  %1273 = and i8 %1272, 1
-  %.not1407 = icmp eq i8 %1273, 0
-  br i1 %.not1407, label %1277, label %1299
+  %1273 = trunc i8 %1272 to i1
+  br i1 %1273, label %1299, label %1277
 
 1274:                                             ; preds = %_ZN7testing7MessageD2Ev.exit771, %1239
   %.pn301.pn = phi { ptr, i32 } [ %.pn301, %_ZN7testing7MessageD2Ev.exit771 ], [ %1240, %1239 ]
@@ -12248,9 +12169,8 @@ _ZN7testing15AssertionResultD2Ev.exit786:         ; preds = %1299, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit787: ; preds = %1306, %1307
   %1308 = load i8, ptr %91, align 8
-  %1309 = and i8 %1308, 1
-  %.not1408 = icmp eq i8 %1309, 0
-  br i1 %.not1408, label %1313, label %1335
+  %1309 = trunc i8 %1308 to i1
+  br i1 %1309, label %1335, label %1313
 
 1310:                                             ; preds = %_ZN7testing7MessageD2Ev.exit783, %1275
   %.pn304.pn = phi { ptr, i32 } [ %.pn304, %_ZN7testing7MessageD2Ev.exit783 ], [ %1276, %1275 ]
@@ -12359,9 +12279,8 @@ _ZN7testing15AssertionResultD2Ev.exit798:         ; preds = %1335, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit799: ; preds = %1342, %1343
   %1344 = load i8, ptr %94, align 8
-  %1345 = and i8 %1344, 1
-  %.not1409 = icmp eq i8 %1345, 0
-  br i1 %.not1409, label %1349, label %1371
+  %1345 = trunc i8 %1344 to i1
+  br i1 %1345, label %1371, label %1349
 
 1346:                                             ; preds = %_ZN7testing7MessageD2Ev.exit795, %1311
   %.pn307.pn = phi { ptr, i32 } [ %.pn307, %_ZN7testing7MessageD2Ev.exit795 ], [ %1312, %1311 ]
@@ -12470,9 +12389,8 @@ _ZN7testing15AssertionResultD2Ev.exit810:         ; preds = %1371, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1378, %1379
   %1380 = load i8, ptr %97, align 8
-  %1381 = and i8 %1380, 1
-  %.not1410 = icmp eq i8 %1381, 0
-  br i1 %.not1410, label %1385, label %1407
+  %1381 = trunc i8 %1380 to i1
+  br i1 %1381, label %1407, label %1385
 
 1382:                                             ; preds = %_ZN7testing7MessageD2Ev.exit807, %1347
   %.pn310.pn = phi { ptr, i32 } [ %.pn310, %_ZN7testing7MessageD2Ev.exit807 ], [ %1348, %1347 ]
@@ -12581,9 +12499,8 @@ _ZN7testing15AssertionResultD2Ev.exit821:         ; preds = %1407, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1414, %1415
   %1416 = load i8, ptr %100, align 8
-  %1417 = and i8 %1416, 1
-  %.not1411 = icmp eq i8 %1417, 0
-  br i1 %.not1411, label %1421, label %1443
+  %1417 = trunc i8 %1416 to i1
+  br i1 %1417, label %1443, label %1421
 
 1418:                                             ; preds = %_ZN7testing7MessageD2Ev.exit818, %1383
   %.pn313.pn = phi { ptr, i32 } [ %.pn313, %_ZN7testing7MessageD2Ev.exit818 ], [ %1384, %1383 ]
@@ -12692,9 +12609,8 @@ _ZN7testing15AssertionResultD2Ev.exit832:         ; preds = %1443, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1450, %1451
   %1452 = load i8, ptr %103, align 8
-  %1453 = and i8 %1452, 1
-  %.not1412 = icmp eq i8 %1453, 0
-  br i1 %.not1412, label %1457, label %1479
+  %1453 = trunc i8 %1452 to i1
+  br i1 %1453, label %1479, label %1457
 
 1454:                                             ; preds = %_ZN7testing7MessageD2Ev.exit829, %1419
   %.pn316.pn = phi { ptr, i32 } [ %.pn316, %_ZN7testing7MessageD2Ev.exit829 ], [ %1420, %1419 ]
@@ -12803,9 +12719,8 @@ _ZN7testing15AssertionResultD2Ev.exit843:         ; preds = %1479, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1486, %1487
   %1488 = load i8, ptr %106, align 8
-  %1489 = and i8 %1488, 1
-  %.not1413 = icmp eq i8 %1489, 0
-  br i1 %.not1413, label %1493, label %1515
+  %1489 = trunc i8 %1488 to i1
+  br i1 %1489, label %1515, label %1493
 
 1490:                                             ; preds = %_ZN7testing7MessageD2Ev.exit840, %1455
   %.pn319.pn = phi { ptr, i32 } [ %.pn319, %_ZN7testing7MessageD2Ev.exit840 ], [ %1456, %1455 ]
@@ -12914,9 +12829,8 @@ _ZN7testing15AssertionResultD2Ev.exit854:         ; preds = %1515, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1522, %1523
   %1524 = load i8, ptr %109, align 8
-  %1525 = and i8 %1524, 1
-  %.not1414 = icmp eq i8 %1525, 0
-  br i1 %.not1414, label %1529, label %1551
+  %1525 = trunc i8 %1524 to i1
+  br i1 %1525, label %1551, label %1529
 
 1526:                                             ; preds = %_ZN7testing7MessageD2Ev.exit851, %1491
   %.pn322.pn = phi { ptr, i32 } [ %.pn322, %_ZN7testing7MessageD2Ev.exit851 ], [ %1492, %1491 ]
@@ -13027,9 +12941,8 @@ _ZN7testing15AssertionResultD2Ev.exit865:         ; preds = %1551, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit866: ; preds = %1559, %1560
   %1561 = load i8, ptr %112, align 8
-  %1562 = and i8 %1561, 1
-  %.not1415 = icmp eq i8 %1562, 0
-  br i1 %.not1415, label %1566, label %1588
+  %1562 = trunc i8 %1561 to i1
+  br i1 %1562, label %1588, label %1566
 
 1563:                                             ; preds = %_ZN7testing7MessageD2Ev.exit862, %1527
   %.pn325.pn = phi { ptr, i32 } [ %.pn325, %_ZN7testing7MessageD2Ev.exit862 ], [ %1528, %1527 ]
@@ -13138,9 +13051,8 @@ _ZN7testing15AssertionResultD2Ev.exit877:         ; preds = %1588, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit878: ; preds = %1595, %1596
   %1597 = load i8, ptr %115, align 8
-  %1598 = and i8 %1597, 1
-  %.not1416 = icmp eq i8 %1598, 0
-  br i1 %.not1416, label %1602, label %1624
+  %1598 = trunc i8 %1597 to i1
+  br i1 %1598, label %1624, label %1602
 
 1599:                                             ; preds = %_ZN7testing7MessageD2Ev.exit874, %1564
   %.pn328.pn = phi { ptr, i32 } [ %.pn328, %_ZN7testing7MessageD2Ev.exit874 ], [ %1565, %1564 ]
@@ -13249,9 +13161,8 @@ _ZN7testing15AssertionResultD2Ev.exit889:         ; preds = %1624, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit890: ; preds = %1631, %1632
   %1633 = load i8, ptr %118, align 8
-  %1634 = and i8 %1633, 1
-  %.not1417 = icmp eq i8 %1634, 0
-  br i1 %.not1417, label %1638, label %1660
+  %1634 = trunc i8 %1633 to i1
+  br i1 %1634, label %1660, label %1638
 
 1635:                                             ; preds = %_ZN7testing7MessageD2Ev.exit886, %1600
   %.pn331.pn = phi { ptr, i32 } [ %.pn331, %_ZN7testing7MessageD2Ev.exit886 ], [ %1601, %1600 ]
@@ -13360,9 +13271,8 @@ _ZN7testing15AssertionResultD2Ev.exit901:         ; preds = %1660, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit902: ; preds = %1667, %1668
   %1669 = load i8, ptr %121, align 8
-  %1670 = and i8 %1669, 1
-  %.not1418 = icmp eq i8 %1670, 0
-  br i1 %.not1418, label %1674, label %1696
+  %1670 = trunc i8 %1669 to i1
+  br i1 %1670, label %1696, label %1674
 
 1671:                                             ; preds = %_ZN7testing7MessageD2Ev.exit898, %1636
   %.pn334.pn = phi { ptr, i32 } [ %.pn334, %_ZN7testing7MessageD2Ev.exit898 ], [ %1637, %1636 ]
@@ -13471,9 +13381,8 @@ _ZN7testing15AssertionResultD2Ev.exit913:         ; preds = %1696, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit914: ; preds = %1703, %1704
   %1705 = load i8, ptr %124, align 8
-  %1706 = and i8 %1705, 1
-  %.not1419 = icmp eq i8 %1706, 0
-  br i1 %.not1419, label %1710, label %1732
+  %1706 = trunc i8 %1705 to i1
+  br i1 %1706, label %1732, label %1710
 
 1707:                                             ; preds = %_ZN7testing7MessageD2Ev.exit910, %1672
   %.pn337.pn = phi { ptr, i32 } [ %.pn337, %_ZN7testing7MessageD2Ev.exit910 ], [ %1673, %1672 ]
@@ -13582,9 +13491,8 @@ _ZN7testing15AssertionResultD2Ev.exit925:         ; preds = %1732, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit926: ; preds = %1739, %1740
   %1741 = load i8, ptr %127, align 8
-  %1742 = and i8 %1741, 1
-  %.not1420 = icmp eq i8 %1742, 0
-  br i1 %.not1420, label %1746, label %1768
+  %1742 = trunc i8 %1741 to i1
+  br i1 %1742, label %1768, label %1746
 
 1743:                                             ; preds = %_ZN7testing7MessageD2Ev.exit922, %1708
   %.pn340.pn = phi { ptr, i32 } [ %.pn340, %_ZN7testing7MessageD2Ev.exit922 ], [ %1709, %1708 ]
@@ -13693,9 +13601,8 @@ _ZN7testing15AssertionResultD2Ev.exit937:         ; preds = %1768, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit938: ; preds = %1775, %1776
   %1777 = load i8, ptr %130, align 8
-  %1778 = and i8 %1777, 1
-  %.not1421 = icmp eq i8 %1778, 0
-  br i1 %.not1421, label %1782, label %1804
+  %1778 = trunc i8 %1777 to i1
+  br i1 %1778, label %1804, label %1782
 
 1779:                                             ; preds = %_ZN7testing7MessageD2Ev.exit934, %1744
   %.pn343.pn = phi { ptr, i32 } [ %.pn343, %_ZN7testing7MessageD2Ev.exit934 ], [ %1745, %1744 ]
@@ -13804,9 +13711,8 @@ _ZN7testing15AssertionResultD2Ev.exit949:         ; preds = %1804, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit950: ; preds = %1811, %1812
   %1813 = load i8, ptr %133, align 8
-  %1814 = and i8 %1813, 1
-  %.not1422 = icmp eq i8 %1814, 0
-  br i1 %.not1422, label %1818, label %1840
+  %1814 = trunc i8 %1813 to i1
+  br i1 %1814, label %1840, label %1818
 
 1815:                                             ; preds = %_ZN7testing7MessageD2Ev.exit946, %1780
   %.pn346.pn = phi { ptr, i32 } [ %.pn346, %_ZN7testing7MessageD2Ev.exit946 ], [ %1781, %1780 ]
@@ -13915,9 +13821,8 @@ _ZN7testing15AssertionResultD2Ev.exit961:         ; preds = %1840, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit962: ; preds = %1847, %1848
   %1849 = load i8, ptr %136, align 8
-  %1850 = and i8 %1849, 1
-  %.not1423 = icmp eq i8 %1850, 0
-  br i1 %.not1423, label %1854, label %1876
+  %1850 = trunc i8 %1849 to i1
+  br i1 %1850, label %1876, label %1854
 
 1851:                                             ; preds = %_ZN7testing7MessageD2Ev.exit958, %1816
   %.pn349.pn = phi { ptr, i32 } [ %.pn349, %_ZN7testing7MessageD2Ev.exit958 ], [ %1817, %1816 ]
@@ -14026,9 +13931,8 @@ _ZN7testing15AssertionResultD2Ev.exit973:         ; preds = %1876, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit974: ; preds = %1883, %1884
   %1885 = load i8, ptr %139, align 8
-  %1886 = and i8 %1885, 1
-  %.not1424 = icmp eq i8 %1886, 0
-  br i1 %.not1424, label %1890, label %1912
+  %1886 = trunc i8 %1885 to i1
+  br i1 %1886, label %1912, label %1890
 
 1887:                                             ; preds = %_ZN7testing7MessageD2Ev.exit970, %1852
   %.pn352.pn = phi { ptr, i32 } [ %.pn352, %_ZN7testing7MessageD2Ev.exit970 ], [ %1853, %1852 ]
@@ -14137,9 +14041,8 @@ _ZN7testing15AssertionResultD2Ev.exit985:         ; preds = %1912, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit986: ; preds = %1919, %1920
   %1921 = load i8, ptr %142, align 8
-  %1922 = and i8 %1921, 1
-  %.not1425 = icmp eq i8 %1922, 0
-  br i1 %.not1425, label %1926, label %1948
+  %1922 = trunc i8 %1921 to i1
+  br i1 %1922, label %1948, label %1926
 
 1923:                                             ; preds = %_ZN7testing7MessageD2Ev.exit982, %1888
   %.pn355.pn = phi { ptr, i32 } [ %.pn355, %_ZN7testing7MessageD2Ev.exit982 ], [ %1889, %1888 ]
@@ -14248,9 +14151,8 @@ _ZN7testing15AssertionResultD2Ev.exit997:         ; preds = %1948, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit998: ; preds = %1955, %1956
   %1957 = load i8, ptr %145, align 8
-  %1958 = and i8 %1957, 1
-  %.not1426 = icmp eq i8 %1958, 0
-  br i1 %.not1426, label %1962, label %1984
+  %1958 = trunc i8 %1957 to i1
+  br i1 %1958, label %1984, label %1962
 
 1959:                                             ; preds = %_ZN7testing7MessageD2Ev.exit994, %1924
   %.pn358.pn = phi { ptr, i32 } [ %.pn358, %_ZN7testing7MessageD2Ev.exit994 ], [ %1925, %1924 ]
@@ -14359,9 +14261,8 @@ _ZN7testing15AssertionResultD2Ev.exit1009:        ; preds = %1984, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1010: ; preds = %1991, %1992
   %1993 = load i8, ptr %148, align 8
-  %1994 = and i8 %1993, 1
-  %.not1427 = icmp eq i8 %1994, 0
-  br i1 %.not1427, label %1998, label %2020
+  %1994 = trunc i8 %1993 to i1
+  br i1 %1994, label %2020, label %1998
 
 1995:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1006, %1960
   %.pn361.pn = phi { ptr, i32 } [ %.pn361, %_ZN7testing7MessageD2Ev.exit1006 ], [ %1961, %1960 ]
@@ -14470,9 +14371,8 @@ _ZN7testing15AssertionResultD2Ev.exit1021:        ; preds = %2020, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1022: ; preds = %2027, %2028
   %2029 = load i8, ptr %151, align 8
-  %2030 = and i8 %2029, 1
-  %.not1428 = icmp eq i8 %2030, 0
-  br i1 %.not1428, label %2034, label %2056
+  %2030 = trunc i8 %2029 to i1
+  br i1 %2030, label %2056, label %2034
 
 2031:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1018, %1996
   %.pn364.pn = phi { ptr, i32 } [ %.pn364, %_ZN7testing7MessageD2Ev.exit1018 ], [ %1997, %1996 ]
@@ -14581,9 +14481,8 @@ _ZN7testing15AssertionResultD2Ev.exit1033:        ; preds = %2056, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1034: ; preds = %2063, %2064
   %2065 = load i8, ptr %154, align 8
-  %2066 = and i8 %2065, 1
-  %.not1429 = icmp eq i8 %2066, 0
-  br i1 %.not1429, label %2070, label %2092
+  %2066 = trunc i8 %2065 to i1
+  br i1 %2066, label %2092, label %2070
 
 2067:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1030, %2032
   %.pn367.pn = phi { ptr, i32 } [ %.pn367, %_ZN7testing7MessageD2Ev.exit1030 ], [ %2033, %2032 ]
@@ -14692,9 +14591,8 @@ _ZN7testing15AssertionResultD2Ev.exit1045:        ; preds = %2092, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA22_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2099, %2100
   %2101 = load i8, ptr %157, align 8
-  %2102 = and i8 %2101, 1
-  %.not1430 = icmp eq i8 %2102, 0
-  br i1 %.not1430, label %2106, label %2128
+  %2102 = trunc i8 %2101 to i1
+  br i1 %2102, label %2128, label %2106
 
 2103:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1042, %2068
   %.pn370.pn = phi { ptr, i32 } [ %.pn370, %_ZN7testing7MessageD2Ev.exit1042 ], [ %2069, %2068 ]
@@ -14805,9 +14703,8 @@ _ZN7testing15AssertionResultD2Ev.exit1056:        ; preds = %2128, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1057: ; preds = %2136, %2137
   %2138 = load i8, ptr %160, align 8
-  %2139 = and i8 %2138, 1
-  %.not1431 = icmp eq i8 %2139, 0
-  br i1 %.not1431, label %2143, label %2165
+  %2139 = trunc i8 %2138 to i1
+  br i1 %2139, label %2165, label %2143
 
 2140:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1053, %2104
   %.pn373.pn = phi { ptr, i32 } [ %.pn373, %_ZN7testing7MessageD2Ev.exit1053 ], [ %2105, %2104 ]
@@ -14916,9 +14813,8 @@ _ZN7testing15AssertionResultD2Ev.exit1068:        ; preds = %2165, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1069: ; preds = %2172, %2173
   %2174 = load i8, ptr %163, align 8
-  %2175 = and i8 %2174, 1
-  %.not1432 = icmp eq i8 %2175, 0
-  br i1 %.not1432, label %2179, label %2201
+  %2175 = trunc i8 %2174 to i1
+  br i1 %2175, label %2201, label %2179
 
 2176:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1065, %2141
   %.pn376.pn = phi { ptr, i32 } [ %.pn376, %_ZN7testing7MessageD2Ev.exit1065 ], [ %2142, %2141 ]
@@ -15027,9 +14923,8 @@ _ZN7testing15AssertionResultD2Ev.exit1080:        ; preds = %2201, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1081: ; preds = %2208, %2209
   %2210 = load i8, ptr %166, align 8
-  %2211 = and i8 %2210, 1
-  %.not1433 = icmp eq i8 %2211, 0
-  br i1 %.not1433, label %2215, label %2237
+  %2211 = trunc i8 %2210 to i1
+  br i1 %2211, label %2237, label %2215
 
 2212:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1077, %2177
   %.pn379.pn = phi { ptr, i32 } [ %.pn379, %_ZN7testing7MessageD2Ev.exit1077 ], [ %2178, %2177 ]
@@ -15138,9 +15033,8 @@ _ZN7testing15AssertionResultD2Ev.exit1092:        ; preds = %2237, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1093: ; preds = %2244, %2245
   %2246 = load i8, ptr %169, align 8
-  %2247 = and i8 %2246, 1
-  %.not1434 = icmp eq i8 %2247, 0
-  br i1 %.not1434, label %2251, label %2273
+  %2247 = trunc i8 %2246 to i1
+  br i1 %2247, label %2273, label %2251
 
 2248:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1089, %2213
   %.pn382.pn = phi { ptr, i32 } [ %.pn382, %_ZN7testing7MessageD2Ev.exit1089 ], [ %2214, %2213 ]
@@ -15249,9 +15143,8 @@ _ZN7testing15AssertionResultD2Ev.exit1104:        ; preds = %2273, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1105: ; preds = %2280, %2281
   %2282 = load i8, ptr %172, align 8
-  %2283 = and i8 %2282, 1
-  %.not1435 = icmp eq i8 %2283, 0
-  br i1 %.not1435, label %2287, label %2309
+  %2283 = trunc i8 %2282 to i1
+  br i1 %2283, label %2309, label %2287
 
 2284:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1101, %2249
   %.pn385.pn = phi { ptr, i32 } [ %.pn385, %_ZN7testing7MessageD2Ev.exit1101 ], [ %2250, %2249 ]
@@ -15360,9 +15253,8 @@ _ZN7testing15AssertionResultD2Ev.exit1116:        ; preds = %2309, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1117: ; preds = %2316, %2317
   %2318 = load i8, ptr %175, align 8
-  %2319 = and i8 %2318, 1
-  %.not1436 = icmp eq i8 %2319, 0
-  br i1 %.not1436, label %2323, label %2345
+  %2319 = trunc i8 %2318 to i1
+  br i1 %2319, label %2345, label %2323
 
 2320:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1113, %2285
   %.pn388.pn = phi { ptr, i32 } [ %.pn388, %_ZN7testing7MessageD2Ev.exit1113 ], [ %2286, %2285 ]
@@ -15471,9 +15363,8 @@ _ZN7testing15AssertionResultD2Ev.exit1128:        ; preds = %2345, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1129: ; preds = %2352, %2353
   %2354 = load i8, ptr %178, align 8
-  %2355 = and i8 %2354, 1
-  %.not1437 = icmp eq i8 %2355, 0
-  br i1 %.not1437, label %2359, label %2381
+  %2355 = trunc i8 %2354 to i1
+  br i1 %2355, label %2381, label %2359
 
 2356:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1125, %2321
   %.pn391.pn = phi { ptr, i32 } [ %.pn391, %_ZN7testing7MessageD2Ev.exit1125 ], [ %2322, %2321 ]
@@ -15582,9 +15473,8 @@ _ZN7testing15AssertionResultD2Ev.exit1140:        ; preds = %2381, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1141: ; preds = %2388, %2389
   %2390 = load i8, ptr %181, align 8
-  %2391 = and i8 %2390, 1
-  %.not1438 = icmp eq i8 %2391, 0
-  br i1 %.not1438, label %2395, label %2417
+  %2391 = trunc i8 %2390 to i1
+  br i1 %2391, label %2417, label %2395
 
 2392:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1137, %2357
   %.pn394.pn = phi { ptr, i32 } [ %.pn394, %_ZN7testing7MessageD2Ev.exit1137 ], [ %2358, %2357 ]
@@ -15693,9 +15583,8 @@ _ZN7testing15AssertionResultD2Ev.exit1152:        ; preds = %2417, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1153: ; preds = %2424, %2425
   %2426 = load i8, ptr %184, align 8
-  %2427 = and i8 %2426, 1
-  %.not1439 = icmp eq i8 %2427, 0
-  br i1 %.not1439, label %2431, label %2453
+  %2427 = trunc i8 %2426 to i1
+  br i1 %2427, label %2453, label %2431
 
 2428:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1149, %2393
   %.pn397.pn = phi { ptr, i32 } [ %.pn397, %_ZN7testing7MessageD2Ev.exit1149 ], [ %2394, %2393 ]
@@ -15804,9 +15693,8 @@ _ZN7testing15AssertionResultD2Ev.exit1164:        ; preds = %2453, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1165: ; preds = %2460, %2461
   %2462 = load i8, ptr %187, align 8
-  %2463 = and i8 %2462, 1
-  %.not1440 = icmp eq i8 %2463, 0
-  br i1 %.not1440, label %2467, label %2489
+  %2463 = trunc i8 %2462 to i1
+  br i1 %2463, label %2489, label %2467
 
 2464:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1161, %2429
   %.pn400.pn = phi { ptr, i32 } [ %.pn400, %_ZN7testing7MessageD2Ev.exit1161 ], [ %2430, %2429 ]
@@ -15915,9 +15803,8 @@ _ZN7testing15AssertionResultD2Ev.exit1176:        ; preds = %2489, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1177: ; preds = %2496, %2497
   %2498 = load i8, ptr %190, align 8
-  %2499 = and i8 %2498, 1
-  %.not1441 = icmp eq i8 %2499, 0
-  br i1 %.not1441, label %2503, label %2525
+  %2499 = trunc i8 %2498 to i1
+  br i1 %2499, label %2525, label %2503
 
 2500:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1173, %2465
   %.pn403.pn = phi { ptr, i32 } [ %.pn403, %_ZN7testing7MessageD2Ev.exit1173 ], [ %2466, %2465 ]
@@ -16026,9 +15913,8 @@ _ZN7testing15AssertionResultD2Ev.exit1188:        ; preds = %2525, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1189: ; preds = %2532, %2533
   %2534 = load i8, ptr %193, align 8
-  %2535 = and i8 %2534, 1
-  %.not1442 = icmp eq i8 %2535, 0
-  br i1 %.not1442, label %2539, label %2561
+  %2535 = trunc i8 %2534 to i1
+  br i1 %2535, label %2561, label %2539
 
 2536:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1185, %2501
   %.pn406.pn = phi { ptr, i32 } [ %.pn406, %_ZN7testing7MessageD2Ev.exit1185 ], [ %2502, %2501 ]
@@ -16137,9 +16023,8 @@ _ZN7testing15AssertionResultD2Ev.exit1200:        ; preds = %2561, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2568, %2569
   %2570 = load i8, ptr %196, align 8
-  %2571 = and i8 %2570, 1
-  %.not1443 = icmp eq i8 %2571, 0
-  br i1 %.not1443, label %2575, label %2597
+  %2571 = trunc i8 %2570 to i1
+  br i1 %2571, label %2597, label %2575
 
 2572:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1197, %2537
   %.pn409.pn = phi { ptr, i32 } [ %.pn409, %_ZN7testing7MessageD2Ev.exit1197 ], [ %2538, %2537 ]
@@ -16248,9 +16133,8 @@ _ZN7testing15AssertionResultD2Ev.exit1211:        ; preds = %2597, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1212: ; preds = %2604, %2605
   %2606 = load i8, ptr %199, align 8
-  %2607 = and i8 %2606, 1
-  %.not1444 = icmp eq i8 %2607, 0
-  br i1 %.not1444, label %2611, label %2633
+  %2607 = trunc i8 %2606 to i1
+  br i1 %2607, label %2633, label %2611
 
 2608:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1208, %2573
   %.pn412.pn = phi { ptr, i32 } [ %.pn412, %_ZN7testing7MessageD2Ev.exit1208 ], [ %2574, %2573 ]
@@ -16359,9 +16243,8 @@ _ZN7testing15AssertionResultD2Ev.exit1223:        ; preds = %2633, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1224: ; preds = %2640, %2641
   %2642 = load i8, ptr %202, align 8
-  %2643 = and i8 %2642, 1
-  %.not1445 = icmp eq i8 %2643, 0
-  br i1 %.not1445, label %2647, label %2669
+  %2643 = trunc i8 %2642 to i1
+  br i1 %2643, label %2669, label %2647
 
 2644:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1220, %2609
   %.pn415.pn = phi { ptr, i32 } [ %.pn415, %_ZN7testing7MessageD2Ev.exit1220 ], [ %2610, %2609 ]
@@ -16472,9 +16355,8 @@ _ZN7testing15AssertionResultD2Ev.exit1235:        ; preds = %2669, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1236: ; preds = %2677, %2678
   %2679 = load i8, ptr %205, align 8
-  %2680 = and i8 %2679, 1
-  %.not1446 = icmp eq i8 %2680, 0
-  br i1 %.not1446, label %2684, label %2706
+  %2680 = trunc i8 %2679 to i1
+  br i1 %2680, label %2706, label %2684
 
 2681:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1232, %2645
   %.pn418.pn = phi { ptr, i32 } [ %.pn418, %_ZN7testing7MessageD2Ev.exit1232 ], [ %2646, %2645 ]
@@ -16583,9 +16465,8 @@ _ZN7testing15AssertionResultD2Ev.exit1247:        ; preds = %2706, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1248: ; preds = %2713, %2714
   %2715 = load i8, ptr %208, align 8
-  %2716 = and i8 %2715, 1
-  %.not1447 = icmp eq i8 %2716, 0
-  br i1 %.not1447, label %2720, label %2742
+  %2716 = trunc i8 %2715 to i1
+  br i1 %2716, label %2742, label %2720
 
 2717:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1244, %2682
   %.pn421.pn = phi { ptr, i32 } [ %.pn421, %_ZN7testing7MessageD2Ev.exit1244 ], [ %2683, %2682 ]
@@ -16694,9 +16575,8 @@ _ZN7testing15AssertionResultD2Ev.exit1259:        ; preds = %2742, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1260: ; preds = %2749, %2750
   %2751 = load i8, ptr %211, align 8
-  %2752 = and i8 %2751, 1
-  %.not1448 = icmp eq i8 %2752, 0
-  br i1 %.not1448, label %2756, label %2778
+  %2752 = trunc i8 %2751 to i1
+  br i1 %2752, label %2778, label %2756
 
 2753:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1256, %2718
   %.pn424.pn = phi { ptr, i32 } [ %.pn424, %_ZN7testing7MessageD2Ev.exit1256 ], [ %2719, %2718 ]
@@ -16805,9 +16685,8 @@ _ZN7testing15AssertionResultD2Ev.exit1271:        ; preds = %2778, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1272: ; preds = %2785, %2786
   %2787 = load i8, ptr %214, align 8
-  %2788 = and i8 %2787, 1
-  %.not1449 = icmp eq i8 %2788, 0
-  br i1 %.not1449, label %2792, label %2814
+  %2788 = trunc i8 %2787 to i1
+  br i1 %2788, label %2814, label %2792
 
 2789:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1268, %2754
   %.pn427.pn = phi { ptr, i32 } [ %.pn427, %_ZN7testing7MessageD2Ev.exit1268 ], [ %2755, %2754 ]
@@ -16916,9 +16795,8 @@ _ZN7testing15AssertionResultD2Ev.exit1283:        ; preds = %2814, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1284: ; preds = %2821, %2822
   %2823 = load i8, ptr %217, align 8
-  %2824 = and i8 %2823, 1
-  %.not1450 = icmp eq i8 %2824, 0
-  br i1 %.not1450, label %2828, label %2850
+  %2824 = trunc i8 %2823 to i1
+  br i1 %2824, label %2850, label %2828
 
 2825:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1280, %2790
   %.pn430.pn = phi { ptr, i32 } [ %.pn430, %_ZN7testing7MessageD2Ev.exit1280 ], [ %2791, %2790 ]
@@ -17027,9 +16905,8 @@ _ZN7testing15AssertionResultD2Ev.exit1295:        ; preds = %2850, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1296: ; preds = %2857, %2858
   %2859 = load i8, ptr %220, align 8
-  %2860 = and i8 %2859, 1
-  %.not1451 = icmp eq i8 %2860, 0
-  br i1 %.not1451, label %2864, label %2886
+  %2860 = trunc i8 %2859 to i1
+  br i1 %2860, label %2886, label %2864
 
 2861:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1292, %2826
   %.pn433.pn = phi { ptr, i32 } [ %.pn433, %_ZN7testing7MessageD2Ev.exit1292 ], [ %2827, %2826 ]
@@ -17138,9 +17015,8 @@ _ZN7testing15AssertionResultD2Ev.exit1307:        ; preds = %2886, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1308: ; preds = %2893, %2894
   %2895 = load i8, ptr %223, align 8
-  %2896 = and i8 %2895, 1
-  %.not1452 = icmp eq i8 %2896, 0
-  br i1 %.not1452, label %2900, label %2922
+  %2896 = trunc i8 %2895 to i1
+  br i1 %2896, label %2922, label %2900
 
 2897:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1304, %2862
   %.pn436.pn = phi { ptr, i32 } [ %.pn436, %_ZN7testing7MessageD2Ev.exit1304 ], [ %2863, %2862 ]
@@ -17249,9 +17125,8 @@ _ZN7testing15AssertionResultD2Ev.exit1319:        ; preds = %2922, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1320: ; preds = %2929, %2930
   %2931 = load i8, ptr %226, align 8
-  %2932 = and i8 %2931, 1
-  %.not1453 = icmp eq i8 %2932, 0
-  br i1 %.not1453, label %2936, label %2958
+  %2932 = trunc i8 %2931 to i1
+  br i1 %2932, label %2958, label %2936
 
 2933:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1316, %2898
   %.pn439.pn = phi { ptr, i32 } [ %.pn439, %_ZN7testing7MessageD2Ev.exit1316 ], [ %2899, %2898 ]
@@ -17360,9 +17235,8 @@ _ZN7testing15AssertionResultD2Ev.exit1331:        ; preds = %2958, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1332: ; preds = %2965, %2966
   %2967 = load i8, ptr %229, align 8
-  %2968 = and i8 %2967, 1
-  %.not1454 = icmp eq i8 %2968, 0
-  br i1 %.not1454, label %2972, label %2994
+  %2968 = trunc i8 %2967 to i1
+  br i1 %2968, label %2994, label %2972
 
 2969:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1328, %2934
   %.pn442.pn = phi { ptr, i32 } [ %.pn442, %_ZN7testing7MessageD2Ev.exit1328 ], [ %2935, %2934 ]
@@ -17471,9 +17345,8 @@ _ZN7testing15AssertionResultD2Ev.exit1343:        ; preds = %2994, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1344: ; preds = %3001, %3002
   %3003 = load i8, ptr %232, align 8
-  %3004 = and i8 %3003, 1
-  %.not1455 = icmp eq i8 %3004, 0
-  br i1 %.not1455, label %3008, label %3030
+  %3004 = trunc i8 %3003 to i1
+  br i1 %3004, label %3030, label %3008
 
 3005:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1340, %2970
   %.pn445.pn = phi { ptr, i32 } [ %.pn445, %_ZN7testing7MessageD2Ev.exit1340 ], [ %2971, %2970 ]
@@ -17582,9 +17455,8 @@ _ZN7testing15AssertionResultD2Ev.exit1355:        ; preds = %3030, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1356: ; preds = %3037, %3038
   %3039 = load i8, ptr %235, align 8
-  %3040 = and i8 %3039, 1
-  %.not1456 = icmp eq i8 %3040, 0
-  br i1 %.not1456, label %3044, label %3066
+  %3040 = trunc i8 %3039 to i1
+  br i1 %3040, label %3066, label %3044
 
 3041:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1352, %3006
   %.pn448.pn = phi { ptr, i32 } [ %.pn448, %_ZN7testing7MessageD2Ev.exit1352 ], [ %3007, %3006 ]
@@ -17693,9 +17565,8 @@ _ZN7testing15AssertionResultD2Ev.exit1367:        ; preds = %3066, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1368: ; preds = %3073, %3074
   %3075 = load i8, ptr %238, align 8
-  %3076 = and i8 %3075, 1
-  %.not1457 = icmp eq i8 %3076, 0
-  br i1 %.not1457, label %3080, label %3102
+  %3076 = trunc i8 %3075 to i1
+  br i1 %3076, label %3102, label %3080
 
 3077:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1364, %3042
   %.pn451.pn = phi { ptr, i32 } [ %.pn451, %_ZN7testing7MessageD2Ev.exit1364 ], [ %3043, %3042 ]
@@ -17940,9 +17811,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit: ; preds = %_ZN4i18n12phonenumb
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %70, %71
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %72 = load i8, ptr %4, align 8
-  %73 = and i8 %72, 1
-  %.not = icmp eq i8 %73, 0
-  br i1 %.not, label %82, label %104
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %104, label %82
 
 74:                                               ; preds = %.noexc, %1
   %75 = landingpad { ptr, i32 }
@@ -18103,9 +17973,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit74: ; preds = %_ZN4i18n12phonenu
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %121, %122
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %123 = load i8, ptr %8, align 8
-  %124 = and i8 %123, 1
-  %.not226 = icmp eq i8 %124, 0
-  br i1 %.not226, label %130, label %152
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %152, label %130
 
 125:                                              ; preds = %_ZN7testing7MessageD2Ev.exit69, %80
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %_ZN7testing7MessageD2Ev.exit69 ], [ %81, %80 ]
@@ -18255,9 +18124,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit91: ; preds = %_ZN4i18n12phonenu
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit94: ; preds = %169, %170
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   %171 = load i8, ptr %12, align 8
-  %172 = and i8 %171, 1
-  %.not227 = icmp eq i8 %172, 0
-  br i1 %.not227, label %178, label %200
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %200, label %178
 
 173:                                              ; preds = %_ZN7testing7MessageD2Ev.exit84, %128
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN7testing7MessageD2Ev.exit84 ], [ %129, %128 ]
@@ -18407,9 +18275,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit109: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %217, %218
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %219 = load i8, ptr %16, align 8
-  %220 = and i8 %219, 1
-  %.not228 = icmp eq i8 %220, 0
-  br i1 %.not228, label %226, label %248
+  %220 = trunc i8 %219 to i1
+  br i1 %220, label %248, label %226
 
 221:                                              ; preds = %_ZN7testing7MessageD2Ev.exit102, %176
   %.pn38.pn = phi { ptr, i32 } [ %.pn38, %_ZN7testing7MessageD2Ev.exit102 ], [ %177, %176 ]
@@ -18559,9 +18426,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit126: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit129: ; preds = %265, %266
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   %267 = load i8, ptr %20, align 8
-  %268 = and i8 %267, 1
-  %.not229 = icmp eq i8 %268, 0
-  br i1 %.not229, label %274, label %296
+  %268 = trunc i8 %267 to i1
+  br i1 %268, label %296, label %274
 
 269:                                              ; preds = %_ZN7testing7MessageD2Ev.exit119, %224
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %_ZN7testing7MessageD2Ev.exit119 ], [ %225, %224 ]
@@ -18711,9 +18577,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit144: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %313, %314
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   %315 = load i8, ptr %24, align 8
-  %316 = and i8 %315, 1
-  %.not230 = icmp eq i8 %316, 0
-  br i1 %.not230, label %322, label %344
+  %316 = trunc i8 %315 to i1
+  br i1 %316, label %344, label %322
 
 317:                                              ; preds = %_ZN7testing7MessageD2Ev.exit137, %272
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit137 ], [ %273, %272 ]
@@ -18863,9 +18728,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit161: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %361, %362
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   %363 = load i8, ptr %28, align 8
-  %364 = and i8 %363, 1
-  %.not231 = icmp eq i8 %364, 0
-  br i1 %.not231, label %370, label %392
+  %364 = trunc i8 %363 to i1
+  br i1 %364, label %392, label %370
 
 365:                                              ; preds = %_ZN7testing7MessageD2Ev.exit154, %320
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZN7testing7MessageD2Ev.exit154 ], [ %321, %320 ]
@@ -19015,9 +18879,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit178: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %409, %410
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
   %411 = load i8, ptr %32, align 8
-  %412 = and i8 %411, 1
-  %.not232 = icmp eq i8 %412, 0
-  br i1 %.not232, label %418, label %440
+  %412 = trunc i8 %411 to i1
+  br i1 %412, label %440, label %418
 
 413:                                              ; preds = %_ZN7testing7MessageD2Ev.exit171, %368
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %_ZN7testing7MessageD2Ev.exit171 ], [ %369, %368 ]
@@ -19167,9 +19030,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit195: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %457, %458
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #13
   %459 = load i8, ptr %36, align 8
-  %460 = and i8 %459, 1
-  %.not233 = icmp eq i8 %460, 0
-  br i1 %.not233, label %466, label %488
+  %460 = trunc i8 %459 to i1
+  br i1 %460, label %488, label %466
 
 461:                                              ; preds = %_ZN7testing7MessageD2Ev.exit188, %416
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %_ZN7testing7MessageD2Ev.exit188 ], [ %417, %416 ]
@@ -19319,9 +19181,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit212: ; preds = %_ZN4i18n12phonen
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %505, %506
   call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
   %507 = load i8, ptr %40, align 8
-  %508 = and i8 %507, 1
-  %.not234 = icmp eq i8 %508, 0
-  br i1 %.not234, label %514, label %536
+  %508 = trunc i8 %507 to i1
+  br i1 %508, label %536, label %514
 
 509:                                              ; preds = %_ZN7testing7MessageD2Ev.exit205, %464
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %_ZN7testing7MessageD2Ev.exit205 ], [ %465, %464 ]
@@ -19504,9 +19365,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %35, %36
   %37 = load i8, ptr %4, align 8
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %45, label %67
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %67, label %45
 
 39:                                               ; preds = %.noexc, %1
   %40 = landingpad { ptr, i32 }
@@ -19626,9 +19486,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %67, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %74, %75
   %76 = load i8, ptr %7, align 8
-  %77 = and i8 %76, 1
-  %.not81 = icmp eq i8 %77, 0
-  br i1 %.not81, label %81, label %103
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %103, label %81
 
 78:                                               ; preds = %_ZN7testing7MessageD2Ev.exit35, %43
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZN7testing7MessageD2Ev.exit35 ], [ %44, %43 ]
@@ -19737,9 +19596,8 @@ _ZN7testing15AssertionResultD2Ev.exit47:          ; preds = %103, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %110, %111
   %112 = load i8, ptr %10, align 8
-  %113 = and i8 %112, 1
-  %.not82 = icmp eq i8 %113, 0
-  br i1 %.not82, label %117, label %139
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %139, label %117
 
 114:                                              ; preds = %_ZN7testing7MessageD2Ev.exit44, %79
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit44 ], [ %80, %79 ]
@@ -19848,9 +19706,8 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %139, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %146, %147
   %148 = load i8, ptr %13, align 8
-  %149 = and i8 %148, 1
-  %.not83 = icmp eq i8 %149, 0
-  br i1 %.not83, label %153, label %175
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %175, label %153
 
 150:                                              ; preds = %_ZN7testing7MessageD2Ev.exit55, %115
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN7testing7MessageD2Ev.exit55 ], [ %116, %115 ]
@@ -19959,9 +19816,8 @@ _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %175, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %182, %183
   %184 = load i8, ptr %16, align 8
-  %185 = and i8 %184, 1
-  %.not84 = icmp eq i8 %185, 0
-  br i1 %.not84, label %189, label %211
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %211, label %189
 
 186:                                              ; preds = %_ZN7testing7MessageD2Ev.exit66, %151
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZN7testing7MessageD2Ev.exit66 ], [ %152, %151 ]
@@ -20161,9 +20017,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %56, %57
   %58 = load i8, ptr %4, align 8
-  %59 = and i8 %58, 1
-  %.not = icmp eq i8 %59, 0
-  br i1 %.not, label %66, label %88
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %88, label %66
 
 60:                                               ; preds = %.noexc, %1
   %61 = landingpad { ptr, i32 }
@@ -20283,9 +20138,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %88, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %95, %96
   %97 = load i8, ptr %7, align 8
-  %98 = and i8 %97, 1
-  %.not200 = icmp eq i8 %98, 0
-  br i1 %.not200, label %102, label %124
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %124, label %102
 
 99:                                               ; preds = %_ZN7testing7MessageD2Ev.exit77, %64
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %_ZN7testing7MessageD2Ev.exit77 ], [ %65, %64 ]
@@ -20394,9 +20248,8 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %124, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %131, %132
   %133 = load i8, ptr %10, align 8
-  %134 = and i8 %133, 1
-  %.not201 = icmp eq i8 %134, 0
-  br i1 %.not201, label %138, label %160
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %160, label %138
 
 135:                                              ; preds = %_ZN7testing7MessageD2Ev.exit86, %100
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit86 ], [ %101, %100 ]
@@ -20505,9 +20358,8 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %160, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %167, %168
   %169 = load i8, ptr %13, align 8
-  %170 = and i8 %169, 1
-  %.not202 = icmp eq i8 %170, 0
-  br i1 %.not202, label %174, label %196
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %196, label %174
 
 171:                                              ; preds = %_ZN7testing7MessageD2Ev.exit97, %136
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZN7testing7MessageD2Ev.exit97 ], [ %137, %136 ]
@@ -20616,9 +20468,8 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %196, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %203, %204
   %205 = load i8, ptr %16, align 8
-  %206 = and i8 %205, 1
-  %.not203 = icmp eq i8 %206, 0
-  br i1 %.not203, label %210, label %232
+  %206 = trunc i8 %205 to i1
+  br i1 %206, label %232, label %210
 
 207:                                              ; preds = %_ZN7testing7MessageD2Ev.exit108, %172
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %_ZN7testing7MessageD2Ev.exit108 ], [ %173, %172 ]
@@ -20727,9 +20578,8 @@ _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %232, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %239, %240
   %241 = load i8, ptr %19, align 8
-  %242 = and i8 %241, 1
-  %.not204 = icmp eq i8 %242, 0
-  br i1 %.not204, label %246, label %268
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %268, label %246
 
 243:                                              ; preds = %_ZN7testing7MessageD2Ev.exit119, %208
   %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZN7testing7MessageD2Ev.exit119 ], [ %209, %208 ]
@@ -20838,9 +20688,8 @@ _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %268, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %275, %276
   %277 = load i8, ptr %22, align 8
-  %278 = and i8 %277, 1
-  %.not205 = icmp eq i8 %278, 0
-  br i1 %.not205, label %282, label %304
+  %278 = trunc i8 %277 to i1
+  br i1 %278, label %304, label %282
 
 279:                                              ; preds = %_ZN7testing7MessageD2Ev.exit130, %244
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZN7testing7MessageD2Ev.exit130 ], [ %245, %244 ]
@@ -20949,9 +20798,8 @@ _ZN7testing15AssertionResultD2Ev.exit144:         ; preds = %304, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %311, %312
   %313 = load i8, ptr %25, align 8
-  %314 = and i8 %313, 1
-  %.not206 = icmp eq i8 %314, 0
-  br i1 %.not206, label %318, label %340
+  %314 = trunc i8 %313 to i1
+  br i1 %314, label %340, label %318
 
 315:                                              ; preds = %_ZN7testing7MessageD2Ev.exit141, %280
   %.pn54.pn = phi { ptr, i32 } [ %.pn54, %_ZN7testing7MessageD2Ev.exit141 ], [ %281, %280 ]
@@ -21060,9 +20908,8 @@ _ZN7testing15AssertionResultD2Ev.exit155:         ; preds = %340, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %347, %348
   %349 = load i8, ptr %28, align 8
-  %350 = and i8 %349, 1
-  %.not207 = icmp eq i8 %350, 0
-  br i1 %.not207, label %354, label %376
+  %350 = trunc i8 %349 to i1
+  br i1 %350, label %376, label %354
 
 351:                                              ; preds = %_ZN7testing7MessageD2Ev.exit152, %316
   %.pn57.pn = phi { ptr, i32 } [ %.pn57, %_ZN7testing7MessageD2Ev.exit152 ], [ %317, %316 ]
@@ -21171,9 +21018,8 @@ _ZN7testing15AssertionResultD2Ev.exit166:         ; preds = %376, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %383, %384
   %385 = load i8, ptr %31, align 8
-  %386 = and i8 %385, 1
-  %.not208 = icmp eq i8 %386, 0
-  br i1 %.not208, label %390, label %412
+  %386 = trunc i8 %385 to i1
+  br i1 %386, label %412, label %390
 
 387:                                              ; preds = %_ZN7testing7MessageD2Ev.exit163, %352
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %_ZN7testing7MessageD2Ev.exit163 ], [ %353, %352 ]
@@ -21282,9 +21128,8 @@ _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %412, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %419, %420
   %421 = load i8, ptr %34, align 8
-  %422 = and i8 %421, 1
-  %.not209 = icmp eq i8 %422, 0
-  br i1 %.not209, label %426, label %448
+  %422 = trunc i8 %421 to i1
+  br i1 %422, label %448, label %426
 
 423:                                              ; preds = %_ZN7testing7MessageD2Ev.exit174, %388
   %.pn63.pn = phi { ptr, i32 } [ %.pn63, %_ZN7testing7MessageD2Ev.exit174 ], [ %389, %388 ]
@@ -21393,9 +21238,8 @@ _ZN7testing15AssertionResultD2Ev.exit188:         ; preds = %448, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %455, %456
   %457 = load i8, ptr %37, align 8
-  %458 = and i8 %457, 1
-  %.not210 = icmp eq i8 %458, 0
-  br i1 %.not210, label %462, label %484
+  %458 = trunc i8 %457 to i1
+  br i1 %458, label %484, label %462
 
 459:                                              ; preds = %_ZN7testing7MessageD2Ev.exit185, %424
   %.pn66.pn = phi { ptr, i32 } [ %.pn66, %_ZN7testing7MessageD2Ev.exit185 ], [ %425, %424 ]
@@ -21967,9 +21811,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %428, %429
   %430 = load i8, ptr %4, align 8
-  %431 = and i8 %430, 1
-  %.not = icmp eq i8 %431, 0
-  br i1 %.not, label %438, label %460
+  %431 = trunc i8 %430 to i1
+  br i1 %431, label %460, label %438
 
 432:                                              ; preds = %.noexc, %1
   %433 = landingpad { ptr, i32 }
@@ -22091,9 +21934,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %460, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %467, %468
   %469 = load i8, ptr %7, align 8
-  %470 = and i8 %469, 1
-  %.not2051 = icmp eq i8 %470, 0
-  br i1 %.not2051, label %474, label %496
+  %470 = trunc i8 %469 to i1
+  br i1 %470, label %496, label %474
 
 471:                                              ; preds = %_ZN7testing7MessageD2Ev.exit687, %436
   %.pn334.pn = phi { ptr, i32 } [ %.pn334, %_ZN7testing7MessageD2Ev.exit687 ], [ %437, %436 ]
@@ -22202,9 +22044,8 @@ _ZN7testing15AssertionResultD2Ev.exit699:         ; preds = %496, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %503, %504
   %505 = load i8, ptr %12, align 8
-  %506 = and i8 %505, 1
-  %.not2052 = icmp eq i8 %506, 0
-  br i1 %.not2052, label %510, label %532
+  %506 = trunc i8 %505 to i1
+  br i1 %506, label %532, label %510
 
 507:                                              ; preds = %_ZN7testing7MessageD2Ev.exit696, %472
   %.pn337.pn = phi { ptr, i32 } [ %.pn337, %_ZN7testing7MessageD2Ev.exit696 ], [ %473, %472 ]
@@ -22313,9 +22154,8 @@ _ZN7testing15AssertionResultD2Ev.exit710:         ; preds = %532, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %539, %540
   %541 = load i8, ptr %15, align 8
-  %542 = and i8 %541, 1
-  %.not2053 = icmp eq i8 %542, 0
-  br i1 %.not2053, label %546, label %568
+  %542 = trunc i8 %541 to i1
+  br i1 %542, label %568, label %546
 
 543:                                              ; preds = %_ZN7testing7MessageD2Ev.exit707, %508
   %.pn340.pn = phi { ptr, i32 } [ %.pn340, %_ZN7testing7MessageD2Ev.exit707 ], [ %509, %508 ]
@@ -22426,9 +22266,8 @@ _ZN7testing15AssertionResultD2Ev.exit721:         ; preds = %568, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit722: ; preds = %575, %576
   %577 = load i8, ptr %18, align 8
-  %578 = and i8 %577, 1
-  %.not2054 = icmp eq i8 %578, 0
-  br i1 %.not2054, label %582, label %604
+  %578 = trunc i8 %577 to i1
+  br i1 %578, label %604, label %582
 
 579:                                              ; preds = %_ZN7testing7MessageD2Ev.exit718, %544
   %.pn343.pn = phi { ptr, i32 } [ %.pn343, %_ZN7testing7MessageD2Ev.exit718 ], [ %545, %544 ]
@@ -22537,9 +22376,8 @@ _ZN7testing15AssertionResultD2Ev.exit733:         ; preds = %604, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %611, %612
   %613 = load i8, ptr %23, align 8
-  %614 = and i8 %613, 1
-  %.not2055 = icmp eq i8 %614, 0
-  br i1 %.not2055, label %618, label %640
+  %614 = trunc i8 %613 to i1
+  br i1 %614, label %640, label %618
 
 615:                                              ; preds = %_ZN7testing7MessageD2Ev.exit730, %580
   %.pn346.pn = phi { ptr, i32 } [ %.pn346, %_ZN7testing7MessageD2Ev.exit730 ], [ %581, %580 ]
@@ -22650,9 +22488,8 @@ _ZN7testing15AssertionResultD2Ev.exit744:         ; preds = %640, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit745: ; preds = %647, %648
   %649 = load i8, ptr %26, align 8
-  %650 = and i8 %649, 1
-  %.not2056 = icmp eq i8 %650, 0
-  br i1 %.not2056, label %654, label %676
+  %650 = trunc i8 %649 to i1
+  br i1 %650, label %676, label %654
 
 651:                                              ; preds = %_ZN7testing7MessageD2Ev.exit741, %616
   %.pn349.pn = phi { ptr, i32 } [ %.pn349, %_ZN7testing7MessageD2Ev.exit741 ], [ %617, %616 ]
@@ -22761,9 +22598,8 @@ _ZN7testing15AssertionResultD2Ev.exit756:         ; preds = %676, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %683, %684
   %685 = load i8, ptr %31, align 8
-  %686 = and i8 %685, 1
-  %.not2057 = icmp eq i8 %686, 0
-  br i1 %.not2057, label %690, label %712
+  %686 = trunc i8 %685 to i1
+  br i1 %686, label %712, label %690
 
 687:                                              ; preds = %_ZN7testing7MessageD2Ev.exit753, %652
   %.pn352.pn = phi { ptr, i32 } [ %.pn352, %_ZN7testing7MessageD2Ev.exit753 ], [ %653, %652 ]
@@ -22872,9 +22708,8 @@ _ZN7testing15AssertionResultD2Ev.exit767:         ; preds = %712, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %719, %720
   %721 = load i8, ptr %34, align 8
-  %722 = and i8 %721, 1
-  %.not2058 = icmp eq i8 %722, 0
-  br i1 %.not2058, label %726, label %748
+  %722 = trunc i8 %721 to i1
+  br i1 %722, label %748, label %726
 
 723:                                              ; preds = %_ZN7testing7MessageD2Ev.exit764, %688
   %.pn355.pn = phi { ptr, i32 } [ %.pn355, %_ZN7testing7MessageD2Ev.exit764 ], [ %689, %688 ]
@@ -22985,9 +22820,8 @@ _ZN7testing15AssertionResultD2Ev.exit778:         ; preds = %748, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit779: ; preds = %755, %756
   %757 = load i8, ptr %37, align 8
-  %758 = and i8 %757, 1
-  %.not2059 = icmp eq i8 %758, 0
-  br i1 %.not2059, label %762, label %784
+  %758 = trunc i8 %757 to i1
+  br i1 %758, label %784, label %762
 
 759:                                              ; preds = %_ZN7testing7MessageD2Ev.exit775, %724
   %.pn358.pn = phi { ptr, i32 } [ %.pn358, %_ZN7testing7MessageD2Ev.exit775 ], [ %725, %724 ]
@@ -23096,9 +22930,8 @@ _ZN7testing15AssertionResultD2Ev.exit790:         ; preds = %784, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %791, %792
   %793 = load i8, ptr %42, align 8
-  %794 = and i8 %793, 1
-  %.not2060 = icmp eq i8 %794, 0
-  br i1 %.not2060, label %798, label %820
+  %794 = trunc i8 %793 to i1
+  br i1 %794, label %820, label %798
 
 795:                                              ; preds = %_ZN7testing7MessageD2Ev.exit787, %760
   %.pn361.pn = phi { ptr, i32 } [ %.pn361, %_ZN7testing7MessageD2Ev.exit787 ], [ %761, %760 ]
@@ -23207,9 +23040,8 @@ _ZN7testing15AssertionResultD2Ev.exit801:         ; preds = %820, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %827, %828
   %829 = load i8, ptr %45, align 8
-  %830 = and i8 %829, 1
-  %.not2061 = icmp eq i8 %830, 0
-  br i1 %.not2061, label %834, label %856
+  %830 = trunc i8 %829 to i1
+  br i1 %830, label %856, label %834
 
 831:                                              ; preds = %_ZN7testing7MessageD2Ev.exit798, %796
   %.pn364.pn = phi { ptr, i32 } [ %.pn364, %_ZN7testing7MessageD2Ev.exit798 ], [ %797, %796 ]
@@ -23318,9 +23150,8 @@ _ZN7testing15AssertionResultD2Ev.exit812:         ; preds = %856, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %863, %864
   %865 = load i8, ptr %48, align 8
-  %866 = and i8 %865, 1
-  %.not2062 = icmp eq i8 %866, 0
-  br i1 %.not2062, label %870, label %892
+  %866 = trunc i8 %865 to i1
+  br i1 %866, label %892, label %870
 
 867:                                              ; preds = %_ZN7testing7MessageD2Ev.exit809, %832
   %.pn367.pn = phi { ptr, i32 } [ %.pn367, %_ZN7testing7MessageD2Ev.exit809 ], [ %833, %832 ]
@@ -23431,9 +23262,8 @@ _ZN7testing15AssertionResultD2Ev.exit823:         ; preds = %892, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit824: ; preds = %899, %900
   %901 = load i8, ptr %51, align 8
-  %902 = and i8 %901, 1
-  %.not2063 = icmp eq i8 %902, 0
-  br i1 %.not2063, label %906, label %928
+  %902 = trunc i8 %901 to i1
+  br i1 %902, label %928, label %906
 
 903:                                              ; preds = %_ZN7testing7MessageD2Ev.exit820, %868
   %.pn370.pn = phi { ptr, i32 } [ %.pn370, %_ZN7testing7MessageD2Ev.exit820 ], [ %869, %868 ]
@@ -23542,9 +23372,8 @@ _ZN7testing15AssertionResultD2Ev.exit835:         ; preds = %928, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %935, %936
   %937 = load i8, ptr %56, align 8
-  %938 = and i8 %937, 1
-  %.not2064 = icmp eq i8 %938, 0
-  br i1 %.not2064, label %942, label %964
+  %938 = trunc i8 %937 to i1
+  br i1 %938, label %964, label %942
 
 939:                                              ; preds = %_ZN7testing7MessageD2Ev.exit832, %904
   %.pn373.pn = phi { ptr, i32 } [ %.pn373, %_ZN7testing7MessageD2Ev.exit832 ], [ %905, %904 ]
@@ -23655,9 +23484,8 @@ _ZN7testing15AssertionResultD2Ev.exit846:         ; preds = %964, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit847: ; preds = %971, %972
   %973 = load i8, ptr %59, align 8
-  %974 = and i8 %973, 1
-  %.not2065 = icmp eq i8 %974, 0
-  br i1 %.not2065, label %978, label %1000
+  %974 = trunc i8 %973 to i1
+  br i1 %974, label %1000, label %978
 
 975:                                              ; preds = %_ZN7testing7MessageD2Ev.exit843, %940
   %.pn376.pn = phi { ptr, i32 } [ %.pn376, %_ZN7testing7MessageD2Ev.exit843 ], [ %941, %940 ]
@@ -23766,9 +23594,8 @@ _ZN7testing15AssertionResultD2Ev.exit858:         ; preds = %1000, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1007, %1008
   %1009 = load i8, ptr %64, align 8
-  %1010 = and i8 %1009, 1
-  %.not2066 = icmp eq i8 %1010, 0
-  br i1 %.not2066, label %1014, label %1036
+  %1010 = trunc i8 %1009 to i1
+  br i1 %1010, label %1036, label %1014
 
 1011:                                             ; preds = %_ZN7testing7MessageD2Ev.exit855, %976
   %.pn379.pn = phi { ptr, i32 } [ %.pn379, %_ZN7testing7MessageD2Ev.exit855 ], [ %977, %976 ]
@@ -23879,9 +23706,8 @@ _ZN7testing15AssertionResultD2Ev.exit869:         ; preds = %1036, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit870: ; preds = %1043, %1044
   %1045 = load i8, ptr %67, align 8
-  %1046 = and i8 %1045, 1
-  %.not2067 = icmp eq i8 %1046, 0
-  br i1 %.not2067, label %1050, label %1072
+  %1046 = trunc i8 %1045 to i1
+  br i1 %1046, label %1072, label %1050
 
 1047:                                             ; preds = %_ZN7testing7MessageD2Ev.exit866, %1012
   %.pn382.pn = phi { ptr, i32 } [ %.pn382, %_ZN7testing7MessageD2Ev.exit866 ], [ %1013, %1012 ]
@@ -23990,9 +23816,8 @@ _ZN7testing15AssertionResultD2Ev.exit881:         ; preds = %1072, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit882: ; preds = %1079, %1080
   %1081 = load i8, ptr %72, align 8
-  %1082 = and i8 %1081, 1
-  %.not2068 = icmp eq i8 %1082, 0
-  br i1 %.not2068, label %1086, label %1108
+  %1082 = trunc i8 %1081 to i1
+  br i1 %1082, label %1108, label %1086
 
 1083:                                             ; preds = %_ZN7testing7MessageD2Ev.exit878, %1048
   %.pn385.pn = phi { ptr, i32 } [ %.pn385, %_ZN7testing7MessageD2Ev.exit878 ], [ %1049, %1048 ]
@@ -24103,9 +23928,8 @@ _ZN7testing15AssertionResultD2Ev.exit893:         ; preds = %1108, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit894: ; preds = %1115, %1116
   %1117 = load i8, ptr %75, align 8
-  %1118 = and i8 %1117, 1
-  %.not2069 = icmp eq i8 %1118, 0
-  br i1 %.not2069, label %1122, label %1144
+  %1118 = trunc i8 %1117 to i1
+  br i1 %1118, label %1144, label %1122
 
 1119:                                             ; preds = %_ZN7testing7MessageD2Ev.exit890, %1084
   %.pn388.pn = phi { ptr, i32 } [ %.pn388, %_ZN7testing7MessageD2Ev.exit890 ], [ %1085, %1084 ]
@@ -24214,9 +24038,8 @@ _ZN7testing15AssertionResultD2Ev.exit905:         ; preds = %1144, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit906: ; preds = %1151, %1152
   %1153 = load i8, ptr %80, align 8
-  %1154 = and i8 %1153, 1
-  %.not2070 = icmp eq i8 %1154, 0
-  br i1 %.not2070, label %1158, label %1180
+  %1154 = trunc i8 %1153 to i1
+  br i1 %1154, label %1180, label %1158
 
 1155:                                             ; preds = %_ZN7testing7MessageD2Ev.exit902, %1120
   %.pn391.pn = phi { ptr, i32 } [ %.pn391, %_ZN7testing7MessageD2Ev.exit902 ], [ %1121, %1120 ]
@@ -24327,9 +24150,8 @@ _ZN7testing15AssertionResultD2Ev.exit917:         ; preds = %1180, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit918: ; preds = %1187, %1188
   %1189 = load i8, ptr %83, align 8
-  %1190 = and i8 %1189, 1
-  %.not2071 = icmp eq i8 %1190, 0
-  br i1 %.not2071, label %1194, label %1216
+  %1190 = trunc i8 %1189 to i1
+  br i1 %1190, label %1216, label %1194
 
 1191:                                             ; preds = %_ZN7testing7MessageD2Ev.exit914, %1156
   %.pn394.pn = phi { ptr, i32 } [ %.pn394, %_ZN7testing7MessageD2Ev.exit914 ], [ %1157, %1156 ]
@@ -24440,9 +24262,8 @@ _ZN7testing15AssertionResultD2Ev.exit929:         ; preds = %1216, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit930: ; preds = %1224, %1225
   %1226 = load i8, ptr %88, align 8
-  %1227 = and i8 %1226, 1
-  %.not2072 = icmp eq i8 %1227, 0
-  br i1 %.not2072, label %1231, label %1253
+  %1227 = trunc i8 %1226 to i1
+  br i1 %1227, label %1253, label %1231
 
 1228:                                             ; preds = %_ZN7testing7MessageD2Ev.exit926, %1192
   %.pn397.pn = phi { ptr, i32 } [ %.pn397, %_ZN7testing7MessageD2Ev.exit926 ], [ %1193, %1192 ]
@@ -24551,9 +24372,8 @@ _ZN7testing15AssertionResultD2Ev.exit941:         ; preds = %1253, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit942: ; preds = %1260, %1261
   %1262 = load i8, ptr %91, align 8
-  %1263 = and i8 %1262, 1
-  %.not2073 = icmp eq i8 %1263, 0
-  br i1 %.not2073, label %1267, label %1289
+  %1263 = trunc i8 %1262 to i1
+  br i1 %1263, label %1289, label %1267
 
 1264:                                             ; preds = %_ZN7testing7MessageD2Ev.exit938, %1229
   %.pn400.pn = phi { ptr, i32 } [ %.pn400, %_ZN7testing7MessageD2Ev.exit938 ], [ %1230, %1229 ]
@@ -24664,9 +24484,8 @@ _ZN7testing15AssertionResultD2Ev.exit953:         ; preds = %1289, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit954: ; preds = %1296, %1297
   %1298 = load i8, ptr %94, align 8
-  %1299 = and i8 %1298, 1
-  %.not2074 = icmp eq i8 %1299, 0
-  br i1 %.not2074, label %1303, label %1325
+  %1299 = trunc i8 %1298 to i1
+  br i1 %1299, label %1325, label %1303
 
 1300:                                             ; preds = %_ZN7testing7MessageD2Ev.exit950, %1265
   %.pn403.pn = phi { ptr, i32 } [ %.pn403, %_ZN7testing7MessageD2Ev.exit950 ], [ %1266, %1265 ]
@@ -24775,9 +24594,8 @@ _ZN7testing15AssertionResultD2Ev.exit965:         ; preds = %1325, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit966: ; preds = %1332, %1333
   %1334 = load i8, ptr %99, align 8
-  %1335 = and i8 %1334, 1
-  %.not2075 = icmp eq i8 %1335, 0
-  br i1 %.not2075, label %1339, label %1361
+  %1335 = trunc i8 %1334 to i1
+  br i1 %1335, label %1361, label %1339
 
 1336:                                             ; preds = %_ZN7testing7MessageD2Ev.exit962, %1301
   %.pn406.pn = phi { ptr, i32 } [ %.pn406, %_ZN7testing7MessageD2Ev.exit962 ], [ %1302, %1301 ]
@@ -24886,9 +24704,8 @@ _ZN7testing15AssertionResultD2Ev.exit977:         ; preds = %1361, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit978: ; preds = %1368, %1369
   %1370 = load i8, ptr %102, align 8
-  %1371 = and i8 %1370, 1
-  %.not2076 = icmp eq i8 %1371, 0
-  br i1 %.not2076, label %1375, label %1397
+  %1371 = trunc i8 %1370 to i1
+  br i1 %1371, label %1397, label %1375
 
 1372:                                             ; preds = %_ZN7testing7MessageD2Ev.exit974, %1337
   %.pn409.pn = phi { ptr, i32 } [ %.pn409, %_ZN7testing7MessageD2Ev.exit974 ], [ %1338, %1337 ]
@@ -24999,9 +24816,8 @@ _ZN7testing15AssertionResultD2Ev.exit989:         ; preds = %1397, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit990: ; preds = %1404, %1405
   %1406 = load i8, ptr %105, align 8
-  %1407 = and i8 %1406, 1
-  %.not2077 = icmp eq i8 %1407, 0
-  br i1 %.not2077, label %1411, label %1433
+  %1407 = trunc i8 %1406 to i1
+  br i1 %1407, label %1433, label %1411
 
 1408:                                             ; preds = %_ZN7testing7MessageD2Ev.exit986, %1373
   %.pn412.pn = phi { ptr, i32 } [ %.pn412, %_ZN7testing7MessageD2Ev.exit986 ], [ %1374, %1373 ]
@@ -25110,9 +24926,8 @@ _ZN7testing15AssertionResultD2Ev.exit1001:        ; preds = %1433, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1002: ; preds = %1440, %1441
   %1442 = load i8, ptr %110, align 8
-  %1443 = and i8 %1442, 1
-  %.not2078 = icmp eq i8 %1443, 0
-  br i1 %.not2078, label %1447, label %1469
+  %1443 = trunc i8 %1442 to i1
+  br i1 %1443, label %1469, label %1447
 
 1444:                                             ; preds = %_ZN7testing7MessageD2Ev.exit998, %1409
   %.pn415.pn = phi { ptr, i32 } [ %.pn415, %_ZN7testing7MessageD2Ev.exit998 ], [ %1410, %1409 ]
@@ -25221,9 +25036,8 @@ _ZN7testing15AssertionResultD2Ev.exit1013:        ; preds = %1469, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1014: ; preds = %1476, %1477
   %1478 = load i8, ptr %113, align 8
-  %1479 = and i8 %1478, 1
-  %.not2079 = icmp eq i8 %1479, 0
-  br i1 %.not2079, label %1483, label %1505
+  %1479 = trunc i8 %1478 to i1
+  br i1 %1479, label %1505, label %1483
 
 1480:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1010, %1445
   %.pn418.pn = phi { ptr, i32 } [ %.pn418, %_ZN7testing7MessageD2Ev.exit1010 ], [ %1446, %1445 ]
@@ -25334,9 +25148,8 @@ _ZN7testing15AssertionResultD2Ev.exit1025:        ; preds = %1505, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1026: ; preds = %1512, %1513
   %1514 = load i8, ptr %116, align 8
-  %1515 = and i8 %1514, 1
-  %.not2080 = icmp eq i8 %1515, 0
-  br i1 %.not2080, label %1519, label %1541
+  %1515 = trunc i8 %1514 to i1
+  br i1 %1515, label %1541, label %1519
 
 1516:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1022, %1481
   %.pn421.pn = phi { ptr, i32 } [ %.pn421, %_ZN7testing7MessageD2Ev.exit1022 ], [ %1482, %1481 ]
@@ -25445,9 +25258,8 @@ _ZN7testing15AssertionResultD2Ev.exit1037:        ; preds = %1541, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1038: ; preds = %1548, %1549
   %1550 = load i8, ptr %121, align 8
-  %1551 = and i8 %1550, 1
-  %.not2081 = icmp eq i8 %1551, 0
-  br i1 %.not2081, label %1555, label %1577
+  %1551 = trunc i8 %1550 to i1
+  br i1 %1551, label %1577, label %1555
 
 1552:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1034, %1517
   %.pn424.pn = phi { ptr, i32 } [ %.pn424, %_ZN7testing7MessageD2Ev.exit1034 ], [ %1518, %1517 ]
@@ -25556,9 +25368,8 @@ _ZN7testing15AssertionResultD2Ev.exit1049:        ; preds = %1577, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1050: ; preds = %1584, %1585
   %1586 = load i8, ptr %124, align 8
-  %1587 = and i8 %1586, 1
-  %.not2082 = icmp eq i8 %1587, 0
-  br i1 %.not2082, label %1591, label %1613
+  %1587 = trunc i8 %1586 to i1
+  br i1 %1587, label %1613, label %1591
 
 1588:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1046, %1553
   %.pn427.pn = phi { ptr, i32 } [ %.pn427, %_ZN7testing7MessageD2Ev.exit1046 ], [ %1554, %1553 ]
@@ -25667,9 +25478,8 @@ _ZN7testing15AssertionResultD2Ev.exit1061:        ; preds = %1613, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1062: ; preds = %1620, %1621
   %1622 = load i8, ptr %127, align 8
-  %1623 = and i8 %1622, 1
-  %.not2083 = icmp eq i8 %1623, 0
-  br i1 %.not2083, label %1627, label %1649
+  %1623 = trunc i8 %1622 to i1
+  br i1 %1623, label %1649, label %1627
 
 1624:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1058, %1589
   %.pn430.pn = phi { ptr, i32 } [ %.pn430, %_ZN7testing7MessageD2Ev.exit1058 ], [ %1590, %1589 ]
@@ -25780,9 +25590,8 @@ _ZN7testing15AssertionResultD2Ev.exit1073:        ; preds = %1649, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1074: ; preds = %1656, %1657
   %1658 = load i8, ptr %130, align 8
-  %1659 = and i8 %1658, 1
-  %.not2084 = icmp eq i8 %1659, 0
-  br i1 %.not2084, label %1663, label %1685
+  %1659 = trunc i8 %1658 to i1
+  br i1 %1659, label %1685, label %1663
 
 1660:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1070, %1625
   %.pn433.pn = phi { ptr, i32 } [ %.pn433, %_ZN7testing7MessageD2Ev.exit1070 ], [ %1626, %1625 ]
@@ -25891,9 +25700,8 @@ _ZN7testing15AssertionResultD2Ev.exit1085:        ; preds = %1685, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1086: ; preds = %1692, %1693
   %1694 = load i8, ptr %135, align 8
-  %1695 = and i8 %1694, 1
-  %.not2085 = icmp eq i8 %1695, 0
-  br i1 %.not2085, label %1699, label %1721
+  %1695 = trunc i8 %1694 to i1
+  br i1 %1695, label %1721, label %1699
 
 1696:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1082, %1661
   %.pn436.pn = phi { ptr, i32 } [ %.pn436, %_ZN7testing7MessageD2Ev.exit1082 ], [ %1662, %1661 ]
@@ -26002,9 +25810,8 @@ _ZN7testing15AssertionResultD2Ev.exit1097:        ; preds = %1721, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1098: ; preds = %1728, %1729
   %1730 = load i8, ptr %138, align 8
-  %1731 = and i8 %1730, 1
-  %.not2086 = icmp eq i8 %1731, 0
-  br i1 %.not2086, label %1735, label %1757
+  %1731 = trunc i8 %1730 to i1
+  br i1 %1731, label %1757, label %1735
 
 1732:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1094, %1697
   %.pn439.pn = phi { ptr, i32 } [ %.pn439, %_ZN7testing7MessageD2Ev.exit1094 ], [ %1698, %1697 ]
@@ -26113,9 +25920,8 @@ _ZN7testing15AssertionResultD2Ev.exit1109:        ; preds = %1757, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1110: ; preds = %1764, %1765
   %1766 = load i8, ptr %141, align 8
-  %1767 = and i8 %1766, 1
-  %.not2087 = icmp eq i8 %1767, 0
-  br i1 %.not2087, label %1771, label %1793
+  %1767 = trunc i8 %1766 to i1
+  br i1 %1767, label %1793, label %1771
 
 1768:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1106, %1733
   %.pn442.pn = phi { ptr, i32 } [ %.pn442, %_ZN7testing7MessageD2Ev.exit1106 ], [ %1734, %1733 ]
@@ -26226,9 +26032,8 @@ _ZN7testing15AssertionResultD2Ev.exit1121:        ; preds = %1793, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1122: ; preds = %1800, %1801
   %1802 = load i8, ptr %144, align 8
-  %1803 = and i8 %1802, 1
-  %.not2088 = icmp eq i8 %1803, 0
-  br i1 %.not2088, label %1807, label %1829
+  %1803 = trunc i8 %1802 to i1
+  br i1 %1803, label %1829, label %1807
 
 1804:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1118, %1769
   %.pn445.pn = phi { ptr, i32 } [ %.pn445, %_ZN7testing7MessageD2Ev.exit1118 ], [ %1770, %1769 ]
@@ -26337,9 +26142,8 @@ _ZN7testing15AssertionResultD2Ev.exit1133:        ; preds = %1829, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1134: ; preds = %1836, %1837
   %1838 = load i8, ptr %149, align 8
-  %1839 = and i8 %1838, 1
-  %.not2089 = icmp eq i8 %1839, 0
-  br i1 %.not2089, label %1843, label %1865
+  %1839 = trunc i8 %1838 to i1
+  br i1 %1839, label %1865, label %1843
 
 1840:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1130, %1805
   %.pn448.pn = phi { ptr, i32 } [ %.pn448, %_ZN7testing7MessageD2Ev.exit1130 ], [ %1806, %1805 ]
@@ -26450,9 +26254,8 @@ _ZN7testing15AssertionResultD2Ev.exit1145:        ; preds = %1865, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1146: ; preds = %1872, %1873
   %1874 = load i8, ptr %152, align 8
-  %1875 = and i8 %1874, 1
-  %.not2090 = icmp eq i8 %1875, 0
-  br i1 %.not2090, label %1879, label %1901
+  %1875 = trunc i8 %1874 to i1
+  br i1 %1875, label %1901, label %1879
 
 1876:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1142, %1841
   %.pn451.pn = phi { ptr, i32 } [ %.pn451, %_ZN7testing7MessageD2Ev.exit1142 ], [ %1842, %1841 ]
@@ -26563,9 +26366,8 @@ _ZN7testing15AssertionResultD2Ev.exit1157:        ; preds = %1901, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1158: ; preds = %1909, %1910
   %1911 = load i8, ptr %157, align 8
-  %1912 = and i8 %1911, 1
-  %.not2091 = icmp eq i8 %1912, 0
-  br i1 %.not2091, label %1916, label %1938
+  %1912 = trunc i8 %1911 to i1
+  br i1 %1912, label %1938, label %1916
 
 1913:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1154, %1877
   %.pn454.pn = phi { ptr, i32 } [ %.pn454, %_ZN7testing7MessageD2Ev.exit1154 ], [ %1878, %1877 ]
@@ -26674,9 +26476,8 @@ _ZN7testing15AssertionResultD2Ev.exit1169:        ; preds = %1938, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1170: ; preds = %1945, %1946
   %1947 = load i8, ptr %160, align 8
-  %1948 = and i8 %1947, 1
-  %.not2092 = icmp eq i8 %1948, 0
-  br i1 %.not2092, label %1952, label %1974
+  %1948 = trunc i8 %1947 to i1
+  br i1 %1948, label %1974, label %1952
 
 1949:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1166, %1914
   %.pn457.pn = phi { ptr, i32 } [ %.pn457, %_ZN7testing7MessageD2Ev.exit1166 ], [ %1915, %1914 ]
@@ -26785,9 +26586,8 @@ _ZN7testing15AssertionResultD2Ev.exit1181:        ; preds = %1974, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1981, %1982
   %1983 = load i8, ptr %163, align 8
-  %1984 = and i8 %1983, 1
-  %.not2093 = icmp eq i8 %1984, 0
-  br i1 %.not2093, label %1988, label %2010
+  %1984 = trunc i8 %1983 to i1
+  br i1 %1984, label %2010, label %1988
 
 1985:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1178, %1950
   %.pn460.pn = phi { ptr, i32 } [ %.pn460, %_ZN7testing7MessageD2Ev.exit1178 ], [ %1951, %1950 ]
@@ -26896,9 +26696,8 @@ _ZN7testing15AssertionResultD2Ev.exit1192:        ; preds = %2010, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1193: ; preds = %2017, %2018
   %2019 = load i8, ptr %166, align 8
-  %2020 = and i8 %2019, 1
-  %.not2094 = icmp eq i8 %2020, 0
-  br i1 %.not2094, label %2024, label %2046
+  %2020 = trunc i8 %2019 to i1
+  br i1 %2020, label %2046, label %2024
 
 2021:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1189, %1986
   %.pn463.pn = phi { ptr, i32 } [ %.pn463, %_ZN7testing7MessageD2Ev.exit1189 ], [ %1987, %1986 ]
@@ -27007,9 +26806,8 @@ _ZN7testing15AssertionResultD2Ev.exit1204:        ; preds = %2046, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2053, %2054
   %2055 = load i8, ptr %169, align 8
-  %2056 = and i8 %2055, 1
-  %.not2095 = icmp eq i8 %2056, 0
-  br i1 %.not2095, label %2060, label %2082
+  %2056 = trunc i8 %2055 to i1
+  br i1 %2056, label %2082, label %2060
 
 2057:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1201, %2022
   %.pn466.pn = phi { ptr, i32 } [ %.pn466, %_ZN7testing7MessageD2Ev.exit1201 ], [ %2023, %2022 ]
@@ -27118,9 +26916,8 @@ _ZN7testing15AssertionResultD2Ev.exit1215:        ; preds = %2082, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1216: ; preds = %2089, %2090
   %2091 = load i8, ptr %172, align 8
-  %2092 = and i8 %2091, 1
-  %.not2096 = icmp eq i8 %2092, 0
-  br i1 %.not2096, label %2096, label %2118
+  %2092 = trunc i8 %2091 to i1
+  br i1 %2092, label %2118, label %2096
 
 2093:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1212, %2058
   %.pn469.pn = phi { ptr, i32 } [ %.pn469, %_ZN7testing7MessageD2Ev.exit1212 ], [ %2059, %2058 ]
@@ -27229,9 +27026,8 @@ _ZN7testing15AssertionResultD2Ev.exit1227:        ; preds = %2118, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1228: ; preds = %2125, %2126
   %2127 = load i8, ptr %175, align 8
-  %2128 = and i8 %2127, 1
-  %.not2097 = icmp eq i8 %2128, 0
-  br i1 %.not2097, label %2132, label %2154
+  %2128 = trunc i8 %2127 to i1
+  br i1 %2128, label %2154, label %2132
 
 2129:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1224, %2094
   %.pn472.pn = phi { ptr, i32 } [ %.pn472, %_ZN7testing7MessageD2Ev.exit1224 ], [ %2095, %2094 ]
@@ -27342,9 +27138,8 @@ _ZN7testing15AssertionResultD2Ev.exit1239:        ; preds = %2154, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1240: ; preds = %2161, %2162
   %2163 = load i8, ptr %178, align 8
-  %2164 = and i8 %2163, 1
-  %.not2098 = icmp eq i8 %2164, 0
-  br i1 %.not2098, label %2168, label %2190
+  %2164 = trunc i8 %2163 to i1
+  br i1 %2164, label %2190, label %2168
 
 2165:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1236, %2130
   %.pn475.pn = phi { ptr, i32 } [ %.pn475, %_ZN7testing7MessageD2Ev.exit1236 ], [ %2131, %2130 ]
@@ -27453,9 +27248,8 @@ _ZN7testing15AssertionResultD2Ev.exit1251:        ; preds = %2190, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2197, %2198
   %2199 = load i8, ptr %183, align 8
-  %2200 = and i8 %2199, 1
-  %.not2099 = icmp eq i8 %2200, 0
-  br i1 %.not2099, label %2204, label %2226
+  %2200 = trunc i8 %2199 to i1
+  br i1 %2200, label %2226, label %2204
 
 2201:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1248, %2166
   %.pn478.pn = phi { ptr, i32 } [ %.pn478, %_ZN7testing7MessageD2Ev.exit1248 ], [ %2167, %2166 ]
@@ -27566,9 +27360,8 @@ _ZN7testing15AssertionResultD2Ev.exit1262:        ; preds = %2226, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1263: ; preds = %2233, %2234
   %2235 = load i8, ptr %186, align 8
-  %2236 = and i8 %2235, 1
-  %.not2100 = icmp eq i8 %2236, 0
-  br i1 %.not2100, label %2240, label %2262
+  %2236 = trunc i8 %2235 to i1
+  br i1 %2236, label %2262, label %2240
 
 2237:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1259, %2202
   %.pn481.pn = phi { ptr, i32 } [ %.pn481, %_ZN7testing7MessageD2Ev.exit1259 ], [ %2203, %2202 ]
@@ -27677,9 +27470,8 @@ _ZN7testing15AssertionResultD2Ev.exit1274:        ; preds = %2262, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1275: ; preds = %2269, %2270
   %2271 = load i8, ptr %191, align 8
-  %2272 = and i8 %2271, 1
-  %.not2101 = icmp eq i8 %2272, 0
-  br i1 %.not2101, label %2276, label %2298
+  %2272 = trunc i8 %2271 to i1
+  br i1 %2272, label %2298, label %2276
 
 2273:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1271, %2238
   %.pn484.pn = phi { ptr, i32 } [ %.pn484, %_ZN7testing7MessageD2Ev.exit1271 ], [ %2239, %2238 ]
@@ -27788,9 +27580,8 @@ _ZN7testing15AssertionResultD2Ev.exit1286:        ; preds = %2298, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1287: ; preds = %2305, %2306
   %2307 = load i8, ptr %194, align 8
-  %2308 = and i8 %2307, 1
-  %.not2102 = icmp eq i8 %2308, 0
-  br i1 %.not2102, label %2312, label %2334
+  %2308 = trunc i8 %2307 to i1
+  br i1 %2308, label %2334, label %2312
 
 2309:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1283, %2274
   %.pn487.pn = phi { ptr, i32 } [ %.pn487, %_ZN7testing7MessageD2Ev.exit1283 ], [ %2275, %2274 ]
@@ -27901,9 +27692,8 @@ _ZN7testing15AssertionResultD2Ev.exit1298:        ; preds = %2334, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1299: ; preds = %2341, %2342
   %2343 = load i8, ptr %197, align 8
-  %2344 = and i8 %2343, 1
-  %.not2103 = icmp eq i8 %2344, 0
-  br i1 %.not2103, label %2348, label %2370
+  %2344 = trunc i8 %2343 to i1
+  br i1 %2344, label %2370, label %2348
 
 2345:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1295, %2310
   %.pn490.pn = phi { ptr, i32 } [ %.pn490, %_ZN7testing7MessageD2Ev.exit1295 ], [ %2311, %2310 ]
@@ -28012,9 +27802,8 @@ _ZN7testing15AssertionResultD2Ev.exit1310:        ; preds = %2370, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1311: ; preds = %2377, %2378
   %2379 = load i8, ptr %202, align 8
-  %2380 = and i8 %2379, 1
-  %.not2104 = icmp eq i8 %2380, 0
-  br i1 %.not2104, label %2384, label %2406
+  %2380 = trunc i8 %2379 to i1
+  br i1 %2380, label %2406, label %2384
 
 2381:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1307, %2346
   %.pn493.pn = phi { ptr, i32 } [ %.pn493, %_ZN7testing7MessageD2Ev.exit1307 ], [ %2347, %2346 ]
@@ -28125,9 +27914,8 @@ _ZN7testing15AssertionResultD2Ev.exit1322:        ; preds = %2406, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1323: ; preds = %2414, %2415
   %2416 = load i8, ptr %205, align 8
-  %2417 = and i8 %2416, 1
-  %.not2105 = icmp eq i8 %2417, 0
-  br i1 %.not2105, label %2421, label %2443
+  %2417 = trunc i8 %2416 to i1
+  br i1 %2417, label %2443, label %2421
 
 2418:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1319, %2382
   %.pn496.pn = phi { ptr, i32 } [ %.pn496, %_ZN7testing7MessageD2Ev.exit1319 ], [ %2383, %2382 ]
@@ -28236,9 +28024,8 @@ _ZN7testing15AssertionResultD2Ev.exit1334:        ; preds = %2443, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1335: ; preds = %2450, %2451
   %2452 = load i8, ptr %208, align 8
-  %2453 = and i8 %2452, 1
-  %.not2106 = icmp eq i8 %2453, 0
-  br i1 %.not2106, label %2457, label %2479
+  %2453 = trunc i8 %2452 to i1
+  br i1 %2453, label %2479, label %2457
 
 2454:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1331, %2419
   %.pn499.pn = phi { ptr, i32 } [ %.pn499, %_ZN7testing7MessageD2Ev.exit1331 ], [ %2420, %2419 ]
@@ -28347,9 +28134,8 @@ _ZN7testing15AssertionResultD2Ev.exit1346:        ; preds = %2479, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1347: ; preds = %2486, %2487
   %2488 = load i8, ptr %211, align 8
-  %2489 = and i8 %2488, 1
-  %.not2107 = icmp eq i8 %2489, 0
-  br i1 %.not2107, label %2493, label %2515
+  %2489 = trunc i8 %2488 to i1
+  br i1 %2489, label %2515, label %2493
 
 2490:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1343, %2455
   %.pn502.pn = phi { ptr, i32 } [ %.pn502, %_ZN7testing7MessageD2Ev.exit1343 ], [ %2456, %2455 ]
@@ -28458,9 +28244,8 @@ _ZN7testing15AssertionResultD2Ev.exit1358:        ; preds = %2515, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1359: ; preds = %2522, %2523
   %2524 = load i8, ptr %214, align 8
-  %2525 = and i8 %2524, 1
-  %.not2108 = icmp eq i8 %2525, 0
-  br i1 %.not2108, label %2529, label %2551
+  %2525 = trunc i8 %2524 to i1
+  br i1 %2525, label %2551, label %2529
 
 2526:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1355, %2491
   %.pn505.pn = phi { ptr, i32 } [ %.pn505, %_ZN7testing7MessageD2Ev.exit1355 ], [ %2492, %2491 ]
@@ -28569,9 +28354,8 @@ _ZN7testing15AssertionResultD2Ev.exit1370:        ; preds = %2551, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1371: ; preds = %2558, %2559
   %2560 = load i8, ptr %217, align 8
-  %2561 = and i8 %2560, 1
-  %.not2109 = icmp eq i8 %2561, 0
-  br i1 %.not2109, label %2565, label %2587
+  %2561 = trunc i8 %2560 to i1
+  br i1 %2561, label %2587, label %2565
 
 2562:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1367, %2527
   %.pn508.pn = phi { ptr, i32 } [ %.pn508, %_ZN7testing7MessageD2Ev.exit1367 ], [ %2528, %2527 ]
@@ -28682,9 +28466,8 @@ _ZN7testing15AssertionResultD2Ev.exit1382:        ; preds = %2587, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1383: ; preds = %2594, %2595
   %2596 = load i8, ptr %220, align 8
-  %2597 = and i8 %2596, 1
-  %.not2110 = icmp eq i8 %2597, 0
-  br i1 %.not2110, label %2601, label %2623
+  %2597 = trunc i8 %2596 to i1
+  br i1 %2597, label %2623, label %2601
 
 2598:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1379, %2563
   %.pn511.pn = phi { ptr, i32 } [ %.pn511, %_ZN7testing7MessageD2Ev.exit1379 ], [ %2564, %2563 ]
@@ -28793,9 +28576,8 @@ _ZN7testing15AssertionResultD2Ev.exit1394:        ; preds = %2623, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1395: ; preds = %2630, %2631
   %2632 = load i8, ptr %225, align 8
-  %2633 = and i8 %2632, 1
-  %.not2111 = icmp eq i8 %2633, 0
-  br i1 %.not2111, label %2637, label %2659
+  %2633 = trunc i8 %2632 to i1
+  br i1 %2633, label %2659, label %2637
 
 2634:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1391, %2599
   %.pn514.pn = phi { ptr, i32 } [ %.pn514, %_ZN7testing7MessageD2Ev.exit1391 ], [ %2600, %2599 ]
@@ -28906,9 +28688,8 @@ _ZN7testing15AssertionResultD2Ev.exit1406:        ; preds = %2659, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1407: ; preds = %2666, %2667
   %2668 = load i8, ptr %228, align 8
-  %2669 = and i8 %2668, 1
-  %.not2112 = icmp eq i8 %2669, 0
-  br i1 %.not2112, label %2673, label %2695
+  %2669 = trunc i8 %2668 to i1
+  br i1 %2669, label %2695, label %2673
 
 2670:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1403, %2635
   %.pn517.pn = phi { ptr, i32 } [ %.pn517, %_ZN7testing7MessageD2Ev.exit1403 ], [ %2636, %2635 ]
@@ -29017,9 +28798,8 @@ _ZN7testing15AssertionResultD2Ev.exit1418:        ; preds = %2695, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1419: ; preds = %2702, %2703
   %2704 = load i8, ptr %233, align 8
-  %2705 = and i8 %2704, 1
-  %.not2113 = icmp eq i8 %2705, 0
-  br i1 %.not2113, label %2709, label %2731
+  %2705 = trunc i8 %2704 to i1
+  br i1 %2705, label %2731, label %2709
 
 2706:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1415, %2671
   %.pn520.pn = phi { ptr, i32 } [ %.pn520, %_ZN7testing7MessageD2Ev.exit1415 ], [ %2672, %2671 ]
@@ -29130,9 +28910,8 @@ _ZN7testing15AssertionResultD2Ev.exit1430:        ; preds = %2731, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1431: ; preds = %2738, %2739
   %2740 = load i8, ptr %236, align 8
-  %2741 = and i8 %2740, 1
-  %.not2114 = icmp eq i8 %2741, 0
-  br i1 %.not2114, label %2745, label %2767
+  %2741 = trunc i8 %2740 to i1
+  br i1 %2741, label %2767, label %2745
 
 2742:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1427, %2707
   %.pn523.pn = phi { ptr, i32 } [ %.pn523, %_ZN7testing7MessageD2Ev.exit1427 ], [ %2708, %2707 ]
@@ -29241,9 +29020,8 @@ _ZN7testing15AssertionResultD2Ev.exit1442:        ; preds = %2767, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1443: ; preds = %2774, %2775
   %2776 = load i8, ptr %241, align 8
-  %2777 = and i8 %2776, 1
-  %.not2115 = icmp eq i8 %2777, 0
-  br i1 %.not2115, label %2781, label %2803
+  %2777 = trunc i8 %2776 to i1
+  br i1 %2777, label %2803, label %2781
 
 2778:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1439, %2743
   %.pn526.pn = phi { ptr, i32 } [ %.pn526, %_ZN7testing7MessageD2Ev.exit1439 ], [ %2744, %2743 ]
@@ -29352,9 +29130,8 @@ _ZN7testing15AssertionResultD2Ev.exit1454:        ; preds = %2803, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1455: ; preds = %2810, %2811
   %2812 = load i8, ptr %244, align 8
-  %2813 = and i8 %2812, 1
-  %.not2116 = icmp eq i8 %2813, 0
-  br i1 %.not2116, label %2817, label %2839
+  %2813 = trunc i8 %2812 to i1
+  br i1 %2813, label %2839, label %2817
 
 2814:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1451, %2779
   %.pn529.pn = phi { ptr, i32 } [ %.pn529, %_ZN7testing7MessageD2Ev.exit1451 ], [ %2780, %2779 ]
@@ -29463,9 +29240,8 @@ _ZN7testing15AssertionResultD2Ev.exit1466:        ; preds = %2839, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1467: ; preds = %2846, %2847
   %2848 = load i8, ptr %247, align 8
-  %2849 = and i8 %2848, 1
-  %.not2117 = icmp eq i8 %2849, 0
-  br i1 %.not2117, label %2853, label %2875
+  %2849 = trunc i8 %2848 to i1
+  br i1 %2849, label %2875, label %2853
 
 2850:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1463, %2815
   %.pn532.pn = phi { ptr, i32 } [ %.pn532, %_ZN7testing7MessageD2Ev.exit1463 ], [ %2816, %2815 ]
@@ -29574,9 +29350,8 @@ _ZN7testing15AssertionResultD2Ev.exit1478:        ; preds = %2875, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1479: ; preds = %2882, %2883
   %2884 = load i8, ptr %250, align 8
-  %2885 = and i8 %2884, 1
-  %.not2118 = icmp eq i8 %2885, 0
-  br i1 %.not2118, label %2889, label %2911
+  %2885 = trunc i8 %2884 to i1
+  br i1 %2885, label %2911, label %2889
 
 2886:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1475, %2851
   %.pn535.pn = phi { ptr, i32 } [ %.pn535, %_ZN7testing7MessageD2Ev.exit1475 ], [ %2852, %2851 ]
@@ -29685,9 +29460,8 @@ _ZN7testing15AssertionResultD2Ev.exit1490:        ; preds = %2911, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1491: ; preds = %2918, %2919
   %2920 = load i8, ptr %253, align 8
-  %2921 = and i8 %2920, 1
-  %.not2119 = icmp eq i8 %2921, 0
-  br i1 %.not2119, label %2925, label %2947
+  %2921 = trunc i8 %2920 to i1
+  br i1 %2921, label %2947, label %2925
 
 2922:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1487, %2887
   %.pn538.pn = phi { ptr, i32 } [ %.pn538, %_ZN7testing7MessageD2Ev.exit1487 ], [ %2888, %2887 ]
@@ -29798,9 +29572,8 @@ _ZN7testing15AssertionResultD2Ev.exit1502:        ; preds = %2947, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1503: ; preds = %2955, %2956
   %2957 = load i8, ptr %256, align 8
-  %2958 = and i8 %2957, 1
-  %.not2120 = icmp eq i8 %2958, 0
-  br i1 %.not2120, label %2962, label %2984
+  %2958 = trunc i8 %2957 to i1
+  br i1 %2958, label %2984, label %2962
 
 2959:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1499, %2923
   %.pn541.pn = phi { ptr, i32 } [ %.pn541, %_ZN7testing7MessageD2Ev.exit1499 ], [ %2924, %2923 ]
@@ -29909,9 +29682,8 @@ _ZN7testing15AssertionResultD2Ev.exit1514:        ; preds = %2984, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1515: ; preds = %2991, %2992
   %2993 = load i8, ptr %259, align 8
-  %2994 = and i8 %2993, 1
-  %.not2121 = icmp eq i8 %2994, 0
-  br i1 %.not2121, label %2998, label %3020
+  %2994 = trunc i8 %2993 to i1
+  br i1 %2994, label %3020, label %2998
 
 2995:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1511, %2960
   %.pn544.pn = phi { ptr, i32 } [ %.pn544, %_ZN7testing7MessageD2Ev.exit1511 ], [ %2961, %2960 ]
@@ -30020,9 +29792,8 @@ _ZN7testing15AssertionResultD2Ev.exit1526:        ; preds = %3020, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1527: ; preds = %3027, %3028
   %3029 = load i8, ptr %262, align 8
-  %3030 = and i8 %3029, 1
-  %.not2122 = icmp eq i8 %3030, 0
-  br i1 %.not2122, label %3034, label %3056
+  %3030 = trunc i8 %3029 to i1
+  br i1 %3030, label %3056, label %3034
 
 3031:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1523, %2996
   %.pn547.pn = phi { ptr, i32 } [ %.pn547, %_ZN7testing7MessageD2Ev.exit1523 ], [ %2997, %2996 ]
@@ -30131,9 +29902,8 @@ _ZN7testing15AssertionResultD2Ev.exit1538:        ; preds = %3056, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1539: ; preds = %3063, %3064
   %3065 = load i8, ptr %265, align 8
-  %3066 = and i8 %3065, 1
-  %.not2123 = icmp eq i8 %3066, 0
-  br i1 %.not2123, label %3070, label %3092
+  %3066 = trunc i8 %3065 to i1
+  br i1 %3066, label %3092, label %3070
 
 3067:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1535, %3032
   %.pn550.pn = phi { ptr, i32 } [ %.pn550, %_ZN7testing7MessageD2Ev.exit1535 ], [ %3033, %3032 ]
@@ -30242,9 +30012,8 @@ _ZN7testing15AssertionResultD2Ev.exit1550:        ; preds = %3092, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1551: ; preds = %3099, %3100
   %3101 = load i8, ptr %268, align 8
-  %3102 = and i8 %3101, 1
-  %.not2124 = icmp eq i8 %3102, 0
-  br i1 %.not2124, label %3106, label %3128
+  %3102 = trunc i8 %3101 to i1
+  br i1 %3102, label %3128, label %3106
 
 3103:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1547, %3068
   %.pn553.pn = phi { ptr, i32 } [ %.pn553, %_ZN7testing7MessageD2Ev.exit1547 ], [ %3069, %3068 ]
@@ -30355,9 +30124,8 @@ _ZN7testing15AssertionResultD2Ev.exit1562:        ; preds = %3128, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1563: ; preds = %3135, %3136
   %3137 = load i8, ptr %271, align 8
-  %3138 = and i8 %3137, 1
-  %.not2125 = icmp eq i8 %3138, 0
-  br i1 %.not2125, label %3142, label %3164
+  %3138 = trunc i8 %3137 to i1
+  br i1 %3138, label %3164, label %3142
 
 3139:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1559, %3104
   %.pn556.pn = phi { ptr, i32 } [ %.pn556, %_ZN7testing7MessageD2Ev.exit1559 ], [ %3105, %3104 ]
@@ -30466,9 +30234,8 @@ _ZN7testing15AssertionResultD2Ev.exit1574:        ; preds = %3164, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1575: ; preds = %3171, %3172
   %3173 = load i8, ptr %276, align 8
-  %3174 = and i8 %3173, 1
-  %.not2126 = icmp eq i8 %3174, 0
-  br i1 %.not2126, label %3178, label %3200
+  %3174 = trunc i8 %3173 to i1
+  br i1 %3174, label %3200, label %3178
 
 3175:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1571, %3140
   %.pn559.pn = phi { ptr, i32 } [ %.pn559, %_ZN7testing7MessageD2Ev.exit1571 ], [ %3141, %3140 ]
@@ -30579,9 +30346,8 @@ _ZN7testing15AssertionResultD2Ev.exit1586:        ; preds = %3200, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1587: ; preds = %3207, %3208
   %3209 = load i8, ptr %279, align 8
-  %3210 = and i8 %3209, 1
-  %.not2127 = icmp eq i8 %3210, 0
-  br i1 %.not2127, label %3214, label %3236
+  %3210 = trunc i8 %3209 to i1
+  br i1 %3210, label %3236, label %3214
 
 3211:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1583, %3176
   %.pn562.pn = phi { ptr, i32 } [ %.pn562, %_ZN7testing7MessageD2Ev.exit1583 ], [ %3177, %3176 ]
@@ -30690,9 +30456,8 @@ _ZN7testing15AssertionResultD2Ev.exit1598:        ; preds = %3236, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1599: ; preds = %3243, %3244
   %3245 = load i8, ptr %284, align 8
-  %3246 = and i8 %3245, 1
-  %.not2128 = icmp eq i8 %3246, 0
-  br i1 %.not2128, label %3250, label %3272
+  %3246 = trunc i8 %3245 to i1
+  br i1 %3246, label %3272, label %3250
 
 3247:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1595, %3212
   %.pn565.pn = phi { ptr, i32 } [ %.pn565, %_ZN7testing7MessageD2Ev.exit1595 ], [ %3213, %3212 ]
@@ -30801,9 +30566,8 @@ _ZN7testing15AssertionResultD2Ev.exit1610:        ; preds = %3272, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1611: ; preds = %3279, %3280
   %3281 = load i8, ptr %287, align 8
-  %3282 = and i8 %3281, 1
-  %.not2129 = icmp eq i8 %3282, 0
-  br i1 %.not2129, label %3286, label %3308
+  %3282 = trunc i8 %3281 to i1
+  br i1 %3282, label %3308, label %3286
 
 3283:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1607, %3248
   %.pn568.pn = phi { ptr, i32 } [ %.pn568, %_ZN7testing7MessageD2Ev.exit1607 ], [ %3249, %3248 ]
@@ -30912,9 +30676,8 @@ _ZN7testing15AssertionResultD2Ev.exit1622:        ; preds = %3308, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1623: ; preds = %3315, %3316
   %3317 = load i8, ptr %290, align 8
-  %3318 = and i8 %3317, 1
-  %.not2130 = icmp eq i8 %3318, 0
-  br i1 %.not2130, label %3322, label %3344
+  %3318 = trunc i8 %3317 to i1
+  br i1 %3318, label %3344, label %3322
 
 3319:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1619, %3284
   %.pn571.pn = phi { ptr, i32 } [ %.pn571, %_ZN7testing7MessageD2Ev.exit1619 ], [ %3285, %3284 ]
@@ -31025,9 +30788,8 @@ _ZN7testing15AssertionResultD2Ev.exit1634:        ; preds = %3344, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1635: ; preds = %3351, %3352
   %3353 = load i8, ptr %293, align 8
-  %3354 = and i8 %3353, 1
-  %.not2131 = icmp eq i8 %3354, 0
-  br i1 %.not2131, label %3358, label %3380
+  %3354 = trunc i8 %3353 to i1
+  br i1 %3354, label %3380, label %3358
 
 3355:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1631, %3320
   %.pn574.pn = phi { ptr, i32 } [ %.pn574, %_ZN7testing7MessageD2Ev.exit1631 ], [ %3321, %3320 ]
@@ -31136,9 +30898,8 @@ _ZN7testing15AssertionResultD2Ev.exit1646:        ; preds = %3380, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1647: ; preds = %3387, %3388
   %3389 = load i8, ptr %298, align 8
-  %3390 = and i8 %3389, 1
-  %.not2132 = icmp eq i8 %3390, 0
-  br i1 %.not2132, label %3394, label %3416
+  %3390 = trunc i8 %3389 to i1
+  br i1 %3390, label %3416, label %3394
 
 3391:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1643, %3356
   %.pn577.pn = phi { ptr, i32 } [ %.pn577, %_ZN7testing7MessageD2Ev.exit1643 ], [ %3357, %3356 ]
@@ -31247,9 +31008,8 @@ _ZN7testing15AssertionResultD2Ev.exit1658:        ; preds = %3416, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %3423, %3424
   %3425 = load i8, ptr %301, align 8
-  %3426 = and i8 %3425, 1
-  %.not2133 = icmp eq i8 %3426, 0
-  br i1 %.not2133, label %3430, label %3452
+  %3426 = trunc i8 %3425 to i1
+  br i1 %3426, label %3452, label %3430
 
 3427:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1655, %3392
   %.pn580.pn = phi { ptr, i32 } [ %.pn580, %_ZN7testing7MessageD2Ev.exit1655 ], [ %3393, %3392 ]
@@ -31358,9 +31118,8 @@ _ZN7testing15AssertionResultD2Ev.exit1669:        ; preds = %3452, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %3459, %3460
   %3461 = load i8, ptr %304, align 8
-  %3462 = and i8 %3461, 1
-  %.not2134 = icmp eq i8 %3462, 0
-  br i1 %.not2134, label %3466, label %3488
+  %3462 = trunc i8 %3461 to i1
+  br i1 %3462, label %3488, label %3466
 
 3463:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1666, %3428
   %.pn583.pn = phi { ptr, i32 } [ %.pn583, %_ZN7testing7MessageD2Ev.exit1666 ], [ %3429, %3428 ]
@@ -31469,9 +31228,8 @@ _ZN7testing15AssertionResultD2Ev.exit1680:        ; preds = %3488, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %3495, %3496
   %3497 = load i8, ptr %307, align 8
-  %3498 = and i8 %3497, 1
-  %.not2135 = icmp eq i8 %3498, 0
-  br i1 %.not2135, label %3502, label %3524
+  %3498 = trunc i8 %3497 to i1
+  br i1 %3498, label %3524, label %3502
 
 3499:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1677, %3464
   %.pn586.pn = phi { ptr, i32 } [ %.pn586, %_ZN7testing7MessageD2Ev.exit1677 ], [ %3465, %3464 ]
@@ -31580,9 +31338,8 @@ _ZN7testing15AssertionResultD2Ev.exit1691:        ; preds = %3524, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %3531, %3532
   %3533 = load i8, ptr %310, align 8
-  %3534 = and i8 %3533, 1
-  %.not2136 = icmp eq i8 %3534, 0
-  br i1 %.not2136, label %3538, label %3560
+  %3534 = trunc i8 %3533 to i1
+  br i1 %3534, label %3560, label %3538
 
 3535:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1688, %3500
   %.pn589.pn = phi { ptr, i32 } [ %.pn589, %_ZN7testing7MessageD2Ev.exit1688 ], [ %3501, %3500 ]
@@ -31693,9 +31450,8 @@ _ZN7testing15AssertionResultD2Ev.exit1702:        ; preds = %3560, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1703: ; preds = %3568, %3569
   %3570 = load i8, ptr %313, align 8
-  %3571 = and i8 %3570, 1
-  %.not2137 = icmp eq i8 %3571, 0
-  br i1 %.not2137, label %3575, label %3597
+  %3571 = trunc i8 %3570 to i1
+  br i1 %3571, label %3597, label %3575
 
 3572:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1699, %3536
   %.pn592.pn = phi { ptr, i32 } [ %.pn592, %_ZN7testing7MessageD2Ev.exit1699 ], [ %3537, %3536 ]
@@ -31804,9 +31560,8 @@ _ZN7testing15AssertionResultD2Ev.exit1714:        ; preds = %3597, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1715: ; preds = %3604, %3605
   %3606 = load i8, ptr %316, align 8
-  %3607 = and i8 %3606, 1
-  %.not2138 = icmp eq i8 %3607, 0
-  br i1 %.not2138, label %3611, label %3633
+  %3607 = trunc i8 %3606 to i1
+  br i1 %3607, label %3633, label %3611
 
 3608:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1711, %3573
   %.pn595.pn = phi { ptr, i32 } [ %.pn595, %_ZN7testing7MessageD2Ev.exit1711 ], [ %3574, %3573 ]
@@ -31915,9 +31670,8 @@ _ZN7testing15AssertionResultD2Ev.exit1726:        ; preds = %3633, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1727: ; preds = %3640, %3641
   %3642 = load i8, ptr %319, align 8
-  %3643 = and i8 %3642, 1
-  %.not2139 = icmp eq i8 %3643, 0
-  br i1 %.not2139, label %3647, label %3669
+  %3643 = trunc i8 %3642 to i1
+  br i1 %3643, label %3669, label %3647
 
 3644:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1723, %3609
   %.pn598.pn = phi { ptr, i32 } [ %.pn598, %_ZN7testing7MessageD2Ev.exit1723 ], [ %3610, %3609 ]
@@ -32026,9 +31780,8 @@ _ZN7testing15AssertionResultD2Ev.exit1738:        ; preds = %3669, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1739: ; preds = %3676, %3677
   %3678 = load i8, ptr %322, align 8
-  %3679 = and i8 %3678, 1
-  %.not2140 = icmp eq i8 %3679, 0
-  br i1 %.not2140, label %3683, label %3705
+  %3679 = trunc i8 %3678 to i1
+  br i1 %3679, label %3705, label %3683
 
 3680:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1735, %3645
   %.pn601.pn = phi { ptr, i32 } [ %.pn601, %_ZN7testing7MessageD2Ev.exit1735 ], [ %3646, %3645 ]
@@ -32137,9 +31890,8 @@ _ZN7testing15AssertionResultD2Ev.exit1750:        ; preds = %3705, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1751: ; preds = %3712, %3713
   %3714 = load i8, ptr %325, align 8
-  %3715 = and i8 %3714, 1
-  %.not2141 = icmp eq i8 %3715, 0
-  br i1 %.not2141, label %3719, label %3741
+  %3715 = trunc i8 %3714 to i1
+  br i1 %3715, label %3741, label %3719
 
 3716:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1747, %3681
   %.pn604.pn = phi { ptr, i32 } [ %.pn604, %_ZN7testing7MessageD2Ev.exit1747 ], [ %3682, %3681 ]
@@ -32250,9 +32002,8 @@ _ZN7testing15AssertionResultD2Ev.exit1762:        ; preds = %3741, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1763: ; preds = %3748, %3749
   %3750 = load i8, ptr %328, align 8
-  %3751 = and i8 %3750, 1
-  %.not2142 = icmp eq i8 %3751, 0
-  br i1 %.not2142, label %3755, label %3777
+  %3751 = trunc i8 %3750 to i1
+  br i1 %3751, label %3777, label %3755
 
 3752:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1759, %3717
   %.pn607.pn = phi { ptr, i32 } [ %.pn607, %_ZN7testing7MessageD2Ev.exit1759 ], [ %3718, %3717 ]
@@ -32361,9 +32112,8 @@ _ZN7testing15AssertionResultD2Ev.exit1774:        ; preds = %3777, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1775: ; preds = %3784, %3785
   %3786 = load i8, ptr %333, align 8
-  %3787 = and i8 %3786, 1
-  %.not2143 = icmp eq i8 %3787, 0
-  br i1 %.not2143, label %3791, label %3813
+  %3787 = trunc i8 %3786 to i1
+  br i1 %3787, label %3813, label %3791
 
 3788:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1771, %3753
   %.pn610.pn = phi { ptr, i32 } [ %.pn610, %_ZN7testing7MessageD2Ev.exit1771 ], [ %3754, %3753 ]
@@ -32474,9 +32224,8 @@ _ZN7testing15AssertionResultD2Ev.exit1786:        ; preds = %3813, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1787: ; preds = %3820, %3821
   %3822 = load i8, ptr %336, align 8
-  %3823 = and i8 %3822, 1
-  %.not2144 = icmp eq i8 %3823, 0
-  br i1 %.not2144, label %3827, label %3849
+  %3823 = trunc i8 %3822 to i1
+  br i1 %3823, label %3849, label %3827
 
 3824:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1783, %3789
   %.pn613.pn = phi { ptr, i32 } [ %.pn613, %_ZN7testing7MessageD2Ev.exit1783 ], [ %3790, %3789 ]
@@ -32585,9 +32334,8 @@ _ZN7testing15AssertionResultD2Ev.exit1798:        ; preds = %3849, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1799: ; preds = %3856, %3857
   %3858 = load i8, ptr %341, align 8
-  %3859 = and i8 %3858, 1
-  %.not2145 = icmp eq i8 %3859, 0
-  br i1 %.not2145, label %3863, label %3885
+  %3859 = trunc i8 %3858 to i1
+  br i1 %3859, label %3885, label %3863
 
 3860:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1795, %3825
   %.pn616.pn = phi { ptr, i32 } [ %.pn616, %_ZN7testing7MessageD2Ev.exit1795 ], [ %3826, %3825 ]
@@ -32696,9 +32444,8 @@ _ZN7testing15AssertionResultD2Ev.exit1810:        ; preds = %3885, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1811: ; preds = %3892, %3893
   %3894 = load i8, ptr %344, align 8
-  %3895 = and i8 %3894, 1
-  %.not2146 = icmp eq i8 %3895, 0
-  br i1 %.not2146, label %3899, label %3921
+  %3895 = trunc i8 %3894 to i1
+  br i1 %3895, label %3921, label %3899
 
 3896:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1807, %3861
   %.pn619.pn = phi { ptr, i32 } [ %.pn619, %_ZN7testing7MessageD2Ev.exit1807 ], [ %3862, %3861 ]
@@ -32807,9 +32554,8 @@ _ZN7testing15AssertionResultD2Ev.exit1822:        ; preds = %3921, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1823: ; preds = %3928, %3929
   %3930 = load i8, ptr %347, align 8
-  %3931 = and i8 %3930, 1
-  %.not2147 = icmp eq i8 %3931, 0
-  br i1 %.not2147, label %3935, label %3957
+  %3931 = trunc i8 %3930 to i1
+  br i1 %3931, label %3957, label %3935
 
 3932:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1819, %3897
   %.pn622.pn = phi { ptr, i32 } [ %.pn622, %_ZN7testing7MessageD2Ev.exit1819 ], [ %3898, %3897 ]
@@ -32918,9 +32664,8 @@ _ZN7testing15AssertionResultD2Ev.exit1834:        ; preds = %3957, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1835: ; preds = %3964, %3965
   %3966 = load i8, ptr %350, align 8
-  %3967 = and i8 %3966, 1
-  %.not2148 = icmp eq i8 %3967, 0
-  br i1 %.not2148, label %3971, label %3993
+  %3967 = trunc i8 %3966 to i1
+  br i1 %3967, label %3993, label %3971
 
 3968:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1831, %3933
   %.pn625.pn = phi { ptr, i32 } [ %.pn625, %_ZN7testing7MessageD2Ev.exit1831 ], [ %3934, %3933 ]
@@ -33029,9 +32774,8 @@ _ZN7testing15AssertionResultD2Ev.exit1846:        ; preds = %3993, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1847: ; preds = %4000, %4001
   %4002 = load i8, ptr %353, align 8
-  %4003 = and i8 %4002, 1
-  %.not2149 = icmp eq i8 %4003, 0
-  br i1 %.not2149, label %4007, label %4029
+  %4003 = trunc i8 %4002 to i1
+  br i1 %4003, label %4029, label %4007
 
 4004:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1843, %3969
   %.pn628.pn = phi { ptr, i32 } [ %.pn628, %_ZN7testing7MessageD2Ev.exit1843 ], [ %3970, %3969 ]
@@ -33142,9 +32886,8 @@ _ZN7testing15AssertionResultD2Ev.exit1858:        ; preds = %4029, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1859: ; preds = %4036, %4037
   %4038 = load i8, ptr %356, align 8
-  %4039 = and i8 %4038, 1
-  %.not2150 = icmp eq i8 %4039, 0
-  br i1 %.not2150, label %4043, label %4065
+  %4039 = trunc i8 %4038 to i1
+  br i1 %4039, label %4065, label %4043
 
 4040:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1855, %4005
   %.pn631.pn = phi { ptr, i32 } [ %.pn631, %_ZN7testing7MessageD2Ev.exit1855 ], [ %4006, %4005 ]
@@ -33255,9 +32998,8 @@ _ZN7testing15AssertionResultD2Ev.exit1870:        ; preds = %4065, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1871: ; preds = %4073, %4074
   %4075 = load i8, ptr %361, align 8
-  %4076 = and i8 %4075, 1
-  %.not2151 = icmp eq i8 %4076, 0
-  br i1 %.not2151, label %4080, label %4102
+  %4076 = trunc i8 %4075 to i1
+  br i1 %4076, label %4102, label %4080
 
 4077:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1867, %4041
   %.pn634.pn = phi { ptr, i32 } [ %.pn634, %_ZN7testing7MessageD2Ev.exit1867 ], [ %4042, %4041 ]
@@ -33366,9 +33108,8 @@ _ZN7testing15AssertionResultD2Ev.exit1882:        ; preds = %4102, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1883: ; preds = %4109, %4110
   %4111 = load i8, ptr %364, align 8
-  %4112 = and i8 %4111, 1
-  %.not2152 = icmp eq i8 %4112, 0
-  br i1 %.not2152, label %4116, label %4138
+  %4112 = trunc i8 %4111 to i1
+  br i1 %4112, label %4138, label %4116
 
 4113:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1879, %4078
   %.pn637.pn = phi { ptr, i32 } [ %.pn637, %_ZN7testing7MessageD2Ev.exit1879 ], [ %4079, %4078 ]
@@ -33477,9 +33218,8 @@ _ZN7testing15AssertionResultD2Ev.exit1894:        ; preds = %4138, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1895: ; preds = %4145, %4146
   %4147 = load i8, ptr %367, align 8
-  %4148 = and i8 %4147, 1
-  %.not2153 = icmp eq i8 %4148, 0
-  br i1 %.not2153, label %4152, label %4174
+  %4148 = trunc i8 %4147 to i1
+  br i1 %4148, label %4174, label %4152
 
 4149:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1891, %4114
   %.pn640.pn = phi { ptr, i32 } [ %.pn640, %_ZN7testing7MessageD2Ev.exit1891 ], [ %4115, %4114 ]
@@ -33588,9 +33328,8 @@ _ZN7testing15AssertionResultD2Ev.exit1906:        ; preds = %4174, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1907: ; preds = %4181, %4182
   %4183 = load i8, ptr %370, align 8
-  %4184 = and i8 %4183, 1
-  %.not2154 = icmp eq i8 %4184, 0
-  br i1 %.not2154, label %4188, label %4210
+  %4184 = trunc i8 %4183 to i1
+  br i1 %4184, label %4210, label %4188
 
 4185:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1903, %4150
   %.pn643.pn = phi { ptr, i32 } [ %.pn643, %_ZN7testing7MessageD2Ev.exit1903 ], [ %4151, %4150 ]
@@ -33699,9 +33438,8 @@ _ZN7testing15AssertionResultD2Ev.exit1918:        ; preds = %4210, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1919: ; preds = %4217, %4218
   %4219 = load i8, ptr %373, align 8
-  %4220 = and i8 %4219, 1
-  %.not2155 = icmp eq i8 %4220, 0
-  br i1 %.not2155, label %4224, label %4246
+  %4220 = trunc i8 %4219 to i1
+  br i1 %4220, label %4246, label %4224
 
 4221:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1915, %4186
   %.pn646.pn = phi { ptr, i32 } [ %.pn646, %_ZN7testing7MessageD2Ev.exit1915 ], [ %4187, %4186 ]
@@ -33812,9 +33550,8 @@ _ZN7testing15AssertionResultD2Ev.exit1930:        ; preds = %4246, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1931: ; preds = %4253, %4254
   %4255 = load i8, ptr %376, align 8
-  %4256 = and i8 %4255, 1
-  %.not2156 = icmp eq i8 %4256, 0
-  br i1 %.not2156, label %4260, label %4282
+  %4256 = trunc i8 %4255 to i1
+  br i1 %4256, label %4282, label %4260
 
 4257:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1927, %4222
   %.pn649.pn = phi { ptr, i32 } [ %.pn649, %_ZN7testing7MessageD2Ev.exit1927 ], [ %4223, %4222 ]
@@ -33923,9 +33660,8 @@ _ZN7testing15AssertionResultD2Ev.exit1942:        ; preds = %4282, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1943: ; preds = %4289, %4290
   %4291 = load i8, ptr %381, align 8
-  %4292 = and i8 %4291, 1
-  %.not2157 = icmp eq i8 %4292, 0
-  br i1 %.not2157, label %4296, label %4318
+  %4292 = trunc i8 %4291 to i1
+  br i1 %4292, label %4318, label %4296
 
 4293:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1939, %4258
   %.pn652.pn = phi { ptr, i32 } [ %.pn652, %_ZN7testing7MessageD2Ev.exit1939 ], [ %4259, %4258 ]
@@ -34036,9 +33772,8 @@ _ZN7testing15AssertionResultD2Ev.exit1954:        ; preds = %4318, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1955: ; preds = %4325, %4326
   %4327 = load i8, ptr %384, align 8
-  %4328 = and i8 %4327, 1
-  %.not2158 = icmp eq i8 %4328, 0
-  br i1 %.not2158, label %4332, label %4354
+  %4328 = trunc i8 %4327 to i1
+  br i1 %4328, label %4354, label %4332
 
 4329:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1951, %4294
   %.pn655.pn = phi { ptr, i32 } [ %.pn655, %_ZN7testing7MessageD2Ev.exit1951 ], [ %4295, %4294 ]
@@ -34147,9 +33882,8 @@ _ZN7testing15AssertionResultD2Ev.exit1966:        ; preds = %4354, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1967: ; preds = %4361, %4362
   %4363 = load i8, ptr %389, align 8
-  %4364 = and i8 %4363, 1
-  %.not2159 = icmp eq i8 %4364, 0
-  br i1 %.not2159, label %4368, label %4390
+  %4364 = trunc i8 %4363 to i1
+  br i1 %4364, label %4390, label %4368
 
 4365:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1963, %4330
   %.pn658.pn = phi { ptr, i32 } [ %.pn658, %_ZN7testing7MessageD2Ev.exit1963 ], [ %4331, %4330 ]
@@ -34258,9 +33992,8 @@ _ZN7testing15AssertionResultD2Ev.exit1978:        ; preds = %4390, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1979: ; preds = %4397, %4398
   %4399 = load i8, ptr %392, align 8
-  %4400 = and i8 %4399, 1
-  %.not2160 = icmp eq i8 %4400, 0
-  br i1 %.not2160, label %4404, label %4426
+  %4400 = trunc i8 %4399 to i1
+  br i1 %4400, label %4426, label %4404
 
 4401:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1975, %4366
   %.pn661.pn = phi { ptr, i32 } [ %.pn661, %_ZN7testing7MessageD2Ev.exit1975 ], [ %4367, %4366 ]
@@ -34369,9 +34102,8 @@ _ZN7testing15AssertionResultD2Ev.exit1990:        ; preds = %4426, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1991: ; preds = %4433, %4434
   %4435 = load i8, ptr %395, align 8
-  %4436 = and i8 %4435, 1
-  %.not2161 = icmp eq i8 %4436, 0
-  br i1 %.not2161, label %4440, label %4462
+  %4436 = trunc i8 %4435 to i1
+  br i1 %4436, label %4462, label %4440
 
 4437:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1987, %4402
   %.pn664.pn = phi { ptr, i32 } [ %.pn664, %_ZN7testing7MessageD2Ev.exit1987 ], [ %4403, %4402 ]
@@ -34480,9 +34212,8 @@ _ZN7testing15AssertionResultD2Ev.exit2002:        ; preds = %4462, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit2003: ; preds = %4469, %4470
   %4471 = load i8, ptr %398, align 8
-  %4472 = and i8 %4471, 1
-  %.not2162 = icmp eq i8 %4472, 0
-  br i1 %.not2162, label %4476, label %4498
+  %4472 = trunc i8 %4471 to i1
+  br i1 %4472, label %4498, label %4476
 
 4473:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1999, %4438
   %.pn667.pn = phi { ptr, i32 } [ %.pn667, %_ZN7testing7MessageD2Ev.exit1999 ], [ %4439, %4438 ]
@@ -34591,9 +34322,8 @@ _ZN7testing15AssertionResultD2Ev.exit2014:        ; preds = %4498, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit2015: ; preds = %4505, %4506
   %4507 = load i8, ptr %401, align 8
-  %4508 = and i8 %4507, 1
-  %.not2163 = icmp eq i8 %4508, 0
-  br i1 %.not2163, label %4512, label %4534
+  %4508 = trunc i8 %4507 to i1
+  br i1 %4508, label %4534, label %4512
 
 4509:                                             ; preds = %_ZN7testing7MessageD2Ev.exit2011, %4474
   %.pn670.pn = phi { ptr, i32 } [ %.pn670, %_ZN7testing7MessageD2Ev.exit2011 ], [ %4475, %4474 ]
@@ -34702,9 +34432,8 @@ _ZN7testing15AssertionResultD2Ev.exit2026:        ; preds = %4534, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit2027: ; preds = %4541, %4542
   %4543 = load i8, ptr %404, align 8
-  %4544 = and i8 %4543, 1
-  %.not2164 = icmp eq i8 %4544, 0
-  br i1 %.not2164, label %4548, label %4570
+  %4544 = trunc i8 %4543 to i1
+  br i1 %4544, label %4570, label %4548
 
 4545:                                             ; preds = %_ZN7testing7MessageD2Ev.exit2023, %4510
   %.pn673.pn = phi { ptr, i32 } [ %.pn673, %_ZN7testing7MessageD2Ev.exit2023 ], [ %4511, %4510 ]
@@ -34814,9 +34543,8 @@ _ZN7testing15AssertionResultD2Ev.exit2038:        ; preds = %4570, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit2039: ; preds = %4576, %4577
   %4578 = load i8, ptr %407, align 8
-  %4579 = and i8 %4578, 1
-  %.not2165 = icmp eq i8 %4579, 0
-  br i1 %.not2165, label %4583, label %4605
+  %4579 = trunc i8 %4578 to i1
+  br i1 %4579, label %4605, label %4583
 
 4580:                                             ; preds = %_ZN7testing7MessageD2Ev.exit2035, %4546
   %.pn676.pn = phi { ptr, i32 } [ %.pn676, %_ZN7testing7MessageD2Ev.exit2035 ], [ %4547, %4546 ]
@@ -35027,9 +34755,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %63, %64
   %65 = load i8, ptr %4, align 8
-  %66 = and i8 %65, 1
-  %.not = icmp eq i8 %66, 0
-  br i1 %.not, label %73, label %95
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %95, label %73
 
 67:                                               ; preds = %.noexc, %1
   %68 = landingpad { ptr, i32 }
@@ -35149,9 +34876,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %95, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %102, %103
   %104 = load i8, ptr %7, align 8
-  %105 = and i8 %104, 1
-  %.not217 = icmp eq i8 %105, 0
-  br i1 %.not217, label %109, label %131
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %131, label %109
 
 106:                                              ; preds = %_ZN7testing7MessageD2Ev.exit82, %71
   %.pn38.pn = phi { ptr, i32 } [ %.pn38, %_ZN7testing7MessageD2Ev.exit82 ], [ %72, %71 ]
@@ -35260,9 +34986,8 @@ _ZN7testing15AssertionResultD2Ev.exit94:          ; preds = %131, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %138, %139
   %140 = load i8, ptr %10, align 8
-  %141 = and i8 %140, 1
-  %.not218 = icmp eq i8 %141, 0
-  br i1 %.not218, label %145, label %167
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %167, label %145
 
 142:                                              ; preds = %_ZN7testing7MessageD2Ev.exit91, %107
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %_ZN7testing7MessageD2Ev.exit91 ], [ %108, %107 ]
@@ -35371,9 +35096,8 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %167, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %174, %175
   %176 = load i8, ptr %13, align 8
-  %177 = and i8 %176, 1
-  %.not219 = icmp eq i8 %177, 0
-  br i1 %.not219, label %181, label %203
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %203, label %181
 
 178:                                              ; preds = %_ZN7testing7MessageD2Ev.exit102, %143
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit102 ], [ %144, %143 ]
@@ -35484,9 +35208,8 @@ _ZN7testing15AssertionResultD2Ev.exit116:         ; preds = %203, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %210, %211
   %212 = load i8, ptr %16, align 8
-  %213 = and i8 %212, 1
-  %.not220 = icmp eq i8 %213, 0
-  br i1 %.not220, label %217, label %239
+  %213 = trunc i8 %212 to i1
+  br i1 %213, label %239, label %217
 
 214:                                              ; preds = %_ZN7testing7MessageD2Ev.exit113, %179
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZN7testing7MessageD2Ev.exit113 ], [ %180, %179 ]
@@ -35595,9 +35318,8 @@ _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %239, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %246, %247
   %248 = load i8, ptr %21, align 8
-  %249 = and i8 %248, 1
-  %.not221 = icmp eq i8 %249, 0
-  br i1 %.not221, label %253, label %275
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %275, label %253
 
 250:                                              ; preds = %_ZN7testing7MessageD2Ev.exit124, %215
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %_ZN7testing7MessageD2Ev.exit124 ], [ %216, %215 ]
@@ -35706,9 +35428,8 @@ _ZN7testing15AssertionResultD2Ev.exit138:         ; preds = %275, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %282, %283
   %284 = load i8, ptr %24, align 8
-  %285 = and i8 %284, 1
-  %.not222 = icmp eq i8 %285, 0
-  br i1 %.not222, label %289, label %311
+  %285 = trunc i8 %284 to i1
+  br i1 %285, label %311, label %289
 
 286:                                              ; preds = %_ZN7testing7MessageD2Ev.exit135, %251
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %_ZN7testing7MessageD2Ev.exit135 ], [ %252, %251 ]
@@ -35819,9 +35540,8 @@ _ZN7testing15AssertionResultD2Ev.exit149:         ; preds = %311, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit150: ; preds = %318, %319
   %320 = load i8, ptr %27, align 8
-  %321 = and i8 %320, 1
-  %.not223 = icmp eq i8 %321, 0
-  br i1 %.not223, label %325, label %347
+  %321 = trunc i8 %320 to i1
+  br i1 %321, label %347, label %325
 
 322:                                              ; preds = %_ZN7testing7MessageD2Ev.exit146, %287
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %_ZN7testing7MessageD2Ev.exit146 ], [ %288, %287 ]
@@ -35930,9 +35650,8 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %347, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %354, %355
   %356 = load i8, ptr %32, align 8
-  %357 = and i8 %356, 1
-  %.not224 = icmp eq i8 %357, 0
-  br i1 %.not224, label %361, label %383
+  %357 = trunc i8 %356 to i1
+  br i1 %357, label %383, label %361
 
 358:                                              ; preds = %_ZN7testing7MessageD2Ev.exit158, %323
   %.pn59.pn = phi { ptr, i32 } [ %.pn59, %_ZN7testing7MessageD2Ev.exit158 ], [ %324, %323 ]
@@ -36041,9 +35760,8 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %383, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %390, %391
   %392 = load i8, ptr %35, align 8
-  %393 = and i8 %392, 1
-  %.not225 = icmp eq i8 %393, 0
-  br i1 %.not225, label %397, label %419
+  %393 = trunc i8 %392 to i1
+  br i1 %393, label %419, label %397
 
 394:                                              ; preds = %_ZN7testing7MessageD2Ev.exit169, %359
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %_ZN7testing7MessageD2Ev.exit169 ], [ %360, %359 ]
@@ -36152,9 +35870,8 @@ _ZN7testing15AssertionResultD2Ev.exit183:         ; preds = %419, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %426, %427
   %428 = load i8, ptr %38, align 8
-  %429 = and i8 %428, 1
-  %.not226 = icmp eq i8 %429, 0
-  br i1 %.not226, label %433, label %455
+  %429 = trunc i8 %428 to i1
+  br i1 %429, label %455, label %433
 
 430:                                              ; preds = %_ZN7testing7MessageD2Ev.exit180, %395
   %.pn65.pn = phi { ptr, i32 } [ %.pn65, %_ZN7testing7MessageD2Ev.exit180 ], [ %396, %395 ]
@@ -36263,9 +35980,8 @@ _ZN7testing15AssertionResultD2Ev.exit194:         ; preds = %455, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %462, %463
   %464 = load i8, ptr %41, align 8
-  %465 = and i8 %464, 1
-  %.not227 = icmp eq i8 %465, 0
-  br i1 %.not227, label %469, label %491
+  %465 = trunc i8 %464 to i1
+  br i1 %465, label %491, label %469
 
 466:                                              ; preds = %_ZN7testing7MessageD2Ev.exit191, %431
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %_ZN7testing7MessageD2Ev.exit191 ], [ %432, %431 ]
@@ -36374,9 +36090,8 @@ _ZN7testing15AssertionResultD2Ev.exit205:         ; preds = %491, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %498, %499
   %500 = load i8, ptr %44, align 8
-  %501 = and i8 %500, 1
-  %.not228 = icmp eq i8 %501, 0
-  br i1 %.not228, label %505, label %527
+  %501 = trunc i8 %500 to i1
+  br i1 %501, label %527, label %505
 
 502:                                              ; preds = %_ZN7testing7MessageD2Ev.exit202, %467
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZN7testing7MessageD2Ev.exit202 ], [ %468, %467 ]
@@ -36573,9 +36288,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %53, %54
   %55 = load i8, ptr %4, align 8
-  %56 = and i8 %55, 1
-  %.not = icmp eq i8 %56, 0
-  br i1 %.not, label %63, label %85
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %85, label %63
 
 57:                                               ; preds = %.noexc, %1
   %58 = landingpad { ptr, i32 }
@@ -36695,9 +36409,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %92, %93
   %94 = load i8, ptr %7, align 8
-  %95 = and i8 %94, 1
-  %.not184 = icmp eq i8 %95, 0
-  br i1 %.not184, label %99, label %121
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %121, label %99
 
 96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit72, %61
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZN7testing7MessageD2Ev.exit72 ], [ %62, %61 ]
@@ -36806,9 +36519,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %121, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %128, %129
   %130 = load i8, ptr %10, align 8
-  %131 = and i8 %130, 1
-  %.not185 = icmp eq i8 %131, 0
-  br i1 %.not185, label %135, label %157
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %157, label %135
 
 132:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %97
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %_ZN7testing7MessageD2Ev.exit81 ], [ %98, %97 ]
@@ -36917,9 +36629,8 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %157, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %164, %165
   %166 = load i8, ptr %13, align 8
-  %167 = and i8 %166, 1
-  %.not186 = icmp eq i8 %167, 0
-  br i1 %.not186, label %171, label %193
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %193, label %171
 
 168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit92, %133
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit92 ], [ %134, %133 ]
@@ -37028,9 +36739,8 @@ _ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %193, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %200, %201
   %202 = load i8, ptr %16, align 8
-  %203 = and i8 %202, 1
-  %.not187 = icmp eq i8 %203, 0
-  br i1 %.not187, label %207, label %229
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %229, label %207
 
 204:                                              ; preds = %_ZN7testing7MessageD2Ev.exit103, %169
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit103 ], [ %170, %169 ]
@@ -37139,9 +36849,8 @@ _ZN7testing15AssertionResultD2Ev.exit117:         ; preds = %229, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %236, %237
   %238 = load i8, ptr %19, align 8
-  %239 = and i8 %238, 1
-  %.not188 = icmp eq i8 %239, 0
-  br i1 %.not188, label %243, label %265
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %265, label %243
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit114, %205
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit114 ], [ %206, %205 ]
@@ -37250,9 +36959,8 @@ _ZN7testing15AssertionResultD2Ev.exit128:         ; preds = %265, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %272, %273
   %274 = load i8, ptr %22, align 8
-  %275 = and i8 %274, 1
-  %.not189 = icmp eq i8 %275, 0
-  br i1 %.not189, label %279, label %301
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %301, label %279
 
 276:                                              ; preds = %_ZN7testing7MessageD2Ev.exit125, %241
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit125 ], [ %242, %241 ]
@@ -37361,9 +37069,8 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %301, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %308, %309
   %310 = load i8, ptr %25, align 8
-  %311 = and i8 %310, 1
-  %.not190 = icmp eq i8 %311, 0
-  br i1 %.not190, label %315, label %337
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %337, label %315
 
 312:                                              ; preds = %_ZN7testing7MessageD2Ev.exit136, %277
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit136 ], [ %278, %277 ]
@@ -37472,9 +37179,8 @@ _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %337, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %344, %345
   %346 = load i8, ptr %28, align 8
-  %347 = and i8 %346, 1
-  %.not191 = icmp eq i8 %347, 0
-  br i1 %.not191, label %351, label %373
+  %347 = trunc i8 %346 to i1
+  br i1 %347, label %373, label %351
 
 348:                                              ; preds = %_ZN7testing7MessageD2Ev.exit147, %313
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit147 ], [ %314, %313 ]
@@ -37583,9 +37289,8 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %373, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %380, %381
   %382 = load i8, ptr %31, align 8
-  %383 = and i8 %382, 1
-  %.not192 = icmp eq i8 %383, 0
-  br i1 %.not192, label %387, label %409
+  %383 = trunc i8 %382 to i1
+  br i1 %383, label %409, label %387
 
 384:                                              ; preds = %_ZN7testing7MessageD2Ev.exit158, %349
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit158 ], [ %350, %349 ]
@@ -37694,9 +37399,8 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %409, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %416, %417
   %418 = load i8, ptr %34, align 8
-  %419 = and i8 %418, 1
-  %.not193 = icmp eq i8 %419, 0
-  br i1 %.not193, label %423, label %445
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %445, label %423
 
 420:                                              ; preds = %_ZN7testing7MessageD2Ev.exit169, %385
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit169 ], [ %386, %385 ]
@@ -37893,9 +37597,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %53, %54
   %55 = load i8, ptr %4, align 8
-  %56 = and i8 %55, 1
-  %.not = icmp eq i8 %56, 0
-  br i1 %.not, label %63, label %85
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %85, label %63
 
 57:                                               ; preds = %.noexc, %1
   %58 = landingpad { ptr, i32 }
@@ -38015,9 +37718,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %92, %93
   %94 = load i8, ptr %7, align 8
-  %95 = and i8 %94, 1
-  %.not184 = icmp eq i8 %95, 0
-  br i1 %.not184, label %99, label %121
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %121, label %99
 
 96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit72, %61
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZN7testing7MessageD2Ev.exit72 ], [ %62, %61 ]
@@ -38126,9 +37828,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %121, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %128, %129
   %130 = load i8, ptr %10, align 8
-  %131 = and i8 %130, 1
-  %.not185 = icmp eq i8 %131, 0
-  br i1 %.not185, label %135, label %157
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %157, label %135
 
 132:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %97
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %_ZN7testing7MessageD2Ev.exit81 ], [ %98, %97 ]
@@ -38237,9 +37938,8 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %157, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %164, %165
   %166 = load i8, ptr %13, align 8
-  %167 = and i8 %166, 1
-  %.not186 = icmp eq i8 %167, 0
-  br i1 %.not186, label %171, label %193
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %193, label %171
 
 168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit92, %133
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit92 ], [ %134, %133 ]
@@ -38348,9 +38048,8 @@ _ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %193, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %200, %201
   %202 = load i8, ptr %16, align 8
-  %203 = and i8 %202, 1
-  %.not187 = icmp eq i8 %203, 0
-  br i1 %.not187, label %207, label %229
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %229, label %207
 
 204:                                              ; preds = %_ZN7testing7MessageD2Ev.exit103, %169
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit103 ], [ %170, %169 ]
@@ -38459,9 +38158,8 @@ _ZN7testing15AssertionResultD2Ev.exit117:         ; preds = %229, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %236, %237
   %238 = load i8, ptr %19, align 8
-  %239 = and i8 %238, 1
-  %.not188 = icmp eq i8 %239, 0
-  br i1 %.not188, label %243, label %265
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %265, label %243
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit114, %205
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit114 ], [ %206, %205 ]
@@ -38570,9 +38268,8 @@ _ZN7testing15AssertionResultD2Ev.exit128:         ; preds = %265, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %272, %273
   %274 = load i8, ptr %22, align 8
-  %275 = and i8 %274, 1
-  %.not189 = icmp eq i8 %275, 0
-  br i1 %.not189, label %279, label %301
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %301, label %279
 
 276:                                              ; preds = %_ZN7testing7MessageD2Ev.exit125, %241
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit125 ], [ %242, %241 ]
@@ -38681,9 +38378,8 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %301, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %308, %309
   %310 = load i8, ptr %25, align 8
-  %311 = and i8 %310, 1
-  %.not190 = icmp eq i8 %311, 0
-  br i1 %.not190, label %315, label %337
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %337, label %315
 
 312:                                              ; preds = %_ZN7testing7MessageD2Ev.exit136, %277
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit136 ], [ %278, %277 ]
@@ -38792,9 +38488,8 @@ _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %337, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %344, %345
   %346 = load i8, ptr %28, align 8
-  %347 = and i8 %346, 1
-  %.not191 = icmp eq i8 %347, 0
-  br i1 %.not191, label %351, label %373
+  %347 = trunc i8 %346 to i1
+  br i1 %347, label %373, label %351
 
 348:                                              ; preds = %_ZN7testing7MessageD2Ev.exit147, %313
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit147 ], [ %314, %313 ]
@@ -38903,9 +38598,8 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %373, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %380, %381
   %382 = load i8, ptr %31, align 8
-  %383 = and i8 %382, 1
-  %.not192 = icmp eq i8 %383, 0
-  br i1 %.not192, label %387, label %409
+  %383 = trunc i8 %382 to i1
+  br i1 %383, label %409, label %387
 
 384:                                              ; preds = %_ZN7testing7MessageD2Ev.exit158, %349
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit158 ], [ %350, %349 ]
@@ -39014,9 +38708,8 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %409, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %416, %417
   %418 = load i8, ptr %34, align 8
-  %419 = and i8 %418, 1
-  %.not193 = icmp eq i8 %419, 0
-  br i1 %.not193, label %423, label %445
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %445, label %423
 
 420:                                              ; preds = %_ZN7testing7MessageD2Ev.exit169, %385
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit169 ], [ %386, %385 ]
@@ -39207,9 +38900,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %47, %48
   %49 = load i8, ptr %4, align 8
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %57, label %79
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %79, label %57
 
 51:                                               ; preds = %.noexc, %1
   %52 = landingpad { ptr, i32 }
@@ -39329,9 +39021,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %79, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %86, %87
   %88 = load i8, ptr %7, align 8
-  %89 = and i8 %88, 1
-  %.not152 = icmp eq i8 %89, 0
-  br i1 %.not152, label %93, label %115
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %115, label %93
 
 90:                                               ; preds = %_ZN7testing7MessageD2Ev.exit62, %55
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZN7testing7MessageD2Ev.exit62 ], [ %56, %55 ]
@@ -39440,9 +39131,8 @@ _ZN7testing15AssertionResultD2Ev.exit74:          ; preds = %115, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %122, %123
   %124 = load i8, ptr %10, align 8
-  %125 = and i8 %124, 1
-  %.not153 = icmp eq i8 %125, 0
-  br i1 %.not153, label %129, label %151
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %151, label %129
 
 126:                                              ; preds = %_ZN7testing7MessageD2Ev.exit71, %91
   %.pn33.pn = phi { ptr, i32 } [ %.pn33, %_ZN7testing7MessageD2Ev.exit71 ], [ %92, %91 ]
@@ -39551,9 +39241,8 @@ _ZN7testing15AssertionResultD2Ev.exit85:          ; preds = %151, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %158, %159
   %160 = load i8, ptr %13, align 8
-  %161 = and i8 %160, 1
-  %.not154 = icmp eq i8 %161, 0
-  br i1 %.not154, label %165, label %187
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %187, label %165
 
 162:                                              ; preds = %_ZN7testing7MessageD2Ev.exit82, %127
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %_ZN7testing7MessageD2Ev.exit82 ], [ %128, %127 ]
@@ -39662,9 +39351,8 @@ _ZN7testing15AssertionResultD2Ev.exit96:          ; preds = %187, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %194, %195
   %196 = load i8, ptr %16, align 8
-  %197 = and i8 %196, 1
-  %.not155 = icmp eq i8 %197, 0
-  br i1 %.not155, label %201, label %223
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %223, label %201
 
 198:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %163
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit93 ], [ %164, %163 ]
@@ -39773,9 +39461,8 @@ _ZN7testing15AssertionResultD2Ev.exit107:         ; preds = %223, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %230, %231
   %232 = load i8, ptr %19, align 8
-  %233 = and i8 %232, 1
-  %.not156 = icmp eq i8 %233, 0
-  br i1 %.not156, label %237, label %259
+  %233 = trunc i8 %232 to i1
+  br i1 %233, label %259, label %237
 
 234:                                              ; preds = %_ZN7testing7MessageD2Ev.exit104, %199
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZN7testing7MessageD2Ev.exit104 ], [ %200, %199 ]
@@ -39884,9 +39571,8 @@ _ZN7testing15AssertionResultD2Ev.exit118:         ; preds = %259, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %266, %267
   %268 = load i8, ptr %22, align 8
-  %269 = and i8 %268, 1
-  %.not157 = icmp eq i8 %269, 0
-  br i1 %.not157, label %273, label %295
+  %269 = trunc i8 %268 to i1
+  br i1 %269, label %295, label %273
 
 270:                                              ; preds = %_ZN7testing7MessageD2Ev.exit115, %235
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %_ZN7testing7MessageD2Ev.exit115 ], [ %236, %235 ]
@@ -39995,9 +39681,8 @@ _ZN7testing15AssertionResultD2Ev.exit129:         ; preds = %295, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %302, %303
   %304 = load i8, ptr %25, align 8
-  %305 = and i8 %304, 1
-  %.not158 = icmp eq i8 %305, 0
-  br i1 %.not158, label %309, label %331
+  %305 = trunc i8 %304 to i1
+  br i1 %305, label %331, label %309
 
 306:                                              ; preds = %_ZN7testing7MessageD2Ev.exit126, %271
   %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZN7testing7MessageD2Ev.exit126 ], [ %272, %271 ]
@@ -40106,9 +39791,8 @@ _ZN7testing15AssertionResultD2Ev.exit140:         ; preds = %331, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %338, %339
   %340 = load i8, ptr %28, align 8
-  %341 = and i8 %340, 1
-  %.not159 = icmp eq i8 %341, 0
-  br i1 %.not159, label %345, label %367
+  %341 = trunc i8 %340 to i1
+  br i1 %341, label %367, label %345
 
 342:                                              ; preds = %_ZN7testing7MessageD2Ev.exit137, %307
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZN7testing7MessageD2Ev.exit137 ], [ %308, %307 ]
@@ -40359,9 +40043,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %107, %108
   %109 = load i8, ptr %4, align 8
-  %110 = and i8 %109, 1
-  %.not = icmp eq i8 %110, 0
-  br i1 %.not, label %117, label %139
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %139, label %117
 
 111:                                              ; preds = %.noexc, %1
   %112 = landingpad { ptr, i32 }
@@ -40481,9 +40164,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %139, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %146, %147
   %148 = load i8, ptr %7, align 8
-  %149 = and i8 %148, 1
-  %.not486 = icmp eq i8 %149, 0
-  br i1 %.not486, label %153, label %175
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %175, label %153
 
 150:                                              ; preds = %_ZN7testing7MessageD2Ev.exit162, %115
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %_ZN7testing7MessageD2Ev.exit162 ], [ %116, %115 ]
@@ -40592,9 +40274,8 @@ _ZN7testing15AssertionResultD2Ev.exit174:         ; preds = %175, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %182, %183
   %184 = load i8, ptr %10, align 8
-  %185 = and i8 %184, 1
-  %.not487 = icmp eq i8 %185, 0
-  br i1 %.not487, label %189, label %211
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %211, label %189
 
 186:                                              ; preds = %_ZN7testing7MessageD2Ev.exit171, %151
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %_ZN7testing7MessageD2Ev.exit171 ], [ %152, %151 ]
@@ -40703,9 +40384,8 @@ _ZN7testing15AssertionResultD2Ev.exit185:         ; preds = %211, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %218, %219
   %220 = load i8, ptr %13, align 8
-  %221 = and i8 %220, 1
-  %.not488 = icmp eq i8 %221, 0
-  br i1 %.not488, label %225, label %247
+  %221 = trunc i8 %220 to i1
+  br i1 %221, label %247, label %225
 
 222:                                              ; preds = %_ZN7testing7MessageD2Ev.exit182, %187
   %.pn76.pn = phi { ptr, i32 } [ %.pn76, %_ZN7testing7MessageD2Ev.exit182 ], [ %188, %187 ]
@@ -40814,9 +40494,8 @@ _ZN7testing15AssertionResultD2Ev.exit196:         ; preds = %247, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %254, %255
   %256 = load i8, ptr %16, align 8
-  %257 = and i8 %256, 1
-  %.not489 = icmp eq i8 %257, 0
-  br i1 %.not489, label %261, label %283
+  %257 = trunc i8 %256 to i1
+  br i1 %257, label %283, label %261
 
 258:                                              ; preds = %_ZN7testing7MessageD2Ev.exit193, %223
   %.pn79.pn = phi { ptr, i32 } [ %.pn79, %_ZN7testing7MessageD2Ev.exit193 ], [ %224, %223 ]
@@ -40925,9 +40604,8 @@ _ZN7testing15AssertionResultD2Ev.exit207:         ; preds = %283, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %290, %291
   %292 = load i8, ptr %19, align 8
-  %293 = and i8 %292, 1
-  %.not490 = icmp eq i8 %293, 0
-  br i1 %.not490, label %297, label %319
+  %293 = trunc i8 %292 to i1
+  br i1 %293, label %319, label %297
 
 294:                                              ; preds = %_ZN7testing7MessageD2Ev.exit204, %259
   %.pn82.pn = phi { ptr, i32 } [ %.pn82, %_ZN7testing7MessageD2Ev.exit204 ], [ %260, %259 ]
@@ -41036,9 +40714,8 @@ _ZN7testing15AssertionResultD2Ev.exit218:         ; preds = %319, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %326, %327
   %328 = load i8, ptr %22, align 8
-  %329 = and i8 %328, 1
-  %.not491 = icmp eq i8 %329, 0
-  br i1 %.not491, label %333, label %355
+  %329 = trunc i8 %328 to i1
+  br i1 %329, label %355, label %333
 
 330:                                              ; preds = %_ZN7testing7MessageD2Ev.exit215, %295
   %.pn85.pn = phi { ptr, i32 } [ %.pn85, %_ZN7testing7MessageD2Ev.exit215 ], [ %296, %295 ]
@@ -41149,9 +40826,8 @@ _ZN7testing15AssertionResultD2Ev.exit229:         ; preds = %355, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit230: ; preds = %363, %364
   %365 = load i8, ptr %25, align 8
-  %366 = and i8 %365, 1
-  %.not492 = icmp eq i8 %366, 0
-  br i1 %.not492, label %370, label %392
+  %366 = trunc i8 %365 to i1
+  br i1 %366, label %392, label %370
 
 367:                                              ; preds = %_ZN7testing7MessageD2Ev.exit226, %331
   %.pn88.pn = phi { ptr, i32 } [ %.pn88, %_ZN7testing7MessageD2Ev.exit226 ], [ %332, %331 ]
@@ -41260,9 +40936,8 @@ _ZN7testing15AssertionResultD2Ev.exit241:         ; preds = %392, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit242: ; preds = %399, %400
   %401 = load i8, ptr %28, align 8
-  %402 = and i8 %401, 1
-  %.not493 = icmp eq i8 %402, 0
-  br i1 %.not493, label %406, label %428
+  %402 = trunc i8 %401 to i1
+  br i1 %402, label %428, label %406
 
 403:                                              ; preds = %_ZN7testing7MessageD2Ev.exit238, %368
   %.pn91.pn = phi { ptr, i32 } [ %.pn91, %_ZN7testing7MessageD2Ev.exit238 ], [ %369, %368 ]
@@ -41371,9 +41046,8 @@ _ZN7testing15AssertionResultD2Ev.exit253:         ; preds = %428, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit254: ; preds = %435, %436
   %437 = load i8, ptr %31, align 8
-  %438 = and i8 %437, 1
-  %.not494 = icmp eq i8 %438, 0
-  br i1 %.not494, label %442, label %464
+  %438 = trunc i8 %437 to i1
+  br i1 %438, label %464, label %442
 
 439:                                              ; preds = %_ZN7testing7MessageD2Ev.exit250, %404
   %.pn94.pn = phi { ptr, i32 } [ %.pn94, %_ZN7testing7MessageD2Ev.exit250 ], [ %405, %404 ]
@@ -41482,9 +41156,8 @@ _ZN7testing15AssertionResultD2Ev.exit265:         ; preds = %464, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit266: ; preds = %471, %472
   %473 = load i8, ptr %34, align 8
-  %474 = and i8 %473, 1
-  %.not495 = icmp eq i8 %474, 0
-  br i1 %.not495, label %478, label %500
+  %474 = trunc i8 %473 to i1
+  br i1 %474, label %500, label %478
 
 475:                                              ; preds = %_ZN7testing7MessageD2Ev.exit262, %440
   %.pn97.pn = phi { ptr, i32 } [ %.pn97, %_ZN7testing7MessageD2Ev.exit262 ], [ %441, %440 ]
@@ -41593,9 +41266,8 @@ _ZN7testing15AssertionResultD2Ev.exit277:         ; preds = %500, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit278: ; preds = %507, %508
   %509 = load i8, ptr %37, align 8
-  %510 = and i8 %509, 1
-  %.not496 = icmp eq i8 %510, 0
-  br i1 %.not496, label %514, label %536
+  %510 = trunc i8 %509 to i1
+  br i1 %510, label %536, label %514
 
 511:                                              ; preds = %_ZN7testing7MessageD2Ev.exit274, %476
   %.pn100.pn = phi { ptr, i32 } [ %.pn100, %_ZN7testing7MessageD2Ev.exit274 ], [ %477, %476 ]
@@ -41704,9 +41376,8 @@ _ZN7testing15AssertionResultD2Ev.exit289:         ; preds = %536, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit290: ; preds = %543, %544
   %545 = load i8, ptr %40, align 8
-  %546 = and i8 %545, 1
-  %.not497 = icmp eq i8 %546, 0
-  br i1 %.not497, label %550, label %572
+  %546 = trunc i8 %545 to i1
+  br i1 %546, label %572, label %550
 
 547:                                              ; preds = %_ZN7testing7MessageD2Ev.exit286, %512
   %.pn103.pn = phi { ptr, i32 } [ %.pn103, %_ZN7testing7MessageD2Ev.exit286 ], [ %513, %512 ]
@@ -41815,9 +41486,8 @@ _ZN7testing15AssertionResultD2Ev.exit301:         ; preds = %572, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit302: ; preds = %579, %580
   %581 = load i8, ptr %43, align 8
-  %582 = and i8 %581, 1
-  %.not498 = icmp eq i8 %582, 0
-  br i1 %.not498, label %586, label %608
+  %582 = trunc i8 %581 to i1
+  br i1 %582, label %608, label %586
 
 583:                                              ; preds = %_ZN7testing7MessageD2Ev.exit298, %548
   %.pn106.pn = phi { ptr, i32 } [ %.pn106, %_ZN7testing7MessageD2Ev.exit298 ], [ %549, %548 ]
@@ -41926,9 +41596,8 @@ _ZN7testing15AssertionResultD2Ev.exit313:         ; preds = %608, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %615, %616
   %617 = load i8, ptr %46, align 8
-  %618 = and i8 %617, 1
-  %.not499 = icmp eq i8 %618, 0
-  br i1 %.not499, label %622, label %644
+  %618 = trunc i8 %617 to i1
+  br i1 %618, label %644, label %622
 
 619:                                              ; preds = %_ZN7testing7MessageD2Ev.exit310, %584
   %.pn109.pn = phi { ptr, i32 } [ %.pn109, %_ZN7testing7MessageD2Ev.exit310 ], [ %585, %584 ]
@@ -42037,9 +41706,8 @@ _ZN7testing15AssertionResultD2Ev.exit324:         ; preds = %644, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %651, %652
   %653 = load i8, ptr %49, align 8
-  %654 = and i8 %653, 1
-  %.not500 = icmp eq i8 %654, 0
-  br i1 %.not500, label %658, label %680
+  %654 = trunc i8 %653 to i1
+  br i1 %654, label %680, label %658
 
 655:                                              ; preds = %_ZN7testing7MessageD2Ev.exit321, %620
   %.pn112.pn = phi { ptr, i32 } [ %.pn112, %_ZN7testing7MessageD2Ev.exit321 ], [ %621, %620 ]
@@ -42150,9 +41818,8 @@ _ZN7testing15AssertionResultD2Ev.exit335:         ; preds = %680, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit336: ; preds = %688, %689
   %690 = load i8, ptr %52, align 8
-  %691 = and i8 %690, 1
-  %.not501 = icmp eq i8 %691, 0
-  br i1 %.not501, label %695, label %717
+  %691 = trunc i8 %690 to i1
+  br i1 %691, label %717, label %695
 
 692:                                              ; preds = %_ZN7testing7MessageD2Ev.exit332, %656
   %.pn115.pn = phi { ptr, i32 } [ %.pn115, %_ZN7testing7MessageD2Ev.exit332 ], [ %657, %656 ]
@@ -42261,9 +41928,8 @@ _ZN7testing15AssertionResultD2Ev.exit347:         ; preds = %717, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit348: ; preds = %724, %725
   %726 = load i8, ptr %55, align 8
-  %727 = and i8 %726, 1
-  %.not502 = icmp eq i8 %727, 0
-  br i1 %.not502, label %731, label %753
+  %727 = trunc i8 %726 to i1
+  br i1 %727, label %753, label %731
 
 728:                                              ; preds = %_ZN7testing7MessageD2Ev.exit344, %693
   %.pn118.pn = phi { ptr, i32 } [ %.pn118, %_ZN7testing7MessageD2Ev.exit344 ], [ %694, %693 ]
@@ -42372,9 +42038,8 @@ _ZN7testing15AssertionResultD2Ev.exit359:         ; preds = %753, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit360: ; preds = %760, %761
   %762 = load i8, ptr %58, align 8
-  %763 = and i8 %762, 1
-  %.not503 = icmp eq i8 %763, 0
-  br i1 %.not503, label %767, label %789
+  %763 = trunc i8 %762 to i1
+  br i1 %763, label %789, label %767
 
 764:                                              ; preds = %_ZN7testing7MessageD2Ev.exit356, %729
   %.pn121.pn = phi { ptr, i32 } [ %.pn121, %_ZN7testing7MessageD2Ev.exit356 ], [ %730, %729 ]
@@ -42483,9 +42148,8 @@ _ZN7testing15AssertionResultD2Ev.exit371:         ; preds = %789, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit372: ; preds = %796, %797
   %798 = load i8, ptr %61, align 8
-  %799 = and i8 %798, 1
-  %.not504 = icmp eq i8 %799, 0
-  br i1 %.not504, label %803, label %825
+  %799 = trunc i8 %798 to i1
+  br i1 %799, label %825, label %803
 
 800:                                              ; preds = %_ZN7testing7MessageD2Ev.exit368, %765
   %.pn124.pn = phi { ptr, i32 } [ %.pn124, %_ZN7testing7MessageD2Ev.exit368 ], [ %766, %765 ]
@@ -42594,9 +42258,8 @@ _ZN7testing15AssertionResultD2Ev.exit383:         ; preds = %825, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit384: ; preds = %832, %833
   %834 = load i8, ptr %64, align 8
-  %835 = and i8 %834, 1
-  %.not505 = icmp eq i8 %835, 0
-  br i1 %.not505, label %839, label %861
+  %835 = trunc i8 %834 to i1
+  br i1 %835, label %861, label %839
 
 836:                                              ; preds = %_ZN7testing7MessageD2Ev.exit380, %801
   %.pn127.pn = phi { ptr, i32 } [ %.pn127, %_ZN7testing7MessageD2Ev.exit380 ], [ %802, %801 ]
@@ -42705,9 +42368,8 @@ _ZN7testing15AssertionResultD2Ev.exit395:         ; preds = %861, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit396: ; preds = %868, %869
   %870 = load i8, ptr %67, align 8
-  %871 = and i8 %870, 1
-  %.not506 = icmp eq i8 %871, 0
-  br i1 %.not506, label %875, label %897
+  %871 = trunc i8 %870 to i1
+  br i1 %871, label %897, label %875
 
 872:                                              ; preds = %_ZN7testing7MessageD2Ev.exit392, %837
   %.pn130.pn = phi { ptr, i32 } [ %.pn130, %_ZN7testing7MessageD2Ev.exit392 ], [ %838, %837 ]
@@ -42816,9 +42478,8 @@ _ZN7testing15AssertionResultD2Ev.exit407:         ; preds = %897, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit408: ; preds = %904, %905
   %906 = load i8, ptr %70, align 8
-  %907 = and i8 %906, 1
-  %.not507 = icmp eq i8 %907, 0
-  br i1 %.not507, label %911, label %933
+  %907 = trunc i8 %906 to i1
+  br i1 %907, label %933, label %911
 
 908:                                              ; preds = %_ZN7testing7MessageD2Ev.exit404, %873
   %.pn133.pn = phi { ptr, i32 } [ %.pn133, %_ZN7testing7MessageD2Ev.exit404 ], [ %874, %873 ]
@@ -42927,9 +42588,8 @@ _ZN7testing15AssertionResultD2Ev.exit419:         ; preds = %933, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %940, %941
   %942 = load i8, ptr %73, align 8
-  %943 = and i8 %942, 1
-  %.not508 = icmp eq i8 %943, 0
-  br i1 %.not508, label %947, label %969
+  %943 = trunc i8 %942 to i1
+  br i1 %943, label %969, label %947
 
 944:                                              ; preds = %_ZN7testing7MessageD2Ev.exit416, %909
   %.pn136.pn = phi { ptr, i32 } [ %.pn136, %_ZN7testing7MessageD2Ev.exit416 ], [ %910, %909 ]
@@ -43038,9 +42698,8 @@ _ZN7testing15AssertionResultD2Ev.exit430:         ; preds = %969, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %976, %977
   %978 = load i8, ptr %76, align 8
-  %979 = and i8 %978, 1
-  %.not509 = icmp eq i8 %979, 0
-  br i1 %.not509, label %983, label %1005
+  %979 = trunc i8 %978 to i1
+  br i1 %979, label %1005, label %983
 
 980:                                              ; preds = %_ZN7testing7MessageD2Ev.exit427, %945
   %.pn139.pn = phi { ptr, i32 } [ %.pn139, %_ZN7testing7MessageD2Ev.exit427 ], [ %946, %945 ]
@@ -43149,9 +42808,8 @@ _ZN7testing15AssertionResultD2Ev.exit441:         ; preds = %1005, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1012, %1013
   %1014 = load i8, ptr %79, align 8
-  %1015 = and i8 %1014, 1
-  %.not510 = icmp eq i8 %1015, 0
-  br i1 %.not510, label %1019, label %1041
+  %1015 = trunc i8 %1014 to i1
+  br i1 %1015, label %1041, label %1019
 
 1016:                                             ; preds = %_ZN7testing7MessageD2Ev.exit438, %981
   %.pn142.pn = phi { ptr, i32 } [ %.pn142, %_ZN7testing7MessageD2Ev.exit438 ], [ %982, %981 ]
@@ -43260,9 +42918,8 @@ _ZN7testing15AssertionResultD2Ev.exit452:         ; preds = %1041, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1048, %1049
   %1050 = load i8, ptr %82, align 8
-  %1051 = and i8 %1050, 1
-  %.not511 = icmp eq i8 %1051, 0
-  br i1 %.not511, label %1055, label %1077
+  %1051 = trunc i8 %1050 to i1
+  br i1 %1051, label %1077, label %1055
 
 1052:                                             ; preds = %_ZN7testing7MessageD2Ev.exit449, %1017
   %.pn145.pn = phi { ptr, i32 } [ %.pn145, %_ZN7testing7MessageD2Ev.exit449 ], [ %1018, %1017 ]
@@ -43371,9 +43028,8 @@ _ZN7testing15AssertionResultD2Ev.exit463:         ; preds = %1077, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1084, %1085
   %1086 = load i8, ptr %85, align 8
-  %1087 = and i8 %1086, 1
-  %.not512 = icmp eq i8 %1087, 0
-  br i1 %.not512, label %1091, label %1113
+  %1087 = trunc i8 %1086 to i1
+  br i1 %1087, label %1113, label %1091
 
 1088:                                             ; preds = %_ZN7testing7MessageD2Ev.exit460, %1053
   %.pn148.pn = phi { ptr, i32 } [ %.pn148, %_ZN7testing7MessageD2Ev.exit460 ], [ %1054, %1053 ]
@@ -43482,9 +43138,8 @@ _ZN7testing15AssertionResultD2Ev.exit474:         ; preds = %1113, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1120, %1121
   %1122 = load i8, ptr %88, align 8
-  %1123 = and i8 %1122, 1
-  %.not513 = icmp eq i8 %1123, 0
-  br i1 %.not513, label %1127, label %1149
+  %1123 = trunc i8 %1122 to i1
+  br i1 %1123, label %1149, label %1127
 
 1124:                                             ; preds = %_ZN7testing7MessageD2Ev.exit471, %1089
   %.pn151.pn = phi { ptr, i32 } [ %.pn151, %_ZN7testing7MessageD2Ev.exit471 ], [ %1090, %1089 ]
@@ -43681,9 +43336,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %53, %54
   %55 = load i8, ptr %4, align 8
-  %56 = and i8 %55, 1
-  %.not = icmp eq i8 %56, 0
-  br i1 %.not, label %63, label %85
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %85, label %63
 
 57:                                               ; preds = %.noexc, %1
   %58 = landingpad { ptr, i32 }
@@ -43803,9 +43457,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %92, %93
   %94 = load i8, ptr %7, align 8
-  %95 = and i8 %94, 1
-  %.not184 = icmp eq i8 %95, 0
-  br i1 %.not184, label %99, label %121
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %121, label %99
 
 96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit72, %61
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZN7testing7MessageD2Ev.exit72 ], [ %62, %61 ]
@@ -43914,9 +43567,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %121, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %128, %129
   %130 = load i8, ptr %10, align 8
-  %131 = and i8 %130, 1
-  %.not185 = icmp eq i8 %131, 0
-  br i1 %.not185, label %135, label %157
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %157, label %135
 
 132:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %97
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %_ZN7testing7MessageD2Ev.exit81 ], [ %98, %97 ]
@@ -44025,9 +43677,8 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %157, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %164, %165
   %166 = load i8, ptr %13, align 8
-  %167 = and i8 %166, 1
-  %.not186 = icmp eq i8 %167, 0
-  br i1 %.not186, label %171, label %193
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %193, label %171
 
 168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit92, %133
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit92 ], [ %134, %133 ]
@@ -44136,9 +43787,8 @@ _ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %193, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %200, %201
   %202 = load i8, ptr %16, align 8
-  %203 = and i8 %202, 1
-  %.not187 = icmp eq i8 %203, 0
-  br i1 %.not187, label %207, label %229
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %229, label %207
 
 204:                                              ; preds = %_ZN7testing7MessageD2Ev.exit103, %169
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit103 ], [ %170, %169 ]
@@ -44247,9 +43897,8 @@ _ZN7testing15AssertionResultD2Ev.exit117:         ; preds = %229, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %236, %237
   %238 = load i8, ptr %19, align 8
-  %239 = and i8 %238, 1
-  %.not188 = icmp eq i8 %239, 0
-  br i1 %.not188, label %243, label %265
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %265, label %243
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit114, %205
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit114 ], [ %206, %205 ]
@@ -44358,9 +44007,8 @@ _ZN7testing15AssertionResultD2Ev.exit128:         ; preds = %265, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %272, %273
   %274 = load i8, ptr %22, align 8
-  %275 = and i8 %274, 1
-  %.not189 = icmp eq i8 %275, 0
-  br i1 %.not189, label %279, label %301
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %301, label %279
 
 276:                                              ; preds = %_ZN7testing7MessageD2Ev.exit125, %241
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit125 ], [ %242, %241 ]
@@ -44469,9 +44117,8 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %301, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %308, %309
   %310 = load i8, ptr %25, align 8
-  %311 = and i8 %310, 1
-  %.not190 = icmp eq i8 %311, 0
-  br i1 %.not190, label %315, label %337
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %337, label %315
 
 312:                                              ; preds = %_ZN7testing7MessageD2Ev.exit136, %277
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit136 ], [ %278, %277 ]
@@ -44580,9 +44227,8 @@ _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %337, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %344, %345
   %346 = load i8, ptr %28, align 8
-  %347 = and i8 %346, 1
-  %.not191 = icmp eq i8 %347, 0
-  br i1 %.not191, label %351, label %373
+  %347 = trunc i8 %346 to i1
+  br i1 %347, label %373, label %351
 
 348:                                              ; preds = %_ZN7testing7MessageD2Ev.exit147, %313
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit147 ], [ %314, %313 ]
@@ -44691,9 +44337,8 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %373, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %380, %381
   %382 = load i8, ptr %31, align 8
-  %383 = and i8 %382, 1
-  %.not192 = icmp eq i8 %383, 0
-  br i1 %.not192, label %387, label %409
+  %383 = trunc i8 %382 to i1
+  br i1 %383, label %409, label %387
 
 384:                                              ; preds = %_ZN7testing7MessageD2Ev.exit158, %349
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit158 ], [ %350, %349 ]
@@ -44802,9 +44447,8 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %409, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %416, %417
   %418 = load i8, ptr %34, align 8
-  %419 = and i8 %418, 1
-  %.not193 = icmp eq i8 %419, 0
-  br i1 %.not193, label %423, label %445
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %445, label %423
 
 420:                                              ; preds = %_ZN7testing7MessageD2Ev.exit169, %385
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit169 ], [ %386, %385 ]
@@ -45010,9 +44654,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %62, %63
   %64 = load i8, ptr %4, align 8
-  %65 = and i8 %64, 1
-  %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %72, label %94
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %94, label %72
 
 66:                                               ; preds = %.noexc, %1
   %67 = landingpad { ptr, i32 }
@@ -45132,9 +44775,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %94, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %101, %102
   %103 = load i8, ptr %7, align 8
-  %104 = and i8 %103, 1
-  %.not232 = icmp eq i8 %104, 0
-  br i1 %.not232, label %108, label %130
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %130, label %108
 
 105:                                              ; preds = %_ZN7testing7MessageD2Ev.exit87, %70
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit87 ], [ %71, %70 ]
@@ -45243,9 +44885,8 @@ _ZN7testing15AssertionResultD2Ev.exit99:          ; preds = %130, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %137, %138
   %139 = load i8, ptr %10, align 8
-  %140 = and i8 %139, 1
-  %.not233 = icmp eq i8 %140, 0
-  br i1 %.not233, label %144, label %166
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %166, label %144
 
 141:                                              ; preds = %_ZN7testing7MessageD2Ev.exit96, %106
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit96 ], [ %107, %106 ]
@@ -45354,9 +44995,8 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %166, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %173, %174
   %175 = load i8, ptr %13, align 8
-  %176 = and i8 %175, 1
-  %.not234 = icmp eq i8 %176, 0
-  br i1 %.not234, label %180, label %202
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %202, label %180
 
 177:                                              ; preds = %_ZN7testing7MessageD2Ev.exit107, %142
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit107 ], [ %143, %142 ]
@@ -45465,9 +45105,8 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %202, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %209, %210
   %211 = load i8, ptr %16, align 8
-  %212 = and i8 %211, 1
-  %.not235 = icmp eq i8 %212, 0
-  br i1 %.not235, label %216, label %238
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %238, label %216
 
 213:                                              ; preds = %_ZN7testing7MessageD2Ev.exit118, %178
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit118 ], [ %179, %178 ]
@@ -45576,9 +45215,8 @@ _ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %238, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %245, %246
   %247 = load i8, ptr %19, align 8
-  %248 = and i8 %247, 1
-  %.not236 = icmp eq i8 %248, 0
-  br i1 %.not236, label %252, label %274
+  %248 = trunc i8 %247 to i1
+  br i1 %248, label %274, label %252
 
 249:                                              ; preds = %_ZN7testing7MessageD2Ev.exit129, %214
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit129 ], [ %215, %214 ]
@@ -45687,9 +45325,8 @@ _ZN7testing15AssertionResultD2Ev.exit143:         ; preds = %274, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %281, %282
   %283 = load i8, ptr %22, align 8
-  %284 = and i8 %283, 1
-  %.not237 = icmp eq i8 %284, 0
-  br i1 %.not237, label %288, label %310
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %310, label %288
 
 285:                                              ; preds = %_ZN7testing7MessageD2Ev.exit140, %250
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit140 ], [ %251, %250 ]
@@ -45798,9 +45435,8 @@ _ZN7testing15AssertionResultD2Ev.exit154:         ; preds = %310, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %317, %318
   %319 = load i8, ptr %25, align 8
-  %320 = and i8 %319, 1
-  %.not238 = icmp eq i8 %320, 0
-  br i1 %.not238, label %324, label %346
+  %320 = trunc i8 %319 to i1
+  br i1 %320, label %346, label %324
 
 321:                                              ; preds = %_ZN7testing7MessageD2Ev.exit151, %286
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit151 ], [ %287, %286 ]
@@ -45909,9 +45545,8 @@ _ZN7testing15AssertionResultD2Ev.exit165:         ; preds = %346, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %353, %354
   %355 = load i8, ptr %28, align 8
-  %356 = and i8 %355, 1
-  %.not239 = icmp eq i8 %356, 0
-  br i1 %.not239, label %360, label %382
+  %356 = trunc i8 %355 to i1
+  br i1 %356, label %382, label %360
 
 357:                                              ; preds = %_ZN7testing7MessageD2Ev.exit162, %322
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit162 ], [ %323, %322 ]
@@ -46020,9 +45655,8 @@ _ZN7testing15AssertionResultD2Ev.exit176:         ; preds = %382, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %389, %390
   %391 = load i8, ptr %31, align 8
-  %392 = and i8 %391, 1
-  %.not240 = icmp eq i8 %392, 0
-  br i1 %.not240, label %396, label %418
+  %392 = trunc i8 %391 to i1
+  br i1 %392, label %418, label %396
 
 393:                                              ; preds = %_ZN7testing7MessageD2Ev.exit173, %358
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %_ZN7testing7MessageD2Ev.exit173 ], [ %359, %358 ]
@@ -46131,9 +45765,8 @@ _ZN7testing15AssertionResultD2Ev.exit187:         ; preds = %418, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %425, %426
   %427 = load i8, ptr %34, align 8
-  %428 = and i8 %427, 1
-  %.not241 = icmp eq i8 %428, 0
-  br i1 %.not241, label %432, label %454
+  %428 = trunc i8 %427 to i1
+  br i1 %428, label %454, label %432
 
 429:                                              ; preds = %_ZN7testing7MessageD2Ev.exit184, %394
   %.pn67.pn = phi { ptr, i32 } [ %.pn67, %_ZN7testing7MessageD2Ev.exit184 ], [ %395, %394 ]
@@ -46242,9 +45875,8 @@ _ZN7testing15AssertionResultD2Ev.exit198:         ; preds = %454, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %461, %462
   %463 = load i8, ptr %37, align 8
-  %464 = and i8 %463, 1
-  %.not242 = icmp eq i8 %464, 0
-  br i1 %.not242, label %468, label %490
+  %464 = trunc i8 %463 to i1
+  br i1 %464, label %490, label %468
 
 465:                                              ; preds = %_ZN7testing7MessageD2Ev.exit195, %430
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %_ZN7testing7MessageD2Ev.exit195 ], [ %431, %430 ]
@@ -46353,9 +45985,8 @@ _ZN7testing15AssertionResultD2Ev.exit209:         ; preds = %490, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %497, %498
   %499 = load i8, ptr %40, align 8
-  %500 = and i8 %499, 1
-  %.not243 = icmp eq i8 %500, 0
-  br i1 %.not243, label %504, label %526
+  %500 = trunc i8 %499 to i1
+  br i1 %500, label %526, label %504
 
 501:                                              ; preds = %_ZN7testing7MessageD2Ev.exit206, %466
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %_ZN7testing7MessageD2Ev.exit206 ], [ %467, %466 ]
@@ -46464,9 +46095,8 @@ _ZN7testing15AssertionResultD2Ev.exit220:         ; preds = %526, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %533, %534
   %535 = load i8, ptr %43, align 8
-  %536 = and i8 %535, 1
-  %.not244 = icmp eq i8 %536, 0
-  br i1 %.not244, label %540, label %562
+  %536 = trunc i8 %535 to i1
+  br i1 %536, label %562, label %540
 
 537:                                              ; preds = %_ZN7testing7MessageD2Ev.exit217, %502
   %.pn76.pn = phi { ptr, i32 } [ %.pn76, %_ZN7testing7MessageD2Ev.exit217 ], [ %503, %502 ]
@@ -46831,9 +46461,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %221, %222
   %223 = load i8, ptr %4, align 8
-  %224 = and i8 %223, 1
-  %.not = icmp eq i8 %224, 0
-  br i1 %.not, label %231, label %253
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %253, label %231
 
 225:                                              ; preds = %.noexc, %1
   %226 = landingpad { ptr, i32 }
@@ -46953,9 +46582,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %253, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %260, %261
   %262 = load i8, ptr %7, align 8
-  %263 = and i8 %262, 1
-  %.not1158 = icmp eq i8 %263, 0
-  br i1 %.not1158, label %267, label %289
+  %263 = trunc i8 %262 to i1
+  br i1 %263, label %289, label %267
 
 264:                                              ; preds = %_ZN7testing7MessageD2Ev.exit378, %229
   %.pn172.pn = phi { ptr, i32 } [ %.pn172, %_ZN7testing7MessageD2Ev.exit378 ], [ %230, %229 ]
@@ -47064,9 +46692,8 @@ _ZN7testing15AssertionResultD2Ev.exit390:         ; preds = %289, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %296, %297
   %298 = load i8, ptr %10, align 8
-  %299 = and i8 %298, 1
-  %.not1159 = icmp eq i8 %299, 0
-  br i1 %.not1159, label %303, label %325
+  %299 = trunc i8 %298 to i1
+  br i1 %299, label %325, label %303
 
 300:                                              ; preds = %_ZN7testing7MessageD2Ev.exit387, %265
   %.pn175.pn = phi { ptr, i32 } [ %.pn175, %_ZN7testing7MessageD2Ev.exit387 ], [ %266, %265 ]
@@ -47175,9 +46802,8 @@ _ZN7testing15AssertionResultD2Ev.exit401:         ; preds = %325, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %332, %333
   %334 = load i8, ptr %13, align 8
-  %335 = and i8 %334, 1
-  %.not1160 = icmp eq i8 %335, 0
-  br i1 %.not1160, label %339, label %361
+  %335 = trunc i8 %334 to i1
+  br i1 %335, label %361, label %339
 
 336:                                              ; preds = %_ZN7testing7MessageD2Ev.exit398, %301
   %.pn178.pn = phi { ptr, i32 } [ %.pn178, %_ZN7testing7MessageD2Ev.exit398 ], [ %302, %301 ]
@@ -47286,9 +46912,8 @@ _ZN7testing15AssertionResultD2Ev.exit412:         ; preds = %361, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %368, %369
   %370 = load i8, ptr %16, align 8
-  %371 = and i8 %370, 1
-  %.not1161 = icmp eq i8 %371, 0
-  br i1 %.not1161, label %375, label %397
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %397, label %375
 
 372:                                              ; preds = %_ZN7testing7MessageD2Ev.exit409, %337
   %.pn181.pn = phi { ptr, i32 } [ %.pn181, %_ZN7testing7MessageD2Ev.exit409 ], [ %338, %337 ]
@@ -47397,9 +47022,8 @@ _ZN7testing15AssertionResultD2Ev.exit423:         ; preds = %397, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %404, %405
   %406 = load i8, ptr %19, align 8
-  %407 = and i8 %406, 1
-  %.not1162 = icmp eq i8 %407, 0
-  br i1 %.not1162, label %411, label %433
+  %407 = trunc i8 %406 to i1
+  br i1 %407, label %433, label %411
 
 408:                                              ; preds = %_ZN7testing7MessageD2Ev.exit420, %373
   %.pn184.pn = phi { ptr, i32 } [ %.pn184, %_ZN7testing7MessageD2Ev.exit420 ], [ %374, %373 ]
@@ -47508,9 +47132,8 @@ _ZN7testing15AssertionResultD2Ev.exit434:         ; preds = %433, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %440, %441
   %442 = load i8, ptr %22, align 8
-  %443 = and i8 %442, 1
-  %.not1163 = icmp eq i8 %443, 0
-  br i1 %.not1163, label %447, label %469
+  %443 = trunc i8 %442 to i1
+  br i1 %443, label %469, label %447
 
 444:                                              ; preds = %_ZN7testing7MessageD2Ev.exit431, %409
   %.pn187.pn = phi { ptr, i32 } [ %.pn187, %_ZN7testing7MessageD2Ev.exit431 ], [ %410, %409 ]
@@ -47619,9 +47242,8 @@ _ZN7testing15AssertionResultD2Ev.exit445:         ; preds = %469, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %476, %477
   %478 = load i8, ptr %25, align 8
-  %479 = and i8 %478, 1
-  %.not1164 = icmp eq i8 %479, 0
-  br i1 %.not1164, label %483, label %505
+  %479 = trunc i8 %478 to i1
+  br i1 %479, label %505, label %483
 
 480:                                              ; preds = %_ZN7testing7MessageD2Ev.exit442, %445
   %.pn190.pn = phi { ptr, i32 } [ %.pn190, %_ZN7testing7MessageD2Ev.exit442 ], [ %446, %445 ]
@@ -47730,9 +47352,8 @@ _ZN7testing15AssertionResultD2Ev.exit456:         ; preds = %505, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %512, %513
   %514 = load i8, ptr %28, align 8
-  %515 = and i8 %514, 1
-  %.not1165 = icmp eq i8 %515, 0
-  br i1 %.not1165, label %519, label %541
+  %515 = trunc i8 %514 to i1
+  br i1 %515, label %541, label %519
 
 516:                                              ; preds = %_ZN7testing7MessageD2Ev.exit453, %481
   %.pn193.pn = phi { ptr, i32 } [ %.pn193, %_ZN7testing7MessageD2Ev.exit453 ], [ %482, %481 ]
@@ -47841,9 +47462,8 @@ _ZN7testing15AssertionResultD2Ev.exit467:         ; preds = %541, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %548, %549
   %550 = load i8, ptr %31, align 8
-  %551 = and i8 %550, 1
-  %.not1166 = icmp eq i8 %551, 0
-  br i1 %.not1166, label %555, label %577
+  %551 = trunc i8 %550 to i1
+  br i1 %551, label %577, label %555
 
 552:                                              ; preds = %_ZN7testing7MessageD2Ev.exit464, %517
   %.pn196.pn = phi { ptr, i32 } [ %.pn196, %_ZN7testing7MessageD2Ev.exit464 ], [ %518, %517 ]
@@ -47952,9 +47572,8 @@ _ZN7testing15AssertionResultD2Ev.exit478:         ; preds = %577, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %584, %585
   %586 = load i8, ptr %34, align 8
-  %587 = and i8 %586, 1
-  %.not1167 = icmp eq i8 %587, 0
-  br i1 %.not1167, label %591, label %613
+  %587 = trunc i8 %586 to i1
+  br i1 %587, label %613, label %591
 
 588:                                              ; preds = %_ZN7testing7MessageD2Ev.exit475, %553
   %.pn199.pn = phi { ptr, i32 } [ %.pn199, %_ZN7testing7MessageD2Ev.exit475 ], [ %554, %553 ]
@@ -48063,9 +47682,8 @@ _ZN7testing15AssertionResultD2Ev.exit489:         ; preds = %613, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %620, %621
   %622 = load i8, ptr %37, align 8
-  %623 = and i8 %622, 1
-  %.not1168 = icmp eq i8 %623, 0
-  br i1 %.not1168, label %627, label %649
+  %623 = trunc i8 %622 to i1
+  br i1 %623, label %649, label %627
 
 624:                                              ; preds = %_ZN7testing7MessageD2Ev.exit486, %589
   %.pn202.pn = phi { ptr, i32 } [ %.pn202, %_ZN7testing7MessageD2Ev.exit486 ], [ %590, %589 ]
@@ -48176,9 +47794,8 @@ _ZN7testing15AssertionResultD2Ev.exit500:         ; preds = %649, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit501: ; preds = %657, %658
   %659 = load i8, ptr %40, align 8
-  %660 = and i8 %659, 1
-  %.not1169 = icmp eq i8 %660, 0
-  br i1 %.not1169, label %664, label %686
+  %660 = trunc i8 %659 to i1
+  br i1 %660, label %686, label %664
 
 661:                                              ; preds = %_ZN7testing7MessageD2Ev.exit497, %625
   %.pn205.pn = phi { ptr, i32 } [ %.pn205, %_ZN7testing7MessageD2Ev.exit497 ], [ %626, %625 ]
@@ -48287,9 +47904,8 @@ _ZN7testing15AssertionResultD2Ev.exit512:         ; preds = %686, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit513: ; preds = %693, %694
   %695 = load i8, ptr %43, align 8
-  %696 = and i8 %695, 1
-  %.not1170 = icmp eq i8 %696, 0
-  br i1 %.not1170, label %700, label %722
+  %696 = trunc i8 %695 to i1
+  br i1 %696, label %722, label %700
 
 697:                                              ; preds = %_ZN7testing7MessageD2Ev.exit509, %662
   %.pn208.pn = phi { ptr, i32 } [ %.pn208, %_ZN7testing7MessageD2Ev.exit509 ], [ %663, %662 ]
@@ -48398,9 +48014,8 @@ _ZN7testing15AssertionResultD2Ev.exit524:         ; preds = %722, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit525: ; preds = %729, %730
   %731 = load i8, ptr %46, align 8
-  %732 = and i8 %731, 1
-  %.not1171 = icmp eq i8 %732, 0
-  br i1 %.not1171, label %736, label %758
+  %732 = trunc i8 %731 to i1
+  br i1 %732, label %758, label %736
 
 733:                                              ; preds = %_ZN7testing7MessageD2Ev.exit521, %698
   %.pn211.pn = phi { ptr, i32 } [ %.pn211, %_ZN7testing7MessageD2Ev.exit521 ], [ %699, %698 ]
@@ -48509,9 +48124,8 @@ _ZN7testing15AssertionResultD2Ev.exit536:         ; preds = %758, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit537: ; preds = %765, %766
   %767 = load i8, ptr %49, align 8
-  %768 = and i8 %767, 1
-  %.not1172 = icmp eq i8 %768, 0
-  br i1 %.not1172, label %772, label %794
+  %768 = trunc i8 %767 to i1
+  br i1 %768, label %794, label %772
 
 769:                                              ; preds = %_ZN7testing7MessageD2Ev.exit533, %734
   %.pn214.pn = phi { ptr, i32 } [ %.pn214, %_ZN7testing7MessageD2Ev.exit533 ], [ %735, %734 ]
@@ -48620,9 +48234,8 @@ _ZN7testing15AssertionResultD2Ev.exit548:         ; preds = %794, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit549: ; preds = %801, %802
   %803 = load i8, ptr %52, align 8
-  %804 = and i8 %803, 1
-  %.not1173 = icmp eq i8 %804, 0
-  br i1 %.not1173, label %808, label %830
+  %804 = trunc i8 %803 to i1
+  br i1 %804, label %830, label %808
 
 805:                                              ; preds = %_ZN7testing7MessageD2Ev.exit545, %770
   %.pn217.pn = phi { ptr, i32 } [ %.pn217, %_ZN7testing7MessageD2Ev.exit545 ], [ %771, %770 ]
@@ -48731,9 +48344,8 @@ _ZN7testing15AssertionResultD2Ev.exit560:         ; preds = %830, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit561: ; preds = %837, %838
   %839 = load i8, ptr %55, align 8
-  %840 = and i8 %839, 1
-  %.not1174 = icmp eq i8 %840, 0
-  br i1 %.not1174, label %844, label %866
+  %840 = trunc i8 %839 to i1
+  br i1 %840, label %866, label %844
 
 841:                                              ; preds = %_ZN7testing7MessageD2Ev.exit557, %806
   %.pn220.pn = phi { ptr, i32 } [ %.pn220, %_ZN7testing7MessageD2Ev.exit557 ], [ %807, %806 ]
@@ -48842,9 +48454,8 @@ _ZN7testing15AssertionResultD2Ev.exit572:         ; preds = %866, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit573: ; preds = %873, %874
   %875 = load i8, ptr %58, align 8
-  %876 = and i8 %875, 1
-  %.not1175 = icmp eq i8 %876, 0
-  br i1 %.not1175, label %880, label %902
+  %876 = trunc i8 %875 to i1
+  br i1 %876, label %902, label %880
 
 877:                                              ; preds = %_ZN7testing7MessageD2Ev.exit569, %842
   %.pn223.pn = phi { ptr, i32 } [ %.pn223, %_ZN7testing7MessageD2Ev.exit569 ], [ %843, %842 ]
@@ -48953,9 +48564,8 @@ _ZN7testing15AssertionResultD2Ev.exit584:         ; preds = %902, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %909, %910
   %911 = load i8, ptr %61, align 8
-  %912 = and i8 %911, 1
-  %.not1176 = icmp eq i8 %912, 0
-  br i1 %.not1176, label %916, label %938
+  %912 = trunc i8 %911 to i1
+  br i1 %912, label %938, label %916
 
 913:                                              ; preds = %_ZN7testing7MessageD2Ev.exit581, %878
   %.pn226.pn = phi { ptr, i32 } [ %.pn226, %_ZN7testing7MessageD2Ev.exit581 ], [ %879, %878 ]
@@ -49064,9 +48674,8 @@ _ZN7testing15AssertionResultD2Ev.exit595:         ; preds = %938, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit596: ; preds = %945, %946
   %947 = load i8, ptr %64, align 8
-  %948 = and i8 %947, 1
-  %.not1177 = icmp eq i8 %948, 0
-  br i1 %.not1177, label %952, label %974
+  %948 = trunc i8 %947 to i1
+  br i1 %948, label %974, label %952
 
 949:                                              ; preds = %_ZN7testing7MessageD2Ev.exit592, %914
   %.pn229.pn = phi { ptr, i32 } [ %.pn229, %_ZN7testing7MessageD2Ev.exit592 ], [ %915, %914 ]
@@ -49175,9 +48784,8 @@ _ZN7testing15AssertionResultD2Ev.exit607:         ; preds = %974, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit608: ; preds = %981, %982
   %983 = load i8, ptr %67, align 8
-  %984 = and i8 %983, 1
-  %.not1178 = icmp eq i8 %984, 0
-  br i1 %.not1178, label %988, label %1010
+  %984 = trunc i8 %983 to i1
+  br i1 %984, label %1010, label %988
 
 985:                                              ; preds = %_ZN7testing7MessageD2Ev.exit604, %950
   %.pn232.pn = phi { ptr, i32 } [ %.pn232, %_ZN7testing7MessageD2Ev.exit604 ], [ %951, %950 ]
@@ -49286,9 +48894,8 @@ _ZN7testing15AssertionResultD2Ev.exit619:         ; preds = %1010, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit620: ; preds = %1017, %1018
   %1019 = load i8, ptr %70, align 8
-  %1020 = and i8 %1019, 1
-  %.not1179 = icmp eq i8 %1020, 0
-  br i1 %.not1179, label %1024, label %1046
+  %1020 = trunc i8 %1019 to i1
+  br i1 %1020, label %1046, label %1024
 
 1021:                                             ; preds = %_ZN7testing7MessageD2Ev.exit616, %986
   %.pn235.pn = phi { ptr, i32 } [ %.pn235, %_ZN7testing7MessageD2Ev.exit616 ], [ %987, %986 ]
@@ -49399,9 +49006,8 @@ _ZN7testing15AssertionResultD2Ev.exit631:         ; preds = %1046, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit632: ; preds = %1054, %1055
   %1056 = load i8, ptr %73, align 8
-  %1057 = and i8 %1056, 1
-  %.not1180 = icmp eq i8 %1057, 0
-  br i1 %.not1180, label %1061, label %1083
+  %1057 = trunc i8 %1056 to i1
+  br i1 %1057, label %1083, label %1061
 
 1058:                                             ; preds = %_ZN7testing7MessageD2Ev.exit628, %1022
   %.pn238.pn = phi { ptr, i32 } [ %.pn238, %_ZN7testing7MessageD2Ev.exit628 ], [ %1023, %1022 ]
@@ -49510,9 +49116,8 @@ _ZN7testing15AssertionResultD2Ev.exit643:         ; preds = %1083, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit644: ; preds = %1090, %1091
   %1092 = load i8, ptr %76, align 8
-  %1093 = and i8 %1092, 1
-  %.not1181 = icmp eq i8 %1093, 0
-  br i1 %.not1181, label %1097, label %1119
+  %1093 = trunc i8 %1092 to i1
+  br i1 %1093, label %1119, label %1097
 
 1094:                                             ; preds = %_ZN7testing7MessageD2Ev.exit640, %1059
   %.pn241.pn = phi { ptr, i32 } [ %.pn241, %_ZN7testing7MessageD2Ev.exit640 ], [ %1060, %1059 ]
@@ -49621,9 +49226,8 @@ _ZN7testing15AssertionResultD2Ev.exit655:         ; preds = %1119, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit656: ; preds = %1126, %1127
   %1128 = load i8, ptr %79, align 8
-  %1129 = and i8 %1128, 1
-  %.not1182 = icmp eq i8 %1129, 0
-  br i1 %.not1182, label %1133, label %1155
+  %1129 = trunc i8 %1128 to i1
+  br i1 %1129, label %1155, label %1133
 
 1130:                                             ; preds = %_ZN7testing7MessageD2Ev.exit652, %1095
   %.pn244.pn = phi { ptr, i32 } [ %.pn244, %_ZN7testing7MessageD2Ev.exit652 ], [ %1096, %1095 ]
@@ -49732,9 +49336,8 @@ _ZN7testing15AssertionResultD2Ev.exit667:         ; preds = %1155, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit668: ; preds = %1162, %1163
   %1164 = load i8, ptr %82, align 8
-  %1165 = and i8 %1164, 1
-  %.not1183 = icmp eq i8 %1165, 0
-  br i1 %.not1183, label %1169, label %1191
+  %1165 = trunc i8 %1164 to i1
+  br i1 %1165, label %1191, label %1169
 
 1166:                                             ; preds = %_ZN7testing7MessageD2Ev.exit664, %1131
   %.pn247.pn = phi { ptr, i32 } [ %.pn247, %_ZN7testing7MessageD2Ev.exit664 ], [ %1132, %1131 ]
@@ -49843,9 +49446,8 @@ _ZN7testing15AssertionResultD2Ev.exit679:         ; preds = %1191, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit680: ; preds = %1198, %1199
   %1200 = load i8, ptr %85, align 8
-  %1201 = and i8 %1200, 1
-  %.not1184 = icmp eq i8 %1201, 0
-  br i1 %.not1184, label %1205, label %1227
+  %1201 = trunc i8 %1200 to i1
+  br i1 %1201, label %1227, label %1205
 
 1202:                                             ; preds = %_ZN7testing7MessageD2Ev.exit676, %1167
   %.pn250.pn = phi { ptr, i32 } [ %.pn250, %_ZN7testing7MessageD2Ev.exit676 ], [ %1168, %1167 ]
@@ -49954,9 +49556,8 @@ _ZN7testing15AssertionResultD2Ev.exit691:         ; preds = %1227, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit692: ; preds = %1234, %1235
   %1236 = load i8, ptr %88, align 8
-  %1237 = and i8 %1236, 1
-  %.not1185 = icmp eq i8 %1237, 0
-  br i1 %.not1185, label %1241, label %1263
+  %1237 = trunc i8 %1236 to i1
+  br i1 %1237, label %1263, label %1241
 
 1238:                                             ; preds = %_ZN7testing7MessageD2Ev.exit688, %1203
   %.pn253.pn = phi { ptr, i32 } [ %.pn253, %_ZN7testing7MessageD2Ev.exit688 ], [ %1204, %1203 ]
@@ -50065,9 +49666,8 @@ _ZN7testing15AssertionResultD2Ev.exit703:         ; preds = %1263, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit704: ; preds = %1270, %1271
   %1272 = load i8, ptr %91, align 8
-  %1273 = and i8 %1272, 1
-  %.not1186 = icmp eq i8 %1273, 0
-  br i1 %.not1186, label %1277, label %1299
+  %1273 = trunc i8 %1272 to i1
+  br i1 %1273, label %1299, label %1277
 
 1274:                                             ; preds = %_ZN7testing7MessageD2Ev.exit700, %1239
   %.pn256.pn = phi { ptr, i32 } [ %.pn256, %_ZN7testing7MessageD2Ev.exit700 ], [ %1240, %1239 ]
@@ -50176,9 +49776,8 @@ _ZN7testing15AssertionResultD2Ev.exit715:         ; preds = %1299, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit716: ; preds = %1306, %1307
   %1308 = load i8, ptr %94, align 8
-  %1309 = and i8 %1308, 1
-  %.not1187 = icmp eq i8 %1309, 0
-  br i1 %.not1187, label %1313, label %1335
+  %1309 = trunc i8 %1308 to i1
+  br i1 %1309, label %1335, label %1313
 
 1310:                                             ; preds = %_ZN7testing7MessageD2Ev.exit712, %1275
   %.pn259.pn = phi { ptr, i32 } [ %.pn259, %_ZN7testing7MessageD2Ev.exit712 ], [ %1276, %1275 ]
@@ -50287,9 +49886,8 @@ _ZN7testing15AssertionResultD2Ev.exit727:         ; preds = %1335, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit728: ; preds = %1342, %1343
   %1344 = load i8, ptr %97, align 8
-  %1345 = and i8 %1344, 1
-  %.not1188 = icmp eq i8 %1345, 0
-  br i1 %.not1188, label %1349, label %1371
+  %1345 = trunc i8 %1344 to i1
+  br i1 %1345, label %1371, label %1349
 
 1346:                                             ; preds = %_ZN7testing7MessageD2Ev.exit724, %1311
   %.pn262.pn = phi { ptr, i32 } [ %.pn262, %_ZN7testing7MessageD2Ev.exit724 ], [ %1312, %1311 ]
@@ -50398,9 +49996,8 @@ _ZN7testing15AssertionResultD2Ev.exit739:         ; preds = %1371, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit740: ; preds = %1378, %1379
   %1380 = load i8, ptr %100, align 8
-  %1381 = and i8 %1380, 1
-  %.not1189 = icmp eq i8 %1381, 0
-  br i1 %.not1189, label %1385, label %1407
+  %1381 = trunc i8 %1380 to i1
+  br i1 %1381, label %1407, label %1385
 
 1382:                                             ; preds = %_ZN7testing7MessageD2Ev.exit736, %1347
   %.pn265.pn = phi { ptr, i32 } [ %.pn265, %_ZN7testing7MessageD2Ev.exit736 ], [ %1348, %1347 ]
@@ -50509,9 +50106,8 @@ _ZN7testing15AssertionResultD2Ev.exit751:         ; preds = %1407, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit752: ; preds = %1414, %1415
   %1416 = load i8, ptr %103, align 8
-  %1417 = and i8 %1416, 1
-  %.not1190 = icmp eq i8 %1417, 0
-  br i1 %.not1190, label %1421, label %1443
+  %1417 = trunc i8 %1416 to i1
+  br i1 %1417, label %1443, label %1421
 
 1418:                                             ; preds = %_ZN7testing7MessageD2Ev.exit748, %1383
   %.pn268.pn = phi { ptr, i32 } [ %.pn268, %_ZN7testing7MessageD2Ev.exit748 ], [ %1384, %1383 ]
@@ -50620,9 +50216,8 @@ _ZN7testing15AssertionResultD2Ev.exit763:         ; preds = %1443, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit764: ; preds = %1450, %1451
   %1452 = load i8, ptr %106, align 8
-  %1453 = and i8 %1452, 1
-  %.not1191 = icmp eq i8 %1453, 0
-  br i1 %.not1191, label %1457, label %1479
+  %1453 = trunc i8 %1452 to i1
+  br i1 %1453, label %1479, label %1457
 
 1454:                                             ; preds = %_ZN7testing7MessageD2Ev.exit760, %1419
   %.pn271.pn = phi { ptr, i32 } [ %.pn271, %_ZN7testing7MessageD2Ev.exit760 ], [ %1420, %1419 ]
@@ -50733,9 +50328,8 @@ _ZN7testing15AssertionResultD2Ev.exit775:         ; preds = %1479, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit776: ; preds = %1487, %1488
   %1489 = load i8, ptr %109, align 8
-  %1490 = and i8 %1489, 1
-  %.not1192 = icmp eq i8 %1490, 0
-  br i1 %.not1192, label %1494, label %1516
+  %1490 = trunc i8 %1489 to i1
+  br i1 %1490, label %1516, label %1494
 
 1491:                                             ; preds = %_ZN7testing7MessageD2Ev.exit772, %1455
   %.pn274.pn = phi { ptr, i32 } [ %.pn274, %_ZN7testing7MessageD2Ev.exit772 ], [ %1456, %1455 ]
@@ -50844,9 +50438,8 @@ _ZN7testing15AssertionResultD2Ev.exit787:         ; preds = %1516, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit788: ; preds = %1523, %1524
   %1525 = load i8, ptr %112, align 8
-  %1526 = and i8 %1525, 1
-  %.not1193 = icmp eq i8 %1526, 0
-  br i1 %.not1193, label %1530, label %1552
+  %1526 = trunc i8 %1525 to i1
+  br i1 %1526, label %1552, label %1530
 
 1527:                                             ; preds = %_ZN7testing7MessageD2Ev.exit784, %1492
   %.pn277.pn = phi { ptr, i32 } [ %.pn277, %_ZN7testing7MessageD2Ev.exit784 ], [ %1493, %1492 ]
@@ -50955,9 +50548,8 @@ _ZN7testing15AssertionResultD2Ev.exit799:         ; preds = %1552, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1559, %1560
   %1561 = load i8, ptr %115, align 8
-  %1562 = and i8 %1561, 1
-  %.not1194 = icmp eq i8 %1562, 0
-  br i1 %.not1194, label %1566, label %1588
+  %1562 = trunc i8 %1561 to i1
+  br i1 %1562, label %1588, label %1566
 
 1563:                                             ; preds = %_ZN7testing7MessageD2Ev.exit796, %1528
   %.pn280.pn = phi { ptr, i32 } [ %.pn280, %_ZN7testing7MessageD2Ev.exit796 ], [ %1529, %1528 ]
@@ -51066,9 +50658,8 @@ _ZN7testing15AssertionResultD2Ev.exit810:         ; preds = %1588, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit811: ; preds = %1595, %1596
   %1597 = load i8, ptr %118, align 8
-  %1598 = and i8 %1597, 1
-  %.not1195 = icmp eq i8 %1598, 0
-  br i1 %.not1195, label %1602, label %1624
+  %1598 = trunc i8 %1597 to i1
+  br i1 %1598, label %1624, label %1602
 
 1599:                                             ; preds = %_ZN7testing7MessageD2Ev.exit807, %1564
   %.pn283.pn = phi { ptr, i32 } [ %.pn283, %_ZN7testing7MessageD2Ev.exit807 ], [ %1565, %1564 ]
@@ -51177,9 +50768,8 @@ _ZN7testing15AssertionResultD2Ev.exit822:         ; preds = %1624, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit823: ; preds = %1631, %1632
   %1633 = load i8, ptr %121, align 8
-  %1634 = and i8 %1633, 1
-  %.not1196 = icmp eq i8 %1634, 0
-  br i1 %.not1196, label %1638, label %1660
+  %1634 = trunc i8 %1633 to i1
+  br i1 %1634, label %1660, label %1638
 
 1635:                                             ; preds = %_ZN7testing7MessageD2Ev.exit819, %1600
   %.pn286.pn = phi { ptr, i32 } [ %.pn286, %_ZN7testing7MessageD2Ev.exit819 ], [ %1601, %1600 ]
@@ -51290,9 +50880,8 @@ _ZN7testing15AssertionResultD2Ev.exit834:         ; preds = %1660, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit835: ; preds = %1668, %1669
   %1670 = load i8, ptr %124, align 8
-  %1671 = and i8 %1670, 1
-  %.not1197 = icmp eq i8 %1671, 0
-  br i1 %.not1197, label %1675, label %1697
+  %1671 = trunc i8 %1670 to i1
+  br i1 %1671, label %1697, label %1675
 
 1672:                                             ; preds = %_ZN7testing7MessageD2Ev.exit831, %1636
   %.pn289.pn = phi { ptr, i32 } [ %.pn289, %_ZN7testing7MessageD2Ev.exit831 ], [ %1637, %1636 ]
@@ -51401,9 +50990,8 @@ _ZN7testing15AssertionResultD2Ev.exit846:         ; preds = %1697, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit847: ; preds = %1704, %1705
   %1706 = load i8, ptr %127, align 8
-  %1707 = and i8 %1706, 1
-  %.not1198 = icmp eq i8 %1707, 0
-  br i1 %.not1198, label %1711, label %1733
+  %1707 = trunc i8 %1706 to i1
+  br i1 %1707, label %1733, label %1711
 
 1708:                                             ; preds = %_ZN7testing7MessageD2Ev.exit843, %1673
   %.pn292.pn = phi { ptr, i32 } [ %.pn292, %_ZN7testing7MessageD2Ev.exit843 ], [ %1674, %1673 ]
@@ -51512,9 +51100,8 @@ _ZN7testing15AssertionResultD2Ev.exit858:         ; preds = %1733, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit859: ; preds = %1740, %1741
   %1742 = load i8, ptr %130, align 8
-  %1743 = and i8 %1742, 1
-  %.not1199 = icmp eq i8 %1743, 0
-  br i1 %.not1199, label %1747, label %1769
+  %1743 = trunc i8 %1742 to i1
+  br i1 %1743, label %1769, label %1747
 
 1744:                                             ; preds = %_ZN7testing7MessageD2Ev.exit855, %1709
   %.pn295.pn = phi { ptr, i32 } [ %.pn295, %_ZN7testing7MessageD2Ev.exit855 ], [ %1710, %1709 ]
@@ -51623,9 +51210,8 @@ _ZN7testing15AssertionResultD2Ev.exit870:         ; preds = %1769, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit871: ; preds = %1776, %1777
   %1778 = load i8, ptr %133, align 8
-  %1779 = and i8 %1778, 1
-  %.not1200 = icmp eq i8 %1779, 0
-  br i1 %.not1200, label %1783, label %1805
+  %1779 = trunc i8 %1778 to i1
+  br i1 %1779, label %1805, label %1783
 
 1780:                                             ; preds = %_ZN7testing7MessageD2Ev.exit867, %1745
   %.pn298.pn = phi { ptr, i32 } [ %.pn298, %_ZN7testing7MessageD2Ev.exit867 ], [ %1746, %1745 ]
@@ -51734,9 +51320,8 @@ _ZN7testing15AssertionResultD2Ev.exit882:         ; preds = %1805, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit883: ; preds = %1812, %1813
   %1814 = load i8, ptr %136, align 8
-  %1815 = and i8 %1814, 1
-  %.not1201 = icmp eq i8 %1815, 0
-  br i1 %.not1201, label %1819, label %1841
+  %1815 = trunc i8 %1814 to i1
+  br i1 %1815, label %1841, label %1819
 
 1816:                                             ; preds = %_ZN7testing7MessageD2Ev.exit879, %1781
   %.pn301.pn = phi { ptr, i32 } [ %.pn301, %_ZN7testing7MessageD2Ev.exit879 ], [ %1782, %1781 ]
@@ -51845,9 +51430,8 @@ _ZN7testing15AssertionResultD2Ev.exit894:         ; preds = %1841, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1848, %1849
   %1850 = load i8, ptr %139, align 8
-  %1851 = and i8 %1850, 1
-  %.not1202 = icmp eq i8 %1851, 0
-  br i1 %.not1202, label %1855, label %1877
+  %1851 = trunc i8 %1850 to i1
+  br i1 %1851, label %1877, label %1855
 
 1852:                                             ; preds = %_ZN7testing7MessageD2Ev.exit891, %1817
   %.pn304.pn = phi { ptr, i32 } [ %.pn304, %_ZN7testing7MessageD2Ev.exit891 ], [ %1818, %1817 ]
@@ -51958,9 +51542,8 @@ _ZN7testing15AssertionResultD2Ev.exit905:         ; preds = %1877, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit906: ; preds = %1885, %1886
   %1887 = load i8, ptr %142, align 8
-  %1888 = and i8 %1887, 1
-  %.not1203 = icmp eq i8 %1888, 0
-  br i1 %.not1203, label %1892, label %1914
+  %1888 = trunc i8 %1887 to i1
+  br i1 %1888, label %1914, label %1892
 
 1889:                                             ; preds = %_ZN7testing7MessageD2Ev.exit902, %1853
   %.pn307.pn = phi { ptr, i32 } [ %.pn307, %_ZN7testing7MessageD2Ev.exit902 ], [ %1854, %1853 ]
@@ -52069,9 +51652,8 @@ _ZN7testing15AssertionResultD2Ev.exit917:         ; preds = %1914, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit918: ; preds = %1921, %1922
   %1923 = load i8, ptr %145, align 8
-  %1924 = and i8 %1923, 1
-  %.not1204 = icmp eq i8 %1924, 0
-  br i1 %.not1204, label %1928, label %1950
+  %1924 = trunc i8 %1923 to i1
+  br i1 %1924, label %1950, label %1928
 
 1925:                                             ; preds = %_ZN7testing7MessageD2Ev.exit914, %1890
   %.pn310.pn = phi { ptr, i32 } [ %.pn310, %_ZN7testing7MessageD2Ev.exit914 ], [ %1891, %1890 ]
@@ -52180,9 +51762,8 @@ _ZN7testing15AssertionResultD2Ev.exit929:         ; preds = %1950, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit930: ; preds = %1957, %1958
   %1959 = load i8, ptr %148, align 8
-  %1960 = and i8 %1959, 1
-  %.not1205 = icmp eq i8 %1960, 0
-  br i1 %.not1205, label %1964, label %1986
+  %1960 = trunc i8 %1959 to i1
+  br i1 %1960, label %1986, label %1964
 
 1961:                                             ; preds = %_ZN7testing7MessageD2Ev.exit926, %1926
   %.pn313.pn = phi { ptr, i32 } [ %.pn313, %_ZN7testing7MessageD2Ev.exit926 ], [ %1927, %1926 ]
@@ -52291,9 +51872,8 @@ _ZN7testing15AssertionResultD2Ev.exit941:         ; preds = %1986, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit942: ; preds = %1993, %1994
   %1995 = load i8, ptr %151, align 8
-  %1996 = and i8 %1995, 1
-  %.not1206 = icmp eq i8 %1996, 0
-  br i1 %.not1206, label %2000, label %2022
+  %1996 = trunc i8 %1995 to i1
+  br i1 %1996, label %2022, label %2000
 
 1997:                                             ; preds = %_ZN7testing7MessageD2Ev.exit938, %1962
   %.pn316.pn = phi { ptr, i32 } [ %.pn316, %_ZN7testing7MessageD2Ev.exit938 ], [ %1963, %1962 ]
@@ -52402,9 +51982,8 @@ _ZN7testing15AssertionResultD2Ev.exit953:         ; preds = %2022, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit954: ; preds = %2029, %2030
   %2031 = load i8, ptr %154, align 8
-  %2032 = and i8 %2031, 1
-  %.not1207 = icmp eq i8 %2032, 0
-  br i1 %.not1207, label %2036, label %2058
+  %2032 = trunc i8 %2031 to i1
+  br i1 %2032, label %2058, label %2036
 
 2033:                                             ; preds = %_ZN7testing7MessageD2Ev.exit950, %1998
   %.pn319.pn = phi { ptr, i32 } [ %.pn319, %_ZN7testing7MessageD2Ev.exit950 ], [ %1999, %1998 ]
@@ -52513,9 +52092,8 @@ _ZN7testing15AssertionResultD2Ev.exit965:         ; preds = %2058, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit966: ; preds = %2065, %2066
   %2067 = load i8, ptr %157, align 8
-  %2068 = and i8 %2067, 1
-  %.not1208 = icmp eq i8 %2068, 0
-  br i1 %.not1208, label %2072, label %2094
+  %2068 = trunc i8 %2067 to i1
+  br i1 %2068, label %2094, label %2072
 
 2069:                                             ; preds = %_ZN7testing7MessageD2Ev.exit962, %2034
   %.pn322.pn = phi { ptr, i32 } [ %.pn322, %_ZN7testing7MessageD2Ev.exit962 ], [ %2035, %2034 ]
@@ -52624,9 +52202,8 @@ _ZN7testing15AssertionResultD2Ev.exit977:         ; preds = %2094, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit978: ; preds = %2101, %2102
   %2103 = load i8, ptr %160, align 8
-  %2104 = and i8 %2103, 1
-  %.not1209 = icmp eq i8 %2104, 0
-  br i1 %.not1209, label %2108, label %2130
+  %2104 = trunc i8 %2103 to i1
+  br i1 %2104, label %2130, label %2108
 
 2105:                                             ; preds = %_ZN7testing7MessageD2Ev.exit974, %2070
   %.pn325.pn = phi { ptr, i32 } [ %.pn325, %_ZN7testing7MessageD2Ev.exit974 ], [ %2071, %2070 ]
@@ -52735,9 +52312,8 @@ _ZN7testing15AssertionResultD2Ev.exit989:         ; preds = %2130, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit990: ; preds = %2137, %2138
   %2139 = load i8, ptr %163, align 8
-  %2140 = and i8 %2139, 1
-  %.not1210 = icmp eq i8 %2140, 0
-  br i1 %.not1210, label %2144, label %2166
+  %2140 = trunc i8 %2139 to i1
+  br i1 %2140, label %2166, label %2144
 
 2141:                                             ; preds = %_ZN7testing7MessageD2Ev.exit986, %2106
   %.pn328.pn = phi { ptr, i32 } [ %.pn328, %_ZN7testing7MessageD2Ev.exit986 ], [ %2107, %2106 ]
@@ -52846,9 +52422,8 @@ _ZN7testing15AssertionResultD2Ev.exit1001:        ; preds = %2166, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1002: ; preds = %2173, %2174
   %2175 = load i8, ptr %166, align 8
-  %2176 = and i8 %2175, 1
-  %.not1211 = icmp eq i8 %2176, 0
-  br i1 %.not1211, label %2180, label %2202
+  %2176 = trunc i8 %2175 to i1
+  br i1 %2176, label %2202, label %2180
 
 2177:                                             ; preds = %_ZN7testing7MessageD2Ev.exit998, %2142
   %.pn331.pn = phi { ptr, i32 } [ %.pn331, %_ZN7testing7MessageD2Ev.exit998 ], [ %2143, %2142 ]
@@ -52957,9 +52532,8 @@ _ZN7testing15AssertionResultD2Ev.exit1013:        ; preds = %2202, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1014: ; preds = %2209, %2210
   %2211 = load i8, ptr %169, align 8
-  %2212 = and i8 %2211, 1
-  %.not1212 = icmp eq i8 %2212, 0
-  br i1 %.not1212, label %2216, label %2238
+  %2212 = trunc i8 %2211 to i1
+  br i1 %2212, label %2238, label %2216
 
 2213:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1010, %2178
   %.pn334.pn = phi { ptr, i32 } [ %.pn334, %_ZN7testing7MessageD2Ev.exit1010 ], [ %2179, %2178 ]
@@ -53070,9 +52644,8 @@ _ZN7testing15AssertionResultD2Ev.exit1025:        ; preds = %2238, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1026: ; preds = %2246, %2247
   %2248 = load i8, ptr %172, align 8
-  %2249 = and i8 %2248, 1
-  %.not1213 = icmp eq i8 %2249, 0
-  br i1 %.not1213, label %2253, label %2275
+  %2249 = trunc i8 %2248 to i1
+  br i1 %2249, label %2275, label %2253
 
 2250:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1022, %2214
   %.pn337.pn = phi { ptr, i32 } [ %.pn337, %_ZN7testing7MessageD2Ev.exit1022 ], [ %2215, %2214 ]
@@ -53181,9 +52754,8 @@ _ZN7testing15AssertionResultD2Ev.exit1037:        ; preds = %2275, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1038: ; preds = %2282, %2283
   %2284 = load i8, ptr %175, align 8
-  %2285 = and i8 %2284, 1
-  %.not1214 = icmp eq i8 %2285, 0
-  br i1 %.not1214, label %2289, label %2311
+  %2285 = trunc i8 %2284 to i1
+  br i1 %2285, label %2311, label %2289
 
 2286:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1034, %2251
   %.pn340.pn = phi { ptr, i32 } [ %.pn340, %_ZN7testing7MessageD2Ev.exit1034 ], [ %2252, %2251 ]
@@ -53292,9 +52864,8 @@ _ZN7testing15AssertionResultD2Ev.exit1049:        ; preds = %2311, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1050: ; preds = %2318, %2319
   %2320 = load i8, ptr %178, align 8
-  %2321 = and i8 %2320, 1
-  %.not1215 = icmp eq i8 %2321, 0
-  br i1 %.not1215, label %2325, label %2347
+  %2321 = trunc i8 %2320 to i1
+  br i1 %2321, label %2347, label %2325
 
 2322:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1046, %2287
   %.pn343.pn = phi { ptr, i32 } [ %.pn343, %_ZN7testing7MessageD2Ev.exit1046 ], [ %2288, %2287 ]
@@ -53403,9 +52974,8 @@ _ZN7testing15AssertionResultD2Ev.exit1061:        ; preds = %2347, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1062: ; preds = %2354, %2355
   %2356 = load i8, ptr %181, align 8
-  %2357 = and i8 %2356, 1
-  %.not1216 = icmp eq i8 %2357, 0
-  br i1 %.not1216, label %2361, label %2383
+  %2357 = trunc i8 %2356 to i1
+  br i1 %2357, label %2383, label %2361
 
 2358:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1058, %2323
   %.pn346.pn = phi { ptr, i32 } [ %.pn346, %_ZN7testing7MessageD2Ev.exit1058 ], [ %2324, %2323 ]
@@ -53514,9 +53084,8 @@ _ZN7testing15AssertionResultD2Ev.exit1073:        ; preds = %2383, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1074: ; preds = %2390, %2391
   %2392 = load i8, ptr %184, align 8
-  %2393 = and i8 %2392, 1
-  %.not1217 = icmp eq i8 %2393, 0
-  br i1 %.not1217, label %2397, label %2419
+  %2393 = trunc i8 %2392 to i1
+  br i1 %2393, label %2419, label %2397
 
 2394:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1070, %2359
   %.pn349.pn = phi { ptr, i32 } [ %.pn349, %_ZN7testing7MessageD2Ev.exit1070 ], [ %2360, %2359 ]
@@ -53625,9 +53194,8 @@ _ZN7testing15AssertionResultD2Ev.exit1085:        ; preds = %2419, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1086: ; preds = %2426, %2427
   %2428 = load i8, ptr %187, align 8
-  %2429 = and i8 %2428, 1
-  %.not1218 = icmp eq i8 %2429, 0
-  br i1 %.not1218, label %2433, label %2455
+  %2429 = trunc i8 %2428 to i1
+  br i1 %2429, label %2455, label %2433
 
 2430:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1082, %2395
   %.pn352.pn = phi { ptr, i32 } [ %.pn352, %_ZN7testing7MessageD2Ev.exit1082 ], [ %2396, %2395 ]
@@ -53736,9 +53304,8 @@ _ZN7testing15AssertionResultD2Ev.exit1097:        ; preds = %2455, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1098: ; preds = %2462, %2463
   %2464 = load i8, ptr %190, align 8
-  %2465 = and i8 %2464, 1
-  %.not1219 = icmp eq i8 %2465, 0
-  br i1 %.not1219, label %2469, label %2491
+  %2465 = trunc i8 %2464 to i1
+  br i1 %2465, label %2491, label %2469
 
 2466:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1094, %2431
   %.pn355.pn = phi { ptr, i32 } [ %.pn355, %_ZN7testing7MessageD2Ev.exit1094 ], [ %2432, %2431 ]
@@ -53847,9 +53414,8 @@ _ZN7testing15AssertionResultD2Ev.exit1109:        ; preds = %2491, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1110: ; preds = %2498, %2499
   %2500 = load i8, ptr %193, align 8
-  %2501 = and i8 %2500, 1
-  %.not1220 = icmp eq i8 %2501, 0
-  br i1 %.not1220, label %2505, label %2527
+  %2501 = trunc i8 %2500 to i1
+  br i1 %2501, label %2527, label %2505
 
 2502:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1106, %2467
   %.pn358.pn = phi { ptr, i32 } [ %.pn358, %_ZN7testing7MessageD2Ev.exit1106 ], [ %2468, %2467 ]
@@ -53958,9 +53524,8 @@ _ZN7testing15AssertionResultD2Ev.exit1121:        ; preds = %2527, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1122: ; preds = %2534, %2535
   %2536 = load i8, ptr %196, align 8
-  %2537 = and i8 %2536, 1
-  %.not1221 = icmp eq i8 %2537, 0
-  br i1 %.not1221, label %2541, label %2563
+  %2537 = trunc i8 %2536 to i1
+  br i1 %2537, label %2563, label %2541
 
 2538:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1118, %2503
   %.pn361.pn = phi { ptr, i32 } [ %.pn361, %_ZN7testing7MessageD2Ev.exit1118 ], [ %2504, %2503 ]
@@ -54069,9 +53634,8 @@ _ZN7testing15AssertionResultD2Ev.exit1133:        ; preds = %2563, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1134: ; preds = %2570, %2571
   %2572 = load i8, ptr %199, align 8
-  %2573 = and i8 %2572, 1
-  %.not1222 = icmp eq i8 %2573, 0
-  br i1 %.not1222, label %2577, label %2599
+  %2573 = trunc i8 %2572 to i1
+  br i1 %2573, label %2599, label %2577
 
 2574:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1130, %2539
   %.pn364.pn = phi { ptr, i32 } [ %.pn364, %_ZN7testing7MessageD2Ev.exit1130 ], [ %2540, %2539 ]
@@ -54180,9 +53744,8 @@ _ZN7testing15AssertionResultD2Ev.exit1145:        ; preds = %2599, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1146: ; preds = %2606, %2607
   %2608 = load i8, ptr %202, align 8
-  %2609 = and i8 %2608, 1
-  %.not1223 = icmp eq i8 %2609, 0
-  br i1 %.not1223, label %2613, label %2635
+  %2609 = trunc i8 %2608 to i1
+  br i1 %2609, label %2635, label %2613
 
 2610:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1142, %2575
   %.pn367.pn = phi { ptr, i32 } [ %.pn367, %_ZN7testing7MessageD2Ev.exit1142 ], [ %2576, %2575 ]
@@ -54577,9 +54140,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %251, %252
   %253 = load i8, ptr %4, align 8
-  %254 = and i8 %253, 1
-  %.not = icmp eq i8 %254, 0
-  br i1 %.not, label %261, label %283
+  %254 = trunc i8 %253 to i1
+  br i1 %254, label %283, label %261
 
 255:                                              ; preds = %.noexc, %1
   %256 = landingpad { ptr, i32 }
@@ -54699,9 +54261,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %283, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %290, %291
   %292 = load i8, ptr %7, align 8
-  %293 = and i8 %292, 1
-  %.not1345 = icmp eq i8 %293, 0
-  br i1 %.not1345, label %297, label %319
+  %293 = trunc i8 %292 to i1
+  br i1 %293, label %319, label %297
 
 294:                                              ; preds = %_ZN7testing7MessageD2Ev.exit448, %259
   %.pn212.pn = phi { ptr, i32 } [ %.pn212, %_ZN7testing7MessageD2Ev.exit448 ], [ %260, %259 ]
@@ -54810,9 +54371,8 @@ _ZN7testing15AssertionResultD2Ev.exit460:         ; preds = %319, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %326, %327
   %328 = load i8, ptr %10, align 8
-  %329 = and i8 %328, 1
-  %.not1346 = icmp eq i8 %329, 0
-  br i1 %.not1346, label %333, label %355
+  %329 = trunc i8 %328 to i1
+  br i1 %329, label %355, label %333
 
 330:                                              ; preds = %_ZN7testing7MessageD2Ev.exit457, %295
   %.pn215.pn = phi { ptr, i32 } [ %.pn215, %_ZN7testing7MessageD2Ev.exit457 ], [ %296, %295 ]
@@ -54921,9 +54481,8 @@ _ZN7testing15AssertionResultD2Ev.exit471:         ; preds = %355, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %362, %363
   %364 = load i8, ptr %13, align 8
-  %365 = and i8 %364, 1
-  %.not1347 = icmp eq i8 %365, 0
-  br i1 %.not1347, label %369, label %391
+  %365 = trunc i8 %364 to i1
+  br i1 %365, label %391, label %369
 
 366:                                              ; preds = %_ZN7testing7MessageD2Ev.exit468, %331
   %.pn218.pn = phi { ptr, i32 } [ %.pn218, %_ZN7testing7MessageD2Ev.exit468 ], [ %332, %331 ]
@@ -55032,9 +54591,8 @@ _ZN7testing15AssertionResultD2Ev.exit482:         ; preds = %391, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %398, %399
   %400 = load i8, ptr %16, align 8
-  %401 = and i8 %400, 1
-  %.not1348 = icmp eq i8 %401, 0
-  br i1 %.not1348, label %405, label %427
+  %401 = trunc i8 %400 to i1
+  br i1 %401, label %427, label %405
 
 402:                                              ; preds = %_ZN7testing7MessageD2Ev.exit479, %367
   %.pn221.pn = phi { ptr, i32 } [ %.pn221, %_ZN7testing7MessageD2Ev.exit479 ], [ %368, %367 ]
@@ -55143,9 +54701,8 @@ _ZN7testing15AssertionResultD2Ev.exit493:         ; preds = %427, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %434, %435
   %436 = load i8, ptr %19, align 8
-  %437 = and i8 %436, 1
-  %.not1349 = icmp eq i8 %437, 0
-  br i1 %.not1349, label %441, label %463
+  %437 = trunc i8 %436 to i1
+  br i1 %437, label %463, label %441
 
 438:                                              ; preds = %_ZN7testing7MessageD2Ev.exit490, %403
   %.pn224.pn = phi { ptr, i32 } [ %.pn224, %_ZN7testing7MessageD2Ev.exit490 ], [ %404, %403 ]
@@ -55254,9 +54811,8 @@ _ZN7testing15AssertionResultD2Ev.exit504:         ; preds = %463, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %470, %471
   %472 = load i8, ptr %22, align 8
-  %473 = and i8 %472, 1
-  %.not1350 = icmp eq i8 %473, 0
-  br i1 %.not1350, label %477, label %499
+  %473 = trunc i8 %472 to i1
+  br i1 %473, label %499, label %477
 
 474:                                              ; preds = %_ZN7testing7MessageD2Ev.exit501, %439
   %.pn227.pn = phi { ptr, i32 } [ %.pn227, %_ZN7testing7MessageD2Ev.exit501 ], [ %440, %439 ]
@@ -55365,9 +54921,8 @@ _ZN7testing15AssertionResultD2Ev.exit515:         ; preds = %499, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %506, %507
   %508 = load i8, ptr %25, align 8
-  %509 = and i8 %508, 1
-  %.not1351 = icmp eq i8 %509, 0
-  br i1 %.not1351, label %513, label %535
+  %509 = trunc i8 %508 to i1
+  br i1 %509, label %535, label %513
 
 510:                                              ; preds = %_ZN7testing7MessageD2Ev.exit512, %475
   %.pn230.pn = phi { ptr, i32 } [ %.pn230, %_ZN7testing7MessageD2Ev.exit512 ], [ %476, %475 ]
@@ -55476,9 +55031,8 @@ _ZN7testing15AssertionResultD2Ev.exit526:         ; preds = %535, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %542, %543
   %544 = load i8, ptr %28, align 8
-  %545 = and i8 %544, 1
-  %.not1352 = icmp eq i8 %545, 0
-  br i1 %.not1352, label %549, label %571
+  %545 = trunc i8 %544 to i1
+  br i1 %545, label %571, label %549
 
 546:                                              ; preds = %_ZN7testing7MessageD2Ev.exit523, %511
   %.pn233.pn = phi { ptr, i32 } [ %.pn233, %_ZN7testing7MessageD2Ev.exit523 ], [ %512, %511 ]
@@ -55587,9 +55141,8 @@ _ZN7testing15AssertionResultD2Ev.exit537:         ; preds = %571, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %578, %579
   %580 = load i8, ptr %31, align 8
-  %581 = and i8 %580, 1
-  %.not1353 = icmp eq i8 %581, 0
-  br i1 %.not1353, label %585, label %607
+  %581 = trunc i8 %580 to i1
+  br i1 %581, label %607, label %585
 
 582:                                              ; preds = %_ZN7testing7MessageD2Ev.exit534, %547
   %.pn236.pn = phi { ptr, i32 } [ %.pn236, %_ZN7testing7MessageD2Ev.exit534 ], [ %548, %547 ]
@@ -55698,9 +55251,8 @@ _ZN7testing15AssertionResultD2Ev.exit548:         ; preds = %607, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %614, %615
   %616 = load i8, ptr %34, align 8
-  %617 = and i8 %616, 1
-  %.not1354 = icmp eq i8 %617, 0
-  br i1 %.not1354, label %621, label %643
+  %617 = trunc i8 %616 to i1
+  br i1 %617, label %643, label %621
 
 618:                                              ; preds = %_ZN7testing7MessageD2Ev.exit545, %583
   %.pn239.pn = phi { ptr, i32 } [ %.pn239, %_ZN7testing7MessageD2Ev.exit545 ], [ %584, %583 ]
@@ -55809,9 +55361,8 @@ _ZN7testing15AssertionResultD2Ev.exit559:         ; preds = %643, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %650, %651
   %652 = load i8, ptr %37, align 8
-  %653 = and i8 %652, 1
-  %.not1355 = icmp eq i8 %653, 0
-  br i1 %.not1355, label %657, label %679
+  %653 = trunc i8 %652 to i1
+  br i1 %653, label %679, label %657
 
 654:                                              ; preds = %_ZN7testing7MessageD2Ev.exit556, %619
   %.pn242.pn = phi { ptr, i32 } [ %.pn242, %_ZN7testing7MessageD2Ev.exit556 ], [ %620, %619 ]
@@ -55920,9 +55471,8 @@ _ZN7testing15AssertionResultD2Ev.exit570:         ; preds = %679, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %686, %687
   %688 = load i8, ptr %40, align 8
-  %689 = and i8 %688, 1
-  %.not1356 = icmp eq i8 %689, 0
-  br i1 %.not1356, label %693, label %715
+  %689 = trunc i8 %688 to i1
+  br i1 %689, label %715, label %693
 
 690:                                              ; preds = %_ZN7testing7MessageD2Ev.exit567, %655
   %.pn245.pn = phi { ptr, i32 } [ %.pn245, %_ZN7testing7MessageD2Ev.exit567 ], [ %656, %655 ]
@@ -56033,9 +55583,8 @@ _ZN7testing15AssertionResultD2Ev.exit581:         ; preds = %715, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit582: ; preds = %723, %724
   %725 = load i8, ptr %43, align 8
-  %726 = and i8 %725, 1
-  %.not1357 = icmp eq i8 %726, 0
-  br i1 %.not1357, label %730, label %752
+  %726 = trunc i8 %725 to i1
+  br i1 %726, label %752, label %730
 
 727:                                              ; preds = %_ZN7testing7MessageD2Ev.exit578, %691
   %.pn248.pn = phi { ptr, i32 } [ %.pn248, %_ZN7testing7MessageD2Ev.exit578 ], [ %692, %691 ]
@@ -56144,9 +55693,8 @@ _ZN7testing15AssertionResultD2Ev.exit593:         ; preds = %752, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit594: ; preds = %759, %760
   %761 = load i8, ptr %46, align 8
-  %762 = and i8 %761, 1
-  %.not1358 = icmp eq i8 %762, 0
-  br i1 %.not1358, label %766, label %788
+  %762 = trunc i8 %761 to i1
+  br i1 %762, label %788, label %766
 
 763:                                              ; preds = %_ZN7testing7MessageD2Ev.exit590, %728
   %.pn251.pn = phi { ptr, i32 } [ %.pn251, %_ZN7testing7MessageD2Ev.exit590 ], [ %729, %728 ]
@@ -56255,9 +55803,8 @@ _ZN7testing15AssertionResultD2Ev.exit605:         ; preds = %788, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %795, %796
   %797 = load i8, ptr %49, align 8
-  %798 = and i8 %797, 1
-  %.not1359 = icmp eq i8 %798, 0
-  br i1 %.not1359, label %802, label %824
+  %798 = trunc i8 %797 to i1
+  br i1 %798, label %824, label %802
 
 799:                                              ; preds = %_ZN7testing7MessageD2Ev.exit602, %764
   %.pn254.pn = phi { ptr, i32 } [ %.pn254, %_ZN7testing7MessageD2Ev.exit602 ], [ %765, %764 ]
@@ -56366,9 +55913,8 @@ _ZN7testing15AssertionResultD2Ev.exit616:         ; preds = %824, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit617: ; preds = %831, %832
   %833 = load i8, ptr %52, align 8
-  %834 = and i8 %833, 1
-  %.not1360 = icmp eq i8 %834, 0
-  br i1 %.not1360, label %838, label %860
+  %834 = trunc i8 %833 to i1
+  br i1 %834, label %860, label %838
 
 835:                                              ; preds = %_ZN7testing7MessageD2Ev.exit613, %800
   %.pn257.pn = phi { ptr, i32 } [ %.pn257, %_ZN7testing7MessageD2Ev.exit613 ], [ %801, %800 ]
@@ -56477,9 +56023,8 @@ _ZN7testing15AssertionResultD2Ev.exit628:         ; preds = %860, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit629: ; preds = %867, %868
   %869 = load i8, ptr %55, align 8
-  %870 = and i8 %869, 1
-  %.not1361 = icmp eq i8 %870, 0
-  br i1 %.not1361, label %874, label %896
+  %870 = trunc i8 %869 to i1
+  br i1 %870, label %896, label %874
 
 871:                                              ; preds = %_ZN7testing7MessageD2Ev.exit625, %836
   %.pn260.pn = phi { ptr, i32 } [ %.pn260, %_ZN7testing7MessageD2Ev.exit625 ], [ %837, %836 ]
@@ -56588,9 +56133,8 @@ _ZN7testing15AssertionResultD2Ev.exit640:         ; preds = %896, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit641: ; preds = %903, %904
   %905 = load i8, ptr %58, align 8
-  %906 = and i8 %905, 1
-  %.not1362 = icmp eq i8 %906, 0
-  br i1 %.not1362, label %910, label %932
+  %906 = trunc i8 %905 to i1
+  br i1 %906, label %932, label %910
 
 907:                                              ; preds = %_ZN7testing7MessageD2Ev.exit637, %872
   %.pn263.pn = phi { ptr, i32 } [ %.pn263, %_ZN7testing7MessageD2Ev.exit637 ], [ %873, %872 ]
@@ -56699,9 +56243,8 @@ _ZN7testing15AssertionResultD2Ev.exit652:         ; preds = %932, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit653: ; preds = %939, %940
   %941 = load i8, ptr %61, align 8
-  %942 = and i8 %941, 1
-  %.not1363 = icmp eq i8 %942, 0
-  br i1 %.not1363, label %946, label %968
+  %942 = trunc i8 %941 to i1
+  br i1 %942, label %968, label %946
 
 943:                                              ; preds = %_ZN7testing7MessageD2Ev.exit649, %908
   %.pn266.pn = phi { ptr, i32 } [ %.pn266, %_ZN7testing7MessageD2Ev.exit649 ], [ %909, %908 ]
@@ -56810,9 +56353,8 @@ _ZN7testing15AssertionResultD2Ev.exit664:         ; preds = %968, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %975, %976
   %977 = load i8, ptr %64, align 8
-  %978 = and i8 %977, 1
-  %.not1364 = icmp eq i8 %978, 0
-  br i1 %.not1364, label %982, label %1004
+  %978 = trunc i8 %977 to i1
+  br i1 %978, label %1004, label %982
 
 979:                                              ; preds = %_ZN7testing7MessageD2Ev.exit661, %944
   %.pn269.pn = phi { ptr, i32 } [ %.pn269, %_ZN7testing7MessageD2Ev.exit661 ], [ %945, %944 ]
@@ -56921,9 +56463,8 @@ _ZN7testing15AssertionResultD2Ev.exit675:         ; preds = %1004, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit676: ; preds = %1011, %1012
   %1013 = load i8, ptr %67, align 8
-  %1014 = and i8 %1013, 1
-  %.not1365 = icmp eq i8 %1014, 0
-  br i1 %.not1365, label %1018, label %1040
+  %1014 = trunc i8 %1013 to i1
+  br i1 %1014, label %1040, label %1018
 
 1015:                                             ; preds = %_ZN7testing7MessageD2Ev.exit672, %980
   %.pn272.pn = phi { ptr, i32 } [ %.pn272, %_ZN7testing7MessageD2Ev.exit672 ], [ %981, %980 ]
@@ -57032,9 +56573,8 @@ _ZN7testing15AssertionResultD2Ev.exit687:         ; preds = %1040, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit688: ; preds = %1047, %1048
   %1049 = load i8, ptr %70, align 8
-  %1050 = and i8 %1049, 1
-  %.not1366 = icmp eq i8 %1050, 0
-  br i1 %.not1366, label %1054, label %1076
+  %1050 = trunc i8 %1049 to i1
+  br i1 %1050, label %1076, label %1054
 
 1051:                                             ; preds = %_ZN7testing7MessageD2Ev.exit684, %1016
   %.pn275.pn = phi { ptr, i32 } [ %.pn275, %_ZN7testing7MessageD2Ev.exit684 ], [ %1017, %1016 ]
@@ -57145,9 +56685,8 @@ _ZN7testing15AssertionResultD2Ev.exit699:         ; preds = %1076, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit700: ; preds = %1084, %1085
   %1086 = load i8, ptr %73, align 8
-  %1087 = and i8 %1086, 1
-  %.not1367 = icmp eq i8 %1087, 0
-  br i1 %.not1367, label %1091, label %1113
+  %1087 = trunc i8 %1086 to i1
+  br i1 %1087, label %1113, label %1091
 
 1088:                                             ; preds = %_ZN7testing7MessageD2Ev.exit696, %1052
   %.pn278.pn = phi { ptr, i32 } [ %.pn278, %_ZN7testing7MessageD2Ev.exit696 ], [ %1053, %1052 ]
@@ -57256,9 +56795,8 @@ _ZN7testing15AssertionResultD2Ev.exit711:         ; preds = %1113, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit712: ; preds = %1120, %1121
   %1122 = load i8, ptr %76, align 8
-  %1123 = and i8 %1122, 1
-  %.not1368 = icmp eq i8 %1123, 0
-  br i1 %.not1368, label %1127, label %1149
+  %1123 = trunc i8 %1122 to i1
+  br i1 %1123, label %1149, label %1127
 
 1124:                                             ; preds = %_ZN7testing7MessageD2Ev.exit708, %1089
   %.pn281.pn = phi { ptr, i32 } [ %.pn281, %_ZN7testing7MessageD2Ev.exit708 ], [ %1090, %1089 ]
@@ -57367,9 +56905,8 @@ _ZN7testing15AssertionResultD2Ev.exit723:         ; preds = %1149, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit724: ; preds = %1156, %1157
   %1158 = load i8, ptr %79, align 8
-  %1159 = and i8 %1158, 1
-  %.not1369 = icmp eq i8 %1159, 0
-  br i1 %.not1369, label %1163, label %1185
+  %1159 = trunc i8 %1158 to i1
+  br i1 %1159, label %1185, label %1163
 
 1160:                                             ; preds = %_ZN7testing7MessageD2Ev.exit720, %1125
   %.pn284.pn = phi { ptr, i32 } [ %.pn284, %_ZN7testing7MessageD2Ev.exit720 ], [ %1126, %1125 ]
@@ -57478,9 +57015,8 @@ _ZN7testing15AssertionResultD2Ev.exit735:         ; preds = %1185, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit736: ; preds = %1192, %1193
   %1194 = load i8, ptr %82, align 8
-  %1195 = and i8 %1194, 1
-  %.not1370 = icmp eq i8 %1195, 0
-  br i1 %.not1370, label %1199, label %1221
+  %1195 = trunc i8 %1194 to i1
+  br i1 %1195, label %1221, label %1199
 
 1196:                                             ; preds = %_ZN7testing7MessageD2Ev.exit732, %1161
   %.pn287.pn = phi { ptr, i32 } [ %.pn287, %_ZN7testing7MessageD2Ev.exit732 ], [ %1162, %1161 ]
@@ -57589,9 +57125,8 @@ _ZN7testing15AssertionResultD2Ev.exit747:         ; preds = %1221, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit748: ; preds = %1228, %1229
   %1230 = load i8, ptr %85, align 8
-  %1231 = and i8 %1230, 1
-  %.not1371 = icmp eq i8 %1231, 0
-  br i1 %.not1371, label %1235, label %1257
+  %1231 = trunc i8 %1230 to i1
+  br i1 %1231, label %1257, label %1235
 
 1232:                                             ; preds = %_ZN7testing7MessageD2Ev.exit744, %1197
   %.pn290.pn = phi { ptr, i32 } [ %.pn290, %_ZN7testing7MessageD2Ev.exit744 ], [ %1198, %1197 ]
@@ -57700,9 +57235,8 @@ _ZN7testing15AssertionResultD2Ev.exit759:         ; preds = %1257, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit760: ; preds = %1264, %1265
   %1266 = load i8, ptr %88, align 8
-  %1267 = and i8 %1266, 1
-  %.not1372 = icmp eq i8 %1267, 0
-  br i1 %.not1372, label %1271, label %1293
+  %1267 = trunc i8 %1266 to i1
+  br i1 %1267, label %1293, label %1271
 
 1268:                                             ; preds = %_ZN7testing7MessageD2Ev.exit756, %1233
   %.pn293.pn = phi { ptr, i32 } [ %.pn293, %_ZN7testing7MessageD2Ev.exit756 ], [ %1234, %1233 ]
@@ -57811,9 +57345,8 @@ _ZN7testing15AssertionResultD2Ev.exit771:         ; preds = %1293, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit772: ; preds = %1300, %1301
   %1302 = load i8, ptr %91, align 8
-  %1303 = and i8 %1302, 1
-  %.not1373 = icmp eq i8 %1303, 0
-  br i1 %.not1373, label %1307, label %1329
+  %1303 = trunc i8 %1302 to i1
+  br i1 %1303, label %1329, label %1307
 
 1304:                                             ; preds = %_ZN7testing7MessageD2Ev.exit768, %1269
   %.pn296.pn = phi { ptr, i32 } [ %.pn296, %_ZN7testing7MessageD2Ev.exit768 ], [ %1270, %1269 ]
@@ -57922,9 +57455,8 @@ _ZN7testing15AssertionResultD2Ev.exit783:         ; preds = %1329, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit784: ; preds = %1336, %1337
   %1338 = load i8, ptr %94, align 8
-  %1339 = and i8 %1338, 1
-  %.not1374 = icmp eq i8 %1339, 0
-  br i1 %.not1374, label %1343, label %1365
+  %1339 = trunc i8 %1338 to i1
+  br i1 %1339, label %1365, label %1343
 
 1340:                                             ; preds = %_ZN7testing7MessageD2Ev.exit780, %1305
   %.pn299.pn = phi { ptr, i32 } [ %.pn299, %_ZN7testing7MessageD2Ev.exit780 ], [ %1306, %1305 ]
@@ -58033,9 +57565,8 @@ _ZN7testing15AssertionResultD2Ev.exit795:         ; preds = %1365, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit796: ; preds = %1372, %1373
   %1374 = load i8, ptr %97, align 8
-  %1375 = and i8 %1374, 1
-  %.not1375 = icmp eq i8 %1375, 0
-  br i1 %.not1375, label %1379, label %1401
+  %1375 = trunc i8 %1374 to i1
+  br i1 %1375, label %1401, label %1379
 
 1376:                                             ; preds = %_ZN7testing7MessageD2Ev.exit792, %1341
   %.pn302.pn = phi { ptr, i32 } [ %.pn302, %_ZN7testing7MessageD2Ev.exit792 ], [ %1342, %1341 ]
@@ -58144,9 +57675,8 @@ _ZN7testing15AssertionResultD2Ev.exit807:         ; preds = %1401, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit808: ; preds = %1408, %1409
   %1410 = load i8, ptr %100, align 8
-  %1411 = and i8 %1410, 1
-  %.not1376 = icmp eq i8 %1411, 0
-  br i1 %.not1376, label %1415, label %1437
+  %1411 = trunc i8 %1410 to i1
+  br i1 %1411, label %1437, label %1415
 
 1412:                                             ; preds = %_ZN7testing7MessageD2Ev.exit804, %1377
   %.pn305.pn = phi { ptr, i32 } [ %.pn305, %_ZN7testing7MessageD2Ev.exit804 ], [ %1378, %1377 ]
@@ -58255,9 +57785,8 @@ _ZN7testing15AssertionResultD2Ev.exit819:         ; preds = %1437, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit820: ; preds = %1444, %1445
   %1446 = load i8, ptr %103, align 8
-  %1447 = and i8 %1446, 1
-  %.not1377 = icmp eq i8 %1447, 0
-  br i1 %.not1377, label %1451, label %1473
+  %1447 = trunc i8 %1446 to i1
+  br i1 %1447, label %1473, label %1451
 
 1448:                                             ; preds = %_ZN7testing7MessageD2Ev.exit816, %1413
   %.pn308.pn = phi { ptr, i32 } [ %.pn308, %_ZN7testing7MessageD2Ev.exit816 ], [ %1414, %1413 ]
@@ -58366,9 +57895,8 @@ _ZN7testing15AssertionResultD2Ev.exit831:         ; preds = %1473, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit832: ; preds = %1480, %1481
   %1482 = load i8, ptr %106, align 8
-  %1483 = and i8 %1482, 1
-  %.not1378 = icmp eq i8 %1483, 0
-  br i1 %.not1378, label %1487, label %1509
+  %1483 = trunc i8 %1482 to i1
+  br i1 %1483, label %1509, label %1487
 
 1484:                                             ; preds = %_ZN7testing7MessageD2Ev.exit828, %1449
   %.pn311.pn = phi { ptr, i32 } [ %.pn311, %_ZN7testing7MessageD2Ev.exit828 ], [ %1450, %1449 ]
@@ -58477,9 +58005,8 @@ _ZN7testing15AssertionResultD2Ev.exit843:         ; preds = %1509, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit844: ; preds = %1516, %1517
   %1518 = load i8, ptr %109, align 8
-  %1519 = and i8 %1518, 1
-  %.not1379 = icmp eq i8 %1519, 0
-  br i1 %.not1379, label %1523, label %1545
+  %1519 = trunc i8 %1518 to i1
+  br i1 %1519, label %1545, label %1523
 
 1520:                                             ; preds = %_ZN7testing7MessageD2Ev.exit840, %1485
   %.pn314.pn = phi { ptr, i32 } [ %.pn314, %_ZN7testing7MessageD2Ev.exit840 ], [ %1486, %1485 ]
@@ -58590,9 +58117,8 @@ _ZN7testing15AssertionResultD2Ev.exit855:         ; preds = %1545, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit856: ; preds = %1553, %1554
   %1555 = load i8, ptr %112, align 8
-  %1556 = and i8 %1555, 1
-  %.not1380 = icmp eq i8 %1556, 0
-  br i1 %.not1380, label %1560, label %1582
+  %1556 = trunc i8 %1555 to i1
+  br i1 %1556, label %1582, label %1560
 
 1557:                                             ; preds = %_ZN7testing7MessageD2Ev.exit852, %1521
   %.pn317.pn = phi { ptr, i32 } [ %.pn317, %_ZN7testing7MessageD2Ev.exit852 ], [ %1522, %1521 ]
@@ -58701,9 +58227,8 @@ _ZN7testing15AssertionResultD2Ev.exit867:         ; preds = %1582, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit868: ; preds = %1589, %1590
   %1591 = load i8, ptr %115, align 8
-  %1592 = and i8 %1591, 1
-  %.not1381 = icmp eq i8 %1592, 0
-  br i1 %.not1381, label %1596, label %1618
+  %1592 = trunc i8 %1591 to i1
+  br i1 %1592, label %1618, label %1596
 
 1593:                                             ; preds = %_ZN7testing7MessageD2Ev.exit864, %1558
   %.pn320.pn = phi { ptr, i32 } [ %.pn320, %_ZN7testing7MessageD2Ev.exit864 ], [ %1559, %1558 ]
@@ -58812,9 +58337,8 @@ _ZN7testing15AssertionResultD2Ev.exit879:         ; preds = %1618, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit880: ; preds = %1625, %1626
   %1627 = load i8, ptr %118, align 8
-  %1628 = and i8 %1627, 1
-  %.not1382 = icmp eq i8 %1628, 0
-  br i1 %.not1382, label %1632, label %1654
+  %1628 = trunc i8 %1627 to i1
+  br i1 %1628, label %1654, label %1632
 
 1629:                                             ; preds = %_ZN7testing7MessageD2Ev.exit876, %1594
   %.pn323.pn = phi { ptr, i32 } [ %.pn323, %_ZN7testing7MessageD2Ev.exit876 ], [ %1595, %1594 ]
@@ -58923,9 +58447,8 @@ _ZN7testing15AssertionResultD2Ev.exit891:         ; preds = %1654, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit892: ; preds = %1661, %1662
   %1663 = load i8, ptr %121, align 8
-  %1664 = and i8 %1663, 1
-  %.not1383 = icmp eq i8 %1664, 0
-  br i1 %.not1383, label %1668, label %1690
+  %1664 = trunc i8 %1663 to i1
+  br i1 %1664, label %1690, label %1668
 
 1665:                                             ; preds = %_ZN7testing7MessageD2Ev.exit888, %1630
   %.pn326.pn = phi { ptr, i32 } [ %.pn326, %_ZN7testing7MessageD2Ev.exit888 ], [ %1631, %1630 ]
@@ -59034,9 +58557,8 @@ _ZN7testing15AssertionResultD2Ev.exit903:         ; preds = %1690, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit904: ; preds = %1697, %1698
   %1699 = load i8, ptr %124, align 8
-  %1700 = and i8 %1699, 1
-  %.not1384 = icmp eq i8 %1700, 0
-  br i1 %.not1384, label %1704, label %1726
+  %1700 = trunc i8 %1699 to i1
+  br i1 %1700, label %1726, label %1704
 
 1701:                                             ; preds = %_ZN7testing7MessageD2Ev.exit900, %1666
   %.pn329.pn = phi { ptr, i32 } [ %.pn329, %_ZN7testing7MessageD2Ev.exit900 ], [ %1667, %1666 ]
@@ -59145,9 +58667,8 @@ _ZN7testing15AssertionResultD2Ev.exit915:         ; preds = %1726, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit916: ; preds = %1733, %1734
   %1735 = load i8, ptr %127, align 8
-  %1736 = and i8 %1735, 1
-  %.not1385 = icmp eq i8 %1736, 0
-  br i1 %.not1385, label %1740, label %1762
+  %1736 = trunc i8 %1735 to i1
+  br i1 %1736, label %1762, label %1740
 
 1737:                                             ; preds = %_ZN7testing7MessageD2Ev.exit912, %1702
   %.pn332.pn = phi { ptr, i32 } [ %.pn332, %_ZN7testing7MessageD2Ev.exit912 ], [ %1703, %1702 ]
@@ -59256,9 +58777,8 @@ _ZN7testing15AssertionResultD2Ev.exit927:         ; preds = %1762, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit928: ; preds = %1769, %1770
   %1771 = load i8, ptr %130, align 8
-  %1772 = and i8 %1771, 1
-  %.not1386 = icmp eq i8 %1772, 0
-  br i1 %.not1386, label %1776, label %1798
+  %1772 = trunc i8 %1771 to i1
+  br i1 %1772, label %1798, label %1776
 
 1773:                                             ; preds = %_ZN7testing7MessageD2Ev.exit924, %1738
   %.pn335.pn = phi { ptr, i32 } [ %.pn335, %_ZN7testing7MessageD2Ev.exit924 ], [ %1739, %1738 ]
@@ -59367,9 +58887,8 @@ _ZN7testing15AssertionResultD2Ev.exit939:         ; preds = %1798, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit940: ; preds = %1805, %1806
   %1807 = load i8, ptr %133, align 8
-  %1808 = and i8 %1807, 1
-  %.not1387 = icmp eq i8 %1808, 0
-  br i1 %.not1387, label %1812, label %1834
+  %1808 = trunc i8 %1807 to i1
+  br i1 %1808, label %1834, label %1812
 
 1809:                                             ; preds = %_ZN7testing7MessageD2Ev.exit936, %1774
   %.pn338.pn = phi { ptr, i32 } [ %.pn338, %_ZN7testing7MessageD2Ev.exit936 ], [ %1775, %1774 ]
@@ -59478,9 +58997,8 @@ _ZN7testing15AssertionResultD2Ev.exit951:         ; preds = %1834, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit952: ; preds = %1841, %1842
   %1843 = load i8, ptr %136, align 8
-  %1844 = and i8 %1843, 1
-  %.not1388 = icmp eq i8 %1844, 0
-  br i1 %.not1388, label %1848, label %1870
+  %1844 = trunc i8 %1843 to i1
+  br i1 %1844, label %1870, label %1848
 
 1845:                                             ; preds = %_ZN7testing7MessageD2Ev.exit948, %1810
   %.pn341.pn = phi { ptr, i32 } [ %.pn341, %_ZN7testing7MessageD2Ev.exit948 ], [ %1811, %1810 ]
@@ -59589,9 +59107,8 @@ _ZN7testing15AssertionResultD2Ev.exit963:         ; preds = %1870, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit964: ; preds = %1877, %1878
   %1879 = load i8, ptr %139, align 8
-  %1880 = and i8 %1879, 1
-  %.not1389 = icmp eq i8 %1880, 0
-  br i1 %.not1389, label %1884, label %1906
+  %1880 = trunc i8 %1879 to i1
+  br i1 %1880, label %1906, label %1884
 
 1881:                                             ; preds = %_ZN7testing7MessageD2Ev.exit960, %1846
   %.pn344.pn = phi { ptr, i32 } [ %.pn344, %_ZN7testing7MessageD2Ev.exit960 ], [ %1847, %1846 ]
@@ -59700,9 +59217,8 @@ _ZN7testing15AssertionResultD2Ev.exit975:         ; preds = %1906, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit976: ; preds = %1913, %1914
   %1915 = load i8, ptr %142, align 8
-  %1916 = and i8 %1915, 1
-  %.not1390 = icmp eq i8 %1916, 0
-  br i1 %.not1390, label %1920, label %1942
+  %1916 = trunc i8 %1915 to i1
+  br i1 %1916, label %1942, label %1920
 
 1917:                                             ; preds = %_ZN7testing7MessageD2Ev.exit972, %1882
   %.pn347.pn = phi { ptr, i32 } [ %.pn347, %_ZN7testing7MessageD2Ev.exit972 ], [ %1883, %1882 ]
@@ -59811,9 +59327,8 @@ _ZN7testing15AssertionResultD2Ev.exit987:         ; preds = %1942, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit988: ; preds = %1949, %1950
   %1951 = load i8, ptr %145, align 8
-  %1952 = and i8 %1951, 1
-  %.not1391 = icmp eq i8 %1952, 0
-  br i1 %.not1391, label %1956, label %1978
+  %1952 = trunc i8 %1951 to i1
+  br i1 %1952, label %1978, label %1956
 
 1953:                                             ; preds = %_ZN7testing7MessageD2Ev.exit984, %1918
   %.pn350.pn = phi { ptr, i32 } [ %.pn350, %_ZN7testing7MessageD2Ev.exit984 ], [ %1919, %1918 ]
@@ -59922,9 +59437,8 @@ _ZN7testing15AssertionResultD2Ev.exit999:         ; preds = %1978, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1000: ; preds = %1985, %1986
   %1987 = load i8, ptr %148, align 8
-  %1988 = and i8 %1987, 1
-  %.not1392 = icmp eq i8 %1988, 0
-  br i1 %.not1392, label %1992, label %2014
+  %1988 = trunc i8 %1987 to i1
+  br i1 %1988, label %2014, label %1992
 
 1989:                                             ; preds = %_ZN7testing7MessageD2Ev.exit996, %1954
   %.pn353.pn = phi { ptr, i32 } [ %.pn353, %_ZN7testing7MessageD2Ev.exit996 ], [ %1955, %1954 ]
@@ -60035,9 +59549,8 @@ _ZN7testing15AssertionResultD2Ev.exit1011:        ; preds = %2014, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1012: ; preds = %2022, %2023
   %2024 = load i8, ptr %151, align 8
-  %2025 = and i8 %2024, 1
-  %.not1393 = icmp eq i8 %2025, 0
-  br i1 %.not1393, label %2029, label %2051
+  %2025 = trunc i8 %2024 to i1
+  br i1 %2025, label %2051, label %2029
 
 2026:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1008, %1990
   %.pn356.pn = phi { ptr, i32 } [ %.pn356, %_ZN7testing7MessageD2Ev.exit1008 ], [ %1991, %1990 ]
@@ -60146,9 +59659,8 @@ _ZN7testing15AssertionResultD2Ev.exit1023:        ; preds = %2051, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1024: ; preds = %2058, %2059
   %2060 = load i8, ptr %154, align 8
-  %2061 = and i8 %2060, 1
-  %.not1394 = icmp eq i8 %2061, 0
-  br i1 %.not1394, label %2065, label %2087
+  %2061 = trunc i8 %2060 to i1
+  br i1 %2061, label %2087, label %2065
 
 2062:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1020, %2027
   %.pn359.pn = phi { ptr, i32 } [ %.pn359, %_ZN7testing7MessageD2Ev.exit1020 ], [ %2028, %2027 ]
@@ -60257,9 +59769,8 @@ _ZN7testing15AssertionResultD2Ev.exit1035:        ; preds = %2087, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1036: ; preds = %2094, %2095
   %2096 = load i8, ptr %157, align 8
-  %2097 = and i8 %2096, 1
-  %.not1395 = icmp eq i8 %2097, 0
-  br i1 %.not1395, label %2101, label %2123
+  %2097 = trunc i8 %2096 to i1
+  br i1 %2097, label %2123, label %2101
 
 2098:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1032, %2063
   %.pn362.pn = phi { ptr, i32 } [ %.pn362, %_ZN7testing7MessageD2Ev.exit1032 ], [ %2064, %2063 ]
@@ -60368,9 +59879,8 @@ _ZN7testing15AssertionResultD2Ev.exit1047:        ; preds = %2123, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1048: ; preds = %2130, %2131
   %2132 = load i8, ptr %160, align 8
-  %2133 = and i8 %2132, 1
-  %.not1396 = icmp eq i8 %2133, 0
-  br i1 %.not1396, label %2137, label %2159
+  %2133 = trunc i8 %2132 to i1
+  br i1 %2133, label %2159, label %2137
 
 2134:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1044, %2099
   %.pn365.pn = phi { ptr, i32 } [ %.pn365, %_ZN7testing7MessageD2Ev.exit1044 ], [ %2100, %2099 ]
@@ -60479,9 +59989,8 @@ _ZN7testing15AssertionResultD2Ev.exit1059:        ; preds = %2159, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1060: ; preds = %2166, %2167
   %2168 = load i8, ptr %163, align 8
-  %2169 = and i8 %2168, 1
-  %.not1397 = icmp eq i8 %2169, 0
-  br i1 %.not1397, label %2173, label %2195
+  %2169 = trunc i8 %2168 to i1
+  br i1 %2169, label %2195, label %2173
 
 2170:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1056, %2135
   %.pn368.pn = phi { ptr, i32 } [ %.pn368, %_ZN7testing7MessageD2Ev.exit1056 ], [ %2136, %2135 ]
@@ -60590,9 +60099,8 @@ _ZN7testing15AssertionResultD2Ev.exit1071:        ; preds = %2195, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1072: ; preds = %2202, %2203
   %2204 = load i8, ptr %166, align 8
-  %2205 = and i8 %2204, 1
-  %.not1398 = icmp eq i8 %2205, 0
-  br i1 %.not1398, label %2209, label %2231
+  %2205 = trunc i8 %2204 to i1
+  br i1 %2205, label %2231, label %2209
 
 2206:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1068, %2171
   %.pn371.pn = phi { ptr, i32 } [ %.pn371, %_ZN7testing7MessageD2Ev.exit1068 ], [ %2172, %2171 ]
@@ -60701,9 +60209,8 @@ _ZN7testing15AssertionResultD2Ev.exit1083:        ; preds = %2231, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1084: ; preds = %2238, %2239
   %2240 = load i8, ptr %169, align 8
-  %2241 = and i8 %2240, 1
-  %.not1399 = icmp eq i8 %2241, 0
-  br i1 %.not1399, label %2245, label %2267
+  %2241 = trunc i8 %2240 to i1
+  br i1 %2241, label %2267, label %2245
 
 2242:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1080, %2207
   %.pn374.pn = phi { ptr, i32 } [ %.pn374, %_ZN7testing7MessageD2Ev.exit1080 ], [ %2208, %2207 ]
@@ -60812,9 +60319,8 @@ _ZN7testing15AssertionResultD2Ev.exit1095:        ; preds = %2267, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1096: ; preds = %2274, %2275
   %2276 = load i8, ptr %172, align 8
-  %2277 = and i8 %2276, 1
-  %.not1400 = icmp eq i8 %2277, 0
-  br i1 %.not1400, label %2281, label %2303
+  %2277 = trunc i8 %2276 to i1
+  br i1 %2277, label %2303, label %2281
 
 2278:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1092, %2243
   %.pn377.pn = phi { ptr, i32 } [ %.pn377, %_ZN7testing7MessageD2Ev.exit1092 ], [ %2244, %2243 ]
@@ -60923,9 +60429,8 @@ _ZN7testing15AssertionResultD2Ev.exit1107:        ; preds = %2303, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2310, %2311
   %2312 = load i8, ptr %175, align 8
-  %2313 = and i8 %2312, 1
-  %.not1401 = icmp eq i8 %2313, 0
-  br i1 %.not1401, label %2317, label %2339
+  %2313 = trunc i8 %2312 to i1
+  br i1 %2313, label %2339, label %2317
 
 2314:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1104, %2279
   %.pn380.pn = phi { ptr, i32 } [ %.pn380, %_ZN7testing7MessageD2Ev.exit1104 ], [ %2280, %2279 ]
@@ -61034,9 +60539,8 @@ _ZN7testing15AssertionResultD2Ev.exit1118:        ; preds = %2339, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1119: ; preds = %2346, %2347
   %2348 = load i8, ptr %178, align 8
-  %2349 = and i8 %2348, 1
-  %.not1402 = icmp eq i8 %2349, 0
-  br i1 %.not1402, label %2353, label %2375
+  %2349 = trunc i8 %2348 to i1
+  br i1 %2349, label %2375, label %2353
 
 2350:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1115, %2315
   %.pn383.pn = phi { ptr, i32 } [ %.pn383, %_ZN7testing7MessageD2Ev.exit1115 ], [ %2316, %2315 ]
@@ -61145,9 +60649,8 @@ _ZN7testing15AssertionResultD2Ev.exit1130:        ; preds = %2375, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1131: ; preds = %2382, %2383
   %2384 = load i8, ptr %181, align 8
-  %2385 = and i8 %2384, 1
-  %.not1403 = icmp eq i8 %2385, 0
-  br i1 %.not1403, label %2389, label %2411
+  %2385 = trunc i8 %2384 to i1
+  br i1 %2385, label %2411, label %2389
 
 2386:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1127, %2351
   %.pn386.pn = phi { ptr, i32 } [ %.pn386, %_ZN7testing7MessageD2Ev.exit1127 ], [ %2352, %2351 ]
@@ -61256,9 +60759,8 @@ _ZN7testing15AssertionResultD2Ev.exit1142:        ; preds = %2411, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1143: ; preds = %2418, %2419
   %2420 = load i8, ptr %184, align 8
-  %2421 = and i8 %2420, 1
-  %.not1404 = icmp eq i8 %2421, 0
-  br i1 %.not1404, label %2425, label %2447
+  %2421 = trunc i8 %2420 to i1
+  br i1 %2421, label %2447, label %2425
 
 2422:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1139, %2387
   %.pn389.pn = phi { ptr, i32 } [ %.pn389, %_ZN7testing7MessageD2Ev.exit1139 ], [ %2388, %2387 ]
@@ -61367,9 +60869,8 @@ _ZN7testing15AssertionResultD2Ev.exit1154:        ; preds = %2447, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2454, %2455
   %2456 = load i8, ptr %187, align 8
-  %2457 = and i8 %2456, 1
-  %.not1405 = icmp eq i8 %2457, 0
-  br i1 %.not1405, label %2461, label %2483
+  %2457 = trunc i8 %2456 to i1
+  br i1 %2457, label %2483, label %2461
 
 2458:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1151, %2423
   %.pn392.pn = phi { ptr, i32 } [ %.pn392, %_ZN7testing7MessageD2Ev.exit1151 ], [ %2424, %2423 ]
@@ -61478,9 +60979,8 @@ _ZN7testing15AssertionResultD2Ev.exit1165:        ; preds = %2483, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2490, %2491
   %2492 = load i8, ptr %190, align 8
-  %2493 = and i8 %2492, 1
-  %.not1406 = icmp eq i8 %2493, 0
-  br i1 %.not1406, label %2497, label %2519
+  %2493 = trunc i8 %2492 to i1
+  br i1 %2493, label %2519, label %2497
 
 2494:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1162, %2459
   %.pn395.pn = phi { ptr, i32 } [ %.pn395, %_ZN7testing7MessageD2Ev.exit1162 ], [ %2460, %2459 ]
@@ -61591,9 +61091,8 @@ _ZN7testing15AssertionResultD2Ev.exit1176:        ; preds = %2519, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1177: ; preds = %2527, %2528
   %2529 = load i8, ptr %193, align 8
-  %2530 = and i8 %2529, 1
-  %.not1407 = icmp eq i8 %2530, 0
-  br i1 %.not1407, label %2534, label %2556
+  %2530 = trunc i8 %2529 to i1
+  br i1 %2530, label %2556, label %2534
 
 2531:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1173, %2495
   %.pn398.pn = phi { ptr, i32 } [ %.pn398, %_ZN7testing7MessageD2Ev.exit1173 ], [ %2496, %2495 ]
@@ -61702,9 +61201,8 @@ _ZN7testing15AssertionResultD2Ev.exit1188:        ; preds = %2556, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1189: ; preds = %2563, %2564
   %2565 = load i8, ptr %196, align 8
-  %2566 = and i8 %2565, 1
-  %.not1408 = icmp eq i8 %2566, 0
-  br i1 %.not1408, label %2570, label %2592
+  %2566 = trunc i8 %2565 to i1
+  br i1 %2566, label %2592, label %2570
 
 2567:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1185, %2532
   %.pn401.pn = phi { ptr, i32 } [ %.pn401, %_ZN7testing7MessageD2Ev.exit1185 ], [ %2533, %2532 ]
@@ -61813,9 +61311,8 @@ _ZN7testing15AssertionResultD2Ev.exit1200:        ; preds = %2592, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1201: ; preds = %2599, %2600
   %2601 = load i8, ptr %199, align 8
-  %2602 = and i8 %2601, 1
-  %.not1409 = icmp eq i8 %2602, 0
-  br i1 %.not1409, label %2606, label %2628
+  %2602 = trunc i8 %2601 to i1
+  br i1 %2602, label %2628, label %2606
 
 2603:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1197, %2568
   %.pn404.pn = phi { ptr, i32 } [ %.pn404, %_ZN7testing7MessageD2Ev.exit1197 ], [ %2569, %2568 ]
@@ -61924,9 +61421,8 @@ _ZN7testing15AssertionResultD2Ev.exit1212:        ; preds = %2628, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1213: ; preds = %2635, %2636
   %2637 = load i8, ptr %202, align 8
-  %2638 = and i8 %2637, 1
-  %.not1410 = icmp eq i8 %2638, 0
-  br i1 %.not1410, label %2642, label %2664
+  %2638 = trunc i8 %2637 to i1
+  br i1 %2638, label %2664, label %2642
 
 2639:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1209, %2604
   %.pn407.pn = phi { ptr, i32 } [ %.pn407, %_ZN7testing7MessageD2Ev.exit1209 ], [ %2605, %2604 ]
@@ -62035,9 +61531,8 @@ _ZN7testing15AssertionResultD2Ev.exit1224:        ; preds = %2664, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1225: ; preds = %2671, %2672
   %2673 = load i8, ptr %205, align 8
-  %2674 = and i8 %2673, 1
-  %.not1411 = icmp eq i8 %2674, 0
-  br i1 %.not1411, label %2678, label %2700
+  %2674 = trunc i8 %2673 to i1
+  br i1 %2674, label %2700, label %2678
 
 2675:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1221, %2640
   %.pn410.pn = phi { ptr, i32 } [ %.pn410, %_ZN7testing7MessageD2Ev.exit1221 ], [ %2641, %2640 ]
@@ -62146,9 +61641,8 @@ _ZN7testing15AssertionResultD2Ev.exit1236:        ; preds = %2700, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1237: ; preds = %2707, %2708
   %2709 = load i8, ptr %208, align 8
-  %2710 = and i8 %2709, 1
-  %.not1412 = icmp eq i8 %2710, 0
-  br i1 %.not1412, label %2714, label %2736
+  %2710 = trunc i8 %2709 to i1
+  br i1 %2710, label %2736, label %2714
 
 2711:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1233, %2676
   %.pn413.pn = phi { ptr, i32 } [ %.pn413, %_ZN7testing7MessageD2Ev.exit1233 ], [ %2677, %2676 ]
@@ -62257,9 +61751,8 @@ _ZN7testing15AssertionResultD2Ev.exit1248:        ; preds = %2736, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1249: ; preds = %2743, %2744
   %2745 = load i8, ptr %211, align 8
-  %2746 = and i8 %2745, 1
-  %.not1413 = icmp eq i8 %2746, 0
-  br i1 %.not1413, label %2750, label %2772
+  %2746 = trunc i8 %2745 to i1
+  br i1 %2746, label %2772, label %2750
 
 2747:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1245, %2712
   %.pn416.pn = phi { ptr, i32 } [ %.pn416, %_ZN7testing7MessageD2Ev.exit1245 ], [ %2713, %2712 ]
@@ -62368,9 +61861,8 @@ _ZN7testing15AssertionResultD2Ev.exit1260:        ; preds = %2772, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1261: ; preds = %2779, %2780
   %2781 = load i8, ptr %214, align 8
-  %2782 = and i8 %2781, 1
-  %.not1414 = icmp eq i8 %2782, 0
-  br i1 %.not1414, label %2786, label %2808
+  %2782 = trunc i8 %2781 to i1
+  br i1 %2782, label %2808, label %2786
 
 2783:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1257, %2748
   %.pn419.pn = phi { ptr, i32 } [ %.pn419, %_ZN7testing7MessageD2Ev.exit1257 ], [ %2749, %2748 ]
@@ -62479,9 +61971,8 @@ _ZN7testing15AssertionResultD2Ev.exit1272:        ; preds = %2808, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1273: ; preds = %2815, %2816
   %2817 = load i8, ptr %217, align 8
-  %2818 = and i8 %2817, 1
-  %.not1415 = icmp eq i8 %2818, 0
-  br i1 %.not1415, label %2822, label %2844
+  %2818 = trunc i8 %2817 to i1
+  br i1 %2818, label %2844, label %2822
 
 2819:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1269, %2784
   %.pn422.pn = phi { ptr, i32 } [ %.pn422, %_ZN7testing7MessageD2Ev.exit1269 ], [ %2785, %2784 ]
@@ -62590,9 +62081,8 @@ _ZN7testing15AssertionResultD2Ev.exit1284:        ; preds = %2844, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1285: ; preds = %2851, %2852
   %2853 = load i8, ptr %220, align 8
-  %2854 = and i8 %2853, 1
-  %.not1416 = icmp eq i8 %2854, 0
-  br i1 %.not1416, label %2858, label %2880
+  %2854 = trunc i8 %2853 to i1
+  br i1 %2854, label %2880, label %2858
 
 2855:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1281, %2820
   %.pn425.pn = phi { ptr, i32 } [ %.pn425, %_ZN7testing7MessageD2Ev.exit1281 ], [ %2821, %2820 ]
@@ -62701,9 +62191,8 @@ _ZN7testing15AssertionResultD2Ev.exit1296:        ; preds = %2880, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1297: ; preds = %2887, %2888
   %2889 = load i8, ptr %223, align 8
-  %2890 = and i8 %2889, 1
-  %.not1417 = icmp eq i8 %2890, 0
-  br i1 %.not1417, label %2894, label %2916
+  %2890 = trunc i8 %2889 to i1
+  br i1 %2890, label %2916, label %2894
 
 2891:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1293, %2856
   %.pn428.pn = phi { ptr, i32 } [ %.pn428, %_ZN7testing7MessageD2Ev.exit1293 ], [ %2857, %2856 ]
@@ -62812,9 +62301,8 @@ _ZN7testing15AssertionResultD2Ev.exit1308:        ; preds = %2916, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1309: ; preds = %2923, %2924
   %2925 = load i8, ptr %226, align 8
-  %2926 = and i8 %2925, 1
-  %.not1418 = icmp eq i8 %2926, 0
-  br i1 %.not1418, label %2930, label %2952
+  %2926 = trunc i8 %2925 to i1
+  br i1 %2926, label %2952, label %2930
 
 2927:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1305, %2892
   %.pn431.pn = phi { ptr, i32 } [ %.pn431, %_ZN7testing7MessageD2Ev.exit1305 ], [ %2893, %2892 ]
@@ -62923,9 +62411,8 @@ _ZN7testing15AssertionResultD2Ev.exit1320:        ; preds = %2952, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1321: ; preds = %2959, %2960
   %2961 = load i8, ptr %229, align 8
-  %2962 = and i8 %2961, 1
-  %.not1419 = icmp eq i8 %2962, 0
-  br i1 %.not1419, label %2966, label %2988
+  %2962 = trunc i8 %2961 to i1
+  br i1 %2962, label %2988, label %2966
 
 2963:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1317, %2928
   %.pn434.pn = phi { ptr, i32 } [ %.pn434, %_ZN7testing7MessageD2Ev.exit1317 ], [ %2929, %2928 ]
@@ -63034,9 +62521,8 @@ _ZN7testing15AssertionResultD2Ev.exit1332:        ; preds = %2988, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit1333: ; preds = %2995, %2996
   %2997 = load i8, ptr %232, align 8
-  %2998 = and i8 %2997, 1
-  %.not1420 = icmp eq i8 %2998, 0
-  br i1 %.not1420, label %3002, label %3024
+  %2998 = trunc i8 %2997 to i1
+  br i1 %2998, label %3024, label %3002
 
 2999:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1329, %2964
   %.pn437.pn = phi { ptr, i32 } [ %.pn437, %_ZN7testing7MessageD2Ev.exit1329 ], [ %2965, %2964 ]
@@ -63236,9 +62722,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %56, %57
   %58 = load i8, ptr %4, align 8
-  %59 = and i8 %58, 1
-  %.not = icmp eq i8 %59, 0
-  br i1 %.not, label %66, label %88
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %88, label %66
 
 60:                                               ; preds = %.noexc, %1
   %61 = landingpad { ptr, i32 }
@@ -63358,9 +62843,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %88, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %95, %96
   %97 = load i8, ptr %7, align 8
-  %98 = and i8 %97, 1
-  %.not200 = icmp eq i8 %98, 0
-  br i1 %.not200, label %102, label %124
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %124, label %102
 
 99:                                               ; preds = %_ZN7testing7MessageD2Ev.exit77, %64
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %_ZN7testing7MessageD2Ev.exit77 ], [ %65, %64 ]
@@ -63469,9 +62953,8 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %124, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %131, %132
   %133 = load i8, ptr %10, align 8
-  %134 = and i8 %133, 1
-  %.not201 = icmp eq i8 %134, 0
-  br i1 %.not201, label %138, label %160
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %160, label %138
 
 135:                                              ; preds = %_ZN7testing7MessageD2Ev.exit86, %100
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit86 ], [ %101, %100 ]
@@ -63580,9 +63063,8 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %160, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %167, %168
   %169 = load i8, ptr %13, align 8
-  %170 = and i8 %169, 1
-  %.not202 = icmp eq i8 %170, 0
-  br i1 %.not202, label %174, label %196
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %196, label %174
 
 171:                                              ; preds = %_ZN7testing7MessageD2Ev.exit97, %136
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZN7testing7MessageD2Ev.exit97 ], [ %137, %136 ]
@@ -63691,9 +63173,8 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %196, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %203, %204
   %205 = load i8, ptr %16, align 8
-  %206 = and i8 %205, 1
-  %.not203 = icmp eq i8 %206, 0
-  br i1 %.not203, label %210, label %232
+  %206 = trunc i8 %205 to i1
+  br i1 %206, label %232, label %210
 
 207:                                              ; preds = %_ZN7testing7MessageD2Ev.exit108, %172
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %_ZN7testing7MessageD2Ev.exit108 ], [ %173, %172 ]
@@ -63802,9 +63283,8 @@ _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %232, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %239, %240
   %241 = load i8, ptr %19, align 8
-  %242 = and i8 %241, 1
-  %.not204 = icmp eq i8 %242, 0
-  br i1 %.not204, label %246, label %268
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %268, label %246
 
 243:                                              ; preds = %_ZN7testing7MessageD2Ev.exit119, %208
   %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZN7testing7MessageD2Ev.exit119 ], [ %209, %208 ]
@@ -63913,9 +63393,8 @@ _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %268, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %275, %276
   %277 = load i8, ptr %22, align 8
-  %278 = and i8 %277, 1
-  %.not205 = icmp eq i8 %278, 0
-  br i1 %.not205, label %282, label %304
+  %278 = trunc i8 %277 to i1
+  br i1 %278, label %304, label %282
 
 279:                                              ; preds = %_ZN7testing7MessageD2Ev.exit130, %244
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZN7testing7MessageD2Ev.exit130 ], [ %245, %244 ]
@@ -64024,9 +63503,8 @@ _ZN7testing15AssertionResultD2Ev.exit144:         ; preds = %304, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %311, %312
   %313 = load i8, ptr %25, align 8
-  %314 = and i8 %313, 1
-  %.not206 = icmp eq i8 %314, 0
-  br i1 %.not206, label %318, label %340
+  %314 = trunc i8 %313 to i1
+  br i1 %314, label %340, label %318
 
 315:                                              ; preds = %_ZN7testing7MessageD2Ev.exit141, %280
   %.pn54.pn = phi { ptr, i32 } [ %.pn54, %_ZN7testing7MessageD2Ev.exit141 ], [ %281, %280 ]
@@ -64135,9 +63613,8 @@ _ZN7testing15AssertionResultD2Ev.exit155:         ; preds = %340, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %347, %348
   %349 = load i8, ptr %28, align 8
-  %350 = and i8 %349, 1
-  %.not207 = icmp eq i8 %350, 0
-  br i1 %.not207, label %354, label %376
+  %350 = trunc i8 %349 to i1
+  br i1 %350, label %376, label %354
 
 351:                                              ; preds = %_ZN7testing7MessageD2Ev.exit152, %316
   %.pn57.pn = phi { ptr, i32 } [ %.pn57, %_ZN7testing7MessageD2Ev.exit152 ], [ %317, %316 ]
@@ -64246,9 +63723,8 @@ _ZN7testing15AssertionResultD2Ev.exit166:         ; preds = %376, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %383, %384
   %385 = load i8, ptr %31, align 8
-  %386 = and i8 %385, 1
-  %.not208 = icmp eq i8 %386, 0
-  br i1 %.not208, label %390, label %412
+  %386 = trunc i8 %385 to i1
+  br i1 %386, label %412, label %390
 
 387:                                              ; preds = %_ZN7testing7MessageD2Ev.exit163, %352
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %_ZN7testing7MessageD2Ev.exit163 ], [ %353, %352 ]
@@ -64357,9 +63833,8 @@ _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %412, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %419, %420
   %421 = load i8, ptr %34, align 8
-  %422 = and i8 %421, 1
-  %.not209 = icmp eq i8 %422, 0
-  br i1 %.not209, label %426, label %448
+  %422 = trunc i8 %421 to i1
+  br i1 %422, label %448, label %426
 
 423:                                              ; preds = %_ZN7testing7MessageD2Ev.exit174, %388
   %.pn63.pn = phi { ptr, i32 } [ %.pn63, %_ZN7testing7MessageD2Ev.exit174 ], [ %389, %388 ]
@@ -64468,9 +63943,8 @@ _ZN7testing15AssertionResultD2Ev.exit188:         ; preds = %448, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %455, %456
   %457 = load i8, ptr %37, align 8
-  %458 = and i8 %457, 1
-  %.not210 = icmp eq i8 %458, 0
-  br i1 %.not210, label %462, label %484
+  %458 = trunc i8 %457 to i1
+  br i1 %458, label %484, label %462
 
 459:                                              ; preds = %_ZN7testing7MessageD2Ev.exit185, %424
   %.pn66.pn = phi { ptr, i32 } [ %.pn66, %_ZN7testing7MessageD2Ev.exit185 ], [ %425, %424 ]
@@ -64763,9 +64237,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %149, %150
   %151 = load i8, ptr %4, align 8
-  %152 = and i8 %151, 1
-  %.not = icmp eq i8 %152, 0
-  br i1 %.not, label %159, label %181
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %181, label %159
 
 153:                                              ; preds = %.noexc, %1
   %154 = landingpad { ptr, i32 }
@@ -64885,9 +64358,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %181, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %188, %189
   %190 = load i8, ptr %7, align 8
-  %191 = and i8 %190, 1
-  %.not724 = icmp eq i8 %191, 0
-  br i1 %.not724, label %195, label %217
+  %191 = trunc i8 %190 to i1
+  br i1 %191, label %217, label %195
 
 192:                                              ; preds = %_ZN7testing7MessageD2Ev.exit232, %157
   %.pn98.pn = phi { ptr, i32 } [ %.pn98, %_ZN7testing7MessageD2Ev.exit232 ], [ %158, %157 ]
@@ -64996,9 +64468,8 @@ _ZN7testing15AssertionResultD2Ev.exit244:         ; preds = %217, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %224, %225
   %226 = load i8, ptr %10, align 8
-  %227 = and i8 %226, 1
-  %.not725 = icmp eq i8 %227, 0
-  br i1 %.not725, label %231, label %253
+  %227 = trunc i8 %226 to i1
+  br i1 %227, label %253, label %231
 
 228:                                              ; preds = %_ZN7testing7MessageD2Ev.exit241, %193
   %.pn101.pn = phi { ptr, i32 } [ %.pn101, %_ZN7testing7MessageD2Ev.exit241 ], [ %194, %193 ]
@@ -65107,9 +64578,8 @@ _ZN7testing15AssertionResultD2Ev.exit255:         ; preds = %253, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %260, %261
   %262 = load i8, ptr %13, align 8
-  %263 = and i8 %262, 1
-  %.not726 = icmp eq i8 %263, 0
-  br i1 %.not726, label %267, label %289
+  %263 = trunc i8 %262 to i1
+  br i1 %263, label %289, label %267
 
 264:                                              ; preds = %_ZN7testing7MessageD2Ev.exit252, %229
   %.pn104.pn = phi { ptr, i32 } [ %.pn104, %_ZN7testing7MessageD2Ev.exit252 ], [ %230, %229 ]
@@ -65218,9 +64688,8 @@ _ZN7testing15AssertionResultD2Ev.exit266:         ; preds = %289, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %296, %297
   %298 = load i8, ptr %16, align 8
-  %299 = and i8 %298, 1
-  %.not727 = icmp eq i8 %299, 0
-  br i1 %.not727, label %303, label %325
+  %299 = trunc i8 %298 to i1
+  br i1 %299, label %325, label %303
 
 300:                                              ; preds = %_ZN7testing7MessageD2Ev.exit263, %265
   %.pn107.pn = phi { ptr, i32 } [ %.pn107, %_ZN7testing7MessageD2Ev.exit263 ], [ %266, %265 ]
@@ -65329,9 +64798,8 @@ _ZN7testing15AssertionResultD2Ev.exit277:         ; preds = %325, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %332, %333
   %334 = load i8, ptr %19, align 8
-  %335 = and i8 %334, 1
-  %.not728 = icmp eq i8 %335, 0
-  br i1 %.not728, label %339, label %361
+  %335 = trunc i8 %334 to i1
+  br i1 %335, label %361, label %339
 
 336:                                              ; preds = %_ZN7testing7MessageD2Ev.exit274, %301
   %.pn110.pn = phi { ptr, i32 } [ %.pn110, %_ZN7testing7MessageD2Ev.exit274 ], [ %302, %301 ]
@@ -65440,9 +64908,8 @@ _ZN7testing15AssertionResultD2Ev.exit288:         ; preds = %361, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %368, %369
   %370 = load i8, ptr %22, align 8
-  %371 = and i8 %370, 1
-  %.not729 = icmp eq i8 %371, 0
-  br i1 %.not729, label %375, label %397
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %397, label %375
 
 372:                                              ; preds = %_ZN7testing7MessageD2Ev.exit285, %337
   %.pn113.pn = phi { ptr, i32 } [ %.pn113, %_ZN7testing7MessageD2Ev.exit285 ], [ %338, %337 ]
@@ -65551,9 +65018,8 @@ _ZN7testing15AssertionResultD2Ev.exit299:         ; preds = %397, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %404, %405
   %406 = load i8, ptr %25, align 8
-  %407 = and i8 %406, 1
-  %.not730 = icmp eq i8 %407, 0
-  br i1 %.not730, label %411, label %433
+  %407 = trunc i8 %406 to i1
+  br i1 %407, label %433, label %411
 
 408:                                              ; preds = %_ZN7testing7MessageD2Ev.exit296, %373
   %.pn116.pn = phi { ptr, i32 } [ %.pn116, %_ZN7testing7MessageD2Ev.exit296 ], [ %374, %373 ]
@@ -65662,9 +65128,8 @@ _ZN7testing15AssertionResultD2Ev.exit310:         ; preds = %433, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %440, %441
   %442 = load i8, ptr %28, align 8
-  %443 = and i8 %442, 1
-  %.not731 = icmp eq i8 %443, 0
-  br i1 %.not731, label %447, label %469
+  %443 = trunc i8 %442 to i1
+  br i1 %443, label %469, label %447
 
 444:                                              ; preds = %_ZN7testing7MessageD2Ev.exit307, %409
   %.pn119.pn = phi { ptr, i32 } [ %.pn119, %_ZN7testing7MessageD2Ev.exit307 ], [ %410, %409 ]
@@ -65773,9 +65238,8 @@ _ZN7testing15AssertionResultD2Ev.exit321:         ; preds = %469, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %476, %477
   %478 = load i8, ptr %31, align 8
-  %479 = and i8 %478, 1
-  %.not732 = icmp eq i8 %479, 0
-  br i1 %.not732, label %483, label %505
+  %479 = trunc i8 %478 to i1
+  br i1 %479, label %505, label %483
 
 480:                                              ; preds = %_ZN7testing7MessageD2Ev.exit318, %445
   %.pn122.pn = phi { ptr, i32 } [ %.pn122, %_ZN7testing7MessageD2Ev.exit318 ], [ %446, %445 ]
@@ -65884,9 +65348,8 @@ _ZN7testing15AssertionResultD2Ev.exit332:         ; preds = %505, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %512, %513
   %514 = load i8, ptr %34, align 8
-  %515 = and i8 %514, 1
-  %.not733 = icmp eq i8 %515, 0
-  br i1 %.not733, label %519, label %541
+  %515 = trunc i8 %514 to i1
+  br i1 %515, label %541, label %519
 
 516:                                              ; preds = %_ZN7testing7MessageD2Ev.exit329, %481
   %.pn125.pn = phi { ptr, i32 } [ %.pn125, %_ZN7testing7MessageD2Ev.exit329 ], [ %482, %481 ]
@@ -65995,9 +65458,8 @@ _ZN7testing15AssertionResultD2Ev.exit343:         ; preds = %541, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %548, %549
   %550 = load i8, ptr %37, align 8
-  %551 = and i8 %550, 1
-  %.not734 = icmp eq i8 %551, 0
-  br i1 %.not734, label %555, label %577
+  %551 = trunc i8 %550 to i1
+  br i1 %551, label %577, label %555
 
 552:                                              ; preds = %_ZN7testing7MessageD2Ev.exit340, %517
   %.pn128.pn = phi { ptr, i32 } [ %.pn128, %_ZN7testing7MessageD2Ev.exit340 ], [ %518, %517 ]
@@ -66106,9 +65568,8 @@ _ZN7testing15AssertionResultD2Ev.exit354:         ; preds = %577, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %584, %585
   %586 = load i8, ptr %40, align 8
-  %587 = and i8 %586, 1
-  %.not735 = icmp eq i8 %587, 0
-  br i1 %.not735, label %591, label %613
+  %587 = trunc i8 %586 to i1
+  br i1 %587, label %613, label %591
 
 588:                                              ; preds = %_ZN7testing7MessageD2Ev.exit351, %553
   %.pn131.pn = phi { ptr, i32 } [ %.pn131, %_ZN7testing7MessageD2Ev.exit351 ], [ %554, %553 ]
@@ -66219,9 +65680,8 @@ _ZN7testing15AssertionResultD2Ev.exit365:         ; preds = %613, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit366: ; preds = %621, %622
   %623 = load i8, ptr %43, align 8
-  %624 = and i8 %623, 1
-  %.not736 = icmp eq i8 %624, 0
-  br i1 %.not736, label %628, label %650
+  %624 = trunc i8 %623 to i1
+  br i1 %624, label %650, label %628
 
 625:                                              ; preds = %_ZN7testing7MessageD2Ev.exit362, %589
   %.pn134.pn = phi { ptr, i32 } [ %.pn134, %_ZN7testing7MessageD2Ev.exit362 ], [ %590, %589 ]
@@ -66330,9 +65790,8 @@ _ZN7testing15AssertionResultD2Ev.exit377:         ; preds = %650, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit378: ; preds = %657, %658
   %659 = load i8, ptr %46, align 8
-  %660 = and i8 %659, 1
-  %.not737 = icmp eq i8 %660, 0
-  br i1 %.not737, label %664, label %686
+  %660 = trunc i8 %659 to i1
+  br i1 %660, label %686, label %664
 
 661:                                              ; preds = %_ZN7testing7MessageD2Ev.exit374, %626
   %.pn137.pn = phi { ptr, i32 } [ %.pn137, %_ZN7testing7MessageD2Ev.exit374 ], [ %627, %626 ]
@@ -66441,9 +65900,8 @@ _ZN7testing15AssertionResultD2Ev.exit389:         ; preds = %686, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit390: ; preds = %693, %694
   %695 = load i8, ptr %49, align 8
-  %696 = and i8 %695, 1
-  %.not738 = icmp eq i8 %696, 0
-  br i1 %.not738, label %700, label %722
+  %696 = trunc i8 %695 to i1
+  br i1 %696, label %722, label %700
 
 697:                                              ; preds = %_ZN7testing7MessageD2Ev.exit386, %662
   %.pn140.pn = phi { ptr, i32 } [ %.pn140, %_ZN7testing7MessageD2Ev.exit386 ], [ %663, %662 ]
@@ -66552,9 +66010,8 @@ _ZN7testing15AssertionResultD2Ev.exit401:         ; preds = %722, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit402: ; preds = %729, %730
   %731 = load i8, ptr %52, align 8
-  %732 = and i8 %731, 1
-  %.not739 = icmp eq i8 %732, 0
-  br i1 %.not739, label %736, label %758
+  %732 = trunc i8 %731 to i1
+  br i1 %732, label %758, label %736
 
 733:                                              ; preds = %_ZN7testing7MessageD2Ev.exit398, %698
   %.pn143.pn = phi { ptr, i32 } [ %.pn143, %_ZN7testing7MessageD2Ev.exit398 ], [ %699, %698 ]
@@ -66663,9 +66120,8 @@ _ZN7testing15AssertionResultD2Ev.exit413:         ; preds = %758, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit414: ; preds = %765, %766
   %767 = load i8, ptr %55, align 8
-  %768 = and i8 %767, 1
-  %.not740 = icmp eq i8 %768, 0
-  br i1 %.not740, label %772, label %794
+  %768 = trunc i8 %767 to i1
+  br i1 %768, label %794, label %772
 
 769:                                              ; preds = %_ZN7testing7MessageD2Ev.exit410, %734
   %.pn146.pn = phi { ptr, i32 } [ %.pn146, %_ZN7testing7MessageD2Ev.exit410 ], [ %735, %734 ]
@@ -66774,9 +66230,8 @@ _ZN7testing15AssertionResultD2Ev.exit425:         ; preds = %794, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit426: ; preds = %801, %802
   %803 = load i8, ptr %58, align 8
-  %804 = and i8 %803, 1
-  %.not741 = icmp eq i8 %804, 0
-  br i1 %.not741, label %808, label %830
+  %804 = trunc i8 %803 to i1
+  br i1 %804, label %830, label %808
 
 805:                                              ; preds = %_ZN7testing7MessageD2Ev.exit422, %770
   %.pn149.pn = phi { ptr, i32 } [ %.pn149, %_ZN7testing7MessageD2Ev.exit422 ], [ %771, %770 ]
@@ -66885,9 +66340,8 @@ _ZN7testing15AssertionResultD2Ev.exit437:         ; preds = %830, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit438: ; preds = %837, %838
   %839 = load i8, ptr %61, align 8
-  %840 = and i8 %839, 1
-  %.not742 = icmp eq i8 %840, 0
-  br i1 %.not742, label %844, label %866
+  %840 = trunc i8 %839 to i1
+  br i1 %840, label %866, label %844
 
 841:                                              ; preds = %_ZN7testing7MessageD2Ev.exit434, %806
   %.pn152.pn = phi { ptr, i32 } [ %.pn152, %_ZN7testing7MessageD2Ev.exit434 ], [ %807, %806 ]
@@ -66996,9 +66450,8 @@ _ZN7testing15AssertionResultD2Ev.exit449:         ; preds = %866, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit450: ; preds = %873, %874
   %875 = load i8, ptr %64, align 8
-  %876 = and i8 %875, 1
-  %.not743 = icmp eq i8 %876, 0
-  br i1 %.not743, label %880, label %902
+  %876 = trunc i8 %875 to i1
+  br i1 %876, label %902, label %880
 
 877:                                              ; preds = %_ZN7testing7MessageD2Ev.exit446, %842
   %.pn155.pn = phi { ptr, i32 } [ %.pn155, %_ZN7testing7MessageD2Ev.exit446 ], [ %843, %842 ]
@@ -67107,9 +66560,8 @@ _ZN7testing15AssertionResultD2Ev.exit461:         ; preds = %902, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %909, %910
   %911 = load i8, ptr %67, align 8
-  %912 = and i8 %911, 1
-  %.not744 = icmp eq i8 %912, 0
-  br i1 %.not744, label %916, label %938
+  %912 = trunc i8 %911 to i1
+  br i1 %912, label %938, label %916
 
 913:                                              ; preds = %_ZN7testing7MessageD2Ev.exit458, %878
   %.pn158.pn = phi { ptr, i32 } [ %.pn158, %_ZN7testing7MessageD2Ev.exit458 ], [ %879, %878 ]
@@ -67218,9 +66670,8 @@ _ZN7testing15AssertionResultD2Ev.exit472:         ; preds = %938, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit473: ; preds = %945, %946
   %947 = load i8, ptr %70, align 8
-  %948 = and i8 %947, 1
-  %.not745 = icmp eq i8 %948, 0
-  br i1 %.not745, label %952, label %974
+  %948 = trunc i8 %947 to i1
+  br i1 %948, label %974, label %952
 
 949:                                              ; preds = %_ZN7testing7MessageD2Ev.exit469, %914
   %.pn161.pn = phi { ptr, i32 } [ %.pn161, %_ZN7testing7MessageD2Ev.exit469 ], [ %915, %914 ]
@@ -67329,9 +66780,8 @@ _ZN7testing15AssertionResultD2Ev.exit484:         ; preds = %974, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit485: ; preds = %981, %982
   %983 = load i8, ptr %73, align 8
-  %984 = and i8 %983, 1
-  %.not746 = icmp eq i8 %984, 0
-  br i1 %.not746, label %988, label %1010
+  %984 = trunc i8 %983 to i1
+  br i1 %984, label %1010, label %988
 
 985:                                              ; preds = %_ZN7testing7MessageD2Ev.exit481, %950
   %.pn164.pn = phi { ptr, i32 } [ %.pn164, %_ZN7testing7MessageD2Ev.exit481 ], [ %951, %950 ]
@@ -67440,9 +66890,8 @@ _ZN7testing15AssertionResultD2Ev.exit496:         ; preds = %1010, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit497: ; preds = %1017, %1018
   %1019 = load i8, ptr %76, align 8
-  %1020 = and i8 %1019, 1
-  %.not747 = icmp eq i8 %1020, 0
-  br i1 %.not747, label %1024, label %1046
+  %1020 = trunc i8 %1019 to i1
+  br i1 %1020, label %1046, label %1024
 
 1021:                                             ; preds = %_ZN7testing7MessageD2Ev.exit493, %986
   %.pn167.pn = phi { ptr, i32 } [ %.pn167, %_ZN7testing7MessageD2Ev.exit493 ], [ %987, %986 ]
@@ -67553,9 +67002,8 @@ _ZN7testing15AssertionResultD2Ev.exit508:         ; preds = %1046, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit509: ; preds = %1054, %1055
   %1056 = load i8, ptr %79, align 8
-  %1057 = and i8 %1056, 1
-  %.not748 = icmp eq i8 %1057, 0
-  br i1 %.not748, label %1061, label %1083
+  %1057 = trunc i8 %1056 to i1
+  br i1 %1057, label %1083, label %1061
 
 1058:                                             ; preds = %_ZN7testing7MessageD2Ev.exit505, %1022
   %.pn170.pn = phi { ptr, i32 } [ %.pn170, %_ZN7testing7MessageD2Ev.exit505 ], [ %1023, %1022 ]
@@ -67664,9 +67112,8 @@ _ZN7testing15AssertionResultD2Ev.exit520:         ; preds = %1083, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit521: ; preds = %1090, %1091
   %1092 = load i8, ptr %82, align 8
-  %1093 = and i8 %1092, 1
-  %.not749 = icmp eq i8 %1093, 0
-  br i1 %.not749, label %1097, label %1119
+  %1093 = trunc i8 %1092 to i1
+  br i1 %1093, label %1119, label %1097
 
 1094:                                             ; preds = %_ZN7testing7MessageD2Ev.exit517, %1059
   %.pn173.pn = phi { ptr, i32 } [ %.pn173, %_ZN7testing7MessageD2Ev.exit517 ], [ %1060, %1059 ]
@@ -67775,9 +67222,8 @@ _ZN7testing15AssertionResultD2Ev.exit532:         ; preds = %1119, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1126, %1127
   %1128 = load i8, ptr %85, align 8
-  %1129 = and i8 %1128, 1
-  %.not750 = icmp eq i8 %1129, 0
-  br i1 %.not750, label %1133, label %1155
+  %1129 = trunc i8 %1128 to i1
+  br i1 %1129, label %1155, label %1133
 
 1130:                                             ; preds = %_ZN7testing7MessageD2Ev.exit529, %1095
   %.pn176.pn = phi { ptr, i32 } [ %.pn176, %_ZN7testing7MessageD2Ev.exit529 ], [ %1096, %1095 ]
@@ -67886,9 +67332,8 @@ _ZN7testing15AssertionResultD2Ev.exit543:         ; preds = %1155, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit544: ; preds = %1162, %1163
   %1164 = load i8, ptr %88, align 8
-  %1165 = and i8 %1164, 1
-  %.not751 = icmp eq i8 %1165, 0
-  br i1 %.not751, label %1169, label %1191
+  %1165 = trunc i8 %1164 to i1
+  br i1 %1165, label %1191, label %1169
 
 1166:                                             ; preds = %_ZN7testing7MessageD2Ev.exit540, %1131
   %.pn179.pn = phi { ptr, i32 } [ %.pn179, %_ZN7testing7MessageD2Ev.exit540 ], [ %1132, %1131 ]
@@ -67997,9 +67442,8 @@ _ZN7testing15AssertionResultD2Ev.exit555:         ; preds = %1191, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit556: ; preds = %1198, %1199
   %1200 = load i8, ptr %91, align 8
-  %1201 = and i8 %1200, 1
-  %.not752 = icmp eq i8 %1201, 0
-  br i1 %.not752, label %1205, label %1227
+  %1201 = trunc i8 %1200 to i1
+  br i1 %1201, label %1227, label %1205
 
 1202:                                             ; preds = %_ZN7testing7MessageD2Ev.exit552, %1167
   %.pn182.pn = phi { ptr, i32 } [ %.pn182, %_ZN7testing7MessageD2Ev.exit552 ], [ %1168, %1167 ]
@@ -68108,9 +67552,8 @@ _ZN7testing15AssertionResultD2Ev.exit567:         ; preds = %1227, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit568: ; preds = %1234, %1235
   %1236 = load i8, ptr %94, align 8
-  %1237 = and i8 %1236, 1
-  %.not753 = icmp eq i8 %1237, 0
-  br i1 %.not753, label %1241, label %1263
+  %1237 = trunc i8 %1236 to i1
+  br i1 %1237, label %1263, label %1241
 
 1238:                                             ; preds = %_ZN7testing7MessageD2Ev.exit564, %1203
   %.pn185.pn = phi { ptr, i32 } [ %.pn185, %_ZN7testing7MessageD2Ev.exit564 ], [ %1204, %1203 ]
@@ -68221,9 +67664,8 @@ _ZN7testing15AssertionResultD2Ev.exit579:         ; preds = %1263, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit580: ; preds = %1271, %1272
   %1273 = load i8, ptr %97, align 8
-  %1274 = and i8 %1273, 1
-  %.not754 = icmp eq i8 %1274, 0
-  br i1 %.not754, label %1278, label %1300
+  %1274 = trunc i8 %1273 to i1
+  br i1 %1274, label %1300, label %1278
 
 1275:                                             ; preds = %_ZN7testing7MessageD2Ev.exit576, %1239
   %.pn188.pn = phi { ptr, i32 } [ %.pn188, %_ZN7testing7MessageD2Ev.exit576 ], [ %1240, %1239 ]
@@ -68332,9 +67774,8 @@ _ZN7testing15AssertionResultD2Ev.exit591:         ; preds = %1300, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit592: ; preds = %1307, %1308
   %1309 = load i8, ptr %100, align 8
-  %1310 = and i8 %1309, 1
-  %.not755 = icmp eq i8 %1310, 0
-  br i1 %.not755, label %1314, label %1336
+  %1310 = trunc i8 %1309 to i1
+  br i1 %1310, label %1336, label %1314
 
 1311:                                             ; preds = %_ZN7testing7MessageD2Ev.exit588, %1276
   %.pn191.pn = phi { ptr, i32 } [ %.pn191, %_ZN7testing7MessageD2Ev.exit588 ], [ %1277, %1276 ]
@@ -68443,9 +67884,8 @@ _ZN7testing15AssertionResultD2Ev.exit603:         ; preds = %1336, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit604: ; preds = %1343, %1344
   %1345 = load i8, ptr %103, align 8
-  %1346 = and i8 %1345, 1
-  %.not756 = icmp eq i8 %1346, 0
-  br i1 %.not756, label %1350, label %1372
+  %1346 = trunc i8 %1345 to i1
+  br i1 %1346, label %1372, label %1350
 
 1347:                                             ; preds = %_ZN7testing7MessageD2Ev.exit600, %1312
   %.pn194.pn = phi { ptr, i32 } [ %.pn194, %_ZN7testing7MessageD2Ev.exit600 ], [ %1313, %1312 ]
@@ -68554,9 +67994,8 @@ _ZN7testing15AssertionResultD2Ev.exit615:         ; preds = %1372, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit616: ; preds = %1379, %1380
   %1381 = load i8, ptr %106, align 8
-  %1382 = and i8 %1381, 1
-  %.not757 = icmp eq i8 %1382, 0
-  br i1 %.not757, label %1386, label %1408
+  %1382 = trunc i8 %1381 to i1
+  br i1 %1382, label %1408, label %1386
 
 1383:                                             ; preds = %_ZN7testing7MessageD2Ev.exit612, %1348
   %.pn197.pn = phi { ptr, i32 } [ %.pn197, %_ZN7testing7MessageD2Ev.exit612 ], [ %1349, %1348 ]
@@ -68665,9 +68104,8 @@ _ZN7testing15AssertionResultD2Ev.exit627:         ; preds = %1408, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit628: ; preds = %1415, %1416
   %1417 = load i8, ptr %109, align 8
-  %1418 = and i8 %1417, 1
-  %.not758 = icmp eq i8 %1418, 0
-  br i1 %.not758, label %1422, label %1444
+  %1418 = trunc i8 %1417 to i1
+  br i1 %1418, label %1444, label %1422
 
 1419:                                             ; preds = %_ZN7testing7MessageD2Ev.exit624, %1384
   %.pn200.pn = phi { ptr, i32 } [ %.pn200, %_ZN7testing7MessageD2Ev.exit624 ], [ %1385, %1384 ]
@@ -68776,9 +68214,8 @@ _ZN7testing15AssertionResultD2Ev.exit639:         ; preds = %1444, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit640: ; preds = %1451, %1452
   %1453 = load i8, ptr %112, align 8
-  %1454 = and i8 %1453, 1
-  %.not759 = icmp eq i8 %1454, 0
-  br i1 %.not759, label %1458, label %1480
+  %1454 = trunc i8 %1453 to i1
+  br i1 %1454, label %1480, label %1458
 
 1455:                                             ; preds = %_ZN7testing7MessageD2Ev.exit636, %1420
   %.pn203.pn = phi { ptr, i32 } [ %.pn203, %_ZN7testing7MessageD2Ev.exit636 ], [ %1421, %1420 ]
@@ -68887,9 +68324,8 @@ _ZN7testing15AssertionResultD2Ev.exit651:         ; preds = %1480, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit652: ; preds = %1487, %1488
   %1489 = load i8, ptr %115, align 8
-  %1490 = and i8 %1489, 1
-  %.not760 = icmp eq i8 %1490, 0
-  br i1 %.not760, label %1494, label %1516
+  %1490 = trunc i8 %1489 to i1
+  br i1 %1490, label %1516, label %1494
 
 1491:                                             ; preds = %_ZN7testing7MessageD2Ev.exit648, %1456
   %.pn206.pn = phi { ptr, i32 } [ %.pn206, %_ZN7testing7MessageD2Ev.exit648 ], [ %1457, %1456 ]
@@ -68998,9 +68434,8 @@ _ZN7testing15AssertionResultD2Ev.exit663:         ; preds = %1516, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit664: ; preds = %1523, %1524
   %1525 = load i8, ptr %118, align 8
-  %1526 = and i8 %1525, 1
-  %.not761 = icmp eq i8 %1526, 0
-  br i1 %.not761, label %1530, label %1552
+  %1526 = trunc i8 %1525 to i1
+  br i1 %1526, label %1552, label %1530
 
 1527:                                             ; preds = %_ZN7testing7MessageD2Ev.exit660, %1492
   %.pn209.pn = phi { ptr, i32 } [ %.pn209, %_ZN7testing7MessageD2Ev.exit660 ], [ %1493, %1492 ]
@@ -69109,9 +68544,8 @@ _ZN7testing15AssertionResultD2Ev.exit675:         ; preds = %1552, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit676: ; preds = %1559, %1560
   %1561 = load i8, ptr %121, align 8
-  %1562 = and i8 %1561, 1
-  %.not762 = icmp eq i8 %1562, 0
-  br i1 %.not762, label %1566, label %1588
+  %1562 = trunc i8 %1561 to i1
+  br i1 %1562, label %1588, label %1566
 
 1563:                                             ; preds = %_ZN7testing7MessageD2Ev.exit672, %1528
   %.pn212.pn = phi { ptr, i32 } [ %.pn212, %_ZN7testing7MessageD2Ev.exit672 ], [ %1529, %1528 ]
@@ -69220,9 +68654,8 @@ _ZN7testing15AssertionResultD2Ev.exit687:         ; preds = %1588, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit688: ; preds = %1595, %1596
   %1597 = load i8, ptr %124, align 8
-  %1598 = and i8 %1597, 1
-  %.not763 = icmp eq i8 %1598, 0
-  br i1 %.not763, label %1602, label %1624
+  %1598 = trunc i8 %1597 to i1
+  br i1 %1598, label %1624, label %1602
 
 1599:                                             ; preds = %_ZN7testing7MessageD2Ev.exit684, %1564
   %.pn215.pn = phi { ptr, i32 } [ %.pn215, %_ZN7testing7MessageD2Ev.exit684 ], [ %1565, %1564 ]
@@ -69331,9 +68764,8 @@ _ZN7testing15AssertionResultD2Ev.exit699:         ; preds = %1624, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit700: ; preds = %1631, %1632
   %1633 = load i8, ptr %127, align 8
-  %1634 = and i8 %1633, 1
-  %.not764 = icmp eq i8 %1634, 0
-  br i1 %.not764, label %1638, label %1660
+  %1634 = trunc i8 %1633 to i1
+  br i1 %1634, label %1660, label %1638
 
 1635:                                             ; preds = %_ZN7testing7MessageD2Ev.exit696, %1600
   %.pn218.pn = phi { ptr, i32 } [ %.pn218, %_ZN7testing7MessageD2Ev.exit696 ], [ %1601, %1600 ]
@@ -69442,9 +68874,8 @@ _ZN7testing15AssertionResultD2Ev.exit711:         ; preds = %1660, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit712: ; preds = %1667, %1668
   %1669 = load i8, ptr %130, align 8
-  %1670 = and i8 %1669, 1
-  %.not765 = icmp eq i8 %1670, 0
-  br i1 %.not765, label %1674, label %1696
+  %1670 = trunc i8 %1669 to i1
+  br i1 %1670, label %1696, label %1674
 
 1671:                                             ; preds = %_ZN7testing7MessageD2Ev.exit708, %1636
   %.pn221.pn = phi { ptr, i32 } [ %.pn221, %_ZN7testing7MessageD2Ev.exit708 ], [ %1637, %1636 ]
@@ -69746,9 +69177,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %158, %159
   %160 = load i8, ptr %4, align 8
-  %161 = and i8 %160, 1
-  %.not = icmp eq i8 %161, 0
-  br i1 %.not, label %168, label %190
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %190, label %168
 
 162:                                              ; preds = %.noexc, %1
   %163 = landingpad { ptr, i32 }
@@ -69868,9 +69298,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %190, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %197, %198
   %199 = load i8, ptr %7, align 8
-  %200 = and i8 %199, 1
-  %.not770 = icmp eq i8 %200, 0
-  br i1 %.not770, label %204, label %226
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %226, label %204
 
 201:                                              ; preds = %_ZN7testing7MessageD2Ev.exit247, %166
   %.pn104.pn = phi { ptr, i32 } [ %.pn104, %_ZN7testing7MessageD2Ev.exit247 ], [ %167, %166 ]
@@ -69979,9 +69408,8 @@ _ZN7testing15AssertionResultD2Ev.exit259:         ; preds = %226, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %233, %234
   %235 = load i8, ptr %10, align 8
-  %236 = and i8 %235, 1
-  %.not771 = icmp eq i8 %236, 0
-  br i1 %.not771, label %240, label %262
+  %236 = trunc i8 %235 to i1
+  br i1 %236, label %262, label %240
 
 237:                                              ; preds = %_ZN7testing7MessageD2Ev.exit256, %202
   %.pn107.pn = phi { ptr, i32 } [ %.pn107, %_ZN7testing7MessageD2Ev.exit256 ], [ %203, %202 ]
@@ -70090,9 +69518,8 @@ _ZN7testing15AssertionResultD2Ev.exit270:         ; preds = %262, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %269, %270
   %271 = load i8, ptr %13, align 8
-  %272 = and i8 %271, 1
-  %.not772 = icmp eq i8 %272, 0
-  br i1 %.not772, label %276, label %298
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %298, label %276
 
 273:                                              ; preds = %_ZN7testing7MessageD2Ev.exit267, %238
   %.pn110.pn = phi { ptr, i32 } [ %.pn110, %_ZN7testing7MessageD2Ev.exit267 ], [ %239, %238 ]
@@ -70201,9 +69628,8 @@ _ZN7testing15AssertionResultD2Ev.exit281:         ; preds = %298, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %305, %306
   %307 = load i8, ptr %16, align 8
-  %308 = and i8 %307, 1
-  %.not773 = icmp eq i8 %308, 0
-  br i1 %.not773, label %312, label %334
+  %308 = trunc i8 %307 to i1
+  br i1 %308, label %334, label %312
 
 309:                                              ; preds = %_ZN7testing7MessageD2Ev.exit278, %274
   %.pn113.pn = phi { ptr, i32 } [ %.pn113, %_ZN7testing7MessageD2Ev.exit278 ], [ %275, %274 ]
@@ -70312,9 +69738,8 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %334, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %341, %342
   %343 = load i8, ptr %19, align 8
-  %344 = and i8 %343, 1
-  %.not774 = icmp eq i8 %344, 0
-  br i1 %.not774, label %348, label %370
+  %344 = trunc i8 %343 to i1
+  br i1 %344, label %370, label %348
 
 345:                                              ; preds = %_ZN7testing7MessageD2Ev.exit289, %310
   %.pn116.pn = phi { ptr, i32 } [ %.pn116, %_ZN7testing7MessageD2Ev.exit289 ], [ %311, %310 ]
@@ -70423,9 +69848,8 @@ _ZN7testing15AssertionResultD2Ev.exit303:         ; preds = %370, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %377, %378
   %379 = load i8, ptr %22, align 8
-  %380 = and i8 %379, 1
-  %.not775 = icmp eq i8 %380, 0
-  br i1 %.not775, label %384, label %406
+  %380 = trunc i8 %379 to i1
+  br i1 %380, label %406, label %384
 
 381:                                              ; preds = %_ZN7testing7MessageD2Ev.exit300, %346
   %.pn119.pn = phi { ptr, i32 } [ %.pn119, %_ZN7testing7MessageD2Ev.exit300 ], [ %347, %346 ]
@@ -70534,9 +69958,8 @@ _ZN7testing15AssertionResultD2Ev.exit314:         ; preds = %406, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %413, %414
   %415 = load i8, ptr %25, align 8
-  %416 = and i8 %415, 1
-  %.not776 = icmp eq i8 %416, 0
-  br i1 %.not776, label %420, label %442
+  %416 = trunc i8 %415 to i1
+  br i1 %416, label %442, label %420
 
 417:                                              ; preds = %_ZN7testing7MessageD2Ev.exit311, %382
   %.pn122.pn = phi { ptr, i32 } [ %.pn122, %_ZN7testing7MessageD2Ev.exit311 ], [ %383, %382 ]
@@ -70645,9 +70068,8 @@ _ZN7testing15AssertionResultD2Ev.exit325:         ; preds = %442, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %449, %450
   %451 = load i8, ptr %28, align 8
-  %452 = and i8 %451, 1
-  %.not777 = icmp eq i8 %452, 0
-  br i1 %.not777, label %456, label %478
+  %452 = trunc i8 %451 to i1
+  br i1 %452, label %478, label %456
 
 453:                                              ; preds = %_ZN7testing7MessageD2Ev.exit322, %418
   %.pn125.pn = phi { ptr, i32 } [ %.pn125, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
@@ -70756,9 +70178,8 @@ _ZN7testing15AssertionResultD2Ev.exit336:         ; preds = %478, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %485, %486
   %487 = load i8, ptr %31, align 8
-  %488 = and i8 %487, 1
-  %.not778 = icmp eq i8 %488, 0
-  br i1 %.not778, label %492, label %514
+  %488 = trunc i8 %487 to i1
+  br i1 %488, label %514, label %492
 
 489:                                              ; preds = %_ZN7testing7MessageD2Ev.exit333, %454
   %.pn128.pn = phi { ptr, i32 } [ %.pn128, %_ZN7testing7MessageD2Ev.exit333 ], [ %455, %454 ]
@@ -70867,9 +70288,8 @@ _ZN7testing15AssertionResultD2Ev.exit347:         ; preds = %514, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %521, %522
   %523 = load i8, ptr %34, align 8
-  %524 = and i8 %523, 1
-  %.not779 = icmp eq i8 %524, 0
-  br i1 %.not779, label %528, label %550
+  %524 = trunc i8 %523 to i1
+  br i1 %524, label %550, label %528
 
 525:                                              ; preds = %_ZN7testing7MessageD2Ev.exit344, %490
   %.pn131.pn = phi { ptr, i32 } [ %.pn131, %_ZN7testing7MessageD2Ev.exit344 ], [ %491, %490 ]
@@ -70978,9 +70398,8 @@ _ZN7testing15AssertionResultD2Ev.exit358:         ; preds = %550, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %557, %558
   %559 = load i8, ptr %37, align 8
-  %560 = and i8 %559, 1
-  %.not780 = icmp eq i8 %560, 0
-  br i1 %.not780, label %564, label %586
+  %560 = trunc i8 %559 to i1
+  br i1 %560, label %586, label %564
 
 561:                                              ; preds = %_ZN7testing7MessageD2Ev.exit355, %526
   %.pn134.pn = phi { ptr, i32 } [ %.pn134, %_ZN7testing7MessageD2Ev.exit355 ], [ %527, %526 ]
@@ -71089,9 +70508,8 @@ _ZN7testing15AssertionResultD2Ev.exit369:         ; preds = %586, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %593, %594
   %595 = load i8, ptr %40, align 8
-  %596 = and i8 %595, 1
-  %.not781 = icmp eq i8 %596, 0
-  br i1 %.not781, label %600, label %622
+  %596 = trunc i8 %595 to i1
+  br i1 %596, label %622, label %600
 
 597:                                              ; preds = %_ZN7testing7MessageD2Ev.exit366, %562
   %.pn137.pn = phi { ptr, i32 } [ %.pn137, %_ZN7testing7MessageD2Ev.exit366 ], [ %563, %562 ]
@@ -71200,9 +70618,8 @@ _ZN7testing15AssertionResultD2Ev.exit380:         ; preds = %622, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %629, %630
   %631 = load i8, ptr %43, align 8
-  %632 = and i8 %631, 1
-  %.not782 = icmp eq i8 %632, 0
-  br i1 %.not782, label %636, label %658
+  %632 = trunc i8 %631 to i1
+  br i1 %632, label %658, label %636
 
 633:                                              ; preds = %_ZN7testing7MessageD2Ev.exit377, %598
   %.pn140.pn = phi { ptr, i32 } [ %.pn140, %_ZN7testing7MessageD2Ev.exit377 ], [ %599, %598 ]
@@ -71311,9 +70728,8 @@ _ZN7testing15AssertionResultD2Ev.exit391:         ; preds = %658, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %665, %666
   %667 = load i8, ptr %46, align 8
-  %668 = and i8 %667, 1
-  %.not783 = icmp eq i8 %668, 0
-  br i1 %.not783, label %672, label %694
+  %668 = trunc i8 %667 to i1
+  br i1 %668, label %694, label %672
 
 669:                                              ; preds = %_ZN7testing7MessageD2Ev.exit388, %634
   %.pn143.pn = phi { ptr, i32 } [ %.pn143, %_ZN7testing7MessageD2Ev.exit388 ], [ %635, %634 ]
@@ -71424,9 +70840,8 @@ _ZN7testing15AssertionResultD2Ev.exit402:         ; preds = %694, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit403: ; preds = %702, %703
   %704 = load i8, ptr %49, align 8
-  %705 = and i8 %704, 1
-  %.not784 = icmp eq i8 %705, 0
-  br i1 %.not784, label %709, label %731
+  %705 = trunc i8 %704 to i1
+  br i1 %705, label %731, label %709
 
 706:                                              ; preds = %_ZN7testing7MessageD2Ev.exit399, %670
   %.pn146.pn = phi { ptr, i32 } [ %.pn146, %_ZN7testing7MessageD2Ev.exit399 ], [ %671, %670 ]
@@ -71535,9 +70950,8 @@ _ZN7testing15AssertionResultD2Ev.exit414:         ; preds = %731, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit415: ; preds = %738, %739
   %740 = load i8, ptr %52, align 8
-  %741 = and i8 %740, 1
-  %.not785 = icmp eq i8 %741, 0
-  br i1 %.not785, label %745, label %767
+  %741 = trunc i8 %740 to i1
+  br i1 %741, label %767, label %745
 
 742:                                              ; preds = %_ZN7testing7MessageD2Ev.exit411, %707
   %.pn149.pn = phi { ptr, i32 } [ %.pn149, %_ZN7testing7MessageD2Ev.exit411 ], [ %708, %707 ]
@@ -71646,9 +71060,8 @@ _ZN7testing15AssertionResultD2Ev.exit426:         ; preds = %767, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit427: ; preds = %774, %775
   %776 = load i8, ptr %55, align 8
-  %777 = and i8 %776, 1
-  %.not786 = icmp eq i8 %777, 0
-  br i1 %.not786, label %781, label %803
+  %777 = trunc i8 %776 to i1
+  br i1 %777, label %803, label %781
 
 778:                                              ; preds = %_ZN7testing7MessageD2Ev.exit423, %743
   %.pn152.pn = phi { ptr, i32 } [ %.pn152, %_ZN7testing7MessageD2Ev.exit423 ], [ %744, %743 ]
@@ -71757,9 +71170,8 @@ _ZN7testing15AssertionResultD2Ev.exit438:         ; preds = %803, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit439: ; preds = %810, %811
   %812 = load i8, ptr %58, align 8
-  %813 = and i8 %812, 1
-  %.not787 = icmp eq i8 %813, 0
-  br i1 %.not787, label %817, label %839
+  %813 = trunc i8 %812 to i1
+  br i1 %813, label %839, label %817
 
 814:                                              ; preds = %_ZN7testing7MessageD2Ev.exit435, %779
   %.pn155.pn = phi { ptr, i32 } [ %.pn155, %_ZN7testing7MessageD2Ev.exit435 ], [ %780, %779 ]
@@ -71868,9 +71280,8 @@ _ZN7testing15AssertionResultD2Ev.exit450:         ; preds = %839, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %846, %847
   %848 = load i8, ptr %61, align 8
-  %849 = and i8 %848, 1
-  %.not788 = icmp eq i8 %849, 0
-  br i1 %.not788, label %853, label %875
+  %849 = trunc i8 %848 to i1
+  br i1 %849, label %875, label %853
 
 850:                                              ; preds = %_ZN7testing7MessageD2Ev.exit447, %815
   %.pn158.pn = phi { ptr, i32 } [ %.pn158, %_ZN7testing7MessageD2Ev.exit447 ], [ %816, %815 ]
@@ -71979,9 +71390,8 @@ _ZN7testing15AssertionResultD2Ev.exit461:         ; preds = %875, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit462: ; preds = %882, %883
   %884 = load i8, ptr %64, align 8
-  %885 = and i8 %884, 1
-  %.not789 = icmp eq i8 %885, 0
-  br i1 %.not789, label %889, label %911
+  %885 = trunc i8 %884 to i1
+  br i1 %885, label %911, label %889
 
 886:                                              ; preds = %_ZN7testing7MessageD2Ev.exit458, %851
   %.pn161.pn = phi { ptr, i32 } [ %.pn161, %_ZN7testing7MessageD2Ev.exit458 ], [ %852, %851 ]
@@ -72090,9 +71500,8 @@ _ZN7testing15AssertionResultD2Ev.exit473:         ; preds = %911, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit474: ; preds = %918, %919
   %920 = load i8, ptr %67, align 8
-  %921 = and i8 %920, 1
-  %.not790 = icmp eq i8 %921, 0
-  br i1 %.not790, label %925, label %947
+  %921 = trunc i8 %920 to i1
+  br i1 %921, label %947, label %925
 
 922:                                              ; preds = %_ZN7testing7MessageD2Ev.exit470, %887
   %.pn164.pn = phi { ptr, i32 } [ %.pn164, %_ZN7testing7MessageD2Ev.exit470 ], [ %888, %887 ]
@@ -72201,9 +71610,8 @@ _ZN7testing15AssertionResultD2Ev.exit485:         ; preds = %947, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit486: ; preds = %954, %955
   %956 = load i8, ptr %70, align 8
-  %957 = and i8 %956, 1
-  %.not791 = icmp eq i8 %957, 0
-  br i1 %.not791, label %961, label %983
+  %957 = trunc i8 %956 to i1
+  br i1 %957, label %983, label %961
 
 958:                                              ; preds = %_ZN7testing7MessageD2Ev.exit482, %923
   %.pn167.pn = phi { ptr, i32 } [ %.pn167, %_ZN7testing7MessageD2Ev.exit482 ], [ %924, %923 ]
@@ -72312,9 +71720,8 @@ _ZN7testing15AssertionResultD2Ev.exit497:         ; preds = %983, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit498: ; preds = %990, %991
   %992 = load i8, ptr %73, align 8
-  %993 = and i8 %992, 1
-  %.not792 = icmp eq i8 %993, 0
-  br i1 %.not792, label %997, label %1019
+  %993 = trunc i8 %992 to i1
+  br i1 %993, label %1019, label %997
 
 994:                                              ; preds = %_ZN7testing7MessageD2Ev.exit494, %959
   %.pn170.pn = phi { ptr, i32 } [ %.pn170, %_ZN7testing7MessageD2Ev.exit494 ], [ %960, %959 ]
@@ -72423,9 +71830,8 @@ _ZN7testing15AssertionResultD2Ev.exit509:         ; preds = %1019, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit510: ; preds = %1026, %1027
   %1028 = load i8, ptr %76, align 8
-  %1029 = and i8 %1028, 1
-  %.not793 = icmp eq i8 %1029, 0
-  br i1 %.not793, label %1033, label %1055
+  %1029 = trunc i8 %1028 to i1
+  br i1 %1029, label %1055, label %1033
 
 1030:                                             ; preds = %_ZN7testing7MessageD2Ev.exit506, %995
   %.pn173.pn = phi { ptr, i32 } [ %.pn173, %_ZN7testing7MessageD2Ev.exit506 ], [ %996, %995 ]
@@ -72534,9 +71940,8 @@ _ZN7testing15AssertionResultD2Ev.exit521:         ; preds = %1055, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit522: ; preds = %1062, %1063
   %1064 = load i8, ptr %79, align 8
-  %1065 = and i8 %1064, 1
-  %.not794 = icmp eq i8 %1065, 0
-  br i1 %.not794, label %1069, label %1091
+  %1065 = trunc i8 %1064 to i1
+  br i1 %1065, label %1091, label %1069
 
 1066:                                             ; preds = %_ZN7testing7MessageD2Ev.exit518, %1031
   %.pn176.pn = phi { ptr, i32 } [ %.pn176, %_ZN7testing7MessageD2Ev.exit518 ], [ %1032, %1031 ]
@@ -72645,9 +72050,8 @@ _ZN7testing15AssertionResultD2Ev.exit533:         ; preds = %1091, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit534: ; preds = %1098, %1099
   %1100 = load i8, ptr %82, align 8
-  %1101 = and i8 %1100, 1
-  %.not795 = icmp eq i8 %1101, 0
-  br i1 %.not795, label %1105, label %1127
+  %1101 = trunc i8 %1100 to i1
+  br i1 %1101, label %1127, label %1105
 
 1102:                                             ; preds = %_ZN7testing7MessageD2Ev.exit530, %1067
   %.pn179.pn = phi { ptr, i32 } [ %.pn179, %_ZN7testing7MessageD2Ev.exit530 ], [ %1068, %1067 ]
@@ -72756,9 +72160,8 @@ _ZN7testing15AssertionResultD2Ev.exit545:         ; preds = %1127, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit546: ; preds = %1134, %1135
   %1136 = load i8, ptr %85, align 8
-  %1137 = and i8 %1136, 1
-  %.not796 = icmp eq i8 %1137, 0
-  br i1 %.not796, label %1141, label %1163
+  %1137 = trunc i8 %1136 to i1
+  br i1 %1137, label %1163, label %1141
 
 1138:                                             ; preds = %_ZN7testing7MessageD2Ev.exit542, %1103
   %.pn182.pn = phi { ptr, i32 } [ %.pn182, %_ZN7testing7MessageD2Ev.exit542 ], [ %1104, %1103 ]
@@ -72867,9 +72270,8 @@ _ZN7testing15AssertionResultD2Ev.exit557:         ; preds = %1163, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit558: ; preds = %1170, %1171
   %1172 = load i8, ptr %88, align 8
-  %1173 = and i8 %1172, 1
-  %.not797 = icmp eq i8 %1173, 0
-  br i1 %.not797, label %1177, label %1199
+  %1173 = trunc i8 %1172 to i1
+  br i1 %1173, label %1199, label %1177
 
 1174:                                             ; preds = %_ZN7testing7MessageD2Ev.exit554, %1139
   %.pn185.pn = phi { ptr, i32 } [ %.pn185, %_ZN7testing7MessageD2Ev.exit554 ], [ %1140, %1139 ]
@@ -72978,9 +72380,8 @@ _ZN7testing15AssertionResultD2Ev.exit569:         ; preds = %1199, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit570: ; preds = %1206, %1207
   %1208 = load i8, ptr %91, align 8
-  %1209 = and i8 %1208, 1
-  %.not798 = icmp eq i8 %1209, 0
-  br i1 %.not798, label %1213, label %1235
+  %1209 = trunc i8 %1208 to i1
+  br i1 %1209, label %1235, label %1213
 
 1210:                                             ; preds = %_ZN7testing7MessageD2Ev.exit566, %1175
   %.pn188.pn = phi { ptr, i32 } [ %.pn188, %_ZN7testing7MessageD2Ev.exit566 ], [ %1176, %1175 ]
@@ -73091,9 +72492,8 @@ _ZN7testing15AssertionResultD2Ev.exit581:         ; preds = %1235, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit582: ; preds = %1243, %1244
   %1245 = load i8, ptr %94, align 8
-  %1246 = and i8 %1245, 1
-  %.not799 = icmp eq i8 %1246, 0
-  br i1 %.not799, label %1250, label %1272
+  %1246 = trunc i8 %1245 to i1
+  br i1 %1246, label %1272, label %1250
 
 1247:                                             ; preds = %_ZN7testing7MessageD2Ev.exit578, %1211
   %.pn191.pn = phi { ptr, i32 } [ %.pn191, %_ZN7testing7MessageD2Ev.exit578 ], [ %1212, %1211 ]
@@ -73202,9 +72602,8 @@ _ZN7testing15AssertionResultD2Ev.exit593:         ; preds = %1272, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit594: ; preds = %1279, %1280
   %1281 = load i8, ptr %97, align 8
-  %1282 = and i8 %1281, 1
-  %.not800 = icmp eq i8 %1282, 0
-  br i1 %.not800, label %1286, label %1308
+  %1282 = trunc i8 %1281 to i1
+  br i1 %1282, label %1308, label %1286
 
 1283:                                             ; preds = %_ZN7testing7MessageD2Ev.exit590, %1248
   %.pn194.pn = phi { ptr, i32 } [ %.pn194, %_ZN7testing7MessageD2Ev.exit590 ], [ %1249, %1248 ]
@@ -73313,9 +72712,8 @@ _ZN7testing15AssertionResultD2Ev.exit605:         ; preds = %1308, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit606: ; preds = %1315, %1316
   %1317 = load i8, ptr %100, align 8
-  %1318 = and i8 %1317, 1
-  %.not801 = icmp eq i8 %1318, 0
-  br i1 %.not801, label %1322, label %1344
+  %1318 = trunc i8 %1317 to i1
+  br i1 %1318, label %1344, label %1322
 
 1319:                                             ; preds = %_ZN7testing7MessageD2Ev.exit602, %1284
   %.pn197.pn = phi { ptr, i32 } [ %.pn197, %_ZN7testing7MessageD2Ev.exit602 ], [ %1285, %1284 ]
@@ -73424,9 +72822,8 @@ _ZN7testing15AssertionResultD2Ev.exit617:         ; preds = %1344, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit618: ; preds = %1351, %1352
   %1353 = load i8, ptr %103, align 8
-  %1354 = and i8 %1353, 1
-  %.not802 = icmp eq i8 %1354, 0
-  br i1 %.not802, label %1358, label %1380
+  %1354 = trunc i8 %1353 to i1
+  br i1 %1354, label %1380, label %1358
 
 1355:                                             ; preds = %_ZN7testing7MessageD2Ev.exit614, %1320
   %.pn200.pn = phi { ptr, i32 } [ %.pn200, %_ZN7testing7MessageD2Ev.exit614 ], [ %1321, %1320 ]
@@ -73535,9 +72932,8 @@ _ZN7testing15AssertionResultD2Ev.exit629:         ; preds = %1380, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit630: ; preds = %1387, %1388
   %1389 = load i8, ptr %106, align 8
-  %1390 = and i8 %1389, 1
-  %.not803 = icmp eq i8 %1390, 0
-  br i1 %.not803, label %1394, label %1416
+  %1390 = trunc i8 %1389 to i1
+  br i1 %1390, label %1416, label %1394
 
 1391:                                             ; preds = %_ZN7testing7MessageD2Ev.exit626, %1356
   %.pn203.pn = phi { ptr, i32 } [ %.pn203, %_ZN7testing7MessageD2Ev.exit626 ], [ %1357, %1356 ]
@@ -73646,9 +73042,8 @@ _ZN7testing15AssertionResultD2Ev.exit641:         ; preds = %1416, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1423, %1424
   %1425 = load i8, ptr %109, align 8
-  %1426 = and i8 %1425, 1
-  %.not804 = icmp eq i8 %1426, 0
-  br i1 %.not804, label %1430, label %1452
+  %1426 = trunc i8 %1425 to i1
+  br i1 %1426, label %1452, label %1430
 
 1427:                                             ; preds = %_ZN7testing7MessageD2Ev.exit638, %1392
   %.pn206.pn = phi { ptr, i32 } [ %.pn206, %_ZN7testing7MessageD2Ev.exit638 ], [ %1393, %1392 ]
@@ -73757,9 +73152,8 @@ _ZN7testing15AssertionResultD2Ev.exit652:         ; preds = %1452, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit653: ; preds = %1459, %1460
   %1461 = load i8, ptr %112, align 8
-  %1462 = and i8 %1461, 1
-  %.not805 = icmp eq i8 %1462, 0
-  br i1 %.not805, label %1466, label %1488
+  %1462 = trunc i8 %1461 to i1
+  br i1 %1462, label %1488, label %1466
 
 1463:                                             ; preds = %_ZN7testing7MessageD2Ev.exit649, %1428
   %.pn209.pn = phi { ptr, i32 } [ %.pn209, %_ZN7testing7MessageD2Ev.exit649 ], [ %1429, %1428 ]
@@ -73868,9 +73262,8 @@ _ZN7testing15AssertionResultD2Ev.exit664:         ; preds = %1488, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit665: ; preds = %1495, %1496
   %1497 = load i8, ptr %115, align 8
-  %1498 = and i8 %1497, 1
-  %.not806 = icmp eq i8 %1498, 0
-  br i1 %.not806, label %1502, label %1524
+  %1498 = trunc i8 %1497 to i1
+  br i1 %1498, label %1524, label %1502
 
 1499:                                             ; preds = %_ZN7testing7MessageD2Ev.exit661, %1464
   %.pn212.pn = phi { ptr, i32 } [ %.pn212, %_ZN7testing7MessageD2Ev.exit661 ], [ %1465, %1464 ]
@@ -73979,9 +73372,8 @@ _ZN7testing15AssertionResultD2Ev.exit676:         ; preds = %1524, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1531, %1532
   %1533 = load i8, ptr %118, align 8
-  %1534 = and i8 %1533, 1
-  %.not807 = icmp eq i8 %1534, 0
-  br i1 %.not807, label %1538, label %1560
+  %1534 = trunc i8 %1533 to i1
+  br i1 %1534, label %1560, label %1538
 
 1535:                                             ; preds = %_ZN7testing7MessageD2Ev.exit673, %1500
   %.pn215.pn = phi { ptr, i32 } [ %.pn215, %_ZN7testing7MessageD2Ev.exit673 ], [ %1501, %1500 ]
@@ -74090,9 +73482,8 @@ _ZN7testing15AssertionResultD2Ev.exit687:         ; preds = %1560, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit688: ; preds = %1567, %1568
   %1569 = load i8, ptr %121, align 8
-  %1570 = and i8 %1569, 1
-  %.not808 = icmp eq i8 %1570, 0
-  br i1 %.not808, label %1574, label %1596
+  %1570 = trunc i8 %1569 to i1
+  br i1 %1570, label %1596, label %1574
 
 1571:                                             ; preds = %_ZN7testing7MessageD2Ev.exit684, %1536
   %.pn218.pn = phi { ptr, i32 } [ %.pn218, %_ZN7testing7MessageD2Ev.exit684 ], [ %1537, %1536 ]
@@ -74201,9 +73592,8 @@ _ZN7testing15AssertionResultD2Ev.exit699:         ; preds = %1596, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit700: ; preds = %1603, %1604
   %1605 = load i8, ptr %124, align 8
-  %1606 = and i8 %1605, 1
-  %.not809 = icmp eq i8 %1606, 0
-  br i1 %.not809, label %1610, label %1632
+  %1606 = trunc i8 %1605 to i1
+  br i1 %1606, label %1632, label %1610
 
 1607:                                             ; preds = %_ZN7testing7MessageD2Ev.exit696, %1572
   %.pn221.pn = phi { ptr, i32 } [ %.pn221, %_ZN7testing7MessageD2Ev.exit696 ], [ %1573, %1572 ]
@@ -74312,9 +73702,8 @@ _ZN7testing15AssertionResultD2Ev.exit711:         ; preds = %1632, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1639, %1640
   %1641 = load i8, ptr %127, align 8
-  %1642 = and i8 %1641, 1
-  %.not810 = icmp eq i8 %1642, 0
-  br i1 %.not810, label %1646, label %1668
+  %1642 = trunc i8 %1641 to i1
+  br i1 %1642, label %1668, label %1646
 
 1643:                                             ; preds = %_ZN7testing7MessageD2Ev.exit708, %1608
   %.pn224.pn = phi { ptr, i32 } [ %.pn224, %_ZN7testing7MessageD2Ev.exit708 ], [ %1609, %1608 ]
@@ -74423,9 +73812,8 @@ _ZN7testing15AssertionResultD2Ev.exit722:         ; preds = %1668, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit723: ; preds = %1675, %1676
   %1677 = load i8, ptr %130, align 8
-  %1678 = and i8 %1677, 1
-  %.not811 = icmp eq i8 %1678, 0
-  br i1 %.not811, label %1682, label %1704
+  %1678 = trunc i8 %1677 to i1
+  br i1 %1678, label %1704, label %1682
 
 1679:                                             ; preds = %_ZN7testing7MessageD2Ev.exit719, %1644
   %.pn227.pn = phi { ptr, i32 } [ %.pn227, %_ZN7testing7MessageD2Ev.exit719 ], [ %1645, %1644 ]
@@ -74534,9 +73922,8 @@ _ZN7testing15AssertionResultD2Ev.exit734:         ; preds = %1704, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit735: ; preds = %1711, %1712
   %1713 = load i8, ptr %133, align 8
-  %1714 = and i8 %1713, 1
-  %.not812 = icmp eq i8 %1714, 0
-  br i1 %.not812, label %1718, label %1740
+  %1714 = trunc i8 %1713 to i1
+  br i1 %1714, label %1740, label %1718
 
 1715:                                             ; preds = %_ZN7testing7MessageD2Ev.exit731, %1680
   %.pn230.pn = phi { ptr, i32 } [ %.pn230, %_ZN7testing7MessageD2Ev.exit731 ], [ %1681, %1680 ]
@@ -74645,9 +74032,8 @@ _ZN7testing15AssertionResultD2Ev.exit746:         ; preds = %1740, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit747: ; preds = %1747, %1748
   %1749 = load i8, ptr %136, align 8
-  %1750 = and i8 %1749, 1
-  %.not813 = icmp eq i8 %1750, 0
-  br i1 %.not813, label %1754, label %1776
+  %1750 = trunc i8 %1749 to i1
+  br i1 %1750, label %1776, label %1754
 
 1751:                                             ; preds = %_ZN7testing7MessageD2Ev.exit743, %1716
   %.pn233.pn = phi { ptr, i32 } [ %.pn233, %_ZN7testing7MessageD2Ev.exit743 ], [ %1717, %1716 ]
@@ -74756,9 +74142,8 @@ _ZN7testing15AssertionResultD2Ev.exit758:         ; preds = %1776, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1783, %1784
   %1785 = load i8, ptr %139, align 8
-  %1786 = and i8 %1785, 1
-  %.not814 = icmp eq i8 %1786, 0
-  br i1 %.not814, label %1790, label %1812
+  %1786 = trunc i8 %1785 to i1
+  br i1 %1786, label %1812, label %1790
 
 1787:                                             ; preds = %_ZN7testing7MessageD2Ev.exit755, %1752
   %.pn236.pn = phi { ptr, i32 } [ %.pn236, %_ZN7testing7MessageD2Ev.exit755 ], [ %1753, %1752 ]
@@ -74970,9 +74355,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %68, %69
   %70 = load i8, ptr %4, align 8
-  %71 = and i8 %70, 1
-  %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %78, label %100
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %100, label %78
 
 72:                                               ; preds = %.noexc, %1
   %73 = landingpad { ptr, i32 }
@@ -75092,9 +74476,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %100, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %107, %108
   %109 = load i8, ptr %7, align 8
-  %110 = and i8 %109, 1
-  %.not264 = icmp eq i8 %110, 0
-  br i1 %.not264, label %114, label %136
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %136, label %114
 
 111:                                              ; preds = %_ZN7testing7MessageD2Ev.exit97, %76
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit97 ], [ %77, %76 ]
@@ -75203,9 +74586,8 @@ _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %136, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %143, %144
   %145 = load i8, ptr %10, align 8
-  %146 = and i8 %145, 1
-  %.not265 = icmp eq i8 %146, 0
-  br i1 %.not265, label %150, label %172
+  %146 = trunc i8 %145 to i1
+  br i1 %146, label %172, label %150
 
 147:                                              ; preds = %_ZN7testing7MessageD2Ev.exit106, %112
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZN7testing7MessageD2Ev.exit106 ], [ %113, %112 ]
@@ -75314,9 +74696,8 @@ _ZN7testing15AssertionResultD2Ev.exit120:         ; preds = %172, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %179, %180
   %181 = load i8, ptr %13, align 8
-  %182 = and i8 %181, 1
-  %.not266 = icmp eq i8 %182, 0
-  br i1 %.not266, label %186, label %208
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %208, label %186
 
 183:                                              ; preds = %_ZN7testing7MessageD2Ev.exit117, %148
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %_ZN7testing7MessageD2Ev.exit117 ], [ %149, %148 ]
@@ -75425,9 +74806,8 @@ _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %208, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %215, %216
   %217 = load i8, ptr %16, align 8
-  %218 = and i8 %217, 1
-  %.not267 = icmp eq i8 %218, 0
-  br i1 %.not267, label %222, label %244
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %244, label %222
 
 219:                                              ; preds = %_ZN7testing7MessageD2Ev.exit128, %184
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %_ZN7testing7MessageD2Ev.exit128 ], [ %185, %184 ]
@@ -75536,9 +74916,8 @@ _ZN7testing15AssertionResultD2Ev.exit142:         ; preds = %244, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %251, %252
   %253 = load i8, ptr %19, align 8
-  %254 = and i8 %253, 1
-  %.not268 = icmp eq i8 %254, 0
-  br i1 %.not268, label %258, label %280
+  %254 = trunc i8 %253 to i1
+  br i1 %254, label %280, label %258
 
 255:                                              ; preds = %_ZN7testing7MessageD2Ev.exit139, %220
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %_ZN7testing7MessageD2Ev.exit139 ], [ %221, %220 ]
@@ -75647,9 +75026,8 @@ _ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %280, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %287, %288
   %289 = load i8, ptr %22, align 8
-  %290 = and i8 %289, 1
-  %.not269 = icmp eq i8 %290, 0
-  br i1 %.not269, label %294, label %316
+  %290 = trunc i8 %289 to i1
+  br i1 %290, label %316, label %294
 
 291:                                              ; preds = %_ZN7testing7MessageD2Ev.exit150, %256
   %.pn59.pn = phi { ptr, i32 } [ %.pn59, %_ZN7testing7MessageD2Ev.exit150 ], [ %257, %256 ]
@@ -75758,9 +75136,8 @@ _ZN7testing15AssertionResultD2Ev.exit164:         ; preds = %316, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %323, %324
   %325 = load i8, ptr %25, align 8
-  %326 = and i8 %325, 1
-  %.not270 = icmp eq i8 %326, 0
-  br i1 %.not270, label %330, label %352
+  %326 = trunc i8 %325 to i1
+  br i1 %326, label %352, label %330
 
 327:                                              ; preds = %_ZN7testing7MessageD2Ev.exit161, %292
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %_ZN7testing7MessageD2Ev.exit161 ], [ %293, %292 ]
@@ -75869,9 +75246,8 @@ _ZN7testing15AssertionResultD2Ev.exit175:         ; preds = %352, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %359, %360
   %361 = load i8, ptr %28, align 8
-  %362 = and i8 %361, 1
-  %.not271 = icmp eq i8 %362, 0
-  br i1 %.not271, label %366, label %388
+  %362 = trunc i8 %361 to i1
+  br i1 %362, label %388, label %366
 
 363:                                              ; preds = %_ZN7testing7MessageD2Ev.exit172, %328
   %.pn65.pn = phi { ptr, i32 } [ %.pn65, %_ZN7testing7MessageD2Ev.exit172 ], [ %329, %328 ]
@@ -75980,9 +75356,8 @@ _ZN7testing15AssertionResultD2Ev.exit186:         ; preds = %388, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %395, %396
   %397 = load i8, ptr %31, align 8
-  %398 = and i8 %397, 1
-  %.not272 = icmp eq i8 %398, 0
-  br i1 %.not272, label %402, label %424
+  %398 = trunc i8 %397 to i1
+  br i1 %398, label %424, label %402
 
 399:                                              ; preds = %_ZN7testing7MessageD2Ev.exit183, %364
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %_ZN7testing7MessageD2Ev.exit183 ], [ %365, %364 ]
@@ -76091,9 +75466,8 @@ _ZN7testing15AssertionResultD2Ev.exit197:         ; preds = %424, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %431, %432
   %433 = load i8, ptr %34, align 8
-  %434 = and i8 %433, 1
-  %.not273 = icmp eq i8 %434, 0
-  br i1 %.not273, label %438, label %460
+  %434 = trunc i8 %433 to i1
+  br i1 %434, label %460, label %438
 
 435:                                              ; preds = %_ZN7testing7MessageD2Ev.exit194, %400
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZN7testing7MessageD2Ev.exit194 ], [ %401, %400 ]
@@ -76202,9 +75576,8 @@ _ZN7testing15AssertionResultD2Ev.exit208:         ; preds = %460, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %467, %468
   %469 = load i8, ptr %37, align 8
-  %470 = and i8 %469, 1
-  %.not274 = icmp eq i8 %470, 0
-  br i1 %.not274, label %474, label %496
+  %470 = trunc i8 %469 to i1
+  br i1 %470, label %496, label %474
 
 471:                                              ; preds = %_ZN7testing7MessageD2Ev.exit205, %436
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZN7testing7MessageD2Ev.exit205 ], [ %437, %436 ]
@@ -76313,9 +75686,8 @@ _ZN7testing15AssertionResultD2Ev.exit219:         ; preds = %496, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %503, %504
   %505 = load i8, ptr %40, align 8
-  %506 = and i8 %505, 1
-  %.not275 = icmp eq i8 %506, 0
-  br i1 %.not275, label %510, label %532
+  %506 = trunc i8 %505 to i1
+  br i1 %506, label %532, label %510
 
 507:                                              ; preds = %_ZN7testing7MessageD2Ev.exit216, %472
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %_ZN7testing7MessageD2Ev.exit216 ], [ %473, %472 ]
@@ -76424,9 +75796,8 @@ _ZN7testing15AssertionResultD2Ev.exit230:         ; preds = %532, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %539, %540
   %541 = load i8, ptr %43, align 8
-  %542 = and i8 %541, 1
-  %.not276 = icmp eq i8 %542, 0
-  br i1 %.not276, label %546, label %568
+  %542 = trunc i8 %541 to i1
+  br i1 %542, label %568, label %546
 
 543:                                              ; preds = %_ZN7testing7MessageD2Ev.exit227, %508
   %.pn80.pn = phi { ptr, i32 } [ %.pn80, %_ZN7testing7MessageD2Ev.exit227 ], [ %509, %508 ]
@@ -76535,9 +75906,8 @@ _ZN7testing15AssertionResultD2Ev.exit241:         ; preds = %568, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %575, %576
   %577 = load i8, ptr %46, align 8
-  %578 = and i8 %577, 1
-  %.not277 = icmp eq i8 %578, 0
-  br i1 %.not277, label %582, label %604
+  %578 = trunc i8 %577 to i1
+  br i1 %578, label %604, label %582
 
 579:                                              ; preds = %_ZN7testing7MessageD2Ev.exit238, %544
   %.pn83.pn = phi { ptr, i32 } [ %.pn83, %_ZN7testing7MessageD2Ev.exit238 ], [ %545, %544 ]
@@ -76646,9 +76016,8 @@ _ZN7testing15AssertionResultD2Ev.exit252:         ; preds = %604, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %611, %612
   %613 = load i8, ptr %49, align 8
-  %614 = and i8 %613, 1
-  %.not278 = icmp eq i8 %614, 0
-  br i1 %.not278, label %618, label %640
+  %614 = trunc i8 %613 to i1
+  br i1 %614, label %640, label %618
 
 615:                                              ; preds = %_ZN7testing7MessageD2Ev.exit249, %580
   %.pn86.pn = phi { ptr, i32 } [ %.pn86, %_ZN7testing7MessageD2Ev.exit249 ], [ %581, %580 ]
@@ -76896,9 +76265,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %104, %105
   %106 = load i8, ptr %4, align 8
-  %107 = and i8 %106, 1
-  %.not = icmp eq i8 %107, 0
-  br i1 %.not, label %114, label %136
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %136, label %114
 
 108:                                              ; preds = %.noexc, %1
   %109 = landingpad { ptr, i32 }
@@ -77018,9 +76386,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %136, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %143, %144
   %145 = load i8, ptr %7, align 8
-  %146 = and i8 %145, 1
-  %.not466 = icmp eq i8 %146, 0
-  br i1 %.not466, label %150, label %172
+  %146 = trunc i8 %145 to i1
+  br i1 %146, label %172, label %150
 
 147:                                              ; preds = %_ZN7testing7MessageD2Ev.exit157, %112
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %_ZN7testing7MessageD2Ev.exit157 ], [ %113, %112 ]
@@ -77129,9 +76496,8 @@ _ZN7testing15AssertionResultD2Ev.exit169:         ; preds = %172, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %179, %180
   %181 = load i8, ptr %10, align 8
-  %182 = and i8 %181, 1
-  %.not467 = icmp eq i8 %182, 0
-  br i1 %.not467, label %186, label %208
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %208, label %186
 
 183:                                              ; preds = %_ZN7testing7MessageD2Ev.exit166, %148
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZN7testing7MessageD2Ev.exit166 ], [ %149, %148 ]
@@ -77240,9 +76606,8 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %208, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %215, %216
   %217 = load i8, ptr %13, align 8
-  %218 = and i8 %217, 1
-  %.not468 = icmp eq i8 %218, 0
-  br i1 %.not468, label %222, label %244
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %244, label %222
 
 219:                                              ; preds = %_ZN7testing7MessageD2Ev.exit177, %184
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZN7testing7MessageD2Ev.exit177 ], [ %185, %184 ]
@@ -77351,9 +76716,8 @@ _ZN7testing15AssertionResultD2Ev.exit191:         ; preds = %244, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %251, %252
   %253 = load i8, ptr %16, align 8
-  %254 = and i8 %253, 1
-  %.not469 = icmp eq i8 %254, 0
-  br i1 %.not469, label %258, label %280
+  %254 = trunc i8 %253 to i1
+  br i1 %254, label %280, label %258
 
 255:                                              ; preds = %_ZN7testing7MessageD2Ev.exit188, %220
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %_ZN7testing7MessageD2Ev.exit188 ], [ %221, %220 ]
@@ -77462,9 +76826,8 @@ _ZN7testing15AssertionResultD2Ev.exit202:         ; preds = %280, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %287, %288
   %289 = load i8, ptr %19, align 8
-  %290 = and i8 %289, 1
-  %.not470 = icmp eq i8 %290, 0
-  br i1 %.not470, label %294, label %316
+  %290 = trunc i8 %289 to i1
+  br i1 %290, label %316, label %294
 
 291:                                              ; preds = %_ZN7testing7MessageD2Ev.exit199, %256
   %.pn80.pn = phi { ptr, i32 } [ %.pn80, %_ZN7testing7MessageD2Ev.exit199 ], [ %257, %256 ]
@@ -77573,9 +76936,8 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %316, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %323, %324
   %325 = load i8, ptr %22, align 8
-  %326 = and i8 %325, 1
-  %.not471 = icmp eq i8 %326, 0
-  br i1 %.not471, label %330, label %352
+  %326 = trunc i8 %325 to i1
+  br i1 %326, label %352, label %330
 
 327:                                              ; preds = %_ZN7testing7MessageD2Ev.exit210, %292
   %.pn83.pn = phi { ptr, i32 } [ %.pn83, %_ZN7testing7MessageD2Ev.exit210 ], [ %293, %292 ]
@@ -77684,9 +77046,8 @@ _ZN7testing15AssertionResultD2Ev.exit224:         ; preds = %352, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %359, %360
   %361 = load i8, ptr %25, align 8
-  %362 = and i8 %361, 1
-  %.not472 = icmp eq i8 %362, 0
-  br i1 %.not472, label %366, label %388
+  %362 = trunc i8 %361 to i1
+  br i1 %362, label %388, label %366
 
 363:                                              ; preds = %_ZN7testing7MessageD2Ev.exit221, %328
   %.pn86.pn = phi { ptr, i32 } [ %.pn86, %_ZN7testing7MessageD2Ev.exit221 ], [ %329, %328 ]
@@ -77795,9 +77156,8 @@ _ZN7testing15AssertionResultD2Ev.exit235:         ; preds = %388, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %395, %396
   %397 = load i8, ptr %28, align 8
-  %398 = and i8 %397, 1
-  %.not473 = icmp eq i8 %398, 0
-  br i1 %.not473, label %402, label %424
+  %398 = trunc i8 %397 to i1
+  br i1 %398, label %424, label %402
 
 399:                                              ; preds = %_ZN7testing7MessageD2Ev.exit232, %364
   %.pn89.pn = phi { ptr, i32 } [ %.pn89, %_ZN7testing7MessageD2Ev.exit232 ], [ %365, %364 ]
@@ -77906,9 +77266,8 @@ _ZN7testing15AssertionResultD2Ev.exit246:         ; preds = %424, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %431, %432
   %433 = load i8, ptr %31, align 8
-  %434 = and i8 %433, 1
-  %.not474 = icmp eq i8 %434, 0
-  br i1 %.not474, label %438, label %460
+  %434 = trunc i8 %433 to i1
+  br i1 %434, label %460, label %438
 
 435:                                              ; preds = %_ZN7testing7MessageD2Ev.exit243, %400
   %.pn92.pn = phi { ptr, i32 } [ %.pn92, %_ZN7testing7MessageD2Ev.exit243 ], [ %401, %400 ]
@@ -78017,9 +77376,8 @@ _ZN7testing15AssertionResultD2Ev.exit257:         ; preds = %460, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %467, %468
   %469 = load i8, ptr %34, align 8
-  %470 = and i8 %469, 1
-  %.not475 = icmp eq i8 %470, 0
-  br i1 %.not475, label %474, label %496
+  %470 = trunc i8 %469 to i1
+  br i1 %470, label %496, label %474
 
 471:                                              ; preds = %_ZN7testing7MessageD2Ev.exit254, %436
   %.pn95.pn = phi { ptr, i32 } [ %.pn95, %_ZN7testing7MessageD2Ev.exit254 ], [ %437, %436 ]
@@ -78128,9 +77486,8 @@ _ZN7testing15AssertionResultD2Ev.exit268:         ; preds = %496, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %503, %504
   %505 = load i8, ptr %37, align 8
-  %506 = and i8 %505, 1
-  %.not476 = icmp eq i8 %506, 0
-  br i1 %.not476, label %510, label %532
+  %506 = trunc i8 %505 to i1
+  br i1 %506, label %532, label %510
 
 507:                                              ; preds = %_ZN7testing7MessageD2Ev.exit265, %472
   %.pn98.pn = phi { ptr, i32 } [ %.pn98, %_ZN7testing7MessageD2Ev.exit265 ], [ %473, %472 ]
@@ -78239,9 +77596,8 @@ _ZN7testing15AssertionResultD2Ev.exit279:         ; preds = %532, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %539, %540
   %541 = load i8, ptr %40, align 8
-  %542 = and i8 %541, 1
-  %.not477 = icmp eq i8 %542, 0
-  br i1 %.not477, label %546, label %568
+  %542 = trunc i8 %541 to i1
+  br i1 %542, label %568, label %546
 
 543:                                              ; preds = %_ZN7testing7MessageD2Ev.exit276, %508
   %.pn101.pn = phi { ptr, i32 } [ %.pn101, %_ZN7testing7MessageD2Ev.exit276 ], [ %509, %508 ]
@@ -78352,9 +77708,8 @@ _ZN7testing15AssertionResultD2Ev.exit290:         ; preds = %568, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit291: ; preds = %576, %577
   %578 = load i8, ptr %43, align 8
-  %579 = and i8 %578, 1
-  %.not478 = icmp eq i8 %579, 0
-  br i1 %.not478, label %583, label %605
+  %579 = trunc i8 %578 to i1
+  br i1 %579, label %605, label %583
 
 580:                                              ; preds = %_ZN7testing7MessageD2Ev.exit287, %544
   %.pn104.pn = phi { ptr, i32 } [ %.pn104, %_ZN7testing7MessageD2Ev.exit287 ], [ %545, %544 ]
@@ -78463,9 +77818,8 @@ _ZN7testing15AssertionResultD2Ev.exit302:         ; preds = %605, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit303: ; preds = %612, %613
   %614 = load i8, ptr %46, align 8
-  %615 = and i8 %614, 1
-  %.not479 = icmp eq i8 %615, 0
-  br i1 %.not479, label %619, label %641
+  %615 = trunc i8 %614 to i1
+  br i1 %615, label %641, label %619
 
 616:                                              ; preds = %_ZN7testing7MessageD2Ev.exit299, %581
   %.pn107.pn = phi { ptr, i32 } [ %.pn107, %_ZN7testing7MessageD2Ev.exit299 ], [ %582, %581 ]
@@ -78574,9 +77928,8 @@ _ZN7testing15AssertionResultD2Ev.exit314:         ; preds = %641, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit315: ; preds = %648, %649
   %650 = load i8, ptr %49, align 8
-  %651 = and i8 %650, 1
-  %.not480 = icmp eq i8 %651, 0
-  br i1 %.not480, label %655, label %677
+  %651 = trunc i8 %650 to i1
+  br i1 %651, label %677, label %655
 
 652:                                              ; preds = %_ZN7testing7MessageD2Ev.exit311, %617
   %.pn110.pn = phi { ptr, i32 } [ %.pn110, %_ZN7testing7MessageD2Ev.exit311 ], [ %618, %617 ]
@@ -78685,9 +78038,8 @@ _ZN7testing15AssertionResultD2Ev.exit326:         ; preds = %677, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit327: ; preds = %684, %685
   %686 = load i8, ptr %52, align 8
-  %687 = and i8 %686, 1
-  %.not481 = icmp eq i8 %687, 0
-  br i1 %.not481, label %691, label %713
+  %687 = trunc i8 %686 to i1
+  br i1 %687, label %713, label %691
 
 688:                                              ; preds = %_ZN7testing7MessageD2Ev.exit323, %653
   %.pn113.pn = phi { ptr, i32 } [ %.pn113, %_ZN7testing7MessageD2Ev.exit323 ], [ %654, %653 ]
@@ -78796,9 +78148,8 @@ _ZN7testing15AssertionResultD2Ev.exit338:         ; preds = %713, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %720, %721
   %722 = load i8, ptr %55, align 8
-  %723 = and i8 %722, 1
-  %.not482 = icmp eq i8 %723, 0
-  br i1 %.not482, label %727, label %749
+  %723 = trunc i8 %722 to i1
+  br i1 %723, label %749, label %727
 
 724:                                              ; preds = %_ZN7testing7MessageD2Ev.exit335, %689
   %.pn116.pn = phi { ptr, i32 } [ %.pn116, %_ZN7testing7MessageD2Ev.exit335 ], [ %690, %689 ]
@@ -78907,9 +78258,8 @@ _ZN7testing15AssertionResultD2Ev.exit349:         ; preds = %749, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit350: ; preds = %756, %757
   %758 = load i8, ptr %58, align 8
-  %759 = and i8 %758, 1
-  %.not483 = icmp eq i8 %759, 0
-  br i1 %.not483, label %763, label %785
+  %759 = trunc i8 %758 to i1
+  br i1 %759, label %785, label %763
 
 760:                                              ; preds = %_ZN7testing7MessageD2Ev.exit346, %725
   %.pn119.pn = phi { ptr, i32 } [ %.pn119, %_ZN7testing7MessageD2Ev.exit346 ], [ %726, %725 ]
@@ -79018,9 +78368,8 @@ _ZN7testing15AssertionResultD2Ev.exit361:         ; preds = %785, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit362: ; preds = %792, %793
   %794 = load i8, ptr %61, align 8
-  %795 = and i8 %794, 1
-  %.not484 = icmp eq i8 %795, 0
-  br i1 %.not484, label %799, label %821
+  %795 = trunc i8 %794 to i1
+  br i1 %795, label %821, label %799
 
 796:                                              ; preds = %_ZN7testing7MessageD2Ev.exit358, %761
   %.pn122.pn = phi { ptr, i32 } [ %.pn122, %_ZN7testing7MessageD2Ev.exit358 ], [ %762, %761 ]
@@ -79129,9 +78478,8 @@ _ZN7testing15AssertionResultD2Ev.exit373:         ; preds = %821, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit374: ; preds = %828, %829
   %830 = load i8, ptr %64, align 8
-  %831 = and i8 %830, 1
-  %.not485 = icmp eq i8 %831, 0
-  br i1 %.not485, label %835, label %857
+  %831 = trunc i8 %830 to i1
+  br i1 %831, label %857, label %835
 
 832:                                              ; preds = %_ZN7testing7MessageD2Ev.exit370, %797
   %.pn125.pn = phi { ptr, i32 } [ %.pn125, %_ZN7testing7MessageD2Ev.exit370 ], [ %798, %797 ]
@@ -79240,9 +78588,8 @@ _ZN7testing15AssertionResultD2Ev.exit385:         ; preds = %857, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %864, %865
   %866 = load i8, ptr %67, align 8
-  %867 = and i8 %866, 1
-  %.not486 = icmp eq i8 %867, 0
-  br i1 %.not486, label %871, label %893
+  %867 = trunc i8 %866 to i1
+  br i1 %867, label %893, label %871
 
 868:                                              ; preds = %_ZN7testing7MessageD2Ev.exit382, %833
   %.pn128.pn = phi { ptr, i32 } [ %.pn128, %_ZN7testing7MessageD2Ev.exit382 ], [ %834, %833 ]
@@ -79351,9 +78698,8 @@ _ZN7testing15AssertionResultD2Ev.exit396:         ; preds = %893, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit397: ; preds = %900, %901
   %902 = load i8, ptr %70, align 8
-  %903 = and i8 %902, 1
-  %.not487 = icmp eq i8 %903, 0
-  br i1 %.not487, label %907, label %929
+  %903 = trunc i8 %902 to i1
+  br i1 %903, label %929, label %907
 
 904:                                              ; preds = %_ZN7testing7MessageD2Ev.exit393, %869
   %.pn131.pn = phi { ptr, i32 } [ %.pn131, %_ZN7testing7MessageD2Ev.exit393 ], [ %870, %869 ]
@@ -79462,9 +78808,8 @@ _ZN7testing15AssertionResultD2Ev.exit408:         ; preds = %929, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit409: ; preds = %936, %937
   %938 = load i8, ptr %73, align 8
-  %939 = and i8 %938, 1
-  %.not488 = icmp eq i8 %939, 0
-  br i1 %.not488, label %943, label %965
+  %939 = trunc i8 %938 to i1
+  br i1 %939, label %965, label %943
 
 940:                                              ; preds = %_ZN7testing7MessageD2Ev.exit405, %905
   %.pn134.pn = phi { ptr, i32 } [ %.pn134, %_ZN7testing7MessageD2Ev.exit405 ], [ %906, %905 ]
@@ -79573,9 +78918,8 @@ _ZN7testing15AssertionResultD2Ev.exit420:         ; preds = %965, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit421: ; preds = %972, %973
   %974 = load i8, ptr %76, align 8
-  %975 = and i8 %974, 1
-  %.not489 = icmp eq i8 %975, 0
-  br i1 %.not489, label %979, label %1001
+  %975 = trunc i8 %974 to i1
+  br i1 %975, label %1001, label %979
 
 976:                                              ; preds = %_ZN7testing7MessageD2Ev.exit417, %941
   %.pn137.pn = phi { ptr, i32 } [ %.pn137, %_ZN7testing7MessageD2Ev.exit417 ], [ %942, %941 ]
@@ -79684,9 +79028,8 @@ _ZN7testing15AssertionResultD2Ev.exit432:         ; preds = %1001, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1008, %1009
   %1010 = load i8, ptr %79, align 8
-  %1011 = and i8 %1010, 1
-  %.not490 = icmp eq i8 %1011, 0
-  br i1 %.not490, label %1015, label %1037
+  %1011 = trunc i8 %1010 to i1
+  br i1 %1011, label %1037, label %1015
 
 1012:                                             ; preds = %_ZN7testing7MessageD2Ev.exit429, %977
   %.pn140.pn = phi { ptr, i32 } [ %.pn140, %_ZN7testing7MessageD2Ev.exit429 ], [ %978, %977 ]
@@ -79795,9 +79138,8 @@ _ZN7testing15AssertionResultD2Ev.exit443:         ; preds = %1037, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1044, %1045
   %1046 = load i8, ptr %82, align 8
-  %1047 = and i8 %1046, 1
-  %.not491 = icmp eq i8 %1047, 0
-  br i1 %.not491, label %1051, label %1073
+  %1047 = trunc i8 %1046 to i1
+  br i1 %1047, label %1073, label %1051
 
 1048:                                             ; preds = %_ZN7testing7MessageD2Ev.exit440, %1013
   %.pn143.pn = phi { ptr, i32 } [ %.pn143, %_ZN7testing7MessageD2Ev.exit440 ], [ %1014, %1013 ]
@@ -79906,9 +79248,8 @@ _ZN7testing15AssertionResultD2Ev.exit454:         ; preds = %1073, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1080, %1081
   %1082 = load i8, ptr %85, align 8
-  %1083 = and i8 %1082, 1
-  %.not492 = icmp eq i8 %1083, 0
-  br i1 %.not492, label %1087, label %1109
+  %1083 = trunc i8 %1082 to i1
+  br i1 %1083, label %1109, label %1087
 
 1084:                                             ; preds = %_ZN7testing7MessageD2Ev.exit451, %1049
   %.pn146.pn = phi { ptr, i32 } [ %.pn146, %_ZN7testing7MessageD2Ev.exit451 ], [ %1050, %1049 ]
@@ -80114,9 +79455,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %62, %63
   %64 = load i8, ptr %4, align 8
-  %65 = and i8 %64, 1
-  %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %72, label %94
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %94, label %72
 
 66:                                               ; preds = %.noexc, %1
   %67 = landingpad { ptr, i32 }
@@ -80236,9 +79576,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %94, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %101, %102
   %103 = load i8, ptr %7, align 8
-  %104 = and i8 %103, 1
-  %.not232 = icmp eq i8 %104, 0
-  br i1 %.not232, label %108, label %130
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %130, label %108
 
 105:                                              ; preds = %_ZN7testing7MessageD2Ev.exit87, %70
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit87 ], [ %71, %70 ]
@@ -80347,9 +79686,8 @@ _ZN7testing15AssertionResultD2Ev.exit99:          ; preds = %130, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %137, %138
   %139 = load i8, ptr %10, align 8
-  %140 = and i8 %139, 1
-  %.not233 = icmp eq i8 %140, 0
-  br i1 %.not233, label %144, label %166
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %166, label %144
 
 141:                                              ; preds = %_ZN7testing7MessageD2Ev.exit96, %106
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit96 ], [ %107, %106 ]
@@ -80458,9 +79796,8 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %166, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %173, %174
   %175 = load i8, ptr %13, align 8
-  %176 = and i8 %175, 1
-  %.not234 = icmp eq i8 %176, 0
-  br i1 %.not234, label %180, label %202
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %202, label %180
 
 177:                                              ; preds = %_ZN7testing7MessageD2Ev.exit107, %142
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit107 ], [ %143, %142 ]
@@ -80569,9 +79906,8 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %202, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %209, %210
   %211 = load i8, ptr %16, align 8
-  %212 = and i8 %211, 1
-  %.not235 = icmp eq i8 %212, 0
-  br i1 %.not235, label %216, label %238
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %238, label %216
 
 213:                                              ; preds = %_ZN7testing7MessageD2Ev.exit118, %178
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit118 ], [ %179, %178 ]
@@ -80680,9 +80016,8 @@ _ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %238, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %245, %246
   %247 = load i8, ptr %19, align 8
-  %248 = and i8 %247, 1
-  %.not236 = icmp eq i8 %248, 0
-  br i1 %.not236, label %252, label %274
+  %248 = trunc i8 %247 to i1
+  br i1 %248, label %274, label %252
 
 249:                                              ; preds = %_ZN7testing7MessageD2Ev.exit129, %214
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit129 ], [ %215, %214 ]
@@ -80791,9 +80126,8 @@ _ZN7testing15AssertionResultD2Ev.exit143:         ; preds = %274, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %281, %282
   %283 = load i8, ptr %22, align 8
-  %284 = and i8 %283, 1
-  %.not237 = icmp eq i8 %284, 0
-  br i1 %.not237, label %288, label %310
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %310, label %288
 
 285:                                              ; preds = %_ZN7testing7MessageD2Ev.exit140, %250
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit140 ], [ %251, %250 ]
@@ -80902,9 +80236,8 @@ _ZN7testing15AssertionResultD2Ev.exit154:         ; preds = %310, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %317, %318
   %319 = load i8, ptr %25, align 8
-  %320 = and i8 %319, 1
-  %.not238 = icmp eq i8 %320, 0
-  br i1 %.not238, label %324, label %346
+  %320 = trunc i8 %319 to i1
+  br i1 %320, label %346, label %324
 
 321:                                              ; preds = %_ZN7testing7MessageD2Ev.exit151, %286
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit151 ], [ %287, %286 ]
@@ -81013,9 +80346,8 @@ _ZN7testing15AssertionResultD2Ev.exit165:         ; preds = %346, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %353, %354
   %355 = load i8, ptr %28, align 8
-  %356 = and i8 %355, 1
-  %.not239 = icmp eq i8 %356, 0
-  br i1 %.not239, label %360, label %382
+  %356 = trunc i8 %355 to i1
+  br i1 %356, label %382, label %360
 
 357:                                              ; preds = %_ZN7testing7MessageD2Ev.exit162, %322
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit162 ], [ %323, %322 ]
@@ -81124,9 +80456,8 @@ _ZN7testing15AssertionResultD2Ev.exit176:         ; preds = %382, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %389, %390
   %391 = load i8, ptr %31, align 8
-  %392 = and i8 %391, 1
-  %.not240 = icmp eq i8 %392, 0
-  br i1 %.not240, label %396, label %418
+  %392 = trunc i8 %391 to i1
+  br i1 %392, label %418, label %396
 
 393:                                              ; preds = %_ZN7testing7MessageD2Ev.exit173, %358
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %_ZN7testing7MessageD2Ev.exit173 ], [ %359, %358 ]
@@ -81235,9 +80566,8 @@ _ZN7testing15AssertionResultD2Ev.exit187:         ; preds = %418, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %425, %426
   %427 = load i8, ptr %34, align 8
-  %428 = and i8 %427, 1
-  %.not241 = icmp eq i8 %428, 0
-  br i1 %.not241, label %432, label %454
+  %428 = trunc i8 %427 to i1
+  br i1 %428, label %454, label %432
 
 429:                                              ; preds = %_ZN7testing7MessageD2Ev.exit184, %394
   %.pn67.pn = phi { ptr, i32 } [ %.pn67, %_ZN7testing7MessageD2Ev.exit184 ], [ %395, %394 ]
@@ -81346,9 +80676,8 @@ _ZN7testing15AssertionResultD2Ev.exit198:         ; preds = %454, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %461, %462
   %463 = load i8, ptr %37, align 8
-  %464 = and i8 %463, 1
-  %.not242 = icmp eq i8 %464, 0
-  br i1 %.not242, label %468, label %490
+  %464 = trunc i8 %463 to i1
+  br i1 %464, label %490, label %468
 
 465:                                              ; preds = %_ZN7testing7MessageD2Ev.exit195, %430
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %_ZN7testing7MessageD2Ev.exit195 ], [ %431, %430 ]
@@ -81457,9 +80786,8 @@ _ZN7testing15AssertionResultD2Ev.exit209:         ; preds = %490, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %497, %498
   %499 = load i8, ptr %40, align 8
-  %500 = and i8 %499, 1
-  %.not243 = icmp eq i8 %500, 0
-  br i1 %.not243, label %504, label %526
+  %500 = trunc i8 %499 to i1
+  br i1 %500, label %526, label %504
 
 501:                                              ; preds = %_ZN7testing7MessageD2Ev.exit206, %466
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %_ZN7testing7MessageD2Ev.exit206 ], [ %467, %466 ]
@@ -81568,9 +80896,8 @@ _ZN7testing15AssertionResultD2Ev.exit220:         ; preds = %526, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %533, %534
   %535 = load i8, ptr %43, align 8
-  %536 = and i8 %535, 1
-  %.not244 = icmp eq i8 %536, 0
-  br i1 %.not244, label %540, label %562
+  %536 = trunc i8 %535 to i1
+  br i1 %536, label %562, label %540
 
 537:                                              ; preds = %_ZN7testing7MessageD2Ev.exit217, %502
   %.pn76.pn = phi { ptr, i32 } [ %.pn76, %_ZN7testing7MessageD2Ev.exit217 ], [ %503, %502 ]
@@ -81896,9 +81223,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %182, %183
   %184 = load i8, ptr %4, align 8
-  %185 = and i8 %184, 1
-  %.not = icmp eq i8 %185, 0
-  br i1 %.not, label %192, label %214
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %214, label %192
 
 186:                                              ; preds = %.noexc, %1
   %187 = landingpad { ptr, i32 }
@@ -82018,9 +81344,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %214, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %221, %222
   %223 = load i8, ptr %7, align 8
-  %224 = and i8 %223, 1
-  %.not910 = icmp eq i8 %224, 0
-  br i1 %.not910, label %228, label %250
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %250, label %228
 
 225:                                              ; preds = %_ZN7testing7MessageD2Ev.exit287, %190
   %.pn120.pn = phi { ptr, i32 } [ %.pn120, %_ZN7testing7MessageD2Ev.exit287 ], [ %191, %190 ]
@@ -82129,9 +81454,8 @@ _ZN7testing15AssertionResultD2Ev.exit299:         ; preds = %250, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %257, %258
   %259 = load i8, ptr %10, align 8
-  %260 = and i8 %259, 1
-  %.not911 = icmp eq i8 %260, 0
-  br i1 %.not911, label %264, label %286
+  %260 = trunc i8 %259 to i1
+  br i1 %260, label %286, label %264
 
 261:                                              ; preds = %_ZN7testing7MessageD2Ev.exit296, %226
   %.pn123.pn = phi { ptr, i32 } [ %.pn123, %_ZN7testing7MessageD2Ev.exit296 ], [ %227, %226 ]
@@ -82240,9 +81564,8 @@ _ZN7testing15AssertionResultD2Ev.exit310:         ; preds = %286, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %293, %294
   %295 = load i8, ptr %13, align 8
-  %296 = and i8 %295, 1
-  %.not912 = icmp eq i8 %296, 0
-  br i1 %.not912, label %300, label %322
+  %296 = trunc i8 %295 to i1
+  br i1 %296, label %322, label %300
 
 297:                                              ; preds = %_ZN7testing7MessageD2Ev.exit307, %262
   %.pn126.pn = phi { ptr, i32 } [ %.pn126, %_ZN7testing7MessageD2Ev.exit307 ], [ %263, %262 ]
@@ -82351,9 +81674,8 @@ _ZN7testing15AssertionResultD2Ev.exit321:         ; preds = %322, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %329, %330
   %331 = load i8, ptr %16, align 8
-  %332 = and i8 %331, 1
-  %.not913 = icmp eq i8 %332, 0
-  br i1 %.not913, label %336, label %358
+  %332 = trunc i8 %331 to i1
+  br i1 %332, label %358, label %336
 
 333:                                              ; preds = %_ZN7testing7MessageD2Ev.exit318, %298
   %.pn129.pn = phi { ptr, i32 } [ %.pn129, %_ZN7testing7MessageD2Ev.exit318 ], [ %299, %298 ]
@@ -82462,9 +81784,8 @@ _ZN7testing15AssertionResultD2Ev.exit332:         ; preds = %358, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %365, %366
   %367 = load i8, ptr %19, align 8
-  %368 = and i8 %367, 1
-  %.not914 = icmp eq i8 %368, 0
-  br i1 %.not914, label %372, label %394
+  %368 = trunc i8 %367 to i1
+  br i1 %368, label %394, label %372
 
 369:                                              ; preds = %_ZN7testing7MessageD2Ev.exit329, %334
   %.pn132.pn = phi { ptr, i32 } [ %.pn132, %_ZN7testing7MessageD2Ev.exit329 ], [ %335, %334 ]
@@ -82573,9 +81894,8 @@ _ZN7testing15AssertionResultD2Ev.exit343:         ; preds = %394, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %401, %402
   %403 = load i8, ptr %22, align 8
-  %404 = and i8 %403, 1
-  %.not915 = icmp eq i8 %404, 0
-  br i1 %.not915, label %408, label %430
+  %404 = trunc i8 %403 to i1
+  br i1 %404, label %430, label %408
 
 405:                                              ; preds = %_ZN7testing7MessageD2Ev.exit340, %370
   %.pn135.pn = phi { ptr, i32 } [ %.pn135, %_ZN7testing7MessageD2Ev.exit340 ], [ %371, %370 ]
@@ -82684,9 +82004,8 @@ _ZN7testing15AssertionResultD2Ev.exit354:         ; preds = %430, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %437, %438
   %439 = load i8, ptr %25, align 8
-  %440 = and i8 %439, 1
-  %.not916 = icmp eq i8 %440, 0
-  br i1 %.not916, label %444, label %466
+  %440 = trunc i8 %439 to i1
+  br i1 %440, label %466, label %444
 
 441:                                              ; preds = %_ZN7testing7MessageD2Ev.exit351, %406
   %.pn138.pn = phi { ptr, i32 } [ %.pn138, %_ZN7testing7MessageD2Ev.exit351 ], [ %407, %406 ]
@@ -82795,9 +82114,8 @@ _ZN7testing15AssertionResultD2Ev.exit365:         ; preds = %466, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %473, %474
   %475 = load i8, ptr %28, align 8
-  %476 = and i8 %475, 1
-  %.not917 = icmp eq i8 %476, 0
-  br i1 %.not917, label %480, label %502
+  %476 = trunc i8 %475 to i1
+  br i1 %476, label %502, label %480
 
 477:                                              ; preds = %_ZN7testing7MessageD2Ev.exit362, %442
   %.pn141.pn = phi { ptr, i32 } [ %.pn141, %_ZN7testing7MessageD2Ev.exit362 ], [ %443, %442 ]
@@ -82906,9 +82224,8 @@ _ZN7testing15AssertionResultD2Ev.exit376:         ; preds = %502, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %509, %510
   %511 = load i8, ptr %31, align 8
-  %512 = and i8 %511, 1
-  %.not918 = icmp eq i8 %512, 0
-  br i1 %.not918, label %516, label %538
+  %512 = trunc i8 %511 to i1
+  br i1 %512, label %538, label %516
 
 513:                                              ; preds = %_ZN7testing7MessageD2Ev.exit373, %478
   %.pn144.pn = phi { ptr, i32 } [ %.pn144, %_ZN7testing7MessageD2Ev.exit373 ], [ %479, %478 ]
@@ -83019,9 +82336,8 @@ _ZN7testing15AssertionResultD2Ev.exit387:         ; preds = %538, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit388: ; preds = %546, %547
   %548 = load i8, ptr %34, align 8
-  %549 = and i8 %548, 1
-  %.not919 = icmp eq i8 %549, 0
-  br i1 %.not919, label %553, label %575
+  %549 = trunc i8 %548 to i1
+  br i1 %549, label %575, label %553
 
 550:                                              ; preds = %_ZN7testing7MessageD2Ev.exit384, %514
   %.pn147.pn = phi { ptr, i32 } [ %.pn147, %_ZN7testing7MessageD2Ev.exit384 ], [ %515, %514 ]
@@ -83130,9 +82446,8 @@ _ZN7testing15AssertionResultD2Ev.exit399:         ; preds = %575, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit400: ; preds = %582, %583
   %584 = load i8, ptr %37, align 8
-  %585 = and i8 %584, 1
-  %.not920 = icmp eq i8 %585, 0
-  br i1 %.not920, label %589, label %611
+  %585 = trunc i8 %584 to i1
+  br i1 %585, label %611, label %589
 
 586:                                              ; preds = %_ZN7testing7MessageD2Ev.exit396, %551
   %.pn150.pn = phi { ptr, i32 } [ %.pn150, %_ZN7testing7MessageD2Ev.exit396 ], [ %552, %551 ]
@@ -83241,9 +82556,8 @@ _ZN7testing15AssertionResultD2Ev.exit411:         ; preds = %611, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit412: ; preds = %618, %619
   %620 = load i8, ptr %40, align 8
-  %621 = and i8 %620, 1
-  %.not921 = icmp eq i8 %621, 0
-  br i1 %.not921, label %625, label %647
+  %621 = trunc i8 %620 to i1
+  br i1 %621, label %647, label %625
 
 622:                                              ; preds = %_ZN7testing7MessageD2Ev.exit408, %587
   %.pn153.pn = phi { ptr, i32 } [ %.pn153, %_ZN7testing7MessageD2Ev.exit408 ], [ %588, %587 ]
@@ -83352,9 +82666,8 @@ _ZN7testing15AssertionResultD2Ev.exit423:         ; preds = %647, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %654, %655
   %656 = load i8, ptr %43, align 8
-  %657 = and i8 %656, 1
-  %.not922 = icmp eq i8 %657, 0
-  br i1 %.not922, label %661, label %683
+  %657 = trunc i8 %656 to i1
+  br i1 %657, label %683, label %661
 
 658:                                              ; preds = %_ZN7testing7MessageD2Ev.exit420, %623
   %.pn156.pn = phi { ptr, i32 } [ %.pn156, %_ZN7testing7MessageD2Ev.exit420 ], [ %624, %623 ]
@@ -83463,9 +82776,8 @@ _ZN7testing15AssertionResultD2Ev.exit434:         ; preds = %683, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit435: ; preds = %690, %691
   %692 = load i8, ptr %46, align 8
-  %693 = and i8 %692, 1
-  %.not923 = icmp eq i8 %693, 0
-  br i1 %.not923, label %697, label %719
+  %693 = trunc i8 %692 to i1
+  br i1 %693, label %719, label %697
 
 694:                                              ; preds = %_ZN7testing7MessageD2Ev.exit431, %659
   %.pn159.pn = phi { ptr, i32 } [ %.pn159, %_ZN7testing7MessageD2Ev.exit431 ], [ %660, %659 ]
@@ -83574,9 +82886,8 @@ _ZN7testing15AssertionResultD2Ev.exit446:         ; preds = %719, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit447: ; preds = %726, %727
   %728 = load i8, ptr %49, align 8
-  %729 = and i8 %728, 1
-  %.not924 = icmp eq i8 %729, 0
-  br i1 %.not924, label %733, label %755
+  %729 = trunc i8 %728 to i1
+  br i1 %729, label %755, label %733
 
 730:                                              ; preds = %_ZN7testing7MessageD2Ev.exit443, %695
   %.pn162.pn = phi { ptr, i32 } [ %.pn162, %_ZN7testing7MessageD2Ev.exit443 ], [ %696, %695 ]
@@ -83685,9 +82996,8 @@ _ZN7testing15AssertionResultD2Ev.exit458:         ; preds = %755, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit459: ; preds = %762, %763
   %764 = load i8, ptr %52, align 8
-  %765 = and i8 %764, 1
-  %.not925 = icmp eq i8 %765, 0
-  br i1 %.not925, label %769, label %791
+  %765 = trunc i8 %764 to i1
+  br i1 %765, label %791, label %769
 
 766:                                              ; preds = %_ZN7testing7MessageD2Ev.exit455, %731
   %.pn165.pn = phi { ptr, i32 } [ %.pn165, %_ZN7testing7MessageD2Ev.exit455 ], [ %732, %731 ]
@@ -83796,9 +83106,8 @@ _ZN7testing15AssertionResultD2Ev.exit470:         ; preds = %791, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit471: ; preds = %798, %799
   %800 = load i8, ptr %55, align 8
-  %801 = and i8 %800, 1
-  %.not926 = icmp eq i8 %801, 0
-  br i1 %.not926, label %805, label %827
+  %801 = trunc i8 %800 to i1
+  br i1 %801, label %827, label %805
 
 802:                                              ; preds = %_ZN7testing7MessageD2Ev.exit467, %767
   %.pn168.pn = phi { ptr, i32 } [ %.pn168, %_ZN7testing7MessageD2Ev.exit467 ], [ %768, %767 ]
@@ -83907,9 +83216,8 @@ _ZN7testing15AssertionResultD2Ev.exit482:         ; preds = %827, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit483: ; preds = %834, %835
   %836 = load i8, ptr %58, align 8
-  %837 = and i8 %836, 1
-  %.not927 = icmp eq i8 %837, 0
-  br i1 %.not927, label %841, label %863
+  %837 = trunc i8 %836 to i1
+  br i1 %837, label %863, label %841
 
 838:                                              ; preds = %_ZN7testing7MessageD2Ev.exit479, %803
   %.pn171.pn = phi { ptr, i32 } [ %.pn171, %_ZN7testing7MessageD2Ev.exit479 ], [ %804, %803 ]
@@ -84018,9 +83326,8 @@ _ZN7testing15AssertionResultD2Ev.exit494:         ; preds = %863, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit495: ; preds = %870, %871
   %872 = load i8, ptr %61, align 8
-  %873 = and i8 %872, 1
-  %.not928 = icmp eq i8 %873, 0
-  br i1 %.not928, label %877, label %899
+  %873 = trunc i8 %872 to i1
+  br i1 %873, label %899, label %877
 
 874:                                              ; preds = %_ZN7testing7MessageD2Ev.exit491, %839
   %.pn174.pn = phi { ptr, i32 } [ %.pn174, %_ZN7testing7MessageD2Ev.exit491 ], [ %840, %839 ]
@@ -84129,9 +83436,8 @@ _ZN7testing15AssertionResultD2Ev.exit506:         ; preds = %899, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %906, %907
   %908 = load i8, ptr %64, align 8
-  %909 = and i8 %908, 1
-  %.not929 = icmp eq i8 %909, 0
-  br i1 %.not929, label %913, label %935
+  %909 = trunc i8 %908 to i1
+  br i1 %909, label %935, label %913
 
 910:                                              ; preds = %_ZN7testing7MessageD2Ev.exit503, %875
   %.pn177.pn = phi { ptr, i32 } [ %.pn177, %_ZN7testing7MessageD2Ev.exit503 ], [ %876, %875 ]
@@ -84240,9 +83546,8 @@ _ZN7testing15AssertionResultD2Ev.exit517:         ; preds = %935, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %942, %943
   %944 = load i8, ptr %67, align 8
-  %945 = and i8 %944, 1
-  %.not930 = icmp eq i8 %945, 0
-  br i1 %.not930, label %949, label %971
+  %945 = trunc i8 %944 to i1
+  br i1 %945, label %971, label %949
 
 946:                                              ; preds = %_ZN7testing7MessageD2Ev.exit514, %911
   %.pn180.pn = phi { ptr, i32 } [ %.pn180, %_ZN7testing7MessageD2Ev.exit514 ], [ %912, %911 ]
@@ -84351,9 +83656,8 @@ _ZN7testing15AssertionResultD2Ev.exit528:         ; preds = %971, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %978, %979
   %980 = load i8, ptr %70, align 8
-  %981 = and i8 %980, 1
-  %.not931 = icmp eq i8 %981, 0
-  br i1 %.not931, label %985, label %1007
+  %981 = trunc i8 %980 to i1
+  br i1 %981, label %1007, label %985
 
 982:                                              ; preds = %_ZN7testing7MessageD2Ev.exit525, %947
   %.pn183.pn = phi { ptr, i32 } [ %.pn183, %_ZN7testing7MessageD2Ev.exit525 ], [ %948, %947 ]
@@ -84464,9 +83768,8 @@ _ZN7testing15AssertionResultD2Ev.exit539:         ; preds = %1007, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit540: ; preds = %1015, %1016
   %1017 = load i8, ptr %73, align 8
-  %1018 = and i8 %1017, 1
-  %.not932 = icmp eq i8 %1018, 0
-  br i1 %.not932, label %1022, label %1044
+  %1018 = trunc i8 %1017 to i1
+  br i1 %1018, label %1044, label %1022
 
 1019:                                             ; preds = %_ZN7testing7MessageD2Ev.exit536, %983
   %.pn186.pn = phi { ptr, i32 } [ %.pn186, %_ZN7testing7MessageD2Ev.exit536 ], [ %984, %983 ]
@@ -84575,9 +83878,8 @@ _ZN7testing15AssertionResultD2Ev.exit551:         ; preds = %1044, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit552: ; preds = %1051, %1052
   %1053 = load i8, ptr %76, align 8
-  %1054 = and i8 %1053, 1
-  %.not933 = icmp eq i8 %1054, 0
-  br i1 %.not933, label %1058, label %1080
+  %1054 = trunc i8 %1053 to i1
+  br i1 %1054, label %1080, label %1058
 
 1055:                                             ; preds = %_ZN7testing7MessageD2Ev.exit548, %1020
   %.pn189.pn = phi { ptr, i32 } [ %.pn189, %_ZN7testing7MessageD2Ev.exit548 ], [ %1021, %1020 ]
@@ -84686,9 +83988,8 @@ _ZN7testing15AssertionResultD2Ev.exit563:         ; preds = %1080, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit564: ; preds = %1087, %1088
   %1089 = load i8, ptr %79, align 8
-  %1090 = and i8 %1089, 1
-  %.not934 = icmp eq i8 %1090, 0
-  br i1 %.not934, label %1094, label %1116
+  %1090 = trunc i8 %1089 to i1
+  br i1 %1090, label %1116, label %1094
 
 1091:                                             ; preds = %_ZN7testing7MessageD2Ev.exit560, %1056
   %.pn192.pn = phi { ptr, i32 } [ %.pn192, %_ZN7testing7MessageD2Ev.exit560 ], [ %1057, %1056 ]
@@ -84797,9 +84098,8 @@ _ZN7testing15AssertionResultD2Ev.exit575:         ; preds = %1116, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit576: ; preds = %1123, %1124
   %1125 = load i8, ptr %82, align 8
-  %1126 = and i8 %1125, 1
-  %.not935 = icmp eq i8 %1126, 0
-  br i1 %.not935, label %1130, label %1152
+  %1126 = trunc i8 %1125 to i1
+  br i1 %1126, label %1152, label %1130
 
 1127:                                             ; preds = %_ZN7testing7MessageD2Ev.exit572, %1092
   %.pn195.pn = phi { ptr, i32 } [ %.pn195, %_ZN7testing7MessageD2Ev.exit572 ], [ %1093, %1092 ]
@@ -84908,9 +84208,8 @@ _ZN7testing15AssertionResultD2Ev.exit587:         ; preds = %1152, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit588: ; preds = %1159, %1160
   %1161 = load i8, ptr %85, align 8
-  %1162 = and i8 %1161, 1
-  %.not936 = icmp eq i8 %1162, 0
-  br i1 %.not936, label %1166, label %1188
+  %1162 = trunc i8 %1161 to i1
+  br i1 %1162, label %1188, label %1166
 
 1163:                                             ; preds = %_ZN7testing7MessageD2Ev.exit584, %1128
   %.pn198.pn = phi { ptr, i32 } [ %.pn198, %_ZN7testing7MessageD2Ev.exit584 ], [ %1129, %1128 ]
@@ -85019,9 +84318,8 @@ _ZN7testing15AssertionResultD2Ev.exit599:         ; preds = %1188, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit600: ; preds = %1195, %1196
   %1197 = load i8, ptr %88, align 8
-  %1198 = and i8 %1197, 1
-  %.not937 = icmp eq i8 %1198, 0
-  br i1 %.not937, label %1202, label %1224
+  %1198 = trunc i8 %1197 to i1
+  br i1 %1198, label %1224, label %1202
 
 1199:                                             ; preds = %_ZN7testing7MessageD2Ev.exit596, %1164
   %.pn201.pn = phi { ptr, i32 } [ %.pn201, %_ZN7testing7MessageD2Ev.exit596 ], [ %1165, %1164 ]
@@ -85130,9 +84428,8 @@ _ZN7testing15AssertionResultD2Ev.exit611:         ; preds = %1224, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1231, %1232
   %1233 = load i8, ptr %91, align 8
-  %1234 = and i8 %1233, 1
-  %.not938 = icmp eq i8 %1234, 0
-  br i1 %.not938, label %1238, label %1260
+  %1234 = trunc i8 %1233 to i1
+  br i1 %1234, label %1260, label %1238
 
 1235:                                             ; preds = %_ZN7testing7MessageD2Ev.exit608, %1200
   %.pn204.pn = phi { ptr, i32 } [ %.pn204, %_ZN7testing7MessageD2Ev.exit608 ], [ %1201, %1200 ]
@@ -85241,9 +84538,8 @@ _ZN7testing15AssertionResultD2Ev.exit622:         ; preds = %1260, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit623: ; preds = %1267, %1268
   %1269 = load i8, ptr %94, align 8
-  %1270 = and i8 %1269, 1
-  %.not939 = icmp eq i8 %1270, 0
-  br i1 %.not939, label %1274, label %1296
+  %1270 = trunc i8 %1269 to i1
+  br i1 %1270, label %1296, label %1274
 
 1271:                                             ; preds = %_ZN7testing7MessageD2Ev.exit619, %1236
   %.pn207.pn = phi { ptr, i32 } [ %.pn207, %_ZN7testing7MessageD2Ev.exit619 ], [ %1237, %1236 ]
@@ -85352,9 +84648,8 @@ _ZN7testing15AssertionResultD2Ev.exit634:         ; preds = %1296, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit635: ; preds = %1303, %1304
   %1305 = load i8, ptr %97, align 8
-  %1306 = and i8 %1305, 1
-  %.not940 = icmp eq i8 %1306, 0
-  br i1 %.not940, label %1310, label %1332
+  %1306 = trunc i8 %1305 to i1
+  br i1 %1306, label %1332, label %1310
 
 1307:                                             ; preds = %_ZN7testing7MessageD2Ev.exit631, %1272
   %.pn210.pn = phi { ptr, i32 } [ %.pn210, %_ZN7testing7MessageD2Ev.exit631 ], [ %1273, %1272 ]
@@ -85463,9 +84758,8 @@ _ZN7testing15AssertionResultD2Ev.exit646:         ; preds = %1332, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit647: ; preds = %1339, %1340
   %1341 = load i8, ptr %100, align 8
-  %1342 = and i8 %1341, 1
-  %.not941 = icmp eq i8 %1342, 0
-  br i1 %.not941, label %1346, label %1368
+  %1342 = trunc i8 %1341 to i1
+  br i1 %1342, label %1368, label %1346
 
 1343:                                             ; preds = %_ZN7testing7MessageD2Ev.exit643, %1308
   %.pn213.pn = phi { ptr, i32 } [ %.pn213, %_ZN7testing7MessageD2Ev.exit643 ], [ %1309, %1308 ]
@@ -85576,9 +84870,8 @@ _ZN7testing15AssertionResultD2Ev.exit658:         ; preds = %1368, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit659: ; preds = %1376, %1377
   %1378 = load i8, ptr %103, align 8
-  %1379 = and i8 %1378, 1
-  %.not942 = icmp eq i8 %1379, 0
-  br i1 %.not942, label %1383, label %1405
+  %1379 = trunc i8 %1378 to i1
+  br i1 %1379, label %1405, label %1383
 
 1380:                                             ; preds = %_ZN7testing7MessageD2Ev.exit655, %1344
   %.pn216.pn = phi { ptr, i32 } [ %.pn216, %_ZN7testing7MessageD2Ev.exit655 ], [ %1345, %1344 ]
@@ -85687,9 +84980,8 @@ _ZN7testing15AssertionResultD2Ev.exit670:         ; preds = %1405, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit671: ; preds = %1412, %1413
   %1414 = load i8, ptr %106, align 8
-  %1415 = and i8 %1414, 1
-  %.not943 = icmp eq i8 %1415, 0
-  br i1 %.not943, label %1419, label %1441
+  %1415 = trunc i8 %1414 to i1
+  br i1 %1415, label %1441, label %1419
 
 1416:                                             ; preds = %_ZN7testing7MessageD2Ev.exit667, %1381
   %.pn219.pn = phi { ptr, i32 } [ %.pn219, %_ZN7testing7MessageD2Ev.exit667 ], [ %1382, %1381 ]
@@ -85798,9 +85090,8 @@ _ZN7testing15AssertionResultD2Ev.exit682:         ; preds = %1441, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit683: ; preds = %1448, %1449
   %1450 = load i8, ptr %109, align 8
-  %1451 = and i8 %1450, 1
-  %.not944 = icmp eq i8 %1451, 0
-  br i1 %.not944, label %1455, label %1477
+  %1451 = trunc i8 %1450 to i1
+  br i1 %1451, label %1477, label %1455
 
 1452:                                             ; preds = %_ZN7testing7MessageD2Ev.exit679, %1417
   %.pn222.pn = phi { ptr, i32 } [ %.pn222, %_ZN7testing7MessageD2Ev.exit679 ], [ %1418, %1417 ]
@@ -85909,9 +85200,8 @@ _ZN7testing15AssertionResultD2Ev.exit694:         ; preds = %1477, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit695: ; preds = %1484, %1485
   %1486 = load i8, ptr %112, align 8
-  %1487 = and i8 %1486, 1
-  %.not945 = icmp eq i8 %1487, 0
-  br i1 %.not945, label %1491, label %1513
+  %1487 = trunc i8 %1486 to i1
+  br i1 %1487, label %1513, label %1491
 
 1488:                                             ; preds = %_ZN7testing7MessageD2Ev.exit691, %1453
   %.pn225.pn = phi { ptr, i32 } [ %.pn225, %_ZN7testing7MessageD2Ev.exit691 ], [ %1454, %1453 ]
@@ -86020,9 +85310,8 @@ _ZN7testing15AssertionResultD2Ev.exit706:         ; preds = %1513, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit707: ; preds = %1520, %1521
   %1522 = load i8, ptr %115, align 8
-  %1523 = and i8 %1522, 1
-  %.not946 = icmp eq i8 %1523, 0
-  br i1 %.not946, label %1527, label %1549
+  %1523 = trunc i8 %1522 to i1
+  br i1 %1523, label %1549, label %1527
 
 1524:                                             ; preds = %_ZN7testing7MessageD2Ev.exit703, %1489
   %.pn228.pn = phi { ptr, i32 } [ %.pn228, %_ZN7testing7MessageD2Ev.exit703 ], [ %1490, %1489 ]
@@ -86131,9 +85420,8 @@ _ZN7testing15AssertionResultD2Ev.exit718:         ; preds = %1549, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit719: ; preds = %1556, %1557
   %1558 = load i8, ptr %118, align 8
-  %1559 = and i8 %1558, 1
-  %.not947 = icmp eq i8 %1559, 0
-  br i1 %.not947, label %1563, label %1585
+  %1559 = trunc i8 %1558 to i1
+  br i1 %1559, label %1585, label %1563
 
 1560:                                             ; preds = %_ZN7testing7MessageD2Ev.exit715, %1525
   %.pn231.pn = phi { ptr, i32 } [ %.pn231, %_ZN7testing7MessageD2Ev.exit715 ], [ %1526, %1525 ]
@@ -86242,9 +85530,8 @@ _ZN7testing15AssertionResultD2Ev.exit730:         ; preds = %1585, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit731: ; preds = %1592, %1593
   %1594 = load i8, ptr %121, align 8
-  %1595 = and i8 %1594, 1
-  %.not948 = icmp eq i8 %1595, 0
-  br i1 %.not948, label %1599, label %1621
+  %1595 = trunc i8 %1594 to i1
+  br i1 %1595, label %1621, label %1599
 
 1596:                                             ; preds = %_ZN7testing7MessageD2Ev.exit727, %1561
   %.pn234.pn = phi { ptr, i32 } [ %.pn234, %_ZN7testing7MessageD2Ev.exit727 ], [ %1562, %1561 ]
@@ -86353,9 +85640,8 @@ _ZN7testing15AssertionResultD2Ev.exit742:         ; preds = %1621, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit743: ; preds = %1628, %1629
   %1630 = load i8, ptr %124, align 8
-  %1631 = and i8 %1630, 1
-  %.not949 = icmp eq i8 %1631, 0
-  br i1 %.not949, label %1635, label %1657
+  %1631 = trunc i8 %1630 to i1
+  br i1 %1631, label %1657, label %1635
 
 1632:                                             ; preds = %_ZN7testing7MessageD2Ev.exit739, %1597
   %.pn237.pn = phi { ptr, i32 } [ %.pn237, %_ZN7testing7MessageD2Ev.exit739 ], [ %1598, %1597 ]
@@ -86464,9 +85750,8 @@ _ZN7testing15AssertionResultD2Ev.exit754:         ; preds = %1657, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit755: ; preds = %1664, %1665
   %1666 = load i8, ptr %127, align 8
-  %1667 = and i8 %1666, 1
-  %.not950 = icmp eq i8 %1667, 0
-  br i1 %.not950, label %1671, label %1693
+  %1667 = trunc i8 %1666 to i1
+  br i1 %1667, label %1693, label %1671
 
 1668:                                             ; preds = %_ZN7testing7MessageD2Ev.exit751, %1633
   %.pn240.pn = phi { ptr, i32 } [ %.pn240, %_ZN7testing7MessageD2Ev.exit751 ], [ %1634, %1633 ]
@@ -86577,9 +85862,8 @@ _ZN7testing15AssertionResultD2Ev.exit766:         ; preds = %1693, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit767: ; preds = %1701, %1702
   %1703 = load i8, ptr %130, align 8
-  %1704 = and i8 %1703, 1
-  %.not951 = icmp eq i8 %1704, 0
-  br i1 %.not951, label %1708, label %1730
+  %1704 = trunc i8 %1703 to i1
+  br i1 %1704, label %1730, label %1708
 
 1705:                                             ; preds = %_ZN7testing7MessageD2Ev.exit763, %1669
   %.pn243.pn = phi { ptr, i32 } [ %.pn243, %_ZN7testing7MessageD2Ev.exit763 ], [ %1670, %1669 ]
@@ -86688,9 +85972,8 @@ _ZN7testing15AssertionResultD2Ev.exit778:         ; preds = %1730, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit779: ; preds = %1737, %1738
   %1739 = load i8, ptr %133, align 8
-  %1740 = and i8 %1739, 1
-  %.not952 = icmp eq i8 %1740, 0
-  br i1 %.not952, label %1744, label %1766
+  %1740 = trunc i8 %1739 to i1
+  br i1 %1740, label %1766, label %1744
 
 1741:                                             ; preds = %_ZN7testing7MessageD2Ev.exit775, %1706
   %.pn246.pn = phi { ptr, i32 } [ %.pn246, %_ZN7testing7MessageD2Ev.exit775 ], [ %1707, %1706 ]
@@ -86799,9 +86082,8 @@ _ZN7testing15AssertionResultD2Ev.exit790:         ; preds = %1766, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit791: ; preds = %1773, %1774
   %1775 = load i8, ptr %136, align 8
-  %1776 = and i8 %1775, 1
-  %.not953 = icmp eq i8 %1776, 0
-  br i1 %.not953, label %1780, label %1802
+  %1776 = trunc i8 %1775 to i1
+  br i1 %1776, label %1802, label %1780
 
 1777:                                             ; preds = %_ZN7testing7MessageD2Ev.exit787, %1742
   %.pn249.pn = phi { ptr, i32 } [ %.pn249, %_ZN7testing7MessageD2Ev.exit787 ], [ %1743, %1742 ]
@@ -86910,9 +86192,8 @@ _ZN7testing15AssertionResultD2Ev.exit802:         ; preds = %1802, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit803: ; preds = %1809, %1810
   %1811 = load i8, ptr %139, align 8
-  %1812 = and i8 %1811, 1
-  %.not954 = icmp eq i8 %1812, 0
-  br i1 %.not954, label %1816, label %1838
+  %1812 = trunc i8 %1811 to i1
+  br i1 %1812, label %1838, label %1816
 
 1813:                                             ; preds = %_ZN7testing7MessageD2Ev.exit799, %1778
   %.pn252.pn = phi { ptr, i32 } [ %.pn252, %_ZN7testing7MessageD2Ev.exit799 ], [ %1779, %1778 ]
@@ -87021,9 +86302,8 @@ _ZN7testing15AssertionResultD2Ev.exit814:         ; preds = %1838, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit815: ; preds = %1845, %1846
   %1847 = load i8, ptr %142, align 8
-  %1848 = and i8 %1847, 1
-  %.not955 = icmp eq i8 %1848, 0
-  br i1 %.not955, label %1852, label %1874
+  %1848 = trunc i8 %1847 to i1
+  br i1 %1848, label %1874, label %1852
 
 1849:                                             ; preds = %_ZN7testing7MessageD2Ev.exit811, %1814
   %.pn255.pn = phi { ptr, i32 } [ %.pn255, %_ZN7testing7MessageD2Ev.exit811 ], [ %1815, %1814 ]
@@ -87132,9 +86412,8 @@ _ZN7testing15AssertionResultD2Ev.exit826:         ; preds = %1874, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit827: ; preds = %1881, %1882
   %1883 = load i8, ptr %145, align 8
-  %1884 = and i8 %1883, 1
-  %.not956 = icmp eq i8 %1884, 0
-  br i1 %.not956, label %1888, label %1910
+  %1884 = trunc i8 %1883 to i1
+  br i1 %1884, label %1910, label %1888
 
 1885:                                             ; preds = %_ZN7testing7MessageD2Ev.exit823, %1850
   %.pn258.pn = phi { ptr, i32 } [ %.pn258, %_ZN7testing7MessageD2Ev.exit823 ], [ %1851, %1850 ]
@@ -87243,9 +86522,8 @@ _ZN7testing15AssertionResultD2Ev.exit838:         ; preds = %1910, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit839: ; preds = %1917, %1918
   %1919 = load i8, ptr %148, align 8
-  %1920 = and i8 %1919, 1
-  %.not957 = icmp eq i8 %1920, 0
-  br i1 %.not957, label %1924, label %1946
+  %1920 = trunc i8 %1919 to i1
+  br i1 %1920, label %1946, label %1924
 
 1921:                                             ; preds = %_ZN7testing7MessageD2Ev.exit835, %1886
   %.pn261.pn = phi { ptr, i32 } [ %.pn261, %_ZN7testing7MessageD2Ev.exit835 ], [ %1887, %1886 ]
@@ -87354,9 +86632,8 @@ _ZN7testing15AssertionResultD2Ev.exit850:         ; preds = %1946, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit851: ; preds = %1953, %1954
   %1955 = load i8, ptr %151, align 8
-  %1956 = and i8 %1955, 1
-  %.not958 = icmp eq i8 %1956, 0
-  br i1 %.not958, label %1960, label %1982
+  %1956 = trunc i8 %1955 to i1
+  br i1 %1956, label %1982, label %1960
 
 1957:                                             ; preds = %_ZN7testing7MessageD2Ev.exit847, %1922
   %.pn264.pn = phi { ptr, i32 } [ %.pn264, %_ZN7testing7MessageD2Ev.exit847 ], [ %1923, %1922 ]
@@ -87465,9 +86742,8 @@ _ZN7testing15AssertionResultD2Ev.exit862:         ; preds = %1982, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit863: ; preds = %1989, %1990
   %1991 = load i8, ptr %154, align 8
-  %1992 = and i8 %1991, 1
-  %.not959 = icmp eq i8 %1992, 0
-  br i1 %.not959, label %1996, label %2018
+  %1992 = trunc i8 %1991 to i1
+  br i1 %1992, label %2018, label %1996
 
 1993:                                             ; preds = %_ZN7testing7MessageD2Ev.exit859, %1958
   %.pn267.pn = phi { ptr, i32 } [ %.pn267, %_ZN7testing7MessageD2Ev.exit859 ], [ %1959, %1958 ]
@@ -87576,9 +86852,8 @@ _ZN7testing15AssertionResultD2Ev.exit874:         ; preds = %2018, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %2025, %2026
   %2027 = load i8, ptr %157, align 8
-  %2028 = and i8 %2027, 1
-  %.not960 = icmp eq i8 %2028, 0
-  br i1 %.not960, label %2032, label %2054
+  %2028 = trunc i8 %2027 to i1
+  br i1 %2028, label %2054, label %2032
 
 2029:                                             ; preds = %_ZN7testing7MessageD2Ev.exit871, %1994
   %.pn270.pn = phi { ptr, i32 } [ %.pn270, %_ZN7testing7MessageD2Ev.exit871 ], [ %1995, %1994 ]
@@ -87687,9 +86962,8 @@ _ZN7testing15AssertionResultD2Ev.exit885:         ; preds = %2054, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit886: ; preds = %2061, %2062
   %2063 = load i8, ptr %160, align 8
-  %2064 = and i8 %2063, 1
-  %.not961 = icmp eq i8 %2064, 0
-  br i1 %.not961, label %2068, label %2090
+  %2064 = trunc i8 %2063 to i1
+  br i1 %2064, label %2090, label %2068
 
 2065:                                             ; preds = %_ZN7testing7MessageD2Ev.exit882, %2030
   %.pn273.pn = phi { ptr, i32 } [ %.pn273, %_ZN7testing7MessageD2Ev.exit882 ], [ %2031, %2030 ]
@@ -87798,9 +87072,8 @@ _ZN7testing15AssertionResultD2Ev.exit897:         ; preds = %2090, %_ZNKSt14defa
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit898: ; preds = %2097, %2098
   %2099 = load i8, ptr %163, align 8
-  %2100 = and i8 %2099, 1
-  %.not962 = icmp eq i8 %2100, 0
-  br i1 %.not962, label %2104, label %2126
+  %2100 = trunc i8 %2099 to i1
+  br i1 %2100, label %2126, label %2104
 
 2101:                                             ; preds = %_ZN7testing7MessageD2Ev.exit894, %2066
   %.pn276.pn = phi { ptr, i32 } [ %.pn276, %_ZN7testing7MessageD2Ev.exit894 ], [ %2067, %2066 ]
@@ -88039,9 +87312,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %95, %96
   %97 = load i8, ptr %4, align 8
-  %98 = and i8 %97, 1
-  %.not = icmp eq i8 %98, 0
-  br i1 %.not, label %105, label %127
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %127, label %105
 
 99:                                               ; preds = %.noexc, %1
   %100 = landingpad { ptr, i32 }
@@ -88161,9 +87433,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %127, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %134, %135
   %136 = load i8, ptr %7, align 8
-  %137 = and i8 %136, 1
-  %.not420 = icmp eq i8 %137, 0
-  br i1 %.not420, label %141, label %163
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %163, label %141
 
 138:                                              ; preds = %_ZN7testing7MessageD2Ev.exit142, %103
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %_ZN7testing7MessageD2Ev.exit142 ], [ %104, %103 ]
@@ -88272,9 +87543,8 @@ _ZN7testing15AssertionResultD2Ev.exit154:         ; preds = %163, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %170, %171
   %172 = load i8, ptr %10, align 8
-  %173 = and i8 %172, 1
-  %.not421 = icmp eq i8 %173, 0
-  br i1 %.not421, label %177, label %199
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %199, label %177
 
 174:                                              ; preds = %_ZN7testing7MessageD2Ev.exit151, %139
   %.pn65.pn = phi { ptr, i32 } [ %.pn65, %_ZN7testing7MessageD2Ev.exit151 ], [ %140, %139 ]
@@ -88385,9 +87655,8 @@ _ZN7testing15AssertionResultD2Ev.exit165:         ; preds = %199, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit166: ; preds = %207, %208
   %209 = load i8, ptr %13, align 8
-  %210 = and i8 %209, 1
-  %.not422 = icmp eq i8 %210, 0
-  br i1 %.not422, label %214, label %236
+  %210 = trunc i8 %209 to i1
+  br i1 %210, label %236, label %214
 
 211:                                              ; preds = %_ZN7testing7MessageD2Ev.exit162, %175
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %_ZN7testing7MessageD2Ev.exit162 ], [ %176, %175 ]
@@ -88496,9 +87765,8 @@ _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %236, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit178: ; preds = %243, %244
   %245 = load i8, ptr %16, align 8
-  %246 = and i8 %245, 1
-  %.not423 = icmp eq i8 %246, 0
-  br i1 %.not423, label %250, label %272
+  %246 = trunc i8 %245 to i1
+  br i1 %246, label %272, label %250
 
 247:                                              ; preds = %_ZN7testing7MessageD2Ev.exit174, %212
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZN7testing7MessageD2Ev.exit174 ], [ %213, %212 ]
@@ -88607,9 +87875,8 @@ _ZN7testing15AssertionResultD2Ev.exit189:         ; preds = %272, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit190: ; preds = %279, %280
   %281 = load i8, ptr %19, align 8
-  %282 = and i8 %281, 1
-  %.not424 = icmp eq i8 %282, 0
-  br i1 %.not424, label %286, label %308
+  %282 = trunc i8 %281 to i1
+  br i1 %282, label %308, label %286
 
 283:                                              ; preds = %_ZN7testing7MessageD2Ev.exit186, %248
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZN7testing7MessageD2Ev.exit186 ], [ %249, %248 ]
@@ -88720,9 +87987,8 @@ _ZN7testing15AssertionResultD2Ev.exit201:         ; preds = %308, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit202: ; preds = %316, %317
   %318 = load i8, ptr %22, align 8
-  %319 = and i8 %318, 1
-  %.not425 = icmp eq i8 %319, 0
-  br i1 %.not425, label %323, label %345
+  %319 = trunc i8 %318 to i1
+  br i1 %319, label %345, label %323
 
 320:                                              ; preds = %_ZN7testing7MessageD2Ev.exit198, %284
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %_ZN7testing7MessageD2Ev.exit198 ], [ %285, %284 ]
@@ -88831,9 +88097,8 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %345, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit214: ; preds = %352, %353
   %354 = load i8, ptr %25, align 8
-  %355 = and i8 %354, 1
-  %.not426 = icmp eq i8 %355, 0
-  br i1 %.not426, label %359, label %381
+  %355 = trunc i8 %354 to i1
+  br i1 %355, label %381, label %359
 
 356:                                              ; preds = %_ZN7testing7MessageD2Ev.exit210, %321
   %.pn80.pn = phi { ptr, i32 } [ %.pn80, %_ZN7testing7MessageD2Ev.exit210 ], [ %322, %321 ]
@@ -88942,9 +88207,8 @@ _ZN7testing15AssertionResultD2Ev.exit225:         ; preds = %381, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit226: ; preds = %388, %389
   %390 = load i8, ptr %28, align 8
-  %391 = and i8 %390, 1
-  %.not427 = icmp eq i8 %391, 0
-  br i1 %.not427, label %395, label %417
+  %391 = trunc i8 %390 to i1
+  br i1 %391, label %417, label %395
 
 392:                                              ; preds = %_ZN7testing7MessageD2Ev.exit222, %357
   %.pn83.pn = phi { ptr, i32 } [ %.pn83, %_ZN7testing7MessageD2Ev.exit222 ], [ %358, %357 ]
@@ -89053,9 +88317,8 @@ _ZN7testing15AssertionResultD2Ev.exit237:         ; preds = %417, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %424, %425
   %426 = load i8, ptr %31, align 8
-  %427 = and i8 %426, 1
-  %.not428 = icmp eq i8 %427, 0
-  br i1 %.not428, label %431, label %453
+  %427 = trunc i8 %426 to i1
+  br i1 %427, label %453, label %431
 
 428:                                              ; preds = %_ZN7testing7MessageD2Ev.exit234, %393
   %.pn86.pn = phi { ptr, i32 } [ %.pn86, %_ZN7testing7MessageD2Ev.exit234 ], [ %394, %393 ]
@@ -89164,9 +88427,8 @@ _ZN7testing15AssertionResultD2Ev.exit248:         ; preds = %453, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %460, %461
   %462 = load i8, ptr %34, align 8
-  %463 = and i8 %462, 1
-  %.not429 = icmp eq i8 %463, 0
-  br i1 %.not429, label %467, label %489
+  %463 = trunc i8 %462 to i1
+  br i1 %463, label %489, label %467
 
 464:                                              ; preds = %_ZN7testing7MessageD2Ev.exit245, %429
   %.pn89.pn = phi { ptr, i32 } [ %.pn89, %_ZN7testing7MessageD2Ev.exit245 ], [ %430, %429 ]
@@ -89275,9 +88537,8 @@ _ZN7testing15AssertionResultD2Ev.exit259:         ; preds = %489, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %496, %497
   %498 = load i8, ptr %37, align 8
-  %499 = and i8 %498, 1
-  %.not430 = icmp eq i8 %499, 0
-  br i1 %.not430, label %503, label %525
+  %499 = trunc i8 %498 to i1
+  br i1 %499, label %525, label %503
 
 500:                                              ; preds = %_ZN7testing7MessageD2Ev.exit256, %465
   %.pn92.pn = phi { ptr, i32 } [ %.pn92, %_ZN7testing7MessageD2Ev.exit256 ], [ %466, %465 ]
@@ -89386,9 +88647,8 @@ _ZN7testing15AssertionResultD2Ev.exit270:         ; preds = %525, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %532, %533
   %534 = load i8, ptr %40, align 8
-  %535 = and i8 %534, 1
-  %.not431 = icmp eq i8 %535, 0
-  br i1 %.not431, label %539, label %561
+  %535 = trunc i8 %534 to i1
+  br i1 %535, label %561, label %539
 
 536:                                              ; preds = %_ZN7testing7MessageD2Ev.exit267, %501
   %.pn95.pn = phi { ptr, i32 } [ %.pn95, %_ZN7testing7MessageD2Ev.exit267 ], [ %502, %501 ]
@@ -89497,9 +88757,8 @@ _ZN7testing15AssertionResultD2Ev.exit281:         ; preds = %561, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %568, %569
   %570 = load i8, ptr %43, align 8
-  %571 = and i8 %570, 1
-  %.not432 = icmp eq i8 %571, 0
-  br i1 %.not432, label %575, label %597
+  %571 = trunc i8 %570 to i1
+  br i1 %571, label %597, label %575
 
 572:                                              ; preds = %_ZN7testing7MessageD2Ev.exit278, %537
   %.pn98.pn = phi { ptr, i32 } [ %.pn98, %_ZN7testing7MessageD2Ev.exit278 ], [ %538, %537 ]
@@ -89610,9 +88869,8 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %597, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit293: ; preds = %605, %606
   %607 = load i8, ptr %46, align 8
-  %608 = and i8 %607, 1
-  %.not433 = icmp eq i8 %608, 0
-  br i1 %.not433, label %612, label %634
+  %608 = trunc i8 %607 to i1
+  br i1 %608, label %634, label %612
 
 609:                                              ; preds = %_ZN7testing7MessageD2Ev.exit289, %573
   %.pn101.pn = phi { ptr, i32 } [ %.pn101, %_ZN7testing7MessageD2Ev.exit289 ], [ %574, %573 ]
@@ -89721,9 +88979,8 @@ _ZN7testing15AssertionResultD2Ev.exit304:         ; preds = %634, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit305: ; preds = %641, %642
   %643 = load i8, ptr %49, align 8
-  %644 = and i8 %643, 1
-  %.not434 = icmp eq i8 %644, 0
-  br i1 %.not434, label %648, label %670
+  %644 = trunc i8 %643 to i1
+  br i1 %644, label %670, label %648
 
 645:                                              ; preds = %_ZN7testing7MessageD2Ev.exit301, %610
   %.pn104.pn = phi { ptr, i32 } [ %.pn104, %_ZN7testing7MessageD2Ev.exit301 ], [ %611, %610 ]
@@ -89832,9 +89089,8 @@ _ZN7testing15AssertionResultD2Ev.exit316:         ; preds = %670, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit317: ; preds = %677, %678
   %679 = load i8, ptr %52, align 8
-  %680 = and i8 %679, 1
-  %.not435 = icmp eq i8 %680, 0
-  br i1 %.not435, label %684, label %706
+  %680 = trunc i8 %679 to i1
+  br i1 %680, label %706, label %684
 
 681:                                              ; preds = %_ZN7testing7MessageD2Ev.exit313, %646
   %.pn107.pn = phi { ptr, i32 } [ %.pn107, %_ZN7testing7MessageD2Ev.exit313 ], [ %647, %646 ]
@@ -89943,9 +89199,8 @@ _ZN7testing15AssertionResultD2Ev.exit328:         ; preds = %706, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit329: ; preds = %713, %714
   %715 = load i8, ptr %55, align 8
-  %716 = and i8 %715, 1
-  %.not436 = icmp eq i8 %716, 0
-  br i1 %.not436, label %720, label %742
+  %716 = trunc i8 %715 to i1
+  br i1 %716, label %742, label %720
 
 717:                                              ; preds = %_ZN7testing7MessageD2Ev.exit325, %682
   %.pn110.pn = phi { ptr, i32 } [ %.pn110, %_ZN7testing7MessageD2Ev.exit325 ], [ %683, %682 ]
@@ -90054,9 +89309,8 @@ _ZN7testing15AssertionResultD2Ev.exit340:         ; preds = %742, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit341: ; preds = %749, %750
   %751 = load i8, ptr %58, align 8
-  %752 = and i8 %751, 1
-  %.not437 = icmp eq i8 %752, 0
-  br i1 %.not437, label %756, label %778
+  %752 = trunc i8 %751 to i1
+  br i1 %752, label %778, label %756
 
 753:                                              ; preds = %_ZN7testing7MessageD2Ev.exit337, %718
   %.pn113.pn = phi { ptr, i32 } [ %.pn113, %_ZN7testing7MessageD2Ev.exit337 ], [ %719, %718 ]
@@ -90165,9 +89419,8 @@ _ZN7testing15AssertionResultD2Ev.exit352:         ; preds = %778, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit353: ; preds = %785, %786
   %787 = load i8, ptr %61, align 8
-  %788 = and i8 %787, 1
-  %.not438 = icmp eq i8 %788, 0
-  br i1 %.not438, label %792, label %814
+  %788 = trunc i8 %787 to i1
+  br i1 %788, label %814, label %792
 
 789:                                              ; preds = %_ZN7testing7MessageD2Ev.exit349, %754
   %.pn116.pn = phi { ptr, i32 } [ %.pn116, %_ZN7testing7MessageD2Ev.exit349 ], [ %755, %754 ]
@@ -90276,9 +89529,8 @@ _ZN7testing15AssertionResultD2Ev.exit364:         ; preds = %814, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %821, %822
   %823 = load i8, ptr %64, align 8
-  %824 = and i8 %823, 1
-  %.not439 = icmp eq i8 %824, 0
-  br i1 %.not439, label %828, label %850
+  %824 = trunc i8 %823 to i1
+  br i1 %824, label %850, label %828
 
 825:                                              ; preds = %_ZN7testing7MessageD2Ev.exit361, %790
   %.pn119.pn = phi { ptr, i32 } [ %.pn119, %_ZN7testing7MessageD2Ev.exit361 ], [ %791, %790 ]
@@ -90387,9 +89639,8 @@ _ZN7testing15AssertionResultD2Ev.exit375:         ; preds = %850, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %857, %858
   %859 = load i8, ptr %67, align 8
-  %860 = and i8 %859, 1
-  %.not440 = icmp eq i8 %860, 0
-  br i1 %.not440, label %864, label %886
+  %860 = trunc i8 %859 to i1
+  br i1 %860, label %886, label %864
 
 861:                                              ; preds = %_ZN7testing7MessageD2Ev.exit372, %826
   %.pn122.pn = phi { ptr, i32 } [ %.pn122, %_ZN7testing7MessageD2Ev.exit372 ], [ %827, %826 ]
@@ -90498,9 +89749,8 @@ _ZN7testing15AssertionResultD2Ev.exit386:         ; preds = %886, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %893, %894
   %895 = load i8, ptr %70, align 8
-  %896 = and i8 %895, 1
-  %.not441 = icmp eq i8 %896, 0
-  br i1 %.not441, label %900, label %922
+  %896 = trunc i8 %895 to i1
+  br i1 %896, label %922, label %900
 
 897:                                              ; preds = %_ZN7testing7MessageD2Ev.exit383, %862
   %.pn125.pn = phi { ptr, i32 } [ %.pn125, %_ZN7testing7MessageD2Ev.exit383 ], [ %863, %862 ]
@@ -90609,9 +89859,8 @@ _ZN7testing15AssertionResultD2Ev.exit397:         ; preds = %922, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %929, %930
   %931 = load i8, ptr %73, align 8
-  %932 = and i8 %931, 1
-  %.not442 = icmp eq i8 %932, 0
-  br i1 %.not442, label %936, label %958
+  %932 = trunc i8 %931 to i1
+  br i1 %932, label %958, label %936
 
 933:                                              ; preds = %_ZN7testing7MessageD2Ev.exit394, %898
   %.pn128.pn = phi { ptr, i32 } [ %.pn128, %_ZN7testing7MessageD2Ev.exit394 ], [ %899, %898 ]
@@ -90720,9 +89969,8 @@ _ZN7testing15AssertionResultD2Ev.exit408:         ; preds = %958, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %965, %966
   %967 = load i8, ptr %76, align 8
-  %968 = and i8 %967, 1
-  %.not443 = icmp eq i8 %968, 0
-  br i1 %.not443, label %972, label %994
+  %968 = trunc i8 %967 to i1
+  br i1 %968, label %994, label %972
 
 969:                                              ; preds = %_ZN7testing7MessageD2Ev.exit405, %934
   %.pn131.pn = phi { ptr, i32 } [ %.pn131, %_ZN7testing7MessageD2Ev.exit405 ], [ %935, %934 ]
@@ -90964,9 +90212,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %98, %99
   %100 = load i8, ptr %4, align 8
-  %101 = and i8 %100, 1
-  %.not = icmp eq i8 %101, 0
-  br i1 %.not, label %108, label %130
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %130, label %108
 
 102:                                              ; preds = %.noexc, %1
   %103 = landingpad { ptr, i32 }
@@ -91086,9 +90333,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %130, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %137, %138
   %139 = load i8, ptr %7, align 8
-  %140 = and i8 %139, 1
-  %.not435 = icmp eq i8 %140, 0
-  br i1 %.not435, label %144, label %166
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %166, label %144
 
 141:                                              ; preds = %_ZN7testing7MessageD2Ev.exit147, %106
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %_ZN7testing7MessageD2Ev.exit147 ], [ %107, %106 ]
@@ -91197,9 +90443,8 @@ _ZN7testing15AssertionResultD2Ev.exit159:         ; preds = %166, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %173, %174
   %175 = load i8, ptr %10, align 8
-  %176 = and i8 %175, 1
-  %.not436 = icmp eq i8 %176, 0
-  br i1 %.not436, label %180, label %202
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %202, label %180
 
 177:                                              ; preds = %_ZN7testing7MessageD2Ev.exit156, %142
   %.pn67.pn = phi { ptr, i32 } [ %.pn67, %_ZN7testing7MessageD2Ev.exit156 ], [ %143, %142 ]
@@ -91310,9 +90555,8 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %202, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit171: ; preds = %210, %211
   %212 = load i8, ptr %13, align 8
-  %213 = and i8 %212, 1
-  %.not437 = icmp eq i8 %213, 0
-  br i1 %.not437, label %217, label %239
+  %213 = trunc i8 %212 to i1
+  br i1 %213, label %239, label %217
 
 214:                                              ; preds = %_ZN7testing7MessageD2Ev.exit167, %178
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %_ZN7testing7MessageD2Ev.exit167 ], [ %179, %178 ]
@@ -91421,9 +90665,8 @@ _ZN7testing15AssertionResultD2Ev.exit182:         ; preds = %239, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit183: ; preds = %246, %247
   %248 = load i8, ptr %16, align 8
-  %249 = and i8 %248, 1
-  %.not438 = icmp eq i8 %249, 0
-  br i1 %.not438, label %253, label %275
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %275, label %253
 
 250:                                              ; preds = %_ZN7testing7MessageD2Ev.exit179, %215
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %_ZN7testing7MessageD2Ev.exit179 ], [ %216, %215 ]
@@ -91532,9 +90775,8 @@ _ZN7testing15AssertionResultD2Ev.exit194:         ; preds = %275, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit195: ; preds = %282, %283
   %284 = load i8, ptr %19, align 8
-  %285 = and i8 %284, 1
-  %.not439 = icmp eq i8 %285, 0
-  br i1 %.not439, label %289, label %311
+  %285 = trunc i8 %284 to i1
+  br i1 %285, label %311, label %289
 
 286:                                              ; preds = %_ZN7testing7MessageD2Ev.exit191, %251
   %.pn76.pn = phi { ptr, i32 } [ %.pn76, %_ZN7testing7MessageD2Ev.exit191 ], [ %252, %251 ]
@@ -91643,9 +90885,8 @@ _ZN7testing15AssertionResultD2Ev.exit206:         ; preds = %311, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %318, %319
   %320 = load i8, ptr %22, align 8
-  %321 = and i8 %320, 1
-  %.not440 = icmp eq i8 %321, 0
-  br i1 %.not440, label %325, label %347
+  %321 = trunc i8 %320 to i1
+  br i1 %321, label %347, label %325
 
 322:                                              ; preds = %_ZN7testing7MessageD2Ev.exit203, %287
   %.pn79.pn = phi { ptr, i32 } [ %.pn79, %_ZN7testing7MessageD2Ev.exit203 ], [ %288, %287 ]
@@ -91754,9 +90995,8 @@ _ZN7testing15AssertionResultD2Ev.exit217:         ; preds = %347, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %354, %355
   %356 = load i8, ptr %25, align 8
-  %357 = and i8 %356, 1
-  %.not441 = icmp eq i8 %357, 0
-  br i1 %.not441, label %361, label %383
+  %357 = trunc i8 %356 to i1
+  br i1 %357, label %383, label %361
 
 358:                                              ; preds = %_ZN7testing7MessageD2Ev.exit214, %323
   %.pn82.pn = phi { ptr, i32 } [ %.pn82, %_ZN7testing7MessageD2Ev.exit214 ], [ %324, %323 ]
@@ -91865,9 +91105,8 @@ _ZN7testing15AssertionResultD2Ev.exit228:         ; preds = %383, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %390, %391
   %392 = load i8, ptr %28, align 8
-  %393 = and i8 %392, 1
-  %.not442 = icmp eq i8 %393, 0
-  br i1 %.not442, label %397, label %419
+  %393 = trunc i8 %392 to i1
+  br i1 %393, label %419, label %397
 
 394:                                              ; preds = %_ZN7testing7MessageD2Ev.exit225, %359
   %.pn85.pn = phi { ptr, i32 } [ %.pn85, %_ZN7testing7MessageD2Ev.exit225 ], [ %360, %359 ]
@@ -91976,9 +91215,8 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %419, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %426, %427
   %428 = load i8, ptr %31, align 8
-  %429 = and i8 %428, 1
-  %.not443 = icmp eq i8 %429, 0
-  br i1 %.not443, label %433, label %455
+  %429 = trunc i8 %428 to i1
+  br i1 %429, label %455, label %433
 
 430:                                              ; preds = %_ZN7testing7MessageD2Ev.exit236, %395
   %.pn88.pn = phi { ptr, i32 } [ %.pn88, %_ZN7testing7MessageD2Ev.exit236 ], [ %396, %395 ]
@@ -92087,9 +91325,8 @@ _ZN7testing15AssertionResultD2Ev.exit250:         ; preds = %455, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %462, %463
   %464 = load i8, ptr %34, align 8
-  %465 = and i8 %464, 1
-  %.not444 = icmp eq i8 %465, 0
-  br i1 %.not444, label %469, label %491
+  %465 = trunc i8 %464 to i1
+  br i1 %465, label %491, label %469
 
 466:                                              ; preds = %_ZN7testing7MessageD2Ev.exit247, %431
   %.pn91.pn = phi { ptr, i32 } [ %.pn91, %_ZN7testing7MessageD2Ev.exit247 ], [ %432, %431 ]
@@ -92198,9 +91435,8 @@ _ZN7testing15AssertionResultD2Ev.exit261:         ; preds = %491, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %498, %499
   %500 = load i8, ptr %37, align 8
-  %501 = and i8 %500, 1
-  %.not445 = icmp eq i8 %501, 0
-  br i1 %.not445, label %505, label %527
+  %501 = trunc i8 %500 to i1
+  br i1 %501, label %527, label %505
 
 502:                                              ; preds = %_ZN7testing7MessageD2Ev.exit258, %467
   %.pn94.pn = phi { ptr, i32 } [ %.pn94, %_ZN7testing7MessageD2Ev.exit258 ], [ %468, %467 ]
@@ -92309,9 +91545,8 @@ _ZN7testing15AssertionResultD2Ev.exit272:         ; preds = %527, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %534, %535
   %536 = load i8, ptr %40, align 8
-  %537 = and i8 %536, 1
-  %.not446 = icmp eq i8 %537, 0
-  br i1 %.not446, label %541, label %563
+  %537 = trunc i8 %536 to i1
+  br i1 %537, label %563, label %541
 
 538:                                              ; preds = %_ZN7testing7MessageD2Ev.exit269, %503
   %.pn97.pn = phi { ptr, i32 } [ %.pn97, %_ZN7testing7MessageD2Ev.exit269 ], [ %504, %503 ]
@@ -92422,9 +91657,8 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %563, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit284: ; preds = %571, %572
   %573 = load i8, ptr %43, align 8
-  %574 = and i8 %573, 1
-  %.not447 = icmp eq i8 %574, 0
-  br i1 %.not447, label %578, label %600
+  %574 = trunc i8 %573 to i1
+  br i1 %574, label %600, label %578
 
 575:                                              ; preds = %_ZN7testing7MessageD2Ev.exit280, %539
   %.pn100.pn = phi { ptr, i32 } [ %.pn100, %_ZN7testing7MessageD2Ev.exit280 ], [ %540, %539 ]
@@ -92533,9 +91767,8 @@ _ZN7testing15AssertionResultD2Ev.exit295:         ; preds = %600, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit296: ; preds = %607, %608
   %609 = load i8, ptr %46, align 8
-  %610 = and i8 %609, 1
-  %.not448 = icmp eq i8 %610, 0
-  br i1 %.not448, label %614, label %636
+  %610 = trunc i8 %609 to i1
+  br i1 %610, label %636, label %614
 
 611:                                              ; preds = %_ZN7testing7MessageD2Ev.exit292, %576
   %.pn103.pn = phi { ptr, i32 } [ %.pn103, %_ZN7testing7MessageD2Ev.exit292 ], [ %577, %576 ]
@@ -92644,9 +91877,8 @@ _ZN7testing15AssertionResultD2Ev.exit307:         ; preds = %636, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %643, %644
   %645 = load i8, ptr %49, align 8
-  %646 = and i8 %645, 1
-  %.not449 = icmp eq i8 %646, 0
-  br i1 %.not449, label %650, label %672
+  %646 = trunc i8 %645 to i1
+  br i1 %646, label %672, label %650
 
 647:                                              ; preds = %_ZN7testing7MessageD2Ev.exit304, %612
   %.pn106.pn = phi { ptr, i32 } [ %.pn106, %_ZN7testing7MessageD2Ev.exit304 ], [ %613, %612 ]
@@ -92755,9 +91987,8 @@ _ZN7testing15AssertionResultD2Ev.exit318:         ; preds = %672, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit319: ; preds = %679, %680
   %681 = load i8, ptr %52, align 8
-  %682 = and i8 %681, 1
-  %.not450 = icmp eq i8 %682, 0
-  br i1 %.not450, label %686, label %708
+  %682 = trunc i8 %681 to i1
+  br i1 %682, label %708, label %686
 
 683:                                              ; preds = %_ZN7testing7MessageD2Ev.exit315, %648
   %.pn109.pn = phi { ptr, i32 } [ %.pn109, %_ZN7testing7MessageD2Ev.exit315 ], [ %649, %648 ]
@@ -92866,9 +92097,8 @@ _ZN7testing15AssertionResultD2Ev.exit330:         ; preds = %708, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit331: ; preds = %715, %716
   %717 = load i8, ptr %55, align 8
-  %718 = and i8 %717, 1
-  %.not451 = icmp eq i8 %718, 0
-  br i1 %.not451, label %722, label %744
+  %718 = trunc i8 %717 to i1
+  br i1 %718, label %744, label %722
 
 719:                                              ; preds = %_ZN7testing7MessageD2Ev.exit327, %684
   %.pn112.pn = phi { ptr, i32 } [ %.pn112, %_ZN7testing7MessageD2Ev.exit327 ], [ %685, %684 ]
@@ -92977,9 +92207,8 @@ _ZN7testing15AssertionResultD2Ev.exit342:         ; preds = %744, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit343: ; preds = %751, %752
   %753 = load i8, ptr %58, align 8
-  %754 = and i8 %753, 1
-  %.not452 = icmp eq i8 %754, 0
-  br i1 %.not452, label %758, label %780
+  %754 = trunc i8 %753 to i1
+  br i1 %754, label %780, label %758
 
 755:                                              ; preds = %_ZN7testing7MessageD2Ev.exit339, %720
   %.pn115.pn = phi { ptr, i32 } [ %.pn115, %_ZN7testing7MessageD2Ev.exit339 ], [ %721, %720 ]
@@ -93088,9 +92317,8 @@ _ZN7testing15AssertionResultD2Ev.exit354:         ; preds = %780, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit355: ; preds = %787, %788
   %789 = load i8, ptr %61, align 8
-  %790 = and i8 %789, 1
-  %.not453 = icmp eq i8 %790, 0
-  br i1 %.not453, label %794, label %816
+  %790 = trunc i8 %789 to i1
+  br i1 %790, label %816, label %794
 
 791:                                              ; preds = %_ZN7testing7MessageD2Ev.exit351, %756
   %.pn118.pn = phi { ptr, i32 } [ %.pn118, %_ZN7testing7MessageD2Ev.exit351 ], [ %757, %756 ]
@@ -93199,9 +92427,8 @@ _ZN7testing15AssertionResultD2Ev.exit366:         ; preds = %816, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit367: ; preds = %823, %824
   %825 = load i8, ptr %64, align 8
-  %826 = and i8 %825, 1
-  %.not454 = icmp eq i8 %826, 0
-  br i1 %.not454, label %830, label %852
+  %826 = trunc i8 %825 to i1
+  br i1 %826, label %852, label %830
 
 827:                                              ; preds = %_ZN7testing7MessageD2Ev.exit363, %792
   %.pn121.pn = phi { ptr, i32 } [ %.pn121, %_ZN7testing7MessageD2Ev.exit363 ], [ %793, %792 ]
@@ -93310,9 +92537,8 @@ _ZN7testing15AssertionResultD2Ev.exit378:         ; preds = %852, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit379: ; preds = %859, %860
   %861 = load i8, ptr %67, align 8
-  %862 = and i8 %861, 1
-  %.not455 = icmp eq i8 %862, 0
-  br i1 %.not455, label %866, label %888
+  %862 = trunc i8 %861 to i1
+  br i1 %862, label %888, label %866
 
 863:                                              ; preds = %_ZN7testing7MessageD2Ev.exit375, %828
   %.pn124.pn = phi { ptr, i32 } [ %.pn124, %_ZN7testing7MessageD2Ev.exit375 ], [ %829, %828 ]
@@ -93421,9 +92647,8 @@ _ZN7testing15AssertionResultD2Ev.exit390:         ; preds = %888, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %895, %896
   %897 = load i8, ptr %70, align 8
-  %898 = and i8 %897, 1
-  %.not456 = icmp eq i8 %898, 0
-  br i1 %.not456, label %902, label %924
+  %898 = trunc i8 %897 to i1
+  br i1 %898, label %924, label %902
 
 899:                                              ; preds = %_ZN7testing7MessageD2Ev.exit387, %864
   %.pn127.pn = phi { ptr, i32 } [ %.pn127, %_ZN7testing7MessageD2Ev.exit387 ], [ %865, %864 ]
@@ -93532,9 +92757,8 @@ _ZN7testing15AssertionResultD2Ev.exit401:         ; preds = %924, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %931, %932
   %933 = load i8, ptr %73, align 8
-  %934 = and i8 %933, 1
-  %.not457 = icmp eq i8 %934, 0
-  br i1 %.not457, label %938, label %960
+  %934 = trunc i8 %933 to i1
+  br i1 %934, label %960, label %938
 
 935:                                              ; preds = %_ZN7testing7MessageD2Ev.exit398, %900
   %.pn130.pn = phi { ptr, i32 } [ %.pn130, %_ZN7testing7MessageD2Ev.exit398 ], [ %901, %900 ]
@@ -93643,9 +92867,8 @@ _ZN7testing15AssertionResultD2Ev.exit412:         ; preds = %960, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %967, %968
   %969 = load i8, ptr %76, align 8
-  %970 = and i8 %969, 1
-  %.not458 = icmp eq i8 %970, 0
-  br i1 %.not458, label %974, label %996
+  %970 = trunc i8 %969 to i1
+  br i1 %970, label %996, label %974
 
 971:                                              ; preds = %_ZN7testing7MessageD2Ev.exit409, %936
   %.pn133.pn = phi { ptr, i32 } [ %.pn133, %_ZN7testing7MessageD2Ev.exit409 ], [ %937, %936 ]
@@ -93754,9 +92977,8 @@ _ZN7testing15AssertionResultD2Ev.exit423:         ; preds = %996, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %1003, %1004
   %1005 = load i8, ptr %79, align 8
-  %1006 = and i8 %1005, 1
-  %.not459 = icmp eq i8 %1006, 0
-  br i1 %.not459, label %1010, label %1032
+  %1006 = trunc i8 %1005 to i1
+  br i1 %1006, label %1032, label %1010
 
 1007:                                             ; preds = %_ZN7testing7MessageD2Ev.exit420, %972
   %.pn136.pn = phi { ptr, i32 } [ %.pn136, %_ZN7testing7MessageD2Ev.exit420 ], [ %973, %972 ]
@@ -93938,9 +93160,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %38, %39
   %40 = load i8, ptr %4, align 8
-  %41 = and i8 %40, 1
-  %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %48, label %70
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %70, label %48
 
 42:                                               ; preds = %.noexc, %1
   %43 = landingpad { ptr, i32 }
@@ -94060,9 +93281,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %77, %78
   %79 = load i8, ptr %7, align 8
-  %80 = and i8 %79, 1
-  %.not98 = icmp eq i8 %80, 0
-  br i1 %.not98, label %84, label %106
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %106, label %84
 
 81:                                               ; preds = %_ZN7testing7MessageD2Ev.exit41, %46
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit41 ], [ %47, %46 ]
@@ -94171,9 +93391,8 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %106, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %113, %114
   %115 = load i8, ptr %10, align 8
-  %116 = and i8 %115, 1
-  %.not99 = icmp eq i8 %116, 0
-  br i1 %.not99, label %120, label %142
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %142, label %120
 
 117:                                              ; preds = %_ZN7testing7MessageD2Ev.exit50, %82
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN7testing7MessageD2Ev.exit50 ], [ %83, %82 ]
@@ -94282,9 +93501,8 @@ _ZN7testing15AssertionResultD2Ev.exit64:          ; preds = %142, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %149, %150
   %151 = load i8, ptr %13, align 8
-  %152 = and i8 %151, 1
-  %.not100 = icmp eq i8 %152, 0
-  br i1 %.not100, label %156, label %178
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %178, label %156
 
 153:                                              ; preds = %_ZN7testing7MessageD2Ev.exit61, %118
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZN7testing7MessageD2Ev.exit61 ], [ %119, %118 ]
@@ -94393,9 +93611,8 @@ _ZN7testing15AssertionResultD2Ev.exit75:          ; preds = %178, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %185, %186
   %187 = load i8, ptr %16, align 8
-  %188 = and i8 %187, 1
-  %.not101 = icmp eq i8 %188, 0
-  br i1 %.not101, label %192, label %214
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %214, label %192
 
 189:                                              ; preds = %_ZN7testing7MessageD2Ev.exit72, %154
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %_ZN7testing7MessageD2Ev.exit72 ], [ %155, %154 ]
@@ -94504,9 +93721,8 @@ _ZN7testing15AssertionResultD2Ev.exit86:          ; preds = %214, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %221, %222
   %223 = load i8, ptr %19, align 8
-  %224 = and i8 %223, 1
-  %.not102 = icmp eq i8 %224, 0
-  br i1 %.not102, label %228, label %250
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %250, label %228
 
 225:                                              ; preds = %_ZN7testing7MessageD2Ev.exit83, %190
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZN7testing7MessageD2Ev.exit83 ], [ %191, %190 ]
@@ -94688,9 +93904,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %38, %39
   %40 = load i8, ptr %4, align 8
-  %41 = and i8 %40, 1
-  %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %48, label %70
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %70, label %48
 
 42:                                               ; preds = %.noexc, %1
   %43 = landingpad { ptr, i32 }
@@ -94810,9 +94025,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %77, %78
   %79 = load i8, ptr %7, align 8
-  %80 = and i8 %79, 1
-  %.not98 = icmp eq i8 %80, 0
-  br i1 %.not98, label %84, label %106
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %106, label %84
 
 81:                                               ; preds = %_ZN7testing7MessageD2Ev.exit41, %46
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit41 ], [ %47, %46 ]
@@ -94921,9 +94135,8 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %106, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %113, %114
   %115 = load i8, ptr %10, align 8
-  %116 = and i8 %115, 1
-  %.not99 = icmp eq i8 %116, 0
-  br i1 %.not99, label %120, label %142
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %142, label %120
 
 117:                                              ; preds = %_ZN7testing7MessageD2Ev.exit50, %82
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN7testing7MessageD2Ev.exit50 ], [ %83, %82 ]
@@ -95032,9 +94245,8 @@ _ZN7testing15AssertionResultD2Ev.exit64:          ; preds = %142, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %149, %150
   %151 = load i8, ptr %13, align 8
-  %152 = and i8 %151, 1
-  %.not100 = icmp eq i8 %152, 0
-  br i1 %.not100, label %156, label %178
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %178, label %156
 
 153:                                              ; preds = %_ZN7testing7MessageD2Ev.exit61, %118
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZN7testing7MessageD2Ev.exit61 ], [ %119, %118 ]
@@ -95143,9 +94355,8 @@ _ZN7testing15AssertionResultD2Ev.exit75:          ; preds = %178, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %185, %186
   %187 = load i8, ptr %16, align 8
-  %188 = and i8 %187, 1
-  %.not101 = icmp eq i8 %188, 0
-  br i1 %.not101, label %192, label %214
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %214, label %192
 
 189:                                              ; preds = %_ZN7testing7MessageD2Ev.exit72, %154
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %_ZN7testing7MessageD2Ev.exit72 ], [ %155, %154 ]
@@ -95254,9 +94465,8 @@ _ZN7testing15AssertionResultD2Ev.exit86:          ; preds = %214, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %221, %222
   %223 = load i8, ptr %19, align 8
-  %224 = and i8 %223, 1
-  %.not102 = icmp eq i8 %224, 0
-  br i1 %.not102, label %228, label %250
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %250, label %228
 
 225:                                              ; preds = %_ZN7testing7MessageD2Ev.exit83, %190
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZN7testing7MessageD2Ev.exit83 ], [ %191, %190 ]
@@ -95447,9 +94657,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %47, %48
   %49 = load i8, ptr %4, align 8
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %57, label %79
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %79, label %57
 
 51:                                               ; preds = %.noexc, %1
   %52 = landingpad { ptr, i32 }
@@ -95569,9 +94778,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %79, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %86, %87
   %88 = load i8, ptr %7, align 8
-  %89 = and i8 %88, 1
-  %.not157 = icmp eq i8 %89, 0
-  br i1 %.not157, label %93, label %115
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %115, label %93
 
 90:                                               ; preds = %_ZN7testing7MessageD2Ev.exit62, %55
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZN7testing7MessageD2Ev.exit62 ], [ %56, %55 ]
@@ -95680,9 +94888,8 @@ _ZN7testing15AssertionResultD2Ev.exit74:          ; preds = %115, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %122, %123
   %124 = load i8, ptr %10, align 8
-  %125 = and i8 %124, 1
-  %.not158 = icmp eq i8 %125, 0
-  br i1 %.not158, label %129, label %151
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %151, label %129
 
 126:                                              ; preds = %_ZN7testing7MessageD2Ev.exit71, %91
   %.pn33.pn = phi { ptr, i32 } [ %.pn33, %_ZN7testing7MessageD2Ev.exit71 ], [ %92, %91 ]
@@ -95793,9 +95000,8 @@ _ZN7testing15AssertionResultD2Ev.exit85:          ; preds = %151, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit86: ; preds = %159, %160
   %161 = load i8, ptr %13, align 8
-  %162 = and i8 %161, 1
-  %.not159 = icmp eq i8 %162, 0
-  br i1 %.not159, label %166, label %188
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %188, label %166
 
 163:                                              ; preds = %_ZN7testing7MessageD2Ev.exit82, %127
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %_ZN7testing7MessageD2Ev.exit82 ], [ %128, %127 ]
@@ -95904,9 +95110,8 @@ _ZN7testing15AssertionResultD2Ev.exit97:          ; preds = %188, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit98: ; preds = %195, %196
   %197 = load i8, ptr %16, align 8
-  %198 = and i8 %197, 1
-  %.not160 = icmp eq i8 %198, 0
-  br i1 %.not160, label %202, label %224
+  %198 = trunc i8 %197 to i1
+  br i1 %198, label %224, label %202
 
 199:                                              ; preds = %_ZN7testing7MessageD2Ev.exit94, %164
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit94 ], [ %165, %164 ]
@@ -96015,9 +95220,8 @@ _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %224, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit110: ; preds = %231, %232
   %233 = load i8, ptr %19, align 8
-  %234 = and i8 %233, 1
-  %.not161 = icmp eq i8 %234, 0
-  br i1 %.not161, label %238, label %260
+  %234 = trunc i8 %233 to i1
+  br i1 %234, label %260, label %238
 
 235:                                              ; preds = %_ZN7testing7MessageD2Ev.exit106, %200
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZN7testing7MessageD2Ev.exit106 ], [ %201, %200 ]
@@ -96128,9 +95332,8 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %260, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit122: ; preds = %268, %269
   %270 = load i8, ptr %22, align 8
-  %271 = and i8 %270, 1
-  %.not162 = icmp eq i8 %271, 0
-  br i1 %.not162, label %275, label %297
+  %271 = trunc i8 %270 to i1
+  br i1 %271, label %297, label %275
 
 272:                                              ; preds = %_ZN7testing7MessageD2Ev.exit118, %236
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %_ZN7testing7MessageD2Ev.exit118 ], [ %237, %236 ]
@@ -96239,9 +95442,8 @@ _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %297, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit134: ; preds = %304, %305
   %306 = load i8, ptr %25, align 8
-  %307 = and i8 %306, 1
-  %.not163 = icmp eq i8 %307, 0
-  br i1 %.not163, label %311, label %333
+  %307 = trunc i8 %306 to i1
+  br i1 %307, label %333, label %311
 
 308:                                              ; preds = %_ZN7testing7MessageD2Ev.exit130, %273
   %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZN7testing7MessageD2Ev.exit130 ], [ %274, %273 ]
@@ -96350,9 +95552,8 @@ _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %333, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %340, %341
   %342 = load i8, ptr %28, align 8
-  %343 = and i8 %342, 1
-  %.not164 = icmp eq i8 %343, 0
-  br i1 %.not164, label %347, label %369
+  %343 = trunc i8 %342 to i1
+  br i1 %343, label %369, label %347
 
 344:                                              ; preds = %_ZN7testing7MessageD2Ev.exit142, %309
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZN7testing7MessageD2Ev.exit142 ], [ %310, %309 ]
@@ -96588,9 +95789,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %92, %93
   %94 = load i8, ptr %4, align 8
-  %95 = and i8 %94, 1
-  %.not = icmp eq i8 %95, 0
-  br i1 %.not, label %102, label %124
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %124, label %102
 
 96:                                               ; preds = %.noexc, %1
   %97 = landingpad { ptr, i32 }
@@ -96710,9 +95910,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %124, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %131, %132
   %133 = load i8, ptr %7, align 8
-  %134 = and i8 %133, 1
-  %.not397 = icmp eq i8 %134, 0
-  br i1 %.not397, label %138, label %160
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %160, label %138
 
 135:                                              ; preds = %_ZN7testing7MessageD2Ev.exit137, %100
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %_ZN7testing7MessageD2Ev.exit137 ], [ %101, %100 ]
@@ -96821,9 +96020,8 @@ _ZN7testing15AssertionResultD2Ev.exit149:         ; preds = %160, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %167, %168
   %169 = load i8, ptr %10, align 8
-  %170 = and i8 %169, 1
-  %.not398 = icmp eq i8 %170, 0
-  br i1 %.not398, label %174, label %196
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %196, label %174
 
 171:                                              ; preds = %_ZN7testing7MessageD2Ev.exit146, %136
   %.pn63.pn = phi { ptr, i32 } [ %.pn63, %_ZN7testing7MessageD2Ev.exit146 ], [ %137, %136 ]
@@ -96932,9 +96130,8 @@ _ZN7testing15AssertionResultD2Ev.exit160:         ; preds = %196, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %203, %204
   %205 = load i8, ptr %13, align 8
-  %206 = and i8 %205, 1
-  %.not399 = icmp eq i8 %206, 0
-  br i1 %.not399, label %210, label %232
+  %206 = trunc i8 %205 to i1
+  br i1 %206, label %232, label %210
 
 207:                                              ; preds = %_ZN7testing7MessageD2Ev.exit157, %172
   %.pn66.pn = phi { ptr, i32 } [ %.pn66, %_ZN7testing7MessageD2Ev.exit157 ], [ %173, %172 ]
@@ -97043,9 +96240,8 @@ _ZN7testing15AssertionResultD2Ev.exit171:         ; preds = %232, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %239, %240
   %241 = load i8, ptr %16, align 8
-  %242 = and i8 %241, 1
-  %.not400 = icmp eq i8 %242, 0
-  br i1 %.not400, label %246, label %268
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %268, label %246
 
 243:                                              ; preds = %_ZN7testing7MessageD2Ev.exit168, %208
   %.pn69.pn = phi { ptr, i32 } [ %.pn69, %_ZN7testing7MessageD2Ev.exit168 ], [ %209, %208 ]
@@ -97154,9 +96350,8 @@ _ZN7testing15AssertionResultD2Ev.exit182:         ; preds = %268, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit183: ; preds = %275, %276
   %277 = load i8, ptr %19, align 8
-  %278 = and i8 %277, 1
-  %.not401 = icmp eq i8 %278, 0
-  br i1 %.not401, label %282, label %304
+  %278 = trunc i8 %277 to i1
+  br i1 %278, label %304, label %282
 
 279:                                              ; preds = %_ZN7testing7MessageD2Ev.exit179, %244
   %.pn72.pn = phi { ptr, i32 } [ %.pn72, %_ZN7testing7MessageD2Ev.exit179 ], [ %245, %244 ]
@@ -97265,9 +96460,8 @@ _ZN7testing15AssertionResultD2Ev.exit194:         ; preds = %304, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %311, %312
   %313 = load i8, ptr %22, align 8
-  %314 = and i8 %313, 1
-  %.not402 = icmp eq i8 %314, 0
-  br i1 %.not402, label %318, label %340
+  %314 = trunc i8 %313 to i1
+  br i1 %314, label %340, label %318
 
 315:                                              ; preds = %_ZN7testing7MessageD2Ev.exit191, %280
   %.pn75.pn = phi { ptr, i32 } [ %.pn75, %_ZN7testing7MessageD2Ev.exit191 ], [ %281, %280 ]
@@ -97376,9 +96570,8 @@ _ZN7testing15AssertionResultD2Ev.exit205:         ; preds = %340, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %347, %348
   %349 = load i8, ptr %25, align 8
-  %350 = and i8 %349, 1
-  %.not403 = icmp eq i8 %350, 0
-  br i1 %.not403, label %354, label %376
+  %350 = trunc i8 %349 to i1
+  br i1 %350, label %376, label %354
 
 351:                                              ; preds = %_ZN7testing7MessageD2Ev.exit202, %316
   %.pn78.pn = phi { ptr, i32 } [ %.pn78, %_ZN7testing7MessageD2Ev.exit202 ], [ %317, %316 ]
@@ -97487,9 +96680,8 @@ _ZN7testing15AssertionResultD2Ev.exit216:         ; preds = %376, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %383, %384
   %385 = load i8, ptr %28, align 8
-  %386 = and i8 %385, 1
-  %.not404 = icmp eq i8 %386, 0
-  br i1 %.not404, label %390, label %412
+  %386 = trunc i8 %385 to i1
+  br i1 %386, label %412, label %390
 
 387:                                              ; preds = %_ZN7testing7MessageD2Ev.exit213, %352
   %.pn81.pn = phi { ptr, i32 } [ %.pn81, %_ZN7testing7MessageD2Ev.exit213 ], [ %353, %352 ]
@@ -97598,9 +96790,8 @@ _ZN7testing15AssertionResultD2Ev.exit227:         ; preds = %412, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %419, %420
   %421 = load i8, ptr %31, align 8
-  %422 = and i8 %421, 1
-  %.not405 = icmp eq i8 %422, 0
-  br i1 %.not405, label %426, label %448
+  %422 = trunc i8 %421 to i1
+  br i1 %422, label %448, label %426
 
 423:                                              ; preds = %_ZN7testing7MessageD2Ev.exit224, %388
   %.pn84.pn = phi { ptr, i32 } [ %.pn84, %_ZN7testing7MessageD2Ev.exit224 ], [ %389, %388 ]
@@ -97709,9 +96900,8 @@ _ZN7testing15AssertionResultD2Ev.exit238:         ; preds = %448, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %455, %456
   %457 = load i8, ptr %34, align 8
-  %458 = and i8 %457, 1
-  %.not406 = icmp eq i8 %458, 0
-  br i1 %.not406, label %462, label %484
+  %458 = trunc i8 %457 to i1
+  br i1 %458, label %484, label %462
 
 459:                                              ; preds = %_ZN7testing7MessageD2Ev.exit235, %424
   %.pn87.pn = phi { ptr, i32 } [ %.pn87, %_ZN7testing7MessageD2Ev.exit235 ], [ %425, %424 ]
@@ -97820,9 +97010,8 @@ _ZN7testing15AssertionResultD2Ev.exit249:         ; preds = %484, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA14_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %491, %492
   %493 = load i8, ptr %37, align 8
-  %494 = and i8 %493, 1
-  %.not407 = icmp eq i8 %494, 0
-  br i1 %.not407, label %498, label %520
+  %494 = trunc i8 %493 to i1
+  br i1 %494, label %520, label %498
 
 495:                                              ; preds = %_ZN7testing7MessageD2Ev.exit246, %460
   %.pn90.pn = phi { ptr, i32 } [ %.pn90, %_ZN7testing7MessageD2Ev.exit246 ], [ %461, %460 ]
@@ -97931,9 +97120,8 @@ _ZN7testing15AssertionResultD2Ev.exit260:         ; preds = %520, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA15_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %527, %528
   %529 = load i8, ptr %40, align 8
-  %530 = and i8 %529, 1
-  %.not408 = icmp eq i8 %530, 0
-  br i1 %.not408, label %534, label %556
+  %530 = trunc i8 %529 to i1
+  br i1 %530, label %556, label %534
 
 531:                                              ; preds = %_ZN7testing7MessageD2Ev.exit257, %496
   %.pn93.pn = phi { ptr, i32 } [ %.pn93, %_ZN7testing7MessageD2Ev.exit257 ], [ %497, %496 ]
@@ -98042,9 +97230,8 @@ _ZN7testing15AssertionResultD2Ev.exit271:         ; preds = %556, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %563, %564
   %565 = load i8, ptr %43, align 8
-  %566 = and i8 %565, 1
-  %.not409 = icmp eq i8 %566, 0
-  br i1 %.not409, label %570, label %592
+  %566 = trunc i8 %565 to i1
+  br i1 %566, label %592, label %570
 
 567:                                              ; preds = %_ZN7testing7MessageD2Ev.exit268, %532
   %.pn96.pn = phi { ptr, i32 } [ %.pn96, %_ZN7testing7MessageD2Ev.exit268 ], [ %533, %532 ]
@@ -98153,9 +97340,8 @@ _ZN7testing15AssertionResultD2Ev.exit282:         ; preds = %592, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %599, %600
   %601 = load i8, ptr %46, align 8
-  %602 = and i8 %601, 1
-  %.not410 = icmp eq i8 %602, 0
-  br i1 %.not410, label %606, label %628
+  %602 = trunc i8 %601 to i1
+  br i1 %602, label %628, label %606
 
 603:                                              ; preds = %_ZN7testing7MessageD2Ev.exit279, %568
   %.pn99.pn = phi { ptr, i32 } [ %.pn99, %_ZN7testing7MessageD2Ev.exit279 ], [ %569, %568 ]
@@ -98264,9 +97450,8 @@ _ZN7testing15AssertionResultD2Ev.exit293:         ; preds = %628, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %635, %636
   %637 = load i8, ptr %49, align 8
-  %638 = and i8 %637, 1
-  %.not411 = icmp eq i8 %638, 0
-  br i1 %.not411, label %642, label %664
+  %638 = trunc i8 %637 to i1
+  br i1 %638, label %664, label %642
 
 639:                                              ; preds = %_ZN7testing7MessageD2Ev.exit290, %604
   %.pn102.pn = phi { ptr, i32 } [ %.pn102, %_ZN7testing7MessageD2Ev.exit290 ], [ %605, %604 ]
@@ -98375,9 +97560,8 @@ _ZN7testing15AssertionResultD2Ev.exit304:         ; preds = %664, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %671, %672
   %673 = load i8, ptr %52, align 8
-  %674 = and i8 %673, 1
-  %.not412 = icmp eq i8 %674, 0
-  br i1 %.not412, label %678, label %700
+  %674 = trunc i8 %673 to i1
+  br i1 %674, label %700, label %678
 
 675:                                              ; preds = %_ZN7testing7MessageD2Ev.exit301, %640
   %.pn105.pn = phi { ptr, i32 } [ %.pn105, %_ZN7testing7MessageD2Ev.exit301 ], [ %641, %640 ]
@@ -98486,9 +97670,8 @@ _ZN7testing15AssertionResultD2Ev.exit315:         ; preds = %700, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %707, %708
   %709 = load i8, ptr %55, align 8
-  %710 = and i8 %709, 1
-  %.not413 = icmp eq i8 %710, 0
-  br i1 %.not413, label %714, label %736
+  %710 = trunc i8 %709 to i1
+  br i1 %710, label %736, label %714
 
 711:                                              ; preds = %_ZN7testing7MessageD2Ev.exit312, %676
   %.pn108.pn = phi { ptr, i32 } [ %.pn108, %_ZN7testing7MessageD2Ev.exit312 ], [ %677, %676 ]
@@ -98597,9 +97780,8 @@ _ZN7testing15AssertionResultD2Ev.exit326:         ; preds = %736, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA18_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit327: ; preds = %743, %744
   %745 = load i8, ptr %58, align 8
-  %746 = and i8 %745, 1
-  %.not414 = icmp eq i8 %746, 0
-  br i1 %.not414, label %750, label %772
+  %746 = trunc i8 %745 to i1
+  br i1 %746, label %772, label %750
 
 747:                                              ; preds = %_ZN7testing7MessageD2Ev.exit323, %712
   %.pn111.pn = phi { ptr, i32 } [ %.pn111, %_ZN7testing7MessageD2Ev.exit323 ], [ %713, %712 ]
@@ -98708,9 +97890,8 @@ _ZN7testing15AssertionResultD2Ev.exit338:         ; preds = %772, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA19_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit339: ; preds = %779, %780
   %781 = load i8, ptr %61, align 8
-  %782 = and i8 %781, 1
-  %.not415 = icmp eq i8 %782, 0
-  br i1 %.not415, label %786, label %808
+  %782 = trunc i8 %781 to i1
+  br i1 %782, label %808, label %786
 
 783:                                              ; preds = %_ZN7testing7MessageD2Ev.exit335, %748
   %.pn114.pn = phi { ptr, i32 } [ %.pn114, %_ZN7testing7MessageD2Ev.exit335 ], [ %749, %748 ]
@@ -98819,9 +98000,8 @@ _ZN7testing15AssertionResultD2Ev.exit350:         ; preds = %808, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA20_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit351: ; preds = %815, %816
   %817 = load i8, ptr %64, align 8
-  %818 = and i8 %817, 1
-  %.not416 = icmp eq i8 %818, 0
-  br i1 %.not416, label %822, label %844
+  %818 = trunc i8 %817 to i1
+  br i1 %818, label %844, label %822
 
 819:                                              ; preds = %_ZN7testing7MessageD2Ev.exit347, %784
   %.pn117.pn = phi { ptr, i32 } [ %.pn117, %_ZN7testing7MessageD2Ev.exit347 ], [ %785, %784 ]
@@ -98930,9 +98110,8 @@ _ZN7testing15AssertionResultD2Ev.exit362:         ; preds = %844, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit363: ; preds = %851, %852
   %853 = load i8, ptr %67, align 8
-  %854 = and i8 %853, 1
-  %.not417 = icmp eq i8 %854, 0
-  br i1 %.not417, label %858, label %880
+  %854 = trunc i8 %853 to i1
+  br i1 %854, label %880, label %858
 
 855:                                              ; preds = %_ZN7testing7MessageD2Ev.exit359, %820
   %.pn120.pn = phi { ptr, i32 } [ %.pn120, %_ZN7testing7MessageD2Ev.exit359 ], [ %821, %820 ]
@@ -99041,9 +98220,8 @@ _ZN7testing15AssertionResultD2Ev.exit374:         ; preds = %880, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA22_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %887, %888
   %889 = load i8, ptr %70, align 8
-  %890 = and i8 %889, 1
-  %.not418 = icmp eq i8 %890, 0
-  br i1 %.not418, label %894, label %916
+  %890 = trunc i8 %889 to i1
+  br i1 %890, label %916, label %894
 
 891:                                              ; preds = %_ZN7testing7MessageD2Ev.exit371, %856
   %.pn123.pn = phi { ptr, i32 } [ %.pn123, %_ZN7testing7MessageD2Ev.exit371 ], [ %857, %856 ]
@@ -99152,9 +98330,8 @@ _ZN7testing15AssertionResultD2Ev.exit385:         ; preds = %916, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA23_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %923, %924
   %925 = load i8, ptr %73, align 8
-  %926 = and i8 %925, 1
-  %.not419 = icmp eq i8 %926, 0
-  br i1 %.not419, label %930, label %952
+  %926 = trunc i8 %925 to i1
+  br i1 %926, label %952, label %930
 
 927:                                              ; preds = %_ZN7testing7MessageD2Ev.exit382, %892
   %.pn126.pn = phi { ptr, i32 } [ %.pn126, %_ZN7testing7MessageD2Ev.exit382 ], [ %893, %892 ]
@@ -99351,9 +98528,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEE5resetEPS3_.exit
 
 _ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %53, %54
   %55 = load i8, ptr %4, align 8
-  %56 = and i8 %55, 1
-  %.not = icmp eq i8 %56, 0
-  br i1 %.not, label %63, label %85
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %85, label %63
 
 57:                                               ; preds = %.noexc, %1
   %58 = landingpad { ptr, i32 }
@@ -99473,9 +98649,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %92, %93
   %94 = load i8, ptr %7, align 8
-  %95 = and i8 %94, 1
-  %.not185 = icmp eq i8 %95, 0
-  br i1 %.not185, label %99, label %121
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %121, label %99
 
 96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit72, %61
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZN7testing7MessageD2Ev.exit72 ], [ %62, %61 ]
@@ -99584,9 +98759,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %121, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %128, %129
   %130 = load i8, ptr %10, align 8
-  %131 = and i8 %130, 1
-  %.not186 = icmp eq i8 %131, 0
-  br i1 %.not186, label %135, label %157
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %157, label %135
 
 132:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %97
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %_ZN7testing7MessageD2Ev.exit81 ], [ %98, %97 ]
@@ -99695,9 +98869,8 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %157, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %164, %165
   %166 = load i8, ptr %13, align 8
-  %167 = and i8 %166, 1
-  %.not187 = icmp eq i8 %167, 0
-  br i1 %.not187, label %171, label %193
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %193, label %171
 
 168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit92, %133
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7testing7MessageD2Ev.exit92 ], [ %134, %133 ]
@@ -99806,9 +98979,8 @@ _ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %193, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %200, %201
   %202 = load i8, ptr %16, align 8
-  %203 = and i8 %202, 1
-  %.not188 = icmp eq i8 %203, 0
-  br i1 %.not188, label %207, label %229
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %229, label %207
 
 204:                                              ; preds = %_ZN7testing7MessageD2Ev.exit103, %169
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %_ZN7testing7MessageD2Ev.exit103 ], [ %170, %169 ]
@@ -99917,9 +99089,8 @@ _ZN7testing15AssertionResultD2Ev.exit117:         ; preds = %229, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %236, %237
   %238 = load i8, ptr %19, align 8
-  %239 = and i8 %238, 1
-  %.not189 = icmp eq i8 %239, 0
-  br i1 %.not189, label %243, label %265
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %265, label %243
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit114, %205
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7testing7MessageD2Ev.exit114 ], [ %206, %205 ]
@@ -100028,9 +99199,8 @@ _ZN7testing15AssertionResultD2Ev.exit128:         ; preds = %265, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %272, %273
   %274 = load i8, ptr %22, align 8
-  %275 = and i8 %274, 1
-  %.not190 = icmp eq i8 %275, 0
-  br i1 %.not190, label %279, label %301
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %301, label %279
 
 276:                                              ; preds = %_ZN7testing7MessageD2Ev.exit125, %241
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZN7testing7MessageD2Ev.exit125 ], [ %242, %241 ]
@@ -100139,9 +99309,8 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %301, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %308, %309
   %310 = load i8, ptr %25, align 8
-  %311 = and i8 %310, 1
-  %.not191 = icmp eq i8 %311, 0
-  br i1 %.not191, label %315, label %337
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %337, label %315
 
 312:                                              ; preds = %_ZN7testing7MessageD2Ev.exit136, %277
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZN7testing7MessageD2Ev.exit136 ], [ %278, %277 ]
@@ -100250,9 +99419,8 @@ _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %337, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit151: ; preds = %344, %345
   %346 = load i8, ptr %28, align 8
-  %347 = and i8 %346, 1
-  %.not192 = icmp eq i8 %347, 0
-  br i1 %.not192, label %351, label %373
+  %347 = trunc i8 %346 to i1
+  br i1 %347, label %373, label %351
 
 348:                                              ; preds = %_ZN7testing7MessageD2Ev.exit147, %313
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZN7testing7MessageD2Ev.exit147 ], [ %314, %313 ]
@@ -100361,9 +99529,8 @@ _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %373, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %380, %381
   %382 = load i8, ptr %31, align 8
-  %383 = and i8 %382, 1
-  %.not193 = icmp eq i8 %383, 0
-  br i1 %.not193, label %387, label %409
+  %383 = trunc i8 %382 to i1
+  br i1 %383, label %409, label %387
 
 384:                                              ; preds = %_ZN7testing7MessageD2Ev.exit159, %349
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZN7testing7MessageD2Ev.exit159 ], [ %350, %349 ]
@@ -100472,9 +99639,8 @@ _ZN7testing15AssertionResultD2Ev.exit173:         ; preds = %409, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit: ; preds = %416, %417
   %418 = load i8, ptr %34, align 8
-  %419 = and i8 %418, 1
-  %.not194 = icmp eq i8 %419, 0
-  br i1 %.not194, label %423, label %445
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %445, label %423
 
 420:                                              ; preds = %_ZN7testing7MessageD2Ev.exit170, %385
   %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN7testing7MessageD2Ev.exit170 ], [ %386, %385 ]

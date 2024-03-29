@@ -113,8 +113,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %theory = getelementptr inbounds i8, ptr %call8, i64 368
   %1 = load ptr, ptr %theory, align 8
   %2 = load i8, ptr %1, align 4
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   invoke void @_ZN4cvc58internal6theory11TheoryModelC1ERNS0_3EnvENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(904) %call, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont9 unwind label %lpad6
 
@@ -128,23 +127,23 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 ehcleanup11.thread:                               ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit
 
 lpad4:                                            ; preds = %call.i.noexc, %invoke.cont3
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont5
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad6, %lpad.i, %lpad4
-  %.pn = phi { ptr, i32 } [ %6, %lpad6 ], [ %5, %lpad4 ], [ %0, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %4, %lpad4 ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   call void @_ZdlPv(ptr noundef nonnull %call) #16
   %.pr = load ptr, ptr %d_modelEqualityEngineAlloc, align 8
@@ -154,12 +153,12 @@ ehcleanup11:                                      ; preds = %lpad6, %lpad.i, %lp
 _ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i: ; preds = %ehcleanup11
   %vtable.i.i = load ptr, ptr %.pr, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %7 = load ptr, ptr %vfn.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(1784) %.pr) #15
+  %6 = load ptr, ptr %vfn.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(1784) %.pr) #15
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit: ; preds = %ehcleanup11.thread, %ehcleanup11, %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i
-  %.pn.pn8 = phi { ptr, i32 } [ %4, %ehcleanup11.thread ], [ %.pn, %ehcleanup11 ], [ %.pn, %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i ]
+  %.pn.pn8 = phi { ptr, i32 } [ %3, %ehcleanup11.thread ], [ %.pn, %ehcleanup11 ], [ %.pn, %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i ]
   store ptr null, ptr %d_modelEqualityEngineAlloc, align 8
   call void @_ZN4cvc57context7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext) #15
   resume { ptr, i32 } %.pn.pn8
@@ -352,9 +351,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory12ModelManager10buildM
 entry:
   %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %d_modelBuiltSuccess = getelementptr inbounds i8, ptr %this, i64 121
@@ -362,8 +360,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %d_env = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %d_env, align 8
-  %call = tail call noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %2)
+  %1 = load ptr, ptr %d_env, align 8
+  %call = tail call noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %1)
   %d_enabled.i = getelementptr inbounds i8, ptr %call, i64 8
   store i8 0, ptr %d_enabled.i, align 8
   store i8 1, ptr %d_modelBuilt, align 8
@@ -371,15 +369,15 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %d_modelBuiltSuccess4, align 1
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %3 = load ptr, ptr %vfn, align 8
-  %call5 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(122) %this)
+  %2 = load ptr, ptr %vfn, align 8
+  %call5 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(122) %this)
   br i1 %call5, label %cleanup.done31, label %if.end82
 
 cleanup.done31:                                   ; preds = %if.end
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 24
-  %4 = load ptr, ptr %vfn12, align 8
-  %call13 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(122) %this)
+  %3 = load ptr, ptr %vfn12, align 8
+  %call13 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(122) %this)
   %frombool = zext i1 %call13 to i8
   store i8 %frombool, ptr %d_modelBuiltSuccess4, align 1
   br label %if.end82
@@ -389,10 +387,9 @@ if.end82:                                         ; preds = %if.end, %cleanup.do
   br label %return
 
 return:                                           ; preds = %if.end82, %if.then
-  %retval.0.in.in.in = phi ptr [ %d_modelBuiltSuccess, %if.then ], [ %d_modelBuiltSuccess4, %if.end82 ]
-  %retval.0.in.in = load i8, ptr %retval.0.in.in.in, align 1
-  %retval.0.in = and i8 %retval.0.in.in, 1
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in.in = phi ptr [ %d_modelBuiltSuccess, %if.then ], [ %d_modelBuiltSuccess4, %if.end82 ]
+  %retval.0.in = load i8, ptr %retval.0.in.in, align 1
+  %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
 }
 
@@ -403,8 +400,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory12ModelManager12isMod
 entry:
   %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -415,16 +411,14 @@ entry:
   %theoryId = alloca i32, align 4
   %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %cond.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.end, label %return
 
 cond.end:                                         ; preds = %entry
   %d_modelBuiltSuccess = getelementptr inbounds i8, ptr %this, i64 121
-  %2 = load i8, ptr %d_modelBuiltSuccess, align 1
-  %3 = and i8 %2, 1
-  %tobool5.not = icmp eq i8 %3, 0
-  br i1 %tobool5.not, label %cond.false8, label %cleanup.done
+  %1 = load i8, ptr %d_modelBuiltSuccess, align 1
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %cleanup.done, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.end
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory12ModelManager16postProcessModelEb, ptr noundef nonnull @.str.7, i32 noundef 132)
@@ -448,7 +442,7 @@ cleanup.action:                                   ; preds = %invoke.cont14
   unreachable
 
 lpad:                                             ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont, %cond.false8
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #17
   unreachable
@@ -456,12 +450,11 @@ lpad:                                             ; preds = %invoke.cont14, %inv
 cleanup.done:                                     ; preds = %cond.end
   %call23 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %smt = getelementptr inbounds i8, ptr %call23, i64 352
-  %5 = load ptr, ptr %smt, align 8
-  %produceModels = getelementptr inbounds i8, ptr %5, i64 111
-  %6 = load i8, ptr %produceModels, align 1
-  %7 = and i8 %6, 1
-  %tobool24.not = icmp eq i8 %7, 0
-  br i1 %tobool24.not, label %return, label %if.end26
+  %3 = load ptr, ptr %smt, align 8
+  %produceModels = getelementptr inbounds i8, ptr %3, i64 111
+  %4 = load i8, ptr %produceModels, align 1
+  %tobool24 = trunc i8 %4 to i1
+  br i1 %tobool24, label %if.end26, label %return
 
 if.end26:                                         ; preds = %cleanup.done
   store i32 0, ptr %theoryId, align 4
@@ -470,21 +463,21 @@ if.end26:                                         ; preds = %cleanup.done
   br label %for.body
 
 for.body:                                         ; preds = %if.end26, %for.inc
-  %8 = phi i32 [ 0, %if.end26 ], [ %.pr, %for.inc ]
-  %9 = load ptr, ptr %d_te, align 8
-  %d_theoryTable.i = getelementptr inbounds i8, ptr %9, i64 24
-  %idxprom.i = zext i32 %8 to i64
+  %5 = phi i32 [ 0, %if.end26 ], [ %.pr, %for.inc ]
+  %6 = load ptr, ptr %d_te, align 8
+  %d_theoryTable.i = getelementptr inbounds i8, ptr %6, i64 24
+  %idxprom.i = zext i32 %5 to i64
   %arrayidx.i = getelementptr inbounds [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %cmp28 = icmp eq ptr %10, null
+  %7 = load ptr, ptr %arrayidx.i, align 8
+  %cmp28 = icmp eq ptr %7, null
   br i1 %cmp28, label %for.inc, label %cond.end41
 
 cond.end41:                                       ; preds = %for.body
-  %11 = load ptr, ptr %d_model, align 8
-  %vtable = load ptr, ptr %10, align 8
+  %8 = load ptr, ptr %d_model, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
-  %12 = load ptr, ptr %vfn, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(408) %10, ptr noundef %11)
+  %9 = load ptr, ptr %vfn, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(408) %7, ptr noundef %8)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %cond.end41
@@ -495,9 +488,9 @@ for.inc:                                          ; preds = %for.body, %cond.end
 
 for.end:                                          ; preds = %for.inc
   %d_modelBuilder = getelementptr inbounds i8, ptr %this, i64 104
-  %13 = load ptr, ptr %d_modelBuilder, align 8
-  %14 = load ptr, ptr %d_model, align 8
-  call void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16postProcessModelEbPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(120) %13, i1 noundef zeroext %incomplete, ptr noundef %14)
+  %10 = load ptr, ptr %d_modelBuilder, align 8
+  %11 = load ptr, ptr %d_model, align 8
+  call void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16postProcessModelEbPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(120) %10, i1 noundef zeroext %incomplete, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %cleanup.done, %entry, %for.end
@@ -583,8 +576,7 @@ cond.true38:                                      ; preds = %invoke.cont16.cond.
   %7 = phi i8 [ %.pre, %invoke.cont16.cond.true38_crit_edge ], [ 0, %cond.true21 ]
   %8 = load ptr, ptr %d_model, align 8
   store ptr %4, ptr %agg.tmp62, align 8
-  %9 = and i8 %7, 1
-  %tobool64 = icmp ne i8 %9, 0
+  %tobool64 = trunc i8 %7 to i1
   %call67 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory11TheoryModel15assertPredicateENS0_12NodeTemplateILb0EEEb(ptr noundef nonnull align 8 dereferenceable(904) %8, ptr noundef nonnull %agg.tmp62, i1 noundef zeroext %tobool64)
           to label %invoke.cont66 unwind label %lpad65
 
@@ -595,7 +587,7 @@ invoke.cont66:                                    ; preds = %cond.true38
   br i1 %or.cond.not, label %for.body, label %cleanup71.loopexit, !llvm.loop !6
 
 lpad65:                                           ; preds = %cond.true38
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup72
 
@@ -604,26 +596,26 @@ cleanup71.loopexit:                               ; preds = %invoke.cont66
   br label %cleanup71
 
 cleanup71:                                        ; preds = %cleanup71.loopexit, %invoke.cont
-  %11 = phi ptr [ %2, %invoke.cont ], [ %.pre258, %cleanup71.loopexit ]
+  %10 = phi ptr [ %2, %invoke.cont ], [ %.pre258, %cleanup71.loopexit ]
   %cmp.i.not.lcssa = phi i1 [ true, %invoke.cont ], [ %call67, %cleanup71.loopexit ]
-  %tobool.not.i.i.i = icmp eq ptr %11, null
+  %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup71
-  call void @_ZdlPv(ptr noundef nonnull %11) #16
+  call void @_ZdlPv(ptr noundef nonnull %10) #16
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %cleanup71, %if.then.i.i.i
   ret i1 %cmp.i.not.lcssa
 
 ehcleanup72:                                      ; preds = %lpad15, %lpad65, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %10, %lpad65 ], [ %6, %lpad15 ]
-  %12 = load ptr, ptr %boolVars, align 8
-  %tobool.not.i.i.i233 = icmp eq ptr %12, null
+  %.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %9, %lpad65 ], [ %6, %lpad15 ]
+  %11 = load ptr, ptr %boolVars, align 8
+  %tobool.not.i.i.i233 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i233, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit235, label %if.then.i.i.i234
 
 if.then.i.i.i234:                                 ; preds = %ehcleanup72
-  call void @_ZdlPv(ptr noundef nonnull %12) #16
+  call void @_ZdlPv(ptr noundef nonnull %11) #16
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit235
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit235: ; preds = %ehcleanup72, %if.then.i.i.i234

@@ -4717,8 +4717,8 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 
 18:                                               ; preds = %1
   %19 = load i64, ptr %15, align 8, !range !143, !noalias !581, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %19, 0
-  br i1 %trunc.not.i.i, label %20, label %25
+  %trunc.i.i = trunc i64 %19 to i1
+  br i1 %trunc.i.i, label %25, label %20
 
 20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !581
@@ -4893,12 +4893,12 @@ _ZN5image8dynimage12DynamicImage5color17h5515d57d2078eb0dE.exit.thread.i.i: ; pr
   br label %65
 
 65:                                               ; preds = %72, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i"
-  %.sroa.12.0.i = phi i8 [ %42, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ], [ undef, %72 ]
-  %.sroa.11.0.i = phi i8 [ %44, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ], [ undef, %72 ]
-  %.sroa.10.0.i = phi i32 [ %38, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ], [ undef, %72 ]
-  %.sroa.9.0.i = phi i32 [ %33, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ], [ undef, %72 ]
-  %.sroa.7.0.i = phi i64 [ %.sroa.03.0.i.i, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ], [ %.sroa.4.0.copyload.i, %72 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ], [ -9223372036854775808, %72 ]
+  %.sroa.12.0.i = phi i8 [ undef, %72 ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ]
+  %.sroa.11.0.i = phi i8 [ undef, %72 ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ]
+  %.sroa.10.0.i = phi i32 [ undef, %72 ], [ %38, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ]
+  %.sroa.9.0.i = phi i32 [ undef, %72 ], [ %33, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ]
+  %.sroa.7.0.i = phi i64 [ %.sroa.4.0.copyload.i, %72 ], [ %.sroa.03.0.i.i, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ]
+  %.sroa.0.0.i = phi i64 [ -9223372036854775808, %72 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..raster..RasterImage$GT$17h0259cf6b924ca511E.exit.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !608)
   call void @llvm.experimental.noalias.scope.decl(metadata !611)
   call void @llvm.experimental.noalias.scope.decl(metadata !614)

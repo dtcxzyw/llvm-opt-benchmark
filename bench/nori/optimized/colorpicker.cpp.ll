@@ -827,9 +827,8 @@ define hidden void @_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE(ptr nocaptur
   %4 = alloca %"class.nanogui::Color", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %40
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %40, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1153,17 +1152,15 @@ define internal void @"_ZNSt17_Function_handlerIFvbEZN7nanogui11ColorPickerC1EPN
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 184
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_2JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_2JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %.val, i64 192
   %12 = getelementptr inbounds i8, ptr %.val, i64 184
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i, label %15, label %_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i, label %15
 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1390,9 +1387,8 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %.val, i64 184
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %.val, i64 392

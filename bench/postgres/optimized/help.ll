@@ -495,21 +495,20 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) local_unnamed_addr #0 
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.152, ptr noundef nonnull %7) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.155) #9
   %8 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6, i32 0, i32 7), align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.154, ptr @.str.153
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.153, ptr @.str.154
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.156, ptr noundef nonnull %10) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.157) #9
   %11 = load i16, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6, i32 0, i32 1), align 4
   %12 = icmp eq i16 %11, 2
-  %.not12 = icmp eq i16 %11, 0
-  %13 = select i1 %.not12, ptr @.str.154, ptr @.str.153
+  %.not = icmp eq i16 %11, 0
+  %13 = select i1 %.not, ptr @.str.154, ptr @.str.153
   %14 = select i1 %12, ptr @.str.159, ptr %13
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.158, ptr noundef nonnull %14) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.63) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.160) #9
-  %.not13 = icmp eq ptr %4, null
-  br i1 %.not13, label %16, label %15
+  %.not12 = icmp eq ptr %4, null
+  br i1 %.not12, label %16, label %15
 
 15:                                               ; preds = %1
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.161, ptr noundef nonnull %4) #9
@@ -529,9 +528,8 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) local_unnamed_addr #0 
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.168) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.169) #9
   %18 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 26), align 8
-  %19 = and i8 %18, 1
-  %.not14 = icmp eq i8 %19, 0
-  %20 = select i1 %.not14, ptr @.str.154, ptr @.str.153
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.153, ptr @.str.154
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.170, ptr noundef nonnull %20) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.171) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.63) #9
@@ -561,8 +559,8 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) local_unnamed_addr #0 
   br label %22, !llvm.loop !7
 
 28:                                               ; preds = %22
-  %.not16 = icmp eq i16 %0, 0
-  %29 = select i1 %.not16, ptr null, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6)
+  %.not14 = icmp eq i16 %0, 0
+  %29 = select i1 %.not14, ptr null, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6)
   %30 = call ptr @PageOutput(i32 noundef %.09, ptr noundef %29) #9
   %31 = load ptr, ptr %2, align 8
   %32 = call i32 @fputs(ptr noundef %31, ptr noundef %30)

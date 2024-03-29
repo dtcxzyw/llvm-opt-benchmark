@@ -859,26 +859,26 @@ while.body.lr.ph.i:                               ; preds = %if.then
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %mul.i.i.i
   %deletedCount_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %length_.i, align 8
-  %call3.i38 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i, i64 noundef %2) #24
-  %cmp.i39 = icmp eq ptr %call3.i38, null
-  br i1 %cmp.i39, label %return, label %if.end.i.preheader
+  %call3.i39 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i, i64 noundef %2) #24
+  %cmp.i40 = icmp eq ptr %call3.i39, null
+  br i1 %cmp.i40, label %return, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %while.body.lr.ph.i
-  %sub.ptr.lhs.cast.i933 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %sub.ptr.lhs.cast.i934 = ptrtoint ptr %add.ptr.i.i.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.preheader, %if.end.i
-  %call3.i42 = phi ptr [ %call3.i, %if.end.i ], [ %call3.i38, %if.end.i.preheader ]
-  %sub.ptr.rhs.cast.i1041 = phi i64 [ %sub.ptr.rhs.cast.i10, %if.end.i ], [ %sub.ptr.lhs.cast.i933, %if.end.i.preheader ]
-  %add.ptr.i.i8.i40 = phi ptr [ %add.ptr.i.i8.i, %if.end.i ], [ %add.ptr.i.i.i, %if.end.i.preheader ]
-  %sub.ptr.lhs.cast5.i = ptrtoint ptr %call3.i42 to i64
-  %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast.i1041
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i8.i40, i64 %sub.ptr.sub7.i
+  %call3.i43 = phi ptr [ %call3.i, %if.end.i ], [ %call3.i39, %if.end.i.preheader ]
+  %sub.ptr.rhs.cast.i1042 = phi i64 [ %sub.ptr.rhs.cast.i10, %if.end.i ], [ %sub.ptr.lhs.cast.i934, %if.end.i.preheader ]
+  %add.ptr.i.i8.i41 = phi ptr [ %add.ptr.i.i8.i, %if.end.i ], [ %add.ptr.i.i.i, %if.end.i.preheader ]
+  %sub.ptr.lhs.cast5.i = ptrtoint ptr %call3.i43 to i64
+  %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast.i1042
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i8.i41, i64 %sub.ptr.sub7.i
   store i8 0, ptr %arrayidx.i, align 1
   %3 = load i64, ptr %deletedCount_.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %deletedCount_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call3.i42, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %call3.i43, i64 1
   %4 = load i64, ptr %length_.i, align 8
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %capacity_.i, align 8
@@ -897,32 +897,32 @@ if.else:                                          ; preds = %entry
   %mul.i.i = mul i64 %7, 40
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %mul.i.i
   %length_ = getelementptr inbounds i8, ptr %this, i64 8
-  %tobool.not43 = icmp eq ptr %0, null
-  br i1 %tobool.not43, label %while.end, label %while.body.lr.ph
+  %tobool.not44 = icmp eq ptr %0, null
+  br i1 %tobool.not44, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
   %cmp.not7.i.i = icmp eq ptr %name.coerce1.fr, %name.coerce0
   %deletedCount_ = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %length_, align 8
-  %call7.us69 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 1, i64 noundef %8) #24
-  %cmp8.us70 = icmp eq ptr %call7.us69, null
+  %call7.us70 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 1, i64 noundef %8) #24
+  %cmp8.us71 = icmp eq ptr %call7.us70, null
   br i1 %cmp.not7.i.i, label %while.body.lr.ph.split.us.split, label %while.body.lr.ph.split.split
 
 while.body.lr.ph.split.us.split:                  ; preds = %while.body.lr.ph
-  br i1 %cmp8.us70, label %while.end, label %if.end.us.preheader
+  br i1 %cmp8.us71, label %return, label %if.end.us.preheader
 
 if.end.us.preheader:                              ; preds = %while.body.lr.ph.split.us.split
-  %sub.ptr.lhs.cast.us64 = ptrtoint ptr %add.ptr.i.i to i64
+  %sub.ptr.lhs.cast.us65 = ptrtoint ptr %add.ptr.i.i to i64
   br label %if.end.us
 
 if.end.us:                                        ; preds = %if.end.us.preheader, %if.end22.us
-  %call7.us73 = phi ptr [ %call7.us, %if.end22.us ], [ %call7.us69, %if.end.us.preheader ]
-  %sub.ptr.rhs.cast.us72 = phi i64 [ %sub.ptr.rhs.cast.us, %if.end22.us ], [ %sub.ptr.lhs.cast.us64, %if.end.us.preheader ]
+  %call7.us74 = phi ptr [ %call7.us, %if.end22.us ], [ %call7.us70, %if.end.us.preheader ]
+  %sub.ptr.rhs.cast.us73 = phi i64 [ %sub.ptr.rhs.cast.us, %if.end22.us ], [ %sub.ptr.lhs.cast.us65, %if.end.us.preheader ]
   %9 = phi i64 [ %20, %if.end22.us ], [ %7, %if.end.us.preheader ]
   %10 = phi ptr [ %19, %if.end22.us ], [ %0, %if.end.us.preheader ]
-  %removed.045.us71 = phi i8 [ %removed.1.us, %if.end22.us ], [ 0, %if.end.us.preheader ]
-  %sub.ptr.lhs.cast11.us = ptrtoint ptr %call7.us73 to i64
-  %sub.ptr.sub13.us = sub i64 %sub.ptr.lhs.cast11.us, %sub.ptr.rhs.cast.us72
+  %removed.046.us72 = phi i1 [ %removed.1.us, %if.end22.us ], [ false, %if.end.us.preheader ]
+  %sub.ptr.lhs.cast11.us = ptrtoint ptr %call7.us74 to i64
+  %sub.ptr.sub13.us = sub i64 %sub.ptr.lhs.cast11.us, %sub.ptr.rhs.cast.us73
   %mul.i.i18.us = shl i64 %9, 5
   %add.ptr.i.i19.us = getelementptr inbounds i8, ptr %10, i64 %mul.i.i18.us
   %arrayidx.us = getelementptr inbounds ptr, ptr %add.ptr.i.i19.us, i64 %sub.ptr.sub13.us
@@ -945,13 +945,13 @@ if.end.i22.us:                                    ; preds = %if.end.us
 delete.notnull.us:                                ; preds = %if.end.i22.us
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   tail call void @_ZdlPv(ptr noundef nonnull %14) #23
-  %.pre77 = load ptr, ptr %this, align 8
-  %.pre78 = load i64, ptr %capacity_.i, align 8
+  %.pre79 = load ptr, ptr %this, align 8
+  %.pre80 = load i64, ptr %capacity_.i, align 8
   br label %delete.end.us
 
 delete.end.us:                                    ; preds = %delete.notnull.us, %if.end.i22.us
-  %15 = phi i64 [ %.pre78, %delete.notnull.us ], [ %13, %if.end.i22.us ]
-  %16 = phi ptr [ %.pre77, %delete.notnull.us ], [ %12, %if.end.i22.us ]
+  %15 = phi i64 [ %.pre80, %delete.notnull.us ], [ %13, %if.end.i22.us ]
+  %16 = phi ptr [ %.pre79, %delete.notnull.us ], [ %12, %if.end.i22.us ]
   %mul.i.i27.us = mul i64 %15, 40
   %add.ptr.i.i28.us = getelementptr inbounds i8, ptr %16, i64 %mul.i.i27.us
   %arrayidx21.us = getelementptr inbounds i8, ptr %add.ptr.i.i28.us, i64 %sub.ptr.sub13.us
@@ -962,8 +962,8 @@ delete.end.us:                                    ; preds = %delete.notnull.us, 
   br label %if.end22.us
 
 if.end22.us:                                      ; preds = %delete.end.us, %if.end.us
-  %removed.1.us = phi i8 [ 1, %delete.end.us ], [ %removed.045.us71, %if.end.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %call7.us73, i64 1
+  %removed.1.us = phi i1 [ true, %delete.end.us ], [ %removed.046.us72, %if.end.us ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %call7.us74, i64 1
   %18 = load i64, ptr %length_, align 8
   %19 = load ptr, ptr %this, align 8
   %20 = load i64, ptr %capacity_.i, align 8
@@ -975,23 +975,23 @@ if.end22.us:                                      ; preds = %delete.end.us, %if.
   %sub.us = add i64 %sub.ptr.sub.neg.us, %sub.ptr.rhs.cast.us
   %call7.us = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.us, i32 noundef 1, i64 noundef %sub.us) #24
   %cmp8.us = icmp eq ptr %call7.us, null
-  br i1 %cmp8.us, label %while.end, label %if.end.us
+  br i1 %cmp8.us, label %return, label %if.end.us
 
 while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph
-  br i1 %cmp8.us70, label %while.end, label %if.end.preheader
+  br i1 %cmp8.us71, label %return, label %if.end.preheader
 
 if.end.preheader:                                 ; preds = %while.body.lr.ph.split.split
-  %sub.ptr.lhs.cast51 = ptrtoint ptr %add.ptr.i.i to i64
+  %sub.ptr.lhs.cast52 = ptrtoint ptr %add.ptr.i.i to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.end.preheader, %if.end22
-  %call760 = phi ptr [ %call7, %if.end22 ], [ %call7.us69, %if.end.preheader ]
-  %sub.ptr.rhs.cast59 = phi i64 [ %sub.ptr.rhs.cast, %if.end22 ], [ %sub.ptr.lhs.cast51, %if.end.preheader ]
+  %call761 = phi ptr [ %call7, %if.end22 ], [ %call7.us70, %if.end.preheader ]
+  %sub.ptr.rhs.cast60 = phi i64 [ %sub.ptr.rhs.cast, %if.end22 ], [ %sub.ptr.lhs.cast52, %if.end.preheader ]
   %21 = phi i64 [ %36, %if.end22 ], [ %7, %if.end.preheader ]
   %22 = phi ptr [ %35, %if.end22 ], [ %0, %if.end.preheader ]
-  %removed.04558 = phi i8 [ %removed.1, %if.end22 ], [ 0, %if.end.preheader ]
-  %sub.ptr.lhs.cast11 = ptrtoint ptr %call760 to i64
-  %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast11, %sub.ptr.rhs.cast59
+  %removed.04659 = phi i1 [ %removed.1, %if.end22 ], [ false, %if.end.preheader ]
+  %sub.ptr.lhs.cast11 = ptrtoint ptr %call761 to i64
+  %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast11, %sub.ptr.rhs.cast60
   %mul.i.i18 = shl i64 %21, 5
   %add.ptr.i.i19 = getelementptr inbounds i8, ptr %22, i64 %mul.i.i18
   %arrayidx = getelementptr inbounds ptr, ptr %add.ptr.i.i19, i64 %sub.ptr.sub13
@@ -1038,11 +1038,11 @@ delete.notnull:                                   ; preds = %if.then17.loopexit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #20
   tail call void @_ZdlPv(ptr noundef nonnull %30) #23
   %.pre = load ptr, ptr %this, align 8
-  %.pre76 = load i64, ptr %capacity_.i, align 8
+  %.pre78 = load i64, ptr %capacity_.i, align 8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then17.loopexit
-  %31 = phi i64 [ %.pre76, %delete.notnull ], [ %29, %if.then17.loopexit ]
+  %31 = phi i64 [ %.pre78, %delete.notnull ], [ %29, %if.then17.loopexit ]
   %32 = phi ptr [ %.pre, %delete.notnull ], [ %28, %if.then17.loopexit ]
   %mul.i.i27 = mul i64 %31, 40
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %32, i64 %mul.i.i27
@@ -1054,8 +1054,8 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br label %if.end22
 
 if.end22:                                         ; preds = %for.body.i.i, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end, %delete.end
-  %removed.1 = phi i8 [ 1, %delete.end ], [ %removed.04558, %if.end ], [ %removed.04558, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i ], [ %removed.04558, %for.body.i.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %call760, i64 1
+  %removed.1 = phi i1 [ true, %delete.end ], [ %removed.04659, %if.end ], [ %removed.04659, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i ], [ %removed.04659, %for.body.i.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %call761, i64 1
   %34 = load i64, ptr %length_, align 8
   %35 = load ptr, ptr %this, align 8
   %36 = load i64, ptr %capacity_.i, align 8
@@ -1067,16 +1067,10 @@ if.end22:                                         ; preds = %for.body.i.i, %_ZNK
   %sub = add i64 %sub.ptr.sub.neg, %sub.ptr.rhs.cast
   %call7 = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr, i32 noundef 1, i64 noundef %sub) #24
   %cmp8 = icmp eq ptr %call7, null
-  br i1 %cmp8, label %while.end, label %if.end
+  br i1 %cmp8, label %return, label %if.end
 
-while.end:                                        ; preds = %if.end22, %if.end22.us, %while.body.lr.ph.split.us.split, %while.body.lr.ph.split.split, %if.else
-  %removed.0.lcssa = phi i8 [ 0, %if.else ], [ 0, %while.body.lr.ph.split.us.split ], [ 0, %while.body.lr.ph.split.split ], [ %removed.1.us, %if.end22.us ], [ %removed.1, %if.end22 ]
-  %37 = and i8 %removed.0.lcssa, 1
-  %tobool23 = icmp ne i8 %37, 0
-  br label %return
-
-return:                                           ; preds = %if.end.i, %while.body.lr.ph.i, %if.then, %while.end
-  %retval.0 = phi i1 [ %tobool23, %while.end ], [ false, %if.then ], [ false, %while.body.lr.ph.i ], [ true, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.end22, %if.end22.us, %while.body.lr.ph.i, %if.else, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.else ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %while.body.lr.ph.i ], [ %removed.1.us, %if.end22.us ], [ %removed.1, %if.end22 ], [ true, %if.end.i ]
   ret i1 %retval.0
 }
 
@@ -1140,9 +1134,9 @@ while.end:                                        ; preds = %if.end, %while.body
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders17removeAllVersionsENS_14HTTPHeaderCodeEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %code, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #12 align 2 {
 entry:
-  %cmp.not = icmp eq i8 %code, 1
+  %cmp.not = icmp ne i8 %code, 1
   %.pre = load ptr, ptr %this, align 8
-  br i1 %cmp.not, label %if.end, label %if.then
+  br i1 %cmp.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1199,7 +1193,6 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
 
 if.end:                                           ; preds = %if.end.i, %entry
   %7 = phi ptr [ %.pre, %entry ], [ %5, %if.end.i ]
-  %removed.0 = phi i8 [ 0, %entry ], [ 1, %if.end.i ]
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %capacity_.i, align 8
   %mul.i.i = mul i64 %8, 40
@@ -1211,7 +1204,7 @@ while.body.lr.ph:                                 ; preds = %if.end.thread82, %i
   %add.ptr.i.i91 = phi ptr [ %add.ptr.i.i86, %if.end.thread82 ], [ %add.ptr.i.i, %if.end ]
   %9 = phi i64 [ %2, %if.end.thread82 ], [ %8, %if.end ]
   %capacity_.i90 = phi ptr [ %capacity_.i84, %if.end.thread82 ], [ %capacity_.i, %if.end ]
-  %removed.089 = phi i8 [ 0, %if.end.thread82 ], [ %removed.0, %if.end ]
+  %removed.089 = phi i1 [ false, %if.end.thread82 ], [ %cmp.not, %if.end ]
   %10 = phi ptr [ %.pre, %if.end.thread82 ], [ %7, %if.end ]
   %length_92 = getelementptr inbounds i8, ptr %this, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %name.coerce1 to i64
@@ -1237,7 +1230,7 @@ if.end7.us:                                       ; preds = %if.end7.us.preheade
   %sub.ptr.rhs.cast.us68 = phi i64 [ %sub.ptr.rhs.cast.us, %if.end20.us ], [ %sub.ptr.lhs.cast.us60, %if.end7.us.preheader ]
   %12 = phi i64 [ %23, %if.end20.us ], [ %9, %if.end7.us.preheader ]
   %13 = phi ptr [ %22, %if.end20.us ], [ %10, %if.end7.us.preheader ]
-  %removed.141.us67 = phi i8 [ %removed.2.us, %if.end20.us ], [ %removed.089, %if.end7.us.preheader ]
+  %removed.141.us67 = phi i1 [ %removed.2.us, %if.end20.us ], [ %removed.089, %if.end7.us.preheader ]
   %sub.ptr.lhs.cast9.us = ptrtoint ptr %call4.us69 to i64
   %sub.ptr.sub11.us = sub i64 %sub.ptr.lhs.cast9.us, %sub.ptr.rhs.cast.us68
   %mul.i.i16.us = shl i64 %12, 5
@@ -1279,7 +1272,7 @@ delete.end.us:                                    ; preds = %delete.notnull.us, 
   br label %if.end20.us
 
 if.end20.us:                                      ; preds = %delete.end.us, %if.end7.us
-  %removed.2.us = phi i8 [ 1, %delete.end.us ], [ %removed.141.us67, %if.end7.us ]
+  %removed.2.us = phi i1 [ true, %delete.end.us ], [ %removed.141.us67, %if.end7.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %call4.us69, i64 1
   %21 = load i64, ptr %length_92, align 8
   %22 = load ptr, ptr %this, align 8
@@ -1306,7 +1299,7 @@ if.end7:                                          ; preds = %if.end7.preheader, 
   %sub.ptr.rhs.cast55 = phi i64 [ %sub.ptr.rhs.cast, %if.end20 ], [ %sub.ptr.lhs.cast47, %if.end7.preheader ]
   %24 = phi i64 [ %39, %if.end20 ], [ %9, %if.end7.preheader ]
   %25 = phi ptr [ %38, %if.end20 ], [ %10, %if.end7.preheader ]
-  %removed.14154 = phi i8 [ %removed.2, %if.end20 ], [ %removed.089, %if.end7.preheader ]
+  %removed.14154 = phi i1 [ %removed.2, %if.end20 ], [ %removed.089, %if.end7.preheader ]
   %sub.ptr.lhs.cast9 = ptrtoint ptr %call456 to i64
   %sub.ptr.sub11 = sub i64 %sub.ptr.lhs.cast9, %sub.ptr.rhs.cast55
   %mul.i.i16 = shl i64 %24, 5
@@ -1375,7 +1368,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br label %if.end20
 
 if.end20:                                         ; preds = %for.body.i.i, %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i, %if.end7, %delete.end
-  %removed.2 = phi i8 [ 1, %delete.end ], [ %removed.14154, %if.end7 ], [ %removed.14154, %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i ], [ %removed.14154, %for.body.i.i ]
+  %removed.2 = phi i1 [ true, %delete.end ], [ %removed.14154, %if.end7 ], [ %removed.14154, %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i ], [ %removed.14154, %for.body.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %call456, i64 1
   %37 = load i64, ptr %length_92, align 8
   %38 = load ptr, ptr %this, align 8
@@ -1391,10 +1384,8 @@ if.end20:                                         ; preds = %for.body.i.i, %_ZNK
   br i1 %cmp5, label %while.end, label %if.end7
 
 while.end:                                        ; preds = %if.end20, %if.end20.us, %if.then, %while.body.lr.ph.split.us.split, %while.body.lr.ph.split.split, %if.end
-  %removed.1.lcssa = phi i8 [ %removed.0, %if.end ], [ %removed.089, %while.body.lr.ph.split.us.split ], [ %removed.089, %while.body.lr.ph.split.split ], [ 0, %if.then ], [ %removed.2.us, %if.end20.us ], [ %removed.2, %if.end20 ]
-  %40 = and i8 %removed.1.lcssa, 1
-  %tobool21 = icmp ne i8 %40, 0
-  ret i1 %tobool21
+  %removed.1.lcssa = phi i1 [ %cmp.not, %if.end ], [ %removed.089, %while.body.lr.ph.split.us.split ], [ %removed.089, %while.body.lr.ph.split.split ], [ false, %if.then ], [ %removed.2.us, %if.end20.us ], [ %removed.2, %if.end20 ]
+  ret i1 %removed.1.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2021,7 +2012,7 @@ if.end.us:                                        ; preds = %if.end.us.preheader
   %sub.ptr.rhs.cast.us86 = phi i64 [ %sub.ptr.rhs.cast.us, %if.end23.us ], [ %sub.ptr.lhs.cast.us78, %if.end.us.preheader ]
   %3 = phi i64 [ %14, %if.end23.us ], [ %1, %if.end.us.preheader ]
   %4 = phi ptr [ %13, %if.end23.us ], [ %0, %if.end.us.preheader ]
-  %transferred.059.us85 = phi i8 [ %transferred.1.us, %if.end23.us ], [ 0, %if.end.us.preheader ]
+  %transferred.059.us85 = phi i1 [ %transferred.1.us, %if.end23.us ], [ false, %if.end.us.preheader ]
   %sub.ptr.lhs.cast10.us = ptrtoint ptr %call6.us87 to i64
   %sub.ptr.sub12.us = sub i64 %sub.ptr.lhs.cast10.us, %sub.ptr.rhs.cast.us86
   %mul.i.i26.us = shl i64 %3, 5
@@ -2054,7 +2045,7 @@ if.end.i.us:                                      ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.end.i.us, %if.end.us
-  %transferred.1.us = phi i8 [ 1, %if.end.i.us ], [ %transferred.059.us85, %if.end.us ]
+  %transferred.1.us = phi i1 [ true, %if.end.i.us ], [ %transferred.059.us85, %if.end.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %call6.us87, i64 1
   %12 = load i64, ptr %length_, align 8
   %13 = load ptr, ptr %this, align 8
@@ -2081,7 +2072,7 @@ if.end:                                           ; preds = %if.end.preheader, %
   %sub.ptr.rhs.cast73 = phi i64 [ %sub.ptr.rhs.cast, %if.end23 ], [ %sub.ptr.lhs.cast65, %if.end.preheader ]
   %15 = phi i64 [ %30, %if.end23 ], [ %1, %if.end.preheader ]
   %16 = phi ptr [ %29, %if.end23 ], [ %0, %if.end.preheader ]
-  %transferred.05972 = phi i8 [ %transferred.1, %if.end23 ], [ 0, %if.end.preheader ]
+  %transferred.05972 = phi i1 [ %transferred.1, %if.end23 ], [ false, %if.end.preheader ]
   %sub.ptr.lhs.cast10 = ptrtoint ptr %call674 to i64
   %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast73
   %mul.i.i26 = shl i64 %15, 5
@@ -2137,7 +2128,7 @@ if.then16.loopexit:                               ; preds = %for.inc.i.i
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body.i.i, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end, %if.then16.loopexit
-  %transferred.1 = phi i8 [ 1, %if.then16.loopexit ], [ %transferred.05972, %if.end ], [ %transferred.05972, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i ], [ %transferred.05972, %for.body.i.i ]
+  %transferred.1 = phi i1 [ true, %if.then16.loopexit ], [ %transferred.05972, %if.end ], [ %transferred.05972, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i ], [ %transferred.05972, %for.body.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %call674, i64 1
   %28 = load i64, ptr %length_, align 8
   %29 = load ptr, ptr %this, align 8
@@ -2171,8 +2162,8 @@ while.body28.lr.ph:                               ; preds = %if.else
   %sub.ptr.sub34.neg99 = sub i64 %32, %sub.ptr.lhs.cast3297
   %sub35100 = add i64 %sub.ptr.sub34.neg99, %sub.ptr.rhs.cast3398
   %call36101 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i37, i32 noundef %conv, i64 noundef %sub35100) #24
-  %cmp37102 = icmp eq ptr %call36101, null
-  br i1 %cmp37102, label %if.end55, label %if.end39
+  %cmp37102 = icmp ne ptr %call36101, null
+  br i1 %cmp37102, label %if.end39, label %if.end55
 
 if.end39:                                         ; preds = %while.body28.lr.ph, %if.end39
   %call36104 = phi ptr [ %call36, %if.end39 ], [ %call36101, %while.body28.lr.ph ]
@@ -2211,10 +2202,8 @@ if.end39:                                         ; preds = %while.body28.lr.ph,
   br i1 %cmp37, label %if.end55, label %if.end39
 
 if.end55:                                         ; preds = %if.end39, %if.end23, %if.end23.us, %while.body28.lr.ph, %if.else, %if.then, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split
-  %transferred.3 = phi i8 [ 0, %if.then ], [ 0, %while.body.lr.ph.split.us.split ], [ 0, %while.body.lr.ph.split.split ], [ 0, %if.else ], [ 0, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ 1, %if.end39 ]
-  %43 = and i8 %transferred.3, 1
-  %tobool56 = icmp ne i8 %43, 0
-  ret i1 %tobool56
+  %transferred.3 = phi i1 [ false, %if.then ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ %cmp37102, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ %cmp37102, %if.end39 ]
+  ret i1 %transferred.3
 }
 
 ; Function Attrs: mustprogress uwtable

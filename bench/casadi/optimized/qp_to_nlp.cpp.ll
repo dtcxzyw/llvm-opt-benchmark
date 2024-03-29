@@ -2886,9 +2886,9 @@ _ZSt6copy_nIPKdxPdET1_T_T0_S3_.exit93:            ; preds = %.lr.ph.i.i.i.i94, %
   %79 = tail call noundef ptr @_ZNK6casadi8Function6memoryEi(ptr noundef nonnull align 8 dereferenceable(8) %72, i32 noundef %78)
   %80 = getelementptr inbounds i8, ptr %79, i64 360
   %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, 1
-  %83 = getelementptr inbounds i8, ptr %5, i64 68
-  store i8 %82, ptr %83, align 4
+  %82 = getelementptr inbounds i8, ptr %5, i64 68
+  %83 = and i8 %81, 1
+  store i8 %83, ptr %82, align 4
   %84 = getelementptr inbounds i8, ptr %79, i64 364
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3212,9 +3212,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_8Func
   %16 = alloca %"class.std::vector", align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %82, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %82
 
 20:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -3490,9 +3489,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17: ; 
   %14 = getelementptr inbounds i8, ptr %0, i64 1472
   %15 = getelementptr inbounds i8, ptr %1, i64 72
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %.noexc18, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %.noexc18
 
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)

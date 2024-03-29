@@ -75,10 +75,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN6hermes6ESTree11getComputedEPNS0_24MemberExpressionLikeNodeE(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
 entry:
-  %retval.0.in.in.in = getelementptr inbounds i8, ptr %node, i64 64
-  %retval.0.in.in = load i8, ptr %retval.0.in.in.in, align 8
-  %retval.0.in = and i8 %retval.0.in.in, 1
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in.in = getelementptr inbounds i8, ptr %node, i64 64
+  %retval.0.in = load i8, ptr %retval.0.in.in, align 8
+  %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
 }
 
@@ -198,8 +197,7 @@ entry:
 return.sink.split:                                ; preds = %entry, %entry
   %_generator5 = getelementptr inbounds i8, ptr %node, i64 128
   %1 = load i8, ptr %_generator5, align 8
-  %2 = and i8 %1, 1
-  %tobool6 = icmp ne i8 %2, 0
+  %tobool6 = trunc i8 %1 to i1
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -219,8 +217,7 @@ entry:
 return.sink.split:                                ; preds = %entry
   %_async8 = getelementptr inbounds i8, ptr %node, i64 129
   %1 = load i8, ptr %_async8, align 1
-  %2 = and i8 %1, 1
-  %tobool9 = icmp ne i8 %2, 0
+  %tobool9 = trunc i8 %1 to i1
   br label %return
 
 return:                                           ; preds = %entry, %return.sink.split

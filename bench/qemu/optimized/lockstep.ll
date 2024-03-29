@@ -447,20 +447,19 @@ if.end19.i:                                       ; preds = %cond.end.i.preheade
   %call21.i = call ptr @g_slist_prepend(ptr noundef %8, ptr noundef %call20.i) #10
   store ptr %call21.i, ptr @divergence_log, align 8
   %16 = load i8, ptr @verbose, align 1
-  %17 = and i8 %16, 1
-  %tobool22.i = icmp ne i8 %17, 0
-  %18 = load i32, ptr %distance.i, align 8
-  %cmp24.i = icmp eq i32 %18, 1
+  %tobool22.i = trunc i8 %16 to i1
+  %17 = load i32, ptr %distance.i, align 8
+  %cmp24.i = icmp eq i32 %17, 1
   %or.cond.i = select i1 %tobool22.i, i1 true, i1 %cmp24.i
   %brmerge.i = or i1 %diverged.0.i, %or.cond.i
   br i1 %brmerge.i, label %if.then27.i, label %if.end31.i
 
 if.then27.i:                                      ; preds = %if.end19.i
   %call29.i = call i32 @g_slist_length(ptr noundef %call21.i) #10
-  %19 = load i32, ptr %distance.i, align 8
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.20, i64 noundef %0, i64 noundef %6, i32 noundef %call29.i, i32 noundef %19) #10
-  %20 = load ptr, ptr %call.i, align 8
-  call void @qemu_plugin_outs(ptr noundef %20) #10
+  %18 = load i32, ptr %distance.i, align 8
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.20, i64 noundef %0, i64 noundef %6, i32 noundef %call29.i, i32 noundef %18) #10
+  %19 = load ptr, ptr %call.i, align 8
+  call void @qemu_plugin_outs(ptr noundef %19) #10
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then27.i, %if.end19.i
@@ -468,8 +467,8 @@ if.end31.i:                                       ; preds = %if.then27.i, %if.en
 
 if.then33.i:                                      ; preds = %if.end31.i
   %insn_count37.i = getelementptr inbounds i8, ptr %them, i64 8
-  %21 = load i64, ptr %insn_count37.i, align 8
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.21, i64 noundef %0, i64 noundef %1, i64 noundef %6, i64 noundef %21) #10
+  %20 = load i64, ptr %insn_count37.i, align 8
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.21, i64 noundef %0, i64 noundef %1, i64 noundef %6, i64 noundef %20) #10
   %entry34.029.i = load ptr, ptr @log, align 8
   %tobool39.not30.i = icmp eq ptr %entry34.029.i, null
   br i1 %tobool39.not30.i, label %if.end60.thread.i, label %cond.true40.i
@@ -478,32 +477,32 @@ cond.true40.i:                                    ; preds = %if.then33.i, %for.b
   %entry34.032.i = phi ptr [ %entry34.0.i, %for.body45.i ], [ %entry34.029.i, %if.then33.i ]
   %i.031.i = phi i32 [ %inc57.i, %for.body45.i ], [ 0, %if.then33.i ]
   %next41.i = getelementptr inbounds i8, ptr %entry34.032.i, i64 8
-  %22 = load ptr, ptr %next41.i, align 8
-  %tobool42.i = icmp ne ptr %22, null
+  %21 = load ptr, ptr %next41.i, align 8
+  %tobool42.i = icmp ne ptr %21, null
   %cmp44.i = icmp ult i32 %i.031.i, 5
   %or.cond1.i = select i1 %tobool42.i, i1 %cmp44.i, i1 false
   br i1 %or.cond1.i, label %for.body45.i, label %if.end60.thread.i
 
 for.body45.i:                                     ; preds = %cond.true40.i
-  %23 = load ptr, ptr %entry34.032.i, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i64, ptr %24, align 8
-  %insns.i = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load i64, ptr %insns.i, align 8
-  %insn_count49.i = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = load i64, ptr %insn_count49.i, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i, ptr noundef nonnull @.str.22, i64 noundef %25, i64 noundef %26, i64 noundef %27) #10
+  %22 = load ptr, ptr %entry34.032.i, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i64, ptr %23, align 8
+  %insns.i = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load i64, ptr %insns.i, align 8
+  %insn_count49.i = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i64, ptr %insn_count49.i, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i, ptr noundef nonnull @.str.22, i64 noundef %24, i64 noundef %25, i64 noundef %26) #10
   %inc57.i = add nuw nsw i32 %i.031.i, 1
   %entry34.0.i = load ptr, ptr %next41.i, align 8
   %tobool39.not.i = icmp eq ptr %entry34.0.i, null
   br i1 %tobool39.not.i, label %if.end60.thread.i, label %cond.true40.i, !llvm.loop !6
 
 if.end60.thread.i:                                ; preds = %for.body45.i, %cond.true40.i, %if.then33.i
-  %28 = load ptr, ptr %call.i, align 8
-  call void @qemu_plugin_outs(ptr noundef %28) #10
+  %27 = load ptr, ptr %call.i, align 8
+  call void @qemu_plugin_outs(ptr noundef %27) #10
   call void @qemu_plugin_outs(ptr noundef nonnull @.str.23) #10
-  %29 = load i64, ptr @our_id, align 8
-  call void @qemu_plugin_uninstall(i64 noundef %29, ptr noundef nonnull @plugin_cleanup) #10
+  %28 = load i64, ptr @our_id, align 8
+  call void @qemu_plugin_uninstall(i64 noundef %28, ptr noundef nonnull @plugin_cleanup) #10
   br label %if.then.i.i.i
 
 if.end60.i:                                       ; preds = %if.end31.i
@@ -520,23 +519,23 @@ report_divergance.exit:                           ; preds = %if.end60.i, %if.the
 
 if.end13:                                         ; preds = %report_divergance.exit, %if.end8
   %insns = getelementptr inbounds i8, ptr %udata, i64 8
-  %30 = load i64, ptr %insns, align 8
-  %31 = load i64, ptr @insn_count, align 8
-  %add = add i64 %31, %30
+  %29 = load i64, ptr %insns, align 8
+  %30 = load i64, ptr @insn_count, align 8
+  %add = add i64 %30, %29
   store i64 %add, ptr @insn_count, align 8
-  %32 = load i64, ptr @bb_count, align 8
-  %inc = add i64 %32, 1
+  %31 = load i64, ptr @bb_count, align 8
+  %inc = add i64 %31, 1
   store i64 %inc, ptr @bb_count, align 8
   %call14 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #13
   store ptr %udata, ptr %call14, align 8
-  %33 = load i64, ptr @insn_count, align 8
+  %32 = load i64, ptr @insn_count, align 8
   %insn_count15 = getelementptr inbounds i8, ptr %call14, i64 8
-  store i64 %33, ptr %insn_count15, align 8
-  %34 = load i64, ptr @bb_count, align 8
+  store i64 %32, ptr %insn_count15, align 8
+  %33 = load i64, ptr @bb_count, align 8
   %block_count = getelementptr inbounds i8, ptr %call14, i64 16
-  store i64 %34, ptr %block_count, align 8
-  %35 = load ptr, ptr @log, align 8
-  %call16 = call ptr @g_slist_prepend(ptr noundef %35, ptr noundef nonnull %call14) #10
+  store i64 %33, ptr %block_count, align 8
+  %34 = load ptr, ptr @log, align 8
+  %call16 = call ptr @g_slist_prepend(ptr noundef %34, ptr noundef nonnull %call14) #10
   store ptr %call16, ptr @log, align 8
   br label %return
 

@@ -408,9 +408,8 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 59
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not147 = icmp eq i8 %13, 0
-  br i1 %.not147, label %14, label %.thread192
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %.thread191, label %14
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %9, align 8
@@ -424,18 +423,18 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   store double %20, ptr %22, align 8
   %23 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %24 = icmp sgt i64 %23, 1
-  br i1 %24, label %.lr.ph154, label %._crit_edge155
+  br i1 %24, label %.lr.ph153, label %._crit_edge154
 
-.lr.ph154:                                        ; preds = %14, %.lr.ph154
-  %.0145152 = phi i64 [ %40, %.lr.ph154 ], [ 1, %14 ]
-  %25 = getelementptr inbounds i64, ptr %9, i64 %.0145152
+.lr.ph153:                                        ; preds = %14, %.lr.ph153
+  %.0145151 = phi i64 [ %40, %.lr.ph153 ], [ 1, %14 ]
+  %25 = getelementptr inbounds i64, ptr %9, i64 %.0145151
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr double, ptr %2, i64 %26
   %28 = getelementptr i8, ptr %27, i64 8
   %29 = load double, ptr %28, align 8
   %30 = load double, ptr %27, align 8
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr double, ptr %31, i64 %.0145152
+  %32 = getelementptr double, ptr %31, i64 %.0145151
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load double, ptr %33, align 8
   %35 = fneg double %30
@@ -444,21 +443,20 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %38 = load double, ptr %37, align 8
   %39 = fdiv double %38, %36
   store double %39, ptr %32, align 8
-  %40 = add nuw nsw i64 %.0145152, 1
+  %40 = add nuw nsw i64 %.0145151, 1
   %41 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %42 = icmp slt i64 %40, %41
-  br i1 %42, label %.lr.ph154, label %._crit_edge155, !llvm.loop !4
+  br i1 %42, label %.lr.ph153, label %._crit_edge154, !llvm.loop !4
 
-._crit_edge155:                                   ; preds = %.lr.ph154, %14
+._crit_edge154:                                   ; preds = %.lr.ph153, %14
   store i8 1, ptr %11, align 1
   br label %99
 
 43:                                               ; preds = %6
   %44 = getelementptr inbounds i8, ptr %1, i64 58
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %47, label %.thread
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %8, i64 24
@@ -492,34 +490,34 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %75 = getelementptr inbounds i8, ptr %66, i64 8
   store double %74, ptr %75, align 8
   %invariant.gep = getelementptr i8, ptr %2, i64 8
-  %invariant.gep149 = getelementptr i8, ptr %2, i64 16
+  %invariant.gep148 = getelementptr i8, ptr %2, i64 16
   %76 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %77 = icmp sgt i64 %76, 2
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
-  %.1151 = phi i64 [ %90, %.lr.ph ], [ 2, %47 ]
-  %78 = getelementptr inbounds i64, ptr %9, i64 %.1151
+  %.1150 = phi i64 [ %90, %.lr.ph ], [ 2, %47 ]
+  %78 = getelementptr inbounds i64, ptr %9, i64 %.1150
   %79 = load i64, ptr %78, align 8
   %gep = getelementptr double, ptr %invariant.gep, i64 %79
   %80 = load double, ptr %gep, align 8
-  %81 = add nsw i64 %.1151, -1
+  %81 = add nsw i64 %.1150, -1
   %82 = getelementptr inbounds i64, ptr %9, i64 %81
   %83 = load i64, ptr %82, align 8
-  %gep150 = getelementptr double, ptr %invariant.gep149, i64 %83
-  %84 = load double, ptr %gep150, align 8
+  %gep149 = getelementptr double, ptr %invariant.gep148, i64 %83
+  %84 = load double, ptr %gep149, align 8
   %85 = load ptr, ptr %56, align 8
   %86 = getelementptr inbounds double, ptr %85, i64 %81
   %87 = load double, ptr %86, align 8
   %88 = fneg double %84
   %89 = tail call double @llvm.fmuladd.f64(double %88, double %87, double %80)
-  %90 = add nuw nsw i64 %.1151, 1
+  %90 = add nuw nsw i64 %.1150, 1
   %91 = getelementptr inbounds i64, ptr %9, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr inbounds double, ptr %2, i64 %92
   %94 = load double, ptr %93, align 8
   %95 = fdiv double %94, %89
-  %96 = getelementptr inbounds double, ptr %85, i64 %.1151
+  %96 = getelementptr inbounds double, ptr %85, i64 %.1150
   store double %95, ptr %96, align 8
   %97 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %98 = icmp slt i64 %90, %97
@@ -529,47 +527,47 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   store i8 1, ptr %44, align 2
   br label %99
 
-99:                                               ; preds = %._crit_edge, %._crit_edge155
+99:                                               ; preds = %._crit_edge, %._crit_edge154
   %100 = icmp sgt i64 %4, 0
-  br i1 %100, label %.lr.ph182, label %._crit_edge183
+  br i1 %100, label %.lr.ph181, label %._crit_edge182
 
-.thread192:                                       ; preds = %10
+.thread191:                                       ; preds = %10
   %101 = icmp sgt i64 %4, 0
-  br i1 %101, label %.lr.ph182.thread194, label %._crit_edge183
+  br i1 %101, label %.lr.ph181.thread193, label %._crit_edge182
 
-.lr.ph182.thread194:                              ; preds = %.thread192
+.lr.ph181.thread193:                              ; preds = %.thread191
   %102 = getelementptr inbounds i8, ptr %1, i64 112
-  br label %.lr.ph182.split.us.preheader
+  br label %.lr.ph181.split.us.preheader
 
 .thread:                                          ; preds = %43
   %103 = icmp sgt i64 %4, 0
-  br i1 %103, label %.lr.ph182.thread, label %._crit_edge183
+  br i1 %103, label %.lr.ph181.thread, label %._crit_edge182
 
-.lr.ph182.thread:                                 ; preds = %.thread
+.lr.ph181.thread:                                 ; preds = %.thread
   %104 = getelementptr inbounds i8, ptr %1, i64 112
-  br label %.lr.ph182.split.preheader
+  br label %.lr.ph181.split.preheader
 
-.lr.ph182:                                        ; preds = %99
+.lr.ph181:                                        ; preds = %99
   %105 = getelementptr inbounds i8, ptr %1, i64 112
-  br i1 %5, label %.lr.ph182.split.us.preheader, label %.lr.ph182.split.preheader
+  br i1 %5, label %.lr.ph181.split.us.preheader, label %.lr.ph181.split.preheader
 
-.lr.ph182.split.preheader:                        ; preds = %.lr.ph182.thread, %.lr.ph182
-  %106 = phi ptr [ %104, %.lr.ph182.thread ], [ %105, %.lr.ph182 ]
-  %invariant.gep174187190 = getelementptr i8, ptr %2, i64 8
+.lr.ph181.split.preheader:                        ; preds = %.lr.ph181.thread, %.lr.ph181
+  %106 = phi ptr [ %104, %.lr.ph181.thread ], [ %105, %.lr.ph181 ]
+  %invariant.gep173186189 = getelementptr i8, ptr %2, i64 8
   %107 = getelementptr inbounds i8, ptr %8, i64 24
   %108 = getelementptr inbounds i8, ptr %1, i64 64
-  %invariant.gep158191 = getelementptr i8, ptr %2, i64 16
-  br label %.lr.ph182.split
+  %invariant.gep157190 = getelementptr i8, ptr %2, i64 16
+  br label %.lr.ph181.split
 
-.lr.ph182.split.us.preheader:                     ; preds = %.lr.ph182.thread194, %.lr.ph182
-  %109 = phi ptr [ %102, %.lr.ph182.thread194 ], [ %105, %.lr.ph182 ]
+.lr.ph181.split.us.preheader:                     ; preds = %.lr.ph181.thread193, %.lr.ph181
+  %109 = phi ptr [ %102, %.lr.ph181.thread193 ], [ %105, %.lr.ph181 ]
   %110 = getelementptr inbounds i8, ptr %1, i64 88
-  br label %.lr.ph182.split.us
+  br label %.lr.ph181.split.us
 
-.lr.ph182.split.us:                               ; preds = %.lr.ph182.split.us.preheader, %.loopexit.us
-  %.0179.us = phi ptr [ %167, %.loopexit.us ], [ %3, %.lr.ph182.split.us.preheader ]
-  %.0146178.us = phi i64 [ %168, %.loopexit.us ], [ 0, %.lr.ph182.split.us.preheader ]
-  %111 = load double, ptr %.0179.us, align 8
+.lr.ph181.split.us:                               ; preds = %.lr.ph181.split.us.preheader, %.loopexit.us
+  %.0178.us = phi ptr [ %167, %.loopexit.us ], [ %3, %.lr.ph181.split.us.preheader ]
+  %.0146177.us = phi i64 [ %168, %.loopexit.us ], [ 0, %.lr.ph181.split.us.preheader ]
+  %111 = load double, ptr %.0178.us, align 8
   %112 = load i64, ptr %9, align 8
   %113 = getelementptr inbounds double, ptr %2, i64 %112
   %114 = load double, ptr %113, align 8
@@ -578,9 +576,9 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   store double %115, ptr %116, align 8
   %117 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %118 = icmp sgt i64 %117, 1
-  br i1 %118, label %.lr.ph169.us, label %._crit_edge170.us
+  br i1 %118, label %.lr.ph168.us, label %._crit_edge169.us
 
-._crit_edge170.us:                                ; preds = %.lr.ph169.us, %.lr.ph182.split.us
+._crit_edge169.us:                                ; preds = %.lr.ph168.us, %.lr.ph181.split.us
   %119 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %120 = load ptr, ptr %109, align 8
   %121 = getelementptr double, ptr %120, i64 %119
@@ -588,74 +586,74 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %123 = load double, ptr %122, align 8
   %124 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %125 = add nsw i64 %124, -1
-  %126 = getelementptr inbounds double, ptr %.0179.us, i64 %125
+  %126 = getelementptr inbounds double, ptr %.0178.us, i64 %125
   store double %123, ptr %126, align 8
   %127 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %128 = icmp sgt i64 %127, 1
-  br i1 %128, label %.lr.ph173.us.preheader, label %.loopexit.us
+  br i1 %128, label %.lr.ph172.us.preheader, label %.loopexit.us
 
-.lr.ph173.us.preheader:                           ; preds = %._crit_edge170.us
+.lr.ph172.us.preheader:                           ; preds = %._crit_edge169.us
   %129 = add nsw i64 %127, -2
-  br label %.lr.ph173.us
+  br label %.lr.ph172.us
 
-.lr.ph173.us:                                     ; preds = %.lr.ph173.us.preheader, %.lr.ph173.us
-  %.3171.us = phi i64 [ %142, %.lr.ph173.us ], [ %129, %.lr.ph173.us.preheader ]
+.lr.ph172.us:                                     ; preds = %.lr.ph172.us.preheader, %.lr.ph172.us
+  %.3170.us = phi i64 [ %142, %.lr.ph172.us ], [ %129, %.lr.ph172.us.preheader ]
   %130 = load ptr, ptr %109, align 8
-  %131 = getelementptr inbounds double, ptr %130, i64 %.3171.us
+  %131 = getelementptr inbounds double, ptr %130, i64 %.3170.us
   %132 = load double, ptr %131, align 8
   %133 = load ptr, ptr %110, align 8
-  %134 = getelementptr inbounds double, ptr %133, i64 %.3171.us
+  %134 = getelementptr inbounds double, ptr %133, i64 %.3170.us
   %135 = load double, ptr %134, align 8
-  %136 = add nuw nsw i64 %.3171.us, 1
-  %137 = getelementptr inbounds double, ptr %.0179.us, i64 %136
+  %136 = add nuw nsw i64 %.3170.us, 1
+  %137 = getelementptr inbounds double, ptr %.0178.us, i64 %136
   %138 = load double, ptr %137, align 8
   %139 = fneg double %135
   %140 = tail call double @llvm.fmuladd.f64(double %139, double %138, double %132)
-  %141 = getelementptr inbounds double, ptr %.0179.us, i64 %.3171.us
+  %141 = getelementptr inbounds double, ptr %.0178.us, i64 %.3170.us
   store double %140, ptr %141, align 8
-  %142 = add nsw i64 %.3171.us, -1
-  %.not199 = icmp eq i64 %.3171.us, 0
-  br i1 %.not199, label %.loopexit.us, label %.lr.ph173.us, !llvm.loop !7
+  %142 = add nsw i64 %.3170.us, -1
+  %.not197 = icmp eq i64 %.3170.us, 0
+  br i1 %.not197, label %.loopexit.us, label %.lr.ph172.us, !llvm.loop !7
 
-.lr.ph169.us:                                     ; preds = %.lr.ph182.split.us, %.lr.ph169.us
-  %.2167.us = phi i64 [ %163, %.lr.ph169.us ], [ 1, %.lr.ph182.split.us ]
-  %143 = getelementptr inbounds i64, ptr %9, i64 %.2167.us
+.lr.ph168.us:                                     ; preds = %.lr.ph181.split.us, %.lr.ph168.us
+  %.2166.us = phi i64 [ %163, %.lr.ph168.us ], [ 1, %.lr.ph181.split.us ]
+  %143 = getelementptr inbounds i64, ptr %9, i64 %.2166.us
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr double, ptr %2, i64 %144
   %146 = getelementptr i8, ptr %145, i64 8
   %147 = load double, ptr %146, align 8
   %148 = load double, ptr %145, align 8
-  %149 = add nsw i64 %.2167.us, -1
+  %149 = add nsw i64 %.2166.us, -1
   %150 = load ptr, ptr %110, align 8
   %151 = getelementptr inbounds double, ptr %150, i64 %149
   %152 = load double, ptr %151, align 8
   %153 = fneg double %148
   %154 = tail call double @llvm.fmuladd.f64(double %153, double %152, double %147)
-  %155 = getelementptr inbounds double, ptr %.0179.us, i64 %.2167.us
+  %155 = getelementptr inbounds double, ptr %.0178.us, i64 %.2166.us
   %156 = load double, ptr %155, align 8
   %157 = load ptr, ptr %109, align 8
   %158 = getelementptr inbounds double, ptr %157, i64 %149
   %159 = load double, ptr %158, align 8
   %160 = tail call double @llvm.fmuladd.f64(double %153, double %159, double %156)
   %161 = fdiv double %160, %154
-  %162 = getelementptr inbounds double, ptr %157, i64 %.2167.us
+  %162 = getelementptr inbounds double, ptr %157, i64 %.2166.us
   store double %161, ptr %162, align 8
-  %163 = add nuw nsw i64 %.2167.us, 1
+  %163 = add nuw nsw i64 %.2166.us, 1
   %164 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %165 = icmp slt i64 %163, %164
-  br i1 %165, label %.lr.ph169.us, label %._crit_edge170.us, !llvm.loop !8
+  br i1 %165, label %.lr.ph168.us, label %._crit_edge169.us, !llvm.loop !8
 
-.loopexit.us:                                     ; preds = %.lr.ph173.us, %._crit_edge170.us
+.loopexit.us:                                     ; preds = %.lr.ph172.us, %._crit_edge169.us
   %166 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %167 = getelementptr inbounds double, ptr %.0179.us, i64 %166
-  %168 = add nuw nsw i64 %.0146178.us, 1
-  %exitcond185.not = icmp eq i64 %168, %4
-  br i1 %exitcond185.not, label %._crit_edge183, label %.lr.ph182.split.us, !llvm.loop !9
+  %167 = getelementptr inbounds double, ptr %.0178.us, i64 %166
+  %168 = add nuw nsw i64 %.0146177.us, 1
+  %exitcond184.not = icmp eq i64 %168, %4
+  br i1 %exitcond184.not, label %._crit_edge182, label %.lr.ph181.split.us, !llvm.loop !9
 
-.lr.ph182.split:                                  ; preds = %.lr.ph182.split.preheader, %.loopexit148
-  %.0179 = phi ptr [ %240, %.loopexit148 ], [ %3, %.lr.ph182.split.preheader ]
-  %.0146178 = phi i64 [ %241, %.loopexit148 ], [ 0, %.lr.ph182.split.preheader ]
-  %169 = load double, ptr %.0179, align 8
+.lr.ph181.split:                                  ; preds = %.lr.ph181.split.preheader, %.loopexit147
+  %.0178 = phi ptr [ %240, %.loopexit147 ], [ %3, %.lr.ph181.split.preheader ]
+  %.0146177 = phi i64 [ %241, %.loopexit147 ], [ 0, %.lr.ph181.split.preheader ]
+  %169 = load double, ptr %.0178, align 8
   %170 = load i64, ptr %9, align 8
   %171 = getelementptr inbounds double, ptr %2, i64 %170
   %172 = load double, ptr %171, align 8
@@ -663,16 +661,16 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %174 = load ptr, ptr %106, align 8
   store double %173, ptr %174, align 8
   %175 = load i64, ptr %107, align 8
-  %gep175 = getelementptr double, ptr %invariant.gep174187190, i64 %175
-  %176 = load double, ptr %gep175, align 8
+  %gep174 = getelementptr double, ptr %invariant.gep173186189, i64 %175
+  %176 = load double, ptr %gep174, align 8
   %177 = load i64, ptr %9, align 8
-  %gep177 = getelementptr double, ptr %invariant.gep174187190, i64 %177
-  %178 = load double, ptr %gep177, align 8
+  %gep176 = getelementptr double, ptr %invariant.gep173186189, i64 %177
+  %178 = load double, ptr %gep176, align 8
   %179 = load ptr, ptr %108, align 8
   %180 = load double, ptr %179, align 8
   %181 = fneg double %178
   %182 = tail call double @llvm.fmuladd.f64(double %181, double %180, double %176)
-  %183 = getelementptr inbounds i8, ptr %.0179, i64 8
+  %183 = getelementptr inbounds i8, ptr %.0178, i64 8
   %184 = load double, ptr %183, align 8
   %185 = load ptr, ptr %106, align 8
   %186 = load double, ptr %185, align 8
@@ -682,39 +680,39 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   store double %188, ptr %189, align 8
   %190 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %191 = icmp sgt i64 %190, 2
-  br i1 %191, label %.lr.ph162, label %._crit_edge163
+  br i1 %191, label %.lr.ph161, label %._crit_edge162
 
-.lr.ph162:                                        ; preds = %.lr.ph182.split, %.lr.ph162
-  %.4160 = phi i64 [ %212, %.lr.ph162 ], [ 2, %.lr.ph182.split ]
-  %192 = getelementptr inbounds i64, ptr %9, i64 %.4160
+.lr.ph161:                                        ; preds = %.lr.ph181.split, %.lr.ph161
+  %.4159 = phi i64 [ %212, %.lr.ph161 ], [ 2, %.lr.ph181.split ]
+  %192 = getelementptr inbounds i64, ptr %9, i64 %.4159
   %193 = load i64, ptr %192, align 8
-  %gep157 = getelementptr double, ptr %invariant.gep174187190, i64 %193
-  %194 = load double, ptr %gep157, align 8
-  %195 = add nsw i64 %.4160, -1
+  %gep156 = getelementptr double, ptr %invariant.gep173186189, i64 %193
+  %194 = load double, ptr %gep156, align 8
+  %195 = add nsw i64 %.4159, -1
   %196 = getelementptr inbounds i64, ptr %9, i64 %195
   %197 = load i64, ptr %196, align 8
-  %gep159 = getelementptr double, ptr %invariant.gep158191, i64 %197
-  %198 = load double, ptr %gep159, align 8
+  %gep158 = getelementptr double, ptr %invariant.gep157190, i64 %197
+  %198 = load double, ptr %gep158, align 8
   %199 = load ptr, ptr %108, align 8
   %200 = getelementptr inbounds double, ptr %199, i64 %195
   %201 = load double, ptr %200, align 8
   %202 = fneg double %198
   %203 = tail call double @llvm.fmuladd.f64(double %202, double %201, double %194)
-  %204 = getelementptr inbounds double, ptr %.0179, i64 %.4160
+  %204 = getelementptr inbounds double, ptr %.0178, i64 %.4159
   %205 = load double, ptr %204, align 8
   %206 = load ptr, ptr %106, align 8
   %207 = getelementptr inbounds double, ptr %206, i64 %195
   %208 = load double, ptr %207, align 8
   %209 = tail call double @llvm.fmuladd.f64(double %202, double %208, double %205)
   %210 = fdiv double %209, %203
-  %211 = getelementptr inbounds double, ptr %206, i64 %.4160
+  %211 = getelementptr inbounds double, ptr %206, i64 %.4159
   store double %210, ptr %211, align 8
-  %212 = add nuw nsw i64 %.4160, 1
+  %212 = add nuw nsw i64 %.4159, 1
   %213 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %214 = icmp slt i64 %212, %213
-  br i1 %214, label %.lr.ph162, label %._crit_edge163, !llvm.loop !10
+  br i1 %214, label %.lr.ph161, label %._crit_edge162, !llvm.loop !10
 
-._crit_edge163:                                   ; preds = %.lr.ph162, %.lr.ph182.split
+._crit_edge162:                                   ; preds = %.lr.ph161, %.lr.ph181.split
   %215 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %216 = load ptr, ptr %106, align 8
   %217 = getelementptr double, ptr %216, i64 %215
@@ -722,43 +720,43 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %219 = load double, ptr %218, align 8
   %220 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %221 = add nsw i64 %220, -1
-  %222 = getelementptr inbounds double, ptr %.0179, i64 %221
+  %222 = getelementptr inbounds double, ptr %.0178, i64 %221
   store double %219, ptr %222, align 8
   %223 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %224 = icmp sgt i64 %223, 1
-  br i1 %224, label %.lr.ph166.preheader, label %.loopexit148
+  br i1 %224, label %.lr.ph165.preheader, label %.loopexit147
 
-.lr.ph166.preheader:                              ; preds = %._crit_edge163
+.lr.ph165.preheader:                              ; preds = %._crit_edge162
   %225 = add nsw i64 %223, -2
-  br label %.lr.ph166
+  br label %.lr.ph165
 
-.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
-  %.5164 = phi i64 [ %238, %.lr.ph166 ], [ %225, %.lr.ph166.preheader ]
+.lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
+  %.5163 = phi i64 [ %238, %.lr.ph165 ], [ %225, %.lr.ph165.preheader ]
   %226 = load ptr, ptr %106, align 8
-  %227 = getelementptr inbounds double, ptr %226, i64 %.5164
+  %227 = getelementptr inbounds double, ptr %226, i64 %.5163
   %228 = load double, ptr %227, align 8
   %229 = load ptr, ptr %108, align 8
-  %230 = getelementptr inbounds double, ptr %229, i64 %.5164
+  %230 = getelementptr inbounds double, ptr %229, i64 %.5163
   %231 = load double, ptr %230, align 8
-  %232 = add nuw nsw i64 %.5164, 1
-  %233 = getelementptr inbounds double, ptr %.0179, i64 %232
+  %232 = add nuw nsw i64 %.5163, 1
+  %233 = getelementptr inbounds double, ptr %.0178, i64 %232
   %234 = load double, ptr %233, align 8
   %235 = fneg double %231
   %236 = tail call double @llvm.fmuladd.f64(double %235, double %234, double %228)
-  %237 = getelementptr inbounds double, ptr %.0179, i64 %.5164
+  %237 = getelementptr inbounds double, ptr %.0178, i64 %.5163
   store double %236, ptr %237, align 8
-  %238 = add nsw i64 %.5164, -1
-  %.not198 = icmp eq i64 %.5164, 0
-  br i1 %.not198, label %.loopexit148, label %.lr.ph166, !llvm.loop !11
+  %238 = add nsw i64 %.5163, -1
+  %.not = icmp eq i64 %.5163, 0
+  br i1 %.not, label %.loopexit147, label %.lr.ph165, !llvm.loop !11
 
-.loopexit148:                                     ; preds = %.lr.ph166, %._crit_edge163
+.loopexit147:                                     ; preds = %.lr.ph165, %._crit_edge162
   %239 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %240 = getelementptr inbounds double, ptr %.0179, i64 %239
-  %241 = add nuw nsw i64 %.0146178, 1
+  %240 = getelementptr inbounds double, ptr %.0178, i64 %239
+  %241 = add nuw nsw i64 %.0146177, 1
   %exitcond.not = icmp eq i64 %241, %4
-  br i1 %exitcond.not, label %._crit_edge183, label %.lr.ph182.split, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge182, label %.lr.ph181.split, !llvm.loop !9
 
-._crit_edge183:                                   ; preds = %.loopexit148, %.loopexit.us, %.thread192, %.thread, %99
+._crit_edge182:                                   ; preds = %.loopexit147, %.loopexit.us, %.thread191, %.thread, %99
   ret i32 0
 }
 

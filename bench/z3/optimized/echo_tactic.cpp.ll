@@ -658,16 +658,15 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %2)
   %m_newline = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i8, ptr %m_newline, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %m_ctx, align 8
-  %vtable4 = load ptr, ptr %5, align 8
+  %4 = load ptr, ptr %m_ctx, align 8
+  %vtable4 = load ptr, ptr %4, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
-  %6 = load ptr, ptr %vfn5, align 8
-  %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(872) %5)
+  %5 = load ptr, ptr %vfn5, align 8
+  %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(872) %4)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end
 
@@ -975,16 +974,15 @@ if.end:                                           ; preds = %if.then, %entry
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call13, double noundef %call2)
   %m_newline = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i8, ptr %m_newline, align 8
-  %10 = and i8 %9, 1
-  %tobool15.not = icmp eq i8 %10, 0
-  br i1 %tobool15.not, label %if.end22, label %if.then16
+  %tobool15 = trunc i8 %9 to i1
+  br i1 %tobool15, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end
-  %11 = load ptr, ptr %m_ctx10, align 8
-  %vtable18 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_ctx10, align 8
+  %vtable18 = load ptr, ptr %10, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 48
-  %12 = load ptr, ptr %vfn19, align 8
-  %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %11)
+  %11 = load ptr, ptr %vfn19, align 8
+  %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %10)
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call20, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end22
 

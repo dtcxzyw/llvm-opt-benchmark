@@ -1129,8 +1129,8 @@ part_data_destroy_res.exit:                       ; preds = %16, %0
   %25 = load ptr, ptr @part_list, align 8
   %26 = call ptr @list_iterator_create(ptr noundef %25) #8
   %27 = call ptr @list_next(ptr noundef %26) #8
-  %.not3036 = icmp eq ptr %27, null
-  br i1 %.not3036, label %._crit_edge, label %.lr.ph
+  %.not3035 = icmp eq ptr %27, null
+  br i1 %.not3035, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %40
   %28 = phi ptr [ %42, %40 ], [ %27, %23 ]
@@ -1143,9 +1143,8 @@ part_data_destroy_res.exit:                       ; preds = %16, %0
   %34 = and i16 %32, 32767
   store i16 %34, ptr %33, align 8
   %35 = load i8, ptr @preempt_by_qos, align 1
-  %36 = and i8 %35, 1
-  %.not35 = icmp eq i8 %36, 0
-  br i1 %.not35, label %38, label %.thread
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %.thread, label %38
 
 .thread:                                          ; preds = %.lr.ph
   %37 = add nuw i16 %34, 1
@@ -1173,29 +1172,29 @@ part_data_destroy_res.exit:                       ; preds = %16, %0
   call void @list_sort(ptr noundef %24, ptr noundef nonnull @_sort_part_prio) #8
   %43 = call ptr @list_iterator_create(ptr noundef %24) #8
   %44 = call ptr @list_next(ptr noundef %43) #8
-  %.not3137 = icmp eq ptr %44, null
-  br i1 %.not3137, label %._crit_edge41, label %.lr.ph40
+  %.not3136 = icmp eq ptr %44, null
+  br i1 %.not3136, label %._crit_edge40, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %._crit_edge, %.lr.ph40
-  %45 = phi ptr [ %46, %.lr.ph40 ], [ %44, %._crit_edge ]
-  %.038 = phi ptr [ %45, %.lr.ph40 ], [ null, %._crit_edge ]
-  %.not33 = icmp eq ptr %.038, null
-  %select_part_record..038 = select i1 %.not33, ptr @select_part_record, ptr %.038
-  store ptr %45, ptr %select_part_record..038, align 8
+.lr.ph39:                                         ; preds = %._crit_edge, %.lr.ph39
+  %45 = phi ptr [ %46, %.lr.ph39 ], [ %44, %._crit_edge ]
+  %.037 = phi ptr [ %45, %.lr.ph39 ], [ null, %._crit_edge ]
+  %.not33 = icmp eq ptr %.037, null
+  %select_part_record..037 = select i1 %.not33, ptr @select_part_record, ptr %.037
+  store ptr %45, ptr %select_part_record..037, align 8
   %46 = call ptr @list_next(ptr noundef %43) #8
   %.not31 = icmp eq ptr %46, null
-  br i1 %.not31, label %._crit_edge41, label %.lr.ph40, !llvm.loop !27
+  br i1 %.not31, label %._crit_edge40, label %.lr.ph39, !llvm.loop !27
 
-._crit_edge41:                                    ; preds = %.lr.ph40, %._crit_edge
+._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   call void @list_iterator_destroy(ptr noundef %43) #8
   %.not32 = icmp eq ptr %24, null
   br i1 %.not32, label %48, label %47
 
-47:                                               ; preds = %._crit_edge41
+47:                                               ; preds = %._crit_edge40
   call void @list_destroy(ptr noundef nonnull %24) #8
   br label %48
 
-48:                                               ; preds = %._crit_edge41, %47, %part_data_destroy_res.exit
+48:                                               ; preds = %._crit_edge40, %47, %part_data_destroy_res.exit
   ret void
 }
 

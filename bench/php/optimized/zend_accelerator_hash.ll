@@ -105,26 +105,24 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
 .preheader:                                       ; preds = %4
   %5 = getelementptr inbounds i8, ptr %3, i64 32
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not78 = icmp eq i8 %7, 0
-  br i1 %.not78, label %.loopexit, label %.lr.ph
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.079 = phi ptr [ %9, %.lr.ph ], [ %3, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %.079, i64 24
+  %.076 = phi ptr [ %9, %.lr.ph ], [ %3, %.preheader ]
+  %8 = getelementptr inbounds i8, ptr %.076, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4
   %.1 = phi ptr [ null, %4 ], [ %3, %.preheader ], [ %9, %.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
-  %.not72 = icmp eq i64 %14, 0
-  br i1 %.not72, label %15, label %17
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %15, label %17
 
 15:                                               ; preds = %.loopexit
   %16 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1) #5
@@ -140,22 +138,22 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   %24 = urem i64 %20, %23
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %24
-  %.06680 = load ptr, ptr %26, align 8
-  %.not7381 = icmp eq ptr %.06680, null
-  br i1 %.not7381, label %._crit_edge, label %.lr.ph83
+  %.06677 = load ptr, ptr %26, align 8
+  %.not7278 = icmp eq ptr %.06677, null
+  br i1 %.not7278, label %._crit_edge, label %.lr.ph80
 
-.lr.ph83:                                         ; preds = %17
+.lr.ph80:                                         ; preds = %17
   %27 = getelementptr inbounds i8, ptr %1, i64 16
   br label %28
 
-28:                                               ; preds = %.lr.ph83, %.critedge2
-  %.06682 = phi ptr [ %.06680, %.lr.ph83 ], [ %.066, %.critedge2 ]
-  %29 = load i64, ptr %.06682, align 8
+28:                                               ; preds = %.lr.ph80, %.critedge2
+  %.06679 = phi ptr [ %.06677, %.lr.ph80 ], [ %.066, %.critedge2 ]
+  %29 = load i64, ptr %.06679, align 8
   %30 = icmp eq i64 %29, %20
   br i1 %30, label %31, label %.critedge2
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.06682, i64 8
+  %32 = getelementptr inbounds i8, ptr %.06679, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %1
   br i1 %34, label %.critedge, label %35
@@ -172,16 +170,15 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br i1 %41, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %31, %40
-  %42 = getelementptr inbounds i8, ptr %.06682, i64 32
+  %42 = getelementptr inbounds i8, ptr %.06679, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not74 = icmp eq i8 %44, 0
-  %.not75 = icmp eq ptr %.1, null
-  br i1 %.not74, label %51, label %45
+  %44 = trunc i8 %43 to i1
+  %.not74 = icmp eq ptr %.1, null
+  br i1 %44, label %45, label %51
 
 45:                                               ; preds = %.critedge
-  %46 = getelementptr inbounds i8, ptr %.06682, i64 24
-  br i1 %.not75, label %48, label %47
+  %46 = getelementptr inbounds i8, ptr %.06679, i64 24
+  br i1 %.not74, label %48, label %47
 
 47:                                               ; preds = %45
   store ptr %.1, ptr %46, align 8
@@ -194,28 +191,28 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br label %84
 
 51:                                               ; preds = %.critedge
-  br i1 %.not75, label %57, label %52
+  br i1 %.not74, label %57, label %52
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %54, -1
   store i32 %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %.06682, i64 24
+  %56 = getelementptr inbounds i8, ptr %.06679, i64 24
   store ptr %.1, ptr %56, align 8
   store i8 1, ptr %42, align 8
   br label %84
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %.06682, i64 24
+  %58 = getelementptr inbounds i8, ptr %.06679, i64 24
   store ptr %3, ptr %58, align 8
   br label %84
 
 .critedge2:                                       ; preds = %35, %40, %28
-  %59 = getelementptr inbounds i8, ptr %.06682, i64 16
+  %59 = getelementptr inbounds i8, ptr %.06679, i64 16
   %.066 = load ptr, ptr %59, align 8
-  %.not73 = icmp eq ptr %.066, null
-  br i1 %.not73, label %._crit_edge.loopexit, label %28
+  %.not72 = icmp eq ptr %.066, null
+  br i1 %.not72, label %._crit_edge.loopexit, label %28
 
 ._crit_edge.loopexit:                             ; preds = %.critedge2
   %.pre = load i32, ptr %21, align 4
@@ -245,10 +242,10 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br label %74
 
 74:                                               ; preds = %64, %70
-  %.sink85 = phi ptr [ %3, %70 ], [ %.1, %64 ]
+  %.sink82 = phi ptr [ %3, %70 ], [ %.1, %64 ]
   %.sink = phi i8 [ 0, %70 ], [ 1, %64 ]
   %75 = getelementptr inbounds i8, ptr %69, i64 24
-  store ptr %.sink85, ptr %75, align 8
+  store ptr %.sink82, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %69, i64 32
   store i8 %.sink, ptr %76, align 8
   store i64 %20, ptr %69, align 8
@@ -265,7 +262,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br label %84
 
 84:                                               ; preds = %._crit_edge, %48, %47, %57, %52, %74
-  %.067 = phi ptr [ %69, %74 ], [ %.06682, %52 ], [ %.06682, %57 ], [ %.06682, %47 ], [ %.06682, %48 ], [ null, %._crit_edge ]
+  %.067 = phi ptr [ %69, %74 ], [ %.06679, %52 ], [ %.06679, %57 ], [ %.06679, %47 ], [ %.06679, %48 ], [ null, %._crit_edge ]
   ret ptr %.067
 }
 
@@ -290,22 +287,22 @@ define hidden ptr @zend_accel_hash_find(ptr nocapture noundef readonly %0, ptr n
   %14 = urem i64 %10, %13
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
-  %.03441 = load ptr, ptr %16, align 8
-  %.not3842 = icmp eq ptr %.03441, null
-  br i1 %.not3842, label %.loopexit, label %.lr.ph
+  %.03440 = load ptr, ptr %16, align 8
+  %.not3841 = icmp eq ptr %.03440, null
+  br i1 %.not3841, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.critedge2
-  %.03443 = phi ptr [ %.03441, %.lr.ph ], [ %.034, %.critedge2 ]
-  %19 = load i64, ptr %.03443, align 8
+  %.03442 = phi ptr [ %.03440, %.lr.ph ], [ %.034, %.critedge2 ]
+  %19 = load i64, ptr %.03442, align 8
   %20 = icmp eq i64 %19, %10
   br i1 %20, label %21, label %.critedge2
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.03443, i64 8
+  %22 = getelementptr inbounds i8, ptr %.03442, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %.critedge, label %25
@@ -322,13 +319,12 @@ define hidden ptr @zend_accel_hash_find(ptr nocapture noundef readonly %0, ptr n
   br i1 %31, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %21, %30
-  %32 = getelementptr inbounds i8, ptr %.03443, i64 32
+  %32 = getelementptr inbounds i8, ptr %.03442, i64 32
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not39 = icmp eq i8 %34, 0
-  %35 = getelementptr inbounds i8, ptr %.03443, i64 24
+  %34 = trunc i8 %33 to i1
+  %35 = getelementptr inbounds i8, ptr %.03442, i64 24
   %36 = load ptr, ptr %35, align 8
-  br i1 %.not39, label %.loopexit, label %37
+  br i1 %34, label %37, label %.loopexit
 
 37:                                               ; preds = %.critedge
   %38 = getelementptr inbounds i8, ptr %36, i64 24
@@ -336,7 +332,7 @@ define hidden ptr @zend_accel_hash_find(ptr nocapture noundef readonly %0, ptr n
   br label %.loopexit
 
 .critedge2:                                       ; preds = %25, %30, %18
-  %40 = getelementptr inbounds i8, ptr %.03443, i64 16
+  %40 = getelementptr inbounds i8, ptr %.03442, i64 16
   %.034 = load ptr, ptr %40, align 8
   %.not38 = icmp eq ptr %.034, null
   br i1 %.not38, label %.loopexit, label %18
@@ -367,22 +363,22 @@ define hidden ptr @zend_accel_hash_find_entry(ptr nocapture noundef readonly %0,
   %14 = urem i64 %10, %13
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
-  %.03441 = load ptr, ptr %16, align 8
-  %.not3842 = icmp eq ptr %.03441, null
-  br i1 %.not3842, label %.loopexit, label %.lr.ph
+  %.03440 = load ptr, ptr %16, align 8
+  %.not3841 = icmp eq ptr %.03440, null
+  br i1 %.not3841, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.critedge2
-  %.03443 = phi ptr [ %.03441, %.lr.ph ], [ %.034, %.critedge2 ]
-  %19 = load i64, ptr %.03443, align 8
+  %.03442 = phi ptr [ %.03440, %.lr.ph ], [ %.034, %.critedge2 ]
+  %19 = load i64, ptr %.03442, align 8
   %20 = icmp eq i64 %19, %10
   br i1 %20, label %21, label %.critedge2
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.03443, i64 8
+  %22 = getelementptr inbounds i8, ptr %.03442, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %.critedge, label %25
@@ -399,25 +395,24 @@ define hidden ptr @zend_accel_hash_find_entry(ptr nocapture noundef readonly %0,
   br i1 %31, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %21, %30
-  %32 = getelementptr inbounds i8, ptr %.03443, i64 32
+  %32 = getelementptr inbounds i8, ptr %.03442, i64 32
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not39 = icmp eq i8 %34, 0
-  br i1 %.not39, label %.loopexit, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %.critedge
-  %36 = getelementptr inbounds i8, ptr %.03443, i64 24
+  %36 = getelementptr inbounds i8, ptr %.03442, i64 24
   %37 = load ptr, ptr %36, align 8
   br label %.loopexit
 
 .critedge2:                                       ; preds = %25, %30, %18
-  %38 = getelementptr inbounds i8, ptr %.03443, i64 16
+  %38 = getelementptr inbounds i8, ptr %.03442, i64 16
   %.034 = load ptr, ptr %38, align 8
   %.not38 = icmp eq ptr %.034, null
   br i1 %.not38, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %.critedge2, %7, %.critedge, %35
-  %.0 = phi ptr [ %37, %35 ], [ %.03443, %.critedge ], [ null, %7 ], [ null, %.critedge2 ]
+  %.0 = phi ptr [ %37, %35 ], [ %.03442, %.critedge ], [ null, %7 ], [ null, %.critedge2 ]
   ret ptr %.0
 }
 
@@ -442,23 +437,23 @@ define hidden noundef i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr 
   %14 = urem i64 %10, %13
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
-  %.03444 = load ptr, ptr %16, align 8
-  %.not3945 = icmp eq ptr %.03444, null
-  br i1 %.not3945, label %.loopexit, label %.lr.ph
+  %.03443 = load ptr, ptr %16, align 8
+  %.not3944 = icmp eq ptr %.03443, null
+  br i1 %.not3944, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.critedge2
-  %.03447 = phi ptr [ %.03444, %.lr.ph ], [ %.034, %.critedge2 ]
-  %.046 = phi ptr [ null, %.lr.ph ], [ %.03447, %.critedge2 ]
-  %19 = load i64, ptr %.03447, align 8
+  %.03446 = phi ptr [ %.03443, %.lr.ph ], [ %.034, %.critedge2 ]
+  %.045 = phi ptr [ null, %.lr.ph ], [ %.03446, %.critedge2 ]
+  %19 = load i64, ptr %.03446, align 8
   %20 = icmp eq i64 %19, %10
   br i1 %20, label %21, label %.critedge2
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.03447, i64 8
+  %22 = getelementptr inbounds i8, ptr %.03446, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %.critedge, label %25
@@ -475,11 +470,10 @@ define hidden noundef i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr 
   br i1 %31, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %21, %30
-  %32 = getelementptr inbounds i8, ptr %.03447, i64 32
+  %32 = getelementptr inbounds i8, ptr %.03446, i64 32
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not40 = icmp eq i8 %34, 0
-  br i1 %.not40, label %35, label %39
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %39, label %35
 
 35:                                               ; preds = %.critedge
   %36 = getelementptr inbounds i8, ptr %0, i64 24
@@ -489,13 +483,13 @@ define hidden noundef i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr 
   br label %39
 
 39:                                               ; preds = %35, %.critedge
-  %.not41 = icmp eq ptr %.046, null
-  %40 = getelementptr inbounds i8, ptr %.03447, i64 16
+  %.not40 = icmp eq ptr %.045, null
+  %40 = getelementptr inbounds i8, ptr %.03446, i64 16
   %41 = load ptr, ptr %40, align 8
-  br i1 %.not41, label %44, label %42
+  br i1 %.not40, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %.046, i64 16
+  %43 = getelementptr inbounds i8, ptr %.045, i64 16
   br label %.loopexit.sink.split
 
 44:                                               ; preds = %39
@@ -504,7 +498,7 @@ define hidden noundef i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr 
   br label %.loopexit.sink.split
 
 .critedge2:                                       ; preds = %25, %30, %18
-  %47 = getelementptr inbounds i8, ptr %.03447, i64 16
+  %47 = getelementptr inbounds i8, ptr %.03446, i64 16
   %.034 = load ptr, ptr %47, align 8
   %.not39 = icmp eq ptr %.034, null
   br i1 %.not39, label %.loopexit, label %18

@@ -5912,10 +5912,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19:  ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit24:                           ; preds = %_ZN7QStringD2Ev.exit18, %_ZN9QtPrivate8RefCount5derefEv.exit.i20, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19
   %33 = load i8, ptr %5, align 1
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
+  %34 = trunc i8 %33 to i1
   %.pre35 = load ptr, ptr %6, align 8
-  br i1 %.not, label %72, label %35
+  br i1 %34, label %35, label %72
 
 35:                                               ; preds = %_ZN7QStringD2Ev.exit24
   %36 = getelementptr inbounds i8, ptr %.pre35, i64 4

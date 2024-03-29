@@ -120,7 +120,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not36, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end46
-  %l.037 = phi ptr [ %33, %if.end46 ], [ %call, %if.end ]
+  %l.037 = phi ptr [ %25, %if.end46 ], [ %call, %if.end ]
   %value = getelementptr inbounds i8, ptr %l.037, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
@@ -146,110 +146,102 @@ if.end12:                                         ; preds = %if.then8, %while.bo
   %8 = load ptr, ptr %props, align 8
   %call14 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.6) #3
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %tobool15.not = icmp eq i8 %10, 0
-  br i1 %tobool15.not, label %if.end18, label %if.then16
+  %tobool15 = trunc i8 %9 to i1
+  br i1 %tobool15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end12
   %node_id = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load i64, ptr %node_id, align 8
-  %call17 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.7, i64 noundef %11) #3
+  %10 = load i64, ptr %node_id, align 8
+  %call17 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.7, i64 noundef %10) #3
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %if.end12
   %has_drawer_id = getelementptr inbounds i8, ptr %8, i64 16
-  %12 = load i8, ptr %has_drawer_id, align 8
-  %13 = and i8 %12, 1
-  %tobool19.not = icmp eq i8 %13, 0
-  br i1 %tobool19.not, label %if.end22, label %if.then20
+  %11 = load i8, ptr %has_drawer_id, align 8
+  %tobool19 = trunc i8 %11 to i1
+  br i1 %tobool19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.end18
   %drawer_id = getelementptr inbounds i8, ptr %8, i64 24
-  %14 = load i64, ptr %drawer_id, align 8
-  %call21 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.8, i64 noundef %14) #3
+  %12 = load i64, ptr %drawer_id, align 8
+  %call21 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.8, i64 noundef %12) #3
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.end18
   %has_book_id = getelementptr inbounds i8, ptr %8, i64 32
-  %15 = load i8, ptr %has_book_id, align 8
-  %16 = and i8 %15, 1
-  %tobool23.not = icmp eq i8 %16, 0
-  br i1 %tobool23.not, label %if.end26, label %if.then24
+  %13 = load i8, ptr %has_book_id, align 8
+  %tobool23 = trunc i8 %13 to i1
+  br i1 %tobool23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end22
   %book_id = getelementptr inbounds i8, ptr %8, i64 40
-  %17 = load i64, ptr %book_id, align 8
-  %call25 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.9, i64 noundef %17) #3
+  %14 = load i64, ptr %book_id, align 8
+  %call25 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.9, i64 noundef %14) #3
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end22
   %has_socket_id = getelementptr inbounds i8, ptr %8, i64 48
-  %18 = load i8, ptr %has_socket_id, align 8
-  %19 = and i8 %18, 1
-  %tobool27.not = icmp eq i8 %19, 0
-  br i1 %tobool27.not, label %if.end30, label %if.then28
+  %15 = load i8, ptr %has_socket_id, align 8
+  %tobool27 = trunc i8 %15 to i1
+  br i1 %tobool27, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %if.end26
   %socket_id = getelementptr inbounds i8, ptr %8, i64 56
-  %20 = load i64, ptr %socket_id, align 8
-  %call29 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, i64 noundef %20) #3
+  %16 = load i64, ptr %socket_id, align 8
+  %call29 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, i64 noundef %16) #3
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then28, %if.end26
   %has_die_id = getelementptr inbounds i8, ptr %8, i64 64
-  %21 = load i8, ptr %has_die_id, align 8
-  %22 = and i8 %21, 1
-  %tobool31.not = icmp eq i8 %22, 0
-  br i1 %tobool31.not, label %if.end34, label %if.then32
+  %17 = load i8, ptr %has_die_id, align 8
+  %tobool31 = trunc i8 %17 to i1
+  br i1 %tobool31, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end30
   %die_id = getelementptr inbounds i8, ptr %8, i64 72
-  %23 = load i64, ptr %die_id, align 8
-  %call33 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, i64 noundef %23) #3
+  %18 = load i64, ptr %die_id, align 8
+  %call33 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, i64 noundef %18) #3
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end30
   %has_cluster_id = getelementptr inbounds i8, ptr %8, i64 80
-  %24 = load i8, ptr %has_cluster_id, align 8
-  %25 = and i8 %24, 1
-  %tobool35.not = icmp eq i8 %25, 0
-  br i1 %tobool35.not, label %if.end38, label %if.then36
+  %19 = load i8, ptr %has_cluster_id, align 8
+  %tobool35 = trunc i8 %19 to i1
+  br i1 %tobool35, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end34
   %cluster_id = getelementptr inbounds i8, ptr %8, i64 88
-  %26 = load i64, ptr %cluster_id, align 8
-  %call37 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.12, i64 noundef %26) #3
+  %20 = load i64, ptr %cluster_id, align 8
+  %call37 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.12, i64 noundef %20) #3
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end34
   %has_core_id = getelementptr inbounds i8, ptr %8, i64 96
-  %27 = load i8, ptr %has_core_id, align 8
-  %28 = and i8 %27, 1
-  %tobool39.not = icmp eq i8 %28, 0
-  br i1 %tobool39.not, label %if.end42, label %if.then40
+  %21 = load i8, ptr %has_core_id, align 8
+  %tobool39 = trunc i8 %21 to i1
+  br i1 %tobool39, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.end38
   %core_id = getelementptr inbounds i8, ptr %8, i64 104
-  %29 = load i64, ptr %core_id, align 8
-  %call41 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.13, i64 noundef %29) #3
+  %22 = load i64, ptr %core_id, align 8
+  %call41 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.13, i64 noundef %22) #3
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then40, %if.end38
   %has_thread_id = getelementptr inbounds i8, ptr %8, i64 112
-  %30 = load i8, ptr %has_thread_id, align 8
-  %31 = and i8 %30, 1
-  %tobool43.not = icmp eq i8 %31, 0
-  br i1 %tobool43.not, label %if.end46, label %if.then44
+  %23 = load i8, ptr %has_thread_id, align 8
+  %tobool43 = trunc i8 %23 to i1
+  br i1 %tobool43, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end42
   %thread_id = getelementptr inbounds i8, ptr %8, i64 120
-  %32 = load i64, ptr %thread_id, align 8
-  %call45 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.14, i64 noundef %32) #3
+  %24 = load i64, ptr %thread_id, align 8
+  %call45 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.14, i64 noundef %24) #3
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end42
-  %33 = load ptr, ptr %l.037, align 8
-  %tobool.not = icmp eq ptr %33, null
+  %25 = load ptr, ptr %l.037, align 8
+  %tobool.not = icmp eq ptr %25, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end46, %if.end
@@ -277,7 +269,7 @@ entry:
   br i1 %tobool.not25, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
-  %m.026 = phi ptr [ %26, %if.end ], [ %call, %entry ]
+  %m.026 = phi ptr [ %20, %if.end ], [ %call, %entry ]
   %call1 = call ptr @string_output_visitor_new(i1 noundef zeroext false, ptr noundef nonnull %str) #3
   %value = getelementptr inbounds i8, ptr %m.026, i64 8
   %0 = load ptr, ptr %value, align 8
@@ -293,69 +285,63 @@ while.body:                                       ; preds = %entry, %if.end
   %5 = load ptr, ptr %value, align 8
   %merge = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i8, ptr %merge, align 8
-  %7 = and i8 %6, 1
-  %tobool8.not = icmp eq i8 %7, 0
-  %cond = select i1 %tobool8.not, ptr @.str.19, ptr @.str.18
+  %tobool8 = trunc i8 %6 to i1
+  %cond = select i1 %tobool8, ptr @.str.18, ptr @.str.19
   %call9 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.17, ptr noundef nonnull %cond) #3
-  %8 = load ptr, ptr %value, align 8
-  %dump = getelementptr inbounds i8, ptr %8, i64 17
-  %9 = load i8, ptr %dump, align 1
-  %10 = and i8 %9, 1
-  %tobool11.not = icmp eq i8 %10, 0
-  %cond12 = select i1 %tobool11.not, ptr @.str.19, ptr @.str.18
+  %7 = load ptr, ptr %value, align 8
+  %dump = getelementptr inbounds i8, ptr %7, i64 17
+  %8 = load i8, ptr %dump, align 1
+  %tobool11 = trunc i8 %8 to i1
+  %cond12 = select i1 %tobool11, ptr @.str.18, ptr @.str.19
   %call13 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.20, ptr noundef nonnull %cond12) #3
-  %11 = load ptr, ptr %value, align 8
-  %prealloc = getelementptr inbounds i8, ptr %11, i64 18
-  %12 = load i8, ptr %prealloc, align 2
-  %13 = and i8 %12, 1
-  %tobool15.not = icmp eq i8 %13, 0
-  %cond16 = select i1 %tobool15.not, ptr @.str.19, ptr @.str.18
+  %9 = load ptr, ptr %value, align 8
+  %prealloc = getelementptr inbounds i8, ptr %9, i64 18
+  %10 = load i8, ptr %prealloc, align 2
+  %tobool15 = trunc i8 %10 to i1
+  %cond16 = select i1 %tobool15, ptr @.str.18, ptr @.str.19
   %call17 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, ptr noundef nonnull %cond16) #3
-  %14 = load ptr, ptr %value, align 8
-  %share = getelementptr inbounds i8, ptr %14, i64 19
-  %15 = load i8, ptr %share, align 1
-  %16 = and i8 %15, 1
-  %tobool19.not = icmp eq i8 %16, 0
-  %cond20 = select i1 %tobool19.not, ptr @.str.19, ptr @.str.18
+  %11 = load ptr, ptr %value, align 8
+  %share = getelementptr inbounds i8, ptr %11, i64 19
+  %12 = load i8, ptr %share, align 1
+  %tobool19 = trunc i8 %12 to i1
+  %cond20 = select i1 %tobool19, ptr @.str.18, ptr @.str.19
   %call21 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22, ptr noundef nonnull %cond20) #3
-  %17 = load ptr, ptr %value, align 8
-  %has_reserve = getelementptr inbounds i8, ptr %17, i64 20
-  %18 = load i8, ptr %has_reserve, align 4
-  %19 = and i8 %18, 1
-  %tobool23.not = icmp eq i8 %19, 0
-  br i1 %tobool23.not, label %if.end, label %if.then
+  %13 = load ptr, ptr %value, align 8
+  %has_reserve = getelementptr inbounds i8, ptr %13, i64 20
+  %14 = load i8, ptr %has_reserve, align 4
+  %tobool23 = trunc i8 %14 to i1
+  br i1 %tobool23, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %reserve = getelementptr inbounds i8, ptr %17, i64 21
-  %20 = load i8, ptr %reserve, align 1
-  %21 = and i8 %20, 1
-  %tobool25.not = icmp eq i8 %21, 0
-  %cond26 = select i1 %tobool25.not, ptr @.str.19, ptr @.str.18
+  %reserve = getelementptr inbounds i8, ptr %13, i64 21
+  %15 = load i8, ptr %reserve, align 1
+  %tobool25 = trunc i8 %15 to i1
+  %cond26 = select i1 %tobool25, ptr @.str.18, ptr @.str.19
   %call27 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.23, ptr noundef nonnull %cond26) #3
   %.pre = load ptr, ptr %value, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %22 = phi ptr [ %.pre, %if.then ], [ %17, %while.body ]
-  %policy = getelementptr inbounds i8, ptr %22, i64 32
-  %23 = load i32, ptr %policy, align 8
-  %call29 = call ptr @qapi_enum_lookup(ptr noundef nonnull @HostMemPolicy_lookup, i32 noundef %23) #3
+  %16 = phi ptr [ %.pre, %if.then ], [ %13, %while.body ]
+  %policy = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = load i32, ptr %policy, align 8
+  %call29 = call ptr @qapi_enum_lookup(ptr noundef nonnull @HostMemPolicy_lookup, i32 noundef %17) #3
   %call30 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.24, ptr noundef %call29) #3
   call void @visit_complete(ptr noundef %call1, ptr noundef nonnull %str) #3
-  %24 = load ptr, ptr %str, align 8
-  %call31 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.25, ptr noundef %24) #3
-  %25 = load ptr, ptr %str, align 8
-  call void @g_free(ptr noundef %25) #3
+  %18 = load ptr, ptr %str, align 8
+  %call31 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.25, ptr noundef %18) #3
+  %19 = load ptr, ptr %str, align 8
+  call void @g_free(ptr noundef %19) #3
   call void @visit_free(ptr noundef %call1) #3
-  %26 = load ptr, ptr %m.026, align 8
-  %tobool.not = icmp eq ptr %26, null
+  %20 = load ptr, ptr %m.026, align 8
+  %tobool.not = icmp eq ptr %20, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end, %entry
   %call32 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26) #3
   call void @qapi_free_MemdevList(ptr noundef %call) #3
-  %27 = load ptr, ptr %err, align 8
-  %call33 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %27) #3
+  %21 = load ptr, ptr %err, align 8
+  %call33 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %21) #3
   ret void
 }
 
@@ -382,15 +368,13 @@ entry:
   %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27) #3
   %present = getelementptr inbounds i8, ptr %call, i64 1
   %0 = load i8, ptr %present, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load i8, ptr %call, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  %cond = select i1 %tobool2.not, ptr @.str.30, ptr @.str.29
+  %1 = load i8, ptr %call, align 1
+  %tobool2 = trunc i8 %1 to i1
+  %cond = select i1 %tobool2, ptr @.str.29, ptr @.str.30
   %call3 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28, ptr noundef nonnull %cond) #3
   br label %if.end
 
@@ -565,7 +549,7 @@ entry:
   br i1 %tobool.not88, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %info.089 = phi ptr [ %39, %for.inc ], [ %call, %entry ]
+  %info.089 = phi ptr [ %36, %for.inc ], [ %call, %entry ]
   %value1 = getelementptr inbounds i8, ptr %info.089, i64 8
   %0 = load ptr, ptr %value1, align 8
   %tobool2.not = icmp eq ptr %0, null
@@ -607,121 +591,118 @@ cond.end:                                         ; preds = %if.then, %if.then
   %call19 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %7) #3
   %hotplugged = getelementptr inbounds i8, ptr %cond, i64 48
   %8 = load i8, ptr %hotplugged, align 8
-  %9 = and i8 %8, 1
-  %tobool20.not = icmp eq i8 %9, 0
-  %cond21 = select i1 %tobool20.not, ptr @.str.19, ptr @.str.18
+  %tobool20 = trunc i8 %8 to i1
+  %cond21 = select i1 %tobool20, ptr @.str.18, ptr @.str.19
   %call22 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.45, ptr noundef nonnull %cond21) #3
   %hotpluggable = getelementptr inbounds i8, ptr %cond, i64 49
-  %10 = load i8, ptr %hotpluggable, align 1
-  %11 = and i8 %10, 1
-  %tobool23.not = icmp eq i8 %11, 0
-  %cond24 = select i1 %tobool23.not, ptr @.str.19, ptr @.str.18
+  %9 = load i8, ptr %hotpluggable, align 1
+  %tobool23 = trunc i8 %9 to i1
+  %cond24 = select i1 %tobool23, ptr @.str.18, ptr @.str.19
   %call25 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.46, ptr noundef nonnull %cond24) #3
   br label %for.inc
 
 sw.bb26:                                          ; preds = %if.then
   %u27 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %u27, align 8
+  %10 = load ptr, ptr %u27, align 8
   %call30 = call ptr @qapi_enum_lookup(ptr noundef nonnull @MemoryDeviceInfoKind_lookup, i32 noundef 2) #3
-  %13 = load ptr, ptr %12, align 8
-  %tobool32.not = icmp eq ptr %13, null
-  %spec.select84 = select i1 %tobool32.not, ptr @.str.39, ptr %13
+  %11 = load ptr, ptr %10, align 8
+  %tobool32.not = icmp eq ptr %11, null
+  %spec.select84 = select i1 %tobool32.not, ptr @.str.39, ptr %11
   %call38 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef %call30, ptr noundef nonnull %spec.select84) #3
-  %memaddr = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load i64, ptr %memaddr, align 8
-  %call39 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %14) #3
-  %size40 = getelementptr inbounds i8, ptr %12, i64 16
-  %15 = load i64, ptr %size40, align 8
-  %call41 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %15) #3
-  %memdev42 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %memdev42, align 8
-  %call43 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %16) #3
+  %memaddr = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load i64, ptr %memaddr, align 8
+  %call39 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %12) #3
+  %size40 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = load i64, ptr %size40, align 8
+  %call41 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %13) #3
+  %memdev42 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = load ptr, ptr %memdev42, align 8
+  %call43 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %14) #3
   br label %for.inc
 
 sw.bb44:                                          ; preds = %if.then
   %u45 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %u45, align 8
+  %15 = load ptr, ptr %u45, align 8
   %call48 = call ptr @qapi_enum_lookup(ptr noundef nonnull @MemoryDeviceInfoKind_lookup, i32 noundef 3) #3
-  %18 = load ptr, ptr %17, align 8
-  %tobool50.not = icmp eq ptr %18, null
-  %spec.select85 = select i1 %tobool50.not, ptr @.str.39, ptr %18
+  %16 = load ptr, ptr %15, align 8
+  %tobool50.not = icmp eq ptr %16, null
+  %spec.select85 = select i1 %tobool50.not, ptr @.str.39, ptr %16
   %call56 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef %call48, ptr noundef nonnull %spec.select85) #3
-  %memaddr57 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i64, ptr %memaddr57, align 8
-  %call58 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %19) #3
-  %node59 = getelementptr inbounds i8, ptr %17, i64 48
-  %20 = load i64, ptr %node59, align 8
-  %call60 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i64 noundef %20) #3
-  %requested_size = getelementptr inbounds i8, ptr %17, i64 16
-  %21 = load i64, ptr %requested_size, align 8
-  %call61 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.48, i64 noundef %21) #3
-  %size62 = getelementptr inbounds i8, ptr %17, i64 24
-  %22 = load i64, ptr %size62, align 8
-  %call63 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %22) #3
-  %max_size = getelementptr inbounds i8, ptr %17, i64 32
-  %23 = load i64, ptr %max_size, align 8
-  %call64 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.49, i64 noundef %23) #3
-  %block_size = getelementptr inbounds i8, ptr %17, i64 40
-  %24 = load i64, ptr %block_size, align 8
-  %call65 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.50, i64 noundef %24) #3
-  %memdev66 = getelementptr inbounds i8, ptr %17, i64 56
-  %25 = load ptr, ptr %memdev66, align 8
-  %call67 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %25) #3
+  %memaddr57 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i64, ptr %memaddr57, align 8
+  %call58 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %17) #3
+  %node59 = getelementptr inbounds i8, ptr %15, i64 48
+  %18 = load i64, ptr %node59, align 8
+  %call60 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i64 noundef %18) #3
+  %requested_size = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = load i64, ptr %requested_size, align 8
+  %call61 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.48, i64 noundef %19) #3
+  %size62 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = load i64, ptr %size62, align 8
+  %call63 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %20) #3
+  %max_size = getelementptr inbounds i8, ptr %15, i64 32
+  %21 = load i64, ptr %max_size, align 8
+  %call64 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.49, i64 noundef %21) #3
+  %block_size = getelementptr inbounds i8, ptr %15, i64 40
+  %22 = load i64, ptr %block_size, align 8
+  %call65 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.50, i64 noundef %22) #3
+  %memdev66 = getelementptr inbounds i8, ptr %15, i64 56
+  %23 = load ptr, ptr %memdev66, align 8
+  %call67 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %23) #3
   br label %for.inc
 
 sw.bb68:                                          ; preds = %if.then
   %u69 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load ptr, ptr %u69, align 8
+  %24 = load ptr, ptr %u69, align 8
   %call72 = call ptr @qapi_enum_lookup(ptr noundef nonnull @MemoryDeviceInfoKind_lookup, i32 noundef 4) #3
-  %27 = load ptr, ptr %26, align 8
-  %tobool74.not = icmp eq ptr %27, null
-  %spec.select86 = select i1 %tobool74.not, ptr @.str.39, ptr %27
+  %25 = load ptr, ptr %24, align 8
+  %tobool74.not = icmp eq ptr %25, null
+  %spec.select86 = select i1 %tobool74.not, ptr @.str.39, ptr %25
   %call80 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef %call72, ptr noundef nonnull %spec.select86) #3
-  %memaddr81 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load i64, ptr %memaddr81, align 8
-  %call82 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %28) #3
-  %size83 = getelementptr inbounds i8, ptr %26, i64 16
-  %29 = load i64, ptr %size83, align 8
-  %call84 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %29) #3
-  %node85 = getelementptr inbounds i8, ptr %26, i64 24
-  %30 = load i64, ptr %node85, align 8
-  %call86 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i64 noundef %30) #3
-  %memdev87 = getelementptr inbounds i8, ptr %26, i64 32
-  %31 = load ptr, ptr %memdev87, align 8
-  %call88 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %31) #3
+  %memaddr81 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load i64, ptr %memaddr81, align 8
+  %call82 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %26) #3
+  %size83 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = load i64, ptr %size83, align 8
+  %call84 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %27) #3
+  %node85 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = load i64, ptr %node85, align 8
+  %call86 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i64 noundef %28) #3
+  %memdev87 = getelementptr inbounds i8, ptr %24, i64 32
+  %29 = load ptr, ptr %memdev87, align 8
+  %call88 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %29) #3
   br label %for.inc
 
 sw.bb89:                                          ; preds = %if.then
   %u90 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %u90, align 8
+  %30 = load ptr, ptr %u90, align 8
   %call93 = call ptr @qapi_enum_lookup(ptr noundef nonnull @MemoryDeviceInfoKind_lookup, i32 noundef 5) #3
-  %33 = load ptr, ptr %32, align 8
-  %tobool95.not = icmp eq ptr %33, null
-  %spec.select87 = select i1 %tobool95.not, ptr @.str.39, ptr %33
+  %31 = load ptr, ptr %30, align 8
+  %tobool95.not = icmp eq ptr %31, null
+  %spec.select87 = select i1 %tobool95.not, ptr @.str.39, ptr %31
   %call101 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef %call93, ptr noundef nonnull %spec.select87) #3
-  %has_memaddr = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load i8, ptr %has_memaddr, align 8
-  %35 = and i8 %34, 1
-  %tobool102.not = icmp eq i8 %35, 0
-  br i1 %tobool102.not, label %if.end, label %if.then103
+  %has_memaddr = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load i8, ptr %has_memaddr, align 8
+  %tobool102 = trunc i8 %32 to i1
+  br i1 %tobool102, label %if.then103, label %if.end
 
 if.then103:                                       ; preds = %sw.bb89
-  %memaddr104 = getelementptr inbounds i8, ptr %32, i64 16
-  %36 = load i64, ptr %memaddr104, align 8
-  %call105 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %36) #3
+  %memaddr104 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = load i64, ptr %memaddr104, align 8
+  %call105 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47, i64 noundef %33) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.then103, %sw.bb89
-  %max_size106 = getelementptr inbounds i8, ptr %32, i64 24
-  %37 = load i64, ptr %max_size106, align 8
-  %call107 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.49, i64 noundef %37) #3
-  %memdev108 = getelementptr inbounds i8, ptr %32, i64 32
-  %38 = load ptr, ptr %memdev108, align 8
-  %tobool109.not = icmp eq ptr %38, null
+  %max_size106 = getelementptr inbounds i8, ptr %30, i64 24
+  %34 = load i64, ptr %max_size106, align 8
+  %call107 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.49, i64 noundef %34) #3
+  %memdev108 = getelementptr inbounds i8, ptr %30, i64 32
+  %35 = load ptr, ptr %memdev108, align 8
+  %tobool109.not = icmp eq ptr %35, null
   br i1 %tobool109.not, label %for.inc, label %if.then110
 
 if.then110:                                       ; preds = %if.end
-  %call112 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef nonnull %38) #3
+  %call112 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef nonnull %35) #3
   br label %for.inc
 
 do.body:                                          ; preds = %if.then
@@ -729,14 +710,14 @@ do.body:                                          ; preds = %if.then
   unreachable
 
 for.inc:                                          ; preds = %for.body, %if.end, %if.then110, %sw.bb68, %sw.bb44, %sw.bb26, %cond.end
-  %39 = load ptr, ptr %info.089, align 8
-  %tobool.not = icmp eq ptr %39, null
+  %36 = load ptr, ptr %info.089, align 8
+  %tobool.not = icmp eq ptr %36, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
   call void @qapi_free_MemoryDeviceInfoList(ptr noundef %call) #3
-  %40 = load ptr, ptr %err, align 8
-  %call115 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %40) #3
+  %37 = load ptr, ptr %err, align 8
+  %call115 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %37) #3
   ret void
 }
 
@@ -786,14 +767,13 @@ if.then:                                          ; preds = %entry
   %call1 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.52, i64 noundef %0) #3
   %has_plugged_memory = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i8, ptr %has_plugged_memory, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.end, label %if.then3
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
   %plugged_memory = getelementptr inbounds i8, ptr %call, i64 16
-  %3 = load i64, ptr %plugged_memory, align 8
-  %call4 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.53, i64 noundef %3) #3
+  %2 = load i64, ptr %plugged_memory, align 8
+  %call4 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.53, i64 noundef %2) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
@@ -801,8 +781,8 @@ if.end:                                           ; preds = %if.then3, %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %4 = load ptr, ptr %err, align 8
-  %call6 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %4) #3
+  %3 = load ptr, ptr %err, align 8
+  %call6 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %3) #3
   ret void
 }
 

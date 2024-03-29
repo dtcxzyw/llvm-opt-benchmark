@@ -153,22 +153,21 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %_ZNSt1
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %2, i64 1024
   %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, 1
-  %50 = icmp ne i8 %49, 0
-  invoke void @_ZN5ceres8internal16FillCRSStructureEiiPKiPKNS0_4CellEPKNS0_5BlockES8_PiS9_P11CUstream_stb(i32 noundef %33, i32 noundef %34, ptr noundef %36, ptr noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %46, i1 noundef zeroext %50)
-          to label %51 unwind label %82
+  %49 = trunc i8 %48 to i1
+  invoke void @_ZN5ceres8internal16FillCRSStructureEiiPKiPKNS0_4CellEPKNS0_5BlockES8_PiS9_P11CUstream_stb(i32 noundef %33, i32 noundef %34, ptr noundef %36, ptr noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %46, i1 noundef zeroext %49)
+          to label %50 unwind label %82
 
-51:                                               ; preds = %30
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
-  %54 = load i8, ptr %53, align 8
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %55, ptr %56, align 8
-  br i1 %.not, label %86, label %57
+50:                                               ; preds = %30
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %53 = load i8, ptr %52, align 8
+  %54 = trunc i8 %53 to i1
+  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = and i8 %53, 1
+  store i8 %56, ptr %55, align 8
+  br i1 %54, label %57, label %86
 
-57:                                               ; preds = %51
+57:                                               ; preds = %50
   %58 = load ptr, ptr @_ZZN5ceres8internal22CudaBlockSparseCRSViewC1ERKNS0_17BlockSparseMatrixEPNS0_11ContextImplEE8vlocal__, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %62
@@ -241,7 +240,7 @@ _ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit.
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
   br label %.body25
 
-86:                                               ; preds = %51
+86:                                               ; preds = %50
   %87 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12
           to label %.noexc24 unwind label %82
 
@@ -423,11 +422,10 @@ define hidden void @_ZN5ceres8internal22CudaBlockSparseCRSView12UpdateValuesERKN
   %22 = alloca %"class.google::LogMessageFatal", align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not = icmp eq i8 %25, 0
+  %25 = trunc i8 %24 to i1
   %indvars.iv.i.sroa.gep8 = getelementptr inbounds i8, ptr %11, i64 8
   %indvars.iv.i.sroa.gep11 = getelementptr inbounds i8, ptr %10, i64 8
-  br i1 %.not, label %56, label %26
+  br i1 %25, label %26, label %56
 
 26:                                               ; preds = %2
   %27 = load ptr, ptr %0, align 8
@@ -481,8 +479,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   store ptr %48, ptr %21, align 8
-  %.not13 = icmp eq ptr %48, null
-  br i1 %.not13, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %51
+  %.not = icmp eq ptr %48, null
+  br i1 %.not, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %51
 
 51:                                               ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull align 8 dereferenceable(8) %21)

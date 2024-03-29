@@ -377,19 +377,18 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 624
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #15
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i

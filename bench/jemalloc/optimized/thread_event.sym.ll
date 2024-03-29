@@ -82,21 +82,21 @@ land.rhs:                                         ; preds = %entry
 land.end:                                         ; preds = %land.rhs, %entry
   %6 = phi i1 [ false, %entry ], [ %cmp, %land.rhs ]
   %7 = load i8, ptr %ctx, align 8
-  %8 = and i8 %7, 1
-  %tobool = icmp ne i8 %8, 0
-  %9 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp11 = icmp ne i64 %9, 0
+  %tobool = trunc i8 %7 to i1
+  %tobool.mask = and i8 %7, 1
+  %8 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
+  %cmp11 = icmp ne i64 %8, 0
   %or.cond = select i1 %tobool, i1 %cmp11, i1 false
   br i1 %or.cond, label %if.then, label %if.end29
 
 if.then:                                          ; preds = %land.end
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316 = getelementptr inbounds i8, ptr %tsd, i64 40
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
-  %cmp14 = icmp ugt i64 %10, %sub
+  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
+  %cmp14 = icmp ugt i64 %9, %sub
   br i1 %cmp14, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.then
-  %sub17 = sub i64 %10, %sub
+  %sub17 = sub i64 %9, %sub
   br label %if.end23
 
 if.else:                                          ; preds = %if.then
@@ -112,95 +112,96 @@ if.else21:                                        ; preds = %if.else
 
 if.end23:                                         ; preds = %if.then19, %if.else21, %if.then16
   %event_wait.0 = phi i64 [ %sub17, %if.then16 ], [ %call22, %if.else21 ], [ %call20, %if.then19 ]
-  %is_tcache_gc_triggered.0 = phi i8 [ 0, %if.then16 ], [ 1, %if.else21 ], [ 0, %if.then19 ]
+  %is_tcache_gc_triggered.0 = phi i1 [ false, %if.then16 ], [ true, %if.else21 ], [ false, %if.then19 ]
   store i64 %event_wait.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end23, %land.end
-  %is_tcache_gc_triggered.1 = phi i8 [ 0, %land.end ], [ %is_tcache_gc_triggered.0, %if.end23 ]
+  %is_tcache_gc_triggered.1 = phi i1 [ false, %land.end ], [ %is_tcache_gc_triggered.0, %if.end23 ]
   %wait.0 = phi i64 [ -1, %land.end ], [ %event_wait.0, %if.end23 ]
-  %11 = load i64, ptr @opt_stats_interval, align 8
-  %cmp66 = icmp sgt i64 %11, -1
+  %10 = load i64, ptr @opt_stats_interval, align 8
+  %cmp66 = icmp sgt i64 %10, -1
   %or.cond1 = select i1 %tobool, i1 %cmp66, i1 false
   br i1 %or.cond1, label %if.then68, label %if.end90
 
 if.then68:                                        ; preds = %if.end29
   %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342 = getelementptr inbounds i8, ptr %tsd, i64 72
-  %12 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
-  %cmp73 = icmp ugt i64 %12, %sub
+  %11 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
+  %cmp73 = icmp ugt i64 %11, %sub
   br i1 %cmp73, label %if.then75, label %if.else77
 
 if.then75:                                        ; preds = %if.then68
-  %sub76 = sub i64 %12, %sub
-  br label %if.end120.thread
+  %sub76 = sub i64 %11, %sub
+  br label %if.end84
 
 if.else77:                                        ; preds = %if.then68
   br i1 %6, label %if.else81, label %if.then79
 
 if.then79:                                        ; preds = %if.else77
   %call80 = tail call i64 @stats_interval_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end120.thread
+  br label %if.end84
 
 if.else81:                                        ; preds = %if.else77
   %call82 = tail call i64 @stats_interval_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end120.thread
+  br label %if.end84
 
-if.end120.thread:                                 ; preds = %if.then79, %if.else81, %if.then75
+if.end84:                                         ; preds = %if.then79, %if.else81, %if.then75
   %event_wait69.0 = phi i64 [ %sub76, %if.then75 ], [ %call82, %if.else81 ], [ %call80, %if.then79 ]
-  %is_stats_interval_triggered.0 = phi i8 [ 0, %if.then75 ], [ 1, %if.else81 ], [ 0, %if.then79 ]
+  %is_stats_interval_triggered.0 = phi i1 [ false, %if.then75 ], [ true, %if.else81 ], [ false, %if.then79 ]
   store i64 %event_wait69.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
   %spec.select114 = tail call i64 @llvm.umin.i64(i64 %event_wait69.0, i64 %wait.0)
-  br label %if.then125
+  br label %if.end90
 
-if.end90:                                         ; preds = %if.end29
-  %cmp93 = icmp eq i8 %8, 0
-  %13 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp96 = icmp ne i64 %13, 0
+if.end90:                                         ; preds = %if.end84, %if.end29
+  %is_stats_interval_triggered.1 = phi i1 [ false, %if.end29 ], [ %is_stats_interval_triggered.0, %if.end84 ]
+  %wait.1 = phi i64 [ %wait.0, %if.end29 ], [ %spec.select114, %if.end84 ]
+  %cmp93 = icmp eq i8 %tobool.mask, 0
+  %12 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
+  %cmp96 = icmp ne i64 %12, 0
   %or.cond2 = select i1 %cmp93, i1 %cmp96, i1 false
   br i1 %or.cond2, label %if.then98, label %if.end120
 
 if.then98:                                        ; preds = %if.end90
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355 = getelementptr inbounds i8, ptr %tsd, i64 48
-  %14 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355, align 8
-  %cmp103 = icmp ugt i64 %14, %sub
+  %13 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355, align 8
+  %cmp103 = icmp ugt i64 %13, %sub
   br i1 %cmp103, label %if.then105, label %if.else107
 
 if.then105:                                       ; preds = %if.then98
-  %sub106 = sub i64 %14, %sub
-  br label %if.end120.thread142
+  %sub106 = sub i64 %13, %sub
+  br label %if.end114
 
 if.else107:                                       ; preds = %if.then98
   br i1 %6, label %if.else111, label %if.then109
 
 if.then109:                                       ; preds = %if.else107
   %call110 = tail call i64 @tcache_gc_dalloc_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end120.thread142
+  br label %if.end114
 
 if.else111:                                       ; preds = %if.else107
   %call112 = tail call i64 @tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end120.thread142
+  br label %if.end114
 
-if.end120.thread142:                              ; preds = %if.then105, %if.else111, %if.then109
-  %15 = phi i1 [ true, %if.then105 ], [ false, %if.else111 ], [ true, %if.then109 ]
+if.end114:                                        ; preds = %if.then109, %if.else111, %if.then105
+  %14 = phi i1 [ true, %if.then105 ], [ false, %if.else111 ], [ true, %if.then109 ]
   %event_wait99.0 = phi i64 [ %sub106, %if.then105 ], [ %call112, %if.else111 ], [ %call110, %if.then109 ]
   store i64 %event_wait99.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355, align 8
-  %spec.select115 = tail call i64 @llvm.umin.i64(i64 %event_wait99.0, i64 %wait.0)
-  br label %if.then152
+  %spec.select115 = tail call i64 @llvm.umin.i64(i64 %event_wait99.0, i64 %wait.1)
+  br label %if.end120
 
-if.end120:                                        ; preds = %if.end90
-  br i1 %tobool, label %if.then125, label %if.then152
+if.end120:                                        ; preds = %if.end114, %if.end90
+  %is_tcache_gc_dalloc_triggered.1 = phi i1 [ true, %if.end90 ], [ %14, %if.end114 ]
+  %wait.2 = phi i64 [ %wait.1, %if.end90 ], [ %spec.select115, %if.end114 ]
+  br i1 %tobool, label %if.then125, label %if.end147
 
-if.then125:                                       ; preds = %if.end120.thread, %if.end120
-  %wait.2141 = phi i64 [ %spec.select114, %if.end120.thread ], [ %wait.0, %if.end120 ]
-  %is_stats_interval_triggered.1129138 = phi i8 [ %is_stats_interval_triggered.0, %if.end120.thread ], [ 0, %if.end120 ]
-  %cmp93130136 = phi i1 [ false, %if.end120.thread ], [ %cmp93, %if.end120 ]
+if.then125:                                       ; preds = %if.end120
   %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368 = getelementptr inbounds i8, ptr %tsd, i64 88
-  %16 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368, align 8
-  %cmp130 = icmp ugt i64 %16, %sub
+  %15 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368, align 8
+  %cmp130 = icmp ugt i64 %15, %sub
   br i1 %cmp130, label %if.then132, label %if.else134
 
 if.then132:                                       ; preds = %if.then125
-  %sub133 = sub i64 %16, %sub
+  %sub133 = sub i64 %15, %sub
   br label %if.end141
 
 if.else134:                                       ; preds = %if.then125
@@ -215,17 +216,18 @@ if.else138:                                       ; preds = %if.else134
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then136, %if.else138, %if.then132
-  %is_peak_alloc_triggered.0 = phi i8 [ 0, %if.then132 ], [ 1, %if.else138 ], [ 0, %if.then136 ]
+  %16 = phi i1 [ true, %if.then132 ], [ false, %if.else138 ], [ true, %if.then136 ]
   %event_wait126.0 = phi i64 [ %sub133, %if.then132 ], [ %call139, %if.else138 ], [ %call137, %if.then136 ]
   store i64 %event_wait126.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368, align 8
-  %spec.select116 = tail call i64 @llvm.umin.i64(i64 %event_wait126.0, i64 %wait.2141)
-  br i1 %cmp93130136, label %if.then152, label %do.end176
+  %spec.select116 = tail call i64 @llvm.umin.i64(i64 %event_wait126.0, i64 %wait.2)
+  br label %if.end147
 
-if.then152:                                       ; preds = %if.end120, %if.end120.thread142, %if.end141
-  %wait.3155 = phi i64 [ %spec.select116, %if.end141 ], [ %spec.select115, %if.end120.thread142 ], [ %wait.0, %if.end120 ]
-  %is_peak_alloc_triggered.1154 = phi i8 [ %is_peak_alloc_triggered.0, %if.end141 ], [ 0, %if.end120.thread142 ], [ 0, %if.end120 ]
-  %is_stats_interval_triggered.1129137150 = phi i8 [ %is_stats_interval_triggered.1129138, %if.end141 ], [ 0, %if.end120.thread142 ], [ 0, %if.end120 ]
-  %is_tcache_gc_dalloc_triggered.1139148 = phi i1 [ true, %if.end141 ], [ %15, %if.end120.thread142 ], [ true, %if.end120 ]
+if.end147:                                        ; preds = %if.end141, %if.end120
+  %is_peak_alloc_triggered.1 = phi i1 [ true, %if.end120 ], [ %16, %if.end141 ]
+  %wait.3 = phi i64 [ %wait.2, %if.end120 ], [ %spec.select116, %if.end141 ]
+  br i1 %cmp93, label %if.then152, label %do.end176
+
+if.then152:                                       ; preds = %if.end147
   %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381 = getelementptr inbounds i8, ptr %tsd, i64 96
   %17 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381, align 8
   %cmp157 = icmp ugt i64 %17, %sub
@@ -250,23 +252,19 @@ if.end168:                                        ; preds = %if.then163, %if.els
   %18 = phi i1 [ true, %if.then159 ], [ false, %if.else165 ], [ true, %if.then163 ]
   %event_wait153.0 = phi i64 [ %sub160, %if.then159 ], [ %call166, %if.else165 ], [ %call164, %if.then163 ]
   store i64 %event_wait153.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381, align 8
-  %spec.select117 = tail call i64 @llvm.umin.i64(i64 %event_wait153.0, i64 %wait.3155)
+  %spec.select117 = tail call i64 @llvm.umin.i64(i64 %event_wait153.0, i64 %wait.3)
   br label %do.end176
 
-do.end176:                                        ; preds = %if.end141, %if.end168
-  %is_peak_alloc_triggered.1153 = phi i8 [ %is_peak_alloc_triggered.1154, %if.end168 ], [ %is_peak_alloc_triggered.0, %if.end141 ]
-  %cmp93130135151 = phi i1 [ false, %if.end168 ], [ true, %if.end141 ]
-  %is_stats_interval_triggered.1129137149 = phi i8 [ %is_stats_interval_triggered.1129137150, %if.end168 ], [ %is_stats_interval_triggered.1129138, %if.end141 ]
-  %is_tcache_gc_dalloc_triggered.1139147 = phi i1 [ %is_tcache_gc_dalloc_triggered.1139148, %if.end168 ], [ true, %if.end141 ]
-  %is_peak_dalloc_triggered.1 = phi i1 [ %18, %if.end168 ], [ true, %if.end141 ]
-  %wait.4 = phi i64 [ %spec.select117, %if.end168 ], [ %spec.select116, %if.end141 ]
+do.end176:                                        ; preds = %if.end168, %if.end147
+  %is_peak_dalloc_triggered.1 = phi i1 [ true, %if.end147 ], [ %18, %if.end168 ]
+  %wait.4 = phi i64 [ %wait.3, %if.end147 ], [ %spec.select117, %if.end168 ]
   %ctx.val = load ptr, ptr %last_event.i, align 8
   %19 = getelementptr i8, ptr %ctx, i64 24
-  %ctx.val123 = load ptr, ptr %19, align 8
+  %ctx.val118 = load ptr, ptr %19, align 8
   %ctx.val.val = load i64, ptr %ctx.val, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %wait.4, i64 4194304)
   %add.i = add i64 %ctx.val.val, %cond.i
-  store i64 %add.i, ptr %ctx.val123, align 8
+  store i64 %add.i, ptr %ctx.val118, align 8
   %20 = load i8, ptr %4, align 8
   %cmp.not.i.i = icmp eq i8 %20, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -306,24 +304,21 @@ if.end7.sink.split.i.i:                           ; preds = %if.then6.i.i, %if.t
 
 te_adjust_thresholds_helper.exit:                 ; preds = %if.end.i.i, %if.end7.sink.split.i.i
   %22 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp182 = icmp eq i64 %22, 0
-  %not.tobool = xor i1 %tobool, true
-  %or.cond3 = select i1 %not.tobool, i1 true, i1 %cmp182
-  %tobool185.not = icmp eq i8 %is_tcache_gc_triggered.1, 0
-  %or.cond118 = or i1 %tobool185.not, %or.cond3
-  br i1 %or.cond118, label %if.end191, label %do.end189
+  %cmp182 = icmp ne i64 %22, 0
+  %or.cond3.not = select i1 %tobool, i1 %cmp182, i1 false
+  %brmerge.not = and i1 %or.cond3.not, %is_tcache_gc_triggered.1
+  br i1 %brmerge.not, label %do.end189, label %if.end191
 
 do.end189:                                        ; preds = %te_adjust_thresholds_helper.exit
   tail call void @tcache_gc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
   br label %if.end191
 
-if.end191:                                        ; preds = %do.end189, %te_adjust_thresholds_helper.exit
+if.end191:                                        ; preds = %te_adjust_thresholds_helper.exit, %do.end189
   %23 = load i64, ptr @opt_stats_interval, align 8
-  %cmp214 = icmp slt i64 %23, 0
-  %or.cond4 = select i1 %not.tobool, i1 true, i1 %cmp214
-  %tobool217.not = icmp eq i8 %is_stats_interval_triggered.1129137149, 0
-  %or.cond119 = or i1 %tobool217.not, %or.cond4
-  br i1 %or.cond119, label %if.end224, label %do.end221
+  %cmp214 = icmp sgt i64 %23, -1
+  %or.cond4.not = select i1 %tobool, i1 %cmp214, i1 false
+  %brmerge119.not = and i1 %or.cond4.not, %is_stats_interval_triggered.1
+  br i1 %brmerge119.not, label %do.end221, label %if.end224
 
 do.end221:                                        ; preds = %if.end191
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 8
@@ -335,35 +330,36 @@ do.end221:                                        ; preds = %if.end191
   tail call void @stats_interval_event_handler(ptr noundef nonnull %tsd, i64 noundef %sub.i) #5
   br label %if.end224
 
-if.end224:                                        ; preds = %do.end221, %if.end191
+if.end224:                                        ; preds = %if.end191, %do.end221
   %26 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
   %cmp230 = icmp eq i64 %26, 0
-  %or.cond5 = select i1 %cmp93130135151, i1 true, i1 %cmp230
-  %or.cond120 = or i1 %is_tcache_gc_dalloc_triggered.1139147, %or.cond5
-  br i1 %or.cond120, label %if.end240, label %do.end237
+  %not.cmp93 = xor i1 %cmp93, true
+  %or.cond5 = select i1 %not.cmp93, i1 true, i1 %cmp230
+  %brmerge120 = or i1 %is_tcache_gc_dalloc_triggered.1, %or.cond5
+  br i1 %brmerge120, label %if.end240, label %do.end237
 
 do.end237:                                        ; preds = %if.end224
   tail call void @tcache_gc_dalloc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
   br label %if.end240
 
-if.end240:                                        ; preds = %do.end237, %if.end224
-  %tobool246.not = icmp ne i8 %is_peak_alloc_triggered.1153, 0
-  %or.cond121.not = and i1 %tobool, %tobool246.not
-  br i1 %or.cond121.not, label %do.end250, label %if.end253
+if.end240:                                        ; preds = %if.end224, %do.end237
+  %tobool.not = xor i1 %tobool, true
+  %brmerge121 = or i1 %is_peak_alloc_triggered.1, %tobool.not
+  br i1 %brmerge121, label %if.end253, label %do.end250
 
 do.end250:                                        ; preds = %if.end240
   tail call void @peak_alloc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
   br label %if.end253
 
-if.end253:                                        ; preds = %do.end250, %if.end240
-  %or.cond122 = or i1 %cmp93130135151, %is_peak_dalloc_triggered.1
-  br i1 %or.cond122, label %if.end266, label %do.end263
+if.end253:                                        ; preds = %if.end240, %do.end250
+  %brmerge122 = or i1 %is_peak_dalloc_triggered.1, %not.cmp93
+  br i1 %brmerge122, label %if.end266, label %do.end263
 
 do.end263:                                        ; preds = %if.end253
   tail call void @peak_dalloc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
   br label %if.end266
 
-if.end266:                                        ; preds = %do.end263, %if.end253
+if.end266:                                        ; preds = %if.end253, %do.end263
   ret void
 }
 

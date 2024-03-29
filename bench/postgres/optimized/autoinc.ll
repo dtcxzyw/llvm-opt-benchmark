@@ -106,8 +106,8 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %40 = icmp sgt i16 %38, 0
   %41 = and i32 %39, 1
   %.not87 = icmp eq i32 %41, 0
-  %or.cond90 = and i1 %40, %.not87
-  br i1 %or.cond90, label %45, label %42
+  %or.cond = and i1 %40, %.not87
+  br i1 %or.cond, label %45, label %42
 
 42:                                               ; preds = %30
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -133,9 +133,9 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %.outer
-  %.0.ph106 = phi i32 [ 0, %45 ], [ %104, %.outer ]
-  %.080.ph105 = phi i32 [ 0, %45 ], [ %105, %.outer ]
-  %58 = sext i32 %.080.ph105 to i64
+  %.0.ph105 = phi i32 [ 0, %45 ], [ %104, %.outer ]
+  %.080.ph104 = phi i32 [ 0, %45 ], [ %105, %.outer ]
+  %58 = sext i32 %.080.ph104 to i64
   br label %59
 
 59:                                               ; preds = %.lr.ph, %84
@@ -174,12 +174,11 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 78:                                               ; preds = %70
   %79 = call i64 @SPI_getbinval(ptr noundef %.079, ptr noundef %49, i32 noundef %62, ptr noundef nonnull %2) #6
   %80 = load i8, ptr %2, align 1
-  %81 = and i8 %80, 1
-  %.not89 = icmp eq i8 %81, 0
+  %81 = trunc i8 %80 to i1
   %82 = and i64 %79, 4294967295
-  %83 = icmp ne i64 %82, 0
-  %or.cond = select i1 %.not89, i1 %83, i1 false
-  br i1 %or.cond, label %84, label %86
+  %83 = icmp eq i64 %82, 0
+  %or.cond.not = select i1 %81, i1 true, i1 %83
+  br i1 %or.cond.not, label %86, label %84
 
 84:                                               ; preds = %78
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
@@ -188,11 +187,11 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 86:                                               ; preds = %78
   %87 = trunc i64 %indvars.iv to i32
-  %88 = sext i32 %.0.ph106 to i64
+  %88 = sext i32 %.0.ph105 to i64
   %89 = getelementptr i32, ptr %53, i64 %88
   store i32 %62, ptr %89, align 4
-  %sext122 = shl i64 %indvars.iv, 32
-  %90 = ashr exact i64 %sext122, 32
+  %sext121 = shl i64 %indvars.iv, 32
+  %90 = ashr exact i64 %sext121, 32
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %90
   %91 = load ptr, ptr %gep, align 8
   %92 = call ptr @cstring_to_text(ptr noundef %91) #6
@@ -208,8 +207,8 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 99:                                               ; preds = %86
   %100 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %93) #6
-  %sext91 = shl i64 %100, 32
-  %101 = ashr exact i64 %sext91, 32
+  %sext90 = shl i64 %100, 32
+  %101 = ashr exact i64 %sext90, 32
   store i64 %101, ptr %95, align 8
   br label %.outer
 
@@ -218,18 +217,18 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   store i8 0, ptr %102, align 1
   %103 = call ptr @pg_detoast_datum_packed(ptr noundef %92) #6
   call void @pfree(ptr noundef %103) #6
-  %104 = add i32 %.0.ph106, 1
+  %104 = add i32 %.0.ph105, 1
   %105 = add nsw i32 %87, 2
   %106 = icmp slt i32 %105, %39
   br i1 %106, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !4
 
 .outer._crit_edge:                                ; preds = %.outer, %84
-  %.0.ph.lcssa101 = phi i32 [ %.0.ph106, %84 ], [ %104, %.outer ]
-  %107 = icmp sgt i32 %.0.ph.lcssa101, 0
+  %.0.ph.lcssa100 = phi i32 [ %.0.ph105, %84 ], [ %104, %.outer ]
+  %107 = icmp sgt i32 %.0.ph.lcssa100, 0
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %.outer._crit_edge
-  %109 = call ptr @heap_modify_tuple_by_cols(ptr noundef %.079, ptr noundef %49, i32 noundef %.0.ph.lcssa101, ptr noundef %53, ptr noundef %55, ptr noundef %56) #6
+  %109 = call ptr @heap_modify_tuple_by_cols(ptr noundef %.079, ptr noundef %49, i32 noundef %.0.ph.lcssa100, ptr noundef %53, ptr noundef %55, ptr noundef %56) #6
   br label %110
 
 110:                                              ; preds = %108, %.outer._crit_edge

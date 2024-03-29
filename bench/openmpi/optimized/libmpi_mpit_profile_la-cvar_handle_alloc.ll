@@ -11,14 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_T_cvar_handle_alloc(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #0 {
   %5 = load volatile i32, ptr @ompi_mpit_init_count, align 4
-  %.not24 = icmp eq i32 %5, 0
-  br i1 %.not24, label %29, label %6
+  %.not23 = icmp eq i32 %5, 0
+  br i1 %.not23, label %29, label %6
 
 6:                                                ; preds = %4
   %7 = load i8, ptr @ompi_mpi_param_check, align 1
-  %8 = and i8 %7, 1
-  %.not22 = icmp eq i8 %8, 0
-  br i1 %.not22, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
   %10 = icmp eq ptr %2, null
@@ -35,8 +34,8 @@ define i32 @PMPI_T_cvar_handle_alloc(i32 noundef %0, ptr noundef %1, ptr noundef
 
 15:                                               ; preds = %12
   %16 = tail call i32 @mca_base_var_get(i32 noundef %0, ptr noundef nonnull %13) #4
-  %.not23 = icmp eq i32 %16, 0
-  br i1 %.not23, label %22, label %17
+  %.not22 = icmp eq i32 %16, 0
+  br i1 %.not22, label %22, label %17
 
 17:                                               ; preds = %15
   %18 = icmp eq i32 %16, -18

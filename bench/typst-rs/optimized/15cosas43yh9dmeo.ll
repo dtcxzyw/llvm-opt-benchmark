@@ -3976,10 +3976,10 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   store i64 %1188, ptr %.sroa.412.0..sroa_idx.i.i, align 8, !alias.scope !717, !noalias !706
   %1189 = xor i64 %1183, %.val.i.i.i
   store i64 %1189, ptr %9, align 8, !alias.scope !710, !noalias !706
-  %trunc.not.i.i.i.i = icmp eq i64 %.val.i.i.i, 0
+  %trunc.i.i.i.i = trunc i64 %.val.i.i.i to i1
   %1190 = icmp ne ptr %.val1.i.i.i, null
   tail call void @llvm.assume(i1 %1190)
-  br i1 %trunc.not.i.i.i.i, label %1191, label %1205
+  br i1 %trunc.i.i.i.i, label %1205, label %1191
 
 1191:                                             ; preds = %1176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !720)

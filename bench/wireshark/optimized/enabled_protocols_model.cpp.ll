@@ -1012,14 +1012,14 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   br label %_ZN7QStringD2Ev.exit
 
 24:                                               ; preds = %17
-  switch i32 %3, label %76 [
+  switch i32 %3, label %75 [
     i32 0, label %25
     i32 10, label %66
-    i32 257, label %73
+    i32 257, label %72
   ]
 
 25:                                               ; preds = %24
-  switch i32 %11, label %76 [
+  switch i32 %11, label %75 [
     i32 0, label %26
     i32 1, label %46
   ]
@@ -1128,31 +1128,30 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24:    ; preds = %62
 
 66:                                               ; preds = %24
   %cond = icmp eq i32 %11, 0
-  br i1 %cond, label %67, label %76
+  br i1 %cond, label %67, label %75
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds i8, ptr %20, i64 88
   %69 = load i8, ptr %68, align 8
-  %70 = shl i8 %69, 1
-  %71 = and i8 %70, 2
-  %72 = zext nneg i8 %71 to i32
-  tail call void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %72)
+  %70 = trunc i8 %69 to i1
+  %71 = select i1 %70, i32 2, i32 0
+  tail call void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %71)
   br label %_ZN7QStringD2Ev.exit
 
-73:                                               ; preds = %24
-  %74 = getelementptr inbounds i8, ptr %20, i64 92
-  %75 = load i32, ptr %74, align 4
-  store i32 %75, ptr %7, align 4
+72:                                               ; preds = %24
+  %73 = getelementptr inbounds i8, ptr %20, i64 92
+  %74 = load i32, ptr %73, align 4
+  store i32 %74, ptr %7, align 4
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull %7)
   br label %_ZN7QStringD2Ev.exit
 
-76:                                               ; preds = %24, %66, %25
+75:                                               ; preds = %24, %66, %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 2, ptr %77, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 2, ptr %76, align 8
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %60, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i20, %57, %40, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %37, %76, %73, %67, %22, %_ZNK11QModelIndex7isValidEv.exit.thread
+_ZN7QStringD2Ev.exit:                             ; preds = %60, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i20, %57, %40, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %37, %75, %72, %67, %22, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void
 
 _ZN7QStringD2Ev.exit17.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
@@ -1383,7 +1382,7 @@ define void @_ZN21EnabledProtocolsModel12applyChangesEb(ptr nocapture noundef no
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph38, label %._crit_edge39.thread
+  br i1 %15, label %.lr.ph38, label %.critedge
 
 .lr.ph38:                                         ; preds = %2
   %16 = getelementptr inbounds i8, ptr %8, i64 24
@@ -1393,9 +1392,9 @@ define void @_ZN21EnabledProtocolsModel12applyChangesEb(ptr nocapture noundef no
 
 19:                                               ; preds = %.lr.ph38, %._crit_edge
   %indvars.iv41 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next42, %._crit_edge ]
-  %20 = phi i64 [ %13, %.lr.ph38 ], [ %114, %._crit_edge ]
-  %21 = phi ptr [ %11, %.lr.ph38 ], [ %112, %._crit_edge ]
-  %.036 = phi i8 [ 0, %.lr.ph38 ], [ %.1.lcssa, %._crit_edge ]
+  %20 = phi i64 [ %13, %.lr.ph38 ], [ %111, %._crit_edge ]
+  %21 = phi ptr [ %11, %.lr.ph38 ], [ %109, %._crit_edge ]
+  %.036 = phi i1 [ false, %.lr.ph38 ], [ %.1.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !34
@@ -1408,9 +1407,9 @@ define void @_ZN21EnabledProtocolsModel12applyChangesEb(ptr nocapture noundef no
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %_ZNK5QListI8QVariantE5valueEx.exit.i unwind label %27
 
-common.resume:                                    ; preds = %57, %94, %27, %30
-  %.sink.i17.sink = phi ptr [ %9, %30 ], [ %8, %27 ], [ %7, %94 ], [ %6, %57 ]
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %28, %27 ], [ %95, %94 ], [ %58, %57 ]
+common.resume:                                    ; preds = %55, %92, %27, %30
+  %.sink.i17.sink = phi ptr [ %9, %30 ], [ %8, %27 ], [ %7, %92 ], [ %6, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %28, %27 ], [ %93, %92 ], [ %56, %55 ]
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i17.sink) #21
   resume { ptr, i32 } %common.resume.op
 
@@ -1451,202 +1450,198 @@ _ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit: ; preds = %_ZNK5QL
   br label %_ZN19EnabledProtocolItem10applyValueEv.exit
 
 _ZN19EnabledProtocolItem10applyValueEv.exit:      ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit, %38
-  %43 = and i8 %.036, 1
-  %44 = zext i1 %.not.i to i8
-  %45 = or i8 %43, %44
-  %46 = getelementptr inbounds i8, ptr %29, i64 32
-  %47 = load i64, ptr %46, align 8
-  %48 = trunc i64 %47 to i32
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph, label %._crit_edge
+  %43 = or i1 %.036, %.not.i
+  %44 = getelementptr inbounds i8, ptr %29, i64 32
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN19EnabledProtocolItem10applyValueEv.exit
-  %50 = getelementptr inbounds i8, ptr %29, i64 24
-  br label %51
+  %48 = getelementptr inbounds i8, ptr %29, i64 24
+  br label %49
 
-51:                                               ; preds = %.lr.ph, %_ZN19EnabledProtocolItem10applyValueEv.exit22
+49:                                               ; preds = %.lr.ph, %_ZN19EnabledProtocolItem10applyValueEv.exit22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
-  %52 = phi i64 [ %47, %.lr.ph ], [ %109, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
-  %.134 = phi i8 [ %45, %.lr.ph ], [ %108, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
+  %50 = phi i64 [ %45, %.lr.ph ], [ %106, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
+  %.134 = phi i1 [ %43, %.lr.ph ], [ %105, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !40
   store i64 2, ptr %17, align 8, !noalias !40
-  %53 = icmp ugt i64 %52, %indvars.iv
-  %54 = load ptr, ptr %50, align 8, !noalias !43
-  %55 = getelementptr %class.QVariant, ptr %54, i64 %indvars.iv
-  %56 = select i1 %53, ptr %55, ptr %6
-  invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %_ZNK5QListI8QVariantE5valueEx.exit.i19 unwind label %57
+  %51 = icmp ugt i64 %50, %indvars.iv
+  %52 = load ptr, ptr %48, align 8, !noalias !43
+  %53 = getelementptr %class.QVariant, ptr %52, i64 %indvars.iv
+  %54 = select i1 %51, ptr %53, ptr %6
+  invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54)
+          to label %_ZNK5QListI8QVariantE5valueEx.exit.i19 unwind label %55
 
-57:                                               ; preds = %51
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %49
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNK5QListI8QVariantE5valueEx.exit.i19:           ; preds = %51
+_ZNK5QListI8QVariantE5valueEx.exit.i19:           ; preds = %49
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %59 = load i64, ptr %18, align 8
-  %60 = and i64 %59, -4
-  %61 = inttoptr i64 %60 to ptr
+  %57 = load i64, ptr %18, align 8
+  %58 = and i64 %57, -4
+  %59 = inttoptr i64 %58 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %61, ptr %3, align 8
+  store ptr %59, ptr %3, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr %4, align 8
-  %62 = icmp eq ptr %61, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE
-  br i1 %62, label %_Zeq9QMetaTypeS_.exit.thread.i, label %63
+  %60 = icmp eq ptr %59, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE
+  br i1 %60, label %_Zeq9QMetaTypeS_.exit.thread.i, label %61
 
 _Zeq9QMetaTypeS_.exit.thread.i:                   ; preds = %_ZNK5QListI8QVariantE5valueEx.exit.i19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %73
+  br label %71
 
-63:                                               ; preds = %_ZNK5QListI8QVariantE5valueEx.exit.i19
-  %.not.i23 = icmp eq i64 %60, 0
-  br i1 %.not.i23, label %_Zeq9QMetaTypeS_.exit.thread11.i, label %64
+61:                                               ; preds = %_ZNK5QListI8QVariantE5valueEx.exit.i19
+  %.not.i23 = icmp eq i64 %58, 0
+  br i1 %.not.i23, label %_Zeq9QMetaTypeS_.exit.thread11.i, label %62
 
-_Zeq9QMetaTypeS_.exit.thread11.i:                 ; preds = %63
+_Zeq9QMetaTypeS_.exit.thread11.i:                 ; preds = %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %82
+  br label %80
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %61, i64 12
-  %66 = load atomic i32, ptr %65 monotonic, align 4
-  %.not5.i.i.i = icmp eq i32 %66, 0
-  br i1 %.not5.i.i.i, label %67, label %_ZNK9QMetaType2idEi.exit.i.i
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds i8, ptr %59, i64 12
+  %64 = load atomic i32, ptr %63 monotonic, align 4
+  %.not5.i.i.i = icmp eq i32 %64, 0
+  br i1 %.not5.i.i.i, label %65, label %_ZNK9QMetaType2idEi.exit.i.i
 
-67:                                               ; preds = %64
-  %68 = invoke noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZNK9QMetaType2idEi.exit.i.i unwind label %94
+65:                                               ; preds = %62
+  %66 = invoke noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %_ZNK9QMetaType2idEi.exit.i.i unwind label %92
 
-_ZNK9QMetaType2idEi.exit.i.i:                     ; preds = %67, %64
-  %.0.i.i.i = phi i32 [ %66, %64 ], [ %68, %67 ]
-  %69 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
-  %.not5.i7.i.i = icmp eq i32 %69, 0
-  br i1 %.not5.i7.i.i, label %70, label %_Zeq9QMetaTypeS_.exit.i
+_ZNK9QMetaType2idEi.exit.i.i:                     ; preds = %65, %62
+  %.0.i.i.i = phi i32 [ %64, %62 ], [ %66, %65 ]
+  %67 = load atomic i32, ptr getelementptr inbounds ({ i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 0, i32 4, i32 0, i32 0) monotonic, align 4
+  %.not5.i7.i.i = icmp eq i32 %67, 0
+  br i1 %.not5.i7.i.i, label %68, label %_Zeq9QMetaTypeS_.exit.i
 
-70:                                               ; preds = %_ZNK9QMetaType2idEi.exit.i.i
-  %71 = invoke noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_Zeq9QMetaTypeS_.exit.i unwind label %94
+68:                                               ; preds = %_ZNK9QMetaType2idEi.exit.i.i
+  %69 = invoke noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_Zeq9QMetaTypeS_.exit.i unwind label %92
 
-_Zeq9QMetaTypeS_.exit.i:                          ; preds = %70, %_ZNK9QMetaType2idEi.exit.i.i
-  %.0.i8.i.i = phi i32 [ %69, %_ZNK9QMetaType2idEi.exit.i.i ], [ %71, %70 ]
-  %72 = icmp eq i32 %.0.i.i.i, %.0.i8.i.i
+_Zeq9QMetaTypeS_.exit.i:                          ; preds = %68, %_ZNK9QMetaType2idEi.exit.i.i
+  %.0.i8.i.i = phi i32 [ %67, %_ZNK9QMetaType2idEi.exit.i.i ], [ %69, %68 ]
+  %70 = icmp eq i32 %.0.i.i.i, %.0.i8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %72, label %_Zeq9QMetaTypeS_.exit._crit_edge.i, label %82
+  br i1 %70, label %_Zeq9QMetaTypeS_.exit._crit_edge.i, label %80
 
 _Zeq9QMetaTypeS_.exit._crit_edge.i:               ; preds = %_Zeq9QMetaTypeS_.exit.i
   %.pre.i = load i64, ptr %18, align 8
-  br label %73
+  br label %71
 
-73:                                               ; preds = %_Zeq9QMetaTypeS_.exit._crit_edge.i, %_Zeq9QMetaTypeS_.exit.thread.i
-  %74 = phi i64 [ %.pre.i, %_Zeq9QMetaTypeS_.exit._crit_edge.i ], [ %59, %_Zeq9QMetaTypeS_.exit.thread.i ]
-  %75 = and i64 %74, 1
-  %.not.i.i.i = icmp eq i64 %75, 0
-  br i1 %.not.i.i.i, label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20, label %76
+71:                                               ; preds = %_Zeq9QMetaTypeS_.exit._crit_edge.i, %_Zeq9QMetaTypeS_.exit.thread.i
+  %72 = phi i64 [ %.pre.i, %_Zeq9QMetaTypeS_.exit._crit_edge.i ], [ %57, %_Zeq9QMetaTypeS_.exit.thread.i ]
+  %73 = and i64 %72, 1
+  %.not.i.i.i = icmp eq i64 %73, 0
+  br i1 %.not.i.i.i, label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20, label %74
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
-  %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr i8, ptr %77, i64 %80
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr i8, ptr %75, i64 %78
   br label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20
 
-82:                                               ; preds = %_Zeq9QMetaTypeS_.exit.i, %_Zeq9QMetaTypeS_.exit.thread11.i
+80:                                               ; preds = %_Zeq9QMetaTypeS_.exit.i, %_Zeq9QMetaTypeS_.exit.thread11.i
   store ptr null, ptr %5, align 8
-  %83 = invoke ptr @_ZNK8QVariant8metaTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %.noexc25 unwind label %94
+  %81 = invoke ptr @_ZNK8QVariant8metaTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %.noexc25 unwind label %92
 
-.noexc25:                                         ; preds = %82
-  %84 = load i64, ptr %18, align 8
-  %85 = and i64 %84, 1
-  %.not.i.i9.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i9.i, label %_ZNK8QVariant9constDataEv.exit.i, label %86
+.noexc25:                                         ; preds = %80
+  %82 = load i64, ptr %18, align 8
+  %83 = and i64 %82, 1
+  %.not.i.i9.i = icmp eq i64 %83, 0
+  br i1 %.not.i.i9.i, label %_ZNK8QVariant9constDataEv.exit.i, label %84
 
-86:                                               ; preds = %.noexc25
-  %87 = load ptr, ptr %7, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr i8, ptr %87, i64 %90
+84:                                               ; preds = %.noexc25
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr i8, ptr %85, i64 %88
   br label %_ZNK8QVariant9constDataEv.exit.i
 
-_ZNK8QVariant9constDataEv.exit.i:                 ; preds = %86, %.noexc25
-  %92 = phi ptr [ %91, %86 ], [ %7, %.noexc25 ]
-  %93 = invoke noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr %83, ptr noundef %92, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %5)
-          to label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20 unwind label %94
+_ZNK8QVariant9constDataEv.exit.i:                 ; preds = %84, %.noexc25
+  %90 = phi ptr [ %89, %84 ], [ %7, %.noexc25 ]
+  %91 = invoke noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr %81, ptr noundef %90, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %5)
+          to label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20 unwind label %92
 
-94:                                               ; preds = %_ZNK8QVariant9constDataEv.exit.i, %82, %70, %67
-  %95 = landingpad { ptr, i32 }
+92:                                               ; preds = %_ZNK8QVariant9constDataEv.exit.i, %80, %68, %65
+  %93 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20: ; preds = %76, %73, %_ZNK8QVariant9constDataEv.exit.i
-  %.0.in.i = phi ptr [ %81, %76 ], [ %7, %73 ], [ %5, %_ZNK8QVariant9constDataEv.exit.i ]
+_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20: ; preds = %74, %71, %_ZNK8QVariant9constDataEv.exit.i
+  %.0.in.i = phi ptr [ %79, %74 ], [ %7, %71 ], [ %5, %_ZNK8QVariant9constDataEv.exit.i ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %96 = getelementptr inbounds i8, ptr %.0.i, i64 89
-  %97 = load i8, ptr %96, align 1
-  %98 = and i8 %97, 1
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 88
-  %100 = load i8, ptr %99, align 8
-  %101 = and i8 %100, 1
-  %.not.i21 = icmp ne i8 %98, %101
-  br i1 %.not.i21, label %102, label %_ZN19EnabledProtocolItem10applyValueEv.exit22
+  %94 = getelementptr inbounds i8, ptr %.0.i, i64 89
+  %95 = load i8, ptr %94, align 1
+  %96 = and i8 %95, 1
+  %97 = getelementptr inbounds i8, ptr %.0.i, i64 88
+  %98 = load i8, ptr %97, align 8
+  %99 = and i8 %98, 1
+  %.not.i21 = icmp ne i8 %96, %99
+  br i1 %.not.i21, label %100, label %_ZN19EnabledProtocolItem10applyValueEv.exit22
 
-102:                                              ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20
-  %103 = zext nneg i8 %101 to i32
-  %104 = load ptr, ptr %.0.i, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(96) %.0.i, i32 noundef %103)
+100:                                              ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20
+  %101 = zext nneg i8 %99 to i32
+  %102 = load ptr, ptr %.0.i, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(96) %.0.i, i32 noundef %101)
   br label %_ZN19EnabledProtocolItem10applyValueEv.exit22
 
-_ZN19EnabledProtocolItem10applyValueEv.exit22:    ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20, %102
-  %107 = zext i1 %.not.i21 to i8
-  %108 = or i8 %.134, %107
+_ZN19EnabledProtocolItem10applyValueEv.exit22:    ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit20, %100
+  %105 = or i1 %.134, %.not.i21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = load i64, ptr %46, align 8
-  %sext = shl i64 %109, 32
-  %110 = ashr exact i64 %sext, 32
-  %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %51, label %._crit_edge, !llvm.loop !46
+  %106 = load i64, ptr %44, align 8
+  %sext = shl i64 %106, 32
+  %107 = ashr exact i64 %sext, 32
+  %108 = icmp slt i64 %indvars.iv.next, %107
+  br i1 %108, label %49, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZN19EnabledProtocolItem10applyValueEv.exit22, %_ZN19EnabledProtocolItem10applyValueEv.exit
-  %.1.lcssa = phi i8 [ %45, %_ZN19EnabledProtocolItem10applyValueEv.exit ], [ %108, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
+  %.1.lcssa = phi i1 [ %43, %_ZN19EnabledProtocolItem10applyValueEv.exit ], [ %105, %_ZN19EnabledProtocolItem10applyValueEv.exit22 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %112 = load ptr, ptr %10, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 32
-  %114 = load i64, ptr %113, align 8
-  %sext43 = shl i64 %114, 32
-  %115 = ashr exact i64 %sext43, 32
-  %116 = icmp slt i64 %indvars.iv.next42, %115
-  br i1 %116, label %19, label %._crit_edge39, !llvm.loop !47
+  %109 = load ptr, ptr %10, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %111 = load i64, ptr %110, align 8
+  %sext43 = shl i64 %111, 32
+  %112 = ashr exact i64 %sext43, 32
+  %113 = icmp slt i64 %indvars.iv.next42, %112
+  br i1 %113, label %19, label %._crit_edge39, !llvm.loop !47
 
 ._crit_edge39:                                    ; preds = %._crit_edge
-  %117 = icmp eq i8 %.1.lcssa, 0
-  br i1 %117, label %._crit_edge39.thread, label %118
+  br i1 %.1.lcssa, label %114, label %.critedge
 
-118:                                              ; preds = %._crit_edge39
-  br i1 %1, label %119, label %_ZN21EnabledProtocolsModel11saveChangesEb.exit
+114:                                              ; preds = %._crit_edge39
+  br i1 %1, label %115, label %_ZN21EnabledProtocolsModel11saveChangesEb.exit
 
-119:                                              ; preds = %118
+115:                                              ; preds = %114
   call void @save_enabled_and_disabled_lists()
   br label %_ZN21EnabledProtocolsModel11saveChangesEb.exit
 
-_ZN21EnabledProtocolsModel11saveChangesEb.exit:   ; preds = %118, %119
-  %120 = load ptr, ptr @mainApp, align 8
-  call void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %120, i32 noundef 8)
-  br label %._crit_edge39.thread
+_ZN21EnabledProtocolsModel11saveChangesEb.exit:   ; preds = %114, %115
+  %116 = load ptr, ptr @mainApp, align 8
+  call void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %116, i32 noundef 8)
+  br label %.critedge
 
-._crit_edge39.thread:                             ; preds = %2, %_ZN21EnabledProtocolsModel11saveChangesEb.exit, %._crit_edge39
+.critedge:                                        ; preds = %2, %_ZN21EnabledProtocolsModel11saveChangesEb.exit, %._crit_edge39
   ret void
 }
 
@@ -2350,9 +2345,8 @@ _ZN7QStringD2Ev.exit63.thread82:                  ; preds = %104, %138, %_ZN7QSt
 141:                                              ; preds = %_ZN7QStringD2Ev.exit63.thread82
   %142 = getelementptr inbounds i8, ptr %25, i64 88
   %143 = load i8, ptr %142, align 8
-  %144 = and i8 %143, 1
-  %.not87 = icmp eq i8 %144, 0
-  br i1 %.not87, label %_ZN7QStringD2Ev.exit55, label %161
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %161, label %_ZN7QStringD2Ev.exit55
 
 145:                                              ; preds = %_ZNK19EnabledProtocolItem4nameEv.exit57
   %146 = landingpad { ptr, i32 }
@@ -2395,9 +2389,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i73:    ; preds = %_ZN7QStringD2Ev.exi
 157:                                              ; preds = %_ZN7QStringD2Ev.exit63.thread82
   %158 = getelementptr inbounds i8, ptr %25, i64 88
   %159 = load i8, ptr %158, align 8
-  %160 = and i8 %159, 1
-  %.not86 = icmp eq i8 %160, 0
-  br i1 %.not86, label %161, label %_ZN7QStringD2Ev.exit55
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %_ZN7QStringD2Ev.exit55, label %161
 
 _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN7QStringD2Ev.exit63.thread82, %141, %138, %102, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53, %.critedge2, %_ZN7QStringD2Ev.exit47, %157, %_ZN7QStringD2Ev.exit63, %36
   br label %161

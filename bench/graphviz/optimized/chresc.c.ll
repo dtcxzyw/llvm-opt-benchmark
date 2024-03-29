@@ -40,8 +40,8 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
     i8 116, label %28
     i8 118, label %29
     i8 120, label %.preheader
-    i8 69, label %39
-    i8 0, label %40
+    i8 69, label %38
+    i8 0, label %39
   ]
 
 11:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7
@@ -92,8 +92,8 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
   br label %.loopexit
 
 .preheader:                                       ; preds = %7, %switch.lookup
-  %.240 = phi i32 [ %38, %switch.lookup ], [ 0, %7 ]
-  %.23038 = phi ptr [ %35, %switch.lookup ], [ %8, %7 ]
+  %.240 = phi i32 [ %37, %switch.lookup ], [ 0, %7 ]
+  %.23038 = phi ptr [ %34, %switch.lookup ], [ %8, %7 ]
   %30 = load i8, ptr %.23038, align 1
   %switch.tableidx = add i8 %30, -48
   %31 = icmp ult i8 %switch.tableidx, 55
@@ -102,38 +102,37 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
 switch.hole_check:                                ; preds = %.preheader
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 35465847073801215, %switch.maskindex
-  %32 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %32, 0
-  br i1 %switch.lobit.not, label %.loopexit, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %.loopexit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %33 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.chresc, i64 0, i64 %33
+  %32 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.chresc, i64 0, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
-  %34 = shl i32 %.240, 4
-  %35 = getelementptr inbounds i8, ptr %.23038, i64 1
-  %36 = zext nneg i8 %30 to i32
-  %37 = add i32 %34, %switch.load
-  %38 = add i32 %37, %36
+  %33 = shl i32 %.240, 4
+  %34 = getelementptr inbounds i8, ptr %.23038, i64 1
+  %35 = zext nneg i8 %30 to i32
+  %36 = add i32 %33, %switch.load
+  %37 = add i32 %36, %35
   br label %.preheader
+
+38:                                               ; preds = %7
+  br label %.loopexit
 
 39:                                               ; preds = %7
   br label %.loopexit
 
-40:                                               ; preds = %7
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.preheader, %switch.hole_check, %14, %7, %22, %23, %24, %25, %26, %27, %28, %29, %39, %40, %6, %2
-  %.432 = phi ptr [ %3, %2 ], [ %8, %7 ], [ %3, %40 ], [ %8, %39 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ], [ %8, %26 ], [ %8, %25 ], [ %8, %24 ], [ %8, %23 ], [ %8, %22 ], [ %0, %6 ], [ %.129, %14 ], [ %.23038, %switch.hole_check ], [ %.23038, %.preheader ]
-  %.4 = phi i32 [ %5, %2 ], [ %10, %7 ], [ 0, %40 ], [ 27, %39 ], [ 11, %29 ], [ 9, %28 ], [ 32, %27 ], [ 13, %26 ], [ 10, %25 ], [ 12, %24 ], [ 8, %23 ], [ 7, %22 ], [ 0, %6 ], [ %.1, %14 ], [ %.240, %switch.hole_check ], [ %.240, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %switch.hole_check, %14, %7, %22, %23, %24, %25, %26, %27, %28, %29, %38, %39, %6, %2
+  %.432 = phi ptr [ %3, %2 ], [ %8, %7 ], [ %3, %39 ], [ %8, %38 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ], [ %8, %26 ], [ %8, %25 ], [ %8, %24 ], [ %8, %23 ], [ %8, %22 ], [ %0, %6 ], [ %.129, %14 ], [ %.23038, %switch.hole_check ], [ %.23038, %.preheader ]
+  %.4 = phi i32 [ %5, %2 ], [ %10, %7 ], [ 0, %39 ], [ 27, %38 ], [ 11, %29 ], [ 9, %28 ], [ 32, %27 ], [ 13, %26 ], [ 10, %25 ], [ 12, %24 ], [ 8, %23 ], [ 7, %22 ], [ 0, %6 ], [ %.1, %14 ], [ %.240, %switch.hole_check ], [ %.240, %.preheader ]
   %.not36 = icmp eq ptr %1, null
-  br i1 %.not36, label %42, label %41
+  br i1 %.not36, label %41, label %40
 
-41:                                               ; preds = %.loopexit
+40:                                               ; preds = %.loopexit
   store ptr %.432, ptr %1, align 8
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %.loopexit
+41:                                               ; preds = %40, %.loopexit
   ret i32 %.4
 }
 

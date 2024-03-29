@@ -770,11 +770,11 @@ define dso_local ptr @flatten_join_alias_vars(ptr noundef %0, ptr noundef %1, pt
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 47
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 20
-  store i8 %9, ptr %10, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = and i8 %8, 1
+  store i8 %10, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %4, i64 21
-  store i8 %9, ptr %11, align 1
+  store i8 %10, ptr %11, align 1
   %12 = call ptr @flatten_join_alias_vars_mutator(ptr noundef %2, ptr noundef nonnull %4)
   ret ptr %12
 }
@@ -832,13 +832,13 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 4
-  %.not109 = icmp eq ptr %31, null
-  %.not110 = icmp eq ptr %35, null
+  %.not107 = icmp eq ptr %31, null
+  %.not108 = icmp eq ptr %35, null
   %37 = getelementptr inbounds i8, ptr %31, i64 4
   %38 = getelementptr inbounds i8, ptr %31, i64 16
   %39 = getelementptr inbounds i8, ptr %35, i64 16
   %40 = getelementptr inbounds i8, ptr %0, i64 44
-  %brmerge = select i1 %.not110, i1 true, i1 %.not109
+  %brmerge = select i1 %.not108, i1 true, i1 %.not107
   br i1 %brmerge, label %.thread, label %.split.split
 
 .split.split:                                     ; preds = %29, %77
@@ -878,8 +878,8 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 61:                                               ; preds = %58
   %62 = tail call ptr @copyObjectImpl(ptr noundef nonnull %59) #6
   %63 = load i32, ptr %9, align 8
-  %.not111 = icmp eq i32 %63, 0
-  br i1 %.not111, label %65, label %64
+  %.not109 = icmp eq i32 %63, 0
+  br i1 %.not109, label %65, label %64
 
 64:                                               ; preds = %61
   tail call void @IncrementVarSublevelsUp(ptr noundef %62, i32 noundef %63, i32 noundef 0) #6
@@ -912,11 +912,11 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %47, %52, %29
   %.us-phi = phi ptr [ null, %29 ], [ %.093, %52 ], [ %.093, %47 ]
-  %.us-phi113 = phi ptr [ null, %29 ], [ %.092, %52 ], [ %.092, %47 ]
+  %.us-phi111 = phi ptr [ null, %29 ], [ %.092, %52 ], [ %.092, %47 ]
   %78 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 34, ptr %78, align 4
   %79 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %.us-phi113, ptr %79, align 8
+  store ptr %.us-phi111, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr inbounds i8, ptr %78, i64 16
@@ -937,8 +937,8 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %91 = getelementptr inbounds i8, ptr %22, i64 64
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 16
-  %.val112 = load ptr, ptr %93, align 8
-  %94 = getelementptr %union.ListCell, ptr %.val112, i64 %90
+  %.val110 = load ptr, ptr %93, align 8
+  %94 = getelementptr %union.ListCell, ptr %.val110, i64 %90
   %95 = getelementptr i8, ptr %94, i64 -8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @copyObjectImpl(ptr noundef %96) #6
@@ -966,16 +966,14 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %108 = tail call ptr @flatten_join_alias_vars_mutator(ptr noundef nonnull %97, ptr noundef nonnull %1)
   %109 = getelementptr inbounds i8, ptr %1, i64 20
   %110 = load i8, ptr %109, align 4
-  %111 = and i8 %110, 1
-  %.not107 = icmp eq i8 %111, 0
-  br i1 %.not107, label %119, label %112
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %119
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds i8, ptr %1, i64 21
   %114 = load i8, ptr %113, align 1
-  %115 = and i8 %114, 1
-  %.not108 = icmp eq i8 %115, 0
-  br i1 %.not108, label %116, label %119
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %119, label %116
 
 116:                                              ; preds = %112
   %117 = tail call zeroext i1 @checkExprHasSubLink(ptr noundef %108) #6

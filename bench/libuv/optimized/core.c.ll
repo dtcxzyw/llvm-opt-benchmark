@@ -1376,19 +1376,18 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %3
+  %2 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fd7 = getelementptr inbounds i8, ptr %handle, i64 %switch.load
   %fd_out.0 = load i32, ptr %fd7, align 8
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
-  %4 = load i32, ptr %flags, align 8
-  %and = and i32 %4, 3
+  %3 = load i32, ptr %flags, align 8
+  %and = and i32 %3, 3
   %cmp = icmp ne i32 %and, 0
   %cmp8 = icmp eq i32 %fd_out.0, -1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp8
@@ -2418,7 +2417,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp.not = icmp eq ptr %1, null
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next41 = add nuw i32 %indvars.iv40, 1
   br i1 %cmp.not, label %for.end, label %for.cond
 
@@ -2981,40 +2980,39 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %3
+  %2 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fd7.i = getelementptr inbounds i8, ptr %handle, i64 %switch.load
   %fd_out.0.i = load i32, ptr %fd7.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %handle, i64 88
-  %4 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %4, 3
+  %3 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %3, 3
   %cmp.i = icmp ne i32 %and.i, 0
   %cmp8.i = icmp eq i32 %fd_out.0.i, -1
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp8.i
   br i1 %or.cond.i, label %return, label %if.end
 
 if.end:                                           ; preds = %switch.lookup
-  %5 = load i32, ptr %namelen, align 4
-  store i32 %5, ptr %socklen, align 4
+  %4 = load i32, ptr %namelen, align 4
+  store i32 %4, ptr %socklen, align 4
   %call1 = call i32 %func(i32 noundef %fd_out.0.i, ptr noundef %name, ptr noundef nonnull %socklen) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @__errno_location() #24
-  %6 = load i32, ptr %call3, align 4
-  %sub = sub nsw i32 0, %6
+  %5 = load i32, ptr %call3, align 4
+  %sub = sub nsw i32 0, %5
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %7 = load i32, ptr %socklen, align 4
-  store i32 %7, ptr %namelen, align 4
+  %6 = load i32, ptr %socklen, align 4
+  store i32 %6, ptr %namelen, align 4
   br label %return
 
 return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup, %if.end4, %if.then2
@@ -3294,4 +3292,4 @@ attributes #26 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -3, i32 -4}
+!4 = !{i32 -2147483647, i32 -2147483648}

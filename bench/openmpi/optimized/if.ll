@@ -149,99 +149,98 @@ define noundef i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = alloca %struct.sockaddr_in, align 4
   store ptr null, ptr %5, align 8
   %7 = load i8, ptr @opal_if_do_not_resolve, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %._crit_edge31.thread
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %._crit_edge30.thread, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   store i32 1, ptr %10, align 8
   %11 = call i32 @getaddrinfo(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %.not18 = icmp eq i32 %11, 0
-  %.01428 = load ptr, ptr %5, align 8
-  %.not1929 = icmp eq ptr %.01428, null
-  br i1 %.not18, label %.preheader23, label %12
+  %.not = icmp eq i32 %11, 0
+  %.01427 = load ptr, ptr %5, align 8
+  %.not1828 = icmp eq ptr %.01427, null
+  br i1 %.not, label %.preheader22, label %12
 
-.preheader23:                                     ; preds = %9
-  br i1 %.not1929, label %._crit_edge31.thread, label %.preheader.lr.ph
+.preheader22:                                     ; preds = %9
+  br i1 %.not1828, label %._crit_edge30.thread, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader23
+.preheader.lr.ph:                                 ; preds = %.preheader22
   %.4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
   br label %.preheader
 
 12:                                               ; preds = %9
-  br i1 %.not1929, label %._crit_edge31.thread, label %13
+  br i1 %.not1828, label %._crit_edge30.thread, label %13
 
 13:                                               ; preds = %12
-  call void @freeaddrinfo(ptr noundef nonnull %.01428) #16
-  br label %._crit_edge31.thread
+  call void @freeaddrinfo(ptr noundef nonnull %.01427) #16
+  br label %._crit_edge30.thread
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.01430 = phi ptr [ %.01428, %.preheader.lr.ph ], [ %.014, %._crit_edge ]
-  %.01525 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
-  %.not2126 = icmp eq ptr %.01525, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
-  br i1 %.not2126, label %._crit_edge, label %.lr.ph
+  %.01429 = phi ptr [ %.01427, %.preheader.lr.ph ], [ %.014, %._crit_edge ]
+  %.01524 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
+  %.not2025 = icmp eq ptr %.01524, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
+  br i1 %.not2025, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %.01430, i64 4
+  %14 = getelementptr inbounds i8, ptr %.01429, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 2
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.01430, i64 16
-  %18 = getelementptr inbounds i8, ptr %.01430, i64 24
+  %17 = getelementptr inbounds i8, ptr %.01429, i64 16
+  %18 = getelementptr inbounds i8, ptr %.01429, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %17, align 8
   %21 = zext i32 %20 to i64
   br label %22
 
 22:                                               ; preds = %26, %.lr.ph.split.us
-  %.01527.us = phi ptr [ %.01525, %.lr.ph.split.us ], [ %.015.us, %26 ]
+  %.01526.us = phi ptr [ %.01524, %.lr.ph.split.us ], [ %.015.us, %26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr align 2 %19, i64 %21, i1 false)
-  %23 = getelementptr inbounds i8, ptr %.01527.us, i64 92
+  %23 = getelementptr inbounds i8, ptr %.01526.us, i64 92
   %24 = load i32, ptr %23, align 4
   %.4..4..4..4..us = load i32, ptr %.4..4..4..4..sroa_idx, align 4
   %25 = icmp eq i32 %24, %.4..4..4..4..us
   br i1 %25, label %.split.us, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.01527.us, i64 16
+  %27 = getelementptr inbounds i8, ptr %.01526.us, i64 16
   %.015.us = load volatile ptr, ptr %27, align 8
-  %.not21.us = icmp eq ptr %.015.us, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
-  br i1 %.not21.us, label %._crit_edge, label %22, !llvm.loop !9
+  %.not20.us = icmp eq ptr %.015.us, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
+  br i1 %.not20.us, label %._crit_edge, label %22, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.01527 = phi ptr [ %.015, %.lr.ph.split ], [ %.01525, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %.01527, i64 16
+  %.01526 = phi ptr [ %.015, %.lr.ph.split ], [ %.01524, %.lr.ph ]
+  %28 = getelementptr inbounds i8, ptr %.01526, i64 16
   %.015 = load volatile ptr, ptr %28, align 8
-  %.not21 = icmp eq ptr %.015, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  %.not20 = icmp eq ptr %.015, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
+  br i1 %.not20, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 .split.us:                                        ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %.01527.us, i64 40
+  %29 = getelementptr inbounds i8, ptr %.01526.us, i64 40
   %30 = sext i32 %2 to i64
   call void @opal_string_copy(ptr noundef %1, ptr noundef nonnull %29, i64 noundef %30) #16
   %31 = load ptr, ptr %5, align 8
   call void @freeaddrinfo(ptr noundef %31) #16
-  br label %._crit_edge31.thread
+  br label %._crit_edge30.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %26, %.preheader
-  %32 = getelementptr inbounds i8, ptr %.01430, i64 40
+  %32 = getelementptr inbounds i8, ptr %.01429, i64 40
   %.014 = load ptr, ptr %32, align 8
-  %.not19 = icmp eq ptr %.014, null
-  br i1 %.not19, label %._crit_edge31, label %.preheader, !llvm.loop !10
+  %.not18 = icmp eq ptr %.014, null
+  br i1 %.not18, label %._crit_edge30, label %.preheader, !llvm.loop !10
 
-._crit_edge31:                                    ; preds = %._crit_edge
-  br i1 %.not1929, label %._crit_edge31.thread, label %33
+._crit_edge30:                                    ; preds = %._crit_edge
+  br i1 %.not1828, label %._crit_edge30.thread, label %33
 
-33:                                               ; preds = %._crit_edge31
-  call void @freeaddrinfo(ptr noundef nonnull %.01428) #16
-  br label %._crit_edge31.thread
+33:                                               ; preds = %._crit_edge30
+  call void @freeaddrinfo(ptr noundef nonnull %.01427) #16
+  br label %._crit_edge30.thread
 
-._crit_edge31.thread:                             ; preds = %.preheader23, %._crit_edge31, %33, %12, %13, %3, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ -13, %3 ], [ -13, %13 ], [ -13, %12 ], [ -13, %33 ], [ -13, %._crit_edge31 ], [ -13, %.preheader23 ]
+._crit_edge30.thread:                             ; preds = %.preheader22, %._crit_edge30, %33, %12, %13, %3, %.split.us
+  %.0 = phi i32 [ 0, %.split.us ], [ -13, %3 ], [ -13, %13 ], [ -13, %12 ], [ -13, %33 ], [ -13, %._crit_edge30 ], [ -13, %.preheader22 ]
   ret i32 %.0
 }
 

@@ -194,7 +194,7 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noca
   %9 = getelementptr inbounds i8, ptr %1, i64 96
   %10 = load ptr, ptr %9, align 8
   %.not31 = icmp eq ptr %10, @ps_freeimage
-  br i1 %.not31, label %.thread40, label %11
+  br i1 %.not31, label %.thread39, label %11
 
 11:                                               ; preds = %8
   tail call void %10(ptr noundef nonnull %1) #7
@@ -213,7 +213,7 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noca
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, -2
   %switch = icmp eq i32 %19, 6
-  br i1 %switch, label %20, label %thread-pre-split37
+  br i1 %switch, label %20, label %thread-pre-split36
 
 20:                                               ; preds = %13
   %21 = call i32 @fstat(i32 noundef %16, ptr noundef nonnull %5) #7
@@ -229,12 +229,12 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noca
   store i8 1, ptr %27, align 4
   br label %28
 
-thread-pre-split37:                               ; preds = %13
-  %.pr38 = load ptr, ptr %6, align 8
+thread-pre-split36:                               ; preds = %13
+  %.pr37 = load ptr, ptr %6, align 8
   br label %28
 
-28:                                               ; preds = %thread-pre-split37, %20
-  %29 = phi ptr [ %.pr38, %thread-pre-split37 ], [ %spec.select, %20 ]
+28:                                               ; preds = %thread-pre-split36, %20
+  %29 = phi ptr [ %.pr37, %thread-pre-split36 ], [ %spec.select, %20 ]
   %.not33 = icmp eq ptr %29, null
   br i1 %.not33, label %32, label %30
 
@@ -245,11 +245,11 @@ thread-pre-split37:                               ; preds = %13
 
 32:                                               ; preds = %28, %30
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #7
-  %.pr39 = load ptr, ptr %6, align 8
-  %.not34 = icmp eq ptr %.pr39, null
-  br i1 %.not34, label %52, label %.thread40
+  %.pr38 = load ptr, ptr %6, align 8
+  %.not34 = icmp eq ptr %.pr38, null
+  br i1 %.not34, label %52, label %.thread39
 
-.thread40:                                        ; preds = %8, %32
+.thread39:                                        ; preds = %8, %32
   %33 = load double, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %1, i64 56
   %35 = load i32, ptr %34, align 8
@@ -264,15 +264,14 @@ thread-pre-split37:                               ; preds = %13
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.60, double noundef %37, double noundef %43) #7
   %44 = getelementptr inbounds i8, ptr %1, i64 28
   %45 = load i8, ptr %44, align 4
-  %46 = and i8 %45, 1
-  %.not35 = icmp eq i8 %46, 0
-  br i1 %.not35, label %48, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %48
 
-47:                                               ; preds = %.thread40
+47:                                               ; preds = %.thread39
   tail call void @epsf_emit_body(ptr noundef %0, ptr noundef nonnull %1) #7
   br label %51
 
-48:                                               ; preds = %.thread40
+48:                                               ; preds = %.thread39
   %49 = getelementptr inbounds i8, ptr %1, i64 24
   %50 = load i32, ptr %49, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.61, i32 noundef %50) #7

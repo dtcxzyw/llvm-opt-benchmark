@@ -82,9 +82,8 @@ define dso_local ptr @gistGetNodeBuffer(ptr nocapture noundef %0, ptr nocapture 
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #5
   %10 = load i8, ptr %6, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %44
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %44, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
@@ -104,8 +103,8 @@ define dso_local ptr @gistGetNodeBuffer(ptr nocapture noundef %0, ptr nocapture 
   store i32 %3, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8
-  %.not29 = icmp sgt i32 %22, %3
-  br i1 %.not29, label %35, label %23
+  %.not = icmp sgt i32 %22, %3
+  br i1 %.not, label %35, label %23
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %0, i64 64
@@ -116,18 +115,18 @@ define dso_local ptr @gistGetNodeBuffer(ptr nocapture noundef %0, ptr nocapture 
   %29 = call ptr @repalloc(ptr noundef %25, i64 noundef %28) #5
   store ptr %29, ptr %24, align 8
   %30 = load i32, ptr %21, align 8
-  %.not3031 = icmp sgt i32 %30, %3
-  br i1 %.not3031, label %._crit_edge, label %.lr.ph
+  %.not2930 = icmp sgt i32 %30, %3
+  br i1 %.not2930, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
-  %.032 = phi i32 [ %34, %.lr.ph ], [ %30, %23 ]
+  %.031 = phi i32 [ %34, %.lr.ph ], [ %30, %23 ]
   %31 = load ptr, ptr %24, align 8
-  %32 = sext i32 %.032 to i64
+  %32 = sext i32 %.031 to i64
   %33 = getelementptr ptr, ptr %31, i64 %32
   store ptr null, ptr %33, align 8
-  %34 = add i32 %.032, 1
-  %.not30 = icmp sgt i32 %34, %3
-  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  %34 = add i32 %.031, 1
+  %.not29 = icmp sgt i32 %34, %3
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   store i32 %26, ptr %21, align 8
@@ -261,17 +260,16 @@ define dso_local void @gistPushItupToNodeBuffer(ptr nocapture noundef %0, ptr no
   store i32 1, ptr %6, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 25
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %16, label %gistAddLoadedBuffer.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %gistAddLoadedBuffer.exit, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 88
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 92
   %20 = load i32, ptr %19, align 4
-  %.not11.i = icmp slt i32 %18, %20
-  br i1 %.not11.i, label %._crit_edge.i, label %21
+  %.not.i = icmp slt i32 %18, %20
+  br i1 %.not.i, label %._crit_edge.i, label %21
 
 ._crit_edge.i:                                    ; preds = %16
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -287,11 +285,11 @@ define dso_local void @gistPushItupToNodeBuffer(ptr nocapture noundef %0, ptr no
   %26 = shl nsw i64 %25, 3
   %27 = tail call ptr @repalloc(ptr noundef %24, i64 noundef %26) #5
   store ptr %27, ptr %23, align 8
-  %.pre12.i = load i32, ptr %17, align 8
+  %.pre11.i = load i32, ptr %17, align 8
   br label %28
 
 28:                                               ; preds = %21, %._crit_edge.i
-  %29 = phi i32 [ %18, %._crit_edge.i ], [ %.pre12.i, %21 ]
+  %29 = phi i32 [ %18, %._crit_edge.i ], [ %.pre11.i, %21 ]
   %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %27, %21 ]
   %31 = sext i32 %29 to i64
   %32 = getelementptr ptr, ptr %30, i64 %31
@@ -355,8 +353,8 @@ gistBuffersGetFreeBlock.exit:                     ; preds = %52, %59
   %65 = and i64 %.0.i, 4294967295
   %66 = load ptr, ptr %35, align 8
   %67 = tail call i32 @BufFileSeekBlock(ptr noundef %64, i64 noundef %65) #5
-  %.not.i30 = icmp eq i32 %67, 0
-  br i1 %.not.i30, label %WriteTempFileBlock.exit, label %68
+  %.not.i29 = icmp eq i32 %67, 0
+  br i1 %.not.i29, label %WriteTempFileBlock.exit, label %68
 
 68:                                               ; preds = %gistBuffersGetFreeBlock.exit
   %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -376,24 +374,24 @@ WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeB
   %75 = load i32, ptr %6, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %6, align 4
-  %.pre31 = load ptr, ptr %35, align 8
-  %.pre32 = load i16, ptr %42, align 2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre31, i64 4
-  %.pre33 = load i32, ptr %.phi.trans.insert, align 4
-  %.pre34 = and i16 %.pre32, 8191
-  %.pre35 = add nuw nsw i16 %.pre34, 7
-  %.pre36 = and i16 %.pre35, 16376
-  %.pre38 = zext nneg i16 %.pre36 to i32
+  %.pre30 = load ptr, ptr %35, align 8
+  %.pre31 = load i16, ptr %42, align 2
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre30, i64 4
+  %.pre32 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre33 = and i16 %.pre31, 8191
+  %.pre34 = add nuw nsw i16 %.pre33, 7
+  %.pre35 = and i16 %.pre34, 16376
+  %.pre37 = zext nneg i16 %.pre35 to i32
   br label %77
 
 77:                                               ; preds = %WriteTempFileBlock.exit, %38
-  %.pre-phi39 = phi i32 [ %.pre38, %WriteTempFileBlock.exit ], [ %46, %38 ]
-  %.pre-phi = phi i16 [ %.pre34, %WriteTempFileBlock.exit ], [ %44, %38 ]
-  %78 = phi i32 [ %.pre33, %WriteTempFileBlock.exit ], [ %41, %38 ]
-  %79 = phi ptr [ %.pre31, %WriteTempFileBlock.exit ], [ %39, %38 ]
+  %.pre-phi38 = phi i32 [ %.pre37, %WriteTempFileBlock.exit ], [ %46, %38 ]
+  %.pre-phi = phi i16 [ %.pre33, %WriteTempFileBlock.exit ], [ %44, %38 ]
+  %78 = phi i32 [ %.pre32, %WriteTempFileBlock.exit ], [ %41, %38 ]
+  %79 = phi ptr [ %.pre30, %WriteTempFileBlock.exit ], [ %39, %38 ]
   %80 = zext nneg i16 %.pre-phi to i64
   %81 = getelementptr inbounds i8, ptr %79, i64 4
-  %82 = sub i32 %78, %.pre-phi39
+  %82 = sub i32 %78, %.pre-phi38
   store i32 %82, ptr %81, align 4
   %83 = getelementptr i8, ptr %79, i64 8
   %84 = zext i32 %82 to i64
@@ -409,9 +407,8 @@ WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeB
 91:                                               ; preds = %77
   %92 = getelementptr inbounds i8, ptr %1, i64 24
   %93 = load i8, ptr %92, align 8
-  %94 = and i8 %93, 1
-  %.not29 = icmp eq i8 %94, 0
-  br i1 %.not29, label %95, label %99
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %99, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds i8, ptr %0, i64 48
@@ -500,17 +497,16 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %27
   store i64 %22, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 25
   %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 1
-  %.not.i13 = icmp eq i8 %41, 0
-  br i1 %.not.i13, label %42, label %gistAddLoadedBuffer.exit
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %gistAddLoadedBuffer.exit, label %42
 
 42:                                               ; preds = %gistBuffersReleaseBlock.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 88
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 92
   %46 = load i32, ptr %45, align 4
-  %.not11.i = icmp slt i32 %44, %46
-  br i1 %.not11.i, label %._crit_edge.i14, label %47
+  %.not.i13 = icmp slt i32 %44, %46
+  br i1 %.not.i13, label %._crit_edge.i14, label %47
 
 ._crit_edge.i14:                                  ; preds = %42
   %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %0, i64 80
@@ -526,11 +522,11 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %27
   %52 = shl nsw i64 %51, 3
   %53 = tail call ptr @repalloc(ptr noundef %50, i64 noundef %52) #5
   store ptr %53, ptr %49, align 8
-  %.pre12.i = load i32, ptr %43, align 8
+  %.pre11.i = load i32, ptr %43, align 8
   br label %54
 
 54:                                               ; preds = %47, %._crit_edge.i14
-  %55 = phi i32 [ %44, %._crit_edge.i14 ], [ %.pre12.i, %47 ]
+  %55 = phi i32 [ %44, %._crit_edge.i14 ], [ %.pre11.i, %47 ]
   %56 = phi ptr [ %.pre.i16, %._crit_edge.i14 ], [ %53, %47 ]
   %57 = sext i32 %55 to i64
   %58 = getelementptr ptr, ptr %56, i64 %57
@@ -682,20 +678,20 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   %12 = alloca %struct.GISTNodeBuffer, align 8
   %13 = alloca [32 x float], align 16
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %140, label %14
+  br i1 %.not, label %137, label %14
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %17 = srem i32 %3, %16
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %140
+  br i1 %18, label %19, label %137
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %0, i64 96
   %21 = load i32, ptr %20, align 8
   %.not95 = icmp eq i32 %21, %3
-  br i1 %.not95, label %140, label %22
+  br i1 %.not95, label %137, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @BufferGetBlockNumber(i32 noundef %4) #5
@@ -704,9 +700,8 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @hash_search(ptr noundef %25, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %7) #5
   %27 = load i8, ptr %7, align 1
-  %28 = and i8 %27, 1
-  %.not96 = icmp eq i8 %28, 0
-  br i1 %.not96, label %140, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %137
 
 29:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
@@ -719,7 +714,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   %33 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 -1, ptr %33, align 8
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %._crit_edge111.thread, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge108.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %34 = getelementptr inbounds i8, ptr %5, i64 4
@@ -732,209 +727,205 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   %41 = getelementptr inbounds i8, ptr %5, i64 16
   %42 = load i32, ptr %40, align 4
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph113, label %._crit_edge111
+  br i1 %43, label %.lr.ph110, label %._crit_edge108
 
-._crit_edge111:                                   ; preds = %.lr.ph113, %.lr.ph
+._crit_edge108:                                   ; preds = %.lr.ph110, %.lr.ph
   %44 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %44, label %.lr.ph131, label %._crit_edge132
+  br i1 %44, label %.lr.ph128, label %._crit_edge129
 
-._crit_edge111.thread:                            ; preds = %29
+._crit_edge108.thread:                            ; preds = %29
   %45 = call ptr @palloc(i64 noundef 0) #5
   %46 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %46, label %.lr.ph131.split, label %._crit_edge132
+  br i1 %46, label %.lr.ph128.split, label %._crit_edge129
 
-.lr.ph131:                                        ; preds = %._crit_edge111
+.lr.ph128:                                        ; preds = %._crit_edge108
   %47 = icmp sgt i32 %36, 0
   %48 = getelementptr inbounds i8, ptr %2, i64 320
-  br i1 %47, label %.lr.ph125.us.preheader, label %.lr.ph131.split
+  br i1 %47, label %.lr.ph122.us.preheader, label %.lr.ph128.split
 
-.lr.ph125.us.preheader:                           ; preds = %.lr.ph131
+.lr.ph122.us.preheader:                           ; preds = %.lr.ph128
   %wide.trip.count = zext nneg i32 %36 to i64
-  br label %.lr.ph125.us
+  br label %.lr.ph122.us
 
-.lr.ph125.us:                                     ; preds = %.lr.ph125.us.preheader, %70
+.lr.ph122.us:                                     ; preds = %.lr.ph122.us.preheader, %69
   %49 = load ptr, ptr %9, align 8
   call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %49, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
   store float -1.000000e+00, ptr %13, align 16
   br label %50
 
-50:                                               ; preds = %.lr.ph125.us, %.thread104.us
-  %indvars.iv139 = phi i64 [ 0, %.lr.ph125.us ], [ %indvars.iv.next140, %.thread104.us ]
-  %.087121.us = phi i32 [ 0, %.lr.ph125.us ], [ %.188109.us, %.thread104.us ]
-  %51 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv139
+50:                                               ; preds = %.lr.ph122.us, %.thread102.us
+  %indvars.iv136 = phi i64 [ 0, %.lr.ph122.us ], [ %indvars.iv.next137, %.thread102.us ]
+  %.087118.us = phi i32 [ 0, %.lr.ph122.us ], [ %.188106.us, %.thread102.us ]
+  %51 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv136
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 10
   %54 = load i16, ptr %53, align 2
   %55 = icmp sgt i16 %54, 0
-  br i1 %55, label %.lr.ph118.us, label %._crit_edge126.us
+  br i1 %55, label %.lr.ph115.us, label %._crit_edge123.us
 
-._crit_edge119.us:                                ; preds = %103
-  %56 = and i8 %.1.us, 1
-  %.not99.us = icmp eq i8 %56, 0
-  br i1 %.not99.us, label %.thread104.us, label %._crit_edge126.us
+._crit_edge116.us:                                ; preds = %100
+  br i1 %.1.us, label %._crit_edge123.us, label %.thread102.us
 
-._crit_edge126.us:                                ; preds = %50, %.thread104.us, %._crit_edge119.us
-  %.3.us = phi i32 [ %.289.us, %._crit_edge119.us ], [ %.188109.us, %.thread104.us ], [ %.087121.us, %50 ]
-  %57 = sext i32 %.3.us to i64
-  %58 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 1064
-  %60 = load ptr, ptr %59, align 8
-  call void @gistPushItupToNodeBuffer(ptr noundef %0, ptr noundef %60, ptr noundef %49)
-  %61 = getelementptr inbounds i8, ptr %58, i64 1056
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @gistgetadjusted(ptr noundef nonnull %2, ptr noundef %64, ptr noundef %49, ptr noundef %1) #5
-  %.not100.us = icmp eq ptr %65, null
-  br i1 %.not100.us, label %70, label %66
+._crit_edge123.us:                                ; preds = %50, %.thread102.us, %._crit_edge116.us
+  %.3.us = phi i32 [ %.289.us, %._crit_edge116.us ], [ %.188106.us, %.thread102.us ], [ %.087118.us, %50 ]
+  %56 = sext i32 %.3.us to i64
+  %57 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %56
+  %58 = getelementptr inbounds i8, ptr %57, i64 1064
+  %59 = load ptr, ptr %58, align 8
+  call void @gistPushItupToNodeBuffer(ptr noundef %0, ptr noundef %59, ptr noundef %49)
+  %60 = getelementptr inbounds i8, ptr %57, i64 1056
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @gistgetadjusted(ptr noundef nonnull %2, ptr noundef %63, ptr noundef %49, ptr noundef %1) #5
+  %.not98.us = icmp eq ptr %64, null
+  br i1 %.not98.us, label %69, label %65
 
-66:                                               ; preds = %._crit_edge126.us
-  %67 = getelementptr inbounds i8, ptr %58, i64 1024
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %65, ptr noundef null, i16 noundef zeroext 0, ptr noundef %58, ptr noundef nonnull %67) #5
-  %68 = load ptr, ptr %61, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  store ptr %65, ptr %69, align 8
-  br label %70
+65:                                               ; preds = %._crit_edge123.us
+  %66 = getelementptr inbounds i8, ptr %57, i64 1024
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %64, ptr noundef null, i16 noundef zeroext 0, ptr noundef %57, ptr noundef nonnull %66) #5
+  %67 = load ptr, ptr %60, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  store ptr %64, ptr %68, align 8
+  br label %69
 
-70:                                               ; preds = %66, %._crit_edge126.us
-  %71 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %71, label %.lr.ph125.us, label %._crit_edge132, !llvm.loop !8
+69:                                               ; preds = %65, %._crit_edge123.us
+  %70 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
+  br i1 %70, label %.lr.ph122.us, label %._crit_edge129, !llvm.loop !8
 
-72:                                               ; preds = %.lr.ph118.us, %103
-  %indvars.iv137 = phi i64 [ 0, %.lr.ph118.us ], [ %indvars.iv.next138, %103 ]
-  %.084115.us = phi i8 [ 1, %.lr.ph118.us ], [ %.1.us, %103 ]
-  %.188114.us = phi i32 [ %.087121.us, %.lr.ph118.us ], [ %.289.us, %103 ]
-  %73 = getelementptr [32 x %struct.GISTENTRY], ptr %51, i64 0, i64 %indvars.iv137
-  %74 = getelementptr [32 x i8], ptr %106, i64 0, i64 %indvars.iv137
-  %75 = load i8, ptr %74, align 1
-  %76 = and i8 %75, 1
-  %77 = icmp ne i8 %76, 0
-  %78 = getelementptr [32 x %struct.GISTENTRY], ptr %10, i64 0, i64 %indvars.iv137
-  %79 = getelementptr [32 x i8], ptr %11, i64 0, i64 %indvars.iv137
-  %80 = load i8, ptr %79, align 1
-  %81 = and i8 %80, 1
-  %82 = icmp ne i8 %81, 0
-  %83 = trunc i64 %indvars.iv137 to i32
-  %84 = call float @gistpenalty(ptr noundef %1, i32 noundef %83, ptr noundef %73, i1 noundef zeroext %77, ptr noundef %78, i1 noundef zeroext %82) #5
-  %85 = fcmp ogt float %84, 0.000000e+00
-  %.1.us = select i1 %85, i8 0, i8 %.084115.us
-  %86 = getelementptr [32 x float], ptr %13, i64 0, i64 %indvars.iv137
-  %87 = load float, ptr %86, align 4
-  %88 = fcmp olt float %87, 0.000000e+00
-  %89 = fcmp olt float %84, %87
-  %or.cond.us = select i1 %88, i1 true, i1 %89
-  br i1 %or.cond.us, label %92, label %90
+71:                                               ; preds = %.lr.ph115.us, %100
+  %indvars.iv134 = phi i64 [ 0, %.lr.ph115.us ], [ %indvars.iv.next135, %100 ]
+  %.084112.us = phi i1 [ true, %.lr.ph115.us ], [ %.1.us, %100 ]
+  %.188111.us = phi i32 [ %.087118.us, %.lr.ph115.us ], [ %.289.us, %100 ]
+  %72 = getelementptr [32 x %struct.GISTENTRY], ptr %51, i64 0, i64 %indvars.iv134
+  %73 = getelementptr [32 x i8], ptr %103, i64 0, i64 %indvars.iv134
+  %74 = load i8, ptr %73, align 1
+  %75 = trunc i8 %74 to i1
+  %76 = getelementptr [32 x %struct.GISTENTRY], ptr %10, i64 0, i64 %indvars.iv134
+  %77 = getelementptr [32 x i8], ptr %11, i64 0, i64 %indvars.iv134
+  %78 = load i8, ptr %77, align 1
+  %79 = trunc i8 %78 to i1
+  %80 = trunc i64 %indvars.iv134 to i32
+  %81 = call float @gistpenalty(ptr noundef %1, i32 noundef %80, ptr noundef %72, i1 noundef zeroext %75, ptr noundef %76, i1 noundef zeroext %79) #5
+  %82 = fcmp ule float %81, 0.000000e+00
+  %.1.us = select i1 %82, i1 %.084112.us, i1 false
+  %83 = getelementptr [32 x float], ptr %13, i64 0, i64 %indvars.iv134
+  %84 = load float, ptr %83, align 4
+  %85 = fcmp olt float %84, 0.000000e+00
+  %86 = fcmp olt float %81, %84
+  %or.cond.us = select i1 %85, i1 true, i1 %86
+  br i1 %or.cond.us, label %89, label %87
 
-90:                                               ; preds = %72
-  %91 = fcmp oeq float %87, %84
-  br i1 %91, label %._crit_edge, label %.thread104.us
+87:                                               ; preds = %71
+  %88 = fcmp oeq float %84, %81
+  br i1 %88, label %._crit_edge, label %.thread102.us
 
-._crit_edge:                                      ; preds = %90
+._crit_edge:                                      ; preds = %87
   %.pre = load ptr, ptr %48, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 10
-  %.pre142 = load i16, ptr %.phi.trans.insert, align 2
-  %.pre143 = sext i16 %.pre142 to i32
-  br label %103
+  %.pre139 = load i16, ptr %.phi.trans.insert, align 2
+  %.pre140 = sext i16 %.pre139 to i32
+  br label %100
 
-.thread104.us:                                    ; preds = %90, %._crit_edge119.us
-  %.188109.us = phi i32 [ %.289.us, %._crit_edge119.us ], [ %.188114.us, %90 ]
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge126.us, label %50, !llvm.loop !9
+.thread102.us:                                    ; preds = %87, %._crit_edge116.us
+  %.188106.us = phi i32 [ %.289.us, %._crit_edge116.us ], [ %.188111.us, %87 ]
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge123.us, label %50, !llvm.loop !9
 
-92:                                               ; preds = %72
-  store float %84, ptr %86, align 4
-  %93 = load ptr, ptr %48, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 10
-  %95 = load i16, ptr %94, align 2
-  %96 = sext i16 %95 to i32
-  %97 = add nsw i32 %96, -1
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv137, %98
-  br i1 %99, label %100, label %103
+89:                                               ; preds = %71
+  store float %81, ptr %83, align 4
+  %90 = load ptr, ptr %48, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 10
+  %92 = load i16, ptr %91, align 2
+  %93 = sext i16 %92 to i32
+  %94 = add nsw i32 %93, -1
+  %95 = sext i32 %94 to i64
+  %96 = icmp slt i64 %indvars.iv134, %95
+  br i1 %96, label %97, label %100
 
-100:                                              ; preds = %92
-  %101 = add nuw nsw i64 %indvars.iv137, 1
-  %102 = getelementptr [32 x float], ptr %13, i64 0, i64 %101
-  store float -1.000000e+00, ptr %102, align 4
-  br label %103
+97:                                               ; preds = %89
+  %98 = add nuw nsw i64 %indvars.iv134, 1
+  %99 = getelementptr [32 x float], ptr %13, i64 0, i64 %98
+  store float -1.000000e+00, ptr %99, align 4
+  br label %100
 
-103:                                              ; preds = %._crit_edge, %100, %92
-  %.pre-phi = phi i32 [ %.pre143, %._crit_edge ], [ %96, %100 ], [ %96, %92 ]
-  %.289.us = phi i32 [ %.188114.us, %._crit_edge ], [ %107, %100 ], [ %107, %92 ]
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %104 = sext i32 %.pre-phi to i64
-  %105 = icmp slt i64 %indvars.iv.next138, %104
-  br i1 %105, label %72, label %._crit_edge119.us, !llvm.loop !10
+100:                                              ; preds = %._crit_edge, %97, %89
+  %.pre-phi = phi i32 [ %.pre140, %._crit_edge ], [ %93, %97 ], [ %93, %89 ]
+  %.289.us = phi i32 [ %.188111.us, %._crit_edge ], [ %104, %97 ], [ %104, %89 ]
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %101 = sext i32 %.pre-phi to i64
+  %102 = icmp slt i64 %indvars.iv.next135, %101
+  br i1 %102, label %71, label %._crit_edge116.us, !llvm.loop !10
 
-.lr.ph118.us:                                     ; preds = %50
-  %106 = getelementptr inbounds i8, ptr %51, i64 1024
-  %107 = trunc i64 %indvars.iv139 to i32
-  br label %72
+.lr.ph115.us:                                     ; preds = %50
+  %103 = getelementptr inbounds i8, ptr %51, i64 1024
+  %104 = trunc i64 %indvars.iv136 to i32
+  br label %71
 
-.lr.ph131.split:                                  ; preds = %._crit_edge111.thread, %.lr.ph131
-  %108 = phi ptr [ %39, %.lr.ph131 ], [ %45, %._crit_edge111.thread ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 1064
-  %110 = getelementptr inbounds i8, ptr %108, i64 1056
-  %111 = getelementptr inbounds i8, ptr %108, i64 1024
-  br label %127
+.lr.ph128.split:                                  ; preds = %._crit_edge108.thread, %.lr.ph128
+  %105 = phi ptr [ %39, %.lr.ph128 ], [ %45, %._crit_edge108.thread ]
+  %106 = getelementptr inbounds i8, ptr %105, i64 1064
+  %107 = getelementptr inbounds i8, ptr %105, i64 1056
+  %108 = getelementptr inbounds i8, ptr %105, i64 1024
+  br label %124
 
-.lr.ph113:                                        ; preds = %.lr.ph, %.lr.ph113
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph113 ], [ 0, %.lr.ph ]
-  %112 = load ptr, ptr %41, align 8
-  %113 = getelementptr %union.ListCell, ptr %112, i64 %indvars.iv
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv
-  %118 = getelementptr inbounds i8, ptr %117, i64 1024
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %116, ptr noundef null, i16 noundef zeroext 0, ptr noundef %117, ptr noundef nonnull %118) #5
-  %119 = load i32, ptr %114, align 8
-  %120 = call i32 @BufferGetBlockNumber(i32 noundef %119) #5
-  %121 = call ptr @gistGetNodeBuffer(ptr noundef %0, ptr poison, i32 noundef %120, i32 noundef %3)
-  %122 = getelementptr inbounds i8, ptr %117, i64 1064
-  store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %117, i64 1056
-  store ptr %114, ptr %123, align 8
+.lr.ph110:                                        ; preds = %.lr.ph, %.lr.ph110
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph110 ], [ 0, %.lr.ph ]
+  %109 = load ptr, ptr %41, align 8
+  %110 = getelementptr %union.ListCell, ptr %109, i64 %indvars.iv
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv
+  %115 = getelementptr inbounds i8, ptr %114, i64 1024
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %113, ptr noundef null, i16 noundef zeroext 0, ptr noundef %114, ptr noundef nonnull %115) #5
+  %116 = load i32, ptr %111, align 8
+  %117 = call i32 @BufferGetBlockNumber(i32 noundef %116) #5
+  %118 = call ptr @gistGetNodeBuffer(ptr noundef %0, ptr poison, i32 noundef %117, i32 noundef %3)
+  %119 = getelementptr inbounds i8, ptr %114, i64 1064
+  store ptr %118, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %114, i64 1056
+  store ptr %111, ptr %120, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %124 = load i32, ptr %40, align 4
-  %125 = sext i32 %124 to i64
-  %126 = icmp slt i64 %indvars.iv.next, %125
-  br i1 %126, label %.lr.ph113, label %._crit_edge111
+  %121 = load i32, ptr %40, align 4
+  %122 = sext i32 %121 to i64
+  %123 = icmp slt i64 %indvars.iv.next, %122
+  br i1 %123, label %.lr.ph110, label %._crit_edge108
 
-127:                                              ; preds = %.lr.ph131.split, %137
-  %128 = load ptr, ptr %9, align 8
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %128, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
-  %129 = load ptr, ptr %109, align 8
-  call void @gistPushItupToNodeBuffer(ptr noundef %0, ptr noundef %129, ptr noundef %128)
-  %130 = load ptr, ptr %110, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = call ptr @gistgetadjusted(ptr noundef %2, ptr noundef %132, ptr noundef %128, ptr noundef %1) #5
-  %.not100 = icmp eq ptr %133, null
-  br i1 %.not100, label %137, label %134
+124:                                              ; preds = %.lr.ph128.split, %134
+  %125 = load ptr, ptr %9, align 8
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %125, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
+  %126 = load ptr, ptr %106, align 8
+  call void @gistPushItupToNodeBuffer(ptr noundef %0, ptr noundef %126, ptr noundef %125)
+  %127 = load ptr, ptr %107, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = call ptr @gistgetadjusted(ptr noundef %2, ptr noundef %129, ptr noundef %125, ptr noundef %1) #5
+  %.not98 = icmp eq ptr %130, null
+  br i1 %.not98, label %134, label %131
 
-134:                                              ; preds = %127
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %133, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %108, ptr noundef nonnull %111) #5
-  %135 = load ptr, ptr %110, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
-  store ptr %133, ptr %136, align 8
+131:                                              ; preds = %124
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %130, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %105, ptr noundef nonnull %108) #5
+  %132 = load ptr, ptr %107, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  store ptr %130, ptr %133, align 8
+  br label %134
+
+134:                                              ; preds = %131, %124
+  %135 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
+  br i1 %135, label %124, label %._crit_edge129.split, !llvm.loop !8
+
+._crit_edge129.split:                             ; preds = %134
+  store float -1.000000e+00, ptr %13, align 16
+  br label %._crit_edge129
+
+._crit_edge129:                                   ; preds = %69, %._crit_edge108.thread, %._crit_edge129.split, %._crit_edge108
+  %136 = phi ptr [ %45, %._crit_edge108.thread ], [ %105, %._crit_edge129.split ], [ %39, %._crit_edge108 ], [ %39, %69 ]
+  call void @pfree(ptr noundef %136) #5
   br label %137
 
-137:                                              ; preds = %134, %127
-  %138 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %138, label %127, label %._crit_edge132.split, !llvm.loop !8
-
-._crit_edge132.split:                             ; preds = %137
-  store float -1.000000e+00, ptr %13, align 16
-  br label %._crit_edge132
-
-._crit_edge132:                                   ; preds = %70, %._crit_edge111.thread, %._crit_edge132.split, %._crit_edge111
-  %139 = phi ptr [ %45, %._crit_edge111.thread ], [ %108, %._crit_edge132.split ], [ %39, %._crit_edge111 ], [ %39, %70 ]
-  call void @pfree(ptr noundef %139) #5
-  br label %140
-
-140:                                              ; preds = %22, %6, %14, %19, %._crit_edge132
+137:                                              ; preds = %22, %6, %14, %19, %._crit_edge129
   ret void
 }
 

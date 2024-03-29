@@ -705,13 +705,13 @@ call49.i.noexc:                                   ; preds = %if.end48.i
   store i32 %call49.i132, ptr %last_tag_50.i, align 8
   %sub54.i = add i32 %call49.i132, -1
   %cmp55.i = icmp ult i32 %sub54.i, 127
-  %retval.sroa.2.0.insert.shift.i69 = select i1 %cmp55.i, i64 4294967296, i64 0
-  %retval.sroa.0.0.insert.ext.i70 = zext i32 %call49.i132 to i64
-  %retval.sroa.0.0.insert.insert.i71 = or disjoint i64 %retval.sroa.2.0.insert.shift.i69, %retval.sroa.0.0.insert.ext.i70
+  %retval.sroa.2.0.insert.shift.i70 = select i1 %cmp55.i, i64 4294967296, i64 0
+  %retval.sroa.0.0.insert.ext.i71 = zext i32 %call49.i132 to i64
+  %retval.sroa.0.0.insert.insert.i72 = or disjoint i64 %retval.sroa.2.0.insert.shift.i70, %retval.sroa.0.0.insert.ext.i71
   br label %_ZN6google8protobuf2io16CodedInputStream17ReadTagWithCutoffEj.exit
 
 _ZN6google8protobuf2io16CodedInputStream17ReadTagWithCutoffEj.exit: ; preds = %call49.i.noexc, %if.then8.i
-  %retval.i.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i, %if.then8.i ], [ %retval.sroa.0.0.insert.insert.i71, %call49.i.noexc ]
+  %retval.i.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i, %if.then8.i ], [ %retval.sroa.0.0.insert.insert.i72, %call49.i.noexc ]
   %p.sroa.0.0.extract.trunc = trunc i64 %retval.i.sroa.0.0 to i32
   %3 = and i64 %retval.i.sroa.0.0, 4294967296
   %tobool.not = icmp eq i64 %3, 0
@@ -722,7 +722,7 @@ lpad:                                             ; preds = %entry
           cleanup
   br label %ehcleanup
 
-lpad2:                                            ; preds = %if.end.i150, %if.end.i, %if.end6.i121, %if.end6.i103, %if.end6.i85, %if.end6.i, %invoke.cont8, %if.then7, %if.end121, %if.end48.i
+lpad2:                                            ; preds = %if.end.i151, %if.end.i, %if.end6.i122, %if.end6.i104, %if.end6.i86, %if.end6.i, %invoke.cont8, %if.then7, %if.end121, %if.end48.i
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %unknown_fields_stream) #13
@@ -751,15 +751,15 @@ if.then7:                                         ; preds = %sw.bb
   %or.i.i = or i32 %6, 1
   store i32 %or.i.i, ptr %_has_bits_.i.i, align 8
   %7 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
-  %call2.i72 = invoke noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %serving_region_.i, ptr noundef nonnull %7)
+  %call2.i73 = invoke noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %serving_region_.i, ptr noundef nonnull %7)
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %if.then7
-  %call.i7374 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %input, ptr noundef %call2.i72)
+  %call.i7475 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %input, ptr noundef %call2.i73)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  br i1 %call.i7374, label %if.then.i320, label %cleanup
+  br i1 %call.i7475, label %if.then.i320, label %cleanup
 
 if.then.i320:                                     ; preds = %invoke.cont10
   %8 = load ptr, ptr %input, align 8
@@ -773,8 +773,8 @@ land.lhs.true.i325:                               ; preds = %if.then.i320
   br i1 %cmp5.i327, label %if.then6.i328, label %for.cond.backedge
 
 if.then6.i328:                                    ; preds = %land.lhs.true.i325
-  %add.ptr.i75 = getelementptr inbounds i8, ptr %8, i64 1
-  store ptr %add.ptr.i75, ptr %input, align 8
+  %add.ptr.i76 = getelementptr inbounds i8, ptr %8, i64 1
+  store ptr %add.ptr.i76, ptr %input, align 8
   br label %parse_bandwidth_estimate_bytes_per_second
 
 sw.bb20:                                          ; preds = %if.end
@@ -785,39 +785,39 @@ sw.bb20:                                          ; preds = %if.end
 
 sw.bb20.parse_bandwidth_estimate_bytes_per_second_crit_edge: ; preds = %sw.bb20
   %.pre = load ptr, ptr %input, align 8
-  %.pre188 = load ptr, ptr %buffer_end_.i, align 8
+  %.pre189 = load ptr, ptr %buffer_end_.i, align 8
   br label %parse_bandwidth_estimate_bytes_per_second
 
 parse_bandwidth_estimate_bytes_per_second:        ; preds = %sw.bb20.parse_bandwidth_estimate_bytes_per_second_crit_edge, %if.then6.i328
-  %11 = phi ptr [ %.pre188, %sw.bb20.parse_bandwidth_estimate_bytes_per_second_crit_edge ], [ %9, %if.then6.i328 ]
-  %12 = phi ptr [ %.pre, %sw.bb20.parse_bandwidth_estimate_bytes_per_second_crit_edge ], [ %add.ptr.i75, %if.then6.i328 ]
-  %cmp.i77 = icmp ult ptr %12, %11
-  br i1 %cmp.i77, label %if.then.i79, label %if.end6.i
+  %11 = phi ptr [ %.pre189, %sw.bb20.parse_bandwidth_estimate_bytes_per_second_crit_edge ], [ %9, %if.then6.i328 ]
+  %12 = phi ptr [ %.pre, %sw.bb20.parse_bandwidth_estimate_bytes_per_second_crit_edge ], [ %add.ptr.i76, %if.then6.i328 ]
+  %cmp.i78 = icmp ult ptr %12, %11
+  br i1 %cmp.i78, label %if.then.i80, label %if.end6.i
 
-if.then.i79:                                      ; preds = %parse_bandwidth_estimate_bytes_per_second
+if.then.i80:                                      ; preds = %parse_bandwidth_estimate_bytes_per_second
   %13 = load i8, ptr %12, align 1
-  %conv.i80 = zext i8 %13 to i32
+  %conv.i81 = zext i8 %13 to i32
   %cmp4.i = icmp sgt i8 %13, -1
   br i1 %cmp4.i, label %call.i357.noexc.thread, label %if.end6.i
 
-call.i357.noexc.thread:                           ; preds = %if.then.i79
+call.i357.noexc.thread:                           ; preds = %if.then.i80
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %add.ptr.i.i, ptr %input, align 8
   br label %if.end.i359
 
-if.end6.i:                                        ; preds = %if.then.i79, %parse_bandwidth_estimate_bytes_per_second
-  %v.0.i = phi i32 [ %conv.i80, %if.then.i79 ], [ 0, %parse_bandwidth_estimate_bytes_per_second ]
-  %call.i7881 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i)
+if.end6.i:                                        ; preds = %if.then.i80, %parse_bandwidth_estimate_bytes_per_second
+  %v.0.i = phi i32 [ %conv.i81, %if.then.i80 ], [ 0, %parse_bandwidth_estimate_bytes_per_second ]
+  %call.i7982 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i)
           to label %call.i357.noexc unwind label %lpad2
 
 call.i357.noexc:                                  ; preds = %if.end6.i
-  %conv7.i = trunc i64 %call.i7881 to i32
-  %cmp8.i = icmp sgt i64 %call.i7881, -1
+  %conv7.i = trunc i64 %call.i7982 to i32
+  %cmp8.i = icmp sgt i64 %call.i7982, -1
   br i1 %cmp8.i, label %if.end.i359, label %cleanup
 
 if.end.i359:                                      ; preds = %call.i357.noexc.thread, %call.i357.noexc
-  %temp.i356.0171 = phi i32 [ %conv.i80, %call.i357.noexc.thread ], [ %conv7.i, %call.i357.noexc ]
-  store i32 %temp.i356.0171, ptr %bandwidth_estimate_bytes_per_second_, align 8
+  %temp.i356.0172 = phi i32 [ %conv.i81, %call.i357.noexc.thread ], [ %conv7.i, %call.i357.noexc ]
+  store i32 %temp.i356.0172, ptr %bandwidth_estimate_bytes_per_second_, align 8
   %14 = load i32, ptr %_has_bits_.i.i, align 8
   %or.i = or i32 %14, 2
   store i32 %or.i, ptr %_has_bits_.i.i, align 8
@@ -832,8 +832,8 @@ land.lhs.true.i288:                               ; preds = %if.end.i359
   br i1 %cmp5.i290, label %if.then6.i291, label %for.cond.backedge
 
 if.then6.i291:                                    ; preds = %land.lhs.true.i288
-  %add.ptr.i82 = getelementptr inbounds i8, ptr %15, i64 1
-  store ptr %add.ptr.i82, ptr %input, align 8
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %add.ptr.i83, ptr %input, align 8
   br label %parse_min_rtt_ms
 
 sw.bb36:                                          ; preds = %if.end
@@ -843,43 +843,43 @@ sw.bb36:                                          ; preds = %if.end
   ]
 
 sw.bb36.parse_min_rtt_ms_crit_edge:               ; preds = %sw.bb36
-  %.pre189 = load ptr, ptr %input, align 8
-  %.pre190 = load ptr, ptr %buffer_end_.i, align 8
+  %.pre190 = load ptr, ptr %input, align 8
+  %.pre191 = load ptr, ptr %buffer_end_.i, align 8
   br label %parse_min_rtt_ms
 
 parse_min_rtt_ms:                                 ; preds = %sw.bb36.parse_min_rtt_ms_crit_edge, %if.then6.i291
-  %18 = phi ptr [ %.pre190, %sw.bb36.parse_min_rtt_ms_crit_edge ], [ %16, %if.then6.i291 ]
-  %19 = phi ptr [ %.pre189, %sw.bb36.parse_min_rtt_ms_crit_edge ], [ %add.ptr.i82, %if.then6.i291 ]
-  %cmp.i84 = icmp ult ptr %19, %18
-  br i1 %cmp.i84, label %if.then.i91, label %if.end6.i85
+  %18 = phi ptr [ %.pre191, %sw.bb36.parse_min_rtt_ms_crit_edge ], [ %16, %if.then6.i291 ]
+  %19 = phi ptr [ %.pre190, %sw.bb36.parse_min_rtt_ms_crit_edge ], [ %add.ptr.i83, %if.then6.i291 ]
+  %cmp.i85 = icmp ult ptr %19, %18
+  br i1 %cmp.i85, label %if.then.i92, label %if.end6.i86
 
-if.then.i91:                                      ; preds = %parse_min_rtt_ms
+if.then.i92:                                      ; preds = %parse_min_rtt_ms
   %20 = load i8, ptr %19, align 1
-  %conv.i92 = zext i8 %20 to i32
-  %cmp4.i93 = icmp sgt i8 %20, -1
-  br i1 %cmp4.i93, label %call.i348.noexc.thread, label %if.end6.i85
+  %conv.i93 = zext i8 %20 to i32
+  %cmp4.i94 = icmp sgt i8 %20, -1
+  br i1 %cmp4.i94, label %call.i348.noexc.thread, label %if.end6.i86
 
-call.i348.noexc.thread:                           ; preds = %if.then.i91
-  %add.ptr.i.i95 = getelementptr inbounds i8, ptr %19, i64 1
-  store ptr %add.ptr.i.i95, ptr %input, align 8
+call.i348.noexc.thread:                           ; preds = %if.then.i92
+  %add.ptr.i.i96 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %add.ptr.i.i96, ptr %input, align 8
   br label %if.end.i350
 
-if.end6.i85:                                      ; preds = %if.then.i91, %parse_min_rtt_ms
-  %v.0.i86 = phi i32 [ %conv.i92, %if.then.i91 ], [ 0, %parse_min_rtt_ms ]
-  %call.i8796 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i86)
+if.end6.i86:                                      ; preds = %if.then.i92, %parse_min_rtt_ms
+  %v.0.i87 = phi i32 [ %conv.i93, %if.then.i92 ], [ 0, %parse_min_rtt_ms ]
+  %call.i8897 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i87)
           to label %call.i348.noexc unwind label %lpad2
 
-call.i348.noexc:                                  ; preds = %if.end6.i85
-  %conv7.i88 = trunc i64 %call.i8796 to i32
-  %cmp8.i89 = icmp sgt i64 %call.i8796, -1
-  br i1 %cmp8.i89, label %if.end.i350, label %cleanup
+call.i348.noexc:                                  ; preds = %if.end6.i86
+  %conv7.i89 = trunc i64 %call.i8897 to i32
+  %cmp8.i90 = icmp sgt i64 %call.i8897, -1
+  br i1 %cmp8.i90, label %if.end.i350, label %cleanup
 
 if.end.i350:                                      ; preds = %call.i348.noexc.thread, %call.i348.noexc
-  %temp.i347.0174 = phi i32 [ %conv.i92, %call.i348.noexc.thread ], [ %conv7.i88, %call.i348.noexc ]
-  store i32 %temp.i347.0174, ptr %min_rtt_ms_, align 8
+  %temp.i347.0175 = phi i32 [ %conv.i93, %call.i348.noexc.thread ], [ %conv7.i89, %call.i348.noexc ]
+  store i32 %temp.i347.0175, ptr %min_rtt_ms_, align 8
   %21 = load i32, ptr %_has_bits_.i.i, align 8
-  %or.i99 = or i32 %21, 16
-  store i32 %or.i99, ptr %_has_bits_.i.i, align 8
+  %or.i100 = or i32 %21, 16
+  store i32 %or.i100, ptr %_has_bits_.i.i, align 8
   %22 = load ptr, ptr %input, align 8
   %23 = load ptr, ptr %buffer_end_.i, align 8
   %cmp2.i248 = icmp ult ptr %22, %23
@@ -891,8 +891,8 @@ land.lhs.true.i251:                               ; preds = %if.end.i350
   br i1 %cmp5.i253, label %if.then6.i254, label %for.cond.backedge
 
 if.then6.i254:                                    ; preds = %land.lhs.true.i251
-  %add.ptr.i100 = getelementptr inbounds i8, ptr %22, i64 1
-  store ptr %add.ptr.i100, ptr %input, align 8
+  %add.ptr.i101 = getelementptr inbounds i8, ptr %22, i64 1
+  store ptr %add.ptr.i101, ptr %input, align 8
   br label %parse_previous_connection_state
 
 sw.bb52:                                          ; preds = %if.end
@@ -902,43 +902,43 @@ sw.bb52:                                          ; preds = %if.end
   ]
 
 sw.bb52.parse_previous_connection_state_crit_edge: ; preds = %sw.bb52
-  %.pre191 = load ptr, ptr %input, align 8
-  %.pre192 = load ptr, ptr %buffer_end_.i, align 8
+  %.pre192 = load ptr, ptr %input, align 8
+  %.pre193 = load ptr, ptr %buffer_end_.i, align 8
   br label %parse_previous_connection_state
 
 parse_previous_connection_state:                  ; preds = %sw.bb52.parse_previous_connection_state_crit_edge, %if.then6.i254
-  %25 = phi ptr [ %.pre192, %sw.bb52.parse_previous_connection_state_crit_edge ], [ %23, %if.then6.i254 ]
-  %26 = phi ptr [ %.pre191, %sw.bb52.parse_previous_connection_state_crit_edge ], [ %add.ptr.i100, %if.then6.i254 ]
-  %cmp.i102 = icmp ult ptr %26, %25
-  br i1 %cmp.i102, label %if.then.i109, label %if.end6.i103
+  %25 = phi ptr [ %.pre193, %sw.bb52.parse_previous_connection_state_crit_edge ], [ %23, %if.then6.i254 ]
+  %26 = phi ptr [ %.pre192, %sw.bb52.parse_previous_connection_state_crit_edge ], [ %add.ptr.i101, %if.then6.i254 ]
+  %cmp.i103 = icmp ult ptr %26, %25
+  br i1 %cmp.i103, label %if.then.i110, label %if.end6.i104
 
-if.then.i109:                                     ; preds = %parse_previous_connection_state
+if.then.i110:                                     ; preds = %parse_previous_connection_state
   %27 = load i8, ptr %26, align 1
-  %conv.i110 = zext i8 %27 to i32
-  %cmp4.i111 = icmp sgt i8 %27, -1
-  br i1 %cmp4.i111, label %call.i339.noexc.thread, label %if.end6.i103
+  %conv.i111 = zext i8 %27 to i32
+  %cmp4.i112 = icmp sgt i8 %27, -1
+  br i1 %cmp4.i112, label %call.i339.noexc.thread, label %if.end6.i104
 
-call.i339.noexc.thread:                           ; preds = %if.then.i109
-  %add.ptr.i.i113 = getelementptr inbounds i8, ptr %26, i64 1
-  store ptr %add.ptr.i.i113, ptr %input, align 8
+call.i339.noexc.thread:                           ; preds = %if.then.i110
+  %add.ptr.i.i114 = getelementptr inbounds i8, ptr %26, i64 1
+  store ptr %add.ptr.i.i114, ptr %input, align 8
   br label %if.end.i341
 
-if.end6.i103:                                     ; preds = %if.then.i109, %parse_previous_connection_state
-  %v.0.i104 = phi i32 [ %conv.i110, %if.then.i109 ], [ 0, %parse_previous_connection_state ]
-  %call.i105114 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i104)
+if.end6.i104:                                     ; preds = %if.then.i110, %parse_previous_connection_state
+  %v.0.i105 = phi i32 [ %conv.i111, %if.then.i110 ], [ 0, %parse_previous_connection_state ]
+  %call.i106115 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i105)
           to label %call.i339.noexc unwind label %lpad2
 
-call.i339.noexc:                                  ; preds = %if.end6.i103
-  %conv7.i106 = trunc i64 %call.i105114 to i32
-  %cmp8.i107 = icmp sgt i64 %call.i105114, -1
-  br i1 %cmp8.i107, label %if.end.i341, label %cleanup
+call.i339.noexc:                                  ; preds = %if.end6.i104
+  %conv7.i107 = trunc i64 %call.i106115 to i32
+  %cmp8.i108 = icmp sgt i64 %call.i106115, -1
+  br i1 %cmp8.i108, label %if.end.i341, label %cleanup
 
 if.end.i341:                                      ; preds = %call.i339.noexc.thread, %call.i339.noexc
-  %temp.i338.0177 = phi i32 [ %conv.i110, %call.i339.noexc.thread ], [ %conv7.i106, %call.i339.noexc ]
-  store i32 %temp.i338.0177, ptr %previous_connection_state_, align 4
+  %temp.i338.0178 = phi i32 [ %conv.i111, %call.i339.noexc.thread ], [ %conv7.i107, %call.i339.noexc ]
+  store i32 %temp.i338.0178, ptr %previous_connection_state_, align 4
   %28 = load i32, ptr %_has_bits_.i.i, align 8
-  %or.i117 = or i32 %28, 32
-  store i32 %or.i117, ptr %_has_bits_.i.i, align 8
+  %or.i118 = or i32 %28, 32
+  store i32 %or.i118, ptr %_has_bits_.i.i, align 8
   %29 = load ptr, ptr %input, align 8
   %30 = load ptr, ptr %buffer_end_.i, align 8
   %cmp2.i211 = icmp ult ptr %29, %30
@@ -950,8 +950,8 @@ land.lhs.true.i214:                               ; preds = %if.end.i341
   br i1 %cmp5.i216, label %if.then6.i217, label %for.cond.backedge
 
 if.then6.i217:                                    ; preds = %land.lhs.true.i214
-  %add.ptr.i118 = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %add.ptr.i118, ptr %input, align 8
+  %add.ptr.i119 = getelementptr inbounds i8, ptr %29, i64 1
+  store ptr %add.ptr.i119, ptr %input, align 8
   br label %parse_max_bandwidth_estimate_bytes_per_second
 
 sw.bb68:                                          ; preds = %if.end
@@ -961,43 +961,43 @@ sw.bb68:                                          ; preds = %if.end
   ]
 
 sw.bb68.parse_max_bandwidth_estimate_bytes_per_second_crit_edge: ; preds = %sw.bb68
-  %.pre193 = load ptr, ptr %input, align 8
-  %.pre194 = load ptr, ptr %buffer_end_.i, align 8
+  %.pre194 = load ptr, ptr %input, align 8
+  %.pre195 = load ptr, ptr %buffer_end_.i, align 8
   br label %parse_max_bandwidth_estimate_bytes_per_second
 
 parse_max_bandwidth_estimate_bytes_per_second:    ; preds = %sw.bb68.parse_max_bandwidth_estimate_bytes_per_second_crit_edge, %if.then6.i217
-  %32 = phi ptr [ %.pre194, %sw.bb68.parse_max_bandwidth_estimate_bytes_per_second_crit_edge ], [ %30, %if.then6.i217 ]
-  %33 = phi ptr [ %.pre193, %sw.bb68.parse_max_bandwidth_estimate_bytes_per_second_crit_edge ], [ %add.ptr.i118, %if.then6.i217 ]
-  %cmp.i120 = icmp ult ptr %33, %32
-  br i1 %cmp.i120, label %if.then.i127, label %if.end6.i121
+  %32 = phi ptr [ %.pre195, %sw.bb68.parse_max_bandwidth_estimate_bytes_per_second_crit_edge ], [ %30, %if.then6.i217 ]
+  %33 = phi ptr [ %.pre194, %sw.bb68.parse_max_bandwidth_estimate_bytes_per_second_crit_edge ], [ %add.ptr.i119, %if.then6.i217 ]
+  %cmp.i121 = icmp ult ptr %33, %32
+  br i1 %cmp.i121, label %if.then.i128, label %if.end6.i122
 
-if.then.i127:                                     ; preds = %parse_max_bandwidth_estimate_bytes_per_second
+if.then.i128:                                     ; preds = %parse_max_bandwidth_estimate_bytes_per_second
   %34 = load i8, ptr %33, align 1
-  %conv.i128 = zext i8 %34 to i32
-  %cmp4.i129 = icmp sgt i8 %34, -1
-  br i1 %cmp4.i129, label %call.i331.noexc.thread, label %if.end6.i121
+  %conv.i129 = zext i8 %34 to i32
+  %cmp4.i130 = icmp sgt i8 %34, -1
+  br i1 %cmp4.i130, label %call.i331.noexc.thread, label %if.end6.i122
 
-call.i331.noexc.thread:                           ; preds = %if.then.i127
-  %add.ptr.i.i131 = getelementptr inbounds i8, ptr %33, i64 1
-  store ptr %add.ptr.i.i131, ptr %input, align 8
+call.i331.noexc.thread:                           ; preds = %if.then.i128
+  %add.ptr.i.i132 = getelementptr inbounds i8, ptr %33, i64 1
+  store ptr %add.ptr.i.i132, ptr %input, align 8
   br label %if.end.i333
 
-if.end6.i121:                                     ; preds = %if.then.i127, %parse_max_bandwidth_estimate_bytes_per_second
-  %v.0.i122 = phi i32 [ %conv.i128, %if.then.i127 ], [ 0, %parse_max_bandwidth_estimate_bytes_per_second ]
-  %call.i123132 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i122)
+if.end6.i122:                                     ; preds = %if.then.i128, %parse_max_bandwidth_estimate_bytes_per_second
+  %v.0.i123 = phi i32 [ %conv.i129, %if.then.i128 ], [ 0, %parse_max_bandwidth_estimate_bytes_per_second ]
+  %call.i124133 = invoke noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %v.0.i123)
           to label %call.i331.noexc unwind label %lpad2
 
-call.i331.noexc:                                  ; preds = %if.end6.i121
-  %conv7.i124 = trunc i64 %call.i123132 to i32
-  %cmp8.i125 = icmp sgt i64 %call.i123132, -1
-  br i1 %cmp8.i125, label %if.end.i333, label %cleanup
+call.i331.noexc:                                  ; preds = %if.end6.i122
+  %conv7.i125 = trunc i64 %call.i124133 to i32
+  %cmp8.i126 = icmp sgt i64 %call.i124133, -1
+  br i1 %cmp8.i126, label %if.end.i333, label %cleanup
 
 if.end.i333:                                      ; preds = %call.i331.noexc.thread, %call.i331.noexc
-  %temp.i.0180 = phi i32 [ %conv.i128, %call.i331.noexc.thread ], [ %conv7.i124, %call.i331.noexc ]
-  store i32 %temp.i.0180, ptr %max_bandwidth_estimate_bytes_per_second_, align 4
+  %temp.i.0181 = phi i32 [ %conv.i129, %call.i331.noexc.thread ], [ %conv7.i125, %call.i331.noexc ]
+  store i32 %temp.i.0181, ptr %max_bandwidth_estimate_bytes_per_second_, align 4
   %35 = load i32, ptr %_has_bits_.i.i, align 8
-  %or.i135 = or i32 %35, 4
-  store i32 %or.i135, ptr %_has_bits_.i.i, align 8
+  %or.i136 = or i32 %35, 4
+  store i32 %or.i136, ptr %_has_bits_.i.i, align 8
   %36 = load ptr, ptr %input, align 8
   %37 = load ptr, ptr %buffer_end_.i, align 8
   %cmp2.i174 = icmp ult ptr %36, %37
@@ -1009,8 +1009,8 @@ land.lhs.true.i177:                               ; preds = %if.end.i333
   br i1 %cmp5.i179, label %if.then6.i180, label %for.cond.backedge
 
 if.then6.i180:                                    ; preds = %land.lhs.true.i177
-  %add.ptr.i136 = getelementptr inbounds i8, ptr %36, i64 1
-  store ptr %add.ptr.i136, ptr %input, align 8
+  %add.ptr.i137 = getelementptr inbounds i8, ptr %36, i64 1
+  store ptr %add.ptr.i137, ptr %input, align 8
   br label %parse_max_bandwidth_timestamp_seconds
 
 sw.bb84:                                          ; preds = %if.end
@@ -1020,57 +1020,56 @@ sw.bb84:                                          ; preds = %if.end
   ]
 
 sw.bb84.parse_max_bandwidth_timestamp_seconds_crit_edge: ; preds = %sw.bb84
-  %.pre195 = load ptr, ptr %input, align 8
-  %.pre196 = load ptr, ptr %buffer_end_.i, align 8
+  %.pre196 = load ptr, ptr %input, align 8
+  %.pre197 = load ptr, ptr %buffer_end_.i, align 8
   br label %parse_max_bandwidth_timestamp_seconds
 
 parse_max_bandwidth_timestamp_seconds:            ; preds = %sw.bb84.parse_max_bandwidth_timestamp_seconds_crit_edge, %if.then6.i180
-  %39 = phi ptr [ %.pre196, %sw.bb84.parse_max_bandwidth_timestamp_seconds_crit_edge ], [ %37, %if.then6.i180 ]
-  %40 = phi ptr [ %.pre195, %sw.bb84.parse_max_bandwidth_timestamp_seconds_crit_edge ], [ %add.ptr.i136, %if.then6.i180 ]
-  %cmp.i138 = icmp ult ptr %40, %39
-  br i1 %cmp.i138, label %land.lhs.true.i, label %if.end.i
+  %39 = phi ptr [ %.pre197, %sw.bb84.parse_max_bandwidth_timestamp_seconds_crit_edge ], [ %37, %if.then6.i180 ]
+  %40 = phi ptr [ %.pre196, %sw.bb84.parse_max_bandwidth_timestamp_seconds_crit_edge ], [ %add.ptr.i137, %if.then6.i180 ]
+  %cmp.i139 = icmp ult ptr %40, %39
+  br i1 %cmp.i139, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %parse_max_bandwidth_timestamp_seconds
   %41 = load i8, ptr %40, align 1
-  %cmp4.i141 = icmp sgt i8 %41, -1
-  br i1 %cmp4.i141, label %call.i374.noexc.thread, label %if.end.i
+  %cmp4.i142 = icmp sgt i8 %41, -1
+  br i1 %cmp4.i142, label %call.i374.noexc.thread, label %if.end.i
 
 call.i374.noexc.thread:                           ; preds = %land.lhs.true.i
   %conv6.i = zext nneg i8 %41 to i64
-  %add.ptr.i.i143 = getelementptr inbounds i8, ptr %40, i64 1
-  store ptr %add.ptr.i.i143, ptr %input, align 8
+  %add.ptr.i.i144 = getelementptr inbounds i8, ptr %40, i64 1
+  store ptr %add.ptr.i.i144, ptr %input, align 8
   br label %if.end.i376
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %parse_max_bandwidth_timestamp_seconds
-  %call.i139144 = invoke { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
+  %call.i140145 = invoke { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
           to label %call.i374.noexc unwind label %lpad2
 
 call.i374.noexc:                                  ; preds = %if.end.i
-  %42 = extractvalue { i64, i8 } %call.i139144, 0
-  %43 = extractvalue { i64, i8 } %call.i139144, 1
-  %44 = and i8 %43, 1
-  %tobool.i.not = icmp eq i8 %44, 0
-  br i1 %tobool.i.not, label %cleanup, label %if.end.i376
+  %42 = extractvalue { i64, i8 } %call.i140145, 0
+  %43 = extractvalue { i64, i8 } %call.i140145, 1
+  %tobool.i = trunc i8 %43 to i1
+  br i1 %tobool.i, label %if.end.i376, label %cleanup
 
 if.end.i376:                                      ; preds = %call.i374.noexc.thread, %call.i374.noexc
-  %temp.i373.0183 = phi i64 [ %conv6.i, %call.i374.noexc.thread ], [ %42, %call.i374.noexc ]
-  store i64 %temp.i373.0183, ptr %max_bandwidth_timestamp_seconds_, align 8
-  %45 = load i32, ptr %_has_bits_.i.i, align 8
-  %or.i146 = or i32 %45, 8
-  store i32 %or.i146, ptr %_has_bits_.i.i, align 8
-  %46 = load ptr, ptr %input, align 8
-  %47 = load ptr, ptr %buffer_end_.i, align 8
-  %cmp2.i = icmp ult ptr %46, %47
+  %temp.i373.0184 = phi i64 [ %conv6.i, %call.i374.noexc.thread ], [ %42, %call.i374.noexc ]
+  store i64 %temp.i373.0184, ptr %max_bandwidth_timestamp_seconds_, align 8
+  %44 = load i32, ptr %_has_bits_.i.i, align 8
+  %or.i147 = or i32 %44, 8
+  store i32 %or.i147, ptr %_has_bits_.i.i, align 8
+  %45 = load ptr, ptr %input, align 8
+  %46 = load ptr, ptr %buffer_end_.i, align 8
+  %cmp2.i = icmp ult ptr %45, %46
   br i1 %cmp2.i, label %land.lhs.true.i143, label %for.cond.backedge
 
 land.lhs.true.i143:                               ; preds = %if.end.i376
-  %48 = load i8, ptr %46, align 1
-  %cmp5.i = icmp eq i8 %48, 56
+  %47 = load i8, ptr %45, align 1
+  %cmp5.i = icmp eq i8 %47, 56
   br i1 %cmp5.i, label %if.then6.i, label %for.cond.backedge
 
 if.then6.i:                                       ; preds = %land.lhs.true.i143
-  %add.ptr.i147 = getelementptr inbounds i8, ptr %46, i64 1
-  store ptr %add.ptr.i147, ptr %input, align 8
+  %add.ptr.i148 = getelementptr inbounds i8, ptr %45, i64 1
+  store ptr %add.ptr.i148, ptr %input, align 8
   br label %parse_timestamp
 
 sw.bb100:                                         ; preds = %if.end
@@ -1080,64 +1079,63 @@ sw.bb100:                                         ; preds = %if.end
   ]
 
 sw.bb100.parse_timestamp_crit_edge:               ; preds = %sw.bb100
-  %.pre197 = load ptr, ptr %input, align 8
-  %.pre198 = load ptr, ptr %buffer_end_.i, align 8
+  %.pre198 = load ptr, ptr %input, align 8
+  %.pre199 = load ptr, ptr %buffer_end_.i, align 8
   br label %parse_timestamp
 
 parse_timestamp:                                  ; preds = %sw.bb100.parse_timestamp_crit_edge, %if.then6.i
-  %49 = phi ptr [ %.pre198, %sw.bb100.parse_timestamp_crit_edge ], [ %47, %if.then6.i ]
-  %50 = phi ptr [ %.pre197, %sw.bb100.parse_timestamp_crit_edge ], [ %add.ptr.i147, %if.then6.i ]
-  %cmp.i149 = icmp ult ptr %50, %49
-  br i1 %cmp.i149, label %land.lhs.true.i154, label %if.end.i150
+  %48 = phi ptr [ %.pre199, %sw.bb100.parse_timestamp_crit_edge ], [ %46, %if.then6.i ]
+  %49 = phi ptr [ %.pre198, %sw.bb100.parse_timestamp_crit_edge ], [ %add.ptr.i148, %if.then6.i ]
+  %cmp.i150 = icmp ult ptr %49, %48
+  br i1 %cmp.i150, label %land.lhs.true.i155, label %if.end.i151
 
-land.lhs.true.i154:                               ; preds = %parse_timestamp
-  %51 = load i8, ptr %50, align 1
-  %cmp4.i155 = icmp sgt i8 %51, -1
-  br i1 %cmp4.i155, label %call.i366.noexc.thread, label %if.end.i150
+land.lhs.true.i155:                               ; preds = %parse_timestamp
+  %50 = load i8, ptr %49, align 1
+  %cmp4.i156 = icmp sgt i8 %50, -1
+  br i1 %cmp4.i156, label %call.i366.noexc.thread, label %if.end.i151
 
-call.i366.noexc.thread:                           ; preds = %land.lhs.true.i154
-  %conv6.i157 = zext nneg i8 %51 to i64
-  %add.ptr.i.i158 = getelementptr inbounds i8, ptr %50, i64 1
-  store ptr %add.ptr.i.i158, ptr %input, align 8
+call.i366.noexc.thread:                           ; preds = %land.lhs.true.i155
+  %conv6.i158 = zext nneg i8 %50 to i64
+  %add.ptr.i.i159 = getelementptr inbounds i8, ptr %49, i64 1
+  store ptr %add.ptr.i.i159, ptr %input, align 8
   br label %if.end.i368
 
-if.end.i150:                                      ; preds = %land.lhs.true.i154, %parse_timestamp
-  %call.i151159 = invoke { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
+if.end.i151:                                      ; preds = %land.lhs.true.i155, %parse_timestamp
+  %call.i152160 = invoke { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
           to label %call.i366.noexc unwind label %lpad2
 
-call.i366.noexc:                                  ; preds = %if.end.i150
-  %52 = extractvalue { i64, i8 } %call.i151159, 0
-  %53 = extractvalue { i64, i8 } %call.i151159, 1
-  %54 = and i8 %53, 1
-  %tobool.i152.not = icmp eq i8 %54, 0
-  br i1 %tobool.i152.not, label %cleanup, label %if.end.i368
+call.i366.noexc:                                  ; preds = %if.end.i151
+  %51 = extractvalue { i64, i8 } %call.i152160, 0
+  %52 = extractvalue { i64, i8 } %call.i152160, 1
+  %tobool.i153 = trunc i8 %52 to i1
+  br i1 %tobool.i153, label %if.end.i368, label %cleanup
 
 if.end.i368:                                      ; preds = %call.i366.noexc.thread, %call.i366.noexc
-  %temp.i365.0186 = phi i64 [ %conv6.i157, %call.i366.noexc.thread ], [ %52, %call.i366.noexc ]
-  store i64 %temp.i365.0186, ptr %timestamp_, align 8
-  %55 = load i32, ptr %_has_bits_.i.i, align 8
-  %or.i162 = or i32 %55, 64
-  store i32 %or.i162, ptr %_has_bits_.i.i, align 8
-  %56 = load ptr, ptr %input, align 8
-  %57 = load ptr, ptr %buffer_end_.i, align 8
-  %cmp.i164 = icmp eq ptr %56, %57
-  br i1 %cmp.i164, label %land.lhs.true.i166, label %for.cond.backedge
+  %temp.i365.0187 = phi i64 [ %conv6.i158, %call.i366.noexc.thread ], [ %51, %call.i366.noexc ]
+  store i64 %temp.i365.0187, ptr %timestamp_, align 8
+  %53 = load i32, ptr %_has_bits_.i.i, align 8
+  %or.i163 = or i32 %53, 64
+  store i32 %or.i163, ptr %_has_bits_.i.i, align 8
+  %54 = load ptr, ptr %input, align 8
+  %55 = load ptr, ptr %buffer_end_.i, align 8
+  %cmp.i165 = icmp eq ptr %54, %55
+  br i1 %cmp.i165, label %land.lhs.true.i167, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end.i368, %lor.lhs.false.i, %land.lhs.true.i143, %if.end.i376, %land.lhs.true.i177, %if.end.i333, %land.lhs.true.i214, %if.end.i341, %land.lhs.true.i251, %if.end.i350, %land.lhs.true.i288, %if.end.i359, %land.lhs.true.i325, %if.then.i320, %invoke.cont122
   br label %for.cond, !llvm.loop !5
 
-land.lhs.true.i166:                               ; preds = %if.end.i368
-  %58 = load i32, ptr %buffer_size_after_limit_.i, align 4
-  %cmp2.not.i = icmp eq i32 %58, 0
+land.lhs.true.i167:                               ; preds = %if.end.i368
+  %56 = load i32, ptr %buffer_size_after_limit_.i, align 4
+  %cmp2.not.i = icmp eq i32 %56, 0
   br i1 %cmp2.not.i, label %lor.lhs.false.i, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
 
-lor.lhs.false.i:                                  ; preds = %land.lhs.true.i166
-  %59 = load i32, ptr %total_bytes_read_.i, align 8
-  %60 = load i32, ptr %current_limit_.i, align 8
-  %cmp3.i = icmp eq i32 %59, %60
+lor.lhs.false.i:                                  ; preds = %land.lhs.true.i167
+  %57 = load i32, ptr %total_bytes_read_.i, align 8
+  %58 = load i32, ptr %current_limit_.i, align 8
+  %cmp3.i = icmp eq i32 %57, %58
   br i1 %cmp3.i, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit, label %for.cond.backedge
 
-_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %land.lhs.true.i166, %lor.lhs.false.i
+_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %land.lhs.true.i167, %lor.lhs.false.i
   store i32 0, ptr %last_tag_50.i, align 8
   %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
   store i8 1, ptr %legitimate_message_end_.i, align 4
@@ -1926,20 +1924,19 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal26Functio
 entry:
   %self_deleting_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %self_deleting_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %function_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %function_, align 8
+  %1 = load ptr, ptr %function_, align 8
   %p1_ = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %p1_, align 8
-  %call = tail call noundef ptr %2(ptr noundef %3)
-  br i1 %tobool.not, label %if.end, label %delete.notnull
+  %2 = load ptr, ptr %p1_, align 8
+  %call = tail call noundef ptr %1(ptr noundef %2)
+  br i1 %tobool, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  %3 = load ptr, ptr %vfn, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry

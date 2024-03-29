@@ -970,9 +970,8 @@ _ZNSt10shared_ptrIN4node4quic6Packet4DataEEC2ERKS4_.exit: ; preds = %entry, %if.
   %8 = load ptr, ptr %principal_realm_.i.i.i.i, align 8
   %has_run_bootstrapping_code_.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 684
   %9 = load i8, ptr %has_run_bootstrapping_code_.i.i.i.i.i, align 4
-  %10 = and i8 %9, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.i.not.i.i.i, label %do.body4.i.i.i, label %_ZN4node4quic6PacketC2EPNS_11EnvironmentEPNS1_8ListenerEN2v85LocalINS6_6ObjectEEERKNS_13SocketAddressESt10shared_ptrINS1_4DataEE.exit
+  %tobool.i.i.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool.i.i.i.i.i, label %_ZN4node4quic6PacketC2EPNS_11EnvironmentEPNS1_8ListenerEN2v85LocalINS6_6ObjectEEERKNS_13SocketAddressESt10shared_ptrINS1_4DataEE.exit, label %do.body4.i.i.i
 
 do.body4.i.i.i:                                   ; preds = %_ZNSt10shared_ptrIN4node4quic6Packet4DataEEC2ERKS4_.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node11ReqWrapBaseC1EPNS_11EnvironmentEE4args) #22
@@ -981,11 +980,11 @@ do.body4.i.i.i:                                   ; preds = %_ZNSt10shared_ptrIN
 
 _ZN4node4quic6PacketC2EPNS_11EnvironmentEPNS1_8ListenerEN2v85LocalINS6_6ObjectEEERKNS_13SocketAddressESt10shared_ptrINS1_4DataEE.exit: ; preds = %_ZNSt10shared_ptrIN4node4quic6Packet4DataEEC2ERKS4_.exit
   %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 2192
-  %11 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
-  %next_.i2.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %10 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
+  %next_.i2.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i2.i.i.i, align 8
-  %12 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
-  store ptr %12, ptr %req_wrap_queue_.i.i.i, align 8
+  %11 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
+  store ptr %11, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i.i, ptr %next_.i.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %req_wrap_queue_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i64 0, i32 0, i64 2), ptr %call, align 8
@@ -1002,8 +1001,8 @@ _ZN4node4quic6PacketC2EPNS_11EnvironmentEPNS1_8ListenerEN2v85LocalINS6_6ObjectEE
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i64 0, i32 0, i64 2), ptr %destination_.i, align 8
   %address_2.i.i = getelementptr inbounds i8, ptr %call, i64 424
   %address_3.i.i = getelementptr inbounds i8, ptr %args5, i64 8
-  %13 = load i16, ptr %address_3.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i16 %13, 2
+  %12 = load i16, ptr %address_3.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq i16 %12, 2
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %call, i64 552
@@ -1041,9 +1040,8 @@ entry:
   %1 = load ptr, ptr %principal_realm_.i.i.i, align 8
   %has_run_bootstrapping_code_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 684
   %2 = load i8, ptr %has_run_bootstrapping_code_.i.i.i.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i.i, label %do.body4.i.i, label %_ZN4node7ReqWrapI13uv_udp_send_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE.exit
+  %tobool.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN4node7ReqWrapI13uv_udp_send_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE.exit, label %do.body4.i.i
 
 do.body4.i.i:                                     ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node11ReqWrapBaseC1EPNS_11EnvironmentEE4args) #22
@@ -1052,11 +1050,11 @@ do.body4.i.i:                                     ; preds = %entry
 
 _ZN4node7ReqWrapI13uv_udp_send_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE.exit: ; preds = %entry
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %env, i64 2192
-  %4 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
-  %next_.i2.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %3 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
+  %next_.i2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %req_wrap_queue_.i.i, ptr %next_.i2.i.i, align 8
-  %5 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
-  store ptr %5, ptr %req_wrap_queue_.i.i, align 8
+  %4 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
+  store ptr %4, ptr %req_wrap_queue_.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i64 0, i32 0, i64 2), ptr %this, align 8
@@ -1073,19 +1071,19 @@ _ZN4node7ReqWrapI13uv_udp_send_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEEN
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i64 0, i32 0, i64 2), ptr %destination_, align 8
   %address_2.i = getelementptr inbounds i8, ptr %this, i64 424
   %address_3.i = getelementptr inbounds i8, ptr %destination, i64 8
-  %6 = load i16, ptr %address_3.i, align 8
-  %cmp.i.i.i.i = icmp eq i16 %6, 2
+  %5 = load i16, ptr %address_3.i, align 8
+  %cmp.i.i.i.i = icmp eq i16 %5, 2
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i, ptr noundef nonnull align 8 dereferenceable(16) %address_3.i, i64 %cond.i.i.i.i, i1 false)
   %data_ = getelementptr inbounds i8, ptr %this, i64 552
-  %7 = load ptr, ptr %data, align 8
-  store ptr %7, ptr %data_, align 8
+  %6 = load ptr, ptr %data, align 8
+  store ptr %6, ptr %data_, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 560
   store ptr null, ptr %_M_refcount.i.i, align 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %data, i64 8
-  %8 = load ptr, ptr %_M_refcount4.i.i, align 8
+  %7 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i, align 8
+  store ptr %7, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %data, align 8
   %handle_ = getelementptr inbounds i8, ptr %this, i64 568
   store ptr null, ptr %handle_, align 8
@@ -1141,9 +1139,8 @@ entry:
   %6 = load ptr, ptr %principal_realm_.i.i.i.i, align 8
   %has_run_bootstrapping_code_.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 684
   %7 = load i8, ptr %has_run_bootstrapping_code_.i.i.i.i.i, align 4
-  %8 = and i8 %7, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.i.i.not.i.i.i, label %do.body4.i.i.i, label %_ZNSt10shared_ptrIN4node4quic6Packet4DataEED2Ev.exit
+  %tobool.i.i.i.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i.i.i.i, label %_ZNSt10shared_ptrIN4node4quic6Packet4DataEED2Ev.exit, label %do.body4.i.i.i
 
 do.body4.i.i.i:                                   ; preds = %entry
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node11ReqWrapBaseC1EPNS_11EnvironmentEE4args) #22
@@ -1152,11 +1149,11 @@ do.body4.i.i.i:                                   ; preds = %entry
 
 _ZNSt10shared_ptrIN4node4quic6Packet4DataEED2Ev.exit: ; preds = %entry
   %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %env, i64 2192
-  %9 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
-  %next_.i2.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %8 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
+  %next_.i2.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i2.i.i.i, align 8
-  %10 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
-  store ptr %10, ptr %req_wrap_queue_.i.i.i, align 8
+  %9 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
+  store ptr %9, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i.i, ptr %next_.i.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %req_wrap_queue_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i64 0, i32 0, i64 2), ptr %this, align 8
@@ -1173,8 +1170,8 @@ _ZNSt10shared_ptrIN4node4quic6Packet4DataEED2Ev.exit: ; preds = %entry
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i64 0, i32 0, i64 2), ptr %destination_.i, align 8
   %address_2.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %address_3.i.i = getelementptr inbounds i8, ptr %destination, i64 8
-  %11 = load i16, ptr %address_3.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i16 %11, 2
+  %10 = load i16, ptr %address_3.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq i16 %10, 2
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %this, i64 552
@@ -2224,9 +2221,8 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %dcid, align 8
   call void @_ZN4node4quic19StatelessResetTokenC1ERKNS0_11TokenSecretERKNS0_3CIDE(ptr noundef nonnull align 8 dereferenceable(32) %token, ptr noundef nonnull align 8 dereferenceable(24) %token_secret, ptr noundef nonnull align 8 dereferenceable(48) %0) #22
   %call = call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %random, i64 noundef 25) #22
-  %1 = and i8 %call, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %do.body5, label %do.end8
+  %tobool.i = trunc i8 %call to i1
+  br i1 %tobool.i, label %do.end8, label %do.body5
 
 do.body5:                                         ; preds = %if.end
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic6Packet26CreateStatelessResetPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorERKNS0_11TokenSecretEmE4args) #22
@@ -2235,32 +2231,32 @@ do.body5:                                         ; preds = %if.end
 
 do.end8:                                          ; preds = %if.end
   %remote_address = getelementptr inbounds i8, ptr %path_descriptor, i64 32
-  %2 = load ptr, ptr %remote_address, align 8
-  call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.290") align 8 %packet, ptr noundef %env, ptr noundef %listener, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 noundef 1200, ptr noundef nonnull @.str.12)
-  %3 = load ptr, ptr %packet, align 8
-  %data_.i = getelementptr inbounds i8, ptr %3, i64 552
-  %4 = load ptr, ptr %data_.i, align 8
-  %cmp.i.not.i = icmp eq ptr %4, null
-  %5 = ptrtoint ptr %3 to i64
+  %1 = load ptr, ptr %remote_address, align 8
+  call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.290") align 8 %packet, ptr noundef %env, ptr noundef %listener, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef 1200, ptr noundef nonnull @.str.12)
+  %2 = load ptr, ptr %packet, align 8
+  %data_.i = getelementptr inbounds i8, ptr %2, i64 552
+  %3 = load ptr, ptr %data_.i, align 8
+  %cmp.i.not.i = icmp eq ptr %3, null
+  %4 = ptrtoint ptr %2 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %do.end8
-  %buf_.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load ptr, ptr %buf_.i.i.i, align 8
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = load ptr, ptr %buf_.i.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %do.end8, %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %6, %cond.false.i ], [ null, %do.end8 ]
+  %retval.sroa.0.0.i = phi ptr [ %5, %cond.false.i ], [ null, %do.end8 ]
   %call11 = call noundef ptr @_ZNK4node4quic19StatelessResetTokencvPKhEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #22
   %call13 = call i64 @ngtcp2_pkt_write_stateless_reset(ptr noundef %retval.sroa.0.0.i, i64 noundef %sub, ptr noundef %call11, ptr noundef nonnull %random, i64 noundef 25) #22
   %cmp14 = icmp slt i64 %call13, 42
   br i1 %cmp14, label %if.then.i, label %if.end17
 
 if.end17:                                         ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %7 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %8, %call13
+  %6 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %7, %call13
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %cleanup.thread
 
 do.body4.i.i:                                     ; preds = %if.end17
@@ -2269,15 +2265,15 @@ do.body4.i.i:                                     ; preds = %if.end17
   unreachable
 
 cleanup.thread:                                   ; preds = %if.end17
-  %data_2.i = getelementptr inbounds i8, ptr %7, i64 8
+  %data_2.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %call13, ptr %data_2.i, align 8
-  store i64 %5, ptr %agg.result, align 8
+  store i64 %4, ptr %agg.result, align 8
   br label %return
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %3, i32 noundef -125)
+  call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %2, i32 noundef -125)
   store ptr null, ptr %agg.result, align 8
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   br label %return
 
 return:                                           ; preds = %if.then.i, %cleanup.thread, %if.then
@@ -2466,24 +2462,22 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
-  %6 = load i8, ptr %is_detached.i, align 1
-  %.fr6 = freeze i8 %6
-  %7 = and i8 %.fr6, 1
-  %tobool6.i.not = icmp eq i8 %7, 0
-  br i1 %tobool6.i.not, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %5 = load i8, ptr %is_detached.i, align 1
+  %.fr = freeze i8 %5
+  %tobool6.i = trunc i8 %.fr to i1
+  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %8 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
-  ret i8 %8
+  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+  ret i8 %6
 }
 
 declare noundef zeroext i1 @_ZNK4node9AsyncWrap18IsDoneInitializingEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
@@ -3333,8 +3327,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %is_root_node_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %is_root_node_, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -3424,65 +3417,64 @@ if.end:                                           ; preds = %lor.lhs.false.i.i, 
   %10 = load i64, ptr %_M_element_count.i, align 8
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %2, i64 noundef %10, i64 noundef 1) #22
   %11 = extractvalue { i8, i64 } %call3.i, 0
-  %12 = and i8 %11, 1
-  %tobool.not.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %11 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %13 = extractvalue { i8, i64 } %call3.i, 1
-  tail call void @_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %13)
-  %14 = load i64, ptr %_M_bucket_count.i, align 8
-  %rem.i.i.i.i = urem i64 %1, %14
+  %12 = extractvalue { i8, i64 } %call3.i, 1
+  tail call void @_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %12)
+  %13 = load i64, ptr %_M_bucket_count.i, align 8
+  %rem.i.i.i.i = urem i64 %1, %13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %__bkt.addr.0.i = phi i64 [ %rem.i.i.i.i, %if.then.i ], [ %rem.i.i.i, %if.end ]
-  %15 = load ptr, ptr %this, align 8
-  %arrayidx.i.i12 = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0.i
-  %16 = load ptr, ptr %arrayidx.i.i12, align 8
-  %tobool.not.i.i13 = icmp eq ptr %16, null
+  %14 = load ptr, ptr %this, align 8
+  %arrayidx.i.i12 = getelementptr inbounds ptr, ptr %14, i64 %__bkt.addr.0.i
+  %15 = load ptr, ptr %arrayidx.i.i12, align 8
+  %tobool.not.i.i13 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i13, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %call5.i.i.i.i, align 8
-  store ptr %call5.i.i.i.i, ptr %16, align 8
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %call5.i.i.i.i, align 8
+  store ptr %call5.i.i.i.i, ptr %15, align 8
   br label %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load ptr, ptr %_M_before_begin.i.i, align 8
-  store ptr %18, ptr %call5.i.i.i.i, align 8
+  %17 = load ptr, ptr %_M_before_begin.i.i, align 8
+  store ptr %17, ptr %call5.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_before_begin.i.i, align 8
-  %tobool13.not.i.i = icmp eq ptr %18, null
+  %tobool13.not.i.i = icmp eq ptr %17, null
   br i1 %tobool13.not.i.i, label %if.end.i.i16, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.else.i.i
-  %add.ptr.i.i14 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load i64, ptr %_M_bucket_count.i, align 8
-  %20 = load ptr, ptr %add.ptr.i.i14, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %rem.i.i.i.i.i15 = urem i64 %21, %19
-  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i.i15
+  %add.ptr.i.i14 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i64, ptr %_M_bucket_count.i, align 8
+  %19 = load ptr, ptr %add.ptr.i.i14, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %rem.i.i.i.i.i15 = urem i64 %20, %18
+  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %14, i64 %rem.i.i.i.i.i15
   store ptr %call5.i.i.i.i, ptr %arrayidx17.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
   br label %if.end.i.i16
 
 if.end.i.i16:                                     ; preds = %if.then14.i.i, %if.else.i.i
-  %22 = phi ptr [ %.pre, %if.then14.i.i ], [ %15, %if.else.i.i ]
-  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0.i
+  %21 = phi ptr [ %.pre, %if.then14.i.i ], [ %14, %if.else.i.i ]
+  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %21, i64 %__bkt.addr.0.i
   store ptr %_M_before_begin.i.i, ptr %arrayidx20.i.i, align 8
   br label %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end.i.i16, %if.then.i.i
-  %23 = load i64, ptr %_M_element_count.i, align 8
-  %inc.i = add i64 %23, 1
+  %22 = load i64, ptr %_M_element_count.i, align 8
+  %inc.i = add i64 %22, 1
   store i64 %inc.i, ptr %_M_element_count.i, align 8
   br label %return
 
 return:                                           ; preds = %for.cond.i.i, %if.end.i.i, %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %24 = phi ptr [ %call5.i.i.i.i, %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %5, %if.end.i.i ], [ %7, %for.cond.i.i ]
-  %retval.0 = getelementptr inbounds i8, ptr %24, i64 16
+  %23 = phi ptr [ %call5.i.i.i.i, %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %5, %if.end.i.i ], [ %7, %for.cond.i.i ]
+  %retval.0 = getelementptr inbounds i8, ptr %23, i64 16
   ret ptr %retval.0
 }
 

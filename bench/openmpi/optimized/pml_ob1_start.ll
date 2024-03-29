@@ -31,21 +31,21 @@ define i32 @mca_pml_ob1_start(i64 noundef %0, ptr nocapture noundef %1) local_un
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %.not63 = icmp eq i64 %0, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph
+  %.not62 = icmp eq i64 %0, 0
+  br i1 %.not62, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %308
-  %.03458 = phi i64 [ %309, %308 ], [ 0, %2 ]
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %.03458
+.lr.ph:                                           ; preds = %2, %309
+  %.03457 = phi i64 [ %310, %309 ], [ 0, %2 ]
+  %6 = getelementptr inbounds ptr, ptr %1, i64 %.03457
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %308, label %9
+  br i1 %8, label %309, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %7, i64 56
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %308
+  br i1 %.not, label %12, label %309
 
 12:                                               ; preds = %9
   fence acquire
@@ -53,7 +53,7 @@ define i32 @mca_pml_ob1_start(i64 noundef %0, ptr nocapture noundef %1) local_un
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %.loopexit [
     i32 1, label %15
-    i32 2, label %307
+    i32 2, label %308
   ]
 
 15:                                               ; preds = %12
@@ -157,14 +157,13 @@ opal_convertor_set_position.exit:                 ; preds = %66, %65, %55, %50, 
 
 73:                                               ; preds = %opal_convertor_set_position.exit
   %74 = load i8, ptr @opal_uses_threads, align 1
-  %75 = and i8 %74, 1
-  %.not.i.i = icmp eq i8 %75, 0
-  br i1 %.not.i.i, label %.thread.i.i, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %.thread.i.i
 
 76:                                               ; preds = %73
   %77 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #6
-  %.pre.i.i = load ptr, ptr %70, align 8
-  %78 = icmp eq ptr %.pre.i.i, null
+  %.pr.i.i = load ptr, ptr %70, align 8
+  %78 = icmp eq ptr %.pr.i.i, null
   br i1 %78, label %.thread.i.i, label %81
 
 .thread.i.i:                                      ; preds = %76, %73
@@ -174,9 +173,8 @@ opal_convertor_set_position.exit:                 ; preds = %66, %65, %55, %50, 
 
 81:                                               ; preds = %.thread.i.i, %76
   %82 = load i8, ptr @opal_uses_threads, align 1
-  %83 = and i8 %82, 1
-  %.not4.i.i = icmp eq i8 %83, 0
-  br i1 %.not4.i.i, label %mca_bml_base_get_endpoint.exitthread-pre-split.i, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %mca_bml_base_get_endpoint.exitthread-pre-split.i
 
 84:                                               ; preds = %81
   %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #6
@@ -197,8 +195,8 @@ mca_bml_base_get_endpoint.exit.i:                 ; preds = %mca_bml_base_get_en
   %93 = getelementptr inbounds i8, ptr %92, i64 224
   %94 = load i64, ptr %93, align 8
   %95 = trunc i64 %94 to i32
-  %.not.i11.i = icmp slt i32 %90, %95
-  br i1 %.not.i11.i, label %97, label %96
+  %.not.i.i = icmp slt i32 %90, %95
+  br i1 %.not.i.i, label %97, label %96
 
 96:                                               ; preds = %mca_bml_base_get_endpoint.exit.i
   call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef nonnull @.str) #7
@@ -215,11 +213,11 @@ mca_bml_base_get_endpoint.exit.i:                 ; preds = %mca_bml_base_get_en
 
 104:                                              ; preds = %97
   %105 = call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %88, ptr noundef nonnull %92, i32 noundef %90) #6
-  %.pre.i12.i = load ptr, ptr %98, align 8
+  %.pre.i.i = load ptr, ptr %98, align 8
   br label %mca_pml_ob1_peer_lookup.exit.i
 
 mca_pml_ob1_peer_lookup.exit.i:                   ; preds = %104, %97
-  %106 = phi ptr [ %.pre.i12.i, %104 ], [ %99, %97 ]
+  %106 = phi ptr [ %.pre.i.i, %104 ], [ %99, %97 ]
   %107 = getelementptr inbounds ptr, ptr %106, i64 %100
   %108 = load volatile ptr, ptr %107, align 8
   %109 = icmp eq ptr %86, null
@@ -230,17 +228,15 @@ mca_pml_ob1_send_request_start.exit.thread:       ; preds = %mca_pml_ob1_peer_lo
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 64
   %113 = load i8, ptr %112, align 8
-  %114 = and i8 %113, 1
-  %.not.i43 = icmp eq i8 %114, 0
-  %..i = select i1 %.not.i43, i32 75, i32 -12
+  %114 = trunc i8 %113 to i1
+  %..i = select i1 %114, i32 -12, i32 75
   br label %.loopexit
 
 115:                                              ; preds = %mca_pml_ob1_peer_lookup.exit.i
   %116 = getelementptr inbounds i8, ptr %108, i64 28
   %117 = load i8, ptr @opal_uses_threads, align 1
-  %118 = and i8 %117, 1
-  %.not.i13.i = icmp eq i8 %118, 0
-  br i1 %.not.i13.i, label %122, label %119
+  %118 = trunc i8 %117 to i1
+  br i1 %118, label %119, label %122
 
 119:                                              ; preds = %115
   %120 = atomicrmw volatile add ptr %116, i32 1 monotonic, align 4
@@ -285,8 +281,8 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %122, %119
   store i32 0, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %.033, i64 520
   %141 = load i64, ptr %140, align 8
-  %.not.i14.i = icmp eq i64 %141, 0
-  br i1 %.not.i14.i, label %opal_convertor_set_position.exit.i.i, label %142
+  %.not.i11.i = icmp eq i64 %141, 0
+  br i1 %.not.i11.i, label %opal_convertor_set_position.exit.i.i, label %142
 
 142:                                              ; preds = %opal_thread_add_fetch_32.exit.i
   store i64 0, ptr %3, align 8
@@ -333,9 +329,9 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %122, %119
 
 opal_convertor_set_position.exit.i.i:             ; preds = %162, %161, %151, %146, %opal_thread_add_fetch_32.exit.i
   %164 = getelementptr i8, ptr %86, i64 88
-  %.val55.i.i = load i64, ptr %164, align 8
-  %.not58.i.i = icmp eq i64 %.val55.i.i, 0
-  br i1 %.not58.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.val54.i.i = load i64, ptr %164, align 8
+  %.not57.i.i = icmp eq i64 %.val54.i.i, 0
+  br i1 %.not57.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %opal_convertor_set_position.exit.i.i
   %165 = getelementptr inbounds i8, ptr %86, i64 104
@@ -351,9 +347,9 @@ opal_convertor_set_position.exit.i.i:             ; preds = %162, %161, %151, %1
   br label %175
 
 175:                                              ; preds = %276, %.lr.ph.i.i
-  %.val57.i.i = phi i64 [ %.val55.i.i, %.lr.ph.i.i ], [ %.val.i.i, %276 ]
-  %.04256.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %277, %276 ]
-  %176 = icmp eq i64 %.val57.i.i, 1
+  %.val56.i.i = phi i64 [ %.val54.i.i, %.lr.ph.i.i ], [ %.val.i.i, %276 ]
+  %.04255.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %277, %276 ]
+  %176 = icmp eq i64 %.val56.i.i, 1
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %175
@@ -363,7 +359,7 @@ opal_convertor_set_position.exit.i.i:             ; preds = %162, %161, %151, %1
 179:                                              ; preds = %175
   %180 = load i64, ptr %165, align 8
   %181 = add i64 %180, 1
-  %182 = icmp eq i64 %181, %.val57.i.i
+  %182 = icmp eq i64 %181, %.val56.i.i
   %..i.i.i = select i1 %182, i64 0, i64 %181
   store i64 %..i.i.i, ptr %165, align 8
   %183 = load ptr, ptr %166, align 8
@@ -474,7 +470,7 @@ opal_convertor_need_buffers.exit.thread.i.i.i:    ; preds = %218
   %236 = load i64, ptr %140, align 8
   %237 = call i32 @mca_pml_ob1_send_request_start_rdma(ptr noundef nonnull %.033, ptr noundef nonnull %.0.i47.i.i, i64 noundef %236) #6
   %.not64.i.i.i = icmp eq i32 %237, 0
-  br i1 %.not64.i.i.i, label %mca_pml_ob1_send_request_start.exit.thread46, label %238
+  br i1 %.not64.i.i.i, label %mca_pml_ob1_send_request_start.exit.thread45, label %238
 
 238:                                              ; preds = %235
   %239 = load i32, ptr %174, align 8
@@ -487,8 +483,8 @@ opal_convertor_need_buffers.exit.thread.i.i.i:    ; preds = %218
   %241 = getelementptr inbounds [0 x %struct.mca_pml_ob1_com_btl_t], ptr %173, i64 0, i64 %.013.i.i.i
   %242 = getelementptr inbounds i8, ptr %241, i64 8
   %243 = load ptr, ptr %242, align 8
-  %.not.i51.i.i = icmp eq ptr %243, null
-  br i1 %.not.i51.i.i, label %250, label %244
+  %.not.i50.i.i = icmp eq ptr %243, null
+  br i1 %.not.i50.i.i, label %250, label %244
 
 244:                                              ; preds = %.lr.ph.i.i.i
   %245 = load ptr, ptr %241, align 8
@@ -498,11 +494,11 @@ opal_convertor_need_buffers.exit.thread.i.i.i:    ; preds = %218
   %248 = load ptr, ptr %247, align 8
   %249 = call i32 %248(ptr noundef %.val.i.i.i, ptr noundef nonnull %243) #6
   store ptr null, ptr %242, align 8
-  %.pre.i52.i.i = load i32, ptr %174, align 8
+  %.pre.i51.i.i = load i32, ptr %174, align 8
   br label %250
 
 250:                                              ; preds = %244, %.lr.ph.i.i.i
-  %251 = phi i32 [ %240, %.lr.ph.i.i.i ], [ %.pre.i52.i.i, %244 ]
+  %251 = phi i32 [ %240, %.lr.ph.i.i.i ], [ %.pre.i51.i.i, %244 ]
   %252 = add nuw nsw i64 %.013.i.i.i, 1
   %253 = zext i32 %251 to i64
   %254 = icmp ult i64 %252, %253
@@ -532,7 +528,7 @@ opal_convertor_need_buffers.exit.thread69.i.i.i:  ; preds = %opal_convertor_need
 mca_pml_ob1_send_request_start_btl.exit.i.i:      ; preds = %260, %258, %255, %mca_pml_ob1_free_rdma_resources.exit.i.i, %212, %205, %203, %197, %195, %193
   %.055.i.i.i = phi i32 [ %259, %258 ], [ %204, %203 ], [ %206, %205 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %213, %212 ], [ %261, %260 ], [ %237, %mca_pml_ob1_free_rdma_resources.exit.i.i ], [ %256, %255 ]
   switch i32 %.055.i.i.i, label %mca_pml_ob1_send_request_start.exit [
-    i32 0, label %mca_pml_ob1_send_request_start.exit.thread46
+    i32 0, label %mca_pml_ob1_send_request_start.exit.thread45
     i32 -12, label %262
     i32 -2, label %276
   ]
@@ -559,14 +555,14 @@ mca_pml_ob1_send_request_start_btl.exit.i.i:      ; preds = %260, %258, %255, %m
   store ptr null, ptr %271, align 8
   %274 = call i32 %272(ptr noundef nonnull %.033) #6
   %275 = icmp eq i32 %274, 0
-  br i1 %275, label %.critedge.i.i.i, label %mca_pml_ob1_send_request_start.exit.thread46
+  br i1 %275, label %.critedge.i.i.i, label %mca_pml_ob1_send_request_start.exit.thread45
 
 .critedge.i.i.i:                                  ; preds = %273, %262
   store ptr inttoptr (i64 1 to ptr), ptr %135, align 8
-  br label %mca_pml_ob1_send_request_start.exit.thread46
+  br label %mca_pml_ob1_send_request_start.exit.thread45
 
 276:                                              ; preds = %mca_pml_ob1_send_request_start_btl.exit.i.i
-  %277 = add nuw i64 %.04256.i.i, 1
+  %277 = add nuw i64 %.04255.i.i, 1
   %.val.i.i = load i64, ptr %164, align 8
   %278 = icmp ult i64 %277, %.val.i.i
   br i1 %278, label %175, label %._crit_edge.i.i, !llvm.loop !6
@@ -588,27 +584,24 @@ mca_pml_ob1_send_request_start_btl.exit.i.i:      ; preds = %260, %258, %255, %m
 288:                                              ; preds = %282
   %289 = call i32 @mca_pml_base_bsend_request_start(ptr noundef nonnull %.033) #6
   %.not45.i.i = icmp eq i32 %289, 0
-  br i1 %.not45.i.i, label %290, label %mca_pml_ob1_send_request_start.exit.thread49
+  br i1 %.not45.i.i, label %290, label %mca_pml_ob1_send_request_start.exit.thread48
 
-mca_pml_ob1_send_request_start.exit.thread49:     ; preds = %288
+mca_pml_ob1_send_request_start.exit.thread48:     ; preds = %288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.loopexit
 
 290:                                              ; preds = %288, %282, %._crit_edge.i.i
   %291 = load i8, ptr @opal_uses_threads, align 1
-  %292 = and i8 %291, 1
-  %.not.i50.i.i = icmp eq i8 %292, 0
-  br i1 %.not.i50.i.i, label %296, label %293
+  %292 = trunc i8 %291 to i1
+  br i1 %292, label %293, label %295
 
 293:                                              ; preds = %290
   %294 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 11, i32 1, i32 0, i32 0)) #6
   %.pre.i.i.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre6.i.i.i = and i8 %.pre.i.i.i, 1
-  %295 = icmp eq i8 %.pre6.i.i.i, 0
-  br label %296
+  br label %295
 
-296:                                              ; preds = %293, %290
-  %.pre-phi.i.i.i = phi i1 [ true, %290 ], [ %295, %293 ]
+295:                                              ; preds = %293, %290
+  %296 = phi i8 [ %291, %290 ], [ %.pre.i.i.i, %293 ]
   store i32 2, ptr %131, align 4
   %297 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 1, i32 2), align 8
   %298 = getelementptr inbounds i8, ptr %.033, i64 24
@@ -622,35 +615,36 @@ mca_pml_ob1_send_request_start.exit.thread49:     ; preds = %288
   %302 = load volatile i64, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 2), align 8
   %303 = add i64 %302, 1
   store volatile i64 %303, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 18, i32 2), align 8
-  br i1 %.pre-phi.i.i.i, label %add_request_to_send_pending.exit.i.i, label %304
+  %304 = trunc i8 %296 to i1
+  br i1 %304, label %305, label %add_request_to_send_pending.exit.i.i
 
-304:                                              ; preds = %296
-  %305 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 11, i32 1, i32 0, i32 0)) #6
+305:                                              ; preds = %295
+  %306 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 11, i32 1, i32 0, i32 0)) #6
   br label %add_request_to_send_pending.exit.i.i
 
-add_request_to_send_pending.exit.i.i:             ; preds = %304, %296
-  %306 = call i32 @mca_pml_ob1_enable_progress(i32 noundef 1) #6
-  br label %mca_pml_ob1_send_request_start.exit.thread46
+add_request_to_send_pending.exit.i.i:             ; preds = %305, %295
+  %307 = call i32 @mca_pml_ob1_enable_progress(i32 noundef 1) #6
+  br label %mca_pml_ob1_send_request_start.exit.thread45
 
-mca_pml_ob1_send_request_start.exit.thread46:     ; preds = %mca_pml_ob1_send_request_start_btl.exit.i.i, %235, %add_request_to_send_pending.exit.i.i, %273, %.critedge.i.i.i
+mca_pml_ob1_send_request_start.exit.thread45:     ; preds = %mca_pml_ob1_send_request_start_btl.exit.i.i, %235, %add_request_to_send_pending.exit.i.i, %273, %.critedge.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %308
+  br label %309
 
 mca_pml_ob1_send_request_start.exit:              ; preds = %mca_pml_ob1_send_request_start_btl.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.loopexit
 
-307:                                              ; preds = %12
+308:                                              ; preds = %12
   call void @mca_pml_ob1_recv_req_start(ptr noundef nonnull %7) #6
-  br label %308
+  br label %309
 
-308:                                              ; preds = %mca_pml_ob1_send_request_start.exit.thread46, %307, %.lr.ph, %9
-  %309 = add nuw i64 %.03458, 1
-  %exitcond.not = icmp eq i64 %309, %0
+309:                                              ; preds = %mca_pml_ob1_send_request_start.exit.thread45, %308, %.lr.ph, %9
+  %310 = add nuw i64 %.03457, 1
+  %exitcond.not = icmp eq i64 %310, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %18, %12, %308, %2, %mca_pml_ob1_send_request_start.exit, %mca_pml_ob1_send_request_start.exit.thread49, %mca_pml_ob1_send_request_start.exit.thread
-  %.0 = phi i32 [ %.055.i.i.i, %mca_pml_ob1_send_request_start.exit ], [ %..i, %mca_pml_ob1_send_request_start.exit.thread ], [ %289, %mca_pml_ob1_send_request_start.exit.thread49 ], [ 0, %2 ], [ %33, %18 ], [ -101, %12 ], [ 0, %308 ]
+.loopexit:                                        ; preds = %18, %12, %309, %2, %mca_pml_ob1_send_request_start.exit, %mca_pml_ob1_send_request_start.exit.thread48, %mca_pml_ob1_send_request_start.exit.thread
+  %.0 = phi i32 [ %.055.i.i.i, %mca_pml_ob1_send_request_start.exit ], [ %..i, %mca_pml_ob1_send_request_start.exit.thread ], [ %289, %mca_pml_ob1_send_request_start.exit.thread48 ], [ 0, %2 ], [ %33, %18 ], [ -101, %12 ], [ 0, %309 ]
   ret i32 %.0
 }
 

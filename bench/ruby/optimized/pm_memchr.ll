@@ -5,45 +5,44 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
-  br i1 %3, label %6, label %23
+  br i1 %3, label %6, label %22
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %11 = icmp sgt i32 %1, 63
-  %or.cond = and i1 %11, %10
-  br i1 %or.cond, label %.preheader, label %23
+  %9 = trunc i8 %8 to i1
+  %10 = icmp sgt i32 %1, 63
+  %or.cond = and i1 %10, %9
+  br i1 %or.cond, label %.preheader, label %22
 
 .preheader:                                       ; preds = %6
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %16
-  %.02327 = phi i64 [ %21, %16 ], [ 0, %.preheader ]
-  %12 = getelementptr i8, ptr %0, i64 %.02327
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = icmp eq i32 %14, %1
-  br i1 %15, label %.loopexit, label %16
+.lr.ph:                                           ; preds = %.preheader, %15
+  %.02327 = phi i64 [ %20, %15 ], [ 0, %.preheader ]
+  %11 = getelementptr i8, ptr %0, i64 %.02327
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = icmp eq i32 %13, %1
+  br i1 %14, label %.loopexit, label %15
 
-16:                                               ; preds = %.lr.ph
-  %17 = load ptr, ptr %4, align 8
-  %18 = sub i64 %2, %.02327
-  %19 = tail call i64 %17(ptr noundef nonnull %12, i64 noundef %18) #2
-  %20 = icmp ne i64 %19, 0
-  %21 = add i64 %19, %.02327
-  %22 = icmp ult i64 %21, %2
-  %or.cond33 = and i1 %20, %22
+15:                                               ; preds = %.lr.ph
+  %16 = load ptr, ptr %4, align 8
+  %17 = sub i64 %2, %.02327
+  %18 = tail call i64 %16(ptr noundef nonnull %11, i64 noundef %17) #2
+  %19 = icmp ne i64 %18, 0
+  %20 = add i64 %18, %.02327
+  %21 = icmp ult i64 %20, %2
+  %or.cond33 = and i1 %19, %21
   br i1 %or.cond33, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
-23:                                               ; preds = %6, %5
-  %24 = tail call ptr @memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3
+22:                                               ; preds = %6, %5
+  %23 = tail call ptr @memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %16, %.preheader, %23
-  %.0 = phi ptr [ %24, %23 ], [ null, %.preheader ], [ %12, %.lr.ph ], [ null, %16 ]
+.loopexit:                                        ; preds = %.lr.ph, %15, %.preheader, %22
+  %.0 = phi ptr [ %23, %22 ], [ null, %.preheader ], [ %11, %.lr.ph ], [ null, %15 ]
   ret ptr %.0
 }
 

@@ -171,149 +171,148 @@ define hidden void @_ZN7nanogui11PopupButton4drawEP10NVGcontext(ptr noundef nonn
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 89
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp ne i8 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not15 = icmp eq i8 %9, 0
-  %or.cond = select i1 %.not, i1 true, i1 %.not15
-  br i1 %or.cond, label %._crit_edge, label %10
+  %6 = trunc i8 %5 to i1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 184
+  %.pre = load i8, ptr %.phi.trans.insert, align 8
+  br i1 %6, label %._crit_edge, label %7
 
-10:                                               ; preds = %2
-  store i8 0, ptr %7, align 8
+7:                                                ; preds = %2
+  %8 = trunc i8 %.pre to i1
+  br i1 %8, label %9, label %._crit_edge
+
+9:                                                ; preds = %7
+  store i8 0, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %2, %10
-  %11 = phi i8 [ 0, %10 ], [ %8, %2 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 312
-  %13 = load ptr, ptr %12, align 8
-  %14 = and i8 %11, 1
-  %15 = getelementptr inbounds i8, ptr %13, i64 88
-  store i8 %14, ptr %15, align 8
+._crit_edge:                                      ; preds = %2, %9, %7
+  %10 = phi i8 [ 0, %9 ], [ %.pre, %7 ], [ %.pre, %2 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 312
+  %12 = load ptr, ptr %11, align 8
+  %13 = and i8 %10, 1
+  %14 = getelementptr inbounds i8, ptr %12, i64 88
+  store i8 %13, ptr %14, align 8
   tail call void @_ZN7nanogui6Button4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1)
-  %16 = getelementptr inbounds i8, ptr %0, i64 320
-  %17 = load i32, ptr %16, align 8
-  %.not16 = icmp eq i32 %17, 0
-  br i1 %.not16, label %86, label %18
+  %15 = getelementptr inbounds i8, ptr %0, i64 320
+  %16 = load i32, ptr %15, align 8
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %85, label %17
 
-18:                                               ; preds = %._crit_edge
-  call void @_ZN7nanogui4utf8B5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %17)
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
-  %20 = getelementptr inbounds i8, ptr %0, i64 220
-  %21 = load float, ptr %20, align 4
-  %22 = fcmp oeq float %21, 0.000000e+00
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 168
-  %26 = select i1 %22, ptr %25, ptr %19
-  %.sroa.05.0.copyload = load <2 x float>, ptr %26, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+17:                                               ; preds = %._crit_edge
+  call void @_ZN7nanogui4utf8B5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %16)
+  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds i8, ptr %0, i64 220
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp oeq float %20, 0.000000e+00
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 168
+  %25 = select i1 %21, ptr %24, ptr %18
+  %.sroa.05.0.copyload = load <2 x float>, ptr %25, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %24, i64 36
-  %32 = load i32, ptr %31, align 4
-  br label %33
+29:                                               ; preds = %17
+  %30 = getelementptr inbounds i8, ptr %23, i64 36
+  %31 = load i32, ptr %30, align 4
+  br label %32
 
-33:                                               ; preds = %30, %18
-  %34 = phi i32 [ %32, %30 ], [ %28, %18 ]
-  %35 = getelementptr inbounds i8, ptr %24, i64 28
-  %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 132
-  %38 = load float, ptr %37, align 4
-  %39 = fmul float %36, %38
-  %40 = sitofp i32 %34 to float
-  %41 = fmul float %39, %40
-  invoke void @nvgFontSize(ptr noundef %1, float noundef %41)
-          to label %42 unwind label %76
+32:                                               ; preds = %29, %17
+  %33 = phi i32 [ %31, %29 ], [ %27, %17 ]
+  %34 = getelementptr inbounds i8, ptr %23, i64 28
+  %35 = load float, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 132
+  %37 = load float, ptr %36, align 4
+  %38 = fmul float %35, %37
+  %39 = sitofp i32 %33 to float
+  %40 = fmul float %38, %39
+  invoke void @nvgFontSize(ptr noundef %1, float noundef %40)
+          to label %41 unwind label %75
 
-42:                                               ; preds = %33
+41:                                               ; preds = %32
   invoke void @nvgFontFace(ptr noundef %1, ptr noundef nonnull @.str)
-          to label %43 unwind label %76
+          to label %42 unwind label %75
 
-43:                                               ; preds = %42
-  %44 = load i8, ptr %4, align 1
-  %45 = and i8 %44, 1
-  %.not17 = icmp eq i8 %45, 0
-  br i1 %.not17, label %46, label %49
+42:                                               ; preds = %41
+  %43 = load i8, ptr %4, align 1
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %48, label %45
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %23, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 184
-  %.sroa.0.0.copyload1 = load <2 x float>, ptr %48, align 4
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %47, i64 192
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %22, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 184
+  %.sroa.0.0.copyload1 = load <2 x float>, ptr %47, align 4
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %46, i64 192
   %.sroa.3.0.copyload3 = load <2 x float>, ptr %.sroa.3.0..sroa_idx2, align 4
-  br label %49
+  br label %48
 
-49:                                               ; preds = %43, %46
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload1, %46 ], [ %.sroa.05.0.copyload, %43 ]
-  %.sroa.3.0 = phi <2 x float> [ %.sroa.3.0.copyload3, %46 ], [ %.sroa.2.0.copyload, %43 ]
+48:                                               ; preds = %42, %45
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload1, %45 ], [ %.sroa.05.0.copyload, %42 ]
+  %.sroa.3.0 = phi <2 x float> [ %.sroa.3.0.copyload3, %45 ], [ %.sroa.2.0.copyload, %42 ]
   invoke void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0.0, <2 x float> %.sroa.3.0)
-          to label %50 unwind label %76
+          to label %49 unwind label %75
+
+49:                                               ; preds = %48
+  invoke void @nvgTextAlign(ptr noundef %1, i32 noundef 17)
+          to label %50 unwind label %75
 
 50:                                               ; preds = %49
-  invoke void @nvgTextAlign(ptr noundef %1, i32 noundef 17)
-          to label %51 unwind label %76
+  %51 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  %52 = invoke float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %51, ptr noundef null, ptr noundef null)
+          to label %53 unwind label %75
 
-51:                                               ; preds = %50
-  %52 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %53 = invoke float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %52, ptr noundef null, ptr noundef null)
-          to label %54 unwind label %76
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds i8, ptr %0, i64 44
+  %56 = load i32, ptr %55, align 4
+  %57 = sitofp i32 %56 to float
+  %58 = getelementptr inbounds i8, ptr %0, i64 52
+  %59 = load i32, ptr %58, align 4
+  %60 = sitofp i32 %59 to float
+  %61 = call float @llvm.fmuladd.f32(float %60, float 5.000000e-01, float %57)
+  %62 = fadd float %61, -1.000000e+00
+  %63 = load ptr, ptr %11, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 216
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %77
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
-  %56 = getelementptr inbounds i8, ptr %0, i64 44
-  %57 = load i32, ptr %56, align 4
-  %58 = sitofp i32 %57 to float
-  %59 = getelementptr inbounds i8, ptr %0, i64 52
-  %60 = load i32, ptr %59, align 4
-  %61 = sitofp i32 %60 to float
-  %62 = call float @llvm.fmuladd.f32(float %61, float 5.000000e-01, float %58)
-  %63 = fadd float %62, -1.000000e+00
-  %64 = load ptr, ptr %12, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 216
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, 1
-  br i1 %67, label %68, label %78
+67:                                               ; preds = %53
+  %68 = getelementptr inbounds i8, ptr %0, i64 48
+  %69 = load i32, ptr %54, align 8
+  %70 = load i32, ptr %68, align 8
+  %71 = add nsw i32 %70, %69
+  %72 = sitofp i32 %71 to float
+  %73 = fsub float %72, %52
+  %74 = fadd float %73, -8.000000e+00
+  br label %81
 
-68:                                               ; preds = %54
-  %69 = getelementptr inbounds i8, ptr %0, i64 48
-  %70 = load i32, ptr %55, align 8
-  %71 = load i32, ptr %69, align 8
-  %72 = add nsw i32 %71, %70
-  %73 = sitofp i32 %72 to float
-  %74 = fsub float %73, %53
-  %75 = fadd float %74, -8.000000e+00
-  br label %82
-
-76:                                               ; preds = %82, %51, %50, %49, %42, %33
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %81, %50, %49, %48, %41, %32
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  resume { ptr, i32 } %77
+  resume { ptr, i32 } %76
 
-78:                                               ; preds = %54
-  %79 = load i32, ptr %55, align 8
-  %80 = add nsw i32 %79, 8
-  %81 = sitofp i32 %80 to float
-  br label %82
+77:                                               ; preds = %53
+  %78 = load i32, ptr %54, align 8
+  %79 = add nsw i32 %78, 8
+  %80 = sitofp i32 %79 to float
+  br label %81
 
-82:                                               ; preds = %78, %68
-  %.sroa.0.018 = phi float [ %75, %68 ], [ %81, %78 ]
-  %83 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %84 = invoke float @nvgText(ptr noundef %1, float noundef %.sroa.0.018, float noundef %63, ptr noundef %83, ptr noundef null)
-          to label %85 unwind label %76
+81:                                               ; preds = %77, %67
+  %.sroa.0.015 = phi float [ %74, %67 ], [ %80, %77 ]
+  %82 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  %83 = invoke float @nvgText(ptr noundef %1, float noundef %.sroa.0.015, float noundef %62, ptr noundef %82, ptr noundef null)
+          to label %84 unwind label %75
 
-85:                                               ; preds = %82
+84:                                               ; preds = %81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  br label %86
+  br label %85
 
-86:                                               ; preds = %85, %._crit_edge
+85:                                               ; preds = %84, %._crit_edge
   ret void
 }
 

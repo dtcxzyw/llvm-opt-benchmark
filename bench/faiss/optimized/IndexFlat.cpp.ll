@@ -781,9 +781,8 @@ define void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 derefer
   tail call void @_ZN5faiss14IndexFlatCodes3addElPKf(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %_ZN5faiss11IndexFlat1D18update_permutationEv.exit, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %_ZN5faiss11IndexFlat1D18update_permutationEv.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 104

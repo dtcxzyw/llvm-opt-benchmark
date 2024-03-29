@@ -61,9 +61,9 @@ cond.true:                                        ; preds = %entry
   %call = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 33, ptr nonnull @.str)
   %ref.tmp3.sroa.0.0.extract.trunc = trunc i64 %call to i32
   %0 = and i64 %call, 4294967296
-  %tobool.i.not.i = icmp eq i64 %0, 0
+  %tobool.i.i.not = icmp eq i64 %0, 0
   %__u.val.i = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_132g_default_max_pings_without_dataE, align 4
-  %retval.0.i = select i1 %tobool.i.not.i, i32 %__u.val.i, i32 %ref.tmp3.sroa.0.0.extract.trunc
+  %retval.0.i = select i1 %tobool.i.i.not, i32 %__u.val.i, i32 %ref.tmp3.sroa.0.0.extract.trunc
   %.sroa.speculated17 = tail call i32 @llvm.smax.i32(i32 %retval.0.i, i32 0)
   br label %cond.end
 
@@ -76,13 +76,12 @@ cond.end:                                         ; preds = %entry, %cond.true
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 13)
   %cond17 = select i1 %call.i, i32 100, i32 1
   %1 = load i8, ptr getelementptr inbounds ({ { { %"struct.std::_Optional_payload_base<int>::_Empty_byte", [3 x i8] }, i8, [3 x i8] } }, ptr @_ZN9grpc_core12_GLOBAL__N_128g_default_max_inflight_pingsE, i64 0, i32 0, i32 1), align 4
-  %2 = and i8 %1, 1
-  %tobool.i.not.i4 = icmp eq i8 %2, 0
-  %this.val.i6 = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_128g_default_max_inflight_pingsE, align 4
-  %retval.0.i7 = select i1 %tobool.i.not.i4, i32 %cond17, i32 %this.val.i6
-  %3 = and i64 %call11, 4294967296
-  %tobool.i.not.i9 = icmp eq i64 %3, 0
-  %retval.0.i12 = select i1 %tobool.i.not.i9, i32 %retval.0.i7, i32 %ref.tmp9.sroa.0.0.extract.trunc
+  %tobool.i.i4 = trunc i8 %1 to i1
+  %this.val.i5 = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_128g_default_max_inflight_pingsE, align 4
+  %retval.0.i7 = select i1 %tobool.i.i4, i32 %this.val.i5, i32 %cond17
+  %2 = and i64 %call11, 4294967296
+  %tobool.i.i9.not = icmp eq i64 %2, 0
+  %retval.0.i12 = select i1 %tobool.i.i9.not, i32 %retval.0.i7, i32 %ref.tmp9.sroa.0.0.extract.trunc
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 0)
   store i32 %.sroa.speculated, ptr %max_inflight_pings_, align 4
   %pings_before_data_required_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -100,9 +99,9 @@ entry:
   %call = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 33, ptr nonnull @.str)
   %ref.tmp2.sroa.0.0.extract.trunc = trunc i64 %call to i32
   %0 = and i64 %call, 4294967296
-  %tobool.i.not.i = icmp eq i64 %0, 0
+  %tobool.i.i.not = icmp eq i64 %0, 0
   %__u.val.i = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_132g_default_max_pings_without_dataE, align 4
-  %retval.0.i = select i1 %tobool.i.not.i, i32 %__u.val.i, i32 %ref.tmp2.sroa.0.0.extract.trunc
+  %retval.0.i = select i1 %tobool.i.i.not, i32 %__u.val.i, i32 %ref.tmp2.sroa.0.0.extract.trunc
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %retval.0.i, i32 0)
   store i32 %.sroa.speculated, ptr @_ZN9grpc_core12_GLOBAL__N_132g_default_max_pings_without_dataE, align 4
   %call8 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 29, ptr nonnull @.str.1)

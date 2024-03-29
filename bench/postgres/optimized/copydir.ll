@@ -38,17 +38,17 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
 11:                                               ; preds = %3
   %12 = tail call ptr @AllocateDir(ptr noundef %0) #7
   %13 = tail call ptr @ReadDir(ptr noundef %12, ptr noundef %0) #7
-  %.not2732 = icmp eq ptr %13, null
-  br i1 %.not2732, label %._crit_edge, label %.lr.ph
+  %.not2731 = icmp eq ptr %13, null
+  br i1 %.not2731, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge31.us
-  %14 = phi ptr [ %30, %.backedge31.us ], [ %13, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge30.us
+  %14 = phi ptr [ %30, %.backedge30.us ], [ %13, %.lr.ph ]
   %15 = load volatile i32, ptr @InterruptPending, align 4
-  %.not30.us = icmp eq i32 %15, 0
-  br i1 %.not30.us, label %17, label %16
+  %.not29.us = icmp eq i32 %15, 0
+  br i1 %.not29.us, label %17, label %16
 
 16:                                               ; preds = %.lr.ph.split.us
   call void @ProcessInterrupts() #7
@@ -58,40 +58,40 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   %18 = getelementptr inbounds i8, ptr %14, i64 19
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(2) @.str.2) #9
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.backedge31.us, label %21
+  br i1 %20, label %.backedge30.us, label %21
 
 21:                                               ; preds = %17
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(3) @.str.3) #9
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.backedge31.us, label %24
+  br i1 %23, label %.backedge30.us, label %24
 
 24:                                               ; preds = %21
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef nonnull %18) #7
   %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %18) #7
   %27 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %14, i1 noundef zeroext false, i32 noundef 21) #7
-  switch i32 %27, label %.backedge31.us [
+  switch i32 %27, label %.backedge30.us [
     i32 3, label %29
     i32 2, label %28
   ]
 
 28:                                               ; preds = %24
   call void @copy_file(ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br label %.backedge31.us
+  br label %.backedge30.us
 
 29:                                               ; preds = %24
   call void @copydir(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
-  br label %.backedge31.us
+  br label %.backedge30.us
 
-.backedge31.us:                                   ; preds = %17, %21, %24, %28, %29
+.backedge30.us:                                   ; preds = %17, %21, %24, %28, %29
   %30 = call ptr @ReadDir(ptr noundef %12, ptr noundef %0) #7
   %.not27.us = icmp eq ptr %30, null
   br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge31
-  %31 = phi ptr [ %41, %.backedge31 ], [ %13, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge30
+  %31 = phi ptr [ %41, %.backedge30 ], [ %13, %.lr.ph ]
   %32 = load volatile i32, ptr @InterruptPending, align 4
-  %.not30 = icmp eq i32 %32, 0
-  br i1 %.not30, label %34, label %33
+  %.not29 = icmp eq i32 %32, 0
+  br i1 %.not29, label %34, label %33
 
 33:                                               ; preds = %.lr.ph.split
   call void @ProcessInterrupts() #7
@@ -101,14 +101,14 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   %35 = getelementptr inbounds i8, ptr %31, i64 19
   %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(2) @.str.2) #9
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.backedge31, label %38
+  br i1 %37, label %.backedge30, label %38
 
 38:                                               ; preds = %34
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(3) @.str.3) #9
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.backedge31, label %42
+  br i1 %40, label %.backedge30, label %42
 
-.backedge31:                                      ; preds = %42, %46, %34, %38
+.backedge30:                                      ; preds = %42, %46, %34, %38
   %41 = call ptr @ReadDir(ptr noundef %12, ptr noundef %0) #7
   %.not27 = icmp eq ptr %41, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
@@ -118,41 +118,40 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %35) #7
   %45 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %31, i1 noundef zeroext false, i32 noundef 21) #7
   %cond = icmp eq i32 %45, 2
-  br i1 %cond, label %46, label %.backedge31
+  br i1 %cond, label %46, label %.backedge30
 
 46:                                               ; preds = %42
   call void @copy_file(ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br label %.backedge31
+  br label %.backedge30
 
-._crit_edge:                                      ; preds = %.backedge31, %.backedge31.us, %11
+._crit_edge:                                      ; preds = %.backedge30, %.backedge30.us, %11
   %47 = call i32 @FreeDir(ptr noundef %12) #7
   %48 = load i8, ptr @enableFsync, align 1
-  %49 = and i8 %48, 1
-  %.not28 = icmp eq i8 %49, 0
-  br i1 %.not28, label %67, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %67
 
 50:                                               ; preds = %._crit_edge
   %51 = call ptr @AllocateDir(ptr noundef %1) #7
   %52 = call ptr @ReadDir(ptr noundef %51, ptr noundef %1) #7
-  %.not2933 = icmp eq ptr %52, null
-  br i1 %.not2933, label %._crit_edge36, label %.lr.ph35
+  %.not2832 = icmp eq ptr %52, null
+  br i1 %.not2832, label %._crit_edge35, label %.lr.ph34
 
-.lr.ph35:                                         ; preds = %50, %.backedge
+.lr.ph34:                                         ; preds = %50, %.backedge
   %53 = phi ptr [ %60, %.backedge ], [ %52, %50 ]
   %54 = getelementptr inbounds i8, ptr %53, i64 19
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(2) @.str.2) #9
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.backedge, label %57
 
-57:                                               ; preds = %.lr.ph35
+57:                                               ; preds = %.lr.ph34
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(3) @.str.3) #9
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.backedge, label %61
 
-.backedge:                                        ; preds = %61, %65, %.lr.ph35, %57
+.backedge:                                        ; preds = %61, %65, %.lr.ph34, %57
   %60 = call ptr @ReadDir(ptr noundef %51, ptr noundef %1) #7
-  %.not29 = icmp eq ptr %60, null
-  br i1 %.not29, label %._crit_edge36, label %.lr.ph35, !llvm.loop !7
+  %.not28 = icmp eq ptr %60, null
+  br i1 %.not28, label %._crit_edge35, label %.lr.ph34, !llvm.loop !7
 
 61:                                               ; preds = %57
   %62 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %54) #7
@@ -164,12 +163,12 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   call void @fsync_fname(ptr noundef nonnull %5, i1 noundef zeroext false) #7
   br label %.backedge
 
-._crit_edge36:                                    ; preds = %.backedge, %50
+._crit_edge35:                                    ; preds = %.backedge, %50
   %66 = call i32 @FreeDir(ptr noundef %51) #7
   call void @fsync_fname(ptr noundef %1, i1 noundef zeroext true) #7
   br label %67
 
-67:                                               ; preds = %._crit_edge, %._crit_edge36
+67:                                               ; preds = %._crit_edge, %._crit_edge35
   ret void
 }
 

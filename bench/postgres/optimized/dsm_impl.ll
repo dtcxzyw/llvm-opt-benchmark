@@ -225,9 +225,8 @@ errcode_for_dynamic_shared_memory.exit109.i:      ; preds = %81, %79
 87:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
   %88 = load i8, ptr @IsUnderPostmaster, align 1
-  %89 = and i8 %88, 1
-  %.not.i.i = icmp eq i8 %89, 0
-  br i1 %.not.i.i, label %92, label %90
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
   %91 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef nonnull %12) #11
@@ -249,9 +248,8 @@ errcode_for_dynamic_shared_memory.exit109.i:      ; preds = %81, %79
   %99 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %99, align 4
   %100 = load i8, ptr @IsUnderPostmaster, align 1
-  %101 = and i8 %100, 1
-  %.not6.i.i = icmp eq i8 %101, 0
-  br i1 %.not6.i.i, label %dsm_impl_posix_resize.exit.i, label %102
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %dsm_impl_posix_resize.exit.i
 
 102:                                              ; preds = %97
   %103 = load i32, ptr %98, align 4

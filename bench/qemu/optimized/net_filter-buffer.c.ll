@@ -194,14 +194,13 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
   %on = getelementptr inbounds i8, ptr %nf, i64 60
   %0 = load i8, ptr %on, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.else
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %interval = getelementptr inbounds i8, ptr %call.i, i64 104
-  %2 = load i32, ptr %interval, align 8
-  %tobool1.not = icmp eq i32 %2, 0
+  %1 = load i32, ptr %interval, align 8
+  %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
@@ -212,22 +211,22 @@ if.then2:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then2, %if.then
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
   %incoming_queue.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
-  %3 = load ptr, ptr %incoming_queue.i, align 8
-  %call1.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #2
+  %2 = load ptr, ptr %incoming_queue.i, align 8
+  %call1.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %2) #2
   br i1 %call1.i, label %if.end3, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %4 = load ptr, ptr %incoming_queue.i, align 8
+  %3 = load ptr, ptr %incoming_queue.i, align 8
   %netdev.i = getelementptr inbounds i8, ptr %nf, i64 48
-  %5 = load ptr, ptr %netdev.i, align 8
-  tail call void @qemu_net_queue_purge(ptr noundef %4, ptr noundef %5) #2
+  %4 = load ptr, ptr %netdev.i, align 8
+  tail call void @qemu_net_queue_purge(ptr noundef %3, ptr noundef %4) #2
   br label %if.end3
 
 if.else:                                          ; preds = %entry
   %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
   %interval.i = getelementptr inbounds i8, ptr %call.i.i5, i64 104
-  %6 = load i32, ptr %interval.i, align 8
-  %tobool.not.i = icmp eq i32 %6, 0
+  %5 = load i32, ptr %interval.i, align 8
+  %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %if.end3, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.else
@@ -235,8 +234,8 @@ if.then.i6:                                       ; preds = %if.else
   tail call void @timer_init_full(ptr noundef nonnull %release_timer.i, ptr noundef null, i32 noundef 1, i32 noundef 1000, i32 noundef 0, ptr noundef nonnull @filter_buffer_release_timer, ptr noundef nonnull %nf) #2
   %call.i5.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #2
   %div.i.i = sdiv i64 %call.i5.i, 1000
-  %7 = load i32, ptr %interval.i, align 8
-  %conv.i = zext i32 %7 to i64
+  %6 = load i32, ptr %interval.i, align 8
+  %conv.i = zext i32 %6 to i64
   %add.i = add nsw i64 %div.i.i, %conv.i
   tail call void @timer_mod(ptr noundef nonnull %release_timer.i, i64 noundef %add.i) #2
   br label %if.end3

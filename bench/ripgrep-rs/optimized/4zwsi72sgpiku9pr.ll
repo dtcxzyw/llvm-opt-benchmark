@@ -16,10 +16,10 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17he6caa98fb9ae0703E.l
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !7, !noundef !8
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !noundef !8
-  br i1 %trunc.not, label %6, label %10
+  br i1 %trunc, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -52,19 +52,19 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %7 = load i64, ptr %1, align 8, !range !7, !alias.scope !9, !noalias !12, !noundef !8
-  %trunc.not.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i, label %8, label %20
+  %trunc.i = trunc i64 %7 to i1
+  br i1 %trunc.i, label %20, label %8
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !15
   call void @_ZN7memmap22os8file_len17hf202ea103c13a5c9E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, i32 noundef %6), !noalias !15
   %9 = load i64, ptr %4, align 8, !range !7, !noalias !15, !noundef !8
-  %trunc.not.i.i = icmp eq i64 %9, 0
+  %trunc.i.i = trunc i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !15
   %.cast.i.i = ptrtoint ptr %11 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !15
-  br i1 %trunc.not.i.i, label %12, label %36
+  br i1 %trunc.i.i, label %36, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 16
@@ -92,15 +92,15 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
   %.sroa.5.1.ph = phi i64 [ %17, %16 ], [ %22, %20 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 27
   %26 = load i8, ptr %25, align 1, !range !20, !noundef !8
-  %27 = icmp ne i8 %26, 0
+  %27 = trunc i8 %26 to i1
   call void @_ZN7memmap22os9MmapInner3map17h43602e58fe2432d2E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, i64 noundef %.sroa.5.1.ph, i32 noundef %6, i64 noundef %24, i1 noundef zeroext %27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %28 = load i64, ptr %5, align 8, !range !7, !alias.scope !24, !noalias !21, !noundef !8
-  %trunc.not.i7 = icmp eq i64 %28, 0
+  %trunc.i7 = trunc i64 %28 to i1
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !24, !noalias !21, !noundef !8
-  br i1 %trunc.not.i7, label %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit"
+  br i1 %trunc.i7, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit", label %31
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %5, i64 16
@@ -140,8 +140,8 @@ define hidden { ptr, i64 } @"_ZN7memmap211MmapOptions3map28_$u7b$$u7b$closure$u7
 define hidden void @_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #2 {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = load i64, ptr %1, align 8, !range !7, !noundef !8
-  %trunc.not = icmp eq i64 %5, 0
-  br i1 %trunc.not, label %6, label %23
+  %trunc = trunc i64 %5 to i1
+  br i1 %trunc, label %23, label %6
 
 6:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -151,12 +151,12 @@ define hidden void @_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !32
   call void @_ZN7memmap22os8file_len17hf202ea103c13a5c9E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, i32 noundef %8), !noalias !32
   %9 = load i64, ptr %4, align 8, !range !7, !noalias !32, !noundef !8
-  %trunc.not.i = icmp eq i64 %9, 0
+  %trunc.i = trunc i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !32
   %.cast.i = ptrtoint ptr %11 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !32
-  br i1 %trunc.not.i, label %12, label %17
+  br i1 %trunc.i, label %17, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %1, i64 16
@@ -207,12 +207,12 @@ define hidden void @"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZN7memmap22os8file_len17hf202ea103c13a5c9E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, i32 noundef %7)
   %8 = load i64, ptr %4, align 8, !range !7, !noundef !8
-  %trunc.not = icmp eq i64 %8, 0
+  %trunc = trunc i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %.cast = ptrtoint ptr %10 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %trunc.not, label %11, label %17
+  br i1 %trunc, label %17, label %11
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %2, align 8, !nonnull !8, !align !41, !noundef !8

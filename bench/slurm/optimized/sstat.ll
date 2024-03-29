@@ -152,8 +152,8 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @list_iterator_create(ptr noundef %29) #4
   %31 = call ptr @list_next(ptr noundef %30) #4
-  %.not587480 = icmp eq ptr %31, null
-  br i1 %.not587480, label %.outer._crit_edge.thread, label %.lr.ph
+  %.not587278 = icmp eq ptr %31, null
+  br i1 %.not587278, label %.outer._crit_edge.thread, label %.lr.ph
 
 .outer._crit_edge.thread:                         ; preds = %24
   call void @list_iterator_destroy(ptr noundef %30) #4
@@ -161,21 +161,21 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 
 .lr.ph:                                           ; preds = %24, %.outer
   %32 = phi ptr [ %87, %.outer ], [ %31, %24 ]
-  %.050.ph82 = phi i32 [ %.1, %.outer ], [ 0, %24 ]
-  %.051.ph81 = phi ptr [ %.2, %.outer ], [ null, %24 ]
+  %.050.ph80 = phi i32 [ %.1, %.outer ], [ 0, %24 ]
+  %.051.ph79 = phi ptr [ %.2, %.outer ], [ null, %24 ]
   br label %33
 
 33:                                               ; preds = %.lr.ph, %39
   %34 = phi ptr [ %32, %.lr.ph ], [ %40, %39 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %.not62 = icmp eq ptr %36, null
-  br i1 %.not62, label %39, label %37
+  %.not61 = icmp eq ptr %36, null
+  br i1 %.not61, label %39, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %36, align 8
-  %.not63 = icmp eq ptr %38, null
-  br i1 %.not63, label %39, label %41
+  %.not62 = icmp eq ptr %38, null
+  br i1 %.not62, label %39, label %41
 
 39:                                               ; preds = %37, %33
   %40 = call ptr @list_next(ptr noundef %30) #4
@@ -186,23 +186,23 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %42 = getelementptr inbounds i8, ptr %34, i64 16
   %43 = getelementptr inbounds i8, ptr %36, i64 16
   %44 = load i32, ptr %43, align 8
-  %.not64 = icmp eq i32 %44, 0
-  br i1 %.not64, label %.loopexit, label %.lr.ph79
+  %.not63 = icmp eq i32 %44, 0
+  br i1 %.not63, label %.loopexit, label %.lr.ph77
 
-.lr.ph79:                                         ; preds = %41, %48
+.lr.ph77:                                         ; preds = %41, %48
   %45 = phi ptr [ %54, %48 ], [ %36, %41 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %41 ]
   %46 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 8), align 8
-  %.not70 = icmp eq ptr %46, null
-  br i1 %.not70, label %48, label %47
+  %.not68 = icmp eq ptr %46, null
+  br i1 %.not68, label %48, label %47
 
-47:                                               ; preds = %.lr.ph79
+47:                                               ; preds = %.lr.ph77
   call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 8), ptr noundef nonnull @.str.55) #4
   %.pre = load ptr, ptr %42, align 8
   br label %48
 
-48:                                               ; preds = %47, %.lr.ph79
-  %49 = phi ptr [ %.pre, %47 ], [ %45, %.lr.ph79 ]
+48:                                               ; preds = %47, %.lr.ph77
+  %49 = phi ptr [ %.pre, %47 ], [ %45, %.lr.ph77 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
@@ -214,15 +214,14 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp ult i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph79, label %.loopexit, !llvm.loop !9
+  br i1 %58, label %.lr.ph77, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %48, %41
   %59 = phi ptr [ %36, %41 ], [ %54, %48 ]
   %60 = load i8, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 6), align 8
-  %61 = and i8 %60, 1
-  %.not65 = icmp eq i8 %61, 0
+  %61 = trunc i8 %60 to i1
   %62 = load ptr, ptr %59, align 8
-  br i1 %.not65, label %64, label %63
+  br i1 %61, label %63, label %64
 
 63:                                               ; preds = %.loopexit
   store ptr %62, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 6), align 8
@@ -234,21 +233,21 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %65 = call i32 @hostlist_push_host(ptr noundef %27, ptr noundef %62) #4
   %66 = getelementptr inbounds i8, ptr %34, i64 8
   %67 = load i32, ptr %66, align 8
-  %68 = add i32 %67, %.050.ph82
+  %68 = add i32 %67, %.050.ph80
   %69 = load ptr, ptr %34, align 8
-  %.not66 = icmp eq ptr %69, null
-  br i1 %.not66, label %.outer, label %70
+  %.not64 = icmp eq ptr %69, null
+  br i1 %.not64, label %.outer, label %70
 
 70:                                               ; preds = %64
   %71 = load ptr, ptr @assoc_mgr_tres_list, align 8
-  %.not67 = icmp eq ptr %71, null
-  br i1 %.not67, label %72, label %82
+  %.not65 = icmp eq ptr %71, null
+  br i1 %.not65, label %72, label %82
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %69, i64 128
   %74 = load ptr, ptr %73, align 8
-  %.not68 = icmp eq ptr %74, null
-  br i1 %.not68, label %82, label %75
+  %.not66 = icmp eq ptr %74, null
+  br i1 %.not66, label %82, label %75
 
 75:                                               ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) @__const._do_stat.locks, i64 28, i1 false)
@@ -264,29 +263,29 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br label %82
 
 82:                                               ; preds = %75, %72, %70
-  %.not69 = icmp eq ptr %.051.ph81, null
-  br i1 %.not69, label %83, label %85
+  %.not67 = icmp eq ptr %.051.ph79, null
+  br i1 %.not67, label %83, label %85
 
 83:                                               ; preds = %82
   %84 = call ptr @jobacctinfo_create(ptr noundef null) #4
   br label %85
 
 85:                                               ; preds = %83, %82
-  %.152 = phi ptr [ %.051.ph81, %82 ], [ %84, %83 ]
+  %.152 = phi ptr [ %.051.ph79, %82 ], [ %84, %83 ]
   %86 = load ptr, ptr %34, align 8
   call void @jobacctinfo_aggregate(ptr noundef %.152, ptr noundef %86) #4
   br label %.outer
 
 .outer:                                           ; preds = %64, %85, %63
-  %.2 = phi ptr [ %.051.ph81, %63 ], [ %.152, %85 ], [ %.051.ph81, %64 ]
-  %.1 = phi i32 [ %.050.ph82, %63 ], [ %68, %85 ], [ %68, %64 ]
+  %.2 = phi ptr [ %.051.ph79, %63 ], [ %.152, %85 ], [ %.051.ph79, %64 ]
+  %.1 = phi i32 [ %.050.ph80, %63 ], [ %68, %85 ], [ %68, %64 ]
   %87 = call ptr @list_next(ptr noundef %30) #4
-  %.not5874 = icmp eq ptr %87, null
-  br i1 %.not5874, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
+  %.not5872 = icmp eq ptr %87, null
+  br i1 %.not5872, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.outer, %39
-  %.051.ph.lcssa = phi ptr [ %.051.ph81, %39 ], [ %.2, %.outer ]
-  %.050.ph.lcssa = phi i32 [ %.050.ph82, %39 ], [ %.1, %.outer ]
+  %.051.ph.lcssa = phi ptr [ %.051.ph79, %39 ], [ %.2, %.outer ]
+  %.050.ph.lcssa = phi i32 [ %.050.ph80, %39 ], [ %.1, %.outer ]
   call void @list_iterator_destroy(ptr noundef %30) #4
   %.not59 = icmp eq ptr %.051.ph.lcssa, null
   br i1 %.not59, label %89, label %88
@@ -297,38 +296,37 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br label %89
 
 89:                                               ; preds = %.outer._crit_edge.thread, %88, %.outer._crit_edge
-  %.050.ph.lcssa95 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.050.ph.lcssa, %88 ], [ %.050.ph.lcssa, %.outer._crit_edge ]
+  %.050.ph.lcssa93 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.050.ph.lcssa, %88 ], [ %.050.ph.lcssa, %.outer._crit_edge ]
   %90 = load ptr, ptr %7, align 8
   call void @slurm_job_step_pids_response_msg_free(ptr noundef %90) #4
   %91 = load i8, ptr getelementptr inbounds (%struct.sstat_parameters_t, ptr @params, i64 0, i32 6), align 8
-  %92 = and i8 %91, 1
-  %.not60 = icmp eq i8 %92, 0
-  br i1 %.not60, label %93, label %105
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %105, label %93
 
 93:                                               ; preds = %89
   call void @hostlist_sort(ptr noundef %27) #4
   %94 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 6), align 8
   %95 = call i64 @hostlist_ranged_string(ptr noundef %27, i64 noundef 16384, ptr noundef %94) #4
   call void @hostlist_destroy(ptr noundef %27) #4
-  %.not61 = icmp eq i32 %.050.ph.lcssa95, 0
-  br i1 %.not61, label %104, label %96
+  %.not60 = icmp eq i32 %.050.ph.lcssa93, 0
+  br i1 %.not60, label %104, label %96
 
 96:                                               ; preds = %93
-  %97 = sitofp i32 %.050.ph.lcssa95 to double
+  %97 = sitofp i32 %.050.ph.lcssa93 to double
   %98 = load double, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 15), align 8
   %99 = fdiv double %98, %97
   store double %99, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 15), align 8
   %100 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 15, i32 2), align 8
   store ptr %100, ptr %8, align 8
-  %101 = call ptr @slurmdb_ave_tres_usage(ptr noundef %100, i32 noundef %.050.ph.lcssa95) #4
+  %101 = call ptr @slurmdb_ave_tres_usage(ptr noundef %100, i32 noundef %.050.ph.lcssa93) #4
   store ptr %101, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 15, i32 2), align 8
   call void @slurm_xfree(ptr noundef nonnull %8) #4
   %102 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 15, i32 10), align 8
   store ptr %102, ptr %8, align 8
-  %103 = call ptr @slurmdb_ave_tres_usage(ptr noundef %102, i32 noundef %.050.ph.lcssa95) #4
+  %103 = call ptr @slurmdb_ave_tres_usage(ptr noundef %102, i32 noundef %.050.ph.lcssa93) #4
   store ptr %103, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 15, i32 10), align 8
   call void @slurm_xfree(ptr noundef nonnull %8) #4
-  store i32 %.050.ph.lcssa95, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 7), align 8
+  store i32 %.050.ph.lcssa93, ptr getelementptr inbounds (%struct.slurmdb_step_rec_t, ptr @step, i64 0, i32 7), align 8
   br label %104
 
 104:                                              ; preds = %96, %93

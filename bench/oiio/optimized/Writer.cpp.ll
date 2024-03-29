@@ -990,29 +990,28 @@ if.end228.sink.split:                             ; preds = %if.then209, %if.els
 
 if.end228:                                        ; preds = %if.end228.sink.split, %if.else
   %35 = load i8, ptr %status, align 1
-  %36 = and i8 %35, 1
-  %tobool229 = icmp ne i8 %36, 0
+  %tobool229 = trunc i8 %35 to i1
   %or.cond10 = and i1 %tobool40, %tobool229
   br i1 %or.cond10, label %if.then232, label %if.end240
 
 if.then232:                                       ; preds = %if.end228
   %conv233 = zext i32 %16 to i64
-  %37 = load i64, ptr %fileLoc.i, align 8
-  %add235 = add nsw i64 %37, %conv233
+  %36 = load i64, ptr %fileLoc.i, align 8
+  %add235 = add nsw i64 %36, %conv233
   store i64 %add235, ptr %fileLoc.i, align 8
   %fd236 = getelementptr inbounds i8, ptr %this, i64 2072
-  %38 = load ptr, ptr %fd236, align 8
-  %vtable.i271 = load ptr, ptr %38, align 8
+  %37 = load ptr, ptr %fd236, align 8
+  %vtable.i271 = load ptr, ptr %37, align 8
   %vfn.i272 = getelementptr inbounds i8, ptr %vtable.i271, i64 24
-  %39 = load ptr, ptr %vfn.i272, align 8
-  %call.i273 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %blank.0, i64 noundef %conv233)
+  %38 = load ptr, ptr %vfn.i272, align 8
+  %call.i273 = call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef %blank.0, i64 noundef %conv233)
   %cmp.i274 = icmp eq i64 %call.i273, %conv233
   %frombool239 = zext i1 %cmp.i274 to i8
   store i8 %frombool239, ptr %status, align 1
   br label %if.end240
 
 if.end240:                                        ; preds = %if.then232, %if.end228
-  %40 = phi i8 [ %frombool239, %if.then232 ], [ %35, %if.end228 ]
+  %39 = phi i8 [ %frombool239, %if.then232 ], [ %35, %if.end228 ]
   %tobool241.not = icmp eq ptr %blank.0, null
   br i1 %tobool241.not, label %if.end246, label %delete.notnull244
 
@@ -1022,9 +1021,8 @@ delete.notnull244:                                ; preds = %if.end240
   br label %if.end246
 
 if.end246:                                        ; preds = %delete.notnull244, %if.end240
-  %41 = phi i8 [ %.pre, %delete.notnull244 ], [ %40, %if.end240 ]
-  %42 = and i8 %41, 1
-  %tobool247 = icmp ne i8 %42, 0
+  %40 = phi i8 [ %.pre, %delete.notnull244 ], [ %39, %if.end240 ]
+  %tobool247 = trunc i8 %40 to i1
   br label %return
 
 return:                                           ; preds = %if.then77, %delete.notnull, %invoke.cont13.i, %_ZNK3dpx13GenericHeader12ImagePackingEi.exit, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry, %if.end246
@@ -1067,8 +1065,8 @@ entry:
   br i1 %tobool.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp33.not = icmp eq i32 %height, 0
-  br i1 %cmp33.not, label %if.end26, label %for.body.lr.ph
+  %cmp34.not = icmp eq i32 %height, 0
+  br i1 %cmp34.not, label %if.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %fd = getelementptr inbounds i8, ptr %this, i64 2072
@@ -1113,10 +1111,12 @@ if.else:                                          ; preds = %entry
   %7 = load ptr, ptr %vfn.i23, align 8
   %call.i24 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %data, i64 noundef %mul6)
   %cmp.i25 = icmp eq i64 %call.i24, %mul6
+  %spec.select = zext i1 %cmp.i25 to i8
   br label %if.end26
 
 if.end26:                                         ; preds = %for.cond, %for.cond.preheader, %if.else
-  %tobool27 = phi i1 [ %cmp.i25, %if.else ], [ true, %for.cond.preheader ], [ true, %for.cond ]
+  %status.0 = phi i8 [ %spec.select, %if.else ], [ 1, %for.cond.preheader ], [ 1, %for.cond ]
+  %tobool27 = trunc i8 %status.0 to i1
   %tobool28 = icmp ne i32 %eoimPad, 0
   %or.cond = and i1 %tobool28, %tobool27
   br i1 %or.cond, label %if.then29, label %if.end36
@@ -1133,11 +1133,13 @@ if.then29:                                        ; preds = %if.end26
   %10 = load ptr, ptr %vfn.i27, align 8
   %call.i28 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %blank, i64 noundef %conv30)
   %cmp.i29 = icmp eq i64 %call.i28, %conv30
+  %frombool = zext i1 %cmp.i29 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end, %for.body, %if.then29, %if.end26
-  %status.1 = phi i1 [ %cmp.i29, %if.then29 ], [ %tobool27, %if.end26 ], [ false, %for.body ], [ false, %if.end ]
-  ret i1 %status.1
+  %status.1 = phi i8 [ %frombool, %if.then29 ], [ %status.0, %if.end26 ], [ 0, %for.body ], [ 0, %if.end ]
+  %tobool37 = trunc i8 %status.1 to i1
+  ret i1 %tobool37
 }
 
 ; Function Attrs: nobuiltin nounwind

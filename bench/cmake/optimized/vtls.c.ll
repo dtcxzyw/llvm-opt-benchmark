@@ -2824,8 +2824,8 @@ define internal i32 @ssl_cf_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
   %14 = getelementptr inbounds i8, ptr %1, i64 2642
   %15 = load i64, ptr %14, align 2
   %16 = and i64 %15, 268435456
-  %.not64 = icmp eq i64 %16, 0
-  br i1 %.not64, label %23, label %17
+  %.not62 = icmp eq i64 %16, 0
+  br i1 %.not62, label %23, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
@@ -2850,16 +2850,15 @@ define internal i32 @ssl_cf_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 30:                                               ; preds = %23
   %31 = load i8, ptr %3, align 1
-  %32 = and i8 %31, 1
-  %.not60 = icmp eq i8 %32, 0
-  br i1 %.not60, label %54, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %54
 
 33:                                               ; preds = %30
   store i8 0, ptr %3, align 1
   %34 = getelementptr inbounds i8, ptr %6, i64 8
   %35 = tail call i32 @Curl_ssl_peer_init(ptr noundef nonnull %34, ptr noundef nonnull %0), !range !16
-  %.not61 = icmp eq i32 %35, 0
-  br i1 %.not61, label %36, label %54
+  %.not60 = icmp eq i32 %35, 0
+  br i1 %.not60, label %36, label %54
 
 36:                                               ; preds = %33
   br i1 %2, label %37, label %41
@@ -2877,14 +2876,13 @@ define internal i32 @ssl_cf_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 43:                                               ; preds = %41, %37
   %.050 = phi i32 [ %38, %37 ], [ %42, %41 ]
-  %.not62 = icmp eq i32 %.050, 0
-  br i1 %.not62, label %44, label %54
+  %.not61 = icmp eq i32 %.050, 0
+  br i1 %.not61, label %44, label %54
 
 44:                                               ; preds = %43
   %45 = load i8, ptr %3, align 1
-  %46 = and i8 %45, 1
-  %.not63 = icmp eq i8 %46, 0
-  br i1 %.not63, label %54, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %54
 
 47:                                               ; preds = %44
   %48 = load i8, ptr %7, align 4
@@ -2907,8 +2905,8 @@ define internal i32 @ssl_cf_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
   %56 = getelementptr inbounds i8, ptr %1, i64 2642
   %57 = load i64, ptr %56, align 2
   %58 = and i64 %57, 268435456
-  %.not65 = icmp eq i64 %58, 0
-  br i1 %.not65, label %68, label %59
+  %.not63 = icmp eq i64 %58, 0
+  br i1 %.not63, label %68, label %59
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %0, align 8

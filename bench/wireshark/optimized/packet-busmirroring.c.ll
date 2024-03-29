@@ -270,16 +270,16 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   br label %41
 
 41:                                               ; preds = %39, %11
-  %.not310 = icmp eq i32 %9, 14
-  br i1 %.not310, label %.loopexit, label %.lr.ph
+  %.not309 = icmp eq i32 %9, 14
+  br i1 %.not309, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %41, %219
-  %.0286309 = phi i32 [ %44, %219 ], [ 0, %41 ]
-  %.0287308 = phi i32 [ %.3, %219 ], [ 14, %41 ]
+.lr.ph:                                           ; preds = %41, %220
+  %.0286308 = phi i32 [ %44, %220 ], [ 0, %41 ]
+  %.0287307 = phi i32 [ %.3, %220 ], [ 14, %41 ]
   %42 = load i32, ptr @proto_busmirroring, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %42, ptr noundef %0, i32 noundef %.0287308, i32 noundef 0, i32 noundef 0) #3
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %43, ptr noundef nonnull @.str.104, i32 noundef %.0286309) #3
-  %44 = add i32 %.0286309, 1
+  %43 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %42, ptr noundef %0, i32 noundef %.0287307, i32 noundef 0, i32 noundef 0) #3
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %43, ptr noundef nonnull @.str.104, i32 noundef %.0286308) #3
+  %44 = add i32 %.0286308, 1
   %45 = load ptr, ptr %12, align 8
   call void @col_clear(ptr noundef %45, i32 noundef 25) #3
   %46 = load ptr, ptr %12, align 8
@@ -288,7 +288,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %49 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 12, i32 noundef 0) #3
   %50 = zext i16 %49 to i32
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.105, i32 noundef %48, i32 noundef %50, i32 noundef %44) #3
-  %51 = add i32 %.0287308, 2
+  %51 = add i32 %.0287307, 2
   %52 = icmp ugt i32 %51, %9
   br i1 %52, label %53, label %55
 
@@ -300,9 +300,9 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %56 = load i32, ptr @ett_data_item, align 4
   %57 = call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %56) #3
   %58 = load i32, ptr @hf_timestamp, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.0287308, i32 noundef 2, i32 noundef 0) #3
+  %59 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.0287307, i32 noundef 2, i32 noundef 0) #3
   call void @proto_item_set_len(ptr noundef %43, i32 noundef 2) #3
-  %60 = add i32 %.0287308, 3
+  %60 = add i32 %.0287307, 3
   %61 = icmp ugt i32 %60, %9
   br i1 %61, label %62, label %64
 
@@ -321,7 +321,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %72 = load i32, ptr @hf_network_type, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %72, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef 0) #3
   call void @proto_item_set_len(ptr noundef %43, i32 noundef 3) #3
-  %74 = add i32 %.0287308, 4
+  %74 = add i32 %.0287307, 4
   %75 = icmp ugt i32 %74, %9
   br i1 %75, label %76, label %78
 
@@ -361,7 +361,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %116, label %88
 
 88:                                               ; preds = %87
-  %89 = add i32 %.0287308, 5
+  %89 = add i32 %.0287307, 5
   %90 = icmp ugt i32 %89, %9
   br i1 %90, label %91, label %93
 
@@ -446,7 +446,6 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
   %130 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
   %131 = lshr i8 %130, 6
-  %.lobit = and i8 %131, 1
   %132 = load i32, ptr @hf_can_id_type, align 4
   %133 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %132, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef 0) #3
   %134 = load i32, ptr @hf_can_frame_type, align 4
@@ -458,11 +457,11 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %139 = load i32, ptr %7, align 4
   %140 = icmp ugt i32 %139, 2047
   %or.cond = select i1 %138, i1 %140, i1 false
-  br i1 %or.cond, label %141, label %.sink.split329
+  br i1 %or.cond, label %141, label %.sink.split328
 
 141:                                              ; preds = %124
   %142 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %126, ptr noundef nonnull @ei_can_id_invalid) #3
-  br label %.sink.split329
+  br label %.sink.split328
 
 143:                                              ; preds = %118
   %144 = add i32 %.1, 1
@@ -486,11 +485,11 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %158 = getelementptr [64 x i8], ptr @pid_table, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = icmp eq i8 %159, %155
-  br i1 %160, label %.sink.split329, label %161
+  br i1 %160, label %.sink.split328, label %161
 
 161:                                              ; preds = %148
   %162 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %150, ptr noundef nonnull @ei_lin_pid_invalid) #3
-  br label %.sink.split329
+  br label %.sink.split328
 
 163:                                              ; preds = %118
   %164 = add i32 %.1, 3
@@ -517,21 +516,21 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %181 = add i32 %.1, 2
   %182 = load i32, ptr @hf_flexray_cycle, align 4
   %183 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %182, ptr noundef %0, i32 noundef %181, i32 noundef 1, i32 noundef 0) #3
-  br label %.sink.split329
+  br label %.sink.split328
 
-.sink.split329:                                   ; preds = %148, %161, %124, %141, %168
-  %.sink330 = phi i32 [ %164, %168 ], [ %120, %141 ], [ %120, %124 ], [ %144, %161 ], [ %144, %148 ]
-  %.0288.ph = phi i8 [ 0, %168 ], [ %.lobit, %141 ], [ %.lobit, %124 ], [ 0, %161 ], [ 0, %148 ]
-  %184 = sub i32 %.sink330, %.0287308
+.sink.split328:                                   ; preds = %148, %161, %124, %141, %168
+  %.sink329 = phi i32 [ %164, %168 ], [ %120, %141 ], [ %120, %124 ], [ %144, %161 ], [ %144, %148 ]
+  %.0288.ph = phi i8 [ 0, %168 ], [ %131, %141 ], [ %131, %124 ], [ 0, %161 ], [ 0, %148 ]
+  %184 = sub i32 %.sink329, %.0287307
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %184) #3
   br label %185
 
-185:                                              ; preds = %.sink.split329, %118, %116
-  %.0288 = phi i8 [ 0, %118 ], [ 0, %116 ], [ %.0288.ph, %.sink.split329 ]
-  %.2 = phi i32 [ %.1, %118 ], [ %.1, %116 ], [ %.sink330, %.sink.split329 ]
+185:                                              ; preds = %.sink.split328, %118, %116
+  %.0288 = phi i8 [ 0, %118 ], [ 0, %116 ], [ %.0288.ph, %.sink.split328 ]
+  %.2 = phi i32 [ %.1, %118 ], [ %.1, %116 ], [ %.sink329, %.sink.split328 ]
   %186 = and i8 %65, 32
   %.not298 = icmp eq i8 %186, 0
-  br i1 %.not298, label %219, label %187
+  br i1 %.not298, label %220, label %187
 
 187:                                              ; preds = %185
   %188 = add i32 %.2, 1
@@ -546,75 +545,75 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %8, align 4
   %193 = load i32, ptr @hf_payload_length, align 4
   %194 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %43, i32 noundef %193, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #3
-  switch i8 %81, label %206 [
+  switch i8 %81, label %207 [
     i8 1, label %195
-    i8 2, label %202
+    i8 2, label %203
   ]
 
 195:                                              ; preds = %192
-  %.not299 = icmp eq i8 %.0288, 0
-  %196 = load i32, ptr %8, align 4
-  %.fr = freeze i32 %196
-  %197 = icmp ugt i32 %.fr, 8
-  br i1 %.not299, label %201, label %198
+  %196 = trunc i8 %.0288 to i1
+  %197 = load i32, ptr %8, align 4
+  %.fr = freeze i32 %197
+  %198 = icmp ugt i32 %.fr, 8
+  br i1 %196, label %199, label %202
 
-198:                                              ; preds = %195
-  br i1 %197, label %switch.early.test, label %206
+199:                                              ; preds = %195
+  br i1 %198, label %switch.early.test, label %207
 
-switch.early.test:                                ; preds = %198
-  %199 = add i32 %.fr, -12
-  %200 = call i32 @llvm.fshl.i32(i32 %199, i32 %199, i32 30)
-  switch i32 %200, label %.sink.split331 [
-    i32 13, label %206
-    i32 9, label %206
-    i32 5, label %206
-    i32 3, label %206
-    i32 2, label %206
-    i32 1, label %206
-    i32 0, label %206
+switch.early.test:                                ; preds = %199
+  %200 = add i32 %.fr, -12
+  %201 = call i32 @llvm.fshl.i32(i32 %200, i32 %200, i32 30)
+  switch i32 %201, label %.sink.split330 [
+    i32 13, label %207
+    i32 9, label %207
+    i32 5, label %207
+    i32 3, label %207
+    i32 2, label %207
+    i32 1, label %207
+    i32 0, label %207
   ]
 
-201:                                              ; preds = %195
-  br i1 %197, label %.sink.split331, label %206
+202:                                              ; preds = %195
+  br i1 %198, label %.sink.split330, label %207
 
-202:                                              ; preds = %192
-  %203 = load i32, ptr %8, align 4
-  %204 = icmp ugt i32 %203, 8
-  br i1 %204, label %.sink.split331, label %206
+203:                                              ; preds = %192
+  %204 = load i32, ptr %8, align 4
+  %205 = icmp ugt i32 %204, 8
+  br i1 %205, label %.sink.split330, label %207
 
-.sink.split331:                                   ; preds = %202, %201, %switch.early.test
-  %ei_lin_length_invalid.sink = phi ptr [ @ei_can_length_invalid, %switch.early.test ], [ @ei_can_length_invalid, %201 ], [ @ei_lin_length_invalid, %202 ]
-  %205 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %194, ptr noundef nonnull %ei_lin_length_invalid.sink) #3
-  br label %206
+.sink.split330:                                   ; preds = %203, %202, %switch.early.test
+  %ei_lin_length_invalid.sink = phi ptr [ @ei_can_length_invalid, %switch.early.test ], [ @ei_can_length_invalid, %202 ], [ @ei_lin_length_invalid, %203 ]
+  %206 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %194, ptr noundef nonnull %ei_lin_length_invalid.sink) #3
+  br label %207
 
-206:                                              ; preds = %.sink.split331, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %198, %192, %202, %201
-  %207 = sub i32 %188, %.0287308
-  call void @proto_item_set_len(ptr noundef %43, i32 noundef %207) #3
-  %208 = load i32, ptr %8, align 4
-  %209 = add i32 %208, %188
-  %210 = icmp ugt i32 %209, %9
-  br i1 %210, label %211, label %213
+207:                                              ; preds = %.sink.split330, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %199, %192, %203, %202
+  %208 = sub i32 %188, %.0287307
+  call void @proto_item_set_len(ptr noundef %43, i32 noundef %208) #3
+  %209 = load i32, ptr %8, align 4
+  %210 = add i32 %209, %188
+  %211 = icmp ugt i32 %210, %9
+  br i1 %211, label %212, label %214
 
-211:                                              ; preds = %206
-  %212 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %43, ptr noundef nonnull @ei_data_item_incomplete) #3
+212:                                              ; preds = %207
+  %213 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %43, ptr noundef nonnull @ei_data_item_incomplete) #3
   br label %.loopexit
 
-213:                                              ; preds = %206
-  %214 = load i32, ptr @hf_payload, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %214, ptr noundef %0, i32 noundef %188, i32 noundef %208, i32 noundef 0) #3
-  %216 = load i32, ptr %8, align 4
-  %217 = add i32 %216, %188
-  %218 = sub i32 %217, %.0287308
-  call void @proto_item_set_len(ptr noundef %43, i32 noundef %218) #3
-  br label %219
+214:                                              ; preds = %207
+  %215 = load i32, ptr @hf_payload, align 4
+  %216 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %215, ptr noundef %0, i32 noundef %188, i32 noundef %209, i32 noundef 0) #3
+  %217 = load i32, ptr %8, align 4
+  %218 = add i32 %217, %188
+  %219 = sub i32 %218, %.0287307
+  call void @proto_item_set_len(ptr noundef %43, i32 noundef %219) #3
+  br label %220
 
-219:                                              ; preds = %213, %185
-  %.3 = phi i32 [ %217, %213 ], [ %.2, %185 ]
-  %220 = icmp ult i32 %.3, %9
-  br i1 %220, label %.lr.ph, label %.loopexit, !llvm.loop !4
+220:                                              ; preds = %214, %185
+  %.3 = phi i32 [ %218, %214 ], [ %.2, %185 ]
+  %221 = icmp ult i32 %.3, %9
+  br i1 %221, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %219, %41, %4, %211, %190, %166, %146, %122, %91, %76, %62, %53
-  %.0 = phi i32 [ %9, %53 ], [ %9, %62 ], [ %9, %76 ], [ %9, %91 ], [ %9, %190 ], [ %9, %211 ], [ %9, %166 ], [ %9, %146 ], [ %9, %122 ], [ 0, %4 ], [ 14, %41 ], [ %9, %219 ]
+.loopexit:                                        ; preds = %220, %41, %4, %212, %190, %166, %146, %122, %91, %76, %62, %53
+  %.0 = phi i32 [ %9, %53 ], [ %9, %62 ], [ %9, %76 ], [ %9, %91 ], [ %9, %190 ], [ %9, %212 ], [ %9, %166 ], [ %9, %146 ], [ %9, %122 ], [ 0, %4 ], [ 14, %41 ], [ %9, %220 ]
   ret i32 %.0
 }
 

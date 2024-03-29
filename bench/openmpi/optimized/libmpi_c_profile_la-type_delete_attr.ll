@@ -19,9 +19,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Type_delete_attr(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %15, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -46,8 +45,8 @@ define i32 @PMPI_Type_delete_attr(ptr noundef %0, i32 noundef %1) #0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 208
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @ompi_attr_delete(i32 noundef 2, ptr noundef %0, ptr noundef %17, i32 noundef %1, i1 noundef zeroext false) #2
-  %.not9 = icmp eq i32 %18, 0
-  br i1 %.not9, label %21, label %19
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %15
   %20 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 16, ptr noundef nonnull @FUNC_NAME) #2

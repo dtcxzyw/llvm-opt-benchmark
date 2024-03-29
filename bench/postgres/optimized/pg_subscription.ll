@@ -68,14 +68,14 @@ define dso_local noundef ptr @GetSubscription(i32 noundef %0, i1 noundef zeroext
   store i32 %30, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %18, i64 84
   %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %35 = getelementptr inbounds i8, ptr %19, i64 29
-  store i8 %34, ptr %35, align 1
+  %34 = getelementptr inbounds i8, ptr %19, i64 29
+  %35 = and i8 %33, 1
+  store i8 %35, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %18, i64 85
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %39 = getelementptr inbounds i8, ptr %19, i64 30
-  store i8 %38, ptr %39, align 2
+  %38 = getelementptr inbounds i8, ptr %19, i64 30
+  %39 = and i8 %37, 1
+  store i8 %39, ptr %38, align 2
   %40 = getelementptr inbounds i8, ptr %18, i64 86
   %41 = load i8, ptr %40, align 2
   %42 = getelementptr inbounds i8, ptr %19, i64 31
@@ -86,24 +86,24 @@ define dso_local noundef ptr @GetSubscription(i32 noundef %0, i1 noundef zeroext
   store i8 %44, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %18, i64 88
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %49 = getelementptr inbounds i8, ptr %19, i64 33
-  store i8 %48, ptr %49, align 1
+  %48 = getelementptr inbounds i8, ptr %19, i64 33
+  %49 = and i8 %47, 1
+  store i8 %49, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %18, i64 89
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %53 = getelementptr inbounds i8, ptr %19, i64 34
-  store i8 %52, ptr %53, align 2
+  %52 = getelementptr inbounds i8, ptr %19, i64 34
+  %53 = and i8 %51, 1
+  store i8 %53, ptr %52, align 2
   %54 = getelementptr inbounds i8, ptr %18, i64 90
   %55 = load i8, ptr %54, align 2
-  %56 = and i8 %55, 1
-  %57 = getelementptr inbounds i8, ptr %19, i64 35
-  store i8 %56, ptr %57, align 1
+  %56 = getelementptr inbounds i8, ptr %19, i64 35
+  %57 = and i8 %55, 1
+  store i8 %57, ptr %56, align 1
   %58 = getelementptr inbounds i8, ptr %18, i64 91
   %59 = load i8, ptr %58, align 1
-  %60 = and i8 %59, 1
-  %61 = getelementptr inbounds i8, ptr %19, i64 36
-  store i8 %60, ptr %61, align 4
+  %60 = getelementptr inbounds i8, ptr %19, i64 36
+  %61 = and i8 %59, 1
+  store i8 %61, ptr %60, align 4
   %62 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef nonnull %7, i16 noundef signext 14) #6
   %63 = inttoptr i64 %62 to ptr
   %64 = tail call ptr @text_to_cstring(ptr noundef %63) #6
@@ -111,9 +111,8 @@ define dso_local noundef ptr @GetSubscription(i32 noundef %0, i1 noundef zeroext
   store ptr %64, ptr %65, align 8
   %66 = call i64 @SysCacheGetAttr(i32 noundef 65, ptr noundef nonnull %7, i16 noundef signext 15, ptr noundef nonnull %5) #6
   %67 = load i8, ptr %5, align 1
-  %68 = and i8 %67, 1
-  %.not53 = icmp eq i8 %68, 0
-  br i1 %.not53, label %69, label %72
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %72, label %69
 
 69:                                               ; preds = %12
   %70 = inttoptr i64 %66 to ptr
@@ -460,9 +459,8 @@ define dso_local signext i8 @GetSubscriptionRelState(i32 noundef %0, i32 noundef
   %18 = load i8, ptr %17, align 4
   %19 = call i64 @SysCacheGetAttr(i32 noundef 66, ptr noundef nonnull %8, i16 noundef signext 4, ptr noundef nonnull %4) #6
   %20 = load i8, ptr %4, align 1
-  %21 = and i8 %20, 1
-  %.not15 = icmp eq i8 %21, 0
-  %spec.select = select i1 %.not15, i64 %19, i64 0
+  %21 = trunc i8 %20 to i1
+  %spec.select = select i1 %21, i64 0, i64 %19
   store i64 %spec.select, ptr %2, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %8) #6
   call void @table_close(ptr noundef %5, i32 noundef 1) #6
@@ -615,12 +613,12 @@ define dso_local ptr @GetSubscriptionRelations(i32 noundef %0, i1 noundef zeroex
   %.021 = phi i32 [ 2, %7 ], [ 1, %2 ]
   %10 = call ptr @systable_beginscan(ptr noundef %5, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef %.021, ptr noundef nonnull %3) #6
   %11 = call ptr @systable_getnext(ptr noundef %10) #6
-  %.not24 = icmp eq ptr %11, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq ptr %11, null
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %12 = phi ptr [ %30, %.lr.ph ], [ %11, %9 ]
-  %.025 = phi ptr [ %29, %.lr.ph ], [ null, %9 ]
+  %.024 = phi ptr [ %29, %.lr.ph ], [ null, %9 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 22
@@ -637,12 +635,11 @@ define dso_local ptr @GetSubscriptionRelations(i32 noundef %0, i1 noundef zeroex
   store i8 %23, ptr %24, align 8
   %25 = call i64 @SysCacheGetAttr(i32 noundef 66, ptr noundef nonnull %12, i16 noundef signext 4, ptr noundef nonnull %4) #6
   %26 = load i8, ptr %4, align 1
-  %27 = and i8 %26, 1
-  %.not23 = icmp eq i8 %27, 0
-  %spec.select = select i1 %.not23, i64 %25, i64 0
+  %27 = trunc i8 %26 to i1
+  %spec.select = select i1 %27, i64 0, i64 %25
   %28 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %spec.select, ptr %28, align 8
-  %29 = call ptr @lappend(ptr noundef %.025, ptr noundef nonnull %19) #6
+  %29 = call ptr @lappend(ptr noundef %.024, ptr noundef nonnull %19) #6
   %30 = call ptr @systable_getnext(ptr noundef %10) #6
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9

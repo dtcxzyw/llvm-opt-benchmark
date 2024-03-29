@@ -7577,9 +7577,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(51) ptr @_ZN6
 entry:
   %mSwallow = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %mSwallow, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %mSwallow, align 8
@@ -7587,13 +7586,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mStream.i = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %3 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = load ptr, ptr %mCurrent.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
+  %1 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = load ptr, ptr %mEnd.i.i, align 8
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = load ptr, ptr %mCurrent.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv2.i.i = and i64 %sub.ptr.sub.i.i, 4294967295
   %cmp.i.not = icmp eq i64 %conv2.i.i, 0
@@ -7610,38 +7609,38 @@ invoke.cont:                                      ; preds = %if.then3
 
 common.resume:                                    ; preds = %lpad.i85, %lpad.i.i70, %lpad.i55, %lpad.i.i46, %lpad.i, %lpad.i.i23, %lpad.i.i, %lpad
   %exception.i84.sink = phi ptr [ %exception.i84, %lpad.i85 ], [ %exception.i.i69, %lpad.i.i70 ], [ %exception.i54, %lpad.i55 ], [ %exception.i.i45, %lpad.i.i46 ], [ %exception.i, %lpad.i ], [ %exception.i.i22, %lpad.i.i23 ], [ %exception.i.i, %lpad.i.i ], [ %exception, %lpad ]
-  %common.resume.op = phi { ptr, i32 } [ %55, %lpad.i85 ], [ %48, %lpad.i.i70 ], [ %39, %lpad.i55 ], [ %34, %lpad.i.i46 ], [ %29, %lpad.i ], [ %22, %lpad.i.i23 ], [ %12, %lpad.i.i ], [ %5, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %lpad.i85 ], [ %45, %lpad.i.i70 ], [ %37, %lpad.i55 ], [ %32, %lpad.i.i46 ], [ %27, %lpad.i ], [ %20, %lpad.i.i23 ], [ %11, %lpad.i.i ], [ %4, %lpad ]
   tail call void @__cxa_free_exception(ptr %exception.i84.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad:                                             ; preds = %if.then3
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end4:                                          ; preds = %if.end
   %mCur = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %mCur) #22
-  %6 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i88 = getelementptr inbounds i8, ptr %6, i64 32
-  %7 = load ptr, ptr %mEnd.i88, align 8
-  %mCurrent.i89 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %mCurrent.i89, align 8
-  %sub.ptr.lhs.cast.i90 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i91 = ptrtoint ptr %8 to i64
+  %5 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i88 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = load ptr, ptr %mEnd.i88, align 8
+  %mCurrent.i89 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = load ptr, ptr %mCurrent.i89, align 8
+  %sub.ptr.lhs.cast.i90 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i91 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i92 = sub i64 %sub.ptr.lhs.cast.i90, %sub.ptr.rhs.cast.i91
   %conv2.i93 = and i64 %sub.ptr.sub.i92, 4294967295
   %tobool6.not94 = icmp eq i64 %conv2.i93, 0
   br i1 %tobool6.not94, label %while.end78, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end4, %if.end75
-  %9 = phi ptr [ %58, %if.end75 ], [ %8, %if.end4 ]
+  %8 = phi ptr [ %55, %if.end75 ], [ %7, %if.end4 ]
   %mCurrent.i95 = phi ptr [ %mCurrent.i, %if.end75 ], [ %mCurrent.i89, %if.end4 ]
-  %10 = phi ptr [ %56, %if.end75 ], [ %6, %if.end4 ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 1
-  %mLimit.i.i = getelementptr inbounds i8, ptr %10, i64 40
-  %11 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %11
+  %9 = phi ptr [ %53, %if.end75 ], [ %5, %if.end4 ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 1
+  %mLimit.i.i = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = load ptr, ptr %mLimit.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %10
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit
 
 if.then.i.i:                                      ; preds = %land.rhs
@@ -7654,46 +7653,45 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit:  ; preds = %land.rhs
-  %13 = load i8, ptr %9, align 1
+  %12 = load i8, ptr %8, align 1
   store ptr %add.ptr.i.i, ptr %mCurrent.i95, align 8
-  switch i8 %13, label %if.end75 [
+  switch i8 %12, label %if.end75 [
     i8 13, label %if.then11
     i8 10, label %if.then11
   ]
 
 if.then11:                                        ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit
   %mSkip_empty_lines = getelementptr inbounds i8, ptr %this, i64 49
-  %14 = load i8, ptr %mSkip_empty_lines, align 1
-  %15 = and i8 %14, 1
-  %tobool12.not = icmp eq i8 %15, 0
-  br i1 %tobool12.not, label %if.else, label %while.cond14.preheader
+  %13 = load i8, ptr %mSkip_empty_lines, align 1
+  %tobool12 = trunc i8 %13 to i1
+  br i1 %tobool12, label %while.cond14.preheader, label %if.else
 
 while.cond14.preheader:                           ; preds = %if.then11
-  %16 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i1196 = getelementptr inbounds i8, ptr %16, i64 32
-  %17 = load ptr, ptr %mEnd.i1196, align 8
-  %mCurrent.i1297 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = load ptr, ptr %mCurrent.i1297, align 8
-  %sub.ptr.lhs.cast.i1398 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i1499 = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i15100 = sub i64 %sub.ptr.lhs.cast.i1398, %sub.ptr.rhs.cast.i1499
-  %conv2.i16101 = and i64 %sub.ptr.sub.i15100, 4294967295
-  %tobool17.not102 = icmp eq i64 %conv2.i16101, 0
-  br i1 %tobool17.not102, label %while.end78, label %land.rhs18
+  %14 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i11104 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = load ptr, ptr %mEnd.i11104, align 8
+  %mCurrent.i12105 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = load ptr, ptr %mCurrent.i12105, align 8
+  %sub.ptr.lhs.cast.i13106 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i14107 = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i15108 = sub i64 %sub.ptr.lhs.cast.i13106, %sub.ptr.rhs.cast.i14107
+  %conv2.i16109 = and i64 %sub.ptr.sub.i15108, 4294967295
+  %tobool17.not110 = icmp eq i64 %conv2.i16109, 0
+  br i1 %tobool17.not110, label %while.end78, label %land.rhs18
 
 land.rhs18:                                       ; preds = %while.cond14.preheader, %while.cond14.backedge
-  %19 = phi ptr [ %26, %while.cond14.backedge ], [ %18, %while.cond14.preheader ]
-  %mCurrent.i12103 = phi ptr [ %mCurrent.i12, %while.cond14.backedge ], [ %mCurrent.i1297, %while.cond14.preheader ]
-  %20 = phi ptr [ %24, %while.cond14.backedge ], [ %16, %while.cond14.preheader ]
-  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %19, i64 1
-  %mLimit.i.i19 = getelementptr inbounds i8, ptr %20, i64 40
-  %21 = load ptr, ptr %mLimit.i.i19, align 8
-  %cmp.i.i20 = icmp ugt ptr %add.ptr.i.i18, %21
+  %17 = phi ptr [ %24, %while.cond14.backedge ], [ %16, %while.cond14.preheader ]
+  %mCurrent.i12111 = phi ptr [ %mCurrent.i12, %while.cond14.backedge ], [ %mCurrent.i12105, %while.cond14.preheader ]
+  %18 = phi ptr [ %22, %while.cond14.backedge ], [ %14, %while.cond14.preheader ]
+  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %17, i64 1
+  %mLimit.i.i19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = load ptr, ptr %mLimit.i.i19, align 8
+  %cmp.i.i20 = icmp ugt ptr %add.ptr.i.i18, %19
   br i1 %cmp.i.i20, label %if.then.i.i21, label %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit25
 
 if.then.i.i21:                                    ; preds = %land.rhs18
@@ -7706,52 +7704,52 @@ invoke.cont.i.i24:                                ; preds = %if.then.i.i21
   unreachable
 
 lpad.i.i23:                                       ; preds = %if.then.i.i21
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit25: ; preds = %land.rhs18
-  %23 = load i8, ptr %19, align 1
-  store ptr %add.ptr.i.i18, ptr %mCurrent.i12103, align 8
-  switch i8 %23, label %while.end [
+  %21 = load i8, ptr %17, align 1
+  store ptr %add.ptr.i.i18, ptr %mCurrent.i12111, align 8
+  switch i8 %21, label %while.end [
     i8 32, label %while.cond14.backedge
     i8 13, label %while.cond14.backedge
     i8 10, label %while.cond14.backedge
   ]
 
 while.cond14.backedge:                            ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit25, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit25, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit25
-  %24 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i11 = getelementptr inbounds i8, ptr %24, i64 32
-  %25 = load ptr, ptr %mEnd.i11, align 8
-  %mCurrent.i12 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %mCurrent.i12, align 8
-  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i14 = ptrtoint ptr %26 to i64
+  %22 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i11 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = load ptr, ptr %mEnd.i11, align 8
+  %mCurrent.i12 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = load ptr, ptr %mCurrent.i12, align 8
+  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i14 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i14
   %conv2.i16 = and i64 %sub.ptr.sub.i15, 4294967295
   %tobool17.not = icmp eq i64 %conv2.i16, 0
   br i1 %tobool17.not, label %while.end78, label %land.rhs18
 
 while.end:                                        ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit25
-  %.pre.pre = load ptr, ptr %mStream.i, align 8
-  %mEnd.i26.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.pre, i64 32
-  %.pre113.pre = load ptr, ptr %mEnd.i26.phi.trans.insert.phi.trans.insert, align 8
-  %mCurrent.i27.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.pre, i64 24
-  %.pre114.pre = load ptr, ptr %mCurrent.i27.phi.trans.insert.phi.trans.insert, align 8
-  %.pre136 = ptrtoint ptr %.pre113.pre to i64
-  %.pre137 = ptrtoint ptr %.pre114.pre to i64
-  %.pre138 = sub i64 %.pre136, %.pre137
-  %.pre139 = and i64 %.pre138, 4294967295
-  %27 = icmp eq i64 %.pre139, 0
-  br i1 %27, label %while.end78, label %if.then33
+  %.pre115.pre = load ptr, ptr %mStream.i, align 8
+  %mEnd.i26.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre115.pre, i64 32
+  %.pre116.pre = load ptr, ptr %mEnd.i26.phi.trans.insert.phi.trans.insert, align 8
+  %mCurrent.i27.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre115.pre, i64 24
+  %.pre117.pre = load ptr, ptr %mCurrent.i27.phi.trans.insert.phi.trans.insert, align 8
+  %.pre128 = ptrtoint ptr %.pre116.pre to i64
+  %.pre129 = ptrtoint ptr %.pre117.pre to i64
+  %.pre130 = sub i64 %.pre128, %.pre129
+  %.pre131 = and i64 %.pre130, 4294967295
+  %25 = icmp eq i64 %.pre131, 0
+  br i1 %25, label %while.end78, label %if.then33
 
 if.then33:                                        ; preds = %while.end
-  %mCurrent.i27 = getelementptr inbounds i8, ptr %.pre.pre, i64 24
-  %add.ptr.i = getelementptr inbounds i8, ptr %.pre114.pre, i64 -1
+  %mCurrent.i27 = getelementptr inbounds i8, ptr %.pre115.pre, i64 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %.pre117.pre, i64 -1
   store ptr %add.ptr.i, ptr %mCurrent.i27, align 8
-  %mLimit.i = getelementptr inbounds i8, ptr %.pre.pre, i64 40
-  %28 = load ptr, ptr %mLimit.i, align 8
-  %cmp.i33 = icmp ugt ptr %add.ptr.i, %28
+  %mLimit.i = getelementptr inbounds i8, ptr %.pre115.pre, i64 40
+  %26 = load ptr, ptr %mLimit.i, align 8
+  %cmp.i33 = icmp ugt ptr %add.ptr.i, %26
   br i1 %cmp.i33, label %if.then.i, label %while.end78
 
 if.then.i:                                        ; preds = %if.then33
@@ -7764,19 +7762,19 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
-  %29 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.else:                                          ; preds = %if.then11
-  %cmp10.le = icmp eq i8 %13, 13
-  %30 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i34 = getelementptr inbounds i8, ptr %30, i64 32
-  %31 = load ptr, ptr %mEnd.i34, align 8
-  %mCurrent.i35 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = load ptr, ptr %mCurrent.i35, align 8
-  %sub.ptr.lhs.cast.i36 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %32 to i64
+  %cmp10.le = icmp eq i8 %12, 13
+  %28 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i34 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = load ptr, ptr %mEnd.i34, align 8
+  %mCurrent.i35 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = load ptr, ptr %mCurrent.i35, align 8
+  %sub.ptr.lhs.cast.i36 = ptrtoint ptr %29 to i64
+  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i37
   %conv2.i39 = and i64 %sub.ptr.sub.i38, 4294967295
   %tobool38 = icmp ne i64 %conv2.i39, 0
@@ -7784,10 +7782,10 @@ if.else:                                          ; preds = %if.then11
   br i1 %or.cond2, label %land.lhs.true41, label %if.end48
 
 land.lhs.true41:                                  ; preds = %if.else
-  %add.ptr.i.i41 = getelementptr inbounds i8, ptr %32, i64 1
-  %mLimit.i.i42 = getelementptr inbounds i8, ptr %30, i64 40
-  %33 = load ptr, ptr %mLimit.i.i42, align 8
-  %cmp.i.i43 = icmp ugt ptr %add.ptr.i.i41, %33
+  %add.ptr.i.i41 = getelementptr inbounds i8, ptr %30, i64 1
+  %mLimit.i.i42 = getelementptr inbounds i8, ptr %28, i64 40
+  %31 = load ptr, ptr %mLimit.i.i42, align 8
+  %cmp.i.i43 = icmp ugt ptr %add.ptr.i.i41, %31
   br i1 %cmp.i.i43, label %if.then.i.i44, label %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit48
 
 if.then.i.i44:                                    ; preds = %land.lhs.true41
@@ -7800,25 +7798,25 @@ invoke.cont.i.i47:                                ; preds = %if.then.i.i44
   unreachable
 
 lpad.i.i46:                                       ; preds = %if.then.i.i44
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit48: ; preds = %land.lhs.true41
-  %35 = load i8, ptr %32, align 1
+  %33 = load i8, ptr %30, align 1
   store ptr %add.ptr.i.i41, ptr %mCurrent.i35, align 8
-  %cmp45.not = icmp eq i8 %35, 10
+  %cmp45.not = icmp eq i8 %33, 10
   br i1 %cmp45.not, label %if.end48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit48
-  %36 = load ptr, ptr %mStream.i, align 8
-  %mCurrent.i49 = getelementptr inbounds i8, ptr %36, i64 24
-  %37 = load ptr, ptr %mCurrent.i49, align 8
-  %add.ptr.i50 = getelementptr inbounds i8, ptr %37, i64 -1
+  %34 = load ptr, ptr %mStream.i, align 8
+  %mCurrent.i49 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = load ptr, ptr %mCurrent.i49, align 8
+  %add.ptr.i50 = getelementptr inbounds i8, ptr %35, i64 -1
   store ptr %add.ptr.i50, ptr %mCurrent.i49, align 8
-  %mLimit.i51 = getelementptr inbounds i8, ptr %36, i64 40
-  %38 = load ptr, ptr %mLimit.i51, align 8
-  %cmp.i52 = icmp ugt ptr %add.ptr.i50, %38
+  %mLimit.i51 = getelementptr inbounds i8, ptr %34, i64 40
+  %36 = load ptr, ptr %mLimit.i51, align 8
+  %cmp.i52 = icmp ugt ptr %add.ptr.i50, %36
   br i1 %cmp.i52, label %if.then.i53, label %if.end48
 
 if.then.i53:                                      ; preds = %if.then46
@@ -7831,38 +7829,37 @@ invoke.cont.i56:                                  ; preds = %if.then.i53
   unreachable
 
 lpad.i55:                                         ; preds = %if.then.i53
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end48:                                         ; preds = %if.then46, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit48, %if.else
   %mTrim = getelementptr inbounds i8, ptr %this, i64 50
-  %40 = load i8, ptr %mTrim, align 2
-  %41 = and i8 %40, 1
-  %tobool49.not = icmp eq i8 %41, 0
-  br i1 %tobool49.not, label %while.end78, label %while.cond51.preheader
+  %38 = load i8, ptr %mTrim, align 2
+  %tobool49 = trunc i8 %38 to i1
+  br i1 %tobool49, label %while.cond51.preheader, label %while.end78
 
 while.cond51.preheader:                           ; preds = %if.end48
-  %42 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i58104 = getelementptr inbounds i8, ptr %42, i64 32
-  %43 = load ptr, ptr %mEnd.i58104, align 8
-  %mCurrent.i59105 = getelementptr inbounds i8, ptr %42, i64 24
-  %44 = load ptr, ptr %mCurrent.i59105, align 8
-  %sub.ptr.lhs.cast.i60106 = ptrtoint ptr %43 to i64
-  %sub.ptr.rhs.cast.i61107 = ptrtoint ptr %44 to i64
-  %sub.ptr.sub.i62108 = sub i64 %sub.ptr.lhs.cast.i60106, %sub.ptr.rhs.cast.i61107
-  %conv2.i63109 = and i64 %sub.ptr.sub.i62108, 4294967295
-  %tobool54.not110 = icmp eq i64 %conv2.i63109, 0
-  br i1 %tobool54.not110, label %while.end78, label %land.rhs55
+  %39 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i5896 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = load ptr, ptr %mEnd.i5896, align 8
+  %mCurrent.i5997 = getelementptr inbounds i8, ptr %39, i64 24
+  %41 = load ptr, ptr %mCurrent.i5997, align 8
+  %sub.ptr.lhs.cast.i6098 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast.i6199 = ptrtoint ptr %41 to i64
+  %sub.ptr.sub.i62100 = sub i64 %sub.ptr.lhs.cast.i6098, %sub.ptr.rhs.cast.i6199
+  %conv2.i63101 = and i64 %sub.ptr.sub.i62100, 4294967295
+  %tobool54.not102 = icmp eq i64 %conv2.i63101, 0
+  br i1 %tobool54.not102, label %while.end78, label %land.rhs55
 
 land.rhs55:                                       ; preds = %while.cond51.preheader, %while.cond51.backedge
-  %45 = phi ptr [ %52, %while.cond51.backedge ], [ %44, %while.cond51.preheader ]
-  %mCurrent.i59111 = phi ptr [ %mCurrent.i59, %while.cond51.backedge ], [ %mCurrent.i59105, %while.cond51.preheader ]
-  %46 = phi ptr [ %50, %while.cond51.backedge ], [ %42, %while.cond51.preheader ]
-  %add.ptr.i.i65 = getelementptr inbounds i8, ptr %45, i64 1
-  %mLimit.i.i66 = getelementptr inbounds i8, ptr %46, i64 40
-  %47 = load ptr, ptr %mLimit.i.i66, align 8
-  %cmp.i.i67 = icmp ugt ptr %add.ptr.i.i65, %47
+  %42 = phi ptr [ %49, %while.cond51.backedge ], [ %41, %while.cond51.preheader ]
+  %mCurrent.i59103 = phi ptr [ %mCurrent.i59, %while.cond51.backedge ], [ %mCurrent.i5997, %while.cond51.preheader ]
+  %43 = phi ptr [ %47, %while.cond51.backedge ], [ %39, %while.cond51.preheader ]
+  %add.ptr.i.i65 = getelementptr inbounds i8, ptr %42, i64 1
+  %mLimit.i.i66 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = load ptr, ptr %mLimit.i.i66, align 8
+  %cmp.i.i67 = icmp ugt ptr %add.ptr.i.i65, %44
   br i1 %cmp.i.i67, label %if.then.i.i68, label %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit72
 
 if.then.i.i68:                                    ; preds = %land.rhs55
@@ -7875,51 +7872,51 @@ invoke.cont.i.i71:                                ; preds = %if.then.i.i68
   unreachable
 
 lpad.i.i70:                                       ; preds = %if.then.i.i68
-  %48 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit72: ; preds = %land.rhs55
-  %49 = load i8, ptr %45, align 1
-  store ptr %add.ptr.i.i65, ptr %mCurrent.i59111, align 8
-  switch i8 %49, label %while.end66 [
+  %46 = load i8, ptr %42, align 1
+  store ptr %add.ptr.i.i65, ptr %mCurrent.i59103, align 8
+  switch i8 %46, label %while.end66 [
     i8 32, label %while.cond51.backedge
     i8 9, label %while.cond51.backedge
   ]
 
 while.cond51.backedge:                            ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit72, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit72
-  %50 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i58 = getelementptr inbounds i8, ptr %50, i64 32
-  %51 = load ptr, ptr %mEnd.i58, align 8
-  %mCurrent.i59 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = load ptr, ptr %mCurrent.i59, align 8
-  %sub.ptr.lhs.cast.i60 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i61 = ptrtoint ptr %52 to i64
+  %47 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i58 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = load ptr, ptr %mEnd.i58, align 8
+  %mCurrent.i59 = getelementptr inbounds i8, ptr %47, i64 24
+  %49 = load ptr, ptr %mCurrent.i59, align 8
+  %sub.ptr.lhs.cast.i60 = ptrtoint ptr %48 to i64
+  %sub.ptr.rhs.cast.i61 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i62 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i61
   %conv2.i63 = and i64 %sub.ptr.sub.i62, 4294967295
   %tobool54.not = icmp eq i64 %conv2.i63, 0
   br i1 %tobool54.not, label %while.end78, label %land.rhs55
 
 while.end66:                                      ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit72
-  %.pre115.pre = load ptr, ptr %mStream.i, align 8
-  %mEnd.i73.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre115.pre, i64 32
-  %.pre116.pre = load ptr, ptr %mEnd.i73.phi.trans.insert.phi.trans.insert, align 8
-  %mCurrent.i74.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre115.pre, i64 24
-  %.pre117.pre = load ptr, ptr %mCurrent.i74.phi.trans.insert.phi.trans.insert, align 8
-  %.pre128 = ptrtoint ptr %.pre116.pre to i64
-  %.pre129 = ptrtoint ptr %.pre117.pre to i64
-  %.pre130 = sub i64 %.pre128, %.pre129
-  %.pre131 = and i64 %.pre130, 4294967295
-  %53 = icmp eq i64 %.pre131, 0
-  br i1 %53, label %while.end78, label %if.then70
+  %.pre.pre = load ptr, ptr %mStream.i, align 8
+  %mEnd.i73.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.pre, i64 32
+  %.pre113.pre = load ptr, ptr %mEnd.i73.phi.trans.insert.phi.trans.insert, align 8
+  %mCurrent.i74.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.pre, i64 24
+  %.pre114.pre = load ptr, ptr %mCurrent.i74.phi.trans.insert.phi.trans.insert, align 8
+  %.pre136 = ptrtoint ptr %.pre113.pre to i64
+  %.pre137 = ptrtoint ptr %.pre114.pre to i64
+  %.pre138 = sub i64 %.pre136, %.pre137
+  %.pre139 = and i64 %.pre138, 4294967295
+  %50 = icmp eq i64 %.pre139, 0
+  br i1 %50, label %while.end78, label %if.then70
 
 if.then70:                                        ; preds = %while.end66
-  %mCurrent.i74 = getelementptr inbounds i8, ptr %.pre115.pre, i64 24
-  %add.ptr.i80 = getelementptr inbounds i8, ptr %.pre117.pre, i64 -1
+  %mCurrent.i74 = getelementptr inbounds i8, ptr %.pre.pre, i64 24
+  %add.ptr.i80 = getelementptr inbounds i8, ptr %.pre114.pre, i64 -1
   store ptr %add.ptr.i80, ptr %mCurrent.i74, align 8
-  %mLimit.i81 = getelementptr inbounds i8, ptr %.pre115.pre, i64 40
-  %54 = load ptr, ptr %mLimit.i81, align 8
-  %cmp.i82 = icmp ugt ptr %add.ptr.i80, %54
+  %mLimit.i81 = getelementptr inbounds i8, ptr %.pre.pre, i64 40
+  %51 = load ptr, ptr %mLimit.i81, align 8
+  %cmp.i82 = icmp ugt ptr %add.ptr.i80, %51
   br i1 %cmp.i82, label %if.then.i83, label %while.end78
 
 if.then.i83:                                      ; preds = %if.then70
@@ -7932,27 +7929,27 @@ invoke.cont.i86:                                  ; preds = %if.then.i83
   unreachable
 
 lpad.i85:                                         ; preds = %if.then.i83
-  %55 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end75:                                         ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit
-  %call77 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %mCur, i8 noundef signext %13)
-  %56 = load ptr, ptr %mStream.i, align 8
-  %mEnd.i = getelementptr inbounds i8, ptr %56, i64 32
-  %57 = load ptr, ptr %mEnd.i, align 8
-  %mCurrent.i = getelementptr inbounds i8, ptr %56, i64 24
-  %58 = load ptr, ptr %mCurrent.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %57 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %58 to i64
+  %call77 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %mCur, i8 noundef signext %12)
+  %53 = load ptr, ptr %mStream.i, align 8
+  %mEnd.i = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = load ptr, ptr %mEnd.i, align 8
+  %mCurrent.i = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = load ptr, ptr %mCurrent.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %54 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
   %tobool6.not = icmp eq i64 %conv2.i, 0
   br i1 %tobool6.not, label %while.end78, label %land.rhs, !llvm.loop !70
 
-while.end78:                                      ; preds = %if.end75, %while.cond14.backedge, %while.cond51.backedge, %while.cond51.preheader, %while.cond14.preheader, %if.end4, %if.then70, %if.then33, %while.end, %while.end66, %if.end48
-  %59 = load i64, ptr %this, align 8
-  %inc = add i64 %59, 1
+while.end78:                                      ; preds = %if.end75, %while.cond51.backedge, %while.cond14.backedge, %while.cond51.preheader, %while.cond14.preheader, %if.end4, %if.then70, %if.then33, %while.end, %while.end66, %if.end48
+  %56 = load i64, ptr %this, align 8
+  %inc = add i64 %56, 1
   store i64 %inc, ptr %this, align 8
   br label %return
 

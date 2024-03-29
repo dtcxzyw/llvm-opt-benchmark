@@ -201,31 +201,30 @@ while.cond.preheader:                             ; preds = %entry
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %m_trim_nl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %m_trim_nl, align 8
-  %.fr9 = freeze i8 %2
-  %3 = and i8 %.fr9, 1
-  %tobool4.not.not = icmp eq i8 %3, 0
-  br i1 %tobool4.not.not, label %while.body.us, label %while.body
+  %.fr = freeze i8 %2
+  %tobool4 = trunc i8 %.fr to i1
+  br i1 %tobool4, label %while.body, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
   %it.07.us = phi ptr [ %incdec.ptr.us, %while.body.us ], [ %0, %while.body.lr.ph ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %it.07.us, i64 1
-  %4 = load i8, ptr %incdec.ptr.us, align 1
-  %tobool.not.us = icmp eq i8 %4, 0
+  %3 = load i8, ptr %incdec.ptr.us, align 1
+  %tobool.not.us = icmp eq i8 %3, 0
   br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !6
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %5 = phi i8 [ %6, %while.body ], [ %1, %while.body.lr.ph ]
+  %4 = phi i8 [ %5, %while.body ], [ %1, %while.body.lr.ph ]
   %e.08 = phi ptr [ %spec.select, %while.body ], [ %0, %while.body.lr.ph ]
   %it.07 = phi ptr [ %incdec.ptr, %while.body ], [ %0, %while.body.lr.ph ]
-  %cmp5.not = icmp eq i8 %5, 10
+  %cmp5.not = icmp eq i8 %4, 10
   %incdec.ptr = getelementptr inbounds i8, ptr %it.07, i64 1
   %spec.select = select i1 %cmp5.not, ptr %e.08, ptr %incdec.ptr
-  %6 = load i8, ptr %incdec.ptr, align 1
-  %tobool.not = icmp eq i8 %6, 0
+  %5 = load i8, ptr %incdec.ptr, align 1
+  %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !6
 
-return:                                           ; preds = %while.body, %while.body.us, %while.cond.preheader, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %0, %while.cond.preheader ], [ %incdec.ptr.us, %while.body.us ], [ %spec.select, %while.body ]
+return:                                           ; preds = %while.body.us, %while.body, %while.cond.preheader, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %0, %while.cond.preheader ], [ %spec.select, %while.body ], [ %incdec.ptr.us, %while.body.us ]
   ret ptr %retval.0
 }
 
@@ -244,27 +243,26 @@ while.cond.preheader.i:                           ; preds = %entry
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
   %m_trim_nl.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %m_trim_nl.i, align 8
-  %.fr9.i = freeze i8 %2
-  %3 = and i8 %.fr9.i, 1
-  %tobool4.not.not.i = icmp eq i8 %3, 0
-  br i1 %tobool4.not.not.i, label %while.body.us.i, label %while.body.i
+  %.fr.i = freeze i8 %2
+  %tobool4.i = trunc i8 %.fr.i to i1
+  br i1 %tobool4.i, label %while.body.i, label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %while.body.us.i
   %it.07.us.i = phi ptr [ %incdec.ptr.us.i, %while.body.us.i ], [ %0, %while.body.lr.ph.i ]
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %it.07.us.i, i64 1
-  %4 = load i8, ptr %incdec.ptr.us.i, align 1
-  %tobool.not.us.i = icmp eq i8 %4, 0
+  %3 = load i8, ptr %incdec.ptr.us.i, align 1
+  %tobool.not.us.i = icmp eq i8 %3, 0
   br i1 %tobool.not.us.i, label %for.body.lr.ph, label %while.body.us.i, !llvm.loop !6
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
-  %5 = phi i8 [ %6, %while.body.i ], [ %1, %while.body.lr.ph.i ]
+  %4 = phi i8 [ %5, %while.body.i ], [ %1, %while.body.lr.ph.i ]
   %e.08.i = phi ptr [ %spec.select.i, %while.body.i ], [ %0, %while.body.lr.ph.i ]
   %it.07.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %0, %while.body.lr.ph.i ]
-  %cmp5.not.i = icmp eq i8 %5, 10
+  %cmp5.not.i = icmp eq i8 %4, 10
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.07.i, i64 1
   %spec.select.i = select i1 %cmp5.not.i, ptr %e.08.i, ptr %incdec.ptr.i
-  %6 = load i8, ptr %incdec.ptr.i, align 1
-  %tobool.not.i = icmp eq i8 %6, 0
+  %5 = load i8, ptr %incdec.ptr.i, align 1
+  %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %_ZNK7escaped3endEv.exit, label %while.body.i, !llvm.loop !6
 
 _ZNK7escaped3endEv.exit:                          ; preds = %while.body.i
@@ -278,8 +276,8 @@ for.body.lr.ph:                                   ; preds = %while.body.us.i, %_
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc13
   %it.014 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc13 ]
-  %7 = load i8, ptr %it.014, align 1
-  %cmp2 = icmp eq i8 %7, 34
+  %6 = load i8, ptr %it.014, align 1
+  %cmp2 = icmp eq i8 %6, 34
   br i1 %cmp2, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %for.body
@@ -288,10 +286,10 @@ if.end.thread:                                    ; preds = %for.body
   br label %for.inc13
 
 if.end:                                           ; preds = %for.body
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %out, i8 noundef signext %7)
-  %cmp6 = icmp eq i8 %7, 10
-  %8 = load i32, ptr %m_indent, align 4
-  %cmp911 = icmp ne i32 %8, 0
+  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %out, i8 noundef signext %6)
+  %cmp6 = icmp eq i8 %6, 10
+  %7 = load i32, ptr %m_indent, align 4
+  %cmp911 = icmp ne i32 %7, 0
   %or.cond = select i1 %cmp6, i1 %cmp911, i1 false
   br i1 %or.cond, label %for.body10, label %for.inc13
 
@@ -299,8 +297,8 @@ for.body10:                                       ; preds = %if.end, %for.body10
   %i.012 = phi i32 [ %inc, %for.body10 ], [ 0, %if.end ]
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
   %inc = add nuw i32 %i.012, 1
-  %9 = load i32, ptr %m_indent, align 4
-  %cmp9 = icmp ult i32 %inc, %9
+  %8 = load i32, ptr %m_indent, align 4
+  %cmp9 = icmp ult i32 %inc, %8
   br i1 %cmp9, label %for.body10, label %for.inc13, !llvm.loop !7
 
 for.inc13:                                        ; preds = %for.body10, %if.end.thread, %if.end

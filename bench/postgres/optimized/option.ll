@@ -281,9 +281,9 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
 
 68:                                               ; preds = %.preheader
   %69 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 6), align 8
-  %.not30 = icmp eq ptr %69, null
+  %.not29 = icmp eq ptr %69, null
   %70 = load ptr, ptr @optarg, align 8
-  br i1 %.not30, label %71, label %73
+  br i1 %.not29, label %71, label %73
 
 71:                                               ; preds = %68
   %72 = call ptr @pg_strdup(ptr noundef %70) #12
@@ -298,9 +298,9 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
 
 75:                                               ; preds = %.preheader
   %76 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 6), align 8
-  %.not29 = icmp eq ptr %76, null
+  %.not28 = icmp eq ptr %76, null
   %77 = load ptr, ptr @optarg, align 8
-  br i1 %.not29, label %78, label %80
+  br i1 %.not28, label %78, label %80
 
 78:                                               ; preds = %75
   %79 = call ptr @pg_strdup(ptr noundef %77) #12
@@ -419,9 +419,8 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
 
 129:                                              ; preds = %127, %125
   %130 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
-  %131 = and i8 %130, 1
-  %.not27 = icmp eq i8 %131, 0
-  br i1 %.not27, label %133, label %132
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %133
 
 132:                                              ; preds = %129
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.35) #12
@@ -435,8 +434,8 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
   %138 = zext i1 %137 to i8
   store i8 %138, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 7), align 8
   %139 = call ptr @getenv(ptr noundef nonnull @.str.36) #12
-  %.not28 = icmp eq ptr %139, null
-  br i1 %.not28, label %143, label %140
+  %.not27 = icmp eq ptr %139, null
+  br i1 %.not27, label %143, label %140
 
 140:                                              ; preds = %133
   %141 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.37, ptr noundef nonnull %139) #12
@@ -485,19 +484,19 @@ check_required_directory.exit:                    ; preds = %148, %153
   br i1 %158, label %161, label %159
 
 159:                                              ; preds = %check_required_directory.exit
-  %char0.i31 = load i8, ptr %157, align 1
-  %160 = icmp eq i8 %char0.i31, 0
+  %char0.i30 = load i8, ptr %157, align 1
+  %160 = icmp eq i8 %char0.i30, 0
   br i1 %160, label %161, label %166
 
 161:                                              ; preds = %159, %check_required_directory.exit
   %162 = call ptr @getenv(ptr noundef nonnull @.str.41) #12
-  %.not.i32 = icmp eq ptr %162, null
-  br i1 %.not.i32, label %check_required_directory.exit35, label %163
+  %.not.i31 = icmp eq ptr %162, null
+  br i1 %.not.i31, label %check_required_directory.exit34, label %163
 
 163:                                              ; preds = %161
-  %char013.i33 = load i8, ptr %162, align 1
-  %.not14.i34 = icmp eq i8 %char013.i33, 0
-  br i1 %.not14.i34, label %check_required_directory.exit35, label %164
+  %char013.i32 = load i8, ptr %162, align 1
+  %.not14.i33 = icmp eq i8 %char013.i32, 0
+  br i1 %.not14.i33, label %check_required_directory.exit34, label %164
 
 164:                                              ; preds = %163
   %165 = call ptr @pg_strdup(ptr noundef nonnull %162) #12
@@ -507,69 +506,69 @@ check_required_directory.exit:                    ; preds = %148, %153
 166:                                              ; preds = %164, %159
   %167 = phi ptr [ %157, %159 ], [ %165, %164 ]
   call void @canonicalize_path(ptr noundef %167) #12
-  br label %check_required_directory.exit35
+  br label %check_required_directory.exit34
 
-check_required_directory.exit35:                  ; preds = %161, %163, %166
+check_required_directory.exit34:                  ; preds = %161, %163, %166
   %168 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %172, label %170
 
-170:                                              ; preds = %check_required_directory.exit35
-  %char0.i36 = load i8, ptr %168, align 1
-  %171 = icmp eq i8 %char0.i36, 0
-  br i1 %171, label %172, label %check_required_directory.exit40
+170:                                              ; preds = %check_required_directory.exit34
+  %char0.i35 = load i8, ptr %168, align 1
+  %171 = icmp eq i8 %char0.i35, 0
+  br i1 %171, label %172, label %check_required_directory.exit39
 
-172:                                              ; preds = %170, %check_required_directory.exit35
+172:                                              ; preds = %170, %check_required_directory.exit34
   %173 = call ptr @getenv(ptr noundef nonnull @.str.44) #12
-  %.not.i37 = icmp eq ptr %173, null
-  br i1 %.not.i37, label %177, label %174
+  %.not.i36 = icmp eq ptr %173, null
+  br i1 %.not.i36, label %177, label %174
 
 174:                                              ; preds = %172
-  %char013.i38 = load i8, ptr %173, align 1
-  %.not14.i39 = icmp eq i8 %char013.i38, 0
-  br i1 %.not14.i39, label %177, label %175
+  %char013.i37 = load i8, ptr %173, align 1
+  %.not14.i38 = icmp eq i8 %char013.i37, 0
+  br i1 %.not14.i38, label %177, label %175
 
 175:                                              ; preds = %174
   %176 = call ptr @pg_strdup(ptr noundef nonnull %173) #12
   store ptr %176, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 3), align 8
-  br label %check_required_directory.exit40
+  br label %check_required_directory.exit39
 
 177:                                              ; preds = %174, %172
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.44) #14
   unreachable
 
-check_required_directory.exit40:                  ; preds = %170, %175
+check_required_directory.exit39:                  ; preds = %170, %175
   %178 = phi ptr [ %168, %170 ], [ %176, %175 ]
   call void @canonicalize_path(ptr noundef %178) #12
   %179 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 3), align 8
   %180 = icmp eq ptr %179, null
   br i1 %180, label %183, label %181
 
-181:                                              ; preds = %check_required_directory.exit40
-  %char0.i41 = load i8, ptr %179, align 1
-  %182 = icmp eq i8 %char0.i41, 0
-  br i1 %182, label %183, label %check_required_directory.exit45
+181:                                              ; preds = %check_required_directory.exit39
+  %char0.i40 = load i8, ptr %179, align 1
+  %182 = icmp eq i8 %char0.i40, 0
+  br i1 %182, label %183, label %check_required_directory.exit44
 
-183:                                              ; preds = %181, %check_required_directory.exit40
+183:                                              ; preds = %181, %check_required_directory.exit39
   %184 = call ptr @getenv(ptr noundef nonnull @.str.47) #12
-  %.not.i42 = icmp eq ptr %184, null
-  br i1 %.not.i42, label %188, label %185
+  %.not.i41 = icmp eq ptr %184, null
+  br i1 %.not.i41, label %188, label %185
 
 185:                                              ; preds = %183
-  %char013.i43 = load i8, ptr %184, align 1
-  %.not14.i44 = icmp eq i8 %char013.i43, 0
-  br i1 %.not14.i44, label %188, label %186
+  %char013.i42 = load i8, ptr %184, align 1
+  %.not14.i43 = icmp eq i8 %char013.i42, 0
+  br i1 %.not14.i43, label %188, label %186
 
 186:                                              ; preds = %185
   %187 = call ptr @pg_strdup(ptr noundef nonnull %184) #12
   store ptr %187, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 3), align 8
-  br label %check_required_directory.exit45
+  br label %check_required_directory.exit44
 
 188:                                              ; preds = %185, %183
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.47) #14
   unreachable
 
-check_required_directory.exit45:                  ; preds = %181, %186
+check_required_directory.exit44:                  ; preds = %181, %186
   %189 = phi ptr [ %179, %181 ], [ %187, %186 ]
   call void @canonicalize_path(ptr noundef %189) #12
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
@@ -577,20 +576,20 @@ check_required_directory.exit45:                  ; preds = %181, %186
   %191 = icmp eq ptr %190, null
   br i1 %191, label %194, label %192
 
-192:                                              ; preds = %check_required_directory.exit45
-  %char0.i46 = load i8, ptr %190, align 1
-  %193 = icmp eq i8 %char0.i46, 0
-  br i1 %193, label %194, label %check_required_directory.exit50
+192:                                              ; preds = %check_required_directory.exit44
+  %char0.i45 = load i8, ptr %190, align 1
+  %193 = icmp eq i8 %char0.i45, 0
+  br i1 %193, label %194, label %check_required_directory.exit49
 
-194:                                              ; preds = %192, %check_required_directory.exit45
+194:                                              ; preds = %192, %check_required_directory.exit44
   %195 = call ptr @getenv(ptr noundef nonnull @.str.50) #12
-  %.not.i47 = icmp eq ptr %195, null
-  br i1 %.not.i47, label %197, label %196
+  %.not.i46 = icmp eq ptr %195, null
+  br i1 %.not.i46, label %197, label %196
 
 196:                                              ; preds = %194
-  %char013.i48 = load i8, ptr %195, align 1
-  %.not14.i49 = icmp eq i8 %char013.i48, 0
-  br i1 %.not14.i49, label %197, label %.sink.split.i
+  %char013.i47 = load i8, ptr %195, align 1
+  %.not14.i48 = icmp eq i8 %char013.i47, 0
+  br i1 %.not14.i48, label %197, label %.sink.split.i
 
 197:                                              ; preds = %196, %194
   %198 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 1024) #12
@@ -605,9 +604,9 @@ check_required_directory.exit45:                  ; preds = %181, %186
   %.sink = phi ptr [ %195, %196 ], [ %3, %197 ]
   %200 = call ptr @pg_strdup(ptr noundef nonnull %.sink) #12
   store ptr %200, ptr getelementptr inbounds (%struct.UserOpts, ptr @user_opts, i64 0, i32 4), align 8
-  br label %check_required_directory.exit50
+  br label %check_required_directory.exit49
 
-check_required_directory.exit50:                  ; preds = %192, %.sink.split.i
+check_required_directory.exit49:                  ; preds = %192, %.sink.split.i
   %201 = phi ptr [ %190, %192 ], [ %200, %.sink.split.i ]
   call void @canonicalize_path(ptr noundef %201) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)

@@ -832,9 +832,8 @@ define linkonce_odr dso_local noundef double @_ZNSt19normal_distributionIdEclIN1
 entry:
   %_M_saved_available = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_saved_available, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.body.preheader, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
   %state_.i.i.i.i = getelementptr inbounds i8, ptr %__urng, i64 8
@@ -843,7 +842,7 @@ do.body.preheader:                                ; preds = %entry
 if.then:                                          ; preds = %entry
   store i8 0, ptr %_M_saved_available, align 8
   %_M_saved = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load double, ptr %_M_saved, align 8
+  %1 = load double, ptr %_M_saved, align 8
   br label %if.end
 
 do.body:                                          ; preds = %do.body.preheader, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit44
@@ -854,26 +853,26 @@ do.body:                                          ; preds = %do.body.preheader, 
   %sub8.i.i = add i64 %conv5.i.i, 52
   %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
-  %3 = load i64, ptr %__urng, align 8
+  %2 = load i64, ptr %__urng, align 8
   %state_.i.i.promoted.i.i = load i64, ptr %state_.i.i.i.i, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %do.body
   %__k.015.i.i = phi i64 [ %spec.select.i.i, %do.body ], [ %dec.i.i, %for.body.i.i ]
   %__tmp.014.i.i = phi double [ 1.000000e+00, %do.body ], [ %conv16.i.i, %for.body.i.i ]
-  %__sum.013.i.i = phi double [ 0.000000e+00, %do.body ], [ %6, %for.body.i.i ]
+  %__sum.013.i.i = phi double [ 0.000000e+00, %do.body ], [ %5, %for.body.i.i ]
   %add.i.i.i1112.i.i = phi i64 [ %state_.i.i.promoted.i.i, %do.body ], [ %add.i.i.i.i.i, %for.body.i.i ]
   %mul.i.i.i.i.i = mul i64 %add.i.i.i1112.i.i, 6364136223846793005
-  %add.i.i.i.i.i = add i64 %mul.i.i.i.i.i, %3
+  %add.i.i.i.i.i = add i64 %mul.i.i.i.i.i, %2
   %shr.i.i.i.i = lshr i64 %add.i.i.i1112.i.i, 59
   %conv5.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
-  %4 = lshr i64 %add.i.i.i1112.i.i, 45
-  %5 = lshr i64 %add.i.i.i1112.i.i, 27
-  %shr7.i.i.i.i = xor i64 %4, %5
+  %3 = lshr i64 %add.i.i.i1112.i.i, 45
+  %4 = lshr i64 %add.i.i.i1112.i.i, 27
+  %shr7.i.i.i.i = xor i64 %3, %4
   %conv8.i.i.i.i = trunc i64 %shr7.i.i.i.i to i32
   %or.i.i.i.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv8.i.i.i.i, i32 %conv8.i.i.i.i, i32 %conv5.i.i.i.i)
   %conv14.i.i = uitofp i32 %or.i.i.i.i.i to double
-  %6 = tail call double @llvm.fmuladd.f64(double %conv14.i.i, double %__tmp.014.i.i, double %__sum.013.i.i)
+  %5 = tail call double @llvm.fmuladd.f64(double %conv14.i.i, double %__tmp.014.i.i, double %__sum.013.i.i)
   %conv15.i.i = fpext double %__tmp.014.i.i to x86_fp80
   %mul.i.i = fmul x86_fp80 %conv15.i.i, 0xK401F8000000000000000
   %conv16.i.i = fptrunc x86_fp80 %mul.i.i to double
@@ -883,7 +882,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %do.b
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   store i64 %add.i.i.i.i.i, ptr %state_.i.i.i.i, align 8
-  %div17.i.i = fdiv double %6, %conv16.i.i
+  %div17.i.i = fdiv double %5, %conv16.i.i
   %cmp18.i.i = fcmp ult double %div17.i.i, 1.000000e+00
   br i1 %cmp18.i.i, label %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit, label %if.then.i.i
 
@@ -900,26 +899,26 @@ _ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15
   %sub8.i.i15 = add i64 %conv5.i.i14, 52
   %div9.i.i16 = udiv i64 %sub8.i.i15, %conv5.i.i14
   %spec.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %div9.i.i16, i64 1)
-  %7 = load i64, ptr %__urng, align 8
+  %6 = load i64, ptr %__urng, align 8
   %state_.i.i.promoted.i.i19 = load i64, ptr %state_.i.i.i.i, align 8
   br label %for.body.i.i20
 
 for.body.i.i20:                                   ; preds = %for.body.i.i20, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit
   %__k.015.i.i21 = phi i64 [ %spec.select.i.i17, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %dec.i.i36, %for.body.i.i20 ]
   %__tmp.014.i.i22 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %conv16.i.i35, %for.body.i.i20 ]
-  %__sum.013.i.i23 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %10, %for.body.i.i20 ]
+  %__sum.013.i.i23 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %9, %for.body.i.i20 ]
   %add.i.i.i1112.i.i24 = phi i64 [ %state_.i.i.promoted.i.i19, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %add.i.i.i.i.i26, %for.body.i.i20 ]
   %mul.i.i.i.i.i25 = mul i64 %add.i.i.i1112.i.i24, 6364136223846793005
-  %add.i.i.i.i.i26 = add i64 %mul.i.i.i.i.i25, %7
+  %add.i.i.i.i.i26 = add i64 %mul.i.i.i.i.i25, %6
   %shr.i.i.i.i27 = lshr i64 %add.i.i.i1112.i.i24, 59
   %conv5.i.i.i.i28 = trunc i64 %shr.i.i.i.i27 to i32
-  %8 = lshr i64 %add.i.i.i1112.i.i24, 45
-  %9 = lshr i64 %add.i.i.i1112.i.i24, 27
-  %shr7.i.i.i.i29 = xor i64 %8, %9
+  %7 = lshr i64 %add.i.i.i1112.i.i24, 45
+  %8 = lshr i64 %add.i.i.i1112.i.i24, 27
+  %shr7.i.i.i.i29 = xor i64 %7, %8
   %conv8.i.i.i.i30 = trunc i64 %shr7.i.i.i.i29 to i32
   %or.i.i.i.i.i31 = tail call noundef i32 @llvm.fshr.i32(i32 %conv8.i.i.i.i30, i32 %conv8.i.i.i.i30, i32 %conv5.i.i.i.i28)
   %conv14.i.i32 = uitofp i32 %or.i.i.i.i.i31 to double
-  %10 = tail call double @llvm.fmuladd.f64(double %conv14.i.i32, double %__tmp.014.i.i22, double %__sum.013.i.i23)
+  %9 = tail call double @llvm.fmuladd.f64(double %conv14.i.i32, double %__tmp.014.i.i22, double %__sum.013.i.i23)
   %conv15.i.i33 = fpext double %__tmp.014.i.i22 to x86_fp80
   %mul.i.i34 = fmul x86_fp80 %conv15.i.i33, 0xK401F8000000000000000
   %conv16.i.i35 = fptrunc x86_fp80 %mul.i.i34 to double
@@ -928,9 +927,9 @@ for.body.i.i20:                                   ; preds = %for.body.i.i20, %_Z
   br i1 %cmp.not.i.i37, label %for.end.i.i38, label %for.body.i.i20, !llvm.loop !14
 
 for.end.i.i38:                                    ; preds = %for.body.i.i20
-  %11 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i, double 2.000000e+00, double -1.000000e+00)
+  %10 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i, double 2.000000e+00, double -1.000000e+00)
   store i64 %add.i.i.i.i.i26, ptr %state_.i.i.i.i, align 8
-  %div17.i.i39 = fdiv double %10, %conv16.i.i35
+  %div17.i.i39 = fdiv double %9, %conv16.i.i35
   %cmp18.i.i40 = fcmp ult double %div17.i.i39, 1.000000e+00
   br i1 %cmp18.i.i40, label %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit44, label %if.then.i.i41
 
@@ -940,33 +939,33 @@ if.then.i.i41:                                    ; preds = %for.end.i.i38
 
 _ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit44: ; preds = %for.end.i.i38, %if.then.i.i41
   %__ret.0.i.i43 = phi double [ %call20.i.i42, %if.then.i.i41 ], [ %div17.i.i39, %for.end.i.i38 ]
-  %12 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i43, double 2.000000e+00, double -1.000000e+00)
-  %mul4 = fmul double %12, %12
-  %13 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %mul4)
-  %cmp = fcmp ogt double %13, 1.000000e+00
-  %cmp5 = fcmp oeq double %13, 0.000000e+00
-  %14 = or i1 %cmp, %cmp5
-  br i1 %14, label %do.body, label %do.end, !llvm.loop !15
+  %11 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i43, double 2.000000e+00, double -1.000000e+00)
+  %mul4 = fmul double %11, %11
+  %12 = tail call double @llvm.fmuladd.f64(double %10, double %10, double %mul4)
+  %cmp = fcmp ogt double %12, 1.000000e+00
+  %cmp5 = fcmp oeq double %12, 0.000000e+00
+  %13 = or i1 %cmp, %cmp5
+  br i1 %13, label %do.body, label %do.end, !llvm.loop !15
 
 do.end:                                           ; preds = %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit44
-  %call6 = tail call double @log(double noundef %13) #15
+  %call6 = tail call double @log(double noundef %12) #15
   %mul = fmul double %call6, -2.000000e+00
-  %div = fdiv double %mul, %13
+  %div = fdiv double %mul, %12
   %call7 = tail call double @sqrt(double noundef %div) #15
-  %mul8 = fmul double %11, %call7
+  %mul8 = fmul double %10, %call7
   %_M_saved9 = getelementptr inbounds i8, ptr %this, i64 16
   store double %mul8, ptr %_M_saved9, align 8
   store i8 1, ptr %_M_saved_available, align 8
-  %mul11 = fmul double %12, %call7
+  %mul11 = fmul double %11, %call7
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %if.then
-  %__ret.0 = phi double [ %2, %if.then ], [ %mul11, %do.end ]
+  %__ret.0 = phi double [ %1, %if.then ], [ %mul11, %do.end ]
   %_M_stddev.i = getelementptr inbounds i8, ptr %__param, i64 8
-  %15 = load double, ptr %_M_stddev.i, align 8
-  %16 = load double, ptr %__param, align 8
-  %17 = tail call double @llvm.fmuladd.f64(double %__ret.0, double %15, double %16)
-  ret double %17
+  %14 = load double, ptr %_M_stddev.i, align 8
+  %15 = load double, ptr %__param, align 8
+  %16 = tail call double @llvm.fmuladd.f64(double %__ret.0, double %14, double %15)
+  ret double %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

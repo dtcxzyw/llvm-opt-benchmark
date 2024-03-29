@@ -736,29 +736,29 @@ tailrecurse.i:                                    ; preds = %77, %75
   unreachable
 
 .split.i:                                         ; preds = %52, %65
-  %.lcssa101.sink = phi ptr [ %67, %65 ], [ %54, %52 ]
-  store ptr %.lcssa101.sink, ptr @Ap, align 8
-  %82 = load i32, ptr %.lcssa101.sink, align 4
+  %.lcssa100.sink = phi ptr [ %67, %65 ], [ %54, %52 ]
+  store ptr %.lcssa100.sink, ptr @Ap, align 8
+  %82 = load i32, ptr %.lcssa100.sink, align 4
   %83 = load ptr, ptr %13, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 68
   store i32 %82, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %.lcssa101.sink, i64 80
+  %85 = getelementptr inbounds i8, ptr %.lcssa100.sink, i64 80
   %86 = load i16, ptr %85, align 4
   %87 = load ptr, ptr %13, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 72
   store i16 %86, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %.lcssa101.sink, i64 82
+  %89 = getelementptr inbounds i8, ptr %.lcssa100.sink, i64 82
   %90 = load i8, ptr %89, align 2
-  %91 = and i8 %90, 1
-  %92 = load ptr, ptr %13, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 86
-  store i8 %91, ptr %93, align 2
-  %94 = getelementptr inbounds i8, ptr %.lcssa101.sink, i64 132
+  %91 = load ptr, ptr %13, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 86
+  %93 = and i8 %90, 1
+  store i8 %93, ptr %92, align 2
+  %94 = getelementptr inbounds i8, ptr %.lcssa100.sink, i64 132
   %95 = load i8, ptr %94, align 4
   %96 = load ptr, ptr %13, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 87
   store i8 %95, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %.lcssa101.sink, i64 133
+  %98 = getelementptr inbounds i8, ptr %.lcssa100.sink, i64 133
   %99 = load i8, ptr %98, align 1
   %100 = load ptr, ptr %13, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 88
@@ -766,12 +766,12 @@ tailrecurse.i:                                    ; preds = %77, %75
   %102 = load ptr, ptr %13, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 89
   store i8 0, ptr %103, align 1
-  %104 = getelementptr inbounds i8, ptr %.lcssa101.sink, i64 148
+  %104 = getelementptr inbounds i8, ptr %.lcssa100.sink, i64 148
   %105 = load i32, ptr %104, align 4
   %106 = load ptr, ptr %13, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 100
   store i32 %105, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %.lcssa101.sink, i64 96
+  %108 = getelementptr inbounds i8, ptr %.lcssa100.sink, i64 96
   %109 = load i32, ptr %108, align 4
   %.not73 = icmp eq i32 %109, 0
   br i1 %.not73, label %115, label %110
@@ -804,10 +804,10 @@ tailrecurse.i:                                    ; preds = %77, %75
   store i16 %125, ptr %127, align 4
   %128 = getelementptr inbounds i8, ptr %119, i64 74
   %129 = load i8, ptr %128, align 2
-  %130 = and i8 %129, 1
-  %131 = load ptr, ptr %13, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 86
-  store i8 %130, ptr %132, align 2
+  %130 = load ptr, ptr %13, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 86
+  %132 = and i8 %129, 1
+  store i8 %132, ptr %131, align 2
   %133 = getelementptr inbounds i8, ptr %119, i64 75
   %134 = load i8, ptr %133, align 1
   %135 = load ptr, ptr %13, align 8
@@ -854,11 +854,11 @@ tailrecurse.i:                                    ; preds = %77, %75
 
 159:                                              ; preds = %154
   store i32 950, ptr %157, align 4
-  %.pre94 = load ptr, ptr %13, align 8
+  %.pre93 = load ptr, ptr %13, align 8
   br label %160
 
 160:                                              ; preds = %159, %154
-  %161 = phi ptr [ %.pre94, %159 ], [ %156, %154 ]
+  %161 = phi ptr [ %.pre93, %159 ], [ %156, %154 ]
   %162 = getelementptr inbounds i8, ptr %161, i64 76
   store i32 -1, ptr %162, align 4
   %163 = load ptr, ptr %13, align 8
@@ -884,14 +884,14 @@ tailrecurse.i:                                    ; preds = %77, %75
 
 .preheader:                                       ; preds = %169
   %173 = icmp sgt i32 %2, 0
-  br i1 %173, label %.lr.ph83.preheader, label %._crit_edge
+  br i1 %173, label %.lr.ph82.preheader, label %._crit_edge
 
-.lr.ph83.preheader:                               ; preds = %.preheader
+.lr.ph82.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %.lr.ph83
+  br label %.lr.ph82
 
-.lr.ph83:                                         ; preds = %.lr.ph83.preheader, %183
-  %indvars.iv = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next, %183 ]
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %183
+  %indvars.iv = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next, %183 ]
   %174 = getelementptr [40 x ptr], ptr @attrtypes, i64 0, i64 %indvars.iv
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 72
@@ -899,19 +899,18 @@ tailrecurse.i:                                    ; preds = %77, %75
   %178 = icmp slt i16 %177, 1
   br i1 %178, label %._crit_edge.loopexit, label %179
 
-179:                                              ; preds = %.lr.ph83
+179:                                              ; preds = %.lr.ph82
   %180 = getelementptr inbounds i8, ptr %175, i64 90
   %181 = load i8, ptr %180, align 2
-  %182 = and i8 %181, 1
-  %.not75 = icmp eq i8 %182, 0
-  br i1 %.not75, label %._crit_edge.loopexit, label %183
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %183, label %._crit_edge.loopexit
 
 183:                                              ; preds = %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph83, !llvm.loop !11
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph82, !llvm.loop !11
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph83, %179
+._crit_edge.loopexit:                             ; preds = %.lr.ph82, %179
   %184 = trunc i64 %indvars.iv to i32
   br label %._crit_edge
 
@@ -921,9 +920,9 @@ tailrecurse.i:                                    ; preds = %77, %75
   br i1 %185, label %.sink.split, label %187
 
 .sink.split:                                      ; preds = %183, %._crit_edge, %160, %168
-  %.sink106 = phi i8 [ 0, %168 ], [ 1, %160 ], [ 1, %._crit_edge ], [ 1, %183 ]
+  %.sink105 = phi i8 [ 0, %168 ], [ 1, %160 ], [ 1, %._crit_edge ], [ 1, %183 ]
   %186 = getelementptr inbounds i8, ptr %167, i64 90
-  store i8 %.sink106, ptr %186, align 2
+  store i8 %.sink105, ptr %186, align 2
   br label %187
 
 187:                                              ; preds = %.sink.split, %._crit_edge, %169
@@ -1171,9 +1170,8 @@ define dso_local void @InsertOneNull(i32 noundef %0) local_unnamed_addr #6 {
   %10 = sext i32 %0 to i64
   %11 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %10, i32 12
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %25, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %5
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13

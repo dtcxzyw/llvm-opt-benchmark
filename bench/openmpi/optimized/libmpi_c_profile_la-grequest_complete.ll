@@ -21,9 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @PMPI_Grequest_complete(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %15, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %15
 
 4:                                                ; preds = %1
   %5 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -43,13 +42,13 @@ define noundef i32 @PMPI_Grequest_complete(ptr noundef %0) #0 {
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8
-  %.not14 = icmp eq i32 %14, 2
-  br i1 %.not14, label %15, label %.sink.split
+  %.not = icmp eq i32 %14, 2
+  br i1 %.not, label %15, label %.sink.split
 
 15:                                               ; preds = %12, %1
   %16 = tail call i32 @ompi_grequest_complete(ptr noundef %0) #2
-  %.not16 = icmp eq i32 %16, 0
-  br i1 %.not16, label %18, label %.sink.split
+  %.not15 = icmp eq i32 %16, 0
+  br i1 %.not15, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %15, %12, %9
   %.sink = phi i32 [ 7, %9 ], [ 7, %12 ], [ 17, %15 ]

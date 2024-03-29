@@ -151,9 +151,8 @@ define dso_local void @ExecIndexOnlyMarkPos(ptr nocapture noundef readonly %0) l
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 %14
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not12 = icmp eq i8 %27, 0
-  br i1 %.not12, label %28, label %34
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %34, label %28
 
 28:                                               ; preds = %22
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -217,9 +216,8 @@ define dso_local void @ExecIndexOnlyRestrPos(ptr nocapture noundef readonly %0) 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 %14
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not12 = icmp eq i8 %27, 0
-  br i1 %.not12, label %28, label %34
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %34, label %28
 
 28:                                               ; preds = %22
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -352,9 +350,8 @@ define internal ptr @ExecIndexOnlyScan(ptr noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 276
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not5 = icmp eq i8 %7, 0
-  br i1 %.not5, label %8, label %9
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4
   tail call void @ExecReScan(ptr noundef nonnull %0) #6
@@ -459,9 +456,8 @@ define dso_local void @ExecIndexOnlyScanInitializeDSM(ptr nocapture noundef %0, 
 35:                                               ; preds = %2
   %36 = getelementptr inbounds i8, ptr %0, i64 276
   %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %47, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %47
 
 39:                                               ; preds = %35, %2
   %40 = load ptr, ptr %29, align 8
@@ -527,9 +523,8 @@ define dso_local void @ExecIndexOnlyScanInitializeWorker(ptr nocapture noundef %
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 276
   %27 = load i8, ptr %26, align 4
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %37, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %37
 
 29:                                               ; preds = %25, %2
   %30 = load ptr, ptr %20, align 8
@@ -600,9 +595,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 36:                                               ; preds = %19
   %37 = getelementptr inbounds i8, ptr %0, i64 276
   %38 = load i8, ptr %37, align 4
-  %39 = and i8 %38, 1
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %47, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %36, %19
   %41 = getelementptr inbounds i8, ptr %0, i64 232
@@ -617,8 +611,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 47:                                               ; preds = %36, %40, %1
   %.057 = phi ptr [ %30, %40 ], [ %30, %36 ], [ %13, %1 ]
   %48 = tail call ptr @index_getnext_tid(ptr noundef nonnull %.057, i32 noundef %11) #6
-  %.not6492 = icmp eq ptr %48, null
-  br i1 %.not6492, label %._crit_edge, label %.lr.ph
+  %.not88 = icmp eq ptr %48, null
+  br i1 %.not88, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47
   %49 = getelementptr inbounds i8, ptr %0, i64 312
@@ -640,8 +634,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 63:                                               ; preds = %.lr.ph, %.backedge
   %64 = phi ptr [ %48, %.lr.ph ], [ %131, %.backedge ]
   %65 = load volatile i32, ptr @InterruptPending, align 4
-  %.not65 = icmp eq i32 %65, 0
-  br i1 %.not65, label %67, label %66
+  %.not64 = icmp eq i32 %65, 0
+  br i1 %.not64, label %67, label %66
 
 66:                                               ; preds = %63
   call void @ProcessInterrupts() #6
@@ -651,20 +645,20 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
   %68 = load ptr, ptr %.057, align 8
   %.val = load i16, ptr %64, align 2
   %69 = getelementptr i8, ptr %64, i64 2
-  %.val74 = load i16, ptr %69, align 2
+  %.val70 = load i16, ptr %69, align 2
   %70 = zext i16 %.val to i32
   %71 = shl nuw i32 %70, 16
-  %72 = zext i16 %.val74 to i32
+  %72 = zext i16 %.val70 to i32
   %73 = or disjoint i32 %71, %72
   %74 = call zeroext i8 @visibilitymap_get_status(ptr noundef %68, i32 noundef %73, ptr noundef nonnull %49) #6
   %75 = and i8 %74, 1
-  %.not66 = icmp eq i8 %75, 0
-  br i1 %.not66, label %76, label %96
+  %.not65 = icmp eq i8 %75, 0
+  br i1 %.not65, label %76, label %96
 
 76:                                               ; preds = %67
   %77 = load ptr, ptr %50, align 8
-  %.not67 = icmp eq ptr %77, null
-  br i1 %.not67, label %82, label %78
+  %.not66 = icmp eq ptr %77, null
+  br i1 %.not66, label %82, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %77, i64 216
@@ -686,9 +680,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef %86) #6
   %91 = load i8, ptr %52, align 2
-  %92 = and i8 %91, 1
-  %.not68 = icmp eq i8 %92, 0
-  br i1 %.not68, label %96, label %93
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %96
 
 93:                                               ; preds = %85
   %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -699,8 +692,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 
 96:                                               ; preds = %85, %67
   %97 = load ptr, ptr %53, align 8
-  %.not69 = icmp eq ptr %97, null
-  br i1 %.not69, label %99, label %98
+  %.not67 = icmp eq ptr %97, null
+  br i1 %.not67, label %99, label %98
 
 98:                                               ; preds = %96
   call void @ExecForceStoreHeapTuple(ptr noundef nonnull %97, ptr noundef %17, i1 noundef zeroext false) #6
@@ -708,8 +701,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %54, align 8
-  %.not70 = icmp eq ptr %100, null
-  br i1 %.not70, label %109, label %101
+  %.not68 = icmp eq ptr %100, null
+  br i1 %.not68, label %109, label %101
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %55, align 8
@@ -732,9 +725,8 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 
 112:                                              ; preds = %101, %98
   %113 = load i8, ptr %59, align 8
-  %114 = and i8 %113, 1
-  %.not71 = icmp eq i8 %114, 0
-  br i1 %.not71, label %.loopexit, label %115
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %.loopexit
 
 115:                                              ; preds = %112
   store ptr %17, ptr %60, align 8
@@ -757,16 +749,16 @@ ExecQualAndReset.exit:                            ; preds = %115
   %122 = load ptr, ptr %121, align 8
   %123 = call i64 %122(ptr noundef nonnull %116, ptr noundef nonnull %15, ptr noundef nonnull %2) #6
   store ptr %120, ptr @CurrentMemoryContext, align 8
-  %.not78 = icmp eq i64 %123, 0
+  %.not74 = icmp eq i64 %123, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %124 = load ptr, ptr %62, align 8
   call void @MemoryContextReset(ptr noundef %124) #6
-  br i1 %.not78, label %125, label %.loopexit
+  br i1 %.not74, label %125, label %.loopexit
 
 125:                                              ; preds = %ExecQualAndReset.exit
   %126 = load ptr, ptr %50, align 8
-  %.not72 = icmp eq ptr %126, null
-  br i1 %.not72, label %.backedge, label %127
+  %.not69 = icmp eq ptr %126, null
+  br i1 %.not69, label %.backedge, label %127
 
 127:                                              ; preds = %125
   %128 = getelementptr inbounds i8, ptr %126, i64 240
@@ -777,8 +769,8 @@ ExecQualAndReset.exit:                            ; preds = %115
 
 .backedge:                                        ; preds = %127, %125, %82
   %131 = call ptr @index_getnext_tid(ptr noundef nonnull %.057, i32 noundef %11) #6
-  %.not64 = icmp eq ptr %131, null
-  br i1 %.not64, label %._crit_edge, label %63, !llvm.loop !5
+  %.not = icmp eq ptr %131, null
+  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !5
 
 .loopexit:                                        ; preds = %ExecQualAndReset.exit, %112, %ExecQualAndReset.exit.thread
   %132 = getelementptr i8, ptr %64, i64 2
@@ -790,9 +782,8 @@ ExecQualAndReset.exit:                            ; preds = %115
 136:                                              ; preds = %.loopexit
   %137 = getelementptr inbounds i8, ptr %.057, i64 136
   %138 = load i8, ptr %137, align 8
-  %139 = and i8 %138, 1
-  %.not73 = icmp eq i8 %139, 0
-  br i1 %.not73, label %144, label %140
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %140, label %144
 
 140:                                              ; preds = %136
   %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -803,15 +794,15 @@ ExecQualAndReset.exit:                            ; preds = %115
   unreachable
 
 144:                                              ; preds = %136, %.loopexit
-  br i1 %.not66, label %157, label %145
+  br i1 %.not65, label %157, label %145
 
 145:                                              ; preds = %144
   %146 = load ptr, ptr %.057, align 8
-  %.val75 = load i16, ptr %64, align 2
-  %.val76 = load i16, ptr %132, align 2
-  %147 = zext i16 %.val75 to i32
+  %.val71 = load i16, ptr %64, align 2
+  %.val72 = load i16, ptr %132, align 2
+  %147 = zext i16 %.val71 to i32
   %148 = shl nuw i32 %147, 16
-  %149 = zext i16 %.val76 to i32
+  %149 = zext i16 %.val72 to i32
   %150 = or disjoint i32 %148, %149
   %151 = getelementptr inbounds i8, ptr %4, i64 8
   %152 = load ptr, ptr %151, align 8

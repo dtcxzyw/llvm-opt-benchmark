@@ -293,17 +293,20 @@ define weak_odr hidden void @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EE21W
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #15
   %valueStorage_.i = getelementptr inbounds i8, ptr %cell, i64 48
   tail call void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224) %mb, ptr noundef nonnull @.str, ptr noundef nonnull %valueStorage_.i) #15
@@ -315,9 +318,8 @@ define hidden void @_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEP
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.then.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
@@ -506,17 +508,20 @@ define weak_odr hidden void @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21W
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #15
   %valueStorage_.i = getelementptr inbounds i8, ptr %cell, i64 48
   tail call void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224) %mb, ptr noundef nonnull @.str, ptr noundef nonnull %valueStorage_.i) #15
@@ -850,9 +855,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %hasFreeableSlots_ = getelementptr inbounds i8, ptr %0, i64 60
   %2 = load i8, ptr %hasFreeableSlots_, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void @_ZN6hermes2vm17JSWeakMapImplBase22findAndDeleteFreeSlotsERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(61) %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
@@ -864,14 +868,14 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %.pre-phi = phi ptr [ %.pre76, %if.then ], [ %0, %land.lhs.true ], [ %0, %entry ]
   %freeListHead_5 = getelementptr inbounds i8, ptr %.pre-phi, i64 52
-  %4 = load i32, ptr %freeListHead_5, align 4
-  %cmp6 = icmp eq i32 %4, -1
+  %3 = load i32, ptr %freeListHead_5, align 4
+  %cmp6 = icmp eq i32 %3, -1
   br i1 %cmp6, label %if.then7, label %if.end17
 
 if.then7:                                         ; preds = %if.end
   %nextIndex_ = getelementptr inbounds i8, ptr %.pre-phi, i64 56
-  %5 = load i32, ptr %nextIndex_, align 8
-  %cmp11 = icmp eq i32 %5, -1
+  %4 = load i32, ptr %nextIndex_, align 8
+  %cmp11 = icmp eq i32 %4, -1
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.then7
@@ -882,97 +886,97 @@ if.then12:                                        ; preds = %if.then7
   %rightSize_.i5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %rightSize_.i5.i, align 8
   store ptr @.str.3, ptr %ref.tmp, align 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i32 3, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 3, ptr %5, align 8
   %call13 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #15
-  %7 = zext i32 %call13 to i64
+  %6 = zext i32 %call13 to i64
   br label %return
 
 if.end17:                                         ; preds = %if.end, %if.then7
-  %i.0 = phi i32 [ %5, %if.then7 ], [ %4, %if.end ]
+  %i.0 = phi i32 [ %4, %if.then7 ], [ %3, %if.end ]
   %valueStorage_ = getelementptr inbounds i8, ptr %.pre-phi, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %valueStorage_, align 4, !noalias !8
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
-  %8 = ptrtoint ptr %runtime to i64
+  %7 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
-  %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %8
-  %9 = or i64 %add.i.i.i.i.i.i, -281474976710656
-  %or.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, i64 -281474976710656, i64 %9
+  %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %7
+  %8 = or i64 %add.i.i.i.i.i.i, -281474976710656
+  %or.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, i64 -281474976710656, i64 %8
   %topGCScope_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
-  %10 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8, !noalias !8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 192
-  %11 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8, !noalias !8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 200
-  %12 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8, !noalias !8
-  %cmp.i.i.i.i.i.i.i = icmp ult ptr %11, %12
+  %9 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8, !noalias !8
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 192
+  %10 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8, !noalias !8
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 200
+  %11 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8, !noalias !8
+  %cmp.i.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end17
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8, !noalias !8
-  store i64 %or.i.i.i.i.i.i, ptr %11, align 8, !noalias !8
+  store i64 %or.i.i.i.i.i.i, ptr %10, align 8, !noalias !8
   br label %_ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end17
-  %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %10, i64 %or.i.i.i.i.i.i) #15, !noalias !8
+  %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %9, i64 %or.i.i.i.i.i.i) #15, !noalias !8
   %agg.tmp.sroa.0.0.copyload.i.i26.pre = load i64, ptr %call7.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit
 
 _ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i26 = phi i64 [ %or.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i26.pre, %if.end.i.i.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %storageHandle, align 8, !alias.scope !8
   %and.i.i.i.i.i27 = and i64 %agg.tmp.sroa.0.0.copyload.i.i26, 281474976710655
-  %13 = inttoptr i64 %and.i.i.i.i.i27 to ptr
-  %numSlotsUsed_.i = getelementptr inbounds i8, ptr %13, i64 4
-  %14 = load atomic i32, ptr %numSlotsUsed_.i monotonic, align 4
-  %cmp.i = icmp ult i32 %14, 4097
+  %12 = inttoptr i64 %and.i.i.i.i.i27 to ptr
+  %numSlotsUsed_.i = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = load atomic i32, ptr %numSlotsUsed_.i monotonic, align 4
+  %cmp.i = icmp ult i32 %13, 4097
   br i1 %cmp.i, label %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit
-  %sub2.i = add i32 %14, -4097
+  %sub2.i = add i32 %13, -4097
   %mul.i = shl i32 %sub2.i, 10
   %add.i = add i32 %mul.i, 4096
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 32776
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 32776
   %idx.ext.i.i.i = zext i32 %sub2.i to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i.i.i
-  %15 = load i64, ptr %add.ptr.i.i.i, align 8
-  %and.i.i.i.i.i28 = and i64 %15, 281474976710655
-  %16 = inttoptr i64 %and.i.i.i.i.i28 to ptr
-  %length_.i.i = getelementptr inbounds i8, ptr %16, i64 4
-  %17 = load atomic i32, ptr %length_.i.i monotonic, align 4
-  %add6.i = add i32 %add.i, %17
+  %14 = load i64, ptr %add.ptr.i.i.i, align 8
+  %and.i.i.i.i.i28 = and i64 %14, 281474976710655
+  %15 = inttoptr i64 %and.i.i.i.i.i28 to ptr
+  %length_.i.i = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = load atomic i32, ptr %length_.i.i monotonic, align 4
+  %add6.i = add i32 %add.i, %16
   br label %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit
 
 _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit: ; preds = %_ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit, %if.else.i
-  %retval.0.i = phi i32 [ %add6.i, %if.else.i ], [ %14, %_ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit ]
+  %retval.0.i = phi i32 [ %add6.i, %if.else.i ], [ %13, %_ZN6hermes2vm7Runtime17makeMutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_13MutableHandleIT_EERKNS0_9GCPointerIS7_EE.exit ]
   %cmp21.not = icmp ult i32 %i.0, %retval.0.i
   br i1 %cmp21.not, label %if.end36, label %if.then22
 
 if.then22:                                        ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit
   %add = add nuw i32 %i.0, 1
-  %18 = load atomic i32, ptr %numSlotsUsed_.i monotonic, align 4
-  %cmp.i32 = icmp ult i32 %18, 4097
+  %17 = load atomic i32, ptr %numSlotsUsed_.i monotonic, align 4
+  %cmp.i32 = icmp ult i32 %17, 4097
   br i1 %cmp.i32, label %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44, label %if.else.i33
 
 if.else.i33:                                      ; preds = %if.then22
-  %sub2.i34 = add i32 %18, -4097
+  %sub2.i34 = add i32 %17, -4097
   %mul.i35 = shl i32 %sub2.i34, 10
   %add.i36 = add i32 %mul.i35, 4096
-  %add.ptr.i.i.i.i37 = getelementptr inbounds i8, ptr %13, i64 32776
+  %add.ptr.i.i.i.i37 = getelementptr inbounds i8, ptr %12, i64 32776
   %idx.ext.i.i.i38 = zext i32 %sub2.i34 to i64
   %add.ptr.i.i.i39 = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i37, i64 %idx.ext.i.i.i38
-  %19 = load i64, ptr %add.ptr.i.i.i39, align 8
-  %and.i.i.i.i.i40 = and i64 %19, 281474976710655
-  %20 = inttoptr i64 %and.i.i.i.i.i40 to ptr
-  %length_.i.i41 = getelementptr inbounds i8, ptr %20, i64 4
-  %21 = load atomic i32, ptr %length_.i.i41 monotonic, align 4
-  %add6.i42 = add i32 %add.i36, %21
+  %18 = load i64, ptr %add.ptr.i.i.i39, align 8
+  %and.i.i.i.i.i40 = and i64 %18, 281474976710655
+  %19 = inttoptr i64 %and.i.i.i.i.i40 to ptr
+  %length_.i.i41 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = load atomic i32, ptr %length_.i.i41 monotonic, align 4
+  %add6.i42 = add i32 %add.i36, %20
   br label %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44
 
 _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44: ; preds = %if.then22, %if.else.i33
-  %retval.0.i43 = phi i32 [ %add6.i42, %if.else.i33 ], [ %18, %if.then22 ]
+  %retval.0.i43 = phi i32 [ %add6.i42, %if.else.i33 ], [ %17, %if.then22 ]
   %mul = shl i32 %retval.0.i43, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %add, i32 %mul)
   %call28 = call noundef i32 @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE6resizeERNS0_13MutableHandleIS3_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %storageHandle, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %.sroa.speculated) #15
@@ -982,27 +986,27 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.
 if.end31:                                         ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44
   %agg.tmp.sroa.0.0.copyload.i.i46 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i47 = and i64 %agg.tmp.sroa.0.0.copyload.i.i46, 281474976710655
-  %22 = inttoptr i64 %and.i.i.i.i.i47 to ptr
-  %valueStorage_33 = getelementptr inbounds i8, ptr %22, i64 48
-  %23 = load ptr, ptr %storageHandle, align 8
-  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %23, align 8
+  %21 = inttoptr i64 %and.i.i.i.i.i47 to ptr
+  %valueStorage_33 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = load ptr, ptr %storageHandle, align 8
+  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %22, align 8
   %youngGen_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %24 = load ptr, ptr %youngGen_.i.i.i.i, align 8
-  %25 = ptrtoint ptr %valueStorage_33 to i64
-  %and.i.i.i.i.i49 = and i64 %25, 562949949227008
-  %26 = inttoptr i64 %and.i.i.i.i.i49 to ptr
-  %cmp.i.i.i.i = icmp eq ptr %24, %26
+  %23 = load ptr, ptr %youngGen_.i.i.i.i, align 8
+  %24 = ptrtoint ptr %valueStorage_33 to i64
+  %and.i.i.i.i.i49 = and i64 %24, 562949949227008
+  %25 = inttoptr i64 %and.i.i.i.i.i49 to ptr
+  %cmp.i.i.i.i = icmp eq ptr %23, %25
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm9GCPointerINS0_18SegmentedArrayBaseINS0_11HermesValueEEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end31
   %and.i.i.i.i.i48 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  %27 = inttoptr i64 %and.i.i.i.i.i48 to ptr
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %valueStorage_33, ptr noundef %27) #15
+  %26 = inttoptr i64 %and.i.i.i.i.i48 to ptr
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %valueStorage_33, ptr noundef %26) #15
   br label %_ZN6hermes2vm9GCPointerINS0_18SegmentedArrayBaseINS0_11HermesValueEEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_18SegmentedArrayBaseINS0_11HermesValueEEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit: ; preds = %if.end31, %if.then.i.i.i
-  %sub.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %8
+  %sub.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %7
   %conv.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i to i32
   store i32 %conv.i.i.i.i.i, ptr %valueStorage_33, align 4
   br label %if.end36
@@ -1013,23 +1017,23 @@ if.end36:                                         ; preds = %_ZN6hermes2vm9GCPoi
 if.then38:                                        ; preds = %if.end36
   %agg.tmp.sroa.0.0.copyload.i.i50 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i51 = and i64 %agg.tmp.sroa.0.0.copyload.i.i50, 281474976710655
-  %28 = inttoptr i64 %and.i.i.i.i.i51 to ptr
-  %nextIndex_40 = getelementptr inbounds i8, ptr %28, i64 56
-  %29 = load i32, ptr %nextIndex_40, align 8
-  %inc = add i32 %29, 1
+  %27 = inttoptr i64 %and.i.i.i.i.i51 to ptr
+  %nextIndex_40 = getelementptr inbounds i8, ptr %27, i64 56
+  %28 = load i32, ptr %nextIndex_40, align 8
+  %inc = add i32 %28, 1
   store i32 %inc, ptr %nextIndex_40, align 8
   br label %return
 
 if.else41:                                        ; preds = %if.end36
-  %30 = load ptr, ptr %storageHandle, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i52 = load i64, ptr %30, align 8
+  %29 = load ptr, ptr %storageHandle, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i52 = load i64, ptr %29, align 8
   %and.i.i.i.i.i53 = and i64 %agg.tmp.sroa.0.0.copyload.i.i52, 281474976710655
-  %31 = inttoptr i64 %and.i.i.i.i.i53 to ptr
+  %30 = inttoptr i64 %and.i.i.i.i.i53 to ptr
   %cmp.i54 = icmp ult i32 %i.0, 4096
   br i1 %cmp.i54, label %if.then.i, label %if.else.i55
 
 if.then.i:                                        ; preds = %if.else41
-  %add.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %31, i64 8
+  %add.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %30, i64 8
   %idxprom.i = zext nneg i32 %i.0 to i64
   %arrayidx.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i59, i64 %idxprom.i
   br label %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit
@@ -1037,14 +1041,14 @@ if.then.i:                                        ; preds = %if.else41
 if.else.i55:                                      ; preds = %if.else41
   %sub.i.i = add i32 %i.0, -4096
   %div1.i.i = lshr i32 %sub.i.i, 10
-  %add.ptr.i.i.i5.i = getelementptr inbounds i8, ptr %31, i64 32776
+  %add.ptr.i.i.i5.i = getelementptr inbounds i8, ptr %30, i64 32776
   %idx.ext.i.i.i56 = zext nneg i32 %div1.i.i to i64
   %add.ptr.i.i.i57 = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i, i64 %idx.ext.i.i.i56
-  %32 = load i64, ptr %add.ptr.i.i.i57, align 8
-  %and.i.i.i.i.i58 = and i64 %32, 281474976710655
-  %33 = inttoptr i64 %and.i.i.i.i.i58 to ptr
+  %31 = load i64, ptr %add.ptr.i.i.i57, align 8
+  %and.i.i.i.i.i58 = and i64 %31, 281474976710655
+  %32 = inttoptr i64 %and.i.i.i.i.i58 to ptr
   %rem.i.i = and i32 %i.0, 1023
-  %data_.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %data_.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i, i64 0, i64 %idxprom.i.i
   br label %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit
@@ -1055,13 +1059,13 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RN
   %conv.i = trunc i64 %retval.sroa.0.0.i to i32
   %agg.tmp.sroa.0.0.copyload.i.i60 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i61 = and i64 %agg.tmp.sroa.0.0.copyload.i.i60, 281474976710655
-  %34 = inttoptr i64 %and.i.i.i.i.i61 to ptr
-  %freeListHead_48 = getelementptr inbounds i8, ptr %34, i64 52
+  %33 = inttoptr i64 %and.i.i.i.i.i61 to ptr
+  %freeListHead_48 = getelementptr inbounds i8, ptr %33, i64 52
   store i32 %conv.i, ptr %freeListHead_48, align 4
   br label %return
 
 return:                                           ; preds = %if.then38, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44, %if.then12
-  %retval.sroa.0.0 = phi i64 [ %7, %if.then12 ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44 ], [ 1, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ 1, %if.then38 ]
+  %retval.sroa.0.0 = phi i64 [ %6, %if.then12 ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44 ], [ 1, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ 1, %if.then38 ]
   %retval.sroa.4.0 = phi i32 [ undef, %if.then12 ], [ undef, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit44 ], [ %i.0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ %i.0, %if.then38 ]
   %retval.sroa.4.0.insert.ext = zext i32 %retval.sroa.4.0 to i64
   %retval.sroa.4.0.insert.shift = shl nuw i64 %retval.sroa.4.0.insert.ext, 32
@@ -1174,12 +1178,12 @@ if.end:                                           ; preds = %if.then12.i.i, %ent
   br label %return
 
 return:                                           ; preds = %if.end13.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i, %if.end13.us.i.i, %if.end.i.i, %if.end
-  %.sink33 = phi i32 [ %13, %if.end ], [ %1, %if.end.i.i ], [ %1, %if.end13.us.i.i ], [ %1, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %1, %if.end13.i.i ]
-  %.sink32 = phi ptr [ %12, %if.end ], [ %0, %if.end.i.i ], [ %0, %if.end13.us.i.i ], [ %0, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %0, %if.end13.i.i ]
+  %.sink34 = phi i32 [ %13, %if.end ], [ %1, %if.end.i.i ], [ %1, %if.end13.us.i.i ], [ %1, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %1, %if.end13.i.i ]
+  %.sink33 = phi ptr [ %12, %if.end ], [ %0, %if.end.i.i ], [ %0, %if.end13.us.i.i ], [ %0, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %0, %if.end13.i.i ]
   %call.i.sink = phi ptr [ %call.i, %if.end ], [ %add.ptr47.i.i, %if.end.i.i ], [ %add.ptr.us.i.i, %if.end13.us.i.i ], [ %add.ptr.i.i, %if.end13.i.i ], [ %add.ptr52.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ]
   %.sink = phi i8 [ 1, %if.end ], [ 0, %if.end.i.i ], [ 0, %if.end13.us.i.i ], [ 0, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ 0, %if.end13.i.i ]
-  %idx.ext.i4 = zext i32 %.sink33 to i64
-  %add.ptr.i5 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %.sink32, i64 %idx.ext.i4
+  %idx.ext.i4 = zext i32 %.sink34 to i64
+  %add.ptr.i5 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %.sink33, i64 %idx.ext.i4
   store ptr %call.i.sink, ptr %agg.result, align 8
   %ref.tmp6.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i5, ptr %ref.tmp6.sroa.2.0.agg.result.sroa_idx, align 8
@@ -1343,9 +1347,8 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
 land.rhs.i.i.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
   %ogMarkingBarriers_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %19 = load i8, ptr %ogMarkingBarriers_.i.i.i.i, align 1
-  %20 = and i8 %19, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit, label %if.then.i.i2.i.i
+  %tobool.i.i.i.i = trunc i8 %19 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i2.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
 
 if.then.i.i2.i.i:                                 ; preds = %land.rhs.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %retval.0.i.i.i.i, align 8
@@ -1356,15 +1359,15 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   %conv.i.i = zext i32 %13 to i64
   %or.i.i.i = or disjoint i64 %conv.i.i, -1125899906842624
   store i64 %or.i.i.i, ptr %retval.0.i.i.i.i, align 8
-  %21 = load i32, ptr %second.i, align 8
-  store i32 %21, ptr %freeListHead_.i, align 4
+  %20 = load i32, ptr %second.i, align 8
+  store i32 %20, ptr %freeListHead_.i, align 4
   store ptr inttoptr (i64 1 to ptr), ptr %cond.sink.i.i.ph.pn.i, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.ph.pn.i, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i.i, align 8
   %NumEntries.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %22 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i, align 8
-  %23 = add <2 x i32> %22, <i32 -1, i32 1>
-  store <2 x i32> %23, ptr %NumEntries.i.i.i.i.i, align 8
+  %21 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i, align 8
+  %22 = add <2 x i32> %21, <i32 -1, i32 1>
+  store <2 x i32> %22, ptr %NumEntries.i.i.i.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E4findERKS5_.exit, %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
@@ -1423,9 +1426,8 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
 land.rhs.i.i.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %9 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i.i.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit, label %if.then.i.i2.i
+  %tobool.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit
 
 if.then.i.i2.i:                                   ; preds = %land.rhs.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i.i, align 8
@@ -1436,15 +1438,15 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EE
   %conv.i = zext i32 %3 to i64
   %or.i.i = or disjoint i64 %conv.i, -1125899906842624
   store i64 %or.i.i, ptr %retval.0.i.i.i, align 8
-  %11 = load i32, ptr %second, align 8
-  store i32 %11, ptr %freeListHead_, align 4
+  %10 = load i32, ptr %second, align 8
+  store i32 %10, ptr %freeListHead_, align 4
   store ptr inttoptr (i64 1 to ptr), ptr %it.coerce0, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %it.coerce0, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %13 = add <2 x i32> %12, <i32 -1, i32 1>
-  store <2 x i32> %13, ptr %NumEntries.i.i.i.i, align 8
+  %11 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
+  %12 = add <2 x i32> %11, <i32 -1, i32 1>
+  store <2 x i32> %12, ptr %NumEntries.i.i.i.i, align 8
   ret void
 }
 
@@ -1965,9 +1967,8 @@ define hidden noundef i32 @_ZN6hermes2vm17JSWeakMapImplBase24debugFreeSlotsAndGe
 entry:
   %hasFreeableSlots_ = getelementptr inbounds i8, ptr %self, i64 60
   %0 = load i8, ptr %hasFreeableSlots_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN6hermes2vm17JSWeakMapImplBase22findAndDeleteFreeSlotsERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(61) %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
@@ -1975,8 +1976,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %NumEntries.i.i.i = getelementptr inbounds i8, ptr %self, i64 32
-  %2 = load i32, ptr %NumEntries.i.i.i, align 8
-  ret i32 %2
+  %1 = load i32, ptr %NumEntries.i.i.i, align 8
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2082,9 +2083,8 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
 
 land.rhs.i.i.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
   %15 = load i8, ptr %ogMarkingBarriers_.i.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit, label %if.then.i.i2.i.i
+  %tobool.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i2.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
 
 if.then.i.i2.i.i:                                 ; preds = %land.rhs.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %retval.0.i.i.i.i, align 8
@@ -2095,14 +2095,14 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   %conv.i.i = zext i32 %9 to i64
   %or.i.i.i = or disjoint i64 %conv.i.i, -1125899906842624
   store i64 %or.i.i.i, ptr %retval.0.i.i.i.i, align 8
-  %17 = load i32, ptr %second.i, align 8
-  store i32 %17, ptr %freeListHead_.i, align 4
+  %16 = load i32, ptr %second.i, align 8
+  store i32 %16, ptr %freeListHead_.i, align 4
   store ptr inttoptr (i64 1 to ptr), ptr %it.sroa.0.09, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %18 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %19 = add <2 x i32> %18, <i32 -1, i32 1>
-  store <2 x i32> %19, ptr %NumEntries.i.i.i.i, align 8
+  %17 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
+  %18 = add <2 x i32> %17, <i32 -1, i32 1>
+  store <2 x i32> %18, ptr %NumEntries.i.i.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
@@ -2112,8 +2112,8 @@ for.inc:                                          ; preds = %for.body, %_ZN6herm
 
 land.rhs.i4.i:                                    ; preds = %for.inc, %while.body.i6.i
   %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i6.i ], [ %incdec.ptr3.i, %for.inc ]
-  %20 = load ptr, ptr %it.sroa.0.1, align 8
-  %switch.i5.i = icmp ult ptr %20, inttoptr (i64 2 to ptr)
+  %19 = load ptr, ptr %it.sroa.0.1, align 8
+  %switch.i5.i = icmp ult ptr %19, inttoptr (i64 2 to ptr)
   br i1 %switch.i5.i, label %while.body.i6.i, label %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10WeakRefKeyEjNS3_11WeakRefInfoENS_6detail12DenseMapPairIS4_jEELb0EEppEv.exit
 
 while.body.i6.i:                                  ; preds = %land.rhs.i4.i
@@ -2123,10 +2123,10 @@ while.body.i6.i:                                  ; preds = %land.rhs.i4.i
 
 _ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10WeakRefKeyEjNS3_11WeakRefInfoENS_6detail12DenseMapPairIS4_jEELb0EEppEv.exit: ; preds = %land.rhs.i4.i, %while.body.i6.i, %for.inc
   %it.sroa.0.2 = phi ptr [ %add.ptr.i.i.i, %for.inc ], [ %it.sroa.0.1, %land.rhs.i4.i ], [ %add.ptr.i.i.i, %while.body.i6.i ]
-  %21 = load ptr, ptr %map_, align 8
-  %22 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
-  %idx.ext.i.i = zext i32 %22 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %21, i64 %idx.ext.i.i
+  %20 = load ptr, ptr %map_, align 8
+  %21 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
+  %idx.ext.i.i = zext i32 %21 to i64
+  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %20, i64 %idx.ext.i.i
   %cmp.i.i2.not = icmp eq ptr %it.sroa.0.2, %add.ptr.i.i
   br i1 %cmp.i.i2.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -2260,9 +2260,8 @@ define hidden void @_ZN6hermes2vm18JSWeakMapBuildMetaEPKNS0_6GCCellERNS0_8Metada
 entry:
   %hasValue_.i.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not.i = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i
 
 _ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i: ; preds = %entry
   %jsObjectOverlapSlots_.i.i = getelementptr inbounds i8, ptr %mb, i64 208
@@ -2284,9 +2283,8 @@ define hidden void @_ZN6hermes2vm18JSWeakSetBuildMetaEPKNS0_6GCCellERNS0_8Metada
 entry:
   %hasValue_.i.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not.i = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i
 
 _ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i: ; preds = %entry
   %jsObjectOverlapSlots_.i.i = getelementptr inbounds i8, ptr %mb, i64 208

@@ -156,14 +156,13 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN7Iex_3_29MathExcOnD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %_saved = getelementptr inbounds i8, ptr %this, i64 4
-  %2 = load i32, ptr %_saved, align 4
-  invoke void @_ZN7Iex_3_215setFpExceptionsEi(i32 noundef %2)
+  %1 = load i32, ptr %_saved, align 4
+  invoke void @_ZN7Iex_3_215setFpExceptionsEi(i32 noundef %1)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then
@@ -174,10 +173,10 @@ if.end:                                           ; preds = %.noexc, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %.noexc, %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #8
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #8
   unreachable
 }
 

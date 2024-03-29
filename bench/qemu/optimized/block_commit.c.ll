@@ -264,9 +264,8 @@ fail:                                             ; preds = %fail.sink.split, %i
   %commit_top_bs.0 = phi ptr [ null, %if.then30 ], [ null, %if.end36 ], [ %call37, %if.end84 ], [ %call37, %if.end90 ], [ %call37, %if.end99 ], [ null, %if.end44 ], [ %call37, %fail.sink.split ]
   %chain_frozen118 = getelementptr inbounds i8, ptr %call24, i64 565
   %9 = load i8, ptr %chain_frozen118, align 1
-  %10 = and i8 %9, 1
-  %tobool119.not = icmp eq i8 %10, 0
-  br i1 %tobool119.not, label %if.end121, label %if.then120
+  %tobool119 = trunc i8 %9 to i1
+  br i1 %tobool119, label %if.then120, label %if.end121
 
 if.then120:                                       ; preds = %fail
   tail call void @bdrv_graph_rdlock_main_loop() #6
@@ -276,29 +275,28 @@ if.then120:                                       ; preds = %fail
 
 if.end121:                                        ; preds = %if.then120, %fail
   %base122 = getelementptr inbounds i8, ptr %call24, i64 536
-  %11 = load ptr, ptr %base122, align 8
-  %tobool123.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %base122, align 8
+  %tobool123.not = icmp eq ptr %10, null
   br i1 %tobool123.not, label %if.end126, label %if.then124
 
 if.then124:                                       ; preds = %if.end121
-  tail call void @blk_unref(ptr noundef nonnull %11) #6
+  tail call void @blk_unref(ptr noundef nonnull %10) #6
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %if.end121
   %top127 = getelementptr inbounds i8, ptr %call24, i64 528
-  %12 = load ptr, ptr %top127, align 8
-  %tobool128.not = icmp eq ptr %12, null
+  %11 = load ptr, ptr %top127, align 8
+  %tobool128.not = icmp eq ptr %11, null
   br i1 %tobool128.not, label %if.end131, label %if.then129
 
 if.then129:                                       ; preds = %if.end126
-  tail call void @blk_unref(ptr noundef nonnull %12) #6
+  tail call void @blk_unref(ptr noundef nonnull %11) #6
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then129, %if.end126
-  %13 = load i8, ptr %base_read_only, align 4
-  %14 = and i8 %13, 1
-  %tobool133.not = icmp eq i8 %14, 0
-  br i1 %tobool133.not, label %if.end136, label %if.then134
+  %12 = load i8, ptr %base_read_only, align 4
+  %tobool133 = trunc i8 %12 to i1
+  br i1 %tobool133, label %if.then134, label %if.end136
 
 if.then134:                                       ; preds = %if.end131
   %call135 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %base, i1 noundef zeroext true, ptr noundef null) #6
@@ -388,17 +386,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #6
   %call10.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %s) #6
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %s) #6
   br label %_nocheck__trace_commit_start.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -734,16 +731,15 @@ land.lhs.true5.i.i:                               ; preds = %if.end25
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %11 = load i8, ptr @message_with_timestamp, align 1
-  %12 = and i8 %11, 1
-  %tobool7.not.i.i = icmp eq i8 %12, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %11 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = call i32 @qemu_get_thread_id() #6
-  %13 = load i64, ptr %_now.i.i, align 8
-  %14 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %job, i64 noundef %offset.048, i64 noundef %7, i32 noundef %call27) #6
+  %12 = load i64, ptr %_now.i.i, align 8
+  %13 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %job, i64 noundef %offset.048, i64 noundef %7, i32 noundef %call27) #6
   br label %trace_commit_one_iteration.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -755,8 +751,8 @@ trace_commit_one_iteration.exit:                  ; preds = %if.end25, %land.lhs
   br i1 %cmp28, label %if.then31, label %if.end48.thread43
 
 if.then31:                                        ; preds = %trace_commit_one_iteration.exit
-  %15 = load i64, ptr %n, align 8
-  %cmp32.not = icmp eq i64 %15, -1
+  %14 = load i64, ptr %n, align 8
+  %cmp32.not = icmp eq i64 %14, -1
   br i1 %cmp32.not, label %if.else, label %if.end35
 
 if.else:                                          ; preds = %if.then31
@@ -764,15 +760,15 @@ if.else:                                          ; preds = %if.then31
   unreachable
 
 if.end35:                                         ; preds = %if.then31
-  %16 = load ptr, ptr %top, align 8
-  %call37 = call i32 @blk_co_pread(ptr noundef %16, i64 noundef %offset.048, i64 noundef %15, ptr noundef %call1754, i32 noundef 0) #6
+  %15 = load ptr, ptr %top, align 8
+  %call37 = call i32 @blk_co_pread(ptr noundef %15, i64 noundef %offset.048, i64 noundef %14, ptr noundef %call1754, i32 noundef 0) #6
   %cmp38 = icmp sgt i32 %call37, -1
   br i1 %cmp38, label %if.end48, label %if.then51
 
 if.end48:                                         ; preds = %if.end35
-  %17 = load ptr, ptr %base, align 8
-  %18 = load i64, ptr %n, align 8
-  %call42 = call i32 @blk_co_pwrite(ptr noundef %17, i64 noundef %offset.048, i64 noundef %18, ptr noundef %call1754, i32 noundef 0) #6
+  %16 = load ptr, ptr %base, align 8
+  %17 = load i64, ptr %n, align 8
+  %call42 = call i32 @blk_co_pwrite(ptr noundef %16, i64 noundef %offset.048, i64 noundef %17, ptr noundef %call1754, i32 noundef 0) #6
   %cmp49 = icmp slt i32 %call42, 0
   br i1 %cmp49, label %if.then51, label %if.then64
 
@@ -781,16 +777,16 @@ if.end48.thread43:                                ; preds = %trace_commit_one_it
   br i1 %cmp4946, label %if.then51, label %if.end60.thread
 
 if.end60.thread:                                  ; preds = %if.end48.thread43
-  %19 = load i64, ptr %n, align 8
-  call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %19) #6
+  %18 = load i64, ptr %n, align 8
+  call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %18) #6
   br label %for.inc
 
 if.then51:                                        ; preds = %if.end35, %if.end48.thread43, %if.end48
   %error_in_source.042 = phi i32 [ 0, %if.end48 ], [ 1, %if.end48.thread43 ], [ 1, %if.end35 ]
   %ret.041 = phi i32 [ %call42, %if.end48 ], [ %call27, %if.end48.thread43 ], [ %call37, %if.end35 ]
-  %20 = load i32, ptr %on_error, align 8
+  %19 = load i32, ptr %on_error, align 8
   %sub = sub i32 0, %ret.041
-  %call55 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %20, i32 noundef %error_in_source.042, i32 noundef %sub) #6
+  %call55 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %19, i32 noundef %error_in_source.042, i32 noundef %sub) #6
   %cmp56 = icmp eq i32 %call55, 1
   br i1 %cmp56, label %cleanup, label %if.else59
 
@@ -799,15 +795,15 @@ if.else59:                                        ; preds = %if.then51
   br label %for.inc
 
 if.then64:                                        ; preds = %if.end48
+  %20 = load i64, ptr %n, align 8
+  call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %20) #6
   %21 = load i64, ptr %n, align 8
-  call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %21) #6
-  %22 = load i64, ptr %n, align 8
-  call void @block_job_ratelimit_processed_bytes(ptr noundef nonnull %job, i64 noundef %22) #6
+  call void @block_job_ratelimit_processed_bytes(ptr noundef nonnull %job, i64 noundef %21) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end60.thread, %if.then64, %if.else59
-  %23 = load i64, ptr %n, align 8
-  %add = add i64 %23, %offset.048
+  %22 = load i64, ptr %n, align 8
+  %add = add i64 %22, %offset.048
   %cmp18 = icmp slt i64 %add, %call
   br i1 %cmp18, label %for.body, label %cleanup, !llvm.loop !8
 
@@ -852,50 +848,49 @@ entry:
   %call = tail call ptr @blk_bs(ptr noundef %0) #6
   %chain_frozen = getelementptr inbounds i8, ptr %job, i64 565
   %1 = load i8, ptr %chain_frozen, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %commit_top_bs = getelementptr inbounds i8, ptr %job, i64 520
-  %3 = load ptr, ptr %commit_top_bs, align 8
+  %2 = load ptr, ptr %commit_top_bs, align 8
   %base_bs = getelementptr inbounds i8, ptr %job, i64 544
-  %4 = load ptr, ptr %base_bs, align 8
-  tail call void @bdrv_unfreeze_backing_chain(ptr noundef %3, ptr noundef %4) #6
+  %3 = load ptr, ptr %base_bs, align 8
+  tail call void @bdrv_unfreeze_backing_chain(ptr noundef %2, ptr noundef %3) #6
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @bdrv_ref(ptr noundef %call) #6
   %commit_top_bs1 = getelementptr inbounds i8, ptr %job, i64 520
-  %5 = load ptr, ptr %commit_top_bs1, align 8
-  tail call void @bdrv_ref(ptr noundef %5) #6
+  %4 = load ptr, ptr %commit_top_bs1, align 8
+  tail call void @bdrv_ref(ptr noundef %4) #6
   %base = getelementptr inbounds i8, ptr %job, i64 536
-  %6 = load ptr, ptr %base, align 8
-  %tobool2.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %base, align 8
+  %tobool2.not = icmp eq ptr %5, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @blk_unref(ptr noundef nonnull %6) #6
+  tail call void @blk_unref(ptr noundef nonnull %5) #6
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
   tail call void @block_job_remove_all_bdrv(ptr noundef nonnull %job) #6
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %7 = load ptr, ptr %commit_top_bs1, align 8
-  %backing = getelementptr inbounds i8, ptr %7, i64 16832
-  %8 = load ptr, ptr %backing, align 8
-  %9 = load ptr, ptr %8, align 8
+  %6 = load ptr, ptr %commit_top_bs1, align 8
+  %backing = getelementptr inbounds i8, ptr %6, i64 16832
+  %7 = load ptr, ptr %backing, align 8
+  %8 = load ptr, ptr %7, align 8
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  tail call void @bdrv_drained_begin(ptr noundef %9) #6
-  tail call void @bdrv_graph_wrlock(ptr noundef %9) #6
+  tail call void @bdrv_drained_begin(ptr noundef %8) #6
+  tail call void @bdrv_graph_wrlock(ptr noundef %8) #6
+  %9 = load ptr, ptr %commit_top_bs1, align 8
+  %call8 = tail call i32 @bdrv_replace_node(ptr noundef %9, ptr noundef %8, ptr noundef nonnull @error_abort) #6
+  tail call void @bdrv_graph_wrunlock(ptr noundef %8) #6
+  tail call void @bdrv_drained_end(ptr noundef %8) #6
   %10 = load ptr, ptr %commit_top_bs1, align 8
-  %call8 = tail call i32 @bdrv_replace_node(ptr noundef %10, ptr noundef %9, ptr noundef nonnull @error_abort) #6
-  tail call void @bdrv_graph_wrunlock(ptr noundef %9) #6
-  tail call void @bdrv_drained_end(ptr noundef %9) #6
-  %11 = load ptr, ptr %commit_top_bs1, align 8
-  tail call void @bdrv_unref(ptr noundef %11) #6
+  tail call void @bdrv_unref(ptr noundef %10) #6
   tail call void @bdrv_unref(ptr noundef %call) #6
   ret void
 }
@@ -905,23 +900,22 @@ define internal void @commit_clean(ptr nocapture noundef readonly %job) #0 {
 entry:
   %base_read_only = getelementptr inbounds i8, ptr %job, i64 564
   %0 = load i8, ptr %base_read_only, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %base_bs = getelementptr inbounds i8, ptr %job, i64 544
-  %2 = load ptr, ptr %base_bs, align 8
-  %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %2, i1 noundef zeroext true, ptr noundef null) #6
+  %1 = load ptr, ptr %base_bs, align 8
+  %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
-  %3 = load ptr, ptr %backing_file_str, align 8
-  tail call void @g_free(ptr noundef %3) #6
+  %2 = load ptr, ptr %backing_file_str, align 8
+  tail call void @g_free(ptr noundef %2) #6
   %top = getelementptr inbounds i8, ptr %job, i64 528
-  %4 = load ptr, ptr %top, align 8
-  tail call void @blk_unref(ptr noundef %4) #6
+  %3 = load ptr, ptr %top, align 8
+  tail call void @blk_unref(ptr noundef %3) #6
   ret void
 }
 

@@ -245,10 +245,10 @@ define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
   %2 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4, i32 2), align 8
   %3 = tail call i32 %2(i1 noundef zeroext %0) #7
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %18
+  br i1 %.not, label %4, label %17
 
 4:                                                ; preds = %1
-  br i1 %0, label %5, label %17
+  br i1 %0, label %5, label %16
 
 5:                                                ; preds = %4
   %6 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 0, i32 8), align 8
@@ -257,35 +257,34 @@ define internal i32 @mca_pml_v_enable(i1 noundef zeroext %0) #0 {
 
 7:                                                ; preds = %5
   %8 = load i8, ptr @ompi_mpi_thread_multiple, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %11 = tail call i32 @mca_vprotocol_base_select(i1 noundef zeroext false, i1 noundef zeroext %10) #7
+  %9 = trunc i8 %8 to i1
+  %10 = tail call i32 @mca_vprotocol_base_select(i1 noundef zeroext false, i1 noundef zeroext %9) #7
   %.pr = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_base_component_2_0_0_t, ptr @mca_vprotocol_component, i64 0, i32 0, i32 8), align 8
   %.not13 = icmp eq i32 %.pr, 0
-  br i1 %.not13, label %17, label %.thread
+  br i1 %.not13, label %16, label %.thread
 
 .thread:                                          ; preds = %5, %7
-  %12 = tail call i32 @mca_vprotocol_base_parasite() #7
-  %.not14 = icmp eq i32 %12, 0
-  br i1 %.not14, label %13, label %18
+  %11 = tail call i32 @mca_vprotocol_base_parasite() #7
+  %.not14 = icmp eq i32 %11, 0
+  br i1 %.not14, label %12, label %17
 
-13:                                               ; preds = %.thread
-  %14 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 2), align 8
-  %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %18, label %15
+12:                                               ; preds = %.thread
+  %13 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 2), align 8
+  %.not15 = icmp eq ptr %13, null
+  br i1 %.not15, label %17, label %14
 
-15:                                               ; preds = %13
-  %16 = tail call i32 %14(i1 noundef zeroext true) #7
-  br label %18
+14:                                               ; preds = %12
+  %15 = tail call i32 %13(i1 noundef zeroext true) #7
+  br label %17
 
-17:                                               ; preds = %7, %4
+16:                                               ; preds = %7, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 4), i64 192, i1 false)
   store ptr @mca_pml_v_enable, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 2), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @ompi_request_functions, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 5), i64 64, i1 false)
-  br label %18
+  br label %17
 
-18:                                               ; preds = %13, %.thread, %1, %17, %15
-  %.0 = phi i32 [ %16, %15 ], [ 0, %17 ], [ %3, %1 ], [ %12, %.thread ], [ 0, %13 ]
+17:                                               ; preds = %12, %.thread, %1, %16, %14
+  %.0 = phi i32 [ %15, %14 ], [ 0, %16 ], [ %3, %1 ], [ %11, %.thread ], [ 0, %12 ]
   ret i32 %.0
 }
 

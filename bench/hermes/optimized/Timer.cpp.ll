@@ -598,75 +598,74 @@ if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
   %Triggered.i = getelementptr inbounds i8, ptr %T, i64 129
   %3 = load i8, ptr %Triggered.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %Name = getelementptr inbounds i8, ptr %T, i64 64
   %Description = getelementptr inbounds i8, ptr %T, i64 96
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
-  %5 = load ptr, ptr %_M_finish.i, align 8
+  %4 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %5, %6
+  %5 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.then
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %T, i64 32, i1 false)
-  %Name3.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %T, i64 32, i1 false)
+  %Name3.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name) #21
-  %Description4.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 64
+  %Description4.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
-  %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 96
+  %6 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint, ptr %5, ptr noundef nonnull align 8 dereferenceable(32) %T, ptr noundef nonnull align 8 dereferenceable(32) %Name, ptr noundef nonnull align 8 dereferenceable(32) %Description)
+  tail call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %T, ptr noundef nonnull align 8 dereferenceable(32) %Name, ptr noundef nonnull align 8 dereferenceable(32) %Description)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i10, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %TG = getelementptr inbounds i8, ptr %T, i64 136
   store ptr null, ptr %TG, align 8
   %Next = getelementptr inbounds i8, ptr %T, i64 152
-  %8 = load ptr, ptr %Next, align 8
+  %7 = load ptr, ptr %Next, align 8
   %Prev = getelementptr inbounds i8, ptr %T, i64 144
-  %9 = load ptr, ptr %Prev, align 8
-  store ptr %8, ptr %9, align 8
-  %tobool.not = icmp eq ptr %8, null
+  %8 = load ptr, ptr %Prev, align 8
+  store ptr %7, ptr %8, align 8
+  %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %10 = load ptr, ptr %Prev, align 8
-  %Prev8 = getelementptr inbounds i8, ptr %8, i64 144
-  store ptr %10, ptr %Prev8, align 8
+  %9 = load ptr, ptr %Prev, align 8
+  %Prev8 = getelementptr inbounds i8, ptr %7, i64 144
+  store ptr %9, ptr %Prev8, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %if.end
   %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
-  %11 = load ptr, ptr %FirstTimer, align 8
-  %tobool10.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %FirstTimer, align 8
+  %tobool10.not = icmp eq ptr %10, null
   br i1 %tobool10.not, label %lor.lhs.false, label %cleanup
 
 lor.lhs.false:                                    ; preds = %if.end9
   %TimersToPrint11 = getelementptr inbounds i8, ptr %this, i64 72
-  %12 = load ptr, ptr %TimersToPrint11, align 8
+  %11 = load ptr, ptr %TimersToPrint11, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i = icmp eq ptr %12, %13
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i, label %cleanup, label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %lor.lhs.false
   call void @_ZN4llvh20CreateInfoOutputFileEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp)
-  %14 = load ptr, ptr %ref.tmp, align 8
-  tail call void @_ZN4llvh10TimerGroup17PrintQueuedTimersERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(36) %14)
-  %vtable.i.i13 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %ref.tmp, align 8
+  tail call void @_ZN4llvh10TimerGroup17PrintQueuedTimersERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(36) %13)
+  %vtable.i.i13 = load ptr, ptr %13, align 8
   %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
-  %15 = load ptr, ptr %vfn.i.i14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(36) %14) #21
+  %14 = load ptr, ptr %vfn.i.i14, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(36) %13) #21
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end9, %lor.lhs.false, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -679,8 +678,8 @@ if.then.i.i18:                                    ; preds = %cleanup
 
 if.else.i.i16:                                    ; preds = %cleanup
   %acquired.i.i17 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
-  %16 = load i32, ptr %acquired.i.i17, align 8
-  %dec.i.i = add i32 %16, -1
+  %15 = load i32, ptr %acquired.i.i17, align 8
+  %dec.i.i = add i32 %15, -1
   store i32 %dec.i.i, ptr %acquired.i.i17, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
@@ -704,9 +703,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not.i, label %_ZL11getMemUsagev.exit, label %if.end.i
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.end.i, label %_ZL11getMemUsagev.exit
 
 if.end.i:                                         ; preds = %if.then
   %call1.i = tail call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21
@@ -721,31 +719,30 @@ _ZL11getMemUsagev.exit:                           ; preds = %if.then, %if.end.i
 
 if.else:                                          ; preds = %entry
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now, ptr noundef nonnull align 8 dereferenceable(8) %user, ptr noundef nonnull align 8 dereferenceable(8) %sys) #21
-  %3 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8
-  %4 = and i8 %3, 1
-  %tobool.i.i.not.i1 = icmp eq i8 %4, 0
-  br i1 %tobool.i.i.not.i1, label %_ZL11getMemUsagev.exit5, label %if.end.i2
+  %2 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8
+  %tobool.i.i.i1 = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i1, label %if.end.i3, label %_ZL11getMemUsagev.exit5
 
-if.end.i2:                                        ; preds = %if.else
-  %call1.i3 = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21
+if.end.i3:                                        ; preds = %if.else
+  %call1.i4 = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21
   br label %_ZL11getMemUsagev.exit5
 
-_ZL11getMemUsagev.exit5:                          ; preds = %if.else, %if.end.i2
-  %retval.0.i4 = phi i64 [ %call1.i3, %if.end.i2 ], [ 0, %if.else ]
+_ZL11getMemUsagev.exit5:                          ; preds = %if.else, %if.end.i3
+  %retval.0.i2 = phi i64 [ %call1.i4, %if.end.i3 ], [ 0, %if.else ]
   %MemUsed2 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i64 %retval.0.i4, ptr %MemUsed2, align 8
+  store i64 %retval.0.i2, ptr %MemUsed2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZL11getMemUsagev.exit5, %_ZL11getMemUsagev.exit
   %retval.sroa.0.0.copyload.i = load i64, ptr %now, align 8
-  %5 = load i64, ptr %user, align 8
-  %6 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %5, i64 1
-  %8 = sitofp <2 x i64> %7 to <2 x double>
-  %9 = fdiv <2 x double> %8, <double 1.000000e+09, double 1.000000e+09>
-  store <2 x double> %9, ptr %agg.result, align 8
-  %10 = load i64, ptr %sys, align 8
-  %conv.i.i.i8 = sitofp i64 %10 to double
+  %3 = load i64, ptr %user, align 8
+  %4 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i, i64 0
+  %5 = insertelement <2 x i64> %4, i64 %3, i64 1
+  %6 = sitofp <2 x i64> %5 to <2 x double>
+  %7 = fdiv <2 x double> %6, <double 1.000000e+09, double 1.000000e+09>
+  store <2 x double> %7, ptr %agg.result, align 8
+  %8 = load i64, ptr %sys, align 8
+  %conv.i.i.i8 = sitofp i64 %8 to double
   %div.i.i.i9 = fdiv double %conv.i.i.i8, 1.000000e+09
   %SystemTime = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %div.i.i.i9, ptr %SystemTime, align 8
@@ -769,9 +766,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sys.i)
   store i64 0, ptr %now.i, align 8, !noalias !16
   %0 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !16
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4llvh10TimeRecord14getCurrentTimeEb.exit, label %if.end.i.i
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i, label %_ZN4llvh10TimeRecord14getCurrentTimeEb.exit
 
 if.end.i.i:                                       ; preds = %entry
   %call1.i.i = tail call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !16
@@ -781,19 +777,19 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %call1.i.i, %if.end.i.i ], [ 0, %entry ]
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now.i, ptr noundef nonnull align 8 dereferenceable(8) %user.i, ptr noundef nonnull align 8 dereferenceable(8) %sys.i) #21, !noalias !16
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %now.i, align 8, !noalias !16
-  %2 = load i64, ptr %user.i, align 8, !noalias !16
-  %3 = load i64, ptr %sys.i, align 8, !noalias !16
-  %conv.i.i.i8.i = sitofp i64 %3 to double
+  %1 = load i64, ptr %user.i, align 8, !noalias !16
+  %2 = load i64, ptr %sys.i, align 8, !noalias !16
+  %conv.i.i.i8.i = sitofp i64 %2 to double
   %div.i.i.i9.i = fdiv double %conv.i.i.i8.i, 1.000000e+09
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i)
   %StartTime = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i, i64 0
-  %5 = insertelement <2 x i64> %4, i64 %2, i64 1
-  %6 = sitofp <2 x i64> %5 to <2 x double>
-  %7 = fdiv <2 x double> %6, <double 1.000000e+09, double 1.000000e+09>
-  store <2 x double> %7, ptr %StartTime, align 8
+  %3 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i, i64 0
+  %4 = insertelement <2 x i64> %3, i64 %1, i64 1
+  %5 = sitofp <2 x i64> %4 to <2 x double>
+  %6 = fdiv <2 x double> %5, <double 1.000000e+09, double 1.000000e+09>
+  store <2 x double> %6, ptr %StartTime, align 8
   %ref.tmp.sroa.3.0.StartTime.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
   store double %div.i.i.i9.i, ptr %ref.tmp.sroa.3.0.StartTime.sroa_idx, align 8
   %ref.tmp.sroa.4.0.StartTime.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
@@ -815,47 +811,46 @@ entry:
   store i64 0, ptr %now.i, align 8, !noalias !19
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now.i, ptr noundef nonnull align 8 dereferenceable(8) %user.i, ptr noundef nonnull align 8 dereferenceable(8) %sys.i) #21, !noalias !19
   %0 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !19
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i1.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i1.i, label %_ZN4llvh10TimeRecord14getCurrentTimeEb.exit, label %if.end.i2.i
+  %tobool.i.i.i1.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i1.i, label %if.end.i3.i, label %_ZN4llvh10TimeRecord14getCurrentTimeEb.exit
 
-if.end.i2.i:                                      ; preds = %entry
-  %call1.i3.i = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !19
+if.end.i3.i:                                      ; preds = %entry
+  %call1.i4.i = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !19
   br label %_ZN4llvh10TimeRecord14getCurrentTimeEb.exit
 
-_ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i2.i
-  %retval.0.i4.i = phi i64 [ %call1.i3.i, %if.end.i2.i ], [ 0, %entry ]
+_ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i3.i
+  %retval.0.i2.i = phi i64 [ %call1.i4.i, %if.end.i3.i ], [ 0, %entry ]
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %now.i, align 8, !noalias !19
-  %2 = load i64, ptr %user.i, align 8, !noalias !19
-  %3 = load i64, ptr %sys.i, align 8, !noalias !19
-  %conv.i.i.i8.i = sitofp i64 %3 to double
+  %1 = load i64, ptr %user.i, align 8, !noalias !19
+  %2 = load i64, ptr %sys.i, align 8, !noalias !19
+  %conv.i.i.i8.i = sitofp i64 %2 to double
   %div.i.i.i9.i = fdiv double %conv.i.i.i8.i, 1.000000e+09
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i)
   %SystemTime5.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load double, ptr %SystemTime5.i, align 8
-  %add6.i = fadd double %div.i.i.i9.i, %4
+  %3 = load double, ptr %SystemTime5.i, align 8
+  %add6.i = fadd double %div.i.i.i9.i, %3
   %MemUsed7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load i64, ptr %MemUsed7.i, align 8
-  %add8.i = add nsw i64 %5, %retval.0.i4.i
+  %4 = load i64, ptr %MemUsed7.i, align 8
+  %add8.i = add nsw i64 %4, %retval.0.i2.i
   %StartTime = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %2, i64 1
-  %8 = sitofp <2 x i64> %7 to <2 x double>
-  %9 = fdiv <2 x double> %8, <double 1.000000e+09, double 1.000000e+09>
-  %10 = load <2 x double>, ptr %this, align 8
-  %11 = fadd <2 x double> %9, %10
-  %12 = load <2 x double>, ptr %StartTime, align 8
-  %13 = fsub <2 x double> %11, %12
-  store <2 x double> %13, ptr %this, align 8
+  %5 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i, i64 0
+  %6 = insertelement <2 x i64> %5, i64 %1, i64 1
+  %7 = sitofp <2 x i64> %6 to <2 x double>
+  %8 = fdiv <2 x double> %7, <double 1.000000e+09, double 1.000000e+09>
+  %9 = load <2 x double>, ptr %this, align 8
+  %10 = fadd <2 x double> %8, %9
+  %11 = load <2 x double>, ptr %StartTime, align 8
+  %12 = fsub <2 x double> %10, %11
+  store <2 x double> %12, ptr %this, align 8
   %SystemTime.i5 = getelementptr inbounds i8, ptr %this, i64 48
-  %14 = load double, ptr %SystemTime.i5, align 8
-  %sub6.i = fsub double %add6.i, %14
+  %13 = load double, ptr %SystemTime.i5, align 8
+  %sub6.i = fsub double %add6.i, %13
   store double %sub6.i, ptr %SystemTime5.i, align 8
   %MemUsed.i7 = getelementptr inbounds i8, ptr %this, i64 56
-  %15 = load i64, ptr %MemUsed.i7, align 8
-  %sub8.i = sub nsw i64 %add8.i, %15
+  %14 = load i64, ptr %MemUsed.i7, align 8
+  %sub8.i = sub nsw i64 %add8.i, %14
   store i64 %sub8.i, ptr %MemUsed7.i, align 8
   ret void
 }
@@ -1239,9 +1234,8 @@ if.then.i7:                                       ; preds = %if.then.i.i12.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sys.i.i.i)
   store i64 0, ptr %now.i.i.i, align 8, !noalias !37
   %13 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !37
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %_ZN4llvh5Timer10startTimerEv.exit.i, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4llvh5Timer10startTimerEv.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i7
   %call1.i.i.i.i = tail call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !37
@@ -1251,19 +1245,19 @@ _ZN4llvh5Timer10startTimerEv.exit.i:              ; preds = %if.end.i.i.i.i, %if
   %retval.0.i.i.i.i = phi i64 [ %call1.i.i.i.i, %if.end.i.i.i.i ], [ 0, %if.then.i7 ]
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %user.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sys.i.i.i) #21, !noalias !37
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %now.i.i.i, align 8, !noalias !37
-  %15 = load i64, ptr %user.i.i.i, align 8, !noalias !37
-  %16 = load i64, ptr %sys.i.i.i, align 8, !noalias !37
-  %conv.i.i.i8.i.i.i = sitofp i64 %16 to double
+  %14 = load i64, ptr %user.i.i.i, align 8, !noalias !37
+  %15 = load i64, ptr %sys.i.i.i, align 8, !noalias !37
+  %conv.i.i.i8.i.i.i = sitofp i64 %15 to double
   %div.i.i.i9.i.i.i = fdiv double %conv.i.i.i8.i.i.i, 1.000000e+09
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i.i.i)
   %StartTime.i.i = getelementptr inbounds i8, ptr %9, i64 40
-  %17 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i.i, i64 0
-  %18 = insertelement <2 x i64> %17, i64 %15, i64 1
-  %19 = sitofp <2 x i64> %18 to <2 x double>
-  %20 = fdiv <2 x double> %19, <double 1.000000e+09, double 1.000000e+09>
-  store <2 x double> %20, ptr %StartTime.i.i, align 8
+  %16 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i.i, i64 0
+  %17 = insertelement <2 x i64> %16, i64 %14, i64 1
+  %18 = sitofp <2 x i64> %17 to <2 x double>
+  %19 = fdiv <2 x double> %18, <double 1.000000e+09, double 1.000000e+09>
+  store <2 x double> %19, ptr %StartTime.i.i, align 8
   %ref.tmp.sroa.3.0.StartTime.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 56
   store double %div.i.i.i9.i.i.i, ptr %ref.tmp.sroa.3.0.StartTime.sroa_idx.i.i, align 8
   %ref.tmp.sroa.4.0.StartTime.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 64
@@ -2181,25 +2175,23 @@ entry:
   br i1 %tobool.not37, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 88
-  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i25 = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_end_of_storage.i26 = getelementptr inbounds i8, ptr %this, i64 88
+  %TimersToPrint.c = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %T.038 = phi ptr [ %T.036, %for.body.lr.ph ], [ %T.0, %for.inc ]
   %Triggered.i = getelementptr inbounds i8, ptr %T.038, i64 129
   %0 = load i8, ptr %Triggered.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %for.inc, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
   %Running.i = getelementptr inbounds i8, ptr %T.038, i64 128
-  %2 = load i8, ptr %Running.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i10.not = icmp eq i8 %3, 0
-  br i1 %tobool.i10.not, label %for.inc.critedge, label %if.then4
+  %1 = load i8, ptr %Running.i, align 8
+  %tobool.i10 = trunc i8 %1 to i1
+  br i1 %tobool.i10, label %if.then4, label %for.inc.critedge
 
 if.then4:                                         ; preds = %if.end
   store i8 0, ptr %Running.i, align 8
@@ -2208,69 +2200,68 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sys.i.i)
   store i64 0, ptr %now.i.i, align 8, !noalias !56
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now.i.i, ptr noundef nonnull align 8 dereferenceable(8) %user.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sys.i.i) #21, !noalias !56
-  %4 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !56
-  %5 = and i8 %4, 1
-  %tobool.i.i.not.i1.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.i.not.i1.i.i, label %_ZN4llvh5Timer9stopTimerEv.exit, label %if.end.i2.i.i
+  %2 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !56
+  %tobool.i.i.i1.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i1.i.i, label %if.end.i3.i.i, label %_ZN4llvh5Timer9stopTimerEv.exit
 
-if.end.i2.i.i:                                    ; preds = %if.then4
-  %call1.i3.i.i = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !56
+if.end.i3.i.i:                                    ; preds = %if.then4
+  %call1.i4.i.i = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !56
   br label %_ZN4llvh5Timer9stopTimerEv.exit
 
-_ZN4llvh5Timer9stopTimerEv.exit:                  ; preds = %if.then4, %if.end.i2.i.i
-  %retval.0.i4.i.i = phi i64 [ %call1.i3.i.i, %if.end.i2.i.i ], [ 0, %if.then4 ]
+_ZN4llvh5Timer9stopTimerEv.exit:                  ; preds = %if.then4, %if.end.i3.i.i
+  %retval.0.i2.i.i = phi i64 [ %call1.i4.i.i, %if.end.i3.i.i ], [ 0, %if.then4 ]
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %now.i.i, align 8, !noalias !56
-  %6 = load i64, ptr %user.i.i, align 8, !noalias !56
-  %7 = load i64, ptr %sys.i.i, align 8, !noalias !56
-  %conv.i.i.i8.i.i = sitofp i64 %7 to double
+  %3 = load i64, ptr %user.i.i, align 8, !noalias !56
+  %4 = load i64, ptr %sys.i.i, align 8, !noalias !56
+  %conv.i.i.i8.i.i = sitofp i64 %4 to double
   %div.i.i.i9.i.i = fdiv double %conv.i.i.i8.i.i, 1.000000e+09
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i.i)
   %SystemTime5.i.i = getelementptr inbounds i8, ptr %T.038, i64 16
-  %8 = load double, ptr %SystemTime5.i.i, align 8
-  %add6.i.i = fadd double %div.i.i.i9.i.i, %8
+  %5 = load double, ptr %SystemTime5.i.i, align 8
+  %add6.i.i = fadd double %div.i.i.i9.i.i, %5
   %MemUsed7.i.i = getelementptr inbounds i8, ptr %T.038, i64 24
-  %9 = load i64, ptr %MemUsed7.i.i, align 8
-  %add8.i.i = add nsw i64 %9, %retval.0.i4.i.i
+  %6 = load i64, ptr %MemUsed7.i.i, align 8
+  %add8.i.i = add nsw i64 %6, %retval.0.i2.i.i
   %StartTime.i = getelementptr inbounds i8, ptr %T.038, i64 32
-  %10 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i, i64 0
-  %11 = insertelement <2 x i64> %10, i64 %6, i64 1
-  %12 = sitofp <2 x i64> %11 to <2 x double>
-  %13 = fdiv <2 x double> %12, <double 1.000000e+09, double 1.000000e+09>
-  %14 = load <2 x double>, ptr %T.038, align 8
-  %15 = fadd <2 x double> %13, %14
-  %16 = load <2 x double>, ptr %StartTime.i, align 8
-  %17 = fsub <2 x double> %15, %16
-  store <2 x double> %17, ptr %T.038, align 8
+  %7 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i, i64 0
+  %8 = insertelement <2 x i64> %7, i64 %3, i64 1
+  %9 = sitofp <2 x i64> %8 to <2 x double>
+  %10 = fdiv <2 x double> %9, <double 1.000000e+09, double 1.000000e+09>
+  %11 = load <2 x double>, ptr %T.038, align 8
+  %12 = fadd <2 x double> %10, %11
+  %13 = load <2 x double>, ptr %StartTime.i, align 8
+  %14 = fsub <2 x double> %12, %13
+  store <2 x double> %14, ptr %T.038, align 8
   %SystemTime.i5.i = getelementptr inbounds i8, ptr %T.038, i64 48
-  %18 = load double, ptr %SystemTime.i5.i, align 8
-  %sub6.i.i = fsub double %add6.i.i, %18
+  %15 = load double, ptr %SystemTime.i5.i, align 8
+  %sub6.i.i = fsub double %add6.i.i, %15
   store double %sub6.i.i, ptr %SystemTime5.i.i, align 8
   %MemUsed.i7.i = getelementptr inbounds i8, ptr %T.038, i64 56
-  %19 = load i64, ptr %MemUsed.i7.i, align 8
-  %sub8.i.i = sub i64 %add8.i.i, %19
+  %16 = load i64, ptr %MemUsed.i7.i, align 8
+  %sub8.i.i = sub i64 %add8.i.i, %16
   store i64 %sub8.i.i, ptr %MemUsed7.i.i, align 8
   %Name = getelementptr inbounds i8, ptr %T.038, i64 64
   %Description = getelementptr inbounds i8, ptr %T.038, i64 96
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %21 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %20, %21
+  %17 = load ptr, ptr %_M_finish.i25, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i26, align 8
+  %cmp.not.i = icmp eq ptr %17, %18
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh5Timer9stopTimerEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %T.038, i64 32, i1 false)
-  %Name3.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %T.038, i64 32, i1 false)
+  %Name3.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name) #21
-  %Description4.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 64
+  %Description4.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
-  %22 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i64 96
-  store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
+  %19 = load ptr, ptr %_M_finish.i25, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %19, i64 96
+  store ptr %incdec.ptr.i, ptr %_M_finish.i25, align 8
   br label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEERS2_DpOT_.exit
 
 if.else.i:                                        ; preds = %_ZN4llvh5Timer9stopTimerEv.exit
-  call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint, ptr %20, ptr noundef nonnull align 8 dereferenceable(32) %T.038, ptr noundef nonnull align 8 dereferenceable(32) %Name, ptr noundef nonnull align 8 dereferenceable(32) %Description)
+  call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint.c, ptr %17, ptr noundef nonnull align 8 dereferenceable(32) %T.038, ptr noundef nonnull align 8 dereferenceable(32) %Name, ptr noundef nonnull align 8 dereferenceable(32) %Description)
   br label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEERS2_DpOT_.exit
 
 _ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEERS2_DpOT_.exit: ; preds = %if.then.i, %if.else.i
@@ -2280,10 +2271,9 @@ _ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10Time
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %user.i.i13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sys.i.i14)
   store i64 0, ptr %now.i.i12, align 8, !noalias !59
-  %23 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !59
-  %24 = and i8 %23, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %24, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4llvh5Timer10startTimerEv.exit, label %if.end.i.i.i
+  %20 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 0), align 8, !noalias !59
+  %tobool.i.i.i.i.i = trunc i8 %20 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i, label %_ZN4llvh5Timer10startTimerEv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEERS2_DpOT_.exit
   %call1.i.i.i = call noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() #21, !noalias !59
@@ -2293,18 +2283,18 @@ _ZN4llvh5Timer10startTimerEv.exit:                ; preds = %_ZNSt6vectorIN4llvh
   %retval.0.i.i.i = phi i64 [ %call1.i.i.i, %if.end.i.i.i ], [ 0, %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEERS2_DpOT_.exit ]
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now.i.i12, ptr noundef nonnull align 8 dereferenceable(8) %user.i.i13, ptr noundef nonnull align 8 dereferenceable(8) %sys.i.i14) #21, !noalias !59
   %retval.sroa.0.0.copyload.i.i.i17 = load i64, ptr %now.i.i12, align 8, !noalias !59
-  %25 = load i64, ptr %user.i.i13, align 8, !noalias !59
-  %26 = load i64, ptr %sys.i.i14, align 8, !noalias !59
-  %conv.i.i.i8.i.i22 = sitofp i64 %26 to double
+  %21 = load i64, ptr %user.i.i13, align 8, !noalias !59
+  %22 = load i64, ptr %sys.i.i14, align 8, !noalias !59
+  %conv.i.i.i8.i.i22 = sitofp i64 %22 to double
   %div.i.i.i9.i.i23 = fdiv double %conv.i.i.i8.i.i22, 1.000000e+09
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i.i13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i.i14)
-  %27 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i17, i64 0
-  %28 = insertelement <2 x i64> %27, i64 %25, i64 1
-  %29 = sitofp <2 x i64> %28 to <2 x double>
-  %30 = fdiv <2 x double> %29, <double 1.000000e+09, double 1.000000e+09>
-  store <2 x double> %30, ptr %StartTime.i, align 8
+  %23 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i17, i64 0
+  %24 = insertelement <2 x i64> %23, i64 %21, i64 1
+  %25 = sitofp <2 x i64> %24 to <2 x double>
+  %26 = fdiv <2 x double> %25, <double 1.000000e+09, double 1.000000e+09>
+  store <2 x double> %26, ptr %StartTime.i, align 8
   store double %div.i.i.i9.i.i23, ptr %SystemTime.i5.i, align 8
   store i64 %retval.0.i.i.i, ptr %MemUsed.i7.i, align 8
   br label %for.inc
@@ -2312,24 +2302,24 @@ _ZN4llvh5Timer10startTimerEv.exit:                ; preds = %_ZNSt6vectorIN4llvh
 for.inc.critedge:                                 ; preds = %if.end
   %Name.c = getelementptr inbounds i8, ptr %T.038, i64 64
   %Description.c = getelementptr inbounds i8, ptr %T.038, i64 96
-  %31 = load ptr, ptr %_M_finish.i, align 8
-  %32 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i27 = icmp eq ptr %31, %32
+  %27 = load ptr, ptr %_M_finish.i25, align 8
+  %28 = load ptr, ptr %_M_end_of_storage.i26, align 8
+  %cmp.not.i27 = icmp eq ptr %27, %28
   br i1 %cmp.not.i27, label %if.else.i33, label %if.then.i28
 
 if.then.i28:                                      ; preds = %for.inc.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %T.038, i64 32, i1 false)
-  %Name3.i.i.i.i29 = getelementptr inbounds i8, ptr %31, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %T.038, i64 32, i1 false)
+  %Name3.i.i.i.i29 = getelementptr inbounds i8, ptr %27, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(32) %Name.c) #21
-  %Description4.i.i.i.i30 = getelementptr inbounds i8, ptr %31, i64 64
+  %Description4.i.i.i.i30 = getelementptr inbounds i8, ptr %27, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(32) %Description.c) #21
-  %33 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %33, i64 96
-  store ptr %incdec.ptr.i31, ptr %_M_finish.i, align 8
+  %29 = load ptr, ptr %_M_finish.i25, align 8
+  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %29, i64 96
+  store ptr %incdec.ptr.i31, ptr %_M_finish.i25, align 8
   br label %for.inc
 
 if.else.i33:                                      ; preds = %for.inc.critedge
-  call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint, ptr %31, ptr noundef nonnull align 8 dereferenceable(32) %T.038, ptr noundef nonnull align 8 dereferenceable(32) %Name.c, ptr noundef nonnull align 8 dereferenceable(32) %Description.c)
+  call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint.c, ptr %27, ptr noundef nonnull align 8 dereferenceable(32) %T.038, ptr noundef nonnull align 8 dereferenceable(32) %Name.c, ptr noundef nonnull align 8 dereferenceable(32) %Description.c)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i33, %if.then.i28, %_ZN4llvh5Timer10startTimerEv.exit, %for.body
@@ -3085,39 +3075,37 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh2cl15OptionValueCopyINSt
 entry:
   %Valid.i = getelementptr inbounds i8, ptr %V, i64 40
   %0 = load i8, ptr %Valid.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %Value.i = getelementptr inbounds i8, ptr %V, i64 8
   %Valid.i2 = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load i8, ptr %Valid.i2, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %land.rhs.i
+  %1 = load i8, ptr %Valid.i2, align 8
+  %tobool.i3 = trunc i8 %1 to i1
+  br i1 %tobool.i3, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %if.end
-  %Value.i3 = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i3) #21
+  %Value.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i4) #21
   %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i) #21
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i
-  %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i3) #21
+  %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i4) #21
   %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i) #21
-  %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i3) #21
+  %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i4) #21
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %call2.i.i.i, ptr %call3.i.i.i, i64 %call4.i.i.i)
-  %4 = icmp ne i32 %bcmp.i.i.i, 0
+  %2 = icmp ne i32 %bcmp.i.i.i, 0
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i.i, %land.rhs.i.i.i, %land.rhs.i, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %land.rhs.i ], [ %4, %if.end.i.i.i.i ], [ false, %land.rhs.i.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %land.rhs.i ], [ %2, %if.end.i.i.i.i ], [ false, %land.rhs.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -3385,25 +3373,23 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh2cl15OptionValueCopyIbE7
 entry:
   %Valid.i = getelementptr inbounds i8, ptr %V, i64 9
   %0 = load i8, ptr %Valid.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %Valid.i2 = getelementptr inbounds i8, ptr %this, i64 9
-  %2 = load i8, ptr %Valid.i2, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %land.rhs.i
+  %1 = load i8, ptr %Valid.i2, align 1
+  %tobool.i3 = trunc i8 %1 to i1
+  br i1 %tobool.i3, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %if.end
   %Value.i = getelementptr inbounds i8, ptr %V, i64 8
-  %Value.i3 = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i8, ptr %Value.i3, align 8
-  %5 = load i8, ptr %Value.i, align 8
-  %6 = xor i8 %5, %4
-  %7 = and i8 %6, 1
-  %cmp.i = icmp ne i8 %7, 0
+  %Value.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load i8, ptr %Value.i4, align 8
+  %3 = load i8, ptr %Value.i, align 8
+  %4 = xor i8 %3, %2
+  %5 = and i8 %4, 1
+  %cmp.i = icmp ne i8 %5, 0
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %if.end, %entry
@@ -3509,9 +3495,8 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %add.ptr, align 8
   %Valid.i = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load i8, ptr %Valid.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end, label %land.rhs.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %land.rhs.i, label %if.end
 
 land.rhs.i:                                       ; preds = %lor.lhs.false
   %Value.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -3535,10 +3520,10 @@ _ZNK4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 if.then:                                          ; preds = %land.rhs.i, %_ZNK4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit, %entry
   %Parser = getelementptr inbounds i8, ptr %this, i64 208
   %add.ptr5 = getelementptr inbounds i8, ptr %this, i64 152
-  %3 = load ptr, ptr %add.ptr5, align 8
+  %2 = load ptr, ptr %add.ptr5, align 8
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
-  %call.i.i.i2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  %call2.i.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  %call.i.i.i2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  %call2.i.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   tail call void @_ZNK4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15printOptionDiffERKNS0_6OptionENS_9StringRefERKNS0_11OptionValueIS7_EEm(ptr noundef nonnull align 8 dereferenceable(8) %Parser, ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %call.i.i.i2, i64 %call2.i.i.i3, ptr noundef nonnull align 8 dereferenceable(48) %Default.i1, i64 noundef %GlobalWidth) #21
   br label %if.end
 
@@ -3551,15 +3536,14 @@ define linkonce_odr hidden void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11
 entry:
   %Valid.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i8, ptr %Valid.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE14setDefaultImplIS7_vEEvv.exit, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE14setDefaultImplIS7_vEEvv.exit
 
 if.then.i:                                        ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 152
   %Value.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %2 = load ptr, ptr %add.ptr.i, align 8
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i) #21
+  %1 = load ptr, ptr %add.ptr.i, align 8
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i) #21
   br label %_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE14setDefaultImplIS7_vEEvv.exit
 
 _ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE14setDefaultImplIS7_vEEvv.exit: ; preds = %entry, %if.then.i

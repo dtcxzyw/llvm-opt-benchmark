@@ -78,8 +78,8 @@ define noundef zeroext i1 @"_ZN80_$LT$base64..display..FormatterSink$u20$as$u20$
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %7 = load i64, ptr %5, align 8, !range !9, !alias.scope !6, !noundef !4
-  %trunc.not.i = icmp eq i64 %7, 0
-  br i1 %trunc.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.exit", label %8
+  %trunc.i = trunc i64 %7 to i1
+  br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb72ea1325e745f7cE.exit"
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6

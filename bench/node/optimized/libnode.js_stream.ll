@@ -441,11 +441,10 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %30 = load ptr, ptr %vfn.i14, align 8
   %call2.i15 = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #14
   %call37 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i15) #14
-  %31 = and i64 %call37, 1
-  %tobool.i91.not = icmp eq i64 %31, 0
+  %tobool.i91 = trunc i64 %call37 to i1
   %ref.tmp26.sroa.32.0.extract.shift = lshr i64 %call37, 32
   %ref.tmp26.sroa.32.0.extract.trunc = trunc i64 %ref.tmp26.sroa.32.0.extract.shift to i32
-  br i1 %tobool.i91.not, label %if.then, label %if.end44
+  br i1 %tobool.i91, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call39 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
@@ -456,12 +455,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %call40, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true
-  %32 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i17 = getelementptr inbounds i8, ptr %32, i64 176
-  %33 = load ptr, ptr %env_.i.i17, align 8
-  %isolate_.i18 = getelementptr inbounds i8, ptr %33, i64 88
-  %34 = load ptr, ptr %isolate_.i18, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
+  %31 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i17 = getelementptr inbounds i8, ptr %31, i64 176
+  %32 = load ptr, ptr %env_.i.i17, align 8
+  %isolate_.i18 = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = load ptr, ptr %isolate_.i18, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then, %land.lhs.true, %if.then41, %lor.rhs
@@ -591,11 +590,10 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %30 = load ptr, ptr %vfn.i14, align 8
   %call2.i15 = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #14
   %call37 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i15) #14
-  %31 = and i64 %call37, 1
-  %tobool.i91.not = icmp eq i64 %31, 0
+  %tobool.i91 = trunc i64 %call37 to i1
   %ref.tmp26.sroa.32.0.extract.shift = lshr i64 %call37, 32
   %ref.tmp26.sroa.32.0.extract.trunc = trunc i64 %ref.tmp26.sroa.32.0.extract.shift to i32
-  br i1 %tobool.i91.not, label %if.then, label %if.end44
+  br i1 %tobool.i91, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call39 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
@@ -606,12 +604,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %call40, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true
-  %32 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i17 = getelementptr inbounds i8, ptr %32, i64 176
-  %33 = load ptr, ptr %env_.i.i17, align 8
-  %isolate_.i18 = getelementptr inbounds i8, ptr %33, i64 88
-  %34 = load ptr, ptr %isolate_.i18, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
+  %31 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i17 = getelementptr inbounds i8, ptr %31, i64 176
+  %32 = load ptr, ptr %env_.i.i17, align 8
+  %isolate_.i18 = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = load ptr, ptr %isolate_.i18, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then, %land.lhs.true, %if.then41, %lor.rhs
@@ -770,11 +768,10 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %38 = load ptr, ptr %vfn.i18, align 8
   %call2.i19 = call ptr %38(ptr noundef nonnull align 8 dereferenceable(872) %37) #14
   %call46 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i19) #14
-  %39 = and i64 %call46, 1
-  %tobool.i104.not = icmp eq i64 %39, 0
+  %tobool.i104 = trunc i64 %call46 to i1
   %ref.tmp35.sroa.32.0.extract.shift = lshr i64 %call46, 32
   %ref.tmp35.sroa.32.0.extract.trunc = trunc i64 %ref.tmp35.sroa.32.0.extract.shift to i32
-  br i1 %tobool.i104.not, label %if.then, label %if.end53
+  br i1 %tobool.i104, label %if.end53, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call48 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
@@ -785,12 +782,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %call49, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %land.lhs.true
-  %40 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i21 = getelementptr inbounds i8, ptr %40, i64 176
-  %41 = load ptr, ptr %env_.i.i21, align 8
-  %isolate_.i22 = getelementptr inbounds i8, ptr %41, i64 88
-  %42 = load ptr, ptr %isolate_.i22, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
+  %39 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i21 = getelementptr inbounds i8, ptr %39, i64 176
+  %40 = load ptr, ptr %env_.i.i21, align 8
+  %isolate_.i22 = getelementptr inbounds i8, ptr %40, i64 88
+  %41 = load ptr, ptr %isolate_.i22, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then, %land.lhs.true, %if.then50, %lor.rhs
@@ -1039,11 +1036,10 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %49 = load ptr, ptr %vfn.i31, align 8
   %call2.i32 = call ptr %49(ptr noundef nonnull align 8 dereferenceable(872) %48) #14
   %call80 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i32) #14
-  %50 = and i64 %call80, 1
-  %tobool.i155.not = icmp eq i64 %50, 0
+  %tobool.i155 = trunc i64 %call80 to i1
   %ref.tmp69.sroa.39.0.extract.shift = lshr i64 %call80, 32
   %ref.tmp69.sroa.39.0.extract.trunc = trunc i64 %ref.tmp69.sroa.39.0.extract.shift to i32
-  br i1 %tobool.i155.not, label %if.then83, label %if.end90
+  br i1 %tobool.i155, label %if.end90, label %if.then83
 
 if.then83:                                        ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
@@ -1054,25 +1050,25 @@ land.lhs.true:                                    ; preds = %if.then83
   br i1 %call85, label %if.end90, label %if.then86
 
 if.then86:                                        ; preds = %land.lhs.true
-  %51 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i34 = getelementptr inbounds i8, ptr %51, i64 176
-  %52 = load ptr, ptr %env_.i.i34, align 8
-  %isolate_.i35 = getelementptr inbounds i8, ptr %52, i64 88
-  %53 = load ptr, ptr %isolate_.i35, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
+  %50 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i34 = getelementptr inbounds i8, ptr %50, i64 176
+  %51 = load ptr, ptr %env_.i.i34, align 8
+  %isolate_.i35 = getelementptr inbounds i8, ptr %51, i64 88
+  %52 = load ptr, ptr %isolate_.i35, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #14
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then83, %land.lhs.true, %if.then86, %lor.rhs
   %value_int.2 = phi i32 [ -71, %land.lhs.true ], [ -71, %if.then86 ], [ -71, %if.then83 ], [ %ref.tmp69.sroa.39.0.extract.trunc, %lor.rhs ]
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #14
-  %54 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i.i = icmp ne ptr %54, null
-  %cmp.i.i36 = icmp ne ptr %54, %buf_st_.ptr.i.i
-  %55 = and i1 %cmp.i.i.i, %cmp.i.i36
-  br i1 %55, label %if.then.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit
+  %53 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i.i = icmp ne ptr %53, null
+  %cmp.i.i36 = icmp ne ptr %53, %buf_st_.ptr.i.i
+  %54 = and i1 %cmp.i.i.i, %cmp.i.i36
+  br i1 %54, label %if.then.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit
 
 if.then.i:                                        ; preds = %if.end90
-  call void @free(ptr noundef nonnull %54) #14
+  call void @free(ptr noundef nonnull %53) #14
   br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit: ; preds = %if.end90, %if.then.i
@@ -1783,24 +1779,22 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #14
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
-  %6 = load i8, ptr %is_detached.i, align 1
-  %.fr6 = freeze i8 %6
-  %7 = and i8 %.fr6, 1
-  %tobool6.i.not = icmp eq i8 %7, 0
-  br i1 %tobool6.i.not, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %5 = load i8, ptr %is_detached.i, align 1
+  %.fr = freeze i8 %5
+  %tobool6.i = trunc i8 %.fr to i1
+  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %8 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
-  ret i8 %8
+  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+  ret i8 %6
 }
 
 declare noundef zeroext i1 @_ZNK4node9AsyncWrap18IsDoneInitializingEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0

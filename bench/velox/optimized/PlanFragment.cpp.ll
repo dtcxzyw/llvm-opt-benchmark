@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
+%"class.folly::Optional" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
+%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.7, i8, [7 x i8] }>
+%union.anon.7 = type { %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.4" = type { i8 }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.7, i8, [7 x i8] }>
-%union.anon.7 = type { %"class.std::__cxx11::basic_string" }
 %"class.folly::Range" = type { ptr, ptr }
 %"class.folly::Expected" = type { %"struct.folly::expected_detail::ExpectedStorage.base", [7 x i8] }
 %"struct.folly::expected_detail::ExpectedStorage.base" = type <{ %union.anon.8, i8 }>
@@ -34,8 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 $_ZNK8facebook5velox4core11QueryConfig12spillEnabledEv = comdat any
 
 $_ZN8facebook5velox4core8PlanNode13findFirstNodeEPKS2_RKSt8functionIFbS4_EE = comdat any
-
-$_ZNK8facebook5velox6Config3getIbEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS3_ = comdat any
 
 $_ZN5folly2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_ = comdat any
 
@@ -183,9 +181,9 @@ return:                                           ; preds = %if.then.i.i, %invok
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox4core11QueryConfig12spillEnabledEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %val.i.i = alloca %"class.folly::Optional", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.4", align 1
-  %ref.tmp3 = alloca i8, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
@@ -205,29 +203,77 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  store i8 0, ptr %ref.tmp3, align 1
   %1 = load ptr, ptr %this, align 8
-  %call2.i3 = invoke noundef zeroext i1 @_ZNK8facebook5velox6Config3getIbEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
-          to label %invoke.cont5 unwind label %lpad4
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %val.i.i)
+  %vtable.i.i = load ptr, ptr %1, align 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %2 = load ptr, ptr %vfn.i.i, align 8
+  invoke void %2(ptr nonnull sret(%"class.folly::Optional") align 8 %val.i.i, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+          to label %.noexc3 unwind label %lpad4
 
-invoke.cont5:                                     ; preds = %invoke.cont
+.noexc3:                                          ; preds = %invoke.cont
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %val.i.i, i64 32
+  %3 = load i8, ptr %hasValue.i.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i.i, label %invoke.cont.i.i, label %cleanup.i.i
+
+invoke.cont.i.i:                                  ; preds = %.noexc3
+  %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i) #13
+  %call1.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i) #13
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %call1.i.i.i
+  %call2.i3.i.i = invoke noundef zeroext i1 @_ZN5folly2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %call.i.i.i, ptr %add.ptr.i.i.i.i)
+          to label %invoke.cont.cleanup_crit_edge.i.i unwind label %lpad.i.i
+
+invoke.cont.cleanup_crit_edge.i.i:                ; preds = %invoke.cont.i.i
+  %.pre.i.i = load i8, ptr %hasValue.i.i.i.i, align 8
+  br label %cleanup.i.i
+
+lpad.i.i:                                         ; preds = %invoke.cont.i.i
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  %5 = load i8, ptr %hasValue.i.i.i.i, align 8
+  %tobool.i.i.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %lpad4.body
+
+if.then.i.i.i.i.i:                                ; preds = %lpad.i.i
+  store i8 0, ptr %hasValue.i.i.i.i, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i) #13
+  br label %lpad4.body
+
+cleanup.i.i:                                      ; preds = %.noexc3, %invoke.cont.cleanup_crit_edge.i.i
+  %6 = phi i8 [ %.pre.i.i, %invoke.cont.cleanup_crit_edge.i.i ], [ %3, %.noexc3 ]
+  %retval.0.i.i = phi i1 [ %call2.i3.i.i, %invoke.cont.cleanup_crit_edge.i.i ], [ false, %.noexc3 ]
+  %tobool.i.i.i5.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i.i5.i.i, label %if.then.i.i.i6.i.i, label %invoke.cont5
+
+if.then.i.i.i6.i.i:                               ; preds = %cleanup.i.i
+  store i8 0, ptr %hasValue.i.i.i.i, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i) #13
+  br label %invoke.cont5
+
+invoke.cont5:                                     ; preds = %if.then.i.i.i6.i.i, %cleanup.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %val.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  ret i1 %call2.i3
+  ret i1 %retval.0.i.i
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %2 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad4.body
+
+lpad4.body:                                       ; preds = %lpad.i.i, %if.then.i.i.i.i.i, %lpad4
+  %eh.lpad-body4 = phi { ptr, i32 } [ %8, %lpad4 ], [ %4, %if.then.i.i.i.i.i ], [ %4, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad4
-  %.pn = phi { ptr, i32 } [ %3, %lpad4 ], [ %2, %lpad ], [ %0, %lpad.i ]
+ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad4.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body4, %lpad4.body ], [ %7, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   resume { ptr, i32 } %.pn
 }
@@ -292,65 +338,6 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6Config3getIbEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 1 dereferenceable(1) %defaultValue) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %val = alloca %"class.folly::Optional", align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr nonnull sret(%"class.folly::Optional") align 8 %val, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  %hasValue.i.i = getelementptr inbounds i8, ptr %val, i64 32
-  %1 = load i8, ptr %hasValue.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not, label %cleanup.thread, label %invoke.cont
-
-invoke.cont:                                      ; preds = %entry
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %val) #13
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %val) #13
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 %call1.i
-  %call2.i2 = invoke noundef zeroext i1 @_ZN5folly2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %call.i, ptr %add.ptr.i.i)
-          to label %cleanup unwind label %lpad
-
-lpad:                                             ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = load i8, ptr %hasValue.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad
-  store i8 0, ptr %hasValue.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #13
-  br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-
-_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
-  resume { ptr, i32 } %3
-
-cleanup.thread:                                   ; preds = %entry
-  %6 = load i8, ptr %defaultValue, align 1
-  %7 = and i8 %6, 1
-  %tobool = icmp ne i8 %7, 0
-  br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit6
-
-cleanup:                                          ; preds = %invoke.cont
-  %.pre = load i8, ptr %hasValue.i.i, align 8
-  %.pre7 = and i8 %.pre, 1
-  %8 = icmp eq i8 %.pre7, 0
-  br i1 %8, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit6, label %if.then.i.i.i5
-
-if.then.i.i.i5:                                   ; preds = %cleanup
-  store i8 0, ptr %hasValue.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #13
-  br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit6
-
-_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit6: ; preds = %cleanup.thread, %cleanup, %if.then.i.i.i5
-  %retval.010 = phi i1 [ %tobool, %cleanup.thread ], [ %call2.i2, %cleanup ], [ %call2.i2, %if.then.i.i.i5 ]
-  ret i1 %retval.010
-}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %src.coerce0, ptr %src.coerce1) local_unnamed_addr #0 comdat {
@@ -418,8 +405,8 @@ if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
 
 _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
   %4 = and i24 %call.i.i.i, 65536
-  %tobool.i.i.i = icmp ne i24 %4, 0
-  ret i1 %tobool.i.i.i
+  %ref.tmp.sroa.3.0.extract.trunc.i.i = icmp ne i24 %4, 0
+  ret i1 %ref.tmp.sroa.3.0.extract.trunc.i.i
 }
 
 ; Function Attrs: nounwind

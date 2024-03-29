@@ -244,19 +244,19 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   br i1 %.not, label %18, label %.preheader
 
 .preheader:                                       ; preds = %transformContainerType.exit
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
   %.not27 = icmp eq ptr %4, null
   br i1 %.not27, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph47, label %.thread
+  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph46, label %.thread
 
-.lr.ph47:                                         ; preds = %.lr.ph
-  %17 = load ptr, ptr %13, align 8
-  %wide.trip.count = zext nneg i32 %15 to i64
+.lr.ph46:                                         ; preds = %.lr.ph
+  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %25
 
 18:                                               ; preds = %transformContainerType.exit
@@ -270,21 +270,20 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @__func__.transformContainerSubscripts) #7
   unreachable
 
-25:                                               ; preds = %25, %.lr.ph47
-  %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %25 ]
+25:                                               ; preds = %25, %.lr.ph46
+  %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %25 ]
   %26 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 4
-  %30 = and i8 %29, 1
-  %.not29.not = icmp ne i8 %30, 0
+  %30 = trunc i8 %29 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %.not29.not, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %30, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.thread, label %25
 
 .thread:                                          ; preds = %25, %.lr.ph, %.preheader
-  %.0 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %.not29.not, %25 ]
+  %.0 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %30, %25 ]
   %31 = call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 12, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %31, i64 4
@@ -303,8 +302,8 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   call void %39(ptr noundef nonnull %31, ptr noundef %4, ptr noundef %0, i1 noundef zeroext %.0, i1 noundef zeroext %5) #7
   %40 = getelementptr inbounds i8, ptr %31, i64 12
   %41 = load i32, ptr %40, align 4
-  %.not30 = icmp eq i32 %41, 0
-  br i1 %.not30, label %42, label %47
+  %.not29 = icmp eq i32 %41, 0
+  br i1 %.not29, label %42, label %47
 
 42:                                               ; preds = %.thread
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -331,9 +330,8 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   %4 = alloca %struct.ErrorSaveContext, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = tail call ptr @makeConst(i32 noundef 705, i32 noundef -1, i32 noundef 0, i32 noundef -2, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false) #7
@@ -363,15 +361,14 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   %20 = call i64 @pg_strtoint64_safe(ptr noundef %19, ptr noundef nonnull %4) #7
   %21 = getelementptr inbounds i8, ptr %4, i64 4
   %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  %.not33 = icmp eq i8 %23, 0
-  br i1 %.not33, label %24, label %27
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %27, label %24
 
 24:                                               ; preds = %17
   %25 = add i64 %20, 2147483648
   %26 = icmp ult i64 %25, 4294967296
   %spec.select = select i1 %26, i32 23, i32 20
-  %spec.select37 = select i1 %26, i32 4, i32 8
+  %spec.select36 = select i1 %26, i32 4, i32 8
   br label %65
 
 27:                                               ; preds = %17
@@ -441,18 +438,18 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
 65:                                               ; preds = %24, %27, %48, %44, %39, %13
   %.031 = phi i64 [ %59, %48 ], [ %47, %44 ], [ %43, %39 ], [ %37, %27 ], [ %16, %13 ], [ %20, %24 ]
   %.030 = phi i32 [ 1560, %48 ], [ 705, %44 ], [ 16, %39 ], [ 1700, %27 ], [ 23, %13 ], [ %spec.select, %24 ]
-  %.029 = phi i32 [ -1, %48 ], [ -2, %44 ], [ 1, %39 ], [ -1, %27 ], [ 4, %13 ], [ %spec.select37, %24 ]
+  %.029 = phi i32 [ -1, %48 ], [ -2, %44 ], [ 1, %39 ], [ -1, %27 ], [ 4, %13 ], [ %spec.select36, %24 ]
   %.028 = phi i1 [ false, %48 ], [ false, %44 ], [ true, %39 ], [ false, %27 ], [ true, %13 ], [ true, %24 ]
   %66 = call ptr @makeConst(i32 noundef %.030, i32 noundef -1, i32 noundef 0, i32 noundef %.029, i64 noundef %.031, i1 noundef zeroext false, i1 noundef zeroext %.028) #7
   br label %67
 
 67:                                               ; preds = %65, %8
-  %.sink35 = phi ptr [ %66, %65 ], [ %9, %8 ]
+  %.sink34 = phi ptr [ %66, %65 ], [ %9, %8 ]
   %68 = getelementptr inbounds i8, ptr %1, i64 28
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.sink35, i64 36
+  %70 = getelementptr inbounds i8, ptr %.sink34, i64 36
   store i32 %69, ptr %70, align 4
-  ret ptr %.sink35
+  ret ptr %.sink34
 }
 
 declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1

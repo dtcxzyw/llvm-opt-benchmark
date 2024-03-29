@@ -38,9 +38,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpand
 define dso_local noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

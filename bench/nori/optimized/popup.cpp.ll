@@ -168,7 +168,7 @@ define hidden void @_ZN7nanogui5Popup26refresh_relative_placementEv(ptr nocaptur
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %37, label %4
+  br i1 %.not, label %36, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
@@ -179,46 +179,45 @@ define hidden void @_ZN7nanogui5Popup26refresh_relative_placementEv(ptr nocaptur
   br label %9
 
 9:                                                ; preds = %9, %4
-  %.07.i = phi ptr [ %8, %4 ], [ %16, %9 ]
-  %.056.i = phi i1 [ true, %4 ], [ %14, %9 ]
+  %.07.i = phi ptr [ %8, %4 ], [ %15, %9 ]
+  %.056.i = phi i1 [ true, %4 ], [ %13, %9 ]
   %10 = getelementptr inbounds i8, ptr %.07.i, i64 88
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %13 = icmp ne i8 %12, 0
-  %14 = and i1 %.056.i, %13
-  %15 = getelementptr inbounds i8, ptr %.07.i, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %.not.i = icmp eq ptr %16, null
+  %12 = trunc i8 %11 to i1
+  %13 = and i1 %.056.i, %12
+  %14 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZNK7nanogui6Widget17visible_recursiveEv.exit, label %9, !llvm.loop !5
 
 _ZNK7nanogui6Widget17visible_recursiveEv.exit:    ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
-  %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %20 = icmp ne i8 %19, 0
-  %21 = select i1 %14, i1 %20, i1 false
-  %22 = zext i1 %21 to i8
-  store i8 %22, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
-  %25 = load i32, ptr %23, align 4
-  %26 = load i32, ptr %24, align 8
-  %27 = add nsw i32 %26, %25
-  %28 = getelementptr inbounds i8, ptr %8, i64 44
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 204
-  %31 = load i32, ptr %30, align 4
-  %32 = add nsw i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 208
-  %34 = load i32, ptr %33, align 8
-  %35 = sub i32 %32, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %27, ptr %36, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, 1
+  %19 = icmp ne i8 %18, 0
+  %20 = select i1 %13, i1 %19, i1 false
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %16, align 8
+  %22 = getelementptr inbounds i8, ptr %8, i64 40
+  %23 = getelementptr inbounds i8, ptr %0, i64 200
+  %24 = load i32, ptr %22, align 4
+  %25 = load i32, ptr %23, align 8
+  %26 = add nsw i32 %25, %24
+  %27 = getelementptr inbounds i8, ptr %8, i64 44
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 204
+  %30 = load i32, ptr %29, align 4
+  %31 = add nsw i32 %30, %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 208
+  %33 = load i32, ptr %32, align 8
+  %34 = sub i32 %31, %33
+  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %26, ptr %35, align 8
   %.sroa_idx11 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %35, ptr %.sroa_idx11, align 4
-  br label %37
+  store i32 %34, ptr %.sroa_idx11, align 4
+  br label %36
 
-37:                                               ; preds = %1, %_ZNK7nanogui6Widget17visible_recursiveEv.exit
+36:                                               ; preds = %1, %_ZNK7nanogui6Widget17visible_recursiveEv.exit
   ret void
 }
 
@@ -235,9 +234,8 @@ define hidden void @_ZN7nanogui5Popup4drawEP10NVGcontext(ptr noundef nonnull ali
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(220) %0)
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %91, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %91
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 24

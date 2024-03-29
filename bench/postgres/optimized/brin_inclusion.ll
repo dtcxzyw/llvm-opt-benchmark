@@ -66,275 +66,267 @@ define dso_local noundef i64 @brin_inclusion_add_value(ptr nocapture noundef rea
   %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %15, i64 0, i64 %17
   %19 = getelementptr inbounds i8, ptr %7, i64 3
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not.not = icmp eq i8 %21, 0
-  br i1 %.not.not, label %37, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %36
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %18, i64 86
   %24 = load i8, ptr %23, align 2
-  %25 = and i8 %24, 1
-  %26 = icmp ne i8 %25, 0
-  %27 = getelementptr inbounds i8, ptr %18, i64 72
-  %28 = load i16, ptr %27, align 4
-  %29 = sext i16 %28 to i32
-  %30 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %26, i32 noundef %29) #4
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
-  %32 = load ptr, ptr %31, align 8
-  store i64 %30, ptr %32, align 8
-  %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr i8, ptr %33, i64 8
-  store i64 0, ptr %34, align 8
-  %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr i8, ptr %35, i64 16
-  store i64 0, ptr %36, align 8
+  %25 = trunc i8 %24 to i1
+  %26 = getelementptr inbounds i8, ptr %18, i64 72
+  %27 = load i16, ptr %26, align 4
+  %28 = sext i16 %27 to i32
+  %29 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %25, i32 noundef %28) #4
+  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = load ptr, ptr %30, align 8
+  store i64 %29, ptr %31, align 8
+  %32 = load ptr, ptr %30, align 8
+  %33 = getelementptr i8, ptr %32, i64 8
+  store i64 0, ptr %33, align 8
+  %34 = load ptr, ptr %30, align 8
+  %35 = getelementptr i8, ptr %34, i64 16
+  store i64 0, ptr %35, align 8
   store i8 0, ptr %19, align 1
-  br label %37
+  br label %36
 
-37:                                               ; preds = %22, %1
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr i8, ptr %39, i64 8
-  %41 = load i64, ptr %40, align 8
-  %.not86 = icmp eq i64 %41, 0
-  br i1 %.not86, label %42, label %168
+36:                                               ; preds = %22, %1
+  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr i8, ptr %38, i64 8
+  %40 = load i64, ptr %39, align 8
+  %.not82 = icmp eq i64 %40, 0
+  br i1 %.not82, label %41, label %166
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %4, i64 40
-  %44 = zext i16 %12 to i64
-  %45 = add nsw i64 %44, -1
-  %46 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %49, i64 195
-  %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not.i = icmp eq i8 %52, 0
-  br i1 %.not.i, label %53, label %inclusion_get_procinfo.exit.thread
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %4, i64 40
+  %43 = zext i16 %12 to i64
+  %44 = add nsw i64 %43, -1
+  %45 = getelementptr [0 x ptr], ptr %42, i64 0, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr i8, ptr %48, i64 195
+  %50 = load i8, ptr %49, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %inclusion_get_procinfo.exit.thread, label %52
 
-53:                                               ; preds = %42
-  %54 = getelementptr i8, ptr %49, i64 144
-  %55 = getelementptr i8, ptr %49, i64 152
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %inclusion_get_procinfo.exit
+52:                                               ; preds = %41
+  %53 = getelementptr i8, ptr %48, i64 144
+  %54 = getelementptr i8, ptr %48, i64 152
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %inclusion_get_procinfo.exit
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @index_getprocid(ptr noundef %60, i16 noundef signext %12, i16 noundef zeroext 14) #4
-  %.not20.i = icmp eq i32 %61, 0
-  br i1 %.not20.i, label %66, label %62
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call i32 @index_getprocid(ptr noundef %59, i16 noundef signext %12, i16 noundef zeroext 14) #4
+  %.not.i = icmp eq i32 %60, 0
+  br i1 %.not.i, label %65, label %61
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %59, align 8
-  %64 = tail call ptr @index_getprocinfo(ptr noundef %63, i16 noundef signext %12, i16 noundef zeroext 14) #4
-  %65 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef %54, ptr noundef %64, ptr noundef %65) #4
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %58, align 8
+  %63 = tail call ptr @index_getprocinfo(ptr noundef %62, i16 noundef signext %12, i16 noundef zeroext 14) #4
+  %64 = load ptr, ptr %4, align 8
+  tail call void @fmgr_info_copy(ptr noundef %53, ptr noundef %63, ptr noundef %64) #4
   br label %inclusion_get_procinfo.exit
 
-66:                                               ; preds = %58
-  store i8 1, ptr %50, align 1
+65:                                               ; preds = %57
+  store i8 1, ptr %49, align 1
   br label %inclusion_get_procinfo.exit.thread
 
-inclusion_get_procinfo.exit:                      ; preds = %53, %62
-  %.not64 = icmp eq ptr %54, null
-  br i1 %.not64, label %inclusion_get_procinfo.exit.thread, label %67
+inclusion_get_procinfo.exit:                      ; preds = %52, %61
+  %.not = icmp eq ptr %53, null
+  br i1 %.not, label %inclusion_get_procinfo.exit.thread, label %66
 
-67:                                               ; preds = %inclusion_get_procinfo.exit
-  %68 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %54, i32 noundef %11, i64 noundef %9) #4
-  %.not87 = icmp eq i64 %68, 0
-  br i1 %.not87, label %inclusion_get_procinfo.exit.thread, label %69
+66:                                               ; preds = %inclusion_get_procinfo.exit
+  %67 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %53, i32 noundef %11, i64 noundef %9) #4
+  %.not83 = icmp eq i64 %67, 0
+  br i1 %.not83, label %inclusion_get_procinfo.exit.thread, label %68
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %38, align 8
-  %71 = getelementptr i8, ptr %70, i64 16
-  %72 = load i64, ptr %71, align 8
-  %.not88 = icmp eq i64 %72, 0
-  br i1 %.not88, label %73, label %168
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %37, align 8
+  %70 = getelementptr i8, ptr %69, i64 16
+  %71 = load i64, ptr %70, align 8
+  %.not84 = icmp eq i64 %71, 0
+  br i1 %.not84, label %72, label %166
 
-73:                                               ; preds = %69
-  store i64 1, ptr %71, align 8
-  br label %168
-
-inclusion_get_procinfo.exit.thread:               ; preds = %42, %66, %67, %inclusion_get_procinfo.exit
-  br i1 %.not.not, label %74, label %168
-
-74:                                               ; preds = %inclusion_get_procinfo.exit.thread
-  %75 = load ptr, ptr %46, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr i8, ptr %77, i64 194
-  %79 = load i8, ptr %78, align 1
-  %80 = and i8 %79, 1
-  %.not.i68 = icmp eq i8 %80, 0
-  br i1 %.not.i68, label %81, label %inclusion_get_procinfo.exit71.thread
-
-81:                                               ; preds = %74
-  %82 = getelementptr i8, ptr %77, i64 96
-  %83 = getelementptr i8, ptr %77, i64 104
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %inclusion_get_procinfo.exit71
-
-86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %4, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call i32 @index_getprocid(ptr noundef %88, i16 noundef signext %12, i16 noundef zeroext 13) #4
-  %.not20.i70 = icmp eq i32 %89, 0
-  br i1 %.not20.i70, label %94, label %90
-
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %87, align 8
-  %92 = tail call ptr @index_getprocinfo(ptr noundef %91, i16 noundef signext %12, i16 noundef zeroext 13) #4
-  %93 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef %82, ptr noundef %92, ptr noundef %93) #4
-  br label %inclusion_get_procinfo.exit71
-
-94:                                               ; preds = %86
-  store i8 1, ptr %78, align 1
-  br label %inclusion_get_procinfo.exit71.thread
-
-inclusion_get_procinfo.exit71:                    ; preds = %81, %90
-  %.not = icmp eq ptr %82, null
-  br i1 %.not, label %inclusion_get_procinfo.exit71.thread, label %95
-
-95:                                               ; preds = %inclusion_get_procinfo.exit71
-  %96 = load ptr, ptr %38, align 8
-  %97 = load i64, ptr %96, align 8
-  %98 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %82, i32 noundef %11, i64 noundef %97, i64 noundef %9) #4
-  %.not89 = icmp eq i64 %98, 0
-  br i1 %.not89, label %inclusion_get_procinfo.exit71.thread, label %168
-
-inclusion_get_procinfo.exit71.thread:             ; preds = %74, %94, %95, %inclusion_get_procinfo.exit71
-  %99 = load ptr, ptr %46, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr i8, ptr %101, i64 193
-  %103 = load i8, ptr %102, align 1
-  %104 = and i8 %103, 1
-  %.not.i72 = icmp eq i8 %104, 0
-  br i1 %.not.i72, label %105, label %inclusion_get_procinfo.exit75.thread
-
-105:                                              ; preds = %inclusion_get_procinfo.exit71.thread
-  %106 = getelementptr i8, ptr %101, i64 48
-  %107 = getelementptr i8, ptr %101, i64 56
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %inclusion_get_procinfo.exit75
-
-110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %4, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call i32 @index_getprocid(ptr noundef %112, i16 noundef signext %12, i16 noundef zeroext 12) #4
-  %.not20.i74 = icmp eq i32 %113, 0
-  br i1 %.not20.i74, label %118, label %114
-
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %111, align 8
-  %116 = tail call ptr @index_getprocinfo(ptr noundef %115, i16 noundef signext %12, i16 noundef zeroext 12) #4
-  %117 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef %106, ptr noundef %116, ptr noundef %117) #4
-  br label %inclusion_get_procinfo.exit75
-
-118:                                              ; preds = %110
-  store i8 1, ptr %102, align 1
-  br label %inclusion_get_procinfo.exit75.thread
-
-inclusion_get_procinfo.exit75:                    ; preds = %105, %114
-  %.not65 = icmp eq ptr %106, null
-  br i1 %.not65, label %inclusion_get_procinfo.exit75.thread, label %119
-
-119:                                              ; preds = %inclusion_get_procinfo.exit75
-  %120 = load ptr, ptr %38, align 8
-  %121 = load i64, ptr %120, align 8
-  %122 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %106, i32 noundef %11, i64 noundef %121, i64 noundef %9) #4
-  %.not90 = icmp eq i64 %122, 0
-  br i1 %.not90, label %123, label %inclusion_get_procinfo.exit75.thread
-
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %38, align 8
-  %125 = getelementptr i8, ptr %124, i64 8
-  store i64 1, ptr %125, align 8
-  br label %168
-
-inclusion_get_procinfo.exit75.thread:             ; preds = %inclusion_get_procinfo.exit71.thread, %118, %119, %inclusion_get_procinfo.exit75
-  %126 = load ptr, ptr %46, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 192
-  %130 = load i8, ptr %129, align 1
-  %131 = and i8 %130, 1
-  %.not.i76 = icmp eq i8 %131, 0
-  br i1 %.not.i76, label %132, label %inclusion_get_procinfo.exit79
-
-132:                                              ; preds = %inclusion_get_procinfo.exit75.thread
-  %133 = getelementptr inbounds i8, ptr %128, i64 8
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %inclusion_get_procinfo.exit79
-
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %4, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = tail call i32 @index_getprocid(ptr noundef %138, i16 noundef signext %12, i16 noundef zeroext 11) #4
-  %.not20.i78 = icmp eq i32 %139, 0
-  br i1 %.not20.i78, label %144, label %140
-
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %137, align 8
-  %142 = tail call ptr @index_getprocinfo(ptr noundef %141, i16 noundef signext %12, i16 noundef zeroext 11) #4
-  %143 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %128, ptr noundef %142, ptr noundef %143) #4
-  br label %inclusion_get_procinfo.exit79
-
-144:                                              ; preds = %136
-  store i8 1, ptr %129, align 1
-  br label %inclusion_get_procinfo.exit79
-
-inclusion_get_procinfo.exit79:                    ; preds = %inclusion_get_procinfo.exit75.thread, %132, %140, %144
-  %.0.i77 = phi ptr [ null, %144 ], [ null, %inclusion_get_procinfo.exit75.thread ], [ %128, %140 ], [ %128, %132 ]
-  %145 = load ptr, ptr %38, align 8
-  %146 = load i64, ptr %145, align 8
-  %147 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i77, i32 noundef %11, i64 noundef %146, i64 noundef %9) #4
-  %148 = getelementptr inbounds i8, ptr %18, i64 86
-  %149 = load i8, ptr %148, align 2
-  %150 = and i8 %149, 1
-  %.not66 = icmp eq i8 %150, 0
-  br i1 %.not66, label %151, label %166
-
-151:                                              ; preds = %inclusion_get_procinfo.exit79
-  %152 = inttoptr i64 %147 to ptr
-  %153 = load ptr, ptr %38, align 8
-  %154 = load i64, ptr %153, align 8
-  %155 = inttoptr i64 %154 to ptr
-  %.not67 = icmp eq ptr %152, %155
-  br i1 %.not67, label %166, label %156
-
-156:                                              ; preds = %151
-  tail call void @pfree(ptr noundef %155) #4
-  %157 = icmp eq i64 %147, %9
-  br i1 %157, label %158, label %166
-
-158:                                              ; preds = %156
-  %159 = load i8, ptr %148, align 2
-  %160 = and i8 %159, 1
-  %161 = icmp ne i8 %160, 0
-  %162 = getelementptr inbounds i8, ptr %18, i64 72
-  %163 = load i16, ptr %162, align 4
-  %164 = sext i16 %163 to i32
-  %165 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %161, i32 noundef %164) #4
+72:                                               ; preds = %68
+  store i64 1, ptr %70, align 8
   br label %166
 
-166:                                              ; preds = %156, %158, %151, %inclusion_get_procinfo.exit79
-  %.059 = phi i64 [ %147, %inclusion_get_procinfo.exit79 ], [ %165, %158 ], [ %147, %156 ], [ %147, %151 ]
-  %167 = load ptr, ptr %38, align 8
-  store i64 %.059, ptr %167, align 8
-  br label %168
+inclusion_get_procinfo.exit.thread:               ; preds = %41, %65, %66, %inclusion_get_procinfo.exit
+  br i1 %21, label %166, label %73
 
-168:                                              ; preds = %95, %inclusion_get_procinfo.exit.thread, %69, %37, %166, %123, %73
-  %.0 = phi i64 [ 1, %73 ], [ 1, %166 ], [ 1, %123 ], [ 0, %37 ], [ 0, %69 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %95 ]
+73:                                               ; preds = %inclusion_get_procinfo.exit.thread
+  %74 = load ptr, ptr %45, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr i8, ptr %76, i64 194
+  %78 = load i8, ptr %77, align 1
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %inclusion_get_procinfo.exit69.thread, label %80
+
+80:                                               ; preds = %73
+  %81 = getelementptr i8, ptr %76, i64 96
+  %82 = getelementptr i8, ptr %76, i64 104
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %inclusion_get_procinfo.exit69
+
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds i8, ptr %4, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call i32 @index_getprocid(ptr noundef %87, i16 noundef signext %12, i16 noundef zeroext 13) #4
+  %.not.i68 = icmp eq i32 %88, 0
+  br i1 %.not.i68, label %93, label %89
+
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %86, align 8
+  %91 = tail call ptr @index_getprocinfo(ptr noundef %90, i16 noundef signext %12, i16 noundef zeroext 13) #4
+  %92 = load ptr, ptr %4, align 8
+  tail call void @fmgr_info_copy(ptr noundef %81, ptr noundef %91, ptr noundef %92) #4
+  br label %inclusion_get_procinfo.exit69
+
+93:                                               ; preds = %85
+  store i8 1, ptr %77, align 1
+  br label %inclusion_get_procinfo.exit69.thread
+
+inclusion_get_procinfo.exit69:                    ; preds = %80, %89
+  %.not64 = icmp eq ptr %81, null
+  br i1 %.not64, label %inclusion_get_procinfo.exit69.thread, label %94
+
+94:                                               ; preds = %inclusion_get_procinfo.exit69
+  %95 = load ptr, ptr %37, align 8
+  %96 = load i64, ptr %95, align 8
+  %97 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %81, i32 noundef %11, i64 noundef %96, i64 noundef %9) #4
+  %.not85 = icmp eq i64 %97, 0
+  br i1 %.not85, label %inclusion_get_procinfo.exit69.thread, label %166
+
+inclusion_get_procinfo.exit69.thread:             ; preds = %73, %93, %94, %inclusion_get_procinfo.exit69
+  %98 = load ptr, ptr %45, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr i8, ptr %100, i64 193
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %inclusion_get_procinfo.exit72.thread, label %104
+
+104:                                              ; preds = %inclusion_get_procinfo.exit69.thread
+  %105 = getelementptr i8, ptr %100, i64 48
+  %106 = getelementptr i8, ptr %100, i64 56
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %inclusion_get_procinfo.exit72
+
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds i8, ptr %4, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = tail call i32 @index_getprocid(ptr noundef %111, i16 noundef signext %12, i16 noundef zeroext 12) #4
+  %.not.i71 = icmp eq i32 %112, 0
+  br i1 %.not.i71, label %117, label %113
+
+113:                                              ; preds = %109
+  %114 = load ptr, ptr %110, align 8
+  %115 = tail call ptr @index_getprocinfo(ptr noundef %114, i16 noundef signext %12, i16 noundef zeroext 12) #4
+  %116 = load ptr, ptr %4, align 8
+  tail call void @fmgr_info_copy(ptr noundef %105, ptr noundef %115, ptr noundef %116) #4
+  br label %inclusion_get_procinfo.exit72
+
+117:                                              ; preds = %109
+  store i8 1, ptr %101, align 1
+  br label %inclusion_get_procinfo.exit72.thread
+
+inclusion_get_procinfo.exit72:                    ; preds = %104, %113
+  %.not65 = icmp eq ptr %105, null
+  br i1 %.not65, label %inclusion_get_procinfo.exit72.thread, label %118
+
+118:                                              ; preds = %inclusion_get_procinfo.exit72
+  %119 = load ptr, ptr %37, align 8
+  %120 = load i64, ptr %119, align 8
+  %121 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %105, i32 noundef %11, i64 noundef %120, i64 noundef %9) #4
+  %.not86 = icmp eq i64 %121, 0
+  br i1 %.not86, label %122, label %inclusion_get_procinfo.exit72.thread
+
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %37, align 8
+  %124 = getelementptr i8, ptr %123, i64 8
+  store i64 1, ptr %124, align 8
+  br label %166
+
+inclusion_get_procinfo.exit72.thread:             ; preds = %inclusion_get_procinfo.exit69.thread, %117, %118, %inclusion_get_procinfo.exit72
+  %125 = load ptr, ptr %45, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 192
+  %129 = load i8, ptr %128, align 1
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %inclusion_get_procinfo.exit75, label %131
+
+131:                                              ; preds = %inclusion_get_procinfo.exit72.thread
+  %132 = getelementptr inbounds i8, ptr %127, i64 8
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %inclusion_get_procinfo.exit75
+
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds i8, ptr %4, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = tail call i32 @index_getprocid(ptr noundef %137, i16 noundef signext %12, i16 noundef zeroext 11) #4
+  %.not.i74 = icmp eq i32 %138, 0
+  br i1 %.not.i74, label %143, label %139
+
+139:                                              ; preds = %135
+  %140 = load ptr, ptr %136, align 8
+  %141 = tail call ptr @index_getprocinfo(ptr noundef %140, i16 noundef signext %12, i16 noundef zeroext 11) #4
+  %142 = load ptr, ptr %4, align 8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %127, ptr noundef %141, ptr noundef %142) #4
+  br label %inclusion_get_procinfo.exit75
+
+143:                                              ; preds = %135
+  store i8 1, ptr %128, align 1
+  br label %inclusion_get_procinfo.exit75
+
+inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_procinfo.exit72.thread, %131, %139, %143
+  %.0.i73 = phi ptr [ null, %143 ], [ null, %inclusion_get_procinfo.exit72.thread ], [ %127, %139 ], [ %127, %131 ]
+  %144 = load ptr, ptr %37, align 8
+  %145 = load i64, ptr %144, align 8
+  %146 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i73, i32 noundef %11, i64 noundef %145, i64 noundef %9) #4
+  %147 = getelementptr inbounds i8, ptr %18, i64 86
+  %148 = load i8, ptr %147, align 2
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %164, label %150
+
+150:                                              ; preds = %inclusion_get_procinfo.exit75
+  %151 = inttoptr i64 %146 to ptr
+  %152 = load ptr, ptr %37, align 8
+  %153 = load i64, ptr %152, align 8
+  %154 = inttoptr i64 %153 to ptr
+  %.not66 = icmp eq ptr %151, %154
+  br i1 %.not66, label %164, label %155
+
+155:                                              ; preds = %150
+  tail call void @pfree(ptr noundef %154) #4
+  %156 = icmp eq i64 %146, %9
+  br i1 %156, label %157, label %164
+
+157:                                              ; preds = %155
+  %158 = load i8, ptr %147, align 2
+  %159 = trunc i8 %158 to i1
+  %160 = getelementptr inbounds i8, ptr %18, i64 72
+  %161 = load i16, ptr %160, align 4
+  %162 = sext i16 %161 to i32
+  %163 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %159, i32 noundef %162) #4
+  br label %164
+
+164:                                              ; preds = %155, %157, %150, %inclusion_get_procinfo.exit75
+  %.059 = phi i64 [ %146, %inclusion_get_procinfo.exit75 ], [ %163, %157 ], [ %146, %155 ], [ %146, %150 ]
+  %165 = load ptr, ptr %37, align 8
+  store i64 %.059, ptr %165, align 8
+  br label %166
+
+166:                                              ; preds = %94, %inclusion_get_procinfo.exit.thread, %68, %36, %164, %122, %72
+  %.0 = phi i64 [ 1, %72 ], [ 1, %164 ], [ 1, %122 ], [ 0, %36 ], [ 0, %68 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %94 ]
   ret i64 %.0
 }
 
@@ -657,16 +649,16 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
-  %.not49 = icmp eq i64 %23, 0
-  br i1 %.not49, label %24, label %30
+  %.not47 = icmp eq i64 %23, 0
+  br i1 %.not47, label %24, label %30
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
-  %.not50 = icmp eq i64 %28, 0
-  br i1 %.not50, label %30, label %29
+  %.not48 = icmp eq i64 %28, 0
+  br i1 %.not48, label %30, label %29
 
 29:                                               ; preds = %24
   store i64 1, ptr %22, align 8
@@ -677,20 +669,20 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   %31 = phi ptr [ %.pre, %29 ], [ %21, %24 ], [ %21, %1 ]
   %32 = getelementptr i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
-  %.not51 = icmp eq i64 %33, 0
-  br i1 %.not51, label %34, label %120
+  %.not49 = icmp eq i64 %33, 0
+  br i1 %.not49, label %34, label %119
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %10, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
-  %.not52 = icmp eq i64 %38, 0
-  br i1 %.not52, label %40, label %39
+  %.not50 = icmp eq i64 %38, 0
+  br i1 %.not50, label %40, label %39
 
 39:                                               ; preds = %34
   store i64 1, ptr %32, align 8
-  br label %120
+  br label %119
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %4, i64 40
@@ -702,9 +694,8 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 193
   %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, 1
-  %.not.i = icmp eq i8 %50, 0
-  br i1 %.not.i, label %51, label %inclusion_get_procinfo.exit.thread
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %inclusion_get_procinfo.exit.thread, label %51
 
 51:                                               ; preds = %40
   %52 = getelementptr i8, ptr %47, i64 48
@@ -717,8 +708,8 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   %57 = getelementptr inbounds i8, ptr %4, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @index_getprocid(ptr noundef %58, i16 noundef signext %13, i16 noundef zeroext 12) #4
-  %.not20.i = icmp eq i32 %59, 0
-  br i1 %.not20.i, label %64, label %60
+  %.not.i = icmp eq i32 %59, 0
+  br i1 %.not.i, label %64, label %60
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %57, align 8
@@ -741,14 +732,14 @@ inclusion_get_procinfo.exit:                      ; preds = %51, %60
   %68 = load ptr, ptr %35, align 8
   %69 = load i64, ptr %68, align 8
   %70 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %52, i32 noundef %12, i64 noundef %67, i64 noundef %69) #4
-  %.not53 = icmp eq i64 %70, 0
-  br i1 %.not53, label %71, label %inclusion_get_procinfo.exit.thread
+  %.not51 = icmp eq i64 %70, 0
+  br i1 %.not51, label %71, label %inclusion_get_procinfo.exit.thread
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %20, align 8
   %73 = getelementptr i8, ptr %72, i64 8
   store i64 1, ptr %73, align 8
-  br label %120
+  br label %119
 
 inclusion_get_procinfo.exit.thread:               ; preds = %40, %64, %65, %inclusion_get_procinfo.exit
   %74 = load ptr, ptr %44, align 8
@@ -756,79 +747,76 @@ inclusion_get_procinfo.exit.thread:               ; preds = %40, %64, %65, %incl
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 192
   %78 = load i8, ptr %77, align 1
-  %79 = and i8 %78, 1
-  %.not.i43 = icmp eq i8 %79, 0
-  br i1 %.not.i43, label %80, label %inclusion_get_procinfo.exit46
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %inclusion_get_procinfo.exit44, label %80
 
 80:                                               ; preds = %inclusion_get_procinfo.exit.thread
   %81 = getelementptr inbounds i8, ptr %76, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %inclusion_get_procinfo.exit46
+  br i1 %83, label %84, label %inclusion_get_procinfo.exit44
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %4, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i32 @index_getprocid(ptr noundef %86, i16 noundef signext %13, i16 noundef zeroext 11) #4
-  %.not20.i45 = icmp eq i32 %87, 0
-  br i1 %.not20.i45, label %92, label %88
+  %.not.i43 = icmp eq i32 %87, 0
+  br i1 %.not.i43, label %92, label %88
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %85, align 8
   %90 = tail call ptr @index_getprocinfo(ptr noundef %89, i16 noundef signext %13, i16 noundef zeroext 11) #4
   %91 = load ptr, ptr %4, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %76, ptr noundef %90, ptr noundef %91) #4
-  br label %inclusion_get_procinfo.exit46
+  br label %inclusion_get_procinfo.exit44
 
 92:                                               ; preds = %84
   store i8 1, ptr %77, align 1
-  br label %inclusion_get_procinfo.exit46
+  br label %inclusion_get_procinfo.exit44
 
-inclusion_get_procinfo.exit46:                    ; preds = %inclusion_get_procinfo.exit.thread, %80, %88, %92
-  %.0.i44 = phi ptr [ null, %92 ], [ null, %inclusion_get_procinfo.exit.thread ], [ %76, %88 ], [ %76, %80 ]
+inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_procinfo.exit.thread, %80, %88, %92
+  %.0.i42 = phi ptr [ null, %92 ], [ null, %inclusion_get_procinfo.exit.thread ], [ %76, %88 ], [ %76, %80 ]
   %93 = load ptr, ptr %20, align 8
   %94 = load i64, ptr %93, align 8
   %95 = load ptr, ptr %35, align 8
   %96 = load i64, ptr %95, align 8
-  %97 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i44, i32 noundef %12, i64 noundef %94, i64 noundef %96) #4
+  %97 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i42, i32 noundef %12, i64 noundef %94, i64 noundef %96) #4
   %98 = getelementptr inbounds i8, ptr %19, i64 86
   %99 = load i8, ptr %98, align 2
-  %100 = and i8 %99, 1
-  %.not41 = icmp eq i8 %100, 0
-  br i1 %.not41, label %101, label %118
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %117, label %101
 
-101:                                              ; preds = %inclusion_get_procinfo.exit46
+101:                                              ; preds = %inclusion_get_procinfo.exit44
   %102 = inttoptr i64 %97 to ptr
   %103 = load ptr, ptr %20, align 8
   %104 = load i64, ptr %103, align 8
   %105 = inttoptr i64 %104 to ptr
-  %.not42 = icmp eq ptr %102, %105
-  br i1 %.not42, label %118, label %106
+  %.not41 = icmp eq ptr %102, %105
+  br i1 %.not41, label %117, label %106
 
 106:                                              ; preds = %101
   tail call void @pfree(ptr noundef %105) #4
   %107 = load ptr, ptr %35, align 8
   %108 = load i64, ptr %107, align 8
   %109 = icmp eq i64 %97, %108
-  br i1 %109, label %110, label %118
+  br i1 %109, label %110, label %117
 
 110:                                              ; preds = %106
   %111 = load i8, ptr %98, align 2
-  %112 = and i8 %111, 1
-  %113 = icmp ne i8 %112, 0
-  %114 = getelementptr inbounds i8, ptr %19, i64 72
-  %115 = load i16, ptr %114, align 4
-  %116 = sext i16 %115 to i32
-  %117 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext %113, i32 noundef %116) #4
-  br label %118
+  %112 = trunc i8 %111 to i1
+  %113 = getelementptr inbounds i8, ptr %19, i64 72
+  %114 = load i16, ptr %113, align 4
+  %115 = sext i16 %114 to i32
+  %116 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext %112, i32 noundef %115) #4
+  br label %117
 
-118:                                              ; preds = %106, %110, %101, %inclusion_get_procinfo.exit46
-  %.0 = phi i64 [ %97, %inclusion_get_procinfo.exit46 ], [ %117, %110 ], [ %97, %106 ], [ %97, %101 ]
-  %119 = load ptr, ptr %20, align 8
-  store i64 %.0, ptr %119, align 8
-  br label %120
+117:                                              ; preds = %106, %110, %101, %inclusion_get_procinfo.exit44
+  %.0 = phi i64 [ %97, %inclusion_get_procinfo.exit44 ], [ %116, %110 ], [ %97, %106 ], [ %97, %101 ]
+  %118 = load ptr, ptr %20, align 8
+  store i64 %.0, ptr %118, align 8
+  br label %119
 
-120:                                              ; preds = %30, %118, %71, %39
+119:                                              ; preds = %30, %117, %71, %39
   ret i64 0
 }
 

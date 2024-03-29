@@ -6773,9 +6773,8 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %1, i64 44
   %21 = load i8, ptr %20, align 4
-  %22 = and i8 %21, 1
-  %.not12 = icmp eq i8 %22, 0
-  %23 = select i1 %.not12, i32 70, i32 84
+  %22 = trunc i8 %21 to i1
+  %23 = select i1 %22, i32 84, i32 70
   br label %24
 
 24:                                               ; preds = %19, %15

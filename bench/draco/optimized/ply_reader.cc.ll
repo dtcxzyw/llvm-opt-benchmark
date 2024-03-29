@@ -1112,7 +1112,7 @@ define void @_ZN5draco9PlyReader11ParseHeaderEPNS_13DecoderBufferE(ptr dead_on_u
 
 _ZN5draco6StatusC2ERKS0_.exit.thread:             ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  br label %.loopexit19
+  br label %.loopexit18
 
 .loopexit:                                        ; preds = %18, %21
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1126,15 +1126,14 @@ _ZN5draco6StatusC2ERKS0_.exit.thread:             ; preds = %14
 
 15:                                               ; preds = %11
   %16 = load i8, ptr %6, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %18, label %_ZN5draco6StatusC2ERKS0_.exit.thread17
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %_ZN5draco6StatusC2ERKS0_.exit.thread16, label %18
 
-_ZN5draco6StatusC2ERKS0_.exit.thread17:           ; preds = %15
+_ZN5draco6StatusC2ERKS0_.exit.thread16:           ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   store i32 0, ptr %0, align 8, !alias.scope !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  br label %.loopexit19
+  br label %.loopexit18
 
 18:                                               ; preds = %15
   %19 = invoke noundef zeroext i1 @_ZN5draco9PlyReader12ParseElementEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %2)
@@ -1155,7 +1154,7 @@ _ZN5draco6StatusC2ERKS0_.exit.thread17:           ; preds = %15
 25:                                               ; preds = %22
   store i32 %23, ptr %0, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZN5draco6StatusC2ERKS0_.exit15 unwind label %26
+          to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %26
 
 26:                                               ; preds = %25, %31
   %27 = landingpad { ptr, i32 }
@@ -1165,31 +1164,30 @@ _ZN5draco6StatusC2ERKS0_.exit.thread17:           ; preds = %15
 
 28:                                               ; preds = %22
   %29 = load i8, ptr %9, align 8
-  %30 = and i8 %29, 1
-  %.not13 = icmp eq i8 %30, 0
-  br i1 %.not13, label %31, label %_ZN5draco6StatusC2ERKS0_.exit15, !llvm.loop !14
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %_ZN5draco6StatusC2ERKS0_.exit14, label %31, !llvm.loop !14
 
 31:                                               ; preds = %28
   invoke void @_ZN5draco6parser8SkipLineEPNS_13DecoderBufferE(ptr noundef %2)
-          to label %_ZN5draco6StatusC2ERKS0_.exit15 unwind label %26
+          to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %26
 
-_ZN5draco6StatusC2ERKS0_.exit15:                  ; preds = %25, %31, %28
+_ZN5draco6StatusC2ERKS0_.exit14:                  ; preds = %25, %31, %28
   %.012 = phi i32 [ 2, %28 ], [ 0, %31 ], [ 1, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   br label %_ZN5draco6StatusC2ERKS0_.exit
 
-_ZN5draco6StatusC2ERKS0_.exit:                    ; preds = %20, %_ZN5draco6StatusC2ERKS0_.exit15
-  %.1 = phi i32 [ %.012, %_ZN5draco6StatusC2ERKS0_.exit15 ], [ 2, %20 ]
+_ZN5draco6StatusC2ERKS0_.exit:                    ; preds = %20, %_ZN5draco6StatusC2ERKS0_.exit14
+  %.1 = phi i32 [ %.012, %_ZN5draco6StatusC2ERKS0_.exit14 ], [ 2, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   %switch = icmp eq i32 %.1, 1
-  br i1 %switch, label %.loopexit19, label %11
+  br i1 %switch, label %.loopexit18, label %11
 
 32:                                               ; preds = %.loopexit, %.loopexit.split-lp, %26
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   resume { ptr, i32 } %.pn
 
-.loopexit19:                                      ; preds = %_ZN5draco6StatusC2ERKS0_.exit, %_ZN5draco6StatusC2ERKS0_.exit.thread, %_ZN5draco6StatusC2ERKS0_.exit.thread17
+.loopexit18:                                      ; preds = %_ZN5draco6StatusC2ERKS0_.exit, %_ZN5draco6StatusC2ERKS0_.exit.thread, %_ZN5draco6StatusC2ERKS0_.exit.thread16
   ret void
 }
 

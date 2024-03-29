@@ -455,7 +455,7 @@ define zeroext i1 @track_script_killed(i64 noundef %0, i32 noundef %1, i1 nounde
   br i1 %.not12, label %17, label %14
 
 14:                                               ; preds = %10
-  br i1 %.not13, label %32, label %15
+  br i1 %.not13, label %31, label %15
 
 15:                                               ; preds = %14
   %16 = tail call ptr @__errno_location() #9
@@ -476,26 +476,25 @@ define zeroext i1 @track_script_killed(i64 noundef %0, i32 noundef %1, i1 nounde
   %21 = load ptr, ptr @track_script_thd_list, align 8
   %22 = call i32 @list_for_each(ptr noundef %21, ptr noundef nonnull @_script_killed, ptr noundef nonnull %4) #8
   %.not14 = icmp eq i32 %22, 0
-  br i1 %.not14, label %28, label %23
+  br i1 %.not14, label %27, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %4, i64 12
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  br label %32
+  %26 = trunc i8 %25 to i1
+  br label %31
 
-28:                                               ; preds = %20
-  %29 = call i32 @get_log_level() #8
-  %30 = icmp sgt i32 %29, 4
-  br i1 %30, label %31, label %32
+27:                                               ; preds = %20
+  %28 = call i32 @get_log_level() #8
+  %29 = icmp sgt i32 %28, 4
+  br i1 %29, label %30, label %31
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.track_script_killed, i64 noundef %0) #8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %28, %31, %14, %23
-  %.0 = phi i1 [ %27, %23 ], [ true, %14 ], [ true, %31 ], [ true, %28 ]
+31:                                               ; preds = %27, %30, %14, %23
+  %.0 = phi i1 [ %26, %23 ], [ true, %14 ], [ true, %30 ], [ true, %27 ]
   ret i1 %.0
 }
 
@@ -743,7 +742,7 @@ _kill_script.exit:                                ; preds = %10, %14
   store i64 %21, ptr %22, align 8
   %23 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.thread39, label %24
+  br i1 %.not, label %.thread38, label %24
 
 24:                                               ; preds = %_kill_script.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 16
@@ -760,21 +759,20 @@ _kill_script.exit:                                ; preds = %10, %14
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %0, i64 104
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not30 = icmp eq i8 %32, 0
-  br i1 %.not30, label %33, label %.thread
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %0, i64 56
   %35 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %34, ptr noundef nonnull %25, ptr noundef nonnull %3) #8
   %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %25) #8
-  %.not31 = icmp eq i32 %36, 0
-  br i1 %.not31, label %41, label %38
+  %.not30 = icmp eq i32 %36, 0
+  br i1 %.not30, label %41, label %38
 
 .thread:                                          ; preds = %29
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %25) #8
-  %.not3137 = icmp eq i32 %37, 0
-  br i1 %.not3137, label %.thread39, label %38
+  %.not3036 = icmp eq i32 %37, 0
+  br i1 %.not3036, label %.thread38, label %38
 
 38:                                               ; preds = %.thread, %33
   %39 = phi i32 [ %37, %.thread ], [ %36, %33 ]
@@ -785,32 +783,32 @@ _kill_script.exit:                                ; preds = %10, %14
 
 41:                                               ; preds = %33
   %42 = icmp eq i32 %35, 0
-  br i1 %42, label %.thread39, label %43
+  br i1 %42, label %.thread38, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %12, i64 noundef %45) #8
-  br label %.thread39
+  br label %.thread38
 
-.thread39:                                        ; preds = %.thread, %_kill_script.exit, %43, %41
+.thread38:                                        ; preds = %.thread, %_kill_script.exit, %43, %41
   %47 = call i32 @pthread_mutex_lock(ptr noundef nonnull @flush_mutex) #8
-  %.not33 = icmp eq i32 %47, 0
-  br i1 %.not33, label %50, label %48
+  %.not32 = icmp eq i32 %47, 0
+  br i1 %.not32, label %50, label %48
 
-48:                                               ; preds = %.thread39
+48:                                               ; preds = %.thread38
   %49 = tail call ptr @__errno_location() #9
   store i32 %47, ptr %49, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @__func__._track_script_rec_cleanup) #10
   unreachable
 
-50:                                               ; preds = %.thread39
+50:                                               ; preds = %.thread38
   %51 = load ptr, ptr @flush_script_thd_list, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = call i32 @list_delete_first(ptr noundef %51, ptr noundef nonnull @_match_tid, ptr noundef nonnull %52) #8
   %54 = call i32 @pthread_cond_signal(ptr noundef nonnull @flush_cond) #8
-  %.not34 = icmp eq i32 %54, 0
-  br i1 %.not34, label %58, label %55
+  %.not33 = icmp eq i32 %54, 0
+  br i1 %.not33, label %58, label %55
 
 55:                                               ; preds = %50
   %56 = tail call ptr @__errno_location() #9
@@ -820,8 +818,8 @@ _kill_script.exit:                                ; preds = %10, %14
 
 58:                                               ; preds = %55, %50
   %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @flush_mutex) #8
-  %.not35 = icmp eq i32 %59, 0
-  br i1 %.not35, label %62, label %60
+  %.not34 = icmp eq i32 %59, 0
+  br i1 %.not34, label %62, label %60
 
 60:                                               ; preds = %58
   %61 = tail call ptr @__errno_location() #9

@@ -58,31 +58,30 @@ define dso_local void @__archive_write_entry_filetype_unsupported(ptr noundef %0
   %5 = add i32 %4, -4096
   %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 20)
   %7 = icmp ult i32 %6, 12
-  br i1 %7, label %switch.hole_check, label %11
+  br i1 %7, label %switch.hole_check, label %10
 
 switch.hole_check:                                ; preds = %3
   %switch.maskindex = trunc i32 %6 to i16
   %switch.shifted = lshr i16 2603, %switch.maskindex
-  %8 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %8, 0
-  br i1 %switch.lobit.not, label %11, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 0, i64 %9
+  %8 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %10 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %10, ptr noundef %2, ptr noundef nonnull %switch.load) #3
-  br label %15
+  %9 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %9, ptr noundef %2, ptr noundef nonnull %switch.load) #3
+  br label %14
 
-11:                                               ; preds = %switch.hole_check, %3
-  %12 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
-  %13 = tail call i32 @archive_entry_mode(ptr noundef %1) #3
-  %14 = zext i32 %13 to i64
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, ptr noundef %12, ptr noundef %2, i64 noundef %14) #3
-  br label %15
+10:                                               ; preds = %switch.hole_check, %3
+  %11 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
+  %12 = tail call i32 @archive_entry_mode(ptr noundef %1) #3
+  %13 = zext i32 %12 to i64
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, ptr noundef %11, ptr noundef %2, i64 noundef %13) #3
+  br label %14
 
-15:                                               ; preds = %11, %switch.lookup
+14:                                               ; preds = %10, %switch.lookup
   ret void
 }
 

@@ -371,9 +371,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %9 = load ptr, ptr %1, align 8
   tail call void @_ZN6google17InitGoogleLoggingEPKc(ptr noundef %9)
   %10 = load i8, ptr @_ZN3fLB16FLAGS_check_modeE, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.9)

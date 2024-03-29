@@ -14,27 +14,25 @@ define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr noca
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 84
   %7 = load i32, ptr %6, align 4
-  %.not17 = icmp slt i32 %7, 0
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not15 = icmp slt i32 %7, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %24
   %8 = phi ptr [ %25, %24 ], [ %5, %3 ]
   %9 = phi i32 [ %26, %24 ], [ 0, %3 ]
-  %.018 = phi i32 [ %27, %24 ], [ 0, %3 ]
+  %.016 = phi i32 [ %27, %24 ], [ 0, %3 ]
   %10 = getelementptr inbounds i8, ptr %8, i64 88
-  %11 = sext i32 %.018 to i64
+  %11 = sext i32 %.016 to i64
   %12 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %10, i64 0, i64 %11
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not15 = icmp eq i8 %14, 0
-  br i1 %.not15, label %24, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds i8, ptr %12, i64 29
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not16 = icmp eq i8 %18, 0
-  br i1 %.not16, label %24, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %12, i64 44
@@ -48,7 +46,7 @@ define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr noca
 24:                                               ; preds = %15, %19, %.lr.ph
   %25 = phi ptr [ %8, %15 ], [ %.pre, %19 ], [ %8, %.lr.ph ]
   %26 = phi i32 [ %9, %15 ], [ %23, %19 ], [ %9, %.lr.ph ]
-  %27 = add i32 %.018, 1
+  %27 = add i32 %.016, 1
   %28 = getelementptr inbounds i8, ptr %25, i64 84
   %29 = load i32, ptr %28, align 4
   %.not = icmp sgt i32 %27, %29
@@ -75,8 +73,8 @@ define dso_local void @XLogRecStoreStats(ptr nocapture noundef %0, ptr nocapture
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds i8, ptr %6, i64 84
   %10 = load i32, ptr %9, align 4
-  %.not17.i = icmp slt i32 %10, 0
-  br i1 %.not17.i, label %XLogRecGetLen.exit, label %.lr.ph.i.preheader
+  %.not15.i = icmp slt i32 %10, 0
+  br i1 %.not15.i, label %XLogRecGetLen.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %6, i64 88
@@ -91,16 +89,14 @@ define dso_local void @XLogRecStoreStats(ptr nocapture noundef %0, ptr nocapture
   %13 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %27, %26 ]
   %14 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %11, i64 0, i64 %indvars.iv
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not15.i = icmp eq i8 %16, 0
-  br i1 %.not15.i, label %26, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %14, i64 29
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not16.i = icmp eq i8 %20, 0
-  br i1 %.not16.i, label %26, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %14, i64 44
@@ -110,8 +106,8 @@ define dso_local void @XLogRecStoreStats(ptr nocapture noundef %0, ptr nocapture
   br label %26
 
 26:                                               ; preds = %21, %17, %.lr.ph.i
-  %.1 = phi i32 [ %.0, %.lr.ph.i ], [ %.0, %17 ], [ %25, %21 ]
-  %27 = phi i32 [ %13, %.lr.ph.i ], [ %13, %17 ], [ %25, %21 ]
+  %.1 = phi i32 [ %25, %21 ], [ %.0, %17 ], [ %.0, %.lr.ph.i ]
+  %27 = phi i32 [ %25, %21 ], [ %13, %17 ], [ %13, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %XLogRecGetLen.exit.loopexit, label %.lr.ph.i, !llvm.loop !5

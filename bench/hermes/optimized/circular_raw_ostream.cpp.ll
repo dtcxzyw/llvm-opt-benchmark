@@ -107,36 +107,35 @@ if.then:                                          ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2, i64 noundef %call) #7
   %Filled.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load i8, ptr %Filled.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit
 
 if.then.i:                                        ; preds = %if.then
-  %5 = load ptr, ptr %TheStream, align 8
+  %4 = load ptr, ptr %TheStream, align 8
   %Cur.i = getelementptr inbounds i8, ptr %this, i64 72
-  %6 = load ptr, ptr %Cur.i, align 8
+  %5 = load ptr, ptr %Cur.i, align 8
   %BufferArray.i = getelementptr inbounds i8, ptr %this, i64 64
-  %7 = load ptr, ptr %BufferArray.i, align 8
-  %8 = load i64, ptr %BufferSize, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %8
+  %6 = load ptr, ptr %BufferArray.i, align 8
+  %7 = load i64, ptr %BufferSize, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %7
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %6, i64 noundef %sub.ptr.sub.i) #7
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %5, i64 noundef %sub.ptr.sub.i) #7
   br label %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit
 
 _ZN4llvh20circular_raw_ostream11flushBufferEv.exit: ; preds = %if.then, %if.then.i
-  %9 = load ptr, ptr %TheStream, align 8
+  %8 = load ptr, ptr %TheStream, align 8
   %BufferArray4.i = getelementptr inbounds i8, ptr %this, i64 64
-  %10 = load ptr, ptr %BufferArray4.i, align 8
+  %9 = load ptr, ptr %BufferArray4.i, align 8
   %Cur5.i = getelementptr inbounds i8, ptr %this, i64 72
-  %11 = load ptr, ptr %Cur5.i, align 8
-  %sub.ptr.lhs.cast7.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast8.i = ptrtoint ptr %10 to i64
+  %10 = load ptr, ptr %Cur5.i, align 8
+  %sub.ptr.lhs.cast7.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast8.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
-  %call10.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef %10, i64 noundef %sub.ptr.sub9.i) #7
-  %12 = load ptr, ptr %BufferArray4.i, align 8
-  store ptr %12, ptr %Cur5.i, align 8
+  %call10.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef %9, i64 noundef %sub.ptr.sub9.i) #7
+  %11 = load ptr, ptr %BufferArray4.i, align 8
+  store ptr %11, ptr %Cur5.i, align 8
   store i8 0, ptr %Filled.i, align 8
   br label %if.end
 
@@ -177,67 +176,65 @@ if.then.i2:                                       ; preds = %_ZN4llvh11raw_ostre
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4, i64 noundef %call.i) #7
   %Filled.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load i8, ptr %Filled.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i2
-  %7 = load ptr, ptr %TheStream.i, align 8
+  %6 = load ptr, ptr %TheStream.i, align 8
   %Cur.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %8 = load ptr, ptr %Cur.i.i, align 8
+  %7 = load ptr, ptr %Cur.i.i, align 8
   %BufferArray.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %9 = load ptr, ptr %BufferArray.i.i, align 8
-  %10 = load i64, ptr %BufferSize.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %10
+  %8 = load ptr, ptr %BufferArray.i.i, align 8
+  %9 = load i64, ptr %BufferSize.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %9
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef %8, i64 noundef %sub.ptr.sub.i.i) #7
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %7, i64 noundef %sub.ptr.sub.i.i) #7
   br label %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit.i
 
 _ZN4llvh20circular_raw_ostream11flushBufferEv.exit.i: ; preds = %if.then.i.i, %if.then.i2
-  %11 = load ptr, ptr %TheStream.i, align 8
+  %10 = load ptr, ptr %TheStream.i, align 8
   %BufferArray4.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %12 = load ptr, ptr %BufferArray4.i.i, align 8
+  %11 = load ptr, ptr %BufferArray4.i.i, align 8
   %Cur5.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %13 = load ptr, ptr %Cur5.i.i, align 8
-  %sub.ptr.lhs.cast7.i.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast8.i.i = ptrtoint ptr %12 to i64
+  %12 = load ptr, ptr %Cur5.i.i, align 8
+  %sub.ptr.lhs.cast7.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast8.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
-  %call10.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef %12, i64 noundef %sub.ptr.sub9.i.i) #7
-  %14 = load ptr, ptr %BufferArray4.i.i, align 8
-  store ptr %14, ptr %Cur5.i.i, align 8
+  %call10.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %11, i64 noundef %sub.ptr.sub9.i.i) #7
+  %13 = load ptr, ptr %BufferArray4.i.i, align 8
+  store ptr %13, ptr %Cur5.i.i, align 8
   store i8 0, ptr %Filled.i.i, align 8
   br label %_ZN4llvh20circular_raw_ostream21flushBufferWithBannerEv.exit
 
 _ZN4llvh20circular_raw_ostream21flushBufferWithBannerEv.exit: ; preds = %_ZN4llvh11raw_ostream5flushEv.exit, %_ZN4llvh20circular_raw_ostream11flushBufferEv.exit.i
   %TheStream.i3 = getelementptr inbounds i8, ptr %this, i64 40
-  %15 = load ptr, ptr %TheStream.i3, align 8
-  %tobool.not.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %TheStream.i3, align 8
+  %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %_ZN4llvh20circular_raw_ostream13releaseStreamEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4llvh20circular_raw_ostream21flushBufferWithBannerEv.exit
   %OwnsStream.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i8, ptr %OwnsStream.i, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i = icmp eq i8 %17, 0
-  br i1 %tobool2.not.i, label %_ZN4llvh20circular_raw_ostream13releaseStreamEv.exit, label %delete.notnull.i
+  %15 = load i8, ptr %OwnsStream.i, align 8
+  %tobool2.i = trunc i8 %15 to i1
+  br i1 %tobool2.i, label %delete.notnull.i, label %_ZN4llvh20circular_raw_ostream13releaseStreamEv.exit
 
 delete.notnull.i:                                 ; preds = %if.end.i
-  %vtable.i = load ptr, ptr %15, align 8
+  %vtable.i = load ptr, ptr %14, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %18 = load ptr, ptr %vfn.i, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(36) %15) #7
+  %16 = load ptr, ptr %vfn.i, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(36) %14) #7
   br label %_ZN4llvh20circular_raw_ostream13releaseStreamEv.exit
 
 _ZN4llvh20circular_raw_ostream13releaseStreamEv.exit: ; preds = %_ZN4llvh20circular_raw_ostream21flushBufferWithBannerEv.exit, %if.end.i, %delete.notnull.i
   %BufferArray = getelementptr inbounds i8, ptr %this, i64 64
-  %19 = load ptr, ptr %BufferArray, align 8
-  %isnull = icmp eq ptr %19, null
+  %17 = load ptr, ptr %BufferArray, align 8
+  %isnull = icmp eq ptr %17, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %_ZN4llvh20circular_raw_ostream13releaseStreamEv.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %17) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %_ZN4llvh20circular_raw_ostream13releaseStreamEv.exit

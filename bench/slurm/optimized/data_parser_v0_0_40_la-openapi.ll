@@ -170,17 +170,17 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   %.0 = phi ptr [ null, %12 ], [ %11, %4 ], [ %15, %13 ]
   %17 = getelementptr inbounds i8, ptr %2, i64 116
   %18 = load i32, ptr %17, align 4
-  %.not3036 = icmp eq i32 %18, 0
-  br i1 %.not3036, label %._crit_edge, label %.lr.ph
+  %.not3035 = icmp eq i32 %18, 0
+  br i1 %.not3035, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %19 = phi i32 [ %24, %.lr.ph ], [ %18, %16 ]
-  %.138 = phi ptr [ %spec.select34, %.lr.ph ], [ %.0, %16 ]
-  %.02337 = phi ptr [ %22, %.lr.ph ], [ %2, %16 ]
-  %20 = getelementptr inbounds i8, ptr %.02337, i64 24
+  %.137 = phi ptr [ %spec.select33, %.lr.ph ], [ %.0, %16 ]
+  %.02336 = phi ptr [ %22, %.lr.ph ], [ %2, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.02336, i64 24
   %21 = load ptr, ptr %20, align 8
-  %.not33 = icmp eq ptr %21, null
-  %spec.select34 = select i1 %.not33, ptr %.138, ptr %21
+  %.not32 = icmp eq ptr %21, null
+  %spec.select33 = select i1 %.not32, ptr %.137, ptr %21
   %22 = tail call ptr @find_parser_by_type(i32 noundef %19) #6
   %23 = getelementptr inbounds i8, ptr %22, i64 116
   %24 = load i32, ptr %23, align 4
@@ -189,12 +189,11 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.023.lcssa = phi ptr [ %2, %16 ], [ %22, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.0, %16 ], [ %spec.select34, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.0, %16 ], [ %spec.select33, %.lr.ph ]
   %25 = getelementptr inbounds i8, ptr %3, i64 80
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not31 = icmp eq i8 %27, 0
-  br i1 %.not31, label %28, label %40
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %40, label %28
 
 28:                                               ; preds = %._crit_edge
   %29 = getelementptr inbounds i8, ptr %.023.lcssa, i64 40
@@ -253,8 +252,8 @@ _should_be_ref.exit.thread:                       ; preds = %32, %35, %28, %_sho
   store ptr %47, ptr %9, align 8
   %48 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.6) #6
   %49 = call ptr @_data_set_string_own(ptr noundef %48, ptr noundef nonnull %9) #6
-  %.not32 = icmp eq ptr %.1.lcssa, null
-  br i1 %.not32, label %53, label %50
+  %.not31 = icmp eq ptr %.1.lcssa, null
+  br i1 %.not31, label %53, label %50
 
 50:                                               ; preds = %_should_be_ref.exit.thread
   %51 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #6
@@ -341,16 +340,15 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %1, i64 137
   %39 = load i8, ptr %38, align 1
-  %40 = and i8 %39, 1
-  %.not77 = icmp eq i8 %40, 0
-  %spec.select91 = select i1 %.not77, i32 11, i32 7
+  %40 = trunc i8 %39 to i1
+  %spec.select89 = select i1 %40, i32 7, i32 11
   br label %46
 
 .thread:                                          ; preds = %34
   %41 = getelementptr inbounds i8, ptr %1, i64 144
   %42 = load ptr, ptr %41, align 8
-  %.not80 = icmp eq ptr %42, null
-  br i1 %.not80, label %43, label %46
+  %.not78 = icmp eq ptr %42, null
+  br i1 %.not78, label %43, label %46
 
 43:                                               ; preds = %.thread
   %44 = getelementptr inbounds i8, ptr %1, i64 40
@@ -358,19 +356,19 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br label %46
 
 46:                                               ; preds = %37, %.thread, %28, %31, %43
-  %.063 = phi i32 [ %45, %43 ], [ 11, %31 ], [ 11, %28 ], [ 10, %.thread ], [ %spec.select91, %37 ]
+  %.063 = phi i32 [ %45, %43 ], [ 11, %31 ], [ 11, %28 ], [ 10, %.thread ], [ %spec.select89, %37 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
-  %.not81 = icmp eq ptr %48, null
-  %spec.select = select i1 %.not81, ptr %3, ptr %48
+  %.not79 = icmp eq ptr %48, null
+  %spec.select = select i1 %.not79, ptr %3, ptr %48
   %49 = tail call ptr @set_openapi_props(ptr noundef %0, i32 noundef %.063, ptr noundef %spec.select)
-  %.not82 = icmp eq ptr %49, null
-  br i1 %.not82, label %.loopexit, label %50
+  %.not80 = icmp eq ptr %49, null
+  br i1 %.not80, label %.loopexit, label %50
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %29, align 4
-  %.not83 = icmp eq i32 %51, 0
-  br i1 %.not83, label %54, label %52
+  %.not81 = icmp eq i32 %51, 0
+  br i1 %.not81, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = tail call ptr @find_parser_by_type(i32 noundef %51) #6
@@ -380,8 +378,8 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %1, i64 140
   %56 = load i32, ptr %55, align 4
-  %.not84 = icmp eq i32 %56, 0
-  br i1 %.not84, label %59, label %57
+  %.not82 = icmp eq i32 %56, 0
+  br i1 %.not82, label %59, label %57
 
 57:                                               ; preds = %54
   %58 = tail call ptr @find_parser_by_type(i32 noundef %56) #6
@@ -391,8 +389,8 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds i8, ptr %1, i64 128
   %61 = load ptr, ptr %60, align 8
-  %.not85 = icmp eq ptr %61, null
-  br i1 %.not85, label %63, label %62
+  %.not83 = icmp eq ptr %61, null
+  br i1 %.not83, label %63, label %62
 
 62:                                               ; preds = %59
   tail call fastcc void @_add_param_flag_enum(ptr noundef nonnull %49, ptr noundef nonnull %1)
@@ -401,16 +399,16 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %1, i64 144
   %65 = load ptr, ptr %64, align 8
-  %.not86 = icmp eq ptr %65, null
-  br i1 %.not86, label %95, label %66
+  %.not84 = icmp eq ptr %65, null
+  br i1 %.not84, label %95, label %66
 
 66:                                               ; preds = %63
   %67 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.12) #6
   %68 = tail call ptr @data_set_list(ptr noundef %67) #6
   %69 = getelementptr inbounds i8, ptr %1, i64 152
   %70 = load i64, ptr %69, align 8
-  %.not89 = icmp eq i64 %70, 0
-  br i1 %.not89, label %.loopexit, label %.lr.ph
+  %.not87 = icmp eq i64 %70, 0
+  br i1 %.not87, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66, %_add_field.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_add_field.exit ], [ 0, %66 ]
@@ -424,9 +422,8 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
 76:                                               ; preds = %.lr.ph
   %77 = getelementptr inbounds i8, ptr %72, i64 112
   %78 = load i8, ptr %77, align 8
-  %79 = and i8 %78, 1
-  %.not.i = icmp eq i8 %79, 0
-  br i1 %.not.i, label %85, label %80
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %85
 
 80:                                               ; preds = %76
   %81 = tail call ptr @data_list_append(ptr noundef %68) #6
@@ -464,8 +461,8 @@ _add_field.exit:                                  ; preds = %.lr.ph, %89, %92
   %98 = getelementptr inbounds i8, ptr %97, i64 112
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 4
-  %.not87 = icmp eq i32 %100, 0
-  br i1 %.not87, label %101, label %.loopexit
+  %.not85 = icmp eq i32 %100, 0
+  br i1 %.not85, label %101, label %.loopexit
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1028,8 +1025,8 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %8 = tail call ptr @find_parser_by_type(i32 noundef %.val27) #6
   %9 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load i8, ptr %9, align 8
-  %.not2.i = icmp eq i8 %10, 0
-  br i1 %.not2.i, label %_add_param_eflags.exit, label %.lr.ph.i
+  %.not.i = icmp eq i8 %10, 0
+  br i1 %.not.i, label %_add_param_eflags.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 128
@@ -1043,9 +1040,8 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %16 = getelementptr inbounds %struct.flag_bit_t, ptr %15, i64 %indvars.iv.i
   %17 = getelementptr inbounds i8, ptr %16, i64 80
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not.i = icmp eq i8 %19, 0
-  br i1 %.not.i, label %20, label %31
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %31, label %20
 
 20:                                               ; preds = %13
   %21 = tail call ptr @data_list_append(ptr noundef %0) #6
@@ -1109,36 +1105,35 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %1, i64 112
   %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %62 = icmp ne i8 %61, 0
-  %63 = getelementptr inbounds i8, ptr %1, i64 72
-  %64 = load i16, ptr %63, align 8
-  %65 = icmp ne i16 %64, 0
-  %66 = getelementptr i8, ptr %2, i64 64
-  %.val = load ptr, ptr %66, align 8
-  %67 = tail call fastcc ptr @_add_param(ptr noundef %51, ptr noundef %53, i1 noundef zeroext %56, ptr noundef %58, i1 noundef zeroext %62, i1 noundef zeroext %65, ptr %.val)
-  %68 = load i32, ptr %4, align 4
-  %69 = icmp eq i32 %68, 2
-  br i1 %69, label %70, label %74
+  %61 = trunc i8 %60 to i1
+  %62 = getelementptr inbounds i8, ptr %1, i64 72
+  %63 = load i16, ptr %62, align 8
+  %64 = icmp ne i16 %63, 0
+  %65 = getelementptr i8, ptr %2, i64 64
+  %.val = load ptr, ptr %65, align 8
+  %66 = tail call fastcc ptr @_add_param(ptr noundef %51, ptr noundef %53, i1 noundef zeroext %56, ptr noundef %58, i1 noundef zeroext %61, i1 noundef zeroext %64, ptr %.val)
+  %67 = load i32, ptr %4, align 4
+  %68 = icmp eq i32 %67, 2
+  br i1 %68, label %69, label %73
 
-70:                                               ; preds = %49
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
-  %72 = load i32, ptr %71, align 8
-  %73 = tail call ptr @find_parser_by_type(i32 noundef %72) #6
-  br label %74
+69:                                               ; preds = %49
+  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = load i32, ptr %70, align 8
+  %72 = tail call ptr @find_parser_by_type(i32 noundef %71) #6
+  br label %73
 
-74:                                               ; preds = %70, %49
-  %.023 = phi ptr [ %73, %70 ], [ %1, %49 ]
-  %75 = getelementptr inbounds i8, ptr %.023, i64 128
-  %76 = load ptr, ptr %75, align 8
-  %.not26 = icmp eq ptr %76, null
-  br i1 %.not26, label %_add_param_eflags.exit, label %77
+73:                                               ; preds = %69, %49
+  %.023 = phi ptr [ %72, %69 ], [ %1, %49 ]
+  %74 = getelementptr inbounds i8, ptr %.023, i64 128
+  %75 = load ptr, ptr %74, align 8
+  %.not26 = icmp eq ptr %75, null
+  br i1 %.not26, label %_add_param_eflags.exit, label %76
 
-77:                                               ; preds = %74
-  tail call fastcc void @_add_param_flag_enum(ptr noundef %67, ptr noundef nonnull %.023)
+76:                                               ; preds = %73
+  tail call fastcc void @_add_param_flag_enum(ptr noundef %66, ptr noundef nonnull %.023)
   br label %_add_param_eflags.exit
 
-_add_param_eflags.exit:                           ; preds = %31, %6, %3, %._crit_edge, %77, %74
+_add_param_eflags.exit:                           ; preds = %31, %6, %3, %._crit_edge, %76, %73
   ret void
 }
 
@@ -1157,8 +1152,8 @@ define internal fastcc void @_add_param_flag_enum(ptr noundef %0, ptr nocapture 
   %7 = tail call ptr @data_set_string(ptr noundef %5, ptr noundef %6) #6
   %8 = getelementptr inbounds i8, ptr %1, i64 136
   %9 = load i8, ptr %8, align 8
-  %.not10 = icmp eq i8 %9, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 128
@@ -1170,9 +1165,8 @@ define internal fastcc void @_add_param_flag_enum(ptr noundef %0, ptr nocapture 
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds %struct.flag_bit_t, ptr %13, i64 %indvars.iv, i32 10
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %17, label %23
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %23, label %17
 
 17:                                               ; preds = %11
   %18 = tail call ptr @data_list_append(ptr noundef %4) #6

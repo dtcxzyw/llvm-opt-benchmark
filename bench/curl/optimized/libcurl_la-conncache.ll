@@ -822,8 +822,8 @@ declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conncache_close_all_connections(ptr noundef %connc) local_unnamed_addr #0 {
 entry:
-  %action.i38 = alloca %struct.sigaction, align 8
-  %iter.i24 = alloca %struct.Curl_hash_iterator, align 8
+  %action.i37 = alloca %struct.sigaction, align 8
+  %iter.i23 = alloca %struct.Curl_hash_iterator, align 8
   %action.i = alloca %struct.sigaction, align 8
   %iter.i = alloca %struct.Curl_hash_iterator, align 8
   %buffer = alloca [1025 x i8], align 16
@@ -866,15 +866,15 @@ conncache_find_first_connection.exit.thread:      ; preds = %if.end.i, %if.end
 conncache_find_first_connection.exit:             ; preds = %while.body.i
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i)
-  %tobool4.not59 = icmp eq ptr %4, null
-  br i1 %tobool4.not59, label %while.end, label %while.body.lr.ph
+  %tobool4.not58 = icmp eq ptr %4, null
+  br i1 %tobool4.not58, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %conncache_find_first_connection.exit
   %no_signal1.i = getelementptr inbounds i8, ptr %pipe_st, i64 152
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %conncache_find_first_connection.exit37
-  %conn.060 = phi ptr [ %4, %while.body.lr.ph ], [ %15, %conncache_find_first_connection.exit37 ]
+while.body:                                       ; preds = %while.body.lr.ph, %conncache_find_first_connection.exit36
+  %conn.059 = phi ptr [ %4, %while.body.lr.ph ], [ %14, %conncache_find_first_connection.exit36 ]
   %5 = load ptr, ptr %closure_handle, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i)
   %no_signal.i = getelementptr inbounds i8, ptr %5, i64 2706
@@ -896,93 +896,91 @@ if.then.i17:                                      ; preds = %while.body
 
 sigpipe_ignore.exit:                              ; preds = %while.body, %if.then.i17
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i)
-  call void @Curl_conncontrol(ptr noundef nonnull %conn.060, i32 noundef 1) #7
+  call void @Curl_conncontrol(ptr noundef nonnull %conn.059, i32 noundef 1) #7
   %9 = load ptr, ptr %closure_handle, align 8
-  call void @Curl_conncache_remove_conn(ptr noundef %9, ptr noundef nonnull %conn.060, i1 noundef zeroext true)
+  call void @Curl_conncache_remove_conn(ptr noundef %9, ptr noundef nonnull %conn.059, i1 noundef zeroext true)
   %10 = load ptr, ptr %closure_handle, align 8
-  call void @Curl_disconnect(ptr noundef %10, ptr noundef nonnull %conn.060, i1 noundef zeroext false) #7
+  call void @Curl_disconnect(ptr noundef %10, ptr noundef nonnull %conn.059, i1 noundef zeroext false) #7
   %11 = load i8, ptr %no_signal1.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i20 = icmp eq i8 %12, 0
-  br i1 %tobool.not.i20, label %if.then.i22, label %sigpipe_restore.exit
+  %tobool.i = trunc i8 %11 to i1
+  br i1 %tobool.i, label %sigpipe_restore.exit, label %if.then.i20
 
-if.then.i22:                                      ; preds = %sigpipe_ignore.exit
-  %call.i23 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %pipe_st, ptr noundef null) #7
+if.then.i20:                                      ; preds = %sigpipe_ignore.exit
+  %call.i21 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %pipe_st, ptr noundef null) #7
   br label %sigpipe_restore.exit
 
-sigpipe_restore.exit:                             ; preds = %sigpipe_ignore.exit, %if.then.i22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i24)
-  call void @Curl_hash_start_iterate(ptr noundef nonnull %connc, ptr noundef nonnull %iter.i24) #7
-  %call.i25 = call ptr @Curl_hash_next_element(ptr noundef nonnull %iter.i24) #7
-  %tobool.not3.i26 = icmp eq ptr %call.i25, null
-  br i1 %tobool.not3.i26, label %conncache_find_first_connection.exit37.thread, label %while.body.i27
+sigpipe_restore.exit:                             ; preds = %sigpipe_ignore.exit, %if.then.i20
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i23)
+  call void @Curl_hash_start_iterate(ptr noundef nonnull %connc, ptr noundef nonnull %iter.i23) #7
+  %call.i24 = call ptr @Curl_hash_next_element(ptr noundef nonnull %iter.i23) #7
+  %tobool.not3.i25 = icmp eq ptr %call.i24, null
+  br i1 %tobool.not3.i25, label %conncache_find_first_connection.exit36.thread, label %while.body.i26
 
-while.body.i27:                                   ; preds = %sigpipe_restore.exit, %if.end.i34
-  %he.04.i28 = phi ptr [ %call3.i35, %if.end.i34 ], [ %call.i25, %sigpipe_restore.exit ]
-  %ptr.i29 = getelementptr inbounds i8, ptr %he.04.i28, i64 24
-  %13 = load ptr, ptr %ptr.i29, align 8
-  %conn_list.i30 = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load ptr, ptr %conn_list.i30, align 8
-  %tobool1.not.i31 = icmp eq ptr %14, null
-  br i1 %tobool1.not.i31, label %if.end.i34, label %conncache_find_first_connection.exit37
+while.body.i26:                                   ; preds = %sigpipe_restore.exit, %if.end.i33
+  %he.04.i27 = phi ptr [ %call3.i34, %if.end.i33 ], [ %call.i24, %sigpipe_restore.exit ]
+  %ptr.i28 = getelementptr inbounds i8, ptr %he.04.i27, i64 24
+  %12 = load ptr, ptr %ptr.i28, align 8
+  %conn_list.i29 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = load ptr, ptr %conn_list.i29, align 8
+  %tobool1.not.i30 = icmp eq ptr %13, null
+  br i1 %tobool1.not.i30, label %if.end.i33, label %conncache_find_first_connection.exit36
 
-if.end.i34:                                       ; preds = %while.body.i27
-  %call3.i35 = call ptr @Curl_hash_next_element(ptr noundef nonnull %iter.i24) #7
-  %tobool.not.i36 = icmp eq ptr %call3.i35, null
-  br i1 %tobool.not.i36, label %conncache_find_first_connection.exit37.thread, label %while.body.i27, !llvm.loop !12
+if.end.i33:                                       ; preds = %while.body.i26
+  %call3.i34 = call ptr @Curl_hash_next_element(ptr noundef nonnull %iter.i23) #7
+  %tobool.not.i35 = icmp eq ptr %call3.i34, null
+  br i1 %tobool.not.i35, label %conncache_find_first_connection.exit36.thread, label %while.body.i26, !llvm.loop !12
 
-conncache_find_first_connection.exit37.thread:    ; preds = %sigpipe_restore.exit, %if.end.i34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i24)
+conncache_find_first_connection.exit36.thread:    ; preds = %sigpipe_restore.exit, %if.end.i33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i23)
   br label %while.end
 
-conncache_find_first_connection.exit37:           ; preds = %while.body.i27
-  %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i24)
-  %tobool4.not = icmp eq ptr %15, null
+conncache_find_first_connection.exit36:           ; preds = %while.body.i26
+  %14 = load ptr, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i23)
+  %tobool4.not = icmp eq ptr %14, null
   br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !13
 
-while.end:                                        ; preds = %conncache_find_first_connection.exit37, %conncache_find_first_connection.exit37.thread, %conncache_find_first_connection.exit.thread, %conncache_find_first_connection.exit
-  %16 = load ptr, ptr %closure_handle, align 8
-  %buffer11 = getelementptr inbounds i8, ptr %16, i64 3224
+while.end:                                        ; preds = %conncache_find_first_connection.exit36, %conncache_find_first_connection.exit36.thread, %conncache_find_first_connection.exit.thread, %conncache_find_first_connection.exit
+  %15 = load ptr, ptr %closure_handle, align 8
+  %buffer11 = getelementptr inbounds i8, ptr %15, i64 3224
   store ptr null, ptr %buffer11, align 8
-  %17 = load ptr, ptr %closure_handle, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i38)
-  %no_signal.i39 = getelementptr inbounds i8, ptr %17, i64 2706
-  %bf.load.i40 = load i64, ptr %no_signal.i39, align 2
-  %no_signal1.i41 = getelementptr inbounds i8, ptr %pipe_st, i64 152
-  %18 = lshr i64 %bf.load.i40, 33
-  %19 = trunc i64 %18 to i8
-  %frombool.i42 = and i8 %19, 1
-  store i8 %frombool.i42, ptr %no_signal1.i41, align 8
-  %20 = and i64 %bf.load.i40, 8589934592
-  %tobool8.not.i44 = icmp eq i64 %20, 0
-  br i1 %tobool8.not.i44, label %if.then.i46, label %sigpipe_ignore.exit49
+  %16 = load ptr, ptr %closure_handle, align 8
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i37)
+  %no_signal.i38 = getelementptr inbounds i8, ptr %16, i64 2706
+  %bf.load.i39 = load i64, ptr %no_signal.i38, align 2
+  %no_signal1.i40 = getelementptr inbounds i8, ptr %pipe_st, i64 152
+  %17 = lshr i64 %bf.load.i39, 33
+  %18 = trunc i64 %17 to i8
+  %frombool.i41 = and i8 %18, 1
+  store i8 %frombool.i41, ptr %no_signal1.i40, align 8
+  %19 = and i64 %bf.load.i39, 8589934592
+  %tobool8.not.i43 = icmp eq i64 %19, 0
+  br i1 %tobool8.not.i43, label %if.then.i45, label %sigpipe_ignore.exit48
 
-if.then.i46:                                      ; preds = %while.end
-  %call.i47 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %pipe_st) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %action.i38, ptr noundef nonnull align 8 dereferenceable(152) %pipe_st, i64 152, i1 false)
-  store ptr inttoptr (i64 1 to ptr), ptr %action.i38, align 8
-  %call10.i48 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %action.i38, ptr noundef null) #7
+if.then.i45:                                      ; preds = %while.end
+  %call.i46 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %pipe_st) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %action.i37, ptr noundef nonnull align 8 dereferenceable(152) %pipe_st, i64 152, i1 false)
+  store ptr inttoptr (i64 1 to ptr), ptr %action.i37, align 8
+  %call10.i47 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %action.i37, ptr noundef null) #7
   %.pre = load ptr, ptr %closure_handle, align 8
-  br label %sigpipe_ignore.exit49
+  br label %sigpipe_ignore.exit48
 
-sigpipe_ignore.exit49:                            ; preds = %while.end, %if.then.i46
-  %21 = phi ptr [ %17, %while.end ], [ %.pre, %if.then.i46 ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i38)
-  %dns = getelementptr inbounds i8, ptr %21, i64 176
-  %22 = load ptr, ptr %dns, align 8
-  call void @Curl_hostcache_clean(ptr noundef %21, ptr noundef %22) #7
+sigpipe_ignore.exit48:                            ; preds = %while.end, %if.then.i45
+  %20 = phi ptr [ %16, %while.end ], [ %.pre, %if.then.i45 ]
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i37)
+  %dns = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = load ptr, ptr %dns, align 8
+  call void @Curl_hostcache_clean(ptr noundef %20, ptr noundef %21) #7
   %call16 = call i32 @Curl_close(ptr noundef nonnull %closure_handle) #7
-  %23 = load i8, ptr %no_signal1.i41, align 8
-  %24 = and i8 %23, 1
-  %tobool.not.i51 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i51, label %if.then.i53, label %return
+  %22 = load i8, ptr %no_signal1.i40, align 8
+  %tobool.i50 = trunc i8 %22 to i1
+  br i1 %tobool.i50, label %return, label %if.then.i51
 
-if.then.i53:                                      ; preds = %sigpipe_ignore.exit49
-  %call.i54 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %pipe_st, ptr noundef null) #7
+if.then.i51:                                      ; preds = %sigpipe_ignore.exit48
+  %call.i52 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %pipe_st, ptr noundef null) #7
   br label %return
 
-return:                                           ; preds = %if.then.i53, %sigpipe_ignore.exit49, %entry
+return:                                           ; preds = %if.then.i51, %sigpipe_ignore.exit48, %entry
   ret void
 }
 

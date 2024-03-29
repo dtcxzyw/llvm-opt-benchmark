@@ -693,9 +693,8 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %first_element_.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i8, ptr %first_element_.i.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %stream_.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -705,8 +704,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %land.lhs.true.i.i, %entry
   %stream_2.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i, i64 noundef %0)
-  %4 = load i32, ptr %call, align 8
-  %cmp5.not.i.i = icmp eq i32 %4, 2
+  %3 = load i32, ptr %call, align 8
+  %cmp5.not.i.i = icmp eq i32 %3, 2
   br i1 %cmp5.not.i.i, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
@@ -718,17 +717,16 @@ _ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit:       ; preds = %if.end.i.i, %if.the
   store i8 0, ptr %first_element_9.i.i, align 4
   %call3 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %call, ptr noundef nonnull @.str.14)
   %total_blob_count_.i = getelementptr inbounds i8, ptr %blob_file_addition, i64 8
-  %5 = load i64, ptr %total_blob_count_.i, align 8
-  %6 = load i32, ptr %call3, align 8
-  %cmp.i.i6 = icmp eq i32 %6, 2
+  %4 = load i64, ptr %total_blob_count_.i, align 8
+  %5 = load i32, ptr %call3, align 8
+  %cmp.i.i6 = icmp eq i32 %5, 2
   br i1 %cmp.i.i6, label %land.lhs.true.i.i13, label %if.end.i.i7
 
 land.lhs.true.i.i13:                              ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
   %first_element_.i.i14 = getelementptr inbounds i8, ptr %call3, i64 4
-  %7 = load i8, ptr %first_element_.i.i14, align 4
-  %8 = and i8 %7, 1
-  %tobool.not.i.i15 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i15, label %if.then.i.i16, label %if.end.i.i7
+  %6 = load i8, ptr %first_element_.i.i14, align 4
+  %tobool.i.i15 = trunc i8 %6 to i1
+  br i1 %tobool.i.i15, label %if.end.i.i7, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %land.lhs.true.i.i13
   %stream_.i.i17 = getelementptr inbounds i8, ptr %call3, i64 8
@@ -737,9 +735,9 @@ if.then.i.i16:                                    ; preds = %land.lhs.true.i.i13
 
 if.end.i.i7:                                      ; preds = %if.then.i.i16, %land.lhs.true.i.i13, %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
   %stream_2.i.i8 = getelementptr inbounds i8, ptr %call3, i64 8
-  %call3.i.i9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i8, i64 noundef %5)
-  %9 = load i32, ptr %call3, align 8
-  %cmp5.not.i.i10 = icmp eq i32 %9, 2
+  %call3.i.i9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i8, i64 noundef %4)
+  %7 = load i32, ptr %call3, align 8
+  %cmp5.not.i.i10 = icmp eq i32 %7, 2
   br i1 %cmp5.not.i.i10, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit19, label %if.then6.i.i11
 
 if.then6.i.i11:                                   ; preds = %if.end.i.i7
@@ -751,17 +749,16 @@ _ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit19:     ; preds = %if.end.i.i7, %if.th
   store i8 0, ptr %first_element_9.i.i12, align 4
   %call7 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %call3, ptr noundef nonnull @.str.15)
   %total_blob_bytes_.i = getelementptr inbounds i8, ptr %blob_file_addition, i64 16
-  %10 = load i64, ptr %total_blob_bytes_.i, align 8
-  %11 = load i32, ptr %call7, align 8
-  %cmp.i.i20 = icmp eq i32 %11, 2
+  %8 = load i64, ptr %total_blob_bytes_.i, align 8
+  %9 = load i32, ptr %call7, align 8
+  %cmp.i.i20 = icmp eq i32 %9, 2
   br i1 %cmp.i.i20, label %land.lhs.true.i.i27, label %if.end.i.i21
 
 land.lhs.true.i.i27:                              ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit19
   %first_element_.i.i28 = getelementptr inbounds i8, ptr %call7, i64 4
-  %12 = load i8, ptr %first_element_.i.i28, align 4
-  %13 = and i8 %12, 1
-  %tobool.not.i.i29 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i.i29, label %if.then.i.i30, label %if.end.i.i21
+  %10 = load i8, ptr %first_element_.i.i28, align 4
+  %tobool.i.i29 = trunc i8 %10 to i1
+  br i1 %tobool.i.i29, label %if.end.i.i21, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %land.lhs.true.i.i27
   %stream_.i.i31 = getelementptr inbounds i8, ptr %call7, i64 8
@@ -770,9 +767,9 @@ if.then.i.i30:                                    ; preds = %land.lhs.true.i.i27
 
 if.end.i.i21:                                     ; preds = %if.then.i.i30, %land.lhs.true.i.i27, %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit19
   %stream_2.i.i22 = getelementptr inbounds i8, ptr %call7, i64 8
-  %call3.i.i23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i22, i64 noundef %10)
-  %14 = load i32, ptr %call7, align 8
-  %cmp5.not.i.i24 = icmp eq i32 %14, 2
+  %call3.i.i23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i22, i64 noundef %8)
+  %11 = load i32, ptr %call7, align 8
+  %cmp5.not.i.i24 = icmp eq i32 %11, 2
   br i1 %cmp5.not.i.i24, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit33, label %if.then6.i.i25
 
 if.then6.i.i25:                                   ; preds = %if.end.i.i21
@@ -803,10 +800,10 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb10JSONWr
   ret ptr %jw
 
 lpad:                                             ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit33
-  %15 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #11
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -938,21 +935,20 @@ if.end.i:                                         ; preds = %.noexc
 invoke.cont:                                      ; preds = %if.end.i
   %first_element_.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i8, ptr %first_element_.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %if.then.i5, label %if.end.i4
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.end.i5, label %if.then.i4
 
-if.then.i5:                                       ; preds = %invoke.cont
+if.then.i4:                                       ; preds = %invoke.cont
   %stream_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.21)
-          to label %if.end.i4 unwind label %lpad3
+          to label %if.end.i5 unwind label %lpad3
 
-if.end.i4:                                        ; preds = %if.then.i5, %invoke.cont
+if.end.i5:                                        ; preds = %if.then.i4, %invoke.cont
   %stream_2.i = getelementptr inbounds i8, ptr %this, i64 8
   %call3.i8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i, ptr noundef nonnull @.str.22)
           to label %call3.i.noexc unwind label %lpad3
 
-call3.i.noexc:                                    ; preds = %if.end.i4
+call3.i.noexc:                                    ; preds = %if.end.i5
   %call4.i9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call3.i8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call4.i.noexc unwind label %lpad3
 
@@ -968,27 +964,26 @@ invoke.cont4:                                     ; preds = %call4.i.noexc
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad3:                                            ; preds = %call4.i.noexc, %call3.i.noexc, %if.end.i4, %if.then.i5
-  %5 = landingpad { ptr, i32 }
+lpad3:                                            ; preds = %call4.i.noexc, %call3.i.noexc, %if.end.i5, %if.then.i4
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad3
-  %.pn = phi { ptr, i32 } [ %5, %lpad3 ], [ %4, %lpad ], [ %1, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad3 ], [ %3, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #11
   resume { ptr, i32 } %.pn
 
 land.lhs.true.i:                                  ; preds = %entry
   %first_element_.i14 = getelementptr inbounds i8, ptr %this, i64 4
-  %6 = load i8, ptr %first_element_.i14, align 4
-  %7 = and i8 %6, 1
-  %tobool.not.i15 = icmp eq i8 %7, 0
-  br i1 %tobool.not.i15, label %if.then.i16, label %if.end.i12
+  %5 = load i8, ptr %first_element_.i14, align 4
+  %tobool.i15 = trunc i8 %5 to i1
+  br i1 %tobool.i15, label %if.end.i12, label %if.then.i16
 
 if.then.i16:                                      ; preds = %land.lhs.true.i
   %stream_.i17 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1000,8 +995,8 @@ if.end.i12:                                       ; preds = %entry, %if.then.i16
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i13, ptr noundef nonnull @.str.22)
   %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3.i, ptr noundef %val)
   %call5.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4.i, ptr noundef nonnull @.str.22)
-  %8 = load i32, ptr %this, align 8
-  %cmp7.not.i = icmp eq i32 %8, 2
+  %6 = load i32, ptr %this, align 8
+  %cmp7.not.i = icmp eq i32 %6, 2
   br i1 %cmp7.not.i, label %_ZN7rocksdb10JSONWriter8AddValueEPKc.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i12

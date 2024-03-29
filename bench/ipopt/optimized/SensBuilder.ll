@@ -542,9 +542,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #14
   %190 = load i8, ptr %17, align 1
-  %191 = and i8 %190, 1
-  %.not = icmp eq i8 %191, 0
-  br i1 %.not, label %267, label %192
+  %191 = trunc i8 %190 to i1
+  br i1 %191, label %192, label %267
 
 192:                                              ; preds = %189
   %193 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #16
@@ -746,7 +745,7 @@ _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit161: ; preds = %_ZN5Ipopt8Smart
   br label %_ZN5Ipopt8SmartPtrINS_11PCalculatorEED2Ev.exit247
 
 267:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit, %189
-  %.sroa.0266.1 = phi ptr [ null, %189 ], [ %193, %_ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit ]
+  %.sroa.0266.1 = phi ptr [ %193, %_ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit ], [ null, %189 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
   %268 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %.noexc162 unwind label %374

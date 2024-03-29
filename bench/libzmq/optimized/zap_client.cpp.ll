@@ -605,10 +605,9 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit:      ; preds = %if.end18, %if.then.
 
 if.end20:                                         ; preds = %for.body10
   %call22 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx11)
-  %cmp23.not = icmp eq i64 %i7.041, 6
-  %8 = and i8 %call22, 1
-  %9 = icmp eq i8 %8, 0
-  %cmp24 = xor i1 %cmp23.not, %9
+  %8 = trunc i8 %call22 to i1
+  %9 = icmp ne i64 %i7.041, 6
+  %cmp24 = xor i1 %9, %8
   br i1 %cmp24, label %if.then25, label %for.cond8
 
 if.then25:                                        ; preds = %if.end20

@@ -93,8 +93,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 24:                                               ; preds = %"_ZN4core3ptr187drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$syn..punctuated..Iter$LT$syn..expr..Expr$GT$$C$core..option..Option$LT$$RF$syn..expr..Expr$GT$..Some$GT$$GT$$GT$17h175d088cc2c71572E.exit.i.i.i.i", %12
   %25 = load i32, ptr %1, align 8, !range !45, !alias.scope !46, !noundef !7
-  %trunc.not.i.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %trunc.not.i.i.i.i.i, label %30, label %26
+  %trunc.i.i.i.i.i = trunc i32 %25 to i1
+  br i1 %trunc.i.i.i.i.i, label %26, label %30
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %1, i64 4
@@ -167,8 +167,8 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
 
 22:                                               ; preds = %"_ZN4core3ptr187drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$syn..punctuated..Iter$LT$syn..expr..Expr$GT$$C$core..option..Option$LT$$RF$syn..expr..Expr$GT$..Some$GT$$GT$$GT$17h175d088cc2c71572E.exit.i.i.i", %10
   %23 = load i32, ptr %0, align 8, !range !45, !alias.scope !76, !noundef !7
-  %trunc.not.i.i.i.i = icmp eq i32 %23, 0
-  br i1 %trunc.not.i.i.i.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8cdd9d215b6305afE.llvm.13348757914254812529.exit", label %24
+  %trunc.i.i.i.i = trunc i32 %23 to i1
+  br i1 %trunc.i.i.i.i, label %24, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8cdd9d215b6305afE.llvm.13348757914254812529.exit"
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 4
@@ -231,8 +231,8 @@ define hidden { ptr, ptr } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
 
 22:                                               ; preds = %"_ZN4core3ptr187drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$syn..punctuated..Iter$LT$syn..expr..Expr$GT$$C$core..option..Option$LT$$RF$syn..expr..Expr$GT$..Some$GT$$GT$$GT$17h175d088cc2c71572E.exit.i.i", %10
   %23 = load i32, ptr %0, align 8, !range !45, !alias.scope !102, !noundef !7
-  %trunc.not.i.i.i = icmp eq i32 %23, 0
-  br i1 %trunc.not.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e28bfe966c23803E.exit", label %24
+  %trunc.i.i.i = trunc i32 %23 to i1
+  br i1 %trunc.i.i.i, label %24, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e28bfe966c23803E.exit"
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 4
@@ -617,11 +617,11 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN12darling_core3ast4data10NestedMeta15parse_meta_list17haf477775bf655d13E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %51 = load i64, ptr %14, align 8, !range !220, !noundef !7
-  %trunc.not = icmp eq i64 %51, 0
+  %trunc = trunc i64 %51 to i1
   %52 = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br i1 %trunc.not, label %74, label %71
+  br i1 %trunc, label %71, label %74
 
 53:                                               ; preds = %2
   call void @"_ZN69_$LT$syn..path..Path$u20$as$u20$darling_core..from_meta..FromMeta$GT$9from_expr17h52ab92073961652fE"(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
@@ -904,11 +904,11 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN12darling_core3ast4data10NestedMeta15parse_meta_list17haf477775bf655d13E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %51 = load i64, ptr %14, align 8, !range !220, !noundef !7
-  %trunc.not = icmp eq i64 %51, 0
+  %trunc = trunc i64 %51 to i1
   %52 = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br i1 %trunc.not, label %74, label %71
+  br i1 %trunc, label %71, label %74
 
 53:                                               ; preds = %2
   call fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
@@ -1474,8 +1474,8 @@ define hidden void @"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iter
 
 39:                                               ; preds = %"_ZN4core3ptr187drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$syn..punctuated..Iter$LT$syn..expr..Expr$GT$$C$core..option..Option$LT$$RF$syn..expr..Expr$GT$..Some$GT$$GT$$GT$17h175d088cc2c71572E.exit.i.i.i.i.i", %27
   %40 = phi i32 [ %.pre, %"_ZN4core3ptr187drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$syn..punctuated..Iter$LT$syn..expr..Expr$GT$$C$core..option..Option$LT$$RF$syn..expr..Expr$GT$..Some$GT$$GT$$GT$17h175d088cc2c71572E.exit.i.i.i.i.i" ], [ %4, %27 ]
-  %trunc.not.i.i.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %trunc.not.i.i.i.i.i.i, label %45, label %41
+  %trunc.i.i.i.i.i.i = trunc i32 %40 to i1
+  br i1 %trunc.i.i.i.i.i.i, label %41, label %45
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %1, i64 4

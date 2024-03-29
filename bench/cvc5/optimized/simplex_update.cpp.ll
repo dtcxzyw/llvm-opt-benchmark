@@ -88,14 +88,13 @@ entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.20)
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %m, i64 4
   %0 = load i8, ptr %_M_engaged.i.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.21)
-  %2 = load i32, ptr %m, align 4
-  %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %2)
+  %1 = load i32, ptr %m, align 4
+  %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %1)
   br label %_ZN4cvc58internallsIiEERSoS2_RKSt8optionalIT_E.exit
 
 if.else.i:                                        ; preds = %entry
@@ -264,9 +263,8 @@ entry:
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq ptr %d_nonbasicDelta, %delta
@@ -294,10 +292,9 @@ _ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_v
   %ref.tmp2.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp2.sroa.0.0.insert.ext, 4294967296
   store i64 %ref.tmp2.sroa.0.0.insert.insert, ptr %d_focusDirection, align 4
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %2 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, label %if.then.i.i.i
+  %1 = load i8, ptr %_M_engaged.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -305,10 +302,9 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cv
 
 _ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit: ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %if.then.i.i.i
   %d_foundConflict.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load i8, ptr %d_foundConflict.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
+  %2 = load i8, ptr %d_foundConflict.i.i, align 8
+  %tobool.i.i2 = trunc i8 %2 to i1
+  br i1 %tobool.i.i2, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i
 
 _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit
   %cmp.i.i = icmp slt i32 %ec, 0
@@ -344,9 +340,8 @@ entry:
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq ptr %d_nonbasicDelta, %delta
@@ -367,24 +362,22 @@ if.else.i:                                        ; preds = %entry
 _ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit: ; preds = %if.then.i, %if.end.i3.i.i, %if.else.i
   %d_errorsChange = getelementptr inbounds i8, ptr %this, i64 84
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIiE5resetEv.exit, label %if.then.i.i.i
+  %1 = load i8, ptr %_M_engaged.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIiE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
   store i8 0, ptr %_M_engaged.i.i.i, align 8
   br label %_ZNSt8optionalIiE5resetEv.exit
 
 _ZNSt8optionalIiE5resetEv.exit:                   ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %if.then.i.i.i
-  %4 = phi i8 [ %2, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 0, %if.then.i.i.i ]
+  %2 = phi i8 [ %1, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 0, %if.then.i.i.i ]
   %d_focusDirection = getelementptr inbounds i8, ptr %this, i64 92
   store i64 4294967297, ptr %d_focusDirection, align 4
   %_M_engaged.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 184
-  %5 = load i8, ptr %_M_engaged.i.i.i1, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i2 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i2, label %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, label %if.then.i.i.i3
+  %3 = load i8, ptr %_M_engaged.i.i.i1, align 8
+  %tobool.i.i.i2 = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i2, label %if.then.i.i.i3, label %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt8optionalIiE5resetEv.exit
   store i8 0, ptr %_M_engaged.i.i.i1, align 8
@@ -392,23 +385,21 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt8optionalIiE5r
 
 _ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit: ; preds = %_ZNSt8optionalIiE5resetEv.exit, %if.then.i.i.i3
   %d_foundConflict.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load i8, ptr %d_foundConflict.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
+  %4 = load i8, ptr %d_foundConflict.i.i, align 8
+  %tobool.i.i4 = trunc i8 %4 to i1
+  br i1 %tobool.i.i4, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit
-  %9 = and i8 %4, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i
+  %tobool.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %if.else.i.i
-  %10 = load i32, ptr %d_errorsChange, align 4
-  %cmp.i.i = icmp slt i32 %10, 0
+  %5 = load i32, ptr %d_errorsChange, align 4
+  %cmp.i.i = icmp slt i32 %5, 0
   br i1 %cmp.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else5.i.i
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
-  %cmp8.i.i = icmp eq i32 %10, 0
+  %cmp8.i.i = icmp eq i32 %5, 0
   %spec.select = select i1 %cmp8.i.i, i32 2, i32 7
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
@@ -427,9 +418,8 @@ entry:
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq ptr %d_nonbasicDelta, %delta
@@ -450,65 +440,57 @@ if.else.i:                                        ; preds = %entry
 _ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit: ; preds = %if.then.i, %if.end.i3.i.i, %if.else.i
   %d_errorsChange = getelementptr inbounds i8, ptr %this, i64 84
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIiE5resetEv.exit, label %if.then.i.i.i
+  %1 = load i8, ptr %_M_engaged.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIiE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
   store i8 0, ptr %_M_engaged.i.i.i, align 8
   br label %_ZNSt8optionalIiE5resetEv.exit
 
 _ZNSt8optionalIiE5resetEv.exit:                   ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %if.then.i.i.i
-  %4 = phi i8 [ %2, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 0, %if.then.i.i.i ]
+  %2 = phi i8 [ %1, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 0, %if.then.i.i.i ]
   %d_focusDirection = getelementptr inbounds i8, ptr %this, i64 92
   %_M_engaged.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 96
-  %5 = load i8, ptr %_M_engaged.i.i.i1, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i2 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i2, label %_ZNSt8optionalIiE5resetEv.exit4, label %if.then.i.i.i3
+  %3 = load i8, ptr %_M_engaged.i.i.i1, align 8
+  %tobool.i.i.i2 = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i2, label %if.then.i.i.i3, label %_ZNSt8optionalIiE5resetEv.exit4
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt8optionalIiE5resetEv.exit
   store i8 0, ptr %_M_engaged.i.i.i1, align 8
   br label %_ZNSt8optionalIiE5resetEv.exit4
 
 _ZNSt8optionalIiE5resetEv.exit4:                  ; preds = %_ZNSt8optionalIiE5resetEv.exit, %if.then.i.i.i3
-  %7 = phi i8 [ %5, %_ZNSt8optionalIiE5resetEv.exit ], [ 0, %if.then.i.i.i3 ]
+  %4 = phi i8 [ %3, %_ZNSt8optionalIiE5resetEv.exit ], [ 0, %if.then.i.i.i3 ]
   %d_foundConflict.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load i8, ptr %d_foundConflict.i.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
+  %5 = load i8, ptr %d_foundConflict.i.i, align 8
+  %tobool.i.i5 = trunc i8 %5 to i1
+  br i1 %tobool.i.i5, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZNSt8optionalIiE5resetEv.exit4
-  %10 = and i8 %4, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.i.not.i.i, label %if.then9.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i
+  %tobool.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i, label %if.then9.i.i
 
 _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %if.else.i.i
-  %11 = load i32, ptr %d_errorsChange, align 4
-  %cmp.i.i = icmp slt i32 %11, 0
+  %6 = load i32, ptr %d_errorsChange, align 4
+  %cmp.i.i = icmp slt i32 %6, 0
   br i1 %cmp.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else5.i.i
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
-  %cmp8.i.i = icmp ne i32 %11, 0
-  %12 = and i8 %7, 1
-  %tobool.i.i5.not.i.i = icmp eq i8 %12, 0
-  %or.cond = or i1 %cmp8.i.i, %tobool.i.i5.not.i.i
-  br i1 %or.cond, label %if.end25.i.i, label %if.then11.i.i
+  %cmp8.i.i = icmp eq i32 %6, 0
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end25.i.i
 
-if.then9.i.i:                                     ; preds = %if.else.i.i
-  %.old = and i8 %7, 1
-  %tobool.i.i5.not.i.i.old = icmp eq i8 %.old, 0
-  br i1 %tobool.i.i5.not.i.i.old, label %if.end25.i.i, label %if.then11.i.i
+if.then9.i.i:                                     ; preds = %if.else5.i.i, %if.else.i.i
+  %tobool.i.i6.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i6.i.i, label %if.then11.i.i, label %if.end25.i.i
 
-if.then11.i.i:                                    ; preds = %if.else5.i.i, %if.then9.i.i
-  %13 = load i32, ptr %d_focusDirection, align 4
-  %cmp14.i.i = icmp sgt i32 %13, 0
+if.then11.i.i:                                    ; preds = %if.then9.i.i
+  %7 = load i32, ptr %d_focusDirection, align 4
+  %cmp14.i.i = icmp sgt i32 %7, 0
   br i1 %cmp14.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
-  %cmp19.i.i = icmp eq i32 %13, 0
+  %cmp19.i.i = icmp eq i32 %7, 0
   br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.then9.i.i, %if.else5.i.i
@@ -529,9 +511,8 @@ entry:
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq ptr %d_nonbasicDelta, %delta
@@ -556,48 +537,47 @@ _ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_v
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %d_errorsChange, align 4
   %d_focusDirection = getelementptr inbounds i8, ptr %this, i64 92
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %2 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIiE5resetEv.exit, label %if.then.i.i.i
+  %1 = load i8, ptr %_M_engaged.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIiE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
   store i8 0, ptr %_M_engaged.i.i.i, align 8
   br label %_ZNSt8optionalIiE5resetEv.exit
 
 _ZNSt8optionalIiE5resetEv.exit:                   ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %if.then.i.i.i
-  %4 = phi i8 [ %2, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 0, %if.then.i.i.i ]
+  %2 = phi i8 [ %1, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 0, %if.then.i.i.i ]
   %d_tableauCoefficient = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %r, ptr %d_tableauCoefficient, align 8
   %ref.tmp2.sroa.2.0.d_tableauCoefficient.sroa_idx = getelementptr inbounds i8, ptr %this, i64 184
   store i8 1, ptr %ref.tmp2.sroa.2.0.d_tableauCoefficient.sroa_idx, align 8
   %d_foundConflict.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %5 = load i8, ptr %d_foundConflict.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
+  %3 = load i8, ptr %d_foundConflict.i.i, align 8
+  %tobool.i.i2 = trunc i8 %3 to i1
+  br i1 %tobool.i.i2, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i
 
 _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIiE5resetEv.exit
   %cmp.i.i = icmp slt i32 %ec, 0
   br i1 %cmp.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else5.i.i
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
-  %cmp8.i.i = icmp ne i32 %ec, 0
-  %7 = and i8 %4, 1
-  %tobool.i.i5.not.i.i = icmp eq i8 %7, 0
-  %or.cond = or i1 %cmp8.i.i, %tobool.i.i5.not.i.i
-  br i1 %or.cond, label %if.end25.i.i, label %if.then11.i.i
+  %cmp8.i.i = icmp eq i32 %ec, 0
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end25.i.i
 
-if.then11.i.i:                                    ; preds = %if.else5.i.i
-  %8 = load i32, ptr %d_focusDirection, align 4
-  %cmp14.i.i = icmp sgt i32 %8, 0
+if.then9.i.i:                                     ; preds = %if.else5.i.i
+  %tobool.i.i6.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i6.i.i, label %if.then11.i.i, label %if.end25.i.i
+
+if.then11.i.i:                                    ; preds = %if.then9.i.i
+  %4 = load i32, ptr %d_focusDirection, align 4
+  %cmp14.i.i = icmp sgt i32 %4, 0
   br i1 %cmp14.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
-  %cmp19.i.i = icmp eq i32 %8, 0
+  %cmp19.i.i = icmp eq i32 %4, 0
   br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
 
-if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.else5.i.i
+if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.then9.i.i, %if.else5.i.i
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIiE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.then11.i.i, %if.else16.i.i, %if.end25.i.i
@@ -615,9 +595,8 @@ entry:
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq ptr %d_nonbasicDelta, %delta
@@ -645,10 +624,9 @@ _ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_v
   %ref.tmp2.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp2.sroa.0.0.insert.ext, 4294967296
   store i64 %ref.tmp2.sroa.0.0.insert.insert, ptr %d_focusDirection, align 4
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %2 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, label %if.then.i.i.i
+  %1 = load i8, ptr %_M_engaged.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -656,10 +634,9 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8optionalIN4cv
 
 _ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit: ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %if.then.i.i.i
   %d_foundConflict.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load i8, ptr %d_foundConflict.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
+  %2 = load i8, ptr %d_foundConflict.i.i, align 8
+  %tobool.i.i2 = trunc i8 %2 to i1
+  br i1 %tobool.i.i2, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i
 
 _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit
   %cmp.i.i = icmp slt i32 %ec, 0
@@ -695,9 +672,8 @@ entry:
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp eq ptr %d_nonbasicDelta, %delta
@@ -729,10 +705,9 @@ _ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_v
   %ref.tmp3.sroa.2.0.d_tableauCoefficient.sroa_idx = getelementptr inbounds i8, ptr %this, i64 184
   store i8 1, ptr %ref.tmp3.sroa.2.0.d_tableauCoefficient.sroa_idx, align 8
   %d_foundConflict.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load i8, ptr %d_foundConflict.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
+  %1 = load i8, ptr %d_foundConflict.i.i, align 8
+  %tobool.i.i3 = trunc i8 %1 to i1
+  br i1 %tobool.i.i3, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %_ZNKRSt8optionalIiE5valueEv.exit.i.i
 
 _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
   %cmp.i.i = icmp slt i32 %ec, 0
@@ -794,9 +769,8 @@ entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull @.str.20)
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
@@ -812,23 +786,21 @@ _ZN4cvc58internallsINS0_13DeltaRationalEEERSoS3_RKSt8optionalIT_E.exit: ; preds 
   %call6.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull @.str.9)
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull @.str.4)
   %d_foundConflict = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load i8, ptr %d_foundConflict, align 8
-  %5 = and i8 %4, 1
-  %tobool = icmp ne i8 %5, 0
+  %3 = load i8, ptr %d_foundConflict, align 8
+  %tobool = trunc i8 %3 to i1
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call8, i1 noundef zeroext %tobool)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.5)
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str.20)
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load i8, ptr %_M_engaged.i.i.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %4 = load i8, ptr %_M_engaged.i.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4cvc58internallsINS0_13DeltaRationalEEERSoS3_RKSt8optionalIT_E.exit
   %d_errorsChange = getelementptr inbounds i8, ptr %this, i64 84
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str.21)
-  %8 = load i32, ptr %d_errorsChange, align 4
-  %call4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %8)
+  %5 = load i32, ptr %d_errorsChange, align 4
+  %call4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %5)
   br label %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4cvc58internallsINS0_13DeltaRationalEEERSoS3_RKSt8optionalIT_E.exit
@@ -840,33 +812,32 @@ _ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit: ; preds = %if.
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str.6)
   %call.i.i1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.20)
   %_M_engaged.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 96
-  %9 = load i8, ptr %_M_engaged.i.i.i.i2, align 8
-  %10 = and i8 %9, 1
-  %tobool.i.i.not.i.i3 = icmp eq i8 %10, 0
-  br i1 %tobool.i.i.not.i.i3, label %if.else.i.i8, label %if.then.i.i4
+  %6 = load i8, ptr %_M_engaged.i.i.i.i2, align 8
+  %tobool.i.i.i.i3 = trunc i8 %6 to i1
+  br i1 %tobool.i.i.i.i3, label %if.then.i.i7, label %if.else.i.i4
 
-if.then.i.i4:                                     ; preds = %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit
+if.then.i.i7:                                     ; preds = %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit
   %d_focusDirection = getelementptr inbounds i8, ptr %this, i64 92
-  %call2.i.i5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.21)
-  %11 = load i32, ptr %d_focusDirection, align 4
-  %call4.i.i6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call12, i32 noundef %11)
+  %call2.i.i8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.21)
+  %7 = load i32, ptr %d_focusDirection, align 4
+  %call4.i.i9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call12, i32 noundef %7)
   br label %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit10
 
-if.else.i.i8:                                     ; preds = %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit
-  %call5.i.i9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.22)
+if.else.i.i4:                                     ; preds = %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit
+  %call5.i.i5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.22)
   br label %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit10
 
-_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit10: ; preds = %if.then.i.i4, %if.else.i.i8
-  %call6.i.i7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.9)
+_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit10: ; preds = %if.then.i.i7, %if.else.i.i4
+  %call6.i.i6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.9)
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @.str.7)
   %d_witness = getelementptr inbounds i8, ptr %this, i64 200
-  %12 = load i32, ptr %d_witness, align 8
-  %13 = icmp ult i32 %12, 8
-  br i1 %13, label %switch.lookup, label %_ZN4cvc58internal6theory5arith6linearlsERSoNS3_18WitnessImprovementE.exit
+  %8 = load i32, ptr %d_witness, align 8
+  %9 = icmp ult i32 %8, 8
+  br i1 %9, label %switch.lookup, label %_ZN4cvc58internal6theory5arith6linearlsERSoNS3_18WitnessImprovementE.exit
 
 switch.lookup:                                    ; preds = %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit10
-  %14 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4cvc58internal6theory5arith6linearlsERSoNS3_18WitnessImprovementE, i64 0, i64 %14
+  %10 = zext nneg i32 %8 to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4cvc58internal6theory5arith6linearlsERSoNS3_18WitnessImprovementE, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull %switch.load)
   br label %_ZN4cvc58internal6theory5arith6linearlsERSoNS3_18WitnessImprovementE.exit
@@ -874,8 +845,8 @@ switch.lookup:                                    ; preds = %_ZN4cvc58internal6t
 _ZN4cvc58internal6theory5arith6linearlsERSoNS3_18WitnessImprovementE.exit: ; preds = %_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE.exit10, %switch.lookup
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull @.str.8)
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
-  %15 = load ptr, ptr %d_limiting, align 8
-  %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef %15)
+  %11 = load ptr, ptr %d_limiting, align 8
+  %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef %11)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull @.str.9)
   ret void
 }

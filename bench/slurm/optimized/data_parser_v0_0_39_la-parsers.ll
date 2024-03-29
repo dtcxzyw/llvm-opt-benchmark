@@ -4562,10 +4562,9 @@ define internal noundef i32 @_v39_parse_CONTROLLER_PING_MODE(ptr nocapture readn
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_v39_dump_CONTROLLER_PING_RESULT(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i8, ptr %1, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  %.str.413..str.412 = select i1 %.not, ptr @.str.413, ptr @.str.412
-  %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %.str.413..str.412) #16
+  %6 = trunc i8 %5 to i1
+  %.str.412..str.413 = select i1 %6, ptr @.str.412, ptr @.str.413
+  %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %.str.412..str.413) #16
   ret i32 0
 }
 

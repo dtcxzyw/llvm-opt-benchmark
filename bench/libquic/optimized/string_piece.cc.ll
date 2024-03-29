@@ -1408,9 +1408,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = zext i8 %15 to i64
   %arrayidx13 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom
   %16 = load i8, ptr %arrayidx13, align 1
-  %17 = and i8 %16, 1
-  %tobool.not = icmp eq i8 %17, 0
-  br i1 %tobool.not, label %for.inc, label %return
+  %tobool = trunc i8 %16 to i1
+  br i1 %tobool, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.024, 1
@@ -1615,9 +1614,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %idxprom.i = zext i8 %8 to i64
   %arrayidx15.i = getelementptr inbounds [256 x i8], ptr %lookup.i, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx15.i, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %for.inc.i
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %for.inc.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add i64 %i.018.i, 1
@@ -1700,9 +1698,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = zext i8 %8 to i64
   %arrayidx15 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom
   %9 = load i8, ptr %arrayidx15, align 1
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %return, label %for.inc
+  %tobool = trunc i8 %9 to i1
+  br i1 %tobool, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.018, 1
@@ -1838,9 +1835,8 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %idxprom20.i = zext i8 %9 to i64
   %arrayidx1321.i = getelementptr inbounds [256 x i8], ptr %lookup.i, i64 0, i64 %idxprom20.i
   %10 = load i8, ptr %arrayidx1321.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.not22.i = icmp eq i8 %11, 0
-  br i1 %tobool.not22.i, label %if.end15.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
+  %tobool22.i = trunc i8 %10 to i1
+  br i1 %tobool22.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, %for.inc.i
   %i.023.i = phi i64 [ %dec.i, %for.inc.i ], [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i ]
@@ -1850,13 +1846,12 @@ if.end15.i:                                       ; preds = %_ZN4base12_GLOBAL__
 for.inc.i:                                        ; preds = %if.end15.i
   %dec.i = add i64 %i.023.i, -1
   %arrayidx12.i = getelementptr inbounds i8, ptr %8, i64 %dec.i
-  %12 = load i8, ptr %arrayidx12.i, align 1
-  %idxprom.i = zext i8 %12 to i64
+  %11 = load i8, ptr %arrayidx12.i, align 1
+  %idxprom.i = zext i8 %11 to i64
   %arrayidx13.i = getelementptr inbounds [256 x i8], ptr %lookup.i, i64 0, i64 %idxprom.i
-  %13 = load i8, ptr %arrayidx13.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i, label %if.end15.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, !llvm.loop !12
+  %12 = load i8, ptr %arrayidx13.i, align 1
+  %tobool.i = trunc i8 %12 to i1
+  br i1 %tobool.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end15.i, !llvm.loop !12
 
 _ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit: ; preds = %if.end7.i.i.i, %for.inc.i.i.i, %if.end15.i, %for.inc.i, %entry, %lor.lhs.false.i, %if.end.i.i.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i
   %retval.0.i = phi i64 [ -1, %lor.lhs.false.i ], [ -1, %entry ], [ %.sroa.speculated.i.i.i, %if.end.i.i.i ], [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i ], [ -1, %if.end15.i ], [ %dec.i, %for.inc.i ], [ -1, %if.end7.i.i.i ], [ %dec.i.i.i, %for.inc.i.i.i ]
@@ -1929,9 +1924,8 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %idxprom20 = zext i8 %9 to i64
   %arrayidx1321 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom20
   %10 = load i8, ptr %arrayidx1321, align 1
-  %11 = and i8 %10, 1
-  %tobool.not22 = icmp eq i8 %11, 0
-  br i1 %tobool.not22, label %if.end15, label %return
+  %tobool22 = trunc i8 %10 to i1
+  br i1 %tobool22, label %return, label %if.end15
 
 if.end15:                                         ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %for.inc
   %i.023 = phi i64 [ %dec, %for.inc ], [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ]
@@ -1941,13 +1935,12 @@ if.end15:                                         ; preds = %_ZN4base12_GLOBAL__
 for.inc:                                          ; preds = %if.end15
   %dec = add i64 %i.023, -1
   %arrayidx12 = getelementptr inbounds i8, ptr %8, i64 %dec
-  %12 = load i8, ptr %arrayidx12, align 1
-  %idxprom = zext i8 %12 to i64
+  %11 = load i8, ptr %arrayidx12, align 1
+  %idxprom = zext i8 %11 to i64
   %arrayidx13 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom
-  %13 = load i8, ptr %arrayidx13, align 1
-  %14 = and i8 %13, 1
-  %tobool.not = icmp eq i8 %14, 0
-  br i1 %tobool.not, label %if.end15, label %return, !llvm.loop !12
+  %12 = load i8, ptr %arrayidx13, align 1
+  %tobool = trunc i8 %12 to i1
+  br i1 %tobool, label %return, label %if.end15, !llvm.loop !12
 
 return:                                           ; preds = %for.inc.i.i, %if.end7.i.i, %for.inc, %if.end15, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %lor.lhs.false, %if.end.i.i, %entry
   %retval.0 = phi i64 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %.sroa.speculated.i.i, %if.end.i.i ], [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ], [ %dec, %for.inc ], [ -1, %if.end15 ], [ %dec.i.i, %for.inc.i.i ], [ -1, %if.end7.i.i ]
@@ -2052,9 +2045,8 @@ for.cond.preheader.i:                             ; preds = %for.body.i.i
   %idxprom21.i = zext i8 %9 to i64
   %arrayidx1522.i = getelementptr inbounds [256 x i8], ptr %lookup.i, i64 0, i64 %idxprom21.i
   %10 = load i8, ptr %arrayidx1522.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.not23.i = icmp eq i8 %11, 0
-  br i1 %tobool.not23.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end17.i
+  %tobool23.i = trunc i8 %10 to i1
+  br i1 %tobool23.i, label %if.end17.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 if.end17.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %i.024.i = phi i64 [ %dec.i, %for.inc.i ], [ %.sroa.speculated.i, %for.cond.preheader.i ]
@@ -2064,13 +2056,12 @@ if.end17.i:                                       ; preds = %for.cond.preheader.
 for.inc.i:                                        ; preds = %if.end17.i
   %dec.i = add i64 %i.024.i, -1
   %arrayidx14.i = getelementptr inbounds i8, ptr %8, i64 %dec.i
-  %12 = load i8, ptr %arrayidx14.i, align 1
-  %idxprom.i = zext i8 %12 to i64
+  %11 = load i8, ptr %arrayidx14.i, align 1
+  %idxprom.i = zext i8 %11 to i64
   %arrayidx15.i = getelementptr inbounds [256 x i8], ptr %lookup.i, i64 0, i64 %idxprom.i
-  %13 = load i8, ptr %arrayidx15.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end17.i, !llvm.loop !14
+  %12 = load i8, ptr %arrayidx15.i, align 1
+  %tobool.i = trunc i8 %12 to i1
+  br i1 %tobool.i, label %if.end17.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, !llvm.loop !14
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit: ; preds = %if.end7.i.i.i, %for.inc.i.i.i, %if.end17.i, %for.inc.i, %entry, %if.end.i, %if.end.i.i.i, %for.cond.preheader.i
   %retval.0.i = phi i64 [ -1, %entry ], [ %.sroa.speculated.i, %if.end.i ], [ %.sroa.speculated.i, %if.end.i.i.i ], [ %.sroa.speculated.i, %for.cond.preheader.i ], [ -1, %if.end17.i ], [ %dec.i, %for.inc.i ], [ -1, %if.end7.i.i.i ], [ %dec.i.i.i, %for.inc.i.i.i ]
@@ -2141,9 +2132,8 @@ for.cond.preheader:                               ; preds = %for.body.i
   %idxprom21 = zext i8 %9 to i64
   %arrayidx1522 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom21
   %10 = load i8, ptr %arrayidx1522, align 1
-  %11 = and i8 %10, 1
-  %tobool.not23 = icmp eq i8 %11, 0
-  br i1 %tobool.not23, label %return, label %if.end17
+  %tobool23 = trunc i8 %10 to i1
+  br i1 %tobool23, label %if.end17, label %return
 
 if.end17:                                         ; preds = %for.cond.preheader, %for.inc
   %i.024 = phi i64 [ %dec, %for.inc ], [ %.sroa.speculated, %for.cond.preheader ]
@@ -2153,13 +2143,12 @@ if.end17:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %if.end17
   %dec = add i64 %i.024, -1
   %arrayidx14 = getelementptr inbounds i8, ptr %8, i64 %dec
-  %12 = load i8, ptr %arrayidx14, align 1
-  %idxprom = zext i8 %12 to i64
+  %11 = load i8, ptr %arrayidx14, align 1
+  %idxprom = zext i8 %11 to i64
   %arrayidx15 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom
-  %13 = load i8, ptr %arrayidx15, align 1
-  %14 = and i8 %13, 1
-  %tobool.not = icmp eq i8 %14, 0
-  br i1 %tobool.not, label %return, label %if.end17, !llvm.loop !14
+  %12 = load i8, ptr %arrayidx15, align 1
+  %tobool = trunc i8 %12 to i1
+  br i1 %tobool, label %if.end17, label %return, !llvm.loop !14
 
 return:                                           ; preds = %for.inc.i.i, %if.end7.i.i, %for.inc, %if.end17, %for.cond.preheader, %if.end, %if.end.i.i, %entry
   %retval.0 = phi i64 [ -1, %entry ], [ %.sroa.speculated, %if.end ], [ %.sroa.speculated, %if.end.i.i ], [ %.sroa.speculated, %for.cond.preheader ], [ %dec, %for.inc ], [ -1, %if.end17 ], [ %dec.i.i, %for.inc.i.i ], [ -1, %if.end7.i.i ]

@@ -353,18 +353,17 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal16FunctionClosure03
 entry:
   %self_deleting_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %self_deleting_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %function_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %function_, align 8
-  tail call void %2()
-  br i1 %tobool.not, label %if.end, label %delete.notnull
+  %1 = load ptr, ptr %function_, align 8
+  tail call void %1()
+  br i1 %tobool, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(17) %this) #17
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %this) #17
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry

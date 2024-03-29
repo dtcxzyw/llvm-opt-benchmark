@@ -563,17 +563,16 @@ entry:
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %st)
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %2 = load i8, ptr %m_use_solver1_results, align 2
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
-  %4 = load ptr, ptr %m_solver1, align 8
-  %vtable3 = load ptr, ptr %4, align 8
+  %3 = load ptr, ptr %m_solver1, align 8
+  %vtable3 = load ptr, ptr %3, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
-  %5 = load ptr, ptr %vfn4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(16) %st)
+  %4 = load ptr, ptr %vfn4, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(16) %st)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -585,15 +584,14 @@ define linkonce_odr hidden void @_ZN15combined_solver14get_unsat_coreER10ref_vec
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i64 112, i64 104
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i64 104, i64 112
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load ptr, ptr %m_solver2, align 8
-  %vtable3 = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver2, align 8
+  %vtable3 = load ptr, ptr %1, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
-  %3 = load ptr, ptr %vfn4, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %2 = load ptr, ptr %vfn4, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(16) %r)
   ret void
 }
 
@@ -602,50 +600,49 @@ define linkonce_odr hidden void @_ZN15combined_solver14get_model_coreER3refI5mod
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %m_solver1, align 8
-  %vtable.i = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver1, align 8
+  %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %m)
-  %4 = load ptr, ptr %m, align 8
-  %cmp.i.not.i = icmp eq ptr %4, null
+  %2 = load ptr, ptr %vfn.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %3 = load ptr, ptr %m, align 8
+  %cmp.i.not.i = icmp eq ptr %3, null
   br i1 %cmp.i.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %m_mc0.i.i = getelementptr inbounds i8, ptr %2, i64 56
-  %5 = load ptr, ptr %m_mc0.i.i, align 8
-  %tobool.not.i = icmp eq ptr %5, null
+  %m_mc0.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = load ptr, ptr %m_mc0.i.i, align 8
+  %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %entry
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
-  %6 = load ptr, ptr %m_solver2, align 8
-  %vtable.i2 = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %m_solver2, align 8
+  %vtable.i2 = load ptr, ptr %5, align 8
   %vfn.i3 = getelementptr inbounds i8, ptr %vtable.i2, i64 32
-  %7 = load ptr, ptr %vfn.i3, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(8) %m)
-  %8 = load ptr, ptr %m, align 8
-  %cmp.i.not.i4 = icmp eq ptr %8, null
+  %6 = load ptr, ptr %vfn.i3, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %7 = load ptr, ptr %m, align 8
+  %cmp.i.not.i4 = icmp eq ptr %7, null
   br i1 %cmp.i.not.i4, label %if.end, label %land.lhs.true.i5
 
 land.lhs.true.i5:                                 ; preds = %if.else
-  %m_mc0.i.i6 = getelementptr inbounds i8, ptr %6, i64 56
-  %9 = load ptr, ptr %m_mc0.i.i6, align 8
-  %tobool.not.i7 = icmp eq ptr %9, null
+  %m_mc0.i.i6 = getelementptr inbounds i8, ptr %5, i64 56
+  %8 = load ptr, ptr %m_mc0.i.i6, align 8
+  %tobool.not.i7 = icmp eq ptr %8, null
   br i1 %tobool.not.i7, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %land.lhs.true.i5, %land.lhs.true.i
-  %.sink13 = phi ptr [ %5, %land.lhs.true.i ], [ %9, %land.lhs.true.i5 ]
+  %.sink13 = phi ptr [ %4, %land.lhs.true.i ], [ %8, %land.lhs.true.i5 ]
   %vtable4.i9 = load ptr, ptr %.sink13, align 8
   %vfn5.i10 = getelementptr inbounds i8, ptr %vtable4.i9, i64 32
-  %10 = load ptr, ptr %vfn5.i10, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(25) %.sink13, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %9 = load ptr, ptr %vfn5.i10, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(25) %.sink13, ptr noundef nonnull align 8 dereferenceable(8) %m)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %land.lhs.true.i5, %if.else, %land.lhs.true.i, %if.then
@@ -657,15 +654,14 @@ define linkonce_odr hidden noundef ptr @_ZN15combined_solver14get_proof_coreEv(p
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i64 112, i64 104
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i64 104, i64 112
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load ptr, ptr %m_solver2, align 8
-  %vtable4 = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver2, align 8
+  %vtable4 = load ptr, ptr %1, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
-  %3 = load ptr, ptr %vfn5, align 8
-  %call6 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %2 = load ptr, ptr %vfn5, align 8
+  %call6 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret ptr %call6
 }
 
@@ -674,15 +670,14 @@ define linkonce_odr hidden void @_ZNK15combined_solver14reason_unknownB5cxx11Ev(
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i64 112, i64 104
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i64 104, i64 112
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load ptr, ptr %m_solver2, align 8
-  %vtable3 = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver2, align 8
+  %vtable3 = load ptr, ptr %1, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 48
-  %3 = load ptr, ptr %vfn4, align 8
-  tail call void %3(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %2 = load ptr, ptr %vfn4, align 8
+  tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }
 
@@ -709,15 +704,14 @@ define linkonce_odr hidden void @_ZN15combined_solver10get_labelsER7svectorI6sym
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i64 112, i64 104
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i64 104, i64 112
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load ptr, ptr %m_solver2, align 8
-  %vtable3 = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver2, align 8
+  %vtable3 = load ptr, ptr %1, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 64
-  %3 = load ptr, ptr %vfn4, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %r)
+  %2 = load ptr, ptr %vfn4, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(8) %r)
   ret void
 }
 
@@ -752,19 +746,19 @@ entry:
   tail call void @_ZN15combined_solverC2EP6solverS1_RK10params_ref(ptr noundef nonnull align 8 dereferenceable(132) %call7, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull align 8 dereferenceable(8) %p)
   %m_inc_mode = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i8, ptr %m_inc_mode, align 8
-  %5 = and i8 %4, 1
   %m_inc_mode8 = getelementptr inbounds i8, ptr %call7, i64 96
-  store i8 %5, ptr %m_inc_mode8, align 8
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %m_inc_mode8, align 8
   %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
-  %6 = load i8, ptr %m_check_sat_executed, align 1
-  %7 = and i8 %6, 1
+  %5 = load i8, ptr %m_check_sat_executed, align 1
   %m_check_sat_executed10 = getelementptr inbounds i8, ptr %call7, i64 97
-  store i8 %7, ptr %m_check_sat_executed10, align 1
+  %frombool11 = and i8 %5, 1
+  store i8 %frombool11, ptr %m_check_sat_executed10, align 1
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
-  %8 = load i8, ptr %m_use_solver1_results, align 2
-  %9 = and i8 %8, 1
+  %6 = load i8, ptr %m_use_solver1_results, align 2
   %m_use_solver1_results13 = getelementptr inbounds i8, ptr %call7, i64 98
-  store i8 %9, ptr %m_use_solver1_results13, align 2
+  %frombool14 = and i8 %6, 1
+  store i8 %frombool14, ptr %m_use_solver1_results13, align 2
   ret ptr %call7
 }
 
@@ -853,9 +847,8 @@ define linkonce_odr hidden void @_ZN15combined_solver16assert_expr_coreEP4expr(p
 entry:
   %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
   %0 = load i8, ptr %m_check_sat_executed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -864,11 +857,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %m_solver1, align 8
-  tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %t)
+  %1 = load ptr, ptr %m_solver1, align 8
+  tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %t)
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
-  %3 = load ptr, ptr %m_solver2, align 8
-  tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %t)
+  %2 = load ptr, ptr %m_solver2, align 8
+  tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %t)
   ret void
 }
 
@@ -957,9 +950,8 @@ define linkonce_odr hidden void @_ZN15combined_solver17assert_expr_core2EP4exprS
 entry:
   %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
   %0 = load i8, ptr %m_check_sat_executed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -968,11 +960,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %m_solver1, align 8
-  tail call void @_ZN6solver11assert_exprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %t, ptr noundef %a)
+  %1 = load ptr, ptr %m_solver1, align 8
+  tail call void @_ZN6solver11assert_exprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %t, ptr noundef %a)
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
-  %3 = load ptr, ptr %m_solver2, align 8
-  tail call void @_ZN6solver11assert_exprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %t, ptr noundef %a)
+  %2 = load ptr, ptr %m_solver2, align 8
+  tail call void @_ZN6solver11assert_exprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %t, ptr noundef %a)
   ret void
 }
 
@@ -1334,15 +1326,14 @@ define linkonce_odr hidden void @_ZN15combined_solver9get_trailEj(ptr noalias sr
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i64 112, i64 104
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i64 104, i64 112
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load ptr, ptr %m_solver2, align 8
-  %vtable3 = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver2, align 8
+  %vtable3 = load ptr, ptr %1, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 336
-  %3 = load ptr, ptr %vfn4, align 8
-  tail call void %3(ptr sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %max_level)
+  %2 = load ptr, ptr %vfn4, align 8
+  tail call void %2(ptr sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %max_level)
   ret void
 }
 
@@ -1351,15 +1342,14 @@ define linkonce_odr hidden void @_ZN15combined_solver10get_levelsERK10ptr_vector
 entry:
   %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i64 112, i64 104
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i64 104, i64 112
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load ptr, ptr %m_solver2, align 8
-  %vtable3 = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver2, align 8
+  %vtable3 = load ptr, ptr %1, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 344
-  %3 = load ptr, ptr %vfn4, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %vars, ptr noundef nonnull align 8 dereferenceable(8) %depth)
+  %2 = load ptr, ptr %vfn4, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %vars, ptr noundef nonnull align 8 dereferenceable(8) %depth)
   ret void
 }
 
@@ -1383,32 +1373,30 @@ entry:
 lor.lhs.false3:                                   ; preds = %entry
   %m_ignore_solver1 = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load i8, ptr %m_ignore_solver1, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false3, %entry
   %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
   %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
-  %4 = load ptr, ptr %m_solver2, align 8
-  %vtable5 = load ptr, ptr %4, align 8
+  %3 = load ptr, ptr %m_solver2, align 8
+  %vtable5 = load ptr, ptr %3, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 352
-  %5 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %num_assumptions, ptr noundef %assumptions)
+  %4 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %num_assumptions, ptr noundef %assumptions)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false3
   %m_inc_mode = getelementptr inbounds i8, ptr %this, i64 96
-  %6 = load i8, ptr %m_inc_mode, align 8
-  %7 = and i8 %6, 1
-  %tobool8.not = icmp eq i8 %7, 0
-  br i1 %tobool8.not, label %if.end90, label %if.then9
+  %5 = load i8, ptr %m_inc_mode, align 8
+  %tobool8 = trunc i8 %5 to i1
+  br i1 %tobool8, label %if.then9, label %if.end90
 
 if.then9:                                         ; preds = %if.end
   %m_inc_timeout = getelementptr inbounds i8, ptr %this, i64 128
-  %8 = load i32, ptr %m_inc_timeout, align 8
-  %cmp10 = icmp eq i32 %8, -1
+  %6 = load i32, ptr %m_inc_timeout, align 8
+  %cmp10 = icmp eq i32 %6, -1
   %call12 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %cmp13 = icmp ugt i32 %call12, 14
   br i1 %cmp10, label %if.then11, label %if.else38
@@ -1434,11 +1422,11 @@ if.else:                                          ; preds = %if.then14
 
 if.end22:                                         ; preds = %if.then16, %if.else, %if.then11
   %m_solver223 = getelementptr inbounds i8, ptr %this, i64 112
-  %9 = load ptr, ptr %m_solver223, align 8
-  %vtable25 = load ptr, ptr %9, align 8
+  %7 = load ptr, ptr %m_solver223, align 8
+  %vtable25 = load ptr, ptr %7, align 8
   %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 352
-  %10 = load ptr, ptr %vfn26, align 8
-  %call27 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 0, ptr noundef %assumptions)
+  %8 = load ptr, ptr %vfn26, align 8
+  %call27 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 0, ptr noundef %assumptions)
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %lor.lhs.false29, label %return
 
@@ -1449,8 +1437,8 @@ lor.lhs.false29:                                  ; preds = %if.end22
 lor.lhs.false31:                                  ; preds = %lor.lhs.false29
   %vtable32 = load ptr, ptr %this, align 8
   %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 72
-  %11 = load ptr, ptr %vfn33, align 8
-  %call34 = tail call noundef nonnull align 8 dereferenceable(976) ptr %11(ptr noundef nonnull align 8 dereferenceable(132) %this)
+  %9 = load ptr, ptr %vfn33, align 8
+  %call34 = tail call noundef nonnull align 8 dereferenceable(976) ptr %9(ptr noundef nonnull align 8 dereferenceable(132) %this)
   %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %call34)
   br i1 %call2.i, label %if.end77, label %return
 
@@ -1475,60 +1463,59 @@ if.else46:                                        ; preds = %if.then41
 
 if.end50:                                         ; preds = %if.then43, %if.else46, %if.else38
   %m_solver251 = getelementptr inbounds i8, ptr %this, i64 112
-  %12 = load ptr, ptr %m_solver251, align 8
+  %10 = load ptr, ptr %m_solver251, align 8
   %m_caller_id.i.i = getelementptr inbounds i8, ptr %eh, i64 8
   store i32 0, ptr %m_caller_id.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 0, i32 0, i64 2), ptr %eh, align 8
   %m_solver.i = getelementptr inbounds i8, ptr %eh, i64 16
-  store ptr %12, ptr %m_solver.i, align 8
+  store ptr %10, ptr %m_solver.i, align 8
   %m_canceled.i = getelementptr inbounds i8, ptr %eh, i64 24
   store i8 0, ptr %m_canceled.i, align 8
-  %13 = load i32, ptr %m_inc_timeout, align 8
-  invoke void @_ZN12scoped_timerC1EjP13event_handler(ptr noundef nonnull align 8 dereferenceable(8) %timer, i32 noundef %13, ptr noundef nonnull %eh)
+  %11 = load i32, ptr %m_inc_timeout, align 8
+  invoke void @_ZN12scoped_timerC1EjP13event_handler(ptr noundef nonnull align 8 dereferenceable(8) %timer, i32 noundef %11, ptr noundef nonnull %eh)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end50
-  %14 = load ptr, ptr %m_solver251, align 8
-  %vtable57 = load ptr, ptr %14, align 8
+  %12 = load ptr, ptr %m_solver251, align 8
+  %vtable57 = load ptr, ptr %12, align 8
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 352
-  %15 = load ptr, ptr %vfn58, align 8
-  %call61 = invoke noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 0, ptr noundef %assumptions)
+  %13 = load ptr, ptr %vfn58, align 8
+  %call61 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 0, ptr noundef %assumptions)
           to label %try.cont unwind label %lpad59
 
 lpad:                                             ; preds = %if.end50
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   br label %catch.dispatch
 
 lpad59:                                           ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   call void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %timer) #13
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad59, %lpad
-  %.pn = phi { ptr, i32 } [ %17, %lpad59 ], [ %16, %lpad ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad59 ], [ %14, %lpad ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #13
-  %matches = icmp eq i32 %ehselector.slot.0, %18
+  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #13
+  %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #13
-  %20 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
-  %21 = and i8 %20, 1
-  %tobool.i.i.not = icmp eq i8 %21, 0
-  br i1 %tobool.i.i.not, label %if.then63, label %if.end65
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #13
+  %18 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
+  %tobool.i.i = trunc i8 %18 to i1
+  br i1 %tobool.i.i, label %if.end65, label %if.then63
 
 if.then63:                                        ; preds = %catch
   invoke void @__cxa_rethrow() #16
           to label %unreachable unwind label %lpad64
 
 lpad64:                                           ; preds = %if.then63
-  %22 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup unwind label %terminate.lpad
@@ -1551,31 +1538,29 @@ invoke.cont71:                                    ; preds = %lor.lhs.false70
 
 land.lhs.true:                                    ; preds = %invoke.cont71, %try.cont
   %r53.020 = phi i32 [ 0, %invoke.cont71 ], [ %call61, %try.cont ]
-  %23 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
-  %24 = and i8 %23, 1
-  %tobool.i.i12.not = icmp ne i8 %24, 0
+  %20 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
+  %tobool.i.i12 = trunc i8 %20 to i1
   br label %cleanup
 
 lpad66:                                           ; preds = %lor.lhs.false70, %if.end65
-  %25 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 cleanup:                                          ; preds = %land.lhs.true, %invoke.cont71
   %r53.018 = phi i32 [ 0, %invoke.cont71 ], [ %r53.020, %land.lhs.true ]
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont71 ], [ %tobool.i.i12.not, %land.lhs.true ]
+  %switch = phi i1 [ true, %invoke.cont71 ], [ %tobool.i.i12, %land.lhs.true ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 0, i32 0, i64 2), ptr %eh, align 8
-  %26 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
-  %27 = and i8 %26, 1
-  %tobool.i.i.not.i = icmp eq i8 %27, 0
-  br i1 %tobool.i.i.not.i, label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit, label %if.then.i
+  %22 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
+  %tobool.i.i.i = trunc i8 %22 to i1
+  br i1 %tobool.i.i.i, label %if.then.i, label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit
 
 if.then.i:                                        ; preds = %cleanup
-  %28 = load ptr, ptr %m_solver.i, align 8
-  %vtable.i = load ptr, ptr %28, align 8
+  %23 = load ptr, ptr %m_solver.i, align 8
+  %vtable.i = load ptr, ptr %23, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
-  %29 = load ptr, ptr %vfn.i, align 8
-  %call2.i15 = invoke noundef nonnull align 8 dereferenceable(976) ptr %29(ptr noundef nonnull align 8 dereferenceable(72) %28)
+  %24 = load ptr, ptr %vfn.i, align 8
+  %call2.i15 = invoke noundef nonnull align 8 dereferenceable(976) ptr %24(ptr noundef nonnull align 8 dereferenceable(72) %23)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1583,17 +1568,17 @@ invoke.cont.i:                                    ; preds = %if.then.i
           to label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont.i, %if.then.i
-  %30 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #14
   unreachable
 
 _ZN15combined_solver14aux_timeout_ehD2Ev.exit:    ; preds = %cleanup, %invoke.cont.i
-  br i1 %cleanup.dest.slot.0, label %if.end77, label %return
+  br i1 %switch, label %if.end77, label %return
 
 ehcleanup:                                        ; preds = %lpad64, %lpad66, %catch.dispatch
-  %lpad.val110.merged = phi { ptr, i32 } [ %25, %lpad66 ], [ %22, %lpad64 ], [ %.pn, %catch.dispatch ]
+  %lpad.val110.merged = phi { ptr, i32 } [ %21, %lpad66 ], [ %19, %lpad64 ], [ %.pn, %catch.dispatch ]
   call void @_ZN15combined_solver14aux_timeout_ehD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %eh) #13
   resume { ptr, i32 } %lpad.val110.merged
 
@@ -1642,11 +1627,11 @@ if.else98:                                        ; preds = %if.then93
 if.end102:                                        ; preds = %if.then95, %if.else98, %if.end90
   store i8 1, ptr %m_use_solver1_results, align 2
   %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
-  %32 = load ptr, ptr %m_solver1, align 8
-  %vtable105 = load ptr, ptr %32, align 8
+  %27 = load ptr, ptr %m_solver1, align 8
+  %vtable105 = load ptr, ptr %27, align 8
   %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 352
-  %33 = load ptr, ptr %vfn106, align 8
-  %call107 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(96) %32, i32 noundef 0, ptr noundef %assumptions)
+  %28 = load ptr, ptr %vfn106, align 8
+  %call107 = call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 0, ptr noundef %assumptions)
   br label %return
 
 return:                                           ; preds = %_ZN15combined_solver14aux_timeout_ehD2Ev.exit, %if.end22, %lor.lhs.false29, %lor.lhs.false31, %if.end102, %if.then
@@ -1654,10 +1639,10 @@ return:                                           ; preds = %_ZN15combined_solve
   ret i32 %retval.1
 
 terminate.lpad:                                   ; preds = %lpad64
-  %34 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #14
   unreachable
 
 unreachable:                                      ; preds = %if.then63
@@ -2237,17 +2222,16 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_canceled = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i8, ptr %m_canceled seq_cst, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_solver = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %m_solver, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = invoke noundef nonnull align 8 dereferenceable(976) ptr %3(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %2 = load ptr, ptr %vfn, align 8
+  %call2 = invoke noundef nonnull align 8 dereferenceable(976) ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -2258,10 +2242,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #14
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #14
   unreachable
 }
 
@@ -2271,17 +2255,16 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_canceled.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i, label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit, label %if.then.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i, label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
   %m_solver.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %m_solver.i, align 8
-  %vtable.i = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %m_solver.i, align 8
+  %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
-  %3 = load ptr, ptr %vfn.i, align 8
-  %call2.i = invoke noundef nonnull align 8 dereferenceable(976) ptr %3(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %2 = load ptr, ptr %vfn.i, align 8
+  %call2.i = invoke noundef nonnull align 8 dereferenceable(976) ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -2289,10 +2272,10 @@ invoke.cont.i:                                    ; preds = %if.then.i
           to label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont.i, %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #14
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 _ZN15combined_solver14aux_timeout_ehD2Ev.exit:    ; preds = %entry, %invoke.cont.i

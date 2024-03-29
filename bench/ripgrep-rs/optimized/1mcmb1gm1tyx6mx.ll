@@ -492,8 +492,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load ptr, ptr %0, align 8, !nonnull !9, !align !33, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %6 = load i32, ptr %5, align 8, !range !48, !alias.scope !45, !noalias !49, !noundef !9
-  %trunc.not.i = icmp eq i32 %6, 0
-  br i1 %trunc.not.i, label %7, label %10
+  %trunc.i = trunc i32 %6 to i1
+  br i1 %trunc.i, label %10, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !51

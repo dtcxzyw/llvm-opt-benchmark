@@ -292,24 +292,23 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %46 = getelementptr inbounds i8, ptr %2, i64 201
   %47 = getelementptr inbounds i8, ptr %6, i64 40
   %48 = getelementptr inbounds i8, ptr %6, i64 48
-  %.pre93 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %.pre92 = load ptr, ptr @ReplicationSlotCtl, align 8
   br label %49
 
 49:                                               ; preds = %.lr.ph, %193
   %50 = phi i32 [ %11, %.lr.ph ], [ %194, %193 ]
-  %51 = phi ptr [ %.pre93, %.lr.ph ], [ %195, %193 ]
+  %51 = phi ptr [ %.pre92, %.lr.ph ], [ %195, %193 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
   %52 = getelementptr [1 x %struct.ReplicationSlot], ptr %51, i64 0, i64 %indvars.iv
   %53 = getelementptr inbounds i8, ptr %52, i64 1
   %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %193, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %193
 
 56:                                               ; preds = %49
   %57 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %52, i8 1, ptr elementtype(i8) %52) #11, !srcloc !5
-  %.not74 = icmp eq i8 %57, 0
-  br i1 %.not74, label %60, label %58
+  %.not = icmp eq i8 %57, 0
+  br i1 %.not, label %60, label %58
 
 58:                                               ; preds = %56
   %59 = call i32 @s_lock(ptr noundef %52, ptr noundef nonnull @.str.1, i32 noundef 271, ptr noundef nonnull @__func__.pg_get_replication_slots) #11
@@ -361,8 +360,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i64
   store i64 %78, ptr %26, align 8
-  %.not75 = icmp eq i32 %76, 0
-  br i1 %.not75, label %81, label %79
+  %.not74 = icmp eq i32 %76, 0
+  br i1 %.not74, label %81, label %79
 
 79:                                               ; preds = %72
   %80 = sext i32 %76 to i64
@@ -375,8 +374,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 
 82:                                               ; preds = %81, %79
   %83 = load i32, ptr %29, align 8
-  %.not76 = icmp eq i32 %83, 0
-  br i1 %.not76, label %86, label %84
+  %.not75 = icmp eq i32 %83, 0
+  br i1 %.not75, label %86, label %84
 
 84:                                               ; preds = %82
   %85 = zext i32 %83 to i64
@@ -389,8 +388,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 
 87:                                               ; preds = %86, %84
   %88 = load i32, ptr %32, align 4
-  %.not77 = icmp eq i32 %88, 0
-  br i1 %.not77, label %91, label %89
+  %.not76 = icmp eq i32 %88, 0
+  br i1 %.not76, label %91, label %89
 
 89:                                               ; preds = %87
   %90 = zext i32 %88 to i64
@@ -403,8 +402,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 
 92:                                               ; preds = %91, %89
   %93 = load i64, ptr %35, align 8
-  %.not78 = icmp eq i64 %93, 0
-  br i1 %.not78, label %95, label %94
+  %.not77 = icmp eq i64 %93, 0
+  br i1 %.not77, label %95, label %94
 
 94:                                               ; preds = %92
   store i64 %93, ptr %36, align 8
@@ -416,8 +415,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 
 96:                                               ; preds = %95, %94
   %97 = load i64, ptr %38, align 8
-  %.not79 = icmp eq i64 %97, 0
-  br i1 %.not79, label %99, label %98
+  %.not78 = icmp eq i64 %97, 0
+  br i1 %.not78, label %99, label %98
 
 98:                                               ; preds = %96
   store i64 %97, ptr %39, align 16
@@ -429,8 +428,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 
 100:                                              ; preds = %99, %98
   %101 = load i32, ptr %41, align 8
-  %.not80 = icmp eq i32 %101, 0
-  br i1 %.not80, label %102, label %.thread83
+  %.not79 = icmp eq i32 %101, 0
+  br i1 %.not79, label %102, label %.thread82
 
 102:                                              ; preds = %100
   %103 = call i32 @GetWALAvailability(i64 noundef %93) #11
@@ -439,12 +438,12 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
     i32 1, label %105
     i32 2, label %108
     i32 3, label %111
-    i32 4, label %..thread83_crit_edge
+    i32 4, label %..thread82_crit_edge
   ]
 
-..thread83_crit_edge:                             ; preds = %102
-  %.pre94 = load i64, ptr %35, align 8
-  br label %.thread83
+..thread82_crit_edge:                             ; preds = %102
+  %.pre93 = load i64, ptr %35, align 8
+  br label %.thread82
 
 104:                                              ; preds = %102
   store i8 1, ptr %43, align 1
@@ -468,15 +467,15 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   store i64 %113, ptr %42, align 8
   br label %130
 
-.thread83:                                        ; preds = %..thread83_crit_edge, %100
-  %114 = phi i64 [ %.pre94, %..thread83_crit_edge ], [ %93, %100 ]
+.thread82:                                        ; preds = %..thread82_crit_edge, %100
+  %114 = phi i64 [ %.pre93, %..thread82_crit_edge ], [ %93, %100 ]
   %115 = icmp eq i64 %114, 0
-  br i1 %115, label %.thread85, label %116
+  br i1 %115, label %.thread84, label %116
 
-116:                                              ; preds = %.thread83
+116:                                              ; preds = %.thread82
   %117 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %52, i8 1, ptr nonnull elementtype(i8) %52) #11, !srcloc !5
-  %.not81 = icmp eq i8 %117, 0
-  br i1 %.not81, label %120, label %118
+  %.not80 = icmp eq i8 %117, 0
+  br i1 %.not80, label %120, label %118
 
 118:                                              ; preds = %116
   %119 = call i32 @s_lock(ptr noundef nonnull %52, ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__func__.pg_get_replication_slots) #11
@@ -490,8 +489,8 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   store i64 %124, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store i8 0, ptr %52, align 8
-  %.not82 = icmp eq i32 %122, 0
-  br i1 %.not82, label %.thread85, label %125
+  %.not81 = icmp eq i32 %122, 0
+  br i1 %.not81, label %.thread84, label %125
 
 125:                                              ; preds = %120
   %126 = call ptr @cstring_to_text(ptr noundef nonnull @.str.6) #11
@@ -499,7 +498,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   store i64 %127, ptr %42, align 8
   br label %130
 
-.thread85:                                        ; preds = %.thread83, %120
+.thread84:                                        ; preds = %.thread82, %120
   %128 = call ptr @cstring_to_text(ptr noundef nonnull @.str.7) #11
   %129 = ptrtoint ptr %128 to i64
   store i64 %129, ptr %42, align 8
@@ -511,9 +510,9 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %133, label %136
 
-133:                                              ; preds = %.thread85, %130
-  %.889 = phi i32 [ 12, %.thread85 ], [ %.8, %130 ]
-  %134 = zext nneg i32 %.889 to i64
+133:                                              ; preds = %.thread84, %130
+  %.888 = phi i32 [ 12, %.thread84 ], [ %.8, %130 ]
+  %134 = zext nneg i32 %.888 to i64
   %135 = getelementptr [17 x i8], ptr %4, i64 0, i64 %134
   store i8 1, ptr %135, align 1
   br label %153
@@ -539,12 +538,12 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br label %153
 
 153:                                              ; preds = %136, %133
-  %.890 = phi i32 [ %.8, %136 ], [ %.889, %133 ]
-  %.9 = add nuw nsw i32 %.890, 1
+  %.889 = phi i32 [ %.8, %136 ], [ %.888, %133 ]
+  %.9 = add nuw nsw i32 %.889, 1
   %154 = load i8, ptr %44, align 8
   %155 = and i8 %154, 1
   %156 = zext nneg i8 %155 to i64
-  %157 = add nuw nsw i32 %.890, 2
+  %157 = add nuw nsw i32 %.889, 2
   %158 = zext nneg i32 %.9 to i64
   %159 = getelementptr [17 x i64], ptr %3, i64 0, i64 %158
   store i64 %156, ptr %159, align 8
@@ -581,11 +580,11 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br label %179
 
 179:                                              ; preds = %168, %171, %162
-  %.10 = add nuw nsw i32 %.890, 3
+  %.10 = add nuw nsw i32 %.889, 3
   %180 = load i8, ptr %45, align 2
   %181 = and i8 %180, 1
   %182 = zext nneg i8 %181 to i64
-  %183 = add nuw nsw i32 %.890, 4
+  %183 = add nuw nsw i32 %.889, 4
   %184 = zext nneg i32 %.10 to i64
   %185 = getelementptr [17 x i64], ptr %3, i64 0, i64 %184
   store i64 %182, ptr %185, align 8
@@ -599,11 +598,11 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %192 = load ptr, ptr %48, align 8
   call void @tuplestore_putvalues(ptr noundef %191, ptr noundef %192, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
-  %.pre95 = load i32, ptr @max_replication_slots, align 4
+  %.pre94 = load i32, ptr @max_replication_slots, align 4
   br label %193
 
 193:                                              ; preds = %49, %179
-  %194 = phi i32 [ %50, %49 ], [ %.pre95, %179 ]
+  %194 = phi i32 [ %50, %49 ], [ %.pre94, %179 ]
   %195 = phi ptr [ %51, %49 ], [ %.pre, %179 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %196 = sext i32 %194 to i64
@@ -986,9 +985,8 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %35 = getelementptr [1 x %struct.ReplicationSlot], ptr %28, i64 0, i64 %indvars.iv
   %36 = getelementptr inbounds i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not68 = icmp eq i8 %38, 0
-  br i1 %.not68, label %47, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %35, i64 24
@@ -998,8 +996,8 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 
 43:                                               ; preds = %39
   %44 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i8 1, ptr elementtype(i8) %35) #11, !srcloc !5
-  %.not69 = icmp eq i8 %44, 0
-  br i1 %.not69, label %48, label %45
+  %.not68 = icmp eq i8 %44, 0
+  br i1 %.not68, label %48, label %45
 
 45:                                               ; preds = %43
   %46 = call i32 @s_lock(ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 732, ptr noundef nonnull @__func__.copy_replication_slot) #11
@@ -1055,29 +1053,29 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %73 = getelementptr inbounds i8, ptr %0, i64 30
   %74 = load i16, ptr %73, align 2
   %75 = icmp sgt i16 %74, 2
-  br i1 %75, label %76, label %.thread77
+  br i1 %75, label %76, label %.thread76
 
 76:                                               ; preds = %72
   %77 = getelementptr i8, ptr %0, i64 64
   %78 = load i64, ptr %77, align 8
   %79 = icmp ne i64 %78, 0
-  %.not80 = icmp eq i16 %74, 3
-  br i1 %.not80, label %.thread77, label %80
+  %.not79 = icmp eq i16 %74, 3
+  br i1 %.not79, label %.thread76, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr i8, ptr %0, i64 80
   %82 = load i64, ptr %81, align 8
   %83 = inttoptr i64 %82 to ptr
-  br label %.thread77
+  br label %.thread76
 
-.thread77:                                        ; preds = %72, %80, %76
-  %.061.in79 = phi i1 [ %79, %80 ], [ %79, %76 ], [ %58, %72 ]
+.thread76:                                        ; preds = %72, %80, %76
+  %.061.in78 = phi i1 [ %79, %80 ], [ %79, %76 ], [ %58, %72 ]
   %.062 = phi ptr [ %83, %80 ], [ %60, %76 ], [ %60, %72 ]
   br i1 %1, label %84, label %create_physical_replication_slot.exit
 
-84:                                               ; preds = %.thread77
+84:                                               ; preds = %.thread76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %85 = select i1 %.061.in79, i32 2, i32 1
+  %85 = select i1 %.061.in78, i32 2, i32 1
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext true, i32 noundef %85, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #11
   store ptr @read_local_xlog_page, ptr %3, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1089,8 +1087,8 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %92
 
-create_physical_replication_slot.exit:            ; preds = %.thread77
-  %89 = select i1 %.061.in79, i32 2, i32 0
+create_physical_replication_slot.exit:            ; preds = %.thread76
+  %89 = select i1 %.061.in78, i32 2, i32 0
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext false, i32 noundef %89, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %90 = load ptr, ptr @MyReplicationSlot, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 104
@@ -1101,8 +1099,8 @@ create_physical_replication_slot.exit:            ; preds = %.thread77
 
 92:                                               ; preds = %create_physical_replication_slot.exit, %84
   %93 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %35, i8 1, ptr nonnull elementtype(i8) %35) #11, !srcloc !5
-  %.not71 = icmp eq i8 %93, 0
-  br i1 %.not71, label %96, label %94
+  %.not70 = icmp eq i8 %93, 0
+  br i1 %.not70, label %96, label %94
 
 94:                                               ; preds = %92
   %95 = call i32 @s_lock(ptr noundef nonnull %35, ptr noundef nonnull @.str.1, i32 noundef 822, ptr noundef nonnull @__func__.copy_replication_slot) #11
@@ -1128,13 +1126,13 @@ create_physical_replication_slot.exit:            ; preds = %.thread77
   %108 = getelementptr inbounds i8, ptr %5, i64 88
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 0
-  %.not72 = xor i1 %53, %110
-  br i1 %.not72, label %111, label %113
+  %.not71 = xor i1 %53, %110
+  br i1 %.not71, label %111, label %113
 
 111:                                              ; preds = %107
   %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %11) #15
-  %.not73 = icmp eq i32 %112, 0
-  br i1 %.not73, label %117, label %113
+  %.not72 = icmp eq i32 %112, 0
+  br i1 %.not72, label %117, label %113
 
 113:                                              ; preds = %111, %107, %96
   %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1161,8 +1159,8 @@ create_physical_replication_slot.exit:            ; preds = %.thread77
 124:                                              ; preds = %117
   %125 = load ptr, ptr @MyReplicationSlot, align 8
   %126 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %125, i8 1, ptr elementtype(i8) %125) #11, !srcloc !5
-  %.not74 = icmp eq i8 %126, 0
-  br i1 %.not74, label %130, label %127
+  %.not73 = icmp eq i8 %126, 0
+  br i1 %.not73, label %130, label %127
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1186,8 +1184,8 @@ create_physical_replication_slot.exit:            ; preds = %.thread77
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #11
   call void @ReplicationSlotsComputeRequiredLSN() #11
   call void @ReplicationSlotSave() #11
-  %.not75 = xor i1 %1, true
-  %brmerge = select i1 %.not75, i1 true, i1 %.061.in79
+  %.not74 = xor i1 %1, true
+  %brmerge = select i1 %.not74, i1 true, i1 %.061.in78
   br i1 %brmerge, label %138, label %137
 
 137:                                              ; preds = %130

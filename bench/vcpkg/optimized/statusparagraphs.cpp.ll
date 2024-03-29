@@ -1452,9 +1452,8 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store ptr @.str, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %28, i64 32
   %135 = load i8, ptr %134, align 8
-  %136 = and i8 %135, 1
-  %.not.i.i = icmp eq i8 %136, 0
-  br i1 %.not.i.i, label %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit, label %137
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit
 
 137:                                              ; preds = %132
   %138 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEE5errorEv(ptr noundef nonnull align 8 dereferenceable(33) %28) #15
@@ -2560,9 +2559,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
   store ptr @.str.15, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %7, label %_ZNK5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEE24unreachable_if_not_errorERKNS_8LineInfoE.exit
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %_ZNK5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEE24unreachable_if_not_errorERKNS_8LineInfoE.exit, label %7
 
 7:                                                ; preds = %1
   invoke void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %2) #16

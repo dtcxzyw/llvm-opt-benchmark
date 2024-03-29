@@ -131,9 +131,8 @@ InitializeTableSpaceCache.exit:                   ; preds = %10, %15
 23:                                               ; preds = %19
   %24 = call i64 @SysCacheGetAttr(i32 noundef 67, ptr noundef nonnull %22, i16 noundef signext 5, ptr noundef nonnull %4) #6
   %25 = load i8, ptr %4, align 1
-  %26 = and i8 %25, 1
-  %.not18 = icmp eq i8 %26, 0
-  br i1 %.not18, label %27, label %37
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %37, label %27
 
 27:                                               ; preds = %23
   %28 = call ptr @tablespace_reloptions(i64 noundef %24, i1 noundef zeroext false) #6

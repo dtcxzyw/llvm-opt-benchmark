@@ -83,9 +83,8 @@ define dso_local void @WalSummarizerShmemInit() local_unnamed_addr #1 {
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 48, ptr noundef nonnull %1) #11
   store ptr %2, ptr @WalSummarizerCtl, align 8
   %3 = load i8, ptr %1, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %12
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %0
   store i8 0, ptr %2, align 8
@@ -190,8 +189,8 @@ define dso_local void @WalSummarizerMain() local_unnamed_addr #3 {
   call void @proc_exit(i32 noundef 0) #13
   unreachable
 
-45:                                               ; preds = %.outer, %209
-  %.018 = phi i64 [ 0, %209 ], [ %.018.ph, %.outer ]
+45:                                               ; preds = %.outer, %207
+  %.018 = phi i64 [ 0, %207 ], [ %.018.ph, %.outer ]
   call void @MemoryContextReset(ptr noundef %28) #11
   %46 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
   %.not.i = icmp eq i32 %46, 0
@@ -218,9 +217,8 @@ define dso_local void @WalSummarizerMain() local_unnamed_addr #3 {
 
 53:                                               ; preds = %51
   %54 = load i8, ptr @summarize_wal, align 1
-  %55 = and i8 %54, 1
-  %.not3.i = icmp eq i8 %55, 0
-  br i1 %.not3.i, label %56, label %61
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %61, label %56
 
 56:                                               ; preds = %53, %51
   %57 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
@@ -237,8 +235,8 @@ define dso_local void @WalSummarizerMain() local_unnamed_addr #3 {
 
 61:                                               ; preds = %53
   %62 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not4.i = icmp eq i32 %62, 0
-  br i1 %.not4.i, label %HandleWalSummarizerInterrupts.exit, label %63
+  %.not3.i = icmp eq i32 %62, 0
+  br i1 %.not3.i, label %HandleWalSummarizerInterrupts.exit, label %63
 
 63:                                               ; preds = %61
   call void @ProcessLogMemoryContextInterrupt() #11
@@ -291,9 +289,8 @@ HandleWalSummarizerInterrupts.exit:               ; preds = %61, %63
 
 83:                                               ; preds = %81
   %84 = load i8, ptr @summarize_wal, align 1
-  %85 = and i8 %84, 1
-  %.not3.i27 = icmp eq i8 %85, 0
-  br i1 %.not3.i27, label %86, label %91
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %91, label %86
 
 86:                                               ; preds = %83, %81
   %87 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
@@ -310,14 +307,14 @@ HandleWalSummarizerInterrupts.exit:               ; preds = %61, %63
 
 91:                                               ; preds = %83
   %92 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not4.i28 = icmp eq i32 %92, 0
-  br i1 %.not4.i28, label %HandleWalSummarizerInterrupts.exit29, label %93
+  %.not3.i27 = icmp eq i32 %92, 0
+  br i1 %.not3.i27, label %HandleWalSummarizerInterrupts.exit28, label %93
 
 93:                                               ; preds = %91
   call void @ProcessLogMemoryContextInterrupt() #11
-  br label %HandleWalSummarizerInterrupts.exit29
+  br label %HandleWalSummarizerInterrupts.exit28
 
-HandleWalSummarizerInterrupts.exit29:             ; preds = %91, %93
+HandleWalSummarizerInterrupts.exit28:             ; preds = %91, %93
   %94 = getelementptr i8, ptr %.045.i, i64 16
   %.0.val.i = load ptr, ptr %94, align 8
   %95 = load ptr, ptr %.0.val.i, align 8
@@ -332,10 +329,10 @@ HandleWalSummarizerInterrupts.exit29:             ; preds = %91, %93
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %HandleWalSummarizerInterrupts.exit29, %130
-  %.139.us.i = phi ptr [ %.2.us.i, %130 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit29 ]
-  %.sroa.0.038.us.i = phi ptr [ %.sroa.0.1.us.i, %130 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit29 ]
-  %.sroa.5.037.us.i = phi i32 [ %131, %130 ], [ 0, %HandleWalSummarizerInterrupts.exit29 ]
+.split.us.i:                                      ; preds = %HandleWalSummarizerInterrupts.exit28, %130
+  %.139.us.i = phi ptr [ %.2.us.i, %130 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
+  %.sroa.0.038.us.i = phi ptr [ %.sroa.0.1.us.i, %130 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
+  %.sroa.5.037.us.i = phi i32 [ %131, %130 ], [ 0, %HandleWalSummarizerInterrupts.exit28 ]
   %103 = getelementptr inbounds i8, ptr %.sroa.0.038.us.i, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = icmp slt i32 %.sroa.5.037.us.i, %104
@@ -372,14 +369,13 @@ HandleWalSummarizerInterrupts.exit29:             ; preds = %91, %93
 
 119:                                              ; preds = %117
   %120 = load i8, ptr @summarize_wal, align 1
-  %121 = and i8 %120, 1
-  %.not3.i.us.i = icmp eq i8 %121, 0
-  br i1 %.not3.i.us.i, label %.split43.us.i, label %122
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %.split43.us.i
 
 122:                                              ; preds = %119
   %123 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not4.i.us.i = icmp eq i32 %123, 0
-  br i1 %.not4.i.us.i, label %HandleWalSummarizerInterrupts.exit.us.i, label %124
+  %.not3.i.us.i = icmp eq i32 %123, 0
+  br i1 %.not3.i.us.i, label %HandleWalSummarizerInterrupts.exit.us.i, label %124
 
 124:                                              ; preds = %122
   call void @ProcessLogMemoryContextInterrupt() #11
@@ -406,10 +402,10 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
   %.not27.us.i = icmp eq ptr %.sroa.0.1.us.i, null
   br i1 %.not27.us.i, label %.split41.us.i, label %.split.us.i, !llvm.loop !5
 
-.split.i:                                         ; preds = %HandleWalSummarizerInterrupts.exit29, %167
-  %.139.i = phi ptr [ %.2.i, %167 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit29 ]
-  %.sroa.0.038.i = phi ptr [ %.sroa.0.1.i, %167 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit29 ]
-  %.sroa.5.037.i = phi i32 [ %168, %167 ], [ 0, %HandleWalSummarizerInterrupts.exit29 ]
+.split.i:                                         ; preds = %HandleWalSummarizerInterrupts.exit28, %167
+  %.139.i = phi ptr [ %.2.i, %167 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
+  %.sroa.0.038.i = phi ptr [ %.sroa.0.1.i, %167 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
+  %.sroa.5.037.i = phi i32 [ %168, %167 ], [ 0, %HandleWalSummarizerInterrupts.exit28 ]
   %132 = getelementptr inbounds i8, ptr %.sroa.0.038.i, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = icmp slt i32 %.sroa.5.037.i, %133
@@ -451,9 +447,8 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
 
 148:                                              ; preds = %146
   %149 = load i8, ptr @summarize_wal, align 1
-  %150 = and i8 %149, 1
-  %.not3.i.i = icmp eq i8 %150, 0
-  br i1 %.not3.i.i, label %.split43.us.i, label %155
+  %150 = trunc i8 %149 to i1
+  br i1 %150, label %155, label %.split43.us.i
 
 .split43.us.i:                                    ; preds = %148, %146, %119, %117
   %151 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
@@ -470,8 +465,8 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
 
 155:                                              ; preds = %148
   %156 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not4.i.i = icmp eq i32 %156, 0
-  br i1 %.not4.i.i, label %HandleWalSummarizerInterrupts.exit.i, label %157
+  %.not3.i.i = icmp eq i32 %156, 0
+  br i1 %.not3.i.i, label %HandleWalSummarizerInterrupts.exit.i, label %157
 
 157:                                              ; preds = %155
   call void @ProcessLogMemoryContextInterrupt() #11
@@ -565,61 +560,59 @@ GetLatestLSN.exit:                                ; preds = %170, %176, %178
 196:                                              ; preds = %189, %184, %GetLatestLSN.exit
   %.1 = phi i64 [ %187, %189 ], [ %187, %184 ], [ %.018, %GetLatestLSN.exit ]
   %197 = icmp eq i64 %.1, 0
-  br i1 %197, label %.split, label %203
+  br i1 %197, label %.split, label %202
 
 .split:                                           ; preds = %196
   %198 = load i32, ptr %4, align 4
   %199 = load i8, ptr %5, align 1
-  %200 = and i8 %199, 1
-  %201 = icmp ne i8 %200, 0
-  %202 = call fastcc i64 @SummarizeWAL(i32 noundef %198, i64 noundef %.0.ph, i1 noundef zeroext %201, i64 noundef 0, i64 noundef %.0.i)
-  br label %211
+  %200 = trunc i8 %199 to i1
+  %201 = call fastcc i64 @SummarizeWAL(i32 noundef %198, i64 noundef %.0.ph, i1 noundef zeroext %200, i64 noundef 0, i64 noundef %.0.i)
+  br label %209
 
-203:                                              ; preds = %196
+202:                                              ; preds = %196
   %.not22 = icmp ult i64 %.0.ph, %.1
-  br i1 %.not22, label %.split19, label %209
+  br i1 %.not22, label %.split19, label %207
 
-.split19:                                         ; preds = %203
-  %204 = load i32, ptr %4, align 4
-  %205 = load i8, ptr %5, align 1
-  %206 = and i8 %205, 1
-  %207 = icmp ne i8 %206, 0
-  %208 = call fastcc i64 @SummarizeWAL(i32 noundef %204, i64 noundef %.0.ph, i1 noundef zeroext %207, i64 noundef %.1, i64 noundef %.0.i)
-  br label %211
+.split19:                                         ; preds = %202
+  %203 = load i32, ptr %4, align 4
+  %204 = load i8, ptr %5, align 1
+  %205 = trunc i8 %204 to i1
+  %206 = call fastcc i64 @SummarizeWAL(i32 noundef %203, i64 noundef %.0.ph, i1 noundef zeroext %205, i64 noundef %.1, i64 noundef %.0.i)
+  br label %209
 
-209:                                              ; preds = %203
-  %210 = load i32, ptr %6, align 4
-  store i32 %210, ptr %4, align 4
+207:                                              ; preds = %202
+  %208 = load i32, ptr %6, align 4
+  store i32 %208, ptr %4, align 4
   store i32 0, ptr %6, align 4
   br label %45
 
-211:                                              ; preds = %.split19, %.split
-  %phi.call = phi i64 [ %202, %.split ], [ %208, %.split19 ]
+209:                                              ; preds = %.split19, %.split
+  %phi.call = phi i64 [ %201, %.split ], [ %206, %.split19 ]
   store i8 1, ptr %5, align 1
-  %212 = load ptr, ptr @MainLWLockArray, align 8
-  %213 = getelementptr i8, ptr %212, i64 6272
-  %214 = call zeroext i1 @LWLockAcquire(ptr noundef %213, i32 noundef 0) #11
-  %215 = load ptr, ptr @WalSummarizerCtl, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 8
-  store i64 %phi.call, ptr %216, align 8
-  %217 = load i32, ptr %4, align 4
-  %218 = getelementptr inbounds i8, ptr %215, i64 4
-  store i32 %217, ptr %218, align 4
-  %219 = getelementptr inbounds i8, ptr %215, i64 16
-  store i8 1, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %215, i64 24
-  store i64 %phi.call, ptr %220, align 8
-  %221 = load ptr, ptr @MainLWLockArray, align 8
-  %222 = getelementptr i8, ptr %221, i64 6272
-  call void @LWLockRelease(ptr noundef %222) #11
-  %223 = load ptr, ptr @WalSummarizerCtl, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 32
-  call void @ConditionVariableBroadcast(ptr noundef nonnull %224) #11
+  %210 = load ptr, ptr @MainLWLockArray, align 8
+  %211 = getelementptr i8, ptr %210, i64 6272
+  %212 = call zeroext i1 @LWLockAcquire(ptr noundef %211, i32 noundef 0) #11
+  %213 = load ptr, ptr @WalSummarizerCtl, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 8
+  store i64 %phi.call, ptr %214, align 8
+  %215 = load i32, ptr %4, align 4
+  %216 = getelementptr inbounds i8, ptr %213, i64 4
+  store i32 %215, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %213, i64 16
+  store i8 1, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %213, i64 24
+  store i64 %phi.call, ptr %218, align 8
+  %219 = load ptr, ptr @MainLWLockArray, align 8
+  %220 = getelementptr i8, ptr %219, i64 6272
+  call void @LWLockRelease(ptr noundef %220) #11
+  %221 = load ptr, ptr @WalSummarizerCtl, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 32
+  call void @ConditionVariableBroadcast(ptr noundef nonnull %222) #11
   br label %.outer
 
-.outer:                                           ; preds = %40, %211
-  %.018.ph = phi i64 [ %.1, %211 ], [ 0, %40 ]
-  %.0.ph = phi i64 [ %phi.call, %211 ], [ %42, %40 ]
+.outer:                                           ; preds = %40, %209
+  %.018.ph = phi i64 [ %.1, %209 ], [ 0, %40 ]
+  %.0.ph = phi i64 [ %phi.call, %209 ], [ %42, %40 ]
   br label %45
 }
 
@@ -692,9 +685,8 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i8, ptr @summarize_wal, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %107, label %.preheader
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.preheader, label %107
 
 .preheader:                                       ; preds = %3
   %not. = xor i1 %2, true
@@ -704,29 +696,28 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef %9) #11
   %13 = load ptr, ptr @WalSummarizerCtl, align 8
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not5269 = icmp eq i8 %15, 0
-  br i1 %.not5269, label %.lr.ph, label %._crit_edge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %33, %.preheader
-  %.lcssa67 = phi ptr [ %13, %.preheader ], [ %39, %33 ]
-  %16 = getelementptr inbounds i8, ptr %.lcssa67, i64 8
+  %.lcssa65 = phi ptr [ %13, %.preheader ], [ %39, %33 ]
+  %16 = getelementptr inbounds i8, ptr %.lcssa65, i64 8
   %17 = load i64, ptr %16, align 8
-  %.not58 = icmp eq ptr %0, null
-  br i1 %.not58, label %21, label %18
+  %.not56 = icmp eq ptr %0, null
+  br i1 %.not56, label %21, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = getelementptr inbounds i8, ptr %.lcssa67, i64 4
+  %19 = getelementptr inbounds i8, ptr %.lcssa65, i64 4
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %0, align 4
   br label %21
 
 21:                                               ; preds = %18, %._crit_edge
-  %.not59 = icmp eq ptr %1, null
-  br i1 %.not59, label %26, label %22
+  %.not57 = icmp eq ptr %1, null
+  br i1 %.not57, label %26, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %.lcssa67, i64 16
+  %23 = getelementptr inbounds i8, ptr %.lcssa65, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
   store i8 %25, ptr %1, align 1
@@ -737,7 +728,7 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
 
 27:                                               ; preds = %26
   %28 = load i64, ptr %16, align 8
-  %29 = getelementptr inbounds i8, ptr %.lcssa67, i64 24
+  %29 = getelementptr inbounds i8, ptr %.lcssa65, i64 24
   store i64 %28, ptr %29, align 8
   br label %30
 
@@ -759,9 +750,8 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
   %38 = tail call zeroext i1 @LWLockAcquire(ptr noundef %37, i32 noundef 0) #11
   %39 = load ptr, ptr @WalSummarizerCtl, align 8
   %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %.not52 = icmp eq i8 %41, 0
-  br i1 %.not52, label %.critedge, label %._crit_edge
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %33, %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -823,8 +813,8 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 8
   %69 = call i64 @XLogGetOldestSegno(i32 noundef %68) #11
-  %.not53 = icmp eq i64 %69, 0
-  br i1 %.not53, label %61, label %70, !llvm.loop !8
+  %.not = icmp eq i64 %69, 0
+  br i1 %.not, label %61, label %70, !llvm.loop !8
 
 70:                                               ; preds = %64
   %71 = load i32, ptr %67, align 8
@@ -845,43 +835,43 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %79 = sext i32 %78 to i64
   %80 = mul i64 %69, %79
   %81 = call ptr @GetWalSummaries(i32 noundef %71, i64 noundef 0, i64 noundef 0) #11
-  %.not54 = icmp eq ptr %81, null
-  br i1 %.not54, label %._crit_edge76, label %.lr.ph75
+  %.not52 = icmp eq ptr %81, null
+  br i1 %.not52, label %._crit_edge73, label %.lr.ph72
 
-.lr.ph75:                                         ; preds = %77
+.lr.ph72:                                         ; preds = %77
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph88, label %._crit_edge76
+  br i1 %84, label %.lr.ph85, label %._crit_edge73
 
-.lr.ph88:                                         ; preds = %.lr.ph75
+.lr.ph85:                                         ; preds = %.lr.ph72
   %85 = getelementptr inbounds i8, ptr %81, i64 16
   %86 = load ptr, ptr %85, align 8
   %wide.trip.count = zext nneg i32 %83 to i64
   br label %87
 
-87:                                               ; preds = %.lr.ph88, %87
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next95, %87 ]
-  %.0437187 = phi i8 [ 0, %.lr.ph88 ], [ %spec.select, %87 ]
-  %.17286 = phi i64 [ %80, %.lr.ph88 ], [ %spec.select60, %87 ]
-  %88 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv94
+87:                                               ; preds = %.lr.ph85, %87
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %87 ]
+  %.0436884 = phi i8 [ 0, %.lr.ph85 ], [ %spec.select, %87 ]
+  %.16983 = phi i64 [ %80, %.lr.ph85 ], [ %spec.select58, %87 ]
+  %88 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv91
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
-  %92 = icmp ugt i64 %91, %.17286
-  %spec.select = select i1 %92, i8 1, i8 %.0437187
-  %spec.select60 = call i64 @llvm.umax.i64(i64 %91, i64 %.17286)
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge76.loopexit, label %87
+  %92 = icmp ugt i64 %91, %.16983
+  %spec.select = select i1 %92, i8 1, i8 %.0436884
+  %spec.select58 = call i64 @llvm.umax.i64(i64 %91, i64 %.16983)
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge73.loopexit, label %87
 
-._crit_edge76.loopexit:                           ; preds = %87
+._crit_edge73.loopexit:                           ; preds = %87
   %93 = and i8 %spec.select, 1
-  br label %._crit_edge76
+  br label %._crit_edge73
 
-._crit_edge76:                                    ; preds = %._crit_edge76.loopexit, %.lr.ph75, %77
-  %.043.lcssa = phi i8 [ 0, %77 ], [ 0, %.lr.ph75 ], [ %93, %._crit_edge76.loopexit ]
-  %.1.lcssa = phi i64 [ %80, %77 ], [ %80, %.lr.ph75 ], [ %spec.select60, %._crit_edge76.loopexit ]
+._crit_edge73:                                    ; preds = %._crit_edge73.loopexit, %.lr.ph72, %77
+  %.043.lcssa = phi i8 [ 0, %77 ], [ 0, %.lr.ph72 ], [ %93, %._crit_edge73.loopexit ]
+  %.1.lcssa = phi i64 [ %80, %77 ], [ %80, %.lr.ph72 ], [ %spec.select58, %._crit_edge73.loopexit ]
   %94 = load ptr, ptr @WalSummarizerCtl, align 8
   store i8 1, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
@@ -892,16 +882,16 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   store i8 %.043.lcssa, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %94, i64 24
   store i64 %.1.lcssa, ptr %98, align 8
-  %.not56 = icmp eq ptr %0, null
-  br i1 %.not56, label %100, label %99
+  %.not54 = icmp eq ptr %0, null
+  br i1 %.not54, label %100, label %99
 
-99:                                               ; preds = %._crit_edge76
+99:                                               ; preds = %._crit_edge73
   store i32 %71, ptr %0, align 4
   br label %100
 
-100:                                              ; preds = %99, %._crit_edge76
-  %.not57 = icmp eq ptr %1, null
-  br i1 %.not57, label %104, label %101
+100:                                              ; preds = %99, %._crit_edge73
+  %.not55 = icmp eq ptr %1, null
+  br i1 %.not55, label %104, label %101
 
 101:                                              ; preds = %100
   %102 = load i8, ptr %97, align 8
@@ -950,9 +940,8 @@ define internal fastcc void @HandleWalSummarizerInterrupts() unnamed_addr #1 {
 
 8:                                                ; preds = %6
   %9 = load i8, ptr @summarize_wal, align 1
-  %10 = and i8 %9, 1
-  %.not3 = icmp eq i8 %10, 0
-  br i1 %.not3, label %11, label %16
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %16, label %11
 
 11:                                               ; preds = %8, %6
   %12 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
@@ -969,8 +958,8 @@ define internal fastcc void @HandleWalSummarizerInterrupts() unnamed_addr #1 {
 
 16:                                               ; preds = %8
   %17 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not4 = icmp eq i32 %17, 0
-  br i1 %.not4, label %19, label %18
+  %.not3 = icmp eq i32 %17, 0
+  br i1 %.not3, label %19, label %18
 
 18:                                               ; preds = %16
   tail call void @ProcessLogMemoryContextInterrupt() #11
@@ -1041,9 +1030,8 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %17, i64 16
   %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %55, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %55
 
 41:                                               ; preds = %37
   %42 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
@@ -1082,9 +1070,9 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   call fastcc void @HandleWalSummarizerInterrupts()
   %62 = call ptr @XLogReadRecord(ptr noundef nonnull %25, ptr noundef nonnull %12) #11
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %._crit_edge104, label %.lr.ph103
+  br i1 %63, label %._crit_edge102, label %.lr.ph101
 
-.lr.ph103:                                        ; preds = %61
+.lr.ph101:                                        ; preds = %61
   %64 = icmp eq i64 %.0, 0
   %65 = getelementptr inbounds i8, ptr %25, i64 40
   %66 = getelementptr inbounds i8, ptr %25, i64 104
@@ -1095,14 +1083,13 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %71 = getelementptr inbounds i8, ptr %25, i64 48
   br label %104
 
-._crit_edge104:                                   ; preds = %201, %61
+._crit_edge102:                                   ; preds = %201, %61
   %72 = getelementptr inbounds i8, ptr %17, i64 16
   %73 = load i8, ptr %72, align 8
-  %74 = and i8 %73, 1
-  %.not94 = icmp eq i8 %74, 0
-  br i1 %.not94, label %90, label %75
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %90
 
-75:                                               ; preds = %._crit_edge104
+75:                                               ; preds = %._crit_edge102
   %76 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
   br i1 %76, label %77, label %88
 
@@ -1124,9 +1111,9 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %89 = load i64, ptr %21, align 8
   br label %.loopexit
 
-90:                                               ; preds = %._crit_edge104
+90:                                               ; preds = %._crit_edge102
   %91 = load ptr, ptr %12, align 8
-  %.not95 = icmp eq ptr %91, null
+  %.not93 = icmp eq ptr %91, null
   %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %92)
   %93 = call i32 @errcode_for_file_access() #11
@@ -1135,7 +1122,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %96 = lshr i64 %95, 32
   %97 = trunc i64 %96 to i32
   %98 = trunc i64 %95 to i32
-  br i1 %.not95, label %102, label %99
+  br i1 %.not93, label %102, label %99
 
 99:                                               ; preds = %90
   %100 = load ptr, ptr %12, align 8
@@ -1148,13 +1135,13 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 930, ptr noundef nonnull @__func__.SummarizeWAL) #11
   unreachable
 
-104:                                              ; preds = %.lr.ph103, %201
+104:                                              ; preds = %.lr.ph101, %201
   br i1 %64, label %107, label %105
 
 105:                                              ; preds = %104
   %106 = load i64, ptr %65, align 8
-  %.not91 = icmp ult i64 %106, %.0
-  br i1 %.not91, label %107, label %.loopexit
+  %.not = icmp ult i64 %106, %.0
+  br i1 %.not, label %107, label %.loopexit
 
 107:                                              ; preds = %105, %104
   %108 = load ptr, ptr %66, align 8
@@ -1278,8 +1265,8 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 161:                                              ; preds = %165, %.preheader1.i
   %.03.i = phi i32 [ 0, %.preheader1.i ], [ %166, %165 ]
-  %.not.i98 = icmp eq i32 %.03.i, 1
-  br i1 %.not.i98, label %165, label %162
+  %.not.i96 = icmp eq i32 %.03.i, 1
+  br i1 %.not.i96, label %165, label %162
 
 162:                                              ; preds = %161
   %163 = load ptr, ptr %68, align 8
@@ -1306,8 +1293,8 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
 
 171:                                              ; preds = %107
   %172 = getelementptr i8, ptr %108, i64 56
-  %.val97.val = load i8, ptr %172, align 8
-  %173 = and i8 %.val97.val, -16
+  %.val95.val = load i8, ptr %172, align 8
+  %173 = and i8 %.val95.val, -16
   switch i8 %173, label %.critedge [
     i8 -32, label %174
     i8 0, label %174
@@ -1322,12 +1309,12 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
   %177 = load ptr, ptr %66, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 84
   %179 = load i32, ptr %178, align 4
-  %.not92100 = icmp slt i32 %179, 0
-  br i1 %.not92100, label %._crit_edge, label %.lr.ph
+  %.not9198 = icmp slt i32 %179, 0
+  br i1 %.not9198, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %186
-  %.085101 = phi i32 [ %187, %186 ], [ 0, %.critedge ]
-  %180 = trunc i32 %.085101 to i8
+  %.08599 = phi i32 [ %187, %186 ], [ 0, %.critedge ]
+  %180 = trunc i32 %.08599 to i8
   %181 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %25, i8 noundef zeroext %180, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null) #11
   %182 = load i32, ptr %14, align 4
   %183 = icmp ne i32 %182, 1
@@ -1340,12 +1327,12 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
   br label %186
 
 186:                                              ; preds = %184, %.lr.ph
-  %187 = add i32 %.085101, 1
+  %187 = add i32 %.08599, 1
   %188 = load ptr, ptr %66, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 84
   %190 = load i32, ptr %189, align 4
-  %.not92 = icmp sgt i32 %187, %190
-  br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  %.not91 = icmp sgt i32 %187, %190
+  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %186, %.critedge
   %191 = load i64, ptr %71, align 8
@@ -1362,14 +1349,14 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
 
 199:                                              ; preds = %._crit_edge
   %200 = load i64, ptr %71, align 8
-  %.not93 = icmp ult i64 %200, %.0
-  br i1 %.not93, label %201, label %.loopexit
+  %.not92 = icmp ult i64 %200, %.0
+  br i1 %.not92, label %201, label %.loopexit
 
 201:                                              ; preds = %199, %._crit_edge
   call fastcc void @HandleWalSummarizerInterrupts()
   %202 = call ptr @XLogReadRecord(ptr noundef nonnull %25, ptr noundef nonnull %12) #11
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %._crit_edge104, label %104
+  br i1 %203, label %._crit_edge102, label %104
 
 .loopexit:                                        ; preds = %174, %105, %199, %88
   %.084 = phi i64 [ %89, %88 ], [ %175, %174 ], [ %.0, %105 ], [ %191, %199 ]
@@ -1433,9 +1420,8 @@ define dso_local void @GetWalSummarizerState(ptr nocapture noundef writeonly %0,
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef %6, i32 noundef 1) #11
   %8 = load ptr, ptr @WalSummarizerCtl, align 8
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %12
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
   store i32 0, ptr %0, align 4
@@ -1615,8 +1601,8 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
   %12 = add i64 %1, 8192
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8
-  %.not33 = icmp ugt i64 %12, %14
-  br i1 %.not33, label %.lr.ph, label %.loopexit
+  %.not32 = icmp ugt i64 %12, %14
+  br i1 %.not32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
   %15 = sext i32 %2 to i64
@@ -1631,9 +1617,8 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
 
 21:                                               ; preds = %18
   %22 = load i8, ptr %17, align 4
-  %23 = and i8 %22, 1
-  %.not30 = icmp eq i8 %23, 0
-  br i1 %.not30, label %26, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1723,17 +1708,17 @@ GetLatestLSN.exit:                                ; preds = %45, %51, %53
   %62 = call i64 @tliSwitchPoint(i32 noundef %61, ptr noundef %60, ptr noundef null) #11
   store i64 %62, ptr %13, align 8
   %63 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
-  %.pre37 = load i64, ptr %13, align 8
+  %.pre36 = load i64, ptr %13, align 8
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %59
   %65 = load i32, ptr %11, align 8
-  %66 = lshr i64 %.pre37, 32
+  %66 = lshr i64 %.pre36, 32
   %67 = trunc i64 %66 to i32
-  %68 = trunc i64 %.pre37 to i32
+  %68 = trunc i64 %.pre36 to i32
   %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %65, i32 noundef %67, i32 noundef %68) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1307, ptr noundef nonnull @__func__.summarizer_read_local_xlog_page) #11
-  %.pre36 = load i64, ptr %13, align 8
+  %.pre35 = load i64, ptr %13, align 8
   br label %73
 
 70:                                               ; preds = %18
@@ -1742,7 +1727,7 @@ GetLatestLSN.exit:                                ; preds = %45, %51, %53
   br label %.loopexit
 
 73:                                               ; preds = %58, %59, %64
-  %74 = phi i64 [ %.0.i, %58 ], [ %.pre37, %59 ], [ %.pre36, %64 ]
+  %74 = phi i64 [ %.0.i, %58 ], [ %.pre36, %59 ], [ %.pre35, %64 ]
   %.not = icmp ugt i64 %12, %74
   br i1 %.not, label %18, label %.loopexit
 

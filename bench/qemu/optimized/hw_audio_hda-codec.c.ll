@@ -241,7 +241,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry, %if.then
   %st5 = getelementptr inbounds i8, ptr %call.i, i64 216
   %use_timer = getelementptr inbounds i8, ptr %call.i, i64 34509
-  %card = getelementptr inbounds i8, ptr %call.i, i64 176
+  %card14 = getelementptr inbounds i8, ptr %call.i, i64 176
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
@@ -254,31 +254,29 @@ for.body:                                         ; preds = %do.end, %for.inc
 
 if.end9:                                          ; preds = %for.body
   %5 = load i8, ptr %use_timer, align 1
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end11, label %if.then10
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end9
   %buft = getelementptr inbounds i8, ptr %add.ptr, i64 8544
-  %7 = load ptr, ptr %buft, align 8
-  tail call void @timer_del(ptr noundef %7) #11
+  %6 = load ptr, ptr %buft, align 8
+  tail call void @timer_del(ptr noundef %6) #11
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end9
   %output = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %8 = load i8, ptr %output, align 8
-  %9 = and i8 %8, 1
-  %tobool12.not = icmp eq i8 %9, 0
-  %voice15 = getelementptr inbounds i8, ptr %add.ptr, i64 64
-  %10 = load ptr, ptr %voice15, align 8
-  br i1 %tobool12.not, label %if.else, label %if.then13
+  %7 = load i8, ptr %output, align 8
+  %tobool12 = trunc i8 %7 to i1
+  %voice = getelementptr inbounds i8, ptr %add.ptr, i64 64
+  %8 = load ptr, ptr %voice, align 8
+  br i1 %tobool12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end11
-  tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %10) #11
+  tail call void @AUD_close_out(ptr noundef nonnull %card14, ptr noundef %8) #11
   br label %for.inc
 
 if.else:                                          ; preds = %if.end11
-  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %10) #11
+  tail call void @AUD_close_in(ptr noundef nonnull %card14, ptr noundef %8) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then13, %if.else, %for.body
@@ -287,7 +285,7 @@ for.inc:                                          ; preds = %if.then13, %if.else
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  tail call void @AUD_remove_card(ptr noundef nonnull %card) #11
+  tail call void @AUD_remove_card(ptr noundef nonnull %card14) #11
   ret void
 }
 
@@ -299,9 +297,9 @@ entry:
   %cmp = icmp eq i32 %and, 458752
   %shr = lshr i32 %data, 8
   %. = select i1 %cmp, i32 4095, i32 3840
-  %.174 = select i1 %cmp, i32 255, i32 65535
+  %.173 = select i1 %cmp, i32 255, i32 65535
   %and4 = and i32 %shr, %.
-  %and5 = and i32 %.174, %data
+  %and5 = and i32 %.173, %data
   %desc = getelementptr inbounds i8, ptr %call.i, i64 208
   %0 = load ptr, ptr %desc, align 8
   %nnodes.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -539,40 +537,39 @@ do.end64:                                         ; preds = %if.end48, %if.then5
   %idxprom68 = zext i32 %add67 to i64
   %arrayidx69 = getelementptr [32 x i8], ptr %running_real, i64 0, i64 %idxprom68
   %46 = load i8, ptr %arrayidx69, align 1
-  %47 = and i8 %46, 1
-  %tobool70 = icmp ne i8 %47, 0
+  %tobool70 = trunc i8 %46 to i1
   tail call fastcc void @hda_audio_set_running(ptr noundef %add.ptr, i1 noundef zeroext %tobool70)
   br label %return
 
 sw.bb71:                                          ; preds = %do.end
   %st72 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex74 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %48 = load i32, ptr %stindex74, align 8
-  %idx.ext75 = zext i32 %48 to i64
+  %47 = load i32, ptr %stindex74, align 8
+  %idx.ext75 = zext i32 %47 to i64
   %add.ptr76 = getelementptr %struct.HDAAudioStream, ptr %st72, i64 %idx.ext75
   %node77 = getelementptr inbounds i8, ptr %add.ptr76, i64 8
-  %49 = load ptr, ptr %node77, align 8
-  %cmp78 = icmp eq ptr %49, null
+  %48 = load ptr, ptr %node77, align 8
+  %cmp78 = icmp eq ptr %48, null
   br i1 %cmp78, label %do.body195, label %if.end81
 
 if.end81:                                         ; preds = %sw.bb71
   %stream82 = getelementptr inbounds i8, ptr %add.ptr76, i64 20
-  %50 = load i32, ptr %stream82, align 4
-  %shl83 = shl i32 %50, 4
+  %49 = load i32, ptr %stream82, align 4
+  %shl83 = shl i32 %49, 4
   %channel84 = getelementptr inbounds i8, ptr %add.ptr76, i64 24
-  %51 = load i32, ptr %channel84, align 8
-  %or85 = or i32 %shl83, %51
+  %50 = load i32, ptr %channel84, align 8
+  %or85 = or i32 %shl83, %50
   br label %return
 
 sw.bb86:                                          ; preds = %do.end
   %st87 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex89 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %52 = load i32, ptr %stindex89, align 8
-  %idx.ext90 = zext i32 %52 to i64
+  %51 = load i32, ptr %stindex89, align 8
+  %idx.ext90 = zext i32 %51 to i64
   %add.ptr91 = getelementptr %struct.HDAAudioStream, ptr %st87, i64 %idx.ext90
   %node92 = getelementptr inbounds i8, ptr %add.ptr91, i64 8
-  %53 = load ptr, ptr %node92, align 8
-  %cmp93 = icmp eq ptr %53, null
+  %52 = load ptr, ptr %node92, align 8
+  %cmp93 = icmp eq ptr %52, null
   br i1 %cmp93, label %do.body195, label %if.end96
 
 if.end96:                                         ; preds = %sw.bb86
@@ -586,58 +583,58 @@ if.end96:                                         ; preds = %sw.bb86
 sw.bb98:                                          ; preds = %do.end
   %st99 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex101 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %54 = load i32, ptr %stindex101, align 8
-  %idx.ext102 = zext i32 %54 to i64
+  %53 = load i32, ptr %stindex101, align 8
+  %idx.ext102 = zext i32 %53 to i64
   %add.ptr103 = getelementptr %struct.HDAAudioStream, ptr %st99, i64 %idx.ext102
   %node104 = getelementptr inbounds i8, ptr %add.ptr103, i64 8
-  %55 = load ptr, ptr %node104, align 8
-  %cmp105 = icmp eq ptr %55, null
+  %54 = load ptr, ptr %node104, align 8
+  %cmp105 = icmp eq ptr %54, null
   br i1 %cmp105, label %do.body195, label %if.end108
 
 if.end108:                                        ; preds = %sw.bb98
   %format109 = getelementptr inbounds i8, ptr %add.ptr103, i64 28
-  %56 = load i32, ptr %format109, align 4
+  %55 = load i32, ptr %format109, align 4
   br label %return
 
 sw.bb110:                                         ; preds = %do.end
   %st111 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex113 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %57 = load i32, ptr %stindex113, align 8
-  %idx.ext114 = zext i32 %57 to i64
+  %56 = load i32, ptr %stindex113, align 8
+  %idx.ext114 = zext i32 %56 to i64
   %add.ptr115 = getelementptr %struct.HDAAudioStream, ptr %st111, i64 %idx.ext114
   %node116 = getelementptr inbounds i8, ptr %add.ptr115, i64 8
-  %58 = load ptr, ptr %node116, align 8
-  %cmp117 = icmp eq ptr %58, null
+  %57 = load ptr, ptr %node116, align 8
+  %cmp117 = icmp eq ptr %57, null
   br i1 %cmp117, label %do.body195, label %if.end120
 
 if.end120:                                        ; preds = %sw.bb110
   %and121 = and i32 %and5, 8192
   %tobool122.not = icmp eq i32 %and121, 0
-  %.180 = select i1 %tobool122.not, i64 36, i64 32
-  %.181 = select i1 %tobool122.not, i64 41, i64 40
-  %gain_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.180
-  %mute_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.181
+  %.179 = select i1 %tobool122.not, i64 36, i64 32
+  %.180 = select i1 %tobool122.not, i64 41, i64 40
+  %gain_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.179
+  %mute_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.180
   %.sink170 = load i32, ptr %gain_right, align 4
-  %.sink172 = load i8, ptr %mute_right, align 1
-  %59 = shl i8 %.sink172, 7
-  %cond131 = zext i8 %59 to i32
-  %or132 = or i32 %.sink170, %cond131
+  %.sink171 = load i8, ptr %mute_right, align 1
+  %tobool129 = trunc i8 %.sink171 to i1
+  %cond131 = select i1 %tobool129, i32 128, i32 0
+  %or132 = or i32 %cond131, %.sink170
   br label %return
 
 sw.bb134:                                         ; preds = %do.end
   %st135 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex137 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %60 = load i32, ptr %stindex137, align 8
-  %idx.ext138 = zext i32 %60 to i64
+  %58 = load i32, ptr %stindex137, align 8
+  %idx.ext138 = zext i32 %58 to i64
   %add.ptr139 = getelementptr %struct.HDAAudioStream, ptr %st135, i64 %idx.ext138
   %node140 = getelementptr inbounds i8, ptr %add.ptr139, i64 8
-  %61 = load ptr, ptr %node140, align 8
-  %cmp141 = icmp eq ptr %61, null
+  %59 = load ptr, ptr %node140, align 8
+  %cmp141 = icmp eq ptr %59, null
   br i1 %cmp141, label %do.body195, label %do.body145
 
 do.body145:                                       ; preds = %sw.bb134
-  %62 = load i32, ptr %debug, align 8
-  %cmp147.not = icmp eq i32 %62, 0
+  %60 = load i32, ptr %debug, align 8
+  %cmp147.not = icmp eq i32 %60, 0
   br i1 %cmp147.not, label %do.body145.do.end174_crit_edge, label %if.then149
 
 do.body145.do.end174_crit_edge:                   ; preds = %do.body145
@@ -645,14 +642,14 @@ do.body145.do.end174_crit_edge:                   ; preds = %do.body145
   br label %do.end174
 
 if.then149:                                       ; preds = %do.body145
-  %63 = load ptr, ptr @stderr, align 8
+  %61 = load ptr, ptr @stderr, align 8
   %name150 = getelementptr inbounds i8, ptr %call.i, i64 168
-  %64 = load ptr, ptr %name150, align 8
-  %call151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.5, ptr noundef %64) #12
-  %65 = load ptr, ptr @stderr, align 8
-  %66 = load ptr, ptr %node140, align 8
-  %name153 = getelementptr inbounds i8, ptr %66, i64 8
-  %67 = load ptr, ptr %name153, align 8
+  %62 = load ptr, ptr %name150, align 8
+  %call151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.5, ptr noundef %62) #12
+  %63 = load ptr, ptr @stderr, align 8
+  %64 = load ptr, ptr %node140, align 8
+  %name153 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = load ptr, ptr %name153, align 8
   %tobool155.not = icmp ult i32 %and5, 32768
   %cond156 = select i1 %tobool155.not, ptr @.str.13, ptr @.str.12
   %and157 = and i32 %and5, 16384
@@ -670,7 +667,7 @@ if.then149:                                       ; preds = %do.body145
   %and169 = and i32 %data, 128
   %tobool170.not = icmp eq i32 %and169, 0
   %cond171 = select i1 %tobool170.not, ptr @.str.18, ptr @.str.17
-  %call172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.11, ptr noundef %67, ptr noundef nonnull %cond156, ptr noundef nonnull %cond159, ptr noundef nonnull %cond162, ptr noundef nonnull %cond165, i32 noundef %shr167, i32 noundef %and168, ptr noundef nonnull %cond171) #12
+  %call172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.11, ptr noundef %65, ptr noundef nonnull %cond156, ptr noundef nonnull %cond159, ptr noundef nonnull %cond162, ptr noundef nonnull %cond165, i32 noundef %shr167, i32 noundef %and168, ptr noundef nonnull %cond171) #12
   br label %do.end174
 
 do.end174:                                        ; preds = %do.body145.do.end174_crit_edge, %if.then149
@@ -706,105 +703,101 @@ if.then186:                                       ; preds = %if.end183
   br label %if.end193
 
 if.end193:                                        ; preds = %if.then186, %if.end183
-  %68 = load ptr, ptr %node140, align 8
-  %cmp.i = icmp eq ptr %68, null
+  %66 = load ptr, ptr %node140, align 8
+  %cmp.i = icmp eq ptr %66, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end193
   %mute_left.i = getelementptr inbounds i8, ptr %add.ptr139, i64 40
-  %69 = load i8, ptr %mute_left.i, align 8
-  %70 = and i8 %69, 1
-  %tobool.not.i = icmp eq i8 %70, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %land.end.i
+  %67 = load i8, ptr %mute_left.i, align 8
+  %tobool.i = trunc i8 %67 to i1
+  br i1 %tobool.i, label %land.end.thread.i, label %cond.false.i
 
-land.end.i:                                       ; preds = %if.end.i
+land.end.thread.i:                                ; preds = %if.end.i
   %mute_right.i = getelementptr inbounds i8, ptr %add.ptr139, i64 41
-  %71 = load i8, ptr %mute_right.i, align 1
-  %72 = and i8 %71, 1
-  %73 = zext nneg i8 %72 to i32
+  %68 = load i8, ptr %mute_right.i, align 1
+  %69 = and i8 %68, 1
+  %70 = zext nneg i8 %69 to i32
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %gain_left.i = getelementptr inbounds i8, ptr %add.ptr139, i64 32
-  %74 = load i32, ptr %gain_left.i, align 8
-  %75 = mul i32 %74, 255
-  %76 = udiv i32 %75, 74
-  %77 = trunc i32 %76 to i8
+  %71 = load i32, ptr %gain_left.i, align 8
+  %72 = mul i32 %71, 255
+  %73 = udiv i32 %72, 74
+  %74 = trunc i32 %73 to i8
   %mute_right4.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr139, i64 41
   %.pre.i = load i8, ptr %mute_right4.phi.trans.insert.i, align 1
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %land.end.i
-  %78 = phi i8 [ %.pre.i, %cond.false.i ], [ %71, %land.end.i ]
-  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %73, %land.end.i ]
-  %cond.i = phi i8 [ %77, %cond.false.i ], [ 0, %land.end.i ]
-  %79 = and i8 %78, 1
-  %tobool5.not.i = icmp eq i8 %79, 0
-  br i1 %tobool5.not.i, label %cond.false7.i, label %cond.end8.i
+cond.end.i:                                       ; preds = %cond.false.i, %land.end.thread.i
+  %75 = phi i8 [ %.pre.i, %cond.false.i ], [ %68, %land.end.thread.i ]
+  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %70, %land.end.thread.i ]
+  %cond.i = phi i8 [ %74, %cond.false.i ], [ 0, %land.end.thread.i ]
+  %tobool5.i = trunc i8 %75 to i1
+  br i1 %tobool5.i, label %cond.end8.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end.i
   %gain_right.i = getelementptr inbounds i8, ptr %add.ptr139, i64 36
-  %80 = load i32, ptr %gain_right.i, align 4
-  %81 = mul i32 %80, 255
-  %82 = udiv i32 %81, 74
-  %83 = trunc i32 %82 to i8
+  %76 = load i32, ptr %gain_right.i, align 4
+  %77 = mul i32 %76, 255
+  %78 = udiv i32 %77, 74
+  %79 = trunc i32 %78 to i8
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false7.i, %cond.end.i
-  %cond9.i = phi i8 [ %83, %cond.false7.i ], [ 0, %cond.end.i ]
-  %84 = load ptr, ptr %add.ptr139, align 8
-  %mixer.i = getelementptr inbounds i8, ptr %84, i64 34508
-  %85 = load i8, ptr %mixer.i, align 4
-  %86 = and i8 %85, 1
-  %tobool12.not.i = icmp eq i8 %86, 0
-  br i1 %tobool12.not.i, label %return, label %if.end14.i
+  %cond9.i = phi i8 [ %79, %cond.false7.i ], [ 0, %cond.end.i ]
+  %80 = load ptr, ptr %add.ptr139, align 8
+  %mixer.i = getelementptr inbounds i8, ptr %80, i64 34508
+  %81 = load i8, ptr %mixer.i, align 4
+  %tobool12.i = trunc i8 %81 to i1
+  br i1 %tobool12.i, label %if.end14.i, label %return
 
 if.end14.i:                                       ; preds = %cond.end8.i
   %output.i = getelementptr inbounds i8, ptr %add.ptr139, i64 16
-  %87 = load i8, ptr %output.i, align 8
-  %88 = and i8 %87, 1
-  %tobool15.not.i = icmp eq i8 %88, 0
-  %voice20.i = getelementptr inbounds i8, ptr %add.ptr139, i64 64
-  %89 = load ptr, ptr %voice20.i, align 8
-  br i1 %tobool15.not.i, label %if.else.i, label %if.then16.i
+  %82 = load i8, ptr %output.i, align 8
+  %tobool15.i = trunc i8 %82 to i1
+  %voice.i = getelementptr inbounds i8, ptr %add.ptr139, i64 64
+  %83 = load ptr, ptr %voice.i, align 8
+  br i1 %tobool15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end14.i
-  tail call void @AUD_set_volume_out(ptr noundef %89, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_out(ptr noundef %83, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
   br label %return
 
 if.else.i:                                        ; preds = %if.end14.i
-  tail call void @AUD_set_volume_in(ptr noundef %89, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_in(ptr noundef %83, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
   br label %return
 
 do.body195:                                       ; preds = %for.cond.i, %for.cond.i123, %sw.bb, %entry, %hda_codec_find_node.exit, %sw.bb43, %sw.bb71, %sw.bb86, %sw.bb98, %sw.bb110, %sw.bb134, %do.end
   %cmp7146 = phi i1 [ true, %hda_codec_find_node.exit ], [ false, %sw.bb43 ], [ false, %sw.bb71 ], [ false, %sw.bb86 ], [ false, %sw.bb98 ], [ false, %sw.bb110 ], [ false, %sw.bb134 ], [ false, %do.end ], [ true, %entry ], [ false, %sw.bb ], [ false, %for.cond.i123 ], [ true, %for.cond.i ]
   %retval.0.i145 = phi ptr [ null, %hda_codec_find_node.exit ], [ %arrayidx.i, %sw.bb43 ], [ %arrayidx.i, %sw.bb71 ], [ %arrayidx.i, %sw.bb86 ], [ %arrayidx.i, %sw.bb98 ], [ %arrayidx.i, %sw.bb110 ], [ %arrayidx.i, %sw.bb134 ], [ %arrayidx.i, %do.end ], [ null, %entry ], [ %arrayidx.i, %sw.bb ], [ %arrayidx.i, %for.cond.i123 ], [ null, %for.cond.i ]
   %debug196 = getelementptr inbounds i8, ptr %call.i, i64 34504
-  %90 = load i32, ptr %debug196, align 8
-  %cmp197.not = icmp eq i32 %90, 0
+  %84 = load i32, ptr %debug196, align 8
+  %cmp197.not = icmp eq i32 %84, 0
   br i1 %cmp197.not, label %return, label %if.then199
 
 if.then199:                                       ; preds = %do.body195
-  %91 = load ptr, ptr @stderr, align 8
+  %85 = load ptr, ptr @stderr, align 8
   %name200 = getelementptr inbounds i8, ptr %call.i, i64 168
-  %92 = load ptr, ptr %name200, align 8
-  %call201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.5, ptr noundef %92) #12
-  %93 = load ptr, ptr @stderr, align 8
+  %86 = load ptr, ptr %name200, align 8
+  %call201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.5, ptr noundef %86) #12
+  %87 = load ptr, ptr @stderr, align 8
   br i1 %cmp7146, label %cond.end206, label %cond.true203
 
 cond.true203:                                     ; preds = %if.then199
   %name204 = getelementptr inbounds i8, ptr %retval.0.i145, i64 8
-  %94 = load ptr, ptr %name204, align 8
+  %88 = load ptr, ptr %name204, align 8
   br label %cond.end206
 
 cond.end206:                                      ; preds = %if.then199, %cond.true203
-  %cond207 = phi ptr [ %94, %cond.true203 ], [ @.str.20, %if.then199 ]
-  %call208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %cond207, i32 noundef %and4, i32 noundef %and5) #12
+  %cond207 = phi ptr [ %88, %cond.true203 ], [ @.str.20, %if.then199 ]
+  %call208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %cond207, i32 noundef %and4, i32 noundef %and5) #12
   br label %return
 
 return:                                           ; preds = %while.body, %cond.end206, %do.body195, %do.end, %do.end, %do.end, %if.else.i, %if.then16.i, %cond.end8.i, %if.end193, %sw.bb29, %do.body33, %if.then36, %cond.end, %if.end19, %sw.bb20, %sw.bb27, %sw.bb28, %do.end64, %if.end81, %if.end96, %if.end108, %if.end120
-  %.sink173 = phi i32 [ %12, %if.end19 ], [ %14, %sw.bb20 ], [ %24, %sw.bb27 ], [ %25, %sw.bb28 ], [ 0, %do.end64 ], [ %or85, %if.end81 ], [ 0, %if.end96 ], [ %56, %if.end108 ], [ %or132, %if.end120 ], [ 0, %cond.end ], [ 0, %if.then36 ], [ 0, %do.body33 ], [ 0, %sw.bb29 ], [ 0, %if.end193 ], [ 0, %cond.end8.i ], [ 0, %if.then16.i ], [ 0, %if.else.i ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.body195 ], [ 0, %cond.end206 ], [ %or, %while.body ]
-  tail call void @hda_codec_response(ptr noundef %hda, i1 noundef zeroext true, i32 noundef %.sink173) #11
+  %.sink172 = phi i32 [ %12, %if.end19 ], [ %14, %sw.bb20 ], [ %24, %sw.bb27 ], [ %25, %sw.bb28 ], [ 0, %do.end64 ], [ %or85, %if.end81 ], [ 0, %if.end96 ], [ %55, %if.end108 ], [ %or132, %if.end120 ], [ 0, %cond.end ], [ 0, %if.then36 ], [ 0, %do.body33 ], [ 0, %sw.bb29 ], [ 0, %if.end193 ], [ 0, %cond.end8.i ], [ 0, %if.then16.i ], [ 0, %if.else.i ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.body195 ], [ 0, %cond.end206 ], [ %or, %while.body ]
+  tail call void @hda_codec_response(ptr noundef %hda, i1 noundef zeroext true, i32 noundef %.sink172) #11
   ret void
 }
 
@@ -837,10 +830,9 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %output17 = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   %1 = load i8, ptr %output17, align 8
-  %2 = and i8 %1, 1
-  %3 = icmp eq i8 %2, 0
-  %cmp22.not = xor i1 %3, %output
-  br i1 %cmp22.not, label %if.end25, label %for.inc
+  %2 = trunc i8 %1 to i1
+  %3 = xor i1 %2, %output
+  br i1 %3, label %for.inc, label %if.end25
 
 if.end25:                                         ; preds = %if.end
   %stream = getelementptr inbounds i8, ptr %arrayidx11, i64 20
@@ -936,10 +928,9 @@ entry:
 if.end:                                           ; preds = %entry
   %running1 = getelementptr inbounds i8, ptr %st, i64 17
   %1 = load i8, ptr %running1, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp eq i8 %2, 0
-  %cmp4 = xor i1 %3, %running
-  br i1 %cmp4, label %if.end31, label %if.end7
+  %2 = trunc i8 %1 to i1
+  %3 = xor i1 %2, %running
+  br i1 %3, label %if.end7, label %if.end31
 
 if.end7:                                          ; preds = %if.end
   store i8 %frombool, ptr %running1, align 1
@@ -963,18 +954,17 @@ land.lhs.true5.i.i:                               ; preds = %if.end7
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %11 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i, align 8
+  %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %running to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %4, i32 noundef %5, i32 noundef %conv12.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %5, i32 noundef %conv12.i.i) #11
   br label %trace_hda_audio_running.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -984,12 +974,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_hda_audio_running.exit:                     ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %13 = load ptr, ptr %st, align 8
-  %use_timer = getelementptr inbounds i8, ptr %13, i64 34509
-  %14 = load i8, ptr %use_timer, align 1
-  %15 = and i8 %14, 1
-  %tobool14.not = icmp eq i8 %15, 0
-  br i1 %tobool14.not, label %if.end20, label %if.then15
+  %12 = load ptr, ptr %st, align 8
+  %use_timer = getelementptr inbounds i8, ptr %12, i64 34509
+  %13 = load i8, ptr %use_timer, align 1
+  %tobool14 = trunc i8 %13 to i1
+  br i1 %tobool14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %trace_hda_audio_running.exit
   br i1 %running, label %if.then17, label %if.else
@@ -1001,35 +990,34 @@ if.then17:                                        ; preds = %if.then15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rpos, i8 0, i64 16, i1 false)
   store i64 %call, ptr %buft_start, align 8
   %buft = getelementptr inbounds i8, ptr %st, i64 8544
-  %16 = load ptr, ptr %buft, align 8
+  %14 = load ptr, ptr %buft, align 8
   %add = add i64 %call, 1000000
-  tail call void @timer_mod_anticipate_ns(ptr noundef %16, i64 noundef %add) #11
+  tail call void @timer_mod_anticipate_ns(ptr noundef %14, i64 noundef %add) #11
   br label %if.end20
 
 if.else:                                          ; preds = %if.then15
   %buft18 = getelementptr inbounds i8, ptr %st, i64 8544
-  %17 = load ptr, ptr %buft18, align 8
-  tail call void @timer_del(ptr noundef %17) #11
+  %15 = load ptr, ptr %buft18, align 8
+  tail call void @timer_del(ptr noundef %15) #11
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.else, %trace_hda_audio_running.exit
   %output = getelementptr inbounds i8, ptr %st, i64 16
-  %18 = load i8, ptr %output, align 8
+  %16 = load i8, ptr %output, align 8
+  %tobool21 = trunc i8 %16 to i1
+  %voice = getelementptr inbounds i8, ptr %st, i64 64
+  %17 = load ptr, ptr %voice, align 8
+  %18 = load i8, ptr %running1, align 1
   %19 = and i8 %18, 1
-  %tobool21.not = icmp eq i8 %19, 0
-  %voice27 = getelementptr inbounds i8, ptr %st, i64 64
-  %20 = load ptr, ptr %voice27, align 8
-  %21 = load i8, ptr %running1, align 1
-  %22 = and i8 %21, 1
-  %conv30 = zext nneg i8 %22 to i32
-  br i1 %tobool21.not, label %if.else26, label %if.then22
+  %conv25 = zext nneg i8 %19 to i32
+  br i1 %tobool21, label %if.then22, label %if.else26
 
 if.then22:                                        ; preds = %if.end20
-  tail call void @AUD_set_active_out(ptr noundef %20, i32 noundef %conv30) #11
+  tail call void @AUD_set_active_out(ptr noundef %17, i32 noundef %conv25) #11
   br label %if.end31
 
 if.else26:                                        ; preds = %if.end20
-  tail call void @AUD_set_active_in(ptr noundef %20, i32 noundef %conv30) #11
+  tail call void @AUD_set_active_in(ptr noundef %17, i32 noundef %conv25) #11
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end, %entry, %if.else26, %if.then22
@@ -1158,68 +1146,65 @@ entry:
   %0 = load ptr, ptr %st, align 8
   %use_timer1 = getelementptr inbounds i8, ptr %0, i64 34509
   %1 = load i8, ptr %use_timer1, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   %node = getelementptr inbounds i8, ptr %st, i64 8
-  %3 = load ptr, ptr %node, align 8
-  %cmp = icmp eq ptr %3, null
+  %2 = load ptr, ptr %node, align 8
+  %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.end31, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %name, align 8
+  %name = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %name, align 8
   %as = getelementptr inbounds i8, ptr %st, i64 44
   %nchannels = getelementptr inbounds i8, ptr %st, i64 48
-  %5 = load i32, ptr %nchannels, align 4
+  %4 = load i32, ptr %nchannels, align 4
   %fmt = getelementptr inbounds i8, ptr %st, i64 52
-  %6 = load i32, ptr %fmt, align 4
-  %idxprom = zext i32 %6 to i64
+  %5 = load i32, ptr %fmt, align 4
+  %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr [6 x ptr], ptr @fmt2name, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  %8 = load i32, ptr %as, align 4
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = load i32, ptr %as, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_HDA_AUDIO_FORMAT_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %10, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_HDA_AUDIO_FORMAT_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %9, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_hda_audio_format.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %11, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %10, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_hda_audio_format.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %11 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %14 = load i64, ptr %_now.i.i, align 8
+  %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %4, i32 noundef %5, ptr noundef %7, i32 noundef %8) #11
+  %13 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #11
   br label %trace_hda_audio_format.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %4, i32 noundef %5, ptr noundef %7, i32 noundef %8) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #11
   br label %trace_hda_audio_format.exit
 
 trace_hda_audio_format.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %output = getelementptr inbounds i8, ptr %st, i64 16
-  %16 = load i8, ptr %output, align 8
-  %17 = and i8 %16, 1
-  %tobool5.not = icmp eq i8 %17, 0
-  br i1 %tobool5.not, label %if.else16, label %if.then6
+  %14 = load i8, ptr %output, align 8
+  %tobool5 = trunc i8 %14 to i1
+  br i1 %tobool5, label %if.then6, label %if.else16
 
 if.then6:                                         ; preds = %trace_hda_audio_format.exit
-  br i1 %tobool.not, label %if.end9, label %if.then8
+  br i1 %tobool, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.then6
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
@@ -1230,19 +1215,19 @@ if.then8:                                         ; preds = %if.then6
 
 if.end9:                                          ; preds = %if.then6, %if.then8
   %cb.0 = phi ptr [ @hda_audio_output_cb, %if.then8 ], [ @hda_audio_compat_output_cb, %if.then6 ]
-  %18 = load ptr, ptr %st, align 8
-  %card = getelementptr inbounds i8, ptr %18, i64 176
+  %15 = load ptr, ptr %st, align 8
+  %card = getelementptr inbounds i8, ptr %15, i64 176
   %voice = getelementptr inbounds i8, ptr %st, i64 64
-  %19 = load ptr, ptr %voice, align 8
-  %20 = load ptr, ptr %node, align 8
-  %name12 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %name12, align 8
-  %call14 = tail call ptr @AUD_open_out(ptr noundef nonnull %card, ptr noundef %19, ptr noundef %21, ptr noundef nonnull %st, ptr noundef nonnull %cb.0, ptr noundef nonnull %as) #11
+  %16 = load ptr, ptr %voice, align 8
+  %17 = load ptr, ptr %node, align 8
+  %name12 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %name12, align 8
+  %call14 = tail call ptr @AUD_open_out(ptr noundef nonnull %card, ptr noundef %16, ptr noundef %18, ptr noundef nonnull %st, ptr noundef nonnull %cb.0, ptr noundef nonnull %as) #11
   store ptr %call14, ptr %voice, align 8
   br label %if.end31
 
 if.else16:                                        ; preds = %trace_hda_audio_format.exit
-  br i1 %tobool.not, label %if.end22, label %if.then18
+  br i1 %tobool, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.else16
   %call.i.i.i25 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
@@ -1253,14 +1238,14 @@ if.then18:                                        ; preds = %if.else16
 
 if.end22:                                         ; preds = %if.else16, %if.then18
   %cb.1 = phi ptr [ @hda_audio_input_cb, %if.then18 ], [ @hda_audio_compat_input_cb, %if.else16 ]
-  %22 = load ptr, ptr %st, align 8
-  %card24 = getelementptr inbounds i8, ptr %22, i64 176
+  %19 = load ptr, ptr %st, align 8
+  %card24 = getelementptr inbounds i8, ptr %19, i64 176
   %voice25 = getelementptr inbounds i8, ptr %st, i64 64
-  %23 = load ptr, ptr %voice25, align 8
-  %24 = load ptr, ptr %node, align 8
-  %name27 = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load ptr, ptr %name27, align 8
-  %call29 = tail call ptr @AUD_open_in(ptr noundef nonnull %card24, ptr noundef %23, ptr noundef %25, ptr noundef nonnull %st, ptr noundef nonnull %cb.1, ptr noundef nonnull %as) #11
+  %20 = load ptr, ptr %voice25, align 8
+  %21 = load ptr, ptr %node, align 8
+  %name27 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %name27, align 8
+  %call29 = tail call ptr @AUD_open_in(ptr noundef nonnull %card24, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %st, ptr noundef nonnull %cb.1, ptr noundef nonnull %as) #11
   store ptr %call29, ptr %voice25, align 8
   br label %if.end31
 
@@ -1320,17 +1305,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3) #11
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3) #11
   br label %trace_hda_audio_overrun.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1359,15 +1343,15 @@ while.body:                                       ; preds = %while.body.preheade
   %sub11 = sub nuw nsw i64 8192, %conv9
   %cond18 = tail call i64 @llvm.umin.i64(i64 %sub11, i64 %to_transfer.0)
   %conv19 = trunc i64 %cond18 to i32
-  %11 = load ptr, ptr %voice, align 8
+  %10 = load ptr, ptr %voice, align 8
   %add.ptr = getelementptr i8, ptr %buf, i64 %conv9
-  %call21 = tail call i64 @AUD_write(ptr noundef %11, ptr noundef %add.ptr, i64 noundef %cond18) #11
+  %call21 = tail call i64 @AUD_write(ptr noundef %10, ptr noundef %add.ptr, i64 noundef %cond18) #11
   %conv22 = trunc i64 %call21 to i32
   %conv23 = and i64 %call21, 4294967295
   %add = add i64 %conv23, %rpos.0
   %sub25 = sub i64 %to_transfer.0, %conv23
-  %12 = load i64, ptr %rpos2, align 8
-  %add28 = add i64 %12, %conv23
+  %11 = load i64, ptr %rpos2, align 8
+  %add28 = add i64 %11, %conv23
   store i64 %add28, ptr %rpos2, align 8
   %cmp29 = icmp eq i32 %conv19, %conv22
   %tobool = icmp ne i64 %sub25, 0
@@ -1453,15 +1437,14 @@ if.end27:                                         ; preds = %while.body
 out_timer:                                        ; preds = %while.body, %if.end27, %if.end7, %if.end, %entry
   %running = getelementptr inbounds i8, ptr %opaque, i64 17
   %8 = load i8, ptr %running, align 1
-  %9 = and i8 %8, 1
-  %tobool34.not = icmp eq i8 %9, 0
-  br i1 %tobool34.not, label %if.end37, label %if.then35
+  %tobool34 = trunc i8 %8 to i1
+  br i1 %tobool34, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %out_timer
   %buft = getelementptr inbounds i8, ptr %opaque, i64 8544
-  %10 = load ptr, ptr %buft, align 8
+  %9 = load ptr, ptr %buft, align 8
   %add36 = add i64 %call, 1000000
-  tail call void @timer_mod_anticipate_ns(ptr noundef %10, i64 noundef %add36) #11
+  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add36) #11
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %out_timer
@@ -1635,15 +1618,14 @@ if.end26:                                         ; preds = %while.body
 out_timer:                                        ; preds = %while.body, %if.end26, %if.end7, %if.end, %entry
   %running = getelementptr inbounds i8, ptr %opaque, i64 17
   %8 = load i8, ptr %running, align 1
-  %9 = and i8 %8, 1
-  %tobool33.not = icmp eq i8 %9, 0
-  br i1 %tobool33.not, label %if.end36, label %if.then34
+  %tobool33 = trunc i8 %8 to i1
+  br i1 %tobool33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %out_timer
   %buft = getelementptr inbounds i8, ptr %opaque, i64 8544
-  %10 = load ptr, ptr %buft, align 8
+  %9 = load ptr, ptr %buft, align 8
   %add35 = add i64 %call, 1000000
-  tail call void @timer_mod_anticipate_ns(ptr noundef %10, i64 noundef %add35) #11
+  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add35) #11
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %out_timer
@@ -1740,17 +1722,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end10
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1, i32 noundef %conv) #11
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i32 noundef %conv) #11
   br label %trace_hda_audio_adjust.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1760,8 +1741,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_hda_audio_adjust.exit:                      ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %buft_start = getelementptr inbounds i8, ptr %st, i64 8552
-  %9 = load i64, ptr %buft_start, align 8
-  %add = add i64 %9, %spec.store.select2
+  %8 = load i64, ptr %buft_start, align 8
+  %add = add i64 %8, %spec.store.select2
   store i64 %add, ptr %buft_start, align 8
   br label %return
 
@@ -1812,10 +1793,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr [16 x i8], ptr %running_compat, i64 0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
-  %5 = and i8 %4, 1
-  %6 = or disjoint i64 %indvars.iv, 16
-  %arrayidx7 = getelementptr [32 x i8], ptr %running_real, i64 0, i64 %6
-  store i8 %5, ptr %arrayidx7, align 1
+  %5 = or disjoint i64 %indvars.iv, 16
+  %arrayidx7 = getelementptr [32 x i8], ptr %running_real, i64 0, i64 %5
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %arrayidx7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !18
@@ -1829,100 +1810,95 @@ for.body13:                                       ; preds = %if.end8, %for.inc26
   %indvars.iv23 = phi i64 [ 0, %if.end8 ], [ %indvars.iv.next24, %for.inc26 ]
   %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st14, i64 %indvars.iv23
   %node = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %7 = load ptr, ptr %node, align 8
-  %cmp15 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %node, align 8
+  %cmp15 = icmp eq ptr %6, null
   br i1 %cmp15, label %for.inc26, label %if.end18
 
 if.end18:                                         ; preds = %for.body13
   %format = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %8 = load i32, ptr %format, align 4
+  %7 = load i32, ptr %format, align 4
   %as = getelementptr inbounds i8, ptr %add.ptr, i64 44
-  tail call fastcc void @hda_codec_parse_fmt(i32 noundef %8, ptr noundef nonnull %as)
+  tail call fastcc void @hda_codec_parse_fmt(i32 noundef %7, ptr noundef nonnull %as)
   tail call fastcc void @hda_audio_setup(ptr noundef %add.ptr)
-  %9 = load ptr, ptr %node, align 8
-  %cmp.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %node, align 8
+  %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %hda_audio_set_amp.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end18
   %mute_left.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
-  %10 = load i8, ptr %mute_left.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %land.end.i
+  %9 = load i8, ptr %mute_left.i, align 8
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %land.end.thread.i, label %cond.false.i
 
-land.end.i:                                       ; preds = %if.end.i
+land.end.thread.i:                                ; preds = %if.end.i
   %mute_right.i = getelementptr inbounds i8, ptr %add.ptr, i64 41
-  %12 = load i8, ptr %mute_right.i, align 1
-  %13 = and i8 %12, 1
-  %14 = zext nneg i8 %13 to i32
+  %10 = load i8, ptr %mute_right.i, align 1
+  %11 = and i8 %10, 1
+  %12 = zext nneg i8 %11 to i32
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %gain_left.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %15 = load i32, ptr %gain_left.i, align 8
-  %16 = mul i32 %15, 255
-  %17 = udiv i32 %16, 74
-  %18 = trunc i32 %17 to i8
+  %13 = load i32, ptr %gain_left.i, align 8
+  %14 = mul i32 %13, 255
+  %15 = udiv i32 %14, 74
+  %16 = trunc i32 %15 to i8
   %mute_right4.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr, i64 41
   %.pre.i = load i8, ptr %mute_right4.phi.trans.insert.i, align 1
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %land.end.i
-  %19 = phi i8 [ %.pre.i, %cond.false.i ], [ %12, %land.end.i ]
-  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %14, %land.end.i ]
-  %cond.i = phi i8 [ %18, %cond.false.i ], [ 0, %land.end.i ]
-  %20 = and i8 %19, 1
-  %tobool5.not.i = icmp eq i8 %20, 0
-  br i1 %tobool5.not.i, label %cond.false7.i, label %cond.end8.i
+cond.end.i:                                       ; preds = %cond.false.i, %land.end.thread.i
+  %17 = phi i8 [ %.pre.i, %cond.false.i ], [ %10, %land.end.thread.i ]
+  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %12, %land.end.thread.i ]
+  %cond.i = phi i8 [ %16, %cond.false.i ], [ 0, %land.end.thread.i ]
+  %tobool5.i = trunc i8 %17 to i1
+  br i1 %tobool5.i, label %cond.end8.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end.i
   %gain_right.i = getelementptr inbounds i8, ptr %add.ptr, i64 36
-  %21 = load i32, ptr %gain_right.i, align 4
-  %22 = mul i32 %21, 255
-  %23 = udiv i32 %22, 74
-  %24 = trunc i32 %23 to i8
+  %18 = load i32, ptr %gain_right.i, align 4
+  %19 = mul i32 %18, 255
+  %20 = udiv i32 %19, 74
+  %21 = trunc i32 %20 to i8
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false7.i, %cond.end.i
-  %cond9.i = phi i8 [ %24, %cond.false7.i ], [ 0, %cond.end.i ]
-  %25 = load ptr, ptr %add.ptr, align 8
-  %mixer.i = getelementptr inbounds i8, ptr %25, i64 34508
-  %26 = load i8, ptr %mixer.i, align 4
-  %27 = and i8 %26, 1
-  %tobool12.not.i = icmp eq i8 %27, 0
-  br i1 %tobool12.not.i, label %hda_audio_set_amp.exit, label %if.end14.i
+  %cond9.i = phi i8 [ %21, %cond.false7.i ], [ 0, %cond.end.i ]
+  %22 = load ptr, ptr %add.ptr, align 8
+  %mixer.i = getelementptr inbounds i8, ptr %22, i64 34508
+  %23 = load i8, ptr %mixer.i, align 4
+  %tobool12.i = trunc i8 %23 to i1
+  br i1 %tobool12.i, label %if.end14.i, label %hda_audio_set_amp.exit
 
 if.end14.i:                                       ; preds = %cond.end8.i
   %output.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %28 = load i8, ptr %output.i, align 8
-  %29 = and i8 %28, 1
-  %tobool15.not.i = icmp eq i8 %29, 0
-  %voice20.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
-  %30 = load ptr, ptr %voice20.i, align 8
-  br i1 %tobool15.not.i, label %if.else.i, label %if.then16.i
+  %24 = load i8, ptr %output.i, align 8
+  %tobool15.i = trunc i8 %24 to i1
+  %voice.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
+  %25 = load ptr, ptr %voice.i, align 8
+  br i1 %tobool15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end14.i
-  tail call void @AUD_set_volume_out(ptr noundef %30, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_out(ptr noundef %25, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
   br label %hda_audio_set_amp.exit
 
 if.else.i:                                        ; preds = %if.end14.i
-  tail call void @AUD_set_volume_in(ptr noundef %30, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_in(ptr noundef %25, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
   br label %hda_audio_set_amp.exit
 
 hda_audio_set_amp.exit:                           ; preds = %if.end18, %cond.end8.i, %if.then16.i, %if.else.i
   %output = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %31 = load i8, ptr %output, align 8
-  %32 = shl i8 %31, 4
-  %33 = and i8 %32, 16
-  %mul = zext nneg i8 %33 to i32
+  %26 = load i8, ptr %output, align 8
+  %27 = shl i8 %26, 4
+  %28 = and i8 %27, 16
+  %mul = zext nneg i8 %28 to i32
   %stream = getelementptr inbounds i8, ptr %add.ptr, i64 20
-  %34 = load i32, ptr %stream, align 4
-  %add22 = add i32 %34, %mul
+  %29 = load i32, ptr %stream, align 4
+  %add22 = add i32 %29, %mul
   %idxprom23 = zext i32 %add22 to i64
   %arrayidx24 = getelementptr [32 x i8], ptr %running_real19, i64 0, i64 %idxprom23
-  %35 = load i8, ptr %arrayidx24, align 1
-  %36 = and i8 %35, 1
-  %tobool25 = icmp ne i8 %36, 0
+  %30 = load i8, ptr %arrayidx24, align 1
+  %tobool25 = trunc i8 %30 to i1
   tail call fastcc void @hda_audio_set_running(ptr noundef %add.ptr, i1 noundef zeroext %tobool25)
   br label %for.inc26
 
@@ -1945,13 +1921,12 @@ entry:
 land.rhs:                                         ; preds = %entry
   %use_timer = getelementptr inbounds i8, ptr %0, i64 34509
   %1 = load i8, ptr %use_timer, align 1
-  %2 = and i8 %1, 1
-  %tobool2 = icmp ne i8 %2, 0
+  %tobool2 = trunc i8 %1 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1972,9 +1947,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
   %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %spec.store.select = select i1 %tobool.not, ptr @output_nomixemu, ptr @output_mixemu
+  %tobool = trunc i8 %0 to i1
+  %spec.store.select = select i1 %tobool, ptr @output_mixemu, ptr @output_nomixemu
   tail call fastcc void @hda_audio_init(ptr noundef %hda, ptr noundef nonnull %spec.store.select, ptr noundef %errp)
   ret void
 }
@@ -2137,9 +2111,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
   %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %spec.store.select = select i1 %tobool.not, ptr @duplex_nomixemu, ptr @duplex_mixemu
+  %tobool = trunc i8 %0 to i1
+  %spec.store.select = select i1 %tobool, ptr @duplex_mixemu, ptr @duplex_nomixemu
   tail call fastcc void @hda_audio_init(ptr noundef %hda, ptr noundef nonnull %spec.store.select, ptr noundef %errp)
   ret void
 }
@@ -2162,9 +2135,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
   %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %spec.store.select = select i1 %tobool.not, ptr @micro_nomixemu, ptr @micro_mixemu
+  %tobool = trunc i8 %0 to i1
+  %spec.store.select = select i1 %tobool, ptr @micro_mixemu, ptr @micro_nomixemu
   tail call fastcc void @hda_audio_init(ptr noundef %hda, ptr noundef nonnull %spec.store.select, ptr noundef %errp)
   ret void
 }

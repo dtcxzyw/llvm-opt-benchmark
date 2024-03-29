@@ -761,13 +761,13 @@ define internal fastcc i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly
   %7 = getelementptr inbounds %struct._ir_insn, ptr %5, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 2
   %9 = load i16, ptr %8, align 2
-  %.not56 = icmp eq i16 %9, 0
-  br i1 %.not56, label %._crit_edge.thread, label %.lr.ph
+  %.not = icmp eq i16 %9, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %4
   %10 = getelementptr inbounds i32, ptr %1, i64 %6
   store i32 -1, ptr %10, align 4
-  br label %37
+  br label %35
 
 .lr.ph:                                           ; preds = %4
   %11 = zext i16 %9 to i32
@@ -776,7 +776,7 @@ define internal fastcc i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly
 
 13:                                               ; preds = %.lr.ph, %30
   %.pn = phi ptr [ %7, %.lr.ph ], [ %.04354, %30 ]
-  %.053 = phi i8 [ 1, %.lr.ph ], [ %.1, %30 ]
+  %.053 = phi i1 [ true, %.lr.ph ], [ %.1, %30 ]
   %.03652 = phi i32 [ 1, %.lr.ph ], [ %.2, %30 ]
   %.03951 = phi i32 [ 0, %.lr.ph ], [ %.241, %30 ]
   %.04250 = phi i32 [ %11, %.lr.ph ], [ %31, %30 ]
@@ -814,34 +814,32 @@ define internal fastcc i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly
 30:                                               ; preds = %13, %24
   %.241 = phi i32 [ %spec.select47, %24 ], [ %.03951, %13 ]
   %.2 = phi i32 [ %spec.select48, %24 ], [ %.03652, %13 ]
-  %.1 = phi i8 [ 0, %24 ], [ %.053, %13 ]
+  %.1 = phi i1 [ false, %24 ], [ %.053, %13 ]
   %31 = add nsw i32 %.04250, -1
   %32 = icmp sgt i32 %.04250, 1
   br i1 %32, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30
-  %33 = and i8 %.1, 1
-  %34 = icmp eq i8 %33, 0
-  %35 = sub nsw i32 0, %.2
-  %36 = getelementptr inbounds i32, ptr %1, i64 %6
-  store i32 %35, ptr %36, align 4
-  br i1 %34, label %44, label %37
+  %33 = sub nsw i32 0, %.2
+  %34 = getelementptr inbounds i32, ptr %1, i64 %6
+  store i32 %33, ptr %34, align 4
+  br i1 %.1, label %35, label %42
 
-37:                                               ; preds = %._crit_edge.thread, %._crit_edge
+35:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.036.lcssa59 = phi i32 [ 1, %._crit_edge.thread ], [ %.2, %._crit_edge ]
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
-  %39 = load i32, ptr %38, align 8
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds i32, ptr %41, i64 %42
-  store i32 %2, ptr %43, align 4
-  br label %44
+  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = load i32, ptr %36, align 8
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %36, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = zext i32 %37 to i64
+  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  store i32 %2, ptr %41, align 4
+  br label %42
 
-44:                                               ; preds = %37, %._crit_edge
-  %.036.lcssa60 = phi i32 [ %.036.lcssa59, %37 ], [ %.2, %._crit_edge ]
-  ret i32 %.036.lcssa60
+42:                                               ; preds = %35, %._crit_edge
+  %.036.lcssa58 = phi i32 [ %.036.lcssa59, %35 ], [ %.2, %._crit_edge ]
+  ret i32 %.036.lcssa58
 }
 
 ; Function Attrs: nounwind uwtable

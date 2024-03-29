@@ -2735,9 +2735,8 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   %28 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %32, label %41
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %41, label %32
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2762,14 +2761,14 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   %45 = load i16, ptr %7, align 2
   %46 = call i32 @stepd_list_pids(i32 noundef %9, i16 noundef zeroext %45, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %47 = load i32, ptr %5, align 4
-  %.not29 = icmp eq i32 %47, 0
-  br i1 %.not29, label %._crit_edge28, label %.lr.ph27
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %._crit_edge, %.critedge
   %48 = phi i32 [ %64, %.critedge ], [ %47, %._crit_edge ]
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.critedge ], [ 0, %._crit_edge ]
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.critedge ], [ 0, %._crit_edge ]
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv31
+  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv30
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %3, align 8
   %53 = load i32, ptr %6, align 4
@@ -2802,14 +2801,14 @@ _in_task_array.exit:                              ; preds = %.lr.ph.i, %.lr.ph23
 _in_task_array.exit.thread:                       ; preds = %.lr.ph27, %_in_task_array.exit
   %62 = load i32, ptr %1, align 4
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %51, i32 noundef %62, ptr noundef nonnull %8, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
-  %.pre34 = load i32, ptr %5, align 4
+  %.pre33 = load i32, ptr %5, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.preheader.i, %_in_task_array.exit, %_in_task_array.exit.thread
-  %64 = phi i32 [ %48, %.lr.ph.preheader.i ], [ %48, %_in_task_array.exit ], [ %.pre34, %_in_task_array.exit.thread ]
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %64 = phi i32 [ %48, %.lr.ph.preheader.i ], [ %48, %_in_task_array.exit ], [ %.pre33, %_in_task_array.exit.thread ]
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next32, %65
+  %66 = icmp ult i64 %indvars.iv.next31, %65
   br i1 %66, label %.lr.ph27, label %._crit_edge28, !llvm.loop !29
 
 ._crit_edge28:                                    ; preds = %.critedge, %._crit_edge

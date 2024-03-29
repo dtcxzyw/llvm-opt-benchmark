@@ -614,9 +614,8 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %2 = load i8, ptr @_ZZN17grpc_event_engine12experimental12PipeWakeupFd18CreatePipeWakeupFdEvE24kIsPipeWakeupFdSupported, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  br i1 %tobool1.not, label %if.end14, label %if.then
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %init.end
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !23
@@ -629,47 +628,47 @@ if.then:                                          ; preds = %init.end
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %if.then
-  %4 = load i64, ptr %status, align 8
-  %cmp.i = icmp eq i64 %4, 0
+  %3 = load i64, ptr %status, align 8
+  %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.thread, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12PipeWakeupFdEEclEPS2_.exit.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.thread:    ; preds = %invoke.cont6
-  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %5, align 8
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %5 = ptrtoint ptr %call.i to i64
+  store i64 %5, ptr %4, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 lpad:                                             ; preds = %init
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17grpc_event_engine12experimental12PipeWakeupFd18CreatePipeWakeupFdEvE24kIsPipeWakeupFdSupported) #12
   br label %eh.resume
 
 lpad3:                                            ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i14 = load ptr, ptr %call.i, align 8
   %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 24
-  %9 = load ptr, ptr %vfn.i.i15, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #12
+  %8 = load ptr, ptr %vfn.i.i15, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #12
   br label %eh.resume
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental12PipeWakeupFdEEclEPS2_.exit.i: ; preds = %invoke.cont6
   store i64 54, ptr %status, align 8
-  store i64 %4, ptr %agg.result, align 8
+  store i64 %3, ptr %agg.result, align 8
   %vtable.i.i10 = load ptr, ptr %call.i, align 8
   %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 24
-  %10 = load ptr, ptr %vfn.i.i11, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #12
+  %9 = load ptr, ptr %vfn.i.i11, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #12
   br label %return
 
 if.end14:                                         ; preds = %init.end
   call void @_ZN4absl12lts_2023080213NotFoundErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp15, i64 31, ptr nonnull @.str.2)
-  %11 = load i64, ptr %ref.tmp15, align 8
-  store i64 %11, ptr %agg.result, align 8
+  %10 = load i64, ptr %ref.tmp15, align 8
+  store i64 %10, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp15, align 8
-  %cmp.i.i.i.i.i17 = icmp eq i64 %11, 0
+  %cmp.i.i.i.i.i17 = icmp eq i64 %10, 0
   br i1 %cmp.i.i.i.i.i17, label %if.then.i.i.i18, label %return
 
 if.then.i.i.i18:                                  ; preds = %if.end14
@@ -677,7 +676,7 @@ if.then.i.i.i18:                                  ; preds = %if.end14
           to label %invoke.cont17 unwind label %lpad.i.i19
 
 lpad.i.i19:                                       ; preds = %if.then.i.i.i18
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #12
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15) #12
@@ -694,17 +693,17 @@ if.then.i.i24:                                    ; preds = %invoke.cont17
           to label %return unwind label %terminate.lpad.i25
 
 terminate.lpad.i25:                               ; preds = %if.then.i.i24
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #14
   unreachable
 
 return:                                           ; preds = %if.end14, %_ZN4absl12lts_202308026StatusD2Ev.exit.thread, %if.then.i.i24, %invoke.cont17, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12PipeWakeupFdEEclEPS2_.exit.i
   ret void
 
 eh.resume:                                        ; preds = %lpad.i.i19, %lpad3, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %8, %lpad3 ], [ %12, %lpad.i.i19 ], [ %7, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %7, %lpad3 ], [ %11, %lpad.i.i19 ], [ %6, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

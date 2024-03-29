@@ -855,9 +855,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %21 = load i8, ptr %3, align 8
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %27, label %49
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %49, label %27
 
 23:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %15
   %24 = landingpad { ptr, i32 }
@@ -1139,9 +1138,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %21 = load i8, ptr %3, align 8
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %27, label %49
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %49, label %27
 
 23:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %15
   %24 = landingpad { ptr, i32 }
@@ -1332,9 +1330,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %21 = load i8, ptr %3, align 8
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %27, label %49
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %49, label %27
 
 23:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %15
   %24 = landingpad { ptr, i32 }
@@ -1526,9 +1523,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %22 = load i8, ptr %3, align 8
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %28, label %50
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %50, label %28
 
 24:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %16
   %25 = landingpad { ptr, i32 }
@@ -1720,9 +1716,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %22 = load i8, ptr %3, align 8
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %28, label %50
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %50, label %28
 
 24:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %16
   %25 = landingpad { ptr, i32 }
@@ -1914,9 +1909,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %22 = load i8, ptr %3, align 8
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %28, label %50
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %50, label %28
 
 24:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %16
   %25 = landingpad { ptr, i32 }
@@ -2108,9 +2102,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %22 = load i8, ptr %3, align 8
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %28, label %50
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %50, label %28
 
 24:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i, %16
   %25 = landingpad { ptr, i32 }
@@ -2420,9 +2413,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   %74 = load i8, ptr %5, align 8
-  %75 = and i8 %74, 1
-  %.not = icmp eq i8 %75, 0
-  br i1 %.not, label %85, label %107
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %107, label %85
 
 76:                                               ; preds = %1
   %77 = landingpad { ptr, i32 }

@@ -263,19 +263,19 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %43 = icmp sle i32 %41, %42
   %44 = mul nuw nsw i32 %39, 20
   %.not = icmp slt i32 %41, %44
-  %or.cond108 = select i1 %43, i1 true, i1 %.not
-  %spec.store.select = select i1 %or.cond108, i32 %41, i32 0
+  %or.cond106 = select i1 %43, i1 true, i1 %.not
+  %spec.store.select = select i1 %or.cond106, i32 %41, i32 0
   store i32 %spec.store.select, ptr @ping_nodes.reg_offset, align 4
   store i32 0, ptr %1, align 4
   %45 = call ptr @next_node(ptr noundef nonnull %1) #6
-  %.not66113 = icmp eq ptr %45, null
-  br i1 %.not66113, label %._crit_edge, label %.lr.ph
+  %.not66111 = icmp eq ptr %45, null
+  br i1 %.not66111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %153
   %46 = phi ptr [ %156, %153 ], [ %45, %38 ]
-  %.0115 = phi i32 [ %47, %153 ], [ 0, %38 ]
-  %.055114 = phi ptr [ %.2, %153 ], [ null, %38 ]
-  %47 = add nuw nsw i32 %.0115, 1
+  %.0113 = phi i32 [ %47, %153 ], [ 0, %38 ]
+  %.055112 = phi ptr [ %.2, %153 ], [ null, %38 ]
+  %47 = add nuw nsw i32 %.0113, 1
   %48 = getelementptr inbounds i8, ptr %46, i64 304
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 15
@@ -285,8 +285,8 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 52:                                               ; preds = %.lr.ph
   %53 = zext i32 %49 to i64
   %54 = and i64 %53, 5525504
-  %or.cond95 = icmp eq i64 %54, 0
-  br i1 %or.cond95, label %55, label %153
+  %or.cond93 = icmp eq i64 %54, 0
+  br i1 %or.cond93, label %55, label %153
 
 55:                                               ; preds = %52
   %56 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 191), align 2
@@ -296,32 +296,32 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 58:                                               ; preds = %55
   %.b = load i1, ptr @ping_nodes.restart_flag, align 1
   %59 = icmp ne i32 %50, 0
-  %or.cond96.not110 = and i1 %59, %.b
+  %or.cond94.not108 = and i1 %59, %.b
   %60 = and i64 %53, 2048
   %.not73 = icmp eq i64 %60, 0
-  %or.cond97 = and i1 %.not73, %or.cond96.not110
-  br i1 %or.cond97, label %153, label %61
+  %or.cond95 = and i1 %.not73, %or.cond94.not108
+  br i1 %or.cond95, label %153, label %61
 
 61:                                               ; preds = %58, %55
   %62 = getelementptr inbounds i8, ptr %46, i64 224
   %63 = load i64, ptr %62, align 8
   %.not74 = icmp eq i64 %63, 0
   %.not75 = icmp sgt i64 %63, %.054
-  %or.cond98 = select i1 %.not74, i1 true, i1 %.not75
-  br i1 %or.cond98, label %78, label %64
+  %or.cond96 = select i1 %.not74, i1 true, i1 %.not75
+  br i1 %or.cond96, label %78, label %64
 
 64:                                               ; preds = %61
   %65 = icmp eq i32 %50, 1
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %64
-  %.not76 = icmp eq ptr %.055114, null
+  %.not76 = icmp eq ptr %.055112, null
   %67 = getelementptr inbounds i8, ptr %46, i64 256
   %68 = load ptr, ptr %67, align 8
   br i1 %.not76, label %71, label %69
 
 69:                                               ; preds = %66
-  %70 = call i32 @hostlist_push_host(ptr noundef nonnull %.055114, ptr noundef %68) #6
+  %70 = call i32 @hostlist_push_host(ptr noundef nonnull %.055112, ptr noundef %68) #6
   br label %76
 
 71:                                               ; preds = %66
@@ -336,7 +336,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   unreachable
 
 76:                                               ; preds = %71, %69
-  %.1 = phi ptr [ %.055114, %69 ], [ %72, %71 ]
+  %.1 = phi ptr [ %.055112, %69 ], [ %72, %71 ]
   call void @set_node_down_ptr(ptr noundef nonnull %46, ptr noundef nonnull @.str.6) #6
   %77 = getelementptr inbounds i8, ptr %46, i64 308
   store i8 0, ptr %77, align 4
@@ -388,17 +388,16 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %105 = load i32, ptr %48, align 8
   %106 = zext i32 %105 to i64
   %107 = and i64 %106, 67633152
-  %or.cond99 = icmp eq i64 %107, 0
-  br i1 %or.cond99, label %108, label %112
+  %or.cond97 = icmp eq i64 %107, 0
+  br i1 %or.cond97, label %108, label %112
 
 108:                                              ; preds = %97
   %109 = load i8, ptr @cloud_dns, align 1
-  %110 = and i8 %109, 1
-  %.not90 = icmp ne i8 %110, 0
+  %110 = trunc i8 %109 to i1
   %111 = and i64 %106, 128
-  %.not91 = icmp eq i64 %111, 0
-  %or.cond100 = or i1 %.not91, %.not90
-  br i1 %or.cond100, label %153, label %112
+  %.not89 = icmp eq i64 %111, 0
+  %or.cond98 = or i1 %.not89, %110
+  br i1 %or.cond98, label %153, label %112
 
 112:                                              ; preds = %108, %97
   %113 = getelementptr inbounds i8, ptr %90, i64 48
@@ -414,25 +413,25 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 
 118:                                              ; preds = %116
   %.not80 = icmp slt i64 %63, %29
-  br i1 %.not80, label %.thread105, label %119
+  br i1 %.not80, label %.thread103, label %119
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds i8, ptr %46, i64 88
   %121 = load i64, ptr %120, align 8
   %.not81 = icmp slt i64 %121, %8
-  br i1 %.not81, label %.thread105, label %122
+  br i1 %.not81, label %.thread103, label %122
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds i8, ptr %46, i64 168
   %124 = load i64, ptr %123, align 8
   %.not82 = icmp slt i64 %124, %8
-  br i1 %.not82, label %.thread105, label %153
+  br i1 %.not82, label %.thread103, label %153
 
 125:                                              ; preds = %116
   %126 = icmp eq i32 %50, 1
-  br i1 %126, label %153, label %.thread105
+  br i1 %126, label %153, label %.thread103
 
-.thread105:                                       ; preds = %118, %119, %122, %125
+.thread103:                                       ; preds = %118, %119, %122, %125
   %127 = load ptr, ptr %3, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 32
   %129 = load i16, ptr %128, align 8
@@ -441,11 +440,11 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %132 = icmp ugt i16 %129, %131
   br i1 %132, label %133, label %134
 
-133:                                              ; preds = %.thread105
+133:                                              ; preds = %.thread103
   store i16 %131, ptr %128, align 8
   br label %134
 
-134:                                              ; preds = %133, %.thread105
+134:                                              ; preds = %133, %.thread103
   %135 = getelementptr inbounds i8, ptr %127, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %46, i64 256
@@ -457,17 +456,16 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %142 = load i32, ptr %48, align 8
   %143 = zext i32 %142 to i64
   %144 = and i64 %143, 67633152
-  %or.cond103 = icmp eq i64 %144, 0
-  br i1 %or.cond103, label %145, label %149
+  %or.cond101 = icmp eq i64 %144, 0
+  br i1 %or.cond101, label %145, label %149
 
 145:                                              ; preds = %134
   %146 = load i8, ptr @cloud_dns, align 1
-  %147 = and i8 %146, 1
-  %.not86 = icmp ne i8 %147, 0
+  %147 = trunc i8 %146 to i1
   %148 = and i64 %143, 128
-  %.not87 = icmp eq i64 %148, 0
-  %or.cond104 = or i1 %.not87, %.not86
-  br i1 %or.cond104, label %153, label %149
+  %.not86 = icmp eq i64 %148, 0
+  %or.cond102 = or i1 %.not86, %147
+  br i1 %or.cond102, label %153, label %149
 
 149:                                              ; preds = %145, %134
   %150 = getelementptr inbounds i8, ptr %127, i64 48
@@ -477,7 +475,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %153
 
 153:                                              ; preds = %125, %58, %145, %149, %122, %108, %112, %.lr.ph, %52, %76
-  %.2 = phi ptr [ %.055114, %.lr.ph ], [ %.055114, %52 ], [ %.055114, %112 ], [ %.055114, %108 ], [ %.055114, %149 ], [ %.055114, %145 ], [ %.055114, %122 ], [ %.1, %76 ], [ %.055114, %58 ], [ %.055114, %125 ]
+  %.2 = phi ptr [ %.055112, %.lr.ph ], [ %.055112, %52 ], [ %.055112, %112 ], [ %.055112, %108 ], [ %.055112, %149 ], [ %.055112, %145 ], [ %.055112, %122 ], [ %.1, %76 ], [ %.055112, %58 ], [ %.055112, %125 ]
   %154 = load i32, ptr %1, align 4
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %1, align 4
@@ -622,9 +620,10 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   store ptr %8, ptr %9, align 8
   %10 = tail call i32 @select_g_select_nodeinfo_set_all() #6
   %11 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 60), align 2
-  %12 = and i16 %11, 32767
+  %.fr63 = freeze i16 %11
+  %12 = and i16 %.fr63, 32767
   %13 = zext nneg i16 %12 to i32
-  %.not = icmp sgt i16 %11, -1
+  %.not = icmp sgt i16 %.fr63, -1
   br i1 %.not, label %33, label %14
 
 14:                                               ; preds = %0
@@ -640,17 +639,17 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 19:                                               ; preds = %14
   %20 = load i32, ptr @run_health_check.base_node_loc, align 4
   %21 = icmp sgt i32 %20, 0
-  %.pre64 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 59), align 4
+  %.pre67 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 59), align 4
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
   %23 = tail call double @difftime(i64 noundef %15, i64 noundef %16) #7
-  %24 = uitofp i16 %.pre64 to double
+  %24 = uitofp i16 %.pre67 to double
   %25 = fcmp olt double %23, %24
-  br i1 %25, label %114, label %26
+  br i1 %25, label %180, label %26
 
 26:                                               ; preds = %19, %22, %18
-  %27 = phi i16 [ %.pre64, %19 ], [ %.pre64, %22 ], [ %.pre, %18 ]
+  %27 = phi i16 [ %.pre67, %19 ], [ %.pre67, %22 ], [ %.pre, %18 ]
   store i64 %15, ptr @run_health_check.cycle_start_time, align 8
   %28 = load i32, ptr @active_node_record_count, align 4
   %29 = shl nsw i32 %28, 1
@@ -662,8 +661,8 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 33:                                               ; preds = %26, %0
   %.033 = phi i32 [ %32, %26 ], [ 0, %0 ]
   %34 = tail call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #6
-  %.not3862 = icmp eq ptr %34, null
-  br i1 %.not3862, label %.critedge, label %.lr.ph
+  %.not3861 = icmp eq ptr %34, null
+  br i1 %.not3861, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %.not46 = icmp eq i16 %12, 15
@@ -678,165 +677,286 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   %39 = getelementptr inbounds i8, ptr %4, i64 32
   %40 = getelementptr inbounds i8, ptr %4, i64 24
   %41 = getelementptr inbounds i8, ptr %4, i64 48
-  br label %42
+  br i1 %.not46, label %.lr.ph.split.us, label %.lr.ph.split
 
-42:                                               ; preds = %.lr.ph, %99
-  %43 = phi ptr [ %34, %.lr.ph ], [ %102, %99 ]
-  %.063 = phi i32 [ 0, %.lr.ph ], [ %.1, %99 ]
-  br i1 %.not, label %46, label %44
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-44:                                               ; preds = %42
-  %45 = add nsw i32 %.063, 1
-  %.not39 = icmp slt i32 %.063, %.033
-  br i1 %.not39, label %46, label %.loopexit
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %71
+  %42 = phi ptr [ %74, %71 ], [ %34, %.lr.ph.split.us ]
+  %43 = getelementptr inbounds i8, ptr %42, i64 304
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 15
+  %46 = icmp ne i32 %45, 6
+  %47 = and i32 %44, 5527552
+  %or.cond58.us.us = icmp eq i32 %47, 0
+  %or.cond.us.us = and i1 %46, %or.cond58.us.us
+  br i1 %or.cond.us.us, label %48, label %71
 
-46:                                               ; preds = %44, %42
-  %.1 = phi i32 [ %45, %44 ], [ %.063, %42 ]
-  %47 = getelementptr inbounds i8, ptr %43, i64 304
-  %48 = load i32, ptr %47, align 8
-  %49 = and i32 %48, 15
-  %50 = icmp ne i32 %49, 6
-  %51 = and i32 %48, 5527552
-  %or.cond59 = icmp eq i32 %51, 0
-  %or.cond = and i1 %50, %or.cond59
-  br i1 %or.cond, label %52, label %99
+48:                                               ; preds = %.lr.ph.split.us.split.us
+  %49 = load i16, ptr %39, align 8
+  %50 = getelementptr inbounds i8, ptr %42, i64 352
+  %51 = load i16, ptr %50, align 8
+  %52 = icmp ugt i16 %49, %51
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %46
-  br i1 %.not46, label %76, label %53
+53:                                               ; preds = %48
+  store i16 %51, ptr %39, align 8
+  br label %54
 
-53:                                               ; preds = %52
+54:                                               ; preds = %53, %48
+  %55 = load ptr, ptr %40, align 8
+  %56 = getelementptr inbounds i8, ptr %42, i64 256
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call i32 @hostlist_push_host(ptr noundef %55, ptr noundef %57) #6
+  %59 = load i32, ptr %4, align 8
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %4, align 8
+  %61 = load i32, ptr %43, align 8
+  %62 = zext i32 %61 to i64
+  %63 = and i64 %62, 67633152
+  %or.cond59.us.us = icmp eq i64 %63, 0
+  br i1 %or.cond59.us.us, label %64, label %68
+
+64:                                               ; preds = %54
+  %65 = load i8, ptr @cloud_dns, align 1
+  %66 = trunc i8 %65 to i1
+  %67 = and i64 %62, 128
+  %.not54.us.us = icmp eq i64 %67, 0
+  %or.cond60.us.us = or i1 %.not54.us.us, %66
+  br i1 %or.cond60.us.us, label %71, label %68
+
+68:                                               ; preds = %64, %54
+  %69 = load i16, ptr %41, align 8
+  %70 = or i16 %69, 128
+  store i16 %70, ptr %41, align 8
+  br label %71
+
+71:                                               ; preds = %68, %64, %.lr.ph.split.us.split.us
+  %72 = load i32, ptr @run_health_check.base_node_loc, align 4
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr @run_health_check.base_node_loc, align 4
+  %74 = tail call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #6
+  %.not38.us.us = icmp eq ptr %74, null
+  br i1 %.not38.us.us, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !9
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %106
+  %75 = phi ptr [ %109, %106 ], [ %34, %.lr.ph.split.us ]
+  %.062.us = phi i32 [ %76, %106 ], [ 0, %.lr.ph.split.us ]
+  %76 = add nuw i32 %.062.us, 1
+  %exitcond.not = icmp eq i32 %.062.us, %.033
+  br i1 %exitcond.not, label %.loopexit, label %77
+
+77:                                               ; preds = %.lr.ph.split.us.split
+  %78 = getelementptr inbounds i8, ptr %75, i64 304
+  %79 = load i32, ptr %78, align 8
+  %80 = and i32 %79, 15
+  %81 = icmp ne i32 %80, 6
+  %82 = and i32 %79, 5527552
+  %or.cond58.us = icmp eq i32 %82, 0
+  %or.cond.us = and i1 %81, %or.cond58.us
+  br i1 %or.cond.us, label %83, label %106
+
+83:                                               ; preds = %77
+  %84 = load i16, ptr %39, align 8
+  %85 = getelementptr inbounds i8, ptr %75, i64 352
+  %86 = load i16, ptr %85, align 8
+  %87 = icmp ugt i16 %84, %86
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %83
+  store i16 %86, ptr %39, align 8
+  br label %89
+
+89:                                               ; preds = %88, %83
+  %90 = load ptr, ptr %40, align 8
+  %91 = getelementptr inbounds i8, ptr %75, i64 256
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call i32 @hostlist_push_host(ptr noundef %90, ptr noundef %92) #6
+  %94 = load i32, ptr %4, align 8
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %4, align 8
+  %96 = load i32, ptr %78, align 8
+  %97 = zext i32 %96 to i64
+  %98 = and i64 %97, 67633152
+  %or.cond59.us = icmp eq i64 %98, 0
+  br i1 %or.cond59.us, label %99, label %103
+
+99:                                               ; preds = %89
+  %100 = load i8, ptr @cloud_dns, align 1
+  %101 = trunc i8 %100 to i1
+  %102 = and i64 %97, 128
+  %.not54.us = icmp eq i64 %102, 0
+  %or.cond60.us = or i1 %.not54.us, %101
+  br i1 %or.cond60.us, label %106, label %103
+
+103:                                              ; preds = %99, %89
+  %104 = load i16, ptr %41, align 8
+  %105 = or i16 %104, 128
+  store i16 %105, ptr %41, align 8
+  br label %106
+
+106:                                              ; preds = %103, %99, %77
+  %107 = load i32, ptr @run_health_check.base_node_loc, align 4
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr @run_health_check.base_node_loc, align 4
+  %109 = tail call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #6
+  %.not38.us = icmp eq ptr %109, null
+  br i1 %.not38.us, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !9
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %165
+  %110 = phi ptr [ %168, %165 ], [ %34, %.lr.ph ]
+  %.062 = phi i32 [ %.1, %165 ], [ 0, %.lr.ph ]
+  br i1 %.not, label %113, label %111
+
+111:                                              ; preds = %.lr.ph.split
+  %112 = add nsw i32 %.062, 1
+  %.not39 = icmp slt i32 %.062, %.033
+  br i1 %.not39, label %113, label %.loopexit
+
+113:                                              ; preds = %111, %.lr.ph.split
+  %.1 = phi i32 [ %112, %111 ], [ %.062, %.lr.ph.split ]
+  %114 = getelementptr inbounds i8, ptr %110, i64 304
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, 15
+  %117 = icmp ne i32 %116, 6
+  %118 = and i32 %115, 5527552
+  %or.cond58 = icmp eq i32 %118, 0
+  %or.cond = and i1 %117, %or.cond58
+  br i1 %or.cond, label %119, label %165
+
+119:                                              ; preds = %113
   store i16 0, ptr %3, align 2
-  %54 = getelementptr inbounds i8, ptr %43, i64 64
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
-  %57 = load i16, ptr %56, align 8
-  %58 = icmp eq i32 %49, 2
-  br i1 %58, label %.thread, label %59
+  %120 = getelementptr inbounds i8, ptr %110, i64 64
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 24
+  %123 = load i16, ptr %122, align 8
+  %124 = icmp eq i32 %116, 2
+  br i1 %124, label %.thread, label %125
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %43, i64 432
-  %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @select_g_select_nodeinfo_get(ptr noundef %61, i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #6
-  %.pre65 = load i16, ptr %3, align 2
-  %63 = icmp eq i16 %.pre65, 0
-  br i1 %63, label %.thread, label %72
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds i8, ptr %110, i64 432
+  %127 = load ptr, ptr %126, align 8
+  %128 = call i32 @select_g_select_nodeinfo_get(ptr noundef %127, i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #6
+  %.pre68 = load i16, ptr %3, align 2
+  %129 = icmp eq i16 %.pre68, 0
+  br i1 %129, label %.thread, label %138
 
-.thread:                                          ; preds = %53, %59
-  br i1 %.not49, label %64, label %._crit_edge
+.thread:                                          ; preds = %119, %125
+  br i1 %.not49, label %130, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread
-  %.pre66 = load i32, ptr %47, align 8
-  br label %68
+  %.pre69 = load i32, ptr %114, align 8
+  br label %134
 
-64:                                               ; preds = %.thread
-  br i1 %.not50, label %99, label %65
+130:                                              ; preds = %.thread
+  br i1 %.not50, label %165, label %131
 
-65:                                               ; preds = %64
-  %66 = load i32, ptr %47, align 8
-  %67 = and i32 %66, 512
-  %.not51 = icmp eq i32 %67, 0
-  br i1 %.not51, label %68, label %99
+131:                                              ; preds = %130
+  %132 = load i32, ptr %114, align 8
+  %133 = and i32 %132, 512
+  %.not51 = icmp eq i32 %133, 0
+  br i1 %.not51, label %134, label %165
 
-68:                                               ; preds = %._crit_edge, %65
-  %69 = phi i32 [ %.pre66, %._crit_edge ], [ %66, %65 ]
-  %70 = and i32 %69, 15
-  %71 = icmp eq i32 %70, 2
-  br i1 %71, label %76, label %99
+134:                                              ; preds = %._crit_edge, %131
+  %135 = phi i32 [ %.pre69, %._crit_edge ], [ %132, %131 ]
+  %136 = and i32 %135, 15
+  %137 = icmp eq i32 %136, 2
+  br i1 %137, label %142, label %165
 
-72:                                               ; preds = %59
-  %73 = icmp ult i16 %.pre65, %57
-  br i1 %73, label %74, label %75
+138:                                              ; preds = %125
+  %139 = icmp ult i16 %.pre68, %123
+  br i1 %139, label %140, label %141
 
-74:                                               ; preds = %72
-  br i1 %.not48, label %99, label %76
+140:                                              ; preds = %138
+  br i1 %.not48, label %165, label %142
 
-75:                                               ; preds = %72
-  br i1 %.not47, label %99, label %76
+141:                                              ; preds = %138
+  br i1 %.not47, label %165, label %142
 
-76:                                               ; preds = %68, %75, %74, %52
-  %77 = load i16, ptr %39, align 8
-  %78 = getelementptr inbounds i8, ptr %43, i64 352
-  %79 = load i16, ptr %78, align 8
-  %80 = icmp ugt i16 %77, %79
-  br i1 %80, label %81, label %82
+142:                                              ; preds = %134, %141, %140
+  %143 = load i16, ptr %39, align 8
+  %144 = getelementptr inbounds i8, ptr %110, i64 352
+  %145 = load i16, ptr %144, align 8
+  %146 = icmp ugt i16 %143, %145
+  br i1 %146, label %147, label %148
 
-81:                                               ; preds = %76
-  store i16 %79, ptr %39, align 8
-  br label %82
+147:                                              ; preds = %142
+  store i16 %145, ptr %39, align 8
+  br label %148
 
-82:                                               ; preds = %81, %76
-  %83 = load ptr, ptr %40, align 8
-  %84 = getelementptr inbounds i8, ptr %43, i64 256
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @hostlist_push_host(ptr noundef %83, ptr noundef %85) #6
-  %87 = load i32, ptr %4, align 8
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %4, align 8
-  %89 = load i32, ptr %47, align 8
-  %90 = zext i32 %89 to i64
-  %91 = and i64 %90, 67633152
-  %or.cond60 = icmp eq i64 %91, 0
-  br i1 %or.cond60, label %92, label %96
+148:                                              ; preds = %147, %142
+  %149 = load ptr, ptr %40, align 8
+  %150 = getelementptr inbounds i8, ptr %110, i64 256
+  %151 = load ptr, ptr %150, align 8
+  %152 = call i32 @hostlist_push_host(ptr noundef %149, ptr noundef %151) #6
+  %153 = load i32, ptr %4, align 8
+  %154 = add i32 %153, 1
+  store i32 %154, ptr %4, align 8
+  %155 = load i32, ptr %114, align 8
+  %156 = zext i32 %155 to i64
+  %157 = and i64 %156, 67633152
+  %or.cond59 = icmp eq i64 %157, 0
+  br i1 %or.cond59, label %158, label %162
 
-92:                                               ; preds = %82
-  %93 = load i8, ptr @cloud_dns, align 1
-  %94 = and i8 %93, 1
-  %.not54 = icmp ne i8 %94, 0
-  %95 = and i64 %90, 128
-  %.not55 = icmp eq i64 %95, 0
-  %or.cond61 = or i1 %.not55, %.not54
-  br i1 %or.cond61, label %99, label %96
+158:                                              ; preds = %148
+  %159 = load i8, ptr @cloud_dns, align 1
+  %160 = trunc i8 %159 to i1
+  %161 = and i64 %156, 128
+  %.not54 = icmp eq i64 %161, 0
+  %or.cond60 = or i1 %.not54, %160
+  br i1 %or.cond60, label %165, label %162
 
-96:                                               ; preds = %92, %82
-  %97 = load i16, ptr %41, align 8
-  %98 = or i16 %97, 128
-  store i16 %98, ptr %41, align 8
-  br label %99
+162:                                              ; preds = %158, %148
+  %163 = load i16, ptr %41, align 8
+  %164 = or i16 %163, 128
+  store i16 %164, ptr %41, align 8
+  br label %165
 
-99:                                               ; preds = %92, %96, %75, %74, %68, %64, %65, %46
-  %100 = load i32, ptr @run_health_check.base_node_loc, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr @run_health_check.base_node_loc, align 4
-  %102 = call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #6
-  %.not38 = icmp eq ptr %102, null
-  br i1 %.not38, label %.critedge, label %42, !llvm.loop !9
+165:                                              ; preds = %158, %162, %141, %140, %134, %130, %131, %113
+  %166 = load i32, ptr @run_health_check.base_node_loc, align 4
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr @run_health_check.base_node_loc, align 4
+  %168 = call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #6
+  %.not38 = icmp eq ptr %168, null
+  br i1 %.not38, label %.critedge, label %.lr.ph.split, !llvm.loop !9
 
-.critedge:                                        ; preds = %99, %33
+.critedge:                                        ; preds = %165, %106, %71, %33
   store i32 0, ptr @run_health_check.base_node_loc, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %.critedge
-  %103 = load i32, ptr %4, align 8
-  %104 = icmp eq i32 %103, 0
-  %105 = load ptr, ptr %9, align 8
-  br i1 %104, label %106, label %107
+.loopexit:                                        ; preds = %111, %.lr.ph.split.us.split, %.critedge
+  %169 = load i32, ptr %4, align 8
+  %170 = icmp eq i32 %169, 0
+  %171 = load ptr, ptr %9, align 8
+  br i1 %170, label %172, label %173
 
-106:                                              ; preds = %.loopexit
-  call void @hostlist_destroy(ptr noundef %105) #6
+172:                                              ; preds = %.loopexit
+  call void @hostlist_destroy(ptr noundef %171) #6
   call void @slurm_xfree(ptr noundef nonnull %2) #6
-  br label %114
+  br label %180
 
-107:                                              ; preds = %.loopexit
-  call void @hostlist_uniq(ptr noundef %105) #6
-  %108 = load ptr, ptr %9, align 8
-  %109 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %108) #6
-  store ptr %109, ptr %1, align 8
-  %110 = call i32 @get_log_level() #6
-  %111 = icmp sgt i32 %110, 4
-  br i1 %111, label %112, label %113
+173:                                              ; preds = %.loopexit
+  call void @hostlist_uniq(ptr noundef %171) #6
+  %174 = load ptr, ptr %9, align 8
+  %175 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %174) #6
+  store ptr %175, ptr %1, align 8
+  %176 = call i32 @get_log_level() #6
+  %177 = icmp sgt i32 %176, 4
+  br i1 %177, label %178, label %179
 
-112:                                              ; preds = %107
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef %109) #6
-  br label %113
+178:                                              ; preds = %173
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef %175) #6
+  br label %179
 
-113:                                              ; preds = %112, %107
+179:                                              ; preds = %178, %173
   call void @slurm_xfree(ptr noundef nonnull %1) #6
   call void @ping_begin()
   call void @set_agent_arg_r_uid(ptr noundef nonnull %4, i32 noundef -1) #6
   call void @agent_queue_request(ptr noundef nonnull %4) #6
-  br label %114
+  br label %180
 
-114:                                              ; preds = %22, %113, %106
+180:                                              ; preds = %22, %179, %172
   ret void
 }
 
@@ -862,8 +982,8 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   store ptr %8, ptr %9, align 8
   store i32 0, ptr %1, align 4
   %10 = call ptr @next_node(ptr noundef nonnull %1) #6
-  %.not30 = icmp eq ptr %10, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
+  %.not29 = icmp eq ptr %10, null
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -878,8 +998,8 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   %17 = and i32 %16, 15
   %18 = icmp ne i32 %17, 6
   %19 = and i32 %16, 5527552
-  %or.cond27 = icmp eq i32 %19, 0
-  %or.cond = and i1 %18, %or.cond27
+  %or.cond26 = icmp eq i32 %19, 0
+  %or.cond = and i1 %18, %or.cond26
   br i1 %or.cond, label %20, label %43
 
 20:                                               ; preds = %.lr.ph
@@ -904,17 +1024,16 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   %33 = load i32, ptr %15, align 8
   %34 = zext i32 %33 to i64
   %35 = and i64 %34, 67633152
-  %or.cond28 = icmp eq i64 %35, 0
-  br i1 %or.cond28, label %36, label %40
+  %or.cond27 = icmp eq i64 %35, 0
+  br i1 %or.cond27, label %36, label %40
 
 36:                                               ; preds = %26
   %37 = load i8, ptr @cloud_dns, align 1
-  %38 = and i8 %37, 1
-  %.not22 = icmp ne i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = and i64 %34, 128
-  %.not23 = icmp eq i64 %39, 0
-  %or.cond29 = or i1 %.not23, %.not22
-  br i1 %or.cond29, label %43, label %40
+  %.not22 = icmp eq i64 %39, 0
+  %or.cond28 = or i1 %.not22, %38
+  br i1 %or.cond28, label %43, label %40
 
 40:                                               ; preds = %36, %26
   %41 = load i16, ptr %13, align 8

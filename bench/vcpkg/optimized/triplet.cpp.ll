@@ -540,9 +540,8 @@ define dso_local nonnull ptr @_ZN5vcpkg15default_tripletERKNS_17VcpkgCmdArgument
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 480
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %26, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 488
@@ -558,8 +557,8 @@ define dso_local nonnull ptr @_ZN5vcpkg15default_tripletERKNS_17VcpkgCmdArgument
 
 15:                                               ; preds = %8
   %16 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19g_triplet_instances) #20
-  %.not.i8 = icmp eq i32 %16, 0
-  br i1 %.not.i8, label %19, label %17
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %19, label %17
 
 17:                                               ; preds = %15
   store ptr getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19g_triplet_instances, i64 0, i32 0, i32 5), ptr @_ZZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19g_triplet_instances, align 8
@@ -657,10 +656,9 @@ _ZN5vcpkgL29system_triplet_canonical_nameB5cxx11Ev.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %23 = load i8, ptr %22, align 8, !noalias !15
-  %24 = and i8 %23, 1
-  %.not.i = icmp eq i8 %24, 0
+  %24 = trunc i8 %23 to i1
   %25 = getelementptr inbounds i8, ptr %0, i64 528
-  %.sink.i = select i1 %.not.i, ptr %7, ptr %25
+  %.sink.i = select i1 %24, ptr %25, ptr %7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i)
           to label %_ZNKR5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value_orEOS6_.exit unwind label %42
 
@@ -684,8 +682,8 @@ _ZNKR5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value
 
 33:                                               ; preds = %30
   %34 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19g_triplet_instances) #20
-  %.not.i7 = icmp eq i32 %34, 0
-  br i1 %.not.i7, label %37, label %35
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %37, label %35
 
 35:                                               ; preds = %33
   store ptr getelementptr inbounds (%"class.std::unordered_set", ptr @_ZZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19g_triplet_instances, i64 0, i32 0, i32 5), ptr @_ZZN5vcpkg7Triplet19from_canonical_nameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19g_triplet_instances, align 8
@@ -2883,9 +2881,8 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i: ; pre
 
 _ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit: ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i, %.lr.ph.i, %5
   %66 = load i8, ptr %4, align 8
-  %67 = and i8 %66, 1
-  %.not.i = icmp eq i8 %67, 0
-  br i1 %.not.i, label %71, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %71
 
 68:                                               ; preds = %_ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit
   %69 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4365,9 +4362,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN5vcpkg15TripletInstanceES1
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

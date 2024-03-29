@@ -1777,13 +1777,12 @@ entry:
 if.end:                                           ; preds = %entry
   %fPassThrough = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i8, ptr %fPassThrough, align 4
-  %2 = and i8 %1, 1
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.end4, label %if.end134
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.end134, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %3 = load i32, ptr %this, align 8
-  switch i32 %3, label %sw.default [
+  %2 = load i32, ptr %this, align 8
+  switch i32 %2, label %sw.default [
     i32 0, label %sw.bb
     i32 9, label %sw.bb
     i32 1, label %sw.bb5
@@ -1807,26 +1806,26 @@ sw.bb5:                                           ; preds = %if.end4
 sw.bb6:                                           ; preds = %if.end4
   %fUnion = getelementptr inbounds i8, ptr %this, i64 8
   %fMaxFrac = getelementptr inbounds i8, ptr %this, i64 10
-  %4 = load i16, ptr %fMaxFrac, align 2
-  %conv = sext i16 %4 to i32
-  %cmp.i40 = icmp eq i16 %4, -1
+  %3 = load i16, ptr %fMaxFrac, align 2
+  %conv = sext i16 %3 to i32
+  %cmp.i40 = icmp eq i16 %3, -1
   %sub.i = sub nsw i32 0, %conv
   %retval.0.i = select i1 %cmp.i40, i32 -2147483648, i32 %sub.i
   %fRoundingMode = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load i32, ptr %fRoundingMode, align 8
-  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %retval.0.i, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %6 = load i16, ptr %fUnion, align 8
-  %conv11 = sext i16 %6 to i32
-  %cmp.i41 = icmp eq i16 %6, 0
+  %4 = load i32, ptr %fRoundingMode, align 8
+  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %retval.0.i, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %5 = load i16, ptr %fUnion, align 8
+  %conv11 = sext i16 %5 to i32
+  %cmp.i41 = icmp eq i16 %5, 0
   %retval.0.i43.neg = select i1 %cmp.i41, i32 -2147483647, i32 %conv11
   %call13 = tail call i32 @uprv_max_75(i32 noundef 0, i32 noundef %retval.0.i43.neg)
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end4
   %fMaxSig = getelementptr inbounds i8, ptr %this, i64 14
-  %7 = load i16, ptr %fMaxSig, align 2
-  %conv17 = sext i16 %7 to i32
-  %cmp.i44 = icmp eq i16 %7, -1
+  %6 = load i16, ptr %fMaxSig, align 2
+  %conv17 = sext i16 %6 to i32
+  %cmp.i44 = icmp eq i16 %6, -1
   br i1 %cmp.i44, label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb14
@@ -1846,26 +1845,26 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 _ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit: ; preds = %sw.bb14, %cond.end.i
   %retval.0.i45 = phi i32 [ %add.i, %cond.end.i ], [ -2147483648, %sw.bb14 ]
   %fRoundingMode19 = getelementptr inbounds i8, ptr %this, i64 32
-  %8 = load i32, ptr %fRoundingMode19, align 8
-  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %retval.0.i45, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %7 = load i32, ptr %fRoundingMode19, align 8
+  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %retval.0.i45, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fMinSig = getelementptr inbounds i8, ptr %this, i64 12
-  %9 = load i16, ptr %fMinSig, align 4
-  %conv22 = sext i16 %9 to i32
+  %8 = load i16, ptr %fMinSig, align 4
+  %conv22 = sext i16 %8 to i32
   %call.i46 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
   br i1 %call.i46, label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit, label %cond.false.i47
 
 cond.false.i47:                                   ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit
   %call1.i48 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
-  %10 = xor i32 %call1.i48, -1
+  %9 = xor i32 %call1.i48, -1
   br label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit
 
 _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit: ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit, %cond.false.i47
-  %cond.i50 = phi i32 [ %10, %cond.false.i47 ], [ -1, %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit ]
+  %cond.i50 = phi i32 [ %9, %cond.false.i47 ], [ -1, %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit ]
   %sub24 = add i32 %cond.i50, %conv22
   %call25 = tail call i32 @uprv_max_75(i32 noundef 0, i32 noundef %sub24)
   %call26 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
-  %11 = load i16, ptr %fMinSig, align 4
-  %cmp = icmp sgt i16 %11, 0
+  %10 = load i16, ptr %fMinSig, align 4
+  %cmp = icmp sgt i16 %10, 0
   %or.cond = select i1 %call26, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then31, label %sw.epilog
 
@@ -1876,15 +1875,15 @@ if.then31:                                        ; preds = %_ZN12_GLOBAL__N_130
 sw.bb33:                                          ; preds = %if.end4
   %fUnion35 = getelementptr inbounds i8, ptr %this, i64 8
   %fMaxFrac36 = getelementptr inbounds i8, ptr %this, i64 10
-  %12 = load i16, ptr %fMaxFrac36, align 2
-  %conv37 = sext i16 %12 to i32
-  %cmp.i53 = icmp eq i16 %12, -1
+  %11 = load i16, ptr %fMaxFrac36, align 2
+  %conv37 = sext i16 %11 to i32
+  %cmp.i53 = icmp eq i16 %11, -1
   %sub.i54 = sub nsw i32 0, %conv37
   %retval.0.i55 = select i1 %cmp.i53, i32 -2147483648, i32 %sub.i54
   %fMaxSig41 = getelementptr inbounds i8, ptr %this, i64 14
-  %13 = load i16, ptr %fMaxSig41, align 2
-  %conv42 = sext i16 %13 to i32
-  %cmp.i56 = icmp eq i16 %13, -1
+  %12 = load i16, ptr %fMaxSig41, align 2
+  %conv42 = sext i16 %12 to i32
+  %cmp.i56 = icmp eq i16 %12, -1
   br i1 %cmp.i56, label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit66, label %if.end.i57
 
 if.end.i57:                                       ; preds = %sw.bb33
@@ -1904,8 +1903,8 @@ cond.end.i61:                                     ; preds = %cond.false.i59, %if
 _ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit66: ; preds = %sw.bb33, %cond.end.i61
   %retval.0.i65 = phi i32 [ %add.i64, %cond.end.i61 ], [ -2147483648, %sw.bb33 ]
   %fPriority = getelementptr inbounds i8, ptr %this, i64 16
-  %14 = load i32, ptr %fPriority, align 8
-  %cmp46 = icmp eq i32 %14, 0
+  %13 = load i32, ptr %fPriority, align 8
+  %cmp46 = icmp eq i32 %13, 0
   br i1 %cmp46, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit66
@@ -1924,8 +1923,8 @@ if.end50:                                         ; preds = %if.else, %if.then47
 if.then52:                                        ; preds = %if.end50
   %call53 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
   %fRoundingMode54 = getelementptr inbounds i8, ptr %this, i64 32
-  %15 = load i32, ptr %fRoundingMode54, align 8
-  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %roundingMag.0, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %14 = load i32, ptr %fRoundingMode54, align 8
+  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %roundingMag.0, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call55 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
   br i1 %call55, label %if.end63, label %land.lhs.true56
 
@@ -1940,14 +1939,14 @@ land.lhs.true56:                                  ; preds = %if.then52
 
 if.end63:                                         ; preds = %land.lhs.true56, %if.then52, %if.end50
   %roundingMag2.0 = phi i32 [ %retval.0.i65, %if.end50 ], [ %retval.0.i65, %if.then52 ], [ %spec.select, %land.lhs.true56 ]
-  %16 = load i16, ptr %fUnion35, align 8
-  %conv67 = sext i16 %16 to i32
-  %cmp.i67 = icmp eq i16 %16, 0
+  %15 = load i16, ptr %fUnion35, align 8
+  %conv67 = sext i16 %15 to i32
+  %cmp.i67 = icmp eq i16 %15, 0
   %sub.i68 = sub nsw i32 0, %conv67
   %retval.0.i69 = select i1 %cmp.i67, i32 2147483647, i32 %sub.i68
   %fMinSig71 = getelementptr inbounds i8, ptr %this, i64 12
-  %17 = load i16, ptr %fMinSig71, align 4
-  %conv72 = sext i16 %17 to i32
+  %16 = load i16, ptr %fMinSig71, align 4
+  %conv72 = sext i16 %16 to i32
   %call.i70 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
   br i1 %call.i70, label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit77, label %cond.false.i71
 
@@ -1960,18 +1959,17 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15Decima
   %reass.sub.i75 = sub i32 %cond.i74, %conv72
   %add.i76 = add i32 %reass.sub.i75, 1
   %fRetain = getelementptr inbounds i8, ptr %this, i64 20
-  %18 = load i8, ptr %fRetain, align 4
-  %19 = and i8 %18, 1
-  %tobool76.not = icmp eq i8 %19, 0
-  br i1 %tobool76.not, label %if.else79, label %if.then77
+  %17 = load i8, ptr %fRetain, align 4
+  %tobool76 = trunc i8 %17 to i1
+  br i1 %tobool76, label %if.then77, label %if.else79
 
 if.then77:                                        ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit77
   %call78 = tail call i32 @uprv_min_75(i32 noundef %retval.0.i69, i32 noundef %add.i76)
   br label %if.end95
 
 if.else79:                                        ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit77
-  %20 = load i32, ptr %fPriority, align 8
-  %cmp83 = icmp eq i32 %20, 0
+  %18 = load i32, ptr %fPriority, align 8
+  %cmp83 = icmp eq i32 %18, 0
   %cmp85.not = icmp sgt i32 %roundingMag2.0, %retval.0.i55
   br i1 %cmp83, label %if.then84, label %if.else89
 
@@ -1991,39 +1989,39 @@ if.end95:                                         ; preds = %if.else89, %if.then
 
 sw.bb98:                                          ; preds = %if.end4
   %fUnion100 = getelementptr inbounds i8, ptr %this, i64 8
-  %21 = load i64, ptr %fUnion100, align 8
+  %19 = load i64, ptr %fUnion100, align 8
   %fIncrementMagnitude = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load i16, ptr %fIncrementMagnitude, align 8
+  %20 = load i16, ptr %fIncrementMagnitude, align 8
   %fRoundingMode103 = getelementptr inbounds i8, ptr %this, i64 32
-  %23 = load i32, ptr %fRoundingMode103, align 8
-  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i64 noundef %21, i16 noundef signext %22, i32 noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %21 = load i32, ptr %fRoundingMode103, align 8
+  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i64 noundef %19, i16 noundef signext %20, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fMinFrac106 = getelementptr inbounds i8, ptr %this, i64 18
-  %24 = load i16, ptr %fMinFrac106, align 2
-  %conv107 = sext i16 %24 to i32
+  %22 = load i16, ptr %fMinFrac106, align 2
+  %conv107 = sext i16 %22 to i32
   br label %sw.epilog
 
 sw.bb108:                                         ; preds = %if.end4
   %fIncrementMagnitude111 = getelementptr inbounds i8, ptr %this, i64 16
-  %25 = load i16, ptr %fIncrementMagnitude111, align 8
-  %conv112 = sext i16 %25 to i32
+  %23 = load i16, ptr %fIncrementMagnitude111, align 8
+  %conv112 = sext i16 %23 to i32
   %fRoundingMode113 = getelementptr inbounds i8, ptr %this, i64 32
-  %26 = load i32, ptr %fRoundingMode113, align 8
-  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %conv112, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %24 = load i32, ptr %fRoundingMode113, align 8
+  tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %conv112, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fMinFrac116 = getelementptr inbounds i8, ptr %this, i64 18
-  %27 = load i16, ptr %fMinFrac116, align 2
-  %conv117 = sext i16 %27 to i32
+  %25 = load i16, ptr %fMinFrac116, align 2
+  %conv117 = sext i16 %25 to i32
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %if.end4
   %fIncrementMagnitude121 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i16, ptr %fIncrementMagnitude121, align 8
-  %conv122 = sext i16 %28 to i32
+  %26 = load i16, ptr %fIncrementMagnitude121, align 8
+  %conv122 = sext i16 %26 to i32
   %fRoundingMode123 = getelementptr inbounds i8, ptr %this, i64 32
-  %29 = load i32, ptr %fRoundingMode123, align 8
-  tail call void @_ZN6icu_756number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %conv122, i32 noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %27 = load i32, ptr %fRoundingMode123, align 8
+  tail call void @_ZN6icu_756number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %conv122, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fMinFrac126 = getelementptr inbounds i8, ptr %this, i64 18
-  %30 = load i16, ptr %fMinFrac126, align 2
-  %conv127 = sext i16 %30 to i32
+  %28 = load i16, ptr %fMinFrac126, align 2
+  %conv127 = sext i16 %28 to i32
   br label %sw.epilog
 
 sw.bb128:                                         ; preds = %if.end4
@@ -2037,15 +2035,15 @@ sw.default:                                       ; preds = %if.end4
 sw.epilog:                                        ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit, %if.then31, %sw.bb118, %sw.bb108, %sw.bb98, %if.end95, %sw.bb6, %sw.bb5, %sw.bb
   %resolvedMinFraction.0 = phi i32 [ %conv127, %sw.bb118 ], [ %conv117, %sw.bb108 ], [ %conv107, %sw.bb98 ], [ %call97, %if.end95 ], [ %call25, %if.then31 ], [ %call25, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit ], [ %call13, %sw.bb6 ], [ 0, %sw.bb5 ], [ 0, %sw.bb ]
   %fTrailingZeroDisplay = getelementptr inbounds i8, ptr %this, i64 24
-  %31 = load i32, ptr %fTrailingZeroDisplay, align 8
-  %cmp130 = icmp eq i32 %31, 0
+  %29 = load i32, ptr %fTrailingZeroDisplay, align 8
+  %cmp130 = icmp eq i32 %29, 0
   br i1 %cmp130, label %if.then133, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.epilog
   %vtable = load ptr, ptr %value, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %32 = load ptr, ptr %vfn, align 8
-  %call131 = tail call noundef double %32(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef 3)
+  %30 = load ptr, ptr %vfn, align 8
+  %call131 = tail call noundef double %30(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef 3)
   %cmp132 = fcmp une double %call131, 0.000000e+00
   br i1 %cmp132, label %if.then133, label %if.end134
 

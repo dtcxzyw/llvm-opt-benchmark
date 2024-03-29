@@ -288,9 +288,8 @@ define dso_local noundef i64 @pg_rotate_logfile(ptr nocapture noundef readnone %
 
 8:                                                ; preds = %1
   %9 = load i8, ptr @Logging_collector, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %15
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
@@ -319,9 +318,8 @@ declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_rotate_logfile_v2(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @Logging_collector, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8

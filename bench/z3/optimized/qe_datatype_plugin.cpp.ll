@@ -7983,52 +7983,50 @@ lpad.i:                                           ; preds = %entry
 _Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit: ; preds = %invoke.cont.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %visited.i)
   %5 = load i8, ptr %m_change, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit
-  %7 = load ptr, ptr %fml, align 8
-  %call4 = call noundef ptr @_ZN8map_proc8get_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %7)
+  %6 = load ptr, ptr %fml, align 8
+  %call4 = call noundef ptr @_ZN8map_proc8get_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %6)
   %tobool.not.i = icmp eq ptr %call4, null
   br i1 %tobool.not.i, label %if.end.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %if.then
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call4, i64 8
-  %8 = load i32, ptr %m_ref_count.i.i.i, align 4
-  %inc.i.i.i = add i32 %8, 1
+  %7 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %inc.i.i.i = add i32 %7, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i, %if.then
-  %9 = load ptr, ptr %fml, align 8
-  %tobool.not.i3.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %fml, align 8
+  %tobool.not.i3.i = icmp eq ptr %8, null
   br i1 %tobool.not.i3.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %m_manager.i.i = getelementptr inbounds i8, ptr %fml, i64 8
-  %10 = load ptr, ptr %m_manager.i.i, align 8
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load i32, ptr %m_ref_count.i.i.i.i, align 4
-  %dec.i.i.i.i = add i32 %11, -1
+  %9 = load ptr, ptr %m_manager.i.i, align 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %dec.i.i.i.i = add i32 %10, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
-  call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef nonnull %9)
+  call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %9, ptr noundef nonnull %8)
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.i.i.i, %if.then2.i.i.i
   store ptr %call4, ptr %fml, align 8
   %.pre = load i8, ptr %m_change, align 8
-  %.pre3 = and i8 %.pre, 1
-  %12 = icmp ne i8 %.pre3, 0
+  %.pre3 = trunc i8 %.pre to i1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit
-  %.pre-phi = phi i1 [ %12, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit ]
-  ret i1 %.pre-phi
+  %tobool7.pre-phi = phi i1 [ %.pre3, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit ]
+  ret i1 %tobool7.pre-phi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

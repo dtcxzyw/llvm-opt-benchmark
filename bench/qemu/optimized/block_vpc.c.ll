@@ -309,11 +309,10 @@ land.lhs.true75:                                  ; preds = %land.lhs.true70
 lor.rhs:                                          ; preds = %land.lhs.true75, %land.lhs.true70, %land.lhs.true65, %land.lhs.true, %if.end50
   %force_use_chs = getelementptr inbounds i8, ptr %0, i64 608
   %14 = load i8, ptr %force_use_chs, align 8
-  %15 = and i8 %14, 1
-  %tobool80 = icmp eq i8 %15, 0
-  %cmp85 = icmp eq i64 %mul57, 267382800
-  %or.cond121 = select i1 %tobool80, i1 true, i1 %cmp85
-  br i1 %or.cond121, label %if.end93, label %lor.lhs.false87
+  %tobool80 = trunc i8 %14 to i1
+  %cmp85 = icmp ne i64 %mul57, 267382800
+  %or.cond121.not = select i1 %tobool80, i1 %cmp85, i1 false
+  br i1 %or.cond121.not, label %lor.lhs.false87, label %if.end93
 
 lor.lhs.false83:                                  ; preds = %land.lhs.true75
   %cmp85.old = icmp eq i64 %mul57, 267382800
@@ -321,29 +320,28 @@ lor.lhs.false83:                                  ; preds = %land.lhs.true75
 
 lor.lhs.false87:                                  ; preds = %lor.rhs, %lor.lhs.false83
   %force_use_sz = getelementptr inbounds i8, ptr %0, i64 609
-  %16 = load i8, ptr %force_use_sz, align 1
-  %17 = and i8 %16, 1
-  %tobool88.not = icmp eq i8 %17, 0
-  br i1 %tobool88.not, label %if.end98, label %if.end93
+  %15 = load i8, ptr %force_use_sz, align 1
+  %tobool88 = trunc i8 %15 to i1
+  br i1 %tobool88, label %if.end93, label %if.end98
 
 if.end93:                                         ; preds = %lor.rhs, %lor.lhs.false83, %lor.lhs.false87
   %current_size = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = load i64, ptr %current_size, align 1
-  %19 = call noundef i64 @llvm.bswap.i64(i64 %18)
-  %div116 = lshr i64 %19, 9
+  %16 = load i64, ptr %current_size, align 1
+  %17 = call noundef i64 @llvm.bswap.i64(i64 %16)
+  %div116 = lshr i64 %17, 9
   store i64 %div116, ptr %total_sectors, align 8
-  %cmp95 = icmp ugt i64 %19, 2190433321471
+  %cmp95 = icmp ugt i64 %17, 2190433321471
   br i1 %cmp95, label %fail, label %if.end98
 
 if.end98:                                         ; preds = %lor.lhs.false87, %if.end93
   br i1 %tobool15.not, label %if.then101, label %if.end230
 
 if.then101:                                       ; preds = %if.end98
-  %20 = load ptr, ptr %file, align 8
+  %18 = load ptr, ptr %file, align 8
   %data_offset = getelementptr inbounds i8, ptr %0, i64 64
-  %21 = load i64, ptr %data_offset, align 1
-  %22 = call noundef i64 @llvm.bswap.i64(i64 %21)
-  %call104 = call i32 @bdrv_pread(ptr noundef %20, i64 noundef %22, i64 noundef 1024, ptr noundef nonnull %dyndisk_header, i32 noundef 0) #15
+  %19 = load i64, ptr %data_offset, align 1
+  %20 = call noundef i64 @llvm.bswap.i64(i64 %19)
+  %call104 = call i32 @bdrv_pread(ptr noundef %18, i64 noundef %20, i64 noundef 1024, ptr noundef nonnull %dyndisk_header, i32 noundef 0) #15
   %cmp105 = icmp slt i32 %call104, 0
   br i1 %cmp105, label %if.then107, label %if.end108
 
@@ -362,36 +360,36 @@ if.then112:                                       ; preds = %if.end108
 
 if.end113:                                        ; preds = %if.end108
   %block_size = getelementptr inbounds i8, ptr %dyndisk_header, i64 32
-  %23 = load i32, ptr %block_size, align 1
-  %24 = call noundef i32 @llvm.bswap.i32(i32 %23)
+  %21 = load i32, ptr %block_size, align 1
+  %22 = call noundef i32 @llvm.bswap.i32(i32 %21)
   %block_size115 = getelementptr inbounds i8, ptr %0, i64 600
-  store i32 %24, ptr %block_size115, align 8
-  %conv117 = zext i32 %24 to i64
-  %tobool.not.i119 = icmp eq i32 %23, 0
-  %25 = call i64 @llvm.ctpop.i64(i64 %conv117), !range !7
-  %tobool1.not.i = icmp ugt i64 %25, 1
+  store i32 %22, ptr %block_size115, align 8
+  %conv117 = zext i32 %22 to i64
+  %tobool.not.i119 = icmp eq i32 %21, 0
+  %23 = call i64 @llvm.ctpop.i64(i64 %conv117), !range !7
+  %tobool1.not.i = icmp ugt i64 %23, 1
   %or.cond122.not124 = select i1 %tobool.not.i119, i1 true, i1 %tobool1.not.i
-  %cmp122 = icmp ult i32 %24, 512
+  %cmp122 = icmp ult i32 %22, 512
   %or.cond123 = or i1 %cmp122, %or.cond122.not124
   br i1 %or.cond123, label %if.then124, label %if.end126
 
 if.then124:                                       ; preds = %if.end113
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 365, ptr noundef nonnull @__func__.vpc_open, ptr noundef nonnull @.str.26, i32 noundef %24) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 365, ptr noundef nonnull @__func__.vpc_open, ptr noundef nonnull @.str.26, i32 noundef %22) #15
   br label %fail
 
 if.end126:                                        ; preds = %if.end113
-  %div128118 = lshr i32 %24, 12
+  %div128118 = lshr i32 %22, 12
   %add = add nuw nsw i32 %div128118, 511
   %and = and i32 %add, 2096640
   %bitmap_size = getelementptr inbounds i8, ptr %0, i64 604
   store i32 %and, ptr %bitmap_size, align 4
   %max_table_entries = getelementptr inbounds i8, ptr %dyndisk_header, i64 28
-  %26 = load i32, ptr %max_table_entries, align 1
-  %27 = call noundef i32 @llvm.bswap.i32(i32 %26)
+  %24 = load i32, ptr %max_table_entries, align 1
+  %25 = call noundef i32 @llvm.bswap.i32(i32 %24)
   %max_table_entries130 = getelementptr inbounds i8, ptr %0, i64 568
-  store i32 %27, ptr %max_table_entries130, align 8
-  %28 = load i64, ptr %total_sectors, align 8
-  %mul132 = shl i64 %28, 9
+  store i32 %25, ptr %max_table_entries130, align 8
+  %26 = load i64, ptr %total_sectors, align 8
+  %mul132 = shl i64 %26, 9
   %div135 = sdiv i64 %mul132, %conv117
   %cmp136 = icmp sgt i64 %div135, 4294967295
   br i1 %cmp136, label %if.then138, label %if.end139
@@ -401,7 +399,7 @@ if.then138:                                       ; preds = %if.end126
   br label %fail
 
 if.end139:                                        ; preds = %if.end126
-  %conv141 = sext i32 %27 to i64
+  %conv141 = sext i32 %25 to i64
   %mul144 = mul nsw i64 %conv141, %conv117
   %cmp147 = icmp ult i64 %mul144, %mul132
   br i1 %cmp147, label %if.then149, label %if.end150
@@ -411,18 +409,18 @@ if.then149:                                       ; preds = %if.end139
   br label %fail
 
 if.end150:                                        ; preds = %if.end139
-  %or.cond = icmp ugt i32 %27, 536870911
+  %or.cond = icmp ugt i32 %25, 536870911
   br i1 %or.cond, label %if.then159, label %if.end161
 
 if.then159:                                       ; preds = %if.end150
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 389, ptr noundef nonnull @__func__.vpc_open, ptr noundef nonnull @.str.29, i32 noundef %27) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 389, ptr noundef nonnull @__func__.vpc_open, ptr noundef nonnull @.str.29, i32 noundef %25) #15
   br label %fail
 
 if.end161:                                        ; preds = %if.end150
   %mul164 = shl nuw nsw i64 %conv141, 2
-  %29 = load ptr, ptr %file, align 8
-  %30 = load ptr, ptr %29, align 8
-  %call167 = call ptr @qemu_try_blockalign(ptr noundef %30, i64 noundef %mul164) #15
+  %27 = load ptr, ptr %file, align 8
+  %28 = load ptr, ptr %27, align 8
+  %call167 = call ptr @qemu_try_blockalign(ptr noundef %28, i64 noundef %mul164) #15
   %pagetable = getelementptr inbounds i8, ptr %0, i64 576
   store ptr %call167, ptr %pagetable, align 8
   %cmp169 = icmp eq ptr %call167, null
@@ -434,12 +432,12 @@ if.then171:                                       ; preds = %if.end161
 
 if.end172:                                        ; preds = %if.end161
   %table_offset = getelementptr inbounds i8, ptr %dyndisk_header, i64 16
-  %31 = load i64, ptr %table_offset, align 1
-  %32 = call noundef i64 @llvm.bswap.i64(i64 %31)
+  %29 = load i64, ptr %table_offset, align 1
+  %30 = call noundef i64 @llvm.bswap.i64(i64 %29)
   %bat_offset = getelementptr inbounds i8, ptr %0, i64 584
-  store i64 %32, ptr %bat_offset, align 8
-  %33 = load ptr, ptr %file, align 8
-  %call177 = call i32 @bdrv_pread(ptr noundef %33, i64 noundef %32, i64 noundef %mul164, ptr noundef nonnull %call167, i32 noundef 0) #15
+  store i64 %30, ptr %bat_offset, align 8
+  %31 = load ptr, ptr %file, align 8
+  %call177 = call i32 @bdrv_pread(ptr noundef %31, i64 noundef %30, i64 noundef %mul164, ptr noundef nonnull %call167, i32 noundef 0) #15
   %cmp178 = icmp slt i32 %call177, 0
   br i1 %cmp178, label %if.then180, label %if.end181
 
@@ -448,14 +446,14 @@ if.then180:                                       ; preds = %if.end172
   br label %fail
 
 if.end181:                                        ; preds = %if.end172
-  %34 = load i64, ptr %bat_offset, align 8
+  %32 = load i64, ptr %bat_offset, align 8
   %add183 = add nuw nsw i64 %mul164, 511
-  %sub185 = add i64 %add183, %34
+  %sub185 = add i64 %add183, %32
   %and186 = and i64 %sub185, -512
   %free_data_block_offset = getelementptr inbounds i8, ptr %0, i64 560
   store i64 %and186, ptr %free_data_block_offset, align 8
-  %35 = load i32, ptr %max_table_entries130, align 8
-  %cmp188125 = icmp sgt i32 %35, 0
+  %33 = load i32, ptr %max_table_entries130, align 8
+  %cmp188125 = icmp sgt i32 %33, 0
   br i1 %cmp188125, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end181
@@ -463,29 +461,29 @@ for.body.preheader:                               ; preds = %if.end181
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %36 = phi ptr [ %.pre131, %for.body.preheader ], [ %39, %for.inc ]
+  %34 = phi ptr [ %.pre131, %for.body.preheader ], [ %37, %for.inc ]
   %indvars.iv128 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next129, %for.inc ]
-  %arrayidx = getelementptr i32, ptr %36, i64 %indvars.iv128
-  %37 = load i32, ptr %arrayidx, align 4
-  %38 = call i32 @llvm.bswap.i32(i32 %37)
-  store i32 %38, ptr %arrayidx, align 4
-  %39 = load ptr, ptr %pagetable, align 8
-  %arrayidx193 = getelementptr i32, ptr %39, i64 %indvars.iv128
-  %40 = load i32, ptr %arrayidx193, align 4
-  %cmp194.not = icmp eq i32 %40, -1
+  %arrayidx = getelementptr i32, ptr %34, i64 %indvars.iv128
+  %35 = load i32, ptr %arrayidx, align 4
+  %36 = call i32 @llvm.bswap.i32(i32 %35)
+  store i32 %36, ptr %arrayidx, align 4
+  %37 = load ptr, ptr %pagetable, align 8
+  %arrayidx193 = getelementptr i32, ptr %37, i64 %indvars.iv128
+  %38 = load i32, ptr %arrayidx193, align 4
+  %cmp194.not = icmp eq i32 %38, -1
   br i1 %cmp194.not, label %for.inc, label %if.then196
 
 if.then196:                                       ; preds = %for.body
-  %conv200 = zext i32 %40 to i64
+  %conv200 = zext i32 %38 to i64
   %mul201 = shl nuw nsw i64 %conv200, 9
-  %41 = load i32, ptr %bitmap_size, align 4
-  %conv203 = zext i32 %41 to i64
+  %39 = load i32, ptr %bitmap_size, align 4
+  %conv203 = zext i32 %39 to i64
   %add204 = add nuw nsw i64 %mul201, %conv203
-  %42 = load i32, ptr %block_size115, align 8
-  %conv206 = zext i32 %42 to i64
+  %40 = load i32, ptr %block_size115, align 8
+  %conv206 = zext i32 %40 to i64
   %add207 = add nuw nsw i64 %add204, %conv206
-  %43 = load i64, ptr %free_data_block_offset, align 8
-  %cmp209 = icmp ugt i64 %add207, %43
+  %41 = load i64, ptr %free_data_block_offset, align 8
+  %cmp209 = icmp ugt i64 %add207, %41
   br i1 %cmp209, label %if.then211, label %for.inc
 
 if.then211:                                       ; preds = %if.then196
@@ -494,27 +492,27 @@ if.then211:                                       ; preds = %if.then196
 
 for.inc:                                          ; preds = %for.body, %if.then211, %if.then196
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %44 = load i32, ptr %max_table_entries130, align 8
-  %45 = sext i32 %44 to i64
-  %cmp188 = icmp slt i64 %indvars.iv.next129, %45
+  %42 = load i32, ptr %max_table_entries130, align 8
+  %43 = sext i32 %42 to i64
+  %cmp188 = icmp slt i64 %indvars.iv.next129, %43
   br i1 %cmp188, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end181
-  %46 = load ptr, ptr %file, align 8
-  %47 = load ptr, ptr %46, align 8
-  %call217 = call i64 @bdrv_getlength(ptr noundef %47) #15
+  %44 = load ptr, ptr %file, align 8
+  %45 = load ptr, ptr %44, align 8
+  %call217 = call i64 @bdrv_getlength(ptr noundef %45) #15
   %cmp218 = icmp slt i64 %call217, 0
   br i1 %cmp218, label %if.then220, label %if.end224
 
 if.then220:                                       ; preds = %for.end
-  %48 = trunc i64 %call217 to i32
-  %conv222 = sub i32 0, %48
+  %46 = trunc i64 %call217 to i32
+  %conv222 = sub i32 0, %46
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 429, ptr noundef nonnull @__func__.vpc_open, i32 noundef %conv222, ptr noundef nonnull @.str.32) #15
   br label %fail
 
 if.end224:                                        ; preds = %for.end
-  %49 = load i64, ptr %free_data_block_offset, align 8
-  %cmp226 = icmp ugt i64 %49, %call217
+  %47 = load i64, ptr %free_data_block_offset, align 8
+  %cmp226 = icmp ugt i64 %47, %call217
   br i1 %cmp226, label %if.then228, label %if.end229
 
 if.then228:                                       ; preds = %if.end224
@@ -540,11 +538,11 @@ if.end237:                                        ; preds = %if.end230
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail:                                             ; preds = %if.end93, %if.end, %if.end230, %if.end26, %if.then228, %if.then220, %if.then180, %if.then171, %if.then159, %if.then149, %if.then138, %if.then124, %if.then112, %if.then107, %if.then49, %if.then40, %if.then24, %if.then21, %if.then11, %if.then6
-  %ret.0 = phi i32 [ -22, %if.then6 ], [ %call9, %if.then11 ], [ %conv, %if.then21 ], [ -22, %if.then24 ], [ %call28, %if.end26 ], [ -22, %if.then40 ], [ -22, %if.then49 ], [ %call104, %if.then107 ], [ -22, %if.then112 ], [ -22, %if.then124 ], [ -22, %if.then138 ], [ -22, %if.then149 ], [ -22, %if.then159 ], [ -12, %if.then171 ], [ %call177, %if.then180 ], [ %48, %if.then220 ], [ -22, %if.then228 ], [ %call233, %if.end230 ], [ -22, %if.end ], [ -27, %if.end93 ]
+  %ret.0 = phi i32 [ -22, %if.then6 ], [ %call9, %if.then11 ], [ %conv, %if.then21 ], [ -22, %if.then24 ], [ %call28, %if.end26 ], [ -22, %if.then40 ], [ -22, %if.then49 ], [ %call104, %if.then107 ], [ -22, %if.then112 ], [ -22, %if.then124 ], [ -22, %if.then138 ], [ -22, %if.then149 ], [ -22, %if.then159 ], [ -12, %if.then171 ], [ %call177, %if.then180 ], [ %46, %if.then220 ], [ -22, %if.then228 ], [ %call233, %if.end230 ], [ -22, %if.end ], [ -27, %if.end93 ]
   call void @qemu_opts_del(ptr noundef %call2) #15
   %pagetable238 = getelementptr inbounds i8, ptr %0, i64 576
-  %50 = load ptr, ptr %pagetable238, align 8
-  call void @qemu_vfree(ptr noundef %50) #15
+  %48 = load ptr, ptr %pagetable238, align 8
+  call void @qemu_vfree(ptr noundef %48) #15
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %fail, %if.end237
@@ -574,14 +572,7 @@ entry:
 define internal i32 @vpc_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
 entry:
   %footer = alloca %struct.vhd_footer, align 8
-  %cyls = alloca i16, align 2
-  %heads = alloca i8, align 1
-  %secs_per_cyl = alloca i8, align 1
-  %total_sectors = alloca i64, align 8
   %uuid = alloca %struct.QemuUUID, align 4
-  store i16 0, ptr %cyls, align 2
-  store i8 0, ptr %heads, align 1
-  store i8 0, ptr %secs_per_cyl, align 1
   %0 = load i32, ptr %opts, align 8
   %cmp = icmp eq i32 %0, 40
   br i1 %cmp, label %if.end, label %if.else
@@ -596,17 +587,16 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %size, align 8
   %has_subformat = getelementptr inbounds i8, ptr %opts, i64 24
   %2 = load i8, ptr %has_subformat, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  %subformat = getelementptr inbounds i8, ptr %opts, i64 28
-  br i1 %tobool.not, label %if.end2.thread, label %if.end2
+  %tobool = trunc i8 %2 to i1
+  %subformat3.phi.trans.insert = getelementptr inbounds i8, ptr %opts, i64 28
+  br i1 %tobool, label %if.end2, label %if.end2.thread
 
 if.end2.thread:                                   ; preds = %if.end
-  store i32 0, ptr %subformat, align 4
+  store i32 0, ptr %subformat3.phi.trans.insert, align 4
   br label %sw.epilog
 
 if.end2:                                          ; preds = %if.end
-  %.pre = load i32, ptr %subformat, align 4
+  %.pre = load i32, ptr %subformat3.phi.trans.insert, align 4
   switch i32 %.pre, label %do.body [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb4
@@ -622,8 +612,8 @@ do.body:                                          ; preds = %if.end2
 sw.epilog:                                        ; preds = %if.end2.thread, %if.end2, %sw.bb4
   %cmp30 = phi i1 [ false, %sw.bb4 ], [ true, %if.end2 ], [ true, %if.end2.thread ]
   %disk_type.0 = phi i32 [ 33554432, %sw.bb4 ], [ 50331648, %if.end2 ], [ 50331648, %if.end2.thread ]
-  %4 = load ptr, ptr %u, align 8
-  %call = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %4, ptr noundef %errp) #15
+  %3 = load ptr, ptr %u, align 8
+  %call = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %3, ptr noundef %errp) #15
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %return, label %if.end7
 
@@ -635,94 +625,176 @@ if.end7:                                          ; preds = %sw.epilog
 if.end11:                                         ; preds = %if.end7
   tail call void @blk_set_allow_write_beyond_eof(ptr noundef nonnull %call8, i1 noundef zeroext true) #15
   %u.val = load i64, ptr %size, align 8
-  %5 = getelementptr i8, ptr %opts, i64 33
-  %u.val27 = load i8, ptr %5, align 1
-  %call12 = call fastcc i32 @calculate_rounded_image_size(i64 %u.val, i8 %u.val27, ptr noundef nonnull %cyls, ptr noundef nonnull %heads, ptr noundef nonnull %secs_per_cyl, ptr noundef nonnull %total_sectors, ptr noundef %errp)
-  %cmp13 = icmp slt i32 %call12, 0
-  br i1 %cmp13, label %out, label %if.end15
+  %4 = getelementptr i8, ptr %opts, i64 33
+  %u.val27 = load i8, ptr %4, align 1
+  %tobool.i = trunc i8 %u.val27 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.else.i
 
-if.end15:                                         ; preds = %if.end11
-  %6 = load i64, ptr %total_sectors, align 8
-  %mul = shl i64 %6, 9
+if.else.i:                                        ; preds = %if.end11
+  %div10.i = lshr i64 %u.val, 9
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %div10.i, i64 267382800)
+  %cmp410.not.i = icmp ult i64 %u.val, 512
+  br i1 %cmp410.not.i, label %if.end.i, label %for.body.i
+
+for.body.i:                                       ; preds = %if.else.i, %calculate_geometry.exit.i
+  %i.011.i = phi i32 [ %inc.i, %calculate_geometry.exit.i ], [ 0, %if.else.i ]
+  %conv6.i = sext i32 %i.011.i to i64
+  %add.i = add nsw i64 %cond.i, %conv6.i
+  %cond.i.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 267382800)
+  %cmp1.i.i = icmp sgt i64 %add.i, 66059279
+  br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %for.body.i
+  %div.i.i = udiv i64 %cond.i.i, 255
+  %conv2.i.i = trunc i64 %div.i.i to i32
+  br label %calculate_geometry.exit.i
+
+if.else.i.i:                                      ; preds = %for.body.i
+  %div4.i.i = sdiv i64 %cond.i.i, 17
+  %conv5.i.i = trunc i64 %div4.i.i to i32
+  %sub.i.i = add nsw i32 %conv5.i.i, 1023
+  %div627.i.i = lshr i32 %sub.i.i, 10
+  %conv7.i.i = trunc i32 %div627.i.i to i8
+  %5 = and i32 %sub.i.i, 258048
+  %cmp9.i.i = icmp eq i32 %5, 0
+  %spec.select.i.i = select i1 %cmp9.i.i, i8 4, i8 %conv7.i.i
+  %conv12.i.i = zext i8 %spec.select.i.i to i32
+  %mul.i.i = shl nuw nsw i32 %conv12.i.i, 10
+  %cmp13.not.i.i = icmp ule i32 %mul.i.i, %conv5.i.i
+  %cmp16.i.i = icmp ugt i8 %spec.select.i.i, 16
+  %or.cond.i.i = or i1 %cmp16.i.i, %cmp13.not.i.i
+  %div20.i.i = sdiv i64 %cond.i.i, 31
+  %conv21.i.i = trunc i64 %div20.i.i to i32
+  %heads.1.i = select i1 %or.cond.i.i, i8 16, i8 %spec.select.i.i
+  %secs_per_cyl.1.i = select i1 %or.cond.i.i, i8 31, i8 17
+  %cyls_times_heads.0.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
+  %conv23.i.i = zext nneg i8 %heads.1.i to i32
+  %mul24.i.i = shl nuw nsw i32 %conv23.i.i, 10
+  %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.0.i.i, %mul24.i.i
+  br i1 %cmp25.not.i.i, label %calculate_geometry.exit.i, label %if.then27.i.i
+
+if.then27.i.i:                                    ; preds = %if.else.i.i
+  %div29.i.i = sdiv i64 %cond.i.i, 63
+  %conv30.i.i = trunc i64 %div29.i.i to i32
+  br label %calculate_geometry.exit.i
+
+calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.else.i.i, %if.then.i.i
+  %heads.2.i = phi i8 [ 16, %if.then.i.i ], [ %heads.1.i, %if.else.i.i ], [ 16, %if.then27.i.i ]
+  %secs_per_cyl.2.i = phi i8 [ -1, %if.then.i.i ], [ %secs_per_cyl.1.i, %if.else.i.i ], [ 63, %if.then27.i.i ]
+  %cyls_times_heads.1.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.0.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
+  %conv33.i.i = zext nneg i8 %heads.2.i to i32
+  %div34.i.i = udiv i32 %cyls_times_heads.1.i.i, %conv33.i.i
+  %inc.i = add i32 %i.011.i, 1
+  %conv35.i.mask.i = and i32 %div34.i.i, 65535
+  %conv.i = zext nneg i32 %conv35.i.mask.i to i64
+  %conv1.i = zext nneg i8 %heads.2.i to i64
+  %conv2.i = zext i8 %secs_per_cyl.2.i to i64
+  %mul.i = mul nuw nsw i64 %conv2.i, %conv1.i
+  %mul3.i = mul nuw nsw i64 %mul.i, %conv.i
+  %cmp4.i = icmp ugt i64 %cond.i, %mul3.i
+  br i1 %cmp4.i, label %for.body.i, label %if.end.loopexit.i, !llvm.loop !9
+
+if.end.loopexit.i:                                ; preds = %calculate_geometry.exit.i
+  %conv35.i.i = trunc i32 %div34.i.i to i16
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.end.loopexit.i, %if.else.i, %if.end11
+  %cyls.1.i = phi i16 [ -1, %if.end11 ], [ 0, %if.else.i ], [ %conv35.i.i, %if.end.loopexit.i ]
+  %heads.3.i = phi i8 [ 16, %if.end11 ], [ 0, %if.else.i ], [ %heads.2.i, %if.end.loopexit.i ]
+  %secs_per_cyl.3.i = phi i8 [ -1, %if.end11 ], [ 0, %if.else.i ], [ %secs_per_cyl.2.i, %if.end.loopexit.i ]
+  %conv7.i = zext i16 %cyls.1.i to i64
+  %conv8.i = zext nneg i8 %heads.3.i to i64
+  %mul9.i = mul nuw nsw i64 %conv8.i, %conv7.i
+  %conv10.i = zext i8 %secs_per_cyl.3.i to i64
+  %mul11.i = mul nuw nsw i64 %mul9.i, %conv10.i
+  %cmp12.i = icmp eq i64 %mul11.i, 267382800
+  br i1 %cmp12.i, label %if.then14.i, label %if.end15
+
+if.then14.i:                                      ; preds = %if.end.i
+  %div1511.i = lshr i64 %u.val, 9
+  %cmp16.i = icmp ugt i64 %u.val, 2190433321471
+  br i1 %cmp16.i, label %calculate_rounded_image_size.exit, label %if.end15
+
+calculate_rounded_image_size.exit:                ; preds = %if.then14.i
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 955, ptr noundef nonnull @__func__.calculate_rounded_image_size, ptr noundef nonnull @.str.47) #15
+  br label %out
+
+if.end15:                                         ; preds = %if.then14.i, %if.end.i
+  %total_sectors.0.ph = phi i64 [ %mul11.i, %if.end.i ], [ %div1511.i, %if.then14.i ]
+  %mul = shl nuw i64 %total_sectors.0.ph, 9
   %cmp16.not = icmp eq i64 %1, %mul
   br i1 %cmp16.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 1032, ptr noundef nonnull @__func__.vpc_co_create, ptr noundef nonnull @.str.42) #15
-  call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.43, i64 noundef %mul) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 1032, ptr noundef nonnull @__func__.vpc_co_create, ptr noundef nonnull @.str.42) #15
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.43, i64 noundef %mul) #15
   br label %out
 
 if.end19:                                         ; preds = %if.end15
-  %7 = getelementptr inbounds i8, ptr %footer, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %7, i8 0, i64 448, i1 false)
+  %6 = getelementptr inbounds i8, ptr %footer, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 448, i1 false)
   store i64 8676594127358291811, ptr %footer, align 8
-  %8 = load i8, ptr %5, align 1
-  %9 = and i8 %8, 1
-  %tobool20.not = icmp eq i8 %9, 0
-  %spec.select = select i1 %tobool20.not, i32 1970103665, i32 846030193
-  %10 = getelementptr inbounds i8, ptr %footer, i64 28
-  store i32 %spec.select, ptr %10, align 4
+  %spec.select = select i1 %tobool.i, i32 846030193, i32 1970103665
+  %7 = getelementptr inbounds i8, ptr %footer, i64 28
+  store i32 %spec.select, ptr %7, align 4
   %creator_os = getelementptr inbounds i8, ptr %footer, i64 36
   store i32 1798465879, ptr %creator_os, align 4
   %features = getelementptr inbounds i8, ptr %footer, i64 8
   store i32 33554432, ptr %features, align 8
   %version = getelementptr inbounds i8, ptr %footer, i64 12
   store i32 256, ptr %version, align 4
-  %.sink31 = select i1 %cmp30, i64 562949953421312, i64 -1
-  %11 = getelementptr inbounds i8, ptr %footer, i64 16
-  store i64 %.sink31, ptr %11, align 8
-  %call37 = call i64 @time(ptr noundef null) #15
-  %12 = trunc i64 %call37 to i32
-  %conv = add i32 %12, -946684800
-  %13 = call noundef i32 @llvm.bswap.i32(i32 %conv)
+  %.sink51 = select i1 %cmp30, i64 562949953421312, i64 -1
+  %8 = getelementptr inbounds i8, ptr %footer, i64 16
+  store i64 %.sink51, ptr %8, align 8
+  %call37 = tail call i64 @time(ptr noundef null) #15
+  %9 = trunc i64 %call37 to i32
+  %conv = add i32 %9, -946684800
+  %10 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   %timestamp = getelementptr inbounds i8, ptr %footer, i64 24
-  store i32 %13, ptr %timestamp, align 8
+  store i32 %10, ptr %timestamp, align 8
   %major = getelementptr inbounds i8, ptr %footer, i64 32
   store i16 1280, ptr %major, align 8
   %minor = getelementptr inbounds i8, ptr %footer, i64 34
   store i16 768, ptr %minor, align 2
-  %14 = call noundef i64 @llvm.bswap.i64(i64 %1)
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
   %orig_size = getelementptr inbounds i8, ptr %footer, i64 40
-  store i64 %14, ptr %orig_size, align 8
+  store i64 %11, ptr %orig_size, align 8
   %current_size = getelementptr inbounds i8, ptr %footer, i64 48
-  store i64 %14, ptr %current_size, align 8
-  %15 = load i16, ptr %cyls, align 2
-  %16 = call noundef i16 @llvm.bswap.i16(i16 %15)
+  store i64 %11, ptr %current_size, align 8
+  %12 = tail call noundef i16 @llvm.bswap.i16(i16 %cyls.1.i)
   %cyls44 = getelementptr inbounds i8, ptr %footer, i64 56
-  store i16 %16, ptr %cyls44, align 8
-  %17 = load i8, ptr %heads, align 1
+  store i16 %12, ptr %cyls44, align 8
   %heads45 = getelementptr inbounds i8, ptr %footer, i64 58
-  store i8 %17, ptr %heads45, align 2
-  %18 = load i8, ptr %secs_per_cyl, align 1
+  store i8 %heads.3.i, ptr %heads45, align 2
   %secs_per_cyl46 = getelementptr inbounds i8, ptr %footer, i64 59
-  store i8 %18, ptr %secs_per_cyl46, align 1
+  store i8 %secs_per_cyl.3.i, ptr %secs_per_cyl46, align 1
   %type = getelementptr inbounds i8, ptr %footer, i64 60
   store i32 %disk_type.0, ptr %type, align 4
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid) #15
   %uuid48 = getelementptr inbounds i8, ptr %footer, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid48, ptr noundef nonnull align 4 dereferenceable(16) %uuid, i64 16, i1 false)
-  br label %for.body.i
+  br label %for.body.i28
 
-for.body.i:                                       ; preds = %for.body.i, %if.end19
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 0, %if.end19 ]
-  %res.05.i = phi i32 [ %add.i, %for.body.i ], [ 0, %if.end19 ]
+for.body.i28:                                     ; preds = %for.body.i28, %if.end19
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i28 ], [ 0, %if.end19 ]
+  %res.05.i = phi i32 [ %add.i31, %for.body.i28 ], [ 0, %if.end19 ]
   %arrayidx.i = getelementptr i8, ptr %footer, i64 %indvars.iv
-  %19 = load i8, ptr %arrayidx.i, align 1
-  %conv2.i = zext i8 %19 to i32
-  %add.i = add i32 %res.05.i, %conv2.i
+  %13 = load i8, ptr %arrayidx.i, align 1
+  %conv2.i30 = zext i8 %13 to i32
+  %add.i31 = add i32 %res.05.i, %conv2.i30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %vpc_checksum.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not, label %vpc_checksum.exit, label %for.body.i28, !llvm.loop !5
 
-vpc_checksum.exit:                                ; preds = %for.body.i
-  %20 = xor i32 %add.i, -1
-  %21 = call noundef i32 @llvm.bswap.i32(i32 %20)
+vpc_checksum.exit:                                ; preds = %for.body.i28
+  %14 = xor i32 %add.i31, -1
+  %15 = call noundef i32 @llvm.bswap.i32(i32 %14)
   %checksum = getelementptr inbounds i8, ptr %footer, i64 64
-  store i32 %21, ptr %checksum, align 8
+  store i32 %15, ptr %checksum, align 8
   br i1 %cmp30, label %if.then53, label %if.else59
 
 if.then53:                                        ; preds = %vpc_checksum.exit
-  %call54 = call i32 @create_dynamic_disk(ptr noundef nonnull %call8, ptr noundef nonnull %footer, i64 noundef %6)
+  %call54 = call i32 @create_dynamic_disk(ptr noundef nonnull %call8, ptr noundef nonnull %footer, i64 noundef %total_sectors.0.ph)
   %cmp55 = icmp slt i32 %call54, 0
   br i1 %cmp55, label %if.then57, label %out
 
@@ -731,23 +803,23 @@ if.then57:                                        ; preds = %if.then53
   br label %out
 
 if.else59:                                        ; preds = %vpc_checksum.exit
-  %add.i28 = add i64 %1, 512
-  %call.i = call i32 @blk_co_truncate(ptr noundef nonnull %call8, i64 noundef %add.i28, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef %errp) #15
-  %cmp.i29 = icmp slt i32 %call.i, 0
-  br i1 %cmp.i29, label %out, label %if.end.i
+  %add.i34 = add i64 %1, 512
+  %call.i = call i32 @blk_co_truncate(ptr noundef nonnull %call8, i64 noundef %add.i34, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef %errp) #15
+  %cmp.i35 = icmp slt i32 %call.i, 0
+  br i1 %cmp.i35, label %out, label %if.end.i36
 
-if.end.i:                                         ; preds = %if.else59
+if.end.i36:                                       ; preds = %if.else59
   %call1.i = call i32 @blk_co_pwrite(ptr noundef nonnull %call8, i64 noundef %1, i64 noundef 512, ptr noundef nonnull %footer, i32 noundef 0) #15
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %out
 
-if.then3.i:                                       ; preds = %if.end.i
+if.then3.i:                                       ; preds = %if.end.i36
   %sub4.i = sub i32 0, %call1.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 909, ptr noundef nonnull @__func__.create_fixed_disk, i32 noundef %sub4.i, ptr noundef nonnull @.str.48) #15
   br label %out
 
-out:                                              ; preds = %if.then3.i, %if.end.i, %if.else59, %if.end7, %if.then57, %if.then53, %if.end11, %if.then17
-  %ret.0 = phi i32 [ %call12, %if.end11 ], [ -22, %if.then17 ], [ %call54, %if.then57 ], [ %call54, %if.then53 ], [ -1, %if.end7 ], [ %call1.i, %if.then3.i ], [ %call.i, %if.else59 ], [ 0, %if.end.i ]
+out:                                              ; preds = %if.then3.i, %if.end.i36, %if.else59, %calculate_rounded_image_size.exit, %if.end7, %if.then57, %if.then53, %if.then17
+  %ret.0 = phi i32 [ -27, %calculate_rounded_image_size.exit ], [ -22, %if.then17 ], [ %call54, %if.then57 ], [ %call54, %if.then53 ], [ -1, %if.end7 ], [ %call1.i, %if.then3.i ], [ %call.i, %if.else59 ], [ 0, %if.end.i36 ]
   call void @blk_co_unref(ptr noundef %call8) #15
   call void @bdrv_co_unref(ptr noundef nonnull %call) #15
   br label %return
@@ -761,7 +833,6 @@ return:                                           ; preds = %sw.epilog, %out
 define internal i32 @vpc_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
-  %total_sectors = alloca i64, align 8
   store ptr null, ptr %create_options, align 8
   %call = tail call ptr @qemu_opts_to_qdict_filtered(ptr noundef %opts, ptr noundef null, ptr noundef nonnull @vpc_create_opts, i1 noundef zeroext true) #15
   %call1 = tail call zeroext i1 @qdict_rename_keys(ptr noundef %call, ptr noundef nonnull @vpc_co_create_opts.opt_renames, ptr noundef %errp) #15
@@ -809,50 +880,122 @@ if.end18:                                         ; preds = %if.end15
   store i64 %and, ptr %size, align 8
   %force_size = getelementptr i8, ptr %0, i64 33
   %3 = load i8, ptr %force_size, align 1
-  %4 = and i8 %3, 1
-  %tobool22.not = icmp eq i8 %4, 0
-  br i1 %tobool22.not, label %if.then23, label %if.end18.if.end31_crit_edge
+  %tobool22 = trunc i8 %3 to i1
+  br i1 %tobool22, label %if.end18.if.end31_crit_edge, label %if.else.i
 
 if.end18.if.end31_crit_edge:                      ; preds = %if.end18
   %.pre = load ptr, ptr %create_options, align 8
   br label %if.end31
 
-if.then23:                                        ; preds = %if.end18
-  %call25 = call fastcc i32 @calculate_rounded_image_size(i64 %and, i8 %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %total_sectors, ptr noundef %errp)
-  %cmp26 = icmp slt i32 %call25, 0
-  br i1 %cmp26, label %fail, label %if.end28
+if.else.i:                                        ; preds = %if.end18
+  %div10.i = lshr i64 %sub, 9
+  %cond.i = call i64 @llvm.umin.i64(i64 %div10.i, i64 267382800)
+  %cmp410.not.i = icmp eq i64 %and, 0
+  br i1 %cmp410.not.i, label %if.end28, label %for.body.i
 
-if.end28:                                         ; preds = %if.then23
-  %5 = load i64, ptr %total_sectors, align 8
-  %mul = shl i64 %5, 9
-  %6 = load ptr, ptr %create_options, align 8
-  %size30 = getelementptr inbounds i8, ptr %6, i64 16
+for.body.i:                                       ; preds = %if.else.i, %calculate_geometry.exit.i
+  %i.011.i = phi i32 [ %inc.i, %calculate_geometry.exit.i ], [ 0, %if.else.i ]
+  %conv6.i = sext i32 %i.011.i to i64
+  %add.i = add nsw i64 %cond.i, %conv6.i
+  %cond.i.i = call i64 @llvm.smin.i64(i64 %add.i, i64 267382800)
+  %cmp1.i.i = icmp sgt i64 %add.i, 66059279
+  br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
+
+if.then.i.i:                                      ; preds = %for.body.i
+  %div.i.i = udiv i64 %cond.i.i, 255
+  %conv2.i.i = trunc i64 %div.i.i to i32
+  br label %calculate_geometry.exit.i
+
+if.else.i.i:                                      ; preds = %for.body.i
+  %div4.i.i = sdiv i64 %cond.i.i, 17
+  %conv5.i.i = trunc i64 %div4.i.i to i32
+  %sub.i.i = add nsw i32 %conv5.i.i, 1023
+  %div627.i.i = lshr i32 %sub.i.i, 10
+  %conv7.i.i = trunc i32 %div627.i.i to i8
+  %4 = and i32 %sub.i.i, 258048
+  %cmp9.i.i = icmp eq i32 %4, 0
+  %spec.select.i.i = select i1 %cmp9.i.i, i8 4, i8 %conv7.i.i
+  %conv12.i.i = zext i8 %spec.select.i.i to i32
+  %mul.i.i = shl nuw nsw i32 %conv12.i.i, 10
+  %cmp13.not.i.i = icmp ule i32 %mul.i.i, %conv5.i.i
+  %cmp16.i.i = icmp ugt i8 %spec.select.i.i, 16
+  %or.cond.i.i = or i1 %cmp16.i.i, %cmp13.not.i.i
+  %div20.i.i = sdiv i64 %cond.i.i, 31
+  %conv21.i.i = trunc i64 %div20.i.i to i32
+  %heads.1.i = select i1 %or.cond.i.i, i8 16, i8 %spec.select.i.i
+  %secs_per_cyl.1.i = select i1 %or.cond.i.i, i64 31, i64 17
+  %cyls_times_heads.0.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
+  %conv23.i.i = zext nneg i8 %heads.1.i to i32
+  %mul24.i.i = shl nuw nsw i32 %conv23.i.i, 10
+  %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.0.i.i, %mul24.i.i
+  br i1 %cmp25.not.i.i, label %calculate_geometry.exit.i, label %if.then27.i.i
+
+if.then27.i.i:                                    ; preds = %if.else.i.i
+  %div29.i.i = sdiv i64 %cond.i.i, 63
+  %conv30.i.i = trunc i64 %div29.i.i to i32
+  br label %calculate_geometry.exit.i
+
+calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.else.i.i, %if.then.i.i
+  %heads.2.i = phi i8 [ 16, %if.then.i.i ], [ %heads.1.i, %if.else.i.i ], [ 16, %if.then27.i.i ]
+  %secs_per_cyl.2.i = phi i64 [ 255, %if.then.i.i ], [ %secs_per_cyl.1.i, %if.else.i.i ], [ 63, %if.then27.i.i ]
+  %cyls_times_heads.1.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.0.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
+  %conv33.i.i = zext nneg i8 %heads.2.i to i32
+  %div34.i.i = udiv i32 %cyls_times_heads.1.i.i, %conv33.i.i
+  %inc.i = add i32 %i.011.i, 1
+  %conv35.i.mask.i = and i32 %div34.i.i, 65535
+  %conv.i = zext nneg i32 %conv35.i.mask.i to i64
+  %conv1.i = zext nneg i8 %heads.2.i to i64
+  %mul.i = mul nuw nsw i64 %secs_per_cyl.2.i, %conv1.i
+  %mul3.i = mul nuw nsw i64 %mul.i, %conv.i
+  %cmp4.i = icmp ugt i64 %cond.i, %mul3.i
+  br i1 %cmp4.i, label %for.body.i, label %if.end.i, !llvm.loop !9
+
+if.end.i:                                         ; preds = %calculate_geometry.exit.i
+  %5 = mul nuw nsw i64 %conv1.i, %conv.i
+  %6 = mul nuw nsw i64 %5, %secs_per_cyl.2.i
+  %cmp12.i = icmp eq i64 %6, 267382800
+  br i1 %cmp12.i, label %if.then14.i, label %if.end28
+
+if.then14.i:                                      ; preds = %if.end.i
+  %div1511.i = lshr i64 %sub, 9
+  %cmp16.i = icmp ugt i64 %and, 2190433321471
+  br i1 %cmp16.i, label %calculate_rounded_image_size.exit, label %if.end28
+
+calculate_rounded_image_size.exit:                ; preds = %if.then14.i
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 955, ptr noundef nonnull @__func__.calculate_rounded_image_size, ptr noundef nonnull @.str.47) #15
+  br label %fail
+
+if.end28:                                         ; preds = %if.else.i, %if.then14.i, %if.end.i
+  %total_sectors.0.ph = phi i64 [ %6, %if.end.i ], [ %div1511.i, %if.then14.i ], [ 0, %if.else.i ]
+  %mul = shl nuw i64 %total_sectors.0.ph, 9
+  %7 = load ptr, ptr %create_options, align 8
+  %size30 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %mul, ptr %size30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end18.if.end31_crit_edge, %if.end28
-  %7 = phi ptr [ %.pre, %if.end18.if.end31_crit_edge ], [ %6, %if.end28 ]
-  %call32 = call i32 @vpc_co_create(ptr noundef %7, ptr noundef %errp)
+  %8 = phi ptr [ %.pre, %if.end18.if.end31_crit_edge ], [ %7, %if.end28 ]
+  %call32 = call i32 @vpc_co_create(ptr noundef %8, ptr noundef %errp)
   br label %fail
 
-fail:                                             ; preds = %if.end11, %if.end8, %if.end4, %entry, %if.then23, %if.end, %if.end31
-  %ret.0 = phi i32 [ %call2, %if.end ], [ %call32, %if.end31 ], [ %call25, %if.then23 ], [ -22, %entry ], [ -5, %if.end4 ], [ -22, %if.end8 ], [ -22, %if.end11 ]
-  %bs.0 = phi ptr [ null, %if.end ], [ %call5, %if.end31 ], [ %call5, %if.then23 ], [ null, %entry ], [ null, %if.end4 ], [ %call5, %if.end8 ], [ %call5, %if.end11 ]
+fail:                                             ; preds = %calculate_rounded_image_size.exit, %if.end11, %if.end8, %if.end4, %entry, %if.end, %if.end31
+  %ret.0 = phi i32 [ %call2, %if.end ], [ %call32, %if.end31 ], [ -27, %calculate_rounded_image_size.exit ], [ -22, %entry ], [ -5, %if.end4 ], [ -22, %if.end8 ], [ -22, %if.end11 ]
+  %bs.0 = phi ptr [ null, %if.end ], [ %call5, %if.end31 ], [ %call5, %calculate_rounded_image_size.exit ], [ null, %entry ], [ null, %if.end4 ], [ %call5, %if.end8 ], [ %call5, %if.end11 ]
   %tobool33.not = icmp eq ptr %call, null
   br i1 %tobool33.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %fail
   %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
-  %8 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i = icmp eq i64 %8, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
+  %9 = load i64, ptr %refcnt.i, align 8
+  %tobool1.not.i = icmp eq i64 %9, 0
+  br i1 %tobool1.not.i, label %if.else.i21, label %land.lhs.true.i
 
-if.else.i:                                        ; preds = %lor.lhs.false.i
+if.else.i21:                                      ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #17
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %dec.i = add i64 %8, -1
+  %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
@@ -863,8 +1006,8 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.true.i, %if.then5.i
   call void @bdrv_co_unref(ptr noundef %bs.0) #15
-  %9 = load ptr, ptr %create_options, align 8
-  call void @qapi_free_BlockdevCreateOptions(ptr noundef %9) #15
+  %10 = load ptr, ptr %create_options, align 8
+  call void @qapi_free_BlockdevCreateOptions(ptr noundef %10) #15
   ret i32 %ret.0
 }
 
@@ -1003,7 +1146,7 @@ if.end20:                                         ; preds = %get_image_offset.ex
   %add = add i64 %cond38, %offset.addr.043
   %add22 = add i64 %cond38, %bytes_done.040
   %cmp2 = icmp sgt i64 %sub21, 0
-  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !9
+  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !10
 
 fail:                                             ; preds = %get_image_offset.exit, %if.end20, %if.end
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end20 ], [ %call14, %get_image_offset.exit ]
@@ -1102,7 +1245,7 @@ if.then13:                                        ; preds = %while.body, %lor.lh
   %rem52 = srem i64 %offset.addr.060, %conv51
   %sub53 = sub nsw i64 %conv51, %rem52
   %cond54 = call i64 @llvm.smin.i64(i64 %bytes.addr.059, i64 %sub53)
-  %call14 = call i64 @alloc_block(ptr noundef %bs, i64 noundef %offset.addr.060), !range !10
+  %call14 = call i64 @alloc_block(ptr noundef %bs, i64 noundef %offset.addr.060), !range !11
   %cmp15 = icmp slt i64 %call14, 0
   br i1 %cmp15, label %if.then17, label %if.end20
 
@@ -1135,7 +1278,7 @@ if.end28:                                         ; preds = %if.end20
   %add = add i64 %cond47, %offset.addr.060
   %add30 = add i64 %cond47, %bytes_done.058
   %cmp2 = icmp sgt i64 %sub29, 0
-  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !11
+  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !12
 
 fail:                                             ; preds = %if.end20, %if.end28, %if.then23.i, %if.end, %if.then17
   %ret.3 = phi i32 [ %conv18, %if.then17 ], [ 0, %if.end ], [ %call23, %if.end20 ], [ 0, %if.end28 ], [ %call31.i, %if.then23.i ]
@@ -1363,119 +1506,6 @@ declare ptr @bdrv_co_open_blockdev_ref(ptr noundef, ptr noundef) #1
 declare ptr @blk_co_new_with_bs(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 declare void @blk_set_allow_write_beyond_eof(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @calculate_rounded_image_size(i64 %vpc_opts.8.val, i8 %vpc_opts.25.val, ptr noundef writeonly %out_cyls, ptr nocapture noundef writeonly %out_heads, ptr nocapture noundef writeonly %out_secs_per_cyl, ptr nocapture noundef writeonly %out_total_sectors, ptr noundef %errp) unnamed_addr #0 {
-entry:
-  %0 = and i8 %vpc_opts.25.val, 1
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.end
-
-if.else:                                          ; preds = %entry
-  %div10 = lshr i64 %vpc_opts.8.val, 9
-  %cond = tail call i64 @llvm.umin.i64(i64 %div10, i64 267382800)
-  %cmp410.not = icmp ult i64 %vpc_opts.8.val, 512
-  br i1 %cmp410.not, label %if.end, label %for.body
-
-for.body:                                         ; preds = %if.else, %calculate_geometry.exit
-  %i.011 = phi i32 [ %inc, %calculate_geometry.exit ], [ 0, %if.else ]
-  %conv6 = sext i32 %i.011 to i64
-  %add = add nsw i64 %cond, %conv6
-  %cond.i = tail call i64 @llvm.smin.i64(i64 %add, i64 267382800)
-  %cmp1.i = icmp sgt i64 %add, 66059279
-  br i1 %cmp1.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %for.body
-  %div.i = udiv i64 %cond.i, 255
-  %conv2.i = trunc i64 %div.i to i32
-  br label %calculate_geometry.exit
-
-if.else.i:                                        ; preds = %for.body
-  %div4.i = sdiv i64 %cond.i, 17
-  %conv5.i = trunc i64 %div4.i to i32
-  %sub.i = add nsw i32 %conv5.i, 1023
-  %div627.i = lshr i32 %sub.i, 10
-  %conv7.i = trunc i32 %div627.i to i8
-  %1 = and i32 %sub.i, 258048
-  %cmp9.i = icmp eq i32 %1, 0
-  %spec.select.i = select i1 %cmp9.i, i8 4, i8 %conv7.i
-  %conv12.i = zext i8 %spec.select.i to i32
-  %mul.i = shl nuw nsw i32 %conv12.i, 10
-  %cmp13.not.i = icmp ule i32 %mul.i, %conv5.i
-  %cmp16.i = icmp ugt i8 %spec.select.i, 16
-  %or.cond.i = or i1 %cmp16.i, %cmp13.not.i
-  %div20.i = sdiv i64 %cond.i, 31
-  %conv21.i = trunc i64 %div20.i to i32
-  %heads.1 = select i1 %or.cond.i, i8 16, i8 %spec.select.i
-  %secs_per_cyl.1 = select i1 %or.cond.i, i8 31, i8 17
-  %cyls_times_heads.0.i = select i1 %or.cond.i, i32 %conv21.i, i32 %conv5.i
-  %conv23.i = zext nneg i8 %heads.1 to i32
-  %mul24.i = shl nuw nsw i32 %conv23.i, 10
-  %cmp25.not.i = icmp ult i32 %cyls_times_heads.0.i, %mul24.i
-  br i1 %cmp25.not.i, label %calculate_geometry.exit, label %if.then27.i
-
-if.then27.i:                                      ; preds = %if.else.i
-  %div29.i = sdiv i64 %cond.i, 63
-  %conv30.i = trunc i64 %div29.i to i32
-  br label %calculate_geometry.exit
-
-calculate_geometry.exit:                          ; preds = %if.then.i, %if.else.i, %if.then27.i
-  %heads.2 = phi i8 [ 16, %if.then.i ], [ %heads.1, %if.else.i ], [ 16, %if.then27.i ]
-  %secs_per_cyl.2 = phi i8 [ -1, %if.then.i ], [ %secs_per_cyl.1, %if.else.i ], [ 63, %if.then27.i ]
-  %cyls_times_heads.1.i = phi i32 [ %conv2.i, %if.then.i ], [ %cyls_times_heads.0.i, %if.else.i ], [ %conv30.i, %if.then27.i ]
-  %conv33.i = zext nneg i8 %heads.2 to i32
-  %div34.i = udiv i32 %cyls_times_heads.1.i, %conv33.i
-  %inc = add i32 %i.011, 1
-  %conv35.i.mask = and i32 %div34.i, 65535
-  %conv = zext nneg i32 %conv35.i.mask to i64
-  %conv1 = zext nneg i8 %heads.2 to i64
-  %mul = mul nuw nsw i64 %conv1, %conv
-  %conv2 = zext i8 %secs_per_cyl.2 to i64
-  %mul3 = mul nuw nsw i64 %mul, %conv2
-  %cmp4 = icmp ugt i64 %cond, %mul3
-  br i1 %cmp4, label %for.body, label %if.end.loopexit, !llvm.loop !12
-
-if.end.loopexit:                                  ; preds = %calculate_geometry.exit
-  %conv35.i = trunc i32 %div34.i to i16
-  br label %if.end
-
-if.end:                                           ; preds = %if.end.loopexit, %if.else, %entry
-  %cyls.1 = phi i16 [ -1, %entry ], [ 0, %if.else ], [ %conv35.i, %if.end.loopexit ]
-  %heads.3 = phi i8 [ 16, %entry ], [ 0, %if.else ], [ %heads.2, %if.end.loopexit ]
-  %secs_per_cyl.3 = phi i8 [ -1, %entry ], [ 0, %if.else ], [ %secs_per_cyl.2, %if.end.loopexit ]
-  %conv7 = zext i16 %cyls.1 to i64
-  %conv8 = zext nneg i8 %heads.3 to i64
-  %mul9 = mul nuw nsw i64 %conv8, %conv7
-  %conv10 = zext i8 %secs_per_cyl.3 to i64
-  %mul11 = mul nuw nsw i64 %mul9, %conv10
-  %cmp12 = icmp eq i64 %mul11, 267382800
-  br i1 %cmp12, label %if.then14, label %if.end26
-
-if.then14:                                        ; preds = %if.end
-  %div1511 = lshr i64 %vpc_opts.8.val, 9
-  %cmp16 = icmp ugt i64 %vpc_opts.8.val, 2190433321471
-  br i1 %cmp16, label %if.then18, label %if.end26
-
-if.then18:                                        ; preds = %if.then14
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 955, ptr noundef nonnull @__func__.calculate_rounded_image_size, ptr noundef nonnull @.str.47) #15
-  br label %return
-
-if.end26:                                         ; preds = %if.end, %if.then14
-  %total_sectors.0 = phi i64 [ %div1511, %if.then14 ], [ %mul11, %if.end ]
-  store i64 %total_sectors.0, ptr %out_total_sectors, align 8
-  %tobool27.not = icmp eq ptr %out_cyls, null
-  br i1 %tobool27.not, label %return, label %if.then28
-
-if.then28:                                        ; preds = %if.end26
-  store i16 %cyls.1, ptr %out_cyls, align 2
-  store i8 %heads.3, ptr %out_heads, align 1
-  store i8 %secs_per_cyl.3, ptr %out_secs_per_cyl, align 1
-  br label %return
-
-return:                                           ; preds = %if.end26, %if.then28, %if.then18
-  %retval.0 = phi i32 [ -27, %if.then18 ], [ 0, %if.then28 ], [ 0, %if.end26 ]
-  ret i32 %retval.0
-}
 
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1929,7 +1959,7 @@ attributes #18 = { nounwind allocsize(0) }
 !7 = !{i64 0, i64 65}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 -2147483648, i64 2207613189118}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}
+!11 = !{i64 -2147483648, i64 2207613189118}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}

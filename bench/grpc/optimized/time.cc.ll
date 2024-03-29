@@ -113,40 +113,37 @@ entry:
   %cached_time_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.then, label %if.end
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %previous_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %previous_.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %previous_.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %4 = load ptr, ptr %previous_.i, align 8
-  %vtable4 = load ptr, ptr %4, align 8
-  %5 = load ptr, ptr %vtable4, align 8
-  %call6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %6 = load i8, ptr %_M_engaged.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.i.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %_ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %3 = load ptr, ptr %previous_.i, align 8
+  %vtable4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %vtable4, align 8
+  %call6 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i3 = trunc i8 %5 to i1
+  br i1 %tobool.i.i3, label %_ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 _ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %if.then, %if.else.i
-  %8 = phi i8 [ %6, %if.then ], [ 1, %if.else.i ]
+  %6 = phi i8 [ %5, %if.then ], [ 1, %if.else.i ]
   store i64 %call6, ptr %cached_time_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, %entry
-  %9 = phi i8 [ %8, %_ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ], [ %0, %entry ]
-  %10 = and i8 %9, 1
-  %tobool.i.not.i4 = icmp eq i8 %10, 0
-  br i1 %tobool.i.not.i4, label %if.end.i, label %_ZNRSt8optionalIN9grpc_core9TimestampEE5valueEv.exit
+  %7 = phi i8 [ %6, %_ZNSt8optionalIN9grpc_core9TimestampEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ], [ %0, %entry ]
+  %tobool.i.i5 = trunc i8 %7 to i1
+  br i1 %tobool.i.i5, label %_ZNRSt8optionalIN9grpc_core9TimestampEE5valueEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   tail call void @_ZSt27__throw_bad_optional_accessv() #17
@@ -972,9 +969,8 @@ define linkonce_odr void @_ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv(ptr 
 entry:
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIN9grpc_core9TimestampEEaSESt9nullopt_t.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIN9grpc_core9TimestampEEaSESt9nullopt_t.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -982,11 +978,11 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8optionalIN9grpc_core9TimestampEEaSESt9nullopt_t.exit: ; preds = %entry, %if.then.i.i.i
   %previous_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %previous_.i, align 8
-  %vtable.i = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %previous_.i, align 8
+  %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %2 = load ptr, ptr %vfn.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 

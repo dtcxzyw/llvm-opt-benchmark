@@ -32,9 +32,8 @@ do.body:                                          ; preds = %do.body.preheader, 
   %indvars.iv = phi i64 [ 0, %do.body.preheader ], [ %indvars.iv.next, %do.cond ]
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !4
   %1 = load atomic i8, ptr %locked monotonic, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %land.lhs.true, label %do.cond
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %do.cond, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
   %call.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i) #7
@@ -43,35 +42,35 @@ land.lhs.true:                                    ; preds = %do.body
 
 if.then2:                                         ; preds = %land.lhs.true
   %n_spin_acquired = getelementptr inbounds i8, ptr %mutex, i64 24
-  %3 = load i64, ptr %n_spin_acquired, align 8
-  %inc = add i64 %3, 1
+  %2 = load i64, ptr %n_spin_acquired, align 8
+  %inc = add i64 %2, 1
   store i64 %inc, ptr %n_spin_acquired, align 8
   br label %if.end30
 
 do.cond:                                          ; preds = %do.body, %land.lhs.true
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %4 = load i64, ptr @opt_mutex_max_spin, align 8
-  %cmp5 = icmp sgt i64 %4, %indvars.iv
-  %cmp7 = icmp eq i64 %4, -1
-  %5 = or i1 %cmp5, %cmp7
-  br i1 %5, label %do.body, label %label_spin_done, !llvm.loop !5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %3 = load i64, ptr @opt_mutex_max_spin, align 8
+  %cmp5 = icmp sgt i64 %3, %indvars.iv
+  %cmp7 = icmp eq i64 %3, -1
+  %4 = or i1 %cmp5, %cmp7
+  br i1 %4, label %do.body, label %label_spin_done, !llvm.loop !5
 
 label_spin_done:                                  ; preds = %do.cond, %entry
   call void @nstime_init_update(ptr noundef nonnull %before) #7
   call void @nstime_copy(ptr noundef nonnull %after, ptr noundef nonnull %before) #7
   %n_waiting_thds = getelementptr inbounds i8, ptr %mutex, i64 36
-  %6 = atomicrmw add ptr %n_waiting_thds, i32 1 monotonic, align 4
-  %add = add i32 %6, 1
+  %5 = atomicrmw add ptr %n_waiting_thds, i32 1 monotonic, align 4
+  %add = add i32 %5, 1
   %lock.i28 = getelementptr inbounds i8, ptr %mutex, i64 72
   %call.i29 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i28) #7
   %cmp.i30.not = icmp eq i32 %call.i29, 0
   br i1 %cmp.i30.not, label %monotonic.i58, label %if.end16
 
 monotonic.i58:                                    ; preds = %label_spin_done
-  %7 = atomicrmw sub ptr %n_waiting_thds, i32 1 monotonic, align 4
+  %6 = atomicrmw sub ptr %n_waiting_thds, i32 1 monotonic, align 4
   %n_spin_acquired14 = getelementptr inbounds i8, ptr %mutex, i64 24
-  %8 = load i64, ptr %n_spin_acquired14, align 8
-  %inc15 = add i64 %8, 1
+  %7 = load i64, ptr %n_spin_acquired14, align 8
+  %inc15 = add i64 %7, 1
   store i64 %inc15, ptr %n_spin_acquired14, align 8
   br label %if.end30
 
@@ -79,14 +78,14 @@ if.end16:                                         ; preds = %label_spin_done
   %call.i32 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i28) #7
   %locked.i = getelementptr inbounds i8, ptr %mutex, i64 64
   store atomic i8 1, ptr %locked.i monotonic, align 1
-  %9 = atomicrmw sub ptr %n_waiting_thds, i32 1 monotonic, align 4
-  %10 = load ptr, ptr @nstime_update, align 8
-  call void %10(ptr noundef nonnull %after) #7
+  %8 = atomicrmw sub ptr %n_waiting_thds, i32 1 monotonic, align 4
+  %9 = load ptr, ptr @nstime_update, align 8
+  call void %9(ptr noundef nonnull %after) #7
   call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef nonnull %after) #7
   call void @nstime_subtract(ptr noundef nonnull %delta, ptr noundef nonnull %before) #7
   %n_wait_times = getelementptr inbounds i8, ptr %mutex, i64 16
-  %11 = load i64, ptr %n_wait_times, align 8
-  %inc19 = add i64 %11, 1
+  %10 = load i64, ptr %n_wait_times, align 8
+  %inc19 = add i64 %10, 1
   store i64 %inc19, ptr %n_wait_times, align 8
   call void @nstime_add(ptr noundef %mutex, ptr noundef nonnull %delta) #7
   %max_wait_time = getelementptr inbounds i8, ptr %mutex, i64 8
@@ -100,8 +99,8 @@ if.then23:                                        ; preds = %if.end16
 
 if.end25:                                         ; preds = %if.then23, %if.end16
   %max_n_thds = getelementptr inbounds i8, ptr %mutex, i64 32
-  %12 = load i32, ptr %max_n_thds, align 8
-  %cmp26 = icmp ugt i32 %add, %12
+  %11 = load i32, ptr %max_n_thds, align 8
+  %cmp26 = icmp ugt i32 %add, %11
   br i1 %cmp26, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %if.end25
@@ -250,9 +249,8 @@ malloc_mutex_init.exit:                           ; preds = %entry
 if.then:                                          ; preds = %malloc_mutex_init.exit.thread, %malloc_mutex_init.exit
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str) #7
   %0 = load i8, ptr @opt_abort, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end2, label %if.then1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.then
   call void @abort() #8

@@ -367,9 +367,8 @@ lpad36:                                           ; preds = %invoke.cont42, %cal
 if.end38:                                         ; preds = %if.then35, %invoke.cont32
   %using_validation_error_collector_ = getelementptr inbounds i8, ptr %this, i64 32
   %22 = load i8, ptr %using_validation_error_collector_, align 8
-  %23 = and i8 %22, 1
-  %tobool.not = icmp eq i8 %23, 0
-  br i1 %tobool.not, label %if.end41, label %if.then39
+  %tobool = trunc i8 %22 to i1
+  br i1 %tobool, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end38
   %source_locations_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -378,28 +377,28 @@ if.then39:                                        ; preds = %if.end38
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then39, %if.end38
-  %24 = getelementptr inbounds i8, ptr %output, i64 16
-  %25 = load i32, ptr %24, align 4
-  %or.i = or i32 %25, 1
-  store i32 %or.i, ptr %24, align 4
+  %23 = getelementptr inbounds i8, ptr %output, i64 16
+  %24 = load i32, ptr %23, align 4
+  %or.i = or i32 %24, 1
+  store i32 %or.i, ptr %23, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %output, i64 8
-  %26 = load i64, ptr %_internal_metadata_.i, align 8
-  %and.i.i = and i64 %26, 1
+  %25 = load i64, ptr %_internal_metadata_.i, align 8
+  %and.i.i = and i64 %25, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end41
-  %and.i1.i = and i64 %26, -2
-  %27 = inttoptr i64 %and.i1.i to ptr
-  %28 = load ptr, ptr %27, align 8
+  %and.i1.i = and i64 %25, -2
+  %26 = inttoptr i64 %and.i1.i to ptr
+  %27 = load ptr, ptr %26, align 8
   br label %call2.i.noexc
 
 if.else.i.i:                                      ; preds = %if.end41
-  %29 = inttoptr i64 %26 to ptr
+  %28 = inttoptr i64 %25 to ptr
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %retval.i.0.i = phi ptr [ %28, %if.then.i.i ], [ %29, %if.else.i.i ]
+  %retval.i.0.i = phi ptr [ %27, %if.then.i.i ], [ %28, %if.else.i.i ]
   %name_.i = getelementptr inbounds i8, ptr %output, i64 176
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetIJEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef %retval.i.0.i)
           to label %invoke.cont42 unwind label %lpad36
@@ -409,10 +408,10 @@ invoke.cont42:                                    ; preds = %call2.i.noexc
           to label %invoke.cont43 unwind label %lpad36
 
 invoke.cont43:                                    ; preds = %invoke.cont42
-  %30 = load i8, ptr %had_errors_.i, align 8
-  %31 = and i8 %30, 1
-  %tobool.i.not = icmp eq i8 %31, 0
-  %32 = select i1 %call44, i1 %tobool.i.not, i1 false
+  %29 = load i8, ptr %had_errors_.i, align 8
+  %tobool.i = trunc i8 %29 to i1
+  %lnot = xor i1 %tobool.i, true
+  %30 = select i1 %call44, i1 %lnot, i1 false
   call void @_ZN6google8protobuf8compiler6ParserD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %parser) #25
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer) #25
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 0, i32 0, i64 2), ptr %file_error_collector, align 8
@@ -420,8 +419,8 @@ invoke.cont43:                                    ; preds = %invoke.cont42
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %file_error_collector) #25
   %vtable.i.i = load ptr, ptr %call2, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %33 = load ptr, ptr %vfn.i.i, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %call2) #25
+  %31 = load ptr, ptr %vfn.i.i, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %call2) #25
   br label %_ZNSt10unique_ptrIN6google8protobuf2io19ZeroCopyInputStreamESt14default_deleteIS3_EED2Ev.exit
 
 ehcleanup:                                        ; preds = %lpad36, %lpad31
@@ -436,7 +435,7 @@ ehcleanup47:                                      ; preds = %ehcleanup, %lpad29
   br label %_ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i16
 
 _ZNSt10unique_ptrIN6google8protobuf2io19ZeroCopyInputStreamESt14default_deleteIS3_EED2Ev.exit: ; preds = %land.lhs.true, %invoke.cont23, %if.end, %invoke.cont43
-  %retval.024 = phi i1 [ %32, %invoke.cont43 ], [ false, %if.end ], [ false, %invoke.cont23 ], [ true, %land.lhs.true ]
+  %retval.024 = phi i1 [ %30, %invoke.cont43 ], [ false, %if.end ], [ false, %invoke.cont23 ], [ true, %land.lhs.true ]
   ret i1 %retval.024
 
 _ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i16: ; preds = %ehcleanup47, %lpad.i
@@ -444,8 +443,8 @@ _ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %file_error_collector) #25
   %vtable.i.i17 = load ptr, ptr %call2, align 8
   %vfn.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i17, i64 8
-  %34 = load ptr, ptr %vfn.i.i18, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %call2) #25
+  %32 = load ptr, ptr %vfn.i.i18, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %call2) #25
   br label %_ZNSt10unique_ptrIN6google8protobuf2io19ZeroCopyInputStreamESt14default_deleteIS3_EED2Ev.exit19
 
 _ZNSt10unique_ptrIN6google8protobuf2io19ZeroCopyInputStreamESt14default_deleteIS3_EED2Ev.exit19: ; preds = %lpad22, %_ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i16
@@ -1433,7 +1432,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %invoke.cont
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %mappings_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64

@@ -222,13 +222,11 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
   %43 = load ptr, ptr @slurmdbd_conf, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load i16, ptr %44, align 8
-  %.not13 = icmp eq i16 %45, 0
-  %not..not13 = xor i1 %.not13, true
+  %.not13 = icmp ne i16 %45, 0
   br label %46
 
 46:                                               ; preds = %42, %38
-  %.not15 = phi i1 [ true, %38 ], [ %.not13, %42 ]
-  %.0 = phi i1 [ false, %38 ], [ %not..not13, %42 ]
+  %.0 = phi i1 [ false, %38 ], [ %.not13, %42 ]
   %47 = call i32 @pthread_mutex_lock(ptr noundef nonnull @registered_lock) #7
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %50, label %48
@@ -242,12 +240,12 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
 50:                                               ; preds = %46
   %51 = load ptr, ptr @registered_clusters, align 8
   %52 = call i32 @list_delete_ptr(ptr noundef %51, ptr noundef nonnull %0) #7
-  br i1 %.not15, label %53, label %57
+  br i1 %.0, label %62, label %53
 
 53:                                               ; preds = %50
   %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @registered_lock) #7
-  %.not16 = icmp eq i32 %54, 0
-  br i1 %.not16, label %57, label %55
+  %.not15 = icmp eq i32 %54, 0
+  br i1 %.not15, label %57, label %55
 
 55:                                               ; preds = %53
   %56 = tail call ptr @__errno_location() #6
@@ -255,32 +253,36 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 169, ptr noundef nonnull @__func__._connection_fini_callback) #8
   unreachable
 
-57:                                               ; preds = %53, %50
+57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @acct_storage_g_commit(ptr noundef %59, i1 noundef zeroext true) #7
   %61 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull %58) #7
-  br i1 %.0, label %62, label %68
+  br label %72
 
-62:                                               ; preds = %57
-  %63 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @registered_lock) #7
-  %.not17 = icmp eq i32 %63, 0
-  br i1 %.not17, label %68, label %64
+62:                                               ; preds = %50
+  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i32 @acct_storage_g_commit(ptr noundef %64, i1 noundef zeroext true) #7
+  %66 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull %63) #7
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @registered_lock) #7
+  %.not16 = icmp eq i32 %67, 0
+  br i1 %.not16, label %72, label %68
 
-64:                                               ; preds = %62
-  %65 = tail call ptr @__errno_location() #6
-  store i32 %63, ptr %65, align 4
+68:                                               ; preds = %62
+  %69 = tail call ptr @__errno_location() #6
+  store i32 %67, ptr %69, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__._connection_fini_callback) #8
   unreachable
 
 .critedge:                                        ; preds = %1
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
-  %67 = tail call i32 @acct_storage_g_close_connection(ptr noundef nonnull %66) #7
-  br label %68
+  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = tail call i32 @acct_storage_g_close_connection(ptr noundef nonnull %70) #7
+  br label %72
 
-68:                                               ; preds = %.critedge, %62, %57
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @slurm_xfree(ptr noundef nonnull %69) #7
+72:                                               ; preds = %57, %.critedge, %62
+  %73 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @slurm_xfree(ptr noundef nonnull %73) #7
   call void @slurm_xfree(ptr noundef nonnull %2) #7
   ret void
 }

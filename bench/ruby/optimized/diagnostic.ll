@@ -276,12 +276,12 @@ declare void @pm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @pm_diagnostic_list_append_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = zext i32 %3 to i64
   %7 = getelementptr [234 x %struct.pm_diagnostic_data_t], ptr @diagnostic_messages, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %5) #8
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %24, label %11
 
@@ -302,9 +302,9 @@ define hidden noundef zeroext i1 @pm_diagnostic_list_append_format(ptr noundef %
   br label %24
 
 20:                                               ; preds = %14
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %21 = call i32 @vsnprintf(ptr noundef nonnull %17, i64 noundef %16, ptr noundef %8, ptr noundef nonnull %5) #8
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %22 = getelementptr [234 x %struct.pm_diagnostic_data_t], ptr @diagnostic_messages, i64 0, i64 %6, i32 1
   %23 = load i8, ptr %22, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
@@ -325,45 +325,38 @@ define hidden noundef zeroext i1 @pm_diagnostic_list_append_format(ptr noundef %
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_diagnostic_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %.not8 = icmp eq ptr %3, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.not7 = icmp eq ptr %3, null
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %11
-  %.09 = phi ptr [ %4, %11 ], [ %3, %1 ]
-  %4 = load ptr, ptr %.09, align 8
-  %5 = getelementptr inbounds i8, ptr %.09, i64 32
+  %.08 = phi ptr [ %4, %11 ], [ %3, %1 ]
+  %4 = load ptr, ptr %.08, align 8
+  %5 = getelementptr inbounds i8, ptr %.08, i64 32
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not7 = icmp eq i8 %7, 0
-  br i1 %.not7, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.09, i64 24
+  %9 = getelementptr inbounds i8, ptr %.08, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #8
   br label %11
 
 11:                                               ; preds = %8, %.lr.ph
-  tail call void @free(ptr noundef nonnull %.09) #8
+  tail call void @free(ptr noundef nonnull %.08) #8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -371,13 +364,19 @@ define hidden void @pm_diagnostic_list_free(ptr nocapture noundef readonly %0) l
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind allocsize(0,1) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }

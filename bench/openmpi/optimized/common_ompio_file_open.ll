@@ -336,8 +336,8 @@ define noundef i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) local_unn
 .sink.split:                                      ; preds = %19, %25
   %.sink.in = getelementptr inbounds i8, ptr %0, i64 48
   %.sink = load ptr, ptr %.sink.in, align 8
-  %.sink53 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %.sink53, i64 25
+  %.sink52 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds i8, ptr %.sink52, i64 25
   %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %.sink, ptr noundef nonnull @.str.12, ptr noundef nonnull %29, ptr noundef nonnull @.str.16)
   br label %31
 
@@ -345,9 +345,8 @@ define noundef i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) local_unn
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i8, ptr @opal_uses_threads, align 1
-  %35 = and i8 %34, 1
-  %.not.i = icmp eq i8 %35, 0
-  br i1 %.not.i, label %39, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %31
   %37 = atomicrmw volatile add ptr %33, i32 -1 monotonic, align 4
@@ -380,8 +379,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %36, %39
   call void %49(ptr noundef nonnull %32) #12
   %50 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %51 = load ptr, ptr %50, align 8
-  %.not.i51 = icmp eq ptr %51, null
-  br i1 %.not.i51, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
+  %.not.i = icmp eq ptr %51, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8

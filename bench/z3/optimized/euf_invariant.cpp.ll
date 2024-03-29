@@ -199,22 +199,21 @@ entry:
   %0 = load ptr, ptr %m_solver.i, align 8
   %m_inconsistent.i = getelementptr inbounds i8, ptr %0, i64 3336
   %1 = load i8, ptr %m_inconsistent.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end, label %for.end
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 1832
-  %3 = load ptr, ptr %m_nodes.i, align 8
-  %cmp.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %m_nodes.i, align 8
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %for.end, label %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit
 
 _ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit:       ; preds = %if.end
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
-  %4 = load i32, ptr %arrayidx.i.i, align 4
-  %5 = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %3, i64 %5
-  %cmp.not13 = icmp eq i32 %4, 0
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i, align 4
+  %4 = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %4
+  %cmp.not13 = icmp eq i32 %3, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit
@@ -222,58 +221,58 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIPN3euf5
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.014 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %6 = load ptr, ptr %__begin1.014, align 8
-  %7 = load ptr, ptr %m, align 8
-  %m_root.i = getelementptr inbounds i8, ptr %6, i64 64
-  %8 = load ptr, ptr %m_root.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %m_false.i = getelementptr inbounds i8, ptr %7, i64 864
-  %10 = load ptr, ptr %m_false.i, align 8
-  %cmp.i = icmp eq ptr %10, %9
+  %__begin1.014 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %5 = load ptr, ptr %__begin1.014, align 8
+  %6 = load ptr, ptr %m, align 8
+  %m_root.i = getelementptr inbounds i8, ptr %5, i64 64
+  %7 = load ptr, ptr %m_root.i, align 8
+  %8 = load ptr, ptr %7, align 8
+  %m_false.i = getelementptr inbounds i8, ptr %6, i64 864
+  %9 = load ptr, ptr %m_false.i, align 8
+  %cmp.i = icmp eq ptr %9, %8
   br i1 %cmp.i, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %11 = load ptr, ptr %6, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %11, i64 4
+  %10 = load ptr, ptr %5, align 8
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %10, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i8 = icmp eq i32 %bf.clear.i.i.i, 0
   br i1 %cmp.i.i8, label %land.rhs.i.i, label %for.inc
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true
-  %m_decl.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
-  %12 = load ptr, ptr %m_decl.i.i.i, align 8
-  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %m_info.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %13, null
+  %m_decl.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %m_decl.i.i.i, align 8
+  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = load ptr, ptr %m_info.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %for.inc, label %_ZNK11ast_manager5is_eqEPK4expr.exit
 
 _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %land.rhs.i.i
-  %14 = load i32, ptr %13, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %14, 0
-  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
-  %15 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i = icmp eq i32 %15, 2
-  %16 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
-  br i1 %16, label %land.lhs.true12, label %for.inc
+  %13 = load i32, ptr %12, align 8
+  %cmp.i.i.i.i.i = icmp eq i32 %13, 0
+  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = load i32, ptr %m_kind.i.i.i.i.i, align 4
+  %cmp2.i.i.i.i.i = icmp eq i32 %14, 2
+  %15 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
+  br i1 %15, label %land.lhs.true12, label %for.inc
 
 land.lhs.true12:                                  ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit
-  %m_args.i = getelementptr inbounds i8, ptr %11, i64 32
-  %17 = load ptr, ptr %m_args.i, align 8
-  %call16 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef %17)
+  %m_args.i = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = load ptr, ptr %m_args.i, align 8
+  %call16 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %16)
   br i1 %call16, label %for.inc, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %land.lhs.true12
-  %m_args.i9 = getelementptr inbounds i8, ptr %6, i64 176
-  %18 = load ptr, ptr %m_args.i9, align 8
-  %m_root.i10 = getelementptr inbounds i8, ptr %18, i64 64
-  %19 = load ptr, ptr %m_root.i10, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 184
-  %20 = load ptr, ptr %arrayidx.i, align 8
-  %m_root.i12 = getelementptr inbounds i8, ptr %20, i64 64
-  %21 = load ptr, ptr %m_root.i12, align 8
-  %cmp22 = icmp eq ptr %19, %21
+  %m_args.i9 = getelementptr inbounds i8, ptr %5, i64 176
+  %17 = load ptr, ptr %m_args.i9, align 8
+  %m_root.i10 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = load ptr, ptr %m_root.i10, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 184
+  %19 = load ptr, ptr %arrayidx.i, align 8
+  %m_root.i12 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = load ptr, ptr %m_root.i12, align 8
+  %cmp22 = icmp eq ptr %18, %20
   br i1 %cmp22, label %if.then23, label %for.inc
 
 if.then23:                                        ; preds = %land.lhs.true17

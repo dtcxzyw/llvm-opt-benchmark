@@ -144,9 +144,8 @@ define i32 @pmix_register_params() local_unnamed_addr #0 {
   store i8 %28, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 27), align 8
   %29 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 27)) #3
   %30 = load i8, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 28), align 1
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %33, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
 32:                                               ; preds = %4
   store i8 1, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 27), align 8

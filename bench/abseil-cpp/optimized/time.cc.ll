@@ -176,15 +176,15 @@ _ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second
   store i32 %8, ptr %offset46, align 8
   %is_dst = getelementptr inbounds i8, ptr %al, i64 20
   %9 = load i8, ptr %is_dst, align 4
-  %10 = and i8 %9, 1
   %is_dst47 = getelementptr inbounds i8, ptr %agg.result, i64 52
-  store i8 %10, ptr %is_dst47, align 4
+  %frombool = and i8 %9, 1
+  store i8 %frombool, ptr %is_dst47, align 4
   %abbr = getelementptr inbounds i8, ptr %al, i64 24
-  %11 = load ptr, ptr %abbr, align 8
+  %10 = load ptr, ptr %abbr, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit, %if.then12, %if.then
-  %.sink = phi ptr [ %11, %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit ], [ @.str, %if.then12 ], [ @.str, %if.then ]
+  %.sink = phi ptr [ %10, %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit ], [ @.str, %if.then12 ], [ @.str, %if.then ]
   %zone_abbr = getelementptr inbounds i8, ptr %agg.result, i64 56
   store ptr %.sink, ptr %zone_abbr, align 8
   ret void
@@ -594,15 +594,15 @@ if.end11:                                         ; preds = %if.end
   store i32 %3, ptr %offset32, align 4
   %is_dst = getelementptr inbounds i8, ptr %al, i64 20
   %4 = load i8, ptr %is_dst, align 4
-  %5 = and i8 %4, 1
   %is_dst33 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store i8 %5, ptr %is_dst33, align 8
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %is_dst33, align 8
   %abbr = getelementptr inbounds i8, ptr %al, i64 24
-  %6 = load ptr, ptr %abbr, align 8
+  %5 = load ptr, ptr %abbr, align 8
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then10, %if.then
-  %.sink = phi ptr [ %6, %if.end11 ], [ @.str, %if.then10 ], [ @.str, %if.then ]
+  %.sink = phi ptr [ %5, %if.end11 ], [ @.str, %if.then10 ], [ @.str, %if.then ]
   %zone_abbr = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %.sink, ptr %zone_abbr, align 8
   ret void
@@ -1135,12 +1135,12 @@ if.end11.i:                                       ; preds = %if.end.i
   %ci.sroa.17.8.extract.trunc = trunc i64 %ci.sroa.17.8.extract.shift to i32
   %is_dst.i = getelementptr inbounds i8, ptr %al.i, i64 20
   %3 = load i8, ptr %is_dst.i, align 4, !noalias !34
-  %4 = and i8 %3, 1
-  %5 = zext nneg i8 %4 to i32
+  %frombool.i = and i8 %3, 1
+  %4 = zext nneg i8 %frombool.i to i32
   br label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
 
 _ZNK4absl8TimeZone2AtENS_4TimeE.exit:             ; preds = %if.end.i, %if.then.i, %if.end11.i
-  %ci.sroa.27.0 = phi i32 [ 0, %if.then.i ], [ %5, %if.end11.i ], [ 0, %if.end.i ]
+  %ci.sroa.27.0 = phi i32 [ 0, %if.then.i ], [ %4, %if.end11.i ], [ 0, %if.end.i ]
   %ci.sroa.17.0 = phi i32 [ %ci.sroa.17.8.extract.trunc53, %if.then.i ], [ %ci.sroa.17.8.extract.trunc, %if.end11.i ], [ 0, %if.end.i ]
   %ci.sroa.16.0 = phi i32 [ %ci.sroa.16.8.extract.trunc47, %if.then.i ], [ %ci.sroa.16.8.extract.trunc, %if.end11.i ], [ 0, %if.end.i ]
   %ci.sroa.15.0 = phi i32 [ %ci.sroa.15.8.extract.trunc41, %if.then.i ], [ %ci.sroa.15.8.extract.trunc, %if.end11.i ], [ 0, %if.end.i ]
@@ -1175,8 +1175,8 @@ if.else:                                          ; preds = %_ZNK4absl8TimeZone2
   br i1 %cmp13, label %if.end23, label %if.else18
 
 if.else18:                                        ; preds = %if.else
-  %6 = trunc i64 %ci.sroa.0.0 to i32
-  %conv21 = add nsw i32 %6, -1900
+  %5 = trunc i64 %ci.sroa.0.0 to i32
+  %conv21 = add nsw i32 %5, -1900
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, %if.else18
@@ -1200,22 +1200,22 @@ if.end23:                                         ; preds = %if.else, %_ZNK4absl
   %div4.zext.i.i = zext nneg i16 %div414.i.i to i64
   %add6.i.i = add nuw nsw i64 %add5.i.i, %div4.zext.i.i
   %arrayidx.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i
-  %7 = load i32, ptr %arrayidx.i.i, align 4
-  %add9.i.i = add nsw i32 %7, %conv.i12.i.i
+  %6 = load i32, ptr %arrayidx.i.i, align 4
+  %add9.i.i = add nsw i32 %6, %conv.i12.i.i
   %conv10.i.i = sext i32 %add9.i.i to i64
   %add11.i.i = add nsw i64 %add6.i.i, %conv10.i.i
   %rem12.i.i = srem i64 %add11.i.i, 7
   %add13.i.i = add nsw i64 %rem12.i.i, 6
   %arrayidx14.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
-  %8 = load i32, ptr %arrayidx14.i.i, align 4
-  %9 = sext i32 %8 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 0, i64 %9
+  %7 = load i32, ptr %arrayidx14.i.i, align 4
+  %8 = sext i32 %7 to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %tm_wday37 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %switch.load, ptr %tm_wday37, align 8
   %cmp.i.i15 = icmp sgt i8 %ci.sroa.8.0, 2
-  %10 = and i64 %ci.sroa.0.0, 3
-  %cmp.i.i.i16 = icmp eq i64 %10, 0
+  %9 = and i64 %ci.sroa.0.0, 3
+  %cmp.i.i.i16 = icmp eq i64 %9, 0
   %or.cond.i = and i1 %cmp.i.i.i16, %cmp.i.i15
   br i1 %or.cond.i, label %land.rhs.i.i.i, label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
 
@@ -1226,16 +1226,16 @@ land.rhs.i.i.i:                                   ; preds = %if.end23
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %cmp4.i.i.i = icmp eq i64 %rem.i.i, 0
-  %11 = zext i1 %cmp4.i.i.i to i32
+  %10 = zext i1 %cmp4.i.i.i to i32
   br label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
 
 _ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit: ; preds = %if.end23, %land.rhs.i.i.i, %lor.rhs.i.i.i
-  %conv.i.i = phi i32 [ 0, %if.end23 ], [ 1, %land.rhs.i.i.i ], [ %11, %lor.rhs.i.i.i ]
+  %conv.i.i = phi i32 [ 0, %if.end23 ], [ 1, %land.rhs.i.i.i ], [ %10, %lor.rhs.i.i.i ]
   %arrayidx.i.i19 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 0, i64 %idxprom.i.i
-  %12 = load i32, ptr %arrayidx.i.i19, align 4
+  %11 = load i32, ptr %arrayidx.i.i19, align 4
   %add.i.i20 = add nsw i32 %conv.i12.i.i, -1
   %add5.i.i21 = add nsw i32 %add.i.i20, %conv.i.i
-  %sub40 = add i32 %add5.i.i21, %12
+  %sub40 = add i32 %add5.i.i21, %11
   %tm_yday = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i32 %sub40, ptr %tm_yday, align 4
   %tm_isdst = getelementptr inbounds i8, ptr %agg.result, i64 32

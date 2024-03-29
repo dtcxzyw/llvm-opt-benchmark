@@ -3043,24 +3043,24 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fExponent.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fExponent2.i.i, i64 16, i1 false)
   %fStrong.i.i = getelementptr inbounds i8, ptr %other, i64 248
   %1 = load i8, ptr %fStrong.i.i, align 8
-  %2 = and i8 %1, 1
   %fStrong2.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  store i8 %2, ptr %fStrong2.i.i, align 8
+  %frombool.i.i = and i8 %1, 1
+  store i8 %frombool.i.i, ptr %fStrong2.i.i, align 8
   %fStrong.i5.i = getelementptr inbounds i8, ptr %other, i64 264
-  %3 = load i8, ptr %fStrong.i5.i, align 8
-  %4 = and i8 %3, 1
+  %2 = load i8, ptr %fStrong.i5.i, align 8
   %fStrong2.i6.i = getelementptr inbounds i8, ptr %this, i64 264
-  store i8 %4, ptr %fStrong2.i6.i, align 8
+  %frombool.i7.i = and i8 %2, 1
+  store i8 %frombool.i7.i, ptr %fStrong2.i6.i, align 8
   %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %fMultiplier2.i.i = getelementptr inbounds i8, ptr %other, i64 280
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i, ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier2.i.i)
   %fParent.i.i = getelementptr inbounds i8, ptr %other, i64 304
-  %5 = load ptr, ptr %fParent.i.i, align 8
+  %3 = load ptr, ptr %fParent.i.i, align 8
   %fParent4.i.i = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr %5, ptr %fParent4.i.i, align 8
+  store ptr %3, ptr %fParent4.i.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %fCompiledPattern2.i.i = getelementptr inbounds i8, ptr %other, i64 320
-  %call3.i7.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern2.i.i)
+  %call3.i8.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern2.i.i)
   %fField.i.i = getelementptr inbounds i8, ptr %this, i64 384
   %fField4.i.i = getelementptr inbounds i8, ptr %other, i64 384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fField.i.i, ptr noundef nonnull align 8 dereferenceable(32) %fField4.i.i, i64 32, i1 false)
@@ -3074,18 +3074,18 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %status.i = getelementptr inbounds i8, ptr %this, i64 472
-  %6 = load i32, ptr %status.i, align 8
-  %cmp.i.i.i = icmp slt i32 %6, 1
+  %4 = load i32, ptr %status.i, align 8
+  %cmp.i.i.i = icmp slt i32 %4, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
   %capacity.i.i = getelementptr inbounds i8, ptr %other, i64 448
-  %7 = load i32, ptr %capacity.i.i, align 8
-  %cmp.i3.i.i = icmp sgt i32 %7, 0
+  %5 = load i32, ptr %capacity.i.i, align 8
+  %cmp.i3.i.i = icmp sgt i32 %5, 0
   br i1 %cmp.i3.i.i, label %if.then.i.i.i, label %if.then3.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %conv.i4.i.i = zext nneg i32 %7 to i64
+  %conv.i4.i.i = zext nneg i32 %5 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i4.i.i, 3
   %call.i.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #11
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
@@ -3093,13 +3093,13 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 452
-  %8 = load i8, ptr %needToRelease.i.i.i.i, align 4
-  %tobool.not.i.i.i.i = icmp eq i8 %8, 0
+  %6 = load i8, ptr %needToRelease.i.i.i.i, align 4
+  %tobool.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i.i, label %do.body.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then3.i.i.i
-  %9 = load ptr, ptr %mixedMeasures, align 8
-  tail call void @uprv_free_75(ptr noundef %9)
+  %7 = load ptr, ptr %mixedMeasures, align 8
+  tail call void @uprv_free_75(ptr noundef %7)
   br label %do.body.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i.i, %if.end.i.i
@@ -3109,10 +3109,10 @@ if.then3.i.i:                                     ; preds = %if.then.i.i.i, %if.
 do.body.i.i:                                      ; preds = %if.then.i.i.i.i, %if.then3.i.i.i
   store ptr %call.i.i.i, ptr %mixedMeasures, align 8
   %capacity16.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
-  store i32 %7, ptr %capacity16.i.i.i, align 8
+  store i32 %5, ptr %capacity16.i.i.i, align 8
   store i8 1, ptr %needToRelease.i.i.i.i, align 4
-  %10 = load ptr, ptr %mixedMeasures9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i, ptr align 8 %10, i64 %mul.i.i.i, i1 false)
+  %8 = load ptr, ptr %mixedMeasures9, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i, ptr align 8 %8, i64 %mul.i.i.i, i1 false)
   br label %_ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit
 
 _ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit: ; preds = %entry, %if.end.i, %if.then3.i.i, %do.body.i.i

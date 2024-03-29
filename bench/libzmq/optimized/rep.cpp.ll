@@ -114,9 +114,8 @@ define noundef i32 @_ZN3zmq5rep_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
 entry:
   %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @__errno_location() #10
@@ -130,8 +129,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %2 = and i8 %call2, 1
-  %cmp.not = icmp eq i8 %2, 0
+  %1 = and i8 %call2, 1
+  %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end6
@@ -155,9 +154,8 @@ define noundef i32 @_ZN3zmq5rep_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
 entry:
   %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @__errno_location() #10
@@ -166,10 +164,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %_request_begins = getelementptr inbounds i8, ptr %this, i64 2181
-  %2 = load i8, ptr %_request_begins, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end39, label %while.body.preheader
+  %1 = load i8, ptr %_request_begins, align 1
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %while.body.preheader, label %if.end39
 
 while.body.preheader:                             ; preds = %if.end
   %call413 = tail call noundef i32 @_ZN3zmq8router_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2180) %this, ptr noundef %msg_)
@@ -178,8 +175,8 @@ while.body.preheader:                             ; preds = %if.end
 
 if.end6:                                          ; preds = %while.body.preheader, %if.end37
   %call7 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %4 = and i8 %call7, 1
-  %tobool8.not = icmp eq i8 %4, 0
+  %2 = and i8 %call7, 1
+  %tobool8.not = icmp eq i8 %2, 0
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
@@ -191,12 +188,12 @@ if.then9:                                         ; preds = %if.end6
 
 if.then15:                                        ; preds = %if.then9
   %call16 = tail call ptr @__errno_location() #10
-  %5 = load i32, ptr %call16, align 4
-  %call17 = tail call ptr @strerror(i32 noundef %5) #8
-  %6 = load ptr, ptr @stderr, align 8
-  %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef %call17, ptr noundef nonnull @.str.1, i32 noundef 64) #11
-  %7 = load ptr, ptr @stderr, align 8
-  %call19 = tail call i32 @fflush(ptr noundef %7)
+  %3 = load i32, ptr %call16, align 4
+  %call17 = tail call ptr @strerror(i32 noundef %3) #8
+  %4 = load ptr, ptr @stderr, align 8
+  %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call17, ptr noundef nonnull @.str.1, i32 noundef 64) #11
+  %5 = load ptr, ptr @stderr, align 8
+  %call19 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call17)
   br label %do.end
 
@@ -210,12 +207,12 @@ if.else:                                          ; preds = %if.end6
 
 if.then29:                                        ; preds = %if.else
   %call31 = tail call ptr @__errno_location() #10
-  %8 = load i32, ptr %call31, align 4
-  %call32 = tail call ptr @strerror(i32 noundef %8) #8
-  %9 = load ptr, ptr @stderr, align 8
-  %call33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef %call32, ptr noundef nonnull @.str.1, i32 noundef 72) #11
-  %10 = load ptr, ptr @stderr, align 8
-  %call34 = tail call i32 @fflush(ptr noundef %10)
+  %6 = load i32, ptr %call31, align 4
+  %call32 = tail call ptr @strerror(i32 noundef %6) #8
+  %7 = load ptr, ptr @stderr, align 8
+  %call33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %call32, ptr noundef nonnull @.str.1, i32 noundef 72) #11
+  %8 = load ptr, ptr @stderr, align 8
+  %call34 = tail call i32 @fflush(ptr noundef %8)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call32)
   br label %if.end37
 
@@ -235,8 +232,8 @@ if.end39:                                         ; preds = %while.end, %if.end
 
 if.end44:                                         ; preds = %if.end39
   %call45 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %11 = and i8 %call45, 1
-  %tobool48.not = icmp eq i8 %11, 0
+  %9 = and i8 %call45, 1
+  %tobool48.not = icmp eq i8 %9, 0
   br i1 %tobool48.not, label %if.then49, label %return
 
 if.then49:                                        ; preds = %if.end44
@@ -271,9 +268,8 @@ define noundef zeroext i1 @_ZN3zmq5rep_t7xhas_inEv(ptr noundef nonnull align 8 d
 entry:
   %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZN3zmq8router_t7xhas_inEv(ptr noundef nonnull align 8 dereferenceable(2180) %this)
@@ -291,9 +287,8 @@ define noundef zeroext i1 @_ZN3zmq5rep_t8xhas_outEv(ptr noundef nonnull align 8 
 entry:
   %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZN3zmq8router_t8xhas_outEv(ptr noundef nonnull align 8 dereferenceable(2180) %this)

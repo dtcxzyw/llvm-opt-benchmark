@@ -226,16 +226,15 @@ invoke.cont3:                                     ; preds = %.noexc, %_ZN7rocksd
   %strict_capacity_limit_ = getelementptr inbounds i8, ptr %this, i64 72
   %strict_capacity_limit = getelementptr inbounds i8, ptr %opts, i64 20
   %19 = load i8, ptr %strict_capacity_limit, align 4
-  %20 = and i8 %19, 1
-  store i8 %20, ptr %strict_capacity_limit_, align 8
+  %frombool = and i8 %19, 1
+  store i8 %frombool, ptr %strict_capacity_limit_, align 8
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 80
   %capacity = getelementptr inbounds i8, ptr %opts, i64 8
-  %21 = load i64, ptr %capacity, align 8
-  store i64 %21, ptr %capacity_, align 8
+  %20 = load i64, ptr %capacity, align 8
+  store i64 %20, ptr %capacity_, align 8
   %config_mutex_ = getelementptr inbounds i8, ptr %this, i64 88
-  %22 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %23 = and i8 %22, 1
-  %tobool4 = icmp ne i8 %23, 0
+  %21 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
+  %tobool4 = trunc i8 %21 to i1
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %config_mutex_, i1 noundef zeroext %tobool4)
           to label %invoke.cont5 unwind label %lpad2
 
@@ -243,12 +242,12 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad2:                                            ; preds = %if.else18.i, %invoke.cont3
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %lpad2.body
 
 lpad2.body:                                       ; preds = %lpad.i, %ehcleanup.i, %lpad2
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %lpad2 ], [ %.pn.i, %ehcleanup.i ], [ %11, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %lpad2 ], [ %.pn.i, %ehcleanup.i ], [ %11, %lpad.i ]
   call void @_ZN7rocksdb5CacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #16
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -462,8 +461,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %entry
-  %3 = and i8 %0, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

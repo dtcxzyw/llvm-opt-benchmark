@@ -295,11 +295,10 @@ entry:
 _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %entry
   %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 57
   %2 = load i8, ptr %strictLoopThread_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %cmp.i2.i = icmp eq i64 %1, 0
-  %spec.select.i = and i1 %cmp.i2.i, %tobool.not.i
-  br i1 %spec.select.i, label %cleanup.done, label %cond.false
+  %tobool.i = trunc i8 %2 to i1
+  %cmp.i2.i = icmp ne i64 %1, 0
+  %spec.select.i.not = or i1 %cmp.i2.i, %tobool.i
+  br i1 %spec.select.i.not, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 45)
@@ -315,32 +314,32 @@ cleanup.action:                                   ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #21
   unreachable
 
 cleanup.done:                                     ; preds = %entry, %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   %packedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load i64, ptr %packedBegin_.i.i.i, align 8
-  %and.i.i.i.i = and i64 %5, -16
+  %4 = load i64, ptr %packedBegin_.i.i.i, align 8
+  %and.i.i.i.i = and i64 %4, -16
   %cmp.i.i.i.not8 = icmp eq i64 %and.i.i.i.i, 0
   br i1 %cmp.i.i.i.not8, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %cleanup.done
-  %and.i2.i.i.i = and i64 %5, 15
-  %6 = inttoptr i64 %and.i.i.i.i to ptr
+  %and.i2.i.i.i = and i64 %4, 15
+  %5 = inttoptr i64 %and.i.i.i.i to ptr
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
   %__begin1.sroa.6.010 = phi i64 [ %and.i2.i.i.i, %for.body.preheader ], [ %__begin1.sroa.6.010.be, %for.body.backedge ]
-  %__begin1.sroa.0.09 = phi ptr [ %6, %for.body.preheader ], [ %__begin1.sroa.0.09.be, %for.body.backedge ]
+  %__begin1.sroa.0.09 = phi ptr [ %5, %for.body.preheader ], [ %__begin1.sroa.0.09.be, %for.body.backedge ]
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 8
-  %7 = load ptr, ptr %second, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %second, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %8 = load ptr, ptr %vfn, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(168) %7)
+  %7 = load ptr, ptr %vfn, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(168) %6)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 -16
   %mul.neg.i.i.i = mul i64 %__begin1.sroa.6.010, -16
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
@@ -355,38 +354,38 @@ while.cond.i.i:                                   ; preds = %while.body.i.i
   br i1 %cmp.i.not.i, label %for.cond.i.i.preheader, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body, %while.cond.i.i
-  %9 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.010, %for.body ]
+  %8 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.010, %for.body ]
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin1.sroa.0.09, %for.body ]
-  %dec.i.i = add i64 %9, -1
+  %dec.i.i = add i64 %8, -1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -16
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
-  %10 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.i.not14.i = icmp eq i8 %10, 0
+  %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %cmp.i.not14.i = icmp eq i8 %9, 0
   br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !4
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end15.i.i
   %c.i.0.i = phi ptr [ %incdec.ptr16.i.i, %if.end15.i.i ], [ %add.ptr1.i.i.i, %for.cond.i.i.preheader ]
   %control_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 14
-  %11 = load i8, ptr %control_.i.i.i, align 2
-  %12 = and i8 %11, 15
-  %cmp.i10.not.i = icmp eq i8 %12, 0
+  %10 = load i8, ptr %control_.i.i.i, align 2
+  %11 = and i8 %10, 15
+  %cmp.i10.not.i = icmp eq i8 %11, 0
   br i1 %cmp.i10.not.i, label %if.end15.i.i, label %for.end
 
 if.end15.i.i:                                     ; preds = %for.cond.i.i
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -256
-  %13 = load <16 x i8>, ptr %incdec.ptr16.i.i, align 16
-  %14 = icmp slt <16 x i8> %13, zeroinitializer
-  %15 = bitcast <16 x i1> %14 to i16
-  %16 = and i16 %15, 16383
+  %12 = load <16 x i8>, ptr %incdec.ptr16.i.i, align 16
+  %13 = icmp slt <16 x i8> %12, zeroinitializer
+  %14 = bitcast <16 x i1> %13 to i16
+  %15 = and i16 %14, 16383
   %add.ptr.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -512
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr.i.i, i32 0, i32 3, i32 1)
-  %cmp.i11.not.i = icmp eq i16 %16, 0
+  %cmp.i11.not.i = icmp eq i16 %15, 0
   br i1 %cmp.i11.not.i, label %for.cond.i.i, label %if.then23.i.i, !llvm.loop !6
 
 if.then23.i.i:                                    ; preds = %if.end15.i.i
-  %and.i.i.i = zext nneg i16 %16 to i32
-  %17 = tail call i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true), !range !7
-  %sub.i.i = xor i32 %17, 31
+  %and.i.i.i = zext nneg i16 %15 to i32
+  %16 = tail call i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true), !range !7
+  %sub.i.i = xor i32 %16, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -240
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i
@@ -440,7 +439,7 @@ entry:
 
 declare void @_ZN8proxygen12WorkerThread7cleanupEv(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
@@ -666,7 +665,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

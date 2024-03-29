@@ -8963,9 +8963,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13:    ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN7QStringD2Ev.exit15:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13, %18
   %20 = load i8, ptr %2, align 1
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %59, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %59
 
 22:                                               ; preds = %_ZN7QStringD2Ev.exit15
   %23 = getelementptr inbounds i8, ptr %0, i64 48

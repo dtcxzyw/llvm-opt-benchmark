@@ -44,10 +44,9 @@ define dso_local void @SetRelationRuleStatus(i32 noundef %0, i1 noundef zeroext 
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 120
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %20 = icmp eq i8 %19, 0
-  %.not14 = xor i1 %20, %1
-  br i1 %.not14, label %23, label %21
+  %19 = trunc i8 %18 to i1
+  %20 = xor i1 %19, %1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
   store i8 %3, ptr %17, align 4

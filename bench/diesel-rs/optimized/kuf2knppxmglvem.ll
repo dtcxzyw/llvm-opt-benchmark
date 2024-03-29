@@ -422,8 +422,8 @@ define void @_ZN24diesel_demo_step_1_mysql20establish_connection17h8c389ab57e8ca
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %32 = load i64, ptr %15, align 8, !range !58, !alias.scope !56, !noalias !53, !noundef !5
-  %trunc.not.i = icmp eq i64 %32, 0
-  br i1 %trunc.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h26202497ef6934afE.exit", label %33
+  %trunc.i = trunc i64 %32 to i1
+  br i1 %trunc.i, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h26202497ef6934afE.exit"
 
 33:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h6a94f2c5d14303c8E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !59

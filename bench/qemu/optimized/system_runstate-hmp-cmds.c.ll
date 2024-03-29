@@ -26,23 +26,21 @@ define dso_local void @hmp_info_status(ptr noundef %mon, ptr nocapture noundef r
 entry:
   %call = tail call ptr @qmp_query_status(ptr noundef null) #3
   %0 = load i8, ptr %call, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.2, ptr @.str.1
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.1, ptr @.str.2
   %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str, ptr noundef nonnull %cond) #3
-  %2 = load i8, ptr %call, align 4
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %land.lhs.true, label %if.end
+  %1 = load i8, ptr %call, align 4
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %status = getelementptr inbounds i8, ptr %call, i64 4
-  %4 = load i32, ptr %status, align 4
-  %cmp.not = icmp eq i32 %4, 4
+  %2 = load i32, ptr %status, align 4
+  %cmp.not = icmp eq i32 %2, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call5 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %4) #3
+  %call5 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %2) #3
   %call6 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, ptr noundef %call5) #3
   br label %if.end
 

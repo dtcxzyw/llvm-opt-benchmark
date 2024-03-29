@@ -71,57 +71,55 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
   %32 = getelementptr inbounds i8, ptr %19, i64 24
   %33 = icmp eq ptr %0, %1
   %34 = getelementptr inbounds i8, ptr %21, i64 24
-  %wide.trip.count99.i = zext nneg i32 %24 to i64
+  %wide.trip.count97.i = zext nneg i32 %24 to i64
   br i1 %33, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %53
-  %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %53 ], [ 0, %.lr.ph.i ]
-  %.091.us.i = phi ptr [ %.1.us.i, %53 ], [ null, %.lr.ph.i ]
-  %35 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %32, i64 0, i64 %indvars.iv96.i
+  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %53 ], [ 0, %.lr.ph.i ]
+  %.089.us.i = phi ptr [ %.1.us.i, %53 ], [ null, %.lr.ph.i ]
+  %35 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %32, i64 0, i64 %indvars.iv94.i
   %36 = getelementptr inbounds i8, ptr %35, i64 95
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not.us.i = icmp eq i8 %38, 0
-  br i1 %.not.us.i, label %41, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %51, label %39
 
 39:                                               ; preds = %.lr.ph.split.us.i
-  %40 = tail call ptr @lappend(ptr noundef %.091.us.i, ptr noundef null) #8
-  br label %53
-
-41:                                               ; preds = %.lr.ph.split.us.i
-  %42 = getelementptr inbounds i8, ptr %35, i64 68
+  %40 = getelementptr inbounds i8, ptr %35, i64 68
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %35, i64 80
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %35, i64 80
+  %44 = getelementptr inbounds i8, ptr %35, i64 100
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %35, i64 100
-  %47 = load i32, ptr %46, align 4
-  %48 = trunc i64 %indvars.iv96.i to i16
-  %49 = add i16 %48, 1
-  %50 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %49, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef 0) #8
-  %51 = tail call ptr @lappend(ptr noundef %.091.us.i, ptr noundef %50) #8
-  %52 = getelementptr i16, ptr %29, i64 %indvars.iv96.i
-  store i16 %49, ptr %52, align 2
+  %46 = trunc i64 %indvars.iv94.i to i16
+  %47 = add i16 %46, 1
+  %48 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %47, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef 0) #8
+  %49 = tail call ptr @lappend(ptr noundef %.089.us.i, ptr noundef %48) #8
+  %50 = getelementptr i16, ptr %29, i64 %indvars.iv94.i
+  store i16 %47, ptr %50, align 2
   br label %53
 
-53:                                               ; preds = %41, %39
-  %.1.us.i = phi ptr [ %40, %39 ], [ %51, %41 ]
-  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
-  %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
-  br i1 %exitcond100.not.i, label %make_inh_translation_list.exit, label %.lr.ph.split.us.i, !llvm.loop !5
+51:                                               ; preds = %.lr.ph.split.us.i
+  %52 = tail call ptr @lappend(ptr noundef %.089.us.i, ptr noundef null) #8
+  br label %53
+
+53:                                               ; preds = %51, %39
+  %.1.us.i = phi ptr [ %52, %51 ], [ %49, %39 ]
+  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
+  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count97.i
+  br i1 %exitcond98.not.i, label %make_inh_translation_list.exit, label %.lr.ph.split.us.i, !llvm.loop !5
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %125
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %125 ], [ 0, %.lr.ph.i ]
-  %.091.i = phi ptr [ %.1.i, %125 ], [ null, %.lr.ph.i ]
-  %.06989.i = phi i32 [ %.2.i, %125 ], [ 0, %.lr.ph.i ]
+  %.089.i = phi ptr [ %.1.i, %125 ], [ null, %.lr.ph.i ]
+  %.06987.i = phi i32 [ %.2.i, %125 ], [ 0, %.lr.ph.i ]
   %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %32, i64 0, i64 %indvars.iv.i
   %55 = getelementptr inbounds i8, ptr %54, i64 95
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not.i = icmp eq i8 %57, 0
-  br i1 %.not.i, label %60, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.lr.ph.split.i
-  %59 = tail call ptr @lappend(ptr noundef %.091.i, ptr noundef null) #8
+  %59 = tail call ptr @lappend(ptr noundef %.089.i, ptr noundef null) #8
   br label %125
 
 60:                                               ; preds = %.lr.ph.split.i
@@ -132,28 +130,27 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds i8, ptr %54, i64 100
   %67 = load i32, ptr %66, align 4
-  %.not77.i = icmp slt i32 %.06989.i, %25
-  br i1 %.not77.i, label %68, label %77
+  %.not.i = icmp slt i32 %.06987.i, %25
+  br i1 %.not.i, label %68, label %77
 
 68:                                               ; preds = %60
-  %69 = sext i32 %.06989.i to i64
+  %69 = sext i32 %.06987.i to i64
   %70 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %34, i64 0, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 95
   %72 = load i8, ptr %71, align 1
-  %73 = and i8 %72, 1
-  %.not78.i = icmp eq i8 %73, 0
-  br i1 %.not78.i, label %74, label %77
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %77, label %74
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds i8, ptr %70, i64 4
   %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %75) #9
-  %.not79.i = icmp eq i32 %76, 0
-  br i1 %.not79.i, label %97, label %77
+  %.not77.i = icmp eq i32 %76, 0
+  br i1 %.not77.i, label %97, label %77
 
 77:                                               ; preds = %74, %68, %60
   %78 = tail call ptr @SearchSysCacheAttName(i32 noundef %23, ptr noundef nonnull %61) #8
-  %.not80.i = icmp eq ptr %78, null
-  br i1 %.not80.i, label %79, label %84
+  %.not78.i = icmp eq ptr %78, null
+  br i1 %.not78.i, label %79, label %84
 
 79:                                               ; preds = %77
   %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -182,17 +179,17 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
 
 97:                                               ; preds = %84, %74
   %.071.i = phi ptr [ %96, %84 ], [ %70, %74 ]
-  %.170.i = phi i32 [ %94, %84 ], [ %.06989.i, %74 ]
+  %.170.i = phi i32 [ %94, %84 ], [ %.06987.i, %74 ]
   %98 = getelementptr inbounds i8, ptr %.071.i, i64 68
   %99 = load i32, ptr %98, align 4
-  %.not81.i = icmp eq i32 %63, %99
-  br i1 %.not81.i, label %100, label %103
+  %.not79.i = icmp eq i32 %63, %99
+  br i1 %.not79.i, label %100, label %103
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds i8, ptr %.071.i, i64 80
   %102 = load i32, ptr %101, align 4
-  %.not82.i = icmp eq i32 %65, %102
-  br i1 %.not82.i, label %108, label %103
+  %.not80.i = icmp eq i32 %65, %102
+  br i1 %.not80.i, label %108, label %103
 
 103:                                              ; preds = %100, %97
   %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -206,8 +203,8 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
 108:                                              ; preds = %100
   %109 = getelementptr inbounds i8, ptr %.071.i, i64 100
   %110 = load i32, ptr %109, align 4
-  %.not83.i = icmp eq i32 %67, %110
-  br i1 %.not83.i, label %116, label %111
+  %.not81.i = icmp eq i32 %67, %110
+  br i1 %.not81.i, label %116, label %111
 
 111:                                              ; preds = %108
   %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -222,7 +219,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
   %117 = add nsw i32 %.170.i, 1
   %118 = trunc i32 %117 to i16
   %119 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %118, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef 0) #8
-  %120 = tail call ptr @lappend(ptr noundef %.091.i, ptr noundef %119) #8
+  %120 = tail call ptr @lappend(ptr noundef %.089.i, ptr noundef %119) #8
   %121 = trunc i64 %indvars.iv.i to i16
   %122 = add i16 %121, 1
   %123 = sext i32 %.170.i to i64
@@ -231,10 +228,10 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
   br label %125
 
 125:                                              ; preds = %116, %58
-  %.2.i = phi i32 [ %.06989.i, %58 ], [ %117, %116 ]
+  %.2.i = phi i32 [ %.06987.i, %58 ], [ %117, %116 ]
   %.1.i = phi ptr [ %59, %58 ], [ %120, %116 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count99.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count97.i
   br i1 %exitcond.not.i, label %make_inh_translation_list.exit, label %.lr.ph.split.i, !llvm.loop !5
 
 make_inh_translation_list.exit:                   ; preds = %125, %53, %4
@@ -1585,16 +1582,14 @@ define dso_local void @add_row_identity_columns(ptr noundef %0, i32 noundef %1, 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %24, i64 23
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not32 = icmp eq i8 %28, 0
-  br i1 %.not32, label %29, label %33
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %33, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %24, i64 22
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not33 = icmp eq i8 %32, 0
-  br i1 %.not33, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29, %25, %20
   %34 = tail call ptr @makeVar(i32 noundef %1, i16 noundef signext 0, i32 noundef 2249, i32 noundef -1, i32 noundef 0, i32 noundef 0) #8
@@ -1634,9 +1629,8 @@ define dso_local void @distribute_row_identity_vars(ptr noundef %0) local_unname
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 201
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not36 = icmp eq i8 %18, 0
-  br i1 %.not36, label %.thread, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds i8, ptr %0, i64 264
@@ -1660,17 +1654,17 @@ define dso_local void @distribute_row_identity_vars(ptr noundef %0) local_unname
   %31 = getelementptr inbounds i8, ptr %0, i64 520
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 4
-  %.not37 = icmp eq ptr %32, null
-  br i1 %.not37, label %.thread, label %.lr.ph
+  %.not36 = icmp eq ptr %32, null
+  br i1 %.not36, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %34 = getelementptr inbounds i8, ptr %32, i64 16
   %35 = getelementptr inbounds i8, ptr %30, i64 32
   %36 = load i32, ptr %33, align 4
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph45, label %.thread
+  br i1 %37, label %.lr.ph44, label %.thread
 
-.lr.ph45:                                         ; preds = %.lr.ph, %59
+.lr.ph44:                                         ; preds = %.lr.ph, %59
   %38 = phi i32 [ %60, %59 ], [ %36, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %34, align 8
@@ -1678,10 +1672,10 @@ define dso_local void @distribute_row_identity_vars(ptr noundef %0) local_unname
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  %.not39 = icmp eq ptr %43, null
-  br i1 %.not39, label %59, label %44
+  %.not38 = icmp eq ptr %43, null
+  br i1 %.not38, label %59, label %44
 
-44:                                               ; preds = %.lr.ph45
+44:                                               ; preds = %.lr.ph44
   %45 = load i32, ptr %43, align 4
   %46 = icmp eq i32 %45, 6
   br i1 %46, label %47, label %59
@@ -1704,12 +1698,12 @@ define dso_local void @distribute_row_identity_vars(ptr noundef %0) local_unname
   %.pre = load i32, ptr %33, align 4
   br label %59
 
-59:                                               ; preds = %.lr.ph45, %44, %47, %51
-  %60 = phi i32 [ %38, %.lr.ph45 ], [ %38, %44 ], [ %38, %47 ], [ %.pre, %51 ]
+59:                                               ; preds = %.lr.ph44, %44, %47, %51
+  %60 = phi i32 [ %38, %.lr.ph44 ], [ %38, %44 ], [ %38, %47 ], [ %.pre, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph45, label %.thread
+  br i1 %62, label %.lr.ph44, label %.thread
 
 .thread:                                          ; preds = %59, %29, %.lr.ph, %1, %8, %23
   ret void

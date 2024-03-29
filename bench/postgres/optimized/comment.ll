@@ -451,7 +451,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %14 = call ptr @systable_beginscan(ptr noundef %11, i32 noundef 2675, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %4) #5
   %15 = call ptr @systable_getnext(ptr noundef %14) #5
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %73, label %16
+  br i1 %.not, label %72, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -485,11 +485,10 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %37 = getelementptr i8, ptr %35, i64 %36
   %38 = getelementptr i8, ptr %13, i64 422
   %39 = load i8, ptr %38, align 2
-  %40 = and i8 %39, 1
-  %.not20.i.i = icmp eq i8 %40, 0
+  %40 = trunc i8 %39 to i1
   %41 = getelementptr i8, ptr %13, i64 408
   %42 = load i16, ptr %41, align 4
-  br i1 %.not20.i.i, label %59, label %43
+  br i1 %40, label %43, label %59
 
 43:                                               ; preds = %31
   switch i16 %42, label %55 [
@@ -539,11 +538,11 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %.val.i.i = load i8, ptr %64, align 1
   %65 = and i8 %.val.i.i, 8
   %.not.i.i.i = icmp eq i8 %65, 0
-  br i1 %.not.i.i.i, label %heap_getattr.exit.thread16, label %66
+  br i1 %.not.i.i.i, label %heap_getattr.exit.thread14, label %66
 
-heap_getattr.exit.thread16:                       ; preds = %63
+heap_getattr.exit.thread14:                       ; preds = %63
   store i8 1, ptr %5, align 1
-  br label %73
+  br label %72
 
 66:                                               ; preds = %63
   %67 = call i64 @nocachegetattr(ptr noundef nonnull %15, i32 noundef 4, ptr noundef %13) #5
@@ -552,18 +551,17 @@ heap_getattr.exit.thread16:                       ; preds = %63
 heap_getattr.exit:                                ; preds = %16
   %68 = call i64 @getmissingattr(ptr noundef %13, i32 noundef 4, ptr noundef nonnull %5) #5
   %.pre = load i8, ptr %5, align 1
-  %69 = and i8 %.pre, 1
-  %70 = icmp eq i8 %69, 0
-  br i1 %70, label %heap_getattr.exit.thread, label %73
+  %69 = trunc i8 %.pre to i1
+  br i1 %69, label %72, label %heap_getattr.exit.thread
 
 heap_getattr.exit.thread:                         ; preds = %59, %44, %47, %50, %53, %61, %66, %heap_getattr.exit
-  %.0.i15 = phi i64 [ %68, %heap_getattr.exit ], [ %60, %59 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %62, %61 ], [ %67, %66 ]
-  %71 = inttoptr i64 %.0.i15 to ptr
-  %72 = call ptr @text_to_cstring(ptr noundef %71) #5
-  br label %73
+  %.0.i13 = phi i64 [ %68, %heap_getattr.exit ], [ %60, %59 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %62, %61 ], [ %67, %66 ]
+  %70 = inttoptr i64 %.0.i13 to ptr
+  %71 = call ptr @text_to_cstring(ptr noundef %70) #5
+  br label %72
 
-73:                                               ; preds = %heap_getattr.exit.thread16, %heap_getattr.exit, %heap_getattr.exit.thread, %3
-  %.0 = phi ptr [ null, %heap_getattr.exit ], [ %72, %heap_getattr.exit.thread ], [ null, %3 ], [ null, %heap_getattr.exit.thread16 ]
+72:                                               ; preds = %heap_getattr.exit.thread14, %heap_getattr.exit, %heap_getattr.exit.thread, %3
+  %.0 = phi ptr [ null, %heap_getattr.exit ], [ %71, %heap_getattr.exit.thread ], [ null, %3 ], [ null, %heap_getattr.exit.thread14 ]
   call void @systable_endscan(ptr noundef %14) #5
   call void @table_close(ptr noundef nonnull %11, i32 noundef 1) #5
   ret ptr %.0

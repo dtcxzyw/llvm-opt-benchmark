@@ -13,9 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_File_get_errhandler(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %18, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %18
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -44,9 +43,8 @@ define i32 @PMPI_File_get_errhandler(ptr noundef %0, ptr noundef writeonly %1) #
 
 18:                                               ; preds = %2, %14
   %19 = load i8, ptr @opal_uses_threads, align 1
-  %20 = and i8 %19, 1
-  %.not10 = icmp eq i8 %20, 0
-  br i1 %.not10, label %24, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 160
@@ -59,11 +57,10 @@ define i32 @PMPI_File_get_errhandler(ptr noundef %0, ptr noundef writeonly %1) #
   store ptr %26, ptr %1, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i8, ptr @opal_uses_threads, align 1
-  %29 = and i8 %28, 1
-  %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %opal_thread_add_fetch_32.exit.thread, label %33
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %33, label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit.thread:             ; preds = %24
+opal_thread_add_fetch_32.exit:                    ; preds = %24
   %30 = load volatile i32, ptr %27, align 4
   %31 = add nsw i32 %30, 1
   store volatile i32 %31, ptr %27, align 4
@@ -76,7 +73,7 @@ opal_thread_add_fetch_32.exit.thread:             ; preds = %24
   %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #3
   br label %37
 
-37:                                               ; preds = %opal_thread_add_fetch_32.exit.thread, %33
+37:                                               ; preds = %opal_thread_add_fetch_32.exit, %33
   %38 = tail call i32 @ompi_mpi_instance_retain() #3
   br label %39
 

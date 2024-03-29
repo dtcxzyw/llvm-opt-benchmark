@@ -20152,9 +20152,8 @@ define internal i32 @dissect_x2ap_PrivateIE_ID(ptr noundef %0, i32 noundef %1, p
 define internal i32 @dissect_x2ap_PrivateIE_Field_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 61
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %15, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %2, i64 72

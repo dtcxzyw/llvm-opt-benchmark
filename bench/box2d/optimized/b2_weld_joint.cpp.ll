@@ -341,51 +341,50 @@ if.else148:                                       ; preds = %if.else
 if.end152:                                        ; preds = %if.then144, %if.else148, %if.then
   %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
   %75 = load i8, ptr %warmStarting, align 4
-  %76 = and i8 %75, 1
-  %tobool.not = icmp eq i8 %76, 0
-  br i1 %tobool.not, label %if.else177, label %if.then154
+  %tobool = trunc i8 %75 to i1
+  br i1 %tobool, label %if.then154, label %if.else177
 
 if.then154:                                       ; preds = %if.end152
   %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
-  %77 = load float, ptr %dtRatio, align 8
+  %76 = load float, ptr %dtRatio, align 8
   %m_impulse = getelementptr inbounds i8, ptr %this, i64 164
   %z.i = getelementptr inbounds i8, ptr %this, i64 172
-  %78 = load float, ptr %z.i, align 4
-  %mul3.i = fmul float %77, %78
+  %77 = load float, ptr %z.i, align 4
+  %mul3.i = fmul float %76, %77
   store float %mul3.i, ptr %z.i, align 4
-  %79 = load <2 x float>, ptr %m_impulse, align 4
-  %80 = insertelement <2 x float> poison, float %77, i64 0
-  %81 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> zeroinitializer
-  %82 = fmul <2 x float> %81, %79
-  store <2 x float> %82, ptr %m_impulse, align 4
-  %83 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
-  %84 = fmul <2 x float> %83, %82
-  %85 = fsub <2 x float> %13, %84
-  %86 = load float, ptr %m_rA, align 8
-  %87 = load float, ptr %y, align 4
+  %78 = load <2 x float>, ptr %m_impulse, align 4
+  %79 = insertelement <2 x float> poison, float %76, i64 0
+  %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> zeroinitializer
+  %81 = fmul <2 x float> %80, %78
+  store <2 x float> %81, ptr %m_impulse, align 4
+  %82 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
+  %83 = fmul <2 x float> %82, %81
+  %84 = fsub <2 x float> %13, %83
+  %85 = load float, ptr %m_rA, align 8
+  %86 = load float, ptr %y, align 4
   %neg168 = fneg float %49
-  %88 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %89 = fmul <2 x float> %88, %82
-  %90 = fadd <2 x float> %16, %89
-  %91 = load <4 x float>, ptr %m_rB, align 8
-  %92 = shufflevector <4 x float> %91, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %93 = load <4 x float>, ptr %y53, align 4
-  %94 = shufflevector <4 x float> %93, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %95 = insertelement <2 x float> %94, float %87, i64 1
-  %96 = fneg <2 x float> %95
-  %97 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> zeroinitializer
-  %98 = fmul <2 x float> %97, %96
-  %99 = insertelement <2 x float> %92, float %86, i64 1
-  %100 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %101 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %99, <2 x float> %100, <2 x float> %98)
-  %102 = insertelement <2 x float> poison, float %mul3.i, i64 0
-  %103 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> zeroinitializer
-  %104 = fadd <2 x float> %103, %101
-  %105 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %106 = insertelement <2 x float> %105, float %neg168, i64 1
-  %107 = insertelement <2 x float> poison, float %17, i64 0
-  %108 = insertelement <2 x float> %107, float %14, i64 1
-  %109 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %106, <2 x float> %104, <2 x float> %108)
+  %87 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %88 = fmul <2 x float> %87, %81
+  %89 = fadd <2 x float> %16, %88
+  %90 = load <4 x float>, ptr %m_rB, align 8
+  %91 = shufflevector <4 x float> %90, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %92 = load <4 x float>, ptr %y53, align 4
+  %93 = shufflevector <4 x float> %92, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %94 = insertelement <2 x float> %93, float %86, i64 1
+  %95 = fneg <2 x float> %94
+  %96 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> zeroinitializer
+  %97 = fmul <2 x float> %96, %95
+  %98 = insertelement <2 x float> %91, float %85, i64 1
+  %99 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %100 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %98, <2 x float> %99, <2 x float> %97)
+  %101 = insertelement <2 x float> poison, float %mul3.i, i64 0
+  %102 = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> zeroinitializer
+  %103 = fadd <2 x float> %102, %100
+  %104 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %105 = insertelement <2 x float> %104, float %neg168, i64 1
+  %106 = insertelement <2 x float> poison, float %17, i64 0
+  %107 = insertelement <2 x float> %106, float %14, i64 1
+  %108 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %105, <2 x float> %103, <2 x float> %107)
   br label %if.end179
 
 if.else177:                                       ; preds = %if.end152
@@ -393,36 +392,36 @@ if.else177:                                       ; preds = %if.end152
   store <2 x float> zeroinitializer, ptr %m_impulse178, align 4
   %z.i80 = getelementptr inbounds i8, ptr %this, i64 172
   store float 0.000000e+00, ptr %z.i80, align 4
-  %110 = insertelement <2 x float> poison, float %17, i64 0
-  %111 = insertelement <2 x float> %110, float %14, i64 1
+  %109 = insertelement <2 x float> poison, float %17, i64 0
+  %110 = insertelement <2 x float> %109, float %14, i64 1
   br label %if.end179
 
 if.end179:                                        ; preds = %if.else177, %if.then154
-  %112 = phi <2 x float> [ %13, %if.else177 ], [ %85, %if.then154 ]
-  %113 = phi <2 x float> [ %16, %if.else177 ], [ %90, %if.then154 ]
-  %114 = phi <2 x float> [ %111, %if.else177 ], [ %109, %if.then154 ]
-  %115 = load ptr, ptr %velocities, align 8
-  %116 = load i32, ptr %m_indexA, align 8
-  %idxprom182 = sext i32 %116 to i64
-  %arrayidx183 = getelementptr inbounds %struct.b2Velocity, ptr %115, i64 %idxprom182
-  store <2 x float> %112, ptr %arrayidx183, align 4
-  %117 = load ptr, ptr %velocities, align 8
-  %118 = load i32, ptr %m_indexA, align 8
-  %idxprom187 = sext i32 %118 to i64
-  %w189 = getelementptr inbounds %struct.b2Velocity, ptr %117, i64 %idxprom187, i32 1
-  %119 = extractelement <2 x float> %114, i64 1
-  store float %119, ptr %w189, align 4
-  %120 = load ptr, ptr %velocities, align 8
-  %121 = load i32, ptr %m_indexB, align 4
-  %idxprom192 = sext i32 %121 to i64
-  %arrayidx193 = getelementptr inbounds %struct.b2Velocity, ptr %120, i64 %idxprom192
-  store <2 x float> %113, ptr %arrayidx193, align 4
-  %122 = load ptr, ptr %velocities, align 8
-  %123 = load i32, ptr %m_indexB, align 4
-  %idxprom197 = sext i32 %123 to i64
-  %w199 = getelementptr inbounds %struct.b2Velocity, ptr %122, i64 %idxprom197, i32 1
-  %124 = extractelement <2 x float> %114, i64 0
-  store float %124, ptr %w199, align 4
+  %111 = phi <2 x float> [ %84, %if.then154 ], [ %13, %if.else177 ]
+  %112 = phi <2 x float> [ %89, %if.then154 ], [ %16, %if.else177 ]
+  %113 = phi <2 x float> [ %108, %if.then154 ], [ %110, %if.else177 ]
+  %114 = load ptr, ptr %velocities, align 8
+  %115 = load i32, ptr %m_indexA, align 8
+  %idxprom182 = sext i32 %115 to i64
+  %arrayidx183 = getelementptr inbounds %struct.b2Velocity, ptr %114, i64 %idxprom182
+  store <2 x float> %111, ptr %arrayidx183, align 4
+  %116 = load ptr, ptr %velocities, align 8
+  %117 = load i32, ptr %m_indexA, align 8
+  %idxprom187 = sext i32 %117 to i64
+  %w189 = getelementptr inbounds %struct.b2Velocity, ptr %116, i64 %idxprom187, i32 1
+  %118 = extractelement <2 x float> %113, i64 1
+  store float %118, ptr %w189, align 4
+  %119 = load ptr, ptr %velocities, align 8
+  %120 = load i32, ptr %m_indexB, align 4
+  %idxprom192 = sext i32 %120 to i64
+  %arrayidx193 = getelementptr inbounds %struct.b2Velocity, ptr %119, i64 %idxprom192
+  store <2 x float> %112, ptr %arrayidx193, align 4
+  %121 = load ptr, ptr %velocities, align 8
+  %122 = load i32, ptr %m_indexB, align 4
+  %idxprom197 = sext i32 %122 to i64
+  %w199 = getelementptr inbounds %struct.b2Velocity, ptr %121, i64 %idxprom197, i32 1
+  %123 = extractelement <2 x float> %113, i64 0
+  store float %123, ptr %w199, align 4
   ret void
 }
 

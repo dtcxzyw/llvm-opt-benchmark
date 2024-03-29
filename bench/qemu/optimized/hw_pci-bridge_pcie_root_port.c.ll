@@ -260,9 +260,8 @@ rp_aer_vector_update.exit:                        ; preds = %if.end34, %if.then.
 land.lhs.true:                                    ; preds = %rp_aer_vector_update.exit
   %disable_acs = getelementptr inbounds i8, ptr %call.i51, i64 7164
   %12 = load i8, ptr %disable_acs, align 4
-  %13 = and i8 %12, 1
-  %tobool36.not = icmp eq i8 %13, 0
-  br i1 %tobool36.not, label %if.then37, label %return
+  %tobool36 = trunc i8 %12 to i1
+  br i1 %tobool36, label %return, label %if.then37
 
 if.then37:                                        ; preds = %land.lhs.true
   %conv39 = trunc i32 %11 to i16
@@ -279,12 +278,12 @@ err_pcie_cap:                                     ; preds = %err, %if.then27
 
 err_int:                                          ; preds = %err_pcie_cap, %if.then22
   %interrupts_uninit = getelementptr inbounds i8, ptr %call1.i54, i64 280
-  %14 = load ptr, ptr %interrupts_uninit, align 8
-  %tobool41.not = icmp eq ptr %14, null
+  %13 = load ptr, ptr %interrupts_uninit, align 8
+  %tobool41.not = icmp eq ptr %13, null
   br i1 %tobool41.not, label %err_bridge, label %if.then42
 
 if.then42:                                        ; preds = %err_int
-  tail call void %14(ptr noundef nonnull %d) #2
+  tail call void %13(ptr noundef nonnull %d) #2
   br label %err_bridge
 
 err_bridge:                                       ; preds = %err_int, %if.then42, %if.then10, %if.then7

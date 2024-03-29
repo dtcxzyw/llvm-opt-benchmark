@@ -1211,7 +1211,7 @@ define void @_ZN23CapturePreferencesFrame44on_captureUpdateIntervalLineEdit_text
   %15 = getelementptr inbounds i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable(185) %16, i32 noundef 0)
-  br label %36
+  br label %35
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1222,35 +1222,34 @@ define void @_ZN23CapturePreferencesFrame44on_captureUpdateIntervalLineEdit_text
 
 _ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %17
   store i8 0, ptr %3, align 1
-  br label %24
+  br label %23
 
 _ZNK7QString6toUIntEPbi.exit:                     ; preds = %17
   %.pre = load i8, ptr %3, align 1
-  %21 = and i8 %.pre, 1
-  %22 = icmp eq i8 %21, 0
-  %23 = trunc i64 %20 to i32
-  br i1 %22, label %24, label %28
+  %21 = trunc i8 %.pre to i1
+  %22 = trunc i64 %20 to i32
+  br i1 %21, label %27, label %23
 
-24:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit.thread, %_ZNK7QString6toUIntEPbi.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @prefs_get_uint_value_real(ptr noundef %26, i32 noundef 2)
-  br label %28
+23:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit.thread, %_ZNK7QString6toUIntEPbi.exit
+  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = load ptr, ptr %24, align 8
+  %26 = call i32 @prefs_get_uint_value_real(ptr noundef %25, i32 noundef 2)
+  br label %27
 
-28:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit, %24
-  %.sink6 = phi i32 [ 2, %24 ], [ 4, %_ZNK7QString6toUIntEPbi.exit ]
-  %.0 = phi i32 [ %27, %24 ], [ %23, %_ZNK7QString6toUIntEPbi.exit ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 88
-  %32 = load ptr, ptr %31, align 8
-  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable(185) %32, i32 noundef %.sink6)
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @prefs_set_uint_value(ptr noundef %34, i32 noundef %.0, i32 noundef 1)
-  br label %36
+27:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit, %23
+  %.sink5 = phi i32 [ 2, %23 ], [ 4, %_ZNK7QString6toUIntEPbi.exit ]
+  %.0 = phi i32 [ %26, %23 ], [ %22, %_ZNK7QString6toUIntEPbi.exit ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 88
+  %31 = load ptr, ptr %30, align 8
+  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable(185) %31, i32 noundef %.sink5)
+  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i32 @prefs_set_uint_value(ptr noundef %33, i32 noundef %.0, i32 noundef 1)
+  br label %35
 
-36:                                               ; preds = %28, %7
+35:                                               ; preds = %27, %7
   ret void
 }
 

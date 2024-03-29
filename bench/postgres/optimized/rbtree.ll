@@ -1241,9 +1241,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %9
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8

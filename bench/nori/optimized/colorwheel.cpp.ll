@@ -270,9 +270,8 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   tail call void @_ZN7nanogui6Widget4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %135, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %135
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 40
@@ -526,11 +525,10 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ColorWheel18mouse_button_eventERK
   %6 = tail call noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 89
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not9 = icmp eq i8 %9, 0
-  %10 = icmp ne i32 %2, 0
-  %or.cond = or i1 %10, %.not9
-  br i1 %or.cond, label %18, label %11
+  %9 = trunc i8 %8 to i1
+  %10 = icmp eq i32 %2, 0
+  %or.cond.not = and i1 %10, %9
+  br i1 %or.cond.not, label %11, label %18
 
 11:                                               ; preds = %5
   br i1 %3, label %12, label %16

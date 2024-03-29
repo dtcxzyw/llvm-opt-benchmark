@@ -456,76 +456,74 @@ list_env_get.exit:                                ; preds = %17, %4, %7
   br i1 %.not.i26, label %path_env_load.exit, label %.preheader.i, !llvm.loop !8
 
 path_env_load.exit:                               ; preds = %30, %21, %list_env_get.exit
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread, label %.preheader
+  %33 = icmp eq ptr %3, null
+  br i1 %33, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %path_env_load.exit
-  %33 = load i32, ptr %6, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph.preheader, label %._crit_edge.thread
+  %34 = load i32, ptr %6, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre = load ptr, ptr %5, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %35 = phi i32 [ %33, %.lr.ph.preheader ], [ %50, %49 ]
-  %36 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %51, %49 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
-  %.037 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1, %49 ]
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(2) @.str.3) #15
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %49
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
+  %36 = phi i32 [ %34, %.lr.ph.preheader ], [ %51, %50 ]
+  %37 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %52, %50 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
+  %.036 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %50 ]
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(2) @.str.3) #15
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %50
 
-41:                                               ; preds = %.lr.ph
-  call void @free(ptr noundef %38) #14
-  %42 = call noalias ptr @strdup(ptr noundef nonnull %3) #14
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit, label %._crit_edge40
+42:                                               ; preds = %.lr.ph
+  call void @free(ptr noundef %39) #14
+  %43 = call noalias ptr @strdup(ptr noundef nonnull %3) #14
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
+  store ptr %43, ptr %45, align 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.loopexit, label %._crit_edge39
 
-._crit_edge40:                                    ; preds = %41
-  %.pre41 = load i32, ptr %6, align 4
-  br label %49
+._crit_edge39:                                    ; preds = %42
+  %.pre40 = load i32, ptr %6, align 4
+  br label %50
 
-49:                                               ; preds = %._crit_edge40, %.lr.ph
-  %50 = phi i32 [ %.pre41, %._crit_edge40 ], [ %35, %.lr.ph ]
-  %51 = phi ptr [ %45, %._crit_edge40 ], [ %36, %.lr.ph ]
-  %.1 = phi i8 [ 1, %._crit_edge40 ], [ %.037, %.lr.ph ]
+50:                                               ; preds = %._crit_edge39, %.lr.ph
+  %51 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.lr.ph ]
+  %52 = phi ptr [ %46, %._crit_edge39 ], [ %37, %.lr.ph ]
+  %.1 = phi i1 [ true, %._crit_edge39 ], [ %.036, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = sext i32 %50 to i64
-  %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %53 = sext i32 %51 to i64
+  %54 = icmp slt i64 %indvars.iv.next, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %49
-  %54 = and i8 %.1, 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %._crit_edge.thread, label %.thread
+._crit_edge:                                      ; preds = %50
+  br i1 %.1, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %56 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #14
+  %55 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #14
   br label %.thread
 
 .thread:                                          ; preds = %path_env_load.exit, %._crit_edge.thread, %._crit_edge
-  %57 = load ptr, ptr %5, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit, label %59
+  %56 = load ptr, ptr %5, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %.loopexit, label %58
 
-59:                                               ; preds = %.thread
-  %60 = call noalias ptr @opal_path_find(ptr noundef %0, ptr noundef nonnull %57, i32 noundef %1, ptr noundef %2)
-  %61 = load ptr, ptr %5, align 8
-  call void @opal_argv_free(ptr noundef %61) #14
+58:                                               ; preds = %.thread
+  %59 = call noalias ptr @opal_path_find(ptr noundef %0, ptr noundef nonnull %56, i32 noundef %1, ptr noundef %2)
+  %60 = load ptr, ptr %5, align 8
+  call void @opal_argv_free(ptr noundef %60) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %41, %.thread, %59
-  %.019 = phi ptr [ %60, %59 ], [ null, %.thread ], [ null, %41 ]
+.loopexit:                                        ; preds = %42, %.thread, %58
+  %.019 = phi ptr [ %59, %58 ], [ null, %.thread ], [ null, %42 ]
   ret ptr %.019
 }
 

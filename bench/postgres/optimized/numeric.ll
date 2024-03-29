@@ -79,14 +79,14 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef %1) local_unname
 
 .cont58:                                          ; preds = %5
   %7 = load i8, ptr %0, align 1
-  %.not87.i = icmp eq i8 %7, 0
-  br i1 %.not87.i, label %._crit_edge.i, label %.lr.ph.i.split.us
+  %.not85.i = icmp eq i8 %7, 0
+  br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i.split.us
 
 .cont58.thread:                                   ; preds = %5
   store ptr %0, ptr %1, align 8
   %8 = load i8, ptr %0, align 1
-  %.not87.i100 = icmp eq i8 %8, 0
-  br i1 %.not87.i100, label %._crit_edge.i.thread, label %.lr.ph.i.split.preheader
+  %.not85.i100 = icmp eq i8 %8, 0
+  br i1 %.not85.i100, label %._crit_edge.i.thread, label %.lr.ph.i.split.preheader
 
 .lr.ph.i.split.preheader:                         ; preds = %.cont58.thread
   %9 = tail call ptr @__ctype_b_loc() #15
@@ -111,15 +111,15 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not74.i.us, label %._crit_edge.i, label %.cont55.us, !llvm.loop !4
 
 .cont55.us:                                       ; preds = %.lr.ph.i.split.us, %16
-  %storemerge88.i.us87 = phi ptr [ %21, %16 ], [ %0, %.lr.ph.i.split.us ]
-  %21 = getelementptr i8, ptr %storemerge88.i.us87, i64 1
+  %storemerge86.i.us87 = phi ptr [ %21, %16 ], [ %0, %.lr.ph.i.split.us ]
+  %21 = getelementptr i8, ptr %storemerge86.i.us87, i64 1
   %22 = load i8, ptr %21, align 1
   %.not.i.us = icmp eq i8 %22, 0
   br i1 %.not.i.us, label %._crit_edge.i, label %16, !llvm.loop !4
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i.split.preheader, %.else57
   %23 = phi i8 [ %30, %.else57 ], [ %8, %.lr.ph.i.split.preheader ]
-  %storemerge88.i = phi ptr [ %29, %.else57 ], [ %0, %.lr.ph.i.split.preheader ]
+  %storemerge86.i = phi ptr [ %29, %.else57 ], [ %0, %.lr.ph.i.split.preheader ]
   %24 = load ptr, ptr %9, align 8
   %25 = zext i8 %23 to i64
   %26 = getelementptr i16, ptr %24, i64 %25
@@ -129,14 +129,14 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not74.i, label %._crit_edge.i.thread, label %.else57
 
 .else57:                                          ; preds = %.lr.ph.i.split
-  %29 = getelementptr i8, ptr %storemerge88.i, i64 1
+  %29 = getelementptr i8, ptr %storemerge86.i, i64 1
   store ptr %29, ptr %1, align 8
   %30 = load i8, ptr %29, align 1
   %.not.i = icmp eq i8 %30, 0
   br i1 %.not.i, label %._crit_edge.i.thread, label %.lr.ph.i.split, !llvm.loop !4
 
 ._crit_edge.i.thread:                             ; preds = %.lr.ph.i.split, %.else57, %.cont58.thread
-  %storemerge.lcssa.i.ph = phi ptr [ %0, %.cont58.thread ], [ %storemerge88.i, %.lr.ph.i.split ], [ %29, %.else57 ]
+  %storemerge.lcssa.i.ph = phi ptr [ %0, %.cont58.thread ], [ %storemerge86.i, %.lr.ph.i.split ], [ %29, %.else57 ]
   %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %storemerge.lcssa.i.ph, ptr noundef nonnull @.str.1, i64 noundef 3) #14
   %32 = icmp eq i32 %31, 0
   %.else.val54105 = load ptr, ptr %1, align 8
@@ -161,67 +161,67 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %35, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 49152, ptr %36, align 8
-  %.promoted104.i.else.val = load ptr, ptr %1, align 8
-  %37 = load i8, ptr %.promoted104.i.else.val, align 1
-  %.not82105.i = icmp eq i8 %37, 0
-  br i1 %.not82105.i, label %set_var_from_str.exit, label %.lr.ph107.i
+  %.promoted102.i.else.val = load ptr, ptr %1, align 8
+  %37 = load i8, ptr %.promoted102.i.else.val, align 1
+  %.not80103.i = icmp eq i8 %37, 0
+  br i1 %.not80103.i, label %set_var_from_str.exit, label %.lr.ph105.i
 
 .cont12.thread:                                   ; preds = %._crit_edge.i.cont
   %38 = getelementptr i8, ptr %.3, i64 3
   %39 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 49152, ptr %39, align 8
   %40 = load i8, ptr %38, align 1
-  %.not82105.i108 = icmp eq i8 %40, 0
-  br i1 %.not82105.i108, label %set_var_from_str.exit, label %.lr.ph107.i.thread
+  %.not80103.i108 = icmp eq i8 %40, 0
+  br i1 %.not80103.i108, label %set_var_from_str.exit, label %.lr.ph105.i.thread
 
-.lr.ph107.i.thread:                               ; preds = %.cont12.thread
+.lr.ph105.i.thread:                               ; preds = %.cont12.thread
   %41 = tail call ptr @__ctype_b_loc() #15
-  br label %.lr.ph107.i.split.us
+  br label %.lr.ph105.i.split.us
 
-.lr.ph107.i:                                      ; preds = %.cont12
+.lr.ph105.i:                                      ; preds = %.cont12
   %42 = tail call ptr @__ctype_b_loc() #15
-  br i1 %.not, label %.lr.ph107.i.split.us, label %.lr.ph107.i.split
+  br i1 %.not, label %.lr.ph105.i.split.us, label %.lr.ph105.i.split
 
-.lr.ph107.i.split.us:                             ; preds = %.lr.ph107.i.thread, %.lr.ph107.i
-  %43 = phi ptr [ %41, %.lr.ph107.i.thread ], [ %42, %.lr.ph107.i ]
-  %.promoted104.i109111 = phi ptr [ %38, %.lr.ph107.i.thread ], [ %.promoted104.i.else.val, %.lr.ph107.i ]
-  %44 = phi i8 [ %40, %.lr.ph107.i.thread ], [ %37, %.lr.ph107.i ]
+.lr.ph105.i.split.us:                             ; preds = %.lr.ph105.i.thread, %.lr.ph105.i
+  %43 = phi ptr [ %41, %.lr.ph105.i.thread ], [ %42, %.lr.ph105.i ]
+  %.promoted102.i109111 = phi ptr [ %38, %.lr.ph105.i.thread ], [ %.promoted102.i.else.val, %.lr.ph105.i ]
+  %44 = phi i8 [ %40, %.lr.ph105.i.thread ], [ %37, %.lr.ph105.i ]
   %45 = load ptr, ptr %43, align 8
   br label %46
 
-46:                                               ; preds = %.cont.us, %.lr.ph107.i.split.us
-  %47 = phi i8 [ %44, %.lr.ph107.i.split.us ], [ %54, %.cont.us ]
-  %48 = phi ptr [ %.promoted104.i109111, %.lr.ph107.i.split.us ], [ %53, %.cont.us ]
+46:                                               ; preds = %.cont.us, %.lr.ph105.i.split.us
+  %47 = phi i8 [ %44, %.lr.ph105.i.split.us ], [ %54, %.cont.us ]
+  %48 = phi ptr [ %.promoted102.i109111, %.lr.ph105.i.split.us ], [ %53, %.cont.us ]
   %49 = zext i8 %47 to i64
   %50 = getelementptr i16, ptr %45, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 8192
-  %.not83.i.us = icmp eq i16 %52, 0
-  br i1 %.not83.i.us, label %.sink.split, label %.cont.us
+  %.not81.i.us = icmp eq i16 %52, 0
+  br i1 %.not81.i.us, label %.sink.split, label %.cont.us
 
 .cont.us:                                         ; preds = %46
   %53 = getelementptr i8, ptr %48, i64 1
   %54 = load i8, ptr %53, align 1
-  %.not82.i.us = icmp eq i8 %54, 0
-  br i1 %.not82.i.us, label %set_var_from_str.exit, label %46, !llvm.loop !6
+  %.not80.i.us = icmp eq i8 %54, 0
+  br i1 %.not80.i.us, label %set_var_from_str.exit, label %46, !llvm.loop !6
 
-.lr.ph107.i.split:                                ; preds = %.lr.ph107.i, %.else
-  %55 = phi i8 [ %63, %.else ], [ %37, %.lr.ph107.i ]
-  %56 = phi ptr [ %62, %.else ], [ %.promoted104.i.else.val, %.lr.ph107.i ]
+.lr.ph105.i.split:                                ; preds = %.lr.ph105.i, %.else
+  %55 = phi i8 [ %63, %.else ], [ %37, %.lr.ph105.i ]
+  %56 = phi ptr [ %62, %.else ], [ %.promoted102.i.else.val, %.lr.ph105.i ]
   %57 = load ptr, ptr %42, align 8
   %58 = zext i8 %55 to i64
   %59 = getelementptr i16, ptr %57, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 8192
-  %.not83.i = icmp eq i16 %61, 0
-  br i1 %.not83.i, label %.sink.split, label %.else
+  %.not81.i = icmp eq i16 %61, 0
+  br i1 %.not81.i, label %.sink.split, label %.else
 
-.else:                                            ; preds = %.lr.ph107.i.split
+.else:                                            ; preds = %.lr.ph105.i.split
   %62 = getelementptr i8, ptr %56, i64 1
   store ptr %62, ptr %1, align 8
   %63 = load i8, ptr %62, align 1
-  %.not82.i = icmp eq i8 %63, 0
-  br i1 %.not82.i, label %set_var_from_str.exit, label %.lr.ph107.i.split, !llvm.loop !6
+  %.not80.i = icmp eq i8 %63, 0
+  br i1 %.not80.i, label %set_var_from_str.exit, label %.lr.ph105.i.split, !llvm.loop !6
 
 64:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i.cont.thread, %._crit_edge.i.cont
   %.3103 = phi ptr [ %.3, %._crit_edge.i.cont.thread ], [ %.3, %._crit_edge.i.cont ], [ %0, %._crit_edge.i.thread ]
@@ -262,37 +262,37 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef %1) local_unname
   %81 = phi ptr [ %.3103, %73 ], [ %.else.val52, %.else51 ]
   %82 = load i8, ptr %81, align 1
   switch i8 %82, label %87 [
-    i8 43, label %thread-pre-split111.i
+    i8 43, label %thread-pre-split109.i
     i8 45, label %83
   ]
 
 83:                                               ; preds = %.cont49
   store i32 16384, ptr %80, align 8
-  br label %thread-pre-split111.i
+  br label %thread-pre-split109.i
 
-thread-pre-split111.i:                            ; preds = %83, %.cont49
-  br i1 %.not, label %thread-pre-split111.i.then, label %thread-pre-split111.i.else
+thread-pre-split109.i:                            ; preds = %83, %.cont49
+  br i1 %.not, label %thread-pre-split109.i.then, label %thread-pre-split109.i.else
 
-thread-pre-split111.i.then:                       ; preds = %thread-pre-split111.i
+thread-pre-split109.i.then:                       ; preds = %thread-pre-split109.i
   %84 = getelementptr i8, ptr %.3103, i64 1
-  br label %thread-pre-split111.i.cont
+  br label %thread-pre-split109.i.cont
 
-thread-pre-split111.i.else:                       ; preds = %thread-pre-split111.i
+thread-pre-split109.i.else:                       ; preds = %thread-pre-split109.i
   %.else.val48 = load ptr, ptr %1, align 8
   %85 = getelementptr i8, ptr %.else.val48, i64 1
   store ptr %85, ptr %1, align 8
-  br label %thread-pre-split111.i.cont
+  br label %thread-pre-split109.i.cont
 
-thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111.i.else, %thread-pre-split111.i.then
-  %86 = phi ptr [ %84, %thread-pre-split111.i.then ], [ %85, %thread-pre-split111.i.else ]
-  %.5 = phi ptr [ %84, %thread-pre-split111.i.then ], [ %.3103, %thread-pre-split111.i.else ]
-  %.pr112.i = load i8, ptr %86, align 1
+thread-pre-split109.i.cont:                       ; preds = %thread-pre-split109.i.else, %thread-pre-split109.i.then
+  %86 = phi ptr [ %84, %thread-pre-split109.i.then ], [ %85, %thread-pre-split109.i.else ]
+  %.5 = phi ptr [ %84, %thread-pre-split109.i.then ], [ %.3103, %thread-pre-split109.i.else ]
+  %.pr110.i = load i8, ptr %86, align 1
   br label %87
 
-87:                                               ; preds = %thread-pre-split111.i.cont, %.cont49
-  %.6 = phi ptr [ %.3103, %.cont49 ], [ %.5, %thread-pre-split111.i.cont ]
-  %88 = phi i8 [ %82, %.cont49 ], [ %.pr112.i, %thread-pre-split111.i.cont ]
-  %89 = phi ptr [ %81, %.cont49 ], [ %86, %thread-pre-split111.i.cont ]
+87:                                               ; preds = %thread-pre-split109.i.cont, %.cont49
+  %.6 = phi ptr [ %.3103, %.cont49 ], [ %.5, %thread-pre-split109.i.cont ]
+  %88 = phi i8 [ %82, %.cont49 ], [ %.pr110.i, %thread-pre-split109.i.cont ]
+  %89 = phi ptr [ %81, %.cont49 ], [ %86, %thread-pre-split109.i.cont ]
   %90 = icmp eq i8 %88, 46
   br i1 %90, label %91, label %93
 
@@ -324,15 +324,15 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   br i1 %.not75.i, label %.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %93
-  %.not7691.i = icmp eq i8 %94, 0
-  br i1 %.not7691.i, label %._crit_edge95.i, label %.lr.ph94.i
+  %.not7689.i = icmp eq i8 %94, 0
+  br i1 %.not7689.i, label %._crit_edge93.i, label %.lr.ph92.i
 
-.lr.ph94.i:                                       ; preds = %.preheader.i, %.cont38
+.lr.ph92.i:                                       ; preds = %.preheader.i, %.cont38
   %.9 = phi ptr [ %.1266, %.cont38 ], [ %.8, %.preheader.i ]
   %102 = phi i8 [ %127, %.cont38 ], [ %94, %.preheader.i ]
   %103 = phi ptr [ %126, %.cont38 ], [ %95, %.preheader.i ]
-  %.06493.i = phi i32 [ %.1.i68, %.cont38 ], [ 0, %.preheader.i ]
-  %.16692.i = phi i8 [ %.2.i67, %.cont38 ], [ %.065.i, %.preheader.i ]
+  %.06491.i = phi i32 [ %.1.i68, %.cont38 ], [ 0, %.preheader.i ]
+  %.16690.i = phi i8 [ %.2.i67, %.cont38 ], [ %.065.i, %.preheader.i ]
   %104 = load ptr, ptr %96, align 8
   %105 = zext i8 %102 to i64
   %106 = getelementptr i16, ptr %104, i64 %105
@@ -341,7 +341,7 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   %.not77.i = icmp eq i16 %108, 0
   br i1 %.not77.i, label %120, label %109
 
-109:                                              ; preds = %.lr.ph94.i
+109:                                              ; preds = %.lr.ph92.i
   %110 = getelementptr i8, ptr %103, i64 1
   br i1 %.not, label %.cont42, label %.else44
 
@@ -355,26 +355,24 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   %.10 = phi ptr [ %.9, %.else44 ], [ %110, %109 ]
   %112 = add i8 %111, -48
   %113 = load ptr, ptr %77, align 8
-  %114 = add i32 %.06493.i, 1
-  %115 = sext i32 %.06493.i to i64
+  %114 = add i32 %.06491.i, 1
+  %115 = sext i32 %.06491.i to i64
   %116 = getelementptr i8, ptr %113, i64 %115
   store i8 %112, ptr %116, align 1
-  %117 = and i8 %.16692.i, 1
-  %.not81.i = icmp eq i8 %117, 0
-  %. = select i1 %.not81.i, ptr %78, ptr %79
+  %117 = trunc i8 %.16690.i to i1
+  %. = select i1 %117, ptr %79, ptr %78
   %118 = load i32, ptr %., align 4
   %119 = add i32 %118, 1
   store i32 %119, ptr %., align 4
   br i1 %.not, label %.cont38, label %.cont20..else40_crit_edge
 
-120:                                              ; preds = %.lr.ph94.i
+120:                                              ; preds = %.lr.ph92.i
   %121 = icmp eq i8 %102, 46
-  br i1 %121, label %122, label %._crit_edge95.i
+  br i1 %121, label %122, label %._crit_edge93.i
 
 122:                                              ; preds = %120
-  %123 = and i8 %.16692.i, 1
-  %.not80.i = icmp eq i8 %123, 0
-  br i1 %.not80.i, label %124, label %.sink.split
+  %123 = trunc i8 %.16690.i to i1
+  br i1 %123, label %.sink.split, label %124
 
 124:                                              ; preds = %122
   %125 = getelementptr i8, ptr %103, i64 1
@@ -389,33 +387,33 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   br label %.cont38
 
 .cont38:                                          ; preds = %.cont20.thread69, %.cont20..else40_crit_edge, %124, %.cont42
-  %.1.i68 = phi i32 [ %114, %.cont42 ], [ %.06493.i, %124 ], [ %.06493.i, %.cont20.thread69 ], [ %114, %.cont20..else40_crit_edge ]
-  %.2.i67 = phi i8 [ %.16692.i, %.cont42 ], [ 1, %124 ], [ 1, %.cont20.thread69 ], [ %.16692.i, %.cont20..else40_crit_edge ]
+  %.1.i68 = phi i32 [ %114, %.cont42 ], [ %.06491.i, %124 ], [ %.06491.i, %.cont20.thread69 ], [ %114, %.cont20..else40_crit_edge ]
+  %.2.i67 = phi i8 [ %.16690.i, %.cont42 ], [ 1, %124 ], [ 1, %.cont20.thread69 ], [ %.16690.i, %.cont20..else40_crit_edge ]
   %.1266 = phi ptr [ %.10, %.cont42 ], [ %125, %124 ], [ %.9, %.cont20.thread69 ], [ %.10, %.cont20..else40_crit_edge ]
   %126 = phi ptr [ %.10, %.cont42 ], [ %125, %124 ], [ %125, %.cont20.thread69 ], [ %.else.val41.pre, %.cont20..else40_crit_edge ]
   %127 = load i8, ptr %126, align 1
   %.not76.i = icmp eq i8 %127, 0
-  br i1 %.not76.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !7
+  br i1 %.not76.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !7
 
-._crit_edge95.i:                                  ; preds = %.cont38, %120, %.preheader.i
+._crit_edge93.i:                                  ; preds = %.cont38, %120, %.preheader.i
   %.13 = phi ptr [ %.8, %.preheader.i ], [ %.9, %120 ], [ %.1266, %.cont38 ]
-  %.064.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.06493.i, %120 ], [ %.1.i68, %.cont38 ]
+  %.064.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.06491.i, %120 ], [ %.1.i68, %.cont38 ]
   store i32 %.064.lcssa.i, ptr %4, align 8
-  br i1 %.not, label %._crit_edge95.i.cont, label %._crit_edge95.i.else
+  br i1 %.not, label %._crit_edge93.i.cont, label %._crit_edge93.i.else
 
-._crit_edge95.i.else:                             ; preds = %._crit_edge95.i
+._crit_edge93.i.else:                             ; preds = %._crit_edge93.i
   %.else.val37 = load ptr, ptr %1, align 8
-  br label %._crit_edge95.i.cont
+  br label %._crit_edge93.i.cont
 
-._crit_edge95.i.cont:                             ; preds = %._crit_edge95.i, %._crit_edge95.i.else
-  %128 = phi ptr [ %.13, %._crit_edge95.i ], [ %.else.val37, %._crit_edge95.i.else ]
+._crit_edge93.i.cont:                             ; preds = %._crit_edge93.i, %._crit_edge93.i.else
+  %128 = phi ptr [ %.13, %._crit_edge93.i ], [ %.else.val37, %._crit_edge93.i.else ]
   %129 = load i8, ptr %128, align 1
   switch i8 %129, label %146 [
     i8 101, label %130
     i8 69, label %130
   ]
 
-130:                                              ; preds = %._crit_edge95.i.cont, %._crit_edge95.i.cont
+130:                                              ; preds = %._crit_edge93.i.cont, %._crit_edge93.i.cont
   %131 = getelementptr i8, ptr %128, i64 1
   br i1 %.not, label %.cont31, label %.cont31.thread
 
@@ -456,30 +454,30 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   br i1 %.not, label %.cont26, label %.else27
 
 .else27:                                          ; preds = %140
-  %.pre109.i.else.val = load ptr, ptr %1, align 8
+  %.pre107.i.else.val = load ptr, ptr %1, align 8
   br label %.cont26
 
 .cont26:                                          ; preds = %140, %.else27
-  %.pre109.i = phi ptr [ %.15, %140 ], [ %.pre109.i.else.val, %.else27 ]
-  %.pre110.i = load i8, ptr %.pre109.i, align 1
+  %.pre107.i = phi ptr [ %.15, %140 ], [ %.pre107.i.else.val, %.else27 ]
+  %.pre108.i = load i8, ptr %.pre107.i, align 1
   br label %146
 
-146:                                              ; preds = %.cont26, %._crit_edge95.i.cont
-  %147 = phi i8 [ %.pre110.i, %.cont26 ], [ %129, %._crit_edge95.i.cont ]
-  %148 = phi ptr [ %.pre109.i, %.cont26 ], [ %128, %._crit_edge95.i.cont ]
-  %.not7899.i = icmp eq i8 %147, 0
-  br i1 %.not7899.i, label %thread-pre-split.i, label %.lr.ph101.i.preheader
+146:                                              ; preds = %.cont26, %._crit_edge93.i.cont
+  %147 = phi i8 [ %.pre108.i, %.cont26 ], [ %129, %._crit_edge93.i.cont ]
+  %148 = phi ptr [ %.pre107.i, %.cont26 ], [ %128, %._crit_edge93.i.cont ]
+  %.not7897.i = icmp eq i8 %147, 0
+  br i1 %.not7897.i, label %thread-pre-split.i, label %.lr.ph99.i.preheader
 
-.lr.ph101.i.preheader:                            ; preds = %146
-  br i1 %.not, label %.lr.ph101.i.preheader.split.us, label %.lr.ph101.i
+.lr.ph99.i.preheader:                             ; preds = %146
+  br i1 %.not, label %.lr.ph99.i.preheader.split.us, label %.lr.ph99.i
 
-.lr.ph101.i.preheader.split.us:                   ; preds = %.lr.ph101.i.preheader
+.lr.ph99.i.preheader.split.us:                    ; preds = %.lr.ph99.i.preheader
   %149 = load ptr, ptr %96, align 8
-  br label %.lr.ph101.i.us
+  br label %.lr.ph99.i.us
 
-.lr.ph101.i.us:                                   ; preds = %.cont23.us, %.lr.ph101.i.preheader.split.us
-  %150 = phi i8 [ %157, %.cont23.us ], [ %147, %.lr.ph101.i.preheader.split.us ]
-  %151 = phi ptr [ %156, %.cont23.us ], [ %148, %.lr.ph101.i.preheader.split.us ]
+.lr.ph99.i.us:                                    ; preds = %.cont23.us, %.lr.ph99.i.preheader.split.us
+  %150 = phi i8 [ %157, %.cont23.us ], [ %147, %.lr.ph99.i.preheader.split.us ]
+  %151 = phi ptr [ %156, %.cont23.us ], [ %148, %.lr.ph99.i.preheader.split.us ]
   %152 = zext i8 %150 to i64
   %153 = getelementptr i16, ptr %149, i64 %152
   %154 = load i16, ptr %153, align 2
@@ -487,15 +485,15 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   %.not79.i.us = icmp eq i16 %155, 0
   br i1 %.not79.i.us, label %.sink.split, label %.cont23.us
 
-.cont23.us:                                       ; preds = %.lr.ph101.i.us
+.cont23.us:                                       ; preds = %.lr.ph99.i.us
   %156 = getelementptr i8, ptr %151, i64 1
   %157 = load i8, ptr %156, align 1
   %.not78.i.us = icmp eq i8 %157, 0
-  br i1 %.not78.i.us, label %thread-pre-split.i, label %.lr.ph101.i.us, !llvm.loop !8
+  br i1 %.not78.i.us, label %thread-pre-split.i, label %.lr.ph99.i.us, !llvm.loop !8
 
-.lr.ph101.i:                                      ; preds = %.lr.ph101.i.preheader, %.else25
-  %158 = phi i8 [ %166, %.else25 ], [ %147, %.lr.ph101.i.preheader ]
-  %159 = phi ptr [ %165, %.else25 ], [ %148, %.lr.ph101.i.preheader ]
+.lr.ph99.i:                                       ; preds = %.lr.ph99.i.preheader, %.else25
+  %158 = phi i8 [ %166, %.else25 ], [ %147, %.lr.ph99.i.preheader ]
+  %159 = phi ptr [ %165, %.else25 ], [ %148, %.lr.ph99.i.preheader ]
   %160 = load ptr, ptr %96, align 8
   %161 = zext i8 %158 to i64
   %162 = getelementptr i16, ptr %160, i64 %161
@@ -504,25 +502,25 @@ thread-pre-split111.i.cont:                       ; preds = %thread-pre-split111
   %.not79.i = icmp eq i16 %164, 0
   br i1 %.not79.i, label %.sink.split, label %.else25
 
-.else25:                                          ; preds = %.lr.ph101.i
+.else25:                                          ; preds = %.lr.ph99.i
   %165 = getelementptr i8, ptr %159, i64 1
   store ptr %165, ptr %1, align 8
   %166 = load i8, ptr %165, align 1
   %.not78.i = icmp eq i8 %166, 0
-  br i1 %.not78.i, label %thread-pre-split.i, label %.lr.ph101.i, !llvm.loop !8
+  br i1 %.not78.i, label %thread-pre-split.i, label %.lr.ph99.i, !llvm.loop !8
 
 thread-pre-split.i:                               ; preds = %.else25, %.cont23.us, %146
   %.pr.i = load i32, ptr %4, align 8
   %167 = icmp sgt i32 %.pr.i, 0
-  br i1 %167, label %.lr.ph102.i, label %.critedge.i
+  br i1 %167, label %.lr.ph100.i, label %.critedge.i
 
-.lr.ph102.i:                                      ; preds = %thread-pre-split.i
+.lr.ph100.i:                                      ; preds = %thread-pre-split.i
   %.promoted.i = load ptr, ptr %77, align 8
   br label %168
 
-168:                                              ; preds = %173, %.lr.ph102.i
-  %169 = phi ptr [ %.promoted.i, %.lr.ph102.i ], [ %174, %173 ]
-  %170 = phi i32 [ %.pr.i, %.lr.ph102.i ], [ %177, %173 ]
+168:                                              ; preds = %173, %.lr.ph100.i
+  %169 = phi ptr [ %.promoted.i, %.lr.ph100.i ], [ %174, %173 ]
+  %170 = phi i32 [ %.pr.i, %.lr.ph100.i ], [ %177, %173 ]
   %171 = load i8, ptr %169, align 1
   %172 = icmp eq i8 %171, 0
   br i1 %172, label %173, label %.critedge.thread.i
@@ -536,17 +534,17 @@ thread-pre-split.i:                               ; preds = %.else25, %.cont23.u
   %177 = add nsw i32 %170, -1
   store i32 %177, ptr %4, align 8
   %178 = icmp sgt i32 %170, 1
-  br i1 %178, label %168, label %.critedge.thread113.i, !llvm.loop !9
+  br i1 %178, label %168, label %.critedge.thread111.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %thread-pre-split.i
   %179 = icmp eq i32 %.pr.i, 0
-  br i1 %179, label %.critedge.thread113.i, label %.critedge.thread.i
+  br i1 %179, label %.critedge.thread111.i, label %.critedge.thread.i
 
-.critedge.thread113.i:                            ; preds = %173, %.critedge.i
+.critedge.thread111.i:                            ; preds = %173, %.critedge.i
   store i32 0, ptr %78, align 4
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %168, %.critedge.thread113.i, %.critedge.i
+.critedge.thread.i:                               ; preds = %168, %.critedge.thread111.i, %.critedge.i
   %180 = load i32, ptr %79, align 4
   %181 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %180, ptr %181, align 8
@@ -556,7 +554,7 @@ set_var_from_str.exit:                            ; preds = %.else, %.cont.us, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %185
 
-.sink.split:                                      ; preds = %.lr.ph107.i.split, %122, %.lr.ph101.i, %.lr.ph101.i.us, %46, %.cont28, %.cont31, %.cont31.thread, %93
+.sink.split:                                      ; preds = %.lr.ph105.i.split, %122, %.lr.ph99.i, %.lr.ph99.i.us, %46, %.cont28, %.cont31, %.cont31.thread, %93
   store i32 302, ptr %6, align 4
   br label %182
 

@@ -1943,8 +1943,8 @@ switch.lookup:                                    ; preds = %7
 10:                                               ; preds = %7, %switch.lookup
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not.i763 = icmp sgt i32 %12, 0
-  br i1 %.not.i763, label %.lr.ph, label %_outList.exit
+  %.not.i762 = icmp sgt i32 %12, 0
+  br i1 %.not.i762, label %.lr.ph, label %_outList.exit
 
 .lr.ph:                                           ; preds = %10
   %13 = getelementptr i8, ptr %1, i64 16
@@ -1971,8 +1971,8 @@ switch.lookup:                                    ; preds = %7
   %21 = sext i32 %.val.i to i64
   %22 = getelementptr %union.ListCell, ptr %.val32.i, i64 %21
   %23 = icmp uge ptr %20, %22
-  %.not31.i762 = icmp eq ptr %20, null
-  %.not31.i = or i1 %.not31.i762, %23
+  %.not31.i761 = icmp eq ptr %20, null
+  %.not31.i = or i1 %.not31.i761, %23
   br i1 %.not31.i, label %35, label %24
 
 24:                                               ; preds = %18
@@ -2028,9 +2028,8 @@ _outList.exit:                                    ; preds = %35, %10
 42:                                               ; preds = %5
   %43 = getelementptr i8, ptr %1, i64 4
   %.val756 = load i8, ptr %43, align 4
-  %44 = and i8 %.val756, 1
-  %.not.i758 = icmp eq i8 %44, 0
-  %45 = select i1 %.not.i758, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %.val756 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %45) #7
   br label %429
 
@@ -2039,8 +2038,8 @@ _outList.exit:                                    ; preds = %35, %10
   %47 = getelementptr inbounds i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
-  %.not.i759 = icmp eq i8 %49, 0
-  br i1 %.not.i759, label %_outString.exit, label %50
+  %.not.i758 = icmp eq i8 %49, 0
+  br i1 %.not.i758, label %_outString.exit, label %50
 
 50:                                               ; preds = %46
   tail call void @outToken(ptr noundef %0, ptr noundef nonnull %48)
@@ -3942,9 +3941,8 @@ define internal fastcc void @_outRangeVar(ptr noundef %0, ptr nocapture noundef 
   tail call void @outToken(ptr noundef %0, ptr noundef %9)
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  %13 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %12 = trunc i8 %11 to i1
+  %13 = select i1 %12, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %13) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21) #7
   %14 = getelementptr inbounds i8, ptr %1, i64 33
@@ -4078,9 +4076,8 @@ define internal fastcc void @_outIntoClause(ptr noundef %0, ptr nocapture nounde
   tail call void @outNode(ptr noundef %0, ptr noundef %16)
   %17 = getelementptr inbounds i8, ptr %1, i64 64
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %20) #7
   ret void
 }
@@ -4155,40 +4152,36 @@ define internal fastcc void @_outConst(ptr noundef %0, ptr nocapture noundef rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.59, i32 noundef %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 33
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not22 = icmp eq i8 %17, 0
-  %18 = select i1 %.not22, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 36
   %20 = load i32, ptr %19, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %20) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.62) #7
   %21 = load i8, ptr %15, align 8
-  %22 = and i8 %21, 1
-  %.not23 = icmp eq i8 %22, 0
-  br i1 %.not23, label %24, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %2
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %31
+  br label %30
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = load i32, ptr %9, align 8
   %28 = load i8, ptr %11, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
-  tail call void @outDatum(ptr noundef %0, i64 noundef %26, i32 noundef %27, i1 noundef zeroext %30)
-  br label %31
+  %29 = trunc i8 %28 to i1
+  tail call void @outDatum(ptr noundef %0, i64 noundef %26, i32 noundef %27, i1 noundef zeroext %29)
+  br label %30
 
-31:                                               ; preds = %24, %23
+30:                                               ; preds = %24, %23
   ret void
 }
 
@@ -4261,15 +4254,13 @@ define internal fastcc void @_outAggref(ptr noundef %0, ptr nocapture noundef re
   tail call void @outNode(ptr noundef %0, ptr noundef %25)
   %26 = getelementptr inbounds i8, ptr %1, i64 72
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  %29 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %28 = trunc i8 %27 to i1
+  %29 = select i1 %28, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.81, ptr noundef nonnull %29) #7
   %30 = getelementptr inbounds i8, ptr %1, i64 73
   %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 1
-  %.not48 = icmp eq i8 %32, 0
-  %33 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %32 = trunc i8 %31 to i1
+  %33 = select i1 %32, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef nonnull %33) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.83) #7
   %34 = getelementptr inbounds i8, ptr %1, i64 74
@@ -4293,9 +4284,8 @@ outChar.exit:                                     ; preds = %37, %38
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   %40 = getelementptr inbounds i8, ptr %1, i64 75
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not49 = icmp eq i8 %42, 0
-  %43 = select i1 %.not49, ptr @.str.12, ptr @.str.11
+  %42 = trunc i8 %41 to i1
+  %43 = select i1 %42, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull %43) #7
   %44 = getelementptr inbounds i8, ptr %1, i64 76
   %45 = load i32, ptr %44, align 4
@@ -4367,15 +4357,13 @@ define internal fastcc void @_outWindowFunc(ptr noundef %0, ptr nocapture nounde
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.96, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 44
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.97, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 45
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not23 = icmp eq i8 %23, 0
-  %24 = select i1 %.not23, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.98, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 48
   %26 = load i32, ptr %25, align 8
@@ -4431,15 +4419,13 @@ define internal fastcc void @_outFuncExpr(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.111, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.112, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 13
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not20 = icmp eq i8 %13, 0
-  %14 = select i1 %.not20, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8
@@ -4494,9 +4480,8 @@ define internal fastcc void @_outOpExpr(ptr noundef %0, ptr nocapture noundef re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.123, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.124, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
@@ -4528,9 +4513,8 @@ define internal fastcc void @_outDistinctExpr(ptr noundef %0, ptr nocapture noun
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.123, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.124, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
@@ -4562,9 +4546,8 @@ define internal fastcc void @_outNullIfExpr(ptr noundef %0, ptr nocapture nounde
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.123, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.124, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
@@ -4599,9 +4582,8 @@ define internal fastcc void @_outScalarArrayOpExpr(ptr noundef %0, ptr nocapture
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.130, i32 noundef %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 20
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
@@ -4705,21 +4687,18 @@ define internal fastcc void @_outSubPlan(ptr noundef %0, ptr nocapture noundef r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.149, i32 noundef %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 52
   %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  %24 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.150, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 53
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not41 = icmp eq i8 %27, 0
-  %28 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 54
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not42 = icmp eq i8 %31, 0
-  %32 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %31 = trunc i8 %30 to i1
+  %32 = select i1 %31, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef nonnull %32) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.153) #7
   %33 = getelementptr inbounds i8, ptr %1, i64 56
@@ -4992,9 +4971,8 @@ define internal fastcc void @_outArrayExpr(ptr noundef %0, ptr nocapture noundef
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.193, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 28
   %16 = load i32, ptr %15, align 4
@@ -5143,9 +5121,8 @@ define internal fastcc void @_outXmlExpr(ptr noundef %0, ptr nocapture noundef r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.217, i32 noundef %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 44
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  %18 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.218, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 48
   %20 = load i32, ptr %19, align 8
@@ -5232,15 +5209,13 @@ define internal fastcc void @_outJsonConstructorExpr(ptr noundef %0, ptr nocaptu
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.233, ptr noundef nonnull %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 41
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not21 = icmp eq i8 %19, 0
-  %20 = select i1 %.not21, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.234, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 44
   %22 = load i32, ptr %21, align 4
@@ -5264,9 +5239,8 @@ define internal fastcc void @_outJsonIsPredicate(ptr noundef %0, ptr nocapture n
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.236, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 28
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.237, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8
@@ -5286,9 +5260,8 @@ define internal fastcc void @_outNullTest(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.239, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 20
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.240, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
@@ -5317,9 +5290,8 @@ define internal fastcc void @_outMergeAction(ptr noundef %0, ptr nocapture nound
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.243) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.244, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -5474,9 +5446,8 @@ define internal fastcc void @_outTargetEntry(ptr noundef %0, ptr nocapture nound
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.268, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 42
   %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.269, ptr noundef nonnull %20) #7
   ret void
 }
@@ -5498,9 +5469,8 @@ define internal fastcc void @_outJoinExpr(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.273, i32 noundef %4) #7
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.274, ptr noundef nonnull %8) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.275) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5592,9 +5562,8 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr nocapture noundef rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.292, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.293, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.294) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 32
@@ -5605,63 +5574,53 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr nocapture noundef rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.295, i32 noundef %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 44
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not106 = icmp eq i8 %17, 0
-  %18 = select i1 %.not106, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.296, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 45
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not107 = icmp eq i8 %21, 0
-  %22 = select i1 %.not107, ptr @.str.12, ptr @.str.11
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.297, ptr noundef nonnull %22) #7
   %23 = getelementptr inbounds i8, ptr %1, i64 46
   %24 = load i8, ptr %23, align 2
-  %25 = and i8 %24, 1
-  %.not108 = icmp eq i8 %25, 0
-  %26 = select i1 %.not108, ptr @.str.12, ptr @.str.11
+  %25 = trunc i8 %24 to i1
+  %26 = select i1 %25, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.298, ptr noundef nonnull %26) #7
   %27 = getelementptr inbounds i8, ptr %1, i64 47
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not109 = icmp eq i8 %29, 0
-  %30 = select i1 %.not109, ptr @.str.12, ptr @.str.11
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.299, ptr noundef nonnull %30) #7
   %31 = getelementptr inbounds i8, ptr %1, i64 48
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not110 = icmp eq i8 %33, 0
-  %34 = select i1 %.not110, ptr @.str.12, ptr @.str.11
+  %33 = trunc i8 %32 to i1
+  %34 = select i1 %33, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.300, ptr noundef nonnull %34) #7
   %35 = getelementptr inbounds i8, ptr %1, i64 49
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not111 = icmp eq i8 %37, 0
-  %38 = select i1 %.not111, ptr @.str.12, ptr @.str.11
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.301, ptr noundef nonnull %38) #7
   %39 = getelementptr inbounds i8, ptr %1, i64 50
   %40 = load i8, ptr %39, align 2
-  %41 = and i8 %40, 1
-  %.not112 = icmp eq i8 %41, 0
-  %42 = select i1 %.not112, ptr @.str.12, ptr @.str.11
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.302, ptr noundef nonnull %42) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 51
   %44 = load i8, ptr %43, align 1
-  %45 = and i8 %44, 1
-  %.not113 = icmp eq i8 %45, 0
-  %46 = select i1 %.not113, ptr @.str.12, ptr @.str.11
+  %45 = trunc i8 %44 to i1
+  %46 = select i1 %45, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.303, ptr noundef nonnull %46) #7
   %47 = getelementptr inbounds i8, ptr %1, i64 52
   %48 = load i8, ptr %47, align 4
-  %49 = and i8 %48, 1
-  %.not114 = icmp eq i8 %49, 0
-  %50 = select i1 %.not114, ptr @.str.12, ptr @.str.11
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.304, ptr noundef nonnull %50) #7
   %51 = getelementptr inbounds i8, ptr %1, i64 53
   %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %.not115 = icmp eq i8 %53, 0
-  %54 = select i1 %.not115, ptr @.str.12, ptr @.str.11
+  %53 = trunc i8 %52 to i1
+  %54 = select i1 %53, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.305, ptr noundef nonnull %54) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.306) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 56
@@ -5685,9 +5644,8 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr nocapture noundef rea
   tail call void @outNode(ptr noundef %0, ptr noundef %64)
   %65 = getelementptr inbounds i8, ptr %1, i64 96
   %66 = load i8, ptr %65, align 8
-  %67 = and i8 %66, 1
-  %.not116 = icmp eq i8 %67, 0
-  %68 = select i1 %.not116, ptr @.str.12, ptr @.str.11
+  %67 = trunc i8 %66 to i1
+  %68 = select i1 %67, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.311, ptr noundef nonnull %68) #7
   %69 = getelementptr inbounds i8, ptr %1, i64 100
   %70 = load i32, ptr %69, align 4
@@ -5713,9 +5671,8 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr nocapture noundef rea
   tail call void @outNode(ptr noundef %0, ptr noundef %80)
   %81 = getelementptr inbounds i8, ptr %1, i64 144
   %82 = load i8, ptr %81, align 8
-  %83 = and i8 %82, 1
-  %.not117 = icmp eq i8 %83, 0
-  %84 = select i1 %.not117, ptr @.str.12, ptr @.str.11
+  %83 = trunc i8 %82 to i1
+  %84 = select i1 %83, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.316, ptr noundef nonnull %84) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.317) #7
   %85 = getelementptr inbounds i8, ptr %1, i64 152
@@ -5785,15 +5742,13 @@ define internal fastcc void @_outTypeName(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.333, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 20
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.334, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 21
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not20 = icmp eq i8 %13, 0
-  %14 = select i1 %.not20, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.335, ptr noundef nonnull %14) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.336) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 24
@@ -5932,9 +5887,8 @@ define internal fastcc void @_outA_Const(ptr noundef %0, ptr noundef %1) unnamed
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.360) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.361) #7
@@ -6028,27 +5982,23 @@ define internal fastcc void @_outFuncCall(ptr noundef %0, ptr nocapture noundef 
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.375, ptr noundef nonnull %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 49
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not28 = icmp eq i8 %19, 0
-  %20 = select i1 %.not28, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.376, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 50
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not29 = icmp eq i8 %23, 0
-  %24 = select i1 %.not29, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.377, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 51
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not30 = icmp eq i8 %27, 0
-  %28 = select i1 %.not30, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.378, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 52
   %30 = load i32, ptr %29, align 4
@@ -6064,9 +6014,8 @@ define internal fastcc void @_outA_Indices(ptr noundef %0, ptr nocapture noundef
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.380) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.381, ptr noundef nonnull %6) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.382) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6207,9 +6156,8 @@ define internal fastcc void @_outRangeSubselect(ptr noundef %0, ptr nocapture no
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.404) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.405, ptr noundef nonnull %6) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.406) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6227,21 +6175,18 @@ define internal fastcc void @_outRangeFunction(ptr noundef %0, ptr nocapture nou
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.407) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.405, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 5
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not16 = icmp eq i8 %9, 0
-  %10 = select i1 %.not16, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.408, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 6
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %.not17 = icmp eq i8 %13, 0
-  %14 = select i1 %.not17, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.409, ptr noundef nonnull %14) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.410) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6263,9 +6208,8 @@ define internal fastcc void @_outRangeTableFunc(ptr noundef %0, ptr nocapture no
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.412) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.405, ptr noundef nonnull %6) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.27) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6306,15 +6250,13 @@ define internal fastcc void @_outRangeTableFuncCol(ptr noundef %0, ptr nocapture
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.417, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 25
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not19 = icmp eq i8 %13, 0
-  %14 = select i1 %.not19, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.418, ptr noundef nonnull %14) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.419) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 32
@@ -6378,21 +6320,18 @@ define internal fastcc void @_outColumnDef(ptr noundef %0, ptr nocapture noundef
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.427, i32 noundef %13) #7
   %14 = getelementptr inbounds i8, ptr %1, i64 36
   %15 = load i8, ptr %14, align 4
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  %17 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %16 = trunc i8 %15 to i1
+  %17 = select i1 %16, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.428, ptr noundef nonnull %17) #7
   %18 = getelementptr inbounds i8, ptr %1, i64 37
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not52 = icmp eq i8 %20, 0
-  %21 = select i1 %.not52, ptr @.str.12, ptr @.str.11
+  %20 = trunc i8 %19 to i1
+  %21 = select i1 %20, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.418, ptr noundef nonnull %21) #7
   %22 = getelementptr inbounds i8, ptr %1, i64 38
   %23 = load i8, ptr %22, align 2
-  %24 = and i8 %23, 1
-  %.not53 = icmp eq i8 %24, 0
-  %25 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %25) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.430) #7
   %26 = getelementptr inbounds i8, ptr %1, i64 39
@@ -6435,16 +6374,16 @@ outChar.exit:                                     ; preds = %29, %30
 
 41:                                               ; preds = %outChar.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %outChar.exit54
+  br label %outChar.exit52
 
 42:                                               ; preds = %outChar.exit
   store i8 %39, ptr %4, align 1
   %43 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %43, align 1
   call void @outToken(ptr noundef %0, ptr noundef nonnull %4)
-  br label %outChar.exit54
+  br label %outChar.exit52
 
-outChar.exit54:                                   ; preds = %41, %42
+outChar.exit52:                                   ; preds = %41, %42
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.435) #7
   %44 = getelementptr inbounds i8, ptr %1, i64 72
@@ -6457,18 +6396,18 @@ outChar.exit54:                                   ; preds = %41, %42
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %50
 
-49:                                               ; preds = %outChar.exit54
+49:                                               ; preds = %outChar.exit52
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %outChar.exit55
+  br label %outChar.exit53
 
-50:                                               ; preds = %outChar.exit54
+50:                                               ; preds = %outChar.exit52
   store i8 %47, ptr %3, align 1
   %51 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %51, align 1
   call void @outToken(ptr noundef %0, ptr noundef nonnull %3)
-  br label %outChar.exit55
+  br label %outChar.exit53
 
-outChar.exit55:                                   ; preds = %49, %50
+outChar.exit53:                                   ; preds = %49, %50
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.437) #7
   %52 = getelementptr inbounds i8, ptr %1, i64 88
@@ -6599,9 +6538,8 @@ define internal fastcc void @_outXmlSerialize(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.218, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 28
   %14 = load i32, ptr %13, align 4
@@ -6676,9 +6614,8 @@ outChar.exit:                                     ; preds = %7, %8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   %10 = getelementptr inbounds i8, ptr %1, i64 5
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  %13 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %12 = trunc i8 %11 to i1
+  %13 = select i1 %12, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.465, ptr noundef nonnull %13) #7
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
@@ -6733,9 +6670,8 @@ define internal fastcc void @_outPartitionCmd(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.476, ptr noundef nonnull %10) #7
   ret void
 }
@@ -6813,9 +6749,8 @@ outChar.exit:                                     ; preds = %19, %20
   tail call void @outNode(ptr noundef %0, ptr noundef %30)
   %31 = getelementptr inbounds i8, ptr %1, i64 48
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not116 = icmp eq i8 %33, 0
-  %34 = select i1 %.not116, ptr @.str.12, ptr @.str.11
+  %33 = trunc i8 %32 to i1
+  %34 = select i1 %33, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.485, ptr noundef nonnull %34) #7
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load i32, ptr %35, align 8
@@ -6829,16 +6764,16 @@ outChar.exit:                                     ; preds = %19, %20
 
 40:                                               ; preds = %28
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %outChar.exit120
+  br label %outChar.exit115
 
 41:                                               ; preds = %28
   store i8 %38, ptr %4, align 1
   %42 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %42, align 1
   call void @outToken(ptr noundef %0, ptr noundef nonnull %4)
-  br label %outChar.exit120
+  br label %outChar.exit115
 
-outChar.exit120:                                  ; preds = %40, %41
+outChar.exit115:                                  ; preds = %40, %41
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   %43 = getelementptr inbounds i8, ptr %1, i64 16
   %44 = load i32, ptr %43, align 8
@@ -6880,9 +6815,8 @@ outChar.exit120:                                  ; preds = %40, %41
   tail call void @outNode(ptr noundef %0, ptr noundef %62)
   %63 = getelementptr inbounds i8, ptr %1, i64 104
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not115 = icmp eq i8 %65, 0
-  %66 = select i1 %.not115, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.490, ptr noundef nonnull %66) #7
   br label %112
 
@@ -6922,9 +6856,8 @@ outChar.exit120:                                  ; preds = %40, %41
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.494, i32 noundef %83) #7
   %84 = getelementptr inbounds i8, ptr %1, i64 140
   %85 = load i8, ptr %84, align 4
-  %86 = and i8 %85, 1
-  %.not = icmp eq i8 %86, 0
-  %87 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %86 = trunc i8 %85 to i1
+  %87 = select i1 %86, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.495, ptr noundef nonnull %87) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.29) #7
   %88 = getelementptr inbounds i8, ptr %1, i64 144
@@ -6977,24 +6910,21 @@ outChar.exit120:                                  ; preds = %40, %41
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 562, ptr noundef nonnull @__func__._outRangeTblEntry) #7
   unreachable
 
-112:                                              ; preds = %2, %94, %79, %70, %67, %60, %47, %outChar.exit120, %outChar.exit
+112:                                              ; preds = %2, %94, %79, %70, %67, %60, %47, %outChar.exit115, %outChar.exit
   %113 = getelementptr inbounds i8, ptr %1, i64 200
   %114 = load i8, ptr %113, align 8
-  %115 = and i8 %114, 1
-  %.not117 = icmp eq i8 %115, 0
-  %116 = select i1 %.not117, ptr @.str.12, ptr @.str.11
+  %115 = trunc i8 %114 to i1
+  %116 = select i1 %115, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.405, ptr noundef nonnull %116) #7
   %117 = getelementptr inbounds i8, ptr %1, i64 201
   %118 = load i8, ptr %117, align 1
-  %119 = and i8 %118, 1
-  %.not118 = icmp eq i8 %119, 0
-  %120 = select i1 %.not118, ptr @.str.12, ptr @.str.11
+  %119 = trunc i8 %118 to i1
+  %120 = select i1 %119, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %120) #7
   %121 = getelementptr inbounds i8, ptr %1, i64 202
   %122 = load i8, ptr %121, align 2
-  %123 = and i8 %122, 1
-  %.not119 = icmp eq i8 %123, 0
-  %124 = select i1 %.not119, ptr @.str.12, ptr @.str.11
+  %123 = trunc i8 %122 to i1
+  %124 = select i1 %123, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.499, ptr noundef nonnull %124) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.500) #7
   %125 = getelementptr inbounds i8, ptr %1, i64 208
@@ -7011,9 +6941,8 @@ define internal fastcc void @_outRTEPermissionInfo(ptr noundef %0, ptr nocapture
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.480, i32 noundef %4) #7
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
@@ -7162,9 +7091,8 @@ define internal fastcc void @_outWithCheckOption(ptr noundef %0, ptr nocapture n
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.519, ptr noundef nonnull %14) #7
   ret void
 }
@@ -7183,15 +7111,13 @@ define internal fastcc void @_outSortGroupClause(ptr noundef %0, ptr nocapture n
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.523, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.524, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 17
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not11 = icmp eq i8 %15, 0
-  %16 = select i1 %.not11, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.525, ptr noundef nonnull %16) #7
   ret void
 }
@@ -7257,24 +7183,21 @@ define internal fastcc void @_outWindowClause(ptr noundef %0, ptr nocapture noun
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.532, i32 noundef %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 84
   %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  %28 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.533, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 85
   %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 1
-  %.not38 = icmp eq i8 %31, 0
-  %32 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %31 = trunc i8 %30 to i1
+  %32 = select i1 %31, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.534, ptr noundef nonnull %32) #7
   %33 = getelementptr inbounds i8, ptr %1, i64 88
   %34 = load i32, ptr %33, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.96, i32 noundef %34) #7
   %35 = getelementptr inbounds i8, ptr %1, i64 92
   %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, 1
-  %.not39 = icmp eq i8 %37, 0
-  %38 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.535, ptr noundef nonnull %38) #7
   ret void
 }
@@ -7293,9 +7216,8 @@ define internal fastcc void @_outRowMarkClause(ptr noundef %0, ptr nocapture nou
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.457, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.538, ptr noundef nonnull %12) #7
   ret void
 }
@@ -7309,9 +7231,8 @@ define internal fastcc void @_outWithClause(ptr noundef %0, ptr nocapture nounde
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.541, ptr noundef nonnull %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
@@ -7373,9 +7294,8 @@ define internal fastcc void @_outCTESearchClause(ptr noundef %0, ptr nocapture n
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.550, ptr noundef nonnull %8) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.551) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -7459,9 +7379,8 @@ define internal fastcc void @_outCommonTableExpr(ptr noundef %0, ptr nocapture n
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 60
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.568, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 64
   %22 = load i32, ptr %21, align 8
@@ -7490,9 +7409,8 @@ define internal fastcc void @_outMergeWhenClause(ptr noundef %0, ptr nocapture n
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.574) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.244, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -7524,15 +7442,13 @@ define internal fastcc void @_outTriggerTransition(ptr noundef %0, ptr nocapture
   tail call void @outToken(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.578, ptr noundef nonnull %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 17
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not8 = icmp eq i8 %11, 0
-  %12 = select i1 %.not8, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.579, ptr noundef nonnull %12) #7
   ret void
 }
@@ -7578,9 +7494,8 @@ define internal fastcc void @_outJsonParseExpr(ptr noundef %0, ptr nocapture nou
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.237, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
@@ -7635,15 +7550,13 @@ define internal fastcc void @_outJsonObjectConstructor(ptr noundef %0, ptr nocap
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.233, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 25
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not13 = icmp eq i8 %13, 0
-  %14 = select i1 %.not13, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.234, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 28
   %16 = load i32, ptr %15, align 4
@@ -7664,9 +7577,8 @@ define internal fastcc void @_outJsonArrayConstructor(ptr noundef %0, ptr nocapt
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.233, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
@@ -7691,9 +7603,8 @@ define internal fastcc void @_outJsonArrayQueryConstructor(ptr noundef %0, ptr n
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.233, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4
@@ -7739,15 +7650,13 @@ define internal fastcc void @_outJsonObjectAgg(ptr noundef %0, ptr nocapture nou
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.233, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 25
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not11 = icmp eq i8 %13, 0
-  %14 = select i1 %.not11, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.234, ptr noundef nonnull %14) #7
   ret void
 }
@@ -7765,9 +7674,8 @@ define internal fastcc void @_outJsonArrayAgg(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.233, ptr noundef nonnull %10) #7
   ret void
 }
@@ -7932,9 +7840,8 @@ define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr nocapture nounde
   tail call void @outNode(ptr noundef %0, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  %18 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.316, ptr noundef nonnull %18) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.611) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 64
@@ -7976,9 +7883,8 @@ define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr nocapture nounde
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.210, i32 noundef %38) #7
   %39 = getelementptr inbounds i8, ptr %1, i64 140
   %40 = load i8, ptr %39, align 4
-  %41 = and i8 %40, 1
-  %.not57 = icmp eq i8 %41, 0
-  %42 = select i1 %.not57, ptr @.str.12, ptr @.str.11
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.614, ptr noundef nonnull %42) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.275) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 144
@@ -7999,9 +7905,8 @@ define internal fastcc void @_outSetOperationStmt(ptr noundef %0, ptr nocapture 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.210, i32 noundef %4) #7
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.614, ptr noundef nonnull %8) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.275) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -8081,9 +7986,8 @@ define internal fastcc void @_outCreateSchemaStmt(ptr noundef %0, ptr nocapture 
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %12) #7
   ret void
 }
@@ -8104,9 +8008,8 @@ define internal fastcc void @_outAlterTableStmt(ptr noundef %0, ptr nocapture no
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.630, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 28
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %12) #7
   ret void
 }
@@ -8169,15 +8072,13 @@ define internal fastcc void @_outAlterTableCmd(ptr noundef %0, ptr nocapture nou
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.639, i32 noundef %15) #7
   %16 = getelementptr inbounds i8, ptr %1, i64 44
   %17 = load i8, ptr %16, align 4
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  %19 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %18 = trunc i8 %17 to i1
+  %19 = select i1 %18, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %19) #7
   %20 = getelementptr inbounds i8, ptr %1, i64 45
   %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, 1
-  %.not20 = icmp eq i8 %22, 0
-  %23 = select i1 %.not20, ptr @.str.12, ptr @.str.11
+  %22 = trunc i8 %21 to i1
+  %23 = select i1 %22, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.640, ptr noundef nonnull %23) #7
   ret void
 }
@@ -8233,9 +8134,8 @@ outChar.exit:                                     ; preds = %7, %8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.639, i32 noundef %17) #7
   %18 = getelementptr inbounds i8, ptr %1, i64 36
   %19 = load i8, ptr %18, align 4
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  %21 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %20 = trunc i8 %19 to i1
+  %21 = select i1 %20, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %21) #7
   ret void
 }
@@ -8245,9 +8145,8 @@ define internal fastcc void @_outGrantStmt(ptr noundef %0, ptr nocapture noundef
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.644) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.645, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -8269,9 +8168,8 @@ define internal fastcc void @_outGrantStmt(ptr noundef %0, ptr nocapture noundef
   tail call void @outNode(ptr noundef %0, ptr noundef %16)
   %17 = getelementptr inbounds i8, ptr %1, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not23 = icmp eq i8 %19, 0
-  %20 = select i1 %.not23, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.650, ptr noundef nonnull %20) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.651) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 48
@@ -8300,9 +8198,8 @@ define internal fastcc void @_outObjectWithArgs(ptr noundef %0, ptr nocapture no
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.656, ptr noundef nonnull %12) #7
   ret void
 }
@@ -8334,9 +8231,8 @@ define internal fastcc void @_outGrantRoleStmt(ptr noundef %0, ptr nocapture nou
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.645, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.662) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 32
@@ -8383,15 +8279,13 @@ define internal fastcc void @_outCopyStmt(ptr noundef %0, ptr nocapture noundef 
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.667, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 33
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not23 = icmp eq i8 %15, 0
-  %16 = select i1 %.not23, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.668, ptr noundef nonnull %16) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.669) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 40
@@ -8424,9 +8318,8 @@ define internal fastcc void @_outVariableSetStmt(ptr noundef %0, ptr nocapture n
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.428, ptr noundef nonnull %12) #7
   ret void
 }
@@ -8493,9 +8386,8 @@ define internal fastcc void @_outCreateStmt(ptr noundef %0, ptr nocapture nounde
   tail call void @outToken(ptr noundef %0, ptr noundef %26)
   %27 = getelementptr inbounds i8, ptr %1, i64 104
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  %30 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %30) #7
   ret void
 }
@@ -8516,33 +8408,28 @@ define internal fastcc void @_outConstraint(ptr noundef %0, ptr nocapture nounde
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.683, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 17
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not85 = icmp eq i8 %17, 0
-  %18 = select i1 %.not85, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.684, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 18
   %20 = load i8, ptr %19, align 2
-  %21 = and i8 %20, 1
-  %.not86 = icmp eq i8 %21, 0
-  %22 = select i1 %.not86, ptr @.str.12, ptr @.str.11
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.685, ptr noundef nonnull %22) #7
   %23 = getelementptr inbounds i8, ptr %1, i64 19
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not87 = icmp eq i8 %25, 0
-  %26 = select i1 %.not87, ptr @.str.12, ptr @.str.11
+  %25 = trunc i8 %24 to i1
+  %26 = select i1 %25, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.686, ptr noundef nonnull %26) #7
   %27 = getelementptr inbounds i8, ptr %1, i64 20
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %.not88 = icmp eq i8 %29, 0
-  %30 = select i1 %.not88, ptr @.str.12, ptr @.str.11
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.687, ptr noundef nonnull %30) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.226) #7
   %31 = getelementptr inbounds i8, ptr %1, i64 24
@@ -8577,9 +8464,8 @@ outChar.exit:                                     ; preds = %38, %39
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.427, i32 noundef %42) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 48
   %44 = load i8, ptr %43, align 8
-  %45 = and i8 %44, 1
-  %.not89 = icmp eq i8 %45, 0
-  %46 = select i1 %.not89, ptr @.str.12, ptr @.str.11
+  %45 = trunc i8 %44 to i1
+  %46 = select i1 %45, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.690, ptr noundef nonnull %46) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.691) #7
   %47 = getelementptr inbounds i8, ptr %1, i64 56
@@ -8587,9 +8473,8 @@ outChar.exit:                                     ; preds = %38, %39
   call void @outNode(ptr noundef %0, ptr noundef %48)
   %49 = getelementptr inbounds i8, ptr %1, i64 64
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 1
-  %.not90 = icmp eq i8 %51, 0
-  %52 = select i1 %.not90, ptr @.str.12, ptr @.str.11
+  %51 = trunc i8 %50 to i1
+  %52 = select i1 %51, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.692, ptr noundef nonnull %52) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.693) #7
   %53 = getelementptr inbounds i8, ptr %1, i64 72
@@ -8613,9 +8498,8 @@ outChar.exit:                                     ; preds = %38, %39
   call void @outToken(ptr noundef %0, ptr noundef %62)
   %63 = getelementptr inbounds i8, ptr %1, i64 112
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not91 = icmp eq i8 %65, 0
-  %66 = select i1 %.not91, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.697, ptr noundef nonnull %66) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.698) #7
   %67 = getelementptr inbounds i8, ptr %1, i64 120
@@ -8646,16 +8530,16 @@ outChar.exit:                                     ; preds = %38, %39
 
 80:                                               ; preds = %outChar.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %outChar.exit92
+  br label %outChar.exit85
 
 81:                                               ; preds = %outChar.exit
   store i8 %78, ptr %5, align 1
   %82 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 0, ptr %82, align 1
   call void @outToken(ptr noundef %0, ptr noundef nonnull %5)
-  br label %outChar.exit92
+  br label %outChar.exit85
 
-outChar.exit92:                                   ; preds = %80, %81
+outChar.exit85:                                   ; preds = %80, %81
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.704) #7
   %83 = getelementptr inbounds i8, ptr %1, i64 161
@@ -8664,18 +8548,18 @@ outChar.exit92:                                   ; preds = %80, %81
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %87
 
-86:                                               ; preds = %outChar.exit92
+86:                                               ; preds = %outChar.exit85
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %outChar.exit93
+  br label %outChar.exit86
 
-87:                                               ; preds = %outChar.exit92
+87:                                               ; preds = %outChar.exit85
   store i8 %84, ptr %4, align 1
   %88 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %88, align 1
   call void @outToken(ptr noundef %0, ptr noundef nonnull %4)
-  br label %outChar.exit93
+  br label %outChar.exit86
 
-outChar.exit93:                                   ; preds = %86, %87
+outChar.exit86:                                   ; preds = %86, %87
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.705) #7
   %89 = getelementptr inbounds i8, ptr %1, i64 162
@@ -8684,18 +8568,18 @@ outChar.exit93:                                   ; preds = %86, %87
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %92, label %93
 
-92:                                               ; preds = %outChar.exit93
+92:                                               ; preds = %outChar.exit86
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %outChar.exit94
+  br label %outChar.exit87
 
-93:                                               ; preds = %outChar.exit93
+93:                                               ; preds = %outChar.exit86
   store i8 %90, ptr %3, align 1
   %94 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %94, align 1
   call void @outToken(ptr noundef %0, ptr noundef nonnull %3)
-  br label %outChar.exit94
+  br label %outChar.exit87
 
-outChar.exit94:                                   ; preds = %92, %93
+outChar.exit87:                                   ; preds = %92, %93
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.706) #7
   %95 = getelementptr inbounds i8, ptr %1, i64 168
@@ -8745,9 +8629,8 @@ define internal fastcc void @_outDropTableSpaceStmt(ptr noundef %0, ptr nocaptur
   tail call void @outToken(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %8) #7
   ret void
 }
@@ -8765,9 +8648,8 @@ define internal fastcc void @_outAlterTableSpaceOptionsStmt(ptr noundef %0, ptr 
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.714, ptr noundef nonnull %10) #7
   ret void
 }
@@ -8792,9 +8674,8 @@ define internal fastcc void @_outAlterTableMoveAllStmt(ptr noundef %0, ptr nocap
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.719, ptr noundef nonnull %14) #7
   ret void
 }
@@ -8808,9 +8689,8 @@ define internal fastcc void @_outCreateExtensionStmt(ptr noundef %0, ptr nocaptu
   tail call void @outToken(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %8) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -8910,9 +8790,8 @@ define internal fastcc void @_outCreateForeignServerStmt(ptr noundef %0, ptr noc
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %14) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 48
@@ -8938,9 +8817,8 @@ define internal fastcc void @_outAlterForeignServerStmt(ptr noundef %0, ptr noca
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.734, ptr noundef nonnull %12) #7
   ret void
 }
@@ -8997,9 +8875,8 @@ define internal fastcc void @_outCreateForeignTableStmt(ptr noundef %0, ptr noca
   tail call void @outToken(ptr noundef %0, ptr noundef %26)
   %27 = getelementptr inbounds i8, ptr %1, i64 104
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  %30 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.748, ptr noundef nonnull %30) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.730) #7
   %31 = getelementptr inbounds i8, ptr %1, i64 112
@@ -9025,9 +8902,8 @@ define internal fastcc void @_outCreateUserMappingStmt(ptr noundef %0, ptr nocap
   tail call void @outToken(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 32
@@ -9067,9 +8943,8 @@ define internal fastcc void @_outDropUserMappingStmt(ptr noundef %0, ptr nocaptu
   tail call void @outToken(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %10) #7
   ret void
 }
@@ -9120,9 +8995,8 @@ define internal fastcc void @_outCreatePolicyStmt(ptr noundef %0, ptr nocapture 
   tail call void @outToken(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.763, ptr noundef nonnull %12) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.717) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 40
@@ -9205,15 +9079,13 @@ define internal fastcc void @_outCreateTrigStmt(ptr noundef %0, ptr nocapture no
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.770) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 5
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not39 = icmp eq i8 %9, 0
-  %10 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.772, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.773) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9233,9 +9105,8 @@ define internal fastcc void @_outCreateTrigStmt(ptr noundef %0, ptr nocapture no
   tail call void @outNode(ptr noundef %0, ptr noundef %18)
   %19 = getelementptr inbounds i8, ptr %1, i64 40
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not40 = icmp eq i8 %21, 0
-  %22 = select i1 %.not40, ptr @.str.12, ptr @.str.11
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.774, ptr noundef nonnull %22) #7
   %23 = getelementptr inbounds i8, ptr %1, i64 42
   %24 = load i16, ptr %23, align 2
@@ -9259,15 +9130,13 @@ define internal fastcc void @_outCreateTrigStmt(ptr noundef %0, ptr nocapture no
   tail call void @outNode(ptr noundef %0, ptr noundef %34)
   %35 = getelementptr inbounds i8, ptr %1, i64 72
   %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not41 = icmp eq i8 %37, 0
-  %38 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.683, ptr noundef nonnull %38) #7
   %39 = getelementptr inbounds i8, ptr %1, i64 73
   %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 1
-  %.not42 = icmp eq i8 %41, 0
-  %42 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.684, ptr noundef nonnull %42) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.779) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 80
@@ -9334,9 +9203,8 @@ define internal fastcc void @_outCreatePLangStmt(ptr noundef %0, ptr nocapture n
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.785) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %6) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.786) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9356,9 +9224,8 @@ define internal fastcc void @_outCreatePLangStmt(ptr noundef %0, ptr nocapture n
   tail call void @outNode(ptr noundef %0, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not17 = icmp eq i8 %17, 0
-  %18 = select i1 %.not17, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.790, ptr noundef nonnull %18) #7
   ret void
 }
@@ -9424,9 +9291,8 @@ define internal fastcc void @_outDropRoleStmt(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %8) #7
   ret void
 }
@@ -9447,15 +9313,13 @@ define internal fastcc void @_outCreateSeqStmt(ptr noundef %0, ptr nocapture nou
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.801, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 28
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.802, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 29
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not13 = icmp eq i8 %15, 0
-  %16 = select i1 %.not13, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %16) #7
   ret void
 }
@@ -9473,15 +9337,13 @@ define internal fastcc void @_outAlterSeqStmt(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.802, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 25
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not11 = icmp eq i8 %13, 0
-  %14 = select i1 %.not11, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %14) #7
   ret void
 }
@@ -9494,9 +9356,8 @@ define internal fastcc void @_outDefineStmt(ptr noundef %0, ptr nocapture nounde
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.472, i32 noundef %4) #7
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.805, ptr noundef nonnull %8) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.806) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -9512,15 +9373,13 @@ define internal fastcc void @_outDefineStmt(ptr noundef %0, ptr nocapture nounde
   tail call void @outNode(ptr noundef %0, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not18 = icmp eq i8 %17, 0
-  %18 = select i1 %.not18, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 41
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not19 = icmp eq i8 %21, 0
-  %22 = select i1 %.not19, ptr @.str.12, ptr @.str.11
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %22) #7
   ret void
 }
@@ -9572,9 +9431,8 @@ define internal fastcc void @_outCreateOpClassStmt(ptr noundef %0, ptr nocapture
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.815, ptr noundef nonnull %16) #7
   ret void
 }
@@ -9634,9 +9492,8 @@ define internal fastcc void @_outAlterOpFamilyStmt(ptr noundef %0, ptr nocapture
   tail call void @outToken(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.823, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.814) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 32
@@ -9660,15 +9517,13 @@ define internal fastcc void @_outDropStmt(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.639, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 25
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not12 = icmp eq i8 %15, 0
-  %16 = select i1 %.not12, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.476, ptr noundef nonnull %16) #7
   ret void
 }
@@ -9682,9 +9537,8 @@ define internal fastcc void @_outTruncateStmt(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.828, ptr noundef nonnull %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
@@ -9772,9 +9626,8 @@ define internal fastcc void @_outFetchStmt(ptr noundef %0, ptr nocapture noundef
   tail call void @outToken(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.841, ptr noundef nonnull %12) #7
   ret void
 }
@@ -9836,69 +9689,58 @@ define internal fastcc void @_outIndexStmt(ptr noundef %0, ptr nocapture noundef
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.852, i32 noundef %30) #7
   %31 = getelementptr inbounds i8, ptr %1, i64 104
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  %34 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %33 = trunc i8 %32 to i1
+  %34 = select i1 %33, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.234, ptr noundef nonnull %34) #7
   %35 = getelementptr inbounds i8, ptr %1, i64 105
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not61 = icmp eq i8 %37, 0
-  %38 = select i1 %.not61, ptr @.str.12, ptr @.str.11
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.690, ptr noundef nonnull %38) #7
   %39 = getelementptr inbounds i8, ptr %1, i64 106
   %40 = load i8, ptr %39, align 2
-  %41 = and i8 %40, 1
-  %.not62 = icmp eq i8 %41, 0
-  %42 = select i1 %.not62, ptr @.str.12, ptr @.str.11
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.853, ptr noundef nonnull %42) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 107
   %44 = load i8, ptr %43, align 1
-  %45 = and i8 %44, 1
-  %.not63 = icmp eq i8 %45, 0
-  %46 = select i1 %.not63, ptr @.str.12, ptr @.str.11
+  %45 = trunc i8 %44 to i1
+  %46 = select i1 %45, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.772, ptr noundef nonnull %46) #7
   %47 = getelementptr inbounds i8, ptr %1, i64 108
   %48 = load i8, ptr %47, align 4
-  %49 = and i8 %48, 1
-  %.not64 = icmp eq i8 %49, 0
-  %50 = select i1 %.not64, ptr @.str.12, ptr @.str.11
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.854, ptr noundef nonnull %50) #7
   %51 = getelementptr inbounds i8, ptr %1, i64 109
   %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %.not65 = icmp eq i8 %53, 0
-  %54 = select i1 %.not65, ptr @.str.12, ptr @.str.11
+  %53 = trunc i8 %52 to i1
+  %54 = select i1 %53, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.683, ptr noundef nonnull %54) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 110
   %56 = load i8, ptr %55, align 2
-  %57 = and i8 %56, 1
-  %.not66 = icmp eq i8 %57, 0
-  %58 = select i1 %.not66, ptr @.str.12, ptr @.str.11
+  %57 = trunc i8 %56 to i1
+  %58 = select i1 %57, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.684, ptr noundef nonnull %58) #7
   %59 = getelementptr inbounds i8, ptr %1, i64 111
   %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  %.not67 = icmp eq i8 %61, 0
-  %62 = select i1 %.not67, ptr @.str.12, ptr @.str.11
+  %61 = trunc i8 %60 to i1
+  %62 = select i1 %61, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.855, ptr noundef nonnull %62) #7
   %63 = getelementptr inbounds i8, ptr %1, i64 112
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not68 = icmp eq i8 %65, 0
-  %66 = select i1 %.not68, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.476, ptr noundef nonnull %66) #7
   %67 = getelementptr inbounds i8, ptr %1, i64 113
   %68 = load i8, ptr %67, align 1
-  %69 = and i8 %68, 1
-  %.not69 = icmp eq i8 %69, 0
-  %70 = select i1 %.not69, ptr @.str.12, ptr @.str.11
+  %69 = trunc i8 %68 to i1
+  %70 = select i1 %69, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %70) #7
   %71 = getelementptr inbounds i8, ptr %1, i64 114
   %72 = load i8, ptr %71, align 2
-  %73 = and i8 %72, 1
-  %.not70 = icmp eq i8 %73, 0
-  %74 = select i1 %.not70, ptr @.str.12, ptr @.str.11
+  %73 = trunc i8 %72 to i1
+  %74 = select i1 %73, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.697, ptr noundef nonnull %74) #7
   ret void
 }
@@ -9928,15 +9770,13 @@ define internal fastcc void @_outCreateStatsStmt(ptr noundef %0, ptr nocapture n
   tail call void @outToken(ptr noundef %0, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.855, ptr noundef nonnull %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 49
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not20 = icmp eq i8 %19, 0
-  %20 = select i1 %.not20, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %20) #7
   ret void
 }
@@ -9967,9 +9807,8 @@ define internal fastcc void @_outAlterStatsStmt(ptr noundef %0, ptr nocapture no
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.861, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 20
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %10) #7
   ret void
 }
@@ -9979,15 +9818,13 @@ define internal fastcc void @_outCreateFunctionStmt(ptr noundef %0, ptr nocaptur
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.862) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.863, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 5
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not20 = icmp eq i8 %9, 0
-  %10 = select i1 %.not20, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.371) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10108,9 +9945,8 @@ define internal fastcc void @_outRenameStmt(ptr noundef %0, ptr nocapture nounde
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.639, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 52
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %20) #7
   ret void
 }
@@ -10135,9 +9971,8 @@ define internal fastcc void @_outAlterObjectDependsStmt(ptr noundef %0, ptr noca
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.884, ptr noundef nonnull %14) #7
   ret void
 }
@@ -10162,9 +9997,8 @@ define internal fastcc void @_outAlterObjectSchemaStmt(ptr noundef %0, ptr nocap
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %14) #7
   ret void
 }
@@ -10238,9 +10072,8 @@ define internal fastcc void @_outRuleStmt(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.893, i32 noundef %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.894, ptr noundef nonnull %14) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.872) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 40
@@ -10248,9 +10081,8 @@ define internal fastcc void @_outRuleStmt(ptr noundef %0, ptr nocapture noundef 
   tail call void @outNode(ptr noundef %0, ptr noundef %16)
   %17 = getelementptr inbounds i8, ptr %1, i64 48
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not19 = icmp eq i8 %19, 0
-  %20 = select i1 %.not19, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %20) #7
   ret void
 }
@@ -10309,9 +10141,8 @@ define internal fastcc void @_outTransactionStmt(ptr noundef %0, ptr nocapture n
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.903, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 36
   %16 = load i32, ptr %15, align 4
@@ -10382,15 +10213,13 @@ define internal fastcc void @_outAlterEnumStmt(ptr noundef %0, ptr nocapture nou
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.914, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 41
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not17 = icmp eq i8 %17, 0
-  %18 = select i1 %.not17, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.915, ptr noundef nonnull %18) #7
   ret void
 }
@@ -10412,9 +10241,8 @@ define internal fastcc void @_outViewStmt(ptr noundef %0, ptr nocapture noundef 
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %12) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 40
@@ -10497,9 +10325,8 @@ define internal fastcc void @_outDropdbStmt(ptr noundef %0, ptr nocapture nounde
   tail call void @outToken(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %8) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -10549,9 +10376,8 @@ define internal fastcc void @_outVacuumStmt(ptr noundef %0, ptr nocapture nounde
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.931, ptr noundef nonnull %10) #7
   ret void
 }
@@ -10603,15 +10429,13 @@ define internal fastcc void @_outCreateTableAsStmt(ptr noundef %0, ptr nocapture
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.630, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 28
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.938, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 29
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not13 = icmp eq i8 %15, 0
-  %16 = select i1 %.not13, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.627, ptr noundef nonnull %16) #7
   ret void
 }
@@ -10621,15 +10445,13 @@ define internal fastcc void @_outRefreshMatViewStmt(ptr noundef %0, ptr nocaptur
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.939) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.476, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 5
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not8 = icmp eq i8 %9, 0
-  %10 = select i1 %.not8, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %10) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10659,9 +10481,8 @@ define internal fastcc void @_outLockStmt(ptr noundef %0, ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.869, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 20
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.719, ptr noundef nonnull %10) #7
   ret void
 }
@@ -10675,9 +10496,8 @@ define internal fastcc void @_outConstraintsSetStmt(ptr noundef %0, ptr nocaptur
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.945, ptr noundef nonnull %8) #7
   ret void
 }
@@ -10724,9 +10544,8 @@ define internal fastcc void @_outCreateConversionStmt(ptr noundef %0, ptr nocapt
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.952, ptr noundef nonnull %14) #7
   ret void
 }
@@ -10751,9 +10570,8 @@ define internal fastcc void @_outCreateCastStmt(ptr noundef %0, ptr nocapture no
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.956, i32 noundef %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.957, ptr noundef nonnull %14) #7
   ret void
 }
@@ -10763,9 +10581,8 @@ define internal fastcc void @_outCreateTransformStmt(ptr noundef %0, ptr nocaptu
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.958) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %6) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.959) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10827,9 +10644,8 @@ define internal fastcc void @_outDeallocateStmt(ptr noundef %0, ptr nocapture no
   tail call void @outToken(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.967, ptr noundef nonnull %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
@@ -10898,21 +10714,18 @@ define internal fastcc void @_outAlterTSConfigurationStmt(ptr noundef %0, ptr no
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  %14 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.977, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 33
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not18 = icmp eq i8 %17, 0
-  %18 = select i1 %.not18, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.771, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 34
   %20 = load i8, ptr %19, align 2
-  %21 = and i8 %20, 1
-  %.not19 = icmp eq i8 %21, 0
-  %22 = select i1 %.not19, ptr @.str.12, ptr @.str.11
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %22) #7
   ret void
 }
@@ -10972,9 +10785,8 @@ define internal fastcc void @_outCreatePublicationStmt(ptr noundef %0, ptr nocap
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.985, ptr noundef nonnull %12) #7
   ret void
 }
@@ -10996,9 +10808,8 @@ define internal fastcc void @_outAlterPublicationStmt(ptr noundef %0, ptr nocapt
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.985, ptr noundef nonnull %12) #7
   %13 = getelementptr inbounds i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4
@@ -11062,9 +10873,8 @@ define internal fastcc void @_outDropSubscriptionStmt(ptr noundef %0, ptr nocapt
   tail call void @outToken(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.631, ptr noundef nonnull %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
@@ -11141,27 +10951,23 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1004, i32 noundef %34) #7
   %35 = getelementptr inbounds i8, ptr %1, i64 116
   %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  %38 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1005, ptr noundef nonnull %38) #7
   %39 = getelementptr inbounds i8, ptr %1, i64 117
   %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 1
-  %.not48 = icmp eq i8 %41, 0
-  %42 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1006, ptr noundef nonnull %42) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 118
   %44 = load i8, ptr %43, align 2
-  %45 = and i8 %44, 1
-  %.not49 = icmp eq i8 %45, 0
-  %46 = select i1 %.not49, ptr @.str.12, ptr @.str.11
+  %45 = trunc i8 %44 to i1
+  %46 = select i1 %45, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1007, ptr noundef nonnull %46) #7
   %47 = getelementptr inbounds i8, ptr %1, i64 119
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not50 = icmp eq i8 %49, 0
-  %50 = select i1 %.not50, ptr @.str.12, ptr @.str.11
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1008, ptr noundef nonnull %50) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1009) #7
   %51 = getelementptr inbounds i8, ptr %1, i64 120
@@ -11270,16 +11076,16 @@ writeNodeArray.exit:                              ; preds = %._crit_edge, %29
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %32, i32 noundef -1) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i182, label %outBitmapset.exit183
+  br i1 %34, label %.lr.ph.i172, label %outBitmapset.exit173
 
-.lr.ph.i182:                                      ; preds = %writeNodeArray.exit, %.lr.ph.i182
-  %35 = phi i32 [ %36, %.lr.ph.i182 ], [ %33, %writeNodeArray.exit ]
+.lr.ph.i172:                                      ; preds = %writeNodeArray.exit, %.lr.ph.i172
+  %35 = phi i32 [ %36, %.lr.ph.i172 ], [ %33, %writeNodeArray.exit ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %35) #7
   %36 = tail call i32 @bms_next_member(ptr noundef %32, i32 noundef %35) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i182, label %outBitmapset.exit183, !llvm.loop !7
+  br i1 %37, label %.lr.ph.i172, label %outBitmapset.exit173, !llvm.loop !7
 
-outBitmapset.exit183:                             ; preds = %.lr.ph.i182, %writeNodeArray.exit
+outBitmapset.exit173:                             ; preds = %.lr.ph.i172, %writeNodeArray.exit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1019) #7
   %38 = getelementptr inbounds i8, ptr %1, i64 96
@@ -11288,16 +11094,16 @@ outBitmapset.exit183:                             ; preds = %.lr.ph.i182, %write
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %40 = tail call i32 @bms_next_member(ptr noundef %39, i32 noundef -1) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i184, label %outBitmapset.exit185
+  br i1 %41, label %.lr.ph.i174, label %outBitmapset.exit175
 
-.lr.ph.i184:                                      ; preds = %outBitmapset.exit183, %.lr.ph.i184
-  %42 = phi i32 [ %43, %.lr.ph.i184 ], [ %40, %outBitmapset.exit183 ]
+.lr.ph.i174:                                      ; preds = %outBitmapset.exit173, %.lr.ph.i174
+  %42 = phi i32 [ %43, %.lr.ph.i174 ], [ %40, %outBitmapset.exit173 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %42) #7
   %43 = tail call i32 @bms_next_member(ptr noundef %39, i32 noundef %42) #7
   %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i184, label %outBitmapset.exit185, !llvm.loop !7
+  br i1 %44, label %.lr.ph.i174, label %outBitmapset.exit175, !llvm.loop !7
 
-outBitmapset.exit185:                             ; preds = %.lr.ph.i184, %outBitmapset.exit183
+outBitmapset.exit175:                             ; preds = %.lr.ph.i174, %outBitmapset.exit173
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1020) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 104
@@ -11306,16 +11112,16 @@ outBitmapset.exit185:                             ; preds = %.lr.ph.i184, %outBi
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %47 = tail call i32 @bms_next_member(ptr noundef %46, i32 noundef -1) #7
   %48 = icmp sgt i32 %47, -1
-  br i1 %48, label %.lr.ph.i186, label %outBitmapset.exit187
+  br i1 %48, label %.lr.ph.i176, label %outBitmapset.exit177
 
-.lr.ph.i186:                                      ; preds = %outBitmapset.exit185, %.lr.ph.i186
-  %49 = phi i32 [ %50, %.lr.ph.i186 ], [ %47, %outBitmapset.exit185 ]
+.lr.ph.i176:                                      ; preds = %outBitmapset.exit175, %.lr.ph.i176
+  %49 = phi i32 [ %50, %.lr.ph.i176 ], [ %47, %outBitmapset.exit175 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %49) #7
   %50 = tail call i32 @bms_next_member(ptr noundef %46, i32 noundef %49) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i186, label %outBitmapset.exit187, !llvm.loop !7
+  br i1 %51, label %.lr.ph.i176, label %outBitmapset.exit177, !llvm.loop !7
 
-outBitmapset.exit187:                             ; preds = %.lr.ph.i186, %outBitmapset.exit185
+outBitmapset.exit177:                             ; preds = %.lr.ph.i176, %outBitmapset.exit175
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1021) #7
   %52 = getelementptr inbounds i8, ptr %1, i64 112
@@ -11346,9 +11152,8 @@ outBitmapset.exit187:                             ; preds = %.lr.ph.i186, %outBi
   tail call void @outNode(ptr noundef %0, ptr noundef %65)
   %66 = getelementptr inbounds i8, ptr %1, i64 184
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not = icmp eq i8 %68, 0
-  %69 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %68 = trunc i8 %67 to i1
+  %69 = select i1 %68, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1028, ptr noundef nonnull %69) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1029) #7
   %70 = getelementptr inbounds i8, ptr %1, i64 192
@@ -11380,16 +11185,16 @@ outBitmapset.exit187:                             ; preds = %.lr.ph.i186, %outBi
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %84 = tail call i32 @bms_next_member(ptr noundef %83, i32 noundef -1) #7
   %85 = icmp sgt i32 %84, -1
-  br i1 %85, label %.lr.ph.i188, label %outBitmapset.exit189
+  br i1 %85, label %.lr.ph.i178, label %outBitmapset.exit179
 
-.lr.ph.i188:                                      ; preds = %outBitmapset.exit187, %.lr.ph.i188
-  %86 = phi i32 [ %87, %.lr.ph.i188 ], [ %84, %outBitmapset.exit187 ]
+.lr.ph.i178:                                      ; preds = %outBitmapset.exit177, %.lr.ph.i178
+  %86 = phi i32 [ %87, %.lr.ph.i178 ], [ %84, %outBitmapset.exit177 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %86) #7
   %87 = tail call i32 @bms_next_member(ptr noundef %83, i32 noundef %86) #7
   %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %.lr.ph.i188, label %outBitmapset.exit189, !llvm.loop !7
+  br i1 %88, label %.lr.ph.i178, label %outBitmapset.exit179, !llvm.loop !7
 
-outBitmapset.exit189:                             ; preds = %.lr.ph.i188, %outBitmapset.exit187
+outBitmapset.exit179:                             ; preds = %.lr.ph.i178, %outBitmapset.exit177
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1036) #7
   %89 = getelementptr inbounds i8, ptr %1, i64 248
@@ -11398,16 +11203,16 @@ outBitmapset.exit189:                             ; preds = %.lr.ph.i188, %outBi
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %91 = tail call i32 @bms_next_member(ptr noundef %90, i32 noundef -1) #7
   %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %.lr.ph.i190, label %outBitmapset.exit191
+  br i1 %92, label %.lr.ph.i180, label %outBitmapset.exit181
 
-.lr.ph.i190:                                      ; preds = %outBitmapset.exit189, %.lr.ph.i190
-  %93 = phi i32 [ %94, %.lr.ph.i190 ], [ %91, %outBitmapset.exit189 ]
+.lr.ph.i180:                                      ; preds = %outBitmapset.exit179, %.lr.ph.i180
+  %93 = phi i32 [ %94, %.lr.ph.i180 ], [ %91, %outBitmapset.exit179 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %93) #7
   %94 = tail call i32 @bms_next_member(ptr noundef %90, i32 noundef %93) #7
   %95 = icmp sgt i32 %94, -1
-  br i1 %95, label %.lr.ph.i190, label %outBitmapset.exit191, !llvm.loop !7
+  br i1 %95, label %.lr.ph.i180, label %outBitmapset.exit181, !llvm.loop !7
 
-outBitmapset.exit191:                             ; preds = %.lr.ph.i190, %outBitmapset.exit189
+outBitmapset.exit181:                             ; preds = %.lr.ph.i180, %outBitmapset.exit179
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1037) #7
   %96 = getelementptr inbounds i8, ptr %1, i64 256
@@ -11498,45 +11303,38 @@ outBitmapset.exit191:                             ; preds = %.lr.ph.i190, %outBi
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1055, i32 noundef %138) #7
   %139 = getelementptr inbounds i8, ptr %1, i64 588
   %140 = load i8, ptr %139, align 4
-  %141 = and i8 %140, 1
-  %.not172 = icmp eq i8 %141, 0
-  %142 = select i1 %.not172, ptr @.str.12, ptr @.str.11
+  %141 = trunc i8 %140 to i1
+  %142 = select i1 %141, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1056, ptr noundef nonnull %142) #7
   %143 = getelementptr inbounds i8, ptr %1, i64 589
   %144 = load i8, ptr %143, align 1
-  %145 = and i8 %144, 1
-  %.not173 = icmp eq i8 %145, 0
-  %146 = select i1 %.not173, ptr @.str.12, ptr @.str.11
+  %145 = trunc i8 %144 to i1
+  %146 = select i1 %145, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1057, ptr noundef nonnull %146) #7
   %147 = getelementptr inbounds i8, ptr %1, i64 590
   %148 = load i8, ptr %147, align 2
-  %149 = and i8 %148, 1
-  %.not174 = icmp eq i8 %149, 0
-  %150 = select i1 %.not174, ptr @.str.12, ptr @.str.11
+  %149 = trunc i8 %148 to i1
+  %150 = select i1 %149, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1058, ptr noundef nonnull %150) #7
   %151 = getelementptr inbounds i8, ptr %1, i64 591
   %152 = load i8, ptr %151, align 1
-  %153 = and i8 %152, 1
-  %.not175 = icmp eq i8 %153, 0
-  %154 = select i1 %.not175, ptr @.str.12, ptr @.str.11
+  %153 = trunc i8 %152 to i1
+  %154 = select i1 %153, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1059, ptr noundef nonnull %154) #7
   %155 = getelementptr inbounds i8, ptr %1, i64 592
   %156 = load i8, ptr %155, align 8
-  %157 = and i8 %156, 1
-  %.not176 = icmp eq i8 %157, 0
-  %158 = select i1 %.not176, ptr @.str.12, ptr @.str.11
+  %157 = trunc i8 %156 to i1
+  %158 = select i1 %157, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1060, ptr noundef nonnull %158) #7
   %159 = getelementptr inbounds i8, ptr %1, i64 593
   %160 = load i8, ptr %159, align 1
-  %161 = and i8 %160, 1
-  %.not177 = icmp eq i8 %161, 0
-  %162 = select i1 %.not177, ptr @.str.12, ptr @.str.11
+  %161 = trunc i8 %160 to i1
+  %162 = select i1 %161, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1061, ptr noundef nonnull %162) #7
   %163 = getelementptr inbounds i8, ptr %1, i64 594
   %164 = load i8, ptr %163, align 2
-  %165 = and i8 %164, 1
-  %.not178 = icmp eq i8 %165, 0
-  %166 = select i1 %.not178, ptr @.str.12, ptr @.str.11
+  %165 = trunc i8 %164 to i1
+  %166 = select i1 %165, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1062, ptr noundef nonnull %166) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1063) #7
   %167 = getelementptr inbounds i8, ptr %1, i64 600
@@ -11551,15 +11349,13 @@ outBitmapset.exit191:                             ; preds = %.lr.ph.i190, %outBi
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1065, i32 noundef %172) #7
   %173 = getelementptr inbounds i8, ptr %1, i64 620
   %174 = load i8, ptr %173, align 4
-  %175 = and i8 %174, 1
-  %.not179 = icmp eq i8 %175, 0
-  %176 = select i1 %.not179, ptr @.str.12, ptr @.str.11
+  %175 = trunc i8 %174 to i1
+  %176 = select i1 %175, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1066, ptr noundef nonnull %176) #7
   %177 = getelementptr inbounds i8, ptr %1, i64 621
   %178 = load i8, ptr %177, align 1
-  %179 = and i8 %178, 1
-  %.not180 = icmp eq i8 %179, 0
-  %180 = select i1 %.not180, ptr @.str.12, ptr @.str.11
+  %179 = trunc i8 %178 to i1
+  %180 = select i1 %179, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1067, ptr noundef nonnull %180) #7
   %181 = getelementptr inbounds i8, ptr %1, i64 624
   %182 = load i32, ptr %181, align 8
@@ -11575,16 +11371,16 @@ outBitmapset.exit191:                             ; preds = %.lr.ph.i190, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %187 = call i32 @bms_next_member(ptr noundef %186, i32 noundef -1) #7
   %188 = icmp sgt i32 %187, -1
-  br i1 %188, label %.lr.ph.i192, label %outBitmapset.exit193
+  br i1 %188, label %.lr.ph.i182, label %outBitmapset.exit183
 
-.lr.ph.i192:                                      ; preds = %outBitmapset.exit191, %.lr.ph.i192
-  %189 = phi i32 [ %190, %.lr.ph.i192 ], [ %187, %outBitmapset.exit191 ]
+.lr.ph.i182:                                      ; preds = %outBitmapset.exit181, %.lr.ph.i182
+  %189 = phi i32 [ %190, %.lr.ph.i182 ], [ %187, %outBitmapset.exit181 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %189) #7
   %190 = call i32 @bms_next_member(ptr noundef %186, i32 noundef %189) #7
   %191 = icmp sgt i32 %190, -1
-  br i1 %191, label %.lr.ph.i192, label %outBitmapset.exit193, !llvm.loop !7
+  br i1 %191, label %.lr.ph.i182, label %outBitmapset.exit183, !llvm.loop !7
 
-outBitmapset.exit193:                             ; preds = %.lr.ph.i192, %outBitmapset.exit191
+outBitmapset.exit183:                             ; preds = %.lr.ph.i182, %outBitmapset.exit181
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1071) #7
   %192 = getelementptr inbounds i8, ptr %1, i64 648
@@ -11592,9 +11388,8 @@ outBitmapset.exit193:                             ; preds = %.lr.ph.i192, %outBi
   call void @outNode(ptr noundef %0, ptr noundef %193)
   %194 = getelementptr inbounds i8, ptr %1, i64 680
   %195 = load i8, ptr %194, align 8
-  %196 = and i8 %195, 1
-  %.not181 = icmp eq i8 %196, 0
-  %197 = select i1 %.not181, ptr @.str.12, ptr @.str.11
+  %196 = trunc i8 %195 to i1
+  %197 = select i1 %196, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1072, ptr noundef nonnull %197) #7
   ret void
 }
@@ -11637,21 +11432,18 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7)
   %20 = getelementptr inbounds i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  %23 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %22 = trunc i8 %21 to i1
+  %23 = select i1 %22, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1077, ptr noundef nonnull %23) #7
   %24 = getelementptr inbounds i8, ptr %1, i64 25
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not140 = icmp eq i8 %26, 0
-  %27 = select i1 %.not140, ptr @.str.12, ptr @.str.11
+  %26 = trunc i8 %25 to i1
+  %27 = select i1 %26, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1078, ptr noundef nonnull %27) #7
   %28 = getelementptr inbounds i8, ptr %1, i64 26
   %29 = load i8, ptr %28, align 2
-  %30 = and i8 %29, 1
-  %.not141 = icmp eq i8 %30, 0
-  %31 = select i1 %.not141, ptr @.str.12, ptr @.str.11
+  %30 = trunc i8 %29 to i1
+  %31 = select i1 %30, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1079, ptr noundef nonnull %31) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1080) #7
   %32 = getelementptr inbounds i8, ptr %1, i64 32
@@ -11692,16 +11484,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i146, label %outBitmapset.exit147
+  br i1 %51, label %.lr.ph.i140, label %outBitmapset.exit141
 
-.lr.ph.i146:                                      ; preds = %outBitmapset.exit, %.lr.ph.i146
-  %52 = phi i32 [ %53, %.lr.ph.i146 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i140:                                      ; preds = %outBitmapset.exit, %.lr.ph.i140
+  %52 = phi i32 [ %53, %.lr.ph.i140 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i146, label %outBitmapset.exit147, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i140, label %outBitmapset.exit141, !llvm.loop !7
 
-outBitmapset.exit147:                             ; preds = %.lr.ph.i146, %outBitmapset.exit
+outBitmapset.exit141:                             ; preds = %.lr.ph.i140, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1089) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
@@ -11710,16 +11502,16 @@ outBitmapset.exit147:                             ; preds = %.lr.ph.i146, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %57 = call i32 @bms_next_member(ptr noundef %56, i32 noundef -1) #7
   %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %.lr.ph.i148, label %outBitmapset.exit149
+  br i1 %58, label %.lr.ph.i142, label %outBitmapset.exit143
 
-.lr.ph.i148:                                      ; preds = %outBitmapset.exit147, %.lr.ph.i148
-  %59 = phi i32 [ %60, %.lr.ph.i148 ], [ %57, %outBitmapset.exit147 ]
+.lr.ph.i142:                                      ; preds = %outBitmapset.exit141, %.lr.ph.i142
+  %59 = phi i32 [ %60, %.lr.ph.i142 ], [ %57, %outBitmapset.exit141 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %59) #7
   %60 = call i32 @bms_next_member(ptr noundef %56, i32 noundef %59) #7
   %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %.lr.ph.i148, label %outBitmapset.exit149, !llvm.loop !7
+  br i1 %61, label %.lr.ph.i142, label %outBitmapset.exit143, !llvm.loop !7
 
-outBitmapset.exit149:                             ; preds = %.lr.ph.i148, %outBitmapset.exit147
+outBitmapset.exit143:                             ; preds = %.lr.ph.i142, %outBitmapset.exit141
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %62 = getelementptr inbounds i8, ptr %1, i64 112
   %63 = load i32, ptr %62, align 8
@@ -11745,16 +11537,16 @@ outBitmapset.exit149:                             ; preds = %.lr.ph.i148, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %76 = call i32 @bms_next_member(ptr noundef %75, i32 noundef -1) #7
   %77 = icmp sgt i32 %76, -1
-  br i1 %77, label %.lr.ph.i150, label %outBitmapset.exit151
+  br i1 %77, label %.lr.ph.i144, label %outBitmapset.exit145
 
-.lr.ph.i150:                                      ; preds = %outBitmapset.exit149, %.lr.ph.i150
-  %78 = phi i32 [ %79, %.lr.ph.i150 ], [ %76, %outBitmapset.exit149 ]
+.lr.ph.i144:                                      ; preds = %outBitmapset.exit143, %.lr.ph.i144
+  %78 = phi i32 [ %79, %.lr.ph.i144 ], [ %76, %outBitmapset.exit143 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %78) #7
   %79 = call i32 @bms_next_member(ptr noundef %75, i32 noundef %78) #7
   %80 = icmp sgt i32 %79, -1
-  br i1 %80, label %.lr.ph.i150, label %outBitmapset.exit151, !llvm.loop !7
+  br i1 %80, label %.lr.ph.i144, label %outBitmapset.exit145, !llvm.loop !7
 
-outBitmapset.exit151:                             ; preds = %.lr.ph.i150, %outBitmapset.exit149
+outBitmapset.exit145:                             ; preds = %.lr.ph.i144, %outBitmapset.exit143
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1094) #7
   %81 = getelementptr inbounds i8, ptr %1, i64 152
@@ -11763,16 +11555,16 @@ outBitmapset.exit151:                             ; preds = %.lr.ph.i150, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %83 = call i32 @bms_next_member(ptr noundef %82, i32 noundef -1) #7
   %84 = icmp sgt i32 %83, -1
-  br i1 %84, label %.lr.ph.i152, label %outBitmapset.exit153
+  br i1 %84, label %.lr.ph.i146, label %outBitmapset.exit147
 
-.lr.ph.i152:                                      ; preds = %outBitmapset.exit151, %.lr.ph.i152
-  %85 = phi i32 [ %86, %.lr.ph.i152 ], [ %83, %outBitmapset.exit151 ]
+.lr.ph.i146:                                      ; preds = %outBitmapset.exit145, %.lr.ph.i146
+  %85 = phi i32 [ %86, %.lr.ph.i146 ], [ %83, %outBitmapset.exit145 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %85) #7
   %86 = call i32 @bms_next_member(ptr noundef %82, i32 noundef %85) #7
   %87 = icmp sgt i32 %86, -1
-  br i1 %87, label %.lr.ph.i152, label %outBitmapset.exit153, !llvm.loop !7
+  br i1 %87, label %.lr.ph.i146, label %outBitmapset.exit147, !llvm.loop !7
 
-outBitmapset.exit153:                             ; preds = %.lr.ph.i152, %outBitmapset.exit151
+outBitmapset.exit147:                             ; preds = %.lr.ph.i146, %outBitmapset.exit145
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1095) #7
   %88 = getelementptr inbounds i8, ptr %1, i64 160
@@ -11785,16 +11577,16 @@ outBitmapset.exit153:                             ; preds = %.lr.ph.i152, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %92 = call i32 @bms_next_member(ptr noundef %91, i32 noundef -1) #7
   %93 = icmp sgt i32 %92, -1
-  br i1 %93, label %.lr.ph.i154, label %outBitmapset.exit155
+  br i1 %93, label %.lr.ph.i148, label %outBitmapset.exit149
 
-.lr.ph.i154:                                      ; preds = %outBitmapset.exit153, %.lr.ph.i154
-  %94 = phi i32 [ %95, %.lr.ph.i154 ], [ %92, %outBitmapset.exit153 ]
+.lr.ph.i148:                                      ; preds = %outBitmapset.exit147, %.lr.ph.i148
+  %94 = phi i32 [ %95, %.lr.ph.i148 ], [ %92, %outBitmapset.exit147 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %94) #7
   %95 = call i32 @bms_next_member(ptr noundef %91, i32 noundef %94) #7
   %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %.lr.ph.i154, label %outBitmapset.exit155, !llvm.loop !7
+  br i1 %96, label %.lr.ph.i148, label %outBitmapset.exit149, !llvm.loop !7
 
-outBitmapset.exit155:                             ; preds = %.lr.ph.i154, %outBitmapset.exit153
+outBitmapset.exit149:                             ; preds = %.lr.ph.i148, %outBitmapset.exit147
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1097) #7
   %97 = getelementptr inbounds i8, ptr %1, i64 176
@@ -11828,16 +11620,16 @@ outBitmapset.exit155:                             ; preds = %.lr.ph.i154, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %111 = call i32 @bms_next_member(ptr noundef %110, i32 noundef -1) #7
   %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %.lr.ph.i156, label %outBitmapset.exit157
+  br i1 %112, label %.lr.ph.i150, label %outBitmapset.exit151
 
-.lr.ph.i156:                                      ; preds = %outBitmapset.exit155, %.lr.ph.i156
-  %113 = phi i32 [ %114, %.lr.ph.i156 ], [ %111, %outBitmapset.exit155 ]
+.lr.ph.i150:                                      ; preds = %outBitmapset.exit149, %.lr.ph.i150
+  %113 = phi i32 [ %114, %.lr.ph.i150 ], [ %111, %outBitmapset.exit149 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %113) #7
   %114 = call i32 @bms_next_member(ptr noundef %110, i32 noundef %113) #7
   %115 = icmp sgt i32 %114, -1
-  br i1 %115, label %.lr.ph.i156, label %outBitmapset.exit157, !llvm.loop !7
+  br i1 %115, label %.lr.ph.i150, label %outBitmapset.exit151, !llvm.loop !7
 
-outBitmapset.exit157:                             ; preds = %.lr.ph.i156, %outBitmapset.exit155
+outBitmapset.exit151:                             ; preds = %.lr.ph.i150, %outBitmapset.exit149
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1103) #7
   %116 = getelementptr inbounds i8, ptr %1, i64 224
@@ -11861,9 +11653,8 @@ outBitmapset.exit157:                             ; preds = %.lr.ph.i156, %outBi
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1108, i32 noundef %127) #7
   %128 = getelementptr inbounds i8, ptr %1, i64 256
   %129 = load i8, ptr %128, align 8
-  %130 = and i8 %129, 1
-  %.not142 = icmp eq i8 %130, 0
-  %131 = select i1 %.not142, ptr @.str.12, ptr @.str.11
+  %130 = trunc i8 %129 to i1
+  %131 = select i1 %130, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1109, ptr noundef nonnull %131) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1110) #7
   %132 = getelementptr inbounds i8, ptr %1, i64 280
@@ -11900,15 +11691,13 @@ outBitmapset.exit157:                             ; preds = %.lr.ph.i156, %outBi
   call void @outNode(ptr noundef %0, ptr noundef %147)
   %148 = getelementptr inbounds i8, ptr %1, i64 336
   %149 = load i8, ptr %148, align 8
-  %150 = and i8 %149, 1
-  %.not143 = icmp eq i8 %150, 0
-  %151 = select i1 %.not143, ptr @.str.12, ptr @.str.11
+  %150 = trunc i8 %149 to i1
+  %151 = select i1 %150, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1117, ptr noundef nonnull %151) #7
   %152 = getelementptr inbounds i8, ptr %1, i64 337
   %153 = load i8, ptr %152, align 1
-  %154 = and i8 %153, 1
-  %.not144 = icmp eq i8 %154, 0
-  %155 = select i1 %.not144, ptr @.str.12, ptr @.str.11
+  %154 = trunc i8 %153 to i1
+  %155 = select i1 %154, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1118, ptr noundef nonnull %155) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1119) #7
   %156 = getelementptr inbounds i8, ptr %1, i64 360
@@ -11917,25 +11706,24 @@ outBitmapset.exit157:                             ; preds = %.lr.ph.i156, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %158 = call i32 @bms_next_member(ptr noundef %157, i32 noundef -1) #7
   %159 = icmp sgt i32 %158, -1
-  br i1 %159, label %.lr.ph.i158, label %outBitmapset.exit159
+  br i1 %159, label %.lr.ph.i152, label %outBitmapset.exit153
 
-.lr.ph.i158:                                      ; preds = %outBitmapset.exit157, %.lr.ph.i158
-  %160 = phi i32 [ %161, %.lr.ph.i158 ], [ %158, %outBitmapset.exit157 ]
+.lr.ph.i152:                                      ; preds = %outBitmapset.exit151, %.lr.ph.i152
+  %160 = phi i32 [ %161, %.lr.ph.i152 ], [ %158, %outBitmapset.exit151 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %160) #7
   %161 = call i32 @bms_next_member(ptr noundef %157, i32 noundef %160) #7
   %162 = icmp sgt i32 %161, -1
-  br i1 %162, label %.lr.ph.i158, label %outBitmapset.exit159, !llvm.loop !7
+  br i1 %162, label %.lr.ph.i152, label %outBitmapset.exit153, !llvm.loop !7
 
-outBitmapset.exit159:                             ; preds = %.lr.ph.i158, %outBitmapset.exit157
+outBitmapset.exit153:                             ; preds = %.lr.ph.i152, %outBitmapset.exit151
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %163 = getelementptr inbounds i8, ptr %1, i64 376
   %164 = load i32, ptr %163, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1120, i32 noundef %164) #7
   %165 = getelementptr inbounds i8, ptr %1, i64 392
   %166 = load i8, ptr %165, align 8
-  %167 = and i8 %166, 1
-  %.not145 = icmp eq i8 %167, 0
-  %168 = select i1 %.not145, ptr @.str.12, ptr @.str.11
+  %167 = trunc i8 %166 to i1
+  %168 = select i1 %167, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1121, ptr noundef nonnull %168) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1122) #7
   %169 = getelementptr inbounds i8, ptr %1, i64 400
@@ -11948,16 +11736,16 @@ outBitmapset.exit159:                             ; preds = %.lr.ph.i158, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %173 = call i32 @bms_next_member(ptr noundef %172, i32 noundef -1) #7
   %174 = icmp sgt i32 %173, -1
-  br i1 %174, label %.lr.ph.i160, label %outBitmapset.exit161
+  br i1 %174, label %.lr.ph.i154, label %outBitmapset.exit155
 
-.lr.ph.i160:                                      ; preds = %outBitmapset.exit159, %.lr.ph.i160
-  %175 = phi i32 [ %176, %.lr.ph.i160 ], [ %173, %outBitmapset.exit159 ]
+.lr.ph.i154:                                      ; preds = %outBitmapset.exit153, %.lr.ph.i154
+  %175 = phi i32 [ %176, %.lr.ph.i154 ], [ %173, %outBitmapset.exit153 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %175) #7
   %176 = call i32 @bms_next_member(ptr noundef %172, i32 noundef %175) #7
   %177 = icmp sgt i32 %176, -1
-  br i1 %177, label %.lr.ph.i160, label %outBitmapset.exit161, !llvm.loop !7
+  br i1 %177, label %.lr.ph.i154, label %outBitmapset.exit155, !llvm.loop !7
 
-outBitmapset.exit161:                             ; preds = %.lr.ph.i160, %outBitmapset.exit159
+outBitmapset.exit155:                             ; preds = %.lr.ph.i154, %outBitmapset.exit153
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1124) #7
   %178 = getelementptr inbounds i8, ptr %1, i64 424
@@ -11966,16 +11754,16 @@ outBitmapset.exit161:                             ; preds = %.lr.ph.i160, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %180 = call i32 @bms_next_member(ptr noundef %179, i32 noundef -1) #7
   %181 = icmp sgt i32 %180, -1
-  br i1 %181, label %.lr.ph.i162, label %outBitmapset.exit163
+  br i1 %181, label %.lr.ph.i156, label %outBitmapset.exit157
 
-.lr.ph.i162:                                      ; preds = %outBitmapset.exit161, %.lr.ph.i162
-  %182 = phi i32 [ %183, %.lr.ph.i162 ], [ %180, %outBitmapset.exit161 ]
+.lr.ph.i156:                                      ; preds = %outBitmapset.exit155, %.lr.ph.i156
+  %182 = phi i32 [ %183, %.lr.ph.i156 ], [ %180, %outBitmapset.exit155 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %182) #7
   %183 = call i32 @bms_next_member(ptr noundef %179, i32 noundef %182) #7
   %184 = icmp sgt i32 %183, -1
-  br i1 %184, label %.lr.ph.i162, label %outBitmapset.exit163, !llvm.loop !7
+  br i1 %184, label %.lr.ph.i156, label %outBitmapset.exit157, !llvm.loop !7
 
-outBitmapset.exit163:                             ; preds = %.lr.ph.i162, %outBitmapset.exit161
+outBitmapset.exit157:                             ; preds = %.lr.ph.i156, %outBitmapset.exit155
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   ret void
 }
@@ -12047,28 +11835,28 @@ writeIntCols.exit:                                ; preds = %._crit_edge.i, %26
   %27 = getelementptr inbounds i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %17, align 8
-  %.not.i94 = icmp eq ptr %28, null
-  br i1 %.not.i94, label %34, label %30
+  %.not.i83 = icmp eq ptr %28, null
+  br i1 %.not.i83, label %34, label %30
 
 30:                                               ; preds = %writeIntCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %31 = icmp sgt i32 %29, 0
-  br i1 %31, label %.lr.ph.preheader.i96, label %._crit_edge.i95
+  br i1 %31, label %.lr.ph.preheader.i85, label %._crit_edge.i84
 
-.lr.ph.preheader.i96:                             ; preds = %30
-  %wide.trip.count.i97 = zext nneg i32 %29 to i64
-  br label %.lr.ph.i98
+.lr.ph.preheader.i85:                             ; preds = %30
+  %wide.trip.count.i86 = zext nneg i32 %29 to i64
+  br label %.lr.ph.i87
 
-.lr.ph.i98:                                       ; preds = %.lr.ph.i98, %.lr.ph.preheader.i96
-  %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.preheader.i96 ], [ %indvars.iv.next.i100, %.lr.ph.i98 ]
-  %32 = getelementptr i32, ptr %28, i64 %indvars.iv.i99
+.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.preheader.i85
+  %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.preheader.i85 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
+  %32 = getelementptr i32, ptr %28, i64 %indvars.iv.i88
   %33 = load i32, ptr %32, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %33) #7
-  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
-  %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i97
-  br i1 %exitcond.not.i101, label %._crit_edge.i95, label %.lr.ph.i98, !llvm.loop !13
+  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
+  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i86
+  br i1 %exitcond.not.i90, label %._crit_edge.i84, label %.lr.ph.i87, !llvm.loop !13
 
-._crit_edge.i95:                                  ; preds = %.lr.ph.i98, %30
+._crit_edge.i84:                                  ; preds = %.lr.ph.i87, %30
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -12076,220 +11864,217 @@ writeIntCols.exit:                                ; preds = %._crit_edge.i, %26
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i95, %34
+writeOidCols.exit:                                ; preds = %._crit_edge.i84, %34
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1131) #7
   %35 = getelementptr inbounds i8, ptr %1, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %17, align 8
-  %.not.i102 = icmp eq ptr %36, null
-  br i1 %.not.i102, label %42, label %38
+  %.not.i91 = icmp eq ptr %36, null
+  br i1 %.not.i91, label %42, label %38
 
 38:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %39 = icmp sgt i32 %37, 0
-  br i1 %39, label %.lr.ph.preheader.i104, label %._crit_edge.i103
+  br i1 %39, label %.lr.ph.preheader.i93, label %._crit_edge.i92
 
-.lr.ph.preheader.i104:                            ; preds = %38
-  %wide.trip.count.i105 = zext nneg i32 %37 to i64
-  br label %.lr.ph.i106
+.lr.ph.preheader.i93:                             ; preds = %38
+  %wide.trip.count.i94 = zext nneg i32 %37 to i64
+  br label %.lr.ph.i95
 
-.lr.ph.i106:                                      ; preds = %.lr.ph.i106, %.lr.ph.preheader.i104
-  %indvars.iv.i107 = phi i64 [ 0, %.lr.ph.preheader.i104 ], [ %indvars.iv.next.i108, %.lr.ph.i106 ]
-  %40 = getelementptr i32, ptr %36, i64 %indvars.iv.i107
+.lr.ph.i95:                                       ; preds = %.lr.ph.i95, %.lr.ph.preheader.i93
+  %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.preheader.i93 ], [ %indvars.iv.next.i97, %.lr.ph.i95 ]
+  %40 = getelementptr i32, ptr %36, i64 %indvars.iv.i96
   %41 = load i32, ptr %40, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %41) #7
-  %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
-  %exitcond.not.i109 = icmp eq i64 %indvars.iv.next.i108, %wide.trip.count.i105
-  br i1 %exitcond.not.i109, label %._crit_edge.i103, label %.lr.ph.i106, !llvm.loop !13
+  %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
+  %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i94
+  br i1 %exitcond.not.i98, label %._crit_edge.i92, label %.lr.ph.i95, !llvm.loop !13
 
-._crit_edge.i103:                                 ; preds = %.lr.ph.i106, %38
+._crit_edge.i92:                                  ; preds = %.lr.ph.i95, %38
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit110
+  br label %writeOidCols.exit99
 
 42:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit110
+  br label %writeOidCols.exit99
 
-writeOidCols.exit110:                             ; preds = %._crit_edge.i103, %42
+writeOidCols.exit99:                              ; preds = %._crit_edge.i92, %42
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1132) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %17, align 8
-  %.not.i111 = icmp eq ptr %44, null
-  br i1 %.not.i111, label %50, label %46
+  %.not.i100 = icmp eq ptr %44, null
+  br i1 %.not.i100, label %50, label %46
 
-46:                                               ; preds = %writeOidCols.exit110
+46:                                               ; preds = %writeOidCols.exit99
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %47 = icmp sgt i32 %45, 0
-  br i1 %47, label %.lr.ph.preheader.i113, label %._crit_edge.i112
+  br i1 %47, label %.lr.ph.preheader.i102, label %._crit_edge.i101
 
-.lr.ph.preheader.i113:                            ; preds = %46
-  %wide.trip.count.i114 = zext nneg i32 %45 to i64
-  br label %.lr.ph.i115
+.lr.ph.preheader.i102:                            ; preds = %46
+  %wide.trip.count.i103 = zext nneg i32 %45 to i64
+  br label %.lr.ph.i104
 
-.lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i113
-  %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.preheader.i113 ], [ %indvars.iv.next.i117, %.lr.ph.i115 ]
-  %48 = getelementptr i32, ptr %44, i64 %indvars.iv.i116
+.lr.ph.i104:                                      ; preds = %.lr.ph.i104, %.lr.ph.preheader.i102
+  %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.preheader.i102 ], [ %indvars.iv.next.i106, %.lr.ph.i104 ]
+  %48 = getelementptr i32, ptr %44, i64 %indvars.iv.i105
   %49 = load i32, ptr %48, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %49) #7
-  %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
-  %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count.i114
-  br i1 %exitcond.not.i118, label %._crit_edge.i112, label %.lr.ph.i115, !llvm.loop !13
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
+  %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i103
+  br i1 %exitcond.not.i107, label %._crit_edge.i101, label %.lr.ph.i104, !llvm.loop !13
 
-._crit_edge.i112:                                 ; preds = %.lr.ph.i115, %46
+._crit_edge.i101:                                 ; preds = %.lr.ph.i104, %46
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit119
+  br label %writeOidCols.exit108
 
-50:                                               ; preds = %writeOidCols.exit110
+50:                                               ; preds = %writeOidCols.exit99
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit119
+  br label %writeOidCols.exit108
 
-writeOidCols.exit119:                             ; preds = %._crit_edge.i112, %50
+writeOidCols.exit108:                             ; preds = %._crit_edge.i101, %50
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1133) #7
   %51 = getelementptr inbounds i8, ptr %1, i64 88
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %17, align 8
-  %.not.i120 = icmp eq ptr %52, null
-  br i1 %.not.i120, label %58, label %54
+  %.not.i109 = icmp eq ptr %52, null
+  br i1 %.not.i109, label %58, label %54
 
-54:                                               ; preds = %writeOidCols.exit119
+54:                                               ; preds = %writeOidCols.exit108
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %55 = icmp sgt i32 %53, 0
-  br i1 %55, label %.lr.ph.preheader.i122, label %._crit_edge.i121
+  br i1 %55, label %.lr.ph.preheader.i111, label %._crit_edge.i110
 
-.lr.ph.preheader.i122:                            ; preds = %54
-  %wide.trip.count.i123 = zext nneg i32 %53 to i64
-  br label %.lr.ph.i124
+.lr.ph.preheader.i111:                            ; preds = %54
+  %wide.trip.count.i112 = zext nneg i32 %53 to i64
+  br label %.lr.ph.i113
 
-.lr.ph.i124:                                      ; preds = %.lr.ph.i124, %.lr.ph.preheader.i122
-  %indvars.iv.i125 = phi i64 [ 0, %.lr.ph.preheader.i122 ], [ %indvars.iv.next.i126, %.lr.ph.i124 ]
-  %56 = getelementptr i32, ptr %52, i64 %indvars.iv.i125
+.lr.ph.i113:                                      ; preds = %.lr.ph.i113, %.lr.ph.preheader.i111
+  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.preheader.i111 ], [ %indvars.iv.next.i115, %.lr.ph.i113 ]
+  %56 = getelementptr i32, ptr %52, i64 %indvars.iv.i114
   %57 = load i32, ptr %56, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %57) #7
-  %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125, 1
-  %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, %wide.trip.count.i123
-  br i1 %exitcond.not.i127, label %._crit_edge.i121, label %.lr.ph.i124, !llvm.loop !13
+  %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i114, 1
+  %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, %wide.trip.count.i112
+  br i1 %exitcond.not.i116, label %._crit_edge.i110, label %.lr.ph.i113, !llvm.loop !13
 
-._crit_edge.i121:                                 ; preds = %.lr.ph.i124, %54
+._crit_edge.i110:                                 ; preds = %.lr.ph.i113, %54
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit128
+  br label %writeOidCols.exit117
 
-58:                                               ; preds = %writeOidCols.exit119
+58:                                               ; preds = %writeOidCols.exit108
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit128
+  br label %writeOidCols.exit117
 
-writeOidCols.exit128:                             ; preds = %._crit_edge.i121, %58
+writeOidCols.exit117:                             ; preds = %._crit_edge.i110, %58
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1134) #7
   %59 = getelementptr inbounds i8, ptr %1, i64 96
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %17, align 8
-  %.not.i129 = icmp eq ptr %60, null
-  br i1 %.not.i129, label %68, label %62
+  %.not.i118 = icmp eq ptr %60, null
+  br i1 %.not.i118, label %68, label %62
 
-62:                                               ; preds = %writeOidCols.exit128
+62:                                               ; preds = %writeOidCols.exit117
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %63 = icmp sgt i32 %61, 0
-  br i1 %63, label %.lr.ph.preheader.i131, label %._crit_edge.i130
+  br i1 %63, label %.lr.ph.preheader.i120, label %._crit_edge.i119
 
-.lr.ph.preheader.i131:                            ; preds = %62
-  %wide.trip.count.i132 = zext nneg i32 %61 to i64
-  br label %.lr.ph.i133
+.lr.ph.preheader.i120:                            ; preds = %62
+  %wide.trip.count.i121 = zext nneg i32 %61 to i64
+  br label %.lr.ph.i122
 
-.lr.ph.i133:                                      ; preds = %.lr.ph.i133, %.lr.ph.preheader.i131
-  %indvars.iv.i134 = phi i64 [ 0, %.lr.ph.preheader.i131 ], [ %indvars.iv.next.i135, %.lr.ph.i133 ]
-  %64 = getelementptr i8, ptr %60, i64 %indvars.iv.i134
+.lr.ph.i122:                                      ; preds = %.lr.ph.i122, %.lr.ph.preheader.i120
+  %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.preheader.i120 ], [ %indvars.iv.next.i124, %.lr.ph.i122 ]
+  %64 = getelementptr i8, ptr %60, i64 %indvars.iv.i123
   %65 = load i8, ptr %64, align 1
-  %66 = and i8 %65, 1
-  %.not10.i = icmp eq i8 %66, 0
-  %67 = select i1 %.not10.i, ptr @.str.12, ptr @.str.11
+  %66 = trunc i8 %65 to i1
+  %67 = select i1 %66, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %67) #7
-  %indvars.iv.next.i135 = add nuw nsw i64 %indvars.iv.i134, 1
-  %exitcond.not.i136 = icmp eq i64 %indvars.iv.next.i135, %wide.trip.count.i132
-  br i1 %exitcond.not.i136, label %._crit_edge.i130, label %.lr.ph.i133, !llvm.loop !14
+  %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
+  %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i121
+  br i1 %exitcond.not.i125, label %._crit_edge.i119, label %.lr.ph.i122, !llvm.loop !14
 
-._crit_edge.i130:                                 ; preds = %.lr.ph.i133, %62
+._crit_edge.i119:                                 ; preds = %.lr.ph.i122, %62
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeBoolCols.exit
 
-68:                                               ; preds = %writeOidCols.exit128
+68:                                               ; preds = %writeOidCols.exit117
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeBoolCols.exit
 
-writeBoolCols.exit:                               ; preds = %._crit_edge.i130, %68
+writeBoolCols.exit:                               ; preds = %._crit_edge.i119, %68
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1135) #7
   %69 = getelementptr inbounds i8, ptr %1, i64 104
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %17, align 8
-  %.not.i137 = icmp eq ptr %70, null
-  br i1 %.not.i137, label %78, label %72
+  %.not.i126 = icmp eq ptr %70, null
+  br i1 %.not.i126, label %78, label %72
 
 72:                                               ; preds = %writeBoolCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %73 = icmp sgt i32 %71, 0
-  br i1 %73, label %.lr.ph.preheader.i139, label %._crit_edge.i138
+  br i1 %73, label %.lr.ph.preheader.i128, label %._crit_edge.i127
 
-.lr.ph.preheader.i139:                            ; preds = %72
-  %wide.trip.count.i140 = zext nneg i32 %71 to i64
-  br label %.lr.ph.i141
+.lr.ph.preheader.i128:                            ; preds = %72
+  %wide.trip.count.i129 = zext nneg i32 %71 to i64
+  br label %.lr.ph.i130
 
-.lr.ph.i141:                                      ; preds = %.lr.ph.i141, %.lr.ph.preheader.i139
-  %indvars.iv.i142 = phi i64 [ 0, %.lr.ph.preheader.i139 ], [ %indvars.iv.next.i144, %.lr.ph.i141 ]
-  %74 = getelementptr i8, ptr %70, i64 %indvars.iv.i142
+.lr.ph.i130:                                      ; preds = %.lr.ph.i130, %.lr.ph.preheader.i128
+  %indvars.iv.i131 = phi i64 [ 0, %.lr.ph.preheader.i128 ], [ %indvars.iv.next.i132, %.lr.ph.i130 ]
+  %74 = getelementptr i8, ptr %70, i64 %indvars.iv.i131
   %75 = load i8, ptr %74, align 1
-  %76 = and i8 %75, 1
-  %.not10.i143 = icmp eq i8 %76, 0
-  %77 = select i1 %.not10.i143, ptr @.str.12, ptr @.str.11
+  %76 = trunc i8 %75 to i1
+  %77 = select i1 %76, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %77) #7
-  %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i142, 1
-  %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %wide.trip.count.i140
-  br i1 %exitcond.not.i145, label %._crit_edge.i138, label %.lr.ph.i141, !llvm.loop !14
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
+  %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i129
+  br i1 %exitcond.not.i133, label %._crit_edge.i127, label %.lr.ph.i130, !llvm.loop !14
 
-._crit_edge.i138:                                 ; preds = %.lr.ph.i141, %72
+._crit_edge.i127:                                 ; preds = %.lr.ph.i130, %72
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeBoolCols.exit146
+  br label %writeBoolCols.exit134
 
 78:                                               ; preds = %writeBoolCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeBoolCols.exit146
+  br label %writeBoolCols.exit134
 
-writeBoolCols.exit146:                            ; preds = %._crit_edge.i138, %78
+writeBoolCols.exit134:                            ; preds = %._crit_edge.i127, %78
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1136) #7
   %79 = getelementptr inbounds i8, ptr %1, i64 120
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %15, align 4
-  %.not.i147 = icmp eq ptr %80, null
-  br i1 %.not.i147, label %88, label %82
+  %.not.i135 = icmp eq ptr %80, null
+  br i1 %.not.i135, label %88, label %82
 
-82:                                               ; preds = %writeBoolCols.exit146
+82:                                               ; preds = %writeBoolCols.exit134
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %83 = icmp sgt i32 %81, 0
-  br i1 %83, label %.lr.ph.preheader.i149, label %._crit_edge.i148
+  br i1 %83, label %.lr.ph.preheader.i137, label %._crit_edge.i136
 
-.lr.ph.preheader.i149:                            ; preds = %82
-  %wide.trip.count.i150 = zext nneg i32 %81 to i64
-  br label %.lr.ph.i151
+.lr.ph.preheader.i137:                            ; preds = %82
+  %wide.trip.count.i138 = zext nneg i32 %81 to i64
+  br label %.lr.ph.i139
 
-.lr.ph.i151:                                      ; preds = %.lr.ph.i151, %.lr.ph.preheader.i149
-  %indvars.iv.i152 = phi i64 [ 0, %.lr.ph.preheader.i149 ], [ %indvars.iv.next.i154, %.lr.ph.i151 ]
-  %84 = getelementptr i8, ptr %80, i64 %indvars.iv.i152
+.lr.ph.i139:                                      ; preds = %.lr.ph.i139, %.lr.ph.preheader.i137
+  %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.preheader.i137 ], [ %indvars.iv.next.i141, %.lr.ph.i139 ]
+  %84 = getelementptr i8, ptr %80, i64 %indvars.iv.i140
   %85 = load i8, ptr %84, align 1
-  %86 = and i8 %85, 1
-  %.not10.i153 = icmp eq i8 %86, 0
-  %87 = select i1 %.not10.i153, ptr @.str.12, ptr @.str.11
+  %86 = trunc i8 %85 to i1
+  %87 = select i1 %86, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %87) #7
-  %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i152, 1
-  %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, %wide.trip.count.i150
-  br i1 %exitcond.not.i155, label %._crit_edge.i148, label %.lr.ph.i151, !llvm.loop !14
+  %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
+  %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i138
+  br i1 %exitcond.not.i142, label %._crit_edge.i136, label %.lr.ph.i139, !llvm.loop !14
 
-._crit_edge.i148:                                 ; preds = %.lr.ph.i151, %82
+._crit_edge.i136:                                 ; preds = %.lr.ph.i139, %82
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeBoolCols.exit156
+  br label %writeBoolCols.exit143
 
-88:                                               ; preds = %writeBoolCols.exit146
+88:                                               ; preds = %writeBoolCols.exit134
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeBoolCols.exit156
+  br label %writeBoolCols.exit143
 
-writeBoolCols.exit156:                            ; preds = %._crit_edge.i148, %88
+writeBoolCols.exit143:                            ; preds = %._crit_edge.i136, %88
   %89 = getelementptr inbounds i8, ptr %1, i64 128
   %90 = load i32, ptr %89, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1137, i32 noundef %90) #7
@@ -12307,75 +12092,63 @@ writeBoolCols.exit156:                            ; preds = %._crit_edge.i148, %
   call void @outNode(ptr noundef %0, ptr noundef %96)
   %97 = getelementptr inbounds i8, ptr %1, i64 168
   %98 = load i8, ptr %97, align 8
-  %99 = and i8 %98, 1
-  %.not = icmp eq i8 %99, 0
-  %100 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %99 = trunc i8 %98 to i1
+  %100 = select i1 %99, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1141, ptr noundef nonnull %100) #7
   %101 = getelementptr inbounds i8, ptr %1, i64 169
   %102 = load i8, ptr %101, align 1
-  %103 = and i8 %102, 1
-  %.not83 = icmp eq i8 %103, 0
-  %104 = select i1 %.not83, ptr @.str.12, ptr @.str.11
+  %103 = trunc i8 %102 to i1
+  %104 = select i1 %103, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.234, ptr noundef nonnull %104) #7
   %105 = getelementptr inbounds i8, ptr %1, i64 170
   %106 = load i8, ptr %105, align 2
-  %107 = and i8 %106, 1
-  %.not84 = icmp eq i8 %107, 0
-  %108 = select i1 %.not84, ptr @.str.12, ptr @.str.11
+  %107 = trunc i8 %106 to i1
+  %108 = select i1 %107, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1142, ptr noundef nonnull %108) #7
   %109 = getelementptr inbounds i8, ptr %1, i64 171
   %110 = load i8, ptr %109, align 1
-  %111 = and i8 %110, 1
-  %.not85 = icmp eq i8 %111, 0
-  %112 = select i1 %.not85, ptr @.str.12, ptr @.str.11
+  %111 = trunc i8 %110 to i1
+  %112 = select i1 %111, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1143, ptr noundef nonnull %112) #7
   %113 = getelementptr inbounds i8, ptr %1, i64 172
   %114 = load i8, ptr %113, align 4
-  %115 = and i8 %114, 1
-  %.not86 = icmp eq i8 %115, 0
-  %116 = select i1 %.not86, ptr @.str.12, ptr @.str.11
+  %115 = trunc i8 %114 to i1
+  %116 = select i1 %115, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1144, ptr noundef nonnull %116) #7
   %117 = getelementptr inbounds i8, ptr %1, i64 173
   %118 = load i8, ptr %117, align 1
-  %119 = and i8 %118, 1
-  %.not87 = icmp eq i8 %119, 0
-  %120 = select i1 %.not87, ptr @.str.12, ptr @.str.11
+  %119 = trunc i8 %118 to i1
+  %120 = select i1 %119, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1145, ptr noundef nonnull %120) #7
   %121 = getelementptr inbounds i8, ptr %1, i64 174
   %122 = load i8, ptr %121, align 2
-  %123 = and i8 %122, 1
-  %.not88 = icmp eq i8 %123, 0
-  %124 = select i1 %.not88, ptr @.str.12, ptr @.str.11
+  %123 = trunc i8 %122 to i1
+  %124 = select i1 %123, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1146, ptr noundef nonnull %124) #7
   %125 = getelementptr inbounds i8, ptr %1, i64 175
   %126 = load i8, ptr %125, align 1
-  %127 = and i8 %126, 1
-  %.not89 = icmp eq i8 %127, 0
-  %128 = select i1 %.not89, ptr @.str.12, ptr @.str.11
+  %127 = trunc i8 %126 to i1
+  %128 = select i1 %127, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1147, ptr noundef nonnull %128) #7
   %129 = getelementptr inbounds i8, ptr %1, i64 176
   %130 = load i8, ptr %129, align 8
-  %131 = and i8 %130, 1
-  %.not90 = icmp eq i8 %131, 0
-  %132 = select i1 %.not90, ptr @.str.12, ptr @.str.11
+  %131 = trunc i8 %130 to i1
+  %132 = select i1 %131, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1148, ptr noundef nonnull %132) #7
   %133 = getelementptr inbounds i8, ptr %1, i64 177
   %134 = load i8, ptr %133, align 1
-  %135 = and i8 %134, 1
-  %.not91 = icmp eq i8 %135, 0
-  %136 = select i1 %.not91, ptr @.str.12, ptr @.str.11
+  %135 = trunc i8 %134 to i1
+  %136 = select i1 %135, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1149, ptr noundef nonnull %136) #7
   %137 = getelementptr inbounds i8, ptr %1, i64 178
   %138 = load i8, ptr %137, align 2
-  %139 = and i8 %138, 1
-  %.not92 = icmp eq i8 %139, 0
-  %140 = select i1 %.not92, ptr @.str.12, ptr @.str.11
+  %139 = trunc i8 %138 to i1
+  %140 = select i1 %139, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1150, ptr noundef nonnull %140) #7
   %141 = getelementptr inbounds i8, ptr %1, i64 179
   %142 = load i8, ptr %141, align 1
-  %143 = and i8 %142, 1
-  %.not93 = icmp eq i8 %143, 0
-  %144 = select i1 %.not93, ptr @.str.12, ptr @.str.11
+  %143 = trunc i8 %142 to i1
+  %144 = select i1 %143, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1151, ptr noundef nonnull %144) #7
   ret void
 }
@@ -12538,9 +12311,8 @@ define internal fastcc void @_outStatisticExtInfo(ptr noundef %0, ptr nocapture 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1167, i32 noundef %5) #7
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  %9 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %8 = trunc i8 %7 to i1
+  %9 = select i1 %8, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1168, ptr noundef nonnull %9) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1169) #7
   %10 = getelementptr inbounds i8, ptr %1, i64 24
@@ -12663,21 +12435,18 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %6
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %24 = getelementptr inbounds i8, ptr %.0, i64 56
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not33 = icmp eq i8 %26, 0
-  %27 = select i1 %.not33, ptr @.str.12, ptr @.str.11
+  %26 = trunc i8 %25 to i1
+  %27 = select i1 %26, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1179, ptr noundef nonnull %27) #7
   %28 = getelementptr inbounds i8, ptr %.0, i64 57
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not34 = icmp eq i8 %30, 0
-  %31 = select i1 %.not34, ptr @.str.12, ptr @.str.11
+  %30 = trunc i8 %29 to i1
+  %31 = select i1 %30, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1180, ptr noundef nonnull %31) #7
   %32 = getelementptr inbounds i8, ptr %.0, i64 58
   %33 = load i8, ptr %32, align 2
-  %34 = and i8 %33, 1
-  %.not35 = icmp eq i8 %34, 0
-  %35 = select i1 %.not35, ptr @.str.12, ptr @.str.11
+  %34 = trunc i8 %33 to i1
+  %35 = select i1 %34, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1181, ptr noundef nonnull %35) #7
   %36 = getelementptr inbounds i8, ptr %.0, i64 60
   %37 = load i32, ptr %36, align 4
@@ -12718,15 +12487,13 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  %15 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %14 = trunc i8 %13 to i1
+  %15 = select i1 %14, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1188, ptr noundef nonnull %15) #7
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not16 = icmp eq i8 %18, 0
-  %19 = select i1 %.not16, ptr @.str.12, ptr @.str.11
+  %18 = trunc i8 %17 to i1
+  %19 = select i1 %18, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1189, ptr noundef nonnull %19) #7
   %20 = getelementptr inbounds i8, ptr %1, i64 28
   %21 = load i32, ptr %20, align 4
@@ -12753,9 +12520,8 @@ define internal fastcc void @_outPathKey(ptr noundef %0, ptr nocapture noundef r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1195, i32 noundef %8) #7
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1196, ptr noundef nonnull %12) #7
   ret void
 }
@@ -12965,42 +12731,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i37, label %outBitmapset.exit38
+  br i1 %31, label %.lr.ph.i35, label %outBitmapset.exit36
 
-.lr.ph.i37:                                       ; preds = %27, %.lr.ph.i37
-  %32 = phi i32 [ %33, %.lr.ph.i37 ], [ %30, %27 ]
+.lr.ph.i35:                                       ; preds = %27, %.lr.ph.i35
+  %32 = phi i32 [ %33, %.lr.ph.i35 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i37, label %outBitmapset.exit38, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i35, label %outBitmapset.exit36, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i39, label %outBitmapset.exit38
+  br i1 %37, label %.lr.ph.i37, label %outBitmapset.exit36
 
-.lr.ph.i39:                                       ; preds = %35, %.lr.ph.i39
-  %38 = phi i32 [ %39, %.lr.ph.i39 ], [ %36, %35 ]
+.lr.ph.i37:                                       ; preds = %35, %.lr.ph.i37
+  %38 = phi i32 [ %39, %.lr.ph.i37 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i39, label %outBitmapset.exit38, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i37, label %outBitmapset.exit36, !llvm.loop !7
 
-outBitmapset.exit38:                              ; preds = %.lr.ph.i37, %.lr.ph.i39, %35, %27
+outBitmapset.exit36:                              ; preds = %.lr.ph.i35, %.lr.ph.i37, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not35 = icmp eq i8 %43, 0
-  %44 = select i1 %.not35, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1216, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not36 = icmp eq i8 %47, 0
-  %48 = select i1 %.not36, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -13092,42 +12856,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %32 = tail call i32 @bms_next_member(ptr noundef %31, i32 noundef -1) #7
   %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %.lr.ph.i57, label %outBitmapset.exit58
+  br i1 %33, label %.lr.ph.i55, label %outBitmapset.exit56
 
-.lr.ph.i57:                                       ; preds = %29, %.lr.ph.i57
-  %34 = phi i32 [ %35, %.lr.ph.i57 ], [ %32, %29 ]
+.lr.ph.i55:                                       ; preds = %29, %.lr.ph.i55
+  %34 = phi i32 [ %35, %.lr.ph.i55 ], [ %32, %29 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %34) #7
   %35 = tail call i32 @bms_next_member(ptr noundef %31, i32 noundef %34) #7
   %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %.lr.ph.i57, label %outBitmapset.exit58, !llvm.loop !7
+  br i1 %36, label %.lr.ph.i55, label %outBitmapset.exit56, !llvm.loop !7
 
 37:                                               ; preds = %26
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %38 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %.lr.ph.i59, label %outBitmapset.exit58
+  br i1 %39, label %.lr.ph.i57, label %outBitmapset.exit56
 
-.lr.ph.i59:                                       ; preds = %37, %.lr.ph.i59
-  %40 = phi i32 [ %41, %.lr.ph.i59 ], [ %38, %37 ]
+.lr.ph.i57:                                       ; preds = %37, %.lr.ph.i57
+  %40 = phi i32 [ %41, %.lr.ph.i57 ], [ %38, %37 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %40) #7
   %41 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %40) #7
   %42 = icmp sgt i32 %41, -1
-  br i1 %42, label %.lr.ph.i59, label %outBitmapset.exit58, !llvm.loop !7
+  br i1 %42, label %.lr.ph.i57, label %outBitmapset.exit56, !llvm.loop !7
 
-outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %.lr.ph.i59, %37, %29
+outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph.i57, %37, %29
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %43 = getelementptr inbounds i8, ptr %1, i64 32
   %44 = load i8, ptr %43, align 8
-  %45 = and i8 %44, 1
-  %.not55 = icmp eq i8 %45, 0
-  %46 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %45 = trunc i8 %44 to i1
+  %46 = select i1 %45, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %46) #7
   %47 = getelementptr inbounds i8, ptr %1, i64 33
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not56 = icmp eq i8 %49, 0
-  %50 = select i1 %.not56, ptr @.str.12, ptr @.str.11
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %50) #7
   %51 = getelementptr inbounds i8, ptr %1, i64 36
   %52 = load i32, ptr %51, align 4
@@ -13206,9 +12968,8 @@ define internal fastcc void @_outIndexClause(ptr noundef %0, ptr nocapture nound
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1239, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 26
   %12 = load i16, ptr %11, align 2
@@ -13278,42 +13039,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -13408,42 +13167,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %32, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %28, %.lr.ph.i43
-  %33 = phi i32 [ %34, %.lr.ph.i43 ], [ %31, %28 ]
+.lr.ph.i41:                                       ; preds = %28, %.lr.ph.i41
+  %33 = phi i32 [ %34, %.lr.ph.i41 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i45, label %outBitmapset.exit44
+  br i1 %38, label %.lr.ph.i43, label %outBitmapset.exit42
 
-.lr.ph.i45:                                       ; preds = %36, %.lr.ph.i45
-  %39 = phi i32 [ %40, %.lr.ph.i45 ], [ %37, %36 ]
+.lr.ph.i43:                                       ; preds = %36, %.lr.ph.i43
+  %39 = phi i32 [ %40, %.lr.ph.i43 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i43, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %36, %28
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph.i43, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not41 = icmp eq i8 %44, 0
-  %45 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not42 = icmp eq i8 %48, 0
-  %49 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -13545,42 +13302,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %32, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %28, %.lr.ph.i43
-  %33 = phi i32 [ %34, %.lr.ph.i43 ], [ %31, %28 ]
+.lr.ph.i41:                                       ; preds = %28, %.lr.ph.i41
+  %33 = phi i32 [ %34, %.lr.ph.i41 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i45, label %outBitmapset.exit44
+  br i1 %38, label %.lr.ph.i43, label %outBitmapset.exit42
 
-.lr.ph.i45:                                       ; preds = %36, %.lr.ph.i45
-  %39 = phi i32 [ %40, %.lr.ph.i45 ], [ %37, %36 ]
+.lr.ph.i43:                                       ; preds = %36, %.lr.ph.i43
+  %39 = phi i32 [ %40, %.lr.ph.i43 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i43, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %36, %28
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph.i43, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not41 = icmp eq i8 %44, 0
-  %45 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not42 = icmp eq i8 %48, 0
-  %49 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -13681,42 +13436,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -13810,42 +13563,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -13939,42 +13690,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -14068,42 +13817,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i46, label %outBitmapset.exit47
+  br i1 %31, label %.lr.ph.i44, label %outBitmapset.exit45
 
-.lr.ph.i46:                                       ; preds = %27, %.lr.ph.i46
-  %32 = phi i32 [ %33, %.lr.ph.i46 ], [ %30, %27 ]
+.lr.ph.i44:                                       ; preds = %27, %.lr.ph.i44
+  %32 = phi i32 [ %33, %.lr.ph.i44 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i44, label %outBitmapset.exit45, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i48, label %outBitmapset.exit47
+  br i1 %37, label %.lr.ph.i46, label %outBitmapset.exit45
 
-.lr.ph.i48:                                       ; preds = %35, %.lr.ph.i48
-  %38 = phi i32 [ %39, %.lr.ph.i48 ], [ %36, %35 ]
+.lr.ph.i46:                                       ; preds = %35, %.lr.ph.i46
+  %38 = phi i32 [ %39, %.lr.ph.i46 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i48, label %outBitmapset.exit47, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i46, label %outBitmapset.exit45, !llvm.loop !7
 
-outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph.i48, %35, %27
+outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %.lr.ph.i46, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not44 = icmp eq i8 %43, 0
-  %44 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not45 = icmp eq i8 %47, 0
-  %48 = select i1 %.not45, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -14205,42 +13952,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i51, label %outBitmapset.exit52
+  br i1 %31, label %.lr.ph.i49, label %outBitmapset.exit50
 
-.lr.ph.i51:                                       ; preds = %27, %.lr.ph.i51
-  %32 = phi i32 [ %33, %.lr.ph.i51 ], [ %30, %27 ]
+.lr.ph.i49:                                       ; preds = %27, %.lr.ph.i49
+  %32 = phi i32 [ %33, %.lr.ph.i49 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i53, label %outBitmapset.exit52
+  br i1 %37, label %.lr.ph.i51, label %outBitmapset.exit50
 
-.lr.ph.i53:                                       ; preds = %35, %.lr.ph.i53
-  %38 = phi i32 [ %39, %.lr.ph.i53 ], [ %36, %35 ]
+.lr.ph.i51:                                       ; preds = %35, %.lr.ph.i51
+  %38 = phi i32 [ %39, %.lr.ph.i51 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i53, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i51, label %outBitmapset.exit50, !llvm.loop !7
 
-outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph.i53, %35, %27
+outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %.lr.ph.i51, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not49 = icmp eq i8 %43, 0
-  %44 = select i1 %.not49, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not50 = icmp eq i8 %47, 0
-  %48 = select i1 %.not50, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -14351,42 +14096,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i45, label %outBitmapset.exit46
+  br i1 %32, label %.lr.ph.i43, label %outBitmapset.exit44
 
-.lr.ph.i45:                                       ; preds = %28, %.lr.ph.i45
-  %33 = phi i32 [ %34, %.lr.ph.i45 ], [ %31, %28 ]
+.lr.ph.i43:                                       ; preds = %28, %.lr.ph.i43
+  %33 = phi i32 [ %34, %.lr.ph.i43 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i47, label %outBitmapset.exit46
+  br i1 %38, label %.lr.ph.i45, label %outBitmapset.exit44
 
-.lr.ph.i47:                                       ; preds = %36, %.lr.ph.i47
-  %39 = phi i32 [ %40, %.lr.ph.i47 ], [ %37, %36 ]
+.lr.ph.i45:                                       ; preds = %36, %.lr.ph.i45
+  %39 = phi i32 [ %40, %.lr.ph.i45 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i47, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
 
-outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph.i47, %36, %28
+outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not43 = icmp eq i8 %44, 0
-  %45 = select i1 %.not43, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not44 = icmp eq i8 %48, 0
-  %49 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -14491,42 +14234,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %32, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %28, %.lr.ph.i43
-  %33 = phi i32 [ %34, %.lr.ph.i43 ], [ %31, %28 ]
+.lr.ph.i41:                                       ; preds = %28, %.lr.ph.i41
+  %33 = phi i32 [ %34, %.lr.ph.i41 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i45, label %outBitmapset.exit44
+  br i1 %38, label %.lr.ph.i43, label %outBitmapset.exit42
 
-.lr.ph.i45:                                       ; preds = %36, %.lr.ph.i45
-  %39 = phi i32 [ %40, %.lr.ph.i45 ], [ %37, %36 ]
+.lr.ph.i43:                                       ; preds = %36, %.lr.ph.i43
+  %39 = phi i32 [ %40, %.lr.ph.i43 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i43, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %36, %28
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph.i43, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not41 = icmp eq i8 %44, 0
-  %45 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not42 = icmp eq i8 %48, 0
-  %49 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -14627,42 +14368,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -14756,42 +14495,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -14886,42 +14623,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i57, label %outBitmapset.exit58
+  br i1 %32, label %.lr.ph.i53, label %outBitmapset.exit54
 
-.lr.ph.i57:                                       ; preds = %28, %.lr.ph.i57
-  %33 = phi i32 [ %34, %.lr.ph.i57 ], [ %31, %28 ]
+.lr.ph.i53:                                       ; preds = %28, %.lr.ph.i53
+  %33 = phi i32 [ %34, %.lr.ph.i53 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i57, label %outBitmapset.exit58, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i53, label %outBitmapset.exit54, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i59, label %outBitmapset.exit58
+  br i1 %38, label %.lr.ph.i55, label %outBitmapset.exit54
 
-.lr.ph.i59:                                       ; preds = %36, %.lr.ph.i59
-  %39 = phi i32 [ %40, %.lr.ph.i59 ], [ %37, %36 ]
+.lr.ph.i55:                                       ; preds = %36, %.lr.ph.i55
+  %39 = phi i32 [ %40, %.lr.ph.i55 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i59, label %outBitmapset.exit58, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i55, label %outBitmapset.exit54, !llvm.loop !7
 
-outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %.lr.ph.i59, %36, %28
+outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %.lr.ph.i55, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not53 = icmp eq i8 %44, 0
-  %45 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not54 = icmp eq i8 %48, 0
-  %49 = select i1 %.not54, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -14965,15 +14700,13 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %.lr.ph
   call void @outNode(ptr noundef %0, ptr noundef %68)
   %69 = getelementptr inbounds i8, ptr %1, i64 96
   %70 = load i8, ptr %69, align 8
-  %71 = and i8 %70, 1
-  %.not55 = icmp eq i8 %71, 0
-  %72 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %71 = trunc i8 %70 to i1
+  %72 = select i1 %71, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1273, ptr noundef nonnull %72) #7
   %73 = getelementptr inbounds i8, ptr %1, i64 97
   %74 = load i8, ptr %73, align 1
-  %75 = and i8 %74, 1
-  %.not56 = icmp eq i8 %75, 0
-  %76 = select i1 %.not56, ptr @.str.12, ptr @.str.11
+  %75 = trunc i8 %74 to i1
+  %76 = select i1 %75, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1274, ptr noundef nonnull %76) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1275) #7
   %77 = getelementptr inbounds i8, ptr %1, i64 104
@@ -15045,42 +14778,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i48, label %outBitmapset.exit49
+  br i1 %31, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i48:                                       ; preds = %27, %.lr.ph.i48
-  %32 = phi i32 [ %33, %.lr.ph.i48 ], [ %30, %27 ]
+.lr.ph.i46:                                       ; preds = %27, %.lr.ph.i46
+  %32 = phi i32 [ %33, %.lr.ph.i46 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i50, label %outBitmapset.exit49
+  br i1 %37, label %.lr.ph.i48, label %outBitmapset.exit47
 
-.lr.ph.i50:                                       ; preds = %35, %.lr.ph.i50
-  %38 = phi i32 [ %39, %.lr.ph.i50 ], [ %36, %35 ]
+.lr.ph.i48:                                       ; preds = %35, %.lr.ph.i48
+  %38 = phi i32 [ %39, %.lr.ph.i48 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i50, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i48, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph.i50, %35, %27
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph.i48, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not46 = icmp eq i8 %43, 0
-  %44 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not47 = icmp eq i8 %47, 0
-  %48 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -15185,42 +14916,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i45, label %outBitmapset.exit46
+  br i1 %31, label %.lr.ph.i42, label %outBitmapset.exit43
 
-.lr.ph.i45:                                       ; preds = %27, %.lr.ph.i45
-  %32 = phi i32 [ %33, %.lr.ph.i45 ], [ %30, %27 ]
+.lr.ph.i42:                                       ; preds = %27, %.lr.ph.i42
+  %32 = phi i32 [ %33, %.lr.ph.i42 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i42, label %outBitmapset.exit43, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i47, label %outBitmapset.exit46
+  br i1 %37, label %.lr.ph.i44, label %outBitmapset.exit43
 
-.lr.ph.i47:                                       ; preds = %35, %.lr.ph.i47
-  %38 = phi i32 [ %39, %.lr.ph.i47 ], [ %36, %35 ]
+.lr.ph.i44:                                       ; preds = %35, %.lr.ph.i44
+  %38 = phi i32 [ %39, %.lr.ph.i44 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i47, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i44, label %outBitmapset.exit43, !llvm.loop !7
 
-outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph.i47, %35, %27
+outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph.i44, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not42 = icmp eq i8 %43, 0
-  %44 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not43 = icmp eq i8 %47, 0
-  %48 = select i1 %.not43, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -15256,9 +14985,8 @@ outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph
   call void @outNode(ptr noundef %0, ptr noundef %63)
   %64 = getelementptr inbounds i8, ptr %1, i64 80
   %65 = load i8, ptr %64, align 8
-  %66 = and i8 %65, 1
-  %.not44 = icmp eq i8 %66, 0
-  %67 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %66 = trunc i8 %65 to i1
+  %67 = select i1 %66, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1282, ptr noundef nonnull %67) #7
   %68 = getelementptr inbounds i8, ptr %1, i64 84
   %69 = load i32, ptr %68, align 4
@@ -15323,42 +15051,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i42, label %outBitmapset.exit43
+  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
 
-.lr.ph.i42:                                       ; preds = %27, %.lr.ph.i42
-  %32 = phi i32 [ %33, %.lr.ph.i42 ], [ %30, %27 ]
+.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
+  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i42, label %outBitmapset.exit43, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i44, label %outBitmapset.exit43
+  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
 
-.lr.ph.i44:                                       ; preds = %35, %.lr.ph.i44
-  %38 = phi i32 [ %39, %.lr.ph.i44 ], [ %36, %35 ]
+.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
+  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i44, label %outBitmapset.exit43, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
 
-outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph.i44, %35, %27
+outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not40 = icmp eq i8 %43, 0
-  %44 = select i1 %.not40, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not41 = icmp eq i8 %47, 0
-  %48 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -15455,42 +15181,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i51, label %outBitmapset.exit52
+  br i1 %31, label %.lr.ph.i48, label %outBitmapset.exit49
 
-.lr.ph.i51:                                       ; preds = %27, %.lr.ph.i51
-  %32 = phi i32 [ %33, %.lr.ph.i51 ], [ %30, %27 ]
+.lr.ph.i48:                                       ; preds = %27, %.lr.ph.i48
+  %32 = phi i32 [ %33, %.lr.ph.i48 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i53, label %outBitmapset.exit52
+  br i1 %37, label %.lr.ph.i50, label %outBitmapset.exit49
 
-.lr.ph.i53:                                       ; preds = %35, %.lr.ph.i53
-  %38 = phi i32 [ %39, %.lr.ph.i53 ], [ %36, %35 ]
+.lr.ph.i50:                                       ; preds = %35, %.lr.ph.i50
+  %38 = phi i32 [ %39, %.lr.ph.i50 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i53, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i50, label %outBitmapset.exit49, !llvm.loop !7
 
-outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph.i53, %35, %27
+outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph.i50, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not48 = icmp eq i8 %43, 0
-  %44 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1288, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not49 = icmp eq i8 %47, 0
-  %48 = select i1 %.not49, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1289, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -15525,9 +15249,8 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1295, i32 noundef %63) #7
   %64 = getelementptr inbounds i8, ptr %1, i64 76
   %65 = load i8, ptr %64, align 4
-  %66 = and i8 %65, 1
-  %.not50 = icmp eq i8 %66, 0
-  %67 = select i1 %.not50, ptr @.str.12, ptr @.str.11
+  %66 = trunc i8 %65 to i1
+  %67 = select i1 %66, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1296, ptr noundef nonnull %67) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %68 = getelementptr inbounds i8, ptr %1, i64 80
@@ -15601,42 +15324,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i66, label %outBitmapset.exit67
+  br i1 %31, label %.lr.ph.i61, label %outBitmapset.exit62
 
-.lr.ph.i66:                                       ; preds = %27, %.lr.ph.i66
-  %32 = phi i32 [ %33, %.lr.ph.i66 ], [ %30, %27 ]
+.lr.ph.i61:                                       ; preds = %27, %.lr.ph.i61
+  %32 = phi i32 [ %33, %.lr.ph.i61 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i66, label %outBitmapset.exit67, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i61, label %outBitmapset.exit62, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i68, label %outBitmapset.exit67
+  br i1 %37, label %.lr.ph.i63, label %outBitmapset.exit62
 
-.lr.ph.i68:                                       ; preds = %35, %.lr.ph.i68
-  %38 = phi i32 [ %39, %.lr.ph.i68 ], [ %36, %35 ]
+.lr.ph.i63:                                       ; preds = %35, %.lr.ph.i63
+  %38 = phi i32 [ %39, %.lr.ph.i63 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i68, label %outBitmapset.exit67, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i63, label %outBitmapset.exit62, !llvm.loop !7
 
-outBitmapset.exit67:                              ; preds = %.lr.ph.i66, %.lr.ph.i68, %35, %27
+outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %.lr.ph.i63, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not61 = icmp eq i8 %43, 0
-  %44 = select i1 %.not61, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1288, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not62 = icmp eq i8 %47, 0
-  %48 = select i1 %.not62, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1289, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -15671,9 +15392,8 @@ outBitmapset.exit67:                              ; preds = %.lr.ph.i66, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1295, i32 noundef %63) #7
   %64 = getelementptr inbounds i8, ptr %1, i64 76
   %65 = load i8, ptr %64, align 4
-  %66 = and i8 %65, 1
-  %.not63 = icmp eq i8 %66, 0
-  %67 = select i1 %.not63, ptr @.str.12, ptr @.str.11
+  %66 = trunc i8 %65 to i1
+  %67 = select i1 %66, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1296, ptr noundef nonnull %67) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %68 = getelementptr inbounds i8, ptr %1, i64 80
@@ -15701,15 +15421,13 @@ outBitmapset.exit67:                              ; preds = %.lr.ph.i66, %.lr.ph
   call void @outNode(ptr noundef %0, ptr noundef %79)
   %80 = getelementptr inbounds i8, ptr %1, i64 128
   %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, 1
-  %.not64 = icmp eq i8 %82, 0
-  %83 = select i1 %.not64, ptr @.str.12, ptr @.str.11
+  %82 = trunc i8 %81 to i1
+  %83 = select i1 %82, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1304, ptr noundef nonnull %83) #7
   %84 = getelementptr inbounds i8, ptr %1, i64 129
   %85 = load i8, ptr %84, align 1
-  %86 = and i8 %85, 1
-  %.not65 = icmp eq i8 %86, 0
-  %87 = select i1 %.not65, ptr @.str.12, ptr @.str.11
+  %86 = trunc i8 %85 to i1
+  %87 = select i1 %86, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1305, ptr noundef nonnull %87) #7
   ret void
 }
@@ -15772,42 +15490,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i59, label %outBitmapset.exit60
+  br i1 %32, label %.lr.ph.i56, label %outBitmapset.exit57
 
-.lr.ph.i59:                                       ; preds = %28, %.lr.ph.i59
-  %33 = phi i32 [ %34, %.lr.ph.i59 ], [ %31, %28 ]
+.lr.ph.i56:                                       ; preds = %28, %.lr.ph.i56
+  %33 = phi i32 [ %34, %.lr.ph.i56 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i59, label %outBitmapset.exit60, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i56, label %outBitmapset.exit57, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i61, label %outBitmapset.exit60
+  br i1 %38, label %.lr.ph.i58, label %outBitmapset.exit57
 
-.lr.ph.i61:                                       ; preds = %36, %.lr.ph.i61
-  %39 = phi i32 [ %40, %.lr.ph.i61 ], [ %37, %36 ]
+.lr.ph.i58:                                       ; preds = %36, %.lr.ph.i58
+  %39 = phi i32 [ %40, %.lr.ph.i58 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i61, label %outBitmapset.exit60, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i58, label %outBitmapset.exit57, !llvm.loop !7
 
-outBitmapset.exit60:                              ; preds = %.lr.ph.i59, %.lr.ph.i61, %36, %28
+outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %.lr.ph.i58, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not56 = icmp eq i8 %44, 0
-  %45 = select i1 %.not56, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1288, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not57 = icmp eq i8 %48, 0
-  %49 = select i1 %.not57, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1289, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -15842,9 +15558,8 @@ outBitmapset.exit60:                              ; preds = %.lr.ph.i59, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1295, i32 noundef %64) #7
   %65 = getelementptr inbounds i8, ptr %1, i64 76
   %66 = load i8, ptr %65, align 4
-  %67 = and i8 %66, 1
-  %.not58 = icmp eq i8 %67, 0
-  %68 = select i1 %.not58, ptr @.str.12, ptr @.str.11
+  %67 = trunc i8 %66 to i1
+  %68 = select i1 %67, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1296, ptr noundef nonnull %68) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %69 = getelementptr inbounds i8, ptr %1, i64 80
@@ -15932,42 +15647,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
 
-.lr.ph.i43:                                       ; preds = %27, %.lr.ph.i43
-  %32 = phi i32 [ %33, %.lr.ph.i43 ], [ %30, %27 ]
+.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
+  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i45, label %outBitmapset.exit44
+  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
 
-.lr.ph.i45:                                       ; preds = %35, %.lr.ph.i45
-  %38 = phi i32 [ %39, %.lr.ph.i45 ], [ %36, %35 ]
+.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
+  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %35, %27
+outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not40 = icmp eq i8 %43, 0
-  %44 = select i1 %.not40, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not41 = icmp eq i8 %47, 0
-  %48 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -16003,9 +15716,8 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   call void @outNode(ptr noundef %0, ptr noundef %63)
   %64 = getelementptr inbounds i8, ptr %1, i64 80
   %65 = load i8, ptr %64, align 8
-  %66 = and i8 %65, 1
-  %.not42 = icmp eq i8 %66, 0
-  %67 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %66 = trunc i8 %65 to i1
+  %67 = select i1 %66, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1311, ptr noundef nonnull %67) #7
   ret void
 }
@@ -16067,42 +15779,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -16196,42 +15906,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
+  br i1 %31, label %.lr.ph.i38, label %outBitmapset.exit39
 
-.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
-  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
+.lr.ph.i38:                                       ; preds = %27, %.lr.ph.i38
+  %32 = phi i32 [ %33, %.lr.ph.i38 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i38, label %outBitmapset.exit39, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
+  br i1 %37, label %.lr.ph.i40, label %outBitmapset.exit39
 
-.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
-  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
+.lr.ph.i40:                                       ; preds = %35, %.lr.ph.i40
+  %38 = phi i32 [ %39, %.lr.ph.i40 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i40, label %outBitmapset.exit39, !llvm.loop !7
 
-outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
+outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph.i40, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not38 = icmp eq i8 %43, 0
-  %44 = select i1 %.not38, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = select i1 %.not39, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -16325,42 +16033,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i42, label %outBitmapset.exit43
+  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
 
-.lr.ph.i42:                                       ; preds = %27, %.lr.ph.i42
-  %32 = phi i32 [ %33, %.lr.ph.i42 ], [ %30, %27 ]
+.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
+  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i42, label %outBitmapset.exit43, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i44, label %outBitmapset.exit43
+  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
 
-.lr.ph.i44:                                       ; preds = %35, %.lr.ph.i44
-  %38 = phi i32 [ %39, %.lr.ph.i44 ], [ %36, %35 ]
+.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
+  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i44, label %outBitmapset.exit43, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
 
-outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph.i44, %35, %27
+outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not40 = icmp eq i8 %43, 0
-  %44 = select i1 %.not40, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1317, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not41 = icmp eq i8 %47, 0
-  %48 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1318, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -16457,42 +16163,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i46, label %outBitmapset.exit47
+  br i1 %31, label %.lr.ph.i44, label %outBitmapset.exit45
 
-.lr.ph.i46:                                       ; preds = %27, %.lr.ph.i46
-  %32 = phi i32 [ %33, %.lr.ph.i46 ], [ %30, %27 ]
+.lr.ph.i44:                                       ; preds = %27, %.lr.ph.i44
+  %32 = phi i32 [ %33, %.lr.ph.i44 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i44, label %outBitmapset.exit45, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i48, label %outBitmapset.exit47
+  br i1 %37, label %.lr.ph.i46, label %outBitmapset.exit45
 
-.lr.ph.i48:                                       ; preds = %35, %.lr.ph.i48
-  %38 = phi i32 [ %39, %.lr.ph.i48 ], [ %36, %35 ]
+.lr.ph.i46:                                       ; preds = %35, %.lr.ph.i46
+  %38 = phi i32 [ %39, %.lr.ph.i46 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i48, label %outBitmapset.exit47, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i46, label %outBitmapset.exit45, !llvm.loop !7
 
-outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph.i48, %35, %27
+outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %.lr.ph.i46, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not44 = icmp eq i8 %43, 0
-  %44 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not45 = icmp eq i8 %47, 0
-  %48 = select i1 %.not45, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -16594,42 +16298,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i42, label %outBitmapset.exit43
+  br i1 %31, label %.lr.ph.i40, label %outBitmapset.exit41
 
-.lr.ph.i42:                                       ; preds = %27, %.lr.ph.i42
-  %32 = phi i32 [ %33, %.lr.ph.i42 ], [ %30, %27 ]
+.lr.ph.i40:                                       ; preds = %27, %.lr.ph.i40
+  %32 = phi i32 [ %33, %.lr.ph.i40 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i42, label %outBitmapset.exit43, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i40, label %outBitmapset.exit41, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i44, label %outBitmapset.exit43
+  br i1 %37, label %.lr.ph.i42, label %outBitmapset.exit41
 
-.lr.ph.i44:                                       ; preds = %35, %.lr.ph.i44
-  %38 = phi i32 [ %39, %.lr.ph.i44 ], [ %36, %35 ]
+.lr.ph.i42:                                       ; preds = %35, %.lr.ph.i42
+  %38 = phi i32 [ %39, %.lr.ph.i42 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i44, label %outBitmapset.exit43, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i42, label %outBitmapset.exit41, !llvm.loop !7
 
-outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph.i44, %35, %27
+outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph.i42, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not40 = icmp eq i8 %43, 0
-  %44 = select i1 %.not40, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not41 = icmp eq i8 %47, 0
-  %48 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -16727,42 +16429,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i55, label %outBitmapset.exit56
+  br i1 %32, label %.lr.ph.i53, label %outBitmapset.exit54
 
-.lr.ph.i55:                                       ; preds = %28, %.lr.ph.i55
-  %33 = phi i32 [ %34, %.lr.ph.i55 ], [ %31, %28 ]
+.lr.ph.i53:                                       ; preds = %28, %.lr.ph.i53
+  %33 = phi i32 [ %34, %.lr.ph.i53 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i55, label %outBitmapset.exit56, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i53, label %outBitmapset.exit54, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i57, label %outBitmapset.exit56
+  br i1 %38, label %.lr.ph.i55, label %outBitmapset.exit54
 
-.lr.ph.i57:                                       ; preds = %36, %.lr.ph.i57
-  %39 = phi i32 [ %40, %.lr.ph.i57 ], [ %37, %36 ]
+.lr.ph.i55:                                       ; preds = %36, %.lr.ph.i55
+  %39 = phi i32 [ %40, %.lr.ph.i55 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i57, label %outBitmapset.exit56, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i55, label %outBitmapset.exit54, !llvm.loop !7
 
-outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph.i57, %36, %28
+outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %.lr.ph.i55, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not53 = icmp eq i8 %44, 0
-  %45 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not54 = icmp eq i8 %48, 0
-  %49 = select i1 %.not54, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -16866,15 +16566,13 @@ define internal fastcc void @_outRollupData(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.525, ptr noundef nonnull %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 41
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not17 = icmp eq i8 %19, 0
-  %20 = select i1 %.not17, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1338, ptr noundef nonnull %20) #7
   ret void
 }
@@ -16936,42 +16634,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i50, label %outBitmapset.exit51
+  br i1 %31, label %.lr.ph.i48, label %outBitmapset.exit49
 
-.lr.ph.i50:                                       ; preds = %27, %.lr.ph.i50
-  %32 = phi i32 [ %33, %.lr.ph.i50 ], [ %30, %27 ]
+.lr.ph.i48:                                       ; preds = %27, %.lr.ph.i48
+  %32 = phi i32 [ %33, %.lr.ph.i48 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i50, label %outBitmapset.exit51, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i52, label %outBitmapset.exit51
+  br i1 %37, label %.lr.ph.i50, label %outBitmapset.exit49
 
-.lr.ph.i52:                                       ; preds = %35, %.lr.ph.i52
-  %38 = phi i32 [ %39, %.lr.ph.i52 ], [ %36, %35 ]
+.lr.ph.i50:                                       ; preds = %35, %.lr.ph.i50
+  %38 = phi i32 [ %39, %.lr.ph.i50 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i52, label %outBitmapset.exit51, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i50, label %outBitmapset.exit49, !llvm.loop !7
 
-outBitmapset.exit51:                              ; preds = %.lr.ph.i50, %.lr.ph.i52, %35, %27
+outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph.i50, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not48 = icmp eq i8 %43, 0
-  %44 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not49 = icmp eq i8 %47, 0
-  %48 = select i1 %.not49, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -17079,42 +16775,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %31, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %27, %.lr.ph.i43
-  %32 = phi i32 [ %33, %.lr.ph.i43 ], [ %30, %27 ]
+.lr.ph.i41:                                       ; preds = %27, %.lr.ph.i41
+  %32 = phi i32 [ %33, %.lr.ph.i41 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i45, label %outBitmapset.exit44
+  br i1 %37, label %.lr.ph.i43, label %outBitmapset.exit42
 
-.lr.ph.i45:                                       ; preds = %35, %.lr.ph.i45
-  %38 = phi i32 [ %39, %.lr.ph.i45 ], [ %36, %35 ]
+.lr.ph.i43:                                       ; preds = %35, %.lr.ph.i43
+  %38 = phi i32 [ %39, %.lr.ph.i43 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i43, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %35, %27
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph.i43, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not41 = icmp eq i8 %43, 0
-  %44 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not42 = icmp eq i8 %47, 0
-  %48 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -17212,42 +16906,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i49, label %outBitmapset.exit50
+  br i1 %31, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i49:                                       ; preds = %27, %.lr.ph.i49
-  %32 = phi i32 [ %33, %.lr.ph.i49 ], [ %30, %27 ]
+.lr.ph.i46:                                       ; preds = %27, %.lr.ph.i46
+  %32 = phi i32 [ %33, %.lr.ph.i46 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i51, label %outBitmapset.exit50
+  br i1 %37, label %.lr.ph.i48, label %outBitmapset.exit47
 
-.lr.ph.i51:                                       ; preds = %35, %.lr.ph.i51
-  %38 = phi i32 [ %39, %.lr.ph.i51 ], [ %36, %35 ]
+.lr.ph.i48:                                       ; preds = %35, %.lr.ph.i48
+  %38 = phi i32 [ %39, %.lr.ph.i48 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i51, label %outBitmapset.exit50, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i48, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %.lr.ph.i51, %35, %27
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph.i48, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not46 = icmp eq i8 %43, 0
-  %44 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not47 = icmp eq i8 %47, 0
-  %48 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -17291,9 +16983,8 @@ outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %.lr.ph
   call void @outNode(ptr noundef %0, ptr noundef %67)
   %68 = getelementptr inbounds i8, ptr %1, i64 96
   %69 = load i8, ptr %68, align 8
-  %70 = and i8 %69, 1
-  %.not48 = icmp eq i8 %70, 0
-  %71 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %70 = trunc i8 %69 to i1
+  %71 = select i1 %70, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1345, ptr noundef nonnull %71) #7
   ret void
 }
@@ -17356,42 +17047,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i54, label %outBitmapset.exit55
+  br i1 %32, label %.lr.ph.i52, label %outBitmapset.exit53
 
-.lr.ph.i54:                                       ; preds = %28, %.lr.ph.i54
-  %33 = phi i32 [ %34, %.lr.ph.i54 ], [ %31, %28 ]
+.lr.ph.i52:                                       ; preds = %28, %.lr.ph.i52
+  %33 = phi i32 [ %34, %.lr.ph.i52 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i54, label %outBitmapset.exit55, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i52, label %outBitmapset.exit53, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i56, label %outBitmapset.exit55
+  br i1 %38, label %.lr.ph.i54, label %outBitmapset.exit53
 
-.lr.ph.i56:                                       ; preds = %36, %.lr.ph.i56
-  %39 = phi i32 [ %40, %.lr.ph.i56 ], [ %37, %36 ]
+.lr.ph.i54:                                       ; preds = %36, %.lr.ph.i54
+  %39 = phi i32 [ %40, %.lr.ph.i54 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i56, label %outBitmapset.exit55, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i54, label %outBitmapset.exit53, !llvm.loop !7
 
-outBitmapset.exit55:                              ; preds = %.lr.ph.i54, %.lr.ph.i56, %36, %28
+outBitmapset.exit53:                              ; preds = %.lr.ph.i52, %.lr.ph.i54, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not52 = icmp eq i8 %44, 0
-  %45 = select i1 %.not52, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not53 = icmp eq i8 %48, 0
-  %49 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -17510,42 +17199,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef -1) #7
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i51, label %outBitmapset.exit52
+  br i1 %32, label %.lr.ph.i49, label %outBitmapset.exit50
 
-.lr.ph.i51:                                       ; preds = %28, %.lr.ph.i51
-  %33 = phi i32 [ %34, %.lr.ph.i51 ], [ %31, %28 ]
+.lr.ph.i49:                                       ; preds = %28, %.lr.ph.i49
+  %33 = phi i32 [ %34, %.lr.ph.i49 ], [ %31, %28 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33) #7
   %34 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %33) #7
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %35, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
 
 36:                                               ; preds = %25
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i53, label %outBitmapset.exit52
+  br i1 %38, label %.lr.ph.i51, label %outBitmapset.exit50
 
-.lr.ph.i53:                                       ; preds = %36, %.lr.ph.i53
-  %39 = phi i32 [ %40, %.lr.ph.i53 ], [ %37, %36 ]
+.lr.ph.i51:                                       ; preds = %36, %.lr.ph.i51
+  %39 = phi i32 [ %40, %.lr.ph.i51 ], [ %37, %36 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i53, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i51, label %outBitmapset.exit50, !llvm.loop !7
 
-outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph.i53, %36, %28
+outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %.lr.ph.i51, %36, %28
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not49 = icmp eq i8 %44, 0
-  %45 = select i1 %.not49, ptr @.str.12, ptr @.str.11
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %45) #7
   %46 = getelementptr inbounds i8, ptr %1, i64 33
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not50 = icmp eq i8 %48, 0
-  %49 = select i1 %.not50, ptr @.str.12, ptr @.str.11
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %49) #7
   %50 = getelementptr inbounds i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
@@ -17657,42 +17344,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i45, label %outBitmapset.exit46
+  br i1 %31, label %.lr.ph.i43, label %outBitmapset.exit44
 
-.lr.ph.i45:                                       ; preds = %27, %.lr.ph.i45
-  %32 = phi i32 [ %33, %.lr.ph.i45 ], [ %30, %27 ]
+.lr.ph.i43:                                       ; preds = %27, %.lr.ph.i43
+  %32 = phi i32 [ %33, %.lr.ph.i43 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i47, label %outBitmapset.exit46
+  br i1 %37, label %.lr.ph.i45, label %outBitmapset.exit44
 
-.lr.ph.i47:                                       ; preds = %35, %.lr.ph.i47
-  %38 = phi i32 [ %39, %.lr.ph.i47 ], [ %36, %35 ]
+.lr.ph.i45:                                       ; preds = %35, %.lr.ph.i45
+  %38 = phi i32 [ %39, %.lr.ph.i45 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i47, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i45, label %outBitmapset.exit44, !llvm.loop !7
 
-outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph.i47, %35, %27
+outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph.i45, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not43 = icmp eq i8 %43, 0
-  %44 = select i1 %.not43, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not44 = icmp eq i8 %47, 0
-  %48 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -17793,42 +17478,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i75, label %outBitmapset.exit76
+  br i1 %31, label %.lr.ph.i71, label %outBitmapset.exit72
 
-.lr.ph.i75:                                       ; preds = %27, %.lr.ph.i75
-  %32 = phi i32 [ %33, %.lr.ph.i75 ], [ %30, %27 ]
+.lr.ph.i71:                                       ; preds = %27, %.lr.ph.i71
+  %32 = phi i32 [ %33, %.lr.ph.i71 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i75, label %outBitmapset.exit76, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i71, label %outBitmapset.exit72, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i77, label %outBitmapset.exit76
+  br i1 %37, label %.lr.ph.i73, label %outBitmapset.exit72
 
-.lr.ph.i77:                                       ; preds = %35, %.lr.ph.i77
-  %38 = phi i32 [ %39, %.lr.ph.i77 ], [ %36, %35 ]
+.lr.ph.i73:                                       ; preds = %35, %.lr.ph.i73
+  %38 = phi i32 [ %39, %.lr.ph.i73 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i77, label %outBitmapset.exit76, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i73, label %outBitmapset.exit72, !llvm.loop !7
 
-outBitmapset.exit76:                              ; preds = %.lr.ph.i75, %.lr.ph.i77, %35, %27
+outBitmapset.exit72:                              ; preds = %.lr.ph.i71, %.lr.ph.i73, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not71 = icmp eq i8 %43, 0
-  %44 = select i1 %.not71, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not72 = icmp eq i8 %47, 0
-  %48 = select i1 %.not72, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -17867,9 +17550,8 @@ outBitmapset.exit76:                              ; preds = %.lr.ph.i75, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1358, i32 noundef %65) #7
   %66 = getelementptr inbounds i8, ptr %1, i64 84
   %67 = load i8, ptr %66, align 4
-  %68 = and i8 %67, 1
-  %.not73 = icmp eq i8 %68, 0
-  %69 = select i1 %.not73, ptr @.str.12, ptr @.str.11
+  %68 = trunc i8 %67 to i1
+  %69 = select i1 %68, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.293, ptr noundef nonnull %69) #7
   %70 = getelementptr inbounds i8, ptr %1, i64 88
   %71 = load i32, ptr %70, align 8
@@ -17879,9 +17561,8 @@ outBitmapset.exit76:                              ; preds = %.lr.ph.i75, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1360, i32 noundef %73) #7
   %74 = getelementptr inbounds i8, ptr %1, i64 96
   %75 = load i8, ptr %74, align 8
-  %76 = and i8 %75, 1
-  %.not74 = icmp eq i8 %76, 0
-  %77 = select i1 %.not74, ptr @.str.12, ptr @.str.11
+  %76 = trunc i8 %75 to i1
+  %77 = select i1 %76, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1072, ptr noundef nonnull %77) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.997) #7
   %78 = getelementptr inbounds i8, ptr %1, i64 104
@@ -17974,42 +17655,40 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %30 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef -1) #7
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %.lr.ph.i48, label %outBitmapset.exit49
+  br i1 %31, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i48:                                       ; preds = %27, %.lr.ph.i48
-  %32 = phi i32 [ %33, %.lr.ph.i48 ], [ %30, %27 ]
+.lr.ph.i46:                                       ; preds = %27, %.lr.ph.i46
+  %32 = phi i32 [ %33, %.lr.ph.i46 ], [ %30, %27 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %32) #7
   %33 = tail call i32 @bms_next_member(ptr noundef %29, i32 noundef %32) #7
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %34, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
 35:                                               ; preds = %24
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %36 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef -1) #7
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i50, label %outBitmapset.exit49
+  br i1 %37, label %.lr.ph.i48, label %outBitmapset.exit47
 
-.lr.ph.i50:                                       ; preds = %35, %.lr.ph.i50
-  %38 = phi i32 [ %39, %.lr.ph.i50 ], [ %36, %35 ]
+.lr.ph.i48:                                       ; preds = %35, %.lr.ph.i48
+  %38 = phi i32 [ %39, %.lr.ph.i48 ], [ %36, %35 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %38) #7
   %39 = tail call i32 @bms_next_member(ptr noundef null, i32 noundef %38) #7
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph.i50, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i48, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph.i50, %35, %27
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph.i48, %35, %27
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not46 = icmp eq i8 %43, 0
-  %44 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %43 = trunc i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1222, ptr noundef nonnull %44) #7
   %45 = getelementptr inbounds i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not47 = icmp eq i8 %47, 0
-  %48 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %48) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4
@@ -18074,39 +17753,33 @@ define internal fastcc void @_outRestrictInfo(ptr noundef %0, ptr nocapture noun
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1369, ptr noundef nonnull %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 17
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not86 = icmp eq i8 %19, 0
-  %20 = select i1 %.not86, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1370, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 18
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not87 = icmp eq i8 %23, 0
-  %24 = select i1 %.not87, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1371, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 19
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not88 = icmp eq i8 %27, 0
-  %28 = select i1 %.not88, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1372, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 20
   %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %.not89 = icmp eq i8 %31, 0
-  %32 = select i1 %.not89, ptr @.str.12, ptr @.str.11
+  %31 = trunc i8 %30 to i1
+  %32 = select i1 %31, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1373, ptr noundef nonnull %32) #7
   %33 = getelementptr inbounds i8, ptr %1, i64 21
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not90 = icmp eq i8 %35, 0
-  %36 = select i1 %.not90, ptr @.str.12, ptr @.str.11
+  %35 = trunc i8 %34 to i1
+  %36 = select i1 %35, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1374, ptr noundef nonnull %36) #7
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = load i32, ptr %37, align 8
@@ -18142,16 +17815,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %52 = tail call i32 @bms_next_member(ptr noundef %51, i32 noundef -1) #7
   %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %.lr.ph.i92, label %outBitmapset.exit93
+  br i1 %53, label %.lr.ph.i86, label %outBitmapset.exit87
 
-.lr.ph.i92:                                       ; preds = %outBitmapset.exit, %.lr.ph.i92
-  %54 = phi i32 [ %55, %.lr.ph.i92 ], [ %52, %outBitmapset.exit ]
+.lr.ph.i86:                                       ; preds = %outBitmapset.exit, %.lr.ph.i86
+  %54 = phi i32 [ %55, %.lr.ph.i86 ], [ %52, %outBitmapset.exit ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %54) #7
   %55 = tail call i32 @bms_next_member(ptr noundef %51, i32 noundef %54) #7
   %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %.lr.ph.i92, label %outBitmapset.exit93, !llvm.loop !7
+  br i1 %56, label %.lr.ph.i86, label %outBitmapset.exit87, !llvm.loop !7
 
-outBitmapset.exit93:                              ; preds = %.lr.ph.i92, %outBitmapset.exit
+outBitmapset.exit87:                              ; preds = %.lr.ph.i86, %outBitmapset.exit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1380) #7
   %57 = getelementptr inbounds i8, ptr %1, i64 56
@@ -18160,16 +17833,16 @@ outBitmapset.exit93:                              ; preds = %.lr.ph.i92, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %59 = tail call i32 @bms_next_member(ptr noundef %58, i32 noundef -1) #7
   %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %.lr.ph.i94, label %outBitmapset.exit95
+  br i1 %60, label %.lr.ph.i88, label %outBitmapset.exit89
 
-.lr.ph.i94:                                       ; preds = %outBitmapset.exit93, %.lr.ph.i94
-  %61 = phi i32 [ %62, %.lr.ph.i94 ], [ %59, %outBitmapset.exit93 ]
+.lr.ph.i88:                                       ; preds = %outBitmapset.exit87, %.lr.ph.i88
+  %61 = phi i32 [ %62, %.lr.ph.i88 ], [ %59, %outBitmapset.exit87 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %61) #7
   %62 = tail call i32 @bms_next_member(ptr noundef %58, i32 noundef %61) #7
   %63 = icmp sgt i32 %62, -1
-  br i1 %63, label %.lr.ph.i94, label %outBitmapset.exit95, !llvm.loop !7
+  br i1 %63, label %.lr.ph.i88, label %outBitmapset.exit89, !llvm.loop !7
 
-outBitmapset.exit95:                              ; preds = %.lr.ph.i94, %outBitmapset.exit93
+outBitmapset.exit89:                              ; preds = %.lr.ph.i88, %outBitmapset.exit87
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1381) #7
   %64 = getelementptr inbounds i8, ptr %1, i64 64
@@ -18178,16 +17851,16 @@ outBitmapset.exit95:                              ; preds = %.lr.ph.i94, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %66 = tail call i32 @bms_next_member(ptr noundef %65, i32 noundef -1) #7
   %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %.lr.ph.i96, label %outBitmapset.exit97
+  br i1 %67, label %.lr.ph.i90, label %outBitmapset.exit91
 
-.lr.ph.i96:                                       ; preds = %outBitmapset.exit95, %.lr.ph.i96
-  %68 = phi i32 [ %69, %.lr.ph.i96 ], [ %66, %outBitmapset.exit95 ]
+.lr.ph.i90:                                       ; preds = %outBitmapset.exit89, %.lr.ph.i90
+  %68 = phi i32 [ %69, %.lr.ph.i90 ], [ %66, %outBitmapset.exit89 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #7
   %69 = tail call i32 @bms_next_member(ptr noundef %65, i32 noundef %68) #7
   %70 = icmp sgt i32 %69, -1
-  br i1 %70, label %.lr.ph.i96, label %outBitmapset.exit97, !llvm.loop !7
+  br i1 %70, label %.lr.ph.i90, label %outBitmapset.exit91, !llvm.loop !7
 
-outBitmapset.exit97:                              ; preds = %.lr.ph.i96, %outBitmapset.exit95
+outBitmapset.exit91:                              ; preds = %.lr.ph.i90, %outBitmapset.exit89
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1382) #7
   %71 = getelementptr inbounds i8, ptr %1, i64 72
@@ -18196,16 +17869,16 @@ outBitmapset.exit97:                              ; preds = %.lr.ph.i96, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %73 = tail call i32 @bms_next_member(ptr noundef %72, i32 noundef -1) #7
   %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %.lr.ph.i98, label %outBitmapset.exit99
+  br i1 %74, label %.lr.ph.i92, label %outBitmapset.exit93
 
-.lr.ph.i98:                                       ; preds = %outBitmapset.exit97, %.lr.ph.i98
-  %75 = phi i32 [ %76, %.lr.ph.i98 ], [ %73, %outBitmapset.exit97 ]
+.lr.ph.i92:                                       ; preds = %outBitmapset.exit91, %.lr.ph.i92
+  %75 = phi i32 [ %76, %.lr.ph.i92 ], [ %73, %outBitmapset.exit91 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %75) #7
   %76 = tail call i32 @bms_next_member(ptr noundef %72, i32 noundef %75) #7
   %77 = icmp sgt i32 %76, -1
-  br i1 %77, label %.lr.ph.i98, label %outBitmapset.exit99, !llvm.loop !7
+  br i1 %77, label %.lr.ph.i92, label %outBitmapset.exit93, !llvm.loop !7
 
-outBitmapset.exit99:                              ; preds = %.lr.ph.i98, %outBitmapset.exit97
+outBitmapset.exit93:                              ; preds = %.lr.ph.i92, %outBitmapset.exit91
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1383) #7
   %78 = getelementptr inbounds i8, ptr %1, i64 80
@@ -18214,16 +17887,16 @@ outBitmapset.exit99:                              ; preds = %.lr.ph.i98, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %80 = tail call i32 @bms_next_member(ptr noundef %79, i32 noundef -1) #7
   %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %.lr.ph.i100, label %outBitmapset.exit101
+  br i1 %81, label %.lr.ph.i94, label %outBitmapset.exit95
 
-.lr.ph.i100:                                      ; preds = %outBitmapset.exit99, %.lr.ph.i100
-  %82 = phi i32 [ %83, %.lr.ph.i100 ], [ %80, %outBitmapset.exit99 ]
+.lr.ph.i94:                                       ; preds = %outBitmapset.exit93, %.lr.ph.i94
+  %82 = phi i32 [ %83, %.lr.ph.i94 ], [ %80, %outBitmapset.exit93 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %82) #7
   %83 = tail call i32 @bms_next_member(ptr noundef %79, i32 noundef %82) #7
   %84 = icmp sgt i32 %83, -1
-  br i1 %84, label %.lr.ph.i100, label %outBitmapset.exit101, !llvm.loop !7
+  br i1 %84, label %.lr.ph.i94, label %outBitmapset.exit95, !llvm.loop !7
 
-outBitmapset.exit101:                             ; preds = %.lr.ph.i100, %outBitmapset.exit99
+outBitmapset.exit95:                              ; preds = %.lr.ph.i94, %outBitmapset.exit93
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1384) #7
   %85 = getelementptr inbounds i8, ptr %1, i64 88
@@ -18274,9 +17947,8 @@ outBitmapset.exit101:                             ; preds = %.lr.ph.i100, %outBi
   call void @outNode(ptr noundef %0, ptr noundef %106)
   %107 = getelementptr inbounds i8, ptr %1, i64 192
   %108 = load i8, ptr %107, align 8
-  %109 = and i8 %108, 1
-  %.not91 = icmp eq i8 %109, 0
-  %110 = select i1 %.not91, ptr @.str.12, ptr @.str.11
+  %109 = trunc i8 %108 to i1
+  %110 = select i1 %109, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1393, ptr noundef nonnull %110) #7
   %111 = getelementptr inbounds i8, ptr %1, i64 196
   %112 = load i32, ptr %111, align 4
@@ -18398,16 +18070,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %12 = tail call i32 @bms_next_member(ptr noundef %11, i32 noundef -1) #7
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %13, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %outBitmapset.exit, %.lr.ph.i43
-  %14 = phi i32 [ %15, %.lr.ph.i43 ], [ %12, %outBitmapset.exit ]
+.lr.ph.i41:                                       ; preds = %outBitmapset.exit, %.lr.ph.i41
+  %14 = phi i32 [ %15, %.lr.ph.i41 ], [ %12, %outBitmapset.exit ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %14) #7
   %15 = tail call i32 @bms_next_member(ptr noundef %11, i32 noundef %14) #7
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %16, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBitmapset.exit
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %outBitmapset.exit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1410) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 24
@@ -18416,16 +18088,16 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %19 = tail call i32 @bms_next_member(ptr noundef %18, i32 noundef -1) #7
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %.lr.ph.i45, label %outBitmapset.exit46
+  br i1 %20, label %.lr.ph.i43, label %outBitmapset.exit44
 
-.lr.ph.i45:                                       ; preds = %outBitmapset.exit44, %.lr.ph.i45
-  %21 = phi i32 [ %22, %.lr.ph.i45 ], [ %19, %outBitmapset.exit44 ]
+.lr.ph.i43:                                       ; preds = %outBitmapset.exit42, %.lr.ph.i43
+  %21 = phi i32 [ %22, %.lr.ph.i43 ], [ %19, %outBitmapset.exit42 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %21) #7
   %22 = tail call i32 @bms_next_member(ptr noundef %18, i32 noundef %21) #7
   %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %23, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
 
-outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %outBitmapset.exit44
+outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBitmapset.exit42
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1411) #7
   %24 = getelementptr inbounds i8, ptr %1, i64 32
@@ -18434,16 +18106,16 @@ outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %26 = tail call i32 @bms_next_member(ptr noundef %25, i32 noundef -1) #7
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %.lr.ph.i47, label %outBitmapset.exit48
+  br i1 %27, label %.lr.ph.i45, label %outBitmapset.exit46
 
-.lr.ph.i47:                                       ; preds = %outBitmapset.exit46, %.lr.ph.i47
-  %28 = phi i32 [ %29, %.lr.ph.i47 ], [ %26, %outBitmapset.exit46 ]
+.lr.ph.i45:                                       ; preds = %outBitmapset.exit44, %.lr.ph.i45
+  %28 = phi i32 [ %29, %.lr.ph.i45 ], [ %26, %outBitmapset.exit44 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %28) #7
   %29 = tail call i32 @bms_next_member(ptr noundef %25, i32 noundef %28) #7
   %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %.lr.ph.i47, label %outBitmapset.exit48, !llvm.loop !7
+  br i1 %30, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
 
-outBitmapset.exit48:                              ; preds = %.lr.ph.i47, %outBitmapset.exit46
+outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %outBitmapset.exit44
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %31 = getelementptr inbounds i8, ptr %1, i64 40
   %32 = load i32, ptr %31, align 8
@@ -18458,16 +18130,16 @@ outBitmapset.exit48:                              ; preds = %.lr.ph.i47, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %37 = tail call i32 @bms_next_member(ptr noundef %36, i32 noundef -1) #7
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph.i49, label %outBitmapset.exit50
+  br i1 %38, label %.lr.ph.i47, label %outBitmapset.exit48
 
-.lr.ph.i49:                                       ; preds = %outBitmapset.exit48, %.lr.ph.i49
-  %39 = phi i32 [ %40, %.lr.ph.i49 ], [ %37, %outBitmapset.exit48 ]
+.lr.ph.i47:                                       ; preds = %outBitmapset.exit46, %.lr.ph.i47
+  %39 = phi i32 [ %40, %.lr.ph.i47 ], [ %37, %outBitmapset.exit46 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %39) #7
   %40 = tail call i32 @bms_next_member(ptr noundef %36, i32 noundef %39) #7
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i47, label %outBitmapset.exit48, !llvm.loop !7
 
-outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %outBitmapset.exit48
+outBitmapset.exit48:                              ; preds = %.lr.ph.i47, %outBitmapset.exit46
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1414) #7
   %42 = getelementptr inbounds i8, ptr %1, i64 56
@@ -18476,16 +18148,16 @@ outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %44 = tail call i32 @bms_next_member(ptr noundef %43, i32 noundef -1) #7
   %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %.lr.ph.i51, label %outBitmapset.exit52
+  br i1 %45, label %.lr.ph.i49, label %outBitmapset.exit50
 
-.lr.ph.i51:                                       ; preds = %outBitmapset.exit50, %.lr.ph.i51
-  %46 = phi i32 [ %47, %.lr.ph.i51 ], [ %44, %outBitmapset.exit50 ]
+.lr.ph.i49:                                       ; preds = %outBitmapset.exit48, %.lr.ph.i49
+  %46 = phi i32 [ %47, %.lr.ph.i49 ], [ %44, %outBitmapset.exit48 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %46) #7
   %47 = tail call i32 @bms_next_member(ptr noundef %43, i32 noundef %46) #7
   %48 = icmp sgt i32 %47, -1
-  br i1 %48, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
+  br i1 %48, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
 
-outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %outBitmapset.exit50
+outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %outBitmapset.exit48
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1415) #7
   %49 = getelementptr inbounds i8, ptr %1, i64 64
@@ -18494,16 +18166,16 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %51 = tail call i32 @bms_next_member(ptr noundef %50, i32 noundef -1) #7
   %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %.lr.ph.i53, label %outBitmapset.exit54
+  br i1 %52, label %.lr.ph.i51, label %outBitmapset.exit52
 
-.lr.ph.i53:                                       ; preds = %outBitmapset.exit52, %.lr.ph.i53
-  %53 = phi i32 [ %54, %.lr.ph.i53 ], [ %51, %outBitmapset.exit52 ]
+.lr.ph.i51:                                       ; preds = %outBitmapset.exit50, %.lr.ph.i51
+  %53 = phi i32 [ %54, %.lr.ph.i51 ], [ %51, %outBitmapset.exit50 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %53) #7
   %54 = tail call i32 @bms_next_member(ptr noundef %50, i32 noundef %53) #7
   %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %.lr.ph.i53, label %outBitmapset.exit54, !llvm.loop !7
+  br i1 %55, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
 
-outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBitmapset.exit52
+outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %outBitmapset.exit50
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1416) #7
   %56 = getelementptr inbounds i8, ptr %1, i64 72
@@ -18512,34 +18184,31 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBit
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %58 = tail call i32 @bms_next_member(ptr noundef %57, i32 noundef -1) #7
   %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %.lr.ph.i55, label %outBitmapset.exit56
+  br i1 %59, label %.lr.ph.i53, label %outBitmapset.exit54
 
-.lr.ph.i55:                                       ; preds = %outBitmapset.exit54, %.lr.ph.i55
-  %60 = phi i32 [ %61, %.lr.ph.i55 ], [ %58, %outBitmapset.exit54 ]
+.lr.ph.i53:                                       ; preds = %outBitmapset.exit52, %.lr.ph.i53
+  %60 = phi i32 [ %61, %.lr.ph.i53 ], [ %58, %outBitmapset.exit52 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %60) #7
   %61 = tail call i32 @bms_next_member(ptr noundef %57, i32 noundef %60) #7
   %62 = icmp sgt i32 %61, -1
-  br i1 %62, label %.lr.ph.i55, label %outBitmapset.exit56, !llvm.loop !7
+  br i1 %62, label %.lr.ph.i53, label %outBitmapset.exit54, !llvm.loop !7
 
-outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %outBitmapset.exit54
+outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBitmapset.exit52
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %63 = getelementptr inbounds i8, ptr %1, i64 80
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not = icmp eq i8 %65, 0
-  %66 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1417, ptr noundef nonnull %66) #7
   %67 = getelementptr inbounds i8, ptr %1, i64 81
   %68 = load i8, ptr %67, align 1
-  %69 = and i8 %68, 1
-  %.not41 = icmp eq i8 %69, 0
-  %70 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %69 = trunc i8 %68 to i1
+  %70 = select i1 %69, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1418, ptr noundef nonnull %70) #7
   %71 = getelementptr inbounds i8, ptr %1, i64 82
   %72 = load i8, ptr %71, align 2
-  %73 = and i8 %72, 1
-  %.not42 = icmp eq i8 %73, 0
-  %74 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %73 = trunc i8 %72 to i1
+  %74 = select i1 %73, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1419, ptr noundef nonnull %74) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1420) #7
   %75 = getelementptr inbounds i8, ptr %1, i64 88
@@ -18791,9 +18460,8 @@ define internal fastcc void @_outAggInfo(ptr noundef %0, ptr nocapture noundef r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1455, i32 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 20
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1456, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
@@ -18835,18 +18503,16 @@ define internal fastcc void @_outAggTransInfo(ptr noundef %0, ptr nocapture noun
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1464, i32 noundef %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 52
   %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  %24 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1465, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 56
   %26 = load i32, ptr %25, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1466, i32 noundef %26) #7
   %27 = getelementptr inbounds i8, ptr %1, i64 72
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not27 = icmp eq i8 %29, 0
-  %30 = select i1 %.not27, ptr @.str.12, ptr @.str.11
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1467, ptr noundef nonnull %30) #7
   ret void
 }
@@ -18874,9 +18540,8 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  %13 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %12 = trunc i8 %11 to i1
+  %13 = select i1 %12, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1470, ptr noundef nonnull %13) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1471) #7
   %14 = getelementptr inbounds i8, ptr %1, i64 24
@@ -18896,39 +18561,33 @@ define internal fastcc void @_outPlannedStmt(ptr noundef %0, ptr nocapture nound
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1473, i64 noundef %6) #7
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1474, ptr noundef nonnull %10) #7
   %11 = getelementptr inbounds i8, ptr %1, i64 17
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not59 = icmp eq i8 %13, 0
-  %14 = select i1 %.not59, ptr @.str.12, ptr @.str.11
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.302, ptr noundef nonnull %14) #7
   %15 = getelementptr inbounds i8, ptr %1, i64 18
   %16 = load i8, ptr %15, align 2
-  %17 = and i8 %16, 1
-  %.not60 = icmp eq i8 %17, 0
-  %18 = select i1 %.not60, ptr @.str.12, ptr @.str.11
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.293, ptr noundef nonnull %18) #7
   %19 = getelementptr inbounds i8, ptr %1, i64 19
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not61 = icmp eq i8 %21, 0
-  %22 = select i1 %.not61, ptr @.str.12, ptr @.str.11
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1005, ptr noundef nonnull %22) #7
   %23 = getelementptr inbounds i8, ptr %1, i64 20
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %.not62 = icmp eq i8 %25, 0
-  %26 = select i1 %.not62, ptr @.str.12, ptr @.str.11
+  %25 = trunc i8 %24 to i1
+  %26 = select i1 %25, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1006, ptr noundef nonnull %26) #7
   %27 = getelementptr inbounds i8, ptr %1, i64 21
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not63 = icmp eq i8 %29, 0
-  %30 = select i1 %.not63, ptr @.str.12, ptr @.str.11
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1008, ptr noundef nonnull %30) #7
   %31 = getelementptr inbounds i8, ptr %1, i64 24
   %32 = load i32, ptr %31, align 8
@@ -19036,21 +18695,18 @@ define internal fastcc void @_outResult(ptr noundef %0, ptr nocapture noundef re
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not44 = icmp eq i8 %23, 0
-  %24 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not45 = icmp eq i8 %27, 0
-  %28 = select i1 %.not45, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -19100,16 +18756,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
+  br i1 %51, label %.lr.ph.i44, label %outBitmapset.exit45
 
-.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
-  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i44:                                       ; preds = %outBitmapset.exit, %.lr.ph.i44
+  %52 = phi i32 [ %53, %.lr.ph.i44 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i44, label %outBitmapset.exit45, !llvm.loop !7
 
-outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
+outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1494) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
@@ -19150,21 +18806,18 @@ define internal fastcc void @_outProjectSet(ptr noundef %0, ptr nocapture nounde
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not41 = icmp eq i8 %23, 0
-  %24 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not42 = icmp eq i8 %27, 0
-  %28 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -19214,16 +18867,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %51, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %outBitmapset.exit, %.lr.ph.i43
-  %52 = phi i32 [ %53, %.lr.ph.i43 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i41:                                       ; preds = %outBitmapset.exit, %.lr.ph.i41
+  %52 = phi i32 [ %53, %.lr.ph.i41 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBitmapset.exit
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   ret void
 }
@@ -19260,21 +18913,18 @@ define internal fastcc void @_outModifyTable(ptr noundef %0, ptr nocapture nound
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not96 = icmp eq i8 %23, 0
-  %24 = select i1 %.not96, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not97 = icmp eq i8 %27, 0
-  %28 = select i1 %.not97, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -19324,25 +18974,24 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i100, label %outBitmapset.exit101
+  br i1 %51, label %.lr.ph.i96, label %outBitmapset.exit97
 
-.lr.ph.i100:                                      ; preds = %outBitmapset.exit, %.lr.ph.i100
-  %52 = phi i32 [ %53, %.lr.ph.i100 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i96:                                       ; preds = %outBitmapset.exit, %.lr.ph.i96
+  %52 = phi i32 [ %53, %.lr.ph.i96 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i100, label %outBitmapset.exit101, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i96, label %outBitmapset.exit97, !llvm.loop !7
 
-outBitmapset.exit101:                             ; preds = %.lr.ph.i100, %outBitmapset.exit
+outBitmapset.exit97:                              ; preds = %.lr.ph.i96, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1358, i32 noundef %56) #7
   %57 = getelementptr inbounds i8, ptr %1, i64 108
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %.not98 = icmp eq i8 %59, 0
-  %60 = select i1 %.not98, ptr @.str.12, ptr @.str.11
+  %59 = trunc i8 %58 to i1
+  %60 = select i1 %59, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.293, ptr noundef nonnull %60) #7
   %61 = getelementptr inbounds i8, ptr %1, i64 112
   %62 = load i32, ptr %61, align 8
@@ -19352,9 +19001,8 @@ outBitmapset.exit101:                             ; preds = %.lr.ph.i100, %outBi
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1360, i32 noundef %64) #7
   %65 = getelementptr inbounds i8, ptr %1, i64 120
   %66 = load i8, ptr %65, align 8
-  %67 = and i8 %66, 1
-  %.not99 = icmp eq i8 %67, 0
-  %68 = select i1 %.not99, ptr @.str.12, ptr @.str.11
+  %67 = trunc i8 %66 to i1
+  %68 = select i1 %67, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1072, ptr noundef nonnull %68) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.997) #7
   %69 = getelementptr inbounds i8, ptr %1, i64 128
@@ -19383,16 +19031,16 @@ outBitmapset.exit101:                             ; preds = %.lr.ph.i100, %outBi
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %81 = call i32 @bms_next_member(ptr noundef %80, i32 noundef -1) #7
   %82 = icmp sgt i32 %81, -1
-  br i1 %82, label %.lr.ph.i102, label %outBitmapset.exit103
+  br i1 %82, label %.lr.ph.i98, label %outBitmapset.exit99
 
-.lr.ph.i102:                                      ; preds = %outBitmapset.exit101, %.lr.ph.i102
-  %83 = phi i32 [ %84, %.lr.ph.i102 ], [ %81, %outBitmapset.exit101 ]
+.lr.ph.i98:                                       ; preds = %outBitmapset.exit97, %.lr.ph.i98
+  %83 = phi i32 [ %84, %.lr.ph.i98 ], [ %81, %outBitmapset.exit97 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %83) #7
   %84 = call i32 @bms_next_member(ptr noundef %80, i32 noundef %83) #7
   %85 = icmp sgt i32 %84, -1
-  br i1 %85, label %.lr.ph.i102, label %outBitmapset.exit103, !llvm.loop !7
+  br i1 %85, label %.lr.ph.i98, label %outBitmapset.exit99, !llvm.loop !7
 
-outBitmapset.exit103:                             ; preds = %.lr.ph.i102, %outBitmapset.exit101
+outBitmapset.exit99:                              ; preds = %.lr.ph.i98, %outBitmapset.exit97
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.325) #7
   %86 = getelementptr inbounds i8, ptr %1, i64 176
@@ -19466,21 +19114,18 @@ define internal fastcc void @_outAppend(ptr noundef %0, ptr nocapture noundef re
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not54 = icmp eq i8 %23, 0
-  %24 = select i1 %.not54, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not55 = icmp eq i8 %27, 0
-  %28 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -19530,16 +19175,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i56, label %outBitmapset.exit57
+  br i1 %51, label %.lr.ph.i54, label %outBitmapset.exit55
 
-.lr.ph.i56:                                       ; preds = %outBitmapset.exit, %.lr.ph.i56
-  %52 = phi i32 [ %53, %.lr.ph.i56 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i54:                                       ; preds = %outBitmapset.exit, %.lr.ph.i54
+  %52 = phi i32 [ %53, %.lr.ph.i54 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i56, label %outBitmapset.exit57, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i54, label %outBitmapset.exit55, !llvm.loop !7
 
-outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBitmapset.exit
+outBitmapset.exit55:                              ; preds = %.lr.ph.i54, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1504) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
@@ -19548,16 +19193,16 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %57 = call i32 @bms_next_member(ptr noundef %56, i32 noundef -1) #7
   %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %.lr.ph.i58, label %outBitmapset.exit59
+  br i1 %58, label %.lr.ph.i56, label %outBitmapset.exit57
 
-.lr.ph.i58:                                       ; preds = %outBitmapset.exit57, %.lr.ph.i58
-  %59 = phi i32 [ %60, %.lr.ph.i58 ], [ %57, %outBitmapset.exit57 ]
+.lr.ph.i56:                                       ; preds = %outBitmapset.exit55, %.lr.ph.i56
+  %59 = phi i32 [ %60, %.lr.ph.i56 ], [ %57, %outBitmapset.exit55 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %59) #7
   %60 = call i32 @bms_next_member(ptr noundef %56, i32 noundef %59) #7
   %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %.lr.ph.i58, label %outBitmapset.exit59, !llvm.loop !7
+  br i1 %61, label %.lr.ph.i56, label %outBitmapset.exit57, !llvm.loop !7
 
-outBitmapset.exit59:                              ; preds = %.lr.ph.i58, %outBitmapset.exit57
+outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBitmapset.exit55
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1505) #7
   %62 = getelementptr inbounds i8, ptr %1, i64 112
@@ -19608,21 +19253,18 @@ define internal fastcc void @_outMergeAppend(ptr noundef %0, ptr nocapture nound
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not68 = icmp eq i8 %23, 0
-  %24 = select i1 %.not68, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not69 = icmp eq i8 %27, 0
-  %28 = select i1 %.not69, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -19672,16 +19314,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i70, label %outBitmapset.exit71
+  br i1 %51, label %.lr.ph.i68, label %outBitmapset.exit69
 
-.lr.ph.i70:                                       ; preds = %outBitmapset.exit, %.lr.ph.i70
-  %52 = phi i32 [ %53, %.lr.ph.i70 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i68:                                       ; preds = %outBitmapset.exit, %.lr.ph.i68
+  %52 = phi i32 [ %53, %.lr.ph.i68 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i70, label %outBitmapset.exit71, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i68, label %outBitmapset.exit69, !llvm.loop !7
 
-outBitmapset.exit71:                              ; preds = %.lr.ph.i70, %outBitmapset.exit
+outBitmapset.exit69:                              ; preds = %.lr.ph.i68, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1504) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
@@ -19690,16 +19332,16 @@ outBitmapset.exit71:                              ; preds = %.lr.ph.i70, %outBit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %57 = call i32 @bms_next_member(ptr noundef %56, i32 noundef -1) #7
   %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %.lr.ph.i72, label %outBitmapset.exit73
+  br i1 %58, label %.lr.ph.i70, label %outBitmapset.exit71
 
-.lr.ph.i72:                                       ; preds = %outBitmapset.exit71, %.lr.ph.i72
-  %59 = phi i32 [ %60, %.lr.ph.i72 ], [ %57, %outBitmapset.exit71 ]
+.lr.ph.i70:                                       ; preds = %outBitmapset.exit69, %.lr.ph.i70
+  %59 = phi i32 [ %60, %.lr.ph.i70 ], [ %57, %outBitmapset.exit69 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %59) #7
   %60 = call i32 @bms_next_member(ptr noundef %56, i32 noundef %59) #7
   %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %.lr.ph.i72, label %outBitmapset.exit73, !llvm.loop !7
+  br i1 %61, label %.lr.ph.i70, label %outBitmapset.exit71, !llvm.loop !7
 
-outBitmapset.exit73:                              ; preds = %.lr.ph.i72, %outBitmapset.exit71
+outBitmapset.exit71:                              ; preds = %.lr.ph.i70, %outBitmapset.exit69
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1510) #7
   %62 = getelementptr inbounds i8, ptr %1, i64 112
@@ -19715,30 +19357,30 @@ outBitmapset.exit73:                              ; preds = %.lr.ph.i72, %outBit
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %74, label %69
 
-69:                                               ; preds = %outBitmapset.exit73
+69:                                               ; preds = %outBitmapset.exit71
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %70 = icmp sgt i32 %68, 0
   br i1 %70, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %69
   %wide.trip.count.i = zext nneg i32 %68 to i64
-  br label %.lr.ph.i74
+  br label %.lr.ph.i72
 
-.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i74 ]
+.lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i72 ]
   %71 = getelementptr i16, ptr %67, i64 %indvars.iv.i
   %72 = load i16, ptr %71, align 2
   %73 = sext i16 %72 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %73) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i74, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i74, %69
+._crit_edge.i:                                    ; preds = %.lr.ph.i72, %69
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-74:                                               ; preds = %outBitmapset.exit73
+74:                                               ; preds = %outBitmapset.exit71
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -19747,28 +19389,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %74
   %75 = getelementptr inbounds i8, ptr %1, i64 136
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr %64, align 8
-  %.not.i75 = icmp eq ptr %76, null
-  br i1 %.not.i75, label %82, label %78
+  %.not.i73 = icmp eq ptr %76, null
+  br i1 %.not.i73, label %82, label %78
 
 78:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %79 = icmp sgt i32 %77, 0
-  br i1 %79, label %.lr.ph.preheader.i77, label %._crit_edge.i76
+  br i1 %79, label %.lr.ph.preheader.i75, label %._crit_edge.i74
 
-.lr.ph.preheader.i77:                             ; preds = %78
-  %wide.trip.count.i78 = zext nneg i32 %77 to i64
-  br label %.lr.ph.i79
+.lr.ph.preheader.i75:                             ; preds = %78
+  %wide.trip.count.i76 = zext nneg i32 %77 to i64
+  br label %.lr.ph.i77
 
-.lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i77
-  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i81, %.lr.ph.i79 ]
-  %80 = getelementptr i32, ptr %76, i64 %indvars.iv.i80
+.lr.ph.i77:                                       ; preds = %.lr.ph.i77, %.lr.ph.preheader.i75
+  %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.preheader.i75 ], [ %indvars.iv.next.i79, %.lr.ph.i77 ]
+  %80 = getelementptr i32, ptr %76, i64 %indvars.iv.i78
   %81 = load i32, ptr %80, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %81) #7
-  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
-  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i78
-  br i1 %exitcond.not.i82, label %._crit_edge.i76, label %.lr.ph.i79, !llvm.loop !13
+  %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
+  %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i76
+  br i1 %exitcond.not.i80, label %._crit_edge.i74, label %.lr.ph.i77, !llvm.loop !13
 
-._crit_edge.i76:                                  ; preds = %.lr.ph.i79, %78
+._crit_edge.i74:                                  ; preds = %.lr.ph.i77, %78
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -19776,78 +19418,77 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %74
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i76, %82
+writeOidCols.exit:                                ; preds = %._crit_edge.i74, %82
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1514) #7
   %83 = getelementptr inbounds i8, ptr %1, i64 144
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %64, align 8
-  %.not.i83 = icmp eq ptr %84, null
-  br i1 %.not.i83, label %90, label %86
+  %.not.i81 = icmp eq ptr %84, null
+  br i1 %.not.i81, label %90, label %86
 
 86:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %87 = icmp sgt i32 %85, 0
-  br i1 %87, label %.lr.ph.preheader.i85, label %._crit_edge.i84
+  br i1 %87, label %.lr.ph.preheader.i83, label %._crit_edge.i82
 
-.lr.ph.preheader.i85:                             ; preds = %86
-  %wide.trip.count.i86 = zext nneg i32 %85 to i64
-  br label %.lr.ph.i87
+.lr.ph.preheader.i83:                             ; preds = %86
+  %wide.trip.count.i84 = zext nneg i32 %85 to i64
+  br label %.lr.ph.i85
 
-.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.preheader.i85
-  %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.preheader.i85 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
-  %88 = getelementptr i32, ptr %84, i64 %indvars.iv.i88
+.lr.ph.i85:                                       ; preds = %.lr.ph.i85, %.lr.ph.preheader.i83
+  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.preheader.i83 ], [ %indvars.iv.next.i87, %.lr.ph.i85 ]
+  %88 = getelementptr i32, ptr %84, i64 %indvars.iv.i86
   %89 = load i32, ptr %88, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %89) #7
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i86
-  br i1 %exitcond.not.i90, label %._crit_edge.i84, label %.lr.ph.i87, !llvm.loop !13
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i84
+  br i1 %exitcond.not.i88, label %._crit_edge.i82, label %.lr.ph.i85, !llvm.loop !13
 
-._crit_edge.i84:                                  ; preds = %.lr.ph.i87, %86
+._crit_edge.i82:                                  ; preds = %.lr.ph.i85, %86
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit91
+  br label %writeOidCols.exit89
 
 90:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit91
+  br label %writeOidCols.exit89
 
-writeOidCols.exit91:                              ; preds = %._crit_edge.i84, %90
+writeOidCols.exit89:                              ; preds = %._crit_edge.i82, %90
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1515) #7
   %91 = getelementptr inbounds i8, ptr %1, i64 152
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %64, align 8
-  %.not.i92 = icmp eq ptr %92, null
-  br i1 %.not.i92, label %100, label %94
+  %.not.i90 = icmp eq ptr %92, null
+  br i1 %.not.i90, label %100, label %94
 
-94:                                               ; preds = %writeOidCols.exit91
+94:                                               ; preds = %writeOidCols.exit89
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %95 = icmp sgt i32 %93, 0
-  br i1 %95, label %.lr.ph.preheader.i94, label %._crit_edge.i93
+  br i1 %95, label %.lr.ph.preheader.i92, label %._crit_edge.i91
 
-.lr.ph.preheader.i94:                             ; preds = %94
-  %wide.trip.count.i95 = zext nneg i32 %93 to i64
-  br label %.lr.ph.i96
+.lr.ph.preheader.i92:                             ; preds = %94
+  %wide.trip.count.i93 = zext nneg i32 %93 to i64
+  br label %.lr.ph.i94
 
-.lr.ph.i96:                                       ; preds = %.lr.ph.i96, %.lr.ph.preheader.i94
-  %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.preheader.i94 ], [ %indvars.iv.next.i98, %.lr.ph.i96 ]
-  %96 = getelementptr i8, ptr %92, i64 %indvars.iv.i97
+.lr.ph.i94:                                       ; preds = %.lr.ph.i94, %.lr.ph.preheader.i92
+  %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.preheader.i92 ], [ %indvars.iv.next.i96, %.lr.ph.i94 ]
+  %96 = getelementptr i8, ptr %92, i64 %indvars.iv.i95
   %97 = load i8, ptr %96, align 1
-  %98 = and i8 %97, 1
-  %.not10.i = icmp eq i8 %98, 0
-  %99 = select i1 %.not10.i, ptr @.str.12, ptr @.str.11
+  %98 = trunc i8 %97 to i1
+  %99 = select i1 %98, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %99) #7
-  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
-  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i95
-  br i1 %exitcond.not.i99, label %._crit_edge.i93, label %.lr.ph.i96, !llvm.loop !14
+  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
+  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i93
+  br i1 %exitcond.not.i97, label %._crit_edge.i91, label %.lr.ph.i94, !llvm.loop !14
 
-._crit_edge.i93:                                  ; preds = %.lr.ph.i96, %94
+._crit_edge.i91:                                  ; preds = %.lr.ph.i94, %94
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeBoolCols.exit
 
-100:                                              ; preds = %writeOidCols.exit91
+100:                                              ; preds = %writeOidCols.exit89
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeBoolCols.exit
 
-writeBoolCols.exit:                               ; preds = %._crit_edge.i93, %100
+writeBoolCols.exit:                               ; preds = %._crit_edge.i91, %100
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1508) #7
   %101 = getelementptr inbounds i8, ptr %1, i64 160
   %102 = load ptr, ptr %101, align 8
@@ -19887,21 +19528,18 @@ define internal fastcc void @_outRecursiveUnion(ptr noundef %0, ptr nocapture no
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not59 = icmp eq i8 %23, 0
-  %24 = select i1 %.not59, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not60 = icmp eq i8 %27, 0
-  %28 = select i1 %.not60, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -19951,16 +19589,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i61, label %outBitmapset.exit62
+  br i1 %51, label %.lr.ph.i59, label %outBitmapset.exit60
 
-.lr.ph.i61:                                       ; preds = %outBitmapset.exit, %.lr.ph.i61
-  %52 = phi i32 [ %53, %.lr.ph.i61 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i59:                                       ; preds = %outBitmapset.exit, %.lr.ph.i59
+  %52 = phi i32 [ %53, %.lr.ph.i59 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i61, label %outBitmapset.exit62, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i59, label %outBitmapset.exit60, !llvm.loop !7
 
-outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBitmapset.exit
+outBitmapset.exit60:                              ; preds = %.lr.ph.i59, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -19975,30 +19613,30 @@ outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBit
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %67, label %62
 
-62:                                               ; preds = %outBitmapset.exit62
+62:                                               ; preds = %outBitmapset.exit60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %63 = icmp sgt i32 %61, 0
   br i1 %63, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %62
   %wide.trip.count.i = zext nneg i32 %61 to i64
-  br label %.lr.ph.i63
+  br label %.lr.ph.i61
 
-.lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i63 ]
+.lr.ph.i61:                                       ; preds = %.lr.ph.i61, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i61 ]
   %64 = getelementptr i16, ptr %60, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %66) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i63, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i61, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i63, %62
+._crit_edge.i:                                    ; preds = %.lr.ph.i61, %62
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-67:                                               ; preds = %outBitmapset.exit62
+67:                                               ; preds = %outBitmapset.exit60
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -20007,28 +19645,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
   %68 = getelementptr inbounds i8, ptr %1, i64 120
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %57, align 4
-  %.not.i64 = icmp eq ptr %69, null
-  br i1 %.not.i64, label %75, label %71
+  %.not.i62 = icmp eq ptr %69, null
+  br i1 %.not.i62, label %75, label %71
 
 71:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %72 = icmp sgt i32 %70, 0
-  br i1 %72, label %.lr.ph.preheader.i66, label %._crit_edge.i65
+  br i1 %72, label %.lr.ph.preheader.i64, label %._crit_edge.i63
 
-.lr.ph.preheader.i66:                             ; preds = %71
-  %wide.trip.count.i67 = zext nneg i32 %70 to i64
-  br label %.lr.ph.i68
+.lr.ph.preheader.i64:                             ; preds = %71
+  %wide.trip.count.i65 = zext nneg i32 %70 to i64
+  br label %.lr.ph.i66
 
-.lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
-  %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
-  %73 = getelementptr i32, ptr %69, i64 %indvars.iv.i69
+.lr.ph.i66:                                       ; preds = %.lr.ph.i66, %.lr.ph.preheader.i64
+  %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.preheader.i64 ], [ %indvars.iv.next.i68, %.lr.ph.i66 ]
+  %73 = getelementptr i32, ptr %69, i64 %indvars.iv.i67
   %74 = load i32, ptr %73, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %74) #7
-  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
-  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
-  br i1 %exitcond.not.i71, label %._crit_edge.i65, label %.lr.ph.i68, !llvm.loop !13
+  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
+  %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i65
+  br i1 %exitcond.not.i69, label %._crit_edge.i63, label %.lr.ph.i66, !llvm.loop !13
 
-._crit_edge.i65:                                  ; preds = %.lr.ph.i68, %71
+._crit_edge.i63:                                  ; preds = %.lr.ph.i66, %71
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -20036,41 +19674,41 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i65, %75
+writeOidCols.exit:                                ; preds = %._crit_edge.i63, %75
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1519) #7
   %76 = getelementptr inbounds i8, ptr %1, i64 128
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %57, align 4
-  %.not.i72 = icmp eq ptr %77, null
-  br i1 %.not.i72, label %83, label %79
+  %.not.i70 = icmp eq ptr %77, null
+  br i1 %.not.i70, label %83, label %79
 
 79:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %80 = icmp sgt i32 %78, 0
-  br i1 %80, label %.lr.ph.preheader.i74, label %._crit_edge.i73
+  br i1 %80, label %.lr.ph.preheader.i72, label %._crit_edge.i71
 
-.lr.ph.preheader.i74:                             ; preds = %79
-  %wide.trip.count.i75 = zext nneg i32 %78 to i64
-  br label %.lr.ph.i76
+.lr.ph.preheader.i72:                             ; preds = %79
+  %wide.trip.count.i73 = zext nneg i32 %78 to i64
+  br label %.lr.ph.i74
 
-.lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
-  %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
-  %81 = getelementptr i32, ptr %77, i64 %indvars.iv.i77
+.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
+  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
+  %81 = getelementptr i32, ptr %77, i64 %indvars.iv.i75
   %82 = load i32, ptr %81, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %82) #7
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i75
-  br i1 %exitcond.not.i79, label %._crit_edge.i73, label %.lr.ph.i76, !llvm.loop !13
+  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
+  %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i73
+  br i1 %exitcond.not.i77, label %._crit_edge.i71, label %.lr.ph.i74, !llvm.loop !13
 
-._crit_edge.i73:                                  ; preds = %.lr.ph.i76, %79
+._crit_edge.i71:                                  ; preds = %.lr.ph.i74, %79
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit80
+  br label %writeOidCols.exit78
 
 83:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit80
+  br label %writeOidCols.exit78
 
-writeOidCols.exit80:                              ; preds = %._crit_edge.i73, %83
+writeOidCols.exit78:                              ; preds = %._crit_edge.i71, %83
   %84 = getelementptr inbounds i8, ptr %1, i64 136
   %85 = load i64, ptr %84, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1520, i64 noundef %85) #7
@@ -20109,21 +19747,129 @@ define internal fastcc void @_outBitmapAnd(ptr noundef %0, ptr nocapture noundef
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not44 = icmp eq i8 %23, 0
-  %24 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not45 = icmp eq i8 %27, 0
-  %28 = select i1 %.not45, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1486, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1487) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1488) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1489) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1490) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1491) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1492) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1493) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i44, label %outBitmapset.exit45
+
+.lr.ph.i44:                                       ; preds = %outBitmapset.exit, %.lr.ph.i44
+  %52 = phi i32 [ %53, %.lr.ph.i44 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i44, label %outBitmapset.exit45, !llvm.loop !7
+
+outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1522) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load ptr, ptr %55, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %56)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outBitmapOr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1523) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1479) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1480) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1481) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -20184,125 +19930,10 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 
 outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1522) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load ptr, ptr %55, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %56)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapOr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1523) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1479) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1480) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1481) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1486, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1487) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1488) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1489) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1490) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1491) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1492) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1493) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i49, label %outBitmapset.exit50
-
-.lr.ph.i49:                                       ; preds = %outBitmapset.exit, %.lr.ph.i49
-  %52 = phi i32 [ %53, %.lr.ph.i49 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
-
-outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i8, ptr %55, align 8
-  %57 = and i8 %56, 1
-  %.not48 = icmp eq i8 %57, 0
-  %58 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %57 = trunc i8 %56 to i1
+  %58 = select i1 %57, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1524, ptr noundef nonnull %58) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1522) #7
   %59 = getelementptr inbounds i8, ptr %1, i64 112
@@ -20343,21 +19974,18 @@ define internal fastcc void @_outSeqScan(ptr noundef %0, ptr nocapture noundef r
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not43 = icmp eq i8 %23, 0
-  %24 = select i1 %.not43, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not44 = icmp eq i8 %27, 0
-  %28 = select i1 %.not44, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -20407,16 +20035,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i45, label %outBitmapset.exit46
+  br i1 %51, label %.lr.ph.i43, label %outBitmapset.exit44
 
-.lr.ph.i45:                                       ; preds = %outBitmapset.exit, %.lr.ph.i45
-  %52 = phi i32 [ %53, %.lr.ph.i45 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i43:                                       ; preds = %outBitmapset.exit, %.lr.ph.i43
+  %52 = phi i32 [ %53, %.lr.ph.i43 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
 
-outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %outBitmapset.exit
+outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -20456,21 +20084,18 @@ define internal fastcc void @_outSampleScan(ptr noundef %0, ptr nocapture nounde
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -20520,16 +20145,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i48, label %outBitmapset.exit49
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i48:                                       ; preds = %outBitmapset.exit, %.lr.ph.i48
-  %52 = phi i32 [ %53, %.lr.ph.i48 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -20573,21 +20198,18 @@ define internal fastcc void @_outIndexScan(ptr noundef %0, ptr nocapture noundef
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not62 = icmp eq i8 %23, 0
-  %24 = select i1 %.not62, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not63 = icmp eq i8 %27, 0
-  %28 = select i1 %.not63, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -20637,16 +20259,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i64, label %outBitmapset.exit65
+  br i1 %51, label %.lr.ph.i62, label %outBitmapset.exit63
 
-.lr.ph.i64:                                       ; preds = %outBitmapset.exit, %.lr.ph.i64
-  %52 = phi i32 [ %53, %.lr.ph.i64 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i62:                                       ; preds = %outBitmapset.exit, %.lr.ph.i62
+  %52 = phi i32 [ %53, %.lr.ph.i62 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i64, label %outBitmapset.exit65, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i62, label %outBitmapset.exit63, !llvm.loop !7
 
-outBitmapset.exit65:                              ; preds = %.lr.ph.i64, %outBitmapset.exit
+outBitmapset.exit63:                              ; preds = %.lr.ph.i62, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -20712,21 +20334,18 @@ define internal fastcc void @_outIndexOnlyScan(ptr noundef %0, ptr nocapture nou
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not59 = icmp eq i8 %23, 0
-  %24 = select i1 %.not59, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not60 = icmp eq i8 %27, 0
-  %28 = select i1 %.not60, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -20776,16 +20395,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i61, label %outBitmapset.exit62
+  br i1 %51, label %.lr.ph.i59, label %outBitmapset.exit60
 
-.lr.ph.i61:                                       ; preds = %outBitmapset.exit, %.lr.ph.i61
-  %52 = phi i32 [ %53, %.lr.ph.i61 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i59:                                       ; preds = %outBitmapset.exit, %.lr.ph.i59
+  %52 = phi i32 [ %53, %.lr.ph.i59 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i61, label %outBitmapset.exit62, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i59, label %outBitmapset.exit60, !llvm.loop !7
 
-outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBitmapset.exit
+outBitmapset.exit60:                              ; preds = %.lr.ph.i59, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -20847,21 +20466,18 @@ define internal fastcc void @_outBitmapIndexScan(ptr noundef %0, ptr nocapture n
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not53 = icmp eq i8 %23, 0
-  %24 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not54 = icmp eq i8 %27, 0
-  %28 = select i1 %.not54, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -20911,16 +20527,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i56, label %outBitmapset.exit57
+  br i1 %51, label %.lr.ph.i53, label %outBitmapset.exit54
 
-.lr.ph.i56:                                       ; preds = %outBitmapset.exit, %.lr.ph.i56
-  %52 = phi i32 [ %53, %.lr.ph.i56 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i53:                                       ; preds = %outBitmapset.exit, %.lr.ph.i53
+  %52 = phi i32 [ %53, %.lr.ph.i53 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i56, label %outBitmapset.exit57, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i53, label %outBitmapset.exit54, !llvm.loop !7
 
-outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBitmapset.exit
+outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -20930,9 +20546,8 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1544, i32 noundef %58) #7
   %59 = getelementptr inbounds i8, ptr %1, i64 116
   %60 = load i8, ptr %59, align 4
-  %61 = and i8 %60, 1
-  %.not55 = icmp eq i8 %61, 0
-  %62 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %61 = trunc i8 %60 to i1
+  %62 = select i1 %61, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1524, ptr noundef nonnull %62) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1545) #7
   %63 = getelementptr inbounds i8, ptr %1, i64 120
@@ -20977,21 +20592,18 @@ define internal fastcc void @_outBitmapHeapScan(ptr noundef %0, ptr nocapture no
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -21041,16 +20653,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i48, label %outBitmapset.exit49
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i48:                                       ; preds = %outBitmapset.exit, %.lr.ph.i48
-  %52 = phi i32 [ %53, %.lr.ph.i48 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -21094,21 +20706,18 @@ define internal fastcc void @_outTidScan(ptr noundef %0, ptr nocapture noundef r
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -21158,16 +20767,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i48, label %outBitmapset.exit49
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i48:                                       ; preds = %outBitmapset.exit, %.lr.ph.i48
-  %52 = phi i32 [ %53, %.lr.ph.i48 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -21211,21 +20820,132 @@ define internal fastcc void @_outTidRangeScan(ptr noundef %0, ptr nocapture noun
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
+
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
+
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load i32, ptr %55, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1251) #7
+  %57 = getelementptr inbounds i8, ptr %1, i64 112
+  %58 = load ptr, ptr %57, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %58)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outSubqueryScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1558) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -21285,123 +21005,6 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
 
 outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load i32, ptr %55, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1251) #7
-  %57 = getelementptr inbounds i8, ptr %1, i64 112
-  %58 = load ptr, ptr %57, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %58)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSubqueryScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1558) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not48 = icmp eq i8 %23, 0
-  %24 = select i1 %.not48, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not49 = icmp eq i8 %27, 0
-  %28 = select i1 %.not49, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i50, label %outBitmapset.exit51
-
-.lr.ph.i50:                                       ; preds = %outBitmapset.exit, %.lr.ph.i50
-  %52 = phi i32 [ %53, %.lr.ph.i50 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i50, label %outBitmapset.exit51, !llvm.loop !7
-
-outBitmapset.exit51:                              ; preds = %.lr.ph.i50, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -21448,144 +21051,18 @@ define internal fastcc void @_outFunctionScan(ptr noundef %0, ptr nocapture noun
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not48 = icmp eq i8 %23, 0
-  %24 = select i1 %.not48, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not49 = icmp eq i8 %27, 0
-  %28 = select i1 %.not49, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i51, label %outBitmapset.exit52
-
-.lr.ph.i51:                                       ; preds = %outBitmapset.exit, %.lr.ph.i51
-  %52 = phi i32 [ %53, %.lr.ph.i51 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
-
-outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load i32, ptr %55, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.410) #7
-  %57 = getelementptr inbounds i8, ptr %1, i64 112
-  %58 = load ptr, ptr %57, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %58)
-  %59 = getelementptr inbounds i8, ptr %1, i64 120
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not50 = icmp eq i8 %61, 0
-  %62 = select i1 %.not50, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.490, ptr noundef nonnull %62) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outValuesScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1562) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -21645,6 +21122,125 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
 
 outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load i32, ptr %55, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.410) #7
+  %57 = getelementptr inbounds i8, ptr %1, i64 112
+  %58 = load ptr, ptr %57, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %58)
+  %59 = getelementptr inbounds i8, ptr %1, i64 120
+  %60 = load i8, ptr %59, align 8
+  %61 = trunc i8 %60 to i1
+  %62 = select i1 %61, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.490, ptr noundef nonnull %62) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outValuesScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1562) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
+
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
+
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -21688,21 +21284,18 @@ define internal fastcc void @_outTableFuncScan(ptr noundef %0, ptr nocapture nou
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -21752,16 +21345,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i48, label %outBitmapset.exit49
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i48:                                       ; preds = %outBitmapset.exit, %.lr.ph.i48
-  %52 = phi i32 [ %53, %.lr.ph.i48 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -21805,257 +21398,18 @@ define internal fastcc void @_outCteScan(ptr noundef %0, ptr nocapture noundef r
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not47 = icmp eq i8 %23, 0
-  %24 = select i1 %.not47, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not48 = icmp eq i8 %27, 0
-  %28 = select i1 %.not48, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i49, label %outBitmapset.exit50
-
-.lr.ph.i49:                                       ; preds = %outBitmapset.exit, %.lr.ph.i49
-  %52 = phi i32 [ %53, %.lr.ph.i49 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i49, label %outBitmapset.exit50, !llvm.loop !7
-
-outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load i32, ptr %55, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
-  %57 = getelementptr inbounds i8, ptr %1, i64 112
-  %58 = load i32, ptr %57, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1565, i32 noundef %58) #7
-  %59 = getelementptr inbounds i8, ptr %1, i64 116
-  %60 = load i32, ptr %59, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1566, i32 noundef %60) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNamedTuplestoreScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1567) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i48, label %outBitmapset.exit49
-
-.lr.ph.i48:                                       ; preds = %outBitmapset.exit, %.lr.ph.i48
-  %52 = phi i32 [ %53, %.lr.ph.i48 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
-
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load i32, ptr %55, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.496) #7
-  %57 = getelementptr inbounds i8, ptr %1, i64 112
-  %58 = load ptr, ptr %57, align 8
-  call void @outToken(ptr noundef %0, ptr noundef %58)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWorkTableScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1568) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not45 = icmp eq i8 %23, 0
-  %24 = select i1 %.not45, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not46 = icmp eq i8 %27, 0
-  %28 = select i1 %.not46, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -22121,16 +21475,19 @@ outBitmapset.exit48:                              ; preds = %.lr.ph.i47, %outBit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
   %57 = getelementptr inbounds i8, ptr %1, i64 112
   %58 = load i32, ptr %57, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1354, i32 noundef %58) #7
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1565, i32 noundef %58) #7
+  %59 = getelementptr inbounds i8, ptr %1, i64 116
+  %60 = load i32, ptr %59, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1566, i32 noundef %60) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outForeignScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNamedTuplestoreScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1569) #7
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1567) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
@@ -22157,21 +21514,18 @@ define internal fastcc void @_outForeignScan(ptr noundef %0, ptr nocapture nound
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not71 = icmp eq i8 %23, 0
-  %24 = select i1 %.not71, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not72 = icmp eq i8 %27, 0
-  %28 = select i1 %.not72, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -22221,16 +21575,243 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i74, label %outBitmapset.exit75
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
 
-.lr.ph.i74:                                       ; preds = %outBitmapset.exit, %.lr.ph.i74
-  %52 = phi i32 [ %53, %.lr.ph.i74 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i74, label %outBitmapset.exit75, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
 
-outBitmapset.exit75:                              ; preds = %.lr.ph.i74, %outBitmapset.exit
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load i32, ptr %55, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.496) #7
+  %57 = getelementptr inbounds i8, ptr %1, i64 112
+  %58 = load ptr, ptr %57, align 8
+  call void @outToken(ptr noundef %0, ptr noundef %58)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outWorkTableScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1568) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i45, label %outBitmapset.exit46
+
+.lr.ph.i45:                                       ; preds = %outBitmapset.exit, %.lr.ph.i45
+  %52 = phi i32 [ %53, %.lr.ph.i45 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i45, label %outBitmapset.exit46, !llvm.loop !7
+
+outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load i32, ptr %55, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1541, i32 noundef %56) #7
+  %57 = getelementptr inbounds i8, ptr %1, i64 112
+  %58 = load i32, ptr %57, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1354, i32 noundef %58) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outForeignScan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1569) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1526) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1527) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1528) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1533, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1534) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1535) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1536) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1537) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1538) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1539) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1540) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i71, label %outBitmapset.exit72
+
+.lr.ph.i71:                                       ; preds = %outBitmapset.exit, %.lr.ph.i71
+  %52 = phi i32 [ %53, %.lr.ph.i71 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i71, label %outBitmapset.exit72, !llvm.loop !7
+
+outBitmapset.exit72:                              ; preds = %.lr.ph.i71, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -22270,16 +21851,16 @@ outBitmapset.exit75:                              ; preds = %.lr.ph.i74, %outBit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %75 = call i32 @bms_next_member(ptr noundef %74, i32 noundef -1) #7
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %.lr.ph.i76, label %outBitmapset.exit77
+  br i1 %76, label %.lr.ph.i73, label %outBitmapset.exit74
 
-.lr.ph.i76:                                       ; preds = %outBitmapset.exit75, %.lr.ph.i76
-  %77 = phi i32 [ %78, %.lr.ph.i76 ], [ %75, %outBitmapset.exit75 ]
+.lr.ph.i73:                                       ; preds = %outBitmapset.exit72, %.lr.ph.i73
+  %77 = phi i32 [ %78, %.lr.ph.i73 ], [ %75, %outBitmapset.exit72 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %77) #7
   %78 = call i32 @bms_next_member(ptr noundef %74, i32 noundef %77) #7
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %.lr.ph.i76, label %outBitmapset.exit77, !llvm.loop !7
+  br i1 %79, label %.lr.ph.i73, label %outBitmapset.exit74, !llvm.loop !7
 
-outBitmapset.exit77:                              ; preds = %.lr.ph.i76, %outBitmapset.exit75
+outBitmapset.exit74:                              ; preds = %.lr.ph.i73, %outBitmapset.exit72
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1576) #7
   %80 = getelementptr inbounds i8, ptr %1, i64 168
@@ -22288,22 +21869,21 @@ outBitmapset.exit77:                              ; preds = %.lr.ph.i76, %outBit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %82 = call i32 @bms_next_member(ptr noundef %81, i32 noundef -1) #7
   %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %.lr.ph.i78, label %outBitmapset.exit79
+  br i1 %83, label %.lr.ph.i75, label %outBitmapset.exit76
 
-.lr.ph.i78:                                       ; preds = %outBitmapset.exit77, %.lr.ph.i78
-  %84 = phi i32 [ %85, %.lr.ph.i78 ], [ %82, %outBitmapset.exit77 ]
+.lr.ph.i75:                                       ; preds = %outBitmapset.exit74, %.lr.ph.i75
+  %84 = phi i32 [ %85, %.lr.ph.i75 ], [ %82, %outBitmapset.exit74 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %84) #7
   %85 = call i32 @bms_next_member(ptr noundef %81, i32 noundef %84) #7
   %86 = icmp sgt i32 %85, -1
-  br i1 %86, label %.lr.ph.i78, label %outBitmapset.exit79, !llvm.loop !7
+  br i1 %86, label %.lr.ph.i75, label %outBitmapset.exit76, !llvm.loop !7
 
-outBitmapset.exit79:                              ; preds = %.lr.ph.i78, %outBitmapset.exit77
+outBitmapset.exit76:                              ; preds = %.lr.ph.i75, %outBitmapset.exit74
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %87 = getelementptr inbounds i8, ptr %1, i64 176
   %88 = load i8, ptr %87, align 8
-  %89 = and i8 %88, 1
-  %.not73 = icmp eq i8 %89, 0
-  %90 = select i1 %.not73, ptr @.str.12, ptr @.str.11
+  %89 = trunc i8 %88 to i1
+  %90 = select i1 %89, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1577, ptr noundef nonnull %90) #7
   ret void
 }
@@ -22340,21 +21920,18 @@ define internal fastcc void @_outCustomScan(ptr noundef %0, ptr nocapture nounde
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1529, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1530, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not63 = icmp eq i8 %23, 0
-  %24 = select i1 %.not63, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1531, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not64 = icmp eq i8 %27, 0
-  %28 = select i1 %.not64, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1532, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -22404,16 +21981,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i65, label %outBitmapset.exit66
+  br i1 %51, label %.lr.ph.i63, label %outBitmapset.exit64
 
-.lr.ph.i65:                                       ; preds = %outBitmapset.exit, %.lr.ph.i65
-  %52 = phi i32 [ %53, %.lr.ph.i65 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i63:                                       ; preds = %outBitmapset.exit, %.lr.ph.i63
+  %52 = phi i32 [ %53, %.lr.ph.i63 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i65, label %outBitmapset.exit66, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i63, label %outBitmapset.exit64, !llvm.loop !7
 
-outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBitmapset.exit
+outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -22444,16 +22021,16 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %69 = call i32 @bms_next_member(ptr noundef %68, i32 noundef -1) #7
   %70 = icmp sgt i32 %69, -1
-  br i1 %70, label %.lr.ph.i67, label %outBitmapset.exit68
+  br i1 %70, label %.lr.ph.i65, label %outBitmapset.exit66
 
-.lr.ph.i67:                                       ; preds = %outBitmapset.exit66, %.lr.ph.i67
-  %71 = phi i32 [ %72, %.lr.ph.i67 ], [ %69, %outBitmapset.exit66 ]
+.lr.ph.i65:                                       ; preds = %outBitmapset.exit64, %.lr.ph.i65
+  %71 = phi i32 [ %72, %.lr.ph.i65 ], [ %69, %outBitmapset.exit64 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %71) #7
   %72 = call i32 @bms_next_member(ptr noundef %68, i32 noundef %71) #7
   %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %.lr.ph.i67, label %outBitmapset.exit68, !llvm.loop !7
+  br i1 %73, label %.lr.ph.i65, label %outBitmapset.exit66, !llvm.loop !7
 
-outBitmapset.exit68:                              ; preds = %.lr.ph.i67, %outBitmapset.exit66
+outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBitmapset.exit64
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1263) #7
   %74 = getelementptr inbounds i8, ptr %1, i64 160
@@ -22495,21 +22072,18 @@ define internal fastcc void @_outNestLoop(ptr noundef %0, ptr nocapture noundef 
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1587, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1588, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not51 = icmp eq i8 %23, 0
-  %24 = select i1 %.not51, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1589, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not52 = icmp eq i8 %27, 0
-  %28 = select i1 %.not52, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1590, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -22559,25 +22133,24 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i54, label %outBitmapset.exit55
+  br i1 %51, label %.lr.ph.i51, label %outBitmapset.exit52
 
-.lr.ph.i54:                                       ; preds = %outBitmapset.exit, %.lr.ph.i54
-  %52 = phi i32 [ %53, %.lr.ph.i54 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i51:                                       ; preds = %outBitmapset.exit, %.lr.ph.i51
+  %52 = phi i32 [ %53, %.lr.ph.i51 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i54, label %outBitmapset.exit55, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i51, label %outBitmapset.exit52, !llvm.loop !7
 
-outBitmapset.exit55:                              ; preds = %.lr.ph.i54, %outBitmapset.exit
+outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1599, i32 noundef %56) #7
   %57 = getelementptr inbounds i8, ptr %1, i64 108
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %.not53 = icmp eq i8 %59, 0
-  %60 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %59 = trunc i8 %58 to i1
+  %60 = select i1 %59, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1600, ptr noundef nonnull %60) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1601) #7
   %61 = getelementptr inbounds i8, ptr %1, i64 112
@@ -22635,21 +22208,18 @@ define internal fastcc void @_outMergeJoin(ptr noundef %0, ptr nocapture noundef
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1587, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1588, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not69 = icmp eq i8 %23, 0
-  %24 = select i1 %.not69, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1589, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not70 = icmp eq i8 %27, 0
-  %28 = select i1 %.not70, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1590, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -22699,25 +22269,24 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i73, label %outBitmapset.exit74
+  br i1 %51, label %.lr.ph.i69, label %outBitmapset.exit70
 
-.lr.ph.i73:                                       ; preds = %outBitmapset.exit, %.lr.ph.i73
-  %52 = phi i32 [ %53, %.lr.ph.i73 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i69:                                       ; preds = %outBitmapset.exit, %.lr.ph.i69
+  %52 = phi i32 [ %53, %.lr.ph.i69 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i73, label %outBitmapset.exit74, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i69, label %outBitmapset.exit70, !llvm.loop !7
 
-outBitmapset.exit74:                              ; preds = %.lr.ph.i73, %outBitmapset.exit
+outBitmapset.exit70:                              ; preds = %.lr.ph.i69, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1599, i32 noundef %56) #7
   %57 = getelementptr inbounds i8, ptr %1, i64 108
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %.not71 = icmp eq i8 %59, 0
-  %60 = select i1 %.not71, ptr @.str.12, ptr @.str.11
+  %59 = trunc i8 %58 to i1
+  %60 = select i1 %59, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1600, ptr noundef nonnull %60) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1601) #7
   %61 = getelementptr inbounds i8, ptr %1, i64 112
@@ -22725,9 +22294,8 @@ outBitmapset.exit74:                              ; preds = %.lr.ph.i73, %outBit
   call void @outNode(ptr noundef %0, ptr noundef %62)
   %63 = getelementptr inbounds i8, ptr %1, i64 120
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not72 = icmp eq i8 %65, 0
-  %66 = select i1 %.not72, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1304, ptr noundef nonnull %66) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1607) #7
   %67 = getelementptr inbounds i8, ptr %1, i64 128
@@ -22740,15 +22308,15 @@ outBitmapset.exit74:                              ; preds = %.lr.ph.i73, %outBit
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
-list_length.exit:                                 ; preds = %outBitmapset.exit74
+list_length.exit:                                 ; preds = %outBitmapset.exit70
   %72 = getelementptr inbounds i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
-  %.not.i75 = icmp eq ptr %70, null
-  br i1 %.not.i75, label %78, label %74
+  %.not.i71 = icmp eq ptr %70, null
+  br i1 %.not.i71, label %78, label %74
 
-list_length.exit.thread:                          ; preds = %outBitmapset.exit74
-  %.not.i75108 = icmp eq ptr %70, null
-  br i1 %.not.i75108, label %78, label %.thread
+list_length.exit.thread:                          ; preds = %outBitmapset.exit70
+  %.not.i71104 = icmp eq ptr %70, null
+  br i1 %.not.i71104, label %78, label %.thread
 
 .thread:                                          ; preds = %list_length.exit.thread
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
@@ -22761,18 +22329,18 @@ list_length.exit.thread:                          ; preds = %outBitmapset.exit74
 
 .lr.ph.preheader.i:                               ; preds = %74
   %wide.trip.count.i = zext nneg i32 %73 to i64
-  br label %.lr.ph.i76
+  br label %.lr.ph.i72
 
-.lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i76 ]
+.lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i72 ]
   %76 = getelementptr i32, ptr %70, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %77) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i76, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !13
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i76, %.thread, %74
+._crit_edge.i:                                    ; preds = %.lr.ph.i72, %.thread, %74
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -22785,149 +22353,148 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i, %78
   %79 = getelementptr inbounds i8, ptr %1, i64 144
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %67, align 8
-  %.not.i77 = icmp eq ptr %81, null
-  br i1 %.not.i77, label %list_length.exit78.thread, label %list_length.exit78
+  %.not.i73 = icmp eq ptr %81, null
+  br i1 %.not.i73, label %list_length.exit74.thread, label %list_length.exit74
 
-list_length.exit78:                               ; preds = %writeOidCols.exit
+list_length.exit74:                               ; preds = %writeOidCols.exit
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
-  %.not.i79 = icmp eq ptr %80, null
-  br i1 %.not.i79, label %88, label %84
+  %.not.i75 = icmp eq ptr %80, null
+  br i1 %.not.i75, label %88, label %84
 
-list_length.exit78.thread:                        ; preds = %writeOidCols.exit
-  %.not.i79109 = icmp eq ptr %80, null
-  br i1 %.not.i79109, label %88, label %.thread110
+list_length.exit74.thread:                        ; preds = %writeOidCols.exit
+  %.not.i75105 = icmp eq ptr %80, null
+  br i1 %.not.i75105, label %88, label %.thread106
 
-.thread110:                                       ; preds = %list_length.exit78.thread
+.thread106:                                       ; preds = %list_length.exit74.thread
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  br label %._crit_edge.i80
+  br label %._crit_edge.i76
 
-84:                                               ; preds = %list_length.exit78
+84:                                               ; preds = %list_length.exit74
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %85 = icmp sgt i32 %83, 0
-  br i1 %85, label %.lr.ph.preheader.i81, label %._crit_edge.i80
+  br i1 %85, label %.lr.ph.preheader.i77, label %._crit_edge.i76
 
-.lr.ph.preheader.i81:                             ; preds = %84
-  %wide.trip.count.i82 = zext nneg i32 %83 to i64
-  br label %.lr.ph.i83
+.lr.ph.preheader.i77:                             ; preds = %84
+  %wide.trip.count.i78 = zext nneg i32 %83 to i64
+  br label %.lr.ph.i79
 
-.lr.ph.i83:                                       ; preds = %.lr.ph.i83, %.lr.ph.preheader.i81
-  %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i85, %.lr.ph.i83 ]
-  %86 = getelementptr i32, ptr %80, i64 %indvars.iv.i84
+.lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i77
+  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i81, %.lr.ph.i79 ]
+  %86 = getelementptr i32, ptr %80, i64 %indvars.iv.i80
   %87 = load i32, ptr %86, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %87) #7
-  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
-  %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i82
-  br i1 %exitcond.not.i86, label %._crit_edge.i80, label %.lr.ph.i83, !llvm.loop !13
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
+  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i78
+  br i1 %exitcond.not.i82, label %._crit_edge.i76, label %.lr.ph.i79, !llvm.loop !13
 
-._crit_edge.i80:                                  ; preds = %.lr.ph.i83, %.thread110, %84
+._crit_edge.i76:                                  ; preds = %.lr.ph.i79, %.thread106, %84
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit87
+  br label %writeOidCols.exit83
 
-88:                                               ; preds = %list_length.exit78.thread, %list_length.exit78
+88:                                               ; preds = %list_length.exit74.thread, %list_length.exit74
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit87
+  br label %writeOidCols.exit83
 
-writeOidCols.exit87:                              ; preds = %._crit_edge.i80, %88
+writeOidCols.exit83:                              ; preds = %._crit_edge.i76, %88
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1610) #7
   %89 = getelementptr inbounds i8, ptr %1, i64 152
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %67, align 8
-  %.not.i88 = icmp eq ptr %91, null
-  br i1 %.not.i88, label %list_length.exit89.thread, label %list_length.exit89
+  %.not.i84 = icmp eq ptr %91, null
+  br i1 %.not.i84, label %list_length.exit85.thread, label %list_length.exit85
 
-list_length.exit89:                               ; preds = %writeOidCols.exit87
+list_length.exit85:                               ; preds = %writeOidCols.exit83
   %92 = getelementptr inbounds i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
-  %.not.i90 = icmp eq ptr %90, null
-  br i1 %.not.i90, label %98, label %94
+  %.not.i86 = icmp eq ptr %90, null
+  br i1 %.not.i86, label %98, label %94
 
-list_length.exit89.thread:                        ; preds = %writeOidCols.exit87
-  %.not.i90111 = icmp eq ptr %90, null
-  br i1 %.not.i90111, label %98, label %.thread112
+list_length.exit85.thread:                        ; preds = %writeOidCols.exit83
+  %.not.i86107 = icmp eq ptr %90, null
+  br i1 %.not.i86107, label %98, label %.thread108
 
-.thread112:                                       ; preds = %list_length.exit89.thread
+.thread108:                                       ; preds = %list_length.exit85.thread
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  br label %._crit_edge.i91
+  br label %._crit_edge.i87
 
-94:                                               ; preds = %list_length.exit89
+94:                                               ; preds = %list_length.exit85
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %95 = icmp sgt i32 %93, 0
-  br i1 %95, label %.lr.ph.preheader.i92, label %._crit_edge.i91
+  br i1 %95, label %.lr.ph.preheader.i88, label %._crit_edge.i87
 
-.lr.ph.preheader.i92:                             ; preds = %94
-  %wide.trip.count.i93 = zext nneg i32 %93 to i64
-  br label %.lr.ph.i94
+.lr.ph.preheader.i88:                             ; preds = %94
+  %wide.trip.count.i89 = zext nneg i32 %93 to i64
+  br label %.lr.ph.i90
 
-.lr.ph.i94:                                       ; preds = %.lr.ph.i94, %.lr.ph.preheader.i92
-  %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.preheader.i92 ], [ %indvars.iv.next.i96, %.lr.ph.i94 ]
-  %96 = getelementptr i32, ptr %90, i64 %indvars.iv.i95
+.lr.ph.i90:                                       ; preds = %.lr.ph.i90, %.lr.ph.preheader.i88
+  %indvars.iv.i91 = phi i64 [ 0, %.lr.ph.preheader.i88 ], [ %indvars.iv.next.i92, %.lr.ph.i90 ]
+  %96 = getelementptr i32, ptr %90, i64 %indvars.iv.i91
   %97 = load i32, ptr %96, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %97) #7
-  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
-  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i93
-  br i1 %exitcond.not.i97, label %._crit_edge.i91, label %.lr.ph.i94, !llvm.loop !12
+  %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
+  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i89
+  br i1 %exitcond.not.i93, label %._crit_edge.i87, label %.lr.ph.i90, !llvm.loop !12
 
-._crit_edge.i91:                                  ; preds = %.lr.ph.i94, %.thread112, %94
+._crit_edge.i87:                                  ; preds = %.lr.ph.i90, %.thread108, %94
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeIntCols.exit
 
-98:                                               ; preds = %list_length.exit89.thread, %list_length.exit89
+98:                                               ; preds = %list_length.exit85.thread, %list_length.exit85
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeIntCols.exit
 
-writeIntCols.exit:                                ; preds = %._crit_edge.i91, %98
+writeIntCols.exit:                                ; preds = %._crit_edge.i87, %98
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1611) #7
   %99 = getelementptr inbounds i8, ptr %1, i64 160
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %67, align 8
-  %.not.i98 = icmp eq ptr %101, null
-  br i1 %.not.i98, label %list_length.exit99.thread, label %list_length.exit99
+  %.not.i94 = icmp eq ptr %101, null
+  br i1 %.not.i94, label %list_length.exit95.thread, label %list_length.exit95
 
-list_length.exit99:                               ; preds = %writeIntCols.exit
+list_length.exit95:                               ; preds = %writeIntCols.exit
   %102 = getelementptr inbounds i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
-  %.not.i100 = icmp eq ptr %100, null
-  br i1 %.not.i100, label %110, label %104
+  %.not.i96 = icmp eq ptr %100, null
+  br i1 %.not.i96, label %110, label %104
 
-list_length.exit99.thread:                        ; preds = %writeIntCols.exit
-  %.not.i100113 = icmp eq ptr %100, null
-  br i1 %.not.i100113, label %110, label %.thread114
+list_length.exit95.thread:                        ; preds = %writeIntCols.exit
+  %.not.i96109 = icmp eq ptr %100, null
+  br i1 %.not.i96109, label %110, label %.thread110
 
-.thread114:                                       ; preds = %list_length.exit99.thread
+.thread110:                                       ; preds = %list_length.exit95.thread
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  br label %._crit_edge.i101
+  br label %._crit_edge.i97
 
-104:                                              ; preds = %list_length.exit99
+104:                                              ; preds = %list_length.exit95
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %105 = icmp sgt i32 %103, 0
-  br i1 %105, label %.lr.ph.preheader.i102, label %._crit_edge.i101
+  br i1 %105, label %.lr.ph.preheader.i98, label %._crit_edge.i97
 
-.lr.ph.preheader.i102:                            ; preds = %104
-  %wide.trip.count.i103 = zext nneg i32 %103 to i64
-  br label %.lr.ph.i104
+.lr.ph.preheader.i98:                             ; preds = %104
+  %wide.trip.count.i99 = zext nneg i32 %103 to i64
+  br label %.lr.ph.i100
 
-.lr.ph.i104:                                      ; preds = %.lr.ph.i104, %.lr.ph.preheader.i102
-  %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.preheader.i102 ], [ %indvars.iv.next.i106, %.lr.ph.i104 ]
-  %106 = getelementptr i8, ptr %100, i64 %indvars.iv.i105
+.lr.ph.i100:                                      ; preds = %.lr.ph.i100, %.lr.ph.preheader.i98
+  %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.preheader.i98 ], [ %indvars.iv.next.i102, %.lr.ph.i100 ]
+  %106 = getelementptr i8, ptr %100, i64 %indvars.iv.i101
   %107 = load i8, ptr %106, align 1
-  %108 = and i8 %107, 1
-  %.not10.i = icmp eq i8 %108, 0
-  %109 = select i1 %.not10.i, ptr @.str.12, ptr @.str.11
+  %108 = trunc i8 %107 to i1
+  %109 = select i1 %108, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %109) #7
-  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
-  %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i103
-  br i1 %exitcond.not.i107, label %._crit_edge.i101, label %.lr.ph.i104, !llvm.loop !14
+  %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
+  %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, %wide.trip.count.i99
+  br i1 %exitcond.not.i103, label %._crit_edge.i97, label %.lr.ph.i100, !llvm.loop !14
 
-._crit_edge.i101:                                 ; preds = %.lr.ph.i104, %.thread114, %104
+._crit_edge.i97:                                  ; preds = %.lr.ph.i100, %.thread110, %104
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeBoolCols.exit
 
-110:                                              ; preds = %list_length.exit99.thread, %list_length.exit99
+110:                                              ; preds = %list_length.exit95.thread, %list_length.exit95
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeBoolCols.exit
 
-writeBoolCols.exit:                               ; preds = %._crit_edge.i101, %110
+writeBoolCols.exit:                               ; preds = %._crit_edge.i97, %110
   ret void
 }
 
@@ -22963,21 +22530,18 @@ define internal fastcc void @_outHashJoin(ptr noundef %0, ptr nocapture noundef 
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1587, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1588, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not60 = icmp eq i8 %23, 0
-  %24 = select i1 %.not60, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1589, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not61 = icmp eq i8 %27, 0
-  %28 = select i1 %.not61, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1590, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -23027,25 +22591,24 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i63, label %outBitmapset.exit64
+  br i1 %51, label %.lr.ph.i60, label %outBitmapset.exit61
 
-.lr.ph.i63:                                       ; preds = %outBitmapset.exit, %.lr.ph.i63
-  %52 = phi i32 [ %53, %.lr.ph.i63 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i60:                                       ; preds = %outBitmapset.exit, %.lr.ph.i60
+  %52 = phi i32 [ %53, %.lr.ph.i60 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i63, label %outBitmapset.exit64, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i60, label %outBitmapset.exit61, !llvm.loop !7
 
-outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBitmapset.exit
+outBitmapset.exit61:                              ; preds = %.lr.ph.i60, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1599, i32 noundef %56) #7
   %57 = getelementptr inbounds i8, ptr %1, i64 108
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %.not62 = icmp eq i8 %59, 0
-  %60 = select i1 %.not62, ptr @.str.12, ptr @.str.11
+  %59 = trunc i8 %58 to i1
+  %60 = select i1 %59, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1600, ptr noundef nonnull %60) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1601) #7
   %61 = getelementptr inbounds i8, ptr %1, i64 112
@@ -23102,21 +22665,18 @@ define internal fastcc void @_outMaterial(ptr noundef %0, ptr nocapture noundef 
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not41 = icmp eq i8 %23, 0
-  %24 = select i1 %.not41, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not42 = icmp eq i8 %27, 0
-  %28 = select i1 %.not42, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -23166,16 +22726,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i43, label %outBitmapset.exit44
+  br i1 %51, label %.lr.ph.i41, label %outBitmapset.exit42
 
-.lr.ph.i43:                                       ; preds = %outBitmapset.exit, %.lr.ph.i43
-  %52 = phi i32 [ %53, %.lr.ph.i43 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i41:                                       ; preds = %outBitmapset.exit, %.lr.ph.i41
+  %52 = phi i32 [ %53, %.lr.ph.i41 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i43, label %outBitmapset.exit44, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i41, label %outBitmapset.exit42, !llvm.loop !7
 
-outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBitmapset.exit
+outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   ret void
 }
@@ -23212,21 +22772,18 @@ define internal fastcc void @_outMemoize(ptr noundef %0, ptr nocapture noundef r
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not63 = icmp eq i8 %23, 0
-  %24 = select i1 %.not63, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not64 = icmp eq i8 %27, 0
-  %28 = select i1 %.not64, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -23276,16 +22833,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i67, label %outBitmapset.exit68
+  br i1 %51, label %.lr.ph.i63, label %outBitmapset.exit64
 
-.lr.ph.i67:                                       ; preds = %outBitmapset.exit, %.lr.ph.i67
-  %52 = phi i32 [ %53, %.lr.ph.i67 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i63:                                       ; preds = %outBitmapset.exit, %.lr.ph.i63
+  %52 = phi i32 [ %53, %.lr.ph.i63 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i67, label %outBitmapset.exit68, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i63, label %outBitmapset.exit64, !llvm.loop !7
 
-outBitmapset.exit68:                              ; preds = %.lr.ph.i67, %outBitmapset.exit
+outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -23297,29 +22854,29 @@ outBitmapset.exit68:                              ; preds = %.lr.ph.i67, %outBit
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %64, label %60
 
-60:                                               ; preds = %outBitmapset.exit68
+60:                                               ; preds = %outBitmapset.exit64
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %61 = icmp sgt i32 %59, 0
   br i1 %61, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %60
   %wide.trip.count.i = zext nneg i32 %59 to i64
-  br label %.lr.ph.i69
+  br label %.lr.ph.i65
 
-.lr.ph.i69:                                       ; preds = %.lr.ph.i69, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i69 ]
+.lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i65 ]
   %62 = getelementptr i32, ptr %58, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %63) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i69, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i65, !llvm.loop !13
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i69, %60
+._crit_edge.i:                                    ; preds = %.lr.ph.i65, %60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
-64:                                               ; preds = %outBitmapset.exit68
+64:                                               ; preds = %outBitmapset.exit64
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
@@ -23328,51 +22885,49 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i, %64
   %65 = getelementptr inbounds i8, ptr %1, i64 120
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %55, align 8
-  %.not.i70 = icmp eq ptr %66, null
-  br i1 %.not.i70, label %72, label %68
+  %.not.i66 = icmp eq ptr %66, null
+  br i1 %.not.i66, label %72, label %68
 
 68:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %69 = icmp sgt i32 %67, 0
-  br i1 %69, label %.lr.ph.preheader.i72, label %._crit_edge.i71
+  br i1 %69, label %.lr.ph.preheader.i68, label %._crit_edge.i67
 
-.lr.ph.preheader.i72:                             ; preds = %68
-  %wide.trip.count.i73 = zext nneg i32 %67 to i64
-  br label %.lr.ph.i74
+.lr.ph.preheader.i68:                             ; preds = %68
+  %wide.trip.count.i69 = zext nneg i32 %67 to i64
+  br label %.lr.ph.i70
 
-.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
-  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
-  %70 = getelementptr i32, ptr %66, i64 %indvars.iv.i75
+.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i68
+  %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %.lr.ph.i70 ]
+  %70 = getelementptr i32, ptr %66, i64 %indvars.iv.i71
   %71 = load i32, ptr %70, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %71) #7
-  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i73
-  br i1 %exitcond.not.i77, label %._crit_edge.i71, label %.lr.ph.i74, !llvm.loop !13
+  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
+  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
+  br i1 %exitcond.not.i73, label %._crit_edge.i67, label %.lr.ph.i70, !llvm.loop !13
 
-._crit_edge.i71:                                  ; preds = %.lr.ph.i74, %68
+._crit_edge.i67:                                  ; preds = %.lr.ph.i70, %68
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit78
+  br label %writeOidCols.exit74
 
 72:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit78
+  br label %writeOidCols.exit74
 
-writeOidCols.exit78:                              ; preds = %._crit_edge.i71, %72
+writeOidCols.exit74:                              ; preds = %._crit_edge.i67, %72
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1272) #7
   %73 = getelementptr inbounds i8, ptr %1, i64 128
   %74 = load ptr, ptr %73, align 8
   call void @outNode(ptr noundef %0, ptr noundef %74)
   %75 = getelementptr inbounds i8, ptr %1, i64 136
   %76 = load i8, ptr %75, align 8
-  %77 = and i8 %76, 1
-  %.not65 = icmp eq i8 %77, 0
-  %78 = select i1 %.not65, ptr @.str.12, ptr @.str.11
+  %77 = trunc i8 %76 to i1
+  %78 = select i1 %77, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1273, ptr noundef nonnull %78) #7
   %79 = getelementptr inbounds i8, ptr %1, i64 137
   %80 = load i8, ptr %79, align 1
-  %81 = and i8 %80, 1
-  %.not66 = icmp eq i8 %81, 0
-  %82 = select i1 %.not66, ptr @.str.12, ptr @.str.11
+  %81 = trunc i8 %80 to i1
+  %82 = select i1 %81, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1274, ptr noundef nonnull %82) #7
   %83 = getelementptr inbounds i8, ptr %1, i64 140
   %84 = load i32, ptr %83, align 4
@@ -23384,16 +22939,16 @@ writeOidCols.exit78:                              ; preds = %._crit_edge.i71, %7
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %87 = call i32 @bms_next_member(ptr noundef %86, i32 noundef -1) #7
   %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %.lr.ph.i80, label %outBitmapset.exit81
+  br i1 %88, label %.lr.ph.i76, label %outBitmapset.exit77
 
-.lr.ph.i80:                                       ; preds = %writeOidCols.exit78, %.lr.ph.i80
-  %89 = phi i32 [ %90, %.lr.ph.i80 ], [ %87, %writeOidCols.exit78 ]
+.lr.ph.i76:                                       ; preds = %writeOidCols.exit74, %.lr.ph.i76
+  %89 = phi i32 [ %90, %.lr.ph.i76 ], [ %87, %writeOidCols.exit74 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %89) #7
   %90 = call i32 @bms_next_member(ptr noundef %86, i32 noundef %89) #7
   %91 = icmp sgt i32 %90, -1
-  br i1 %91, label %.lr.ph.i80, label %outBitmapset.exit81, !llvm.loop !7
+  br i1 %91, label %.lr.ph.i76, label %outBitmapset.exit77, !llvm.loop !7
 
-outBitmapset.exit81:                              ; preds = %.lr.ph.i80, %writeOidCols.exit78
+outBitmapset.exit77:                              ; preds = %.lr.ph.i76, %writeOidCols.exit74
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   ret void
 }
@@ -23430,21 +22985,18 @@ define internal fastcc void @_outSort(ptr noundef %0, ptr nocapture noundef read
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not59 = icmp eq i8 %23, 0
-  %24 = select i1 %.not59, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not60 = icmp eq i8 %27, 0
-  %28 = select i1 %.not60, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -23494,16 +23046,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i61, label %outBitmapset.exit62
+  br i1 %51, label %.lr.ph.i59, label %outBitmapset.exit60
 
-.lr.ph.i61:                                       ; preds = %outBitmapset.exit, %.lr.ph.i61
-  %52 = phi i32 [ %53, %.lr.ph.i61 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i59:                                       ; preds = %outBitmapset.exit, %.lr.ph.i59
+  %52 = phi i32 [ %53, %.lr.ph.i59 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i61, label %outBitmapset.exit62, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i59, label %outBitmapset.exit60, !llvm.loop !7
 
-outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBitmapset.exit
+outBitmapset.exit60:                              ; preds = %.lr.ph.i59, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -23515,30 +23067,30 @@ outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBit
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %65, label %60
 
-60:                                               ; preds = %outBitmapset.exit62
+60:                                               ; preds = %outBitmapset.exit60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %61 = icmp sgt i32 %59, 0
   br i1 %61, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %60
   %wide.trip.count.i = zext nneg i32 %59 to i64
-  br label %.lr.ph.i63
+  br label %.lr.ph.i61
 
-.lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i63 ]
+.lr.ph.i61:                                       ; preds = %.lr.ph.i61, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i61 ]
   %62 = getelementptr i16, ptr %58, i64 %indvars.iv.i
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %64) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i63, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i61, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i63, %60
+._crit_edge.i:                                    ; preds = %.lr.ph.i61, %60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-65:                                               ; preds = %outBitmapset.exit62
+65:                                               ; preds = %outBitmapset.exit60
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -23547,28 +23099,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   %66 = getelementptr inbounds i8, ptr %1, i64 120
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %55, align 8
-  %.not.i64 = icmp eq ptr %67, null
-  br i1 %.not.i64, label %73, label %69
+  %.not.i62 = icmp eq ptr %67, null
+  br i1 %.not.i62, label %73, label %69
 
 69:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %70 = icmp sgt i32 %68, 0
-  br i1 %70, label %.lr.ph.preheader.i66, label %._crit_edge.i65
+  br i1 %70, label %.lr.ph.preheader.i64, label %._crit_edge.i63
 
-.lr.ph.preheader.i66:                             ; preds = %69
-  %wide.trip.count.i67 = zext nneg i32 %68 to i64
-  br label %.lr.ph.i68
+.lr.ph.preheader.i64:                             ; preds = %69
+  %wide.trip.count.i65 = zext nneg i32 %68 to i64
+  br label %.lr.ph.i66
 
-.lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
-  %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
-  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i69
+.lr.ph.i66:                                       ; preds = %.lr.ph.i66, %.lr.ph.preheader.i64
+  %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.preheader.i64 ], [ %indvars.iv.next.i68, %.lr.ph.i66 ]
+  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i67
   %72 = load i32, ptr %71, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %72) #7
-  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
-  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
-  br i1 %exitcond.not.i71, label %._crit_edge.i65, label %.lr.ph.i68, !llvm.loop !13
+  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
+  %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i65
+  br i1 %exitcond.not.i69, label %._crit_edge.i63, label %.lr.ph.i66, !llvm.loop !13
 
-._crit_edge.i65:                                  ; preds = %.lr.ph.i68, %69
+._crit_edge.i63:                                  ; preds = %.lr.ph.i66, %69
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -23576,78 +23128,77 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i65, %73
+writeOidCols.exit:                                ; preds = %._crit_edge.i63, %73
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1514) #7
   %74 = getelementptr inbounds i8, ptr %1, i64 128
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %55, align 8
-  %.not.i72 = icmp eq ptr %75, null
-  br i1 %.not.i72, label %81, label %77
+  %.not.i70 = icmp eq ptr %75, null
+  br i1 %.not.i70, label %81, label %77
 
 77:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %78 = icmp sgt i32 %76, 0
-  br i1 %78, label %.lr.ph.preheader.i74, label %._crit_edge.i73
+  br i1 %78, label %.lr.ph.preheader.i72, label %._crit_edge.i71
 
-.lr.ph.preheader.i74:                             ; preds = %77
-  %wide.trip.count.i75 = zext nneg i32 %76 to i64
-  br label %.lr.ph.i76
+.lr.ph.preheader.i72:                             ; preds = %77
+  %wide.trip.count.i73 = zext nneg i32 %76 to i64
+  br label %.lr.ph.i74
 
-.lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
-  %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
-  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i77
+.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
+  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
+  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i75
   %80 = load i32, ptr %79, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %80) #7
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i75
-  br i1 %exitcond.not.i79, label %._crit_edge.i73, label %.lr.ph.i76, !llvm.loop !13
+  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
+  %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i73
+  br i1 %exitcond.not.i77, label %._crit_edge.i71, label %.lr.ph.i74, !llvm.loop !13
 
-._crit_edge.i73:                                  ; preds = %.lr.ph.i76, %77
+._crit_edge.i71:                                  ; preds = %.lr.ph.i74, %77
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit80
+  br label %writeOidCols.exit78
 
 81:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit80
+  br label %writeOidCols.exit78
 
-writeOidCols.exit80:                              ; preds = %._crit_edge.i73, %81
+writeOidCols.exit78:                              ; preds = %._crit_edge.i71, %81
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1515) #7
   %82 = getelementptr inbounds i8, ptr %1, i64 136
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %55, align 8
-  %.not.i81 = icmp eq ptr %83, null
-  br i1 %.not.i81, label %91, label %85
+  %.not.i79 = icmp eq ptr %83, null
+  br i1 %.not.i79, label %91, label %85
 
-85:                                               ; preds = %writeOidCols.exit80
+85:                                               ; preds = %writeOidCols.exit78
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %86 = icmp sgt i32 %84, 0
-  br i1 %86, label %.lr.ph.preheader.i83, label %._crit_edge.i82
+  br i1 %86, label %.lr.ph.preheader.i81, label %._crit_edge.i80
 
-.lr.ph.preheader.i83:                             ; preds = %85
-  %wide.trip.count.i84 = zext nneg i32 %84 to i64
-  br label %.lr.ph.i85
+.lr.ph.preheader.i81:                             ; preds = %85
+  %wide.trip.count.i82 = zext nneg i32 %84 to i64
+  br label %.lr.ph.i83
 
-.lr.ph.i85:                                       ; preds = %.lr.ph.i85, %.lr.ph.preheader.i83
-  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.preheader.i83 ], [ %indvars.iv.next.i87, %.lr.ph.i85 ]
-  %87 = getelementptr i8, ptr %83, i64 %indvars.iv.i86
+.lr.ph.i83:                                       ; preds = %.lr.ph.i83, %.lr.ph.preheader.i81
+  %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i85, %.lr.ph.i83 ]
+  %87 = getelementptr i8, ptr %83, i64 %indvars.iv.i84
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not10.i = icmp eq i8 %89, 0
-  %90 = select i1 %.not10.i, ptr @.str.12, ptr @.str.11
+  %89 = trunc i8 %88 to i1
+  %90 = select i1 %89, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %90) #7
-  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
-  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i84
-  br i1 %exitcond.not.i88, label %._crit_edge.i82, label %.lr.ph.i85, !llvm.loop !14
+  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
+  %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i82
+  br i1 %exitcond.not.i86, label %._crit_edge.i80, label %.lr.ph.i83, !llvm.loop !14
 
-._crit_edge.i82:                                  ; preds = %.lr.ph.i85, %85
+._crit_edge.i80:                                  ; preds = %.lr.ph.i83, %85
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeBoolCols.exit
 
-91:                                               ; preds = %writeOidCols.exit80
+91:                                               ; preds = %writeOidCols.exit78
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeBoolCols.exit
 
-writeBoolCols.exit:                               ; preds = %._crit_edge.i82, %91
+writeBoolCols.exit:                               ; preds = %._crit_edge.i80, %91
   ret void
 }
 
@@ -23683,21 +23234,18 @@ define internal fastcc void @_outIncrementalSort(ptr noundef %0, ptr nocapture n
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1627, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1628, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not61 = icmp eq i8 %23, 0
-  %24 = select i1 %.not61, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1629, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not62 = icmp eq i8 %27, 0
-  %28 = select i1 %.not62, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1630, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -23747,16 +23295,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i63, label %outBitmapset.exit64
+  br i1 %51, label %.lr.ph.i61, label %outBitmapset.exit62
 
-.lr.ph.i63:                                       ; preds = %outBitmapset.exit, %.lr.ph.i63
-  %52 = phi i32 [ %53, %.lr.ph.i63 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i61:                                       ; preds = %outBitmapset.exit, %.lr.ph.i61
+  %52 = phi i32 [ %53, %.lr.ph.i61 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i63, label %outBitmapset.exit64, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i61, label %outBitmapset.exit62, !llvm.loop !7
 
-outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBitmapset.exit
+outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -23768,30 +23316,30 @@ outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBit
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %65, label %60
 
-60:                                               ; preds = %outBitmapset.exit64
+60:                                               ; preds = %outBitmapset.exit62
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %61 = icmp sgt i32 %59, 0
   br i1 %61, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %60
   %wide.trip.count.i = zext nneg i32 %59 to i64
-  br label %.lr.ph.i65
+  br label %.lr.ph.i63
 
-.lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i65 ]
+.lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i63 ]
   %62 = getelementptr i16, ptr %58, i64 %indvars.iv.i
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %64) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i65, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i63, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i65, %60
+._crit_edge.i:                                    ; preds = %.lr.ph.i63, %60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-65:                                               ; preds = %outBitmapset.exit64
+65:                                               ; preds = %outBitmapset.exit62
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -23800,28 +23348,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   %66 = getelementptr inbounds i8, ptr %1, i64 120
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %55, align 8
-  %.not.i66 = icmp eq ptr %67, null
-  br i1 %.not.i66, label %73, label %69
+  %.not.i64 = icmp eq ptr %67, null
+  br i1 %.not.i64, label %73, label %69
 
 69:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %70 = icmp sgt i32 %68, 0
-  br i1 %70, label %.lr.ph.preheader.i68, label %._crit_edge.i67
+  br i1 %70, label %.lr.ph.preheader.i66, label %._crit_edge.i65
 
-.lr.ph.preheader.i68:                             ; preds = %69
-  %wide.trip.count.i69 = zext nneg i32 %68 to i64
-  br label %.lr.ph.i70
+.lr.ph.preheader.i66:                             ; preds = %69
+  %wide.trip.count.i67 = zext nneg i32 %68 to i64
+  br label %.lr.ph.i68
 
-.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i68
-  %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %.lr.ph.i70 ]
-  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i71
+.lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
+  %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
+  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i69
   %72 = load i32, ptr %71, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %72) #7
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
-  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
-  br i1 %exitcond.not.i73, label %._crit_edge.i67, label %.lr.ph.i70, !llvm.loop !13
+  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
+  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
+  br i1 %exitcond.not.i71, label %._crit_edge.i65, label %.lr.ph.i68, !llvm.loop !13
 
-._crit_edge.i67:                                  ; preds = %.lr.ph.i70, %69
+._crit_edge.i65:                                  ; preds = %.lr.ph.i68, %69
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -23829,78 +23377,77 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i67, %73
+writeOidCols.exit:                                ; preds = %._crit_edge.i65, %73
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1642) #7
   %74 = getelementptr inbounds i8, ptr %1, i64 128
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %55, align 8
-  %.not.i74 = icmp eq ptr %75, null
-  br i1 %.not.i74, label %81, label %77
+  %.not.i72 = icmp eq ptr %75, null
+  br i1 %.not.i72, label %81, label %77
 
 77:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %78 = icmp sgt i32 %76, 0
-  br i1 %78, label %.lr.ph.preheader.i76, label %._crit_edge.i75
+  br i1 %78, label %.lr.ph.preheader.i74, label %._crit_edge.i73
 
-.lr.ph.preheader.i76:                             ; preds = %77
-  %wide.trip.count.i77 = zext nneg i32 %76 to i64
-  br label %.lr.ph.i78
+.lr.ph.preheader.i74:                             ; preds = %77
+  %wide.trip.count.i75 = zext nneg i32 %76 to i64
+  br label %.lr.ph.i76
 
-.lr.ph.i78:                                       ; preds = %.lr.ph.i78, %.lr.ph.preheader.i76
-  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
-  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i79
+.lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
+  %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
+  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i77
   %80 = load i32, ptr %79, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %80) #7
-  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
-  %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, %wide.trip.count.i77
-  br i1 %exitcond.not.i81, label %._crit_edge.i75, label %.lr.ph.i78, !llvm.loop !13
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
+  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i75
+  br i1 %exitcond.not.i79, label %._crit_edge.i73, label %.lr.ph.i76, !llvm.loop !13
 
-._crit_edge.i75:                                  ; preds = %.lr.ph.i78, %77
+._crit_edge.i73:                                  ; preds = %.lr.ph.i76, %77
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit82
+  br label %writeOidCols.exit80
 
 81:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit82
+  br label %writeOidCols.exit80
 
-writeOidCols.exit82:                              ; preds = %._crit_edge.i75, %81
+writeOidCols.exit80:                              ; preds = %._crit_edge.i73, %81
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1643) #7
   %82 = getelementptr inbounds i8, ptr %1, i64 136
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %55, align 8
-  %.not.i83 = icmp eq ptr %83, null
-  br i1 %.not.i83, label %91, label %85
+  %.not.i81 = icmp eq ptr %83, null
+  br i1 %.not.i81, label %91, label %85
 
-85:                                               ; preds = %writeOidCols.exit82
+85:                                               ; preds = %writeOidCols.exit80
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %86 = icmp sgt i32 %84, 0
-  br i1 %86, label %.lr.ph.preheader.i85, label %._crit_edge.i84
+  br i1 %86, label %.lr.ph.preheader.i83, label %._crit_edge.i82
 
-.lr.ph.preheader.i85:                             ; preds = %85
-  %wide.trip.count.i86 = zext nneg i32 %84 to i64
-  br label %.lr.ph.i87
+.lr.ph.preheader.i83:                             ; preds = %85
+  %wide.trip.count.i84 = zext nneg i32 %84 to i64
+  br label %.lr.ph.i85
 
-.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.preheader.i85
-  %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.preheader.i85 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
-  %87 = getelementptr i8, ptr %83, i64 %indvars.iv.i88
+.lr.ph.i85:                                       ; preds = %.lr.ph.i85, %.lr.ph.preheader.i83
+  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.preheader.i83 ], [ %indvars.iv.next.i87, %.lr.ph.i85 ]
+  %87 = getelementptr i8, ptr %83, i64 %indvars.iv.i86
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not10.i = icmp eq i8 %89, 0
-  %90 = select i1 %.not10.i, ptr @.str.12, ptr @.str.11
+  %89 = trunc i8 %88 to i1
+  %90 = select i1 %89, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %90) #7
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i86
-  br i1 %exitcond.not.i90, label %._crit_edge.i84, label %.lr.ph.i87, !llvm.loop !14
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i84
+  br i1 %exitcond.not.i88, label %._crit_edge.i82, label %.lr.ph.i85, !llvm.loop !14
 
-._crit_edge.i84:                                  ; preds = %.lr.ph.i87, %85
+._crit_edge.i82:                                  ; preds = %.lr.ph.i85, %85
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeBoolCols.exit
 
-91:                                               ; preds = %writeOidCols.exit82
+91:                                               ; preds = %writeOidCols.exit80
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeBoolCols.exit
 
-writeBoolCols.exit:                               ; preds = %._crit_edge.i84, %91
+writeBoolCols.exit:                               ; preds = %._crit_edge.i82, %91
   %92 = getelementptr inbounds i8, ptr %1, i64 144
   %93 = load i32, ptr %92, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1325, i32 noundef %93) #7
@@ -23939,21 +23486,18 @@ define internal fastcc void @_outGroup(ptr noundef %0, ptr nocapture noundef rea
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not55 = icmp eq i8 %23, 0
-  %24 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not56 = icmp eq i8 %27, 0
-  %28 = select i1 %.not56, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -24003,16 +23547,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i57, label %outBitmapset.exit58
+  br i1 %51, label %.lr.ph.i55, label %outBitmapset.exit56
 
-.lr.ph.i57:                                       ; preds = %outBitmapset.exit, %.lr.ph.i57
-  %52 = phi i32 [ %53, %.lr.ph.i57 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i55:                                       ; preds = %outBitmapset.exit, %.lr.ph.i55
+  %52 = phi i32 [ %53, %.lr.ph.i55 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i57, label %outBitmapset.exit58, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i55, label %outBitmapset.exit56, !llvm.loop !7
 
-outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %outBitmapset.exit
+outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -24024,30 +23568,30 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %outBit
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %65, label %60
 
-60:                                               ; preds = %outBitmapset.exit58
+60:                                               ; preds = %outBitmapset.exit56
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %61 = icmp sgt i32 %59, 0
   br i1 %61, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %60
   %wide.trip.count.i = zext nneg i32 %59 to i64
-  br label %.lr.ph.i59
+  br label %.lr.ph.i57
 
-.lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i59 ]
+.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i57 ]
   %62 = getelementptr i16, ptr %58, i64 %indvars.iv.i
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %64) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i57, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i59, %60
+._crit_edge.i:                                    ; preds = %.lr.ph.i57, %60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-65:                                               ; preds = %outBitmapset.exit58
+65:                                               ; preds = %outBitmapset.exit56
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -24056,28 +23600,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   %66 = getelementptr inbounds i8, ptr %1, i64 120
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %55, align 8
-  %.not.i60 = icmp eq ptr %67, null
-  br i1 %.not.i60, label %73, label %69
+  %.not.i58 = icmp eq ptr %67, null
+  br i1 %.not.i58, label %73, label %69
 
 69:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %70 = icmp sgt i32 %68, 0
-  br i1 %70, label %.lr.ph.preheader.i62, label %._crit_edge.i61
+  br i1 %70, label %.lr.ph.preheader.i60, label %._crit_edge.i59
 
-.lr.ph.preheader.i62:                             ; preds = %69
-  %wide.trip.count.i63 = zext nneg i32 %68 to i64
-  br label %.lr.ph.i64
+.lr.ph.preheader.i60:                             ; preds = %69
+  %wide.trip.count.i61 = zext nneg i32 %68 to i64
+  br label %.lr.ph.i62
 
-.lr.ph.i64:                                       ; preds = %.lr.ph.i64, %.lr.ph.preheader.i62
-  %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %.lr.ph.i64 ]
-  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i65
+.lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i60
+  %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.lr.ph.i62 ]
+  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i63
   %72 = load i32, ptr %71, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %72) #7
-  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
-  %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i63
-  br i1 %exitcond.not.i67, label %._crit_edge.i61, label %.lr.ph.i64, !llvm.loop !13
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
+  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i61
+  br i1 %exitcond.not.i65, label %._crit_edge.i59, label %.lr.ph.i62, !llvm.loop !13
 
-._crit_edge.i61:                                  ; preds = %.lr.ph.i64, %69
+._crit_edge.i59:                                  ; preds = %.lr.ph.i62, %69
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -24085,41 +23629,41 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i61, %73
+writeOidCols.exit:                                ; preds = %._crit_edge.i59, %73
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1647) #7
   %74 = getelementptr inbounds i8, ptr %1, i64 128
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %55, align 8
-  %.not.i68 = icmp eq ptr %75, null
-  br i1 %.not.i68, label %81, label %77
+  %.not.i66 = icmp eq ptr %75, null
+  br i1 %.not.i66, label %81, label %77
 
 77:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %78 = icmp sgt i32 %76, 0
-  br i1 %78, label %.lr.ph.preheader.i70, label %._crit_edge.i69
+  br i1 %78, label %.lr.ph.preheader.i68, label %._crit_edge.i67
 
-.lr.ph.preheader.i70:                             ; preds = %77
-  %wide.trip.count.i71 = zext nneg i32 %76 to i64
-  br label %.lr.ph.i72
+.lr.ph.preheader.i68:                             ; preds = %77
+  %wide.trip.count.i69 = zext nneg i32 %76 to i64
+  br label %.lr.ph.i70
 
-.lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
-  %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i73
+.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i68
+  %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %.lr.ph.i70 ]
+  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i71
   %80 = load i32, ptr %79, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %80) #7
-  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
-  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i71
-  br i1 %exitcond.not.i75, label %._crit_edge.i69, label %.lr.ph.i72, !llvm.loop !13
+  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
+  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
+  br i1 %exitcond.not.i73, label %._crit_edge.i67, label %.lr.ph.i70, !llvm.loop !13
 
-._crit_edge.i69:                                  ; preds = %.lr.ph.i72, %77
+._crit_edge.i67:                                  ; preds = %.lr.ph.i70, %77
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit76
+  br label %writeOidCols.exit74
 
 81:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit76
+  br label %writeOidCols.exit74
 
-writeOidCols.exit76:                              ; preds = %._crit_edge.i69, %81
+writeOidCols.exit74:                              ; preds = %._crit_edge.i67, %81
   ret void
 }
 
@@ -24155,21 +23699,18 @@ define internal fastcc void @_outAgg(ptr noundef %0, ptr nocapture noundef reado
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not72 = icmp eq i8 %23, 0
-  %24 = select i1 %.not72, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not73 = icmp eq i8 %27, 0
-  %28 = select i1 %.not73, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -24219,16 +23760,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i74, label %outBitmapset.exit75
+  br i1 %51, label %.lr.ph.i72, label %outBitmapset.exit73
 
-.lr.ph.i74:                                       ; preds = %outBitmapset.exit, %.lr.ph.i74
-  %52 = phi i32 [ %53, %.lr.ph.i74 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i72:                                       ; preds = %outBitmapset.exit, %.lr.ph.i72
+  %52 = phi i32 [ %53, %.lr.ph.i72 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i74, label %outBitmapset.exit75, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i72, label %outBitmapset.exit73, !llvm.loop !7
 
-outBitmapset.exit75:                              ; preds = %.lr.ph.i74, %outBitmapset.exit
+outBitmapset.exit73:                              ; preds = %.lr.ph.i72, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -24246,30 +23787,30 @@ outBitmapset.exit75:                              ; preds = %.lr.ph.i74, %outBit
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %69, label %64
 
-64:                                               ; preds = %outBitmapset.exit75
+64:                                               ; preds = %outBitmapset.exit73
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %65 = icmp sgt i32 %63, 0
   br i1 %65, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %64
   %wide.trip.count.i = zext nneg i32 %63 to i64
-  br label %.lr.ph.i76
+  br label %.lr.ph.i74
 
-.lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i76 ]
+.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i74 ]
   %66 = getelementptr i16, ptr %62, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i76, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i74, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i76, %64
+._crit_edge.i:                                    ; preds = %.lr.ph.i74, %64
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-69:                                               ; preds = %outBitmapset.exit75
+69:                                               ; preds = %outBitmapset.exit73
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -24278,28 +23819,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
   %70 = getelementptr inbounds i8, ptr %1, i64 128
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %59, align 8
-  %.not.i77 = icmp eq ptr %71, null
-  br i1 %.not.i77, label %77, label %73
+  %.not.i75 = icmp eq ptr %71, null
+  br i1 %.not.i75, label %77, label %73
 
 73:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %74 = icmp sgt i32 %72, 0
-  br i1 %74, label %.lr.ph.preheader.i79, label %._crit_edge.i78
+  br i1 %74, label %.lr.ph.preheader.i77, label %._crit_edge.i76
 
-.lr.ph.preheader.i79:                             ; preds = %73
-  %wide.trip.count.i80 = zext nneg i32 %72 to i64
-  br label %.lr.ph.i81
+.lr.ph.preheader.i77:                             ; preds = %73
+  %wide.trip.count.i78 = zext nneg i32 %72 to i64
+  br label %.lr.ph.i79
 
-.lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i79
-  %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
-  %75 = getelementptr i32, ptr %71, i64 %indvars.iv.i82
+.lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i77
+  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i81, %.lr.ph.i79 ]
+  %75 = getelementptr i32, ptr %71, i64 %indvars.iv.i80
   %76 = load i32, ptr %75, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76) #7
-  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
-  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i80
-  br i1 %exitcond.not.i84, label %._crit_edge.i78, label %.lr.ph.i81, !llvm.loop !13
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
+  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i78
+  br i1 %exitcond.not.i82, label %._crit_edge.i76, label %.lr.ph.i79, !llvm.loop !13
 
-._crit_edge.i78:                                  ; preds = %.lr.ph.i81, %73
+._crit_edge.i76:                                  ; preds = %.lr.ph.i79, %73
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -24307,41 +23848,41 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i78, %77
+writeOidCols.exit:                                ; preds = %._crit_edge.i76, %77
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1647) #7
   %78 = getelementptr inbounds i8, ptr %1, i64 136
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %59, align 8
-  %.not.i85 = icmp eq ptr %79, null
-  br i1 %.not.i85, label %85, label %81
+  %.not.i83 = icmp eq ptr %79, null
+  br i1 %.not.i83, label %85, label %81
 
 81:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %82 = icmp sgt i32 %80, 0
-  br i1 %82, label %.lr.ph.preheader.i87, label %._crit_edge.i86
+  br i1 %82, label %.lr.ph.preheader.i85, label %._crit_edge.i84
 
-.lr.ph.preheader.i87:                             ; preds = %81
-  %wide.trip.count.i88 = zext nneg i32 %80 to i64
-  br label %.lr.ph.i89
+.lr.ph.preheader.i85:                             ; preds = %81
+  %wide.trip.count.i86 = zext nneg i32 %80 to i64
+  br label %.lr.ph.i87
 
-.lr.ph.i89:                                       ; preds = %.lr.ph.i89, %.lr.ph.preheader.i87
-  %indvars.iv.i90 = phi i64 [ 0, %.lr.ph.preheader.i87 ], [ %indvars.iv.next.i91, %.lr.ph.i89 ]
-  %83 = getelementptr i32, ptr %79, i64 %indvars.iv.i90
+.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.preheader.i85
+  %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.preheader.i85 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
+  %83 = getelementptr i32, ptr %79, i64 %indvars.iv.i88
   %84 = load i32, ptr %83, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %84) #7
-  %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
-  %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, %wide.trip.count.i88
-  br i1 %exitcond.not.i92, label %._crit_edge.i86, label %.lr.ph.i89, !llvm.loop !13
+  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
+  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i86
+  br i1 %exitcond.not.i90, label %._crit_edge.i84, label %.lr.ph.i87, !llvm.loop !13
 
-._crit_edge.i86:                                  ; preds = %.lr.ph.i89, %81
+._crit_edge.i84:                                  ; preds = %.lr.ph.i87, %81
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit93
+  br label %writeOidCols.exit91
 
 85:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit93
+  br label %writeOidCols.exit91
 
-writeOidCols.exit93:                              ; preds = %._crit_edge.i86, %85
+writeOidCols.exit91:                              ; preds = %._crit_edge.i84, %85
   %86 = getelementptr inbounds i8, ptr %1, i64 144
   %87 = load i64, ptr %86, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1520, i64 noundef %87) #7
@@ -24355,16 +23896,16 @@ writeOidCols.exit93:                              ; preds = %._crit_edge.i86, %8
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %92 = call i32 @bms_next_member(ptr noundef %91, i32 noundef -1) #7
   %93 = icmp sgt i32 %92, -1
-  br i1 %93, label %.lr.ph.i95, label %outBitmapset.exit96
+  br i1 %93, label %.lr.ph.i93, label %outBitmapset.exit94
 
-.lr.ph.i95:                                       ; preds = %writeOidCols.exit93, %.lr.ph.i95
-  %94 = phi i32 [ %95, %.lr.ph.i95 ], [ %92, %writeOidCols.exit93 ]
+.lr.ph.i93:                                       ; preds = %writeOidCols.exit91, %.lr.ph.i93
+  %94 = phi i32 [ %95, %.lr.ph.i93 ], [ %92, %writeOidCols.exit91 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %94) #7
   %95 = call i32 @bms_next_member(ptr noundef %91, i32 noundef %94) #7
   %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %.lr.ph.i95, label %outBitmapset.exit96, !llvm.loop !7
+  br i1 %96, label %.lr.ph.i93, label %outBitmapset.exit94, !llvm.loop !7
 
-outBitmapset.exit96:                              ; preds = %.lr.ph.i95, %writeOidCols.exit93
+outBitmapset.exit94:                              ; preds = %.lr.ph.i93, %writeOidCols.exit91
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.317) #7
   %97 = getelementptr inbounds i8, ptr %1, i64 168
@@ -24409,21 +23950,18 @@ define internal fastcc void @_outWindowAgg(ptr noundef %0, ptr nocapture noundef
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not97 = icmp eq i8 %23, 0
-  %24 = select i1 %.not97, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not98 = icmp eq i8 %27, 0
-  %28 = select i1 %.not98, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -24473,16 +24011,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i102, label %outBitmapset.exit103
+  br i1 %51, label %.lr.ph.i97, label %outBitmapset.exit98
 
-.lr.ph.i102:                                      ; preds = %outBitmapset.exit, %.lr.ph.i102
-  %52 = phi i32 [ %53, %.lr.ph.i102 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i97:                                       ; preds = %outBitmapset.exit, %.lr.ph.i97
+  %52 = phi i32 [ %53, %.lr.ph.i97 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i102, label %outBitmapset.exit103, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i97, label %outBitmapset.exit98, !llvm.loop !7
 
-outBitmapset.exit103:                             ; preds = %.lr.ph.i102, %outBitmapset.exit
+outBitmapset.exit98:                              ; preds = %.lr.ph.i97, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -24497,30 +24035,30 @@ outBitmapset.exit103:                             ; preds = %.lr.ph.i102, %outBi
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %67, label %62
 
-62:                                               ; preds = %outBitmapset.exit103
+62:                                               ; preds = %outBitmapset.exit98
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %63 = icmp sgt i32 %61, 0
   br i1 %63, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %62
   %wide.trip.count.i = zext nneg i32 %61 to i64
-  br label %.lr.ph.i104
+  br label %.lr.ph.i99
 
-.lr.ph.i104:                                      ; preds = %.lr.ph.i104, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i104 ]
+.lr.ph.i99:                                       ; preds = %.lr.ph.i99, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i99 ]
   %64 = getelementptr i16, ptr %60, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %66) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i104, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i99, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i104, %62
+._crit_edge.i:                                    ; preds = %.lr.ph.i99, %62
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-67:                                               ; preds = %outBitmapset.exit103
+67:                                               ; preds = %outBitmapset.exit98
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -24529,28 +24067,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
   %68 = getelementptr inbounds i8, ptr %1, i64 120
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %57, align 4
-  %.not.i105 = icmp eq ptr %69, null
-  br i1 %.not.i105, label %75, label %71
+  %.not.i100 = icmp eq ptr %69, null
+  br i1 %.not.i100, label %75, label %71
 
 71:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %72 = icmp sgt i32 %70, 0
-  br i1 %72, label %.lr.ph.preheader.i107, label %._crit_edge.i106
+  br i1 %72, label %.lr.ph.preheader.i102, label %._crit_edge.i101
 
-.lr.ph.preheader.i107:                            ; preds = %71
-  %wide.trip.count.i108 = zext nneg i32 %70 to i64
-  br label %.lr.ph.i109
+.lr.ph.preheader.i102:                            ; preds = %71
+  %wide.trip.count.i103 = zext nneg i32 %70 to i64
+  br label %.lr.ph.i104
 
-.lr.ph.i109:                                      ; preds = %.lr.ph.i109, %.lr.ph.preheader.i107
-  %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.preheader.i107 ], [ %indvars.iv.next.i111, %.lr.ph.i109 ]
-  %73 = getelementptr i32, ptr %69, i64 %indvars.iv.i110
+.lr.ph.i104:                                      ; preds = %.lr.ph.i104, %.lr.ph.preheader.i102
+  %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.preheader.i102 ], [ %indvars.iv.next.i106, %.lr.ph.i104 ]
+  %73 = getelementptr i32, ptr %69, i64 %indvars.iv.i105
   %74 = load i32, ptr %73, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %74) #7
-  %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
-  %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i108
-  br i1 %exitcond.not.i112, label %._crit_edge.i106, label %.lr.ph.i109, !llvm.loop !13
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
+  %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i103
+  br i1 %exitcond.not.i107, label %._crit_edge.i101, label %.lr.ph.i104, !llvm.loop !13
 
-._crit_edge.i106:                                 ; preds = %.lr.ph.i109, %71
+._crit_edge.i101:                                 ; preds = %.lr.ph.i104, %71
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -24558,41 +24096,41 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i106, %75
+writeOidCols.exit:                                ; preds = %._crit_edge.i101, %75
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1655) #7
   %76 = getelementptr inbounds i8, ptr %1, i64 128
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %57, align 4
-  %.not.i113 = icmp eq ptr %77, null
-  br i1 %.not.i113, label %83, label %79
+  %.not.i108 = icmp eq ptr %77, null
+  br i1 %.not.i108, label %83, label %79
 
 79:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %80 = icmp sgt i32 %78, 0
-  br i1 %80, label %.lr.ph.preheader.i115, label %._crit_edge.i114
+  br i1 %80, label %.lr.ph.preheader.i110, label %._crit_edge.i109
 
-.lr.ph.preheader.i115:                            ; preds = %79
-  %wide.trip.count.i116 = zext nneg i32 %78 to i64
-  br label %.lr.ph.i117
+.lr.ph.preheader.i110:                            ; preds = %79
+  %wide.trip.count.i111 = zext nneg i32 %78 to i64
+  br label %.lr.ph.i112
 
-.lr.ph.i117:                                      ; preds = %.lr.ph.i117, %.lr.ph.preheader.i115
-  %indvars.iv.i118 = phi i64 [ 0, %.lr.ph.preheader.i115 ], [ %indvars.iv.next.i119, %.lr.ph.i117 ]
-  %81 = getelementptr i32, ptr %77, i64 %indvars.iv.i118
+.lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i110
+  %indvars.iv.i113 = phi i64 [ 0, %.lr.ph.preheader.i110 ], [ %indvars.iv.next.i114, %.lr.ph.i112 ]
+  %81 = getelementptr i32, ptr %77, i64 %indvars.iv.i113
   %82 = load i32, ptr %81, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %82) #7
-  %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
-  %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i116
-  br i1 %exitcond.not.i120, label %._crit_edge.i114, label %.lr.ph.i117, !llvm.loop !13
+  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
+  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i111
+  br i1 %exitcond.not.i115, label %._crit_edge.i109, label %.lr.ph.i112, !llvm.loop !13
 
-._crit_edge.i114:                                 ; preds = %.lr.ph.i117, %79
+._crit_edge.i109:                                 ; preds = %.lr.ph.i112, %79
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit121
+  br label %writeOidCols.exit116
 
 83:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit121
+  br label %writeOidCols.exit116
 
-writeOidCols.exit121:                             ; preds = %._crit_edge.i114, %83
+writeOidCols.exit116:                             ; preds = %._crit_edge.i109, %83
   %84 = getelementptr inbounds i8, ptr %1, i64 136
   %85 = load i32, ptr %84, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1656, i32 noundef %85) #7
@@ -24600,105 +24138,105 @@ writeOidCols.exit121:                             ; preds = %._crit_edge.i114, %
   %86 = getelementptr inbounds i8, ptr %1, i64 144
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %84, align 8
-  %.not.i122 = icmp eq ptr %87, null
-  br i1 %.not.i122, label %94, label %89
+  %.not.i117 = icmp eq ptr %87, null
+  br i1 %.not.i117, label %94, label %89
 
-89:                                               ; preds = %writeOidCols.exit121
+89:                                               ; preds = %writeOidCols.exit116
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %90 = icmp sgt i32 %88, 0
-  br i1 %90, label %.lr.ph.preheader.i124, label %._crit_edge.i123
+  br i1 %90, label %.lr.ph.preheader.i119, label %._crit_edge.i118
 
-.lr.ph.preheader.i124:                            ; preds = %89
-  %wide.trip.count.i125 = zext nneg i32 %88 to i64
-  br label %.lr.ph.i126
+.lr.ph.preheader.i119:                            ; preds = %89
+  %wide.trip.count.i120 = zext nneg i32 %88 to i64
+  br label %.lr.ph.i121
 
-.lr.ph.i126:                                      ; preds = %.lr.ph.i126, %.lr.ph.preheader.i124
-  %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.preheader.i124 ], [ %indvars.iv.next.i128, %.lr.ph.i126 ]
-  %91 = getelementptr i16, ptr %87, i64 %indvars.iv.i127
+.lr.ph.i121:                                      ; preds = %.lr.ph.i121, %.lr.ph.preheader.i119
+  %indvars.iv.i122 = phi i64 [ 0, %.lr.ph.preheader.i119 ], [ %indvars.iv.next.i123, %.lr.ph.i121 ]
+  %91 = getelementptr i16, ptr %87, i64 %indvars.iv.i122
   %92 = load i16, ptr %91, align 2
   %93 = sext i16 %92 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %93) #7
-  %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i127, 1
-  %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i125
-  br i1 %exitcond.not.i129, label %._crit_edge.i123, label %.lr.ph.i126, !llvm.loop !15
+  %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
+  %exitcond.not.i124 = icmp eq i64 %indvars.iv.next.i123, %wide.trip.count.i120
+  br i1 %exitcond.not.i124, label %._crit_edge.i118, label %.lr.ph.i121, !llvm.loop !15
 
-._crit_edge.i123:                                 ; preds = %.lr.ph.i126, %89
+._crit_edge.i118:                                 ; preds = %.lr.ph.i121, %89
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeAttrNumberCols.exit130
+  br label %writeAttrNumberCols.exit125
 
-94:                                               ; preds = %writeOidCols.exit121
+94:                                               ; preds = %writeOidCols.exit116
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeAttrNumberCols.exit130
+  br label %writeAttrNumberCols.exit125
 
-writeAttrNumberCols.exit130:                      ; preds = %._crit_edge.i123, %94
+writeAttrNumberCols.exit125:                      ; preds = %._crit_edge.i118, %94
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1658) #7
   %95 = getelementptr inbounds i8, ptr %1, i64 152
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %84, align 8
-  %.not.i131 = icmp eq ptr %96, null
-  br i1 %.not.i131, label %102, label %98
+  %.not.i126 = icmp eq ptr %96, null
+  br i1 %.not.i126, label %102, label %98
 
-98:                                               ; preds = %writeAttrNumberCols.exit130
+98:                                               ; preds = %writeAttrNumberCols.exit125
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %99 = icmp sgt i32 %97, 0
-  br i1 %99, label %.lr.ph.preheader.i133, label %._crit_edge.i132
+  br i1 %99, label %.lr.ph.preheader.i128, label %._crit_edge.i127
 
-.lr.ph.preheader.i133:                            ; preds = %98
-  %wide.trip.count.i134 = zext nneg i32 %97 to i64
-  br label %.lr.ph.i135
+.lr.ph.preheader.i128:                            ; preds = %98
+  %wide.trip.count.i129 = zext nneg i32 %97 to i64
+  br label %.lr.ph.i130
 
-.lr.ph.i135:                                      ; preds = %.lr.ph.i135, %.lr.ph.preheader.i133
-  %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.preheader.i133 ], [ %indvars.iv.next.i137, %.lr.ph.i135 ]
-  %100 = getelementptr i32, ptr %96, i64 %indvars.iv.i136
+.lr.ph.i130:                                      ; preds = %.lr.ph.i130, %.lr.ph.preheader.i128
+  %indvars.iv.i131 = phi i64 [ 0, %.lr.ph.preheader.i128 ], [ %indvars.iv.next.i132, %.lr.ph.i130 ]
+  %100 = getelementptr i32, ptr %96, i64 %indvars.iv.i131
   %101 = load i32, ptr %100, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %101) #7
-  %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i136, 1
-  %exitcond.not.i138 = icmp eq i64 %indvars.iv.next.i137, %wide.trip.count.i134
-  br i1 %exitcond.not.i138, label %._crit_edge.i132, label %.lr.ph.i135, !llvm.loop !13
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
+  %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i129
+  br i1 %exitcond.not.i133, label %._crit_edge.i127, label %.lr.ph.i130, !llvm.loop !13
 
-._crit_edge.i132:                                 ; preds = %.lr.ph.i135, %98
+._crit_edge.i127:                                 ; preds = %.lr.ph.i130, %98
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit139
+  br label %writeOidCols.exit134
 
-102:                                              ; preds = %writeAttrNumberCols.exit130
+102:                                              ; preds = %writeAttrNumberCols.exit125
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit139
+  br label %writeOidCols.exit134
 
-writeOidCols.exit139:                             ; preds = %._crit_edge.i132, %102
+writeOidCols.exit134:                             ; preds = %._crit_edge.i127, %102
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1659) #7
   %103 = getelementptr inbounds i8, ptr %1, i64 160
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr %84, align 8
-  %.not.i140 = icmp eq ptr %104, null
-  br i1 %.not.i140, label %110, label %106
+  %.not.i135 = icmp eq ptr %104, null
+  br i1 %.not.i135, label %110, label %106
 
-106:                                              ; preds = %writeOidCols.exit139
+106:                                              ; preds = %writeOidCols.exit134
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %107 = icmp sgt i32 %105, 0
-  br i1 %107, label %.lr.ph.preheader.i142, label %._crit_edge.i141
+  br i1 %107, label %.lr.ph.preheader.i137, label %._crit_edge.i136
 
-.lr.ph.preheader.i142:                            ; preds = %106
-  %wide.trip.count.i143 = zext nneg i32 %105 to i64
-  br label %.lr.ph.i144
+.lr.ph.preheader.i137:                            ; preds = %106
+  %wide.trip.count.i138 = zext nneg i32 %105 to i64
+  br label %.lr.ph.i139
 
-.lr.ph.i144:                                      ; preds = %.lr.ph.i144, %.lr.ph.preheader.i142
-  %indvars.iv.i145 = phi i64 [ 0, %.lr.ph.preheader.i142 ], [ %indvars.iv.next.i146, %.lr.ph.i144 ]
-  %108 = getelementptr i32, ptr %104, i64 %indvars.iv.i145
+.lr.ph.i139:                                      ; preds = %.lr.ph.i139, %.lr.ph.preheader.i137
+  %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.preheader.i137 ], [ %indvars.iv.next.i141, %.lr.ph.i139 ]
+  %108 = getelementptr i32, ptr %104, i64 %indvars.iv.i140
   %109 = load i32, ptr %108, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %109) #7
-  %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i145, 1
-  %exitcond.not.i147 = icmp eq i64 %indvars.iv.next.i146, %wide.trip.count.i143
-  br i1 %exitcond.not.i147, label %._crit_edge.i141, label %.lr.ph.i144, !llvm.loop !13
+  %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
+  %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i138
+  br i1 %exitcond.not.i142, label %._crit_edge.i136, label %.lr.ph.i139, !llvm.loop !13
 
-._crit_edge.i141:                                 ; preds = %.lr.ph.i144, %106
+._crit_edge.i136:                                 ; preds = %.lr.ph.i139, %106
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit148
+  br label %writeOidCols.exit143
 
-110:                                              ; preds = %writeOidCols.exit139
+110:                                              ; preds = %writeOidCols.exit134
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit148
+  br label %writeOidCols.exit143
 
-writeOidCols.exit148:                             ; preds = %._crit_edge.i141, %110
+writeOidCols.exit143:                             ; preds = %._crit_edge.i136, %110
   %111 = getelementptr inbounds i8, ptr %1, i64 168
   %112 = load i32, ptr %111, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.401, i32 noundef %112) #7
@@ -24729,21 +24267,18 @@ writeOidCols.exit148:                             ; preds = %._crit_edge.i141, %
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.532, i32 noundef %126) #7
   %127 = getelementptr inbounds i8, ptr %1, i64 220
   %128 = load i8, ptr %127, align 4
-  %129 = and i8 %128, 1
-  %.not99 = icmp eq i8 %129, 0
-  %130 = select i1 %.not99, ptr @.str.12, ptr @.str.11
+  %129 = trunc i8 %128 to i1
+  %130 = select i1 %129, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.533, ptr noundef nonnull %130) #7
   %131 = getelementptr inbounds i8, ptr %1, i64 221
   %132 = load i8, ptr %131, align 1
-  %133 = and i8 %132, 1
-  %.not100 = icmp eq i8 %133, 0
-  %134 = select i1 %.not100, ptr @.str.12, ptr @.str.11
+  %133 = trunc i8 %132 to i1
+  %134 = select i1 %133, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.534, ptr noundef nonnull %134) #7
   %135 = getelementptr inbounds i8, ptr %1, i64 222
   %136 = load i8, ptr %135, align 2
-  %137 = and i8 %136, 1
-  %.not101 = icmp eq i8 %137, 0
-  %138 = select i1 %.not101, ptr @.str.12, ptr @.str.11
+  %137 = trunc i8 %136 to i1
+  %138 = select i1 %137, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1661, ptr noundef nonnull %138) #7
   ret void
 }
@@ -24780,21 +24315,18 @@ define internal fastcc void @_outUnique(ptr noundef %0, ptr nocapture noundef re
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not55 = icmp eq i8 %23, 0
-  %24 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not56 = icmp eq i8 %27, 0
-  %28 = select i1 %.not56, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -24844,16 +24376,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i57, label %outBitmapset.exit58
+  br i1 %51, label %.lr.ph.i55, label %outBitmapset.exit56
 
-.lr.ph.i57:                                       ; preds = %outBitmapset.exit, %.lr.ph.i57
-  %52 = phi i32 [ %53, %.lr.ph.i57 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i55:                                       ; preds = %outBitmapset.exit, %.lr.ph.i55
+  %52 = phi i32 [ %53, %.lr.ph.i55 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i57, label %outBitmapset.exit58, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i55, label %outBitmapset.exit56, !llvm.loop !7
 
-outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %outBitmapset.exit
+outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -24865,30 +24397,30 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %outBit
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %65, label %60
 
-60:                                               ; preds = %outBitmapset.exit58
+60:                                               ; preds = %outBitmapset.exit56
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %61 = icmp sgt i32 %59, 0
   br i1 %61, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %60
   %wide.trip.count.i = zext nneg i32 %59 to i64
-  br label %.lr.ph.i59
+  br label %.lr.ph.i57
 
-.lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i59 ]
+.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i57 ]
   %62 = getelementptr i16, ptr %58, i64 %indvars.iv.i
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %64) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i57, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i59, %60
+._crit_edge.i:                                    ; preds = %.lr.ph.i57, %60
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-65:                                               ; preds = %outBitmapset.exit58
+65:                                               ; preds = %outBitmapset.exit56
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -24897,28 +24429,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   %66 = getelementptr inbounds i8, ptr %1, i64 120
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %55, align 8
-  %.not.i60 = icmp eq ptr %67, null
-  br i1 %.not.i60, label %73, label %69
+  %.not.i58 = icmp eq ptr %67, null
+  br i1 %.not.i58, label %73, label %69
 
 69:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %70 = icmp sgt i32 %68, 0
-  br i1 %70, label %.lr.ph.preheader.i62, label %._crit_edge.i61
+  br i1 %70, label %.lr.ph.preheader.i60, label %._crit_edge.i59
 
-.lr.ph.preheader.i62:                             ; preds = %69
-  %wide.trip.count.i63 = zext nneg i32 %68 to i64
-  br label %.lr.ph.i64
+.lr.ph.preheader.i60:                             ; preds = %69
+  %wide.trip.count.i61 = zext nneg i32 %68 to i64
+  br label %.lr.ph.i62
 
-.lr.ph.i64:                                       ; preds = %.lr.ph.i64, %.lr.ph.preheader.i62
-  %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %.lr.ph.i64 ]
-  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i65
+.lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i60
+  %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.lr.ph.i62 ]
+  %71 = getelementptr i32, ptr %67, i64 %indvars.iv.i63
   %72 = load i32, ptr %71, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %72) #7
-  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
-  %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i63
-  br i1 %exitcond.not.i67, label %._crit_edge.i61, label %.lr.ph.i64, !llvm.loop !13
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
+  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i61
+  br i1 %exitcond.not.i65, label %._crit_edge.i59, label %.lr.ph.i62, !llvm.loop !13
 
-._crit_edge.i61:                                  ; preds = %.lr.ph.i64, %69
+._crit_edge.i59:                                  ; preds = %.lr.ph.i62, %69
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -24926,41 +24458,41 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %65
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i61, %73
+writeOidCols.exit:                                ; preds = %._crit_edge.i59, %73
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1665) #7
   %74 = getelementptr inbounds i8, ptr %1, i64 128
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %55, align 8
-  %.not.i68 = icmp eq ptr %75, null
-  br i1 %.not.i68, label %81, label %77
+  %.not.i66 = icmp eq ptr %75, null
+  br i1 %.not.i66, label %81, label %77
 
 77:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %78 = icmp sgt i32 %76, 0
-  br i1 %78, label %.lr.ph.preheader.i70, label %._crit_edge.i69
+  br i1 %78, label %.lr.ph.preheader.i68, label %._crit_edge.i67
 
-.lr.ph.preheader.i70:                             ; preds = %77
-  %wide.trip.count.i71 = zext nneg i32 %76 to i64
-  br label %.lr.ph.i72
+.lr.ph.preheader.i68:                             ; preds = %77
+  %wide.trip.count.i69 = zext nneg i32 %76 to i64
+  br label %.lr.ph.i70
 
-.lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
-  %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i73
+.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i68
+  %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %.lr.ph.i70 ]
+  %79 = getelementptr i32, ptr %75, i64 %indvars.iv.i71
   %80 = load i32, ptr %79, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %80) #7
-  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
-  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i71
-  br i1 %exitcond.not.i75, label %._crit_edge.i69, label %.lr.ph.i72, !llvm.loop !13
+  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
+  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
+  br i1 %exitcond.not.i73, label %._crit_edge.i67, label %.lr.ph.i70, !llvm.loop !13
 
-._crit_edge.i69:                                  ; preds = %.lr.ph.i72, %77
+._crit_edge.i67:                                  ; preds = %.lr.ph.i70, %77
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit76
+  br label %writeOidCols.exit74
 
 81:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit76
+  br label %writeOidCols.exit74
 
-writeOidCols.exit76:                              ; preds = %._crit_edge.i69, %81
+writeOidCols.exit74:                              ; preds = %._crit_edge.i67, %81
   ret void
 }
 
@@ -24996,21 +24528,18 @@ define internal fastcc void @_outGather(ptr noundef %0, ptr nocapture noundef re
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not52 = icmp eq i8 %23, 0
-  %24 = select i1 %.not52, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not53 = icmp eq i8 %27, 0
-  %28 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -25060,16 +24589,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i56, label %outBitmapset.exit57
+  br i1 %51, label %.lr.ph.i52, label %outBitmapset.exit53
 
-.lr.ph.i56:                                       ; preds = %outBitmapset.exit, %.lr.ph.i56
-  %52 = phi i32 [ %53, %.lr.ph.i56 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i52:                                       ; preds = %outBitmapset.exit, %.lr.ph.i52
+  %52 = phi i32 [ %53, %.lr.ph.i52 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i56, label %outBitmapset.exit57, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i52, label %outBitmapset.exit53, !llvm.loop !7
 
-outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBitmapset.exit
+outBitmapset.exit53:                              ; preds = %.lr.ph.i52, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -25079,15 +24608,13 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1667, i32 noundef %58) #7
   %59 = getelementptr inbounds i8, ptr %1, i64 112
   %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not54 = icmp eq i8 %61, 0
-  %62 = select i1 %.not54, ptr @.str.12, ptr @.str.11
+  %61 = trunc i8 %60 to i1
+  %62 = select i1 %61, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1282, ptr noundef nonnull %62) #7
   %63 = getelementptr inbounds i8, ptr %1, i64 113
   %64 = load i8, ptr %63, align 1
-  %65 = and i8 %64, 1
-  %.not55 = icmp eq i8 %65, 0
-  %66 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1668, ptr noundef nonnull %66) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1669) #7
   %67 = getelementptr inbounds i8, ptr %1, i64 120
@@ -25096,16 +24623,16 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %69 = call i32 @bms_next_member(ptr noundef %68, i32 noundef -1) #7
   %70 = icmp sgt i32 %69, -1
-  br i1 %70, label %.lr.ph.i58, label %outBitmapset.exit59
+  br i1 %70, label %.lr.ph.i54, label %outBitmapset.exit55
 
-.lr.ph.i58:                                       ; preds = %outBitmapset.exit57, %.lr.ph.i58
-  %71 = phi i32 [ %72, %.lr.ph.i58 ], [ %69, %outBitmapset.exit57 ]
+.lr.ph.i54:                                       ; preds = %outBitmapset.exit53, %.lr.ph.i54
+  %71 = phi i32 [ %72, %.lr.ph.i54 ], [ %69, %outBitmapset.exit53 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %71) #7
   %72 = call i32 @bms_next_member(ptr noundef %68, i32 noundef %71) #7
   %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %.lr.ph.i58, label %outBitmapset.exit59, !llvm.loop !7
+  br i1 %73, label %.lr.ph.i54, label %outBitmapset.exit55, !llvm.loop !7
 
-outBitmapset.exit59:                              ; preds = %.lr.ph.i58, %outBitmapset.exit57
+outBitmapset.exit55:                              ; preds = %.lr.ph.i54, %outBitmapset.exit53
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   ret void
 }
@@ -25142,21 +24669,18 @@ define internal fastcc void @_outGatherMerge(ptr noundef %0, ptr nocapture nound
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not66 = icmp eq i8 %23, 0
-  %24 = select i1 %.not66, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not67 = icmp eq i8 %27, 0
-  %28 = select i1 %.not67, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -25206,16 +24730,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i68, label %outBitmapset.exit69
+  br i1 %51, label %.lr.ph.i66, label %outBitmapset.exit67
 
-.lr.ph.i68:                                       ; preds = %outBitmapset.exit, %.lr.ph.i68
-  %52 = phi i32 [ %53, %.lr.ph.i68 ], [ %50, %outBitmapset.exit ]
+.lr.ph.i66:                                       ; preds = %outBitmapset.exit, %.lr.ph.i66
+  %52 = phi i32 [ %53, %.lr.ph.i66 ], [ %50, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
   %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i68, label %outBitmapset.exit69, !llvm.loop !7
+  br i1 %54, label %.lr.ph.i66, label %outBitmapset.exit67, !llvm.loop !7
 
-outBitmapset.exit69:                              ; preds = %.lr.ph.i68, %outBitmapset.exit
+outBitmapset.exit67:                              ; preds = %.lr.ph.i66, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load i32, ptr %55, align 8
@@ -25233,30 +24757,30 @@ outBitmapset.exit69:                              ; preds = %.lr.ph.i68, %outBit
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %69, label %64
 
-64:                                               ; preds = %outBitmapset.exit69
+64:                                               ; preds = %outBitmapset.exit67
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %65 = icmp sgt i32 %63, 0
   br i1 %65, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %64
   %wide.trip.count.i = zext nneg i32 %63 to i64
-  br label %.lr.ph.i70
+  br label %.lr.ph.i68
 
-.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i70 ]
+.lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i68 ]
   %66 = getelementptr i16, ptr %62, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i70, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i68, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i70, %64
+._crit_edge.i:                                    ; preds = %.lr.ph.i68, %64
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-69:                                               ; preds = %outBitmapset.exit69
+69:                                               ; preds = %outBitmapset.exit67
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -25265,28 +24789,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
   %70 = getelementptr inbounds i8, ptr %1, i64 128
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %59, align 8
-  %.not.i71 = icmp eq ptr %71, null
-  br i1 %.not.i71, label %77, label %73
+  %.not.i69 = icmp eq ptr %71, null
+  br i1 %.not.i69, label %77, label %73
 
 73:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %74 = icmp sgt i32 %72, 0
-  br i1 %74, label %.lr.ph.preheader.i73, label %._crit_edge.i72
+  br i1 %74, label %.lr.ph.preheader.i71, label %._crit_edge.i70
 
-.lr.ph.preheader.i73:                             ; preds = %73
-  %wide.trip.count.i74 = zext nneg i32 %72 to i64
-  br label %.lr.ph.i75
+.lr.ph.preheader.i71:                             ; preds = %73
+  %wide.trip.count.i72 = zext nneg i32 %72 to i64
+  br label %.lr.ph.i73
 
-.lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i73
-  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %.lr.ph.i75 ]
-  %75 = getelementptr i32, ptr %71, i64 %indvars.iv.i76
+.lr.ph.i73:                                       ; preds = %.lr.ph.i73, %.lr.ph.preheader.i71
+  %indvars.iv.i74 = phi i64 [ 0, %.lr.ph.preheader.i71 ], [ %indvars.iv.next.i75, %.lr.ph.i73 ]
+  %75 = getelementptr i32, ptr %71, i64 %indvars.iv.i74
   %76 = load i32, ptr %75, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76) #7
-  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
-  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i74
-  br i1 %exitcond.not.i78, label %._crit_edge.i72, label %.lr.ph.i75, !llvm.loop !13
+  %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
+  %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %wide.trip.count.i72
+  br i1 %exitcond.not.i76, label %._crit_edge.i70, label %.lr.ph.i73, !llvm.loop !13
 
-._crit_edge.i72:                                  ; preds = %.lr.ph.i75, %73
+._crit_edge.i70:                                  ; preds = %.lr.ph.i73, %73
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -25294,78 +24818,77 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i72, %77
+writeOidCols.exit:                                ; preds = %._crit_edge.i70, %77
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1514) #7
   %78 = getelementptr inbounds i8, ptr %1, i64 136
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %59, align 8
-  %.not.i79 = icmp eq ptr %79, null
-  br i1 %.not.i79, label %85, label %81
+  %.not.i77 = icmp eq ptr %79, null
+  br i1 %.not.i77, label %85, label %81
 
 81:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %82 = icmp sgt i32 %80, 0
-  br i1 %82, label %.lr.ph.preheader.i81, label %._crit_edge.i80
+  br i1 %82, label %.lr.ph.preheader.i79, label %._crit_edge.i78
 
-.lr.ph.preheader.i81:                             ; preds = %81
-  %wide.trip.count.i82 = zext nneg i32 %80 to i64
-  br label %.lr.ph.i83
+.lr.ph.preheader.i79:                             ; preds = %81
+  %wide.trip.count.i80 = zext nneg i32 %80 to i64
+  br label %.lr.ph.i81
 
-.lr.ph.i83:                                       ; preds = %.lr.ph.i83, %.lr.ph.preheader.i81
-  %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i85, %.lr.ph.i83 ]
-  %83 = getelementptr i32, ptr %79, i64 %indvars.iv.i84
+.lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i79
+  %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
+  %83 = getelementptr i32, ptr %79, i64 %indvars.iv.i82
   %84 = load i32, ptr %83, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %84) #7
-  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
-  %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i82
-  br i1 %exitcond.not.i86, label %._crit_edge.i80, label %.lr.ph.i83, !llvm.loop !13
+  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
+  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i80
+  br i1 %exitcond.not.i84, label %._crit_edge.i78, label %.lr.ph.i81, !llvm.loop !13
 
-._crit_edge.i80:                                  ; preds = %.lr.ph.i83, %81
+._crit_edge.i78:                                  ; preds = %.lr.ph.i81, %81
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit87
+  br label %writeOidCols.exit85
 
 85:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit87
+  br label %writeOidCols.exit85
 
-writeOidCols.exit87:                              ; preds = %._crit_edge.i80, %85
+writeOidCols.exit85:                              ; preds = %._crit_edge.i78, %85
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1515) #7
   %86 = getelementptr inbounds i8, ptr %1, i64 144
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %59, align 8
-  %.not.i88 = icmp eq ptr %87, null
-  br i1 %.not.i88, label %95, label %89
+  %.not.i86 = icmp eq ptr %87, null
+  br i1 %.not.i86, label %95, label %89
 
-89:                                               ; preds = %writeOidCols.exit87
+89:                                               ; preds = %writeOidCols.exit85
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %90 = icmp sgt i32 %88, 0
-  br i1 %90, label %.lr.ph.preheader.i90, label %._crit_edge.i89
+  br i1 %90, label %.lr.ph.preheader.i88, label %._crit_edge.i87
 
-.lr.ph.preheader.i90:                             ; preds = %89
-  %wide.trip.count.i91 = zext nneg i32 %88 to i64
-  br label %.lr.ph.i92
+.lr.ph.preheader.i88:                             ; preds = %89
+  %wide.trip.count.i89 = zext nneg i32 %88 to i64
+  br label %.lr.ph.i90
 
-.lr.ph.i92:                                       ; preds = %.lr.ph.i92, %.lr.ph.preheader.i90
-  %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i94, %.lr.ph.i92 ]
-  %91 = getelementptr i8, ptr %87, i64 %indvars.iv.i93
+.lr.ph.i90:                                       ; preds = %.lr.ph.i90, %.lr.ph.preheader.i88
+  %indvars.iv.i91 = phi i64 [ 0, %.lr.ph.preheader.i88 ], [ %indvars.iv.next.i92, %.lr.ph.i90 ]
+  %91 = getelementptr i8, ptr %87, i64 %indvars.iv.i91
   %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, 1
-  %.not10.i = icmp eq i8 %93, 0
-  %94 = select i1 %.not10.i, ptr @.str.12, ptr @.str.11
+  %93 = trunc i8 %92 to i1
+  %94 = select i1 %93, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1152, ptr noundef nonnull %94) #7
-  %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
-  %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count.i91
-  br i1 %exitcond.not.i95, label %._crit_edge.i89, label %.lr.ph.i92, !llvm.loop !14
+  %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
+  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i89
+  br i1 %exitcond.not.i93, label %._crit_edge.i87, label %.lr.ph.i90, !llvm.loop !14
 
-._crit_edge.i89:                                  ; preds = %.lr.ph.i92, %89
+._crit_edge.i87:                                  ; preds = %.lr.ph.i90, %89
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeBoolCols.exit
 
-95:                                               ; preds = %writeOidCols.exit87
+95:                                               ; preds = %writeOidCols.exit85
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeBoolCols.exit
 
-writeBoolCols.exit:                               ; preds = %._crit_edge.i89, %95
+writeBoolCols.exit:                               ; preds = %._crit_edge.i87, %95
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1669) #7
   %96 = getelementptr inbounds i8, ptr %1, i64 152
   %97 = load ptr, ptr %96, align 8
@@ -25373,16 +24896,16 @@ writeBoolCols.exit:                               ; preds = %._crit_edge.i89, %9
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %98 = call i32 @bms_next_member(ptr noundef %97, i32 noundef -1) #7
   %99 = icmp sgt i32 %98, -1
-  br i1 %99, label %.lr.ph.i97, label %outBitmapset.exit98
+  br i1 %99, label %.lr.ph.i95, label %outBitmapset.exit96
 
-.lr.ph.i97:                                       ; preds = %writeBoolCols.exit, %.lr.ph.i97
-  %100 = phi i32 [ %101, %.lr.ph.i97 ], [ %98, %writeBoolCols.exit ]
+.lr.ph.i95:                                       ; preds = %writeBoolCols.exit, %.lr.ph.i95
+  %100 = phi i32 [ %101, %.lr.ph.i95 ], [ %98, %writeBoolCols.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %100) #7
   %101 = call i32 @bms_next_member(ptr noundef %97, i32 noundef %100) #7
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %.lr.ph.i97, label %outBitmapset.exit98, !llvm.loop !7
+  br i1 %102, label %.lr.ph.i95, label %outBitmapset.exit96, !llvm.loop !7
 
-outBitmapset.exit98:                              ; preds = %.lr.ph.i97, %writeBoolCols.exit
+outBitmapset.exit96:                              ; preds = %.lr.ph.i95, %writeBoolCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   ret void
 }
@@ -25420,21 +24943,18 @@ define internal fastcc void @_outHash(ptr noundef %0, ptr nocapture noundef read
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %17) #7
   %18 = getelementptr inbounds i8, ptr %1, i64 36
   %19 = load i8, ptr %18, align 4
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  %21 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %20 = trunc i8 %19 to i1
+  %21 = select i1 %20, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %21) #7
   %22 = getelementptr inbounds i8, ptr %1, i64 37
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not53 = icmp eq i8 %24, 0
-  %25 = select i1 %.not53, ptr @.str.12, ptr @.str.11
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %25) #7
   %26 = getelementptr inbounds i8, ptr %1, i64 38
   %27 = load i8, ptr %26, align 2
-  %28 = and i8 %27, 1
-  %.not54 = icmp eq i8 %28, 0
-  %29 = select i1 %.not54, ptr @.str.12, ptr @.str.11
+  %28 = trunc i8 %27 to i1
+  %29 = select i1 %28, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %29) #7
   %30 = getelementptr inbounds i8, ptr %1, i64 40
   %31 = load i32, ptr %30, align 8
@@ -25484,16 +25004,16 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
   %51 = call i32 @bms_next_member(ptr noundef %50, i32 noundef -1) #7
   %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %.lr.ph.i56, label %outBitmapset.exit57
+  br i1 %52, label %.lr.ph.i53, label %outBitmapset.exit54
 
-.lr.ph.i56:                                       ; preds = %outBitmapset.exit, %.lr.ph.i56
-  %53 = phi i32 [ %54, %.lr.ph.i56 ], [ %51, %outBitmapset.exit ]
+.lr.ph.i53:                                       ; preds = %outBitmapset.exit, %.lr.ph.i53
+  %53 = phi i32 [ %54, %.lr.ph.i53 ], [ %51, %outBitmapset.exit ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %53) #7
   %54 = call i32 @bms_next_member(ptr noundef %50, i32 noundef %53) #7
   %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %.lr.ph.i56, label %outBitmapset.exit57, !llvm.loop !7
+  br i1 %55, label %.lr.ph.i53, label %outBitmapset.exit54, !llvm.loop !7
 
-outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBitmapset.exit
+outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1616) #7
   %56 = getelementptr inbounds i8, ptr %1, i64 104
@@ -25508,9 +25028,8 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1673, i32 noundef %62) #7
   %63 = getelementptr inbounds i8, ptr %1, i64 118
   %64 = load i8, ptr %63, align 2
-  %65 = and i8 %64, 1
-  %.not55 = icmp eq i8 %65, 0
-  %66 = select i1 %.not55, ptr @.str.12, ptr @.str.11
+  %65 = trunc i8 %64 to i1
+  %66 = select i1 %65, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1674, ptr noundef nonnull %66) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1675) #7
   %67 = getelementptr inbounds i8, ptr %1, i64 120
@@ -25554,370 +25073,18 @@ define internal fastcc void @_outSetOp(ptr noundef %0, ptr nocapture noundef rea
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not65 = icmp eq i8 %23, 0
-  %24 = select i1 %.not65, ptr @.str.12, ptr @.str.11
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
   %25 = getelementptr inbounds i8, ptr %1, i64 38
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not66 = icmp eq i8 %27, 0
-  %28 = select i1 %.not66, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1486, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1487) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1488) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1489) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1490) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1491) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1492) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1493) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i67, label %outBitmapset.exit68
-
-.lr.ph.i67:                                       ; preds = %outBitmapset.exit, %.lr.ph.i67
-  %52 = phi i32 [ %53, %.lr.ph.i67 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i67, label %outBitmapset.exit68, !llvm.loop !7
-
-outBitmapset.exit68:                              ; preds = %.lr.ph.i67, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load i32, ptr %55, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1347, i32 noundef %56) #7
-  %57 = getelementptr inbounds i8, ptr %1, i64 108
-  %58 = load i32, ptr %57, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.461, i32 noundef %58) #7
-  %59 = getelementptr inbounds i8, ptr %1, i64 112
-  %60 = load i32, ptr %59, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1511, i32 noundef %60) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1517) #7
-  %61 = getelementptr inbounds i8, ptr %1, i64 120
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i32, ptr %59, align 8
-  %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %69, label %64
-
-64:                                               ; preds = %outBitmapset.exit68
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  %65 = icmp sgt i32 %63, 0
-  br i1 %65, label %.lr.ph.preheader.i, label %._crit_edge.i
-
-.lr.ph.preheader.i:                               ; preds = %64
-  %wide.trip.count.i = zext nneg i32 %63 to i64
-  br label %.lr.ph.i69
-
-.lr.ph.i69:                                       ; preds = %.lr.ph.i69, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i69 ]
-  %66 = getelementptr i16, ptr %62, i64 %indvars.iv.i
-  %67 = load i16, ptr %66, align 2
-  %68 = sext i16 %67 to i32
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i69, !llvm.loop !15
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i69, %64
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeAttrNumberCols.exit
-
-69:                                               ; preds = %outBitmapset.exit68
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeAttrNumberCols.exit
-
-writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1518) #7
-  %70 = getelementptr inbounds i8, ptr %1, i64 128
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr %59, align 8
-  %.not.i70 = icmp eq ptr %71, null
-  br i1 %.not.i70, label %77, label %73
-
-73:                                               ; preds = %writeAttrNumberCols.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  %74 = icmp sgt i32 %72, 0
-  br i1 %74, label %.lr.ph.preheader.i72, label %._crit_edge.i71
-
-.lr.ph.preheader.i72:                             ; preds = %73
-  %wide.trip.count.i73 = zext nneg i32 %72 to i64
-  br label %.lr.ph.i74
-
-.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
-  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
-  %75 = getelementptr i32, ptr %71, i64 %indvars.iv.i75
-  %76 = load i32, ptr %75, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76) #7
-  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i73
-  br i1 %exitcond.not.i77, label %._crit_edge.i71, label %.lr.ph.i74, !llvm.loop !13
-
-._crit_edge.i71:                                  ; preds = %.lr.ph.i74, %73
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit
-
-77:                                               ; preds = %writeAttrNumberCols.exit
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit
-
-writeOidCols.exit:                                ; preds = %._crit_edge.i71, %77
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1519) #7
-  %78 = getelementptr inbounds i8, ptr %1, i64 136
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %59, align 8
-  %.not.i78 = icmp eq ptr %79, null
-  br i1 %.not.i78, label %85, label %81
-
-81:                                               ; preds = %writeOidCols.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  %82 = icmp sgt i32 %80, 0
-  br i1 %82, label %.lr.ph.preheader.i80, label %._crit_edge.i79
-
-.lr.ph.preheader.i80:                             ; preds = %81
-  %wide.trip.count.i81 = zext nneg i32 %80 to i64
-  br label %.lr.ph.i82
-
-.lr.ph.i82:                                       ; preds = %.lr.ph.i82, %.lr.ph.preheader.i80
-  %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i84, %.lr.ph.i82 ]
-  %83 = getelementptr i32, ptr %79, i64 %indvars.iv.i83
-  %84 = load i32, ptr %83, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %84) #7
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
-  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i81
-  br i1 %exitcond.not.i85, label %._crit_edge.i79, label %.lr.ph.i82, !llvm.loop !13
-
-._crit_edge.i79:                                  ; preds = %.lr.ph.i82, %81
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit86
-
-85:                                               ; preds = %writeOidCols.exit
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit86
-
-writeOidCols.exit86:                              ; preds = %._crit_edge.i79, %85
-  %86 = getelementptr inbounds i8, ptr %1, i64 144
-  %87 = load i16, ptr %86, align 8
-  %88 = sext i16 %87 to i32
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1349, i32 noundef %88) #7
-  %89 = getelementptr inbounds i8, ptr %1, i64 148
-  %90 = load i32, ptr %89, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1350, i32 noundef %90) #7
-  %91 = getelementptr inbounds i8, ptr %1, i64 152
-  %92 = load i64, ptr %91, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1520, i64 noundef %92) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLockRows(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1677) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1479) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1480) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1481) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not46 = icmp eq i8 %23, 0
-  %24 = select i1 %.not46, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not47 = icmp eq i8 %27, 0
-  %28 = select i1 %.not47, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1486, i32 noundef %30) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1487) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %32)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1488) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %34)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1489) #7
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %36)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1490) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %38)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1491) #7
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %40 = load ptr, ptr %39, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %40)
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1492) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
-  %42 = load ptr, ptr %41, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
-
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
-  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
-
-outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1493) #7
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
-  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph.i48, label %outBitmapset.exit49
-
-.lr.ph.i48:                                       ; preds = %outBitmapset.exit, %.lr.ph.i48
-  %52 = phi i32 [ %53, %.lr.ph.i48 ], [ %50, %outBitmapset.exit ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
-  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i48, label %outBitmapset.exit49, !llvm.loop !7
-
-outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBitmapset.exit
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.325) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = load ptr, ptr %55, align 8
-  call void @outNode(ptr noundef %0, ptr noundef %56)
-  %57 = getelementptr inbounds i8, ptr %1, i64 112
-  %58 = load i32, ptr %57, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1356, i32 noundef %58) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLimit(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = alloca [25 x i8], align 16
-  %4 = alloca [25 x i8], align 16
-  %5 = alloca [25 x i8], align 16
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1678) #7
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1479) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
-  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1480) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
-  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1481) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
-  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not63 = icmp eq i8 %23, 0
-  %24 = select i1 %.not63, ptr @.str.12, ptr @.str.11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 38
-  %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not64 = icmp eq i8 %27, 0
-  %28 = select i1 %.not64, ptr @.str.12, ptr @.str.11
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
@@ -25978,6 +25145,349 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 
 outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBitmapset.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load i32, ptr %55, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1347, i32 noundef %56) #7
+  %57 = getelementptr inbounds i8, ptr %1, i64 108
+  %58 = load i32, ptr %57, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.461, i32 noundef %58) #7
+  %59 = getelementptr inbounds i8, ptr %1, i64 112
+  %60 = load i32, ptr %59, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1511, i32 noundef %60) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1517) #7
+  %61 = getelementptr inbounds i8, ptr %1, i64 120
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %59, align 8
+  %.not.i = icmp eq ptr %62, null
+  br i1 %.not.i, label %69, label %64
+
+64:                                               ; preds = %outBitmapset.exit66
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  %65 = icmp sgt i32 %63, 0
+  br i1 %65, label %.lr.ph.preheader.i, label %._crit_edge.i
+
+.lr.ph.preheader.i:                               ; preds = %64
+  %wide.trip.count.i = zext nneg i32 %63 to i64
+  br label %.lr.ph.i67
+
+.lr.ph.i67:                                       ; preds = %.lr.ph.i67, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i67 ]
+  %66 = getelementptr i16, ptr %62, i64 %indvars.iv.i
+  %67 = load i16, ptr %66, align 2
+  %68 = sext i16 %67 to i32
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #7
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i67, !llvm.loop !15
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i67, %64
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  br label %writeAttrNumberCols.exit
+
+69:                                               ; preds = %outBitmapset.exit66
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
+  br label %writeAttrNumberCols.exit
+
+writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1518) #7
+  %70 = getelementptr inbounds i8, ptr %1, i64 128
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i32, ptr %59, align 8
+  %.not.i68 = icmp eq ptr %71, null
+  br i1 %.not.i68, label %77, label %73
+
+73:                                               ; preds = %writeAttrNumberCols.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  %74 = icmp sgt i32 %72, 0
+  br i1 %74, label %.lr.ph.preheader.i70, label %._crit_edge.i69
+
+.lr.ph.preheader.i70:                             ; preds = %73
+  %wide.trip.count.i71 = zext nneg i32 %72 to i64
+  br label %.lr.ph.i72
+
+.lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
+  %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
+  %75 = getelementptr i32, ptr %71, i64 %indvars.iv.i73
+  %76 = load i32, ptr %75, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76) #7
+  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
+  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i71
+  br i1 %exitcond.not.i75, label %._crit_edge.i69, label %.lr.ph.i72, !llvm.loop !13
+
+._crit_edge.i69:                                  ; preds = %.lr.ph.i72, %73
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  br label %writeOidCols.exit
+
+77:                                               ; preds = %writeAttrNumberCols.exit
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
+  br label %writeOidCols.exit
+
+writeOidCols.exit:                                ; preds = %._crit_edge.i69, %77
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1519) #7
+  %78 = getelementptr inbounds i8, ptr %1, i64 136
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i32, ptr %59, align 8
+  %.not.i76 = icmp eq ptr %79, null
+  br i1 %.not.i76, label %85, label %81
+
+81:                                               ; preds = %writeOidCols.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  %82 = icmp sgt i32 %80, 0
+  br i1 %82, label %.lr.ph.preheader.i78, label %._crit_edge.i77
+
+.lr.ph.preheader.i78:                             ; preds = %81
+  %wide.trip.count.i79 = zext nneg i32 %80 to i64
+  br label %.lr.ph.i80
+
+.lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
+  %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
+  %83 = getelementptr i32, ptr %79, i64 %indvars.iv.i81
+  %84 = load i32, ptr %83, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %84) #7
+  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
+  %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i79
+  br i1 %exitcond.not.i83, label %._crit_edge.i77, label %.lr.ph.i80, !llvm.loop !13
+
+._crit_edge.i77:                                  ; preds = %.lr.ph.i80, %81
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  br label %writeOidCols.exit84
+
+85:                                               ; preds = %writeOidCols.exit
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
+  br label %writeOidCols.exit84
+
+writeOidCols.exit84:                              ; preds = %._crit_edge.i77, %85
+  %86 = getelementptr inbounds i8, ptr %1, i64 144
+  %87 = load i16, ptr %86, align 8
+  %88 = sext i16 %87 to i32
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1349, i32 noundef %88) #7
+  %89 = getelementptr inbounds i8, ptr %1, i64 148
+  %90 = load i32, ptr %89, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1350, i32 noundef %90) #7
+  %91 = getelementptr inbounds i8, ptr %1, i64 152
+  %92 = load i64, ptr %91, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1520, i64 noundef %92) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outLockRows(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1677) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1479) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1480) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1481) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1486, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1487) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1488) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1489) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1490) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1491) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1492) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1493) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i46, label %outBitmapset.exit47
+
+.lr.ph.i46:                                       ; preds = %outBitmapset.exit, %.lr.ph.i46
+  %52 = phi i32 [ %53, %.lr.ph.i46 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i46, label %outBitmapset.exit47, !llvm.loop !7
+
+outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.325) #7
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load ptr, ptr %55, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %56)
+  %57 = getelementptr inbounds i8, ptr %1, i64 112
+  %58 = load i32, ptr %57, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1356, i32 noundef %58) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_outLimit(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+  %3 = alloca [25 x i8], align 16
+  %4 = alloca [25 x i8], align 16
+  %5 = alloca [25 x i8], align 16
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1678) #7
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1479) #7
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5)
+  %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %5) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1480) #7
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load double, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4)
+  %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %4) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1481) #7
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = load double, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3)
+  %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3)
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1482, i32 noundef %16) #7
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1483, ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1484, ptr noundef nonnull %24) #7
+  %25 = getelementptr inbounds i8, ptr %1, i64 38
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.11, ptr @.str.12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1485, ptr noundef nonnull %28) #7
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1486, i32 noundef %30) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1487) #7
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %32)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1488) #7
+  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = load ptr, ptr %33, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %34)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1489) #7
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load ptr, ptr %35, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %36)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1490) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = load ptr, ptr %37, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %38)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1491) #7
+  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = load ptr, ptr %39, align 8
+  call void @outNode(ptr noundef %0, ptr noundef %40)
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1492) #7
+  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = load ptr, ptr %41, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %43 = call i32 @bms_next_member(ptr noundef %42, i32 noundef -1) #7
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.lr.ph.i, label %outBitmapset.exit
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %45 = phi i32 [ %46, %.lr.ph.i ], [ %43, %2 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %45) #7
+  %46 = call i32 @bms_next_member(ptr noundef %42, i32 noundef %45) #7
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.lr.ph.i, label %outBitmapset.exit, !llvm.loop !7
+
+outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1493) #7
+  %48 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = load ptr, ptr %48, align 8
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 98) #7
+  %50 = call i32 @bms_next_member(ptr noundef %49, i32 noundef -1) #7
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph.i63, label %outBitmapset.exit64
+
+.lr.ph.i63:                                       ; preds = %outBitmapset.exit, %.lr.ph.i63
+  %52 = phi i32 [ %53, %.lr.ph.i63 ], [ %50, %outBitmapset.exit ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %52) #7
+  %53 = call i32 @bms_next_member(ptr noundef %49, i32 noundef %52) #7
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.lr.ph.i63, label %outBitmapset.exit64, !llvm.loop !7
+
+outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBitmapset.exit
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.322) #7
   %55 = getelementptr inbounds i8, ptr %1, i64 104
   %56 = load ptr, ptr %55, align 8
@@ -25999,30 +25509,30 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %71, label %66
 
-66:                                               ; preds = %outBitmapset.exit66
+66:                                               ; preds = %outBitmapset.exit64
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %67 = icmp sgt i32 %65, 0
   br i1 %67, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %66
   %wide.trip.count.i = zext nneg i32 %65 to i64
-  br label %.lr.ph.i67
+  br label %.lr.ph.i65
 
-.lr.ph.i67:                                       ; preds = %.lr.ph.i67, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i67 ]
+.lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i65 ]
   %68 = getelementptr i16, ptr %64, i64 %indvars.iv.i
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %70) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i67, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i65, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i67, %66
+._crit_edge.i:                                    ; preds = %.lr.ph.i65, %66
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeAttrNumberCols.exit
 
-71:                                               ; preds = %outBitmapset.exit66
+71:                                               ; preds = %outBitmapset.exit64
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeAttrNumberCols.exit
 
@@ -26031,28 +25541,28 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %71
   %72 = getelementptr inbounds i8, ptr %1, i64 136
   %73 = load ptr, ptr %72, align 8
   %74 = load i32, ptr %61, align 4
-  %.not.i68 = icmp eq ptr %73, null
-  br i1 %.not.i68, label %79, label %75
+  %.not.i66 = icmp eq ptr %73, null
+  br i1 %.not.i66, label %79, label %75
 
 75:                                               ; preds = %writeAttrNumberCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %76 = icmp sgt i32 %74, 0
-  br i1 %76, label %.lr.ph.preheader.i70, label %._crit_edge.i69
+  br i1 %76, label %.lr.ph.preheader.i68, label %._crit_edge.i67
 
-.lr.ph.preheader.i70:                             ; preds = %75
-  %wide.trip.count.i71 = zext nneg i32 %74 to i64
-  br label %.lr.ph.i72
+.lr.ph.preheader.i68:                             ; preds = %75
+  %wide.trip.count.i69 = zext nneg i32 %74 to i64
+  br label %.lr.ph.i70
 
-.lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
-  %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %77 = getelementptr i32, ptr %73, i64 %indvars.iv.i73
+.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i68
+  %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %.lr.ph.i70 ]
+  %77 = getelementptr i32, ptr %73, i64 %indvars.iv.i71
   %78 = load i32, ptr %77, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %78) #7
-  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
-  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i71
-  br i1 %exitcond.not.i75, label %._crit_edge.i69, label %.lr.ph.i72, !llvm.loop !13
+  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
+  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
+  br i1 %exitcond.not.i73, label %._crit_edge.i67, label %.lr.ph.i70, !llvm.loop !13
 
-._crit_edge.i69:                                  ; preds = %.lr.ph.i72, %75
+._crit_edge.i67:                                  ; preds = %.lr.ph.i70, %75
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
   br label %writeOidCols.exit
 
@@ -26060,41 +25570,41 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %71
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
   br label %writeOidCols.exit
 
-writeOidCols.exit:                                ; preds = %._crit_edge.i69, %79
+writeOidCols.exit:                                ; preds = %._crit_edge.i67, %79
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1665) #7
   %80 = getelementptr inbounds i8, ptr %1, i64 144
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %61, align 4
-  %.not.i76 = icmp eq ptr %81, null
-  br i1 %.not.i76, label %87, label %83
+  %.not.i74 = icmp eq ptr %81, null
+  br i1 %.not.i74, label %87, label %83
 
 83:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #7
   %84 = icmp sgt i32 %82, 0
-  br i1 %84, label %.lr.ph.preheader.i78, label %._crit_edge.i77
+  br i1 %84, label %.lr.ph.preheader.i76, label %._crit_edge.i75
 
-.lr.ph.preheader.i78:                             ; preds = %83
-  %wide.trip.count.i79 = zext nneg i32 %82 to i64
-  br label %.lr.ph.i80
+.lr.ph.preheader.i76:                             ; preds = %83
+  %wide.trip.count.i77 = zext nneg i32 %82 to i64
+  br label %.lr.ph.i78
 
-.lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
-  %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
-  %85 = getelementptr i32, ptr %81, i64 %indvars.iv.i81
+.lr.ph.i78:                                       ; preds = %.lr.ph.i78, %.lr.ph.preheader.i76
+  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
+  %85 = getelementptr i32, ptr %81, i64 %indvars.iv.i79
   %86 = load i32, ptr %85, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %86) #7
-  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
-  %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i79
-  br i1 %exitcond.not.i83, label %._crit_edge.i77, label %.lr.ph.i80, !llvm.loop !13
+  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
+  %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, %wide.trip.count.i77
+  br i1 %exitcond.not.i81, label %._crit_edge.i75, label %.lr.ph.i78, !llvm.loop !13
 
-._crit_edge.i77:                                  ; preds = %.lr.ph.i80, %83
+._crit_edge.i75:                                  ; preds = %.lr.ph.i78, %83
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 41) #7
-  br label %writeOidCols.exit84
+  br label %writeOidCols.exit82
 
 87:                                               ; preds = %writeOidCols.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str) #7
-  br label %writeOidCols.exit84
+  br label %writeOidCols.exit82
 
-writeOidCols.exit84:                              ; preds = %._crit_edge.i77, %87
+writeOidCols.exit82:                              ; preds = %._crit_edge.i75, %87
   ret void
 }
 
@@ -26124,9 +25634,8 @@ define internal fastcc void @_outPlanRowMark(ptr noundef %0, ptr nocapture nound
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.457, i32 noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, ptr @.str.12, ptr @.str.11
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1685, ptr noundef nonnull %20) #7
   ret void
 }

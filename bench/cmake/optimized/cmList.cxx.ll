@@ -7666,9 +7666,8 @@ _ZNSt10unique_ptrI21cmStringReplaceHelperSt14default_deleteIS0_EED2Ev.exit: ; pr
 30:                                               ; preds = %_ZNSt10unique_ptrI21cmStringReplaceHelperSt14default_deleteIS0_EED2Ev.exit
   %31 = getelementptr inbounds i8, ptr %18, i64 624
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not32 = icmp eq i8 %33, 0
-  br i1 %.not32, label %34, label %44
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %44, label %34
 
 34:                                               ; preds = %30
   %35 = call ptr @__cxa_allocate_exception(i64 16) #27
@@ -8791,9 +8790,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN9__gnu_cxx17__normal_itera
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -10611,8 +10609,8 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
-  %.not.i.i17 = icmp eq ptr %29, null
-  br i1 %.not.i.i17, label %.invoke21, label %.invoke
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %.invoke21, label %.invoke
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_112StringSorter11ApplyFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %31 = landingpad { ptr, i32 }
@@ -10635,10 +10633,9 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES
 .invoke:                                          ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 96
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  %.22 = select i1 %.not, ptr %7, ptr %6
-  %. = select i1 %.not, ptr %6, ptr %7
+  %36 = trunc i8 %35 to i1
+  %.22 = select i1 %36, ptr %6, ptr %7
+  %. = select i1 %36, ptr %7, ptr %6
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   %38 = getelementptr inbounds i8, ptr %0, i64 88
   %39 = load ptr, ptr %38, align 8

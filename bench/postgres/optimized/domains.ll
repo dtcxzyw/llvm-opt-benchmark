@@ -23,9 +23,8 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %12
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %12, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -37,9 +36,8 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   %.026 = phi ptr [ %11, %8 ], [ null, %1 ]
   %13 = getelementptr i8, ptr %0, i64 56
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not28 = icmp eq i8 %15, 0
-  br i1 %.not28, label %18, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 28
@@ -58,8 +56,8 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 26:                                               ; preds = %18
   %27 = load i32, ptr %24, align 8
-  %.not29 = icmp eq i32 %27, %21
-  br i1 %.not29, label %34, label %28
+  %.not = icmp eq i32 %27, %21
+  br i1 %.not, label %34, label %28
 
 28:                                               ; preds = %26, %18
   %29 = getelementptr inbounds i8, ptr %22, i64 32
@@ -353,9 +351,8 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %9
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -367,9 +364,8 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   %.024 = phi ptr [ %8, %5 ], [ null, %1 ]
   %10 = getelementptr i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not26 = icmp eq i8 %12, 0
-  br i1 %.not26, label %13, label %.sink.split
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %0, i64 48
@@ -383,8 +379,8 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
 
 21:                                               ; preds = %13
   %22 = load i32, ptr %19, align 8
-  %.not27 = icmp eq i32 %22, %16
-  br i1 %.not27, label %29, label %23
+  %.not = icmp eq i32 %22, %16
+  br i1 %.not, label %29, label %23
 
 23:                                               ; preds = %21, %13
   %24 = getelementptr inbounds i8, ptr %17, i64 32
@@ -493,8 +489,8 @@ define dso_local zeroext i1 @domain_check_safe(i64 noundef %0, i1 noundef zeroex
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %5, i64 4
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %26 = icmp eq i8 %25, 0
+  %25 = trunc i8 %24 to i1
+  %26 = xor i1 %25, true
   br label %domain_check_internal.exit
 
 domain_check_internal.exit:                       ; preds = %18, %19, %22

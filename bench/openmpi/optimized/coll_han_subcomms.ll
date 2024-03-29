@@ -41,25 +41,24 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) local_u
   %7 = getelementptr inbounds i8, ptr %1, i64 888
   %8 = getelementptr inbounds i8, ptr %1, i64 592
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %18, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %6, align 8
-  %.not132 = icmp eq ptr %12, null
-  br i1 %.not132, label %18, label %13
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %7, align 8
-  %.not133 = icmp eq ptr %14, null
-  br i1 %.not133, label %18, label %15
+  %.not132 = icmp eq ptr %14, null
+  br i1 %.not132, label %18, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %1, i64 624
   %17 = load ptr, ptr %16, align 8
-  %.not134 = icmp eq ptr %17, null
-  br i1 %.not134, label %18, label %opal_obj_run_destructors.exit
+  %.not133 = icmp eq ptr %17, null
+  br i1 %.not133, label %18, label %opal_obj_run_destructors.exit
 
 18:                                               ; preds = %2, %11, %13, %15
   %19 = getelementptr inbounds i8, ptr %0, i64 328
@@ -163,8 +162,8 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) local_u
   %102 = getelementptr inbounds i8, ptr %99, i64 40
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 %101(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_max, ptr noundef %0, ptr noundef %103) #3
-  %.not135 = icmp eq i32 %104, 0
-  br i1 %.not135, label %105, label %208
+  %.not134 = icmp eq i32 %104, 0
+  br i1 %.not134, label %105, label %208
 
 105:                                              ; preds = %18
   %106 = load i32, ptr %5, align 4
@@ -219,8 +218,8 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) local_u
 136:                                              ; preds = %105
   %137 = load i32, ptr @opal_class_init_epoch, align 4
   %138 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 4), align 8
-  %.not136 = icmp eq i32 %137, %138
-  br i1 %.not136, label %140, label %139
+  %.not135 = icmp eq i32 %137, %138
+  br i1 %.not135, label %140, label %139
 
 139:                                              ; preds = %136
   call void @opal_class_initialize(ptr noundef nonnull @opal_info_t_class) #3
@@ -247,36 +246,36 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) local_u
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %140
   %147 = getelementptr i8, ptr %0, i64 220
   %.val = load i32, ptr %147, align 4
-  %.val144 = load ptr, ptr %96, align 8
-  %148 = getelementptr i8, ptr %.val144, i64 16
-  %.val144.val = load i32, ptr %148, align 8
+  %.val143 = load ptr, ptr %96, align 8
+  %148 = getelementptr i8, ptr %.val143, i64 16
+  %.val143.val = load i32, ptr %148, align 8
   %149 = call i32 @opal_info_set(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %150 = call i32 @opal_info_set(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #3
   %151 = call i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %6) #3
-  %.not137 = icmp eq i32 %151, 0
-  br i1 %.not137, label %152, label %208
+  %.not136 = icmp eq i32 %151, 0
+  br i1 %.not136, label %152, label %208
 
 152:                                              ; preds = %opal_obj_run_constructors.exit
   %153 = load ptr, ptr %6, align 8
   %154 = getelementptr i8, ptr %153, i64 248
-  %.val145 = load ptr, ptr %154, align 8
-  %155 = getelementptr i8, ptr %.val145, i64 16
-  %.val145.val = load i32, ptr %155, align 8
+  %.val144 = load ptr, ptr %154, align 8
+  %155 = getelementptr i8, ptr %.val144, i64 16
+  %.val144.val = load i32, ptr %155, align 8
   %156 = getelementptr i8, ptr %153, i64 220
-  %.val142 = load i32, ptr %156, align 4
+  %.val141 = load i32, ptr %156, align 4
   %157 = call i32 @opal_info_set(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #3
-  %158 = call i32 @ompi_comm_split_with_info(ptr noundef nonnull %0, i32 noundef %.val142, i32 noundef %.val, ptr noundef nonnull %4, ptr noundef nonnull %7, i1 noundef zeroext false) #3
-  %.not138 = icmp eq i32 %158, 0
-  br i1 %.not138, label %159, label %208
+  %158 = call i32 @ompi_comm_split_with_info(ptr noundef nonnull %0, i32 noundef %.val141, i32 noundef %.val, ptr noundef nonnull %4, ptr noundef nonnull %7, i1 noundef zeroext false) #3
+  %.not137 = icmp eq i32 %158, 0
+  br i1 %.not137, label %159, label %208
 
 159:                                              ; preds = %152
   %160 = load ptr, ptr %7, align 8
   %161 = getelementptr i8, ptr %160, i64 220
-  %.val143 = load i32, ptr %161, align 4
-  %162 = mul nsw i32 %.val143, %.val145.val
-  %163 = add nsw i32 %162, %.val142
+  %.val142 = load i32, ptr %161, align 4
+  %162 = mul nsw i32 %.val142, %.val144.val
+  %163 = add nsw i32 %162, %.val141
   store i32 %163, ptr %3, align 4
-  %164 = sext i32 %.val144.val to i64
+  %164 = sext i32 %.val143.val to i64
   %165 = shl nsw i64 %164, 2
   %166 = call noalias ptr @malloc(i64 noundef %165) #4
   %167 = load ptr, ptr %19, align 8
@@ -284,8 +283,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %140
   %169 = getelementptr inbounds i8, ptr %167, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = call i32 %168(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef %166, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull %0, ptr noundef %170) #3
-  %.not139 = icmp eq i32 %171, 0
-  br i1 %.not139, label %172, label %208
+  %.not138 = icmp eq i32 %171, 0
+  br i1 %.not138, label %172, label %208
 
 172:                                              ; preds = %159
   %173 = getelementptr inbounds i8, ptr %1, i64 624
@@ -335,23 +334,23 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %140
   %202 = getelementptr inbounds i8, ptr %201, i64 48
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %203, align 8
-  %.not6.i146 = icmp eq ptr %204, null
-  br i1 %.not6.i146, label %opal_obj_run_destructors.exit, label %.lr.ph.i147
+  %.not6.i145 = icmp eq ptr %204, null
+  br i1 %.not6.i145, label %opal_obj_run_destructors.exit, label %.lr.ph.i146
 
-.lr.ph.i147:                                      ; preds = %172, %.lr.ph.i147
-  %205 = phi ptr [ %207, %.lr.ph.i147 ], [ %204, %172 ]
-  %.07.i148 = phi ptr [ %206, %.lr.ph.i147 ], [ %203, %172 ]
+.lr.ph.i146:                                      ; preds = %172, %.lr.ph.i146
+  %205 = phi ptr [ %207, %.lr.ph.i146 ], [ %204, %172 ]
+  %.07.i147 = phi ptr [ %206, %.lr.ph.i146 ], [ %203, %172 ]
   call void %205(ptr noundef nonnull %4) #3
-  %206 = getelementptr inbounds i8, ptr %.07.i148, i64 8
+  %206 = getelementptr inbounds i8, ptr %.07.i147, i64 8
   %207 = load ptr, ptr %206, align 8
-  %.not.i149 = icmp eq ptr %207, null
-  br i1 %.not.i149, label %opal_obj_run_destructors.exit, label %.lr.ph.i147, !llvm.loop !6
+  %.not.i148 = icmp eq ptr %207, null
+  br i1 %.not.i148, label %opal_obj_run_destructors.exit, label %.lr.ph.i146, !llvm.loop !6
 
 208:                                              ; preds = %159, %152, %opal_obj_run_constructors.exit, %18
   %.0127 = phi i32 [ %104, %18 ], [ %151, %opal_obj_run_constructors.exit ], [ %158, %152 ], [ %171, %159 ]
   %209 = load ptr, ptr %6, align 8
-  %.not140 = icmp eq ptr %209, null
-  br i1 %.not140, label %212, label %210
+  %.not139 = icmp eq ptr %209, null
+  br i1 %.not139, label %212, label %210
 
 210:                                              ; preds = %208
   %211 = call i32 @ompi_comm_free(ptr noundef nonnull %6) #3
@@ -360,16 +359,16 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %140
 
 212:                                              ; preds = %210, %208
   %213 = load ptr, ptr %7, align 8
-  %.not141 = icmp eq ptr %213, null
-  br i1 %.not141, label %opal_obj_run_destructors.exit, label %214
+  %.not140 = icmp eq ptr %213, null
+  br i1 %.not140, label %opal_obj_run_destructors.exit, label %214
 
 214:                                              ; preds = %212
   %215 = call i32 @ompi_comm_free(ptr noundef nonnull %7) #3
   store ptr null, ptr %7, align 8
   br label %opal_obj_run_destructors.exit
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i147, %172, %212, %214, %15, %108
-  %.0 = phi i32 [ -8, %108 ], [ 0, %15 ], [ %.0127, %214 ], [ %.0127, %212 ], [ 0, %172 ], [ 0, %.lr.ph.i147 ]
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i146, %172, %212, %214, %15, %108
+  %.0 = phi i32 [ -8, %108 ], [ 0, %15 ], [ %.0127, %214 ], [ %.0127, %212 ], [ 0, %172 ], [ 0, %.lr.ph.i146 ]
   ret i32 %.0
 }
 
@@ -395,27 +394,26 @@ define noundef i32 @mca_coll_han_comm_create(ptr noundef %0, ptr nocapture nound
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 592
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %18, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %18
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 608
   %11 = load ptr, ptr %10, align 8
-  %.not124 = icmp eq ptr %11, null
-  br i1 %.not124, label %18, label %12
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %1, i64 616
   %14 = load ptr, ptr %13, align 8
-  %.not125 = icmp eq ptr %14, null
-  br i1 %.not125, label %18, label %15
+  %.not124 = icmp eq ptr %14, null
+  br i1 %.not124, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %1, i64 624
   %17 = load ptr, ptr %16, align 8
-  %.not126 = icmp eq ptr %17, null
-  br i1 %.not126, label %18, label %opal_obj_run_destructors.exit
+  %.not125 = icmp eq ptr %17, null
+  br i1 %.not125, label %18, label %opal_obj_run_destructors.exit
 
 18:                                               ; preds = %2, %9, %12, %15
   %19 = getelementptr inbounds i8, ptr %0, i64 328
@@ -570,16 +568,16 @@ define noundef i32 @mca_coll_han_comm_create(ptr noundef %0, ptr nocapture nound
 
 135:                                              ; preds = %18
   %136 = getelementptr i8, ptr %0, i64 220
-  %.val129 = load i32, ptr %136, align 4
-  %.val131 = load ptr, ptr %96, align 8
-  %137 = getelementptr i8, ptr %.val131, i64 16
-  %.val131.val = load i32, ptr %137, align 8
+  %.val128 = load i32, ptr %136, align 4
+  %.val130 = load ptr, ptr %96, align 8
+  %137 = getelementptr i8, ptr %.val130, i64 16
+  %.val130.val = load i32, ptr %137, align 8
   %138 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #4
   %139 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #4
   %140 = load i32, ptr @opal_class_init_epoch, align 4
   %141 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 4), align 8
-  %.not127 = icmp eq i32 %140, %141
-  br i1 %.not127, label %143, label %142
+  %.not126 = icmp eq i32 %140, %141
+  br i1 %.not126, label %143, label %142
 
 142:                                              ; preds = %135
   call void @opal_class_initialize(ptr noundef nonnull @opal_info_t_class) #3
@@ -608,26 +606,26 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %143
   %151 = call i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef %138) #3
   %152 = load ptr, ptr %138, align 8
   %153 = getelementptr i8, ptr %152, i64 248
-  %.val130 = load ptr, ptr %153, align 8
-  %154 = getelementptr i8, ptr %.val130, i64 16
-  %.val130.val = load i32, ptr %154, align 8
+  %.val129 = load ptr, ptr %153, align 8
+  %154 = getelementptr i8, ptr %.val129, i64 16
+  %.val129.val = load i32, ptr %154, align 8
   %155 = getelementptr i8, ptr %152, i64 220
-  %.val128 = load i32, ptr %155, align 4
+  %.val127 = load i32, ptr %155, align 4
   %156 = call i32 @opal_info_set(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #3
   %157 = getelementptr inbounds i8, ptr %138, i64 8
   %158 = call i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %157) #3
   %159 = call i32 @opal_info_set(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #3
-  %160 = call i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %.val128, i32 noundef %.val129, ptr noundef nonnull %4, ptr noundef %139, i1 noundef zeroext false) #3
+  %160 = call i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %.val127, i32 noundef %.val128, ptr noundef nonnull %4, ptr noundef %139, i1 noundef zeroext false) #3
   %161 = load ptr, ptr %139, align 8
   %162 = getelementptr i8, ptr %161, i64 220
   %.val = load i32, ptr %162, align 4
   %163 = call i32 @opal_info_set(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #3
   %164 = getelementptr inbounds i8, ptr %139, i64 8
-  %165 = call i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %.val128, i32 noundef %.val129, ptr noundef nonnull %4, ptr noundef nonnull %164, i1 noundef zeroext false) #3
-  %166 = mul nsw i32 %.val, %.val130.val
-  %167 = add nsw i32 %166, %.val128
+  %165 = call i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %.val127, i32 noundef %.val128, ptr noundef nonnull %4, ptr noundef nonnull %164, i1 noundef zeroext false) #3
+  %166 = mul nsw i32 %.val, %.val129.val
+  %167 = add nsw i32 %166, %.val127
   store i32 %167, ptr %3, align 4
-  %168 = sext i32 %.val131.val to i64
+  %168 = sext i32 %.val130.val to i64
   %169 = shl nsw i64 %168, 2
   %170 = call noalias ptr @malloc(i64 noundef %169) #4
   %171 = load ptr, ptr %19, align 8
@@ -686,20 +684,20 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %143
   %207 = getelementptr inbounds i8, ptr %206, i64 48
   %208 = load ptr, ptr %207, align 8
   %209 = load ptr, ptr %208, align 8
-  %.not6.i132 = icmp eq ptr %209, null
-  br i1 %.not6.i132, label %opal_obj_run_destructors.exit, label %.lr.ph.i133
+  %.not6.i131 = icmp eq ptr %209, null
+  br i1 %.not6.i131, label %opal_obj_run_destructors.exit, label %.lr.ph.i132
 
-.lr.ph.i133:                                      ; preds = %opal_obj_run_constructors.exit, %.lr.ph.i133
-  %210 = phi ptr [ %212, %.lr.ph.i133 ], [ %209, %opal_obj_run_constructors.exit ]
-  %.07.i134 = phi ptr [ %211, %.lr.ph.i133 ], [ %208, %opal_obj_run_constructors.exit ]
+.lr.ph.i132:                                      ; preds = %opal_obj_run_constructors.exit, %.lr.ph.i132
+  %210 = phi ptr [ %212, %.lr.ph.i132 ], [ %209, %opal_obj_run_constructors.exit ]
+  %.07.i133 = phi ptr [ %211, %.lr.ph.i132 ], [ %208, %opal_obj_run_constructors.exit ]
   call void %210(ptr noundef nonnull %4) #3
-  %211 = getelementptr inbounds i8, ptr %.07.i134, i64 8
+  %211 = getelementptr inbounds i8, ptr %.07.i133, i64 8
   %212 = load ptr, ptr %211, align 8
-  %.not.i135 = icmp eq ptr %212, null
-  br i1 %.not.i135, label %opal_obj_run_destructors.exit, label %.lr.ph.i133, !llvm.loop !6
+  %.not.i134 = icmp eq ptr %212, null
+  br i1 %.not.i134, label %opal_obj_run_destructors.exit, label %.lr.ph.i132, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i133, %opal_obj_run_constructors.exit, %15, %107
-  %.0 = phi i32 [ -8, %107 ], [ 0, %15 ], [ 0, %opal_obj_run_constructors.exit ], [ 0, %.lr.ph.i133 ]
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i132, %opal_obj_run_constructors.exit, %15, %107
+  %.0 = phi i32 [ -8, %107 ], [ 0, %15 ], [ 0, %opal_obj_run_constructors.exit ], [ 0, %.lr.ph.i132 ]
   ret i32 %.0
 }
 

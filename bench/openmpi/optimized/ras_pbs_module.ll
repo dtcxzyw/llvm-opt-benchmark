@@ -71,9 +71,8 @@ define internal noundef i32 @allocate(ptr nocapture readnone %0, ptr noundef %1)
   store ptr %13, ptr @prte_job_ident, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %14 = load i8, ptr getelementptr inbounds (%struct.prte_mca_ras_pbs_component_t, ptr @prte_mca_ras_pbs_component, i64 0, i32 1), align 8
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %24, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
   %17 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #12
@@ -142,8 +141,8 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   store i8 0, ptr %45, align 1
   %46 = call noalias ptr @strdup(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
-  %.not39.i = icmp eq ptr %46, null
-  br i1 %.not39.i, label %.loopexit, label %47
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %.loopexit, label %47
 
 47:                                               ; preds = %pbs_getline.exit.i
   %48 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i64 0, i32 11), align 4
@@ -164,8 +163,8 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
 
 56:                                               ; preds = %54, %49, %47
   %.0324.i = load ptr, ptr %38, align 8
-  %.not40.not5.i = icmp eq ptr %.0324.i, %37
-  br i1 %.not40.not5.i, label %.critedge.i, label %.lr.ph.i
+  %.not39.not5.i = icmp eq ptr %.0324.i, %37
+  br i1 %.not39.not5.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %79
   %.0326.i = phi ptr [ %.032.i, %79 ], [ %.0324.i, %56 ]
@@ -177,9 +176,8 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
 
 61:                                               ; preds = %.lr.ph.i
   %62 = load i8, ptr getelementptr inbounds (%struct.prte_mca_ras_pbs_component_t, ptr @prte_mca_ras_pbs_component, i64 0, i32 1), align 8
-  %63 = and i8 %62, 1
-  %.not41.i = icmp eq i8 %63, 0
-  br i1 %.not41.i, label %66, label %64
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %66
 
 64:                                               ; preds = %61
   %65 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, i32 noundef 1) #12
@@ -210,8 +208,8 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
 79:                                               ; preds = %.lr.ph.i
   %80 = getelementptr inbounds i8, ptr %.0326.i, i64 120
   %.032.i = load ptr, ptr %80, align 8
-  %.not40.not.i = icmp eq ptr %.032.i, %37
-  br i1 %.not40.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !4
+  %.not39.not.i = icmp eq ptr %.032.i, %37
+  br i1 %.not39.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %79, %56
   %81 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i64 0, i32 11), align 4
@@ -235,8 +233,8 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   %91 = call noalias noundef ptr @malloc(i64 noundef %90) #14
   %92 = load i32, ptr @pmix_class_init_epoch, align 4
   %93 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_node_t_class, i64 0, i32 4), align 8
-  %.not.i42.i = icmp eq i32 %92, %93
-  br i1 %.not.i42.i, label %95, label %94
+  %.not.i40.i = icmp eq i32 %92, %93
+  br i1 %.not.i40.i, label %95, label %94
 
 94:                                               ; preds = %89
   call void @pmix_class_initialize(ptr noundef nonnull @prte_node_t_class) #12

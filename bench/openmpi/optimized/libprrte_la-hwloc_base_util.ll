@@ -450,7 +450,7 @@ define noundef ptr @prte_hwloc_base_filter_cpus(ptr noundef %0) local_unnamed_ad
   %13 = tail call noalias ptr @hwloc_bitmap_alloc() #16
   %14 = tail call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef %0) #17
   %15 = tail call i32 @hwloc_bitmap_copy(ptr noundef %13, ptr noundef %14) #16
-  br label %29
+  br label %28
 
 16:                                               ; preds = %1
   br i1 %or.cond, label %17, label %23
@@ -470,13 +470,12 @@ define noundef ptr @prte_hwloc_base_filter_cpus(ptr noundef %0) local_unnamed_ad
 23:                                               ; preds = %22, %17, %16
   %24 = phi ptr [ %.pre, %22 ], [ %2, %17 ], [ %2, %16 ]
   %25 = load i8, ptr @prte_hwloc_default_use_hwthread_cpus, align 1
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  %28 = tail call ptr @prte_hwloc_base_generate_cpuset(ptr noundef %0, i1 noundef zeroext %27, ptr noundef %24)
-  br label %29
+  %26 = trunc i8 %25 to i1
+  %27 = tail call ptr @prte_hwloc_base_generate_cpuset(ptr noundef %0, i1 noundef zeroext %26, ptr noundef %24)
+  br label %28
 
-29:                                               ; preds = %23, %12
-  %.0 = phi ptr [ %13, %12 ], [ %28, %23 ]
+28:                                               ; preds = %23, %12
+  %.0 = phi ptr [ %13, %12 ], [ %27, %23 ]
   ret ptr %.0
 }
 
@@ -579,78 +578,86 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %23, %21, %prte_hwlo
 43:                                               ; preds = %28, %42
   %44 = load ptr, ptr @prte_hwloc_topology, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %fill_cache_line_size.exit, label %.preheader.i
+  br i1 %45, label %fill_cache_line_size.exit, label %.preheader.i.outer
 
-.preheaderthread-pre-split.i:                     ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i
-  %.pr.i = load ptr, ptr @prte_hwloc_topology, align 8
+.preheader.i.outer:                               ; preds = %43, %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge
+  %.pr.i27.ph = phi ptr [ %.pr.i.pre, %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ], [ %44, %43 ]
+  %.01438.i.ph = phi i32 [ 4, %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ], [ 5, %43 ]
+  %.01637.i.ph = phi i32 [ %51, %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ], [ 2, %43 ]
+  %.01736.i.ph = phi i32 [ %.118.lcssa.i, %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ], [ 4096, %43 ]
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %43, %.preheaderthread-pre-split.i
-  %46 = phi ptr [ %.pr.i, %.preheaderthread-pre-split.i ], [ %44, %43 ]
-  %.039.i = phi i8 [ %.1.lcssa.i, %.preheaderthread-pre-split.i ], [ 0, %43 ]
-  %.01438.i = phi i32 [ 4, %.preheaderthread-pre-split.i ], [ 5, %43 ]
-  %.01637.i = phi i32 [ %52, %.preheaderthread-pre-split.i ], [ 2, %43 ]
-  %.01736.i = phi i32 [ %.118.lcssa.i, %.preheaderthread-pre-split.i ], [ 4096, %43 ]
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
+.preheader.i:                                     ; preds = %.preheader.i.outer, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread
+  %.pr.i27 = phi ptr [ null, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.pr.i27.ph, %.preheader.i.outer ]
+  %.01438.i = phi i32 [ 4, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.01438.i.ph, %.preheader.i.outer ]
+  %.01637.i = phi i32 [ %53, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.01637.i.ph, %.preheader.i.outer ]
+  %46 = icmp eq ptr %.pr.i27, null
+  br i1 %46, label %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %63
-  %48 = phi ptr [ %65, %63 ], [ %46, %.preheader.i ]
-  %.129.i = phi i8 [ %.2.i, %63 ], [ %.039.i, %.preheader.i ]
-  %.01528.i = phi i32 [ %64, %63 ], [ 0, %.preheader.i ]
-  %.11827.i = phi i32 [ %.219.i, %63 ], [ %.01736.i, %.preheader.i ]
-  %49 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %48, i32 noundef %.01438.i) #16
-  %switch.i.i.i = icmp ugt i32 %49, -3
+.lr.ph.i:                                         ; preds = %.preheader.i, %62
+  %47 = phi ptr [ %64, %62 ], [ %.pr.i27, %.preheader.i ]
+  %.129.i = phi i1 [ %.2.i, %62 ], [ false, %.preheader.i ]
+  %.01528.i = phi i32 [ %63, %62 ], [ 0, %.preheader.i ]
+  %.11827.i = phi i32 [ %.219.i, %62 ], [ %.01736.i.ph, %.preheader.i ]
+  %48 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %47, i32 noundef %.01438.i) #16
+  %switch.i.i.i = icmp ugt i32 %48, -3
   br i1 %switch.i.i.i, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %prte_hwloc_base_get_obj_by_type.exit.i
 
 prte_hwloc_base_get_obj_by_type.exit.i:           ; preds = %.lr.ph.i
-  %50 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %48, i32 noundef %49, i32 noundef %.01528.i) #17
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %56
+  %49 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %47, i32 noundef %48, i32 noundef %.01528.i) #17
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %55
 
-prte_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %63, %prte_hwloc_base_get_obj_by_type.exit.i, %.lr.ph.i, %.preheader.i
-  %.118.lcssa.i = phi i32 [ %.01736.i, %.preheader.i ], [ %.11827.i, %prte_hwloc_base_get_obj_by_type.exit.i ], [ %.219.i, %63 ], [ %.11827.i, %.lr.ph.i ]
-  %.1.lcssa.i = phi i8 [ %.039.i, %.preheader.i ], [ %.129.i, %prte_hwloc_base_get_obj_by_type.exit.i ], [ %.2.i, %63 ], [ %.129.i, %.lr.ph.i ]
-  %52 = add nsw i32 %.01637.i, -1
-  %53 = icmp ne i32 %52, 0
-  %54 = and i8 %.1.lcssa.i, 1
-  %.not.i16 = icmp eq i8 %54, 0
-  %55 = select i1 %53, i1 %.not.i16, i1 false
-  br i1 %55, label %.preheaderthread-pre-split.i, label %.split41.us.i, !llvm.loop !8
+prte_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %62, %prte_hwloc_base_get_obj_by_type.exit.i, %.lr.ph.i
+  %.118.lcssa.i = phi i32 [ %.11827.i, %.lr.ph.i ], [ %.219.i, %62 ], [ %.11827.i, %prte_hwloc_base_get_obj_by_type.exit.i ]
+  %.1.lcssa.i = phi i1 [ %.129.i, %.lr.ph.i ], [ %.2.i, %62 ], [ %.129.i, %prte_hwloc_base_get_obj_by_type.exit.i ]
+  %51 = add nsw i32 %.01637.i, -1
+  %52 = icmp eq i32 %51, 0
+  %.not23.i = select i1 %52, i1 true, i1 %.1.lcssa.i
+  br i1 %.not23.i, label %.split41.us.i, label %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !8
 
-56:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit.i
-  %57 = getelementptr inbounds i8, ptr %50, i64 40
-  %58 = load ptr, ptr %57, align 8
-  %.not23.i = icmp eq ptr %58, null
-  br i1 %.not23.i, label %63, label %59
+prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge: ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i
+  %.pr.i.pre = load ptr, ptr @prte_hwloc_topology, align 8
+  br label %.preheader.i.outer
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %58, i64 12
-  %61 = load i32, ptr %60, align 4
-  %.not24.i = icmp ne i32 %61, 0
-  %62 = icmp ugt i32 %.11827.i, %61
-  %or.cond.i = select i1 %.not24.i, i1 %62, i1 false
-  %spec.select.i = select i1 %or.cond.i, i32 %61, i32 %.11827.i
-  %spec.select25.i = select i1 %or.cond.i, i8 1, i8 %.129.i
-  br label %63
+prte_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
+  %53 = add nsw i32 %.01637.i, -1
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %fill_cache_line_size.exit, label %.preheader.i, !llvm.loop !8
 
-63:                                               ; preds = %59, %56
-  %.219.i = phi i32 [ %.11827.i, %56 ], [ %spec.select.i, %59 ]
-  %.2.i = phi i8 [ %.129.i, %56 ], [ %spec.select25.i, %59 ]
-  %64 = add i32 %.01528.i, 1
-  %65 = load ptr, ptr @prte_hwloc_topology, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
+55:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit.i
+  %56 = getelementptr inbounds i8, ptr %49, i64 40
+  %57 = load ptr, ptr %56, align 8
+  %.not.i16 = icmp eq ptr %57, null
+  br i1 %.not.i16, label %62, label %58
+
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %57, i64 12
+  %60 = load i32, ptr %59, align 4
+  %.not24.i = icmp ne i32 %60, 0
+  %61 = icmp ugt i32 %.11827.i, %60
+  %or.cond.i = select i1 %.not24.i, i1 %61, i1 false
+  %spec.select.i = select i1 %or.cond.i, i32 %60, i32 %.11827.i
+  %spec.select25.i = select i1 %or.cond.i, i1 true, i1 %.129.i
+  br label %62
+
+62:                                               ; preds = %58, %55
+  %.219.i = phi i32 [ %.11827.i, %55 ], [ %spec.select.i, %58 ]
+  %.2.i = phi i1 [ %.129.i, %55 ], [ %spec.select25.i, %58 ]
+  %63 = add i32 %.01528.i, 1
+  %64 = load ptr, ptr @prte_hwloc_topology, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
 
 .split41.us.i:                                    ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i
-  br i1 %.not.i16, label %fill_cache_line_size.exit, label %67
+  br i1 %.1.lcssa.i, label %66, label %fill_cache_line_size.exit
 
-67:                                               ; preds = %.split41.us.i
+66:                                               ; preds = %.split41.us.i
   store i32 %.118.lcssa.i, ptr @prte_cache_line_size, align 4
   br label %fill_cache_line_size.exit
 
-fill_cache_line_size.exit:                        ; preds = %67, %.split41.us.i, %43, %39, %8, %prte_hwloc_base_topology_set_flags.exit.thread
-  %.0 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %8 ], [ %41, %39 ], [ 0, %43 ], [ 0, %.split41.us.i ], [ 0, %67 ]
+fill_cache_line_size.exit:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread, %66, %.split41.us.i, %43, %39, %8, %prte_hwloc_base_topology_set_flags.exit.thread
+  %.0 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %8 ], [ %41, %39 ], [ 0, %43 ], [ 0, %.split41.us.i ], [ 0, %66 ], [ 0, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread ]
   ret i32 %.0
 }
 
@@ -894,18 +901,17 @@ define internal fastcc void @fill_cache_line_size() unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %.preheaderthread-pre-split
   %3 = phi ptr [ %.pr, %.preheaderthread-pre-split ], [ %1, %0 ]
-  %.039 = phi i8 [ %.1.lcssa, %.preheaderthread-pre-split ], [ 0, %0 ]
   %.01438 = phi i32 [ 4, %.preheaderthread-pre-split ], [ 5, %0 ]
   %.01637 = phi i32 [ %9, %.preheaderthread-pre-split ], [ 2, %0 ]
   %.01736 = phi i32 [ %.118.lcssa, %.preheaderthread-pre-split ], [ 4096, %0 ]
   %4 = icmp eq ptr %3, null
   br i1 %4, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %20
-  %5 = phi ptr [ %22, %20 ], [ %3, %.preheader ]
-  %.129 = phi i8 [ %.2, %20 ], [ %.039, %.preheader ]
-  %.01528 = phi i32 [ %21, %20 ], [ 0, %.preheader ]
-  %.11827 = phi i32 [ %.219, %20 ], [ %.01736, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %18
+  %5 = phi ptr [ %20, %18 ], [ %3, %.preheader ]
+  %.129 = phi i1 [ %.2, %18 ], [ false, %.preheader ]
+  %.01528 = phi i32 [ %19, %18 ], [ 0, %.preheader ]
+  %.11827 = phi i32 [ %.219, %18 ], [ %.01736, %.preheader ]
   %6 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %5, i32 noundef %.01438) #16
   %switch.i.i = icmp ugt i32 %6, -3
   br i1 %switch.i.i, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %prte_hwloc_base_get_obj_by_type.exit
@@ -913,50 +919,48 @@ define internal fastcc void @fill_cache_line_size() unnamed_addr #0 {
 prte_hwloc_base_get_obj_by_type.exit:             ; preds = %.lr.ph
   %7 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %5, i32 noundef %6, i32 noundef %.01528) #17
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %13
+  br i1 %8, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %11
 
-prte_hwloc_base_get_obj_by_type.exit.thread:      ; preds = %prte_hwloc_base_get_obj_by_type.exit, %20, %.lr.ph, %.preheader
-  %.118.lcssa = phi i32 [ %.01736, %.preheader ], [ %.11827, %.lr.ph ], [ %.219, %20 ], [ %.11827, %prte_hwloc_base_get_obj_by_type.exit ]
-  %.1.lcssa = phi i8 [ %.039, %.preheader ], [ %.129, %.lr.ph ], [ %.2, %20 ], [ %.129, %prte_hwloc_base_get_obj_by_type.exit ]
+prte_hwloc_base_get_obj_by_type.exit.thread:      ; preds = %prte_hwloc_base_get_obj_by_type.exit, %18, %.lr.ph, %.preheader
+  %.118.lcssa = phi i32 [ %.01736, %.preheader ], [ %.11827, %.lr.ph ], [ %.219, %18 ], [ %.11827, %prte_hwloc_base_get_obj_by_type.exit ]
+  %.1.lcssa = phi i1 [ false, %.preheader ], [ %.129, %.lr.ph ], [ %.2, %18 ], [ %.129, %prte_hwloc_base_get_obj_by_type.exit ]
   %9 = add nsw i32 %.01637, -1
-  %10 = icmp ne i32 %9, 0
-  %11 = and i8 %.1.lcssa, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %10, i1 %.not, i1 false
-  br i1 %12, label %.preheaderthread-pre-split, label %.split41.us, !llvm.loop !8
+  %10 = icmp eq i32 %9, 0
+  %.not23 = select i1 %10, i1 true, i1 %.1.lcssa
+  br i1 %.not23, label %.split41.us, label %.preheaderthread-pre-split, !llvm.loop !8
 
-13:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %.not23 = icmp eq ptr %15, null
-  br i1 %.not23, label %20, label %16
+11:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %18, label %14
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
-  %18 = load i32, ptr %17, align 4
-  %.not24 = icmp ne i32 %18, 0
-  %19 = icmp ugt i32 %.11827, %18
-  %or.cond = select i1 %.not24, i1 %19, i1 false
-  %spec.select = select i1 %or.cond, i32 %18, i32 %.11827
-  %spec.select25 = select i1 %or.cond, i8 1, i8 %.129
-  br label %20
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %13, i64 12
+  %16 = load i32, ptr %15, align 4
+  %.not24 = icmp ne i32 %16, 0
+  %17 = icmp ugt i32 %.11827, %16
+  %or.cond = select i1 %.not24, i1 %17, i1 false
+  %spec.select = select i1 %or.cond, i32 %16, i32 %.11827
+  %spec.select25 = select i1 %or.cond, i1 true, i1 %.129
+  br label %18
 
-20:                                               ; preds = %16, %13
-  %.219 = phi i32 [ %.11827, %13 ], [ %spec.select, %16 ]
-  %.2 = phi i8 [ %.129, %13 ], [ %spec.select25, %16 ]
-  %21 = add i32 %.01528, 1
-  %22 = load ptr, ptr @prte_hwloc_topology, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %.lr.ph
+18:                                               ; preds = %14, %11
+  %.219 = phi i32 [ %.11827, %11 ], [ %spec.select, %14 ]
+  %.2 = phi i1 [ %.129, %11 ], [ %spec.select25, %14 ]
+  %19 = add i32 %.01528, 1
+  %20 = load ptr, ptr @prte_hwloc_topology, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %.lr.ph
 
 .split41.us:                                      ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread
-  br i1 %.not, label %.split41.us.thread, label %24
+  br i1 %.1.lcssa, label %22, label %.split41.us.thread
 
-24:                                               ; preds = %.split41.us
+22:                                               ; preds = %.split41.us
   store i32 %.118.lcssa, ptr @prte_cache_line_size, align 4
   br label %.split41.us.thread
 
-.split41.us.thread:                               ; preds = %0, %24, %.split41.us
+.split41.us.thread:                               ; preds = %0, %22, %.split41.us
   ret void
 }
 
@@ -1007,34 +1011,32 @@ declare i32 @getpid() local_unnamed_addr #7
 define zeroext i1 @prte_hwloc_base_single_cpu(ptr noundef %0) local_unnamed_addr #8 {
   %2 = tail call i32 @hwloc_bitmap_first(ptr noundef %0) #17
   %3 = tail call i32 @hwloc_bitmap_last(ptr noundef %0) #17
-  %.not13 = icmp sgt i32 %2, %3
-  br i1 %.not13, label %.loopexit, label %.lr.ph
+  %.not12 = icmp sgt i32 %2, %3
+  br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.015 = phi i8 [ %.1, %7 ], [ 0, %1 ]
-  %.0814 = phi i32 [ %8, %7 ], [ %2, %1 ]
-  %4 = tail call i32 @hwloc_bitmap_isset(ptr noundef %0, i32 noundef %.0814) #17
+  %.014 = phi i8 [ %.1, %7 ], [ 0, %1 ]
+  %.0813 = phi i32 [ %8, %7 ], [ %2, %1 ]
+  %4 = tail call i32 @hwloc_bitmap_isset(ptr noundef %0, i32 noundef %.0813) #17
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %7, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = and i8 %.015, 1
-  %.not11 = icmp eq i8 %6, 0
-  br i1 %.not11, label %7, label %.loopexit
+  %6 = trunc i8 %.014 to i1
+  br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %5, %.lr.ph
-  %.1 = phi i8 [ %.015, %.lr.ph ], [ 1, %5 ]
-  %8 = add i32 %.0814, 1
-  %exitcond.not = icmp eq i32 %.0814, %3
+  %.1 = phi i8 [ %.014, %.lr.ph ], [ 1, %5 ]
+  %8 = add i32 %.0813, 1
+  %exitcond.not = icmp eq i32 %.0813, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %7
-  %9 = and i8 %.1, 1
-  %10 = icmp ne i8 %9, 0
+  %9 = trunc i8 %.1 to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %1, %._crit_edge.loopexit
-  %.09 = phi i1 [ false, %1 ], [ %10, %._crit_edge.loopexit ], [ false, %5 ]
+  %.09 = phi i1 [ false, %1 ], [ %9, %._crit_edge.loopexit ], [ false, %5 ]
   ret i1 %.09
 }
 
@@ -1826,11 +1828,10 @@ define zeroext i16 @prte_hwloc_base_get_relative_locality(ptr noundef %0, ptr no
 16:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   call fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef %0, i32 noundef %.04347, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %17 = load i8, ptr %5, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp ne i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = add nuw i32 %.04347, 1
   %20 = icmp ult i32 %19, %9
-  %or.cond50 = select i1 %.not, i1 %20, i1 false
+  %or.cond50 = select i1 %18, i1 %20, i1 false
   br i1 %or.cond50, label %.lr.ph.backedge, label %._crit_edge
 
 21:                                               ; preds = %.lr.ph
@@ -1917,17 +1918,16 @@ define internal fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr 
 switch.hole_check:                                ; preds = %17
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4159, %switch.maskindex
-  %20 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %20, 0
-  br i1 %switch.lobit.not, label %.loopexit, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %.loopexit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i16], ptr @switch.table.prte_hwloc_base_get_relative_locality_by_depth, i64 0, i64 %21
+  %20 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [13 x i16], ptr @switch.table.prte_hwloc_base_get_relative_locality_by_depth, i64 0, i64 %20
   %switch.load = load i16, ptr %switch.gep, align 2
-  %22 = load i16, ptr %4, align 2
-  %23 = or i16 %22, %switch.load
-  store i16 %23, ptr %4, align 2
+  %21 = load i16, ptr %4, align 2
+  %22 = or i16 %21, %switch.load
+  store i16 %22, ptr %4, align 2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %switch.hole_check, %17, %switch.lookup, %6
@@ -2552,14 +2552,14 @@ hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_ty
   br i1 %.not53.us, label %45, label %47
 
 45:                                               ; preds = %hwloc_get_obj_by_type.exit.us
-  %46 = tail call i32 @hwloc_bitmap_list_snprintf_exp(ptr noundef %4, i64 noundef %38, ptr noundef %24, ptr noundef nonnull @.str.51)
+  %46 = tail call i32 @hwloc_bitmap_list_snprintf_exp(ptr noundef %4, i64 noundef %38, ptr noundef %24, ptr noundef nonnull @.str.51), !range !33
   store i32 %.04760.us, ptr %3, align 4
   br label %47
 
 47:                                               ; preds = %45, %hwloc_get_obj_by_type.exit.us
   %48 = add nuw nsw i32 %.04760.us, 1
   %exitcond68.not = icmp eq i32 %48, %.0.i
-  br i1 %exitcond68.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us, !llvm.loop !33
+  br i1 %exitcond68.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us, !llvm.loop !34
 
 hwloc_get_obj_by_type.exit.lr.ph.split:           ; preds = %hwloc_get_obj_by_type.exit.lr.ph
   br i1 %1, label %hwloc_get_obj_by_type.exit.us61, label %hwloc_get_obj_by_type.exit
@@ -2578,14 +2578,14 @@ hwloc_get_obj_by_type.exit.us61:                  ; preds = %hwloc_get_obj_by_ty
   br i1 %.not53.us64, label %55, label %57
 
 55:                                               ; preds = %hwloc_get_obj_by_type.exit.us61
-  %56 = tail call i32 @hwloc_bitmap_list_snprintf_exp(ptr noundef %4, i64 noundef %38, ptr noundef %24, ptr noundef nonnull @.str.52)
+  %56 = tail call i32 @hwloc_bitmap_list_snprintf_exp(ptr noundef %4, i64 noundef %38, ptr noundef %24, ptr noundef nonnull @.str.52), !range !33
   store i32 %.04760.us62, ptr %3, align 4
   br label %57
 
 57:                                               ; preds = %55, %hwloc_get_obj_by_type.exit.us61
   %58 = add nuw nsw i32 %.04760.us62, 1
   %exitcond67.not = icmp eq i32 %58, %.0.i
-  br i1 %exitcond67.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us61, !llvm.loop !33
+  br i1 %exitcond67.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us61, !llvm.loop !34
 
 hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_type.exit.lr.ph.split, %67
   %.04760 = phi i32 [ %68, %67 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph.split ]
@@ -2602,14 +2602,14 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
 
 65:                                               ; preds = %hwloc_get_obj_by_type.exit
   tail call void @prte_hwloc_build_map(ptr noundef %2, ptr noundef %24, i1 noundef zeroext false, ptr noundef %.048)
-  %66 = tail call i32 @hwloc_bitmap_list_snprintf_exp(ptr noundef %4, i64 noundef %38, ptr noundef %.048, ptr noundef nonnull @.str.51)
+  %66 = tail call i32 @hwloc_bitmap_list_snprintf_exp(ptr noundef %4, i64 noundef %38, ptr noundef %.048, ptr noundef nonnull @.str.51), !range !33
   store i32 %.04760, ptr %3, align 4
   br label %67
 
 67:                                               ; preds = %hwloc_get_obj_by_type.exit, %65
   %68 = add nuw nsw i32 %.04760, 1
   %exitcond.not = icmp eq i32 %68, %.0.i
-  br i1 %exitcond.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %67, %57, %47, %36
   tail call void @hwloc_bitmap_free(ptr noundef %24) #16
@@ -2748,7 +2748,7 @@ hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_ty
 46:                                               ; preds = %42, %hwloc_get_obj_by_type.exit.us
   %47 = add nuw nsw i32 %.04357.us, 1
   %exitcond65.not = icmp eq i32 %47, %.0.i
-  br i1 %exitcond65.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us, !llvm.loop !34
+  br i1 %exitcond65.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us, !llvm.loop !35
 
 hwloc_get_obj_by_type.exit.lr.ph.split:           ; preds = %hwloc_get_obj_by_type.exit.lr.ph
   br i1 %1, label %hwloc_get_obj_by_type.exit.us58, label %hwloc_get_obj_by_type.exit
@@ -2775,7 +2775,7 @@ hwloc_get_obj_by_type.exit.us58:                  ; preds = %hwloc_get_obj_by_ty
 58:                                               ; preds = %54, %hwloc_get_obj_by_type.exit.us58
   %59 = add nuw nsw i32 %.04357.us59, 1
   %exitcond64.not = icmp eq i32 %59, %.0.i
-  br i1 %exitcond64.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us58, !llvm.loop !34
+  br i1 %exitcond64.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit.us58, !llvm.loop !35
 
 hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_type.exit.lr.ph.split, %70
   %.04357 = phi i32 [ %71, %70 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph.split ]
@@ -2800,7 +2800,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
 70:                                               ; preds = %hwloc_get_obj_by_type.exit, %66
   %71 = add nuw nsw i32 %.04357, 1
   %exitcond.not = icmp eq i32 %71, %.0.i
-  br i1 %exitcond.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %hwloc_get_obj_by_type.exit, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %70, %58, %46, %34
   %72 = load ptr, ptr %6, align 8
@@ -3080,7 +3080,7 @@ prte_hwloc_base_get_nbobjs_by_type.exit64:        ; preds = %6, %17, %.thread77,
 69:                                               ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !36
 
 70:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
@@ -3231,7 +3231,7 @@ define ptr @prte_hwloc_base_get_locality_string(ptr noundef %0, ptr noundef %1) 
 25:                                               ; preds = %23, %.preheader.i
   %26 = add nuw i32 %.015.i, 1
   %exitcond.not.i = icmp eq i32 %26, %17
-  br i1 %exitcond.not.i, label %prte_hwloc_base_get_locality_string_by_depth.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %prte_hwloc_base_get_locality_string_by_depth.exit, label %.preheader.i, !llvm.loop !37
 
 prte_hwloc_base_get_locality_string_by_depth.exit: ; preds = %25
   %27 = call i32 @hwloc_bitmap_iszero(ptr noundef %12) #17
@@ -3370,7 +3370,7 @@ prte_hwloc_base_get_locality_string_by_depth.exit.thread: ; preds = %16, %.lr.ph
   %.3 = phi ptr [ %.081104, %.lr.ph ], [ %.2, %88 ], [ %.081104, %16 ]
   %89 = add nuw i32 %.082103, 1
   %exitcond.not = icmp eq i32 %89, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %prte_hwloc_base_get_locality_string_by_depth.exit.thread, %11
   %.081.lcssa = phi ptr [ null, %11 ], [ %.3, %prte_hwloc_base_get_locality_string_by_depth.exit.thread ]
@@ -3394,7 +3394,7 @@ prte_hwloc_base_get_locality_string_by_depth.exit.thread: ; preds = %16, %.lr.ph
 98:                                               ; preds = %96, %.preheader.i95
   %99 = add nuw i32 %.015.i96, 1
   %exitcond.not.i98 = icmp eq i32 %99, %90
-  br i1 %exitcond.not.i98, label %100, label %.preheader.i95, !llvm.loop !36
+  br i1 %exitcond.not.i98, label %100, label %.preheader.i95, !llvm.loop !37
 
 100:                                              ; preds = %98
   %101 = call i32 @hwloc_bitmap_iszero(ptr noundef %12) #17
@@ -3446,54 +3446,53 @@ prte_hwloc_base_get_locality_string_by_depth.exit100: ; preds = %._crit_edge, %1
 ; Function Attrs: nounwind uwtable
 define noalias ptr @prte_hwloc_base_get_location(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %21, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %3
   %switch.tableidx = add i32 %1, -1
   %6 = icmp ult i32 %switch.tableidx, 13
-  br i1 %6, label %switch.hole_check, label %21
+  br i1 %6, label %switch.hole_check, label %20
 
 switch.hole_check:                                ; preds = %5
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4159, %switch.maskindex
-  %7 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %7, 0
-  br i1 %switch.lobit.not, label %21, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %20
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.prte_hwloc_base_get_location, i64 0, i64 %8
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.prte_hwloc_base_get_location, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %9 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 58) #16
-  %10 = load ptr, ptr %9, align 8
-  %.not19 = icmp eq ptr %10, null
+  %8 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 58) #16
+  %9 = load ptr, ptr %8, align 8
+  %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
-11:                                               ; preds = %.lr.ph
-  %12 = add i64 %.020, 1
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+10:                                               ; preds = %.lr.ph
+  %11 = add i64 %.020, 1
+  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
-.lr.ph:                                           ; preds = %switch.lookup, %11
-  %15 = phi ptr [ %14, %11 ], [ %10, %switch.lookup ]
-  %.020 = phi i64 [ %12, %11 ], [ 0, %switch.lookup ]
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(3) %switch.load, i64 noundef 2) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %11
+.lr.ph:                                           ; preds = %switch.lookup, %10
+  %14 = phi ptr [ %13, %10 ], [ %9, %switch.lookup ]
+  %.020 = phi i64 [ %11, %10 ], [ 0, %switch.lookup ]
+  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(3) %switch.load, i64 noundef 2) #17
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %10
 
-18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %15, i64 2
-  %20 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #16
+17:                                               ; preds = %.lr.ph
+  %18 = getelementptr inbounds i8, ptr %14, i64 2
+  %19 = tail call noalias ptr @strdup(ptr noundef nonnull %18) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %switch.lookup, %18
-  %.013 = phi ptr [ %20, %18 ], [ null, %switch.lookup ], [ null, %11 ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %9) #16
-  br label %21
+.loopexit:                                        ; preds = %10, %switch.lookup, %17
+  %.013 = phi ptr [ %19, %17 ], [ null, %switch.lookup ], [ null, %10 ]
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %8) #16
+  br label %20
 
-21:                                               ; preds = %switch.hole_check, %5, %3, %.loopexit
+20:                                               ; preds = %switch.hole_check, %5, %3, %.loopexit
   %.015 = phi ptr [ %.013, %.loopexit ], [ null, %3 ], [ null, %5 ], [ null, %switch.hole_check ]
   ret ptr %.015
 }
@@ -3534,7 +3533,7 @@ define zeroext i16 @prte_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds ptr, ptr %7, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not59 = icmp eq ptr %20, null
-  br i1 %.not59, label %.loopexit, label %21, !llvm.loop !39
+  br i1 %.not59, label %.loopexit, label %21, !llvm.loop !40
 
 21:                                               ; preds = %.lr.ph, %17
   %22 = phi ptr [ %15, %.lr.ph ], [ %20, %17 ]
@@ -3624,7 +3623,7 @@ define zeroext i16 @prte_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   %67 = getelementptr inbounds ptr, ptr %6, i64 %66
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %68, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph67, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph67, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   %.054.lcssa = phi i16 [ 15, %5 ], [ %.1, %.loopexit ]
@@ -3791,7 +3790,7 @@ define internal fastcc void @print_hwloc_obj(ptr nocapture noundef %0, ptr nound
   %82 = load i32, ptr %13, align 8
   %83 = zext i32 %82 to i64
   %84 = icmp ult i64 %indvars.iv.next, %83
-  br i1 %84, label %77, label %._crit_edge, !llvm.loop !41
+  br i1 %84, label %77, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %77, %67
   %85 = load ptr, ptr %8, align 8
@@ -3889,7 +3888,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
+!33 = !{i32 -1, i32 -2147483648}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
@@ -3898,3 +3897,4 @@ attributes #18 = { nounwind willreturn memory(none) }
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}

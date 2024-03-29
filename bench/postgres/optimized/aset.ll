@@ -250,13 +250,13 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %9, label %.preheader37
+  br i1 %7, label %9, label %.preheader36
 
-.preheader37:                                     ; preds = %1
-  %.not38 = icmp eq ptr %3, null
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+.preheader36:                                     ; preds = %1
+  %.not37 = icmp eq ptr %3, null
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader37
+.lr.ph:                                           ; preds = %.preheader36
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   br label %30
 
@@ -265,9 +265,8 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr [2 x %struct.AllocSetFreeList], ptr @context_freelists, i64 0, i64 %10
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not34 = icmp eq i8 %14, 0
-  br i1 %.not34, label %15, label %16
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %9
   tail call void @MemoryContextResetOnly(ptr noundef nonnull %0) #14
@@ -281,11 +280,11 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %16
   %19 = getelementptr inbounds i8, ptr %11, i64 8
   %.promoted = load ptr, ptr %19, align 8
-  %.not3540 = icmp eq ptr %.promoted, null
-  br i1 %.not3540, label %.loopexit, label %.lr.ph41
+  %.not3439 = icmp eq ptr %.promoted, null
+  br i1 %.not3439, label %.loopexit, label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
-  %20 = phi ptr [ %22, %.lr.ph41 ], [ %.promoted, %.preheader ]
+.lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
+  %20 = phi ptr [ %22, %.lr.ph40 ], [ %.promoted, %.preheader ]
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %19, align 8
@@ -293,10 +292,10 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   %24 = add i32 %23, -1
   store i32 %24, ptr %11, align 16
   tail call void @free(ptr noundef nonnull %20) #14
-  %.not35 = icmp eq ptr %22, null
-  br i1 %.not35, label %.loopexit.loopexit, label %.lr.ph41, !llvm.loop !8
+  %.not34 = icmp eq ptr %22, null
+  br i1 %.not34, label %.loopexit.loopexit, label %.lr.ph40, !llvm.loop !8
 
-.loopexit.loopexit:                               ; preds = %.lr.ph41
+.loopexit.loopexit:                               ; preds = %.lr.ph40
   %.pre = load i32, ptr %11, align 16
   br label %.loopexit
 
@@ -312,29 +311,29 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 30:                                               ; preds = %.lr.ph, %.critedge
-  %.039 = phi ptr [ %3, %.lr.ph ], [ %32, %.critedge ]
-  %31 = getelementptr inbounds i8, ptr %.039, i64 16
+  %.038 = phi ptr [ %3, %.lr.ph ], [ %32, %.critedge ]
+  %31 = getelementptr inbounds i8, ptr %.038, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %.039, %4
+  %33 = icmp eq ptr %.038, %4
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.039, i64 32
+  %35 = getelementptr inbounds i8, ptr %.038, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.039 to i64
+  %38 = ptrtoint ptr %.038 to i64
   %.neg = sub i64 %38, %37
   %39 = load i64, ptr %8, align 8
   %40 = add i64 %.neg, %39
   store i64 %40, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %.039) #14
+  tail call void @free(ptr noundef nonnull %.038) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %34
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.critedge, %.preheader37
+._crit_edge:                                      ; preds = %.critedge, %.preheader36
   tail call void @free(ptr noundef %0) #14
   br label %41
 
@@ -891,9 +890,8 @@ define dso_local i64 @AllocSetGetChunkSpace(ptr noundef %0) local_unnamed_addr #
 define dso_local zeroext i1 @AllocSetIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %.not = icmp ne i8 %4, 0
-  ret i1 %.not
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable

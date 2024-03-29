@@ -92,8 +92,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 
 37:                                               ; preds = %35
   tail call void @QTNFree(ptr noundef nonnull %0) #5
-  %.not99.i = icmp eq ptr %2, null
-  br i1 %.not99.i, label %43, label %38
+  %.not98.i = icmp eq ptr %2, null
+  br i1 %.not98.i, label %43, label %38
 
 38:                                               ; preds = %37
   %39 = tail call ptr @QTNCopy(ptr noundef nonnull %2) #5
@@ -128,10 +128,10 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 
 54:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.076102.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
-  %.080100.i = phi i32 [ 0, %.lr.ph.i ], [ %.181.i, %73 ]
+  %.076101.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
+  %.08099.i = phi i32 [ 0, %.lr.ph.i ], [ %.181.i, %73 ]
   %55 = load i32, ptr %32, align 4
-  %56 = icmp slt i32 %.076102.i, %55
+  %56 = icmp slt i32 %.076101.i, %55
   br i1 %56, label %57, label %.critedge.i
 
 57:                                               ; preds = %54
@@ -139,7 +139,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %59 = getelementptr ptr, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %53, align 8
-  %62 = sext i32 %.076102.i to i64
+  %62 = sext i32 %.076101.i to i64
   %63 = getelementptr ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @QTNodeCompare(ptr noundef %60, ptr noundef %64) #5
@@ -149,8 +149,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 67:                                               ; preds = %57
   %68 = getelementptr i8, ptr %49, i64 %indvars.iv.i
   store i8 1, ptr %68, align 1
-  %69 = add i32 %.080100.i, 1
-  %70 = add nsw i32 %.076102.i, 1
+  %69 = add i32 %.08099.i, 1
+  %70 = add nsw i32 %.076101.i, 1
   br label %73
 
 71:                                               ; preds = %57
@@ -158,8 +158,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %72, label %73, label %.critedge.i
 
 73:                                               ; preds = %71, %67
-  %.181.i = phi i32 [ %69, %67 ], [ %.080100.i, %71 ]
-  %.1.i = phi i32 [ %70, %67 ], [ %.076102.i, %71 ]
+  %.181.i = phi i32 [ %69, %67 ], [ %.08099.i, %71 ]
+  %.1.i = phi i32 [ %70, %67 ], [ %.076101.i, %71 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %30, align 4
   %75 = sext i32 %74 to i64
@@ -167,7 +167,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %76, label %54, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %73, %71, %54, %47
-  %.080.lcssa.i = phi i32 [ 0, %47 ], [ %.080100.i, %54 ], [ %.080100.i, %71 ], [ %.181.i, %73 ]
+  %.080.lcssa.i = phi i32 [ 0, %47 ], [ %.08099.i, %54 ], [ %.08099.i, %71 ], [ %.181.i, %73 ]
   %77 = load i32, ptr %32, align 4
   %78 = icmp eq i32 %.080.lcssa.i, %77
   br i1 %78, label %.preheader.i, label %109
@@ -175,41 +175,40 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 .preheader.i:                                     ; preds = %.critedge.i
   %79 = load i32, ptr %30, align 4
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph109.i, label %._crit_edge.i
+  br i1 %80, label %.lr.ph108.i, label %._crit_edge.i
 
-.lr.ph109.i:                                      ; preds = %.preheader.i
+.lr.ph108.i:                                      ; preds = %.preheader.i
   %81 = getelementptr inbounds i8, ptr %0, i64 32
   br label %82
 
-82:                                               ; preds = %94, %.lr.ph109.i
-  %indvars.iv112.i = phi i64 [ 0, %.lr.ph109.i ], [ %indvars.iv.next113.i, %94 ]
-  %.2108.i = phi i32 [ 0, %.lr.ph109.i ], [ %.3.i, %94 ]
-  %83 = getelementptr i8, ptr %49, i64 %indvars.iv112.i
+82:                                               ; preds = %94, %.lr.ph108.i
+  %indvars.iv111.i = phi i64 [ 0, %.lr.ph108.i ], [ %indvars.iv.next112.i, %94 ]
+  %.2107.i = phi i32 [ 0, %.lr.ph108.i ], [ %.3.i, %94 ]
+  %83 = getelementptr i8, ptr %49, i64 %indvars.iv111.i
   %84 = load i8, ptr %83, align 1
-  %85 = and i8 %84, 1
-  %.not98.i = icmp eq i8 %85, 0
+  %85 = trunc i8 %84 to i1
   %86 = load ptr, ptr %81, align 8
-  %87 = getelementptr ptr, ptr %86, i64 %indvars.iv112.i
+  %87 = getelementptr ptr, ptr %86, i64 %indvars.iv111.i
   %88 = load ptr, ptr %87, align 8
-  br i1 %.not98.i, label %90, label %89
+  br i1 %85, label %89, label %90
 
 89:                                               ; preds = %82
   tail call void @QTNFree(ptr noundef %88) #5
   br label %94
 
 90:                                               ; preds = %82
-  %91 = add i32 %.2108.i, 1
-  %92 = sext i32 %.2108.i to i64
+  %91 = add i32 %.2107.i, 1
+  %92 = sext i32 %.2107.i to i64
   %93 = getelementptr ptr, ptr %86, i64 %92
   store ptr %88, ptr %93, align 8
   br label %94
 
 94:                                               ; preds = %90, %89
-  %.3.i = phi i32 [ %.2108.i, %89 ], [ %91, %90 ]
-  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
+  %.3.i = phi i32 [ %.2107.i, %89 ], [ %91, %90 ]
+  %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %95 = load i32, ptr %30, align 4
   %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next113.i, %96
+  %97 = icmp slt i64 %indvars.iv.next112.i, %96
   br i1 %97, label %82, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %94, %.preheader.i
@@ -380,8 +379,8 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
 16:                                               ; preds = %1
   %17 = load i64, ptr %8, align 8
   %18 = inttoptr i64 %17 to ptr
-  %.not108 = icmp eq ptr %11, %18
-  br i1 %.not108, label %124, label %19
+  %.not106 = icmp eq ptr %11, %18
+  br i1 %.not106, label %124, label %19
 
 19:                                               ; preds = %16
   tail call void @pfree(ptr noundef %11) #5
@@ -442,14 +441,14 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @SPI_gettypeid(ptr noundef %49, i32 noundef 2) #5
   %.not97 = icmp eq i32 %50, 3615
-  br i1 %.not97, label %.preheader109, label %55
+  br i1 %.not97, label %.preheader107, label %55
 
-.preheader109:                                    ; preds = %47
+.preheader107:                                    ; preds = %47
   %51 = load i64, ptr @SPI_processed, align 8
   %52 = icmp ne i64 %51, 0
   %53 = icmp ne ptr %25, null
   %54 = and i1 %52, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge113
+  br i1 %54, label %.lr.ph, label %._crit_edge111
 
 55:                                               ; preds = %47, %45, %42, %39
   %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -459,33 +458,31 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.tsquery_rewrite_query) #5
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader109, %.lr.ph.backedge
-  %.1111 = phi ptr [ %.1111.be, %.lr.ph.backedge ], [ %25, %.preheader109 ]
-  %.080110 = phi i64 [ %.080110.be, %.lr.ph.backedge ], [ 0, %.preheader109 ]
+.lr.ph:                                           ; preds = %.preheader107, %.lr.ph.backedge
+  %.1109 = phi ptr [ %.1109.be, %.lr.ph.backedge ], [ %25, %.preheader107 ]
+  %.080108 = phi i64 [ %.080108.be, %.lr.ph.backedge ], [ 0, %.preheader107 ]
   %59 = load ptr, ptr @SPI_tuptable, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr ptr, ptr %61, i64 %.080110
+  %62 = getelementptr ptr, ptr %61, i64 %.080108
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %59, align 8
   %65 = call i64 @SPI_getbinval(ptr noundef %63, ptr noundef %64, i32 noundef 1, ptr noundef nonnull %3) #5
   %66 = load i8, ptr %3, align 1
-  %67 = and i8 %66, 1
-  %.not100 = icmp eq i8 %67, 0
-  br i1 %.not100, label %68, label %102
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %102, label %68
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr @SPI_tuptable, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr ptr, ptr %71, i64 %.080110
+  %72 = getelementptr ptr, ptr %71, i64 %.080108
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %75 = call i64 @SPI_getbinval(ptr noundef %73, ptr noundef %74, i32 noundef 2, ptr noundef nonnull %3) #5
   %76 = load i8, ptr %3, align 1
-  %77 = and i8 %76, 1
-  %.not101 = icmp eq i8 %77, 0
-  br i1 %.not101, label %78, label %102
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %102, label %78
 
 78:                                               ; preds = %68
   %79 = inttoptr i64 %65 to ptr
@@ -505,8 +502,8 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   call void @QTNSort(ptr noundef %89) #5
   %90 = getelementptr inbounds i8, ptr %80, i64 4
   %91 = load i32, ptr %90, align 4
-  %.not102 = icmp eq i32 %91, 0
-  br i1 %.not102, label %98, label %92
+  %.not100 = icmp eq i32 %91, 0
+  br i1 %.not100, label %98, label %92
 
 92:                                               ; preds = %84
   %93 = getelementptr i8, ptr %80, i64 8
@@ -522,13 +519,13 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   store ptr %12, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %100 = call fastcc ptr @dofindsubquery(ptr noundef nonnull %.1111, ptr noundef %89, ptr noundef %.0, ptr noundef nonnull %2)
+  %100 = call fastcc ptr @dofindsubquery(ptr noundef nonnull %.1109, ptr noundef %89, ptr noundef %.0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   store ptr %99, ptr @CurrentMemoryContext, align 8
   call void @QTNFree(ptr noundef %89) #5
   call void @QTNFree(ptr noundef %.0) #5
-  %.not105 = icmp eq ptr %100, null
-  br i1 %.not105, label %._crit_edge, label %101
+  %.not103 = icmp eq ptr %100, null
+  br i1 %.not103, label %._crit_edge, label %101
 
 101:                                              ; preds = %98
   call void @QTNClearFlags(ptr noundef nonnull %100, i32 noundef 2) #5
@@ -537,31 +534,31 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   br label %102
 
 102:                                              ; preds = %78, %68, %101, %.lr.ph
-  %.2 = phi ptr [ %.1111, %.lr.ph ], [ %.1111, %68 ], [ %100, %101 ], [ %.1111, %78 ]
-  %103 = add nuw i64 %.080110, 1
+  %.2 = phi ptr [ %.1109, %.lr.ph ], [ %.1109, %68 ], [ %100, %101 ], [ %.1109, %78 ]
+  %103 = add nuw i64 %.080108, 1
   %104 = load i64, ptr @SPI_processed, align 8
   %105 = icmp ult i64 %103, %104
   br i1 %105, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %102, %._crit_edge
-  %.1111.be = phi ptr [ %.2, %102 ], [ %.2119, %._crit_edge ]
-  %.080110.be = phi i64 [ %103, %102 ], [ 0, %._crit_edge ]
+  %.1109.be = phi ptr [ %.2, %102 ], [ %.2117, %._crit_edge ]
+  %.080108.be = phi i64 [ %103, %102 ], [ 0, %._crit_edge ]
   br label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %98, %102
-  %.2119 = phi ptr [ %.2, %102 ], [ null, %98 ]
+  %.2117 = phi ptr [ %.2, %102 ], [ null, %98 ]
   %106 = load ptr, ptr @SPI_tuptable, align 8
   call void @SPI_freetuptable(ptr noundef %106) #5
   call void @SPI_cursor_fetch(ptr noundef nonnull %34, i1 noundef zeroext true, i64 noundef 100) #5
   %107 = load i64, ptr @SPI_processed, align 8
   %108 = icmp ne i64 %107, 0
-  %109 = icmp ne ptr %.2119, null
+  %109 = icmp ne ptr %.2117, null
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %.lr.ph.backedge, label %._crit_edge113
+  br i1 %110, label %.lr.ph.backedge, label %._crit_edge111
 
-._crit_edge113:                                   ; preds = %._crit_edge, %.preheader109
-  %.079.lcssa = phi ptr [ %25, %.preheader109 ], [ %.2119, %._crit_edge ]
-  %.lcssa = phi i1 [ %53, %.preheader109 ], [ %109, %._crit_edge ]
+._crit_edge111:                                   ; preds = %._crit_edge, %.preheader107
+  %.079.lcssa = phi ptr [ %25, %.preheader107 ], [ %.2117, %._crit_edge ]
+  %.lcssa = phi i1 [ %53, %.preheader107 ], [ %109, %._crit_edge ]
   %111 = load ptr, ptr @SPI_tuptable, align 8
   call void @SPI_freetuptable(ptr noundef %111) #5
   call void @SPI_cursor_close(ptr noundef nonnull %34) #5
@@ -569,7 +566,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   %113 = call i32 @SPI_finish() #5
   br i1 %.lcssa, label %114, label %119
 
-114:                                              ; preds = %._crit_edge113
+114:                                              ; preds = %._crit_edge111
   call void @QTNBinary(ptr noundef nonnull %.079.lcssa) #5
   %115 = call ptr @QTN2QT(ptr noundef nonnull %.079.lcssa) #5
   call void @QTNFree(ptr noundef nonnull %.079.lcssa) #5
@@ -582,7 +579,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   call void @pfree(ptr noundef %7) #5
   br label %120
 
-119:                                              ; preds = %._crit_edge113
+119:                                              ; preds = %._crit_edge111
   store i32 32, ptr %7, align 4
   store i32 0, ptr %13, align 4
   br label %120

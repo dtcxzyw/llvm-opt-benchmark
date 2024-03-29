@@ -437,14 +437,13 @@ if.end27.i:                                       ; preds = %if.else.i122.if.end
 
 if.end32.i:                                       ; preds = %if.end27.i
   %24 = load i8, ptr @opt_retain, align 1
-  %25 = and i8 %24, 1
-  %tobool33.i.not = icmp eq i8 %25, 0
-  br i1 %tobool33.i.not, label %if.else37.i, label %if.end44.i
+  %tobool33.i = trunc i8 %24 to i1
+  br i1 %tobool33.i, label %if.end44.i, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.end32.i
-  %26 = xor i64 %.val100, %edata.val98
-  %27 = and i64 %26, 4095
-  %cmp40.i.not = icmp eq i64 %27, 0
+  %25 = xor i64 %.val100, %edata.val98
+  %26 = and i64 %25, 4095
+  %cmp40.i.not = icmp eq i64 %26, 0
   br i1 %cmp40.i.not, label %if.end44.i, label %return
 
 if.end44.i:                                       ; preds = %if.else37.i, %if.end32.i

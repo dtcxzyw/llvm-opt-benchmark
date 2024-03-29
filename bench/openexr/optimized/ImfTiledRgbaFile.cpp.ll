@@ -374,18 +374,17 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
 
 for.end:                                          ; preds = %for.body25, %for.body
   %23 = load i8, ptr %_writeA, align 8
-  %24 = and i8 %23, 1
-  %tobool = icmp ne i8 %24, 0
-  %25 = load ptr, ptr %_data.i, align 8
-  %26 = load i64, ptr %_sizeY.i, align 8
-  %mul.i17 = mul nsw i64 %26, %indvars.iv42
-  %add.ptr.i18 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %25, i64 %mul.i17
+  %tobool = trunc i8 %23 to i1
+  %24 = load ptr, ptr %_data.i, align 8
+  %25 = load i64, ptr %_sizeY.i, align 8
+  %mul.i17 = mul nsw i64 %25, %indvars.iv42
+  %add.ptr.i18 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %24, i64 %mul.i17
   call void @_ZN7Imf_3_27RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %_yw, i32 noundef %add, i1 noundef zeroext %tobool, ptr noundef %add.ptr.i18, ptr noundef %add.ptr.i18)
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %27 = load i32, ptr %y16, align 4
-  %28 = sext i32 %27 to i64
-  %cmp17.not.not = icmp slt i64 %indvars.iv44, %28
+  %26 = load i32, ptr %y16, align 4
+  %27 = sext i32 %26 to i64
+  %cmp17.not.not = icmp slt i64 %indvars.iv44, %27
   br i1 %cmp17.not.not, label %for.body, label %for.end43.loopexit, !llvm.loop !6
 
 for.end43.loopexit:                               ; preds = %for.end
@@ -394,32 +393,32 @@ for.end43.loopexit:                               ; preds = %for.end
   br label %for.end43
 
 for.end43:                                        ; preds = %for.end43.loopexit, %if.end
-  %29 = phi i32 [ %.pre49, %for.end43.loopexit ], [ %6, %if.end ]
-  %30 = phi i32 [ %.pre, %for.end43.loopexit ], [ %9, %if.end ]
-  %31 = getelementptr inbounds i8, ptr %fb, i64 8
-  store i32 0, ptr %31, align 8
+  %28 = phi i32 [ %.pre49, %for.end43.loopexit ], [ %6, %if.end ]
+  %29 = phi i32 [ %.pre, %for.end43.loopexit ], [ %9, %if.end ]
+  %30 = getelementptr inbounds i8, ptr %fb, i64 8
+  store i32 0, ptr %30, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 24
-  store ptr %31, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 32
-  store ptr %31, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %sub47 = sub nsw i32 0, %30
+  %sub47 = sub nsw i32 0, %29
   %conv48 = sext i32 %sub47 to i64
   %_data.i23 = getelementptr inbounds i8, ptr %this, i64 48
-  %32 = load ptr, ptr %_data.i23, align 8
+  %31 = load ptr, ptr %_data.i23, align 8
   %_sizeY.i24 = getelementptr inbounds i8, ptr %this, i64 40
-  %33 = load i64, ptr %_sizeY.i24, align 8
-  %mul.i25 = mul nsw i64 %33, %conv48
-  %add.ptr.i26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %32, i64 %mul.i25
-  %sub54 = sub nsw i32 0, %29
+  %32 = load i64, ptr %_sizeY.i24, align 8
+  %mul.i25 = mul nsw i64 %32, %conv48
+  %add.ptr.i26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %31, i64 %mul.i25
+  %sub54 = sub nsw i32 0, %28
   %idxprom55 = sext i32 %sub54 to i64
   %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %add.ptr.i26, i64 %idxprom55, i32 1
   %_tileXSize = getelementptr inbounds i8, ptr %this, i64 12
-  %34 = load i32, ptr %_tileXSize, align 4
-  %conv57 = zext i32 %34 to i64
+  %33 = load i32, ptr %_tileXSize, align 4
+  %conv57 = zext i32 %33 to i64
   %mul58 = shl nuw nsw i64 %conv57, 3
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp, i32 noundef 1, ptr noundef nonnull %g, i64 noundef 8, i64 noundef %mul58, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont59 unwind label %lpad49
@@ -429,19 +428,19 @@ invoke.cont59:                                    ; preds = %for.end43
           to label %invoke.cont60 unwind label %lpad49
 
 invoke.cont60:                                    ; preds = %invoke.cont59
-  %35 = load i32, ptr %y14, align 4
-  %sub65 = sub nsw i32 0, %35
+  %34 = load i32, ptr %y14, align 4
+  %sub65 = sub nsw i32 0, %34
   %conv66 = sext i32 %sub65 to i64
-  %36 = load ptr, ptr %_data.i23, align 8
-  %37 = load i64, ptr %_sizeY.i24, align 8
-  %mul.i29 = mul nsw i64 %37, %conv66
-  %add.ptr.i30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %36, i64 %mul.i29
-  %38 = load i32, ptr %dw, align 4
-  %sub71 = sub nsw i32 0, %38
+  %35 = load ptr, ptr %_data.i23, align 8
+  %36 = load i64, ptr %_sizeY.i24, align 8
+  %mul.i29 = mul nsw i64 %36, %conv66
+  %add.ptr.i30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %35, i64 %mul.i29
+  %37 = load i32, ptr %dw, align 4
+  %sub71 = sub nsw i32 0, %37
   %idxprom72 = sext i32 %sub71 to i64
   %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %add.ptr.i30, i64 %idxprom72, i32 3
-  %39 = load i32, ptr %_tileXSize, align 4
-  %conv75 = zext i32 %39 to i64
+  %38 = load i32, ptr %_tileXSize, align 4
+  %conv75 = zext i32 %38 to i64
   %mul76 = shl nuw nsw i64 %conv75, 3
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp61, i32 noundef 1, ptr noundef nonnull %a, i64 noundef 8, i64 noundef %mul76, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont77 unwind label %lpad49
@@ -451,38 +450,38 @@ invoke.cont77:                                    ; preds = %invoke.cont60
           to label %invoke.cont78 unwind label %lpad49
 
 invoke.cont78:                                    ; preds = %invoke.cont77
-  %40 = load ptr, ptr %this, align 8
-  invoke void @_ZN7Imf_3_215TiledOutputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(25) %40, ptr noundef nonnull align 8 dereferenceable(48) %fb)
+  %39 = load ptr, ptr %this, align 8
+  invoke void @_ZN7Imf_3_215TiledOutputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(25) %39, ptr noundef nonnull align 8 dereferenceable(48) %fb)
           to label %invoke.cont80 unwind label %lpad49
 
 invoke.cont80:                                    ; preds = %invoke.cont78
-  %41 = load ptr, ptr %this, align 8
-  invoke void @_ZN7Imf_3_215TiledOutputFile9writeTileEiiii(ptr noundef nonnull align 8 dereferenceable(25) %41, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly)
+  %40 = load ptr, ptr %this, align 8
+  invoke void @_ZN7Imf_3_215TiledOutputFile9writeTileEiiii(ptr noundef nonnull align 8 dereferenceable(25) %40, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly)
           to label %invoke.cont82 unwind label %lpad49
 
 invoke.cont82:                                    ; preds = %invoke.cont80
-  %42 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %fb, ptr noundef %42)
+  %41 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %fb, ptr noundef %41)
           to label %_ZN7Imf_3_211FrameBufferD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont82
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #17
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #17
   unreachable
 
 _ZN7Imf_3_211FrameBufferD2Ev.exit:                ; preds = %invoke.cont82
   ret void
 
 lpad49:                                           ; preds = %invoke.cont80, %invoke.cont78, %invoke.cont77, %invoke.cont60, %invoke.cont59, %for.end43
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7Imf_3_211FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %fb) #15
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad49, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %45, %lpad49 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %44, %lpad49 ]
   resume { ptr, i32 } %.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont9

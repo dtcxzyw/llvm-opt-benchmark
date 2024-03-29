@@ -70,10 +70,9 @@ define dso_local i32 @BufTableInsert(ptr noundef %0, i32 noundef %1, i32 noundef
   %5 = load ptr, ptr @SharedBufHash, align 8
   %6 = call ptr @hash_search_with_hash_value(ptr noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %4) #4
   %7 = load i8, ptr %4, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %6, i64 20
-  br i1 %.not, label %12, label %10
+  br i1 %8, label %10, label %12
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %9, align 4

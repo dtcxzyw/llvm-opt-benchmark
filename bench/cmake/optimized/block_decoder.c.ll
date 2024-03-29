@@ -157,22 +157,21 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load i64, ptr %35, align 8
-  %spec.store.select.i77 = tail call i64 @llvm.umin.i64(i64 %36, i64 9223372036854775807)
+  %spec.store.select.i74 = tail call i64 @llvm.umin.i64(i64 %36, i64 9223372036854775807)
   %37 = load i64, ptr %32, align 8
-  %38 = icmp ult i64 %spec.store.select.i77, %37
-  %39 = sub i64 %spec.store.select.i77, %37
+  %38 = icmp ult i64 %spec.store.select.i74, %37
+  %39 = sub i64 %spec.store.select.i74, %37
   %40 = icmp ult i64 %39, %22
-  %or.cond.i78 = or i1 %38, %40
-  br i1 %or.cond.i78, label %update_size.exit.thread, label %41
+  %or.cond.i75 = or i1 %38, %40
+  br i1 %or.cond.i75, label %update_size.exit.thread, label %41
 
 41:                                               ; preds = %30
   %42 = add i64 %37, %22
   store i64 %42, ptr %32, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 224
   %44 = load i8, ptr %43, align 8
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %46, label %51
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %51, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %0, i64 120
@@ -183,8 +182,8 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br label %51
 
 51:                                               ; preds = %46, %41
-  %.not69 = icmp eq i32 %18, 1
-  br i1 %.not69, label %52, label %update_size.exit.thread
+  %.not = icmp eq i32 %18, 1
+  br i1 %.not, label %52, label %update_size.exit.thread
 
 52:                                               ; preds = %51
   %53 = load i64, ptr %23, align 8
@@ -222,13 +221,13 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 73:                                               ; preds = %78, %71
   %74 = phi i64 [ %79, %78 ], [ %.promoted, %71 ]
   %75 = and i64 %74, 3
-  %.not70 = icmp eq i64 %75, 0
-  br i1 %.not70, label %83, label %76
+  %.not69 = icmp eq i64 %75, 0
+  br i1 %.not69, label %83, label %76
 
 76:                                               ; preds = %73
   %77 = load i64, ptr %3, align 8
-  %.not75 = icmp ult i64 %77, %4
-  br i1 %.not75, label %78, label %update_size.exit.thread
+  %.not72 = icmp ult i64 %77, %4
+  br i1 %.not72, label %78, label %update_size.exit.thread
 
 78:                                               ; preds = %76
   %79 = add i64 %74, 1
@@ -237,8 +236,8 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   store i64 %80, ptr %3, align 8
   %81 = getelementptr inbounds i8, ptr %2, i64 %77
   %82 = load i8, ptr %81, align 1
-  %.not76 = icmp eq i8 %82, 0
-  br i1 %.not76, label %73, label %update_size.exit.thread, !llvm.loop !5
+  %.not73 = icmp eq i8 %82, 0
+  br i1 %.not73, label %73, label %update_size.exit.thread, !llvm.loop !5
 
 83:                                               ; preds = %73
   %84 = getelementptr inbounds i8, ptr %0, i64 80
@@ -251,9 +250,8 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 89:                                               ; preds = %83
   %90 = getelementptr inbounds i8, ptr %0, i64 224
   %91 = load i8, ptr %90, align 8
-  %92 = and i8 %91, 1
-  %.not71 = icmp eq i8 %92, 0
-  br i1 %.not71, label %93, label %95
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %95, label %93
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %0, i64 120
@@ -281,24 +279,23 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 108:                                              ; preds = %96
   %109 = getelementptr inbounds i8, ptr %0, i64 224
   %110 = load i8, ptr %109, align 8
-  %111 = and i8 %110, 1
-  %.not72 = icmp eq i8 %111, 0
-  br i1 %.not72, label %112, label %120
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %120, label %112
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %97, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 8
   %115 = load i32, ptr %114, align 8
   %116 = tail call zeroext i8 @lzma_check_is_supported(i32 noundef %115) #10
-  %.not73 = icmp eq i8 %116, 0
-  br i1 %.not73, label %120, label %117
+  %.not70 = icmp eq i8 %116, 0
+  br i1 %.not70, label %120, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds i8, ptr %113, i64 40
   %119 = getelementptr inbounds i8, ptr %0, i64 120
   %bcmp = tail call i32 @bcmp(ptr nonnull %118, ptr nonnull %119, i64 %102)
-  %.not74 = icmp eq i32 %bcmp, 0
-  br i1 %.not74, label %120, label %update_size.exit.thread
+  %.not71 = icmp eq i32 %bcmp, 0
+  br i1 %.not71, label %120, label %update_size.exit.thread
 
 120:                                              ; preds = %117, %112, %108
   br label %update_size.exit.thread

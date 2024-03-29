@@ -118,7 +118,7 @@ define internal noundef i32 @dissect_netmon_802_11(ptr noundef %0, ptr noundef %
   %17 = icmp ne i8 %12, 2
   %18 = icmp ult i16 %13, 32
   %or.cond = or i1 %17, %18
-  br i1 %or.cond, label %115, label %19
+  br i1 %or.cond, label %114, label %19
 
 19:                                               ; preds = %4
   %20 = load i32, ptr @proto_netmon_802_11, align 4
@@ -152,7 +152,7 @@ define internal noundef i32 @dissect_netmon_802_11(ptr noundef %0, ptr noundef %
 42:                                               ; preds = %41, %19
   %43 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 7) #3
   %.not126 = icmp eq i32 %43, -1
-  br i1 %.not126, label %107, label %44
+  br i1 %.not126, label %106, label %44
 
 44:                                               ; preds = %42
   %45 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 11) #3
@@ -175,7 +175,7 @@ switch.lookup:                                    ; preds = %44
   %51 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %50, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef -2147483648) #3
   %52 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 15) #3
   %53 = icmp ult i32 %52, 1000
-  br i1 %53, label %54, label %69
+  br i1 %53, label %54, label %68
 
 54:                                               ; preds = %49
   %55 = icmp eq i32 %52, 0
@@ -197,95 +197,95 @@ switch.lookup:                                    ; preds = %44
   br i1 %64, label %switch.lookup132, label %.thread
 
 switch.lookup132:                                 ; preds = %59
-  %65 = and i32 %.sink, 1
-  %switch.idx.cast.not = icmp eq i32 %65, 0
-  %66 = call i32 @ieee80211_chan_to_mhz(i32 noundef %52, i1 noundef zeroext %switch.idx.cast.not) #3
-  %.not128 = icmp eq i32 %66, 0
-  br i1 %.not128, label %.thread, label %67
+  %switch.idx.cast = trunc i32 %.sink to i1
+  %switch.offset = xor i1 %switch.idx.cast, true
+  %65 = call i32 @ieee80211_chan_to_mhz(i32 noundef %52, i1 noundef zeroext %switch.offset) #3
+  %.not128 = icmp eq i32 %65, 0
+  br i1 %.not128, label %.thread, label %66
 
-67:                                               ; preds = %switch.lookup132
-  %68 = getelementptr inbounds i8, ptr %5, i64 32
-  store i32 %66, ptr %68, align 8
+66:                                               ; preds = %switch.lookup132
+  %67 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 %65, ptr %67, align 8
   br label %.thread
 
-69:                                               ; preds = %49
-  %70 = getelementptr inbounds i8, ptr %5, i64 32
-  store i32 %52, ptr %70, align 8
-  %71 = load i32, ptr @hf_netmon_802_11_frequency, align 4
-  %72 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %71, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef %52) #3
-  %73 = call i32 @ieee80211_mhz_to_chan(i32 noundef %52) #3
-  %.not127 = icmp eq i32 %73, -1
-  br i1 %.not127, label %.thread, label %74
+68:                                               ; preds = %49
+  %69 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 %52, ptr %69, align 8
+  %70 = load i32, ptr @hf_netmon_802_11_frequency, align 4
+  %71 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %70, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef %52) #3
+  %72 = call i32 @ieee80211_mhz_to_chan(i32 noundef %52) #3
+  %.not127 = icmp eq i32 %72, -1
+  br i1 %.not127, label %.thread, label %73
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %5, i64 28
-  store i16 3, ptr %75, align 4
-  %76 = trunc i32 %73 to i16
-  %77 = getelementptr inbounds i8, ptr %5, i64 30
-  store i16 %76, ptr %77, align 2
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds i8, ptr %5, i64 28
+  store i16 3, ptr %74, align 4
+  %75 = trunc i32 %72 to i16
+  %76 = getelementptr inbounds i8, ptr %5, i64 30
+  store i16 %75, ptr %76, align 2
   br label %.thread
 
-.thread:                                          ; preds = %59, %69, %74, %56, %67, %switch.lookup132
-  %78 = phi i16 [ 1, %59 ], [ 2, %69 ], [ 3, %74 ], [ 0, %56 ], [ 3, %67 ], [ 1, %switch.lookup132 ]
-  %79 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 19) #3
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %84
+.thread:                                          ; preds = %59, %68, %73, %56, %66, %switch.lookup132
+  %77 = phi i16 [ 1, %59 ], [ 2, %68 ], [ 3, %73 ], [ 0, %56 ], [ 3, %66 ], [ 1, %switch.lookup132 ]
+  %78 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 19) #3
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %83
 
-81:                                               ; preds = %.thread
-  %82 = load i32, ptr @hf_netmon_802_11_rssi, align 4
-  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %23, i32 noundef %82, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #3
-  br label %91
+80:                                               ; preds = %.thread
+  %81 = load i32, ptr @hf_netmon_802_11_rssi, align 4
+  %82 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %23, i32 noundef %81, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #3
+  br label %90
 
-84:                                               ; preds = %.thread
-  %85 = getelementptr inbounds i8, ptr %5, i64 28
-  %86 = or disjoint i16 %78, 32
-  store i16 %86, ptr %85, align 4
-  %87 = trunc i32 %79 to i8
-  %88 = getelementptr inbounds i8, ptr %5, i64 40
-  store i8 %87, ptr %88, align 8
-  %89 = load i32, ptr @hf_netmon_802_11_rssi, align 4
-  %90 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %23, i32 noundef %89, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef %79, ptr noundef nonnull @.str.42, i32 noundef %79) #3
-  br label %91
+83:                                               ; preds = %.thread
+  %84 = getelementptr inbounds i8, ptr %5, i64 28
+  %85 = or disjoint i16 %77, 32
+  store i16 %85, ptr %84, align 4
+  %86 = trunc i32 %78 to i8
+  %87 = getelementptr inbounds i8, ptr %5, i64 40
+  store i8 %86, ptr %87, align 8
+  %88 = load i32, ptr @hf_netmon_802_11_rssi, align 4
+  %89 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %23, i32 noundef %88, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef %78, ptr noundef nonnull @.str.42, i32 noundef %78) #3
+  br label %90
 
-91:                                               ; preds = %84, %81
-  %92 = phi i16 [ %86, %84 ], [ %78, %81 ]
-  %93 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 23) #3
-  %94 = icmp eq i8 %93, 0
-  br i1 %94, label %95, label %98
+90:                                               ; preds = %83, %80
+  %91 = phi i16 [ %85, %83 ], [ %77, %80 ]
+  %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 23) #3
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %94, label %97
 
-95:                                               ; preds = %91
-  %96 = load i32, ptr @hf_netmon_802_11_datarate, align 4
-  %97 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %96, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str) #3
-  br label %107
+94:                                               ; preds = %90
+  %95 = load i32, ptr @hf_netmon_802_11_datarate, align 4
+  %96 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %95, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str) #3
+  br label %106
 
-98:                                               ; preds = %91
-  %99 = zext i8 %93 to i32
-  %100 = or i16 %92, 4
-  %101 = zext i8 %93 to i16
-  %102 = getelementptr inbounds i8, ptr %5, i64 36
-  store i16 %101, ptr %102, align 4
-  %103 = load i32, ptr @hf_netmon_802_11_datarate, align 4
-  %104 = uitofp i8 %93 to double
-  %105 = fmul double %104, 5.000000e-01
-  %106 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %103, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.43, double noundef %105) #3
-  br label %107
+97:                                               ; preds = %90
+  %98 = zext i8 %92 to i32
+  %99 = or i16 %91, 4
+  %100 = zext i8 %92 to i16
+  %101 = getelementptr inbounds i8, ptr %5, i64 36
+  store i16 %100, ptr %101, align 4
+  %102 = load i32, ptr @hf_netmon_802_11_datarate, align 4
+  %103 = uitofp i8 %92 to double
+  %104 = fmul double %103, 5.000000e-01
+  %105 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %102, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef %98, ptr noundef nonnull @.str.43, double noundef %104) #3
+  br label %106
 
-107:                                              ; preds = %42, %95, %98
-  %108 = phi i16 [ 0, %42 ], [ %92, %95 ], [ %100, %98 ]
-  %109 = getelementptr inbounds i8, ptr %5, i64 28
-  %110 = or i16 %108, 512
-  store i16 %110, ptr %109, align 4
-  %111 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 24) #3
-  %112 = getelementptr inbounds i8, ptr %5, i64 48
-  store i64 %111, ptr %112, align 8
-  %113 = load i32, ptr @hf_netmon_802_11_timestamp, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %113, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef -2147483648) #3
-  br label %115
+106:                                              ; preds = %42, %94, %97
+  %107 = phi i16 [ 0, %42 ], [ %91, %94 ], [ %99, %97 ]
+  %108 = getelementptr inbounds i8, ptr %5, i64 28
+  %109 = or i16 %107, 512
+  store i16 %109, ptr %108, align 4
+  %110 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 24) #3
+  %111 = getelementptr inbounds i8, ptr %5, i64 48
+  store i64 %110, ptr %111, align 8
+  %112 = load i32, ptr @hf_netmon_802_11_timestamp, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %112, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef -2147483648) #3
+  br label %114
 
-115:                                              ; preds = %4, %107
-  %116 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %16) #3
-  %117 = load ptr, ptr @ieee80211_radio_handle, align 8
-  %118 = call i32 @call_dissector_with_data(ptr noundef %117, ptr noundef %116, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #3
+114:                                              ; preds = %4, %106
+  %115 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %16) #3
+  %116 = load ptr, ptr @ieee80211_radio_handle, align 8
+  %117 = call i32 @call_dissector_with_data(ptr noundef %116, ptr noundef %115, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #3
   ret i32 %16
 }
 

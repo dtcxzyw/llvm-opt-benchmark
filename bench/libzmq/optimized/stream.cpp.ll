@@ -252,18 +252,18 @@ entry:
   br i1 %locally_initiated_, label %land.lhs.true, label %if.else.thread
 
 if.else.thread:                                   ; preds = %entry
-  %_next_integral_routing_id43 = getelementptr inbounds i8, ptr %this, i64 2108
-  %0 = load i32, ptr %_next_integral_routing_id43, align 4
-  %inc44 = add i32 %0, 1
-  store i32 %inc44, ptr %_next_integral_routing_id43, align 4
-  %shr.i45 = lshr i32 %0, 24
-  %conv.i46 = trunc i32 %shr.i45 to i8
-  %shr1.i47 = lshr i32 %0, 16
-  %conv3.i48 = trunc i32 %shr1.i47 to i8
-  %shr5.i49 = lshr i32 %0, 8
-  %conv7.i50 = trunc i32 %shr5.i49 to i8
-  %conv10.i51 = trunc i32 %0 to i8
-  br label %if.then.i.i5
+  %_next_integral_routing_id42 = getelementptr inbounds i8, ptr %this, i64 2108
+  %0 = load i32, ptr %_next_integral_routing_id42, align 4
+  %inc43 = add i32 %0, 1
+  store i32 %inc43, ptr %_next_integral_routing_id42, align 4
+  %shr.i44 = lshr i32 %0, 24
+  %conv.i45 = trunc i32 %shr.i44 to i8
+  %shr1.i46 = lshr i32 %0, 16
+  %conv3.i47 = trunc i32 %shr1.i46 to i8
+  %shr5.i48 = lshr i32 %0, 8
+  %conv7.i49 = trunc i32 %shr5.i48 to i8
+  %conv10.i50 = trunc i32 %0 to i8
+  br label %if.then.i.i17
 
 land.lhs.true:                                    ; preds = %entry
   %call = invoke noundef zeroext i1 @_ZNK3zmq21routing_socket_base_t25connect_routing_id_is_setEv(ptr noundef nonnull align 8 dereferenceable(1912) %this)
@@ -280,18 +280,17 @@ invoke.cont2:                                     ; preds = %if.then
   %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %connect_routing_id) #14
   %call4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %connect_routing_id) #14
   %1 = load i8, ptr %_owned.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN3zmq6blob_t5clearEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN3zmq6blob_t5clearEv.exit.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2
-  %3 = load ptr, ptr %routing_id, align 8
-  call void @free(ptr noundef %3) #14
+  %2 = load ptr, ptr %routing_id, align 8
+  call void @free(ptr noundef %2) #14
   br label %_ZN3zmq6blob_t5clearEv.exit.i
 
 _ZN3zmq6blob_t5clearEv.exit.i:                    ; preds = %if.then.i.i, %invoke.cont2
-  %4 = getelementptr inbounds i8, ptr %routing_id, i64 8
-  store i64 0, ptr %4, align 8
+  %3 = getelementptr inbounds i8, ptr %routing_id, i64 8
+  store i64 0, ptr %3, align 8
   %call.i = call noalias ptr @malloc(i64 noundef %call4) #18
   store ptr %call.i, ptr %routing_id, align 8
   %tobool.not.i = icmp ne i64 %call4, 0
@@ -300,31 +299,31 @@ _ZN3zmq6blob_t5clearEv.exit.i:                    ; preds = %if.then.i.i, %invok
   br i1 %spec.select.i, label %do.end.thread.i, label %do.end.i
 
 do.end.thread.i:                                  ; preds = %_ZN3zmq6blob_t5clearEv.exit.i
+  %4 = load ptr, ptr @stderr, align 8
+  %call4.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 117) #17
   %5 = load ptr, ptr @stderr, align 8
-  %call4.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 117) #17
-  %6 = load ptr, ptr @stderr, align 8
-  %call5.i = call i32 @fflush(ptr noundef %6)
+  %call5.i = call i32 @fflush(ptr noundef %5)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.10)
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %do.end.thread.i
-  store i64 %call4, ptr %4, align 8
+  store i64 %call4, ptr %3, align 8
   store i8 1, ptr %_owned.i, align 8
-  %.pre41 = load ptr, ptr %routing_id, align 8
+  %.pre40 = load ptr, ptr %routing_id, align 8
   br label %land.lhs.true.i
 
 do.end.i:                                         ; preds = %_ZN3zmq6blob_t5clearEv.exit.i
-  store i64 %call4, ptr %4, align 8
+  store i64 %call4, ptr %3, align 8
   store i8 1, ptr %_owned.i, align 8
   br i1 %tobool.not.i, label %land.lhs.true.i, label %do.body
 
 land.lhs.true.i:                                  ; preds = %do.end.i, %.noexc
-  %7 = phi ptr [ %call.i, %do.end.i ], [ %.pre41, %.noexc ]
-  %tobool8.not.i = icmp eq ptr %7, null
+  %6 = phi ptr [ %call.i, %do.end.i ], [ %.pre40, %.noexc ]
+  %tobool8.not.i = icmp eq ptr %6, null
   br i1 %tobool8.not.i, label %do.body, label %if.then9.i
 
 if.then9.i:                                       ; preds = %land.lhs.true.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %call3, i64 %call4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %call3, i64 %call4, i1 false)
   br label %do.body
 
 do.body:                                          ; preds = %if.then9.i, %land.lhs.true.i, %do.end.i
@@ -335,20 +334,20 @@ invoke.cont7:                                     ; preds = %do.body
   br i1 %call8, label %if.then10, label %do.end
 
 if.then10:                                        ; preds = %invoke.cont7
+  %7 = load ptr, ptr @stderr, align 8
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 254) #17
   %8 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 254) #17
-  %9 = load ptr, ptr @stderr, align 8
-  %call14 = call i32 @fflush(ptr noundef %9)
+  %call14 = call i32 @fflush(ptr noundef %8)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.7)
           to label %do.end unwind label %lpad5
 
-lpad:                                             ; preds = %do.end.thread.i14, %if.end28, %if.then, %land.lhs.true
-  %10 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %do.end.thread.i13, %if.end28, %if.then, %land.lhs.true
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %do.end.thread.i, %if.then10, %do.body
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %connect_routing_id) #14
   br label %ehcleanup
@@ -359,83 +358,82 @@ do.end:                                           ; preds = %if.then10, %invoke.
 
 if.else:                                          ; preds = %invoke.cont
   %.pre = load i8, ptr %_owned.i, align 8
-  %12 = and i8 %.pre, 1
-  %13 = icmp eq i8 %12, 0
+  %11 = trunc i8 %.pre to i1
   %_next_integral_routing_id = getelementptr inbounds i8, ptr %this, i64 2108
-  %14 = load i32, ptr %_next_integral_routing_id, align 4
-  %inc = add i32 %14, 1
+  %12 = load i32, ptr %_next_integral_routing_id, align 4
+  %inc = add i32 %12, 1
   store i32 %inc, ptr %_next_integral_routing_id, align 4
-  %shr.i = lshr i32 %14, 24
+  %shr.i = lshr i32 %12, 24
   %conv.i = trunc i32 %shr.i to i8
-  %shr1.i = lshr i32 %14, 16
+  %shr1.i = lshr i32 %12, 16
   %conv3.i = trunc i32 %shr1.i to i8
-  %shr5.i = lshr i32 %14, 8
+  %shr5.i = lshr i32 %12, 8
   %conv7.i = trunc i32 %shr5.i to i8
-  %conv10.i = trunc i32 %14 to i8
-  br i1 %13, label %_ZN3zmq6blob_t5clearEv.exit.i6, label %if.then.i.i5
+  %conv10.i = trunc i32 %12 to i8
+  br i1 %11, label %if.then.i.i17, label %_ZN3zmq6blob_t5clearEv.exit.i5
 
-if.then.i.i5:                                     ; preds = %if.else.thread, %if.else
-  %conv10.i58 = phi i8 [ %conv10.i51, %if.else.thread ], [ %conv10.i, %if.else ]
-  %conv7.i56 = phi i8 [ %conv7.i50, %if.else.thread ], [ %conv7.i, %if.else ]
-  %conv3.i54 = phi i8 [ %conv3.i48, %if.else.thread ], [ %conv3.i, %if.else ]
-  %conv.i52 = phi i8 [ %conv.i46, %if.else.thread ], [ %conv.i, %if.else ]
-  %15 = load ptr, ptr %routing_id, align 8
-  tail call void @free(ptr noundef %15) #14
-  br label %_ZN3zmq6blob_t5clearEv.exit.i6
+if.then.i.i17:                                    ; preds = %if.else.thread, %if.else
+  %conv10.i58 = phi i8 [ %conv10.i50, %if.else.thread ], [ %conv10.i, %if.else ]
+  %conv7.i56 = phi i8 [ %conv7.i49, %if.else.thread ], [ %conv7.i, %if.else ]
+  %conv3.i54 = phi i8 [ %conv3.i47, %if.else.thread ], [ %conv3.i, %if.else ]
+  %conv.i52 = phi i8 [ %conv.i45, %if.else.thread ], [ %conv.i, %if.else ]
+  %13 = load ptr, ptr %routing_id, align 8
+  tail call void @free(ptr noundef %13) #14
+  br label %_ZN3zmq6blob_t5clearEv.exit.i5
 
-_ZN3zmq6blob_t5clearEv.exit.i6:                   ; preds = %if.then.i.i5, %if.else
-  %conv10.i59 = phi i8 [ %conv10.i58, %if.then.i.i5 ], [ %conv10.i, %if.else ]
-  %conv7.i57 = phi i8 [ %conv7.i56, %if.then.i.i5 ], [ %conv7.i, %if.else ]
-  %conv3.i55 = phi i8 [ %conv3.i54, %if.then.i.i5 ], [ %conv3.i, %if.else ]
-  %conv.i53 = phi i8 [ %conv.i52, %if.then.i.i5 ], [ %conv.i, %if.else ]
-  %16 = getelementptr inbounds i8, ptr %routing_id, i64 8
-  store i64 0, ptr %16, align 8
-  %call.i7 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #18
-  store ptr %call.i7, ptr %routing_id, align 8
-  %tobool3.i8 = icmp eq ptr %call.i7, null
-  br i1 %tobool3.i8, label %do.end.thread.i14, label %land.lhs.true.i11.thread
+_ZN3zmq6blob_t5clearEv.exit.i5:                   ; preds = %if.then.i.i17, %if.else
+  %conv10.i57 = phi i8 [ %conv10.i58, %if.then.i.i17 ], [ %conv10.i, %if.else ]
+  %conv7.i55 = phi i8 [ %conv7.i56, %if.then.i.i17 ], [ %conv7.i, %if.else ]
+  %conv3.i53 = phi i8 [ %conv3.i54, %if.then.i.i17 ], [ %conv3.i, %if.else ]
+  %conv.i51 = phi i8 [ %conv.i52, %if.then.i.i17 ], [ %conv.i, %if.else ]
+  %14 = getelementptr inbounds i8, ptr %routing_id, i64 8
+  store i64 0, ptr %14, align 8
+  %call.i6 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #18
+  store ptr %call.i6, ptr %routing_id, align 8
+  %tobool3.i7 = icmp eq ptr %call.i6, null
+  br i1 %tobool3.i7, label %do.end.thread.i13, label %land.lhs.true.i10.thread
 
-do.end.thread.i14:                                ; preds = %_ZN3zmq6blob_t5clearEv.exit.i6
-  %17 = load ptr, ptr @stderr, align 8
-  %call4.i15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 117) #17
-  %18 = load ptr, ptr @stderr, align 8
-  %call5.i16 = tail call i32 @fflush(ptr noundef %18)
+do.end.thread.i13:                                ; preds = %_ZN3zmq6blob_t5clearEv.exit.i5
+  %15 = load ptr, ptr @stderr, align 8
+  %call4.i14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 117) #17
+  %16 = load ptr, ptr @stderr, align 8
+  %call5.i15 = tail call i32 @fflush(ptr noundef %16)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.10)
-          to label %land.lhs.true.i11 unwind label %lpad
+          to label %land.lhs.true.i10 unwind label %lpad
 
-land.lhs.true.i11.thread:                         ; preds = %_ZN3zmq6blob_t5clearEv.exit.i6
-  store i64 5, ptr %16, align 8
+land.lhs.true.i10.thread:                         ; preds = %_ZN3zmq6blob_t5clearEv.exit.i5
+  store i64 5, ptr %14, align 8
   store i8 1, ptr %_owned.i, align 8
-  br label %if.then9.i13
+  br label %if.then9.i12
 
-land.lhs.true.i11:                                ; preds = %do.end.thread.i14
-  store i64 5, ptr %16, align 8
+land.lhs.true.i10:                                ; preds = %do.end.thread.i13
+  store i64 5, ptr %14, align 8
   store i8 1, ptr %_owned.i, align 8
   %.pr = load ptr, ptr %routing_id, align 8
-  %tobool8.not.i12 = icmp eq ptr %.pr, null
-  br i1 %tobool8.not.i12, label %invoke.cont18, label %if.then9.i13
+  %tobool8.not.i11 = icmp eq ptr %.pr, null
+  br i1 %tobool8.not.i11, label %invoke.cont18, label %if.then9.i12
 
-if.then9.i13:                                     ; preds = %land.lhs.true.i11.thread, %land.lhs.true.i11
-  %19 = phi ptr [ %call.i7, %land.lhs.true.i11.thread ], [ %.pr, %land.lhs.true.i11 ]
-  store i8 0, ptr %19, align 1
-  %buffer.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 1
-  store i8 %conv.i53, ptr %buffer.sroa.2.0..sroa_idx, align 1
-  %buffer.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 2
-  store i8 %conv3.i55, ptr %buffer.sroa.3.0..sroa_idx, align 1
-  %buffer.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 3
-  store i8 %conv7.i57, ptr %buffer.sroa.4.0..sroa_idx, align 1
-  %buffer.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 4
-  store i8 %conv10.i59, ptr %buffer.sroa.5.0..sroa_idx, align 1
-  %.pre39 = load ptr, ptr %routing_id, align 8
-  %.pre40 = load i64, ptr %16, align 8
+if.then9.i12:                                     ; preds = %land.lhs.true.i10.thread, %land.lhs.true.i10
+  %17 = phi ptr [ %call.i6, %land.lhs.true.i10.thread ], [ %.pr, %land.lhs.true.i10 ]
+  store i8 0, ptr %17, align 1
+  %buffer.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 1
+  store i8 %conv.i51, ptr %buffer.sroa.2.0..sroa_idx, align 1
+  %buffer.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 2
+  store i8 %conv3.i53, ptr %buffer.sroa.3.0..sroa_idx, align 1
+  %buffer.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 3
+  store i8 %conv7.i55, ptr %buffer.sroa.4.0..sroa_idx, align 1
+  %buffer.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  store i8 %conv10.i57, ptr %buffer.sroa.5.0..sroa_idx, align 1
+  %.pre38 = load ptr, ptr %routing_id, align 8
+  %.pre39 = load i64, ptr %14, align 8
   br label %invoke.cont18
 
-invoke.cont18:                                    ; preds = %if.then9.i13, %land.lhs.true.i11
-  %20 = phi i64 [ %.pre40, %if.then9.i13 ], [ 5, %land.lhs.true.i11 ]
-  %21 = phi ptr [ %.pre39, %if.then9.i13 ], [ null, %land.lhs.true.i11 ]
+invoke.cont18:                                    ; preds = %if.then9.i12, %land.lhs.true.i10
+  %18 = phi i64 [ %.pre39, %if.then9.i12 ], [ 5, %land.lhs.true.i10 ]
+  %19 = phi ptr [ %.pre38, %if.then9.i12 ], [ null, %land.lhs.true.i10 ]
   %routing_id19 = getelementptr inbounds i8, ptr %this, i64 41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %routing_id19, ptr align 1 %21, i64 %20, i1 false)
-  %conv = trunc i64 %20 to i8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %routing_id19, ptr align 1 %19, i64 %18, i1 false)
+  %conv = trunc i64 %18 to i8
   %routing_id_size = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %conv, ptr %routing_id_size, align 8
   br label %if.end28
@@ -445,71 +443,67 @@ if.end28:                                         ; preds = %invoke.cont18, %do.
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %if.end28
-  %22 = load ptr, ptr %routing_id, align 8
-  store ptr %22, ptr %agg.tmp, align 8
+  %20 = load ptr, ptr %routing_id, align 8
+  store ptr %20, ptr %agg.tmp, align 8
   %_size.i22 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_size3.i = getelementptr inbounds i8, ptr %routing_id, i64 8
-  %23 = load i64, ptr %_size3.i, align 8
-  store i64 %23, ptr %_size.i22, align 8
+  %21 = load i64, ptr %_size3.i, align 8
+  store i64 %21, ptr %_size.i22, align 8
   %_owned.i23 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %24 = load i8, ptr %_owned.i, align 8
-  %25 = and i8 %24, 1
-  store i8 %25, ptr %_owned.i23, align 8
+  %22 = load i8, ptr %_owned.i, align 8
+  %frombool.i = and i8 %22, 1
+  store i8 %frombool.i, ptr %_owned.i23, align 8
   store i8 0, ptr %_owned.i, align 8
   invoke void @_ZN3zmq21routing_socket_base_t12add_out_pipeENS_6blob_tEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1912) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %pipe_)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %26 = load i8, ptr %_owned.i23, align 8
-  %27 = and i8 %26, 1
-  %tobool.not.i25 = icmp eq i8 %27, 0
-  br i1 %tobool.not.i25, label %_ZN3zmq6blob_tD2Ev.exit, label %if.then.i
+  %23 = load i8, ptr %_owned.i23, align 8
+  %tobool.i = trunc i8 %23 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN3zmq6blob_tD2Ev.exit
 
 if.then.i:                                        ; preds = %invoke.cont31
-  %28 = load ptr, ptr %agg.tmp, align 8
-  call void @free(ptr noundef %28) #14
+  %24 = load ptr, ptr %agg.tmp, align 8
+  call void @free(ptr noundef %24) #14
   br label %_ZN3zmq6blob_tD2Ev.exit
 
 _ZN3zmq6blob_tD2Ev.exit:                          ; preds = %invoke.cont31, %if.then.i
-  %29 = load i8, ptr %_owned.i, align 8
-  %30 = and i8 %29, 1
-  %tobool.not.i27 = icmp eq i8 %30, 0
-  br i1 %tobool.not.i27, label %_ZN3zmq6blob_tD2Ev.exit29, label %if.then.i28
+  %25 = load i8, ptr %_owned.i, align 8
+  %tobool.i26 = trunc i8 %25 to i1
+  br i1 %tobool.i26, label %if.then.i27, label %_ZN3zmq6blob_tD2Ev.exit28
 
-if.then.i28:                                      ; preds = %_ZN3zmq6blob_tD2Ev.exit
-  %31 = load ptr, ptr %routing_id, align 8
-  call void @free(ptr noundef %31) #14
-  br label %_ZN3zmq6blob_tD2Ev.exit29
+if.then.i27:                                      ; preds = %_ZN3zmq6blob_tD2Ev.exit
+  %26 = load ptr, ptr %routing_id, align 8
+  call void @free(ptr noundef %26) #14
+  br label %_ZN3zmq6blob_tD2Ev.exit28
 
-_ZN3zmq6blob_tD2Ev.exit29:                        ; preds = %_ZN3zmq6blob_tD2Ev.exit, %if.then.i28
+_ZN3zmq6blob_tD2Ev.exit28:                        ; preds = %_ZN3zmq6blob_tD2Ev.exit, %if.then.i27
   ret void
 
 lpad30:                                           ; preds = %invoke.cont29
-  %32 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %33 = load i8, ptr %_owned.i23, align 8
-  %34 = and i8 %33, 1
-  %tobool.not.i31 = icmp eq i8 %34, 0
-  br i1 %tobool.not.i31, label %ehcleanup, label %if.then.i32
+  %28 = load i8, ptr %_owned.i23, align 8
+  %tobool.i30 = trunc i8 %28 to i1
+  br i1 %tobool.i30, label %if.then.i31, label %ehcleanup
 
-if.then.i32:                                      ; preds = %lpad30
-  %35 = load ptr, ptr %agg.tmp, align 8
-  call void @free(ptr noundef %35) #14
+if.then.i31:                                      ; preds = %lpad30
+  %29 = load ptr, ptr %agg.tmp, align 8
+  call void @free(ptr noundef %29) #14
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %if.then.i32, %lpad30, %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad5 ], [ %32, %lpad30 ], [ %32, %if.then.i32 ]
-  %36 = load i8, ptr %_owned.i, align 8
-  %37 = and i8 %36, 1
-  %tobool.not.i35 = icmp eq i8 %37, 0
-  br i1 %tobool.not.i35, label %_ZN3zmq6blob_tD2Ev.exit37, label %if.then.i36
+ehcleanup:                                        ; preds = %if.then.i31, %lpad30, %lpad5, %lpad
+  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad5 ], [ %27, %lpad30 ], [ %27, %if.then.i31 ]
+  %30 = load i8, ptr %_owned.i, align 8
+  %tobool.i34 = trunc i8 %30 to i1
+  br i1 %tobool.i34, label %if.then.i35, label %_ZN3zmq6blob_tD2Ev.exit36
 
-if.then.i36:                                      ; preds = %ehcleanup
-  %38 = load ptr, ptr %routing_id, align 8
-  call void @free(ptr noundef %38) #14
-  br label %_ZN3zmq6blob_tD2Ev.exit37
+if.then.i35:                                      ; preds = %ehcleanup
+  %31 = load ptr, ptr %routing_id, align 8
+  call void @free(ptr noundef %31) #14
+  br label %_ZN3zmq6blob_tD2Ev.exit36
 
-_ZN3zmq6blob_tD2Ev.exit37:                        ; preds = %ehcleanup, %if.then.i36
+_ZN3zmq6blob_tD2Ev.exit36:                        ; preds = %ehcleanup, %if.then.i35
   resume { ptr, i32 } %.pn
 }
 
@@ -554,28 +548,27 @@ entry:
   %ref.tmp = alloca %"struct.zmq::blob_t", align 8
   %_more_out = getelementptr inbounds i8, ptr %this, i64 2104
   %0 = load i8, ptr %_more_out, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.body, label %if.end49
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end49, label %do.body
 
 do.body:                                          ; preds = %entry
   %_current_out = getelementptr inbounds i8, ptr %this, i64 2096
-  %2 = load ptr, ptr %_current_out, align 8
-  %tobool2.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_current_out, align 8
+  %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %do.end, label %if.then4
 
 if.then4:                                         ; preds = %do.body
+  %2 = load ptr, ptr @stderr, align 8
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 65) #17
   %3 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 65) #17
-  %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 @fflush(ptr noundef %4)
+  %call5 = tail call i32 @fflush(ptr noundef %3)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then4
   %call6 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %5 = and i8 %call6, 1
-  %tobool7.not = icmp eq i8 %5, 0
+  %4 = and i8 %call6, 1
+  %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %if.end23, label %if.then8
 
 if.then8:                                         ; preds = %do.end
@@ -590,14 +583,13 @@ if.then8:                                         ; preds = %do.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then8
-  %6 = load i8, ptr %_owned.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %_ZN3zmq6blob_tD2Ev.exit, label %if.then.i
+  %5 = load i8, ptr %_owned.i, align 8
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN3zmq6blob_tD2Ev.exit
 
 if.then.i:                                        ; preds = %invoke.cont
-  %8 = load ptr, ptr %ref.tmp, align 8
-  call void @free(ptr noundef %8) #14
+  %6 = load ptr, ptr %ref.tmp, align 8
+  call void @free(ptr noundef %6) #14
   br label %_ZN3zmq6blob_tD2Ev.exit
 
 _ZN3zmq6blob_tD2Ev.exit:                          ; preds = %invoke.cont, %if.then.i
@@ -605,9 +597,9 @@ _ZN3zmq6blob_tD2Ev.exit:                          ; preds = %invoke.cont, %if.th
   br i1 %tobool12.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %_ZN3zmq6blob_tD2Ev.exit
-  %9 = load ptr, ptr %call11, align 8
-  store ptr %9, ptr %_current_out, align 8
-  %call16 = call noundef zeroext i1 @_ZN3zmq6pipe_t11check_writeEv(ptr noundef nonnull align 8 dereferenceable(328) %9)
+  %7 = load ptr, ptr %call11, align 8
+  store ptr %7, ptr %_current_out, align 8
+  %call16 = call noundef zeroext i1 @_ZN3zmq6pipe_t11check_writeEv(ptr noundef nonnull align 8 dereferenceable(328) %7)
   br i1 %call16, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %if.then13
@@ -619,20 +611,19 @@ if.then17:                                        ; preds = %if.then13
   br label %return
 
 lpad:                                             ; preds = %if.then8
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %11 = load i8, ptr %_owned.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i24 = icmp eq i8 %12, 0
-  br i1 %tobool.not.i24, label %_ZN3zmq6blob_tD2Ev.exit26, label %if.then.i25
+  %9 = load i8, ptr %_owned.i, align 8
+  %tobool.i24 = trunc i8 %9 to i1
+  br i1 %tobool.i24, label %if.then.i25, label %_ZN3zmq6blob_tD2Ev.exit26
 
 if.then.i25:                                      ; preds = %lpad
-  %13 = load ptr, ptr %ref.tmp, align 8
-  call void @free(ptr noundef %13) #14
+  %10 = load ptr, ptr %ref.tmp, align 8
+  call void @free(ptr noundef %10) #14
   br label %_ZN3zmq6blob_tD2Ev.exit26
 
 _ZN3zmq6blob_tD2Ev.exit26:                        ; preds = %lpad, %if.then.i25
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %8
 
 if.else:                                          ; preds = %_ZN3zmq6blob_tD2Ev.exit
   %call21 = tail call ptr @__errno_location() #19
@@ -647,12 +638,12 @@ if.end23:                                         ; preds = %if.then13, %do.end
 
 if.then29:                                        ; preds = %if.end23
   %call30 = tail call ptr @__errno_location() #19
-  %14 = load i32, ptr %call30, align 4
-  %call31 = call ptr @strerror(i32 noundef %14) #14
-  %15 = load ptr, ptr @stderr, align 8
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.4, ptr noundef %call31, ptr noundef nonnull @.str.2, i32 noundef 96) #17
-  %16 = load ptr, ptr @stderr, align 8
-  %call33 = call i32 @fflush(ptr noundef %16)
+  %11 = load i32, ptr %call30, align 4
+  %call31 = call ptr @strerror(i32 noundef %11) #14
+  %12 = load ptr, ptr @stderr, align 8
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, ptr noundef %call31, ptr noundef nonnull @.str.2, i32 noundef 96) #17
+  %13 = load ptr, ptr @stderr, align 8
+  %call33 = call i32 @fflush(ptr noundef %13)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call31)
   br label %do.end35
 
@@ -663,12 +654,12 @@ do.end35:                                         ; preds = %if.end23, %if.then2
 
 if.then41:                                        ; preds = %do.end35
   %call43 = tail call ptr @__errno_location() #19
-  %17 = load i32, ptr %call43, align 4
-  %call44 = call ptr @strerror(i32 noundef %17) #14
-  %18 = load ptr, ptr @stderr, align 8
-  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.4, ptr noundef %call44, ptr noundef nonnull @.str.2, i32 noundef 98) #17
-  %19 = load ptr, ptr @stderr, align 8
-  %call46 = call i32 @fflush(ptr noundef %19)
+  %14 = load i32, ptr %call43, align 4
+  %call44 = call ptr @strerror(i32 noundef %14) #14
+  %15 = load ptr, ptr @stderr, align 8
+  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.4, ptr noundef %call44, ptr noundef nonnull @.str.2, i32 noundef 98) #17
+  %16 = load ptr, ptr @stderr, align 8
+  %call46 = call i32 @fflush(ptr noundef %16)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call44)
   br label %return
 
@@ -676,30 +667,30 @@ if.end49:                                         ; preds = %entry
   tail call void @_ZN3zmq5msg_t11reset_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %msg_, i8 noundef zeroext 1)
   store i8 0, ptr %_more_out, align 8
   %_current_out51 = getelementptr inbounds i8, ptr %this, i64 2096
-  %20 = load ptr, ptr %_current_out51, align 8
-  %tobool52.not = icmp eq ptr %20, null
+  %17 = load ptr, ptr %_current_out51, align 8
+  %tobool52.not = icmp eq ptr %17, null
   br i1 %tobool52.not, label %if.else95, label %if.then53
 
 if.then53:                                        ; preds = %if.end49
   %call54 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp55 = icmp eq i64 %call54, 0
-  %21 = load ptr, ptr %_current_out51, align 8
+  %18 = load ptr, ptr %_current_out51, align 8
   br i1 %cmp55, label %if.then56, label %if.end86
 
 if.then56:                                        ; preds = %if.then53
-  tail call void @_ZN3zmq6pipe_t9terminateEb(ptr noundef nonnull align 8 dereferenceable(328) %21, i1 noundef zeroext false)
+  tail call void @_ZN3zmq6pipe_t9terminateEb(ptr noundef nonnull align 8 dereferenceable(328) %18, i1 noundef zeroext false)
   %call59 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp61.not = icmp eq i32 %call59, 0
   br i1 %cmp61.not, label %do.end71, label %if.then64
 
 if.then64:                                        ; preds = %if.then56
   %call66 = tail call ptr @__errno_location() #19
-  %22 = load i32, ptr %call66, align 4
-  %call67 = tail call ptr @strerror(i32 noundef %22) #14
-  %23 = load ptr, ptr @stderr, align 8
-  %call68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.4, ptr noundef %call67, ptr noundef nonnull @.str.2, i32 noundef 116) #17
-  %24 = load ptr, ptr @stderr, align 8
-  %call69 = tail call i32 @fflush(ptr noundef %24)
+  %19 = load i32, ptr %call66, align 4
+  %call67 = tail call ptr @strerror(i32 noundef %19) #14
+  %20 = load ptr, ptr @stderr, align 8
+  %call68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.4, ptr noundef %call67, ptr noundef nonnull @.str.2, i32 noundef 116) #17
+  %21 = load ptr, ptr @stderr, align 8
+  %call69 = tail call i32 @fflush(ptr noundef %21)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call67)
   br label %do.end71
 
@@ -710,12 +701,12 @@ do.end71:                                         ; preds = %if.then56, %if.then
 
 if.then77:                                        ; preds = %do.end71
   %call79 = tail call ptr @__errno_location() #19
-  %25 = load i32, ptr %call79, align 4
-  %call80 = tail call ptr @strerror(i32 noundef %25) #14
-  %26 = load ptr, ptr @stderr, align 8
-  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.4, ptr noundef %call80, ptr noundef nonnull @.str.2, i32 noundef 118) #17
-  %27 = load ptr, ptr @stderr, align 8
-  %call82 = tail call i32 @fflush(ptr noundef %27)
+  %22 = load i32, ptr %call79, align 4
+  %call80 = tail call ptr @strerror(i32 noundef %22) #14
+  %23 = load ptr, ptr @stderr, align 8
+  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.4, ptr noundef %call80, ptr noundef nonnull @.str.2, i32 noundef 118) #17
+  %24 = load ptr, ptr @stderr, align 8
+  %call82 = tail call i32 @fflush(ptr noundef %24)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call80)
   br label %do.end84
 
@@ -724,12 +715,12 @@ do.end84:                                         ; preds = %do.end71, %if.then7
   br label %return
 
 if.end86:                                         ; preds = %if.then53
-  %call88 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t5writeEPKNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %21, ptr noundef nonnull %msg_)
+  %call88 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t5writeEPKNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %18, ptr noundef nonnull %msg_)
   br i1 %call88, label %if.then91, label %if.end93
 
 if.then91:                                        ; preds = %if.end86
-  %28 = load ptr, ptr %_current_out51, align 8
-  tail call void @_ZN3zmq6pipe_t5flushEv(ptr noundef nonnull align 8 dereferenceable(328) %28)
+  %25 = load ptr, ptr %_current_out51, align 8
+  tail call void @_ZN3zmq6pipe_t5flushEv(ptr noundef nonnull align 8 dereferenceable(328) %25)
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then91, %if.end86
@@ -743,12 +734,12 @@ if.else95:                                        ; preds = %if.end49
 
 if.then102:                                       ; preds = %if.else95
   %call104 = tail call ptr @__errno_location() #19
-  %29 = load i32, ptr %call104, align 4
-  %call105 = tail call ptr @strerror(i32 noundef %29) #14
-  %30 = load ptr, ptr @stderr, align 8
-  %call106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.4, ptr noundef %call105, ptr noundef nonnull @.str.2, i32 noundef 128) #17
-  %31 = load ptr, ptr @stderr, align 8
-  %call107 = tail call i32 @fflush(ptr noundef %31)
+  %26 = load i32, ptr %call104, align 4
+  %call105 = tail call ptr @strerror(i32 noundef %26) #14
+  %27 = load ptr, ptr @stderr, align 8
+  %call106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.4, ptr noundef %call105, ptr noundef nonnull @.str.2, i32 noundef 128) #17
+  %28 = load ptr, ptr @stderr, align 8
+  %call107 = tail call i32 @fflush(ptr noundef %28)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call105)
   br label %if.end110
 
@@ -759,12 +750,12 @@ if.end110:                                        ; preds = %if.then102, %if.els
 
 if.then117:                                       ; preds = %if.end110
   %call119 = tail call ptr @__errno_location() #19
-  %32 = load i32, ptr %call119, align 4
-  %call120 = tail call ptr @strerror(i32 noundef %32) #14
-  %33 = load ptr, ptr @stderr, align 8
-  %call121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.4, ptr noundef %call120, ptr noundef nonnull @.str.2, i32 noundef 133) #17
-  %34 = load ptr, ptr @stderr, align 8
-  %call122 = tail call i32 @fflush(ptr noundef %34)
+  %29 = load i32, ptr %call119, align 4
+  %call120 = tail call ptr @strerror(i32 noundef %29) #14
+  %30 = load ptr, ptr @stderr, align 8
+  %call121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.4, ptr noundef %call120, ptr noundef nonnull @.str.2, i32 noundef 133) #17
+  %31 = load ptr, ptr @stderr, align 8
+  %call122 = tail call i32 @fflush(ptr noundef %31)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call120)
   br label %return
 
@@ -827,16 +818,14 @@ entry:
   %pipe = alloca ptr, align 8
   %_prefetched = getelementptr inbounds i8, ptr %this, i64 1960
   %0 = load i8, ptr %_prefetched, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end25, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
   %_routing_id_sent = getelementptr inbounds i8, ptr %this, i64 1961
-  %2 = load i8, ptr %_routing_id_sent, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.then3, label %if.else
+  %1 = load i8, ptr %_routing_id_sent, align 1
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
   %_prefetched_routing_id = getelementptr inbounds i8, ptr %this, i64 1968
@@ -846,12 +835,12 @@ if.then3:                                         ; preds = %if.then
 
 if.then4:                                         ; preds = %if.then3
   %call5 = tail call ptr @__errno_location() #19
-  %4 = load i32, ptr %call5, align 4
-  %call6 = tail call ptr @strerror(i32 noundef %4) #14
-  %5 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.4, ptr noundef %call6, ptr noundef nonnull @.str.2, i32 noundef 158) #17
-  %6 = load ptr, ptr @stderr, align 8
-  %call8 = tail call i32 @fflush(ptr noundef %6)
+  %2 = load i32, ptr %call5, align 4
+  %call6 = tail call ptr @strerror(i32 noundef %2) #14
+  %3 = load ptr, ptr @stderr, align 8
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef %call6, ptr noundef nonnull @.str.2, i32 noundef 158) #17
+  %4 = load ptr, ptr @stderr, align 8
+  %call8 = tail call i32 @fflush(ptr noundef %4)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call6)
   br label %do.end
 
@@ -867,12 +856,12 @@ if.else:                                          ; preds = %if.then
 
 if.then15:                                        ; preds = %if.else
   %call17 = tail call ptr @__errno_location() #19
-  %7 = load i32, ptr %call17, align 4
-  %call18 = tail call ptr @strerror(i32 noundef %7) #14
-  %8 = load ptr, ptr @stderr, align 8
-  %call19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef %call18, ptr noundef nonnull @.str.2, i32 noundef 162) #17
-  %9 = load ptr, ptr @stderr, align 8
-  %call20 = tail call i32 @fflush(ptr noundef %9)
+  %5 = load i32, ptr %call17, align 4
+  %call18 = tail call ptr @strerror(i32 noundef %5) #14
+  %6 = load ptr, ptr @stderr, align 8
+  %call19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef %call18, ptr noundef nonnull @.str.2, i32 noundef 162) #17
+  %7 = load ptr, ptr @stderr, align 8
+  %call20 = tail call i32 @fflush(ptr noundef %7)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call18)
   br label %do.end22
 
@@ -889,65 +878,65 @@ if.end25:                                         ; preds = %entry
   br i1 %cmp29.not, label %do.body32, label %return
 
 do.body32:                                        ; preds = %if.end25
-  %10 = load ptr, ptr %pipe, align 8
-  %cmp33.not = icmp eq ptr %10, null
+  %8 = load ptr, ptr %pipe, align 8
+  %cmp33.not = icmp eq ptr %8, null
   br i1 %cmp33.not, label %if.then35, label %do.body40
 
 if.then35:                                        ; preds = %do.body32
-  %11 = load ptr, ptr @stderr, align 8
-  %call36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 173) #17
-  %12 = load ptr, ptr @stderr, align 8
-  %call37 = call i32 @fflush(ptr noundef %12)
+  %9 = load ptr, ptr @stderr, align 8
+  %call36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 173) #17
+  %10 = load ptr, ptr @stderr, align 8
+  %call37 = call i32 @fflush(ptr noundef %10)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %do.body40
 
 do.body40:                                        ; preds = %if.then35, %do.body32
   %call42 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %_prefetched_msg27)
-  %13 = and i8 %call42, 1
-  %cmp43.not = icmp eq i8 %13, 0
+  %11 = and i8 %call42, 1
+  %cmp43.not = icmp eq i8 %11, 0
   br i1 %cmp43.not, label %do.end50, label %if.then46
 
 if.then46:                                        ; preds = %do.body40
-  %14 = load ptr, ptr @stderr, align 8
-  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 174) #17
-  %15 = load ptr, ptr @stderr, align 8
-  %call48 = call i32 @fflush(ptr noundef %15)
+  %12 = load ptr, ptr @stderr, align 8
+  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 174) #17
+  %13 = load ptr, ptr @stderr, align 8
+  %call48 = call i32 @fflush(ptr noundef %13)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   br label %do.end50
 
 do.end50:                                         ; preds = %do.body40, %if.then46
-  %16 = load ptr, ptr %pipe, align 8
-  %call51 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq6pipe_t14get_routing_idEv(ptr noundef nonnull align 8 dereferenceable(328) %16)
+  %14 = load ptr, ptr %pipe, align 8
+  %call51 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq6pipe_t14get_routing_idEv(ptr noundef nonnull align 8 dereferenceable(328) %14)
   %call52 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp54.not = icmp eq i32 %call52, 0
   br i1 %cmp54.not, label %do.end64, label %if.then57
 
 if.then57:                                        ; preds = %do.end50
   %call59 = tail call ptr @__errno_location() #19
-  %17 = load i32, ptr %call59, align 4
-  %call60 = call ptr @strerror(i32 noundef %17) #14
-  %18 = load ptr, ptr @stderr, align 8
-  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.4, ptr noundef %call60, ptr noundef nonnull @.str.2, i32 noundef 181) #17
-  %19 = load ptr, ptr @stderr, align 8
-  %call62 = call i32 @fflush(ptr noundef %19)
+  %15 = load i32, ptr %call59, align 4
+  %call60 = call ptr @strerror(i32 noundef %15) #14
+  %16 = load ptr, ptr @stderr, align 8
+  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.4, ptr noundef %call60, ptr noundef nonnull @.str.2, i32 noundef 181) #17
+  %17 = load ptr, ptr @stderr, align 8
+  %call62 = call i32 @fflush(ptr noundef %17)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call60)
   br label %do.end64
 
 do.end64:                                         ; preds = %do.end50, %if.then57
   %_size.i = getelementptr inbounds i8, ptr %call51, i64 8
-  %20 = load i64, ptr %_size.i, align 8
-  %call66 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %msg_, i64 noundef %20)
+  %18 = load i64, ptr %_size.i, align 8
+  %call66 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %msg_, i64 noundef %18)
   %cmp68.not = icmp eq i32 %call66, 0
   br i1 %cmp68.not, label %do.end78, label %if.then71
 
 if.then71:                                        ; preds = %do.end64
   %call73 = tail call ptr @__errno_location() #19
-  %21 = load i32, ptr %call73, align 4
-  %call74 = call ptr @strerror(i32 noundef %21) #14
-  %22 = load ptr, ptr @stderr, align 8
-  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.4, ptr noundef %call74, ptr noundef nonnull @.str.2, i32 noundef 183) #17
-  %23 = load ptr, ptr @stderr, align 8
-  %call76 = call i32 @fflush(ptr noundef %23)
+  %19 = load i32, ptr %call73, align 4
+  %call74 = call ptr @strerror(i32 noundef %19) #14
+  %20 = load ptr, ptr @stderr, align 8
+  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.4, ptr noundef %call74, ptr noundef nonnull @.str.2, i32 noundef 183) #17
+  %21 = load ptr, ptr @stderr, align 8
+  %call76 = call i32 @fflush(ptr noundef %21)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call74)
   br label %do.end78
 
@@ -962,9 +951,9 @@ if.then82:                                        ; preds = %do.end78
 
 if.end83:                                         ; preds = %if.then82, %do.end78
   %call84 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %24 = load ptr, ptr %call51, align 8
-  %25 = load i64, ptr %_size.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call84, ptr align 1 %24, i64 %25, i1 false)
+  %22 = load ptr, ptr %call51, align 8
+  %23 = load i64, ptr %_size.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call84, ptr align 1 %22, i64 %23, i1 false)
   call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %msg_, i8 noundef zeroext 1)
   store i8 1, ptr %_prefetched, align 8
   %_routing_id_sent88 = getelementptr inbounds i8, ptr %this, i64 1961
@@ -999,9 +988,8 @@ entry:
   %pipe = alloca ptr, align 8
   %_prefetched = getelementptr inbounds i8, ptr %this, i64 1960
   %0 = load i8, ptr %_prefetched, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr null, ptr %pipe, align 8
@@ -1012,50 +1000,50 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %do.body, label %return
 
 do.body:                                          ; preds = %if.end
-  %2 = load ptr, ptr %pipe, align 8
-  %cmp4.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %pipe, align 8
+  %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.then5, label %do.body9
 
 if.then5:                                         ; preds = %do.body
+  %2 = load ptr, ptr @stderr, align 8
+  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 212) #17
   %3 = load ptr, ptr @stderr, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 212) #17
-  %4 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 @fflush(ptr noundef %4)
+  %call7 = call i32 @fflush(ptr noundef %3)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then5, %do.body
   %call11 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %_prefetched_msg)
-  %5 = and i8 %call11, 1
-  %cmp12.not = icmp eq i8 %5, 0
+  %4 = and i8 %call11, 1
+  %cmp12.not = icmp eq i8 %4, 0
   br i1 %cmp12.not, label %do.end19, label %if.then15
 
 if.then15:                                        ; preds = %do.body9
+  %5 = load ptr, ptr @stderr, align 8
+  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 213) #17
   %6 = load ptr, ptr @stderr, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 213) #17
-  %7 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 @fflush(ptr noundef %7)
+  %call17 = call i32 @fflush(ptr noundef %6)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   br label %do.end19
 
 do.end19:                                         ; preds = %do.body9, %if.then15
-  %8 = load ptr, ptr %pipe, align 8
-  %call20 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq6pipe_t14get_routing_idEv(ptr noundef nonnull align 8 dereferenceable(328) %8)
+  %7 = load ptr, ptr %pipe, align 8
+  %call20 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq6pipe_t14get_routing_idEv(ptr noundef nonnull align 8 dereferenceable(328) %7)
   %_prefetched_routing_id = getelementptr inbounds i8, ptr %this, i64 1968
   %_size.i = getelementptr inbounds i8, ptr %call20, i64 8
-  %9 = load i64, ptr %_size.i, align 8
-  %call22 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %_prefetched_routing_id, i64 noundef %9)
+  %8 = load i64, ptr %_size.i, align 8
+  %call22 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %_prefetched_routing_id, i64 noundef %8)
   %cmp24.not = icmp eq i32 %call22, 0
   br i1 %cmp24.not, label %do.end33, label %if.then27
 
 if.then27:                                        ; preds = %do.end19
   %call28 = tail call ptr @__errno_location() #19
-  %10 = load i32, ptr %call28, align 4
-  %call29 = call ptr @strerror(i32 noundef %10) #14
+  %9 = load i32, ptr %call28, align 4
+  %call29 = call ptr @strerror(i32 noundef %9) #14
+  %10 = load ptr, ptr @stderr, align 8
+  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.4, ptr noundef %call29, ptr noundef nonnull @.str.2, i32 noundef 217) #17
   %11 = load ptr, ptr @stderr, align 8
-  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.4, ptr noundef %call29, ptr noundef nonnull @.str.2, i32 noundef 217) #17
-  %12 = load ptr, ptr @stderr, align 8
-  %call31 = call i32 @fflush(ptr noundef %12)
+  %call31 = call i32 @fflush(ptr noundef %11)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call29)
   br label %do.end33
 
@@ -1070,9 +1058,9 @@ if.then37:                                        ; preds = %do.end33
 
 if.end39:                                         ; preds = %if.then37, %do.end33
   %call41 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %_prefetched_routing_id)
-  %13 = load ptr, ptr %call20, align 8
-  %14 = load i64, ptr %_size.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call41, ptr align 1 %13, i64 %14, i1 false)
+  %12 = load ptr, ptr %call20, align 8
+  %13 = load i64, ptr %_size.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call41, ptr align 1 %12, i64 %13, i1 false)
   call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %_prefetched_routing_id, i8 noundef zeroext 1)
   store i8 1, ptr %_prefetched, align 8
   %_routing_id_sent = getelementptr inbounds i8, ptr %this, i64 1961

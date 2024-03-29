@@ -55,7 +55,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
   %__begin2.sroa.0.0172 = phi ptr [ %__begin2.sroa.0.0169, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit ]
-  %changed.0171 = phi i8 [ 0, %for.body.lr.ph ], [ %changed.1162, %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit ]
+  %changed.0171 = phi i1 [ false, %for.body.lr.ph ], [ %changed.1162, %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i, ptr %destroyer, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
@@ -78,7 +78,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 for.body12:                                       ; preds = %for.body, %for.inc
   %__begin3.sroa.0.0166 = phi ptr [ %__begin3.sroa.0.0, %for.inc ], [ %__begin3.sroa.0.0163, %for.body ]
-  %changed.1165 = phi i8 [ %changed.2, %for.inc ], [ %changed.0171, %for.body ]
+  %changed.1165 = phi i1 [ %changed.2, %for.inc ], [ %changed.0171, %for.body ]
   %add.ptr.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0166, i64 16
   %1 = load i8, ptr %add.ptr.i.i.i.i.i.i19, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %1, 8
@@ -96,20 +96,20 @@ if.then.i.i:                                      ; preds = %if.then
   %4 = load i32, ptr %NumNonEmpty.i.i.i, align 4, !noalias !4
   %idx.ext.i.i = zext i32 %4 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 %idx.ext.i.i
-  %cmp.not22.i.i = icmp eq i32 %4, 0
-  br i1 %cmp.not22.i.i, label %if.end16.i.i, label %for.body.i.i
+  %cmp.not26.i.i = icmp eq i32 %4, 0
+  br i1 %cmp.not26.i.i, label %if.end16.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %if.end.i.i
-  %LastTombstone.024.i.i = phi ptr [ %spec.select.i.i, %if.end.i.i ], [ null, %if.then.i.i ]
-  %APtr.023.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %2, %if.then.i.i ]
-  %5 = load ptr, ptr %APtr.023.i.i, align 8, !noalias !4
+  %LastTombstone.028.i.i = phi ptr [ %spec.select.i.i, %if.end.i.i ], [ null, %if.then.i.i ]
+  %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %2, %if.then.i.i ]
+  %5 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !4
   %cmp3.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i.i19
   br i1 %cmp3.i.i, label %for.inc, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp8.i.i = icmp eq ptr %5, inttoptr (i64 -2 to ptr)
-  %spec.select.i.i = select i1 %cmp8.i.i, ptr %APtr.023.i.i, ptr %LastTombstone.024.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %APtr.023.i.i, i64 8
+  %spec.select.i.i = select i1 %cmp8.i.i, ptr %APtr.027.i.i, ptr %LastTombstone.028.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %APtr.027.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !7
 
@@ -236,20 +236,20 @@ if.then.i.i50:                                    ; preds = %if.then25
   %23 = load i32, ptr %NumNonEmpty.i.i.i15, align 4, !noalias !11
   %idx.ext.i.i52 = zext i32 %23 to i64
   %add.ptr.i.i53 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i.i52
-  %cmp.not22.i.i54 = icmp eq i32 %23, 0
-  br i1 %cmp.not22.i.i54, label %if.end16.i.i69, label %for.body.i.i55
+  %cmp.not26.i.i54 = icmp eq i32 %23, 0
+  br i1 %cmp.not26.i.i54, label %if.end16.i.i69, label %for.body.i.i55
 
 for.body.i.i55:                                   ; preds = %if.then.i.i50, %if.end.i.i59
-  %LastTombstone.024.i.i56 = phi ptr [ %spec.select.i.i61, %if.end.i.i59 ], [ null, %if.then.i.i50 ]
-  %APtr.023.i.i57 = phi ptr [ %incdec.ptr.i.i62, %if.end.i.i59 ], [ %21, %if.then.i.i50 ]
-  %24 = load ptr, ptr %APtr.023.i.i57, align 8, !noalias !11
+  %LastTombstone.028.i.i56 = phi ptr [ %spec.select.i.i61, %if.end.i.i59 ], [ null, %if.then.i.i50 ]
+  %APtr.027.i.i57 = phi ptr [ %incdec.ptr.i.i62, %if.end.i.i59 ], [ %21, %if.then.i.i50 ]
+  %24 = load ptr, ptr %APtr.027.i.i57, align 8, !noalias !11
   %cmp3.i.i58 = icmp eq ptr %24, %call.i77
   br i1 %cmp3.i.i58, label %for.inc, label %if.end.i.i59
 
 if.end.i.i59:                                     ; preds = %for.body.i.i55
   %cmp8.i.i60 = icmp eq ptr %24, inttoptr (i64 -2 to ptr)
-  %spec.select.i.i61 = select i1 %cmp8.i.i60, ptr %APtr.023.i.i57, ptr %LastTombstone.024.i.i56
-  %incdec.ptr.i.i62 = getelementptr inbounds i8, ptr %APtr.023.i.i57, i64 8
+  %spec.select.i.i61 = select i1 %cmp8.i.i60, ptr %APtr.027.i.i57, ptr %LastTombstone.028.i.i56
+  %incdec.ptr.i.i62 = getelementptr inbounds i8, ptr %APtr.027.i.i57, i64 8
   %cmp.not.i.i63 = icmp eq ptr %incdec.ptr.i.i62, %add.ptr.i.i53
   br i1 %cmp.not.i.i63, label %for.end.i.i64, label %for.body.i.i55, !llvm.loop !7
 
@@ -379,14 +379,14 @@ if.end35:                                         ; preds = %if.end
   br i1 %cmp.i128, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i, %for.body.i.i55, %if.then12.i.i66, %if.then19.i.i72, %if.end31.i.i29, %if.then12.i.i, %if.then19.i.i, %if.end31.i.i, %if.end35, %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
-  %changed.2 = phi i8 [ %changed.1165, %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit ], [ 1, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit ], [ %changed.1165, %if.end35 ], [ %changed.1165, %if.end31.i.i ], [ %changed.1165, %if.then19.i.i ], [ %changed.1165, %if.then12.i.i ], [ %changed.1165, %if.end31.i.i29 ], [ %changed.1165, %if.then19.i.i72 ], [ %changed.1165, %if.then12.i.i66 ], [ %changed.1165, %for.body.i.i55 ], [ %changed.1165, %for.body.i.i ]
+  %changed.2 = phi i1 [ %changed.1165, %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit ], [ %changed.1165, %if.end35 ], [ %changed.1165, %if.end31.i.i ], [ %changed.1165, %if.then19.i.i ], [ %changed.1165, %if.then12.i.i ], [ %changed.1165, %if.end31.i.i29 ], [ %changed.1165, %if.then19.i.i72 ], [ %changed.1165, %if.then12.i.i66 ], [ %changed.1165, %for.body.i.i55 ], [ %changed.1165, %for.body.i.i ]
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0166, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i18.not = icmp eq ptr %__begin3.sroa.0.0, %InstList.i
   br i1 %cmp.i18.not, label %for.end, label %for.body12
 
 for.end:                                          ; preds = %for.inc, %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit, %if.end35, %while.body.i6.i.i15.i.i.i, %for.body
-  %changed.1162 = phi i8 [ %changed.0171, %for.body ], [ %changed.1165, %while.body.i6.i.i15.i.i.i ], [ %changed.2, %for.inc ], [ %changed.1165, %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit ], [ %changed.1165, %if.end35 ]
+  %changed.1162 = phi i1 [ %changed.0171, %for.body ], [ %changed.1165, %while.body.i6.i.i15.i.i.i ], [ %changed.2, %for.inc ], [ %changed.1165, %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit ], [ %changed.1165, %if.end35 ]
   %43 = load ptr, ptr %CurArray.i.i.i13, align 8
   %44 = load ptr, ptr %writtenSlots, align 8
   %cmp.i.i.i.i130 = icmp eq ptr %43, %44
@@ -439,15 +439,10 @@ _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %for.end.i, %if.t
   %Next.i.i.i139 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0172, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i139, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %BasicBlockList.i
-  br i1 %cmp.i.not, label %for.end42.loopexit, label %for.body
+  br i1 %cmp.i.not, label %for.end42, label %for.body
 
-for.end42.loopexit:                               ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
-  %51 = and i8 %changed.1162, 1
-  %52 = icmp ne i8 %51, 0
-  br label %for.end42
-
-for.end42:                                        ; preds = %for.end42.loopexit, %entry
-  %changed.0.lcssa = phi i1 [ false, %entry ], [ %52, %for.end42.loopexit ]
+for.end42:                                        ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit, %entry
+  %changed.0.lcssa = phi i1 [ false, %entry ], [ %changed.1162, %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit ]
   ret i1 %changed.0.lcssa
 }
 

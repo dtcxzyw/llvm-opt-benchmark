@@ -156,9 +156,8 @@ define internal fastcc i32 @GetComboCommandId(i32 noundef %0, i32 noundef %1) un
   store i32 %1, ptr %28, align 4
   %29 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #7
   %30 = load i8, ptr %4, align 1
-  %31 = and i8 %30, 1
-  %.not13 = icmp eq i8 %31, 0
-  br i1 %.not13, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %29, i64 8

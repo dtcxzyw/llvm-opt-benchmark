@@ -1817,9 +1817,8 @@ define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf
   %35 = fsub float %32, %34
   %36 = load float, ptr %26, align 8
   %37 = load i8, ptr %10, align 1
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %50, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %50
 
 39:                                               ; preds = %29
   %40 = fcmp olt float %35, 0.000000e+00

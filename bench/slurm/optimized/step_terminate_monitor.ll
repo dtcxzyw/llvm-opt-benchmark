@@ -430,19 +430,18 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   call void @stepd_drain_node(ptr noundef %122) #7
   %123 = getelementptr inbounds i8, ptr %0, i64 433
   %124 = load i8, ptr %123, align 1
-  %125 = and i8 %124, 1
-  %.not32 = icmp eq i8 %125, 0
-  br i1 %.not32, label %126, label %141
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %141, label %126
 
 126:                                              ; preds = %115
   %127 = load i32, ptr %101, align 8
-  %.not33 = icmp eq i32 %127, -4
-  br i1 %.not33, label %.loopexit, label %.preheader
+  %.not32 = icmp eq i32 %127, -4
+  br i1 %.not32, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %126, %.preheader
   %128 = call i32 @stepd_send_pending_exit_msgs(ptr noundef %0) #7
-  %.not34 = icmp eq i32 %128, 0
-  br i1 %.not34, label %.loopexit, label %.preheader, !llvm.loop !7
+  %.not33 = icmp eq i32 %128, 0
+  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %126
   %129 = load i32, ptr getelementptr inbounds (%struct.step_complete_t, ptr @step_complete, i64 0, i32 2), align 8
@@ -452,9 +451,8 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 131:                                              ; preds = %.loopexit
   %132 = getelementptr inbounds i8, ptr %0, i64 432
   %133 = load i8, ptr %132, align 8
-  %134 = and i8 %133, 1
-  %.not35 = icmp eq i8 %134, 0
-  br i1 %.not35, label %139, label %135
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %135, label %139
 
 135:                                              ; preds = %131
   %136 = call i32 @get_log_level() #7
@@ -492,8 +490,8 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 
 149:                                              ; preds = %145, %148
   %150 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not36 = icmp eq i32 %150, 0
-  br i1 %.not36, label %153, label %151
+  %.not34 = icmp eq i32 %150, 0
+  br i1 %.not34, label %153, label %151
 
 151:                                              ; preds = %149
   %152 = tail call ptr @__errno_location() #8

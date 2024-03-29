@@ -54,16 +54,14 @@ _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us: ; preds = %for.body.us
 if.end.us:                                        ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us
   %isGlobal_.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.020.us, i64 64
   %4 = load i8, ptr %isGlobal_.i.us, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.not.us = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.us, label %if.then12.us, label %for.inc.us
+  %tobool.i.us = trunc i8 %4 to i1
+  br i1 %tobool.i.us, label %for.inc.us, label %if.then12.us
 
 if.then12.us:                                     ; preds = %if.end.us
   call void @_ZNK6hermes8Function26getSourceRepresentationStrEv(ptr nonnull sret(%"class.llvh::Optional") align 8 %source, ptr noundef nonnull align 8 dereferenceable(304) %__begin2.sroa.0.020.us) #4
-  %6 = load i8, ptr %hasVal.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.i9.not.us = icmp eq i8 %7, 0
-  br i1 %tobool.i9.not.us, label %for.inc.us, label %if.then14.us
+  %5 = load i8, ptr %hasVal.i, align 8
+  %tobool.i9.us = trunc i8 %5 to i1
+  br i1 %tobool.i9.us, label %if.then14.us, label %for.inc.us
 
 if.then14.us:                                     ; preds = %if.then12.us
   %agg.tmp15.sroa.0.0.copyload.us = load ptr, ptr %source, align 8
@@ -71,13 +69,13 @@ if.then14.us:                                     ; preds = %if.then12.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i10)
   store ptr %agg.tmp15.sroa.0.0.copyload.us, ptr %__args.i10, align 8
   store i64 %agg.tmp15.sroa.2.0.copyload.us, ptr %1, align 8
-  %8 = load ptr, ptr %_M_manager.i.i11, align 8
-  %tobool.not.i.i12.us = icmp eq ptr %8, null
+  %6 = load ptr, ptr %_M_manager.i.i11, align 8
+  %tobool.not.i.i12.us = icmp eq ptr %6, null
   br i1 %tobool.not.i.i12.us, label %if.then.i14, label %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us: ; preds = %if.then14.us
-  %9 = load ptr, ptr %_M_invoker.i13, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
+  %7 = load ptr, ptr %_M_invoker.i13, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i10)
   br label %for.inc.us
 
@@ -91,8 +89,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin2.sroa.0.020 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.018, %for.body.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   store ptr %__begin2.sroa.0.020, ptr %__args.addr.i, align 8
-  %10 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
 
 if.then.i:                                        ; preds = %for.body, %for.body.us
@@ -100,8 +98,8 @@ if.then.i:                                        ; preds = %for.body, %for.body
   unreachable
 
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body
-  %11 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
+  %9 = load ptr, ptr %_M_invoker.i, align 8
+  %call2.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br i1 %call2.i, label %if.end, label %for.inc
 
@@ -114,8 +112,8 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbP
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %0, align 8
-  %12 = load ptr, ptr %_M_manager.i.i5, align 8
-  %tobool.not.i.i6 = icmp eq ptr %12, null
+  %10 = load ptr, ptr %_M_manager.i.i5, align 8
+  %tobool.not.i.i6 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i6, label %if.then.i8, label %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit
 
 if.then.i8:                                       ; preds = %if.end
@@ -123,21 +121,19 @@ if.then.i8:                                       ; preds = %if.end
   unreachable
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.end
-  %13 = load ptr, ptr %_M_invoker.i7, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
+  %11 = load ptr, ptr %_M_invoker.i7, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   %isGlobal_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 64
-  %14 = load i8, ptr %isGlobal_.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.i.not = icmp eq i8 %15, 0
-  br i1 %tobool.i.not, label %if.then12, label %for.inc
+  %12 = load i8, ptr %isGlobal_.i, align 8
+  %tobool.i = trunc i8 %12 to i1
+  br i1 %tobool.i, label %for.inc, label %if.then12
 
 if.then12:                                        ; preds = %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit
   call void @_ZNK6hermes8Function26getSourceRepresentationStrEv(ptr nonnull sret(%"class.llvh::Optional") align 8 %source, ptr noundef nonnull align 8 dereferenceable(304) %__begin2.sroa.0.020) #4
-  %16 = load i8, ptr %hasVal.i, align 8
-  %17 = and i8 %16, 1
-  %tobool.i9.not = icmp eq i8 %17, 0
-  br i1 %tobool.i9.not, label %for.inc, label %if.then14
+  %13 = load i8, ptr %hasVal.i, align 8
+  %tobool.i9 = trunc i8 %13 to i1
+  br i1 %tobool.i9, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %if.then12
   %agg.tmp15.sroa.0.0.copyload = load ptr, ptr %source, align 8
@@ -145,8 +141,8 @@ if.then14:                                        ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i10)
   store ptr %agg.tmp15.sroa.0.0.copyload, ptr %__args.i10, align 8
   store i64 %agg.tmp15.sroa.2.0.copyload, ptr %1, align 8
-  %18 = load ptr, ptr %_M_manager.i.i11, align 8
-  %tobool.not.i.i12 = icmp eq ptr %18, null
+  %14 = load ptr, ptr %_M_manager.i.i11, align 8
+  %tobool.not.i.i12 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i12, label %if.then.i14, label %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15
 
 if.then.i14:                                      ; preds = %if.then14, %if.then14.us
@@ -154,8 +150,8 @@ if.then.i14:                                      ; preds = %if.then14, %if.then
   unreachable
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15: ; preds = %if.then14
-  %19 = load ptr, ptr %_M_invoker.i13, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
+  %15 = load ptr, ptr %_M_invoker.i13, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i10)
   br label %for.inc
 
@@ -324,14 +320,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %__begin2.sroa.0.048, align 8
   %declared_.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load i8, ptr %declared_.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %for.inc, label %if.then
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %name_.i = getelementptr inbounds i8, ptr %3, i64 48
-  %6 = load ptr, ptr %name_.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %6, i64 48
+  %5 = load ptr, ptr %name_.i, align 8
+  %value.i = getelementptr inbounds i8, ptr %5, i64 48
   %retval.sroa.0.0.copyload.i15 = load ptr, ptr %value.i, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i15, align 8
   %agg.tmp.sroa.2.0.call11.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i15, i64 8
@@ -341,8 +336,8 @@ if.then:                                          ; preds = %for.body
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %2, align 8
   store i8 1, ptr %__args.addr.i, align 1
-  %7 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit
 
 if.then.i:                                        ; preds = %if.then
@@ -350,8 +345,8 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit: ; preds = %if.then
-  %8 = load ptr, ptr %_M_invoker.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i) #4
+  %7 = load ptr, ptr %_M_invoker.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr.i)
   br label %for.inc
@@ -371,7 +366,7 @@ for.end:                                          ; preds = %for.inc, %entry
 for.body22.lr.ph:                                 ; preds = %for.end
   %_M_manager.i.i18 = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 16
   %_M_invoker.i20 = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 24
-  %9 = getelementptr inbounds i8, ptr %__args.i29, i64 8
+  %8 = getelementptr inbounds i8, ptr %__args.i29, i64 8
   %_M_manager.i.i31 = getelementptr inbounds i8, ptr %traversal, i64 16
   %_M_invoker.i33 = getelementptr inbounds i8, ptr %traversal, i64 24
   br label %for.body22
@@ -380,8 +375,8 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %__begin214.sroa.0.060 = phi ptr [ %__begin214.sroa.0.058, %for.body22.lr.ph ], [ %__begin214.sroa.0.0, %for.inc64 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i17)
   store ptr %__begin214.sroa.0.060, ptr %__args.addr.i17, align 8
-  %10 = load ptr, ptr %_M_manager.i.i18, align 8
-  %tobool.not.i.i19 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_manager.i.i18, align 8
+  %tobool.not.i.i19 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i19, label %if.then.i21, label %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
 
 if.then.i21:                                      ; preds = %for.body22
@@ -389,8 +384,8 @@ if.then.i21:                                      ; preds = %for.body22
   unreachable
 
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body22
-  %11 = load ptr, ptr %_M_invoker.i20, align 8
-  %call2.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17) #4
+  %10 = load ptr, ptr %_M_invoker.i20, align 8
+  %call2.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i17)
   br i1 %call2.i, label %if.end26, label %for.inc64
 
@@ -416,14 +411,14 @@ for.body41:                                       ; preds = %for.body33, %for.in
   br i1 %cmp49, label %for.body45.lr.ph, label %for.inc58
 
 for.body45.lr.ph:                                 ; preds = %for.body41
-  %12 = getelementptr i8, ptr %__begin4.sroa.0.054, i64 16
+  %11 = getelementptr i8, ptr %__begin4.sroa.0.054, i64 16
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %for.inc56
   %i.050 = phi i32 [ 0, %for.body45.lr.ph ], [ %inc, %for.inc56 ]
   %call46 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin4.sroa.0.054, i32 noundef %i.050) #4
-  %13 = load i8, ptr %call46, align 8
-  %cmp.i.i.i.i.i.i.i.not = icmp eq i8 %13, 116
+  %12 = load i8, ptr %call46, align 8
+  %cmp.i.i.i.i.i.i.i.not = icmp eq i8 %12, 116
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.then48, label %for.inc56
 
 if.then48:                                        ; preds = %for.body45
@@ -432,7 +427,7 @@ if.then48:                                        ; preds = %for.body45
   %agg.tmp49.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i27, align 8
   %agg.tmp49.sroa.2.0.call53.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i27, i64 8
   %agg.tmp49.sroa.2.0.copyload = load i64, ptr %agg.tmp49.sroa.2.0.call53.sroa_idx, align 8
-  %call42.val = load i8, ptr %12, align 8
+  %call42.val = load i8, ptr %11, align 8
   switch i8 %call42.val, label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit [
     i8 44, label %sw.bb.i
     i8 46, label %sw.bb1.i
@@ -473,8 +468,8 @@ sw.bb11.i:                                        ; preds = %if.then48
   br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb13.i:                                        ; preds = %if.then48
-  %14 = and i32 %i.050, 1
-  %cmp14.i = icmp ne i32 %14, 0
+  %13 = and i32 %i.050, 1
+  %cmp14.i = icmp ne i32 %13, 0
   br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then48, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
@@ -482,11 +477,11 @@ _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i29)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i30)
   store ptr %agg.tmp49.sroa.0.0.copyload, ptr %__args.i29, align 8
-  store i64 %agg.tmp49.sroa.2.0.copyload, ptr %9, align 8
+  store i64 %agg.tmp49.sroa.2.0.copyload, ptr %8, align 8
   %frombool.i = zext i1 %retval.0.i to i8
   store i8 %frombool.i, ptr %__args.addr.i30, align 1
-  %15 = load ptr, ptr %_M_manager.i.i31, align 8
-  %tobool.not.i.i32 = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_manager.i.i31, align 8
+  %tobool.not.i.i32 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i32, label %if.then.i34, label %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35
 
 if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
@@ -494,8 +489,8 @@ if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111
   unreachable
 
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
-  %16 = load ptr, ptr %_M_invoker.i33, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
+  %15 = load ptr, ptr %_M_invoker.i33, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i29)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr.i30)
   br label %for.inc56

@@ -10,67 +10,66 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_T_pvar_stop(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load volatile i32, ptr @ompi_mpit_init_count, align 4
-  %.not18 = icmp eq i32 %3, 0
-  br i1 %.not18, label %25, label %4
+  %.not17 = icmp eq i32 %3, 0
+  br i1 %.not17, label %21, label %4
 
 4:                                                ; preds = %2
   tail call void @ompi_mpit_lock() #2
   %5 = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %6, label %22
+  br i1 %5, label %6, label %18
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %.01020 = load volatile ptr, ptr %8, align 8
-  %.not1321 = icmp eq ptr %.01020, %7
-  br i1 %.not1321, label %.loopexit, label %.lr.ph
+  %.01019 = load volatile ptr, ptr %8, align 8
+  %.not1320 = icmp eq ptr %.01019, %7
+  br i1 %.not1320, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %20
-  %.01023 = phi ptr [ %.010, %20 ], [ %.01020, %6 ]
-  %.022 = phi i32 [ %.1, %20 ], [ 0, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.01023, i64 136
+.lr.ph:                                           ; preds = %6, %16
+  %.01022 = phi ptr [ %.010, %16 ], [ %.01019, %6 ]
+  %.021 = phi i32 [ %.1, %16 ], [ 0, %6 ]
+  %9 = getelementptr inbounds i8, ptr %.01022, i64 136
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not.i = icmp ne i8 %11, 0
-  %12 = getelementptr inbounds i8, ptr %.01023, i64 88
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i8, ptr %13, i64 68
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 256
-  %.not = icmp ne i32 %16, 0
-  %or.cond.not27 = select i1 %.not.i, i1 true, i1 %.not
-  %17 = and i32 %15, 256
-  %.not19 = icmp eq i32 %17, 0
-  %or.cond26 = select i1 %or.cond.not27, i1 %.not19, i1 false
-  br i1 %or.cond26, label %18, label %20
+  %11 = trunc i8 %10 to i1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.01022, i64 88
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert23 = getelementptr i8, ptr %.pre, i64 68
+  %.val.pre = load i32, ptr %.phi.trans.insert23, align 4
+  %12 = and i32 %.val.pre, 256
+  %.not = icmp ne i32 %12, 0
+  %or.cond.not27 = select i1 %11, i1 true, i1 %.not
+  %13 = and i32 %.val.pre, 256
+  %.not18 = icmp eq i32 %13, 0
+  %or.cond26 = select i1 %or.cond.not27, i1 %.not18, i1 false
+  br i1 %or.cond26, label %14, label %16
 
-18:                                               ; preds = %.lr.ph
-  %19 = tail call i32 @mca_base_pvar_handle_stop(ptr noundef nonnull %.01023) #2
-  %.not.i15 = icmp eq i32 %19, 0
-  %spec.select = select i1 %.not.i15, i32 %.022, i32 65
-  br label %20
+14:                                               ; preds = %.lr.ph
+  %15 = tail call i32 @mca_base_pvar_handle_stop(ptr noundef nonnull %.01022) #2
+  %.not.i = icmp eq i32 %15, 0
+  %spec.select = select i1 %.not.i, i32 %.021, i32 65
+  br label %16
 
-20:                                               ; preds = %.lr.ph, %18
-  %.1 = phi i32 [ %spec.select, %18 ], [ %.022, %.lr.ph ]
-  %21 = getelementptr inbounds i8, ptr %.01023, i64 16
-  %.010 = load volatile ptr, ptr %21, align 8
+16:                                               ; preds = %.lr.ph, %14
+  %.1 = phi i32 [ %spec.select, %14 ], [ %.021, %.lr.ph ]
+  %17 = getelementptr inbounds i8, ptr %.01022, i64 16
+  %.010 = load volatile ptr, ptr %17, align 8
   %.not13 = icmp eq ptr %.010, %7
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-22:                                               ; preds = %4
-  %23 = tail call i32 @mca_base_pvar_handle_stop(ptr noundef %1) #2
-  %.not.i16 = icmp eq i32 %23, 0
-  %..i17 = select i1 %.not.i16, i32 0, i32 65
+18:                                               ; preds = %4
+  %19 = tail call i32 @mca_base_pvar_handle_stop(ptr noundef %1) #2
+  %.not.i15 = icmp eq i32 %19, 0
+  %..i16 = select i1 %.not.i15, i32 0, i32 65
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %6, %22
-  %.2 = phi i32 [ %..i17, %22 ], [ 0, %6 ], [ %.1, %20 ]
+.loopexit:                                        ; preds = %16, %6, %18
+  %.2 = phi i32 [ %..i16, %18 ], [ 0, %6 ], [ %.1, %16 ]
   tail call void @ompi_mpit_unlock() #2
-  %24 = tail call i32 @ompit_opal_to_mpit_error(i32 noundef %.2) #2
-  br label %25
+  %20 = tail call i32 @ompit_opal_to_mpit_error(i32 noundef %.2) #2
+  br label %21
 
-25:                                               ; preds = %2, %.loopexit
-  %.011 = phi i32 [ %24, %.loopexit ], [ 55, %2 ]
+21:                                               ; preds = %2, %.loopexit
+  %.011 = phi i32 [ %20, %.loopexit ], [ 55, %2 ]
   ret i32 %.011
 }
 

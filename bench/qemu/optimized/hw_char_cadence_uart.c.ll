@@ -698,17 +698,16 @@ land.lhs.true5.i.i:                               ; preds = %clock_get_hz.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %11 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %div5) #7
+  %11 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %div5) #7
   br label %trace_cadence_uart_baudrate.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -718,8 +717,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_cadence_uart_baudrate.exit:                 ; preds = %clock_get_hz.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i32 %div5, ptr %ssp, align 4
-  %13 = load i32, ptr %arrayidx, align 4
-  %and8 = and i32 %13, 56
+  %12 = load i32, ptr %arrayidx, align 4
+  %and8 = and i32 %12, 56
   %parity12 = getelementptr inbounds i8, ptr %ssp, i64 4
   switch i32 %and8, label %sw.default [
     i32 0, label %sw.epilog
@@ -736,18 +735,18 @@ sw.epilog:                                        ; preds = %trace_cadence_uart_
   %.sink18 = phi i32 [ 78, %sw.default ], [ 79, %sw.bb9 ], [ 69, %trace_cadence_uart_baudrate.exit ]
   %packet_size.0 = phi i32 [ 1, %sw.default ], [ 2, %sw.bb9 ], [ 2, %trace_cadence_uart_baudrate.exit ]
   store i32 %.sink18, ptr %parity12, align 4
-  %and15 = and i32 %13, 6
+  %and15 = and i32 %12, 6
   %switch.selectcmp = icmp eq i32 %and15, 4
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 8
   %switch.selectcmp20 = icmp eq i32 %and15, 6
   %switch.select21 = select i1 %switch.selectcmp20, i32 6, i32 %switch.select
   %data_bits20 = getelementptr inbounds i8, ptr %ssp, i64 8
   store i32 %switch.select21, ptr %data_bits20, align 4
-  %and24 = and i32 %13, 192
+  %and24 = and i32 %12, 192
   %cond1 = icmp eq i32 %and24, 192
   %.sink = select i1 %cond1, i32 1, i32 2
-  %14 = getelementptr inbounds i8, ptr %ssp, i64 12
-  store i32 %.sink, ptr %14, align 4
+  %13 = getelementptr inbounds i8, ptr %ssp, i64 12
+  store i32 %.sink, ptr %13, align 4
   %cmp = icmp ugt i32 %mul, %cond
   br i1 %cmp, label %if.then, label %if.end
 
@@ -756,10 +755,10 @@ if.then:                                          ; preds = %sw.epilog
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.epilog
-  %15 = phi i32 [ 1, %if.then ], [ %div5, %sw.epilog ]
+  %14 = phi i32 [ 1, %if.then ], [ %div5, %sw.epilog ]
   %add31 = add nuw nsw i32 %switch.select21, %packet_size.0
   %add32 = add nuw nsw i32 %add31, %.sink
-  %div3617 = sdiv i32 1000000000, %15
+  %div3617 = sdiv i32 1000000000, %14
   %div36.sext = sext i32 %div3617 to i64
   %conv37 = zext nneg i32 %add32 to i64
   %mul38 = mul nsw i64 %div36.sext, %conv37

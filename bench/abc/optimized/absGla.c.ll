@@ -1675,7 +1675,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #28
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #28
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1694,7 +1694,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -6750,8 +6750,8 @@ define noundef ptr @Ga2_ManDeriveCex(ptr nocapture noundef readonly %0, ptr noca
 
 27:                                               ; preds = %.lr.ph46, %Gia_ObjIsPi.exit.thread
   %.val52 = phi i32 [ %.val44, %.lr.ph46 ], [ %.val, %Gia_ObjIsPi.exit.thread ]
-  %28 = phi i32 [ %16, %.lr.ph46 ], [ %94, %Gia_ObjIsPi.exit.thread ]
-  %29 = phi i32 [ %16, %.lr.ph46 ], [ %95, %Gia_ObjIsPi.exit.thread ]
+  %28 = phi i32 [ %16, %.lr.ph46 ], [ %93, %Gia_ObjIsPi.exit.thread ]
+  %29 = phi i32 [ %16, %.lr.ph46 ], [ %94, %Gia_ObjIsPi.exit.thread ]
   %indvars.iv49 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next50, %Gia_ObjIsPi.exit.thread ]
   %30 = load ptr, ptr %0, align 8
   %.val30 = load ptr, ptr %20, align 8
@@ -6791,7 +6791,7 @@ Gia_ObjIsPi.exit:                                 ; preds = %36
   br label %46
 
 46:                                               ; preds = %.lr.ph, %Ga2_ObjSatValue.exit.thread
-  %47 = phi i32 [ %28, %.lr.ph ], [ %92, %Ga2_ObjSatValue.exit.thread ]
+  %47 = phi i32 [ %28, %.lr.ph ], [ %91, %Ga2_ObjSatValue.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ga2_ObjSatValue.exit.thread ]
   %.val3.i.i = load ptr, ptr %21, align 8
   %48 = getelementptr i8, ptr %.val3.i.i, i64 8
@@ -6832,39 +6832,38 @@ Ga2_ObjSatValue.exit:                             ; preds = %64
   %69 = sext i32 %65 to i64
   %70 = getelementptr inbounds i32, ptr %.val.i37, i64 %69
   %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, 1
-  %73 = and i32 %62, 1
-  %74 = icmp eq i32 %73, 0
-  %.not29 = xor i1 %74, %72
-  br i1 %.not29, label %Ga2_ObjSatValue.exit.thread, label %75
+  %72 = trunc i32 %62 to i1
+  %73 = icmp ne i32 %71, 1
+  %.not29 = xor i1 %73, %72
+  br i1 %.not29, label %Ga2_ObjSatValue.exit.thread, label %74
 
-75:                                               ; preds = %Ga2_ObjSatValue.exit
-  %76 = load i32, ptr %25, align 4
-  %77 = load i32, ptr %26, align 4
-  %78 = trunc i64 %indvars.iv to i32
-  %79 = mul nsw i32 %77, %78
-  %80 = add nsw i32 %79, %76
+74:                                               ; preds = %Ga2_ObjSatValue.exit
+  %75 = load i32, ptr %25, align 4
+  %76 = load i32, ptr %26, align 4
+  %77 = trunc i64 %indvars.iv to i32
+  %78 = mul nsw i32 %76, %77
+  %79 = add nsw i32 %78, %75
   %.val35 = load i64, ptr %35, align 4
-  %81 = lshr i64 %.val35, 32
-  %82 = trunc i64 %81 to i32
-  %83 = and i32 %82, 536870911
-  %84 = add nsw i32 %80, %83
-  %85 = and i32 %84, 31
-  %86 = shl nuw i32 1, %85
-  %87 = ashr i32 %84, 5
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %24, i64 %88
-  %90 = load i32, ptr %89, align 4
-  %91 = or i32 %86, %90
-  store i32 %91, ptr %89, align 4
+  %80 = lshr i64 %.val35, 32
+  %81 = trunc i64 %80 to i32
+  %82 = and i32 %81, 536870911
+  %83 = add nsw i32 %79, %82
+  %84 = and i32 %83, 31
+  %85 = shl nuw i32 1, %84
+  %86 = ashr i32 %83, 5
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i32, ptr %24, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %90 = or i32 %85, %89
+  store i32 %90, ptr %88, align 4
   %.pre = load i32, ptr %17, align 4
   br label %Ga2_ObjSatValue.exit.thread
 
-Ga2_ObjSatValue.exit.thread:                      ; preds = %64, %46, %Ga2_ObjSatValue.exit, %75
-  %92 = phi i32 [ %47, %64 ], [ %47, %46 ], [ %47, %Ga2_ObjSatValue.exit ], [ %.pre, %75 ]
+Ga2_ObjSatValue.exit.thread:                      ; preds = %64, %46, %Ga2_ObjSatValue.exit, %74
+  %91 = phi i32 [ %47, %64 ], [ %47, %46 ], [ %47, %Ga2_ObjSatValue.exit ], [ %.pre, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %93 = sext i32 %92 to i64
-  %.not28.not = icmp slt i64 %indvars.iv, %93
+  %92 = sext i32 %91 to i64
+  %.not28.not = icmp slt i64 %indvars.iv, %92
   br i1 %.not28.not, label %46, label %Gia_ObjIsPi.exit.thread.loopexit, !llvm.loop !56
 
 Gia_ObjIsPi.exit.thread.loopexit:                 ; preds = %Ga2_ObjSatValue.exit.thread
@@ -6873,12 +6872,12 @@ Gia_ObjIsPi.exit.thread.loopexit:                 ; preds = %Ga2_ObjSatValue.exi
 
 Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit.thread.loopexit, %36, %Gia_ObjIsPi.exit
   %.val = phi i32 [ %.val.pre, %Gia_ObjIsPi.exit.thread.loopexit ], [ %.val52, %36 ], [ %.val52, %Gia_ObjIsPi.exit ]
-  %94 = phi i32 [ %92, %Gia_ObjIsPi.exit.thread.loopexit ], [ %28, %36 ], [ %28, %Gia_ObjIsPi.exit ]
-  %95 = phi i32 [ %92, %Gia_ObjIsPi.exit.thread.loopexit ], [ %29, %36 ], [ %29, %Gia_ObjIsPi.exit ]
+  %93 = phi i32 [ %91, %Gia_ObjIsPi.exit.thread.loopexit ], [ %28, %36 ], [ %28, %Gia_ObjIsPi.exit ]
+  %94 = phi i32 [ %91, %Gia_ObjIsPi.exit.thread.loopexit ], [ %29, %36 ], [ %29, %Gia_ObjIsPi.exit ]
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %96 = sext i32 %.val to i64
-  %97 = icmp slt i64 %indvars.iv.next50, %96
-  br i1 %97, label %27, label %.critedge, !llvm.loop !57
+  %95 = sext i32 %.val to i64
+  %96 = icmp slt i64 %indvars.iv.next50, %95
+  br i1 %96, label %27, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %27, %Gia_ObjIsPi.exit.thread, %2
   ret ptr %13
@@ -7512,37 +7511,36 @@ Ga2_ObjSatValue.exit:                             ; preds = %105
   %110 = sext i32 %106 to i64
   %111 = getelementptr inbounds i32, ptr %.val.i55, i64 %110
   %112 = load i32, ptr %111, align 4
-  %113 = icmp eq i32 %112, 1
-  %114 = and i32 %103, 1
-  %115 = icmp eq i32 %114, 0
-  %.not43 = xor i1 %115, %113
-  br i1 %.not43, label %Ga2_ObjSatValue.exit.thread, label %116
+  %113 = trunc i32 %103 to i1
+  %114 = icmp ne i32 %112, 1
+  %.not43 = xor i1 %114, %113
+  br i1 %.not43, label %Ga2_ObjSatValue.exit.thread, label %115
 
-116:                                              ; preds = %Ga2_ObjSatValue.exit
-  %117 = trunc i64 %indvars.iv72 to i32
-  %118 = add nsw i32 %86, %117
-  %119 = and i32 %118, 31
-  %120 = shl nuw i32 1, %119
-  %121 = ashr i32 %118, 5
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %82, i64 %122
-  %124 = load i32, ptr %123, align 4
-  %125 = or i32 %124, %120
-  store i32 %125, ptr %123, align 4
+115:                                              ; preds = %Ga2_ObjSatValue.exit
+  %116 = trunc i64 %indvars.iv72 to i32
+  %117 = add nsw i32 %86, %116
+  %118 = and i32 %117, 31
+  %119 = shl nuw i32 1, %118
+  %120 = ashr i32 %117, 5
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %82, i64 %121
+  %123 = load i32, ptr %122, align 4
+  %124 = or i32 %123, %119
+  store i32 %124, ptr %122, align 4
   br label %Ga2_ObjSatValue.exit.thread
 
-Ga2_ObjSatValue.exit.thread:                      ; preds = %105, %90, %Ga2_ObjSatValue.exit, %116
+Ga2_ObjSatValue.exit.thread:                      ; preds = %105, %90, %Ga2_ObjSatValue.exit, %115
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %126 = icmp ult i64 %indvars.iv.next73, %84
-  br i1 %126, label %87, label %.critedge2, !llvm.loop !63
+  %125 = icmp ult i64 %indvars.iv.next73, %84
+  br i1 %125, label %87, label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %Ga2_ObjSatValue.exit.thread, %87
   %.pre83 = load ptr, ptr %66, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %127 = getelementptr inbounds i8, ptr %.pre83, i64 120
-  %128 = load i32, ptr %127, align 8
-  %129 = sext i32 %128 to i64
-  %.not41.not = icmp slt i64 %indvars.iv75, %129
+  %126 = getelementptr inbounds i8, ptr %.pre83, i64 120
+  %127 = load i32, ptr %126, align 8
+  %128 = sext i32 %127 to i64
+  %.not41.not = icmp slt i64 %indvars.iv75, %128
   br i1 %.not41.not, label %.lr.ph66, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.critedge2, %.preheader.lr.ph, %.critedge
@@ -11259,28 +11257,22 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #20 {
+define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #19 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4
@@ -11289,6 +11281,12 @@ define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr 
   %.0 = select i1 %5, i32 -1, i32 %.
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #21
@@ -11339,11 +11337,11 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #21 = { nofree nounwind }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nofree nounwind willreturn memory(argmem: read) }

@@ -897,8 +897,13 @@ switch.lookup:                                    ; preds = %.sink.split, %57, %
   %63 = load i32, ptr @hf_1722_61883_cip_fn, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %63, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #6
   %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 26) #6
-  %66 = icmp ugt i8 %65, -65
-  %switch.masked265.not.not = icmp ult i8 %65, 64
+  %66 = lshr i8 %65, 6
+  %switch.cast = trunc i8 %66 to i4
+  %switch.downshift = lshr exact i4 -8, %switch.cast
+  %switch.masked = trunc i4 %switch.downshift to i1
+  %switch.cast262 = trunc i8 %66 to i4
+  %switch.downshift264 = lshr i4 1, %switch.cast262
+  %switch.masked265 = trunc i4 %switch.downshift264 to i1
   %67 = load i32, ptr @hf_1722_61883_cip_qpc, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %67, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #6
   %69 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 26) #6
@@ -974,7 +979,7 @@ switch.lookup:                                    ; preds = %.sink.split, %57, %
   ]
 
 112:                                              ; preds = %107
-  br i1 %switch.masked265.not.not, label %115, label %113
+  br i1 %switch.masked265, label %115, label %113
 
 113:                                              ; preds = %112
   %114 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_1722_61883_6_incorrect_cip_fn) #6
@@ -1060,7 +1065,7 @@ switch.lookup:                                    ; preds = %.sink.split, %57, %
   br label %153
 
 153:                                              ; preds = %151, %150
-  br i1 %66, label %156, label %154
+  br i1 %switch.masked, label %156, label %154
 
 154:                                              ; preds = %153
   %155 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_1722_61883_4_incorrect_cip_fn) #6

@@ -123,9 +123,8 @@ invoke.cont:                                      ; preds = %invoke.cont2.i, %in
   %3 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
   %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %is_snapshot_, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end24, label %if.then
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %invoke.cont
   invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -133,26 +132,25 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont2:                                     ; preds = %if.then
   %dq_next_ = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %dq_next_, align 8
+  %5 = load ptr, ptr %dq_next_, align 8
   %dq_prev_ = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load ptr, ptr %dq_prev_, align 8
-  %cmp = icmp eq ptr %7, null
+  %6 = load ptr, ptr %dq_prev_, align 8
+  %cmp = icmp eq ptr %6, null
   br i1 %cmp, label %while.cond.preheader, label %if.end
 
 while.cond.preheader:                             ; preds = %invoke.cont2
-  %tobool4.not46 = icmp eq ptr %6, null
+  %tobool4.not46 = icmp eq ptr %5, null
   br i1 %tobool4.not46, label %if.else15, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %invoke.cont7
   %to_delete.sroa.0.050 = phi ptr [ %to_delete.sroa.0.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
-  %next.049 = phi ptr [ %11, %invoke.cont7 ], [ %6, %while.cond.preheader ]
+  %next.049 = phi ptr [ %9, %invoke.cont7 ], [ %5, %while.cond.preheader ]
   %to_delete.sroa.5.048 = phi ptr [ %to_delete.sroa.5.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %to_delete.sroa.10.047 = phi ptr [ %to_delete.sroa.10.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %is_snapshot_5 = getelementptr inbounds i8, ptr %next.049, i64 8
-  %8 = load i8, ptr %is_snapshot_5, align 8
-  %9 = and i8 %8, 1
-  %tobool6.not = icmp eq i8 %9, 0
-  br i1 %tobool6.not, label %while.body, label %if.then12
+  %7 = load i8, ptr %is_snapshot_5, align 8
+  %tobool6 = trunc i8 %7 to i1
+  br i1 %tobool6, label %if.then12, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %cmp.not.i = icmp eq ptr %to_delete.sroa.5.048, %to_delete.sroa.10.047
@@ -181,8 +179,8 @@ _ZNKSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %10
+  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %8
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN4absl13cord_internal11CordzHandleESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -221,32 +219,32 @@ invoke.cont7:                                     ; preds = %_ZNSt6vectorIPN4abs
   %to_delete.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.0.050, %if.then.i ]
   %to_delete.sroa.5.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %dq_next_8 = getelementptr inbounds i8, ptr %next.049, i64 24
-  %11 = load ptr, ptr %dq_next_8, align 8
-  %tobool4.not = icmp eq ptr %11, null
+  %9 = load ptr, ptr %dq_next_8, align 8
+  %tobool4.not = icmp eq ptr %9, null
   br i1 %tobool4.not, label %if.else15, label %land.rhs, !llvm.loop !6
 
 if.end:                                           ; preds = %invoke.cont2
-  %dq_next_10 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %6, ptr %dq_next_10, align 8
-  %tobool11.not = icmp eq ptr %6, null
+  %dq_next_10 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %5, ptr %dq_next_10, align 8
+  %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %if.else15, label %if.then12
 
 if.then12:                                        ; preds = %land.rhs, %if.end
   %to_delete.sroa.0.236 = phi ptr [ null, %if.end ], [ %to_delete.sroa.0.050, %land.rhs ]
-  %next.135 = phi ptr [ %6, %if.end ], [ %next.049, %land.rhs ]
+  %next.135 = phi ptr [ %5, %if.end ], [ %next.049, %land.rhs ]
   %to_delete.sroa.5.234 = phi ptr [ null, %if.end ], [ %to_delete.sroa.5.048, %land.rhs ]
-  %12 = load ptr, ptr %dq_prev_, align 8
+  %10 = load ptr, ptr %dq_prev_, align 8
   %dq_prev_14 = getelementptr inbounds i8, ptr %next.135, i64 16
-  store ptr %12, ptr %dq_prev_14, align 8
+  store ptr %10, ptr %dq_prev_14, align 8
   br label %if.end17
 
 if.else15:                                        ; preds = %invoke.cont7, %while.cond.preheader, %if.end
   %to_delete.sroa.0.228 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.0.1, %invoke.cont7 ]
   %to_delete.sroa.5.226 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.5.1, %invoke.cont7 ]
   %dq_tail = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = load ptr, ptr %dq_prev_, align 8
-  %14 = ptrtoint ptr %13 to i64
-  store atomic i64 %14, ptr %dq_tail release, align 8
+  %11 = load ptr, ptr %dq_prev_, align 8
+  %12 = ptrtoint ptr %11 to i64
+  store atomic i64 %12, ptr %dq_tail release, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %if.then12
@@ -260,23 +258,23 @@ for.cond.preheader:                               ; preds = %if.end17
   br i1 %cmp.i.not52, label %for.end, label %for.body
 
 terminate.lpad.i:                                 ; preds = %if.end17
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #13
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #13
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %__begin3.sroa.0.053 = phi ptr [ %incdec.ptr.i8, %for.inc ], [ %to_delete.sroa.0.227, %for.cond.preheader ]
-  %17 = load ptr, ptr %__begin3.sroa.0.053, align 8
-  %isnull = icmp eq ptr %17, null
+  %15 = load ptr, ptr %__begin3.sroa.0.053, align 8
+  %isnull = icmp eq ptr %15, null
   br i1 %isnull, label %for.inc, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %17, align 8
+  %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %18 = load ptr, ptr %vfn, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
+  %16 = load ptr, ptr %vfn, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %15) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %delete.notnull
@@ -307,8 +305,8 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.then, %if.then.i
 
 terminate.lpad.body:                              ; preds = %terminate.lpad.loopexit, %terminate.lpad.loopexit.split-lp, %lpad.i
   %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
-  %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %19) #13
+  %17 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  tail call void @__clang_call_terminate(ptr %17) #13
   unreachable
 }
 
@@ -341,18 +339,17 @@ define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle12Safe
 entry:
   %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %lor.rhs, label %lor.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %2 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %2, 0
+  %1 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %1, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %lor.rhs
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
-  %tobool.not.i = icmp eq i32 %3, 0
+  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
+  %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
@@ -366,21 +363,21 @@ invoke.cont2.i:                                   ; preds = %init.i
   br label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
 
 lpad.i:                                           ; preds = %init.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %lor.rhs, %init.check.i, %invoke.cont2.i
-  %5 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  %dq_tail.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load atomic i64, ptr %dq_tail.i acquire, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %4 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
+  %dq_tail.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load atomic i64, ptr %dq_tail.i acquire, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, %entry
-  %7 = phi i1 [ true, %entry ], [ %cmp.i, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ]
-  ret i1 %7
+  %6 = phi i1 [ true, %entry ], [ %cmp.i, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ]
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -410,7 +407,7 @@ invoke.cont2.i:                                   ; preds = %init.i
   br label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %8, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %7, %lpad.i.i ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
   resume { ptr, i32 } %common.resume.op
 
@@ -423,18 +420,17 @@ _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %if.then, %
   %3 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
   %is_snapshot_.i = getelementptr inbounds i8, ptr %handle, i64 8
   %4 = load i8, ptr %is_snapshot_.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i10 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i10, label %lor.rhs.i, label %delete.notnull
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %delete.notnull, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
-  %6 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %6, 0
+  %5 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %5, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit, !prof !5
 
 init.check.i.i:                                   ; preds = %lor.rhs.i
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
-  %tobool.not.i.i = icmp eq i32 %7, 0
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
+  %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
@@ -448,32 +444,32 @@ invoke.cont2.i.i:                                 ; preds = %init.i.i
   br label %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit
 
 lpad.i.i:                                         ; preds = %init.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit: ; preds = %lor.rhs.i, %init.check.i.i, %invoke.cont2.i.i
-  %9 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  %dq_tail.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load atomic i64, ptr %dq_tail.i.i acquire, align 8
-  %cmp.i.i = icmp eq i64 %10, 0
+  %8 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
+  %dq_tail.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load atomic i64, ptr %dq_tail.i.i acquire, align 8
+  %cmp.i.i = icmp eq i64 %9, 0
   br i1 %cmp.i.i, label %delete.notnull, label %if.then2
 
 if.then2:                                         ; preds = %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %dq_tail3 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load atomic i64, ptr %dq_tail3 acquire, align 8
-  %cmp.not.not = icmp eq i64 %11, 0
+  %10 = load atomic i64, ptr %dq_tail3 acquire, align 8
+  %cmp.not.not = icmp eq i64 %10, 0
   br i1 %cmp.not.not, label %cleanup, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
-  %atomic-temp.i.0.i = inttoptr i64 %11 to ptr
+  %atomic-temp.i.0.i = inttoptr i64 %10 to ptr
   %dq_prev_ = getelementptr inbounds i8, ptr %handle, i64 16
   store ptr %atomic-temp.i.0.i, ptr %dq_prev_, align 8
   %dq_next_ = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 24
   store ptr %handle, ptr %dq_next_, align 8
-  %12 = ptrtoint ptr %handle to i64
-  store atomic i64 %12, ptr %dq_tail3 release, align 8
+  %11 = ptrtoint ptr %handle to i64
+  store atomic i64 %11, ptr %dq_tail3 release, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then2, %if.then5
@@ -481,10 +477,10 @@ cleanup:                                          ; preds = %if.then2, %if.then5
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %cleanup
@@ -493,8 +489,8 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %cleanup
 delete.notnull:                                   ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit, %_ZN4absl9MutexLockD2Ev.exit
   %vtable = load ptr, ptr %handle, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %15 = load ptr, ptr %vfn, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %handle) #11
+  %14 = load ptr, ptr %vfn, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(32) %handle) #11
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZN4absl9MutexLockD2Ev.exit, %delete.notnull, %entry
@@ -688,9 +684,8 @@ define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle32Diag
 entry:
   %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq ptr %handle, null
@@ -698,19 +693,18 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %is_snapshot_4 = getelementptr inbounds i8, ptr %handle, i64 8
-  %2 = load i8, ptr %is_snapshot_4, align 8
-  %3 = and i8 %2, 1
-  %tobool5.not = icmp eq i8 %3, 0
-  br i1 %tobool5.not, label %if.end7, label %return
+  %1 = load i8, ptr %is_snapshot_4, align 8
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %4 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %4, 0
+  %2 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %if.end7
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
-  %tobool.not.i = icmp eq i32 %5, 0
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
+  %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
@@ -724,52 +718,51 @@ invoke.cont2.i:                                   ; preds = %init.i
   br label %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
 
 lpad.i:                                           ; preds = %init.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %4
 
 _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %if.end7, %init.check.i, %invoke.cont2.i
-  %7 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %dq_tail = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load atomic i64, ptr %dq_tail seq_cst, align 8
-  %tobool9.not8 = icmp eq i64 %8, 0
+  %5 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
+  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %dq_tail = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load atomic i64, ptr %dq_tail seq_cst, align 8
+  %tobool9.not8 = icmp eq i64 %6, 0
   br i1 %tobool9.not8, label %cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
-  %9 = inttoptr i64 %8 to ptr
+  %7 = inttoptr i64 %6 to ptr
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end13
-  %p.010 = phi ptr [ %11, %if.end13 ], [ %9, %for.body.preheader ]
-  %snapshot_found.09 = phi i8 [ %spec.select, %if.end13 ], [ 0, %for.body.preheader ]
+  %p.010 = phi ptr [ %8, %if.end13 ], [ %7, %for.body.preheader ]
+  %snapshot_found.09 = phi i1 [ %spec.select, %if.end13 ], [ false, %for.body.preheader ]
   %cmp10 = icmp eq ptr %p.010, %handle
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %for.body
-  %10 = and i8 %snapshot_found.09, 1
-  %tobool12.not = icmp eq i8 %10, 0
+  %lnot = xor i1 %snapshot_found.09, true
   br label %cleanup
 
 if.end13:                                         ; preds = %for.body
   %cmp14 = icmp eq ptr %p.010, %this
-  %spec.select = select i1 %cmp14, i8 1, i8 %snapshot_found.09
+  %spec.select = select i1 %cmp14, i1 true, i1 %snapshot_found.09
   %dq_prev_ = getelementptr inbounds i8, ptr %p.010, i64 16
-  %11 = load ptr, ptr %dq_prev_, align 8
-  %tobool9.not = icmp eq ptr %11, null
+  %8 = load ptr, ptr %dq_prev_, align 8
+  %tobool9.not = icmp eq ptr %8, null
   br i1 %tobool9.not, label %cleanup, label %for.body, !llvm.loop !9
 
 cleanup:                                          ; preds = %if.end13, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, %if.then11
-  %retval.0 = phi i1 [ %tobool12.not, %if.then11 ], [ true, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ], [ true, %if.end13 ]
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %retval.0 = phi i1 [ %lnot, %if.then11 ], [ true, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ], [ true, %if.end13 ]
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %12 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #13
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 return:                                           ; preds = %cleanup, %if.end3, %if.end, %entry
@@ -783,23 +776,22 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %is_snapshot_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %nrvo.skipdtor, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %nrvo.skipdtor
 
 lpad:                                             ; preds = %invoke.cont2
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
-  %3 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %3, 0
+  %2 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont2, !prof !5
 
 init.check.i:                                     ; preds = %if.end
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
-  %tobool.not.i = icmp eq i32 %4, 0
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
+  %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %invoke.cont2, label %init.i
 
 init.i:                                           ; preds = %init.check.i
@@ -813,14 +805,14 @@ invoke.cont2.i:                                   ; preds = %init.i
   br label %invoke.cont2
 
 lpad.i:                                           ; preds = %init.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue) #11
   br label %ehcleanup
 
 invoke.cont2:                                     ; preds = %invoke.cont2.i, %init.check.i, %if.end
-  %6 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %5 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
+  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %invoke.cont2
@@ -839,25 +831,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %storemerge18 = phi ptr [ %storemerge15, %for.body.lr.ph ], [ %storemerge, %for.inc ]
   %cond.i10.i.i1317 = phi ptr [ %agg.result.promoted, %for.body.lr.ph ], [ %cond.i10.i.i12, %for.inc ]
   %is_snapshot_.i2 = getelementptr inbounds i8, ptr %storemerge18, i64 8
-  %7 = load i8, ptr %is_snapshot_.i2, align 8
-  %8 = and i8 %7, 1
-  %tobool.i3.not = icmp eq i8 %8, 0
-  br i1 %tobool.i3.not, label %if.then8, label %for.inc
+  %6 = load i8, ptr %is_snapshot_.i2, align 8
+  %tobool.i3 = trunc i8 %6 to i1
+  br i1 %tobool.i3, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %for.body
-  %9 = load ptr, ptr %_M_finish.i, align 8
-  %10 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %9, %10
+  %7 = load ptr, ptr %_M_finish.i, align 8
+  %8 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
-  store ptr %storemerge18, ptr %9, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %storemerge18, ptr %7, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cond.i10.i.i1317 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -875,8 +866,8 @@ _ZNKSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE12_M_check_lenEmPKc.e
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %11 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %11
+  %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %9
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -925,14 +916,14 @@ lpad5.loopexit.split-lp:                          ; preds = %if.then.i.i.i
 
 lpad5:                                            ; preds = %lpad5.loopexit.split-lp, %lpad5.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp ]
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad5
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #13
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #13
   unreachable
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i, %for.body
@@ -943,27 +934,27 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPKN4ab
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %nrvo.skipdtor unwind label %terminate.lpad.i5
 
 terminate.lpad.i5:                                ; preds = %for.end
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 
 nrvo.skipdtor:                                    ; preds = %for.end, %entry
   ret void
 
 ehcleanup:                                        ; preds = %lpad5, %lpad, %lpad.i
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad.i ], [ %lpad.phi, %lpad5 ]
-  %16 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i7 = icmp eq ptr %16, null
+  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %4, %lpad.i ], [ %lpad.phi, %lpad5 ]
+  %14 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i7 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EED2Ev.exit, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %ehcleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #15
   br label %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EED2Ev.exit: ; preds = %ehcleanup, %if.then.i.i.i8

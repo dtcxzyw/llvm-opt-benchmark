@@ -173,8 +173,8 @@ _remove_path_slashes.exit:                        ; preds = %48
   %66 = getelementptr inbounds i16, ptr %64, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = and i16 %67, 2048
-  %.not90 = icmp eq i16 %68, 0
-  br i1 %.not90, label %._crit_edge, label %69
+  %.not89 = icmp eq i16 %68, 0
+  br i1 %.not89, label %._crit_edge, label %69
 
 ._crit_edge:                                      ; preds = %62
   %.pre = load i8, ptr %56, align 1
@@ -184,8 +184,8 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.069, ptr noundef nonnull %53) #8
   %70 = load ptr, ptr %5, align 8
   %71 = call i64 @strtoul(ptr noundef %70, ptr noundef nonnull %5, i32 noundef 10) #8
-  %.17499 = call i64 @llvm.umin.i64(i64 %71, i64 10)
-  %.174 = trunc i64 %.17499 to i32
+  %.17497 = call i64 @llvm.umin.i64(i64 %71, i64 10)
+  %.174 = trunc i64 %.17497 to i32
   %72 = load ptr, ptr %5, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 -1
   %74 = load i8, ptr %72, align 1
@@ -212,8 +212,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 79:                                               ; preds = %76
   %80 = call ptr @getenv(ptr noundef nonnull @.str.6) #8
-  %.not95 = icmp eq ptr %80, null
-  br i1 %.not95, label %84, label %81
+  %.not93 = icmp eq ptr %80, null
+  br i1 %.not93, label %84, label %81
 
 81:                                               ; preds = %79
   %82 = call i64 @strtoul(ptr noundef nonnull %80, ptr noundef nonnull %8, i32 noundef 10) #8
@@ -242,8 +242,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 88:                                               ; preds = %76
   %89 = call ptr @getenv(ptr noundef nonnull @.str.8) #8
-  %.not94 = icmp eq ptr %89, null
-  br i1 %.not94, label %93, label %90
+  %.not92 = icmp eq ptr %89, null
+  br i1 %.not92, label %93, label %90
 
 90:                                               ; preds = %88
   %91 = call i64 @strtoul(ptr noundef nonnull %89, ptr noundef nonnull %8, i32 noundef 10) #8
@@ -274,8 +274,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 103:                                              ; preds = %97
   %104 = load i32, ptr %50, align 8
-  %.not93 = icmp eq i32 %104, -5
-  br i1 %.not93, label %106, label %105
+  %.not91 = icmp eq i32 %104, -5
+  br i1 %.not91, label %106, label %105
 
 105:                                              ; preds = %103
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.10, i32 noundef %104) #8
@@ -302,9 +302,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 113:                                              ; preds = %76, %76, %76, %76
   store i32 2, ptr %11, align 8
-  %114 = and i8 %.0, 1
-  %.not91 = icmp eq i8 %114, 0
-  br i1 %.not91, label %117, label %115
+  %114 = trunc i8 %.0 to i1
+  br i1 %114, label %115, label %117
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr %7, align 8
@@ -312,8 +311,8 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %117
 
 117:                                              ; preds = %115, %113
-  %.not92 = icmp eq i32 %.275, 0
-  br i1 %.not92, label %120, label %118
+  %.not90 = icmp eq i32 %.275, 0
+  br i1 %.not90, label %120, label %118
 
 118:                                              ; preds = %117
   %119 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, i32 noundef %.275) #8
@@ -322,11 +321,11 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 120:                                              ; preds = %117
   call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %78) #8
-  %.pre132 = load ptr, ptr %5, align 8
+  %.pre130 = load ptr, ptr %5, align 8
   br label %121
 
 121:                                              ; preds = %120, %118
-  %122 = phi ptr [ %.pre132, %120 ], [ %78, %118 ]
+  %122 = phi ptr [ %.pre130, %120 ], [ %78, %118 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 1
@@ -344,9 +343,8 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %.outer.backedge
 
 129:                                              ; preds = %52
-  %130 = and i8 %.0, 1
-  %.not87 = icmp eq i8 %130, 0
-  br i1 %.not87, label %150, label %131
+  %130 = trunc i8 %.0 to i1
+  br i1 %130, label %131, label %150
 
 131:                                              ; preds = %129
   %132 = tail call ptr @__ctype_b_loc() #10
@@ -355,19 +353,19 @@ _remove_path_slashes.exit:                        ; preds = %48
   %135 = getelementptr inbounds i16, ptr %133, i64 %134
   %136 = load i16, ptr %135, align 2
   %137 = and i16 %136, 2048
-  %.not88 = icmp eq i16 %137, 0
-  br i1 %.not88, label %141, label %138
+  %.not87 = icmp eq i16 %137, 0
+  br i1 %.not87, label %141, label %138
 
 138:                                              ; preds = %131
   %139 = call i64 @strtoul(ptr noundef nonnull %53, ptr noundef nonnull %5, i32 noundef 10) #8
   %140 = trunc i64 %139 to i32
-  %.pre133 = load ptr, ptr %5, align 8
-  %.pre134 = load i8, ptr %.pre133, align 1
+  %.pre131 = load ptr, ptr %5, align 8
+  %.pre132 = load i8, ptr %.pre131, align 1
   br label %141
 
 141:                                              ; preds = %138, %131
-  %142 = phi i8 [ %.pre134, %138 ], [ %54, %131 ]
-  %143 = phi ptr [ %.pre133, %138 ], [ %53, %131 ]
+  %142 = phi i8 [ %.pre132, %138 ], [ %54, %131 ]
+  %143 = phi ptr [ %.pre131, %138 ], [ %53, %131 ]
   %.376 = phi i32 [ %140, %138 ], [ 0, %131 ]
   switch i8 %142, label %.outer.backedge [
     i8 117, label %144
@@ -380,8 +378,8 @@ _remove_path_slashes.exit:                        ; preds = %48
   store i32 2, ptr %11, align 8
   %145 = load ptr, ptr %7, align 8
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %145) #8
-  %.not89 = icmp eq i32 %.376, 0
-  br i1 %.not89, label %148, label %146
+  %.not88 = icmp eq i32 %.376, 0
+  br i1 %.not88, label %148, label %146
 
 146:                                              ; preds = %144
   %147 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, i32 noundef %.376) #8
@@ -402,13 +400,13 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %52
-  %.not96 = icmp eq ptr %.069, %53
-  br i1 %.not96, label %153, label %.loopexit.thread
+  %.not94 = icmp eq ptr %.069, %53
+  br i1 %.not94, label %153, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %69, %.loopexit
-  %.5137 = phi ptr [ %.069, %.loopexit ], [ %73, %69 ]
+  %.5135 = phi ptr [ %.069, %.loopexit ], [ %73, %69 ]
   %152 = phi ptr [ %53, %.loopexit ], [ %72, %69 ]
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.5137, ptr noundef nonnull %152) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.5135, ptr noundef nonnull %152) #8
   br label %153
 
 153:                                              ; preds = %.loopexit.thread, %.loopexit

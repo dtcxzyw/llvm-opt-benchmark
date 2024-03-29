@@ -111,7 +111,7 @@ define dso_local ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %0) local
 
 13:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %.02939 = phi ptr [ null, %.lr.ph ], [ %.2, %52 ]
+  %.02938 = phi ptr [ null, %.lr.ph ], [ %.2, %52 ]
   %14 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
@@ -119,7 +119,7 @@ define dso_local ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %0) local
   br i1 %17, label %18, label %41
 
 18:                                               ; preds = %13
-  %19 = icmp eq ptr %.02939, null
+  %19 = icmp eq ptr %.02938, null
   br i1 %19, label %20, label %35
 
 20:                                               ; preds = %18
@@ -129,9 +129,8 @@ define dso_local ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %0) local
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 104
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not35 = icmp eq i8 %27, 0
-  br i1 %.not35, label %32, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %12, align 8
@@ -145,12 +144,12 @@ define dso_local ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %0) local
   br label %35
 
 35:                                               ; preds = %32, %18
-  %.1 = phi ptr [ %34, %32 ], [ %.02939, %18 ]
+  %.1 = phi ptr [ %34, %32 ], [ %.02938, %18 ]
   %36 = getelementptr inbounds i8, ptr %15, i64 224
   store ptr %.1, ptr %36, align 8
   %37 = tail call ptr @MultiExecProcNode(ptr noundef nonnull %15) #5
-  %.not36 = icmp eq ptr %37, %.1
-  br i1 %.not36, label %52, label %38
+  %.not35 = icmp eq ptr %37, %.1
+  br i1 %.not35, label %52, label %38
 
 38:                                               ; preds = %35
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -177,16 +176,16 @@ define dso_local ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %0) local
   unreachable
 
 49:                                               ; preds = %43
-  %50 = icmp eq ptr %.02939, null
+  %50 = icmp eq ptr %.02938, null
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %49
-  tail call void @tbm_union(ptr noundef nonnull %.02939, ptr noundef nonnull %42) #5
+  tail call void @tbm_union(ptr noundef nonnull %.02938, ptr noundef nonnull %42) #5
   tail call void @tbm_free(ptr noundef nonnull %42) #5
   br label %52
 
 52:                                               ; preds = %49, %35, %51
-  %.2 = phi ptr [ %.1, %35 ], [ %.02939, %51 ], [ %42, %49 ]
+  %.2 = phi ptr [ %.1, %35 ], [ %.02938, %51 ], [ %42, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !5

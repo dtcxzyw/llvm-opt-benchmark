@@ -1259,9 +1259,8 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   %1 = load i8, ptr @_ZZN4quic34better_enums_data_PacketDropReason12_initializedEvE5value, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i.i, label %for.body.i.i.i.i, label %__cxx_global_var_init.1.exit
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %__cxx_global_var_init.1.exit, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %offset.011.i.i.i.i = phi i64 [ %add6.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
@@ -1270,11 +1269,11 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   %arrayidx1.i.i.i.i = getelementptr inbounds ptr, ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
-  %3 = load ptr, ptr %arrayidx1.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i64 @strcspn(ptr noundef %3, ptr noundef nonnull @.str.5) #19
+  %2 = load ptr, ptr %arrayidx1.i.i.i.i, align 8
+  %call.i.i.i.i = tail call i64 @strcspn(ptr noundef %2, ptr noundef nonnull @.str.5) #19
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i, i64 %call.i.i.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1
-  %call4.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
+  %call4.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %add5.i.i.i.i = add i64 %offset.011.i.i.i.i, 1
   %add6.i.i.i.i = add i64 %add5.i.i.i.i, %call4.i.i.i.i
   %inc.i.i.i.i = add nuw nsw i64 %index.010.i.i.i.i, 1
@@ -1286,10 +1285,9 @@ _ZN12better_enums11_trim_namesEPKPKcPS1_Pcm.exit.i.i.i: ; preds = %for.body.i.i.
   br label %__cxx_global_var_init.1.exit
 
 __cxx_global_var_init.1.exit:                     ; preds = %entry, %_ZN12better_enums11_trim_namesEPKPKcPS1_Pcm.exit.i.i.i
-  %4 = load i8, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId12_initializedEvE5value, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i.i.i1 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i1, label %for.body.i.i.i.i2, label %__cxx_global_var_init.2.exit
+  %3 = load i8, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId12_initializedEvE5value, align 1
+  %tobool.i.i.i1 = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i1, label %__cxx_global_var_init.2.exit, label %for.body.i.i.i.i2
 
 for.body.i.i.i.i2:                                ; preds = %__cxx_global_var_init.1.exit, %for.body.i.i.i.i2
   %offset.011.i.i.i.i3 = phi i64 [ %add6.i.i.i.i12, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.1.exit ]
@@ -1298,11 +1296,11 @@ for.body.i.i.i.i2:                                ; preds = %__cxx_global_var_in
   %arrayidx.i.i.i.i6 = getelementptr inbounds ptr, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
   store ptr %add.ptr.i.i.i.i5, ptr %arrayidx.i.i.i.i6, align 8
   %arrayidx1.i.i.i.i7 = getelementptr inbounds ptr, ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
-  %6 = load ptr, ptr %arrayidx1.i.i.i.i7, align 8
-  %call.i.i.i.i8 = tail call i64 @strcspn(ptr noundef %6, ptr noundef nonnull @.str.5) #19
+  %4 = load ptr, ptr %arrayidx1.i.i.i.i7, align 8
+  %call.i.i.i.i8 = tail call i64 @strcspn(ptr noundef %4, ptr noundef nonnull @.str.5) #19
   %arrayidx2.i.i.i.i9 = getelementptr i8, ptr %add.ptr.i.i.i.i5, i64 %call.i.i.i.i8
   store i8 0, ptr %arrayidx2.i.i.i.i9, align 1
-  %call4.i.i.i.i10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
+  %call4.i.i.i.i10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   %add5.i.i.i.i11 = add i64 %offset.011.i.i.i.i3, 1
   %add6.i.i.i.i12 = add i64 %add5.i.i.i.i11, %call4.i.i.i.i10
   %inc.i.i.i.i13 = add nuw nsw i64 %index.010.i.i.i.i4, 1

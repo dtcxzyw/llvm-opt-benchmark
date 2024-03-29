@@ -92,9 +92,8 @@ define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
   %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #13
   store ptr %6, ptr @BackgroundWorkerData, align 8
   %7 = load i8, ptr @IsUnderPostmaster, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.loopexit
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %0
   %10 = load i32, ptr @max_worker_processes, align 4
@@ -103,9 +102,9 @@ define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %12, align 8
-  %.sroa.0.017 = load ptr, ptr @BackgroundWorkerList, align 8
-  %.not1618 = icmp eq ptr %.sroa.0.017, null
-  br i1 %.not1618, label %.preheader, label %.lr.ph
+  %.sroa.0.016 = load ptr, ptr @BackgroundWorkerList, align 8
+  %.not17 = icmp eq ptr %.sroa.0.016, null
+  br i1 %.not17, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %13 = getelementptr inbounds i8, ptr %6, i64 16
@@ -119,19 +118,19 @@ define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
   %14 = phi i32 [ %10, %9 ], [ %.pre, %.preheader.loopexit ]
   %.0.lcssa = phi i32 [ 0, %9 ], [ %28, %.preheader.loopexit ]
   %15 = icmp slt i32 %.0.lcssa, %14
-  br i1 %15, label %.lr.ph22, label %.loopexit
+  br i1 %15, label %.lr.ph21, label %.loopexit
 
-.lr.ph22:                                         ; preds = %.preheader
+.lr.ph21:                                         ; preds = %.preheader
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = sext i32 %.0.lcssa to i64
   br label %29
 
 18:                                               ; preds = %.lr.ph, %18
-  %.sroa.0.020 = phi ptr [ %.sroa.0.017, %.lr.ph ], [ %.sroa.0.0, %18 ]
-  %.019 = phi i32 [ 0, %.lr.ph ], [ %28, %18 ]
-  %19 = sext i32 %.019 to i64
+  %.sroa.0.019 = phi ptr [ %.sroa.0.016, %.lr.ph ], [ %.sroa.0.0, %18 ]
+  %.018 = phi i32 [ 0, %.lr.ph ], [ %28, %18 ]
+  %19 = sext i32 %.018 to i64
   %20 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %13, i64 0, i64 %19
-  %21 = getelementptr i8, ptr %.sroa.0.020, i64 -1504
+  %21 = getelementptr i8, ptr %.sroa.0.019, i64 -1504
   store i8 1, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 1
   store i8 0, ptr %22, align 1
@@ -139,19 +138,19 @@ define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
   store i32 -1, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 0, ptr %24, align 8
-  %25 = getelementptr i8, ptr %.sroa.0.020, i64 -8
-  store i32 %.019, ptr %25, align 8
-  %26 = getelementptr i8, ptr %.sroa.0.020, i64 -40
+  %25 = getelementptr i8, ptr %.sroa.0.019, i64 -8
+  store i32 %.018, ptr %25, align 8
+  %26 = getelementptr i8, ptr %.sroa.0.019, i64 -40
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %20, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %27, ptr noundef nonnull align 8 dereferenceable(1472) %21, i64 1472, i1 false)
-  %28 = add i32 %.019, 1
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.020, align 8
-  %.not16 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not16, label %.preheader.loopexit, label %18, !llvm.loop !5
+  %28 = add i32 %.018, 1
+  %.sroa.0.0 = load ptr, ptr %.sroa.0.019, align 8
+  %.not = icmp eq ptr %.sroa.0.0, null
+  br i1 %.not, label %.preheader.loopexit, label %18, !llvm.loop !5
 
-29:                                               ; preds = %.lr.ph22, %29
-  %indvars.iv = phi i64 [ %17, %.lr.ph22 ], [ %indvars.iv.next, %29 ]
+29:                                               ; preds = %.lr.ph21, %29
+  %indvars.iv = phi i64 [ %17, %.lr.ph21 ], [ %indvars.iv.next, %29 ]
   %30 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %16, i64 0, i64 %indvars.iv
   store i8 0, ptr %30, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -198,9 +197,8 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %14, i64 0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not57 = icmp eq i8 %17, 0
-  br i1 %.not57, label %ReportBackgroundWorkerPID.exit, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %ReportBackgroundWorkerPID.exit
 
 18:                                               ; preds = %.lr.ph
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
@@ -221,29 +219,27 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
 
 FindRegisteredWorkerBySlotNumber.exit:            ; preds = %20
   %25 = getelementptr i8, ptr %.sroa.0.0.i, i64 -1504
-  %.not58 = icmp eq ptr %25, null
-  br i1 %.not58, label %FindRegisteredWorkerBySlotNumber.exit.thread, label %26
+  %.not57 = icmp eq ptr %25, null
+  br i1 %.not57, label %FindRegisteredWorkerBySlotNumber.exit.thread, label %26
 
 26:                                               ; preds = %FindRegisteredWorkerBySlotNumber.exit
   %27 = getelementptr inbounds i8, ptr %15, i64 1
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not62 = icmp eq i8 %29, 0
-  br i1 %.not62, label %ReportBackgroundWorkerPID.exit, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %ReportBackgroundWorkerPID.exit
 
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %.sroa.0.0.i, i64 -4
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not63 = icmp eq i8 %33, 0
-  br i1 %.not63, label %34, label %ReportBackgroundWorkerPID.exit
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %ReportBackgroundWorkerPID.exit, label %34
 
 34:                                               ; preds = %30
   store i8 1, ptr %31, align 4
   %35 = getelementptr i8, ptr %.sroa.0.0.i, i64 -24
   %36 = load i32, ptr %35, align 8
-  %.not64 = icmp eq i32 %36, 0
-  br i1 %.not64, label %39, label %37
+  %.not60 = icmp eq i32 %36, 0
+  br i1 %.not60, label %39, label %37
 
 37:                                               ; preds = %34
   %38 = tail call i32 @kill(i32 noundef %36, i32 noundef 15) #13
@@ -257,8 +253,8 @@ FindRegisteredWorkerBySlotNumber.exit:            ; preds = %20
   store i32 0, ptr %43, align 4
   %44 = getelementptr i8, ptr %.sroa.0.0.i, i64 -40
   %45 = load i32, ptr %44, align 8
-  %.not.i65 = icmp eq i32 %45, 0
-  br i1 %.not.i65, label %ReportBackgroundWorkerPID.exit, label %46
+  %.not.i61 = icmp eq i32 %45, 0
+  br i1 %.not.i61, label %ReportBackgroundWorkerPID.exit, label %46
 
 46:                                               ; preds = %39
   %47 = tail call i32 @kill(i32 noundef %45, i32 noundef 10) #13
@@ -274,9 +270,8 @@ FindRegisteredWorkerBySlotNumber.exit.thread:     ; preds = %19, %FindRegistered
 
 48:                                               ; preds = %FindRegisteredWorkerBySlotNumber.exit.thread
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  %49 = and i8 %.pre, 1
-  %.not59 = icmp eq i8 %49, 0
-  br i1 %.not59, label %65, label %50
+  %49 = trunc i8 %.pre to i1
+  br i1 %49, label %50, label %65
 
 50:                                               ; preds = %.thread, %48
   %51 = getelementptr inbounds i8, ptr %15, i64 1480
@@ -284,8 +279,8 @@ FindRegisteredWorkerBySlotNumber.exit.thread:     ; preds = %19, %FindRegistered
   %53 = getelementptr inbounds i8, ptr %15, i64 208
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 16
-  %.not60 = icmp eq i32 %55, 0
-  br i1 %.not60, label %61, label %56
+  %.not58 = icmp eq i32 %55, 0
+  br i1 %.not58, label %61, label %56
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr @BackgroundWorkerData, align 8
@@ -300,8 +295,8 @@ FindRegisteredWorkerBySlotNumber.exit.thread:     ; preds = %19, %FindRegistered
   store i32 0, ptr %62, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
   store i8 0, ptr %15, align 8
-  %.not61 = icmp eq i32 %52, 0
-  br i1 %.not61, label %ReportBackgroundWorkerPID.exit, label %63
+  %.not59 = icmp eq i32 %52, 0
+  br i1 %.not59, label %ReportBackgroundWorkerPID.exit, label %63
 
 63:                                               ; preds = %61
   %64 = tail call i32 @kill(i32 noundef %52, i32 noundef 10) #13
@@ -523,9 +518,8 @@ define dso_local void @ReportBackgroundWorkerExit(ptr nocapture noundef %0) loca
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %2, i64 -4
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %20
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr i8, ptr %2, i64 -1304
@@ -576,8 +570,8 @@ ForgetBackgroundWorker.exit:                      ; preds = %34, %36
   br label %43
 
 43:                                               ; preds = %ForgetBackgroundWorker.exit, %16
-  %.not9 = icmp eq i32 %12, 0
-  br i1 %.not9, label %46, label %44
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %46, label %44
 
 44:                                               ; preds = %43
   %45 = tail call i32 @kill(i32 noundef %12, i32 noundef 10) #13
@@ -914,21 +908,18 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsUnderPostmaster, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %7
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr @IsPostmasterEnvironment, align 1
-  %6 = and i8 %5, 1
-  %.not15 = icmp eq i8 %6, 0
-  br i1 %.not15, label %7, label %15
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %4, %1
   %8 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1
-  %9 = and i8 %8, 1
-  %.not18 = icmp eq i8 %9, 0
-  br i1 %.not18, label %10, label %62
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %62, label %10
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
@@ -942,8 +933,8 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr @BackgroundWorkerData, align 8
-  %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %20, label %17
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -968,8 +959,8 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 1464
   %28 = load i32, ptr %27, align 8
-  %.not17 = icmp eq i32 %28, 0
-  br i1 %.not17, label %34, label %29
+  %.not15 = icmp eq i32 %28, 0
+  br i1 %.not15, label %34, label %29
 
 29:                                               ; preds = %26
   %30 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
@@ -1130,9 +1121,8 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @IsUnderPostmaster, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %54, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %54
 
 5:                                                ; preds = %2
   %6 = tail call fastcc zeroext i1 @SanityCheckBackgroundWorker(ptr noundef %0, i32 noundef 21)
@@ -1142,12 +1132,12 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 16
-  %.not29 = icmp eq i32 %10, 0
+  %.not = icmp eq i32 %10, 0
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr i8, ptr %11, i64 4224
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #13
   %.pre = load ptr, ptr @BackgroundWorkerData, align 8
-  br i1 %.not29, label %24, label %14
+  br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %.pre, i64 4
@@ -1156,8 +1146,8 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %16, %18
   %20 = load i32, ptr @max_parallel_workers, align 4
-  %.not30 = icmp ult i32 %19, %20
-  br i1 %.not30, label %24, label %21
+  %.not29 = icmp ult i32 %19, %20
+  br i1 %.not29, label %24, label %21
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr @MainLWLockArray, align 8
@@ -1168,7 +1158,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
 24:                                               ; preds = %14, %7
   %25 = load i32, ptr %.pre, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %.thread35
+  br i1 %26, label %.lr.ph, label %.thread33
 
 .lr.ph:                                           ; preds = %24
   %27 = getelementptr inbounds i8, ptr %.pre, i64 16
@@ -1179,9 +1169,8 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %29 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %27, i64 0, i64 %indvars.iv
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not31 = icmp eq i8 %31, 0
-  br i1 %.not31, label %32, label %44
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %44, label %32
 
 32:                                               ; preds = %28
   %33 = trunc i64 %indvars.iv to i32
@@ -1195,7 +1184,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   store i64 %38, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %29, i64 1
   store i8 0, ptr %39, align 1
-  br i1 %.not29, label %47, label %40
+  br i1 %.not, label %47, label %40
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds i8, ptr %.pre, i64 4
@@ -1207,9 +1196,9 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
 44:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread35, label %28, !llvm.loop !17
+  br i1 %exitcond.not, label %.thread33, label %28, !llvm.loop !17
 
-.thread35:                                        ; preds = %44, %24
+.thread33:                                        ; preds = %44, %24
   %45 = load ptr, ptr @MainLWLockArray, align 8
   %46 = getelementptr i8, ptr %45, i64 4224
   tail call void @LWLockRelease(ptr noundef %46) #13
@@ -1222,8 +1211,8 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %49 = getelementptr i8, ptr %48, i64 4224
   tail call void @LWLockRelease(ptr noundef %49) #13
   tail call void @SendPostmasterSignal(i32 noundef 5) #13
-  %.not42 = icmp eq ptr %1, null
-  br i1 %.not42, label %54, label %50
+  %.not40 = icmp eq ptr %1, null
+  br i1 %.not40, label %54, label %50
 
 50:                                               ; preds = %47
   %51 = tail call ptr @palloc(i64 noundef 16) #13
@@ -1234,8 +1223,8 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   store i64 %38, ptr %53, align 8
   br label %54
 
-54:                                               ; preds = %.thread35, %47, %50, %5, %2, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %50 ], [ true, %47 ], [ false, %.thread35 ]
+54:                                               ; preds = %.thread33, %47, %50, %5, %2, %21
+  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %50 ], [ true, %47 ], [ false, %.thread33 ]
   ret i1 %.0
 }
 
@@ -1266,9 +1255,8 @@ define dso_local noundef i32 @GetBackgroundWorkerPid(ptr nocapture noundef reado
 
 15:                                               ; preds = %2
   %16 = load i8, ptr %7, align 8
-  %17 = and i8 %16, 1
-  %.not10 = icmp eq i8 %17, 0
-  br i1 %.not10, label %.thread, label %20
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %20, label %.thread
 
 .thread:                                          ; preds = %15, %2
   %18 = load ptr, ptr @MainLWLockArray, align 8
@@ -1330,9 +1318,8 @@ define dso_local noundef i32 @WaitForBackgroundWorkerStartup(ptr nocapture nound
 
 19:                                               ; preds = %7
   %20 = load i8, ptr %12, align 8
-  %21 = and i8 %20, 1
-  %.not10.i = icmp eq i8 %21, 0
-  br i1 %.not10.i, label %.thread.i, label %24
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %24, label %.thread.i
 
 .thread.i:                                        ; preds = %19, %7
   %22 = load ptr, ptr @MainLWLockArray, align 8
@@ -1409,9 +1396,8 @@ define dso_local noundef i32 @WaitForBackgroundWorkerShutdown(ptr nocapture noun
 
 18:                                               ; preds = %6
   %19 = load i8, ptr %11, align 8
-  %20 = and i8 %19, 1
-  %.not10.i = icmp eq i8 %20, 0
-  br i1 %.not10.i, label %.thread.i, label %23
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %18, %6
   %21 = load ptr, ptr @MainLWLockArray, align 8

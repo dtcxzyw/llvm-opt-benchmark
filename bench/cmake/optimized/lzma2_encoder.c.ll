@@ -204,17 +204,17 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   switch i32 %25, label %142 [
     i32 0, label %27
     i32 1, label %._crit_edge
-    i32 2, label %._crit_edge104
+    i32 2, label %._crit_edge102
     i32 3, label %127
     i32 4, label %131
   ]
 
-._crit_edge104:                                   ; preds = %24
-  %.pre105 = load i64, ptr %17, align 8
+._crit_edge102:                                   ; preds = %24
+  %.pre103 = load i64, ptr %17, align 8
   br label %122
 
 ._crit_edge:                                      ; preds = %24
-  %.pre101 = load i64, ptr %10, align 8
+  %.pre99 = load i64, ptr %10, align 8
   br label %51
 
 27:                                               ; preds = %24
@@ -246,15 +246,14 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 44:                                               ; preds = %27
   %45 = load i8, ptr %14, align 1
-  %46 = and i8 %45, 1
-  %.not76 = icmp eq i8 %46, 0
-  br i1 %.not76, label %50, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %15, align 8
   %49 = tail call i32 @lzma_lzma_encoder_reset(ptr noundef %48, ptr noundef nonnull %16) #8
-  %.not77 = icmp eq i32 %49, 0
-  br i1 %.not77, label %50, label %.loopexit
+  %.not76 = icmp eq i32 %49, 0
+  br i1 %.not76, label %50, label %.loopexit
 
 50:                                               ; preds = %47, %44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -262,35 +261,35 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   br label %51
 
 51:                                               ; preds = %._crit_edge, %50
-  %52 = phi i64 [ %.pre101, %._crit_edge ], [ 0, %50 ]
+  %52 = phi i64 [ %.pre99, %._crit_edge ], [ 0, %50 ]
   %53 = trunc i64 %52 to i32
   %54 = sub i32 2097152, %53
   %55 = load i32, ptr %18, align 4
   %56 = icmp ult i32 %54, %55
-  %.pre102 = load i32, ptr %11, align 8
-  %.pre103 = load i32, ptr %13, align 4
-  %57 = add i32 %54, %.pre102
-  %58 = add i32 %55, %.pre103
+  %.pre100 = load i32, ptr %11, align 8
+  %.pre101 = load i32, ptr %13, align 4
+  %57 = add i32 %54, %.pre100
+  %58 = add i32 %55, %.pre101
   %59 = sub i32 %57, %58
   %.069 = select i1 %56, i32 0, i32 %59
   %60 = load ptr, ptr %15, align 8
   %61 = tail call i32 @lzma_lzma_encode(ptr noundef %60, ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %17, i64 noundef 65536, i32 noundef %.069) #8
   %62 = load i32, ptr %11, align 8
   %63 = load i32, ptr %13, align 4
-  %64 = add i32 %.pre103, %62
-  %65 = add i32 %.pre102, %63
+  %64 = add i32 %.pre101, %62
+  %65 = add i32 %.pre100, %63
   %66 = sub i32 %64, %65
   %67 = zext i32 %66 to i64
   %68 = load i64, ptr %10, align 8
   %69 = add i64 %68, %67
   store i64 %69, ptr %10, align 8
-  %.not78 = icmp eq i32 %61, 1
-  br i1 %.not78, label %70, label %.loopexit
+  %.not77 = icmp eq i32 %61, 1
+  br i1 %.not77, label %70, label %.loopexit
 
 70:                                               ; preds = %51
   %71 = load i64, ptr %17, align 8
-  %.not79 = icmp ult i64 %71, %69
-  br i1 %.not79, label %82, label %72
+  %.not78 = icmp ult i64 %71, %69
+  br i1 %.not78, label %82, label %72
 
 72:                                               ; preds = %70
   %73 = zext i32 %63 to i64
@@ -298,9 +297,8 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   store i64 %74, ptr %10, align 8
   store i32 0, ptr %13, align 4
   %75 = load i8, ptr %20, align 2
-  %76 = and i8 %75, 1
-  %.not.i = icmp eq i8 %76, 0
-  %spec.select.i = select i1 %.not.i, i8 2, i8 1
+  %76 = trunc i8 %75 to i1
+  %spec.select.i = select i1 %76, i8 1, i8 2
   store i8 %spec.select.i, ptr %8, align 8
   store i8 0, ptr %20, align 2
   %77 = add i64 %74, 65535
@@ -316,15 +314,13 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 82:                                               ; preds = %70
   %83 = load i8, ptr %23, align 8
-  %84 = and i8 %83, 1
-  %.not.i82 = icmp eq i8 %84, 0
-  br i1 %.not.i82, label %90, label %85
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %90
 
 85:                                               ; preds = %82
   %86 = load i8, ptr %20, align 2
-  %87 = and i8 %86, 1
-  %.not38.i = icmp eq i8 %87, 0
-  br i1 %.not38.i, label %89, label %88
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
   store i8 -32, ptr %8, align 1
@@ -336,9 +332,8 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 90:                                               ; preds = %82
   %91 = load i8, ptr %14, align 1
-  %92 = and i8 %91, 1
-  %.not37.i = icmp eq i8 %92, 0
-  br i1 %.not37.i, label %94, label %93
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
   store i8 -96, ptr %21, align 1
@@ -377,7 +372,7 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   %115 = trunc i64 %110 to i8
   %116 = getelementptr inbounds [65542 x i8], ptr %8, i64 0, i64 %113
   store i8 %115, ptr %116, align 1
-  br i1 %.not.i82, label %lzma2_header_lzma.exit, label %117
+  br i1 %84, label %117, label %lzma2_header_lzma.exit
 
 117:                                              ; preds = %95
   %118 = getelementptr i8, ptr %99, i64 5
@@ -395,13 +390,13 @@ lzma2_header_lzma.exit:                           ; preds = %95, %117
   store i32 2, ptr %0, align 8
   br label %122
 
-122:                                              ; preds = %._crit_edge104, %lzma2_header_lzma.exit
-  %123 = phi i64 [ %.pre105, %._crit_edge104 ], [ %121, %lzma2_header_lzma.exit ]
+122:                                              ; preds = %._crit_edge102, %lzma2_header_lzma.exit
+  %123 = phi i64 [ %.pre103, %._crit_edge102 ], [ %121, %lzma2_header_lzma.exit ]
   %124 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %123, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #8
   %125 = load i64, ptr %9, align 8
   %126 = load i64, ptr %17, align 8
-  %.not80 = icmp eq i64 %125, %126
-  br i1 %.not80, label %.sink.split, label %.loopexit
+  %.not79 = icmp eq i64 %125, %126
+  br i1 %.not79, label %.sink.split, label %.loopexit
 
 127:                                              ; preds = %24
   %128 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 3, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #8
@@ -411,18 +406,18 @@ lzma2_header_lzma.exit:                           ; preds = %95, %117
 
 130:                                              ; preds = %127
   store i32 4, ptr %0, align 8
-  %.pre100 = load i64, ptr %3, align 8
+  %.pre98 = load i64, ptr %3, align 8
   br label %131
 
 131:                                              ; preds = %130, %24
-  %132 = phi i64 [ %.pre100, %130 ], [ %26, %24 ]
+  %132 = phi i64 [ %.pre98, %130 ], [ %26, %24 ]
   %.val = load ptr, ptr %1, align 8
-  %.val81 = load i32, ptr %11, align 8
+  %.val80 = load i32, ptr %11, align 8
   %133 = sub i64 %4, %132
   %134 = load i64, ptr %10, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %133, i64 %134)
   %135 = getelementptr inbounds i8, ptr %2, i64 %132
-  %136 = zext i32 %.val81 to i64
+  %136 = zext i32 %.val80 to i64
   %137 = getelementptr inbounds i8, ptr %.val, i64 %136
   %138 = sub i64 0, %134
   %139 = getelementptr inbounds i8, ptr %137, i64 %138

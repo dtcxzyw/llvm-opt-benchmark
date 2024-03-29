@@ -848,13 +848,12 @@ lor.lhs.false.i:                                  ; preds = %while.end
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
   %34 = load i8, ptr %hasWeights, align 8
-  %35 = and i8 %34, 1
-  %tobool4.not.i = icmp eq i8 %35, 0
-  br i1 %tobool4.not.i, label %return, label %if.end.i
+  %tobool4.i = trunc i8 %34 to i1
+  br i1 %tobool4.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false3.i
-  %36 = load ptr, ptr %this, align 8
-  %.val.i = load ptr, ptr %36, align 8
+  %35 = load ptr, ptr %this, align 8
+  %.val.i = load ptr, ptr %35, align 8
   call void @uprv_sortArray_75(ptr noundef %.val.i, i32 noundef %32, i32 noundef 16, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %errorCode)
   br label %return
 
@@ -1222,13 +1221,12 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %hasWeights = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i8, ptr %hasWeights, align 8
-  %4 = and i8 %3, 1
-  %tobool4.not = icmp eq i8 %4, 0
-  br i1 %tobool4.not, label %return, label %if.end
+  %tobool4 = trunc i8 %3 to i1
+  br i1 %tobool4, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %5 = load ptr, ptr %this, align 8
-  %.val = load ptr, ptr %5, align 8
+  %4 = load ptr, ptr %this, align 8
+  %.val = load ptr, ptr %4, align 8
   tail call void @uprv_sortArray_75(ptr noundef %.val, i32 noundef %1, i32 noundef 16, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %errorCode)
   br label %return
 

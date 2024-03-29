@@ -338,9 +338,8 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr nocapture n
 
 18:                                               ; preds = %11
   %19 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %26
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %26, label %21
 
 21:                                               ; preds = %18
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -355,8 +354,8 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr nocapture n
   %27 = zext i8 %0 to i64
   %28 = getelementptr [256 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 16
-  %.not22 = icmp eq ptr %29, null
-  br i1 %.not22, label %.preheader, label %30
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %.preheader, label %30
 
 30:                                               ; preds = %26
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -372,14 +371,14 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr nocapture n
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %26 ]
   %36 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 16
-  %.not24 = icmp eq ptr %37, null
-  br i1 %.not24, label %47, label %38
+  %.not23 = icmp eq ptr %37, null
+  br i1 %.not23, label %47, label %38
 
 38:                                               ; preds = %.preheader
   %39 = load ptr, ptr %1, align 8
   %40 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %37, ptr noundef %39) #7
-  %.not23 = icmp eq i32 %40, 0
-  br i1 %.not23, label %41, label %47
+  %.not22 = icmp eq i32 %40, 0
+  br i1 %.not22, label %41, label %47
 
 41:                                               ; preds = %38
   %42 = trunc i64 %indvars.iv to i32

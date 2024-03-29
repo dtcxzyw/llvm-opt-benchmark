@@ -3570,14 +3570,13 @@ entry:
   %call3 = tail call ptr @riscv_isa_string(ptr noundef %add.ptr.i) #26
   %mmu4 = getelementptr i8, ptr %cpu_env, i64 5296
   %0 = load i8, ptr %mmu4, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %xl = getelementptr inbounds i8, ptr %cpu_env, i64 5024
-  %2 = load i32, ptr %xl, align 16
-  %cmp = icmp eq i32 %2, 1
+  %1 = load i32, ptr %xl, align 16
+  %cmp = icmp eq i32 %1, 1
   %cond = select i1 %cmp, ptr @.str.621, ptr @.str.622
   br label %if.end
 
@@ -10687,14 +10686,13 @@ if.end14:                                         ; preds = %if.then12, %if.end1
   %cond21 = select i1 %tobool20.not, i32 45, i32 120
   %is_priv = getelementptr inbounds i8, ptr %mi, i64 51
   %11 = load i8, ptr %is_priv, align 1
-  %12 = and i8 %11, 1
-  %tobool22.not = icmp eq i8 %12, 0
-  %cond23 = select i1 %tobool22.not, i32 115, i32 112
+  %tobool22 = trunc i8 %11 to i1
+  %cond23 = select i1 %tobool22, i32 112, i32 115
   %call25 = tail call i32 @gnu_dev_major(i64 noundef %8) #25
   %call27 = tail call i32 @gnu_dev_minor(i64 noundef %8) #25
   %inode = getelementptr inbounds i8, ptr %mi, i64 64
-  %13 = load i64, ptr %inode, align 8
-  %call28 = tail call i32 (i32, ptr, ...) @dprintf(i32 noundef %3, ptr noundef nonnull @.str.599, i64 noundef %start, i64 noundef %end, i32 noundef %cond, i32 noundef %cond18, i32 noundef %cond21, i32 noundef %cond23, i64 noundef %offset.0, i32 noundef %call25, i32 noundef %call27, i64 noundef %13) #26
+  %12 = load i64, ptr %inode, align 8
+  %call28 = tail call i32 (i32, ptr, ...) @dprintf(i32 noundef %3, ptr noundef nonnull @.str.599, i64 noundef %start, i64 noundef %end, i32 noundef %cond, i32 noundef %cond18, i32 noundef %cond21, i32 noundef %cond23, i64 noundef %offset.0, i32 noundef %call25, i32 noundef %call27, i64 noundef %12) #26
   %tobool29.not = icmp eq ptr %path.0, null
   br i1 %tobool29.not, label %if.else33, label %if.then30
 
@@ -10709,10 +10707,9 @@ if.else33:                                        ; preds = %if.end14
 
 if.end35:                                         ; preds = %if.else33, %if.then30
   %smaps = getelementptr inbounds i8, ptr %d, i64 20
-  %14 = load i8, ptr %smaps, align 4
-  %15 = and i8 %14, 1
-  %tobool36.not = icmp eq i8 %15, 0
-  br i1 %tobool36.not, label %if.end67, label %if.then37
+  %13 = load i8, ptr %smaps, align 4
+  %tobool36 = trunc i8 %13 to i1
+  br i1 %tobool36, label %if.then37, label %if.end67
 
 if.then37:                                        ; preds = %if.end35
   %sub38 = sub i64 %end, %start
@@ -10723,14 +10720,13 @@ if.then37:                                        ; preds = %if.end35
   %cond44 = select i1 %tobool15.not, ptr @.str.601, ptr @.str.604
   %cond47 = select i1 %tobool17.not, ptr @.str.601, ptr @.str.605
   %cond50 = select i1 %tobool20.not, ptr @.str.601, ptr @.str.606
-  %16 = load i8, ptr %is_priv, align 1
-  %17 = and i8 %16, 1
-  %tobool52.not = icmp eq i8 %17, 0
-  %cond53 = select i1 %tobool52.not, ptr @.str.607, ptr @.str.601
+  %14 = load i8, ptr %is_priv, align 1
+  %tobool52 = trunc i8 %14 to i1
+  %cond53 = select i1 %tobool52, ptr @.str.601, ptr @.str.607
   %cond56 = select i1 %tobool15.not, ptr @.str.601, ptr @.str.608
   %cond59 = select i1 %tobool17.not, ptr @.str.601, ptr @.str.609
   %cond62 = select i1 %tobool20.not, ptr @.str.601, ptr @.str.610
-  %cond65 = select i1 %tobool52.not, ptr @.str.611, ptr @.str.601
+  %cond65 = select i1 %tobool52, ptr @.str.601, ptr @.str.611
   %call66 = tail call i32 (i32, ptr, ...) @dprintf(i32 noundef %3, ptr noundef nonnull @.str.603, i64 noundef %shr, i64 noundef 4, i64 noundef 4, i64 noundef %cond41, ptr noundef nonnull %cond44, ptr noundef nonnull %cond47, ptr noundef nonnull %cond50, ptr noundef nonnull %cond53, ptr noundef nonnull %cond56, ptr noundef nonnull %cond59, ptr noundef nonnull %cond62, ptr noundef nonnull %cond65) #26
   br label %if.end67
 
@@ -16600,7 +16596,7 @@ for.cond.preheader:                               ; preds = %if.end9
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end54
   %conv46 = phi i64 [ 0, %for.cond.preheader ], [ %conv, %if.end54 ]
-  %bad_address.045 = phi i8 [ 0, %for.cond.preheader ], [ %bad_address.2, %if.end54 ]
+  %bad_address.045 = phi i1 [ false, %for.cond.preheader ], [ %bad_address.2, %if.end54 ]
   %i.043 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end54 ]
   %total_len.042 = phi i64 [ 0, %for.cond.preheader ], [ %add, %if.end54 ]
   %arrayidx = getelementptr %struct.target_iovec, ptr %call10, i64 %conv46
@@ -16628,20 +16624,22 @@ if.else29:                                        ; preds = %if.else
 
 if.then38:                                        ; preds = %if.else29
   %cmp39 = icmp eq i32 %i.043, 0
-  br i1 %cmp39, label %fail2, label %if.end44
+  br i1 %cmp39, label %fail2, label %if.end44.thread
 
-if.end44:                                         ; preds = %if.then38, %if.else29
-  %bad_address.1 = phi i8 [ %bad_address.045, %if.else29 ], [ 1, %if.then38 ]
-  %2 = and i8 %bad_address.1, 1
-  %tobool45.not = icmp eq i8 %2, 0
-  %spec.select = select i1 %tobool45.not, i64 %1, i64 0
+if.end44:                                         ; preds = %if.else29
+  %spec.select = select i1 %bad_address.045, i64 0, i64 %1
+  br label %if.end44.thread
+
+if.end44.thread:                                  ; preds = %if.end44, %if.then38
+  %bad_address.150 = phi i1 [ true, %if.then38 ], [ %bad_address.045, %if.end44 ]
+  %2 = phi i64 [ 0, %if.then38 ], [ %spec.select, %if.end44 ]
   %sub = sub i64 2147479552, %total_len.042
-  %spec.select40 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub)
+  %spec.select40 = tail call i64 @llvm.umin.i64(i64 %2, i64 %sub)
   br label %if.end54
 
-if.end54:                                         ; preds = %if.end44, %if.then25
-  %bad_address.2 = phi i8 [ %bad_address.045, %if.then25 ], [ %bad_address.1, %if.end44 ]
-  %len.1 = phi i64 [ 0, %if.then25 ], [ %spec.select40, %if.end44 ]
+if.end54:                                         ; preds = %if.end44.thread, %if.then25
+  %bad_address.2 = phi i1 [ %bad_address.045, %if.then25 ], [ %bad_address.150, %if.end44.thread ]
+  %len.1 = phi i64 [ 0, %if.then25 ], [ %spec.select40, %if.end44.thread ]
   %iov_len57 = getelementptr %struct.iovec, ptr %call5, i64 %conv46, i32 1
   store i64 %len.1, ptr %iov_len57, align 8
   %add = add i64 %len.1, %total_len.042
@@ -17766,24 +17764,21 @@ sw.bb27.i:                                        ; preds = %do.body.i
   %10 = zext i1 %7 to i32
   %11 = lshr i32 %env.val35.i, 19
   %12 = and i32 %11, 4
-  %13 = load i8, ptr %cfg.i.i, align 8
-  %14 = shl i8 %13, 3
-  %15 = and i8 %14, 8
-  %16 = zext nneg i8 %15 to i32
-  %17 = load i8, ptr %ext_zbb.i, align 1
-  %18 = shl i8 %17, 4
-  %19 = and i8 %18, 16
-  %20 = zext nneg i8 %19 to i32
-  %21 = load i8, ptr %ext_zbs.i, align 2
-  %22 = shl i8 %21, 5
-  %23 = and i8 %22, 32
-  %24 = zext nneg i8 %23 to i32
-  %25 = or disjoint i32 %12, %9
-  %or4463.i = or disjoint i32 %25, %10
-  %26 = or disjoint i32 %or4463.i, %16
-  %27 = or disjoint i32 %26, %20
-  %28 = or disjoint i32 %27, %24
-  %or59.i = zext nneg i32 %28 to i64
+  %13 = or disjoint i32 %12, %9
+  %or4463.i = or disjoint i32 %13, %10
+  %or44.i = zext nneg i32 %or4463.i to i64
+  %14 = load i8, ptr %cfg.i.i, align 8
+  %tobool45.i = trunc i8 %14 to i1
+  %conv48.i = select i1 %tobool45.i, i64 8, i64 0
+  %15 = load i8, ptr %ext_zbb.i, align 1
+  %tobool50.i = trunc i8 %15 to i1
+  %conv53.i = select i1 %tobool50.i, i64 16, i64 0
+  %16 = load i8, ptr %ext_zbs.i, align 2
+  %tobool55.i = trunc i8 %16 to i1
+  %conv58.i = select i1 %tobool55.i, i64 32, i64 0
+  %or49.i = or disjoint i64 %conv53.i, %conv48.i
+  %or54.i = or disjoint i64 %or49.i, %conv58.i
+  %or59.i = or disjoint i64 %or54.i, %or44.i
   store i64 %or59.i, ptr %value1.i, align 1
   br label %for.inc.i
 
@@ -17792,14 +17787,13 @@ do.body64.i:                                      ; preds = %do.body.i
   br label %for.inc.i
 
 sw.bb67.i:                                        ; preds = %do.body.i
-  %29 = load i8, ptr %ext_zicboz.i, align 4
-  %30 = and i8 %29, 1
-  %tobool68.not.i = icmp eq i8 %30, 0
-  br i1 %tobool68.not.i, label %cond.end.i, label %cond.true.i
+  %17 = load i8, ptr %ext_zicboz.i, align 4
+  %tobool68.i = trunc i8 %17 to i1
+  br i1 %tobool68.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %sw.bb67.i
-  %31 = load i16, ptr %cboz_blocksize.i, align 2
-  %conv70.i = zext i16 %31 to i64
+  %18 = load i16, ptr %cboz_blocksize.i, align 2
+  %conv70.i = zext i16 %18 to i64
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %sw.bb67.i

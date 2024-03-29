@@ -559,15 +559,15 @@ define internal fastcc noundef ptr @_ZN6flate22gz11read_to_nul17hbe7355749201ad3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !100
   call void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he800381ea8f1de8bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %6, i64 noundef 1), !noalias !100
   %12 = load i64, ptr %5, align 8, !range !58, !noalias !100, !noundef !4
-  %trunc.not6.i.i = icmp eq i64 %12, 0
-  br i1 %trunc.not6.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %trunc6.i.i = trunc i64 %12 to i1
+  br i1 %trunc6.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit.i.i.i", %11
+._crit_edge.i.i:                                  ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1246648dbc0a1d51E.exit.i.i", %11
   %13 = load i64, ptr %7, align 8, !noalias !100, !noundef !4
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %.thread79, label %35
 
-.lr.ph.i.i:                                       ; preds = %11, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit.i.i.i"
+.lr.ph.i.i:                                       ; preds = %11, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1246648dbc0a1d51E.exit.i.i"
   %.val6.i.i = load ptr, ptr %7, align 8, !noalias !100, !nonnull !4, !noundef !4
   %15 = ptrtoint ptr %.val6.i.i to i64
   %16 = and i64 %15, 3
@@ -661,20 +661,20 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hf9dec59cc32fc975E.llvm.9341850390877611223(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %.val6.i.i), !noalias !106
   %32 = load i8, ptr %4, align 8, !range !113, !alias.scope !114, !noalias !106, !noundef !4
   %switch.not.i.i.i.i.i.i.i = icmp eq i8 %32, 3
-  br i1 %switch.not.i.i.i.i.i.i.i, label %33, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit.i.i.i"
+  br i1 %switch.not.i.i.i.i.i.i.i, label %33, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1246648dbc0a1d51E.exit.i.i"
 
 33:                                               ; preds = %31
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h31d22233a1150beeE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !106
-  br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit.i.i.i"
+  br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1246648dbc0a1d51E.exit.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit.i.i.i": ; preds = %33, %31
+"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1246648dbc0a1d51E.exit.i.i": ; preds = %33, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !100
   call void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he800381ea8f1de8bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %6, i64 noundef 1), !noalias !100
   %34 = load i64, ptr %5, align 8, !range !58, !noalias !100, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %34, 0
-  br i1 %trunc.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %trunc.i.i = trunc i64 %34 to i1
+  br i1 %trunc.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .thread79:                                        ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !100
@@ -998,10 +998,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %80
   %102 = getelementptr inbounds i8, ptr %12, i64 %100
   call void @_ZN6flate22gz9read_into17h580e030121493638E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %102, i64 noundef %101)
   %103 = load i64, ptr %8, align 8, !range !58, !noundef !4
-  %trunc165.not = icmp eq i64 %103, 0
+  %trunc165 = trunc i64 %103 to i1
   %104 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %trunc165.not, label %105, label %.loopexit
+  br i1 %trunc165, label %.loopexit, label %105
 
 105:                                              ; preds = %.lr.ph248
   %.cast224 = ptrtoint ptr %104 to i64
@@ -1100,10 +1100,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %80
   %138 = getelementptr inbounds i8, ptr %12, i64 %136
   call void @_ZN6flate22gz9read_into17h580e030121493638E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %138, i64 noundef %137)
   %139 = load i64, ptr %6, align 8, !range !58, !noundef !4
-  %trunc162.not = icmp eq i64 %139, 0
+  %trunc162 = trunc i64 %139 to i1
   %140 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %trunc162.not, label %141, label %.loopexit
+  br i1 %trunc162, label %.loopexit, label %141
 
 141:                                              ; preds = %.lr.ph246
   %.cast223 = ptrtoint ptr %140 to i64
@@ -1146,10 +1146,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %80
   %156 = getelementptr inbounds i8, ptr %154, i64 %153
   call void @_ZN6flate22gz9read_into17h580e030121493638E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %156, i64 noundef %155)
   %157 = load i64, ptr %5, align 8, !range !58, !noundef !4
-  %trunc159.not = icmp eq i64 %157, 0
+  %trunc159 = trunc i64 %157 to i1
   %158 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %trunc159.not, label %159, label %.loopexit
+  br i1 %trunc159, label %.loopexit, label %159
 
 159:                                              ; preds = %.lr.ph244
   %.cast222 = ptrtoint ptr %158 to i64
@@ -1294,10 +1294,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %80
   %212 = getelementptr inbounds i8, ptr %12, i64 %210
   call void @_ZN6flate22gz9read_into17h580e030121493638E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %212, i64 noundef %211)
   %213 = load i64, ptr %4, align 8, !range !58, !noundef !4
-  %trunc.not = icmp eq i64 %213, 0
+  %trunc = trunc i64 %213 to i1
   %214 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %trunc.not, label %215, label %.loopexit
+  br i1 %trunc, label %.loopexit, label %215
 
 215:                                              ; preds = %.lr.ph
   %.cast = ptrtoint ptr %214 to i64
@@ -1322,265 +1322,274 @@ define hidden void @_ZN6flate22gz9read_into17h580e030121493638E(ptr noalias noca
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he800381ea8f1de8bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %7 = load i64, ptr %6, align 8, !range !58, !noundef !4
-  %trunc.not = icmp eq i64 %7, 0
+  %trunc = trunc i64 %7 to i1
   %8 = getelementptr inbounds i8, ptr %6, i64 8
-  br i1 %trunc.not, label %9, label %13
+  br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %8, align 8, !noundef !4
   %11 = icmp eq i64 %10, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %11, label %71, label %72
+  %12 = inttoptr i64 %10 to ptr
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %11, label %72, label %73
 
-13:                                               ; preds = %4
+14:                                               ; preds = %4
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %14 = ptrtoint ptr %.val to i64
-  %15 = and i64 %14, 3
-  switch i64 %15, label %default.unreachable [
-    i64 2, label %60
-    i64 3, label %16
-    i64 0, label %63
-    i64 1, label %66
+  %15 = ptrtoint ptr %.val to i64
+  %16 = and i64 %15, 3
+  switch i64 %16, label %default.unreachable [
+    i64 2, label %61
+    i64 3, label %17
+    i64 0, label %64
+    i64 1, label %67
   ]
 
-default.unreachable:                              ; preds = %13
+default.unreachable:                              ; preds = %14
   unreachable
 
-16:                                               ; preds = %13
-  %17 = lshr i64 %14, 32
-  %18 = trunc i64 %17 to i32
-  switch i32 %18, label %59 [
-    i32 0, label %61
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-    i32 5, label %23
-    i32 6, label %24
-    i32 7, label %25
-    i32 8, label %26
-    i32 9, label %27
-    i32 10, label %28
-    i32 11, label %29
-    i32 12, label %30
-    i32 13, label %31
-    i32 14, label %32
-    i32 15, label %33
-    i32 16, label %34
-    i32 17, label %35
-    i32 18, label %36
-    i32 19, label %37
-    i32 20, label %38
-    i32 21, label %39
-    i32 22, label %40
-    i32 23, label %41
-    i32 24, label %42
-    i32 25, label %43
-    i32 26, label %44
-    i32 27, label %45
-    i32 28, label %46
-    i32 29, label %47
-    i32 30, label %48
-    i32 31, label %49
-    i32 32, label %50
-    i32 33, label %51
-    i32 34, label %52
-    i32 35, label %53
-    i32 39, label %54
-    i32 37, label %55
-    i32 36, label %56
-    i32 38, label %57
-    i32 40, label %58
+17:                                               ; preds = %14
+  %18 = lshr i64 %15, 32
+  %19 = trunc i64 %18 to i32
+  switch i32 %19, label %60 [
+    i32 0, label %62
+    i32 1, label %20
+    i32 2, label %21
+    i32 3, label %22
+    i32 4, label %23
+    i32 5, label %24
+    i32 6, label %25
+    i32 7, label %26
+    i32 8, label %27
+    i32 9, label %28
+    i32 10, label %29
+    i32 11, label %30
+    i32 12, label %31
+    i32 13, label %32
+    i32 14, label %33
+    i32 15, label %34
+    i32 16, label %35
+    i32 17, label %36
+    i32 18, label %37
+    i32 19, label %38
+    i32 20, label %39
+    i32 21, label %40
+    i32 22, label %41
+    i32 23, label %42
+    i32 24, label %43
+    i32 25, label %44
+    i32 26, label %45
+    i32 27, label %46
+    i32 28, label %47
+    i32 29, label %48
+    i32 30, label %49
+    i32 31, label %50
+    i32 32, label %51
+    i32 33, label %52
+    i32 34, label %53
+    i32 35, label %54
+    i32 39, label %55
+    i32 37, label %56
+    i32 36, label %57
+    i32 38, label %58
+    i32 40, label %59
   ]
 
-19:                                               ; preds = %16
-  br label %61
+20:                                               ; preds = %17
+  br label %62
 
-20:                                               ; preds = %16
-  br label %61
+21:                                               ; preds = %17
+  br label %62
 
-21:                                               ; preds = %16
-  br label %61
+22:                                               ; preds = %17
+  br label %62
 
-22:                                               ; preds = %16
-  br label %61
+23:                                               ; preds = %17
+  br label %62
 
-23:                                               ; preds = %16
-  br label %61
+24:                                               ; preds = %17
+  br label %62
 
-24:                                               ; preds = %16
-  br label %61
+25:                                               ; preds = %17
+  br label %62
 
-25:                                               ; preds = %16
-  br label %61
+26:                                               ; preds = %17
+  br label %62
 
-26:                                               ; preds = %16
-  br label %61
+27:                                               ; preds = %17
+  br label %62
 
-27:                                               ; preds = %16
-  br label %61
+28:                                               ; preds = %17
+  br label %62
 
-28:                                               ; preds = %16
-  br label %61
+29:                                               ; preds = %17
+  br label %62
 
-29:                                               ; preds = %16
-  br label %61
+30:                                               ; preds = %17
+  br label %62
 
-30:                                               ; preds = %16
-  br label %61
+31:                                               ; preds = %17
+  br label %62
 
-31:                                               ; preds = %16
-  br label %61
+32:                                               ; preds = %17
+  br label %62
 
-32:                                               ; preds = %16
-  br label %61
+33:                                               ; preds = %17
+  br label %62
 
-33:                                               ; preds = %16
-  br label %61
+34:                                               ; preds = %17
+  br label %62
 
-34:                                               ; preds = %16
-  br label %61
+35:                                               ; preds = %17
+  br label %62
 
-35:                                               ; preds = %16
-  br label %61
+36:                                               ; preds = %17
+  br label %62
 
-36:                                               ; preds = %16
-  br label %61
+37:                                               ; preds = %17
+  br label %62
 
-37:                                               ; preds = %16
-  br label %61
+38:                                               ; preds = %17
+  br label %62
 
-38:                                               ; preds = %16
-  br label %61
+39:                                               ; preds = %17
+  br label %62
 
-39:                                               ; preds = %16
-  br label %61
+40:                                               ; preds = %17
+  br label %62
 
-40:                                               ; preds = %16
-  br label %61
+41:                                               ; preds = %17
+  br label %62
 
-41:                                               ; preds = %16
-  br label %61
+42:                                               ; preds = %17
+  br label %62
 
-42:                                               ; preds = %16
-  br label %61
+43:                                               ; preds = %17
+  br label %62
 
-43:                                               ; preds = %16
-  br label %61
+44:                                               ; preds = %17
+  br label %62
 
-44:                                               ; preds = %16
-  br label %61
+45:                                               ; preds = %17
+  br label %62
 
-45:                                               ; preds = %16
-  br label %61
+46:                                               ; preds = %17
+  br label %62
 
-46:                                               ; preds = %16
-  br label %61
+47:                                               ; preds = %17
+  br label %62
 
-47:                                               ; preds = %16
-  br label %61
+48:                                               ; preds = %17
+  br label %62
 
-48:                                               ; preds = %16
-  br label %61
+49:                                               ; preds = %17
+  br label %62
 
-49:                                               ; preds = %16
-  br label %61
+50:                                               ; preds = %17
+  br label %62
 
-50:                                               ; preds = %16
-  br label %61
+51:                                               ; preds = %17
+  br label %62
 
-51:                                               ; preds = %16
-  br label %61
+52:                                               ; preds = %17
+  br label %62
 
-52:                                               ; preds = %16
-  br label %61
+53:                                               ; preds = %17
+  br label %62
 
-53:                                               ; preds = %16
-  br label %61
+54:                                               ; preds = %17
+  br label %62
 
-54:                                               ; preds = %16
-  br label %61
+55:                                               ; preds = %17
+  br label %62
 
-55:                                               ; preds = %16
-  br label %61
+56:                                               ; preds = %17
+  br label %62
 
-56:                                               ; preds = %16
-  br label %61
+57:                                               ; preds = %17
+  br label %62
 
-57:                                               ; preds = %16
-  br label %61
+58:                                               ; preds = %17
+  br label %62
 
-58:                                               ; preds = %16
-  br label %61
+59:                                               ; preds = %17
+  br label %62
 
-59:                                               ; preds = %16
-  br label %61
+60:                                               ; preds = %17
+  br label %62
 
-60:                                               ; preds = %13
-  %.mask = and i64 %14, -4294967296
+61:                                               ; preds = %14
+  %.mask = and i64 %15, -4294967296
   %cond = icmp eq i64 %.mask, 17179869184
-  br i1 %cond, label %75, label %.thread
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread12, label %.thread
 
-61:                                               ; preds = %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %16
-  %62 = phi i1 [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %46 ], [ true, %47 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %57 ], [ true, %58 ], [ false, %59 ], [ true, %16 ]
-  %.0.i.i.i = phi i8 [ 1, %19 ], [ 2, %20 ], [ 3, %21 ], [ 4, %22 ], [ 5, %23 ], [ 6, %24 ], [ 7, %25 ], [ 8, %26 ], [ 9, %27 ], [ 10, %28 ], [ 11, %29 ], [ 12, %30 ], [ 13, %31 ], [ 14, %32 ], [ 15, %33 ], [ 16, %34 ], [ 17, %35 ], [ 18, %36 ], [ 19, %37 ], [ 20, %38 ], [ 21, %39 ], [ 22, %40 ], [ 23, %41 ], [ 24, %42 ], [ 25, %43 ], [ 26, %44 ], [ 27, %45 ], [ 28, %46 ], [ 29, %47 ], [ 30, %48 ], [ 31, %49 ], [ 32, %50 ], [ 33, %51 ], [ 34, %52 ], [ 35, %53 ], [ 39, %54 ], [ 37, %55 ], [ 36, %56 ], [ 38, %57 ], [ 40, %58 ], [ 41, %59 ], [ 0, %16 ]
-  tail call void @llvm.assume(i1 %62)
+62:                                               ; preds = %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %17
+  %63 = phi i1 [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %46 ], [ true, %47 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %57 ], [ true, %58 ], [ true, %59 ], [ false, %60 ], [ true, %17 ]
+  %.0.i.i.i = phi i8 [ 1, %20 ], [ 2, %21 ], [ 3, %22 ], [ 4, %23 ], [ 5, %24 ], [ 6, %25 ], [ 7, %26 ], [ 8, %27 ], [ 9, %28 ], [ 10, %29 ], [ 11, %30 ], [ 12, %31 ], [ 13, %32 ], [ 14, %33 ], [ 15, %34 ], [ 16, %35 ], [ 17, %36 ], [ 18, %37 ], [ 19, %38 ], [ 20, %39 ], [ 21, %40 ], [ 22, %41 ], [ 23, %42 ], [ 24, %43 ], [ 25, %44 ], [ 26, %45 ], [ 27, %46 ], [ 28, %47 ], [ 29, %48 ], [ 30, %49 ], [ 31, %50 ], [ 32, %51 ], [ 33, %52 ], [ 34, %53 ], [ 35, %54 ], [ 39, %55 ], [ 37, %56 ], [ 36, %57 ], [ 38, %58 ], [ 40, %59 ], [ 41, %60 ], [ 0, %17 ]
+  tail call void @llvm.assume(i1 %63)
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
 
-63:                                               ; preds = %13
-  %64 = getelementptr inbounds i8, ptr %.val, i64 16
-  %65 = load i8, ptr %64, align 8, !range !105, !noundef !4
+64:                                               ; preds = %14
+  %65 = getelementptr inbounds i8, ptr %.val, i64 16
+  %66 = load i8, ptr %65, align 8, !range !105, !noundef !4
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
 
-66:                                               ; preds = %13
-  %67 = getelementptr i8, ptr %.val, i64 -1
-  %68 = icmp ne ptr %67, null
-  tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr i8, ptr %.val, i64 15
-  %70 = load i8, ptr %69, align 8, !range !105, !noundef !4
+67:                                               ; preds = %14
+  %68 = getelementptr i8, ptr %.val, i64 -1
+  %69 = icmp ne ptr %68, null
+  tail call void @llvm.assume(i1 %69)
+  %70 = getelementptr i8, ptr %.val, i64 15
+  %71 = load i8, ptr %70, align 8, !range !105, !noundef !4
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
-
-71:                                               ; preds = %9
-  store ptr inttoptr (i64 158913789955 to ptr), ptr %12, align 8
-  store i64 1, ptr %0, align 8
-  br label %.thread14
 
 72:                                               ; preds = %9
-  store i64 %10, ptr %12, align 8
-  store i64 0, ptr %0, align 8
-  br label %.thread14
-
-_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %66, %63, %61
-  %.0.i = phi i8 [ %70, %66 ], [ %65, %63 ], [ %.0.i.i.i, %61 ]
-  %73 = icmp eq i8 %.0.i, 35
-  br i1 %73, label %75, label %.thread
-
-.thread:                                          ; preds = %60, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.val, ptr %74, align 8
+  store ptr inttoptr (i64 158913789955 to ptr), ptr %13, align 8
   store i64 1, ptr %0, align 8
-  br label %.thread14
+  br label %74
 
-.thread14:                                        ; preds = %71, %72, %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit"
+73:                                               ; preds = %9
+  store i64 %10, ptr %13, align 8
+  store i64 0, ptr %0, align 8
+  br label %74
+
+74:                                               ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread12, %73, %72
+  %75 = phi ptr [ %.val, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread12 ], [ %12, %73 ], [ %12, %72 ]
+  %.not6 = icmp eq i64 %7, 0
+  br i1 %.not6, label %78, label %79
+
+_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %67, %64, %62
+  %.0.i = phi i8 [ %71, %67 ], [ %66, %64 ], [ %.0.i.i.i, %62 ]
+  %76 = icmp eq i8 %.0.i, 35
+  br i1 %76, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread12, label %.thread
+
+_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread12: ; preds = %61, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  br label %74
+
+.thread:                                          ; preds = %61, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.val, ptr %77, align 8
+  store i64 1, ptr %0, align 8
+  br label %78
+
+78:                                               ; preds = %.thread, %74, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 
-75:                                               ; preds = %60, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+79:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !154
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hf9dec59cc32fc975E.llvm.9341850390877611223(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %.val), !noalias !154
-  %76 = load i8, ptr %5, align 8, !range !113, !alias.scope !161, !noalias !154, !noundef !4
-  %switch.not.i.i.i.i = icmp eq i8 %76, 3
-  br i1 %switch.not.i.i.i.i, label %77, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit"
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hf9dec59cc32fc975E.llvm.9341850390877611223(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %75), !noalias !154
+  %80 = load i8, ptr %5, align 8, !range !113, !alias.scope !161, !noalias !154, !noundef !4
+  %switch.not.i.i.i.i = icmp eq i8 %80, 3
+  br i1 %switch.not.i.i.i.i, label %81, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit"
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h31d22233a1150beeE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(8) %78), !noalias !154
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h31d22233a1150beeE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(8) %82), !noalias !154
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit": ; preds = %75, %77
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hadf7e2d7f2b3b378E.exit": ; preds = %79, %81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !154
-  br label %.thread14
+  br label %78
 }
 
 ; Function Attrs: nonlazybind uwtable

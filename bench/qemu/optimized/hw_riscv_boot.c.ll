@@ -154,9 +154,8 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.then.i:                                        ; preds = %if.then
   %0 = load i8, ptr @qtest_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.then2.i, label %if.end7
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.end7, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef %default_machine_firmware) #11
@@ -174,10 +173,9 @@ if.then5:                                         ; preds = %if.else
   br i1 %cmp.i5, label %if.then.i6, label %if.end7
 
 if.then.i6:                                       ; preds = %if.then5
-  %2 = load i8, ptr @qtest_allowed, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i7 = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i7, label %if.then2.i8, label %if.end7
+  %1 = load i8, ptr @qtest_allowed, align 1
+  %tobool.i.i7 = trunc i8 %1 to i1
+  br i1 %tobool.i.i7, label %if.end7, label %if.then2.i8
 
 if.then2.i8:                                      ; preds = %if.then.i6
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef nonnull %firmware_filename) #11
@@ -603,9 +601,8 @@ entry:
   store i32 %.14, ptr %arrayinit.element5, align 16
   %ext_zicsr = getelementptr inbounds i8, ptr %0, i64 19018
   %2 = load i8, ptr %ext_zicsr, align 2
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.then21, label %if.end23
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %entry
   store i32 19, ptr %arrayinit.element3, align 8

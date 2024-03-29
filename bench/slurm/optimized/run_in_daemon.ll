@@ -43,77 +43,75 @@ target triple = "x86_64-pc-linux-gnu"
 define zeroext i1 @run_in_daemon(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %1, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %11, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %0, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  br label %24
+  %9 = trunc i8 %8 to i1
+  br label %23
 
-11:                                               ; preds = %3
+10:                                               ; preds = %3
   store i8 1, ptr %1, align 1
-  %12 = load ptr, ptr @slurm_prog_name, align 8
-  %13 = tail call i32 @xstrcmp(ptr noundef %2, ptr noundef %12) #3
-  %.not19 = icmp eq i32 %13, 0
-  br i1 %.not19, label %14, label %15
+  %11 = load ptr, ptr @slurm_prog_name, align 8
+  %12 = tail call i32 @xstrcmp(ptr noundef %2, ptr noundef %11) #3
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %14
 
-14:                                               ; preds = %11
+13:                                               ; preds = %10
   store i8 1, ptr %0, align 1
-  br label %24
+  br label %23
 
-15:                                               ; preds = %11
-  %16 = tail call ptr @xstrdup(ptr noundef %2) #3
-  store ptr %16, ptr %4, align 8
-  %.not2027 = icmp eq ptr %16, null
-  br i1 %.not2027, label %.critedge24, label %.lr.ph.preheader
+14:                                               ; preds = %10
+  %15 = tail call ptr @xstrdup(ptr noundef %2) #3
+  store ptr %15, ptr %4, align 8
+  %.not1926 = icmp eq ptr %15, null
+  br i1 %.not1926, label %.critedge23, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %15
-  %strchr33 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 44)
-  %.not2134 = icmp eq ptr %strchr33, null
-  br i1 %.not2134, label %.critedge, label %.lr.ph37
+.lr.ph.preheader:                                 ; preds = %14
+  %strchr32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 44)
+  %.not2033 = icmp eq ptr %strchr32, null
+  br i1 %.not2033, label %.critedge, label %.lr.ph36
 
-.lr.ph:                                           ; preds = %.lr.ph37
-  %17 = getelementptr inbounds i8, ptr %strchr36, i64 1
-  %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 44)
-  %.not21 = icmp eq ptr %strchr, null
-  br i1 %.not21, label %.critedge, label %.lr.ph37
+.lr.ph:                                           ; preds = %.lr.ph36
+  %16 = getelementptr inbounds i8, ptr %strchr35, i64 1
+  %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 44)
+  %.not20 = icmp eq ptr %strchr, null
+  br i1 %.not20, label %.critedge, label %.lr.ph36
 
-.lr.ph37:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %strchr36 = phi ptr [ %strchr, %.lr.ph ], [ %strchr33, %.lr.ph.preheader ]
-  %.0172835 = phi ptr [ %17, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  store i8 0, ptr %strchr36, align 1
-  %18 = load ptr, ptr @slurm_prog_name, align 8
-  %19 = tail call i32 @xstrcmp(ptr noundef nonnull %.0172835, ptr noundef %18) #3
-  %.not23 = icmp eq i32 %19, 0
-  br i1 %.not23, label %20, label %.lr.ph
+.lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %strchr35 = phi ptr [ %strchr, %.lr.ph ], [ %strchr32, %.lr.ph.preheader ]
+  %.0172734 = phi ptr [ %16, %.lr.ph ], [ %15, %.lr.ph.preheader ]
+  store i8 0, ptr %strchr35, align 1
+  %17 = load ptr, ptr @slurm_prog_name, align 8
+  %18 = tail call i32 @xstrcmp(ptr noundef nonnull %.0172734, ptr noundef %17) #3
+  %.not22 = icmp eq i32 %18, 0
+  br i1 %.not22, label %19, label %.lr.ph
 
-20:                                               ; preds = %.lr.ph37
+19:                                               ; preds = %.lr.ph36
   call void @slurm_xfree(ptr noundef nonnull %4) #3
   store i8 1, ptr %0, align 1
-  br label %24
+  br label %23
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01728.lcssa = phi ptr [ %16, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %21 = load ptr, ptr @slurm_prog_name, align 8
-  %22 = tail call i32 @xstrcmp(ptr noundef nonnull %.01728.lcssa, ptr noundef %21) #3
-  %.not22 = icmp eq i32 %22, 0
-  br i1 %.not22, label %23, label %.critedge24
+  %.01727.lcssa = phi ptr [ %15, %.lr.ph.preheader ], [ %16, %.lr.ph ]
+  %20 = load ptr, ptr @slurm_prog_name, align 8
+  %21 = tail call i32 @xstrcmp(ptr noundef nonnull %.01727.lcssa, ptr noundef %20) #3
+  %.not21 = icmp eq i32 %21, 0
+  br i1 %.not21, label %22, label %.critedge23
 
-23:                                               ; preds = %.critedge
+22:                                               ; preds = %.critedge
   call void @slurm_xfree(ptr noundef nonnull %4) #3
   store i8 1, ptr %0, align 1
-  br label %24
+  br label %23
 
-.critedge24:                                      ; preds = %15, %.critedge
+.critedge23:                                      ; preds = %14, %.critedge
   call void @slurm_xfree(ptr noundef nonnull %4) #3
   store i8 0, ptr %0, align 1
-  br label %24
+  br label %23
 
-24:                                               ; preds = %.critedge24, %23, %20, %14, %7
-  %.0 = phi i1 [ %10, %7 ], [ true, %20 ], [ false, %.critedge24 ], [ true, %23 ], [ true, %14 ]
+23:                                               ; preds = %.critedge23, %22, %19, %13, %7
+  %.0 = phi i1 [ %9, %7 ], [ true, %19 ], [ false, %.critedge23 ], [ true, %22 ], [ true, %13 ]
   ret i1 %.0
 }
 

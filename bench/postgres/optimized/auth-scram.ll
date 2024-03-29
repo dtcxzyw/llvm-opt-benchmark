@@ -282,9 +282,8 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not14.i = icmp eq i8 %43, 0
-  br i1 %.not14.i, label %49, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -298,8 +297,8 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
 49:                                               ; preds = %40
   %50 = getelementptr i8, ptr %37, i64 1
   %51 = load i8, ptr %50, align 1
-  %.not15.i = icmp eq i8 %51, 44
-  br i1 %.not15.i, label %58, label %52
+  %.not12.i = icmp eq i8 %51, 44
+  br i1 %.not12.i, label %58, label %52
 
 52:                                               ; preds = %49
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -319,9 +318,8 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
 60:                                               ; preds = %36
   %61 = getelementptr inbounds i8, ptr %0, i64 24
   %62 = load i8, ptr %61, align 8
-  %63 = and i8 %62, 1
-  %.not12.i = icmp eq i8 %63, 0
-  br i1 %.not12.i, label %69, label %64
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %69
 
 64:                                               ; preds = %60
   %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -335,8 +333,8 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
 69:                                               ; preds = %60
   %70 = getelementptr i8, ptr %37, i64 1
   %71 = load i8, ptr %70, align 1
-  %.not13.i = icmp eq i8 %71, 44
-  br i1 %.not13.i, label %78, label %72
+  %.not11.i = icmp eq i8 %71, 44
+  br i1 %.not11.i, label %78, label %72
 
 72:                                               ; preds = %69
   %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -356,9 +354,8 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
 80:                                               ; preds = %36
   %81 = getelementptr inbounds i8, ptr %0, i64 24
   %82 = load i8, ptr %81, align 8
-  %83 = and i8 %82, 1
-  %.not.i = icmp eq i8 %83, 0
-  br i1 %.not.i, label %84, label %89
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %89, label %84
 
 84:                                               ; preds = %80
   %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -372,10 +369,10 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
 89:                                               ; preds = %80
   %90 = call fastcc ptr @read_attr_value(ptr noundef nonnull %15, i8 noundef signext 112)
   %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(21) @.str.20) #13
-  %.not11.i = icmp eq i32 %91, 0
-  br i1 %.not11.i, label %._crit_edge21.i, label %92
+  %.not.i = icmp eq i32 %91, 0
+  br i1 %.not.i, label %._crit_edge18.i, label %92
 
-._crit_edge21.i:                                  ; preds = %89
+._crit_edge18.i:                                  ; preds = %89
   %.pre.i = load ptr, ptr %15, align 8
   br label %102
 
@@ -399,8 +396,8 @@ define internal noundef i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1057, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
 
-102:                                              ; preds = %._crit_edge21.i, %78, %58
-  %103 = phi ptr [ %.pre.i, %._crit_edge21.i ], [ %79, %78 ], [ %59, %58 ]
+102:                                              ; preds = %._crit_edge18.i, %78, %58
+  %103 = phi ptr [ %.pre.i, %._crit_edge18.i ], [ %79, %78 ], [ %59, %58 ]
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %109 [
     i8 97, label %105
@@ -479,8 +476,8 @@ is_scram_printable.exit.i:                        ; preds = %132, %125
 .preheader.i:                                     ; preds = %is_scram_printable.exit.i
   %136 = load ptr, ptr %15, align 8
   %137 = load i8, ptr %136, align 1
-  %.not1720.i = icmp eq i8 %137, 0
-  br i1 %.not1720.i, label %read_client_first_message.exit, label %.lr.ph.i
+  %.not1417.i = icmp eq i8 %137, 0
+  br i1 %.not1417.i, label %read_client_first_message.exit, label %.lr.ph.i
 
 is_scram_printable.exit.thread.i:                 ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %is_scram_printable.exit.i
   %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -494,8 +491,8 @@ is_scram_printable.exit.thread.i:                 ; preds = %switch.early.test.i
   %141 = call fastcc ptr @read_any_attr(ptr noundef nonnull %15, ptr noundef null)
   %142 = load ptr, ptr %15, align 8
   %143 = load i8, ptr %142, align 1
-  %.not17.i = icmp eq i8 %143, 0
-  br i1 %.not17.i, label %read_client_first_message.exit, label %.lr.ph.i, !llvm.loop !7
+  %.not14.i = icmp eq i8 %143, 0
+  br i1 %.not14.i, label %read_client_first_message.exit, label %.lr.ph.i, !llvm.loop !7
 
 read_client_first_message.exit:                   ; preds = %.lr.ph.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -558,9 +555,8 @@ build_server_first_message.exit:                  ; preds = %149
   %175 = call fastcc ptr @read_attr_value(ptr noundef nonnull %13, i8 noundef signext 99)
   %176 = getelementptr inbounds i8, ptr %0, i64 24
   %177 = load i8, ptr %176, align 8
-  %178 = and i8 %177, 1
-  %.not.i40 = icmp eq i8 %178, 0
-  br i1 %.not.i40, label %182, label %179
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %179, label %182
 
 179:                                              ; preds = %173
   %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -609,8 +605,8 @@ build_server_first_message.exit:                  ; preds = %149
   %204 = load ptr, ptr %13, align 8
   %205 = call fastcc ptr @read_any_attr(ptr noundef nonnull %13, ptr noundef nonnull %12)
   %206 = load i8, ptr %12, align 1
-  %.not27.i = icmp eq i8 %206, 112
-  br i1 %.not27.i, label %207, label %203, !llvm.loop !8
+  %.not.i39 = icmp eq i8 %206, 112
+  br i1 %.not.i39, label %207, label %203, !llvm.loop !8
 
 207:                                              ; preds = %203
   %208 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #13
@@ -623,8 +619,8 @@ build_server_first_message.exit:                  ; preds = %149
   %215 = call i32 @pg_b64_decode(ptr noundef %205, i32 noundef %214, ptr noundef %212, i32 noundef %210) #12
   %216 = getelementptr inbounds i8, ptr %0, i64 32
   %217 = load i32, ptr %216, align 8
-  %.not28.i = icmp eq i32 %215, %217
-  br i1 %.not28.i, label %223, label %218
+  %.not27.i = icmp eq i32 %215, %217
+  br i1 %.not27.i, label %223, label %218
 
 218:                                              ; preds = %207
   %219 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -642,8 +638,8 @@ build_server_first_message.exit:                  ; preds = %149
   call void @pfree(ptr noundef %212) #12
   %226 = load ptr, ptr %13, align 8
   %227 = load i8, ptr %226, align 1
-  %.not29.i = icmp eq i8 %227, 0
-  br i1 %.not29.i, label %read_client_final_message.exit, label %228
+  %.not28.i = icmp eq i8 %227, 0
+  br i1 %.not28.i, label %read_client_final_message.exit, label %228
 
 228:                                              ; preds = %223
   %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -681,15 +677,15 @@ read_client_final_message.exit:                   ; preds = %223
   %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %250) #13
   %252 = trunc i64 %251 to i32
   %253 = add i32 %249, %245
-  %.not.i41 = icmp eq i32 %253, %252
-  br i1 %.not.i41, label %254, label %verify_final_nonce.exit.thread
+  %.not.i40 = icmp eq i32 %253, %252
+  br i1 %.not.i40, label %254, label %verify_final_nonce.exit.thread
 
 254:                                              ; preds = %read_client_final_message.exit
   %sext.i = shl i64 %244, 32
   %255 = ashr exact i64 %sext.i, 32
   %bcmp.i = call i32 @bcmp(ptr %250, ptr %243, i64 %255)
-  %.not13.i42 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not13.i42, label %verify_final_nonce.exit, label %verify_final_nonce.exit.thread
+  %.not13.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not13.i, label %verify_final_nonce.exit, label %verify_final_nonce.exit.thread
 
 verify_final_nonce.exit:                          ; preds = %254
   %256 = getelementptr i8, ptr %250, i64 %255
@@ -776,14 +772,14 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
   call void @pg_hmac_free(ptr noundef %265) #12
   %304 = load i32, ptr %216, align 8
   %305 = icmp sgt i32 %304, 0
-  br i1 %305, label %.lr.ph.i45, label %._crit_edge.i
+  br i1 %305, label %.lr.ph.i43, label %._crit_edge.i
 
-.lr.ph.i45:                                       ; preds = %303
+.lr.ph.i43:                                       ; preds = %303
   %wide.trip.count.i = zext nneg i32 %304 to i64
   br label %306
 
-306:                                              ; preds = %306, %.lr.ph.i45
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i, %306 ]
+306:                                              ; preds = %306, %.lr.ph.i43
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i, %306 ]
   %307 = getelementptr [32 x i8], ptr %224, i64 0, i64 %indvars.iv.i
   %308 = load i8, ptr %307, align 1
   %309 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv.i
@@ -812,20 +808,19 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
 verify_client_proof.exit:                         ; preds = %._crit_edge.i
   %320 = load i32, ptr %216, align 8
   %321 = sext i32 %320 to i64
-  %bcmp.i43 = call i32 @bcmp(ptr nonnull %10, ptr nonnull %266, i64 %321)
-  %.not.i44 = icmp eq i32 %bcmp.i43, 0
+  %bcmp.i41 = call i32 @bcmp(ptr nonnull %10, ptr nonnull %266, i64 %321)
+  %.not.i42 = icmp eq i32 %bcmp.i41, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br i1 %.not.i44, label %322, label %382
+  br i1 %.not.i42, label %322, label %382
 
 322:                                              ; preds = %verify_client_proof.exit
   %323 = getelementptr inbounds i8, ptr %0, i64 208
   %324 = load i8, ptr %323, align 8
-  %325 = and i8 %324, 1
-  %.not38 = icmp eq i8 %325, 0
-  br i1 %.not38, label %326, label %382
+  %325 = trunc i8 %324 to i1
+  br i1 %325, label %382, label %326
 
 326:                                              ; preds = %322
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -933,10 +928,10 @@ build_server_final_message.exit:                  ; preds = %364
   br label %388
 
 388:                                              ; preds = %build_server_first_message.exit, %build_server_final_message.exit, %387, %382
-  %.048 = phi i32 [ 2, %387 ], [ 2, %382 ], [ 1, %build_server_final_message.exit ], [ 0, %build_server_first_message.exit ]
+  %.046 = phi i32 [ 2, %387 ], [ 2, %382 ], [ 1, %build_server_final_message.exit ], [ 0, %build_server_first_message.exit ]
   %389 = load ptr, ptr %3, align 8
-  %.not39 = icmp eq ptr %389, null
-  br i1 %.not39, label %393, label %390
+  %.not38 = icmp eq ptr %389, null
+  br i1 %.not38, label %393, label %390
 
 390:                                              ; preds = %388
   %391 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %389) #13
@@ -945,12 +940,12 @@ build_server_final_message.exit:                  ; preds = %364
 
 .sink.split:                                      ; preds = %17, %390
   %.sink = phi i32 [ %392, %390 ], [ 0, %17 ]
-  %.032.ph = phi i32 [ %.048, %390 ], [ 0, %17 ]
+  %.032.ph = phi i32 [ %.046, %390 ], [ 0, %17 ]
   store i32 %.sink, ptr %4, align 4
   br label %393
 
 393:                                              ; preds = %.sink.split, %388
-  %.032 = phi i32 [ %.048, %388 ], [ %.032.ph, %.sink.split ]
+  %.032 = phi i32 [ %.046, %388 ], [ %.032.ph, %.sink.split ]
   ret i32 %.032
 }
 

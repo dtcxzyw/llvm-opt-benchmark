@@ -359,8 +359,8 @@ define dso_local i64 @window_ntile(ptr nocapture noundef %0) local_unnamed_addr 
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert34 = getelementptr inbounds i8, ptr %5, i64 16
-  %.pre35 = load i64, ptr %.phi.trans.insert34, align 8
+  %.phi.trans.insert33 = getelementptr inbounds i8, ptr %5, i64 16
+  %.pre34 = load i64, ptr %.phi.trans.insert33, align 8
   %8 = add i64 %.pre, 1
   br label %35
 
@@ -368,9 +368,8 @@ define dso_local i64 @window_ntile(ptr nocapture noundef %0) local_unnamed_addr 
   %10 = tail call i64 @WinGetPartitionRowCount(ptr noundef %4) #6
   %11 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 0, ptr noundef nonnull %2) #6
   %12 = load i8, ptr %2, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %16, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 28
@@ -407,8 +406,8 @@ define dso_local i64 @window_ntile(ptr nocapture noundef %0) local_unnamed_addr 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %26, ptr %31, align 8
-  %.not32 = icmp eq i64 %26, 0
-  br i1 %.not32, label %.thread, label %32
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %.thread, label %32
 
 32:                                               ; preds = %30
   %33 = add nuw i64 %25, 1
@@ -421,7 +420,7 @@ define dso_local i64 @window_ntile(ptr nocapture noundef %0) local_unnamed_addr 
 
 35:                                               ; preds = %._crit_edge, %32
   %36 = phi i32 [ %6, %._crit_edge ], [ 1, %32 ]
-  %37 = phi i64 [ %.pre35, %._crit_edge ], [ %33, %32 ]
+  %37 = phi i64 [ %.pre34, %._crit_edge ], [ %33, %32 ]
   %38 = phi i64 [ %8, %._crit_edge ], [ 1, %32 ]
   %39 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %38, ptr %39, align 8
@@ -509,9 +508,8 @@ define dso_local i64 @window_lag(ptr nocapture noundef %0) local_unnamed_addr #0
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef -1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not18.i = icmp eq i8 %8, 0
-  br i1 %.not18.i, label %leadlag_common.exit, label %.sink.split.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split.i, label %leadlag_common.exit
 
 .sink.split.i:                                    ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 28
@@ -535,9 +533,8 @@ define dso_local i64 @window_lag_with_offset(ptr nocapture noundef %0) local_unn
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %.sink.split.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split.i, label %9
 
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
@@ -546,9 +543,8 @@ define dso_local i64 @window_lag_with_offset(ptr nocapture noundef %0) local_unn
   %13 = sub i32 0, %10
   %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %15 = load i8, ptr %2, align 1
-  %16 = and i8 %15, 1
-  %.not18.i = icmp eq i8 %16, 0
-  br i1 %.not18.i, label %leadlag_common.exit, label %.sink.split.i
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %.sink.split.i, label %leadlag_common.exit
 
 .sink.split.i:                                    ; preds = %9, %1
   %17 = getelementptr inbounds i8, ptr %0, i64 28
@@ -572,9 +568,8 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr nocapture noundef %
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %.sink.split.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split.i, label %9
 
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
@@ -583,9 +578,8 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr nocapture noundef %
   %13 = sub i32 0, %10
   %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %15 = load i8, ptr %3, align 1
-  %16 = and i8 %15, 1
-  %.not17.i.not = icmp eq i8 %16, 0
-  br i1 %.not17.i.not, label %19, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
   %18 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 2, ptr noundef nonnull %2) #6
@@ -594,9 +588,8 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr nocapture noundef %
 19:                                               ; preds = %17, %9
   %.0.i = phi i64 [ %18, %17 ], [ %14, %9 ]
   %20 = load i8, ptr %2, align 1
-  %21 = and i8 %20, 1
-  %.not18.i = icmp eq i8 %21, 0
-  br i1 %.not18.i, label %leadlag_common.exit, label %.sink.split.i
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.sink.split.i, label %leadlag_common.exit
 
 .sink.split.i:                                    ; preds = %19, %1
   %22 = getelementptr inbounds i8, ptr %0, i64 28
@@ -620,9 +613,8 @@ define dso_local i64 @window_lead(ptr nocapture noundef %0) local_unnamed_addr #
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not18.i = icmp eq i8 %8, 0
-  br i1 %.not18.i, label %leadlag_common.exit, label %.sink.split.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split.i, label %leadlag_common.exit
 
 .sink.split.i:                                    ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 28
@@ -646,9 +638,8 @@ define dso_local i64 @window_lead_with_offset(ptr nocapture noundef %0) local_un
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %.sink.split.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split.i, label %9
 
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
@@ -656,9 +647,8 @@ define dso_local i64 @window_lead_with_offset(ptr nocapture noundef %0) local_un
   %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
   %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %14 = load i8, ptr %2, align 1
-  %15 = and i8 %14, 1
-  %.not18.i = icmp eq i8 %15, 0
-  br i1 %.not18.i, label %leadlag_common.exit, label %.sink.split.i
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.sink.split.i, label %leadlag_common.exit
 
 .sink.split.i:                                    ; preds = %9, %1
   %16 = getelementptr inbounds i8, ptr %0, i64 28
@@ -682,9 +672,8 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr nocapture noundef 
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %.sink.split.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split.i, label %9
 
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
@@ -692,9 +681,8 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr nocapture noundef 
   %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
   %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %14 = load i8, ptr %3, align 1
-  %15 = and i8 %14, 1
-  %.not17.i.not = icmp eq i8 %15, 0
-  br i1 %.not17.i.not, label %18, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9
   %17 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 2, ptr noundef nonnull %2) #6
@@ -703,9 +691,8 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr nocapture noundef 
 18:                                               ; preds = %16, %9
   %.0.i = phi i64 [ %17, %16 ], [ %13, %9 ]
   %19 = load i8, ptr %2, align 1
-  %20 = and i8 %19, 1
-  %.not18.i = icmp eq i8 %20, 0
-  br i1 %.not18.i, label %leadlag_common.exit, label %.sink.split.i
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.sink.split.i, label %leadlag_common.exit
 
 .sink.split.i:                                    ; preds = %18, %1
   %21 = getelementptr inbounds i8, ptr %0, i64 28
@@ -726,9 +713,8 @@ define dso_local i64 @window_first_value(ptr nocapture noundef %0) local_unnamed
   %4 = load ptr, ptr %3, align 8
   %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
   %6 = load i8, ptr %2, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 28
@@ -749,9 +735,8 @@ define dso_local i64 @window_last_value(ptr nocapture noundef %0) local_unnamed_
   %4 = load ptr, ptr %3, align 8
   %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
   %6 = load i8, ptr %2, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 28
@@ -771,9 +756,8 @@ define dso_local i64 @window_nth_value(ptr nocapture noundef %0) local_unnamed_a
   %5 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %2) #6
   %6 = trunc i64 %5 to i32
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.sink.split
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8
@@ -793,9 +777,8 @@ define dso_local i64 @window_nth_value(ptr nocapture noundef %0) local_unnamed_a
   %18 = add nsw i32 %6, -1
   %19 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef %18, i32 noundef 1, i1 noundef zeroext %11, ptr noundef nonnull %2, ptr noundef null) #6
   %20 = load i8, ptr %2, align 1
-  %21 = and i8 %20, 1
-  %.not11 = icmp eq i8 %21, 0
-  br i1 %.not11, label %23, label %.sink.split
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %17, %1
   %22 = getelementptr inbounds i8, ptr %0, i64 28

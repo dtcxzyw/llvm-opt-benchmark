@@ -3117,9 +3117,8 @@ define hidden void @zif_ob_get_status(ptr nocapture noundef readonly %0, ptr nou
 
 16:                                               ; preds = %11
   %17 = load i8, ptr %3, align 1
-  %18 = and i8 %17, 1
-  %.not11 = icmp eq i8 %18, 0
-  br i1 %.not11, label %22, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
   %20 = call ptr @_zend_new_array_0() #20

@@ -47,10 +47,9 @@ define dso_local void @RelationInitLockInfo(ptr nocapture noundef %0) local_unna
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 113
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = load i32, ptr @MyDatabaseId, align 4
-  %spec.select = select i1 %.not, i32 %10, i32 0
+  %spec.select = select i1 %9, i32 0, i32 %10
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %spec.select, ptr %11, align 4
   ret void

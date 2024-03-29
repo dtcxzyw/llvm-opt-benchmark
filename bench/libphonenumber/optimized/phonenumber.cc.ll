@@ -99,84 +99,81 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 54:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread44
   %55 = getelementptr inbounds i8, ptr %0, i64 60
   %56 = load i8, ptr %55, align 4
-  %57 = and i8 %56, 1
-  %58 = icmp ne i8 %57, 0
-  %59 = getelementptr inbounds i8, ptr %1, i64 60
-  %60 = load i8, ptr %59, align 4
-  %61 = and i8 %60, 1
-  %62 = icmp ne i8 %61, 0
-  %63 = xor i1 %58, %62
-  br i1 %63, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %64
+  %57 = getelementptr inbounds i8, ptr %1, i64 60
+  %58 = load i8, ptr %57, align 4
+  %59 = xor i8 %58, %56
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %61
 
-64:                                               ; preds = %54
-  %65 = and i32 %47, 128
-  %66 = icmp ne i32 %65, 0
-  %67 = and i32 %50, 128
-  %68 = icmp ne i32 %67, 0
-  %69 = xor i1 %66, %68
-  br i1 %69, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %70
+61:                                               ; preds = %54
+  %62 = and i32 %47, 128
+  %63 = icmp ne i32 %62, 0
+  %64 = and i32 %50, 128
+  %65 = icmp ne i32 %64, 0
+  %66 = xor i1 %63, %65
+  br i1 %66, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %67
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %0, i64 68
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 68
-  %74 = load i32, ptr %73, align 4
-  %.not39 = icmp eq i32 %72, %74
-  br i1 %.not39, label %75, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %1, i64 68
+  %71 = load i32, ptr %70, align 4
+  %.not39 = icmp eq i32 %69, %71
+  br i1 %.not39, label %72, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
-75:                                               ; preds = %70
-  %76 = and i32 %47, 2
-  %77 = icmp ne i32 %76, 0
-  %78 = and i32 %50, 2
-  %79 = icmp ne i32 %78, 0
-  %80 = xor i1 %77, %79
-  br i1 %80, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %81
+72:                                               ; preds = %67
+  %73 = and i32 %47, 2
+  %74 = icmp ne i32 %73, 0
+  %75 = and i32 %50, 2
+  %76 = icmp ne i32 %75, 0
+  %77 = xor i1 %74, %76
+  br i1 %77, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %78
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %0, i64 32
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 32
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %85) #7
-  br i1 %86, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %87
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %1, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %82) #7
+  br i1 %83, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %84
 
-87:                                               ; preds = %81
-  %88 = load i32, ptr %3, align 8
+84:                                               ; preds = %78
+  %85 = load i32, ptr %3, align 8
+  %86 = and i32 %85, 64
+  %87 = icmp ne i32 %86, 0
+  %88 = load i32, ptr %7, align 8
   %89 = and i32 %88, 64
   %90 = icmp ne i32 %89, 0
-  %91 = load i32, ptr %7, align 8
-  %92 = and i32 %91, 64
-  %93 = icmp ne i32 %92, 0
-  %94 = xor i1 %90, %93
-  br i1 %94, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %95
+  %91 = xor i1 %87, %90
+  br i1 %91, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %92
 
-95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %0, i64 64
-  %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 64
-  %99 = load i32, ptr %98, align 8
-  %.not42 = icmp eq i32 %97, %99
-  br i1 %.not42, label %100, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
+92:                                               ; preds = %84
+  %93 = getelementptr inbounds i8, ptr %0, i64 64
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %1, i64 64
+  %96 = load i32, ptr %95, align 8
+  %.not42 = icmp eq i32 %94, %96
+  br i1 %.not42, label %97, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
-100:                                              ; preds = %95
-  %101 = and i32 %88, 4
-  %102 = icmp ne i32 %101, 0
-  %103 = and i32 %91, 4
-  %104 = icmp ne i32 %103, 0
-  %105 = xor i1 %102, %104
-  br i1 %105, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %106
+97:                                               ; preds = %92
+  %98 = and i32 %85, 4
+  %99 = icmp ne i32 %98, 0
+  %100 = and i32 %88, 4
+  %101 = icmp ne i32 %100, 0
+  %102 = xor i1 %99, %101
+  br i1 %102, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %103
 
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 40
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %110) #7
-  %not. = xor i1 %111, true
+103:                                              ; preds = %97
+  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %1, i64 40
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %107) #7
+  %not. = xor i1 %108, true
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
-_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %34, %106, %100, %87, %95, %75, %81, %64, %70, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread44, %54, %28, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %17, %23, %2, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %23 ], [ false, %17 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %28 ], [ false, %54 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread44 ], [ false, %70 ], [ false, %64 ], [ false, %81 ], [ false, %75 ], [ false, %95 ], [ false, %87 ], [ false, %100 ], [ %not., %106 ], [ false, %34 ]
+_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %34, %103, %97, %84, %92, %72, %78, %61, %67, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread44, %54, %28, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %17, %23, %2, %12
+  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %23 ], [ false, %17 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %28 ], [ false, %54 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread44 ], [ false, %67 ], [ false, %61 ], [ false, %78 ], [ false, %72 ], [ false, %92 ], [ false, %84 ], [ false, %97 ], [ %not., %103 ], [ false, %34 ]
   ret i1 %.0
 }
 

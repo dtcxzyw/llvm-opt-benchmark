@@ -5757,9 +5757,8 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator.13", align 1
   %_M_with_cvtstate = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_M_with_cvtstate, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %_M_state = getelementptr inbounds i8, ptr %this, i64 72
@@ -5771,14 +5770,14 @@ if.end:                                           ; preds = %if.then, %entry
   call void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE13get_allocatorEv(ptr nonnull sret(%"class.std::allocator.13") align 1 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %_M_wide_err_string) #19
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %__out, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
   call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
-  %2 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8
   %_M_state3 = getelementptr inbounds i8, ptr %this, i64 72
   %_M_count = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %indirect-arg-temp.i)
   store i64 ptrtoint (ptr @_ZNKSt23__codecvt_abstract_baseIwc11__mbstate_tE2inERS0_PKcS4_RS4_PwS6_RS6_ to i64), ptr %indirect-arg-temp.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %indirect-arg-temp.i, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8
-  %call.i1 = invoke noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEcSt7codecvtIwc11__mbstate_tES7_MS8_KFNSt12codecvt_base6resultERS7_PKcSD_RSD_PwSF_RSF_EEbPKT0_SL_RT_RKT1_RT2_RmT3_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(32) %__out, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(8) %_M_state3, ptr noundef nonnull align 8 dereferenceable(8) %_M_count, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i)
+  %call.i1 = invoke noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEcSt7codecvtIwc11__mbstate_tES7_MS8_KFNSt12codecvt_base6resultERS7_PKcSD_RSD_PwSF_RSF_EEbPKT0_SL_RT_RKT1_RT2_RmT3_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(32) %__out, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %_M_state3, ptr noundef nonnull align 8 dereferenceable(8) %_M_count, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -5790,17 +5789,16 @@ if.then5:                                         ; preds = %invoke.cont
   br label %cleanup
 
 lpad:                                             ; preds = %if.end, %if.end11, %if.then8
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__out) #19
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 if.end6:                                          ; preds = %invoke.cont
   %_M_with_strings = getelementptr inbounds i8, ptr %this, i64 89
-  %4 = load i8, ptr %_M_with_strings, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not = icmp eq i8 %5, 0
-  br i1 %tobool7.not, label %if.end11, label %if.then8
+  %3 = load i8, ptr %_M_with_strings, align 1
+  %tobool7 = trunc i8 %3 to i1
+  br i1 %tobool7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end6
   invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %_M_wide_err_string)

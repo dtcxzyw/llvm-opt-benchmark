@@ -3095,8 +3095,8 @@ entry:
   %val = alloca ptr, align 8
   %hi_iter = getelementptr inbounds i8, ptr %it, i64 24
   %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %hi_iter, ptr noundef nonnull %key, ptr noundef nonnull %val), !range !19
-  %trunc.not.not = icmp eq i32 %call, 0
-  br i1 %trunc.not.not, label %sw.bb1, label %sw.bb
+  %trunc = trunc i32 %call to i1
+  br i1 %trunc, label %sw.bb, label %sw.bb1
 
 sw.bb:                                            ; preds = %entry
   %0 = load ptr, ptr @PyExc_StopIteration, align 8

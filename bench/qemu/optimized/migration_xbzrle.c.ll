@@ -36,11 +36,11 @@ entry:
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
   %count512s.0.ph = phi i32 [ %add, %entry ], [ %dec167, %while.cond.outer.backedge ]
-  %never_same.0.ph207 = phi i8 [ 1, %entry ], [ %never_same.0.ph207.be, %while.cond.outer.backedge ]
-  %i.0.ph208 = phi i32 [ 0, %entry ], [ %i.0.ph208.be, %while.cond.outer.backedge ]
-  %d.0.ph209 = phi i32 [ 0, %entry ], [ %d.0.ph209.be, %while.cond.outer.backedge ]
-  %nzrun_len.0.ph210 = phi i32 [ 0, %entry ], [ %nzrun_len.0.ph210.be, %while.cond.outer.backedge ]
-  %zrun_len.0.ph211 = phi i32 [ 0, %entry ], [ %zrun_len.0.ph211.be, %while.cond.outer.backedge ]
+  %never_same.0.ph = phi i1 [ true, %entry ], [ %never_same.0.ph.be, %while.cond.outer.backedge ]
+  %i.0.ph207 = phi i32 [ 0, %entry ], [ %i.0.ph207.be, %while.cond.outer.backedge ]
+  %d.0.ph208 = phi i32 [ 0, %entry ], [ %d.0.ph208.be, %while.cond.outer.backedge ]
+  %nzrun_len.0.ph209 = phi i32 [ 0, %entry ], [ %nzrun_len.0.ph209.be, %while.cond.outer.backedge ]
+  %zrun_len.0.ph210 = phi i32 [ 0, %entry ], [ %zrun_len.0.ph210.be, %while.cond.outer.backedge ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %if.end
@@ -62,12 +62,12 @@ while.body10.lr.ph:                               ; preds = %if.end, %if.end.thr
   %mask.0166 = phi i64 [ -1, %if.end.thread ], [ %sub, %if.end ]
   %bytes_to_check.0165 = phi i32 [ 64, %if.end.thread ], [ %and, %if.end ]
   %tobool35 = icmp ne i32 %dec167, 0
-  %add11196 = add i32 %d.0.ph209, 2
+  %add11196 = add i32 %d.0.ph208, 2
   %cmp12197 = icmp sgt i32 %add11196, %dlen
   br i1 %cmp12197, label %return, label %if.end14.lr.ph
 
 if.end14.lr.ph:                                   ; preds = %while.body10.lr.ph
-  %idx.ext = sext i32 %i.0.ph208 to i64
+  %idx.ext = sext i32 %i.0.ph207 to i64
   %add.ptr = getelementptr i8, ptr %old_buf, i64 %idx.ext
   %0 = bitcast i64 %mask.0166 to <64 x i1>
   %1 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr, i32 1, <64 x i1> %0, <64 x i8> zeroinitializer)
@@ -75,21 +75,19 @@ if.end14.lr.ph:                                   ; preds = %while.body10.lr.ph
   %2 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr3, i32 1, <64 x i1> %0, <64 x i8> zeroinitializer)
   %3 = icmp eq <64 x i8> %1, %2
   %4 = bitcast <64 x i1> %3 to i64
-  %5 = trunc i64 %4 to i8
+  %5 = trunc i64 %4 to i1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end14.lr.ph, %if.end108
-  %never_same.1132205 = phi i8 [ %never_same.0.ph207, %if.end14.lr.ph ], [ %never_same.3, %if.end108 ]
-  %i.1133204 = phi i32 [ %i.0.ph208, %if.end14.lr.ph ], [ %add87, %if.end108 ]
+  %never_same.1132205 = phi i1 [ %never_same.0.ph, %if.end14.lr.ph ], [ false, %if.end108 ]
+  %i.1133204 = phi i32 [ %i.0.ph207, %if.end14.lr.ph ], [ %add87, %if.end108 ]
   %bytes_to_check.1134203 = phi i32 [ %bytes_to_check.0165, %if.end14.lr.ph ], [ %sub84, %if.end108 ]
-  %d.1135202 = phi i32 [ %d.0.ph209, %if.end14.lr.ph ], [ %add94, %if.end108 ]
-  %nzrun_len.1136201 = phi i32 [ %nzrun_len.0.ph210, %if.end14.lr.ph ], [ 0, %if.end108 ]
-  %zrun_len.1137200 = phi i32 [ %zrun_len.0.ph211, %if.end14.lr.ph ], [ 0, %if.end108 ]
+  %d.1135202 = phi i32 [ %d.0.ph208, %if.end14.lr.ph ], [ %add94, %if.end108 ]
+  %nzrun_len.1136201 = phi i32 [ %nzrun_len.0.ph209, %if.end14.lr.ph ], [ 0, %if.end108 ]
+  %zrun_len.1137200 = phi i32 [ %zrun_len.0.ph210, %if.end14.lr.ph ], [ 0, %if.end108 ]
   %comp.0138199 = phi i64 [ %4, %if.end14.lr.ph ], [ %shr86, %if.end108 ]
-  %is_same.0139198 = phi i8 [ %5, %if.end14.lr.ph ], [ 1, %if.end108 ]
-  %6 = and i8 %is_same.0139198, 1
-  %tobool15.not = icmp eq i8 %6, 0
-  br i1 %tobool15.not, label %if.end57, label %if.then16
+  %is_same.0139198 = phi i1 [ %5, %if.end14.lr.ph ], [ true, %if.end108 ]
+  br i1 %is_same.0139198, label %if.then16, label %if.end57
 
 if.then16:                                        ; preds = %if.end14
   %tobool17.not = icmp eq i32 %nzrun_len.1136201, 0
@@ -127,17 +125,17 @@ if.then38:                                        ; preds = %if.end34
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.end41, %if.end75, %if.then38, %if.then72
-  %never_same.0.ph207.be = phi i8 [ %never_same.3, %if.then72 ], [ %never_same.1132205, %if.then38 ], [ %never_same.3, %if.end75 ], [ 0, %if.end41 ]
-  %i.0.ph208.be = phi i32 [ %add73, %if.then72 ], [ %add39, %if.then38 ], [ %add87, %if.end75 ], [ %add49, %if.end41 ]
-  %d.0.ph209.be = phi i32 [ %d.4, %if.then72 ], [ %d.2, %if.then38 ], [ %d.4, %if.end75 ], [ %d.2, %if.end41 ]
-  %nzrun_len.0.ph210.be = phi i32 [ %add74, %if.then72 ], [ 0, %if.then38 ], [ %add83, %if.end75 ], [ 0, %if.end41 ]
-  %zrun_len.0.ph211.be = phi i32 [ 0, %if.then72 ], [ %add40, %if.then38 ], [ 0, %if.end75 ], [ %add45, %if.end41 ]
+  %never_same.0.ph.be = phi i1 [ false, %if.then72 ], [ %never_same.1132205, %if.then38 ], [ false, %if.end75 ], [ false, %if.end41 ]
+  %i.0.ph207.be = phi i32 [ %add73, %if.then72 ], [ %add39, %if.then38 ], [ %add87, %if.end75 ], [ %add49, %if.end41 ]
+  %d.0.ph208.be = phi i32 [ %d.4, %if.then72 ], [ %d.2, %if.then38 ], [ %d.4, %if.end75 ], [ %d.2, %if.end41 ]
+  %nzrun_len.0.ph209.be = phi i32 [ %add74, %if.then72 ], [ 0, %if.then38 ], [ %add83, %if.end75 ], [ 0, %if.end41 ]
+  %zrun_len.0.ph210.be = phi i32 [ 0, %if.then72 ], [ %add40, %if.then38 ], [ 0, %if.end75 ], [ %add45, %if.end41 ]
   br label %while.cond.outer, !llvm.loop !5
 
 if.end41:                                         ; preds = %if.end34
   %not = xor i64 %comp.0138199, -1
-  %7 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !7
-  %cast.i = trunc i64 %7 to i32
+  %6 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !7
+  %cast.i = trunc i64 %6 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %cast.i, i32 %bytes_to_check.1134203)
   %add45 = add i32 %cond, %zrun_len.1137200
   %sub46 = sub i32 %bytes_to_check.1134203, %cond
@@ -155,17 +153,15 @@ if.then51:                                        ; preds = %if.end41
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then51, %if.end14
-  %never_same.2 = phi i8 [ 0, %if.then51 ], [ %never_same.1132205, %if.end14 ]
+  %never_same.2 = phi i1 [ false, %if.then51 ], [ %never_same.1132205, %if.end14 ]
   %i.2 = phi i32 [ %add49, %if.then51 ], [ %i.1133204, %if.end14 ]
   %bytes_to_check.2 = phi i32 [ %sub46, %if.then51 ], [ %bytes_to_check.1134203, %if.end14 ]
   %d.3 = phi i32 [ %add55, %if.then51 ], [ %d.1135202, %if.end14 ]
   %nzrun_len.3 = phi i32 [ 0, %if.then51 ], [ %nzrun_len.1136201, %if.end14 ]
   %zrun_len.2 = phi i32 [ 0, %if.then51 ], [ %zrun_len.1137200, %if.end14 ]
   %comp.1 = phi i64 [ %shr48, %if.then51 ], [ %comp.0138199, %if.end14 ]
-  %8 = and i8 %never_same.2, 1
-  %tobool58 = icmp ne i8 %8, 0
   %tobool60 = icmp ne i32 %zrun_len.2, 0
-  %or.cond1 = select i1 %tobool58, i1 true, i1 %tobool60
+  %or.cond1 = select i1 %never_same.2, i1 true, i1 %tobool60
   br i1 %or.cond1, label %if.then61, label %if.end66
 
 if.then61:                                        ; preds = %if.end57
@@ -176,7 +172,6 @@ if.then61:                                        ; preds = %if.end57
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end57, %if.then61
-  %never_same.3 = phi i8 [ 0, %if.then61 ], [ %never_same.2, %if.end57 ]
   %d.4 = phi i32 [ %add65, %if.then61 ], [ %d.3, %if.end57 ]
   %cmp67 = icmp eq i32 %bytes_to_check.2, 64
   %cmp70 = icmp eq i64 %comp.1, 0
@@ -189,8 +184,8 @@ if.then72:                                        ; preds = %if.end66
   br label %while.cond.outer.backedge
 
 if.end75:                                         ; preds = %if.end66
-  %9 = tail call i64 @llvm.cttz.i64(i64 %comp.1, i1 false), !range !7
-  %cast.i118 = trunc i64 %9 to i32
+  %7 = tail call i64 @llvm.cttz.i64(i64 %comp.1, i1 false), !range !7
+  %cast.i118 = trunc i64 %7 to i32
   %cond82 = tail call i32 @llvm.smin.i32(i32 %cast.i118, i32 %bytes_to_check.2)
   %add83 = add i32 %cond82, %nzrun_len.3
   %sub84 = sub i32 %bytes_to_check.2, %cond82
@@ -223,22 +218,22 @@ if.end108:                                        ; preds = %if.then89
   br i1 %cmp12, label %return, label %if.end14, !llvm.loop !8
 
 while.end109:                                     ; preds = %while.cond
-  %cmp110.not = icmp eq i32 %nzrun_len.0.ph210, 0
+  %cmp110.not = icmp eq i32 %nzrun_len.0.ph209, 0
   br i1 %cmp110.not, label %return, label %if.then112
 
 if.then112:                                       ; preds = %while.end109
-  %idx.ext113 = sext i32 %d.0.ph209 to i64
+  %idx.ext113 = sext i32 %d.0.ph208 to i64
   %add.ptr114 = getelementptr i8, ptr %dst, i64 %idx.ext113
-  %call115 = tail call i32 @uleb128_encode_small(ptr noundef %add.ptr114, i32 noundef %nzrun_len.0.ph210) #8
-  %add116 = add i32 %call115, %d.0.ph209
-  %add117 = add i32 %add116, %nzrun_len.0.ph210
+  %call115 = tail call i32 @uleb128_encode_small(ptr noundef %add.ptr114, i32 noundef %nzrun_len.0.ph209) #8
+  %add116 = add i32 %call115, %d.0.ph208
+  %add117 = add i32 %add116, %nzrun_len.0.ph209
   %cmp118 = icmp ugt i32 %add117, %dlen
   br i1 %cmp118, label %return, label %if.end121
 
 if.end121:                                        ; preds = %if.then112
-  %idx.ext122 = sext i32 %i.0.ph208 to i64
+  %idx.ext122 = sext i32 %i.0.ph207 to i64
   %add.ptr123 = getelementptr i8, ptr %new_buf, i64 %idx.ext122
-  %idx.ext124 = zext i32 %nzrun_len.0.ph210 to i64
+  %idx.ext124 = zext i32 %nzrun_len.0.ph209 to i64
   %idx.neg125 = sub nsw i64 0, %idx.ext124
   %add.ptr126 = getelementptr i8, ptr %add.ptr123, i64 %idx.neg125
   %idx.ext127 = sext i32 %add116 to i64
@@ -247,7 +242,7 @@ if.end121:                                        ; preds = %if.then112
   br label %return
 
 return:                                           ; preds = %while.body10.lr.ph, %if.end108, %if.then18, %if.then89, %while.end109, %if.end121, %if.then112
-  %retval.0 = phi i32 [ -1, %if.then112 ], [ %add117, %if.end121 ], [ %d.0.ph209, %while.end109 ], [ -1, %if.then89 ], [ -1, %if.then18 ], [ -1, %if.end108 ], [ -1, %while.body10.lr.ph ]
+  %retval.0 = phi i32 [ -1, %if.then112 ], [ %add117, %if.end121 ], [ %d.0.ph208, %while.end109 ], [ -1, %if.then89 ], [ -1, %if.then18 ], [ -1, %if.end108 ], [ -1, %while.body10.lr.ph ]
   ret i32 %retval.0
 }
 

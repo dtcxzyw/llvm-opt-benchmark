@@ -3530,9 +3530,8 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr nocapture noundef readonly 
 85:                                               ; preds = %._crit_edge
   %86 = load i64, ptr %21, align 8
   %87 = icmp eq i32 %.val78, 0
-  %88 = and i64 %86, 1
-  %.not.i = icmp eq i64 %88, 0
-  %89 = select i1 %.not.i, i64 0, i64 3
+  %88 = trunc i64 %86 to i1
+  %89 = select i1 %88, i64 3, i64 0
   %.025.i = select i1 %87, i64 %89, i64 %86
   %90 = icmp ult i32 %.val78, 2
   %91 = and i64 %.025.i, 3
@@ -6295,7 +6294,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #26
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #26
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -6314,7 +6313,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -6516,16 +6515,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #4
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #17

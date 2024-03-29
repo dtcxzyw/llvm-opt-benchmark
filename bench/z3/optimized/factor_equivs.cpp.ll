@@ -1579,7 +1579,7 @@ for.cond6.preheader.lr.ph:                        ; preds = %_ZN15obj_equiv_clas
 
 for.cond6.preheader:                              ; preds = %for.cond6.preheader.lr.ph, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit
   %11 = phi ptr [ %.fr.i, %for.cond6.preheader.lr.ph ], [ %.fr, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit ]
-  %dirty.0114 = phi i8 [ 0, %for.cond6.preheader.lr.ph ], [ %dirty.2.lcssa, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit ]
+  %dirty.0114 = phi i1 [ false, %for.cond6.preheader.lr.ph ], [ %dirty.2.lcssa, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit ]
   %__begin1.sroa.3.0113 = phi i32 [ %.us-phi.i, %for.cond6.preheader.lr.ph ], [ %.us-phi, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit ]
   br label %for.body8
 
@@ -1628,7 +1628,7 @@ do.body.i.preheader.split.split:                  ; preds = %do.body.i.preheader
 for.body8:                                        ; preds = %for.cond6.preheader, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67
   %17 = phi ptr [ %11, %for.cond6.preheader ], [ %.fr, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67 ]
   %18 = phi ptr [ %11, %for.cond6.preheader ], [ %41, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67 ]
-  %dirty.1103 = phi i8 [ %dirty.0114, %for.cond6.preheader ], [ %dirty.2.lcssa, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67 ]
+  %dirty.1103 = phi i1 [ %dirty.0114, %for.cond6.preheader ], [ %dirty.2.lcssa, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67 ]
   %a.sroa.4.0102 = phi i32 [ %__begin1.sroa.3.0113, %for.cond6.preheader ], [ %retval.0.i.i61, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67 ]
   %cmp.i.i.i.i25 = icmp eq ptr %18, null
   br i1 %cmp.i.i.i.i25, label %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit, label %_ZNK16basic_union_find12get_num_varsEv.exit.i.i
@@ -1818,7 +1818,7 @@ _ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit55: ; preds = %_ZN15re
 for.inc18:                                        ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit55, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit
   %40 = phi ptr [ %17, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit ], [ %36, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit55 ]
   %41 = phi ptr [ %18, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit ], [ %36, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit55 ]
-  %dirty.2.lcssa = phi i8 [ %dirty.1103, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit ], [ 1, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit55 ]
+  %dirty.2.lcssa = phi i1 [ %dirty.1103, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit ], [ true, %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit55 ]
   %.fr = freeze ptr %40
   %cmp.i.i.i.i57 = icmp eq ptr %41, null
   br i1 %cmp.i.i.i.i57, label %_ZN15obj_equiv_classI4expr11ast_managerE8iteratorppEv.exit67, label %_ZNK16basic_union_find12get_num_varsEv.exit.i.i58
@@ -1862,15 +1862,10 @@ _ZNK16basic_union_find7is_rootEj.exit.i:          ; preds = %land.rhs.i
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit: ; preds = %do.body.i, %land.rhs.i, %_ZNK16basic_union_find7is_rootEj.exit.i, %_ZNK16basic_union_find7is_rootEj.exit.i.us, %land.rhs.i.us109, %do.body.i.us104, %do.body.i.preheader.split.us
   %.us-phi = phi i32 [ %inc.i.us, %do.body.i.preheader.split.us ], [ %indvars, %_ZNK16basic_union_find7is_rootEj.exit.i.us ], [ %indvars, %land.rhs.i.us109 ], [ 0, %do.body.i.us104 ], [ %16, %do.body.i ], [ %inc.i, %land.rhs.i ], [ %inc.i, %_ZNK16basic_union_find7is_rootEj.exit.i ]
   %cmp.i.i.not = icmp eq i32 %.us-phi, %.us-phi.i8.shrunk
-  br i1 %cmp.i.i.not, label %for.end23.loopexit, label %for.cond6.preheader
+  br i1 %cmp.i.i.not, label %for.end23, label %for.cond6.preheader
 
-for.end23.loopexit:                               ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit
-  %48 = and i8 %dirty.2.lcssa, 1
-  %49 = icmp ne i8 %48, 0
-  br label %for.end23
-
-for.end23:                                        ; preds = %for.end23.loopexit, %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
-  %dirty.0.lcssa = phi i1 [ false, %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit ], [ %49, %for.end23.loopexit ]
+for.end23:                                        ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit, %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
+  %dirty.0.lcssa = phi i1 [ false, %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit ], [ %dirty.2.lcssa, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit ]
   ret i1 %dirty.0.lcssa
 }
 

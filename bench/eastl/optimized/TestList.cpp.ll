@@ -935,16 +935,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %mValue.i.i, align 1
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %mValue.i.i, align 1
   store ptr %pNode, ptr %call.i.i.i.i.i, align 8
-  %2 = load ptr, ptr %mpPrev.i.i, align 8
+  %1 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store ptr %2, ptr %mpPrev2.i.i, align 8
-  store ptr %call.i.i.i.i.i, ptr %2, align 8
+  store ptr %1, ptr %mpPrev2.i.i, align 8
+  store ptr %call.i.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %3 = load i64, ptr %mSize.i, align 8
-  %inc.i = add i64 %3, 1
+  %2 = load i64, ptr %mSize.i, align 8
+  %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %mSize.i, align 8
   %dec = add i64 %n.addr.03, -1
   %cmp.not = icmp eq i64 %dec, 0
@@ -975,16 +975,16 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i8, ptr %value, align 1
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mValue.i.i.i, align 1
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
-  %3 = load ptr, ptr %mpPrev.i.i, align 8
+  %2 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i1, ptr %3, align 8
+  store ptr %2, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i1, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
-  %4 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %0, align 8
   %dec.i = add i64 %n.addr.03.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
@@ -994,21 +994,21 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.no
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i = icmp eq ptr %6, %this
+  %5 = load ptr, ptr %this, align 8
+  %cmp.not3.i.i = icmp eq ptr %5, %this
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  %p.04.i.i = phi ptr [ %7, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %6, %lpad ]
-  %7 = load ptr, ptr %p.04.i.i, align 8
+  %p.04.i.i = phi ptr [ %6, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %5, %lpad ]
+  %6 = load ptr, ptr %p.04.i.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.04.i.i) #10
-  %cmp.not.i.i = icmp eq ptr %7, %this
+  %cmp.not.i.i = icmp eq ptr %6, %this
   br i1 %cmp.not.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !7
 
 _ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1024,7 +1024,7 @@ entry:
   br i1 %cmp.i.not3.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %call.i.i.i.i.i.i.noexc
-  %first.sroa.0.04.i = phi ptr [ %6, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
+  %first.sroa.0.04.i = phi ptr [ %5, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
   %call.i.i.i.i.i.i3 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -1032,40 +1032,40 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 16
   %2 = load i8, ptr %mValue.i.i, align 1
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mValue.i.i.i, align 1
+  %frombool.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i3, align 8
-  %4 = load ptr, ptr %mpPrev.i.i, align 8
+  %3 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 8
-  store ptr %4, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i3, ptr %4, align 8
+  store ptr %3, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i3, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %mpPrev.i.i, align 8
-  %5 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %5, 1
+  %4 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %4, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %6 = load ptr, ptr %first.sroa.0.04.i, align 8
-  %cmp.i.not.i = icmp eq ptr %6, %x
+  %5 = load ptr, ptr %first.sroa.0.04.i, align 8
+  %cmp.i.not.i = icmp eq ptr %5, %x
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !8
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.noexc, %entry
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i = icmp eq ptr %8, %this
+  %7 = load ptr, ptr %this, align 8
+  %cmp.not3.i.i = icmp eq ptr %7, %this
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  %p.04.i.i = phi ptr [ %9, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %8, %lpad ]
-  %9 = load ptr, ptr %p.04.i.i, align 8
+  %p.04.i.i = phi ptr [ %8, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %7, %lpad ]
+  %8 = load ptr, ptr %p.04.i.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.04.i.i) #10
-  %cmp.not.i.i = icmp eq ptr %9, %this
+  %cmp.not.i.i = icmp eq ptr %8, %this
   br i1 %cmp.not.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !7
 
 _ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1081,7 +1081,7 @@ entry:
   br i1 %cmp.i.not3.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %call.i.i.i.i.i.i.noexc
-  %first.sroa.0.04.i = phi ptr [ %6, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
+  %first.sroa.0.04.i = phi ptr [ %5, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
   %call.i.i.i.i.i.i2 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -1089,40 +1089,40 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 16
   %2 = load i8, ptr %mValue.i.i, align 1
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mValue.i.i.i, align 1
+  %frombool.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i2, align 8
-  %4 = load ptr, ptr %mpPrev.i.i, align 8
+  %3 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 8
-  store ptr %4, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i2, ptr %4, align 8
+  store ptr %3, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i2, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %mpPrev.i.i, align 8
-  %5 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %5, 1
+  %4 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %4, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %6 = load ptr, ptr %first.sroa.0.04.i, align 8
-  %cmp.i.not.i = icmp eq ptr %6, %x
+  %5 = load ptr, ptr %first.sroa.0.04.i, align 8
+  %cmp.i.not.i = icmp eq ptr %5, %x
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !8
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.noexc, %entry
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i = icmp eq ptr %8, %this
+  %7 = load ptr, ptr %this, align 8
+  %cmp.not3.i.i = icmp eq ptr %7, %this
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  %p.04.i.i = phi ptr [ %9, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %8, %lpad ]
-  %9 = load ptr, ptr %p.04.i.i, align 8
+  %p.04.i.i = phi ptr [ %8, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %7, %lpad ]
+  %8 = load ptr, ptr %p.04.i.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.04.i.i) #10
-  %cmp.not.i.i = icmp eq ptr %9, %this
+  %cmp.not.i.i = icmp eq ptr %8, %this
   br i1 %cmp.not.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !7
 
 _ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1319,16 +1319,16 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i8, ptr %first.addr.04.i, align 1
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mValue.i.i.i, align 1
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
-  %3 = load ptr, ptr %mpPrev.i.i, align 8
+  %2 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i1, ptr %3, align 8
+  store ptr %2, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i1, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
-  %4 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %0, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -1338,21 +1338,21 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.no
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i = icmp eq ptr %6, %this
+  %5 = load ptr, ptr %this, align 8
+  %cmp.not3.i.i = icmp eq ptr %5, %this
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  %p.04.i.i = phi ptr [ %7, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %6, %lpad ]
-  %7 = load ptr, ptr %p.04.i.i, align 8
+  %p.04.i.i = phi ptr [ %6, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %5, %lpad ]
+  %6 = load ptr, ptr %p.04.i.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.04.i.i) #10
-  %cmp.not.i.i = icmp eq ptr %7, %this
+  %cmp.not.i.i = icmp eq ptr %6, %this
   br i1 %cmp.not.i.i, label %_ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !7
 
 _ZN5eastl8ListBaseIbNS_9allocatorEED2Ev.exit:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1402,23 +1402,23 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %for.body
   %pNode.017 = phi ptr [ %pNode.0, %for.body ], [ %pNode.014, %entry ]
-  %first.sroa.0.016 = phi ptr [ %2, %for.body ], [ %first.coerce, %entry ]
+  %first.sroa.0.016 = phi ptr [ %1, %for.body ], [ %first.coerce, %entry ]
   %cmp.i.not = icmp eq ptr %first.sroa.0.016, %last.coerce
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.016, i64 16
   %0 = load i8, ptr %mValue.i, align 1
-  %1 = and i8 %0, 1
   %mValue = getelementptr inbounds i8, ptr %pNode.017, i64 16
-  store i8 %1, ptr %mValue, align 8
-  %2 = load ptr, ptr %first.sroa.0.016, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %mValue, align 8
+  %1 = load ptr, ptr %first.sroa.0.016, align 8
   %pNode.0 = load ptr, ptr %pNode.017, align 8
   %cmp.not = icmp eq ptr %pNode.0, %this
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
-  %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %2, %for.body ]
+  %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %1, %for.body ]
   %cmp.i4 = icmp eq ptr %first.sroa.0.0.lcssa, %last.coerce
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
@@ -1427,22 +1427,22 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %first.sroa.0.03.i = phi ptr [ %pNode.017, %while.body.lr.ph.i ], [ %3, %while.body.i ]
-  %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !11
-  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
-  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !11
-  %6 = load ptr, ptr %4, align 8, !noalias !11
-  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !11
-  %7 = load ptr, ptr %4, align 8, !noalias !11
-  store ptr %7, ptr %5, align 8, !noalias !11
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #10, !noalias !11
-  %8 = load i64, ptr %mSize.i.i.i, align 8, !noalias !11
-  %dec.i.i.i = add i64 %8, -1
+  %first.sroa.0.03.i = phi ptr [ %pNode.017, %while.body.lr.ph.i ], [ %2, %while.body.i ]
+  %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !11
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !11
+  %5 = load ptr, ptr %3, align 8, !noalias !11
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !11
+  %6 = load ptr, ptr %3, align 8, !noalias !11
+  store ptr %6, ptr %4, align 8, !noalias !11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10, !noalias !11
+  %7 = load i64, ptr %mSize.i.i.i, align 8, !noalias !11
+  %dec.i.i.i = add i64 %7, -1
   store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !11
-  %cmp.i.not.i = icmp eq ptr %3, %this
+  %cmp.i.not.i = icmp eq ptr %2, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !16
 
 for.body.lr.ph.i:                                 ; preds = %for.end
@@ -1451,24 +1451,24 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %13, %for.body.i ]
+  %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %11, %for.body.i ]
   %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  %9 = load i8, ptr %mValue.i.i, align 1
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %mValue.i.i.i, align 1
+  %8 = load i8, ptr %mValue.i.i, align 1
+  %frombool.i.i.i = and i8 %8, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
-  %11 = load ptr, ptr %mpPrev.i.i.i, align 8
+  %9 = load ptr, ptr %mpPrev.i.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %11, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %11, align 8
+  store ptr %9, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %9, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
-  %12 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %12, 1
+  %10 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %10, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %13 = load ptr, ptr %first.sroa.0.04.i, align 8
-  %cmp.i.not.i5 = icmp eq ptr %13, %last.coerce
+  %11 = load ptr, ptr %first.sroa.0.04.i, align 8
+  %cmp.i.not.i5 = icmp eq ptr %11, %last.coerce
   br i1 %cmp.i.not.i5, label %if.end, label %for.body.i, !llvm.loop !8
 
 if.end:                                           ; preds = %while.body.i, %for.body.i, %for.end
@@ -1509,15 +1509,15 @@ for.body:                                         ; preds = %entry, %for.body
   %pNode.015 = phi ptr [ %pNode.0, %for.body ], [ %pNode.011, %entry ]
   %first.addr.014 = phi ptr [ %incdec.ptr, %for.body ], [ %first, %entry ]
   %1 = load i8, ptr %first.addr.014, align 1
-  %2 = and i8 %1, 1
   %mValue = getelementptr inbounds i8, ptr %pNode.015, i64 16
-  store i8 %2, ptr %mValue, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %mValue, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.014, i64 1
   %pNode.0 = load ptr, ptr %pNode.015, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
-  %3 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %3, label %for.body, label %for.end, !llvm.loop !17
+  %2 = select i1 %cmp, i1 %cmp3, i1 false
+  br i1 %2, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   %first.addr.0.lcssa = phi ptr [ %first, %entry ], [ %incdec.ptr, %for.body ]
@@ -1534,22 +1534,22 @@ while.body.lr.ph.i:                               ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %4, %while.body.i ]
-  %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !18
-  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !18
-  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !18
-  %7 = load ptr, ptr %5, align 8, !noalias !18
-  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !18
-  %8 = load ptr, ptr %5, align 8, !noalias !18
-  store ptr %8, ptr %6, align 8, !noalias !18
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #10, !noalias !18
-  %9 = load i64, ptr %mSize.i.i.i, align 8, !noalias !18
-  %dec.i.i.i = add i64 %9, -1
+  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %while.body.i ]
+  %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !18
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !18
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !18
+  %6 = load ptr, ptr %4, align 8, !noalias !18
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !18
+  %7 = load ptr, ptr %4, align 8, !noalias !18
+  store ptr %7, ptr %5, align 8, !noalias !18
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #10, !noalias !18
+  %8 = load i64, ptr %mSize.i.i.i, align 8, !noalias !18
+  %dec.i.i.i = add i64 %8, -1
   store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !18
-  %cmp.i.not.i = icmp eq ptr %4, %this
+  %cmp.i.not.i = icmp eq ptr %3, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !16
 
 for.body.lr.ph.i:                                 ; preds = %for.end
@@ -1561,17 +1561,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %first.addr.04.i = phi ptr [ %first.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  %10 = load i8, ptr %first.addr.04.i, align 1
-  %11 = and i8 %10, 1
-  store i8 %11, ptr %mValue.i.i.i, align 1
+  %9 = load i8, ptr %first.addr.04.i, align 1
+  %frombool.i.i.i = and i8 %9, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
-  %12 = load ptr, ptr %mpPrev.i.i.i, align 8
+  %10 = load ptr, ptr %mpPrev.i.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %12, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %12, align 8
+  store ptr %10, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %10, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
-  %13 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %13, 1
+  %11 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %11, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
@@ -1735,15 +1735,15 @@ for.body:                                         ; preds = %entry, %for.body
   %pNode.013 = phi ptr [ %pNode.0, %for.body ], [ %pNode.09, %entry ]
   %n.addr.012 = phi i64 [ %dec, %for.body ], [ %n, %entry ]
   %1 = load i8, ptr %value, align 1
-  %2 = and i8 %1, 1
   %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
-  store i8 %2, ptr %mValue, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %mValue, align 8
   %dec = add i64 %n.addr.012, -1
   %pNode.0 = load ptr, ptr %pNode.013, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne i64 %dec, 0
-  %3 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %3, label %for.body, label %for.end, !llvm.loop !23
+  %2 = select i1 %cmp, i1 %cmp3, i1 false
+  br i1 %2, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry
   %n.addr.0.lcssa = phi i64 [ %n, %entry ], [ %dec, %for.body ]
@@ -1760,17 +1760,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %n.addr.03.i = phi i64 [ %n.addr.0.lcssa, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  %4 = load i8, ptr %value, align 1
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %mValue.i.i.i, align 1
+  %3 = load i8, ptr %value, align 1
+  %frombool.i.i.i = and i8 %3, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %mpPrev.i.i.i, align 8
+  %4 = load ptr, ptr %mpPrev.i.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %6, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %6, align 8
+  store ptr %4, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %4, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
-  %7 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %7, 1
+  %5 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %dec.i = add i64 %n.addr.03.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
@@ -1785,22 +1785,22 @@ while.body.lr.ph.i:                               ; preds = %if.else
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %8, %while.body.i ]
-  %8 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !24
-  %mpPrev.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !24
-  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !24
-  %11 = load ptr, ptr %9, align 8, !noalias !24
-  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %10, ptr %mpPrev2.i.i.i.i, align 8, !noalias !24
-  %12 = load ptr, ptr %9, align 8, !noalias !24
-  store ptr %12, ptr %10, align 8, !noalias !24
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #10, !noalias !24
-  %13 = load i64, ptr %mSize.i.i.i, align 8, !noalias !24
-  %dec.i.i.i = add i64 %13, -1
+  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %6, %while.body.i ]
+  %6 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !24
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !24
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !24
+  %9 = load ptr, ptr %7, align 8, !noalias !24
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %mpPrev2.i.i.i.i, align 8, !noalias !24
+  %10 = load ptr, ptr %7, align 8, !noalias !24
+  store ptr %10, ptr %8, align 8, !noalias !24
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #10, !noalias !24
+  %11 = load i64, ptr %mSize.i.i.i, align 8, !noalias !24
+  %dec.i.i.i = add i64 %11, -1
   store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !24
-  %cmp.i.not.i = icmp eq ptr %8, %this
+  %cmp.i.not.i = icmp eq ptr %6, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !16
 
 if.end:                                           ; preds = %for.body.i, %while.body.i, %if.else
@@ -1977,16 +1977,16 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !35
   %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   %7 = load i8, ptr %value, align 1, !noalias !35
-  %8 = and i8 %7, 1
-  store i8 %8, ptr %mValue.i.i.i.i, align 1, !noalias !35
+  %frombool.i.i.i.i = and i8 %7, 1
+  store i8 %frombool.i.i.i.i, ptr %mValue.i.i.i.i, align 1, !noalias !35
   store ptr %this, ptr %call.i.i.i.i.i.i.i, align 8, !noalias !35
-  %9 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !35
+  %8 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !35
   %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
-  store ptr %9, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !35
-  store ptr %call.i.i.i.i.i.i.i, ptr %9, align 8, !noalias !35
+  store ptr %8, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !35
+  store ptr %call.i.i.i.i.i.i.i, ptr %8, align 8, !noalias !35
   store ptr %call.i.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !35
-  %10 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !35
-  %inc.i.i.i = add i64 %10, 1
+  %9 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !35
+  %inc.i.i.i = add i64 %9, 1
   store i64 %inc.i.i.i, ptr %mSize.i.i.i7, align 8, !noalias !35
   %dec.i.i = add i64 %n.addr.03.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
@@ -2047,24 +2047,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i8, ptr %value, align 1
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mValue.i.i.i, align 1
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
-  %3 = load ptr, ptr %mpPrev.i, align 8
+  %2 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %3, align 8
+  store ptr %2, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
-  %4 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %dec.i = add i64 %n.addr.03.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %_ZN5eastl4listIbNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKb.exit, label %for.body.i, !llvm.loop !5
 
 _ZN5eastl4listIbNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKb.exit: ; preds = %for.body.i, %entry
-  %5 = load ptr, ptr %0, align 8
-  store ptr %5, ptr %agg.result, align 8
+  %4 = load ptr, ptr %0, align 8
+  store ptr %4, ptr %agg.result, align 8
   ret void
 }
 
@@ -2187,18 +2187,18 @@ entry:
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %1 = load i8, ptr %value, align 1
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mValue.i.i, align 1
+  %frombool.i.i = and i8 %1, 1
+  store i8 %frombool.i.i, ptr %mValue.i.i, align 1
   store ptr %0, ptr %call.i.i.i.i.i, align 8
   %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i, align 8
+  %2 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store ptr %3, ptr %mpPrev2.i.i, align 8
-  store ptr %call.i.i.i.i.i, ptr %3, align 8
+  store ptr %2, ptr %mpPrev2.i.i, align 8
+  store ptr %call.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mSize.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %mSize.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSize.i, align 8
   ret void
 }
@@ -2210,18 +2210,18 @@ entry:
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !52
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i8, ptr %value, align 1, !noalias !52
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mValue.i.i.i, align 1, !noalias !52
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1, !noalias !52
   store ptr %0, ptr %call.i.i.i.i.i.i, align 8, !noalias !52
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !52
+  %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !52
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i, align 8, !noalias !52
-  store ptr %call.i.i.i.i.i.i, ptr %3, align 8, !noalias !52
+  store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !52
+  store ptr %call.i.i.i.i.i.i, ptr %2, align 8, !noalias !52
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !52
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mSize.i.i, align 8, !noalias !52
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr %mSize.i.i, align 8, !noalias !52
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !52
   ret void
 }
@@ -2280,18 +2280,18 @@ entry:
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %mValue.i.i, align 1
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %mValue.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i, align 8
   %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %mpPrev.i.i, align 8
+  %1 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store ptr %2, ptr %mpPrev2.i.i, align 8
-  store ptr %call.i.i.i.i.i, ptr %2, align 8
+  store ptr %1, ptr %mpPrev2.i.i, align 8
+  store ptr %call.i.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mSize.i, align 8
-  %inc.i = add i64 %3, 1
+  %2 = load i64, ptr %mSize.i, align 8
+  %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %mSize.i, align 8
   ret void
 }
@@ -2302,18 +2302,18 @@ entry:
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !55
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1, !noalias !55
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %mValue.i.i.i, align 1, !noalias !55
+  %frombool.i.i.i = and i8 %0, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1, !noalias !55
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8, !noalias !55
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !55
+  %1 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !55
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !55
-  store ptr %call.i.i.i.i.i.i, ptr %2, align 8, !noalias !55
+  store ptr %1, ptr %mpPrev2.i.i.i, align 8, !noalias !55
+  store ptr %call.i.i.i.i.i.i, ptr %1, align 8, !noalias !55
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !55
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mSize.i.i, align 8, !noalias !55
-  %inc.i.i = add i64 %3, 1
+  %2 = load i64, ptr %mSize.i.i, align 8, !noalias !55
+  %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !55
   ret void
 }
@@ -2440,18 +2440,18 @@ entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %mValue.i, align 1
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %mValue.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
   %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
-  %2 = load ptr, ptr %mpPrev.i, align 8
+  %1 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  store ptr %2, ptr %mpPrev2.i, align 8
-  store ptr %call.i.i.i.i, ptr %2, align 8
+  store ptr %1, ptr %mpPrev2.i, align 8
+  store ptr %call.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
   %mSize = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mSize, align 8
-  %inc = add i64 %3, 1
+  %2 = load i64, ptr %mSize, align 8
+  %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
   store ptr %call.i.i.i.i, ptr %agg.result, align 8
   ret void
@@ -2464,21 +2464,21 @@ entry:
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !58
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1, !noalias !58
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %mValue.i.i.i, align 1, !noalias !58
+  %frombool.i.i.i = and i8 %0, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1, !noalias !58
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8, !noalias !58
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
-  %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !58
+  %1 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !58
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !58
-  store ptr %call.i.i.i.i.i.i, ptr %2, align 8, !noalias !58
+  store ptr %1, ptr %mpPrev2.i.i.i, align 8, !noalias !58
+  store ptr %call.i.i.i.i.i.i, ptr %1, align 8, !noalias !58
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !58
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mSize.i.i, align 8, !noalias !58
-  %inc.i.i = add i64 %3, 1
+  %2 = load i64, ptr %mSize.i.i, align 8, !noalias !58
+  %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !58
-  %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !58
-  store ptr %4, ptr %agg.result, align 8, !alias.scope !58
+  %3 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !58
+  store ptr %3, ptr %agg.result, align 8, !alias.scope !58
   ret void
 }
 
@@ -2503,24 +2503,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i8, ptr %first.addr.04.i, align 1
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mValue.i.i.i, align 1
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mValue.i.i.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
-  %3 = load ptr, ptr %mpPrev.i, align 8
+  %2 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %3, align 8
+  store ptr %2, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
-  %4 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5eastl4listIbNS_9allocatorEE8DoInsertIPKbEEvPNS_12ListNodeBaseET_S8_NS_17integral_constantIbLb0EEE.exit, label %for.body.i, !llvm.loop !9
 
 _ZN5eastl4listIbNS_9allocatorEE8DoInsertIPKbEEvPNS_12ListNodeBaseET_S8_NS_17integral_constantIbLb0EEE.exit: ; preds = %for.body.i, %entry
-  %5 = load ptr, ptr %0, align 8
-  store ptr %5, ptr %agg.result, align 8
+  %4 = load ptr, ptr %0, align 8
+  store ptr %4, ptr %agg.result, align 8
   ret void
 }
 
@@ -8779,30 +8779,30 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %0, ptr %mValue.i.i, align 8
   %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 20
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mbThrowOnCopy.i.i.i, align 4
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
   %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
-  %3 = load i32, ptr %mMagicValue4.i.i.i, align 8
-  store i32 %3, ptr %mMagicValue.i.i.i, align 8
-  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i = add nsw i64 %4, 1
+  %2 = load i32, ptr %mMagicValue4.i.i.i, align 8
+  store i32 %2, ptr %mMagicValue.i.i.i, align 8
+  %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i = add nsw i64 %3, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i = add nsw i64 %5, 1
+  %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i = add nsw i64 %4, 1
   store i64 %inc5.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %pNode, ptr %call.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %mpPrev.i.i, align 8
+  %6 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store ptr %7, ptr %mpPrev2.i.i, align 8
-  store ptr %call.i.i.i.i.i, ptr %7, align 8
+  store ptr %6, ptr %mpPrev2.i.i, align 8
+  store ptr %call.i.i.i.i.i, ptr %6, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %8 = load i64, ptr %mSize.i, align 8
-  %inc.i = add i64 %8, 1
+  %7 = load i64, ptr %mSize.i, align 8
+  %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mSize.i, align 8
   %dec = add i64 %n.addr.03, -1
   %cmp.not = icmp eq i64 %dec, 0
@@ -8876,30 +8876,30 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   store i32 %1, ptr %mValue.i.i.i, align 8
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 20
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 32
-  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
-  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %5, 1
+  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8
+  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
-  %8 = load ptr, ptr %mpPrev.i.i, align 8
+  %7 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
-  store ptr %8, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i1, ptr %8, align 8
+  store ptr %7, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i1, ptr %7, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
-  %9 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %9, 1
+  %8 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %0, align 8
   %dec.i = add i64 %n.addr.03.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
@@ -8909,10 +8909,10 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.no
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5eastl8ListBaseI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8928,7 +8928,7 @@ entry:
   br i1 %cmp.i.not3.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %call.i.i.i.i.i.i.noexc
-  %first.sroa.0.04.i = phi ptr [ %11, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
+  %first.sroa.0.04.i = phi ptr [ %10, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
   %call.i.i.i.i.i.i3 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -8940,44 +8940,44 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
   %3 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %3, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
-  %5 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %5, ptr %mMagicValue.i.i.i.i, align 8
-  %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %6, 1
+  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
+  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %8 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %8, 1
+  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i3, align 8
-  %9 = load ptr, ptr %mpPrev.i.i, align 8
+  %8 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 8
-  store ptr %9, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i3, ptr %9, align 8
+  store ptr %8, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i3, ptr %8, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %mpPrev.i.i, align 8
-  %10 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %10, 1
+  %9 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %11 = load ptr, ptr %first.sroa.0.04.i, align 8
-  %cmp.i.not.i = icmp eq ptr %11, %x
+  %10 = load ptr, ptr %first.sroa.0.04.i, align 8
+  %cmp.i.not.i = icmp eq ptr %10, %x
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !285
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.noexc, %entry
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5eastl8ListBaseI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8993,7 +8993,7 @@ entry:
   br i1 %cmp.i.not3.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %call.i.i.i.i.i.i.noexc
-  %first.sroa.0.04.i = phi ptr [ %11, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
+  %first.sroa.0.04.i = phi ptr [ %10, %call.i.i.i.i.i.i.noexc ], [ %1, %entry ]
   %call.i.i.i.i.i.i2 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -9005,44 +9005,44 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
   %3 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %3, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
-  %5 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %5, ptr %mMagicValue.i.i.i.i, align 8
-  %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %6, 1
+  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
+  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %8 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %8, 1
+  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i2, align 8
-  %9 = load ptr, ptr %mpPrev.i.i, align 8
+  %8 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 8
-  store ptr %9, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i2, ptr %9, align 8
+  store ptr %8, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i2, ptr %8, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %mpPrev.i.i, align 8
-  %10 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %10, 1
+  %9 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %11 = load ptr, ptr %first.sroa.0.04.i, align 8
-  %cmp.i.not.i = icmp eq ptr %11, %x
+  %10 = load ptr, ptr %first.sroa.0.04.i, align 8
+  %cmp.i.not.i = icmp eq ptr %10, %x
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !285
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.noexc, %entry
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5eastl8ListBaseI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9243,31 +9243,31 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 16
-  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
-  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %5, 1
+  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8
+  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
-  %8 = load ptr, ptr %mpPrev.i.i, align 8
+  %7 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
-  store ptr %8, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i1, ptr %8, align 8
+  store ptr %7, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i1, ptr %7, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
-  %9 = load i64, ptr %0, align 8
-  %inc.i.i = add i64 %9, 1
+  %8 = load i64, ptr %0, align 8
+  %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %0, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -9277,10 +9277,10 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.no
   ret void
 
 lpad:                                             ; preds = %for.body.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5eastl8ListBaseI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9353,7 +9353,7 @@ land.rhs.preheader:                               ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit
   %pNode.019 = phi ptr [ %pNode.0, %_ZN10TestObjectaSERKS_.exit ], [ %pNode.015, %land.rhs.preheader ]
-  %first.sroa.0.018 = phi ptr [ %4, %_ZN10TestObjectaSERKS_.exit ], [ %first.coerce, %land.rhs.preheader ]
+  %first.sroa.0.018 = phi ptr [ %3, %_ZN10TestObjectaSERKS_.exit ], [ %first.coerce, %land.rhs.preheader ]
   %inc.i1417 = phi i64 [ %inc.i, %_ZN10TestObjectaSERKS_.exit ], [ %_ZN10TestObject18sTOCopyAssignCountE.promoted, %land.rhs.preheader ]
   %cmp.i.not = icmp eq ptr %first.sroa.0.018, %last.coerce
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
@@ -9375,19 +9375,19 @@ if.then.i:                                        ; preds = %for.body
   store i32 %1, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %first.sroa.0.018, i64 20
   %2 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %3 = and i8 %2, 1
   %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.019, i64 20
-  store i8 %3, ptr %mbThrowOnCopy4.i, align 4
+  %frombool.i = and i8 %2, 1
+  store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.i
-  %4 = load ptr, ptr %first.sroa.0.018, align 8
+  %3 = load ptr, ptr %first.sroa.0.018, align 8
   %pNode.0 = load ptr, ptr %pNode.019, align 8
   %cmp.not = icmp eq ptr %pNode.0, %this
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !287
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
-  %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %4, %_ZN10TestObjectaSERKS_.exit ]
+  %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %3, %_ZN10TestObjectaSERKS_.exit ]
   %cmp.i4 = icmp eq ptr %first.sroa.0.0.lcssa, %last.coerce
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
@@ -9396,41 +9396,41 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
-  %first.sroa.0.03.i = phi ptr [ %pNode.019, %while.body.lr.ph.i ], [ %5, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
-  %5 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !288
-  %mpPrev.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !288
-  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !288
-  %8 = load ptr, ptr %6, align 8, !noalias !288
-  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %7, ptr %mpPrev2.i.i.i.i, align 8, !noalias !288
-  %9 = load ptr, ptr %6, align 8, !noalias !288
-  store ptr %9, ptr %7, align 8, !noalias !288
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !288
-  %cmp.not.i.i.i.i.i = icmp eq i32 %10, 32623592
+  %first.sroa.0.03.i = phi ptr [ %pNode.019, %while.body.lr.ph.i ], [ %4, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
+  %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !288
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !288
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !288
+  %7 = load ptr, ptr %5, align 8, !noalias !288
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !288
+  %8 = load ptr, ptr %5, align 8, !noalias !288
+  store ptr %8, ptr %6, align 8, !noalias !288
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !288
+  %cmp.not.i.i.i.i.i = icmp eq i32 %9, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %11 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !288
-  %inc.i.i.i.i.i = add nsw i32 %11, 1
+  %10 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !288
+  %inc.i.i.i.i.i = add nsw i32 %10, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !288
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i: ; preds = %if.then.i.i.i.i.i, %while.body.i
   store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !288
-  %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !288
-  %dec.i.i.i.i.i = add nsw i64 %12, -1
+  %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !288
+  %dec.i.i.i.i.i = add nsw i64 %11, -1
   store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !288
-  %13 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !288
-  %inc3.i.i.i.i.i = add nsw i64 %13, 1
+  %12 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !288
+  %inc3.i.i.i.i.i = add nsw i64 %12, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !288
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #10, !noalias !288
-  %14 = load i64, ptr %mSize.i.i.i, align 8, !noalias !288
-  %dec.i.i.i = add i64 %14, -1
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #10, !noalias !288
+  %13 = load i64, ptr %mSize.i.i.i, align 8, !noalias !288
+  %dec.i.i.i = add i64 %13, -1
   store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !288
-  %cmp.i.not.i = icmp eq ptr %5, %this
+  %cmp.i.not.i = icmp eq ptr %4, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !293
 
 for.body.lr.ph.i:                                 ; preds = %for.end
@@ -9439,43 +9439,43 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %24, %for.body.i ]
+  %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %22, %for.body.i ]
   %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  %15 = load i32, ptr %mValue.i.i, align 8
-  store i32 %15, ptr %mValue.i.i.i, align 8
+  %14 = load i32, ptr %mValue.i.i, align 8
+  store i32 %14, ptr %mValue.i.i.i, align 8
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
-  %16 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %17 = and i8 %16, 1
-  store i8 %17, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %15 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %15, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
-  %18 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %18, ptr %mMagicValue.i.i.i.i, align 8
-  %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %19, 1
+  %16 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %16, ptr %mMagicValue.i.i.i.i, align 8
+  %17 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %17, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %20 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %20, 1
+  %18 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %18, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %21 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %21, 1
+  %19 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %19, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
-  %22 = load ptr, ptr %mpPrev.i.i.i, align 8
+  %20 = load ptr, ptr %mpPrev.i.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %22, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %22, align 8
+  store ptr %20, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %20, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
-  %23 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %23, 1
+  %21 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %21, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %24 = load ptr, ptr %first.sroa.0.04.i, align 8
-  %cmp.i.not.i5 = icmp eq ptr %24, %last.coerce
+  %22 = load ptr, ptr %first.sroa.0.04.i, align 8
+  %cmp.i.not.i5 = icmp eq ptr %22, %last.coerce
   br i1 %cmp.i.not.i5, label %if.end, label %for.body.i, !llvm.loop !285
 
 if.end:                                           ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %for.body.i, %for.end
@@ -9535,9 +9535,9 @@ if.then.i:                                        ; preds = %for.body
   store i32 %2, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %first.addr.017, i64 4
   %3 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %4 = and i8 %3, 1
   %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.018, i64 20
-  store i8 %4, ptr %mbThrowOnCopy4.i, align 4
+  %frombool.i = and i8 %3, 1
+  store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.i
@@ -9545,8 +9545,8 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %pNode.0 = load ptr, ptr %pNode.018, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
-  %5 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %5, label %for.body, label %for.end, !llvm.loop !294
+  %4 = select i1 %cmp, i1 %cmp3, i1 false
+  br i1 %4, label %for.body, label %for.end, !llvm.loop !294
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
   %first.addr.0.lcssa = phi ptr [ %first, %entry ], [ %incdec.ptr, %_ZN10TestObjectaSERKS_.exit ]
@@ -9563,41 +9563,41 @@ while.body.lr.ph.i:                               ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
-  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %6, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
-  %6 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !295
-  %mpPrev.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !295
-  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !295
-  %9 = load ptr, ptr %7, align 8, !noalias !295
-  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %8, ptr %mpPrev2.i.i.i.i, align 8, !noalias !295
-  %10 = load ptr, ptr %7, align 8, !noalias !295
-  store ptr %10, ptr %8, align 8, !noalias !295
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !295
-  %cmp.not.i.i.i.i.i = icmp eq i32 %11, 32623592
+  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %5, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
+  %5 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !295
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !295
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !295
+  %8 = load ptr, ptr %6, align 8, !noalias !295
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %mpPrev2.i.i.i.i, align 8, !noalias !295
+  %9 = load ptr, ptr %6, align 8, !noalias !295
+  store ptr %9, ptr %7, align 8, !noalias !295
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !295
+  %cmp.not.i.i.i.i.i = icmp eq i32 %10, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %12 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !295
-  %inc.i.i.i.i.i = add nsw i32 %12, 1
+  %11 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !295
+  %inc.i.i.i.i.i = add nsw i32 %11, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !295
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i: ; preds = %if.then.i.i.i.i.i, %while.body.i
   store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !295
-  %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !295
-  %dec.i.i.i.i.i = add nsw i64 %13, -1
+  %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !295
+  %dec.i.i.i.i.i = add nsw i64 %12, -1
   store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !295
-  %14 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !295
-  %inc3.i.i.i.i.i = add nsw i64 %14, 1
+  %13 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !295
+  %inc3.i.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !295
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #10, !noalias !295
-  %15 = load i64, ptr %mSize.i.i.i, align 8, !noalias !295
-  %dec.i.i.i = add i64 %15, -1
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #10, !noalias !295
+  %14 = load i64, ptr %mSize.i.i.i, align 8, !noalias !295
+  %dec.i.i.i = add i64 %14, -1
   store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !295
-  %cmp.i.not.i = icmp eq ptr %6, %this
+  %cmp.i.not.i = icmp eq ptr %5, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !293
 
 for.body.lr.ph.i:                                 ; preds = %for.end
@@ -9609,36 +9609,36 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %first.addr.04.i = phi ptr [ %first.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  %16 = load i32, ptr %first.addr.04.i, align 8
-  store i32 %16, ptr %mValue.i.i.i, align 8
+  %15 = load i32, ptr %first.addr.04.i, align 8
+  store i32 %15, ptr %mValue.i.i.i, align 8
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
-  %17 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %18 = and i8 %17, 1
-  store i8 %18, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %16 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %16, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 16
-  %19 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %19, ptr %mMagicValue.i.i.i.i, align 8
-  %20 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %20, 1
+  %17 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %17, ptr %mMagicValue.i.i.i.i, align 8
+  %18 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %18, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %21 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %21, 1
+  %19 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %19, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %22 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %22, 1
+  %20 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %20, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
-  %23 = load ptr, ptr %mpPrev.i.i.i, align 8
+  %21 = load ptr, ptr %mpPrev.i.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %23, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %23, align 8
+  store ptr %21, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %21, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
-  %24 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %24, 1
+  %22 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %22, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 24
   %cmp.not.i10 = icmp eq ptr %incdec.ptr.i, %last
@@ -9840,9 +9840,9 @@ if.then.i:                                        ; preds = %for.body
   %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.014, i64 32
   store i32 %3, ptr %mMagicValue3.i, align 8
   %4 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %5 = and i8 %4, 1
   %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.014, i64 20
-  store i8 %5, ptr %mbThrowOnCopy4.i, align 4
+  %frombool.i = and i8 %4, 1
+  store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.i
@@ -9850,8 +9850,8 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %pNode.0 = load ptr, ptr %pNode.014, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne i64 %dec, 0
-  %6 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %6, label %for.body, label %for.end, !llvm.loop !300
+  %5 = select i1 %cmp, i1 %cmp3, i1 false
+  br i1 %5, label %for.body, label %for.end, !llvm.loop !300
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
   %n.addr.0.lcssa = phi i64 [ %n, %entry ], [ %dec, %_ZN10TestObjectaSERKS_.exit ]
@@ -9870,34 +9870,34 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %n.addr.03.i = phi i64 [ %n.addr.0.lcssa, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  %7 = load i32, ptr %value, align 8
-  store i32 %7, ptr %mValue.i.i.i, align 8
+  %6 = load i32, ptr %value, align 8
+  store i32 %6, ptr %mValue.i.i.i, align 8
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
-  %8 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %9 = and i8 %8, 1
-  store i8 %9, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %7 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %7, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
-  %10 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %10, ptr %mMagicValue.i.i.i.i, align 8
-  %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %11, 1
+  %8 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %8, ptr %mMagicValue.i.i.i.i, align 8
+  %9 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %9, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %12 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %12, 1
+  %10 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %10, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %13 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %13, 1
+  %11 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %11, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %mpPrev.i.i.i, align 8
+  %12 = load ptr, ptr %mpPrev.i.i.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %14, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %14, align 8
+  store ptr %12, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %12, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
-  %15 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %15, 1
+  %13 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %13, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %dec.i = add i64 %n.addr.03.i, -1
   %cmp.not.i8 = icmp eq i64 %dec.i, 0
@@ -9912,41 +9912,41 @@ while.body.lr.ph.i:                               ; preds = %if.else
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
-  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %16, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
-  %16 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !301
-  %mpPrev.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !301
-  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !301
-  %19 = load ptr, ptr %17, align 8, !noalias !301
-  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %18, ptr %mpPrev2.i.i.i.i, align 8, !noalias !301
-  %20 = load ptr, ptr %17, align 8, !noalias !301
-  store ptr %20, ptr %18, align 8, !noalias !301
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !301
-  %cmp.not.i.i.i.i.i = icmp eq i32 %21, 32623592
+  %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %14, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
+  %14 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !301
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !301
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !301
+  %17 = load ptr, ptr %15, align 8, !noalias !301
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr %16, ptr %mpPrev2.i.i.i.i, align 8, !noalias !301
+  %18 = load ptr, ptr %15, align 8, !noalias !301
+  store ptr %18, ptr %16, align 8, !noalias !301
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %19 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !301
+  %cmp.not.i.i.i.i.i = icmp eq i32 %19, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %22 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !301
-  %inc.i.i.i.i.i = add nsw i32 %22, 1
+  %20 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !301
+  %inc.i.i.i.i.i = add nsw i32 %20, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !301
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i: ; preds = %if.then.i.i.i.i.i, %while.body.i
   store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !301
-  %23 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !301
-  %dec.i.i.i.i.i = add nsw i64 %23, -1
+  %21 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !301
+  %dec.i.i.i.i.i = add nsw i64 %21, -1
   store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !301
-  %24 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !301
-  %inc3.i.i.i.i.i = add nsw i64 %24, 1
+  %22 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !301
+  %inc3.i.i.i.i.i = add nsw i64 %22, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !301
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #10, !noalias !301
-  %25 = load i64, ptr %mSize.i.i.i, align 8, !noalias !301
-  %dec.i.i.i = add i64 %25, -1
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #10, !noalias !301
+  %23 = load i64, ptr %mSize.i.i.i, align 8, !noalias !301
+  %dec.i.i.i = add i64 %23, -1
   store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !301
-  %cmp.i.not.i = icmp eq ptr %16, %this
+  %cmp.i.not.i = icmp eq ptr %14, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !293
 
 if.end:                                           ; preds = %for.body.i, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %if.else
@@ -10136,30 +10136,30 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i32 %11, ptr %mValue.i.i.i.i, align 8, !noalias !312
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 20
   %12 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !312
-  %13 = and i8 %12, 1
-  store i8 %13, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !312
+  %frombool.i.i.i.i.i = and i8 %12, 1
+  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !312
   %mMagicValue.i.i.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 32
-  %14 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !312
-  store i32 %14, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !312
-  %15 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !312
-  %inc.i.i.i.i.i9 = add nsw i64 %15, 1
+  %13 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !312
+  store i32 %13, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !312
+  %14 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !312
+  %inc.i.i.i.i.i9 = add nsw i64 %14, 1
   store i64 %inc.i.i.i.i.i9, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !312
-  %16 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !312
-  %inc5.i.i.i.i.i = add nsw i64 %16, 1
+  %15 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !312
+  %inc5.i.i.i.i.i = add nsw i64 %15, 1
   store i64 %inc5.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !312
-  %17 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !312
-  %inc6.i.i.i.i.i = add nsw i64 %17, 1
+  %16 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !312
+  %inc6.i.i.i.i.i = add nsw i64 %16, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !312
   %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !312
   store ptr %this, ptr %call.i.i.i.i.i.i.i, align 8, !noalias !312
-  %18 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !312
+  %17 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !312
   %mpPrev2.i.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
-  store ptr %18, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !312
-  store ptr %call.i.i.i.i.i.i.i, ptr %18, align 8, !noalias !312
+  store ptr %17, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !312
+  store ptr %call.i.i.i.i.i.i.i, ptr %17, align 8, !noalias !312
   store ptr %call.i.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !312
-  %19 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !312
-  %inc.i.i.i = add i64 %19, 1
+  %18 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !312
+  %inc.i.i.i = add i64 %18, 1
   store i64 %inc.i.i.i, ptr %mSize.i.i.i7, align 8, !noalias !312
   %dec.i.i = add i64 %n.addr.03.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
@@ -10244,38 +10244,38 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 %1, ptr %mValue.i.i.i, align 8
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
-  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
-  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %5, 1
+  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8
+  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
-  %8 = load ptr, ptr %mpPrev.i, align 8
+  %7 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %8, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %8, align 8
+  store ptr %7, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %7, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
-  %9 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %9, 1
+  %8 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %dec.i = add i64 %n.addr.03.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKS1_.exit, label %for.body.i, !llvm.loop !283
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKS1_.exit: ; preds = %for.body.i, %entry
-  %10 = load ptr, ptr %0, align 8
-  store ptr %10, ptr %agg.result, align 8
+  %9 = load ptr, ptr %0, align 8
+  store ptr %9, ptr %agg.result, align 8
   ret void
 }
 
@@ -10390,33 +10390,33 @@ entry:
   %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mbThrowOnCopy.i.i.i, align 4
+  %frombool.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
   %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %4 = load i32, ptr %mMagicValue4.i.i.i, align 8
-  store i32 %4, ptr %mMagicValue.i.i.i, align 8
-  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i = add nsw i64 %5, 1
+  %3 = load i32, ptr %mMagicValue4.i.i.i, align 8
+  store i32 %3, ptr %mMagicValue.i.i.i, align 8
+  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i = add nsw i64 %4, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i = add nsw i64 %5, 1
   store i64 %inc5.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %0, ptr %call.i.i.i.i.i, align 8
   %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %mpPrev.i.i, align 8
+  %7 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store ptr %8, ptr %mpPrev2.i.i, align 8
-  store ptr %call.i.i.i.i.i, ptr %8, align 8
+  store ptr %7, ptr %mpPrev2.i.i, align 8
+  store ptr %call.i.i.i.i.i, ptr %7, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i64, ptr %mSize.i, align 8
-  %inc.i = add i64 %9, 1
+  %8 = load i64, ptr %mSize.i, align 8
+  %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr %mSize.i, align 8
   ret void
 }
@@ -10432,34 +10432,34 @@ entry:
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4, !noalias !321
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !321
+  %frombool.i.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !321
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !321
-  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8, !noalias !321
-  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !321
-  %inc.i.i.i.i = add nsw i64 %5, 1
+  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !321
+  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8, !noalias !321
+  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !321
+  %inc.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !321
-  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !321
-  %inc5.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !321
+  %inc5.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !321
-  %7 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !321
-  %inc6.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !321
+  %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !321
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !321
   store i32 0, ptr %value, align 8, !noalias !321
   store ptr %0, ptr %call.i.i.i.i.i.i, align 8, !noalias !321
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !321
+  %7 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !321
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %8, ptr %mpPrev2.i.i.i, align 8, !noalias !321
-  store ptr %call.i.i.i.i.i.i, ptr %8, align 8, !noalias !321
+  store ptr %7, ptr %mpPrev2.i.i.i, align 8, !noalias !321
+  store ptr %call.i.i.i.i.i.i, ptr %7, align 8, !noalias !321
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !321
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i64, ptr %mSize.i.i, align 8, !noalias !321
-  %inc.i.i = add i64 %9, 1
+  %8 = load i64, ptr %mSize.i.i, align 8, !noalias !321
+  %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !321
   ret void
 }
@@ -10556,33 +10556,33 @@ entry:
   %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mbThrowOnCopy.i.i.i, align 4
+  %frombool.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
   %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %3 = load i32, ptr %mMagicValue4.i.i.i, align 8
-  store i32 %3, ptr %mMagicValue.i.i.i, align 8
-  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i = add nsw i64 %4, 1
+  %2 = load i32, ptr %mMagicValue4.i.i.i, align 8
+  store i32 %2, ptr %mMagicValue.i.i.i, align 8
+  %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i = add nsw i64 %3, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i = add nsw i64 %5, 1
+  %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i = add nsw i64 %4, 1
   store i64 %inc5.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i, align 8
   %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpPrev.i.i, align 8
+  %6 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store ptr %7, ptr %mpPrev2.i.i, align 8
-  store ptr %call.i.i.i.i.i, ptr %7, align 8
+  store ptr %6, ptr %mpPrev2.i.i, align 8
+  store ptr %call.i.i.i.i.i, ptr %6, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i64, ptr %mSize.i, align 8
-  %inc.i = add i64 %8, 1
+  %7 = load i64, ptr %mSize.i, align 8
+  %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mSize.i, align 8
   ret void
 }
@@ -10597,34 +10597,34 @@ entry:
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4, !noalias !324
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !324
+  %frombool.i.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !324
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !324
-  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8, !noalias !324
-  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !324
-  %inc.i.i.i.i = add nsw i64 %4, 1
+  %2 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !324
+  store i32 %2, ptr %mMagicValue.i.i.i.i, align 8, !noalias !324
+  %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !324
+  %inc.i.i.i.i = add nsw i64 %3, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !324
-  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !324
-  %inc5.i.i.i.i = add nsw i64 %5, 1
+  %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !324
+  %inc5.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !324
-  %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !324
-  %inc6.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !324
+  %inc6.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !324
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !324
   store i32 0, ptr %value, align 8, !noalias !324
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8, !noalias !324
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !324
+  %6 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !324
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %7, ptr %mpPrev2.i.i.i, align 8, !noalias !324
-  store ptr %call.i.i.i.i.i.i, ptr %7, align 8, !noalias !324
+  store ptr %6, ptr %mpPrev2.i.i.i, align 8, !noalias !324
+  store ptr %call.i.i.i.i.i.i, ptr %6, align 8, !noalias !324
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !324
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i64, ptr %mSize.i.i, align 8, !noalias !324
-  %inc.i.i = add i64 %8, 1
+  %7 = load i64, ptr %mSize.i.i, align 8, !noalias !324
+  %inc.i.i = add i64 %7, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !324
   ret void
 }
@@ -10868,33 +10868,33 @@ entry:
   %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i, align 4
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mbThrowOnCopy.i.i, align 4
+  %frombool.i.i = and i8 %1, 1
+  store i8 %frombool.i.i, ptr %mbThrowOnCopy.i.i, align 4
   %mMagicValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %mMagicValue4.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %3 = load i32, ptr %mMagicValue4.i.i, align 8
-  store i32 %3, ptr %mMagicValue.i.i, align 8
-  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i = add nsw i64 %4, 1
+  %2 = load i32, ptr %mMagicValue4.i.i, align 8
+  store i32 %2, ptr %mMagicValue.i.i, align 8
+  %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i = add nsw i64 %3, 1
   store i64 %inc.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i = add nsw i64 %5, 1
+  %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i = add nsw i64 %4, 1
   store i64 %inc5.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store i64 %inc5.i.i, ptr %mId.i.i, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
   %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
-  %7 = load ptr, ptr %mpPrev.i, align 8
+  %6 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  store ptr %7, ptr %mpPrev2.i, align 8
-  store ptr %call.i.i.i.i, ptr %7, align 8
+  store ptr %6, ptr %mpPrev2.i, align 8
+  store ptr %call.i.i.i.i, ptr %6, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
   %mSize = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i64, ptr %mSize, align 8
-  %inc = add i64 %8, 1
+  %7 = load i64, ptr %mSize, align 8
+  %inc = add i64 %7, 1
   store i64 %inc, ptr %mSize, align 8
   store ptr %call.i.i.i.i, ptr %agg.result, align 8
   ret void
@@ -10911,37 +10911,37 @@ entry:
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4, !noalias !327
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !327
+  %frombool.i.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !327
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !327
-  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8, !noalias !327
-  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !327
-  %inc.i.i.i.i = add nsw i64 %4, 1
+  %2 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !327
+  store i32 %2, ptr %mMagicValue.i.i.i.i, align 8, !noalias !327
+  %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !327
+  %inc.i.i.i.i = add nsw i64 %3, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !327
-  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !327
-  %inc5.i.i.i.i = add nsw i64 %5, 1
+  %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !327
+  %inc5.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !327
-  %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !327
-  %inc6.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !327
+  %inc6.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !327
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !327
   store i32 0, ptr %value, align 8, !noalias !327
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8, !noalias !327
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
-  %7 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !327
+  %6 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !327
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %7, ptr %mpPrev2.i.i.i, align 8, !noalias !327
-  store ptr %call.i.i.i.i.i.i, ptr %7, align 8, !noalias !327
+  store ptr %6, ptr %mpPrev2.i.i.i, align 8, !noalias !327
+  store ptr %call.i.i.i.i.i.i, ptr %6, align 8, !noalias !327
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !327
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i64, ptr %mSize.i.i, align 8, !noalias !327
-  %inc.i.i = add i64 %8, 1
+  %7 = load i64, ptr %mSize.i.i, align 8, !noalias !327
+  %inc.i.i = add i64 %7, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !327
-  %9 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !327
-  store ptr %9, ptr %agg.result, align 8, !alias.scope !327
+  %8 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !327
+  store ptr %8, ptr %agg.result, align 8, !alias.scope !327
   ret void
 }
 
@@ -10967,39 +10967,39 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %2, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 16
-  %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
-  %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %5, 1
+  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8
+  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %7, 1
+  %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
-  %8 = load ptr, ptr %mpPrev.i, align 8
+  %7 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  store ptr %8, ptr %mpPrev2.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %8, align 8
+  store ptr %7, ptr %mpPrev2.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %7, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
-  %9 = load i64, ptr %mSize.i.i, align 8
-  %inc.i.i = add i64 %9, 1
+  %8 = load i64, ptr %mSize.i.i, align 8
+  %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.i, !llvm.loop !286
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit: ; preds = %for.body.i, %entry
-  %10 = load ptr, ptr %0, align 8
-  store ptr %10, ptr %agg.result, align 8
+  %9 = load ptr, ptr %0, align 8
+  store ptr %9, ptr %agg.result, align 8
   ret void
 }
 

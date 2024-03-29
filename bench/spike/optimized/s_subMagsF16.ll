@@ -192,7 +192,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
 
 104:                                              ; preds = %98, %96
   %.091 = phi i64 [ %97, %96 ], [ %94, %98 ]
-  %105 = icmp ne i8 %.196, 0
+  %105 = trunc i8 %.196 to i1
   %106 = sext i8 %93 to i64
   %107 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %105, i64 noundef %106, i64 noundef %.091) #3
   br label %136

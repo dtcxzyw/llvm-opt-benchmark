@@ -16,9 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Errhandler_free(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %._crit_edge, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.pre = load ptr, ptr %0, align 8

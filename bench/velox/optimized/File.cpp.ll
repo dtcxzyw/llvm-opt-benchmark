@@ -1494,14 +1494,13 @@ define void @_ZN8facebook5velox14LocalWriteFileD2Ev(ptr nocapture noundef nonnul
 entry:
   %closed_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then.i, label %try.cont
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %try.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %file_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %file_.i, align 8
-  %call.i = tail call i32 @fclose(ptr noundef %2)
+  %1 = load ptr, ptr %file_.i, align 8
+  %call.i = tail call i32 @fclose(ptr noundef %1)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then2.i
 
@@ -1522,14 +1521,13 @@ define void @_ZN8facebook5velox14LocalWriteFile5closeEv(ptr nocapture noundef no
 entry:
   %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end4
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %file_, align 8
-  %call = tail call i32 @fclose(ptr noundef %2)
+  %1 = load ptr, ptr %file_, align 8
+  %call = tail call i32 @fclose(ptr noundef %1)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then2
 
@@ -1563,9 +1561,8 @@ define void @_ZN8facebook5velox14LocalWriteFile6appendESt17basic_string_viewIcSt
 entry:
   %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.trap()
@@ -1573,8 +1570,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %file_, align 8
-  %call4 = tail call i64 @fwrite(ptr noundef %data.coerce1, i64 noundef 1, i64 noundef %data.coerce0, ptr noundef %2)
+  %1 = load ptr, ptr %file_, align 8
+  %call4 = tail call i64 @fwrite(ptr noundef %data.coerce1, i64 noundef 1, i64 noundef %data.coerce0, ptr noundef %1)
   %cmp.not = icmp eq i64 %call4, %data.coerce0
   br i1 %cmp.not, label %if.end8, label %if.then7
 
@@ -1596,26 +1593,25 @@ entry:
   %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 16
   %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.trap()
   unreachable
 
 if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %data, align 8
+  call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %rangeIter, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %2 = load ptr, ptr %data, align 8
-  call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %rangeIter, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %3 = load ptr, ptr %data, align 8
-  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %end_.i.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 8
-  %4 = load <2 x ptr>, ptr %rangeIter, align 16
-  %5 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %6 = icmp ne <2 x ptr> %4, %5
-  %7 = extractelement <2 x i1> %6, i64 0
-  %8 = extractelement <2 x i1> %6, i64 1
-  %.not.i12 = select i1 %7, i1 true, i1 %8
+  %3 = load <2 x ptr>, ptr %rangeIter, align 16
+  %4 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %5 = icmp ne <2 x ptr> %3, %4
+  %6 = extractelement <2 x i1> %5, i64 0
+  %7 = extractelement <2 x i1> %5, i64 1
+  %.not.i12 = select i1 %6, i1 true, i1 %7
   br i1 %.not.i12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -1626,13 +1622,13 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
   %totalBytesWritten.013 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %9 = load ptr, ptr %e_.i, align 8
-  %10 = load ptr, ptr %val_.i.i.i, align 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
+  %8 = load ptr, ptr %e_.i, align 8
+  %9 = load ptr, ptr %val_.i.i.i, align 16
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %11 = load ptr, ptr %file_, align 8
-  %call11 = call i64 @fwrite(ptr noundef %10, i64 noundef 1, i64 noundef %sub.ptr.sub.i, ptr noundef %11)
+  %10 = load ptr, ptr %file_, align 8
+  %call11 = call i64 @fwrite(ptr noundef %9, i64 noundef 1, i64 noundef %sub.ptr.sub.i, ptr noundef %10)
   %cmp.not = icmp eq i64 %call11, %sub.ptr.sub.i
   br i1 %cmp.not, label %for.inc, label %if.then12
 
@@ -1642,11 +1638,11 @@ if.then12:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %add = add i64 %sub.ptr.sub.i, %totalBytesWritten.013
-  %12 = load ptr, ptr %rangeIter, align 16
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %rangeIter, align 16
-  %14 = load ptr, ptr %end_.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %13, %14
+  %11 = load ptr, ptr %rangeIter, align 16
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %rangeIter, align 16
+  %13 = load ptr, ptr %end_.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.inc
@@ -1654,30 +1650,30 @@ if.then.i.i.i:                                    ; preds = %for.inc
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.inc
-  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  %15 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %16 = load i64, ptr %length_.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 %16
-  store ptr %15, ptr %val_.i.i.i, align 16
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = load ptr, ptr %data_.i.i.i.i.i, align 8
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = load i64, ptr %length_.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %15
+  store ptr %14, ptr %val_.i.i.i, align 16
   store ptr %add.ptr.i.i.i.i.i, ptr %e_.i, align 8
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %17 = load ptr, ptr %data, align 8
-  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %17)
-  %18 = load <2 x ptr>, ptr %rangeIter, align 16
-  %19 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %20 = icmp ne <2 x ptr> %18, %19
-  %21 = extractelement <2 x i1> %20, i64 0
-  %22 = extractelement <2 x i1> %20, i64 1
-  %.not.i = select i1 %21, i1 true, i1 %22
+  %16 = load ptr, ptr %data, align 8
+  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %16)
+  %17 = load <2 x ptr>, ptr %rangeIter, align 16
+  %18 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %19 = icmp ne <2 x ptr> %17, %18
+  %20 = extractelement <2 x i1> %19, i64 0
+  %21 = extractelement <2 x i1> %19, i64 1
+  %.not.i = select i1 %20, i1 true, i1 %21
   br i1 %.not.i, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit, %if.end
   %totalBytesWritten.0.lcssa = phi i64 [ 0, %if.end ], [ %add, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %23 = load ptr, ptr %data, align 8
-  %call16 = call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %23)
+  %22 = load ptr, ptr %data, align 8
+  %call16 = call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %22)
   %cmp17.not = icmp eq i64 %totalBytesWritten.0.lcssa, %call16
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
@@ -1696,9 +1692,8 @@ define void @_ZN8facebook5velox14LocalWriteFile5flushEv(ptr nocapture noundef no
 entry:
   %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.trap()
@@ -1706,8 +1701,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %file_, align 8
-  %call = tail call i32 @fflush(ptr noundef %2)
+  %1 = load ptr, ptr %file_, align 8
+  %call = tail call i32 @fflush(ptr noundef %1)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end5, label %if.then4
 
@@ -1874,8 +1869,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox16InMemoryReadFile14s
 entry:
   %shouldCoalesce_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %shouldCoalesce_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

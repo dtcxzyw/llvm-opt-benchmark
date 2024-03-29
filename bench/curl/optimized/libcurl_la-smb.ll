@@ -243,9 +243,8 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then2, %if.then2
   %4 = load i8, ptr %ssl_done, align 1
-  %5 = and i8 %4, 1
-  %tobool6.not = icmp eq i8 %5, 0
-  br i1 %tobool6.not, label %return, label %if.end9
+  %tobool6 = trunc i8 %4 to i1
+  br i1 %tobool6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end, %if.then
   %call.i = call fastcc i32 @smb_send_message(ptr noundef nonnull %data, i8 noundef zeroext 114, ptr noundef nonnull @.str.3, i64 noundef 15)
@@ -274,27 +273,27 @@ if.then19:                                        ; preds = %if.end14
   br label %return
 
 if.end20:                                         ; preds = %if.end14, %if.end14
-  %6 = load ptr, ptr %msg, align 8
-  %tobool21.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %msg, align 8
+  %tobool21.not = icmp eq ptr %5, null
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end20
-  %7 = load i32, ptr %proto, align 8
-  switch i32 %7, label %sw.default [
+  %6 = load i32, ptr %proto, align 8
+  switch i32 %6, label %sw.default [
     i32 2, label %sw.bb
     i32 3, label %sw.bb35
   ]
 
 sw.bb:                                            ; preds = %if.end23
   %got = getelementptr inbounds i8, ptr %0, i64 936
-  %8 = load i64, ptr %got, align 8
-  %cmp25 = icmp ult i64 %8, 81
+  %7 = load i64, ptr %got, align 8
+  %cmp25 = icmp ult i64 %7, 81
   br i1 %cmp25, label %if.then27, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %status = getelementptr inbounds i8, ptr %6, i64 9
-  %9 = load i32, ptr %status, align 1
-  %tobool26.not = icmp eq i32 %9, 0
+  %status = getelementptr inbounds i8, ptr %5, i64 9
+  %8 = load i32, ptr %status, align 1
+  %tobool26.not = icmp eq i32 %8, 0
   br i1 %tobool26.not, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %lor.lhs.false, %sw.bb
@@ -303,13 +302,13 @@ if.then27:                                        ; preds = %lor.lhs.false, %sw.
 
 if.end28:                                         ; preds = %lor.lhs.false
   %challenge = getelementptr inbounds i8, ptr %0, i64 888
-  %bytes = getelementptr inbounds i8, ptr %6, i64 73
-  %10 = load i64, ptr %bytes, align 1
-  store i64 %10, ptr %challenge, align 8
-  %session_key = getelementptr inbounds i8, ptr %6, i64 52
-  %11 = load i32, ptr %session_key, align 1
+  %bytes = getelementptr inbounds i8, ptr %5, i64 73
+  %9 = load i64, ptr %bytes, align 1
+  store i64 %9, ptr %challenge, align 8
+  %session_key = getelementptr inbounds i8, ptr %5, i64 52
+  %10 = load i32, ptr %session_key, align 1
   %session_key30 = getelementptr inbounds i8, ptr %0, i64 896
-  store i32 %11, ptr %session_key30, align 8
+  store i32 %10, ptr %session_key30, align 8
   %call31 = call fastcc i32 @smb_send_setup(ptr noundef nonnull %data)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.end34, label %if.then33
@@ -325,9 +324,9 @@ if.end34:                                         ; preds = %if.end28
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end23
-  %status36 = getelementptr inbounds i8, ptr %6, i64 9
-  %12 = load i32, ptr %status36, align 1
-  %tobool37.not = icmp eq i32 %12, 0
+  %status36 = getelementptr inbounds i8, ptr %5, i64 9
+  %11 = load i32, ptr %status36, align 1
+  %tobool37.not = icmp eq i32 %11, 0
   br i1 %tobool37.not, label %if.end39, label %if.then38
 
 if.then38:                                        ; preds = %sw.bb35
@@ -335,10 +334,10 @@ if.then38:                                        ; preds = %sw.bb35
   br label %return
 
 if.end39:                                         ; preds = %sw.bb35
-  %uid = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load i16, ptr %uid, align 1
+  %uid = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = load i16, ptr %uid, align 1
   %uid40 = getelementptr inbounds i8, ptr %0, i64 900
-  store i16 %13, ptr %uid40, align 4
+  store i16 %12, ptr %uid40, align 4
   %data.val35 = load ptr, ptr %conn1, align 8
   %proto.i37 = getelementptr inbounds i8, ptr %data.val35, i64 856
   store i32 4, ptr %proto.i37, align 8

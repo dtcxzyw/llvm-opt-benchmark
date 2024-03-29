@@ -184,25 +184,24 @@ define internal noundef i32 @expert_stat_packet(ptr nocapture noundef readonly %
 switch.hole_check:                                ; preds = %5
   %switch.maskindex = trunc i32 %10 to i8
   %switch.shifted = lshr i8 -85, %switch.maskindex
-  %13 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %13, 0
-  br i1 %switch.lobit.not, label %12, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %12
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.expert_stat_packet, i64 0, i64 %14
+  %13 = zext nneg i32 %10 to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.expert_stat_packet, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
-  %15 = load i32, ptr @lowest_report_level, align 4
-  %16 = icmp ult i32 %switch.load, %15
-  br i1 %16, label %58, label %.preheader
+  %14 = load i32, ptr @lowest_report_level, align 4
+  %15 = icmp ult i32 %switch.load, %14
+  br i1 %15, label %57, label %.preheader
 
 .preheader:                                       ; preds = %switch.lookup
-  %17 = zext nneg i32 %switch.load to i64
-  %18 = getelementptr [5 x ptr], ptr %0, i64 0, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load i32, ptr %20, align 8
-  %.not = icmp eq i32 %21, 0
+  %16 = zext nneg i32 %switch.load to i64
+  %17 = getelementptr [5 x ptr], ptr %0, i64 0, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load i32, ptr %19, align 8
+  %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
@@ -211,65 +210,65 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
-  %wide.trip.count = zext i32 %21 to i64
-  br label %26
+  %21 = load ptr, ptr %18, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %wide.trip.count = zext i32 %20 to i64
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %27 = getelementptr %struct.expert_entry, ptr %22, i64 %indvars.iv
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %29) #10
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %42
+25:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %26 = getelementptr %struct.expert_entry, ptr %21, i64 %indvars.iv
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %28) #10
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %41
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %27, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %35) #10
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %42
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %24, align 8
+  %33 = getelementptr inbounds i8, ptr %26, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %34) #10
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %41
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %27, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %39, align 4
-  br label %58
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %26, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %38, align 4
+  br label %57
 
-42:                                               ; preds = %26, %32
+41:                                               ; preds = %25, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %42, %.preheader.._crit_edge_crit_edge
-  %43 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %24, %42 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr @g_string_chunk_insert_const(ptr noundef %45, ptr noundef %43) #9
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %46, ptr %47, align 8
-  %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @g_string_chunk_insert_const(ptr noundef %48, ptr noundef %50) #9
-  %52 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
-  %54 = load i32, ptr %53, align 4
-  store i32 %54, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 1, ptr %55, align 4
-  %56 = load ptr, ptr %18, align 8
-  %57 = call ptr @g_array_append_vals(ptr noundef %56, ptr noundef nonnull %6, i32 noundef 1) #9
-  br label %58
+._crit_edge:                                      ; preds = %41, %.preheader.._crit_edge_crit_edge
+  %42 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %23, %41 ]
+  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call ptr @g_string_chunk_insert_const(ptr noundef %44, ptr noundef %42) #9
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %45, ptr %46, align 8
+  %47 = load ptr, ptr %43, align 8
+  %48 = getelementptr inbounds i8, ptr %3, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call ptr @g_string_chunk_insert_const(ptr noundef %47, ptr noundef %49) #9
+  %51 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %3, i64 4
+  %53 = load i32, ptr %52, align 4
+  store i32 %53, ptr %6, align 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 1, ptr %54, align 4
+  %55 = load ptr, ptr %17, align 8
+  %56 = call ptr @g_array_append_vals(ptr noundef %55, ptr noundef nonnull %6, i32 noundef 1) #9
+  br label %57
 
-58:                                               ; preds = %switch.lookup, %._crit_edge, %38
+57:                                               ; preds = %switch.lookup, %._crit_edge, %37
   ret i32 1
 }
 

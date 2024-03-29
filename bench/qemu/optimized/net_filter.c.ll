@@ -53,15 +53,14 @@ define dso_local i64 @qemu_netfilter_receive(ptr noundef %nf, i32 noundef %direc
 entry:
   %0 = getelementptr i8, ptr %nf, i64 60
   %nf.val = load i8, ptr %0, align 4
-  %1 = and i8 %nf.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %return, label %if.end
+  %tobool.i = trunc i8 %nf.val to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %direction1 = getelementptr inbounds i8, ptr %nf, i64 56
-  %2 = load i32, ptr %direction1, align 8
-  %cmp = icmp eq i32 %2, %direction
-  %cmp3 = icmp eq i32 %2, 0
+  %1 = load i32, ptr %direction1, align 8
+  %cmp = icmp eq i32 %1, %direction
+  %cmp3 = icmp eq i32 %1, 0
   %or.cond = or i1 %cmp, %cmp3
   br i1 %or.cond, label %if.then4, label %return
 
@@ -69,8 +68,8 @@ if.then4:                                         ; preds = %if.end
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %nf) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #4
   %receive_iov = getelementptr inbounds i8, ptr %call1.i, i64 128
-  %3 = load ptr, ptr %receive_iov, align 8
-  %call6 = tail call i64 %3(ptr noundef nonnull %nf, ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #4
+  %2 = load ptr, ptr %receive_iov, align 8
+  %call6 = tail call i64 %2(ptr noundef nonnull %nf, ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then4
@@ -124,14 +123,13 @@ while.body.us:                                    ; preds = %netfilter_next.exit
   %next.048.us = phi ptr [ %next.0.us, %if.end15.us ], [ %next.046, %netfilter_next.exit ]
   %5 = getelementptr i8, ptr %next.048.us, i64 60
   %nf.val.i.us = load i8, ptr %5, align 4
-  %6 = and i8 %nf.val.i.us, 1
-  %tobool.not.i.i.us = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.us, label %if.end15.us, label %if.end.i.us
+  %tobool.i.i.us = trunc i8 %nf.val.i.us to i1
+  br i1 %tobool.i.i.us, label %if.end.i.us, label %if.end15.us
 
 if.end.i.us:                                      ; preds = %while.body.us
   %direction1.i.us = getelementptr inbounds i8, ptr %next.048.us, i64 56
-  %7 = load i32, ptr %direction1.i.us, align 8
-  switch i32 %7, label %if.end15.us [
+  %6 = load i32, ptr %direction1.i.us, align 8
+  switch i32 %6, label %if.end15.us [
     i32 2, label %qemu_netfilter_receive.exit.us
     i32 0, label %qemu_netfilter_receive.exit.us
   ]
@@ -140,10 +138,10 @@ qemu_netfilter_receive.exit.us:                   ; preds = %if.end.i.us, %if.en
   %call.i.i.us = tail call ptr @object_get_class(ptr noundef nonnull %next.048.us) #4
   %call1.i.i.us = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.us, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #4
   %receive_iov.i.us = getelementptr inbounds i8, ptr %call1.i.i.us, i64 128
-  %8 = load ptr, ptr %receive_iov.i.us, align 8
-  %call6.i.us = tail call i64 %8(ptr noundef nonnull %next.048.us, ptr noundef nonnull %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #4
-  %9 = and i64 %call6.i.us, 4294967295
-  %tobool12.not.us = icmp eq i64 %9, 0
+  %7 = load ptr, ptr %receive_iov.i.us, align 8
+  %call6.i.us = tail call i64 %7(ptr noundef nonnull %next.048.us, ptr noundef nonnull %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #4
+  %8 = and i64 %call6.i.us, 4294967295
+  %tobool12.not.us = icmp eq i64 %8, 0
   br i1 %tobool12.not.us, label %if.end15.us, label %if.then13
 
 if.end15.us:                                      ; preds = %if.end.i.us, %qemu_netfilter_receive.exit.us, %while.body.us
@@ -154,17 +152,16 @@ if.end15.us:                                      ; preds = %if.end.i.us, %qemu_
 
 while.body:                                       ; preds = %netfilter_next.exit.thread, %if.end15
   %next.048 = phi ptr [ %next.0, %if.end15 ], [ %next.04654, %netfilter_next.exit.thread ]
-  %10 = getelementptr i8, ptr %next.048, i64 60
-  %nf.val.i = load i8, ptr %10, align 4
-  %11 = and i8 %nf.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i, label %if.end15, label %if.end.i
+  %9 = getelementptr i8, ptr %next.048, i64 60
+  %nf.val.i = load i8, ptr %9, align 4
+  %tobool.i.i = trunc i8 %nf.val.i to i1
+  br i1 %tobool.i.i, label %if.end.i, label %if.end15
 
 if.end.i:                                         ; preds = %while.body
   %direction1.i = getelementptr inbounds i8, ptr %next.048, i64 56
-  %12 = load i32, ptr %direction1.i, align 8
-  %cmp.i22 = icmp eq i32 %12, %direction.042
-  %cmp3.i = icmp eq i32 %12, 0
+  %10 = load i32, ptr %direction1.i, align 8
+  %cmp.i22 = icmp eq i32 %10, %direction.042
+  %cmp3.i = icmp eq i32 %10, 0
   %or.cond.i = or i1 %cmp.i22, %cmp3.i
   br i1 %or.cond.i, label %qemu_netfilter_receive.exit, label %if.end15
 
@@ -172,10 +169,10 @@ qemu_netfilter_receive.exit:                      ; preds = %if.end.i
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %next.048) #4
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #4
   %receive_iov.i = getelementptr inbounds i8, ptr %call1.i.i, i64 128
-  %13 = load ptr, ptr %receive_iov.i, align 8
-  %call6.i = tail call i64 %13(ptr noundef nonnull %next.048, ptr noundef nonnull %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #4
-  %14 = and i64 %call6.i, 4294967295
-  %tobool12.not = icmp eq i64 %14, 0
+  %11 = load ptr, ptr %receive_iov.i, align 8
+  %call6.i = tail call i64 %11(ptr noundef nonnull %next.048, ptr noundef nonnull %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #4
+  %12 = and i64 %call6.i, 4294967295
+  %tobool12.not = icmp eq i64 %12, 0
   br i1 %tobool12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %qemu_netfilter_receive.exit.us, %qemu_netfilter_receive.exit
@@ -186,22 +183,22 @@ if.then13:                                        ; preds = %qemu_netfilter_rece
 
 if.end15:                                         ; preds = %if.end.i, %while.body, %qemu_netfilter_receive.exit
   %tql_prev.i25 = getelementptr inbounds i8, ptr %next.048, i64 88
-  %15 = load ptr, ptr %tql_prev.i25, align 8
-  %tql_prev3.i26 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %tql_prev3.i26, align 8
-  %next.0 = load ptr, ptr %16, align 8
+  %13 = load ptr, ptr %tql_prev.i25, align 8
+  %tql_prev3.i26 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %tql_prev3.i26, align 8
+  %next.0 = load ptr, ptr %14, align 8
   %tobool10.not = icmp eq ptr %next.0, null
   br i1 %tobool10.not, label %land.lhs.true, label %while.body, !llvm.loop !5
 
 land.lhs.true:                                    ; preds = %if.end15.us, %if.end15, %netfilter_next.exit.thread, %netfilter_next.exit
-  %17 = load ptr, ptr %peer, align 8
-  %tobool19.not = icmp eq ptr %17, null
+  %15 = load ptr, ptr %peer, align 8
+  %tobool19.not = icmp eq ptr %15, null
   br i1 %tobool19.not, label %out, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true
-  %incoming_queue = getelementptr inbounds i8, ptr %17, i64 40
-  %18 = load ptr, ptr %incoming_queue, align 8
-  %call22 = tail call i64 @qemu_net_queue_send_iov(ptr noundef %18, ptr noundef nonnull %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #4
+  %incoming_queue = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = load ptr, ptr %incoming_queue, align 8
+  %call22 = tail call i64 @qemu_net_queue_send_iov(ptr noundef %16, ptr noundef nonnull %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #4
   br label %out
 
 out:                                              ; preds = %land.lhs.true, %if.then20, %entry, %lor.lhs.false
@@ -381,10 +378,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %on = getelementptr inbounds i8, ptr %call.i, i64 60
   %0 = load i8, ptr %on, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %.str.13..str.12 = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.13..str.12) #4
+  %tobool = trunc i8 %0 to i1
+  %.str.12..str.13 = select i1 %tobool, ptr @.str.12, ptr @.str.13
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.12..str.13) #4
   ret ptr %call2
 }
 
@@ -410,13 +406,14 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %land.lhs.true, %entry
   %on = getelementptr inbounds i8, ptr %call.i, i64 60
   %0 = load i8, ptr %on, align 4
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp = xor i1 %tobool.not, %2
+  %1 = trunc i8 %0 to i1
+  %2 = icmp ne i32 %call2, 0
+  %cmp = xor i1 %2, %1
   br i1 %cmp, label %if.end21, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %frombool = xor i8 %1, 1
+  %lnot13 = and i8 %0, 1
+  %frombool = xor i8 %lnot13, 1
   store i8 %frombool, ptr %on, align 4
   %netdev = getelementptr inbounds i8, ptr %call.i, i64 48
   %3 = load ptr, ptr %netdev, align 8
@@ -463,10 +460,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %insert_before_flag = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load i8, ptr %insert_before_flag, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %.str.17..str.16 = select i1 %tobool.not, ptr @.str.17, ptr @.str.16
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.17..str.16) #4
+  %tobool = trunc i8 %0 to i1
+  %.str.16..str.17 = select i1 %tobool, ptr @.str.16, ptr @.str.17
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.16..str.17) #4
   ret ptr %call2
 }
 
@@ -623,88 +619,87 @@ if.end48:                                         ; preds = %if.then43, %if.end3
 if.then50:                                        ; preds = %if.end48
   %insert_before_flag = getelementptr inbounds i8, ptr %call.i, i64 72
   %9 = load i8, ptr %insert_before_flag, align 8
-  %10 = and i8 %9, 1
-  %tobool51.not = icmp eq i8 %10, 0
-  %next64 = getelementptr inbounds i8, ptr %call.i, i64 80
-  br i1 %tobool51.not, label %do.body62, label %do.body
+  %tobool51 = trunc i8 %9 to i1
+  %next53 = getelementptr inbounds i8, ptr %call.i, i64 80
+  br i1 %tobool51, label %do.body, label %do.body62
 
 do.body:                                          ; preds = %if.then50
   %tql_prev = getelementptr inbounds i8, ptr %position.0, i64 88
-  %11 = load ptr, ptr %tql_prev, align 8
+  %10 = load ptr, ptr %tql_prev, align 8
   %tql_prev54 = getelementptr inbounds i8, ptr %call.i, i64 88
-  store ptr %11, ptr %tql_prev54, align 8
-  store ptr %position.0, ptr %next64, align 8
-  %12 = load ptr, ptr %tql_prev, align 8
-  store ptr %call.i, ptr %12, align 8
-  store ptr %next64, ptr %tql_prev, align 8
+  store ptr %10, ptr %tql_prev54, align 8
+  store ptr %position.0, ptr %next53, align 8
+  %11 = load ptr, ptr %tql_prev, align 8
+  store ptr %call.i, ptr %11, align 8
+  store ptr %next53, ptr %tql_prev, align 8
   br label %if.end134
 
 do.body62:                                        ; preds = %if.then50
   %next63 = getelementptr inbounds i8, ptr %position.0, i64 80
-  %13 = load ptr, ptr %next63, align 8
-  store ptr %13, ptr %next64, align 8
-  %cmp65.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %next63, align 8
+  store ptr %12, ptr %next53, align 8
+  %cmp65.not = icmp eq ptr %12, null
   br i1 %cmp65.not, label %if.else71, label %if.then66
 
 if.then66:                                        ; preds = %do.body62
-  %tql_prev70 = getelementptr inbounds i8, ptr %13, i64 88
+  %tql_prev70 = getelementptr inbounds i8, ptr %12, i64 88
   br label %if.end75
 
 if.else71:                                        ; preds = %do.body62
-  %14 = load ptr, ptr %netdev41, align 8
-  %tql_prev74 = getelementptr inbounds i8, ptr %14, i64 368
+  %13 = load ptr, ptr %netdev41, align 8
+  %tql_prev74 = getelementptr inbounds i8, ptr %13, i64 368
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else71, %if.then66
   %tql_prev74.sink = phi ptr [ %tql_prev74, %if.else71 ], [ %tql_prev70, %if.then66 ]
-  store ptr %next64, ptr %tql_prev74.sink, align 8
+  store ptr %next53, ptr %tql_prev74.sink, align 8
   store ptr %call.i, ptr %next63, align 8
   %tql_prev79 = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %next63, ptr %tql_prev79, align 8
   br label %if.end134
 
 if.else82:                                        ; preds = %if.end48
-  %15 = load ptr, ptr %position13, align 8
-  %call84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.24) #5
+  %14 = load ptr, ptr %position13, align 8
+  %call84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.24) #5
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %do.body87, label %if.else111
 
 do.body87:                                        ; preds = %if.else82
-  %16 = load ptr, ptr %netdev41, align 8
-  %filters89 = getelementptr inbounds i8, ptr %16, i64 360
-  %17 = load ptr, ptr %filters89, align 8
+  %15 = load ptr, ptr %netdev41, align 8
+  %filters89 = getelementptr inbounds i8, ptr %15, i64 360
+  %16 = load ptr, ptr %filters89, align 8
   %next90 = getelementptr inbounds i8, ptr %call.i, i64 80
-  store ptr %17, ptr %next90, align 8
-  %cmp91.not = icmp eq ptr %17, null
-  %tql_prev102 = getelementptr inbounds i8, ptr %16, i64 368
-  %tql_prev97 = getelementptr inbounds i8, ptr %17, i64 88
+  store ptr %16, ptr %next90, align 8
+  %cmp91.not = icmp eq ptr %16, null
+  %tql_prev102 = getelementptr inbounds i8, ptr %15, i64 368
+  %tql_prev97 = getelementptr inbounds i8, ptr %16, i64 88
   %tql_prev102.sink = select i1 %cmp91.not, ptr %tql_prev102, ptr %tql_prev97
   store ptr %next90, ptr %tql_prev102.sink, align 8
-  %18 = load ptr, ptr %netdev41, align 8
-  %filters105 = getelementptr inbounds i8, ptr %18, i64 360
+  %17 = load ptr, ptr %netdev41, align 8
+  %filters105 = getelementptr inbounds i8, ptr %17, i64 360
   store ptr %call.i, ptr %filters105, align 8
-  %19 = load ptr, ptr %netdev41, align 8
-  %filters107 = getelementptr inbounds i8, ptr %19, i64 360
+  %18 = load ptr, ptr %netdev41, align 8
+  %filters107 = getelementptr inbounds i8, ptr %18, i64 360
   %tql_prev109 = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %filters107, ptr %tql_prev109, align 8
   br label %if.end134
 
 if.else111:                                       ; preds = %if.else82
-  %call113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.4) #5
+  %call113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.4) #5
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %do.body116, label %if.end134
 
 do.body116:                                       ; preds = %if.else111
   %next117 = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %next117, align 8
-  %20 = load ptr, ptr %netdev41, align 8
-  %tql_prev120 = getelementptr inbounds i8, ptr %20, i64 368
-  %21 = load ptr, ptr %tql_prev120, align 8
+  %19 = load ptr, ptr %netdev41, align 8
+  %tql_prev120 = getelementptr inbounds i8, ptr %19, i64 368
+  %20 = load ptr, ptr %tql_prev120, align 8
   %tql_prev122 = getelementptr inbounds i8, ptr %call.i, i64 88
-  store ptr %21, ptr %tql_prev122, align 8
-  store ptr %call.i, ptr %21, align 8
-  %22 = load ptr, ptr %netdev41, align 8
-  %tql_prev130 = getelementptr inbounds i8, ptr %22, i64 368
+  store ptr %20, ptr %tql_prev122, align 8
+  store ptr %call.i, ptr %20, align 8
+  %21 = load ptr, ptr %netdev41, align 8
+  %tql_prev130 = getelementptr inbounds i8, ptr %21, i64 368
   store ptr %next117, ptr %tql_prev130, align 8
   br label %if.end134
 

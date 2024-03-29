@@ -26,9 +26,8 @@ define i32 @pmix_compress_base_select() local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
   %3 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 1), align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %17
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %17, label %5
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 1), align 8
@@ -42,13 +41,13 @@ define i32 @pmix_compress_base_select() local_unnamed_addr #0 {
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %9, align 8
-  %.not8 = icmp eq ptr %12, null
-  br i1 %.not8, label %15, label %13
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %11
   %14 = call i32 %12() #3
-  %.not9 = icmp eq i32 %14, 0
-  br i1 %.not9, label %._crit_edge, label %17
+  %.not8 = icmp eq i32 %14, 0
+  br i1 %.not8, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %13
   %.pre = load ptr, ptr %2, align 8

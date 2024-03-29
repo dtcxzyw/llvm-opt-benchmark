@@ -45,8 +45,8 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %5 = load i32, ptr %4, align 8, !range !4, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
-  %trunc.not = icmp eq i32 %5, 0
-  br i1 %trunc.not, label %46, label %8
+  %trunc = trunc i32 %5 to i1
+  br i1 %trunc, label %8, label %46
 
 8:                                                ; preds = %3
   %9 = tail call noundef align 8 dereferenceable(8) ptr @_ZN14regex_automata4util8captures8Captures10group_info17hd1eaca0e92345373E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
@@ -221,8 +221,8 @@ define internal void @"_ZN4core3ptr98drop_in_place$LT$$LT$regex..regex..bytes..C
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h03b6be75b19915baE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr %0, align 1, !range !10, !noundef !5
-  %trunc.not = icmp eq i8 %4, 0
-  br i1 %trunc.not, label %5, label %7
+  %trunc = trunc i8 %4 to i1
+  br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9d22597cd373c5bb74cf4345fc6c4f3c.7, i64 noundef 4)
@@ -577,13 +577,13 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !51
   call void @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h275f92c4cb50a20aE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !55
   %23 = load i64, ptr %3, align 8, !range !46, !noalias !51, !noundef !5
-  %trunc.not.i27 = icmp eq i64 %23, 0
+  %trunc.i27 = trunc i64 %23 to i1
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8, !noalias !51, !align !42
   %26 = getelementptr inbounds i8, ptr %3, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !51
-  br i1 %trunc.not.i27, label %._crit_edge, label %.lr.ph
+  br i1 %trunc.i27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit
   %28 = getelementptr inbounds i8, ptr %6, i64 16
@@ -614,8 +614,8 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i64 noundef %37)
   %39 = load i64, ptr %4, align 8, !range !46, !noundef !5
-  %trunc8.not = icmp eq i64 %39, 0
-  br i1 %trunc8.not, label %40, label %42
+  %trunc8 = trunc i64 %39 to i1
+  br i1 %trunc8, label %42, label %40
 
 40:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -640,11 +640,11 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !58
   call void @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h275f92c4cb50a20aE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !55
   %48 = load i64, ptr %3, align 8, !range !46, !noalias !58, !noundef !5
-  %trunc.not.i = icmp eq i64 %48, 0
+  %trunc.i = trunc i64 %48 to i1
   %49 = load ptr, ptr %24, align 8, !noalias !58, !align !42
   %50 = load i64, ptr %26, align 8, !noalias !58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !58
-  br i1 %trunc.not.i, label %._crit_edge, label %34
+  br i1 %trunc.i, label %34, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -795,7 +795,7 @@ define { ptr, i64 } @"_ZN86_$LT$regex..regex..bytes..Captures$u20$as$u20$core..o
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = load i64, ptr %6, align 8, !range !46, !noundef !5
-  %trunc.not = icmp eq i64 %11, 0
+  %trunc = trunc i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !42
   %14 = getelementptr inbounds i8, ptr %6, i64 8
@@ -803,7 +803,7 @@ define { ptr, i64 } @"_ZN86_$LT$regex..regex..bytes..Captures$u20$as$u20$core..o
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br i1 %trunc.not, label %.thread, label %18
+  br i1 %trunc, label %18, label %.thread
 
 18:                                               ; preds = %3
   %19 = icmp ugt i64 %15, %17
@@ -862,7 +862,7 @@ define { ptr, i64 } @"_ZN88_$LT$regex..regex..bytes..Captures$u20$as$u20$core..o
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !noundef !5
   %13 = load i64, ptr %7, align 8, !range !46, !noundef !5
-  %trunc.not = icmp eq i64 %13, 0
+  %trunc = trunc i64 %13 to i1
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !42
   %16 = getelementptr inbounds i8, ptr %7, i64 8
@@ -870,7 +870,7 @@ define { ptr, i64 } @"_ZN88_$LT$regex..regex..bytes..Captures$u20$as$u20$core..o
   %18 = getelementptr inbounds i8, ptr %7, i64 16
   %19 = load i64, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br i1 %trunc.not, label %.thread, label %20
+  br i1 %trunc, label %20, label %.thread
 
 20:                                               ; preds = %4
   %21 = icmp ugt i64 %17, %19

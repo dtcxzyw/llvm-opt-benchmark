@@ -101,21 +101,23 @@ land.end:                                         ; preds = %land.rhs, %entry
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %if.end224, label %while.cond.preheader
 
-while.cond.preheader:                             ; preds = %land.end, %while.end199
-  %retcode.0.ph589 = phi i32 [ %retcode.1, %while.end199 ], [ 1, %land.end ]
-  %login.0.ph588 = phi ptr [ %login.1, %while.end199 ], [ %0, %land.end ]
-  %done.0.ph587 = phi i8 [ %done.1, %while.end199 ], [ 0, %land.end ]
-  %state_our_login.0.ph586 = phi i32 [ %state_our_login.1, %while.end199 ], [ 1, %land.end ]
-  %state_password.0.ph585 = phi i8 [ %state_password.1, %while.end199 ], [ 0, %land.end ]
-  %state_login.0.ph584 = phi i8 [ %state_login.1, %while.end199 ], [ 0, %land.end ]
-  %state.0.ph583 = phi i32 [ %state.2, %while.end199 ], [ 0, %land.end ]
-  %password_alloc.0.ph582 = phi i8 [ %password_alloc.1, %while.end199 ], [ 0, %land.end ]
-  %login_alloc.0.ph581 = phi i8 [ %login_alloc.1, %while.end199 ], [ 0, %land.end ]
-  %password.0.ph580 = phi ptr [ %password.1, %while.end199 ], [ %1, %land.end ]
+while.cond.preheader.loopexit:                    ; preds = %while.cond24, %while.cond24
+  br label %while.cond.preheader
+
+while.cond.preheader:                             ; preds = %land.end, %while.cond.preheader.loopexit
+  %retcode.0.ph587 = phi i32 [ %retcode.1, %while.cond.preheader.loopexit ], [ 1, %land.end ]
+  %login.0.ph586 = phi ptr [ %login.1, %while.cond.preheader.loopexit ], [ %0, %land.end ]
+  %state_our_login.0.ph585 = phi i32 [ %state_our_login.1, %while.cond.preheader.loopexit ], [ 1, %land.end ]
+  %state_password.0.ph584 = phi i8 [ %state_password.1, %while.cond.preheader.loopexit ], [ 0, %land.end ]
+  %state_login.0.ph583 = phi i8 [ %state_login.1, %while.cond.preheader.loopexit ], [ 0, %land.end ]
+  %state.0.ph582 = phi i32 [ %state.2, %while.cond.preheader.loopexit ], [ 0, %land.end ]
+  %password_alloc.0.ph581 = phi i8 [ %password_alloc.1, %while.cond.preheader.loopexit ], [ 0, %land.end ]
+  %login_alloc.0.ph580 = phi i8 [ %login_alloc.1, %while.cond.preheader.loopexit ], [ 0, %land.end ]
+  %password.0.ph579 = phi ptr [ %password.1, %while.cond.preheader.loopexit ], [ %1, %land.end ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.then10
-  %state.0 = phi i32 [ 3, %if.then10 ], [ %state.0.ph583, %while.cond.preheader ]
+  %state.0 = phi i32 [ 3, %if.then10 ], [ %state.0.ph582, %while.cond.preheader ]
   %call5 = call ptr @Curl_get_line(ptr noundef nonnull %netrcbuffer, i32 noundef 4096, ptr noundef nonnull %call) #4
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %out.split, label %while.body
@@ -136,16 +138,16 @@ while.cond21.preheader:                           ; preds = %if.then10, %if.then
   br label %while.cond21
 
 while.cond21:                                     ; preds = %while.cond21.preheader, %sw.epilog197
-  %password.1 = phi ptr [ %password.3, %sw.epilog197 ], [ %password.0.ph580, %while.cond21.preheader ]
-  %login_alloc.1 = phi i8 [ %login_alloc.4, %sw.epilog197 ], [ %login_alloc.0.ph581, %while.cond21.preheader ]
-  %password_alloc.1 = phi i8 [ %password_alloc.4, %sw.epilog197 ], [ %password_alloc.0.ph582, %while.cond21.preheader ]
+  %password.1 = phi ptr [ %password.3, %sw.epilog197 ], [ %password.0.ph579, %while.cond21.preheader ]
+  %login_alloc.1 = phi i8 [ %login_alloc.4, %sw.epilog197 ], [ %login_alloc.0.ph580, %while.cond21.preheader ]
+  %password_alloc.1 = phi i8 [ %password_alloc.4, %sw.epilog197 ], [ %password_alloc.0.ph581, %while.cond21.preheader ]
   %state.2 = phi i32 [ %state.3, %sw.epilog197 ], [ %state.2.ph, %while.cond21.preheader ]
-  %state_login.1 = phi i8 [ %state_login.2, %sw.epilog197 ], [ %state_login.0.ph584, %while.cond21.preheader ]
-  %state_password.1 = phi i8 [ %state_password.2, %sw.epilog197 ], [ %state_password.0.ph585, %while.cond21.preheader ]
-  %state_our_login.1 = phi i32 [ %state_our_login.3, %sw.epilog197 ], [ %state_our_login.0.ph586, %while.cond21.preheader ]
-  %login.1 = phi ptr [ %login.3, %sw.epilog197 ], [ %login.0.ph588, %while.cond21.preheader ]
+  %state_login.1 = phi i8 [ %state_login.2, %sw.epilog197 ], [ %state_login.0.ph583, %while.cond21.preheader ]
+  %state_password.1 = phi i8 [ %state_password.2, %sw.epilog197 ], [ %state_password.0.ph584, %while.cond21.preheader ]
+  %state_our_login.1 = phi i32 [ %state_our_login.3, %sw.epilog197 ], [ %state_our_login.0.ph585, %while.cond21.preheader ]
+  %login.1 = phi ptr [ %login.3, %sw.epilog197 ], [ %login.0.ph586, %while.cond21.preheader ]
   %tok.0 = phi ptr [ %incdec.ptr198, %sw.epilog197 ], [ %netrcbuffer, %while.cond21.preheader ]
-  %retcode.1 = phi i32 [ %retcode.2, %sw.epilog197 ], [ %retcode.0.ph589, %while.cond21.preheader ]
+  %retcode.1 = phi i32 [ %retcode.2, %sw.epilog197 ], [ %retcode.0.ph587, %while.cond21.preheader ]
   br label %while.cond24
 
 while.cond24:                                     ; preds = %while.cond21, %while.body31
@@ -154,8 +156,8 @@ while.cond24:                                     ; preds = %while.cond21, %whil
   switch i8 %5, label %while.cond45 [
     i8 32, label %while.body31
     i8 9, label %while.body31
-    i8 0, label %while.end199
-    i8 35, label %while.end199
+    i8 0, label %while.cond.preheader.loopexit
+    i8 35, label %while.cond.preheader.loopexit
     i8 34, label %if.else66
   ]
 
@@ -184,28 +186,27 @@ while.body63:                                     ; preds = %lor.rhs53
 if.else66:                                        ; preds = %while.cond24
   %incdec.ptr67 = getelementptr inbounds i8, ptr %tok.1, i64 1
   %8 = load i8, ptr %incdec.ptr67, align 1
-  %tobool69.not.not175187 = icmp eq i8 %8, 0
-  br i1 %tobool69.not.not175187, label %while.end93.thread, label %while.body70.lr.ph
+  %tobool69.not.not174186 = icmp eq i8 %8, 0
+  br i1 %tobool69.not.not174186, label %while.end93.thread, label %while.body70.lr.ph
 
 while.body70.lr.ph:                               ; preds = %if.else66, %if.end90
-  %9 = phi i8 [ %13, %if.end90 ], [ %8, %if.else66 ]
-  %store.0.ph190 = phi ptr [ %incdec.ptr91, %if.end90 ], [ %tok.1, %if.else66 ]
-  %escape.0.ph189 = phi i8 [ %escape.1, %if.end90 ], [ 0, %if.else66 ]
-  %tok_end.1.ph188 = phi ptr [ %incdec.ptr92, %if.end90 ], [ %incdec.ptr67, %if.else66 ]
+  %9 = phi i8 [ %12, %if.end90 ], [ %8, %if.else66 ]
+  %store.0.ph189 = phi ptr [ %incdec.ptr91, %if.end90 ], [ %tok.1, %if.else66 ]
+  %escape.0.ph188 = phi i8 [ %escape.1, %if.end90 ], [ 0, %if.else66 ]
+  %tok_end.1.ph187 = phi ptr [ %incdec.ptr92, %if.end90 ], [ %incdec.ptr67, %if.else66 ]
   br label %while.body70
 
 while.end93.thread:                               ; preds = %if.else66, %if.end90, %if.then80
-  %store.0.ph.lcssa114 = phi ptr [ %store.0.ph190, %if.then80 ], [ %incdec.ptr91, %if.end90 ], [ %tok.1, %if.else66 ]
-  store i8 0, ptr %store.0.ph.lcssa114, align 1
+  %store.0.ph.lcssa113 = phi ptr [ %store.0.ph189, %if.then80 ], [ %incdec.ptr91, %if.end90 ], [ %tok.1, %if.else66 ]
+  store i8 0, ptr %store.0.ph.lcssa113, align 1
   br label %if.else215
 
 while.body70:                                     ; preds = %while.body70.lr.ph, %if.then80
-  %10 = phi i8 [ %9, %while.body70.lr.ph ], [ %12, %if.then80 ]
-  %escape.0177 = phi i8 [ %escape.0.ph189, %while.body70.lr.ph ], [ 1, %if.then80 ]
-  %tok_end.1176 = phi ptr [ %tok_end.1.ph188, %while.body70.lr.ph ], [ %incdec.ptr81, %if.then80 ]
-  %11 = and i8 %escape.0177, 1
-  %tobool71.not = icmp eq i8 %11, 0
-  br i1 %tobool71.not, label %if.else76, label %if.then72
+  %10 = phi i8 [ %9, %while.body70.lr.ph ], [ %11, %if.then80 ]
+  %escape.0176 = phi i8 [ %escape.0.ph188, %while.body70.lr.ph ], [ 1, %if.then80 ]
+  %tok_end.1175 = phi ptr [ %tok_end.1.ph187, %while.body70.lr.ph ], [ %incdec.ptr81, %if.then80 ]
+  %tobool71 = trunc i8 %escape.0176 to i1
+  br i1 %tobool71, label %if.then72, label %if.else76
 
 if.then72:                                        ; preds = %while.body70
   switch i8 %10, label %if.end90 [
@@ -230,46 +231,46 @@ if.else76:                                        ; preds = %while.body70
   ]
 
 if.then80:                                        ; preds = %if.else76
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %tok_end.1176, i64 1
-  %12 = load i8, ptr %incdec.ptr81, align 1
-  %tobool69.not.not = icmp eq i8 %12, 0
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %tok_end.1175, i64 1
+  %11 = load i8, ptr %incdec.ptr81, align 1
+  %tobool69.not.not = icmp eq i8 %11, 0
   br i1 %tobool69.not.not, label %while.end93.thread, label %while.body70, !llvm.loop !8
 
 if.end90:                                         ; preds = %if.else76, %if.then72, %sw.bb, %sw.bb74, %sw.bb75
-  %escape.1 = phi i8 [ 0, %if.then72 ], [ 0, %sw.bb75 ], [ 0, %sw.bb74 ], [ 0, %sw.bb ], [ %escape.0177, %if.else76 ]
+  %escape.1 = phi i8 [ 0, %if.then72 ], [ 0, %sw.bb75 ], [ 0, %sw.bb74 ], [ 0, %sw.bb ], [ %escape.0176, %if.else76 ]
   %s.0 = phi i8 [ %10, %if.then72 ], [ 9, %sw.bb75 ], [ 13, %sw.bb74 ], [ 10, %sw.bb ], [ %10, %if.else76 ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %store.0.ph190, i64 1
-  store i8 %s.0, ptr %store.0.ph190, align 1
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %tok_end.1176, i64 1
-  %13 = load i8, ptr %incdec.ptr92, align 1
-  %tobool69.not.not175 = icmp eq i8 %13, 0
-  br i1 %tobool69.not.not175, label %while.end93.thread, label %while.body70.lr.ph, !llvm.loop !8
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %store.0.ph189, i64 1
+  store i8 %s.0, ptr %store.0.ph189, align 1
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %tok_end.1175, i64 1
+  %12 = load i8, ptr %incdec.ptr92, align 1
+  %tobool69.not.not174 = icmp eq i8 %12, 0
+  br i1 %tobool69.not.not174, label %while.end93.thread, label %while.body70.lr.ph, !llvm.loop !8
 
 while.end93:                                      ; preds = %if.else76
-  %incdec.ptr87 = getelementptr inbounds i8, ptr %tok_end.1176, i64 1
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %tok_end.1175, i64 1
   br label %if.end100
 
 if.end100:                                        ; preds = %lor.rhs53, %while.cond45, %while.cond45, %while.end93
-  %store.0.ph190.lcssa.sink = phi ptr [ %store.0.ph190, %while.end93 ], [ %tok_end.0, %while.cond45 ], [ %tok_end.0, %while.cond45 ], [ %tok_end.0, %lor.rhs53 ]
+  %store.0.ph189.lcssa.sink = phi ptr [ %store.0.ph189, %while.end93 ], [ %tok_end.0, %while.cond45 ], [ %tok_end.0, %while.cond45 ], [ %tok_end.0, %lor.rhs53 ]
   %tok_end.3 = phi ptr [ %incdec.ptr87, %while.end93 ], [ %tok_end.0, %while.cond45 ], [ %tok_end.0, %while.cond45 ], [ %tok_end.0, %lor.rhs53 ]
-  store i8 0, ptr %store.0.ph190.lcssa.sink, align 1
+  store i8 0, ptr %store.0.ph189.lcssa.sink, align 1
   %tobool101.not = icmp eq ptr %login.1, null
   br i1 %tobool101.not, label %if.end110, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end100
-  %14 = load i8, ptr %login.1, align 1
-  %tobool103 = icmp ne i8 %14, 0
+  %13 = load i8, ptr %login.1, align 1
+  %tobool103 = icmp ne i8 %13, 0
   %tobool105 = icmp ne ptr %password.1, null
   %or.cond1 = select i1 %tobool103, i1 %tobool105, i1 false
   br i1 %or.cond1, label %land.lhs.true106, label %if.end110
 
 land.lhs.true106:                                 ; preds = %land.lhs.true
-  %15 = load i8, ptr %password.1, align 1
-  %tobool108.not = icmp eq i8 %15, 0
-  br i1 %tobool108.not, label %if.end110, label %while.end199
+  %14 = load i8, ptr %password.1, align 1
+  %tobool108.not = icmp eq i8 %14, 0
+  br i1 %tobool108.not, label %if.end110, label %out.split
 
 if.end110:                                        ; preds = %land.lhs.true106, %land.lhs.true, %if.end100
-  switch i32 %state.2, label %default.unreachable327 [
+  switch i32 %state.2, label %default.unreachable326 [
     i32 0, label %sw.bb111
     i32 3, label %sw.bb126
     i32 1, label %sw.bb131
@@ -328,19 +329,18 @@ lor.lhs.false147:                                 ; preds = %if.else145
   br i1 %tobool149.not, label %sw.epilog197, label %if.then150
 
 if.then150:                                       ; preds = %lor.lhs.false147, %if.else145
-  %16 = and i8 %login_alloc.1, 1
-  %tobool151.not = icmp eq i8 %16, 0
-  br i1 %tobool151.not, label %if.end153, label %if.then152
+  %tobool151 = trunc i8 %login_alloc.1 to i1
+  br i1 %tobool151, label %if.then152, label %if.end153
 
 if.then152:                                       ; preds = %if.then150
-  %17 = load ptr, ptr @Curl_cfree, align 8
-  call void %17(ptr noundef %login.1) #4
+  %15 = load ptr, ptr @Curl_cfree, align 8
+  call void %15(ptr noundef %login.1) #4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then152, %if.then150
   %login_alloc.2 = phi i8 [ 0, %if.then152 ], [ %login_alloc.1, %if.then150 ]
-  %18 = load ptr, ptr @Curl_cstrdup, align 8
-  %call154 = call ptr %18(ptr noundef nonnull %tok.1) #4
+  %16 = load ptr, ptr @Curl_cstrdup, align 8
+  %call154 = call ptr %16(ptr noundef nonnull %tok.1) #4
   %tobool155.not = icmp eq ptr %call154, null
   br i1 %tobool155.not, label %if.else215, label %sw.epilog197
 
@@ -363,19 +363,18 @@ lor.lhs.false168:                                 ; preds = %land.lhs.true166
   br i1 %tobool170.not, label %sw.epilog197, label %if.then171
 
 if.then171:                                       ; preds = %lor.lhs.false168, %land.lhs.true166
-  %19 = and i8 %password_alloc.1, 1
-  %tobool172.not = icmp eq i8 %19, 0
-  br i1 %tobool172.not, label %if.end174, label %if.then173
+  %tobool172 = trunc i8 %password_alloc.1 to i1
+  br i1 %tobool172, label %if.then173, label %if.end174
 
 if.then173:                                       ; preds = %if.then171
-  %20 = load ptr, ptr @Curl_cfree, align 8
-  call void %20(ptr noundef %password.1) #4
+  %17 = load ptr, ptr @Curl_cfree, align 8
+  call void %17(ptr noundef %password.1) #4
   br label %if.end174
 
 if.end174:                                        ; preds = %if.then173, %if.then171
   %password_alloc.2 = phi i8 [ 0, %if.then173 ], [ %password_alloc.1, %if.then171 ]
-  %21 = load ptr, ptr @Curl_cstrdup, align 8
-  %call175 = call ptr %21(ptr noundef nonnull %tok.1) #4
+  %18 = load ptr, ptr @Curl_cstrdup, align 8
+  %call175 = call ptr %18(ptr noundef nonnull %tok.1) #4
   %tobool176.not = icmp eq ptr %call175, null
   br i1 %tobool176.not, label %if.else215, label %sw.epilog197
 
@@ -396,7 +395,7 @@ if.else188:                                       ; preds = %if.else184
   %spec.select80 = select i1 %tobool190.not, i32 %state_our_login.1, i32 0
   br label %sw.epilog197
 
-default.unreachable327:                           ; preds = %if.end110
+default.unreachable326:                           ; preds = %if.end110
   unreachable
 
 sw.epilog197:                                     ; preds = %if.else188, %sw.bb126, %if.else119, %if.else184, %if.else180, %lor.lhs.false168, %if.then162, %if.end174, %if.then141, %lor.lhs.false147, %if.end153, %sw.bb131, %if.else115, %sw.bb111
@@ -412,91 +411,81 @@ sw.epilog197:                                     ; preds = %if.else188, %sw.bb1
   %incdec.ptr198 = getelementptr inbounds i8, ptr %tok_end.3, i64 1
   br label %while.cond21, !llvm.loop !9
 
-while.end199:                                     ; preds = %land.lhs.true106, %while.cond24, %while.cond24
-  %done.1 = phi i8 [ %done.0.ph587, %while.cond24 ], [ %done.0.ph587, %while.cond24 ], [ 1, %land.lhs.true106 ]
-  %22 = and i8 %done.1, 1
-  %tobool3.not = icmp eq i8 %22, 0
-  br i1 %tobool3.not, label %while.cond.preheader, label %out.split, !llvm.loop !10
-
-out.split:                                        ; preds = %while.end199, %while.cond
-  %password.0.ph579 = phi ptr [ %password.0.ph580, %while.cond ], [ %password.1, %while.end199 ]
-  %login_alloc.0.ph572 = phi i8 [ %login_alloc.0.ph581, %while.cond ], [ %login_alloc.1, %while.end199 ]
-  %password_alloc.0.ph565 = phi i8 [ %password_alloc.0.ph582, %while.cond ], [ %password_alloc.1, %while.end199 ]
-  %login.0.ph558 = phi ptr [ %login.0.ph588, %while.cond ], [ %login.1, %while.end199 ]
-  %retcode.0.ph551 = phi i32 [ %retcode.0.ph589, %while.cond ], [ %retcode.1, %while.end199 ]
-  %tobool201.not = icmp eq i32 %retcode.0.ph551, 0
+out.split:                                        ; preds = %while.cond, %land.lhs.true106
+  %password.0.ph578 = phi ptr [ %password.1, %land.lhs.true106 ], [ %password.0.ph579, %while.cond ]
+  %login_alloc.0.ph571 = phi i8 [ %login_alloc.1, %land.lhs.true106 ], [ %login_alloc.0.ph580, %while.cond ]
+  %password_alloc.0.ph564 = phi i8 [ %password_alloc.1, %land.lhs.true106 ], [ %password_alloc.0.ph581, %while.cond ]
+  %login.0.ph557 = phi ptr [ %login.1, %land.lhs.true106 ], [ %login.0.ph586, %while.cond ]
+  %retcode.0.ph550 = phi i32 [ %retcode.1, %land.lhs.true106 ], [ %retcode.0.ph587, %while.cond ]
+  %tobool201.not = icmp eq i32 %retcode.0.ph550, 0
   br i1 %tobool201.not, label %if.then202, label %if.else215
 
 if.then202:                                       ; preds = %out.split
-  %23 = and i8 %login_alloc.0.ph572, 1
-  %tobool203.not = icmp eq i8 %23, 0
-  br i1 %tobool203.not, label %if.end208, label %if.then204
+  %tobool203 = trunc i8 %login_alloc.0.ph571 to i1
+  br i1 %tobool203, label %if.then204, label %if.end208
 
 if.then204:                                       ; preds = %if.then202
-  %24 = load ptr, ptr %loginp, align 8
-  %tobool205.not = icmp eq ptr %24, null
+  %19 = load ptr, ptr %loginp, align 8
+  %tobool205.not = icmp eq ptr %19, null
   br i1 %tobool205.not, label %if.end207, label %if.then206
 
 if.then206:                                       ; preds = %if.then204
-  %25 = load ptr, ptr @Curl_cfree, align 8
-  call void %25(ptr noundef nonnull %24) #4
+  %20 = load ptr, ptr @Curl_cfree, align 8
+  call void %20(ptr noundef nonnull %19) #4
   br label %if.end207
 
 if.end207:                                        ; preds = %if.then206, %if.then204
-  store ptr %login.0.ph558, ptr %loginp, align 8
+  store ptr %login.0.ph557, ptr %loginp, align 8
   br label %if.end208
 
 if.end208:                                        ; preds = %if.end207, %if.then202
-  %26 = and i8 %password_alloc.0.ph565, 1
-  %tobool209.not = icmp eq i8 %26, 0
-  br i1 %tobool209.not, label %if.end222, label %if.then210
+  %tobool209 = trunc i8 %password_alloc.0.ph564 to i1
+  br i1 %tobool209, label %if.then210, label %if.end222
 
 if.then210:                                       ; preds = %if.end208
-  %27 = load ptr, ptr %passwordp, align 8
-  %tobool211.not = icmp eq ptr %27, null
+  %21 = load ptr, ptr %passwordp, align 8
+  %tobool211.not = icmp eq ptr %21, null
   br i1 %tobool211.not, label %if.end213, label %if.then212
 
 if.then212:                                       ; preds = %if.then210
-  %28 = load ptr, ptr @Curl_cfree, align 8
-  call void %28(ptr noundef nonnull %27) #4
+  %22 = load ptr, ptr @Curl_cfree, align 8
+  call void %22(ptr noundef nonnull %21) #4
   br label %if.end213
 
 if.end213:                                        ; preds = %if.then212, %if.then210
-  store ptr %password.0.ph579, ptr %passwordp, align 8
+  store ptr %password.0.ph578, ptr %passwordp, align 8
   br label %if.end222
 
 if.else215:                                       ; preds = %if.end174, %if.end153, %while.end93.thread, %out.split
-  %retcode.396 = phi i32 [ %retcode.0.ph551, %out.split ], [ -1, %while.end93.thread ], [ -1, %if.end153 ], [ -1, %if.end174 ]
-  %login.494 = phi ptr [ %login.0.ph558, %out.split ], [ %login.1, %while.end93.thread ], [ %login.1, %if.end174 ], [ null, %if.end153 ]
-  %password_alloc.593 = phi i8 [ %password_alloc.0.ph565, %out.split ], [ %password_alloc.1, %while.end93.thread ], [ %password_alloc.2, %if.end174 ], [ %password_alloc.1, %if.end153 ]
-  %login_alloc.592 = phi i8 [ %login_alloc.0.ph572, %out.split ], [ %login_alloc.1, %while.end93.thread ], [ %login_alloc.1, %if.end174 ], [ %login_alloc.2, %if.end153 ]
-  %password.491 = phi ptr [ %password.0.ph579, %out.split ], [ %password.1, %while.end93.thread ], [ null, %if.end174 ], [ %password.1, %if.end153 ]
-  %29 = and i8 %login_alloc.592, 1
-  %tobool216.not = icmp eq i8 %29, 0
-  br i1 %tobool216.not, label %if.end218, label %if.then217
+  %retcode.395 = phi i32 [ %retcode.0.ph550, %out.split ], [ -1, %while.end93.thread ], [ -1, %if.end153 ], [ -1, %if.end174 ]
+  %login.493 = phi ptr [ %login.0.ph557, %out.split ], [ %login.1, %while.end93.thread ], [ %login.1, %if.end174 ], [ null, %if.end153 ]
+  %password_alloc.592 = phi i8 [ %password_alloc.0.ph564, %out.split ], [ %password_alloc.1, %while.end93.thread ], [ %password_alloc.2, %if.end174 ], [ %password_alloc.1, %if.end153 ]
+  %login_alloc.591 = phi i8 [ %login_alloc.0.ph571, %out.split ], [ %login_alloc.1, %while.end93.thread ], [ %login_alloc.1, %if.end174 ], [ %login_alloc.2, %if.end153 ]
+  %password.490 = phi ptr [ %password.0.ph578, %out.split ], [ %password.1, %while.end93.thread ], [ null, %if.end174 ], [ %password.1, %if.end153 ]
+  %tobool216 = trunc i8 %login_alloc.591 to i1
+  br i1 %tobool216, label %if.then217, label %if.end218
 
 if.then217:                                       ; preds = %if.else215
-  %30 = load ptr, ptr @Curl_cfree, align 8
-  call void %30(ptr noundef %login.494) #4
+  %23 = load ptr, ptr @Curl_cfree, align 8
+  call void %23(ptr noundef %login.493) #4
   br label %if.end218
 
 if.end218:                                        ; preds = %if.then217, %if.else215
-  %31 = and i8 %password_alloc.593, 1
-  %tobool219.not = icmp eq i8 %31, 0
-  br i1 %tobool219.not, label %if.end222, label %if.then220
+  %tobool219 = trunc i8 %password_alloc.592 to i1
+  br i1 %tobool219, label %if.then220, label %if.end222
 
 if.then220:                                       ; preds = %if.end218
-  %32 = load ptr, ptr @Curl_cfree, align 8
-  call void %32(ptr noundef %password.491) #4
+  %24 = load ptr, ptr @Curl_cfree, align 8
+  call void %24(ptr noundef %password.490) #4
   br label %if.end222
 
 if.end222:                                        ; preds = %if.end218, %if.then220, %if.end208, %if.end213
-  %retcode.395 = phi i32 [ %retcode.396, %if.end218 ], [ %retcode.396, %if.then220 ], [ 0, %if.end208 ], [ 0, %if.end213 ]
+  %retcode.394 = phi i32 [ %retcode.395, %if.end218 ], [ %retcode.395, %if.then220 ], [ 0, %if.end208 ], [ 0, %if.end213 ]
   %call223 = call i32 @fclose(ptr noundef nonnull %call)
   br label %if.end224
 
 if.end224:                                        ; preds = %if.end222, %land.end
-  %retcode.4 = phi i32 [ %retcode.395, %if.end222 ], [ 1, %land.end ]
+  %retcode.4 = phi i32 [ %retcode.394, %if.end222 ], [ 1, %land.end ]
   ret i32 %retcode.4
 }
 
@@ -530,4 +519,3 @@ attributes #4 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

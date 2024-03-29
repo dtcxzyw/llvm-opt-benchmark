@@ -150,17 +150,16 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
   %backend_blocked = getelementptr inbounds i8, ptr %call.i, i64 4152
   %0 = load i8, ptr %backend_blocked, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16420, ptr nonnull %msg.i)
-  %2 = getelementptr inbounds i8, ptr %msg.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %2, i8 0, i64 16412, i1 false)
+  %1 = getelementptr inbounds i8, ptr %msg.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %1, i8 0, i64 16412, i1 false)
   store i32 10, ptr %msg.i, align 4
-  %3 = getelementptr inbounds i8, ptr %msg.i, i64 4
-  store i32 4, ptr %3, align 4
+  %2 = getelementptr inbounds i8, ptr %msg.i, i64 4
+  store i32 4, ptr %2, align 4
   %vhost_chr.i.i = getelementptr inbounds i8, ptr %call.i, i64 2944
   %call.i.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr.i.i, ptr noundef nonnull %msg.i, i32 noundef 12) #7
   call void @llvm.lifetime.end.p0(i64 16420, ptr nonnull %msg.i)
@@ -169,8 +168,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %vhost_gpu_fd.i = getelementptr inbounds i8, ptr %call.i, i64 2936
-  %4 = load i32, ptr %vhost_gpu_fd.i, align 8
-  call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef nonnull @vhost_user_gpu_chr_read, ptr noundef null, ptr noundef nonnull %call.i) #7
+  %3 = load i32, ptr %vhost_gpu_fd.i, align 8
+  call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef nonnull @vhost_user_gpu_chr_read, ptr noundef null, ptr noundef nonnull %call.i) #7
   ret void
 }
 
@@ -264,9 +263,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %1 = load i8, ptr %vm_running, align 2
-  %2 = and i8 %1, 1
-  %tobool1.not = icmp eq i8 %2, 0
-  br i1 %tobool1.not, label %if.else, label %if.then
+  %tobool1 = trunc i8 %1 to i1
+  br i1 %tobool1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sv.i)
@@ -276,8 +274,8 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %if.then
   %call1.i = tail call ptr @__errno_location() #8
-  %3 = load i32, ptr %call1.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.21, i32 noundef 430, ptr noundef nonnull @__func__.vhost_user_gpu_do_set_socket, i32 noundef %3, ptr noundef nonnull @.str.22) #7
+  %2 = load i32, ptr %call1.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.21, i32 noundef 430, ptr noundef nonnull @__func__.vhost_user_gpu_do_set_socket, i32 noundef %2, ptr noundef nonnull @.str.22) #7
   br label %if.then4
 
 if.end.i:                                         ; preds = %if.then
@@ -287,8 +285,8 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool.not.i, label %if.then6.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %4 = load i32, ptr %sv.i, align 4
-  %call4.i = call i32 @qemu_chr_add_client(ptr noundef nonnull %call.i.i, i32 noundef %4) #7
+  %3 = load i32, ptr %sv.i, align 4
+  %call4.i = call i32 @qemu_chr_add_client(ptr noundef nonnull %call.i.i, i32 noundef %3) #7
   %cmp5.i = icmp eq i32 %call4.i, -1
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
@@ -303,11 +301,11 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i
 
 if.end10.i:                                       ; preds = %if.end7.i
   %vhost.i = getelementptr inbounds i8, ptr %call.i, i64 2928
-  %5 = load ptr, ptr %vhost.i, align 16
-  %dev.i = getelementptr inbounds i8, ptr %5, i64 128
+  %4 = load ptr, ptr %vhost.i, align 16
+  %dev.i = getelementptr inbounds i8, ptr %4, i64 128
   %arrayidx11.i = getelementptr inbounds i8, ptr %sv.i, i64 4
-  %6 = load i32, ptr %arrayidx11.i, align 4
-  %call12.i = call i32 @vhost_user_gpu_set_socket(ptr noundef nonnull %dev.i, i32 noundef %6) #7
+  %5 = load i32, ptr %arrayidx11.i, align 4
+  %call12.i = call i32 @vhost_user_gpu_set_socket(ptr noundef nonnull %dev.i, i32 noundef %5) #7
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.end
 
@@ -317,11 +315,11 @@ if.then14.i:                                      ; preds = %if.end10.i
   br label %err.i
 
 err.i:                                            ; preds = %if.then14.i, %if.end7.i, %if.then6.i
-  %7 = load i32, ptr %sv.i, align 4
-  %call21.i = call i32 @close(i32 noundef %7) #7
+  %6 = load i32, ptr %sv.i, align 4
+  %call21.i = call i32 @close(i32 noundef %6) #7
   %arrayidx22.i = getelementptr inbounds i8, ptr %sv.i, i64 4
-  %8 = load i32, ptr %arrayidx22.i, align 4
-  %call23.i = call i32 @close(i32 noundef %8) #7
+  %7 = load i32, ptr %arrayidx22.i, align 4
+  %call23.i = call i32 @close(i32 noundef %7) #7
   br i1 %tobool.not.i, label %if.then4, label %if.then25.i
 
 if.then25.i:                                      ; preds = %err.i
@@ -330,30 +328,30 @@ if.then25.i:                                      ; preds = %err.i
 
 if.then4:                                         ; preds = %if.then.i, %if.then25.i, %err.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sv.i)
-  %9 = load ptr, ptr %err, align 8
-  call void @error_report_err(ptr noundef %9) #7
+  %8 = load ptr, ptr %err, align 8
+  call void @error_report_err(ptr noundef %8) #7
   br label %if.end10
 
 if.end:                                           ; preds = %if.end10.i
-  %10 = load i32, ptr %sv.i, align 4
+  %9 = load i32, ptr %sv.i, align 4
   %vhost_gpu_fd.i = getelementptr inbounds i8, ptr %call.i, i64 2936
-  store i32 %10, ptr %vhost_gpu_fd.i, align 8
-  call void @qemu_set_fd_handler(i32 noundef %10, ptr noundef nonnull @vhost_user_gpu_chr_read, ptr noundef null, ptr noundef nonnull %call.i) #7
-  %11 = load i32, ptr %arrayidx11.i, align 4
-  %call19.i = call i32 @close(i32 noundef %11) #7
+  store i32 %9, ptr %vhost_gpu_fd.i, align 8
+  call void @qemu_set_fd_handler(i32 noundef %9, ptr noundef nonnull @vhost_user_gpu_chr_read, ptr noundef null, ptr noundef nonnull %call.i) #7
+  %10 = load i32, ptr %arrayidx11.i, align 4
+  %call19.i = call i32 @close(i32 noundef %10) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sv.i)
-  %12 = load ptr, ptr %vhost.i, align 16
-  call void @vhost_user_backend_start(ptr noundef %12) #7
+  %11 = load ptr, ptr %vhost.i, align 16
+  call void @vhost_user_backend_start(ptr noundef %11) #7
   br label %if.end10
 
 if.else:                                          ; preds = %land.lhs.true, %entry
   %vhost_gpu_fd = getelementptr inbounds i8, ptr %call.i, i64 2936
-  %13 = load i32, ptr %vhost_gpu_fd, align 8
-  %cmp.not = icmp eq i32 %13, -1
+  %12 = load i32, ptr %vhost_gpu_fd, align 8
+  %cmp.not = icmp eq i32 %12, -1
   br i1 %cmp.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  tail call void @qemu_set_fd_handler(i32 noundef %13, ptr noundef null, ptr noundef null, ptr noundef nonnull %call.i) #7
+  tail call void @qemu_set_fd_handler(i32 noundef %12, ptr noundef null, ptr noundef null, ptr noundef nonnull %call.i) #7
   %vhost_chr = getelementptr inbounds i8, ptr %call.i, i64 2944
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %vhost_chr, i1 noundef zeroext true) #7
   store i32 -1, ptr %vhost_gpu_fd, align 8
@@ -361,8 +359,8 @@ if.then6:                                         ; preds = %if.else
 
 if.end8:                                          ; preds = %if.then6, %if.else
   %vhost9 = getelementptr inbounds i8, ptr %call.i, i64 2928
-  %14 = load ptr, ptr %vhost9, align 16
-  tail call void @vhost_user_backend_stop(ptr noundef %14) #7
+  %13 = load ptr, ptr %vhost9, align 16
+  tail call void @vhost_user_backend_stop(ptr noundef %13) #7
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end8, %if.end, %if.then4

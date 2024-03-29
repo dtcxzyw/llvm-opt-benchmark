@@ -128,17 +128,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %authz, ptr noundef %0, ptr noundef %identity) #4
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %authz, ptr noundef %0, ptr noundef %identity) #4
   br label %trace_qauthz_simple_is_allowed.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -147,8 +146,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qauthz_simple_is_allowed.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load ptr, ptr %identity1, align 8
-  %call3 = tail call i32 @g_str_equal(ptr noundef %identity, ptr noundef %8) #4
+  %7 = load ptr, ptr %identity1, align 8
+  %call3 = tail call i32 @g_str_equal(ptr noundef %identity, ptr noundef %7) #4
   %tobool = icmp ne i32 %call3, 0
   ret i1 %tobool
 }

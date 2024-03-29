@@ -68,9 +68,8 @@ entry:
   %hst.i = alloca %struct.qht_stats, align 8
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str) #6
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.qmp_x_query_jit, ptr noundef nonnull @.str.2) #6
@@ -86,93 +85,93 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %hst.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tst.i, i8 0, i64 56, i1 false)
   call void @tcg_tb_foreach(ptr noundef nonnull @tb_tree_stats_iter, ptr noundef nonnull %tst.i) #6
-  %2 = load i64, ptr %tst.i, align 8
+  %1 = load i64, ptr %tst.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.9) #6
   %call.i1 = call i64 @tcg_code_size() #6
   %call2.i = call i64 @tcg_code_capacity() #6
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.10, i64 noundef %call.i1, i64 noundef %call2.i) #6
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.11, i64 noundef %2) #6
-  %tobool.not.i = icmp eq i64 %2, 0
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.11, i64 noundef %1) #6
+  %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %cond.end7.critedge.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
   %target_size.i = getelementptr inbounds i8, ptr %tst.i, i64 16
-  %3 = load i64, ptr %target_size.i, align 8
-  %div.i = udiv i64 %3, %2
+  %2 = load i64, ptr %target_size.i, align 8
+  %div.i = udiv i64 %2, %1
   %max_target_size.i = getelementptr inbounds i8, ptr %tst.i, i64 24
-  %4 = load i64, ptr %max_target_size.i, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef %div.i, i64 noundef %4) #6
+  %3 = load i64, ptr %max_target_size.i, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef %div.i, i64 noundef %3) #6
   %host_size.i = getelementptr inbounds i8, ptr %tst.i, i64 8
-  %5 = load i64, ptr %host_size.i, align 8
-  %div5.i = udiv i64 %5, %2
+  %4 = load i64, ptr %host_size.i, align 8
+  %div5.i = udiv i64 %4, %1
   br label %cond.end7.i
 
 cond.end7.critedge.i:                             ; preds = %if.end
   %max_target_size.c.i = getelementptr inbounds i8, ptr %tst.i, i64 24
-  %6 = load i64, ptr %max_target_size.c.i, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef %6) #6
+  %5 = load i64, ptr %max_target_size.c.i, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef %5) #6
   %host_size12.phi.trans.insert.i = getelementptr inbounds i8, ptr %tst.i, i64 8
   %.pre.i = load i64, ptr %host_size12.phi.trans.insert.i, align 8
   br label %cond.end7.i
 
 cond.end7.i:                                      ; preds = %cond.end7.critedge.i, %cond.true.i
-  %7 = phi i64 [ %5, %cond.true.i ], [ %.pre.i, %cond.end7.critedge.i ]
+  %6 = phi i64 [ %4, %cond.true.i ], [ %.pre.i, %cond.end7.critedge.i ]
   %cond8.i = phi i64 [ %div5.i, %cond.true.i ], [ 0, %cond.end7.critedge.i ]
   %target_size9.i = getelementptr inbounds i8, ptr %tst.i, i64 16
-  %8 = load i64, ptr %target_size9.i, align 8
-  %tobool10.not.i = icmp eq i64 %8, 0
-  %conv.i = uitofp i64 %7 to double
-  %conv14.i = uitofp i64 %8 to double
+  %7 = load i64, ptr %target_size9.i, align 8
+  %tobool10.not.i = icmp eq i64 %7, 0
+  %conv.i = uitofp i64 %6 to double
+  %conv14.i = uitofp i64 %7 to double
   %div15.i = fdiv double %conv.i, %conv14.i
   %cond18.i = select i1 %tobool10.not.i, double 0.000000e+00, double %div15.i
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.13, i64 noundef %cond8.i, double noundef %cond18.i) #6
   %cross_page.i = getelementptr inbounds i8, ptr %tst.i, i64 48
-  %9 = load i64, ptr %cross_page.i, align 8
+  %8 = load i64, ptr %cross_page.i, align 8
   br i1 %tobool.not.i, label %cond.end32.thread.i, label %cond.true35.i
 
 cond.end32.thread.i:                              ; preds = %cond.end7.i
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef %9, i64 noundef 0) #6
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef %8, i64 noundef 0) #6
   %direct_jmp_count29.i = getelementptr inbounds i8, ptr %tst.i, i64 32
-  %10 = load i64, ptr %direct_jmp_count29.i, align 8
+  %9 = load i64, ptr %direct_jmp_count29.i, align 8
   %direct_jmp2_count31.i = getelementptr inbounds i8, ptr %tst.i, i64 40
-  %11 = load i64, ptr %direct_jmp2_count31.i, align 8
+  %10 = load i64, ptr %direct_jmp2_count31.i, align 8
   br label %cond.end40.i
 
 cond.true35.i:                                    ; preds = %cond.end7.i
-  %mul.i = mul i64 %9, 100
-  %div22.i = udiv i64 %mul.i, %2
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef %9, i64 noundef %div22.i) #6
+  %mul.i = mul i64 %8, 100
+  %div22.i = udiv i64 %mul.i, %1
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef %8, i64 noundef %div22.i) #6
   %direct_jmp_count.i = getelementptr inbounds i8, ptr %tst.i, i64 32
-  %12 = load i64, ptr %direct_jmp_count.i, align 8
-  %mul29.i = mul i64 %12, 100
-  %div30.i = udiv i64 %mul29.i, %2
+  %11 = load i64, ptr %direct_jmp_count.i, align 8
+  %mul29.i = mul i64 %11, 100
+  %div30.i = udiv i64 %mul29.i, %1
   %direct_jmp2_count.i = getelementptr inbounds i8, ptr %tst.i, i64 40
-  %13 = load i64, ptr %direct_jmp2_count.i, align 8
-  %mul37.i = mul i64 %13, 100
-  %div38.i = udiv i64 %mul37.i, %2
+  %12 = load i64, ptr %direct_jmp2_count.i, align 8
+  %mul37.i = mul i64 %12, 100
+  %div38.i = udiv i64 %mul37.i, %1
   br label %cond.end40.i
 
 cond.end40.i:                                     ; preds = %cond.true35.i, %cond.end32.thread.i
-  %14 = phi i64 [ %13, %cond.true35.i ], [ %11, %cond.end32.thread.i ]
+  %13 = phi i64 [ %12, %cond.true35.i ], [ %10, %cond.end32.thread.i ]
   %cond3332.i = phi i64 [ %div30.i, %cond.true35.i ], [ 0, %cond.end32.thread.i ]
-  %15 = phi i64 [ %12, %cond.true35.i ], [ %10, %cond.end32.thread.i ]
+  %14 = phi i64 [ %11, %cond.true35.i ], [ %9, %cond.end32.thread.i ]
   %cond41.i = phi i64 [ %div38.i, %cond.true35.i ], [ 0, %cond.end32.thread.i ]
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.15, i64 noundef %15, i64 noundef %cond3332.i, i64 noundef %14, i64 noundef %cond41.i) #6
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.15, i64 noundef %14, i64 noundef %cond3332.i, i64 noundef %13, i64 noundef %cond41.i) #6
   call void @qht_statistics_init(ptr noundef nonnull @tb_ctx, ptr noundef nonnull %hst.i) #6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %hst26.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %hst26.i, ptr noundef nonnull align 8 dereferenceable(72) %hst.i, i64 72, i1 false)
-  %16 = load i64, ptr %hst26.i, align 8
-  %tobool.not.i.i = icmp eq i64 %16, 0
+  %15 = load i64, ptr %hst26.i, align 8
+  %tobool.not.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i, label %print_qht_statistics.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end40.i
   %used_head_buckets.i.i = getelementptr inbounds i8, ptr %hst26.i, i64 8
-  %17 = load i64, ptr %used_head_buckets.i.i, align 8
-  %conv.i.i = uitofp i64 %17 to double
-  %conv4.i.i = uitofp i64 %16 to double
+  %16 = load i64, ptr %used_head_buckets.i.i, align 8
+  %conv.i.i = uitofp i64 %16 to double
+  %conv4.i.i = uitofp i64 %15 to double
   %div.i.i = fdiv double %conv.i.i, %conv4.i.i
   %mul.i.i = fmul double %div.i.i, 1.000000e+02
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.22, i64 noundef %17, i64 noundef %16, double noundef %mul.i.i) #6
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.22, i64 noundef %16, i64 noundef %15, double noundef %mul.i.i) #6
   %occupancy.i.i = getelementptr inbounds i8, ptr %hst26.i, i64 48
   %call.i.i = call double @qdist_xmax(ptr noundef nonnull %occupancy.i.i) #6
   %call8.i.i = call double @qdist_xmin(ptr noundef nonnull %occupancy.i.i) #6
@@ -202,34 +201,34 @@ print_qht_statistics.exit.i:                      ; preds = %if.end.i.i, %cond.e
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %hst26.i)
   call void @qht_statistics_destroy(ptr noundef nonnull %hst.i) #6
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.16) #6
-  %18 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1) monotonic, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.17, i32 noundef %18) #6
-  %19 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 2) monotonic, align 4
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.18, i32 noundef %19) #6
-  %20 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %17 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1) monotonic, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.17, i32 noundef %17) #6
+  %18 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 2) monotonic, align 4
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.18, i32 noundef %18) #6
+  %19 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !5
-  %tobool.not8.i.i = icmp eq i64 %20, 0
+  %tobool.not8.i.i = icmp eq i64 %19, 0
   br i1 %tobool.not8.i.i, label %dump_exec_info.exit, label %while.end5.i.i
 
 while.end5.i.i:                                   ; preds = %print_qht_statistics.exit.i, %while.end5.i.i
-  %cpu.0.in12.i.i = phi i64 [ %24, %while.end5.i.i ], [ %20, %print_qht_statistics.exit.i ]
+  %cpu.0.in12.i.i = phi i64 [ %23, %while.end5.i.i ], [ %19, %print_qht_statistics.exit.i ]
   %full.011.i.i = phi i64 [ %add.i.i, %while.end5.i.i ], [ 0, %print_qht_statistics.exit.i ]
   %part.010.i.i = phi i64 [ %add17.i.i, %while.end5.i.i ], [ 0, %print_qht_statistics.exit.i ]
   %elide.09.i.i = phi i64 [ %add28.i.i, %while.end5.i.i ], [ 0, %print_qht_statistics.exit.i ]
   %cpu.0.i.i = inttoptr i64 %cpu.0.in12.i.i to ptr
   %full_flush_count.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 792
-  %21 = load atomic i64, ptr %full_flush_count.i.i monotonic, align 8
-  %add.i.i = add i64 %21, %full.011.i.i
+  %20 = load atomic i64, ptr %full_flush_count.i.i monotonic, align 8
+  %add.i.i = add i64 %20, %full.011.i.i
   %part_flush_count.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 800
-  %22 = load atomic i64, ptr %part_flush_count.i.i monotonic, align 16
-  %add17.i.i = add i64 %22, %part.010.i.i
+  %21 = load atomic i64, ptr %part_flush_count.i.i monotonic, align 16
+  %add17.i.i = add i64 %21, %part.010.i.i
   %elide_flush_count.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 808
-  %23 = load atomic i64, ptr %elide_flush_count.i.i monotonic, align 8
-  %add28.i.i = add i64 %23, %elide.09.i.i
+  %22 = load atomic i64, ptr %elide_flush_count.i.i monotonic, align 8
+  %add28.i.i = add i64 %22, %elide.09.i.i
   %node.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 568
-  %24 = load atomic i64, ptr %node.i.i monotonic, align 8
+  %23 = load atomic i64, ptr %node.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %tobool.not.i27.i = icmp eq i64 %24, 0
+  %tobool.not.i27.i = icmp eq i64 %23, 0
   br i1 %tobool.not.i27.i, label %dump_exec_info.exit, label %while.end5.i.i, !llvm.loop !7
 
 dump_exec_info.exit:                              ; preds = %while.end5.i.i, %print_qht_statistics.exit.i
@@ -242,8 +241,8 @@ dump_exec_info.exit:                              ; preds = %while.end5.i.i, %pr
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.25) #6
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tst.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %hst.i)
-  %25 = load i32, ptr @use_icount, align 4
-  %tobool.not.i2 = icmp eq i32 %25, 0
+  %24 = load i32, ptr @use_icount, align 4
+  %tobool.not.i2 = icmp eq i32 %24, 0
   br i1 %tobool.not.i2, label %dump_drift_info.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %dump_exec_info.exit
@@ -252,17 +251,17 @@ if.end.i:                                         ; preds = %dump_exec_info.exit
   %sub.i = sub i64 %call.i3, %call1.i4
   %div.i5 = sdiv i64 %sub.i, 1000000
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.26, i64 noundef %div.i5) #6
-  %26 = load i32, ptr @icount_align_option, align 4
-  %tobool2.not.i = icmp eq i32 %26, 0
+  %25 = load i32, ptr @icount_align_option, align 4
+  %tobool2.not.i = icmp eq i32 %25, 0
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %27 = load i64, ptr @max_delay, align 8
-  %sub4.i = sub i64 0, %27
+  %26 = load i64, ptr @max_delay, align 8
+  %sub4.i = sub i64 0, %26
   %div5.i6 = sdiv i64 %sub4.i, 1000000
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.27, i64 noundef %div5.i6) #6
-  %28 = load i64, ptr @max_advance, align 8
-  %div6.i = sdiv i64 %28, 1000000
+  %27 = load i64, ptr @max_advance, align 8
+  %div6.i = sdiv i64 %27, 1000000
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.28, i64 noundef %div6.i) #6
   br label %dump_drift_info.exit
 
@@ -299,9 +298,8 @@ define dso_local ptr @qmp_x_query_opcount(ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str) #6
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.qmp_x_query_opcount, ptr noundef nonnull @.str.3) #6

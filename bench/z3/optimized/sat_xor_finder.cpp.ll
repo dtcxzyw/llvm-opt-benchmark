@@ -1456,10 +1456,9 @@ for.body23.i:                                     ; preds = %for.inc33.i, %for.e
   %i17.025.i = phi i32 [ 0, %for.end15.i ], [ %inc34.i, %for.inc33.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %56, i64 %conv1926.i
   %57 = load i8, ptr %arrayidx.i16.i, align 1
-  %58 = and i8 %57, 1
-  %59 = icmp eq i8 %58, 0
-  %cmp29.i = xor i1 %59, %parity
-  br i1 %cmp29.i, label %land.lhs.true.i, label %for.inc33.i
+  %58 = trunc i8 %57 to i1
+  %59 = xor i1 %58, %parity
+  br i1 %59, label %for.inc33.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body23.i
   %shl.i18.i = shl nuw i32 1, %i17.025.i
@@ -1548,16 +1547,16 @@ _ZN6vectorIPN3sat6clauseELb0EjE6appendERKS3_.exit: ; preds = %_ZNK6vectorIPN3sat
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
   %12 = getelementptr i8, ptr %c, i64 %add.ptr.i.idx
   %add.ptr.i.ptr = getelementptr i8, ptr %12, i64 20
-  %cmp.not19 = icmp eq i32 %11, 0
-  br i1 %cmp.not19, label %for.end._ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit_crit_edge, label %for.body.preheader
+  %cmp.not18 = icmp eq i32 %11, 0
+  br i1 %cmp.not18, label %for.end._ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit_crit_edge, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6vectorIPN3sat6clauseELb0EjE6appendERKS3_.exit
   %m_lits.i.ptr = getelementptr inbounds i8, ptr %c, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin1.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_lits.i.ptr, %for.body.preheader ]
-  %13 = load i32, ptr %__begin1.020, align 4
+  %__begin1.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_lits.i.ptr, %for.body.preheader ]
+  %13 = load i32, ptr %__begin1.019, align 4
   %shr.i = lshr i32 %13, 1
   %shl.i = and i32 %13, -2
   %14 = load ptr, ptr %lits, align 8
@@ -1601,22 +1600,22 @@ invoke.cont7:                                     ; preds = %.noexc, %lor.lhs.fa
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %invoke.cont7
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.020, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.019, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 lpad.loopexit:                                    ; preds = %invoke.cont7, %if.then.i
-  %lpad.loopexit17 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i12, %if.end.i11
-  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit17, %lpad.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
   call void @_ZN7svectorIN3sat7literalEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lits) #19
   resume { ptr, i32 } %lpad.phi
 
@@ -1633,10 +1632,9 @@ for.end._ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit_crit_edge: ; preds = %_ZN6v
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %for.end
   %arrayidx.i10 = getelementptr inbounds i8, ptr %.pre, i64 -4
   %24 = load i32, ptr %arrayidx.i10, align 4
-  %25 = and i32 %24, 1
-  %26 = icmp eq i32 %25, 0
-  %cmp16.not = xor i1 %26, %parity
-  br i1 %cmp16.not, label %if.end, label %if.then
+  %25 = trunc i32 %24 to i1
+  %26 = xor i1 %25, %parity
+  br i1 %26, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %27 = load i32, ptr %.pre, align 4
@@ -1865,10 +1863,9 @@ for.body23.i:                                     ; preds = %for.inc33.i, %for.e
   %i17.025.i = phi i32 [ 0, %for.end15.i ], [ %inc34.i, %for.inc33.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %26, i64 %conv1926.i
   %27 = load i8, ptr %arrayidx.i16.i, align 1
-  %28 = and i8 %27, 1
-  %29 = icmp eq i8 %28, 0
-  %cmp29.i = xor i1 %29, %parity
-  br i1 %cmp29.i, label %land.lhs.true.i, label %for.inc33.i
+  %28 = trunc i8 %27 to i1
+  %29 = xor i1 %28, %parity
+  br i1 %29, label %for.inc33.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body23.i
   %shl.i18.i = shl nuw i32 1, %i17.025.i
@@ -1996,10 +1993,9 @@ for.body23:                                       ; preds = %for.end15, %for.inc
   %i17.025 = phi i32 [ 0, %for.end15 ], [ %inc34, %for.inc33 ]
   %arrayidx.i16 = getelementptr inbounds i8, ptr %8, i64 %conv1926
   %9 = load i8, ptr %arrayidx.i16, align 1
-  %10 = and i8 %9, 1
-  %11 = icmp eq i8 %10, 0
-  %cmp29 = xor i1 %11, %parity
-  br i1 %cmp29, label %land.lhs.true, label %for.inc33
+  %10 = trunc i8 %9 to i1
+  %11 = xor i1 %10, %parity
+  br i1 %11, label %for.inc33, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body23
   %shl.i18 = shl nuw i32 1, %i17.025

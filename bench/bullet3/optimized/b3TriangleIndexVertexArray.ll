@@ -107,9 +107,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -126,10 +125,10 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -148,19 +147,18 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -187,19 +185,18 @@ entry:
 if.then.i.i.i.i:                                  ; preds = %entry
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i.i, label %_ZN26b3TriangleIndexVertexArrayD2Ev.exit, label %if.then3.i.i.i.i
+  %tobool2.i.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN26b3TriangleIndexVertexArrayD2Ev.exit
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN26b3TriangleIndexVertexArrayD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN26b3TriangleIndexVertexArrayD2Ev.exit:         ; preds = %entry, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -215,10 +212,10 @@ _ZN26b3TriangleIndexVertexArrayD2Ev.exit:         ; preds = %entry, %if.then.i.i
           to label %_ZN26b3TriangleIndexVertexArraydlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZN26b3TriangleIndexVertexArrayD2Ev.exit
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #11
   unreachable
 
 _ZN26b3TriangleIndexVertexArraydlEPv.exit:        ; preds = %_ZN26b3TriangleIndexVertexArrayD2Ev.exit
@@ -423,9 +420,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)

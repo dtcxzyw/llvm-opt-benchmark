@@ -1246,7 +1246,7 @@ entry:
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %invoke.cont21, %entry
-  %seenFirstString.0.ph = phi i8 [ %seenFirstString.1, %invoke.cont21 ], [ 0, %entry ]
+  %seenFirstString.0.ph = phi i1 [ true, %invoke.cont21 ], [ false, %entry ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %if.else
@@ -1263,12 +1263,10 @@ while.body:                                       ; preds = %invoke.cont4
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %3 = and i8 %seenFirstString.0.ph, 1
-  %tobool9.not = icmp eq i8 %3, 0
-  br i1 %tobool9.not, label %if.then10, label %if.end
+  br i1 %seenFirstString.0.ph, label %if.end, label %if.then10
 
 if.then10:                                        ; preds = %if.then
-  %4 = call i64 @fwrite(ptr nonnull @.str.30, i64 14, i64 1, ptr %f)
+  %3 = call i64 @fwrite(ptr nonnull @.str.30, i64 14, i64 1, ptr %f)
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %while.cond
@@ -1287,15 +1285,14 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then10, %if.then
-  %seenFirstString.1 = phi i8 [ %seenFirstString.0.ph, %if.then ], [ 1, %if.then10 ]
   %call14 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7518UnicodeSetIterator9getStringEv(ptr noundef nonnull align 8 dereferenceable(64) %it)
           to label %invoke.cont13 unwind label %lpad.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %if.end
-  %5 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %f)
+  %4 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %f)
   %fUnion.i = getelementptr inbounds i8, ptr %call14, i64 8
-  %6 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %6 to i32
+  %5 = load i16, ptr %fUnion.i, align 8
+  %conv1.i = zext i16 %5 to i32
   %and.i = and i32 %conv1.i, 17
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont19
@@ -1311,31 +1308,31 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %call14, i64 24
-  %7 = load ptr, ptr %fArray.i, align 8
+  %6 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.else9.i, %if.then7.i, %invoke.cont13
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %invoke.cont13 ]
-  %cmp.i.i = icmp slt i16 %6, 0
-  %8 = ashr i16 %6, 5
-  %shr.i.i = sext i16 %8 to i32
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %6, %if.else9.i ], [ null, %invoke.cont13 ]
+  %cmp.i.i = icmp slt i16 %5, 0
+  %7 = ashr i16 %5, 5
+  %shr.i.i = sext i16 %7 to i32
   %fLength.i = getelementptr inbounds i8, ptr %call14, i64 12
-  %9 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %9, i32 %shr.i.i
+  %8 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %8, i32 %shr.i.i
   invoke void @usrc_writeStringAsASCII(ptr noundef %f, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 poison)
           to label %invoke.cont21 unwind label %lpad.loopexit.split-lp
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %10 = call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %f)
+  %9 = call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %f)
   br label %while.cond.outer, !llvm.loop !6
 
 if.else:                                          ; preds = %while.body
-  %11 = load i32, ptr %codepointEnd.i, align 4
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %11)
+  %10 = load i32, ptr %codepointEnd.i, align 4
+  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %10)
   br label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %invoke.cont4
-  %12 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %f)
+  %11 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %f)
   call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %it) #18
   ret void
 }

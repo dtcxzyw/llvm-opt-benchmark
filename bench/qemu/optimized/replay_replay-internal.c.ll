@@ -687,8 +687,7 @@ define dso_local zeroext i1 @replay_mutex_locked() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
   %1 = load i8, ptr %0, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -710,31 +709,30 @@ if.else:                                          ; preds = %do.body
 do.body2:                                         ; preds = %do.body
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
   %2 = load i8, ptr %1, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %while.end, label %if.else5
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.else5, label %while.end
 
 if.else5:                                         ; preds = %do.body2
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 220, ptr noundef nonnull @__func__.replay_mutex_lock, ptr noundef nonnull @.str.6) #10
   unreachable
 
 while.end:                                        ; preds = %do.body2
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
-  tail call void %5(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 221) #9
-  %6 = load i64, ptr @mutex_tail, align 8
-  %inc = add i64 %6, 1
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
+  tail call void %4(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 221) #9
+  %5 = load i64, ptr @mutex_tail, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr @mutex_tail, align 8
-  %7 = load i64, ptr @mutex_head, align 8
-  %cmp11.not1 = icmp eq i64 %6, %7
+  %6 = load i64, ptr @mutex_head, align 8
+  %cmp11.not1 = icmp eq i64 %5, %6
   br i1 %cmp11.not1, label %while.end21, label %while.end18
 
 while.end18:                                      ; preds = %while.end, %while.end18
-  %8 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %9 = inttoptr i64 %8 to ptr
-  tail call void %9(ptr noundef nonnull @mutex_cond, ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 224) #9
-  %10 = load i64, ptr @mutex_head, align 8
-  %cmp11.not = icmp eq i64 %6, %10
+  %7 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %8 = inttoptr i64 %7 to ptr
+  tail call void %8(ptr noundef nonnull @mutex_cond, ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 224) #9
+  %9 = load i64, ptr @mutex_head, align 8
+  %cmp11.not = icmp eq i64 %5, %9
   br i1 %cmp11.not, label %while.end21, label %while.end18, !llvm.loop !5
 
 while.end21:                                      ; preds = %while.end18, %while.end
@@ -763,20 +761,19 @@ entry:
 do.body:                                          ; preds = %entry
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
   %2 = load i8, ptr %1, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.else, label %while.end
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %while.end, label %if.else
 
 if.else:                                          ; preds = %do.body
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__func__.replay_mutex_unlock, ptr noundef nonnull @.str.7) #10
   unreachable
 
 while.end:                                        ; preds = %do.body
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
-  tail call void %5(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 235) #9
-  %6 = load i64, ptr @mutex_head, align 8
-  %inc = add i64 %6, 1
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
+  tail call void %4(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 235) #9
+  %5 = load i64, ptr @mutex_head, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr @mutex_head, align 8
   store i8 0, ptr %1, align 1
   tail call void @qemu_cond_broadcast(ptr noundef nonnull @mutex_cond) #9
@@ -905,9 +902,8 @@ entry:
 do.body:                                          ; preds = %entry
   %2 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %if.else, label %do.end
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.replay_save_instructions, ptr noundef nonnull @.str.7) #10

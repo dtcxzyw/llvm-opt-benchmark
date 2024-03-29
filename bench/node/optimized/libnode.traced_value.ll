@@ -111,9 +111,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -140,9 +139,8 @@ define dso_local void @_ZN4node7tracing11TracedValue9WriteNameEPKc(ptr noundef n
 entry:
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -284,9 +282,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -379,9 +376,8 @@ define dso_local void @_ZN4node7tracing11TracedValue10SetBooleanEPKcb(ptr nounde
 entry:
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -409,9 +405,8 @@ define dso_local void @_ZN4node7tracing11TracedValue7SetNullEPKc(ptr noundef non
 entry:
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -437,9 +432,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -661,9 +655,8 @@ define dso_local void @_ZN4node7tracing11TracedValue15BeginDictionaryEPKc(ptr no
 entry:
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -691,9 +684,8 @@ define dso_local void @_ZN4node7tracing11TracedValue10BeginArrayEPKc(ptr noundef
 entry:
   %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %first_item_.i.i, align 8
@@ -720,9 +712,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -746,9 +737,8 @@ define dso_local void @_ZN4node7tracing11TracedValue10WriteCommaEv(ptr noundef n
 entry:
   %first_item_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %first_item_, align 8
@@ -769,9 +759,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -795,9 +784,8 @@ define dso_local void @_ZN4node7tracing11TracedValue13AppendBooleanEb(ptr nounde
 entry:
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -820,9 +808,8 @@ define dso_local void @_ZN4node7tracing11TracedValue10AppendNullEv(ptr noundef n
 entry:
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -845,9 +832,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -871,9 +857,8 @@ define dso_local void @_ZN4node7tracing11TracedValue15BeginDictionaryEv(ptr noun
 entry:
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -896,9 +881,8 @@ define dso_local void @_ZN4node7tracing11TracedValue10BeginArrayEv(ptr noundef n
 entry:
   %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_item_.i, align 8
@@ -941,16 +925,14 @@ define dso_local void @_ZNK4node7tracing11TracedValue19AppendAsTraceFormatEPNSt7
 entry:
   %root_is_array_ = getelementptr inbounds i8, ptr %this, i64 41
   %0 = load i8, ptr %root_is_array_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, i8 123, i8 91
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, i8 91, i8 123
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %cond) #10
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %data_) #10
-  %2 = load i8, ptr %root_is_array_, align 1
-  %3 = and i8 %2, 1
-  %tobool4.not = icmp eq i8 %3, 0
-  %cond5 = select i1 %tobool4.not, i8 125, i8 93
+  %1 = load i8, ptr %root_is_array_, align 1
+  %tobool4 = trunc i8 %1 to i1
+  %cond5 = select i1 %tobool4, i8 93, i8 125
   %call6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %cond5) #10
   ret void
 }

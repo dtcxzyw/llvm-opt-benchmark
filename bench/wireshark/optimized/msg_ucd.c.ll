@@ -363,7 +363,7 @@ define internal i32 @dissect_mac_mgmt_msg_ucd_decoder(ptr noundef %0, ptr nocapt
   br label %36
 
 36:                                               ; preds = %.lr.ph440, %.loopexit
-  %.0439 = phi i32 [ 5, %.lr.ph440 ], [ %297, %.loopexit ]
+  %.0439 = phi i32 [ 5, %.lr.ph440 ], [ %296, %.loopexit ]
   %37 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0439) #2
   %38 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %39 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
@@ -395,7 +395,7 @@ define internal i32 @dissect_mac_mgmt_msg_ucd_decoder(ptr noundef %0, ptr nocapt
   br i1 %53, label %switch.hole_check, label %54
 
 54:                                               ; preds = %switch.hole_check, %52, %48
-  switch i32 %38, label %294 [
+  switch i32 %38, label %293 [
     i32 1, label %55
     i32 2, label %88
     i32 3, label %91
@@ -800,41 +800,40 @@ define internal i32 @dissect_mac_mgmt_msg_ucd_decoder(ptr noundef %0, ptr nocapt
 switch.hole_check:                                ; preds = %52
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1949, %switch.maskindex
-  %286 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %286, 0
-  br i1 %switch.lobit.not, label %54, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %54
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %287 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.dissect_mac_mgmt_msg_ucd_decoder, i64 0, i64 %287
+  %286 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.dissect_mac_mgmt_msg_ucd_decoder, i64 0, i64 %286
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %288 = load i32, ptr %switch.load, align 4
-  %289 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %288, ptr noundef %0, i32 noundef %.0439, i32 noundef 0) #2
+  %287 = load i32, ptr %switch.load, align 4
+  %288 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %287, ptr noundef %0, i32 noundef %.0439, i32 noundef 0) #2
   br label %.thread
 
 .thread:                                          ; preds = %switch.lookup, %54, %54, %54, %54, %54, %54, %54, %54
-  %290 = load i32, ptr @include_cor2_changes, align 4
-  %.not434 = icmp eq i32 %290, 0
-  br i1 %.not434, label %291, label %.loopexit
+  %289 = load i32, ptr @include_cor2_changes, align 4
+  %.not434 = icmp eq i32 %289, 0
+  br i1 %.not434, label %290, label %.loopexit
 
-291:                                              ; preds = %.thread
-  %292 = load i32, ptr @hf_ucd_invalid_tlv, align 4
-  %293 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %292, ptr noundef %0, i32 noundef %.0439, i32 noundef 0) #2
+290:                                              ; preds = %.thread
+  %291 = load i32, ptr @hf_ucd_invalid_tlv, align 4
+  %292 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %291, ptr noundef %0, i32 noundef %.0439, i32 noundef 0) #2
   br label %.loopexit
 
-294:                                              ; preds = %54
-  %295 = load i32, ptr @hf_ucd_invalid_tlv, align 4
-  %296 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %295, ptr noundef %0, i32 noundef %.0439, i32 noundef 0) #2
+293:                                              ; preds = %54
+  %294 = load i32, ptr @hf_ucd_invalid_tlv, align 4
+  %295 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %294, ptr noundef %0, i32 noundef %.0439, i32 noundef 0) #2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %55, %.thread, %291, %73, %294, %283, %280, %277, %269, %261, %258, %255, %252, %249, %241, %233, %225, %217, %214, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %154, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %108, %100, %97, %94, %91, %88
-  %297 = add i32 %50, %39
-  %298 = icmp ult i32 %297, %6
-  br i1 %298, label %36, label %.loopexit436, !llvm.loop !6
+.loopexit:                                        ; preds = %83, %55, %.thread, %290, %73, %293, %283, %280, %277, %269, %261, %258, %255, %252, %249, %241, %233, %225, %217, %214, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %154, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %108, %100, %97, %94, %91, %88
+  %296 = add i32 %50, %39
+  %297 = icmp ult i32 %296, %6
+  br i1 %297, label %36, label %.loopexit436, !llvm.loop !6
 
 .loopexit436:                                     ; preds = %.loopexit, %4, %43
-  %299 = call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %299
+  %298 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %298
 }
 
 ; Function Attrs: nounwind uwtable

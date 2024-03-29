@@ -68,8 +68,8 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %14) #6
   %15 = call ptr @systable_beginscan(ptr noundef %11, i32 noundef 3258, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #6
   %16 = call ptr @systable_getnext(ptr noundef %15) #6
-  %.not58 = icmp eq ptr %16, null
-  br i1 %.not58, label %._crit_edge, label %.lr.ph
+  %.not55 = icmp eq ptr %16, null
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %17 = getelementptr inbounds i8, ptr %11, i64 64
@@ -91,18 +91,17 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   store i8 %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 73
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds i8, ptr %27, i64 24
-  store i8 %33, ptr %34, align 8
+  %33 = getelementptr inbounds i8, ptr %27, i64 24
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %26, i64 4
   %36 = call ptr @MemoryContextStrdup(ptr noundef %5, ptr noundef nonnull %35) #6
   store ptr %36, ptr %27, align 8
   %37 = load ptr, ptr %17, align 8
   %38 = call fastcc i64 @heap_getattr(ptr noundef nonnull %20, i32 noundef 6, ptr noundef %37, ptr noundef nonnull %3)
   %39 = load i8, ptr %3, align 1
-  %40 = and i8 %39, 1
-  %.not55 = icmp eq i8 %40, 0
-  br i1 %.not55, label %44, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %44
 
 41:                                               ; preds = %19
   %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -121,9 +120,8 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %48 = load ptr, ptr %17, align 8
   %49 = call fastcc i64 @heap_getattr(ptr noundef nonnull %20, i32 noundef 7, ptr noundef %48, ptr noundef nonnull %3)
   %50 = load i8, ptr %3, align 1
-  %51 = and i8 %50, 1
-  %.not56 = icmp eq i8 %51, 0
-  br i1 %.not56, label %52, label %57
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %57, label %52
 
 52:                                               ; preds = %44
   %53 = inttoptr i64 %49 to ptr
@@ -145,9 +143,8 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %60 = load ptr, ptr %17, align 8
   %61 = call fastcc i64 @heap_getattr(ptr noundef nonnull %20, i32 noundef 8, ptr noundef %60, ptr noundef nonnull %3)
   %62 = load i8, ptr %3, align 1
-  %63 = and i8 %62, 1
-  %.not57 = icmp eq i8 %63, 0
-  br i1 %.not57, label %64, label %69
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %69, label %64
 
 64:                                               ; preds = %59
   %65 = inttoptr i64 %61 to ptr
@@ -260,11 +257,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = getelementptr i8, ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %23, i64 86
   %35 = load i8, ptr %34, align 2
-  %36 = and i8 %35, 1
-  %.not20.i = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %23, i64 72
   %38 = load i16, ptr %37, align 4
-  br i1 %.not20.i, label %55, label %39
+  br i1 %36, label %39, label %55
 
 39:                                               ; preds = %27
   switch i16 %38, label %51 [
@@ -409,9 +405,8 @@ define dso_local void @RemovePolicyById(i32 noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %10, %10
   %31 = load i8, ptr @allowSystemTableMods, align 1
-  %32 = and i8 %31, 1
-  %.not21 = icmp eq i8 %32, 0
-  br i1 %.not21, label %33, label %41
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %41, label %33
 
 33:                                               ; preds = %30
   %34 = call zeroext i1 @IsSystemRelation(ptr noundef nonnull %19) #6
@@ -1016,9 +1011,8 @@ define internal void @RangeVarCallbackForPolicy(ptr nocapture noundef readonly %
 
 23:                                               ; preds = %18, %7
   %24 = load i8, ptr @allowSystemTableMods, align 1
-  %25 = and i8 %24, 1
-  %.not16 = icmp eq i8 %25, 0
-  br i1 %.not16, label %26, label %34
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %34, label %26
 
 26:                                               ; preds = %23
   %27 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef %13) #6
@@ -1316,9 +1310,8 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %125 = load ptr, ptr %61, align 8
   %126 = call fastcc i64 @heap_getattr(ptr noundef nonnull %51, i32 noundef 7, ptr noundef %125, ptr noundef nonnull %11)
   %127 = load i8, ptr %11, align 1
-  %128 = and i8 %127, 1
-  %.not127 = icmp eq i8 %128, 0
-  br i1 %.not127, label %129, label %137
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %137, label %129
 
 129:                                              ; preds = %124
   %130 = call ptr @make_parsestate(ptr noundef null) #6
@@ -1334,8 +1327,8 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 137:                                              ; preds = %124, %129, %118
   %.1111 = phi ptr [ %.0110, %118 ], [ null, %124 ], [ %133, %129 ]
   %.1107 = phi ptr [ %.0106, %118 ], [ %.0106, %124 ], [ %136, %129 ]
-  %.not128 = icmp eq ptr %.0112, null
-  br i1 %.not128, label %144, label %138
+  %.not127 = icmp eq ptr %.0112, null
+  br i1 %.not127, label %144, label %138
 
 138:                                              ; preds = %137
   %139 = getelementptr inbounds i8, ptr %7, i64 7
@@ -1351,9 +1344,8 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %145 = load ptr, ptr %61, align 8
   %146 = call fastcc i64 @heap_getattr(ptr noundef nonnull %51, i32 noundef 8, ptr noundef %145, ptr noundef nonnull %12)
   %147 = load i8, ptr %12, align 1
-  %148 = and i8 %147, 1
-  %.not129 = icmp eq i8 %148, 0
-  br i1 %.not129, label %149, label %157
+  %148 = trunc i8 %147 to i1
+  br i1 %148, label %157, label %149
 
 149:                                              ; preds = %144
   %150 = call ptr @make_parsestate(ptr noundef null) #6
@@ -1392,34 +1384,34 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   store i32 0, ptr %163, align 4
   %166 = load i32, ptr %3, align 4
   %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %.lr.ph134.preheader, label %._crit_edge
+  br i1 %167, label %.lr.ph132.preheader, label %._crit_edge
 
-.lr.ph134.preheader:                              ; preds = %157
-  %wide.trip.count139 = zext nneg i32 %166 to i64
-  br label %.lr.ph134
+.lr.ph132.preheader:                              ; preds = %157
+  %wide.trip.count137 = zext nneg i32 %166 to i64
+  br label %.lr.ph132
 
-.lr.ph134:                                        ; preds = %.lr.ph134.preheader, %172
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph134.preheader ], [ %indvars.iv.next137, %172 ]
-  %168 = getelementptr i64, ptr %.1, i64 %indvars.iv136
+.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %172
+  %indvars.iv134 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next135, %172 ]
+  %168 = getelementptr i64, ptr %.1, i64 %indvars.iv134
   %169 = load i64, ptr %168, align 8
   %170 = trunc i64 %169 to i32
   store i32 %170, ptr %162, align 4
-  %.not131 = icmp eq i32 %170, 0
-  br i1 %.not131, label %172, label %171
+  %.not129 = icmp eq i32 %170, 0
+  br i1 %.not129, label %172, label %171
 
-171:                                              ; preds = %.lr.ph134
+171:                                              ; preds = %.lr.ph132
   call void @recordSharedDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 114) #6
   br label %172
 
-172:                                              ; preds = %.lr.ph134, %171
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph134, !llvm.loop !12
+172:                                              ; preds = %.lr.ph132, %171
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
+  br i1 %exitcond138.not, label %._crit_edge, label %.lr.ph132, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %172, %157
   %173 = load ptr, ptr @object_access_hook, align 8
-  %.not130 = icmp eq ptr %173, null
-  br i1 %.not130, label %175, label %174
+  %.not128 = icmp eq ptr %173, null
+  br i1 %.not128, label %175, label %174
 
 174:                                              ; preds = %._crit_edge
   call void @RunObjectPostAlterHook(i32 noundef 3256, i32 noundef %84, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6

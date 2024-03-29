@@ -476,9 +476,8 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %65 = call noalias dereferenceable_or_null(65535) ptr @g_malloc(i64 noundef 65535) #14
   %66 = load i8, ptr @extcap_end_application, align 1
-  %67 = and i8 %66, 1
-  %.not1132 = icmp eq i8 %67, 0
-  br i1 %.not1132, label %.lr.ph, label %._crit_edge
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
   %68 = zext i16 %1 to i32
@@ -593,9 +592,8 @@ dump_packet.exit:                                 ; preds = %78
 
 128:                                              ; preds = %.critedge, %dump_packet.exit, %75, %72, %72
   %129 = load i8, ptr @extcap_end_application, align 1
-  %130 = and i8 %129, 1
-  %.not11 = icmp eq i8 %130, 0
-  br i1 %.not11, label %69, label %._crit_edge, !llvm.loop !8
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %._crit_edge, label %69, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %128, %64
   %131 = call i32 @fclose(ptr noundef %.0.ph)

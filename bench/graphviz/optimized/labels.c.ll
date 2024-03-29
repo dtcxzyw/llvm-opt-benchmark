@@ -725,57 +725,57 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 64
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.not = icmp eq ptr %.sroa.2.0.copyload, null
-  br i1 %.not, label %42, label %40
+  br i1 %.not, label %43, label %40
 
 40:                                               ; preds = %20
   %41 = load i8, ptr %.sroa.2.0.copyload, align 1
-  %.not82 = icmp eq i8 %41, 0
-  br label %42
+  %42 = icmp ne i8 %41, 0
+  br label %43
 
-42:                                               ; preds = %40, %20
-  %.052 = phi i1 [ %.not82, %40 ], [ true, %20 ]
-  %43 = load i32, ptr %1, align 8
-  %44 = and i32 %43, 3
-  %45 = icmp eq i32 %44, 2
-  %.idx = select i1 %45, i64 0, i64 -64
-  %46 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %47 = getelementptr inbounds i8, ptr %46, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr @agnameof(ptr noundef %48) #15
-  %50 = load ptr, ptr %38, align 8
-  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %50, i64 112
+43:                                               ; preds = %40, %20
+  %.052 = phi i1 [ %42, %40 ], [ false, %20 ]
+  %44 = load i32, ptr %1, align 8
+  %45 = and i32 %44, 3
+  %46 = icmp eq i32 %45, 2
+  %.idx = select i1 %46, i64 0, i64 -64
+  %47 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %48 = getelementptr inbounds i8, ptr %47, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call ptr @agnameof(ptr noundef %49) #15
+  %51 = load ptr, ptr %38, align 8
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %51, i64 112
   %.sroa.2.0.copyload2 = load ptr, ptr %.sroa.2.0..sroa_idx1, align 8
   %.not71 = icmp eq ptr %.sroa.2.0.copyload2, null
-  br i1 %.not71, label %53, label %51
+  br i1 %.not71, label %55, label %52
 
-51:                                               ; preds = %42
-  %52 = load i8, ptr %.sroa.2.0.copyload2, align 1
-  %.not83 = icmp eq i8 %52, 0
-  br label %53
+52:                                               ; preds = %43
+  %53 = load i8, ptr %.sroa.2.0.copyload2, align 1
+  %54 = icmp ne i8 %53, 0
+  br label %55
 
-53:                                               ; preds = %51, %42
-  %.053 = phi i1 [ %.not83, %51 ], [ true, %42 ]
-  %54 = getelementptr inbounds i8, ptr %50, i64 120
-  %55 = load ptr, ptr %54, align 8
-  %.not72 = icmp eq ptr %55, null
-  br i1 %.not72, label %.split.preheader, label %56
+55:                                               ; preds = %52, %43
+  %.053 = phi i1 [ %54, %52 ], [ false, %43 ]
+  %56 = getelementptr inbounds i8, ptr %51, i64 120
+  %57 = load ptr, ptr %56, align 8
+  %.not72 = icmp eq ptr %57, null
+  br i1 %.not72, label %.split.preheader, label %58
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %55, align 8
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %57, align 8
   br label %.split.preheader
 
-.split.preheader:                                 ; preds = %56, %53
-  %.055 = phi ptr [ %57, %56 ], [ @.str.13, %53 ]
-  %58 = load i32, ptr %1, align 8
-  %59 = and i32 %58, 3
-  %60 = icmp eq i32 %59, 3
-  %61 = select i1 %60, ptr %1, ptr %24
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call ptr @agraphof(ptr noundef %63) #15
-  %65 = tail call ptr @agroot(ptr noundef %64) #15
-  %66 = tail call i32 @agisdirected(ptr noundef %65) #15
-  %.not73 = icmp eq i32 %66, 0
+.split.preheader:                                 ; preds = %58, %55
+  %.055 = phi ptr [ %59, %58 ], [ @.str.13, %55 ]
+  %60 = load i32, ptr %1, align 8
+  %61 = and i32 %60, 3
+  %62 = icmp eq i32 %61, 3
+  %63 = select i1 %62, ptr %1, ptr %24
+  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call ptr @agraphof(ptr noundef %65) #15
+  %67 = tail call ptr @agroot(ptr noundef %66) #15
+  %68 = tail call i32 @agisdirected(ptr noundef %67) #15
+  %.not73 = icmp eq i32 %68, 0
   %.str.4..str.3 = select i1 %.not73, ptr @.str.4, ptr @.str.3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not78 = icmp eq i32 %2, 0
@@ -785,246 +785,246 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   %.sink = phi ptr [ %11, %6 ], [ %19, %12 ]
   %.061.ph.ph = phi ptr [ %7, %6 ], [ %14, %12 ]
   %.060.ph.ph = phi ptr [ @.str.9, %6 ], [ %15, %12 ]
-  %67 = load ptr, ptr %.sink, align 8
+  %69 = load ptr, ptr %.sink, align 8
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.sink.split, %3, %12, %6
   %.061.ph = phi ptr [ %7, %6 ], [ %14, %12 ], [ @.str.8, %3 ], [ %.061.ph.ph, %.split.us.sink.split ]
   %.060.ph = phi ptr [ @.str.9, %6 ], [ %15, %12 ], [ @.str.9, %3 ], [ %.060.ph.ph, %.split.us.sink.split ]
-  %.156.ph = phi ptr [ @.str.13, %6 ], [ @.str.13, %12 ], [ @.str.13, %3 ], [ %67, %.split.us.sink.split ]
+  %.156.ph = phi ptr [ @.str.13, %6 ], [ @.str.13, %12 ], [ @.str.13, %3 ], [ %69, %.split.us.sink.split ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %.not7899 = icmp eq i32 %2, 0
-  br i1 %.not7899, label %.split.us.split.us, label %.split.us.split
+  %.not7895 = icmp eq i32 %2, 0
+  br i1 %.not7895, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us.backedge
   %.064.us.us = phi ptr [ %.064.us.us.be, %.split.us.split.us.backedge ], [ %0, %.split.us ]
-  %68 = getelementptr inbounds i8, ptr %.064.us.us, i64 1
-  %69 = load i8, ptr %.064.us.us, align 1
-  switch i8 %69, label %81 [
-    i8 0, label %.split85.us
-    i8 92, label %70
+  %70 = getelementptr inbounds i8, ptr %.064.us.us, i64 1
+  %71 = load i8, ptr %.064.us.us, align 1
+  switch i8 %71, label %83 [
+    i8 0, label %.split81.us
+    i8 92, label %72
   ]
 
-70:                                               ; preds = %.split.us.split.us
-  %71 = load i8, ptr %68, align 1
-  %72 = sext i8 %71 to i32
-  %.not77.us.us = icmp eq i8 %71, 0
-  br i1 %.not77.us.us, label %81, label %73
+72:                                               ; preds = %.split.us.split.us
+  %73 = load i8, ptr %70, align 1
+  %74 = sext i8 %73 to i32
+  %.not77.us.us = icmp eq i8 %73, 0
+  br i1 %.not77.us.us, label %83, label %75
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %.064.us.us, i64 2
-  switch i8 %71, label %80 [
-    i8 71, label %79
-    i8 78, label %78
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %.064.us.us, i64 2
+  switch i8 %73, label %82 [
+    i8 71, label %81
+    i8 78, label %80
     i8 69, label %.split.us.split.us.backedge
-    i8 84, label %77
-    i8 72, label %76
-    i8 76, label %75
+    i8 84, label %79
+    i8 72, label %78
+    i8 76, label %77
   ]
 
-.split.us.split.us.backedge:                      ; preds = %73, %81, %80, %79, %78, %77, %76, %75
-  %.064.us.us.be = phi ptr [ %74, %80 ], [ %74, %75 ], [ %74, %76 ], [ %74, %77 ], [ %74, %78 ], [ %74, %79 ], [ %68, %81 ], [ %74, %73 ]
+.split.us.split.us.backedge:                      ; preds = %75, %83, %82, %81, %80, %79, %78, %77
+  %.064.us.us.be = phi ptr [ %76, %82 ], [ %76, %77 ], [ %76, %78 ], [ %76, %79 ], [ %76, %80 ], [ %76, %81 ], [ %70, %83 ], [ %76, %75 ]
   br label %.split.us.split.us
 
-75:                                               ; preds = %73
+77:                                               ; preds = %75
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.156.ph)
   br label %.split.us.split.us.backedge
 
-76:                                               ; preds = %73
+78:                                               ; preds = %75
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.11)
   br label %.split.us.split.us.backedge
 
-77:                                               ; preds = %73
+79:                                               ; preds = %75
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.12)
   br label %.split.us.split.us.backedge
 
-78:                                               ; preds = %73
+80:                                               ; preds = %75
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.060.ph)
   br label %.split.us.split.us.backedge
 
-79:                                               ; preds = %73
+81:                                               ; preds = %75
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.061.ph)
   br label %.split.us.split.us.backedge
 
-80:                                               ; preds = %73
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %72)
+82:                                               ; preds = %75
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %74)
   br label %.split.us.split.us.backedge
 
-81:                                               ; preds = %70, %.split.us.split.us
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %69)
+83:                                               ; preds = %72, %.split.us.split.us
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %71)
   br label %.split.us.split.us.backedge
 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split.backedge
   %.064.us = phi ptr [ %.064.us.be, %.split.us.split.backedge ], [ %0, %.split.us ]
-  %82 = getelementptr inbounds i8, ptr %.064.us, i64 1
-  %83 = load i8, ptr %.064.us, align 1
-  switch i8 %83, label %96 [
-    i8 0, label %.split85.us
-    i8 92, label %84
+  %84 = getelementptr inbounds i8, ptr %.064.us, i64 1
+  %85 = load i8, ptr %.064.us, align 1
+  switch i8 %85, label %98 [
+    i8 0, label %.split81.us
+    i8 92, label %86
   ]
 
-84:                                               ; preds = %.split.us.split
-  %85 = load i8, ptr %82, align 1
-  %86 = sext i8 %85 to i32
-  %.not77.us = icmp eq i8 %85, 0
-  br i1 %.not77.us, label %96, label %87
+86:                                               ; preds = %.split.us.split
+  %87 = load i8, ptr %84, align 1
+  %88 = sext i8 %87 to i32
+  %.not77.us = icmp eq i8 %87, 0
+  br i1 %.not77.us, label %98, label %89
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %.064.us, i64 2
-  switch i8 %85, label %95 [
-    i8 71, label %94
-    i8 78, label %93
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %.064.us, i64 2
+  switch i8 %87, label %97 [
+    i8 71, label %96
+    i8 78, label %95
     i8 69, label %.split.us.split.backedge
-    i8 84, label %92
-    i8 72, label %91
-    i8 76, label %90
-    i8 92, label %89
+    i8 84, label %94
+    i8 72, label %93
+    i8 76, label %92
+    i8 92, label %91
   ]
 
-.split.us.split.backedge:                         ; preds = %87, %96, %95, %94, %93, %92, %91, %90, %89
-  %.064.us.be = phi ptr [ %88, %95 ], [ %88, %89 ], [ %88, %90 ], [ %88, %91 ], [ %88, %92 ], [ %88, %93 ], [ %88, %94 ], [ %82, %96 ], [ %88, %87 ]
+.split.us.split.backedge:                         ; preds = %89, %98, %97, %96, %95, %94, %93, %92, %91
+  %.064.us.be = phi ptr [ %90, %97 ], [ %90, %91 ], [ %90, %92 ], [ %90, %93 ], [ %90, %94 ], [ %90, %95 ], [ %90, %96 ], [ %84, %98 ], [ %90, %89 ]
   br label %.split.us.split
 
-89:                                               ; preds = %87
+91:                                               ; preds = %89
   call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 92)
   br label %.split.us.split.backedge
 
-90:                                               ; preds = %87
+92:                                               ; preds = %89
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.156.ph)
   br label %.split.us.split.backedge
 
-91:                                               ; preds = %87
+93:                                               ; preds = %89
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.11)
   br label %.split.us.split.backedge
 
-92:                                               ; preds = %87
+94:                                               ; preds = %89
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.12)
   br label %.split.us.split.backedge
 
-93:                                               ; preds = %87
+95:                                               ; preds = %89
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.060.ph)
   br label %.split.us.split.backedge
 
-94:                                               ; preds = %87
+96:                                               ; preds = %89
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.061.ph)
   br label %.split.us.split.backedge
 
-95:                                               ; preds = %87
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %86)
+97:                                               ; preds = %89
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %88)
   br label %.split.us.split.backedge
 
-96:                                               ; preds = %84, %.split.us.split
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %83)
+98:                                               ; preds = %86, %.split.us.split
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %85)
   br label %.split.us.split.backedge
 
 .split:                                           ; preds = %.split.backedge, %.split.preheader
   %.064 = phi ptr [ %0, %.split.preheader ], [ %.064.be, %.split.backedge ]
-  %97 = getelementptr inbounds i8, ptr %.064, i64 1
-  %98 = load i8, ptr %.064, align 1
-  switch i8 %98, label %116 [
-    i8 0, label %.split85.us
-    i8 92, label %99
+  %99 = getelementptr inbounds i8, ptr %.064, i64 1
+  %100 = load i8, ptr %.064, align 1
+  switch i8 %100, label %118 [
+    i8 0, label %.split81.us
+    i8 92, label %101
   ]
 
-99:                                               ; preds = %.split
-  %100 = load i8, ptr %97, align 1
-  %101 = sext i8 %100 to i32
-  %.not77 = icmp eq i8 %100, 0
-  br i1 %.not77, label %116, label %102
+101:                                              ; preds = %.split
+  %102 = load i8, ptr %99, align 1
+  %103 = sext i8 %102 to i32
+  %.not77 = icmp eq i8 %102, 0
+  br i1 %.not77, label %118, label %104
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %.064, i64 2
-  switch i8 %100, label %115 [
-    i8 71, label %104
-    i8 78, label %105
-    i8 69, label %106
-    i8 84, label %110
-    i8 72, label %111
-    i8 76, label %112
-    i8 92, label %113
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %.064, i64 2
+  switch i8 %102, label %117 [
+    i8 71, label %106
+    i8 78, label %107
+    i8 69, label %108
+    i8 84, label %112
+    i8 72, label %113
+    i8 76, label %114
+    i8 92, label %115
   ]
 
-104:                                              ; preds = %102
+106:                                              ; preds = %104
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %30)
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %104, %105, %110, %111, %112, %114, %115, %108, %109, %116
-  %.064.be = phi ptr [ %103, %115 ], [ %103, %114 ], [ %103, %112 ], [ %103, %111 ], [ %103, %110 ], [ %103, %109 ], [ %103, %108 ], [ %103, %105 ], [ %103, %104 ], [ %97, %116 ]
+.split.backedge:                                  ; preds = %106, %107, %112, %113, %114, %116, %117, %110, %111, %118
+  %.064.be = phi ptr [ %105, %117 ], [ %105, %116 ], [ %105, %114 ], [ %105, %113 ], [ %105, %112 ], [ %105, %111 ], [ %105, %110 ], [ %105, %107 ], [ %105, %106 ], [ %99, %118 ]
   br label %.split
 
-105:                                              ; preds = %102
+107:                                              ; preds = %104
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.9)
   br label %.split.backedge
 
-106:                                              ; preds = %102
+108:                                              ; preds = %104
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %37)
-  br i1 %.052, label %108, label %107
-
-107:                                              ; preds = %106
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload)
-  br label %108
-
-108:                                              ; preds = %107, %106
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.4..str.3, ptr noundef %49)
-  br i1 %.053, label %.split.backedge, label %109
+  br i1 %.052, label %109, label %110
 
 109:                                              ; preds = %108
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload)
+  br label %110
+
+110:                                              ; preds = %109, %108
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.4..str.3, ptr noundef %50)
+  br i1 %.053, label %111, label %.split.backedge
+
+111:                                              ; preds = %110
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload2)
   br label %.split.backedge
 
-110:                                              ; preds = %102
+112:                                              ; preds = %104
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %37)
   br label %.split.backedge
 
-111:                                              ; preds = %102
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %49)
+113:                                              ; preds = %104
+  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %50)
   br label %.split.backedge
 
-112:                                              ; preds = %102
+114:                                              ; preds = %104
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.055)
   br label %.split.backedge
 
-113:                                              ; preds = %102
-  br i1 %.not78, label %115, label %114
+115:                                              ; preds = %104
+  br i1 %.not78, label %117, label %116
 
-114:                                              ; preds = %113
+116:                                              ; preds = %115
   call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 92)
   br label %.split.backedge
 
-115:                                              ; preds = %113, %102
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %101)
+117:                                              ; preds = %115, %104
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %103)
   br label %.split.backedge
 
-116:                                              ; preds = %.split, %99
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %98)
+118:                                              ; preds = %.split, %101
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %100)
   br label %.split.backedge
 
-.split85.us:                                      ; preds = %.split, %.split.us.split, %.split.us.split.us
-  %117 = getelementptr inbounds i8, ptr %4, i64 31
-  %.val.i = load i8, ptr %117, align 1
+.split81.us:                                      ; preds = %.split, %.split.us.split, %.split.us.split.us
+  %119 = getelementptr inbounds i8, ptr %4, i64 31
+  %.val.i = load i8, ptr %119, align 1
   %.not.i = icmp eq i8 %.val.i, -1
-  br i1 %.not.i, label %125, label %agxblen.exit.i
+  br i1 %.not.i, label %127, label %agxblen.exit.i
 
-agxblen.exit.i:                                   ; preds = %.split85.us
-  %118 = zext i8 %.val.i to i64
-  %119 = call noalias ptr @strndup(ptr noundef nonnull %4, i64 noundef %118) #15
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %agxbdisown.exit
+agxblen.exit.i:                                   ; preds = %.split81.us
+  %120 = zext i8 %.val.i to i64
+  %121 = call noalias ptr @strndup(ptr noundef nonnull %4, i64 noundef %120) #15
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %123, label %agxbdisown.exit
 
-121:                                              ; preds = %agxblen.exit.i
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = add nuw nsw i64 %118, 1
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.6, i64 noundef %123) #16
+123:                                              ; preds = %agxblen.exit.i
+  %124 = load ptr, ptr @stderr, align 8
+  %125 = add nuw nsw i64 %120, 1
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.6, i64 noundef %125) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-125:                                              ; preds = %.split85.us
+127:                                              ; preds = %.split81.us
   call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
-  %126 = load ptr, ptr %4, align 8
+  %128 = load ptr, ptr %4, align 8
   br label %agxbdisown.exit
 
-agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %125
-  %.0.i = phi ptr [ %126, %125 ], [ %119, %agxblen.exit.i ]
+agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %127
+  %.0.i = phi ptr [ %128, %127 ], [ %121, %agxblen.exit.i ]
   ret ptr %.0.i
 }
 
@@ -1088,15 +1088,14 @@ define void @free_label(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %3) #15
   %4 = getelementptr inbounds i8, ptr %0, i64 106
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %.not9 = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  br i1 %.not9, label %11, label %9
+  br i1 %6, label %9, label %11
 
 9:                                                ; preds = %2
-  %.not10 = icmp eq ptr %8, null
-  br i1 %.not10, label %free_textspan.exit, label %10
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %free_textspan.exit, label %10
 
 10:                                               ; preds = %9
   tail call void @free_html_label(ptr noundef nonnull %8, i32 noundef 1) #15
@@ -1161,10 +1160,9 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   store i32 %1, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 106
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
+  %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %2, i64 88
-  br i1 %.not, label %14, label %12
+  br i1 %10, label %12, label %14
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %11, align 8
@@ -1218,19 +1216,19 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
 43:                                               ; preds = %38, %30, %25
   %.sink = phi double [ %42, %38 ], [ %37, %30 ], [ %29, %25 ]
   %44 = load i64, ptr %15, align 8
-  %.not49 = icmp eq i64 %44, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp eq i64 %44, 0
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43
   %45 = getelementptr inbounds i8, ptr %5, i64 344
   %46 = load i16, ptr %45, align 8
   %47 = and i16 %46, 512
-  %.not46 = icmp eq i16 %47, 0
+  %.not = icmp eq i16 %47, 0
   %48 = getelementptr inbounds i8, ptr %2, i64 32
   %49 = load double, ptr %48, align 8
   %50 = fsub double %.sink, %49
   %51 = fsub double %50, %24
-  %.sroa.4.1 = select i1 %.not46, double %50, double %51
+  %.sroa.4.1 = select i1 %.not, double %50, double %51
   %52 = getelementptr inbounds i8, ptr %2, i64 72
   %53 = getelementptr inbounds i8, ptr %2, i64 56
   %.pre = load ptr, ptr %11, align 8
@@ -1238,9 +1236,9 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
 
 54:                                               ; preds = %.lr.ph, %67
   %55 = phi ptr [ %.pre, %.lr.ph ], [ %69, %67 ]
-  %.048 = phi i64 [ 0, %.lr.ph ], [ %73, %67 ]
-  %.sroa.4.247 = phi double [ %.sroa.4.1, %.lr.ph ], [ %72, %67 ]
-  %56 = getelementptr inbounds %struct.textspan_t, ptr %55, i64 %.048, i32 7
+  %.047 = phi i64 [ 0, %.lr.ph ], [ %73, %67 ]
+  %.sroa.4.246 = phi double [ %.sroa.4.1, %.lr.ph ], [ %72, %67 ]
+  %56 = getelementptr inbounds %struct.textspan_t, ptr %55, i64 %.047, i32 7
   %57 = load i8, ptr %56, align 8
   %58 = load double, ptr %52, align 8
   switch i8 %57, label %67 [
@@ -1262,13 +1260,13 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
 
 67:                                               ; preds = %54, %63, %59
   %.sroa.0.0 = phi double [ %66, %63 ], [ %62, %59 ], [ %58, %54 ]
-  %68 = getelementptr inbounds %struct.textspan_t, ptr %55, i64 %.048
-  tail call void @gvrender_textspan(ptr noundef %0, double %.sroa.0.0, double %.sroa.4.247, ptr noundef %68) #15
+  %68 = getelementptr inbounds %struct.textspan_t, ptr %55, i64 %.047
+  tail call void @gvrender_textspan(ptr noundef %0, double %.sroa.0.0, double %.sroa.4.246, ptr noundef %68) #15
   %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds %struct.textspan_t, ptr %69, i64 %.048, i32 6, i32 1
+  %70 = getelementptr inbounds %struct.textspan_t, ptr %69, i64 %.047, i32 6, i32 1
   %71 = load double, ptr %70, align 8
-  %72 = fsub double %.sroa.4.247, %71
-  %73 = add nuw i64 %.048, 1
+  %72 = fsub double %.sroa.4.246, %71
+  %73 = add nuw i64 %.047, 1
   %74 = load i64, ptr %15, align 8
   %75 = icmp ult i64 %73, %74
   br i1 %75, label %54, label %._crit_edge
@@ -1477,16 +1475,16 @@ agxbput_n.exit:                                   ; preds = %2, %29, %34
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #15
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -1594,21 +1592,21 @@ agxbnext.exit.i:                                  ; preds = %37, %35
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %45, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #12
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13

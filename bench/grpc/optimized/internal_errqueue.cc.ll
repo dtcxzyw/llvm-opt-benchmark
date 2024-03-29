@@ -54,15 +54,14 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %2 = load i8, ptr @_ZZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvE18errqueue_supported, align 1
-  %3 = and i8 %2, 1
-  %tobool1 = icmp ne i8 %3, 0
+  %tobool1 = trunc i8 %2 to i1
   ret i1 %tobool1
 
 lpad:                                             ; preds = %init
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvE18errqueue_supported) #9
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 }
 
 ; Function Attrs: nofree nounwind

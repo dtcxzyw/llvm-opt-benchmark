@@ -1502,258 +1502,262 @@ define noundef zeroext i1 @_ZN5Ipopt16MonotoneMuUpdate22UpdateBarrierParameterEv
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 113
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
+  %29 = trunc i8 %28 to i1
   store i8 0, ptr %27, align 1
-  %31 = fcmp ole double %17, %25
-  %brmerge68 = or i1 %31, %30
-  br i1 %brmerge68, label %.lr.ph, label %.critedge
+  %30 = fcmp ole double %17, %25
+  %brmerge64 = or i1 %30, %29
+  br i1 %brmerge64, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 129
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
-  %37 = getelementptr inbounds i8, ptr %0, i64 112
-  %38 = getelementptr inbounds i8, ptr %0, i64 96
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %42
+  %31 = getelementptr inbounds i8, ptr %0, i64 129
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  br label %41
 
-42:                                               ; preds = %.lr.ph, %.thread56
-  %.02573 = phi double [ %9, %.lr.ph ], [ %.sroa.speculated.i12.i, %.thread56 ]
-  %.02672 = phi i1 [ %30, %.lr.ph ], [ false, %.thread56 ]
-  %.02971 = phi double [ %25, %.lr.ph ], [ %.130, %.thread56 ]
-  %.03170 = phi double [ %17, %.lr.ph ], [ %.132, %.thread56 ]
-  %.03369 = phi double [ %11, %.lr.ph ], [ %.sroa.speculated.i13.i, %.thread56 ]
-  %43 = load i8, ptr %32, align 1
-  %44 = and i8 %43, 1
-  %.not34 = icmp eq i8 %44, 0
-  br i1 %.not34, label %45, label %.critedge
+41:                                               ; preds = %.lr.ph, %.thread53
+  %.02570 = phi double [ %9, %.lr.ph ], [ %.sroa.speculated.i12.i, %.thread53 ]
+  %.02669 = phi i1 [ %29, %.lr.ph ], [ false, %.thread53 ]
+  %.02768 = phi i8 [ 0, %.lr.ph ], [ %.12862, %.thread53 ]
+  %.02967 = phi double [ %25, %.lr.ph ], [ %.13061, %.thread53 ]
+  %.03166 = phi double [ %17, %.lr.ph ], [ %.13260, %.thread53 ]
+  %.03365 = phi double [ %11, %.lr.ph ], [ %.sroa.speculated.i13.i, %.thread53 ]
+  %42 = trunc i8 %.02768 to i1
+  br i1 %42, label %.critedge, label %43
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %18, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %49(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.26, double noundef %.02971)
-  %50 = load ptr, ptr %18, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %53(ptr noundef nonnull align 8 dereferenceable(40) %50, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.27, double noundef %.02573, double noundef %.03369)
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 72
-  %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 104
-  %58 = load double, ptr %57, align 8
-  %59 = load ptr, ptr %33, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8, !noalias !4
-  %.not.i.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i, label %62
+43:                                               ; preds = %41
+  %44 = load i8, ptr %31, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %.critedge, label %46
 
-62:                                               ; preds = %45
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
-  %64 = load i32, ptr %63, align 8, !noalias !4
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %63, align 8, !noalias !4
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %18, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %50(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.26, double noundef %.02967)
+  %51 = load ptr, ptr %18, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull align 8 dereferenceable(40) %51, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.27, double noundef %.02570, double noundef %.03365)
+  %55 = load ptr, ptr %6, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 72
+  %57 = load double, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 104
+  %59 = load double, ptr %58, align 8
+  %60 = load ptr, ptr %32, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = load ptr, ptr %61, align 8, !noalias !4
+  %.not.i.i.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i.i, label %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i, label %63
+
+63:                                               ; preds = %46
+  %64 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = load i32, ptr %64, align 8, !noalias !4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %64, align 8, !noalias !4
   br label %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i
 
-_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i:        ; preds = %62, %45
-  %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = invoke noundef double %68(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %70 unwind label %79
+_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i:        ; preds = %63, %46
+  %67 = load ptr, ptr %62, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = invoke noundef double %69(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(8) %33)
+          to label %71 unwind label %80
 
-70:                                               ; preds = %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i
-  %71 = getelementptr inbounds i8, ptr %61, i64 8
-  %72 = load i32, ptr %71, align 8
-  %73 = add nsw i32 %72, -1
-  store i32 %73, ptr %71, align 8
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
+71:                                               ; preds = %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i
+  %72 = getelementptr inbounds i8, ptr %62, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, -1
+  store i32 %74, ptr %72, align 8
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr %61, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(24) %61) #14
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %62, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
   br label %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
 
-79:                                               ; preds = %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit.i
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = getelementptr inbounds i8, ptr %61, i64 8
-  %82 = load i32, ptr %81, align 8
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr %81, align 8
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %common.resume
+  %82 = getelementptr inbounds i8, ptr %62, i64 8
+  %83 = load i32, ptr %82, align 8
+  %84 = add nsw i32 %83, -1
+  store i32 %84, ptr %82, align 8
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %common.resume
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %61, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8
-  tail call void %88(ptr noundef nonnull align 8 dereferenceable(24) %61) #14
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %62, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
   br label %common.resume
 
-common.resume:                                    ; preds = %121, %120, %79, %85
-  %common.resume.op = phi { ptr, i32 } [ %80, %85 ], [ %80, %79 ], [ %.pn, %120 ], [ %.pn.pn55, %121 ]
+common.resume:                                    ; preds = %122, %121, %80, %86
+  %common.resume.op = phi { ptr, i32 } [ %81, %86 ], [ %81, %80 ], [ %.pn, %121 ], [ %.pn.pn52, %122 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %70, %75
-  %89 = tail call noundef double @llvm.fabs.f64(double %69)
-  %90 = load double, ptr %35, align 8
-  %91 = fmul double %56, %90
-  %92 = load double, ptr %36, align 8
-  %93 = tail call double @pow(double noundef %56, double noundef %92) #14
-  %94 = fcmp olt double %93, %91
-  %.sroa.speculated.i.i = select i1 %94, double %93, double %91
-  %95 = load double, ptr %37, align 8
-  %96 = fcmp olt double %89, %58
-  %.sroa.speculated.i11.i = select i1 %96, double %89, double %58
-  %97 = load double, ptr %23, align 8
-  %98 = fadd double %97, 1.000000e+00
-  %99 = fdiv double %.sroa.speculated.i11.i, %98
-  %100 = fcmp olt double %.sroa.speculated.i.i, %95
-  %.sroa.speculated2.i.i = select i1 %100, double %95, double %.sroa.speculated.i.i
-  %101 = fcmp olt double %.sroa.speculated2.i.i, %99
-  %.sroa.speculated.i12.i = select i1 %101, double %99, double %.sroa.speculated2.i.i
-  %102 = load double, ptr %38, align 8
-  %103 = fsub double 1.000000e+00, %.sroa.speculated.i12.i
-  %104 = fcmp olt double %102, %103
-  %.sroa.speculated.i13.i = select i1 %104, double %103, double %102
-  %105 = load ptr, ptr %18, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
-  %108 = load ptr, ptr %107, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %108(ptr noundef nonnull align 8 dereferenceable(40) %105, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.28, double noundef %.sroa.speculated.i12.i, double noundef %.sroa.speculated.i13.i)
-  %109 = fcmp oeq double %.02573, %.sroa.speculated.i12.i
-  %brmerge41.not = and i1 %.02672, %109
-  br i1 %brmerge41.not, label %110, label %122
+_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
+  %90 = tail call noundef double @llvm.fabs.f64(double %70)
+  %91 = load double, ptr %34, align 8
+  %92 = fmul double %57, %91
+  %93 = load double, ptr %35, align 8
+  %94 = tail call double @pow(double noundef %57, double noundef %93) #14
+  %95 = fcmp olt double %94, %92
+  %.sroa.speculated.i.i = select i1 %95, double %94, double %92
+  %96 = load double, ptr %36, align 8
+  %97 = fcmp olt double %90, %59
+  %.sroa.speculated.i11.i = select i1 %97, double %90, double %59
+  %98 = load double, ptr %23, align 8
+  %99 = fadd double %98, 1.000000e+00
+  %100 = fdiv double %.sroa.speculated.i11.i, %99
+  %101 = fcmp olt double %.sroa.speculated.i.i, %96
+  %.sroa.speculated2.i.i = select i1 %101, double %96, double %.sroa.speculated.i.i
+  %102 = fcmp olt double %.sroa.speculated2.i.i, %100
+  %.sroa.speculated.i12.i = select i1 %102, double %100, double %.sroa.speculated2.i.i
+  %103 = load double, ptr %37, align 8
+  %104 = fsub double 1.000000e+00, %.sroa.speculated.i12.i
+  %105 = fcmp olt double %103, %104
+  %.sroa.speculated.i13.i = select i1 %105, double %104, double %103
+  %106 = load ptr, ptr %18, align 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %109 = load ptr, ptr %108, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %109(ptr noundef nonnull align 8 dereferenceable(40) %106, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.28, double noundef %.sroa.speculated.i12.i, double noundef %.sroa.speculated.i13.i)
+  %110 = fcmp oeq double %.02570, %.sroa.speculated.i12.i
+  %brmerge36.not = and i1 %.02669, %110
+  br i1 %brmerge36.not, label %111, label %123
 
-110:                                              ; preds = %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
-  %111 = tail call ptr @__cxa_allocate_exception(i64 112) #14
+111:                                              ; preds = %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
+  %112 = tail call ptr @__cxa_allocate_exception(i64 112) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %112 unwind label %.thread
+          to label %113 unwind label %.thread
 
-112:                                              ; preds = %110
+113:                                              ; preds = %111
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %113 unwind label %116
-
-113:                                              ; preds = %112
-  invoke void @_ZN5Ipopt18TINY_STEP_DETECTEDC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_i(ptr noundef nonnull align 8 dereferenceable(112) %111, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 160)
-          to label %114 unwind label %118
+          to label %114 unwind label %117
 
 114:                                              ; preds = %113
-  invoke void @__cxa_throw(ptr nonnull %111, ptr nonnull @_ZTIN5Ipopt18TINY_STEP_DETECTEDE, ptr nonnull @_ZN5Ipopt18TINY_STEP_DETECTEDD2Ev) #16
-          to label %154 unwind label %118
+  invoke void @_ZN5Ipopt18TINY_STEP_DETECTEDC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_i(ptr noundef nonnull align 8 dereferenceable(112) %112, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 160)
+          to label %115 unwind label %119
 
-.thread:                                          ; preds = %110
-  %115 = landingpad { ptr, i32 }
+115:                                              ; preds = %114
+  invoke void @__cxa_throw(ptr nonnull %112, ptr nonnull @_ZTIN5Ipopt18TINY_STEP_DETECTEDE, ptr nonnull @_ZN5Ipopt18TINY_STEP_DETECTEDD2Ev) #16
+          to label %156 unwind label %119
+
+.thread:                                          ; preds = %111
+  %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  br label %122
+
+117:                                              ; preds = %113
+  %118 = landingpad { ptr, i32 }
+          cleanup
   br label %121
 
-116:                                              ; preds = %112
-  %117 = landingpad { ptr, i32 }
-          cleanup
-  br label %120
-
-118:                                              ; preds = %114, %113
-  %.0 = phi i1 [ false, %114 ], [ true, %113 ]
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %115, %114
+  %.0 = phi i1 [ false, %115 ], [ true, %114 ]
+  %120 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  br label %120
+  br label %121
 
-120:                                              ; preds = %116, %118
-  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %117, %116 ]
-  %.1 = phi i1 [ %.0, %118 ], [ true, %116 ]
+121:                                              ; preds = %117, %119
+  %.pn = phi { ptr, i32 } [ %120, %119 ], [ %118, %117 ]
+  %.1 = phi i1 [ %.0, %119 ], [ true, %117 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  br i1 %.1, label %121, label %common.resume
+  br i1 %.1, label %122, label %common.resume
 
-121:                                              ; preds = %.thread, %120
-  %.pn.pn55 = phi { ptr, i32 } [ %115, %.thread ], [ %.pn, %120 ]
-  call void @__cxa_free_exception(ptr %111) #14
+122:                                              ; preds = %.thread, %121
+  %.pn.pn52 = phi { ptr, i32 } [ %116, %.thread ], [ %.pn, %121 ]
+  call void @__cxa_free_exception(ptr %112) #14
   br label %common.resume
 
-122:                                              ; preds = %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
-  %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 72
-  store double %.sroa.speculated.i12.i, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %123, i64 80
-  store i8 1, ptr %125, align 8
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 88
-  store double %.sroa.speculated.i13.i, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 96
-  store i8 1, ptr %128, align 8
-  %129 = load i8, ptr %39, align 8
-  %130 = and i8 %129, 1
-  %.not37 = icmp eq i8 %130, 0
-  br i1 %.not37, label %134, label %131
+123:                                              ; preds = %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
+  %124 = load ptr, ptr %6, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 72
+  store double %.sroa.speculated.i12.i, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %124, i64 80
+  store i8 1, ptr %126, align 8
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 88
+  store double %.sroa.speculated.i13.i, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %127, i64 96
+  store i8 1, ptr %129, align 8
+  %130 = load i8, ptr %38, align 8
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %135
 
-131:                                              ; preds = %122
-  %132 = load i8, ptr %40, align 8
-  %133 = and i8 %132, 1
-  %.not38 = icmp eq i8 %133, 0
-  %brmerge45 = or i1 %109, %.not38
-  br i1 %brmerge45, label %145, label %135
+132:                                              ; preds = %123
+  %133 = load i8, ptr %39, align 8
+  %134 = trunc i8 %133 to i1
+  %.not40 = xor i1 %134, true
+  %brmerge42 = or i1 %110, %.not40
+  br i1 %brmerge42, label %146, label %136
 
-134:                                              ; preds = %122
-  br i1 %109, label %.critedge, label %135
+135:                                              ; preds = %123
+  br i1 %110, label %.thread53, label %136
 
-135:                                              ; preds = %131, %134
-  %136 = load ptr, ptr %12, align 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 208
-  %139 = load ptr, ptr %138, align 8
-  %140 = tail call noundef double %139(ptr noundef nonnull align 8 dereferenceable(2185) %136)
-  %141 = load double, ptr %23, align 8
-  %142 = fmul double %.sroa.speculated.i12.i, %141
-  %143 = fcmp ogt double %140, %142
-  %144 = zext i1 %143 to i8
-  br label %145
+136:                                              ; preds = %132, %135
+  %137 = load ptr, ptr %12, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 208
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call noundef double %140(ptr noundef nonnull align 8 dereferenceable(2185) %137)
+  %142 = load double, ptr %23, align 8
+  %143 = fmul double %.sroa.speculated.i12.i, %142
+  %144 = fcmp ogt double %141, %143
+  %145 = zext i1 %144 to i8
+  br label %146
 
-145:                                              ; preds = %131, %135
-  %.132 = phi double [ %140, %135 ], [ %.03170, %131 ]
-  %.130 = phi double [ %142, %135 ], [ %.02971, %131 ]
-  %.128 = phi i8 [ %144, %135 ], [ 1, %131 ]
-  %.not39 = icmp eq i8 %.128, 0
-  %brmerge43 = or i1 %109, %.not39
-  br i1 %brmerge43, label %.thread56, label %146
+146:                                              ; preds = %132, %136
+  %.132 = phi double [ %141, %136 ], [ %.03166, %132 ]
+  %.130 = phi double [ %143, %136 ], [ %.02967, %132 ]
+  %.128 = phi i8 [ %145, %136 ], [ 1, %132 ]
+  %147 = trunc i8 %.128 to i1
+  %.not37 = xor i1 %147, true
+  %brmerge39 = or i1 %110, %.not37
+  br i1 %brmerge39, label %.thread53, label %148
 
-146:                                              ; preds = %145
-  %147 = load ptr, ptr %41, align 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 32
+148:                                              ; preds = %146
+  %149 = load ptr, ptr %40, align 8
   %150 = load ptr, ptr %149, align 8
-  tail call void %150(ptr noundef nonnull align 8 dereferenceable(49) %147)
-  br label %.critedge
+  %151 = getelementptr inbounds i8, ptr %150, i64 32
+  %152 = load ptr, ptr %151, align 8
+  tail call void %152(ptr noundef nonnull align 8 dereferenceable(49) %149)
+  br label %.thread53
 
-.thread56:                                        ; preds = %145
-  %151 = fcmp ole double %.132, %.130
-  %.not = icmp eq i8 %.128, 0
-  %or.cond = and i1 %.not, %151
-  br i1 %or.cond, label %42, label %.critedge, !llvm.loop !7
+.thread53:                                        ; preds = %135, %146, %148
+  %.12862 = phi i8 [ %.128, %146 ], [ %.128, %148 ], [ 1, %135 ]
+  %.13061 = phi double [ %.130, %146 ], [ %.130, %148 ], [ %.02967, %135 ]
+  %.13260 = phi double [ %.132, %146 ], [ %.132, %148 ], [ %.03166, %135 ]
+  %153 = fcmp ugt double %.13260, %.13061
+  br i1 %153, label %.critedge, label %41, !llvm.loop !7
 
-.critedge:                                        ; preds = %134, %42, %.thread56, %146, %1
-  %152 = getelementptr inbounds i8, ptr %0, i64 129
-  store i8 0, ptr %152, align 1
-  %153 = getelementptr inbounds i8, ptr %0, i64 128
-  store i8 1, ptr %153, align 8
+.critedge:                                        ; preds = %43, %41, %.thread53, %1
+  %154 = getelementptr inbounds i8, ptr %0, i64 129
+  store i8 0, ptr %154, align 1
+  %155 = getelementptr inbounds i8, ptr %0, i64 128
+  store i8 1, ptr %155, align 8
   ret i1 true
 
-154:                                              ; preds = %114
+156:                                              ; preds = %115
   unreachable
 }
 

@@ -97,23 +97,22 @@ entry:
   %tdata_count = alloca i64, align 8
   store i64 0, ptr %tdata_count, align 8
   %0 = load i8, ptr @tsd_booted, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %tsdn_fetch.exit, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %tsdn_fetch.exit
 
 if.end.i:                                         ; preds = %entry
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i = getelementptr inbounds i8, ptr %2, i64 832
-  %3 = load i8, ptr %state.i.i, align 8
-  %cmp6.i.not = icmp eq i8 %3, 0
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i = getelementptr inbounds i8, ptr %1, i64 832
+  %2 = load i8, ptr %state.i.i, align 8
+  %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #11
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #11
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %entry
-  %retval.i.0 = phi ptr [ null, %entry ], [ %call13.i, %if.then11.i ], [ %2, %if.end.i ]
+  %retval.i.0 = phi ptr [ null, %entry ], [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i6, label %if.then.i
@@ -124,27 +123,27 @@ if.then.i:                                        ; preds = %tsdn_fetch.exit
   br label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.then.i, %tsdn_fetch.exit
-  %4 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %inc.i.i = add i64 %4, 1
+  %3 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %cmp.not.i.i = icmp eq ptr %5, %retval.i.0
+  %4 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  %cmp.not.i.i = icmp eq ptr %4, %retval.i.0
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i6
   store ptr %retval.i.0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  %inc2.i.i = add i64 %6, 1
+  %5 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  %inc2.i.i = add i64 %5, 1
   store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i6, %if.then.i.i
-  %7 = load ptr, ptr @tdatas, align 8
-  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %7, ptr noundef nonnull @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
+  %6 = load ptr, ptr @tdatas, align 8
+  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
-  %8 = load i64, ptr %tdata_count, align 8
-  ret i64 %8
+  %7 = load i64, ptr %tdata_count, align 8
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -366,9 +365,8 @@ if.then.i.i:                                      ; preds = %if.end.i
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %attached = getelementptr inbounds i8, ptr %tdata, i64 32
   %4 = load i8, ptr %attached, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end11.critedge, label %if.then
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then, label %if.end11.critedge
 
 if.then:                                          ; preds = %malloc_mutex_lock.exit
   %bt2tctx.i.i = getelementptr inbounds i8, ptr %tdata, i64 64
@@ -380,19 +378,19 @@ if.then4:                                         ; preds = %if.then
   store i8 0, ptr %attached, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_tdata.i = getelementptr inbounds i8, ptr %tsd, i64 104
   store ptr null, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_tdata.i, align 8
-  %6 = load ptr, ptr %tdata, align 8
-  %locked.i14 = getelementptr inbounds i8, ptr %6, i64 104
+  %5 = load ptr, ptr %tdata, align 8
+  %locked.i14 = getelementptr inbounds i8, ptr %5, i64 104
   store atomic i8 0, ptr %locked.i14 monotonic, align 1
-  %lock.i = getelementptr inbounds i8, ptr %6, i64 64
+  %lock.i = getelementptr inbounds i8, ptr %5, i64 64
   br label %if.end11
 
 if.then10.critedge:                               ; preds = %if.then
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_tdata.i.c = getelementptr inbounds i8, ptr %tsd, i64 104
   store ptr null, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_tdata.i.c, align 8
-  %7 = load ptr, ptr %tdata, align 8
-  %locked.i15 = getelementptr inbounds i8, ptr %7, i64 104
+  %6 = load ptr, ptr %tdata, align 8
+  %locked.i15 = getelementptr inbounds i8, ptr %6, i64 104
   store atomic i8 0, ptr %locked.i15 monotonic, align 1
-  %lock.i16 = getelementptr inbounds i8, ptr %7, i64 64
+  %lock.i16 = getelementptr inbounds i8, ptr %6, i64 64
   %call1.i17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i16) #11
   %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
@@ -404,17 +402,17 @@ if.then.i.i18:                                    ; preds = %if.then10.critedge
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i18, %if.then10.critedge
-  %8 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %inc.i.i.i = add i64 %8, 1
+  %7 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %inc.i.i.i = add i64 %7, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %tsd
+  %8 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  %cmp.not.i.i.i = icmp eq ptr %8, %tsd
   br i1 %cmp.not.i.i.i, label %prof_tdata_destroy.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  %inc2.i.i.i = add i64 %10, 1
+  %9 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  %inc2.i.i.i = add i64 %9, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
   br label %prof_tdata_destroy.exit
 
@@ -424,10 +422,10 @@ prof_tdata_destroy.exit:                          ; preds = %if.end.i.i, %if.the
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %malloc_mutex_lock.exit
-  %11 = load ptr, ptr %tdata, align 8
-  %locked.i19 = getelementptr inbounds i8, ptr %11, i64 104
+  %10 = load ptr, ptr %tdata, align 8
+  %locked.i19 = getelementptr inbounds i8, ptr %10, i64 104
   store atomic i8 0, ptr %locked.i19 monotonic, align 1
-  %lock.i20 = getelementptr inbounds i8, ptr %11, i64 64
+  %lock.i20 = getelementptr inbounds i8, ptr %10, i64 64
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then4, %if.end11.critedge, %prof_tdata_destroy.exit
@@ -1367,27 +1365,25 @@ entry:
   %rtree_ctx_fallback.i.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i.i = alloca %struct.rtree_contents_s, align 8
   %0 = load i8, ptr @opt_prof_accum, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.else
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.else, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %cnts.i = getelementptr inbounds i8, ptr %tctx, i64 32
-  %2 = load i64, ptr %cnts.i, align 8
-  %cmp.not.i = icmp eq i64 %2, 0
+  %1 = load i64, ptr %cnts.i, align 8
+  %cmp.not.i = icmp eq i64 %1, 0
   br i1 %cmp.not.i, label %if.end2.i, label %if.else
 
 if.end2.i:                                        ; preds = %if.end.i
   %prepared.i = getelementptr inbounds i8, ptr %tctx, i64 128
-  %3 = load i8, ptr %prepared.i, align 8
-  %4 = and i8 %3, 1
-  %tobool3.not.i = icmp eq i8 %4, 0
-  br i1 %tobool3.not.i, label %prof_tctx_should_destroy.exit, label %if.else
+  %2 = load i8, ptr %prepared.i, align 8
+  %tobool3.i = trunc i8 %2 to i1
+  br i1 %tobool3.i, label %if.else, label %prof_tctx_should_destroy.exit
 
 prof_tctx_should_destroy.exit:                    ; preds = %if.end2.i
   %recent_count.i = getelementptr inbounds i8, ptr %tctx, i64 24
-  %5 = load i64, ptr %recent_count.i, align 8
-  %cmp6.not.i = icmp eq i64 %5, 0
+  %3 = load i64, ptr %recent_count.i, align 8
+  %cmp6.not.i = icmp eq i64 %3, 0
   br i1 %cmp6.not.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %prof_tctx_should_destroy.exit
@@ -1395,32 +1391,31 @@ if.then:                                          ; preds = %prof_tctx_should_de
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i)
   %gctx13.i = getelementptr inbounds i8, ptr %tctx, i64 96
-  %6 = load ptr, ptr %gctx13.i, align 8
-  %7 = load ptr, ptr %tctx, align 8
+  %4 = load ptr, ptr %gctx13.i, align 8
+  %5 = load ptr, ptr %tctx, align 8
   store ptr null, ptr %tctx, align 8
-  %bt2tctx.i = getelementptr inbounds i8, ptr %7, i64 64
-  %bt.i = getelementptr inbounds i8, ptr %6, i64 104
+  %bt2tctx.i = getelementptr inbounds i8, ptr %5, i64 64
+  %bt.i = getelementptr inbounds i8, ptr %4, i64 104
   %call17.i = tail call zeroext i1 @ckh_remove(ptr noundef %tsd, ptr noundef nonnull %bt2tctx.i, ptr noundef nonnull %bt.i, ptr noundef null, ptr noundef null) #11
-  %attached.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %8 = load i8, ptr %attached.i.i.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i.i, label %prof_tdata_should_destroy.exit.i, label %prof_tdata_should_destroy.exit.thread.i
+  %attached.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = load i8, ptr %attached.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i.i, label %prof_tdata_should_destroy.exit.thread.i, label %prof_tdata_should_destroy.exit.i
 
 prof_tdata_should_destroy.exit.thread.i:          ; preds = %if.then
-  %10 = load ptr, ptr %7, align 8
-  %locked.i138.i = getelementptr inbounds i8, ptr %10, i64 104
+  %7 = load ptr, ptr %5, align 8
+  %locked.i138.i = getelementptr inbounds i8, ptr %7, i64 104
   store atomic i8 0, ptr %locked.i138.i monotonic, align 1
-  %lock.i139.i = getelementptr inbounds i8, ptr %10, i64 64
+  %lock.i139.i = getelementptr inbounds i8, ptr %7, i64 64
   br label %if.end.sink.split.i
 
 prof_tdata_should_destroy.exit.i:                 ; preds = %if.then
   %call.i.i.i = tail call i64 @ckh_count(ptr noundef nonnull %bt2tctx.i) #11
   %cmp.not.i.i.i = icmp eq i64 %call.i.i.i, 0
-  %11 = load ptr, ptr %7, align 8
-  %locked.i.i = getelementptr inbounds i8, ptr %11, i64 104
+  %8 = load ptr, ptr %5, align 8
+  %locked.i.i = getelementptr inbounds i8, ptr %8, i64 104
   store atomic i8 0, ptr %locked.i.i monotonic, align 1
-  %lock.i.i = getelementptr inbounds i8, ptr %11, i64 64
+  %lock.i.i = getelementptr inbounds i8, ptr %8, i64 64
   %call1.i118.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   br i1 %cmp.not.i.i.i, label %if.then.i, label %if.end.i7
 
@@ -1435,22 +1430,22 @@ if.then.i.i119.i:                                 ; preds = %if.then.i
   br label %if.end.i.i120.i
 
 if.end.i.i120.i:                                  ; preds = %if.then.i.i119.i, %if.then.i
-  %12 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %inc.i.i.i.i = add i64 %12, 1
+  %9 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %inc.i.i.i.i = add i64 %9, 1
   store i64 %inc.i.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %13, %tsd
+  %10 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %10, %tsd
   br i1 %cmp.not.i.i.i.i, label %prof_tdata_destroy.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i120.i
   store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  %inc2.i.i.i.i = add i64 %14, 1
+  %11 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  %inc2.i.i.i.i = add i64 %11, 1
   store i64 %inc2.i.i.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
   br label %prof_tdata_destroy.exit.i
 
 prof_tdata_destroy.exit.i:                        ; preds = %if.then.i.i.i.i, %if.end.i.i120.i
-  tail call fastcc void @prof_tdata_destroy_locked(ptr noundef %tsd, ptr noundef nonnull %7)
+  tail call fastcc void @prof_tdata_destroy_locked(ptr noundef %tsd, ptr noundef nonnull %5)
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   br label %if.end.sink.split.i
 
@@ -1460,89 +1455,89 @@ if.end.sink.split.i:                              ; preds = %prof_tdata_destroy.
   br label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end.sink.split.i, %prof_tdata_should_destroy.exit.i
-  %15 = load ptr, ptr %6, align 8
-  %lock.i.i.i = getelementptr inbounds i8, ptr %15, i64 64
+  %12 = load ptr, ptr %4, align 8
+  %lock.i.i.i = getelementptr inbounds i8, ptr %12, i64 64
   %call.i.i121.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i.i) #11
   %cmp.i.not.i.i = icmp eq i32 %call.i.i121.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i7
-  tail call void @malloc_mutex_lock_slow(ptr noundef %15) #11
-  %locked.i122.i = getelementptr inbounds i8, ptr %15, i64 104
+  tail call void @malloc_mutex_lock_slow(ptr noundef %12) #11
+  %locked.i122.i = getelementptr inbounds i8, ptr %12, i64 104
   store atomic i8 1, ptr %locked.i122.i monotonic, align 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i7
-  %n_lock_ops.i.i.i = getelementptr inbounds i8, ptr %15, i64 56
-  %16 = load i64, ptr %n_lock_ops.i.i.i, align 8
-  %inc.i.i.i = add i64 %16, 1
+  %n_lock_ops.i.i.i = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = load i64, ptr %n_lock_ops.i.i.i, align 8
+  %inc.i.i.i = add i64 %13, 1
   store i64 %inc.i.i.i, ptr %n_lock_ops.i.i.i, align 8
-  %prev_owner.i.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load ptr, ptr %prev_owner.i.i.i, align 8
-  %cmp.not.i.i123.i = icmp eq ptr %17, %tsd
+  %prev_owner.i.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %14 = load ptr, ptr %prev_owner.i.i.i, align 8
+  %cmp.not.i.i123.i = icmp eq ptr %14, %tsd
   br i1 %cmp.not.i.i123.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i124.i
 
 if.then.i.i124.i:                                 ; preds = %if.end.i.i
   store ptr %tsd, ptr %prev_owner.i.i.i, align 8
-  %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
-  %18 = load i64, ptr %n_owner_switches.i.i.i, align 8
-  %inc2.i.i.i = add i64 %18, 1
+  %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %12, i64 40
+  %15 = load i64, ptr %n_owner_switches.i.i.i, align 8
+  %inc2.i.i.i = add i64 %15, 1
   store i64 %inc2.i.i.i, ptr %n_owner_switches.i.i.i, align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i124.i, %if.end.i.i
   %state.i = getelementptr inbounds i8, ptr %tctx, i64 132
-  %19 = load i32, ptr %state.i, align 4
-  %switch.i = icmp eq i32 %19, 1
+  %16 = load i32, ptr %state.i, align 4
+  %switch.i = icmp eq i32 %16, 1
   br i1 %switch.i, label %sw.bb.i, label %sw.bb27.i
 
 sw.bb.i:                                          ; preds = %malloc_mutex_lock.exit.i
-  %tctxs.i = getelementptr inbounds i8, ptr %6, i64 16
+  %tctxs.i = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %path.i.i)
-  %20 = load ptr, ptr %tctxs.i, align 8
-  store ptr %20, ptr %path.i.i, align 16
-  %cmp.not271.i.i = icmp eq ptr %20, null
+  %17 = load ptr, ptr %tctxs.i, align 8
+  store ptr %17, ptr %path.i.i, align 16
+  %cmp.not271.i.i = icmp eq ptr %17, null
   br i1 %cmp.not271.i.i, label %do.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %sw.bb.i
   %thr_uid.i.i.i = getelementptr inbounds i8, ptr %tctx, i64 8
-  %21 = load i64, ptr %thr_uid.i.i.i, align 8
+  %18 = load i64, ptr %thr_uid.i.i.i, align 8
   %thr_discrim.i.i.i = getelementptr inbounds i8, ptr %tctx, i64 16
   %tctx_uid.i.i.i = getelementptr inbounds i8, ptr %tctx, i64 104
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc29.i.i, %for.body.lr.ph.i.i
   %pathp.0272.i.i = phi ptr [ %path.i.i, %for.body.lr.ph.i.i ], [ %incdec.ptr30.i.i, %for.inc29.i.i ]
-  %22 = phi ptr [ %20, %for.body.lr.ph.i.i ], [ %.pr.i.i, %for.inc29.i.i ]
-  %thr_uid1.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load i64, ptr %thr_uid1.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i64 %21, %23
+  %19 = phi ptr [ %17, %for.body.lr.ph.i.i ], [ %.pr.i.i, %for.inc29.i.i ]
+  %thr_uid1.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load i64, ptr %thr_uid1.i.i.i, align 8
+  %cmp.i.i.i = icmp ugt i64 %18, %20
   %conv.i.i.i = zext i1 %cmp.i.i.i to i32
-  %cmp2.i.i.i = icmp ult i64 %21, %23
+  %cmp2.i.i.i = icmp ult i64 %18, %20
   %conv3.neg.i.i.i = sext i1 %cmp2.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv3.neg.i.i.i, %conv.i.i.i
   %cmp4.i.i.i = icmp eq i32 %sub.i.i.i, 0
   br i1 %cmp4.i.i.i, label %if.then.i.i127.i, label %prof_tctx_comp.exit.i.i
 
 if.then.i.i127.i:                                 ; preds = %for.body.i.i
-  %24 = load i64, ptr %thr_discrim.i.i.i, align 8
-  %thr_discrim6.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
-  %25 = load i64, ptr %thr_discrim6.i.i.i, align 8
-  %cmp7.i.i.i = icmp ugt i64 %24, %25
+  %21 = load i64, ptr %thr_discrim.i.i.i, align 8
+  %thr_discrim6.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = load i64, ptr %thr_discrim6.i.i.i, align 8
+  %cmp7.i.i.i = icmp ugt i64 %21, %22
   %conv8.i.i.i = zext i1 %cmp7.i.i.i to i32
-  %cmp9.i.i.i = icmp ult i64 %24, %25
+  %cmp9.i.i.i = icmp ult i64 %21, %22
   %conv10.neg.i.i.i = sext i1 %cmp9.i.i.i to i32
   %sub11.i.i.i = add nsw i32 %conv10.neg.i.i.i, %conv8.i.i.i
   %cmp12.i.i.i = icmp eq i32 %sub11.i.i.i, 0
   br i1 %cmp12.i.i.i, label %if.then14.i.i.i, label %prof_tctx_comp.exit.i.i
 
 if.then14.i.i.i:                                  ; preds = %if.then.i.i127.i
-  %26 = load i64, ptr %tctx_uid.i.i.i, align 8
-  %tctx_uid15.i.i.i = getelementptr inbounds i8, ptr %22, i64 104
-  %27 = load i64, ptr %tctx_uid15.i.i.i, align 8
-  %cmp16.i.i.i = icmp ugt i64 %26, %27
+  %23 = load i64, ptr %tctx_uid.i.i.i, align 8
+  %tctx_uid15.i.i.i = getelementptr inbounds i8, ptr %19, i64 104
+  %24 = load i64, ptr %tctx_uid15.i.i.i, align 8
+  %cmp16.i.i.i = icmp ugt i64 %23, %24
   %conv17.i.i.i = zext i1 %cmp16.i.i.i to i32
-  %cmp18.i.i.i = icmp ult i64 %26, %27
+  %cmp18.i.i.i = icmp ult i64 %23, %24
   %conv19.neg.i.i.i = sext i1 %cmp18.i.i.i to i32
   %sub20.i.i.i = add nsw i32 %conv19.neg.i.i.i, %conv17.i.i.i
   br label %prof_tctx_comp.exit.i.i
@@ -1555,20 +1550,20 @@ prof_tctx_comp.exit.i.i:                          ; preds = %if.then14.i.i.i, %i
   br i1 %cmp7.i.i, label %if.then.i125.i, label %if.else.i.i
 
 if.then.i125.i:                                   ; preds = %prof_tctx_comp.exit.i.i
-  %tctx_link.i.i = getelementptr inbounds i8, ptr %22, i64 112
-  %28 = load ptr, ptr %tctx_link.i.i, align 8
+  %tctx_link.i.i = getelementptr inbounds i8, ptr %19, i64 112
+  %25 = load ptr, ptr %tctx_link.i.i, align 8
   %arrayidx.i126.i = getelementptr inbounds i8, ptr %pathp.0272.i.i, i64 16
-  store ptr %28, ptr %arrayidx.i126.i, align 8
+  store ptr %25, ptr %arrayidx.i126.i, align 8
   br label %for.inc29.i.i
 
 if.else.i.i:                                      ; preds = %prof_tctx_comp.exit.i.i
-  %rbn_right_red.i.i = getelementptr inbounds i8, ptr %22, i64 120
-  %29 = load ptr, ptr %rbn_right_red.i.i, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %and.i.i = and i64 %30, -2
-  %31 = inttoptr i64 %and.i.i to ptr
+  %rbn_right_red.i.i = getelementptr inbounds i8, ptr %19, i64 120
+  %26 = load ptr, ptr %rbn_right_red.i.i, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %and.i.i = and i64 %27, -2
+  %28 = inttoptr i64 %and.i.i to ptr
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %pathp.0272.i.i, i64 16
-  store ptr %31, ptr %arrayidx12.i.i, align 8
+  store ptr %28, ptr %arrayidx12.i.i, align 8
   %cmp14.i.i = icmp eq i32 %ret.0.i.i.i, 0
   br i1 %cmp14.i.i, label %if.then15.i.i, label %for.inc29.i.i
 
@@ -1581,18 +1576,18 @@ if.then15.i.i:                                    ; preds = %if.else.i.i
 
 for.body20.i.i:                                   ; preds = %if.then15.i.i, %for.body20.i.i
   %pathp.1274.i.i = phi ptr [ %arrayidx25.i.i, %for.body20.i.i ], [ %arrayidx12.i.i.le, %if.then15.i.i ]
-  %32 = phi ptr [ %33, %for.body20.i.i ], [ %31, %if.then15.i.i ]
+  %29 = phi ptr [ %30, %for.body20.i.i ], [ %28, %if.then15.i.i ]
   %cmp21.i.i = getelementptr inbounds i8, ptr %pathp.1274.i.i, i64 8
   store i32 -1, ptr %cmp21.i.i, align 8
-  %tctx_link23.i.i = getelementptr inbounds i8, ptr %32, i64 112
-  %33 = load ptr, ptr %tctx_link23.i.i, align 8
+  %tctx_link23.i.i = getelementptr inbounds i8, ptr %29, i64 112
+  %30 = load ptr, ptr %tctx_link23.i.i, align 8
   %arrayidx25.i.i = getelementptr inbounds i8, ptr %pathp.1274.i.i, i64 16
-  store ptr %33, ptr %arrayidx25.i.i, align 8
-  %cmp19.not.i.i = icmp eq ptr %33, null
+  store ptr %30, ptr %arrayidx25.i.i, align 8
+  %cmp19.not.i.i = icmp eq ptr %30, null
   br i1 %cmp19.not.i.i, label %do.end.i.i, label %for.body20.i.i, !llvm.loop !10
 
 for.inc29.i.i:                                    ; preds = %if.else.i.i, %if.then.i125.i
-  %.pr.i.i = phi ptr [ %28, %if.then.i125.i ], [ %31, %if.else.i.i ]
+  %.pr.i.i = phi ptr [ %25, %if.then.i125.i ], [ %28, %if.else.i.i ]
   %incdec.ptr30.i.i = getelementptr inbounds i8, ptr %pathp.0272.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %cmp.not.i.i, label %do.end.i.i, label %for.body.i.i, !llvm.loop !11
@@ -1601,125 +1596,125 @@ do.end.i.i:                                       ; preds = %for.inc29.i.i, %for
   %nodep.0.i.i = phi ptr [ %pathp.0272.i.i, %if.then15.i.i ], [ null, %sw.bb.i ], [ %pathp.0272.i.i, %for.body20.i.i ], [ null, %for.inc29.i.i ]
   %pathp.2.i.i = phi ptr [ %arrayidx12.i.i.le, %if.then15.i.i ], [ %path.i.i, %sw.bb.i ], [ %arrayidx25.i.i, %for.body20.i.i ], [ %incdec.ptr30.i.i, %for.inc29.i.i ]
   %incdec.ptr32.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -16
-  %34 = load ptr, ptr %incdec.ptr32.i.i, align 8
-  %cmp34.not.i.i = icmp eq ptr %34, %tctx
+  %31 = load ptr, ptr %incdec.ptr32.i.i, align 8
+  %cmp34.not.i.i = icmp eq ptr %31, %tctx
   br i1 %cmp34.not.i.i, label %if.else121.i.i, label %if.then35.i.i
 
 if.then35.i.i:                                    ; preds = %do.end.i.i
-  %rbn_right_red38.i.i = getelementptr inbounds i8, ptr %34, i64 120
-  %35 = load ptr, ptr %rbn_right_red38.i.i, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %and39.i.i = and i64 %36, 1
-  %and44.i.i = and i64 %36, -2
+  %rbn_right_red38.i.i = getelementptr inbounds i8, ptr %31, i64 120
+  %32 = load ptr, ptr %rbn_right_red38.i.i, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %and39.i.i = and i64 %33, 1
+  %and44.i.i = and i64 %33, -2
   %tctx_link45.i.i = getelementptr inbounds i8, ptr %tctx, i64 112
   %rbn_right_red46.i.i = getelementptr inbounds i8, ptr %tctx, i64 120
-  %37 = load ptr, ptr %rbn_right_red46.i.i, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %and47.i.i = and i64 %38, 1
+  %34 = load ptr, ptr %rbn_right_red46.i.i, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %and47.i.i = and i64 %35, 1
   %or.i.i = or disjoint i64 %and47.i.i, %and44.i.i
-  %39 = inttoptr i64 %or.i.i to ptr
-  store ptr %39, ptr %rbn_right_red38.i.i, align 8
-  %40 = load ptr, ptr %tctx_link45.i.i, align 8
+  %36 = inttoptr i64 %or.i.i to ptr
+  store ptr %36, ptr %rbn_right_red38.i.i, align 8
+  %37 = load ptr, ptr %tctx_link45.i.i, align 8
+  %38 = load ptr, ptr %incdec.ptr32.i.i, align 8
+  %tctx_link57.i.i = getelementptr inbounds i8, ptr %38, i64 112
+  store ptr %37, ptr %tctx_link57.i.i, align 8
+  %39 = load ptr, ptr %rbn_right_red46.i.i, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %and63.i.i = and i64 %40, -2
   %41 = load ptr, ptr %incdec.ptr32.i.i, align 8
-  %tctx_link57.i.i = getelementptr inbounds i8, ptr %41, i64 112
-  store ptr %40, ptr %tctx_link57.i.i, align 8
-  %42 = load ptr, ptr %rbn_right_red46.i.i, align 8
+  %rbn_right_red66.i.i = getelementptr inbounds i8, ptr %41, i64 120
+  %42 = load ptr, ptr %rbn_right_red66.i.i, align 8
   %43 = ptrtoint ptr %42 to i64
-  %and63.i.i = and i64 %43, -2
-  %44 = load ptr, ptr %incdec.ptr32.i.i, align 8
-  %rbn_right_red66.i.i = getelementptr inbounds i8, ptr %44, i64 120
-  %45 = load ptr, ptr %rbn_right_red66.i.i, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %and67.i.i = and i64 %46, 1
+  %and67.i.i = and i64 %43, 1
   %or68.i.i = or disjoint i64 %and67.i.i, %and63.i.i
-  %47 = inttoptr i64 %or68.i.i to ptr
-  store ptr %47, ptr %rbn_right_red66.i.i, align 8
-  %48 = load ptr, ptr %rbn_right_red46.i.i, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %and76.i.i = and i64 %49, -2
+  %44 = inttoptr i64 %or68.i.i to ptr
+  store ptr %44, ptr %rbn_right_red66.i.i, align 8
+  %45 = load ptr, ptr %rbn_right_red46.i.i, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %and76.i.i = and i64 %46, -2
   %or79.i.i = or disjoint i64 %and76.i.i, %and39.i.i
-  %50 = inttoptr i64 %or79.i.i to ptr
-  store ptr %50, ptr %rbn_right_red46.i.i, align 8
-  %51 = load ptr, ptr %incdec.ptr32.i.i, align 8
-  store ptr %51, ptr %nodep.0.i.i, align 8
+  %47 = inttoptr i64 %or79.i.i to ptr
+  store ptr %47, ptr %rbn_right_red46.i.i, align 8
+  %48 = load ptr, ptr %incdec.ptr32.i.i, align 8
+  store ptr %48, ptr %nodep.0.i.i, align 8
   store ptr %tctx, ptr %incdec.ptr32.i.i, align 8
   %cmp87.i.i = icmp eq ptr %nodep.0.i.i, %path.i.i
   br i1 %cmp87.i.i, label %if.then89.i.i, label %if.else92.i.i
 
 if.then89.i.i:                                    ; preds = %if.then35.i.i
-  %52 = load ptr, ptr %path.i.i, align 16
-  store ptr %52, ptr %tctxs.i, align 8
+  %49 = load ptr, ptr %path.i.i, align 16
+  store ptr %49, ptr %tctxs.i, align 8
   br label %if.end180.i.i
 
 if.else92.i.i:                                    ; preds = %if.then35.i.i
   %arrayidx93.i.i = getelementptr inbounds i8, ptr %nodep.0.i.i, i64 -16
   %cmp94.i.i = getelementptr inbounds i8, ptr %nodep.0.i.i, i64 -8
-  %53 = load i32, ptr %cmp94.i.i, align 8
-  %cmp95.i.i = icmp slt i32 %53, 0
-  %54 = load ptr, ptr %nodep.0.i.i, align 8
+  %50 = load i32, ptr %cmp94.i.i, align 8
+  %cmp95.i.i = icmp slt i32 %50, 0
+  %51 = load ptr, ptr %nodep.0.i.i, align 8
   br i1 %cmp95.i.i, label %do.body98.i.i, label %do.body106.i.i
 
 do.body98.i.i:                                    ; preds = %if.else92.i.i
-  %55 = load ptr, ptr %arrayidx93.i.i, align 8
-  %tctx_link102.i.i = getelementptr inbounds i8, ptr %55, i64 112
-  store ptr %54, ptr %tctx_link102.i.i, align 8
+  %52 = load ptr, ptr %arrayidx93.i.i, align 8
+  %tctx_link102.i.i = getelementptr inbounds i8, ptr %52, i64 112
+  store ptr %51, ptr %tctx_link102.i.i, align 8
   br label %if.end180.i.i
 
 do.body106.i.i:                                   ; preds = %if.else92.i.i
-  %56 = ptrtoint ptr %54 to i64
-  %57 = load ptr, ptr %arrayidx93.i.i, align 8
-  %rbn_right_red111.i.i = getelementptr inbounds i8, ptr %57, i64 120
-  %58 = load ptr, ptr %rbn_right_red111.i.i, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %and112.i.i = and i64 %59, 1
-  %or113.i.i = or i64 %and112.i.i, %56
-  %60 = inttoptr i64 %or113.i.i to ptr
-  store ptr %60, ptr %rbn_right_red111.i.i, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = load ptr, ptr %arrayidx93.i.i, align 8
+  %rbn_right_red111.i.i = getelementptr inbounds i8, ptr %54, i64 120
+  %55 = load ptr, ptr %rbn_right_red111.i.i, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %and112.i.i = and i64 %56, 1
+  %or113.i.i = or i64 %and112.i.i, %53
+  %57 = inttoptr i64 %or113.i.i to ptr
+  store ptr %57, ptr %rbn_right_red111.i.i, align 8
   br label %if.end180.i.i
 
 if.else121.i.i:                                   ; preds = %do.end.i.i
   %tctx_link122.i.i = getelementptr inbounds i8, ptr %tctx, i64 112
-  %61 = load ptr, ptr %tctx_link122.i.i, align 8
-  %cmp124.not.i.i = icmp eq ptr %61, null
+  %58 = load ptr, ptr %tctx_link122.i.i, align 8
+  %cmp124.not.i.i = icmp eq ptr %58, null
   br i1 %cmp124.not.i.i, label %if.else172.i.i, label %do.body131.i.i
 
 do.body131.i.i:                                   ; preds = %if.else121.i.i
-  %rbn_right_red133.i.i = getelementptr inbounds i8, ptr %61, i64 120
-  %62 = load ptr, ptr %rbn_right_red133.i.i, align 8
-  %63 = ptrtoint ptr %62 to i64
-  %and134.i.i = and i64 %63, -2
-  %64 = inttoptr i64 %and134.i.i to ptr
-  store ptr %64, ptr %rbn_right_red133.i.i, align 8
+  %rbn_right_red133.i.i = getelementptr inbounds i8, ptr %58, i64 120
+  %59 = load ptr, ptr %rbn_right_red133.i.i, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %and134.i.i = and i64 %60, -2
+  %61 = inttoptr i64 %and134.i.i to ptr
+  store ptr %61, ptr %rbn_right_red133.i.i, align 8
   %cmp139.i.i = icmp eq ptr %incdec.ptr32.i.i, %path.i.i
   br i1 %cmp139.i.i, label %if.then141.i.i, label %if.else143.i.i
 
 if.then141.i.i:                                   ; preds = %do.body131.i.i
-  store ptr %61, ptr %tctxs.i, align 8
+  store ptr %58, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else143.i.i:                                   ; preds = %do.body131.i.i
   %arrayidx144.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -32
   %cmp145.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -24
-  %65 = load i32, ptr %cmp145.i.i, align 8
-  %cmp146.i.i = icmp slt i32 %65, 0
+  %62 = load i32, ptr %cmp145.i.i, align 8
+  %cmp146.i.i = icmp slt i32 %62, 0
   br i1 %cmp146.i.i, label %do.body149.i.i, label %do.body156.i.i
 
 do.body149.i.i:                                   ; preds = %if.else143.i.i
-  %66 = load ptr, ptr %arrayidx144.i.i, align 8
-  %tctx_link152.i.i = getelementptr inbounds i8, ptr %66, i64 112
-  store ptr %61, ptr %tctx_link152.i.i, align 8
+  %63 = load ptr, ptr %arrayidx144.i.i, align 8
+  %tctx_link152.i.i = getelementptr inbounds i8, ptr %63, i64 112
+  store ptr %58, ptr %tctx_link152.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body156.i.i:                                   ; preds = %if.else143.i.i
-  %67 = ptrtoint ptr %61 to i64
-  %68 = load ptr, ptr %arrayidx144.i.i, align 8
-  %rbn_right_red160.i.i = getelementptr inbounds i8, ptr %68, i64 120
-  %69 = load ptr, ptr %rbn_right_red160.i.i, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %and161.i.i = and i64 %70, 1
-  %or162.i.i = or i64 %and161.i.i, %67
-  %71 = inttoptr i64 %or162.i.i to ptr
-  store ptr %71, ptr %rbn_right_red160.i.i, align 8
+  %64 = ptrtoint ptr %58 to i64
+  %65 = load ptr, ptr %arrayidx144.i.i, align 8
+  %rbn_right_red160.i.i = getelementptr inbounds i8, ptr %65, i64 120
+  %66 = load ptr, ptr %rbn_right_red160.i.i, align 8
+  %67 = ptrtoint ptr %66 to i64
+  %and161.i.i = and i64 %67, 1
+  %or162.i.i = or i64 %and161.i.i, %64
+  %68 = inttoptr i64 %or162.i.i to ptr
+  store ptr %68, ptr %rbn_right_red160.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else172.i.i:                                   ; preds = %if.else121.i.i
@@ -1731,18 +1726,18 @@ if.then176.i.i:                                   ; preds = %if.else172.i.i
   br label %tctx_tree_remove.exit.i
 
 if.end180.i.i:                                    ; preds = %if.else172.i.i, %do.body106.i.i, %do.body98.i.i, %if.then89.i.i
-  %72 = load ptr, ptr %incdec.ptr32.i.i, align 8
-  %rbn_right_red183.i.i = getelementptr inbounds i8, ptr %72, i64 120
-  %73 = load ptr, ptr %rbn_right_red183.i.i, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %and184.i.i = and i64 %74, 1
+  %69 = load ptr, ptr %incdec.ptr32.i.i, align 8
+  %rbn_right_red183.i.i = getelementptr inbounds i8, ptr %69, i64 120
+  %70 = load ptr, ptr %rbn_right_red183.i.i, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %and184.i.i = and i64 %71, 1
   %tobool185.not.i.i = icmp eq i64 %and184.i.i, 0
   br i1 %tobool185.not.i.i, label %if.end197.i.i, label %do.body189.i.i
 
 do.body189.i.i:                                   ; preds = %if.end180.i.i
   %arrayidx190.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -32
-  %75 = load ptr, ptr %arrayidx190.i.i, align 8
-  %tctx_link192.i.i = getelementptr inbounds i8, ptr %75, i64 112
+  %72 = load ptr, ptr %arrayidx190.i.i, align 8
+  %tctx_link192.i.i = getelementptr inbounds i8, ptr %72, i64 112
   store ptr null, ptr %tctx_link192.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
@@ -1755,343 +1750,343 @@ if.end197.i.i:                                    ; preds = %if.end180.i.i
 do.end206.i.i:                                    ; preds = %if.end197.i.i, %for.inc891.i.i
   %pathp.3281.i.i = phi ptr [ %incdec.ptr892.i.i, %for.inc891.i.i ], [ %incdec.ptr199.i.i, %if.end197.i.i ]
   %cmp207.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 8
-  %76 = load i32, ptr %cmp207.i.i, align 8
-  %cmp208.i.i = icmp slt i32 %76, 0
+  %73 = load i32, ptr %cmp207.i.i, align 8
+  %cmp208.i.i = icmp slt i32 %73, 0
   %arrayidx212.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 16
-  %77 = load ptr, ptr %arrayidx212.i.i, align 8
+  %74 = load ptr, ptr %arrayidx212.i.i, align 8
   br i1 %cmp208.i.i, label %do.body211.i.i, label %do.body504.i.i
 
 do.body211.i.i:                                   ; preds = %do.end206.i.i
-  %78 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link215.i.i = getelementptr inbounds i8, ptr %78, i64 112
-  store ptr %77, ptr %tctx_link215.i.i, align 8
-  %79 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red220.i.i = getelementptr inbounds i8, ptr %79, i64 120
-  %80 = load ptr, ptr %rbn_right_red220.i.i, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %and221.i.i = and i64 %81, 1
+  %75 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link215.i.i = getelementptr inbounds i8, ptr %75, i64 112
+  store ptr %74, ptr %tctx_link215.i.i, align 8
+  %76 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red220.i.i = getelementptr inbounds i8, ptr %76, i64 120
+  %77 = load ptr, ptr %rbn_right_red220.i.i, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %and221.i.i = and i64 %78, 1
   %tobool222.not.i.i = icmp eq i64 %and221.i.i, 0
   br i1 %tobool222.not.i.i, label %if.else353.i.i, label %if.then223.i.i
 
 if.then223.i.i:                                   ; preds = %do.body211.i.i
-  %and227.i.i = and i64 %81, -2
-  %82 = inttoptr i64 %and227.i.i to ptr
-  %tctx_link228.i.i = getelementptr inbounds i8, ptr %82, i64 112
-  %83 = load ptr, ptr %tctx_link228.i.i, align 8
-  %cmp230.not.i.i = icmp eq ptr %83, null
+  %and227.i.i = and i64 %78, -2
+  %79 = inttoptr i64 %and227.i.i to ptr
+  %tctx_link228.i.i = getelementptr inbounds i8, ptr %79, i64 112
+  %80 = load ptr, ptr %tctx_link228.i.i, align 8
+  %cmp230.not.i.i = icmp eq ptr %80, null
   br i1 %cmp230.not.i.i, label %do.body300.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then223.i.i
-  %rbn_right_red233.i.i = getelementptr inbounds i8, ptr %83, i64 120
-  %84 = load ptr, ptr %rbn_right_red233.i.i, align 8
-  %85 = ptrtoint ptr %84 to i64
-  %and234.i.i = and i64 %85, 1
+  %rbn_right_red233.i.i = getelementptr inbounds i8, ptr %80, i64 120
+  %81 = load ptr, ptr %rbn_right_red233.i.i, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %and234.i.i = and i64 %82, 1
   %tobool235.not.i.i = icmp eq i64 %and234.i.i, 0
   br i1 %tobool235.not.i.i, label %do.body300.i.i, label %do.body238.i.i
 
 do.body238.i.i:                                   ; preds = %land.lhs.true.i.i
-  store ptr %82, ptr %rbn_right_red220.i.i, align 8
-  %86 = load ptr, ptr %tctx_link228.i.i, align 8
-  %rbn_right_red252.i.i = getelementptr inbounds i8, ptr %86, i64 120
+  store ptr %79, ptr %rbn_right_red220.i.i, align 8
+  %83 = load ptr, ptr %tctx_link228.i.i, align 8
+  %rbn_right_red252.i.i = getelementptr inbounds i8, ptr %83, i64 120
+  %84 = load ptr, ptr %rbn_right_red252.i.i, align 8
+  %85 = ptrtoint ptr %84 to i64
+  %and253.i.i = and i64 %85, -2
+  %86 = inttoptr i64 %and253.i.i to ptr
+  store ptr %86, ptr %tctx_link228.i.i, align 8
   %87 = load ptr, ptr %rbn_right_red252.i.i, align 8
   %88 = ptrtoint ptr %87 to i64
-  %and253.i.i = and i64 %88, -2
-  %89 = inttoptr i64 %and253.i.i to ptr
-  store ptr %89, ptr %tctx_link228.i.i, align 8
-  %90 = load ptr, ptr %rbn_right_red252.i.i, align 8
-  %91 = ptrtoint ptr %90 to i64
-  %and260.i.i = and i64 %91, 1
+  %and260.i.i = and i64 %88, 1
   %or261.i.i = or disjoint i64 %and260.i.i, %and227.i.i
-  %92 = inttoptr i64 %or261.i.i to ptr
-  store ptr %92, ptr %rbn_right_red252.i.i, align 8
-  %93 = ptrtoint ptr %86 to i64
-  %94 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red269.i.i = getelementptr inbounds i8, ptr %94, i64 120
-  %95 = load ptr, ptr %rbn_right_red269.i.i, align 8
-  %96 = ptrtoint ptr %95 to i64
-  %and270.i.i = and i64 %96, 1
-  %or271.i.i = or i64 %and270.i.i, %93
-  %97 = inttoptr i64 %or271.i.i to ptr
-  store ptr %97, ptr %rbn_right_red269.i.i, align 8
-  %98 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red279.i.i = getelementptr inbounds i8, ptr %98, i64 120
-  %99 = load ptr, ptr %rbn_right_red279.i.i, align 8
+  %89 = inttoptr i64 %or261.i.i to ptr
+  store ptr %89, ptr %rbn_right_red252.i.i, align 8
+  %90 = ptrtoint ptr %83 to i64
+  %91 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red269.i.i = getelementptr inbounds i8, ptr %91, i64 120
+  %92 = load ptr, ptr %rbn_right_red269.i.i, align 8
+  %93 = ptrtoint ptr %92 to i64
+  %and270.i.i = and i64 %93, 1
+  %or271.i.i = or i64 %and270.i.i, %90
+  %94 = inttoptr i64 %or271.i.i to ptr
+  store ptr %94, ptr %rbn_right_red269.i.i, align 8
+  %95 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red279.i.i = getelementptr inbounds i8, ptr %95, i64 120
+  %96 = load ptr, ptr %rbn_right_red279.i.i, align 8
+  %97 = ptrtoint ptr %96 to i64
+  %and280.i.i = and i64 %97, -2
+  %98 = inttoptr i64 %and280.i.i to ptr
+  %tctx_link282.i.i = getelementptr inbounds i8, ptr %98, i64 112
+  %99 = load ptr, ptr %tctx_link282.i.i, align 8
   %100 = ptrtoint ptr %99 to i64
-  %and280.i.i = and i64 %100, -2
-  %101 = inttoptr i64 %and280.i.i to ptr
-  %tctx_link282.i.i = getelementptr inbounds i8, ptr %101, i64 112
-  %102 = load ptr, ptr %tctx_link282.i.i, align 8
-  %103 = ptrtoint ptr %102 to i64
-  %and287.i.i = and i64 %100, 1
-  %or288.i.i = or i64 %and287.i.i, %103
+  %and287.i.i = and i64 %97, 1
+  %or288.i.i = or i64 %and287.i.i, %100
   br label %do.end325.i.i
 
 do.body300.i.i:                                   ; preds = %land.lhs.true.i.i, %if.then223.i.i
-  %104 = ptrtoint ptr %83 to i64
-  %or312.i.i = or i64 %104, 1
+  %101 = ptrtoint ptr %80 to i64
+  %or312.i.i = or i64 %101, 1
   br label %do.end325.i.i
 
 do.end325.i.i:                                    ; preds = %do.body300.i.i, %do.body238.i.i
   %or312.sink.i.i = phi i64 [ %or312.i.i, %do.body300.i.i ], [ %or288.i.i, %do.body238.i.i ]
   %rbn_right_red220.lcssa.sink.i.i = phi ptr [ %rbn_right_red220.i.i, %do.body300.i.i ], [ %rbn_right_red279.i.i, %do.body238.i.i ]
   %tctx_link228.sink.i.i = phi ptr [ %tctx_link228.i.i, %do.body300.i.i ], [ %tctx_link282.i.i, %do.body238.i.i ]
-  %tnode.0.i.i = phi ptr [ %82, %do.body300.i.i ], [ %101, %do.body238.i.i ]
-  %105 = inttoptr i64 %or312.sink.i.i to ptr
-  store ptr %105, ptr %rbn_right_red220.lcssa.sink.i.i, align 8
-  %106 = load ptr, ptr %pathp.3281.i.i, align 8
-  store ptr %106, ptr %tctx_link228.sink.i.i, align 8
+  %tnode.0.i.i = phi ptr [ %79, %do.body300.i.i ], [ %98, %do.body238.i.i ]
+  %102 = inttoptr i64 %or312.sink.i.i to ptr
+  store ptr %102, ptr %rbn_right_red220.lcssa.sink.i.i, align 8
+  %103 = load ptr, ptr %pathp.3281.i.i, align 8
+  store ptr %103, ptr %tctx_link228.sink.i.i, align 8
   %arrayidx326.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -16
   %cmp327.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -8
-  %107 = load i32, ptr %cmp327.i.i, align 8
-  %cmp328.i.i = icmp slt i32 %107, 0
+  %104 = load i32, ptr %cmp327.i.i, align 8
+  %cmp328.i.i = icmp slt i32 %104, 0
   br i1 %cmp328.i.i, label %do.body331.i.i, label %do.body338.i.i
 
 do.body331.i.i:                                   ; preds = %do.end325.i.i
-  %108 = load ptr, ptr %arrayidx326.i.i, align 8
-  %tctx_link334.i.i = getelementptr inbounds i8, ptr %108, i64 112
+  %105 = load ptr, ptr %arrayidx326.i.i, align 8
+  %tctx_link334.i.i = getelementptr inbounds i8, ptr %105, i64 112
   store ptr %tnode.0.i.i, ptr %tctx_link334.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body338.i.i:                                   ; preds = %do.end325.i.i
-  %109 = ptrtoint ptr %tnode.0.i.i to i64
-  %110 = load ptr, ptr %arrayidx326.i.i, align 8
-  %rbn_right_red342.i.i = getelementptr inbounds i8, ptr %110, i64 120
-  %111 = load ptr, ptr %rbn_right_red342.i.i, align 8
-  %112 = ptrtoint ptr %111 to i64
-  %and343.i.i = and i64 %112, 1
-  %or344.i.i = or i64 %and343.i.i, %109
-  %113 = inttoptr i64 %or344.i.i to ptr
-  store ptr %113, ptr %rbn_right_red342.i.i, align 8
+  %106 = ptrtoint ptr %tnode.0.i.i to i64
+  %107 = load ptr, ptr %arrayidx326.i.i, align 8
+  %rbn_right_red342.i.i = getelementptr inbounds i8, ptr %107, i64 120
+  %108 = load ptr, ptr %rbn_right_red342.i.i, align 8
+  %109 = ptrtoint ptr %108 to i64
+  %and343.i.i = and i64 %109, 1
+  %or344.i.i = or i64 %and343.i.i, %106
+  %110 = inttoptr i64 %or344.i.i to ptr
+  store ptr %110, ptr %rbn_right_red342.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else353.i.i:                                   ; preds = %do.body211.i.i
-  %tctx_link360.i.i = getelementptr inbounds i8, ptr %80, i64 112
-  %114 = load ptr, ptr %tctx_link360.i.i, align 8
-  %cmp362.not.i.i = icmp eq ptr %114, null
+  %tctx_link360.i.i = getelementptr inbounds i8, ptr %77, i64 112
+  %111 = load ptr, ptr %tctx_link360.i.i, align 8
+  %cmp362.not.i.i = icmp eq ptr %111, null
   br i1 %cmp362.not.i.i, label %do.body467.i.i, label %land.lhs.true364.i.i
 
 land.lhs.true364.i.i:                             ; preds = %if.else353.i.i
-  %rbn_right_red366.i.i = getelementptr inbounds i8, ptr %114, i64 120
-  %115 = load ptr, ptr %rbn_right_red366.i.i, align 8
-  %116 = ptrtoint ptr %115 to i64
-  %and367.i.i = and i64 %116, 1
+  %rbn_right_red366.i.i = getelementptr inbounds i8, ptr %111, i64 120
+  %112 = load ptr, ptr %rbn_right_red366.i.i, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %and367.i.i = and i64 %113, 1
   %tobool368.not.i.i = icmp eq i64 %and367.i.i, 0
   br i1 %tobool368.not.i.i, label %do.body467.i.i, label %do.body372.i.i
 
 do.body372.i.i:                                   ; preds = %land.lhs.true364.i.i
-  %tctx_link360.i.i.le = getelementptr inbounds i8, ptr %80, i64 112
-  %rbn_right_red366.i.i.le = getelementptr inbounds i8, ptr %114, i64 120
-  %and375.i.i = and i64 %116, -2
-  %117 = inttoptr i64 %and375.i.i to ptr
-  store ptr %117, ptr %rbn_right_red366.i.i.le, align 8
-  %118 = load ptr, ptr %tctx_link360.i.i.le, align 8
-  %rbn_right_red384.i.i = getelementptr inbounds i8, ptr %118, i64 120
+  %tctx_link360.i.i.le = getelementptr inbounds i8, ptr %77, i64 112
+  %rbn_right_red366.i.i.le = getelementptr inbounds i8, ptr %111, i64 120
+  %and375.i.i = and i64 %113, -2
+  %114 = inttoptr i64 %and375.i.i to ptr
+  store ptr %114, ptr %rbn_right_red366.i.i.le, align 8
+  %115 = load ptr, ptr %tctx_link360.i.i.le, align 8
+  %rbn_right_red384.i.i = getelementptr inbounds i8, ptr %115, i64 120
+  %116 = load ptr, ptr %rbn_right_red384.i.i, align 8
+  %117 = ptrtoint ptr %116 to i64
+  %and385.i.i = and i64 %117, -2
+  %118 = inttoptr i64 %and385.i.i to ptr
+  store ptr %118, ptr %tctx_link360.i.i.le, align 8
   %119 = load ptr, ptr %rbn_right_red384.i.i, align 8
   %120 = ptrtoint ptr %119 to i64
-  %and385.i.i = and i64 %120, -2
-  %121 = inttoptr i64 %and385.i.i to ptr
-  store ptr %121, ptr %tctx_link360.i.i.le, align 8
-  %122 = load ptr, ptr %rbn_right_red384.i.i, align 8
-  %123 = ptrtoint ptr %122 to i64
-  %and392.i.i = and i64 %123, 1
-  %or393.i.i = or disjoint i64 %and392.i.i, %81
-  %124 = inttoptr i64 %or393.i.i to ptr
-  store ptr %124, ptr %rbn_right_red384.i.i, align 8
-  %125 = ptrtoint ptr %118 to i64
-  %126 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red401.i.i = getelementptr inbounds i8, ptr %126, i64 120
-  %127 = load ptr, ptr %rbn_right_red401.i.i, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %and402.i.i = and i64 %128, 1
-  %or403.i.i = or i64 %and402.i.i, %125
-  %129 = inttoptr i64 %or403.i.i to ptr
-  store ptr %129, ptr %rbn_right_red401.i.i, align 8
-  %130 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red411.i.i = getelementptr inbounds i8, ptr %130, i64 120
-  %131 = load ptr, ptr %rbn_right_red411.i.i, align 8
+  %and392.i.i = and i64 %120, 1
+  %or393.i.i = or disjoint i64 %and392.i.i, %78
+  %121 = inttoptr i64 %or393.i.i to ptr
+  store ptr %121, ptr %rbn_right_red384.i.i, align 8
+  %122 = ptrtoint ptr %115 to i64
+  %123 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red401.i.i = getelementptr inbounds i8, ptr %123, i64 120
+  %124 = load ptr, ptr %rbn_right_red401.i.i, align 8
+  %125 = ptrtoint ptr %124 to i64
+  %and402.i.i = and i64 %125, 1
+  %or403.i.i = or i64 %and402.i.i, %122
+  %126 = inttoptr i64 %or403.i.i to ptr
+  store ptr %126, ptr %rbn_right_red401.i.i, align 8
+  %127 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red411.i.i = getelementptr inbounds i8, ptr %127, i64 120
+  %128 = load ptr, ptr %rbn_right_red411.i.i, align 8
+  %129 = ptrtoint ptr %128 to i64
+  %and412.i.i = and i64 %129, -2
+  %130 = inttoptr i64 %and412.i.i to ptr
+  %tctx_link414.i.i = getelementptr inbounds i8, ptr %130, i64 112
+  %131 = load ptr, ptr %tctx_link414.i.i, align 8
   %132 = ptrtoint ptr %131 to i64
-  %and412.i.i = and i64 %132, -2
-  %133 = inttoptr i64 %and412.i.i to ptr
-  %tctx_link414.i.i = getelementptr inbounds i8, ptr %133, i64 112
-  %134 = load ptr, ptr %tctx_link414.i.i, align 8
-  %135 = ptrtoint ptr %134 to i64
-  %and419.i.i = and i64 %132, 1
-  %or420.i.i = or i64 %and419.i.i, %135
-  %136 = inttoptr i64 %or420.i.i to ptr
-  store ptr %136, ptr %rbn_right_red411.i.i, align 8
-  %137 = load ptr, ptr %pathp.3281.i.i, align 8
-  store ptr %137, ptr %tctx_link414.i.i, align 8
+  %and419.i.i = and i64 %129, 1
+  %or420.i.i = or i64 %and419.i.i, %132
+  %133 = inttoptr i64 %or420.i.i to ptr
+  store ptr %133, ptr %rbn_right_red411.i.i, align 8
+  %134 = load ptr, ptr %pathp.3281.i.i, align 8
+  store ptr %134, ptr %tctx_link414.i.i, align 8
   %cmp432.i.i = icmp eq ptr %pathp.3281.i.i, %path.i.i
   br i1 %cmp432.i.i, label %if.then434.i.i, label %if.else436.i.i
 
 if.then434.i.i:                                   ; preds = %do.body372.i.i
-  store ptr %133, ptr %tctxs.i, align 8
+  store ptr %130, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else436.i.i:                                   ; preds = %do.body372.i.i
   %arrayidx437.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -16
   %cmp438.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -8
-  %138 = load i32, ptr %cmp438.i.i, align 8
-  %cmp439.i.i = icmp slt i32 %138, 0
-  %139 = load ptr, ptr %arrayidx437.i.i, align 8
+  %135 = load i32, ptr %cmp438.i.i, align 8
+  %cmp439.i.i = icmp slt i32 %135, 0
+  %136 = load ptr, ptr %arrayidx437.i.i, align 8
   br i1 %cmp439.i.i, label %do.body442.i.i, label %do.body449.i.i
 
 do.body442.i.i:                                   ; preds = %if.else436.i.i
-  %tctx_link445.i.i = getelementptr inbounds i8, ptr %139, i64 112
-  store ptr %133, ptr %tctx_link445.i.i, align 8
+  %tctx_link445.i.i = getelementptr inbounds i8, ptr %136, i64 112
+  store ptr %130, ptr %tctx_link445.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body449.i.i:                                   ; preds = %if.else436.i.i
-  %rbn_right_red453.i.i = getelementptr inbounds i8, ptr %139, i64 120
-  %140 = load ptr, ptr %rbn_right_red453.i.i, align 8
-  %141 = ptrtoint ptr %140 to i64
-  %and454.i.i = and i64 %141, 1
+  %rbn_right_red453.i.i = getelementptr inbounds i8, ptr %136, i64 120
+  %137 = load ptr, ptr %rbn_right_red453.i.i, align 8
+  %138 = ptrtoint ptr %137 to i64
+  %and454.i.i = and i64 %138, 1
   %or455.i.i = or disjoint i64 %and454.i.i, %and412.i.i
-  %142 = inttoptr i64 %or455.i.i to ptr
-  store ptr %142, ptr %rbn_right_red453.i.i, align 8
+  %139 = inttoptr i64 %or455.i.i to ptr
+  store ptr %139, ptr %rbn_right_red453.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body467.i.i:                                   ; preds = %land.lhs.true364.i.i, %if.else353.i.i
-  %or471.i.i = or disjoint i64 %81, 1
-  %143 = inttoptr i64 %or471.i.i to ptr
-  store ptr %143, ptr %rbn_right_red220.i.i, align 8
-  %144 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red479.i.i = getelementptr inbounds i8, ptr %144, i64 120
-  %145 = load ptr, ptr %rbn_right_red479.i.i, align 8
+  %or471.i.i = or disjoint i64 %78, 1
+  %140 = inttoptr i64 %or471.i.i to ptr
+  store ptr %140, ptr %rbn_right_red220.i.i, align 8
+  %141 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red479.i.i = getelementptr inbounds i8, ptr %141, i64 120
+  %142 = load ptr, ptr %rbn_right_red479.i.i, align 8
+  %143 = ptrtoint ptr %142 to i64
+  %and480.i.i = and i64 %143, -2
+  %144 = inttoptr i64 %and480.i.i to ptr
+  %tctx_link482.i.i = getelementptr inbounds i8, ptr %144, i64 112
+  %145 = load ptr, ptr %tctx_link482.i.i, align 8
   %146 = ptrtoint ptr %145 to i64
-  %and480.i.i = and i64 %146, -2
-  %147 = inttoptr i64 %and480.i.i to ptr
-  %tctx_link482.i.i = getelementptr inbounds i8, ptr %147, i64 112
-  %148 = load ptr, ptr %tctx_link482.i.i, align 8
-  %149 = ptrtoint ptr %148 to i64
-  %and487.i.i = and i64 %146, 1
-  %or488.i.i = or i64 %and487.i.i, %149
-  %150 = inttoptr i64 %or488.i.i to ptr
-  store ptr %150, ptr %rbn_right_red479.i.i, align 8
-  %151 = load ptr, ptr %pathp.3281.i.i, align 8
-  store ptr %151, ptr %tctx_link482.i.i, align 8
-  store ptr %147, ptr %pathp.3281.i.i, align 8
+  %and487.i.i = and i64 %143, 1
+  %or488.i.i = or i64 %and487.i.i, %146
+  %147 = inttoptr i64 %or488.i.i to ptr
+  store ptr %147, ptr %rbn_right_red479.i.i, align 8
+  %148 = load ptr, ptr %pathp.3281.i.i, align 8
+  store ptr %148, ptr %tctx_link482.i.i, align 8
+  store ptr %144, ptr %pathp.3281.i.i, align 8
   br label %for.inc891.i.i
 
 do.body504.i.i:                                   ; preds = %do.end206.i.i
-  %152 = ptrtoint ptr %77 to i64
-  %153 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red509.i.i = getelementptr inbounds i8, ptr %153, i64 120
-  %154 = load ptr, ptr %rbn_right_red509.i.i, align 8
-  %155 = ptrtoint ptr %154 to i64
-  %and510.i.i = and i64 %155, 1
-  %or511.i.i = or i64 %and510.i.i, %152
-  %156 = inttoptr i64 %or511.i.i to ptr
-  store ptr %156, ptr %rbn_right_red509.i.i, align 8
-  %157 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link517.i.i = getelementptr inbounds i8, ptr %157, i64 112
-  %158 = load ptr, ptr %tctx_link517.i.i, align 8
-  %tctx_link519.i.i = getelementptr inbounds i8, ptr %158, i64 112
-  %rbn_right_red520.i.i = getelementptr inbounds i8, ptr %158, i64 120
-  %159 = load ptr, ptr %rbn_right_red520.i.i, align 8
-  %160 = ptrtoint ptr %159 to i64
-  %and521.i.i = and i64 %160, 1
+  %149 = ptrtoint ptr %74 to i64
+  %150 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red509.i.i = getelementptr inbounds i8, ptr %150, i64 120
+  %151 = load ptr, ptr %rbn_right_red509.i.i, align 8
+  %152 = ptrtoint ptr %151 to i64
+  %and510.i.i = and i64 %152, 1
+  %or511.i.i = or i64 %and510.i.i, %149
+  %153 = inttoptr i64 %or511.i.i to ptr
+  store ptr %153, ptr %rbn_right_red509.i.i, align 8
+  %154 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link517.i.i = getelementptr inbounds i8, ptr %154, i64 112
+  %155 = load ptr, ptr %tctx_link517.i.i, align 8
+  %tctx_link519.i.i = getelementptr inbounds i8, ptr %155, i64 112
+  %rbn_right_red520.i.i = getelementptr inbounds i8, ptr %155, i64 120
+  %156 = load ptr, ptr %rbn_right_red520.i.i, align 8
+  %157 = ptrtoint ptr %156 to i64
+  %and521.i.i = and i64 %157, 1
   %tobool522.not.i.i = icmp eq i64 %and521.i.i, 0
   br i1 %tobool522.not.i.i, label %if.else691.i.i, label %if.then523.i.i
 
 if.then523.i.i:                                   ; preds = %do.body504.i.i
-  %and527.i.i = and i64 %160, -2
-  %161 = inttoptr i64 %and527.i.i to ptr
-  %tctx_link528.i.i = getelementptr inbounds i8, ptr %161, i64 112
-  %162 = load ptr, ptr %tctx_link528.i.i, align 8
-  %cmp530.not.i.i = icmp eq ptr %162, null
+  %and527.i.i = and i64 %157, -2
+  %158 = inttoptr i64 %and527.i.i to ptr
+  %tctx_link528.i.i = getelementptr inbounds i8, ptr %158, i64 112
+  %159 = load ptr, ptr %tctx_link528.i.i, align 8
+  %cmp530.not.i.i = icmp eq ptr %159, null
   br i1 %cmp530.not.i.i, label %do.body620.i.i, label %land.lhs.true532.i.i
 
 land.lhs.true532.i.i:                             ; preds = %if.then523.i.i
-  %rbn_right_red534.i.i = getelementptr inbounds i8, ptr %162, i64 120
-  %163 = load ptr, ptr %rbn_right_red534.i.i, align 8
-  %164 = ptrtoint ptr %163 to i64
-  %and535.i.i = and i64 %164, 1
+  %rbn_right_red534.i.i = getelementptr inbounds i8, ptr %159, i64 120
+  %160 = load ptr, ptr %rbn_right_red534.i.i, align 8
+  %161 = ptrtoint ptr %160 to i64
+  %and535.i.i = and i64 %161, 1
   %tobool536.not.i.i = icmp eq i64 %and535.i.i, 0
   br i1 %tobool536.not.i.i, label %do.body620.i.i, label %do.body539.i.i
 
 do.body539.i.i:                                   ; preds = %land.lhs.true532.i.i
-  %and542.i.i = and i64 %164, -2
-  %165 = inttoptr i64 %and542.i.i to ptr
-  store ptr %165, ptr %rbn_right_red534.i.i, align 8
-  %166 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link548.i.i = getelementptr inbounds i8, ptr %166, i64 112
-  %167 = load ptr, ptr %tctx_link548.i.i, align 8
-  %rbn_right_red552.i.i = getelementptr inbounds i8, ptr %167, i64 120
-  %168 = load ptr, ptr %rbn_right_red552.i.i, align 8
+  %and542.i.i = and i64 %161, -2
+  %162 = inttoptr i64 %and542.i.i to ptr
+  store ptr %162, ptr %rbn_right_red534.i.i, align 8
+  %163 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link548.i.i = getelementptr inbounds i8, ptr %163, i64 112
+  %164 = load ptr, ptr %tctx_link548.i.i, align 8
+  %rbn_right_red552.i.i = getelementptr inbounds i8, ptr %164, i64 120
+  %165 = load ptr, ptr %rbn_right_red552.i.i, align 8
+  %166 = ptrtoint ptr %165 to i64
+  %and553.i.i = and i64 %166, -2
+  %167 = inttoptr i64 %and553.i.i to ptr
+  store ptr %167, ptr %tctx_link548.i.i, align 8
+  %168 = load ptr, ptr %pathp.3281.i.i, align 8
   %169 = ptrtoint ptr %168 to i64
-  %and553.i.i = and i64 %169, -2
-  %170 = inttoptr i64 %and553.i.i to ptr
-  store ptr %170, ptr %tctx_link548.i.i, align 8
-  %171 = load ptr, ptr %pathp.3281.i.i, align 8
-  %172 = ptrtoint ptr %171 to i64
-  %173 = load ptr, ptr %rbn_right_red552.i.i, align 8
-  %174 = ptrtoint ptr %173 to i64
-  %and562.i.i = and i64 %174, 1
-  %or563.i.i = or i64 %and562.i.i, %172
-  %175 = inttoptr i64 %or563.i.i to ptr
-  store ptr %175, ptr %rbn_right_red552.i.i, align 8
-  %176 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link570.i.i = getelementptr inbounds i8, ptr %176, i64 112
-  %177 = load ptr, ptr %tctx_link570.i.i, align 8
-  %rbn_right_red574.i.i = getelementptr inbounds i8, ptr %177, i64 120
-  %178 = load ptr, ptr %rbn_right_red574.i.i, align 8
+  %170 = load ptr, ptr %rbn_right_red552.i.i, align 8
+  %171 = ptrtoint ptr %170 to i64
+  %and562.i.i = and i64 %171, 1
+  %or563.i.i = or i64 %and562.i.i, %169
+  %172 = inttoptr i64 %or563.i.i to ptr
+  store ptr %172, ptr %rbn_right_red552.i.i, align 8
+  %173 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link570.i.i = getelementptr inbounds i8, ptr %173, i64 112
+  %174 = load ptr, ptr %tctx_link570.i.i, align 8
+  %rbn_right_red574.i.i = getelementptr inbounds i8, ptr %174, i64 120
+  %175 = load ptr, ptr %rbn_right_red574.i.i, align 8
+  %176 = ptrtoint ptr %175 to i64
+  %and575.i.i = and i64 %176, -2
+  %177 = inttoptr i64 %and575.i.i to ptr
+  store ptr %177, ptr %tctx_link570.i.i, align 8
+  %178 = load ptr, ptr %pathp.3281.i.i, align 8
   %179 = ptrtoint ptr %178 to i64
-  %and575.i.i = and i64 %179, -2
-  %180 = inttoptr i64 %and575.i.i to ptr
-  store ptr %180, ptr %tctx_link570.i.i, align 8
-  %181 = load ptr, ptr %pathp.3281.i.i, align 8
-  %182 = ptrtoint ptr %181 to i64
-  %183 = load ptr, ptr %rbn_right_red574.i.i, align 8
-  %184 = ptrtoint ptr %183 to i64
-  %and584.i.i = and i64 %184, 1
-  %or585.i.i = or i64 %and584.i.i, %182
-  %185 = inttoptr i64 %or585.i.i to ptr
-  store ptr %185, ptr %rbn_right_red574.i.i, align 8
-  %186 = ptrtoint ptr %177 to i64
-  %187 = load ptr, ptr %rbn_right_red552.i.i, align 8
-  %188 = ptrtoint ptr %187 to i64
-  %and593.i.i = and i64 %188, 1
-  %or594.i.i = or i64 %and593.i.i, %186
-  %189 = inttoptr i64 %or594.i.i to ptr
-  store ptr %189, ptr %rbn_right_red552.i.i, align 8
-  %and601.i.i = and i64 %186, -2
-  %190 = inttoptr i64 %and601.i.i to ptr
-  %tctx_link603.i.i = getelementptr inbounds i8, ptr %190, i64 112
-  %191 = load ptr, ptr %tctx_link603.i.i, align 8
-  %192 = ptrtoint ptr %191 to i64
+  %180 = load ptr, ptr %rbn_right_red574.i.i, align 8
+  %181 = ptrtoint ptr %180 to i64
+  %and584.i.i = and i64 %181, 1
+  %or585.i.i = or i64 %and584.i.i, %179
+  %182 = inttoptr i64 %or585.i.i to ptr
+  store ptr %182, ptr %rbn_right_red574.i.i, align 8
+  %183 = ptrtoint ptr %174 to i64
+  %184 = load ptr, ptr %rbn_right_red552.i.i, align 8
+  %185 = ptrtoint ptr %184 to i64
+  %and593.i.i = and i64 %185, 1
+  %or594.i.i = or i64 %and593.i.i, %183
+  %186 = inttoptr i64 %or594.i.i to ptr
+  store ptr %186, ptr %rbn_right_red552.i.i, align 8
+  %and601.i.i = and i64 %183, -2
+  %187 = inttoptr i64 %and601.i.i to ptr
+  %tctx_link603.i.i = getelementptr inbounds i8, ptr %187, i64 112
+  %188 = load ptr, ptr %tctx_link603.i.i, align 8
+  %189 = ptrtoint ptr %188 to i64
   %and607.i.i = and i64 %or594.i.i, 1
-  %or608.i.i = or i64 %and607.i.i, %192
-  %193 = inttoptr i64 %or608.i.i to ptr
-  store ptr %193, ptr %rbn_right_red552.i.i, align 8
-  store ptr %167, ptr %tctx_link603.i.i, align 8
+  %or608.i.i = or i64 %and607.i.i, %189
+  %190 = inttoptr i64 %or608.i.i to ptr
+  store ptr %190, ptr %rbn_right_red552.i.i, align 8
+  store ptr %164, ptr %tctx_link603.i.i, align 8
   br label %if.end656.i.i
 
 do.body620.i.i:                                   ; preds = %land.lhs.true532.i.i, %if.then523.i.i
-  %rbn_right_red622.i.i = getelementptr inbounds i8, ptr %161, i64 120
-  %194 = load ptr, ptr %rbn_right_red622.i.i, align 8
-  %195 = ptrtoint ptr %194 to i64
-  %or623.i.i = or i64 %195, 1
-  %196 = inttoptr i64 %or623.i.i to ptr
-  store ptr %196, ptr %rbn_right_red622.i.i, align 8
-  %197 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link629.i.i = getelementptr inbounds i8, ptr %197, i64 112
-  %198 = load ptr, ptr %tctx_link629.i.i, align 8
-  %rbn_right_red633.i.i = getelementptr inbounds i8, ptr %198, i64 120
-  %199 = load ptr, ptr %rbn_right_red633.i.i, align 8
+  %rbn_right_red622.i.i = getelementptr inbounds i8, ptr %158, i64 120
+  %191 = load ptr, ptr %rbn_right_red622.i.i, align 8
+  %192 = ptrtoint ptr %191 to i64
+  %or623.i.i = or i64 %192, 1
+  %193 = inttoptr i64 %or623.i.i to ptr
+  store ptr %193, ptr %rbn_right_red622.i.i, align 8
+  %194 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link629.i.i = getelementptr inbounds i8, ptr %194, i64 112
+  %195 = load ptr, ptr %tctx_link629.i.i, align 8
+  %rbn_right_red633.i.i = getelementptr inbounds i8, ptr %195, i64 120
+  %196 = load ptr, ptr %rbn_right_red633.i.i, align 8
+  %197 = ptrtoint ptr %196 to i64
+  %and634.i.i = and i64 %197, -2
+  %198 = inttoptr i64 %and634.i.i to ptr
+  store ptr %198, ptr %tctx_link629.i.i, align 8
+  %199 = load ptr, ptr %pathp.3281.i.i, align 8
   %200 = ptrtoint ptr %199 to i64
-  %and634.i.i = and i64 %200, -2
-  %201 = inttoptr i64 %and634.i.i to ptr
-  store ptr %201, ptr %tctx_link629.i.i, align 8
-  %202 = load ptr, ptr %pathp.3281.i.i, align 8
-  %203 = ptrtoint ptr %202 to i64
-  %and652.i.i = and i64 %203, -2
-  %204 = inttoptr i64 %and652.i.i to ptr
-  store ptr %204, ptr %rbn_right_red633.i.i, align 8
+  %and652.i.i = and i64 %200, -2
+  %201 = inttoptr i64 %and652.i.i to ptr
+  store ptr %201, ptr %rbn_right_red633.i.i, align 8
   br label %if.end656.i.i
 
 if.end656.i.i:                                    ; preds = %do.body620.i.i, %do.body539.i.i
-  %tnode524.0.i.i = phi ptr [ %190, %do.body539.i.i ], [ %198, %do.body620.i.i ]
+  %tnode524.0.i.i = phi ptr [ %187, %do.body539.i.i ], [ %195, %do.body620.i.i ]
   %cmp658.i.i = icmp eq ptr %pathp.3281.i.i, %path.i.i
   br i1 %cmp658.i.i, label %if.then660.i.i, label %if.else662.i.i
 
@@ -2102,189 +2097,189 @@ if.then660.i.i:                                   ; preds = %if.end656.i.i
 if.else662.i.i:                                   ; preds = %if.end656.i.i
   %arrayidx663.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -16
   %cmp664.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -8
-  %205 = load i32, ptr %cmp664.i.i, align 8
-  %cmp665.i.i = icmp slt i32 %205, 0
+  %202 = load i32, ptr %cmp664.i.i, align 8
+  %cmp665.i.i = icmp slt i32 %202, 0
   br i1 %cmp665.i.i, label %do.body668.i.i, label %do.body675.i.i
 
 do.body668.i.i:                                   ; preds = %if.else662.i.i
-  %206 = load ptr, ptr %arrayidx663.i.i, align 8
-  %tctx_link671.i.i = getelementptr inbounds i8, ptr %206, i64 112
+  %203 = load ptr, ptr %arrayidx663.i.i, align 8
+  %tctx_link671.i.i = getelementptr inbounds i8, ptr %203, i64 112
   store ptr %tnode524.0.i.i, ptr %tctx_link671.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body675.i.i:                                   ; preds = %if.else662.i.i
-  %207 = ptrtoint ptr %tnode524.0.i.i to i64
-  %208 = load ptr, ptr %arrayidx663.i.i, align 8
-  %rbn_right_red679.i.i = getelementptr inbounds i8, ptr %208, i64 120
-  %209 = load ptr, ptr %rbn_right_red679.i.i, align 8
-  %210 = ptrtoint ptr %209 to i64
-  %and680.i.i = and i64 %210, 1
-  %or681.i.i = or i64 %and680.i.i, %207
-  %211 = inttoptr i64 %or681.i.i to ptr
-  store ptr %211, ptr %rbn_right_red679.i.i, align 8
+  %204 = ptrtoint ptr %tnode524.0.i.i to i64
+  %205 = load ptr, ptr %arrayidx663.i.i, align 8
+  %rbn_right_red679.i.i = getelementptr inbounds i8, ptr %205, i64 120
+  %206 = load ptr, ptr %rbn_right_red679.i.i, align 8
+  %207 = ptrtoint ptr %206 to i64
+  %and680.i.i = and i64 %207, 1
+  %or681.i.i = or i64 %and680.i.i, %204
+  %208 = inttoptr i64 %or681.i.i to ptr
+  store ptr %208, ptr %rbn_right_red679.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else691.i.i:                                   ; preds = %do.body504.i.i
-  %rbn_right_red694.i.i = getelementptr inbounds i8, ptr %157, i64 120
-  %212 = load ptr, ptr %rbn_right_red694.i.i, align 8
-  %213 = ptrtoint ptr %212 to i64
-  %and695.i.i = and i64 %213, 1
+  %rbn_right_red694.i.i = getelementptr inbounds i8, ptr %154, i64 120
+  %209 = load ptr, ptr %rbn_right_red694.i.i, align 8
+  %210 = ptrtoint ptr %209 to i64
+  %and695.i.i = and i64 %210, 1
   %tobool696.not.i.i = icmp eq i64 %and695.i.i, 0
   br i1 %tobool696.not.i.i, label %if.else802.i.i, label %if.then697.i.i
 
 if.then697.i.i:                                   ; preds = %if.else691.i.i
-  %rbn_right_red694.i.i.le = getelementptr inbounds i8, ptr %157, i64 120
-  %214 = load ptr, ptr %tctx_link519.i.i, align 8
-  %cmp700.not.i.i = icmp eq ptr %214, null
+  %rbn_right_red694.i.i.le = getelementptr inbounds i8, ptr %154, i64 120
+  %211 = load ptr, ptr %tctx_link519.i.i, align 8
+  %cmp700.not.i.i = icmp eq ptr %211, null
   br i1 %cmp700.not.i.i, label %do.body785.i.i, label %land.lhs.true702.i.i
 
 land.lhs.true702.i.i:                             ; preds = %if.then697.i.i
-  %rbn_right_red704.i.i = getelementptr inbounds i8, ptr %214, i64 120
-  %215 = load ptr, ptr %rbn_right_red704.i.i, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %and705.i.i = and i64 %216, 1
+  %rbn_right_red704.i.i = getelementptr inbounds i8, ptr %211, i64 120
+  %212 = load ptr, ptr %rbn_right_red704.i.i, align 8
+  %213 = ptrtoint ptr %212 to i64
+  %and705.i.i = and i64 %213, 1
   %tobool706.not.i.i = icmp eq i64 %and705.i.i, 0
   br i1 %tobool706.not.i.i, label %do.body785.i.i, label %do.body710.i.i
 
 do.body710.i.i:                                   ; preds = %land.lhs.true702.i.i
-  %and714.i.i = and i64 %213, -2
-  %217 = inttoptr i64 %and714.i.i to ptr
-  store ptr %217, ptr %rbn_right_red694.i.i.le, align 8
-  %218 = load ptr, ptr %rbn_right_red520.i.i, align 8
+  %and714.i.i = and i64 %210, -2
+  %214 = inttoptr i64 %and714.i.i to ptr
+  store ptr %214, ptr %rbn_right_red694.i.i.le, align 8
+  %215 = load ptr, ptr %rbn_right_red520.i.i, align 8
+  %216 = ptrtoint ptr %215 to i64
+  %or722.i.i = or i64 %216, 1
+  %217 = inttoptr i64 %or722.i.i to ptr
+  store ptr %217, ptr %rbn_right_red520.i.i, align 8
+  %218 = load ptr, ptr %rbn_right_red704.i.i, align 8
   %219 = ptrtoint ptr %218 to i64
-  %or722.i.i = or i64 %219, 1
-  %220 = inttoptr i64 %or722.i.i to ptr
-  store ptr %220, ptr %rbn_right_red520.i.i, align 8
-  %221 = load ptr, ptr %rbn_right_red704.i.i, align 8
-  %222 = ptrtoint ptr %221 to i64
-  %and729.i.i = and i64 %222, -2
-  %223 = inttoptr i64 %and729.i.i to ptr
-  store ptr %223, ptr %rbn_right_red704.i.i, align 8
-  %224 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link735.i.i = getelementptr inbounds i8, ptr %224, i64 112
-  %225 = load ptr, ptr %tctx_link735.i.i, align 8
-  %rbn_right_red739.i.i = getelementptr inbounds i8, ptr %225, i64 120
-  %226 = load ptr, ptr %rbn_right_red739.i.i, align 8
+  %and729.i.i = and i64 %219, -2
+  %220 = inttoptr i64 %and729.i.i to ptr
+  store ptr %220, ptr %rbn_right_red704.i.i, align 8
+  %221 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link735.i.i = getelementptr inbounds i8, ptr %221, i64 112
+  %222 = load ptr, ptr %tctx_link735.i.i, align 8
+  %rbn_right_red739.i.i = getelementptr inbounds i8, ptr %222, i64 120
+  %223 = load ptr, ptr %rbn_right_red739.i.i, align 8
+  %224 = ptrtoint ptr %223 to i64
+  %and740.i.i = and i64 %224, -2
+  %225 = inttoptr i64 %and740.i.i to ptr
+  store ptr %225, ptr %tctx_link735.i.i, align 8
+  %226 = load ptr, ptr %pathp.3281.i.i, align 8
   %227 = ptrtoint ptr %226 to i64
-  %and740.i.i = and i64 %227, -2
-  %228 = inttoptr i64 %and740.i.i to ptr
-  store ptr %228, ptr %tctx_link735.i.i, align 8
-  %229 = load ptr, ptr %pathp.3281.i.i, align 8
-  %230 = ptrtoint ptr %229 to i64
-  %231 = load ptr, ptr %rbn_right_red739.i.i, align 8
-  %232 = ptrtoint ptr %231 to i64
-  %and749.i.i = and i64 %232, 1
-  %or750.i.i = or i64 %and749.i.i, %230
-  %233 = inttoptr i64 %or750.i.i to ptr
-  store ptr %233, ptr %rbn_right_red739.i.i, align 8
+  %228 = load ptr, ptr %rbn_right_red739.i.i, align 8
+  %229 = ptrtoint ptr %228 to i64
+  %and749.i.i = and i64 %229, 1
+  %or750.i.i = or i64 %and749.i.i, %227
+  %230 = inttoptr i64 %or750.i.i to ptr
+  store ptr %230, ptr %rbn_right_red739.i.i, align 8
   %arrayidx757.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -16
   %cmp758.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -8
-  %234 = load i32, ptr %cmp758.i.i, align 8
-  %cmp759.i.i = icmp slt i32 %234, 0
+  %231 = load i32, ptr %cmp758.i.i, align 8
+  %cmp759.i.i = icmp slt i32 %231, 0
   br i1 %cmp759.i.i, label %do.body762.i.i, label %do.body769.i.i
 
 do.body762.i.i:                                   ; preds = %do.body710.i.i
-  %235 = load ptr, ptr %arrayidx757.i.i, align 8
-  %tctx_link765.i.i = getelementptr inbounds i8, ptr %235, i64 112
-  store ptr %225, ptr %tctx_link765.i.i, align 8
+  %232 = load ptr, ptr %arrayidx757.i.i, align 8
+  %tctx_link765.i.i = getelementptr inbounds i8, ptr %232, i64 112
+  store ptr %222, ptr %tctx_link765.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body769.i.i:                                   ; preds = %do.body710.i.i
-  %236 = ptrtoint ptr %225 to i64
-  %237 = load ptr, ptr %arrayidx757.i.i, align 8
-  %rbn_right_red773.i.i = getelementptr inbounds i8, ptr %237, i64 120
-  %238 = load ptr, ptr %rbn_right_red773.i.i, align 8
-  %239 = ptrtoint ptr %238 to i64
-  %and774.i.i = and i64 %239, 1
-  %or775.i.i = or i64 %and774.i.i, %236
-  %240 = inttoptr i64 %or775.i.i to ptr
-  store ptr %240, ptr %rbn_right_red773.i.i, align 8
+  %233 = ptrtoint ptr %222 to i64
+  %234 = load ptr, ptr %arrayidx757.i.i, align 8
+  %rbn_right_red773.i.i = getelementptr inbounds i8, ptr %234, i64 120
+  %235 = load ptr, ptr %rbn_right_red773.i.i, align 8
+  %236 = ptrtoint ptr %235 to i64
+  %and774.i.i = and i64 %236, 1
+  %or775.i.i = or i64 %and774.i.i, %233
+  %237 = inttoptr i64 %or775.i.i to ptr
+  store ptr %237, ptr %rbn_right_red773.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body785.i.i:                                   ; preds = %land.lhs.true702.i.i, %if.then697.i.i
-  %or788.i.i = or disjoint i64 %160, 1
-  %241 = inttoptr i64 %or788.i.i to ptr
-  store ptr %241, ptr %rbn_right_red520.i.i, align 8
-  %242 = load ptr, ptr %pathp.3281.i.i, align 8
-  %rbn_right_red795.i.i = getelementptr inbounds i8, ptr %242, i64 120
-  %243 = load ptr, ptr %rbn_right_red795.i.i, align 8
-  %244 = ptrtoint ptr %243 to i64
-  %and796.i.i = and i64 %244, -2
-  %245 = inttoptr i64 %and796.i.i to ptr
-  store ptr %245, ptr %rbn_right_red795.i.i, align 8
+  %or788.i.i = or disjoint i64 %157, 1
+  %238 = inttoptr i64 %or788.i.i to ptr
+  store ptr %238, ptr %rbn_right_red520.i.i, align 8
+  %239 = load ptr, ptr %pathp.3281.i.i, align 8
+  %rbn_right_red795.i.i = getelementptr inbounds i8, ptr %239, i64 120
+  %240 = load ptr, ptr %rbn_right_red795.i.i, align 8
+  %241 = ptrtoint ptr %240 to i64
+  %and796.i.i = and i64 %241, -2
+  %242 = inttoptr i64 %and796.i.i to ptr
+  store ptr %242, ptr %rbn_right_red795.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else802.i.i:                                   ; preds = %if.else691.i.i
-  %246 = load ptr, ptr %tctx_link519.i.i, align 8
-  %cmp806.not.i.i = icmp eq ptr %246, null
+  %243 = load ptr, ptr %tctx_link519.i.i, align 8
+  %cmp806.not.i.i = icmp eq ptr %243, null
   br i1 %cmp806.not.i.i, label %do.body880.i.i, label %land.lhs.true808.i.i
 
 land.lhs.true808.i.i:                             ; preds = %if.else802.i.i
-  %rbn_right_red810.i.i = getelementptr inbounds i8, ptr %246, i64 120
-  %247 = load ptr, ptr %rbn_right_red810.i.i, align 8
-  %248 = ptrtoint ptr %247 to i64
-  %and811.i.i = and i64 %248, 1
+  %rbn_right_red810.i.i = getelementptr inbounds i8, ptr %243, i64 120
+  %244 = load ptr, ptr %rbn_right_red810.i.i, align 8
+  %245 = ptrtoint ptr %244 to i64
+  %and811.i.i = and i64 %245, 1
   %tobool812.not.i.i = icmp eq i64 %and811.i.i, 0
   br i1 %tobool812.not.i.i, label %do.body880.i.i, label %do.body816.i.i
 
 do.body816.i.i:                                   ; preds = %land.lhs.true808.i.i
-  %rbn_right_red810.i.i.le = getelementptr inbounds i8, ptr %246, i64 120
-  %and819.i.i = and i64 %248, -2
-  %249 = inttoptr i64 %and819.i.i to ptr
-  store ptr %249, ptr %rbn_right_red810.i.i.le, align 8
-  %250 = load ptr, ptr %pathp.3281.i.i, align 8
-  %tctx_link825.i.i = getelementptr inbounds i8, ptr %250, i64 112
-  %251 = load ptr, ptr %tctx_link825.i.i, align 8
-  %rbn_right_red829.i.i = getelementptr inbounds i8, ptr %251, i64 120
-  %252 = load ptr, ptr %rbn_right_red829.i.i, align 8
+  %rbn_right_red810.i.i.le = getelementptr inbounds i8, ptr %243, i64 120
+  %and819.i.i = and i64 %245, -2
+  %246 = inttoptr i64 %and819.i.i to ptr
+  store ptr %246, ptr %rbn_right_red810.i.i.le, align 8
+  %247 = load ptr, ptr %pathp.3281.i.i, align 8
+  %tctx_link825.i.i = getelementptr inbounds i8, ptr %247, i64 112
+  %248 = load ptr, ptr %tctx_link825.i.i, align 8
+  %rbn_right_red829.i.i = getelementptr inbounds i8, ptr %248, i64 120
+  %249 = load ptr, ptr %rbn_right_red829.i.i, align 8
+  %250 = ptrtoint ptr %249 to i64
+  %and830.i.i = and i64 %250, -2
+  %251 = inttoptr i64 %and830.i.i to ptr
+  store ptr %251, ptr %tctx_link825.i.i, align 8
+  %252 = load ptr, ptr %pathp.3281.i.i, align 8
   %253 = ptrtoint ptr %252 to i64
-  %and830.i.i = and i64 %253, -2
-  %254 = inttoptr i64 %and830.i.i to ptr
-  store ptr %254, ptr %tctx_link825.i.i, align 8
-  %255 = load ptr, ptr %pathp.3281.i.i, align 8
-  %256 = ptrtoint ptr %255 to i64
-  %257 = load ptr, ptr %rbn_right_red829.i.i, align 8
-  %258 = ptrtoint ptr %257 to i64
-  %and839.i.i = and i64 %258, 1
-  %or840.i.i = or i64 %and839.i.i, %256
-  %259 = inttoptr i64 %or840.i.i to ptr
-  store ptr %259, ptr %rbn_right_red829.i.i, align 8
+  %254 = load ptr, ptr %rbn_right_red829.i.i, align 8
+  %255 = ptrtoint ptr %254 to i64
+  %and839.i.i = and i64 %255, 1
+  %or840.i.i = or i64 %and839.i.i, %253
+  %256 = inttoptr i64 %or840.i.i to ptr
+  store ptr %256, ptr %rbn_right_red829.i.i, align 8
   %cmp846.i.i = icmp eq ptr %pathp.3281.i.i, %path.i.i
   br i1 %cmp846.i.i, label %if.then848.i.i, label %if.else850.i.i
 
 if.then848.i.i:                                   ; preds = %do.body816.i.i
-  store ptr %251, ptr %tctxs.i, align 8
+  store ptr %248, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 if.else850.i.i:                                   ; preds = %do.body816.i.i
   %arrayidx851.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -16
   %cmp852.i.i = getelementptr inbounds i8, ptr %pathp.3281.i.i, i64 -8
-  %260 = load i32, ptr %cmp852.i.i, align 8
-  %cmp853.i.i = icmp slt i32 %260, 0
+  %257 = load i32, ptr %cmp852.i.i, align 8
+  %cmp853.i.i = icmp slt i32 %257, 0
   br i1 %cmp853.i.i, label %do.body856.i.i, label %do.body863.i.i
 
 do.body856.i.i:                                   ; preds = %if.else850.i.i
-  %261 = load ptr, ptr %arrayidx851.i.i, align 8
-  %tctx_link859.i.i = getelementptr inbounds i8, ptr %261, i64 112
-  store ptr %251, ptr %tctx_link859.i.i, align 8
+  %258 = load ptr, ptr %arrayidx851.i.i, align 8
+  %tctx_link859.i.i = getelementptr inbounds i8, ptr %258, i64 112
+  store ptr %248, ptr %tctx_link859.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body863.i.i:                                   ; preds = %if.else850.i.i
-  %262 = ptrtoint ptr %251 to i64
-  %263 = load ptr, ptr %arrayidx851.i.i, align 8
-  %rbn_right_red867.i.i = getelementptr inbounds i8, ptr %263, i64 120
-  %264 = load ptr, ptr %rbn_right_red867.i.i, align 8
-  %265 = ptrtoint ptr %264 to i64
-  %and868.i.i = and i64 %265, 1
-  %or869.i.i = or i64 %and868.i.i, %262
-  %266 = inttoptr i64 %or869.i.i to ptr
-  store ptr %266, ptr %rbn_right_red867.i.i, align 8
+  %259 = ptrtoint ptr %248 to i64
+  %260 = load ptr, ptr %arrayidx851.i.i, align 8
+  %rbn_right_red867.i.i = getelementptr inbounds i8, ptr %260, i64 120
+  %261 = load ptr, ptr %rbn_right_red867.i.i, align 8
+  %262 = ptrtoint ptr %261 to i64
+  %and868.i.i = and i64 %262, 1
+  %or869.i.i = or i64 %and868.i.i, %259
+  %263 = inttoptr i64 %or869.i.i to ptr
+  store ptr %263, ptr %rbn_right_red867.i.i, align 8
   br label %tctx_tree_remove.exit.i
 
 do.body880.i.i:                                   ; preds = %land.lhs.true808.i.i, %if.else802.i.i
-  %or883.i.i = or disjoint i64 %160, 1
-  %267 = inttoptr i64 %or883.i.i to ptr
-  store ptr %267, ptr %rbn_right_red520.i.i, align 8
+  %or883.i.i = or disjoint i64 %157, 1
+  %264 = inttoptr i64 %or883.i.i to ptr
+  store ptr %264, ptr %rbn_right_red520.i.i, align 8
   br label %for.inc891.i.i
 
 for.inc891.i.i:                                   ; preds = %do.body880.i.i, %do.body467.i.i
@@ -2293,16 +2288,15 @@ for.inc891.i.i:                                   ; preds = %do.body880.i.i, %do
   br i1 %cmp202.not.i.i, label %for.end893.i.i, label %do.end206.i.i, !llvm.loop !12
 
 for.end893.i.i:                                   ; preds = %for.inc891.i.i, %if.end197.i.i
-  %268 = load ptr, ptr %path.i.i, align 16
-  store ptr %268, ptr %tctxs.i, align 8
+  %265 = load ptr, ptr %path.i.i, align 16
+  store ptr %265, ptr %tctxs.i, align 8
   br label %tctx_tree_remove.exit.i
 
 tctx_tree_remove.exit.i:                          ; preds = %for.end893.i.i, %do.body863.i.i, %do.body856.i.i, %if.then848.i.i, %do.body785.i.i, %do.body769.i.i, %do.body762.i.i, %do.body675.i.i, %do.body668.i.i, %if.then660.i.i, %do.body449.i.i, %do.body442.i.i, %if.then434.i.i, %do.body338.i.i, %do.body331.i.i, %do.body189.i.i, %if.then176.i.i, %do.body156.i.i, %do.body149.i.i, %if.then141.i.i
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %path.i.i)
-  %269 = load i8, ptr @opt_prof_accum, align 1
-  %270 = and i8 %269, 1
-  %tobool.not.i.i = icmp eq i8 %270, 0
-  br i1 %tobool.not.i.i, label %if.end.i128.i, label %sw.epilog.i
+  %266 = load i8, ptr @opt_prof_accum, align 1
+  %tobool.i.i = trunc i8 %266 to i1
+  br i1 %tobool.i.i, label %sw.epilog.i, label %if.end.i128.i
 
 if.end.i128.i:                                    ; preds = %tctx_tree_remove.exit.i
   %tctxs.val.i.i = load ptr, ptr %tctxs.i, align 8
@@ -2310,9 +2304,9 @@ if.end.i128.i:                                    ; preds = %tctx_tree_remove.ex
   br i1 %cmp.i.i129.i, label %prof_gctx_should_destroy.exit.i, label %sw.epilog.i
 
 prof_gctx_should_destroy.exit.i:                  ; preds = %if.end.i128.i
-  %nlimbo.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %271 = load i32, ptr %nlimbo.i.i, align 8
-  %cmp.not.i130.i = icmp eq i32 %271, 0
+  %nlimbo.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %267 = load i32, ptr %nlimbo.i.i, align 8
+  %cmp.not.i130.i = icmp eq i32 %267, 0
   br i1 %cmp.not.i130.i, label %if.then25.i, label %sw.epilog.i
 
 if.then25.i:                                      ; preds = %prof_gctx_should_destroy.exit.i
@@ -2321,58 +2315,58 @@ if.then25.i:                                      ; preds = %prof_gctx_should_de
 
 sw.bb27.i:                                        ; preds = %malloc_mutex_lock.exit.i
   store i32 3, ptr %state.i, align 4
-  %272 = load ptr, ptr %6, align 8
-  %locked.i131.i = getelementptr inbounds i8, ptr %272, i64 104
+  %268 = load ptr, ptr %4, align 8
+  %locked.i131.i = getelementptr inbounds i8, ptr %268, i64 104
   store atomic i8 0, ptr %locked.i131.i monotonic, align 1
-  %lock.i132.i = getelementptr inbounds i8, ptr %272, i64 64
+  %lock.i132.i = getelementptr inbounds i8, ptr %268, i64 64
   %call1.i133.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i132.i) #11
   br label %prof_tctx_destroy.exit
 
 sw.epilog.i:                                      ; preds = %if.then25.i, %prof_gctx_should_destroy.exit.i, %if.end.i128.i, %tctx_tree_remove.exit.i
-  %273 = phi i1 [ false, %if.then25.i ], [ true, %prof_gctx_should_destroy.exit.i ], [ true, %tctx_tree_remove.exit.i ], [ true, %if.end.i128.i ]
-  %274 = load ptr, ptr %6, align 8
-  %locked.i134.i = getelementptr inbounds i8, ptr %274, i64 104
+  %269 = phi i1 [ false, %if.then25.i ], [ true, %prof_gctx_should_destroy.exit.i ], [ true, %tctx_tree_remove.exit.i ], [ true, %if.end.i128.i ]
+  %270 = load ptr, ptr %4, align 8
+  %locked.i134.i = getelementptr inbounds i8, ptr %270, i64 104
   store atomic i8 0, ptr %locked.i134.i monotonic, align 1
-  %lock.i135.i = getelementptr inbounds i8, ptr %274, i64 64
+  %lock.i135.i = getelementptr inbounds i8, ptr %270, i64 64
   %call1.i136.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i135.i) #11
-  call void @llvm.assume(i1 %273)
+  call void @llvm.assume(i1 %269)
   %cmp.i52.i = icmp eq ptr %tsd, null
-  %275 = ptrtoint ptr %tctx to i64
+  %271 = ptrtoint ptr %tctx to i64
   br i1 %cmp.i52.i, label %if.then.i.i.i, label %if.end.i.i.split.i
 
 if.then.i.i.i:                                    ; preds = %sw.epilog.i
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #11
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %275)
-  %276 = load ptr, ptr %tmp.i.i, align 8
-  %.val142.i = load i64, ptr %276, align 8
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %271)
+  %272 = load ptr, ptr %tmp.i.i, align 8
+  %.val142.i = load i64, ptr %272, align 8
   %conv.i143.i = and i64 %.val142.i, 4095
   %arrayidx.i145.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i143.i
-  %277 = load atomic i64, ptr %arrayidx.i145.i monotonic, align 8
+  %273 = load atomic i64, ptr %arrayidx.i145.i monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i98.i) #11
-  %call1.i100113.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i98.i, i64 noundef %275)
+  %call1.i100113.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i98.i, i64 noundef %271)
   br label %emap_alloc_ctx_lookup.exit.i
 
 if.end.i.i.split.i:                               ; preds = %sw.epilog.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsd, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %275)
-  %278 = load ptr, ptr %tmp.i.i, align 8
-  %.val.i = load i64, ptr %278, align 8
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %271)
+  %274 = load ptr, ptr %tmp.i.i, align 8
+  %.val.i = load i64, ptr %274, align 8
   %conv.i.i = and i64 %.val.i, 4095
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i.i
-  %279 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %call1.i100114.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %275)
+  %275 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
+  %call1.i100114.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %271)
   br label %emap_alloc_ctx_lookup.exit.i
 
 emap_alloc_ctx_lookup.exit.i:                     ; preds = %if.end.i.i.split.i, %if.then.i.i.i
-  %.in.i = phi i64 [ %277, %if.then.i.i.i ], [ %279, %if.end.i.i.split.i ]
+  %.in.i = phi i64 [ %273, %if.then.i.i.i ], [ %275, %if.end.i.i.split.i ]
   %phi.call.i = phi { i64, i32 } [ %call1.i100113.i, %if.then.i.i.i ], [ %call1.i100114.i, %if.end.i.i.split.i ]
-  %280 = inttoptr i64 %.in.i to ptr
+  %276 = inttoptr i64 %.in.i to ptr
   %call1.i100.fca.0.extract.i = extractvalue { i64, i32 } %phi.call.i, 0
   %idxprom.i.i.i = and i64 %call1.i100.fca.0.extract.i, 4294967295
   %arrayidx.i.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i.i
-  %281 = load i64, ptr %arrayidx.i.i.i, align 8
-  %internal.i.i = getelementptr inbounds i8, ptr %280, i64 56
-  %282 = atomicrmw sub ptr %internal.i.i, i64 %281 monotonic, align 8
+  %277 = load i64, ptr %arrayidx.i.i.i, align 8
+  %internal.i.i = getelementptr inbounds i8, ptr %276, i64 56
+  %278 = atomicrmw sub ptr %internal.i.i, i64 %277 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %tsd, ptr noundef nonnull %tctx)
   br label %prof_tctx_destroy.exit
 
@@ -2383,11 +2377,11 @@ prof_tctx_destroy.exit:                           ; preds = %sw.bb27.i, %emap_al
   br label %if.end
 
 if.else:                                          ; preds = %if.end2.i, %if.end.i, %entry, %prof_tctx_should_destroy.exit
-  %283 = load ptr, ptr %tctx, align 8
-  %284 = load ptr, ptr %283, align 8
-  %locked.i = getelementptr inbounds i8, ptr %284, i64 104
+  %279 = load ptr, ptr %tctx, align 8
+  %280 = load ptr, ptr %279, align 8
+  %locked.i = getelementptr inbounds i8, ptr %280, i64 104
   store atomic i8 0, ptr %locked.i monotonic, align 1
-  %lock.i = getelementptr inbounds i8, ptr %284, i64 64
+  %lock.i = getelementptr inbounds i8, ptr %280, i64 64
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #11
   br label %if.end
 

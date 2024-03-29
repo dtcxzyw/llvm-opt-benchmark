@@ -204,27 +204,27 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   br label %93
 
 93:                                               ; preds = %Classify.exit.i, %.lr.ph.i
-  %94 = phi i32 [ %87, %.lr.ph.i ], [ %152, %Classify.exit.i ]
-  %95 = phi i32 [ %88, %.lr.ph.i ], [ %151, %Classify.exit.i ]
-  %.05591.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %Classify.exit.i ]
-  %.05790.i = phi i32 [ 0, %.lr.ph.i ], [ %.259.i, %Classify.exit.i ]
+  %94 = phi i32 [ %87, %.lr.ph.i ], [ %151, %Classify.exit.i ]
+  %95 = phi i32 [ %88, %.lr.ph.i ], [ %150, %Classify.exit.i ]
+  %.05592.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %Classify.exit.i ]
+  %.05791.i = phi i32 [ 0, %.lr.ph.i ], [ %.259.i, %Classify.exit.i ]
   %96 = load i32, ptr %91, align 8
   %97 = sub nsw i32 65, %96
   %98 = icmp slt i32 %95, %97
   %99 = icmp slt i32 %94, %97
   %or.cond.i = and i1 %98, %99
-  br i1 %or.cond.i, label %.preheader.i, label %155
+  br i1 %or.cond.i, label %.preheader.i, label %154
 
-.preheader.i:                                     ; preds = %93, %131
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 0, %93 ]
-  %.15689.i = phi i32 [ %.2.i, %131 ], [ %.05591.i, %93 ]
-  %.15888.i = phi i32 [ %.259.i, %131 ], [ %.05790.i, %93 ]
-  %.06087.i = phi i8 [ %.161.i, %131 ], [ 0, %93 ]
-  %.06286.i = phi i64 [ %.163.i, %131 ], [ 0, %93 ]
+.preheader.i:                                     ; preds = %93, %130
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %130 ], [ 0, %93 ]
+  %.15690.i = phi i32 [ %.2.i, %130 ], [ %.05592.i, %93 ]
+  %.15889.i = phi i32 [ %.259.i, %130 ], [ %.05791.i, %93 ]
+  %.06088.i = phi i1 [ %.161.i, %130 ], [ false, %93 ]
+  %.06287.i = phi i64 [ %.163.i, %130 ], [ 0, %93 ]
   %100 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %indvars.iv.i
   %101 = load i32, ptr %100, align 4
   %.not71.i = icmp eq i32 %101, 0
-  br i1 %.not71.i, label %102, label %131
+  br i1 %.not71.i, label %102, label %130
 
 102:                                              ; preds = %.preheader.i
   %103 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv.i
@@ -249,164 +249,162 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %117 = sub i64 %109, %115
   %.054.i = zext i1 %.not72.i to i32
   %.053.i = select i1 %.not72.i, i64 %117, i64 %116
-  %118 = and i8 %.06087.i, 1
-  %.not73.i = icmp eq i8 %118, 0
-  %119 = icmp ugt i64 %.053.i, %.06286.i
-  %or.cond74.i = select i1 %.not73.i, i1 true, i1 %119
-  %120 = trunc i64 %indvars.iv.i to i32
-  br i1 %or.cond74.i, label %131, label %121
+  %118 = icmp ule i64 %.053.i, %.06287.i
+  %or.cond74.not.i = select i1 %.06088.i, i1 %118, i1 false
+  %119 = trunc i64 %indvars.iv.i to i32
+  br i1 %or.cond74.not.i, label %120, label %130
 
-121:                                              ; preds = %102
-  %122 = icmp eq i64 %.053.i, %.06286.i
-  br i1 %122, label %123, label %131
+120:                                              ; preds = %102
+  %121 = icmp eq i64 %.053.i, %.06287.i
+  br i1 %121, label %122, label %130
 
-123:                                              ; preds = %121
-  %124 = zext i1 %.not72.i to i64
-  %125 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %124
-  %126 = load i32, ptr %125, align 4
-  %127 = zext nneg i32 %.15888.i to i64
-  %128 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp slt i32 %126, %129
-  %spec.select.i = select i1 %130, i32 %.054.i, i32 %.15888.i
-  %spec.select75.i = select i1 %130, i32 %120, i32 %.15689.i
-  br label %131
+122:                                              ; preds = %120
+  %123 = zext i1 %.not72.i to i64
+  %124 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %123
+  %125 = load i32, ptr %124, align 4
+  %126 = zext nneg i32 %.15889.i to i64
+  %127 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %126
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp slt i32 %125, %128
+  %spec.select.i = select i1 %129, i32 %.054.i, i32 %.15889.i
+  %spec.select75.i = select i1 %129, i32 %119, i32 %.15690.i
+  br label %130
 
-131:                                              ; preds = %123, %121, %102, %.preheader.i
-  %.163.i = phi i64 [ %.06286.i, %.preheader.i ], [ %.06286.i, %121 ], [ %.053.i, %102 ], [ %.06286.i, %123 ]
-  %.161.i = phi i8 [ %.06087.i, %.preheader.i ], [ %.06087.i, %121 ], [ 1, %102 ], [ %.06087.i, %123 ]
-  %.259.i = phi i32 [ %.15888.i, %.preheader.i ], [ %.15888.i, %121 ], [ %.054.i, %102 ], [ %spec.select.i, %123 ]
-  %.2.i = phi i32 [ %.15689.i, %.preheader.i ], [ %.15689.i, %121 ], [ %120, %102 ], [ %spec.select75.i, %123 ]
+130:                                              ; preds = %122, %120, %102, %.preheader.i
+  %.163.i = phi i64 [ %.06287.i, %.preheader.i ], [ %.06287.i, %120 ], [ %.053.i, %102 ], [ %.06287.i, %122 ]
+  %.161.i = phi i1 [ %.06088.i, %.preheader.i ], [ true, %120 ], [ true, %102 ], [ true, %122 ]
+  %.259.i = phi i32 [ %.15889.i, %.preheader.i ], [ %.15889.i, %120 ], [ %.054.i, %102 ], [ %spec.select.i, %122 ]
+  %.2.i = phi i32 [ %.15690.i, %.preheader.i ], [ %.15690.i, %120 ], [ %119, %102 ], [ %spec.select75.i, %122 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i13, label %132, label %.preheader.i
+  br i1 %exitcond.not.i13, label %131, label %.preheader.i
 
-132:                                              ; preds = %131
-  %133 = sext i32 %.2.i to i64
-  %134 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %133
-  store i32 %.259.i, ptr %134, align 4
-  %135 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %133
-  store i32 1, ptr %135, align 4
-  %136 = zext nneg i32 %.259.i to i64
-  %137 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %136
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp eq i32 %138, 0
-  %140 = getelementptr inbounds [2 x %struct.Rect], ptr %30, i64 0, i64 %136
-  %141 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %133
-  br i1 %139, label %142, label %143
+131:                                              ; preds = %130
+  %132 = sext i32 %.2.i to i64
+  %133 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %132
+  store i32 %.259.i, ptr %133, align 4
+  %134 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %132
+  store i32 1, ptr %134, align 4
+  %135 = zext nneg i32 %.259.i to i64
+  %136 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %135
+  %137 = load i32, ptr %136, align 4
+  %138 = icmp eq i32 %137, 0
+  %139 = getelementptr inbounds [2 x %struct.Rect], ptr %30, i64 0, i64 %135
+  %140 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %132
+  br i1 %138, label %141, label %142
 
-142:                                              ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %141, i64 16, i1 false)
+141:                                              ; preds = %131
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false)
   br label %Classify.exit.i
 
-143:                                              ; preds = %132
-  %144 = call { i64, i64 } @CombineRect(ptr noundef nonnull %141, ptr noundef nonnull %140) #6
-  %145 = extractvalue { i64, i64 } %144, 0
-  %146 = extractvalue { i64, i64 } %144, 1
-  store i64 %145, ptr %140, align 8
-  %.sroa.2.0..sroa_idx.i78.i = getelementptr inbounds i8, ptr %140, i64 8
-  store i64 %146, ptr %.sroa.2.0..sroa_idx.i78.i, align 8
+142:                                              ; preds = %131
+  %143 = call { i64, i64 } @CombineRect(ptr noundef nonnull %140, ptr noundef nonnull %139) #6
+  %144 = extractvalue { i64, i64 } %143, 0
+  %145 = extractvalue { i64, i64 } %143, 1
+  store i64 %144, ptr %139, align 8
+  %.sroa.2.0..sroa_idx.i78.i = getelementptr inbounds i8, ptr %139, i64 8
+  store i64 %145, ptr %.sroa.2.0..sroa_idx.i78.i, align 8
   br label %Classify.exit.i
 
-Classify.exit.i:                                  ; preds = %143, %142
-  %147 = call i64 @RectArea(ptr noundef nonnull %140) #6
-  %148 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %136
-  store i64 %147, ptr %148, align 8
-  %149 = load i32, ptr %137, align 4
-  %150 = add nsw i32 %149, 1
-  store i32 %150, ptr %137, align 4
-  %151 = load i32, ptr %28, align 8
-  %152 = load i32, ptr %29, align 4
-  %153 = add nsw i32 %152, %151
-  %154 = icmp slt i32 %153, 65
-  br i1 %154, label %93, label %MethodZero.exit
+Classify.exit.i:                                  ; preds = %142, %141
+  %146 = call i64 @RectArea(ptr noundef nonnull %139) #6
+  %147 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %135
+  store i64 %146, ptr %147, align 8
+  %148 = load i32, ptr %136, align 4
+  %149 = add nsw i32 %148, 1
+  store i32 %149, ptr %136, align 4
+  %150 = load i32, ptr %28, align 8
+  %151 = load i32, ptr %29, align 4
+  %152 = add nsw i32 %151, %150
+  %153 = icmp slt i32 %152, 65
+  br i1 %153, label %93, label %MethodZero.exit
 
-155:                                              ; preds = %93
+154:                                              ; preds = %93
   %.not.i = icmp sge i32 %95, %97
   %spec.select76.i = zext i1 %.not.i to i32
-  %156 = zext i1 %.not.i to i64
-  %157 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %156
-  %158 = getelementptr inbounds [2 x %struct.Rect], ptr %30, i64 0, i64 %156
-  %.sroa.2.0..sroa_idx.i79.i = getelementptr inbounds i8, ptr %158, i64 8
-  %159 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %156
-  br label %160
+  %155 = zext i1 %.not.i to i64
+  %156 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %155
+  %157 = getelementptr inbounds [2 x %struct.Rect], ptr %30, i64 0, i64 %155
+  %.sroa.2.0..sroa_idx.i79.i = getelementptr inbounds i8, ptr %157, i64 8
+  %158 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %155
+  br label %159
 
-160:                                              ; preds = %176, %155
-  %indvars.iv95.i = phi i64 [ 0, %155 ], [ %indvars.iv.next96.i, %176 ]
-  %161 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %indvars.iv95.i
-  %162 = load i32, ptr %161, align 4
-  %.not70.i = icmp eq i32 %162, 0
-  br i1 %.not70.i, label %163, label %176
+159:                                              ; preds = %175, %154
+  %indvars.iv96.i = phi i64 [ 0, %154 ], [ %indvars.iv.next97.i, %175 ]
+  %160 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %indvars.iv96.i
+  %161 = load i32, ptr %160, align 4
+  %.not70.i = icmp eq i32 %161, 0
+  br i1 %.not70.i, label %162, label %175
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %indvars.iv95.i
-  store i32 %spec.select76.i, ptr %164, align 4
-  store i32 1, ptr %161, align 4
-  %165 = load i32, ptr %157, align 4
-  %166 = icmp eq i32 %165, 0
-  %167 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv95.i
-  br i1 %166, label %168, label %169
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %indvars.iv96.i
+  store i32 %spec.select76.i, ptr %163, align 4
+  store i32 1, ptr %160, align 4
+  %164 = load i32, ptr %156, align 4
+  %165 = icmp eq i32 %164, 0
+  %166 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv96.i
+  br i1 %165, label %167, label %168
 
-168:                                              ; preds = %163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false)
+167:                                              ; preds = %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %166, i64 16, i1 false)
   br label %Classify.exit80.i
 
-169:                                              ; preds = %163
-  %170 = call { i64, i64 } @CombineRect(ptr noundef nonnull %167, ptr noundef nonnull %158) #6
-  %171 = extractvalue { i64, i64 } %170, 0
-  %172 = extractvalue { i64, i64 } %170, 1
-  store i64 %171, ptr %158, align 8
-  store i64 %172, ptr %.sroa.2.0..sroa_idx.i79.i, align 8
+168:                                              ; preds = %162
+  %169 = call { i64, i64 } @CombineRect(ptr noundef nonnull %166, ptr noundef nonnull %157) #6
+  %170 = extractvalue { i64, i64 } %169, 0
+  %171 = extractvalue { i64, i64 } %169, 1
+  store i64 %170, ptr %157, align 8
+  store i64 %171, ptr %.sroa.2.0..sroa_idx.i79.i, align 8
   br label %Classify.exit80.i
 
-Classify.exit80.i:                                ; preds = %169, %168
-  %173 = call i64 @RectArea(ptr noundef nonnull %158) #6
-  store i64 %173, ptr %159, align 8
-  %174 = load i32, ptr %157, align 4
-  %175 = add nsw i32 %174, 1
-  store i32 %175, ptr %157, align 4
-  br label %176
+Classify.exit80.i:                                ; preds = %168, %167
+  %172 = call i64 @RectArea(ptr noundef nonnull %157) #6
+  store i64 %172, ptr %158, align 8
+  %173 = load i32, ptr %156, align 4
+  %174 = add nsw i32 %173, 1
+  store i32 %174, ptr %156, align 4
+  br label %175
 
-176:                                              ; preds = %Classify.exit80.i, %160
-  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
-  %exitcond98.not.i = icmp eq i64 %indvars.iv.next96.i, 65
-  br i1 %exitcond98.not.i, label %MethodZero.exit, label %160
+175:                                              ; preds = %Classify.exit80.i, %159
+  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
+  %exitcond99.not.i = icmp eq i64 %indvars.iv.next97.i, 65
+  br i1 %exitcond99.not.i, label %MethodZero.exit, label %159
 
-MethodZero.exit:                                  ; preds = %Classify.exit.i, %176, %PickSeeds.exit.i
+MethodZero.exit:                                  ; preds = %Classify.exit.i, %175, %PickSeeds.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %177 = call ptr @RTreeNewNode() #6
-  store ptr %177, ptr %3, align 8
+  %176 = call ptr @RTreeNewNode() #6
+  store ptr %176, ptr %3, align 8
   store i32 %9, ptr %8, align 4
-  %178 = load ptr, ptr %3, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 4
-  store i32 %9, ptr %179, align 4
-  %180 = load ptr, ptr %3, align 8
-  br label %181
+  %177 = load ptr, ptr %3, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 4
+  store i32 %9, ptr %178, align 4
+  %179 = load ptr, ptr %3, align 8
+  br label %180
 
-181:                                              ; preds = %187, %MethodZero.exit
-  %.01.i = phi i64 [ 0, %MethodZero.exit ], [ %188, %187 ]
-  %182 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %.01.i
-  %183 = load i32, ptr %182, align 4
-  switch i32 %183, label %187 [
+180:                                              ; preds = %186, %MethodZero.exit
+  %.01.i = phi i64 [ 0, %MethodZero.exit ], [ %187, %186 ]
+  %181 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %.01.i
+  %182 = load i32, ptr %181, align 4
+  switch i32 %182, label %186 [
     i32 0, label %.sink.split.i
-    i32 1, label %184
+    i32 1, label %183
   ]
 
-184:                                              ; preds = %181
+183:                                              ; preds = %180
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %184, %181
-  %.sink2.i = phi ptr [ %180, %184 ], [ %1, %181 ]
-  %185 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %.01.i
-  %186 = call i32 @AddBranch(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef %.sink2.i, ptr noundef null) #6
-  br label %187
+.sink.split.i:                                    ; preds = %183, %180
+  %.sink2.i = phi ptr [ %179, %183 ], [ %1, %180 ]
+  %184 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %.01.i
+  %185 = call i32 @AddBranch(ptr noundef nonnull %0, ptr noundef nonnull %184, ptr noundef %.sink2.i, ptr noundef null) #6
+  br label %186
 
-187:                                              ; preds = %.sink.split.i, %181
-  %188 = add nuw nsw i64 %.01.i, 1
-  %exitcond.not.i14 = icmp eq i64 %188, 65
-  br i1 %exitcond.not.i14, label %LoadNodes.exit, label %181
+186:                                              ; preds = %.sink.split.i, %180
+  %187 = add nuw nsw i64 %.01.i, 1
+  %exitcond.not.i14 = icmp eq i64 %187, 65
+  br i1 %exitcond.not.i14, label %LoadNodes.exit, label %180
 
-LoadNodes.exit:                                   ; preds = %187
+LoadNodes.exit:                                   ; preds = %186
   ret void
 }
 

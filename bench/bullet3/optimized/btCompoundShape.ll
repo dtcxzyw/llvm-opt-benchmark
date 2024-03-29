@@ -151,9 +151,8 @@ _ZNK20btAlignedObjectArrayI20btCompoundShapeChildE4copyEiiPS0_.exit.i: ; preds =
 
 if.then.i7.i:                                     ; preds = %_ZNK20btAlignedObjectArrayI20btCompoundShapeChildE4copyEiiPS0_.exit.i
   %5 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i, label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i7.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -186,9 +185,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -205,10 +203,10 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #12
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #12
   unreachable
 }
 
@@ -236,19 +234,18 @@ if.end:                                           ; preds = %if.then, %entry
 if.then.i.i.i:                                    ; preds = %if.end
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool2.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %2)
           to label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #12
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #12
   unreachable
 
 _ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev.exit: ; preds = %if.end, %if.then.i.i.i, %if.then3.i.i.i
@@ -262,10 +259,10 @@ _ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev.exit: ; preds = %if.end, %
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
@@ -309,26 +306,25 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then.i.i.i.i:                                  ; preds = %if.end.i
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %4, 0
-  br i1 %tobool2.not.i.i.i.i, label %_ZN15btCompoundShapeD2Ev.exit, label %if.then3.i.i.i.i
+  %tobool2.i.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN15btCompoundShapeD2Ev.exit
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %2)
           to label %_ZN15btCompoundShapeD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #12
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #12
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #12
   unreachable
 
 _ZN15btCompoundShapeD2Ev.exit:                    ; preds = %if.end.i, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -343,10 +339,10 @@ _ZN15btCompoundShapeD2Ev.exit:                    ; preds = %if.end.i, %if.then.
           to label %_ZN15btCompoundShapedlEPv.exit unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %_ZN15btCompoundShapeD2Ev.exit
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #12
   unreachable
 
 _ZN15btCompoundShapedlEPv.exit:                   ; preds = %_ZN15btCompoundShapeD2Ev.exit
@@ -522,9 +518,8 @@ _ZNK20btAlignedObjectArrayI20btCompoundShapeChildE4copyEiiPS0_.exit.i: ; preds =
 if.then.i7.i:                                     ; preds = %_ZNK20btAlignedObjectArrayI20btCompoundShapeChildE4copyEiiPS0_.exit.i
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i, label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i7.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -539,11 +534,11 @@ _ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i: ; preds 
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %if.then, %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i
-  %7 = phi i32 [ %0, %entry ], [ %0, %if.then ], [ %.pre2, %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i ]
+  %6 = phi i32 [ %0, %entry ], [ %0, %if.then ], [ %.pre2, %_ZN20btAlignedObjectArrayI20btCompoundShapeChildE10deallocateEv.exit.i ]
   %m_data = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load ptr, ptr %m_data, align 8
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.btCompoundShapeChild, ptr %8, i64 %idxprom
+  %7 = load ptr, ptr %m_data, align 8
+  %idxprom = sext i32 %6 to i64
+  %arrayidx = getelementptr inbounds %struct.btCompoundShapeChild, ptr %7, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %_Val, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %_Val, i64 16
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -557,8 +552,8 @@ invoke.cont:                                      ; preds = %entry, %if.then, %_
   %m_childShape.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %m_childShape3.i = getelementptr inbounds i8, ptr %_Val, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_childShape.i, ptr noundef nonnull align 8 dereferenceable(24) %m_childShape3.i, i64 24, i1 false)
-  %9 = load i32, ptr %m_size.i, align 4
-  %inc = add nsw i32 %9, 1
+  %8 = load i32, ptr %m_size.i, align 4
+  %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %m_size.i, align 4
   ret void
 }

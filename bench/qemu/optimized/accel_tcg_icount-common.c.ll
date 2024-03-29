@@ -100,16 +100,14 @@ do.body:                                          ; preds = %icount_get_raw_lock
 land.lhs.true.i:                                  ; preds = %do.body
   %running.i = getelementptr inbounds i8, ptr %2, i64 188
   %3 = load i8, ptr %running.i, align 4
-  %4 = and i8 %3, 1
-  %tobool1.not.i = icmp eq i8 %4, 0
-  br i1 %tobool1.not.i, label %icount_get_raw_locked.exit, label %if.then.i
+  %tobool1.i = trunc i8 %3 to i1
+  br i1 %tobool1.i, label %if.then.i, label %icount_get_raw_locked.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %can_do_io.i = getelementptr inbounds i8, ptr %2, i64 10164
-  %5 = load i8, ptr %can_do_io.i, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
+  %4 = load i8, ptr %can_do_io.i, align 4
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
@@ -118,30 +116,30 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i
   %icount_budget.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
-  %7 = load i64, ptr %icount_budget.i.i.i, align 16
+  %5 = load i64, ptr %icount_budget.i.i.i, align 16
   %icount_decr.i.i.i = getelementptr inbounds i8, ptr %2, i64 10160
-  %8 = load i16, ptr %icount_decr.i.i.i, align 16
-  %conv.i.i.i = zext i16 %8 to i64
+  %6 = load i16, ptr %icount_decr.i.i.i, align 16
+  %conv.i.i.i = zext i16 %6 to i64
   %icount_extra.i.i.i = getelementptr inbounds i8, ptr %2, i64 232
-  %9 = load i64, ptr %icount_extra.i.i.i, align 8
-  %10 = add i64 %9, %conv.i.i.i
-  %sub.i.i.i = sub i64 %7, %10
-  store i64 %10, ptr %icount_budget.i.i.i, align 16
-  %11 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i = add i64 %sub.i.i.i, %11
+  %7 = load i64, ptr %icount_extra.i.i.i, align 8
+  %8 = add i64 %7, %conv.i.i.i
+  %sub.i.i.i = sub i64 %5, %8
+  store i64 %8, ptr %icount_budget.i.i.i, align 16
+  %9 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i = add i64 %sub.i.i.i, %9
   store atomic i64 %add.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %do.body, %land.lhs.true.i, %if.end.i
-  %12 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %10 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   fence acquire
-  %13 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
-  %cmp.i.not = icmp eq i32 %13, %and.i
+  %11 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  %cmp.i.not = icmp eq i32 %11, %and.i
   br i1 %cmp.i.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %icount_get_raw_locked.exit
-  ret i64 %12
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -162,16 +160,14 @@ do.body:                                          ; preds = %icount_get_locked.e
 land.lhs.true.i.i:                                ; preds = %do.body
   %running.i.i = getelementptr inbounds i8, ptr %2, i64 188
   %3 = load i8, ptr %running.i.i, align 4
-  %4 = and i8 %3, 1
-  %tobool1.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool1.not.i.i, label %icount_get_locked.exit, label %if.then.i.i
+  %tobool1.i.i = trunc i8 %3 to i1
+  br i1 %tobool1.i.i, label %if.then.i.i, label %icount_get_locked.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %can_do_io.i.i = getelementptr inbounds i8, ptr %2, i64 10164
-  %5 = load i8, ptr %can_do_io.i.i, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end.i.i
+  %4 = load i8, ptr %can_do_io.i.i, align 4
+  %tobool2.i.i = trunc i8 %4 to i1
+  br i1 %tobool2.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
@@ -180,35 +176,35 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
   %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
-  %7 = load i64, ptr %icount_budget.i.i.i.i, align 16
+  %5 = load i64, ptr %icount_budget.i.i.i.i, align 16
   %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 10160
-  %8 = load i16, ptr %icount_decr.i.i.i.i, align 16
-  %conv.i.i.i.i = zext i16 %8 to i64
+  %6 = load i16, ptr %icount_decr.i.i.i.i, align 16
+  %conv.i.i.i.i = zext i16 %6 to i64
   %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 232
-  %9 = load i64, ptr %icount_extra.i.i.i.i, align 8
-  %10 = add i64 %9, %conv.i.i.i.i
-  %sub.i.i.i.i = sub i64 %7, %10
-  store i64 %10, ptr %icount_budget.i.i.i.i, align 16
-  %11 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i.i = add i64 %sub.i.i.i.i, %11
+  %7 = load i64, ptr %icount_extra.i.i.i.i, align 8
+  %8 = add i64 %7, %conv.i.i.i.i
+  %sub.i.i.i.i = sub i64 %5, %8
+  store i64 %8, ptr %icount_budget.i.i.i.i, align 16
+  %9 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i.i = add i64 %sub.i.i.i.i, %9
   store atomic i64 %add.i.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_locked.exit
 
 icount_get_locked.exit:                           ; preds = %do.body, %land.lhs.true.i.i, %if.end.i.i
-  %12 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %13 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
-  %14 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
+  %10 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %11 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
+  %12 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   fence acquire
-  %15 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
-  %cmp.i.not = icmp eq i32 %15, %and.i
+  %13 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  %cmp.i.not = icmp eq i32 %13, %and.i
   br i1 %cmp.i.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %icount_get_locked.exit
-  %conv.i.i = sext i16 %14 to i64
+  %conv.i.i = sext i16 %12 to i64
   %sh_prom.i.i = and i64 %conv.i.i, 4294967295
-  %shl.i.i = shl i64 %12, %sh_prom.i.i
-  %add.i = add i64 %shl.i.i, %13
+  %shl.i.i = shl i64 %10, %sh_prom.i.i
+  %add.i = add i64 %shl.i.i, %11
   ret i64 %add.i
 }
 
@@ -262,9 +258,8 @@ if.then3:                                         ; preds = %if.end2
 
 if.end6:                                          ; preds = %if.then3
   %2 = load i8, ptr @qtest_allowed, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.end9, label %if.end59
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.end59, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
   %call10 = tail call zeroext i1 @replay_checkpoint(i32 noundef 0) #8
@@ -289,10 +284,9 @@ if.end18:                                         ; preds = %if.else11, %if.end9
   br i1 %cmp21, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end18
-  %4 = load i8, ptr @icount_sleep, align 1
-  %5 = and i8 %4, 1
-  %tobool23.not = icmp eq i8 %5, 0
-  br i1 %tobool23.not, label %land.lhs.true, label %if.end59
+  %3 = load i8, ptr @icount_sleep, align 1
+  %tobool23 = trunc i8 %3 to i1
+  br i1 %tobool23, label %if.end59, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then22
   %.b7 = load i1, ptr @icount_start_warp_timer.notified, align 1
@@ -308,54 +302,53 @@ if.end27:                                         ; preds = %if.end18
   br i1 %cmp28.not, label %if.then57, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %6 = load i8, ptr @icount_sleep, align 1
-  %7 = and i8 %6, 1
-  %tobool30.not = icmp eq i8 %7, 0
-  %8 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
-  %tobool.not3.i = icmp eq i32 %8, 0
+  %4 = load i8, ptr @icount_sleep, align 1
+  %tobool30 = trunc i8 %4 to i1
+  %5 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %tobool.not3.i = icmp eq i32 %5, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %9 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
-  %tobool.not.i = icmp eq i32 %9, 0
+  %6 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
+  %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %if.then29, %while.cond.loopexit.i
-  %10 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
-  %tobool15.not2.i = icmp eq i32 %10, 0
+  %7 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %tobool15.not2.i = icmp eq i32 %7, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
-  %11 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
-  %tobool15.not.i = icmp eq i32 %11, 0
+  %8 = load atomic i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) monotonic, align 4
+  %tobool15.not.i = icmp eq i32 %8, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %if.then29
-  %12 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
-  %add.i.i = add i32 %12, 1
-  store atomic i32 %add.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
+  %9 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %add.i.i11 = add i32 %9, 1
+  store atomic i32 %add.i.i11, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8
   fence release
-  br i1 %tobool30.not, label %if.then31, label %if.else38
+  br i1 %tobool30, label %if.else38, label %if.then31
 
 if.then31:                                        ; preds = %qemu_spin_lock.exit
-  %13 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7), align 8
-  %add = add i64 %13, %call20
+  %10 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7), align 8
+  %add = add i64 %10, %call20
   store atomic i64 %add, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   fence release
-  %14 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
-  %add.i.i10 = add i32 %14, 1
+  %11 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %add.i.i10 = add i32 %11, 1
   store atomic i32 %add.i.i10, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
   tail call void @qemu_clock_notify(i32 noundef 1) #8
   br label %if.end59
 
 if.else38:                                        ; preds = %qemu_spin_lock.exit
-  %15 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 8), align 8
-  %cmp44 = icmp eq i64 %15, -1
-  %cmp45 = icmp sgt i64 %15, %call19
+  %12 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 8), align 8
+  %cmp44 = icmp eq i64 %12, -1
+  %cmp45 = icmp sgt i64 %12, %call19
   %or.cond = select i1 %cmp44, i1 true, i1 %cmp45
   br i1 %or.cond, label %if.then46, label %if.end47
 
@@ -366,13 +359,13 @@ if.then46:                                        ; preds = %if.else38
 if.end47:                                         ; preds = %if.else38, %if.then46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   fence release
-  %16 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
-  %add.i.i12 = add i32 %16, 1
+  %13 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %add.i.i12 = add i32 %13, 1
   store atomic i32 %add.i.i12, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
-  %17 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 13), align 8
+  %14 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 13), align 8
   %add53 = add i64 %call20, %call19
-  tail call void @timer_mod_anticipate(ptr noundef %17, i64 noundef %add53) #8
+  tail call void @timer_mod_anticipate(ptr noundef %14, i64 noundef %add53) #8
   br label %if.end59
 
 if.then57:                                        ; preds = %if.end27
@@ -408,9 +401,8 @@ declare void @timer_mod_anticipate(ptr noundef, i64 noundef) local_unnamed_addr 
 define dso_local void @icount_account_warp_timer() local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @icount_sleep, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call zeroext i1 @runstate_is_running() #8
@@ -422,8 +414,8 @@ if.end2:                                          ; preds = %if.end
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end2
-  %2 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 13), align 8
-  tail call void @timer_del(ptr noundef %2) #8
+  %1 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 13), align 8
+  tail call void @timer_del(ptr noundef %1) #8
   tail call fastcc void @icount_warp_rt()
   br label %return
 
@@ -502,16 +494,14 @@ cond.true:                                        ; preds = %if.then4
 land.lhs.true.i:                                  ; preds = %cond.true
   %running.i = getelementptr inbounds i8, ptr %10, i64 188
   %11 = load i8, ptr %running.i, align 4
-  %12 = and i8 %11, 1
-  %tobool1.not.i = icmp eq i8 %12, 0
-  br i1 %tobool1.not.i, label %icount_get_raw_locked.exit, label %if.then.i
+  %tobool1.i = trunc i8 %11 to i1
+  br i1 %tobool1.i, label %if.then.i, label %icount_get_raw_locked.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %can_do_io.i = getelementptr inbounds i8, ptr %10, i64 10164
-  %13 = load i8, ptr %can_do_io.i, align 4
-  %14 = and i8 %13, 1
-  %tobool2.not.i = icmp eq i8 %14, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
+  %12 = load i8, ptr %can_do_io.i, align 4
+  %tobool2.i = trunc i8 %12 to i1
+  br i1 %tobool2.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
@@ -520,70 +510,68 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i
   %icount_budget.i.i.i = getelementptr inbounds i8, ptr %10, i64 224
-  %15 = load i64, ptr %icount_budget.i.i.i, align 16
+  %13 = load i64, ptr %icount_budget.i.i.i, align 16
   %icount_decr.i.i.i = getelementptr inbounds i8, ptr %10, i64 10160
-  %16 = load i16, ptr %icount_decr.i.i.i, align 16
-  %conv.i.i.i = zext i16 %16 to i64
+  %14 = load i16, ptr %icount_decr.i.i.i, align 16
+  %conv.i.i.i = zext i16 %14 to i64
   %icount_extra.i.i.i = getelementptr inbounds i8, ptr %10, i64 232
-  %17 = load i64, ptr %icount_extra.i.i.i, align 8
-  %18 = add i64 %17, %conv.i.i.i
-  %sub.i.i.i = sub i64 %15, %18
-  store i64 %18, ptr %icount_budget.i.i.i, align 16
-  %19 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i7 = add i64 %sub.i.i.i, %19
+  %15 = load i64, ptr %icount_extra.i.i.i, align 8
+  %16 = add i64 %15, %conv.i.i.i
+  %sub.i.i.i = sub i64 %13, %16
+  store i64 %16, ptr %icount_budget.i.i.i, align 16
+  %17 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i7 = add i64 %sub.i.i.i, %17
   store atomic i64 %add.i.i7, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
-  %20 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %call7 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %20) #8
+  %18 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %call7 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %18) #8
   br label %cond.end15
 
 cond.true9:                                       ; preds = %if.then4
   %call10 = tail call i64 @cpu_get_clock_locked() #8
-  %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  %22 = load ptr, ptr %21, align 8
-  %tobool.not.i8 = icmp eq ptr %22, null
+  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  %20 = load ptr, ptr %19, align 8
+  %tobool.not.i8 = icmp eq ptr %20, null
   br i1 %tobool.not.i8, label %icount_get_raw_locked.exit23, label %land.lhs.true.i9
 
 land.lhs.true.i9:                                 ; preds = %cond.true9
-  %running.i10 = getelementptr inbounds i8, ptr %22, i64 188
-  %23 = load i8, ptr %running.i10, align 4
-  %24 = and i8 %23, 1
-  %tobool1.not.i11 = icmp eq i8 %24, 0
-  br i1 %tobool1.not.i11, label %icount_get_raw_locked.exit23, label %if.then.i12
+  %running.i10 = getelementptr inbounds i8, ptr %20, i64 188
+  %21 = load i8, ptr %running.i10, align 4
+  %tobool1.i11 = trunc i8 %21 to i1
+  br i1 %tobool1.i11, label %if.then.i12, label %icount_get_raw_locked.exit23
 
 if.then.i12:                                      ; preds = %land.lhs.true.i9
-  %can_do_io.i13 = getelementptr inbounds i8, ptr %22, i64 10164
-  %25 = load i8, ptr %can_do_io.i13, align 4
-  %26 = and i8 %25, 1
-  %tobool2.not.i14 = icmp eq i8 %26, 0
-  br i1 %tobool2.not.i14, label %if.then3.i22, label %if.end.i15
+  %can_do_io.i13 = getelementptr inbounds i8, ptr %20, i64 10164
+  %22 = load i8, ptr %can_do_io.i13, align 4
+  %tobool2.i14 = trunc i8 %22 to i1
+  br i1 %tobool2.i14, label %if.end.i16, label %if.then3.i15
 
-if.then3.i22:                                     ; preds = %if.then.i12
+if.then3.i15:                                     ; preds = %if.then.i12
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-if.end.i15:                                       ; preds = %if.then.i12
-  %icount_budget.i.i.i16 = getelementptr inbounds i8, ptr %22, i64 224
-  %27 = load i64, ptr %icount_budget.i.i.i16, align 16
-  %icount_decr.i.i.i17 = getelementptr inbounds i8, ptr %22, i64 10160
-  %28 = load i16, ptr %icount_decr.i.i.i17, align 16
-  %conv.i.i.i18 = zext i16 %28 to i64
-  %icount_extra.i.i.i19 = getelementptr inbounds i8, ptr %22, i64 232
-  %29 = load i64, ptr %icount_extra.i.i.i19, align 8
-  %30 = add i64 %29, %conv.i.i.i18
-  %sub.i.i.i20 = sub i64 %27, %30
-  store i64 %30, ptr %icount_budget.i.i.i16, align 16
-  %31 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i21 = add i64 %sub.i.i.i20, %31
-  store atomic i64 %add.i.i21, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+if.end.i16:                                       ; preds = %if.then.i12
+  %icount_budget.i.i.i17 = getelementptr inbounds i8, ptr %20, i64 224
+  %23 = load i64, ptr %icount_budget.i.i.i17, align 16
+  %icount_decr.i.i.i18 = getelementptr inbounds i8, ptr %20, i64 10160
+  %24 = load i16, ptr %icount_decr.i.i.i18, align 16
+  %conv.i.i.i19 = zext i16 %24 to i64
+  %icount_extra.i.i.i20 = getelementptr inbounds i8, ptr %20, i64 232
+  %25 = load i64, ptr %icount_extra.i.i.i20, align 8
+  %26 = add i64 %25, %conv.i.i.i19
+  %sub.i.i.i21 = sub i64 %23, %26
+  store i64 %26, ptr %icount_budget.i.i.i17, align 16
+  %27 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i22 = add i64 %sub.i.i.i21, %27
+  store atomic i64 %add.i.i22, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_raw_locked.exit23
 
-icount_get_raw_locked.exit23:                     ; preds = %cond.true9, %land.lhs.true.i9, %if.end.i15
-  %32 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %call12 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call10, i64 noundef %32) #8
+icount_get_raw_locked.exit23:                     ; preds = %cond.true9, %land.lhs.true.i9, %if.end.i16
+  %28 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %call12 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call10, i64 noundef %28) #8
   br label %cond.end15
 
 cond.false13:                                     ; preds = %if.then4
@@ -592,10 +580,10 @@ cond.false13:                                     ; preds = %if.then4
 
 cond.end15:                                       ; preds = %icount_get_raw_locked.exit23, %cond.false13, %icount_get_raw_locked.exit
   %cond16 = phi i64 [ %call7, %icount_get_raw_locked.exit ], [ %call12, %icount_get_raw_locked.exit23 ], [ %call14, %cond.false13 ]
-  %33 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 8), align 8
-  %sub = sub i64 %cond16, %33
-  %34 = load i32, ptr @use_icount, align 4
-  %cmp17 = icmp eq i32 %34, 2
+  %29 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 8), align 8
+  %sub = sub i64 %cond16, %29
+  %30 = load i32, ptr @use_icount, align 4
+  %cmp17 = icmp eq i32 %30, 2
   br i1 %cmp17, label %if.then18, label %cond.end15.if.end29_crit_edge
 
 cond.end15.if.end29_crit_edge:                    ; preds = %cond.end15
@@ -603,24 +591,22 @@ cond.end15.if.end29_crit_edge:                    ; preds = %cond.end15
   br label %if.end29
 
 if.then18:                                        ; preds = %cond.end15
-  %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  %36 = load ptr, ptr %35, align 8
-  %tobool.not.i.i = icmp eq ptr %36, null
+  %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  %32 = load ptr, ptr %31, align 8
+  %tobool.not.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i, label %icount_get_locked.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then18
-  %running.i.i = getelementptr inbounds i8, ptr %36, i64 188
-  %37 = load i8, ptr %running.i.i, align 4
-  %38 = and i8 %37, 1
-  %tobool1.not.i.i = icmp eq i8 %38, 0
-  br i1 %tobool1.not.i.i, label %icount_get_locked.exit, label %if.then.i.i
+  %running.i.i = getelementptr inbounds i8, ptr %32, i64 188
+  %33 = load i8, ptr %running.i.i, align 4
+  %tobool1.i.i = trunc i8 %33 to i1
+  br i1 %tobool1.i.i, label %if.then.i.i, label %icount_get_locked.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %can_do_io.i.i = getelementptr inbounds i8, ptr %36, i64 10164
-  %39 = load i8, ptr %can_do_io.i.i, align 4
-  %40 = and i8 %39, 1
-  %tobool2.not.i.i = icmp eq i8 %40, 0
-  br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end.i.i
+  %can_do_io.i.i = getelementptr inbounds i8, ptr %32, i64 10164
+  %34 = load i8, ptr %can_do_io.i.i, align 4
+  %tobool2.i.i = trunc i8 %34 to i1
+  br i1 %tobool2.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
@@ -628,38 +614,38 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 224
-  %41 = load i64, ptr %icount_budget.i.i.i.i, align 16
-  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 10160
-  %42 = load i16, ptr %icount_decr.i.i.i.i, align 16
-  %conv.i.i.i.i = zext i16 %42 to i64
-  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 232
-  %43 = load i64, ptr %icount_extra.i.i.i.i, align 8
-  %44 = add i64 %43, %conv.i.i.i.i
-  %sub.i.i.i.i = sub i64 %41, %44
-  store i64 %44, ptr %icount_budget.i.i.i.i, align 16
-  %45 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i.i = add i64 %sub.i.i.i.i, %45
+  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 224
+  %35 = load i64, ptr %icount_budget.i.i.i.i, align 16
+  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 10160
+  %36 = load i16, ptr %icount_decr.i.i.i.i, align 16
+  %conv.i.i.i.i = zext i16 %36 to i64
+  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 232
+  %37 = load i64, ptr %icount_extra.i.i.i.i, align 8
+  %38 = add i64 %37, %conv.i.i.i.i
+  %sub.i.i.i.i = sub i64 %35, %38
+  store i64 %38, ptr %icount_budget.i.i.i.i, align 16
+  %39 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i.i = add i64 %sub.i.i.i.i, %39
   store atomic i64 %add.i.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_locked.exit
 
 icount_get_locked.exit:                           ; preds = %if.then18, %land.lhs.true.i.i, %if.end.i.i
-  %46 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %47 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
-  %48 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
-  %conv.i.i = sext i16 %48 to i64
+  %40 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %41 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
+  %42 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
+  %conv.i.i = sext i16 %42 to i64
   %sh_prom.i.i = and i64 %conv.i.i, 4294967295
-  %shl.i.i = shl i64 %46, %sh_prom.i.i
-  %49 = add i64 %47, %shl.i.i
-  %sub20 = sub i64 %cond16, %49
+  %shl.i.i = shl i64 %40, %sh_prom.i.i
+  %43 = add i64 %41, %shl.i.i
+  %sub20 = sub i64 %cond16, %43
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub20, i64 0)
   %cond28 = tail call i64 @llvm.smin.i64(i64 %sub, i64 %spec.store.select)
   br label %if.end29
 
 if.end29:                                         ; preds = %cond.end15.if.end29_crit_edge, %icount_get_locked.exit
-  %50 = phi i64 [ %47, %icount_get_locked.exit ], [ %.pre, %cond.end15.if.end29_crit_edge ]
+  %44 = phi i64 [ %41, %icount_get_locked.exit ], [ %.pre, %cond.end15.if.end29_crit_edge ]
   %warp_delta.0 = phi i64 [ %cond28, %icount_get_locked.exit ], [ %sub, %cond.end15.if.end29_crit_edge ]
-  %add = add i64 %warp_delta.0, %50
+  %add = add i64 %warp_delta.0, %44
   store atomic i64 %add, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
   br label %if.end30
 
@@ -667,8 +653,8 @@ if.end30:                                         ; preds = %if.end29, %qemu_spi
   store i64 -1, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 8), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   fence release
-  %51 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
-  %add.i.i24 = add i32 %51, 1
+  %45 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %add.i.i24 = add i32 %45, 1
   store atomic i32 %add.i.i24, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
   %call36 = tail call zeroext i1 @qemu_clock_expired(i32 noundef 1) #8
@@ -742,16 +728,15 @@ if.then22:                                        ; preds = %if.else
 
 if.else23:                                        ; preds = %if.else
   %2 = load i8, ptr @icount_sleep, align 1
-  %3 = and i8 %2, 1
-  %tobool24.not = icmp eq i8 %3, 0
-  br i1 %tobool24.not, label %if.then25, label %if.end28
+  %tobool24 = trunc i8 %2 to i1
+  br i1 %tobool24, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 451, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.11) #8
   br label %return
 
 if.end28:                                         ; preds = %if.else23, %if.then13
-  %4 = phi i64 [ -1, %if.else23 ], [ %0, %if.then13 ]
+  %3 = phi i64 [ -1, %if.else23 ], [ %0, %if.then13 ]
   store i8 %frombool, ptr @icount_sleep, align 1
   br i1 %call1, label %if.then32, label %if.end34
 
@@ -763,14 +748,14 @@ if.then32:                                        ; preds = %if.end28
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end28
-  %5 = phi i64 [ %.pre, %if.then32 ], [ %4, %if.end28 ]
+  %4 = phi i64 [ %.pre, %if.then32 ], [ %3, %if.end28 ]
   %conv = zext i1 %call2 to i32
   store i32 %conv, ptr @icount_align_option, align 4
-  %cmp36 = icmp sgt i64 %5, -1
+  %cmp36 = icmp sgt i64 %4, -1
   br i1 %cmp36, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end34
-  %conv39 = trunc i64 %5 to i16
+  %conv39 = trunc i64 %4 to i16
   store i16 %conv39, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5), align 2
   store i32 1, ptr @use_icount, align 4
   br label %return
@@ -934,16 +919,14 @@ cond.true:                                        ; preds = %qemu_spin_lock.exit
 land.lhs.true.i:                                  ; preds = %cond.true
   %running.i = getelementptr inbounds i8, ptr %7, i64 188
   %8 = load i8, ptr %running.i, align 4
-  %9 = and i8 %8, 1
-  %tobool1.not.i = icmp eq i8 %9, 0
-  br i1 %tobool1.not.i, label %icount_get_raw_locked.exit, label %if.then.i
+  %tobool1.i = trunc i8 %8 to i1
+  br i1 %tobool1.i, label %if.then.i, label %icount_get_raw_locked.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %can_do_io.i = getelementptr inbounds i8, ptr %7, i64 10164
-  %10 = load i8, ptr %can_do_io.i, align 4
-  %11 = and i8 %10, 1
-  %tobool2.not.i = icmp eq i8 %11, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
+  %9 = load i8, ptr %can_do_io.i, align 4
+  %tobool2.i = trunc i8 %9 to i1
+  br i1 %tobool2.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
@@ -952,70 +935,68 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i
   %icount_budget.i.i.i = getelementptr inbounds i8, ptr %7, i64 224
-  %12 = load i64, ptr %icount_budget.i.i.i, align 16
+  %10 = load i64, ptr %icount_budget.i.i.i, align 16
   %icount_decr.i.i.i = getelementptr inbounds i8, ptr %7, i64 10160
-  %13 = load i16, ptr %icount_decr.i.i.i, align 16
-  %conv.i.i.i = zext i16 %13 to i64
+  %11 = load i16, ptr %icount_decr.i.i.i, align 16
+  %conv.i.i.i = zext i16 %11 to i64
   %icount_extra.i.i.i = getelementptr inbounds i8, ptr %7, i64 232
-  %14 = load i64, ptr %icount_extra.i.i.i, align 8
-  %15 = add i64 %14, %conv.i.i.i
-  %sub.i.i.i = sub i64 %12, %15
-  store i64 %15, ptr %icount_budget.i.i.i, align 16
-  %16 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i8 = add i64 %sub.i.i.i, %16
+  %12 = load i64, ptr %icount_extra.i.i.i, align 8
+  %13 = add i64 %12, %conv.i.i.i
+  %sub.i.i.i = sub i64 %10, %13
+  store i64 %13, ptr %icount_budget.i.i.i, align 16
+  %14 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i8 = add i64 %sub.i.i.i, %14
   store atomic i64 %add.i.i8, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
-  %17 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %call3 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %17) #8
+  %15 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %call3 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %15) #8
   br label %cond.end11
 
 cond.true5:                                       ; preds = %qemu_spin_lock.exit
   %call6 = tail call i64 @cpu_get_clock_locked() #8
-  %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  %19 = load ptr, ptr %18, align 8
-  %tobool.not.i9 = icmp eq ptr %19, null
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  %17 = load ptr, ptr %16, align 8
+  %tobool.not.i9 = icmp eq ptr %17, null
   br i1 %tobool.not.i9, label %icount_get_raw_locked.exit24, label %land.lhs.true.i10
 
 land.lhs.true.i10:                                ; preds = %cond.true5
-  %running.i11 = getelementptr inbounds i8, ptr %19, i64 188
-  %20 = load i8, ptr %running.i11, align 4
-  %21 = and i8 %20, 1
-  %tobool1.not.i12 = icmp eq i8 %21, 0
-  br i1 %tobool1.not.i12, label %icount_get_raw_locked.exit24, label %if.then.i13
+  %running.i11 = getelementptr inbounds i8, ptr %17, i64 188
+  %18 = load i8, ptr %running.i11, align 4
+  %tobool1.i12 = trunc i8 %18 to i1
+  br i1 %tobool1.i12, label %if.then.i13, label %icount_get_raw_locked.exit24
 
 if.then.i13:                                      ; preds = %land.lhs.true.i10
-  %can_do_io.i14 = getelementptr inbounds i8, ptr %19, i64 10164
-  %22 = load i8, ptr %can_do_io.i14, align 4
-  %23 = and i8 %22, 1
-  %tobool2.not.i15 = icmp eq i8 %23, 0
-  br i1 %tobool2.not.i15, label %if.then3.i23, label %if.end.i16
+  %can_do_io.i14 = getelementptr inbounds i8, ptr %17, i64 10164
+  %19 = load i8, ptr %can_do_io.i14, align 4
+  %tobool2.i15 = trunc i8 %19 to i1
+  br i1 %tobool2.i15, label %if.end.i17, label %if.then3.i16
 
-if.then3.i23:                                     ; preds = %if.then.i13
+if.then3.i16:                                     ; preds = %if.then.i13
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-if.end.i16:                                       ; preds = %if.then.i13
-  %icount_budget.i.i.i17 = getelementptr inbounds i8, ptr %19, i64 224
-  %24 = load i64, ptr %icount_budget.i.i.i17, align 16
-  %icount_decr.i.i.i18 = getelementptr inbounds i8, ptr %19, i64 10160
-  %25 = load i16, ptr %icount_decr.i.i.i18, align 16
-  %conv.i.i.i19 = zext i16 %25 to i64
-  %icount_extra.i.i.i20 = getelementptr inbounds i8, ptr %19, i64 232
-  %26 = load i64, ptr %icount_extra.i.i.i20, align 8
-  %27 = add i64 %26, %conv.i.i.i19
-  %sub.i.i.i21 = sub i64 %24, %27
-  store i64 %27, ptr %icount_budget.i.i.i17, align 16
-  %28 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i22 = add i64 %sub.i.i.i21, %28
-  store atomic i64 %add.i.i22, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+if.end.i17:                                       ; preds = %if.then.i13
+  %icount_budget.i.i.i18 = getelementptr inbounds i8, ptr %17, i64 224
+  %20 = load i64, ptr %icount_budget.i.i.i18, align 16
+  %icount_decr.i.i.i19 = getelementptr inbounds i8, ptr %17, i64 10160
+  %21 = load i16, ptr %icount_decr.i.i.i19, align 16
+  %conv.i.i.i20 = zext i16 %21 to i64
+  %icount_extra.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 232
+  %22 = load i64, ptr %icount_extra.i.i.i21, align 8
+  %23 = add i64 %22, %conv.i.i.i20
+  %sub.i.i.i22 = sub i64 %20, %23
+  store i64 %23, ptr %icount_budget.i.i.i18, align 16
+  %24 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i23 = add i64 %sub.i.i.i22, %24
+  store atomic i64 %add.i.i23, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_raw_locked.exit24
 
-icount_get_raw_locked.exit24:                     ; preds = %cond.true5, %land.lhs.true.i10, %if.end.i16
-  %29 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %call8 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call6, i64 noundef %29) #8
+icount_get_raw_locked.exit24:                     ; preds = %cond.true5, %land.lhs.true.i10, %if.end.i17
+  %25 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %call8 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call6, i64 noundef %25) #8
   br label %cond.end11
 
 cond.false9:                                      ; preds = %qemu_spin_lock.exit
@@ -1024,25 +1005,23 @@ cond.false9:                                      ; preds = %qemu_spin_lock.exit
   br label %cond.end11
 
 cond.end11:                                       ; preds = %icount_get_raw_locked.exit24, %cond.false9, %icount_get_raw_locked.exit
-  %.pre-phi = phi ptr [ %18, %icount_get_raw_locked.exit24 ], [ %.pre, %cond.false9 ], [ %6, %icount_get_raw_locked.exit ]
+  %.pre-phi = phi ptr [ %16, %icount_get_raw_locked.exit24 ], [ %.pre, %cond.false9 ], [ %6, %icount_get_raw_locked.exit ]
   %cond12 = phi i64 [ %call8, %icount_get_raw_locked.exit24 ], [ %call10, %cond.false9 ], [ %call3, %icount_get_raw_locked.exit ]
-  %30 = load ptr, ptr %.pre-phi, align 8
-  %tobool.not.i.i = icmp eq ptr %30, null
+  %26 = load ptr, ptr %.pre-phi, align 8
+  %tobool.not.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i, label %icount_get_locked.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %cond.end11
-  %running.i.i = getelementptr inbounds i8, ptr %30, i64 188
-  %31 = load i8, ptr %running.i.i, align 4
-  %32 = and i8 %31, 1
-  %tobool1.not.i.i = icmp eq i8 %32, 0
-  br i1 %tobool1.not.i.i, label %icount_get_locked.exit, label %if.then.i.i
+  %running.i.i = getelementptr inbounds i8, ptr %26, i64 188
+  %27 = load i8, ptr %running.i.i, align 4
+  %tobool1.i.i = trunc i8 %27 to i1
+  br i1 %tobool1.i.i, label %if.then.i.i, label %icount_get_locked.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %can_do_io.i.i = getelementptr inbounds i8, ptr %30, i64 10164
-  %33 = load i8, ptr %can_do_io.i.i, align 4
-  %34 = and i8 %33, 1
-  %tobool2.not.i.i = icmp eq i8 %34, 0
-  br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end.i.i
+  %can_do_io.i.i = getelementptr inbounds i8, ptr %26, i64 10164
+  %28 = load i8, ptr %can_do_io.i.i, align 4
+  %tobool2.i.i = trunc i8 %28 to i1
+  br i1 %tobool2.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
@@ -1050,39 +1029,39 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 224
-  %35 = load i64, ptr %icount_budget.i.i.i.i, align 16
-  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 10160
-  %36 = load i16, ptr %icount_decr.i.i.i.i, align 16
-  %conv.i.i.i.i = zext i16 %36 to i64
-  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 232
-  %37 = load i64, ptr %icount_extra.i.i.i.i, align 8
-  %38 = add i64 %37, %conv.i.i.i.i
-  %sub.i.i.i.i = sub i64 %35, %38
-  store i64 %38, ptr %icount_budget.i.i.i.i, align 16
-  %39 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
-  %add.i.i.i = add i64 %sub.i.i.i.i, %39
+  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 224
+  %29 = load i64, ptr %icount_budget.i.i.i.i, align 16
+  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 10160
+  %30 = load i16, ptr %icount_decr.i.i.i.i, align 16
+  %conv.i.i.i.i = zext i16 %30 to i64
+  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 232
+  %31 = load i64, ptr %icount_extra.i.i.i.i, align 8
+  %32 = add i64 %31, %conv.i.i.i.i
+  %sub.i.i.i.i = sub i64 %29, %32
+  store i64 %32, ptr %icount_budget.i.i.i.i, align 16
+  %33 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10), align 8
+  %add.i.i.i = add i64 %sub.i.i.i.i, %33
   store atomic i64 %add.i.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
   br label %icount_get_locked.exit
 
 icount_get_locked.exit:                           ; preds = %cond.end11, %land.lhs.true.i.i, %if.end.i.i
-  %40 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
-  %41 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
-  %42 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
-  %conv.i.i = sext i16 %42 to i64
+  %34 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 10) monotonic, align 8
+  %35 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
+  %36 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
+  %conv.i.i = sext i16 %36 to i64
   %sh_prom.i.i = and i64 %conv.i.i, 4294967295
-  %shl.i.i = shl i64 %40, %sh_prom.i.i
-  %add.i = add i64 %shl.i.i, %41
+  %shl.i.i = shl i64 %34, %sh_prom.i.i
+  %add.i = add i64 %shl.i.i, %35
   %sub = sub i64 %add.i, %cond12
   %cmp14 = icmp sgt i64 %sub, 0
   br i1 %cmp14, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %icount_get_locked.exit
-  %43 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 6), align 8
-  %add = add i64 %43, 100000000
+  %37 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 6), align 8
+  %add = add i64 %37, 100000000
   %mul = shl nuw i64 %sub, 1
   %cmp15 = icmp slt i64 %add, %mul
-  %cmp17 = icmp sgt i16 %42, 0
+  %cmp17 = icmp sgt i16 %36, 0
   %or.cond = and i1 %cmp17, %cmp15
   br i1 %or.cond, label %if.end49.sink.split, label %if.end49
 
@@ -1091,21 +1070,21 @@ if.end25:                                         ; preds = %icount_get_locked.e
   br i1 %cmp26, label %land.lhs.true28, label %if.end49
 
 land.lhs.true28:                                  ; preds = %if.end25
-  %44 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 6), align 8
-  %sub29 = add i64 %44, -100000000
+  %38 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 6), align 8
+  %sub29 = add i64 %38, -100000000
   %mul30 = shl i64 %sub, 1
   %cmp31 = icmp sgt i64 %sub29, %mul30
-  %cmp35 = icmp slt i16 %42, 10
+  %cmp35 = icmp slt i16 %36, 10
   %or.cond1 = and i1 %cmp35, %cmp31
   br i1 %or.cond1, label %if.end49.sink.split, label %if.end49
 
 if.end49.sink.split:                              ; preds = %land.lhs.true28, %land.lhs.true
   %.sink = phi i16 [ -1, %land.lhs.true ], [ 1, %land.lhs.true28 ]
-  %add46 = add nsw i16 %42, %.sink
+  %add46 = add nsw i16 %36, %.sink
   store atomic i16 %add46, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5) monotonic, align 2
   %.pre32 = sext i16 %add46 to i64
   %.pre33 = and i64 %.pre32, 4294967295
-  %.pre34 = shl i64 %40, %.pre33
+  %.pre34 = shl i64 %34, %.pre33
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end49.sink.split, %land.lhs.true, %land.lhs.true28, %if.end25
@@ -1115,8 +1094,8 @@ if.end49:                                         ; preds = %if.end49.sink.split
   store atomic i64 %sub52, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 7) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   fence release
-  %45 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
-  %add.i.i25 = add i32 %45, 1
+  %39 = load i32, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2), align 8
+  %add.i.i25 = add i32 %39, 1
   store atomic i32 %add.i.i25, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3) release, align 4
   br label %return

@@ -46,55 +46,48 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef zeroext i1 @_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1976) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1632
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %30
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1688
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not1 = icmp eq i8 %8, 0
-  br i1 %.not1, label %9, label %30
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 1744
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not2 = icmp eq i8 %12, 0
-  br i1 %.not2, label %13, label %30
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %29, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 1856
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not3 = icmp eq i8 %16, 0
-  br i1 %.not3, label %17, label %30
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %29, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 1800
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not4 = icmp eq i8 %20, 0
-  br i1 %.not4, label %21, label %30
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %29, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 1912
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not5 = icmp eq i8 %24, 0
-  br i1 %.not5, label %25, label %30
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 1968
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %29 = icmp ne i8 %28, 0
-  br label %30
+  %28 = trunc i8 %27 to i1
+  br label %29
 
-30:                                               ; preds = %25, %21, %17, %13, %9, %5, %1
-  %31 = phi i1 [ true, %21 ], [ true, %17 ], [ true, %13 ], [ true, %9 ], [ true, %5 ], [ true, %1 ], [ %29, %25 ]
-  ret i1 %31
+29:                                               ; preds = %25, %21, %17, %13, %9, %5, %1
+  %30 = phi i1 [ true, %21 ], [ true, %17 ], [ true, %13 ], [ true, %9 ], [ true, %5 ], [ true, %1 ], [ %28, %25 ]
+  ret i1 %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -679,14 +672,13 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
   %6 = getelementptr inbounds i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3)
-  br i1 %8, label %9, label %630
+  br i1 %8, label %9, label %632
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %23, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %23
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 24
@@ -711,9 +703,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 27:                                               ; preds = %23, %13
   %28 = getelementptr inbounds i8, ptr %0, i64 120
   %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 1
-  %.not117 = icmp eq i8 %30, 0
-  br i1 %.not117, label %41, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %41
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 80
@@ -731,9 +722,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 41:                                               ; preds = %31, %27
   %42 = getelementptr inbounds i8, ptr %0, i64 176
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not118 = icmp eq i8 %44, 0
-  br i1 %.not118, label %55, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %55
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %0, i64 136
@@ -751,9 +741,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 55:                                               ; preds = %45, %41
   %56 = getelementptr inbounds i8, ptr %0, i64 232
   %57 = load i8, ptr %56, align 8
-  %58 = and i8 %57, 1
-  %.not119 = icmp eq i8 %58, 0
-  br i1 %.not119, label %69, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %69
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds i8, ptr %0, i64 192
@@ -771,9 +760,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 69:                                               ; preds = %59, %55
   %70 = getelementptr inbounds i8, ptr %0, i64 288
   %71 = load i8, ptr %70, align 8
-  %72 = and i8 %71, 1
-  %.not120 = icmp eq i8 %72, 0
-  br i1 %.not120, label %83, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %83
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %0, i64 248
@@ -791,9 +779,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 83:                                               ; preds = %73, %69
   %84 = getelementptr inbounds i8, ptr %0, i64 344
   %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not121 = icmp eq i8 %86, 0
-  br i1 %.not121, label %97, label %87
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %97
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %0, i64 304
@@ -811,9 +798,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 97:                                               ; preds = %87, %83
   %98 = getelementptr inbounds i8, ptr %0, i64 400
   %99 = load i8, ptr %98, align 8
-  %100 = and i8 %99, 1
-  %.not122 = icmp eq i8 %100, 0
-  br i1 %.not122, label %111, label %101
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %111
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds i8, ptr %0, i64 360
@@ -831,9 +817,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 111:                                              ; preds = %101, %97
   %112 = getelementptr inbounds i8, ptr %0, i64 456
   %113 = load i8, ptr %112, align 8
-  %114 = and i8 %113, 1
-  %.not123 = icmp eq i8 %114, 0
-  br i1 %.not123, label %125, label %115
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %125
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds i8, ptr %0, i64 416
@@ -851,9 +836,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 125:                                              ; preds = %115, %111
   %126 = getelementptr inbounds i8, ptr %0, i64 512
   %127 = load i8, ptr %126, align 8
-  %128 = and i8 %127, 1
-  %.not124 = icmp eq i8 %128, 0
-  br i1 %.not124, label %139, label %129
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %139
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds i8, ptr %0, i64 472
@@ -871,9 +855,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 139:                                              ; preds = %129, %125
   %140 = getelementptr inbounds i8, ptr %0, i64 568
   %141 = load i8, ptr %140, align 8
-  %142 = and i8 %141, 1
-  %.not125 = icmp eq i8 %142, 0
-  br i1 %.not125, label %153, label %143
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %153
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds i8, ptr %0, i64 528
@@ -891,9 +874,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 153:                                              ; preds = %143, %139
   %154 = getelementptr inbounds i8, ptr %0, i64 624
   %155 = load i8, ptr %154, align 8
-  %156 = and i8 %155, 1
-  %.not126 = icmp eq i8 %156, 0
-  br i1 %.not126, label %167, label %157
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %157, label %167
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %0, i64 584
@@ -911,65 +893,56 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 167:                                              ; preds = %153
   %168 = getelementptr inbounds i8, ptr %0, i64 680
   %169 = load i8, ptr %168, align 8
-  %170 = and i8 %169, 1
-  %.not127 = icmp eq i8 %170, 0
-  br i1 %.not127, label %171, label %203
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %203, label %171
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds i8, ptr %0, i64 736
   %173 = load i8, ptr %172, align 8
-  %174 = and i8 %173, 1
-  %.not128 = icmp eq i8 %174, 0
-  br i1 %.not128, label %175, label %203
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %203, label %175
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds i8, ptr %0, i64 792
   %177 = load i8, ptr %176, align 8
-  %178 = and i8 %177, 1
-  %.not129 = icmp eq i8 %178, 0
-  br i1 %.not129, label %179, label %203
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %203, label %179
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds i8, ptr %0, i64 848
   %181 = load i8, ptr %180, align 8
-  %182 = and i8 %181, 1
-  %.not130 = icmp eq i8 %182, 0
-  br i1 %.not130, label %183, label %203
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %203, label %183
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds i8, ptr %0, i64 904
   %185 = load i8, ptr %184, align 8
-  %186 = and i8 %185, 1
-  %.not131 = icmp eq i8 %186, 0
-  br i1 %.not131, label %187, label %203
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %203, label %187
 
 187:                                              ; preds = %183
   %188 = getelementptr inbounds i8, ptr %0, i64 960
   %189 = load i8, ptr %188, align 8
-  %190 = and i8 %189, 1
-  %.not132 = icmp eq i8 %190, 0
-  br i1 %.not132, label %191, label %203
+  %190 = trunc i8 %189 to i1
+  br i1 %190, label %203, label %191
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds i8, ptr %0, i64 1016
   %193 = load i8, ptr %192, align 8
-  %194 = and i8 %193, 1
-  %.not133 = icmp eq i8 %194, 0
-  br i1 %.not133, label %195, label %203
+  %194 = trunc i8 %193 to i1
+  br i1 %194, label %203, label %195
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds i8, ptr %0, i64 1072
   %197 = load i8, ptr %196, align 8
-  %198 = and i8 %197, 1
-  %.not134 = icmp eq i8 %198, 0
-  br i1 %.not134, label %199, label %203
+  %198 = trunc i8 %197 to i1
+  br i1 %198, label %203, label %199
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds i8, ptr %0, i64 1128
   %201 = load i8, ptr %200, align 8
-  %202 = and i8 %201, 1
-  %.not135 = icmp eq i8 %202, 0
-  br i1 %.not135, label %207, label %203
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %203, label %207
 
 203:                                              ; preds = %199, %195, %191, %187, %183, %179, %175, %171, %167
   %204 = load ptr, ptr %1, align 8
@@ -981,9 +954,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 207:                                              ; preds = %199, %203, %157
   %208 = getelementptr inbounds i8, ptr %0, i64 680
   %209 = load i8, ptr %208, align 8
-  %210 = and i8 %209, 1
-  %.not136 = icmp eq i8 %210, 0
-  br i1 %.not136, label %221, label %211
+  %210 = trunc i8 %209 to i1
+  br i1 %210, label %211, label %221
 
 211:                                              ; preds = %207
   %212 = getelementptr inbounds i8, ptr %0, i64 640
@@ -1001,9 +973,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 221:                                              ; preds = %211, %207
   %222 = getelementptr inbounds i8, ptr %0, i64 736
   %223 = load i8, ptr %222, align 8
-  %224 = and i8 %223, 1
-  %.not137 = icmp eq i8 %224, 0
-  br i1 %.not137, label %235, label %225
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %225, label %235
 
 225:                                              ; preds = %221
   %226 = getelementptr inbounds i8, ptr %0, i64 696
@@ -1021,9 +992,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 235:                                              ; preds = %225, %221
   %236 = getelementptr inbounds i8, ptr %0, i64 792
   %237 = load i8, ptr %236, align 8
-  %238 = and i8 %237, 1
-  %.not138 = icmp eq i8 %238, 0
-  br i1 %.not138, label %249, label %239
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %239, label %249
 
 239:                                              ; preds = %235
   %240 = getelementptr inbounds i8, ptr %0, i64 752
@@ -1041,9 +1011,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 249:                                              ; preds = %239, %235
   %250 = getelementptr inbounds i8, ptr %0, i64 848
   %251 = load i8, ptr %250, align 8
-  %252 = and i8 %251, 1
-  %.not139 = icmp eq i8 %252, 0
-  br i1 %.not139, label %263, label %253
+  %252 = trunc i8 %251 to i1
+  br i1 %252, label %253, label %263
 
 253:                                              ; preds = %249
   %254 = getelementptr inbounds i8, ptr %0, i64 808
@@ -1061,9 +1030,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 263:                                              ; preds = %253, %249
   %264 = getelementptr inbounds i8, ptr %0, i64 904
   %265 = load i8, ptr %264, align 8
-  %266 = and i8 %265, 1
-  %.not140 = icmp eq i8 %266, 0
-  br i1 %.not140, label %277, label %267
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %267, label %277
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds i8, ptr %0, i64 864
@@ -1081,9 +1049,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 277:                                              ; preds = %267, %263
   %278 = getelementptr inbounds i8, ptr %0, i64 960
   %279 = load i8, ptr %278, align 8
-  %280 = and i8 %279, 1
-  %.not141 = icmp eq i8 %280, 0
-  br i1 %.not141, label %291, label %281
+  %280 = trunc i8 %279 to i1
+  br i1 %280, label %281, label %291
 
 281:                                              ; preds = %277
   %282 = getelementptr inbounds i8, ptr %0, i64 920
@@ -1101,9 +1068,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 291:                                              ; preds = %281, %277
   %292 = getelementptr inbounds i8, ptr %0, i64 1016
   %293 = load i8, ptr %292, align 8
-  %294 = and i8 %293, 1
-  %.not142 = icmp eq i8 %294, 0
-  br i1 %.not142, label %305, label %295
+  %294 = trunc i8 %293 to i1
+  br i1 %294, label %295, label %305
 
 295:                                              ; preds = %291
   %296 = getelementptr inbounds i8, ptr %0, i64 976
@@ -1121,9 +1087,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 305:                                              ; preds = %295, %291
   %306 = getelementptr inbounds i8, ptr %0, i64 1072
   %307 = load i8, ptr %306, align 8
-  %308 = and i8 %307, 1
-  %.not143 = icmp eq i8 %308, 0
-  br i1 %.not143, label %319, label %309
+  %308 = trunc i8 %307 to i1
+  br i1 %308, label %309, label %319
 
 309:                                              ; preds = %305
   %310 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -1141,9 +1106,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 319:                                              ; preds = %309, %305
   %320 = getelementptr inbounds i8, ptr %0, i64 1128
   %321 = load i8, ptr %320, align 8
-  %322 = and i8 %321, 1
-  %.not144 = icmp eq i8 %322, 0
-  br i1 %.not144, label %333, label %323
+  %322 = trunc i8 %321 to i1
+  br i1 %322, label %323, label %333
 
 323:                                              ; preds = %319
   %324 = getelementptr inbounds i8, ptr %0, i64 1088
@@ -1161,9 +1125,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 333:                                              ; preds = %323, %319
   %334 = getelementptr inbounds i8, ptr %0, i64 1184
   %335 = load i8, ptr %334, align 8
-  %336 = and i8 %335, 1
-  %.not145 = icmp eq i8 %336, 0
-  br i1 %.not145, label %347, label %337
+  %336 = trunc i8 %335 to i1
+  br i1 %336, label %337, label %347
 
 337:                                              ; preds = %333
   %338 = getelementptr inbounds i8, ptr %0, i64 1144
@@ -1181,9 +1144,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 347:                                              ; preds = %337, %333
   %348 = getelementptr inbounds i8, ptr %0, i64 1240
   %349 = load i8, ptr %348, align 8
-  %350 = and i8 %349, 1
-  %.not146 = icmp eq i8 %350, 0
-  br i1 %.not146, label %361, label %351
+  %350 = trunc i8 %349 to i1
+  br i1 %350, label %351, label %361
 
 351:                                              ; preds = %347
   %352 = getelementptr inbounds i8, ptr %0, i64 1200
@@ -1201,9 +1163,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 361:                                              ; preds = %351, %347
   %362 = getelementptr inbounds i8, ptr %0, i64 1296
   %363 = load i8, ptr %362, align 8
-  %364 = and i8 %363, 1
-  %.not147 = icmp eq i8 %364, 0
-  br i1 %.not147, label %375, label %365
+  %364 = trunc i8 %363 to i1
+  br i1 %364, label %365, label %375
 
 365:                                              ; preds = %361
   %366 = getelementptr inbounds i8, ptr %0, i64 1256
@@ -1221,9 +1182,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 375:                                              ; preds = %365, %361
   %376 = getelementptr inbounds i8, ptr %0, i64 1352
   %377 = load i8, ptr %376, align 8
-  %378 = and i8 %377, 1
-  %.not148 = icmp eq i8 %378, 0
-  br i1 %.not148, label %389, label %379
+  %378 = trunc i8 %377 to i1
+  br i1 %378, label %379, label %389
 
 379:                                              ; preds = %375
   %380 = getelementptr inbounds i8, ptr %0, i64 1312
@@ -1241,9 +1201,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 389:                                              ; preds = %379, %375
   %390 = getelementptr inbounds i8, ptr %0, i64 1408
   %391 = load i8, ptr %390, align 8
-  %392 = and i8 %391, 1
-  %.not149 = icmp eq i8 %392, 0
-  br i1 %.not149, label %403, label %393
+  %392 = trunc i8 %391 to i1
+  br i1 %392, label %393, label %403
 
 393:                                              ; preds = %389
   %394 = getelementptr inbounds i8, ptr %0, i64 1368
@@ -1261,9 +1220,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 403:                                              ; preds = %393, %389
   %404 = getelementptr inbounds i8, ptr %0, i64 1464
   %405 = load i8, ptr %404, align 8
-  %406 = and i8 %405, 1
-  %.not150 = icmp eq i8 %406, 0
-  br i1 %.not150, label %417, label %407
+  %406 = trunc i8 %405 to i1
+  br i1 %406, label %407, label %417
 
 407:                                              ; preds = %403
   %408 = getelementptr inbounds i8, ptr %0, i64 1424
@@ -1281,9 +1239,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 417:                                              ; preds = %407, %403
   %418 = getelementptr inbounds i8, ptr %0, i64 1520
   %419 = load i8, ptr %418, align 8
-  %420 = and i8 %419, 1
-  %.not151 = icmp eq i8 %420, 0
-  br i1 %.not151, label %431, label %421
+  %420 = trunc i8 %419 to i1
+  br i1 %420, label %421, label %431
 
 421:                                              ; preds = %417
   %422 = getelementptr inbounds i8, ptr %0, i64 1480
@@ -1301,9 +1258,8 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 431:                                              ; preds = %421, %417
   %432 = getelementptr inbounds i8, ptr %0, i64 1576
   %433 = load i8, ptr %432, align 8
-  %434 = and i8 %433, 1
-  %.not152 = icmp eq i8 %434, 0
-  br i1 %.not152, label %445, label %435
+  %434 = trunc i8 %433 to i1
+  br i1 %434, label %435, label %445
 
 435:                                              ; preds = %431
   %436 = getelementptr inbounds i8, ptr %0, i64 1536
@@ -1321,256 +1277,246 @@ define void @_ZNK5Ipopt16TimingStatistics24PrintAllTimingStatisticsERKNS_10Journ
 445:                                              ; preds = %435, %431
   %446 = getelementptr inbounds i8, ptr %0, i64 1632
   %447 = load i8, ptr %446, align 8
-  %448 = and i8 %447, 1
-  %.not.i = icmp eq i8 %448, 0
-  br i1 %.not.i, label %449, label %472
+  %448 = trunc i8 %447 to i1
+  br i1 %448, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %449
 
 449:                                              ; preds = %445
   %450 = getelementptr inbounds i8, ptr %0, i64 1688
   %451 = load i8, ptr %450, align 8
-  %452 = and i8 %451, 1
-  %.not1.i = icmp eq i8 %452, 0
-  br i1 %.not1.i, label %453, label %472
+  %452 = trunc i8 %451 to i1
+  br i1 %452, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %453
 
 453:                                              ; preds = %449
   %454 = getelementptr inbounds i8, ptr %0, i64 1744
   %455 = load i8, ptr %454, align 8
-  %456 = and i8 %455, 1
-  %.not2.i = icmp eq i8 %456, 0
-  br i1 %.not2.i, label %457, label %472
+  %456 = trunc i8 %455 to i1
+  br i1 %456, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %457
 
 457:                                              ; preds = %453
   %458 = getelementptr inbounds i8, ptr %0, i64 1856
   %459 = load i8, ptr %458, align 8
-  %460 = and i8 %459, 1
-  %.not3.i = icmp eq i8 %460, 0
-  br i1 %.not3.i, label %461, label %472
+  %460 = trunc i8 %459 to i1
+  br i1 %460, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %461
 
 461:                                              ; preds = %457
   %462 = getelementptr inbounds i8, ptr %0, i64 1800
   %463 = load i8, ptr %462, align 8
-  %464 = and i8 %463, 1
-  %.not4.i = icmp eq i8 %464, 0
-  br i1 %.not4.i, label %465, label %472
+  %464 = trunc i8 %463 to i1
+  br i1 %464, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %465
 
 465:                                              ; preds = %461
   %466 = getelementptr inbounds i8, ptr %0, i64 1912
   %467 = load i8, ptr %466, align 8
-  %468 = and i8 %467, 1
-  %.not5.i = icmp eq i8 %468, 0
-  br i1 %.not5.i, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit, label %472
+  %468 = trunc i8 %467 to i1
+  br i1 %468, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit
 
 _ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit: ; preds = %465
   %469 = getelementptr inbounds i8, ptr %0, i64 1968
   %470 = load i8, ptr %469, align 8
-  %471 = and i8 %470, 1
-  %.not153 = icmp eq i8 %471, 0
-  br i1 %.not153, label %.thread, label %472
+  %471 = trunc i8 %470 to i1
+  br i1 %471, label %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, label %535
 
-472:                                              ; preds = %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit, %465, %461, %457, %453, %449, %445
-  %473 = getelementptr inbounds i8, ptr %0, i64 1592
-  %474 = load double, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %0, i64 1648
-  %476 = load double, ptr %475, align 8
-  %477 = fadd double %474, %476
-  %478 = getelementptr inbounds i8, ptr %0, i64 1704
-  %479 = load double, ptr %478, align 8
-  %480 = fadd double %477, %479
-  %481 = getelementptr inbounds i8, ptr %0, i64 1816
-  %482 = load double, ptr %481, align 8
-  %483 = fadd double %480, %482
-  %484 = getelementptr inbounds i8, ptr %0, i64 1760
-  %485 = load double, ptr %484, align 8
-  %486 = fadd double %483, %485
-  %487 = getelementptr inbounds i8, ptr %0, i64 1872
-  %488 = load double, ptr %487, align 8
-  %489 = fadd double %486, %488
-  %490 = getelementptr inbounds i8, ptr %0, i64 1928
-  %491 = load double, ptr %490, align 8
-  %492 = fadd double %489, %491
-  %493 = getelementptr inbounds i8, ptr %0, i64 1608
-  %494 = load double, ptr %493, align 8
-  %495 = getelementptr inbounds i8, ptr %0, i64 1664
-  %496 = load double, ptr %495, align 8
-  %497 = fadd double %494, %496
-  %498 = getelementptr inbounds i8, ptr %0, i64 1720
-  %499 = load double, ptr %498, align 8
-  %500 = fadd double %497, %499
-  %501 = getelementptr inbounds i8, ptr %0, i64 1832
-  %502 = load double, ptr %501, align 8
-  %503 = fadd double %500, %502
-  %504 = getelementptr inbounds i8, ptr %0, i64 1776
-  %505 = load double, ptr %504, align 8
-  %506 = fadd double %503, %505
-  %507 = getelementptr inbounds i8, ptr %0, i64 1888
-  %508 = load double, ptr %507, align 8
-  %509 = fadd double %506, %508
-  %510 = getelementptr inbounds i8, ptr %0, i64 1944
-  %511 = load double, ptr %510, align 8
-  %512 = fadd double %509, %511
-  %513 = getelementptr inbounds i8, ptr %0, i64 1624
-  %514 = load double, ptr %513, align 8
-  %515 = getelementptr inbounds i8, ptr %0, i64 1680
-  %516 = load double, ptr %515, align 8
-  %517 = fadd double %514, %516
-  %518 = getelementptr inbounds i8, ptr %0, i64 1736
-  %519 = load double, ptr %518, align 8
-  %520 = fadd double %517, %519
-  %521 = getelementptr inbounds i8, ptr %0, i64 1848
-  %522 = load double, ptr %521, align 8
-  %523 = fadd double %520, %522
-  %524 = getelementptr inbounds i8, ptr %0, i64 1792
-  %525 = load double, ptr %524, align 8
-  %526 = fadd double %523, %525
-  %527 = getelementptr inbounds i8, ptr %0, i64 1904
-  %528 = load double, ptr %527, align 8
-  %529 = fadd double %526, %528
-  %530 = getelementptr inbounds i8, ptr %0, i64 1960
-  %531 = load double, ptr %530, align 8
-  %532 = fadd double %529, %531
-  %533 = load ptr, ptr %1, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 16
-  %535 = load ptr, ptr %534, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %535(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.30, double noundef %492, double noundef %512, double noundef %532)
+_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread: ; preds = %445, %449, %453, %457, %461, %465, %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit
+  %472 = getelementptr inbounds i8, ptr %0, i64 1592
+  %473 = load double, ptr %472, align 8
+  %474 = getelementptr inbounds i8, ptr %0, i64 1648
+  %475 = load double, ptr %474, align 8
+  %476 = fadd double %473, %475
+  %477 = getelementptr inbounds i8, ptr %0, i64 1704
+  %478 = load double, ptr %477, align 8
+  %479 = fadd double %476, %478
+  %480 = getelementptr inbounds i8, ptr %0, i64 1816
+  %481 = load double, ptr %480, align 8
+  %482 = fadd double %479, %481
+  %483 = getelementptr inbounds i8, ptr %0, i64 1760
+  %484 = load double, ptr %483, align 8
+  %485 = fadd double %482, %484
+  %486 = getelementptr inbounds i8, ptr %0, i64 1872
+  %487 = load double, ptr %486, align 8
+  %488 = fadd double %485, %487
+  %489 = getelementptr inbounds i8, ptr %0, i64 1928
+  %490 = load double, ptr %489, align 8
+  %491 = fadd double %488, %490
+  %492 = getelementptr inbounds i8, ptr %0, i64 1608
+  %493 = load double, ptr %492, align 8
+  %494 = getelementptr inbounds i8, ptr %0, i64 1664
+  %495 = load double, ptr %494, align 8
+  %496 = fadd double %493, %495
+  %497 = getelementptr inbounds i8, ptr %0, i64 1720
+  %498 = load double, ptr %497, align 8
+  %499 = fadd double %496, %498
+  %500 = getelementptr inbounds i8, ptr %0, i64 1832
+  %501 = load double, ptr %500, align 8
+  %502 = fadd double %499, %501
+  %503 = getelementptr inbounds i8, ptr %0, i64 1776
+  %504 = load double, ptr %503, align 8
+  %505 = fadd double %502, %504
+  %506 = getelementptr inbounds i8, ptr %0, i64 1888
+  %507 = load double, ptr %506, align 8
+  %508 = fadd double %505, %507
+  %509 = getelementptr inbounds i8, ptr %0, i64 1944
+  %510 = load double, ptr %509, align 8
+  %511 = fadd double %508, %510
+  %512 = getelementptr inbounds i8, ptr %0, i64 1624
+  %513 = load double, ptr %512, align 8
+  %514 = getelementptr inbounds i8, ptr %0, i64 1680
+  %515 = load double, ptr %514, align 8
+  %516 = fadd double %513, %515
+  %517 = getelementptr inbounds i8, ptr %0, i64 1736
+  %518 = load double, ptr %517, align 8
+  %519 = fadd double %516, %518
+  %520 = getelementptr inbounds i8, ptr %0, i64 1848
+  %521 = load double, ptr %520, align 8
+  %522 = fadd double %519, %521
+  %523 = getelementptr inbounds i8, ptr %0, i64 1792
+  %524 = load double, ptr %523, align 8
+  %525 = fadd double %522, %524
+  %526 = getelementptr inbounds i8, ptr %0, i64 1904
+  %527 = load double, ptr %526, align 8
+  %528 = fadd double %525, %527
+  %529 = getelementptr inbounds i8, ptr %0, i64 1960
+  %530 = load double, ptr %529, align 8
+  %531 = fadd double %528, %530
+  %532 = load ptr, ptr %1, align 8
+  %533 = getelementptr inbounds i8, ptr %532, i64 16
+  %534 = load ptr, ptr %533, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %534(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.30, double noundef %491, double noundef %511, double noundef %531)
   %.pre = load i8, ptr %446, align 8
-  %.pre161 = and i8 %.pre, 1
-  %536 = icmp eq i8 %.pre161, 0
-  br i1 %536, label %.thread, label %537
+  br label %535
 
-537:                                              ; preds = %472
-  %538 = getelementptr inbounds i8, ptr %0, i64 1592
-  %539 = load double, ptr %538, align 8
-  %540 = getelementptr inbounds i8, ptr %0, i64 1608
-  %541 = load double, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %0, i64 1624
-  %543 = load double, ptr %542, align 8
-  %544 = load ptr, ptr %1, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 16
-  %546 = load ptr, ptr %545, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %546(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.31, double noundef %539, double noundef %541, double noundef %543)
-  br label %.thread
+535:                                              ; preds = %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread, %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit
+  %536 = phi i8 [ %.pre, %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit.thread ], [ %447, %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit ]
+  %537 = trunc i8 %536 to i1
+  br i1 %537, label %538, label %548
 
-.thread:                                          ; preds = %_ZNK5Ipopt16TimingStatistics31IsFunctionEvaluationTimeEnabledEv.exit, %537, %472
-  %547 = getelementptr inbounds i8, ptr %0, i64 1688
-  %548 = load i8, ptr %547, align 8
-  %549 = and i8 %548, 1
-  %.not155 = icmp eq i8 %549, 0
-  br i1 %.not155, label %560, label %550
+538:                                              ; preds = %535
+  %539 = getelementptr inbounds i8, ptr %0, i64 1592
+  %540 = load double, ptr %539, align 8
+  %541 = getelementptr inbounds i8, ptr %0, i64 1608
+  %542 = load double, ptr %541, align 8
+  %543 = getelementptr inbounds i8, ptr %0, i64 1624
+  %544 = load double, ptr %543, align 8
+  %545 = load ptr, ptr %1, align 8
+  %546 = getelementptr inbounds i8, ptr %545, i64 16
+  %547 = load ptr, ptr %546, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %547(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.31, double noundef %540, double noundef %542, double noundef %544)
+  br label %548
 
-550:                                              ; preds = %.thread
-  %551 = getelementptr inbounds i8, ptr %0, i64 1648
-  %552 = load double, ptr %551, align 8
-  %553 = getelementptr inbounds i8, ptr %0, i64 1664
+548:                                              ; preds = %538, %535
+  %549 = getelementptr inbounds i8, ptr %0, i64 1688
+  %550 = load i8, ptr %549, align 8
+  %551 = trunc i8 %550 to i1
+  br i1 %551, label %552, label %562
+
+552:                                              ; preds = %548
+  %553 = getelementptr inbounds i8, ptr %0, i64 1648
   %554 = load double, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %0, i64 1680
+  %555 = getelementptr inbounds i8, ptr %0, i64 1664
   %556 = load double, ptr %555, align 8
-  %557 = load ptr, ptr %1, align 8
-  %558 = getelementptr inbounds i8, ptr %557, i64 16
-  %559 = load ptr, ptr %558, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %559(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.32, double noundef %552, double noundef %554, double noundef %556)
-  br label %560
+  %557 = getelementptr inbounds i8, ptr %0, i64 1680
+  %558 = load double, ptr %557, align 8
+  %559 = load ptr, ptr %1, align 8
+  %560 = getelementptr inbounds i8, ptr %559, i64 16
+  %561 = load ptr, ptr %560, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %561(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.32, double noundef %554, double noundef %556, double noundef %558)
+  br label %562
 
-560:                                              ; preds = %550, %.thread
-  %561 = getelementptr inbounds i8, ptr %0, i64 1744
-  %562 = load i8, ptr %561, align 8
-  %563 = and i8 %562, 1
-  %.not156 = icmp eq i8 %563, 0
-  br i1 %.not156, label %574, label %564
+562:                                              ; preds = %552, %548
+  %563 = getelementptr inbounds i8, ptr %0, i64 1744
+  %564 = load i8, ptr %563, align 8
+  %565 = trunc i8 %564 to i1
+  br i1 %565, label %566, label %576
 
-564:                                              ; preds = %560
-  %565 = getelementptr inbounds i8, ptr %0, i64 1704
-  %566 = load double, ptr %565, align 8
-  %567 = getelementptr inbounds i8, ptr %0, i64 1720
+566:                                              ; preds = %562
+  %567 = getelementptr inbounds i8, ptr %0, i64 1704
   %568 = load double, ptr %567, align 8
-  %569 = getelementptr inbounds i8, ptr %0, i64 1736
+  %569 = getelementptr inbounds i8, ptr %0, i64 1720
   %570 = load double, ptr %569, align 8
-  %571 = load ptr, ptr %1, align 8
-  %572 = getelementptr inbounds i8, ptr %571, i64 16
-  %573 = load ptr, ptr %572, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %573(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.33, double noundef %566, double noundef %568, double noundef %570)
-  br label %574
+  %571 = getelementptr inbounds i8, ptr %0, i64 1736
+  %572 = load double, ptr %571, align 8
+  %573 = load ptr, ptr %1, align 8
+  %574 = getelementptr inbounds i8, ptr %573, i64 16
+  %575 = load ptr, ptr %574, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %575(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.33, double noundef %568, double noundef %570, double noundef %572)
+  br label %576
 
-574:                                              ; preds = %564, %560
-  %575 = getelementptr inbounds i8, ptr %0, i64 1856
-  %576 = load i8, ptr %575, align 8
-  %577 = and i8 %576, 1
-  %.not157 = icmp eq i8 %577, 0
-  br i1 %.not157, label %588, label %578
+576:                                              ; preds = %566, %562
+  %577 = getelementptr inbounds i8, ptr %0, i64 1856
+  %578 = load i8, ptr %577, align 8
+  %579 = trunc i8 %578 to i1
+  br i1 %579, label %580, label %590
 
-578:                                              ; preds = %574
-  %579 = getelementptr inbounds i8, ptr %0, i64 1816
-  %580 = load double, ptr %579, align 8
-  %581 = getelementptr inbounds i8, ptr %0, i64 1832
+580:                                              ; preds = %576
+  %581 = getelementptr inbounds i8, ptr %0, i64 1816
   %582 = load double, ptr %581, align 8
-  %583 = getelementptr inbounds i8, ptr %0, i64 1848
+  %583 = getelementptr inbounds i8, ptr %0, i64 1832
   %584 = load double, ptr %583, align 8
-  %585 = load ptr, ptr %1, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 16
-  %587 = load ptr, ptr %586, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %587(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.34, double noundef %580, double noundef %582, double noundef %584)
-  br label %588
+  %585 = getelementptr inbounds i8, ptr %0, i64 1848
+  %586 = load double, ptr %585, align 8
+  %587 = load ptr, ptr %1, align 8
+  %588 = getelementptr inbounds i8, ptr %587, i64 16
+  %589 = load ptr, ptr %588, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %589(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.34, double noundef %582, double noundef %584, double noundef %586)
+  br label %590
 
-588:                                              ; preds = %578, %574
-  %589 = getelementptr inbounds i8, ptr %0, i64 1800
-  %590 = load i8, ptr %589, align 8
-  %591 = and i8 %590, 1
-  %.not158 = icmp eq i8 %591, 0
-  br i1 %.not158, label %602, label %592
+590:                                              ; preds = %580, %576
+  %591 = getelementptr inbounds i8, ptr %0, i64 1800
+  %592 = load i8, ptr %591, align 8
+  %593 = trunc i8 %592 to i1
+  br i1 %593, label %594, label %604
 
-592:                                              ; preds = %588
-  %593 = getelementptr inbounds i8, ptr %0, i64 1760
-  %594 = load double, ptr %593, align 8
-  %595 = getelementptr inbounds i8, ptr %0, i64 1776
+594:                                              ; preds = %590
+  %595 = getelementptr inbounds i8, ptr %0, i64 1760
   %596 = load double, ptr %595, align 8
-  %597 = getelementptr inbounds i8, ptr %0, i64 1792
+  %597 = getelementptr inbounds i8, ptr %0, i64 1776
   %598 = load double, ptr %597, align 8
-  %599 = load ptr, ptr %1, align 8
-  %600 = getelementptr inbounds i8, ptr %599, i64 16
-  %601 = load ptr, ptr %600, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %601(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.35, double noundef %594, double noundef %596, double noundef %598)
-  br label %602
+  %599 = getelementptr inbounds i8, ptr %0, i64 1792
+  %600 = load double, ptr %599, align 8
+  %601 = load ptr, ptr %1, align 8
+  %602 = getelementptr inbounds i8, ptr %601, i64 16
+  %603 = load ptr, ptr %602, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %603(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.35, double noundef %596, double noundef %598, double noundef %600)
+  br label %604
 
-602:                                              ; preds = %592, %588
-  %603 = getelementptr inbounds i8, ptr %0, i64 1912
-  %604 = load i8, ptr %603, align 8
-  %605 = and i8 %604, 1
-  %.not159 = icmp eq i8 %605, 0
-  br i1 %.not159, label %616, label %606
+604:                                              ; preds = %594, %590
+  %605 = getelementptr inbounds i8, ptr %0, i64 1912
+  %606 = load i8, ptr %605, align 8
+  %607 = trunc i8 %606 to i1
+  br i1 %607, label %608, label %618
 
-606:                                              ; preds = %602
-  %607 = getelementptr inbounds i8, ptr %0, i64 1872
-  %608 = load double, ptr %607, align 8
-  %609 = getelementptr inbounds i8, ptr %0, i64 1888
+608:                                              ; preds = %604
+  %609 = getelementptr inbounds i8, ptr %0, i64 1872
   %610 = load double, ptr %609, align 8
-  %611 = getelementptr inbounds i8, ptr %0, i64 1904
+  %611 = getelementptr inbounds i8, ptr %0, i64 1888
   %612 = load double, ptr %611, align 8
-  %613 = load ptr, ptr %1, align 8
-  %614 = getelementptr inbounds i8, ptr %613, i64 16
-  %615 = load ptr, ptr %614, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %615(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.36, double noundef %608, double noundef %610, double noundef %612)
-  br label %616
+  %613 = getelementptr inbounds i8, ptr %0, i64 1904
+  %614 = load double, ptr %613, align 8
+  %615 = load ptr, ptr %1, align 8
+  %616 = getelementptr inbounds i8, ptr %615, i64 16
+  %617 = load ptr, ptr %616, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %617(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.36, double noundef %610, double noundef %612, double noundef %614)
+  br label %618
 
-616:                                              ; preds = %606, %602
-  %617 = getelementptr inbounds i8, ptr %0, i64 1968
-  %618 = load i8, ptr %617, align 8
-  %619 = and i8 %618, 1
-  %.not160 = icmp eq i8 %619, 0
-  br i1 %.not160, label %630, label %620
+618:                                              ; preds = %608, %604
+  %619 = getelementptr inbounds i8, ptr %0, i64 1968
+  %620 = load i8, ptr %619, align 8
+  %621 = trunc i8 %620 to i1
+  br i1 %621, label %622, label %632
 
-620:                                              ; preds = %616
-  %621 = getelementptr inbounds i8, ptr %0, i64 1928
-  %622 = load double, ptr %621, align 8
-  %623 = getelementptr inbounds i8, ptr %0, i64 1944
+622:                                              ; preds = %618
+  %623 = getelementptr inbounds i8, ptr %0, i64 1928
   %624 = load double, ptr %623, align 8
-  %625 = getelementptr inbounds i8, ptr %0, i64 1960
+  %625 = getelementptr inbounds i8, ptr %0, i64 1944
   %626 = load double, ptr %625, align 8
-  %627 = load ptr, ptr %1, align 8
-  %628 = getelementptr inbounds i8, ptr %627, i64 16
-  %629 = load ptr, ptr %628, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %629(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.37, double noundef %622, double noundef %624, double noundef %626)
-  br label %630
+  %627 = getelementptr inbounds i8, ptr %0, i64 1960
+  %628 = load double, ptr %627, align 8
+  %629 = load ptr, ptr %1, align 8
+  %630 = getelementptr inbounds i8, ptr %629, i64 16
+  %631 = load ptr, ptr %630, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %631(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str.37, double noundef %624, double noundef %626, double noundef %628)
+  br label %632
 
-630:                                              ; preds = %4, %620, %616
+632:                                              ; preds = %4, %622, %618
   ret void
 }
 

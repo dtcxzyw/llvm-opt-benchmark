@@ -60,13 +60,11 @@ while.body.preheader:                             ; preds = %if.end12
 
 if.end22:                                         ; preds = %while.body.preheader, %sw.epilog
   %call1827 = phi i32 [ %call18, %sw.epilog ], [ %call1823, %while.body.preheader ]
-  %5 = phi i32 [ %10, %sw.epilog ], [ 0, %while.body.preheader ]
-  %expect_end.026 = phi i8 [ %expect_end.1, %sw.epilog ], [ 0, %while.body.preheader ]
+  %5 = phi i32 [ %9, %sw.epilog ], [ 0, %while.body.preheader ]
+  %expect_end.026 = phi i1 [ %expect_end.1, %sw.epilog ], [ false, %while.body.preheader ]
   %depth.025 = phi i32 [ %depth.1, %sw.epilog ], [ 0, %while.body.preheader ]
-  %6 = and i8 %expect_end.026, 1
-  %tobool = icmp ne i8 %6, 0
   %cmp24 = icmp ne i32 %call1827, 9
-  %or.cond = select i1 %tobool, i1 %cmp24, i1 false
+  %or.cond = select i1 %expect_end.026, i1 %cmp24, i1 false
   br i1 %or.cond, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end22
@@ -94,10 +92,10 @@ if.end37:                                         ; preds = %sw.bb33
 
 if.then40:                                        ; preds = %if.end37
   %call41 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %5, ptr noundef nonnull %len) #2
-  %7 = load i8, ptr %call41, align 1
-  %tobool43 = icmp ne i8 %7, 0
-  %8 = load i32, ptr %len, align 4
-  %tobool44 = icmp ne i32 %8, 0
+  %6 = load i8, ptr %call41, align 1
+  %tobool43 = icmp ne i8 %6, 0
+  %7 = load i32, ptr %len, align 4
+  %tobool44 = icmp ne i32 %7, 0
   %or.cond1 = select i1 %tobool43, i1 true, i1 %tobool44
   br i1 %or.cond1, label %return, label %sw.epilog
 
@@ -108,7 +106,7 @@ sw.bb48:                                          ; preds = %if.end27
 if.end52:                                         ; preds = %sw.bb48
   %dec = add i32 %depth.025, -1
   %cmp53 = icmp eq i32 %dec, 0
-  %spec.select20 = select i1 %cmp53, i8 1, i8 %expect_end.026
+  %spec.select20 = or i1 %cmp53, %expect_end.026
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %if.end27
@@ -117,20 +115,20 @@ sw.bb57:                                          ; preds = %if.end27
   br i1 %tobool59.not, label %if.then60, label %sw.epilog
 
 if.then60:                                        ; preds = %sw.bb57
-  %9 = load i32, ptr %err, align 4
+  %8 = load i32, ptr %err, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %if.end52, %sw.bb57, %if.end37, %if.then40, %if.end27
   %depth.1 = phi i32 [ %depth.025, %sw.bb57 ], [ 1, %if.then40 ], [ %inc, %if.end37 ], [ %depth.025, %if.end27 ], [ %dec, %if.end52 ]
-  %expect_end.1 = phi i8 [ %expect_end.026, %sw.bb57 ], [ %expect_end.026, %if.then40 ], [ %expect_end.026, %if.end37 ], [ %expect_end.026, %if.end27 ], [ %spec.select20, %if.end52 ]
+  %expect_end.1 = phi i1 [ %expect_end.026, %sw.bb57 ], [ %expect_end.026, %if.then40 ], [ %expect_end.026, %if.end37 ], [ %expect_end.026, %if.end27 ], [ %spec.select20, %if.end52 ]
+  %9 = load i32, ptr %nextoffset, align 4
+  %call18 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %9, ptr noundef nonnull %nextoffset) #2
   %10 = load i32, ptr %nextoffset, align 4
-  %call18 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %10, ptr noundef nonnull %nextoffset) #2
-  %11 = load i32, ptr %nextoffset, align 4
-  %cmp19 = icmp slt i32 %11, 0
+  %cmp19 = icmp slt i32 %10, 0
   br i1 %cmp19, label %return, label %if.end22
 
 return:                                           ; preds = %sw.epilog, %if.end22, %sw.bb33, %if.then40, %sw.bb48, %if.end27, %while.body.preheader, %sw.bb28, %if.end12, %if.end7, %if.end3, %if.end, %entry, %if.then60
-  %retval.0 = phi i32 [ %9, %if.then60 ], [ -8, %entry ], [ -8, %if.end ], [ %call4, %if.end3 ], [ -8, %if.end7 ], [ %call13, %if.end12 ], [ %., %sw.bb28 ], [ %4, %while.body.preheader ], [ %11, %sw.epilog ], [ -11, %if.end22 ], [ -11, %sw.bb33 ], [ -11, %if.then40 ], [ -11, %sw.bb48 ], [ -13, %if.end27 ]
+  %retval.0 = phi i32 [ %8, %if.then60 ], [ -8, %entry ], [ -8, %if.end ], [ %call4, %if.end3 ], [ -8, %if.end7 ], [ %call13, %if.end12 ], [ %., %sw.bb28 ], [ %4, %while.body.preheader ], [ %10, %sw.epilog ], [ -11, %if.end22 ], [ -11, %sw.bb33 ], [ -11, %if.then40 ], [ -11, %sw.bb48 ], [ -13, %if.end27 ]
   ret i32 %retval.0
 }
 

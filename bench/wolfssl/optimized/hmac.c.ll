@@ -1021,17 +1021,16 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %cmp1 = icmp eq ptr %salt, null
   br i1 %cmp1, label %if.then2, label %if.then9
 
 if.then2:                                         ; preds = %switch.lookup
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp, i8 0, i64 %conv, i1 false)
@@ -1080,17 +1079,16 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %wc_HKDF_Extract_ex.exit, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %wc_HKDF_Extract_ex.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %cmp1.i = icmp eq ptr %salt, null
   br i1 %cmp1.i, label %if.then2.i, label %if.then9.i
 
 if.then2.i:                                       ; preds = %switch.lookup
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv.i = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp.i, i8 0, i64 %conv.i, i1 false)
@@ -1139,13 +1137,12 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %cmp1 = icmp eq ptr %out, null
   br i1 %cmp1, label %return, label %lor.lhs.false
@@ -1168,7 +1165,7 @@ if.end11:                                         ; preds = %lor.lhs.false
   br i1 %cmp1328.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end11, %if.end49
-  %3 = phi i8 [ %inc, %if.end49 ], [ 1, %if.end11 ]
+  %2 = phi i8 [ %inc, %if.end49 ], [ 1, %if.end11 ]
   %outIdx.029 = phi i32 [ %add53, %if.end49 ], [ 0, %if.end11 ]
   %sub = sub i32 %outSz, %outIdx.029
   %call19 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz)
@@ -1176,7 +1173,7 @@ while.body:                                       ; preds = %if.end11, %if.end49
   br i1 %cmp20.not, label %if.end23, label %while.end
 
 if.end23:                                         ; preds = %while.body
-  %cmp16 = icmp eq i8 %3, 1
+  %cmp16 = icmp eq i8 %2, 1
   %cond = select i1 %cmp16, i32 0, i32 %switch.load
   %call26 = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac, ptr noundef nonnull %tmp, i32 noundef %cond)
   %cmp27.not = icmp eq i32 %call26, 0
@@ -1204,8 +1201,8 @@ if.end49:                                         ; preds = %if.end42
   %conv52 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %tmp, i64 %conv52, i1 false)
   %add53 = add i32 %outIdx.029, %switch.load
-  %4 = load i8, ptr %n, align 1
-  %inc = add i8 %4, 1
+  %3 = load i8, ptr %n, align 1
+  %inc = add i8 %3, 1
   store i8 %inc, ptr %n, align 1
   %cmp13 = icmp ult i32 %add53, %outSz
   br i1 %cmp13, label %while.body, label %while.end, !llvm.loop !9
@@ -1238,13 +1235,12 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call1 = call i32 @wc_HKDF_Extract(i32 noundef %type, ptr noundef %salt, i32 noundef %saltSz, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef nonnull %prk)
   %cmp2.not = icmp eq i32 %call1, 0

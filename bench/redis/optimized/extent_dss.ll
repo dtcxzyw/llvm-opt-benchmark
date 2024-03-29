@@ -99,18 +99,17 @@ spin_adaptive.exit.i:                             ; preds = %if.else.i.i, %for.e
 
 extent_dss_extending_start.exit:                  ; preds = %spin_adaptive.exit.i, %if.end7
   %4 = load atomic i8, ptr @dss_exhausted.0 acquire, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %while.body.preheader, label %label_oom
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %label_oom, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %extent_dss_extending_start.exit
   %cmp1.not.i = icmp ne ptr %new_addr, null
   %sub = add i64 %alignment, -1
   %add16 = sub i64 0, %alignment
-  %6 = getelementptr i8, ptr %arena, i64 78928
+  %5 = getelementptr i8, ptr %arena, i64 78928
   %pac = getelementptr inbounds i8, ptr %arena, i64 10672
   %e_addr.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %7 = getelementptr inbounds i8, ptr %call, i64 16
+  %6 = getelementptr inbounds i8, ptr %call, i64 16
   %e_sn.i.i = getelementptr inbounds i8, ptr %call, i64 32
   br label %while.body
 
@@ -120,8 +119,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp.i, label %label_oom, label %release.i.i
 
 release.i.i:                                      ; preds = %while.body
-  %8 = ptrtoint ptr %call.i.i51 to i64
-  store atomic i64 %8, ptr @dss_max.0 release, align 8
+  %7 = ptrtoint ptr %call.i.i51 to i64
+  store atomic i64 %7, ptr @dss_max.0 release, align 8
   %cmp2.not.i = icmp ne ptr %call.i.i51, %new_addr
   %or.cond.i.not67 = and i1 %cmp1.not.i, %cmp2.not.i
   %cmp11 = icmp eq ptr %call.i.i51, null
@@ -129,9 +128,8 @@ release.i.i:                                      ; preds = %while.body
   br i1 %or.cond66, label %label_oom, label %if.end13
 
 if.end13:                                         ; preds = %release.i.i
-  %9 = load i8, ptr @opt_retain, align 1
-  %10 = and i8 %9, 1
-  %add = add i64 %8, 4095
+  %8 = load i8, ptr @opt_retain, align 1
+  %add = add i64 %7, 4095
   %and = and i64 %add, -4096
   %add15 = add i64 %sub, %and
   %and17 = and i64 %add15, %add16
@@ -140,20 +138,21 @@ if.end13:                                         ; preds = %release.i.i
 
 if.then20:                                        ; preds = %if.end13
   %sub18 = sub i64 %and17, %and
-  %11 = inttoptr i64 %and to ptr
-  %arena.val = load i32, ptr %6, align 8
+  %9 = inttoptr i64 %and to ptr
+  %arena.val = load i32, ptr %5, align 8
   %call23 = tail call i64 @extent_sn_next(ptr noundef nonnull %pac) #6
-  %12 = load i64, ptr %call, align 8
-  %and.i.i = and i64 %12, -17592454479872
-  store ptr %11, ptr %e_addr.i.i, align 8
-  %13 = load i64, ptr %7, align 8
-  %and.i12.i = and i64 %13, 4095
+  %tobool.mask = and i8 %8, 1
+  %10 = load i64, ptr %call, align 8
+  %and.i.i = and i64 %10, -17592454479872
+  store ptr %9, ptr %e_addr.i.i, align 8
+  %11 = load i64, ptr %6, align 8
+  %and.i12.i = and i64 %11, 4095
   %or.i13.i = or i64 %and.i12.i, %sub18
-  store i64 %or.i13.i, ptr %7, align 8
-  %14 = and i32 %arena.val, -268431361
-  %conv.i.masked.i = zext i32 %14 to i64
+  store i64 %or.i13.i, ptr %6, align 8
+  %12 = and i32 %arena.val, -268431361
+  %conv.i.masked.i = zext i32 %12 to i64
   store i64 %call23, ptr %e_sn.i.i, align 8
-  %cmp.i52.not = icmp eq i8 %10, 0
+  %cmp.i52.not = icmp eq i8 %tobool.mask, 0
   %and.i14.i = select i1 %cmp.i52.not, i64 246423552, i64 17592432467968
   %and.i22.i = or disjoint i64 %and.i14.i, %conv.i.masked.i
   %or.i27.i = or i64 %and.i22.i, %and.i.i
@@ -162,20 +161,20 @@ if.then20:                                        ; preds = %if.end13
 
 if.end25:                                         ; preds = %if.then20, %if.end13
   %add26 = add i64 %and17, %size
-  %cmp27 = icmp ult i64 %and17, %8
-  %cmp29 = icmp ult i64 %add26, %8
+  %cmp27 = icmp ult i64 %and17, %7
+  %cmp29 = icmp ult i64 %add26, %7
   %or.cond = or i1 %cmp27, %cmp29
   br i1 %or.cond, label %label_oom, label %if.end32
 
 if.end32:                                         ; preds = %if.end25
-  %sub33 = sub i64 %size, %8
+  %sub33 = sub i64 %size, %7
   %add34 = add i64 %sub33, %and17
   %call.i = tail call ptr @sbrk(i64 noundef %add34) #6
   %cmp38 = icmp eq ptr %call.i, %call.i.i51
   br i1 %cmp38, label %release.i, label %if.end70
 
 release.i:                                        ; preds = %if.end32
-  %15 = inttoptr i64 %and17 to ptr
+  %13 = inttoptr i64 %and17 to ptr
   store atomic i64 %add26, ptr @dss_max.0 release, align 8
   store atomic i8 0, ptr @dss_extending release, align 1
   br i1 %cmp19.not, label %if.else, label %if.then43
@@ -190,43 +189,43 @@ if.else:                                          ; preds = %release.i
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %if.then43
-  %16 = load i8, ptr %commit, align 1
-  %17 = and i8 %16, 1
-  %tobool50.not = icmp eq i8 %17, 0
-  br i1 %tobool50.not, label %if.then51, label %if.end54
+  %14 = load i8, ptr %commit, align 1
+  %tobool50 = trunc i8 %14 to i1
+  br i1 %tobool50, label %if.end54, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %call52 = tail call zeroext i1 @pages_decommit(ptr noundef %15, i64 noundef %size) #6
+  %call52 = tail call zeroext i1 @pages_decommit(ptr noundef %13, i64 noundef %size) #6
   %frombool53 = zext i1 %call52 to i8
   store i8 %frombool53, ptr %commit, align 1
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then51, %if.end49
-  %18 = phi i8 [ %frombool53, %if.then51 ], [ %16, %if.end49 ]
-  %19 = load i8, ptr %zero, align 1
-  %20 = and i8 %19, 1
-  %tobool55.not = icmp eq i8 %20, 0
-  %21 = and i8 %18, 1
-  %tobool57.not = icmp eq i8 %21, 0
-  %or.cond81 = select i1 %tobool55.not, i1 true, i1 %tobool57.not
-  br i1 %or.cond81, label %return, label %if.then59
+  %15 = phi i8 [ %frombool53, %if.then51 ], [ %14, %if.end49 ]
+  %16 = load i8, ptr %zero, align 1
+  %tobool55 = trunc i8 %16 to i1
+  br i1 %tobool55, label %land.lhs.true, label %return
 
-if.then59:                                        ; preds = %if.end54
-  %22 = getelementptr inbounds i8, ptr %edata, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, i8 0, i64 104, i1 false)
+land.lhs.true:                                    ; preds = %if.end54
+  %tobool57 = trunc i8 %15 to i1
+  br i1 %tobool57, label %if.then59, label %return
+
+if.then59:                                        ; preds = %land.lhs.true
+  %17 = getelementptr inbounds i8, ptr %edata, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, i8 0, i64 104, i1 false)
   %call61 = tail call ptr @arena_get_ehooks(ptr noundef %arena) #6
-  %arena.val50 = load i32, ptr %6, align 8
+  %arena.val50 = load i32, ptr %5, align 8
   %tobool63.not = icmp eq i64 %size, 0
+  %18 = and i8 %8, 1
   %e_addr.i.i54 = getelementptr inbounds i8, ptr %edata, i64 8
-  store ptr %15, ptr %e_addr.i.i54, align 8
-  %23 = getelementptr inbounds i8, ptr %edata, i64 16
-  store i64 %size, ptr %23, align 8
-  %24 = and i32 %arena.val50, -268431361
-  %conv.i.masked.i57 = zext i32 %24 to i64
+  store ptr %13, ptr %e_addr.i.i54, align 8
+  %19 = getelementptr inbounds i8, ptr %edata, i64 16
+  store i64 %size, ptr %19, align 8
+  %20 = and i32 %arena.val50, -268431361
+  %conv.i.masked.i57 = zext i32 %20 to i64
   %shl.i.i = select i1 %tobool63.not, i64 0, i64 4096
   %e_sn.i.i59 = getelementptr inbounds i8, ptr %edata, i64 32
   store i64 235, ptr %e_sn.i.i59, align 8
-  %cmp.i61.not = icmp eq i8 %10, 0
+  %cmp.i61.not = icmp eq i8 %18, 0
   %or.i23.i62 = select i1 %cmp.i61.not, i64 8192, i64 17592186052608
   %and.i14.i58 = or disjoint i64 %or.i23.i62, %shl.i.i
   %and.i22.i60 = or disjoint i64 %and.i14.i58, %conv.i.masked.i57
@@ -235,7 +234,7 @@ if.then59:                                        ; preds = %if.end54
   br i1 %call66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.then59
-  call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %size, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %size, i1 false)
   br label %return
 
 if.end70:                                         ; preds = %if.end32
@@ -251,8 +250,8 @@ label_oom:                                        ; preds = %release.i.i, %while
   tail call void @edata_cache_put(ptr noundef %tsdn, ptr noundef nonnull %edata_cache, ptr noundef nonnull %call) #6
   br label %return
 
-return:                                           ; preds = %if.end54, %if.then67, %if.then59, %if.end, %entry, %label_oom
-  %retval.0 = phi ptr [ null, %label_oom ], [ null, %entry ], [ null, %if.end ], [ %15, %if.then59 ], [ %15, %if.then67 ], [ %15, %if.end54 ]
+return:                                           ; preds = %if.end54, %land.lhs.true, %if.then67, %if.then59, %if.end, %entry, %label_oom
+  %retval.0 = phi ptr [ null, %label_oom ], [ null, %entry ], [ null, %if.end ], [ %13, %if.then59 ], [ %13, %if.then67 ], [ %13, %land.lhs.true ], [ %13, %if.end54 ]
   ret ptr %retval.0
 }
 

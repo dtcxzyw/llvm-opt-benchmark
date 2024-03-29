@@ -2991,15 +2991,14 @@ _ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptr
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %21 = load i8, ptr %5, align 1
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %27, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %27
 
 23:                                               ; preds = %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = atomicrmw xchg ptr %24, i32 1 release, align 4
-  %.not14 = icmp sgt i32 %25, -1
-  br i1 %.not14, label %29, label %26
+  %.not = icmp sgt i32 %25, -1
+  br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %23
   call void @_ZNSt28__atomic_futex_unsigned_base19_M_futex_notify_allEPj(ptr noundef nonnull %24)

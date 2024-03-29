@@ -839,13 +839,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.then12
   %switch.maskindex = trunc i32 %8 to i16
   %switch.shifted = lshr i16 801, %switch.maskindex
-  %12 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %12, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %13 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode, i64 0, i64 %13
+  %12 = zext nneg i32 %8 to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end16
 

@@ -443,9 +443,8 @@ if.then10:                                        ; preds = %if.else
 land.rhs.i.i:                                     ; preds = %if.then10
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %3 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.end21.sink.split, label %if.then.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end21.sink.split
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16, ptr noundef nonnull %add.ptr14, i32 noundef %conv.i) #8
@@ -1349,9 +1348,8 @@ if.then10.i:                                      ; preds = %if.else.i104
 
 land.rhs.i.i.i:                                   ; preds = %if.then10.i
   %40 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %41 = and i8 %40, 1
-  %tobool.not.i.i.i = icmp eq i8 %41, 0
-  br i1 %tobool.not.i.i.i, label %if.end21.sink.split.i, label %if.then.i.i.i108
+  %tobool.i.i.i = trunc i8 %40 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i108, label %if.end21.sink.split.i
 
 if.then.i.i.i108:                                 ; preds = %land.rhs.i.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16.i, ptr noundef nonnull %add.ptr14.i, i32 noundef %conv.i.i) #8
@@ -1369,11 +1367,11 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE7Segment9setLengthERNS0_7Ru
 for.end74:                                        ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE7Segment9setLengthERNS0_7RuntimeEj.exit, %for.cond59.preheader
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i110 = and i64 %retval.sroa.0.0.copyload.i.i.i.i, 281474976710655
-  %42 = inttoptr i64 %and.i.i.i.i.i.i110 to ptr
+  %41 = inttoptr i64 %and.i.i.i.i.i.i110 to ptr
   br label %return
 
 return:                                           ; preds = %for.end74, %if.then
-  %self.sroa.0.0 = phi ptr [ %42, %for.end74 ], [ %self.coerce, %if.then ]
+  %self.sroa.0.0 = phi ptr [ %41, %for.end74 ], [ %self.coerce, %if.then ]
   ret ptr %self.sroa.0.0
 }
 
@@ -2527,9 +2525,8 @@ if.then10.i:                                      ; preds = %if.else.i32
 land.rhs.i.i.i:                                   ; preds = %if.then10.i
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %10 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i, label %if.end21.sink.split.i, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.end21.sink.split.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16.i, ptr noundef nonnull %add.ptr14.i, i32 noundef %conv.i.i) #8
@@ -2983,9 +2980,8 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i: ; p
 
 land.rhs.i.i.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i
   %23 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %24 = and i8 %23, 1
-  %tobool.not.i.i.i = icmp eq i8 %24, 0
-  br i1 %tobool.not.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i, label %if.then.i.i30.i
+  %tobool.i.i.i = trunc i8 %23 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i30.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i
 
 if.then.i.i30.i:                                  ; preds = %land.rhs.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i21.i, align 8
@@ -3098,9 +3094,8 @@ if.then10.i:                                      ; preds = %if.else.i21
 land.rhs.i.i.i:                                   ; preds = %if.then10.i
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %11 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %12 = and i8 %11, 1
-  %tobool.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i.i.i, label %if.end21.sink.split.i, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.end21.sink.split.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16.i, ptr noundef nonnull %add.ptr14.i, i32 noundef %conv.i.i) #8
@@ -3123,18 +3118,17 @@ if.end:                                           ; preds = %if.end21.sink.split
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv.i25 = trunc i64 %sub.ptr.div.i to i32
   %youngGen_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %13 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %12 = load ptr, ptr %youngGen_.i.i.i, align 8
   %and.i.i.i.i = and i64 %sub.ptr.rhs.cast.i, -4194304
-  %14 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %13, %14
+  %13 = inttoptr i64 %and.i.i.i.i to ptr
+  %cmp.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE28rangeUnreachableWriteBarrierEPS3_S4_RNS0_7HadesGCE.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
-  %15 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE28rangeUnreachableWriteBarrierEPS3_S4_RNS0_7HadesGCE.exit, label %if.then.i.i
+  %14 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
+  %tobool.i.i = trunc i8 %14 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE28rangeUnreachableWriteBarrierEPS3_S4_RNS0_7HadesGCE.exit
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %add.ptr, i32 noundef %conv.i25) #8
@@ -3280,9 +3274,8 @@ if.then10:                                        ; preds = %if.else
 land.rhs.i.i:                                     ; preds = %if.then10
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %3 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.end21.sink.split, label %if.then.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end21.sink.split
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16, ptr noundef nonnull %add.ptr14, i32 noundef %conv.i) #8
@@ -4212,9 +4205,8 @@ if.then10.i:                                      ; preds = %if.else.i106
 
 land.rhs.i.i.i:                                   ; preds = %if.then10.i
   %46 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %47 = and i8 %46, 1
-  %tobool.not.i.i.i = icmp eq i8 %47, 0
-  br i1 %tobool.not.i.i.i, label %if.end21.sink.split.i, label %if.then.i.i.i110
+  %tobool.i.i.i = trunc i8 %46 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i110, label %if.end21.sink.split.i
 
 if.then.i.i.i110:                                 ; preds = %land.rhs.i.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16.i, ptr noundef nonnull %add.ptr14.i, i32 noundef %conv.i.i) #8
@@ -4232,11 +4224,11 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE7Segment9setLengthERNS0_7
 for.end74:                                        ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE7Segment9setLengthERNS0_7RuntimeEj.exit, %for.cond59.preheader
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i112 = and i64 %retval.sroa.0.0.copyload.i.i.i.i, 281474976710655
-  %48 = inttoptr i64 %and.i.i.i.i.i.i112 to ptr
+  %47 = inttoptr i64 %and.i.i.i.i.i.i112 to ptr
   br label %return
 
 return:                                           ; preds = %for.end74, %if.then
-  %self.sroa.0.0 = phi ptr [ %48, %for.end74 ], [ %self.coerce, %if.then ]
+  %self.sroa.0.0 = phi ptr [ %47, %for.end74 ], [ %self.coerce, %if.then ]
   ret ptr %self.sroa.0.0
 }
 
@@ -5495,9 +5487,8 @@ if.then10.i:                                      ; preds = %if.else.i35
 land.rhs.i.i.i:                                   ; preds = %if.then10.i
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %12 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %13 = and i8 %12, 1
-  %tobool.not.i.i.i = icmp eq i8 %13, 0
-  br i1 %tobool.not.i.i.i, label %if.end21.sink.split.i, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %12 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.end21.sink.split.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16.i, ptr noundef nonnull %add.ptr14.i, i32 noundef %conv.i.i) #8
@@ -5983,9 +5974,8 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i: ;
 
 land.rhs.i.i.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i
   %27 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %28 = and i8 %27, 1
-  %tobool.not.i.i.i = icmp eq i8 %28, 0
-  br i1 %tobool.not.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i, label %if.then.i.i34.i
+  %tobool.i.i.i = trunc i8 %27 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i34.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i
 
 if.then.i.i34.i:                                  ; preds = %land.rhs.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %retval.0.i.i25.i, align 4
@@ -6106,9 +6096,8 @@ if.then10.i:                                      ; preds = %if.else.i24
 land.rhs.i.i.i:                                   ; preds = %if.then10.i
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %13 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i.i.i, label %if.end21.sink.split.i, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.end21.sink.split.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i16.i, ptr noundef nonnull %add.ptr14.i, i32 noundef %conv.i.i) #8
@@ -6131,18 +6120,17 @@ if.end:                                           ; preds = %if.end21.sink.split
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv.i27 = trunc i64 %sub.ptr.div.i to i32
   %youngGen_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %15 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %14 = load ptr, ptr %youngGen_.i.i.i, align 8
   %and.i.i.i.i = and i64 %sub.ptr.rhs.cast.i, -4194304
-  %16 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %15, %16
+  %15 = inttoptr i64 %and.i.i.i.i to ptr
+  %cmp.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE28rangeUnreachableWriteBarrierEPS3_S4_RNS0_7HadesGCE.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
-  %17 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %18 = and i8 %17, 1
-  %tobool.not.i.i = icmp eq i8 %18, 0
-  br i1 %tobool.not.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE28rangeUnreachableWriteBarrierEPS3_S4_RNS0_7HadesGCE.exit, label %if.then.i.i
+  %16 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
+  %tobool.i.i = trunc i8 %16 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE28rangeUnreachableWriteBarrierEPS3_S4_RNS0_7HadesGCE.exit
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   tail call void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %add.ptr, i32 noundef %conv.i27) #8

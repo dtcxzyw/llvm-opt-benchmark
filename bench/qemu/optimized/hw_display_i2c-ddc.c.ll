@@ -138,20 +138,19 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %i2c, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 39, ptr noundef nonnull @__func__.I2CDDC) #2
   %firstbyte = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load i8, ptr %firstbyte, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %reg2 = getelementptr inbounds i8, ptr %call.i, i64 169
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %reg = getelementptr inbounds i8, ptr %call.i, i64 169
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i8 %data, ptr %reg2, align 1
+  store i8 %data, ptr %reg, align 1
   store i8 0, ptr %firstbyte, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i8, ptr %reg2, align 1
-  %inc = add i8 %2, 1
-  store i8 %inc, ptr %reg2, align 1
+  %1 = load i8, ptr %reg, align 1
+  %inc = add i8 %1, 1
+  store i8 %inc, ptr %reg, align 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

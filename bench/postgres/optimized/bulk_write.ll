@@ -174,7 +174,7 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = icmp eq i32 %6, 0
-  br i1 %8, label %57, label %9
+  br i1 %8, label %55, label %9
 
 9:                                                ; preds = %1
   %10 = icmp sgt i32 %6, 1
@@ -188,21 +188,20 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
 13:                                               ; preds = %11, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   %15 = load i8, ptr %14, align 4
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %32, label %.preheader58
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %.preheader56, label %30
 
-.preheader58:                                     ; preds = %13
+.preheader56:                                     ; preds = %13
   %17 = icmp sgt i32 %6, 0
   br i1 %17, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader58
+.lr.ph.preheader:                                 ; preds = %.preheader56
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.060 = phi i8 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.058 = phi i1 [ true, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %18 = getelementptr %struct.PendingWrite, ptr %7, i64 %indvars.iv
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
@@ -213,91 +212,85 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %18, i64 12
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %.not57 = icmp eq i8 %26, 0
-  %spec.select = select i1 %.not57, i8 0, i8 %.060
+  %26 = trunc i8 %25 to i1
+  %spec.select = select i1 %26, i1 %.058, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %27 = and i8 %spec.select, 1
-  %28 = icmp ne i8 %27, 0
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader56
+  %.0.lcssa = phi i1 [ true, %.preheader56 ], [ %spec.select, %.lr.ph ]
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load i32, ptr %28, align 8
+  call void @log_newpages(ptr noundef %27, i32 noundef %29, i32 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %.0.lcssa) #4
+  br label %30
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader58
-  %.0.lcssa = phi i1 [ true, %.preheader58 ], [ %28, %._crit_edge.loopexit ]
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = load i32, ptr %30, align 8
-  call void @log_newpages(ptr noundef %29, i32 noundef %31, i32 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %.0.lcssa) #4
-  br label %32
+30:                                               ; preds = %._crit_edge, %13
+  %31 = icmp sgt i32 %6, 0
+  br i1 %31, label %.lr.ph63, label %._crit_edge64
 
-32:                                               ; preds = %._crit_edge, %13
-  %33 = icmp sgt i32 %6, 0
-  br i1 %33, label %.lr.ph65, label %._crit_edge66
+.lr.ph63:                                         ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 536
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %wide.trip.count68 = zext nneg i32 %6 to i64
+  br label %34
 
-.lr.ph65:                                         ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 536
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count70 = zext nneg i32 %6 to i64
-  br label %36
+34:                                               ; preds = %.lr.ph63, %54
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next66, %54 ]
+  %35 = getelementptr %struct.PendingWrite, ptr %7, i64 %indvars.iv65
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = load ptr, ptr %35, align 8
+  call void @PageSetChecksumInplace(ptr noundef %38, i32 noundef %37) #4
+  %39 = load i32, ptr %32, align 8
+  %.not = icmp ult i32 %37, %39
+  br i1 %.not, label %51, label %.preheader
 
-36:                                               ; preds = %.lr.ph65, %56
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next68, %56 ]
-  %37 = getelementptr %struct.PendingWrite, ptr %7, i64 %indvars.iv67
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 8
-  %40 = load ptr, ptr %37, align 8
-  call void @PageSetChecksumInplace(ptr noundef %40, i32 noundef %39) #4
-  %41 = load i32, ptr %34, align 8
-  %.not56 = icmp ult i32 %39, %41
-  br i1 %.not56, label %53, label %.preheader
+.preheader:                                       ; preds = %34
+  %40 = icmp ugt i32 %37, %39
+  br i1 %40, label %.lr.ph59, label %._crit_edge60
 
-.preheader:                                       ; preds = %36
-  %42 = icmp ugt i32 %39, %41
-  br i1 %42, label %.lr.ph61, label %._crit_edge62
+.lr.ph59:                                         ; preds = %.preheader, %.lr.ph59
+  %41 = phi i32 [ %45, %.lr.ph59 ], [ %39, %.preheader ]
+  %42 = load ptr, ptr %0, align 8
+  %43 = load i32, ptr %33, align 8
+  %44 = add nuw i32 %41, 1
+  store i32 %44, ptr %32, align 8
+  call void @smgrextend(ptr noundef %42, i32 noundef %43, i32 noundef %41, ptr noundef nonnull @zero_buffer, i1 noundef zeroext true) #4
+  %45 = load i32, ptr %32, align 8
+  %46 = icmp ugt i32 %37, %45
+  br i1 %46, label %.lr.ph59, label %._crit_edge60, !llvm.loop !7
 
-.lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
-  %43 = phi i32 [ %47, %.lr.ph61 ], [ %41, %.preheader ]
-  %44 = load ptr, ptr %0, align 8
-  %45 = load i32, ptr %35, align 8
-  %46 = add nuw i32 %43, 1
-  store i32 %46, ptr %34, align 8
-  call void @smgrextend(ptr noundef %44, i32 noundef %45, i32 noundef %43, ptr noundef nonnull @zero_buffer, i1 noundef zeroext true) #4
-  %47 = load i32, ptr %34, align 8
-  %48 = icmp ugt i32 %39, %47
-  br i1 %48, label %.lr.ph61, label %._crit_edge62, !llvm.loop !7
+._crit_edge60:                                    ; preds = %.lr.ph59, %.preheader
+  %47 = load ptr, ptr %0, align 8
+  %48 = load i32, ptr %33, align 8
+  call void @smgrextend(ptr noundef %47, i32 noundef %48, i32 noundef %37, ptr noundef %38, i1 noundef zeroext true) #4
+  %49 = load i32, ptr %36, align 8
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %32, align 8
+  br label %54
 
-._crit_edge62:                                    ; preds = %.lr.ph61, %.preheader
-  %49 = load ptr, ptr %0, align 8
-  %50 = load i32, ptr %35, align 8
-  call void @smgrextend(ptr noundef %49, i32 noundef %50, i32 noundef %39, ptr noundef %40, i1 noundef zeroext true) #4
-  %51 = load i32, ptr %38, align 8
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %34, align 8
-  br label %56
-
-53:                                               ; preds = %36
-  %54 = load ptr, ptr %0, align 8
-  %55 = load i32, ptr %35, align 8
+51:                                               ; preds = %34
+  %52 = load ptr, ptr %0, align 8
+  %53 = load i32, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %40, ptr %2, align 8
-  call void @smgrwritev(ptr noundef %54, i32 noundef %55, i32 noundef %39, ptr noundef nonnull %2, i32 noundef 1, i1 noundef zeroext true) #4
+  store ptr %38, ptr %2, align 8
+  call void @smgrwritev(ptr noundef %52, i32 noundef %53, i32 noundef %37, ptr noundef nonnull %2, i32 noundef 1, i1 noundef zeroext true) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %56
+  br label %54
 
-56:                                               ; preds = %53, %._crit_edge62
-  call void @pfree(ptr noundef %40) #4
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge66, label %36, !llvm.loop !8
+54:                                               ; preds = %51, %._crit_edge60
+  call void @pfree(ptr noundef %38) #4
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  br i1 %exitcond69.not, label %._crit_edge64, label %34, !llvm.loop !8
 
-._crit_edge66:                                    ; preds = %56, %32
+._crit_edge64:                                    ; preds = %54, %30
   store i32 0, ptr %5, align 8
-  br label %57
+  br label %55
 
-57:                                               ; preds = %1, %._crit_edge66
+55:                                               ; preds = %1, %._crit_edge64
   ret void
 }
 

@@ -53,9 +53,8 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 land.rhs:                                         ; preds = %land.lhs.true4
   %no_reclaim = getelementptr inbounds i8, ptr %heap, i64 3056
   %2 = load i8, ptr %no_reclaim, align 8
-  %3 = and i8 %2, 1
-  %tobool6.not = icmp eq i8 %3, 0
-  br i1 %tobool6.not, label %if.then9, label %lor.lhs.false.i22
+  %tobool6 = trunc i8 %2 to i1
+  br i1 %tobool6, label %lor.lhs.false.i22, label %if.then9
 
 if.then9:                                         ; preds = %land.rhs
   %segments = getelementptr inbounds i8, ptr %0, i64 32
@@ -68,8 +67,8 @@ if.end10:                                         ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end10
   %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
-  %4 = load i64, ptr %page_count.i, align 8
-  %cmp1.i = icmp eq i64 %4, 0
+  %3 = load i64, ptr %page_count.i, align 8
+  %cmp1.i = icmp eq i64 %3, 0
   br i1 %cmp1.i, label %lor.lhs.false.i22, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
@@ -79,16 +78,16 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %i.010.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i, i64 0, i64 %i.010.i
-  %5 = load ptr, ptr %arrayidx.i, align 8
-  %cmp3.not.i50 = icmp eq ptr %5, null
+  %4 = load ptr, ptr %arrayidx.i, align 8
+  %cmp3.not.i50 = icmp eq ptr %4, null
   br i1 %cmp3.not.i50, label %for.inc.i, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
-  %page.0.i51 = phi ptr [ %6, %while.body.i ], [ %5, %for.body.i ]
+  %page.0.i51 = phi ptr [ %5, %while.body.i ], [ %4, %for.body.i ]
   %next4.i = getelementptr inbounds i8, ptr %page.0.i51, i64 56
-  %6 = load ptr, ptr %next4.i, align 8
+  %5 = load ptr, ptr %next4.i, align 8
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i51, i32 noundef 3, i1 noundef zeroext false) #9
-  %cmp3.not.i = icmp eq ptr %6, null
+  %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %for.inc.i, label %while.body.i, !llvm.loop !4
 
 for.inc.i:                                        ; preds = %while.body.i, %for.body.i
@@ -101,8 +100,8 @@ lor.lhs.false.i22:                                ; preds = %for.inc.i, %land.rh
   tail call void @_mi_heap_delayed_free_all(ptr noundef nonnull %heap) #9
   tail call void @_mi_heap_collect_retired(ptr noundef nonnull %heap, i1 noundef zeroext %cmp1) #9
   %page_count.i23 = getelementptr inbounds i8, ptr %heap, i64 3024
-  %7 = load i64, ptr %page_count.i23, align 8
-  %cmp1.i24 = icmp eq i64 %7, 0
+  %6 = load i64, ptr %page_count.i23, align 8
+  %cmp1.i24 = icmp eq i64 %6, 0
   br i1 %cmp1.i24, label %mi_heap_visit_pages.exit40, label %for.cond.preheader.i25
 
 for.cond.preheader.i25:                           ; preds = %lor.lhs.false.i22
@@ -112,8 +111,8 @@ for.cond.preheader.i25:                           ; preds = %lor.lhs.false.i22
 for.body.i27.us:                                  ; preds = %for.cond.preheader.i25, %for.inc.i37.us
   %i.010.i28.us = phi i64 [ %inc.i38.us, %for.inc.i37.us ], [ 0, %for.cond.preheader.i25 ]
   %arrayidx.i29.us = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i26, i64 0, i64 %i.010.i28.us
-  %8 = load ptr, ptr %arrayidx.i29.us, align 8
-  %cmp3.not.i3252.us = icmp eq ptr %8, null
+  %7 = load ptr, ptr %arrayidx.i29.us, align 8
+  %cmp3.not.i3252.us = icmp eq ptr %7, null
   br i1 %cmp3.not.i3252.us, label %for.inc.i37.us, label %while.body.i33.us.us
 
 for.inc.i37.us:                                   ; preds = %mi_heap_page_collect.exit.us.us, %for.body.i27.us
@@ -122,12 +121,12 @@ for.inc.i37.us:                                   ; preds = %mi_heap_page_collec
   br i1 %exitcond.not.i39.us, label %mi_heap_visit_pages.exit40, label %for.body.i27.us, !llvm.loop !6
 
 while.body.i33.us.us:                             ; preds = %for.body.i27.us, %mi_heap_page_collect.exit.us.us
-  %page.0.i3153.us.us = phi ptr [ %9, %mi_heap_page_collect.exit.us.us ], [ %8, %for.body.i27.us ]
+  %page.0.i3153.us.us = phi ptr [ %8, %mi_heap_page_collect.exit.us.us ], [ %7, %for.body.i27.us ]
   %next4.i34.us.us = getelementptr inbounds i8, ptr %page.0.i3153.us.us, i64 56
-  %9 = load ptr, ptr %next4.i34.us.us, align 8
+  %8 = load ptr, ptr %next4.i34.us.us, align 8
   tail call void @_mi_page_free_collect(ptr noundef nonnull %page.0.i3153.us.us, i1 noundef zeroext %cmp1) #9
-  %10 = getelementptr i8, ptr %page.0.i3153.us.us, i64 24
-  %page.val.i.us.us = load i32, ptr %10, align 8
+  %9 = getelementptr i8, ptr %page.0.i3153.us.us, i64 24
+  %page.val.i.us.us = load i32, ptr %9, align 8
   %cmp.i.i.us.us = icmp eq i32 %page.val.i.us.us, 0
   br i1 %cmp.i.i.us.us, label %if.then.i.us.us, label %if.else.i.us.us
 
@@ -140,23 +139,23 @@ if.then.i.us.us:                                  ; preds = %while.body.i33.us.u
   br label %mi_heap_page_collect.exit.us.us
 
 mi_heap_page_collect.exit.us.us:                  ; preds = %if.then.i.us.us, %if.else.i.us.us
-  %cmp3.not.i32.us.us = icmp eq ptr %9, null
+  %cmp3.not.i32.us.us = icmp eq ptr %8, null
   br i1 %cmp3.not.i32.us.us, label %for.inc.i37.us, label %while.body.i33.us.us, !llvm.loop !4
 
 for.body.i27:                                     ; preds = %for.cond.preheader.i25, %for.inc.i37
   %i.010.i28 = phi i64 [ %inc.i38, %for.inc.i37 ], [ 0, %for.cond.preheader.i25 ]
   %arrayidx.i29 = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i26, i64 0, i64 %i.010.i28
-  %11 = load ptr, ptr %arrayidx.i29, align 8
-  %cmp3.not.i3252 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %arrayidx.i29, align 8
+  %cmp3.not.i3252 = icmp eq ptr %10, null
   br i1 %cmp3.not.i3252, label %for.inc.i37, label %while.body.i33
 
 while.body.i33:                                   ; preds = %for.body.i27, %mi_heap_page_collect.exit
-  %page.0.i3153 = phi ptr [ %12, %mi_heap_page_collect.exit ], [ %11, %for.body.i27 ]
+  %page.0.i3153 = phi ptr [ %11, %mi_heap_page_collect.exit ], [ %10, %for.body.i27 ]
   %next4.i34 = getelementptr inbounds i8, ptr %page.0.i3153, i64 56
-  %12 = load ptr, ptr %next4.i34, align 8
+  %11 = load ptr, ptr %next4.i34, align 8
   tail call void @_mi_page_free_collect(ptr noundef nonnull %page.0.i3153, i1 noundef zeroext %cmp1) #9
-  %13 = getelementptr i8, ptr %page.0.i3153, i64 24
-  %page.val.i = load i32, ptr %13, align 8
+  %12 = getelementptr i8, ptr %page.0.i3153, i64 24
+  %page.val.i = load i32, ptr %12, align 8
   %cmp.i.i = icmp eq i32 %page.val.i, 0
   br i1 %cmp.i.i, label %if.then.i, label %mi_heap_page_collect.exit
 
@@ -165,7 +164,7 @@ if.then.i:                                        ; preds = %while.body.i33
   br label %mi_heap_page_collect.exit
 
 mi_heap_page_collect.exit:                        ; preds = %while.body.i33, %if.then.i
-  %cmp3.not.i32 = icmp eq ptr %12, null
+  %cmp3.not.i32 = icmp eq ptr %11, null
   br i1 %cmp3.not.i32, label %for.inc.i37, label %while.body.i33, !llvm.loop !4
 
 for.inc.i37:                                      ; preds = %mi_heap_page_collect.exit, %for.body.i27
@@ -174,29 +173,29 @@ for.inc.i37:                                      ; preds = %mi_heap_page_collec
   br i1 %exitcond.not.i39, label %mi_heap_visit_pages.exit40, label %for.body.i27, !llvm.loop !6
 
 mi_heap_visit_pages.exit40:                       ; preds = %for.inc.i37, %for.inc.i37.us, %lor.lhs.false.i22
-  %14 = load ptr, ptr %heap, align 8
-  %segments19 = getelementptr inbounds i8, ptr %14, i64 32
+  %13 = load ptr, ptr %heap, align 8
+  %segments19 = getelementptr inbounds i8, ptr %13, i64 32
   tail call void @_mi_abandoned_collect(ptr noundef nonnull %heap, i1 noundef zeroext %cmp2, ptr noundef nonnull %segments19) #9
   br i1 %cmp1, label %if.then21, label %if.end32
 
 if.then21:                                        ; preds = %mi_heap_visit_pages.exit40
-  %15 = load ptr, ptr %heap, align 8
-  %segments23 = getelementptr inbounds i8, ptr %15, i64 32
+  %14 = load ptr, ptr %heap, align 8
+  %segments23 = getelementptr inbounds i8, ptr %14, i64 32
   tail call void @_mi_segment_thread_collect(ptr noundef nonnull %segments23) #9
   %call27 = tail call zeroext i1 @_mi_is_main_thread() #9
   br i1 %call27, label %land.lhs.true28, label %if.end32
 
 land.lhs.true28:                                  ; preds = %if.then21
-  %16 = load ptr, ptr %heap, align 8
-  %heap_backing.i41 = getelementptr inbounds i8, ptr %16, i64 16
-  %17 = load ptr, ptr %heap_backing.i41, align 8
-  %cmp.i42 = icmp eq ptr %17, %heap
+  %15 = load ptr, ptr %heap, align 8
+  %heap_backing.i41 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load ptr, ptr %heap_backing.i41, align 8
+  %cmp.i42 = icmp eq ptr %16, %heap
   br i1 %cmp.i42, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %land.lhs.true28
   tail call void @_mi_thread_data_collect() #9
-  %18 = load ptr, ptr %heap, align 8
-  %stats = getelementptr inbounds i8, ptr %18, i64 960
+  %17 = load ptr, ptr %heap, align 8
+  %stats = getelementptr inbounds i8, ptr %17, i64 960
   tail call void @_mi_arena_collect(i1 noundef zeroext true, ptr noundef nonnull %stats) #9
   br label %if.end32
 
@@ -418,9 +417,8 @@ entry:
 if.end:                                           ; preds = %entry
   %no_reclaim = getelementptr inbounds i8, ptr %heap, i64 3056
   %0 = load i8, ptr %no_reclaim, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then1, label %lor.lhs.false.i.i
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.lhs.false.i.i, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   tail call void @mi_heap_delete(ptr noundef nonnull %heap) #8
@@ -428,8 +426,8 @@ if.then1:                                         ; preds = %if.end
 
 lor.lhs.false.i.i:                                ; preds = %if.end
   %page_count.i.i = getelementptr inbounds i8, ptr %heap, i64 3024
-  %2 = load i64, ptr %page_count.i.i, align 8
-  %cmp1.i.i = icmp eq i64 %2, 0
+  %1 = load i64, ptr %page_count.i.i, align 8
+  %cmp1.i.i = icmp eq i64 %1, 0
   br i1 %cmp1.i.i, label %if.end.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -439,27 +437,27 @@ for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
   %i.010.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i, i64 0, i64 %i.010.i.i
-  %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.not.i4.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp3.not.i4.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i4.i, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %_mi_heap_page_destroy.exit.i
-  %page.0.i5.i = phi ptr [ %4, %_mi_heap_page_destroy.exit.i ], [ %3, %for.body.i.i ]
+  %page.0.i5.i = phi ptr [ %3, %_mi_heap_page_destroy.exit.i ], [ %2, %for.body.i.i ]
   %next4.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 56
-  %4 = load ptr, ptr %next4.i.i, align 8
+  %3 = load ptr, ptr %next4.i.i, align 8
   call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i5.i, i32 noundef 3, i1 noundef zeroext false) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i)
   %xblock_size.i.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 28
-  %5 = load i32, ptr %xblock_size.i.i.i, align 4
-  %cmp.i.i.i = icmp sgt i32 %5, -1
+  %4 = load i32, ptr %xblock_size.i.i.i, align 4
+  %cmp.i.i.i = icmp sgt i32 %4, -1
   br i1 %cmp.i.i.i, label %_mi_heap_page_destroy.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i
-  %6 = ptrtoint ptr %page.0.i5.i to i64
-  %sub.i.i.i.i.i = add i64 %6, -1
+  %5 = ptrtoint ptr %page.0.i5.i to i64
+  %sub.i.i.i.i.i = add i64 %5, -1
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, -33554432
-  %7 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %7, ptr noundef nonnull %page.0.i5.i, ptr noundef nonnull %psize.i.i.i) #9
+  %6 = inttoptr i64 %and.i.i.i.i.i to ptr
+  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %6, ptr noundef nonnull %page.0.i5.i, ptr noundef nonnull %psize.i.i.i) #9
   br label %_mi_heap_page_destroy.exit.i
 
 _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %while.body.i.i
@@ -467,10 +465,10 @@ _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %whi
   %used.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 24
   store i32 0, ptr %used.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next4.i.i, i8 0, i64 16, i1 false)
-  %8 = load ptr, ptr %heap, align 8
-  %segments.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %7 = load ptr, ptr %heap, align 8
+  %segments.i.i = getelementptr inbounds i8, ptr %7, i64 32
   call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i5.i, i1 noundef zeroext false, ptr noundef nonnull %segments.i.i) #9
-  %cmp3.not.i.i = icmp eq ptr %4, null
+  %cmp3.not.i.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %while.body.i.i, !llvm.loop !4
 
 for.inc.i.i:                                      ; preds = %_mi_heap_page_destroy.exit.i, %for.body.i.i
@@ -488,26 +486,26 @@ if.end.i:                                         ; preds = %for.inc.i.i, %lor.l
   %thread_delayed_free.i.i = getelementptr inbounds i8, ptr %heap, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i.i seq_cst, align 8
   store i64 0, ptr %page_count.i.i, align 8
-  %9 = load ptr, ptr %heap, align 8
-  %heap_backing.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load ptr, ptr %heap_backing.i.i, align 8
-  %cmp.i17.i = icmp eq ptr %10, %heap
+  %8 = load ptr, ptr %heap, align 8
+  %heap_backing.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %heap_backing.i.i, align 8
+  %cmp.i17.i = icmp eq ptr %9, %heap
   br i1 %cmp.i17.i, label %if.end2, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %12 = load ptr, ptr %11, align 8
-  %cmp.i18.i = icmp eq ptr %12, %heap
+  %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %11 = load ptr, ptr %10, align 8
+  %cmp.i18.i = icmp eq ptr %11, %heap
   br i1 %cmp.i18.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  call void @_mi_heap_set_default_direct(ptr noundef %10) #9
+  call void @_mi_heap_set_default_direct(ptr noundef %9) #9
   %.pre.i = load ptr, ptr %heap, align 8
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end3.i
-  %13 = phi ptr [ %.pre.i, %if.then5.i ], [ %9, %if.end3.i ]
-  %heaps.i = getelementptr inbounds i8, ptr %13, i64 24
+  %12 = phi ptr [ %.pre.i, %if.then5.i ], [ %8, %if.end3.i ]
+  %heaps.i = getelementptr inbounds i8, ptr %12, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.end6.i
@@ -516,9 +514,9 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %curr.0.i = load ptr, ptr %curr.0.in.i, align 8
   %cmp8.i = icmp ne ptr %curr.0.i, %heap
   %cmp9.i = icmp ne ptr %curr.0.i, null
-  %14 = and i1 %cmp8.i, %cmp9.i
+  %13 = and i1 %cmp8.i, %cmp9.i
   %next.i = getelementptr inbounds i8, ptr %curr.0.i, i64 3048
-  br i1 %14, label %while.cond.i, label %while.end.i, !llvm.loop !7
+  br i1 %13, label %while.cond.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %cmp10.i = icmp eq ptr %curr.0.i, %heap
@@ -527,10 +525,10 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then11.i:                                      ; preds = %while.end.i
   %cmp12.not.i = icmp eq ptr %prev.0.i, null
   %next16.i = getelementptr inbounds i8, ptr %heap, i64 3048
-  %15 = load ptr, ptr %next16.i, align 8
+  %14 = load ptr, ptr %next16.i, align 8
   %next15.i = getelementptr inbounds i8, ptr %prev.0.i, i64 3048
   %next15.sink.i = select i1 %cmp12.not.i, ptr %heaps.i, ptr %next15.i
-  store ptr %15, ptr %next15.sink.i, align 8
+  store ptr %14, ptr %next15.sink.i, align 8
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then11.i, %while.end.i
@@ -676,9 +674,8 @@ while.body:                                       ; preds = %entry, %if.end
   %6 = load ptr, ptr %next1, align 8
   %no_reclaim = getelementptr inbounds i8, ptr %curr.06, i64 3056
   %7 = load i8, ptr %no_reclaim, align 8
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %lor.lhs.false.i.i, label %if.then
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %if.then, label %lor.lhs.false.i.i
 
 if.then:                                          ; preds = %while.body
   call void @mi_heap_destroy(ptr noundef nonnull %curr.06) #8
@@ -686,8 +683,8 @@ if.then:                                          ; preds = %while.body
 
 lor.lhs.false.i.i:                                ; preds = %while.body
   %page_count.i.i = getelementptr inbounds i8, ptr %curr.06, i64 3024
-  %9 = load i64, ptr %page_count.i.i, align 8
-  %cmp1.i.i = icmp eq i64 %9, 0
+  %8 = load i64, ptr %page_count.i.i, align 8
+  %cmp1.i.i = icmp eq i64 %8, 0
   br i1 %cmp1.i.i, label %_mi_heap_destroy_pages.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -697,27 +694,27 @@ for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
   %i.010.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i, i64 0, i64 %i.010.i.i
-  %10 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.not.i4.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp3.not.i4.i = icmp eq ptr %9, null
   br i1 %cmp3.not.i4.i, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %_mi_heap_page_destroy.exit.i
-  %page.0.i5.i = phi ptr [ %11, %_mi_heap_page_destroy.exit.i ], [ %10, %for.body.i.i ]
+  %page.0.i5.i = phi ptr [ %10, %_mi_heap_page_destroy.exit.i ], [ %9, %for.body.i.i ]
   %next4.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 56
-  %11 = load ptr, ptr %next4.i.i, align 8
+  %10 = load ptr, ptr %next4.i.i, align 8
   call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i5.i, i32 noundef 3, i1 noundef zeroext false) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i)
   %xblock_size.i.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 28
-  %12 = load i32, ptr %xblock_size.i.i.i, align 4
-  %cmp.i.i.i = icmp sgt i32 %12, -1
+  %11 = load i32, ptr %xblock_size.i.i.i, align 4
+  %cmp.i.i.i = icmp sgt i32 %11, -1
   br i1 %cmp.i.i.i, label %_mi_heap_page_destroy.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i
-  %13 = ptrtoint ptr %page.0.i5.i to i64
-  %sub.i.i.i.i.i = add i64 %13, -1
+  %12 = ptrtoint ptr %page.0.i5.i to i64
+  %sub.i.i.i.i.i = add i64 %12, -1
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, -33554432
-  %14 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %page.0.i5.i, ptr noundef nonnull %psize.i.i.i) #9
+  %13 = inttoptr i64 %and.i.i.i.i.i to ptr
+  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %13, ptr noundef nonnull %page.0.i5.i, ptr noundef nonnull %psize.i.i.i) #9
   br label %_mi_heap_page_destroy.exit.i
 
 _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %while.body.i.i
@@ -725,10 +722,10 @@ _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %whi
   %used.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 24
   store i32 0, ptr %used.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next4.i.i, i8 0, i64 16, i1 false)
-  %15 = load ptr, ptr %curr.06, align 8
-  %segments.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %14 = load ptr, ptr %curr.06, align 8
+  %segments.i.i = getelementptr inbounds i8, ptr %14, i64 32
   call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i5.i, i1 noundef zeroext false, ptr noundef nonnull %segments.i.i) #9
-  %cmp3.not.i.i = icmp eq ptr %11, null
+  %cmp3.not.i.i = icmp eq ptr %10, null
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %while.body.i.i, !llvm.loop !4
 
 for.inc.i.i:                                      ; preds = %_mi_heap_page_destroy.exit.i, %for.body.i.i
@@ -989,7 +986,7 @@ for.inc.i.i:                                      ; preds = %while.cond.i.i, %fo
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 75
   br i1 %exitcond.not.i.i, label %mi_heap_check_owned.exit, label %for.body.i.i, !llvm.loop !6
 
-mi_heap_check_owned.exit:                         ; preds = %for.inc.i.i, %mi_heap_page_check_owned.exit.i, %lor.lhs.false.i.i, %entry, %lor.lhs.false.i
+mi_heap_check_owned.exit:                         ; preds = %for.inc.i.i, %mi_heap_page_check_owned.exit.i, %entry, %lor.lhs.false.i, %lor.lhs.false.i.i
   %retval.0.i = phi i1 [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %lor.lhs.false.i.i ], [ true, %mi_heap_page_check_owned.exit.i ], [ false, %for.inc.i.i ]
   ret i1 %retval.0.i
 }

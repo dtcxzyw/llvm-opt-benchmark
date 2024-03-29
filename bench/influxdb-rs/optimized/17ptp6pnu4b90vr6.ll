@@ -681,8 +681,8 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   %31 = load ptr, ptr %7, align 8, !alias.scope !126, !noalias !123, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !range !128, !noalias !129, !noundef !4
-  %trunc.not.i = icmp eq i64 %33, 0
-  br i1 %trunc.not.i, label %39, label %40
+  %trunc.i = trunc i64 %33 to i1
+  br i1 %trunc.i, label %40, label %39
 
 34:                                               ; preds = %.invoke.i
   %35 = landingpad { ptr, i32 }
@@ -835,8 +835,8 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   %31 = load ptr, ptr %7, align 8, !alias.scope !160, !noalias !157, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !range !128, !noalias !162, !noundef !4
-  %trunc.not.i = icmp eq i64 %33, 0
-  br i1 %trunc.not.i, label %39, label %40
+  %trunc.i = trunc i64 %33 to i1
+  br i1 %trunc.i, label %40, label %39
 
 34:                                               ; preds = %.invoke.i
   %35 = landingpad { ptr, i32 }
@@ -989,8 +989,8 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   %31 = load ptr, ptr %7, align 8, !alias.scope !193, !noalias !190, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !range !128, !noalias !195, !noundef !4
-  %trunc.not.i = icmp eq i64 %33, 0
-  br i1 %trunc.not.i, label %39, label %40
+  %trunc.i = trunc i64 %33 to i1
+  br i1 %trunc.i, label %40, label %39
 
 34:                                               ; preds = %.invoke.i
   %35 = landingpad { ptr, i32 }
@@ -1143,8 +1143,8 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   %31 = load ptr, ptr %7, align 8, !alias.scope !226, !noalias !223, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !range !128, !noalias !228, !noundef !4
-  %trunc.not.i = icmp eq i64 %33, 0
-  br i1 %trunc.not.i, label %39, label %40
+  %trunc.i = trunc i64 %33 to i1
+  br i1 %trunc.i, label %40, label %39
 
 34:                                               ; preds = %.invoke.i
   %35 = landingpad { ptr, i32 }
@@ -1397,7 +1397,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %13 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
-  %trunc.not = icmp eq i64 %15, 0
+  %trunc = trunc i64 %15 to i1
   %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1406,7 +1406,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
   %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
   %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  br i1 %trunc.not, label %21, label %22
+  br i1 %trunc, label %22, label %21
 
 16:                                               ; preds = %.invoke
   %17 = landingpad { ptr, i32 }
@@ -1483,7 +1483,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %13 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
-  %trunc.not = icmp eq i64 %15, 0
+  %trunc = trunc i64 %15 to i1
   %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1492,7 +1492,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
   %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
   %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  br i1 %trunc.not, label %21, label %22
+  br i1 %trunc, label %22, label %21
 
 16:                                               ; preds = %.invoke
   %17 = landingpad { ptr, i32 }
@@ -1569,7 +1569,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %13 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
-  %trunc.not = icmp eq i64 %15, 0
+  %trunc = trunc i64 %15 to i1
   %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1578,7 +1578,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
   %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
   %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  br i1 %trunc.not, label %21, label %22
+  br i1 %trunc, label %22, label %21
 
 16:                                               ; preds = %.invoke
   %17 = landingpad { ptr, i32 }
@@ -1655,7 +1655,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %13 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
-  %trunc.not = icmp eq i64 %15, 0
+  %trunc = trunc i64 %15 to i1
   %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1664,7 +1664,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
   %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
   %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  br i1 %trunc.not, label %21, label %22
+  br i1 %trunc, label %22, label %21
 
 16:                                               ; preds = %.invoke
   %17 = landingpad { ptr, i32 }
@@ -1743,8 +1743,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !282, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   %5 = load i8, ptr %4, align 1, !range !336, !alias.scope !333, !noalias !337, !noundef !4
-  %trunc.not.i = icmp eq i8 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i8 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.083b790a21940f882304165a113eaaef.27, i64 noundef 4), !noalias !333
@@ -1769,8 +1769,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !340, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
   %5 = load i32, ptr %4, align 4, !range !344, !alias.scope !341, !noalias !345, !noundef !4
-  %trunc.not.i = icmp eq i32 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i32 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.083b790a21940f882304165a113eaaef.27, i64 noundef 4), !noalias !341
@@ -1871,8 +1871,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !381, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   %5 = load i16, ptr %4, align 2, !range !385, !alias.scope !382, !noalias !386, !noundef !4
-  %trunc.not.i = icmp eq i16 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i16 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.083b790a21940f882304165a113eaaef.27, i64 noundef 4), !noalias !382
@@ -2033,8 +2033,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !272, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   %5 = load i64, ptr %4, align 8, !range !128, !alias.scope !433, !noalias !436, !noundef !4
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.083b790a21940f882304165a113eaaef.27, i64 noundef 4), !noalias !433
@@ -3278,28 +3278,27 @@ define internal fastcc void @"_ZN4core3ptr391drop_in_place$LT$hashbrown..scopegu
   br label %2
 
 2:                                                ; preds = %13, %0
-  %.sroa.0.06.i.i = phi i64 [ 0, %0 ], [ %spec.select5.i.i, %13 ]
-  %3 = icmp uge i64 %.sroa.0.06.i.i, %.0.val
-  %not..i.i = xor i1 %3, true
-  %4 = zext i1 %not..i.i to i64
-  %spec.select5.i.i = add nuw i64 %.sroa.0.06.i.i, %4
+  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select5.i.i, %13 ]
+  %3 = icmp ult i64 %.sroa.0.07.i.i, %.0.val
+  %4 = zext i1 %3 to i64
+  %spec.select5.i.i = add nuw i64 %.sroa.0.07.i.i, %4
   %5 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.06.i.i
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.07.i.i
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = sub nsw i64 0, %.sroa.0.06.i.i
+  %10 = sub nsw i64 0, %.sroa.0.07.i.i
   %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 }, i64, i64 } }, ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -64
   tail call void @"_ZN4core3ptr115drop_in_place$LT$$LP$alloc..string..String$C$influxdb3_write..write_buffer..buffer_segment..PartitionBuffer$RP$$GT$17h1a5d5280654108deE.llvm.171605402441639591"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12), !noalias !905
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not3.i.i.i = icmp ugt i64 %spec.select5.i.i, %.0.val
-  %or.cond.i.i = select i1 %3, i1 true, i1 %.not3.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he7b444bfe386ad3fE.exit", label %2
+  %.not.i.i.i = icmp ule i64 %spec.select5.i.i, %.0.val
+  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he7b444bfe386ad3fE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he7b444bfe386ad3fE.exit": ; preds = %13
   ret void
@@ -3312,28 +3311,27 @@ define internal fastcc void @"_ZN4core3ptr395drop_in_place$LT$hashbrown..scopegu
   br label %2
 
 2:                                                ; preds = %13, %0
-  %.sroa.0.06.i.i = phi i64 [ 0, %0 ], [ %spec.select5.i.i, %13 ]
-  %3 = icmp uge i64 %.sroa.0.06.i.i, %.0.val
-  %not..i.i = xor i1 %3, true
-  %4 = zext i1 %not..i.i to i64
-  %spec.select5.i.i = add nuw i64 %.sroa.0.06.i.i, %4
+  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select5.i.i, %13 ]
+  %3 = icmp ult i64 %.sroa.0.07.i.i, %.0.val
+  %4 = zext i1 %3 to i64
+  %spec.select5.i.i = add nuw i64 %.sroa.0.07.i.i, %4
   %5 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.06.i.i
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.07.i.i
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = sub nsw i64 0, %.sroa.0.06.i.i
+  %10 = sub nsw i64 0, %.sroa.0.07.i.i
   %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, ptr }, ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -32
   tail call void @"_ZN4core3ptr117drop_in_place$LT$$LP$alloc..string..String$C$alloc..sync..Arc$LT$influxdb3_write..catalog..DatabaseSchema$GT$$RP$$GT$17h39ccedf3665cfd40E.llvm.171605402441639591"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12), !noalias !908
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not3.i.i.i = icmp ugt i64 %spec.select5.i.i, %.0.val
-  %or.cond.i.i = select i1 %3, i1 true, i1 %.not3.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14344649283687d3E.exit", label %2
+  %.not.i.i.i = icmp ule i64 %spec.select5.i.i, %.0.val
+  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14344649283687d3E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14344649283687d3E.exit": ; preds = %13
   ret void
@@ -4993,7 +4991,7 @@ define hidden void @"_ZN5serde2de5impls106_$LT$impl$u20$serde..de..Deserialize$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h3ece47ea6ec18f9dE(i64 noundef %0, i64 %1) unnamed_addr #16 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 10922)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 10922)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -5001,7 +4999,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h3ece47ea6ec18f9dE(i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h52d9e446508e4cd3E(i64 noundef %0, i64 %1) unnamed_addr #16 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 32768)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 32768)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -5009,7 +5007,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h52d9e446508e4cd3E(i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h55986dd274135710E(i64 noundef %0, i64 %1) unnamed_addr #16 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 18724)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 18724)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -5017,7 +5015,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h55986dd274135710E(i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h799c3ca2ac1683cbE(i64 noundef %0, i64 %1) unnamed_addr #16 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 18724)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 18724)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -5025,7 +5023,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h799c3ca2ac1683cbE(i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h9782c01059bbeecfE(i64 noundef %0, i64 %1) unnamed_addr #16 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 14563)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 14563)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -5033,7 +5031,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h9782c01059bbeecfE(i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17hd494928f25994c82E(i64 noundef %0, i64 %1) unnamed_addr #16 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 43690)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 43690)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }

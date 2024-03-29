@@ -1044,7 +1044,7 @@ if.end21:                                         ; preds = %for.body
   br label %for.body28
 
 for.body28:                                       ; preds = %if.end21, %for.inc
-  %found_equals.090 = phi i8 [ 0, %if.end21 ], [ %found_equals.1, %for.inc ]
+  %found_equals.090 = phi i1 [ false, %if.end21 ], [ %found_equals.1, %for.inc ]
   %q.089 = phi ptr [ %1, %if.end21 ], [ %incdec.ptr139, %for.inc ]
   %len16.088 = phi i64 [ %0, %if.end21 ], [ %dec, %for.inc ]
   %2 = load i8, ptr %q.089, align 1
@@ -1163,7 +1163,7 @@ for.inc:                                          ; preds = %if.then50, %if.then
   %result.2 = phi i32 [ %call51, %if.then50 ], [ %call137, %sw.default ], [ %call124, %if.then117 ], [ %call127, %if.else126 ], [ %call56, %sw.bb55 ], [ %call54, %sw.bb ]
   %len16.1 = phi i64 [ %len16.088, %if.then50 ], [ %len16.088, %sw.default ], [ %sub, %if.then117 ], [ %len16.088, %if.else126 ], [ %len16.088, %sw.bb55 ], [ %len16.088, %sw.bb ]
   %q.1 = phi ptr [ %q.089, %if.then50 ], [ %q.089, %sw.default ], [ %arrayidx88, %if.then117 ], [ %q.089, %if.else126 ], [ %q.089, %sw.bb55 ], [ %q.089, %sw.bb ]
-  %found_equals.1 = phi i8 [ %found_equals.090, %if.then50 ], [ %found_equals.090, %sw.default ], [ %found_equals.090, %if.then117 ], [ %found_equals.090, %if.else126 ], [ 1, %sw.bb55 ], [ %found_equals.090, %sw.bb ]
+  %found_equals.1 = phi i1 [ %found_equals.090, %if.then50 ], [ %found_equals.090, %sw.default ], [ %found_equals.090, %if.then117 ], [ %found_equals.090, %if.else126 ], [ true, %sw.bb55 ], [ %found_equals.090, %sw.bb ]
   %incdec.ptr139 = getelementptr inbounds i8, ptr %q.1, i64 1
   %dec = add i64 %len16.1, -1
   %tobool24 = icmp ne i64 %dec, 0
@@ -1175,9 +1175,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool26.not, label %land.lhs.true141, label %return
 
 land.lhs.true141:                                 ; preds = %for.end
-  %20 = and i8 %found_equals.1, 1
-  %tobool142.not = icmp eq i8 %20, 0
-  br i1 %tobool142.not, label %if.end145, label %land.lhs.true147
+  br i1 %found_equals.1, label %land.lhs.true147, label %if.end145
 
 if.end145:                                        ; preds = %land.lhs.true141
   %call144 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull @.str.36, i64 noundef 1) #12
@@ -1198,8 +1196,8 @@ for.inc154:                                       ; preds = %land.lhs.true147, %
   %incdec.ptr156 = getelementptr inbounds i8, ptr %ap.192, i64 16
   %tobool13.not = icmp eq i32 %result.4, 0
   %cmp14 = icmp ult i32 %i.091, %entry1.0
-  %21 = select i1 %tobool13.not, i1 %cmp14, i1 false
-  br i1 %21, label %for.body, label %return, !llvm.loop !19
+  %20 = select i1 %tobool13.not, i1 %cmp14, i1 false
+  br i1 %20, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %for.end, %if.end145, %for.inc154, %entry, %if.then9
   %retval.0 = phi i32 [ 3, %if.then9 ], [ 0, %entry ], [ %call144, %if.end145 ], [ %result.2, %for.end ], [ %result.4, %for.inc154 ]

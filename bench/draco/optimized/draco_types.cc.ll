@@ -27,8 +27,7 @@ define noundef zeroext i1 @_ZN5draco18IsDataTypeIntegralENS_8DataTypeE(i32 nound
   %2 = icmp ult i32 %0, 12
   %switch.cast = trunc i32 %0 to i12
   %switch.downshift = lshr i12 -1538, %switch.cast
-  %3 = and i12 %switch.downshift, 1
-  %switch.masked = icmp ne i12 %3, 0
+  %switch.masked = trunc i12 %switch.downshift to i1
   %.0 = select i1 %2, i1 %switch.masked, i1 false
   ret i1 %.0
 }

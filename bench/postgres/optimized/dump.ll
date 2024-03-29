@@ -38,9 +38,8 @@ define dso_local void @generate_old_dump() local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 5), align 8
   %6 = tail call ptr @cluster_conn_opts(ptr noundef nonnull @old_cluster) #2
   %7 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  %9 = select i1 %.not, ptr @.str.4, ptr @.str.3
+  %8 = trunc i8 %7 to i1
+  %9 = select i1 %8, ptr @.str.3, ptr @.str.4
   %10 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 5), align 8
   %11 = tail call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull @.str.5) #2
   tail call void @check_ok() #2
@@ -71,9 +70,8 @@ define dso_local void @generate_old_dump() local_unnamed_addr #0 {
   %24 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i64 0, i32 5), align 8
   %25 = call ptr @cluster_conn_opts(ptr noundef nonnull @old_cluster) #2
   %26 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
-  %27 = and i8 %26, 1
-  %.not6 = icmp eq i8 %27, 0
-  %28 = select i1 %.not6, ptr @.str.4, ptr @.str.3
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.3, ptr @.str.4
   %29 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 5), align 8
   %30 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ptr, ...) @parallel_exec_prog(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %28, ptr noundef %29, ptr noundef nonnull %1, ptr noundef %30) #2

@@ -731,15 +731,15 @@ if.end64:                                         ; preds = %if.then58, %land.lh
   store i32 %14, ptr %fRuleStatusIndex66, align 8
   %fDone = getelementptr inbounds i8, ptr %that, i64 728
   %15 = load i8, ptr %fDone, align 8
-  %16 = and i8 %15, 1
   %fDone68 = getelementptr inbounds i8, ptr %this, i64 728
-  store i8 %16, ptr %fDone68, align 8
+  %frombool = and i8 %15, 1
+  store i8 %frombool, ptr %fDone68, align 8
   %fBreakCache = getelementptr inbounds i8, ptr %this, i64 648
-  %17 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %17, i32 noundef %13, i32 noundef %14)
+  %16 = load ptr, ptr %fBreakCache, align 8
+  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %16, i32 noundef %13, i32 noundef %14)
   %fDictionaryCache = getelementptr inbounds i8, ptr %this, i64 656
-  %18 = load ptr, ptr %fDictionaryCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %18)
+  %17 = load ptr, ptr %fDictionaryCache, align 8
+  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %17)
   br label %return
 
 return:                                           ; preds = %entry, %if.end64
@@ -1365,11 +1365,10 @@ if.else.i:                                        ; preds = %entry
 _ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %if.then.i, %if.else.i
   %fDone = getelementptr inbounds i8, ptr %this, i64 728
   %8 = load i8, ptr %fDone, align 8
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
+  %tobool = trunc i8 %8 to i1
   %fPosition = getelementptr inbounds i8, ptr %this, i64 636
-  %10 = load i32, ptr %fPosition, align 4
-  %cond = select i1 %tobool.not, i32 %10, i32 -1
+  %9 = load i32, ptr %fPosition, align 4
+  %cond = select i1 %tobool, i32 -1, i32 %9
   ret i32 %cond
 }
 
@@ -1383,11 +1382,10 @@ entry:
   call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fDone = getelementptr inbounds i8, ptr %this, i64 728
   %1 = load i8, ptr %fDone, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   %fPosition = getelementptr inbounds i8, ptr %this, i64 636
-  %3 = load i32, ptr %fPosition, align 4
-  %cond = select i1 %tobool.not, i32 %3, i32 -1
+  %2 = load i32, ptr %fPosition, align 4
+  %cond = select i1 %tobool, i32 -1, i32 %2
   ret i32 %cond
 }
 
@@ -1419,11 +1417,10 @@ if.end:                                           ; preds = %entry
   call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9followingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %1, i32 noundef %conv4, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fDone = getelementptr inbounds i8, ptr %this, i64 728
   %2 = load i8, ptr %fDone, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %fPosition = getelementptr inbounds i8, ptr %this, i64 636
-  %4 = load i32, ptr %fPosition, align 4
-  %cond = select i1 %tobool.not, i32 %4, i32 -1
+  %3 = load i32, ptr %fPosition, align 4
+  %cond = select i1 %tobool, i32 -1, i32 %3
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1460,11 +1457,10 @@ if.end:                                           ; preds = %entry
   call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9precedingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %1, i32 noundef %conv7, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fDone = getelementptr inbounds i8, ptr %this, i64 728
   %2 = load i8, ptr %fDone, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %fPosition = getelementptr inbounds i8, ptr %this, i64 636
-  %4 = load i32, ptr %fPosition, align 4
-  %cond = select i1 %tobool.not, i32 %4, i32 -1
+  %3 = load i32, ptr %fPosition, align 4
+  %cond = select i1 %tobool, i32 -1, i32 %3
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

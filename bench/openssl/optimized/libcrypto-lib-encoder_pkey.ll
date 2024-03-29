@@ -434,12 +434,11 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_ENCODER_get0_provider(ptr noundef %encoder) #5
   %keymgmt_prov = getelementptr inbounds i8, ptr %arg, i64 32
   %1 = load ptr, ptr %keymgmt_prov, align 8
-  %cmp = icmp eq ptr %1, %call
   %flag_find_same_provider = getelementptr inbounds i8, ptr %arg, i64 48
   %bf.load = load i8, ptr %flag_find_same_provider, align 8
-  %2 = and i8 %bf.load, 1
-  %3 = icmp eq i8 %2, 0
-  %cmp2 = xor i1 %cmp, %3
+  %2 = trunc i8 %bf.load to i1
+  %3 = icmp ne ptr %1, %call
+  %cmp2 = xor i1 %3, %2
   br i1 %cmp2, label %if.then4, label %if.end43
 
 if.then4:                                         ; preds = %if.end

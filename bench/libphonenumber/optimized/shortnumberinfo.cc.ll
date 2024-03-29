@@ -263,7 +263,7 @@ define dso_local void @_ZN4i18n12phonenumbers15ShortNumberInfoC2Ev(ptr noundef n
   store ptr %10, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-          to label %14 unwind label %.thread51
+          to label %14 unwind label %.thread49
 
 14:                                               ; preds = %11
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %13, align 8
@@ -335,7 +335,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %18
 38:                                               ; preds = %35, %.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
-  br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit35
+  br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit33
 
 39:                                               ; preds = %1
   %40 = landingpad { ptr, i32 }
@@ -343,7 +343,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %18
   tail call void @_ZdlPv(ptr noundef nonnull %10) #23
   br label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers10MatcherApiEED2Ev.exit
 
-.thread51:                                        ; preds = %11
+.thread49:                                        ; preds = %11
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %113
@@ -388,8 +388,8 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %18
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %54
-  %.not56 = icmp eq i32 %53, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  %.not54 = icmp eq i32 %53, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
   %56 = getelementptr inbounds i8, ptr %7, i64 32
@@ -398,8 +398,8 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %18
   br label %59
 
 59:                                               ; preds = %.lr.ph, %74
-  %.sroa.046.057 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %75, %74 ]
-  %60 = load ptr, ptr %.sroa.046.057, align 8
+  %.sroa.044.055 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %75, %74 ]
+  %60 = load ptr, ptr %.sroa.044.055, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 72
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %12, align 8
@@ -422,9 +422,8 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12p
 
 .noexc23:                                         ; preds = %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12phonenumbers13PhoneMetadataEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSE_INSF_IT0_E4typeEE6__typeEEOSG_OSL_.exit
   %67 = extractvalue { i64, i8 } %66, 1
-  %68 = and i8 %67, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %68, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %.noexc23
   %70 = extractvalue { i64, i8 } %66, 0
@@ -443,7 +442,7 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12p
 74:                                               ; preds = %69, %.noexc23
   call void @_ZN4i18n12phonenumbers13PhoneMetadataD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %56) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
-  %75 = getelementptr inbounds i8, ptr %.sroa.046.057, i64 8
+  %75 = getelementptr inbounds i8, ptr %.sroa.044.055, i64 8
   %.not = icmp eq ptr %75, %55
   br i1 %.not, label %._crit_edge, label %59
 
@@ -461,9 +460,8 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12p
 
 .noexc24:                                         ; preds = %._crit_edge
   %80 = extractvalue { i64, i8 } %79, 1
-  %81 = and i8 %80, 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %81, 0
-  br i1 %.not.i.i.i.i.i.i, label %88, label %82
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %88
 
 82:                                               ; preds = %.noexc24
   %83 = extractvalue { i64, i8 } %79, 0
@@ -477,15 +475,14 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12p
 88:                                               ; preds = %.noexc24, %82
   %89 = load ptr, ptr %16, align 8
   %90 = invoke { i64, i8 } @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE22find_or_prepare_insertIA3_cEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 1 dereferenceable(3) @.str.3)
-          to label %.noexc28 unwind label %.loopexit.split-lp
+          to label %.noexc27 unwind label %.loopexit.split-lp
 
-.noexc28:                                         ; preds = %88
+.noexc27:                                         ; preds = %88
   %91 = extractvalue { i64, i8 } %90, 1
-  %92 = and i8 %91, 1
-  %.not.i.i.i.i.i.i26 = icmp eq i8 %92, 0
-  br i1 %.not.i.i.i.i.i.i26, label %99, label %93
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %99
 
-93:                                               ; preds = %.noexc28
+93:                                               ; preds = %.noexc27
   %94 = extractvalue { i64, i8 } %90, 0
   %95 = getelementptr inbounds i8, ptr %89, i64 32
   %96 = getelementptr inbounds i8, ptr %89, i64 8
@@ -494,27 +491,26 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12p
   invoke void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRA3_KcEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %95, ptr noundef %98, ptr noundef nonnull align 1 dereferenceable(3) @.str.3)
           to label %99 unwind label %.loopexit.split-lp
 
-99:                                               ; preds = %.noexc28, %93
+99:                                               ; preds = %.noexc27, %93
   %100 = load ptr, ptr %16, align 8
   %101 = invoke { i64, i8 } @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE22find_or_prepare_insertIA3_cEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 1 dereferenceable(3) @.str.4)
-          to label %.noexc33 unwind label %.loopexit.split-lp
+          to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc33:                                         ; preds = %99
+.noexc31:                                         ; preds = %99
   %102 = extractvalue { i64, i8 } %101, 1
-  %103 = and i8 %102, 1
-  %.not.i.i.i.i.i.i31 = icmp eq i8 %103, 0
-  br i1 %.not.i.i.i.i.i.i31, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit35, label %104
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit33
 
-104:                                              ; preds = %.noexc33
+104:                                              ; preds = %.noexc31
   %105 = extractvalue { i64, i8 } %101, 0
   %106 = getelementptr inbounds i8, ptr %100, i64 32
   %107 = getelementptr inbounds i8, ptr %100, i64 8
   %108 = load ptr, ptr %107, align 8, !noalias !52
   %109 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %108, i64 %105
   invoke void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRA3_KcEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %106, ptr noundef %109, ptr noundef nonnull align 1 dereferenceable(3) @.str.4)
-          to label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit35 unwind label %.loopexit.split-lp
+          to label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit33 unwind label %.loopexit.split-lp
 
-_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit35: ; preds = %.noexc33, %104, %38
+_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE6insertIA3_cTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSF_22SameAsElementReferenceISK_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableIRKSK_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESR_.exit33: ; preds = %.noexc31, %104, %38
   call void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #20
   ret void
 
@@ -535,9 +531,9 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7_
   %112 = icmp eq ptr %.pr, null
   br i1 %112, label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers10MatcherApiEED2Ev.exit, label %113
 
-113:                                              ; preds = %.thread51, %111
-  %.pn.pn.pn.pn53 = phi { ptr, i32 } [ %41, %.thread51 ], [ %.pn.pn.pn, %111 ]
-  %114 = phi ptr [ %10, %.thread51 ], [ %.pr, %111 ]
+113:                                              ; preds = %.thread49, %111
+  %.pn.pn.pn.pn51 = phi { ptr, i32 } [ %41, %.thread49 ], [ %.pn.pn.pn, %111 ]
+  %114 = phi ptr [ %10, %.thread49 ], [ %.pr, %111 ]
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
@@ -545,7 +541,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7_
   br label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers10MatcherApiEED2Ev.exit
 
 _ZN5boost10scoped_ptrIKN4i18n12phonenumbers10MatcherApiEED2Ev.exit: ; preds = %113, %111, %39
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn.pn.pn, %111 ], [ %.pn.pn.pn.pn53, %113 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn.pn.pn, %111 ], [ %.pn.pn.pn.pn51, %113 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 

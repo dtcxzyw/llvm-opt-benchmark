@@ -23,9 +23,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %39, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %39
 
 7:                                                ; preds = %4
   %8 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -52,7 +51,7 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %.04254 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %33 ]
+  %.04253 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %33 ]
   %16 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -69,21 +68,21 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %21
-  %26 = icmp eq ptr %.04254, null
+  %26 = icmp eq ptr %.04253, null
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.04254, i64 152
+  %28 = getelementptr inbounds i8, ptr %.04253, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %23, i64 336
   %.val = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %29, i64 336
-  %.val52 = load ptr, ptr %31, align 8
-  %32 = icmp eq ptr %.val, %.val52
+  %.val51 = load ptr, ptr %31, align 8
+  %32 = icmp eq ptr %.val, %.val51
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %25, %27, %21, %19
-  %.1 = phi ptr [ %.04254, %19 ], [ %.04254, %21 ], [ %.04254, %27 ], [ %17, %25 ]
+  %.1 = phi ptr [ %.04253, %19 ], [ %.04253, %21 ], [ %.04253, %27 ], [ %17, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -96,8 +95,8 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %36 = icmp slt i32 %0, 0
   %or.cond5 = or i1 %36, %or.cond3
   %spec.select = select i1 %or.cond5, i32 13, i32 %.043
-  %.not50 = icmp eq i32 %spec.select, 0
-  br i1 %.not50, label %39, label %37
+  %.not = icmp eq i32 %spec.select, 0
+  br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %.loopexit
   %38 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %spec.select, ptr noundef nonnull @FUNC_NAME) #2
@@ -109,8 +108,8 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 41:                                               ; preds = %39
   store i32 -32766, ptr %2, align 4
-  %.not51 = icmp eq ptr %3, null
-  br i1 %.not51, label %55, label %42
+  %.not50 = icmp eq ptr %3, null
+  br i1 %.not50, label %55, label %42
 
 42:                                               ; preds = %41
   %43 = load <2 x i32>, ptr @ompi_status_empty, align 8

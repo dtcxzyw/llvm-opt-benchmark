@@ -40,11 +40,10 @@ entry:
   call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr nonnull sret(%"class.llvh::ErrorOr.1") align 8 %result.i, ptr noundef nonnull align 8 dereferenceable(32) %provider, ptr noundef null) #7, !noalias !4
   %HasError.i.i = getelementptr inbounds i8, ptr %result.i, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !noalias !4
-  %0 = and i8 %bf.load.i.i, 1
-  %bf.cast.not.i.i = icmp eq i8 %0, 0
-  br i1 %bf.cast.not.i.i, label %if.end.i, label %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i
+  %bf.cast.i.i = trunc i8 %bf.load.i.i to i1
+  br i1 %bf.cast.i.i, label %cond.true.i.i, label %if.end.i
 
-_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i:          ; preds = %entry
+cond.true.i.i:                                    ; preds = %entry
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %result.i, align 8, !noalias !4
   %retval.sroa.31.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %result.i, i64 8
   %retval.sroa.31.0.copyload.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i, align 8, !noalias !4
@@ -56,16 +55,16 @@ _ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i:          ; preds = %entry
   br label %_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit
 
 if.end.i:                                         ; preds = %entry
-  %1 = load ptr, ptr %result.i, align 8, !noalias !4
+  %0 = load ptr, ptr %result.i, align 8, !noalias !4
   %HasError.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i8.i = load i8, ptr %HasError.i7.i, align 8, !alias.scope !4
   %bf.clear.i.i = and i8 %bf.load.i8.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i7.i, align 8, !alias.scope !4
-  store ptr %1, ptr %agg.result, align 8, !alias.scope !4
+  store ptr %0, ptr %agg.result, align 8, !alias.scope !4
   br label %_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit
 
-_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit: ; preds = %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i, %if.end.i
-  %provider.sink.i = phi ptr [ %provider, %if.end.i ], [ %retval.sroa.31.0.copyload.i.i, %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i ]
+_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit: ; preds = %cond.true.i.i, %if.end.i
+  %provider.sink.i = phi ptr [ %provider, %if.end.i ], [ %retval.sroa.31.0.copyload.i.i, %cond.true.i.i ]
   %provider_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %provider.sink.i, ptr %provider_.i.i.i.i, align 8, !alias.scope !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
@@ -79,11 +78,10 @@ entry:
   call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr nonnull sret(%"class.llvh::ErrorOr.1") align 8 %result, ptr noundef nonnull align 8 dereferenceable(32) %provider, ptr noundef %name) #7
   %HasError.i = getelementptr inbounds i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
-  %0 = and i8 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i8 %0, 0
-  br i1 %bf.cast.not.i, label %if.end, label %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit
+  %bf.cast.i = trunc i8 %bf.load.i to i1
+  br i1 %bf.cast.i, label %cond.true.i, label %if.end
 
-_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit:            ; preds = %entry
+cond.true.i:                                      ; preds = %entry
   %retval.sroa.0.0.copyload.i = load i32, ptr %result, align 8
   %retval.sroa.31.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %result, i64 8
   %retval.sroa.31.0.copyload.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i, align 8
@@ -95,16 +93,16 @@ _ZNK4llvh7ErrorOrIPvE8getErrorEv.exit:            ; preds = %entry
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %result, align 8
+  %0 = load ptr, ptr %result, align 8
   %HasError.i7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i8 = load i8, ptr %HasError.i7, align 8
   %bf.clear.i = and i8 %bf.load.i8, -2
   store i8 %bf.clear.i, ptr %HasError.i7, align 8
-  store ptr %1, ptr %agg.result, align 8
+  store ptr %0, ptr %agg.result, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end, %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit
-  %provider.sink = phi ptr [ %provider, %if.end ], [ %retval.sroa.31.0.copyload.i, %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit ]
+cleanup:                                          ; preds = %if.end, %cond.true.i
+  %provider.sink = phi ptr [ %provider, %if.end ], [ %retval.sroa.31.0.copyload.i, %cond.true.i ]
   %provider_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %provider.sink, ptr %provider_.i.i.i, align 8
   ret void

@@ -588,73 +588,72 @@ entry:
   store ptr null, ptr %it, align 8
   %bucket_locked = getelementptr inbounds i8, ptr %iterp, i64 24
   %0 = load i8, ptr %bucket_locked, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end9, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
   %next = getelementptr inbounds i8, ptr %iterp, i64 16
-  %2 = load ptr, ptr %next, align 8
-  %cmp.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %next, align 8
+  %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.then
   %it3 = getelementptr inbounds i8, ptr %iterp, i64 8
-  store ptr %2, ptr %it3, align 8
-  %h_next = getelementptr inbounds i8, ptr %2, i64 16
-  %3 = load ptr, ptr %h_next, align 8
-  store ptr %3, ptr %next, align 8
+  store ptr %1, ptr %it3, align 8
+  %h_next = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = load ptr, ptr %h_next, align 8
+  store ptr %2, ptr %next, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %4 = load i64, ptr %iterp, align 8
-  %conv = trunc i64 %4 to i32
+  %3 = load i64, ptr %iterp, align 8
+  %conv = trunc i64 %3 to i32
   tail call void @item_unlock(i32 noundef %conv) #18
-  %5 = load i64, ptr %iterp, align 8
-  %inc = add i64 %5, 1
+  %4 = load i64, ptr %iterp, align 8
+  %inc = add i64 %4, 1
   store i64 %inc, ptr %iterp, align 8
   store i8 0, ptr %bucket_locked, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  store ptr %2, ptr %it, align 8
+  store ptr %1, ptr %it, align 8
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %6 = load i64, ptr %iterp, align 8
-  %7 = load i32, ptr @hashpower, align 4
-  %sh_prom = zext nneg i32 %7 to i64
+  %5 = load i64, ptr %iterp, align 8
+  %6 = load i32, ptr @hashpower, align 4
+  %sh_prom = zext nneg i32 %6 to i64
   %shl = shl nuw i64 1, %sh_prom
-  %cmp11.not = icmp eq i64 %6, %shl
+  %cmp11.not = icmp eq i64 %5, %shl
   br i1 %cmp11.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  %conv15 = trunc i64 %6 to i32
+  %conv15 = trunc i64 %5 to i32
   tail call void @item_lock(i32 noundef %conv15) #18
   store i8 1, ptr %bucket_locked, align 8
-  %8 = load ptr, ptr @primary_hashtable, align 8
-  %9 = load i64, ptr %iterp, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %9
-  %10 = load ptr, ptr %arrayidx, align 8
+  %7 = load ptr, ptr @primary_hashtable, align 8
+  %8 = load i64, ptr %iterp, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = load ptr, ptr %arrayidx, align 8
   %it18 = getelementptr inbounds i8, ptr %iterp, i64 8
-  store ptr %10, ptr %it18, align 8
-  %cmp20.not = icmp eq ptr %10, null
+  store ptr %9, ptr %it18, align 8
+  %cmp20.not = icmp eq ptr %9, null
   br i1 %cmp20.not, label %if.else27, label %if.then22
 
 if.then22:                                        ; preds = %if.then13
-  %h_next24 = getelementptr inbounds i8, ptr %10, i64 16
-  %11 = load ptr, ptr %h_next24, align 8
+  %h_next24 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = load ptr, ptr %h_next24, align 8
   %next25 = getelementptr inbounds i8, ptr %iterp, i64 16
-  store ptr %11, ptr %next25, align 8
-  store ptr %10, ptr %it, align 8
+  store ptr %10, ptr %next25, align 8
+  store ptr %9, ptr %it, align 8
   br label %return
 
 if.else27:                                        ; preds = %if.then13
-  %conv29 = trunc i64 %9 to i32
+  %conv29 = trunc i64 %8 to i32
   tail call void @item_unlock(i32 noundef %conv29) #18
   store i8 0, ptr %bucket_locked, align 8
-  %12 = load i64, ptr %iterp, align 8
-  %inc32 = add i64 %12, 1
+  %11 = load i64, ptr %iterp, align 8
+  %inc32 = add i64 %11, 1
   store i64 %inc32, ptr %iterp, align 8
   br label %return
 
@@ -672,13 +671,12 @@ define dso_local void @assoc_iterate_final(ptr nocapture noundef %iterp) local_u
 entry:
   %bucket_locked = getelementptr inbounds i8, ptr %iterp, i64 24
   %0 = load i8, ptr %bucket_locked, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %iterp, align 8
-  %conv = trunc i64 %2 to i32
+  %1 = load i64, ptr %iterp, align 8
+  %conv = trunc i64 %1 to i32
   tail call void @item_unlock(i32 noundef %conv) #18
   br label %if.end
 

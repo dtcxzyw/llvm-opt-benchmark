@@ -3193,9 +3193,8 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i: ; preds = 
 46:                                               ; preds = %.noexc27
   %.pre = load i8, ptr %9, align 1
   %47 = trunc i64 %44 to i32
-  %48 = and i8 %.pre, 1
-  %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %49, label %68
+  %48 = trunc i8 %.pre to i1
+  br i1 %48, label %68, label %49
 
 49:                                               ; preds = %.thread, %46
   %50 = phi i32 [ 0, %.thread ], [ %47, %46 ]

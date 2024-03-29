@@ -90,9 +90,8 @@ define internal fastcc noundef i32 @opal_shmem_base_runtime_query(ptr nocapture 
   store ptr null, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %5 = load i8, ptr @opal_shmem_base_selected, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %10, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @opal_shmem_base_component, align 8
@@ -114,14 +113,14 @@ define internal fastcc noundef i32 @opal_shmem_base_runtime_query(ptr nocapture 
   br label %15
 
 15:                                               ; preds = %10, %13
-  %.02226 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2527 = icmp eq ptr %.02226, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not2527, label %._crit_edge, label %.lr.ph
+  %.02225 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not26 = icmp eq ptr %.02225, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %53
-  %.02229 = phi ptr [ %.022, %53 ], [ %.02226, %15 ]
-  %.028 = phi i32 [ %.1, %53 ], [ -2147483648, %15 ]
-  %16 = getelementptr inbounds i8, ptr %.02229, i64 40
+  %.02228 = phi ptr [ %.022, %53 ], [ %.02225, %15 ]
+  %.027 = phi i32 [ %.1, %53 ], [ -2147483648, %15 ]
+  %16 = getelementptr inbounds i8, ptr %.02228, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 264
   %19 = load ptr, ptr %18, align 8
@@ -179,7 +178,7 @@ define internal fastcc noundef i32 @opal_shmem_base_runtime_query(ptr nocapture 
 
 48:                                               ; preds = %43, %44
   %49 = load i32, ptr %4, align 4
-  %50 = icmp sgt i32 %49, %.028
+  %50 = icmp sgt i32 %49, %.027
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
@@ -189,11 +188,11 @@ define internal fastcc noundef i32 @opal_shmem_base_runtime_query(ptr nocapture 
   br label %53
 
 53:                                               ; preds = %48, %51, %40, %39, %24, %23
-  %.1 = phi i32 [ %.028, %24 ], [ %.028, %23 ], [ %.028, %40 ], [ %.028, %39 ], [ %49, %51 ], [ %.028, %48 ]
-  %54 = getelementptr inbounds i8, ptr %.02229, i64 16
+  %.1 = phi i32 [ %.027, %24 ], [ %.027, %23 ], [ %.027, %40 ], [ %.027, %39 ], [ %49, %51 ], [ %.027, %48 ]
+  %54 = getelementptr inbounds i8, ptr %.02228, i64 16
   %.022 = load volatile ptr, ptr %54, align 8
-  %.not25 = icmp eq ptr %.022, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  %.not = icmp eq ptr %.022, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %53, %15
   %55 = load ptr, ptr %1, align 8

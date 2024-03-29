@@ -44,12 +44,12 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %bHas.06 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %bHas.06 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %for.body ]
   %1 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call noundef zeroext i1 @_ZN6Assimp24MakeVerboseFormatProcess17MakeVerboseFormatEP6aiMesh(ptr nonnull align 8 poison, ptr noundef %2)
-  %spec.select = select i1 %call2, i8 1, i8 %bHas.06
+  %spec.select = select i1 %call2, i1 true, i1 %bHas.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %mNumMeshes, align 8
   %4 = zext i32 %3 to i64
@@ -57,9 +57,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %5 = and i8 %spec.select, 1
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %if.else, label %if.then3
+  br i1 %spec.select, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %for.end
   %call4 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -72,8 +70,8 @@ if.else:                                          ; preds = %entry, %for.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then3
-  %7 = load i32, ptr %pScene, align 8
-  %and = and i32 %7, -9
+  %5 = load i32, ptr %pScene, align 8
+  %and = and i32 %5, -9
   store i32 %and, ptr %pScene, align 8
   ret void
 }

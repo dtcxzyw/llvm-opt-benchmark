@@ -415,8 +415,8 @@ define hidden void @_ZN5alloc6string6String9from_utf817hb627e4dac46cdebcE.llvm.1
 
 11:                                               ; preds = %2
   %12 = load i64, ptr %4, align 8, !range !40, !noundef !7
-  %trunc.not = icmp eq i64 %12, 0
-  br i1 %trunc.not, label %13, label %15
+  %trunc = trunc i64 %12 to i1
+  br i1 %trunc, label %15, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -732,12 +732,12 @@ define hidden void @"_ZN65_$LT$flate2..crc..CrcReader$LT$R$GT$$u20$as$u20$std..i
   %7 = getelementptr inbounds i8, ptr %1, i64 72
   call void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %8 = load i64, ptr %5, align 8, !range !40, !noundef !7
-  %trunc.not = icmp eq i64 %8, 0
+  %trunc = trunc i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %.cast = ptrtoint ptr %10 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %trunc.not, label %11, label %15
+  br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %4
   %12 = icmp ugt i64 %.cast, %3
@@ -768,34 +768,34 @@ define hidden void @"_ZN65_$LT$flate2..crc..CrcReader$LT$R$GT$$u20$as$u20$std..i
 define hidden void @_ZN6base646encode19encode_with_padding17h3d8f8c830fb25562E.llvm.16116537380482378334(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 1 dereferenceable(323) %4, i64 noundef %5) unnamed_addr #8 {
   %7 = tail call noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$15internal_encode17hd799d9f240e092eeE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(323) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %8 = load i8, ptr %4, align 1, !range !70, !alias.scope !71, !noundef !7
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %11, label %9
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %6
-  %10 = icmp ugt i64 %7, %3
-  br i1 %10, label %18, label %14
+10:                                               ; preds = %6
+  %11 = icmp ugt i64 %7, %3
+  br i1 %11, label %19, label %15
 
-11:                                               ; preds = %6, %14
-  %.0 = phi i64 [ %17, %14 ], [ 0, %6 ]
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 %.0)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %19, label %20
+12:                                               ; preds = %6, %15
+  %.0 = phi i64 [ %18, %15 ], [ 0, %6 ]
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 %.0)
+  %14 = extractvalue { i64, i1 } %13, 1
+  br i1 %14, label %20, label %21
 
-14:                                               ; preds = %9
-  %15 = sub nuw i64 %3, %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 %7
-  %17 = tail call noundef i64 @_ZN6base646encode11add_padding17hbcf14840db7363cfE(i64 noundef %7, ptr noalias noundef nonnull align 1 %16, i64 noundef %15)
-  br label %11
+15:                                               ; preds = %10
+  %16 = sub nuw i64 %3, %7
+  %17 = getelementptr inbounds i8, ptr %2, i64 %7
+  %18 = tail call noundef i64 @_ZN6base646encode11add_padding17hbcf14840db7363cfE(i64 noundef %7, ptr noalias noundef nonnull align 1 %17, i64 noundef %16)
+  br label %12
 
-18:                                               ; preds = %9
+19:                                               ; preds = %10
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %7, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c7c947687868475575cbe3de6ec0da45.38) #24
   unreachable
 
-19:                                               ; preds = %11
+20:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.c7c947687868475575cbe3de6ec0da45.35, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c7c947687868475575cbe3de6ec0da45.37) #24
   unreachable
 
-20:                                               ; preds = %11
+21:                                               ; preds = %12
   ret void
 }
 
@@ -807,7 +807,7 @@ define hidden void @_ZN6base646engine6Engine6encode5inner17h8563cb9c88de0931E(pt
   %.sroa.6.sroa.0 = alloca [2 x i64], align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = load i8, ptr %1, align 1, !range !70, !noundef !7
-  %10 = icmp ne i8 %9, 0
+  %10 = trunc i8 %9 to i1
   %11 = tail call { i64, i64 } @_ZN6base646encode11encoded_len17h952a12b3154264ceE(i64 noundef %3, i1 noundef zeroext %10)
   %12 = extractvalue { i64, i64 } %11, 0
   %switch = icmp eq i64 %12, 0
@@ -833,8 +833,7 @@ define hidden void @_ZN6base646engine6Engine6encode5inner17h8563cb9c88de0931E(pt
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %14
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %.noexc7, label %21
+  br i1 %10, label %21, label %.noexc7
 
 21:                                               ; preds = %.noexc
   %22 = icmp ugt i64 %20, %15
@@ -888,8 +887,8 @@ _ZN6base646encode19encode_with_padding17h3d8f8c830fb25562E.llvm.1611653738048237
 
 37:                                               ; preds = %_ZN6base646encode19encode_with_padding17h3d8f8c830fb25562E.llvm.16116537380482378334.exit
   %38 = load i64, ptr %6, align 8, !range !40, !noalias !82, !noundef !7
-  %trunc.not.i = icmp eq i64 %38, 0
-  br i1 %trunc.not.i, label %.thread, label %41
+  %trunc.i = trunc i64 %38 to i1
+  br i1 %trunc.i, label %41, label %.thread
 
 .thread:                                          ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !alias.scope !82
@@ -942,7 +941,7 @@ _ZN6base646encode19encode_with_padding17h3d8f8c830fb25562E.llvm.1611653738048237
   unreachable
 
 52:                                               ; preds = %41, %.thread
-  %.sroa.6.sroa.6.0 = phi i64 [ %34, %.thread ], [ %45, %41 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %45, %41 ], [ %34, %.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !alias.scope !93, !noalias !94
   %.sroa.6.sroa.6.0..sroa_idx25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa_idx25, align 8, !alias.scope !93, !noalias !94
@@ -1305,7 +1304,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeConfig$u20$as$u20$base64..engine..Config$GT$14encode_padding17h66146ac1857c27c3E.llvm.16116537380482378334"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #13 {
   %2 = load i8, ptr %0, align 1, !range !70, !noundef !7
-  %3 = icmp ne i8 %2, 0
+  %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 

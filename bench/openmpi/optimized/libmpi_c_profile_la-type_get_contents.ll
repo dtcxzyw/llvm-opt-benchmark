@@ -26,9 +26,8 @@ define i32 @PMPI_Type_get_contents(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i32 %2, ptr %9, align 4
   store i32 %3, ptr %10, align 4
   %12 = load i8, ptr @ompi_mpi_param_check, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %35, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %35
 
 14:                                               ; preds = %7
   %15 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -73,8 +72,8 @@ define i32 @PMPI_Type_get_contents(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 35:                                               ; preds = %30, %7
   %36 = call i32 @ompi_datatype_get_args(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8, ptr noundef %4, ptr noundef nonnull %9, ptr noundef %5, ptr noundef nonnull %10, ptr noundef %6, ptr noundef null) #2
-  %.not32 = icmp eq i32 %36, 0
-  br i1 %.not32, label %.preheader, label %39
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %.preheader, label %39
 
 .preheader:                                       ; preds = %35
   %37 = load i32, ptr %10, align 4
@@ -93,13 +92,13 @@ define i32 @PMPI_Type_get_contents(ptr noundef %0, i32 noundef %1, i32 noundef %
   %44 = getelementptr i8, ptr %43, i64 16
   %.val = load i16, ptr %44, align 8
   %45 = and i16 %.val, 512
-  %.not33 = icmp eq i16 %45, 0
-  br i1 %.not33, label %46, label %56
+  %.not32 = icmp eq i16 %45, 0
+  br i1 %.not32, label %46, label %56
 
 46:                                               ; preds = %.lr.ph
   %47 = call i32 @ompi_datatype_duplicate(ptr noundef nonnull %43, ptr noundef nonnull %11) #2
-  %.not34 = icmp eq i32 %47, 0
-  br i1 %.not34, label %51, label %48
+  %.not33 = icmp eq i32 %47, 0
+  br i1 %.not33, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %11) #2

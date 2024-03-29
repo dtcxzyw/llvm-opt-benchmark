@@ -330,17 +330,16 @@ entry:
 if.then:                                          ; preds = %entry
   %m_running.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %m_running.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %cond.true, label %if.end
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.end, label %cond.true
 
 if.end:                                           ; preds = %if.then
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %0, align 8
   %sub.i.i.i = sub i64 %call.i.i, %retval.sroa.0.0.copyload.i1.i.i
   %m_elapsed.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %m_elapsed.i, align 8
-  %add.i.i = add nsw i64 %sub.i.i.i, %3
+  %2 = load i64, ptr %m_elapsed.i, align 8
+  %add.i.i = add nsw i64 %sub.i.i.i, %2
   store i64 %add.i.i, ptr %m_elapsed.i, align 8
   store i8 0, ptr %m_running.i, align 8
   %.pr.pre = load ptr, ptr %m_sw, align 8
@@ -350,18 +349,17 @@ if.end:                                           ; preds = %if.then
 cond.true:                                        ; preds = %if.then, %if.end
   %.pr11 = phi ptr [ %.pr.pre, %if.end ], [ %0, %if.then ]
   %m_running.i4 = getelementptr inbounds i8, ptr %.pr11, i64 16
-  %4 = load i8, ptr %m_running.i4, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i5 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i5, label %_ZNK9stopwatch11get_secondsEv.exit, label %_ZN9stopwatch4stopEv.exit.i
+  %3 = load i8, ptr %m_running.i4, align 8
+  %tobool.i5 = trunc i8 %3 to i1
+  br i1 %tobool.i5, label %_ZN9stopwatch4stopEv.exit.i, label %_ZNK9stopwatch11get_secondsEv.exit
 
 _ZN9stopwatch4stopEv.exit.i:                      ; preds = %cond.true
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %.pr11, align 8
   %sub.i.i.i.i = sub i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
   %m_elapsed.i.i = getelementptr inbounds i8, ptr %.pr11, i64 8
-  %6 = load i64, ptr %m_elapsed.i.i, align 8
-  %add.i.i.i = add nsw i64 %sub.i.i.i.i, %6
+  %4 = load i64, ptr %m_elapsed.i.i, align 8
+  %add.i.i.i = add nsw i64 %sub.i.i.i.i, %4
   store i64 %add.i.i.i, ptr %m_elapsed.i.i, align 8
   store i8 0, ptr %m_running.i4, align 8
   %call.i.i4.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
@@ -371,8 +369,8 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %cond.true
 
 _ZNK9stopwatch11get_secondsEv.exit:               ; preds = %cond.true, %_ZN9stopwatch4stopEv.exit.i
   %m_elapsed.i6 = getelementptr inbounds i8, ptr %.pr11, i64 8
-  %7 = load i64, ptr %m_elapsed.i6, align 8
-  %div.i.i.i = sdiv i64 %7, 1000000
+  %5 = load i64, ptr %m_elapsed.i6, align 8
+  %div.i.i.i = sdiv i64 %5, 1000000
   %conv.i = sitofp i64 %div.i.i.i to double
   %div.i = fdiv double %conv.i, 1.000000e+03
   br label %cond.end
@@ -385,8 +383,8 @@ cond.end:                                         ; preds = %entry, %_ZNK9stopwa
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %cond.end
-  %8 = load i32, ptr %this, align 8
-  %cmp11.not = icmp ult i32 %call10, %8
+  %6 = load i32, ptr %this, align 8
+  %cmp11.not = icmp ult i32 %call10, %6
   br i1 %cmp11.not, label %if.end35, label %if.then12
 
 if.then12:                                        ; preds = %invoke.cont9
@@ -437,22 +435,22 @@ invoke.cont30:                                    ; preds = %invoke.cont28
           to label %if.end35 unwind label %terminate.lpad
 
 if.end35:                                         ; preds = %invoke.cont23, %invoke.cont30, %invoke.cont9
-  %9 = load ptr, ptr %m_sw, align 8
-  %cmp.i = icmp eq ptr %9, null
+  %7 = load ptr, ptr %m_sw, align 8
+  %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %invoke.cont37, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end35
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %9)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
           to label %invoke.cont37 unwind label %terminate.lpad
 
 invoke.cont37:                                    ; preds = %if.end35, %if.end.i
   ret void
 
 terminate.lpad:                                   ; preds = %if.end.i, %invoke.cont30, %invoke.cont28, %invoke.cont26, %if.else, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont16, %if.then15, %if.then12, %cond.end
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #22
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #22
   unreachable
 }
 

@@ -134,8 +134,7 @@ define noundef zeroext i1 @_ZN4toku8treenode7is_rootEv(ptr nocapture noundef non
 entry:
   %m_is_root = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i8, ptr %m_is_root, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -144,8 +143,7 @@ define noundef zeroext i1 @_ZN4toku8treenode8is_emptyEv(ptr nocapture noundef no
 entry:
   %m_is_empty = getelementptr inbounds i8, ptr %this, i64 201
   %0 = load i8, ptr %m_is_empty, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -238,18 +236,18 @@ entry:
   store i64 %0, ptr %m_txnid3, align 8
   %m_is_shared = getelementptr inbounds i8, ptr %node1, i64 144
   %2 = load i8, ptr %m_is_shared, align 8
-  %3 = and i8 %2, 1
+  %frombool = and i8 %2, 1
   %m_is_shared7 = getelementptr inbounds i8, ptr %node2, i64 144
-  %4 = load i8, ptr %m_is_shared7, align 8
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %m_is_shared, align 8
-  store i8 %3, ptr %m_is_shared7, align 8
+  %3 = load i8, ptr %m_is_shared7, align 8
+  %frombool10 = and i8 %3, 1
+  store i8 %frombool10, ptr %m_is_shared, align 8
+  store i8 %frombool, ptr %m_is_shared7, align 8
   %m_owners = getelementptr inbounds i8, ptr %node1, i64 152
-  %6 = load ptr, ptr %m_owners, align 8
+  %4 = load ptr, ptr %m_owners, align 8
   %m_owners14 = getelementptr inbounds i8, ptr %node2, i64 152
-  %7 = load ptr, ptr %m_owners14, align 8
-  store ptr %7, ptr %m_owners, align 8
-  store ptr %6, ptr %m_owners14, align 8
+  %5 = load ptr, ptr %m_owners14, align 8
+  store ptr %5, ptr %m_owners, align 8
+  store ptr %4, ptr %m_owners14, align 8
   ret void
 }
 
@@ -395,9 +393,8 @@ _ZN11TxnidVectorD2Ev.exit:                        ; preds = %delete.notnull
 if.end:                                           ; preds = %_ZN11TxnidVectorD2Ev.exit, %entry
   %m_is_root.i = getelementptr inbounds i8, ptr %node, i64 200
   %4 = load i8, ptr %m_is_root.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %if.else, label %if.then3
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
   %m_is_empty = getelementptr inbounds i8, ptr %node, i64 201
@@ -933,9 +930,8 @@ entry:
 if.then:                                          ; preds = %entry
   %m_is_root.i = getelementptr inbounds i8, ptr %this, i64 200
   %2 = load i8, ptr %m_is_root.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.then4, label %if.end
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
@@ -945,33 +941,32 @@ if.end:                                           ; preds = %if.then4, %if.then
   %m_range.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i)
   %m_owners.i = getelementptr inbounds i8, ptr %this, i64 152
-  %4 = load ptr, ptr %m_owners.i, align 8
-  %tobool.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %m_owners.i, align 8
+  %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %5)
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
           to label %_ZN11TxnidVectorD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #19
   unreachable
 
 _ZN11TxnidVectorD2Ev.exit.i:                      ; preds = %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   store ptr null, ptr %m_owners.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN11TxnidVectorD2Ev.exit.i, %if.end
-  %8 = load i8, ptr %m_is_root.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.i.not.i = icmp eq i8 %9, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then3.i
+  %7 = load i8, ptr %m_is_root.i, align 8
+  %tobool.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %m_is_empty.i = getelementptr inbounds i8, ptr %this, i64 201
@@ -989,18 +984,18 @@ if.end5:                                          ; preds = %entry
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %if.end5
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #16
-  %10 = load ptr, ptr %m_left_child, align 8
-  %depth_est.i.i = getelementptr inbounds i8, ptr %10, i64 168
-  %11 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds i8, ptr %10, i64 184
-  %12 = load i32, ptr %depth_est2.i.i, align 8
-  %cond.i.i = tail call i32 @llvm.umax.i32(i32 %11, i32 %12)
+  %8 = load ptr, ptr %m_left_child, align 8
+  %depth_est.i.i = getelementptr inbounds i8, ptr %8, i64 168
+  %9 = load i32, ptr %depth_est.i.i, align 8
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %8, i64 184
+  %10 = load i32, ptr %depth_est2.i.i, align 8
+  %cond.i.i = tail call i32 @llvm.umax.i32(i32 %9, i32 %10)
   %add.i.i = add i32 %cond.i.i, 1
   %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i, ptr %depth_est.i, align 8
-  %call.i = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %10, i32 noundef 1, ptr noundef nonnull %replacement_parent)
-  %13 = load ptr, ptr %replacement_parent, align 8
-  %cmp15 = icmp eq ptr %13, %this
+  %call.i = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %8, i32 noundef 1, ptr noundef nonnull %replacement_parent)
+  %11 = load ptr, ptr %replacement_parent, align 8
+  %cmp15 = icmp eq ptr %11, %this
   %m_left_child17 = getelementptr inbounds i8, ptr %call.i, i64 160
   br i1 %cmp15, label %if.then16, label %if.else
 
@@ -1009,26 +1004,26 @@ if.then16:                                        ; preds = %_ZN4toku8treenode9c
   br label %if.end38
 
 if.else:                                          ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
-  %m_right_child20 = getelementptr inbounds i8, ptr %13, i64 176
+  %m_right_child20 = getelementptr inbounds i8, ptr %11, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child20, ptr noundef nonnull align 8 dereferenceable(16) %m_left_child17, i64 16, i1 false)
   br label %if.end38
 
 if.else22:                                        ; preds = %if.end5
-  %14 = xor i1 %cmp3, true
-  tail call void @llvm.assume(i1 %14)
+  %12 = xor i1 %cmp3, true
+  tail call void @llvm.assume(i1 %12)
   %call.i.i.i18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #16
-  %15 = load ptr, ptr %m_right_child, align 8
-  %depth_est.i.i19 = getelementptr inbounds i8, ptr %15, i64 168
-  %16 = load i32, ptr %depth_est.i.i19, align 8
-  %depth_est2.i.i20 = getelementptr inbounds i8, ptr %15, i64 184
-  %17 = load i32, ptr %depth_est2.i.i20, align 8
-  %cond.i.i21 = tail call i32 @llvm.umax.i32(i32 %16, i32 %17)
+  %13 = load ptr, ptr %m_right_child, align 8
+  %depth_est.i.i19 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = load i32, ptr %depth_est.i.i19, align 8
+  %depth_est2.i.i20 = getelementptr inbounds i8, ptr %13, i64 184
+  %15 = load i32, ptr %depth_est2.i.i20, align 8
+  %cond.i.i21 = tail call i32 @llvm.umax.i32(i32 %14, i32 %15)
   %add.i.i22 = add i32 %cond.i.i21, 1
   %depth_est.i23 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i22, ptr %depth_est.i23, align 8
-  %call.i26 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %15, i32 noundef -1, ptr noundef nonnull %replacement_parent)
-  %18 = load ptr, ptr %replacement_parent, align 8
-  %cmp30 = icmp eq ptr %18, %this
+  %call.i26 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %13, i32 noundef -1, ptr noundef nonnull %replacement_parent)
+  %16 = load ptr, ptr %replacement_parent, align 8
+  %cmp30 = icmp eq ptr %16, %this
   %m_right_child32 = getelementptr inbounds i8, ptr %call.i26, i64 176
   br i1 %cmp30, label %if.then31, label %if.else34
 
@@ -1037,83 +1032,82 @@ if.then31:                                        ; preds = %if.else22
   br label %if.end38
 
 if.else34:                                        ; preds = %if.else22
-  %m_left_child36 = getelementptr inbounds i8, ptr %18, i64 160
+  %m_left_child36 = getelementptr inbounds i8, ptr %16, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child36, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child32, i64 16, i1 false)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then31, %if.else34, %if.then16, %if.else
-  %child.0 = phi ptr [ %10, %if.then16 ], [ %10, %if.else ], [ %15, %if.then31 ], [ %15, %if.else34 ]
+  %child.0 = phi ptr [ %8, %if.then16 ], [ %8, %if.else ], [ %13, %if.then31 ], [ %13, %if.else34 ]
   %replacement.0 = phi ptr [ %call.i, %if.then16 ], [ %call.i, %if.else ], [ %call.i26, %if.then31 ], [ %call.i26, %if.else34 ]
   %call.i.i27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %child.0) #16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %tmp_range.i)
   %m_range.i28 = getelementptr inbounds i8, ptr %replacement.0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %tmp_range.i, ptr noundef nonnull align 8 dereferenceable(88) %m_range.i28, i64 88, i1 false)
   %m_txnid.i = getelementptr inbounds i8, ptr %replacement.0, i64 136
-  %19 = load i64, ptr %m_txnid.i, align 8
+  %17 = load i64, ptr %m_txnid.i, align 8
   %m_range1.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i28, ptr noundef nonnull align 8 dereferenceable(81) %m_range1.i, i64 81, i1 false)
   %m_txnid3.i = getelementptr inbounds i8, ptr %this, i64 136
-  %20 = load i64, ptr %m_txnid3.i, align 8
-  store i64 %20, ptr %m_txnid.i, align 8
+  %18 = load i64, ptr %m_txnid3.i, align 8
+  store i64 %18, ptr %m_txnid.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range1.i, ptr noundef nonnull align 8 dereferenceable(81) %tmp_range.i, i64 81, i1 false)
-  store i64 %19, ptr %m_txnid3.i, align 8
+  store i64 %17, ptr %m_txnid3.i, align 8
   %m_is_shared.i = getelementptr inbounds i8, ptr %replacement.0, i64 144
-  %21 = load i8, ptr %m_is_shared.i, align 8
-  %22 = and i8 %21, 1
+  %19 = load i8, ptr %m_is_shared.i, align 8
+  %frombool.i = and i8 %19, 1
   %m_is_shared7.i = getelementptr inbounds i8, ptr %this, i64 144
-  %23 = load i8, ptr %m_is_shared7.i, align 8
-  %24 = and i8 %23, 1
-  store i8 %24, ptr %m_is_shared.i, align 8
-  store i8 %22, ptr %m_is_shared7.i, align 8
+  %20 = load i8, ptr %m_is_shared7.i, align 8
+  %frombool10.i = and i8 %20, 1
+  store i8 %frombool10.i, ptr %m_is_shared.i, align 8
+  store i8 %frombool.i, ptr %m_is_shared7.i, align 8
   %m_owners.i29 = getelementptr inbounds i8, ptr %replacement.0, i64 152
-  %25 = load ptr, ptr %m_owners.i29, align 8
+  %21 = load ptr, ptr %m_owners.i29, align 8
   %m_owners14.i = getelementptr inbounds i8, ptr %this, i64 152
-  %26 = load ptr, ptr %m_owners14.i, align 8
-  store ptr %26, ptr %m_owners.i29, align 8
-  store ptr %25, ptr %m_owners14.i, align 8
+  %22 = load ptr, ptr %m_owners14.i, align 8
+  store ptr %22, ptr %m_owners.i29, align 8
+  store ptr %21, ptr %m_owners14.i, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %tmp_range.i)
   tail call void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i28)
-  %27 = load ptr, ptr %m_owners.i29, align 8
-  %tobool.not.i32 = icmp eq ptr %27, null
+  %23 = load ptr, ptr %m_owners.i29, align 8
+  %tobool.not.i32 = icmp eq ptr %23, null
   br i1 %tobool.not.i32, label %if.end.i37, label %delete.notnull.i33
 
 delete.notnull.i33:                               ; preds = %if.end38
-  %_M_parent.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %27, i64 16
-  %28 = load ptr, ptr %_M_parent.i.i.i.i.i.i34, align 8
-  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %28)
+  %_M_parent.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load ptr, ptr %_M_parent.i.i.i.i.i.i34, align 8
+  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %24)
           to label %_ZN11TxnidVectorD2Ev.exit.i36 unwind label %terminate.lpad.i.i.i.i35
 
 terminate.lpad.i.i.i.i35:                         ; preds = %delete.notnull.i33
-  %29 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #19
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #19
   unreachable
 
 _ZN11TxnidVectorD2Ev.exit.i36:                    ; preds = %delete.notnull.i33
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #20
   store ptr null, ptr %m_owners.i29, align 8
   br label %if.end.i37
 
 if.end.i37:                                       ; preds = %_ZN11TxnidVectorD2Ev.exit.i36, %if.end38
   %m_is_root.i.i38 = getelementptr inbounds i8, ptr %replacement.0, i64 200
-  %31 = load i8, ptr %m_is_root.i.i38, align 8
-  %32 = and i8 %31, 1
-  %tobool.i.not.i39 = icmp eq i8 %32, 0
-  br i1 %tobool.i.not.i39, label %if.else.i42, label %if.then3.i40
+  %27 = load i8, ptr %m_is_root.i.i38, align 8
+  %tobool.i.i39 = trunc i8 %27 to i1
+  br i1 %tobool.i.i39, label %if.then3.i42, label %if.else.i40
 
-if.then3.i40:                                     ; preds = %if.end.i37
-  %m_is_empty.i41 = getelementptr inbounds i8, ptr %replacement.0, i64 201
-  store i8 1, ptr %m_is_empty.i41, align 1
+if.then3.i42:                                     ; preds = %if.end.i37
+  %m_is_empty.i43 = getelementptr inbounds i8, ptr %replacement.0, i64 201
+  store i8 1, ptr %m_is_empty.i43, align 1
   br label %return
 
-if.else.i42:                                      ; preds = %if.end.i37
-  %call.i.i43 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %replacement.0) #16
+if.else.i40:                                      ; preds = %if.end.i37
+  %call.i.i41 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %replacement.0) #16
   tail call void @_Z9toku_freePv(ptr noundef nonnull %replacement.0)
   br label %return
 
-return:                                           ; preds = %if.else.i42, %if.then3.i40, %if.else.i, %if.then3.i
-  %retval.0 = phi ptr [ null, %if.then3.i ], [ null, %if.else.i ], [ %this, %if.then3.i40 ], [ %this, %if.else.i42 ]
+return:                                           ; preds = %if.else.i40, %if.then3.i42, %if.else.i, %if.then3.i
+  %retval.0 = phi ptr [ null, %if.then3.i ], [ null, %if.else.i ], [ %this, %if.then3.i42 ], [ %this, %if.else.i40 ]
   ret ptr %retval.0
 }
 
@@ -1174,9 +1168,8 @@ _ZN11TxnidVectorD2Ev.exit.i:                      ; preds = %delete.notnull.i
 if.end.i:                                         ; preds = %_ZN11TxnidVectorD2Ev.exit.i, %if.end6
   %m_is_root.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %6 = load i8, ptr %m_is_root.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.i.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then3.i
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %m_is_empty.i = getelementptr inbounds i8, ptr %this, i64 201

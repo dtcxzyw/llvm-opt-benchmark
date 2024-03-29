@@ -6267,8 +6267,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_isNoOp.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i8, ptr %m_isNoOp.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -6278,8 +6277,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_isIdentity.i = getelementptr inbounds i8, ptr %0, i64 65
   %1 = load i8, ptr %m_isIdentity.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -6289,8 +6287,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_hasChannelCrosstalk.i = getelementptr inbounds i8, ptr %0, i64 66
   %1 = load i8, ptr %m_hasChannelCrosstalk.i, align 2
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -14976,7 +14973,7 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
@@ -15129,7 +15126,7 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

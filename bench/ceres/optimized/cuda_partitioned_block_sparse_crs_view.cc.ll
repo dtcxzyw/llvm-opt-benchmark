@@ -197,32 +197,31 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31: ; preds = %_ZN5
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %3, i64 1024
   %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, 1
-  %81 = icmp ne i8 %80, 0
-  invoke void @_ZN5ceres8internal27FillCRSStructurePartitionedEiiiiiPKiPKNS0_4CellEPKNS0_5BlockES8_PiS9_S9_S9_P11CUstream_stb(i32 noundef %63, i32 noundef %29, i32 noundef %60, i32 noundef %2, i32 noundef %31, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %77, i1 noundef zeroext %81)
-          to label %82 unwind label %101
+  %80 = trunc i8 %79 to i1
+  invoke void @_ZN5ceres8internal27FillCRSStructurePartitionedEiiiiiPKiPKNS0_4CellEPKNS0_5BlockES8_PiS9_S9_S9_P11CUstream_stb(i32 noundef %63, i32 noundef %29, i32 noundef %60, i32 noundef %2, i32 noundef %31, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %77, i1 noundef zeroext %80)
+          to label %81 unwind label %101
 
-82:                                               ; preds = %57
-  %83 = load ptr, ptr %14, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
-  %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not = icmp eq i8 %86, 0
-  %87 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 %86, ptr %87, align 8
-  br i1 %.not, label %103, label %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit
+81:                                               ; preds = %57
+  %82 = load ptr, ptr %14, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = load i8, ptr %83, align 8
+  %85 = trunc i8 %84 to i1
+  %86 = getelementptr inbounds i8, ptr %0, i64 32
+  %87 = and i8 %84, 1
+  store i8 %87, ptr %86, align 8
+  br i1 %85, label %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit, label %103
 
-_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit: ; preds = %82
+_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit: ; preds = %81
   store ptr null, ptr %14, align 8
-  %88 = getelementptr inbounds i8, ptr %83, i64 136
+  %88 = getelementptr inbounds i8, ptr %82, i64 136
   call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #14
-  %89 = getelementptr inbounds i8, ptr %83, i64 112
+  %89 = getelementptr inbounds i8, ptr %82, i64 112
   call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %89) #14
-  %90 = getelementptr inbounds i8, ptr %83, i64 88
+  %90 = getelementptr inbounds i8, ptr %82, i64 88
   call void @_ZN5ceres8internal10CudaBufferINS0_4CellEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #14
-  %91 = getelementptr inbounds i8, ptr %83, i64 64
+  %91 = getelementptr inbounds i8, ptr %82, i64 64
   call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %91) #14
-  %92 = getelementptr inbounds i8, ptr %83, i64 40
+  %92 = getelementptr inbounds i8, ptr %82, i64 40
   call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %92) #14
   br label %_ZNSt10unique_ptrIN5ceres8internal18CudaStreamedBufferIdEESt14default_deleteIS3_EED2Ev.exit.sink.split
 
@@ -256,7 +255,7 @@ _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteI
   call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   br label %142
 
-103:                                              ; preds = %82
+103:                                              ; preds = %81
   %104 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12
           to label %.noexc34 unwind label %101
 
@@ -281,7 +280,7 @@ _ZNKSt14default_deleteIN5ceres8internal18CudaStreamedBufferIdEEEclEPS3_.exit.i.i
   br label %_ZNSt10unique_ptrIN5ceres8internal18CudaStreamedBufferIdEESt14default_deleteIS3_EED2Ev.exit.sink.split
 
 _ZNSt10unique_ptrIN5ceres8internal18CudaStreamedBufferIdEESt14default_deleteIS3_EED2Ev.exit.sink.split: ; preds = %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIN5ceres8internal18CudaStreamedBufferIdEEEclEPS3_.exit.i.i.i.i
-  %.sink = phi ptr [ %107, %_ZNKSt14default_deleteIN5ceres8internal18CudaStreamedBufferIdEEEclEPS3_.exit.i.i.i.i ], [ %83, %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit ]
+  %.sink = phi ptr [ %107, %_ZNKSt14default_deleteIN5ceres8internal18CudaStreamedBufferIdEEEclEPS3_.exit.i.i.i.i ], [ %82, %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #13
   br label %_ZNSt10unique_ptrIN5ceres8internal18CudaStreamedBufferIdEESt14default_deleteIS3_EED2Ev.exit
 
@@ -333,11 +332,11 @@ _ZSt11make_uniqueIN5ceres8internal16CudaSparseMatrixEJRKiNS1_10CudaBufferIiEES6_
 _ZNKSt14default_deleteIN5ceres8internal16CudaSparseMatrixEEclEPS2_.exit.i.i.i.i49: ; preds = %_ZSt11make_uniqueIN5ceres8internal16CudaSparseMatrixEJRKiNS1_10CudaBufferIiEES6_RPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit47
   call void @_ZN5ceres8internal16CudaSparseMatrixD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %115) #14
   call void @_ZdlPv(ptr noundef nonnull %115) #13
-  %.pre82 = load ptr, ptr %12, align 8
+  %.pre81 = load ptr, ptr %12, align 8
   br label %_ZNSt10unique_ptrIN5ceres8internal16CudaSparseMatrixESt14default_deleteIS2_EED2Ev.exit53
 
 _ZNSt10unique_ptrIN5ceres8internal16CudaSparseMatrixESt14default_deleteIS2_EED2Ev.exit53: ; preds = %_ZNKSt14default_deleteIN5ceres8internal16CudaSparseMatrixEEclEPS2_.exit.i.i.i.i49, %_ZSt11make_uniqueIN5ceres8internal16CudaSparseMatrixEJRKiNS1_10CudaBufferIiEES6_RPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit47
-  %116 = phi ptr [ %.pre82, %_ZNKSt14default_deleteIN5ceres8internal16CudaSparseMatrixEEclEPS2_.exit.i.i.i.i49 ], [ %112, %_ZSt11make_uniqueIN5ceres8internal16CudaSparseMatrixEJRKiNS1_10CudaBufferIiEES6_RPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit47 ]
+  %116 = phi ptr [ %.pre81, %_ZNKSt14default_deleteIN5ceres8internal16CudaSparseMatrixEEclEPS2_.exit.i.i.i.i49 ], [ %112, %_ZSt11make_uniqueIN5ceres8internal16CudaSparseMatrixEJRKiNS1_10CudaBufferIiEES6_RPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit47 ]
   %117 = load i32, ptr %32, align 4
   %118 = load ptr, ptr %0, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 8
@@ -384,8 +383,8 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr %131, ptr %10, align 8
-  %.not81 = icmp eq ptr %131, null
-  br i1 %.not81, label %140, label %134
+  %.not = icmp eq ptr %131, null
+  br i1 %.not, label %140, label %134
 
 134:                                              ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit
   invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull @.str.3, i32 noundef 97, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -540,11 +539,10 @@ define hidden void @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSView12Updat
   %28 = alloca %"class.google::LogMessageFatal", align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
+  %31 = trunc i8 %30 to i1
   %indvars.iv.i.sroa.gep27 = getelementptr inbounds i8, ptr %12, i64 8
   %indvars.iv.i.sroa.gep30 = getelementptr inbounds i8, ptr %11, i64 8
-  br i1 %.not, label %95, label %32
+  br i1 %31, label %32, label %95
 
 32:                                               ; preds = %2
   %33 = load ptr, ptr %0, align 8
@@ -1137,8 +1135,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %277, ptr %27, align 8
-  %.not36 = icmp eq ptr %277, null
-  br i1 %.not36, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit10.thread, label %280
+  %.not = icmp eq ptr %277, null
+  br i1 %.not, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit10.thread, label %280
 
 280:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit15
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull @.str.3, i32 noundef 148, ptr noundef nonnull align 8 dereferenceable(8) %27)

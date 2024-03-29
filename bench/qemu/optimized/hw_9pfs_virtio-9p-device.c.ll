@@ -99,16 +99,15 @@ entry:
   %0 = load ptr, ptr %fsdev_id, align 8
   %call2 = tail call ptr @get_fsdev_fsentry(ptr noundef %0) #6
   %1 = load i8, ptr @qtest_allowed, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   %tobool = icmp ne ptr %call2, null
   %or.cond = select i1 %tobool.i, i1 %tobool, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %export_flags = getelementptr inbounds i8, ptr %call2, i64 16
-  %3 = load i32, ptr %export_flags, align 8
-  %or = or i32 %3, 2048
+  %2 = load i32, ptr %export_flags, align 8
+  %or = or i32 %2, 2048
   store i32 %or, ptr %export_flags, align 8
   br label %if.end
 
@@ -118,8 +117,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %4 = load ptr, ptr %fsconf, align 8
-  %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
+  %3 = load ptr, ptr %fsconf, align 8
+  %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   %add = add i64 %call9, 2
   %config_size = getelementptr inbounds i8, ptr %call.i9, i64 528
   store i64 %add, ptr %config_size, align 8

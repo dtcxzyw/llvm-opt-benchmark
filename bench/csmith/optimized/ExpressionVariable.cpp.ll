@@ -668,9 +668,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %17, i64 83
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %66, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %66
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %17, i64 32

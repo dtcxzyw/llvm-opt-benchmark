@@ -363,56 +363,55 @@ if.end:                                           ; preds = %entry
   %idxprom.i = sext i32 %proxyId to i64
   %moved.i = getelementptr inbounds %struct.b2TreeNode, ptr %1, i64 %idxprom.i, i32 6
   %2 = load i8, ptr %moved.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i = icmp ne i8 %3, 0
+  %tobool.i = trunc i8 %2 to i1
   %cmp3 = icmp slt i32 %0, %proxyId
   %or.cond = and i1 %cmp3, %tobool.i
   br i1 %or.cond, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %m_pairCount = getelementptr inbounds i8, ptr %this, i64 68
-  %4 = load i32, ptr %m_pairCount, align 4
+  %3 = load i32, ptr %m_pairCount, align 4
   %m_pairCapacity = getelementptr inbounds i8, ptr %this, i64 64
-  %5 = load i32, ptr %m_pairCapacity, align 8
-  %cmp6 = icmp eq i32 %4, %5
+  %4 = load i32, ptr %m_pairCapacity, align 8
+  %cmp6 = icmp eq i32 %3, %4
   br i1 %cmp6, label %if.then7, label %if.end19
 
 if.then7:                                         ; preds = %if.end5
   %m_pairBuffer = getelementptr inbounds i8, ptr %this, i64 56
-  %6 = load ptr, ptr %m_pairBuffer, align 8
-  %shr = ashr i32 %4, 1
-  %add = add nsw i32 %shr, %4
+  %5 = load ptr, ptr %m_pairBuffer, align 8
+  %shr = ashr i32 %3, 1
+  %add = add nsw i32 %shr, %3
   store i32 %add, ptr %m_pairCapacity, align 8
   %mul = shl i32 %add, 3
   %call.i = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul)
   store ptr %call.i, ptr %m_pairBuffer, align 8
-  %7 = load i32, ptr %m_pairCount, align 4
-  %conv17 = sext i32 %7 to i64
+  %6 = load i32, ptr %m_pairCount, align 4
+  %conv17 = sext i32 %6 to i64
   %mul18 = shl nsw i64 %conv17, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i, ptr align 4 %6, i64 %mul18, i1 false)
-  tail call void @_Z14b2Free_DefaultPv(ptr noundef %6)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i, ptr align 4 %5, i64 %mul18, i1 false)
+  tail call void @_Z14b2Free_DefaultPv(ptr noundef %5)
   %.pre = load i32, ptr %m_queryProxyId, align 8
   %.pre7 = load i32, ptr %m_pairCount, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then7, %if.end5
-  %8 = phi i32 [ %.pre7, %if.then7 ], [ %4, %if.end5 ]
-  %9 = phi i32 [ %.pre, %if.then7 ], [ %0, %if.end5 ]
-  %cond.i = tail call noundef i32 @llvm.smin.i32(i32 %proxyId, i32 %9)
+  %7 = phi i32 [ %.pre7, %if.then7 ], [ %3, %if.end5 ]
+  %8 = phi i32 [ %.pre, %if.then7 ], [ %0, %if.end5 ]
+  %cond.i = tail call noundef i32 @llvm.smin.i32(i32 %proxyId, i32 %8)
   %m_pairBuffer22 = getelementptr inbounds i8, ptr %this, i64 56
-  %10 = load ptr, ptr %m_pairBuffer22, align 8
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds %struct.b2Pair, ptr %10, i64 %idxprom
+  %9 = load ptr, ptr %m_pairBuffer22, align 8
+  %idxprom = sext i32 %7 to i64
+  %arrayidx = getelementptr inbounds %struct.b2Pair, ptr %9, i64 %idxprom
   store i32 %cond.i, ptr %arrayidx, align 4
-  %11 = load i32, ptr %m_queryProxyId, align 8
-  %cond.i6 = tail call noundef i32 @llvm.smax.i32(i32 %proxyId, i32 %11)
-  %12 = load ptr, ptr %m_pairBuffer22, align 8
-  %13 = load i32, ptr %m_pairCount, align 4
-  %idxprom28 = sext i32 %13 to i64
-  %proxyIdB = getelementptr inbounds %struct.b2Pair, ptr %12, i64 %idxprom28, i32 1
+  %10 = load i32, ptr %m_queryProxyId, align 8
+  %cond.i6 = tail call noundef i32 @llvm.smax.i32(i32 %proxyId, i32 %10)
+  %11 = load ptr, ptr %m_pairBuffer22, align 8
+  %12 = load i32, ptr %m_pairCount, align 4
+  %idxprom28 = sext i32 %12 to i64
+  %proxyIdB = getelementptr inbounds %struct.b2Pair, ptr %11, i64 %idxprom28, i32 1
   store i32 %cond.i6, ptr %proxyIdB, align 4
-  %14 = load i32, ptr %m_pairCount, align 4
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_pairCount, align 4
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_pairCount, align 4
   br label %return
 

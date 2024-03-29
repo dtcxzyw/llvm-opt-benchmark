@@ -216,41 +216,39 @@ define internal ptr @CteScanNext(ptr nocapture noundef readonly %0) #0 {
   %13 = getelementptr inbounds i8, ptr %0, i64 216
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @tuplestore_ateof(ptr noundef %10) #3
-  %.not37 = xor i1 %15, true
-  %brmerge = select i1 %6, i1 true, i1 %.not37
+  %.not35 = xor i1 %15, true
+  %brmerge = select i1 %6, i1 true, i1 %.not35
   br i1 %brmerge, label %23, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 256
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %.thread
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
   %22 = tail call zeroext i1 @tuplestore_advance(ptr noundef %10, i1 noundef zeroext false) #3
   br i1 %22, label %.thread, label %58
 
 23:                                               ; preds = %1
-  br i1 %15, label %.thread40, label %.thread
+  br i1 %15, label %.thread38, label %.thread
 
 .thread:                                          ; preds = %16, %21, %23
   %24 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %10, i1 noundef zeroext %6, i1 noundef zeroext true, ptr noundef %14) #3
   br i1 %24, label %58, label %25
 
 25:                                               ; preds = %.thread
-  br i1 %6, label %.thread40, label %53
+  br i1 %6, label %.thread38, label %53
 
-.thread40:                                        ; preds = %23, %25
+.thread38:                                        ; preds = %23, %25
   %26 = load ptr, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 256
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not35 = icmp eq i8 %29, 0
-  br i1 %.not35, label %30, label %53
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %53, label %30
 
-30:                                               ; preds = %.thread40
+30:                                               ; preds = %.thread38
   %31 = getelementptr inbounds i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 104
@@ -273,8 +271,8 @@ ExecProcNode.exit:                                ; preds = %30, %35
   %41 = getelementptr inbounds i8, ptr %38, i64 4
   %42 = load i16, ptr %41, align 4
   %43 = and i16 %42, 2
-  %.not36 = icmp eq i16 %43, 0
-  br i1 %.not36, label %47, label %44
+  %.not = icmp eq i16 %43, 0
+  br i1 %.not, label %47, label %44
 
 44:                                               ; preds = %40, %ExecProcNode.exit
   %45 = load ptr, ptr %7, align 8
@@ -293,7 +291,7 @@ ExecProcNode.exit:                                ; preds = %30, %35
   tail call void %52(ptr noundef %14, ptr noundef nonnull %38) #3
   br label %58
 
-53:                                               ; preds = %.thread40, %25
+53:                                               ; preds = %.thread38, %25
   %54 = getelementptr inbounds i8, ptr %14, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 24

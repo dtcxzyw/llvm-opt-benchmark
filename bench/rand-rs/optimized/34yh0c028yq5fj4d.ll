@@ -6,27 +6,27 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2445b6c46356fdc0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %trunc31.not = icmp eq i64 %4, 0
+  %trunc30 = trunc i64 %4 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val38 = load i64, ptr %5, align 8, !noundef !5
+  %.val44 = load i64, ptr %5, align 8, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %.val36 = load i64, ptr %6, align 8, !noundef !5
-  %.not.i = icmp eq i64 %.val38, %.val36
-  br i1 %trunc.not, label %7, label %8
+  %.val42 = load i64, ptr %6, align 8, !noundef !5
+  %.not.i46 = icmp eq i64 %.val44, %.val42
+  br i1 %trunc, label %8, label %7
 
 7:                                                ; preds = %2
-  br i1 %trunc31.not, label %9, label %10
+  br i1 %trunc30, label %10, label %9
 
 8:                                                ; preds = %2
-  br i1 %trunc31.not, label %27, label %28
+  br i1 %trunc30, label %28, label %27
 
 9:                                                ; preds = %7
-  br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+  br i1 %.not.i46, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 10:                                               ; preds = %7
-  br i1 %.not.i, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+  br i1 %.not.i46, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split": ; preds = %9, %28
   %.sink77 = phi i64 [ 3, %28 ], [ 2, %9 ]
@@ -34,13 +34,13 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %.val41 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %.val43 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %13 = shl nsw i64 %.val38, %.sink77
+  %13 = shl nsw i64 %.val44, %.sink77
   %bcmp.i48 = tail call i32 @bcmp(ptr nonnull %.val43, ptr nonnull %.val41, i64 %13)
   %14 = icmp eq i32 %bcmp.i48, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit": ; preds = %36, %34, %22, %20, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", %28, %9, %27, %10
-  %.0.shrunk = phi i1 [ false, %10 ], [ false, %27 ], [ false, %9 ], [ false, %28 ], [ %14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split" ], [ %exitcond68, %20 ], [ %exitcond68, %22 ], [ %exitcond, %34 ], [ %exitcond, %36 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit": ; preds = %22, %20, %36, %34, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", %28, %9, %27, %10
+  %.0.shrunk = phi i1 [ false, %10 ], [ false, %27 ], [ false, %9 ], [ false, %28 ], [ %14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split" ], [ %exitcond68, %34 ], [ %exitcond68, %36 ], [ %exitcond, %20 ], [ %exitcond, %22 ]
   ret i1 %.0.shrunk
 
 15:                                               ; preds = %10
@@ -52,8 +52,8 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 
 20:                                               ; preds = %22, %15
   %21 = phi i64 [ %23, %22 ], [ 0, %15 ]
-  %exitcond68 = icmp eq i64 %21, %.val38
-  br i1 %exitcond68, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %22
+  %exitcond = icmp eq i64 %21, %.val44
+  br i1 %exitcond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %22
 
 22:                                               ; preds = %20
   %23 = add i64 %21, 1
@@ -66,10 +66,10 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   br i1 %.not.i45, label %20, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 27:                                               ; preds = %8
-  br i1 %.not.i, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+  br i1 %.not.i46, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 28:                                               ; preds = %8
-  br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+  br i1 %.not.i46, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %0, i64 16
@@ -80,8 +80,8 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 
 34:                                               ; preds = %36, %29
   %35 = phi i64 [ %37, %36 ], [ 0, %29 ]
-  %exitcond = icmp eq i64 %35, %.val38
-  br i1 %exitcond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %36
+  %exitcond68 = icmp eq i64 %35, %.val44
+  br i1 %exitcond68, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %36
 
 36:                                               ; preds = %34
   %37 = add i64 %35, 1

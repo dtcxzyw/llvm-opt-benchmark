@@ -105,9 +105,8 @@ define dso_local void @_ZN5vcpkg40command_z_preregister_telemetry_and_exitERKNS_
   call void @_ZNK5vcpkg17VcpkgCmdArguments15parse_argumentsERKNS_15CommandMetadataE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ParsedArguments") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull align 8 dereferenceable(184) @_ZN5vcpkg36CommandZPreregisterTelemetryMetadataE)
   call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #8
   %7 = load atomic i8, ptr @_ZN5vcpkg17g_metrics_enabledE seq_cst, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %37, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %37
 
 9:                                                ; preds = %2
   store atomic i8 1, ptr @_ZN5vcpkg22g_should_print_metricsE seq_cst, align 1

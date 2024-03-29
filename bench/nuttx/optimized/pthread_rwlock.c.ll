@@ -65,9 +65,8 @@ define i32 @pthread_rwlock_unlock(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 96
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not16 = icmp eq i8 %12, 0
-  br i1 %.not16, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
   store i8 0, ptr %10, align 8

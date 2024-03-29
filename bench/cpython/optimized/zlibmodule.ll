@@ -2531,9 +2531,8 @@ define internal void @Comp_dealloc(ptr noundef %self) #0 {
 entry:
   %is_initialised = getelementptr inbounds i8, ptr %self, i64 145
   %0 = load i8, ptr %is_initialised, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %zst = getelementptr inbounds i8, ptr %self, i64 16
@@ -3399,9 +3398,8 @@ define internal void @Decomp_dealloc(ptr noundef %self) #0 {
 entry:
   %is_initialised = getelementptr inbounds i8, ptr %self, i64 145
   %0 = load i8, ptr %is_initialised, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %zst = getelementptr inbounds i8, ptr %self, i64 16
@@ -4464,9 +4462,8 @@ entry:
   tail call void @PyThread_free_lock(ptr noundef %1) #6
   %is_initialised = getelementptr inbounds i8, ptr %self, i64 176
   %2 = load i8, ptr %is_initialised, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %zst = getelementptr inbounds i8, ptr %self, i64 16
@@ -4475,62 +4472,62 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %input_buffer = getelementptr inbounds i8, ptr %self, i64 152
-  %4 = load ptr, ptr %input_buffer, align 8
-  tail call void @PyMem_Free(ptr noundef %4) #6
+  %3 = load ptr, ptr %input_buffer, align 8
+  tail call void @PyMem_Free(ptr noundef %3) #6
   %unused_data = getelementptr inbounds i8, ptr %self, i64 144
-  %5 = load ptr, ptr %unused_data, align 8
-  %cmp.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %unused_data, align 8
+  %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %do.body4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   store ptr null, ptr %unused_data, align 8
-  %6 = load i64, ptr %5, align 8
-  %7 = and i64 %6, 2147483648
-  %cmp.i30.not = icmp eq i64 %7, 0
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %5, 2147483648
+  %cmp.i30.not = icmp eq i64 %6, 0
   br i1 %cmp.i30.not, label %if.end.i23, label %do.body4
 
 if.end.i23:                                       ; preds = %if.then2
-  %dec.i24 = add i64 %6, -1
-  store i64 %dec.i24, ptr %5, align 8
+  %dec.i24 = add i64 %5, -1
+  store i64 %dec.i24, ptr %4, align 8
   %cmp.i25 = icmp eq i64 %dec.i24, 0
   br i1 %cmp.i25, label %if.then1.i26, label %do.body4
 
 if.then1.i26:                                     ; preds = %if.end.i23
-  tail call void @_Py_Dealloc(ptr noundef nonnull %5) #6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %4) #6
   br label %do.body4
 
 do.body4:                                         ; preds = %if.end.i23, %if.then1.i26, %if.then2, %if.end
   %zdict = getelementptr inbounds i8, ptr %self, i64 128
-  %8 = load ptr, ptr %zdict, align 8
-  %cmp7.not = icmp eq ptr %8, null
+  %7 = load ptr, ptr %zdict, align 8
+  %cmp7.not = icmp eq ptr %7, null
   br i1 %cmp7.not, label %do.end10, label %if.then8
 
 if.then8:                                         ; preds = %do.body4
   store ptr null, ptr %zdict, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i33.not = icmp eq i64 %10, 0
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i33.not = icmp eq i64 %9, 0
   br i1 %cmp.i33.not, label %if.end.i14, label %do.end10
 
 if.end.i14:                                       ; preds = %if.then8
-  %dec.i15 = add i64 %9, -1
-  store i64 %dec.i15, ptr %8, align 8
+  %dec.i15 = add i64 %8, -1
+  store i64 %dec.i15, ptr %7, align 8
   %cmp.i16 = icmp eq i64 %dec.i15, 0
   br i1 %cmp.i16, label %if.then1.i17, label %do.end10
 
 if.then1.i17:                                     ; preds = %if.end.i14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %8) #6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #6
   br label %do.end10
 
 do.end10:                                         ; preds = %do.body4, %if.then8, %if.then1.i17, %if.end.i14
   tail call void @PyObject_Free(ptr noundef nonnull %self) #6
-  %11 = load i64, ptr %self.val, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i37.not = icmp eq i64 %12, 0
+  %10 = load i64, ptr %self.val, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i37.not = icmp eq i64 %11, 0
   br i1 %cmp.i37.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %do.end10
-  %dec.i = add i64 %11, -1
+  %dec.i = add i64 %10, -1
   store i64 %dec.i, ptr %self.val, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit

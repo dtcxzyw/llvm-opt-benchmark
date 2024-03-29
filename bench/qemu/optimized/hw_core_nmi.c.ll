@@ -26,14 +26,13 @@ entry:
   %call.i = call i32 @object_child_foreach(ptr noundef %call, ptr noundef nonnull @do_nmi, ptr noundef nonnull %ns) #3
   %handled = getelementptr inbounds i8, ptr %ns, i64 16
   %0 = load i8, ptr %handled, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %err = getelementptr inbounds i8, ptr %ns, i64 8
-  %2 = load ptr, ptr %err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %2) #3
+  %1 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %errp, ptr noundef %1) #3
   br label %if.end
 
 if.else:                                          ; preds = %entry

@@ -164,17 +164,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %0) #4
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0) #4
   br label %trace_usb_ohci_exit.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -185,8 +184,8 @@ trace_usb_ohci_exit.exit:                         ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @ohci_bus_stop(ptr noundef nonnull %state) #4
   %async_td = getelementptr inbounds i8, ptr %call.i, i64 12768
-  %8 = load i32, ptr %async_td, align 16
-  %tobool.not = icmp eq i32 %8, 0
+  %7 = load i32, ptr %async_td, align 16
+  %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_usb_ohci_exit.exit
@@ -198,8 +197,8 @@ if.then:                                          ; preds = %trace_usb_ohci_exit
 if.end:                                           ; preds = %if.then, %trace_usb_ohci_exit.exit
   tail call void @ohci_stop_endpoints(ptr noundef nonnull %state) #4
   %masterbus = getelementptr inbounds i8, ptr %call.i, i64 12784
-  %9 = load ptr, ptr %masterbus, align 16
-  %tobool2.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %masterbus, align 16
+  %tobool2.not = icmp eq ptr %8, null
   br i1 %tobool2.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -208,13 +207,13 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %eof_timer = getelementptr inbounds i8, ptr %call.i, i64 3112
-  %10 = load ptr, ptr %eof_timer, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %eof_timer, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end4
-  tail call void @timer_del(ptr noundef nonnull %10) #4
-  tail call void @g_free(ptr noundef nonnull %10) #4
+  tail call void @timer_del(ptr noundef nonnull %9) #4
+  tail call void @g_free(ptr noundef nonnull %9) #4
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %if.end4, %if.then.i

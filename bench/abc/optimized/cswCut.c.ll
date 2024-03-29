@@ -789,72 +789,71 @@ Aig_ManObj.exit42:                                ; preds = %2, %8
   %26 = and i32 %25, 15
   %switch.tableidx = add nsw i32 %26, -7
   %27 = icmp ult i32 %switch.tableidx, 8
-  br i1 %27, label %switch.hole_check, label %30
+  br i1 %27, label %switch.hole_check, label %29
 
 switch.hole_check:                                ; preds = %Aig_ManObj.exit42
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -47, %switch.maskindex
-  %28 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %28, 0
-  br i1 %switch.lobit.not, label %30, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %29
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.Csw_ObjTwoVarCut, i64 0, i64 %29
+  %28 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.Csw_ObjTwoVarCut, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %30
+  br label %29
 
-30:                                               ; preds = %switch.lookup, %switch.hole_check, %Aig_ManObj.exit42
+29:                                               ; preds = %switch.lookup, %switch.hole_check, %Aig_ManObj.exit42
   %.036 = phi i32 [ %26, %Aig_ManObj.exit42 ], [ %26, %switch.hole_check ], [ %switch.load, %switch.lookup ]
   %.0 = phi i64 [ 0, %Aig_ManObj.exit42 ], [ 0, %switch.hole_check ], [ 1, %switch.lookup ]
   switch i32 %.036, label %.thread49 [
     i32 1, label %.thread
-    i32 2, label %38
-    i32 4, label %43
-    i32 8, label %48
+    i32 2, label %37
+    i32 4, label %42
+    i32 8, label %47
   ]
 
-.thread:                                          ; preds = %30
-  %31 = ptrtoint ptr %19 to i64
-  %32 = xor i64 %31, 1
-  %33 = inttoptr i64 %32 to ptr
-  %34 = ptrtoint ptr %20 to i64
-  %35 = xor i64 %34, 1
-  %36 = inttoptr i64 %35 to ptr
-  %37 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %33, ptr noundef %36) #8
+.thread:                                          ; preds = %29
+  %30 = ptrtoint ptr %19 to i64
+  %31 = xor i64 %30, 1
+  %32 = inttoptr i64 %31 to ptr
+  %33 = ptrtoint ptr %20 to i64
+  %34 = xor i64 %33, 1
+  %35 = inttoptr i64 %34 to ptr
+  %36 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %32, ptr noundef %35) #8
   br label %.thread47
 
-38:                                               ; preds = %30
-  %39 = ptrtoint ptr %20 to i64
-  %40 = xor i64 %39, 1
-  %41 = inttoptr i64 %40 to ptr
-  %42 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %41) #8
+37:                                               ; preds = %29
+  %38 = ptrtoint ptr %20 to i64
+  %39 = xor i64 %38, 1
+  %40 = inttoptr i64 %39 to ptr
+  %41 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %40) #8
   br label %.thread47
 
-43:                                               ; preds = %30
-  %44 = ptrtoint ptr %19 to i64
-  %45 = xor i64 %44, 1
-  %46 = inttoptr i64 %45 to ptr
-  %47 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %20) #8
+42:                                               ; preds = %29
+  %43 = ptrtoint ptr %19 to i64
+  %44 = xor i64 %43, 1
+  %45 = inttoptr i64 %44 to ptr
+  %46 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %45, ptr noundef %20) #8
   br label %.thread47
 
-48:                                               ; preds = %30
-  %49 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %20) #8
+47:                                               ; preds = %29
+  %48 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %20) #8
   br label %.thread47
 
-.thread47:                                        ; preds = %38, %.thread, %43, %48
-  %.3 = phi ptr [ %49, %48 ], [ %47, %43 ], [ %37, %.thread ], [ %42, %38 ]
+.thread47:                                        ; preds = %37, %.thread, %42, %47
+  %.3 = phi ptr [ %48, %47 ], [ %46, %42 ], [ %36, %.thread ], [ %41, %37 ]
   %.not = icmp eq ptr %.3, null
-  br i1 %.not, label %.thread49, label %50
+  br i1 %.not, label %.thread49, label %49
 
-50:                                               ; preds = %.thread47
-  %51 = ptrtoint ptr %.3 to i64
-  %52 = xor i64 %.0, %51
-  %53 = inttoptr i64 %52 to ptr
+49:                                               ; preds = %.thread47
+  %50 = ptrtoint ptr %.3 to i64
+  %51 = xor i64 %.0, %50
+  %52 = inttoptr i64 %51 to ptr
   br label %.thread49
 
-.thread49:                                        ; preds = %30, %50, %.thread47
-  %.4 = phi ptr [ %53, %50 ], [ null, %.thread47 ], [ null, %30 ]
+.thread49:                                        ; preds = %29, %49, %.thread47
+  %.4 = phi ptr [ %52, %49 ], [ null, %.thread47 ], [ null, %29 ]
   ret ptr %.4
 }
 

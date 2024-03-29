@@ -58,27 +58,23 @@ define dso_local void @InitBufferPool() local_unnamed_addr #0 {
   %25 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.3, i64 noundef %24, ptr noundef nonnull %4) #2
   store ptr %25, ptr @CkptBufferIds, align 8
   %26 = load i8, ptr %2, align 1
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %28, label %60
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %60, label %28
 
 28:                                               ; preds = %0
   %29 = load i8, ptr %1, align 1
-  %30 = and i8 %29, 1
-  %.not12 = icmp eq i8 %30, 0
-  br i1 %.not12, label %31, label %60
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %60, label %31
 
 31:                                               ; preds = %28
   %32 = load i8, ptr %3, align 1
-  %33 = and i8 %32, 1
-  %.not13 = icmp eq i8 %33, 0
-  br i1 %.not13, label %34, label %60
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %60, label %34
 
 34:                                               ; preds = %31
   %35 = load i8, ptr %4, align 1
-  %36 = and i8 %35, 1
-  %.not14 = icmp eq i8 %36, 0
-  br i1 %.not14, label %.preheader, label %60
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %60, label %.preheader
 
 .preheader:                                       ; preds = %34
   %37 = load i32, ptr @NBuffers, align 4
@@ -117,12 +113,12 @@ define dso_local void @InitBufferPool() local_unnamed_addr #0 {
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre.pre = load i8, ptr %2, align 1
-  %.pre21 = and i8 %.pre.pre, 1
-  %55 = icmp eq i8 %.pre21, 0
+  %.pre17 = trunc i8 %.pre.pre to i1
+  %55 = xor i1 %.pre17, true
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.pre20.pre-phi = phi i1 [ %55, %._crit_edge.loopexit ], [ true, %.preheader ]
+  %.pre16.pre-phi = phi i1 [ %55, %._crit_edge.loopexit ], [ true, %.preheader ]
   %.lcssa = phi i32 [ %52, %._crit_edge.loopexit ], [ %37, %.preheader ]
   %56 = add i32 %.lcssa, -1
   %57 = load ptr, ptr @BufferDescriptors, align 8
@@ -132,7 +128,7 @@ define dso_local void @InitBufferPool() local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %0, %28, %31, %34, %._crit_edge
-  %.pre-phi = phi i1 [ false, %0 ], [ true, %28 ], [ true, %31 ], [ true, %34 ], [ %.pre20.pre-phi, %._crit_edge ]
+  %.pre-phi = phi i1 [ false, %0 ], [ true, %28 ], [ true, %31 ], [ true, %34 ], [ %.pre16.pre-phi, %._crit_edge ]
   call void @StrategyInitialize(i1 noundef zeroext %.pre-phi) #2
   call void @WritebackContextInit(ptr noundef nonnull @BackendWritebackContext, ptr noundef nonnull @backend_flush_after) #2
   ret void

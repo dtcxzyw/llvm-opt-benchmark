@@ -1287,8 +1287,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 9, label %.preheader87
     i32 5, label %19
     i32 6, label %tailrecurse.backedge
-    i32 10, label %22
-    i32 7, label %103
+    i32 10, label %21
+    i32 7, label %102
   ]
 
 .preheader:                                       ; preds = %tailrecurse, %9
@@ -1322,158 +1322,157 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 19:                                               ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-switch.hole_check:                                ; preds = %103
-  %switch.maskindex = trunc i32 %107 to i8
+switch.hole_check:                                ; preds = %102
+  %switch.maskindex = trunc i32 %106 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
-  %20 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %20, 0
-  br i1 %switch.lobit.not, label %.critedge, label %tailrecurse.backedge
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %tailrecurse.backedge, label %.critedge
 
 tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse, %19
   %.sink = phi i64 [ 8, %19 ], [ 24, %tailrecurse ], [ 8, %switch.hole_check ]
-  %21 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
-  %.tr.be = load ptr, ptr %21, align 8
+  %20 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
+  %.tr.be = load ptr, ptr %20, align 8
   br label %tailrecurse
 
-22:                                               ; preds = %tailrecurse
-  %23 = getelementptr inbounds i8, ptr %1, i64 168
-  %24 = load ptr, ptr %23, align 8
-  %.not = icmp eq ptr %24, null
-  %25 = getelementptr inbounds i8, ptr %1, i64 104
-  %26 = select i1 %.not, ptr %25, ptr %24
-  %27 = getelementptr inbounds i8, ptr %.tr, i64 8
-  %28 = load i32, ptr %27, align 8
-  %.not79 = icmp eq i32 %28, 0
-  br i1 %.not79, label %76, label %29
+21:                                               ; preds = %tailrecurse
+  %22 = getelementptr inbounds i8, ptr %1, i64 168
+  %23 = load ptr, ptr %22, align 8
+  %.not = icmp eq ptr %23, null
+  %24 = getelementptr inbounds i8, ptr %1, i64 104
+  %25 = select i1 %.not, ptr %24, ptr %23
+  %26 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %27 = load i32, ptr %26, align 8
+  %.not79 = icmp eq i32 %27, 0
+  br i1 %.not79, label %75, label %28
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %1, i64 96
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %42
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds i8, ptr %1, i64 96
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %41
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 4
-  %38 = and i32 %37, 128
-  %.not82 = icmp eq i32 %38, 0
-  br i1 %.not82, label %42, label %39
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %36, 128
+  %.not82 = icmp eq i32 %37, 0
+  br i1 %.not82, label %41, label %38
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr %1, align 8
-  %41 = and i32 %40, 256
-  %.not83 = icmp eq i32 %41, 0
-  br i1 %.not83, label %.critedge, label %42
+38:                                               ; preds = %32
+  %39 = load i32, ptr %1, align 8
+  %40 = and i32 %39, 256
+  %.not83 = icmp eq i32 %40, 0
+  br i1 %.not83, label %.critedge, label %41
 
-42:                                               ; preds = %39, %33, %29
-  %43 = getelementptr inbounds i8, ptr %1, i64 92
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp sgt i32 %28, %44
-  br i1 %45, label %46, label %51
+41:                                               ; preds = %38, %32, %28
+  %42 = getelementptr inbounds i8, ptr %1, i64 92
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp sgt i32 %27, %43
+  br i1 %44, label %45, label %50
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %50 = load ptr, ptr %49, align 8
-  tail call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -218, ptr noundef %48, ptr noundef %50) #20
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %49 = load ptr, ptr %48, align 8
+  tail call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -218, ptr noundef %47, ptr noundef %49) #20
   br label %.critedge
 
-51:                                               ; preds = %76, %42, %100
-  %52 = phi i32 [ 0, %76 ], [ %28, %42 ], [ %102, %100 ]
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr ptr, ptr %26, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.tr, i64 32
-  store ptr %55, ptr %56, align 8
-  %57 = icmp eq ptr %55, null
-  br i1 %57, label %58, label %63
+50:                                               ; preds = %75, %41, %99
+  %51 = phi i32 [ 0, %75 ], [ %27, %41 ], [ %101, %99 ]
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr ptr, ptr %25, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %.tr, i64 32
+  store ptr %54, ptr %55, align 8
+  %56 = icmp eq ptr %54, null
+  br i1 %56, label %57, label %62
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %62 = load ptr, ptr %61, align 8
-  call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -217, ptr noundef %60, ptr noundef %62) #20
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %61 = load ptr, ptr %60, align 8
+  call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -217, ptr noundef %59, ptr noundef %61) #20
   br label %.critedge
 
-63:                                               ; preds = %51
-  %64 = getelementptr inbounds i8, ptr %55, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = or i32 %65, 256
-  store i32 %66, ptr %64, align 4
-  %67 = load i32, ptr %27, align 8
-  %68 = icmp slt i32 %67, 32
-  %69 = shl nuw i32 1, %67
-  %.sink109 = select i1 %68, i32 %69, i32 1
-  %70 = getelementptr inbounds i8, ptr %1, i64 28
-  %71 = load i32, ptr %70, align 4
-  %72 = or i32 %71, %.sink109
-  store i32 %72, ptr %70, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 80
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.tr, i64 40
-  store ptr %74, ptr %75, align 8
+62:                                               ; preds = %50
+  %63 = getelementptr inbounds i8, ptr %54, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = or i32 %64, 256
+  store i32 %65, ptr %63, align 4
+  %66 = load i32, ptr %26, align 8
+  %67 = icmp slt i32 %66, 32
+  %68 = shl nuw i32 1, %66
+  %.sink109 = select i1 %67, i32 %68, i32 1
+  %69 = getelementptr inbounds i8, ptr %1, i64 28
+  %70 = load i32, ptr %69, align 4
+  %71 = or i32 %70, %.sink109
+  store i32 %71, ptr %69, align 4
+  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %.tr, i64 40
+  store ptr %73, ptr %74, align 8
   br label %.critedge
 
-76:                                               ; preds = %22
-  %77 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %78, %80
-  br i1 %81, label %51, label %82
+75:                                               ; preds = %21
+  %76 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %77, %79
+  br i1 %80, label %50, label %81
 
-82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %1, i64 72
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i32 @onig_name_to_group_numbers(ptr noundef %84, ptr noundef %78, ptr noundef %80, ptr noundef nonnull %3) #20
-  %86 = icmp slt i32 %85, 1
-  br i1 %86, label %87, label %90
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds i8, ptr %1, i64 72
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 @onig_name_to_group_numbers(ptr noundef %83, ptr noundef %77, ptr noundef %79, ptr noundef nonnull %3) #20
+  %85 = icmp slt i32 %84, 1
+  br i1 %85, label %86, label %89
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %77, align 8
-  %89 = load ptr, ptr %79, align 8
-  call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -217, ptr noundef %88, ptr noundef %89) #20
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %76, align 8
+  %88 = load ptr, ptr %78, align 8
+  call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -217, ptr noundef %87, ptr noundef %88) #20
   br label %.critedge
 
-90:                                               ; preds = %82
-  %.not80 = icmp eq i32 %85, 1
-  br i1 %.not80, label %100, label %91
+89:                                               ; preds = %81
+  %.not80 = icmp eq i32 %84, 1
+  br i1 %.not80, label %99, label %90
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %1, i64 16
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 1024
-  %.not81 = icmp eq i32 %96, 0
-  br i1 %.not81, label %97, label %100
+90:                                               ; preds = %89
+  %91 = getelementptr inbounds i8, ptr %1, i64 16
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load i32, ptr %93, align 4
+  %95 = and i32 %94, 1024
+  %.not81 = icmp eq i32 %95, 0
+  br i1 %.not81, label %96, label %99
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %77, align 8
-  %99 = load ptr, ptr %79, align 8
-  call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -220, ptr noundef %98, ptr noundef %99) #20
+96:                                               ; preds = %90
+  %97 = load ptr, ptr %76, align 8
+  %98 = load ptr, ptr %78, align 8
+  call void @onig_scan_env_set_error_string(ptr noundef nonnull %1, i32 noundef -220, ptr noundef %97, ptr noundef %98) #20
   br label %.critedge
 
-100:                                              ; preds = %91, %90
-  %101 = load ptr, ptr %3, align 8
-  %102 = load i32, ptr %101, align 4
-  store i32 %102, ptr %27, align 8
-  br label %51
+99:                                               ; preds = %90, %89
+  %100 = load ptr, ptr %3, align 8
+  %101 = load i32, ptr %100, align 4
+  store i32 %101, ptr %26, align 8
+  br label %50
 
-103:                                              ; preds = %tailrecurse
-  %104 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %105 = load i32, ptr %104, align 4
-  %106 = add i32 %105, -1024
-  %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 22)
-  %108 = icmp ult i32 %107, 8
-  br i1 %108, label %switch.hole_check, label %.critedge
+102:                                              ; preds = %tailrecurse
+  %103 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %104 = load i32, ptr %103, align 4
+  %105 = add i32 %104, -1024
+  %106 = tail call i32 @llvm.fshl.i32(i32 %105, i32 %105, i32 22)
+  %107 = icmp ult i32 %106, 8
+  br i1 %107, label %switch.hole_check, label %.critedge
 
-.critedge:                                        ; preds = %tailrecurse, %103, %switch.hole_check, %16, %.preheader87, %9, %.preheader, %63, %39, %97, %87, %58, %46
-  %.0 = phi i32 [ -218, %46 ], [ -217, %58 ], [ -217, %87 ], [ -220, %97 ], [ -209, %39 ], [ 0, %63 ], [ %7, %.preheader ], [ 0, %9 ], [ %14, %.preheader87 ], [ 0, %16 ], [ 0, %switch.hole_check ], [ 0, %103 ], [ 0, %tailrecurse ]
+.critedge:                                        ; preds = %tailrecurse, %102, %switch.hole_check, %16, %.preheader87, %9, %.preheader, %62, %38, %96, %86, %57, %45
+  %.0 = phi i32 [ -218, %45 ], [ -217, %57 ], [ -217, %86 ], [ -220, %96 ], [ -209, %38 ], [ 0, %62 ], [ %7, %.preheader ], [ 0, %9 ], [ %14, %.preheader87 ], [ 0, %16 ], [ 0, %switch.hole_check ], [ 0, %102 ], [ 0, %tailrecurse ]
   ret i32 %.0
 }
 
@@ -1602,8 +1601,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 8, label %.preheader
     i32 9, label %.preheader
     i32 5, label %tailrecurse.backedge
-    i32 7, label %14
-    i32 6, label %20
+    i32 7, label %13
+    i32 6, label %19
   ]
 
 .preheader:                                       ; preds = %tailrecurse, %tailrecurse
@@ -1623,51 +1622,50 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.not26 = icmp eq ptr %11, null
   br i1 %.not26, label %.critedge, label %4, !llvm.loop !20
 
-switch.hole_check:                                ; preds = %14
-  %switch.maskindex = trunc i32 %18 to i8
+switch.hole_check:                                ; preds = %13
+  %switch.maskindex = trunc i32 %17 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
-  %12 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %12, 0
-  br i1 %switch.lobit.not, label %.critedge, label %tailrecurse.backedge
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %tailrecurse.backedge, label %.critedge
 
-tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse, %20, %30
-  %.sink = phi i64 [ 24, %30 ], [ 24, %20 ], [ 8, %tailrecurse ], [ 8, %switch.hole_check ]
-  %13 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
-  %.tr.be = load ptr, ptr %13, align 8
+tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse, %19, %29
+  %.sink = phi i64 [ 24, %29 ], [ 24, %19 ], [ 8, %tailrecurse ], [ 8, %switch.hole_check ]
+  %12 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
+  %.tr.be = load ptr, ptr %12, align 8
   br label %tailrecurse
 
-14:                                               ; preds = %tailrecurse
-  %15 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = add i32 %16, -1024
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 22)
-  %19 = icmp ult i32 %18, 8
-  br i1 %19, label %switch.hole_check, label %.critedge
+13:                                               ; preds = %tailrecurse
+  %14 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = add i32 %15, -1024
+  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 22)
+  %18 = icmp ult i32 %17, 8
+  br i1 %18, label %switch.hole_check, label %.critedge
 
-20:                                               ; preds = %tailrecurse
-  %21 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 128
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %tailrecurse.backedge, label %24
+19:                                               ; preds = %tailrecurse
+  %20 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 128
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %tailrecurse.backedge, label %23
 
-24:                                               ; preds = %20
-  %25 = or i32 %22, 8
-  store i32 %25, ptr %21, align 4
-  %26 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call fastcc i32 @subexp_inf_recursive_check(ptr noundef %27, ptr noundef %1, i32 noundef 1)
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.critedge, label %30
+23:                                               ; preds = %19
+  %24 = or i32 %21, 8
+  store i32 %24, ptr %20, align 4
+  %25 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call fastcc i32 @subexp_inf_recursive_check(ptr noundef %26, ptr noundef %1, i32 noundef 1)
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.critedge, label %29
 
-30:                                               ; preds = %24
-  %31 = load i32, ptr %21, align 4
-  %32 = and i32 %31, -9
-  store i32 %32, ptr %21, align 4
+29:                                               ; preds = %23
+  %30 = load i32, ptr %20, align 4
+  %31 = and i32 %30, -9
+  store i32 %31, ptr %20, align 4
   br label %tailrecurse.backedge
 
-.critedge:                                        ; preds = %tailrecurse, %24, %14, %switch.hole_check, %9, %4
-  %.0 = phi i32 [ %7, %4 ], [ 0, %9 ], [ 0, %switch.hole_check ], [ 0, %14 ], [ 0, %tailrecurse ], [ -221, %24 ]
+.critedge:                                        ; preds = %tailrecurse, %23, %13, %switch.hole_check, %9, %4
+  %.0 = phi i32 [ %7, %4 ], [ 0, %9 ], [ 0, %switch.hole_check ], [ 0, %13 ], [ 0, %tailrecurse ], [ -221, %23 ]
   ret i32 %.0
 }
 
@@ -6773,7 +6771,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 5, label %30
     i32 7, label %39
     i32 10, label %tailrecurse.backedge
-    i32 6, label %47
+    i32 6, label %46
   ]
 
 .preheader:                                       ; preds = %tailrecurse, %18
@@ -6855,46 +6853,45 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 switch.hole_check:                                ; preds = %39
   %switch.maskindex = trunc i32 %43 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
-  %45 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %45, 0
-  br i1 %switch.lobit.not, label %common.ret112, label %tailrecurse.backedge
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %tailrecurse.backedge, label %common.ret112
 
 tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse
   %.sink = phi i64 [ 32, %tailrecurse ], [ 8, %switch.hole_check ]
-  %46 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
-  %.tr.be = load ptr, ptr %46, align 8
+  %45 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
+  %.tr.be = load ptr, ptr %45, align 8
   br label %tailrecurse
 
-47:                                               ; preds = %tailrecurse
-  %48 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, 16
-  %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %51, label %common.ret112
+46:                                               ; preds = %tailrecurse
+  %47 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = and i32 %48, 16
+  %.not = icmp eq i32 %49, 0
+  br i1 %.not, label %50, label %common.ret112
 
-51:                                               ; preds = %47
-  %52 = and i32 %49, 8
-  %.not63 = icmp eq i32 %52, 0
-  br i1 %.not63, label %56, label %53
+50:                                               ; preds = %46
+  %51 = and i32 %48, 8
+  %.not63 = icmp eq i32 %51, 0
+  br i1 %.not63, label %55, label %52
 
-53:                                               ; preds = %51
-  %54 = icmp eq i32 %2, 0
-  %55 = select i1 %54, i32 1, i32 2
+52:                                               ; preds = %50
+  %53 = icmp eq i32 %2, 0
+  %54 = select i1 %53, i32 1, i32 2
   br label %common.ret112
 
-common.ret112:                                    ; preds = %35, %30, %47, %53, %18, %13, %.preheader, %26, %.preheader72, %switch.hole_check, %39, %tailrecurse, %56
-  %common.ret112.op = phi i32 [ %60, %56 ], [ %55, %53 ], [ 0, %47 ], [ %33, %30 ], [ %spec.select69, %35 ], [ %12, %18 ], [ %15, %13 ], [ %8, %.preheader ], [ %27, %26 ], [ %23, %.preheader72 ], [ 0, %switch.hole_check ], [ 0, %39 ], [ 0, %tailrecurse ]
+common.ret112:                                    ; preds = %35, %30, %46, %52, %18, %13, %.preheader, %26, %.preheader72, %switch.hole_check, %39, %tailrecurse, %55
+  %common.ret112.op = phi i32 [ %59, %55 ], [ %54, %52 ], [ 0, %46 ], [ %33, %30 ], [ %spec.select69, %35 ], [ %12, %18 ], [ %15, %13 ], [ %8, %.preheader ], [ %27, %26 ], [ %23, %.preheader72 ], [ 0, %switch.hole_check ], [ 0, %39 ], [ 0, %tailrecurse ]
   ret i32 %common.ret112.op
 
-56:                                               ; preds = %51
-  %57 = or disjoint i32 %49, 16
-  store i32 %57, ptr %48, align 4
-  %58 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call fastcc i32 @subexp_inf_recursive_check(ptr noundef %59, ptr noundef %1, i32 noundef %2)
-  %61 = load i32, ptr %48, align 4
-  %62 = and i32 %61, -17
-  store i32 %62, ptr %48, align 4
+55:                                               ; preds = %50
+  %56 = or disjoint i32 %48, 16
+  store i32 %56, ptr %47, align 4
+  %57 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call fastcc i32 @subexp_inf_recursive_check(ptr noundef %58, ptr noundef %1, i32 noundef %2)
+  %60 = load i32, ptr %47, align 4
+  %61 = and i32 %60, -17
+  store i32 %61, ptr %47, align 4
   br label %common.ret112
 }
 

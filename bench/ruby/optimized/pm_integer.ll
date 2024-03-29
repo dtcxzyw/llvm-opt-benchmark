@@ -353,59 +353,59 @@ define hidden i64 @pm_integer_memsize(ptr nocapture noundef readonly %0) local_u
 define hidden i32 @pm_integer_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
+  %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not28 = icmp eq i8 %5, %8
-  br i1 %.not28, label %11, label %9
+  %8 = xor i8 %7, %4
+  %9 = and i8 %8, 1
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %12, label %10
 
-9:                                                ; preds = %2
-  %10 = select i1 %.not, i32 1, i32 -1
+10:                                               ; preds = %2
+  %11 = select i1 %5, i32 -1, i32 1
   br label %.loopexit
 
-11:                                               ; preds = %2
-  %.neg = select i1 %.not, i32 -1, i32 1
-  %12 = select i1 %.not, i32 1, i32 -1
-  %13 = load i64, ptr %0, align 8
-  %14 = load i64, ptr %1, align 8
-  %15 = icmp ult i64 %13, %14
-  br i1 %15, label %.loopexit, label %16
+12:                                               ; preds = %2
+  %.neg = select i1 %5, i32 1, i32 -1
+  %13 = select i1 %5, i32 -1, i32 1
+  %14 = load i64, ptr %0, align 8
+  %15 = load i64, ptr %1, align 8
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %.loopexit, label %17
 
-16:                                               ; preds = %11
-  %17 = icmp ugt i64 %13, %14
-  br i1 %17, label %.loopexit, label %18
+17:                                               ; preds = %12
+  %18 = icmp ugt i64 %14, %15
+  br i1 %18, label %.loopexit, label %19
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %21
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %22
 
-21:                                               ; preds = %18, %29
-  %.031 = phi ptr [ %20, %18 ], [ %31, %29 ]
-  %.02230 = phi ptr [ %19, %18 ], [ %30, %29 ]
-  %22 = getelementptr inbounds i8, ptr %.02230, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.031, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ult i32 %23, %25
-  br i1 %26, label %.loopexit, label %27
+22:                                               ; preds = %19, %30
+  %.030 = phi ptr [ %21, %19 ], [ %32, %30 ]
+  %.02229 = phi ptr [ %20, %19 ], [ %31, %30 ]
+  %23 = getelementptr inbounds i8, ptr %.02229, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %.030, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ult i32 %24, %26
+  br i1 %27, label %.loopexit, label %28
 
-27:                                               ; preds = %21
-  %28 = icmp ugt i32 %23, %25
-  br i1 %28, label %.loopexit, label %29
+28:                                               ; preds = %22
+  %29 = icmp ugt i32 %24, %26
+  br i1 %29, label %.loopexit, label %30
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %.02230, align 8
-  %31 = load ptr, ptr %.031, align 8
-  %32 = icmp ne ptr %30, null
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %.02229, align 8
+  %32 = load ptr, ptr %.030, align 8
   %33 = icmp ne ptr %31, null
-  %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %21, label %.loopexit, !llvm.loop !11
+  %34 = icmp ne ptr %32, null
+  %35 = select i1 %33, i1 %34, i1 false
+  br i1 %35, label %22, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %29, %27, %21, %11, %16, %9
-  %.023 = phi i32 [ %10, %9 ], [ %12, %16 ], [ %.neg, %11 ], [ 0, %29 ], [ %12, %27 ], [ %.neg, %21 ]
+.loopexit:                                        ; preds = %30, %28, %22, %12, %17, %10
+  %.023 = phi i32 [ %11, %10 ], [ %13, %17 ], [ %.neg, %12 ], [ 0, %30 ], [ %13, %28 ], [ %.neg, %22 ]
   ret i32 %.023
 }
 
@@ -414,9 +414,8 @@ define hidden void @pm_integer_string(ptr noundef %0, ptr nocapture noundef read
   %3 = alloca %struct.pm_integer_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %8, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 45) #10
@@ -458,9 +457,9 @@ define hidden void @pm_integer_string(ptr noundef %0, ptr nocapture noundef read
 
 29:                                               ; preds = %24
   %30 = load i8, ptr %4, align 8
-  %31 = and i8 %30, 1
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
-  store i8 %31, ptr %32, align 8
+  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 8
   store i64 0, ptr %3, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = getelementptr inbounds i8, ptr %1, i64 16

@@ -1312,9 +1312,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstNode(ptr nound
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstNodeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -1324,9 +1323,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstNode(ptr nound
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -1342,9 +1341,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -1368,9 +1367,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -1391,9 +1389,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstNodeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -1454,9 +1452,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstActive(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstActiveEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -1466,9 +1463,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstActive(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -1497,9 +1494,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstActive(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not14.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %29, %1
   %.not.i.i = icmp eq ptr %29, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -1523,9 +1520,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %36 = load i8, ptr %6, align 4
-  %37 = and i8 %36, 1
-  %.not15.i = icmp eq i8 %37, 0
-  br i1 %.not15.i, label %43, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %39 = load i32, ptr %18, align 8
@@ -1546,9 +1542,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 45:                                               ; preds = %._crit_edge, %43
   %46 = phi ptr [ %.pre7, %43 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstActiveEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %47 = phi i32 [ %19, %43 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = add i32 %.sroa.024.0.i, -1640531527
+  %49 = add i32 %.sroa.022.0.i, -1640531527
   %50 = shl i32 %47, 6
   %51 = add i32 %49, %50
   %52 = lshr i32 %47, 2
@@ -1603,9 +1599,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstAddrOfCFunc(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstAddrOfCFuncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -1615,9 +1610,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstAddrOfCFunc(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -1646,9 +1641,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstAddrOfCFunc(p
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not14.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %29, %1
   %.not.i.i = icmp eq ptr %29, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -1672,9 +1667,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %36 = load i8, ptr %6, align 4
-  %37 = and i8 %36, 1
-  %.not15.i = icmp eq i8 %37, 0
-  br i1 %.not15.i, label %43, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %39 = load i32, ptr %18, align 8
@@ -1695,9 +1689,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 45:                                               ; preds = %._crit_edge, %43
   %46 = phi ptr [ %.pre7, %43 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstAddrOfCFuncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %47 = phi i32 [ %19, %43 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = add i32 %.sroa.024.0.i, -1640531527
+  %49 = add i32 %.sroa.022.0.i, -1640531527
   %50 = shl i32 %47, 6
   %51 = add i32 %49, %50
   %52 = lshr i32 %47, 2
@@ -1760,9 +1754,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstArg(ptr nounde
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstArgEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -1772,9 +1765,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstArg(ptr nounde
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -1790,9 +1783,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -1816,9 +1809,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -1839,9 +1831,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstArgEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -1918,9 +1910,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstAssocArrayDTy
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP18AstAssocArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -1930,9 +1921,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstAssocArrayDTy
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -1990,9 +1981,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %18, align 8
@@ -2013,9 +2003,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre6, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP18AstAssocArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %19, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -2076,9 +2066,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstAttrOf(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstAttrOfEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2088,9 +2077,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstAttrOf(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2116,9 +2105,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not14.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %30, %1
   %.not.i.i = icmp eq ptr %30, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
 
 31:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2142,9 +2131,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %17, align 8
@@ -2165,9 +2153,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre7, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstAttrOfEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %18, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -2218,9 +2206,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstBasicDType(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstBasicDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2230,9 +2217,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstBasicDType(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2297,9 +2284,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %55 = load i8, ptr %6, align 4
-  %56 = and i8 %55, 1
-  %.not15.i = icmp eq i8 %56, 0
-  br i1 %.not15.i, label %62, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %62
 
 57:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %58 = load i32, ptr %17, align 8
@@ -2320,9 +2306,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 64:                                               ; preds = %._crit_edge, %62
   %65 = phi ptr [ %.pre6, %62 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstBasicDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %66 = phi i32 [ %18, %62 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %63, %62 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %63, %62 ], [ %16, %._crit_edge ]
   %67 = getelementptr inbounds i8, ptr %0, i64 8
-  %68 = add i32 %.sroa.024.0.i, -1640531527
+  %68 = add i32 %.sroa.022.0.i, -1640531527
   %69 = shl i32 %66, 6
   %70 = add i32 %68, %69
   %71 = lshr i32 %66, 2
@@ -2387,9 +2373,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCAwait(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstCAwaitEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2399,9 +2384,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCAwait(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2430,9 +2415,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCAwait(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not14.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %29, %1
   %.not.i.i = icmp eq ptr %29, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2456,9 +2441,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %36 = load i8, ptr %6, align 4
-  %37 = and i8 %36, 1
-  %.not15.i = icmp eq i8 %37, 0
-  br i1 %.not15.i, label %43, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %39 = load i32, ptr %18, align 8
@@ -2479,9 +2463,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 45:                                               ; preds = %._crit_edge, %43
   %46 = phi ptr [ %.pre7, %43 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstCAwaitEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %47 = phi i32 [ %19, %43 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = add i32 %.sroa.024.0.i, -1640531527
+  %49 = add i32 %.sroa.022.0.i, -1640531527
   %50 = shl i32 %47, 6
   %51 = add i32 %49, %50
   %52 = lshr i32 %47, 2
@@ -2534,9 +2518,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCCast(ptr noun
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstCCastEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2546,9 +2529,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCCast(ptr noun
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2573,9 +2556,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not14.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %30, %1
   %.not.i.i = icmp eq ptr %30, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
 
 31:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2599,9 +2582,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %17, align 8
@@ -2622,9 +2604,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre7, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstCCastEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %18, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -2675,9 +2657,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCDType(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstCDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2687,9 +2668,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCDType(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2709,9 +2690,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCDType(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2735,9 +2716,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -2758,9 +2738,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstCDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -2815,10 +2795,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCFunc(ptr noun
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstCFuncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %.pre8 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2827,9 +2806,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCFunc(ptr noun
   %13 = getelementptr inbounds i8, ptr %1, i64 144
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
-  %.not1325.i = icmp eq i32 %15, 0
-  %.not13.i = select i1 %12, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %15, 0
+  %.not.i = select i1 %12, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2861,9 +2840,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %31, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 72
   %33 = load ptr, ptr %32, align 8
-  %.not14.i = icmp eq ptr %33, %1
+  %.not13.i = icmp eq ptr %33, %1
   %.not.i.i = icmp eq ptr %33, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %34
 
 34:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2887,9 +2866,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %34, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %40 = load i8, ptr %6, align 4
-  %41 = and i8 %40, 1
-  %.not15.i = icmp eq i8 %41, 0
-  br i1 %.not15.i, label %45, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %43 = load i32, ptr %16, align 8
@@ -2908,9 +2886,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 47:                                               ; preds = %._crit_edge, %45
   %48 = phi ptr [ %.pre7, %45 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstCFuncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %49 = phi i32 [ %17, %45 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %46, %45 ], [ %15, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %46, %45 ], [ %15, %._crit_edge ]
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = add i32 %.sroa.024.0.i, -1640531527
+  %51 = add i32 %.sroa.022.0.i, -1640531527
   %52 = shl i32 %49, 6
   %53 = add i32 %51, %52
   %54 = lshr i32 %49, 2
@@ -2959,9 +2937,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCLocalScope(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstCLocalScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -2971,9 +2948,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCLocalScope(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -2989,9 +2966,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3015,9 +2992,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -3038,9 +3014,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstCLocalScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -3095,9 +3071,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCMethodHard(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstCMethodHardEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3107,9 +3082,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCMethodHard(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3140,9 +3115,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %24 = load i8, ptr %6, align 4
-  %25 = and i8 %24, 1
-  %.not15.i = icmp eq i8 %25, 0
-  br i1 %.not15.i, label %31, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %27 = load i32, ptr %18, align 8
@@ -3163,9 +3137,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 33:                                               ; preds = %._crit_edge, %31
   %34 = phi ptr [ %.pre6, %31 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstCMethodHardEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %35 = phi i32 [ %19, %31 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = add i32 %.sroa.024.0.i, -1640531527
+  %37 = add i32 %.sroa.022.0.i, -1640531527
   %38 = shl i32 %35, 6
   %39 = add i32 %37, %38
   %40 = lshr i32 %35, 2
@@ -3242,9 +3216,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstCell(ptr nound
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstCellEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3254,9 +3227,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstCell(ptr nound
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3276,9 +3249,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstCell(ptr nound
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3302,9 +3275,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -3325,9 +3297,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstCellEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -3380,9 +3352,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstCellInline(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstCellInlineEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3392,9 +3363,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstCellInline(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3414,9 +3385,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstCellInline(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3440,9 +3411,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -3463,9 +3433,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstCellInlineEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -3518,9 +3488,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstClassExtends(
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP15AstClassExtendsEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3530,9 +3499,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstClassExtends(
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3548,9 +3517,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3574,9 +3543,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -3597,9 +3565,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP15AstClassExtendsEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -3650,9 +3618,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstClassOrPackag
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstClassOrPackageRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3662,9 +3629,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstClassOrPackag
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3693,9 +3660,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstClassOrPackag
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not14.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %29, %1
   %.not.i.i = icmp eq ptr %29, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3719,9 +3686,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %36 = load i8, ptr %6, align 4
-  %37 = and i8 %36, 1
-  %.not15.i = icmp eq i8 %37, 0
-  br i1 %.not15.i, label %43, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %39 = load i32, ptr %18, align 8
@@ -3742,9 +3708,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 45:                                               ; preds = %._crit_edge, %43
   %46 = phi ptr [ %.pre7, %43 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstClassOrPackageRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %47 = phi i32 [ %19, %43 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = add i32 %.sroa.024.0.i, -1640531527
+  %49 = add i32 %.sroa.022.0.i, -1640531527
   %50 = shl i32 %47, 6
   %51 = add i32 %49, %50
   %52 = lshr i32 %47, 2
@@ -3797,9 +3763,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstClassRefDType
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstClassRefDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3809,9 +3774,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstClassRefDType
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3851,9 +3816,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -3874,9 +3838,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstClassRefDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -3955,9 +3919,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstConst(ptr noun
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstConstEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3967,9 +3930,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstConst(ptr noun
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -3998,9 +3961,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   store i32 %30, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 72
   %32 = load ptr, ptr %31, align 8
-  %.not14.i = icmp eq ptr %32, %1
+  %.not13.i = icmp eq ptr %32, %1
   %.not.i.i = icmp eq ptr %32, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4024,9 +3987,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %33, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %39 = load i8, ptr %6, align 4
-  %40 = and i8 %39, 1
-  %.not15.i = icmp eq i8 %40, 0
-  br i1 %.not15.i, label %46, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %42 = load i32, ptr %18, align 8
@@ -4047,9 +4009,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 48:                                               ; preds = %._crit_edge, %46
   %49 = phi ptr [ %.pre7, %46 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstConstEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %50 = phi i32 [ %19, %46 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %47, %46 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %47, %46 ], [ %16, %._crit_edge ]
   %51 = getelementptr inbounds i8, ptr %0, i64 8
-  %52 = add i32 %.sroa.024.0.i, -1640531527
+  %52 = add i32 %.sroa.022.0.i, -1640531527
   %53 = shl i32 %50, 6
   %54 = add i32 %52, %53
   %55 = lshr i32 %50, 2
@@ -4100,9 +4062,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstConstDType(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstConstDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4112,9 +4073,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstConstDType(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -4143,9 +4104,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstConstDType(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not14.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %29, %1
   %.not.i.i = icmp eq ptr %29, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4169,9 +4130,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %36 = load i8, ptr %6, align 4
-  %37 = and i8 %36, 1
-  %.not15.i = icmp eq i8 %37, 0
-  br i1 %.not15.i, label %43, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %39 = load i32, ptr %18, align 8
@@ -4192,9 +4152,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 45:                                               ; preds = %._crit_edge, %43
   %46 = phi ptr [ %.pre7, %43 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstConstDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %47 = phi i32 [ %19, %43 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %44, %43 ], [ %16, %._crit_edge ]
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = add i32 %.sroa.024.0.i, -1640531527
+  %49 = add i32 %.sroa.022.0.i, -1640531527
   %50 = shl i32 %47, 6
   %51 = add i32 %49, %50
   %52 = lshr i32 %47, 2
@@ -4277,9 +4237,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstCoverInc(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstCoverIncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4289,9 +4248,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstCoverInc(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -4331,9 +4290,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -4354,9 +4312,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstCoverIncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -4419,9 +4377,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP19AstDefImplicitDT
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP19AstDefImplicitDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4431,9 +4388,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP19AstDefImplicitDT
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -4458,9 +4415,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not14.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %30, %1
   %.not.i.i = icmp eq ptr %30, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
 
 31:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4484,9 +4441,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %17, align 8
@@ -4507,9 +4463,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre7, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP19AstDefImplicitDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %18, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -4558,9 +4514,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstDefParam(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstDefParamEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4570,9 +4525,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstDefParam(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -4588,9 +4543,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4614,9 +4569,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -4637,9 +4591,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstDefParamEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -4696,9 +4650,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstDisplay(ptr n
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstDisplayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4708,9 +4661,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstDisplay(ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -4747,9 +4700,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %31 = load i8, ptr %6, align 4
-  %32 = and i8 %31, 1
-  %.not15.i = icmp eq i8 %32, 0
-  br i1 %.not15.i, label %38, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %38
 
 33:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %34 = load i32, ptr %17, align 8
@@ -4770,9 +4722,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 40:                                               ; preds = %._crit_edge, %38
   %41 = phi ptr [ %.pre6, %38 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstDisplayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %42 = phi i32 [ %18, %38 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %39, %38 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %39, %38 ], [ %16, %._crit_edge ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = add i32 %.sroa.024.0.i, -1640531527
+  %44 = add i32 %.sroa.022.0.i, -1640531527
   %45 = shl i32 %42, 6
   %46 = add i32 %44, %45
   %47 = lshr i32 %42, 2
@@ -4853,9 +4805,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstDynArrayDType
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstDynArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4865,9 +4816,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstDynArrayDType
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -4907,9 +4858,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -4930,9 +4880,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstDynArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -4983,9 +4933,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstElabDisplay(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstElabDisplayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -4995,9 +4944,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstElabDisplay(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -5023,9 +4972,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not14.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %30, %1
   %.not.i.i = icmp eq ptr %30, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
 
 31:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -5049,9 +4998,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %17, align 8
@@ -5072,9 +5020,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre7, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstElabDisplayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %18, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -5123,9 +5071,8 @@ declare void @_ZN14VNVisitorConst5visitEP18AstEmptyQueueDType(ptr noundef nonnul
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstEnumDType(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 140
@@ -5135,9 +5082,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstEnumDType(ptr
   %11 = getelementptr inbounds i8, ptr %1, i64 144
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not1325.i = icmp eq i32 %13, 0
-  %.not13.i = select i1 %10, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %13, 0
+  %.not.i = select i1 %10, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -5160,7 +5107,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %6, %2
   %24 = add i32 %22, %23
   %25 = xor i32 %24, %17
   store i32 %25, ptr %14, align 8
-  br i1 %.not.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %26
+  br i1 %5, label %26, label %_ZNSt8functionIFvvEED2Ev.exit
 
 26:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %.sroa.0.0.insert.ext.i.i = zext i32 %25 to i64
@@ -5174,9 +5121,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %6, %2
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %._crit_edge, %26, %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = phi i32 [ %.pre, %._crit_edge ], [ %15, %26 ], [ %15, %_ZNKSt8functionIFvvEEclEv.exit.i ]
-  %.sroa.024.0.i = phi i32 [ %13, %._crit_edge ], [ %.pre7, %26 ], [ %25, %_ZNKSt8functionIFvvEEclEv.exit.i ]
+  %.sroa.022.0.i = phi i32 [ %13, %._crit_edge ], [ %.pre7, %26 ], [ %25, %_ZNKSt8functionIFvvEEclEv.exit.i ]
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = add i32 %.sroa.024.0.i, -1640531527
+  %32 = add i32 %.sroa.022.0.i, -1640531527
   %33 = shl i32 %30, 6
   %34 = add i32 %32, %33
   %35 = lshr i32 %30, 2
@@ -5198,9 +5145,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstEnumItem(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstEnumItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -5210,9 +5156,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstEnumItem(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -5232,9 +5178,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstEnumItem(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -5258,9 +5204,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -5281,9 +5226,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstEnumItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -5380,9 +5325,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstFScanF(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstFScanFEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -5392,9 +5336,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstFScanF(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -5414,9 +5358,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstFScanF(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -5440,9 +5384,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -5463,9 +5406,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstFScanFEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -5578,9 +5521,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstIfaceRefDType
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstIfaceRefDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -5590,9 +5532,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstIfaceRefDType
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -5632,9 +5574,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -5655,9 +5596,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstIfaceRefDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -5708,12 +5649,12 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstInitArray(ptr
   %6 = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNSt8functionIFvvEED2Ev.exit73, label %8
+  br i1 %.not.i, label %_ZNSt8functionIFvvEED2Ev.exit69, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %7, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %9, align 8
-  switch i16 %.sroa.0.0.copyload.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit73 [
+  switch i16 %.sroa.0.0.copyload.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit69 [
     i16 52, label %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit
     i16 75, label %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit
   ]
@@ -5732,9 +5673,8 @@ _ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pre
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not.i25 = icmp eq i8 %17, 0
-  br i1 %.not.i25, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %11, i64 140
@@ -5744,13 +5684,13 @@ _ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pre
   %23 = getelementptr inbounds i8, ptr %11, i64 144
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
-  %.not1325.i = icmp eq i32 %25, 0
-  %.not13.i = select i1 %22, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge93
+  %.not23.i = icmp eq i32 %25, 0
+  %.not.i25 = select i1 %22, i1 true, i1 %.not23.i
+  br i1 %.not.i25, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge89
 
-._crit_edge93:                                    ; preds = %18
-  %.phi.trans.insert94 = getelementptr inbounds i8, ptr %0, i64 8
-  %.pre95 = load i32, ptr %.phi.trans.insert94, align 8
+._crit_edge89:                                    ; preds = %18
+  %.phi.trans.insert90 = getelementptr inbounds i8, ptr %0, i64 8
+  %.pre91 = load i32, ptr %.phi.trans.insert90, align 8
   br label %47
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %18, %12
@@ -5762,9 +5702,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %18, %12
   store i32 %29, ptr %26, align 8
   %30 = getelementptr inbounds i8, ptr %11, i64 72
   %31 = load ptr, ptr %30, align 8
-  %.not14.i = icmp eq ptr %31, %11
+  %.not13.i = icmp eq ptr %31, %11
   %.not.i.i = icmp eq ptr %31, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %32
 
 32:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -5788,9 +5728,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %32, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %38 = load i8, ptr %15, align 4
-  %39 = and i8 %38, 1
-  %.not15.i = icmp eq i8 %39, 0
-  br i1 %.not15.i, label %45, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %45
 
 40:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %41 = load i32, ptr %26, align 8
@@ -5805,15 +5744,15 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 45:                                               ; preds = %40, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %46 = load i32, ptr %26, align 8
   store i32 %27, ptr %26, align 8
-  %.pre96 = load ptr, ptr %13, align 8
+  %.pre92 = load ptr, ptr %13, align 8
   br label %47
 
-47:                                               ; preds = %._crit_edge93, %45
-  %48 = phi ptr [ %.pre96, %45 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge93 ]
-  %49 = phi i32 [ %27, %45 ], [ %.pre95, %._crit_edge93 ]
-  %.sroa.024.0.i = phi i32 [ %46, %45 ], [ %25, %._crit_edge93 ]
+47:                                               ; preds = %._crit_edge89, %45
+  %48 = phi ptr [ %.pre92, %45 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge89 ]
+  %49 = phi i32 [ %27, %45 ], [ %.pre91, %._crit_edge89 ]
+  %.sroa.022.0.i = phi i32 [ %46, %45 ], [ %25, %._crit_edge89 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = add i32 %.sroa.024.0.i, -1640531527
+  %51 = add i32 %.sroa.022.0.i, -1640531527
   %52 = shl i32 %49, 6
   %53 = add i32 %51, %52
   %54 = lshr i32 %49, 2
@@ -5849,8 +5788,8 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNo
   %67 = getelementptr inbounds i8, ptr %1, i64 176
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 160
-  %.not88 = icmp eq ptr %68, %69
-  br i1 %.not88, label %_ZNSt8functionIFvvEED2Ev.exit73, label %.lr.ph
+  %.not84 = icmp eq ptr %68, %69
+  br i1 %.not84, label %_ZNSt8functionIFvvEED2Ev.exit69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %70 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5859,9 +5798,9 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNo
   %73 = getelementptr inbounds i8, ptr %0, i64 12
   br label %74
 
-74:                                               ; preds = %.lr.ph, %_ZNSt8functionIFvvEED2Ev.exit48
-  %.sroa.077.089 = phi ptr [ %68, %.lr.ph ], [ %137, %_ZNSt8functionIFvvEED2Ev.exit48 ]
-  %75 = getelementptr inbounds i8, ptr %.sroa.077.089, i64 32
+74:                                               ; preds = %.lr.ph, %_ZNSt8functionIFvvEED2Ev.exit46
+  %.sroa.073.085 = phi ptr [ %68, %.lr.ph ], [ %137, %_ZNSt8functionIFvvEED2Ev.exit46 ]
+  %75 = getelementptr inbounds i8, ptr %.sroa.073.085, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = load i32, ptr %70, align 8
   %78 = trunc i64 %76 to i32
@@ -5880,15 +5819,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNo
   %91 = add i32 %90, %86
   %92 = xor i32 %91, %77
   store i32 %92, ptr %70, align 8
-  %93 = getelementptr inbounds i8, ptr %.sroa.077.089, i64 40
+  %93 = getelementptr inbounds i8, ptr %.sroa.073.085, i64 40
   %94 = load ptr, ptr %93, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %72, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %71, align 8
   %95 = load i8, ptr %73, align 4
-  %96 = and i8 %95, 1
-  %.not.i29 = icmp eq i8 %96, 0
-  br i1 %.not.i29, label %_ZNKSt8functionIFvvEEclEv.exit.i35, label %97
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %_ZNKSt8functionIFvvEEclEv.exit.i31
 
 97:                                               ; preds = %74
   %98 = getelementptr inbounds i8, ptr %94, i64 140
@@ -5898,79 +5836,78 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNo
   %102 = getelementptr inbounds i8, ptr %94, i64 144
   %103 = load i64, ptr %102, align 8
   %104 = trunc i64 %103 to i32
-  %.not1325.i30 = icmp eq i32 %104, 0
-  %.not13.i31 = select i1 %101, i1 true, i1 %.not1325.i30
-  br i1 %.not13.i31, label %_ZNKSt8functionIFvvEEclEv.exit.i35, label %124
+  %.not23.i40 = icmp eq i32 %104, 0
+  %.not.i41 = select i1 %101, i1 true, i1 %.not23.i40
+  br i1 %.not.i41, label %_ZNKSt8functionIFvvEEclEv.exit.i31, label %124
 
-_ZNKSt8functionIFvvEEclEv.exit.i35:               ; preds = %97, %74
+_ZNKSt8functionIFvvEEclEv.exit.i31:               ; preds = %97, %74
   %105 = getelementptr inbounds i8, ptr %94, i64 64
-  %.sroa.0.0.copyload.i.i33 = load i16, ptr %105, align 8
-  %106 = zext i16 %.sroa.0.0.copyload.i.i33 to i32
+  %.sroa.0.0.copyload.i.i29 = load i16, ptr %105, align 8
+  %106 = zext i16 %.sroa.0.0.copyload.i.i29 to i32
   store i32 %106, ptr %70, align 8
   %107 = getelementptr inbounds i8, ptr %94, i64 72
   %108 = load ptr, ptr %107, align 8
-  %.not14.i36 = icmp eq ptr %108, %94
-  %.not.i.i37 = icmp eq ptr %108, null
-  %or.cond.i38 = or i1 %.not14.i36, %.not.i.i37
-  br i1 %or.cond.i38, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i39, label %109
+  %.not13.i32 = icmp eq ptr %108, %94
+  %.not.i.i33 = icmp eq ptr %108, null
+  %or.cond.i34 = or i1 %.not13.i32, %.not.i.i33
+  br i1 %or.cond.i34, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35, label %109
 
-109:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i35
+109:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i31
   %110 = load ptr, ptr %108, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 288
   %112 = load ptr, ptr %111, align 8
   invoke void %112(ptr noundef nonnull align 8 dereferenceable(152) %108, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i39 unwind label %.body44
+          to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35 unwind label %.body42
 
-.body44:                                          ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i39, %109
+.body42:                                          ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35, %109
   %113 = landingpad { ptr, i32 }
           cleanup
   store i32 %92, ptr %70, align 8
   %114 = load ptr, ptr %71, align 8
-  %.not.i.i49 = icmp eq ptr %114, null
-  br i1 %.not.i.i49, label %_ZNSt8functionIFvvEED2Ev.exit28, label %138
+  %.not.i.i47 = icmp eq ptr %114, null
+  br i1 %.not.i.i47, label %_ZNSt8functionIFvvEED2Ev.exit28, label %138
 
-_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i39: ; preds = %109, %_ZNKSt8functionIFvvEEclEv.exit.i35
+_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35: ; preds = %109, %_ZNKSt8functionIFvvEEclEv.exit.i31
   invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %94, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i40 unwind label %.body44
+          to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36 unwind label %.body42
 
-_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i40: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i39
+_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35
   %115 = load i8, ptr %73, align 4
-  %116 = and i8 %115, 1
-  %.not15.i41 = icmp eq i8 %116, 0
-  br i1 %.not15.i41, label %122, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %122
 
-117:                                              ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i40
+117:                                              ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36
   %118 = load i32, ptr %70, align 8
-  %.sroa.0.0.insert.ext.i.i42 = zext i32 %118 to i64
+  %.sroa.0.0.insert.ext.i.i38 = zext i32 %118 to i64
   %119 = getelementptr inbounds i8, ptr %94, i64 144
-  store i64 %.sroa.0.0.insert.ext.i.i42, ptr %119, align 8
+  store i64 %.sroa.0.0.insert.ext.i.i38, ptr %119, align 8
   %120 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
   %121 = getelementptr inbounds i8, ptr %94, i64 140
   store i32 %120, ptr %121, align 4
   br label %122
 
-122:                                              ; preds = %117, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i40
+122:                                              ; preds = %117, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36
   %123 = load i32, ptr %70, align 8
   store i32 %92, ptr %70, align 8
-  %.pre97 = load ptr, ptr %71, align 8
+  %.pre93 = load ptr, ptr %71, align 8
   br label %124
 
 124:                                              ; preds = %97, %122
-  %125 = phi ptr [ %.pre97, %122 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %97 ]
-  %.sroa.024.0.i32 = phi i32 [ %123, %122 ], [ %104, %97 ]
+  %125 = phi ptr [ %.pre93, %122 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %97 ]
+  %.sroa.022.0.i37 = phi i32 [ %123, %122 ], [ %104, %97 ]
   %126 = shl i32 %92, 6
   %127 = lshr i32 %92, 2
   %128 = add i32 %126, -1640531527
   %129 = add i32 %128, %127
-  %130 = add i32 %129, %.sroa.024.0.i32
+  %130 = add i32 %129, %.sroa.022.0.i37
   %131 = xor i32 %130, %92
   store i32 %131, ptr %70, align 8
-  %.not.i.i47 = icmp eq ptr %125, null
-  br i1 %.not.i.i47, label %_ZNSt8functionIFvvEED2Ev.exit48, label %132
+  %.not.i.i45 = icmp eq ptr %125, null
+  br i1 %.not.i.i45, label %_ZNSt8functionIFvvEED2Ev.exit46, label %132
 
 132:                                              ; preds = %124
   %133 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit48 unwind label %134
+          to label %_ZNSt8functionIFvvEED2Ev.exit46 unwind label %134
 
 134:                                              ; preds = %132
   %135 = landingpad { ptr, i32 }
@@ -5979,12 +5916,12 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i40: ; preds = %_ZN14VN
   call void @__clang_call_terminate(ptr %136) #14
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit48:                  ; preds = %124, %132
-  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.077.089) #16
+_ZNSt8functionIFvvEED2Ev.exit46:                  ; preds = %124, %132
+  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.073.085) #16
   %.not = icmp eq ptr %137, %69
-  br i1 %.not, label %_ZNSt8functionIFvvEED2Ev.exit73, label %74
+  br i1 %.not, label %_ZNSt8functionIFvvEED2Ev.exit69, label %74
 
-138:                                              ; preds = %.body44
+138:                                              ; preds = %.body42
   %139 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit28 unwind label %140
 
@@ -6011,9 +5948,8 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %143, align 8
   %147 = getelementptr inbounds i8, ptr %0, i64 12
   %148 = load i8, ptr %147, align 4
-  %149 = and i8 %148, 1
-  %.not.i54 = icmp eq i8 %149, 0
-  br i1 %.not.i54, label %158, label %150
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %150, label %158
 
 150:                                              ; preds = %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit
   %151 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6023,9 +5959,9 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pr
   %155 = getelementptr inbounds i8, ptr %1, i64 144
   %156 = load i64, ptr %155, align 8
   %157 = trunc i64 %156 to i32
-  %.not1325.i55 = icmp eq i32 %157, 0
-  %.not13.i56 = select i1 %154, i1 true, i1 %.not1325.i55
-  br i1 %.not13.i56, label %158, label %._crit_edge
+  %.not23.i63 = icmp eq i32 %157, 0
+  %.not.i64 = select i1 %154, i1 true, i1 %.not23.i63
+  br i1 %.not.i64, label %158, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %150
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6036,15 +5972,15 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pr
   %159 = getelementptr inbounds i8, ptr %0, i64 8
   %160 = load i32, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %1, i64 64
-  %.sroa.0.0.copyload.i.i58 = load i16, ptr %161, align 8
-  %162 = zext i16 %.sroa.0.0.copyload.i.i58 to i32
+  %.sroa.0.0.copyload.i.i52 = load i16, ptr %161, align 8
+  %162 = zext i16 %.sroa.0.0.copyload.i.i52 to i32
   store i32 %162, ptr %159, align 8
   %163 = invoke noundef i32 @_ZNK17AstNodeArrayDType13elementsConstEv(ptr noundef nonnull align 8 dereferenceable(176) %7)
-          to label %.noexc unwind label %.body69.loopexit.split-lp
+          to label %.noexc unwind label %.body65.loopexit.split-lp
 
 .noexc:                                           ; preds = %158
   %.not6.i.i.i.i = icmp eq i32 %163, 0
-  br i1 %.not6.i.i.i.i, label %_ZNKSt8functionIFvvEEclEv.exit.i60, label %.lr.ph.i.i.i.i
+  br i1 %.not6.i.i.i.i, label %_ZNKSt8functionIFvvEEclEv.exit.i54, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc
   %wide.trip.count.i.i.i.i = zext i32 %163 to i64
@@ -6054,95 +5990,94 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pr
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i ]
   %165 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %166 = invoke noundef ptr @_ZNK12AstInitArray23getIndexDefaultedValuepEm(ptr noundef nonnull align 8 dereferenceable(200) %165, i64 noundef %indvars.iv.i.i.i.i)
-          to label %.noexc100 unwind label %.body69.loopexit
+          to label %.noexc96 unwind label %.body65.loopexit
 
-.noexc100:                                        ; preds = %164
+.noexc96:                                         ; preds = %164
   %.not.i.i.i.i.i = icmp eq ptr %166, null
   br i1 %.not.i.i.i.i.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, label %167
 
-167:                                              ; preds = %.noexc100
+167:                                              ; preds = %.noexc96
   %168 = load ptr, ptr %166, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 288
   %170 = load ptr, ptr %169, align 8
   invoke void %170(ptr noundef nonnull align 8 dereferenceable(152) %166, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i unwind label %.body69.loopexit
+          to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i unwind label %.body65.loopexit
 
-_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %167, %.noexc100
+_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %167, %.noexc96
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt8functionIFvvEEclEv.exit.i60, label %164, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt8functionIFvvEEclEv.exit.i54, label %164, !llvm.loop !5
 
-_ZNKSt8functionIFvvEEclEv.exit.i60:               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %.noexc
+_ZNKSt8functionIFvvEEclEv.exit.i54:               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %.noexc
   %171 = load ptr, ptr %6, align 8
-  %.not14.i61 = icmp eq ptr %171, %1
-  %.not.i.i62 = icmp eq ptr %171, null
-  %or.cond.i63 = or i1 %.not14.i61, %.not.i.i62
-  br i1 %or.cond.i63, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64, label %172
+  %.not13.i55 = icmp eq ptr %171, %1
+  %.not.i.i56 = icmp eq ptr %171, null
+  %or.cond.i57 = or i1 %.not13.i55, %.not.i.i56
+  br i1 %or.cond.i57, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58, label %172
 
-172:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i60
+172:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i54
   %173 = load ptr, ptr %171, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 288
   %175 = load ptr, ptr %174, align 8
   invoke void %175(ptr noundef nonnull align 8 dereferenceable(152) %171, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64 unwind label %.body69.loopexit.split-lp
+          to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58 unwind label %.body65.loopexit.split-lp
 
-.body69.loopexit:                                 ; preds = %164, %167
+.body65.loopexit:                                 ; preds = %164, %167
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.body69
+  br label %.body65
 
-.body69.loopexit.split-lp:                        ; preds = %172, %158
+.body65.loopexit.split-lp:                        ; preds = %172, %158
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.body69
+  br label %.body65
 
-.body69:                                          ; preds = %.body69.loopexit.split-lp, %.body69.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.body69.loopexit ], [ %lpad.loopexit.split-lp, %.body69.loopexit.split-lp ]
+.body65:                                          ; preds = %.body65.loopexit.split-lp, %.body65.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.body65.loopexit ], [ %lpad.loopexit.split-lp, %.body65.loopexit.split-lp ]
   store i32 %160, ptr %159, align 8
   %176 = load ptr, ptr %143, align 8
-  %.not.i.i74 = icmp eq ptr %176, null
-  br i1 %.not.i.i74, label %_ZNSt8functionIFvvEED2Ev.exit28, label %201
+  %.not.i.i70 = icmp eq ptr %176, null
+  br i1 %.not.i.i70, label %_ZNSt8functionIFvvEED2Ev.exit28, label %201
 
-_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64: ; preds = %172, %_ZNKSt8functionIFvvEEclEv.exit.i60
+_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58: ; preds = %172, %_ZNKSt8functionIFvvEEclEv.exit.i54
   %177 = load i8, ptr %147, align 4
-  %178 = and i8 %177, 1
-  %.not15.i66 = icmp eq i8 %178, 0
-  br i1 %.not15.i66, label %184, label %179
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %179, label %184
 
-179:                                              ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64
+179:                                              ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58
   %180 = load i32, ptr %159, align 8
-  %.sroa.0.0.insert.ext.i.i67 = zext i32 %180 to i64
+  %.sroa.0.0.insert.ext.i.i61 = zext i32 %180 to i64
   %181 = getelementptr inbounds i8, ptr %1, i64 144
-  store i64 %.sroa.0.0.insert.ext.i.i67, ptr %181, align 8
+  store i64 %.sroa.0.0.insert.ext.i.i61, ptr %181, align 8
   %182 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
   %183 = getelementptr inbounds i8, ptr %1, i64 140
   store i32 %182, ptr %183, align 4
   br label %184
 
-184:                                              ; preds = %179, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64
+184:                                              ; preds = %179, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58
   %185 = load i32, ptr %159, align 8
   store i32 %160, ptr %159, align 8
-  %.pre92 = load ptr, ptr %143, align 8
+  %.pre88 = load ptr, ptr %143, align 8
   br label %186
 
 186:                                              ; preds = %._crit_edge, %184
-  %187 = phi ptr [ %.pre92, %184 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
+  %187 = phi ptr [ %.pre88, %184 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %188 = phi i32 [ %160, %184 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i57 = phi i32 [ %185, %184 ], [ %157, %._crit_edge ]
+  %.sroa.022.0.i60 = phi i32 [ %185, %184 ], [ %157, %._crit_edge ]
   %189 = getelementptr inbounds i8, ptr %0, i64 8
-  %190 = add i32 %.sroa.024.0.i57, -1640531527
+  %190 = add i32 %.sroa.022.0.i60, -1640531527
   %191 = shl i32 %188, 6
   %192 = add i32 %190, %191
   %193 = lshr i32 %188, 2
   %194 = add i32 %192, %193
   %195 = xor i32 %194, %188
   store i32 %195, ptr %189, align 8
-  %.not.i.i72 = icmp eq ptr %187, null
-  br i1 %.not.i.i72, label %_ZNSt8functionIFvvEED2Ev.exit73, label %196
+  %.not.i.i68 = icmp eq ptr %187, null
+  br i1 %.not.i.i68, label %_ZNSt8functionIFvvEED2Ev.exit69, label %196
 
 196:                                              ; preds = %186
   %197 = invoke noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit73 unwind label %198
+          to label %_ZNSt8functionIFvvEED2Ev.exit69 unwind label %198
 
 198:                                              ; preds = %196
   %199 = landingpad { ptr, i32 }
@@ -6151,7 +6086,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64: ; preds = %172, %_ZNKS
   call void @__clang_call_terminate(ptr %200) #14
   unreachable
 
-201:                                              ; preds = %.body69
+201:                                              ; preds = %.body65
   %202 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit28 unwind label %203
 
@@ -6162,11 +6097,11 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i64: ; preds = %172, %_ZNKS
   call void @__clang_call_terminate(ptr %205) #14
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit73:                  ; preds = %_ZNSt8functionIFvvEED2Ev.exit48, %8, %_ZNSt8functionIFvvEED2Ev.exit, %2, %196, %186
+_ZNSt8functionIFvvEED2Ev.exit69:                  ; preds = %_ZNSt8functionIFvvEED2Ev.exit46, %8, %_ZNSt8functionIFvvEED2Ev.exit, %2, %196, %186
   ret void
 
-_ZNSt8functionIFvvEED2Ev.exit28:                  ; preds = %201, %.body69, %138, %.body44, %62, %.body
-  %.pn = phi { ptr, i32 } [ %36, %.body ], [ %36, %62 ], [ %113, %.body44 ], [ %113, %138 ], [ %lpad.phi, %.body69 ], [ %lpad.phi, %201 ]
+_ZNSt8functionIFvvEED2Ev.exit28:                  ; preds = %201, %.body65, %138, %.body42, %62, %.body
+  %.pn = phi { ptr, i32 } [ %36, %.body ], [ %36, %62 ], [ %113, %.body42 ], [ %113, %138 ], [ %lpad.phi, %.body65 ], [ %lpad.phi, %201 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6180,9 +6115,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstInitItem(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstInitItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6192,9 +6126,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstInitItem(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6210,9 +6144,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6236,9 +6170,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -6259,9 +6192,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstInitItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -6330,9 +6263,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstJumpGo(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstJumpGoEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6342,9 +6274,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstJumpGo(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6384,9 +6316,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -6407,9 +6338,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstJumpGoEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -6496,9 +6427,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMTaskBody(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstMTaskBodyEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6508,9 +6438,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMTaskBody(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6526,9 +6456,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6552,9 +6482,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -6575,9 +6504,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstMTaskBodyEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -6628,9 +6557,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstMemberDType(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstMemberDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6640,9 +6568,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstMemberDType(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6673,9 +6601,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %24 = load i8, ptr %6, align 4
-  %25 = and i8 %24, 1
-  %.not15.i = icmp eq i8 %25, 0
-  br i1 %.not15.i, label %31, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %27 = load i32, ptr %18, align 8
@@ -6696,9 +6623,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 33:                                               ; preds = %._crit_edge, %31
   %34 = phi ptr [ %.pre6, %31 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstMemberDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %35 = phi i32 [ %19, %31 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = add i32 %.sroa.024.0.i, -1640531527
+  %37 = add i32 %.sroa.022.0.i, -1640531527
   %38 = shl i32 %35, 6
   %39 = add i32 %37, %38
   %40 = lshr i32 %35, 2
@@ -6749,9 +6676,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMemberSel(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstMemberSelEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6761,9 +6687,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMemberSel(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6783,9 +6709,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMemberSel(ptr
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6809,9 +6735,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -6832,9 +6757,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstMemberSelEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -6891,9 +6816,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstModport(ptr n
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstModportEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -6903,9 +6827,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstModport(ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -6925,9 +6849,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstModport(ptr n
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6951,9 +6875,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -6974,9 +6897,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstModportEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -7027,9 +6950,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstModportFTaskR
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP18AstModportFTaskRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7039,9 +6961,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstModportFTaskR
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7061,9 +6983,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstModportFTaskR
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7087,9 +7009,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -7110,9 +7031,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP18AstModportFTaskRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -7163,9 +7084,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstModportVarRef
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstModportVarRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7175,9 +7095,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstModportVarRef
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7197,9 +7117,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstModportVarRef
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7223,9 +7143,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -7246,9 +7165,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstModportVarRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -7301,9 +7220,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstMonitorOff(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstMonitorOffEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7313,9 +7231,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstMonitorOff(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7331,9 +7249,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 152
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not.i.i.i.i = icmp eq i8 %23, 0
-  %24 = select i1 %.not.i.i.i.i, i32 -1640531527, i32 -1640531526
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, i32 -1640531526, i32 -1640531527
   %25 = shl nuw nsw i32 %20, 6
   %26 = lshr i32 %20, 2
   %27 = add nuw nsw i32 %26, %25
@@ -7353,9 +7270,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %32 = load i8, ptr %6, align 4
-  %33 = and i8 %32, 1
-  %.not15.i = icmp eq i8 %33, 0
-  br i1 %.not15.i, label %39, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %39
 
 34:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %35 = load i32, ptr %17, align 8
@@ -7376,9 +7292,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 41:                                               ; preds = %._crit_edge, %39
   %42 = phi ptr [ %.pre6, %39 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstMonitorOffEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %43 = phi i32 [ %18, %39 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %40, %39 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %40, %39 ], [ %16, %._crit_edge ]
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = add i32 %.sroa.024.0.i, -1640531527
+  %45 = add i32 %.sroa.022.0.i, -1640531527
   %46 = shl i32 %43, 6
   %47 = add i32 %45, %46
   %48 = lshr i32 %43, 2
@@ -7461,9 +7377,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstNodeArrayDTyp
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP17AstNodeArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7473,9 +7388,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstNodeArrayDTyp
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7586,9 +7501,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZNK17AstNodeArrayD
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %68 = load i8, ptr %6, align 4
-  %69 = and i8 %68, 1
-  %.not15.i = icmp eq i8 %69, 0
-  br i1 %.not15.i, label %75, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %75
 
 70:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %71 = load i32, ptr %18, align 8
@@ -7609,9 +7523,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 77:                                               ; preds = %._crit_edge, %75
   %78 = phi ptr [ %.pre6, %75 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP17AstNodeArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %79 = phi i32 [ %19, %75 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %76, %75 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %76, %75 ], [ %16, %._crit_edge ]
   %80 = getelementptr inbounds i8, ptr %0, i64 8
-  %81 = add i32 %.sroa.024.0.i, -1640531527
+  %81 = add i32 %.sroa.022.0.i, -1640531527
   %82 = shl i32 %79, 6
   %83 = add i32 %81, %82
   %84 = lshr i32 %79, 2
@@ -7670,9 +7584,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeBlockEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7682,9 +7595,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7704,9 +7617,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7730,9 +7643,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -7753,9 +7665,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeBlockEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -7806,9 +7718,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeCCall(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeCCallEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7818,9 +7729,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeCCall(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7860,9 +7771,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -7883,9 +7793,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeCCallEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -7940,9 +7850,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstNodeCoverOrAs
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstNodeCoverOrAssertEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -7952,9 +7861,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstNodeCoverOrAs
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -7985,9 +7894,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %24 = load i8, ptr %6, align 4
-  %25 = and i8 %24, 1
-  %.not15.i = icmp eq i8 %25, 0
-  br i1 %.not15.i, label %31, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %27 = load i32, ptr %18, align 8
@@ -8008,9 +7916,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 33:                                               ; preds = %._crit_edge, %31
   %34 = phi ptr [ %.pre6, %31 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstNodeCoverOrAssertEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %35 = phi i32 [ %19, %31 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = add i32 %.sroa.024.0.i, -1640531527
+  %37 = add i32 %.sroa.022.0.i, -1640531527
   %38 = shl i32 %35, 6
   %39 = add i32 %37, %38
   %40 = lshr i32 %35, 2
@@ -8065,9 +7973,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeExpr(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeExprEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8077,9 +7984,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeExpr(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8095,9 +8002,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8121,9 +8028,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -8144,9 +8050,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeExprEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -8197,9 +8103,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeFTaskEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8209,9 +8114,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8231,9 +8136,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8257,9 +8162,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -8280,9 +8184,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeFTaskEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -8333,9 +8237,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstNodeFTaskRef(
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP15AstNodeFTaskRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8345,9 +8248,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstNodeFTaskRef(
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8405,9 +8308,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %18, align 8
@@ -8428,9 +8330,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre6, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP15AstNodeFTaskRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %19, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -8481,9 +8383,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeFileEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8493,9 +8394,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8515,9 +8416,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8541,9 +8442,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -8564,9 +8464,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeFileEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -8623,9 +8523,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodeModuleEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8635,9 +8534,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8657,9 +8556,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8679,9 +8578,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -8702,9 +8600,9 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodeModuleEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -8753,9 +8651,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodePreSel(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodePreSelEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8765,9 +8662,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodePreSel(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8783,9 +8680,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8809,9 +8706,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -8832,9 +8728,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodePreSelEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -8883,9 +8779,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstNodeProcedure
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstNodeProcedureEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -8895,9 +8790,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstNodeProcedure
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -8913,9 +8808,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8939,9 +8834,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -8962,9 +8856,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstNodeProcedureEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -9015,9 +8909,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeRange(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeRangeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9027,9 +8920,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeRange(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9045,9 +8938,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9071,9 +8964,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -9094,9 +8986,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeRangeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -9151,9 +9043,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeStmt(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeStmtEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9163,9 +9054,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeStmt(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9192,9 +9083,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %23 = load i8, ptr %6, align 4
-  %24 = and i8 %23, 1
-  %.not15.i = icmp eq i8 %24, 0
-  br i1 %.not15.i, label %30, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %26 = load i32, ptr %17, align 8
@@ -9215,9 +9105,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 32:                                               ; preds = %._crit_edge, %30
   %33 = phi ptr [ %.pre5, %30 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeStmtEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %34 = phi i32 [ %18, %30 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %31, %30 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %31, %30 ], [ %16, %._crit_edge ]
   %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = add i32 %.sroa.024.0.i, -1640531527
+  %36 = add i32 %.sroa.022.0.i, -1640531527
   %37 = shl i32 %34, 6
   %38 = add i32 %36, %37
   %39 = lshr i32 %34, 2
@@ -9276,9 +9166,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeText(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeTextEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9288,9 +9177,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeText(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9321,9 +9210,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %24 = load i8, ptr %6, align 4
-  %25 = and i8 %24, 1
-  %.not15.i = icmp eq i8 %25, 0
-  br i1 %.not15.i, label %31, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %27 = load i32, ptr %18, align 8
@@ -9344,9 +9232,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 33:                                               ; preds = %._crit_edge, %31
   %34 = phi ptr [ %.pre6, %31 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeTextEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %35 = phi i32 [ %19, %31 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = add i32 %.sroa.024.0.i, -1640531527
+  %37 = add i32 %.sroa.022.0.i, -1640531527
   %38 = shl i32 %35, 6
   %39 = add i32 %37, %38
   %40 = lshr i32 %35, 2
@@ -9391,9 +9279,8 @@ declare void @_ZN14VNVisitorConst5visitEP12AstNodeTriop(ptr noundef nonnull alig
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP21AstNodeUOrStructDType(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9403,9 +9290,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP21AstNodeUOrStruct
   %11 = getelementptr inbounds i8, ptr %1, i64 144
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not1325.i = icmp eq i32 %13, 0
-  %.not13.i = select i1 %10, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %13, 0
+  %.not.i = select i1 %10, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9428,7 +9315,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %6, %2
   %24 = add i32 %22, %23
   %25 = xor i32 %24, %17
   store i32 %25, ptr %14, align 8
-  br i1 %.not.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %26
+  br i1 %5, label %26, label %_ZNSt8functionIFvvEED2Ev.exit
 
 26:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %.sroa.0.0.insert.ext.i.i = zext i32 %25 to i64
@@ -9442,9 +9329,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %6, %2
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %._crit_edge, %26, %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = phi i32 [ %.pre, %._crit_edge ], [ %15, %26 ], [ %15, %_ZNKSt8functionIFvvEEclEv.exit.i ]
-  %.sroa.024.0.i = phi i32 [ %13, %._crit_edge ], [ %.pre7, %26 ], [ %25, %_ZNKSt8functionIFvvEEclEv.exit.i ]
+  %.sroa.022.0.i = phi i32 [ %13, %._crit_edge ], [ %.pre7, %26 ], [ %25, %_ZNKSt8functionIFvvEEclEv.exit.i ]
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = add i32 %.sroa.024.0.i, -1640531527
+  %32 = add i32 %.sroa.022.0.i, -1640531527
   %33 = shl i32 %30, 6
   %34 = add i32 %32, %33
   %35 = lshr i32 %30, 2
@@ -9472,9 +9359,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNullCheck(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNullCheckEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9484,9 +9370,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNullCheck(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9502,9 +9388,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9528,9 +9414,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -9551,9 +9436,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNullCheckEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -9620,9 +9505,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstParamTypeDTyp
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP17AstParamTypeDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9632,9 +9516,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstParamTypeDTyp
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9654,9 +9538,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstParamTypeDTyp
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9680,9 +9564,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -9703,9 +9586,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP17AstParamTypeDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -9756,9 +9639,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstParseRef(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstParseRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9768,9 +9650,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstParseRef(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9790,9 +9672,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstParseRef(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9816,9 +9698,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -9839,9 +9720,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstParseRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -9900,9 +9781,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstPin(ptr nounde
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstPinEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -9912,9 +9792,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstPin(ptr nounde
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -9934,9 +9814,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstPin(ptr nounde
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9960,9 +9840,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -9983,9 +9862,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstPinEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -10052,9 +9931,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstPragma(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstPragmaEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10064,9 +9942,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstPragma(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10092,9 +9970,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not14.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %30, %1
   %.not.i.i = icmp eq ptr %30, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
 
 31:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10118,9 +9996,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %17, align 8
@@ -10141,9 +10018,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre7, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstPragmaEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %18, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -10210,9 +10087,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstQueueDType(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstQueueDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10222,9 +10098,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstQueueDType(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10264,9 +10140,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -10287,9 +10162,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstQueueDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -10362,9 +10237,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstRefDType(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstRefDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10374,9 +10248,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstRefDType(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10407,9 +10281,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %24 = load i8, ptr %6, align 4
-  %25 = and i8 %24, 1
-  %.not15.i = icmp eq i8 %25, 0
-  br i1 %.not15.i, label %31, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %27 = load i32, ptr %18, align 8
@@ -10430,9 +10303,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 33:                                               ; preds = %._crit_edge, %31
   %34 = phi ptr [ %.pre6, %31 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstRefDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %35 = phi i32 [ %19, %31 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %32, %31 ], [ %16, %._crit_edge ]
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = add i32 %.sroa.024.0.i, -1640531527
+  %37 = add i32 %.sroa.022.0.i, -1640531527
   %38 = shl i32 %35, 6
   %39 = add i32 %37, %38
   %40 = lshr i32 %35, 2
@@ -10501,9 +10374,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstSFormatF(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstSFormatFEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10513,9 +10385,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstSFormatF(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10535,9 +10407,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstSFormatF(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10561,9 +10433,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -10584,9 +10455,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstSFormatFEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -10637,9 +10508,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstSScanF(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstSScanFEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10649,9 +10519,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstSScanF(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10671,9 +10541,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstSScanF(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10697,9 +10567,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -10720,9 +10589,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstSScanFEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -10789,9 +10658,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstScope(ptr noun
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10801,9 +10669,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstScope(ptr noun
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10823,9 +10691,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstScope(ptr noun
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10845,9 +10713,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -10868,9 +10735,9 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -10927,9 +10794,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstSelLoopVars(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstSelLoopVarsEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -10939,9 +10805,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstSelLoopVars(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10957,9 +10823,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10983,9 +10849,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -11006,9 +10871,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstSelLoopVarsEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -11063,9 +10928,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenItem(ptr n
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstSenItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11075,9 +10939,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenItem(ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -11103,9 +10967,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not14.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %30, %1
   %.not.i.i = icmp eq ptr %30, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
 
 31:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11129,9 +10993,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %37 = load i8, ptr %6, align 4
-  %38 = and i8 %37, 1
-  %.not15.i = icmp eq i8 %38, 0
-  br i1 %.not15.i, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %40 = load i32, ptr %17, align 8
@@ -11152,9 +11015,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 46:                                               ; preds = %._crit_edge, %44
   %47 = phi ptr [ %.pre7, %44 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstSenItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %48 = phi i32 [ %18, %44 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %45, %44 ], [ %16, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = add i32 %.sroa.024.0.i, -1640531527
+  %50 = add i32 %.sroa.022.0.i, -1640531527
   %51 = shl i32 %48, 6
   %52 = add i32 %50, %51
   %53 = lshr i32 %48, 2
@@ -11203,9 +11066,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenTree(ptr n
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstSenTreeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11215,9 +11077,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenTree(ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -11233,9 +11095,9 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not14.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %22, %1
   %.not.i.i = icmp eq ptr %22, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11259,9 +11121,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %29 = load i8, ptr %6, align 4
-  %30 = and i8 %29, 1
-  %.not15.i = icmp eq i8 %30, 0
-  br i1 %.not15.i, label %36, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %32 = load i32, ptr %17, align 8
@@ -11282,9 +11143,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 38:                                               ; preds = %._crit_edge, %36
   %39 = phi ptr [ %.pre6, %36 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstSenTreeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %40 = phi i32 [ %18, %36 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %37, %36 ], [ %16, %._crit_edge ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = add i32 %.sroa.024.0.i, -1640531527
+  %42 = add i32 %.sroa.022.0.i, -1640531527
   %43 = shl i32 %40, 6
   %44 = add i32 %42, %43
   %45 = lshr i32 %40, 2
@@ -11371,9 +11232,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstStreamDType(p
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstStreamDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11383,9 +11243,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstStreamDType(p
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -11412,9 +11272,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %23 = load i8, ptr %6, align 4
-  %24 = and i8 %23, 1
-  %.not15.i = icmp eq i8 %24, 0
-  br i1 %.not15.i, label %30, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %26 = load i32, ptr %17, align 8
@@ -11435,9 +11294,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 32:                                               ; preds = %._crit_edge, %30
   %33 = phi ptr [ %.pre5, %30 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstStreamDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %34 = phi i32 [ %18, %30 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %31, %30 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %31, %30 ], [ %16, %._crit_edge ]
   %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = add i32 %.sroa.024.0.i, -1640531527
+  %36 = add i32 %.sroa.022.0.i, -1640531527
   %37 = shl i32 %34, 6
   %38 = add i32 %36, %37
   %39 = lshr i32 %34, 2
@@ -11548,9 +11407,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstTraceInc(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstTraceIncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11560,9 +11418,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstTraceInc(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -11602,9 +11460,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -11625,9 +11482,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstTraceIncEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -11684,9 +11541,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstTypedef(ptr n
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstTypedefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11696,9 +11552,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstTypedef(ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -11718,9 +11574,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstTypedef(ptr n
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11744,9 +11600,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -11767,9 +11622,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstTypedefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -11820,9 +11675,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstTypedefFwd(pt
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstTypedefFwdEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11832,9 +11686,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstTypedefFwd(pt
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -11854,9 +11708,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstTypedefFwd(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11880,9 +11734,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -11903,9 +11756,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstTypedefFwdEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -11976,9 +11829,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstUnsizedArrayD
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstUnsizedArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -11988,9 +11840,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstUnsizedArrayD
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12030,9 +11882,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -12053,9 +11904,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstUnsizedArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -12112,9 +11963,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstVar(ptr nounde
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstVarEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -12124,9 +11974,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstVar(ptr nounde
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12146,9 +11996,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstVar(ptr nounde
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -12172,9 +12022,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -12195,9 +12044,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstVarEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -12248,9 +12097,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstVarRef(ptr nou
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstVarRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -12260,9 +12108,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstVarRef(ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12282,9 +12130,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstVarRef(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -12308,9 +12156,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -12331,9 +12178,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstVarRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -12384,9 +12231,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstVarScope(ptr 
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstVarScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -12396,9 +12242,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstVarScope(ptr 
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12445,9 +12291,9 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %.noexc,
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %31
   %35 = getelementptr inbounds i8, ptr %1, i64 72
   %36 = load ptr, ptr %35, align 8
-  %.not14.i = icmp eq ptr %36, %1
+  %.not13.i = icmp eq ptr %36, %1
   %.not.i.i = icmp eq ptr %36, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %37
 
 37:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -12471,9 +12317,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %37, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %43 = load i8, ptr %6, align 4
-  %44 = and i8 %43, 1
-  %.not15.i = icmp eq i8 %44, 0
-  br i1 %.not15.i, label %50, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %50
 
 45:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %46 = load i32, ptr %18, align 8
@@ -12494,9 +12339,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 52:                                               ; preds = %._crit_edge, %50
   %53 = phi ptr [ %.pre7, %50 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstVarScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %54 = phi i32 [ %19, %50 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %51, %50 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %51, %50 ], [ %16, %._crit_edge ]
   %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = add i32 %.sroa.024.0.i, -1640531527
+  %56 = add i32 %.sroa.022.0.i, -1640531527
   %57 = shl i32 %54, 6
   %58 = add i32 %56, %57
   %59 = lshr i32 %54, 2
@@ -12547,9 +12392,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstVarXRef(ptr n
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstVarXRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -12559,9 +12403,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstVarXRef(ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12581,9 +12425,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstVarXRef(ptr n
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not14.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %23, %1
   %.not.i.i = icmp eq ptr %23, null
-  %or.cond.i = or i1 %.not14.i, %.not.i.i
+  %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
 
 24:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -12607,9 +12451,8 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -12630,9 +12473,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre7, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstVarXRefEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -12681,9 +12524,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstVoidDType(ptr
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstVoidDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -12693,9 +12535,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstVoidDType(ptr
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %_ZNKSt8functionIFvvEEclEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12722,9 +12564,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %23 = load i8, ptr %6, align 4
-  %24 = and i8 %23, 1
-  %.not15.i = icmp eq i8 %24, 0
-  br i1 %.not15.i, label %30, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %26 = load i32, ptr %17, align 8
@@ -12745,9 +12586,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 32:                                               ; preds = %._crit_edge, %30
   %33 = phi ptr [ %.pre5, %30 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstVoidDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %34 = phi i32 [ %18, %30 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %31, %30 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %31, %30 ], [ %16, %._crit_edge ]
   %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = add i32 %.sroa.024.0.i, -1640531527
+  %36 = add i32 %.sroa.022.0.i, -1640531527
   %37 = shl i32 %34, 6
   %38 = add i32 %36, %37
   %39 = lshr i32 %34, 2
@@ -12804,9 +12645,8 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP21AstWildcardArray
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP21AstWildcardArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 140
@@ -12816,9 +12656,9 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP21AstWildcardArray
   %14 = getelementptr inbounds i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %.not1325.i = icmp eq i32 %16, 0
-  %.not13.i = select i1 %13, i1 true, i1 %.not1325.i
-  br i1 %.not13.i, label %17, label %._crit_edge
+  %.not23.i = icmp eq i32 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not23.i
+  br i1 %.not.i, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -12858,9 +12698,8 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
   %30 = load i8, ptr %6, align 4
-  %31 = and i8 %30, 1
-  %.not15.i = icmp eq i8 %31, 0
-  br i1 %.not15.i, label %37, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i
   %33 = load i32, ptr %18, align 8
@@ -12881,9 +12720,9 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
 39:                                               ; preds = %._crit_edge, %37
   %40 = phi ptr [ %.pre6, %37 ], [ @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP21AstWildcardArrayDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, %._crit_edge ]
   %41 = phi i32 [ %19, %37 ], [ %.pre, %._crit_edge ]
-  %.sroa.024.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
+  %.sroa.022.0.i = phi i32 [ %38, %37 ], [ %16, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = add i32 %.sroa.024.0.i, -1640531527
+  %43 = add i32 %.sroa.022.0.i, -1640531527
   %44 = shl i32 %41, 6
   %45 = add i32 %43, %44
   %46 = lshr i32 %41, 2
@@ -15660,15 +15499,14 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisit
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 152
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i.i.i = icmp eq i8 %7, 0
+  %7 = trunc i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = select i1 %.not.i.i.i, i32 -1640531527, i32 -1640531526
+  %10 = select i1 %7, i32 -1640531526, i32 -1640531527
   %11 = shl i32 %9, 6
-  %12 = lshr i32 %9, 2
-  %13 = add i32 %12, %11
-  %14 = add i32 %13, %10
+  %12 = add i32 %11, %10
+  %13 = lshr i32 %9, 2
+  %14 = add i32 %12, %13
   %15 = xor i32 %14, %9
   store i32 %15, ptr %8, align 4
   ret void

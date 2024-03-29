@@ -139,8 +139,8 @@ define void @_ZN7mitsuba6Spiral10next_blockEv(ptr dead_on_unwind noalias nocaptu
   br i1 %8, label %12, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %2
-  %.phi.trans.insert216 = getelementptr inbounds i8, ptr %1, i64 80
-  %11 = load <2 x i32>, ptr %.phi.trans.insert216, align 8
+  %.phi.trans.insert215 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = load <2 x i32>, ptr %.phi.trans.insert215, align 8
   br label %.critedge
 
 12:                                               ; preds = %2
@@ -210,19 +210,21 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader: ; preds = %.c
   %51 = getelementptr inbounds i8, ptr %1, i64 72
   %52 = load <2 x i32>, ptr %51, align 8
   %.promoted = load i32, ptr %49, align 8
-  %.promoted212 = load i32, ptr %33, align 8
-  %.promoted213 = load i32, ptr %50, align 4
+  %.promoted211 = load i32, ptr %33, align 8
+  %.promoted212 = load i32, ptr %50, align 4
   %53 = getelementptr inbounds i8, ptr %1, i64 112
-  %.promoted215 = load i32, ptr %53, align 8
+  %.promoted214 = load i32, ptr %53, align 8
   %54 = extractelement <2 x i32> %29, i64 1
+  %.sroa.0224.0.vec.extract = extractelement <2 x i32> %52, i64 0
+  %.sroa.0224.4.vec.extract = extractelement <2 x i32> %52, i64 1
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
 
-_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader, %.critedge222
-  %55 = phi i32 [ %.promoted215, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %78, %.critedge222 ]
-  %56 = phi i32 [ %54, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %.critedge222 ]
-  %57 = phi i32 [ %.promoted213, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %79, %.critedge222 ]
-  %58 = phi i32 [ %.promoted212, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %.critedge222 ]
-  %59 = phi i32 [ %.promoted, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %80, %.critedge222 ]
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %.critedge221, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader
+  %55 = phi i32 [ %.promoted214, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %78, %.critedge221 ]
+  %56 = phi i32 [ %54, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %.critedge221 ]
+  %57 = phi i32 [ %.promoted212, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %79, %.critedge221 ]
+  %58 = phi i32 [ %.promoted211, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %.critedge221 ]
+  %59 = phi i32 [ %.promoted, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %80, %.critedge221 ]
   switch i32 %59, label %68 [
     i32 0, label %60
     i32 1, label %62
@@ -255,13 +257,13 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9A
   %70 = phi i32 [ %58, %66 ], [ %65, %64 ], [ %58, %62 ], [ %61, %60 ], [ %58, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
   %71 = add i32 %57, -1
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.critedge222
+  br i1 %72, label %73, label %.critedge221
 
 73:                                               ; preds = %68
   %74 = add nsw i32 %59, 1
   %75 = srem i32 %74, 4
   store i32 %75, ptr %49, align 8
-  switch i32 %75, label %.critedge222 [
+  switch i32 %75, label %.critedge221 [
     i32 2, label %76
     i32 0, label %76
   ]
@@ -269,30 +271,24 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9A
 76:                                               ; preds = %73, %73
   %77 = add i32 %55, 1
   store i32 %77, ptr %53, align 8
-  br label %.critedge222
+  br label %.critedge221
 
-.critedge222:                                     ; preds = %76, %73, %68
+.critedge221:                                     ; preds = %76, %73, %68
   %78 = phi i32 [ %55, %68 ], [ %55, %73 ], [ %77, %76 ]
   %79 = phi i32 [ %71, %68 ], [ %55, %73 ], [ %77, %76 ]
   %80 = phi i32 [ %59, %68 ], [ %75, %73 ], [ %75, %76 ]
   %81 = load <2 x i32>, ptr %33, align 8
   %82 = icmp slt <2 x i32> %81, zeroinitializer
   %83 = extractelement <2 x i1> %82, i64 0
-  %84 = extractelement <2 x i1> %82, i64 1
-  %.sroa.2.0.insert.shift = select i1 %84, i16 256, i16 0
-  %.sroa.0227.0.insert.ext = zext i1 %83 to i16
-  %.sroa.0227.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, %.sroa.0227.0.insert.ext
-  %.sroa.0225.0.vec.insert = insertelement <2 x i32> poison, i32 %70, i64 0
-  %.sroa.0225.4.vec.insert = insertelement <2 x i32> %.sroa.0225.0.vec.insert, i32 %69, i64 1
-  %85 = icmp uge <2 x i32> %.sroa.0225.4.vec.insert, %52
-  %86 = extractelement <2 x i1> %85, i64 0
-  %87 = extractelement <2 x i1> %85, i64 1
-  %88 = icmp ne i16 %.sroa.0227.0.insert.insert, 0
-  %.tr = or i1 %86, %88
-  %.narrow = or i1 %.tr, %87
-  br i1 %.narrow, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, label %.critedge208.loopexit, !llvm.loop !4
+  %84 = icmp uge i32 %70, %.sroa.0224.0.vec.extract
+  %85 = or i1 %84, %83
+  %86 = extractelement <2 x i1> %82, i64 1
+  %87 = icmp uge i32 %69, %.sroa.0224.4.vec.extract
+  %88 = or i1 %87, %86
+  %or.cond = select i1 %85, i1 true, i1 %88
+  br i1 %or.cond, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, label %.critedge208.loopexit, !llvm.loop !4
 
-.critedge208.loopexit:                            ; preds = %.critedge222
+.critedge208.loopexit:                            ; preds = %.critedge221
   store i32 %79, ptr %50, align 4
   br label %.critedge208
 

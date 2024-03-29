@@ -144,18 +144,17 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %d_constantsAreTriggers = getelementptr inbounds i8, ptr %esi, i64 40
   %2 = load i8, ptr %d_constantsAreTriggers, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   invoke void @_ZN4cvc58internal6theory2eq14EqualityEngineC1ERNS0_3EnvEPNS_7context7ContextERNS2_20EqualityEngineNotifyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(1784) %call5, ptr noundef nonnull align 8 dereferenceable(576) %1, ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %tobool, i1 noundef zeroext true)
           to label %return unwind label %lpad3
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #12
   br label %eh.resume
@@ -166,19 +165,18 @@ if.end:                                           ; preds = %entry
 
 invoke.cont10:                                    ; preds = %if.end
   %d_constantsAreTriggers11 = getelementptr inbounds i8, ptr %esi, i64 40
-  %6 = load i8, ptr %d_constantsAreTriggers11, align 8
-  %7 = and i8 %6, 1
-  %tobool12 = icmp ne i8 %7, 0
+  %5 = load i8, ptr %d_constantsAreTriggers11, align 8
+  %tobool12 = trunc i8 %5 to i1
   invoke void @_ZN4cvc58internal6theory2eq14EqualityEngineC1ERNS0_3EnvEPNS_7context7ContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(1784) %call5, ptr noundef nonnull align 8 dereferenceable(576) %1, ptr noundef %c, ptr noundef nonnull %agg.tmp7, i1 noundef zeroext %tobool12, i1 noundef zeroext true)
           to label %return unwind label %lpad13
 
 lpad9:                                            ; preds = %if.end
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad13:                                           ; preds = %invoke.cont10
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #12
   br label %eh.resume
@@ -189,7 +187,7 @@ return:                                           ; preds = %invoke.cont10, %inv
   ret ptr %call5
 
 eh.resume:                                        ; preds = %lpad13, %lpad9, %lpad3, %lpad
-  %.pn8.pn = phi { ptr, i32 } [ %5, %lpad3 ], [ %4, %lpad ], [ %9, %lpad13 ], [ %8, %lpad9 ]
+  %.pn8.pn = phi { ptr, i32 } [ %4, %lpad3 ], [ %3, %lpad ], [ %7, %lpad13 ], [ %6, %lpad9 ]
   call void @_ZdlPv(ptr noundef nonnull %call5) #13
   resume { ptr, i32 } %.pn8.pn
 }

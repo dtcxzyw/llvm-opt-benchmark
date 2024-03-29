@@ -1255,13 +1255,13 @@ declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE4syncEv(ptr noun
 define linkonce_odr dso_local noundef i64 @_ZN18cmBasicUVStreambufIcSt11char_traitsIcEE9showmanycEv(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %.not1 = icmp eq ptr %3, null
+  %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 1
-  %sext = sub nsw i8 0, %6
-  %spec.select = sext i8 %sext to i64
-  %.0 = select i1 %.not1, i64 -1, i64 %spec.select
+  %7 = zext nneg i8 %6 to i64
+  %spec.select = sub nsw i64 0, %7
+  %.0 = select i1 %.not, i64 -1, i64 %spec.select
   ret i64 %.0
 }
 

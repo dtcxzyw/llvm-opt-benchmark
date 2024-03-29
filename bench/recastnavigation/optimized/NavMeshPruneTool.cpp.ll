@@ -1019,9 +1019,8 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %4 = getelementptr inbounds i8, ptr %3, i64 192
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %64, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %64
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
@@ -1101,22 +1100,22 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %72 = icmp ne ptr %71, null
   %73 = icmp ne ptr %69, null
   %or.cond = and i1 %73, %72
-  br i1 %or.cond, label %.preheader, label %.loopexit43
+  br i1 %or.cond, label %.preheader, label %.loopexit42
 
 .preheader:                                       ; preds = %64
   %74 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %69)
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph46, label %.loopexit43
+  br i1 %75, label %.lr.ph45, label %.loopexit42
 
-.lr.ph46:                                         ; preds = %.preheader, %.loopexit
-  %.045 = phi i32 [ %122, %.loopexit ], [ 0, %.preheader ]
-  %76 = tail call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %.045)
+.lr.ph45:                                         ; preds = %.preheader, %.loopexit
+  %.044 = phi i32 [ %122, %.loopexit ], [ 0, %.preheader ]
+  %76 = tail call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %.044)
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  %.not41 = icmp eq ptr %78, null
-  br i1 %.not41, label %.loopexit, label %79
+  %.not = icmp eq ptr %78, null
+  br i1 %.not, label %.loopexit, label %79
 
-79:                                               ; preds = %.lr.ph46
+79:                                               ; preds = %.lr.ph45
   %80 = tail call noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %69, ptr noundef nonnull %76)
   %81 = load ptr, ptr %77, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 24
@@ -1125,8 +1124,8 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   br i1 %84, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %79, %116
-  %.03944 = phi i32 [ %117, %116 ], [ 0, %79 ]
-  %85 = or i32 %.03944, %80
+  %.03943 = phi i32 [ %117, %116 ], [ 0, %79 ]
+  %85 = or i32 %.03943, %80
   %86 = load ptr, ptr %70, align 8
   %87 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %88 = icmp ne ptr %87, null
@@ -1173,28 +1172,28 @@ _ZN12NavmeshFlags8getFlagsEj.exit:                ; preds = %91, %96
   %112 = zext nneg i32 %106 to i64
   %113 = getelementptr inbounds i8, ptr %111, i64 %112
   %114 = load i8, ptr %113, align 1
-  %.not42 = icmp eq i8 %114, 0
-  br i1 %.not42, label %116, label %115
+  %.not41 = icmp eq i8 %114, 0
+  br i1 %.not41, label %116, label %115
 
 115:                                              ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %85, i32 noundef -2130706433)
   br label %116
 
 116:                                              ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit, %115
-  %117 = add nuw nsw i32 %.03944, 1
+  %117 = add nuw nsw i32 %.03943, 1
   %118 = load ptr, ptr %77, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 24
   %120 = load i32, ptr %119, align 4
   %121 = icmp slt i32 %117, %120
   br i1 %121, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %116, %79, %.lr.ph46
-  %122 = add nuw nsw i32 %.045, 1
+.loopexit:                                        ; preds = %116, %79, %.lr.ph45
+  %122 = add nuw nsw i32 %.044, 1
   %123 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %69)
   %124 = icmp slt i32 %122, %123
-  br i1 %124, label %.lr.ph46, label %.loopexit43, !llvm.loop !14
+  br i1 %124, label %.lr.ph45, label %.loopexit42, !llvm.loop !14
 
-.loopexit43:                                      ; preds = %.loopexit, %.preheader, %64
+.loopexit42:                                      ; preds = %.loopexit, %.preheader, %64
   ret void
 }
 

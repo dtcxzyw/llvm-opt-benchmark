@@ -85,9 +85,8 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not76 = icmp eq i8 %23, 0
-  %24 = select i1 %.not76, ptr @.str.7, ptr @.str.6
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.6, ptr @.str.7
   %25 = getelementptr inbounds i8, ptr %6, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
@@ -169,34 +168,31 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61, %65
-  %.0707778 = phi ptr [ %63, %65 ], [ @wal_level_options, %61 ]
-  %63 = getelementptr i8, ptr %.0707778, i64 16
+  %.0707374 = phi ptr [ %63, %65 ], [ @wal_level_options, %61 ]
+  %63 = getelementptr i8, ptr %.0707374, i64 16
   %64 = load ptr, ptr %63, align 8
-  %.not73 = icmp eq ptr %64, null
-  br i1 %.not73, label %._crit_edge, label %65, !llvm.loop !5
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %._crit_edge, label %65, !llvm.loop !5
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr i8, ptr %.0707778, i64 24
+  %66 = getelementptr i8, ptr %.0707374, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, %.sroa.6.0.copyload
   br i1 %68, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %65, %61
   %.0 = phi ptr [ @.str, %61 ], [ @.str.12, %.lr.ph ], [ %64, %65 ]
-  %69 = and i8 %.sroa.7.0.copyload, 1
-  %.not74 = icmp eq i8 %69, 0
-  %70 = select i1 %.not74, ptr @.str.15, ptr @.str.14
-  %71 = and i8 %.sroa.8.0.copyload, 1
-  %.not75 = icmp eq i8 %71, 0
-  %72 = select i1 %.not75, ptr @.str.15, ptr @.str.14
+  %69 = trunc i8 %.sroa.7.0.copyload to i1
+  %70 = select i1 %69, ptr @.str.14, ptr @.str.15
+  %71 = trunc i8 %.sroa.8.0.copyload to i1
+  %72 = select i1 %71, ptr @.str.14, ptr @.str.15
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %.sroa.013.0.copyload, i32 noundef %.sroa.214.0.copyload, i32 noundef %.sroa.315.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload, ptr noundef nonnull %.0, ptr noundef nonnull %70, ptr noundef nonnull %72) #3
   br label %83
 
 73:                                               ; preds = %56
   %.0.copyload = load i8, ptr %6, align 1
-  %74 = and i8 %.0.copyload, 1
-  %.not = icmp eq i8 %74, 0
-  %75 = select i1 %.not, ptr @.str.7, ptr @.str.6
+  %74 = trunc i8 %.0.copyload to i1
+  %75 = select i1 %74, ptr @.str.6, ptr @.str.7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %75) #3
   br label %83
 
@@ -253,7 +249,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %6 = alloca %struct.RelFileLocator, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %.not80 = xor i1 %1, true
+  %.not75 = xor i1 %1, true
   %brmerge.not = and i1 %1, %2
   br i1 %brmerge.not, label %9, label %10
 
@@ -266,18 +262,18 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  %.not85 = icmp slt i32 %14, 0
-  br i1 %.not85, label %._crit_edge, label %.lr.ph
+  %.not80 = icmp slt i32 %14, 0
+  br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %15 = getelementptr inbounds i8, ptr %6, i64 4
   %16 = getelementptr inbounds i8, ptr %6, i64 8
-  %.not69 = icmp eq ptr %4, null
+  %.not68 = icmp eq ptr %4, null
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %91
-  %.06486.us = phi i32 [ %92, %91 ], [ 0, %.lr.ph ]
-  %17 = trunc i32 %.06486.us to i8
+  %.06481.us = phi i32 [ %92, %91 ], [ 0, %.lr.ph ]
+  %17 = trunc i32 %.06481.us to i8
   %18 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %17, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #3
   br i1 %18, label %19, label %91
 
@@ -285,7 +281,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %1, label %.sink.split, label %20
 
 20:                                               ; preds = %19
-  %21 = icmp sgt i32 %.06486.us, 0
+  %21 = icmp sgt i32 %.06481.us, 0
   br i1 %21, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %19, %20
@@ -302,21 +298,20 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %28 = getelementptr [0 x ptr], ptr @forkNames, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %.06486.us, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %29, i32 noundef %30) #3
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %.06481.us, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %29, i32 noundef %30) #3
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 88
-  %33 = sext i32 %.06486.us to i64
+  %33 = sext i32 %.06481.us to i64
   %34 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %32, i64 0, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 29
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not71.us = icmp eq i8 %37, 0
-  br i1 %.not71.us, label %89, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %89
 
 38:                                               ; preds = %22
   %39 = getelementptr inbounds i8, ptr %34, i64 46
   %40 = load i8, ptr %39, align 2
-  br i1 %.not69, label %47, label %41
+  br i1 %.not68, label %47, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %34, i64 44
@@ -330,23 +325,23 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 47:                                               ; preds = %41, %38
   %48 = zext i8 %40 to i32
   %49 = and i32 %48, 28
-  %.not73.us = icmp eq i32 %49, 0
-  br i1 %.not73.us, label %75, label %50
+  %.not70.us = icmp eq i32 %49, 0
+  br i1 %.not70.us, label %75, label %50
 
 50:                                               ; preds = %47
   %51 = and i32 %48, 4
-  %.not75.us = icmp eq i32 %51, 0
-  br i1 %.not75.us, label %52, label %56
+  %.not71.us = icmp eq i32 %51, 0
+  br i1 %.not71.us, label %52, label %56
 
 52:                                               ; preds = %50
   %53 = and i32 %48, 8
-  %.not76.us = icmp eq i32 %53, 0
-  br i1 %.not76.us, label %54, label %56
+  %.not72.us = icmp eq i32 %53, 0
+  br i1 %.not72.us, label %54, label %56
 
 54:                                               ; preds = %52
   %55 = and i32 %48, 16
-  %.not77.us = icmp eq i32 %55, 0
-  %.str.36..str.35.us = select i1 %.not77.us, ptr @.str.36, ptr @.str.35
+  %.not73.us = icmp eq i32 %55, 0
+  %.str.36..str.35.us = select i1 %.not73.us, ptr @.str.36, ptr @.str.35
   br label %56
 
 56:                                               ; preds = %54, %52, %50
@@ -356,9 +351,8 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %59 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %58, i64 0, i64 %33
   %60 = getelementptr inbounds i8, ptr %59, i64 30
   %61 = load i8, ptr %60, align 2
-  %62 = and i8 %61, 1
-  %.not78.us = icmp eq i8 %62, 0
-  %63 = select i1 %.not78.us, ptr @.str.39, ptr @.str.38
+  %62 = trunc i8 %61 to i1
+  %63 = select i1 %62, ptr @.str.38, ptr @.str.39
   %64 = getelementptr inbounds i8, ptr %59, i64 40
   %65 = load i16, ptr %64, align 8
   %66 = zext i16 %65 to i32
@@ -379,9 +373,8 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %78 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %77, i64 0, i64 %33
   %79 = getelementptr inbounds i8, ptr %78, i64 30
   %80 = load i8, ptr %79, align 2
-  %81 = and i8 %80, 1
-  %.not74.us = icmp eq i8 %81, 0
-  %82 = select i1 %.not74.us, ptr @.str.39, ptr @.str.38
+  %81 = trunc i8 %80 to i1
+  %82 = select i1 %81, ptr @.str.38, ptr @.str.39
   %83 = getelementptr inbounds i8, ptr %78, i64 40
   %84 = load i16, ptr %83, align 8
   %85 = zext i16 %84 to i32
@@ -399,7 +392,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br label %91
 
 91:                                               ; preds = %90, %89, %.lr.ph.split.us
-  %92 = add i32 %.06486.us, 1
+  %92 = add i32 %.06481.us, 1
   %93 = load ptr, ptr %11, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 84
   %95 = load i32, ptr %94, align 4
@@ -407,8 +400,8 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %130
-  %.06486 = phi i32 [ %131, %130 ], [ 0, %.lr.ph ]
-  %96 = trunc i32 %.06486 to i8
+  %.06481 = phi i32 [ %131, %130 ], [ 0, %.lr.ph ]
+  %96 = trunc i32 %.06481 to i8
   %97 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %96, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #3
   br i1 %97, label %98, label %130
 
@@ -425,27 +418,26 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %105 = getelementptr [0 x ptr], ptr @forkNames, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %.06486, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %106, i32 noundef %107) #3
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %.06481, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %106, i32 noundef %107) #3
   br label %110
 
 108:                                              ; preds = %98
   %109 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.42, i32 noundef %.06486, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %109) #3
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.42, i32 noundef %.06481, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %109) #3
   br label %110
 
 110:                                              ; preds = %108, %103
   %111 = load ptr, ptr %11, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 88
-  %113 = sext i32 %.06486 to i64
+  %113 = sext i32 %.06481 to i64
   %114 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %112, i64 0, i64 %113
   %115 = getelementptr inbounds i8, ptr %114, i64 29
   %116 = load i8, ptr %115, align 1
-  %117 = and i8 %116, 1
-  %.not68 = icmp eq i8 %117, 0
-  br i1 %.not68, label %130, label %118
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %130
 
 118:                                              ; preds = %110
-  br i1 %.not69, label %.sink.split89, label %119
+  br i1 %.not68, label %.sink.split84, label %119
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds i8, ptr %114, i64 44
@@ -455,21 +447,20 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %124 = add i32 %123, %122
   store i32 %124, ptr %4, align 4
   %.pre = load ptr, ptr %11, align 8
-  br label %.sink.split89
+  br label %.sink.split84
 
-.sink.split89:                                    ; preds = %119, %118
+.sink.split84:                                    ; preds = %119, %118
   %125 = phi ptr [ %.pre, %119 ], [ %111, %118 ]
   %126 = getelementptr inbounds i8, ptr %125, i64 88
   %127 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %126, i64 0, i64 %113, i32 7
   %128 = load i8, ptr %127, align 2
-  %129 = and i8 %128, 1
-  %.not70 = icmp eq i8 %129, 0
-  %.str.44..str.43 = select i1 %.not70, ptr @.str.44, ptr @.str.43
-  call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull %.str.44..str.43) #3
+  %129 = trunc i8 %128 to i1
+  %.str.43..str.44 = select i1 %129, ptr @.str.43, ptr @.str.44
+  call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull %.str.43..str.44) #3
   br label %130
 
-130:                                              ; preds = %.sink.split89, %110, %.lr.ph.split
-  %131 = add i32 %.06486, 1
+130:                                              ; preds = %.sink.split84, %110, %.lr.ph.split
+  %131 = add i32 %.06481, 1
   %132 = load ptr, ptr %11, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 84
   %134 = load i32, ptr %133, align 4
@@ -477,8 +468,8 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %130, %91, %10
-  %brmerge82 = or i1 %.not80, %2
-  br i1 %brmerge82, label %136, label %135
+  %brmerge77 = or i1 %.not75, %2
+  br i1 %brmerge77, label %136, label %135
 
 135:                                              ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef %3, i8 noundef signext 10) #3

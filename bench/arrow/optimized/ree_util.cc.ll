@@ -1172,7 +1172,7 @@ if.then.i:                                        ; preds = %sw.bb
 
 common.resume:                                    ; preds = %lpad.i.i28.i105, %lpad.i.i37.i117, %lpad.i.i.i88, %lpad.i.i28.i36, %lpad.i.i37.i48, %lpad.i.i.i, %lpad.i.i28.i, %lpad.i.i37.i
   %ref.tmp.i.i36.sink.i107.sink = phi ptr [ %ref.tmp.i.i36.i, %lpad.i.i37.i ], [ %ref.tmp.i.i27.i, %lpad.i.i28.i ], [ %ref.tmp.i.i.i, %lpad.i.i.i ], [ %ref.tmp.i.i36.i14, %lpad.i.i37.i48 ], [ %ref.tmp.i.i27.i15, %lpad.i.i28.i36 ], [ %ref.tmp.i.i.i16, %lpad.i.i.i88 ], [ %ref.tmp.i.i36.i90, %lpad.i.i37.i117 ], [ %ref.tmp.i.i27.i91, %lpad.i.i28.i105 ]
-  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i.i37.i ], [ %13, %lpad.i.i28.i ], [ %4, %lpad.i.i.i ], [ %58, %lpad.i.i37.i48 ], [ %47, %lpad.i.i28.i36 ], [ %38, %lpad.i.i.i88 ], [ %91, %lpad.i.i37.i117 ], [ %80, %lpad.i.i28.i105 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i.i37.i ], [ %13, %lpad.i.i28.i ], [ %4, %lpad.i.i.i ], [ %57, %lpad.i.i37.i48 ], [ %46, %lpad.i.i28.i36 ], [ %37, %lpad.i.i.i88 ], [ %89, %lpad.i.i37.i117 ], [ %78, %lpad.i.i28.i105 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i36.sink.i107.sink) #8
   resume { ptr, i32 } %common.resume.op
 
@@ -1322,9 +1322,8 @@ if.end66.i:                                       ; preds = %if.end63.i
   %31 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !21
   %is_cpu_.i.i = getelementptr inbounds i8, ptr %31, i64 9
   %32 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !21
-  %33 = and i8 %32, 1
-  %tobool.i.not.i = icmp eq i8 %33, 0
-  br i1 %tobool.i.not.i, label %if.then71.i, label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i
+  %tobool.i.i = trunc i8 %32 to i1
+  br i1 %tobool.i.i, label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i, label %if.then71.i
 
 if.then71.i:                                      ; preds = %if.end66.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !45
@@ -1332,14 +1331,14 @@ if.then71.i:                                      ; preds = %if.end66.i
 
 _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i:   ; preds = %if.end66.i
   %offset.i.i = getelementptr inbounds i8, ptr %26, i64 32
-  %34 = load i64, ptr %offset.i.i, align 8, !noalias !21
+  %33 = load i64, ptr %offset.i.i, align 8, !noalias !21
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 16
-  %35 = load ptr, ptr %data_.i.i.i.i, align 8, !noalias !21
-  %add.ptr.i.i38.i = getelementptr inbounds i16, ptr %35, i64 %34
-  %36 = getelementptr i16, ptr %add.ptr.i.i38.i, i64 %27
-  %arrayidx.i = getelementptr i8, ptr %36, i64 -2
-  %37 = load i16, ptr %arrayidx.i, align 2, !noalias !21
-  %conv77.i = sext i16 %37 to i64
+  %34 = load ptr, ptr %data_.i.i.i.i, align 8, !noalias !21
+  %add.ptr.i.i38.i = getelementptr inbounds i16, ptr %34, i64 %33
+  %35 = getelementptr i16, ptr %add.ptr.i.i38.i, i64 %27
+  %arrayidx.i = getelementptr i8, ptr %35, i64 -2
+  %36 = load i16, ptr %arrayidx.i, align 2, !noalias !21
+  %conv77.i = sext i16 %36 to i64
   %cmp79.i = icmp sgt i64 %add.i, %conv77.i
   br i1 %cmp79.i, label %if.then80.i, label %if.end87.i
 
@@ -1387,7 +1386,7 @@ if.then.i85:                                      ; preds = %sw.bb3
           to label %_ZN5arrow6Status7InvalidIJRA84_KcRNS_8DataTypeERA26_S2_lRA31_S2_iEEES0_DpOT_.exit.i unwind label %lpad.i.i.i88
 
 lpad.i.i.i88:                                     ; preds = %if.then.i85
-  %38 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1397,8 +1396,8 @@ _ZN5arrow6Status7InvalidIJRA84_KcRNS_8DataTypeERA26_S2_lRA31_S2_iEEES0_DpOT_.exi
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end.i26:                                       ; preds = %sw.bb3
-  %39 = load ptr, ptr %run_ends_data, align 8, !noalias !51
-  %cmp.i.not.i27 = icmp eq ptr %39, null
+  %38 = load ptr, ptr %run_ends_data, align 8, !noalias !51
+  %cmp.i.not.i27 = icmp eq ptr %38, null
   br i1 %cmp.i.not.i27, label %if.then7.i84, label %if.end8.i28
 
 if.then7.i84:                                     ; preds = %if.end.i26
@@ -1406,8 +1405,8 @@ if.then7.i84:                                     ; preds = %if.end.i26
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end8.i28:                                      ; preds = %if.end.i26
-  %40 = load ptr, ptr %values_data, align 8, !noalias !51
-  %cmp.i22.not.i29 = icmp eq ptr %40, null
+  %39 = load ptr, ptr %values_data, align 8, !noalias !51
+  %cmp.i22.not.i29 = icmp eq ptr %39, null
   br i1 %cmp.i22.not.i29, label %if.then10.i83, label %if.end11.i30
 
 if.then10.i83:                                    ; preds = %if.end8.i28
@@ -1415,24 +1414,24 @@ if.then10.i83:                                    ; preds = %if.end8.i28
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end11.i30:                                     ; preds = %if.end8.i28
-  %41 = load ptr, ptr %39, align 8, !noalias !51
-  %call.i.i.i33 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false), !noalias !51
+  %40 = load ptr, ptr %38, align 8, !noalias !51
+  %call.i.i.i33 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false), !noalias !51
   br i1 %call.i.i.i33, label %if.end24.i41, label %if.then18.i34
 
 if.then18.i34:                                    ; preds = %if.end11.i30
-  %42 = load ptr, ptr %children_.i.i, align 8, !noalias !51
-  %43 = load ptr, ptr %42, align 8, !noalias !51
-  %type_.i.i26.i35 = getelementptr inbounds i8, ptr %43, i64 56
-  %44 = load ptr, ptr %type_.i.i26.i35, align 8, !noalias !51
-  %45 = load ptr, ptr %run_ends_data, align 8, !noalias !51
-  %46 = load ptr, ptr %45, align 8, !noalias !51
+  %41 = load ptr, ptr %children_.i.i, align 8, !noalias !51
+  %42 = load ptr, ptr %41, align 8, !noalias !51
+  %type_.i.i26.i35 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = load ptr, ptr %type_.i.i26.i35, align 8, !noalias !51
+  %44 = load ptr, ptr %run_ends_data, align 8, !noalias !51
+  %45 = load ptr, ptr %44, align 8, !noalias !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i27.i15), !noalias !60
-  call void @_ZN5arrow4util13StringBuilderIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i27.i15, ptr noundef nonnull align 1 dereferenceable(19) @.str.5, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull align 1 dereferenceable(10) @.str.6, ptr noundef nonnull align 8 dereferenceable(72) %44, ptr noundef nonnull align 1 dereferenceable(23) @.str.7, ptr noundef nonnull align 8 dereferenceable(72) %46), !noalias !63
+  call void @_ZN5arrow4util13StringBuilderIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i27.i15, ptr noundef nonnull align 1 dereferenceable(19) @.str.5, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull align 1 dereferenceable(10) @.str.6, ptr noundef nonnull align 8 dereferenceable(72) %43, ptr noundef nonnull align 1 dereferenceable(23) @.str.7, ptr noundef nonnull align 8 dereferenceable(72) %45), !noalias !63
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i8 noundef signext 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i27.i15)
           to label %_ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEES0_DpOT_.exit.i40 unwind label %lpad.i.i28.i36
 
 lpad.i.i28.i36:                                   ; preds = %if.then18.i34
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1442,31 +1441,31 @@ _ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeE
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end24.i41:                                     ; preds = %if.end11.i30
-  %48 = load ptr, ptr %values_data, align 8, !noalias !51
-  %49 = load ptr, ptr %48, align 8, !noalias !51
-  %50 = load ptr, ptr %children_.i.i, align 8, !noalias !51
-  %add.ptr.i.i.i42 = getelementptr inbounds i8, ptr %50, i64 16
-  %51 = load ptr, ptr %add.ptr.i.i.i42, align 8, !noalias !51
-  %type_.i.i30.i43 = getelementptr inbounds i8, ptr %51, i64 56
-  %52 = load ptr, ptr %type_.i.i30.i43, align 8, !noalias !51
-  %call.i.i31.i44 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef nonnull align 8 dereferenceable(72) %52, i1 noundef zeroext false), !noalias !51
+  %47 = load ptr, ptr %values_data, align 8, !noalias !51
+  %48 = load ptr, ptr %47, align 8, !noalias !51
+  %49 = load ptr, ptr %children_.i.i, align 8, !noalias !51
+  %add.ptr.i.i.i42 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = load ptr, ptr %add.ptr.i.i.i42, align 8, !noalias !51
+  %type_.i.i30.i43 = getelementptr inbounds i8, ptr %50, i64 56
+  %51 = load ptr, ptr %type_.i.i30.i43, align 8, !noalias !51
+  %call.i.i31.i44 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %48, ptr noundef nonnull align 8 dereferenceable(72) %51, i1 noundef zeroext false), !noalias !51
   br i1 %call.i.i31.i44, label %if.end37.i50, label %if.then31.i45
 
 if.then31.i45:                                    ; preds = %if.end24.i41
-  %53 = load ptr, ptr %children_.i.i, align 8, !noalias !51
-  %add.ptr.i.i34.i46 = getelementptr inbounds i8, ptr %53, i64 16
-  %54 = load ptr, ptr %add.ptr.i.i34.i46, align 8, !noalias !51
-  %type_.i.i35.i47 = getelementptr inbounds i8, ptr %54, i64 56
-  %55 = load ptr, ptr %type_.i.i35.i47, align 8, !noalias !51
-  %56 = load ptr, ptr %values_data, align 8, !noalias !51
-  %57 = load ptr, ptr %56, align 8, !noalias !51
+  %52 = load ptr, ptr %children_.i.i, align 8, !noalias !51
+  %add.ptr.i.i34.i46 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load ptr, ptr %add.ptr.i.i34.i46, align 8, !noalias !51
+  %type_.i.i35.i47 = getelementptr inbounds i8, ptr %53, i64 56
+  %54 = load ptr, ptr %type_.i.i35.i47, align 8, !noalias !51
+  %55 = load ptr, ptr %values_data, align 8, !noalias !51
+  %56 = load ptr, ptr %55, align 8, !noalias !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i36.i14), !noalias !66
-  call void @_ZN5arrow4util13StringBuilderIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i36.i14, ptr noundef nonnull align 1 dereferenceable(37) @.str.8, ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef nonnull align 1 dereferenceable(28) @.str.9, ptr noundef nonnull align 8 dereferenceable(72) %57), !noalias !69
+  call void @_ZN5arrow4util13StringBuilderIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i36.i14, ptr noundef nonnull align 1 dereferenceable(37) @.str.8, ptr noundef nonnull align 8 dereferenceable(72) %54, ptr noundef nonnull align 1 dereferenceable(28) @.str.9, ptr noundef nonnull align 8 dereferenceable(72) %56), !noalias !69
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i8 noundef signext 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i36.i14)
           to label %_ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i49 unwind label %lpad.i.i37.i48
 
 lpad.i.i37.i48:                                   ; preds = %if.then31.i45
-  %58 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1476,25 +1475,25 @@ _ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i49: 
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end37.i50:                                     ; preds = %if.end24.i41
-  %59 = load ptr, ptr %run_ends_data, align 8, !noalias !51
-  %call39.i51 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %59), !noalias !51
+  %58 = load ptr, ptr %run_ends_data, align 8, !noalias !51
+  %call39.i51 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %58), !noalias !51
   %cmp40.not.i52 = icmp eq i64 %call39.i51, 0
-  %60 = load ptr, ptr %run_ends_data, align 8, !noalias !51
+  %59 = load ptr, ptr %run_ends_data, align 8, !noalias !51
   br i1 %cmp40.not.i52, label %if.end45.i55, label %if.then41.i53
 
 if.then41.i53:                                    ; preds = %if.end37.i50
-  %call44.i54 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %60), !noalias !51
+  %call44.i54 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %59), !noalias !51
   store i64 %call44.i54, ptr %ref.tmp42.i22, align 8, !noalias !51
   call void @_ZN5arrow6Status8FromArgsIJRA49_KclEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(49) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp42.i22)
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end45.i55:                                     ; preds = %if.end37.i50
-  %length.i56 = getelementptr inbounds i8, ptr %60, i64 16
-  %61 = load i64, ptr %length.i56, align 8, !noalias !51
-  %62 = load ptr, ptr %values_data, align 8, !noalias !51
-  %length48.i57 = getelementptr inbounds i8, ptr %62, i64 16
-  %63 = load i64, ptr %length48.i57, align 8, !noalias !51
-  %cmp49.i58 = icmp sgt i64 %61, %63
+  %length.i56 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = load i64, ptr %length.i56, align 8, !noalias !51
+  %61 = load ptr, ptr %values_data, align 8, !noalias !51
+  %length48.i57 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = load i64, ptr %length48.i57, align 8, !noalias !51
+  %cmp49.i58 = icmp sgt i64 %60, %62
   br i1 %cmp49.i58, label %if.then50.i82, label %if.end55.i59
 
 if.then50.i82:                                    ; preds = %if.end45.i55
@@ -1502,7 +1501,7 @@ if.then50.i82:                                    ; preds = %if.end45.i55
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end55.i59:                                     ; preds = %if.end45.i55
-  %cmp58.i60 = icmp eq i64 %61, 0
+  %cmp58.i60 = icmp eq i64 %60, 0
   br i1 %cmp58.i60, label %if.then59.i78, label %if.end63.i61
 
 if.then59.i78:                                    ; preds = %if.end55.i59
@@ -1526,43 +1525,42 @@ if.then65.i63:                                    ; preds = %if.end63.i61
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end66.i64:                                     ; preds = %if.end63.i61
-  %buffers.i65 = getelementptr inbounds i8, ptr %60, i64 40
-  %64 = load ptr, ptr %buffers.i65, align 8, !noalias !51
-  %add.ptr.i.i66 = getelementptr inbounds i8, ptr %64, i64 16
-  %65 = load ptr, ptr %add.ptr.i.i66, align 8, !noalias !51
-  %is_cpu_.i.i67 = getelementptr inbounds i8, ptr %65, i64 9
-  %66 = load i8, ptr %is_cpu_.i.i67, align 1, !noalias !51
-  %67 = and i8 %66, 1
-  %tobool.i.not.i68 = icmp eq i8 %67, 0
-  br i1 %tobool.i.not.i68, label %if.then71.i77, label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
+  %buffers.i65 = getelementptr inbounds i8, ptr %59, i64 40
+  %63 = load ptr, ptr %buffers.i65, align 8, !noalias !51
+  %add.ptr.i.i66 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = load ptr, ptr %add.ptr.i.i66, align 8, !noalias !51
+  %is_cpu_.i.i67 = getelementptr inbounds i8, ptr %64, i64 9
+  %65 = load i8, ptr %is_cpu_.i.i67, align 1, !noalias !51
+  %tobool.i.i68 = trunc i8 %65 to i1
+  br i1 %tobool.i.i68, label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i, label %if.then71.i69
 
-if.then71.i77:                                    ; preds = %if.end66.i64
+if.then71.i69:                                    ; preds = %if.end66.i64
   store ptr null, ptr %agg.result, align 8, !alias.scope !75
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %if.end66.i64
-  %offset.i.i69 = getelementptr inbounds i8, ptr %60, i64 32
-  %68 = load i64, ptr %offset.i.i69, align 8, !noalias !51
-  %data_.i.i.i.i70 = getelementptr inbounds i8, ptr %65, i64 16
-  %69 = load ptr, ptr %data_.i.i.i.i70, align 8, !noalias !51
-  %add.ptr.i.i38.i71 = getelementptr inbounds i32, ptr %69, i64 %68
-  %70 = getelementptr i32, ptr %add.ptr.i.i38.i71, i64 %61
-  %arrayidx.i72 = getelementptr i8, ptr %70, i64 -4
-  %71 = load i32, ptr %arrayidx.i72, align 4, !noalias !51
-  %conv77.i73 = sext i32 %71 to i64
-  %cmp79.i74 = icmp sgt i64 %add.i24, %conv77.i73
-  br i1 %cmp79.i74, label %if.then80.i76, label %if.end87.i75
+  %offset.i.i70 = getelementptr inbounds i8, ptr %59, i64 32
+  %66 = load i64, ptr %offset.i.i70, align 8, !noalias !51
+  %data_.i.i.i.i71 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = load ptr, ptr %data_.i.i.i.i71, align 8, !noalias !51
+  %add.ptr.i.i38.i72 = getelementptr inbounds i32, ptr %67, i64 %66
+  %68 = getelementptr i32, ptr %add.ptr.i.i38.i72, i64 %60
+  %arrayidx.i73 = getelementptr i8, ptr %68, i64 -4
+  %69 = load i32, ptr %arrayidx.i73, align 4, !noalias !51
+  %conv77.i74 = sext i32 %69 to i64
+  %cmp79.i75 = icmp sgt i64 %add.i24, %conv77.i74
+  br i1 %cmp79.i75, label %if.then80.i77, label %if.end87.i76
 
-if.then80.i76:                                    ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
+if.then80.i77:                                    ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
   store i64 %add.i24, ptr %ref.tmp85.i23, align 8, !noalias !51
-  call void @_ZN5arrow6Status7InvalidIJRA17_KcRKiRA22_S2_lRA11_S2_RlSA_SB_RA2_S2_EEES0_DpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(17) @.str.16, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i72, ptr noundef nonnull align 1 dereferenceable(22) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85.i23, ptr noundef nonnull align 1 dereferenceable(11) @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %logical_offset.addr.i19, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %logical_length.addr.i17, ptr noundef nonnull align 1 dereferenceable(2) @.str.20)
+  call void @_ZN5arrow6Status7InvalidIJRA17_KcRKiRA22_S2_lRA11_S2_RlSA_SB_RA2_S2_EEES0_DpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(17) @.str.16, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i73, ptr noundef nonnull align 1 dereferenceable(22) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85.i23, ptr noundef nonnull align 1 dereferenceable(11) @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %logical_offset.addr.i19, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %logical_length.addr.i17, ptr noundef nonnull align 1 dereferenceable(2) @.str.20)
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
-if.end87.i75:                                     ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
+if.end87.i76:                                     ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !78
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
-_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit: ; preds = %_ZN5arrow6Status7InvalidIJRA84_KcRNS_8DataTypeERA26_S2_lRA31_S2_iEEES0_DpOT_.exit.i, %if.then7.i84, %if.then10.i83, %_ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEES0_DpOT_.exit.i40, %_ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i49, %if.then41.i53, %if.then50.i82, %if.then61.i81, %if.end62.i80, %if.then65.i63, %if.then71.i77, %if.then80.i76, %if.end87.i75
+_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIiEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit: ; preds = %_ZN5arrow6Status7InvalidIJRA84_KcRNS_8DataTypeERA26_S2_lRA31_S2_iEEES0_DpOT_.exit.i, %if.then7.i84, %if.then10.i83, %_ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEES0_DpOT_.exit.i40, %_ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i49, %if.then41.i53, %if.then50.i82, %if.then61.i81, %if.end62.i80, %if.then65.i63, %if.then71.i69, %if.then80.i77, %if.end87.i76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %logical_length.addr.i17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %null_count.addr.i18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %logical_offset.addr.i19)
@@ -1582,8 +1580,8 @@ while.end12:                                      ; preds = %entry
   store i64 %logical_length, ptr %logical_length.addr.i92, align 8, !noalias !81
   store i64 %null_count, ptr %null_count.addr.i93, align 8, !noalias !81
   store i64 %logical_offset, ptr %logical_offset.addr.i94, align 8, !noalias !81
-  %72 = load ptr, ptr %run_ends_data, align 8, !noalias !81
-  %cmp.i.not.i96 = icmp eq ptr %72, null
+  %70 = load ptr, ptr %run_ends_data, align 8, !noalias !81
+  %cmp.i.not.i96 = icmp eq ptr %70, null
   br i1 %cmp.i.not.i96, label %if.then7.i149, label %if.end8.i97
 
 if.then7.i149:                                    ; preds = %while.end12
@@ -1591,8 +1589,8 @@ if.then7.i149:                                    ; preds = %while.end12
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end8.i97:                                      ; preds = %while.end12
-  %73 = load ptr, ptr %values_data, align 8, !noalias !81
-  %cmp.i22.not.i98 = icmp eq ptr %73, null
+  %71 = load ptr, ptr %values_data, align 8, !noalias !81
+  %cmp.i22.not.i98 = icmp eq ptr %71, null
   br i1 %cmp.i22.not.i98, label %if.then10.i148, label %if.end11.i99
 
 if.then10.i148:                                   ; preds = %if.end8.i97
@@ -1600,24 +1598,24 @@ if.then10.i148:                                   ; preds = %if.end8.i97
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end11.i99:                                     ; preds = %if.end8.i97
-  %74 = load ptr, ptr %72, align 8, !noalias !81
-  %call.i.i.i102 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %74, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false), !noalias !81
+  %72 = load ptr, ptr %70, align 8, !noalias !81
+  %call.i.i.i102 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %72, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false), !noalias !81
   br i1 %call.i.i.i102, label %if.end24.i110, label %if.then18.i103
 
 if.then18.i103:                                   ; preds = %if.end11.i99
-  %75 = load ptr, ptr %children_.i.i, align 8, !noalias !81
-  %76 = load ptr, ptr %75, align 8, !noalias !81
-  %type_.i.i26.i104 = getelementptr inbounds i8, ptr %76, i64 56
-  %77 = load ptr, ptr %type_.i.i26.i104, align 8, !noalias !81
-  %78 = load ptr, ptr %run_ends_data, align 8, !noalias !81
-  %79 = load ptr, ptr %78, align 8, !noalias !81
+  %73 = load ptr, ptr %children_.i.i, align 8, !noalias !81
+  %74 = load ptr, ptr %73, align 8, !noalias !81
+  %type_.i.i26.i104 = getelementptr inbounds i8, ptr %74, i64 56
+  %75 = load ptr, ptr %type_.i.i26.i104, align 8, !noalias !81
+  %76 = load ptr, ptr %run_ends_data, align 8, !noalias !81
+  %77 = load ptr, ptr %76, align 8, !noalias !81
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i27.i91), !noalias !84
-  call void @_ZN5arrow4util13StringBuilderIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i27.i91, ptr noundef nonnull align 1 dereferenceable(19) @.str.5, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull align 1 dereferenceable(10) @.str.6, ptr noundef nonnull align 8 dereferenceable(72) %77, ptr noundef nonnull align 1 dereferenceable(23) @.str.7, ptr noundef nonnull align 8 dereferenceable(72) %79), !noalias !87
+  call void @_ZN5arrow4util13StringBuilderIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i27.i91, ptr noundef nonnull align 1 dereferenceable(19) @.str.5, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull align 1 dereferenceable(10) @.str.6, ptr noundef nonnull align 8 dereferenceable(72) %75, ptr noundef nonnull align 1 dereferenceable(23) @.str.7, ptr noundef nonnull align 8 dereferenceable(72) %77), !noalias !87
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i8 noundef signext 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i27.i91)
           to label %_ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEES0_DpOT_.exit.i109 unwind label %lpad.i.i28.i105
 
 lpad.i.i28.i105:                                  ; preds = %if.then18.i103
-  %80 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1627,31 +1625,31 @@ _ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeE
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end24.i110:                                    ; preds = %if.end11.i99
-  %81 = load ptr, ptr %values_data, align 8, !noalias !81
-  %82 = load ptr, ptr %81, align 8, !noalias !81
-  %83 = load ptr, ptr %children_.i.i, align 8, !noalias !81
-  %add.ptr.i.i.i111 = getelementptr inbounds i8, ptr %83, i64 16
-  %84 = load ptr, ptr %add.ptr.i.i.i111, align 8, !noalias !81
-  %type_.i.i30.i112 = getelementptr inbounds i8, ptr %84, i64 56
-  %85 = load ptr, ptr %type_.i.i30.i112, align 8, !noalias !81
-  %call.i.i31.i113 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %82, ptr noundef nonnull align 8 dereferenceable(72) %85, i1 noundef zeroext false), !noalias !81
+  %79 = load ptr, ptr %values_data, align 8, !noalias !81
+  %80 = load ptr, ptr %79, align 8, !noalias !81
+  %81 = load ptr, ptr %children_.i.i, align 8, !noalias !81
+  %add.ptr.i.i.i111 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = load ptr, ptr %add.ptr.i.i.i111, align 8, !noalias !81
+  %type_.i.i30.i112 = getelementptr inbounds i8, ptr %82, i64 56
+  %83 = load ptr, ptr %type_.i.i30.i112, align 8, !noalias !81
+  %call.i.i31.i113 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %80, ptr noundef nonnull align 8 dereferenceable(72) %83, i1 noundef zeroext false), !noalias !81
   br i1 %call.i.i31.i113, label %if.end37.i119, label %if.then31.i114
 
 if.then31.i114:                                   ; preds = %if.end24.i110
-  %86 = load ptr, ptr %children_.i.i, align 8, !noalias !81
-  %add.ptr.i.i34.i115 = getelementptr inbounds i8, ptr %86, i64 16
-  %87 = load ptr, ptr %add.ptr.i.i34.i115, align 8, !noalias !81
-  %type_.i.i35.i116 = getelementptr inbounds i8, ptr %87, i64 56
-  %88 = load ptr, ptr %type_.i.i35.i116, align 8, !noalias !81
-  %89 = load ptr, ptr %values_data, align 8, !noalias !81
-  %90 = load ptr, ptr %89, align 8, !noalias !81
+  %84 = load ptr, ptr %children_.i.i, align 8, !noalias !81
+  %add.ptr.i.i34.i115 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = load ptr, ptr %add.ptr.i.i34.i115, align 8, !noalias !81
+  %type_.i.i35.i116 = getelementptr inbounds i8, ptr %85, i64 56
+  %86 = load ptr, ptr %type_.i.i35.i116, align 8, !noalias !81
+  %87 = load ptr, ptr %values_data, align 8, !noalias !81
+  %88 = load ptr, ptr %87, align 8, !noalias !81
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i36.i90), !noalias !90
-  call void @_ZN5arrow4util13StringBuilderIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i36.i90, ptr noundef nonnull align 1 dereferenceable(37) @.str.8, ptr noundef nonnull align 8 dereferenceable(72) %88, ptr noundef nonnull align 1 dereferenceable(28) @.str.9, ptr noundef nonnull align 8 dereferenceable(72) %90), !noalias !93
+  call void @_ZN5arrow4util13StringBuilderIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i36.i90, ptr noundef nonnull align 1 dereferenceable(37) @.str.8, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 1 dereferenceable(28) @.str.9, ptr noundef nonnull align 8 dereferenceable(72) %88), !noalias !93
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i8 noundef signext 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i36.i90)
           to label %_ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i118 unwind label %lpad.i.i37.i117
 
 lpad.i.i37.i117:                                  ; preds = %if.then31.i114
-  %91 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1661,25 +1659,25 @@ _ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i118:
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end37.i119:                                    ; preds = %if.end24.i110
-  %92 = load ptr, ptr %run_ends_data, align 8, !noalias !81
-  %call39.i120 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %92), !noalias !81
+  %90 = load ptr, ptr %run_ends_data, align 8, !noalias !81
+  %call39.i120 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %90), !noalias !81
   %cmp40.not.i121 = icmp eq i64 %call39.i120, 0
-  %93 = load ptr, ptr %run_ends_data, align 8, !noalias !81
+  %91 = load ptr, ptr %run_ends_data, align 8, !noalias !81
   br i1 %cmp40.not.i121, label %if.end45.i124, label %if.then41.i122
 
 if.then41.i122:                                   ; preds = %if.end37.i119
-  %call44.i123 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %93), !noalias !81
+  %call44.i123 = tail call noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104) %91), !noalias !81
   store i64 %call44.i123, ptr %ref.tmp42.i95, align 8, !noalias !81
   call void @_ZN5arrow6Status8FromArgsIJRA49_KclEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(49) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp42.i95)
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end45.i124:                                    ; preds = %if.end37.i119
-  %length.i125 = getelementptr inbounds i8, ptr %93, i64 16
-  %94 = load i64, ptr %length.i125, align 8, !noalias !81
-  %95 = load ptr, ptr %values_data, align 8, !noalias !81
-  %length48.i126 = getelementptr inbounds i8, ptr %95, i64 16
-  %96 = load i64, ptr %length48.i126, align 8, !noalias !81
-  %cmp49.i127 = icmp sgt i64 %94, %96
+  %length.i125 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = load i64, ptr %length.i125, align 8, !noalias !81
+  %93 = load ptr, ptr %values_data, align 8, !noalias !81
+  %length48.i126 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = load i64, ptr %length48.i126, align 8, !noalias !81
+  %cmp49.i127 = icmp sgt i64 %92, %94
   br i1 %cmp49.i127, label %if.then50.i147, label %if.end55.i128
 
 if.then50.i147:                                   ; preds = %if.end45.i124
@@ -1687,7 +1685,7 @@ if.then50.i147:                                   ; preds = %if.end45.i124
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end55.i128:                                    ; preds = %if.end45.i124
-  %cmp58.i129 = icmp eq i64 %94, 0
+  %cmp58.i129 = icmp eq i64 %92, 0
   br i1 %cmp58.i129, label %if.then59.i143, label %if.end63.i130
 
 if.then59.i143:                                   ; preds = %if.end55.i128
@@ -1711,43 +1709,42 @@ if.then65.i132:                                   ; preds = %if.end63.i130
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end66.i133:                                    ; preds = %if.end63.i130
-  %buffers.i134 = getelementptr inbounds i8, ptr %93, i64 40
-  %97 = load ptr, ptr %buffers.i134, align 8, !noalias !81
-  %add.ptr.i.i135 = getelementptr inbounds i8, ptr %97, i64 16
-  %98 = load ptr, ptr %add.ptr.i.i135, align 8, !noalias !81
-  %is_cpu_.i.i136 = getelementptr inbounds i8, ptr %98, i64 9
-  %99 = load i8, ptr %is_cpu_.i.i136, align 1, !noalias !81
-  %100 = and i8 %99, 1
-  %tobool.i.not.i137 = icmp eq i8 %100, 0
-  br i1 %tobool.i.not.i137, label %if.then71.i142, label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
+  %buffers.i134 = getelementptr inbounds i8, ptr %91, i64 40
+  %95 = load ptr, ptr %buffers.i134, align 8, !noalias !81
+  %add.ptr.i.i135 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = load ptr, ptr %add.ptr.i.i135, align 8, !noalias !81
+  %is_cpu_.i.i136 = getelementptr inbounds i8, ptr %96, i64 9
+  %97 = load i8, ptr %is_cpu_.i.i136, align 1, !noalias !81
+  %tobool.i.i137 = trunc i8 %97 to i1
+  br i1 %tobool.i.i137, label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i, label %if.then71.i138
 
-if.then71.i142:                                   ; preds = %if.end66.i133
+if.then71.i138:                                   ; preds = %if.end66.i133
   store ptr null, ptr %agg.result, align 8, !alias.scope !99
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %if.end66.i133
-  %offset.i.i138 = getelementptr inbounds i8, ptr %93, i64 32
-  %101 = load i64, ptr %offset.i.i138, align 8, !noalias !81
-  %data_.i.i.i.i139 = getelementptr inbounds i8, ptr %98, i64 16
-  %102 = load ptr, ptr %data_.i.i.i.i139, align 8, !noalias !81
-  %add.ptr.i.i38.i140 = getelementptr inbounds i64, ptr %102, i64 %101
-  %103 = getelementptr i64, ptr %add.ptr.i.i38.i140, i64 %94
-  %arrayidx.i141 = getelementptr i8, ptr %103, i64 -8
-  %104 = load i64, ptr %arrayidx.i141, align 8, !noalias !81
+  %offset.i.i139 = getelementptr inbounds i8, ptr %91, i64 32
+  %98 = load i64, ptr %offset.i.i139, align 8, !noalias !81
+  %data_.i.i.i.i140 = getelementptr inbounds i8, ptr %96, i64 16
+  %99 = load ptr, ptr %data_.i.i.i.i140, align 8, !noalias !81
+  %add.ptr.i.i38.i141 = getelementptr inbounds i64, ptr %99, i64 %98
+  %100 = getelementptr i64, ptr %add.ptr.i.i38.i141, i64 %92
+  %arrayidx.i142 = getelementptr i8, ptr %100, i64 -8
+  %101 = load i64, ptr %arrayidx.i142, align 8, !noalias !81
   %add77.i = add nsw i64 %logical_offset, %logical_length
-  %cmp78.i = icmp slt i64 %104, %add77.i
+  %cmp78.i = icmp slt i64 %101, %add77.i
   br i1 %cmp78.i, label %if.then79.i, label %if.end86.i
 
 if.then79.i:                                      ; preds = %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
   store i64 %add77.i, ptr %ref.tmp84.i, align 8, !noalias !81
-  call void @_ZN5arrow6Status7InvalidIJRA17_KcRKlRA22_S2_lRA11_S2_RlSA_SB_RA2_S2_EEES0_DpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(17) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i141, ptr noundef nonnull align 1 dereferenceable(22) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp84.i, ptr noundef nonnull align 1 dereferenceable(11) @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %logical_offset.addr.i94, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %logical_length.addr.i92, ptr noundef nonnull align 1 dereferenceable(2) @.str.20)
+  call void @_ZN5arrow6Status7InvalidIJRA17_KcRKlRA22_S2_lRA11_S2_RlSA_SB_RA2_S2_EEES0_DpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(17) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i142, ptr noundef nonnull align 1 dereferenceable(22) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp84.i, ptr noundef nonnull align 1 dereferenceable(11) @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %logical_offset.addr.i94, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %logical_length.addr.i92, ptr noundef nonnull align 1 dereferenceable(2) @.str.20)
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
 if.end86.i:                                       ; preds = %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !102
   br label %_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit
 
-_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit: ; preds = %if.then7.i149, %if.then10.i148, %_ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEES0_DpOT_.exit.i109, %_ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i118, %if.then41.i122, %if.then50.i147, %if.then61.i146, %if.end62.i145, %if.then65.i132, %if.then71.i142, %if.then79.i, %if.end86.i
+_ZN5arrow8ree_util12_GLOBAL__N_129ValidateRunEndEncodedChildrenIlEENS_6StatusERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEESB_ll.exit: ; preds = %if.then7.i149, %if.then10.i148, %_ZN5arrow6Status7InvalidIJRA19_KcRKNS_17RunEndEncodedTypeERA10_S2_RNS_8DataTypeERA23_S2_SB_EEES0_DpOT_.exit.i109, %_ZN5arrow6Status7InvalidIJRA37_KcRNS_8DataTypeERA28_S2_S6_EEES0_DpOT_.exit.i118, %if.then41.i122, %if.then50.i147, %if.then61.i146, %if.end62.i145, %if.then65.i132, %if.then71.i138, %if.then79.i, %if.end86.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %logical_length.addr.i92)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %null_count.addr.i93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %logical_offset.addr.i94)

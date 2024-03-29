@@ -811,7 +811,7 @@ lxb_selectors_descendant_next.exit.backedge:      ; preds = %107, %109, %.prehea
 define internal fastcc zeroext i1 @lxb_selectors_match(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = load i32, ptr %2, align 8
-  switch i32 %6, label %565 [
+  switch i32 %6, label %562 [
     i32 1, label %lxb_selectors_match_class.exit
     i32 2, label %7
     i32 3, label %30
@@ -819,8 +819,8 @@ define internal fastcc zeroext i1 @lxb_selectors_match(ptr nocapture noundef %0,
     i32 5, label %99
     i32 6, label %212
     i32 7, label %408
-    i32 8, label %563
-    i32 9, label %564
+    i32 8, label %560
+    i32 9, label %561
   ]
 
 7:                                                ; preds = %4
@@ -856,7 +856,7 @@ lxb_tag_id_by_name.exit:                          ; preds = %10
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %26
-  br i1 %29, label %lxb_selectors_match_class.exit, label %565
+  br i1 %29, label %lxb_selectors_match_class.exit, label %562
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %3, i64 144
@@ -1719,14 +1719,14 @@ switch.early.test.i93.i:                          ; preds = %287
   %410 = load i32, ptr %409, align 8
   switch i32 %410, label %lxb_selectors_pseudo_class_function.exit [
     i32 1, label %411
-    i32 13, label %552
-    i32 3, label %422
-    i32 4, label %433
-    i32 12, label %532
-    i32 6, label %444
-    i32 7, label %454
-    i32 11, label %512
-    i32 9, label %483
+    i32 13, label %550
+    i32 3, label %421
+    i32 4, label %431
+    i32 12, label %530
+    i32 6, label %441
+    i32 7, label %452
+    i32 11, label %510
+    i32 9, label %481
   ]
 
 411:                                              ; preds = %408
@@ -1741,328 +1741,324 @@ switch.early.test.i93.i:                          ; preds = %287
 
 418:                                              ; preds = %411
   %419 = load i8, ptr %5, align 1
-  %420 = and i8 %419, 1
-  %421 = icmp ne i8 %420, 0
+  %420 = trunc i8 %419 to i1
   br label %lxb_selectors_pseudo_class_function.exit
 
-422:                                              ; preds = %408
-  %423 = getelementptr inbounds i8, ptr %1, i64 40
-  %424 = load ptr, ptr %423, align 8
-  %425 = getelementptr inbounds i8, ptr %2, i64 48
-  %426 = load ptr, ptr %425, align 8
-  %427 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %424, ptr noundef %426, ptr noundef nonnull %5)
-  store ptr %427, ptr %423, align 8
-  %428 = icmp eq ptr %427, null
-  br i1 %428, label %lxb_selectors_pseudo_class_function.exit, label %429
+421:                                              ; preds = %408
+  %422 = getelementptr inbounds i8, ptr %1, i64 40
+  %423 = load ptr, ptr %422, align 8
+  %424 = getelementptr inbounds i8, ptr %2, i64 48
+  %425 = load ptr, ptr %424, align 8
+  %426 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %423, ptr noundef %425, ptr noundef nonnull %5)
+  store ptr %426, ptr %422, align 8
+  %427 = icmp eq ptr %426, null
+  br i1 %427, label %lxb_selectors_pseudo_class_function.exit, label %428
 
-429:                                              ; preds = %422
-  %430 = load i8, ptr %5, align 1
-  %431 = and i8 %430, 1
-  %432 = icmp ne i8 %431, 0
+428:                                              ; preds = %421
+  %429 = load i8, ptr %5, align 1
+  %430 = trunc i8 %429 to i1
   br label %lxb_selectors_pseudo_class_function.exit
 
-433:                                              ; preds = %408
-  %434 = getelementptr inbounds i8, ptr %1, i64 40
+431:                                              ; preds = %408
+  %432 = getelementptr inbounds i8, ptr %1, i64 40
+  %433 = load ptr, ptr %432, align 8
+  %434 = getelementptr inbounds i8, ptr %2, i64 48
   %435 = load ptr, ptr %434, align 8
-  %436 = getelementptr inbounds i8, ptr %2, i64 48
-  %437 = load ptr, ptr %436, align 8
-  %438 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %435, ptr noundef %437, ptr noundef nonnull %5)
-  store ptr %438, ptr %434, align 8
-  %439 = icmp eq ptr %438, null
-  br i1 %439, label %lxb_selectors_pseudo_class_function.exit, label %440
+  %436 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %433, ptr noundef %435, ptr noundef nonnull %5)
+  store ptr %436, ptr %432, align 8
+  %437 = icmp eq ptr %436, null
+  br i1 %437, label %lxb_selectors_pseudo_class_function.exit, label %438
 
-440:                                              ; preds = %433
-  %441 = load i8, ptr %5, align 1
-  %442 = and i8 %441, 1
-  %443 = icmp ne i8 %442, 0
+438:                                              ; preds = %431
+  %439 = load i8, ptr %5, align 1
+  %440 = trunc i8 %439 to i1
   br label %lxb_selectors_pseudo_class_function.exit
 
-444:                                              ; preds = %408
-  %445 = getelementptr inbounds i8, ptr %1, i64 40
-  %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds i8, ptr %2, i64 48
-  %448 = load ptr, ptr %447, align 8
-  %449 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %446, ptr noundef %448, ptr noundef nonnull %5)
-  store ptr %449, ptr %445, align 8
-  %450 = icmp eq ptr %449, null
-  br i1 %450, label %lxb_selectors_pseudo_class_function.exit, label %451
+441:                                              ; preds = %408
+  %442 = getelementptr inbounds i8, ptr %1, i64 40
+  %443 = load ptr, ptr %442, align 8
+  %444 = getelementptr inbounds i8, ptr %2, i64 48
+  %445 = load ptr, ptr %444, align 8
+  %446 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %443, ptr noundef %445, ptr noundef nonnull %5)
+  store ptr %446, ptr %442, align 8
+  %447 = icmp eq ptr %446, null
+  br i1 %447, label %lxb_selectors_pseudo_class_function.exit, label %448
 
-451:                                              ; preds = %444
-  %452 = load i8, ptr %5, align 1
-  %453 = and i8 %452, 1
-  %.not121.i = icmp eq i8 %453, 0
+448:                                              ; preds = %441
+  %449 = load i8, ptr %5, align 1
+  %450 = trunc i8 %449 to i1
+  %451 = xor i1 %450, true
   br label %lxb_selectors_pseudo_class_function.exit
 
-454:                                              ; preds = %408
-  %455 = getelementptr inbounds i8, ptr %2, i64 48
+452:                                              ; preds = %408
+  %453 = getelementptr inbounds i8, ptr %2, i64 48
+  %454 = load ptr, ptr %453, align 8
+  %455 = getelementptr inbounds i8, ptr %454, i64 16
   %456 = load ptr, ptr %455, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 16
-  %458 = load ptr, ptr %457, align 8
-  %.not113.i = icmp eq ptr %458, null
-  %.not114.i199 = icmp eq ptr %3, null
-  br i1 %.not113.i, label %.preheader, label %.preheader170
+  %.not112.i = icmp eq ptr %456, null
+  %.not113.i199 = icmp eq ptr %3, null
+  br i1 %.not112.i, label %.preheader, label %.preheader170
 
-.preheader170:                                    ; preds = %454
-  br i1 %.not114.i199, label %.loopexit, label %.lr.ph197
+.preheader170:                                    ; preds = %452
+  br i1 %.not113.i199, label %.loopexit, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %.preheader170
-  %459 = getelementptr inbounds i8, ptr %1, i64 40
-  br label %460
+  %457 = getelementptr inbounds i8, ptr %1, i64 40
+  br label %458
 
-.preheader:                                       ; preds = %454
-  br i1 %.not114.i199, label %.loopexit, label %.lr.ph202
+.preheader:                                       ; preds = %452
+  br i1 %.not113.i199, label %.loopexit, label %.lr.ph202
 
-460:                                              ; preds = %.lr.ph197, %472
-  %.094.i196 = phi i64 [ 0, %.lr.ph197 ], [ %.2.i147, %472 ]
-  %.095.i195 = phi ptr [ %3, %.lr.ph197 ], [ %474, %472 ]
-  %461 = getelementptr inbounds i8, ptr %.095.i195, i64 8
-  %462 = load i64, ptr %461, align 8
-  switch i64 %462, label %463 [
-    i64 2, label %472
-    i64 4, label %472
+458:                                              ; preds = %.lr.ph197, %470
+  %.094.i196 = phi i64 [ 0, %.lr.ph197 ], [ %.2.i147, %470 ]
+  %.095.i195 = phi ptr [ %3, %.lr.ph197 ], [ %472, %470 ]
+  %459 = getelementptr inbounds i8, ptr %.095.i195, i64 8
+  %460 = load i64, ptr %459, align 8
+  switch i64 %460, label %461 [
+    i64 2, label %470
+    i64 4, label %470
   ]
 
-463:                                              ; preds = %460
-  %464 = load ptr, ptr %459, align 8
-  %465 = load ptr, ptr %457, align 8
-  %466 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef nonnull %.095.i195, ptr noundef %464, ptr noundef %465, ptr noundef nonnull %5)
-  store ptr %466, ptr %459, align 8
-  %467 = icmp eq ptr %466, null
-  br i1 %467, label %lxb_selectors_pseudo_class_function.exit, label %468
+461:                                              ; preds = %458
+  %462 = load ptr, ptr %457, align 8
+  %463 = load ptr, ptr %455, align 8
+  %464 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef nonnull %.095.i195, ptr noundef %462, ptr noundef %463, ptr noundef nonnull %5)
+  store ptr %464, ptr %457, align 8
+  %465 = icmp eq ptr %464, null
+  br i1 %465, label %lxb_selectors_pseudo_class_function.exit, label %466
 
-468:                                              ; preds = %463
-  %469 = load i8, ptr %5, align 1
-  %470 = and i8 %469, 1
-  %471 = zext nneg i8 %470 to i64
-  %spec.select.i = add i64 %.094.i196, %471
+466:                                              ; preds = %461
+  %467 = load i8, ptr %5, align 1
+  %468 = and i8 %467, 1
+  %469 = zext nneg i8 %468 to i64
+  %spec.select.i = add i64 %.094.i196, %469
   store i8 0, ptr %5, align 1
-  br label %472
+  br label %470
 
-472:                                              ; preds = %468, %460, %460
-  %.2.i147 = phi i64 [ %spec.select.i, %468 ], [ %.094.i196, %460 ], [ %.094.i196, %460 ]
-  %473 = getelementptr inbounds i8, ptr %.095.i195, i64 48
-  %474 = load ptr, ptr %473, align 8
-  %.not117.i = icmp eq ptr %474, null
-  br i1 %.not117.i, label %.loopexit, label %460
+470:                                              ; preds = %466, %458, %458
+  %.2.i147 = phi i64 [ %spec.select.i, %466 ], [ %.094.i196, %458 ], [ %.094.i196, %458 ]
+  %471 = getelementptr inbounds i8, ptr %.095.i195, i64 48
+  %472 = load ptr, ptr %471, align 8
+  %.not116.i = icmp eq ptr %472, null
+  br i1 %.not116.i, label %.loopexit, label %458
 
-.lr.ph202:                                        ; preds = %.preheader, %479
-  %.3.i201 = phi i64 [ %.4.i, %479 ], [ 0, %.preheader ]
-  %.196.i200 = phi ptr [ %481, %479 ], [ %3, %.preheader ]
-  %475 = getelementptr inbounds i8, ptr %.196.i200, i64 8
-  %476 = load i64, ptr %475, align 8
-  switch i64 %476, label %477 [
-    i64 2, label %479
-    i64 4, label %479
+.lr.ph202:                                        ; preds = %.preheader, %477
+  %.3.i201 = phi i64 [ %.4.i, %477 ], [ 0, %.preheader ]
+  %.196.i200 = phi ptr [ %479, %477 ], [ %3, %.preheader ]
+  %473 = getelementptr inbounds i8, ptr %.196.i200, i64 8
+  %474 = load i64, ptr %473, align 8
+  switch i64 %474, label %475 [
+    i64 2, label %477
+    i64 4, label %477
   ]
 
-477:                                              ; preds = %.lr.ph202
-  %478 = add i64 %.3.i201, 1
-  br label %479
+475:                                              ; preds = %.lr.ph202
+  %476 = add i64 %.3.i201, 1
+  br label %477
 
-479:                                              ; preds = %477, %.lr.ph202, %.lr.ph202
-  %.4.i = phi i64 [ %478, %477 ], [ %.3.i201, %.lr.ph202 ], [ %.3.i201, %.lr.ph202 ]
-  %480 = getelementptr inbounds i8, ptr %.196.i200, i64 48
-  %481 = load ptr, ptr %480, align 8
-  %.not114.i = icmp eq ptr %481, null
-  br i1 %.not114.i, label %.loopexit, label %.lr.ph202
+477:                                              ; preds = %475, %.lr.ph202, %.lr.ph202
+  %.4.i = phi i64 [ %476, %475 ], [ %.3.i201, %.lr.ph202 ], [ %.3.i201, %.lr.ph202 ]
+  %478 = getelementptr inbounds i8, ptr %.196.i200, i64 48
+  %479 = load ptr, ptr %478, align 8
+  %.not113.i = icmp eq ptr %479, null
+  br i1 %.not113.i, label %.loopexit, label %.lr.ph202
 
-.loopexit:                                        ; preds = %472, %479, %.preheader170, %.preheader
-  %.5.i = phi i64 [ 0, %.preheader ], [ 0, %.preheader170 ], [ %.4.i, %479 ], [ %.2.i147, %472 ]
-  %482 = call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %456, i64 noundef %.5.i)
+.loopexit:                                        ; preds = %470, %477, %.preheader170, %.preheader
+  %.5.i = phi i64 [ 0, %.preheader ], [ 0, %.preheader170 ], [ %.4.i, %477 ], [ %.2.i147, %470 ]
+  %480 = call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %454, i64 noundef %.5.i)
   br label %lxb_selectors_pseudo_class_function.exit
 
-483:                                              ; preds = %408
-  %484 = getelementptr inbounds i8, ptr %2, i64 48
+481:                                              ; preds = %408
+  %482 = getelementptr inbounds i8, ptr %2, i64 48
+  %483 = load ptr, ptr %482, align 8
+  %484 = getelementptr inbounds i8, ptr %483, i64 16
   %485 = load ptr, ptr %484, align 8
-  %486 = getelementptr inbounds i8, ptr %485, i64 16
-  %487 = load ptr, ptr %486, align 8
-  %.not.i145 = icmp eq ptr %487, null
+  %.not.i145 = icmp eq ptr %485, null
   %.not105.i184 = icmp eq ptr %3, null
   br i1 %.not.i145, label %.preheader172, label %.preheader174
 
-.preheader174:                                    ; preds = %483
+.preheader174:                                    ; preds = %481
   br i1 %.not105.i184, label %.loopexit173, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader174
-  %488 = getelementptr inbounds i8, ptr %1, i64 40
-  br label %489
+  %486 = getelementptr inbounds i8, ptr %1, i64 40
+  br label %487
 
-.preheader172:                                    ; preds = %483
+.preheader172:                                    ; preds = %481
   br i1 %.not105.i184, label %.loopexit173, label %.lr.ph187
 
-489:                                              ; preds = %.lr.ph, %501
-  %.6.i183 = phi i64 [ 0, %.lr.ph ], [ %.8.i, %501 ]
-  %.297.i182 = phi ptr [ %3, %.lr.ph ], [ %503, %501 ]
-  %490 = getelementptr inbounds i8, ptr %.297.i182, i64 8
-  %491 = load i64, ptr %490, align 8
-  switch i64 %491, label %492 [
-    i64 2, label %501
-    i64 4, label %501
+487:                                              ; preds = %.lr.ph, %499
+  %.6.i183 = phi i64 [ 0, %.lr.ph ], [ %.8.i, %499 ]
+  %.297.i182 = phi ptr [ %3, %.lr.ph ], [ %501, %499 ]
+  %488 = getelementptr inbounds i8, ptr %.297.i182, i64 8
+  %489 = load i64, ptr %488, align 8
+  switch i64 %489, label %490 [
+    i64 2, label %499
+    i64 4, label %499
   ]
 
-492:                                              ; preds = %489
-  %493 = load ptr, ptr %488, align 8
-  %494 = load ptr, ptr %486, align 8
-  %495 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef nonnull %.297.i182, ptr noundef %493, ptr noundef %494, ptr noundef nonnull %5)
-  store ptr %495, ptr %488, align 8
-  %496 = icmp eq ptr %495, null
-  br i1 %496, label %lxb_selectors_pseudo_class_function.exit, label %497
+490:                                              ; preds = %487
+  %491 = load ptr, ptr %486, align 8
+  %492 = load ptr, ptr %484, align 8
+  %493 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef nonnull %.297.i182, ptr noundef %491, ptr noundef %492, ptr noundef nonnull %5)
+  store ptr %493, ptr %486, align 8
+  %494 = icmp eq ptr %493, null
+  br i1 %494, label %lxb_selectors_pseudo_class_function.exit, label %495
 
-497:                                              ; preds = %492
-  %498 = load i8, ptr %5, align 1
-  %499 = and i8 %498, 1
-  %500 = zext nneg i8 %499 to i64
-  %spec.select123.i = add i64 %.6.i183, %500
+495:                                              ; preds = %490
+  %496 = load i8, ptr %5, align 1
+  %497 = and i8 %496, 1
+  %498 = zext nneg i8 %497 to i64
+  %spec.select120.i = add i64 %.6.i183, %498
   store i8 0, ptr %5, align 1
-  br label %501
+  br label %499
 
-501:                                              ; preds = %497, %489, %489
-  %.8.i = phi i64 [ %spec.select123.i, %497 ], [ %.6.i183, %489 ], [ %.6.i183, %489 ]
-  %502 = getelementptr inbounds i8, ptr %.297.i182, i64 40
-  %503 = load ptr, ptr %502, align 8
-  %.not108.i = icmp eq ptr %503, null
-  br i1 %.not108.i, label %.loopexit173, label %489
+499:                                              ; preds = %495, %487, %487
+  %.8.i = phi i64 [ %spec.select120.i, %495 ], [ %.6.i183, %487 ], [ %.6.i183, %487 ]
+  %500 = getelementptr inbounds i8, ptr %.297.i182, i64 40
+  %501 = load ptr, ptr %500, align 8
+  %.not108.i = icmp eq ptr %501, null
+  br i1 %.not108.i, label %.loopexit173, label %487
 
-.lr.ph187:                                        ; preds = %.preheader172, %508
-  %.9.i186 = phi i64 [ %.10.i, %508 ], [ 0, %.preheader172 ]
-  %.398.i185 = phi ptr [ %510, %508 ], [ %3, %.preheader172 ]
-  %504 = getelementptr inbounds i8, ptr %.398.i185, i64 8
-  %505 = load i64, ptr %504, align 8
-  switch i64 %505, label %506 [
-    i64 2, label %508
-    i64 4, label %508
+.lr.ph187:                                        ; preds = %.preheader172, %506
+  %.9.i186 = phi i64 [ %.10.i, %506 ], [ 0, %.preheader172 ]
+  %.398.i185 = phi ptr [ %508, %506 ], [ %3, %.preheader172 ]
+  %502 = getelementptr inbounds i8, ptr %.398.i185, i64 8
+  %503 = load i64, ptr %502, align 8
+  switch i64 %503, label %504 [
+    i64 2, label %506
+    i64 4, label %506
   ]
 
-506:                                              ; preds = %.lr.ph187
-  %507 = add i64 %.9.i186, 1
-  br label %508
+504:                                              ; preds = %.lr.ph187
+  %505 = add i64 %.9.i186, 1
+  br label %506
 
-508:                                              ; preds = %506, %.lr.ph187, %.lr.ph187
-  %.10.i = phi i64 [ %507, %506 ], [ %.9.i186, %.lr.ph187 ], [ %.9.i186, %.lr.ph187 ]
-  %509 = getelementptr inbounds i8, ptr %.398.i185, i64 40
-  %510 = load ptr, ptr %509, align 8
-  %.not105.i = icmp eq ptr %510, null
+506:                                              ; preds = %504, %.lr.ph187, %.lr.ph187
+  %.10.i = phi i64 [ %505, %504 ], [ %.9.i186, %.lr.ph187 ], [ %.9.i186, %.lr.ph187 ]
+  %507 = getelementptr inbounds i8, ptr %.398.i185, i64 40
+  %508 = load ptr, ptr %507, align 8
+  %.not105.i = icmp eq ptr %508, null
   br i1 %.not105.i, label %.loopexit173, label %.lr.ph187
 
-.loopexit173:                                     ; preds = %501, %508, %.preheader174, %.preheader172
-  %.11.i = phi i64 [ 0, %.preheader172 ], [ 0, %.preheader174 ], [ %.10.i, %508 ], [ %.8.i, %501 ]
-  %511 = call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %485, i64 noundef %.11.i)
+.loopexit173:                                     ; preds = %499, %506, %.preheader174, %.preheader172
+  %.11.i = phi i64 [ 0, %.preheader172 ], [ 0, %.preheader174 ], [ %.10.i, %506 ], [ %.8.i, %499 ]
+  %509 = call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %483, i64 noundef %.11.i)
   br label %lxb_selectors_pseudo_class_function.exit
 
-512:                                              ; preds = %408
-  %513 = getelementptr inbounds i8, ptr %2, i64 48
-  %514 = load ptr, ptr %513, align 8
-  %.not112.i189 = icmp eq ptr %3, null
-  br i1 %.not112.i189, label %._crit_edge, label %.lr.ph192
+510:                                              ; preds = %408
+  %511 = getelementptr inbounds i8, ptr %2, i64 48
+  %512 = load ptr, ptr %511, align 8
+  %.not111.i189 = icmp eq ptr %3, null
+  br i1 %.not111.i189, label %._crit_edge, label %.lr.ph192
 
-.lr.ph192:                                        ; preds = %512
-  %515 = getelementptr inbounds i8, ptr %3, i64 8
-  %516 = load i64, ptr %515, align 8
-  %517 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %518
+.lr.ph192:                                        ; preds = %510
+  %513 = getelementptr inbounds i8, ptr %3, i64 8
+  %514 = load i64, ptr %513, align 8
+  %515 = getelementptr inbounds i8, ptr %3, i64 24
+  br label %516
 
-518:                                              ; preds = %.lr.ph192, %528
-  %.12.i191 = phi i64 [ 0, %.lr.ph192 ], [ %.13.i, %528 ]
-  %.499.i190 = phi ptr [ %3, %.lr.ph192 ], [ %530, %528 ]
-  %519 = getelementptr inbounds i8, ptr %.499.i190, i64 8
-  %520 = load i64, ptr %519, align 8
-  %521 = icmp eq i64 %520, %516
-  br i1 %521, label %522, label %528
+516:                                              ; preds = %.lr.ph192, %526
+  %.12.i191 = phi i64 [ 0, %.lr.ph192 ], [ %.13.i, %526 ]
+  %.499.i190 = phi ptr [ %3, %.lr.ph192 ], [ %528, %526 ]
+  %517 = getelementptr inbounds i8, ptr %.499.i190, i64 8
+  %518 = load i64, ptr %517, align 8
+  %519 = icmp eq i64 %518, %514
+  br i1 %519, label %520, label %526
 
-522:                                              ; preds = %518
-  %523 = getelementptr inbounds i8, ptr %.499.i190, i64 24
-  %524 = load i64, ptr %523, align 8
-  %525 = load i64, ptr %517, align 8
-  %526 = icmp eq i64 %524, %525
-  %527 = zext i1 %526 to i64
-  %spec.select124.i = add i64 %.12.i191, %527
-  br label %528
+520:                                              ; preds = %516
+  %521 = getelementptr inbounds i8, ptr %.499.i190, i64 24
+  %522 = load i64, ptr %521, align 8
+  %523 = load i64, ptr %515, align 8
+  %524 = icmp eq i64 %522, %523
+  %525 = zext i1 %524 to i64
+  %spec.select121.i = add i64 %.12.i191, %525
+  br label %526
 
-528:                                              ; preds = %522, %518
-  %.13.i = phi i64 [ %.12.i191, %518 ], [ %spec.select124.i, %522 ]
-  %529 = getelementptr inbounds i8, ptr %.499.i190, i64 40
-  %530 = load ptr, ptr %529, align 8
-  %.not112.i = icmp eq ptr %530, null
-  br i1 %.not112.i, label %._crit_edge, label %518
+526:                                              ; preds = %520, %516
+  %.13.i = phi i64 [ %.12.i191, %516 ], [ %spec.select121.i, %520 ]
+  %527 = getelementptr inbounds i8, ptr %.499.i190, i64 40
+  %528 = load ptr, ptr %527, align 8
+  %.not111.i = icmp eq ptr %528, null
+  br i1 %.not111.i, label %._crit_edge, label %516
 
-._crit_edge:                                      ; preds = %528, %512
-  %.12.i.lcssa = phi i64 [ 0, %512 ], [ %.13.i, %528 ]
-  %531 = tail call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %514, i64 noundef %.12.i.lcssa)
+._crit_edge:                                      ; preds = %526, %510
+  %.12.i.lcssa = phi i64 [ 0, %510 ], [ %.13.i, %526 ]
+  %529 = tail call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %512, i64 noundef %.12.i.lcssa)
   br label %lxb_selectors_pseudo_class_function.exit
 
-532:                                              ; preds = %408
-  %533 = getelementptr inbounds i8, ptr %2, i64 48
-  %534 = load ptr, ptr %533, align 8
-  %.not122.i204 = icmp eq ptr %3, null
-  br i1 %.not122.i204, label %._crit_edge209, label %.lr.ph208
+530:                                              ; preds = %408
+  %531 = getelementptr inbounds i8, ptr %2, i64 48
+  %532 = load ptr, ptr %531, align 8
+  %.not119.i204 = icmp eq ptr %3, null
+  br i1 %.not119.i204, label %._crit_edge209, label %.lr.ph208
 
-.lr.ph208:                                        ; preds = %532
-  %535 = getelementptr inbounds i8, ptr %3, i64 8
-  %536 = load i64, ptr %535, align 8
-  %537 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %538
+.lr.ph208:                                        ; preds = %530
+  %533 = getelementptr inbounds i8, ptr %3, i64 8
+  %534 = load i64, ptr %533, align 8
+  %535 = getelementptr inbounds i8, ptr %3, i64 24
+  br label %536
 
-538:                                              ; preds = %.lr.ph208, %548
-  %.14.i206 = phi i64 [ 0, %.lr.ph208 ], [ %.15.i, %548 ]
-  %.5100.i205 = phi ptr [ %3, %.lr.ph208 ], [ %550, %548 ]
-  %539 = getelementptr inbounds i8, ptr %.5100.i205, i64 8
-  %540 = load i64, ptr %539, align 8
-  %541 = icmp eq i64 %540, %536
-  br i1 %541, label %542, label %548
+536:                                              ; preds = %.lr.ph208, %546
+  %.14.i206 = phi i64 [ 0, %.lr.ph208 ], [ %.15.i, %546 ]
+  %.5100.i205 = phi ptr [ %3, %.lr.ph208 ], [ %548, %546 ]
+  %537 = getelementptr inbounds i8, ptr %.5100.i205, i64 8
+  %538 = load i64, ptr %537, align 8
+  %539 = icmp eq i64 %538, %534
+  br i1 %539, label %540, label %546
 
-542:                                              ; preds = %538
-  %543 = getelementptr inbounds i8, ptr %.5100.i205, i64 24
-  %544 = load i64, ptr %543, align 8
-  %545 = load i64, ptr %537, align 8
-  %546 = icmp eq i64 %544, %545
-  %547 = zext i1 %546 to i64
-  %spec.select125.i = add i64 %.14.i206, %547
-  br label %548
+540:                                              ; preds = %536
+  %541 = getelementptr inbounds i8, ptr %.5100.i205, i64 24
+  %542 = load i64, ptr %541, align 8
+  %543 = load i64, ptr %535, align 8
+  %544 = icmp eq i64 %542, %543
+  %545 = zext i1 %544 to i64
+  %spec.select122.i = add i64 %.14.i206, %545
+  br label %546
 
-548:                                              ; preds = %542, %538
-  %.15.i = phi i64 [ %.14.i206, %538 ], [ %spec.select125.i, %542 ]
-  %549 = getelementptr inbounds i8, ptr %.5100.i205, i64 48
-  %550 = load ptr, ptr %549, align 8
-  %.not122.i = icmp eq ptr %550, null
-  br i1 %.not122.i, label %._crit_edge209, label %538
+546:                                              ; preds = %540, %536
+  %.15.i = phi i64 [ %.14.i206, %536 ], [ %spec.select122.i, %540 ]
+  %547 = getelementptr inbounds i8, ptr %.5100.i205, i64 48
+  %548 = load ptr, ptr %547, align 8
+  %.not119.i = icmp eq ptr %548, null
+  br i1 %.not119.i, label %._crit_edge209, label %536
 
-._crit_edge209:                                   ; preds = %548, %532
-  %.14.i.lcssa = phi i64 [ 0, %532 ], [ %.15.i, %548 ]
-  %551 = tail call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %534, i64 noundef %.14.i.lcssa)
+._crit_edge209:                                   ; preds = %546, %530
+  %.14.i.lcssa = phi i64 [ 0, %530 ], [ %.15.i, %546 ]
+  %549 = tail call fastcc zeroext i1 @lxb_selectors_anb_calc(ptr noundef %532, i64 noundef %.14.i.lcssa)
   br label %lxb_selectors_pseudo_class_function.exit
 
-552:                                              ; preds = %408
-  %553 = getelementptr inbounds i8, ptr %1, i64 40
+550:                                              ; preds = %408
+  %551 = getelementptr inbounds i8, ptr %1, i64 40
+  %552 = load ptr, ptr %551, align 8
+  %553 = getelementptr inbounds i8, ptr %2, i64 48
   %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %2, i64 48
-  %556 = load ptr, ptr %555, align 8
-  %557 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %554, ptr noundef %556, ptr noundef nonnull %5)
-  store ptr %557, ptr %553, align 8
-  %558 = icmp eq ptr %557, null
-  br i1 %558, label %lxb_selectors_pseudo_class_function.exit, label %559
+  %555 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %552, ptr noundef %554, ptr noundef nonnull %5)
+  store ptr %555, ptr %551, align 8
+  %556 = icmp eq ptr %555, null
+  br i1 %556, label %lxb_selectors_pseudo_class_function.exit, label %557
 
-559:                                              ; preds = %552
-  %560 = load i8, ptr %5, align 1
-  %561 = and i8 %560, 1
-  %562 = icmp ne i8 %561, 0
+557:                                              ; preds = %550
+  %558 = load i8, ptr %5, align 1
+  %559 = trunc i8 %558 to i1
   br label %lxb_selectors_pseudo_class_function.exit
 
-lxb_selectors_pseudo_class_function.exit:         ; preds = %492, %463, %408, %411, %418, %422, %429, %433, %440, %444, %451, %.loopexit, %.loopexit173, %._crit_edge, %._crit_edge209, %552, %559
-  %.0.i146 = phi i1 [ %511, %.loopexit173 ], [ %531, %._crit_edge ], [ %482, %.loopexit ], [ %.not121.i, %451 ], [ %551, %._crit_edge209 ], [ %443, %440 ], [ %432, %429 ], [ %562, %559 ], [ %421, %418 ], [ false, %411 ], [ false, %422 ], [ false, %433 ], [ false, %444 ], [ false, %552 ], [ false, %408 ], [ false, %463 ], [ false, %492 ]
+lxb_selectors_pseudo_class_function.exit:         ; preds = %490, %461, %408, %411, %418, %421, %428, %431, %438, %441, %448, %.loopexit, %.loopexit173, %._crit_edge, %._crit_edge209, %550, %557
+  %.0.i146 = phi i1 [ %509, %.loopexit173 ], [ %529, %._crit_edge ], [ %480, %.loopexit ], [ %451, %448 ], [ %549, %._crit_edge209 ], [ %440, %438 ], [ %430, %428 ], [ %559, %557 ], [ %420, %418 ], [ false, %411 ], [ false, %421 ], [ false, %431 ], [ false, %441 ], [ false, %550 ], [ false, %408 ], [ false, %461 ], [ false, %490 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %lxb_selectors_match_class.exit
 
-563:                                              ; preds = %4
+560:                                              ; preds = %4
   br label %lxb_selectors_match_class.exit
 
-564:                                              ; preds = %4
+561:                                              ; preds = %4
   br label %lxb_selectors_match_class.exit
 
-565:                                              ; preds = %4, %25
+562:                                              ; preds = %4, %25
   br label %lxb_selectors_match_class.exit
 
-lxb_selectors_match_class.exit:                   ; preds = %339, %334, %325, %.lr.ph.i117.i, %361, %379, %374, %315, %310, %301, %.lr.ph.i107.i, %297, %292, %.critedge.i, %.preheader.i, %277, %266, %261, %.lr.ph.i135.i, %352, %.lr.ph.i145.i, %81, %78, %.lr.ph28.i.preheader, %10, %403, %400, %397, %395, %392, %389, %386, %383, %380, %.loopexit18.i, %.loopexit.i, %343, %340, %326, %322, %319, %316, %302, %298, %.preheader.i96.i, %switch.early.test.i93.i, %switch.early.test.i93.i, %switch.early.test.i93.i, %switch.early.test.i93.i, %287, %282, %267, %.preheader.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %256, %251, %249, %248, %244, %231, %228, %223, %220, %217, %214, %212, %96, %._crit_edge.i, %58, %125, %200, %186, %189, %174, %177, %167, %133, %121, %117, %103, %50, %54, %44, %30, %34, %25, %lxb_tag_id_by_name.exit, %4, %565, %564, %563, %lxb_selectors_pseudo_class_function.exit, %210, %208, %198, %196, %184, %182, %173, %157, %155, %145, %143, %141, %49
-  %.0 = phi i1 [ false, %565 ], [ false, %564 ], [ false, %563 ], [ %.0.i146, %lxb_selectors_pseudo_class_function.exit ], [ %209, %208 ], [ %211, %210 ], [ %197, %196 ], [ %199, %198 ], [ %183, %182 ], [ %185, %184 ], [ %156, %155 ], [ %158, %157 ], [ false, %173 ], [ %146, %145 ], [ %142, %141 ], [ %144, %143 ], [ false, %49 ], [ true, %4 ], [ false, %lxb_tag_id_by_name.exit ], [ true, %25 ], [ false, %34 ], [ false, %30 ], [ true, %44 ], [ false, %54 ], [ false, %50 ], [ false, %103 ], [ false, %117 ], [ true, %121 ], [ false, %133 ], [ true, %167 ], [ false, %177 ], [ false, %174 ], [ false, %189 ], [ false, %186 ], [ false, %200 ], [ false, %125 ], [ false, %58 ], [ %98, %96 ], [ false, %._crit_edge.i ], [ %345, %343 ], [ %385, %383 ], [ %391, %389 ], [ %321, %319 ], [ %394, %392 ], [ %396, %395 ], [ %402, %400 ], [ %407, %403 ], [ %318, %316 ], [ false, %248 ], [ %224, %223 ], [ %222, %220 ], [ %216, %214 ], [ false, %217 ], [ false, %228 ], [ false, %231 ], [ true, %244 ], [ %.not91.i, %249 ], [ false, %340 ], [ false, %380 ], [ false, %386 ], [ false, %397 ], [ false, %212 ], [ false, %251 ], [ true, %switch.early.test.i.i ], [ true, %switch.early.test.i.i ], [ true, %switch.early.test.i.i ], [ true, %switch.early.test.i.i ], [ true, %256 ], [ false, %.preheader.i.i ], [ true, %298 ], [ true, %302 ], [ true, %322 ], [ true, %326 ], [ true, %.loopexit.i ], [ true, %.loopexit18.i ], [ true, %282 ], [ false, %switch.early.test.i93.i ], [ false, %switch.early.test.i93.i ], [ false, %switch.early.test.i93.i ], [ false, %switch.early.test.i93.i ], [ false, %287 ], [ true, %.preheader.i96.i ], [ true, %267 ], [ false, %10 ], [ false, %.lr.ph28.i.preheader ], [ false, %81 ], [ true, %78 ], [ true, %352 ], [ false, %.lr.ph.i145.i ], [ false, %.lr.ph.i135.i ], [ true, %261 ], [ false, %266 ], [ true, %277 ], [ false, %.critedge.i ], [ true, %.preheader.i ], [ false, %292 ], [ true, %297 ], [ true, %301 ], [ false, %.lr.ph.i107.i ], [ true, %315 ], [ false, %310 ], [ true, %379 ], [ false, %374 ], [ false, %361 ], [ true, %325 ], [ false, %.lr.ph.i117.i ], [ true, %339 ], [ false, %334 ]
+lxb_selectors_match_class.exit:                   ; preds = %339, %334, %325, %.lr.ph.i117.i, %361, %379, %374, %315, %310, %301, %.lr.ph.i107.i, %297, %292, %.critedge.i, %.preheader.i, %277, %266, %261, %.lr.ph.i135.i, %352, %.lr.ph.i145.i, %81, %78, %.lr.ph28.i.preheader, %10, %403, %400, %397, %395, %392, %389, %386, %383, %380, %.loopexit18.i, %.loopexit.i, %343, %340, %326, %322, %319, %316, %302, %298, %.preheader.i96.i, %switch.early.test.i93.i, %switch.early.test.i93.i, %switch.early.test.i93.i, %switch.early.test.i93.i, %287, %282, %267, %.preheader.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %256, %251, %249, %248, %244, %231, %228, %223, %220, %217, %214, %212, %96, %._crit_edge.i, %58, %125, %200, %186, %189, %174, %177, %167, %133, %121, %117, %103, %50, %54, %44, %30, %34, %25, %lxb_tag_id_by_name.exit, %4, %562, %561, %560, %lxb_selectors_pseudo_class_function.exit, %210, %208, %198, %196, %184, %182, %173, %157, %155, %145, %143, %141, %49
+  %.0 = phi i1 [ false, %562 ], [ false, %561 ], [ false, %560 ], [ %.0.i146, %lxb_selectors_pseudo_class_function.exit ], [ %209, %208 ], [ %211, %210 ], [ %197, %196 ], [ %199, %198 ], [ %183, %182 ], [ %185, %184 ], [ %156, %155 ], [ %158, %157 ], [ false, %173 ], [ %146, %145 ], [ %142, %141 ], [ %144, %143 ], [ false, %49 ], [ true, %4 ], [ false, %lxb_tag_id_by_name.exit ], [ true, %25 ], [ false, %34 ], [ false, %30 ], [ true, %44 ], [ false, %54 ], [ false, %50 ], [ false, %103 ], [ false, %117 ], [ true, %121 ], [ false, %133 ], [ true, %167 ], [ false, %177 ], [ false, %174 ], [ false, %189 ], [ false, %186 ], [ false, %200 ], [ false, %125 ], [ false, %58 ], [ %98, %96 ], [ false, %._crit_edge.i ], [ %345, %343 ], [ %385, %383 ], [ %391, %389 ], [ %321, %319 ], [ %394, %392 ], [ %396, %395 ], [ %402, %400 ], [ %407, %403 ], [ %318, %316 ], [ false, %248 ], [ %224, %223 ], [ %222, %220 ], [ %216, %214 ], [ false, %217 ], [ false, %228 ], [ false, %231 ], [ true, %244 ], [ %.not91.i, %249 ], [ false, %340 ], [ false, %380 ], [ false, %386 ], [ false, %397 ], [ false, %212 ], [ false, %251 ], [ true, %switch.early.test.i.i ], [ true, %switch.early.test.i.i ], [ true, %switch.early.test.i.i ], [ true, %switch.early.test.i.i ], [ true, %256 ], [ false, %.preheader.i.i ], [ true, %298 ], [ true, %302 ], [ true, %322 ], [ true, %326 ], [ true, %.loopexit.i ], [ true, %.loopexit18.i ], [ true, %282 ], [ false, %switch.early.test.i93.i ], [ false, %switch.early.test.i93.i ], [ false, %switch.early.test.i93.i ], [ false, %switch.early.test.i93.i ], [ false, %287 ], [ true, %.preheader.i96.i ], [ true, %267 ], [ false, %10 ], [ false, %.lr.ph28.i.preheader ], [ false, %81 ], [ true, %78 ], [ true, %352 ], [ false, %.lr.ph.i145.i ], [ false, %.lr.ph.i135.i ], [ true, %261 ], [ false, %266 ], [ true, %277 ], [ false, %.critedge.i ], [ true, %.preheader.i ], [ false, %292 ], [ true, %297 ], [ true, %301 ], [ false, %.lr.ph.i107.i ], [ true, %315 ], [ false, %310 ], [ true, %379 ], [ false, %374 ], [ false, %361 ], [ true, %325 ], [ false, %.lr.ph.i117.i ], [ true, %339 ], [ false, %334 ]
   ret i1 %.0
 }
 

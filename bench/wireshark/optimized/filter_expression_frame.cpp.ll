@@ -3119,9 +3119,8 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeI10QByteArra
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 48
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not.i.i = icmp eq i8 %11, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsERK10QByteArray.exit, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %_ZN6QDebuglsERK10QByteArray.exit
 
 12:                                               ; preds = %3
   %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 noundef signext 32)

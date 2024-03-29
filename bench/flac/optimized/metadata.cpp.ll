@@ -367,7 +367,7 @@ eh.resume:                                        ; preds = %lpad61, %lpad55, %l
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress sspstrong uwtable
@@ -441,9 +441,8 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.then.i, label %invoke.cont
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
@@ -454,10 +453,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -491,9 +490,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
@@ -638,19 +636,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -896,19 +893,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -948,19 +944,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -1053,19 +1048,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -1323,9 +1317,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLA
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %.pre.i.i = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %.pre.i.i, 1
-  %.not.i = icmp eq i8 %1, 0
-  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit, label %if.then.i
+  %1 = trunc i8 %.pre.i.i to i1
+  br i1 %1, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1381,9 +1374,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %_ZN4FLAC8
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %is_valid_13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i8, ptr %is_valid_13.phi.trans.insert.i, align 8
-  %1 = and i8 %.pre.i, 1
-  %.not = icmp eq i8 %1, 0
-  br i1 %.not, label %if.end, label %if.then
+  %1 = trunc i8 %.pre.i to i1
+  br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1459,9 +1451,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLA
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %is_valid_13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i.i = load i8, ptr %is_valid_13.phi.trans.insert.i.i, align 8
-  %1 = and i8 %.pre.i.i, 1
-  %.not.i = icmp eq i8 %1, 0
-  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit, label %if.then.i
+  %1 = trunc i8 %.pre.i.i to i1
+  br i1 %1, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1782,9 +1773,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLA
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %.pre.i.i = load i8, ptr %is_valid_, align 8
-  %3 = and i8 %.pre.i.i, 1
-  %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit, label %if.then.i
+  %3 = trunc i8 %.pre.i.i to i1
+  br i1 %3, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1881,9 +1871,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLA
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %.pre.i.i = load i8, ptr %is_valid_.i, align 8
-  %6 = and i8 %.pre.i.i, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit, label %if.then.i
+  %6 = trunc i8 %.pre.i.i to i1
+  br i1 %6, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -2001,8 +1990,7 @@ define noundef zeroext i1 @_ZNK4FLAC8Metadata13VorbisComment5Entry8is_validEv(pt
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -2112,12 +2100,11 @@ if.else:                                          ; preds = %_ZN4FLAC8Metadata13
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %is_valid_13.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load i8, ptr %is_valid_13.phi.trans.insert, align 8
-  %1 = and i8 %.pre, 1
-  %2 = icmp ne i8 %1, 0
+  %1 = trunc i8 %.pre to i1
   br label %return
 
 return:                                           ; preds = %if.then4, %if.else, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %2, %if.else ], [ false, %if.then4 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ %1, %if.else ], [ false, %if.then4 ]
   ret i1 %retval.0
 }
 
@@ -2285,12 +2272,11 @@ if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %is_valid_13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i8, ptr %is_valid_13.phi.trans.insert.i, align 8
-  %1 = and i8 %.pre.i, 1
-  %2 = icmp ne i8 %1, 0
+  %1 = trunc i8 %.pre.i to i1
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %if.then.i, %if.then4.i, %if.else.i
-  %retval.0.i = phi i1 [ false, %if.then.i ], [ %2, %if.else.i ], [ false, %if.then4.i ]
+  %retval.0.i = phi i1 [ false, %if.then.i ], [ %1, %if.else.i ], [ false, %if.then4.i ]
   ret i1 %retval.0.i
 }
 
@@ -2302,7 +2288,12 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nam
 entry:
   %call = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %field_name)
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %tobool.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 0, ptr %is_valid_, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2321,7 +2312,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %if.e
   %call2 = tail call noalias ptr @strdup(ptr noundef %field_name) #20
   store ptr %call2, ptr %field_name_.i, align 8
   %cmp = icmp eq ptr %call2, null
-  br i1 %cmp, label %return, label %if.else
+  br i1 %cmp, label %if.then3, label %if.else
+
+if.then3:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
+  %is_valid_4 = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 0, ptr %is_valid_4, align 8
+  br label %return
 
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2) #24
@@ -2351,8 +2347,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #23
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp ne ptr %call.i.i.i, null
-  br i1 %cmp.i, label %if.else.i, label %return
+  %cmp.i = icmp eq ptr %call.i.i.i, null
+  br i1 %cmp.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %4 = load ptr, ptr %field_name_.i, align 8
@@ -2381,13 +2377,17 @@ if.end.i:                                         ; preds = %if.then19.i, %if.el
   %idxprom.i = zext i32 %add31.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit
+
+_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %if.end.i
+  %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
+  %is_valid_36.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 %.sink.i, ptr %is_valid_36.i, align 8
+  %7 = trunc i8 %.sink.i to i1
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %entry
-  %.sink = phi i8 [ 0, %entry ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit ], [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit ], [ %cmp.i, %if.end.i ], [ %cmp.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_4 = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %.sink, ptr %is_valid_4, align 8
+return:                                           ; preds = %if.then3, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ %7, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit ], [ false, %if.then3 ]
   ret i1 %retval.0
 }
 
@@ -2486,7 +2486,12 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_val
 entry:
   %call = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %field_value, i32 noundef %field_value_length)
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %tobool.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 0, ptr %is_valid_, align 8
+  br label %return
 
 if.end:                                           ; preds = %entry
   %field_value_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2506,7 +2511,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %if.
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #23
   store ptr %call.i.i, ptr %field_value_.i, align 8
   %cmp = icmp eq ptr %call.i.i, null
-  br i1 %cmp, label %return, label %if.else
+  br i1 %cmp, label %if.then3, label %if.else
+
+if.then3:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
+  %is_valid_4 = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 0, ptr %is_valid_4, align 8
+  br label %return
 
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
   %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -2538,8 +2548,8 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #23
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp ne ptr %call.i.i.i, null
-  br i1 %cmp.i, label %if.else.i, label %return
+  %cmp.i = icmp eq ptr %call.i.i.i, null
+  br i1 %cmp.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2568,13 +2578,17 @@ if.end.i:                                         ; preds = %if.then19.i, %if.el
   %idxprom.i = zext i32 %add31.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit
+
+_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %if.end.i
+  %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
+  %is_valid_36.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 %.sink.i, ptr %is_valid_36.i, align 8
+  %7 = trunc i8 %.sink.i to i1
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %entry
-  %.sink = phi i8 [ 0, %entry ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ %cmp.i, %if.end.i ], [ %cmp.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_4 = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %.sink, ptr %is_valid_4, align 8
+return:                                           ; preds = %if.then3, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ %7, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit ], [ false, %if.then3 ]
   ret i1 %retval.0
 }
 
@@ -2638,19 +2652,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -3019,19 +3032,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -3313,19 +3325,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -3553,19 +3564,18 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
           to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -4519,7 +4529,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 attributes #0 = { mustprogress sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind memory(read) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

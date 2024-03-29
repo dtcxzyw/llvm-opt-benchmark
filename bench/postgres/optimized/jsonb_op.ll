@@ -109,9 +109,8 @@ define dso_local noundef i64 @jsonb_exists_any(ptr nocapture noundef readonly %0
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %25, label %59
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %59, label %25
 
 25:                                               ; preds = %19
   store i32 1, ptr %5, align 8
@@ -121,8 +120,8 @@ define dso_local noundef i64 @jsonb_exists_any(ptr nocapture noundef readonly %0
   %29 = inttoptr i64 %28 to ptr
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, 1
-  %.not20 = icmp eq i8 %31, 0
-  %.v = select i1 %.not20, i64 4, i64 1
+  %.not = icmp eq i8 %31, 0
+  %.v = select i1 %.not, i64 4, i64 1
   %32 = getelementptr inbounds i8, ptr %29, i64 %.v
   store ptr %32, ptr %17, align 8
   %33 = load i64, ptr %27, align 8
@@ -146,8 +145,8 @@ define dso_local noundef i64 @jsonb_exists_any(ptr nocapture noundef readonly %0
 
 47:                                               ; preds = %25
   %48 = and i32 %36, 1
-  %.not21 = icmp eq i32 %48, 0
-  br i1 %.not21, label %52, label %49
+  %.not20 = icmp eq i32 %48, 0
+  br i1 %.not20, label %52, label %49
 
 49:                                               ; preds = %47
   %50 = lshr i32 %36, 1
@@ -164,15 +163,15 @@ define dso_local noundef i64 @jsonb_exists_any(ptr nocapture noundef readonly %0
   %57 = phi i32 [ %46, %38 ], [ %51, %49 ], [ %55, %52 ]
   store i32 %57, ptr %16, align 8
   %58 = call ptr @findJsonbValueFromContainer(ptr noundef nonnull %18, i32 noundef 1610612736, ptr noundef nonnull %5) #4
-  %.not22 = icmp eq ptr %58, null
-  br i1 %.not22, label %._crit_edge28, label %._crit_edge
+  %.not21 = icmp eq ptr %58, null
+  br i1 %.not21, label %._crit_edge27, label %._crit_edge
 
-._crit_edge28:                                    ; preds = %56
+._crit_edge27:                                    ; preds = %56
   %.pre = load i32, ptr %4, align 4
   br label %59
 
-59:                                               ; preds = %._crit_edge28, %19
-  %60 = phi i32 [ %.pre, %._crit_edge28 ], [ %20, %19 ]
+59:                                               ; preds = %._crit_edge27, %19
+  %60 = phi i32 [ %.pre, %._crit_edge27 ], [ %20, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
@@ -218,9 +217,8 @@ define dso_local noundef i64 @jsonb_exists_all(ptr nocapture noundef readonly %0
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %25, label %60
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %60, label %25
 
 25:                                               ; preds = %19
   store i32 1, ptr %5, align 8
@@ -230,8 +228,8 @@ define dso_local noundef i64 @jsonb_exists_all(ptr nocapture noundef readonly %0
   %29 = inttoptr i64 %28 to ptr
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, 1
-  %.not20 = icmp eq i8 %31, 0
-  %.v = select i1 %.not20, i64 4, i64 1
+  %.not = icmp eq i8 %31, 0
+  %.v = select i1 %.not, i64 4, i64 1
   %32 = getelementptr inbounds i8, ptr %29, i64 %.v
   store ptr %32, ptr %17, align 8
   %33 = load i64, ptr %27, align 8
@@ -255,8 +253,8 @@ define dso_local noundef i64 @jsonb_exists_all(ptr nocapture noundef readonly %0
 
 47:                                               ; preds = %25
   %48 = and i32 %36, 1
-  %.not21 = icmp eq i32 %48, 0
-  br i1 %.not21, label %52, label %49
+  %.not20 = icmp eq i32 %48, 0
+  br i1 %.not20, label %52, label %49
 
 49:                                               ; preds = %47
   %50 = lshr i32 %36, 1
@@ -274,14 +272,14 @@ define dso_local noundef i64 @jsonb_exists_all(ptr nocapture noundef readonly %0
   store i32 %57, ptr %16, align 8
   %58 = call ptr @findJsonbValueFromContainer(ptr noundef nonnull %18, i32 noundef 1610612736, ptr noundef nonnull %5) #4
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %._crit_edge, label %._crit_edge27
+  br i1 %59, label %._crit_edge, label %._crit_edge26
 
-._crit_edge27:                                    ; preds = %56
+._crit_edge26:                                    ; preds = %56
   %.pre = load i32, ptr %4, align 4
   br label %60
 
-60:                                               ; preds = %._crit_edge27, %19
-  %61 = phi i32 [ %.pre, %._crit_edge27 ], [ %20, %19 ]
+60:                                               ; preds = %._crit_edge26, %19
+  %61 = phi i32 [ %.pre, %._crit_edge26 ], [ %20, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62

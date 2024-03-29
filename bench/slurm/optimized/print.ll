@@ -47,9 +47,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 4), align 4
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %print_job_from_format.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %print_job_from_format.exit, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @list_iterator_create(ptr noundef %1) #8
@@ -58,7 +57,7 @@ define dso_local noundef i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) l
 7:                                                ; preds = %9, %5
   %8 = tail call ptr @list_next(ptr noundef %6) #8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %20, label %9
+  br i1 %.not.i, label %19, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %8, align 8
@@ -66,63 +65,60 @@ define dso_local noundef i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) l
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 12
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %16 = icmp ne i8 %15, 0
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %10(ptr noundef null, i32 noundef %12, i1 noundef zeroext %16, ptr noundef %18) #8
-  %.not9.i = icmp eq i32 %19, 0
+  %15 = trunc i8 %14 to i1
+  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %10(ptr noundef null, i32 noundef %12, i1 noundef zeroext %15, ptr noundef %17) #8
+  %.not9.i = icmp eq i32 %18, 0
   br i1 %.not9.i, label %7, label %print_job_from_format.exit, !llvm.loop !7
 
-20:                                               ; preds = %7
+19:                                               ; preds = %7
   tail call void @list_iterator_destroy(ptr noundef %6) #8
   %putchar.i = tail call i32 @putchar(i32 10)
   br label %print_job_from_format.exit
 
-print_job_from_format.exit:                       ; preds = %9, %20, %2
-  %21 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 7), align 1
-  %22 = and i8 %21, 1
-  %.not6 = icmp eq i8 %22, 0
-  br i1 %.not6, label %39, label %23
+print_job_from_format.exit:                       ; preds = %9, %19, %2
+  %20 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 7), align 1
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %37
 
-23:                                               ; preds = %print_job_from_format.exit
-  %24 = tail call ptr @list_iterator_create(ptr noundef %1) #8
-  br label %25
+22:                                               ; preds = %print_job_from_format.exit
+  %23 = tail call ptr @list_iterator_create(ptr noundef %1) #8
+  br label %24
 
-25:                                               ; preds = %27, %23
-  %26 = tail call ptr @list_next(ptr noundef %24) #8
-  %.not.i8 = icmp eq ptr %26, null
-  br i1 %.not.i8, label %38, label %27
+24:                                               ; preds = %26, %22
+  %25 = tail call ptr @list_next(ptr noundef %23) #8
+  %.not.i6 = icmp eq ptr %25, null
+  br i1 %.not.i6, label %36, label %26
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 12
-  %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %34 = icmp ne i8 %33, 0
-  %35 = getelementptr inbounds i8, ptr %26, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 %28(ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef %30, i1 noundef zeroext %34, ptr noundef %36) #8
-  %.not9.i9 = icmp eq i32 %37, 0
-  br i1 %.not9.i9, label %25, label %print_job_from_format.exit12, !llvm.loop !7
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 12
+  %31 = load i8, ptr %30, align 4
+  %32 = trunc i8 %31 to i1
+  %33 = getelementptr inbounds i8, ptr %25, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call i32 %27(ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef %29, i1 noundef zeroext %32, ptr noundef %34) #8
+  %.not9.i7 = icmp eq i32 %35, 0
+  br i1 %.not9.i7, label %24, label %print_job_from_format.exit10, !llvm.loop !7
 
-38:                                               ; preds = %25
-  tail call void @list_iterator_destroy(ptr noundef %24) #8
-  %putchar.i11 = tail call i32 @putchar(i32 10)
-  br label %print_job_from_format.exit12
+36:                                               ; preds = %24
+  tail call void @list_iterator_destroy(ptr noundef %23) #8
+  %putchar.i9 = tail call i32 @putchar(i32 10)
+  br label %print_job_from_format.exit10
 
-39:                                               ; preds = %print_job_from_format.exit
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %print_job_from_format.exit12, label %40
+37:                                               ; preds = %print_job_from_format.exit
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %print_job_from_format.exit10, label %38
 
-40:                                               ; preds = %39
+38:                                               ; preds = %37
   tail call void @sort_job_list(ptr noundef nonnull %0) #8
-  %41 = tail call i32 @list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @print_job_from_format, ptr noundef %1) #8
-  br label %print_job_from_format.exit12
+  %39 = tail call i32 @list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @print_job_from_format, ptr noundef %1) #8
+  br label %print_job_from_format.exit10
 
-print_job_from_format.exit12:                     ; preds = %27, %38, %39, %40
+print_job_from_format.exit10:                     ; preds = %26, %36, %37, %38
   ret i32 0
 }
 
@@ -134,7 +130,7 @@ define dso_local noundef i32 @print_job_from_format(ptr noundef %0, ptr noundef 
 4:                                                ; preds = %6, %2
   %5 = tail call ptr @list_next(ptr noundef %3) #8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %17, label %6
+  br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %5, align 8
@@ -142,21 +138,20 @@ define dso_local noundef i32 @print_job_from_format(ptr noundef %0, ptr noundef 
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 12
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %13 = icmp ne i8 %12, 0
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %7(ptr noundef %0, i32 noundef %9, i1 noundef zeroext %13, ptr noundef %15) #8
-  %.not9 = icmp eq i32 %16, 0
+  %12 = trunc i8 %11 to i1
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %7(ptr noundef %0, i32 noundef %9, i1 noundef zeroext %12, ptr noundef %14) #8
+  %.not9 = icmp eq i32 %15, 0
   br i1 %.not9, label %4, label %.loopexit, !llvm.loop !7
 
-17:                                               ; preds = %4
+16:                                               ; preds = %4
   tail call void @list_iterator_destroy(ptr noundef %3) #8
   %putchar = tail call i32 @putchar(i32 10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %6, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %6 ]
+.loopexit:                                        ; preds = %6, %16
+  %.0 = phi i32 [ 0, %16 ], [ -1, %6 ]
   ret i32 %.0
 }
 

@@ -532,33 +532,32 @@ for.body:                                         ; preds = %for.body.preheader,
   %__begin2.sroa.0.062 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %infos.val21, %for.body.preheader ]
   %module_is_path = getelementptr inbounds i8, ptr %__begin2.sroa.0.062, i64 32
   %2 = load i8, ptr %module_is_path, align 8
-  %3 = and i8 %2, 1
-  %tobool21.not = icmp eq i8 %3, 0
-  %call33 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.062) #18
-  %4 = extractvalue { i64, ptr } %call33, 0
-  %5 = extractvalue { i64, ptr } %call33, 1
-  br i1 %tobool21.not, label %if.else, label %if.then22
+  %tobool21 = trunc i8 %2 to i1
+  %call24 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.062) #18
+  %3 = extractvalue { i64, ptr } %call24, 0
+  %4 = extractvalue { i64, ptr } %call24, 1
+  br i1 %tobool21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %for.body
-  %call26 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %4, ptr %5, i64 %stem.sroa.0.1, ptr %file.coerce1)
+  %call26 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %3, ptr %4, i64 %stem.sroa.0.1, ptr %file.coerce1)
   br i1 %call26, label %if.then27, label %for.inc
 
 if.then27:                                        ; preds = %if.then22
   %vlog_level = getelementptr inbounds i8, ptr %__begin2.sroa.0.062, i64 36
-  %6 = load i32, ptr %vlog_level, align 4
-  %cmp28 = icmp eq i32 %6, -32768
-  %current_global_v. = select i1 %cmp28, i32 %current_global_v, i32 %6
+  %5 = load i32, ptr %vlog_level, align 4
+  %cmp28 = icmp eq i32 %5, -32768
+  %current_global_v. = select i1 %cmp28, i32 %current_global_v, i32 %5
   br label %return
 
 if.else:                                          ; preds = %for.body
-  %call35 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %4, ptr %5, i64 %stem_basename.sroa.0.149, ptr %basename.sroa.5.05570)
+  %call35 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %3, ptr %4, i64 %stem_basename.sroa.0.149, ptr %basename.sroa.5.05570)
   br i1 %call35, label %if.then36, label %for.inc
 
 if.then36:                                        ; preds = %if.else
   %vlog_level37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.062, i64 36
-  %7 = load i32, ptr %vlog_level37, align 4
-  %cmp38 = icmp eq i32 %7, -32768
-  %current_global_v.19 = select i1 %cmp38, i32 %current_global_v, i32 %7
+  %6 = load i32, ptr %vlog_level37, align 4
+  %cmp38 = icmp eq i32 %6, -32768
+  %current_global_v.19 = select i1 %cmp38, i32 %current_global_v, i32 %6
   br label %return
 
 for.inc:                                          ; preds = %if.then22, %if.else
@@ -1558,8 +1557,8 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i: ; preds = %if.t
   %5 = phi ptr [ %call.i.i, %if.then.i.i ], [ %4, %entry._ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit_crit_edge.i ]
   %6 = getelementptr i8, ptr %5, i64 8
   %call.val4.i = load ptr, ptr %6, align 8
-  %cmp.i.not49.i = icmp eq ptr %call.val.i, %call.val4.i
-  br i1 %cmp.i.not49.i, label %for.end.i, label %for.body.i
+  %cmp.i.not.not49.i = icmp eq ptr %call.val.i, %call.val4.i
+  br i1 %cmp.i.not.not49.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i, %for.inc.i
   %__begin2.sroa.0.050.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %call.val.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i ]
@@ -1576,11 +1575,11 @@ if.then.i2:                                       ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.050.i, i64 40
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %call.val4.i
-  br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
+  %cmp.i.not.not.i = icmp eq ptr %incdec.ptr.i.i, %call.val4.i
+  br i1 %cmp.i.not.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then.i2, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i
-  %cmp.i.not47.i = phi i1 [ false, %if.then.i2 ], [ true, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i ], [ true, %for.inc.i ]
+  %cmp.i.not.not47.i = phi i1 [ false, %if.then.i2 ], [ true, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i ], [ true, %for.inc.i ]
   %old_log_level.sroa.0.0.i = phi i32 [ %9, %if.then.i2 ], [ undef, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i ], [ undef, %for.inc.i ]
   %cmp.i.not.i.i = icmp eq i64 %module_pattern.coerce0, 0
   br i1 %cmp.i.not.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_112ModuleIsPathESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %if.then.i.i.i
@@ -1965,7 +1964,7 @@ ehcleanup.i:                                      ; preds = %lpad21.i, %lpad.i
 
 _ZN4absl12log_internal12_GLOBAL__N_120PrependVModuleLockedESt17basic_string_viewIcSt11char_traitsIcEEi.exit: ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit35.i, %if.end.i.i.i, %invoke.cont.i.i.i.i
   %__u.val.i.i = load i32, ptr @_ZN4absl12log_internal12_GLOBAL__N_18global_vE, align 4
-  %retval.0.i.i = select i1 %cmp.i.not47.i, i32 %__u.val.i.i, i32 %old_log_level.sroa.0.0.i
+  %retval.0.i.i = select i1 %cmp.i.not.not47.i, i32 %__u.val.i.i, i32 %old_log_level.sroa.0.0.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %log_level.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %module_is_path.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp18.i)
@@ -2167,11 +2166,11 @@ lpad.i.i:                                         ; preds = %entry
   resume { ptr, i32 } %9
 
 _ZNSt15__new_allocatorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvPT_DpOT0_.exit: ; preds = %entry
-  %10 = and i8 %2, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
+  %frombool.i.i = and i8 %2, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #18
   %module_is_path.i.i = getelementptr inbounds i8, ptr %__p, i64 32
-  store i8 %10, ptr %module_is_path.i.i, align 8
+  store i8 %frombool.i.i, ptr %module_is_path.i.i, align 8
   %vlog_level.i.i = getelementptr inbounds i8, ptr %__p, i64 36
   store i32 %3, ptr %vlog_level.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)

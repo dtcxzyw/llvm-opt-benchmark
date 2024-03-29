@@ -46,9 +46,8 @@ define dso_local void @gist_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %22 = trunc i64 %19 to i32
   %23 = getelementptr inbounds i8, ptr %6, i64 24
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not.i = icmp eq i8 %25, 0
-  %26 = select i1 %.not.i, i32 70, i32 84
+  %25 = trunc i8 %24 to i1
+  %26 = select i1 %25, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %11, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %21, i32 noundef %22, i32 noundef %26) #3
   br label %45
 
@@ -59,9 +58,8 @@ define dso_local void @gist_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %31 = zext i16 %30 to i32
   %32 = getelementptr inbounds i8, ptr %6, i64 6
   %33 = load i8, ptr %32, align 2
-  %34 = and i8 %33, 1
-  %.not.i14 = icmp eq i8 %34, 0
-  %35 = select i1 %.not.i14, i32 70, i32 84
+  %34 = trunc i8 %33 to i1
+  %35 = select i1 %34, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %28, i32 noundef %31, i32 noundef %35) #3
   br label %45
 

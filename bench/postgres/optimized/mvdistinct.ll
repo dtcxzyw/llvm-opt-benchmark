@@ -219,11 +219,11 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 %indvars.iv109.i
   %105 = load i8, ptr %104, align 1
-  %106 = and i8 %105, 1
-  %107 = getelementptr inbounds i8, ptr %96, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr i8, ptr %108, i64 %indvars.iv114.i
-  store i8 %106, ptr %109, align 1
+  %106 = getelementptr inbounds i8, ptr %96, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr i8, ptr %107, i64 %indvars.iv114.i
+  %109 = and i8 %105, 1
+  store i8 %109, ptr %108, align 1
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count.i
   br i1 %exitcond113.not.i, label %._crit_edge.us.i, label %88, !llvm.loop !8
@@ -378,9 +378,8 @@ define dso_local noundef ptr @statext_ndistinct_load(i32 noundef %0, i1 noundef 
 10:                                               ; preds = %2
   %11 = call i64 @SysCacheGetAttr(i32 noundef 60, ptr noundef nonnull %6, i16 noundef signext 3, ptr noundef nonnull %3) #9
   %12 = load i8, ptr %3, align 1
-  %13 = and i8 %12, 1
-  %.not8 = icmp eq i8 %13, 0
-  br i1 %.not8, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10

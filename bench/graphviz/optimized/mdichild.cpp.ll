@@ -856,9 +856,8 @@ declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unn
 define noundef zeroext i1 @_ZN8MdiChild4saveEv(ptr noundef nonnull align 8 dereferenceable(153) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN8MdiChild6saveAsEv(ptr noundef nonnull align 8 dereferenceable(153) %0)
@@ -1480,9 +1479,8 @@ _ZN7QStringD2Ev.exit24:                           ; preds = %_ZN7QStringD2Ev.exi
 33:                                               ; preds = %_ZN7QStringD2Ev.exit24
   %34 = getelementptr inbounds i8, ptr %0, i64 152
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not.i = icmp eq i8 %36, 0
-  br i1 %.not.i, label %39, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = call noundef zeroext i1 @_ZN8MdiChild6saveAsEv(ptr noundef nonnull align 8 dereferenceable(153) %0)
@@ -1852,9 +1850,8 @@ declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40)
 define noundef zeroext i1 @_ZN8MdiChild9firstTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

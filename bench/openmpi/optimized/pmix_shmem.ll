@@ -64,9 +64,8 @@ add_internal_segment_header.exit.thread28:        ; preds = %15
   store i32 0, ptr %26, align 1
   %27 = getelementptr inbounds i8, ptr %0, i64 120
   %28 = load volatile i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not8.i.i = icmp eq i8 %29, 0
-  br i1 %.not8.i.i, label %add_internal_segment_header.exit.thread26, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %add_internal_segment_header.exit.thread26
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %25, align 8
@@ -190,9 +189,8 @@ define internal fastcc noundef i32 @segment_attach(ptr noundef %0, i64 noundef %
   %.022354757 = phi ptr [ inttoptr (i64 -1 to ptr), %20 ], [ inttoptr (i64 -1 to ptr), %.thread48 ], [ %11, %14 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 120
   %22 = load volatile i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not8.i = icmp eq i8 %23, 0
-  br i1 %.not8.i, label %pmix_shmem_segment_detach.exit, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %pmix_shmem_segment_detach.exit
 
 24:                                               ; preds = %.thread53
   %25 = getelementptr inbounds i8, ptr %0, i64 136
@@ -252,9 +250,8 @@ define i32 @pmix_shmem_segment_detach(ptr noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load volatile i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not8 = icmp eq i8 %5, 0
-  br i1 %.not8, label %14, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 136
@@ -345,9 +342,8 @@ define internal void @shmem_construct(ptr noundef %0) #7 {
 define internal void @shmem_destruct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load volatile i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %pmix_shmem_segment_detach.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %pmix_shmem_segment_detach.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -364,9 +360,8 @@ define internal void @shmem_destruct(ptr noundef %0) #0 {
 
 13:                                               ; preds = %5, %10
   %14 = load volatile i8, ptr %2, align 8
-  %15 = and i8 %14, 1
-  %.not8.i = icmp eq i8 %15, 0
-  br i1 %.not8.i, label %pmix_shmem_segment_detach.exit, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %pmix_shmem_segment_detach.exit
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %6, align 8

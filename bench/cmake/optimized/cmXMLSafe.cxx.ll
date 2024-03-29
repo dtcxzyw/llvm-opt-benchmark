@@ -103,41 +103,41 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK9cmXML
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
-  %.not44 = icmp eq i64 %8, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not42 = icmp eq i64 %8, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %53
-  %.045 = phi ptr [ %6, %.lr.ph ], [ %.1, %53 ]
-  %12 = call ptr @cm_utf8_decode_character(ptr noundef %.045, ptr noundef nonnull %9, ptr noundef nonnull %3)
+  %.043 = phi ptr [ %6, %.lr.ph ], [ %.1, %53 ]
+  %12 = call ptr @cm_utf8_decode_character(ptr noundef %.043, ptr noundef nonnull %9, ptr noundef nonnull %3)
   %.not38 = icmp eq ptr %12, null
   br i1 %.not38, label %45, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %3, align 4
-  %.fr42 = freeze i32 %14
-  %15 = add i32 %.fr42, -32
+  %.fr40 = freeze i32 %14
+  %15 = add i32 %.fr40, -32
   %or.cond = icmp ult i32 %15, 55264
-  %16 = add i32 %.fr42, -57344
+  %16 = add i32 %.fr40, -57344
   %or.cond3 = icmp ult i32 %16, 8190
-  %or.cond41 = or i1 %or.cond, %or.cond3
-  %17 = add i32 %.fr42, -65536
+  %or.cond39 = or i1 %or.cond, %or.cond3
+  %17 = add i32 %.fr40, -65536
   %or.cond5 = icmp ult i32 %17, 1048576
-  %or.cond43 = or i1 %or.cond5, %or.cond41
-  br i1 %or.cond43, label %18, label %switch.early.test
+  %or.cond41 = or i1 %or.cond5, %or.cond39
+  br i1 %or.cond41, label %18, label %switch.early.test
 
 switch.early.test:                                ; preds = %13
-  switch i32 %.fr42, label %40 [
+  switch i32 %.fr40, label %40 [
     i32 13, label %53
     i32 9, label %35
     i32 10, label %35
   ]
 
 18:                                               ; preds = %13
-  switch i32 %.fr42, label %35 [
+  switch i32 %.fr40, label %35 [
     i32 38, label %19
     i32 60, label %21
     i32 62, label %23
@@ -159,37 +159,35 @@ switch.early.test:                                ; preds = %13
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %10, align 8
-  %27 = and i8 %26, 1
-  %.not40 = icmp eq i8 %27, 0
-  %28 = select i1 %.not40, ptr @.str.4, ptr @.str.3
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, ptr @.str.3, ptr @.str.4
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %28)
   br label %53
 
 30:                                               ; preds = %18
   %31 = load i8, ptr %10, align 8
-  %32 = and i8 %31, 1
-  %.not39 = icmp eq i8 %32, 0
-  %33 = select i1 %.not39, ptr @.str.6, ptr @.str.5
+  %32 = trunc i8 %31 to i1
+  %33 = select i1 %32, ptr @.str.5, ptr @.str.6
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %33)
   br label %53
 
 35:                                               ; preds = %switch.early.test, %switch.early.test, %18
   %36 = ptrtoint ptr %12 to i64
-  %37 = ptrtoint ptr %.045 to i64
+  %37 = ptrtoint ptr %.043 to i64
   %38 = sub i64 %36, %37
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.045, i64 noundef %38)
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.043, i64 noundef %38)
   br label %53
 
 40:                                               ; preds = %switch.early.test
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %.fr42) #9
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %.fr40) #9
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.8)
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %4)
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.9)
   br label %53
 
 45:                                               ; preds = %11
-  %46 = getelementptr inbounds i8, ptr %.045, i64 1
-  %47 = load i8, ptr %.045, align 1
+  %46 = getelementptr inbounds i8, ptr %.043, i64 1
+  %47 = load i8, ptr %.043, align 1
   %48 = zext i8 %47 to i32
   store i32 %48, ptr %3, align 4
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %48) #9

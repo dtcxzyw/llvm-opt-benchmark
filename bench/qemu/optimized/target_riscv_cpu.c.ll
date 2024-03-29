@@ -426,8 +426,7 @@ entry:
   %idx.ext = zext i32 %ext_offset to i64
   %add.ptr = getelementptr i8, ptr %cfg, i64 %idx.ext
   %0 = load i8, ptr %add.ptr, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -526,18 +525,17 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end2, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
   call void @riscv_tcg_cpu_finalize_features(ptr noundef %cpu, ptr noundef nonnull %local_err) #14
-  %2 = load ptr, ptr %local_err, align 8
-  %cmp.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %local_err, align 8
+  %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %2) #14
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #14
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then, %if.then1, %entry
@@ -552,9 +550,8 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
 define dso_local zeroext i1 @riscv_cpu_accelerator_compatible(ptr noundef %cpu) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call = tail call zeroext i1 @riscv_cpu_tcg_compatible(ptr noundef %cpu) #14
@@ -725,30 +722,28 @@ for.end:                                          ; preds = %for.inc
   store i8 0, ptr %p.1, align 1
   %short_isa_string = getelementptr inbounds i8, ptr %cpu, i64 15476
   %2 = load i8, ptr %short_isa_string, align 4
-  %3 = and i8 %2, 1
-  %tobool10.not = icmp eq i8 %3, 0
-  br i1 %tobool10.not, label %if.then11, label %if.end12
+  %tobool10 = trunc i8 %2 to i1
+  br i1 %tobool10, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %for.end
   %cfg.i.i = getelementptr inbounds i8, ptr %cpu, i64 15312
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then11, %for.inc.i
-  %4 = phi ptr [ @.str, %if.then11 ], [ %8, %for.inc.i ]
+  %3 = phi ptr [ @.str, %if.then11 ], [ %6, %for.inc.i ]
   %edata.09.i12 = phi ptr [ @isa_edata_arr, %if.then11 ], [ %incdec.ptr.i, %for.inc.i ]
   %old.010.i11 = phi ptr [ %call, %if.then11 ], [ %old.1.i, %for.inc.i ]
   %new.011.i10 = phi ptr [ %call, %if.then11 ], [ %new.1.i, %for.inc.i ]
   %ext_enable_offset.i = getelementptr inbounds i8, ptr %edata.09.i12, i64 12
-  %5 = load i32, ptr %ext_enable_offset.i, align 4
-  %idx.ext.i.i = zext i32 %5 to i64
+  %4 = load i32, ptr %ext_enable_offset.i, align 4
+  %idx.ext.i.i = zext i32 %4 to i64
   %add.ptr.i.i = getelementptr i8, ptr %cfg.i.i, i64 %idx.ext.i.i
-  %6 = load i8, ptr %add.ptr.i.i, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i, label %for.inc.i, label %if.then.i
+  %5 = load i8, ptr %add.ptr.i.i, align 1
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call3.i = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %old.010.i11, ptr noundef nonnull @.str.313, ptr noundef nonnull %4, ptr noundef null) #14
+  %call3.i = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %old.010.i11, ptr noundef nonnull @.str.313, ptr noundef nonnull %3, ptr noundef null) #14
   tail call void @g_free(ptr noundef %old.010.i11) #14
   br label %for.inc.i
 
@@ -756,8 +751,8 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %old.1.i = phi ptr [ %call3.i, %if.then.i ], [ %old.010.i11, %for.body.i ]
   %new.1.i = phi ptr [ %call3.i, %if.then.i ], [ %new.011.i10, %for.body.i ]
   %incdec.ptr.i = getelementptr i8, ptr %edata.09.i12, i64 16
-  %8 = load ptr, ptr %incdec.ptr.i, align 8
-  %tobool1.not.i = icmp eq ptr %8, null
+  %6 = load ptr, ptr %incdec.ptr.i, align 8
+  %tobool1.not.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i, label %if.end12, label %for.body.i
 
 if.end12:                                         ; preds = %for.inc.i, %for.end
@@ -1086,9 +1081,8 @@ entry:
 define internal void @rv128_base_cpu_init(ptr noundef %obj) #3 {
 entry:
   %0 = load i8, ptr @mttcg_enabled, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.359) #14
@@ -1139,28 +1133,27 @@ if.end6:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   %1 = load i8, ptr @tcg_allowed, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %riscv_cpu_finalize_features.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %riscv_cpu_finalize_features.exit
 
 if.then.i:                                        ; preds = %if.end6
   call void @riscv_tcg_cpu_finalize_features(ptr noundef %call.i, ptr noundef nonnull %local_err.i) #14
-  %3 = load ptr, ptr %local_err.i, align 8
-  %cmp.not.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %local_err.i, align 8
+  %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %riscv_cpu_finalize_features.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %3) #14
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %2) #14
   br label %riscv_cpu_finalize_features.exit
 
 riscv_cpu_finalize_features.exit:                 ; preds = %if.end6, %if.then.i, %if.then1.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %4 = load ptr, ptr %local_err, align 8
-  %cmp7.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %local_err, align 8
+  %cmp7.not = icmp eq ptr %3, null
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %riscv_cpu_finalize_features.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #14
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #14
   br label %return
 
 if.end9:                                          ; preds = %riscv_cpu_finalize_features.exit
@@ -1168,8 +1161,8 @@ if.end9:                                          ; preds = %riscv_cpu_finalize_
   call void @qemu_init_vcpu(ptr noundef %dev) #14
   call void @cpu_reset(ptr noundef %dev) #14
   %parent_realize = getelementptr inbounds i8, ptr %call1.i, i64 360
-  %5 = load ptr, ptr %parent_realize, align 8
-  call void %5(ptr noundef %dev, ptr noundef %errp) #14
+  %4 = load ptr, ptr %parent_realize, align 8
+  call void %4(ptr noundef %dev, ptr noundef %errp) #14
   br label %return
 
 return:                                           ; preds = %if.end9, %if.then8, %if.then5

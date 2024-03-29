@@ -706,9 +706,9 @@ define dso_local void @_Z19AddInterfaceEntriesPK17cmGeneratorTargetRKNSt7__cxx11
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %11, i64 72
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
-  store i8 %15, ptr %16, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = and i8 %14, 1
+  store i8 %16, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 104
   %18 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorI14cmLinkImplItemSaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %.not47 = icmp eq ptr %18, null
@@ -730,9 +730,9 @@ define dso_local void @_Z19AddInterfaceEntriesPK17cmGeneratorTargetRKNSt7__cxx11
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 72
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
-  store i8 %27, ptr %28, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  %28 = and i8 %26, 1
+  store i8 %28, ptr %27, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %19, %24

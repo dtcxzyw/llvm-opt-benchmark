@@ -512,7 +512,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %9 = getelementptr inbounds i8, ptr %1, i64 67
   %10 = getelementptr inbounds i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !range !51, !noundef !9
-  %12 = icmp ne i8 %11, 0
+  %12 = trunc i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %1, i64 2
   %14 = load i8, ptr %13, align 1, !range !52, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -1314,7 +1314,7 @@ define noundef i24 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeCo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeConfig$u20$as$u20$base64..engine..Config$GT$14encode_padding17ha6871d7ae2e30b3fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !range !51, !noundef !9
-  %3 = icmp ne i8 %2, 0
+  %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 

@@ -114,21 +114,19 @@ define noundef i64 @_Z19fast_rv32i_c_ebreakP11processor_t6insn_tm(ptr nocapture 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -139,30 +137,27 @@ define noundef i64 @_Z19fast_rv32i_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -172,25 +167,23 @@ define noundef i64 @_Z19fast_rv32i_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -245,21 +238,19 @@ define noundef i64 @_Z19fast_rv64i_c_ebreakP11processor_t6insn_tm(ptr nocapture 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -270,30 +261,27 @@ define noundef i64 @_Z19fast_rv64i_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -303,25 +291,23 @@ define noundef i64 @_Z19fast_rv64i_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -360,21 +346,19 @@ define noundef i64 @_Z21logged_rv32i_c_ebreakP11processor_t6insn_tm(ptr nocaptur
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -385,30 +369,27 @@ define noundef i64 @_Z21logged_rv32i_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -418,25 +399,23 @@ define noundef i64 @_Z21logged_rv32i_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -475,21 +454,19 @@ define noundef i64 @_Z21logged_rv64i_c_ebreakP11processor_t6insn_tm(ptr nocaptur
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -500,30 +477,27 @@ define noundef i64 @_Z21logged_rv64i_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -533,25 +507,23 @@ define noundef i64 @_Z21logged_rv64i_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -590,21 +562,19 @@ define noundef i64 @_Z19fast_rv32e_c_ebreakP11processor_t6insn_tm(ptr nocapture 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -615,30 +585,27 @@ define noundef i64 @_Z19fast_rv32e_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -648,25 +615,23 @@ define noundef i64 @_Z19fast_rv32e_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -705,21 +670,19 @@ define noundef i64 @_Z19fast_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocapture 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -730,30 +693,27 @@ define noundef i64 @_Z19fast_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -763,25 +723,23 @@ define noundef i64 @_Z19fast_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocapture 
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -820,21 +778,19 @@ define noundef i64 @_Z21logged_rv32e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -845,30 +801,27 @@ define noundef i64 @_Z21logged_rv32e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -878,25 +831,23 @@ define noundef i64 @_Z21logged_rv32e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -935,21 +886,19 @@ define noundef i64 @_Z21logged_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 2248
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread41
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not24 = icmp eq i8 %18, 0
+  %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %0, i64 944
   %20 = load i64, ptr %19, align 8
-  br i1 %.not24, label %21, label %40
+  br i1 %18, label %40, label %21
 
 21:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 3, label %22
     i64 1, label %28
     i64 0, label %34
@@ -960,30 +909,27 @@ define noundef i64 @_Z21logged_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 39
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not25 = icmp eq i8 %27, 0
-  br i1 %.not25, label %.thread41, label %53
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %53, label %.thread31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not27 = icmp eq i8 %33, 0
-  br i1 %.not27, label %.thread41, label %53
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %53, label %.thread31
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 2152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %.thread41, label %53
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %53, label %.thread31
 
 40:                                               ; preds = %15
-  switch i64 %20, label %.thread41 [
+  switch i64 %20, label %.thread31 [
     i64 1, label %41
     i64 0, label %47
   ]
@@ -993,25 +939,23 @@ define noundef i64 @_Z21logged_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 42
   %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %.thread41, label %53
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %.thread31
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %0, i64 2152
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 43
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %.thread41, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %47, %41, %34, %28, %22
   %54 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTI15trap_debug_mode, ptr null) #13
   unreachable
 
-.thread41:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
+.thread31:                                        ; preds = %40, %21, %41, %22, %28, %11, %47, %34
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 962
   %57 = load i8, ptr %56, align 2
@@ -1031,9 +975,8 @@ define noundef i64 @_Z21logged_rv64e_c_ebreakP11processor_t6insn_tm(ptr nocaptur
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

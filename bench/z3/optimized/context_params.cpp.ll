@@ -633,9 +633,8 @@ if.else94:                                        ; preds = %if.else88
 if.then97:                                        ; preds = %if.else94
   %m_unsat_core = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load i8, ptr %m_unsat_core, align 8
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %if.then45.invoke, label %if.end196
+  %tobool = trunc i8 %10 to i1
+  br i1 %tobool, label %if.end196, label %if.then45.invoke
 
 if.else102:                                       ; preds = %if.else94
   %call.i79 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull @.str.21) #11
@@ -722,24 +721,24 @@ invoke.cont143:                                   ; preds = %invoke.cont139
           to label %unreachable unwind label %ehcleanup
 
 lpad130:                                          ; preds = %invoke.cont137, %invoke.cont135, %invoke.cont133, %invoke.cont131, %invoke.cont129
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup146
 
 ehcleanup:                                        ; preds = %invoke.cont143
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141) #11
   br label %ehcleanup146
 
 cleanup.action:                                   ; preds = %invoke.cont139
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #11
   br label %ehcleanup146
 
 ehcleanup146:                                     ; preds = %ehcleanup, %cleanup.action, %lpad130
-  %.pn45.pn = phi { ptr, i32 } [ %14, %cleanup.action ], [ %13, %ehcleanup ], [ %12, %lpad130 ]
+  %.pn45.pn = phi { ptr, i32 } [ %13, %cleanup.action ], [ %12, %ehcleanup ], [ %11, %lpad130 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %strm) #11
   br label %ehcleanup197
 
@@ -789,34 +788,34 @@ invoke.cont170:                                   ; preds = %invoke.cont166
           to label %unreachable unwind label %ehcleanup175
 
 lpad150:                                          ; preds = %invoke.cont151, %invoke.cont149
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup180
 
 lpad155:                                          ; preds = %invoke.cont163, %invoke.cont160, %invoke.cont158, %invoke.cont156, %invoke.cont153
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 ehcleanup175:                                     ; preds = %invoke.cont170
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp168) #11
   br label %ehcleanup179
 
 cleanup.action177:                                ; preds = %invoke.cont166
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception167) #11
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %ehcleanup175, %cleanup.action177, %lpad155
-  %.pn.pn = phi { ptr, i32 } [ %18, %cleanup.action177 ], [ %17, %ehcleanup175 ], [ %16, %lpad155 ]
+  %.pn.pn = phi { ptr, i32 } [ %17, %cleanup.action177 ], [ %16, %ehcleanup175 ], [ %15, %lpad155 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %strm152) #11
   br label %ehcleanup180
 
 ehcleanup180:                                     ; preds = %ehcleanup179, %lpad150
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup179 ], [ %15, %lpad150 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup179 ], [ %14, %lpad150 ]
   call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #11
   br label %ehcleanup197
 
@@ -890,51 +889,44 @@ entry:
   store i32 %call3, ptr %this, align 8
   %m_well_sorted_check = getelementptr inbounds i8, ptr %this, i64 76
   %2 = load i8, ptr %m_well_sorted_check, align 4
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %call5 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.10, i1 noundef zeroext %tobool)
   %call6 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.9, i1 noundef zeroext %call5)
   %frombool = zext i1 %call6 to i8
   store i8 %frombool, ptr %m_well_sorted_check, align 4
   %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
-  %4 = load i8, ptr %m_auto_config, align 8
-  %5 = and i8 %4, 1
-  %tobool8 = icmp ne i8 %5, 0
+  %3 = load i8, ptr %m_auto_config, align 8
+  %tobool8 = trunc i8 %3 to i1
   %call9 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.11, i1 noundef zeroext %tobool8)
   %frombool11 = zext i1 %call9 to i8
   store i8 %frombool11, ptr %m_auto_config, align 8
   %m_proof = getelementptr inbounds i8, ptr %this, i64 73
-  %6 = load i8, ptr %m_proof, align 1
-  %7 = and i8 %6, 1
-  %tobool12 = icmp ne i8 %7, 0
+  %4 = load i8, ptr %m_proof, align 1
+  %tobool12 = trunc i8 %4 to i1
   %call13 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.12, i1 noundef zeroext %tobool12)
   %frombool15 = zext i1 %call13 to i8
   store i8 %frombool15, ptr %m_proof, align 1
   %m_model = getelementptr inbounds i8, ptr %this, i64 77
-  %8 = load i8, ptr %m_model, align 1
-  %9 = and i8 %8, 1
-  %tobool16 = icmp ne i8 %9, 0
+  %5 = load i8, ptr %m_model, align 1
+  %tobool16 = trunc i8 %5 to i1
   %call17 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.13, i1 noundef zeroext %tobool16)
   %frombool19 = zext i1 %call17 to i8
   store i8 %frombool19, ptr %m_model, align 1
   %m_model_validate = getelementptr inbounds i8, ptr %this, i64 78
-  %10 = load i8, ptr %m_model_validate, align 2
-  %11 = and i8 %10, 1
-  %tobool20 = icmp ne i8 %11, 0
+  %6 = load i8, ptr %m_model_validate, align 2
+  %tobool20 = trunc i8 %6 to i1
   %call21 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.14, i1 noundef zeroext %tobool20)
   %frombool23 = zext i1 %call21 to i8
   store i8 %frombool23, ptr %m_model_validate, align 2
   %m_dump_models = getelementptr inbounds i8, ptr %this, i64 79
-  %12 = load i8, ptr %m_dump_models, align 1
-  %13 = and i8 %12, 1
-  %tobool24 = icmp ne i8 %13, 0
+  %7 = load i8, ptr %m_dump_models, align 1
+  %tobool24 = trunc i8 %7 to i1
   %call25 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.15, i1 noundef zeroext %tobool24)
   %frombool27 = zext i1 %call25 to i8
   store i8 %frombool27, ptr %m_dump_models, align 1
   %m_trace = getelementptr inbounds i8, ptr %this, i64 75
-  %14 = load i8, ptr %m_trace, align 1
-  %15 = and i8 %14, 1
-  %tobool28 = icmp ne i8 %15, 0
+  %8 = load i8, ptr %m_trace, align 1
+  %tobool28 = trunc i8 %8 to i1
   %call29 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.17, i1 noundef zeroext %tobool28)
   %frombool31 = zext i1 %call29 to i8
   store i8 %frombool31, ptr %m_trace, align 1
@@ -945,33 +937,29 @@ entry:
   %m_dot_proof_file = getelementptr inbounds i8, ptr %this, i64 8
   %call35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_dot_proof_file, ptr noundef %call34)
   %m_unsat_core = getelementptr inbounds i8, ptr %this, i64 80
-  %16 = load i8, ptr %m_unsat_core, align 8
-  %17 = and i8 %16, 1
-  %tobool36 = icmp ne i8 %17, 0
+  %9 = load i8, ptr %m_unsat_core, align 8
+  %tobool36 = trunc i8 %9 to i1
   %call37 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.20, i1 noundef zeroext %tobool36)
-  %18 = load i8, ptr %m_unsat_core, align 8
-  %19 = and i8 %18, 1
-  %20 = zext i1 %call37 to i8
-  %21 = or i8 %19, %20
-  store i8 %21, ptr %m_unsat_core, align 8
+  %10 = load i8, ptr %m_unsat_core, align 8
+  %11 = and i8 %10, 1
+  %12 = zext i1 %call37 to i8
+  %13 = or i8 %11, %12
+  store i8 %13, ptr %m_unsat_core, align 8
   %m_debug_ref_count = getelementptr inbounds i8, ptr %this, i64 74
-  %22 = load i8, ptr %m_debug_ref_count, align 2
-  %23 = and i8 %22, 1
-  %tobool43 = icmp ne i8 %23, 0
+  %14 = load i8, ptr %m_debug_ref_count, align 2
+  %tobool43 = trunc i8 %14 to i1
   %call44 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.21, i1 noundef zeroext %tobool43)
   %frombool46 = zext i1 %call44 to i8
   store i8 %frombool46, ptr %m_debug_ref_count, align 2
   %m_smtlib2_compliant = getelementptr inbounds i8, ptr %this, i64 81
-  %24 = load i8, ptr %m_smtlib2_compliant, align 1
-  %25 = and i8 %24, 1
-  %tobool47 = icmp ne i8 %25, 0
+  %15 = load i8, ptr %m_smtlib2_compliant, align 1
+  %tobool47 = trunc i8 %15 to i1
   %call48 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.22, i1 noundef zeroext %tobool47)
   %frombool50 = zext i1 %call48 to i8
   store i8 %frombool50, ptr %m_smtlib2_compliant, align 1
   %m_statistics = getelementptr inbounds i8, ptr %this, i64 82
-  %26 = load i8, ptr %m_statistics, align 2
-  %27 = and i8 %26, 1
-  %tobool51 = icmp ne i8 %27, 0
+  %16 = load i8, ptr %m_statistics, align 2
+  %tobool51 = trunc i8 %16 to i1
   %call52 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.16, i1 noundef zeroext %tobool51)
   %frombool54 = zext i1 %call52 to i8
   store i8 %frombool54, ptr %m_statistics, align 2
@@ -1013,9 +1001,8 @@ define hidden void @_ZN14context_params20merge_default_paramsERK10params_ref(ptr
 entry:
   %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %m_auto_config, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.else
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZNK10params_ref8containsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.11)
@@ -1027,10 +1014,10 @@ if.then:                                          ; preds = %land.lhs.true
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #11
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
 if.else:                                          ; preds = %land.lhs.true, %entry
   tail call void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %p)
@@ -1054,45 +1041,41 @@ define hidden void @_ZN14context_params17get_solver_paramsER10params_refRbS2_S2_
 entry:
   %m_proof = getelementptr inbounds i8, ptr %this, i64 73
   %0 = load i8, ptr %m_proof, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %call = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.12, i1 noundef zeroext %tobool)
-  %2 = load i8, ptr %proofs_enabled, align 1
-  %3 = and i8 %2, 1
-  %tobool45 = icmp ne i8 %3, 0
+  %1 = load i8, ptr %proofs_enabled, align 1
+  %2 = and i8 %1, 1
+  %tobool45 = icmp ne i8 %2, 0
   %tobool4 = select i1 %call, i1 %tobool45, i1 false
   %frombool = zext i1 %tobool4 to i8
   store i8 %frombool, ptr %proofs_enabled, align 1
   %m_model = getelementptr inbounds i8, ptr %this, i64 77
-  %4 = load i8, ptr %m_model, align 1
-  %5 = and i8 %4, 1
-  %tobool5 = icmp ne i8 %5, 0
+  %3 = load i8, ptr %m_model, align 1
+  %tobool5 = trunc i8 %3 to i1
   %call6 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.13, i1 noundef zeroext %tobool5)
-  %6 = load i8, ptr %models_enabled, align 1
-  %7 = and i8 %6, 1
-  %tobool116 = icmp ne i8 %7, 0
+  %4 = load i8, ptr %models_enabled, align 1
+  %5 = and i8 %4, 1
+  %tobool116 = icmp ne i8 %5, 0
   %tobool11 = select i1 %call6, i1 %tobool116, i1 false
   %frombool12 = zext i1 %tobool11 to i8
   store i8 %frombool12, ptr %models_enabled, align 1
   %m_unsat_core = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load i8, ptr %m_unsat_core, align 8
-  %9 = and i8 %8, 1
-  %tobool13.not = icmp eq i8 %9, 0
-  br i1 %tobool13.not, label %lor.rhs, label %lor.end
+  %6 = load i8, ptr %m_unsat_core, align 8
+  %tobool13 = trunc i8 %6 to i1
+  br i1 %tobool13, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %call14 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.20, i1 noundef zeroext false)
-  %10 = zext i1 %call14 to i8
+  %7 = zext i1 %call14 to i8
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %frombool15 = phi i8 [ 1, %entry ], [ %10, %lor.rhs ]
+  %frombool15 = phi i8 [ 1, %entry ], [ %7, %lor.rhs ]
   store i8 %frombool15, ptr %unsat_core_enabled, align 1
   %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
-  %11 = load i8, ptr %m_auto_config, align 8
-  %12 = and i8 %11, 1
-  %tobool16.not = icmp eq i8 %12, 0
-  br i1 %tobool16.not, label %land.lhs.true, label %if.end
+  %8 = load i8, ptr %m_auto_config, align 8
+  %tobool16 = trunc i8 %8 to i1
+  br i1 %tobool16, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.end
   %call17 = tail call noundef zeroext i1 @_ZNK10params_ref8containsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.11)

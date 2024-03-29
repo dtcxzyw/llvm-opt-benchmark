@@ -246,17 +246,16 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %handshake_confirmed_.i = getelementptr inbounds i8, ptr %this, i64 393
   %0 = load i8, ptr %handshake_confirmed_.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %subkey_secret = getelementptr inbounds i8, ptr %this, i64 504
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %subkey_secret)
-  %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %4 = load i64, ptr %3, align 8
-  %call4 = call noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_mPS8_(ptr %2, i64 %4, ptr %label.coerce0, i64 %label.coerce1, ptr %context.coerce0, i64 %context.coerce1, i64 noundef %result_len, ptr noundef %result)
+  %1 = load ptr, ptr %agg.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = load i64, ptr %2, align 8
+  %call4 = call noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_mPS8_(ptr %1, i64 %3, ptr %label.coerce0, i64 %label.coerce1, ptr %context.coerce0, i64 %context.coerce1, i64 noundef %result_len, ptr noundef %result)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -277,9 +276,8 @@ entry:
   %agg.tmp14 = alloca %"class.base::BasicStringPiece", align 8
   %encryption_established_.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load i8, ptr %encryption_established_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.then, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -300,26 +298,26 @@ cleanup.action:                                   ; preds = %invoke.cont5
   br label %return
 
 lpad:                                             ; preds = %invoke.cont5, %cond.false
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #8
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
   %initial_subkey_secret = getelementptr inbounds i8, ptr %this, i64 472
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %initial_subkey_secret)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, ptr noundef nonnull @.str.3)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull @.str.4)
-  %3 = load ptr, ptr %agg.tmp, align 8
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = load ptr, ptr %agg.tmp13, align 8
-  %7 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
-  %8 = load i64, ptr %7, align 8
-  %9 = load ptr, ptr %agg.tmp14, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
-  %11 = load i64, ptr %10, align 8
-  %call15 = call noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_mPS8_(ptr %3, i64 %5, ptr %6, i64 %8, ptr %9, i64 %11, i64 noundef 32, ptr noundef %result)
+  %2 = load ptr, ptr %agg.tmp, align 8
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = load ptr, ptr %agg.tmp13, align 8
+  %6 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %agg.tmp14, align 8
+  %9 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
+  %10 = load i64, ptr %9, align 8
+  %call15 = call noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_mPS8_(ptr %2, i64 %4, ptr %5, i64 %7, ptr %8, i64 %10, i64 noundef 32, ptr noundef %result)
   br label %return
 
 return:                                           ; preds = %cleanup.action, %if.then, %if.end

@@ -112,9 +112,8 @@ entry:
   store atomic i8 0, ptr %use_hpa monotonic, align 1
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
@@ -138,9 +137,8 @@ entry:
   store atomic i64 0, ptr %nactive monotonic, align 8
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
@@ -160,9 +158,8 @@ entry:
   tail call void @pac_destroy(ptr noundef %tsdn, ptr noundef nonnull %pac) #4
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
@@ -185,21 +182,20 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %use_hpa.i = getelementptr inbounds i8, ptr %shard, i64 16
   %0 = load atomic i8, ptr %use_hpa.i monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end13, label %if.end
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.end, label %if.end13
 
 if.end:                                           ; preds = %land.lhs.true
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
-  %2 = load ptr, ptr %hpa_sec, align 8
-  %call.i = tail call ptr %2(ptr noundef %tsdn, ptr noundef nonnull %hpa_sec, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext false, i1 noundef zeroext %slab, ptr noundef %deferred_work_generated) #4
+  %1 = load ptr, ptr %hpa_sec, align 8
+  %call.i = tail call ptr %1(ptr noundef %tsdn, ptr noundef nonnull %hpa_sec, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext false, i1 noundef zeroext %slab, ptr noundef %deferred_work_generated) #4
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.end13, label %do.end17
 
 if.end13:                                         ; preds = %land.lhs.true, %entry, %if.end
   %pac = getelementptr inbounds i8, ptr %shard, i64 24
-  %3 = load ptr, ptr %pac, align 8
-  %call.i31 = tail call ptr %3(ptr noundef %tsdn, ptr noundef nonnull %pac, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext %guarded, i1 noundef zeroext %slab, ptr noundef %deferred_work_generated) #4
+  %2 = load ptr, ptr %pac, align 8
+  %call.i31 = tail call ptr %2(ptr noundef %tsdn, ptr noundef nonnull %pac, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext %guarded, i1 noundef zeroext %slab, ptr noundef %deferred_work_generated) #4
   %cmp14.not = icmp eq ptr %call.i31, null
   br i1 %cmp14.not, label %if.end28, label %do.end17
 
@@ -207,12 +203,12 @@ do.end17:                                         ; preds = %if.end, %if.end13
   %edata.139 = phi ptr [ %call.i31, %if.end13 ], [ %call.i, %if.end ]
   %shr = lshr i64 %size, 12
   %nactive.i = getelementptr inbounds i8, ptr %shard, i64 8
-  %4 = atomicrmw add ptr %nactive.i, i64 %shr monotonic, align 8
+  %3 = atomicrmw add ptr %nactive.i, i64 %shr monotonic, align 8
   %emap = getelementptr inbounds i8, ptr %shard, i64 68264
-  %5 = load ptr, ptr %emap, align 8
-  tail call void @emap_remap(ptr noundef %tsdn, ptr noundef %5, ptr noundef nonnull %edata.139, i32 noundef %szind, i1 noundef zeroext %slab) #4
-  %6 = load i64, ptr %edata.139, align 8
-  %and.i = and i64 %6, -267390977
+  %4 = load ptr, ptr %emap, align 8
+  tail call void @emap_remap(ptr noundef %tsdn, ptr noundef %4, ptr noundef nonnull %edata.139, i32 noundef %szind, i1 noundef zeroext %slab) #4
+  %5 = load i64, ptr %edata.139, align 8
+  %and.i = and i64 %5, -267390977
   %conv.i = zext i32 %szind to i64
   %shl.i = shl nuw nsw i64 %conv.i, 20
   %shl.i33 = select i1 %slab, i64 4096, i64 0
@@ -224,8 +220,8 @@ do.end17:                                         ; preds = %if.end, %if.end13
   br i1 %or.cond, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %do.end17
-  %7 = load ptr, ptr %emap, align 8
-  tail call void @emap_register_interior(ptr noundef %tsdn, ptr noundef %7, ptr noundef nonnull %edata.139, i32 noundef %szind) #4
+  %6 = load ptr, ptr %emap, align 8
+  tail call void @emap_register_interior(ptr noundef %tsdn, ptr noundef %6, ptr noundef nonnull %edata.139, i32 noundef %szind) #4
   br label %if.end28
 
 if.end28:                                         ; preds = %do.end17, %if.then23, %if.end13
@@ -396,9 +392,8 @@ define hidden void @pa_shard_set_deferral_allowed(ptr noundef %tsdn, ptr noundef
 entry:
   %use_hpa.i = getelementptr inbounds i8, ptr %shard, i64 16
   %0 = load atomic i8, ptr %use_hpa.i monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_shard = getelementptr inbounds i8, ptr %shard, i64 62384
@@ -416,9 +411,8 @@ define hidden void @pa_shard_do_deferred_work(ptr noundef %tsdn, ptr noundef %sh
 entry:
   %use_hpa.i = getelementptr inbounds i8, ptr %shard, i64 16
   %0 = load atomic i8, ptr %use_hpa.i monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_shard = getelementptr inbounds i8, ptr %shard, i64 62384
@@ -444,15 +438,14 @@ entry:
 if.end:                                           ; preds = %entry
   %use_hpa.i = getelementptr inbounds i8, ptr %shard, i64 16
   %1 = load atomic i8, ptr %use_hpa.i monotonic, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not, label %return, label %if.then2
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %hpa_shard = getelementptr inbounds i8, ptr %shard, i64 62384
   %time_until_deferred_work.i8 = getelementptr inbounds i8, ptr %shard, i64 62432
-  %3 = load ptr, ptr %time_until_deferred_work.i8, align 8
-  %call.i9 = tail call i64 %3(ptr noundef %tsdn, ptr noundef nonnull %hpa_shard) #4
+  %2 = load ptr, ptr %time_until_deferred_work.i8, align 8
+  %call.i9 = tail call i64 %2(ptr noundef %tsdn, ptr noundef nonnull %hpa_shard) #4
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call.i9, i64 %call.i)
   br label %return
 

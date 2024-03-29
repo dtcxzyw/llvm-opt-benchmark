@@ -28,9 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_psquash_open(i32 noundef %0) #0 {
   %2 = load i8, ptr @pmix_psquash_globals, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %6
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   store i8 1, ptr @pmix_psquash_globals, align 1
@@ -45,9 +44,8 @@ define internal i32 @pmix_psquash_open(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_psquash_close() #0 {
   %1 = load i8, ptr @pmix_psquash_globals, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %5, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
   store i8 0, ptr @pmix_psquash_globals, align 1

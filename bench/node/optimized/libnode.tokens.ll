@@ -130,9 +130,8 @@ entry:
   %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, i8 0, i64 16, i1 false)
   %call.i = tail call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %buf_, i64 noundef 16) #17
-  %0 = and i8 %call.i, 1
-  %tobool.i.not.i = icmp eq i8 %0, 0
-  br i1 %tobool.i.not.i, label %do.body5.i, label %_ZN4node4quic11TokenSecret5ResetEv.exit
+  %tobool.i.i = trunc i8 %call.i to i1
+  br i1 %tobool.i.i, label %_ZN4node4quic11TokenSecret5ResetEv.exit, label %do.body5.i
 
 do.body5.i:                                       ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic11TokenSecret5ResetEvE4args) #17
@@ -151,9 +150,8 @@ define dso_local void @_ZN4node4quic11TokenSecret5ResetEv(ptr noundef nonnull al
 entry:
   %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %buf_, i64 noundef 16) #17
-  %0 = and i8 %call, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  br i1 %tobool.i.not, label %do.body5, label %do.end6
+  %tobool.i = trunc i8 %call to i1
+  br i1 %tobool.i, label %do.end6, label %do.body5
 
 do.body5:                                         ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic11TokenSecret5ResetEvE4args) #17

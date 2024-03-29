@@ -938,9 +938,9 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
   %16 = icmp eq i32 %14, 0
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
-  br i1 %16, label %.thread46, label %19
+  br i1 %16, label %.thread45, label %19
 
-.thread46:                                        ; preds = %15
+.thread45:                                        ; preds = %15
   store i32 %18, ptr %13, align 8
   br label %.loopexit
 
@@ -953,7 +953,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %14, %23
-  br i1 %24, label %.thread36, label %25
+  br i1 %24, label %.thread35, label %25
 
 25:                                               ; preds = %.thread, %19
   %26 = phi ptr [ %22, %.thread ], [ %20, %19 ]
@@ -999,7 +999,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %106
 
-.thread36:                                        ; preds = %.thread
+.thread35:                                        ; preds = %.thread
   %46 = getelementptr inbounds i8, ptr %1, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %9, align 8
@@ -1008,7 +1008,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
   %51 = icmp eq i32 %47, %50
   br i1 %51, label %.lr.ph, label %52
 
-52:                                               ; preds = %.thread36
+52:                                               ; preds = %.thread35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #19
   %54 = add nsw i32 %53, 1
@@ -1048,13 +1048,13 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
   br label %106
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds i8, ptr %.sroa.026.040, i64 16
-  %.not38 = icmp eq ptr %69, %11
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %69 = getelementptr inbounds i8, ptr %.sroa.025.039, i64 16
+  %.not37 = icmp eq ptr %69, %11
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread36, %68
-  %.sroa.026.040 = phi ptr [ %69, %68 ], [ %9, %.thread36 ]
-  %70 = load ptr, ptr %.sroa.026.040, align 8
+.lr.ph:                                           ; preds = %.thread35, %68
+  %.sroa.025.039 = phi ptr [ %69, %68 ], [ %9, %.thread35 ]
+  %70 = load ptr, ptr %.sroa.025.039, align 8
   %.not = icmp eq ptr %70, %1
   br i1 %.not, label %71, label %68
 
@@ -1097,26 +1097,25 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %106
 
-.loopexit:                                        ; preds = %68, %.thread46, %19
+.loopexit:                                        ; preds = %68, %.thread45, %19
   %87 = getelementptr inbounds i8, ptr %0, i64 64
   %88 = load i8, ptr %87, align 8
-  %89 = and i8 %88, 1
-  %.not21 = icmp eq i8 %89, 0
-  br i1 %.not21, label %93, label %90
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %93
 
 90:                                               ; preds = %.loopexit
   %91 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #24
   invoke void @_ZN5faiss12WorkerThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(184) %91)
-          to label %._crit_edge41 unwind label %102
+          to label %._crit_edge40 unwind label %102
 
-._crit_edge41:                                    ; preds = %90
-  %.pre42 = load ptr, ptr %10, align 8
+._crit_edge40:                                    ; preds = %90
+  %.pre41 = load ptr, ptr %10, align 8
   %92 = ptrtoint ptr %91 to i64
   br label %93
 
-93:                                               ; preds = %._crit_edge41, %.loopexit
-  %94 = phi ptr [ %.pre42, %._crit_edge41 ], [ %11, %.loopexit ]
-  %.cast = phi i64 [ %92, %._crit_edge41 ], [ 0, %.loopexit ]
+93:                                               ; preds = %._crit_edge40, %.loopexit
+  %94 = phi ptr [ %.pre41, %._crit_edge40 ], [ %11, %.loopexit ]
+  %.cast = phi i64 [ %92, %._crit_edge40 ], [ 0, %.loopexit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   store ptr %1, ptr %6, align 8, !alias.scope !5
   %95 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1152,10 +1151,10 @@ _ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.thread, %_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit, %_ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i
   store ptr null, ptr %95, align 8
-  %.pre43 = load ptr, ptr %0, align 8
-  %.phi.trans.insert44 = getelementptr inbounds i8, ptr %.pre43, i64 184
-  %.pre45 = load ptr, ptr %.phi.trans.insert44, align 8
-  call void %.pre45(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
+  %.pre42 = load ptr, ptr %0, align 8
+  %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.pre42, i64 184
+  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
+  call void %.pre44(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
   ret void
 
 102:                                              ; preds = %90
@@ -1172,8 +1171,8 @@ _ZNSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EED2Ev.exit: ; pre
   br label %106
 
 106:                                              ; preds = %102, %104, %86, %67, %45
-  %.pn22.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn19, %86 ], [ %.pn17, %67 ], [ %.pn, %45 ]
-  resume { ptr, i32 } %.pn22.pn
+  %.pn21.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn19, %86 ], [ %.pn17, %67 ], [ %.pn, %45 ]
+  resume { ptr, i32 } %.pn21.pn
 
 107:                                              ; preds = %81, %62, %40
   unreachable
@@ -1863,9 +1862,9 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
   %16 = icmp eq i32 %14, 0
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
-  br i1 %16, label %.thread46, label %19
+  br i1 %16, label %.thread45, label %19
 
-.thread46:                                        ; preds = %15
+.thread45:                                        ; preds = %15
   store i32 %18, ptr %13, align 8
   br label %.loopexit
 
@@ -1878,7 +1877,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %14, %23
-  br i1 %24, label %.thread36, label %25
+  br i1 %24, label %.thread35, label %25
 
 25:                                               ; preds = %.thread, %19
   %26 = phi ptr [ %22, %.thread ], [ %20, %19 ]
@@ -1924,7 +1923,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %106
 
-.thread36:                                        ; preds = %.thread
+.thread35:                                        ; preds = %.thread
   %46 = getelementptr inbounds i8, ptr %1, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %9, align 8
@@ -1933,7 +1932,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
   %51 = icmp eq i32 %47, %50
   br i1 %51, label %.lr.ph, label %52
 
-52:                                               ; preds = %.thread36
+52:                                               ; preds = %.thread35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #19
   %54 = add nsw i32 %53, 1
@@ -1973,13 +1972,13 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
   br label %106
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds i8, ptr %.sroa.026.040, i64 16
-  %.not38 = icmp eq ptr %69, %11
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %69 = getelementptr inbounds i8, ptr %.sroa.025.039, i64 16
+  %.not37 = icmp eq ptr %69, %11
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread36, %68
-  %.sroa.026.040 = phi ptr [ %69, %68 ], [ %9, %.thread36 ]
-  %70 = load ptr, ptr %.sroa.026.040, align 8
+.lr.ph:                                           ; preds = %.thread35, %68
+  %.sroa.025.039 = phi ptr [ %69, %68 ], [ %9, %.thread35 ]
+  %70 = load ptr, ptr %.sroa.025.039, align 8
   %.not = icmp eq ptr %70, %1
   br i1 %.not, label %71, label %68
 
@@ -2022,26 +2021,25 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %106
 
-.loopexit:                                        ; preds = %68, %.thread46, %19
+.loopexit:                                        ; preds = %68, %.thread45, %19
   %87 = getelementptr inbounds i8, ptr %0, i64 64
   %88 = load i8, ptr %87, align 8
-  %89 = and i8 %88, 1
-  %.not21 = icmp eq i8 %89, 0
-  br i1 %.not21, label %93, label %90
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %93
 
 90:                                               ; preds = %.loopexit
   %91 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #24
   invoke void @_ZN5faiss12WorkerThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(184) %91)
-          to label %._crit_edge41 unwind label %102
+          to label %._crit_edge40 unwind label %102
 
-._crit_edge41:                                    ; preds = %90
-  %.pre42 = load ptr, ptr %10, align 8
+._crit_edge40:                                    ; preds = %90
+  %.pre41 = load ptr, ptr %10, align 8
   %92 = ptrtoint ptr %91 to i64
   br label %93
 
-93:                                               ; preds = %._crit_edge41, %.loopexit
-  %94 = phi ptr [ %.pre42, %._crit_edge41 ], [ %11, %.loopexit ]
-  %.cast = phi i64 [ %92, %._crit_edge41 ], [ 0, %.loopexit ]
+93:                                               ; preds = %._crit_edge40, %.loopexit
+  %94 = phi ptr [ %.pre41, %._crit_edge40 ], [ %11, %.loopexit ]
+  %.cast = phi i64 [ %92, %._crit_edge40 ], [ 0, %.loopexit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store ptr %1, ptr %6, align 8, !alias.scope !8
   %95 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2077,10 +2075,10 @@ _ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.thread, %_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit, %_ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i
   store ptr null, ptr %95, align 8
-  %.pre43 = load ptr, ptr %0, align 8
-  %.phi.trans.insert44 = getelementptr inbounds i8, ptr %.pre43, i64 120
-  %.pre45 = load ptr, ptr %.phi.trans.insert44, align 8
-  call void %.pre45(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
+  %.pre42 = load ptr, ptr %0, align 8
+  %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.pre42, i64 120
+  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
+  call void %.pre44(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
   ret void
 
 102:                                              ; preds = %90
@@ -2097,8 +2095,8 @@ _ZNSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EED2Ev.exit: ; pre
   br label %106
 
 106:                                              ; preds = %102, %104, %86, %67, %45
-  %.pn22.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn19, %86 ], [ %.pn17, %67 ], [ %.pn, %45 ]
-  resume { ptr, i32 } %.pn22.pn
+  %.pn21.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn19, %86 ], [ %.pn17, %67 ], [ %.pn, %45 ]
+  resume { ptr, i32 } %.pn21.pn
 
 107:                                              ; preds = %81, %62, %40
   unreachable
@@ -2321,8 +2319,8 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %.not1215 = icmp eq ptr %3, %5
-  br i1 %.not1215, label %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph
+  %.not13 = icmp eq ptr %3, %5
+  br i1 %.not13, label %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2330,17 +2328,16 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
   br label %8
 
 8:                                                ; preds = %.lr.ph, %34
-  %.sroa.09.016 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
+  %.sroa.08.014 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
   %9 = load i8, ptr %6, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  %11 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 8
+  %10 = trunc i8 %9 to i1
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not14 = icmp eq ptr %12, null
-  br i1 %.not, label %20, label %13
+  %.not12 = icmp eq ptr %12, null
+  br i1 %10, label %13, label %20
 
 13:                                               ; preds = %8
-  br i1 %.not14, label %14, label %17
+  br i1 %.not12, label %14, label %17
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @stderr, align 8
@@ -2358,7 +2355,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
           to label %24 unwind label %41
 
 20:                                               ; preds = %8
-  br i1 %.not14, label %24, label %21
+  br i1 %.not12, label %24, label %21
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr @stderr, align 8
@@ -2368,12 +2365,11 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
 
 24:                                               ; preds = %20, %18
   %25 = load i8, ptr %7, align 4
-  %26 = and i8 %25, 1
-  %.not8 = icmp eq i8 %26, 0
-  br i1 %.not8, label %34, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %34
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %.sroa.09.016, align 8
+  %28 = load ptr, ptr %.sroa.08.014, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %34, label %30
 
@@ -2385,14 +2381,14 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
   br label %34
 
 34:                                               ; preds = %24, %30, %27
-  %35 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 16
-  %.not12 = icmp eq ptr %35, %5
-  br i1 %.not12, label %._crit_edge, label %8
+  %35 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
+  %.not = icmp eq ptr %35, %5
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %34
   %.pre = load ptr, ptr %2, align 8
-  %.pre17 = load ptr, ptr %4, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre17
+  %.pre15 = load ptr, ptr %4, align 8
+  %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre15
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZSt8_DestroyISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEEEvPT_.exit.i.i.i.i
@@ -2410,7 +2406,7 @@ _ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i.i.i.i.i.i: ; pred
 _ZSt8_DestroyISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   store ptr null, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %38, %.pre17
+  %.not.i.i.i.i = icmp eq ptr %38, %.pre15
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEEEvPT_.exit.i.i.i.i
@@ -2418,7 +2414,7 @@ _ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defa
   br label %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %1, %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %39 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %.pre17, %._crit_edge ], [ %3, %1 ]
+  %39 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %.pre15, %._crit_edge ], [ %3, %1 ]
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EED2Ev.exit, label %40
 
@@ -2602,27 +2598,26 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %.not2429 = icmp eq ptr %6, %8
-  br i1 %.not2429, label %._crit_edge, label %.lr.ph
+  %.not2329 = icmp eq ptr %6, %8
+  br i1 %.not2329, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %65
-  %.sroa.012.030 = phi ptr [ %66, %65 ], [ %6, %2 ]
-  %9 = load ptr, ptr %.sroa.012.030, align 8
+  %.sroa.011.030 = phi ptr [ %66, %65 ], [ %6, %2 ]
+  %9 = load ptr, ptr %.sroa.011.030, align 8
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %65
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  %15 = getelementptr inbounds i8, ptr %.sroa.012.030, i64 8
+  %14 = trunc i8 %13 to i1
+  %15 = getelementptr inbounds i8, ptr %.sroa.011.030, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not26 = icmp eq ptr %16, null
-  br i1 %.not, label %23, label %17
+  %.not25 = icmp eq ptr %16, null
+  br i1 %14, label %17, label %23
 
 17:                                               ; preds = %11
-  br i1 %.not26, label %18, label %21
+  br i1 %.not25, label %18, label %21
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr @stderr, align 8
@@ -2639,7 +2634,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
   br label %27
 
 23:                                               ; preds = %11
-  br i1 %.not26, label %27, label %24
+  br i1 %.not25, label %27, label %24
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @stderr, align 8
@@ -2650,7 +2645,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
 27:                                               ; preds = %23, %21
   %28 = phi ptr [ %8, %23 ], [ %.pre32, %21 ]
   %29 = phi ptr [ %6, %23 ], [ %.pre, %21 ]
-  %30 = ptrtoint ptr %.sroa.012.030 to i64
+  %30 = ptrtoint ptr %.sroa.011.030 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
@@ -2719,11 +2714,10 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
   %57 = getelementptr inbounds i8, ptr %0, i64 36
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %.not10 = icmp eq i8 %59, 0
-  %60 = icmp eq ptr %1, null
-  %or.cond = or i1 %60, %.not10
-  br i1 %or.cond, label %74, label %61
+  %59 = trunc i8 %58 to i1
+  %60 = icmp ne ptr %1, null
+  %or.cond.not = and i1 %60, %59
+  br i1 %or.cond.not, label %61, label %74
 
 61:                                               ; preds = %_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EE.exit
   %62 = load ptr, ptr %1, align 8
@@ -2733,9 +2727,9 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
   br label %74
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds i8, ptr %.sroa.012.030, i64 16
-  %.not24 = icmp eq ptr %66, %8
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  %66 = getelementptr inbounds i8, ptr %.sroa.011.030, i64 16
+  %.not23 = icmp eq ptr %66, %8
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %65, %2
   %67 = tail call ptr @__cxa_allocate_exception(i64 40) #19
@@ -2766,7 +2760,7 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
   br i1 %.0, label %73, label %75
 
 73:                                               ; preds = %.thread, %71
-  %.pn23 = phi { ptr, i32 } [ %70, %.thread ], [ %72, %71 ]
+  %.pn22 = phi { ptr, i32 } [ %70, %.thread ], [ %72, %71 ]
   call void @__cxa_free_exception(ptr %67) #19
   br label %75
 
@@ -2774,8 +2768,8 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
   ret void
 
 75:                                               ; preds = %71, %73
-  %.pn22 = phi { ptr, i32 } [ %72, %71 ], [ %.pn23, %73 ]
-  resume { ptr, i32 } %.pn22
+  %.pn21 = phi { ptr, i32 } [ %72, %71 ], [ %.pn22, %73 ]
+  resume { ptr, i32 } %.pn21
 
 76:                                               ; preds = %69
   unreachable
@@ -2956,20 +2950,19 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8fu
   %11 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  br i1 %.not, label %187, label %17
+  br i1 %14, label %17, label %187
 
 17:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %15, align 8
   %.not70 = icmp eq ptr %18, %19
-  br i1 %.not70, label %._crit_edge, label %.lr.ph
+  br i1 %.not70, label %._crit_edge69, label %.lr.ph68
 
-.lr.ph:                                           ; preds = %17
+.lr.ph68:                                         ; preds = %17
   %20 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = getelementptr inbounds i8, ptr %8, i64 24
   %22 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2983,10 +2976,10 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8fu
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   br label %31
 
-31:                                               ; preds = %.lr.ph, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
-  %32 = phi ptr [ %19, %.lr.ph ], [ %118, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
-  %33 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %indvars.iv
+31:                                               ; preds = %.lr.ph68, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next73, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
+  %32 = phi ptr [ %19, %.lr.ph68 ], [ %118, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
+  %33 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %indvars.iv72
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -3027,7 +3020,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8fu
 _ZNSt8functionIFviPN5faiss5IndexEEEC2ERKS4_.exit: ; preds = %40, %31
   %51 = phi ptr [ %42, %40 ], [ null, %31 ]
   %52 = phi ptr [ %41, %40 ], [ null, %31 ]
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc i64 %indvars.iv72 to i32
   store i32 %53, ptr %24, align 8
   store ptr %34, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -3187,17 +3180,17 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt6futureIbED2Ev
   unreachable
 
 _ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit: ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %112
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %117 = load ptr, ptr %16, align 8
   %118 = load ptr, ptr %15, align 8
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
   %122 = ashr exact i64 %121, 4
-  %123 = icmp ugt i64 %122, %indvars.iv.next
-  br i1 %123, label %31, label %._crit_edge, !llvm.loop !15
+  %123 = icmp ugt i64 %122, %indvars.iv.next73
+  br i1 %123, label %31, label %._crit_edge69, !llvm.loop !15
 
-124:                                              ; preds = %._crit_edge
+124:                                              ; preds = %._crit_edge69
   %125 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3252,11 +3245,11 @@ _ZNSt8functionIFvvEED2Ev.exit32:                  ; preds = %134, %132, %126
   call void @__clang_call_terminate(ptr %144) #21
   unreachable
 
-._crit_edge:                                      ; preds = %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit, %17
+._crit_edge69:                                    ; preds = %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit, %17
   invoke void @_ZN5faiss13ThreadedIndexINS_5IndexEE20waitAndHandleFuturesERSt6vectorISt6futureIbESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %145 unwind label %124
 
-145:                                              ; preds = %._crit_edge
+145:                                              ; preds = %._crit_edge69
   %146 = load ptr, ptr %5, align 8
   %147 = getelementptr inbounds i8, ptr %5, i64 8
   %148 = load ptr, ptr %147, align 8
@@ -3361,23 +3354,23 @@ _ZSt8_DestroyIPSt6futureIbES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %188 = load ptr, ptr %16, align 8
   %189 = load ptr, ptr %15, align 8
-  %.not71 = icmp eq ptr %188, %189
-  br i1 %.not71, label %._crit_edge69, label %.lr.ph68
+  %.not = icmp eq ptr %188, %189
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph68:                                         ; preds = %187
+.lr.ph:                                           ; preds = %187
   %190 = getelementptr inbounds i8, ptr %1, i64 16
   %191 = getelementptr inbounds i8, ptr %1, i64 24
   %192 = getelementptr inbounds i8, ptr %10, i64 8
   br label %193
 
-193:                                              ; preds = %.lr.ph68, %213
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next74, %213 ]
-  %194 = phi ptr [ %189, %.lr.ph68 ], [ %215, %213 ]
-  %195 = getelementptr inbounds %"struct.std::pair", ptr %194, i64 %indvars.iv73
+193:                                              ; preds = %.lr.ph, %213
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %213 ]
+  %194 = phi ptr [ %189, %.lr.ph ], [ %215, %213 ]
+  %195 = getelementptr inbounds %"struct.std::pair", ptr %194, i64 %indvars.iv
   %196 = load ptr, ptr %195, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %197 = trunc i64 %indvars.iv73 to i32
+  %197 = trunc i64 %indvars.iv to i32
   store i32 %197, ptr %3, align 4
   store ptr %196, ptr %4, align 8
   %198 = load ptr, ptr %190, align 8
@@ -3438,15 +3431,15 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt4pairIiNSt15__
           to label %213 unwind label %.loopexit
 
 213:                                              ; preds = %_ZNKSt8functionIFviPN5faiss5IndexEEEclEiS2_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %214 = load ptr, ptr %16, align 8
   %215 = load ptr, ptr %15, align 8
   %216 = ptrtoint ptr %214 to i64
   %217 = ptrtoint ptr %215 to i64
   %218 = sub i64 %216, %217
   %219 = ashr exact i64 %218, 4
-  %220 = icmp ugt i64 %219, %indvars.iv.next74
-  br i1 %220, label %193, label %._crit_edge69, !llvm.loop !20
+  %220 = icmp ugt i64 %219, %indvars.iv.next
+  br i1 %220, label %193, label %._crit_edge, !llvm.loop !20
 
 221:                                              ; preds = %202
   %222 = landingpad { ptr, i32 }
@@ -3477,16 +3470,16 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit44: ; preds = %_ZNSt4pairIiNSt15__
           cleanup
   br label %236
 
-.loopexit.split-lp:                               ; preds = %._crit_edge69
+.loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %236
 
-._crit_edge69:                                    ; preds = %213, %187
+._crit_edge:                                      ; preds = %213, %187
   invoke void @_ZN5faiss16handleExceptionsERSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %227 unwind label %.loopexit.split-lp
 
-227:                                              ; preds = %._crit_edge69
+227:                                              ; preds = %._crit_edge
   %228 = load ptr, ptr %9, align 8
   %229 = getelementptr inbounds i8, ptr %9, i64 8
   %230 = load ptr, ptr %229, align 8
@@ -3580,9 +3573,9 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE18syncWithSubI
   store i32 %24, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %19, i64 25
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %28, ptr %29, align 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 25
+  %29 = and i8 %27, 1
+  store i8 %29, ptr %28, align 1
   %30 = getelementptr inbounds i8, ptr %19, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4472,7 +4465,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt6futureIbE3getEv(ptr noundef nonnul
   %2 = alloca %"struct.std::__basic_future<bool>::_Reset", align 8
   store ptr %0, ptr %2, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(18) ptr @_ZNKSt14__basic_futureIbE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-          to label %4 unwind label %45
+          to label %4 unwind label %44
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4553,15 +4546,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt14__basic_futureIbE6_ResetD2Ev.exit
 
 _ZNSt14__basic_futureIbE6_ResetD2Ev.exit:         ; preds = %4, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %43 = and i8 %6, 1
-  %44 = icmp ne i8 %43, 0
-  ret i1 %44
+  %43 = trunc i8 %6 to i1
+  ret i1 %43
 
-45:                                               ; preds = %1
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %1
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14__basic_futureIbE6_ResetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4841,9 +4833,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNS0_21Ind
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i.i, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8
@@ -4859,9 +4850,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNS0_21Ind
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(36) %5, i64 noundef %13, ptr noundef %15)
   %19 = load i8, ptr %6, align 8
-  %20 = and i8 %19, 1
-  %.not5.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not5.i.i.i, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_5IndexEE5trainElPKfEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_5IndexEE5trainElPKfEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 21:                                               ; preds = %12
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %4)
@@ -4917,9 +4907,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNS0_21Ind
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i.i, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8
@@ -4935,9 +4924,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNS0_21Ind
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(36) %5, i64 noundef %13, ptr noundef %15)
   %19 = load i8, ptr %6, align 8
-  %20 = and i8 %19, 1
-  %.not5.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not5.i.i.i, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_5IndexEE3addElPKfEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_5IndexEE3addElPKfEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 21:                                               ; preds = %12
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %4)
@@ -5291,9 +5279,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPKN5faiss5IndexEEZNKS0_21I
   %.sroa.speculated.i.i.i = tail call i64 @llvm.smin.i64(i64 %14, i64 %8)
   %15 = getelementptr inbounds i8, ptr %6, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i, label %20, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %13
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %5, i64 noundef %.sroa.speculated.i.i.i)
@@ -5320,9 +5307,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPKN5faiss5IndexEEZNKS0_21I
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(36) %6, i64 noundef %.sroa.speculated.i.i.i, ptr noundef %26, i64 noundef %28, ptr noundef %32, ptr noundef %35, ptr noundef null)
   %39 = load i8, ptr %15, align 8
-  %40 = and i8 %39, 1
-  %.not14.i.i.i = icmp eq i8 %40, 0
-  br i1 %.not14.i.i.i, label %_ZSt10__invoke_rIvRZNK5faiss21IndexReplicasTemplateINS0_5IndexEE6searchElPKflPfPlPKNS0_16SearchParametersEEUliPKS2_E_JiSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZSt10__invoke_rIvRZNK5faiss21IndexReplicasTemplateINS0_5IndexEE6searchElPKflPfPlPKNS0_16SearchParametersEEUliPKS2_E_JiSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 41:                                               ; preds = %20
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %5)
@@ -5393,8 +5379,8 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %.not1215 = icmp eq ptr %3, %5
-  br i1 %.not1215, label %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph
+  %.not13 = icmp eq ptr %3, %5
+  br i1 %.not13, label %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5402,17 +5388,16 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
   br label %8
 
 8:                                                ; preds = %.lr.ph, %34
-  %.sroa.09.016 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
+  %.sroa.08.014 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
   %9 = load i8, ptr %6, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  %11 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 8
+  %10 = trunc i8 %9 to i1
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not14 = icmp eq ptr %12, null
-  br i1 %.not, label %20, label %13
+  %.not12 = icmp eq ptr %12, null
+  br i1 %10, label %13, label %20
 
 13:                                               ; preds = %8
-  br i1 %.not14, label %14, label %17
+  br i1 %.not12, label %14, label %17
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @stderr, align 8
@@ -5430,7 +5415,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
           to label %24 unwind label %41
 
 20:                                               ; preds = %8
-  br i1 %.not14, label %24, label %21
+  br i1 %.not12, label %24, label %21
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr @stderr, align 8
@@ -5440,12 +5425,11 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
 
 24:                                               ; preds = %20, %18
   %25 = load i8, ptr %7, align 8
-  %26 = and i8 %25, 1
-  %.not8 = icmp eq i8 %26, 0
-  br i1 %.not8, label %34, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %34
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %.sroa.09.016, align 8
+  %28 = load ptr, ptr %.sroa.08.014, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %34, label %30
 
@@ -5457,14 +5441,14 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
   br label %34
 
 34:                                               ; preds = %24, %30, %27
-  %35 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 16
-  %.not12 = icmp eq ptr %35, %5
-  br i1 %.not12, label %._crit_edge, label %8
+  %35 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
+  %.not = icmp eq ptr %35, %5
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %34
   %.pre = load ptr, ptr %2, align 8
-  %.pre17 = load ptr, ptr %4, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre17
+  %.pre15 = load ptr, ptr %4, align 8
+  %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre15
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZSt8_DestroyISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEEEvPT_.exit.i.i.i.i
@@ -5482,7 +5466,7 @@ _ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i.i.i.i.i.i: ; pred
 _ZSt8_DestroyISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5faiss12WorkerThreadEEclEPS1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   store ptr null, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %38, %.pre17
+  %.not.i.i.i.i = icmp eq ptr %38, %.pre15
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
 _ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEEEvPT_.exit.i.i.i.i
@@ -5490,7 +5474,7 @@ _ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadES
   br label %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %1, %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %39 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %.pre17, %._crit_edge ], [ %3, %1 ]
+  %39 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %.pre15, %._crit_edge ], [ %3, %1 ]
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EED2Ev.exit, label %40
 
@@ -5682,27 +5666,26 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE11removeInd
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %.not2429 = icmp eq ptr %6, %8
-  br i1 %.not2429, label %._crit_edge, label %.lr.ph
+  %.not2329 = icmp eq ptr %6, %8
+  br i1 %.not2329, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %65
-  %.sroa.012.030 = phi ptr [ %66, %65 ], [ %6, %2 ]
-  %9 = load ptr, ptr %.sroa.012.030, align 8
+  %.sroa.011.030 = phi ptr [ %66, %65 ], [ %6, %2 ]
+  %9 = load ptr, ptr %.sroa.011.030, align 8
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %65
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  %15 = getelementptr inbounds i8, ptr %.sroa.012.030, i64 8
+  %14 = trunc i8 %13 to i1
+  %15 = getelementptr inbounds i8, ptr %.sroa.011.030, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not26 = icmp eq ptr %16, null
-  br i1 %.not, label %23, label %17
+  %.not25 = icmp eq ptr %16, null
+  br i1 %14, label %17, label %23
 
 17:                                               ; preds = %11
-  br i1 %.not26, label %18, label %21
+  br i1 %.not25, label %18, label %21
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr @stderr, align 8
@@ -5719,7 +5702,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE11removeInd
   br label %27
 
 23:                                               ; preds = %11
-  br i1 %.not26, label %27, label %24
+  br i1 %.not25, label %27, label %24
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @stderr, align 8
@@ -5730,7 +5713,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE11removeInd
 27:                                               ; preds = %23, %21
   %28 = phi ptr [ %8, %23 ], [ %.pre32, %21 ]
   %29 = phi ptr [ %6, %23 ], [ %.pre, %21 ]
-  %30 = ptrtoint ptr %.sroa.012.030 to i64
+  %30 = ptrtoint ptr %.sroa.011.030 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
@@ -5799,11 +5782,10 @@ _ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt1
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
   %57 = getelementptr inbounds i8, ptr %0, i64 32
   %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, 1
-  %.not10 = icmp eq i8 %59, 0
-  %60 = icmp eq ptr %1, null
-  %or.cond = or i1 %60, %.not10
-  br i1 %or.cond, label %74, label %61
+  %59 = trunc i8 %58 to i1
+  %60 = icmp ne ptr %1, null
+  %or.cond.not = and i1 %60, %59
+  br i1 %or.cond.not, label %61, label %74
 
 61:                                               ; preds = %_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EE.exit
   %62 = load ptr, ptr %1, align 8
@@ -5813,9 +5795,9 @@ _ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt1
   br label %74
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds i8, ptr %.sroa.012.030, i64 16
-  %.not24 = icmp eq ptr %66, %8
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  %66 = getelementptr inbounds i8, ptr %.sroa.011.030, i64 16
+  %.not23 = icmp eq ptr %66, %8
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %65, %2
   %67 = tail call ptr @__cxa_allocate_exception(i64 40) #19
@@ -5846,7 +5828,7 @@ _ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt1
   br i1 %.0, label %73, label %75
 
 73:                                               ; preds = %.thread, %71
-  %.pn23 = phi { ptr, i32 } [ %70, %.thread ], [ %72, %71 ]
+  %.pn22 = phi { ptr, i32 } [ %70, %.thread ], [ %72, %71 ]
   call void @__cxa_free_exception(ptr %67) #19
   br label %75
 
@@ -5854,8 +5836,8 @@ _ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt1
   ret void
 
 75:                                               ; preds = %71, %73
-  %.pn22 = phi { ptr, i32 } [ %72, %71 ], [ %.pn23, %73 ]
-  resume { ptr, i32 } %.pn22
+  %.pn21 = phi { ptr, i32 } [ %72, %71 ], [ %.pn22, %73 ]
+  resume { ptr, i32 } %.pn21
 
 76:                                               ; preds = %69
   unreachable
@@ -5874,20 +5856,19 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInde
   %11 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  br i1 %.not, label %187, label %17
+  br i1 %14, label %17, label %187
 
 17:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %15, align 8
   %.not70 = icmp eq ptr %18, %19
-  br i1 %.not70, label %._crit_edge, label %.lr.ph
+  br i1 %.not70, label %._crit_edge69, label %.lr.ph68
 
-.lr.ph:                                           ; preds = %17
+.lr.ph68:                                         ; preds = %17
   %20 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = getelementptr inbounds i8, ptr %8, i64 24
   %22 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5901,10 +5882,10 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInde
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   br label %31
 
-31:                                               ; preds = %.lr.ph, %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
-  %32 = phi ptr [ %19, %.lr.ph ], [ %118, %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
-  %33 = getelementptr inbounds %"struct.std::pair.53", ptr %32, i64 %indvars.iv
+31:                                               ; preds = %.lr.ph68, %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next73, %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
+  %32 = phi ptr [ %19, %.lr.ph68 ], [ %118, %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
+  %33 = getelementptr inbounds %"struct.std::pair.53", ptr %32, i64 %indvars.iv72
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -5945,7 +5926,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInde
 _ZNSt8functionIFviPN5faiss11IndexBinaryEEEC2ERKS4_.exit: ; preds = %40, %31
   %51 = phi ptr [ %42, %40 ], [ null, %31 ]
   %52 = phi ptr [ %41, %40 ], [ null, %31 ]
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc i64 %indvars.iv72 to i32
   store i32 %53, ptr %24, align 8
   store ptr %34, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -6105,17 +6086,17 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt6futureIbED2Ev
   unreachable
 
 _ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit: ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %112
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %117 = load ptr, ptr %16, align 8
   %118 = load ptr, ptr %15, align 8
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
   %122 = ashr exact i64 %121, 4
-  %123 = icmp ugt i64 %122, %indvars.iv.next
-  br i1 %123, label %31, label %._crit_edge, !llvm.loop !53
+  %123 = icmp ugt i64 %122, %indvars.iv.next73
+  br i1 %123, label %31, label %._crit_edge69, !llvm.loop !53
 
-124:                                              ; preds = %._crit_edge
+124:                                              ; preds = %._crit_edge69
   %125 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6170,11 +6151,11 @@ _ZNSt8functionIFvvEED2Ev.exit32:                  ; preds = %134, %132, %126
   call void @__clang_call_terminate(ptr %144) #21
   unreachable
 
-._crit_edge:                                      ; preds = %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit, %17
+._crit_edge69:                                    ; preds = %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit, %17
   invoke void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE20waitAndHandleFuturesERSt6vectorISt6futureIbESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %145 unwind label %124
 
-145:                                              ; preds = %._crit_edge
+145:                                              ; preds = %._crit_edge69
   %146 = load ptr, ptr %5, align 8
   %147 = getelementptr inbounds i8, ptr %5, i64 8
   %148 = load ptr, ptr %147, align 8
@@ -6279,23 +6260,23 @@ _ZSt8_DestroyIPSt6futureIbES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %188 = load ptr, ptr %16, align 8
   %189 = load ptr, ptr %15, align 8
-  %.not71 = icmp eq ptr %188, %189
-  br i1 %.not71, label %._crit_edge69, label %.lr.ph68
+  %.not = icmp eq ptr %188, %189
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph68:                                         ; preds = %187
+.lr.ph:                                           ; preds = %187
   %190 = getelementptr inbounds i8, ptr %1, i64 16
   %191 = getelementptr inbounds i8, ptr %1, i64 24
   %192 = getelementptr inbounds i8, ptr %10, i64 8
   br label %193
 
-193:                                              ; preds = %.lr.ph68, %213
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next74, %213 ]
-  %194 = phi ptr [ %189, %.lr.ph68 ], [ %215, %213 ]
-  %195 = getelementptr inbounds %"struct.std::pair.53", ptr %194, i64 %indvars.iv73
+193:                                              ; preds = %.lr.ph, %213
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %213 ]
+  %194 = phi ptr [ %189, %.lr.ph ], [ %215, %213 ]
+  %195 = getelementptr inbounds %"struct.std::pair.53", ptr %194, i64 %indvars.iv
   %196 = load ptr, ptr %195, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %197 = trunc i64 %indvars.iv73 to i32
+  %197 = trunc i64 %indvars.iv to i32
   store i32 %197, ptr %3, align 4
   store ptr %196, ptr %4, align 8
   %198 = load ptr, ptr %190, align 8
@@ -6356,15 +6337,15 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt4pairIiNSt15__
           to label %213 unwind label %.loopexit
 
 213:                                              ; preds = %_ZNKSt8functionIFviPN5faiss11IndexBinaryEEEclEiS2_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %214 = load ptr, ptr %16, align 8
   %215 = load ptr, ptr %15, align 8
   %216 = ptrtoint ptr %214 to i64
   %217 = ptrtoint ptr %215 to i64
   %218 = sub i64 %216, %217
   %219 = ashr exact i64 %218, 4
-  %220 = icmp ugt i64 %219, %indvars.iv.next74
-  br i1 %220, label %193, label %._crit_edge69, !llvm.loop !57
+  %220 = icmp ugt i64 %219, %indvars.iv.next
+  br i1 %220, label %193, label %._crit_edge, !llvm.loop !57
 
 221:                                              ; preds = %202
   %222 = landingpad { ptr, i32 }
@@ -6395,16 +6376,16 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit44: ; preds = %_ZNSt4pairIiNSt15__
           cleanup
   br label %236
 
-.loopexit.split-lp:                               ; preds = %._crit_edge69
+.loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %236
 
-._crit_edge69:                                    ; preds = %213, %187
+._crit_edge:                                      ; preds = %213, %187
   invoke void @_ZN5faiss16handleExceptionsERSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %227 unwind label %.loopexit.split-lp
 
-227:                                              ; preds = %._crit_edge69
+227:                                              ; preds = %._crit_edge
   %228 = load ptr, ptr %9, align 8
   %229 = getelementptr inbounds i8, ptr %9, i64 8
   %230 = load ptr, ptr %229, align 8
@@ -6498,9 +6479,9 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %18, i64 25
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %27, ptr %28, align 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 25
+  %28 = and i8 %26, 1
+  store i8 %28, ptr %27, align 1
   %29 = getelementptr inbounds i8, ptr %18, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7025,9 +7006,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNS
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i.i, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8
@@ -7043,9 +7023,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNS
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %13, ptr noundef %15)
   %19 = load i8, ptr %6, align 8
-  %20 = and i8 %19, 1
-  %.not5.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not5.i.i.i, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_11IndexBinaryEE5trainElPKhEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_11IndexBinaryEE5trainElPKhEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 21:                                               ; preds = %12
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %4)
@@ -7085,9 +7064,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNS
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i.i, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8
@@ -7103,9 +7081,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNS
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %13, ptr noundef %15)
   %19 = load i8, ptr %6, align 8
-  %20 = and i8 %19, 1
-  %.not5.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not5.i.i.i, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_11IndexBinaryEE3addElPKhEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZSt10__invoke_rIvRZN5faiss21IndexReplicasTemplateINS0_11IndexBinaryEE3addElPKhEUliPS2_E_JiS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 21:                                               ; preds = %12
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %4)
@@ -7459,9 +7436,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPKN5faiss11IndexBinaryEEZN
   %.sroa.speculated.i.i.i = tail call i64 @llvm.smin.i64(i64 %14, i64 %8)
   %15 = getelementptr inbounds i8, ptr %6, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i, label %20, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %13
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %5, i64 noundef %.sroa.speculated.i.i.i)
@@ -7488,9 +7464,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPKN5faiss11IndexBinaryEEZN
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %.sroa.speculated.i.i.i, ptr noundef %26, i64 noundef %28, ptr noundef %32, ptr noundef %35, ptr noundef null)
   %39 = load i8, ptr %15, align 8
-  %40 = and i8 %39, 1
-  %.not14.i.i.i = icmp eq i8 %40, 0
-  br i1 %.not14.i.i.i, label %_ZSt10__invoke_rIvRZNK5faiss21IndexReplicasTemplateINS0_11IndexBinaryEE6searchElPKhlPiPlPKNS0_16SearchParametersEEUliPKS2_E_JiSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZSt10__invoke_rIvRZNK5faiss21IndexReplicasTemplateINS0_11IndexBinaryEE6searchElPKhlPiPlPKNS0_16SearchParametersEEUliPKS2_E_JiSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 41:                                               ; preds = %20
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %5)

@@ -152,24 +152,23 @@ if.end50.i:                                       ; preds = %if.then47.if.end50_
 
 if.then58.i:                                      ; preds = %if.end50.i, %land.lhs.true.i
   %16 = load i8, ptr %config, align 8
-  %17 = and i8 %16, 1
-  %tobool59.not.i = icmp eq i8 %17, 0
-  %18 = load ptr, ptr %sdf, align 8
-  br i1 %tobool59.not.i, label %if.else.i, label %if.then60.i
+  %tobool59.i = trunc i8 %16 to i1
+  %17 = load ptr, ptr %sdf, align 8
+  br i1 %tobool59.i, label %if.then60.i, label %if.else.i
 
 if.then60.i:                                      ; preds = %if.then58.i
-  store ptr %18, ptr %ref.tmp61.i, align 8
+  store ptr %17, ptr %ref.tmp61.i, align 8
   %width.i38.i = getelementptr inbounds i8, ptr %ref.tmp61.i, i64 8
-  %19 = load <2 x i32>, ptr %width.i, align 8
-  store <2 x i32> %19, ptr %width.i38.i, align 8
+  %18 = load <2 x i32>, ptr %width.i, align 8
+  store <2 x i32> %18, ptr %width.i38.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_26OverlappingContourCombinerELi3EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %if.end68.i unwind label %lpad.i
 
 if.else.i:                                        ; preds = %if.then58.i
-  store ptr %18, ptr %ref.tmp64.i, align 8
+  store ptr %17, ptr %ref.tmp64.i, align 8
   %width.i42.i = getelementptr inbounds i8, ptr %ref.tmp64.i, i64 8
-  %20 = load <2 x i32>, ptr %width.i, align 8
-  store <2 x i32> %20, ptr %width.i42.i, align 8
+  %19 = load <2 x i32>, ptr %width.i, align 8
+  store <2 x i32> %19, ptr %width.i42.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_21SimpleContourCombinerELi3EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp64.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %if.end68.i unwind label %lpad.i
 
@@ -334,24 +333,23 @@ if.end47.i:                                       ; preds = %if.then44.if.end47_
 
 if.then55.i:                                      ; preds = %if.end47.i, %land.lhs.true.i
   %16 = load i8, ptr %config, align 8
-  %17 = and i8 %16, 1
-  %tobool56.not.i = icmp eq i8 %17, 0
-  %18 = load ptr, ptr %sdf, align 8
-  br i1 %tobool56.not.i, label %if.else.i, label %if.then57.i
+  %tobool56.i = trunc i8 %16 to i1
+  %17 = load ptr, ptr %sdf, align 8
+  br i1 %tobool56.i, label %if.then57.i, label %if.else.i
 
 if.then57.i:                                      ; preds = %if.then55.i
-  store ptr %18, ptr %ref.tmp58.i, align 8
+  store ptr %17, ptr %ref.tmp58.i, align 8
   %width.i38.i = getelementptr inbounds i8, ptr %ref.tmp58.i, i64 8
-  %19 = load <2 x i32>, ptr %width.i, align 8
-  store <2 x i32> %19, ptr %width.i38.i, align 8
+  %18 = load <2 x i32>, ptr %width.i, align 8
+  store <2 x i32> %18, ptr %width.i38.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_26OverlappingContourCombinerELi4EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp58.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %if.end65.i unwind label %lpad.i
 
 if.else.i:                                        ; preds = %if.then55.i
-  store ptr %18, ptr %ref.tmp61.i, align 8
+  store ptr %17, ptr %ref.tmp61.i, align 8
   %width.i42.i = getelementptr inbounds i8, ptr %ref.tmp61.i, i64 8
-  %20 = load <2 x i32>, ptr %width.i, align 8
-  store <2 x i32> %20, ptr %width.i42.i, align 8
+  %19 = load <2 x i32>, ptr %width.i, align 8
+  store <2 x i32> %19, ptr %width.i42.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_21SimpleContourCombinerELi4EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %if.end65.i unwind label %lpad.i
 

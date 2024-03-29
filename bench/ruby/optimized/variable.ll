@@ -174,9 +174,8 @@ define hidden noundef i64 @rb_mod_set_temporary_name(i64 noundef returned %0, i6
   %4 = inttoptr i64 %0 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 149
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = load i64, ptr @rb_eRuntimeError, align 8
@@ -231,8 +230,8 @@ RSTRING_END.exit.i:                               ; preds = %27, %23
 
 .preheader.i:                                     ; preds = %30, %48
   %.025.i = phi ptr [ %.2.lcssa.i, %48 ], [ %.sroa.3.0.i.i, %30 ]
-  %.not5 = icmp ult ptr %.025.i, %28
-  br i1 %.not5, label %32, label %is_constant_path.exit
+  %.not = icmp ult ptr %.025.i, %28
+  br i1 %.not, label %32, label %is_constant_path.exit
 
 32:                                               ; preds = %.preheader.i
   %33 = getelementptr i8, ptr %.025.i, i64 2
@@ -929,9 +928,8 @@ rb_ractor_main_p.exit.i:                          ; preds = %1
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not5.i = icmp eq i8 %14, 0
-  br i1 %.not5.i, label %15, label %rb_find_global_entry.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %rb_find_global_entry.exit, label %15
 
 15:                                               ; preds = %11, %10
   %16 = load i64, ptr @rb_eRactorIsolationError, align 8
@@ -1006,9 +1004,8 @@ rb_ractor_main_p.exit.i:                          ; preds = %1
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not5.i = icmp eq i8 %13, 0
-  br i1 %.not5.i, label %14, label %rb_find_global_entry.exit.thread
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %rb_find_global_entry.exit.thread, label %14
 
 rb_find_global_entry.exit.thread:                 ; preds = %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -1502,9 +1499,8 @@ rb_ractor_main_p.exit.i:                          ; preds = %13
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not5.i = icmp eq i8 %24, 0
-  br i1 %.not5.i, label %25, label %rb_find_global_entry.exit.thread
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %rb_find_global_entry.exit.thread, label %25
 
 rb_find_global_entry.exit.thread:                 ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -6731,8 +6727,8 @@ rb_ractor_main_p.exit:                            ; preds = %15
   %24 = inttoptr i64 %2 to ptr
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 256
-  %.not.i41 = icmp eq i64 %26, 0
-  br i1 %.not.i41, label %rb_ractor_shareable_p.exit, label %rb_ractor_main_p.exit.thread
+  %.not.i37 = icmp eq i64 %26, 0
+  br i1 %.not.i37, label %rb_ractor_shareable_p.exit, label %rb_ractor_main_p.exit.thread
 
 rb_ractor_shareable_p.exit:                       ; preds = %23
   %27 = tail call zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %2) #24
@@ -6835,8 +6831,8 @@ rb_obj_write.exit.i:                              ; preds = %55, %45
 
 setup_const_entry.exit:                           ; preds = %63, %rb_obj_write.exit.i, %64
   %72 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i43 = icmp eq ptr %72, null
-  br i1 %.not.i.i43, label %73, label %rb_vm_lock_leave.exit
+  %.not.i.i39 = icmp eq ptr %72, null
+  br i1 %.not.i.i39, label %73, label %rb_vm_lock_leave.exit
 
 73:                                               ; preds = %setup_const_entry.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %8) #24
@@ -6870,17 +6866,16 @@ rb_namespace_p.exit:                              ; preds = %75
 classname.exit:                                   ; preds = %83
   %87 = getelementptr inbounds i8, ptr %80, i64 149
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %90 = icmp eq i64 %85, 4
-  br i1 %90, label %classname.exit.thread, label %91
+  %89 = icmp eq i64 %85, 4
+  br i1 %89, label %classname.exit.thread, label %90
 
-91:                                               ; preds = %classname.exit
-  %.not36 = icmp eq i8 %89, 0
-  br i1 %.not36, label %classname.exit.thread, label %rb_namespace_p.exit.thread
+90:                                               ; preds = %classname.exit
+  %91 = trunc i8 %88 to i1
+  br i1 %91, label %rb_namespace_p.exit.thread, label %classname.exit.thread
 
-classname.exit.thread:                            ; preds = %83, %91, %classname.exit
-  %.not40 = phi i1 [ true, %91 ], [ false, %classname.exit ], [ false, %83 ]
-  %.06066 = phi i8 [ 0, %91 ], [ %89, %classname.exit ], [ 0, %83 ]
+classname.exit.thread:                            ; preds = %83, %90, %classname.exit
+  %.not36 = phi i1 [ true, %90 ], [ false, %classname.exit ], [ false, %83 ]
+  %.05662 = phi i8 [ %88, %90 ], [ %88, %classname.exit ], [ 0, %83 ]
   %92 = icmp eq i64 %74, %0
   br i1 %92, label %93, label %111
 
@@ -6916,8 +6911,8 @@ RCLASS_SET_CLASSPATH.exit.i:                      ; preds = %103, %rb_vm_lock_en
   %105 = load i8, ptr %104, align 1
   %106 = or i8 %105, 1
   store i8 %106, ptr %104, align 1
-  %.not.i46 = icmp eq ptr %96, null
-  br i1 %.not.i46, label %108, label %107
+  %.not.i42 = icmp eq ptr %96, null
+  br i1 %.not.i42, label %108, label %107
 
 107:                                              ; preds = %RCLASS_SET_CLASSPATH.exit.i
   call void @rb_id_table_foreach(ptr noundef nonnull %96, ptr noundef nonnull @set_namespace_path_i, ptr noundef nonnull %6) #24
@@ -6941,115 +6936,114 @@ set_namespace_path.exit:                          ; preds = %108, %110
   %112 = getelementptr inbounds i8, ptr %35, i64 152
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %113, 0
-  br i1 %114, label %classname.exit48.thread, label %classname.exit48
+  br i1 %114, label %classname.exit44.thread, label %classname.exit44
 
-classname.exit48:                                 ; preds = %111
+classname.exit44:                                 ; preds = %111
   %115 = getelementptr inbounds i8, ptr %35, i64 149
   %116 = load i8, ptr %115, align 1
-  %117 = and i8 %116, 1
-  %118 = icmp eq i64 %113, 4
-  br i1 %118, label %classname.exit48.thread, label %120
+  %117 = icmp eq i64 %113, 4
+  br i1 %117, label %classname.exit44.thread, label %119
 
-classname.exit48.thread:                          ; preds = %111, %classname.exit48
-  %.05970 = phi i8 [ %117, %classname.exit48 ], [ 0, %111 ]
-  %119 = call fastcc i64 @rb_tmp_class_path(i64 noundef %0, ptr noundef nonnull %10, ptr noundef nonnull @make_temporary_path)
-  br label %120
+classname.exit44.thread:                          ; preds = %111, %classname.exit44
+  %.05566 = phi i8 [ %116, %classname.exit44 ], [ 0, %111 ]
+  %118 = call fastcc i64 @rb_tmp_class_path(i64 noundef %0, ptr noundef nonnull %10, ptr noundef nonnull @make_temporary_path)
+  br label %119
 
-120:                                              ; preds = %classname.exit48.thread, %classname.exit48
-  %.05969 = phi i8 [ %.05970, %classname.exit48.thread ], [ %117, %classname.exit48 ]
-  %.0 = phi i64 [ %119, %classname.exit48.thread ], [ %113, %classname.exit48 ]
-  %.not37.not = icmp eq i8 %.05969, 0
-  br i1 %.not37.not, label %144, label %121
+119:                                              ; preds = %classname.exit44.thread, %classname.exit44
+  %.05565 = phi i8 [ %.05566, %classname.exit44.thread ], [ %116, %classname.exit44 ]
+  %.0 = phi i64 [ %118, %classname.exit44.thread ], [ %113, %classname.exit44 ]
+  %120 = trunc i8 %.05565 to i1
+  br i1 %120, label %121, label %145
 
-121:                                              ; preds = %120
-  %.not38 = icmp eq i8 %.06066, 0
-  br i1 %.not38, label %122, label %rb_namespace_p.exit.thread
+121:                                              ; preds = %119
+  %122 = trunc i8 %.05662 to i1
+  br i1 %122, label %rb_namespace_p.exit.thread, label %123
 
-122:                                              ; preds = %121
-  %123 = call i64 @rb_id2str(i64 noundef %1) #24
-  %124 = call i64 @rb_str_dup(i64 noundef %.0) #24
-  %125 = call i64 @rb_str_cat(i64 noundef %124, ptr noundef nonnull @.str.40, i64 noundef 2) #24
-  %126 = call i64 @rb_str_append(i64 noundef %124, i64 noundef %123) #24
-  %127 = call i64 @rb_fstring(i64 noundef %124) #24
+123:                                              ; preds = %121
+  %124 = call i64 @rb_id2str(i64 noundef %1) #24
+  %125 = call i64 @rb_str_dup(i64 noundef %.0) #24
+  %126 = call i64 @rb_str_cat(i64 noundef %125, ptr noundef nonnull @.str.40, i64 noundef 2) #24
+  %127 = call i64 @rb_str_append(i64 noundef %125, i64 noundef %124) #24
+  %128 = call i64 @rb_fstring(i64 noundef %125) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i64 %127, ptr %4, align 8
-  %128 = getelementptr inbounds i8, ptr %80, i64 40
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i.i49 = icmp eq ptr %130, null
-  br i1 %.not.i.i.i49, label %131, label %rb_vm_lock_enter.exit.i50
+  store i64 %128, ptr %4, align 8
+  %129 = getelementptr inbounds i8, ptr %80, i64 40
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i.i45 = icmp eq ptr %131, null
+  br i1 %.not.i.i.i45, label %132, label %rb_vm_lock_enter.exit.i46
 
-131:                                              ; preds = %122
+132:                                              ; preds = %123
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit.i50
+  br label %rb_vm_lock_enter.exit.i46
 
-rb_vm_lock_enter.exit.i50:                        ; preds = %131, %122
-  store i64 %127, ptr %84, align 8
-  %132 = and i64 %127, 7
-  %133 = icmp ne i64 %132, 0
-  %134 = icmp eq i64 %127, 0
-  %135 = or i1 %134, %133
-  br i1 %135, label %RCLASS_SET_CLASSPATH.exit.i51, label %136
+rb_vm_lock_enter.exit.i46:                        ; preds = %132, %123
+  store i64 %128, ptr %84, align 8
+  %133 = and i64 %128, 7
+  %134 = icmp ne i64 %133, 0
+  %135 = icmp eq i64 %128, 0
+  %136 = or i1 %135, %134
+  br i1 %136, label %RCLASS_SET_CLASSPATH.exit.i47, label %137
 
-136:                                              ; preds = %rb_vm_lock_enter.exit.i50
-  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %127) #24
-  br label %RCLASS_SET_CLASSPATH.exit.i51
+137:                                              ; preds = %rb_vm_lock_enter.exit.i46
+  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %128) #24
+  br label %RCLASS_SET_CLASSPATH.exit.i47
 
-RCLASS_SET_CLASSPATH.exit.i51:                    ; preds = %136, %rb_vm_lock_enter.exit.i50
-  %137 = getelementptr inbounds i8, ptr %80, i64 149
-  %138 = load i8, ptr %137, align 1
-  %139 = or i8 %138, 1
-  store i8 %139, ptr %137, align 1
-  %.not.i52 = icmp eq ptr %129, null
-  br i1 %.not.i52, label %141, label %140
+RCLASS_SET_CLASSPATH.exit.i47:                    ; preds = %137, %rb_vm_lock_enter.exit.i46
+  %138 = getelementptr inbounds i8, ptr %80, i64 149
+  %139 = load i8, ptr %138, align 1
+  %140 = or i8 %139, 1
+  store i8 %140, ptr %138, align 1
+  %.not.i48 = icmp eq ptr %130, null
+  br i1 %.not.i48, label %142, label %141
 
-140:                                              ; preds = %RCLASS_SET_CLASSPATH.exit.i51
-  call void @rb_id_table_foreach(ptr noundef nonnull %129, ptr noundef nonnull @set_namespace_path_i, ptr noundef nonnull %4) #24
-  br label %141
+141:                                              ; preds = %RCLASS_SET_CLASSPATH.exit.i47
+  call void @rb_id_table_foreach(ptr noundef nonnull %130, ptr noundef nonnull @set_namespace_path_i, ptr noundef nonnull %4) #24
+  br label %142
 
-141:                                              ; preds = %140, %RCLASS_SET_CLASSPATH.exit.i51
-  %142 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i3.i53 = icmp eq ptr %142, null
-  br i1 %.not.i.i3.i53, label %143, label %set_namespace_path.exit54
+142:                                              ; preds = %141, %RCLASS_SET_CLASSPATH.exit.i47
+  %143 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i3.i49 = icmp eq ptr %143, null
+  br i1 %.not.i.i3.i49, label %144, label %set_namespace_path.exit50
 
-143:                                              ; preds = %141
+144:                                              ; preds = %142
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %set_namespace_path.exit54
+  br label %set_namespace_path.exit50
 
-set_namespace_path.exit54:                        ; preds = %141, %143
+set_namespace_path.exit50:                        ; preds = %142, %144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %rb_namespace_p.exit.thread
 
-144:                                              ; preds = %120
-  br i1 %.not40, label %rb_namespace_p.exit.thread, label %145
+145:                                              ; preds = %119
+  br i1 %.not36, label %rb_namespace_p.exit.thread, label %146
 
-145:                                              ; preds = %144
-  %146 = call i64 @rb_id2str(i64 noundef %1) #24
-  %147 = call i64 @rb_str_dup(i64 noundef %.0) #24
-  %148 = call i64 @rb_str_cat(i64 noundef %147, ptr noundef nonnull @.str.40, i64 noundef 2) #24
-  %149 = call i64 @rb_str_append(i64 noundef %147, i64 noundef %146) #24
-  %150 = call i64 @rb_fstring(i64 noundef %147) #24
-  store i64 %150, ptr %84, align 8
-  %151 = and i64 %150, 7
-  %152 = icmp ne i64 %151, 0
-  %153 = icmp eq i64 %150, 0
-  %154 = or i1 %153, %152
-  br i1 %154, label %RCLASS_SET_CLASSPATH.exit, label %155
+146:                                              ; preds = %145
+  %147 = call i64 @rb_id2str(i64 noundef %1) #24
+  %148 = call i64 @rb_str_dup(i64 noundef %.0) #24
+  %149 = call i64 @rb_str_cat(i64 noundef %148, ptr noundef nonnull @.str.40, i64 noundef 2) #24
+  %150 = call i64 @rb_str_append(i64 noundef %148, i64 noundef %147) #24
+  %151 = call i64 @rb_fstring(i64 noundef %148) #24
+  store i64 %151, ptr %84, align 8
+  %152 = and i64 %151, 7
+  %153 = icmp ne i64 %152, 0
+  %154 = icmp eq i64 %151, 0
+  %155 = or i1 %154, %153
+  br i1 %155, label %RCLASS_SET_CLASSPATH.exit, label %156
 
-155:                                              ; preds = %145
-  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %150) #24
+156:                                              ; preds = %146
+  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %151) #24
   br label %RCLASS_SET_CLASSPATH.exit
 
-RCLASS_SET_CLASSPATH.exit:                        ; preds = %145, %155
-  %156 = getelementptr inbounds i8, ptr %80, i64 149
-  %157 = load i8, ptr %156, align 1
-  %158 = and i8 %157, -2
-  store i8 %158, ptr %156, align 1
+RCLASS_SET_CLASSPATH.exit:                        ; preds = %146, %156
+  %157 = getelementptr inbounds i8, ptr %80, i64 149
+  %158 = load i8, ptr %157, align 1
+  %159 = and i8 %158, -2
+  store i8 %159, ptr %157, align 1
   br label %rb_namespace_p.exit.thread
 
-rb_namespace_p.exit.thread:                       ; preds = %121, %75, %144, %91, %set_namespace_path.exit54, %RCLASS_SET_CLASSPATH.exit, %set_namespace_path.exit, %rb_namespace_p.exit, %rb_vm_lock_leave.exit
+rb_namespace_p.exit.thread:                       ; preds = %121, %75, %145, %90, %set_namespace_path.exit50, %RCLASS_SET_CLASSPATH.exit, %set_namespace_path.exit, %rb_namespace_p.exit, %rb_vm_lock_leave.exit
   ret void
 }
 
@@ -8634,18 +8628,17 @@ declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) lo
 define internal noundef i32 @generic_ivar_lookup_ensure_size(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = inttoptr i64 %2 to ptr
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.thread18, label %6
+  br i1 %.not, label %.thread17, label %6
 
 6:                                                ; preds = %4
   %7 = load i64, ptr %1, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not16 = icmp eq i8 %11, 0
-  br i1 %.not16, label %41, label %20
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %20, label %41
 
-.thread18:                                        ; preds = %4
+.thread17:                                        ; preds = %4
   %12 = load i64, ptr %0, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load i64, ptr %13, align 8
@@ -8669,10 +8662,10 @@ define internal noundef i32 @generic_ivar_lookup_ensure_size(ptr nocapture nound
   %26 = load i32, ptr %8, align 8
   br label %27
 
-27:                                               ; preds = %.thread18, %25, %20
-  %28 = phi i32 [ %24, %25 ], [ %24, %20 ], [ %19, %.thread18 ]
-  %29 = phi ptr [ %8, %25 ], [ null, %20 ], [ null, %.thread18 ]
-  %30 = phi i32 [ %26, %25 ], [ 0, %20 ], [ 0, %.thread18 ]
+27:                                               ; preds = %.thread17, %25, %20
+  %28 = phi i32 [ %24, %25 ], [ %24, %20 ], [ %19, %.thread17 ]
+  %29 = phi ptr [ %8, %25 ], [ null, %20 ], [ null, %.thread17 ]
+  %30 = phi i32 [ %26, %25 ], [ 0, %20 ], [ 0, %.thread17 ]
   %31 = zext i32 %28 to i64
   %32 = shl nuw nsw i64 %31, 3
   %33 = add nuw nsw i64 %32, 8
@@ -8705,8 +8698,8 @@ gen_ivtbl_resize.exit:                            ; preds = %38, %27
   store ptr %.0, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %5, i64 24
   %44 = load ptr, ptr %43, align 8
-  %.not17 = icmp eq ptr %44, null
-  br i1 %.not17, label %47, label %45
+  %.not16 = icmp eq ptr %44, null
+  br i1 %.not16, label %47, label %45
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %5, align 8
@@ -9821,9 +9814,8 @@ rb_namespace_p.exit:                              ; preds = %11
 classname.exit:                                   ; preds = %19
   %23 = getelementptr inbounds i8, ptr %16, i64 149
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not11 = icmp eq i8 %25, 0
-  br i1 %.not11, label %classname.exit.thread, label %rb_namespace_p.exit.thread
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %rb_namespace_p.exit.thread, label %classname.exit.thread
 
 classname.exit.thread:                            ; preds = %19, %classname.exit
   %26 = tail call i64 @rb_id2str(i64 noundef %0) #24
@@ -9881,13 +9873,13 @@ set_namespace_path.exit:                          ; preds = %44, %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %47 = load i8, ptr %40, align 1
-  %48 = and i8 %47, 1
-  %.not12 = icmp eq i8 %48, 0
-  br i1 %.not12, label %49, label %rb_namespace_p.exit.thread
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %rb_namespace_p.exit.thread, label %49
 
 49:                                               ; preds = %set_namespace_path.exit
   store i64 0, ptr %20, align 8
-  store i8 %47, ptr %40, align 1
+  %50 = and i8 %47, -2
+  store i8 %50, ptr %40, align 1
   br label %rb_namespace_p.exit.thread
 
 rb_namespace_p.exit.thread:                       ; preds = %11, %set_namespace_path.exit, %49, %classname.exit, %3, %rb_namespace_p.exit

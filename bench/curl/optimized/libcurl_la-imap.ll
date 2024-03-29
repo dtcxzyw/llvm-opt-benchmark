@@ -951,16 +951,16 @@ if.then.i99.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %bf.set.i.i.i = or disjoint i8 %bf.clear7.i.i.i, %118
   store i8 %bf.set.i.i.i, ptr %ssldone.i.i.i, align 1
   %tobool8.not.i.i.i = icmp eq i32 %call.i100.i.i, 0
-  br i1 %tobool8.not.i.i.i, label %lor.lhs.false.i.i.i, label %imap_perform.exit.thread22.i
+  br i1 %tobool8.not.i.i.i, label %lor.lhs.false.i.i.i, label %imap_perform.exit.thread21.i
 
-imap_perform.exit.thread22.i:                     ; preds = %if.then.i99.i.i
+imap_perform.exit.thread21.i:                     ; preds = %if.then.i99.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ssldone3.i.i.i)
-  %call85.i24.i = call zeroext i1 @Curl_conn_is_connected(ptr noundef %68, i32 noundef 0) #9
+  %call85.i23.i = call zeroext i1 @Curl_conn_is_connected(ptr noundef %68, i32 noundef 0) #9
   br label %return
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i99.i.i
-  %tobool9.not.i101.i.i = icmp eq i8 %118, 0
-  br i1 %tobool9.not.i101.i.i, label %imap_perform.exit.thread16.i, label %imap_perform.exit.i
+  %tobool9.i.i.i = trunc i8 %117 to i1
+  br i1 %tobool9.i.i.i, label %imap_perform.exit.i, label %imap_perform.exit.thread16.i
 
 imap_perform.exit.thread16.i:                     ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ssldone3.i.i.i)
@@ -981,22 +981,21 @@ imap_perform.exit.i:                              ; preds = %lor.lhs.false.i.i.i
 
 land.lhs.true.i20:                                ; preds = %imap_perform.exit.i, %imap_perform.exit.thread16.i
   %120 = load i8, ptr %done, align 1
-  %121 = and i8 %120, 1
-  %tobool2.not.i21 = icmp eq i8 %121, 0
-  br i1 %tobool2.not.i21, label %return, label %if.then.i22
+  %tobool2.i = trunc i8 %120 to i1
+  br i1 %tobool2.i, label %if.then.i21, label %return
 
-if.then.i22:                                      ; preds = %land.lhs.true.i20
-  %122 = load ptr, ptr %p.i, align 8
-  %123 = load i32, ptr %122, align 8
-  %cmp.not.i10.i = icmp eq i32 %123, 0
+if.then.i21:                                      ; preds = %land.lhs.true.i20
+  %121 = load ptr, ptr %p.i, align 8
+  %122 = load i32, ptr %121, align 8
+  %cmp.not.i10.i = icmp eq i32 %122, 0
   br i1 %cmp.not.i10.i, label %return, label %if.then.i11.i
 
-if.then.i11.i:                                    ; preds = %if.then.i22
+if.then.i11.i:                                    ; preds = %if.then.i21
   call void @Curl_setup_transfer(ptr noundef nonnull %data, i32 noundef -1, i64 noundef -1, i1 noundef zeroext false, i32 noundef -1) #9
   br label %return
 
-return:                                           ; preds = %if.then9.i, %if.then.i11.i, %if.then.i22, %land.lhs.true.i20, %imap_perform.exit.i, %imap_perform.exit.thread22.i, %if.end80.i.i, %if.end16.i71.i.i, %cond.end11.i83.i.i, %if.end11.i.i.i, %if.end.i56.i.i, %if.then.i62.i.i, %if.end16.i.i.i, %cond.end11.i.i.i, %if.end47.i.i.i, %if.end42.i.i.i, %if.then41.i.i.i, %if.end26.i.i.i, %if.end20.i.i.i, %if.then2.i.i.i, %if.then.i.i.i, %if.then.i, %imap_parse_url_path.exit.thread
-  %retval.0 = phi i32 [ %retval.0.i.ph, %imap_parse_url_path.exit.thread ], [ %call.i10, %if.then.i ], [ %call12.i97.i.i, %imap_perform.exit.i ], [ 0, %land.lhs.true.i20 ], [ %call.i100.i.i, %imap_perform.exit.thread22.i ], [ 0, %if.then.i22 ], [ 0, %if.then.i11.i ], [ 25, %if.then41.i.i.i ], [ 3, %if.then.i.i.i ], [ %call25.i.i.i, %if.end26.i.i.i ], [ 27, %if.end42.i.i.i ], [ %call50.i.i.i, %if.end47.i.i.i ], [ %call18.i.i.i, %if.end20.i.i.i ], [ %call10.i.i.i, %if.then2.i.i.i ], [ 27, %cond.end11.i.i.i ], [ %result.0.i.i.i, %if.end16.i.i.i ], [ 3, %if.then.i62.i.i ], [ 27, %if.end.i56.i.i ], [ %call12.i.i.i, %if.end11.i.i.i ], [ 27, %cond.end11.i83.i.i ], [ %result.0.i72.i.i, %if.end16.i71.i.i ], [ %result.0.i.i, %if.end80.i.i ], [ 27, %if.then9.i ]
+return:                                           ; preds = %if.then9.i, %if.then.i11.i, %if.then.i21, %land.lhs.true.i20, %imap_perform.exit.i, %imap_perform.exit.thread21.i, %if.end80.i.i, %if.end16.i71.i.i, %cond.end11.i83.i.i, %if.end11.i.i.i, %if.end.i56.i.i, %if.then.i62.i.i, %if.end16.i.i.i, %cond.end11.i.i.i, %if.end47.i.i.i, %if.end42.i.i.i, %if.then41.i.i.i, %if.end26.i.i.i, %if.end20.i.i.i, %if.then2.i.i.i, %if.then.i.i.i, %if.then.i, %imap_parse_url_path.exit.thread
+  %retval.0 = phi i32 [ %retval.0.i.ph, %imap_parse_url_path.exit.thread ], [ %call.i10, %if.then.i ], [ %call12.i97.i.i, %imap_perform.exit.i ], [ 0, %land.lhs.true.i20 ], [ %call.i100.i.i, %imap_perform.exit.thread21.i ], [ 0, %if.then.i21 ], [ 0, %if.then.i11.i ], [ 25, %if.then41.i.i.i ], [ 3, %if.then.i.i.i ], [ %call25.i.i.i, %if.end26.i.i.i ], [ 27, %if.end42.i.i.i ], [ %call50.i.i.i, %if.end47.i.i.i ], [ %call18.i.i.i, %if.end20.i.i.i ], [ %call10.i.i.i, %if.then2.i.i.i ], [ 27, %cond.end11.i.i.i ], [ %result.0.i.i.i, %if.end16.i.i.i ], [ 3, %if.then.i62.i.i ], [ 27, %if.end.i56.i.i ], [ %call12.i.i.i, %if.end11.i.i.i ], [ 27, %cond.end11.i83.i.i ], [ %result.0.i72.i.i, %if.end16.i71.i.i ], [ %result.0.i.i, %if.end80.i.i ], [ 27, %if.then9.i ]
   ret i32 %retval.0
 }
 
@@ -1297,8 +1296,8 @@ if.then.i20:                                      ; preds = %land.lhs.true.i
   br i1 %tobool8.not.i, label %lor.lhs.false.i, label %imap_multi_statemach.exit
 
 lor.lhs.false.i:                                  ; preds = %if.then.i20
-  %tobool9.not.i = icmp eq i8 %13, 0
-  br i1 %tobool9.not.i, label %imap_multi_statemach.exit, label %if.end11.i
+  %tobool9.i = trunc i8 %12 to i1
+  br i1 %tobool9.i, label %if.end11.i, label %imap_multi_statemach.exit
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.end
   %call12.i = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto.i, i1 noundef zeroext false, i1 noundef zeroext false) #9
@@ -1354,8 +1353,8 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool8.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then
-  %tobool9.not = icmp eq i8 %4, 0
-  br i1 %tobool9.not, label %return, label %if.end11
+  %tobool9 = trunc i8 %3 to i1
+  br i1 %tobool9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %lor.lhs.false, %land.lhs.true, %entry
   %call12 = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto, i1 noundef zeroext false, i1 noundef zeroext false) #9
@@ -1411,44 +1410,40 @@ imap_multi_statemach.exit.thread7:                ; preds = %if.then.i
   br label %if.end6
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %tobool9.not.i = icmp eq i8 %4, 0
-  br i1 %tobool9.not.i, label %imap_multi_statemach.exit.thread, label %imap_multi_statemach.exit
+  %tobool9.i = trunc i8 %3 to i1
+  br i1 %tobool9.i, label %imap_multi_statemach.exit, label %imap_multi_statemach.exit.thread
 
 imap_multi_statemach.exit.thread:                 ; preds = %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ssldone3.i)
   %.pre = load i8, ptr %dophase_done, align 1
-  br label %if.else
+  %5 = trunc i8 %.pre to i1
+  br i1 %5, label %if.then2, label %if.end6
 
 imap_multi_statemach.exit:                        ; preds = %entry, %land.lhs.true.i, %lor.lhs.false.i
   %call12.i = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto.i, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %state.i = getelementptr inbounds i8, ptr %0, i64 1072
-  %5 = load i32, ptr %state.i, align 8
-  %cmp.i = icmp eq i32 %5, 0
+  %6 = load i32, ptr %state.i, align 8
+  %cmp.i = icmp eq i32 %6, 0
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %dophase_done, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ssldone3.i)
   %tobool.not = icmp eq i32 %call12.i, 0
-  br i1 %tobool.not, label %if.else, label %if.end6
+  %brmerge.not = select i1 %tobool.not, i1 %cmp.i, i1 false
+  br i1 %brmerge.not, label %if.then2, label %if.end6
 
-if.else:                                          ; preds = %imap_multi_statemach.exit.thread, %imap_multi_statemach.exit
-  %6 = phi i8 [ %.pre, %imap_multi_statemach.exit.thread ], [ %frombool.i, %imap_multi_statemach.exit ]
-  %7 = and i8 %6, 1
-  %tobool1.not = icmp eq i8 %7, 0
-  br i1 %tobool1.not, label %if.end6, label %if.then2
-
-if.then2:                                         ; preds = %if.else
+if.then2:                                         ; preds = %imap_multi_statemach.exit, %imap_multi_statemach.exit.thread
   %p.i = getelementptr inbounds i8, ptr %data, i64 392
-  %8 = load ptr, ptr %p.i, align 8
-  %9 = load i32, ptr %8, align 8
-  %cmp.not.i = icmp eq i32 %9, 0
+  %7 = load ptr, ptr %p.i, align 8
+  %8 = load i32, ptr %7, align 8
+  %cmp.not.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i, label %if.end6, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.then2
   call void @Curl_setup_transfer(ptr noundef nonnull %data, i32 noundef -1, i64 noundef -1, i1 noundef zeroext false, i32 noundef -1) #9
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then.i4, %if.then2, %imap_multi_statemach.exit.thread7, %if.else, %imap_multi_statemach.exit
-  %result.0 = phi i32 [ %call12.i, %imap_multi_statemach.exit ], [ 0, %if.else ], [ %call.i, %imap_multi_statemach.exit.thread7 ], [ 0, %if.then2 ], [ 0, %if.then.i4 ]
+if.end6:                                          ; preds = %imap_multi_statemach.exit, %imap_multi_statemach.exit.thread, %if.then.i4, %if.then2, %imap_multi_statemach.exit.thread7
+  %result.0 = phi i32 [ %call12.i, %imap_multi_statemach.exit ], [ %call.i, %imap_multi_statemach.exit.thread7 ], [ 0, %if.then2 ], [ 0, %if.then.i4 ], [ 0, %imap_multi_statemach.exit.thread ]
   ret i32 %result.0
 }
 
@@ -2726,8 +2721,8 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %if.end3
   %0 = load i8, ptr %ssldone, align 1
-  %1 = and i8 %0, 1
   %ssldone8 = getelementptr inbounds i8, ptr %conn, i64 1083
+  %1 = and i8 %0, 1
   %bf.load = load i8, ptr %ssldone8, align 1
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %1
@@ -2816,10 +2811,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %proto = getelementptr inbounds i8, ptr %0, i64 856
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call9 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %dyn) #9
   %call11 = call i32 @Curl_pp_vsendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef %call9, ptr noundef nonnull %ap) #9
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2835,15 +2830,9 @@ declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 
 declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare i32 @Curl_pp_vsendf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3042,10 +3031,10 @@ return:                                           ; preds = %if.end20, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3166,7 +3155,7 @@ declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 declare void @Curl_setup_transfer(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -3403,6 +3392,12 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_sasl_cleanup(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
 
@@ -3420,9 +3415,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

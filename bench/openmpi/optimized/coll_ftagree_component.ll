@@ -122,42 +122,41 @@ define internal void @mca_coll_ftagree_module_construct(ptr nocapture noundef wr
 ; Function Attrs: nounwind uwtable
 define internal void @mca_coll_ftagree_module_destruct(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = load i32, ptr @mca_coll_ftagree_algorithm, align 4
-  %cond = icmp eq i32 %5, 1
-  %or.cond = select i1 %4, i1 %cond, i1 false
-  br i1 %or.cond, label %6, label %8
+  %3 = trunc i8 %2 to i1
+  %4 = load i32, ptr @mca_coll_ftagree_algorithm, align 4
+  %cond = icmp eq i32 %4, 1
+  %or.cond = select i1 %3, i1 %cond, i1 false
+  br i1 %or.cond, label %5, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @mca_coll_ftagree_era_comm_finalize(ptr noundef %0) #4
-  br label %8
+5:                                                ; preds = %1
+  %6 = tail call i32 @mca_coll_ftagree_era_comm_finalize(ptr noundef %0) #4
+  br label %7
 
-8:                                                ; preds = %6, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 624
+7:                                                ; preds = %5, %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 624
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 592
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %12, label %11
+
+11:                                               ; preds = %7
+  tail call void @free(ptr noundef nonnull %10) #4
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 592
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %13, label %12
+  br label %12
 
-12:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %11) #4
-  store ptr null, ptr %10, align 8
-  br label %13
+12:                                               ; preds = %11, %7
+  %13 = getelementptr inbounds i8, ptr %0, i64 608
+  %14 = load ptr, ptr %13, align 8
+  %.not9 = icmp eq ptr %14, null
+  br i1 %.not9, label %16, label %15
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 608
-  %15 = load ptr, ptr %14, align 8
-  %.not9 = icmp eq ptr %15, null
-  br i1 %.not9, label %17, label %16
+15:                                               ; preds = %12
+  tail call void @free(ptr noundef nonnull %14) #4
+  store ptr null, ptr %13, align 8
+  br label %16
 
-16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #4
-  store ptr null, ptr %14, align 8
-  br label %17
-
-17:                                               ; preds = %16, %13
+16:                                               ; preds = %15, %12
   ret void
 }
 

@@ -290,8 +290,8 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   store i64 %6, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %7 = load i64, ptr %0, align 8, !range !8, !alias.scope !5, !noundef !4
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %20, label %8
+  %.not.not.i = icmp eq i64 %7, 0
+  br i1 %.not.not.i, label %20, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -340,8 +340,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !9, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %5 = load i8, ptr %4, align 1, !range !13, !alias.scope !10, !noalias !14, !noundef !4
-  %trunc.not.i = icmp eq i8 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i8 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45d932603a0101fa3cd25df63387eec5.87, i64 noundef 4), !noalias !10
@@ -366,8 +366,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %5 = load i32, ptr %4, align 4, !range !21, !alias.scope !18, !noalias !22, !noundef !4
-  %trunc.not.i = icmp eq i32 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i32 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45d932603a0101fa3cd25df63387eec5.87, i64 noundef 4), !noalias !18
@@ -399,8 +399,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !26, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %5 = load i16, ptr %4, align 2, !range !30, !alias.scope !27, !noalias !31, !noundef !4
-  %trunc.not.i = icmp eq i16 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i16 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45d932603a0101fa3cd25df63387eec5.87, i64 noundef 4), !noalias !27
@@ -437,8 +437,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !25, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %5 = load i64, ptr %4, align 8, !range !8, !alias.scope !38, !noalias !41, !noundef !4
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45d932603a0101fa3cd25df63387eec5.87, i64 noundef 4), !noalias !38
@@ -5439,14 +5439,14 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17he9c90ee80
 
 .noexc2:                                          ; preds = %12
   %14 = load i64, ptr %3, align 8, !range !8, !noalias !1079, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %14, 0
+  %trunc.i.i = trunc i64 %14 to i1
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !1079, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !noalias !1079, !noundef !4
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   %20 = load i64, ptr %19, align 8, !noalias !1079, !noundef !4
-  br i1 %trunc.not.i.i, label %21, label %25
+  br i1 %trunc.i.i, label %25, label %21
 
 21:                                               ; preds = %.noexc2
   %22 = add i64 %20, 1
@@ -5584,14 +5584,14 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1085
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h00434cfd0aad4576E.llvm.14431222152625912608"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !noalias !1082
   %12 = load i64, ptr %3, align 8, !range !8, !noalias !1085, !noundef !4
-  %trunc.not.i = icmp eq i64 %12, 0
+  %trunc.i = trunc i64 %12 to i1
   %13 = getelementptr inbounds i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !1085, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !noalias !1085, !noundef !4
   %17 = getelementptr inbounds i8, ptr %3, i64 24
   %18 = load i64, ptr %17, align 8, !noalias !1085, !noundef !4
-  br i1 %trunc.not.i, label %19, label %23
+  br i1 %trunc.i, label %23, label %19
 
 19:                                               ; preds = %10
   %20 = add i64 %18, 1
@@ -5859,8 +5859,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.4.i = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1121)
   %8 = load i64, ptr %1, align 8, !range !8, !alias.scope !1121, !noundef !4
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %18, label %9
+  %.not.not.i = icmp eq i64 %8, 0
+  br i1 %.not.not.i, label %18, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5945,8 +5945,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.4.i = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1135)
   %8 = load i64, ptr %1, align 8, !range !8, !alias.scope !1135, !noundef !4
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %18, label %9
+  %.not.not.i = icmp eq i64 %8, 0
+  br i1 %.not.not.i, label %18, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6031,8 +6031,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.4.i = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   %8 = load i64, ptr %1, align 8, !range !8, !alias.scope !1149, !noundef !4
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %18, label %9
+  %.not.not.i = icmp eq i64 %8, 0
+  br i1 %.not.not.i, label %18, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8

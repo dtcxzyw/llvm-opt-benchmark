@@ -244,9 +244,8 @@ if.then10:                                        ; preds = %invoke.cont8
 if.end11:                                         ; preds = %if.then10, %invoke.cont8
   %dropped_.i = getelementptr inbounds i8, ptr %6, i64 61
   %7 = load atomic i8, ptr %dropped_.i monotonic, align 1
-  %8 = and i8 %7, 1
-  %tobool.i.i.i.not = icmp eq i8 %8, 0
-  br i1 %tobool.i.i.i.not, label %cleanup, label %if.end15
+  %tobool.i.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i.i, label %if.end15, label %cleanup
 
 if.end15:                                         ; preds = %if.end11
   %call17 = invoke noundef zeroext i1 @_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv(ptr noundef nonnull align 8 dereferenceable(2656) %6)
@@ -264,8 +263,7 @@ declare noundef zeroext i1 @_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv(p
 define noundef zeroext i1 @_ZN7rocksdb20TrimHistoryScheduler5EmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load atomic i8, ptr %this monotonic, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   ret i1 %tobool.i.i
 }
 

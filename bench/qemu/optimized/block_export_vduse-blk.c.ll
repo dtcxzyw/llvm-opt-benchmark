@@ -44,14 +44,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 88, i1 false)
   %has_num_queues = getelementptr inbounds i8, ptr %opts, i64 56
   %1 = load i8, ptr %has_num_queues, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end4, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %num_queues1 = getelementptr inbounds i8, ptr %opts, i64 58
-  %3 = load i16, ptr %num_queues1, align 2
-  %cmp = icmp eq i16 %3, 0
+  %2 = load i16, ptr %num_queues1, align 2
+  %cmp = icmp eq i16 %2, 0
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.then
@@ -59,23 +58,22 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %if.then, %entry
-  %num_queues.0 = phi i16 [ %3, %if.then ], [ 1, %entry ]
+  %num_queues.0 = phi i16 [ %2, %if.then ], [ 1, %entry ]
   %has_queue_size = getelementptr inbounds i8, ptr %opts, i64 60
-  %4 = load i8, ptr %has_queue_size, align 4
-  %5 = and i8 %4, 1
-  %tobool5.not = icmp eq i8 %5, 0
-  br i1 %tobool5.not, label %if.end18, label %if.then6
+  %3 = load i8, ptr %has_queue_size, align 4
+  %tobool5 = trunc i8 %3 to i1
+  br i1 %tobool5, label %if.then6, label %if.end18
 
 if.then6:                                         ; preds = %if.end4
   %queue_size7 = getelementptr inbounds i8, ptr %opts, i64 62
-  %6 = load i16, ptr %queue_size7, align 2
-  %cmp9 = icmp ult i16 %6, 3
+  %4 = load i16, ptr %queue_size7, align 2
+  %cmp9 = icmp ult i16 %4, 3
   br i1 %cmp9, label %if.then16, label %is_power_of_2.exit
 
 is_power_of_2.exit:                               ; preds = %if.then6
-  %7 = tail call i16 @llvm.ctpop.i16(i16 %6), !range !5
-  %tobool1.not.i = icmp ult i16 %7, 2
-  %cmp14 = icmp ult i16 %6, 1025
+  %5 = tail call i16 @llvm.ctpop.i16(i16 %4), !range !5
+  %tobool1.not.i = icmp ult i16 %5, 2
+  %cmp14 = icmp ult i16 %4, 1025
   %or.cond.not = and i1 %cmp14, %tobool1.not.i
   br i1 %or.cond.not, label %if.end18, label %if.then16
 
@@ -84,39 +82,38 @@ if.then16:                                        ; preds = %is_power_of_2.exit,
   br label %return
 
 if.end18:                                         ; preds = %is_power_of_2.exit, %if.end4
-  %queue_size.0 = phi i16 [ %6, %is_power_of_2.exit ], [ 256, %if.end4 ]
+  %queue_size.0 = phi i16 [ %4, %is_power_of_2.exit ], [ 256, %if.end4 ]
   %has_logical_block_size = getelementptr inbounds i8, ptr %opts, i64 64
-  %8 = load i8, ptr %has_logical_block_size, align 8
-  %9 = and i8 %8, 1
-  %tobool19.not = icmp eq i8 %9, 0
-  br i1 %tobool19.not, label %if.end25, label %if.then20
+  %6 = load i8, ptr %has_logical_block_size, align 8
+  %tobool19 = trunc i8 %6 to i1
+  br i1 %tobool19, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %if.end18
   %logical_block_size21 = getelementptr inbounds i8, ptr %opts, i64 72
-  %10 = load i64, ptr %logical_block_size21, align 8
+  %7 = load i64, ptr %logical_block_size21, align 8
   %id = getelementptr inbounds i8, ptr %exp, i64 8
-  %11 = load ptr, ptr %id, align 8
-  call void @check_block_size(ptr noundef %11, ptr noundef nonnull @.str.3, i64 noundef %10, ptr noundef nonnull %local_err) #8
-  %12 = load ptr, ptr %local_err, align 8
-  %tobool22.not = icmp eq ptr %12, null
+  %8 = load ptr, ptr %id, align 8
+  call void @check_block_size(ptr noundef %8, ptr noundef nonnull @.str.3, i64 noundef %7, ptr noundef nonnull %local_err) #8
+  %9 = load ptr, ptr %local_err, align 8
+  %tobool22.not = icmp eq ptr %9, null
   br i1 %tobool22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.then20
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #8
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %9) #8
   br label %return
 
 if.end25:                                         ; preds = %if.then20, %if.end18
-  %logical_block_size.0 = phi i64 [ %10, %if.then20 ], [ 512, %if.end18 ]
+  %logical_block_size.0 = phi i64 [ %7, %if.then20 ], [ 512, %if.end18 ]
   %num_queues26 = getelementptr inbounds i8, ptr %exp, i64 88
   store i16 %num_queues.0, ptr %num_queues26, align 8
   %blk = getelementptr inbounds i8, ptr %exp, i64 32
-  %13 = load ptr, ptr %blk, align 8
+  %10 = load ptr, ptr %blk, align 8
   %handler = getelementptr inbounds i8, ptr %exp, i64 56
-  store ptr %13, ptr %handler, align 8
+  store ptr %10, ptr %handler, align 8
   %serial = getelementptr inbounds i8, ptr %opts, i64 80
-  %14 = load ptr, ptr %serial, align 8
-  %tobool28.not = icmp eq ptr %14, null
-  %..str.4 = select i1 %tobool28.not, ptr @.str.4, ptr %14
+  %11 = load ptr, ptr %serial, align 8
+  %tobool28.not = icmp eq ptr %11, null
+  %..str.4 = select i1 %tobool28.not, ptr @.str.4, ptr %11
   %call29 = call noalias ptr @g_strdup(ptr noundef nonnull %..str.4) #8
   %serial31 = getelementptr inbounds i8, ptr %exp, i64 64
   store ptr %call29, ptr %serial31, align 8
@@ -124,14 +121,14 @@ if.end25:                                         ; preds = %if.then20, %if.end1
   %logical_block_size34 = getelementptr inbounds i8, ptr %exp, i64 72
   store i32 %conv32, ptr %logical_block_size34, align 8
   %writable = getelementptr inbounds i8, ptr %opts, i64 41
-  %15 = load i8, ptr %writable, align 1
-  %16 = and i8 %15, 1
+  %12 = load i8, ptr %writable, align 1
   %writable37 = getelementptr inbounds i8, ptr %exp, i64 76
-  store i8 %16, ptr %writable37, align 4
+  %frombool = and i8 %12, 1
+  store i8 %frombool, ptr %writable37, align 4
   %vqs_started = getelementptr inbounds i8, ptr %exp, i64 108
   store i8 1, ptr %vqs_started, align 4
-  %17 = load ptr, ptr %blk, align 8
-  %call39 = call i64 @blk_getlength(ptr noundef %17) #8
+  %13 = load ptr, ptr %blk, align 8
+  %call39 = call i64 @blk_getlength(ptr noundef %13) #8
   %shr = ashr i64 %call39, 9
   store i64 %shr, ptr %config, align 8
   %conv41 = zext nneg i16 %queue_size.0 to i32
@@ -162,13 +159,12 @@ if.end25:                                         ; preds = %if.then20, %if.end1
   %cmp63 = icmp ugt i16 %num_queues.0, 1
   %spec.select.v = select i1 %cmp63, i64 30276, i64 26180
   %spec.select = or i64 %call56, %spec.select.v
-  %18 = load i8, ptr %writable, align 1
-  %19 = and i8 %18, 1
-  %tobool69.not = icmp eq i8 %19, 0
+  %14 = load i8, ptr %writable, align 1
+  %tobool69 = trunc i8 %14 to i1
   %or71 = or i64 %spec.select, 32
-  %features.1 = select i1 %tobool69.not, i64 %or71, i64 %spec.select
-  %20 = load ptr, ptr %u, align 8
-  %call73 = call ptr @vduse_dev_create(ptr noundef %20, i32 noundef 2, i32 noundef 0, i64 noundef %features.1, i16 noundef zeroext %num_queues.0, i32 noundef 96, ptr noundef nonnull %config, ptr noundef nonnull @vduse_blk_ops, ptr noundef %exp) #8
+  %features.1 = select i1 %tobool69, i64 %spec.select, i64 %or71
+  %15 = load ptr, ptr %u, align 8
+  %call73 = call ptr @vduse_dev_create(ptr noundef %15, i32 noundef 2, i32 noundef 0, i64 noundef %features.1, i16 noundef zeroext %num_queues.0, i32 noundef 96, ptr noundef nonnull %config, ptr noundef nonnull @vduse_blk_ops, ptr noundef %exp) #8
   %dev = getelementptr inbounds i8, ptr %exp, i64 80
   store ptr %call73, ptr %dev, align 8
   %tobool75.not = icmp eq ptr %call73, null
@@ -180,12 +176,12 @@ if.then76:                                        ; preds = %if.end25
 
 if.end77:                                         ; preds = %if.end25
   %call78 = call ptr @g_get_tmp_dir() #8
-  %21 = load ptr, ptr %u, align 8
-  %call80 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef %call78, ptr noundef %21) #8
+  %16 = load ptr, ptr %u, align 8
+  %call80 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef %call78, ptr noundef %16) #8
   %recon_file = getelementptr inbounds i8, ptr %exp, i64 96
   store ptr %call80, ptr %recon_file, align 8
-  %22 = load ptr, ptr %dev, align 8
-  %call83 = call i32 @vduse_set_reconnect_log_file(ptr noundef %22, ptr noundef %call80) #8
+  %17 = load ptr, ptr %dev, align 8
+  %call83 = call i32 @vduse_set_reconnect_log_file(ptr noundef %17, ptr noundef %call80) #8
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %for.body.preheader, label %if.then85
 
@@ -195,39 +191,39 @@ for.body.preheader:                               ; preds = %if.end77
 
 if.then85:                                        ; preds = %if.end77
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 358, ptr noundef nonnull @__func__.vduse_blk_exp_create, ptr noundef nonnull @.str.7) #8
-  %23 = load ptr, ptr %dev, align 8
-  %call100 = call i32 @vduse_dev_destroy(ptr noundef %23) #8
-  %24 = load ptr, ptr %recon_file, align 8
-  call void @g_free(ptr noundef %24) #8
+  %18 = load ptr, ptr %dev, align 8
+  %call100 = call i32 @vduse_dev_destroy(ptr noundef %18) #8
+  %19 = load ptr, ptr %recon_file, align 8
+  call void @g_free(ptr noundef %19) #8
   br label %err_dev
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.057 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %25 = load ptr, ptr %dev, align 8
-  %call92 = call i32 @vduse_dev_setup_queue(ptr noundef %25, i32 noundef %i.057, i32 noundef %conv41) #8
+  %20 = load ptr, ptr %dev, align 8
+  %call92 = call i32 @vduse_dev_setup_queue(ptr noundef %20, i32 noundef %i.057, i32 noundef %conv41) #8
   %inc = add nuw nsw i32 %i.057, 1
   %exitcond.not = icmp eq i32 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
   %ctx = getelementptr inbounds i8, ptr %exp, i64 24
-  %26 = load ptr, ptr %ctx, align 8
-  %27 = load ptr, ptr %dev, align 8
-  %call94 = call i32 @vduse_dev_get_fd(ptr noundef %27) #8
-  %28 = load ptr, ptr %dev, align 8
-  call void @aio_set_fd_handler(ptr noundef %26, i32 noundef %call94, ptr noundef nonnull @on_vduse_dev_kick, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %28) #8
-  %29 = load ptr, ptr %blk, align 8
-  call void @blk_add_aio_context_notifier(ptr noundef %29, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #8
-  %30 = load ptr, ptr %blk, align 8
-  call void @blk_set_dev_ops(ptr noundef %30, ptr noundef nonnull @vduse_block_ops, ptr noundef nonnull %exp) #8
-  %31 = load ptr, ptr %blk, align 8
-  call void @blk_set_disable_request_queuing(ptr noundef %31, i1 noundef zeroext true) #8
+  %21 = load ptr, ptr %ctx, align 8
+  %22 = load ptr, ptr %dev, align 8
+  %call94 = call i32 @vduse_dev_get_fd(ptr noundef %22) #8
+  %23 = load ptr, ptr %dev, align 8
+  call void @aio_set_fd_handler(ptr noundef %21, i32 noundef %call94, ptr noundef nonnull @on_vduse_dev_kick, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %23) #8
+  %24 = load ptr, ptr %blk, align 8
+  call void @blk_add_aio_context_notifier(ptr noundef %24, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #8
+  %25 = load ptr, ptr %blk, align 8
+  call void @blk_set_dev_ops(ptr noundef %25, ptr noundef nonnull @vduse_block_ops, ptr noundef nonnull %exp) #8
+  %26 = load ptr, ptr %blk, align 8
+  call void @blk_set_disable_request_queuing(ptr noundef %26, i1 noundef zeroext true) #8
   br label %return
 
 err_dev:                                          ; preds = %if.then85, %if.then76
   %ret.0 = phi i32 [ -22, %if.then85 ], [ -12, %if.then76 ]
-  %32 = load ptr, ptr %serial31, align 8
-  call void @g_free(ptr noundef %32) #8
+  %27 = load ptr, ptr %serial31, align 8
+  call void @g_free(ptr noundef %27) #8
   br label %return
 
 return:                                           ; preds = %err_dev, %for.end, %if.then23, %if.then16, %if.then3
@@ -397,15 +393,14 @@ entry:
   %call = tail call ptr @vduse_dev_get_priv(ptr noundef %dev) #8
   %vqs_started = getelementptr inbounds i8, ptr %call, i64 108
   %0 = load i8, ptr %vqs_started, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %ctx = getelementptr inbounds i8, ptr %call, i64 24
-  %2 = load ptr, ptr %ctx, align 8
+  %1 = load ptr, ptr %ctx, align 8
   %call1 = tail call i32 @vduse_queue_get_fd(ptr noundef %vq) #8
-  tail call void @aio_set_fd_handler(ptr noundef %2, i32 noundef %call1, ptr noundef nonnull @on_vduse_vq_kick, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %vq) #8
+  tail call void @aio_set_fd_handler(ptr noundef %1, i32 noundef %call1, ptr noundef nonnull @on_vduse_vq_kick, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %vq) #8
   %call2 = tail call i32 @vduse_queue_get_fd(ptr noundef %vq) #8
   %call3 = tail call i32 @eventfd_write(i32 noundef %call2, i64 noundef 1) #8
   br label %return
@@ -621,24 +616,23 @@ for.body.i:                                       ; preds = %vduse_blk_enable_qu
   %call.i.i = tail call ptr @vduse_dev_get_priv(ptr noundef %2) #8
   %vqs_started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 108
   %3 = load i8, ptr %vqs_started.i.i, align 4
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %vduse_blk_enable_queue.exit.i, label %if.end.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %vduse_blk_enable_queue.exit.i
 
 if.end.i.i:                                       ; preds = %for.body.i
   %ctx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %5 = load ptr, ptr %ctx.i.i, align 8
+  %4 = load ptr, ptr %ctx.i.i, align 8
   %call1.i.i = tail call i32 @vduse_queue_get_fd(ptr noundef %call.i) #8
-  tail call void @aio_set_fd_handler(ptr noundef %5, i32 noundef %call1.i.i, ptr noundef nonnull @on_vduse_vq_kick, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call.i) #8
+  tail call void @aio_set_fd_handler(ptr noundef %4, i32 noundef %call1.i.i, ptr noundef nonnull @on_vduse_vq_kick, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call.i) #8
   %call2.i.i = tail call i32 @vduse_queue_get_fd(ptr noundef %call.i) #8
   %call3.i.i = tail call i32 @eventfd_write(i32 noundef %call2.i.i, i64 noundef 1) #8
   br label %vduse_blk_enable_queue.exit.i
 
 vduse_blk_enable_queue.exit.i:                    ; preds = %if.end.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
-  %6 = load i16, ptr %num_queues.i, align 8
-  %7 = zext i16 %6 to i32
-  %cmp.i = icmp ult i32 %indvars.iv.next.i, %7
+  %5 = load i16, ptr %num_queues.i, align 8
+  %6 = zext i16 %5 to i32
+  %cmp.i = icmp ult i32 %indvars.iv.next.i, %6
   br i1 %cmp.i, label %for.body.i, label %vduse_blk_start_virtqueues.exit, !llvm.loop !9
 
 vduse_blk_start_virtqueues.exit:                  ; preds = %vduse_blk_enable_queue.exit.i, %entry

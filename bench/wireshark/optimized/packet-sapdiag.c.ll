@@ -2027,9 +2027,9 @@ define internal fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef
   %.not21 = icmp eq i32 %5, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %72
-  %.023 = phi i32 [ %.3, %72 ], [ %3, %4 ]
-  %.09422 = phi ptr [ %.195, %72 ], [ null, %4 ]
+.lr.ph:                                           ; preds = %4, %71
+  %.023 = phi i32 [ %.3, %71 ], [ %3, %4 ]
+  %.09422 = phi ptr [ %.195, %71 ], [ null, %4 ]
   %6 = load i32, ptr @hf_sapdiag_item, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %.023, i32 noundef 1, i32 noundef 0) #2
   %8 = load i32, ptr @ett_sapdiag, align 4
@@ -2051,7 +2051,7 @@ define internal fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef
     i8 10, label %25
     i8 11, label %26
     i8 18, label %29
-    i8 17, label %51
+    i8 17, label %50
     i8 19, label %27
     i8 21, label %28
     i8 16, label %29
@@ -2113,96 +2113,95 @@ define internal fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef
 switch.hole_check:                                ; preds = %29
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 946175, %switch.maskindex
-  %38 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %38, 0
-  br i1 %switch.lobit.not, label %.get_appl_string.exit_crit_edge, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %.get_appl_string.exit_crit_edge
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %39 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.dissect_sapdiag_payload, i64 0, i64 %39
+  %38 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.dissect_sapdiag_payload, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %40 = zext i8 %36 to i32
-  %41 = tail call ptr @val_to_str_const(i32 noundef %40, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.837) #2
+  %39 = zext i8 %36 to i32
+  %40 = tail call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.837) #2
   br label %get_appl_string.exit
 
 get_appl_string.exit:                             ; preds = %.get_appl_string.exit_crit_edge, %switch.lookup
-  %.pre-phi = phi i32 [ %.pre, %.get_appl_string.exit_crit_edge ], [ %40, %switch.lookup ]
-  %.0.i = phi ptr [ null, %.get_appl_string.exit_crit_edge ], [ %41, %switch.lookup ]
+  %.pre-phi = phi i32 [ %.pre, %.get_appl_string.exit_crit_edge ], [ %39, %switch.lookup ]
+  %.0.i = phi ptr [ null, %.get_appl_string.exit_crit_edge ], [ %40, %switch.lookup ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.839, ptr noundef %.0.i) #2
-  %42 = load i32, ptr @hf_sapdiag_item_sid, align 4
-  %43 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %42, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.840, ptr noundef %.0.i, i32 noundef %.pre-phi) #2
-  %44 = add i32 %.023, 3
+  %41 = load i32, ptr @hf_sapdiag_item_sid, align 4
+  %42 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %41, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.840, ptr noundef %.0.i, i32 noundef %.pre-phi) #2
+  %43 = add i32 %.023, 3
   switch i8 %10, label %.thread14 [
-    i8 16, label %45
-    i8 18, label %51
+    i8 16, label %44
+    i8 18, label %50
   ]
 
-45:                                               ; preds = %get_appl_string.exit
-  %46 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44) #2
-  %47 = zext i16 %46 to i32
-  %48 = load i32, ptr @hf_sapdiag_item_length_short, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %48, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0) #2
-  %50 = add i32 %.023, 5
+44:                                               ; preds = %get_appl_string.exit
+  %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %43) #2
+  %46 = zext i16 %45 to i32
+  %47 = load i32, ptr @hf_sapdiag_item_length_short, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %47, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef 0) #2
+  %49 = add i32 %.023, 5
   br label %.thread14
 
-51:                                               ; preds = %get_appl_string.exit, %.lr.ph
+50:                                               ; preds = %get_appl_string.exit, %.lr.ph
   %.0102.ph = phi i8 [ 0, %.lr.ph ], [ %30, %get_appl_string.exit ]
   %.0101.ph = phi i8 [ 0, %.lr.ph ], [ %36, %get_appl_string.exit ]
   %.099.ph = phi i32 [ 5, %.lr.ph ], [ 7, %get_appl_string.exit ]
-  %.1.ph = phi i32 [ %13, %.lr.ph ], [ %44, %get_appl_string.exit ]
-  %52 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1.ph) #2
-  %53 = load i32, ptr @hf_sapdiag_item_length_long, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %53, ptr noundef %0, i32 noundef %.1.ph, i32 noundef 4, i32 noundef 0) #2
-  %55 = add i32 %.1.ph, 4
+  %.1.ph = phi i32 [ %13, %.lr.ph ], [ %43, %get_appl_string.exit ]
+  %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1.ph) #2
+  %52 = load i32, ptr @hf_sapdiag_item_length_long, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %52, ptr noundef %0, i32 noundef %.1.ph, i32 noundef 4, i32 noundef 0) #2
+  %54 = add i32 %.1.ph, 4
   br label %.thread14
 
-.thread14:                                        ; preds = %get_appl_string.exit, %.lr.ph, %28, %27, %26, %25, %24, %22, %20, %19, %18, %17, %16, %51, %45
-  %.01018 = phi i8 [ %36, %45 ], [ %.0101.ph, %51 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %36, %get_appl_string.exit ]
-  %.01026 = phi i8 [ %30, %45 ], [ %.0102.ph, %51 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %30, %get_appl_string.exit ]
-  %.1100 = phi i32 [ 5, %45 ], [ %.099.ph, %51 ], [ 1, %.lr.ph ], [ 1, %28 ], [ 1, %27 ], [ 1, %26 ], [ 1, %25 ], [ 1, %24 ], [ 1, %22 ], [ 1, %20 ], [ 1, %19 ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 3, %get_appl_string.exit ]
-  %.197 = phi i32 [ %47, %45 ], [ %52, %51 ], [ 0, %.lr.ph ], [ 36, %28 ], [ 2, %27 ], [ 2, %26 ], [ 3, %25 ], [ 22, %24 ], [ 0, %22 ], [ 0, %20 ], [ 76, %19 ], [ 3, %18 ], [ 20, %17 ], [ 16, %16 ], [ 0, %get_appl_string.exit ]
-  %.195 = phi ptr [ %49, %45 ], [ %54, %51 ], [ %.09422, %.lr.ph ], [ %.09422, %28 ], [ %.09422, %27 ], [ %.09422, %26 ], [ %.09422, %25 ], [ %.09422, %24 ], [ %.09422, %22 ], [ %.09422, %20 ], [ %.09422, %19 ], [ %.09422, %18 ], [ %.09422, %17 ], [ %.09422, %16 ], [ %.09422, %get_appl_string.exit ]
-  %.2 = phi i32 [ %50, %45 ], [ %55, %51 ], [ %13, %.lr.ph ], [ %13, %28 ], [ %13, %27 ], [ %13, %26 ], [ %13, %25 ], [ %13, %24 ], [ %13, %22 ], [ %13, %20 ], [ %13, %19 ], [ %13, %18 ], [ %13, %17 ], [ %13, %16 ], [ %44, %get_appl_string.exit ]
+.thread14:                                        ; preds = %get_appl_string.exit, %.lr.ph, %28, %27, %26, %25, %24, %22, %20, %19, %18, %17, %16, %50, %44
+  %.01018 = phi i8 [ %36, %44 ], [ %.0101.ph, %50 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %36, %get_appl_string.exit ]
+  %.01026 = phi i8 [ %30, %44 ], [ %.0102.ph, %50 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %30, %get_appl_string.exit ]
+  %.1100 = phi i32 [ 5, %44 ], [ %.099.ph, %50 ], [ 1, %.lr.ph ], [ 1, %28 ], [ 1, %27 ], [ 1, %26 ], [ 1, %25 ], [ 1, %24 ], [ 1, %22 ], [ 1, %20 ], [ 1, %19 ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 3, %get_appl_string.exit ]
+  %.197 = phi i32 [ %46, %44 ], [ %51, %50 ], [ 0, %.lr.ph ], [ 36, %28 ], [ 2, %27 ], [ 2, %26 ], [ 3, %25 ], [ 22, %24 ], [ 0, %22 ], [ 0, %20 ], [ 76, %19 ], [ 3, %18 ], [ 20, %17 ], [ 16, %16 ], [ 0, %get_appl_string.exit ]
+  %.195 = phi ptr [ %48, %44 ], [ %53, %50 ], [ %.09422, %.lr.ph ], [ %.09422, %28 ], [ %.09422, %27 ], [ %.09422, %26 ], [ %.09422, %25 ], [ %.09422, %24 ], [ %.09422, %22 ], [ %.09422, %20 ], [ %.09422, %19 ], [ %.09422, %18 ], [ %.09422, %17 ], [ %.09422, %16 ], [ %.09422, %get_appl_string.exit ]
+  %.2 = phi i32 [ %49, %44 ], [ %54, %50 ], [ %13, %.lr.ph ], [ %13, %28 ], [ %13, %27 ], [ %13, %26 ], [ %13, %25 ], [ %13, %24 ], [ %13, %22 ], [ %13, %20 ], [ %13, %19 ], [ %13, %18 ], [ %13, %17 ], [ %13, %16 ], [ %43, %get_appl_string.exit ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.841, i32 noundef %.197) #2
-  %56 = add i32 %.197, %.1100
-  tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %56) #2
+  %55 = add i32 %.197, %.1100
+  tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %55) #2
   %.not108 = icmp eq i32 %.197, 0
-  br i1 %.not108, label %72, label %57
+  br i1 %.not108, label %71, label %56
 
-57:                                               ; preds = %.thread14
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %62
+56:                                               ; preds = %.thread14
+  %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %59, label %61
 
-60:                                               ; preds = %57
-  %61 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.195, ptr noundef nonnull @ei_sapdiag_item_offset_invalid) #2
+59:                                               ; preds = %56
+  %60 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.195, ptr noundef nonnull @ei_sapdiag_item_offset_invalid) #2
   br label %.loopexit
 
-62:                                               ; preds = %57
-  %63 = icmp ult i32 %58, %.197
-  br i1 %63, label %64, label %66
+61:                                               ; preds = %56
+  %62 = icmp ult i32 %57, %.197
+  br i1 %62, label %63, label %65
 
-64:                                               ; preds = %62
-  %65 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.195, ptr noundef nonnull @ei_sapdiag_item_length_invalid) #2
-  br label %66
+63:                                               ; preds = %61
+  %64 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.195, ptr noundef nonnull @ei_sapdiag_item_length_invalid) #2
+  br label %65
 
-66:                                               ; preds = %64, %62
-  %.298 = phi i32 [ %58, %64 ], [ %.197, %62 ]
-  %67 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %67, ptr noundef %0, i32 noundef %.2, i32 noundef %.298, i32 noundef 0) #2
-  %69 = load i32, ptr @ett_sapdiag, align 4
-  %70 = tail call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69) #2
-  tail call fastcc void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %70, i32 noundef %.2, i8 noundef zeroext %10, i8 noundef zeroext %.01026, i8 noundef zeroext %.01018, i32 noundef %.298)
-  %71 = add i32 %.298, %.2
-  br label %72
+65:                                               ; preds = %63, %61
+  %.298 = phi i32 [ %57, %63 ], [ %.197, %61 ]
+  %66 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %66, ptr noundef %0, i32 noundef %.2, i32 noundef %.298, i32 noundef 0) #2
+  %68 = load i32, ptr @ett_sapdiag, align 4
+  %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #2
+  tail call fastcc void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %69, i32 noundef %.2, i8 noundef zeroext %10, i8 noundef zeroext %.01026, i8 noundef zeroext %.01018, i32 noundef %.298)
+  %70 = add i32 %.298, %.2
+  br label %71
 
-72:                                               ; preds = %66, %.thread14
-  %.3 = phi i32 [ %71, %66 ], [ %.2, %.thread14 ]
-  %73 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.3) #2
-  %.not = icmp eq i32 %73, 0
+71:                                               ; preds = %65, %.thread14
+  %.3 = phi i32 [ %70, %65 ], [ %.2, %.thread14 ]
+  %72 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.3) #2
+  %.not = icmp eq i32 %72, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-.loopexit:                                        ; preds = %72, %4, %60
+.loopexit:                                        ; preds = %71, %4, %59
   ret void
 }
 

@@ -90,9 +90,8 @@ define internal void @bbsink_progress_begin_backup(ptr noundef %0) #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %5, i64 24
@@ -140,9 +139,8 @@ define internal void @bbsink_progress_archive_contents(ptr noundef %0, i64 nound
   store i64 %10, ptr %4, align 16
   %11 = getelementptr inbounds i8, ptr %6, i64 32
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %20, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %6, i64 24

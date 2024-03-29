@@ -38,9 +38,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @PMPI_Pack_size(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca %struct.opal_convertor_t, align 8
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %37, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %4
   %9 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -97,8 +96,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %13, %ompi_comm_inva
 37:                                               ; preds = %28, %4
   %38 = load i32, ptr @opal_class_init_epoch, align 4
   %39 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
-  %.not15 = icmp eq i32 %38, %39
-  br i1 %.not15, label %41, label %40
+  %.not14 = icmp eq i32 %38, %39
+  br i1 %.not14, label %41, label %40
 
 40:                                               ; preds = %37
   tail call void @opal_class_initialize(ptr noundef nonnull @opal_convertor_t_class) #2
@@ -139,10 +138,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %41
   %59 = load i64, ptr %58, align 8
   %60 = load i32, ptr %52, align 4
   %61 = and i32 %60, 524288
-  %.not.i16 = icmp ne i32 %61, 0
+  %.not.i15 = icmp ne i32 %61, 0
   %62 = and i32 %60, 327680
-  %or.cond.i17 = icmp eq i32 %62, 262144
-  %or.cond16.i = or i1 %.not.i16, %or.cond.i17
+  %or.cond.i16 = icmp eq i32 %62, 262144
+  %or.cond16.i = or i1 %.not.i15, %or.cond.i16
   %63 = and i32 %60, 196608
   %or.cond15.not.i = icmp eq i32 %63, 196608
   %or.cond17.i = or i1 %or.cond15.not.i, %or.cond16.i
@@ -163,27 +162,27 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %41
   br label %opal_convertor_get_packed_size.exit
 
 opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constructors.exit, %69
-  %.022 = phi i64 [ %59, %opal_obj_run_constructors.exit ], [ %71, %69 ]
-  %72 = trunc i64 %.022 to i32
+  %.021 = phi i64 [ %59, %opal_obj_run_constructors.exit ], [ %71, %69 ]
+  %72 = trunc i64 %.021 to i32
   store i32 %72, ptr %3, align 4
   %73 = load ptr, ptr %5, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 48
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %75, align 8
-  %.not6.i18 = icmp eq ptr %76, null
-  br i1 %.not6.i18, label %opal_obj_run_destructors.exit, label %.lr.ph.i19
+  %.not6.i17 = icmp eq ptr %76, null
+  br i1 %.not6.i17, label %opal_obj_run_destructors.exit, label %.lr.ph.i18
 
-.lr.ph.i19:                                       ; preds = %opal_convertor_get_packed_size.exit, %.lr.ph.i19
-  %77 = phi ptr [ %79, %.lr.ph.i19 ], [ %76, %opal_convertor_get_packed_size.exit ]
-  %.07.i20 = phi ptr [ %78, %.lr.ph.i19 ], [ %75, %opal_convertor_get_packed_size.exit ]
+.lr.ph.i18:                                       ; preds = %opal_convertor_get_packed_size.exit, %.lr.ph.i18
+  %77 = phi ptr [ %79, %.lr.ph.i18 ], [ %76, %opal_convertor_get_packed_size.exit ]
+  %.07.i19 = phi ptr [ %78, %.lr.ph.i18 ], [ %75, %opal_convertor_get_packed_size.exit ]
   call void %77(ptr noundef nonnull %5) #2
-  %78 = getelementptr inbounds i8, ptr %.07.i20, i64 8
+  %78 = getelementptr inbounds i8, ptr %.07.i19, i64 8
   %79 = load ptr, ptr %78, align 8
-  %.not.i21 = icmp eq ptr %79, null
-  br i1 %.not.i21, label %opal_obj_run_destructors.exit, label %.lr.ph.i19, !llvm.loop !6
+  %.not.i20 = icmp eq ptr %79, null
+  br i1 %.not.i20, label %opal_obj_run_destructors.exit, label %.lr.ph.i18, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i19, %opal_convertor_get_packed_size.exit, %31, %22, %ompi_comm_invalid.exit.thread
-  %.0 = phi i32 [ %19, %ompi_comm_invalid.exit.thread ], [ %27, %22 ], [ %36, %31 ], [ 0, %opal_convertor_get_packed_size.exit ], [ 0, %.lr.ph.i19 ]
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i18, %opal_convertor_get_packed_size.exit, %31, %22, %ompi_comm_invalid.exit.thread
+  %.0 = phi i32 [ %19, %ompi_comm_invalid.exit.thread ], [ %27, %22 ], [ %36, %31 ], [ 0, %opal_convertor_get_packed_size.exit ], [ 0, %.lr.ph.i18 ]
   ret i32 %.0
 }
 

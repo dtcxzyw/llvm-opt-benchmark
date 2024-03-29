@@ -296,9 +296,8 @@ _ZN12_GLOBAL__N_110CMakeFilesC2ER9cmFileAPIm.exit: ; preds = %30, %36, %41
 
 109:                                              ; preds = %105, %101, %97
   %110 = load i8, ptr %47, align 8, !noalias !14
-  %111 = and i8 %110, 1
-  %.not.i.i.i = icmp eq i8 %111, 0
-  br i1 %.not.i.i.i, label %123, label %112
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %123
 
 112:                                              ; preds = %109
   %113 = load ptr, ptr %31, align 8, !noalias !14

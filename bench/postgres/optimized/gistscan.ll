@@ -121,15 +121,14 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 20:                                               ; preds = %5, %17, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %72, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %72
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
-  %.not118 = icmp eq ptr %26, null
-  br i1 %.not118, label %27, label %72
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %27, label %72
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %0, i64 8
@@ -147,8 +146,8 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   store ptr %39, ptr %41, align 8
-  %.not119127 = icmp slt i16 %38, 1
-  br i1 %.not119127, label %.preheader, label %.lr.ph.preheader
+  %.not118126 = icmp slt i16 %38, 1
+  br i1 %.not118126, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %27
   %narrow = add nuw i16 %38, 1
@@ -158,14 +157,14 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 
 .preheader:                                       ; preds = %.lr.ph, %27
   %.0109.lcssa = phi i32 [ 1, %27 ], [ %42, %.lr.ph ]
-  %.not120129 = icmp sgt i32 %.0109.lcssa, %34
-  br i1 %.not120129, label %._crit_edge, label %.lr.ph131.preheader
+  %.not119128 = icmp sgt i32 %.0109.lcssa, %34
+  br i1 %.not119128, label %._crit_edge, label %.lr.ph130.preheader
 
-.lr.ph131.preheader:                              ; preds = %.preheader
+.lr.ph130.preheader:                              ; preds = %.preheader
   %43 = zext nneg i32 %.0109.lcssa to i64
   %44 = add nuw nsw i32 %34, 1
-  %wide.trip.count153 = zext i32 %44 to i64
-  br label %.lr.ph131
+  %wide.trip.count152 = zext i32 %44 to i64
+  br label %.lr.ph130
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -184,24 +183,24 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !5
 
-.lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
-  %indvars.iv150 = phi i64 [ %43, %.lr.ph131.preheader ], [ %indvars.iv.next151, %.lr.ph131 ]
+.lr.ph130:                                        ; preds = %.lr.ph130.preheader, %.lr.ph130
+  %indvars.iv149 = phi i64 [ %43, %.lr.ph130.preheader ], [ %indvars.iv.next150, %.lr.ph130 ]
   %55 = load ptr, ptr %7, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = trunc i64 %indvars.iv150 to i16
+  %58 = trunc i64 %indvars.iv149 to i16
   %59 = getelementptr inbounds i8, ptr %55, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = add nsw i64 %indvars.iv150, -1
+  %62 = add nsw i64 %indvars.iv149, -1
   %63 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %61, i64 0, i64 %62, i32 2
   %64 = load i32, ptr %63, align 4
   tail call void @TupleDescInitEntry(ptr noundef %57, i16 noundef signext %58, ptr noundef null, i32 noundef %64, i32 noundef -1, i32 noundef 0) #6
-  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !7
+  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
+  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
+  br i1 %exitcond153.not, label %._crit_edge, label %.lr.ph130, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph131, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph130, %.preheader
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
@@ -223,8 +222,8 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   store ptr %75, ptr @CurrentMemoryContext, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 33
   store i8 1, ptr %77, align 1
-  %.not121 = icmp eq ptr %1, null
-  br i1 %.not121, label %130, label %78
+  %.not120 = icmp eq ptr %1, null
+  br i1 %.not120, label %130, label %78
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds i8, ptr %0, i64 24
@@ -233,7 +232,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %81, label %82, label %130
 
 82:                                               ; preds = %78
-  br i1 %10, label %.loopexit126, label %83
+  br i1 %10, label %.loopexit125, label %83
 
 83:                                               ; preds = %82
   %84 = zext nneg i32 %80 to i64
@@ -241,26 +240,26 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %86 = tail call ptr @palloc(i64 noundef %85) #6
   %87 = load i32, ptr %79, align 8
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph134, label %.loopexit126
+  br i1 %88, label %.lr.ph133, label %.loopexit125
 
-.lr.ph134:                                        ; preds = %83
+.lr.ph133:                                        ; preds = %83
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   br label %90
 
-90:                                               ; preds = %.lr.ph134, %90
-  %indvars.iv155 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next156, %90 ]
+90:                                               ; preds = %.lr.ph133, %90
+  %indvars.iv154 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next155, %90 ]
   %91 = load ptr, ptr %89, align 8
-  %92 = getelementptr %struct.ScanKeyData, ptr %91, i64 %indvars.iv155, i32 5, i32 6
+  %92 = getelementptr %struct.ScanKeyData, ptr %91, i64 %indvars.iv154, i32 5, i32 6
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr ptr, ptr %86, i64 %indvars.iv155
+  %94 = getelementptr ptr, ptr %86, i64 %indvars.iv154
   store ptr %93, ptr %94, align 8
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %95 = load i32, ptr %79, align 8
   %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next156, %96
-  br i1 %97, label %90, label %.loopexit126, !llvm.loop !8
+  %97 = icmp slt i64 %indvars.iv.next155, %96
+  br i1 %97, label %90, label %.loopexit125, !llvm.loop !8
 
-.loopexit126:                                     ; preds = %90, %83, %82
+.loopexit125:                                     ; preds = %90, %83, %82
   %98 = phi i32 [ %80, %82 ], [ %87, %83 ], [ %95, %90 ]
   %.0111 = phi ptr [ null, %82 ], [ %86, %83 ], [ %86, %90 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 32
@@ -272,12 +271,12 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   store i8 1, ptr %103, align 8
   %104 = load i32, ptr %79, align 8
   %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %.lr.ph137, label %._crit_edge138
+  br i1 %105, label %.lr.ph136, label %._crit_edge137
 
-.lr.ph137:                                        ; preds = %.loopexit126, %125
-  %indvars.iv158 = phi i64 [ %indvars.iv.next159, %125 ], [ 0, %.loopexit126 ]
+.lr.ph136:                                        ; preds = %.loopexit125, %125
+  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %125 ], [ 0, %.loopexit125 ]
   %106 = load ptr, ptr %99, align 8
-  %107 = getelementptr %struct.ScanKeyData, ptr %106, i64 %indvars.iv158
+  %107 = getelementptr %struct.ScanKeyData, ptr %106, i64 %indvars.iv157
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load ptr, ptr %7, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 40
@@ -290,14 +289,14 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   tail call void @fmgr_info_copy(ptr noundef nonnull %108, ptr noundef %115, ptr noundef %116) #6
   br i1 %10, label %121, label %117
 
-117:                                              ; preds = %.lr.ph137
-  %118 = getelementptr ptr, ptr %.0111, i64 %indvars.iv158
+117:                                              ; preds = %.lr.ph136
+  %118 = getelementptr ptr, ptr %.0111, i64 %indvars.iv157
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %107, i64 40
   store ptr %119, ptr %120, align 8
   br label %121
 
-121:                                              ; preds = %117, %.lr.ph137
+121:                                              ; preds = %117, %.lr.ph136
   %122 = load i32, ptr %107, align 8
   %123 = and i32 %122, 193
   %or.cond = icmp eq i32 %123, 1
@@ -308,22 +307,22 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %125
 
 125:                                              ; preds = %121, %124
-  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %126 = load i32, ptr %79, align 8
   %127 = sext i32 %126 to i64
-  %128 = icmp slt i64 %indvars.iv.next159, %127
-  br i1 %128, label %.lr.ph137, label %._crit_edge138, !llvm.loop !9
+  %128 = icmp slt i64 %indvars.iv.next158, %127
+  br i1 %128, label %.lr.ph136, label %._crit_edge137, !llvm.loop !9
 
-._crit_edge138:                                   ; preds = %125, %.loopexit126
+._crit_edge137:                                   ; preds = %125, %.loopexit125
   br i1 %10, label %130, label %129
 
-129:                                              ; preds = %._crit_edge138
+129:                                              ; preds = %._crit_edge137
   tail call void @pfree(ptr noundef %.0111) #6
   br label %130
 
-130:                                              ; preds = %._crit_edge138, %129, %78, %72
-  %.not122 = icmp eq ptr %3, null
-  br i1 %.not122, label %203, label %131
+130:                                              ; preds = %._crit_edge137, %129, %78, %72
+  %.not121 = icmp eq ptr %3, null
+  br i1 %.not121, label %203, label %131
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds i8, ptr %0, i64 28
@@ -340,23 +339,23 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %139 = tail call ptr @palloc(i64 noundef %138) #6
   %140 = load i32, ptr %132, align 4
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph141, label %.loopexit
+  br i1 %141, label %.lr.ph140, label %.loopexit
 
-.lr.ph141:                                        ; preds = %136
+.lr.ph140:                                        ; preds = %136
   %142 = getelementptr inbounds i8, ptr %0, i64 40
   br label %143
 
-143:                                              ; preds = %.lr.ph141, %143
-  %indvars.iv161 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next162, %143 ]
+143:                                              ; preds = %.lr.ph140, %143
+  %indvars.iv160 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next161, %143 ]
   %144 = load ptr, ptr %142, align 8
-  %145 = getelementptr %struct.ScanKeyData, ptr %144, i64 %indvars.iv161, i32 5, i32 6
+  %145 = getelementptr %struct.ScanKeyData, ptr %144, i64 %indvars.iv160, i32 5, i32 6
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr ptr, ptr %139, i64 %indvars.iv161
+  %147 = getelementptr ptr, ptr %139, i64 %indvars.iv160
   store ptr %146, ptr %147, align 8
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %148 = load i32, ptr %132, align 4
   %149 = sext i32 %148 to i64
-  %150 = icmp slt i64 %indvars.iv.next162, %149
+  %150 = icmp slt i64 %indvars.iv.next161, %149
   br i1 %150, label %143, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %143, %136, %135
@@ -375,12 +374,12 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   store ptr %159, ptr %160, align 8
   %161 = load i32, ptr %132, align 4
   %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %.lr.ph145, label %._crit_edge146
+  br i1 %162, label %.lr.ph144, label %._crit_edge145
 
-.lr.ph145:                                        ; preds = %.loopexit, %198
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %198 ], [ 0, %.loopexit ]
+.lr.ph144:                                        ; preds = %.loopexit, %198
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %198 ], [ 0, %.loopexit ]
   %163 = load ptr, ptr %152, align 8
-  %164 = getelementptr %struct.ScanKeyData, ptr %163, i64 %indvars.iv164
+  %164 = getelementptr %struct.ScanKeyData, ptr %163, i64 %indvars.iv163
   %165 = load ptr, ptr %7, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 10792
   %167 = getelementptr inbounds i8, ptr %164, i64 4
@@ -390,10 +389,10 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %171 = getelementptr [32 x %struct.FmgrInfo], ptr %166, i64 0, i64 %170
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load i32, ptr %172, align 8
-  %.not123 = icmp eq i32 %173, 0
-  br i1 %.not123, label %174, label %185
+  %.not122 = icmp eq i32 %173, 0
+  br i1 %.not122, label %174, label %185
 
-174:                                              ; preds = %.lr.ph145
+174:                                              ; preds = %.lr.ph144
   %175 = getelementptr inbounds i8, ptr %164, i64 4
   %176 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %176)
@@ -408,13 +407,13 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 313, ptr noundef nonnull @__func__.gistrescan) #6
   unreachable
 
-185:                                              ; preds = %.lr.ph145
+185:                                              ; preds = %.lr.ph144
   %186 = getelementptr inbounds i8, ptr %164, i64 16
   %187 = getelementptr inbounds i8, ptr %164, i64 24
   %188 = load i32, ptr %187, align 8
   %189 = tail call i32 @get_func_rettype(i32 noundef %188) #6
   %190 = load ptr, ptr %160, align 8
-  %191 = getelementptr i32, ptr %190, i64 %indvars.iv164
+  %191 = getelementptr i32, ptr %190, i64 %indvars.iv163
   store i32 %189, ptr %191, align 4
   %192 = load ptr, ptr %7, align 8
   %193 = load ptr, ptr %192, align 8
@@ -422,27 +421,27 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %10, label %198, label %194
 
 194:                                              ; preds = %185
-  %195 = getelementptr ptr, ptr %.0108, i64 %indvars.iv164
+  %195 = getelementptr ptr, ptr %.0108, i64 %indvars.iv163
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %164, i64 40
   store ptr %196, ptr %197, align 8
   br label %198
 
 198:                                              ; preds = %185, %194
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %199 = load i32, ptr %132, align 4
   %200 = sext i32 %199 to i64
-  %201 = icmp slt i64 %indvars.iv.next165, %200
-  br i1 %201, label %.lr.ph145, label %._crit_edge146, !llvm.loop !11
+  %201 = icmp slt i64 %indvars.iv.next164, %200
+  br i1 %201, label %.lr.ph144, label %._crit_edge145, !llvm.loop !11
 
-._crit_edge146:                                   ; preds = %198, %.loopexit
+._crit_edge145:                                   ; preds = %198, %.loopexit
   br i1 %10, label %203, label %202
 
-202:                                              ; preds = %._crit_edge146
+202:                                              ; preds = %._crit_edge145
   tail call void @pfree(ptr noundef %.0108) #6
   br label %203
 
-203:                                              ; preds = %._crit_edge146, %202, %131, %130
+203:                                              ; preds = %._crit_edge145, %202, %131, %130
   %204 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %204, align 8
   ret void
@@ -476,33 +475,30 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   %11 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %7, i64 0, i64 %indvars.iv
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %19, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %9
   %16 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv, i32 1
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not26 = icmp eq i8 %18, 0
-  br i1 %.not26, label %.loopexit, label %30
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %30, label %.loopexit
 
 19:                                               ; preds = %9
   %20 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not24 = icmp eq i8 %23, 0
-  br i1 %.not24, label %24, label %.loopexit
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %19
   %25 = load double, ptr %11, align 8
   %26 = load double, ptr %20, align 8
   %27 = tail call i32 @float8_cmp_internal(double noundef %25, double noundef %26) #6
-  %.not25 = icmp eq i32 %27, 0
-  br i1 %.not25, label %._crit_edge29, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %._crit_edge26, label %28
 
-._crit_edge29:                                    ; preds = %24
+._crit_edge26:                                    ; preds = %24
   %.pre = load i32, ptr %4, align 4
   br label %30
 
@@ -510,8 +506,8 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   %29 = sub i32 0, %27
   br label %.loopexit
 
-30:                                               ; preds = %._crit_edge29, %15
-  %31 = phi i32 [ %.pre, %._crit_edge29 ], [ %10, %15 ]
+30:                                               ; preds = %._crit_edge26, %15
+  %31 = phi i32 [ %.pre, %._crit_edge26 ], [ %10, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32

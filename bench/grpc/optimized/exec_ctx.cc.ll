@@ -39,7 +39,7 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end8, %entry
-  %did_something.0 = phi i8 [ 0, %entry ], [ %did_something.2, %if.end8 ]
+  %did_something.0 = phi i1 [ false, %entry ], [ %did_something.2, %if.end8 ]
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %closure_list_, align 8
   %cmp.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, null
   br i1 %cmp.i, label %if.else, label %if.then
@@ -119,7 +119,7 @@ if.else:                                          ; preds = %for.cond
   br i1 %call6, label %if.end8, label %do.body
 
 if.end8:                                          ; preds = %_ZL12exec_ctx_runP12grpc_closure.exit, %if.else
-  %did_something.2 = phi i8 [ %did_something.0, %if.else ], [ 1, %_ZL12exec_ctx_runP12grpc_closure.exit ]
+  %did_something.2 = phi i1 [ %did_something.0, %if.else ], [ true, %_ZL12exec_ctx_runP12grpc_closure.exit ]
   br label %for.cond, !llvm.loop !6
 
 do.body:                                          ; preds = %if.else
@@ -133,9 +133,7 @@ if.then10:                                        ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %13 = and i8 %did_something.0, 1
-  %tobool = icmp ne i8 %13, 0
-  ret i1 %tobool
+  ret i1 %did_something.0
 }
 
 declare noundef zeroext i1 @_Z31grpc_combiner_continue_exec_ctxv() local_unnamed_addr #0

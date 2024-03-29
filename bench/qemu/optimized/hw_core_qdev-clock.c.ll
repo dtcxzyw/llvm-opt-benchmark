@@ -53,28 +53,26 @@ if.end:                                           ; preds = %land.rhs, %if.then
   %output = getelementptr inbounds i8, ptr %ncl.016, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node, i8 0, i64 16, i1 false)
   %3 = load i8, ptr %output, align 8
-  %4 = and i8 %3, 1
-  %tobool16.not = icmp eq i8 %4, 0
-  br i1 %tobool16.not, label %land.lhs.true, label %if.end20
+  %tobool16 = trunc i8 %3 to i1
+  br i1 %tobool16, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %alias = getelementptr inbounds i8, ptr %ncl.016, i64 17
-  %5 = load i8, ptr %alias, align 1
-  %6 = and i8 %5, 1
-  %tobool17.not = icmp eq i8 %6, 0
-  br i1 %tobool17.not, label %if.then18, label %if.end20
+  %4 = load i8, ptr %alias, align 1
+  %tobool17 = trunc i8 %4 to i1
+  br i1 %tobool17, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true
   %clock = getelementptr inbounds i8, ptr %ncl.016, i64 8
-  %7 = load ptr, ptr %clock, align 8
-  tail call void @clock_clear_callback(ptr noundef %7) #6
-  %8 = load ptr, ptr %clock, align 8
-  tail call void @object_unref(ptr noundef %8) #6
+  %5 = load ptr, ptr %clock, align 8
+  tail call void @clock_clear_callback(ptr noundef %5) #6
+  %6 = load ptr, ptr %clock, align 8
+  tail call void @object_unref(ptr noundef %6) #6
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %land.lhs.true, %if.end
-  %9 = load ptr, ptr %ncl.016, align 8
-  tail call void @g_free(ptr noundef %9) #6
+  %7 = load ptr, ptr %ncl.016, align 8
+  tail call void @g_free(ptr noundef %7) #6
   tail call void @g_free(ptr noundef nonnull %ncl.016) #6
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !5
 
@@ -113,9 +111,8 @@ define internal fastcc noundef ptr @qdev_init_clocklist(ptr noundef %dev, ptr no
 entry:
   %realized = getelementptr inbounds i8, ptr %dev, i64 56
   %0 = load i8, ptr %realized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.else
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clocklist) #7
@@ -157,14 +154,14 @@ if.end19:                                         ; preds = %if.then8, %if.then1
   %clock20 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %clk.addr.0, ptr %clock20, align 8
   %clocks = getelementptr inbounds i8, ptr %dev, i64 104
-  %2 = load ptr, ptr %clocks, align 8
+  %1 = load ptr, ptr %clocks, align 8
   %node = getelementptr inbounds i8, ptr %call, i64 24
-  store ptr %2, ptr %node, align 8
-  %cmp21.not = icmp eq ptr %2, null
+  store ptr %1, ptr %node, align 8
+  %cmp21.not = icmp eq ptr %1, null
   br i1 %cmp21.not, label %if.end28, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %le_prev = getelementptr inbounds i8, ptr %2, i64 32
+  %le_prev = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %node, ptr %le_prev, align 8
   br label %if.end28
 
@@ -212,7 +209,7 @@ entry:
   br i1 %cmp.not18, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi ptr [ %8, %for.inc ], [ %0, %entry ]
+  %1 = phi ptr [ %7, %for.inc ], [ %0, %entry ]
   %elem.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %clocks, %entry ]
   %offset = getelementptr inbounds i8, ptr %elem.019, i64 32
   %2 = load i64, ptr %offset, align 8
@@ -227,9 +224,8 @@ if.end:                                           ; preds = %for.body
   %add.ptr = getelementptr i8, ptr %dev, i64 %2
   %is_output = getelementptr inbounds i8, ptr %elem.019, i64 8
   %3 = load i8, ptr %is_output, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end.i, label %qdev_init_clock_out.exit
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %qdev_init_clock_out.exit, label %if.end.i
 
 qdev_init_clock_out.exit:                         ; preds = %if.end
   %call.i = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
@@ -237,17 +233,17 @@ qdev_init_clock_out.exit:                         ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %callback = getelementptr inbounds i8, ptr %elem.019, i64 16
-  %5 = load ptr, ptr %callback, align 8
+  %4 = load ptr, ptr %callback, align 8
   %callback_events = getelementptr inbounds i8, ptr %elem.019, i64 24
-  %6 = load i32, ptr %callback_events, align 8
+  %5 = load i32, ptr %callback_events, align 8
   %call.i15 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
-  %tobool1.not.i = icmp eq ptr %5, null
+  %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %for.inc, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %clock.i16 = getelementptr inbounds i8, ptr %call.i15, i64 8
-  %7 = load ptr, ptr %clock.i16, align 8
-  tail call void @clock_set_callback(ptr noundef %7, ptr noundef nonnull %5, ptr noundef %dev, i32 noundef %6) #6
+  %6 = load ptr, ptr %clock.i16, align 8
+  tail call void @clock_set_callback(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %dev, i32 noundef %5) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then2.i, %if.end.i, %qdev_init_clock_out.exit
@@ -256,8 +252,8 @@ for.inc:                                          ; preds = %if.then2.i, %if.end
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %add.ptr, align 8
   %incdec.ptr = getelementptr i8, ptr %elem.019, i64 40
-  %8 = load ptr, ptr %incdec.ptr, align 8
-  %cmp.not = icmp eq ptr %8, null
+  %7 = load ptr, ptr %incdec.ptr, align 8
+  %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -302,9 +298,8 @@ if.then2:                                         ; preds = %for.inc.i, %if.end
 if.end4:                                          ; preds = %for.body.i
   %output = getelementptr inbounds i8, ptr %ncl.06.i, i64 16
   %1 = load i8, ptr %output, align 8
-  %2 = and i8 %1, 1
-  %tobool5.not = icmp eq i8 %2, 0
-  br i1 %tobool5.not, label %if.end8, label %if.else7
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 172, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_in) #7
@@ -312,8 +307,8 @@ if.else7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   %clock = getelementptr inbounds i8, ptr %ncl.06.i, i64 8
-  %3 = load ptr, ptr %clock, align 8
-  ret ptr %3
+  %2 = load ptr, ptr %clock, align 8
+  ret ptr %2
 }
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
@@ -361,9 +356,8 @@ if.then2:                                         ; preds = %for.inc.i, %if.end
 if.end4:                                          ; preds = %for.body.i
   %output = getelementptr inbounds i8, ptr %ncl.06.i, i64 16
   %1 = load i8, ptr %output, align 8
-  %2 = and i8 %1, 1
-  %tobool5.not = icmp eq i8 %2, 0
-  br i1 %tobool5.not, label %if.else7, label %if.end8
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_out) #7
@@ -371,8 +365,8 @@ if.else7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   %clock = getelementptr inbounds i8, ptr %ncl.06.i, i64 8
-  %3 = load ptr, ptr %clock, align 8
-  ret ptr %3
+  %2 = load ptr, ptr %clock, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -403,13 +397,12 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 qdev_get_clocklist.exit:                          ; preds = %for.body.i
   %output = getelementptr inbounds i8, ptr %ncl.06.i, i64 16
   %1 = load i8, ptr %output, align 8
-  %2 = and i8 %1, 1
-  %tobool2 = icmp ne i8 %2, 0
+  %tobool2 = trunc i8 %1 to i1
   %clock = getelementptr inbounds i8, ptr %ncl.06.i, i64 8
+  %2 = load ptr, ptr %clock, align 8
+  %call3 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %alias_dev, ptr noundef nonnull %alias_name, i1 noundef zeroext %tobool2, ptr noundef %2)
   %3 = load ptr, ptr %clock, align 8
-  %call3 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %alias_dev, ptr noundef nonnull %alias_name, i1 noundef zeroext %tobool2, ptr noundef %3)
-  %4 = load ptr, ptr %clock, align 8
-  ret ptr %4
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -417,9 +410,8 @@ define dso_local void @qdev_connect_clock_in(ptr noundef %dev, ptr noundef %name
 entry:
   %realized = getelementptr inbounds i8, ptr %dev, i64 56
   %0 = load i8, ptr %realized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.else
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_connect_clock_in) #7

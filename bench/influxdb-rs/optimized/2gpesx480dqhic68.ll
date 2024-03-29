@@ -420,8 +420,8 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 .noexc111:                                        ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %78 = load i64, ptr %12, align 8, !range !84, !alias.scope !81, !noalias !85, !noundef !4
-  %trunc.not.i.i.i = icmp eq i64 %78, 0
-  br i1 %trunc.not.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h01d1a87e697a2897E.llvm.3086495437288348183.exit.thread.i.i", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h01d1a87e697a2897E.llvm.3086495437288348183.exit.i.i"
+  %trunc.i.i.i = trunc i64 %78 to i1
+  br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h01d1a87e697a2897E.llvm.3086495437288348183.exit.i.i", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h01d1a87e697a2897E.llvm.3086495437288348183.exit.thread.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h01d1a87e697a2897E.llvm.3086495437288348183.exit.thread.i.i": ; preds = %.noexc111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !71
@@ -588,7 +588,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit120": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i117", %105
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
-  %127 = icmp ne i8 %.0.val, 0
+  %127 = trunc i8 %.0.val to i1
   invoke void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$10write_bool17h294c2e36a4c888a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %18, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %127)
           to label %128 unwind label %37
 
@@ -7054,7 +7054,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i", %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
-  %74 = icmp ne i8 %.0.val, 0
+  %74 = trunc i8 %.0.val to i1
   invoke void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$10write_bool17h294c2e36a4c888a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %18, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %74)
           to label %75 unwind label %35
 
@@ -9581,7 +9581,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %127
 
 316:                                              ; preds = %288
-  %317 = icmp ne i8 %290, 0
+  %317 = trunc i8 %290 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !2079)
@@ -9682,7 +9682,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %127
 
 344:                                              ; preds = %318
-  %345 = icmp ne i8 %320, 0
+  %345 = trunc i8 %320 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !2085)
@@ -10756,7 +10756,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %127
 
 316:                                              ; preds = %288
-  %317 = icmp ne i8 %290, 0
+  %317 = trunc i8 %290 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !2278)
@@ -10857,7 +10857,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %127
 
 344:                                              ; preds = %318
-  %345 = icmp ne i8 %320, 0
+  %345 = trunc i8 %320 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !2284)
@@ -11423,7 +11423,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
   %98 = getelementptr inbounds i8, ptr %.sroa.0377.0462, i64 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
   %99 = load i8, ptr %.sroa.0377.0462, align 1, !range !2395, !noundef !4
-  %100 = icmp ne i8 %99, 0
+  %100 = trunc i8 %99 to i1
   invoke void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$10write_bool17h294c2e36a4c888a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %35, ptr noalias noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %100)
           to label %267 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -18726,7 +18726,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
   %127 = getelementptr inbounds i8, ptr %1, i64 4
   %128 = load i8, ptr %127, align 4, !range !2395, !noundef !4
-  %129 = icmp ne i8 %128, 0
+  %129 = trunc i8 %128 to i1
   invoke void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$10write_bool17h294c2e36a4c888a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %21, ptr noalias noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %129)
           to label %130 unwind label %41
 
@@ -18816,7 +18816,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   %152 = getelementptr inbounds i8, ptr %1, i64 5
   %153 = load i8, ptr %152, align 1, !range !2395, !noundef !4
-  %154 = icmp ne i8 %153, 0
+  %154 = trunc i8 %153 to i1
   invoke void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$10write_bool17h294c2e36a4c888a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %154)
           to label %155 unwind label %41
 
@@ -19104,7 +19104,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i", %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
-  %74 = icmp ne i8 %.0.val, 0
+  %74 = trunc i8 %.0.val to i1
   invoke void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$10write_bool17h294c2e36a4c888a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %18, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %74)
           to label %75 unwind label %35
 
@@ -24212,8 +24212,8 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   store i64 %110, ptr %97, align 8, !alias.scope !4729, !noalias !4727
   store i16 0, ptr %95, align 8, !alias.scope !4724, !noalias !4727
   %111 = load i64, ptr %1, align 8, !range !84, !noundef !4
-  %trunc.not = icmp eq i64 %111, 0
-  br i1 %trunc.not, label %112, label %113
+  %trunc = trunc i64 %111 to i1
+  br i1 %trunc, label %113, label %112
 
 112:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %89)
@@ -24695,7 +24695,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %212
 
 268:                                              ; preds = %222
-  %269 = icmp ne i8 %224, 0
+  %269 = trunc i8 %224 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73), !noalias !4780
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72), !noalias !4780
   call void @llvm.experimental.noalias.scope.decl(metadata !4912)
@@ -25457,7 +25457,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %452
 
 508:                                              ; preds = %462
-  %509 = icmp ne i8 %464, 0
+  %509 = trunc i8 %464 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35), !noalias !5048
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !5048
   call void @llvm.experimental.noalias.scope.decl(metadata !5180)

@@ -132,19 +132,18 @@ define internal ptr @dir_open_for_write(ptr noundef %0, ptr noundef %1, ptr noun
 61:                                               ; preds = %55, %45, %44
   %62 = getelementptr inbounds i8, ptr %0, i64 16
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %.not57 = icmp eq i8 %64, 0
-  br i1 %.not57, label %78, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %78
 
 65:                                               ; preds = %61
   %66 = call i32 @fsync_fname(ptr noundef nonnull %5, i1 noundef zeroext false) #12
-  %.not58 = icmp eq i32 %66, 0
-  br i1 %.not58, label %67, label %69
+  %.not57 = icmp eq i32 %66, 0
+  br i1 %.not57, label %67, label %69
 
 67:                                               ; preds = %65
   %68 = call i32 @fsync_parent_path(ptr noundef nonnull %5) #12
-  %.not59 = icmp eq i32 %68, 0
-  br i1 %.not59, label %78, label %69
+  %.not58 = icmp eq i32 %68, 0
+  br i1 %.not58, label %78, label %69
 
 69:                                               ; preds = %67, %65
   %70 = tail call ptr @__errno_location() #13
@@ -277,9 +276,8 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i8, ptr %56, align 8
-  %58 = and i8 %57, 1
-  %.not42 = icmp eq i8 %58, 0
-  br i1 %.not42, label %61, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %61
 
 59:                                               ; preds = %28
   %60 = call i32 @durable_rename(ptr noundef nonnull %3, ptr noundef nonnull %4) #12
@@ -287,8 +285,8 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
 
 61:                                               ; preds = %28
   %62 = call i32 @rename(ptr noundef nonnull %3, ptr noundef nonnull %4) #12
-  %.not43 = icmp eq i32 %62, 0
-  br i1 %.not43, label %.thread51, label %63
+  %.not41 = icmp eq i32 %62, 0
+  br i1 %.not41, label %.thread49, label %63
 
 63:                                               ; preds = %61
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
@@ -307,8 +305,8 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
   %74 = icmp eq i32 %72, 2
   %75 = select i1 %74, ptr @.str.5, ptr @.str.6
   %76 = select i1 %73, ptr @.str.4, ptr %75
-  %.not.i45 = icmp eq ptr %69, null
-  %77 = select i1 %.not.i45, ptr @.str.6, ptr %69
+  %.not.i43 = icmp eq ptr %69, null
+  %77 = select i1 %.not.i43, ptr @.str.6, ptr %69
   %78 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %70, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %67, ptr noundef nonnull %76, ptr noundef nonnull %77) #12
   %79 = getelementptr inbounds i8, ptr %5, i64 40
   %80 = load ptr, ptr %79, align 8
@@ -321,9 +319,8 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = load i8, ptr %85, align 8
-  %87 = and i8 %86, 1
-  %.not41 = icmp eq i8 %87, 0
-  br i1 %.not41, label %.thread51, label %88
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %.thread49
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds i8, ptr %0, i64 32
@@ -339,20 +336,20 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
 
 96:                                               ; preds = %59, %93, %64
   %.1 = phi i32 [ %60, %59 ], [ %82, %64 ], [ %95, %93 ]
-  %.not44 = icmp eq i32 %.1, 0
-  br i1 %.not44, label %.thread51, label %.thread
+  %.not42 = icmp eq i32 %.1, 0
+  br i1 %.not42, label %.thread49, label %.thread
 
 .thread:                                          ; preds = %22, %88, %63, %96
-  %.148 = phi i32 [ %.1, %96 ], [ %.0, %22 ], [ %91, %88 ], [ -1, %63 ]
+  %.146 = phi i32 [ %.1, %96 ], [ %.0, %22 ], [ %91, %88 ], [ -1, %63 ]
   %97 = tail call ptr @__errno_location() #13
   %98 = load i32, ptr %97, align 4
   %99 = load ptr, ptr %0, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 32
   store i32 %98, ptr %100, align 8
-  br label %.thread51
+  br label %.thread49
 
-.thread51:                                        ; preds = %83, %61, %.thread, %96
-  %.149 = phi i32 [ %.148, %.thread ], [ 0, %96 ], [ 0, %61 ], [ 0, %83 ]
+.thread49:                                        ; preds = %83, %61, %.thread, %96
+  %.147 = phi i32 [ %.146, %.thread ], [ 0, %96 ], [ 0, %61 ], [ 0, %83 ]
   %101 = getelementptr inbounds i8, ptr %0, i64 16
   %102 = load ptr, ptr %101, align 8
   call void @pg_free(ptr noundef %102) #12
@@ -363,7 +360,7 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
   %106 = load ptr, ptr %105, align 8
   call void @pg_free(ptr noundef %106) #12
   call void @pg_free(ptr noundef nonnull %0) #12
-  ret i32 %.149
+  ret i32 %.147
 }
 
 ; Function Attrs: nounwind uwtable
@@ -500,9 +497,8 @@ define internal i32 @dir_sync(ptr nocapture noundef readonly %0) #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %27, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %27
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %6, i64 8
@@ -514,8 +510,8 @@ define internal i32 @dir_sync(ptr nocapture noundef readonly %0) #0 {
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @gzflush(ptr noundef %16, i32 noundef 2) #12
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %18, label %.sink.split
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %18, label %.sink.split
 
 18:                                               ; preds = %14, %10
   %19 = getelementptr inbounds i8, ptr %0, i64 24
@@ -546,16 +542,15 @@ define internal noundef zeroext i1 @dir_finish(ptr nocapture noundef %0) #0 {
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %14, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @fsync_fname(ptr noundef %9, i1 noundef zeroext true) #12
-  %.not7 = icmp eq i32 %10, 0
-  br i1 %.not7, label %14, label %11
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %7
   %12 = tail call ptr @__errno_location() #13
@@ -1096,15 +1091,14 @@ tar_write_padding_data.exit:                      ; preds = %.lr.ph.i
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load i8, ptr %138, align 8
-  %140 = and i8 %139, 1
-  %.not.i77 = icmp eq i8 %140, 0
-  br i1 %.not.i77, label %158, label %141
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %141, label %158
 
 141:                                              ; preds = %132
   %142 = getelementptr inbounds i8, ptr %137, i64 8
   %143 = load i32, ptr %142, align 8
-  %.not9.i = icmp eq i32 %143, 0
-  br i1 %.not9.i, label %144, label %158
+  %.not.i77 = icmp eq i32 %143, 0
+  br i1 %.not.i77, label %144, label %158
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds i8, ptr %133, i64 48
@@ -1305,15 +1299,14 @@ define internal i32 @tar_sync(ptr nocapture noundef readonly %0) #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %23, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load i32, ptr %11, align 8
-  %.not9 = icmp eq i32 %12, 0
-  br i1 %.not9, label %13, label %23
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %23
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %2, i64 48
@@ -1372,8 +1365,8 @@ define internal noundef zeroext i1 @tar_finish(ptr nocapture noundef %0) #0 {
 
 17:                                               ; preds = %12
   %18 = load i32, ptr %13, align 4
-  %.not52 = icmp eq i32 %18, 0
-  %spec.select = select i1 %.not52, i32 28, i32 %18
+  %.not50 = icmp eq i32 %18, 0
+  %spec.select = select i1 %.not50, i32 28, i32 %18
   store i32 %spec.select, ptr %4, align 8
   br label %tar_write_compressed_data.exit
 
@@ -1486,8 +1479,8 @@ split:                                            ; preds = %.split.i, %._crit_e
 73:                                               ; preds = %66
   %74 = load i32, ptr %69, align 4
   %.not44 = icmp eq i32 %74, 0
-  %spec.select53 = select i1 %.not44, i32 28, i32 %74
-  store i32 %spec.select53, ptr %4, align 8
+  %spec.select51 = select i1 %.not44, i32 28, i32 %74
+  store i32 %spec.select51, ptr %4, align 8
   br label %tar_write_compressed_data.exit
 
 75:                                               ; preds = %66, %61
@@ -1507,16 +1500,15 @@ split:                                            ; preds = %.split.i, %._crit_e
 81:                                               ; preds = %9, %77, %12
   %82 = getelementptr inbounds i8, ptr %0, i64 16
   %83 = load i8, ptr %82, align 8
-  %84 = and i8 %83, 1
-  %.not46 = icmp eq i8 %84, 0
-  br i1 %.not46, label %92, label %85
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %92
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds i8, ptr %0, i64 48
   %87 = load i32, ptr %86, align 8
   %88 = call i32 @fsync(i32 noundef %87) #12
-  %.not47 = icmp eq i32 %88, 0
-  br i1 %.not47, label %92, label %89
+  %.not46 = icmp eq i32 %88, 0
+  br i1 %.not46, label %92, label %89
 
 89:                                               ; preds = %85
   %90 = tail call ptr @__errno_location() #13
@@ -1528,8 +1520,8 @@ split:                                            ; preds = %.split.i, %._crit_e
   %93 = getelementptr inbounds i8, ptr %0, i64 48
   %94 = load i32, ptr %93, align 8
   %95 = call i32 @close(i32 noundef %94) #12
-  %.not48 = icmp eq i32 %95, 0
-  br i1 %.not48, label %99, label %96
+  %.not47 = icmp eq i32 %95, 0
+  br i1 %.not47, label %99, label %96
 
 96:                                               ; preds = %92
   %97 = tail call ptr @__errno_location() #13
@@ -1540,22 +1532,21 @@ split:                                            ; preds = %.split.i, %._crit_e
 99:                                               ; preds = %92
   store i32 -1, ptr %93, align 8
   %100 = load i8, ptr %82, align 8
-  %101 = and i8 %100, 1
-  %.not49 = icmp eq i8 %101, 0
-  br i1 %.not49, label %tar_write_compressed_data.exit, label %102
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %tar_write_compressed_data.exit
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds i8, ptr %0, i64 40
   %104 = load ptr, ptr %103, align 8
   %105 = call i32 @fsync_fname(ptr noundef %104, i1 noundef zeroext false) #12
-  %.not50 = icmp eq i32 %105, 0
-  br i1 %.not50, label %106, label %109
+  %.not48 = icmp eq i32 %105, 0
+  br i1 %.not48, label %106, label %109
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %103, align 8
   %108 = call i32 @fsync_parent_path(ptr noundef %107) #12
-  %.not51 = icmp eq i32 %108, 0
-  br i1 %.not51, label %tar_write_compressed_data.exit, label %109
+  %.not49 = icmp eq i32 %108, 0
+  br i1 %.not49, label %tar_write_compressed_data.exit, label %109
 
 109:                                              ; preds = %106, %102
   %110 = tail call ptr @__errno_location() #13

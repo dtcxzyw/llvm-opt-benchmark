@@ -1918,27 +1918,27 @@ if.then37:                                        ; preds = %if.end34
 if.end39:                                         ; preds = %if.then37, %if.end34
   %packed_.i = getelementptr inbounds i8, ptr %from_msg, i64 88
   %47 = load i8, ptr %packed_.i, align 8
-  %48 = and i8 %47, 1
-  %tobool.i.not = icmp eq i8 %48, 0
-  br i1 %tobool.i.not, label %if.end44, label %if.then42
+  %tobool.i = trunc i8 %47 to i1
+  br i1 %tobool.i, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.end39
   %packed_43 = getelementptr inbounds i8, ptr %to_msg, i64 88
-  store i8 %48, ptr %packed_43, align 8
+  %frombool = and i8 %47, 1
+  store i8 %frombool, ptr %packed_43, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end39
   %_internal_metadata_45 = getelementptr inbounds i8, ptr %from_msg, i64 8
-  %49 = load i64, ptr %_internal_metadata_45, align 8
-  %and.i71 = and i64 %49, 1
+  %48 = load i64, ptr %_internal_metadata_45, align 8
+  %and.i71 = and i64 %48, 1
   %tobool.i72.not = icmp eq i64 %and.i71, 0
   br i1 %tobool.i72.not, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, label %if.then.i51
 
 if.then.i51:                                      ; preds = %if.end44
   %_internal_metadata_ = getelementptr inbounds i8, ptr %to_msg, i64 8
-  %and.i = and i64 %49, -2
-  %50 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds i8, ptr %50, i64 8
+  %and.i = and i64 %48, -2
+  %49 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %49, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
@@ -2295,28 +2295,27 @@ if.end43:                                         ; preds = %_ZN6google8protobuf
   %target.addr.5 = phi ptr [ %incdec.ptr2.i.i.i.i102, %_ZN6google8protobuf8internal14WireFormatLite26WriteInt32ToArrayWithFieldILi7EEEPhPNS0_2io19EpsCopyOutputStreamEiS4_.exit ], [ %target.addr.4, %if.end37 ]
   %packed_.i = getelementptr inbounds i8, ptr %this, i64 88
   %28 = load i8, ptr %packed_.i, align 8
-  %29 = and i8 %28, 1
-  %tobool.i.not = icmp eq i8 %29, 0
-  br i1 %tobool.i.not, label %if.end51, label %if.then47
+  %tobool.i = trunc i8 %28 to i1
+  br i1 %tobool.i, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end43
-  %30 = load ptr, ptr %stream, align 8
-  %cmp.not.i110 = icmp ugt ptr %30, %target.addr.5
+  %29 = load ptr, ptr %stream, align 8
+  %cmp.not.i110 = icmp ugt ptr %29, %target.addr.5
   br i1 %cmp.not.i110, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit114, label %if.then.i111
 
 if.then.i111:                                     ; preds = %if.then47
   %call.i112 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %stream, ptr noundef %target.addr.5)
   %.pre = load i8, ptr %packed_.i, align 8
-  %.pre168 = and i8 %.pre, 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit114
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit114: ; preds = %if.then47, %if.then.i111
-  %.pre-phi = phi i8 [ 1, %if.then47 ], [ %.pre168, %if.then.i111 ]
-  %retval.0.i113 = phi ptr [ %target.addr.5, %if.then47 ], [ %call.i112, %if.then.i111 ]
+  %30 = phi i8 [ %.pre, %if.then.i111 ], [ %28, %if.then47 ]
+  %retval.0.i113 = phi ptr [ %call.i112, %if.then.i111 ], [ %target.addr.5, %if.then47 ]
   %incdec.ptr2.i.i117 = getelementptr inbounds i8, ptr %retval.0.i113, i64 1
   store i8 64, ptr %retval.0.i113, align 1
+  %conv1.i.i = and i8 %30, 1
   %incdec.ptr2.i.i118 = getelementptr inbounds i8, ptr %retval.0.i113, i64 2
-  store i8 %.pre-phi, ptr %incdec.ptr2.i.i117, align 1
+  store i8 %conv1.i.i, ptr %incdec.ptr2.i.i117, align 1
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit114, %if.end43
@@ -2697,10 +2696,9 @@ if.end69:                                         ; preds = %if.then65, %if.end6
   %total_size.8 = phi i64 [ %add68, %if.then65 ], [ %total_size.7, %if.end62 ]
   %packed_.i = getelementptr inbounds i8, ptr %this, i64 88
   %47 = load i8, ptr %packed_.i, align 8
-  %48 = shl i8 %47, 1
-  %49 = and i8 %48, 2
-  %50 = zext nneg i8 %49 to i64
-  %spec.select = add i64 %total_size.8, %50
+  %tobool.i = trunc i8 %47 to i1
+  %add74 = add i64 %total_size.8, 2
+  %spec.select = select i1 %tobool.i, i64 %add74, i64 %total_size.8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 92
   %call76 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %spec.select, ptr noundef nonnull %_cached_size_)
   ret i64 %call76

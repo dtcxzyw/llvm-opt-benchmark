@@ -106,7 +106,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.0102 = phi ptr [ null, %2 ], [ %.0102.be, %.backedge ]
   %.0100 = phi ptr [ null, %2 ], [ %.0100.be, %.backedge ]
   %.098 = phi i32 [ 0, %2 ], [ %.098.be, %.backedge ]
-  %.096 = phi i8 [ 0, %2 ], [ %.096.be, %.backedge ]
+  %.096 = phi i1 [ false, %2 ], [ %.096.be, %.backedge ]
   %.094 = phi ptr [ null, %2 ], [ %.094.be, %.backedge ]
   %.092 = phi ptr [ null, %2 ], [ %.092.be, %.backedge ]
   %.090 = phi ptr [ null, %2 ], [ %.090.be, %.backedge ]
@@ -147,7 +147,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.0102.be = phi ptr [ %.0102, %56 ], [ %.0102, %53 ], [ %.0102, %50 ], [ %.0102, %47 ], [ %.0102, %44 ], [ %.0102, %41 ], [ %.0102, %40 ], [ %.0102, %39 ], [ %.0102, %36 ], [ %.0102, %33 ], [ %.0102, %30 ], [ %29, %27 ], [ %.0102, %24 ], [ %.0102, %21 ], [ %.0102, %18 ], [ %.0102, %15 ], [ %.0102, %12 ], [ %.0102, %10 ]
   %.0100.be = phi ptr [ %.0100, %56 ], [ %.0100, %53 ], [ %.0100, %50 ], [ %.0100, %47 ], [ %.0100, %44 ], [ %.0100, %41 ], [ %.0100, %40 ], [ %.0100, %39 ], [ %38, %36 ], [ %.0100, %33 ], [ %.0100, %30 ], [ %.0100, %27 ], [ %.0100, %24 ], [ %.0100, %21 ], [ %.0100, %18 ], [ %.0100, %15 ], [ %.0100, %12 ], [ %.0100, %10 ]
   %.098.be = phi i32 [ %.098, %56 ], [ %.098, %53 ], [ %.098, %50 ], [ %.098, %47 ], [ %.098, %44 ], [ %.098, %41 ], [ 2, %40 ], [ 1, %39 ], [ %.098, %36 ], [ %.098, %33 ], [ %.098, %30 ], [ %.098, %27 ], [ %.098, %24 ], [ %.098, %21 ], [ %.098, %18 ], [ %.098, %15 ], [ %.098, %12 ], [ %.098, %10 ]
-  %.096.be = phi i8 [ %.096, %56 ], [ %.096, %53 ], [ %.096, %50 ], [ %.096, %47 ], [ %.096, %44 ], [ %.096, %41 ], [ %.096, %40 ], [ %.096, %39 ], [ %.096, %36 ], [ %.096, %33 ], [ %.096, %30 ], [ %.096, %27 ], [ %.096, %24 ], [ %.096, %21 ], [ %.096, %18 ], [ %.096, %15 ], [ %.096, %12 ], [ 1, %10 ]
+  %.096.be = phi i1 [ %.096, %56 ], [ %.096, %53 ], [ %.096, %50 ], [ %.096, %47 ], [ %.096, %44 ], [ %.096, %41 ], [ %.096, %40 ], [ %.096, %39 ], [ %.096, %36 ], [ %.096, %33 ], [ %.096, %30 ], [ %.096, %27 ], [ %.096, %24 ], [ %.096, %21 ], [ %.096, %18 ], [ %.096, %15 ], [ %.096, %12 ], [ true, %10 ]
   %.094.be = phi ptr [ %.094, %56 ], [ %.094, %53 ], [ %.094, %50 ], [ %.094, %47 ], [ %.094, %44 ], [ %.094, %41 ], [ %.094, %40 ], [ %.094, %39 ], [ %.094, %36 ], [ %.094, %33 ], [ %.094, %30 ], [ %.094, %27 ], [ %26, %24 ], [ %.094, %21 ], [ %.094, %18 ], [ %.094, %15 ], [ %.094, %12 ], [ %.094, %10 ]
   %.092.be = phi ptr [ %.092, %56 ], [ %.092, %53 ], [ %.092, %50 ], [ %.092, %47 ], [ %.092, %44 ], [ %.092, %41 ], [ %.092, %40 ], [ %.092, %39 ], [ %.092, %36 ], [ %.092, %33 ], [ %.092, %30 ], [ %.092, %27 ], [ %.092, %24 ], [ %.092, %21 ], [ %.092, %18 ], [ %.092, %15 ], [ %14, %12 ], [ %.092, %10 ]
   %.090.be = phi ptr [ %.090, %56 ], [ %.090, %53 ], [ %.090, %50 ], [ %.090, %47 ], [ %.090, %44 ], [ %.090, %41 ], [ %.090, %40 ], [ %.090, %39 ], [ %.090, %36 ], [ %35, %33 ], [ %.090, %30 ], [ %.090, %27 ], [ %.090, %24 ], [ %.090, %21 ], [ %.090, %18 ], [ %.090, %15 ], [ %.090, %12 ], [ %.090, %10 ]
@@ -340,167 +340,166 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i32 %.098, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %103, align 8
-  %104 = icmp ne i8 %.096, 0
-  %105 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %104) #7
+  %104 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.096) #7
   call void @initPQExpBuffer(ptr noundef nonnull %5) #7
-  %106 = call ptr @fmtId(ptr noundef %.1) #7
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.28, ptr noundef %106) #7
+  %105 = call ptr @fmtId(ptr noundef %.1) #7
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.28, ptr noundef %105) #7
   %.not115 = icmp eq ptr %.094, null
-  br i1 %.not115, label %109, label %107
+  br i1 %.not115, label %108, label %106
 
-107:                                              ; preds = %98
-  %108 = call ptr @fmtId(ptr noundef nonnull %.094) #7
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef %108) #7
-  br label %109
+106:                                              ; preds = %98
+  %107 = call ptr @fmtId(ptr noundef nonnull %.094) #7
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef %107) #7
+  br label %108
 
-109:                                              ; preds = %107, %98
+108:                                              ; preds = %106, %98
   %.not116 = icmp eq ptr %.092, null
-  br i1 %.not116, label %112, label %110
+  br i1 %.not116, label %111, label %109
 
-110:                                              ; preds = %109
-  %111 = call ptr @fmtId(ptr noundef nonnull %.092) #7
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.30, ptr noundef %111) #7
-  br label %112
+109:                                              ; preds = %108
+  %110 = call ptr @fmtId(ptr noundef nonnull %.092) #7
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.30, ptr noundef %110) #7
+  br label %111
 
-112:                                              ; preds = %110, %109
-  br i1 %.not112, label %114, label %113
+111:                                              ; preds = %109, %108
+  br i1 %.not112, label %113, label %112
 
-113:                                              ; preds = %112
+112:                                              ; preds = %111
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.31) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.088, ptr noundef %105) #7
-  br label %114
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.088, ptr noundef %104) #7
+  br label %113
 
-114:                                              ; preds = %113, %112
+113:                                              ; preds = %112, %111
   %.not117 = icmp eq ptr %.086, null
-  br i1 %.not117, label %117, label %115
+  br i1 %.not117, label %116, label %114
 
-115:                                              ; preds = %114
-  %116 = call ptr @fmtId(ptr noundef nonnull %.086) #7
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.32, ptr noundef %116) #7
-  br label %117
+114:                                              ; preds = %113
+  %115 = call ptr @fmtId(ptr noundef nonnull %.086) #7
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.32, ptr noundef %115) #7
+  br label %116
 
-117:                                              ; preds = %115, %114
+116:                                              ; preds = %114, %113
   %.not118 = icmp eq ptr %.090, null
-  br i1 %.not118, label %120, label %118
+  br i1 %.not118, label %119, label %117
 
-118:                                              ; preds = %117
-  %119 = call ptr @fmtId(ptr noundef nonnull %.090) #7
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.33, ptr noundef %119) #7
-  br label %120
+117:                                              ; preds = %116
+  %118 = call ptr @fmtId(ptr noundef nonnull %.090) #7
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.33, ptr noundef %118) #7
+  br label %119
 
-120:                                              ; preds = %118, %117
+119:                                              ; preds = %117, %116
   %.not119 = icmp eq ptr %.080, null
-  br i1 %.not119, label %122, label %121
+  br i1 %.not119, label %121, label %120
 
-121:                                              ; preds = %120
+120:                                              ; preds = %119
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.34) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.080, ptr noundef %105) #7
-  br label %122
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.080, ptr noundef %104) #7
+  br label %121
 
-122:                                              ; preds = %121, %120
+121:                                              ; preds = %120, %119
   %.not120 = icmp eq ptr %.084, null
-  br i1 %.not120, label %124, label %123
+  br i1 %.not120, label %123, label %122
 
-123:                                              ; preds = %122
+122:                                              ; preds = %121
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.35) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.084, ptr noundef %105) #7
-  br label %124
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.084, ptr noundef %104) #7
+  br label %123
 
-124:                                              ; preds = %123, %122
+123:                                              ; preds = %122, %121
   %.not121 = icmp eq ptr %.082, null
-  br i1 %.not121, label %126, label %125
+  br i1 %.not121, label %125, label %124
 
-125:                                              ; preds = %124
+124:                                              ; preds = %123
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.36) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.082, ptr noundef %105) #7
-  br label %126
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.082, ptr noundef %104) #7
+  br label %125
 
-126:                                              ; preds = %125, %124
+125:                                              ; preds = %124, %123
   %.not122 = icmp eq ptr %.078, null
-  br i1 %.not122, label %128, label %127
+  br i1 %.not122, label %127, label %126
 
-127:                                              ; preds = %126
+126:                                              ; preds = %125
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.37, ptr noundef nonnull %.078) #7
-  br label %128
+  br label %127
 
-128:                                              ; preds = %127, %126
+127:                                              ; preds = %126, %125
   %.not123 = icmp eq ptr %.076, null
-  br i1 %.not123, label %130, label %129
+  br i1 %.not123, label %129, label %128
 
-129:                                              ; preds = %128
+128:                                              ; preds = %127
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.38) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.076, ptr noundef %105) #7
-  br label %130
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.076, ptr noundef %104) #7
+  br label %129
 
-130:                                              ; preds = %129, %128
+129:                                              ; preds = %128, %127
   %.not124 = icmp eq ptr %.074, null
-  br i1 %.not124, label %132, label %131
+  br i1 %.not124, label %131, label %130
 
-131:                                              ; preds = %130
+130:                                              ; preds = %129
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.39) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.074, ptr noundef %105) #7
-  br label %132
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.074, ptr noundef %104) #7
+  br label %131
 
-132:                                              ; preds = %131, %130
+131:                                              ; preds = %130, %129
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 59) #7
-  br i1 %104, label %133, label %136
+  br i1 %.096, label %132, label %135
 
-133:                                              ; preds = %132
-  %134 = load ptr, ptr %5, align 8
-  %135 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40, ptr noundef %134) #7
-  br label %136
+132:                                              ; preds = %131
+  %133 = load ptr, ptr %5, align 8
+  %134 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40, ptr noundef %133) #7
+  br label %135
 
-136:                                              ; preds = %133, %132
-  %137 = load ptr, ptr %5, align 8
-  %138 = call ptr @PQexec(ptr noundef %105, ptr noundef %137) #7
-  %139 = call i32 @PQresultStatus(ptr noundef %138) #7
-  %.not125 = icmp eq i32 %139, 1
-  br i1 %.not125, label %142, label %140
+135:                                              ; preds = %132, %131
+  %136 = load ptr, ptr %5, align 8
+  %137 = call ptr @PQexec(ptr noundef %104, ptr noundef %136) #7
+  %138 = call i32 @PQresultStatus(ptr noundef %137) #7
+  %.not125 = icmp eq i32 %138, 1
+  br i1 %.not125, label %141, label %139
 
-140:                                              ; preds = %136
-  %141 = call ptr @PQerrorMessage(ptr noundef %105) #7
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef %141) #7
-  call void @PQfinish(ptr noundef %105) #7
+139:                                              ; preds = %135
+  %140 = call ptr @PQerrorMessage(ptr noundef %104) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef %140) #7
+  call void @PQfinish(ptr noundef %104) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
-142:                                              ; preds = %136
-  call void @PQclear(ptr noundef %138) #7
+141:                                              ; preds = %135
+  call void @PQclear(ptr noundef %137) #7
   %.not126 = icmp eq ptr %.0106, null
-  br i1 %.not126, label %155, label %143
+  br i1 %.not126, label %154, label %142
 
-143:                                              ; preds = %142
-  %144 = call ptr @fmtId(ptr noundef %.1) #7
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.42, ptr noundef %144) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.0106, ptr noundef %105) #7
+142:                                              ; preds = %141
+  %143 = call ptr @fmtId(ptr noundef %.1) #7
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.42, ptr noundef %143) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.0106, ptr noundef %104) #7
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 59) #7
-  br i1 %104, label %145, label %148
+  br i1 %.096, label %144, label %147
 
-145:                                              ; preds = %143
-  %146 = load ptr, ptr %5, align 8
-  %147 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40, ptr noundef %146) #7
-  br label %148
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %5, align 8
+  %146 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40, ptr noundef %145) #7
+  br label %147
 
-148:                                              ; preds = %145, %143
-  %149 = load ptr, ptr %5, align 8
-  %150 = call ptr @PQexec(ptr noundef %105, ptr noundef %149) #7
-  %151 = call i32 @PQresultStatus(ptr noundef %150) #7
-  %.not127 = icmp eq i32 %151, 1
-  br i1 %.not127, label %154, label %152
+147:                                              ; preds = %144, %142
+  %148 = load ptr, ptr %5, align 8
+  %149 = call ptr @PQexec(ptr noundef %104, ptr noundef %148) #7
+  %150 = call i32 @PQresultStatus(ptr noundef %149) #7
+  %.not127 = icmp eq i32 %150, 1
+  br i1 %.not127, label %153, label %151
 
-152:                                              ; preds = %148
-  %153 = call ptr @PQerrorMessage(ptr noundef %105) #7
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, ptr noundef %153) #7
-  call void @PQfinish(ptr noundef %105) #7
+151:                                              ; preds = %147
+  %152 = call ptr @PQerrorMessage(ptr noundef %104) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, ptr noundef %152) #7
+  call void @PQfinish(ptr noundef %104) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
-154:                                              ; preds = %148
-  call void @PQclear(ptr noundef %150) #7
-  br label %155
+153:                                              ; preds = %147
+  call void @PQclear(ptr noundef %149) #7
+  br label %154
 
-155:                                              ; preds = %154, %142
-  call void @PQfinish(ptr noundef %105) #7
+154:                                              ; preds = %153, %141
+  call void @PQfinish(ptr noundef %104) #7
   call void @exit(i32 noundef 0) #8
   unreachable
 }

@@ -129,22 +129,20 @@ define noundef ptr @_ZN5draco26SequentialAttributeDecoder20GetPortableAttributeE
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 100
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %.loopexit
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %.not8 = icmp eq ptr %9, null
-  br i1 %.not8, label %.loopexit, label %10
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %.loopexit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 100
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not9 = icmp eq i8 %13, 0
-  br i1 %.not9, label %.loopexit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %3, i64 72
@@ -189,8 +187,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %32, %34, %36, %
   %39 = load ptr, ptr %2, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 100
   %41 = load i8, ptr %40, align 4
-  %42 = and i8 %41, 1
-  %.not.i310 = icmp eq i8 %42, 0
+  %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds i8, ptr %39, i64 72
   %44 = getelementptr inbounds i8, ptr %39, i64 80
   %45 = load ptr, ptr %44, align 8
@@ -199,43 +196,42 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %32, %34, %36, %
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %50 = and i64 %49, 17179869180
-  %51 = icmp ne i64 %50, 0
-  %52 = select i1 %.not.i310, i1 %51, i1 false
-  br i1 %52, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %.loopexit
+  %51 = icmp eq i64 %50, 0
+  %.not78 = select i1 %42, i1 true, i1 %51
+  br i1 %.not78, label %.loopexit, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ], [ 0, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
-  %53 = phi ptr [ %67, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ], [ %46, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %"class.draco::IndexType.46", ptr %53, i64 %indvars.iv
-  %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %54, i64 72
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %"class.draco::IndexType.46", ptr %58, i64 %indvars.iv
-  store i32 %56, ptr %59, align 4
+  %52 = phi ptr [ %66, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ], [ %46, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %"class.draco::IndexType.46", ptr %52, i64 %indvars.iv
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %53, i64 72
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %"class.draco::IndexType.46", ptr %57, i64 %indvars.iv
+  store i32 %55, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 100
-  %62 = load i8, ptr %61, align 4
-  %63 = and i8 %62, 1
-  %.not.i3 = icmp eq i8 %63, 0
-  %64 = getelementptr inbounds i8, ptr %60, i64 72
-  %65 = getelementptr inbounds i8, ptr %60, i64 80
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %64, align 8
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 100
+  %61 = load i8, ptr %60, align 4
+  %62 = trunc i8 %61 to i1
+  %63 = getelementptr inbounds i8, ptr %59, i64 72
+  %64 = getelementptr inbounds i8, ptr %59, i64 80
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %63, align 8
+  %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %66 to i64
-  %69 = ptrtoint ptr %67 to i64
-  %70 = sub i64 %68, %69
-  %71 = lshr exact i64 %70, 2
-  %72 = and i64 %71, 4294967295
-  %73 = icmp ult i64 %indvars.iv.next, %72
-  %74 = select i1 %.not.i3, i1 %73, i1 false
-  br i1 %74, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %.loopexit, !llvm.loop !4
+  %69 = sub i64 %67, %68
+  %70 = lshr exact i64 %69, 2
+  %71 = and i64 %70, 4294967295
+  %72 = icmp uge i64 %indvars.iv.next, %71
+  %.not7 = select i1 %62, i1 true, i1 %72
+  br i1 %.not7, label %.loopexit, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, %10, %7, %1
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
-  %76 = load ptr, ptr %75, align 8
-  ret ptr %76
+  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = load ptr, ptr %73, align 8
+  ret ptr %74
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

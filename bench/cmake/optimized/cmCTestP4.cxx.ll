@@ -5738,9 +5738,8 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
 31:                                               ; preds = %10, %6, %1
   %32 = getelementptr inbounds i8, ptr %0, i64 72
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %35, label %42
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %42, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 64

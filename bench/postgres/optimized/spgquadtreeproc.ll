@@ -42,9 +42,8 @@ define dso_local noundef i64 @spg_quad_choose(ptr nocapture noundef readonly %0)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 20
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
   store i32 1, ptr %7, align 8
@@ -317,17 +316,16 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   %.0109 = phi ptr [ %2, %31 ], [ %35, %33 ], [ null, %1 ]
   %37 = getelementptr inbounds i8, ptr %6, i64 53
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %.preheader, label %44
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %44, label %.preheader
 
 .preheader:                                       ; preds = %36
   %40 = getelementptr inbounds i8, ptr %6, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph132, label %select.unfold._crit_edge
+  br i1 %42, label %.lr.ph, label %select.unfold._crit_edge
 
-.lr.ph132:                                        ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
   %43 = getelementptr inbounds i8, ptr %3, i64 8
   br label %79
 
@@ -342,20 +340,20 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   store ptr %49, ptr %50, align 8
   %51 = load i32, ptr %45, align 8
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph, label %.loopexit
+  br i1 %52, label %.lr.ph136, label %.loopexit
 
-.lr.ph:                                           ; preds = %44
+.lr.ph136:                                        ; preds = %44
   %53 = getelementptr inbounds i8, ptr %6, i64 40
   %54 = getelementptr inbounds i8, ptr %9, i64 32
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = getelementptr inbounds i8, ptr %9, i64 40
   br label %57
 
-57:                                               ; preds = %.lr.ph, %75
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
+57:                                               ; preds = %.lr.ph136, %75
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next145, %75 ]
   %58 = load ptr, ptr %50, align 8
-  %59 = getelementptr i32, ptr %58, i64 %indvars.iv
-  %60 = trunc i64 %indvars.iv to i32
+  %59 = getelementptr i32, ptr %58, i64 %indvars.iv144
+  %60 = trunc i64 %indvars.iv144 to i32
   store i32 %60, ptr %59, align 4
   %61 = load i32, ptr %13, align 4
   %62 = icmp sgt i32 %61, 0
@@ -368,31 +366,31 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   %66 = call ptr @box_copy(ptr noundef %.0109) #6
   store ptr %65, ptr @CurrentMemoryContext, align 8
   %67 = load ptr, ptr %54, align 8
-  %68 = getelementptr ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr ptr, ptr %67, i64 %indvars.iv144
   store ptr %66, ptr %68, align 8
   %69 = ptrtoint ptr %66 to i64
   %70 = load ptr, ptr %55, align 8
   %71 = load i32, ptr %13, align 4
   %72 = call ptr @spg_key_orderbys_distances(i64 noundef %69, i1 noundef zeroext false, ptr noundef %70, i32 noundef %71) #6
   %73 = load ptr, ptr %56, align 8
-  %74 = getelementptr ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr ptr, ptr %73, i64 %indvars.iv144
   store ptr %72, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %57, %63
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %76 = load i32, ptr %45, align 8
   %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next, %77
+  %78 = icmp slt i64 %indvars.iv.next145, %77
   br i1 %78, label %57, label %.loopexit, !llvm.loop !9
 
-79:                                               ; preds = %.lr.ph132, %.thread
-  %indvars.iv140 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next141, %.thread ]
-  %.0110131 = phi i32 [ 30, %.lr.ph132 ], [ %.1122, %.thread ]
+79:                                               ; preds = %.lr.ph, %.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
+  %.0110129 = phi i32 [ 30, %.lr.ph ], [ %.1121, %.thread ]
   %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr %struct.ScanKeyData, ptr %80, i64 %indvars.iv140, i32 6
+  %81 = getelementptr %struct.ScanKeyData, ptr %80, i64 %indvars.iv, i32 6
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr %struct.ScanKeyData, ptr %80, i64 %indvars.iv140, i32 2
+  %83 = getelementptr %struct.ScanKeyData, ptr %80, i64 %indvars.iv, i32 2
   %84 = load i16, ptr %83, align 2
   switch i16 %84, label %121 [
     i16 1, label %85
@@ -407,13 +405,13 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
 
 85:                                               ; preds = %79
   %86 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %11, i64 noundef %82) #6
-  %.not127 = icmp eq i64 %86, 0
-  br i1 %.not127, label %.thread, label %select.unfold
+  %.not126 = icmp eq i64 %86, 0
+  br i1 %.not126, label %.thread, label %select.unfold
 
 87:                                               ; preds = %79
   %88 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %11, i64 noundef %82) #6
-  %.not126 = icmp eq i64 %88, 0
-  br i1 %.not126, label %.thread, label %select.unfold
+  %.not125 = icmp eq i64 %88, 0
+  br i1 %.not125, label %.thread, label %select.unfold
 
 89:                                               ; preds = %79
   %90 = inttoptr i64 %82 to ptr
@@ -424,18 +422,18 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
 
 94:                                               ; preds = %79, %79
   %95 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %11, i64 noundef %82) #6
-  %.not125 = icmp eq i64 %95, 0
-  br i1 %.not125, label %.thread, label %select.unfold
+  %.not124 = icmp eq i64 %95, 0
+  br i1 %.not124, label %.thread, label %select.unfold
 
 96:                                               ; preds = %79, %79
   %97 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %11, i64 noundef %82) #6
-  %.not124 = icmp eq i64 %97, 0
-  br i1 %.not124, label %.thread, label %select.unfold
+  %.not123 = icmp eq i64 %97, 0
+  br i1 %.not123, label %.thread, label %select.unfold
 
 98:                                               ; preds = %79
   %99 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %82, i64 noundef %11) #6
-  %.not123 = icmp eq i64 %99, 0
-  br i1 %.not123, label %100, label %.thread
+  %.not122 = icmp eq i64 %99, 0
+  br i1 %.not122, label %100, label %.thread
 
 100:                                              ; preds = %98
   %101 = inttoptr i64 %82 to ptr
@@ -468,7 +466,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
   %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %122)
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr %struct.ScanKeyData, ptr %123, i64 %indvars.iv140, i32 2
+  %124 = getelementptr %struct.ScanKeyData, ptr %123, i64 %indvars.iv, i32 2
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
   %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %126) #6
@@ -477,32 +475,32 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
 
 select.unfold:                                    ; preds = %96, %94, %87, %85, %100, %89
   %.pn = phi i32 [ %120, %100 ], [ %93, %89 ], [ 24, %85 ], [ 6, %87 ], [ 12, %94 ], [ 18, %96 ]
-  %.1 = and i32 %.pn, %.0110131
+  %.1 = and i32 %.pn, %.0110129
   %128 = icmp eq i32 %.1, 0
   br i1 %128, label %select.unfold._crit_edge, label %.thread
 
 .thread:                                          ; preds = %96, %94, %87, %85, %98, %select.unfold
-  %.1122 = phi i32 [ %.1, %select.unfold ], [ %.0110131, %98 ], [ %.0110131, %85 ], [ %.0110131, %87 ], [ %.0110131, %94 ], [ %.0110131, %96 ]
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %.1121 = phi i32 [ %.1, %select.unfold ], [ %.0110129, %98 ], [ %.0110129, %85 ], [ %.0110129, %87 ], [ %.0110129, %94 ], [ %.0110129, %96 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %40, align 8
   %130 = sext i32 %129 to i64
-  %131 = icmp slt i64 %indvars.iv.next141, %130
+  %131 = icmp slt i64 %indvars.iv.next, %130
   br i1 %131, label %79, label %select.unfold._crit_edge, !llvm.loop !10
 
 select.unfold._crit_edge:                         ; preds = %.thread, %select.unfold, %.preheader
-  %.2 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.1122, %.thread ]
+  %.2 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.1121, %.thread ]
   %132 = call ptr @palloc(i64 noundef 16) #6
   %133 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %132, ptr %133, align 8
   br label %134
 
 134:                                              ; preds = %select.unfold._crit_edge, %134
-  %indvars.iv143 = phi i64 [ 0, %select.unfold._crit_edge ], [ %indvars.iv.next144, %134 ]
+  %indvars.iv140 = phi i64 [ 0, %select.unfold._crit_edge ], [ %indvars.iv.next141, %134 ]
   %135 = load ptr, ptr %133, align 8
-  %136 = getelementptr i32, ptr %135, i64 %indvars.iv143
+  %136 = getelementptr i32, ptr %135, i64 %indvars.iv140
   store i32 1, ptr %136, align 4
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next144, 4
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next141, 4
   br i1 %exitcond.not, label %137, label %134, !llvm.loop !11
 
 137:                                              ; preds = %134
@@ -522,14 +520,14 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
 
 148:                                              ; preds = %137, %198
   %149 = phi i32 [ 0, %137 ], [ %199, %198 ]
-  %.3135 = phi i32 [ 1, %137 ], [ %200, %198 ]
-  %150 = shl nuw nsw i32 1, %.3135
+  %.3132 = phi i32 [ 1, %137 ], [ %200, %198 ]
+  %150 = shl nuw nsw i32 1, %.3132
   %151 = and i32 %150, %.2
-  %.not114 = icmp eq i32 %151, 0
-  br i1 %.not114, label %198, label %152
+  %.not = icmp eq i32 %151, 0
+  br i1 %.not, label %198, label %152
 
 152:                                              ; preds = %148
-  %153 = add nsw i32 %.3135, -1
+  %153 = add nsw i32 %.3132, -1
   %154 = load ptr, ptr %139, align 8
   %155 = sext i32 %149 to i64
   %156 = getelementptr i32, ptr %154, i64 %155
@@ -543,7 +541,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   %161 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %160, ptr @CurrentMemoryContext, align 8
   %162 = call ptr @palloc(i64 noundef 32) #6
-  switch i32 %.3135, label %getQuadrantArea.exit [
+  switch i32 %.3132, label %getQuadrantArea.exit [
     i32 1, label %163
     i32 2, label %165
     i32 3, label %173
@@ -616,11 +614,11 @@ getQuadrantArea.exit:                             ; preds = %159, %163, %165, %1
 
 198:                                              ; preds = %148, %195
   %199 = phi i32 [ %149, %148 ], [ %197, %195 ]
-  %200 = add nuw nsw i32 %.3135, 1
-  %exitcond146.not = icmp eq i32 %200, 5
-  br i1 %exitcond146.not, label %.loopexit, label %148, !llvm.loop !12
+  %200 = add nuw nsw i32 %.3132, 1
+  %exitcond143.not = icmp eq i32 %200, 5
+  br i1 %exitcond143.not, label %.loopexit, label %148, !llvm.loop !12
 
-.loopexit:                                        ; preds = %75, %198, %44
+.loopexit:                                        ; preds = %198, %75, %44
   ret i64 0
 }
 

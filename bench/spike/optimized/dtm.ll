@@ -187,9 +187,8 @@ define noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr nocapture noundef nonnull a
 define void @_ZN5dtm_t4haltEi(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 892
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %11, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 872
@@ -283,9 +282,8 @@ define void @_ZN5dtm_t6resumeEi(ptr nocapture noundef nonnull align 8 dereferenc
   store i32 %1, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 892
   %21 = load i8, ptr %20, align 4
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %26, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %15
   store i64 8589934608, ptr %6, align 8
@@ -1659,16 +1657,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define void @_ZN5dtm_t4tickEbbNS_4respE(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 894
   %6 = load i8, ptr %5, align 2
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %15
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %15, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 893
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not2 = icmp eq i8 %11, 0
-  br i1 %.not2, label %12, label %13
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
   store i8 1, ptr %9, align 1

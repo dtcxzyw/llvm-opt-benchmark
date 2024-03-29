@@ -15,15 +15,14 @@ target triple = "x86_64-pc-linux-gnu"
 define internal noundef zeroext i1 @_half_duplex_readable(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %14, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not8 = icmp eq ptr %7, null
-  br i1 %.not8, label %11, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %7, align 4
@@ -37,7 +36,8 @@ define internal noundef zeroext i1 @_half_duplex_readable(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %1, %11
-  ret i1 %.not
+  %.0 = xor i1 %4, true
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -49,11 +49,10 @@ define internal noundef i32 @_half_duplex(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not27 = icmp eq i8 %9, 0
-  %10 = icmp ne ptr %6, null
-  %or.cond = select i1 %.not27, i1 %10, i1 false
-  br i1 %or.cond, label %11, label %34
+  %9 = trunc i8 %8 to i1
+  %10 = icmp eq ptr %6, null
+  %or.cond.not = select i1 %9, i1 true, i1 %10
+  br i1 %or.cond.not, label %34, label %11
 
 11:                                               ; preds = %2
   %12 = load i32, ptr %0, align 8
@@ -104,8 +103,7 @@ define internal noundef i32 @_half_duplex(ptr noundef %0, ptr noundef %1) #0 {
   %37 = load i32, ptr %0, align 8
   %38 = tail call i32 @close(i32 noundef %37) #4
   store i32 -1, ptr %0, align 8
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %42, label %39
+  br i1 %10, label %42, label %39
 
 39:                                               ; preds = %34
   %40 = load i32, ptr %6, align 4

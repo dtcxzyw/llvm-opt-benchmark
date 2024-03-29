@@ -45,9 +45,8 @@ define hidden noundef zeroext i1 @_ZN3ue223splitOffAnchoredAcyclicERNS_9RoseBuil
 entry:
   %allowAnchoredAcyclic = getelementptr inbounds i8, ptr %cc, i64 41
   %0 = load i8, ptr %allowAnchoredAcyclic, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZN3ue210isAnchoredERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %h)
@@ -60,8 +59,8 @@ if.end2:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.end2
   %vtable = load ptr, ptr %rose, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
-  %2 = load ptr, ptr %vfn, align 8
-  %call8 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(136) %h)
+  %1 = load ptr, ptr %vfn, align 8
+  %call8 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(136) %h)
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end2, %if.end, %entry

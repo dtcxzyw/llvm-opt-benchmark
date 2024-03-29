@@ -151,7 +151,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 
 slurm_set_name.exit:                              ; preds = %15, %20, %42, %55
   %57 = tail call i32 @prte_ess_base_prted_setup() #7
-  switch i32 %57, label %.thread18 [
+  switch i32 %57, label %.thread17 [
     i32 0, label %65
     i32 -43, label %.thread
   ]
@@ -159,26 +159,25 @@ slurm_set_name.exit:                              ; preds = %15, %20, %42, %55
 .thread:                                          ; preds = %slurm_set_name.exit
   br label %65
 
-.thread18:                                        ; preds = %slurm_set_name.exit
+.thread17:                                        ; preds = %slurm_set_name.exit
   %58 = tail call ptr @prte_strerror(i32 noundef %57) #7
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %58, ptr noundef nonnull @.str.2, i32 noundef 77) #7
   br label %59
 
-59:                                               ; preds = %2, %.thread18
-  %.023 = phi ptr [ @.str.3, %.thread18 ], [ @.str, %2 ]
-  %.0722 = phi i32 [ %57, %.thread18 ], [ %3, %2 ]
+59:                                               ; preds = %2, %.thread17
+  %.022 = phi ptr [ @.str.3, %.thread17 ], [ @.str, %2 ]
+  %.0721 = phi i32 [ %57, %.thread17 ], [ %3, %2 ]
   %60 = load i8, ptr @prte_report_silent_errors, align 1
-  %61 = and i8 %60, 1
-  %.not14 = icmp eq i8 %61, 0
-  br i1 %.not14, label %62, label %65
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %65, label %62
 
 62:                                               ; preds = %59
-  %63 = tail call ptr @prte_strerror(i32 noundef %.0722) #7
-  %64 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.023, ptr noundef %63, i32 noundef %.0722) #7
+  %63 = tail call ptr @prte_strerror(i32 noundef %.0721) #7
+  %64 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.022, ptr noundef %63, i32 noundef %.0721) #7
   br label %65
 
 65:                                               ; preds = %2, %.thread, %59, %62, %slurm_set_name.exit
-  %.08 = phi i32 [ %57, %slurm_set_name.exit ], [ %.0722, %62 ], [ %.0722, %59 ], [ -43, %.thread ], [ %3, %2 ]
+  %.08 = phi i32 [ %57, %slurm_set_name.exit ], [ %.0721, %62 ], [ %.0721, %59 ], [ -43, %.thread ], [ %3, %2 ]
   ret i32 %.08
 }
 

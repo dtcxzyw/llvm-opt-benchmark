@@ -79,12 +79,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body ]
-  %evicted_total.088 = phi i64 [ 0, %entry ], [ %add, %for.body ]
+  %evicted_total.087 = phi i64 [ 0, %entry ], [ %add, %for.body ]
   %arrayidx = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_after, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %arrayidx4 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_before, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
-  %sub = add i64 %0, %evicted_total.088
+  %sub = add i64 %0, %evicted_total.087
   %add = sub i64 %sub, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -99,19 +99,19 @@ for.end:                                          ; preds = %for.body
   %sam_before = getelementptr inbounds i8, ptr %arg, i64 3096
   %conv25 = uitofp i64 %add to float
   %.pre = load i32, ptr %window_size, align 8
-  %.pre104 = load ptr, ptr %arg, align 8
+  %.pre103 = load ptr, ptr %arg, align 8
   br label %for.body9
 
 for.body9:                                        ; preds = %for.end, %for.inc113
-  %3 = phi ptr [ %.pre104, %for.end ], [ %14, %for.inc113 ]
+  %3 = phi ptr [ %.pre103, %for.end ], [ %14, %for.inc113 ]
   %4 = phi i32 [ %.pre, %for.end ], [ %15, %for.inc113 ]
-  %indvars.iv101 = phi i64 [ 1, %for.end ], [ %indvars.iv.next102, %for.inc113 ]
-  %oldest.094 = phi i32 [ -1, %for.end ], [ %oldest.1, %for.inc113 ]
-  %oldest_age.093 = phi i64 [ 0, %for.end ], [ %oldest_age.1, %for.inc113 ]
-  %youngest.092 = phi i32 [ -1, %for.end ], [ %youngest.1, %for.inc113 ]
-  %youngest_evicting.091 = phi i8 [ 0, %for.end ], [ %youngest_evicting.1, %for.inc113 ]
-  %youngest_age.090 = phi i64 [ -1, %for.end ], [ %youngest_age.1, %for.inc113 ]
-  %5 = trunc i64 %indvars.iv101 to i32
+  %indvars.iv100 = phi i64 [ 1, %for.end ], [ %indvars.iv.next101, %for.inc113 ]
+  %oldest.093 = phi i32 [ -1, %for.end ], [ %oldest.1, %for.inc113 ]
+  %oldest_age.092 = phi i64 [ 0, %for.end ], [ %oldest_age.1, %for.inc113 ]
+  %youngest.091 = phi i32 [ -1, %for.end ], [ %youngest.1, %for.inc113 ]
+  %youngest_evicting.090 = phi i1 [ false, %for.end ], [ %youngest_evicting.1, %for.inc113 ]
+  %youngest_age.089 = phi i64 [ -1, %for.end ], [ %youngest_age.1, %for.inc113 ]
+  %5 = trunc i64 %indvars.iv100 to i32
   %mul = mul i32 %4, %5
   %6 = load i32, ptr %window_cur, align 4
   %rem = urem i32 %6, %4
@@ -119,9 +119,9 @@ for.body9:                                        ; preds = %for.end, %for.inc11
   %idxprom13 = zext i32 %add12 to i64
   %arrayidx14 = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx14, i8 0, i64 32, i1 false)
-  %arrayidx17 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_after, i64 0, i64 %indvars.iv101
+  %arrayidx17 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_after, i64 0, i64 %indvars.iv100
   %7 = load i64, ptr %arrayidx17, align 8
-  %arrayidx21 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_before, i64 0, i64 %indvars.iv101
+  %arrayidx21 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_before, i64 0, i64 %indvars.iv100
   %8 = load i64, ptr %arrayidx21, align 8
   %cmp24.not = icmp ne i64 %7, %8
   br i1 %cmp24.not, label %if.then, label %if.end
@@ -152,10 +152,10 @@ if.then36:                                        ; preds = %if.end
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end
-  %arrayidx41 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_after, i64 0, i64 %indvars.iv101
+  %arrayidx41 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_after, i64 0, i64 %indvars.iv100
   %total_pages = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %11 = load i64, ptr %total_pages, align 8
-  %total_pages44 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_before, i64 0, i64 %indvars.iv101, i32 3
+  %total_pages44 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_before, i64 0, i64 %indvars.iv100, i32 3
   %12 = load i64, ptr %total_pages44, align 8
   %cmp46 = icmp sgt i64 %11, %12
   br i1 %cmp46, label %if.then48, label %if.end50
@@ -210,7 +210,7 @@ window_sum.exit.loopexit:                         ; preds = %for.body.i
 window_sum.exit:                                  ; preds = %window_sum.exit.loopexit, %if.end50
   %w_sum.sroa.4.1 = phi i64 [ 0, %if.end50 ], [ %add3.i, %window_sum.exit.loopexit ]
   %w_sum.sroa.7.1 = phi float [ 0.000000e+00, %if.end50 ], [ %add5.i, %window_sum.exit.loopexit ]
-  %w_sum.sroa.1075.1 = phi i64 [ 0, %if.end50 ], [ %add7.i, %window_sum.exit.loopexit ]
+  %w_sum.sroa.1074.1 = phi i64 [ 0, %if.end50 ], [ %add7.i, %window_sum.exit.loopexit ]
   %div64 = phi i64 [ poison, %if.end50 ], [ %24, %window_sum.exit.loopexit ]
   %free_chunks = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   %25 = load i64, ptr %free_chunks, align 8
@@ -229,26 +229,26 @@ if.then80:                                        ; preds = %window_sum.exit
   br label %for.end115
 
 if.end82:                                         ; preds = %window_sum.exit
-  %cmp83 = icmp ugt i64 %div64, %oldest_age.093
+  %cmp83 = icmp ugt i64 %div64, %oldest_age.092
   br i1 %cmp83, label %land.lhs.true, label %if.end92
 
 land.lhs.true:                                    ; preds = %if.end82
   %27 = load i64, ptr %total_pages, align 8
   %cmp89 = icmp sgt i64 %27, 2
-  %spec.select = select i1 %cmp89, i64 %div64, i64 %oldest_age.093
-  %spec.select73 = select i1 %cmp89, i32 %5, i32 %oldest.094
+  %spec.select = select i1 %cmp89, i64 %div64, i64 %oldest_age.092
+  %spec.select73 = select i1 %cmp89, i32 %5, i32 %oldest.093
   br label %if.end92
 
 if.end92:                                         ; preds = %land.lhs.true, %if.end82
-  %oldest_age.1 = phi i64 [ %oldest_age.093, %if.end82 ], [ %spec.select, %land.lhs.true ]
-  %oldest.1 = phi i32 [ %oldest.094, %if.end82 ], [ %spec.select73, %land.lhs.true ]
-  %cmp93 = icmp ult i64 %div64, %youngest_age.090
+  %oldest_age.1 = phi i64 [ %oldest_age.092, %if.end82 ], [ %spec.select, %land.lhs.true ]
+  %oldest.1 = phi i32 [ %oldest.093, %if.end82 ], [ %spec.select73, %land.lhs.true ]
+  %cmp93 = icmp ult i64 %div64, %youngest_age.089
   br i1 %cmp93, label %land.lhs.true95, label %for.inc113
 
 land.lhs.true95:                                  ; preds = %if.end92
   %div9872 = lshr i32 %15, 1
   %conv99 = zext nneg i32 %div9872 to i64
-  %cmp100 = icmp ugt i64 %w_sum.sroa.1075.1, %conv99
+  %cmp100 = icmp ugt i64 %w_sum.sroa.1074.1, %conv99
   br i1 %cmp100, label %if.then109, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true95
@@ -258,21 +258,20 @@ lor.lhs.false:                                    ; preds = %land.lhs.true95
   br i1 %cmp107, label %if.then109, label %for.inc113
 
 if.then109:                                       ; preds = %lor.lhs.false, %land.lhs.true95
-  %frombool = zext i1 %cmp24.not to i8
   br label %for.inc113
 
 for.inc113:                                       ; preds = %if.end92, %lor.lhs.false, %if.then109
-  %youngest_age.1 = phi i64 [ %div64, %if.then109 ], [ %youngest_age.090, %lor.lhs.false ], [ %youngest_age.090, %if.end92 ]
-  %youngest_evicting.1 = phi i8 [ %frombool, %if.then109 ], [ %youngest_evicting.091, %lor.lhs.false ], [ %youngest_evicting.091, %if.end92 ]
-  %youngest.1 = phi i32 [ %5, %if.then109 ], [ %youngest.092, %lor.lhs.false ], [ %youngest.092, %if.end92 ]
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next102, 64
-  br i1 %exitcond103.not, label %for.end115, label %for.body9, !llvm.loop !8
+  %youngest_age.1 = phi i64 [ %div64, %if.then109 ], [ %youngest_age.089, %lor.lhs.false ], [ %youngest_age.089, %if.end92 ]
+  %youngest_evicting.1 = phi i1 [ %cmp24.not, %if.then109 ], [ %youngest_evicting.090, %lor.lhs.false ], [ %youngest_evicting.090, %if.end92 ]
+  %youngest.1 = phi i32 [ %5, %if.then109 ], [ %youngest.091, %lor.lhs.false ], [ %youngest.091, %if.end92 ]
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next101, 64
+  br i1 %exitcond102.not, label %for.end115, label %for.body9, !llvm.loop !8
 
 for.end115:                                       ; preds = %for.inc113, %if.then80
-  %youngest_age.087 = phi i64 [ %youngest_age.090, %if.then80 ], [ %youngest_age.1, %for.inc113 ]
-  %youngest_evicting.085 = phi i8 [ %youngest_evicting.091, %if.then80 ], [ %youngest_evicting.1, %for.inc113 ]
-  %oldest_age.082 = phi i64 [ %oldest_age.093, %if.then80 ], [ %oldest_age.1, %for.inc113 ]
+  %youngest_age.086 = phi i64 [ %youngest_age.089, %if.then80 ], [ %youngest_age.1, %for.inc113 ]
+  %youngest_evicting.084 = phi i1 [ %youngest_evicting.090, %if.then80 ], [ %youngest_evicting.1, %for.inc113 ]
+  %oldest_age.081 = phi i64 [ %oldest_age.092, %if.then80 ], [ %oldest_age.1, %for.inc113 ]
   %youngest.2 = phi i32 [ -1, %if.then80 ], [ %youngest.1, %for.inc113 ]
   %oldest.2 = phi i32 [ -1, %if.then80 ], [ %oldest.1, %for.inc113 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %iam_before, ptr noundef nonnull align 8 dereferenceable(1536) %iam_after, i64 1536, i1 false)
@@ -289,16 +288,14 @@ land.lhs.true129:                                 ; preds = %for.end115
   br i1 %cmp132, label %if.then134, label %if.end145
 
 if.then134:                                       ; preds = %land.lhs.true129
-  %conv135 = uitofp i64 %youngest_age.087 to double
-  %conv136 = uitofp i64 %oldest_age.082 to double
+  %conv135 = uitofp i64 %youngest_age.086 to double
+  %conv136 = uitofp i64 %oldest_age.081 to double
   %max_age_ratio = getelementptr inbounds i8, ptr %arg, i64 16
   %30 = load double, ptr %max_age_ratio, align 8
   %mul137 = fmul double %30, %conv136
-  %cmp138 = fcmp ule double %mul137, %conv135
-  %31 = and i8 %youngest_evicting.085, 1
-  %tobool141.not = icmp eq i8 %31, 0
-  %or.cond74 = select i1 %cmp138, i1 true, i1 %tobool141.not
-  br i1 %or.cond74, label %if.end145, label %if.then143
+  %cmp138 = fcmp ogt double %mul137, %conv135
+  %brmerge.not = select i1 %cmp138, i1 %youngest_evicting.084, i1 false
+  br i1 %brmerge.not, label %if.then143, label %if.end145
 
 if.then143:                                       ; preds = %if.then134
   store i32 %oldest.2, ptr %src, align 4

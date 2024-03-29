@@ -1104,9 +1104,8 @@ entry:
   store i64 0, ptr %file, align 8
   %started = getelementptr inbounds i8, ptr %call, i64 504
   %2 = load i8, ptr %started, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %tobool3.not = icmp eq ptr %1, null
@@ -1118,51 +1117,51 @@ if.else:                                          ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %vhost_get_vq_index = getelementptr inbounds i8, ptr %1, i64 208
-  %4 = load ptr, ptr %vhost_get_vq_index, align 8
-  %call7 = tail call i32 %4(ptr noundef nonnull %call, i32 noundef %vq_index) #10
+  %3 = load ptr, ptr %vhost_get_vq_index, align 8
+  %call7 = tail call i32 %3(ptr noundef nonnull %call, i32 noundef %vq_index) #10
   %vqs = getelementptr inbounds i8, ptr %call, i64 432
-  %5 = load ptr, ptr %vqs, align 8
+  %4 = load ptr, ptr %vqs, align 8
   %idx.ext = sext i32 %call7 to i64
-  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %5, i64 %idx.ext
+  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %4, i64 %idx.ext
   %vq_index11 = getelementptr inbounds i8, ptr %call, i64 444
-  %6 = load i32, ptr %vq_index11, align 4
-  %add = add i32 %6, %call7
+  %5 = load i32, ptr %vq_index11, align 4
+  %add = add i32 %5, %call7
   %call12 = tail call i32 @vhost_virtqueue_start(ptr noundef nonnull %call, ptr noundef %vdev, ptr noundef %add.ptr, i32 noundef %add) #10
   %cmp = icmp slt i32 %call12, 0
   br i1 %cmp, label %err_start, label %if.end14
 
 if.end14:                                         ; preds = %if.end5
   %nc15 = getelementptr inbounds i8, ptr %call, i64 904
-  %7 = load ptr, ptr %nc15, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %8, align 8
-  %cmp16 = icmp eq i32 %9, 3
+  %6 = load ptr, ptr %nc15, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr %7, align 8
+  %cmp16 = icmp eq i32 %8, 3
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end14
   store i32 %call7, ptr %file, align 8
   %backend = getelementptr inbounds i8, ptr %call, i64 896
-  %10 = load i32, ptr %backend, align 8
+  %9 = load i32, ptr %backend, align 8
   %fd = getelementptr inbounds i8, ptr %file, i64 4
-  store i32 %10, ptr %fd, align 4
+  store i32 %9, ptr %fd, align 4
   %call19 = call i32 @vhost_net_set_backend(ptr noundef nonnull %call, ptr noundef nonnull %file) #10
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.then17
   %call22 = tail call ptr @__errno_location() #13
-  %11 = load i32, ptr %call22, align 4
-  %sub = sub i32 0, %11
+  %10 = load i32, ptr %call22, align 4
+  %sub = sub i32 0, %10
   br label %err_start
 
 err_start:                                        ; preds = %if.end5, %if.then21
   %r.0 = phi i32 [ %call12, %if.end5 ], [ %sub, %if.then21 ]
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
   %nc25 = getelementptr inbounds i8, ptr %call, i64 904
-  %12 = load ptr, ptr %nc25, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %13, align 8
-  %cmp28 = icmp eq i32 %14, 3
+  %11 = load ptr, ptr %nc25, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %12, align 8
+  %cmp28 = icmp eq i32 %13, 3
   br i1 %cmp28, label %if.then29, label %if.end38
 
 if.then29:                                        ; preds = %err_start

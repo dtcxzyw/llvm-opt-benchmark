@@ -179,9 +179,8 @@ define internal noundef ptr @SampleNext(ptr noundef %0) #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 258
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %111
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %110, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -216,9 +215,9 @@ list_length.exit.i:                               ; preds = %14, %6
   %24 = getelementptr inbounds i8, ptr %10, i64 40
   %25 = load i32, ptr %22, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph60.i, label %._crit_edge.i
+  br i1 %26, label %.lr.ph56.i, label %._crit_edge.i
 
-.lr.ph60.i:                                       ; preds = %.lr.ph.i, %41
+.lr.ph56.i:                                       ; preds = %.lr.ph.i, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i ]
   %27 = load ptr, ptr %23, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv.i
@@ -233,11 +232,10 @@ list_length.exit.i:                               ; preds = %14, %6
   %35 = getelementptr i64, ptr %20, i64 %indvars.iv.i
   store i64 %34, ptr %35, align 8
   %36 = load i8, ptr %2, align 1
-  %37 = and i8 %36, 1
-  %.not48.i = icmp eq i8 %37, 0
-  br i1 %.not48.i, label %41, label %.split.i
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %.split.i, label %41
 
-.split.i:                                         ; preds = %.lr.ph60.i
+.split.i:                                         ; preds = %.lr.ph56.i
   %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %38)
   %39 = call i32 @errcode(i32 noundef 403177602) #6
@@ -245,12 +243,12 @@ list_length.exit.i:                               ; preds = %14, %6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.tablesample_init) #6
   unreachable
 
-41:                                               ; preds = %.lr.ph60.i
+41:                                               ; preds = %.lr.ph56.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = load i32, ptr %22, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %.lr.ph60.i, label %._crit_edge.i
+  br i1 %44, label %.lr.ph56.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %41, %.lr.ph.i, %list_length.exit.i
   %45 = getelementptr inbounds i8, ptr %0, i64 232
@@ -268,9 +266,8 @@ list_length.exit.i:                               ; preds = %14, %6
   %53 = call i64 %52(ptr noundef nonnull %46, ptr noundef %10, ptr noundef nonnull %2) #6
   store ptr %50, ptr @CurrentMemoryContext, align 8
   %54 = load i8, ptr %2, align 1
-  %55 = and i8 %54, 1
-  %.not47.i = icmp eq i8 %55, 0
-  br i1 %.not47.i, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %47
   %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -299,15 +296,15 @@ list_length.exit.i:                               ; preds = %14, %6
   %69 = getelementptr inbounds i8, ptr %8, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %12, align 8
-  %.not.i49.i = icmp eq ptr %71, null
-  br i1 %.not.i49.i, label %list_length.exit50.i, label %72
+  %.not.i47.i = icmp eq ptr %71, null
+  br i1 %.not.i47.i, label %list_length.exit48.i, label %72
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %71, i64 4
   %74 = load i32, ptr %73, align 4
-  br label %list_length.exit50.i
+  br label %list_length.exit48.i
 
-list_length.exit50.i:                             ; preds = %72, %66
+list_length.exit48.i:                             ; preds = %72, %66
   %75 = phi i32 [ %74, %72 ], [ 0, %66 ]
   call void %70(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %75, i32 noundef %.0.i) #6
   %76 = getelementptr inbounds i8, ptr %8, i64 48
@@ -316,9 +313,9 @@ list_length.exit50.i:                             ; preds = %72, %66
   %79 = getelementptr inbounds i8, ptr %0, i64 208
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %101
+  br i1 %81, label %82, label %100
 
-82:                                               ; preds = %list_length.exit50.i
+82:                                               ; preds = %list_length.exit48.i
   %83 = getelementptr inbounds i8, ptr %0, i64 200
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 16
@@ -326,139 +323,133 @@ list_length.exit50.i:                             ; preds = %72, %66
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = load i8, ptr %67, align 8
-  %90 = and i8 %89, 1
-  %.not53.i = icmp eq i8 %90, 0
+  %90 = trunc i8 %89 to i1
   %91 = load i8, ptr %68, align 1
-  %92 = and i8 %91, 1
-  %spec.select.i.i = select i1 %.not53.i, i32 4, i32 68
+  %92 = trunc i8 %91 to i1
+  %spec.select.i.i = select i1 %90, i32 68, i32 4
   %93 = or disjoint i32 %spec.select.i.i, 128
   %.1.i.i = select i1 %78, i32 %93, i32 %spec.select.i.i
-  %94 = zext nneg i8 %92 to i32
-  %95 = shl nuw nsw i32 %94, 8
-  %.2.i.i = or disjoint i32 %.1.i.i, %95
-  %96 = getelementptr inbounds i8, ptr %84, i64 312
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = call ptr %99(ptr noundef %84, ptr noundef %88, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %.2.i.i) #6
-  store ptr %100, ptr %79, align 8
+  %94 = or disjoint i32 %.1.i.i, 256
+  %.2.i.i = select i1 %92, i32 %94, i32 %.1.i.i
+  %95 = getelementptr inbounds i8, ptr %84, i64 312
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = call ptr %98(ptr noundef %84, ptr noundef %88, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %.2.i.i) #6
+  store ptr %99, ptr %79, align 8
   br label %tablesample_init.exit
 
-101:                                              ; preds = %list_length.exit50.i
-  %102 = load <2 x i8>, ptr %67, align 8
-  %103 = trunc <2 x i8> %102 to <2 x i1>
-  %104 = load ptr, ptr %80, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 312
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 32
-  %108 = load ptr, ptr %107, align 8
-  %109 = extractelement <2 x i1> %103, i64 0
-  %110 = extractelement <2 x i1> %103, i64 1
-  call void %108(ptr noundef nonnull %80, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %109, i1 noundef zeroext %78, i1 noundef zeroext %110) #6
+100:                                              ; preds = %list_length.exit48.i
+  %101 = load i8, ptr %67, align 8
+  %102 = trunc i8 %101 to i1
+  %103 = load i8, ptr %68, align 1
+  %104 = trunc i8 %103 to i1
+  %105 = load ptr, ptr %80, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 312
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 32
+  %109 = load ptr, ptr %108, align 8
+  call void %109(ptr noundef nonnull %80, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %102, i1 noundef zeroext %78, i1 noundef zeroext %104) #6
   br label %tablesample_init.exit
 
-tablesample_init.exit:                            ; preds = %82, %101
+tablesample_init.exit:                            ; preds = %82, %100
   call void @pfree(ptr noundef %20) #6
   store i8 1, ptr %3, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %111
+  br label %110
 
-111:                                              ; preds = %tablesample_init.exit, %1
-  %112 = getelementptr inbounds i8, ptr %0, i64 208
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 216
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 24
-  %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef %115) #6
-  %120 = getelementptr inbounds i8, ptr %0, i64 273
-  %121 = load i8, ptr %120, align 1
-  %122 = and i8 %121, 1
-  %.not.i3 = icmp eq i8 %122, 0
-  br i1 %.not.i3, label %.preheader.i, label %tablesample_getnext.exit
+110:                                              ; preds = %tablesample_init.exit, %1
+  %111 = getelementptr inbounds i8, ptr %0, i64 208
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 216
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %118 = load ptr, ptr %117, align 8
+  call void %118(ptr noundef %114) #6
+  %119 = getelementptr inbounds i8, ptr %0, i64 273
+  %120 = load i8, ptr %119, align 1
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %tablesample_getnext.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %111
-  %123 = getelementptr inbounds i8, ptr %0, i64 272
-  %.pre.i = load i8, ptr %123, align 8
-  %124 = and i8 %.pre.i, 1
-  %125 = icmp eq i8 %124, 0
-  br i1 %125, label %126, label %143
+.preheader.i:                                     ; preds = %110
+  %122 = getelementptr inbounds i8, ptr %0, i64 272
+  %.pre.i = load i8, ptr %122, align 8
+  %123 = trunc i8 %.pre.i to i1
+  br i1 %123, label %140, label %124
 
-126:                                              ; preds = %.critedge.i, %.preheader.i
-  %127 = load i32, ptr @CheckXidAlive, align 4
-  %128 = icmp ne i32 %127, 0
-  %129 = load i8, ptr @bsysscan, align 1
-  %130 = and i8 %129, 1
-  %.not.i.i5 = icmp eq i8 %130, 0
-  %131 = select i1 %128, i1 %.not.i.i5, i1 false
-  br i1 %131, label %132, label %table_scan_sample_next_block.exit.i
+124:                                              ; preds = %.critedge.i, %.preheader.i
+  %125 = load i32, ptr @CheckXidAlive, align 4
+  %126 = icmp eq i32 %125, 0
+  %127 = load i8, ptr @bsysscan, align 1
+  %128 = trunc i8 %127 to i1
+  %.not3.i.i = select i1 %126, i1 true, i1 %128
+  br i1 %.not3.i.i, label %table_scan_sample_next_block.exit.i, label %129
 
-132:                                              ; preds = %126
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %133)
-  %134 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+129:                                              ; preds = %124
+  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %130)
+  %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2018, ptr noundef nonnull @__func__.table_scan_sample_next_block) #6
   unreachable
 
-table_scan_sample_next_block.exit.i:              ; preds = %126
-  %135 = load ptr, ptr %113, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 312
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 352
-  %139 = load ptr, ptr %138, align 8
-  %140 = call zeroext i1 %139(ptr noundef nonnull %113, ptr noundef nonnull %0) #6
-  br i1 %140, label %142, label %141
+table_scan_sample_next_block.exit.i:              ; preds = %124
+  %132 = load ptr, ptr %112, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 312
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 352
+  %136 = load ptr, ptr %135, align 8
+  %137 = call zeroext i1 %136(ptr noundef nonnull %112, ptr noundef nonnull %0) #6
+  br i1 %137, label %139, label %138
 
-141:                                              ; preds = %table_scan_sample_next_block.exit.i
-  store i8 0, ptr %123, align 8
-  store i8 1, ptr %120, align 1
+138:                                              ; preds = %table_scan_sample_next_block.exit.i
+  store i8 0, ptr %122, align 8
+  store i8 1, ptr %119, align 1
   br label %tablesample_getnext.exit
 
-142:                                              ; preds = %table_scan_sample_next_block.exit.i
-  store i8 1, ptr %123, align 8
-  br label %143
+139:                                              ; preds = %table_scan_sample_next_block.exit.i
+  store i8 1, ptr %122, align 8
+  br label %140
 
-143:                                              ; preds = %142, %.preheader.i
-  %144 = load i32, ptr @CheckXidAlive, align 4
-  %145 = icmp ne i32 %144, 0
-  %146 = load i8, ptr @bsysscan, align 1
-  %147 = and i8 %146, 1
-  %.not.i18.i = icmp eq i8 %147, 0
-  %148 = select i1 %145, i1 %.not.i18.i, i1 false
-  br i1 %148, label %149, label %table_scan_sample_next_tuple.exit.i
+140:                                              ; preds = %139, %.preheader.i
+  %141 = load i32, ptr @CheckXidAlive, align 4
+  %142 = icmp eq i32 %141, 0
+  %143 = load i8, ptr @bsysscan, align 1
+  %144 = trunc i8 %143 to i1
+  %.not4.i.i = select i1 %142, i1 true, i1 %144
+  br i1 %.not4.i.i, label %table_scan_sample_next_tuple.exit.i, label %145
 
-149:                                              ; preds = %143
-  %150 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %150)
-  %151 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
+145:                                              ; preds = %140
+  %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %146)
+  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2041, ptr noundef nonnull @__func__.table_scan_sample_next_tuple) #6
   unreachable
 
-table_scan_sample_next_tuple.exit.i:              ; preds = %143
-  %152 = load ptr, ptr %113, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 312
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 360
-  %156 = load ptr, ptr %155, align 8
-  %157 = call zeroext i1 %156(ptr noundef nonnull %113, ptr noundef nonnull %0, ptr noundef %115) #6
-  br i1 %157, label %158, label %.critedge.i
+table_scan_sample_next_tuple.exit.i:              ; preds = %140
+  %148 = load ptr, ptr %112, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 312
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 360
+  %152 = load ptr, ptr %151, align 8
+  %153 = call zeroext i1 %152(ptr noundef nonnull %112, ptr noundef nonnull %0, ptr noundef %114) #6
+  br i1 %153, label %154, label %.critedge.i
 
 .critedge.i:                                      ; preds = %table_scan_sample_next_tuple.exit.i
-  store i8 0, ptr %123, align 8
-  br label %126
+  store i8 0, ptr %122, align 8
+  br label %124
 
-158:                                              ; preds = %table_scan_sample_next_tuple.exit.i
-  %159 = getelementptr inbounds i8, ptr %0, i64 264
-  %160 = load i64, ptr %159, align 8
-  %161 = add i64 %160, 1
-  store i64 %161, ptr %159, align 8
+154:                                              ; preds = %table_scan_sample_next_tuple.exit.i
+  %155 = getelementptr inbounds i8, ptr %0, i64 264
+  %156 = load i64, ptr %155, align 8
+  %157 = add i64 %156, 1
+  store i64 %157, ptr %155, align 8
   br label %tablesample_getnext.exit
 
-tablesample_getnext.exit:                         ; preds = %111, %141, %158
-  %.0.i4 = phi ptr [ %115, %158 ], [ null, %141 ], [ null, %111 ]
-  ret ptr %.0.i4
+tablesample_getnext.exit:                         ; preds = %110, %138, %154
+  %.0.i3 = phi ptr [ %114, %154 ], [ null, %138 ], [ null, %110 ]
+  ret ptr %.0.i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

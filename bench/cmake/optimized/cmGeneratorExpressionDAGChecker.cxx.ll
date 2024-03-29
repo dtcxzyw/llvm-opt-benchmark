@@ -919,19 +919,18 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGe
   store i8 1, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 344
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %19, label %.loopexit
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8
-  %.not30 = icmp eq ptr %20, null
-  br i1 %.not30, label %53, label %21
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %53, label %21
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %20, align 8
-  %.not31 = icmp eq ptr %22, null
-  br i1 %.not31, label %23, label %53
+  %.not30 = icmp eq ptr %22, null
+  br i1 %.not30, label %23, label %53
 
 23:                                               ; preds = %21
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
@@ -1037,17 +1036,17 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGe
 69:                                               ; preds = %68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #18
-  br i1 %.not30, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %92
-  %.042 = phi i32 [ %94, %92 ], [ 1, %69 ]
-  %.02741 = phi ptr [ %93, %92 ], [ %20, %69 ]
+  %.041 = phi i32 [ %94, %92 ], [ 1, %69 ]
+  %.02740 = phi ptr [ %93, %92 ], [ %20, %69 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.7)
           to label %71 unwind label %99
 
 71:                                               ; preds = %.lr.ph
-  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %70, i32 noundef %.042)
+  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %70, i32 noundef %.041)
           to label %73 unwind label %99
 
 73:                                               ; preds = %71
@@ -1059,10 +1058,10 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGe
           to label %77 unwind label %99
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %.02741, i64 96
+  %78 = getelementptr inbounds i8, ptr %.02740, i64 96
   %79 = load ptr, ptr %78, align 8
-  %.not36 = icmp eq ptr %79, null
-  br i1 %.not36, label %81, label %80
+  %.not35 = icmp eq ptr %79, null
+  br i1 %.not35, label %81, label %80
 
 80:                                               ; preds = %77
   invoke void @_ZNK26GeneratorExpressionContent21GetOriginalExpressionB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(72) %79)
@@ -1091,17 +1090,17 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGe
           to label %90 unwind label %99
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds i8, ptr %.02741, i64 104
+  %91 = getelementptr inbounds i8, ptr %.02740, i64 104
   invoke void @_ZNK5cmake12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(2216) %88, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(16) %91)
           to label %92 unwind label %103
 
 92:                                               ; preds = %90
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  %93 = load ptr, ptr %.02741, align 8
-  %94 = add nuw nsw i32 %.042, 1
+  %93 = load ptr, ptr %.02740, align 8
+  %94 = add nuw nsw i32 %.041, 1
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #18
-  %.not35 = icmp eq ptr %93, null
-  br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  %.not34 = icmp eq ptr %93, null
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 95:                                               ; preds = %67, %63, %61, %59, %57, %55, %53
   %96 = landingpad { ptr, i32 }
@@ -1136,9 +1135,9 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGe
 
 105:                                              ; preds = %99, %101, %103, %95, %97, %49, %51
   %.sink = phi ptr [ %4, %51 ], [ %4, %49 ], [ %6, %97 ], [ %6, %95 ], [ %8, %103 ], [ %8, %101 ], [ %8, %99 ]
-  %.pn37.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %98, %97 ], [ %96, %95 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ]
+  %.pn36.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %98, %97 ], [ %96, %95 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.sink) #18
-  resume { ptr, i32 } %.pn37.pn
+  resume { ptr, i32 } %.pn36.pn
 }
 
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
@@ -1177,9 +1176,8 @@ define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker27GetT
 _ZNK31cmGeneratorExpressionDAGChecker3TopEv.exit: ; preds = %2
   %3 = getelementptr inbounds i8, ptr %.05.i, i64 124
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1195,9 +1193,8 @@ define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker34GetT
 _ZNK31cmGeneratorExpressionDAGChecker3TopEv.exit: ; preds = %2
   %3 = getelementptr inbounds i8, ptr %.05.i, i64 125
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

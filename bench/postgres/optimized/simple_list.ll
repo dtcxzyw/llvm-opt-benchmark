@@ -142,9 +142,8 @@ define dso_local ptr @simple_string_list_not_touched(ptr nocapture noundef reado
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %.0, i64 8
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not7 = icmp eq i8 %6, 0
-  br i1 %.not7, label %7, label %2, !llvm.loop !10
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %2, label %7, !llvm.loop !10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %.0, i64 9

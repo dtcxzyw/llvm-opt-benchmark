@@ -973,9 +973,8 @@ entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %currency = getelementptr inbounds i8, ptr %properties, i64 8
   %0 = load i8, ptr %currency, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.then, label %if.else
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %fValue.i = getelementptr inbounds i8, ptr %properties, i64 16
@@ -986,10 +985,10 @@ if.else:                                          ; preds = %entry
   store i32 0, ptr %localStatus, align 4
   store i64 0, ptr %buf, align 8
   %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
-  %2 = load ptr, ptr %fullName.i, align 8
-  %call3 = call i32 @ucurr_forLocale_75(ptr noundef %2, ptr noundef nonnull %buf, i32 noundef 4, ptr noundef nonnull %localStatus)
-  %3 = load i32, ptr %localStatus, align 4
-  %cmp.i = icmp sgt i32 %3, 0
+  %1 = load ptr, ptr %fullName.i, align 8
+  %call3 = call i32 @ucurr_forLocale_75(ptr noundef %1, ptr noundef nonnull %buf, i32 noundef 4, ptr noundef nonnull %localStatus)
+  %2 = load i32, ptr %localStatus, align 4
+  %cmp.i = icmp sgt i32 %2, 0
   br i1 %cmp.i, label %if.else7, label %if.then5
 
 if.then5:                                         ; preds = %if.else
@@ -998,16 +997,16 @@ if.then5:                                         ; preds = %if.else
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then5
-  %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #11, !srcloc !7
+  %3 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #11, !srcloc !7
   br label %return
 
 lpad:                                             ; preds = %if.then5
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #11, !srcloc !7
-  resume { ptr, i32 } %5
+  %5 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #11, !srcloc !7
+  resume { ptr, i32 } %4
 
 if.else7:                                         ; preds = %if.else
   call void @_ZN6icu_7512CurrencyUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %agg.result)

@@ -1457,15 +1457,15 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
   %m_largest_clause = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %m_largest_clause, align 4
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %m_largest_clause.i.i, align 4
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %m_largest_clause.i.i, align 4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1811,15 +1811,14 @@ if.then:                                          ; preds = %_ZNK11ast_manager5i
 
 if.then9:                                         ; preds = %if.then
   %27 = load i8, ptr %m_largest_clause, align 4
-  %28 = and i8 %27, 1
-  %tobool.not = icmp eq i8 %28, 0
-  %29 = trunc i64 %indvars.iv to i32
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %27 to i1
+  %28 = trunc i64 %indvars.iv to i32
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then9
   %cmp11 = icmp ugt i32 %26, %len.022
   %spec.select = tail call i32 @llvm.umax.i32(i32 %26, i32 %len.022)
-  %spec.select9 = select i1 %cmp11, i32 %29, i32 %result_idx.024
+  %spec.select9 = select i1 %cmp11, i32 %28, i32 %result_idx.024
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %_ZNK4goal4formEj.exit, %if.end, %_ZNK11ast_manager5is_orEPK4expr.exit, %if.then
@@ -1830,7 +1829,7 @@ for.inc:                                          ; preds = %land.rhs.i.i, %_ZNK
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %if.then9, %for.inc, %entry, %_ZNK4goal4sizeEv.exit
-  %retval.0 = phi i32 [ -1, %_ZNK4goal4sizeEv.exit ], [ -1, %entry ], [ %result_idx.1, %for.inc ], [ %29, %if.then9 ]
+  %retval.0 = phi i32 [ -1, %_ZNK4goal4sizeEv.exit ], [ -1, %entry ], [ %result_idx.1, %for.inc ], [ %28, %if.then9 ]
   ret i32 %retval.0
 }
 

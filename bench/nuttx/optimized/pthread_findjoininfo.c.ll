@@ -88,9 +88,8 @@ define noundef i32 @pthread_findjoininfo(ptr nocapture noundef readonly %0, i32 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %10, i64 1032
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not22 = icmp eq i8 %19, 0
-  br i1 %.not22, label %20, label %.critedge
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = tail call noalias dereferenceable_or_null(88) ptr @zalloc(i64 noundef 88) #4

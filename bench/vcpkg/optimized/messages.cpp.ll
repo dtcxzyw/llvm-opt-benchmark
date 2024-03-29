@@ -5119,9 +5119,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg5Debug7printlnIJA33_cNS_13StringLit
   %3 = alloca %"struct.vcpkg::StringView", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load atomic i8, ptr @_ZN5vcpkg5Debug11g_debuggingE seq_cst, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %43, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %43
 
 7:                                                ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
@@ -5180,18 +5179,18 @@ _ZN5vcpkg7Strings6concatIJA9_cA33_cNS_13StringLiteralEcEEENSt7__cxx1112basic_str
   br i1 %.not.i6.i, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.i, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i
 
 _ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i: ; preds = %25, %20
-  %.sink14.i = phi i32 [ 1, %20 ], [ 2, %25 ]
-  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %20 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %25 ]
+  %.sink13.i = phi i32 [ 1, %20 ], [ 2, %25 ]
+  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %20 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %25 ]
   %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i = phi ptr [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %20 ], [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %25 ]
-  %27 = call i32 @isatty(i32 noundef %.sink14.i) #25
+  %27 = call i32 @isatty(i32 noundef %.sink13.i) #25
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i8
-  store i8 %29, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i, align 1
+  store i8 %29, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i, align 1
   call void @__cxa_guard_release(ptr nonnull %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i) #25
   br label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.i
 
 _ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.i: ; preds = %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i, %25, %22, %20, %17
-  %.sink.i = phi i32 [ 1, %17 ], [ 1, %20 ], [ 2, %22 ], [ 2, %25 ], [ %.sink14.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
+  %.sink.i = phi i32 [ 1, %17 ], [ 1, %20 ], [ 2, %22 ], [ 2, %25 ], [ %.sink13.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
   %30 = icmp eq i64 %14, 0
   br i1 %30, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit, label %.lr.ph.i20.i
 
@@ -5270,23 +5269,22 @@ define dso_local void @_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10Stri
   br i1 %.not.i6, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split
 
 _ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split: ; preds = %14, %9
-  %.sink14 = phi i32 [ 1, %9 ], [ 2, %14 ]
-  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11 = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ]
+  %.sink13 = phi i32 [ 1, %9 ], [ 2, %14 ]
+  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10 = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ]
   %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink = phi ptr [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ]
-  %16 = tail call i32 @isatty(i32 noundef %.sink14) #25
+  %16 = tail call i32 @isatty(i32 noundef %.sink13) #25
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i8
-  store i8 %18, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11, align 1
+  store i8 %18, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10, align 1
   tail call void @__cxa_guard_release(ptr nonnull %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink) #25
   br label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit
 
 _ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit: ; preds = %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split, %14, %11, %9, %6
-  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %6 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %11 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ], [ %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split ]
-  %.sink = phi i32 [ 1, %6 ], [ 1, %9 ], [ 2, %11 ], [ 2, %14 ], [ %.sink14, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split ]
+  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %6 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %11 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ], [ %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split ]
+  %.sink = phi i32 [ 1, %6 ], [ 1, %9 ], [ 2, %11 ], [ 2, %14 ], [ %.sink13, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split ]
   %19 = load i8, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink, align 1
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef %.sink, i1 noundef zeroext %21)
+  %20 = trunc i8 %19 to i1
+  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef %.sink, i1 noundef zeroext %20)
   ret void
 }
 
@@ -5330,9 +5328,8 @@ define dso_local void @_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5Color
 
 12:                                               ; preds = %8, %6, %3
   %13 = load i8, ptr @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, align 1
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
-  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef 1, i1 noundef zeroext %15)
+  %14 = trunc i8 %13 to i1
+  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef 1, i1 noundef zeroext %14)
   ret void
 }
 
@@ -5477,9 +5474,8 @@ define dso_local void @_ZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5Color
 
 12:                                               ; preds = %8, %6, %3
   %13 = load i8, ptr @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, align 1
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
-  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef 2, i1 noundef zeroext %15)
+  %14 = trunc i8 %13 to i1
+  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef 2, i1 noundef zeroext %14)
   ret void
 }
 
@@ -5640,13 +5636,14 @@ define dso_local void @_ZN5vcpkg3msg25get_message_map_from_lcidEi(ptr dead_on_un
   br i1 %16, label %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit, label %13
 
 _ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit.thread: ; preds = %13
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !50
-  store i8 0, ptr %8, align 8, !alias.scope !56
+  store i8 0, ptr %8, align 8, !alias.scope !59
   %17 = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 0, ptr %17, align 8, !alias.scope !56
+  store i8 0, ptr %17, align 8, !alias.scope !59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !50
   %18 = getelementptr inbounds i8, ptr %8, i64 8
-  br label %63
+  br label %62
 
 _ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit:     ; preds = %14
   %.0.ptr8.i.i.le = getelementptr inbounds i8, ptr @_ZZN5vcpkg3msg16get_language_tagEiE9languages, i64 %.0.idx7.i.i
@@ -5654,10 +5651,9 @@ _ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit:     ; preds = %14
   %.sroa.3.8.copyload.i = load ptr, ptr %19, align 8, !noalias !50
   %.sroa.6.8..sroa_idx.i = getelementptr inbounds i8, ptr %.0.ptr8.i.i.le, i64 16
   %.sroa.6.8.copyload.i = load i64, ptr %.sroa.6.8..sroa_idx.i, align 8, !noalias !50
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !59
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !59
   store ptr %.sroa.3.8.copyload.i, ptr %5, align 8, !noalias !60
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sroa.6.8.copyload.i, ptr %20, align 8, !noalias !60
@@ -5666,159 +5662,154 @@ _ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit:     ; preds = %14
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg13StringLiteralENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %22, align 8, !noalias !63
   call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr nonnull @.str.2698, i64 24, i64 15, ptr nonnull %4), !noalias !50
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !56
-  store i8 1, ptr %8, align 8, !alias.scope !56
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !59
+  store i8 1, ptr %8, align 8, !alias.scope !59
   %23 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   %.pre = load i8, ptr %8, align 8
-  %24 = and i8 %.pre, 1
-  %25 = icmp eq i8 %24, 0
+  %24 = trunc i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !50
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  br i1 %25, label %63, label %27
+  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  br i1 %24, label %26, label %62
 
-27:                                               ; preds = %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit
-  %28 = invoke { ptr, ptr } @_ZNK4cmrc19embedded_filesystem4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %29 unwind label %61
+26:                                               ; preds = %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit
+  %27 = invoke { ptr, ptr } @_ZNK4cmrc19embedded_filesystem4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %28 unwind label %60
 
-29:                                               ; preds = %27
-  %30 = extractvalue { ptr, ptr } %28, 0
-  %31 = extractvalue { ptr, ptr } %28, 1
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %30 to i64
-  %34 = sub i64 %32, %33
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %26) #25
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 8
-  %37 = load i64, ptr %36, align 8
-  invoke void @_ZN5vcpkg4Json12parse_objectENS_10StringViewES1_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.146") align 8 %9, ptr %30, i64 %34, ptr %35, i64 %37)
-          to label %38 unwind label %61
+28:                                               ; preds = %26
+  %29 = extractvalue { ptr, ptr } %27, 0
+  %30 = extractvalue { ptr, ptr } %27, 1
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %29 to i64
+  %33 = sub i64 %31, %32
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %25) #25
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %36 = load i64, ptr %35, align 8
+  invoke void @_ZN5vcpkg4Json12parse_objectENS_10StringViewES1_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.146") align 8 %9, ptr %29, i64 %33, ptr %34, i64 %36)
+          to label %37 unwind label %60
 
-38:                                               ; preds = %29
+37:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %39 = getelementptr inbounds i8, ptr %9, i64 32
-  %40 = load i8, ptr %39, align 16
-  %41 = and i8 %40, 1
-  %.not.i9 = icmp eq i8 %41, 0
-  br i1 %.not.i9, label %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i, label %42
+  %38 = getelementptr inbounds i8, ptr %9, i64 32
+  %39 = load i8, ptr %38, align 16
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  %.pre19 = load i8, ptr %39, align 16
-  br label %48
+  %.pre15 = load i8, ptr %38, align 16
+  br label %47
 
-_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i:      ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %9, i64 16
-  %44 = load ptr, ptr %43, align 16, !noalias !69
-  %45 = load <2 x ptr>, ptr %9, align 16, !noalias !69
+_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i:      ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %9, i64 16
+  %43 = load ptr, ptr %42, align 16, !noalias !69
+  %44 = load <2 x ptr>, ptr %9, align 16, !noalias !69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !69
-  store <2 x ptr> %45, ptr %0, align 8, !alias.scope !66
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %44, ptr %46, align 8, !alias.scope !66
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %30, ptr %47, align 8
+  store <2 x ptr> %44, ptr %0, align 8, !alias.scope !66
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %43, ptr %45, align 8, !alias.scope !66
+  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %29, ptr %46, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %34, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %48
+  store i64 %33, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %47
 
-48:                                               ; preds = %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i, %42
-  %49 = phi i8 [ %40, %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i ], [ %.pre19, %42 ]
-  %.sink.i = phi i8 [ 0, %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i ], [ 1, %42 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 %.sink.i, ptr %50, align 8, !alias.scope !66
-  %51 = and i8 %49, 1
-  %.not.i10 = icmp eq i8 %51, 0
-  br i1 %.not.i10, label %53, label %52
+47:                                               ; preds = %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i, %41
+  %48 = phi i8 [ %.pre15, %41 ], [ %39, %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i ]
+  %.sink.i = phi i8 [ 1, %41 ], [ 0, %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i ]
+  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 %.sink.i, ptr %49, align 8, !alias.scope !66
+  %50 = trunc i8 %48 to i1
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %48
+51:                                               ; preds = %47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   br label %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %9, align 16
-  %55 = getelementptr inbounds i8, ptr %9, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %54, %56
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %9, align 16
+  %54 = getelementptr inbounds i8, ptr %9, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %53, %55
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %53, %.lr.ph.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i.i.i ], [ %54, %53 ]
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 32
-  call void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #25
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %52, %.lr.ph.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ %53, %52 ]
+  %56 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 32
+  call void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %56) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i) #25
-  %58 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %58, %56
+  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %57, %55
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !72
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pr.i.i.i.i = load ptr, ptr %9, align 16
   br label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i
 
-_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i, %53
-  %59 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %54, %53 ]
-  %.not.i.i.i.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit, label %60
+_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i, %52
+  %58 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %53, %52 ]
+  %.not.i.i.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit, label %59
 
-60:                                               ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %59) #29
+59:                                               ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %58) #29
   br label %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit
 
-61:                                               ; preds = %29, %27
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %28, %26
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-63:                                               ; preds = %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit.thread, %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit
-  %64 = phi ptr [ %18, %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit.thread ], [ %26, %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit ]
+62:                                               ; preds = %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit, %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit.thread
+  %.ph = phi ptr [ %18, %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit.thread ], [ %25, %_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !73
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25, !noalias !73
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.59, i64 noundef 17, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %67 unwind label %65
+          to label %65 unwind label %63
 
-65:                                               ; preds = %63
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %62
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   br label %.body
 
-67:                                               ; preds = %63
+65:                                               ; preds = %62
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11) #25
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 1, ptr %68, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 1, ptr %66, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   br label %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit
 
-_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit: ; preds = %60, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i, %52, %67
-  %69 = phi ptr [ %26, %60 ], [ %26, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i ], [ %26, %52 ], [ %64, %67 ]
-  %70 = load i8, ptr %8, align 8
-  %71 = and i8 %70, 1
-  %.not.i.i11 = icmp eq i8 %71, 0
-  br i1 %.not.i.i11, label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %72
+_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit: ; preds = %59, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i, %51, %65
+  %67 = phi ptr [ %25, %59 ], [ %25, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i ], [ %25, %51 ], [ %.ph, %65 ]
+  %68 = load i8, ptr %8, align 8
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-72:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #25
+70:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #25
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit, %72
+_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEED2Ev.exit, %70
   ret void
 
-.body:                                            ; preds = %61, %65
-  %73 = phi ptr [ %26, %61 ], [ %64, %65 ]
-  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %66, %65 ]
-  %74 = load i8, ptr %8, align 8
-  %75 = and i8 %74, 1
-  %.not.i.i12 = icmp eq i8 %75, 0
-  br i1 %.not.i.i12, label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13, label %76
+.body:                                            ; preds = %60, %63
+  %71 = phi ptr [ %25, %60 ], [ %.ph, %63 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %64, %63 ]
+  %72 = load i8, ptr %8, align 8
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit9
 
-76:                                               ; preds = %.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #25
-  br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13
+74:                                               ; preds = %.body
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #25
+  br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit9
 
-_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13: ; preds = %.body, %76
+_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit9: ; preds = %.body, %74
   resume { ptr, i32 } %.pn
 }
 
@@ -5849,7 +5840,6 @@ define dso_local void @_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei(ptr dead_on_unwin
   %.sroa.3.8.copyload = load ptr, ptr %10, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %.0.ptr8.i.le, i64 16
   %.sroa.6.8.copyload = load i64, ptr %.sroa.6.8..sroa_idx, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !79
@@ -5870,6 +5860,7 @@ define dso_local void @_ZN5vcpkg3msg15get_locale_pathB5cxx11Ei(ptr dead_on_unwin
   br label %17
 
 15:                                               ; preds = %6
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i8 0, ptr %0, align 8, !alias.scope !79
   %16 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5896,9 +5887,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK4cmrc19embedded_filesystem4openE
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not12 = icmp eq i8 %9, 0
-  br i1 %.not12, label %10, label %18
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6, %5
   %11 = call ptr @__cxa_allocate_exception(i64 32) #25
@@ -6061,84 +6051,83 @@ define linkonce_odr dso_local void @_ZN5vcpkg3msg7printlnENS_5ColorERKNS_15Local
   br i1 %.not.i6.i, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i
 
 _ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i: ; preds = %14, %9
-  %.sink14.i = phi i32 [ 1, %9 ], [ 2, %14 ]
-  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ]
+  %.sink13.i = phi i32 [ 1, %9 ], [ 2, %14 ]
+  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ]
   %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i = phi ptr [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ]
-  %16 = call i32 @isatty(i32 noundef %.sink14.i) #25
+  %16 = call i32 @isatty(i32 noundef %.sink13.i) #25
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i8
-  store i8 %18, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i, align 1
+  store i8 %18, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i, align 1
   call void @__cxa_guard_release(ptr nonnull %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i) #25
   br label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit
 
 _ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit: ; preds = %6, %9, %11, %14, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i
-  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %6 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %11 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ], [ %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
-  %.sink.i = phi i32 [ 1, %6 ], [ 1, %9 ], [ 2, %11 ], [ 2, %14 ], [ %.sink14.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
+  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %6 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %9 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %11 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %14 ], [ %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
+  %.sink.i = phi i32 [ 1, %6 ], [ 1, %9 ], [ 2, %11 ], [ 2, %14 ], [ %.sink13.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
   %19 = load i8, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i, align 1
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %.fca.0.load.i, i64 %.fca.1.load.i, i32 noundef %.sink.i, i1 noundef zeroext %21)
-  %22 = load i32, ptr @_ZN5vcpkg3msg21default_output_streamE, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %29
+  %20 = trunc i8 %19 to i1
+  call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %.fca.0.load.i, i64 %.fca.1.load.i, i32 noundef %.sink.i, i1 noundef zeroext %20)
+  %21 = load i32, ptr @_ZN5vcpkg3msg21default_output_streamE, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %28
 
-24:                                               ; preds = %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit
-  %25 = load atomic i8, ptr @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty acquire, align 8
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, !prof !44
+23:                                               ; preds = %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit
+  %24 = load atomic i8, ptr @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty acquire, align 8
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, !prof !44
 
-27:                                               ; preds = %24
-  %28 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty) #25
-  %.not.i.i8 = icmp eq i32 %28, 0
+26:                                               ; preds = %23
+  %27 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty) #25
+  %.not.i.i8 = icmp eq i32 %27, 0
   br i1 %.not.i.i8, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4
 
-29:                                               ; preds = %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit
-  %30 = load atomic i8, ptr @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty acquire, align 8
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %32, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, !prof !44
+28:                                               ; preds = %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit
+  %29 = load atomic i8, ptr @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty acquire, align 8
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %31, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, !prof !44
 
-32:                                               ; preds = %29
-  %33 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty) #25
-  %.not.i6.i3 = icmp eq i32 %33, 0
+31:                                               ; preds = %28
+  %32 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty) #25
+  %.not.i6.i3 = icmp eq i32 %32, 0
   br i1 %.not.i6.i3, label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, label %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4
 
-_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4: ; preds = %32, %27
-  %.sink14.i5 = phi i32 [ 1, %27 ], [ 2, %32 ]
-  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i6 = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %27 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %32 ]
-  %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i7 = phi ptr [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %27 ], [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %32 ]
-  %34 = call i32 @isatty(i32 noundef %.sink14.i5) #25
-  %35 = icmp ne i32 %34, 0
-  %36 = zext i1 %35 to i8
-  store i8 %36, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink11.i6, align 1
+_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4: ; preds = %31, %26
+  %.sink13.i5 = phi i32 [ 1, %26 ], [ 2, %31 ]
+  %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i6 = phi ptr [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %26 ], [ @_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %31 ]
+  %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i7 = phi ptr [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewEE8is_a_tty, %26 ], [ @_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty, %31 ]
+  %33 = call i32 @isatty(i32 noundef %.sink13.i5) #25
+  %34 = icmp ne i32 %33, 0
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink10.i6, align 1
   call void @__cxa_guard_release(ptr nonnull %_ZGVZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i7) #25
   br label %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9
 
-_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9: ; preds = %24, %27, %29, %32, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4
-  %.sink.i2 = phi i32 [ 1, %24 ], [ 1, %27 ], [ 2, %29 ], [ 2, %32 ], [ %.sink14.i5, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4 ]
+_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9: ; preds = %23, %26, %28, %31, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4
+  %.sink.i2 = phi i32 [ 1, %23 ], [ 1, %26 ], [ 2, %28 ], [ 2, %31 ], [ %.sink13.i5, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i4 ]
   br label %.lr.ph.i20.i
 
-.lr.ph.i20.i:                                     ; preds = %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, %44
-  %.012.i21.i = phi ptr [ %45, %44 ], [ @.str.2675, %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9 ]
-  %.0811.i22.i = phi i64 [ %46, %44 ], [ 1, %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9 ]
-  %37 = call i64 @write(i32 noundef %.sink.i2, ptr noundef %.012.i21.i, i64 noundef %.0811.i22.i)
-  %38 = icmp eq i64 %37, -1
-  br i1 %38, label %39, label %44
+.lr.ph.i20.i:                                     ; preds = %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9, %43
+  %.012.i21.i = phi ptr [ %44, %43 ], [ @.str.2675, %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9 ]
+  %.0811.i22.i = phi i64 [ %45, %43 ], [ 1, %_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit9 ]
+  %36 = call i64 @write(i32 noundef %.sink.i2, ptr noundef %.012.i21.i, i64 noundef %.0811.i22.i)
+  %37 = icmp eq i64 %36, -1
+  br i1 %37, label %38, label %43
 
-39:                                               ; preds = %.lr.ph.i20.i
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call ptr @__errno_location() #30
-  %42 = load i32, ptr %41, align 4
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2671, i32 noundef %42) #31
+38:                                               ; preds = %.lr.ph.i20.i
+  %39 = load ptr, ptr @stderr, align 8
+  %40 = tail call ptr @__errno_location() #30
+  %41 = load i32, ptr %40, align 4
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.2671, i32 noundef %41) #31
   call void @abort() #26
   unreachable
 
-44:                                               ; preds = %.lr.ph.i20.i
-  %45 = getelementptr inbounds i8, ptr %.012.i21.i, i64 %37
-  %46 = sub i64 %.0811.i22.i, %37
-  %.not.i23.i = icmp eq i64 %46, 0
+43:                                               ; preds = %.lr.ph.i20.i
+  %44 = getelementptr inbounds i8, ptr %.012.i21.i, i64 %36
+  %45 = sub i64 %.0811.i22.i, %36
+  %.not.i23.i = icmp eq i64 %45, 0
   br i1 %.not.i23.i, label %_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib.exit, label %.lr.ph.i20.i, !llvm.loop !45
 
-_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib.exit: ; preds = %44
+_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib.exit: ; preds = %43
   ret void
 }
 
@@ -8322,9 +8311,8 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i: ; pre
 
 _ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit: ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i, %.lr.ph.i, %5
   %66 = load i8, ptr %4, align 8
-  %67 = and i8 %66, 1
-  %.not.i = icmp eq i8 %67, 0
-  br i1 %.not.i, label %71, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %71
 
 68:                                               ; preds = %_ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit
   %69 = getelementptr inbounds i8, ptr %4, i64 8
@@ -10386,10 +10374,10 @@ attributes #31 = { cold nounwind }
 !53 = !{!54, !51}
 !54 = distinct !{!54, !55, !"_ZN5vcpkg3msg16get_language_tagEi: argument 0"}
 !55 = distinct !{!55, !"_ZN5vcpkg3msg16get_language_tagEi"}
-!56 = !{!57, !51}
+!56 = !{!57}
 !57 = distinct !{!57, !58, !"_ZNO5vcpkg8OptionalINS_13StringLiteralEE3mapIZNS_3msg15get_locale_pathB5cxx11EiE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIOS1_EDTcl9__declvalIS6_ELi0EEEvEEEEEES6_: argument 0"}
 !58 = distinct !{!58, !"_ZNO5vcpkg8OptionalINS_13StringLiteralEE3mapIZNS_3msg15get_locale_pathB5cxx11EiE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIOS1_EDTcl9__declvalIS6_ELi0EEEvEEEEEES6_"}
-!59 = !{!57}
+!59 = !{!57, !51}
 !60 = !{!61, !57, !51}
 !61 = distinct !{!61, !62, !"_ZZN5vcpkg3msg15get_locale_pathB5cxx11EiENK3$_0clB5cxx11ENS_13StringLiteralE: argument 0"}
 !62 = distinct !{!62, !"_ZZN5vcpkg3msg15get_locale_pathB5cxx11EiENK3$_0clB5cxx11ENS_13StringLiteralE"}

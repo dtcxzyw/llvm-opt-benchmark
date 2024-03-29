@@ -394,69 +394,68 @@ define dso_local noundef i32 @lzma_code(ptr nocapture noundef %0, i32 noundef %1
   %28 = zext nneg i32 %1 to i64
   %29 = getelementptr inbounds [5 x i8], ptr %27, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 1
-  %.not75 = icmp eq i8 %31, 0
-  br i1 %.not75, label %148, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %148
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
-  %.not76 = icmp eq ptr %34, null
-  br i1 %.not76, label %35, label %148
+  %.not75 = icmp eq ptr %34, null
+  br i1 %.not75, label %35, label %148
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
-  %.not77 = icmp eq ptr %37, null
-  br i1 %.not77, label %38, label %148
+  %.not76 = icmp eq ptr %37, null
+  br i1 %.not76, label %38, label %148
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
-  %.not78 = icmp eq ptr %40, null
-  br i1 %.not78, label %41, label %148
+  %.not77 = icmp eq ptr %40, null
+  br i1 %.not77, label %41, label %148
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %0, i64 88
   %43 = load ptr, ptr %42, align 8
-  %.not79 = icmp eq ptr %43, null
-  br i1 %.not79, label %44, label %148
+  %.not78 = icmp eq ptr %43, null
+  br i1 %.not78, label %44, label %148
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 96
   %46 = load i64, ptr %45, align 8
-  %.not80 = icmp eq i64 %46, 0
-  br i1 %.not80, label %47, label %148
+  %.not79 = icmp eq i64 %46, 0
+  br i1 %.not79, label %47, label %148
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %0, i64 104
   %49 = load i64, ptr %48, align 8
-  %.not81 = icmp eq i64 %49, 0
-  br i1 %.not81, label %50, label %148
+  %.not80 = icmp eq i64 %49, 0
+  br i1 %.not80, label %50, label %148
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %0, i64 112
   %52 = load i64, ptr %51, align 8
-  %.not82 = icmp eq i64 %52, 0
-  br i1 %.not82, label %53, label %148
+  %.not81 = icmp eq i64 %52, 0
+  br i1 %.not81, label %53, label %148
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %0, i64 120
   %55 = load i64, ptr %54, align 8
-  %.not83 = icmp eq i64 %55, 0
-  br i1 %.not83, label %56, label %148
+  %.not82 = icmp eq i64 %55, 0
+  br i1 %.not82, label %56, label %148
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %0, i64 128
   %58 = load i32, ptr %57, align 8
-  %.not84 = icmp eq i32 %58, 0
-  br i1 %.not84, label %59, label %148
+  %.not83 = icmp eq i32 %58, 0
+  br i1 %.not83, label %59, label %148
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %0, i64 132
   %61 = load i32, ptr %60, align 4
-  %.not85 = icmp eq i32 %61, 0
-  br i1 %.not85, label %62, label %148
+  %.not84 = icmp eq i32 %61, 0
+  br i1 %.not84, label %62, label %148
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %19, i64 72
@@ -476,52 +475,52 @@ define dso_local noundef i32 @lzma_code(ptr nocapture noundef %0, i32 noundef %1
   br i1 %switch, label %.sink.split, label %91
 
 66:                                               ; preds = %62
-  %.not92 = icmp eq i32 %1, 1
-  br i1 %.not92, label %67, label %148
+  %.not91 = icmp eq i32 %1, 1
+  br i1 %.not91, label %67, label %148
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds i8, ptr %19, i64 80
   %69 = load i64, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load i64, ptr %70, align 8
-  %.not93 = icmp eq i64 %69, %71
-  br i1 %.not93, label %91, label %148
+  %.not92 = icmp eq i64 %69, %71
+  br i1 %.not92, label %91, label %148
 
 72:                                               ; preds = %62
-  %.not90 = icmp eq i32 %1, 2
-  br i1 %.not90, label %73, label %148
+  %.not89 = icmp eq i32 %1, 2
+  br i1 %.not89, label %73, label %148
 
 73:                                               ; preds = %72
   %74 = getelementptr inbounds i8, ptr %19, i64 80
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 8
   %77 = load i64, ptr %76, align 8
-  %.not91 = icmp eq i64 %75, %77
-  br i1 %.not91, label %91, label %148
+  %.not90 = icmp eq i64 %75, %77
+  br i1 %.not90, label %91, label %148
 
 78:                                               ; preds = %62
-  %.not88 = icmp eq i32 %1, 3
-  br i1 %.not88, label %79, label %148
+  %.not87 = icmp eq i32 %1, 3
+  br i1 %.not87, label %79, label %148
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds i8, ptr %19, i64 80
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   %83 = load i64, ptr %82, align 8
-  %.not89 = icmp eq i64 %81, %83
-  br i1 %.not89, label %91, label %148
+  %.not88 = icmp eq i64 %81, %83
+  br i1 %.not88, label %91, label %148
 
 84:                                               ; preds = %62
-  %.not86 = icmp eq i32 %1, 4
-  br i1 %.not86, label %85, label %148
+  %.not85 = icmp eq i32 %1, 4
+  br i1 %.not85, label %85, label %148
 
 85:                                               ; preds = %84
   %86 = getelementptr inbounds i8, ptr %19, i64 80
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   %89 = load i64, ptr %88, align 8
-  %.not87 = icmp eq i64 %87, %89
-  br i1 %.not87, label %91, label %148
+  %.not86 = icmp eq i64 %87, %89
+  br i1 %.not86, label %91, label %148
 
 90:                                               ; preds = %62
   br label %148
@@ -591,9 +590,8 @@ define dso_local noundef i32 @lzma_code(ptr nocapture noundef %0, i32 noundef %1
 
 128:                                              ; preds = %123
   %129 = load i8, ptr %127, align 1
-  %130 = and i8 %129, 1
-  %.not94 = icmp eq i8 %130, 0
-  br i1 %.not94, label %131, label %148
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %148, label %131
 
 131:                                              ; preds = %128
   store i8 1, ptr %127, align 1
@@ -615,20 +613,20 @@ define dso_local noundef i32 @lzma_code(ptr nocapture noundef %0, i32 noundef %1
   %139 = load i32, ptr %138, align 8
   %switch.tableidx = add i32 %139, -1
   %140 = icmp ult i32 %switch.tableidx, 4
-  br i1 %140, label %switch.lookup, label %.sink.split95
+  br i1 %140, label %switch.lookup, label %.sink.split93
 
 switch.lookup:                                    ; preds = %136
   %141 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.lzma_code, i64 0, i64 %141
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.sink.split95
+  br label %.sink.split93
 
-.sink.split95:                                    ; preds = %136, %switch.lookup
-  %.sink96 = phi i32 [ %switch.load, %switch.lookup ], [ 5, %136 ]
-  store i32 %.sink96, ptr %138, align 8
+.sink.split93:                                    ; preds = %136, %switch.lookup
+  %.sink94 = phi i32 [ %switch.load, %switch.lookup ], [ 5, %136 ]
+  store i32 %.sink94, ptr %138, align 8
   br label %142
 
-142:                                              ; preds = %.sink.split95, %91, %91, %91, %91
+142:                                              ; preds = %.sink.split93, %91, %91, %91, %91
   %143 = load ptr, ptr %18, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 93
   store i8 0, ptr %144, align 1

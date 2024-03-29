@@ -205,9 +205,8 @@ define dso_local void @_ZN5vcpkg31command_z_print_config_and_exitERKNS_17VcpkgCm
 52:                                               ; preds = %47
   %53 = getelementptr inbounds i8, ptr %0, i64 1616
   %54 = load i8, ptr %53, align 8
-  %55 = and i8 %54, 1
-  %.not.i = icmp eq i8 %55, 0
-  br i1 %.not.i, label %61, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %61
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %0, i64 1624
@@ -225,9 +224,8 @@ define dso_local void @_ZN5vcpkg31command_z_print_config_and_exitERKNS_17VcpkgCm
 
 63:                                               ; preds = %61
   %64 = load i8, ptr %62, align 8
-  %65 = and i8 %64, 1
-  %.not.i36 = icmp eq i8 %65, 0
-  br i1 %.not.i36, label %70, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %70
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %62, i64 8
@@ -257,9 +255,8 @@ define dso_local void @_ZN5vcpkg31command_z_print_config_and_exitERKNS_17VcpkgCm
 
 78:                                               ; preds = %76
   %79 = load i8, ptr %77, align 8
-  %80 = and i8 %79, 1
-  %.not = icmp eq i8 %80, 0
-  br i1 %.not, label %94, label %81
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %94
 
 81:                                               ; preds = %78
   invoke void @_ZNK5vcpkg10VcpkgPaths15versions_outputEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %17, ptr noundef nonnull align 8 dereferenceable(400) %1)
@@ -509,9 +506,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_17opt_addERN5vcpkg4Json6ObjectENS0_
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = load i8, ptr %3, align 8
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %15, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %3, i64 8

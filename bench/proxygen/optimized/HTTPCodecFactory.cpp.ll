@@ -33,6 +33,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen16HTTPCodecFactory8getCodecENS_13CodecProtocolENS_18TransportDirectionEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i8 noundef zeroext %protocol, i8 noundef zeroext %direction, i1 noundef zeroext %strictValidation) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
+  %frombool = zext i1 %strictValidation to i8
   switch i8 %protocol, label %sw.default [
     i8 0, label %sw.bb
     i8 1, label %sw.bb2
@@ -65,9 +66,8 @@ lpad.i2:                                          ; preds = %sw.bb2
   br label %common.resume
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %sw.bb2
-  %frombool.i = zext i1 %strictValidation to i8
   %strictValidation_.i = getelementptr inbounds i8, ptr %call.i1, i64 1060
-  store i8 %frombool.i, ptr %strictValidation_.i, align 4
+  store i8 %frombool, ptr %strictValidation_.i, align 4
   br label %return
 
 sw.default:                                       ; preds = %entry

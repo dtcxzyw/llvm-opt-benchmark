@@ -2591,37 +2591,35 @@ entry:
   %m_hsX = getelementptr inbounds i8, ptr %this, i64 352
   %m_hsY = getelementptr inbounds i8, ptr %this, i64 448
   %m_hsM = getelementptr inbounds i8, ptr %this, i64 544
-  %m_master.i = getelementptr inbounds i8, ptr %v, i64 72
-  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 64
-  %m_green.i = getelementptr inbounds i8, ptr %v, i64 56
-  %m_shadows = getelementptr inbounds i8, ptr %v, i64 48
   %m_master.i77 = getelementptr inbounds i8, ptr %v, i64 168
   %m_blue.i81 = getelementptr inbounds i8, ptr %v, i64 160
   %m_green.i84 = getelementptr inbounds i8, ptr %v, i64 152
   %m_highlights = getelementptr inbounds i8, ptr %v, i64 144
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 72
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 64
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 56
+  %m_shadows = getelementptr inbounds i8, ptr %v, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc168
   %__begin1.0.idx106 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc168 ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx106
   %0 = load i8, ptr %__begin1.0.ptr, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp5, align 16
-  %idxprom = zext nneg i8 %1 to i64
-  %2 = shl nuw nsw i8 %1, 4
-  %3 = xor i8 %2, 16
-  %cond87.in.idx = zext nneg i8 %3 to i64
+  %tobool.mask = and i8 %0, 1
+  %idxprom = zext nneg i8 %tobool.mask to i64
+  %cond87.in.idx = select i1 %tobool, i64 0, i64 16
   %cond87.in = getelementptr inbounds i8, ptr %this, i64 %cond87.in.idx
-  %cond92.in.v = select i1 %tobool.not.not, i64 24, i64 8
+  %cond92.in.v = select i1 %tobool, i64 8, i64 24
   %cond92.in = getelementptr inbounds i8, ptr %this, i64 %cond92.in.v
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.idx105 = phi i64 [ 0, %for.body ], [ %__begin2.0.add, %for.inc ]
   %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx105
-  %4 = load i32, ptr %__begin2.0.ptr, align 4
-  %idxprom19 = zext i32 %4 to i64
+  %1 = load i32, ptr %__begin2.0.ptr, align 4
+  %idxprom19 = zext i32 %1 to i64
   %arrayidx20 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsX, i64 0, i64 %idxprom, i64 %idxprom19
   %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
   %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
@@ -2630,10 +2628,10 @@ for.body17:                                       ; preds = %for.body, %for.inc
   %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx43, i64 8
   %arrayidx66 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_hsM, i64 0, i64 %idxprom, i64 %idxprom19
   %arrayidx75 = getelementptr inbounds i8, ptr %arrayidx66, i64 4
-  br i1 %tobool.not.not, label %cond.false, label %cond.true
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body17
-  switch i32 %4, label %cond.end [
+  switch i32 %1, label %cond.end [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
     i32 2, label %if.then6.i
@@ -2641,27 +2639,27 @@ cond.true:                                        ; preds = %for.body17
   ]
 
 if.then.i:                                        ; preds = %cond.true
-  %5 = load double, ptr %m_shadows, align 8
-  %conv.i = fptrunc double %5 to float
+  %2 = load double, ptr %m_shadows, align 8
+  %conv.i = fptrunc double %2 to float
   br label %cond.end
 
 if.then2.i:                                       ; preds = %cond.true
-  %6 = load double, ptr %m_green.i, align 8
-  %conv3.i = fptrunc double %6 to float
+  %3 = load double, ptr %m_green.i, align 8
+  %conv3.i = fptrunc double %3 to float
   br label %cond.end
 
 if.then6.i:                                       ; preds = %cond.true
-  %7 = load double, ptr %m_blue.i, align 8
-  %conv7.i = fptrunc double %7 to float
+  %4 = load double, ptr %m_blue.i, align 8
+  %conv7.i = fptrunc double %4 to float
   br label %cond.end
 
 if.then11.i:                                      ; preds = %cond.true
-  %8 = load double, ptr %m_master.i, align 8
-  %conv12.i = fptrunc double %8 to float
+  %5 = load double, ptr %m_master.i, align 8
+  %conv12.i = fptrunc double %5 to float
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body17
-  switch i32 %4, label %cond.end [
+  switch i32 %1, label %cond.end [
     i32 0, label %if.then.i86
     i32 1, label %if.then2.i83
     i32 2, label %if.then6.i80
@@ -2669,29 +2667,29 @@ cond.false:                                       ; preds = %for.body17
   ]
 
 if.then.i86:                                      ; preds = %cond.false
-  %9 = load double, ptr %m_highlights, align 8
-  %conv.i87 = fptrunc double %9 to float
+  %6 = load double, ptr %m_highlights, align 8
+  %conv.i87 = fptrunc double %6 to float
   br label %cond.end
 
 if.then2.i83:                                     ; preds = %cond.false
-  %10 = load double, ptr %m_green.i84, align 8
-  %conv3.i85 = fptrunc double %10 to float
+  %7 = load double, ptr %m_green.i84, align 8
+  %conv3.i85 = fptrunc double %7 to float
   br label %cond.end
 
 if.then6.i80:                                     ; preds = %cond.false
-  %11 = load double, ptr %m_blue.i81, align 8
-  %conv7.i82 = fptrunc double %11 to float
+  %8 = load double, ptr %m_blue.i81, align 8
+  %conv7.i82 = fptrunc double %8 to float
   br label %cond.end
 
 if.then11.i76:                                    ; preds = %cond.false
-  %12 = load double, ptr %m_master.i77, align 8
-  %conv12.i78 = fptrunc double %12 to float
+  %9 = load double, ptr %m_master.i77, align 8
+  %conv12.i78 = fptrunc double %9 to float
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then11.i76, %if.then6.i80, %if.then2.i83, %if.then.i86, %cond.false, %if.then11.i, %if.then6.i, %if.then2.i, %if.then.i, %cond.true
   %cond79 = phi float [ %conv.i, %if.then.i ], [ %conv3.i, %if.then2.i ], [ %conv7.i, %if.then6.i ], [ %conv12.i, %if.then11.i ], [ 0.000000e+00, %cond.true ], [ %conv.i87, %if.then.i86 ], [ %conv3.i85, %if.then2.i83 ], [ %conv7.i82, %if.then6.i80 ], [ %conv12.i78, %if.then11.i76 ], [ 0.000000e+00, %cond.false ]
   %sub = fsub float 2.000000e+00, %cond79
-  %storemerge = select i1 %tobool.not.not, float %sub, float %cond79
+  %storemerge = select i1 %tobool, float %cond79, float %sub
   %cmp81 = fcmp une float %storemerge, 1.000000e+00
   br i1 %cmp81, label %if.then82, label %for.inc
 
@@ -2700,20 +2698,20 @@ if.then82:                                        ; preds = %cond.end
   %conv = fptrunc double %cond87 to float
   %cond92 = load double, ptr %cond92.in, align 8
   %conv93 = fptrunc double %cond92 to float
-  %cond98 = select i1 %tobool.not.not, float %conv, float %conv93
+  %cond98 = select i1 %tobool, float %conv93, float %conv
   store float %cond98, ptr %arrayidx20, align 4
-  %cond103 = select i1 %tobool.not.not, float %conv93, float %conv
+  %cond103 = select i1 %tobool, float %conv, float %conv93
   store float %cond103, ptr %arrayidx37, align 4
   store float %cond98, ptr %arrayidx43, align 4
   store float %cond103, ptr %arrayidx60, align 4
   %sub104 = fsub float %cond103, %cond98
-  %13 = tail call float @llvm.fmuladd.f32(float %sub104, float 5.000000e-01, float %cond98)
-  store float %13, ptr %arrayidx29, align 4
+  %10 = tail call float @llvm.fmuladd.f32(float %sub104, float 5.000000e-01, float %cond98)
+  store float %10, ptr %arrayidx29, align 4
   %cmp105 = fcmp olt float %storemerge, 1.000000e+00
   br i1 %cmp105, label %if.then106, label %if.else
 
 if.then106:                                       ; preds = %if.then82
-  br i1 %tobool.not.not, label %cond.false116.critedge, label %cond.true108
+  br i1 %tobool, label %cond.true108, label %cond.false116.critedge
 
 cond.true108:                                     ; preds = %if.then106
   %cmp.i = fcmp ogt float %cond79, 0x3F847AE140000000
@@ -2726,27 +2724,27 @@ cond.false116.critedge:                           ; preds = %if.then106
   br label %cond.end119
 
 cond.end119:                                      ; preds = %cond.true108, %cond.false116.critedge
-  %.sroa.speculated98.sink = phi float [ 1.000000e+00, %cond.false116.critedge ], [ %.sroa.speculated98, %cond.true108 ]
-  %cond120 = phi float [ %.sroa.speculated96, %cond.false116.critedge ], [ 1.000000e+00, %cond.true108 ]
-  store float %.sroa.speculated98.sink, ptr %arrayidx66, align 8
+  %.sink = phi float [ %.sroa.speculated98, %cond.true108 ], [ 1.000000e+00, %cond.false116.critedge ]
+  %cond120 = phi float [ 1.000000e+00, %cond.true108 ], [ %.sroa.speculated96, %cond.false116.critedge ]
+  store float %.sink, ptr %arrayidx66, align 8
   store float %cond120, ptr %arrayidx75, align 4
-  %14 = load float, ptr %arrayidx37, align 4
-  %15 = load float, ptr %arrayidx20, align 4
-  %sub121 = fsub float %14, %15
+  %11 = load float, ptr %arrayidx37, align 4
+  %12 = load float, ptr %arrayidx20, align 4
+  %sub121 = fsub float %11, %12
   %div = fdiv float 5.000000e-01, %sub121
-  %16 = load float, ptr %arrayidx43, align 4
-  %17 = load float, ptr %arrayidx29, align 4
-  %sub122 = fsub float %17, %15
-  %mul123 = fmul float %.sroa.speculated98.sink, %sub122
-  %18 = tail call float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float %mul123)
-  %sub124 = fsub float %14, %17
-  %19 = load float, ptr %arrayidx60, align 4
-  %20 = fneg float %cond120
-  %neg = fmul float %sub124, %20
-  %21 = tail call float @llvm.fmuladd.f32(float %19, float 2.000000e+00, float %neg)
-  %mul129 = fmul float %sub122, %21
-  %22 = tail call float @llvm.fmuladd.f32(float %18, float %sub124, float %mul129)
-  %mul = fmul float %div, %22
+  %13 = load float, ptr %arrayidx43, align 4
+  %14 = load float, ptr %arrayidx29, align 4
+  %sub122 = fsub float %14, %12
+  %mul123 = fmul float %.sink, %sub122
+  %15 = tail call float @llvm.fmuladd.f32(float %13, float 2.000000e+00, float %mul123)
+  %sub124 = fsub float %11, %14
+  %16 = load float, ptr %arrayidx60, align 4
+  %17 = fneg float %cond120
+  %neg = fmul float %sub124, %17
+  %18 = tail call float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float %neg)
+  %mul129 = fmul float %sub122, %18
+  %19 = tail call float @llvm.fmuladd.f32(float %15, float %sub124, float %mul129)
+  %mul = fmul float %div, %19
   br label %for.inc.sink.split
 
 if.else:                                          ; preds = %if.then82
@@ -2754,7 +2752,7 @@ if.else:                                          ; preds = %if.then82
   br i1 %cmp130, label %if.then131, label %for.inc
 
 if.then131:                                       ; preds = %if.else
-  br i1 %tobool.not.not, label %cond.false143.critedge, label %cond.true133
+  br i1 %tobool, label %cond.true133, label %cond.false143.critedge
 
 cond.true133:                                     ; preds = %if.then131
   %cmp.i91 = fcmp ogt float %sub, 0x3F847AE140000000
@@ -2768,29 +2766,29 @@ cond.false143.critedge:                           ; preds = %if.then131
   br label %cond.end148
 
 cond.end148:                                      ; preds = %cond.true133, %cond.false143.critedge
-  %.sroa.speculated95.sink = phi float [ 1.000000e+00, %cond.false143.critedge ], [ %.sroa.speculated95, %cond.true133 ]
-  %cond149 = phi float [ %.sroa.speculated, %cond.false143.critedge ], [ 1.000000e+00, %cond.true133 ]
-  store float %.sroa.speculated95.sink, ptr %arrayidx66, align 8
+  %.sink107 = phi float [ %.sroa.speculated95, %cond.true133 ], [ 1.000000e+00, %cond.false143.critedge ]
+  %cond149 = phi float [ 1.000000e+00, %cond.true133 ], [ %.sroa.speculated, %cond.false143.critedge ]
+  store float %.sink107, ptr %arrayidx66, align 8
   store float %cond149, ptr %arrayidx75, align 4
-  %23 = load float, ptr %arrayidx20, align 4
-  %24 = load <2 x float>, ptr %arrayidx29, align 4
-  %25 = insertelement <2 x float> poison, float %23, i64 0
-  %26 = shufflevector <2 x float> %25, <2 x float> %24, <2 x i32> <i32 0, i32 2>
-  %27 = fsub <2 x float> %24, %26
-  %28 = extractelement <2 x float> %27, i64 0
-  %29 = extractelement <2 x float> %27, i64 1
-  %add = fadd float %29, %28
+  %20 = load float, ptr %arrayidx20, align 4
+  %21 = load <2 x float>, ptr %arrayidx29, align 4
+  %22 = insertelement <2 x float> poison, float %20, i64 0
+  %23 = shufflevector <2 x float> %22, <2 x float> %21, <2 x i32> <i32 0, i32 2>
+  %24 = fsub <2 x float> %21, %23
+  %25 = extractelement <2 x float> %24, i64 0
+  %26 = extractelement <2 x float> %24, i64 1
+  %add = fadd float %26, %25
   %div152 = fdiv float 5.000000e-01, %add
-  %30 = load float, ptr %arrayidx43, align 4
-  %mul155 = fmul float %28, %.sroa.speculated95.sink
-  %31 = tail call float @llvm.fmuladd.f32(float %30, float 2.000000e+00, float %mul155)
-  %32 = load float, ptr %arrayidx60, align 4
-  %33 = fneg float %cond149
-  %neg161 = fmul float %29, %33
-  %34 = tail call float @llvm.fmuladd.f32(float %32, float 2.000000e+00, float %neg161)
-  %mul163 = fmul float %28, %34
-  %35 = tail call float @llvm.fmuladd.f32(float %31, float %29, float %mul163)
-  %mul164 = fmul float %div152, %35
+  %27 = load float, ptr %arrayidx43, align 4
+  %mul155 = fmul float %25, %.sink107
+  %28 = tail call float @llvm.fmuladd.f32(float %27, float 2.000000e+00, float %mul155)
+  %29 = load float, ptr %arrayidx60, align 4
+  %30 = fneg float %cond149
+  %neg161 = fmul float %26, %30
+  %31 = tail call float @llvm.fmuladd.f32(float %29, float 2.000000e+00, float %neg161)
+  %mul163 = fmul float %25, %31
+  %32 = tail call float @llvm.fmuladd.f32(float %28, float %26, float %mul163)
+  %mul164 = fmul float %div152, %32
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.end119, %cond.end148
@@ -2824,45 +2822,45 @@ entry:
   %m_wbY = getelementptr inbounds i8, ptr %this, i64 672
   %m_wbM = getelementptr inbounds i8, ptr %this, i64 736
   %m_wbGain = getelementptr inbounds i8, ptr %this, i64 800
-  %m_master.i = getelementptr inbounds i8, ptr %v, i64 24
-  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 16
-  %m_green.i = getelementptr inbounds i8, ptr %v, i64 8
   %m_master.i76 = getelementptr inbounds i8, ptr %v, i64 216
   %m_blue.i80 = getelementptr inbounds i8, ptr %v, i64 208
   %m_green.i83 = getelementptr inbounds i8, ptr %v, i64 200
   %m_whites = getelementptr inbounds i8, ptr %v, i64 192
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 24
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 16
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc133
   %__begin1.0.idx105 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc133 ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx105
   %0 = load i8, ptr %__begin1.0.ptr, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp5, align 16
-  %idxprom = zext nneg i8 %1 to i64
-  %cond67.in.v = select i1 %tobool.not.not, i64 48, i64 32
+  %tobool.mask = and i8 %0, 1
+  %idxprom = zext nneg i8 %tobool.mask to i64
+  %cond67.in.v = select i1 %tobool, i64 32, i64 48
   %cond67.in = getelementptr inbounds i8, ptr %this, i64 %cond67.in.v
-  %cond72.in.v = select i1 %tobool.not.not, i64 56, i64 40
+  %cond72.in.v = select i1 %tobool, i64 40, i64 56
   %cond72.in = getelementptr inbounds i8, ptr %this, i64 %cond72.in.v
   %cond67.pre = load double, ptr %cond67.in, align 8
   %cond72.pre = load double, ptr %cond72.in, align 8
   %conv = fptrunc double %cond67.pre to float
   %conv73 = fptrunc double %cond72.pre to float
   %sub = fsub float %conv, %conv73
-  %cond85 = select i1 %tobool.not.not, float %conv, float %sub
+  %cond85 = select i1 %tobool, float %sub, float %conv
   %add = fadd float %cond85, %conv73
-  %cond90 = select i1 %tobool.not.not, float %add, float %conv
+  %cond90 = select i1 %tobool, float %conv, float %add
   %sub124 = fsub float %conv, %sub
-  %sub109 = fsub float %conv, %sub
   %sub103 = fsub float %add, %conv
+  %sub109 = fsub float %conv, %sub
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.idx104 = phi i64 [ 0, %for.body ], [ %__begin2.0.add, %for.inc ]
   %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx104
-  %2 = load i32, ptr %__begin2.0.ptr, align 4
-  %idxprom19 = zext i32 %2 to i64
+  %1 = load i32, ptr %__begin2.0.ptr, align 4
+  %idxprom19 = zext i32 %1 to i64
   %arrayidx20 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbX, i64 0, i64 %idxprom, i64 %idxprom19
   %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
   %arrayidx35 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbY, i64 0, i64 %idxprom, i64 %idxprom19
@@ -2870,10 +2868,10 @@ for.body17:                                       ; preds = %for.body, %for.inc
   %arrayidx50 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbM, i64 0, i64 %idxprom, i64 %idxprom19
   %arrayidx59 = getelementptr inbounds i8, ptr %arrayidx50, i64 4
   %arrayidx65 = getelementptr inbounds [2 x [4 x float]], ptr %m_wbGain, i64 0, i64 %idxprom, i64 %idxprom19
-  br i1 %tobool.not.not, label %cond.false77, label %cond.true75
+  br i1 %tobool, label %cond.true75, label %cond.false77
 
 cond.true75:                                      ; preds = %for.body17
-  switch i32 %2, label %cond.end79 [
+  switch i32 %1, label %cond.end79 [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
     i32 2, label %if.then6.i
@@ -2881,27 +2879,27 @@ cond.true75:                                      ; preds = %for.body17
   ]
 
 if.then.i:                                        ; preds = %cond.true75
-  %3 = load double, ptr %v, align 8
-  %conv.i = fptrunc double %3 to float
+  %2 = load double, ptr %v, align 8
+  %conv.i = fptrunc double %2 to float
   br label %cond.end79
 
 if.then2.i:                                       ; preds = %cond.true75
-  %4 = load double, ptr %m_green.i, align 8
-  %conv3.i = fptrunc double %4 to float
+  %3 = load double, ptr %m_green.i, align 8
+  %conv3.i = fptrunc double %3 to float
   br label %cond.end79
 
 if.then6.i:                                       ; preds = %cond.true75
-  %5 = load double, ptr %m_blue.i, align 8
-  %conv7.i = fptrunc double %5 to float
+  %4 = load double, ptr %m_blue.i, align 8
+  %conv7.i = fptrunc double %4 to float
   br label %cond.end79
 
 if.then11.i:                                      ; preds = %cond.true75
-  %6 = load double, ptr %m_master.i, align 8
-  %conv12.i = fptrunc double %6 to float
+  %5 = load double, ptr %m_master.i, align 8
+  %conv12.i = fptrunc double %5 to float
   br label %cond.end79
 
 cond.false77:                                     ; preds = %for.body17
-  switch i32 %2, label %cond.end79 [
+  switch i32 %1, label %cond.end79 [
     i32 0, label %if.then.i85
     i32 1, label %if.then2.i82
     i32 2, label %if.then6.i79
@@ -2909,23 +2907,23 @@ cond.false77:                                     ; preds = %for.body17
   ]
 
 if.then.i85:                                      ; preds = %cond.false77
-  %7 = load double, ptr %m_whites, align 8
-  %conv.i86 = fptrunc double %7 to float
+  %6 = load double, ptr %m_whites, align 8
+  %conv.i86 = fptrunc double %6 to float
   br label %cond.end79
 
 if.then2.i82:                                     ; preds = %cond.false77
-  %8 = load double, ptr %m_green.i83, align 8
-  %conv3.i84 = fptrunc double %8 to float
+  %7 = load double, ptr %m_green.i83, align 8
+  %conv3.i84 = fptrunc double %7 to float
   br label %cond.end79
 
 if.then6.i79:                                     ; preds = %cond.false77
-  %9 = load double, ptr %m_blue.i80, align 8
-  %conv7.i81 = fptrunc double %9 to float
+  %8 = load double, ptr %m_blue.i80, align 8
+  %conv7.i81 = fptrunc double %8 to float
   br label %cond.end79
 
 if.then11.i75:                                    ; preds = %cond.false77
-  %10 = load double, ptr %m_master.i76, align 8
-  %conv12.i77 = fptrunc double %10 to float
+  %9 = load double, ptr %m_master.i76, align 8
+  %conv12.i77 = fptrunc double %9 to float
   br label %cond.end79
 
 cond.end79:                                       ; preds = %if.then11.i75, %if.then6.i79, %if.then2.i82, %if.then.i85, %cond.false77, %if.then11.i, %if.then6.i, %if.then2.i, %if.then.i, %cond.true75
@@ -2933,12 +2931,12 @@ cond.end79:                                       ; preds = %if.then11.i75, %if.
   store float %cond85, ptr %arrayidx20, align 8
   store float %cond90, ptr %arrayidx29, align 4
   %sub94 = fsub float 2.000000e+00, %cond80
-  %cond96 = select i1 %tobool.not.not, float %cond80, float %sub94
+  %cond96 = select i1 %tobool, float %sub94, float %cond80
   %cmp97 = fcmp olt float %cond96, 1.000000e+00
   br i1 %cmp97, label %if.then, label %if.else112
 
 if.then:                                          ; preds = %cond.end79
-  br i1 %tobool.not.not, label %if.then99, label %if.else
+  br i1 %tobool, label %if.else, label %if.then99
 
 if.then99:                                        ; preds = %if.then
   store float 1.000000e+00, ptr %arrayidx50, align 8
@@ -2948,8 +2946,8 @@ if.then99:                                        ; preds = %if.then
   store float %conv, ptr %arrayidx35, align 8
   %add102 = fadd float %.sroa.speculated99, 1.000000e+00
   %mul = fmul float %sub103, %add102
-  %11 = tail call float @llvm.fmuladd.f32(float %mul, float 5.000000e-01, float %conv)
-  store float %11, ptr %arrayidx44, align 4
+  %10 = tail call float @llvm.fmuladd.f32(float %mul, float 5.000000e-01, float %conv)
+  store float %10, ptr %arrayidx44, align 4
   br label %for.inc
 
 if.else:                                          ; preds = %if.then
@@ -2959,10 +2957,10 @@ if.else:                                          ; preds = %if.then
   store float 1.000000e+00, ptr %arrayidx59, align 4
   store float %conv, ptr %arrayidx44, align 4
   %add108 = fadd float %.sroa.speculated97, 1.000000e+00
-  %12 = fneg float %add108
-  %neg = fmul float %sub109, %12
-  %13 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %conv)
-  store float %13, ptr %arrayidx35, align 8
+  %11 = fneg float %add108
+  %neg = fmul float %sub109, %11
+  %12 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %conv)
+  store float %12, ptr %arrayidx35, align 8
   br label %for.inc
 
 if.else112:                                       ; preds = %cond.end79
@@ -2970,7 +2968,7 @@ if.else112:                                       ; preds = %cond.end79
   br i1 %cmp113, label %if.then114, label %for.inc
 
 if.then114:                                       ; preds = %if.else112
-  br i1 %tobool.not.not, label %if.then116, label %if.else120
+  br i1 %tobool, label %if.else120, label %if.then116
 
 if.then116:                                       ; preds = %if.then114
   %cmp.i90 = fcmp ogt float %sub94, 0x3F847AE140000000
@@ -2982,19 +2980,19 @@ if.else120:                                       ; preds = %if.then114
   %.sroa.speculated = select i1 %cmp.i92, float %cond80, float 0x3F847AE140000000
   store float %conv, ptr %arrayidx44, align 4
   %add123 = fadd float %.sroa.speculated, 1.000000e+00
-  %14 = fneg float %add123
-  %neg127 = fmul float %sub124, %14
-  %15 = tail call float @llvm.fmuladd.f32(float %neg127, float 5.000000e-01, float %conv)
+  %13 = fneg float %add123
+  %neg127 = fmul float %sub124, %13
+  %14 = tail call float @llvm.fmuladd.f32(float %neg127, float 5.000000e-01, float %conv)
   br label %if.end128
 
 if.end128:                                        ; preds = %if.else120, %if.then116
-  %.sroa.speculated.sink = phi float [ 1.000000e+00, %if.then116 ], [ %.sroa.speculated, %if.else120 ]
-  %.sink = phi float [ %.sroa.speculated95, %if.then116 ], [ 1.000000e+00, %if.else120 ]
-  %storemerge = phi float [ %conv, %if.then116 ], [ %15, %if.else120 ]
-  store float %.sroa.speculated.sink, ptr %arrayidx50, align 8
-  store float %.sink, ptr %arrayidx59, align 4
+  %.sink = phi float [ %.sroa.speculated, %if.else120 ], [ 1.000000e+00, %if.then116 ]
+  %.sroa.speculated95.sink = phi float [ 1.000000e+00, %if.else120 ], [ %.sroa.speculated95, %if.then116 ]
+  %storemerge = phi float [ %14, %if.else120 ], [ %conv, %if.then116 ]
+  store float %.sink, ptr %arrayidx50, align 8
+  store float %.sroa.speculated95.sink, ptr %arrayidx59, align 4
   store float %storemerge, ptr %arrayidx35, align 8
-  %add129 = fadd float %.sroa.speculated.sink, %.sink
+  %add129 = fadd float %.sink, %.sroa.speculated95.sink
   %mul130 = fmul float %add129, 5.000000e-01
   store float %mul130, ptr %arrayidx65, align 4
   br label %for.inc

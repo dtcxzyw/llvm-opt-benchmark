@@ -1308,10 +1308,9 @@ land.lhs.true24:                                  ; preds = %if.then20
 
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %land.lhs.true24
   %7 = load i8, ptr %server, align 4
-  %tobool.not.i.i = icmp ne i8 %7, 0
-  %8 = and i32 %6, 1
-  %9 = icmp eq i32 %8, 0
-  %tobool.not.i62 = xor i1 %9, %tobool.not.i.i
+  %8 = trunc i32 %6 to i1
+  %9 = icmp eq i8 %7, 0
+  %tobool.not.i62 = xor i1 %9, %8
   br i1 %tobool.not.i62, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -1591,10 +1590,9 @@ land.lhs.true:                                    ; preds = %if.then75
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %land.lhs.true
   %server.i.i = getelementptr inbounds i8, ptr %session, i64 2876
   %24 = load i8, ptr %server.i.i, align 4
-  %tobool.not.i.i = icmp ne i8 %24, 0
-  %25 = and i32 %23, 1
-  %26 = icmp eq i32 %25, 0
-  %tobool.not.i95 = xor i1 %26, %tobool.not.i.i
+  %25 = trunc i32 %23 to i1
+  %26 = icmp eq i8 %24, 0
+  %tobool.not.i95 = xor i1 %26, %25
   br i1 %tobool.not.i95, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -1705,10 +1703,9 @@ sw.bb:                                            ; preds = %if.end128
 nghttp2_session_is_my_stream_id.exit:             ; preds = %sw.bb
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %38 = load i8, ptr %server.i, align 4
-  %tobool.not.i105 = icmp ne i8 %38, 0
-  %39 = and i32 %stream_id, 1
-  %40 = icmp eq i32 %39, 0
-  %tobool130.not = xor i1 %40, %tobool.not.i105
+  %39 = trunc i32 %stream_id to i1
+  %40 = icmp eq i8 %38, 0
+  %tobool130.not = xor i1 %40, %39
   br i1 %tobool130.not, label %if.else132, label %if.then131
 
 if.then131:                                       ; preds = %nghttp2_session_is_my_stream_id.exit
@@ -1757,10 +1754,9 @@ sw.default:                                       ; preds = %if.end128
 nghttp2_session_is_my_stream_id.exit123:          ; preds = %sw.default
   %server.i118 = getelementptr inbounds i8, ptr %session, i64 2876
   %45 = load i8, ptr %server.i118, align 4
-  %tobool.not.i119 = icmp ne i8 %45, 0
-  %46 = and i32 %stream_id, 1
-  %47 = icmp eq i32 %46, 0
-  %tobool137.not = xor i1 %47, %tobool.not.i119
+  %46 = trunc i32 %stream_id to i1
+  %47 = icmp eq i8 %45, 0
+  %tobool137.not = xor i1 %47, %46
   br i1 %tobool137.not, label %if.else140, label %if.then138
 
 if.then138:                                       ; preds = %nghttp2_session_is_my_stream_id.exit123
@@ -2039,10 +2035,9 @@ if.end:                                           ; preds = %lor.lhs.false1.i, %
 nghttp2_session_is_my_stream_id.exit:             ; preds = %if.end
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %3 = load i8, ptr %server.i, align 4
-  %tobool.not.i38 = icmp ne i8 %3, 0
-  %4 = and i32 %stream_id, 1
-  %5 = icmp eq i32 %4, 0
-  %tobool3.not = xor i1 %5, %tobool.not.i38
+  %4 = trunc i32 %stream_id to i1
+  %5 = icmp eq i8 %3, 0
+  %tobool3.not = xor i1 %5, %4
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %nghttp2_session_is_my_stream_id.exit
@@ -2062,19 +2057,14 @@ if.end11:                                         ; preds = %if.else
   %8 = load i8, ptr %server, align 4
   %tobool12.not = icmp ne i8 %8, 0
   %brmerge = or i1 %cmp.i37, %tobool12.not
-  br i1 %brmerge, label %if.end52, label %if.end11.nghttp2_session_is_my_stream_id.exit49_crit_edge
-
-if.end11.nghttp2_session_is_my_stream_id.exit49_crit_edge: ; preds = %if.end11
-  %.pre = and i32 %stream_id, 1
-  br label %nghttp2_session_is_my_stream_id.exit49
+  br i1 %brmerge, label %if.end52, label %nghttp2_session_is_my_stream_id.exit49
 
 if.end11.thread:                                  ; preds = %if.then4
-  %tobool12.not55 = icmp eq i8 %3, 0
-  br i1 %tobool12.not55, label %nghttp2_session_is_my_stream_id.exit49, label %if.end52
+  br i1 %5, label %nghttp2_session_is_my_stream_id.exit49, label %if.end52
 
-nghttp2_session_is_my_stream_id.exit49:           ; preds = %if.end11.nghttp2_session_is_my_stream_id.exit49_crit_edge, %if.end11.thread
-  %and.i43.pre-phi = phi i32 [ %.pre, %if.end11.nghttp2_session_is_my_stream_id.exit49_crit_edge ], [ %4, %if.end11.thread ]
-  %tobool15.not = icmp eq i32 %and.i43.pre-phi, 0
+nghttp2_session_is_my_stream_id.exit49:           ; preds = %if.end11, %if.end11.thread
+  %and.i43 = and i32 %stream_id, 1
+  %tobool15.not = icmp eq i32 %and.i43, 0
   br i1 %tobool15.not, label %if.end52, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %nghttp2_session_is_my_stream_id.exit49
@@ -2327,13 +2317,12 @@ if.end19:                                         ; preds = %if.then12, %if.end1
 nghttp2_session_is_my_stream_id.exit:             ; preds = %if.end19
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %13 = load i8, ptr %server.i, align 4
-  %tobool.not.i41 = icmp ne i8 %13, 0
   %14 = load i8, ptr %flags.i, align 8
   %15 = and i8 %14, 1
   %tobool21.not = icmp eq i8 %15, 0
-  %16 = and i32 %stream_id, 1
-  %17 = icmp eq i32 %16, 0
-  %tobool26.not = xor i1 %tobool.not.i41, %17
+  %16 = trunc i32 %stream_id to i1
+  %17 = icmp eq i8 %13, 0
+  %tobool26.not = xor i1 %17, %16
   br i1 %tobool21.not, label %if.else, label %if.then22
 
 nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %if.end19
@@ -3166,10 +3155,9 @@ if.end2.i.i:                                      ; preds = %if.end2.i.i.i
 
 nghttp2_session_is_my_stream_id.exit.i.i:         ; preds = %if.end2.i.i
   %13 = load i8, ptr %server.i.i.i.i, align 4
-  %tobool.not.i18.i.i = icmp ne i8 %13, 0
-  %14 = and i32 %12, 1
-  %15 = icmp eq i32 %14, 0
-  %tobool4.not.i.i = xor i1 %15, %tobool.not.i18.i.i
+  %14 = trunc i32 %12 to i1
+  %15 = icmp eq i8 %13, 0
+  %tobool4.not.i.i = xor i1 %15, %14
   br i1 %tobool4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %nghttp2_session_is_my_stream_id.exit.i.i
@@ -3412,10 +3400,9 @@ sw.default.i.i:                                   ; preds = %if.end2.i219.i
 
 nghttp2_session_is_my_stream_id.exit.i222.i:      ; preds = %sw.default.i.i
   %43 = load i8, ptr %server.i.i.i.i, align 4
-  %tobool.not.i8.i.i = icmp ne i8 %43, 0
-  %44 = and i32 %42, 1
-  %45 = icmp eq i32 %44, 0
-  %tobool5.not.i.i = xor i1 %45, %tobool.not.i8.i.i
+  %44 = trunc i32 %42 to i1
+  %45 = icmp eq i8 %43, 0
+  %tobool5.not.i.i = xor i1 %45, %44
   %cond.fr.i.i = freeze i1 %tobool5.not.i.i
   br i1 %cond.fr.i.i, label %if.then20, label %if.end117.i
 
@@ -3682,10 +3669,9 @@ land.rhs.i.i.i:                                   ; preds = %lor.lhs.false1.i.i.
 
 state_reserved_local.exit.i.i:                    ; preds = %land.rhs.i.i.i
   %82 = load i8, ptr %server.i.i.i.i, align 4
-  %tobool.not.i.i.i.i = icmp ne i8 %82, 0
-  %83 = and i32 %81, 1
-  %84 = icmp eq i32 %83, 0
-  %tobool11.not.i.i = xor i1 %84, %tobool.not.i.i.i.i
+  %83 = trunc i32 %81 to i1
+  %84 = icmp eq i8 %82, 0
+  %tobool11.not.i.i = xor i1 %84, %83
   %cond.fr.i259.i = freeze i1 %tobool11.not.i.i
   br i1 %cond.fr.i259.i, label %if.end265.i, label %if.then20
 
@@ -4637,10 +4623,9 @@ if.then148:                                       ; preds = %if.end144
 
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %if.then148
   %55 = load i8, ptr %server, align 4
-  %tobool.not.i.i = icmp ne i8 %55, 0
-  %56 = and i32 %54, 1
-  %57 = icmp eq i32 %56, 0
-  %tobool.not.i189 = xor i1 %57, %tobool.not.i.i
+  %56 = trunc i32 %54 to i1
+  %57 = icmp eq i8 %55, 0
+  %tobool.not.i189 = xor i1 %57, %56
   br i1 %tobool.not.i189, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -4857,17 +4842,17 @@ entry:
 if.then:                                          ; preds = %entry
   %on_invalid_frame_recv_callback.i = getelementptr inbounds i8, ptr %session, i64 2368
   %1 = load ptr, ptr %on_invalid_frame_recv_callback.i, align 8
-  %tobool.not.i87 = icmp eq ptr %1, null
-  br i1 %tobool.not.i87, label %if.end4.i, label %if.then.i88
+  %tobool.not.i86 = icmp eq ptr %1, null
+  br i1 %tobool.not.i86, label %if.end4.i, label %if.then.i87
 
-if.then.i88:                                      ; preds = %if.then
-  %user_data.i89 = getelementptr inbounds i8, ptr %session, i64 2568
-  %2 = load ptr, ptr %user_data.i89, align 8
-  %call.i90 = tail call i32 %1(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %2) #17
-  %cmp.not.i91 = icmp eq i32 %call.i90, 0
-  br i1 %cmp.not.i91, label %if.end4.i, label %return
+if.then.i87:                                      ; preds = %if.then
+  %user_data.i88 = getelementptr inbounds i8, ptr %session, i64 2568
+  %2 = load ptr, ptr %user_data.i88, align 8
+  %call.i89 = tail call i32 %1(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %2) #17
+  %cmp.not.i90 = icmp eq i32 %call.i89, 0
+  br i1 %cmp.not.i90, label %if.end4.i, label %return
 
-if.end4.i:                                        ; preds = %if.then.i88, %if.then
+if.end4.i:                                        ; preds = %if.then.i87, %if.then
   %goaway_flags.i.i.i = getelementptr inbounds i8, ptr %session, i64 2877
   %3 = load i8, ptr %goaway_flags.i.i.i, align 1
   %4 = and i8 %3, 1
@@ -4901,294 +4886,298 @@ if.end:                                           ; preds = %entry
   %server = getelementptr inbounds i8, ptr %session, i64 2876
   %8 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %8, 0
-  %9 = and i32 %0, 1
-  %10 = icmp eq i32 %9, 0
+  %9 = trunc i32 %0 to i1
   br i1 %tobool.not, label %nghttp2_session_is_my_stream_id.exit.i, label %nghttp2_session_is_my_stream_id.exit.i54
 
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %if.end
-  br i1 %10, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
+  br i1 %9, label %session_detect_idle_stream.exit, label %session_is_new_peer_stream_id.exit.i
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_recv_stream_id.i.i = getelementptr inbounds i8, ptr %session, i64 2752
-  %11 = load i32, ptr %last_recv_stream_id.i.i, align 8
-  %.fr.i = freeze i32 %11
+  %10 = load i32, ptr %last_recv_stream_id.i.i, align 8
+  %.fr.i = freeze i32 %10
   %cmp1.i.not.i = icmp slt i32 %.fr.i, %0
   br i1 %cmp1.i.not.i, label %if.then5, label %return
 
 session_detect_idle_stream.exit:                  ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_sent_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2748
-  %12 = load i32, ptr %last_sent_stream_id.i, align 4
-  %cmp.i.not = icmp slt i32 %12, %0
+  %11 = load i32, ptr %last_sent_stream_id.i, align 4
+  %cmp.i.not = icmp slt i32 %11, %0
   br i1 %cmp.i.not, label %if.then5, label %return
 
 if.then5:                                         ; preds = %session_is_new_peer_stream_id.exit.i, %session_detect_idle_stream.exit
-  %on_invalid_frame_recv_callback.i93 = getelementptr inbounds i8, ptr %session, i64 2368
-  %13 = load ptr, ptr %on_invalid_frame_recv_callback.i93, align 8
-  %tobool.not.i94 = icmp eq ptr %13, null
-  br i1 %tobool.not.i94, label %if.end4.i99, label %if.then.i95
+  %on_invalid_frame_recv_callback.i92 = getelementptr inbounds i8, ptr %session, i64 2368
+  %12 = load ptr, ptr %on_invalid_frame_recv_callback.i92, align 8
+  %tobool.not.i93 = icmp eq ptr %12, null
+  br i1 %tobool.not.i93, label %if.end4.i98, label %if.then.i94
 
-if.then.i95:                                      ; preds = %if.then5
-  %user_data.i96 = getelementptr inbounds i8, ptr %session, i64 2568
-  %14 = load ptr, ptr %user_data.i96, align 8
-  %call.i = tail call i32 %13(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %14) #17
-  %cmp.not.i97 = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i97, label %if.end4.i99, label %return
+if.then.i94:                                      ; preds = %if.then5
+  %user_data.i95 = getelementptr inbounds i8, ptr %session, i64 2568
+  %13 = load ptr, ptr %user_data.i95, align 8
+  %call.i = tail call i32 %12(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %13) #17
+  %cmp.not.i96 = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i96, label %if.end4.i98, label %return
 
-if.end4.i99:                                      ; preds = %if.then.i95, %if.then5
-  %goaway_flags.i.i.i101 = getelementptr inbounds i8, ptr %session, i64 2877
-  %15 = load i8, ptr %goaway_flags.i.i.i101, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i.i.i102 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i102, label %if.end.i.i.i103, label %session_handle_invalid_connection.exit109.thread
+if.end4.i98:                                      ; preds = %if.then.i94, %if.then5
+  %goaway_flags.i.i.i100 = getelementptr inbounds i8, ptr %session, i64 2877
+  %14 = load i8, ptr %goaway_flags.i.i.i100, align 1
+  %15 = and i8 %14, 1
+  %tobool.not.i.i.i101 = icmp eq i8 %15, 0
+  br i1 %tobool.not.i.i.i101, label %if.end.i.i.i102, label %session_handle_invalid_connection.exit108.thread
 
-if.end.i.i.i103:                                  ; preds = %if.end4.i99
-  %last_proc_stream_id.i.i100 = getelementptr inbounds i8, ptr %session, i64 2756
-  %17 = load i32, ptr %last_proc_stream_id.i.i100, align 4
-  %state.i.i.i104 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i104, align 8
-  %call4.i.i.i106 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %17, i32 noundef 1, ptr noundef nonnull @.str.12, i64 noundef 40, i8 noundef zeroext 1)
-  %call4.i.i.i106.fr = freeze i32 %call4.i.i.i106
-  %cmp5.not.i.i.i107 = icmp eq i32 %call4.i.i.i106.fr, 0
-  br i1 %cmp5.not.i.i.i107, label %if.end8.i.i.i108, label %session_handle_invalid_connection.exit109
+if.end.i.i.i102:                                  ; preds = %if.end4.i98
+  %last_proc_stream_id.i.i99 = getelementptr inbounds i8, ptr %session, i64 2756
+  %16 = load i32, ptr %last_proc_stream_id.i.i99, align 4
+  %state.i.i.i103 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i103, align 8
+  %call4.i.i.i105 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %16, i32 noundef 1, ptr noundef nonnull @.str.12, i64 noundef 40, i8 noundef zeroext 1)
+  %call4.i.i.i105.fr = freeze i32 %call4.i.i.i105
+  %cmp5.not.i.i.i106 = icmp eq i32 %call4.i.i.i105.fr, 0
+  br i1 %cmp5.not.i.i.i106, label %if.end8.i.i.i107, label %session_handle_invalid_connection.exit108
 
-if.end8.i.i.i108:                                 ; preds = %if.end.i.i.i103
-  %18 = load i8, ptr %goaway_flags.i.i.i101, align 1
-  %19 = or i8 %18, 1
-  store i8 %19, ptr %goaway_flags.i.i.i101, align 1
-  br label %session_handle_invalid_connection.exit109.thread
+if.end8.i.i.i107:                                 ; preds = %if.end.i.i.i102
+  %17 = load i8, ptr %goaway_flags.i.i.i100, align 1
+  %18 = or i8 %17, 1
+  store i8 %18, ptr %goaway_flags.i.i.i100, align 1
+  br label %session_handle_invalid_connection.exit108.thread
 
-session_handle_invalid_connection.exit109:        ; preds = %if.end.i.i.i103
-  %cmp.i.i52 = icmp sgt i32 %call4.i.i.i106.fr, -901
-  br i1 %cmp.i.i52, label %session_handle_invalid_connection.exit109.thread, label %return
+session_handle_invalid_connection.exit108:        ; preds = %if.end.i.i.i102
+  %cmp.i.i52 = icmp sgt i32 %call4.i.i.i105.fr, -901
+  br i1 %cmp.i.i52, label %session_handle_invalid_connection.exit108.thread, label %return
 
-session_handle_invalid_connection.exit109.thread: ; preds = %if.end4.i99, %if.end8.i.i.i108, %session_handle_invalid_connection.exit109
+session_handle_invalid_connection.exit108.thread: ; preds = %if.end4.i98, %if.end8.i.i.i107, %session_handle_invalid_connection.exit108
   br label %return
 
 nghttp2_session_is_my_stream_id.exit.i54:         ; preds = %if.end
-  br i1 %10, label %if.then22, label %session_is_new_peer_stream_id.exit
+  br i1 %9, label %session_is_new_peer_stream_id.exit, label %nghttp2_session_is_my_stream_id.exit
 
 session_is_new_peer_stream_id.exit:               ; preds = %nghttp2_session_is_my_stream_id.exit.i54
   %last_recv_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2752
-  %20 = load i32, ptr %last_recv_stream_id.i, align 8
-  %cmp1.i.not = icmp slt i32 %20, %0
-  br i1 %cmp1.i.not, label %if.end32, label %if.end24
+  %19 = load i32, ptr %last_recv_stream_id.i, align 8
+  %cmp1.i.not = icmp slt i32 %19, %0
+  br i1 %cmp1.i.not, label %if.end32, label %nghttp2_session_is_my_stream_id.exit
 
-if.then22:                                        ; preds = %nghttp2_session_is_my_stream_id.exit.i54
-  %on_invalid_frame_recv_callback.i110 = getelementptr inbounds i8, ptr %session, i64 2368
-  %21 = load ptr, ptr %on_invalid_frame_recv_callback.i110, align 8
-  %tobool.not.i111 = icmp eq ptr %21, null
-  br i1 %tobool.not.i111, label %if.end4.i117, label %if.then.i112
+nghttp2_session_is_my_stream_id.exit:             ; preds = %nghttp2_session_is_my_stream_id.exit.i54, %session_is_new_peer_stream_id.exit
+  %and.i = and i32 %0, 1
+  %tobool21.not.not = icmp eq i32 %and.i, 0
+  br i1 %tobool21.not.not, label %if.then22, label %if.end24
 
-if.then.i112:                                     ; preds = %if.then22
-  %user_data.i113 = getelementptr inbounds i8, ptr %session, i64 2568
-  %22 = load ptr, ptr %user_data.i113, align 8
-  %call.i114 = tail call i32 %21(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %22) #17
-  %cmp.not.i115 = icmp eq i32 %call.i114, 0
-  br i1 %cmp.not.i115, label %if.end4.i117, label %return
+if.then22:                                        ; preds = %nghttp2_session_is_my_stream_id.exit
+  %on_invalid_frame_recv_callback.i109 = getelementptr inbounds i8, ptr %session, i64 2368
+  %20 = load ptr, ptr %on_invalid_frame_recv_callback.i109, align 8
+  %tobool.not.i110 = icmp eq ptr %20, null
+  br i1 %tobool.not.i110, label %if.end4.i116, label %if.then.i111
 
-if.end4.i117:                                     ; preds = %if.then.i112, %if.then22
-  %goaway_flags.i.i.i119 = getelementptr inbounds i8, ptr %session, i64 2877
-  %23 = load i8, ptr %goaway_flags.i.i.i119, align 1
-  %24 = and i8 %23, 1
-  %tobool.not.i.i.i120 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i.i.i120, label %if.end.i.i.i121, label %session_handle_invalid_connection.exit127.thread
+if.then.i111:                                     ; preds = %if.then22
+  %user_data.i112 = getelementptr inbounds i8, ptr %session, i64 2568
+  %21 = load ptr, ptr %user_data.i112, align 8
+  %call.i113 = tail call i32 %20(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %21) #17
+  %cmp.not.i114 = icmp eq i32 %call.i113, 0
+  br i1 %cmp.not.i114, label %if.end4.i116, label %return
 
-if.end.i.i.i121:                                  ; preds = %if.end4.i117
-  %last_proc_stream_id.i.i118 = getelementptr inbounds i8, ptr %session, i64 2756
-  %25 = load i32, ptr %last_proc_stream_id.i.i118, align 4
-  %state.i.i.i122 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i122, align 8
-  %call4.i.i.i124 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %25, i32 noundef 1, ptr noundef nonnull @.str.14, i64 noundef 34, i8 noundef zeroext 1)
-  %call4.i.i.i124.fr = freeze i32 %call4.i.i.i124
-  %cmp5.not.i.i.i125 = icmp eq i32 %call4.i.i.i124.fr, 0
-  br i1 %cmp5.not.i.i.i125, label %if.end8.i.i.i126, label %session_handle_invalid_connection.exit127
+if.end4.i116:                                     ; preds = %if.then.i111, %if.then22
+  %goaway_flags.i.i.i118 = getelementptr inbounds i8, ptr %session, i64 2877
+  %22 = load i8, ptr %goaway_flags.i.i.i118, align 1
+  %23 = and i8 %22, 1
+  %tobool.not.i.i.i119 = icmp eq i8 %23, 0
+  br i1 %tobool.not.i.i.i119, label %if.end.i.i.i120, label %session_handle_invalid_connection.exit126.thread
 
-if.end8.i.i.i126:                                 ; preds = %if.end.i.i.i121
-  %26 = load i8, ptr %goaway_flags.i.i.i119, align 1
-  %27 = or i8 %26, 1
-  store i8 %27, ptr %goaway_flags.i.i.i119, align 1
-  br label %session_handle_invalid_connection.exit127.thread
+if.end.i.i.i120:                                  ; preds = %if.end4.i116
+  %last_proc_stream_id.i.i117 = getelementptr inbounds i8, ptr %session, i64 2756
+  %24 = load i32, ptr %last_proc_stream_id.i.i117, align 4
+  %state.i.i.i121 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i121, align 8
+  %call4.i.i.i123 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %24, i32 noundef 1, ptr noundef nonnull @.str.14, i64 noundef 34, i8 noundef zeroext 1)
+  %call4.i.i.i123.fr = freeze i32 %call4.i.i.i123
+  %cmp5.not.i.i.i124 = icmp eq i32 %call4.i.i.i123.fr, 0
+  br i1 %cmp5.not.i.i.i124, label %if.end8.i.i.i125, label %session_handle_invalid_connection.exit126
 
-session_handle_invalid_connection.exit127:        ; preds = %if.end.i.i.i121
-  %cmp.i.i62 = icmp sgt i32 %call4.i.i.i124.fr, -901
-  br i1 %cmp.i.i62, label %session_handle_invalid_connection.exit127.thread, label %return
+if.end8.i.i.i125:                                 ; preds = %if.end.i.i.i120
+  %25 = load i8, ptr %goaway_flags.i.i.i118, align 1
+  %26 = or i8 %25, 1
+  store i8 %26, ptr %goaway_flags.i.i.i118, align 1
+  br label %session_handle_invalid_connection.exit126.thread
 
-session_handle_invalid_connection.exit127.thread: ; preds = %if.end4.i117, %if.end8.i.i.i126, %session_handle_invalid_connection.exit127
+session_handle_invalid_connection.exit126:        ; preds = %if.end.i.i.i120
+  %cmp.i.i61 = icmp sgt i32 %call4.i.i.i123.fr, -901
+  br i1 %cmp.i.i61, label %session_handle_invalid_connection.exit126.thread, label %return
+
+session_handle_invalid_connection.exit126.thread: ; preds = %if.end4.i116, %if.end8.i.i.i125, %session_handle_invalid_connection.exit126
   br label %return
 
-if.end24:                                         ; preds = %session_is_new_peer_stream_id.exit
-  %call.i64 = tail call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %0) #17
-  %tobool27.not = icmp eq ptr %call.i64, null
+if.end24:                                         ; preds = %nghttp2_session_is_my_stream_id.exit
+  %call.i63 = tail call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %0) #17
+  %tobool27.not = icmp eq ptr %call.i63, null
   br i1 %tobool27.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end24
-  %shut_flags = getelementptr inbounds i8, ptr %call.i64, i64 217
-  %28 = load i8, ptr %shut_flags, align 1
-  %29 = and i8 %28, 1
-  %tobool28.not = icmp eq i8 %29, 0
+  %shut_flags = getelementptr inbounds i8, ptr %call.i63, i64 217
+  %27 = load i8, ptr %shut_flags, align 1
+  %28 = and i8 %27, 1
+  %tobool28.not = icmp eq i8 %28, 0
   br i1 %tobool28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true
-  %call.i65 = tail call fastcc i32 @session_handle_invalid_connection(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -510, ptr noundef nonnull @.str.15)
-  %cmp.i.i66 = icmp sgt i32 %call.i65, -901
-  %.call.i67 = select i1 %cmp.i.i66, i32 -103, i32 %call.i65
+  %call.i64 = tail call fastcc i32 @session_handle_invalid_connection(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -510, ptr noundef nonnull @.str.15)
+  %cmp.i.i65 = icmp sgt i32 %call.i64, -901
+  %.call.i66 = select i1 %cmp.i.i65, i32 -103, i32 %call.i64
   br label %return
 
 if.end32:                                         ; preds = %session_is_new_peer_stream_id.exit
   store i32 %0, ptr %last_recv_stream_id.i, align 8
-  %30 = getelementptr i8, ptr %session, i64 2664
-  %session.val = load i64, ptr %30, align 8
-  %31 = getelementptr i8, ptr %session, i64 2836
-  %session.val46 = load i32, ptr %31, align 4
-  %conv.i68 = zext i32 %session.val46 to i64
-  %cmp.i69.not = icmp ult i64 %session.val, %conv.i68
-  br i1 %cmp.i69.not, label %if.end38, label %if.then36
+  %29 = getelementptr i8, ptr %session, i64 2664
+  %session.val = load i64, ptr %29, align 8
+  %30 = getelementptr i8, ptr %session, i64 2836
+  %session.val46 = load i32, ptr %30, align 4
+  %conv.i67 = zext i32 %session.val46 to i64
+  %cmp.i68.not = icmp ult i64 %session.val, %conv.i67
+  br i1 %cmp.i68.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.end32
-  %on_invalid_frame_recv_callback.i128 = getelementptr inbounds i8, ptr %session, i64 2368
-  %32 = load ptr, ptr %on_invalid_frame_recv_callback.i128, align 8
-  %tobool.not.i129 = icmp eq ptr %32, null
-  br i1 %tobool.not.i129, label %if.end4.i135, label %if.then.i130
+  %on_invalid_frame_recv_callback.i127 = getelementptr inbounds i8, ptr %session, i64 2368
+  %31 = load ptr, ptr %on_invalid_frame_recv_callback.i127, align 8
+  %tobool.not.i128 = icmp eq ptr %31, null
+  br i1 %tobool.not.i128, label %if.end4.i134, label %if.then.i129
 
-if.then.i130:                                     ; preds = %if.then36
-  %user_data.i131 = getelementptr inbounds i8, ptr %session, i64 2568
-  %33 = load ptr, ptr %user_data.i131, align 8
-  %call.i132 = tail call i32 %32(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %33) #17
-  %cmp.not.i133 = icmp eq i32 %call.i132, 0
-  br i1 %cmp.not.i133, label %if.end4.i135, label %return
+if.then.i129:                                     ; preds = %if.then36
+  %user_data.i130 = getelementptr inbounds i8, ptr %session, i64 2568
+  %32 = load ptr, ptr %user_data.i130, align 8
+  %call.i131 = tail call i32 %31(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %32) #17
+  %cmp.not.i132 = icmp eq i32 %call.i131, 0
+  br i1 %cmp.not.i132, label %if.end4.i134, label %return
 
-if.end4.i135:                                     ; preds = %if.then.i130, %if.then36
-  %goaway_flags.i.i.i137 = getelementptr inbounds i8, ptr %session, i64 2877
-  %34 = load i8, ptr %goaway_flags.i.i.i137, align 1
-  %35 = and i8 %34, 1
-  %tobool.not.i.i.i138 = icmp eq i8 %35, 0
-  br i1 %tobool.not.i.i.i138, label %if.end.i.i.i139, label %session_handle_invalid_connection.exit145.thread
+if.end4.i134:                                     ; preds = %if.then.i129, %if.then36
+  %goaway_flags.i.i.i136 = getelementptr inbounds i8, ptr %session, i64 2877
+  %33 = load i8, ptr %goaway_flags.i.i.i136, align 1
+  %34 = and i8 %33, 1
+  %tobool.not.i.i.i137 = icmp eq i8 %34, 0
+  br i1 %tobool.not.i.i.i137, label %if.end.i.i.i138, label %session_handle_invalid_connection.exit144.thread
 
-if.end.i.i.i139:                                  ; preds = %if.end4.i135
-  %last_proc_stream_id.i.i136 = getelementptr inbounds i8, ptr %session, i64 2756
-  %36 = load i32, ptr %last_proc_stream_id.i.i136, align 4
-  %state.i.i.i140 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i140, align 8
-  %call4.i.i.i142 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %36, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef 48, i8 noundef zeroext 1)
-  %call4.i.i.i142.fr = freeze i32 %call4.i.i.i142
-  %cmp5.not.i.i.i143 = icmp eq i32 %call4.i.i.i142.fr, 0
-  br i1 %cmp5.not.i.i.i143, label %if.end8.i.i.i144, label %session_handle_invalid_connection.exit145
+if.end.i.i.i138:                                  ; preds = %if.end4.i134
+  %last_proc_stream_id.i.i135 = getelementptr inbounds i8, ptr %session, i64 2756
+  %35 = load i32, ptr %last_proc_stream_id.i.i135, align 4
+  %state.i.i.i139 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i139, align 8
+  %call4.i.i.i141 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %35, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef 48, i8 noundef zeroext 1)
+  %call4.i.i.i141.fr = freeze i32 %call4.i.i.i141
+  %cmp5.not.i.i.i142 = icmp eq i32 %call4.i.i.i141.fr, 0
+  br i1 %cmp5.not.i.i.i142, label %if.end8.i.i.i143, label %session_handle_invalid_connection.exit144
 
-if.end8.i.i.i144:                                 ; preds = %if.end.i.i.i139
-  %37 = load i8, ptr %goaway_flags.i.i.i137, align 1
-  %38 = or i8 %37, 1
-  store i8 %38, ptr %goaway_flags.i.i.i137, align 1
-  br label %session_handle_invalid_connection.exit145.thread
+if.end8.i.i.i143:                                 ; preds = %if.end.i.i.i138
+  %36 = load i8, ptr %goaway_flags.i.i.i136, align 1
+  %37 = or i8 %36, 1
+  store i8 %37, ptr %goaway_flags.i.i.i136, align 1
+  br label %session_handle_invalid_connection.exit144.thread
 
-session_handle_invalid_connection.exit145:        ; preds = %if.end.i.i.i139
-  %cmp.i.i71 = icmp sgt i32 %call4.i.i.i142.fr, -901
-  br i1 %cmp.i.i71, label %session_handle_invalid_connection.exit145.thread, label %return
+session_handle_invalid_connection.exit144:        ; preds = %if.end.i.i.i138
+  %cmp.i.i70 = icmp sgt i32 %call4.i.i.i141.fr, -901
+  br i1 %cmp.i.i70, label %session_handle_invalid_connection.exit144.thread, label %return
 
-session_handle_invalid_connection.exit145.thread: ; preds = %if.end4.i135, %if.end8.i.i.i144, %session_handle_invalid_connection.exit145
+session_handle_invalid_connection.exit144.thread: ; preds = %if.end4.i134, %if.end8.i.i.i143, %session_handle_invalid_connection.exit144
   br label %return
 
 if.end38:                                         ; preds = %if.end32
-  %39 = getelementptr i8, ptr %session, i64 2877
-  %session.val47 = load i8, ptr %39, align 1
-  %40 = and i8 %session.val47, 5
-  %cmp.i73.not = icmp eq i8 %40, 0
-  br i1 %cmp.i73.not, label %if.end42, label %return
+  %38 = getelementptr i8, ptr %session, i64 2877
+  %session.val47 = load i8, ptr %38, align 1
+  %39 = and i8 %session.val47, 5
+  %cmp.i72.not = icmp eq i8 %39, 0
+  br i1 %cmp.i72.not, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.end38
   %pri_spec = getelementptr inbounds i8, ptr %frame, i64 24
-  %41 = load i32, ptr %pri_spec, align 8
-  %42 = load i32, ptr %stream_id, align 8
-  %cmp45 = icmp eq i32 %41, %42
+  %40 = load i32, ptr %pri_spec, align 8
+  %41 = load i32, ptr %stream_id, align 8
+  %cmp45 = icmp eq i32 %40, %41
   br i1 %cmp45, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end42
-  %on_invalid_frame_recv_callback.i146 = getelementptr inbounds i8, ptr %session, i64 2368
-  %43 = load ptr, ptr %on_invalid_frame_recv_callback.i146, align 8
-  %tobool.not.i147 = icmp eq ptr %43, null
-  br i1 %tobool.not.i147, label %if.end4.i153, label %if.then.i148
+  %on_invalid_frame_recv_callback.i145 = getelementptr inbounds i8, ptr %session, i64 2368
+  %42 = load ptr, ptr %on_invalid_frame_recv_callback.i145, align 8
+  %tobool.not.i146 = icmp eq ptr %42, null
+  br i1 %tobool.not.i146, label %if.end4.i152, label %if.then.i147
 
-if.then.i148:                                     ; preds = %if.then47
-  %user_data.i149 = getelementptr inbounds i8, ptr %session, i64 2568
-  %44 = load ptr, ptr %user_data.i149, align 8
-  %call.i150 = tail call i32 %43(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %44) #17
-  %cmp.not.i151 = icmp eq i32 %call.i150, 0
-  br i1 %cmp.not.i151, label %if.then.i148.if.end4.i153_crit_edge, label %return
+if.then.i147:                                     ; preds = %if.then47
+  %user_data.i148 = getelementptr inbounds i8, ptr %session, i64 2568
+  %43 = load ptr, ptr %user_data.i148, align 8
+  %call.i149 = tail call i32 %42(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %43) #17
+  %cmp.not.i150 = icmp eq i32 %call.i149, 0
+  br i1 %cmp.not.i150, label %if.then.i147.if.end4.i152_crit_edge, label %return
 
-if.then.i148.if.end4.i153_crit_edge:              ; preds = %if.then.i148
-  %.pre = load i8, ptr %39, align 1
-  br label %if.end4.i153
+if.then.i147.if.end4.i152_crit_edge:              ; preds = %if.then.i147
+  %.pre = load i8, ptr %38, align 1
+  br label %if.end4.i152
 
-if.end4.i153:                                     ; preds = %if.then.i148.if.end4.i153_crit_edge, %if.then47
-  %45 = phi i8 [ %.pre, %if.then.i148.if.end4.i153_crit_edge ], [ %session.val47, %if.then47 ]
-  %46 = and i8 %45, 1
-  %tobool.not.i.i.i156 = icmp eq i8 %46, 0
-  br i1 %tobool.not.i.i.i156, label %if.end.i.i.i157, label %session_handle_invalid_connection.exit163.thread
+if.end4.i152:                                     ; preds = %if.then.i147.if.end4.i152_crit_edge, %if.then47
+  %44 = phi i8 [ %.pre, %if.then.i147.if.end4.i152_crit_edge ], [ %session.val47, %if.then47 ]
+  %45 = and i8 %44, 1
+  %tobool.not.i.i.i155 = icmp eq i8 %45, 0
+  br i1 %tobool.not.i.i.i155, label %if.end.i.i.i156, label %session_handle_invalid_connection.exit162.thread
 
-if.end.i.i.i157:                                  ; preds = %if.end4.i153
-  %last_proc_stream_id.i.i154 = getelementptr inbounds i8, ptr %session, i64 2756
-  %47 = load i32, ptr %last_proc_stream_id.i.i154, align 4
-  %state.i.i.i158 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i158, align 8
-  %call4.i.i.i160 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %47, i32 noundef 1, ptr noundef nonnull @.str.17, i64 noundef 33, i8 noundef zeroext 1)
-  %call4.i.i.i160.fr = freeze i32 %call4.i.i.i160
-  %cmp5.not.i.i.i161 = icmp eq i32 %call4.i.i.i160.fr, 0
-  br i1 %cmp5.not.i.i.i161, label %if.end8.i.i.i162, label %session_handle_invalid_connection.exit163
+if.end.i.i.i156:                                  ; preds = %if.end4.i152
+  %last_proc_stream_id.i.i153 = getelementptr inbounds i8, ptr %session, i64 2756
+  %46 = load i32, ptr %last_proc_stream_id.i.i153, align 4
+  %state.i.i.i157 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i157, align 8
+  %call4.i.i.i159 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %46, i32 noundef 1, ptr noundef nonnull @.str.17, i64 noundef 33, i8 noundef zeroext 1)
+  %call4.i.i.i159.fr = freeze i32 %call4.i.i.i159
+  %cmp5.not.i.i.i160 = icmp eq i32 %call4.i.i.i159.fr, 0
+  br i1 %cmp5.not.i.i.i160, label %if.end8.i.i.i161, label %session_handle_invalid_connection.exit162
 
-if.end8.i.i.i162:                                 ; preds = %if.end.i.i.i157
-  %48 = load i8, ptr %39, align 1
-  %49 = or i8 %48, 1
-  store i8 %49, ptr %39, align 1
-  br label %session_handle_invalid_connection.exit163.thread
+if.end8.i.i.i161:                                 ; preds = %if.end.i.i.i156
+  %47 = load i8, ptr %38, align 1
+  %48 = or i8 %47, 1
+  store i8 %48, ptr %38, align 1
+  br label %session_handle_invalid_connection.exit162.thread
 
-session_handle_invalid_connection.exit163:        ; preds = %if.end.i.i.i157
-  %cmp.i.i76 = icmp sgt i32 %call4.i.i.i160.fr, -901
-  br i1 %cmp.i.i76, label %session_handle_invalid_connection.exit163.thread, label %return
+session_handle_invalid_connection.exit162:        ; preds = %if.end.i.i.i156
+  %cmp.i.i75 = icmp sgt i32 %call4.i.i.i159.fr, -901
+  br i1 %cmp.i.i75, label %session_handle_invalid_connection.exit162.thread, label %return
 
-session_handle_invalid_connection.exit163.thread: ; preds = %if.end4.i153, %if.end8.i.i.i162, %session_handle_invalid_connection.exit163
+session_handle_invalid_connection.exit162.thread: ; preds = %if.end4.i152, %if.end8.i.i.i161, %session_handle_invalid_connection.exit162
   br label %return
 
 if.end49:                                         ; preds = %if.end42
-  %50 = getelementptr i8, ptr %session, i64 2864
-  %session.val49 = load i32, ptr %50, align 8
-  %conv.i78 = zext i32 %session.val49 to i64
-  %cmp.i79.not = icmp ult i64 %session.val, %conv.i78
-  br i1 %cmp.i79.not, label %if.end54, label %if.then52
+  %49 = getelementptr i8, ptr %session, i64 2864
+  %session.val49 = load i32, ptr %49, align 8
+  %conv.i77 = zext i32 %session.val49 to i64
+  %cmp.i78.not = icmp ult i64 %session.val, %conv.i77
+  br i1 %cmp.i78.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end49
   %call53 = tail call fastcc i32 @session_inflate_handle_invalid_stream(ptr noundef nonnull %session, ptr noundef nonnull %frame)
   br label %return
 
 if.end54:                                         ; preds = %if.end49
-  %call57 = tail call ptr @nghttp2_session_open_stream(ptr noundef nonnull %session, i32 noundef %42, i8 noundef zeroext 0, ptr noundef nonnull %pri_spec, i32 noundef 1, ptr noundef null)
+  %call57 = tail call ptr @nghttp2_session_open_stream(ptr noundef nonnull %session, i32 noundef %41, i8 noundef zeroext 0, ptr noundef nonnull %pri_spec, i32 noundef 1, ptr noundef null)
   %tobool58.not = icmp eq ptr %call57, null
   br i1 %tobool58.not, label %return, label %if.end60
 
 if.end60:                                         ; preds = %if.end54
   %call61 = tail call i32 @nghttp2_session_adjust_closed_stream(ptr noundef nonnull %session)
-  %cmp.i81 = icmp sgt i32 %call61, -901
-  br i1 %cmp.i81, label %if.end65, label %return
+  %cmp.i80 = icmp sgt i32 %call61, -901
+  br i1 %cmp.i80, label %if.end65, label %return
 
 if.end65:                                         ; preds = %if.end60
-  %51 = load i32, ptr %last_recv_stream_id.i, align 8
+  %50 = load i32, ptr %last_recv_stream_id.i, align 8
   %last_proc_stream_id = getelementptr inbounds i8, ptr %session, i64 2756
-  store i32 %51, ptr %last_proc_stream_id, align 4
+  store i32 %50, ptr %last_proc_stream_id, align 4
   %on_begin_headers_callback.i = getelementptr inbounds i8, ptr %session, i64 2416
-  %52 = load ptr, ptr %on_begin_headers_callback.i, align 8
-  %tobool.not.i83 = icmp eq ptr %52, null
-  br i1 %tobool.not.i83, label %return, label %if.then.i84
+  %51 = load ptr, ptr %on_begin_headers_callback.i, align 8
+  %tobool.not.i82 = icmp eq ptr %51, null
+  br i1 %tobool.not.i82, label %return, label %if.then.i83
 
-if.then.i84:                                      ; preds = %if.end65
+if.then.i83:                                      ; preds = %if.end65
   %user_data.i = getelementptr inbounds i8, ptr %session, i64 2568
-  %53 = load ptr, ptr %user_data.i, align 8
-  %call.i85 = tail call i32 %52(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %53) #17
-  %switch.selectcmp.i = icmp eq i32 %call.i85, 0
+  %52 = load ptr, ptr %user_data.i, align 8
+  %call.i84 = tail call i32 %51(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %52) #17
+  %switch.selectcmp.i = icmp eq i32 %call.i84, 0
   %switch.select.i = select i1 %switch.selectcmp.i, i32 0, i32 -902
-  %switch.selectcmp6.i = icmp eq i32 %call.i85, -521
+  %switch.selectcmp6.i = icmp eq i32 %call.i84, -521
   %switch.select7.i = select i1 %switch.selectcmp6.i, i32 -521, i32 %switch.select.i
   br label %return
 
-return:                                           ; preds = %if.then.i84, %if.end65, %if.then.i148, %if.then.i130, %if.then.i112, %if.then.i95, %session_is_new_peer_stream_id.exit.i, %if.then.i88, %session_handle_invalid_connection.exit163.thread, %session_handle_invalid_connection.exit163, %session_handle_invalid_connection.exit145.thread, %session_handle_invalid_connection.exit145, %session_handle_invalid_connection.exit127.thread, %session_handle_invalid_connection.exit127, %session_handle_invalid_connection.exit109.thread, %session_handle_invalid_connection.exit109, %session_handle_invalid_connection.exit.thread, %session_handle_invalid_connection.exit, %if.end60, %if.end54, %if.end38, %if.end24, %land.lhs.true, %session_detect_idle_stream.exit, %if.then52, %if.then29
-  %retval.0 = phi i32 [ %call53, %if.then52 ], [ %.call.i67, %if.then29 ], [ -103, %session_detect_idle_stream.exit ], [ -103, %land.lhs.true ], [ -103, %if.end24 ], [ -103, %if.end38 ], [ -901, %if.end54 ], [ %call61, %if.end60 ], [ -103, %session_handle_invalid_connection.exit.thread ], [ %call4.i.i.i.fr, %session_handle_invalid_connection.exit ], [ -103, %session_handle_invalid_connection.exit109.thread ], [ %call4.i.i.i106.fr, %session_handle_invalid_connection.exit109 ], [ -103, %session_handle_invalid_connection.exit127.thread ], [ %call4.i.i.i124.fr, %session_handle_invalid_connection.exit127 ], [ -103, %session_handle_invalid_connection.exit145.thread ], [ %call4.i.i.i142.fr, %session_handle_invalid_connection.exit145 ], [ -103, %session_handle_invalid_connection.exit163.thread ], [ %call4.i.i.i160.fr, %session_handle_invalid_connection.exit163 ], [ -902, %if.then.i88 ], [ -103, %session_is_new_peer_stream_id.exit.i ], [ -902, %if.then.i95 ], [ -902, %if.then.i112 ], [ -902, %if.then.i130 ], [ -902, %if.then.i148 ], [ %switch.select7.i, %if.then.i84 ], [ 0, %if.end65 ]
+return:                                           ; preds = %if.then.i83, %if.end65, %if.then.i147, %if.then.i129, %if.then.i111, %if.then.i94, %session_is_new_peer_stream_id.exit.i, %if.then.i87, %session_handle_invalid_connection.exit162.thread, %session_handle_invalid_connection.exit162, %session_handle_invalid_connection.exit144.thread, %session_handle_invalid_connection.exit144, %session_handle_invalid_connection.exit126.thread, %session_handle_invalid_connection.exit126, %session_handle_invalid_connection.exit108.thread, %session_handle_invalid_connection.exit108, %session_handle_invalid_connection.exit.thread, %session_handle_invalid_connection.exit, %if.end60, %if.end54, %if.end38, %if.end24, %land.lhs.true, %session_detect_idle_stream.exit, %if.then52, %if.then29
+  %retval.0 = phi i32 [ %call53, %if.then52 ], [ %.call.i66, %if.then29 ], [ -103, %session_detect_idle_stream.exit ], [ -103, %land.lhs.true ], [ -103, %if.end24 ], [ -103, %if.end38 ], [ -901, %if.end54 ], [ %call61, %if.end60 ], [ -103, %session_handle_invalid_connection.exit.thread ], [ %call4.i.i.i.fr, %session_handle_invalid_connection.exit ], [ -103, %session_handle_invalid_connection.exit108.thread ], [ %call4.i.i.i105.fr, %session_handle_invalid_connection.exit108 ], [ -103, %session_handle_invalid_connection.exit126.thread ], [ %call4.i.i.i123.fr, %session_handle_invalid_connection.exit126 ], [ -103, %session_handle_invalid_connection.exit144.thread ], [ %call4.i.i.i141.fr, %session_handle_invalid_connection.exit144 ], [ -103, %session_handle_invalid_connection.exit162.thread ], [ %call4.i.i.i159.fr, %session_handle_invalid_connection.exit162 ], [ -902, %if.then.i87 ], [ -103, %session_is_new_peer_stream_id.exit.i ], [ -902, %if.then.i94 ], [ -902, %if.then.i111 ], [ -902, %if.then.i129 ], [ -902, %if.then.i147 ], [ %switch.select7.i, %if.then.i83 ], [ 0, %if.end65 ]
   ret i32 %retval.0
 }
 
@@ -5244,10 +5233,9 @@ land.lhs.true:                                    ; preds = %entry
 nghttp2_session_is_my_stream_id.exit:             ; preds = %land.lhs.true
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %2 = load i8, ptr %server.i, align 4
-  %tobool.not.i = icmp ne i8 %2, 0
-  %3 = and i32 %1, 1
-  %4 = icmp eq i32 %3, 0
-  %tobool.not = xor i1 %4, %tobool.not.i
+  %3 = trunc i32 %1 to i1
+  %4 = icmp eq i8 %2, 0
+  %tobool.not = xor i1 %4, %3
   br i1 %tobool.not, label %if.else, label %if.end5
 
 if.else:                                          ; preds = %land.lhs.true, %nghttp2_session_is_my_stream_id.exit, %entry
@@ -5537,10 +5525,9 @@ if.end20:                                         ; preds = %if.end15
 
 nghttp2_session_is_my_stream_id.exit:             ; preds = %if.end20
   %32 = load i8, ptr %server, align 4
-  %tobool.not.i = icmp ne i8 %32, 0
-  %33 = and i32 %31, 1
-  %34 = icmp eq i32 %33, 0
-  %tobool23.not = xor i1 %34, %tobool.not.i
+  %33 = trunc i32 %31 to i1
+  %34 = icmp eq i8 %32, 0
+  %tobool23.not = xor i1 %34, %33
   br i1 %tobool23.not, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end20, %nghttp2_session_is_my_stream_id.exit
@@ -5680,10 +5667,9 @@ session_handle_invalid_connection.exit53.thread:  ; preds = %if.end4.i43, %if.en
 nghttp2_session_is_my_stream_id.exit:             ; preds = %if.end
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %17 = load i8, ptr %server.i, align 4
-  %tobool.not.i = icmp ne i8 %17, 0
-  %18 = and i32 %0, 1
-  %19 = icmp eq i32 %18, 0
-  %tobool6.not = xor i1 %19, %tobool.not.i
+  %18 = trunc i32 %0 to i1
+  %19 = icmp eq i8 %17, 0
+  %tobool6.not = xor i1 %19, %18
   %state18 = getelementptr inbounds i8, ptr %stream, i64 204
   %20 = load i32, ptr %state18, align 4
   br i1 %tobool6.not, label %if.end17, label %if.then7
@@ -5854,11 +5840,10 @@ if.then17:                                        ; preds = %if.end13
 
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %if.then17
   %20 = load i8, ptr %server, align 4
-  %tobool.not.i.i38 = icmp ne i8 %20, 0
-  %21 = and i32 %19, 1
-  %22 = icmp eq i32 %21, 0
-  %tobool.not.i39 = xor i1 %22, %tobool.not.i.i38
-  br i1 %tobool.not.i39, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
+  %21 = trunc i32 %19 to i1
+  %22 = icmp eq i8 %20, 0
+  %tobool.not.i38 = xor i1 %22, %21
+  br i1 %tobool.not.i38, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_recv_stream_id.i.i = getelementptr inbounds i8, ptr %session, i64 2752
@@ -5870,8 +5855,8 @@ session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_
 session_detect_idle_stream.exit:                  ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_sent_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2748
   %24 = load i32, ptr %last_sent_stream_id.i, align 4
-  %cmp.i41.not = icmp slt i32 %24, %19
-  br i1 %cmp.i41.not, label %if.end22, label %return
+  %cmp.i40.not = icmp slt i32 %24, %19
+  br i1 %cmp.i40.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %session_is_new_peer_stream_id.exit.i, %session_detect_idle_stream.exit
   %call25 = tail call ptr @nghttp2_session_open_stream(ptr noundef nonnull %session, i32 noundef %19, i8 noundef zeroext 0, ptr noundef nonnull %pri_spec, i32 noundef 5, ptr noundef null)
@@ -5880,37 +5865,37 @@ if.end22:                                         ; preds = %session_is_new_peer
 
 if.end28:                                         ; preds = %if.end22
   %call29 = tail call i32 @nghttp2_session_adjust_idle_stream(ptr noundef nonnull %session)
-  %cmp.i43 = icmp sgt i32 %call29, -901
-  br i1 %cmp.i43, label %if.end46, label %return
+  %cmp.i42 = icmp sgt i32 %call29, -901
+  br i1 %cmp.i42, label %if.end46, label %return
 
 if.else34:                                        ; preds = %if.end13
   %call36 = tail call i32 @nghttp2_session_reprioritize_stream(ptr noundef nonnull %session, ptr noundef nonnull %call.i37, ptr noundef nonnull %pri_spec)
-  %cmp.i44 = icmp sgt i32 %call36, -901
-  br i1 %cmp.i44, label %if.end40, label %return
+  %cmp.i43 = icmp sgt i32 %call36, -901
+  br i1 %cmp.i43, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.else34
   %call41 = tail call i32 @nghttp2_session_adjust_idle_stream(ptr noundef nonnull %session)
-  %cmp.i46 = icmp sgt i32 %call41, -901
-  br i1 %cmp.i46, label %if.end46, label %return
+  %cmp.i45 = icmp sgt i32 %call41, -901
+  br i1 %cmp.i45, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.end40, %if.end28
-  %on_frame_recv_callback.i48 = getelementptr inbounds i8, ptr %session, i64 2360
-  %25 = load ptr, ptr %on_frame_recv_callback.i48, align 8
-  %tobool.not.i49 = icmp eq ptr %25, null
-  br i1 %tobool.not.i49, label %if.end4.i55, label %if.then.i50
+  %on_frame_recv_callback.i47 = getelementptr inbounds i8, ptr %session, i64 2360
+  %25 = load ptr, ptr %on_frame_recv_callback.i47, align 8
+  %tobool.not.i48 = icmp eq ptr %25, null
+  br i1 %tobool.not.i48, label %if.end4.i54, label %if.then.i49
 
-if.then.i50:                                      ; preds = %if.end46
-  %user_data.i51 = getelementptr inbounds i8, ptr %session, i64 2568
-  %26 = load ptr, ptr %user_data.i51, align 8
-  %call.i52 = tail call i32 %25(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %26) #17
-  %cmp.not.i53 = icmp eq i32 %call.i52, 0
-  br i1 %cmp.not.i53, label %if.end4.i55, label %return
+if.then.i49:                                      ; preds = %if.end46
+  %user_data.i50 = getelementptr inbounds i8, ptr %session, i64 2568
+  %26 = load ptr, ptr %user_data.i50, align 8
+  %call.i51 = tail call i32 %25(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %26) #17
+  %cmp.not.i52 = icmp eq i32 %call.i51, 0
+  br i1 %cmp.not.i52, label %if.end4.i54, label %return
 
-if.end4.i55:                                      ; preds = %if.then.i50, %if.end46
+if.end4.i54:                                      ; preds = %if.then.i49, %if.end46
   br label %return
 
-return:                                           ; preds = %session_is_new_peer_stream_id.exit.i, %if.then17, %if.end4.i55, %if.then.i50, %if.end4.i36, %if.then.i31, %if.end8.i.i, %if.end.i.i, %if.then7, %if.end8.i.i.i, %if.end.i.i.i, %if.end4.i, %if.then.i, %if.end40, %if.else34, %if.end28, %if.end22, %session_detect_idle_stream.exit
-  %retval.0 = phi i32 [ 0, %session_detect_idle_stream.exit ], [ -901, %if.end22 ], [ %call29, %if.end28 ], [ %call36, %if.else34 ], [ %call41, %if.end40 ], [ -902, %if.then.i ], [ 0, %if.end8.i.i.i ], [ 0, %if.end4.i ], [ %call4.i.i.i, %if.end.i.i.i ], [ 0, %if.end8.i.i ], [ 0, %if.then7 ], [ %call4.i.i, %if.end.i.i ], [ 0, %if.end4.i36 ], [ -902, %if.then.i31 ], [ 0, %if.end4.i55 ], [ -902, %if.then.i50 ], [ 0, %if.then17 ], [ 0, %session_is_new_peer_stream_id.exit.i ]
+return:                                           ; preds = %session_is_new_peer_stream_id.exit.i, %if.then17, %if.end4.i54, %if.then.i49, %if.end4.i36, %if.then.i31, %if.end8.i.i, %if.end.i.i, %if.then7, %if.end8.i.i.i, %if.end.i.i.i, %if.end4.i, %if.then.i, %if.end40, %if.else34, %if.end28, %if.end22, %session_detect_idle_stream.exit
+  %retval.0 = phi i32 [ 0, %session_detect_idle_stream.exit ], [ -901, %if.end22 ], [ %call29, %if.end28 ], [ %call36, %if.else34 ], [ %call41, %if.end40 ], [ -902, %if.then.i ], [ 0, %if.end8.i.i.i ], [ 0, %if.end4.i ], [ %call4.i.i.i, %if.end.i.i.i ], [ 0, %if.end8.i.i ], [ 0, %if.then7 ], [ %call4.i.i, %if.end.i.i ], [ 0, %if.end4.i36 ], [ -902, %if.then.i31 ], [ 0, %if.end4.i54 ], [ -902, %if.then.i49 ], [ 0, %if.then17 ], [ 0, %session_is_new_peer_stream_id.exit.i ]
   ret i32 %retval.0
 }
 
@@ -6042,10 +6027,9 @@ if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %entry
   %server.i.i = getelementptr inbounds i8, ptr %session, i64 2876
   %8 = load i8, ptr %server.i.i, align 4
-  %tobool.not.i.i = icmp ne i8 %8, 0
-  %9 = and i32 %0, 1
-  %10 = icmp eq i32 %9, 0
-  %tobool.not.i18 = xor i1 %10, %tobool.not.i.i
+  %9 = trunc i32 %0 to i1
+  %10 = icmp eq i8 %8, 0
+  %tobool.not.i18 = xor i1 %10, %9
   br i1 %tobool.not.i18, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -7064,17 +7048,17 @@ entry:
 if.then:                                          ; preds = %entry
   %on_invalid_frame_recv_callback.i = getelementptr inbounds i8, ptr %session, i64 2368
   %1 = load ptr, ptr %on_invalid_frame_recv_callback.i, align 8
-  %tobool.not.i70 = icmp eq ptr %1, null
-  br i1 %tobool.not.i70, label %if.end4.i, label %if.then.i71
+  %tobool.not.i69 = icmp eq ptr %1, null
+  br i1 %tobool.not.i69, label %if.end4.i, label %if.then.i70
 
-if.then.i71:                                      ; preds = %if.then
-  %user_data.i72 = getelementptr inbounds i8, ptr %session, i64 2568
-  %2 = load ptr, ptr %user_data.i72, align 8
-  %call.i73 = tail call i32 %1(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %2) #17
-  %cmp.not.i74 = icmp eq i32 %call.i73, 0
-  br i1 %cmp.not.i74, label %if.end4.i, label %return
+if.then.i70:                                      ; preds = %if.then
+  %user_data.i71 = getelementptr inbounds i8, ptr %session, i64 2568
+  %2 = load ptr, ptr %user_data.i71, align 8
+  %call.i72 = tail call i32 %1(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %2) #17
+  %cmp.not.i73 = icmp eq i32 %call.i72, 0
+  br i1 %cmp.not.i73, label %if.end4.i, label %return
 
-if.end4.i:                                        ; preds = %if.then.i71, %if.then
+if.end4.i:                                        ; preds = %if.then.i70, %if.then
   %goaway_flags.i.i.i = getelementptr inbounds i8, ptr %session, i64 2877
   %3 = load i8, ptr %goaway_flags.i.i.i, align 1
   %4 = and i8 %3, 1
@@ -7117,46 +7101,46 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp1, label %if.then3, label %nghttp2_session_is_my_stream_id.exit
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %on_invalid_frame_recv_callback.i76 = getelementptr inbounds i8, ptr %session, i64 2368
-  %10 = load ptr, ptr %on_invalid_frame_recv_callback.i76, align 8
-  %tobool.not.i77 = icmp eq ptr %10, null
-  br i1 %tobool.not.i77, label %if.end4.i82, label %if.then.i78
+  %on_invalid_frame_recv_callback.i75 = getelementptr inbounds i8, ptr %session, i64 2368
+  %10 = load ptr, ptr %on_invalid_frame_recv_callback.i75, align 8
+  %tobool.not.i76 = icmp eq ptr %10, null
+  br i1 %tobool.not.i76, label %if.end4.i81, label %if.then.i77
 
-if.then.i78:                                      ; preds = %if.then3
-  %user_data.i79 = getelementptr inbounds i8, ptr %session, i64 2568
-  %11 = load ptr, ptr %user_data.i79, align 8
+if.then.i77:                                      ; preds = %if.then3
+  %user_data.i78 = getelementptr inbounds i8, ptr %session, i64 2568
+  %11 = load ptr, ptr %user_data.i78, align 8
   %call.i = tail call i32 %10(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %11) #17
-  %cmp.not.i80 = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i80, label %if.end4.i82, label %return
+  %cmp.not.i79 = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i79, label %if.end4.i81, label %return
 
-if.end4.i82:                                      ; preds = %if.then.i78, %if.then3
-  %goaway_flags.i.i.i84 = getelementptr inbounds i8, ptr %session, i64 2877
-  %12 = load i8, ptr %goaway_flags.i.i.i84, align 1
+if.end4.i81:                                      ; preds = %if.then.i77, %if.then3
+  %goaway_flags.i.i.i83 = getelementptr inbounds i8, ptr %session, i64 2877
+  %12 = load i8, ptr %goaway_flags.i.i.i83, align 1
   %13 = and i8 %12, 1
-  %tobool.not.i.i.i85 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i.i.i85, label %if.end.i.i.i86, label %session_handle_invalid_connection.exit92.thread
+  %tobool.not.i.i.i84 = icmp eq i8 %13, 0
+  br i1 %tobool.not.i.i.i84, label %if.end.i.i.i85, label %session_handle_invalid_connection.exit91.thread
 
-if.end.i.i.i86:                                   ; preds = %if.end4.i82
-  %last_proc_stream_id.i.i83 = getelementptr inbounds i8, ptr %session, i64 2756
-  %14 = load i32, ptr %last_proc_stream_id.i.i83, align 4
-  %state.i.i.i87 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i87, align 8
-  %call4.i.i.i89 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 1, ptr noundef nonnull @.str.42, i64 noundef 27, i8 noundef zeroext 1)
-  %call4.i.i.i89.fr = freeze i32 %call4.i.i.i89
-  %cmp5.not.i.i.i90 = icmp eq i32 %call4.i.i.i89.fr, 0
-  br i1 %cmp5.not.i.i.i90, label %if.end8.i.i.i91, label %session_handle_invalid_connection.exit92
+if.end.i.i.i85:                                   ; preds = %if.end4.i81
+  %last_proc_stream_id.i.i82 = getelementptr inbounds i8, ptr %session, i64 2756
+  %14 = load i32, ptr %last_proc_stream_id.i.i82, align 4
+  %state.i.i.i86 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i86, align 8
+  %call4.i.i.i88 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 1, ptr noundef nonnull @.str.42, i64 noundef 27, i8 noundef zeroext 1)
+  %call4.i.i.i88.fr = freeze i32 %call4.i.i.i88
+  %cmp5.not.i.i.i89 = icmp eq i32 %call4.i.i.i88.fr, 0
+  br i1 %cmp5.not.i.i.i89, label %if.end8.i.i.i90, label %session_handle_invalid_connection.exit91
 
-if.end8.i.i.i91:                                  ; preds = %if.end.i.i.i86
-  %15 = load i8, ptr %goaway_flags.i.i.i84, align 1
+if.end8.i.i.i90:                                  ; preds = %if.end.i.i.i85
+  %15 = load i8, ptr %goaway_flags.i.i.i83, align 1
   %16 = or i8 %15, 1
-  store i8 %16, ptr %goaway_flags.i.i.i84, align 1
-  br label %session_handle_invalid_connection.exit92.thread
+  store i8 %16, ptr %goaway_flags.i.i.i83, align 1
+  br label %session_handle_invalid_connection.exit91.thread
 
-session_handle_invalid_connection.exit92:         ; preds = %if.end.i.i.i86
-  %cmp.i.i43 = icmp sgt i32 %call4.i.i.i89.fr, -901
-  br i1 %cmp.i.i43, label %session_handle_invalid_connection.exit92.thread, label %return
+session_handle_invalid_connection.exit91:         ; preds = %if.end.i.i.i85
+  %cmp.i.i43 = icmp sgt i32 %call4.i.i.i88.fr, -901
+  br i1 %cmp.i.i43, label %session_handle_invalid_connection.exit91.thread, label %return
 
-session_handle_invalid_connection.exit92.thread:  ; preds = %if.end4.i82, %if.end8.i.i.i91, %session_handle_invalid_connection.exit92
+session_handle_invalid_connection.exit91.thread:  ; preds = %if.end4.i81, %if.end8.i.i.i90, %session_handle_invalid_connection.exit91
   br label %return
 
 nghttp2_session_is_my_stream_id.exit:             ; preds = %lor.lhs.false
@@ -7165,46 +7149,46 @@ nghttp2_session_is_my_stream_id.exit:             ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %nghttp2_session_is_my_stream_id.exit
-  %on_invalid_frame_recv_callback.i93 = getelementptr inbounds i8, ptr %session, i64 2368
-  %17 = load ptr, ptr %on_invalid_frame_recv_callback.i93, align 8
-  %tobool.not.i94 = icmp eq ptr %17, null
-  br i1 %tobool.not.i94, label %if.end4.i100, label %if.then.i95
+  %on_invalid_frame_recv_callback.i92 = getelementptr inbounds i8, ptr %session, i64 2368
+  %17 = load ptr, ptr %on_invalid_frame_recv_callback.i92, align 8
+  %tobool.not.i93 = icmp eq ptr %17, null
+  br i1 %tobool.not.i93, label %if.end4.i99, label %if.then.i94
 
-if.then.i95:                                      ; preds = %if.then9
-  %user_data.i96 = getelementptr inbounds i8, ptr %session, i64 2568
-  %18 = load ptr, ptr %user_data.i96, align 8
-  %call.i97 = tail call i32 %17(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %18) #17
-  %cmp.not.i98 = icmp eq i32 %call.i97, 0
-  br i1 %cmp.not.i98, label %if.end4.i100, label %return
+if.then.i94:                                      ; preds = %if.then9
+  %user_data.i95 = getelementptr inbounds i8, ptr %session, i64 2568
+  %18 = load ptr, ptr %user_data.i95, align 8
+  %call.i96 = tail call i32 %17(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %18) #17
+  %cmp.not.i97 = icmp eq i32 %call.i96, 0
+  br i1 %cmp.not.i97, label %if.end4.i99, label %return
 
-if.end4.i100:                                     ; preds = %if.then.i95, %if.then9
-  %goaway_flags.i.i.i102 = getelementptr inbounds i8, ptr %session, i64 2877
-  %19 = load i8, ptr %goaway_flags.i.i.i102, align 1
+if.end4.i99:                                      ; preds = %if.then.i94, %if.then9
+  %goaway_flags.i.i.i101 = getelementptr inbounds i8, ptr %session, i64 2877
+  %19 = load i8, ptr %goaway_flags.i.i.i101, align 1
   %20 = and i8 %19, 1
-  %tobool.not.i.i.i103 = icmp eq i8 %20, 0
-  br i1 %tobool.not.i.i.i103, label %if.end.i.i.i104, label %session_handle_invalid_connection.exit110.thread
+  %tobool.not.i.i.i102 = icmp eq i8 %20, 0
+  br i1 %tobool.not.i.i.i102, label %if.end.i.i.i103, label %session_handle_invalid_connection.exit109.thread
 
-if.end.i.i.i104:                                  ; preds = %if.end4.i100
-  %last_proc_stream_id.i.i101 = getelementptr inbounds i8, ptr %session, i64 2756
-  %21 = load i32, ptr %last_proc_stream_id.i.i101, align 4
-  %state.i.i.i105 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i105, align 8
-  %call4.i.i.i107 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %21, i32 noundef 1, ptr noundef nonnull @.str.43, i64 noundef 31, i8 noundef zeroext 1)
-  %call4.i.i.i107.fr = freeze i32 %call4.i.i.i107
-  %cmp5.not.i.i.i108 = icmp eq i32 %call4.i.i.i107.fr, 0
-  br i1 %cmp5.not.i.i.i108, label %if.end8.i.i.i109, label %session_handle_invalid_connection.exit110
+if.end.i.i.i103:                                  ; preds = %if.end4.i99
+  %last_proc_stream_id.i.i100 = getelementptr inbounds i8, ptr %session, i64 2756
+  %21 = load i32, ptr %last_proc_stream_id.i.i100, align 4
+  %state.i.i.i104 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i104, align 8
+  %call4.i.i.i106 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %21, i32 noundef 1, ptr noundef nonnull @.str.43, i64 noundef 31, i8 noundef zeroext 1)
+  %call4.i.i.i106.fr = freeze i32 %call4.i.i.i106
+  %cmp5.not.i.i.i107 = icmp eq i32 %call4.i.i.i106.fr, 0
+  br i1 %cmp5.not.i.i.i107, label %if.end8.i.i.i108, label %session_handle_invalid_connection.exit109
 
-if.end8.i.i.i109:                                 ; preds = %if.end.i.i.i104
-  %22 = load i8, ptr %goaway_flags.i.i.i102, align 1
+if.end8.i.i.i108:                                 ; preds = %if.end.i.i.i103
+  %22 = load i8, ptr %goaway_flags.i.i.i101, align 1
   %23 = or i8 %22, 1
-  store i8 %23, ptr %goaway_flags.i.i.i102, align 1
-  br label %session_handle_invalid_connection.exit110.thread
+  store i8 %23, ptr %goaway_flags.i.i.i101, align 1
+  br label %session_handle_invalid_connection.exit109.thread
 
-session_handle_invalid_connection.exit110:        ; preds = %if.end.i.i.i104
-  %cmp.i.i46 = icmp sgt i32 %call4.i.i.i107.fr, -901
-  br i1 %cmp.i.i46, label %session_handle_invalid_connection.exit110.thread, label %return
+session_handle_invalid_connection.exit109:        ; preds = %if.end.i.i.i103
+  %cmp.i.i46 = icmp sgt i32 %call4.i.i.i106.fr, -901
+  br i1 %cmp.i.i46, label %session_handle_invalid_connection.exit109.thread, label %return
 
-session_handle_invalid_connection.exit110.thread: ; preds = %if.end4.i100, %if.end8.i.i.i109, %session_handle_invalid_connection.exit110
+session_handle_invalid_connection.exit109.thread: ; preds = %if.end4.i99, %if.end8.i.i.i108, %session_handle_invalid_connection.exit109
   br label %return
 
 if.end11:                                         ; preds = %nghttp2_session_is_my_stream_id.exit
@@ -7218,192 +7202,191 @@ if.end15:                                         ; preds = %if.end11
   %promised_stream_id = getelementptr inbounds i8, ptr %frame, i64 40
   %26 = load i32, ptr %promised_stream_id, align 8
   %cmp.not.i = icmp ne i32 %26, 0
-  %27 = and i32 %26, 1
-  %28 = icmp eq i32 %27, 0
-  %or.cond = and i1 %cmp.not.i, %28
+  %27 = trunc i32 %26 to i1
+  %or.cond = xor i1 %cmp.not.i, %27
   br i1 %or.cond, label %session_is_new_peer_stream_id.exit, label %if.then18
 
 session_is_new_peer_stream_id.exit:               ; preds = %if.end15
   %last_recv_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2752
-  %29 = load i32, ptr %last_recv_stream_id.i, align 8
-  %cmp1.i.not = icmp slt i32 %29, %26
+  %28 = load i32, ptr %last_recv_stream_id.i, align 8
+  %cmp1.i.not = icmp slt i32 %28, %26
   br i1 %cmp1.i.not, label %session_detect_idle_stream.exit, label %if.then18
 
 if.then18:                                        ; preds = %if.end15, %session_is_new_peer_stream_id.exit
-  %on_invalid_frame_recv_callback.i111 = getelementptr inbounds i8, ptr %session, i64 2368
-  %30 = load ptr, ptr %on_invalid_frame_recv_callback.i111, align 8
-  %tobool.not.i112 = icmp eq ptr %30, null
-  br i1 %tobool.not.i112, label %if.end4.i118, label %if.then.i113
+  %on_invalid_frame_recv_callback.i110 = getelementptr inbounds i8, ptr %session, i64 2368
+  %29 = load ptr, ptr %on_invalid_frame_recv_callback.i110, align 8
+  %tobool.not.i111 = icmp eq ptr %29, null
+  br i1 %tobool.not.i111, label %if.end4.i117, label %if.then.i112
 
-if.then.i113:                                     ; preds = %if.then18
-  %user_data.i114 = getelementptr inbounds i8, ptr %session, i64 2568
-  %31 = load ptr, ptr %user_data.i114, align 8
-  %call.i115 = tail call i32 %30(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %31) #17
-  %cmp.not.i116 = icmp eq i32 %call.i115, 0
-  br i1 %cmp.not.i116, label %if.then.i113.if.end4.i118_crit_edge, label %return
+if.then.i112:                                     ; preds = %if.then18
+  %user_data.i113 = getelementptr inbounds i8, ptr %session, i64 2568
+  %30 = load ptr, ptr %user_data.i113, align 8
+  %call.i114 = tail call i32 %29(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %30) #17
+  %cmp.not.i115 = icmp eq i32 %call.i114, 0
+  br i1 %cmp.not.i115, label %if.then.i112.if.end4.i117_crit_edge, label %return
 
-if.then.i113.if.end4.i118_crit_edge:              ; preds = %if.then.i113
+if.then.i112.if.end4.i117_crit_edge:              ; preds = %if.then.i112
   %.pre = load i8, ptr %24, align 1
-  br label %if.end4.i118
+  br label %if.end4.i117
 
-if.end4.i118:                                     ; preds = %if.then.i113.if.end4.i118_crit_edge, %if.then18
-  %32 = phi i8 [ %.pre, %if.then.i113.if.end4.i118_crit_edge ], [ %session.val, %if.then18 ]
-  %33 = and i8 %32, 1
-  %tobool.not.i.i.i121 = icmp eq i8 %33, 0
-  br i1 %tobool.not.i.i.i121, label %if.end.i.i.i122, label %session_handle_invalid_connection.exit128.thread
+if.end4.i117:                                     ; preds = %if.then.i112.if.end4.i117_crit_edge, %if.then18
+  %31 = phi i8 [ %.pre, %if.then.i112.if.end4.i117_crit_edge ], [ %session.val, %if.then18 ]
+  %32 = and i8 %31, 1
+  %tobool.not.i.i.i120 = icmp eq i8 %32, 0
+  br i1 %tobool.not.i.i.i120, label %if.end.i.i.i121, label %session_handle_invalid_connection.exit127.thread
 
-if.end.i.i.i122:                                  ; preds = %if.end4.i118
-  %last_proc_stream_id.i.i119 = getelementptr inbounds i8, ptr %session, i64 2756
-  %34 = load i32, ptr %last_proc_stream_id.i.i119, align 4
-  %state.i.i.i123 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i123, align 8
-  %call4.i.i.i125 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %34, i32 noundef 1, ptr noundef nonnull @.str.44, i64 noundef 40, i8 noundef zeroext 1)
-  %call4.i.i.i125.fr = freeze i32 %call4.i.i.i125
-  %cmp5.not.i.i.i126 = icmp eq i32 %call4.i.i.i125.fr, 0
-  br i1 %cmp5.not.i.i.i126, label %if.end8.i.i.i127, label %session_handle_invalid_connection.exit128
+if.end.i.i.i121:                                  ; preds = %if.end4.i117
+  %last_proc_stream_id.i.i118 = getelementptr inbounds i8, ptr %session, i64 2756
+  %33 = load i32, ptr %last_proc_stream_id.i.i118, align 4
+  %state.i.i.i122 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i122, align 8
+  %call4.i.i.i124 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %33, i32 noundef 1, ptr noundef nonnull @.str.44, i64 noundef 40, i8 noundef zeroext 1)
+  %call4.i.i.i124.fr = freeze i32 %call4.i.i.i124
+  %cmp5.not.i.i.i125 = icmp eq i32 %call4.i.i.i124.fr, 0
+  br i1 %cmp5.not.i.i.i125, label %if.end8.i.i.i126, label %session_handle_invalid_connection.exit127
 
-if.end8.i.i.i127:                                 ; preds = %if.end.i.i.i122
-  %35 = load i8, ptr %24, align 1
-  %36 = or i8 %35, 1
-  store i8 %36, ptr %24, align 1
-  br label %session_handle_invalid_connection.exit128.thread
+if.end8.i.i.i126:                                 ; preds = %if.end.i.i.i121
+  %34 = load i8, ptr %24, align 1
+  %35 = or i8 %34, 1
+  store i8 %35, ptr %24, align 1
+  br label %session_handle_invalid_connection.exit127.thread
 
-session_handle_invalid_connection.exit128:        ; preds = %if.end.i.i.i122
-  %cmp.i.i51 = icmp sgt i32 %call4.i.i.i125.fr, -901
-  br i1 %cmp.i.i51, label %session_handle_invalid_connection.exit128.thread, label %return
+session_handle_invalid_connection.exit127:        ; preds = %if.end.i.i.i121
+  %cmp.i.i51 = icmp sgt i32 %call4.i.i.i124.fr, -901
+  br i1 %cmp.i.i51, label %session_handle_invalid_connection.exit127.thread, label %return
 
-session_handle_invalid_connection.exit128.thread: ; preds = %if.end4.i118, %if.end8.i.i.i127, %session_handle_invalid_connection.exit128
+session_handle_invalid_connection.exit127.thread: ; preds = %if.end4.i117, %if.end8.i.i.i126, %session_handle_invalid_connection.exit127
   br label %return
 
 session_detect_idle_stream.exit:                  ; preds = %session_is_new_peer_stream_id.exit
   %last_sent_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2748
-  %37 = load i32, ptr %last_sent_stream_id.i, align 4
-  %cmp.i58.not = icmp slt i32 %37, %0
-  br i1 %cmp.i58.not, label %if.then24, label %if.end26
+  %36 = load i32, ptr %last_sent_stream_id.i, align 4
+  %cmp.i57.not = icmp slt i32 %36, %0
+  br i1 %cmp.i57.not, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %session_detect_idle_stream.exit
-  %on_invalid_frame_recv_callback.i129 = getelementptr inbounds i8, ptr %session, i64 2368
-  %38 = load ptr, ptr %on_invalid_frame_recv_callback.i129, align 8
-  %tobool.not.i130 = icmp eq ptr %38, null
-  br i1 %tobool.not.i130, label %if.end4.i136, label %if.then.i131
+  %on_invalid_frame_recv_callback.i128 = getelementptr inbounds i8, ptr %session, i64 2368
+  %37 = load ptr, ptr %on_invalid_frame_recv_callback.i128, align 8
+  %tobool.not.i129 = icmp eq ptr %37, null
+  br i1 %tobool.not.i129, label %if.end4.i135, label %if.then.i130
 
-if.then.i131:                                     ; preds = %if.then24
-  %user_data.i132 = getelementptr inbounds i8, ptr %session, i64 2568
-  %39 = load ptr, ptr %user_data.i132, align 8
-  %call.i133 = tail call i32 %38(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %39) #17
-  %cmp.not.i134 = icmp eq i32 %call.i133, 0
-  br i1 %cmp.not.i134, label %if.then.i131.if.end4.i136_crit_edge, label %return
+if.then.i130:                                     ; preds = %if.then24
+  %user_data.i131 = getelementptr inbounds i8, ptr %session, i64 2568
+  %38 = load ptr, ptr %user_data.i131, align 8
+  %call.i132 = tail call i32 %37(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %38) #17
+  %cmp.not.i133 = icmp eq i32 %call.i132, 0
+  br i1 %cmp.not.i133, label %if.then.i130.if.end4.i135_crit_edge, label %return
 
-if.then.i131.if.end4.i136_crit_edge:              ; preds = %if.then.i131
-  %.pre194 = load i8, ptr %24, align 1
-  br label %if.end4.i136
+if.then.i130.if.end4.i135_crit_edge:              ; preds = %if.then.i130
+  %.pre192 = load i8, ptr %24, align 1
+  br label %if.end4.i135
 
-if.end4.i136:                                     ; preds = %if.then.i131.if.end4.i136_crit_edge, %if.then24
-  %40 = phi i8 [ %.pre194, %if.then.i131.if.end4.i136_crit_edge ], [ %session.val, %if.then24 ]
-  %41 = and i8 %40, 1
-  %tobool.not.i.i.i139 = icmp eq i8 %41, 0
-  br i1 %tobool.not.i.i.i139, label %if.end.i.i.i140, label %session_handle_invalid_connection.exit146.thread
+if.end4.i135:                                     ; preds = %if.then.i130.if.end4.i135_crit_edge, %if.then24
+  %39 = phi i8 [ %.pre192, %if.then.i130.if.end4.i135_crit_edge ], [ %session.val, %if.then24 ]
+  %40 = and i8 %39, 1
+  %tobool.not.i.i.i138 = icmp eq i8 %40, 0
+  br i1 %tobool.not.i.i.i138, label %if.end.i.i.i139, label %session_handle_invalid_connection.exit145.thread
 
-if.end.i.i.i140:                                  ; preds = %if.end4.i136
-  %last_proc_stream_id.i.i137 = getelementptr inbounds i8, ptr %session, i64 2756
-  %42 = load i32, ptr %last_proc_stream_id.i.i137, align 4
-  %state.i.i.i141 = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i141, align 8
-  %call4.i.i.i143 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %42, i32 noundef 1, ptr noundef nonnull @.str.45, i64 noundef 28, i8 noundef zeroext 1)
-  %call4.i.i.i143.fr = freeze i32 %call4.i.i.i143
-  %cmp5.not.i.i.i144 = icmp eq i32 %call4.i.i.i143.fr, 0
-  br i1 %cmp5.not.i.i.i144, label %if.end8.i.i.i145, label %session_handle_invalid_connection.exit146
+if.end.i.i.i139:                                  ; preds = %if.end4.i135
+  %last_proc_stream_id.i.i136 = getelementptr inbounds i8, ptr %session, i64 2756
+  %41 = load i32, ptr %last_proc_stream_id.i.i136, align 4
+  %state.i.i.i140 = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i140, align 8
+  %call4.i.i.i142 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %41, i32 noundef 1, ptr noundef nonnull @.str.45, i64 noundef 28, i8 noundef zeroext 1)
+  %call4.i.i.i142.fr = freeze i32 %call4.i.i.i142
+  %cmp5.not.i.i.i143 = icmp eq i32 %call4.i.i.i142.fr, 0
+  br i1 %cmp5.not.i.i.i143, label %if.end8.i.i.i144, label %session_handle_invalid_connection.exit145
 
-if.end8.i.i.i145:                                 ; preds = %if.end.i.i.i140
-  %43 = load i8, ptr %24, align 1
-  %44 = or i8 %43, 1
-  store i8 %44, ptr %24, align 1
-  br label %session_handle_invalid_connection.exit146.thread
+if.end8.i.i.i144:                                 ; preds = %if.end.i.i.i139
+  %42 = load i8, ptr %24, align 1
+  %43 = or i8 %42, 1
+  store i8 %43, ptr %24, align 1
+  br label %session_handle_invalid_connection.exit145.thread
 
-session_handle_invalid_connection.exit146:        ; preds = %if.end.i.i.i140
-  %cmp.i.i61 = icmp sgt i32 %call4.i.i.i143.fr, -901
-  br i1 %cmp.i.i61, label %session_handle_invalid_connection.exit146.thread, label %return
+session_handle_invalid_connection.exit145:        ; preds = %if.end.i.i.i139
+  %cmp.i.i60 = icmp sgt i32 %call4.i.i.i142.fr, -901
+  br i1 %cmp.i.i60, label %session_handle_invalid_connection.exit145.thread, label %return
 
-session_handle_invalid_connection.exit146.thread: ; preds = %if.end4.i136, %if.end8.i.i.i145, %session_handle_invalid_connection.exit146
+session_handle_invalid_connection.exit145.thread: ; preds = %if.end4.i135, %if.end8.i.i.i144, %session_handle_invalid_connection.exit145
   br label %return
 
 if.end26:                                         ; preds = %session_detect_idle_stream.exit
   store i32 %26, ptr %last_recv_stream_id.i, align 8
-  %45 = load i32, ptr %stream_id, align 8
-  %call29 = tail call ptr @nghttp2_session_get_stream(ptr noundef nonnull %session, i32 noundef %45)
+  %44 = load i32, ptr %stream_id, align 8
+  %call29 = tail call ptr @nghttp2_session_get_stream(ptr noundef nonnull %session, i32 noundef %44)
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %if.then39, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %if.end26
   %state = getelementptr inbounds i8, ptr %call29, i64 204
-  %46 = load i32, ptr %state, align 4
-  %cmp32 = icmp eq i32 %46, 3
+  %45 = load i32, ptr %state, align 4
+  %cmp32 = icmp eq i32 %45, 3
   br i1 %cmp32, label %if.then39, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false31
   %pending_enable_push = getelementptr inbounds i8, ptr %session, i64 2872
-  %47 = load i8, ptr %pending_enable_push, align 8
-  %tobool35.not = icmp eq i8 %47, 0
+  %46 = load i8, ptr %pending_enable_push, align 8
+  %tobool35.not = icmp eq i8 %46, 0
   br i1 %tobool35.not, label %if.then39, label %lor.lhs.false36
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false34
   %num_incoming_reserved_streams = getelementptr inbounds i8, ptr %session, i64 2672
-  %48 = load i64, ptr %num_incoming_reserved_streams, align 8
+  %47 = load i64, ptr %num_incoming_reserved_streams, align 8
   %max_incoming_reserved_streams = getelementptr inbounds i8, ptr %session, i64 2680
-  %49 = load i64, ptr %max_incoming_reserved_streams, align 8
-  %cmp37.not = icmp ult i64 %48, %49
+  %48 = load i64, ptr %max_incoming_reserved_streams, align 8
+  %cmp37.not = icmp ult i64 %47, %48
   br i1 %cmp37.not, label %if.end46, label %if.then39
 
 if.then39:                                        ; preds = %lor.lhs.false36, %lor.lhs.false34, %lor.lhs.false31, %if.end26
-  %50 = load i32, ptr %promised_stream_id, align 8
-  %call41 = tail call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %50, i32 noundef 8)
+  %49 = load i32, ptr %promised_stream_id, align 8
+  %call41 = tail call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %49, i32 noundef 8)
   %cmp42.not = icmp eq i32 %call41, 0
   %.call41 = select i1 %cmp42.not, i32 -103, i32 %call41
   br label %return
 
 if.end46:                                         ; preds = %lor.lhs.false36
   %shut_flags = getelementptr inbounds i8, ptr %call29, i64 217
-  %51 = load i8, ptr %shut_flags, align 1
-  %52 = and i8 %51, 1
-  %tobool48.not = icmp eq i8 %52, 0
+  %50 = load i8, ptr %shut_flags, align 1
+  %51 = and i8 %50, 1
+  %tobool48.not = icmp eq i8 %51, 0
   br i1 %tobool48.not, label %if.end51, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
-  %call.i63 = tail call fastcc i32 @session_handle_invalid_connection(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -510, ptr noundef nonnull @.str.46)
-  %cmp.i.i64 = icmp sgt i32 %call.i63, -901
-  %.call.i65 = select i1 %cmp.i.i64, i32 -103, i32 %call.i63
+  %call.i62 = tail call fastcc i32 @session_handle_invalid_connection(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -510, ptr noundef nonnull @.str.46)
+  %cmp.i.i63 = icmp sgt i32 %call.i62, -901
+  %.call.i64 = select i1 %cmp.i.i63, i32 -103, i32 %call.i62
   br label %return
 
 if.end51:                                         ; preds = %if.end46
   %stream_id52 = getelementptr inbounds i8, ptr %call29, i64 168
-  %53 = load i32, ptr %stream_id52, align 8
-  call void @nghttp2_priority_spec_init(ptr noundef nonnull %pri_spec, i32 noundef %53, i32 noundef 16, i32 noundef 0) #17
-  %54 = load i32, ptr %promised_stream_id, align 8
-  %call54 = call ptr @nghttp2_session_open_stream(ptr noundef nonnull %session, i32 noundef %54, i8 noundef zeroext 0, ptr noundef nonnull %pri_spec, i32 noundef 4, ptr noundef null)
+  %52 = load i32, ptr %stream_id52, align 8
+  call void @nghttp2_priority_spec_init(ptr noundef nonnull %pri_spec, i32 noundef %52, i32 noundef 16, i32 noundef 0) #17
+  %53 = load i32, ptr %promised_stream_id, align 8
+  %call54 = call ptr @nghttp2_session_open_stream(ptr noundef nonnull %session, i32 noundef %53, i8 noundef zeroext 0, ptr noundef nonnull %pri_spec, i32 noundef 4, ptr noundef null)
   %tobool55.not = icmp eq ptr %call54, null
   br i1 %tobool55.not, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end51
-  %55 = load i32, ptr %last_recv_stream_id.i, align 8
+  %54 = load i32, ptr %last_recv_stream_id.i, align 8
   %last_proc_stream_id = getelementptr inbounds i8, ptr %session, i64 2756
-  store i32 %55, ptr %last_proc_stream_id, align 4
+  store i32 %54, ptr %last_proc_stream_id, align 4
   %on_begin_headers_callback.i = getelementptr inbounds i8, ptr %session, i64 2416
-  %56 = load ptr, ptr %on_begin_headers_callback.i, align 8
-  %tobool.not.i66 = icmp eq ptr %56, null
-  br i1 %tobool.not.i66, label %return, label %if.then.i67
+  %55 = load ptr, ptr %on_begin_headers_callback.i, align 8
+  %tobool.not.i65 = icmp eq ptr %55, null
+  br i1 %tobool.not.i65, label %return, label %if.then.i66
 
-if.then.i67:                                      ; preds = %if.end57
+if.then.i66:                                      ; preds = %if.end57
   %user_data.i = getelementptr inbounds i8, ptr %session, i64 2568
-  %57 = load ptr, ptr %user_data.i, align 8
-  %call.i68 = call i32 %56(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %57) #17
-  %switch.selectcmp.i = icmp eq i32 %call.i68, 0
+  %56 = load ptr, ptr %user_data.i, align 8
+  %call.i67 = call i32 %55(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %56) #17
+  %switch.selectcmp.i = icmp eq i32 %call.i67, 0
   %switch.select.i = select i1 %switch.selectcmp.i, i32 0, i32 -902
-  %switch.selectcmp6.i = icmp eq i32 %call.i68, -521
+  %switch.selectcmp6.i = icmp eq i32 %call.i67, -521
   %switch.select7.i = select i1 %switch.selectcmp6.i, i32 -521, i32 %switch.select.i
   br label %return
 
-return:                                           ; preds = %if.then.i67, %if.end57, %if.then.i131, %if.then.i113, %if.then.i95, %if.then.i78, %if.then.i71, %session_handle_invalid_connection.exit146.thread, %session_handle_invalid_connection.exit146, %session_handle_invalid_connection.exit128.thread, %session_handle_invalid_connection.exit128, %session_handle_invalid_connection.exit110.thread, %session_handle_invalid_connection.exit110, %session_handle_invalid_connection.exit92.thread, %session_handle_invalid_connection.exit92, %session_handle_invalid_connection.exit.thread, %session_handle_invalid_connection.exit, %if.end51, %if.then39, %if.end11, %if.then49
-  %retval.0 = phi i32 [ %.call.i65, %if.then49 ], [ -103, %if.end11 ], [ %.call41, %if.then39 ], [ -901, %if.end51 ], [ -103, %session_handle_invalid_connection.exit.thread ], [ %call4.i.i.i.fr, %session_handle_invalid_connection.exit ], [ -103, %session_handle_invalid_connection.exit92.thread ], [ %call4.i.i.i89.fr, %session_handle_invalid_connection.exit92 ], [ -103, %session_handle_invalid_connection.exit110.thread ], [ %call4.i.i.i107.fr, %session_handle_invalid_connection.exit110 ], [ -103, %session_handle_invalid_connection.exit128.thread ], [ %call4.i.i.i125.fr, %session_handle_invalid_connection.exit128 ], [ -103, %session_handle_invalid_connection.exit146.thread ], [ %call4.i.i.i143.fr, %session_handle_invalid_connection.exit146 ], [ -902, %if.then.i71 ], [ -902, %if.then.i78 ], [ -902, %if.then.i95 ], [ -902, %if.then.i113 ], [ -902, %if.then.i131 ], [ %switch.select7.i, %if.then.i67 ], [ 0, %if.end57 ]
+return:                                           ; preds = %if.then.i66, %if.end57, %if.then.i130, %if.then.i112, %if.then.i94, %if.then.i77, %if.then.i70, %session_handle_invalid_connection.exit145.thread, %session_handle_invalid_connection.exit145, %session_handle_invalid_connection.exit127.thread, %session_handle_invalid_connection.exit127, %session_handle_invalid_connection.exit109.thread, %session_handle_invalid_connection.exit109, %session_handle_invalid_connection.exit91.thread, %session_handle_invalid_connection.exit91, %session_handle_invalid_connection.exit.thread, %session_handle_invalid_connection.exit, %if.end51, %if.then39, %if.end11, %if.then49
+  %retval.0 = phi i32 [ %.call.i64, %if.then49 ], [ -103, %if.end11 ], [ %.call41, %if.then39 ], [ -901, %if.end51 ], [ -103, %session_handle_invalid_connection.exit.thread ], [ %call4.i.i.i.fr, %session_handle_invalid_connection.exit ], [ -103, %session_handle_invalid_connection.exit91.thread ], [ %call4.i.i.i88.fr, %session_handle_invalid_connection.exit91 ], [ -103, %session_handle_invalid_connection.exit109.thread ], [ %call4.i.i.i106.fr, %session_handle_invalid_connection.exit109 ], [ -103, %session_handle_invalid_connection.exit127.thread ], [ %call4.i.i.i124.fr, %session_handle_invalid_connection.exit127 ], [ -103, %session_handle_invalid_connection.exit145.thread ], [ %call4.i.i.i142.fr, %session_handle_invalid_connection.exit145 ], [ -902, %if.then.i70 ], [ -902, %if.then.i77 ], [ -902, %if.then.i94 ], [ -902, %if.then.i112 ], [ -902, %if.then.i130 ], [ %switch.select7.i, %if.then.i66 ], [ 0, %if.end57 ]
   ret i32 %retval.0
 }
 
@@ -7624,10 +7607,9 @@ if.end:                                           ; preds = %entry
 nghttp2_session_is_my_stream_id.exit:             ; preds = %if.end
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %9 = load i8, ptr %server.i, align 4
-  %tobool.not.i17 = icmp ne i8 %9, 0
-  %10 = and i32 %8, 1
-  %11 = icmp eq i32 %10, 0
-  %tobool.not = xor i1 %11, %tobool.not.i17
+  %10 = trunc i32 %8 to i1
+  %11 = icmp eq i8 %9, 0
+  %tobool.not = xor i1 %11, %10
   br i1 %tobool.not, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %nghttp2_session_is_my_stream_id.exit, %if.end
@@ -7920,10 +7902,9 @@ if.end4.i34.i:                                    ; preds = %if.then.i29.i, %if.
 nghttp2_session_is_my_stream_id.exit.i.i:         ; preds = %entry
   %server.i.i.i = getelementptr inbounds i8, ptr %session, i64 2876
   %19 = load i8, ptr %server.i.i.i, align 4
-  %tobool.not.i.i.i = icmp ne i8 %19, 0
-  %20 = and i32 %0, 1
-  %21 = icmp eq i32 %20, 0
-  %tobool.not.i.i4 = xor i1 %21, %tobool.not.i.i.i
+  %20 = trunc i32 %0 to i1
+  %21 = icmp eq i8 %19, 0
+  %tobool.not.i.i4 = xor i1 %21, %20
   br i1 %tobool.not.i.i4, label %session_is_new_peer_stream_id.exit.i.i, label %session_detect_idle_stream.exit.i
 
 session_is_new_peer_stream_id.exit.i.i:           ; preds = %nghttp2_session_is_my_stream_id.exit.i.i
@@ -8002,45 +7983,44 @@ land.rhs.i.i:                                     ; preds = %lor.lhs.false1.i.i
 
 state_reserved_remote.exit.i:                     ; preds = %land.rhs.i.i
   %35 = load i8, ptr %server.i.i.i, align 4
-  %tobool.not.i.i37.i = icmp ne i8 %35, 0
-  %36 = and i32 %34, 1
-  %37 = icmp eq i32 %36, 0
-  %tobool8.not.not.i = xor i1 %37, %tobool.not.i.i37.i
+  %36 = trunc i32 %34 to i1
+  %37 = icmp eq i8 %35, 0
+  %tobool8.not.not.i = xor i1 %37, %36
   br i1 %tobool8.not.not.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %state_reserved_remote.exit.i, %land.rhs.i.i
-  %on_invalid_frame_recv_callback.i38.i = getelementptr inbounds i8, ptr %session, i64 2368
-  %38 = load ptr, ptr %on_invalid_frame_recv_callback.i38.i, align 8
-  %tobool.not.i39.i = icmp eq ptr %38, null
-  br i1 %tobool.not.i39.i, label %if.end4.i45.i, label %if.then.i40.i
+  %on_invalid_frame_recv_callback.i37.i = getelementptr inbounds i8, ptr %session, i64 2368
+  %38 = load ptr, ptr %on_invalid_frame_recv_callback.i37.i, align 8
+  %tobool.not.i38.i = icmp eq ptr %38, null
+  br i1 %tobool.not.i38.i, label %if.end4.i44.i, label %if.then.i39.i
 
-if.then.i40.i:                                    ; preds = %if.then9.i
-  %user_data.i41.i = getelementptr inbounds i8, ptr %session, i64 2568
-  %39 = load ptr, ptr %user_data.i41.i, align 8
-  %call.i42.i = tail call i32 %38(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %39) #17
-  %cmp.not.i43.i = icmp eq i32 %call.i42.i, 0
-  br i1 %cmp.not.i43.i, label %if.end4.i45.i, label %return
+if.then.i39.i:                                    ; preds = %if.then9.i
+  %user_data.i40.i = getelementptr inbounds i8, ptr %session, i64 2568
+  %39 = load ptr, ptr %user_data.i40.i, align 8
+  %call.i41.i = tail call i32 %38(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %39) #17
+  %cmp.not.i42.i = icmp eq i32 %call.i41.i, 0
+  br i1 %cmp.not.i42.i, label %if.end4.i44.i, label %return
 
-if.end4.i45.i:                                    ; preds = %if.then.i40.i, %if.then9.i
-  %goaway_flags.i.i.i47.i = getelementptr inbounds i8, ptr %session, i64 2877
-  %40 = load i8, ptr %goaway_flags.i.i.i47.i, align 1
+if.end4.i44.i:                                    ; preds = %if.then.i39.i, %if.then9.i
+  %goaway_flags.i.i.i46.i = getelementptr inbounds i8, ptr %session, i64 2877
+  %40 = load i8, ptr %goaway_flags.i.i.i46.i, align 1
   %41 = and i8 %40, 1
-  %tobool.not.i.i.i48.i = icmp eq i8 %41, 0
-  br i1 %tobool.not.i.i.i48.i, label %if.end.i.i.i49.i, label %return
+  %tobool.not.i.i.i47.i = icmp eq i8 %41, 0
+  br i1 %tobool.not.i.i.i47.i, label %if.end.i.i.i48.i, label %return
 
-if.end.i.i.i49.i:                                 ; preds = %if.end4.i45.i
-  %last_proc_stream_id.i.i46.i = getelementptr inbounds i8, ptr %session, i64 2756
-  %42 = load i32, ptr %last_proc_stream_id.i.i46.i, align 4
-  %state.i.i.i50.i = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i50.i, align 8
-  %call4.i.i.i52.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %42, i32 noundef 1, ptr noundef nonnull @.str.94, i64 noundef 33, i8 noundef zeroext 1)
-  %cmp5.not.i.i.i53.i = icmp eq i32 %call4.i.i.i52.i, 0
-  br i1 %cmp5.not.i.i.i53.i, label %if.end8.i.i.i54.i, label %return
+if.end.i.i.i48.i:                                 ; preds = %if.end4.i44.i
+  %last_proc_stream_id.i.i45.i = getelementptr inbounds i8, ptr %session, i64 2756
+  %42 = load i32, ptr %last_proc_stream_id.i.i45.i, align 4
+  %state.i.i.i49.i = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i49.i, align 8
+  %call4.i.i.i51.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %42, i32 noundef 1, ptr noundef nonnull @.str.94, i64 noundef 33, i8 noundef zeroext 1)
+  %cmp5.not.i.i.i52.i = icmp eq i32 %call4.i.i.i51.i, 0
+  br i1 %cmp5.not.i.i.i52.i, label %if.end8.i.i.i53.i, label %return
 
-if.end8.i.i.i54.i:                                ; preds = %if.end.i.i.i49.i
-  %43 = load i8, ptr %goaway_flags.i.i.i47.i, align 1
+if.end8.i.i.i53.i:                                ; preds = %if.end.i.i.i48.i
+  %43 = load i8, ptr %goaway_flags.i.i.i46.i, align 1
   %44 = or i8 %43, 1
-  store i8 %44, ptr %goaway_flags.i.i.i47.i, align 1
+  store i8 %44, ptr %goaway_flags.i.i.i46.i, align 1
   br label %return
 
 if.end11.i:                                       ; preds = %state_reserved_remote.exit.i, %lor.lhs.false1.i.i
@@ -8050,38 +8030,38 @@ if.end11.i:                                       ; preds = %state_reserved_remo
   br i1 %cmp.i8, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end11.i
-  %on_invalid_frame_recv_callback.i56.i = getelementptr inbounds i8, ptr %session, i64 2368
-  %46 = load ptr, ptr %on_invalid_frame_recv_callback.i56.i, align 8
-  %tobool.not.i57.i = icmp eq ptr %46, null
-  br i1 %tobool.not.i57.i, label %if.end4.i63.i, label %if.then.i58.i
+  %on_invalid_frame_recv_callback.i55.i = getelementptr inbounds i8, ptr %session, i64 2368
+  %46 = load ptr, ptr %on_invalid_frame_recv_callback.i55.i, align 8
+  %tobool.not.i56.i = icmp eq ptr %46, null
+  br i1 %tobool.not.i56.i, label %if.end4.i62.i, label %if.then.i57.i
 
-if.then.i58.i:                                    ; preds = %if.then12.i
-  %user_data.i59.i = getelementptr inbounds i8, ptr %session, i64 2568
-  %47 = load ptr, ptr %user_data.i59.i, align 8
-  %call.i60.i = tail call i32 %46(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %47) #17
-  %cmp.not.i61.i = icmp eq i32 %call.i60.i, 0
-  br i1 %cmp.not.i61.i, label %if.end4.i63.i, label %return
+if.then.i57.i:                                    ; preds = %if.then12.i
+  %user_data.i58.i = getelementptr inbounds i8, ptr %session, i64 2568
+  %47 = load ptr, ptr %user_data.i58.i, align 8
+  %call.i59.i = tail call i32 %46(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -505, ptr noundef %47) #17
+  %cmp.not.i60.i = icmp eq i32 %call.i59.i, 0
+  br i1 %cmp.not.i60.i, label %if.end4.i62.i, label %return
 
-if.end4.i63.i:                                    ; preds = %if.then.i58.i, %if.then12.i
-  %goaway_flags.i.i.i65.i = getelementptr inbounds i8, ptr %session, i64 2877
-  %48 = load i8, ptr %goaway_flags.i.i.i65.i, align 1
+if.end4.i62.i:                                    ; preds = %if.then.i57.i, %if.then12.i
+  %goaway_flags.i.i.i64.i = getelementptr inbounds i8, ptr %session, i64 2877
+  %48 = load i8, ptr %goaway_flags.i.i.i64.i, align 1
   %49 = and i8 %48, 1
-  %tobool.not.i.i.i66.i = icmp eq i8 %49, 0
-  br i1 %tobool.not.i.i.i66.i, label %if.end.i.i.i67.i, label %return
+  %tobool.not.i.i.i65.i = icmp eq i8 %49, 0
+  br i1 %tobool.not.i.i.i65.i, label %if.end.i.i.i66.i, label %return
 
-if.end.i.i.i67.i:                                 ; preds = %if.end4.i63.i
-  %last_proc_stream_id.i.i64.i = getelementptr inbounds i8, ptr %session, i64 2756
-  %50 = load i32, ptr %last_proc_stream_id.i.i64.i, align 4
-  %state.i.i.i68.i = getelementptr inbounds i8, ptr %session, i64 952
-  store i32 15, ptr %state.i.i.i68.i, align 8
-  %call4.i.i.i70.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %50, i32 noundef 1, ptr noundef nonnull @.str.92, i64 noundef 41, i8 noundef zeroext 1)
-  %cmp5.not.i.i.i71.i = icmp eq i32 %call4.i.i.i70.i, 0
-  br i1 %cmp5.not.i.i.i71.i, label %if.end8.i.i.i72.i, label %return
+if.end.i.i.i66.i:                                 ; preds = %if.end4.i62.i
+  %last_proc_stream_id.i.i63.i = getelementptr inbounds i8, ptr %session, i64 2756
+  %50 = load i32, ptr %last_proc_stream_id.i.i63.i, align 4
+  %state.i.i.i67.i = getelementptr inbounds i8, ptr %session, i64 952
+  store i32 15, ptr %state.i.i.i67.i, align 8
+  %call4.i.i.i69.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %50, i32 noundef 1, ptr noundef nonnull @.str.92, i64 noundef 41, i8 noundef zeroext 1)
+  %cmp5.not.i.i.i70.i = icmp eq i32 %call4.i.i.i69.i, 0
+  br i1 %cmp5.not.i.i.i70.i, label %if.end8.i.i.i71.i, label %return
 
-if.end8.i.i.i72.i:                                ; preds = %if.end.i.i.i67.i
-  %51 = load i8, ptr %goaway_flags.i.i.i65.i, align 1
+if.end8.i.i.i71.i:                                ; preds = %if.end.i.i.i66.i
+  %51 = load i8, ptr %goaway_flags.i.i.i64.i, align 1
   %52 = or i8 %51, 1
-  store i8 %52, ptr %goaway_flags.i.i.i65.i, align 1
+  store i8 %52, ptr %goaway_flags.i.i.i64.i, align 1
   br label %return
 
 if.end14.i:                                       ; preds = %if.end11.i
@@ -8095,22 +8075,22 @@ if.then17.i:                                      ; preds = %if.end14.i
   %54 = load i32, ptr %stream_id, align 8
   %call1.i.i.i = tail call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %54, i32 noundef 3)
   %cmp.not.i.i.i = icmp eq i32 %call1.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %if.end.i.i75.i, label %return
+  br i1 %cmp.not.i.i.i, label %if.end.i.i74.i, label %return
 
-if.end.i.i75.i:                                   ; preds = %if.then17.i
+if.end.i.i74.i:                                   ; preds = %if.then17.i
   %on_invalid_frame_recv_callback.i.i.i = getelementptr inbounds i8, ptr %session, i64 2368
   %55 = load ptr, ptr %on_invalid_frame_recv_callback.i.i.i, align 8
-  %tobool.not.i.i76.i = icmp eq ptr %55, null
-  br i1 %tobool.not.i.i76.i, label %if.end9.i.i.i, label %if.then2.i.i.i
+  %tobool.not.i.i75.i = icmp eq ptr %55, null
+  br i1 %tobool.not.i.i75.i, label %if.end9.i.i.i, label %if.then2.i.i.i
 
-if.then2.i.i.i:                                   ; preds = %if.end.i.i75.i
+if.then2.i.i.i:                                   ; preds = %if.end.i.i74.i
   %user_data.i.i.i = getelementptr inbounds i8, ptr %session, i64 2568
   %56 = load ptr, ptr %user_data.i.i.i, align 8
   %call5.i.i.i = tail call i32 %55(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -524, ptr noundef %56) #17
   %cmp6.not.i.i.i = icmp eq i32 %call5.i.i.i, 0
   br i1 %cmp6.not.i.i.i, label %if.end9.i.i.i, label %return
 
-if.end9.i.i.i:                                    ; preds = %if.then2.i.i.i, %if.end.i.i75.i
+if.end9.i.i.i:                                    ; preds = %if.then2.i.i.i, %if.end.i.i74.i
   br label %return
 
 if.end19.i:                                       ; preds = %if.end14.i
@@ -8126,27 +8106,27 @@ land.lhs.true.i:                                  ; preds = %if.end19.i
 
 if.then26.i:                                      ; preds = %land.lhs.true.i
   %call27.i = tail call fastcc i32 @session_resume_deferred_stream_item(ptr noundef nonnull %session, ptr noundef nonnull %call.i29.i, i8 noundef zeroext 4)
-  %cmp.i77.i = icmp sgt i32 %call27.i, -901
-  br i1 %cmp.i77.i, label %if.end32.i, label %return
+  %cmp.i76.i = icmp sgt i32 %call27.i, -901
+  br i1 %cmp.i76.i, label %if.end32.i, label %return
 
 if.end32.i:                                       ; preds = %if.then26.i, %land.lhs.true.i, %if.end19.i
   %on_frame_recv_callback.i.i12 = getelementptr inbounds i8, ptr %session, i64 2360
   %57 = load ptr, ptr %on_frame_recv_callback.i.i12, align 8
-  %tobool.not.i78.i = icmp eq ptr %57, null
-  br i1 %tobool.not.i78.i, label %if.end4.i84.i, label %if.then.i79.i
+  %tobool.not.i77.i = icmp eq ptr %57, null
+  br i1 %tobool.not.i77.i, label %if.end4.i83.i, label %if.then.i78.i
 
-if.then.i79.i:                                    ; preds = %if.end32.i
-  %user_data.i80.i = getelementptr inbounds i8, ptr %session, i64 2568
-  %58 = load ptr, ptr %user_data.i80.i, align 8
-  %call.i81.i = tail call i32 %57(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %58) #17
-  %cmp.not.i82.i = icmp eq i32 %call.i81.i, 0
-  br i1 %cmp.not.i82.i, label %if.end4.i84.i, label %return
+if.then.i78.i:                                    ; preds = %if.end32.i
+  %user_data.i79.i = getelementptr inbounds i8, ptr %session, i64 2568
+  %58 = load ptr, ptr %user_data.i79.i, align 8
+  %call.i80.i = tail call i32 %57(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %58) #17
+  %cmp.not.i81.i = icmp eq i32 %call.i80.i, 0
+  br i1 %cmp.not.i81.i, label %if.end4.i83.i, label %return
 
-if.end4.i84.i:                                    ; preds = %if.then.i79.i, %if.end32.i
+if.end4.i83.i:                                    ; preds = %if.then.i78.i, %if.end32.i
   br label %return
 
-return:                                           ; preds = %if.end4.i84.i, %if.then.i79.i, %if.then26.i, %if.end9.i.i.i, %if.then2.i.i.i, %if.then17.i, %if.end8.i.i.i72.i, %if.end.i.i.i67.i, %if.end4.i63.i, %if.then.i58.i, %if.end8.i.i.i54.i, %if.end.i.i.i49.i, %if.end4.i45.i, %if.then.i40.i, %lor.lhs.false1.i.i, %lor.lhs.false.i.i, %if.end.i5, %if.end8.i.i.i.i26, %if.end.i.i.i.i21, %if.end4.i.i18, %if.then.i27.i, %if.end4.i34.i, %if.then.i29.i, %if.end8.i.i.i26.i, %if.end.i.i.i22.i, %if.end4.i18.i, %if.then.i13.i, %if.end8.i.i.i.i, %if.end.i.i.i.i, %if.end4.i.i, %if.then.i.i
-  %retval.0 = phi i32 [ -902, %if.then.i.i ], [ 0, %if.end8.i.i.i.i ], [ 0, %if.end4.i.i ], [ %call4.i.i.i.i, %if.end.i.i.i.i ], [ -902, %if.then.i13.i ], [ 0, %if.end8.i.i.i26.i ], [ 0, %if.end4.i18.i ], [ %call4.i.i.i24.i, %if.end.i.i.i22.i ], [ 0, %if.end4.i34.i ], [ -902, %if.then.i29.i ], [ %call27.i, %if.then26.i ], [ -902, %if.then.i27.i ], [ 0, %if.end8.i.i.i.i26 ], [ 0, %if.end4.i.i18 ], [ %call4.i.i.i.i24, %if.end.i.i.i.i21 ], [ -902, %if.then.i40.i ], [ 0, %if.end8.i.i.i54.i ], [ 0, %if.end4.i45.i ], [ %call4.i.i.i52.i, %if.end.i.i.i49.i ], [ -902, %if.then.i58.i ], [ 0, %if.end8.i.i.i72.i ], [ 0, %if.end4.i63.i ], [ %call4.i.i.i70.i, %if.end.i.i.i67.i ], [ 0, %if.end9.i.i.i ], [ %call1.i.i.i, %if.then17.i ], [ -902, %if.then2.i.i.i ], [ 0, %if.end4.i84.i ], [ -902, %if.then.i79.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %if.end.i5 ], [ 0, %lor.lhs.false1.i.i ]
+return:                                           ; preds = %if.end4.i83.i, %if.then.i78.i, %if.then26.i, %if.end9.i.i.i, %if.then2.i.i.i, %if.then17.i, %if.end8.i.i.i71.i, %if.end.i.i.i66.i, %if.end4.i62.i, %if.then.i57.i, %if.end8.i.i.i53.i, %if.end.i.i.i48.i, %if.end4.i44.i, %if.then.i39.i, %lor.lhs.false1.i.i, %lor.lhs.false.i.i, %if.end.i5, %if.end8.i.i.i.i26, %if.end.i.i.i.i21, %if.end4.i.i18, %if.then.i27.i, %if.end4.i34.i, %if.then.i29.i, %if.end8.i.i.i26.i, %if.end.i.i.i22.i, %if.end4.i18.i, %if.then.i13.i, %if.end8.i.i.i.i, %if.end.i.i.i.i, %if.end4.i.i, %if.then.i.i
+  %retval.0 = phi i32 [ -902, %if.then.i.i ], [ 0, %if.end8.i.i.i.i ], [ 0, %if.end4.i.i ], [ %call4.i.i.i.i, %if.end.i.i.i.i ], [ -902, %if.then.i13.i ], [ 0, %if.end8.i.i.i26.i ], [ 0, %if.end4.i18.i ], [ %call4.i.i.i24.i, %if.end.i.i.i22.i ], [ 0, %if.end4.i34.i ], [ -902, %if.then.i29.i ], [ %call27.i, %if.then26.i ], [ -902, %if.then.i27.i ], [ 0, %if.end8.i.i.i.i26 ], [ 0, %if.end4.i.i18 ], [ %call4.i.i.i.i24, %if.end.i.i.i.i21 ], [ -902, %if.then.i39.i ], [ 0, %if.end8.i.i.i53.i ], [ 0, %if.end4.i44.i ], [ %call4.i.i.i51.i, %if.end.i.i.i48.i ], [ -902, %if.then.i57.i ], [ 0, %if.end8.i.i.i71.i ], [ 0, %if.end4.i62.i ], [ %call4.i.i.i69.i, %if.end.i.i.i66.i ], [ 0, %if.end9.i.i.i ], [ %call1.i.i.i, %if.then17.i ], [ -902, %if.then2.i.i.i ], [ 0, %if.end4.i83.i ], [ -902, %if.then.i78.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %if.end.i5 ], [ 0, %lor.lhs.false1.i.i ]
   ret i32 %retval.0
 }
 
@@ -8444,26 +8424,25 @@ if.else23:                                        ; preds = %if.end14
 
 nghttp2_session_is_my_stream_id.exit.i81:         ; preds = %if.else23
   %26 = load i8, ptr %server, align 4
-  %tobool.not.i.i83 = icmp ne i8 %26, 0
-  %27 = and i32 %25, 1
-  %28 = icmp eq i32 %27, 0
-  %tobool.not.i84 = xor i1 %28, %tobool.not.i.i83
-  br i1 %tobool.not.i84, label %session_is_new_peer_stream_id.exit.i90, label %session_detect_idle_stream.exit95
+  %27 = trunc i32 %25 to i1
+  %28 = icmp eq i8 %26, 0
+  %tobool.not.i83 = xor i1 %28, %27
+  br i1 %tobool.not.i83, label %session_is_new_peer_stream_id.exit.i89, label %session_detect_idle_stream.exit94
 
-session_is_new_peer_stream_id.exit.i90:           ; preds = %nghttp2_session_is_my_stream_id.exit.i81
-  %last_recv_stream_id.i.i91 = getelementptr inbounds i8, ptr %session, i64 2752
-  %29 = load i32, ptr %last_recv_stream_id.i.i91, align 8
-  %.fr.i92 = freeze i32 %29
-  %cmp1.i.not.i93 = icmp slt i32 %.fr.i92, %25
-  br i1 %cmp1.i.not.i93, label %if.then27, label %if.else39
+session_is_new_peer_stream_id.exit.i89:           ; preds = %nghttp2_session_is_my_stream_id.exit.i81
+  %last_recv_stream_id.i.i90 = getelementptr inbounds i8, ptr %session, i64 2752
+  %29 = load i32, ptr %last_recv_stream_id.i.i90, align 8
+  %.fr.i91 = freeze i32 %29
+  %cmp1.i.not.i92 = icmp slt i32 %.fr.i91, %25
+  br i1 %cmp1.i.not.i92, label %if.then27, label %if.else39
 
-session_detect_idle_stream.exit95:                ; preds = %nghttp2_session_is_my_stream_id.exit.i81
-  %last_sent_stream_id.i86 = getelementptr inbounds i8, ptr %session, i64 2748
-  %30 = load i32, ptr %last_sent_stream_id.i86, align 4
-  %cmp.i87.not = icmp slt i32 %30, %25
-  br i1 %cmp.i87.not, label %if.then27, label %if.else39
+session_detect_idle_stream.exit94:                ; preds = %nghttp2_session_is_my_stream_id.exit.i81
+  %last_sent_stream_id.i85 = getelementptr inbounds i8, ptr %session, i64 2748
+  %30 = load i32, ptr %last_sent_stream_id.i85, align 4
+  %cmp.i86.not = icmp slt i32 %30, %25
+  br i1 %cmp.i86.not, label %if.then27, label %if.else39
 
-if.then27:                                        ; preds = %session_is_new_peer_stream_id.exit.i90, %session_detect_idle_stream.exit95
+if.then27:                                        ; preds = %session_is_new_peer_stream_id.exit.i89, %session_detect_idle_stream.exit94
   %num_idle_streams = getelementptr inbounds i8, ptr %session, i64 2696
   %31 = load i64, ptr %num_idle_streams, align 8
   %num_incoming_streams = getelementptr inbounds i8, ptr %session, i64 2664
@@ -8486,20 +8465,20 @@ if.end33:                                         ; preds = %if.then27
   %tobool36.not = icmp eq ptr %call35, null
   br i1 %tobool36.not, label %return, label %if.end42
 
-if.else39:                                        ; preds = %session_is_new_peer_stream_id.exit.i90, %if.else23, %session_detect_idle_stream.exit95
-  %on_frame_recv_callback.i96 = getelementptr inbounds i8, ptr %session, i64 2360
-  %35 = load ptr, ptr %on_frame_recv_callback.i96, align 8
-  %tobool.not.i97 = icmp eq ptr %35, null
-  br i1 %tobool.not.i97, label %if.end4.i103, label %if.then.i98
+if.else39:                                        ; preds = %session_is_new_peer_stream_id.exit.i89, %if.else23, %session_detect_idle_stream.exit94
+  %on_frame_recv_callback.i95 = getelementptr inbounds i8, ptr %session, i64 2360
+  %35 = load ptr, ptr %on_frame_recv_callback.i95, align 8
+  %tobool.not.i96 = icmp eq ptr %35, null
+  br i1 %tobool.not.i96, label %if.end4.i102, label %if.then.i97
 
-if.then.i98:                                      ; preds = %if.else39
-  %user_data.i99 = getelementptr inbounds i8, ptr %session, i64 2568
-  %36 = load ptr, ptr %user_data.i99, align 8
-  %call.i100 = tail call i32 %35(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %36) #17
-  %cmp.not.i101 = icmp eq i32 %call.i100, 0
-  br i1 %cmp.not.i101, label %if.end4.i103, label %return
+if.then.i97:                                      ; preds = %if.else39
+  %user_data.i98 = getelementptr inbounds i8, ptr %session, i64 2568
+  %36 = load ptr, ptr %user_data.i98, align 8
+  %call.i99 = tail call i32 %35(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %36) #17
+  %cmp.not.i100 = icmp eq i32 %call.i99, 0
+  br i1 %cmp.not.i100, label %if.end4.i102, label %return
 
-if.end4.i103:                                     ; preds = %if.then.i98, %if.else39
+if.end4.i102:                                     ; preds = %if.then.i97, %if.else39
   br label %return
 
 if.end42:                                         ; preds = %if.end33, %if.then18
@@ -8516,45 +8495,45 @@ if.end42:                                         ; preds = %if.end33, %if.then1
   br i1 %cmp44.not, label %if.end48, label %if.then46
 
 if.then46:                                        ; preds = %if.end42
-  %on_frame_recv_callback.i105 = getelementptr inbounds i8, ptr %session, i64 2360
-  %39 = load ptr, ptr %on_frame_recv_callback.i105, align 8
-  %tobool.not.i106 = icmp eq ptr %39, null
-  br i1 %tobool.not.i106, label %if.end4.i112, label %if.then.i107
+  %on_frame_recv_callback.i104 = getelementptr inbounds i8, ptr %session, i64 2360
+  %39 = load ptr, ptr %on_frame_recv_callback.i104, align 8
+  %tobool.not.i105 = icmp eq ptr %39, null
+  br i1 %tobool.not.i105, label %if.end4.i111, label %if.then.i106
 
-if.then.i107:                                     ; preds = %if.then46
-  %user_data.i108 = getelementptr inbounds i8, ptr %session, i64 2568
-  %40 = load ptr, ptr %user_data.i108, align 8
-  %call.i109 = call i32 %39(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %40) #17
-  %cmp.not.i110 = icmp eq i32 %call.i109, 0
-  br i1 %cmp.not.i110, label %if.end4.i112, label %return
+if.then.i106:                                     ; preds = %if.then46
+  %user_data.i107 = getelementptr inbounds i8, ptr %session, i64 2568
+  %40 = load ptr, ptr %user_data.i107, align 8
+  %call.i108 = call i32 %39(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %40) #17
+  %cmp.not.i109 = icmp eq i32 %call.i108, 0
+  br i1 %cmp.not.i109, label %if.end4.i111, label %return
 
-if.end4.i112:                                     ; preds = %if.then.i107, %if.then46
+if.end4.i111:                                     ; preds = %if.then.i106, %if.then46
   br label %return
 
 if.end48:                                         ; preds = %if.end42
   %call49 = call zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef nonnull %extpri) #17
   %call50 = call fastcc i32 @session_update_stream_priority(ptr noundef nonnull %session, ptr noundef nonnull %stream.0, i8 noundef zeroext %call49)
-  %cmp.i114 = icmp sgt i32 %call50, -901
-  br i1 %cmp.i114, label %if.end58, label %return
+  %cmp.i113 = icmp sgt i32 %call50, -901
+  br i1 %cmp.i113, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.end48
-  %on_frame_recv_callback.i116 = getelementptr inbounds i8, ptr %session, i64 2360
-  %41 = load ptr, ptr %on_frame_recv_callback.i116, align 8
-  %tobool.not.i117 = icmp eq ptr %41, null
-  br i1 %tobool.not.i117, label %if.end4.i123, label %if.then.i118
+  %on_frame_recv_callback.i115 = getelementptr inbounds i8, ptr %session, i64 2360
+  %41 = load ptr, ptr %on_frame_recv_callback.i115, align 8
+  %tobool.not.i116 = icmp eq ptr %41, null
+  br i1 %tobool.not.i116, label %if.end4.i122, label %if.then.i117
 
-if.then.i118:                                     ; preds = %if.end58
-  %user_data.i119 = getelementptr inbounds i8, ptr %session, i64 2568
-  %42 = load ptr, ptr %user_data.i119, align 8
-  %call.i120 = call i32 %41(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %42) #17
-  %cmp.not.i121 = icmp eq i32 %call.i120, 0
-  br i1 %cmp.not.i121, label %if.end4.i123, label %return
+if.then.i117:                                     ; preds = %if.end58
+  %user_data.i118 = getelementptr inbounds i8, ptr %session, i64 2568
+  %42 = load ptr, ptr %user_data.i118, align 8
+  %call.i119 = call i32 %41(ptr noundef nonnull %session, ptr noundef nonnull %frame, ptr noundef %42) #17
+  %cmp.not.i120 = icmp eq i32 %call.i119, 0
+  br i1 %cmp.not.i120, label %if.end4.i122, label %return
 
-if.end4.i123:                                     ; preds = %if.then.i118, %if.end58
+if.end4.i122:                                     ; preds = %if.then.i117, %if.end58
   br label %return
 
-return:                                           ; preds = %if.end48, %if.end4.i123, %if.then.i118, %if.end4.i112, %if.then.i107, %if.end4.i103, %if.then.i98, %if.end4.i78, %if.then.i73, %if.end4.i69, %if.then.i64, %if.end8.i.i.i61, %if.end.i.i.i56, %if.end4.i52, %if.then.i47, %if.end8.i.i.i, %if.end.i.i.i, %if.end4.i, %if.then.i, %if.end33, %if.then31
-  %retval.0 = phi i32 [ %call32, %if.then31 ], [ -901, %if.end33 ], [ -902, %if.then.i ], [ 0, %if.end8.i.i.i ], [ 0, %if.end4.i ], [ %call4.i.i.i, %if.end.i.i.i ], [ -902, %if.then.i47 ], [ 0, %if.end8.i.i.i61 ], [ 0, %if.end4.i52 ], [ %call4.i.i.i59, %if.end.i.i.i56 ], [ 0, %if.end4.i69 ], [ -902, %if.then.i64 ], [ 0, %if.end4.i78 ], [ -902, %if.then.i73 ], [ 0, %if.end4.i103 ], [ -902, %if.then.i98 ], [ 0, %if.end4.i112 ], [ -902, %if.then.i107 ], [ 0, %if.end4.i123 ], [ -902, %if.then.i118 ], [ %call50, %if.end48 ]
+return:                                           ; preds = %if.end48, %if.end4.i122, %if.then.i117, %if.end4.i111, %if.then.i106, %if.end4.i102, %if.then.i97, %if.end4.i78, %if.then.i73, %if.end4.i69, %if.then.i64, %if.end8.i.i.i61, %if.end.i.i.i56, %if.end4.i52, %if.then.i47, %if.end8.i.i.i, %if.end.i.i.i, %if.end4.i, %if.then.i, %if.end33, %if.then31
+  %retval.0 = phi i32 [ %call32, %if.then31 ], [ -901, %if.end33 ], [ -902, %if.then.i ], [ 0, %if.end8.i.i.i ], [ 0, %if.end4.i ], [ %call4.i.i.i, %if.end.i.i.i ], [ -902, %if.then.i47 ], [ 0, %if.end8.i.i.i61 ], [ 0, %if.end4.i52 ], [ %call4.i.i.i59, %if.end.i.i.i56 ], [ 0, %if.end4.i69 ], [ -902, %if.then.i64 ], [ 0, %if.end4.i78 ], [ -902, %if.then.i73 ], [ 0, %if.end4.i102 ], [ -902, %if.then.i97 ], [ 0, %if.end4.i111 ], [ -902, %if.then.i106 ], [ 0, %if.end4.i122 ], [ -902, %if.then.i117 ], [ %call50, %if.end48 ]
   ret i32 %retval.0
 }
 
@@ -9193,10 +9172,9 @@ do.end112:                                        ; preds = %if.end107
 
 nghttp2_session_is_my_stream_id.exit.i.i:         ; preds = %do.end112
   %27 = load i8, ptr %server.i.i, align 4
-  %tobool.not.i.i.i = icmp ne i8 %27, 0
-  %28 = and i32 %26, 1
-  %29 = icmp eq i32 %28, 0
-  %tobool.not.i.i = xor i1 %29, %tobool.not.i.i.i
+  %28 = trunc i32 %26 to i1
+  %29 = icmp eq i8 %27, 0
+  %tobool.not.i.i = xor i1 %29, %28
   br i1 %tobool.not.i.i, label %session_is_new_peer_stream_id.exit.i.i, label %session_detect_idle_stream.exit.i
 
 session_is_new_peer_stream_id.exit.i.i:           ; preds = %nghttp2_session_is_my_stream_id.exit.i.i
@@ -9249,8 +9227,8 @@ if.end13.i:                                       ; preds = %lor.lhs.false1.i.i
 
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %if.end13.i
   %39 = load i8, ptr %server.i.i, align 4
-  %tobool.not.i25.i = icmp ne i8 %39, 0
-  %tobool21.not.i = xor i1 %29, %tobool.not.i25.i
+  %40 = icmp eq i8 %39, 0
+  %tobool21.not.i = xor i1 %40, %28
   br i1 %tobool21.not.i, label %if.end32.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -9274,37 +9252,37 @@ if.end42.i:                                       ; preds = %if.end32.i
 fail.i:                                           ; preds = %if.end32.i, %if.then22.i, %if.end13.i, %land.lhs.true.i, %session_detect_idle_stream.exit.i, %session_is_new_peer_stream_id.exit.i.i, %do.end112
   %failure_reason.0.i = phi ptr [ @.str.95, %do.end112 ], [ @.str.96, %session_detect_idle_stream.exit.i ], [ @.str.97, %land.lhs.true.i ], [ @.str.98, %if.end13.i ], [ @.str.99, %if.then22.i ], [ @.str.100, %if.end32.i ], [ @.str.96, %session_is_new_peer_stream_id.exit.i.i ]
   %error_code.0.i = phi i32 [ 1, %do.end112 ], [ 1, %session_detect_idle_stream.exit.i ], [ 5, %land.lhs.true.i ], [ 5, %if.end13.i ], [ 1, %if.then22.i ], [ 1, %if.end32.i ], [ 1, %session_is_new_peer_stream_id.exit.i.i ]
-  %40 = load i8, ptr %goaway_flags.i, align 1
-  %41 = and i8 %40, 1
-  %tobool.not.i.i28.i = icmp eq i8 %41, 0
-  br i1 %tobool.not.i.i28.i, label %if.end.i.i.i, label %nghttp2_session_terminate_session_with_reason.exit.thread.i
+  %41 = load i8, ptr %goaway_flags.i, align 1
+  %42 = and i8 %41, 1
+  %tobool.not.i.i.i = icmp eq i8 %42, 0
+  br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %nghttp2_session_terminate_session_with_reason.exit.thread.i
 
 if.end.i.i.i:                                     ; preds = %fail.i
-  %42 = load i32, ptr %last_proc_stream_id.i.i927, align 4
+  %43 = load i32, ptr %last_proc_stream_id.i.i927, align 4
   store i32 15, ptr %state, align 8
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %failure_reason.0.i) #16
-  %call4.i.i.i = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %42, i32 noundef %error_code.0.i, ptr noundef nonnull %failure_reason.0.i, i64 noundef %call.i.i.i, i8 noundef zeroext 1)
+  %call4.i.i.i = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %43, i32 noundef %error_code.0.i, ptr noundef nonnull %failure_reason.0.i, i64 noundef %call.i.i.i, i8 noundef zeroext 1)
   %call4.i.i.fr.i = freeze i32 %call4.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.fr.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %nghttp2_session_terminate_session_with_reason.exit.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %43 = load i8, ptr %goaway_flags.i, align 1
-  %44 = or i8 %43, 1
-  store i8 %44, ptr %goaway_flags.i, align 1
+  %44 = load i8, ptr %goaway_flags.i, align 1
+  %45 = or i8 %44, 1
+  store i8 %45, ptr %goaway_flags.i, align 1
   br label %nghttp2_session_terminate_session_with_reason.exit.thread.i
 
 nghttp2_session_terminate_session_with_reason.exit.i: ; preds = %if.end.i.i.i
-  %cmp.i29.i = icmp sgt i32 %call4.i.i.fr.i, -901
-  br i1 %cmp.i29.i, label %nghttp2_session_terminate_session_with_reason.exit.thread.i, label %session_on_data_received_fail_fast.exit
+  %cmp.i28.i = icmp sgt i32 %call4.i.i.fr.i, -901
+  br i1 %cmp.i28.i, label %nghttp2_session_terminate_session_with_reason.exit.thread.i, label %session_on_data_received_fail_fast.exit
 
 nghttp2_session_terminate_session_with_reason.exit.thread.i: ; preds = %nghttp2_session_terminate_session_with_reason.exit.i, %if.end8.i.i.i, %fail.i
   br label %session_on_data_received_fail_fast.exit
 
 session_on_data_received_fail_fast.exit:          ; preds = %if.then7.i, %land.lhs.true.i, %if.then22.i, %if.end31.i, %if.end32.i, %if.end42.i, %nghttp2_session_terminate_session_with_reason.exit.i, %nghttp2_session_terminate_session_with_reason.exit.thread.i
   %retval.0.i756 = phi i32 [ 0, %if.end31.i ], [ 0, %if.end42.i ], [ -104, %land.lhs.true.i ], [ -104, %if.then7.i ], [ -104, %if.then22.i ], [ -104, %if.end32.i ], [ -104, %nghttp2_session_terminate_session_with_reason.exit.thread.i ], [ %call4.i.i.fr.i, %nghttp2_session_terminate_session_with_reason.exit.i ]
-  %45 = load i32, ptr %state, align 8
-  %cmp119 = icmp eq i32 %45, 15
+  %46 = load i32, ptr %state, align 8
+  %cmp119 = icmp eq i32 %46, 15
   br i1 %cmp119, label %return, label %if.end122
 
 if.end122:                                        ; preds = %session_on_data_received_fail_fast.exit
@@ -9324,14 +9302,14 @@ if.then132:                                       ; preds = %if.end129
   br label %return
 
 if.end134:                                        ; preds = %if.end129
-  %46 = load i8, ptr %flags1247, align 1
-  %47 = and i8 %46, 8
-  %tobool.not.i759 = icmp eq i8 %47, 0
+  %47 = load i8, ptr %flags1247, align 1
+  %48 = and i8 %47, 8
+  %tobool.not.i759 = icmp eq i8 %48, 0
   br i1 %tobool.not.i759, label %sw.default514.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end134
-  %48 = load i64, ptr %iframe1, align 8
-  %cmp.i760 = icmp eq i64 %48, 0
+  %49 = load i64, ptr %iframe1, align 8
+  %cmp.i760 = icmp eq i64 %49, 0
   br i1 %cmp.i760, label %if.then139, label %if.then149
 
 if.then139:                                       ; preds = %if.then.i
@@ -9343,17 +9321,17 @@ if.then139:                                       ; preds = %if.then.i
 
 if.then149:                                       ; preds = %if.then.i
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %49 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %50, i64 1
   store ptr %add.ptr.i.i, ptr %mark.i1009, align 8
   br label %sw.default514.sink.split
 
 do.end155:                                        ; preds = %if.end107
-  %50 = load i8, ptr %flags1247, align 1
-  %51 = and i8 %50, 45
-  store i8 %51, ptr %flags1247, align 1
-  %52 = and i8 %50, 8
-  %tobool.not.i766 = icmp eq i8 %52, 0
+  %51 = load i8, ptr %flags1247, align 1
+  %52 = and i8 %51, 45
+  store i8 %52, ptr %flags1247, align 1
+  %53 = and i8 %51, 8
+  %tobool.not.i766 = icmp eq i8 %53, 0
   br i1 %tobool.not.i766, label %if.end177, label %if.then.i767
 
 if.then.i767:                                     ; preds = %do.end155
@@ -9369,19 +9347,19 @@ if.then165:                                       ; preds = %if.then.i767
 
 if.then175:                                       ; preds = %if.then.i767
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %53 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i.i772 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i.i772 = getelementptr inbounds i8, ptr %54, i64 1
   store ptr %add.ptr.i.i772, ptr %mark.i1009, align 8
   br label %sw.default514.sink.split
 
 if.end177:                                        ; preds = %do.end155
-  %call180 = call i64 @nghttp2_frame_priority_len(i8 noundef zeroext %51) #17
+  %call180 = call i64 @nghttp2_frame_priority_len(i8 noundef zeroext %52) #17
   %cmp181.not = icmp eq i64 %call180, 0
   br i1 %cmp181.not, label %if.end191, label %if.then183
 
 if.then183:                                       ; preds = %if.end177
-  %54 = load i64, ptr %7, align 8
-  %cmp185 = icmp ult i64 %54, %call180
+  %55 = load i64, ptr %7, align 8
+  %cmp185 = icmp ult i64 %55, %call180
   br i1 %cmp185, label %if.then187, label %if.end189
 
 if.then187:                                       ; preds = %if.then183
@@ -9391,19 +9369,19 @@ if.then187:                                       ; preds = %if.then183
 if.end189:                                        ; preds = %if.then183
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %55 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %55, i64 %call180
+  %56 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %56, i64 %call180
   store ptr %add.ptr.i, ptr %mark.i1009, align 8
   br label %if.then511
 
 if.end191:                                        ; preds = %if.end177
-  %56 = load ptr, ptr %on_begin_frame_callback.i995, align 8
-  %tobool.not.i778 = icmp eq ptr %56, null
+  %57 = load ptr, ptr %on_begin_frame_callback.i995, align 8
+  %tobool.not.i778 = icmp eq ptr %57, null
   br i1 %tobool.not.i778, label %if.end198, label %if.then.i779
 
 if.then.i779:                                     ; preds = %if.end191
-  %57 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i780 = call i32 %56(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %57) #17
+  %58 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i780 = call i32 %57(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %58) #17
   %cmp.not.i781 = icmp eq i32 %call.i780, 0
   br i1 %cmp.not.i781, label %if.end198, label %return
 
@@ -9417,8 +9395,8 @@ if.then202:                                       ; preds = %if.end198
   br label %return
 
 if.end204:                                        ; preds = %if.end198
-  %58 = load i32, ptr %state, align 8
-  %cmp206 = icmp eq i32 %58, 15
+  %59 = load i32, ptr %state, align 8
+  %cmp206 = icmp eq i32 %59, 15
   br i1 %cmp206, label %return, label %if.end209
 
 if.end209:                                        ; preds = %if.end204
@@ -9428,8 +9406,8 @@ if.end209:                                        ; preds = %if.end204
   ]
 
 if.then212:                                       ; preds = %if.end209
-  %59 = load i32, ptr %stream_id1214, align 8
-  %call214 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %59, i32 noundef 2)
+  %60 = load i32, ptr %stream_id1214, align 8
+  %call214 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %60, i32 noundef 2)
   %cmp.i788 = icmp sgt i32 %call214, -901
   br i1 %cmp.i788, label %if.end219, label %if.then217
 
@@ -9461,8 +9439,8 @@ if.then236:                                       ; preds = %do.end230
 if.end238:                                        ; preds = %do.end230
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %60 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i792 = getelementptr inbounds i8, ptr %60, i64 5
+  %61 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i792 = getelementptr inbounds i8, ptr %61, i64 5
   store ptr %add.ptr.i792, ptr %mark.i1009, align 8
   br label %if.then511
 
@@ -9478,15 +9456,15 @@ if.then246:                                       ; preds = %sw.bb240
 if.end248:                                        ; preds = %sw.bb240
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %61 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i795 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i795 = getelementptr inbounds i8, ptr %62, i64 4
   store ptr %add.ptr.i795, ptr %mark.i1009, align 8
   br label %if.then511
 
 do.end252:                                        ; preds = %if.end107
-  %62 = load i8, ptr %flags1247, align 1
-  %63 = and i8 %62, 1
-  store i8 %63, ptr %flags1247, align 1
+  %63 = load i8, ptr %flags1247, align 1
+  %64 = and i8 %63, 1
+  store i8 %64, ptr %flags1247, align 1
   %rem.lhs.trunc = trunc i64 %21 to i32
   %rem1339 = urem i32 %rem.lhs.trunc, 6
   %div1340 = udiv i32 %rem.lhs.trunc, 6
@@ -9494,7 +9472,7 @@ do.end252:                                        ; preds = %if.end107
   br i1 %tobool260.not, label %lor.lhs.false261, label %if.then270
 
 lor.lhs.false261:                                 ; preds = %do.end252
-  %tobool266.not = icmp eq i8 %63, 0
+  %tobool266.not = icmp eq i8 %64, 0
   br i1 %tobool266.not, label %if.end272, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false261
@@ -9506,9 +9484,9 @@ if.then270:                                       ; preds = %land.lhs.true, %do.
   br label %sw.epilog1524
 
 if.end272:                                        ; preds = %lor.lhs.false261
-  %64 = load i64, ptr %obq_flood_counter_, align 8
-  %65 = load i64, ptr %max_outbound_ack, align 8
-  %cmp273.not = icmp ult i64 %64, %65
+  %65 = load i64, ptr %obq_flood_counter_, align 8
+  %66 = load i64, ptr %max_outbound_ack, align 8
+  %cmp273.not = icmp ult i64 %65, %66
   br i1 %cmp273.not, label %if.end282, label %return
 
 if.end282.thread:                                 ; preds = %land.lhs.true
@@ -9524,8 +9502,8 @@ if.then286:                                       ; preds = %if.end282
   %div.zext = zext nneg i32 %div1340 to i64
   %add = add nuw nsw i64 %div.zext, 1
   store i64 %add, ptr %max_niv.i, align 8
-  %66 = load i64, ptr %max_settings, align 8
-  %cmp291 = icmp ult i64 %66, %div.zext
+  %67 = load i64, ptr %max_settings, align 8
+  %cmp291 = icmp ult i64 %67, %div.zext
   br i1 %cmp291, label %if.then293, label %if.end300
 
 if.then293:                                       ; preds = %if.then286
@@ -9543,15 +9521,15 @@ if.end300:                                        ; preds = %if.then286
   br i1 %tobool304.not, label %return, label %if.end306
 
 if.end306:                                        ; preds = %if.end300
-  %67 = load i64, ptr %max_niv.i, align 8
-  %68 = getelementptr %struct.nghttp2_settings_entry, ptr %call302, i64 %67
-  %arrayidx310 = getelementptr i8, ptr %68, i64 -8
+  %68 = load i64, ptr %max_niv.i, align 8
+  %69 = getelementptr %struct.nghttp2_settings_entry, ptr %call302, i64 %68
+  %arrayidx310 = getelementptr i8, ptr %69, i64 -8
   store i32 1, ptr %arrayidx310, align 4
-  %value = getelementptr i8, ptr %68, i64 -4
+  %value = getelementptr i8, ptr %69, i64 -4
   store i32 -1, ptr %value, align 4
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %69 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i800 = getelementptr inbounds i8, ptr %69, i64 6
+  %70 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i800 = getelementptr inbounds i8, ptr %70, i64 6
   store ptr %add.ptr.i800, ptr %mark.i1009, align 8
   br label %if.then511
 
@@ -9560,11 +9538,11 @@ if.end311:                                        ; preds = %if.end282.thread, %
   br label %if.then511
 
 do.end314:                                        ; preds = %if.end107
-  %70 = load i8, ptr %flags1247, align 1
-  %71 = and i8 %70, 12
-  store i8 %71, ptr %flags1247, align 1
-  %72 = and i8 %70, 8
-  %tobool.not.i804 = icmp eq i8 %72, 0
+  %71 = load i8, ptr %flags1247, align 1
+  %72 = and i8 %71, 12
+  store i8 %72, ptr %flags1247, align 1
+  %73 = and i8 %71, 8
+  %tobool.not.i804 = icmp eq i8 %73, 0
   br i1 %tobool.not.i804, label %if.end336, label %if.then.i805
 
 if.then.i805:                                     ; preds = %do.end314
@@ -9580,8 +9558,8 @@ if.then324:                                       ; preds = %if.then.i805
 
 if.then334:                                       ; preds = %if.then.i805
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %73 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i.i810 = getelementptr inbounds i8, ptr %73, i64 1
+  %74 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i.i810 = getelementptr inbounds i8, ptr %74, i64 1
   store ptr %add.ptr.i.i810, ptr %mark.i1009, align 8
   br label %sw.default514.sink.split
 
@@ -9596,15 +9574,15 @@ if.then340:                                       ; preds = %if.end336
 if.end342:                                        ; preds = %if.end336
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %74 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i817 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i817 = getelementptr inbounds i8, ptr %75, i64 4
   store ptr %add.ptr.i817, ptr %mark.i1009, align 8
   br label %if.then511
 
 do.end346:                                        ; preds = %if.end107
-  %75 = load i8, ptr %flags1247, align 1
-  %76 = and i8 %75, 1
-  store i8 %76, ptr %flags1247, align 1
+  %76 = load i8, ptr %flags1247, align 1
+  %77 = and i8 %76, 1
+  store i8 %77, ptr %flags1247, align 1
   %cmp353.not = icmp eq i64 %21, 8
   br i1 %cmp353.not, label %if.end357, label %if.then355
 
@@ -9615,8 +9593,8 @@ if.then355:                                       ; preds = %do.end346
 if.end357:                                        ; preds = %do.end346
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %77 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i820 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i820 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %add.ptr.i820, ptr %mark.i1009, align 8
   br label %if.then511
 
@@ -9632,8 +9610,8 @@ if.then367:                                       ; preds = %do.end361
 if.end369:                                        ; preds = %do.end361
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %78 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i823 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i823 = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %add.ptr.i823, ptr %mark.i1009, align 8
   br label %if.then511
 
@@ -9649,17 +9627,17 @@ do.end381:                                        ; preds = %if.end107
   %div2.i = lshr i32 %conv.i826, 3
   %idxprom.i = zext nneg i32 %div2.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %user_recv_ext_types, i64 %idxprom.i
-  %79 = load i8, ptr %arrayidx.i, align 1
-  %conv1.i = zext i8 %79 to i32
+  %80 = load i8, ptr %arrayidx.i, align 1
+  %conv1.i = zext i8 %80 to i32
   %and.i = and i32 %conv.i826, 7
-  %80 = shl nuw nsw i32 1, %and.i
-  %81 = and i32 %80, %conv1.i
-  %tobool385.not = icmp eq i32 %81, 0
+  %81 = shl nuw nsw i32 1, %and.i
+  %82 = and i32 %81, %conv1.i
+  %tobool385.not = icmp eq i32 %82, 0
   br i1 %tobool385.not, label %if.else392, label %if.then386
 
 if.then386:                                       ; preds = %do.end381
-  %82 = load ptr, ptr %unpack_extension_callback.i.i, align 8
-  %tobool387.not = icmp eq ptr %82, null
+  %83 = load ptr, ptr %unpack_extension_callback.i.i, align 8
+  %tobool387.not = icmp eq ptr %83, null
   br i1 %tobool387.not, label %if.then388, label %sw.default514.sink.split
 
 if.then388:                                       ; preds = %if.then386
@@ -9674,8 +9652,8 @@ if.else392:                                       ; preds = %do.end381
   ]
 
 sw.bb396:                                         ; preds = %if.else392
-  %83 = load i32, ptr %builtin_recv_ext_types465, align 4
-  %and397 = and i32 %83, 1
+  %84 = load i32, ptr %builtin_recv_ext_types465, align 4
+  %and397 = and i32 %84, 1
   %cmp398 = icmp eq i32 %and397, 0
   br i1 %cmp398, label %if.then400, label %do.end404
 
@@ -9686,8 +9664,8 @@ if.then400:                                       ; preds = %sw.bb396
 do.end404:                                        ; preds = %sw.bb396
   store i8 0, ptr %flags1247, align 1
   store ptr %ext_frame_payload476, ptr %payload6.i.i, align 8
-  %84 = load i8, ptr %server.i.i, align 4
-  %tobool408.not = icmp eq i8 %84, 0
+  %85 = load i8, ptr %server.i.i, align 4
+  %tobool408.not = icmp eq i8 %85, 0
   br i1 %tobool408.not, label %if.end411, label %if.then409
 
 if.then409:                                       ; preds = %do.end404
@@ -9705,14 +9683,14 @@ if.then415:                                       ; preds = %if.end411
 if.end417:                                        ; preds = %if.end411
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %85 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i829 = getelementptr inbounds i8, ptr %85, i64 2
+  %86 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i829 = getelementptr inbounds i8, ptr %86, i64 2
   store ptr %add.ptr.i829, ptr %mark.i1009, align 8
   br label %if.then511
 
 sw.bb419:                                         ; preds = %if.else392
-  %86 = load i32, ptr %builtin_recv_ext_types465, align 4
-  %and421 = and i32 %86, 2
+  %87 = load i32, ptr %builtin_recv_ext_types465, align 4
+  %and421 = and i32 %87, 2
   %tobool422.not = icmp eq i32 %and421, 0
   br i1 %tobool422.not, label %if.then423, label %do.end427
 
@@ -9722,18 +9700,18 @@ if.then423:                                       ; preds = %sw.bb419
 
 do.end427:                                        ; preds = %sw.bb419
   store ptr %ext_frame_payload476, ptr %payload6.i.i, align 8
-  %87 = load i8, ptr %server.i.i, align 4
-  %tobool433.not = icmp eq i8 %87, 0
+  %88 = load i8, ptr %server.i.i, align 4
+  %tobool433.not = icmp eq i8 %88, 0
   br i1 %tobool433.not, label %lor.lhs.false434, label %if.then444
 
 lor.lhs.false434:                                 ; preds = %do.end427
-  %88 = load i32, ptr %stream_id1214, align 8
-  %tobool437.not = icmp eq i32 %88, 0
+  %89 = load i32, ptr %stream_id1214, align 8
+  %tobool437.not = icmp eq i32 %89, 0
   br i1 %tobool437.not, label %lor.lhs.false438, label %if.then444
 
 lor.lhs.false438:                                 ; preds = %lor.lhs.false434
-  %89 = load i8, ptr %flags1247, align 1
-  %tobool443.not = icmp ult i8 %89, 16
+  %90 = load i8, ptr %flags1247, align 1
+  %tobool443.not = icmp ult i8 %90, 16
   br i1 %tobool443.not, label %if.end446, label %if.then444
 
 if.then444:                                       ; preds = %lor.lhs.false438, %lor.lhs.false434, %do.end427
@@ -9752,13 +9730,13 @@ if.then451:                                       ; preds = %if.end446
   br i1 %cmp455, label %return, label %if.end458
 
 if.end458:                                        ; preds = %if.then451
-  %90 = load i64, ptr %7, align 8
-  call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1170, ptr noundef nonnull %call453, i64 noundef %90) #17
+  %91 = load i64, ptr %7, align 8
+  call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1170, ptr noundef nonnull %call453, i64 noundef %91) #17
   br label %sw.default514.sink.split
 
 sw.bb464:                                         ; preds = %if.else392
-  %91 = load i32, ptr %builtin_recv_ext_types465, align 4
-  %and466 = and i32 %91, 4
+  %92 = load i32, ptr %builtin_recv_ext_types465, align 4
+  %and466 = and i32 %92, 4
   %cmp467 = icmp eq i32 %and466, 0
   br i1 %cmp467, label %if.then469, label %do.end473
 
@@ -9769,8 +9747,8 @@ if.then469:                                       ; preds = %sw.bb464
 do.end473:                                        ; preds = %sw.bb464
   store i8 0, ptr %flags1247, align 1
   store ptr %ext_frame_payload476, ptr %payload6.i.i, align 8
-  %92 = load i8, ptr %server.i.i, align 4
-  %tobool480.not = icmp eq i8 %92, 0
+  %93 = load i8, ptr %server.i.i, align 4
+  %tobool480.not = icmp eq i8 %93, 0
   br i1 %tobool480.not, label %if.then481, label %if.end488
 
 if.then481:                                       ; preds = %do.end473
@@ -9789,13 +9767,13 @@ if.then492:                                       ; preds = %if.end488
   br label %sw.epilog1524
 
 if.end494:                                        ; preds = %if.end488
-  %93 = load i8, ptr %pending_no_rfc7540_priorities.i873, align 2
-  %cmp.i832 = icmp eq i8 %93, 1
+  %94 = load i8, ptr %pending_no_rfc7540_priorities.i873, align 2
+  %cmp.i832 = icmp eq i8 %94, 1
   br i1 %cmp.i832, label %session_no_rfc7540_pri_no_fallback.exit, label %if.then501
 
 session_no_rfc7540_pri_no_fallback.exit:          ; preds = %if.end494
-  %94 = load i8, ptr %fallback_rfc7540_priorities.i877, align 1
-  %tobool.not.i833 = icmp ne i8 %94, 0
+  %95 = load i8, ptr %fallback_rfc7540_priorities.i877, align 1
+  %tobool.not.i833 = icmp ne i8 %95, 0
   %cmp499 = icmp ugt i64 %21, 32
   %or.cond1341 = or i1 %cmp499, %tobool.not.i833
   br i1 %or.cond1341, label %if.then501, label %if.end503
@@ -9807,8 +9785,8 @@ if.then501:                                       ; preds = %if.end494, %session
 if.end503:                                        ; preds = %session_no_rfc7540_pri_no_fallback.exit
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %95 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i836 = getelementptr inbounds i8, ptr %95, i64 %21
+  %96 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i836 = getelementptr inbounds i8, ptr %96, i64 %21
   store ptr %add.ptr.i836, ptr %mark.i1009, align 8
   br label %if.then511
 
@@ -9835,33 +9813,33 @@ sw.default514.sink.split:                         ; preds = %if.end458, %if.end4
 
 sw.default514:                                    ; preds = %sw.default514.sink.split, %if.then511
   %busy.2.ph1238 = phi i32 [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph1238.ph, %sw.default514.sink.split ]
-  %96 = load ptr, ptr %on_begin_frame_callback.i995, align 8
-  %tobool.not.i838 = icmp eq ptr %96, null
+  %97 = load ptr, ptr %on_begin_frame_callback.i995, align 8
+  %tobool.not.i838 = icmp eq ptr %97, null
   br i1 %tobool.not.i838, label %sw.epilog1524, label %if.then.i839
 
 if.then.i839:                                     ; preds = %sw.default514
-  %97 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i841 = call i32 %96(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %97) #17
+  %98 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i841 = call i32 %97(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %98) #17
   %cmp.not.i842 = icmp eq i32 %call.i841, 0
   br i1 %cmp.not.i842, label %sw.epilog1524, label %return
 
 do.end526:                                        ; preds = %for.cond
   %sub.ptr.rhs.cast.i849 = ptrtoint ptr %in.addr.1 to i64
   %sub.ptr.sub.i850 = sub i64 %sub.ptr.lhs.cast.i1178, %sub.ptr.rhs.cast.i849
-  %98 = load ptr, ptr %mark.i1009, align 8
-  %99 = load ptr, ptr %last2.i1010, align 8
-  %sub.ptr.lhs.cast3.i853 = ptrtoint ptr %98 to i64
-  %sub.ptr.rhs.cast4.i854 = ptrtoint ptr %99 to i64
+  %99 = load ptr, ptr %mark.i1009, align 8
+  %100 = load ptr, ptr %last2.i1010, align 8
+  %sub.ptr.lhs.cast3.i853 = ptrtoint ptr %99 to i64
+  %sub.ptr.rhs.cast4.i854 = ptrtoint ptr %100 to i64
   %sub.ptr.sub5.i855 = sub i64 %sub.ptr.lhs.cast3.i853, %sub.ptr.rhs.cast4.i854
   %sub.ptr.sub.sub.ptr.sub5.i856 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i850, i64 %sub.ptr.sub5.i855)
-  %call.i857 = call ptr @nghttp2_cpymem(ptr noundef %99, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i856) #17
+  %call.i857 = call ptr @nghttp2_cpymem(ptr noundef %100, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i856) #17
   store ptr %call.i857, ptr %last2.i1010, align 8
   %add.ptr528 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub.sub.ptr.sub5.i856
-  %100 = load i64, ptr %7, align 8
-  %sub530 = sub i64 %100, %sub.ptr.sub.sub.ptr.sub5.i856
+  %101 = load i64, ptr %7, align 8
+  %sub530 = sub i64 %101, %sub.ptr.sub.sub.ptr.sub5.i856
   store i64 %sub530, ptr %7, align 8
-  %101 = load ptr, ptr %mark.i1009, align 8
-  %tobool540.not = icmp eq ptr %101, %call.i857
+  %102 = load ptr, ptr %mark.i1009, align 8
+  %tobool540.not = icmp eq ptr %102, %call.i857
   br i1 %tobool540.not, label %if.end545, label %if.then541
 
 if.then541:                                       ; preds = %do.end526
@@ -9871,8 +9849,8 @@ if.then541:                                       ; preds = %do.end526
   br label %return
 
 if.end545:                                        ; preds = %do.end526
-  %102 = load i8, ptr %type961, align 4
-  switch i8 %102, label %sw.default808 [
+  %103 = load i8, ptr %type961, align 4
+  switch i8 %103, label %sw.default808 [
     i8 1, label %sw.bb549
     i8 2, label %sw.bb625
     i8 3, label %sw.bb644
@@ -9885,30 +9863,30 @@ if.end545:                                        ; preds = %do.end526
   ]
 
 sw.bb549:                                         ; preds = %if.end545
-  %103 = load i64, ptr %padlen.i1073, align 8
-  %cmp551 = icmp eq i64 %103, 0
+  %104 = load i64, ptr %padlen.i1073, align 8
+  %cmp551 = icmp eq i64 %104, 0
   br i1 %cmp551, label %land.lhs.true553, label %if.end594
 
 land.lhs.true553:                                 ; preds = %sw.bb549
-  %104 = load i8, ptr %flags1247, align 1
-  %105 = and i8 %104, 8
-  %tobool558.not = icmp eq i8 %105, 0
+  %105 = load i8, ptr %flags1247, align 1
+  %106 = and i8 %105, 8
+  %tobool558.not = icmp eq i8 %106, 0
   br i1 %tobool558.not, label %if.end594, label %if.then559
 
 if.then559:                                       ; preds = %land.lhs.true553
-  %call562 = call i64 @nghttp2_frame_priority_len(i8 noundef zeroext %104) #17
-  %106 = load ptr, ptr %pos.i1167, align 8
-  %107 = load i8, ptr %106, align 1
-  %conv.i858 = zext i8 %107 to i64
-  %108 = load i64, ptr %7, align 8
-  %cmp.i859 = icmp ult i64 %108, %conv.i858
+  %call562 = call i64 @nghttp2_frame_priority_len(i8 noundef zeroext %105) #17
+  %107 = load ptr, ptr %pos.i1167, align 8
+  %108 = load i8, ptr %107, align 1
+  %conv.i858 = zext i8 %108 to i64
+  %109 = load i64, ptr %7, align 8
+  %cmp.i859 = icmp ult i64 %109, %conv.i858
   br i1 %cmp.i859, label %if.then572, label %lor.lhs.false566
 
 lor.lhs.false566:                                 ; preds = %if.then559
   %add.i = add nuw nsw i64 %conv.i858, 1
   store i64 %add.i, ptr %padlen.i1073, align 8
   %add567 = add i64 %add.i, %call562
-  %add569 = add i64 %108, 1
+  %add569 = add i64 %109, 1
   %cmp570 = icmp ugt i64 %add567, %add569
   br i1 %cmp570, label %if.then572, label %if.end579
 
@@ -9925,7 +9903,7 @@ if.end579:                                        ; preds = %lor.lhs.false566
   br i1 %cmp582.not, label %if.else592, label %if.then584
 
 if.then584:                                       ; preds = %if.end579
-  %cmp586 = icmp ult i64 %108, %call562
+  %cmp586 = icmp ult i64 %109, %call562
   br i1 %cmp586, label %if.then588, label %if.end590
 
 if.then588:                                       ; preds = %if.then584
@@ -9935,8 +9913,8 @@ if.then588:                                       ; preds = %if.then584
 if.end590:                                        ; preds = %if.then584
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %109 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i866 = getelementptr inbounds i8, ptr %109, i64 %call562
+  %110 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i866 = getelementptr inbounds i8, ptr %110, i64 %call562
   store ptr %add.ptr.i866, ptr %mark.i1009, align 8
   br label %sw.epilog1524
 
@@ -9954,8 +9932,8 @@ if.then598:                                       ; preds = %if.end594
   br label %return
 
 if.end600:                                        ; preds = %if.end594
-  %110 = load i32, ptr %state, align 8
-  %cmp602 = icmp eq i32 %110, 15
+  %111 = load i32, ptr %state, align 8
+  %cmp602 = icmp eq i32 %111, 15
   br i1 %cmp602, label %return, label %if.end605
 
 if.end605:                                        ; preds = %if.end600
@@ -9965,8 +9943,8 @@ if.end605:                                        ; preds = %if.end600
   ]
 
 if.then608:                                       ; preds = %if.end605
-  %111 = load i32, ptr %stream_id1214, align 8
-  %call611 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %111, i32 noundef 2)
+  %112 = load i32, ptr %stream_id1214, align 8
+  %call611 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %112, i32 noundef 2)
   %cmp.i871 = icmp sgt i32 %call611, -901
   br i1 %cmp.i871, label %if.end616, label %if.then614
 
@@ -9987,18 +9965,18 @@ if.end623:                                        ; preds = %if.end605
   br label %sw.epilog1524
 
 sw.bb625:                                         ; preds = %if.end545
-  %112 = load i8, ptr %pending_no_rfc7540_priorities.i873, align 2
-  %cmp.i874 = icmp eq i8 %112, 1
+  %113 = load i8, ptr %pending_no_rfc7540_priorities.i873, align 2
+  %cmp.i874 = icmp eq i8 %113, 1
   br i1 %cmp.i874, label %session_no_rfc7540_pri_no_fallback.exit879, label %land.lhs.true628
 
 session_no_rfc7540_pri_no_fallback.exit879:       ; preds = %sw.bb625
-  %113 = load i8, ptr %fallback_rfc7540_priorities.i877, align 1
-  %tobool.not.i878.not = icmp eq i8 %113, 0
+  %114 = load i8, ptr %fallback_rfc7540_priorities.i877, align 1
+  %tobool.not.i878.not = icmp eq i8 %114, 0
   br i1 %tobool.not.i878.not, label %if.end643, label %land.lhs.true628
 
 land.lhs.true628:                                 ; preds = %sw.bb625, %session_no_rfc7540_pri_no_fallback.exit879
-  %114 = load i32, ptr %no_rfc7540_priorities, align 4
-  %cmp629.not = icmp eq i32 %114, 1
+  %115 = load i32, ptr %no_rfc7540_priorities, align 4
+  %cmp629.not = icmp eq i32 %115, 1
   br i1 %cmp629.not, label %if.end643, label %if.then631
 
 if.then631:                                       ; preds = %land.lhs.true628
@@ -10011,8 +9989,8 @@ if.then635:                                       ; preds = %if.then631
   br label %return
 
 if.end637:                                        ; preds = %if.then631
-  %115 = load i32, ptr %state, align 8
-  %cmp639 = icmp eq i32 %115, 15
+  %116 = load i32, ptr %state, align 8
+  %cmp639 = icmp eq i32 %116, 15
   br i1 %cmp639, label %return, label %if.end643
 
 if.end643:                                        ; preds = %if.end637, %land.lhs.true628, %session_no_rfc7540_pri_no_fallback.exit879
@@ -10029,8 +10007,8 @@ if.then648:                                       ; preds = %sw.bb644
   br label %return
 
 if.end650:                                        ; preds = %sw.bb644
-  %116 = load i32, ptr %state, align 8
-  %cmp652 = icmp eq i32 %116, 15
+  %117 = load i32, ptr %state, align 8
+  %cmp652 = icmp eq i32 %117, 15
   br i1 %cmp652, label %return, label %if.end655
 
 if.end655:                                        ; preds = %if.end650
@@ -10038,20 +10016,20 @@ if.end655:                                        ; preds = %if.end650
   br label %sw.epilog1524
 
 sw.bb656:                                         ; preds = %if.end545
-  %117 = load i64, ptr %padlen.i1073, align 8
-  %cmp658 = icmp eq i64 %117, 0
+  %118 = load i64, ptr %padlen.i1073, align 8
+  %cmp658 = icmp eq i64 %118, 0
   br i1 %cmp658, label %land.lhs.true660, label %if.end693
 
 land.lhs.true660:                                 ; preds = %sw.bb656
-  %118 = load i8, ptr %flags1247, align 1
-  %119 = and i8 %118, 8
-  %tobool665.not = icmp eq i8 %119, 0
+  %119 = load i8, ptr %flags1247, align 1
+  %120 = and i8 %119, 8
+  %tobool665.not = icmp eq i8 %120, 0
   br i1 %tobool665.not, label %if.end693, label %if.then666
 
 if.then666:                                       ; preds = %land.lhs.true660
-  %120 = load ptr, ptr %pos.i1167, align 8
-  %121 = load i8, ptr %120, align 1
-  %conv.i885 = zext i8 %121 to i64
+  %121 = load ptr, ptr %pos.i1167, align 8
+  %122 = load i8, ptr %121, align 1
+  %conv.i885 = zext i8 %122 to i64
   %cmp.i887 = icmp ult i64 %sub530, %conv.i885
   br i1 %cmp.i887, label %if.then676, label %lor.lhs.false670
 
@@ -10074,8 +10052,8 @@ if.end691:                                        ; preds = %lor.lhs.false670
   store i64 %add.i889, ptr %payload6.i.i, align 8
   store i32 3, ptr %state, align 8
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %122 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i897 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i897 = getelementptr inbounds i8, ptr %123, i64 4
   store ptr %add.ptr.i897, ptr %mark.i1009, align 8
   br label %sw.epilog1524
 
@@ -10089,8 +10067,8 @@ if.then697:                                       ; preds = %if.end693
   br label %return
 
 if.end699:                                        ; preds = %if.end693
-  %123 = load i32, ptr %state, align 8
-  %cmp701 = icmp eq i32 %123, 15
+  %124 = load i32, ptr %state, align 8
+  %cmp701 = icmp eq i32 %124, 15
   br i1 %cmp701, label %return, label %if.end704
 
 if.end704:                                        ; preds = %if.end699
@@ -10100,8 +10078,8 @@ if.end704:                                        ; preds = %if.end699
   ]
 
 if.then707:                                       ; preds = %if.end704
-  %124 = load i32, ptr %promised_stream_id.i, align 8
-  %call709 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %124, i32 noundef 2)
+  %125 = load i32, ptr %promised_stream_id.i, align 8
+  %call709 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %125, i32 noundef 2)
   %cmp.i900 = icmp sgt i32 %call709, -901
   br i1 %cmp.i900, label %if.end714, label %if.then712
 
@@ -10131,8 +10109,8 @@ if.then727:                                       ; preds = %sw.bb723
   br label %return
 
 if.end729:                                        ; preds = %sw.bb723
-  %125 = load i32, ptr %state, align 8
-  %cmp731 = icmp eq i32 %125, 15
+  %126 = load i32, ptr %state, align 8
+  %cmp731 = icmp eq i32 %126, 15
   br i1 %cmp731, label %return, label %if.end734
 
 if.end734:                                        ; preds = %if.end729
@@ -10140,8 +10118,8 @@ if.end734:                                        ; preds = %if.end729
   br label %sw.epilog1524
 
 sw.bb735:                                         ; preds = %if.end545
-  %126 = load i64, ptr %iframe1, align 8
-  %sub738 = add i64 %126, -8
+  %127 = load i64, ptr %iframe1, align 8
+  %sub738 = add i64 %127, -8
   %cmp739.not = icmp eq i64 %sub738, 0
   br i1 %cmp739.not, label %if.end751, label %if.then741
 
@@ -10169,8 +10147,8 @@ if.then757:                                       ; preds = %sw.bb753
   br label %return
 
 if.end759:                                        ; preds = %sw.bb753
-  %127 = load i32, ptr %state, align 8
-  %cmp761 = icmp eq i32 %127, 15
+  %128 = load i32, ptr %state, align 8
+  %cmp761 = icmp eq i32 %128, 15
   br i1 %cmp761, label %return, label %if.end764
 
 if.end764:                                        ; preds = %if.end759
@@ -10178,11 +10156,11 @@ if.end764:                                        ; preds = %if.end759
   br label %sw.epilog1524
 
 sw.bb765:                                         ; preds = %if.end545
-  %128 = load ptr, ptr %pos.i1167, align 8
-  %call768 = call zeroext i16 @nghttp2_get_uint16(ptr noundef %128) #17
+  %129 = load ptr, ptr %pos.i1167, align 8
+  %call768 = call zeroext i16 @nghttp2_get_uint16(ptr noundef %129) #17
   %conv769 = zext i16 %call768 to i64
-  %129 = load i64, ptr %7, align 8
-  %cmp773 = icmp ult i64 %129, %conv769
+  %130 = load i64, ptr %7, align 8
+  %cmp773 = icmp ult i64 %130, %conv769
   br i1 %cmp773, label %if.then775, label %if.end777
 
 if.then775:                                       ; preds = %sw.bb765
@@ -10190,20 +10168,20 @@ if.then775:                                       ; preds = %sw.bb765
   br label %sw.epilog1524
 
 if.end777:                                        ; preds = %sw.bb765
-  %130 = load i64, ptr %iframe1, align 8
-  %cmp780 = icmp ugt i64 %130, 2
+  %131 = load i64, ptr %iframe1, align 8
+  %cmp780 = icmp ugt i64 %131, 2
   br i1 %cmp780, label %if.then782, label %if.end797
 
 if.then782:                                       ; preds = %if.end777
-  %sub785 = add i64 %130, -2
+  %sub785 = add i64 %131, -2
   %call786 = call ptr @nghttp2_mem_malloc(ptr noundef nonnull %mem5, i64 noundef %sub785) #17
   store ptr %call786, ptr %raw_lbuf787, align 8
   %cmp789 = icmp eq ptr %call786, null
   br i1 %cmp789, label %return, label %if.end792
 
 if.end792:                                        ; preds = %if.then782
-  %131 = load i64, ptr %iframe1, align 8
-  call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1170, ptr noundef nonnull %call786, i64 noundef %131) #17
+  %132 = load i64, ptr %iframe1, align 8
+  call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1170, ptr noundef nonnull %call786, i64 noundef %132) #17
   br label %if.end797
 
 if.end797:                                        ; preds = %if.end792, %if.end777
@@ -10233,8 +10211,8 @@ sw.bb810:                                         ; preds = %for.cond, %for.cond
   %sub.ptr.sub.i910 = sub i64 %sub.ptr.lhs.cast.i1178, %sub.ptr.rhs.cast.i909
   %sub.ptr.sub..i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i910, i64 %iframe1.val)
   %sub815 = sub i64 %iframe1.val, %sub.ptr.sub..i
-  %132 = load i64, ptr %padlen.i1073, align 8
-  %call.i911 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %132) #17
+  %133 = load i64, ptr %padlen.i1073, align 8
+  %call.i911 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %133) #17
   %cmp.i912 = icmp ugt i64 %call.i911, %sub815
   %sub.i = sub i64 %call.i911, %sub815
   %cmp2.i = icmp ugt i64 %sub.i, %sub.ptr.sub..i
@@ -10243,75 +10221,75 @@ sw.bb810:                                         ; preds = %for.cond, %for.cond
   %retval.0.i913 = select i1 %cmp.i912, i64 %spec.select.i, i64 %sub.ptr.sub..i
   %cmp817 = icmp eq i64 %retval.0.i913, -1
   %spec.store.select1 = select i1 %cmp817, i64 0, i64 %retval.0.i913
-  %133 = load i64, ptr %padlen.i1073, align 8
-  %call823 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %133) #17
-  %134 = load i8, ptr %flags1247, align 1
-  %135 = and i8 %134, 4
-  %tobool828.not = icmp eq i8 %135, 0
+  %134 = load i64, ptr %padlen.i1073, align 8
+  %call823 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %134) #17
+  %135 = load i8, ptr %flags1247, align 1
+  %136 = and i8 %135, 4
+  %tobool828.not = icmp eq i8 %136, 0
   br i1 %tobool828.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.bb810
-  %136 = load i64, ptr %7, align 8
-  %sub830 = sub i64 %136, %spec.store.select1
+  %137 = load i64, ptr %7, align 8
+  %sub830 = sub i64 %137, %spec.store.select1
   %cmp831 = icmp eq i64 %sub830, %call823
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %sw.bb810
-  %137 = phi i1 [ false, %sw.bb810 ], [ %cmp831, %land.rhs ]
-  %land.ext = zext i1 %137 to i32
+  %138 = phi i1 [ false, %sw.bb810 ], [ %cmp831, %land.rhs ]
+  %land.ext = zext i1 %138 to i32
   %cmp833 = icmp sgt i64 %spec.store.select1, 0
   %cmp836 = icmp eq i64 %spec.store.select1, 0
-  %or.cond = select i1 %cmp836, i1 %137, i1 false
+  %or.cond = select i1 %cmp836, i1 %138, i1 false
   %or.cond718 = select i1 %cmp833, i1 true, i1 %or.cond
   br i1 %or.cond718, label %if.then840, label %if.else909
 
 if.then840:                                       ; preds = %land.end
-  %138 = load i32, ptr %state, align 8
-  %cmp845.not = icmp eq i32 %138, 4
+  %139 = load i32, ptr %state, align 8
+  %cmp845.not = icmp eq i32 %139, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %inflate_flags.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %nv.i)
-  %139 = load i32, ptr %stream_id1214, align 8
-  %call.i.i914 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %139) #17
+  %140 = load i32, ptr %stream_id1214, align 8
+  %call.i.i914 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %140) #17
   %cmp.i.i = icmp eq ptr %call.i.i914, null
   br i1 %cmp.i.i, label %nghttp2_session_get_stream.exit.i, label %lor.lhs.false.i.i915
 
 lor.lhs.false.i.i915:                             ; preds = %if.then840
   %flags.i.i916 = getelementptr inbounds i8, ptr %call.i.i914, i64 216
-  %140 = load i8, ptr %flags.i.i916, align 8
-  %141 = and i8 %140, 2
-  %tobool.not.i.i917 = icmp eq i8 %141, 0
+  %141 = load i8, ptr %flags.i.i916, align 8
+  %142 = and i8 %141, 2
+  %tobool.not.i.i917 = icmp eq i8 %142, 0
   br i1 %tobool.not.i.i917, label %lor.lhs.false1.i.i934, label %nghttp2_session_get_stream.exit.i
 
 lor.lhs.false1.i.i934:                            ; preds = %lor.lhs.false.i.i915
   %state.i.i935 = getelementptr inbounds i8, ptr %call.i.i914, i64 204
-  %142 = load i32, ptr %state.i.i935, align 4
-  %cmp2.i.i936 = icmp eq i32 %142, 5
+  %143 = load i32, ptr %state.i.i935, align 4
+  %cmp2.i.i936 = icmp eq i32 %143, 5
   %spec.select.i.i = select i1 %cmp2.i.i936, ptr null, ptr %call.i.i914
   br label %nghttp2_session_get_stream.exit.i
 
 nghttp2_session_get_stream.exit.i:                ; preds = %lor.lhs.false1.i.i934, %lor.lhs.false.i.i915, %if.then840
   %retval.0.i.i = phi ptr [ null, %lor.lhs.false.i.i915 ], [ null, %if.then840 ], [ %spec.select.i.i, %lor.lhs.false1.i.i934 ]
-  %143 = load i8, ptr %type961, align 4
-  %cmp.i918 = icmp eq i8 %143, 5
+  %144 = load i8, ptr %type961, align 4
+  %cmp.i918 = icmp eq i8 %144, 5
   br i1 %cmp.i918, label %if.then.i933, label %if.else.i
 
 if.then.i933:                                     ; preds = %nghttp2_session_get_stream.exit.i
-  %144 = load i32, ptr %promised_stream_id.i, align 8
-  %call.i59.i = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %144) #17
+  %145 = load i32, ptr %promised_stream_id.i, align 8
+  %call.i59.i = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %145) #17
   %cmp.i60.i = icmp eq ptr %call.i59.i, null
   br i1 %cmp.i60.i, label %do.end.i, label %lor.lhs.false.i61.i
 
 lor.lhs.false.i61.i:                              ; preds = %if.then.i933
   %flags.i62.i = getelementptr inbounds i8, ptr %call.i59.i, i64 216
-  %145 = load i8, ptr %flags.i62.i, align 8
-  %146 = and i8 %145, 2
-  %tobool.not.i63.i = icmp eq i8 %146, 0
+  %146 = load i8, ptr %flags.i62.i, align 8
+  %147 = and i8 %146, 2
+  %tobool.not.i63.i = icmp eq i8 %147, 0
   br i1 %tobool.not.i63.i, label %lor.lhs.false1.i65.i, label %do.end.i
 
 lor.lhs.false1.i65.i:                             ; preds = %lor.lhs.false.i61.i
   %state.i66.i = getelementptr inbounds i8, ptr %call.i59.i, i64 204
-  %147 = load i32, ptr %state.i66.i, align 4
-  %cmp2.i67.i = icmp eq i32 %147, 5
+  %148 = load i32, ptr %state.i66.i, align 4
+  %cmp2.i67.i = icmp eq i32 %148, 5
   %spec.select.i68.i = select i1 %cmp2.i67.i, ptr null, ptr %call.i59.i
   br label %do.end.i
 
@@ -10320,14 +10298,14 @@ if.else.i:                                        ; preds = %nghttp2_session_get
   br i1 %tobool.not.i70.i, label %do.end.i, label %lor.lhs.false.i71.i
 
 lor.lhs.false.i71.i:                              ; preds = %if.else.i
-  %cmp.not.i.i = icmp eq i8 %143, 1
+  %cmp.not.i.i = icmp eq i8 %144, 1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %do.end.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i71.i
-  %148 = load i8, ptr %server.i.i, align 4
-  %tobool2.not.i.i = icmp eq i8 %148, 0
-  %149 = load i32, ptr %cat7.i.i, align 8
-  %cmp8.i.i = icmp eq i32 %149, 3
+  %149 = load i8, ptr %server.i.i, align 4
+  %tobool2.not.i.i = icmp eq i8 %149, 0
+  %150 = load i32, ptr %cat7.i.i, align 8
+  %cmp8.i.i = icmp eq i32 %150, 3
   br i1 %tobool2.not.i.i, label %if.end6.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -10339,15 +10317,15 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end6.i.i
   %http_flags.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 212
-  %150 = load i32, ptr %http_flags.i.i, align 4
-  %and.i.i = lshr i32 %150, 14
+  %151 = load i32, ptr %http_flags.i.i, align 4
+  %and.i.i = lshr i32 %151, 14
   %and.lobit.i.i = and i32 %and.i.i, 1
-  %151 = xor i32 %and.lobit.i.i, 1
+  %152 = xor i32 %and.lobit.i.i, 1
   br label %do.end.i
 
 do.end.i:                                         ; preds = %land.rhs.i.i, %if.end6.i.i, %if.then3.i.i, %lor.lhs.false.i71.i, %if.else.i, %lor.lhs.false1.i65.i, %lor.lhs.false.i61.i, %if.then.i933
   %subject_stream.0.i = phi ptr [ null, %lor.lhs.false.i61.i ], [ null, %if.then.i933 ], [ %spec.select.i68.i, %lor.lhs.false1.i65.i ], [ null, %if.else.i ], [ %retval.0.i.i, %lor.lhs.false.i71.i ], [ %retval.0.i.i, %if.then3.i.i ], [ %retval.0.i.i, %if.end6.i.i ], [ %retval.0.i.i, %land.rhs.i.i ]
-  %trailer.0.i = phi i32 [ 0, %lor.lhs.false.i61.i ], [ 0, %if.then.i933 ], [ 0, %lor.lhs.false1.i65.i ], [ 0, %if.else.i ], [ 0, %lor.lhs.false.i71.i ], [ %conv5.i.i, %if.then3.i.i ], [ 0, %if.end6.i.i ], [ %151, %land.rhs.i.i ]
+  %trailer.0.i = phi i32 [ 0, %lor.lhs.false.i61.i ], [ 0, %if.then.i933 ], [ 0, %lor.lhs.false1.i65.i ], [ 0, %if.else.i ], [ 0, %lor.lhs.false.i71.i ], [ %conv5.i.i, %if.then3.i.i ], [ 0, %if.end6.i.i ], [ %152, %land.rhs.i.i ]
   %subject_stream.0.fr.i = freeze ptr %subject_stream.0.i
   br i1 %cmp845.not, label %do.end.split.i, label %for.cond.us.i
 
@@ -10367,15 +10345,15 @@ if.end9.us.i:                                     ; preds = %for.cond.us.i
 
 if.end34.us.i:                                    ; preds = %if.end9.us.i
   %add.us.i = add i64 %call4.us.i, %hd_proclen.0
-  %152 = load i32, ptr %inflate_flags.i, align 4
-  %and119.us.i = and i32 %152, 1
+  %153 = load i32, ptr %inflate_flags.i, align 4
+  %and119.us.i = and i32 %153, 1
   %tobool120.not.us.i = icmp eq i32 %and119.us.i, 0
   br i1 %tobool120.not.us.i, label %if.end124.us.i, label %if.then121.i
 
 if.end124.us.i:                                   ; preds = %if.end34.us.i
   %sub.us.i = sub i64 %inlen.addr.0.us.i, %call4.us.i
   %add.ptr.us.i = getelementptr inbounds i8, ptr %in.addr.0.us.i, i64 %call4.us.i
-  %and125.us.i = and i32 %152, 2
+  %and125.us.i = and i32 %153, 2
   %cmp126.us.i = icmp eq i32 %and125.us.i, 0
   %cmp129.us.i = icmp eq i64 %sub.us.i, 0
   %or.cond.us.i = and i1 %cmp129.us.i, %cmp126.us.i
@@ -10401,15 +10379,15 @@ if.end9.us139.i:                                  ; preds = %for.cond.us133.i
 
 if.end34.us141.i:                                 ; preds = %if.end9.us139.i
   %add.us144.i = add i64 %call4.us136.i, %hd_proclen.1
-  %153 = load i32, ptr %inflate_flags.i, align 4
-  %and119.us146.i = and i32 %153, 1
+  %154 = load i32, ptr %inflate_flags.i, align 4
+  %and119.us146.i = and i32 %154, 1
   %tobool120.not.us147.i = icmp eq i32 %and119.us146.i, 0
   br i1 %tobool120.not.us147.i, label %if.end124.us148.i, label %if.then121.i
 
 if.end124.us148.i:                                ; preds = %if.end34.us141.i
   %sub.us143.i = sub i64 %inlen.addr.0.us134.i, %call4.us136.i
   %add.ptr.us142.i = getelementptr inbounds i8, ptr %in.addr.0.us135.i, i64 %call4.us136.i
-  %and125.us149.i = and i32 %153, 2
+  %and125.us149.i = and i32 %154, 2
   %cmp126.us150.i = icmp eq i32 %and125.us149.i, 0
   %cmp129.us151.i = icmp eq i64 %sub.us143.i, 0
   %or.cond.us152.i = and i1 %cmp129.us151.i, %cmp126.us150.i
@@ -10431,43 +10409,43 @@ if.end9.i:                                        ; preds = %for.cond.i
 
 if.then12.i:                                      ; preds = %if.end9.us.i, %if.end9.i, %if.end9.us139.i
   %hd_proclen.3 = phi i64 [ %hd_proclen.1, %if.end9.us139.i ], [ %hd_proclen.2, %if.end9.i ], [ %hd_proclen.0, %if.end9.us.i ]
-  %154 = load i32, ptr %state, align 8
-  %cmp13.i = icmp eq i32 %154, 4
+  %155 = load i32, ptr %state, align 8
+  %cmp13.i = icmp eq i32 %155, 4
   %tobool16.i = icmp ne ptr %subject_stream.0.fr.i, null
   %or.cond1.i = and i1 %tobool16.i, %cmp13.i
   br i1 %or.cond1.i, label %land.lhs.true.i932, label %if.end28.i
 
 land.lhs.true.i932:                               ; preds = %if.then12.i
   %state17.i = getelementptr inbounds i8, ptr %subject_stream.0.fr.i, i64 204
-  %155 = load i32, ptr %state17.i, align 4
-  %cmp18.not.i = icmp eq i32 %155, 3
+  %156 = load i32, ptr %state17.i, align 4
+  %cmp18.not.i = icmp eq i32 %156, 3
   br i1 %cmp18.not.i, label %if.end28.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %land.lhs.true.i932
   %stream_id21.i = getelementptr inbounds i8, ptr %subject_stream.0.fr.i, i64 168
-  %156 = load i32, ptr %stream_id21.i, align 8
-  %call22.i = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %156, i32 noundef 9)
+  %157 = load i32, ptr %stream_id21.i, align 8
+  %call22.i = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %157, i32 noundef 9)
   %cmp.i74.i = icmp sgt i32 %call22.i, -901
   br i1 %cmp.i74.i, label %if.end28.i, label %inflate_header_block.exit.thread
 
 if.end28.i:                                       ; preds = %if.then20.i, %land.lhs.true.i932, %if.then12.i
-  %157 = load i8, ptr %goaway_flags.i, align 1
-  %158 = and i8 %157, 1
-  %tobool.not.i.i.i925 = icmp eq i8 %158, 0
+  %158 = load i8, ptr %goaway_flags.i, align 1
+  %159 = and i8 %158, 1
+  %tobool.not.i.i.i925 = icmp eq i8 %159, 0
   br i1 %tobool.not.i.i.i925, label %if.end.i.i.i926, label %inflate_header_block.exit.thread1257
 
 if.end.i.i.i926:                                  ; preds = %if.end28.i
-  %159 = load i32, ptr %last_proc_stream_id.i.i927, align 4
+  %160 = load i32, ptr %last_proc_stream_id.i.i927, align 4
   store i32 15, ptr %state, align 8
-  %call4.i.i.i928 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %159, i32 noundef 9, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i.i928 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %160, i32 noundef 9, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %call4.i.i.fr.i929 = freeze i32 %call4.i.i.i928
   %cmp5.not.i.i.i930 = icmp eq i32 %call4.i.i.fr.i929, 0
   br i1 %cmp5.not.i.i.i930, label %if.end8.i.i.i931, label %nghttp2_session_terminate_session.exit.i
 
 if.end8.i.i.i931:                                 ; preds = %if.end.i.i.i926
-  %160 = load i8, ptr %goaway_flags.i, align 1
-  %161 = or i8 %160, 1
-  store i8 %161, ptr %goaway_flags.i, align 1
+  %161 = load i8, ptr %goaway_flags.i, align 1
+  %162 = or i8 %161, 1
+  store i8 %162, ptr %goaway_flags.i, align 1
   br label %inflate_header_block.exit.thread1257
 
 nghttp2_session_terminate_session.exit.i:         ; preds = %if.end.i.i.i926
@@ -10478,15 +10456,15 @@ if.end34.i:                                       ; preds = %if.end9.i
   %add.ptr.i920 = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %call4.i
   %sub.i921 = sub i64 %inlen.addr.0.i, %call4.i
   %add.i922 = add i64 %call4.i, %hd_proclen.2
-  %162 = load i32, ptr %inflate_flags.i, align 4
-  %and.i923 = and i32 %162, 2
+  %163 = load i32, ptr %inflate_flags.i, align 4
+  %and.i923 = and i32 %163, 2
   %tobool39.not.i = icmp eq i32 %and.i923, 0
   br i1 %tobool39.not.i, label %if.end118.i, label %if.then42.i
 
 if.then42.i:                                      ; preds = %if.end34.i
   %session.val.i = load i32, ptr %opt_flags1380, align 4
-  %163 = and i32 %session.val.i, 4
-  %tobool44.not.not.i = icmp eq i32 %163, 0
+  %164 = and i32 %session.val.i, 4
+  %tobool44.not.not.i = icmp eq i32 %164, 0
   br i1 %tobool44.not.not.i, label %if.then45.i, label %if.then110.i
 
 if.then45.i:                                      ; preds = %if.then42.i
@@ -10498,37 +10476,37 @@ if.then45.i:                                      ; preds = %if.then42.i
   ]
 
 if.then49.i:                                      ; preds = %if.then45.i
-  %164 = load ptr, ptr %on_invalid_header_callback2.i.i, align 8
-  %tobool.not.i81.i = icmp eq ptr %164, null
+  %165 = load ptr, ptr %on_invalid_header_callback2.i.i, align 8
+  %tobool.not.i81.i = icmp eq ptr %165, null
   br i1 %tobool.not.i81.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then49.i
-  %165 = load ptr, ptr %nv.i, align 8
-  %166 = load ptr, ptr %value.i93.i, align 8
-  %167 = load i8, ptr %flags.i94.i, align 4
-  %168 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i83.i = call i32 %164(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %165, ptr noundef %166, i8 noundef zeroext %167, ptr noundef %168) #17
+  %166 = load ptr, ptr %nv.i, align 8
+  %167 = load ptr, ptr %value.i93.i, align 8
+  %168 = load i8, ptr %flags.i94.i, align 4
+  %169 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i83.i = call i32 %165(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %166, ptr noundef %167, i8 noundef zeroext %168, ptr noundef %169) #17
   br label %if.end18.i.i
 
 if.else.i.i:                                      ; preds = %if.then49.i
-  %169 = load ptr, ptr %on_invalid_header_callback.i.i, align 8
-  %tobool4.not.i.i = icmp eq ptr %169, null
+  %170 = load ptr, ptr %on_invalid_header_callback.i.i, align 8
+  %tobool4.not.i.i = icmp eq ptr %170, null
   br i1 %tobool4.not.i.i, label %do.end81.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %170 = load ptr, ptr %nv.i, align 8
-  %base.i.i = getelementptr inbounds i8, ptr %170, i64 16
-  %171 = load ptr, ptr %base.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %170, i64 24
-  %172 = load i64, ptr %len.i.i, align 8
-  %173 = load ptr, ptr %value.i93.i, align 8
-  %base11.i.i = getelementptr inbounds i8, ptr %173, i64 16
-  %174 = load ptr, ptr %base11.i.i, align 8
-  %len13.i.i = getelementptr inbounds i8, ptr %173, i64 24
-  %175 = load i64, ptr %len13.i.i, align 8
-  %176 = load i8, ptr %flags.i94.i, align 4
-  %177 = load ptr, ptr %user_data.i.i.i, align 8
-  %call16.i.i = call i32 %169(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %171, i64 noundef %172, ptr noundef %174, i64 noundef %175, i8 noundef zeroext %176, ptr noundef %177) #17
+  %171 = load ptr, ptr %nv.i, align 8
+  %base.i.i = getelementptr inbounds i8, ptr %171, i64 16
+  %172 = load ptr, ptr %base.i.i, align 8
+  %len.i.i = getelementptr inbounds i8, ptr %171, i64 24
+  %173 = load i64, ptr %len.i.i, align 8
+  %174 = load ptr, ptr %value.i93.i, align 8
+  %base11.i.i = getelementptr inbounds i8, ptr %174, i64 16
+  %175 = load ptr, ptr %base11.i.i, align 8
+  %len13.i.i = getelementptr inbounds i8, ptr %174, i64 24
+  %176 = load i64, ptr %len13.i.i, align 8
+  %177 = load i8, ptr %flags.i94.i, align 4
+  %178 = load ptr, ptr %user_data.i.i.i, align 8
+  %call16.i.i = call i32 %170(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %172, i64 noundef %173, ptr noundef %175, i64 noundef %176, i8 noundef zeroext %177, ptr noundef %178) #17
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then5.i.i, %if.then.i.i
@@ -10540,77 +10518,77 @@ if.end18.i.i:                                     ; preds = %if.then5.i.i, %if.t
   ]
 
 do.end60.i:                                       ; preds = %if.end18.i.i
-  %178 = load i8, ptr %type961, align 4
-  %conv62.i = zext i8 %178 to i32
-  %179 = load i32, ptr %stream_id1214, align 8
-  %180 = load ptr, ptr %nv.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %180, i64 24
-  %181 = load i64, ptr %len.i, align 8
-  %conv64.i = trunc i64 %181 to i32
-  %base.i = getelementptr inbounds i8, ptr %180, i64 16
-  %182 = load ptr, ptr %base.i, align 8
-  %183 = load ptr, ptr %value.i93.i, align 8
-  %len66.i = getelementptr inbounds i8, ptr %183, i64 24
-  %184 = load i64, ptr %len66.i, align 8
-  %conv67.i = trunc i64 %184 to i32
-  %base69.i = getelementptr inbounds i8, ptr %183, i64 16
-  %185 = load ptr, ptr %base69.i, align 8
-  %call70.i = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %session, i32 noundef -531, ptr noundef nonnull @.str.101, i32 noundef %conv62.i, i32 noundef %179, i32 noundef %conv64.i, ptr noundef %182, i32 noundef %conv67.i, ptr noundef %185), !range !25
+  %179 = load i8, ptr %type961, align 4
+  %conv62.i = zext i8 %179 to i32
+  %180 = load i32, ptr %stream_id1214, align 8
+  %181 = load ptr, ptr %nv.i, align 8
+  %len.i = getelementptr inbounds i8, ptr %181, i64 24
+  %182 = load i64, ptr %len.i, align 8
+  %conv64.i = trunc i64 %182 to i32
+  %base.i = getelementptr inbounds i8, ptr %181, i64 16
+  %183 = load ptr, ptr %base.i, align 8
+  %184 = load ptr, ptr %value.i93.i, align 8
+  %len66.i = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = load i64, ptr %len66.i, align 8
+  %conv67.i = trunc i64 %185 to i32
+  %base69.i = getelementptr inbounds i8, ptr %184, i64 16
+  %186 = load ptr, ptr %base69.i, align 8
+  %call70.i = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %session, i32 noundef -531, ptr noundef nonnull @.str.101, i32 noundef %conv62.i, i32 noundef %180, i32 noundef %conv64.i, ptr noundef %183, i32 noundef %conv67.i, ptr noundef %186), !range !25
   %cmp.i85.i = icmp sgt i32 %call70.i, -901
   br i1 %cmp.i85.i, label %if.end118.i, label %inflate_header_block.exit.thread1325
 
 do.end81.i:                                       ; preds = %if.end18.i.i, %if.else.i.i, %if.then45.i
-  %186 = load i8, ptr %type961, align 4
-  %conv83.i = zext i8 %186 to i32
-  %187 = load i32, ptr %stream_id1214, align 8
-  %188 = load ptr, ptr %nv.i, align 8
-  %len86.i = getelementptr inbounds i8, ptr %188, i64 24
-  %189 = load i64, ptr %len86.i, align 8
-  %conv87.i = trunc i64 %189 to i32
-  %base89.i = getelementptr inbounds i8, ptr %188, i64 16
-  %190 = load ptr, ptr %base89.i, align 8
-  %191 = load ptr, ptr %value.i93.i, align 8
-  %len91.i = getelementptr inbounds i8, ptr %191, i64 24
-  %192 = load i64, ptr %len91.i, align 8
-  %conv92.i = trunc i64 %192 to i32
-  %base94.i = getelementptr inbounds i8, ptr %191, i64 16
-  %193 = load ptr, ptr %base94.i, align 8
-  %call95.i = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %session, i32 noundef -531, ptr noundef nonnull @.str.102, i32 noundef %conv83.i, i32 noundef %187, i32 noundef %conv87.i, ptr noundef %190, i32 noundef %conv92.i, ptr noundef %193), !range !25
+  %187 = load i8, ptr %type961, align 4
+  %conv83.i = zext i8 %187 to i32
+  %188 = load i32, ptr %stream_id1214, align 8
+  %189 = load ptr, ptr %nv.i, align 8
+  %len86.i = getelementptr inbounds i8, ptr %189, i64 24
+  %190 = load i64, ptr %len86.i, align 8
+  %conv87.i = trunc i64 %190 to i32
+  %base89.i = getelementptr inbounds i8, ptr %189, i64 16
+  %191 = load ptr, ptr %base89.i, align 8
+  %192 = load ptr, ptr %value.i93.i, align 8
+  %len91.i = getelementptr inbounds i8, ptr %192, i64 24
+  %193 = load i64, ptr %len91.i, align 8
+  %conv92.i = trunc i64 %193 to i32
+  %base94.i = getelementptr inbounds i8, ptr %192, i64 16
+  %194 = load ptr, ptr %base94.i, align 8
+  %call95.i = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %session, i32 noundef -531, ptr noundef nonnull @.str.102, i32 noundef %conv83.i, i32 noundef %188, i32 noundef %conv87.i, ptr noundef %191, i32 noundef %conv92.i, ptr noundef %194), !range !25
   %cmp.i87.i = icmp sgt i32 %call95.i, -901
   br i1 %cmp.i87.i, label %inflate_header_block.exit, label %inflate_header_block.exit.thread
 
 if.then110.i:                                     ; preds = %if.then45.i, %if.then42.i
-  %194 = load ptr, ptr %on_header_callback2.i.i, align 8
-  %tobool.not.i91.i = icmp eq ptr %194, null
+  %195 = load ptr, ptr %on_header_callback2.i.i, align 8
+  %tobool.not.i91.i = icmp eq ptr %195, null
   br i1 %tobool.not.i91.i, label %if.else.i99.i, label %if.then.i92.i
 
 if.then.i92.i:                                    ; preds = %if.then110.i
-  %195 = load ptr, ptr %nv.i, align 8
-  %196 = load ptr, ptr %value.i93.i, align 8
-  %197 = load i8, ptr %flags.i94.i, align 4
-  %198 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i96.i = call i32 %194(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %195, ptr noundef %196, i8 noundef zeroext %197, ptr noundef %198) #17
+  %196 = load ptr, ptr %nv.i, align 8
+  %197 = load ptr, ptr %value.i93.i, align 8
+  %198 = load i8, ptr %flags.i94.i, align 4
+  %199 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i96.i = call i32 %195(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %196, ptr noundef %197, i8 noundef zeroext %198, ptr noundef %199) #17
   br label %if.end17.i.i
 
 if.else.i99.i:                                    ; preds = %if.then110.i
-  %199 = load ptr, ptr %on_header_callback.i.i, align 8
-  %tobool4.not.i100.i = icmp eq ptr %199, null
+  %200 = load ptr, ptr %on_header_callback.i.i, align 8
+  %tobool4.not.i100.i = icmp eq ptr %200, null
   br i1 %tobool4.not.i100.i, label %if.end118.i, label %if.then5.i101.i
 
 if.then5.i101.i:                                  ; preds = %if.else.i99.i
-  %200 = load ptr, ptr %nv.i, align 8
-  %base.i102.i = getelementptr inbounds i8, ptr %200, i64 16
-  %201 = load ptr, ptr %base.i102.i, align 8
-  %len.i103.i = getelementptr inbounds i8, ptr %200, i64 24
-  %202 = load i64, ptr %len.i103.i, align 8
-  %203 = load ptr, ptr %value.i93.i, align 8
-  %base11.i105.i = getelementptr inbounds i8, ptr %203, i64 16
-  %204 = load ptr, ptr %base11.i105.i, align 8
-  %len13.i106.i = getelementptr inbounds i8, ptr %203, i64 24
-  %205 = load i64, ptr %len13.i106.i, align 8
-  %206 = load i8, ptr %flags.i94.i, align 4
-  %207 = load ptr, ptr %user_data.i.i.i, align 8
-  %call16.i109.i = call i32 %199(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %201, i64 noundef %202, ptr noundef %204, i64 noundef %205, i8 noundef zeroext %206, ptr noundef %207) #17
+  %201 = load ptr, ptr %nv.i, align 8
+  %base.i102.i = getelementptr inbounds i8, ptr %201, i64 16
+  %202 = load ptr, ptr %base.i102.i, align 8
+  %len.i103.i = getelementptr inbounds i8, ptr %201, i64 24
+  %203 = load i64, ptr %len.i103.i, align 8
+  %204 = load ptr, ptr %value.i93.i, align 8
+  %base11.i105.i = getelementptr inbounds i8, ptr %204, i64 16
+  %205 = load ptr, ptr %base11.i105.i, align 8
+  %len13.i106.i = getelementptr inbounds i8, ptr %204, i64 24
+  %206 = load i64, ptr %len13.i106.i, align 8
+  %207 = load i8, ptr %flags.i94.i, align 4
+  %208 = load ptr, ptr %user_data.i.i.i, align 8
+  %call16.i109.i = call i32 %200(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %202, i64 noundef %203, ptr noundef %205, i64 noundef %206, i8 noundef zeroext %207, ptr noundef %208) #17
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then5.i101.i, %if.then.i92.i
@@ -10622,8 +10600,8 @@ if.end17.i.i:                                     ; preds = %if.then5.i101.i, %i
   ]
 
 if.end118.i:                                      ; preds = %if.end17.i.i, %if.else.i99.i, %do.end60.i, %if.then45.i, %if.end34.i
-  %208 = load i32, ptr %inflate_flags.i, align 4
-  %and119.i = and i32 %208, 1
+  %209 = load i32, ptr %inflate_flags.i, align 4
+  %and119.i = and i32 %209, 1
   %tobool120.not.i = icmp eq i32 %and119.i, 0
   br i1 %tobool120.not.i, label %if.end124.i, label %if.then121.i
 
@@ -10633,7 +10611,7 @@ if.then121.i:                                     ; preds = %if.end34.us.i, %if.
   br label %inflate_header_block.exit.thread1257
 
 if.end124.i:                                      ; preds = %if.end118.i
-  %and125.i = and i32 %208, 2
+  %and125.i = and i32 %209, 2
   %cmp126.i = icmp eq i32 %and125.i, 0
   %cmp129.i = icmp eq i64 %sub.i921, 0
   %or.cond.i = and i1 %cmp129.i, %cmp126.i
@@ -10666,8 +10644,8 @@ inflate_header_block.exit.thread1333:             ; preds = %if.end17.i.i, %if.e
 
 inflate_header_block.exit:                        ; preds = %do.end81.i
   %stream_id100.i = getelementptr inbounds i8, ptr %subject_stream.0.fr.i, i64 168
-  %209 = load i32, ptr %stream_id100.i, align 8
-  %call101.i = call fastcc i32 @session_handle_invalid_stream2(ptr noundef nonnull %session, i32 noundef %209, ptr noundef nonnull %iframe1, i32 noundef -531)
+  %210 = load i32, ptr %stream_id100.i, align 8
+  %call101.i = call fastcc i32 @session_handle_invalid_stream2(ptr noundef nonnull %session, i32 noundef %210, ptr noundef nonnull %iframe1, i32 noundef -531)
   %cmp.i89.i = icmp sgt i32 %call101.i, -901
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
@@ -10681,8 +10659,8 @@ if.then850:                                       ; preds = %inflate_header_bloc
 if.end852:                                        ; preds = %inflate_header_block.exit.thread1333, %inflate_header_block.exit.thread1257, %inflate_header_block.exit
   %retval.0.i9191264 = phi i32 [ %retval.0.i919.ph1256, %inflate_header_block.exit.thread1257 ], [ -521, %inflate_header_block.exit ], [ %retval.0.i919.ph1332, %inflate_header_block.exit.thread1333 ]
   %hd_proclen.61263 = phi i64 [ %hd_proclen.6.ph, %inflate_header_block.exit.thread1257 ], [ %add.i922, %inflate_header_block.exit ], [ %add.i922, %inflate_header_block.exit.thread1333 ]
-  %210 = load i32, ptr %state, align 8
-  %cmp854 = icmp eq i32 %210, 15
+  %211 = load i32, ptr %state, align 8
+  %cmp854 = icmp eq i32 %211, 15
   br i1 %cmp854, label %return, label %if.end857
 
 if.end857:                                        ; preds = %if.end852
@@ -10693,8 +10671,8 @@ if.end857:                                        ; preds = %if.end852
 
 if.then860:                                       ; preds = %if.end857
   %add.ptr861 = getelementptr inbounds i8, ptr %in.addr.1, i64 %hd_proclen.61263
-  %211 = load i64, ptr %7, align 8
-  %sub863 = sub i64 %211, %hd_proclen.61263
+  %212 = load i64, ptr %7, align 8
+  %sub863 = sub i64 %212, %hd_proclen.61263
   store i64 %sub863, ptr %7, align 8
   %sub.ptr.lhs.cast864 = ptrtoint ptr %add.ptr861 to i64
   %sub.ptr.rhs.cast865 = ptrtoint ptr %in.addr.0 to i64
@@ -10702,11 +10680,11 @@ if.then860:                                       ; preds = %if.end857
   br label %return
 
 if.then870:                                       ; preds = %if.end857
-  %212 = load i64, ptr %7, align 8
-  %sub873 = sub i64 %212, %hd_proclen.61263
+  %213 = load i64, ptr %7, align 8
+  %sub873 = sub i64 %213, %hd_proclen.61263
   store i64 %sub873, ptr %7, align 8
-  %213 = load i8, ptr %type961, align 4
-  %cmp877 = icmp eq i8 %213, 5
+  %214 = load i8, ptr %type961, align 4
+  %cmp877 = icmp eq i8 %214, 5
   %cond886.in.v = select i1 %cmp877, i64 768, i64 736
   %cond886.in = getelementptr inbounds i8, ptr %session, i64 %cond886.in.v
   %cond886 = load i32, ptr %cond886.in, align 8
@@ -10725,14 +10703,14 @@ if.end892:                                        ; preds = %if.then870
 
 if.end894:                                        ; preds = %if.end857
   %add.ptr895 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub..i
-  %214 = load i64, ptr %7, align 8
-  %sub897 = sub i64 %214, %sub.ptr.sub..i
+  %215 = load i64, ptr %7, align 8
+  %sub897 = sub i64 %215, %sub.ptr.sub..i
   store i64 %sub897, ptr %7, align 8
   %cmp898 = icmp eq i32 %retval.0.i9191264, -523
   br i1 %cmp898, label %if.then900, label %if.end913
 
 if.then900:                                       ; preds = %if.end894
-  %cmp902 = icmp eq i64 %214, %sub.ptr.sub..i
+  %cmp902 = icmp eq i64 %215, %sub.ptr.sub..i
   br i1 %cmp902, label %if.then904, label %if.else905
 
 if.then904:                                       ; preds = %if.then900
@@ -10745,31 +10723,31 @@ if.else905:                                       ; preds = %if.then900
 
 if.else909:                                       ; preds = %land.end
   %add.ptr910 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub..i
-  %215 = load i64, ptr %7, align 8
-  %sub912 = sub i64 %215, %sub.ptr.sub..i
+  %216 = load i64, ptr %7, align 8
+  %sub912 = sub i64 %216, %sub.ptr.sub..i
   store i64 %sub912, ptr %7, align 8
   br label %if.end913
 
 if.end913:                                        ; preds = %if.end894, %if.else909
-  %216 = phi i64 [ %sub897, %if.end894 ], [ %sub912, %if.else909 ]
+  %217 = phi i64 [ %sub897, %if.end894 ], [ %sub912, %if.else909 ]
   %in.addr.3 = phi ptr [ %add.ptr895, %if.end894 ], [ %add.ptr910, %if.else909 ]
-  %tobool915.not = icmp eq i64 %216, 0
+  %tobool915.not = icmp eq i64 %217, 0
   br i1 %tobool915.not, label %if.end917, label %sw.epilog1524
 
 if.end917:                                        ; preds = %if.end913
-  %217 = load i8, ptr %flags1247, align 1
-  %218 = and i8 %217, 4
-  %cmp922 = icmp eq i8 %218, 0
+  %218 = load i8, ptr %flags1247, align 1
+  %219 = and i8 %218, 4
+  %cmp922 = icmp eq i8 %219, 0
   br i1 %cmp922, label %if.then924, label %if.else934
 
 if.then924:                                       ; preds = %if.end917
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %219 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i943 = getelementptr inbounds i8, ptr %219, i64 9
+  %220 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i943 = getelementptr inbounds i8, ptr %220, i64 9
   store ptr %add.ptr.i943, ptr %mark.i1009, align 8
   store i64 0, ptr %padlen.i1073, align 8
-  %220 = load i32, ptr %state, align 8
-  %cmp927 = icmp eq i32 %220, 4
+  %221 = load i32, ptr %state, align 8
+  %cmp927 = icmp eq i32 %221, 4
   br i1 %cmp927, label %if.then929, label %if.else931
 
 if.then929:                                       ; preds = %if.then924
@@ -10781,8 +10759,8 @@ if.else931:                                       ; preds = %if.then924
   br label %sw.epilog1524
 
 if.else934:                                       ; preds = %if.end917
-  %221 = load i32, ptr %state, align 8
-  %cmp936 = icmp eq i32 %221, 4
+  %222 = load i32, ptr %state, align 8
+  %cmp936 = icmp eq i32 %222, 4
   br i1 %cmp936, label %if.then938, label %if.end945
 
 if.then938:                                       ; preds = %if.else934
@@ -10810,8 +10788,8 @@ do.end949:                                        ; preds = %for.cond
   br i1 %tobool957.not.not, label %sw.epilog1524, label %if.end959
 
 if.end959:                                        ; preds = %do.end949
-  %222 = load i8, ptr %type961, align 4
-  switch i8 %222, label %sw.epilog965 [
+  %223 = load i8, ptr %type961, align 4
+  switch i8 %223, label %sw.epilog965 [
     i8 1, label %sw.bb963
     i8 5, label %sw.bb963
     i8 9, label %sw.bb963
@@ -10835,8 +10813,8 @@ if.then972:                                       ; preds = %do.end968
   br label %return
 
 if.end974:                                        ; preds = %do.end968
-  %223 = load i32, ptr %state, align 8
-  %cmp976 = icmp eq i32 %223, 15
+  %224 = load i32, ptr %state, align 8
+  %cmp976 = icmp eq i32 %224, 15
   br i1 %cmp976, label %return, label %if.else979
 
 if.else979:                                       ; preds = %if.end974
@@ -10846,20 +10824,20 @@ if.else979:                                       ; preds = %if.end974
 do.end983:                                        ; preds = %for.cond
   %sub.ptr.rhs.cast.i953 = ptrtoint ptr %in.addr.1 to i64
   %sub.ptr.sub.i954 = sub i64 %sub.ptr.lhs.cast.i1178, %sub.ptr.rhs.cast.i953
-  %224 = load ptr, ptr %mark.i1009, align 8
-  %225 = load ptr, ptr %last2.i1010, align 8
-  %sub.ptr.lhs.cast3.i957 = ptrtoint ptr %224 to i64
-  %sub.ptr.rhs.cast4.i958 = ptrtoint ptr %225 to i64
+  %225 = load ptr, ptr %mark.i1009, align 8
+  %226 = load ptr, ptr %last2.i1010, align 8
+  %sub.ptr.lhs.cast3.i957 = ptrtoint ptr %225 to i64
+  %sub.ptr.rhs.cast4.i958 = ptrtoint ptr %226 to i64
   %sub.ptr.sub5.i959 = sub i64 %sub.ptr.lhs.cast3.i957, %sub.ptr.rhs.cast4.i958
   %sub.ptr.sub.sub.ptr.sub5.i960 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i954, i64 %sub.ptr.sub5.i959)
-  %call.i961 = call ptr @nghttp2_cpymem(ptr noundef %225, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i960) #17
+  %call.i961 = call ptr @nghttp2_cpymem(ptr noundef %226, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i960) #17
   store ptr %call.i961, ptr %last2.i1010, align 8
-  %226 = load i64, ptr %7, align 8
-  %sub986 = sub i64 %226, %sub.ptr.sub.sub.ptr.sub5.i960
+  %227 = load i64, ptr %7, align 8
+  %sub986 = sub i64 %227, %sub.ptr.sub.sub.ptr.sub5.i960
   store i64 %sub986, ptr %7, align 8
   %add.ptr987 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub.sub.ptr.sub5.i960
-  %227 = load ptr, ptr %mark.i1009, align 8
-  %tobool997.not = icmp eq ptr %227, %call.i961
+  %228 = load ptr, ptr %mark.i1009, align 8
+  %tobool997.not = icmp eq ptr %228, %call.i961
   br i1 %tobool997.not, label %if.end999, label %sw.epilog1524
 
 if.end999:                                        ; preds = %do.end983
@@ -10868,10 +10846,10 @@ if.end999:                                        ; preds = %do.end983
 
 if.then1002:                                      ; preds = %if.end999
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iv.i)
-  %228 = load ptr, ptr %pos.i1167, align 8
-  call void @nghttp2_frame_unpack_settings_entry(ptr noundef nonnull %iv.i, ptr noundef %228) #17
-  %229 = load i32, ptr %iv.i, align 8
-  switch i32 %229, label %do.end.i965 [
+  %229 = load ptr, ptr %pos.i1167, align 8
+  call void @nghttp2_frame_unpack_settings_entry(ptr noundef nonnull %iv.i, ptr noundef %229) #17
+  %230 = load i32, ptr %iv.i, align 8
+  switch i32 %230, label %do.end.i965 [
     i32 1, label %sw.epilog.i
     i32 2, label %sw.epilog.i
     i32 3, label %sw.epilog.i
@@ -10883,37 +10861,37 @@ if.then1002:                                      ; preds = %if.end999
   ]
 
 do.end.i965:                                      ; preds = %if.then1002
-  %230 = load ptr, ptr %iv3.i, align 8
-  %231 = load i64, ptr %niv2.i, align 8
-  %inc.i = add i64 %231, 1
+  %231 = load ptr, ptr %iv3.i, align 8
+  %232 = load i64, ptr %niv2.i, align 8
+  %inc.i = add i64 %232, 1
   store i64 %inc.i, ptr %niv2.i, align 8
-  %arrayidx.i966 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %230, i64 %231
-  %232 = load i64, ptr %iv.i, align 8
-  store i64 %232, ptr %arrayidx.i966, align 4
+  %arrayidx.i966 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %231, i64 %232
+  %233 = load i64, ptr %iv.i, align 8
+  store i64 %233, ptr %arrayidx.i966, align 4
   br label %inbound_frame_set_settings_entry.exit
 
 sw.epilog.i:                                      ; preds = %if.then1002, %if.then1002, %if.then1002, %if.then1002, %if.then1002, %if.then1002, %if.then1002, %if.then1002
-  %233 = load i64, ptr %niv2.i, align 8
-  %cmp23.not.i = icmp eq i64 %233, 0
+  %234 = load i64, ptr %niv2.i, align 8
+  %cmp23.not.i = icmp eq i64 %234, 0
   %.pre1720 = load ptr, ptr %iv3.i, align 8
   br i1 %cmp23.not.i, label %if.then13.i, label %for.body.i
 
 for.body.i:                                       ; preds = %sw.epilog.i, %for.inc.i
   %i.024.i = phi i64 [ %inc10.i, %for.inc.i ], [ 0, %sw.epilog.i ]
   %arrayidx4.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %.pre1720, i64 %i.024.i
-  %234 = load i32, ptr %arrayidx4.i, align 4
-  %cmp7.i963 = icmp eq i32 %234, %229
+  %235 = load i32, ptr %arrayidx4.i, align 4
+  %cmp7.i963 = icmp eq i32 %235, %230
   br i1 %cmp7.i963, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc10.i = add nuw i64 %i.024.i, 1
-  %exitcond.not.i = icmp eq i64 %inc10.i, %233
+  %exitcond.not.i = icmp eq i64 %inc10.i, %234
   br i1 %exitcond.not.i, label %if.then13.i, label %for.body.i, !llvm.loop !26
 
 for.end.i:                                        ; preds = %for.body.i
   %arrayidx4.i.le = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %.pre1720, i64 %i.024.i
-  %235 = load i64, ptr %iv.i, align 8
-  store i64 %235, ptr %arrayidx4.i.le, align 4
+  %236 = load i64, ptr %iv.i, align 8
+  store i64 %236, ptr %arrayidx4.i.le, align 4
   %.pre.i = load i64, ptr %niv2.i, align 8
   %cmp12.i = icmp eq i64 %i.024.i, %.pre.i
   br i1 %cmp12.i, label %for.end.i.if.then13.i_crit_edge, label %if.end18.i
@@ -10923,32 +10901,32 @@ for.end.i.if.then13.i_crit_edge:                  ; preds = %for.end.i
   br label %if.then13.i
 
 if.then13.i:                                      ; preds = %for.inc.i, %for.end.i.if.then13.i_crit_edge, %sw.epilog.i
-  %236 = phi ptr [ %.pre, %for.end.i.if.then13.i_crit_edge ], [ %.pre1720, %sw.epilog.i ], [ %.pre1720, %for.inc.i ]
-  %237 = phi i64 [ %i.024.i, %for.end.i.if.then13.i_crit_edge ], [ 0, %sw.epilog.i ], [ %233, %for.inc.i ]
-  %inc16.i = add i64 %237, 1
+  %237 = phi ptr [ %.pre, %for.end.i.if.then13.i_crit_edge ], [ %.pre1720, %sw.epilog.i ], [ %.pre1720, %for.inc.i ]
+  %238 = phi i64 [ %i.024.i, %for.end.i.if.then13.i_crit_edge ], [ 0, %sw.epilog.i ], [ %234, %for.inc.i ]
+  %inc16.i = add i64 %238, 1
   store i64 %inc16.i, ptr %niv2.i, align 8
-  %arrayidx17.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %236, i64 %237
-  %238 = load i64, ptr %iv.i, align 8
-  store i64 %238, ptr %arrayidx17.i, align 4
+  %arrayidx17.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %237, i64 %238
+  %239 = load i64, ptr %iv.i, align 8
+  store i64 %239, ptr %arrayidx17.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then13.i, %for.end.i
-  %239 = load i32, ptr %iv.i, align 8
-  %cmp20.i = icmp eq i32 %239, 1
+  %240 = load i32, ptr %iv.i, align 8
+  %cmp20.i = icmp eq i32 %240, 1
   br i1 %cmp20.i, label %if.then21.i, label %inbound_frame_set_settings_entry.exit
 
 if.then21.i:                                      ; preds = %if.end18.i
-  %240 = load ptr, ptr %iv3.i, align 8
-  %241 = load i64, ptr %max_niv.i, align 8
-  %242 = getelementptr %struct.nghttp2_settings_entry, ptr %240, i64 %241
-  %243 = load i32, ptr %value.i, align 4
-  %value24.i = getelementptr i8, ptr %242, i64 -4
-  %244 = load i32, ptr %value24.i, align 4
-  %cmp25.i = icmp ult i32 %243, %244
+  %241 = load ptr, ptr %iv3.i, align 8
+  %242 = load i64, ptr %max_niv.i, align 8
+  %243 = getelementptr %struct.nghttp2_settings_entry, ptr %241, i64 %242
+  %244 = load i32, ptr %value.i, align 4
+  %value24.i = getelementptr i8, ptr %243, i64 -4
+  %245 = load i32, ptr %value24.i, align 4
+  %cmp25.i = icmp ult i32 %244, %245
   br i1 %cmp25.i, label %if.then26.i, label %inbound_frame_set_settings_entry.exit
 
 if.then26.i:                                      ; preds = %if.then21.i
-  store i32 %243, ptr %value24.i, align 4
+  store i32 %244, ptr %value24.i, align 4
   br label %inbound_frame_set_settings_entry.exit
 
 inbound_frame_set_settings_entry.exit:            ; preds = %do.end.i965, %if.end18.i, %if.then21.i, %if.then26.i
@@ -10957,14 +10935,14 @@ inbound_frame_set_settings_entry.exit:            ; preds = %do.end.i965, %if.en
   br label %if.end1003
 
 if.end1003:                                       ; preds = %inbound_frame_set_settings_entry.exit, %if.end999
-  %245 = phi i64 [ %.pre1721, %inbound_frame_set_settings_entry.exit ], [ %sub986, %if.end999 ]
-  %tobool1005.not = icmp eq i64 %245, 0
+  %246 = phi i64 [ %.pre1721, %inbound_frame_set_settings_entry.exit ], [ %sub986, %if.end999 ]
+  %tobool1005.not = icmp eq i64 %246, 0
   br i1 %tobool1005.not, label %if.end1007, label %if.then1006
 
 if.then1006:                                      ; preds = %if.end1003
   call void @nghttp2_buf_reset(ptr noundef nonnull %sbuf.i967) #17
-  %246 = load ptr, ptr %mark.i1009, align 8
-  %add.ptr.i969 = getelementptr inbounds i8, ptr %246, i64 6
+  %247 = load ptr, ptr %mark.i1009, align 8
+  %add.ptr.i969 = getelementptr inbounds i8, ptr %247, i64 6
   store ptr %add.ptr.i969, ptr %mark.i1009, align 8
   br label %sw.epilog1524
 
@@ -10978,8 +10956,8 @@ if.then1011:                                      ; preds = %if.end1007
   br label %return
 
 if.end1013:                                       ; preds = %if.end1007
-  %247 = load i32, ptr %state, align 8
-  %cmp1015 = icmp eq i32 %247, 15
+  %248 = load i32, ptr %state, align 8
+  %cmp1015 = icmp eq i32 %248, 15
   br i1 %cmp1015, label %return, label %if.end1018
 
 if.end1018:                                       ; preds = %if.end1013
@@ -10995,25 +10973,25 @@ do.end1021:                                       ; preds = %for.cond
   br i1 %cmp1023.not, label %do.end1036, label %if.then1025
 
 if.then1025:                                      ; preds = %do.end1021
-  %248 = load ptr, ptr %last1487, align 8
-  %call1028 = call ptr @nghttp2_cpymem(ptr noundef %248, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i975) #17
+  %249 = load ptr, ptr %last1487, align 8
+  %call1028 = call ptr @nghttp2_cpymem(ptr noundef %249, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i975) #17
   store ptr %call1028, ptr %last1487, align 8
-  %249 = load i64, ptr %7, align 8
-  %sub1032 = sub i64 %249, %sub.ptr.sub..i975
+  %250 = load i64, ptr %7, align 8
+  %sub1032 = sub i64 %250, %sub.ptr.sub..i975
   store i64 %sub1032, ptr %7, align 8
   %add.ptr1033 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub..i975
   br label %do.end1036
 
 do.end1036:                                       ; preds = %if.then1025, %do.end1021
-  %250 = phi i64 [ %sub1032, %if.then1025 ], [ %iframe1.val732, %do.end1021 ]
+  %251 = phi i64 [ %sub1032, %if.then1025 ], [ %iframe1.val732, %do.end1021 ]
   %in.addr.4 = phi ptr [ %add.ptr1033, %if.then1025 ], [ %in.addr.1, %do.end1021 ]
-  %tobool1038.not = icmp eq i64 %250, 0
+  %tobool1038.not = icmp eq i64 %251, 0
   br i1 %tobool1038.not, label %if.end1051, label %if.then1039
 
 if.then1039:                                      ; preds = %do.end1036
-  %251 = load ptr, ptr %end1501, align 8
-  %252 = load ptr, ptr %last1487, align 8
-  %cmp1046.not = icmp eq ptr %251, %252
+  %252 = load ptr, ptr %end1501, align 8
+  %253 = load ptr, ptr %last1487, align 8
+  %cmp1046.not = icmp eq ptr %252, %253
   br i1 %cmp1046.not, label %if.else1049, label %sw.epilog1524
 
 if.else1049:                                      ; preds = %if.then1039
@@ -11021,13 +10999,13 @@ if.else1049:                                      ; preds = %if.then1039
   unreachable
 
 if.end1051:                                       ; preds = %do.end1036
-  %253 = load ptr, ptr %pos.i1167, align 8
-  %254 = load ptr, ptr %pos.i1183, align 8
-  %255 = load ptr, ptr %last1487, align 8
-  %sub.ptr.lhs.cast.i977 = ptrtoint ptr %255 to i64
-  %sub.ptr.rhs.cast.i978 = ptrtoint ptr %254 to i64
+  %254 = load ptr, ptr %pos.i1167, align 8
+  %255 = load ptr, ptr %pos.i1183, align 8
+  %256 = load ptr, ptr %last1487, align 8
+  %sub.ptr.lhs.cast.i977 = ptrtoint ptr %256 to i64
+  %sub.ptr.rhs.cast.i978 = ptrtoint ptr %255 to i64
   %sub.ptr.sub.i979 = sub i64 %sub.ptr.lhs.cast.i977, %sub.ptr.rhs.cast.i978
-  call void @nghttp2_frame_unpack_goaway_payload(ptr noundef nonnull %iframe1, ptr noundef %253, ptr noundef %254, i64 noundef %sub.ptr.sub.i979) #17
+  call void @nghttp2_frame_unpack_goaway_payload(ptr noundef nonnull %iframe1, ptr noundef %254, ptr noundef %255, i64 noundef %sub.ptr.sub.i979) #17
   call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1170, ptr noundef null, i64 noundef 0) #17
   %call.i980 = call i32 @nghttp2_session_on_goaway_received(ptr noundef nonnull %session, ptr noundef nonnull %iframe1)
   %cmp.i981 = icmp sgt i32 %call.i980, -901
@@ -11038,8 +11016,8 @@ if.then1055:                                      ; preds = %if.end1051
   br label %return
 
 if.end1057:                                       ; preds = %if.end1051
-  %256 = load i32, ptr %state, align 8
-  %cmp1059 = icmp eq i32 %256, 15
+  %257 = load i32, ptr %state, align 8
+  %cmp1059 = icmp eq i32 %257, 15
   br i1 %cmp1059, label %return, label %if.end1062
 
 if.end1062:                                       ; preds = %if.end1057
@@ -11049,17 +11027,17 @@ if.end1062:                                       ; preds = %if.end1057
 sw.bb1063:                                        ; preds = %for.cond, %for.cond
   %sub.ptr.rhs.cast.i984 = ptrtoint ptr %in.addr.1 to i64
   %sub.ptr.sub.i985 = sub i64 %sub.ptr.lhs.cast.i1178, %sub.ptr.rhs.cast.i984
-  %257 = load ptr, ptr %mark.i1009, align 8
-  %258 = load ptr, ptr %last2.i1010, align 8
-  %sub.ptr.lhs.cast3.i988 = ptrtoint ptr %257 to i64
-  %sub.ptr.rhs.cast4.i989 = ptrtoint ptr %258 to i64
+  %258 = load ptr, ptr %mark.i1009, align 8
+  %259 = load ptr, ptr %last2.i1010, align 8
+  %sub.ptr.lhs.cast3.i988 = ptrtoint ptr %258 to i64
+  %sub.ptr.rhs.cast4.i989 = ptrtoint ptr %259 to i64
   %sub.ptr.sub5.i990 = sub i64 %sub.ptr.lhs.cast3.i988, %sub.ptr.rhs.cast4.i989
   %sub.ptr.sub.sub.ptr.sub5.i991 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i985, i64 %sub.ptr.sub5.i990)
-  %call.i992 = call ptr @nghttp2_cpymem(ptr noundef %258, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i991) #17
+  %call.i992 = call ptr @nghttp2_cpymem(ptr noundef %259, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i991) #17
   store ptr %call.i992, ptr %last2.i1010, align 8
   %add.ptr1065 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub.sub.ptr.sub5.i991
-  %259 = load ptr, ptr %mark.i1009, align 8
-  %tobool1073.not = icmp eq ptr %259, %call.i992
+  %260 = load ptr, ptr %mark.i1009, align 8
+  %tobool1073.not = icmp eq ptr %260, %call.i992
   br i1 %tobool1073.not, label %if.end1078, label %if.then1074
 
 if.then1074:                                      ; preds = %sw.bb1063
@@ -11069,18 +11047,18 @@ if.then1074:                                      ; preds = %sw.bb1063
   br label %return
 
 if.end1078:                                       ; preds = %sw.bb1063
-  %260 = load ptr, ptr %pos.i1167, align 8
-  call void @nghttp2_frame_unpack_frame_hd(ptr noundef nonnull %cont_hd, ptr noundef %260) #17
-  %261 = load i64, ptr %cont_hd, align 8
-  store i64 %261, ptr %7, align 8
-  %262 = load i8, ptr %type1085, align 4
-  %cmp1087.not = icmp eq i8 %262, 9
+  %261 = load ptr, ptr %pos.i1167, align 8
+  call void @nghttp2_frame_unpack_frame_hd(ptr noundef nonnull %cont_hd, ptr noundef %261) #17
+  %262 = load i64, ptr %cont_hd, align 8
+  store i64 %262, ptr %7, align 8
+  %263 = load i8, ptr %type1085, align 4
+  %cmp1087.not = icmp eq i8 %263, 9
   br i1 %cmp1087.not, label %lor.lhs.false1089, label %do.end1097
 
 lor.lhs.false1089:                                ; preds = %if.end1078
-  %263 = load i32, ptr %stream_id1090, align 8
-  %264 = load i32, ptr %stream_id1214, align 8
-  %cmp1093.not = icmp eq i32 %263, %264
+  %264 = load i32, ptr %stream_id1090, align 8
+  %265 = load i32, ptr %stream_id1214, align 8
+  %cmp1093.not = icmp eq i32 %264, %265
   br i1 %cmp1093.not, label %if.end1104, label %do.end1097
 
 do.end1097:                                       ; preds = %lor.lhs.false1089, %if.end1078
@@ -11091,27 +11069,27 @@ do.end1097:                                       ; preds = %lor.lhs.false1089, 
   br label %return
 
 if.end1104:                                       ; preds = %lor.lhs.false1089
-  %265 = load i8, ptr %flags1247, align 1
-  %266 = load i8, ptr %flags1108, align 1
-  %267 = and i8 %266, 4
-  %or717 = or i8 %267, %265
+  %266 = load i8, ptr %flags1247, align 1
+  %267 = load i8, ptr %flags1108, align 1
+  %268 = and i8 %267, 4
+  %or717 = or i8 %268, %266
   store i8 %or717, ptr %flags1247, align 1
-  %268 = load i64, ptr %iframe1, align 8
-  %add1117 = add i64 %268, %261
+  %269 = load i64, ptr %iframe1, align 8
+  %add1117 = add i64 %269, %262
   store i64 %add1117, ptr %iframe1, align 8
-  %269 = load i32, ptr %state, align 8
-  %cmp1119 = icmp eq i32 %269, 10
+  %270 = load i32, ptr %state, align 8
+  %cmp1119 = icmp eq i32 %270, 10
   br i1 %cmp1119, label %if.then1121, label %if.else1129
 
 if.then1121:                                      ; preds = %if.end1104
   store i32 4, ptr %state, align 8
-  %270 = load ptr, ptr %on_begin_frame_callback.i995, align 8
-  %tobool.not.i996 = icmp eq ptr %270, null
+  %271 = load ptr, ptr %on_begin_frame_callback.i995, align 8
+  %tobool.not.i996 = icmp eq ptr %271, null
   br i1 %tobool.not.i996, label %sw.epilog1524, label %if.then.i997
 
 if.then.i997:                                     ; preds = %if.then1121
-  %271 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i999 = call i32 %270(ptr noundef nonnull %session, ptr noundef nonnull %cont_hd, ptr noundef %271) #17
+  %272 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i999 = call i32 %271(ptr noundef nonnull %session, ptr noundef nonnull %cont_hd, ptr noundef %272) #17
   %cmp.not.i1000 = icmp eq i32 %call.i999, 0
   br i1 %cmp.not.i1000, label %sw.epilog1524, label %return
 
@@ -11122,20 +11100,20 @@ if.else1129:                                      ; preds = %if.end1104
 do.end1134:                                       ; preds = %for.cond
   %sub.ptr.rhs.cast.i1007 = ptrtoint ptr %in.addr.1 to i64
   %sub.ptr.sub.i1008 = sub i64 %sub.ptr.lhs.cast.i1178, %sub.ptr.rhs.cast.i1007
-  %272 = load ptr, ptr %mark.i1009, align 8
-  %273 = load ptr, ptr %last2.i1010, align 8
-  %sub.ptr.lhs.cast3.i1011 = ptrtoint ptr %272 to i64
-  %sub.ptr.rhs.cast4.i1012 = ptrtoint ptr %273 to i64
+  %273 = load ptr, ptr %mark.i1009, align 8
+  %274 = load ptr, ptr %last2.i1010, align 8
+  %sub.ptr.lhs.cast3.i1011 = ptrtoint ptr %273 to i64
+  %sub.ptr.rhs.cast4.i1012 = ptrtoint ptr %274 to i64
   %sub.ptr.sub5.i1013 = sub i64 %sub.ptr.lhs.cast3.i1011, %sub.ptr.rhs.cast4.i1012
   %sub.ptr.sub.sub.ptr.sub5.i1014 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i1008, i64 %sub.ptr.sub5.i1013)
-  %call.i1015 = call ptr @nghttp2_cpymem(ptr noundef %273, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014) #17
+  %call.i1015 = call ptr @nghttp2_cpymem(ptr noundef %274, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014) #17
   store ptr %call.i1015, ptr %last2.i1010, align 8
   %add.ptr1136 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub.sub.ptr.sub5.i1014
-  %274 = load i64, ptr %7, align 8
-  %sub1138 = sub i64 %274, %sub.ptr.sub.sub.ptr.sub5.i1014
+  %275 = load i64, ptr %7, align 8
+  %sub1138 = sub i64 %275, %sub.ptr.sub.sub.ptr.sub5.i1014
   store i64 %sub1138, ptr %7, align 8
-  %275 = load ptr, ptr %mark.i1009, align 8
-  %tobool1148.not = icmp eq ptr %275, %call.i1015
+  %276 = load ptr, ptr %mark.i1009, align 8
+  %tobool1148.not = icmp eq ptr %276, %call.i1015
   br i1 %tobool1148.not, label %if.end1153, label %if.then1149
 
 if.then1149:                                      ; preds = %do.end1134
@@ -11154,56 +11132,56 @@ if.then1157:                                      ; preds = %if.end1153
   br label %return
 
 if.end1159:                                       ; preds = %if.end1153
-  %276 = load i32, ptr %state, align 8
-  %cmp1161 = icmp eq i32 %276, 15
+  %277 = load i32, ptr %state, align 8
+  %cmp1161 = icmp eq i32 %277, 15
   br i1 %cmp1161, label %return, label %if.end1164
 
 if.end1164:                                       ; preds = %if.end1159
-  %277 = load i32, ptr %stream_id1214, align 8
-  %cmp.i1018 = icmp eq i32 %277, 0
+  %278 = load i32, ptr %stream_id1214, align 8
+  %cmp.i1018 = icmp eq i32 %278, 0
   br i1 %cmp.i1018, label %if.end1177, label %if.end.i1019
 
 if.end.i1019:                                     ; preds = %if.end1164
-  %278 = load i32, ptr %opt_flags1380, align 4
-  %and.i1020 = and i32 %278, 1
+  %279 = load i32, ptr %opt_flags1380, align 4
+  %and.i1020 = and i32 %279, 1
   %tobool.not.i1021 = icmp eq i32 %and.i1020, 0
   br i1 %tobool.not.i1021, label %if.end1172, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i1019
-  %279 = load i8, ptr %window_update_queued.i1136, align 2
-  %280 = load i32, ptr %local_window_size.i1137, align 4
-  %call.i.i1022 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %279, i32 noundef 0, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014, i32 noundef %280)
+  %280 = load i8, ptr %window_update_queued.i1136, align 2
+  %281 = load i32, ptr %local_window_size.i1137, align 4
+  %call.i.i1022 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %280, i32 noundef 0, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014, i32 noundef %281)
   %cmp.i.i1023 = icmp sgt i32 %call.i.i1022, -901
   br i1 %cmp.i.i1023, label %if.end6.i, label %if.then1170
 
 if.end6.i:                                        ; preds = %if.end2.i
-  %call.i10.i = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %277) #17
+  %call.i10.i = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %278) #17
   %cmp.i11.i = icmp eq ptr %call.i10.i, null
   br i1 %cmp.i11.i, label %if.end1172, label %lor.lhs.false.i.i1025
 
 lor.lhs.false.i.i1025:                            ; preds = %if.end6.i
   %flags.i.i1026 = getelementptr inbounds i8, ptr %call.i10.i, i64 216
-  %281 = load i8, ptr %flags.i.i1026, align 8
-  %282 = and i8 %281, 2
-  %tobool.not.i.i1027 = icmp eq i8 %282, 0
+  %282 = load i8, ptr %flags.i.i1026, align 8
+  %283 = and i8 %282, 2
+  %tobool.not.i.i1027 = icmp eq i8 %283, 0
   br i1 %tobool.not.i.i1027, label %lor.lhs.false1.i.i1028, label %if.end1172
 
 lor.lhs.false1.i.i1028:                           ; preds = %lor.lhs.false.i.i1025
   %state.i.i1029 = getelementptr inbounds i8, ptr %call.i10.i, i64 204
-  %283 = load i32, ptr %state.i.i1029, align 4
-  %cmp2.i.i1030 = icmp eq i32 %283, 5
+  %284 = load i32, ptr %state.i.i1029, align 4
+  %cmp2.i.i1030 = icmp eq i32 %284, 5
   br i1 %cmp2.i.i1030, label %if.end1172, label %nghttp2_session_consume.exit
 
 nghttp2_session_consume.exit:                     ; preds = %lor.lhs.false1.i.i1028
   %consumed_size.i12.i = getelementptr inbounds i8, ptr %call.i10.i, i64 180
   %recv_window_size.i13.i = getelementptr inbounds i8, ptr %call.i10.i, i64 176
   %window_update_queued.i14.i = getelementptr inbounds i8, ptr %call.i10.i, i64 219
-  %284 = load i8, ptr %window_update_queued.i14.i, align 1
+  %285 = load i8, ptr %window_update_queued.i14.i, align 1
   %stream_id.i.i = getelementptr inbounds i8, ptr %call.i10.i, i64 168
-  %285 = load i32, ptr %stream_id.i.i, align 8
+  %286 = load i32, ptr %stream_id.i.i, align 8
   %local_window_size.i15.i = getelementptr inbounds i8, ptr %call.i10.i, i64 188
-  %286 = load i32, ptr %local_window_size.i15.i, align 4
-  %call.i16.i = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i12.i, ptr noundef nonnull %recv_window_size.i13.i, i8 noundef zeroext %284, i32 noundef %285, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014, i32 noundef %286)
+  %287 = load i32, ptr %local_window_size.i15.i, align 4
+  %call.i16.i = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i12.i, ptr noundef nonnull %recv_window_size.i13.i, i8 noundef zeroext %285, i32 noundef %286, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014, i32 noundef %287)
   %cmp.i17.i = icmp sgt i32 %call.i16.i, -901
   br i1 %cmp.i17.i, label %if.end1172, label %if.then1170
 
@@ -11218,38 +11196,38 @@ if.end1172:                                       ; preds = %lor.lhs.false1.i.i1
   br i1 %cmp1174, label %return, label %if.end1177
 
 if.end1177:                                       ; preds = %if.end1164, %if.end1172
-  %287 = load i32, ptr %stream_id1214, align 8
-  %call.i1033 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %287) #17
+  %288 = load i32, ptr %stream_id1214, align 8
+  %call.i1033 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %288) #17
   %cmp.i1034 = icmp eq ptr %call.i1033, null
   br i1 %cmp.i1034, label %if.end1197, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end1177
   %flags.i1035 = getelementptr inbounds i8, ptr %call.i1033, i64 216
-  %288 = load i8, ptr %flags.i1035, align 8
-  %289 = and i8 %288, 2
-  %tobool.not.i1036 = icmp eq i8 %289, 0
+  %289 = load i8, ptr %flags.i1035, align 8
+  %290 = and i8 %289, 2
+  %tobool.not.i1036 = icmp eq i8 %290, 0
   br i1 %tobool.not.i1036, label %lor.lhs.false1.i, label %if.end1197
 
 lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
   %state.i1038 = getelementptr inbounds i8, ptr %call.i1033, i64 204
-  %290 = load i32, ptr %state.i1038, align 4
-  %cmp2.i1039 = icmp eq i32 %290, 5
+  %291 = load i32, ptr %state.i1038, align 4
+  %cmp2.i1039 = icmp eq i32 %291, 5
   br i1 %cmp2.i1039, label %if.end1197, label %if.then1182
 
 if.then1182:                                      ; preds = %lor.lhs.false1.i
-  %291 = load i64, ptr %7, align 8
-  %tobool1184.not = icmp eq i64 %291, 0
+  %292 = load i64, ptr %7, align 8
+  %tobool1184.not = icmp eq i64 %292, 0
   br i1 %tobool1184.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.then1182
-  %292 = load i8, ptr %flags1247, align 1
-  %293 = and i8 %292, 1
-  %cmp1189 = icmp eq i8 %293, 0
+  %293 = load i8, ptr %flags1247, align 1
+  %294 = and i8 %293, 1
+  %cmp1189 = icmp eq i8 %294, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.then1182
-  %294 = phi i1 [ true, %if.then1182 ], [ %cmp1189, %lor.rhs ]
-  %lor.ext = zext i1 %294 to i32
+  %295 = phi i1 [ true, %if.then1182 ], [ %cmp1189, %lor.rhs ]
+  %lor.ext = zext i1 %295 to i32
   %call1191 = call i32 @nghttp2_session_update_recv_stream_window_size(ptr noundef nonnull %session, ptr noundef nonnull %call.i1033, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i1014, i32 noundef %lor.ext)
   %cmp.i1041 = icmp sgt i32 %call1191, -901
   br i1 %cmp.i1041, label %if.end1197, label %if.then1194
@@ -11259,11 +11237,11 @@ if.then1194:                                      ; preds = %lor.end
   br label %return
 
 if.end1197:                                       ; preds = %lor.lhs.false1.i, %if.end1177, %lor.lhs.false.i, %lor.end
-  %295 = load ptr, ptr %pos.i1167, align 8
-  %296 = load i8, ptr %295, align 1
-  %conv.i1044 = zext i8 %296 to i64
-  %297 = load i64, ptr %7, align 8
-  %cmp.i1046 = icmp ult i64 %297, %conv.i1044
+  %296 = load ptr, ptr %pos.i1167, align 8
+  %297 = load i8, ptr %296, align 1
+  %conv.i1044 = zext i8 %297 to i64
+  %298 = load i64, ptr %7, align 8
+  %cmp.i1046 = icmp ult i64 %298, %conv.i1044
   br i1 %cmp.i1046, label %if.then1201, label %if.end1208
 
 if.then1201:                                      ; preds = %if.end1197
@@ -11281,22 +11259,22 @@ if.end1208:                                       ; preds = %if.end1197
   br label %sw.epilog1524
 
 sw.bb1212:                                        ; preds = %for.cond
-  %298 = load i32, ptr %stream_id1214, align 8
-  %call.i1054 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %298) #17
+  %299 = load i32, ptr %stream_id1214, align 8
+  %call.i1054 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %299) #17
   %cmp.i1055 = icmp eq ptr %call.i1054, null
   br i1 %cmp.i1055, label %if.then1217, label %lor.lhs.false.i1056
 
 lor.lhs.false.i1056:                              ; preds = %sw.bb1212
   %flags.i1057 = getelementptr inbounds i8, ptr %call.i1054, i64 216
-  %299 = load i8, ptr %flags.i1057, align 8
-  %300 = and i8 %299, 2
-  %tobool.not.i1058 = icmp eq i8 %300, 0
+  %300 = load i8, ptr %flags.i1057, align 8
+  %301 = and i8 %300, 2
+  %tobool.not.i1058 = icmp eq i8 %301, 0
   br i1 %tobool.not.i1058, label %lor.lhs.false1.i1060, label %if.then1217
 
 lor.lhs.false1.i1060:                             ; preds = %lor.lhs.false.i1056
   %state.i1061 = getelementptr inbounds i8, ptr %call.i1054, i64 204
-  %301 = load i32, ptr %state.i1061, align 4
-  %cmp2.i1062 = icmp eq i32 %301, 5
+  %302 = load i32, ptr %state.i1061, align 4
+  %cmp2.i1062 = icmp eq i32 %302, 5
   br i1 %cmp2.i1062, label %if.then1217, label %do.end1221
 
 if.then1217:                                      ; preds = %lor.lhs.false1.i1060, %lor.lhs.false.i1056, %sw.bb1212
@@ -11324,24 +11302,24 @@ if.then1235:                                      ; preds = %if.then1230
   br label %return
 
 if.end1237:                                       ; preds = %if.then1230
-  %302 = load i32, ptr %state, align 8
-  %cmp1239 = icmp eq i32 %302, 15
+  %303 = load i32, ptr %state, align 8
+  %cmp1239 = icmp eq i32 %303, 15
   br i1 %cmp1239, label %return, label %if.end1242
 
 if.end1242:                                       ; preds = %if.end1237
-  %303 = load i64, ptr %7, align 8
-  %tobool1244.not = icmp eq i64 %303, 0
+  %304 = load i64, ptr %7, align 8
+  %tobool1244.not = icmp eq i64 %304, 0
   br i1 %tobool1244.not, label %lor.rhs1245, label %lor.end1252
 
 lor.rhs1245:                                      ; preds = %if.end1242
-  %304 = load i8, ptr %flags1247, align 1
-  %305 = and i8 %304, 1
-  %cmp1250 = icmp eq i8 %305, 0
+  %305 = load i8, ptr %flags1247, align 1
+  %306 = and i8 %305, 1
+  %cmp1250 = icmp eq i8 %306, 0
   br label %lor.end1252
 
 lor.end1252:                                      ; preds = %lor.rhs1245, %if.end1242
-  %306 = phi i1 [ true, %if.end1242 ], [ %cmp1250, %lor.rhs1245 ]
-  %lor.ext1253 = zext i1 %306 to i32
+  %307 = phi i1 [ true, %if.end1242 ], [ %cmp1250, %lor.rhs1245 ]
+  %lor.ext1253 = zext i1 %307 to i32
   %call1254 = call i32 @nghttp2_session_update_recv_stream_window_size(ptr noundef nonnull %session, ptr noundef nonnull %call.i1054, i64 noundef %sub.ptr.sub..i1068, i32 noundef %lor.ext1253)
   %cmp.i1071 = icmp sgt i32 %call1254, -901
   br i1 %cmp.i1071, label %if.end1259, label %if.then1257
@@ -11351,11 +11329,11 @@ if.then1257:                                      ; preds = %lor.end1252
   br label %return
 
 if.end1259:                                       ; preds = %lor.end1252
-  %307 = load i64, ptr %7, align 8
-  %308 = load i64, ptr %padlen.i1073, align 8
-  %call.i1074 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %308) #17
-  %cmp.i1075 = icmp ugt i64 %call.i1074, %307
-  %sub.i1076 = sub i64 %call.i1074, %307
+  %308 = load i64, ptr %7, align 8
+  %309 = load i64, ptr %padlen.i1073, align 8
+  %call.i1074 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %309) #17
+  %cmp.i1075 = icmp ugt i64 %call.i1074, %308
+  %sub.i1076 = sub i64 %call.i1074, %308
   %cmp2.i1077 = icmp ugt i64 %sub.i1076, %sub.ptr.sub..i1068
   %sub4.i1078 = sub i64 %sub.ptr.sub..i1068, %sub.i1076
   %spec.select.i1079 = select i1 %cmp2.i1077, i64 -1, i64 %sub4.i1078
@@ -11367,51 +11345,51 @@ if.end1259:                                       ; preds = %lor.end1252
   br i1 %cmp1267, label %if.then1269, label %do.end1285
 
 if.then1269:                                      ; preds = %if.end1259
-  %309 = load i32, ptr %stream_id1214, align 8
-  %cmp.i1081 = icmp eq i32 %309, 0
+  %310 = load i32, ptr %stream_id1214, align 8
+  %cmp.i1081 = icmp eq i32 %310, 0
   br i1 %cmp.i1081, label %if.end1277, label %if.end.i1082
 
 if.end.i1082:                                     ; preds = %if.then1269
-  %310 = load i32, ptr %opt_flags1380, align 4
-  %and.i1084 = and i32 %310, 1
+  %311 = load i32, ptr %opt_flags1380, align 4
+  %and.i1084 = and i32 %311, 1
   %tobool.not.i1085 = icmp eq i32 %and.i1084, 0
   br i1 %tobool.not.i1085, label %if.end1277, label %if.end2.i1086
 
 if.end2.i1086:                                    ; preds = %if.end.i1082
-  %311 = load i8, ptr %window_update_queued.i1136, align 2
-  %312 = load i32, ptr %local_window_size.i1137, align 4
-  %call.i.i1091 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %311, i32 noundef 0, i64 noundef %sub1266, i32 noundef %312)
+  %312 = load i8, ptr %window_update_queued.i1136, align 2
+  %313 = load i32, ptr %local_window_size.i1137, align 4
+  %call.i.i1091 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %312, i32 noundef 0, i64 noundef %sub1266, i32 noundef %313)
   %cmp.i.i1092 = icmp sgt i32 %call.i.i1091, -901
   br i1 %cmp.i.i1092, label %if.end6.i1094, label %if.then1275
 
 if.end6.i1094:                                    ; preds = %if.end2.i1086
-  %call.i10.i1095 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %309) #17
+  %call.i10.i1095 = call ptr @nghttp2_map_find(ptr noundef nonnull %session, i32 noundef %310) #17
   %cmp.i11.i1096 = icmp eq ptr %call.i10.i1095, null
   br i1 %cmp.i11.i1096, label %if.end1277, label %lor.lhs.false.i.i1097
 
 lor.lhs.false.i.i1097:                            ; preds = %if.end6.i1094
   %flags.i.i1098 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 216
-  %313 = load i8, ptr %flags.i.i1098, align 8
-  %314 = and i8 %313, 2
-  %tobool.not.i.i1099 = icmp eq i8 %314, 0
+  %314 = load i8, ptr %flags.i.i1098, align 8
+  %315 = and i8 %314, 2
+  %tobool.not.i.i1099 = icmp eq i8 %315, 0
   br i1 %tobool.not.i.i1099, label %lor.lhs.false1.i.i1100, label %if.end1277
 
 lor.lhs.false1.i.i1100:                           ; preds = %lor.lhs.false.i.i1097
   %state.i.i1101 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 204
-  %315 = load i32, ptr %state.i.i1101, align 4
-  %cmp2.i.i1102 = icmp eq i32 %315, 5
+  %316 = load i32, ptr %state.i.i1101, align 4
+  %cmp2.i.i1102 = icmp eq i32 %316, 5
   br i1 %cmp2.i.i1102, label %if.end1277, label %nghttp2_session_consume.exit1112
 
 nghttp2_session_consume.exit1112:                 ; preds = %lor.lhs.false1.i.i1100
   %consumed_size.i12.i1104 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 180
   %recv_window_size.i13.i1105 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 176
   %window_update_queued.i14.i1106 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 219
-  %316 = load i8, ptr %window_update_queued.i14.i1106, align 1
+  %317 = load i8, ptr %window_update_queued.i14.i1106, align 1
   %stream_id.i.i1107 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 168
-  %317 = load i32, ptr %stream_id.i.i1107, align 8
+  %318 = load i32, ptr %stream_id.i.i1107, align 8
   %local_window_size.i15.i1108 = getelementptr inbounds i8, ptr %call.i10.i1095, i64 188
-  %318 = load i32, ptr %local_window_size.i15.i1108, align 4
-  %call.i16.i1109 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i12.i1104, ptr noundef nonnull %recv_window_size.i13.i1105, i8 noundef zeroext %316, i32 noundef %317, i64 noundef %sub1266, i32 noundef %318)
+  %319 = load i32, ptr %local_window_size.i15.i1108, align 4
+  %call.i16.i1109 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i12.i1104, ptr noundef nonnull %recv_window_size.i13.i1105, i8 noundef zeroext %317, i32 noundef %318, i64 noundef %sub1266, i32 noundef %319)
   %cmp.i17.i1110 = icmp sgt i32 %call.i16.i1109, -901
   br i1 %cmp.i17.i1110, label %if.end1277, label %if.then1275
 
@@ -11421,8 +11399,8 @@ if.then1275:                                      ; preds = %if.end2.i1086, %ngh
   br label %return
 
 if.end1277:                                       ; preds = %lor.lhs.false1.i.i1100, %if.end6.i1094, %lor.lhs.false.i.i1097, %if.end.i1082, %if.then1269, %nghttp2_session_consume.exit1112
-  %319 = load i32, ptr %state, align 8
-  %cmp1279 = icmp eq i32 %319, 15
+  %320 = load i32, ptr %state, align 8
+  %cmp1279 = icmp eq i32 %320, 15
   br i1 %cmp1279, label %return, label %do.end1285
 
 do.end1285:                                       ; preds = %if.end1277, %if.end1259
@@ -11431,8 +11409,8 @@ do.end1285:                                       ; preds = %if.end1277, %if.end
 
 if.then1288:                                      ; preds = %do.end1285
   %session.val = load i32, ptr %opt_flags1380, align 4
-  %320 = and i32 %session.val, 4
-  %tobool1290.not.not = icmp eq i32 %320, 0
+  %321 = and i32 %session.val, 4
+  %tobool1290.not.not = icmp eq i32 %321, 0
   br i1 %tobool1290.not.not, label %if.then1291, label %if.end1321
 
 if.then1291:                                      ; preds = %if.then1288
@@ -11441,15 +11419,15 @@ if.then1291:                                      ; preds = %if.then1288
   br i1 %cmp1293.not, label %if.end1321, label %if.then1295
 
 if.then1295:                                      ; preds = %if.then1291
-  %321 = load i32, ptr %opt_flags1380, align 4
-  %and1296 = and i32 %321, 1
+  %322 = load i32, ptr %opt_flags1380, align 4
+  %and1296 = and i32 %322, 1
   %tobool1297.not = icmp eq i32 %and1296, 0
   br i1 %tobool1297.not, label %if.end1310, label %if.then1298
 
 if.then1298:                                      ; preds = %if.then1295
-  %322 = load i8, ptr %window_update_queued.i1136, align 2
-  %323 = load i32, ptr %local_window_size.i1137, align 4
-  %call.i1117 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %322, i32 noundef 0, i64 noundef %spec.store.select, i32 noundef %323)
+  %323 = load i8, ptr %window_update_queued.i1136, align 2
+  %324 = load i32, ptr %local_window_size.i1137, align 4
+  %call.i1117 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %323, i32 noundef 0, i64 noundef %spec.store.select, i32 noundef %324)
   %cmp.i1118 = icmp sgt i32 %call.i1117, -901
   br i1 %cmp.i1118, label %if.end1304, label %if.then1302
 
@@ -11458,13 +11436,13 @@ if.then1302:                                      ; preds = %if.then1298
   br label %return
 
 if.end1304:                                       ; preds = %if.then1298
-  %324 = load i32, ptr %state, align 8
-  %cmp1306 = icmp eq i32 %324, 14
+  %325 = load i32, ptr %state, align 8
+  %cmp1306 = icmp eq i32 %325, 14
   br i1 %cmp1306, label %return, label %if.end1310
 
 if.end1310:                                       ; preds = %if.end1304, %if.then1295
-  %325 = load i32, ptr %stream_id1214, align 8
-  %call1313 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %325, i32 noundef 1)
+  %326 = load i32, ptr %stream_id1214, align 8
+  %call1313 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %326, i32 noundef 1)
   %cmp.i1120 = icmp sgt i32 %call1313, -901
   br i1 %cmp.i1120, label %if.end1318, label %if.then1316
 
@@ -11477,15 +11455,15 @@ if.end1318:                                       ; preds = %if.end1310
   br label %sw.epilog1524
 
 if.end1321:                                       ; preds = %if.then1291, %if.then1288
-  %326 = load ptr, ptr %on_data_chunk_recv_callback, align 8
-  %tobool1323.not = icmp eq ptr %326, null
+  %327 = load ptr, ptr %on_data_chunk_recv_callback, align 8
+  %tobool1323.not = icmp eq ptr %327, null
   br i1 %tobool1323.not, label %if.end1346thread-pre-split, label %if.then1324
 
 if.then1324:                                      ; preds = %if.end1321
-  %327 = load i8, ptr %flags1247, align 1
-  %328 = load i32, ptr %stream_id1214, align 8
-  %329 = load ptr, ptr %user_data.i.i.i, align 8
-  %call1332 = call i32 %326(ptr noundef nonnull %session, i8 noundef zeroext %327, i32 noundef %328, ptr noundef %in.addr.1, i64 noundef %spec.store.select, ptr noundef %329) #17
+  %328 = load i8, ptr %flags1247, align 1
+  %329 = load i32, ptr %stream_id1214, align 8
+  %330 = load ptr, ptr %user_data.i.i.i, align 8
+  %call1332 = call i32 %327(ptr noundef nonnull %session, i8 noundef zeroext %328, i32 noundef %329, ptr noundef %in.addr.1, i64 noundef %spec.store.select, ptr noundef %330) #17
   %cmp1333 = icmp eq i32 %call1332, -526
   br i1 %cmp1333, label %if.then1335, label %if.end1339
 
@@ -11504,8 +11482,8 @@ if.end1346thread-pre-split:                       ; preds = %if.end1321, %if.end
   br label %if.end1346
 
 if.end1346:                                       ; preds = %if.end1346thread-pre-split, %do.end1221
-  %330 = phi i64 [ %.pr1298, %if.end1346thread-pre-split ], [ %sub1224, %do.end1221 ]
-  %tobool1348.not = icmp eq i64 %330, 0
+  %331 = phi i64 [ %.pr1298, %if.end1346thread-pre-split ], [ %sub1224, %do.end1221 ]
+  %tobool1348.not = icmp eq i64 %331, 0
   br i1 %tobool1348.not, label %if.end1350, label %sw.epilog1524
 
 if.end1350:                                       ; preds = %if.end1346
@@ -11542,20 +11520,20 @@ if.then1372:                                      ; preds = %if.then1368
   br label %return
 
 if.end1374:                                       ; preds = %if.then1368
-  %331 = load i32, ptr %state, align 8
-  %cmp1376 = icmp eq i32 %331, 15
+  %332 = load i32, ptr %state, align 8
+  %cmp1376 = icmp eq i32 %332, 15
   br i1 %cmp1376, label %return, label %if.end1379
 
 if.end1379:                                       ; preds = %if.end1374
-  %332 = load i32, ptr %opt_flags1380, align 4
-  %and1381 = and i32 %332, 1
+  %333 = load i32, ptr %opt_flags1380, align 4
+  %and1381 = and i32 %333, 1
   %tobool1382.not = icmp eq i32 %and1381, 0
   br i1 %tobool1382.not, label %if.end1396thread-pre-split, label %if.then1383
 
 if.then1383:                                      ; preds = %if.end1379
-  %333 = load i8, ptr %window_update_queued.i1136, align 2
-  %334 = load i32, ptr %local_window_size.i1137, align 4
-  %call.i1138 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %333, i32 noundef 0, i64 noundef %sub.ptr.sub..i1131, i32 noundef %334)
+  %334 = load i8, ptr %window_update_queued.i1136, align 2
+  %335 = load i32, ptr %local_window_size.i1137, align 4
+  %call.i1138 = call fastcc i32 @session_update_consumed_size(ptr noundef nonnull %session, ptr noundef nonnull %consumed_size.i1134, ptr noundef nonnull %recv_window_size.i1135, i8 noundef zeroext %334, i32 noundef 0, i64 noundef %sub.ptr.sub..i1131, i32 noundef %335)
   %cmp.i1139 = icmp sgt i32 %call.i1138, -901
   br i1 %cmp.i1139, label %if.end1389, label %if.then1387
 
@@ -11564,8 +11542,8 @@ if.then1387:                                      ; preds = %if.then1383
   br label %return
 
 if.end1389:                                       ; preds = %if.then1383
-  %335 = load i32, ptr %state, align 8
-  %cmp1391 = icmp eq i32 %335, 15
+  %336 = load i32, ptr %state, align 8
+  %cmp1391 = icmp eq i32 %336, 15
   br i1 %cmp1391, label %return, label %if.end1396thread-pre-split
 
 if.end1396thread-pre-split:                       ; preds = %if.end1389, %if.end1379
@@ -11573,8 +11551,8 @@ if.end1396thread-pre-split:                       ; preds = %if.end1389, %if.end
   br label %if.end1396
 
 if.end1396:                                       ; preds = %if.end1396thread-pre-split, %do.end1359
-  %336 = phi i64 [ %.pr1299, %if.end1396thread-pre-split ], [ %sub1362, %do.end1359 ]
-  %tobool1398.not = icmp eq i64 %336, 0
+  %337 = phi i64 [ %.pr1299, %if.end1396thread-pre-split ], [ %sub1362, %do.end1359 ]
+  %tobool1398.not = icmp eq i64 %337, 0
   br i1 %tobool1398.not, label %if.end1400, label %sw.epilog1524
 
 if.end1400:                                       ; preds = %if.end1396
@@ -11593,13 +11571,13 @@ do.end1404:                                       ; preds = %for.cond
   br i1 %cmp1411.not, label %if.end1427, label %if.then1413
 
 if.then1413:                                      ; preds = %do.end1404
-  %337 = load ptr, ptr %on_extension_chunk_recv_callback.i, align 8
-  %tobool.not.i1145 = icmp eq ptr %337, null
+  %338 = load ptr, ptr %on_extension_chunk_recv_callback.i, align 8
+  %tobool.not.i1145 = icmp eq ptr %338, null
   br i1 %tobool.not.i1145, label %if.end1427, label %session_call_on_extension_chunk_recv_callback.exit
 
 session_call_on_extension_chunk_recv_callback.exit: ; preds = %if.then1413
-  %338 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i1149 = call i32 %337(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i1144, ptr noundef %338) #17
+  %339 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i1149 = call i32 %338(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i1144, ptr noundef %339) #17
   switch i32 %call.i1149, label %return [
     i32 0, label %session_call_on_extension_chunk_recv_callback.exit.if.end1427thread-pre-split_crit_edge
     i32 -535, label %if.then1424
@@ -11614,16 +11592,16 @@ if.then1424:                                      ; preds = %session_call_on_ext
   br label %sw.epilog1524
 
 if.end1427:                                       ; preds = %if.then1413, %session_call_on_extension_chunk_recv_callback.exit.if.end1427thread-pre-split_crit_edge, %do.end1404
-  %339 = phi i64 [ %sub1407, %do.end1404 ], [ %.pr1307.pre, %session_call_on_extension_chunk_recv_callback.exit.if.end1427thread-pre-split_crit_edge ], [ %sub1407, %if.then1413 ]
-  %cmp1429.not = icmp eq i64 %339, 0
+  %340 = phi i64 [ %sub1407, %do.end1404 ], [ %.pr1307.pre, %session_call_on_extension_chunk_recv_callback.exit.if.end1427thread-pre-split_crit_edge ], [ %sub1407, %if.then1413 ]
+  %cmp1429.not = icmp eq i64 %340, 0
   br i1 %cmp1429.not, label %if.end1432, label %sw.epilog1524
 
 if.end1432:                                       ; preds = %if.end1427
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %payload.i.i)
   store ptr null, ptr %payload.i.i, align 8
-  %340 = load ptr, ptr %unpack_extension_callback.i.i, align 8
-  %341 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i.i1154 = call i32 %340(ptr noundef nonnull %session, ptr noundef nonnull %payload.i.i, ptr noundef nonnull %iframe1, ptr noundef %341) #17
+  %341 = load ptr, ptr %unpack_extension_callback.i.i, align 8
+  %342 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i.i1154 = call i32 %341(ptr noundef nonnull %session, ptr noundef nonnull %payload.i.i, ptr noundef nonnull %iframe1, ptr noundef %342) #17
   switch i32 %call.i.i1154, label %session_call_unpack_extension_callback.exit.i [
     i32 -535, label %if.end.i1159
     i32 0, label %if.end5.i
@@ -11638,16 +11616,16 @@ if.end.i1159:                                     ; preds = %if.end1432
   br label %if.end1438
 
 if.end5.i:                                        ; preds = %if.end1432
-  %342 = load ptr, ptr %payload.i.i, align 8
-  store ptr %342, ptr %payload6.i.i, align 8
+  %343 = load ptr, ptr %payload.i.i, align 8
+  store ptr %343, ptr %payload6.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload.i.i)
-  %343 = load ptr, ptr %on_frame_recv_callback.i.i.i, align 8
-  %tobool.not.i.i1155 = icmp eq ptr %343, null
+  %344 = load ptr, ptr %on_frame_recv_callback.i.i.i, align 8
+  %tobool.not.i.i1155 = icmp eq ptr %344, null
   br i1 %tobool.not.i.i1155, label %if.end1438, label %if.then.i.i1156
 
 if.then.i.i1156:                                  ; preds = %if.end5.i
-  %344 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i6.i = call i32 %343(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %344) #17
+  %345 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i6.i = call i32 %344(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %345) #17
   %cmp.not.i.i1157 = icmp eq i32 %call.i6.i, 0
   br i1 %cmp.not.i.i1157, label %if.end1438, label %return
 
@@ -11664,25 +11642,25 @@ do.end1441:                                       ; preds = %for.cond
   br i1 %cmp1443.not, label %do.end1456, label %if.then1445
 
 if.then1445:                                      ; preds = %do.end1441
-  %345 = load ptr, ptr %last1487, align 8
-  %call1448 = call ptr @nghttp2_cpymem(ptr noundef %345, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i1165) #17
+  %346 = load ptr, ptr %last1487, align 8
+  %call1448 = call ptr @nghttp2_cpymem(ptr noundef %346, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i1165) #17
   store ptr %call1448, ptr %last1487, align 8
-  %346 = load i64, ptr %7, align 8
-  %sub1452 = sub i64 %346, %sub.ptr.sub..i1165
+  %347 = load i64, ptr %7, align 8
+  %sub1452 = sub i64 %347, %sub.ptr.sub..i1165
   store i64 %sub1452, ptr %7, align 8
   %add.ptr1453 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub..i1165
   br label %do.end1456
 
 do.end1456:                                       ; preds = %if.then1445, %do.end1441
-  %347 = phi i64 [ %sub1452, %if.then1445 ], [ %iframe1.val736, %do.end1441 ]
+  %348 = phi i64 [ %sub1452, %if.then1445 ], [ %iframe1.val736, %do.end1441 ]
   %in.addr.5 = phi ptr [ %add.ptr1453, %if.then1445 ], [ %in.addr.1, %do.end1441 ]
-  %tobool1458.not = icmp eq i64 %347, 0
+  %tobool1458.not = icmp eq i64 %348, 0
   br i1 %tobool1458.not, label %if.end1472, label %if.then1459
 
 if.then1459:                                      ; preds = %do.end1456
-  %348 = load ptr, ptr %end1501, align 8
-  %349 = load ptr, ptr %last1487, align 8
-  %cmp1467.not = icmp eq ptr %348, %349
+  %349 = load ptr, ptr %end1501, align 8
+  %350 = load ptr, ptr %last1487, align 8
+  %cmp1467.not = icmp eq ptr %349, %350
   br i1 %cmp1467.not, label %if.else1470, label %sw.epilog1524
 
 if.else1470:                                      ; preds = %if.then1459
@@ -11690,15 +11668,15 @@ if.else1470:                                      ; preds = %if.then1459
   unreachable
 
 if.end1472:                                       ; preds = %do.end1456
-  %350 = load ptr, ptr %pos.i1167, align 8
-  %call.i1168 = call zeroext i16 @nghttp2_get_uint16(ptr noundef %350) #17
+  %351 = load ptr, ptr %pos.i1167, align 8
+  %call.i1168 = call zeroext i16 @nghttp2_get_uint16(ptr noundef %351) #17
   %conv.i1169 = zext i16 %call.i1168 to i64
-  %351 = load ptr, ptr %pos.i1183, align 8
-  %352 = load ptr, ptr %last1487, align 8
-  %sub.ptr.lhs.cast.i1173 = ptrtoint ptr %352 to i64
-  %sub.ptr.rhs.cast.i1174 = ptrtoint ptr %351 to i64
+  %352 = load ptr, ptr %pos.i1183, align 8
+  %353 = load ptr, ptr %last1487, align 8
+  %sub.ptr.lhs.cast.i1173 = ptrtoint ptr %353 to i64
+  %sub.ptr.rhs.cast.i1174 = ptrtoint ptr %352 to i64
   %sub.ptr.sub.i1175 = sub i64 %sub.ptr.lhs.cast.i1173, %sub.ptr.rhs.cast.i1174
-  call void @nghttp2_frame_unpack_altsvc_payload(ptr noundef nonnull %iframe1, i64 noundef %conv.i1169, ptr noundef %351, i64 noundef %sub.ptr.sub.i1175) #17
+  call void @nghttp2_frame_unpack_altsvc_payload(ptr noundef nonnull %iframe1, i64 noundef %conv.i1169, ptr noundef %352, i64 noundef %sub.ptr.sub.i1175) #17
   call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1170, ptr noundef null, i64 noundef 0) #17
   %call8.i = call noundef i32 @nghttp2_session_on_altsvc_received(ptr noundef nonnull %session, ptr noundef nonnull %iframe1), !range !25
   %cmp.i1176 = icmp sgt i32 %call8.i, -901
@@ -11721,25 +11699,25 @@ do.end1481:                                       ; preds = %for.cond
   br i1 %cmp1483.not, label %do.end1496, label %if.then1485
 
 if.then1485:                                      ; preds = %do.end1481
-  %353 = load ptr, ptr %last1487, align 8
-  %call1488 = call ptr @nghttp2_cpymem(ptr noundef %353, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i1181) #17
+  %354 = load ptr, ptr %last1487, align 8
+  %call1488 = call ptr @nghttp2_cpymem(ptr noundef %354, ptr noundef %in.addr.1, i64 noundef %sub.ptr.sub..i1181) #17
   store ptr %call1488, ptr %last1487, align 8
-  %354 = load i64, ptr %7, align 8
-  %sub1492 = sub i64 %354, %sub.ptr.sub..i1181
+  %355 = load i64, ptr %7, align 8
+  %sub1492 = sub i64 %355, %sub.ptr.sub..i1181
   store i64 %sub1492, ptr %7, align 8
   %add.ptr1493 = getelementptr inbounds i8, ptr %in.addr.1, i64 %sub.ptr.sub..i1181
   br label %do.end1496
 
 do.end1496:                                       ; preds = %if.then1485, %do.end1481
-  %355 = phi i64 [ %sub1492, %if.then1485 ], [ %iframe1.val737, %do.end1481 ]
+  %356 = phi i64 [ %sub1492, %if.then1485 ], [ %iframe1.val737, %do.end1481 ]
   %in.addr.6 = phi ptr [ %add.ptr1493, %if.then1485 ], [ %in.addr.1, %do.end1481 ]
-  %tobool1498.not = icmp eq i64 %355, 0
-  %356 = load ptr, ptr %last1487, align 8
+  %tobool1498.not = icmp eq i64 %356, 0
+  %357 = load ptr, ptr %last1487, align 8
   br i1 %tobool1498.not, label %if.end1512, label %if.then1499
 
 if.then1499:                                      ; preds = %do.end1496
-  %357 = load ptr, ptr %end1501, align 8
-  %cmp1507.not = icmp eq ptr %357, %356
+  %358 = load ptr, ptr %end1501, align 8
+  %cmp1507.not = icmp eq ptr %358, %357
   br i1 %cmp1507.not, label %if.else1510, label %sw.epilog1524
 
 if.else1510:                                      ; preds = %if.then1499
@@ -11747,22 +11725,22 @@ if.else1510:                                      ; preds = %if.then1499
   unreachable
 
 if.end1512:                                       ; preds = %do.end1496
-  %358 = load ptr, ptr %pos.i1183, align 8
-  %sub.ptr.lhs.cast.i1185 = ptrtoint ptr %356 to i64
-  %sub.ptr.rhs.cast.i1186 = ptrtoint ptr %358 to i64
+  %359 = load ptr, ptr %pos.i1183, align 8
+  %sub.ptr.lhs.cast.i1185 = ptrtoint ptr %357 to i64
+  %sub.ptr.rhs.cast.i1186 = ptrtoint ptr %359 to i64
   %sub.ptr.sub.i1187 = sub i64 %sub.ptr.lhs.cast.i1185, %sub.ptr.rhs.cast.i1186
-  %call.i1188 = call i32 @nghttp2_frame_unpack_origin_payload(ptr noundef nonnull %iframe1, ptr noundef %358, i64 noundef %sub.ptr.sub.i1187, ptr noundef nonnull %mem5) #17
+  %call.i1188 = call i32 @nghttp2_frame_unpack_origin_payload(ptr noundef nonnull %iframe1, ptr noundef %359, i64 noundef %sub.ptr.sub.i1187, ptr noundef nonnull %mem5) #17
   %cmp.not.i1189 = icmp eq i32 %call.i1188, 0
   br i1 %cmp.not.i1189, label %if.end9.i1194, label %session_process_origin_frame.exit
 
 if.end9.i1194:                                    ; preds = %if.end1512
-  %359 = load ptr, ptr %on_frame_recv_callback.i.i.i, align 8
-  %tobool.not.i.i.i1195 = icmp eq ptr %359, null
+  %360 = load ptr, ptr %on_frame_recv_callback.i.i.i, align 8
+  %tobool.not.i.i.i1195 = icmp eq ptr %360, null
   br i1 %tobool.not.i.i.i1195, label %if.end1518, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end9.i1194
-  %360 = load ptr, ptr %user_data.i.i.i, align 8
-  %call.i.i.i1196 = call i32 %359(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %360) #17
+  %361 = load ptr, ptr %user_data.i.i.i, align 8
+  %call.i.i.i1196 = call i32 %360(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, ptr noundef %361) #17
   %cmp.not.i.i.i = icmp eq i32 %call.i.i.i1196, 0
   br i1 %cmp.not.i.i.i, label %if.end1518, label %return
 
@@ -11771,12 +11749,12 @@ session_process_origin_frame.exit:                ; preds = %if.end1512
   br i1 %cmp.i.i1191, label %if.end1518, label %if.then1516.split.loop.exit1561
 
 if.then1516.split.loop.exit1561:                  ; preds = %session_process_origin_frame.exit
-  %361 = sext i32 %call.i1188 to i64
+  %362 = sext i32 %call.i1188 to i64
   br label %return
 
 if.end1518:                                       ; preds = %if.then.i.i.i, %if.end9.i1194, %session_process_origin_frame.exit
-  %362 = load i32, ptr %state, align 8
-  %cmp1520 = icmp eq i32 %362, 15
+  %363 = load i32, ptr %state, align 8
+  %cmp1520 = icmp eq i32 %363, 15
   br i1 %cmp1520, label %return, label %if.end1523
 
 if.end1523:                                       ; preds = %if.end1518
@@ -11792,7 +11770,7 @@ sw.epilog1524:                                    ; preds = %if.then.i997, %if.t
   br i1 %or.cond719, label %return, label %for.cond
 
 return:                                           ; preds = %if.then.i.i1156, %session_call_on_extension_chunk_recv_callback.exit, %if.then.i997, %if.then.i839, %if.then.i779, %if.end272, %if.end1518, %for.cond, %if.end1389, %if.end1374, %if.end1339, %if.end1304, %if.end1277, %if.end1237, %if.end1172, %if.end1159, %if.end1057, %if.end1013, %if.end852, %if.then782, %if.end759, %if.then741, %if.end729, %if.end699, %if.end650, %if.end637, %if.end600, %if.then451, %if.end300, %if.end204, %session_on_data_received_fail_fast.exit, %sw.bb, %sw.epilog1524, %if.then.i.i.i, %if.then1516.split.loop.exit1561, %session_call_unpack_extension_callback.exit.i, %if.end8, %if.then1201, %do.end1097, %if.then676, %if.then572, %if.then481, %do.end373, %if.then324, %if.then293, %if.then165, %if.then139, %do.end100, %if.end60, %if.end974, %nghttp2_session_want_read.exit, %if.then1476, %if.then1387, %if.then1372, %if.then1354, %if.then1335, %if.then1316, %if.then1302, %if.then1275, %if.then1257, %if.then1235, %if.then1194, %if.then1170, %if.then1157, %if.then1149, %if.then1074, %if.then1055, %if.then1011, %if.then972, %if.then942, %if.then890, %if.then860, %if.then850, %if.then805, %if.then757, %if.then727, %if.then712, %if.then697, %if.then648, %if.then635, %if.then614, %if.then598, %if.then541, %if.then217, %if.then202, %if.then132, %if.then82, %if.then58, %if.then39, %if.then7
-  %retval.0 = phi i64 [ %conv, %if.then7 ], [ %conv1477, %if.then1476 ], [ %conv1373, %if.then1372 ], [ %conv1388, %if.then1387 ], [ %conv1236, %if.then1235 ], [ %conv1258, %if.then1257 ], [ %conv1276, %if.then1275 ], [ %conv1303, %if.then1302 ], [ %conv1317, %if.then1316 ], [ %sub.ptr.sub1338, %if.then1335 ], [ %conv1355, %if.then1354 ], [ %sub.ptr.sub1152, %if.then1149 ], [ %conv1158, %if.then1157 ], [ %conv1171, %if.then1170 ], [ %conv1195, %if.then1194 ], [ %sub.ptr.sub1077, %if.then1074 ], [ %conv1056, %if.then1055 ], [ %conv1012, %if.then1011 ], [ %conv973, %if.then972 ], [ %conv851, %if.then850 ], [ %sub.ptr.sub866, %if.then860 ], [ %conv891, %if.then890 ], [ %conv943, %if.then942 ], [ %sub.ptr.sub544, %if.then541 ], [ %conv806, %if.then805 ], [ %conv758, %if.then757 ], [ %conv728, %if.then727 ], [ %conv698, %if.then697 ], [ %conv713, %if.then712 ], [ %conv649, %if.then648 ], [ %conv636, %if.then635 ], [ %conv599, %if.then598 ], [ %conv615, %if.then614 ], [ %sub.ptr.sub85, %if.then82 ], [ %conv203, %if.then202 ], [ %conv218, %if.then217 ], [ %conv133, %if.then132 ], [ %sub.ptr.sub42, %if.then39 ], [ %conv59, %if.then58 ], [ %inlen, %nghttp2_session_want_read.exit ], [ %inlen, %if.end974 ], [ %spec.select, %if.end60 ], [ %spec.select720, %do.end100 ], [ %spec.select721, %if.then139 ], [ %spec.select722, %if.then165 ], [ %spec.select723, %if.then293 ], [ %spec.select724, %if.then324 ], [ %spec.select725, %do.end373 ], [ %spec.select726, %if.then481 ], [ %spec.select727, %if.then572 ], [ %spec.select728, %if.then676 ], [ %spec.select729, %do.end1097 ], [ %spec.select730, %if.then1201 ], [ %inlen, %if.end8 ], [ -902, %session_call_unpack_extension_callback.exit.i ], [ %361, %if.then1516.split.loop.exit1561 ], [ -902, %if.then.i.i1156 ], [ -902, %session_call_on_extension_chunk_recv_callback.exit ], [ -902, %if.then.i997 ], [ -902, %if.then.i839 ], [ -902, %if.then.i779 ], [ -904, %if.end272 ], [ %inlen, %if.end1518 ], [ %inlen, %for.cond ], [ %inlen, %if.end1389 ], [ %inlen, %if.end1374 ], [ -902, %if.end1339 ], [ %inlen, %if.end1304 ], [ %inlen, %if.end1277 ], [ %inlen, %if.end1237 ], [ %inlen, %if.end1172 ], [ %inlen, %if.end1159 ], [ %inlen, %if.end1057 ], [ %inlen, %if.end1013 ], [ %inlen, %if.end852 ], [ -901, %if.then782 ], [ %inlen, %if.end759 ], [ -901, %if.then741 ], [ %inlen, %if.end729 ], [ %inlen, %if.end699 ], [ %inlen, %if.end650 ], [ %inlen, %if.end637 ], [ %inlen, %if.end600 ], [ -901, %if.then451 ], [ -901, %if.end300 ], [ %inlen, %if.end204 ], [ %inlen, %session_on_data_received_fail_fast.exit ], [ -903, %sw.bb ], [ %inlen, %sw.epilog1524 ], [ -902, %if.then.i.i.i ]
+  %retval.0 = phi i64 [ %conv, %if.then7 ], [ %conv1477, %if.then1476 ], [ %conv1373, %if.then1372 ], [ %conv1388, %if.then1387 ], [ %conv1236, %if.then1235 ], [ %conv1258, %if.then1257 ], [ %conv1276, %if.then1275 ], [ %conv1303, %if.then1302 ], [ %conv1317, %if.then1316 ], [ %sub.ptr.sub1338, %if.then1335 ], [ %conv1355, %if.then1354 ], [ %sub.ptr.sub1152, %if.then1149 ], [ %conv1158, %if.then1157 ], [ %conv1171, %if.then1170 ], [ %conv1195, %if.then1194 ], [ %sub.ptr.sub1077, %if.then1074 ], [ %conv1056, %if.then1055 ], [ %conv1012, %if.then1011 ], [ %conv973, %if.then972 ], [ %conv851, %if.then850 ], [ %sub.ptr.sub866, %if.then860 ], [ %conv891, %if.then890 ], [ %conv943, %if.then942 ], [ %sub.ptr.sub544, %if.then541 ], [ %conv806, %if.then805 ], [ %conv758, %if.then757 ], [ %conv728, %if.then727 ], [ %conv698, %if.then697 ], [ %conv713, %if.then712 ], [ %conv649, %if.then648 ], [ %conv636, %if.then635 ], [ %conv599, %if.then598 ], [ %conv615, %if.then614 ], [ %sub.ptr.sub85, %if.then82 ], [ %conv203, %if.then202 ], [ %conv218, %if.then217 ], [ %conv133, %if.then132 ], [ %sub.ptr.sub42, %if.then39 ], [ %conv59, %if.then58 ], [ %inlen, %nghttp2_session_want_read.exit ], [ %inlen, %if.end974 ], [ %spec.select, %if.end60 ], [ %spec.select720, %do.end100 ], [ %spec.select721, %if.then139 ], [ %spec.select722, %if.then165 ], [ %spec.select723, %if.then293 ], [ %spec.select724, %if.then324 ], [ %spec.select725, %do.end373 ], [ %spec.select726, %if.then481 ], [ %spec.select727, %if.then572 ], [ %spec.select728, %if.then676 ], [ %spec.select729, %do.end1097 ], [ %spec.select730, %if.then1201 ], [ %inlen, %if.end8 ], [ -902, %session_call_unpack_extension_callback.exit.i ], [ %362, %if.then1516.split.loop.exit1561 ], [ -902, %if.then.i.i1156 ], [ -902, %session_call_on_extension_chunk_recv_callback.exit ], [ -902, %if.then.i997 ], [ -902, %if.then.i839 ], [ -902, %if.then.i779 ], [ -904, %if.end272 ], [ %inlen, %if.end1518 ], [ %inlen, %for.cond ], [ %inlen, %if.end1389 ], [ %inlen, %if.end1374 ], [ -902, %if.end1339 ], [ %inlen, %if.end1304 ], [ %inlen, %if.end1277 ], [ %inlen, %if.end1237 ], [ %inlen, %if.end1172 ], [ %inlen, %if.end1159 ], [ %inlen, %if.end1057 ], [ %inlen, %if.end1013 ], [ %inlen, %if.end852 ], [ -901, %if.then782 ], [ %inlen, %if.end759 ], [ -901, %if.then741 ], [ %inlen, %if.end729 ], [ %inlen, %if.end699 ], [ %inlen, %if.end650 ], [ %inlen, %if.end637 ], [ %inlen, %if.end600 ], [ -901, %if.then451 ], [ -901, %if.end300 ], [ %inlen, %if.end204 ], [ %inlen, %session_on_data_received_fail_fast.exit ], [ -903, %sw.bb ], [ %inlen, %sw.epilog1524 ], [ -902, %if.then.i.i.i ]
   ret i64 %retval.0
 }
 
@@ -11844,9 +11822,9 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %mem3 = getelementptr inbounds i8, ptr %session, i64 2528
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %fmt, ptr noundef nonnull %ap) #17
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end7
 
@@ -11858,9 +11836,9 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call15 = call i32 @vsnprintf(ptr noundef nonnull %call8, i64 noundef %conv, ptr noundef %fmt, ptr noundef nonnull %ap) #17
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %cmp17 = icmp slt i32 %call15, 0
   br i1 %cmp17, label %if.then19, label %if.end20
 
@@ -11954,10 +11932,9 @@ land.lhs.true:                                    ; preds = %lor.lhs.false1.i
 nghttp2_session_is_my_stream_id.exit:             ; preds = %land.lhs.true
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %6 = load i8, ptr %server.i, align 4
-  %tobool.not.i24 = icmp ne i8 %6, 0
-  %7 = and i32 %5, 1
-  %8 = icmp eq i32 %7, 0
-  %tobool12.not = xor i1 %8, %tobool.not.i24
+  %7 = trunc i32 %5 to i1
+  %8 = icmp eq i8 %6, 0
+  %tobool12.not = xor i1 %8, %7
   br i1 %tobool12.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %nghttp2_session_is_my_stream_id.exit
@@ -12659,10 +12636,9 @@ entry:
 nghttp2_session_is_my_stream_id.exit:             ; preds = %entry
   %server.i = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server.i, align 4
-  %tobool.not.i = icmp ne i8 %0, 0
-  %1 = and i32 %last_stream_id, 1
-  %2 = icmp eq i32 %1, 0
-  %tobool.not = xor i1 %2, %tobool.not.i
+  %1 = trunc i32 %last_stream_id to i1
+  %2 = icmp eq i8 %0, 0
+  %tobool.not = xor i1 %2, %1
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %nghttp2_session_is_my_stream_id.exit
@@ -13435,13 +13411,12 @@ sw.epilog:                                        ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 447, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %sw.epilog, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.nghttp2_session_get_remote_settings, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.nghttp2_session_get_remote_settings, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 %switch.load
   %retval.0 = load i32, ptr %no_rfc7540_priorities, align 4
@@ -13462,13 +13437,12 @@ sw.epilog:                                        ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 447, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %sw.epilog, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.nghttp2_session_get_local_settings, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.nghttp2_session_get_local_settings, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 %switch.load
   %retval.0 = load i32, ptr %no_rfc7540_priorities, align 4
@@ -13953,10 +13927,9 @@ lor.lhs.false:                                    ; preds = %if.end
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %lor.lhs.false
   %server.i.i = getelementptr inbounds i8, ptr %session, i64 2876
   %2 = load i8, ptr %server.i.i, align 4
-  %tobool.not.i.i = icmp ne i8 %2, 0
-  %3 = and i32 %stream_id, 1
-  %4 = icmp eq i32 %3, 0
-  %tobool.not.i = xor i1 %4, %tobool.not.i.i
+  %3 = trunc i32 %stream_id to i1
+  %4 = icmp eq i8 %2, 0
+  %tobool.not.i = xor i1 %4, %3
   br i1 %tobool.not.i, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -14367,10 +14340,9 @@ if.end2.i:                                        ; preds = %if.end2.i.i
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %if.end2.i
   %server.i.i = getelementptr inbounds i8, ptr %session, i64 2876
   %15 = load i8, ptr %server.i.i, align 4
-  %tobool.not.i18.i = icmp ne i8 %15, 0
-  %16 = and i32 %14, 1
-  %17 = icmp eq i32 %16, 0
-  %tobool4.not.i = xor i1 %17, %tobool.not.i18.i
+  %16 = trunc i32 %14 to i1
+  %17 = icmp eq i8 %15, 0
+  %tobool4.not.i = xor i1 %17, %16
   br i1 %tobool4.not.i, label %if.end13.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %nghttp2_session_is_my_stream_id.exit.i
@@ -14889,10 +14861,9 @@ nghttp2_session_is_my_stream_id.exit:             ; preds = %entry
   %1 = load ptr, ptr %ptr, align 8
   %server.i = getelementptr inbounds i8, ptr %1, i64 2876
   %2 = load i8, ptr %server.i, align 4
-  %tobool.not.i = icmp ne i8 %2, 0
-  %3 = and i32 %0, 1
-  %4 = icmp eq i32 %3, 0
-  %tobool.not = xor i1 %4, %tobool.not.i
+  %3 = trunc i32 %0 to i1
+  %4 = icmp eq i8 %2, 0
+  %tobool.not = xor i1 %4, %3
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %nghttp2_session_is_my_stream_id.exit
@@ -14964,14 +14935,8 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
 
 declare void @nghttp2_buf_reset(ptr noundef) local_unnamed_addr #3
 
@@ -15102,6 +15067,12 @@ declare void @nghttp2_frame_hd_init(ptr noundef, i64 noundef, i8 noundef zeroext
 
 declare i32 @nghttp2_submit_settings(ptr noundef, i8 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
@@ -15140,8 +15111,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

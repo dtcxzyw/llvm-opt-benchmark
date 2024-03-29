@@ -757,18 +757,17 @@ declare void @zend_llist_clean(ptr noundef) local_unnamed_addr #1
 define internal void @php_sqlite3_error(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca ptr, align 8
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %6 = call i64 @zend_vspprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef %2, ptr noundef nonnull %4) #17
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not4 = icmp eq i8 %10, 0
-  br i1 %.not4, label %16, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @php_sqlite3_exception_ce, align 8
@@ -784,8 +783,8 @@ define internal void @php_sqlite3_error(ptr noundef readonly %0, i32 noundef %1,
 
 18:                                               ; preds = %16, %11
   %19 = load ptr, ptr %5, align 8
-  %.not5 = icmp eq ptr %19, null
-  br i1 %.not5, label %21, label %20
+  %.not4 = icmp eq ptr %19, null
+  br i1 %.not4, label %21, label %20
 
 20:                                               ; preds = %18
   call void @_efree(ptr noundef nonnull %19) #17
@@ -1895,9 +1894,8 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
 
 63:                                               ; preds = %60
   %64 = load i8, ptr %5, align 1
-  %65 = and i8 %64, 1
-  %.not54 = icmp eq i8 %65, 0
-  br i1 %.not54, label %66, label %68
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %68, label %66
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %6, align 8
@@ -1915,14 +1913,14 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
   br i1 %73, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %68, %.lr.ph
-  %.056 = phi i32 [ %78, %.lr.ph ], [ 0, %68 ]
+  %.054 = phi i32 [ %78, %.lr.ph ], [ 0, %68 ]
   %74 = load ptr, ptr %6, align 8
-  call fastcc void @sqlite_value_to_zval(ptr noundef %74, i32 noundef %.056, ptr noundef nonnull %7)
+  call fastcc void @sqlite_value_to_zval(ptr noundef %74, i32 noundef %.054, ptr noundef nonnull %7)
   %75 = load ptr, ptr %6, align 8
-  %76 = call ptr @sqlite3_column_name(ptr noundef %75, i32 noundef %.056) #17
+  %76 = call ptr @sqlite3_column_name(ptr noundef %75, i32 noundef %.054) #17
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #18
   call void @add_assoc_zval_ex(ptr noundef nonnull %1, ptr noundef %76, i64 noundef %77, ptr noundef nonnull %7) #17
-  %78 = add nuw nsw i32 %.056, 1
+  %78 = add nuw nsw i32 %.054, 1
   %79 = load ptr, ptr %6, align 8
   %80 = call i32 @sqlite3_data_count(ptr noundef %79) #17
   %81 = icmp slt i32 %78, %80
@@ -1930,9 +1928,8 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
 
 82:                                               ; preds = %60
   %83 = load i8, ptr %5, align 1
-  %84 = and i8 %83, 1
-  %.not53 = icmp eq i8 %84, 0
-  br i1 %.not53, label %85, label %87
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %87, label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1947,8 +1944,8 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
 
 89:                                               ; preds = %60
   %90 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not55 = icmp eq ptr %90, null
-  br i1 %.not55, label %91, label %96
+  %.not53 = icmp eq ptr %90, null
+  br i1 %.not53, label %91, label %96
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %51, align 8
@@ -2776,33 +2773,31 @@ define hidden void @zim_SQLite3_enableExceptions(ptr nocapture noundef readonly 
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
-  br label %23
+  br label %25
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %5, i64 -64
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  %17 = select i1 %.not, i32 2, i32 3
+  %16 = trunc i8 %15 to i1
+  %17 = select i1 %16, i32 3, i32 2
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %17, ptr %18, align 8
   %19 = load i8, ptr %3, align 1
-  %20 = and i8 %19, 1
-  %.not6 = icmp eq i8 %20, 0
-  br i1 %.not6, label %21, label %22
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %13
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef nonnull @.str.33, i32 noundef 8192, ptr noundef nonnull @.str.34) #17
   %.pre = load i8, ptr %3, align 1
-  %.pre7 = and i8 %.pre, 1
   br label %22
 
 22:                                               ; preds = %21, %13
-  %.pre-phi = phi i8 [ %.pre7, %21 ], [ 1, %13 ]
-  store i8 %.pre-phi, ptr %14, align 8
-  br label %23
+  %23 = phi i8 [ %.pre, %21 ], [ %19, %13 ]
+  %24 = and i8 %23, 1
+  store i8 %24, ptr %14, align 8
+  br label %25
 
-23:                                               ; preds = %22, %10
+25:                                               ; preds = %22, %10
   ret void
 }
 
@@ -3496,59 +3491,59 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
   %7 = getelementptr inbounds i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 1
-  br i1 %9, label %.thread223, label %10
+  br i1 %9, label %.thread222, label %10
 
-.thread223:                                       ; preds = %2
+.thread222:                                       ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
   br label %19
 
 10:                                               ; preds = %2
   %11 = icmp eq i32 %8, 0
-  br i1 %11, label %.thread217, label %12
+  br i1 %11, label %.thread216, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   switch i8 %14, label %16 [
-    i8 3, label %.thread233
+    i8 3, label %.thread232
     i8 2, label %15
   ]
 
 15:                                               ; preds = %12
-  br label %.thread233
+  br label %.thread232
 
-.thread233:                                       ; preds = %15, %12
+.thread232:                                       ; preds = %15, %12
   %storemerge = phi i8 [ 0, %15 ], [ 1, %12 ]
   store i8 %storemerge, ptr %3, align 1
-  br label %.thread217
+  br label %.thread216
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   %18 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 1) #17
-  %cond.fr206 = freeze i1 %18
-  br i1 %cond.fr206, label %.thread217, label %19
+  %cond.fr205 = freeze i1 %18
+  br i1 %cond.fr205, label %.thread216, label %19
 
-19:                                               ; preds = %16, %.thread223
-  %.0192232 = phi i32 [ 0, %.thread223 ], [ 1, %16 ]
-  %.0193231 = phi ptr [ null, %.thread223 ], [ %17, %16 ]
-  %.0194230 = phi i32 [ 0, %.thread223 ], [ 2, %16 ]
-  %.0195229 = phi i32 [ 1, %.thread223 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0195229, i32 noundef %.0192232, ptr noundef null, i32 noundef %.0194230, ptr noundef %.0193231) #17
+19:                                               ; preds = %16, %.thread222
+  %.0192231 = phi i32 [ 0, %.thread222 ], [ 1, %16 ]
+  %.0193230 = phi ptr [ null, %.thread222 ], [ %17, %16 ]
+  %.0194229 = phi i32 [ 0, %.thread222 ], [ 2, %16 ]
+  %.0195228 = phi i32 [ 1, %.thread222 ], [ 9, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0195228, i32 noundef %.0192231, ptr noundef null, i32 noundef %.0194229, ptr noundef %.0193230) #17
   br label %67
 
-.thread217:                                       ; preds = %16, %.thread233, %10
+.thread216:                                       ; preds = %16, %.thread232, %10
   %20 = getelementptr inbounds i8, ptr %5, i64 -40
   %21 = load ptr, ptr %20, align 8
   %.not200 = icmp eq ptr %21, null
   br i1 %.not200, label %25, label %22
 
-22:                                               ; preds = %.thread217
+22:                                               ; preds = %.thread216
   %23 = getelementptr inbounds i8, ptr %5, i64 -16
   %24 = load i32, ptr %23, align 8
   %.not201 = icmp eq i32 %24, 0
   br i1 %.not201, label %25, label %28
 
-25:                                               ; preds = %22, %.thread217
+25:                                               ; preds = %22, %.thread216
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
   %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %27 = icmp ne ptr %26, null
@@ -3582,11 +3577,10 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
 
 40:                                               ; preds = %33
   %41 = load i8, ptr %3, align 1
-  %42 = and i8 %41, 1
-  %.not203 = icmp eq i8 %42, 0
+  %42 = trunc i8 %41 to i1
   %43 = load ptr, ptr %6, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %.not203, label %56, label %45
+  br i1 %42, label %45, label %56
 
 45:                                               ; preds = %40
   %46 = call ptr @sqlite3_expanded_sql(ptr noundef %43) #17
@@ -8066,13 +8060,7 @@ define internal void @zm_globals_ctor_sqlite3(ptr nocapture noundef writeonly %0
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 declare void @add_assoc_string_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8463,7 +8451,7 @@ declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_sqlite3_stream_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -8581,12 +8569,12 @@ define internal noundef i32 @php_sqlite3_stream_close(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_sqlite3_stream_flush(ptr nocapture readnone %0) #11 {
+define internal noundef i32 @php_sqlite3_stream_flush(ptr nocapture readnone %0) #10 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #12 {
+define internal noundef i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #11 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
@@ -8709,12 +8697,12 @@ define internal noundef i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_sqlite3_stream_cast(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #11 {
+define internal noundef i32 @php_sqlite3_stream_cast(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #10 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_sqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #13 {
+define internal noundef i32 @php_sqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -8765,7 +8753,7 @@ declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 declare zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -8909,6 +8897,12 @@ declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #1
 
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
@@ -8927,12 +8921,12 @@ attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind }

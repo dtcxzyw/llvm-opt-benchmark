@@ -497,9 +497,8 @@ define void @_ZN3nix28ChunkedVector_InitEmpty_Test8TestBodyEv(ptr nocapture nonn
 
 _ZN7testing8internal8EqHelper7CompareIjiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %10, %11
   %12 = load i8, ptr %3, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %18, label %40
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %40, label %18
 
 14:                                               ; preds = %11, %10
   %15 = landingpad { ptr, i32 }
@@ -866,9 +865,8 @@ define void @_ZN3nix33ChunkedVector_GrowsCorrectly_Test8TestBodyEv(ptr nocapture
 
 _ZN7testing8internal8EqHelper7CompareIjiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %15, %16
   %17 = load i8, ptr %4, align 8
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %23, label %.critedge
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %.critedge, label %23
 
 19:                                               ; preds = %16, %15, %9
   %20 = landingpad { ptr, i32 }
@@ -1164,8 +1162,8 @@ define void @_ZN3nix28ChunkedVector_AddAndGet_Test8TestBodyEv(ptr nocapture nonn
   br label %15
 
 15:                                               ; preds = %1, %121
-  %storemerge56 = phi i32 [ 1, %1 ], [ %123, %121 ]
-  %16 = invoke { ptr, i32 } @_ZN3nix13ChunkedVectorIiLm2EE3addEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %storemerge56)
+  %storemerge55 = phi i32 [ 1, %1 ], [ %123, %121 ]
+  %16 = invoke { ptr, i32 } @_ZN3nix13ChunkedVectorIiLm2EE3addEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %storemerge55)
           to label %17 unwind label %34
 
 17:                                               ; preds = %15
@@ -1193,9 +1191,8 @@ define void @_ZN3nix28ChunkedVector_AddAndGet_Test8TestBodyEv(ptr nocapture nonn
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %30, %31
   %32 = load i8, ptr %4, align 8
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %38, label %.critedge
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %.critedge, label %38
 
 34:                                               ; preds = %78, %77, %31, %30, %15
   %35 = landingpad { ptr, i32 }
@@ -1337,9 +1334,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing8internal8EqHelper7CompareIPiPKiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit: ; preds = %77, %78
   %79 = load i8, ptr %7, align 8
-  %80 = and i8 %79, 1
-  %.not55 = icmp eq i8 %80, 0
-  br i1 %.not55, label %84, label %.critedge23
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %.critedge23, label %84
 
 81:                                               ; preds = %_ZN7testing7MessageD2Ev.exit29, %36
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %37, %36 ]
@@ -1478,10 +1474,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %134
 
 .loopexit.sink.split.sink.split:                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  %.sink58 = phi ptr [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43 ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45 ]
+  %.sink57 = phi ptr [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43 ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45 ]
   %.sink.ph = phi ptr [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink58) #17
-  call void @_ZdlPv(ptr noundef nonnull %.sink58) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink57) #17
+  call void @_ZdlPv(ptr noundef nonnull %.sink57) #20
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %_ZN7testing7MessageD2Ev.exit41, %_ZN7testing7MessageD2Ev.exit
@@ -1617,9 +1613,8 @@ define void @_ZN3nix26ChunkedVector_ForEach_Test8TestBodyEv(ptr nocapture nonnul
 
 _ZN7testing8internal8EqHelper7CompareIijTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %35, %36
   %37 = load i8, ptr %4, align 8
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %41, label %63
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %63, label %41
 
 39:                                               ; preds = %41
   %40 = landingpad { ptr, i32 }
@@ -1791,8 +1786,8 @@ define void @_ZN3nix29ChunkedVector_OverflowOK_Test8TestBodyEv(ptr nocapture non
   br label %15
 
 15:                                               ; preds = %1, %121
-  %storemerge56 = phi i32 [ 1, %1 ], [ %123, %121 ]
-  %16 = invoke { ptr, i32 } @_ZN3nix13ChunkedVectorIiLm2EE3addEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %storemerge56)
+  %storemerge55 = phi i32 [ 1, %1 ], [ %123, %121 ]
+  %16 = invoke { ptr, i32 } @_ZN3nix13ChunkedVectorIiLm2EE3addEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %storemerge55)
           to label %17 unwind label %34
 
 17:                                               ; preds = %15
@@ -1820,9 +1815,8 @@ define void @_ZN3nix29ChunkedVector_OverflowOK_Test8TestBodyEv(ptr nocapture non
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %30, %31
   %32 = load i8, ptr %4, align 8
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %38, label %.critedge
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %.critedge, label %38
 
 34:                                               ; preds = %78, %77, %31, %30, %15
   %35 = landingpad { ptr, i32 }
@@ -1964,9 +1958,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing8internal8EqHelper7CompareIPiPKiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit: ; preds = %77, %78
   %79 = load i8, ptr %7, align 8
-  %80 = and i8 %79, 1
-  %.not55 = icmp eq i8 %80, 0
-  br i1 %.not55, label %84, label %.critedge23
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %.critedge23, label %84
 
 81:                                               ; preds = %_ZN7testing7MessageD2Ev.exit29, %36
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %37, %36 ]
@@ -2105,10 +2098,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %134
 
 .loopexit.sink.split.sink.split:                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  %.sink58 = phi ptr [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43 ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45 ]
+  %.sink57 = phi ptr [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43 ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45 ]
   %.sink.ph = phi ptr [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i43 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i45 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink58) #17
-  call void @_ZdlPv(ptr noundef nonnull %.sink58) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink57) #17
+  call void @_ZdlPv(ptr noundef nonnull %.sink57) #20
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %_ZN7testing7MessageD2Ev.exit41, %_ZN7testing7MessageD2Ev.exit

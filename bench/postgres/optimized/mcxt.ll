@@ -90,9 +90,8 @@ define dso_local void @MemoryContextReset(ptr noundef %0) local_unnamed_addr #0 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not4 = icmp eq i8 %8, 0
-  br i1 %.not4, label %9, label %23
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %23, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 72
@@ -213,9 +212,8 @@ MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallRe
 define dso_local void @MemoryContextResetOnly(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %19
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -261,9 +259,8 @@ define dso_local void @MemoryContextResetChildren(ptr nocapture noundef readonly
   tail call void @MemoryContextResetChildren(ptr noundef nonnull %.07)
   %3 = getelementptr inbounds i8, ptr %.07, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %MemoryContextResetOnly.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %MemoryContextResetOnly.exit, label %6
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds i8, ptr %.07, i64 72
@@ -761,7 +758,7 @@ define dso_local void @MemoryContextCreate(ptr noundef %0, i32 noundef %1, i32 n
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %.not = icmp eq ptr %3, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  br i1 %.not, label %25, label %15
+  br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %3, i64 32
@@ -780,18 +777,19 @@ define dso_local void @MemoryContextCreate(ptr noundef %0, i32 noundef %1, i32 n
   store ptr %0, ptr %16, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 5
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  br label %27
+  %24 = getelementptr inbounds i8, ptr %0, i64 5
+  %25 = and i8 %23, 1
+  store i8 %25, ptr %24, align 1
+  br label %29
 
-25:                                               ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr null, ptr %26, align 8
-  br label %27
-
-27:                                               ; preds = %25, %21
-  %.sink = phi i8 [ 0, %25 ], [ %24, %21 ]
+26:                                               ; preds = %5
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 5
-  store i8 %.sink, ptr %28, align 1
+  store i8 0, ptr %28, align 1
+  br label %29
+
+29:                                               ; preds = %26, %21
   ret void
 }
 

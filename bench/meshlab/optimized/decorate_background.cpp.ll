@@ -3003,7 +3003,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.preheader, %104
-  %trunc.not.not = phi i1 [ true, %.preheader ], [ false, %104 ]
+  %.not.i = phi i1 [ true, %.preheader ], [ false, %104 ]
   %.08694 = phi i32 [ 0, %.preheader ], [ 1, %104 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
@@ -3017,8 +3017,9 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   store float 0.000000e+00, ptr %51, align 8
   store <2 x float> %62, ptr %20, align 8
   store float %63, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %.sink45.i = select i1 %trunc.not.not, ptr %65, ptr %64
-  %.sink.i = select i1 %trunc.not.not, float 1.000000e+00, float -1.000000e+00
+  %trunc = trunc i32 %.08694 to i1
+  %.sink45.i = select i1 %trunc, ptr %64, ptr %65
+  %.sink.i = select i1 %trunc, float -1.000000e+00, float 1.000000e+00
   %79 = load float, ptr %.sink45.i, align 4
   store float %79, ptr %76, align 4
   store float %.sink.i, ptr %77, align 4
@@ -3070,7 +3071,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   tail call void @glPushAttrib(i32 noundef 1048575)
   tail call void @glDisable(i32 noundef 2896)
   tail call void @glPushMatrix()
-  %..i = select i1 %trunc.not.not, ptr %13, ptr %14
+  %..i = select i1 %.not.i, ptr %13, ptr %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %..i, i64 12, i1 false)
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %16, align 8
   store float 1.000000e+00, ptr %56, align 8
@@ -3100,7 +3101,7 @@ _Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Poi
   br label %104
 
 104:                                              ; preds = %.sink.split.i, %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit, %93
-  br i1 %trunc.not.not, label %.sink.split.i, label %105, !llvm.loop !88
+  br i1 %.not.i, label %.sink.split.i, label %105, !llvm.loop !88
 
 105:                                              ; preds = %104
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 3

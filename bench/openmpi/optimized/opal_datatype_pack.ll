@@ -5531,9 +5531,9 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2600, ptr %.127684402.i.i, align 1
   %2601 = getelementptr inbounds i8, ptr %.127794401.i.i, i64 1
   %2602 = load i8, ptr %2601, align 1
-  %2603 = and i8 %2602, 1
-  %2604 = getelementptr inbounds i8, ptr %.127684402.i.i, i64 1
-  store i8 %2603, ptr %2604, align 1
+  %2603 = getelementptr inbounds i8, ptr %.127684402.i.i, i64 1
+  %2604 = and i8 %2602, 1
+  store i8 %2604, ptr %2603, align 1
   %2605 = getelementptr inbounds i8, ptr %.127794401.i.i, i64 %2587
   %2606 = getelementptr inbounds i8, ptr %.127684402.i.i, i64 2
   %2607 = add i64 %.127904400.i.i, -2
@@ -5549,14 +5549,14 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2610, ptr %.227694395.i.i, align 1
   %2611 = getelementptr inbounds i8, ptr %.227804394.i.i, i64 1
   %2612 = load i8, ptr %2611, align 1
-  %2613 = and i8 %2612, 1
-  %2614 = getelementptr inbounds i8, ptr %.227694395.i.i, i64 1
-  store i8 %2613, ptr %2614, align 1
+  %2613 = getelementptr inbounds i8, ptr %.227694395.i.i, i64 1
+  %2614 = and i8 %2612, 1
+  store i8 %2614, ptr %2613, align 1
   %2615 = getelementptr inbounds i8, ptr %.227804394.i.i, i64 2
   %2616 = load i8, ptr %2615, align 1
-  %2617 = and i8 %2616, 1
-  %2618 = getelementptr inbounds i8, ptr %.227694395.i.i, i64 2
-  store i8 %2617, ptr %2618, align 1
+  %2617 = getelementptr inbounds i8, ptr %.227694395.i.i, i64 2
+  %2618 = and i8 %2616, 1
+  store i8 %2618, ptr %2617, align 1
   %2619 = getelementptr inbounds i8, ptr %.227804394.i.i, i64 %2587
   %2620 = getelementptr inbounds i8, ptr %.227694395.i.i, i64 3
   %2621 = add i64 %.227914393.i.i, -3
@@ -5572,19 +5572,19 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2624, ptr %.327704388.i.i, align 1
   %2625 = getelementptr inbounds i8, ptr %.327814387.i.i, i64 1
   %2626 = load i8, ptr %2625, align 1
-  %2627 = and i8 %2626, 1
-  %2628 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 1
-  store i8 %2627, ptr %2628, align 1
+  %2627 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 1
+  %2628 = and i8 %2626, 1
+  store i8 %2628, ptr %2627, align 1
   %2629 = getelementptr inbounds i8, ptr %.327814387.i.i, i64 2
   %2630 = load i8, ptr %2629, align 1
-  %2631 = and i8 %2630, 1
-  %2632 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 2
-  store i8 %2631, ptr %2632, align 1
+  %2631 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 2
+  %2632 = and i8 %2630, 1
+  store i8 %2632, ptr %2631, align 1
   %2633 = getelementptr inbounds i8, ptr %.327814387.i.i, i64 3
   %2634 = load i8, ptr %2633, align 1
-  %2635 = and i8 %2634, 1
-  %2636 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 3
-  store i8 %2635, ptr %2636, align 1
+  %2635 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 3
+  %2636 = and i8 %2634, 1
+  store i8 %2636, ptr %2635, align 1
   %2637 = getelementptr inbounds i8, ptr %.327814387.i.i, i64 %2587
   %2638 = getelementptr inbounds i8, ptr %.327704388.i.i, i64 4
   %2639 = add i64 %.327924386.i.i, -4
@@ -5600,24 +5600,24 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2642, ptr %.427714381.i.i, align 1
   %2643 = getelementptr inbounds i8, ptr %.427824380.i.i, i64 1
   %2644 = load i8, ptr %2643, align 1
-  %2645 = and i8 %2644, 1
-  %2646 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 1
-  store i8 %2645, ptr %2646, align 1
+  %2645 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 1
+  %2646 = and i8 %2644, 1
+  store i8 %2646, ptr %2645, align 1
   %2647 = getelementptr inbounds i8, ptr %.427824380.i.i, i64 2
   %2648 = load i8, ptr %2647, align 1
-  %2649 = and i8 %2648, 1
-  %2650 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 2
-  store i8 %2649, ptr %2650, align 1
+  %2649 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 2
+  %2650 = and i8 %2648, 1
+  store i8 %2650, ptr %2649, align 1
   %2651 = getelementptr inbounds i8, ptr %.427824380.i.i, i64 3
   %2652 = load i8, ptr %2651, align 1
-  %2653 = and i8 %2652, 1
-  %2654 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 3
-  store i8 %2653, ptr %2654, align 1
+  %2653 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 3
+  %2654 = and i8 %2652, 1
+  store i8 %2654, ptr %2653, align 1
   %2655 = getelementptr inbounds i8, ptr %.427824380.i.i, i64 4
   %2656 = load i8, ptr %2655, align 1
-  %2657 = and i8 %2656, 1
-  %2658 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 4
-  store i8 %2657, ptr %2658, align 1
+  %2657 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 4
+  %2658 = and i8 %2656, 1
+  store i8 %2658, ptr %2657, align 1
   %2659 = getelementptr inbounds i8, ptr %.427824380.i.i, i64 %2587
   %2660 = getelementptr inbounds i8, ptr %.427714381.i.i, i64 5
   %2661 = add i64 %.427934379.i.i, -5
@@ -5633,29 +5633,29 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2664, ptr %.527724374.i.i, align 1
   %2665 = getelementptr inbounds i8, ptr %.527834373.i.i, i64 1
   %2666 = load i8, ptr %2665, align 1
-  %2667 = and i8 %2666, 1
-  %2668 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 1
-  store i8 %2667, ptr %2668, align 1
+  %2667 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 1
+  %2668 = and i8 %2666, 1
+  store i8 %2668, ptr %2667, align 1
   %2669 = getelementptr inbounds i8, ptr %.527834373.i.i, i64 2
   %2670 = load i8, ptr %2669, align 1
-  %2671 = and i8 %2670, 1
-  %2672 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 2
-  store i8 %2671, ptr %2672, align 1
+  %2671 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 2
+  %2672 = and i8 %2670, 1
+  store i8 %2672, ptr %2671, align 1
   %2673 = getelementptr inbounds i8, ptr %.527834373.i.i, i64 3
   %2674 = load i8, ptr %2673, align 1
-  %2675 = and i8 %2674, 1
-  %2676 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 3
-  store i8 %2675, ptr %2676, align 1
+  %2675 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 3
+  %2676 = and i8 %2674, 1
+  store i8 %2676, ptr %2675, align 1
   %2677 = getelementptr inbounds i8, ptr %.527834373.i.i, i64 4
   %2678 = load i8, ptr %2677, align 1
-  %2679 = and i8 %2678, 1
-  %2680 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 4
-  store i8 %2679, ptr %2680, align 1
+  %2679 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 4
+  %2680 = and i8 %2678, 1
+  store i8 %2680, ptr %2679, align 1
   %2681 = getelementptr inbounds i8, ptr %.527834373.i.i, i64 5
   %2682 = load i8, ptr %2681, align 1
-  %2683 = and i8 %2682, 1
-  %2684 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 5
-  store i8 %2683, ptr %2684, align 1
+  %2683 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 5
+  %2684 = and i8 %2682, 1
+  store i8 %2684, ptr %2683, align 1
   %2685 = getelementptr inbounds i8, ptr %.527834373.i.i, i64 %2587
   %2686 = getelementptr inbounds i8, ptr %.527724374.i.i, i64 6
   %2687 = add i64 %.527944372.i.i, -6
@@ -5671,34 +5671,34 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2690, ptr %.627734367.i.i, align 1
   %2691 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 1
   %2692 = load i8, ptr %2691, align 1
-  %2693 = and i8 %2692, 1
-  %2694 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 1
-  store i8 %2693, ptr %2694, align 1
+  %2693 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 1
+  %2694 = and i8 %2692, 1
+  store i8 %2694, ptr %2693, align 1
   %2695 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 2
   %2696 = load i8, ptr %2695, align 1
-  %2697 = and i8 %2696, 1
-  %2698 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 2
-  store i8 %2697, ptr %2698, align 1
+  %2697 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 2
+  %2698 = and i8 %2696, 1
+  store i8 %2698, ptr %2697, align 1
   %2699 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 3
   %2700 = load i8, ptr %2699, align 1
-  %2701 = and i8 %2700, 1
-  %2702 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 3
-  store i8 %2701, ptr %2702, align 1
+  %2701 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 3
+  %2702 = and i8 %2700, 1
+  store i8 %2702, ptr %2701, align 1
   %2703 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 4
   %2704 = load i8, ptr %2703, align 1
-  %2705 = and i8 %2704, 1
-  %2706 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 4
-  store i8 %2705, ptr %2706, align 1
+  %2705 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 4
+  %2706 = and i8 %2704, 1
+  store i8 %2706, ptr %2705, align 1
   %2707 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 5
   %2708 = load i8, ptr %2707, align 1
-  %2709 = and i8 %2708, 1
-  %2710 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 5
-  store i8 %2709, ptr %2710, align 1
+  %2709 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 5
+  %2710 = and i8 %2708, 1
+  store i8 %2710, ptr %2709, align 1
   %2711 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 6
   %2712 = load i8, ptr %2711, align 1
-  %2713 = and i8 %2712, 1
-  %2714 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 6
-  store i8 %2713, ptr %2714, align 1
+  %2713 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 6
+  %2714 = and i8 %2712, 1
+  store i8 %2714, ptr %2713, align 1
   %2715 = getelementptr inbounds i8, ptr %.627844366.i.i, i64 %2587
   %2716 = getelementptr inbounds i8, ptr %.627734367.i.i, i64 7
   %2717 = add i64 %.627954365.i.i, -7
@@ -5720,39 +5720,39 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   store i8 %2723, ptr %.72774.i.i, align 1
   %2724 = getelementptr inbounds i8, ptr %.72785.i.i, i64 1
   %2725 = load i8, ptr %2724, align 1
-  %2726 = and i8 %2725, 1
-  %2727 = getelementptr inbounds i8, ptr %.72774.i.i, i64 1
-  store i8 %2726, ptr %2727, align 1
+  %2726 = getelementptr inbounds i8, ptr %.72774.i.i, i64 1
+  %2727 = and i8 %2725, 1
+  store i8 %2727, ptr %2726, align 1
   %2728 = getelementptr inbounds i8, ptr %.72785.i.i, i64 2
   %2729 = load i8, ptr %2728, align 1
-  %2730 = and i8 %2729, 1
-  %2731 = getelementptr inbounds i8, ptr %.72774.i.i, i64 2
-  store i8 %2730, ptr %2731, align 1
+  %2730 = getelementptr inbounds i8, ptr %.72774.i.i, i64 2
+  %2731 = and i8 %2729, 1
+  store i8 %2731, ptr %2730, align 1
   %2732 = getelementptr inbounds i8, ptr %.72785.i.i, i64 3
   %2733 = load i8, ptr %2732, align 1
-  %2734 = and i8 %2733, 1
-  %2735 = getelementptr inbounds i8, ptr %.72774.i.i, i64 3
-  store i8 %2734, ptr %2735, align 1
+  %2734 = getelementptr inbounds i8, ptr %.72774.i.i, i64 3
+  %2735 = and i8 %2733, 1
+  store i8 %2735, ptr %2734, align 1
   %2736 = getelementptr inbounds i8, ptr %.72785.i.i, i64 4
   %2737 = load i8, ptr %2736, align 1
-  %2738 = and i8 %2737, 1
-  %2739 = getelementptr inbounds i8, ptr %.72774.i.i, i64 4
-  store i8 %2738, ptr %2739, align 1
+  %2738 = getelementptr inbounds i8, ptr %.72774.i.i, i64 4
+  %2739 = and i8 %2737, 1
+  store i8 %2739, ptr %2738, align 1
   %2740 = getelementptr inbounds i8, ptr %.72785.i.i, i64 5
   %2741 = load i8, ptr %2740, align 1
-  %2742 = and i8 %2741, 1
-  %2743 = getelementptr inbounds i8, ptr %.72774.i.i, i64 5
-  store i8 %2742, ptr %2743, align 1
+  %2742 = getelementptr inbounds i8, ptr %.72774.i.i, i64 5
+  %2743 = and i8 %2741, 1
+  store i8 %2743, ptr %2742, align 1
   %2744 = getelementptr inbounds i8, ptr %.72785.i.i, i64 6
   %2745 = load i8, ptr %2744, align 1
-  %2746 = and i8 %2745, 1
-  %2747 = getelementptr inbounds i8, ptr %.72774.i.i, i64 6
-  store i8 %2746, ptr %2747, align 1
+  %2746 = getelementptr inbounds i8, ptr %.72774.i.i, i64 6
+  %2747 = and i8 %2745, 1
+  store i8 %2747, ptr %2746, align 1
   %2748 = getelementptr inbounds i8, ptr %.72785.i.i, i64 7
   %2749 = load i8, ptr %2748, align 1
-  %2750 = and i8 %2749, 1
-  %2751 = getelementptr inbounds i8, ptr %.72774.i.i, i64 7
-  store i8 %2750, ptr %2751, align 1
+  %2750 = getelementptr inbounds i8, ptr %.72774.i.i, i64 7
+  %2751 = and i8 %2749, 1
+  store i8 %2751, ptr %2750, align 1
   %2752 = getelementptr inbounds i8, ptr %.72785.i.i, i64 %2587
   %2753 = getelementptr inbounds i8, ptr %.72774.i.i, i64 8
   %2754 = add i64 %.72796.i.i, -8
@@ -5769,12 +5769,12 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
 .preheader3724.i.i:                               ; preds = %.loopexit3727.i.i, %.preheader3724.i.i
   %.92798.i.i = phi i64 [ %2759, %.preheader3724.i.i ], [ %.82797.i.i, %.loopexit3727.i.i ]
   %.92787.i.i = phi ptr [ %2755, %.preheader3724.i.i ], [ %.82786.i.i, %.loopexit3727.i.i ]
-  %.92776.i.i = phi ptr [ %2758, %.preheader3724.i.i ], [ %.82775.i.i, %.loopexit3727.i.i ]
+  %.92776.i.i = phi ptr [ %2757, %.preheader3724.i.i ], [ %.82775.i.i, %.loopexit3727.i.i ]
   %2755 = getelementptr inbounds i8, ptr %.92787.i.i, i64 1
   %2756 = load i8, ptr %.92787.i.i, align 1
-  %2757 = and i8 %2756, 1
-  %2758 = getelementptr inbounds i8, ptr %.92776.i.i, i64 1
-  store i8 %2757, ptr %.92776.i.i, align 1
+  %2757 = getelementptr inbounds i8, ptr %.92776.i.i, i64 1
+  %2758 = and i8 %2756, 1
+  store i8 %2758, ptr %.92776.i.i, align 1
   %2759 = add i64 %.92798.i.i, -1
   %.old99.not.i.i = icmp eq i64 %2759, 0
   br i1 %.old99.not.i.i, label %pack_predefined_data.exit, label %.preheader3724.i.i
@@ -6146,7 +6146,7 @@ opal_datatype_pack_predefined_element.exit.thread87.i: ; preds = %opal_datatype_
 
 pack_predefined_data.exit:                        ; preds = %.lr.ph4019.i.i, %.preheader3868.i.i, %.lr.ph4068.i.i, %.preheader3850.i.i, %.lr.ph4117.i.i, %.preheader3832.i.i, %.lr.ph4166.i.i, %.preheader3814.i.i, %.lr.ph4215.i.i, %.preheader3796.i.i, %.lr.ph4264.i.i, %.preheader3778.i.i, %.lr.ph4313.i.i, %.preheader3760.i.i, %.lr.ph4362.i.i, %.preheader3742.i.i, %.lr.ph4411.i.i, %.preheader3724.i.i, %.lr.ph4460.i.i, %.preheader3706.i.i, %.lr.ph4509.i.i, %.preheader3688.i.i, %.lr.ph4558.i.i, %.preheader3670.i.i, %.lr.ph4607.i.i, %.preheader3652.i.i, %.lr.ph4656.i.i, %.preheader3634.i.i, %.lr.ph4705.i.i, %.preheader3616.i.i, %.lr.ph4754.i.i, %.preheader3598.i.i, %.lr.ph4803.i.i, %.preheader3580.i.i, %.lr.ph4852.i.i, %.preheader.i.i, %2909, %.preheader3566.i.i, %.loopexit.i.i, %.preheader3584.i.i, %.loopexit3583.i.i, %.preheader3602.i.i, %.loopexit3601.i.i, %.preheader3620.i.i, %.loopexit3619.i.i, %.preheader3656.i.i, %.loopexit3655.i.i, %.preheader3674.i.i, %.loopexit3673.i.i, %.preheader3692.i.i, %.loopexit3691.i.i, %.preheader3710.i.i, %.loopexit3709.i.i, %.preheader3746.i.i, %.loopexit3745.i.i, %.preheader3764.i.i, %.loopexit3763.i.i, %.preheader3782.i.i, %.loopexit3781.i.i, %.preheader3818.i.i, %.loopexit3817.i.i, %.preheader3836.i.i, %.loopexit3835.i.i, %.preheader3854.i.i, %.loopexit3853.i.i, %.preheader3872.i.i, %.loopexit3871.i.i, %.preheader3800.i.i, %.loopexit3799.i.i, %.preheader3728.i.i, %.loopexit3727.i.i, %.preheader3638.i.i, %.loopexit3637.i.i, %.preheader.i, %.loopexit.i, %2930
   %.583.i = phi ptr [ %.482.i, %.loopexit.i ], [ %2940, %2930 ], [ %126, %.preheader3872.i.i ], [ %126, %.preheader3854.i.i ], [ %126, %.preheader3836.i.i ], [ %126, %.preheader3818.i.i ], [ %126, %.preheader3800.i.i ], [ %126, %.preheader3782.i.i ], [ %126, %.preheader3764.i.i ], [ %126, %.preheader3746.i.i ], [ %126, %.preheader3728.i.i ], [ %126, %.preheader3710.i.i ], [ %126, %.preheader3692.i.i ], [ %126, %.preheader3674.i.i ], [ %126, %.preheader3656.i.i ], [ %126, %.preheader3638.i.i ], [ %126, %.preheader3620.i.i ], [ %126, %.preheader3602.i.i ], [ %126, %.preheader3584.i.i ], [ %126, %.preheader3566.i.i ], [ %.82915.i.i, %.loopexit.i.i ], [ %.83043.i.i, %.loopexit3583.i.i ], [ %.83171.i.i, %.loopexit3601.i.i ], [ %.83299.i.i, %.loopexit3619.i.i ], [ %.83278.i.i, %.loopexit3655.i.i ], [ %.83236.i.i, %.loopexit3673.i.i ], [ %.83193.i.i, %.loopexit3691.i.i ], [ %.83150.i.i, %.loopexit3709.i.i ], [ %.83108.i.i, %.loopexit3745.i.i ], [ %.83065.i.i, %.loopexit3763.i.i ], [ %.83022.i.i, %.loopexit3781.i.i ], [ %.82980.i.i, %.loopexit3817.i.i ], [ %.82937.i.i, %.loopexit3835.i.i ], [ %.82894.i.i, %.loopexit3853.i.i ], [ %.82852.i.i, %.loopexit3871.i.i ], [ %.82819.i.i, %.loopexit3799.i.i ], [ %.82786.i.i, %.loopexit3727.i.i ], [ %.82753.i.i, %.loopexit3637.i.i ], [ %126, %.preheader.i ], [ %2914, %2909 ], [ %274, %.preheader.i.i ], [ %150, %.lr.ph4852.i.i ], [ %421, %.preheader3580.i.i ], [ %297, %.lr.ph4803.i.i ], [ %568, %.preheader3598.i.i ], [ %444, %.lr.ph4754.i.i ], [ %715, %.preheader3616.i.i ], [ %591, %.lr.ph4705.i.i ], [ %2903, %.preheader3634.i.i ], [ %2779, %.lr.ph4656.i.i ], [ %853, %.preheader3652.i.i ], [ %729, %.lr.ph4607.i.i ], [ %1000, %.preheader3670.i.i ], [ %876, %.lr.ph4558.i.i ], [ %1147, %.preheader3688.i.i ], [ %1023, %.lr.ph4509.i.i ], [ %1294, %.preheader3706.i.i ], [ %1170, %.lr.ph4460.i.i ], [ %2755, %.preheader3724.i.i ], [ %2596, %.lr.ph4411.i.i ], [ %1441, %.preheader3742.i.i ], [ %1317, %.lr.ph4362.i.i ], [ %1588, %.preheader3760.i.i ], [ %1464, %.lr.ph4313.i.i ], [ %1735, %.preheader3778.i.i ], [ %1611, %.lr.ph4264.i.i ], [ %2578, %.preheader3796.i.i ], [ %2349, %.lr.ph4215.i.i ], [ %1882, %.preheader3814.i.i ], [ %1758, %.lr.ph4166.i.i ], [ %2030, %.preheader3832.i.i ], [ %1905, %.lr.ph4117.i.i ], [ %2176, %.preheader3850.i.i ], [ %2052, %.lr.ph4068.i.i ], [ %2323, %.preheader3868.i.i ], [ %2199, %.lr.ph4019.i.i ]
-  %.5.i = phi ptr [ %.4.i, %.loopexit.i ], [ %2941, %2930 ], [ %.3186846, %.preheader3872.i.i ], [ %.3186846, %.preheader3854.i.i ], [ %.3186846, %.preheader3836.i.i ], [ %.3186846, %.preheader3818.i.i ], [ %.3186846, %.preheader3800.i.i ], [ %.3186846, %.preheader3782.i.i ], [ %.3186846, %.preheader3764.i.i ], [ %.3186846, %.preheader3746.i.i ], [ %.3186846, %.preheader3728.i.i ], [ %.3186846, %.preheader3710.i.i ], [ %.3186846, %.preheader3692.i.i ], [ %.3186846, %.preheader3674.i.i ], [ %.3186846, %.preheader3656.i.i ], [ %.3186846, %.preheader3638.i.i ], [ %.3186846, %.preheader3620.i.i ], [ %.3186846, %.preheader3602.i.i ], [ %.3186846, %.preheader3584.i.i ], [ %.3186846, %.preheader3566.i.i ], [ %.82958.i.i, %.loopexit.i.i ], [ %.83086.i.i, %.loopexit3583.i.i ], [ %.83214.i.i, %.loopexit3601.i.i ], [ %.83310.i.i, %.loopexit3619.i.i ], [ %.83267.i.i, %.loopexit3655.i.i ], [ %.83225.i.i, %.loopexit3673.i.i ], [ %.83182.i.i, %.loopexit3691.i.i ], [ %.83139.i.i, %.loopexit3709.i.i ], [ %.83097.i.i, %.loopexit3745.i.i ], [ %.83054.i.i, %.loopexit3763.i.i ], [ %.83011.i.i, %.loopexit3781.i.i ], [ %.82969.i.i, %.loopexit3817.i.i ], [ %.82926.i.i, %.loopexit3835.i.i ], [ %.82883.i.i, %.loopexit3853.i.i ], [ %.82841.i.i, %.loopexit3871.i.i ], [ %.82808.i.i, %.loopexit3799.i.i ], [ %.82775.i.i, %.loopexit3727.i.i ], [ %.8.i.i, %.loopexit3637.i.i ], [ %.3186846, %.preheader.i ], [ %2912, %2909 ], [ %276, %.preheader.i.i ], [ %151, %.lr.ph4852.i.i ], [ %423, %.preheader3580.i.i ], [ %298, %.lr.ph4803.i.i ], [ %570, %.preheader3598.i.i ], [ %445, %.lr.ph4754.i.i ], [ %717, %.preheader3616.i.i ], [ %592, %.lr.ph4705.i.i ], [ %2905, %.preheader3634.i.i ], [ %2780, %.lr.ph4656.i.i ], [ %855, %.preheader3652.i.i ], [ %730, %.lr.ph4607.i.i ], [ %1002, %.preheader3670.i.i ], [ %877, %.lr.ph4558.i.i ], [ %1149, %.preheader3688.i.i ], [ %1024, %.lr.ph4509.i.i ], [ %1296, %.preheader3706.i.i ], [ %1171, %.lr.ph4460.i.i ], [ %2758, %.preheader3724.i.i ], [ %2597, %.lr.ph4411.i.i ], [ %1443, %.preheader3742.i.i ], [ %1318, %.lr.ph4362.i.i ], [ %1590, %.preheader3760.i.i ], [ %1465, %.lr.ph4313.i.i ], [ %1737, %.preheader3778.i.i ], [ %1612, %.lr.ph4264.i.i ], [ %2582, %.preheader3796.i.i ], [ %2350, %.lr.ph4215.i.i ], [ %1884, %.preheader3814.i.i ], [ %1759, %.lr.ph4166.i.i ], [ %2029, %.preheader3832.i.i ], [ %1906, %.lr.ph4117.i.i ], [ %2177, %.preheader3850.i.i ], [ %2053, %.lr.ph4068.i.i ], [ %2324, %.preheader3868.i.i ], [ %2200, %.lr.ph4019.i.i ]
+  %.5.i = phi ptr [ %.4.i, %.loopexit.i ], [ %2941, %2930 ], [ %.3186846, %.preheader3872.i.i ], [ %.3186846, %.preheader3854.i.i ], [ %.3186846, %.preheader3836.i.i ], [ %.3186846, %.preheader3818.i.i ], [ %.3186846, %.preheader3800.i.i ], [ %.3186846, %.preheader3782.i.i ], [ %.3186846, %.preheader3764.i.i ], [ %.3186846, %.preheader3746.i.i ], [ %.3186846, %.preheader3728.i.i ], [ %.3186846, %.preheader3710.i.i ], [ %.3186846, %.preheader3692.i.i ], [ %.3186846, %.preheader3674.i.i ], [ %.3186846, %.preheader3656.i.i ], [ %.3186846, %.preheader3638.i.i ], [ %.3186846, %.preheader3620.i.i ], [ %.3186846, %.preheader3602.i.i ], [ %.3186846, %.preheader3584.i.i ], [ %.3186846, %.preheader3566.i.i ], [ %.82958.i.i, %.loopexit.i.i ], [ %.83086.i.i, %.loopexit3583.i.i ], [ %.83214.i.i, %.loopexit3601.i.i ], [ %.83310.i.i, %.loopexit3619.i.i ], [ %.83267.i.i, %.loopexit3655.i.i ], [ %.83225.i.i, %.loopexit3673.i.i ], [ %.83182.i.i, %.loopexit3691.i.i ], [ %.83139.i.i, %.loopexit3709.i.i ], [ %.83097.i.i, %.loopexit3745.i.i ], [ %.83054.i.i, %.loopexit3763.i.i ], [ %.83011.i.i, %.loopexit3781.i.i ], [ %.82969.i.i, %.loopexit3817.i.i ], [ %.82926.i.i, %.loopexit3835.i.i ], [ %.82883.i.i, %.loopexit3853.i.i ], [ %.82841.i.i, %.loopexit3871.i.i ], [ %.82808.i.i, %.loopexit3799.i.i ], [ %.82775.i.i, %.loopexit3727.i.i ], [ %.8.i.i, %.loopexit3637.i.i ], [ %.3186846, %.preheader.i ], [ %2912, %2909 ], [ %276, %.preheader.i.i ], [ %151, %.lr.ph4852.i.i ], [ %423, %.preheader3580.i.i ], [ %298, %.lr.ph4803.i.i ], [ %570, %.preheader3598.i.i ], [ %445, %.lr.ph4754.i.i ], [ %717, %.preheader3616.i.i ], [ %592, %.lr.ph4705.i.i ], [ %2905, %.preheader3634.i.i ], [ %2780, %.lr.ph4656.i.i ], [ %855, %.preheader3652.i.i ], [ %730, %.lr.ph4607.i.i ], [ %1002, %.preheader3670.i.i ], [ %877, %.lr.ph4558.i.i ], [ %1149, %.preheader3688.i.i ], [ %1024, %.lr.ph4509.i.i ], [ %1296, %.preheader3706.i.i ], [ %1171, %.lr.ph4460.i.i ], [ %2757, %.preheader3724.i.i ], [ %2597, %.lr.ph4411.i.i ], [ %1443, %.preheader3742.i.i ], [ %1318, %.lr.ph4362.i.i ], [ %1590, %.preheader3760.i.i ], [ %1465, %.lr.ph4313.i.i ], [ %1737, %.preheader3778.i.i ], [ %1612, %.lr.ph4264.i.i ], [ %2582, %.preheader3796.i.i ], [ %2350, %.lr.ph4215.i.i ], [ %1884, %.preheader3814.i.i ], [ %1759, %.lr.ph4166.i.i ], [ %2029, %.preheader3832.i.i ], [ %1906, %.lr.ph4117.i.i ], [ %2177, %.preheader3850.i.i ], [ %2053, %.lr.ph4068.i.i ], [ %2324, %.preheader3868.i.i ], [ %2200, %.lr.ph4019.i.i ]
   %2942 = ptrtoint ptr %.5.i to i64
   %2943 = ptrtoint ptr %.3186846 to i64
   %.neg.i = sub i64 %2943, %2942

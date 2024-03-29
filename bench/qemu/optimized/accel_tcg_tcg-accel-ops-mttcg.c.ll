@@ -33,19 +33,18 @@ define dso_local void @mttcg_start_vcpu_thread(ptr noundef %cpu) local_unnamed_a
 entry:
   %thread_name = alloca [16 x i8], align 16
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %do.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 137, ptr noundef nonnull @__func__.mttcg_start_vcpu_thread, ptr noundef nonnull @.str.1) #10
   unreachable
 
 do.end:                                           ; preds = %entry
-  %2 = load ptr, ptr @current_machine, align 8
-  %max_cpus = getelementptr inbounds i8, ptr %2, i64 320
-  %3 = load i32, ptr %max_cpus, align 8
-  %cmp = icmp ugt i32 %3, 1
+  %1 = load ptr, ptr @current_machine, align 8
+  %max_cpus = getelementptr inbounds i8, ptr %1, i64 320
+  %2 = load i32, ptr %max_cpus, align 8
+  %cmp = icmp ugt i32 %2, 1
   tail call void @tcg_cpu_init_cflags(ptr noundef %cpu, i1 noundef zeroext %cmp) #9
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #11
   %thread = getelementptr inbounds i8, ptr %cpu, i64 176
@@ -55,10 +54,10 @@ do.end:                                           ; preds = %entry
   store ptr %call1, ptr %halt_cond, align 16
   tail call void @qemu_cond_init(ptr noundef %call1) #9
   %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
-  %4 = load i32, ptr %cpu_index, align 8
-  %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %thread_name, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %4) #9
-  %5 = load ptr, ptr %thread, align 16
-  call void @qemu_thread_create(ptr noundef %5, ptr noundef nonnull %thread_name, ptr noundef nonnull @mttcg_cpu_thread_fn, ptr noundef %cpu, i32 noundef 0) #9
+  %3 = load i32, ptr %cpu_index, align 8
+  %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %thread_name, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %3) #9
+  %4 = load ptr, ptr %thread, align 16
+  call void @qemu_thread_create(ptr noundef %4, ptr noundef nonnull %thread_name, ptr noundef nonnull @mttcg_cpu_thread_fn, ptr noundef %cpu, i32 noundef 0) #9
   ret void
 }
 
@@ -85,17 +84,16 @@ define internal noalias noundef ptr @mttcg_cpu_thread_fn(ptr noundef %arg) #0 {
 entry:
   %force_rcu = alloca %struct.MttcgForceRcuNotifier, align 8
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %do.body
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.body, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.mttcg_cpu_thread_fn) #10
   unreachable
 
 do.body:                                          ; preds = %entry
-  %2 = load i32, ptr @use_icount, align 4
-  %tobool1.not = icmp eq i32 %2, 0
+  %1 = load i32, ptr @use_icount, align 4
+  %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %do.end, label %if.else3
 
 if.else3:                                         ; preds = %do.body
@@ -111,19 +109,19 @@ do.end:                                           ; preds = %do.body
   call void @tcg_register_thread() #9
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 79) #9
   %thread = getelementptr inbounds i8, ptr %arg, i64 176
-  %3 = load ptr, ptr %thread, align 16
-  call void @qemu_thread_get_self(ptr noundef %3) #9
+  %2 = load ptr, ptr %thread, align 16
+  call void @qemu_thread_get_self(ptr noundef %2) #9
   %call = call i32 @qemu_get_thread_id() #9
   %thread_id = getelementptr inbounds i8, ptr %arg, i64 184
   store i32 %call, ptr %thread_id, align 8
   %can_do_io = getelementptr inbounds i8, ptr %arg, i64 10164
   store i8 1, ptr %can_do_io, align 4
-  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  store ptr %arg, ptr %4, align 8
+  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  store ptr %arg, ptr %3, align 8
   call void @cpu_thread_signal_created(ptr noundef %arg) #9
   %random_seed = getelementptr inbounds i8, ptr %arg, i64 240
-  %5 = load i64, ptr %random_seed, align 16
-  call void @qemu_guest_random_seed_thread_part2(i64 noundef %5) #9
+  %4 = load i64, ptr %random_seed, align 16
+  call void @qemu_guest_random_seed_thread_part2(i64 noundef %4) #9
   %exit_request = getelementptr inbounds i8, ptr %arg, i64 207
   store i8 1, ptr %exit_request, align 1
   %unplug = getelementptr inbounds i8, ptr %arg, i64 205
@@ -153,13 +151,12 @@ sw.bb12:                                          ; preds = %if.then9
   br label %while.end
 
 while.end:                                        ; preds = %sw.bb, %sw.bb12, %if.then9, %do.body7
-  %6 = atomicrmw xchg ptr %exit_request, i8 0 seq_cst, align 1
+  %5 = atomicrmw xchg ptr %exit_request, i8 0 seq_cst, align 1
   fence syncscope("singlethread") seq_cst
   call void @qemu_wait_io_event(ptr noundef %arg) #9
-  %7 = load i8, ptr %unplug, align 1
-  %8 = and i8 %7, 1
-  %tobool22.not = icmp eq i8 %8, 0
-  br i1 %tobool22.not, label %do.body7.backedge, label %lor.rhs
+  %6 = load i8, ptr %unplug, align 1
+  %tobool22 = trunc i8 %6 to i1
+  br i1 %tobool22, label %lor.rhs, label %do.body7.backedge
 
 lor.rhs:                                          ; preds = %while.end
   %call23 = call zeroext i1 @cpu_can_run(ptr noundef nonnull %arg) #9

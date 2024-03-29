@@ -89,9 +89,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = load i8, ptr %0, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %19, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %19
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -121,9 +120,8 @@ define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_ad
 19:                                               ; preds = %9, %1
   %20 = getelementptr inbounds i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, 1
-  %.not7 = icmp eq i8 %22, 0
-  br i1 %.not7, label %25, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %0, i64 40
@@ -133,9 +131,8 @@ define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_ad
 25:                                               ; preds = %23, %19
   %26 = getelementptr inbounds i8, ptr %0, i64 2
   %27 = load i8, ptr %26, align 2
-  %28 = and i8 %27, 1
-  %.not8 = icmp eq i8 %28, 0
-  br i1 %.not8, label %31, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %0, i64 168
@@ -164,9 +161,8 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   %6 = fadd double %5, %1
   store double %6, ptr %4, align 8
   %7 = load i8, ptr %0, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %28, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %28
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -202,9 +198,8 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
 28:                                               ; preds = %16, %2
   %29 = getelementptr inbounds i8, ptr %0, i64 1
   %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 1
-  %.not24 = icmp eq i8 %31, 0
-  br i1 %.not24, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %0, i64 248
@@ -215,9 +210,8 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
 35:                                               ; preds = %32, %28
   %36 = getelementptr inbounds i8, ptr %0, i64 2
   %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %.not25 = icmp eq i8 %38, 0
-  br i1 %.not25, label %54, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %54
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 376
@@ -241,9 +235,8 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
 54:                                               ; preds = %39, %35
   %55 = getelementptr inbounds i8, ptr %0, i64 4
   %56 = load i8, ptr %55, align 4
-  %57 = and i8 %56, 1
-  %.not26 = icmp eq i8 %57, 0
-  br i1 %.not26, label %58, label %59
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %59, label %58
 
 58:                                               ; preds = %54
   store i8 1, ptr %55, align 4
@@ -252,22 +245,21 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
 59:                                               ; preds = %54
   %60 = getelementptr inbounds i8, ptr %0, i64 3
   %61 = load i8, ptr %60, align 1
-  %62 = and i8 %61, 1
-  %63 = icmp ne i8 %62, 0
-  %64 = fcmp olt double %5, 1.000000e+00
-  %or.cond = select i1 %63, i1 %64, i1 false
-  br i1 %or.cond, label %.sink.split, label %70
+  %62 = trunc i8 %61 to i1
+  %63 = fcmp olt double %5, 1.000000e+00
+  %or.cond = select i1 %62, i1 %63, i1 false
+  br i1 %or.cond, label %.sink.split, label %69
 
 .sink.split:                                      ; preds = %59, %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  %66 = load i64, ptr %65, align 8
-  %67 = sitofp i64 %66 to double
-  %68 = fdiv double %67, 1.000000e+09
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %68, ptr %69, align 8
-  br label %70
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = load i64, ptr %64, align 8
+  %66 = sitofp i64 %65 to double
+  %67 = fdiv double %66, 1.000000e+09
+  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %67, ptr %68, align 8
+  br label %69
 
-70:                                               ; preds = %.sink.split, %59
+69:                                               ; preds = %.sink.split, %59
   ret void
 }
 
@@ -459,9 +451,8 @@ define dso_local void @InstrUpdateTupleCount(ptr nocapture noundef %0, double no
 define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %32, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %32
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -511,16 +502,14 @@ define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr
 define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
+  %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not35 = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %14
+  %8 = trunc i8 %7 to i1
+  br i1 %5, label %14, label %9
 
 9:                                                ; preds = %2
-  br i1 %.not35, label %.thread, label %10
+  br i1 %8, label %10, label %22
 
 10:                                               ; preds = %9
   store i8 1, ptr %3, align 4
@@ -528,10 +517,10 @@ define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noun
   %12 = load double, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   store double %12, ptr %13, align 8
-  br label %.thread
+  br label %22
 
 14:                                               ; preds = %2
-  br i1 %.not35, label %.thread, label %15
+  br i1 %8, label %15, label %22
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %0, i64 24
@@ -539,201 +528,199 @@ define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noun
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fcmp ogt double %17, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
   store double %19, ptr %16, align 8
-  br label %.thread
+  br label %22
 
-.thread:                                          ; preds = %9, %14, %15, %21, %10
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %23
-  store i64 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
-  %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = load double, ptr %29, align 8
-  %31 = fadd double %28, %30
-  store double %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 192
-  %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 192
-  %35 = load double, ptr %34, align 8
-  %36 = fadd double %33, %35
-  store double %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 200
-  %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 200
-  %40 = load double, ptr %39, align 8
-  %41 = fadd double %38, %40
-  store double %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 208
-  %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 208
-  %45 = load double, ptr %44, align 8
-  %46 = fadd double %43, %45
-  store double %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 216
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 216
-  %50 = load double, ptr %49, align 8
-  %51 = fadd double %48, %50
-  store double %51, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 224
-  %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 224
-  %55 = load double, ptr %54, align 8
-  %56 = fadd double %53, %55
-  store double %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 232
-  %58 = load double, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 232
-  %60 = load double, ptr %59, align 8
-  %61 = fadd double %58, %60
-  store double %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 240
-  %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 240
-  %65 = load double, ptr %64, align 8
-  %66 = fadd double %63, %65
-  store double %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = and i8 %68, 1
-  %.not38 = icmp eq i8 %69, 0
-  br i1 %.not38, label %151, label %70
+22:                                               ; preds = %9, %14, %15, %21, %10
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %24
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = load double, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = load double, ptr %30, align 8
+  %32 = fadd double %29, %31
+  store double %32, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 192
+  %34 = load double, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 192
+  %36 = load double, ptr %35, align 8
+  %37 = fadd double %34, %36
+  store double %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 200
+  %39 = load double, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 200
+  %41 = load double, ptr %40, align 8
+  %42 = fadd double %39, %41
+  store double %42, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 208
+  %44 = load double, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 208
+  %46 = load double, ptr %45, align 8
+  %47 = fadd double %44, %46
+  store double %47, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 216
+  %49 = load double, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 216
+  %51 = load double, ptr %50, align 8
+  %52 = fadd double %49, %51
+  store double %52, ptr %50, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 224
+  %54 = load double, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 224
+  %56 = load double, ptr %55, align 8
+  %57 = fadd double %54, %56
+  store double %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 232
+  %59 = load double, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 232
+  %61 = load double, ptr %60, align 8
+  %62 = fadd double %59, %61
+  store double %62, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 240
+  %64 = load double, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 240
+  %66 = load double, ptr %65, align 8
+  %67 = fadd double %64, %66
+  store double %67, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %152
 
-70:                                               ; preds = %.thread
-  %71 = getelementptr inbounds i8, ptr %0, i64 248
-  %72 = getelementptr inbounds i8, ptr %1, i64 248
-  %73 = load i64, ptr %72, align 8
-  %74 = load i64, ptr %71, align 8
-  %75 = add i64 %74, %73
-  store i64 %75, ptr %71, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 256
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 256
-  %79 = load i64, ptr %78, align 8
-  %80 = add i64 %79, %77
-  store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 264
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 264
-  %84 = load i64, ptr %83, align 8
-  %85 = add i64 %84, %82
-  store i64 %85, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 272
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 272
-  %89 = load i64, ptr %88, align 8
-  %90 = add i64 %89, %87
-  store i64 %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 280
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 280
-  %94 = load i64, ptr %93, align 8
-  %95 = add i64 %94, %92
-  store i64 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 288
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 288
-  %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, %97
-  store i64 %100, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 296
-  %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 296
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, %102
-  store i64 %105, ptr %103, align 8
-  %106 = getelementptr inbounds i8, ptr %1, i64 304
-  %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 304
-  %109 = load i64, ptr %108, align 8
-  %110 = add i64 %109, %107
-  store i64 %110, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 312
-  %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 312
-  %114 = load i64, ptr %113, align 8
-  %115 = add i64 %114, %112
-  store i64 %115, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 320
-  %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 320
-  %119 = load i64, ptr %118, align 8
-  %120 = add i64 %119, %117
-  store i64 %120, ptr %118, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 328
-  %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 328
-  %124 = load i64, ptr %123, align 8
-  %125 = add i64 %124, %122
-  store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 336
-  %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 336
-  %129 = load i64, ptr %128, align 8
-  %130 = add i64 %129, %127
-  store i64 %130, ptr %128, align 8
-  %131 = getelementptr inbounds i8, ptr %1, i64 344
-  %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 344
-  %134 = load i64, ptr %133, align 8
-  %135 = add i64 %134, %132
-  store i64 %135, ptr %133, align 8
-  %136 = getelementptr inbounds i8, ptr %1, i64 352
-  %137 = load i64, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 352
-  %139 = load i64, ptr %138, align 8
-  %140 = add i64 %139, %137
-  store i64 %140, ptr %138, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 360
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 360
-  %144 = load i64, ptr %143, align 8
-  %145 = add i64 %144, %142
-  store i64 %145, ptr %143, align 8
-  %146 = getelementptr inbounds i8, ptr %1, i64 368
-  %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 368
-  %149 = load i64, ptr %148, align 8
-  %150 = add i64 %149, %147
-  store i64 %150, ptr %148, align 8
-  br label %151
+71:                                               ; preds = %22
+  %72 = getelementptr inbounds i8, ptr %0, i64 248
+  %73 = getelementptr inbounds i8, ptr %1, i64 248
+  %74 = load i64, ptr %73, align 8
+  %75 = load i64, ptr %72, align 8
+  %76 = add i64 %75, %74
+  store i64 %76, ptr %72, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 256
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %0, i64 256
+  %80 = load i64, ptr %79, align 8
+  %81 = add i64 %80, %78
+  store i64 %81, ptr %79, align 8
+  %82 = getelementptr inbounds i8, ptr %1, i64 264
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 264
+  %85 = load i64, ptr %84, align 8
+  %86 = add i64 %85, %83
+  store i64 %86, ptr %84, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 272
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 272
+  %90 = load i64, ptr %89, align 8
+  %91 = add i64 %90, %88
+  store i64 %91, ptr %89, align 8
+  %92 = getelementptr inbounds i8, ptr %1, i64 280
+  %93 = load i64, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 280
+  %95 = load i64, ptr %94, align 8
+  %96 = add i64 %95, %93
+  store i64 %96, ptr %94, align 8
+  %97 = getelementptr inbounds i8, ptr %1, i64 288
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 288
+  %100 = load i64, ptr %99, align 8
+  %101 = add i64 %100, %98
+  store i64 %101, ptr %99, align 8
+  %102 = getelementptr inbounds i8, ptr %1, i64 296
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 296
+  %105 = load i64, ptr %104, align 8
+  %106 = add i64 %105, %103
+  store i64 %106, ptr %104, align 8
+  %107 = getelementptr inbounds i8, ptr %1, i64 304
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 304
+  %110 = load i64, ptr %109, align 8
+  %111 = add i64 %110, %108
+  store i64 %111, ptr %109, align 8
+  %112 = getelementptr inbounds i8, ptr %1, i64 312
+  %113 = load i64, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 312
+  %115 = load i64, ptr %114, align 8
+  %116 = add i64 %115, %113
+  store i64 %116, ptr %114, align 8
+  %117 = getelementptr inbounds i8, ptr %1, i64 320
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 320
+  %120 = load i64, ptr %119, align 8
+  %121 = add i64 %120, %118
+  store i64 %121, ptr %119, align 8
+  %122 = getelementptr inbounds i8, ptr %1, i64 328
+  %123 = load i64, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 328
+  %125 = load i64, ptr %124, align 8
+  %126 = add i64 %125, %123
+  store i64 %126, ptr %124, align 8
+  %127 = getelementptr inbounds i8, ptr %1, i64 336
+  %128 = load i64, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 336
+  %130 = load i64, ptr %129, align 8
+  %131 = add i64 %130, %128
+  store i64 %131, ptr %129, align 8
+  %132 = getelementptr inbounds i8, ptr %1, i64 344
+  %133 = load i64, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %0, i64 344
+  %135 = load i64, ptr %134, align 8
+  %136 = add i64 %135, %133
+  store i64 %136, ptr %134, align 8
+  %137 = getelementptr inbounds i8, ptr %1, i64 352
+  %138 = load i64, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %0, i64 352
+  %140 = load i64, ptr %139, align 8
+  %141 = add i64 %140, %138
+  store i64 %141, ptr %139, align 8
+  %142 = getelementptr inbounds i8, ptr %1, i64 360
+  %143 = load i64, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 360
+  %145 = load i64, ptr %144, align 8
+  %146 = add i64 %145, %143
+  store i64 %146, ptr %144, align 8
+  %147 = getelementptr inbounds i8, ptr %1, i64 368
+  %148 = load i64, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 368
+  %150 = load i64, ptr %149, align 8
+  %151 = add i64 %150, %148
+  store i64 %151, ptr %149, align 8
+  br label %152
 
-151:                                              ; preds = %70, %.thread
-  %152 = getelementptr inbounds i8, ptr %0, i64 2
-  %153 = load i8, ptr %152, align 2
-  %154 = and i8 %153, 1
-  %.not39 = icmp eq i8 %154, 0
-  br i1 %.not39, label %171, label %155
+152:                                              ; preds = %71, %22
+  %153 = getelementptr inbounds i8, ptr %0, i64 2
+  %154 = load i8, ptr %153, align 2
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %156, label %172
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %0, i64 376
-  %157 = getelementptr inbounds i8, ptr %1, i64 376
-  %158 = getelementptr inbounds i8, ptr %1, i64 392
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 392
-  %161 = load i64, ptr %160, align 8
-  %162 = add i64 %161, %159
-  store i64 %162, ptr %160, align 8
-  %163 = load i64, ptr %157, align 8
-  %164 = load i64, ptr %156, align 8
-  %165 = add i64 %164, %163
-  store i64 %165, ptr %156, align 8
-  %166 = getelementptr inbounds i8, ptr %1, i64 384
-  %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 384
-  %169 = load i64, ptr %168, align 8
-  %170 = add i64 %169, %167
-  store i64 %170, ptr %168, align 8
-  br label %171
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds i8, ptr %0, i64 376
+  %158 = getelementptr inbounds i8, ptr %1, i64 376
+  %159 = getelementptr inbounds i8, ptr %1, i64 392
+  %160 = load i64, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 392
+  %162 = load i64, ptr %161, align 8
+  %163 = add i64 %162, %160
+  store i64 %163, ptr %161, align 8
+  %164 = load i64, ptr %158, align 8
+  %165 = load i64, ptr %157, align 8
+  %166 = add i64 %165, %164
+  store i64 %166, ptr %157, align 8
+  %167 = getelementptr inbounds i8, ptr %1, i64 384
+  %168 = load i64, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %0, i64 384
+  %170 = load i64, ptr %169, align 8
+  %171 = add i64 %170, %168
+  store i64 %171, ptr %169, align 8
+  br label %172
 
-171:                                              ; preds = %155, %151
+172:                                              ; preds = %156, %152
   ret void
 }
 

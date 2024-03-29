@@ -311,9 +311,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK10Constraint(ptr
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.3)
   %35 = getelementptr inbounds i8, ptr %1, i64 40
   %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  %38 = select i1 %.not, ptr @.str.5, ptr @.str.4
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, ptr @.str.4, ptr @.str.5
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %38)
   ret ptr %0
 }

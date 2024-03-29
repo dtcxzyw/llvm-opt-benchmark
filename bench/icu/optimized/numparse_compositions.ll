@@ -104,11 +104,11 @@ invoke.cont:                                      ; preds = %_ZN6icu_758numparse
 
 for.cond.outer:                                   ; preds = %invoke.cont, %for.cond.outer.backedge
   %it.0.ph = phi ptr [ %it.0.ph.be, %for.cond.outer.backedge ], [ %call3, %invoke.cont ]
-  %maybeMore.0.ph = phi i8 [ %maybeMore.1, %for.cond.outer.backedge ], [ 1, %invoke.cont ]
+  %maybeMore.0.ph = phi i1 [ %maybeMore.1, %for.cond.outer.backedge ], [ true, %invoke.cont ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %invoke.cont23
-  %maybeMore.0 = phi i8 [ %maybeMore.1, %invoke.cont23 ], [ %maybeMore.0.ph, %for.cond.outer ]
+  %maybeMore.0 = phi i1 [ %maybeMore.1, %invoke.cont23 ], [ %maybeMore.0.ph, %for.cond.outer ]
   %vtable4 = load ptr, ptr %this, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 64
   %5 = load ptr, ptr %vfn5, align 8
@@ -137,11 +137,7 @@ if.then:                                          ; preds = %invoke.cont10
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
   %7 = load ptr, ptr %vfn14, align 8
   %call16 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont15 unwind label %lpad.loopexit.loopexit
-
-invoke.cont15:                                    ; preds = %if.then
-  %frombool = zext i1 %call16 to i8
-  br label %if.end
+          to label %if.end unwind label %lpad.loopexit.loopexit
 
 lpad.loopexit.loopexit:                           ; preds = %invoke.cont17, %if.end, %if.then, %invoke.cont8, %for.body, %for.cond
   %lpad.loopexit44 = landingpad { ptr, i32 }
@@ -163,8 +159,8 @@ lpad:                                             ; preds = %lpad.loopexit.loope
   call void @_ZN6icu_758numparse4impl12ParsedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %backup) #11
   br label %common.resume
 
-if.end:                                           ; preds = %invoke.cont10, %invoke.cont15
-  %maybeMore.1 = phi i8 [ %frombool, %invoke.cont15 ], [ 1, %invoke.cont10 ]
+if.end:                                           ; preds = %if.then, %invoke.cont10
+  %maybeMore.1 = phi i1 [ true, %invoke.cont10 ], [ %call16, %if.then ]
   %call18 = invoke noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
           to label %invoke.cont17 unwind label %lpad.loopexit.loopexit
 
@@ -245,12 +241,11 @@ _ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit: ; preds = %call5.i.noexc
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont6, %_ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit
-  %retval.0.in = phi i8 [ %maybeMore.1, %_ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit ], [ %maybeMore.0, %invoke.cont6 ]
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in = phi i1 [ %maybeMore.1, %_ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit ], [ %maybeMore.0, %invoke.cont6 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i) #11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix.i) #11
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %backup) #11
-  ret i1 %retval.0
+  ret i1 %retval.0.in
 }
 
 declare noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1

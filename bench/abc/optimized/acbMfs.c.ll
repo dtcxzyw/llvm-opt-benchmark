@@ -2524,43 +2524,42 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   %18 = add i32 %17, %15
   tail call void @sat_solver_setnvars(ptr noundef %0, i32 noundef %18) #24
   %19 = icmp sgt i32 %5, 0
-  br i1 %19, label %.lr.ph73, label %.preheader
+  br i1 %19, label %.lr.ph72, label %.preheader
 
-.lr.ph73:                                         ; preds = %6
+.lr.ph72:                                         ; preds = %6
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   %21 = sub nsw i32 1, %5
   br label %49
 
 .preheader:                                       ; preds = %78, %6
   %22 = icmp sgt i32 %12, 0
-  br i1 %22, label %.lr.ph78, label %._crit_edge79
+  br i1 %22, label %.lr.ph77, label %._crit_edge78
 
-.lr.ph78:                                         ; preds = %.preheader
+.lr.ph77:                                         ; preds = %.preheader
   %23 = icmp sgt i32 %4, 0
   %24 = getelementptr inbounds i8, ptr %7, i64 4
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   %26 = getelementptr inbounds i8, ptr %7, i64 12
-  br i1 %23, label %.lr.ph76.us, label %._crit_edge79
+  br i1 %23, label %.lr.ph75.us, label %._crit_edge78
 
-.lr.ph76.us:                                      ; preds = %.lr.ph78, %..loopexit_crit_edge.us
-  %.177.us = phi i32 [ %29, %..loopexit_crit_edge.us ], [ 0, %.lr.ph78 ]
+.lr.ph75.us:                                      ; preds = %.lr.ph77, %..loopexit_crit_edge.us
+  %.176.us = phi i32 [ %29, %..loopexit_crit_edge.us ], [ 0, %.lr.ph77 ]
   %27 = load i32, ptr %13, align 8
-  %28 = mul nsw i32 %27, %.177.us
-  %29 = add nuw nsw i32 %.177.us, 1
+  %28 = mul nsw i32 %27, %.176.us
+  %29 = add nuw nsw i32 %.176.us, 1
   %30 = srem i32 %29, %5
   %31 = mul nsw i32 %30, %27
   %32 = mul nsw i32 %27, %5
-  %33 = and i32 %.177.us, 1
-  %.not65.us = icmp eq i32 %33, 0
-  %34 = select i1 %.not65.us, i32 0, i32 %4
+  %33 = trunc i32 %.176.us to i1
+  %34 = select i1 %33, i32 %4, i32 0
   %35 = add nsw i32 %32, %34
   br label %36
 
-36:                                               ; preds = %.lr.ph76.us, %36
-  %.16274.us = phi i32 [ 0, %.lr.ph76.us ], [ %48, %36 ]
-  %37 = add nsw i32 %.16274.us, %28
-  %38 = add nsw i32 %.16274.us, %31
-  %39 = add nsw i32 %35, %.16274.us
+36:                                               ; preds = %.lr.ph75.us, %36
+  %.16273.us = phi i32 [ 0, %.lr.ph75.us ], [ %48, %36 ]
+  %37 = add nsw i32 %.16273.us, %28
+  %38 = add nsw i32 %.16273.us, %31
+  %39 = add nsw i32 %35, %.16273.us
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   %40 = shl nsw i32 %37, 1
   store i32 %40, ptr %7, align 4
@@ -2577,19 +2576,19 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %44, ptr %25, align 4
   %47 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %26) #24
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  %48 = add nuw nsw i32 %.16274.us, 1
-  %exitcond82.not = icmp eq i32 %48, %4
-  br i1 %exitcond82.not, label %..loopexit_crit_edge.us, label %36, !llvm.loop !23
+  %48 = add nuw nsw i32 %.16273.us, 1
+  %exitcond81.not = icmp eq i32 %48, %4
+  br i1 %exitcond81.not, label %..loopexit_crit_edge.us, label %36, !llvm.loop !23
 
 ..loopexit_crit_edge.us:                          ; preds = %36
-  %exitcond83.not = icmp eq i32 %29, %12
-  br i1 %exitcond83.not, label %._crit_edge79, label %.lr.ph76.us, !llvm.loop !24
+  %exitcond82.not = icmp eq i32 %29, %12
+  br i1 %exitcond82.not, label %._crit_edge78, label %.lr.ph75.us, !llvm.loop !24
 
-49:                                               ; preds = %.lr.ph73, %78
-  %.071 = phi i32 [ 0, %.lr.ph73 ], [ %79, %78 ]
-  %50 = and i32 %.071, 1
-  %.not66 = icmp eq i32 %50, 0
-  br i1 %.not66, label %54, label %51
+49:                                               ; preds = %.lr.ph72, %78
+  %.070 = phi i32 [ 0, %.lr.ph72 ], [ %79, %78 ]
+  %50 = and i32 %.070, 1
+  %.not65 = icmp eq i32 %50, 0
+  br i1 %.not65, label %54, label %51
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %13, align 8
@@ -2611,11 +2610,11 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   %60 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %59, ptr noundef %61) #24
-  %.not68 = icmp eq i32 %62, 0
-  br i1 %.not68, label %63, label %64
+  %.not67 = icmp eq i32 %62, 0
+  br i1 %.not67, label %63, label %64
 
 63:                                               ; preds = %.lr.ph
-  %puts69 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  %puts68 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %64
 
 64:                                               ; preds = %.lr.ph, %63
@@ -2625,7 +2624,7 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %64, %54
-  br i1 %.not66, label %70, label %68
+  br i1 %.not65, label %70, label %68
 
 68:                                               ; preds = %._crit_edge
   %69 = load i32, ptr %13, align 8
@@ -2633,7 +2632,7 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge
-  %71 = icmp slt i32 %.071, %10
+  %71 = icmp slt i32 %.070, %10
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -2641,8 +2640,8 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split
 
 74:                                               ; preds = %70
-  %.not67 = icmp eq i32 %.071, 0
-  br i1 %.not67, label %78, label %75
+  %.not66 = icmp eq i32 %.070, 0
+  br i1 %.not66, label %78, label %75
 
 75:                                               ; preds = %74
   %76 = load i32, ptr %13, align 8
@@ -2655,20 +2654,20 @@ define noundef i32 @Acb_NtkWindow2Solver(ptr noundef %0, ptr noundef %1, ptr nou
   br label %78
 
 78:                                               ; preds = %.sink.split, %74
-  %79 = add nuw nsw i32 %.071, 1
+  %79 = add nuw nsw i32 %.070, 1
   %exitcond.not = icmp eq i32 %79, %5
   br i1 %exitcond.not, label %.preheader, label %49, !llvm.loop !26
 
-._crit_edge79:                                    ; preds = %..loopexit_crit_edge.us, %.lr.ph78, %.preheader
+._crit_edge78:                                    ; preds = %..loopexit_crit_edge.us, %.lr.ph77, %.preheader
   %80 = call i32 @sat_solver_simplify(ptr noundef %0) #24
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %81, label %82
 
-81:                                               ; preds = %._crit_edge79
+81:                                               ; preds = %._crit_edge78
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %82
 
-82:                                               ; preds = %81, %._crit_edge79
+82:                                               ; preds = %81, %._crit_edge78
   ret i32 1
 }
 
@@ -10688,7 +10687,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #24
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #24
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -10707,7 +10706,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -10741,19 +10740,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #17
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #17
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #19
@@ -10790,8 +10789,8 @@ attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nofree nounwind }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

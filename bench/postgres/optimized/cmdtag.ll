@@ -233,9 +233,8 @@ define dso_local zeroext i1 @command_tag_display_rowcount(i32 noundef %0) local_
   %2 = zext i32 %0 to i64
   %3 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2, i32 4
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -243,9 +242,8 @@ define dso_local zeroext i1 @command_tag_event_trigger_ok(i32 noundef %0) local_
   %2 = zext i32 %0 to i64
   %3 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2, i32 2
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -253,9 +251,8 @@ define dso_local zeroext i1 @command_tag_table_rewrite_ok(i32 noundef %0) local_
   %2 = zext i32 %0 to i64
   %3 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2, i32 3
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -317,9 +314,9 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
   %11 = getelementptr i8, ptr %0, i64 %9
   %12 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %5, i32 4
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %.not16 = icmp eq i8 %14, 0
-  %brmerge = or i1 %.not16, %2
+  %14 = trunc i8 %13 to i1
+  %.not = xor i1 %14, true
+  %brmerge = or i1 %.not, %2
   br i1 %brmerge, label %27, label %15
 
 15:                                               ; preds = %3

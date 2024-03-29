@@ -743,19 +743,18 @@ entry:
   store i32 %inc, ptr %this, align 8
   %m_global = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %m_global, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.else
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %m_generator = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %m_generator, align 8
-  %call = tail call noundef i64 @_ZN15prime_generatorclEj(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %0)
+  %2 = load ptr, ptr %m_generator, align 8
+  %call = tail call noundef i64 @_ZN15prime_generatorclEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %0)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr @_ZL16g_prime_iterator, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #13
+  %3 = load ptr, ptr @_ZL16g_prime_iterator, align 8
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -765,19 +764,19 @@ if.then.i.i:                                      ; preds = %if.else
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.else
   %m_generator3 = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %m_generator3, align 8
-  %call4 = invoke noundef i64 @_ZN15prime_generatorclEj(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %0)
+  %4 = load ptr, ptr %m_generator3, align 8
+  %call4 = invoke noundef i64 @_ZN15prime_generatorclEj(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #13
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
   br label %return
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #13
-  resume { ptr, i32 } %6
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
+  resume { ptr, i32 } %5
 
 return:                                           ; preds = %invoke.cont, %if.then
   %retval.0 = phi i64 [ %call4, %invoke.cont ], [ %call, %if.then ]

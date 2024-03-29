@@ -84,35 +84,34 @@ entry:
   %0 = load ptr, ptr %context_, align 8
   %enforce_lite.i = getelementptr inbounds i8, ptr %0, i64 75
   %1 = load i8, ptr %enforce_lite.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  %call3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
-  br i1 %tobool.i.not, label %if.then, label %if.else
+  %tobool.i = trunc i8 %1 to i1
+  %call5 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
+  br i1 %tobool.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZN6google8protobuf8compiler4java25ImmutableMessageGeneratorC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88) %call3, ptr noundef %descriptor, ptr noundef nonnull %0)
+  invoke void @_ZN6google8protobuf8compiler4java25ImmutableMessageGeneratorC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88) %call5, ptr noundef %descriptor, ptr noundef nonnull %0)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  invoke void @_ZN6google8protobuf8compiler4java29ImmutableMessageLiteGeneratorC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88) %call3, ptr noundef %descriptor, ptr noundef nonnull %0)
+  invoke void @_ZN6google8protobuf8compiler4java29ImmutableMessageLiteGeneratorC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88) %call5, ptr noundef %descriptor, ptr noundef nonnull %0)
           to label %return unwind label %lpad7
 
 lpad7:                                            ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 return:                                           ; preds = %if.else, %if.then
-  ret ptr %call3
+  ret ptr %call5
 
 eh.resume:                                        ; preds = %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad7 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call3) #13
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad7 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %call5) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -132,35 +131,34 @@ entry:
   %0 = load ptr, ptr %context_, align 8
   %enforce_lite.i = getelementptr inbounds i8, ptr %0, i64 75
   %1 = load i8, ptr %enforce_lite.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  %call4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
-  br i1 %tobool.i.not, label %if.then, label %if.else
+  %tobool.i = trunc i8 %1 to i1
+  %call6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
+  br i1 %tobool.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZN6google8protobuf8compiler4java27ImmutableExtensionGeneratorC1EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %call4, ptr noundef nonnull %descriptor, ptr noundef nonnull %0)
+  invoke void @_ZN6google8protobuf8compiler4java27ImmutableExtensionGeneratorC1EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %call6, ptr noundef nonnull %descriptor, ptr noundef nonnull %0)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  invoke void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorC1EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %call4, ptr noundef nonnull %descriptor, ptr noundef nonnull %0)
+  invoke void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorC1EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %call6, ptr noundef nonnull %descriptor, ptr noundef nonnull %0)
           to label %return unwind label %lpad8
 
 lpad8:                                            ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 return:                                           ; preds = %if.else, %if.then
-  ret ptr %call4
+  ret ptr %call6
 
 eh.resume:                                        ; preds = %lpad8, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad8 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call4) #13
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad8 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %call6) #13
   resume { ptr, i32 } %.pn
 }
 

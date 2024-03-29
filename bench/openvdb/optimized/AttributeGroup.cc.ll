@@ -27,8 +27,6 @@ $_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj = comd
 
 $_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv = comdat any
 
-$_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh = comdat any
-
 $_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh = comdat any
 
 $_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv = comdat any
@@ -111,9 +109,8 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %mMutex.i.i = getelementptr inbounds i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
-  %3 = and i8 %2, 1
-  %tobool3.i.i.not2.i.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool3.i.i.not2.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i, label %while.body.i.i.i.i.i
+  %tobool3.i.i2.i.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool3.i.i2.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i
   %backoff.sroa.0.03.i.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i ], [ 1, %if.end.i.i ]
@@ -141,10 +138,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i.i = phi i32 [ %mul.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
-  %4 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
-  %5 = and i8 %4, 1
-  %tobool3.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool3.i.i.not.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !6
+  %3 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool3.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i, %if.end.i.i
   invoke void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %array)
@@ -155,10 +151,10 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i: ; preds =
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i.i release, align 1
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %4
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit: ; preds = %entry, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i
   ret void
@@ -179,9 +175,8 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %mMutex.i.i = getelementptr inbounds i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
-  %3 = and i8 %2, 1
-  %tobool3.i.i.not2.i.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool3.i.i.not2.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i, label %while.body.i.i.i.i.i
+  %tobool3.i.i2.i.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool3.i.i2.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i
   %backoff.sroa.0.03.i.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i ], [ 1, %if.end.i.i ]
@@ -209,10 +204,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i.i = phi i32 [ %mul.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
-  %4 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
-  %5 = and i8 %4, 1
-  %tobool3.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool3.i.i.not.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !6
+  %3 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool3.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i, %if.end.i.i
   invoke void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %array)
@@ -223,10 +217,10 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i: ; preds =
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i.i release, align 1
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %4
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit: ; preds = %entry, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i
   ret void
@@ -308,7 +302,7 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad7
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad7
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad7 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad7 ], [ %12, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad7:                                            ; preds = %try.cont, %catch
@@ -331,9 +325,8 @@ if.then10:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.then10
   %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %11 = and i8 %10, 1
-  %tobool3.i.i.not2.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool3.i.i.not2.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, label %while.body.i.i.i.i
+  %tobool3.i.i2.i.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
   %backoff.sroa.0.03.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i ], [ 1, %if.end.i ]
@@ -361,10 +354,9 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %13 = and i8 %12, 1
-  %tobool3.i.i.not.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %tobool3.i.i.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, label %while.body.i.i.i.i, !llvm.loop !6
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !6
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
   invoke void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
@@ -375,23 +367,22 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %if.end11
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 if.end11:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then10, %if.end
   %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i.i, align 8
+  %13 = load ptr, ptr %mData.i.i, align 8
   %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
-  %16 = load i8, ptr %mIsUniform.i, align 8
-  %17 = and i8 %16, 1
-  %tobool.not.i = icmp eq i8 %17, 0
-  %18 = zext i32 %n to i64
-  %idxprom.i = select i1 %tobool.not.i, i64 %18, i64 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %15, i64 %idxprom.i
-  %19 = load i8, ptr %arrayidx.i, align 1
-  ret i8 %19
+  %14 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i3 = trunc i8 %14 to i1
+  %15 = zext i32 %n to i64
+  %idxprom.i = select i1 %tobool.i3, i64 0, i64 %15
+  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i
+  %16 = load i8, ptr %arrayidx.i, align 1
+  ret i8 %16
 
 unreachable:                                      ; preds = %try.cont
   unreachable
@@ -405,16 +396,15 @@ entry:
   %1 = load ptr, ptr %mData.i.i, align 8
   %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %mIsUniform.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %4 = zext i32 %n to i64
-  %idxprom.i = select i1 %tobool.not.i, i64 %4, i64 0
+  %tobool.i = trunc i8 %2 to i1
+  %3 = zext i32 %n to i64
+  %idxprom.i = select i1 %tobool.i, i64 0, i64 %3
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i, align 1
+  %4 = load i8, ptr %arrayidx.i, align 1
   %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i8, ptr %mBitMask, align 8
-  %and1 = and i8 %6, %5
-  %cmp = icmp eq i8 %and1, %6
+  %5 = load i8, ptr %mBitMask, align 8
+  %and1 = and i8 %5, %4
+  %cmp = icmp eq i8 %and1, %5
   ret i1 %cmp
 }
 
@@ -436,9 +426,8 @@ entry:
 if.end.i.i.i:                                     ; preds = %entry
   %mMutex.i.i.i = getelementptr inbounds i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i.i, i8 1 seq_cst, align 1
-  %3 = and i8 %2, 1
-  %tobool3.i.i.not2.i.i.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool3.i.i.not2.i.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i, label %while.body.i.i.i.i.i.i
+  %tobool3.i.i2.i.i.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool3.i.i2.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i
   %backoff.sroa.0.03.i.i.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i ], [ 1, %if.end.i.i.i ]
@@ -466,10 +455,9 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i.i.i = phi i32 [ %mul.i.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
-  %4 = atomicrmw xchg ptr %mMutex.i.i.i, i8 1 seq_cst, align 1
-  %5 = and i8 %4, 1
-  %tobool3.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool3.i.i.not.i.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !6
+  %3 = atomicrmw xchg ptr %mMutex.i.i.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool3.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i, %if.end.i.i.i
   invoke void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %array)
@@ -480,10 +468,10 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i: ; preds
   br label %_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i.i.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i.i.i release, align 1
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %4
 
 _ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh.exit: ; preds = %entry, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i.i
   ret void
@@ -530,27 +518,24 @@ entry:
   %1 = load ptr, ptr %mData.i.i, align 8
   %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %mIsUniform.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %4 = zext i32 %n to i64
-  %idxprom.i = select i1 %tobool.not.i, i64 %4, i64 0
+  %tobool.i = trunc i8 %2 to i1
+  %3 = zext i32 %n to i64
+  %idxprom.i = select i1 %tobool.i, i64 0, i64 %3
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i, align 1
+  %4 = load i8, ptr %arrayidx.i, align 1
   %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i8, ptr %mBitMask, align 8
-  %not = xor i8 %6, -1
-  %and = and i8 %5, %not
-  %or6 = or i8 %6, %5
+  %5 = load i8, ptr %mBitMask, align 8
+  %not = xor i8 %5, -1
+  %and = and i8 %4, %not
+  %or6 = or i8 %5, %4
   %storemerge = select i1 %on, i8 %or6, i8 %and
   store i8 %storemerge, ptr %arrayidx.i, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7openvdb5v11_06points16GroupWriteHandle8collapseEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN7openvdb5v11_06points16GroupWriteHandle8collapseEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca i8, align 1
-  %ref.tmp7 = alloca i8, align 1
   %ref.tmp17 = alloca i8, align 1
   %ref.tmp25 = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
@@ -558,65 +543,203 @@ entry:
   %1 = load ptr, ptr %this, align 8
   %mIsUniform.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %mIsUniform.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i = icmp ne i8 %3, 0
+  %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
   %mSize.i = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load i32, ptr %mSize.i, align 8
-  %cmp18.not = icmp eq i32 %4, 0
-  br i1 %cmp18.not, label %return, label %for.body.lr.ph
+  %3 = load i32, ptr %mSize.i, align 8
+  %cmp50.not = icmp eq i32 %3, 0
+  br i1 %cmp50.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %mBitMask28 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %on, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %i.019.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %call18.us = call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.019.us)
-  %5 = load i8, ptr %mBitMask28, align 8
-  %or2216.us = or i8 %5, %call18.us
+  %i.051.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %call18.us = call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.051.us)
+  %4 = load i8, ptr %mBitMask28, align 8
+  %or2216.us = or i8 %4, %call18.us
   store i8 %or2216.us, ptr %ref.tmp17, align 1
-  call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.019.us, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
-  %inc.us = add nuw i32 %i.019.us, 1
-  %6 = load i32, ptr %mSize.i, align 8
-  %cmp.us = icmp ult i32 %inc.us, %6
+  call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.051.us, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
+  %inc.us = add nuw i32 %i.051.us, 1
+  %5 = load i32, ptr %mSize.i, align 8
+  %cmp.us = icmp ult i32 %inc.us, %5
   br i1 %cmp.us, label %for.body.us, label %return, !llvm.loop !7
 
 if.then:                                          ; preds = %entry
   %call4 = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0)
   %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i8, ptr %mBitMask, align 8
+  %6 = load i8, ptr %mBitMask, align 8
   br i1 %on, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %or17 = or i8 %7, %call4
-  store i8 %or17, ptr %ref.tmp, align 1
-  br label %return.sink.split
+  %or17 = or i8 %6, %call4
+  %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i = trunc i8 %7 to i1
+  br i1 %tobool.i, label %return.sink.split, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then3
+  %mMutex.i = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
+
+while.body.i.i.i.i:                               ; preds = %if.then.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+  %backoff.sroa.0.03.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i ], [ 1, %if.then.i ]
+  %cmp.i.i.i.i.i = icmp slt i32 %backoff.sroa.0.03.i.i.i.i, 17
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
+  %cmp1.i.i.i.i.i.i = icmp sgt i32 %backoff.sroa.0.03.i.i.i.i, 0
+  br i1 %cmp1.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
+
+while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, %while.body.i.i.i.i.i.i
+  %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
+  %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
+  tail call void @llvm.x86.sse2.pause()
+  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !4
+
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
+  %mul.i.i.i.i.i = shl nsw i32 %backoff.sroa.0.03.i.i.i.i, 1
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+
+if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
+  %call.i.i.i.i.i.i.i = tail call noundef i32 @sched_yield() #7
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
+  %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
+  %9 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !6
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.then.i
+  invoke void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+          to label %if.then.i.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
+
+if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
+  store i8 1, ptr %mIsUniform.i, align 8
+  %call.i1.i = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #15
+          to label %call.i.noexc.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
+
+call.i.noexc.i:                                   ; preds = %if.then.i.i
+  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load ptr, ptr %mData.i.i, align 8
+  store ptr %call.i1.i, ptr %mData.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i.i.i, label %return.sink.split.sink.split, label %return.sink.split.sink.split.sink.split
+
+common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
+  %mMutex.i21.sink = phi ptr [ %mMutex.i21, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24 ], [ %mMutex.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24 ], [ %11, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i ]
+  store atomic i8 0, ptr %mMutex.i21.sink release, align 1
+  resume { ptr, i32 } %common.resume.op
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = %if.then.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  br label %common.resume
 
 if.else:                                          ; preds = %if.then
-  %not = xor i8 %7, -1
+  %not = xor i8 %6, -1
   %and = and i8 %call4, %not
-  store i8 %and, ptr %ref.tmp7, align 1
-  br label %return.sink.split
+  %mIsUniform.i18 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load i8, ptr %mIsUniform.i18, align 8
+  %tobool.i19 = trunc i8 %12 to i1
+  br i1 %tobool.i19, label %return.sink.split, label %if.then.i20
+
+if.then.i20:                                      ; preds = %if.else
+  %mMutex.i21 = getelementptr inbounds i8, ptr %0, i64 9
+  %13 = atomicrmw xchg ptr %mMutex.i21, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i22 = trunc i8 %13 to i1
+  br i1 %tobool3.i.i2.i.i.i.i22, label %while.body.i.i.i.i33, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23
+
+while.body.i.i.i.i33:                             ; preds = %if.then.i20, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i38
+  %backoff.sroa.0.03.i.i.i.i34 = phi i32 [ %backoff.sroa.0.1.i.i.i.i39, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i38 ], [ 1, %if.then.i20 ]
+  %cmp.i.i.i.i.i35 = icmp slt i32 %backoff.sroa.0.03.i.i.i.i34, 17
+  br i1 %cmp.i.i.i.i.i35, label %if.then.i.i.i.i.i41, label %if.else.i.i.i.i.i36
+
+if.then.i.i.i.i.i41:                              ; preds = %while.body.i.i.i.i33
+  %cmp1.i.i.i.i.i.i42 = icmp sgt i32 %backoff.sroa.0.03.i.i.i.i34, 0
+  br i1 %cmp1.i.i.i.i.i.i42, label %while.body.i.i.i.i.i.i45, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i43
+
+while.body.i.i.i.i.i.i45:                         ; preds = %if.then.i.i.i.i.i41, %while.body.i.i.i.i.i.i45
+  %delay.addr.02.i.i.i.i.i.i46 = phi i32 [ %dec.i.i.i.i.i.i47, %while.body.i.i.i.i.i.i45 ], [ %backoff.sroa.0.03.i.i.i.i34, %if.then.i.i.i.i.i41 ]
+  %dec.i.i.i.i.i.i47 = add nsw i32 %delay.addr.02.i.i.i.i.i.i46, -1
+  tail call void @llvm.x86.sse2.pause()
+  %cmp.i.i.i.i.i.i48 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i46, 1
+  br i1 %cmp.i.i.i.i.i.i48, label %while.body.i.i.i.i.i.i45, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i43, !llvm.loop !4
+
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i43: ; preds = %while.body.i.i.i.i.i.i45, %if.then.i.i.i.i.i41
+  %mul.i.i.i.i.i44 = shl nsw i32 %backoff.sroa.0.03.i.i.i.i34, 1
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i38
+
+if.else.i.i.i.i.i36:                              ; preds = %while.body.i.i.i.i33
+  %call.i.i.i.i.i.i.i37 = tail call noundef i32 @sched_yield() #7
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i38
+
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i38: ; preds = %if.else.i.i.i.i.i36, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i43
+  %backoff.sroa.0.1.i.i.i.i39 = phi i32 [ %mul.i.i.i.i.i44, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i43 ], [ %backoff.sroa.0.03.i.i.i.i34, %if.else.i.i.i.i.i36 ]
+  %14 = atomicrmw xchg ptr %mMutex.i21, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i40 = trunc i8 %14 to i1
+  br i1 %tobool3.i.i.i.i.i.i40, label %while.body.i.i.i.i33, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23, !llvm.loop !6
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i38, %if.then.i20
+  invoke void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+          to label %if.then.i.i25 unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24
+
+if.then.i.i25:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23
+  store i8 1, ptr %mIsUniform.i18, align 8
+  %call.i1.i26 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #15
+          to label %call.i.noexc.i27 unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24
+
+call.i.noexc.i27:                                 ; preds = %if.then.i.i25
+  %mData.i.i28 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %mData.i.i28, align 8
+  store ptr %call.i1.i26, ptr %mData.i.i28, align 8
+  %tobool.not.i.i.i.i29 = icmp eq ptr %15, null
+  br i1 %tobool.not.i.i.i.i29, label %return.sink.split.sink.split, label %return.sink.split.sink.split.sink.split
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24: ; preds = %if.then.i.i25, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  br label %common.resume
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.019 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
-  %call26 = call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.019)
-  %8 = load i8, ptr %mBitMask28, align 8
-  %not30 = xor i8 %8, -1
+  %i.051 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
+  %call26 = call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.051)
+  %17 = load i8, ptr %mBitMask28, align 8
+  %not30 = xor i8 %17, -1
   %and31 = and i8 %call26, %not30
   store i8 %and31, ptr %ref.tmp25, align 1
-  call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.019, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
-  %inc = add nuw i32 %i.019, 1
-  %9 = load i32, ptr %mSize.i, align 8
-  %cmp = icmp ult i32 %inc, %9
+  call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %i.051, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  %inc = add nuw i32 %i.051, 1
+  %18 = load i32, ptr %mSize.i, align 8
+  %cmp = icmp ult i32 %inc, %18
   br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
-return.sink.split:                                ; preds = %if.else, %if.then3
-  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then3 ], [ %ref.tmp7, %if.else ]
-  call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.sink)
+return.sink.split.sink.split.sink.split:          ; preds = %call.i.noexc.i27, %call.i.noexc.i
+  %.sink = phi ptr [ %10, %call.i.noexc.i ], [ %15, %call.i.noexc.i27 ]
+  %mMutex.i21.sink54.ph = phi ptr [ %mMutex.i, %call.i.noexc.i ], [ %mMutex.i21, %call.i.noexc.i27 ]
+  %or17.sink.ph.ph = phi i8 [ %or17, %call.i.noexc.i ], [ %and, %call.i.noexc.i27 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink) #16
+  br label %return.sink.split.sink.split
+
+return.sink.split.sink.split:                     ; preds = %return.sink.split.sink.split.sink.split, %call.i.noexc.i27, %call.i.noexc.i
+  %mMutex.i21.sink54 = phi ptr [ %mMutex.i, %call.i.noexc.i ], [ %mMutex.i21, %call.i.noexc.i27 ], [ %mMutex.i21.sink54.ph, %return.sink.split.sink.split.sink.split ]
+  %or17.sink.ph = phi i8 [ %or17, %call.i.noexc.i ], [ %and, %call.i.noexc.i27 ], [ %or17.sink.ph.ph, %return.sink.split.sink.split.sink.split ]
+  store atomic i8 0, ptr %mMutex.i21.sink54 release, align 1
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.else, %if.then3
+  %or17.sink = phi i8 [ %or17, %if.then3 ], [ %and, %if.else ], [ %or17.sink.ph, %return.sink.split.sink.split ]
+  %mData.i7.i = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = load ptr, ptr %mData.i7.i, align 8
+  store i8 %or17.sink, ptr %19, align 1
   br label %return
 
 return:                                           ; preds = %for.body, %for.body.us, %return.sink.split, %for.cond.preheader
@@ -624,39 +747,37 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp7 = alloca i8, align 1
   %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
   %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
-  %2 = load i8, ptr %mFlags.i.i, align 2
-  %3 = and i8 %2, 8
-  %tobool.i.not.i3 = icmp eq i8 %3, 0
-  %4 = load i32, ptr %mSize.i, align 8
-  %5 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i4 = select i1 %tobool.i.not.i3, i32 1, i32 %4
-  %cond.i5 = mul i32 %mul.i4, %5
+  %1 = load i8, ptr %mFlags.i.i, align 2
+  %2 = and i8 %1, 8
+  %tobool.i.not.i3 = icmp eq i8 %2, 0
+  %3 = load i32, ptr %mSize.i, align 8
+  %4 = load i32, ptr %mStrideOrTotalSize.i, align 4
+  %mul.i4 = select i1 %tobool.i.not.i3, i32 1, i32 %3
+  %cond.i5 = mul i32 %mul.i4, %4
   %cmp6 = icmp ugt i32 %cond.i5, 1
   br i1 %cmp6, label %for.body, label %for.end
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i32 %i.07, 1
-  %6 = load i8, ptr %mFlags.i.i, align 2
-  %7 = and i8 %6, 8
-  %tobool.i.not.i = icmp eq i8 %7, 0
-  %8 = load i32, ptr %mSize.i, align 8
-  %9 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %8
-  %cond.i = mul i32 %mul.i, %9
+  %5 = load i8, ptr %mFlags.i.i, align 2
+  %6 = and i8 %5, 8
+  %tobool.i.not.i = icmp eq i8 %6, 0
+  %7 = load i32, ptr %mSize.i, align 8
+  %8 = load i32, ptr %mStrideOrTotalSize.i, align 4
+  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %7
+  %cond.i = mul i32 %mul.i, %8
   %cmp = icmp ult i32 %inc, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
@@ -668,98 +789,85 @@ for.body:                                         ; preds = %if.end, %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end
   %call8 = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  store i8 %call8, ptr %ref.tmp7, align 1
-  call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  %9 = load i8, ptr %mIsUniform, align 8
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %for.end
+  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
+  %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
+
+while.body.i.i.i.i:                               ; preds = %if.then.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+  %backoff.sroa.0.03.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i ], [ 1, %if.then.i ]
+  %cmp.i.i.i.i.i = icmp slt i32 %backoff.sroa.0.03.i.i.i.i, 17
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
+  %cmp1.i.i.i.i.i.i = icmp sgt i32 %backoff.sroa.0.03.i.i.i.i, 0
+  br i1 %cmp1.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
+
+while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, %while.body.i.i.i.i.i.i
+  %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
+  %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
+  tail call void @llvm.x86.sse2.pause()
+  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !4
+
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
+  %mul.i.i.i.i.i = shl nsw i32 %backoff.sroa.0.03.i.i.i.i, 1
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+
+if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
+  %call.i.i.i.i.i.i.i = tail call noundef i32 @sched_yield() #7
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
+  %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !6
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.then.i
+  invoke void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+          to label %if.then.i.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
+
+if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
+  store i8 1, ptr %mIsUniform, align 8
+  %call.i1.i = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #15
+          to label %call.i.noexc.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
+
+call.i.noexc.i:                                   ; preds = %if.then.i.i
+  %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %12 = load ptr, ptr %mData.i.i, align 8
+  store ptr %call.i1.i, ptr %mData.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
+  br i1 %tobool.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %call.i.noexc.i
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #16
+  br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %call.i.noexc.i
+  store atomic i8 0, ptr %mMutex.i release, align 1
+  br label %_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit
+
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = %if.then.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  store atomic i8 0, ptr %mMutex.i release, align 1
+  resume { ptr, i32 } %13
+
+_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit: ; preds = %for.end, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
+  %mData.i7.i = getelementptr inbounds i8, ptr %this, i64 24
+  %14 = load ptr, ptr %mData.i7.i, align 8
+  store i8 %call8, ptr %14, align 1
   br label %return
 
-return:                                           ; preds = %for.body, %entry, %for.end
-  %retval.0 = phi i1 [ true, %for.end ], [ true, %entry ], [ false, %for.body ]
+return:                                           ; preds = %for.body, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit
+  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit ], [ true, %entry ], [ false, %for.body ]
   ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 dereferenceable(1) %uniformValue) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load i8, ptr %mIsUniform, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %mMutex = getelementptr inbounds i8, ptr %this, i64 9
-  %2 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
-  %3 = and i8 %2, 1
-  %tobool3.i.i.not2.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool3.i.i.not2.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, label %while.body.i.i.i
-
-while.body.i.i.i:                                 ; preds = %if.then, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
-  %backoff.sroa.0.03.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i ], [ 1, %if.then ]
-  %cmp.i.i.i.i = icmp slt i32 %backoff.sroa.0.03.i.i.i, 17
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
-  %cmp1.i.i.i.i.i = icmp sgt i32 %backoff.sroa.0.03.i.i.i, 0
-  br i1 %cmp1.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
-
-while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i.i
-  %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.then.i.i.i.i ]
-  %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
-  tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !4
-
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
-  %mul.i.i.i.i = shl nsw i32 %backoff.sroa.0.03.i.i.i, 1
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i
-  %call.i.i.i.i.i.i = tail call noundef i32 @sched_yield() #7
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
-
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %if.else.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
-  %backoff.sroa.0.1.i.i.i = phi i32 [ %mul.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.else.i.i.i.i ]
-  %4 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
-  %5 = and i8 %4, 1
-  %tobool3.i.i.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool3.i.i.not.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, label %while.body.i.i.i, !llvm.loop !6
-
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %if.then
-  invoke void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
-          to label %if.then.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7
-
-if.then.i:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  store i8 1, ptr %mIsUniform, align 8
-  %call.i1 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #15
-          to label %call.i.noexc unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7
-
-call.i.noexc:                                     ; preds = %if.then.i
-  %mData.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %mData.i, align 8
-  store ptr %call.i1, ptr %mData.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %if.end.sink.split.i
-
-if.end.sink.split.i:                              ; preds = %call.i.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #16
-  br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
-
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %if.end.sink.split.i, %call.i.noexc
-  store atomic i8 0, ptr %mMutex release, align 1
-  br label %if.end
-
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %if.then.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  store atomic i8 0, ptr %mMutex release, align 1
-  resume { ptr, i32 } %7
-
-if.end:                                           ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, %entry
-  %mData.i8 = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %mData.i8, align 8
-  %9 = load i8, ptr %uniformValue, align 1
-  store i8 %9, ptr %8, align 1
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -826,7 +934,7 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad7
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad7
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad7 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad7 ], [ %12, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad7:                                            ; preds = %try.cont, %catch
@@ -849,9 +957,8 @@ if.then10:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.then10
   %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %11 = and i8 %10, 1
-  %tobool3.i.i.not2.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool3.i.i.not2.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, label %while.body.i.i.i.i
+  %tobool3.i.i2.i.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
   %backoff.sroa.0.03.i.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i ], [ 1, %if.end.i ]
@@ -879,10 +986,9 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %13 = and i8 %12, 1
-  %tobool3.i.i.not.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %tobool3.i.i.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, label %while.body.i.i.i.i, !llvm.loop !6
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !6
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
   invoke void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
@@ -893,39 +999,32 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %if.end11
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 if.end11:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then10, %if.end
   %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
-  %15 = load i8, ptr %mIsUniform.i, align 8
-  %16 = and i8 %15, 1
-  %tobool.i3.not = icmp eq i8 %16, 0
-  br i1 %tobool.i3.not, label %if.end14.thread, label %if.end14
+  %13 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i3 = trunc i8 %13 to i1
+  br i1 %tobool.i3, label %if.then13, label %if.end14
 
-if.end14.thread:                                  ; preds = %if.end11
-  %17 = zext i32 %n to i64
-  br label %20
-
-if.end14:                                         ; preds = %if.end11
+if.then13:                                        ; preds = %if.end11
   tail call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6expandEb(ptr noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext true)
   %.pre = load i8, ptr %mIsUniform.i, align 8
-  %.pre.fr = freeze i8 %.pre
-  %.pre5 = and i8 %.pre.fr, 1
-  %18 = icmp eq i8 %.pre5, 0
-  %19 = zext i32 %n to i64
-  %spec.select = select i1 %18, i64 %19, i64 0
-  br label %20
+  %.pre6 = trunc i8 %.pre to i1
+  br label %if.end14
 
-20:                                               ; preds = %if.end14, %if.end14.thread
-  %21 = phi i64 [ %17, %if.end14.thread ], [ %spec.select, %if.end14 ]
-  %.in = getelementptr inbounds i8, ptr %this, i64 24
-  %22 = load ptr, ptr %.in, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %22, i64 %21
-  %23 = load i8, ptr %val, align 1
-  store i8 %23, ptr %arrayidx.i, align 1
+if.end14:                                         ; preds = %if.then13, %if.end11
+  %tobool.i5.pre-phi = phi i1 [ %.pre6, %if.then13 ], [ false, %if.end11 ]
+  %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %14 = load ptr, ptr %mData.i.i, align 8
+  %15 = zext i32 %n to i64
+  %idxprom.i = select i1 %tobool.i5.pre-phi, i64 0, i64 %15
+  %arrayidx.i = getelementptr inbounds i8, ptr %14, i64 %idxprom.i
+  %16 = load i8, ptr %val, align 1
+  store i8 %16, ptr %arrayidx.i, align 1
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -1408,19 +1507,17 @@ define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10G
 entry:
   %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end9, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.end9
 
 if.end:                                           ; preds = %entry
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %mData.i, align 8
-  %3 = load i8, ptr %2, align 1
+  %1 = load ptr, ptr %mData.i, align 8
+  %2 = load i8, ptr %1, align 1
   %mMutex = getelementptr inbounds i8, ptr %this, i64 9
-  %4 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
-  %5 = and i8 %4, 1
-  %tobool3.i.i.not2.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool3.i.i.not2.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, label %while.body.i.i.i
+  %3 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool3.i.i2.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
 
 while.body.i.i.i:                                 ; preds = %if.end, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
   %backoff.sroa.0.03.i.i.i = phi i32 [ %backoff.sroa.0.1.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i ], [ 1, %if.end ]
@@ -1448,39 +1545,38 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %if.else.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %backoff.sroa.0.1.i.i.i = phi i32 [ %mul.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.else.i.i.i.i ]
-  %6 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
-  %7 = and i8 %6, 1
-  %tobool3.i.i.not.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool3.i.i.not.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, label %while.body.i.i.i, !llvm.loop !6
+  %4 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !6
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %if.end
   invoke void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
-          to label %if.else.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11
+          to label %if.else.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit10
 
 if.else.i:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   store i8 0, ptr %mIsUniform, align 8
   %mFlags.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
-  %8 = load i8, ptr %mFlags.i.i.i, align 2
-  %9 = and i8 %8, 8
-  %tobool.i.not.i.i = icmp eq i8 %9, 0
+  %5 = load i8, ptr %mFlags.i.i.i, align 2
+  %6 = and i8 %5, 8
+  %tobool.i.not.i.i = icmp eq i8 %6, 0
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %10 = load i32, ptr %mSize.i.i, align 8
+  %7 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds i8, ptr %this, i64 36
-  %11 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %10
-  %cond.i.i = mul i32 %mul.i.i, %11
+  %8 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %7
+  %cond.i.i = mul i32 %mul.i.i, %8
   %conv.i = zext i32 %cond.i.i to i64
   %call4.i5 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #15
-          to label %call4.i.noexc unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11
+          to label %call4.i.noexc unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit10
 
 call4.i.noexc:                                    ; preds = %if.else.i
-  %12 = load ptr, ptr %mData.i, align 8
+  %9 = load ptr, ptr %mData.i, align 8
   store ptr %call4.i5, ptr %mData.i, align 8
-  %tobool.not.i.i1.i = icmp eq ptr %12, null
+  %tobool.not.i.i1.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i1.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %call4.i.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #16
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %if.end.sink.split.i, %call4.i.noexc
@@ -1488,38 +1584,38 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %if
   br i1 %fill, label %for.cond.preheader, label %if.end9
 
 for.cond.preheader:                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
-  %13 = load i8, ptr %mFlags.i.i.i, align 2
-  %14 = and i8 %13, 8
-  %tobool.i.not.i13 = icmp eq i8 %14, 0
-  %15 = load i32, ptr %mSize.i.i, align 8
-  %16 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i14 = select i1 %tobool.i.not.i13, i32 1, i32 %15
-  %cond.i15 = mul i32 %mul.i14, %16
-  %cmp16.not = icmp eq i32 %cond.i15, 0
-  br i1 %cmp16.not, label %if.end9, label %for.body
+  %10 = load i8, ptr %mFlags.i.i.i, align 2
+  %11 = and i8 %10, 8
+  %tobool.i.not.i12 = icmp eq i8 %11, 0
+  %12 = load i32, ptr %mSize.i.i, align 8
+  %13 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i13 = select i1 %tobool.i.not.i12, i32 1, i32 %12
+  %cond.i14 = mul i32 %mul.i13, %13
+  %cmp15.not = icmp eq i32 %cond.i14, 0
+  br i1 %cmp15.not, label %if.end9, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %17 = load ptr, ptr %mData.i, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv
-  store i8 %3, ptr %arrayidx8, align 1
+  %14 = load ptr, ptr %mData.i, align 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
+  store i8 %2, ptr %arrayidx8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i8, ptr %mFlags.i.i.i, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i = icmp eq i8 %19, 0
-  %20 = load i32, ptr %mSize.i.i, align 8
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %20
-  %cond.i = mul i32 %mul.i, %21
-  %22 = zext i32 %cond.i to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %22
+  %15 = load i8, ptr %mFlags.i.i.i, align 2
+  %16 = and i8 %15, 8
+  %tobool.i.not.i = icmp eq i8 %16, 0
+  %17 = load i32, ptr %mSize.i.i, align 8
+  %18 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %17
+  %cond.i = mul i32 %mul.i, %18
+  %19 = zext i32 %cond.i to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !9
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11: ; preds = %if.else.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %23 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit10: ; preds = %if.else.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+  %20 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex release, align 1
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %20
 
 if.end9:                                          ; preds = %for.body, %for.cond.preheader, %entry, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
   ret void

@@ -906,8 +906,8 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN55_$LT$str$u20$as$u2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !206
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h03e0c3cb68d088edE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noundef nonnull %9, i64 noundef %13, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !noalias !201
   %14 = load i64, ptr %4, align 8, !range !207, !noalias !206, !noundef !4
-  %trunc.not.i = icmp eq i64 %14, 0
-  br i1 %trunc.not.i, label %15, label %19
+  %trunc.i = trunc i64 %14 to i1
+  br i1 %trunc.i, label %19, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %4, i64 8
@@ -949,13 +949,13 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN55_$LT$str$u20$as$u2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !213
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h9177ba8f6866066cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noundef nonnull %9, i64 noundef %13, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !noalias !208
   %14 = load i64, ptr %4, align 8, !range !207, !noalias !213, !noundef !4
-  %trunc.not.i = icmp eq i64 %14, 0
+  %trunc.i = trunc i64 %14 to i1
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8, !noalias !213, !nonnull !4
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !213
   %16 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.27.0.copyload.i
-  %.0.i = select i1 %trunc.not.i, ptr %16, ptr null
+  %.0.i = select i1 %trunc.i, ptr null, ptr %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !213
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hc871f1687b8ff7adE.exit"
 

@@ -70,20 +70,19 @@ while.body:                                       ; preds = %if.end, %do.body
   store ptr %call6, ptr %call4, align 8
   %1 = getelementptr i8, ptr %call319, i64 16
   %call3.val = load i8, ptr %1, align 8
-  %2 = and i8 %call3.val, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %do.body, label %if.else
+  %tobool.i = trunc i8 %call3.val to i1
+  br i1 %tobool.i, label %if.else, label %do.body
 
 if.else:                                          ; preds = %while.body
-  %3 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.not.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.else13, label %trace_event_get_state_dynamic.exit
 
 trace_event_get_state_dynamic.exit:               ; preds = %if.else
   %dstate.i = getelementptr inbounds i8, ptr %call319, i64 24
-  %4 = load ptr, ptr %dstate.i, align 8
-  %5 = load i16, ptr %4, align 2
-  %tobool4.i.not = icmp eq i16 %5, 0
+  %3 = load ptr, ptr %dstate.i, align 8
+  %4 = load i16, ptr %3, align 2
+  %tobool4.i.not = icmp eq i16 %4, 0
   br i1 %tobool4.i.not, label %if.else13, label %do.body
 
 if.else13:                                        ; preds = %if.else, %trace_event_get_state_dynamic.exit
@@ -152,9 +151,8 @@ if.end.i:                                         ; preds = %if.then.i
 land.lhs.true.i:                                  ; preds = %if.end.i
   %1 = getelementptr i8, ptr %call.i4, i64 16
   %call.val.i = load i8, ptr %1, align 8
-  %2 = and i8 %call.val.i, 1
-  %tobool.i.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.not.i, label %if.then5.i, label %if.end
+  %tobool.i.i = trunc i8 %call.val.i to i1
+  br i1 %tobool.i.i, label %if.end, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.check_events, ptr noundef nonnull @.str.4, ptr noundef nonnull %name) #9
@@ -176,15 +174,14 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %if.end15.i
   %call814.i = phi ptr [ %call8.i, %if.end15.i ], [ %call812.i, %while.body.lr.ph.i ]
-  %3 = getelementptr i8, ptr %call814.i, i64 16
-  %call8.val.i = load i8, ptr %3, align 8
-  %4 = and i8 %call8.val.i, 1
-  %tobool.i10.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.i10.not.i, label %if.then13.i, label %if.end15.i
+  %2 = getelementptr i8, ptr %call814.i, i64 16
+  %call8.val.i = load i8, ptr %2, align 8
+  %tobool.i10.i = trunc i8 %call8.val.i to i1
+  br i1 %tobool.i10.i, label %if.end15.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %while.body.i
-  %5 = getelementptr i8, ptr %call814.i, i64 8
-  %call8.val9.i = load ptr, ptr %5, align 8
+  %3 = getelementptr i8, ptr %call814.i, i64 8
+  %call8.val9.i = load ptr, ptr %3, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 42, ptr noundef nonnull @__func__.check_events, ptr noundef nonnull @.str.4, ptr noundef %call8.val9.i) #9
   br label %check_events.exit
 
@@ -206,11 +203,10 @@ if.end:                                           ; preds = %if.end15.i, %while.
 
 while.body:                                       ; preds = %if.end, %while.cond.backedge
   %call811 = phi ptr [ %call8, %while.cond.backedge ], [ %call89, %if.end ]
-  %6 = getelementptr i8, ptr %call811, i64 16
-  %call8.val = load i8, ptr %6, align 8
-  %7 = and i8 %call8.val, 1
-  %tobool.i.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.not, label %while.cond.backedge, label %if.end11
+  %4 = getelementptr i8, ptr %call811, i64 16
+  %call8.val = load i8, ptr %4, align 8
+  %tobool.i = trunc i8 %call8.val to i1
+  br i1 %tobool.i, label %if.end11, label %while.cond.backedge
 
 if.end11:                                         ; preds = %while.body
   call void @trace_event_set_state_dynamic(ptr noundef nonnull %call811, i1 noundef zeroext %enable) #9

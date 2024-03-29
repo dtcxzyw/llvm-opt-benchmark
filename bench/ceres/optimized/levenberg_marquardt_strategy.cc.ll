@@ -634,7 +634,7 @@ define hidden { double, i64 } @_ZN5ceres8internal26LevenbergMarquardtStrategy11C
 
 .critedge:                                        ; preds = %5
   %.not42 = icmp eq ptr %3, null
-  br i1 %.not42, label %26, label %.critedge48
+  br i1 %.not42, label %26, label %.critedge47
 
 26:                                               ; preds = %.critedge
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str, i32 noundef 74)
@@ -655,11 +655,11 @@ define hidden { double, i64 } @_ZN5ceres8internal26LevenbergMarquardtStrategy11C
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
   unreachable
 
-.critedge48:                                      ; preds = %.critedge
+.critedge47:                                      ; preds = %.critedge
   %.not43 = icmp eq ptr %4, null
-  br i1 %.not43, label %33, label %.critedge50
+  br i1 %.not43, label %33, label %.critedge49
 
-33:                                               ; preds = %.critedge48
+33:                                               ; preds = %.critedge47
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str, i32 noundef 75)
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %35 unwind label %38
@@ -678,24 +678,23 @@ define hidden { double, i64 } @_ZN5ceres8internal26LevenbergMarquardtStrategy11C
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
   unreachable
 
-.critedge50:                                      ; preds = %.critedge48
+.critedge49:                                      ; preds = %.critedge47
   %40 = load ptr, ptr %2, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 88
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %44 = getelementptr inbounds i8, ptr %0, i64 56
   %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, 1
-  %.not44 = icmp eq i8 %46, 0
-  br i1 %.not44, label %47, label %73
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %73, label %47
 
-47:                                               ; preds = %.critedge50
+47:                                               ; preds = %.critedge49
   %48 = getelementptr inbounds i8, ptr %0, i64 64
   %49 = getelementptr inbounds i8, ptr %0, i64 72
   %50 = load i64, ptr %49, align 8
   %51 = sext i32 %43 to i64
-  %.not45 = icmp eq i64 %50, %51
-  br i1 %.not45, label %52, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
+  %.not44 = icmp eq i64 %50, %51
+  br i1 %.not44, label %52, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit: ; preds = %47
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %51, i64 noundef %51, i64 noundef 1)
@@ -733,19 +732,19 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit:
   call void @_ZN5ceres8internal14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_13CwiseBinaryOpINS2_8internal13scalar_min_opIddLi0EEEKNS5_INS6_13scalar_max_opIddLi0EEEKNS2_12ArrayWrapperIS4_EEKNS2_14CwiseNullaryOpINS6_18scalar_constant_opIdEENS2_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEEEESK_EEEEvPNS0_11ContextImplEiRT_RKT0_(ptr noundef %61, i32 noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(73) %9)
   br label %73
 
-73:                                               ; preds = %52, %.critedge50
+73:                                               ; preds = %52, %.critedge49
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   %78 = sext i32 %43 to i64
-  br i1 %77, label %79, label %._crit_edge56
+  br i1 %77, label %79, label %._crit_edge55
 
 79:                                               ; preds = %73
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %74, i64 noundef %78, i64 noundef %78, i64 noundef 1)
-  br label %._crit_edge56
+  br label %._crit_edge55
 
-._crit_edge56:                                    ; preds = %73, %79
+._crit_edge55:                                    ; preds = %73, %79
   %80 = getelementptr inbounds i8, ptr %0, i64 96
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 104
@@ -785,7 +784,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit:
     i32 2, label %117
   ]
 
-104:                                              ; preds = %._crit_edge56
+104:                                              ; preds = %._crit_edge55
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull @.str, i32 noundef 119, i32 noundef 1)
           to label %105 unwind label %113
 
@@ -817,7 +816,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit:
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #22
   br label %173
 
-117:                                              ; preds = %._crit_edge56
+117:                                              ; preds = %._crit_edge55
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull @.str, i32 noundef 123, i32 noundef 1)
           to label %118 unwind label %113
 
@@ -844,7 +843,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit:
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #22
   br label %173
 
-128:                                              ; preds = %._crit_edge56
+128:                                              ; preds = %._crit_edge55
   %129 = invoke noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %78, ptr noundef nonnull %4)
           to label %130 unwind label %113
 

@@ -1000,8 +1000,7 @@ define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noun
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %0, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
+  %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1010,7 +1009,7 @@ define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noun
   store ptr null, ptr %4, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef %6) #13
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef %6) #13
-  br i1 %.not, label %13, label %16
+  br i1 %10, label %16, label %13
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
@@ -1018,9 +1017,8 @@ define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noun
   br label %66
 
 16:                                               ; preds = %2
-  %17 = and i8 %12, 1
-  %.not9 = icmp eq i8 %17, 0
-  %18 = select i1 %.not9, i32 420, i32 493
+  %17 = trunc i8 %12 to i1
+  %18 = select i1 %17, i32 493, i32 420
   %19 = load ptr, ptr %3, align 8
   %20 = call i32 (ptr, i32, ...) @open(ptr noundef %19, i32 noundef 524865, i32 noundef %18) #13
   %21 = icmp slt i32 %20, 0
@@ -1142,9 +1140,8 @@ _write_conf.exit.thread:                          ; preds = %64, %60
 ; Function Attrs: nounwind uwtable
 define noundef i32 @write_config_to_memfd(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8

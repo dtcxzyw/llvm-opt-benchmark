@@ -810,8 +810,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_isNoOp.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %m_isNoOp.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -821,8 +820,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_hasChannelCrosstalk.i = getelementptr inbounds i8, ptr %0, i64 145
   %1 = load i8, ptr %m_hasChannelCrosstalk.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 

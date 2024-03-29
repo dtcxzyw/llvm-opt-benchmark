@@ -49,17 +49,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #7
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #7
   br label %trace_watchdog_perform_action.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -68,8 +67,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_watchdog_perform_action.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load i32, ptr @watchdog_action, align 4
-  switch i32 %8, label %sw.default [
+  %7 = load i32, ptr @watchdog_action, align 4
+  switch i32 %7, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
     i32 2, label %sw.bb2
@@ -102,8 +101,8 @@ sw.bb3:                                           ; preds = %trace_watchdog_perf
 
 sw.bb4:                                           ; preds = %trace_watchdog_perform_action.exit
   tail call void @qapi_event_send_watchdog(i32 noundef 4) #7
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @fwrite(ptr nonnull @.str, i64 22, i64 1, ptr %9) #9
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = tail call i64 @fwrite(ptr nonnull @.str, i64 22, i64 1, ptr %8) #9
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %trace_watchdog_perform_action.exit
@@ -162,17 +161,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %action) #7
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %action) #7
   br label %trace_watchdog_set_action.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

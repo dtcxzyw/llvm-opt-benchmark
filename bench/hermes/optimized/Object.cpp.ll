@@ -2269,9 +2269,8 @@ cleanup.i:                                        ; preds = %for.inc.i, %if.end3
   %retval.sroa.0.0.i24 = phi i32 [ %call90.i, %if.then85.i ], [ %call107.i, %if.then102.i ], [ %call125.i, %if.then120.i ], [ %call70.i, %if.then65.i ], [ 1, %if.then33.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit34.i ], [ 0, %if.end38.i ], [ 0, %for.inc.i ]
   %retval.sroa.9.0.i = phi i64 [ undef, %if.then85.i ], [ undef, %if.then102.i ], [ undef, %if.then120.i ], [ undef, %if.then65.i ], [ %retval.sroa.0.0.copyload.i.i, %if.then33.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit34.i ], [ undef, %if.end38.i ], [ undef, %for.inc.i ]
   %41 = load i8, ptr %hasVal.i.i.i.i, align 8
-  %42 = and i8 %41, 1
-  %tobool.not.i.i.i.i.i = icmp eq i8 %42, 0
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZN6hermes2vm22addEntriesFromIterableIZNS0_17objectFromEntriesEPvRNS0_7RuntimeENS0_10NativeArgsEE3$_0EENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES4_NS0_6HandleINS0_8JSObjectEEENSC_IS8_EET_.exit", label %if.then.i.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %41 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN6hermes2vm22addEntriesFromIterableIZNS0_17objectFromEntriesEPvRNS0_7RuntimeENS0_10NativeArgsEE3$_0EENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES4_NS0_6HandleINS0_8JSObjectEEENSC_IS8_EET_.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %cleanup.i
   store i8 0, ptr %hasVal.i.i.i.i, align 8
@@ -2285,10 +2284,10 @@ if.then.i.i.i.i.i:                                ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   %chunks_.i.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %conv.i.i.i = zext i32 %6 to i64
-  %43 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i18.i.i.i = getelementptr inbounds ptr, ptr %43, i64 %conv.i.i.i
-  %44 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %44, i64 128
+  %42 = load ptr, ptr %chunks_.i.i.i, align 8
+  %arrayidx.i18.i.i.i = getelementptr inbounds ptr, ptr %42, i64 %conv.i.i.i
+  %43 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %43, i64 128
   store i32 %6, ptr %curChunkIndex_.i.i, align 8
   %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %4, i64 200
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
@@ -5447,9 +5446,9 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %13 = load i8, ptr %hasVal.i.i.i, align 8
   %14 = and i8 %13, 1
   %cmp.i42 = icmp eq i8 %14, 0
-  br i1 %cmp.i42, label %return, label %cleanup
+  br i1 %cmp.i42, label %return, label %if.end61
 
-cleanup:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
+if.end61:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   call void @_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(24) %builder, ptr nonnull @.str.5, i64 8)
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i38, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
@@ -5533,9 +5532,9 @@ if.end164:                                        ; preds = %_ZN6hermes2vm5vmisa
   %or.i.i.i = or i64 %24, -844424930131968
   br label %return
 
-return:                                           ; preds = %cleanup, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end78, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %if.else20, %if.end164
-  %retval.sroa.0.1 = phi i32 [ 1, %if.end164 ], [ 0, %if.else20 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ 0, %if.end78 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 1, %cleanup ]
-  %retval.sroa.7.1 = phi i64 [ %or.i.i.i, %if.end164 ], [ undef, %if.else20 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %if.end78 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %retval.sroa.0.0.copyload.i43, %cleanup ]
+return:                                           ; preds = %if.end61, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end78, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %if.else20, %if.end164
+  %retval.sroa.0.1 = phi i32 [ 1, %if.end164 ], [ 0, %if.else20 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ 0, %if.end78 ], [ 1, %if.end61 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.7.1 = phi i64 [ %or.i.i.i, %if.end164 ], [ undef, %if.else20 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %if.end78 ], [ %retval.sroa.0.0.copyload.i43, %if.end61 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.1, 1
   ret { i32, i64 } %.fca.1.insert

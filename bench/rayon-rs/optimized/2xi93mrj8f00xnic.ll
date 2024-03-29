@@ -63,8 +63,8 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8, !range !10, !noundef !9
-  %trunc.not = icmp eq i8 %11, 0
-  br i1 %trunc.not, label %12, label %16
+  %trunc = trunc i8 %11 to i1
+  br i1 %trunc, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = atomicrmw add ptr %5, i64 1 seq_cst, align 8
@@ -527,8 +527,8 @@ define hidden void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b26
   %4 = getelementptr inbounds i8, ptr %3, i64 256
   %5 = load atomic i64, ptr %4 acquire, align 8
   %6 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfbe0768a47868df2E, align 8, !range !34, !noalias !35, !noundef !9
-  %trunc.not.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %trunc.not.i.i.i.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h96685dda6de7513cE.exit.i"
+  %trunc.i.i.i.i = trunc i64 %6 to i1
+  br i1 %trunc.i.i.i.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h96685dda6de7513cE.exit.i", label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i.i: ; preds = %2
   %7 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd3a58f82a53581a5E.llvm.17432428852515034553"(ptr noundef nonnull align 8 @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfbe0768a47868df2E, ptr noalias noundef align 8 dereferenceable_or_null(16) null)
@@ -1085,8 +1085,8 @@ define internal fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17h
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfbe0768a47868df2E, align 8, !range !34, !noalias !40, !noundef !9
-  %trunc.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %trunc.not.i.i.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.thread.i
+  %trunc.i.i.i = trunc i64 %3 to i1
+  br i1 %trunc.i.i.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.thread.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i: ; preds = %0
   %4 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd3a58f82a53581a5E.llvm.17432428852515034553"(ptr noundef nonnull align 8 @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfbe0768a47868df2E, ptr noalias noundef align 8 dereferenceable_or_null(16) null)

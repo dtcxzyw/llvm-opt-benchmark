@@ -1069,33 +1069,32 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.i.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.i.i.not, label %if.end, label %if.then5
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %5 = load ptr, ptr %arrayidx, align 16
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %5, i64 noundef %2, i32 noundef %retval.0.i)
+  %4 = load ptr, ptr %arrayidx, align 16
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %4, i64 noundef %2, i32 noundef %retval.0.i)
   %.pre = load i64, ptr %desired_value, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %6 = phi i64 [ %.pre, %if.then5 ], [ %2, %if.then ]
-  %cmp8 = icmp eq i64 %6, 0
+  %5 = phi i64 [ %.pre, %if.then5 ], [ %2, %if.then ]
+  %cmp8 = icmp eq i64 %5, 0
   %cmp9 = icmp eq i32 %retval.0.i, 0
   %or.cond = or i1 %cmp9, %cmp8
   %spec.store.select = select i1 %or.cond, i8 1, i8 2
   store i64 %conv, ptr %desired_value, align 8
-  %7 = getelementptr inbounds i8, ptr %action, i64 %set.coerce1
-  %8 = and i64 %set.coerce0, 1
-  %memptr.isvirtual.not = icmp eq i64 %8, 0
+  %6 = getelementptr inbounds i8, ptr %action, i64 %set.coerce1
+  %7 = and i64 %set.coerce0, 1
+  %memptr.isvirtual.not = icmp eq i64 %7, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
 
 memptr.virtual:                                   ; preds = %if.end
-  %vtable = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %vtable, i64 %set.coerce0
-  %10 = getelementptr i8, ptr %9, i64 -1
-  %memptr.virtualfn = load ptr, ptr %10, align 8, !nosanitize !25
+  %vtable = load ptr, ptr %6, align 8
+  %8 = getelementptr i8, ptr %vtable, i64 %set.coerce0
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !25
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end
@@ -1103,8 +1102,8 @@ memptr.nonvirtual:                                ; preds = %if.end
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %11 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  %call14 = tail call noundef nonnull align 4 dereferenceable(20) ptr %11(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 noundef zeroext %spec.store.select, i32 noundef %retval.0.i)
+  %10 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  %call14 = tail call noundef nonnull align 4 dereferenceable(20) ptr %10(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 noundef zeroext %spec.store.select, i32 noundef %retval.0.i)
   br label %if.end15
 
 if.end15:                                         ; preds = %memptr.end, %entry
@@ -1153,9 +1152,8 @@ entry:
   %ref.tmp.i = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
   %enable_bdp_probe_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %enable_bdp_probe_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end24, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 11)
@@ -1164,12 +1162,12 @@ if.then:                                          ; preds = %entry
 cond.true:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %estimate_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i64, ptr %estimate_.i.i, align 8
-  %conv.i = sitofp i64 %2 to double
+  %1 = load i64, ptr %estimate_.i.i, align 8
+  %conv.i = sitofp i64 %1 to double
   %mul.i = fmul double %conv.i, 2.000000e+00
-  %3 = load ptr, ptr %this, align 8
-  %4 = load ptr, ptr %3, align 8, !noalias !26
-  %cmp.i.not.i.i = icmp eq ptr %4, null
+  %2 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %2, align 8, !noalias !26
+  %cmp.i.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.not.i.i, label %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i, label %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i: ; preds = %cond.true
@@ -1178,9 +1176,9 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i: ; preds = %cond.tr
   br label %_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %cond.true
-  %memory_quota_.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
-  %5 = load ptr, ptr %memory_quota_.i.i.i, align 8, !noalias !29
-  call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1488) %5)
+  %memory_quota_.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = load ptr, ptr %memory_quota_.i.i.i, align 8, !noalias !29
+  call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1488) %4)
   %pressure_control_value.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %.pre.i = load double, ptr %pressure_control_value.phi.trans.insert.i, align 8
   %cmp.i.i = fcmp ogt double %mul.i, 0x4150000000000000
@@ -1219,24 +1217,24 @@ _ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemor
 
 cond.false:                                       ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i4)
-  %6 = load ptr, ptr %this, align 8
-  %7 = load ptr, ptr %6, align 8
-  %cmp.i.not.i = icmp eq ptr %7, null
+  %5 = load ptr, ptr %this, align 8
+  %6 = load ptr, ptr %5, align 8
+  %cmp.i.not.i = icmp eq ptr %6, null
   br i1 %cmp.i.not.i, label %cond.end.i, label %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5: ; preds = %cond.false
-  %memory_quota_.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %memory_quota_.i.i.i6, align 8, !noalias !32
-  call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(1488) %8)
+  %memory_quota_.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %memory_quota_.i.i.i6, align 8, !noalias !32
+  call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(1488) %7)
   %pressure_control_value.i = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 8
-  %9 = load double, ptr %pressure_control_value.i, align 8
+  %8 = load double, ptr %pressure_control_value.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5, %cond.false
-  %cond.i = phi double [ %9, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5 ], [ 0.000000e+00, %cond.false ]
+  %cond.i = phi double [ %8, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5 ], [ 0.000000e+00, %cond.false ]
   %estimate_.i.i7 = getelementptr inbounds i8, ptr %this, i64 32
-  %10 = load i64, ptr %estimate_.i.i7, align 8
-  %conv.i8 = sitofp i64 %10 to double
+  %9 = load i64, ptr %estimate_.i.i7, align 8
+  %conv.i8 = sitofp i64 %9 to double
   %call4.i = call double @log2(double noundef %conv.i8) #26
   %add.i = fadd double %call4.i, 1.000000e+00
   %cmp.i1.i = fcmp olt double %cond.i, 1.000000e-01
@@ -1267,20 +1265,20 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
 _ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit: ; preds = %if.then.i2.i, %if.else.i.i, %if.then3.i.i
   %target.addr.0.i.i = phi double [ %add.i.i12, %if.then.i2.i ], [ %mul8.i.i, %if.then3.i.i ], [ %add.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i4)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %11, label %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %10, label %_ZN9grpc_core9Timestamp3NowEv.exit.i
 
-11:                                               ; preds = %_ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit
+10:                                               ; preds = %_ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
   br label %_ZN9grpc_core9Timestamp3NowEv.exit.i
 
-_ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %11, %_ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit
-  %12 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  %13 = load ptr, ptr %12, align 8
-  %vtable.i.i = load ptr, ptr %13, align 8
-  %14 = load ptr, ptr %vtable.i.i, align 8
-  %call.i.i = call i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
+_ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %10, %_ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit
+  %11 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  %12 = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %vtable.i.i, align 8
+  %call.i.i = call i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %last_control_value_.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %15 = load double, ptr %last_control_value_.i.i, align 8
+  %14 = load double, ptr %last_control_value_.i.i, align 8
   %last_pid_update_.i = getelementptr inbounds i8, ptr %this, i64 184
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %last_pid_update_.i, align 8
   %sub.i.i13 = sub i64 0, %agg.tmp3.sroa.0.0.copyload.i
@@ -1311,12 +1309,12 @@ if.else.i.i.i.i:                                  ; preds = %if.end11.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %add.i.i.i.i = sub i64 %call.i.i, %agg.tmp3.sroa.0.0.copyload.i
-  %16 = sitofp i64 %add.i.i.i.i to double
+  %15 = sitofp i64 %add.i.i.i.i to double
   br label %_ZN9grpc_core6chttp220TransportFlowControl12SmoothLogBdpEd.exit
 
 _ZN9grpc_core6chttp220TransportFlowControl12SmoothLogBdpEd.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.end.i.i.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %if.end7.i.i.i.i
-  %retval.0.i.i.i = phi double [ 0x43E0000000000000, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ 0xC3E0000000000000, %if.end.i.i.i ], [ %16, %if.end7.i.i.i.i ], [ 0x43E0000000000000, %if.then.i.i.i.i ], [ 0xC3E0000000000000, %if.else.i.i.i.i ]
-  %sub.i = fsub double %target.addr.0.i.i, %15
+  %retval.0.i.i.i = phi double [ 0x43E0000000000000, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ 0xC3E0000000000000, %if.end.i.i.i ], [ %15, %if.end7.i.i.i.i ], [ 0x43E0000000000000, %if.then.i.i.i.i ], [ 0xC3E0000000000000, %if.else.i.i.i.i ]
+  %sub.i = fsub double %target.addr.0.i.i, %14
   %pid_controller_.i = getelementptr inbounds i8, ptr %this, i64 96
   %div.i.i15 = fdiv double %retval.0.i.i.i, 1.000000e+03
   store i64 %call.i.i, ptr %last_pid_update_.i, align 8
@@ -1347,51 +1345,50 @@ cond.end:                                         ; preds = %_ZN9grpc_core6chttp
   %inc.i = add i32 %or8.i, 1
   %cmp = icmp ult i32 %inc.i, 1024
   %spec.store.select = select i1 %cmp, i32 0, i32 %inc.i
-  %17 = load ptr, ptr @_ZN9grpc_core6chttp252g_test_only_transport_target_window_estimates_mockerE, align 8
-  %cmp9.not = icmp eq ptr %17, null
+  %16 = load ptr, ptr @_ZN9grpc_core6chttp252g_test_only_transport_target_window_estimates_mockerE, align 8
+  %cmp9.not = icmp eq ptr %16, null
   br i1 %cmp9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %cond.end
   %target_initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 200
-  %18 = load i64, ptr %target_initial_window_size_, align 8
-  %conv11 = sitofp i64 %18 to double
-  %vtable = load ptr, ptr %17, align 8
+  %17 = load i64, ptr %target_initial_window_size_, align 8
+  %conv11 = sitofp i64 %17 to double
+  %vtable = load ptr, ptr %16, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %19 = load ptr, ptr %vfn, align 8
-  %call12 = call noundef double %19(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %conv11)
+  %18 = load ptr, ptr %vfn, align 8
+  %call12 = call noundef double %18(ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %conv11)
   %conv13 = fptoui double %call12 to i32
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %cond.end
   %target.0 = phi i32 [ %conv13, %if.then10 ], [ %spec.store.select, %cond.end ]
   %target_initial_window_size_15 = getelementptr inbounds i8, ptr %this, i64 200
-  %20 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 2), align 4
-  %21 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 3), align 16
-  %cmp.i.i20 = icmp ugt i32 %20, %target.0
-  %max.val.i.i = call i32 @llvm.umin.i32(i32 %21, i32 %target.0)
-  %retval.0.i.i = select i1 %cmp.i.i20, i32 %20, i32 %max.val.i.i
+  %19 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 2), align 4
+  %20 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 3), align 16
+  %cmp.i.i20 = icmp ugt i32 %19, %target.0
+  %max.val.i.i = call i32 @llvm.umin.i32(i32 %20, i32 %target.0)
+  %retval.0.i.i = select i1 %cmp.i.i20, i32 %19, i32 %max.val.i.i
   %conv.i21 = zext i32 %retval.0.i.i to i64
-  %22 = load i64, ptr %target_initial_window_size_15, align 8
-  %cmp.not.i = icmp eq i64 %22, %conv.i21
+  %21 = load i64, ptr %target_initial_window_size_15, align 8
+  %cmp.not.i = icmp eq i64 %21, %conv.i21
   br i1 %cmp.not.i, label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %24 = and i8 %23, 1
-  %tobool.i.i.i.not.i = icmp eq i8 %24, 0
-  br i1 %tobool.i.i.i.not.i, label %if.end.i, label %if.then5.i22
+  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i.i = trunc i8 %22 to i1
+  br i1 %tobool.i.i.i.i, label %if.then5.i23, label %if.end.i
 
-if.then5.i22:                                     ; preds = %if.then.i
-  %25 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3), align 16
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %25, i64 noundef %22, i32 noundef %retval.0.i.i)
-  %.pre.i23 = load i64, ptr %target_initial_window_size_15, align 8
+if.then5.i23:                                     ; preds = %if.then.i
+  %23 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3), align 16
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %23, i64 noundef %21, i32 noundef %retval.0.i.i)
+  %.pre.i24 = load i64, ptr %target_initial_window_size_15, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then5.i22, %if.then.i
-  %26 = phi i64 [ %.pre.i23, %if.then5.i22 ], [ %22, %if.then.i ]
-  %cmp8.i24 = icmp eq i64 %26, 0
+if.end.i:                                         ; preds = %if.then5.i23, %if.then.i
+  %24 = phi i64 [ %.pre.i24, %if.then5.i23 ], [ %21, %if.then.i ]
+  %cmp8.i22 = icmp eq i64 %24, 0
   %cmp9.i = icmp eq i32 %retval.0.i.i, 0
-  %or.cond.i = or i1 %cmp9.i, %cmp8.i24
+  %or.cond.i = or i1 %cmp9.i, %cmp8.i22
   %spec.store.select.i = select i1 %or.cond.i, i8 1, i8 2
   store i64 %conv.i21, ptr %target_initial_window_size_15, align 8
   br label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit
@@ -1400,101 +1397,99 @@ _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_
   %action.sroa.2.0 = phi i8 [ 0, %if.end14 ], [ %spec.store.select.i, %if.end.i ]
   %action.sroa.571.0 = phi i32 [ 0, %if.end14 ], [ %retval.0.i.i, %if.end.i ]
   %target_frame_size_ = getelementptr inbounds i8, ptr %this, i64 208
-  %27 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 2), align 4
-  %28 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 3), align 16
-  %cmp.i.i25 = icmp ugt i32 %27, %target.0
-  %max.val.i.i26 = call i32 @llvm.umin.i32(i32 %28, i32 %target.0)
-  %retval.0.i.i27 = select i1 %cmp.i.i25, i32 %27, i32 %max.val.i.i26
+  %25 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 2), align 4
+  %26 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 3), align 16
+  %cmp.i.i25 = icmp ugt i32 %25, %target.0
+  %max.val.i.i26 = call i32 @llvm.umin.i32(i32 %26, i32 %target.0)
+  %retval.0.i.i27 = select i1 %cmp.i.i25, i32 %25, i32 %max.val.i.i26
   %conv.i28 = zext i32 %retval.0.i.i27 to i64
-  %29 = load i64, ptr %target_frame_size_, align 8
-  %cmp.not.i29 = icmp eq i64 %29, %conv.i28
+  %27 = load i64, ptr %target_frame_size_, align 8
+  %cmp.not.i29 = icmp eq i64 %27, %conv.i28
   br i1 %cmp.not.i29, label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit
-  %30 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %31 = and i8 %30, 1
-  %tobool.i.i.i.not.i31 = icmp eq i8 %31, 0
-  br i1 %tobool.i.i.i.not.i31, label %if.end.i34, label %if.then5.i32
+  %28 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i.i31 = trunc i8 %28 to i1
+  br i1 %tobool.i.i.i.i31, label %if.then5.i38, label %if.end.i32
 
-if.then5.i32:                                     ; preds = %if.then.i30
-  %32 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4), align 16
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %32, i64 noundef %29, i32 noundef %retval.0.i.i27)
-  %.pre.i33 = load i64, ptr %target_frame_size_, align 8
-  br label %if.end.i34
+if.then5.i38:                                     ; preds = %if.then.i30
+  %29 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4), align 16
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %29, i64 noundef %27, i32 noundef %retval.0.i.i27)
+  %.pre.i39 = load i64, ptr %target_frame_size_, align 8
+  br label %if.end.i32
 
-if.end.i34:                                       ; preds = %if.then5.i32, %if.then.i30
-  %33 = phi i64 [ %.pre.i33, %if.then5.i32 ], [ %29, %if.then.i30 ]
-  %cmp8.i35 = icmp eq i64 %33, 0
-  %cmp9.i36 = icmp eq i32 %retval.0.i.i27, 0
-  %or.cond.i37 = or i1 %cmp9.i36, %cmp8.i35
-  %spec.store.select.i38 = select i1 %or.cond.i37, i8 1, i8 2
+if.end.i32:                                       ; preds = %if.then5.i38, %if.then.i30
+  %30 = phi i64 [ %.pre.i39, %if.then5.i38 ], [ %27, %if.then.i30 ]
+  %cmp8.i33 = icmp eq i64 %30, 0
+  %cmp9.i34 = icmp eq i32 %retval.0.i.i27, 0
+  %or.cond.i35 = or i1 %cmp9.i34, %cmp8.i33
+  %spec.store.select.i36 = select i1 %or.cond.i35, i8 1, i8 2
   store i64 %conv.i28, ptr %target_frame_size_, align 8
   br label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40
 
-_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40: ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit, %if.end.i34
-  %action.sroa.3.0 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %spec.store.select.i38, %if.end.i34 ]
-  %action.sroa.7.0 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %retval.0.i.i27, %if.end.i34 ]
+_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40: ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit, %if.end.i32
+  %action.sroa.3.0 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %spec.store.select.i36, %if.end.i32 ]
+  %action.sroa.7.0 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %retval.0.i.i27, %if.end.i32 ]
   %call.i41 = call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 29)
   br i1 %call.i41, label %if.then18, label %if.end24
 
 if.then18:                                        ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40
   %target_preferred_rx_crypto_frame_size_ = getelementptr inbounds i8, ptr %this, i64 216
-  %34 = load i64, ptr %target_frame_size_, align 8
-  %.tr = trunc i64 %34 to i32
+  %31 = load i64, ptr %target_frame_size_, align 8
+  %.tr = trunc i64 %31 to i32
   %conv20 = shl i32 %.tr, 1
   %max.val.i43 = call i32 @llvm.umin.i32(i32 %conv20, i32 134217727)
   %retval.0.i44 = call i32 @llvm.umax.i32(i32 %max.val.i43, i32 16384)
-  %35 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 2), align 4
-  %36 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 3), align 16
-  %cmp.i.i45 = icmp ugt i32 %35, %retval.0.i44
-  %max.val.i.i46 = call i32 @llvm.umin.i32(i32 %36, i32 %retval.0.i44)
-  %retval.0.i.i47 = select i1 %cmp.i.i45, i32 %35, i32 %max.val.i.i46
+  %32 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 2), align 4
+  %33 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 3), align 16
+  %cmp.i.i45 = icmp ugt i32 %32, %retval.0.i44
+  %max.val.i.i46 = call i32 @llvm.umin.i32(i32 %33, i32 %retval.0.i44)
+  %retval.0.i.i47 = select i1 %cmp.i.i45, i32 %32, i32 %max.val.i.i46
   %conv.i48 = zext i32 %retval.0.i.i47 to i64
-  %37 = load i64, ptr %target_preferred_rx_crypto_frame_size_, align 8
-  %cmp.not.i49 = icmp eq i64 %37, %conv.i48
+  %34 = load i64, ptr %target_preferred_rx_crypto_frame_size_, align 8
+  %cmp.not.i49 = icmp eq i64 %34, %conv.i48
   br i1 %cmp.not.i49, label %if.end24, label %if.then.i50
 
 if.then.i50:                                      ; preds = %if.then18
-  %38 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %39 = and i8 %38, 1
-  %tobool.i.i.i.not.i51 = icmp eq i8 %39, 0
-  br i1 %tobool.i.i.i.not.i51, label %if.end.i54, label %if.then5.i52
+  %35 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i.i51 = trunc i8 %35 to i1
+  br i1 %tobool.i.i.i.i51, label %if.then5.i58, label %if.end.i52
 
-if.then5.i52:                                     ; preds = %if.then.i50
-  %40 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7), align 16
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %40, i64 noundef %37, i32 noundef %retval.0.i.i47)
-  %.pre.i53 = load i64, ptr %target_preferred_rx_crypto_frame_size_, align 8
-  br label %if.end.i54
+if.then5.i58:                                     ; preds = %if.then.i50
+  %36 = load ptr, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7), align 16
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 286, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %36, i64 noundef %34, i32 noundef %retval.0.i.i47)
+  %.pre.i59 = load i64, ptr %target_preferred_rx_crypto_frame_size_, align 8
+  br label %if.end.i52
 
-if.end.i54:                                       ; preds = %if.then5.i52, %if.then.i50
-  %41 = phi i64 [ %.pre.i53, %if.then5.i52 ], [ %37, %if.then.i50 ]
-  %cmp8.i55 = icmp eq i64 %41, 0
-  %cmp9.i56 = icmp eq i32 %retval.0.i.i47, 0
-  %or.cond.i57 = or i1 %cmp9.i56, %cmp8.i55
-  %spec.store.select.i58 = select i1 %or.cond.i57, i8 1, i8 2
+if.end.i52:                                       ; preds = %if.then5.i58, %if.then.i50
+  %37 = phi i64 [ %.pre.i59, %if.then5.i58 ], [ %34, %if.then.i50 ]
+  %cmp8.i53 = icmp eq i64 %37, 0
+  %cmp9.i54 = icmp eq i32 %retval.0.i.i47, 0
+  %or.cond.i55 = or i1 %cmp9.i54, %cmp8.i53
+  %spec.store.select.i56 = select i1 %or.cond.i55, i8 1, i8 2
   store i64 %conv.i48, ptr %target_preferred_rx_crypto_frame_size_, align 8
   br label %if.end24
 
-if.end24:                                         ; preds = %if.end.i54, %if.then18, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40, %entry
-  %action.sroa.2.1 = phi i8 [ 0, %entry ], [ %action.sroa.2.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ %action.sroa.2.0, %if.then18 ], [ %action.sroa.2.0, %if.end.i54 ]
-  %action.sroa.3.1 = phi i8 [ 0, %entry ], [ %action.sroa.3.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ %action.sroa.3.0, %if.then18 ], [ %action.sroa.3.0, %if.end.i54 ]
-  %action.sroa.4.1 = phi i8 [ 0, %entry ], [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %if.then18 ], [ %spec.store.select.i58, %if.end.i54 ]
-  %action.sroa.9.1 = phi i32 [ 0, %entry ], [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %if.then18 ], [ %retval.0.i.i47, %if.end.i54 ]
-  %action.sroa.7.1 = phi i32 [ 0, %entry ], [ %action.sroa.7.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ %action.sroa.7.0, %if.then18 ], [ %action.sroa.7.0, %if.end.i54 ]
-  %action.sroa.571.1 = phi i32 [ 0, %entry ], [ %action.sroa.571.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ %action.sroa.571.0, %if.then18 ], [ %action.sroa.571.0, %if.end.i54 ]
+if.end24:                                         ; preds = %if.end.i52, %if.then18, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40, %entry
+  %action.sroa.2.1 = phi i8 [ %action.sroa.2.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.2.0, %if.then18 ], [ %action.sroa.2.0, %if.end.i52 ]
+  %action.sroa.3.1 = phi i8 [ %action.sroa.3.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.3.0, %if.then18 ], [ %action.sroa.3.0, %if.end.i52 ]
+  %action.sroa.4.1 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ 0, %if.then18 ], [ %spec.store.select.i56, %if.end.i52 ]
+  %action.sroa.9.1 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ 0, %if.then18 ], [ %retval.0.i.i47, %if.end.i52 ]
+  %action.sroa.7.1 = phi i32 [ %action.sroa.7.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.7.0, %if.then18 ], [ %action.sroa.7.0, %if.end.i52 ]
+  %action.sroa.571.1 = phi i32 [ %action.sroa.571.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.571.0, %if.then18 ], [ %action.sroa.571.0, %if.end.i52 ]
   %announced_stream_total_over_incoming_window_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %42 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i, align 8, !noalias !37
+  %38 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i, align 8, !noalias !37
   %target_initial_window_size_.i.i = getelementptr inbounds i8, ptr %this, i64 200
-  %43 = load i64, ptr %target_initial_window_size_.i.i, align 8, !noalias !37
-  %.sroa.speculated.i.i62 = call i64 @llvm.smax.i64(i64 %43, i64 1)
-  %add.i.i63 = add nsw i64 %.sroa.speculated.i.i62, %42
+  %39 = load i64, ptr %target_initial_window_size_.i.i, align 8, !noalias !37
+  %.sroa.speculated.i.i62 = call i64 @llvm.smax.i64(i64 %39, i64 1)
+  %add.i.i63 = add nsw i64 %.sroa.speculated.i.i62, %38
   %.sroa.speculated5.i.i = call i64 @llvm.smin.i64(i64 %add.i.i63, i64 2147483647)
   %conv5.i.i = and i64 %.sroa.speculated5.i.i, 4294967295
   %add.i64 = add nuw nsw i64 %conv5.i.i, 1
   %div1.i = lshr i64 %add.i64, 1
   %announced_window_.i = getelementptr inbounds i8, ptr %this, i64 224
-  %44 = load i64, ptr %announced_window_.i, align 8, !noalias !37
-  %cmp.i65 = icmp slt i64 %44, %div1.i
+  %40 = load i64, ptr %announced_window_.i, align 8, !noalias !37
+  %cmp.i65 = icmp slt i64 %40, %div1.i
   %spec.select = zext i1 %cmp.i65 to i8
   store i8 0, ptr %agg.result, align 4
   %agg.tmp61.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -1797,9 +1792,8 @@ entry:
   %pending_size_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIlEaSESt9nullopt_t.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIlEaSESt9nullopt_t.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -1812,62 +1806,61 @@ _ZNSt8optionalIlEaSESt9nullopt_t.exit:            ; preds = %entry, %if.then.i.i
   br i1 %cmp.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt8optionalIlEaSESt9nullopt_t.exit
-  %3 = load i64, ptr %announced_window_delta_, align 8
-  %cmp2.i = icmp sgt i64 %3, 0
+  %2 = load i64, ptr %announced_window_delta_, align 8
+  %cmp2.i = icmp sgt i64 %2, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %announced_stream_total_over_incoming_window_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
-  %sub.i = sub nsw i64 %4, %3
+  %3 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
+  %sub.i = sub nsw i64 %3, %2
   store i64 %sub.i, ptr %announced_stream_total_over_incoming_window_.i, align 8
   %.pre.i = load i64, ptr %announced_window_delta_, align 8
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  %5 = phi i64 [ %.pre.i, %if.then3.i ], [ %3, %if.end.i ]
-  %add.i = add nsw i64 %5, %conv
+  %4 = phi i64 [ %.pre.i, %if.then3.i ], [ %2, %if.end.i ]
+  %add.i = add nsw i64 %4, %conv
   store i64 %add.i, ptr %announced_window_delta_, align 8
   %cmp5.i = icmp sgt i64 %add.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   %announced_stream_total_over_incoming_window_8.i = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i64, ptr %announced_stream_total_over_incoming_window_8.i, align 8
-  %add9.i = add nsw i64 %6, %add.i
+  %5 = load i64, ptr %announced_stream_total_over_incoming_window_8.i, align 8
+  %add9.i = add nsw i64 %5, %add.i
   store i64 %add9.i, ptr %announced_stream_total_over_incoming_window_8.i, align 8
   br label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
 
 _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit: ; preds = %_ZNSt8optionalIlEaSESt9nullopt_t.exit, %if.end4.i, %if.then6.i
   %min_progress_size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i64, ptr %min_progress_size_.i.i, align 8
-  %cmp.i.i = icmp eq i64 %7, 0
+  %6 = load i64, ptr %min_progress_size_.i.i, align 8
+  %cmp.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else10.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
-  %8 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %9, 0
+  %7 = load i8, ptr %_M_engaged.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %7 to i1
   %.pre.i1.pre4 = load i64, ptr %announced_window_delta_, align 8
-  br i1 %tobool.i.i.not.i.i, label %invoke.cont2, label %land.lhs.true.i.i
+  br i1 %tobool.i.i.i.i, label %land.lhs.true.i.i, label %invoke.cont2
 
 land.lhs.true.i.i:                                ; preds = %if.then.i.i
-  %10 = load i64, ptr %pending_size_, align 8
-  %sub.i.i = sub nsw i64 0, %10
+  %8 = load i64, ptr %pending_size_, align 8
+  %sub.i.i = sub nsw i64 0, %8
   %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %.pre.i1.pre4, i64 %sub.i.i)
   br label %invoke.cont2
 
 if.else10.i.i:                                    ; preds = %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
-  %cmp.i.i.i = icmp sgt i64 %7, 1048576
+  %cmp.i.i.i = icmp sgt i64 %6, 1048576
   %.pre.i1.pre = load i64, ptr %announced_window_delta_, align 8
   %min_progress_size_.i.i.val = load i64, ptr %min_progress_size_.i.i, align 8
   %.pre.i.i.pre = select i1 %cmp.i.i.i, i64 1048576, i64 %min_progress_size_.i.i.val
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.else10.i.i, %if.then.i.i, %land.lhs.true.i.i
-  %11 = phi i64 [ %.pre.i1.pre4, %land.lhs.true.i.i ], [ %.pre.i1.pre, %if.else10.i.i ], [ %.pre.i1.pre4, %if.then.i.i ]
+  %9 = phi i64 [ %.pre.i1.pre4, %land.lhs.true.i.i ], [ %.pre.i1.pre, %if.else10.i.i ], [ %.pre.i1.pre4, %if.then.i.i ]
   %retval.0.i.i = phi i64 [ %spec.select.i.i, %land.lhs.true.i.i ], [ %.pre.i.i.pre, %if.else10.i.i ], [ %.pre.i1.pre4, %if.then.i.i ]
-  %cmp.not.not = icmp sgt i64 %retval.0.i.i, %11
+  %cmp.not.not = icmp sgt i64 %retval.0.i.i, %9
   br i1 %cmp.not.not, label %if.then, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit
 
 if.then:                                          ; preds = %invoke.cont2
@@ -1878,10 +1871,10 @@ invoke.cont5:                                     ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tfc_upd) #26
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %10
 
 _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit: ; preds = %invoke.cont2
   ret void
@@ -1898,9 +1891,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not.i, label %if.then.if.else_crit_edge.i, label %land.lhs.true.i
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %land.lhs.true.i, label %if.then.if.else_crit_edge.i
 
 if.then.if.else_crit_edge.i:                      ; preds = %if.then.i
   %announced_window_delta_9.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1909,10 +1901,10 @@ if.then.if.else_crit_edge.i:                      ; preds = %if.then.i
 land.lhs.true.i:                                  ; preds = %if.then.i
   %pending_size_.i = getelementptr inbounds i8, ptr %this, i64 32
   %announced_window_delta_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load i64, ptr %announced_window_delta_.i, align 8
-  %4 = load i64, ptr %pending_size_.i, align 8
-  %sub.i = sub nsw i64 0, %4
-  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %sub.i)
+  %2 = load i64, ptr %announced_window_delta_.i, align 8
+  %3 = load i64, ptr %pending_size_.i, align 8
+  %sub.i = sub nsw i64 0, %3
+  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %sub.i)
   br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit"
 
 if.else10.i:                                      ; preds = %entry
@@ -1928,9 +1920,9 @@ return.sink.split.i:                              ; preds = %if.else10.i, %if.th
   br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit"
 
 "_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit": ; preds = %land.lhs.true.i, %return.sink.split.i
-  %5 = phi i64 [ %3, %land.lhs.true.i ], [ %.pre, %return.sink.split.i ]
+  %4 = phi i64 [ %2, %land.lhs.true.i ], [ %.pre, %return.sink.split.i ]
   %retval.0.i = phi i64 [ %spec.select.i, %land.lhs.true.i ], [ %.pre.i, %return.sink.split.i ]
-  %sub = sub nsw i64 %retval.0.i, %5
+  %sub = sub nsw i64 %retval.0.i, %4
   %max.val.i = tail call i64 @llvm.smin.i64(i64 %sub, i64 2147483647)
   %retval.0.i2 = tail call i64 @llvm.smax.i64(i64 %max.val.i, i64 0)
   %conv = trunc i64 %retval.0.i2 to i32
@@ -1976,9 +1968,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %_M_engaged.i.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not.i.i, label %if.then.if.else_crit_edge.i.i, label %land.lhs.true.i.i
+  %tobool.i.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i.i, label %land.lhs.true.i.i, label %if.then.if.else_crit_edge.i.i
 
 if.then.if.else_crit_edge.i.i:                    ; preds = %if.then.i.i
   %announced_window_delta_9.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1987,10 +1978,10 @@ if.then.if.else_crit_edge.i.i:                    ; preds = %if.then.i.i
 land.lhs.true.i.i:                                ; preds = %if.then.i.i
   %pending_size_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %announced_window_delta_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load i64, ptr %announced_window_delta_.i.i, align 8
-  %4 = load i64, ptr %pending_size_.i.i, align 8
-  %sub.i.i = sub nsw i64 0, %4
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %sub.i.i)
+  %2 = load i64, ptr %announced_window_delta_.i.i, align 8
+  %3 = load i64, ptr %pending_size_.i.i, align 8
+  %sub.i.i = sub nsw i64 0, %3
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %sub.i.i)
   br label %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
 
 if.else10.i.i:                                    ; preds = %entry
@@ -2006,19 +1997,19 @@ return.sink.split.i.i:                            ; preds = %if.else10.i.i, %if.
   br label %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
 
 _ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit: ; preds = %land.lhs.true.i.i, %return.sink.split.i.i
-  %5 = phi i64 [ %3, %land.lhs.true.i.i ], [ %.pre.i, %return.sink.split.i.i ]
+  %4 = phi i64 [ %2, %land.lhs.true.i.i ], [ %.pre.i, %return.sink.split.i.i ]
   %retval.0.i.i = phi i64 [ %spec.select.i.i, %land.lhs.true.i.i ], [ %.pre.i.i, %return.sink.split.i.i ]
-  %sub.i = sub nsw i64 %retval.0.i.i, %5
+  %sub.i = sub nsw i64 %retval.0.i.i, %4
   %cmp.not = icmp slt i64 %sub.i, 1
   br i1 %cmp.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
   %max.val.i.i = tail call i64 @llvm.smin.i64(i64 %sub.i, i64 2147483647)
-  %6 = load ptr, ptr %this, align 8
-  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %6, i64 200
-  %7 = load i64, ptr %target_initial_window_size_.i, align 8
-  %8 = lshr i64 %7, 1
-  %div = and i64 %8, 2147483647
+  %5 = load ptr, ptr %this, align 8
+  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %5, i64 200
+  %6 = load i64, ptr %target_initial_window_size_.i, align 8
+  %7 = lshr i64 %6, 1
+  %div = and i64 %7, 2147483647
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %div, i64 8192)
   %cmp6 = icmp ult i64 %.sroa.speculated, %max.val.i.i
   %spec.select = select i1 %cmp6, i8 1, i8 2
@@ -2026,12 +2017,12 @@ if.then:                                          ; preds = %_ZNK9grpc_core6chtt
   br i1 %cmp8, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %if.then
-  %sent_init_window_.i = getelementptr inbounds i8, ptr %6, i64 236
-  %9 = load i32, ptr %sent_init_window_.i, align 4
-  %10 = lshr i32 %9, 1
-  %div132 = zext nneg i32 %10 to i64
+  %sent_init_window_.i = getelementptr inbounds i8, ptr %5, i64 236
+  %8 = load i32, ptr %sent_init_window_.i, align 4
+  %9 = lshr i32 %8, 1
+  %div132 = zext nneg i32 %9 to i64
   %div13 = sub nsw i64 0, %div132
-  %cmp14.not = icmp sgt i64 %5, %div13
+  %cmp14.not = icmp sgt i64 %4, %div13
   %spec.select3 = select i1 %cmp14.not, i8 %spec.select, i8 1
   br label %if.end17
 
@@ -2095,39 +2086,38 @@ entry:
   %pending_size = getelementptr inbounds i8, ptr %this, i64 24
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i8, ptr %_M_engaged.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i.not = icmp eq i8 %3, 0
-  %4 = load i64, ptr %pending_size, align 8
-  %spec.select = select i1 %tobool.i.i.not, i64 -1, i64 %4
+  %tobool.i.i = trunc i8 %2 to i1
+  %3 = load i64, ptr %pending_size, align 8
+  %spec.select = select i1 %tobool.i.i, i64 %3, i64 -1
   %announced_window_delta = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp14.i)
   store i64 19, ptr %ref.tmp.i, align 8, !noalias !40
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store ptr @.str.30, ptr %5, align 8, !noalias !40
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store ptr @.str.30, ptr %4, align 8, !noalias !40
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %ref.tmp2, align 8, !noalias !40
   %retval.sroa.2.0.copyload.i3.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !40
   store i64 %retval.sroa.0.0.copyload.i1.i, ptr %arrayinit.element.i, align 8, !noalias !40
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  store ptr %retval.sroa.2.0.copyload.i3.i, ptr %6, align 8, !noalias !40
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  store ptr %retval.sroa.2.0.copyload.i3.i, ptr %5, align 8, !noalias !40
   %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 22, ptr %arrayinit.element4.i, align 8, !noalias !40
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
-  store ptr @.str.31, ptr %7, align 8, !noalias !40
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  store ptr @.str.31, ptr %6, align 8, !noalias !40
   %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %sub.ptr.sub.i6, ptr %arrayinit.element6.i, align 8, !noalias !40
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
-  store ptr %digits_.i2, ptr %8, align 8, !noalias !40
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
+  store ptr %digits_.i2, ptr %7, align 8, !noalias !40
   %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 25, ptr %arrayinit.element8.i, align 8, !noalias !40
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
-  store ptr @.str.32, ptr %9, align 8, !noalias !40
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
+  store ptr @.str.32, ptr %8, align 8, !noalias !40
   %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
-  %10 = load i64, ptr %announced_window_delta, align 8, !noalias !40
+  %9 = load i64, ptr %announced_window_delta, align 8, !noalias !40
   %digits_.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 16
-  %call.i.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %10, ptr noundef nonnull %digits_.i.i), !noalias !40
+  %call.i.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %9, ptr noundef nonnull %digits_.i.i), !noalias !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %digits_.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2135,8 +2125,8 @@ entry:
   %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store ptr %digits_.i.i, ptr %_M_str.i.i.i, align 8, !noalias !40
   store i64 %sub.ptr.sub.i.i, ptr %arrayinit.element10.i, align 8, !noalias !40
-  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
-  store ptr %digits_.i.i, ptr %11, align 8, !noalias !40
+  %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
+  store ptr %digits_.i.i, ptr %10, align 8, !noalias !40
   %arrayinit.element13.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   %digits_.i26.i = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 16
   %call.i27.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %spec.select, ptr noundef nonnull %digits_.i26.i), !noalias !40
@@ -2147,8 +2137,8 @@ entry:
   %_M_str.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 8
   store ptr %digits_.i26.i, ptr %_M_str.i.i31.i, align 8, !noalias !40
   store i64 %sub.ptr.sub.i30.i, ptr %arrayinit.element13.i, align 8, !noalias !40
-  %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
-  store ptr %digits_.i26.i, ptr %12, align 8, !noalias !40
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
+  store ptr %digits_.i26.i, ptr %11, align 8, !noalias !40
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 7)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)

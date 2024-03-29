@@ -97,7 +97,7 @@ for.cond.loopexit:                                ; preds = %for.cond6
   br i1 %cmp.i.i.i.not, label %for.end22.loopexit, label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
-  %changed.067 = phi i8 [ 0, %for.body.lr.ph ], [ %changed.1.ph, %for.cond.loopexit ]
+  %changed.067 = phi i1 [ false, %for.body.lr.ph ], [ %changed.1.ph, %for.cond.loopexit ]
   %__begin1.sroa.0.066 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i.i, %for.cond.loopexit ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 -8
   %2 = load ptr, ptr %incdec.ptr.i.i, align 8
@@ -108,7 +108,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.cond6.outer:                                  ; preds = %for.cond6.outer.backedge, %for.body
   %instIter.sroa.0.0.ph = phi ptr [ %3, %for.body ], [ %4, %for.cond6.outer.backedge ]
-  %changed.1.ph = phi i8 [ %changed.067, %for.body ], [ 1, %for.cond6.outer.backedge ]
+  %changed.1.ph = phi i1 [ %changed.067, %for.body ], [ true, %for.cond6.outer.backedge ]
   br label %for.cond6
 
 for.cond6:                                        ; preds = %for.cond6.outer, %if.then
@@ -1200,32 +1200,30 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit: ; preds 
 
 for.end22.loopexit:                               ; preds = %for.cond.loopexit
   %.pre = load ptr, ptr %Order.i.i, align 8
-  %142 = and i8 %changed.1.ph, 1
-  %143 = icmp ne i8 %142, 0
   br label %for.end22
 
 for.end22:                                        ; preds = %for.end22.loopexit, %entry
-  %144 = phi ptr [ %0, %entry ], [ %.pre, %for.end22.loopexit ]
-  %changed.0.lcssa = phi i1 [ false, %entry ], [ %143, %for.end22.loopexit ]
-  %tobool.not.i.i.i.i = icmp eq ptr %144, null
+  %142 = phi ptr [ %0, %entry ], [ %.pre, %for.end22.loopexit ]
+  %changed.0.lcssa = phi i1 [ false, %entry ], [ %changed.1.ph, %for.end22.loopexit ]
+  %tobool.not.i.i.i.i = icmp eq ptr %142, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes17PostOrderAnalysisD2Ev.exit, label %if.then.i.i.i.i14
 
 if.then.i.i.i.i14:                                ; preds = %for.end22
-  call void @_ZdlPv(ptr noundef nonnull %144) #10
+  call void @_ZdlPv(ptr noundef nonnull %142) #10
   br label %_ZN6hermes17PostOrderAnalysisD2Ev.exit
 
 _ZN6hermes17PostOrderAnalysisD2Ev.exit:           ; preds = %for.end22, %if.then.i.i.i.i14
-  %145 = load ptr, ptr %destroyer, align 8
-  %146 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i = zext i32 %146 to i64
-  %add.ptr.i.i15 = getelementptr inbounds ptr, ptr %145, i64 %conv.i.i
-  %cmp.not4.i = icmp eq i32 %146, 0
+  %143 = load ptr, ptr %destroyer, align 8
+  %144 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i = zext i32 %144 to i64
+  %add.ptr.i.i15 = getelementptr inbounds ptr, ptr %143, i64 %conv.i.i
+  %cmp.not4.i = icmp eq i32 %144, 0
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes17PostOrderAnalysisD2Ev.exit, %for.body.i
-  %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %145, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
-  %147 = load ptr, ptr %__begin2.05.i, align 8
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %147) #9
+  %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %143, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
+  %145 = load ptr, ptr %__begin2.05.i, align 8
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %145) #9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.05.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i15
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i
@@ -1235,12 +1233,12 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN6hermes17PostOrderAnalysisD2Ev.exit
-  %148 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %145, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
-  %cmp.i.i.i.i17 = icmp eq ptr %148, %add.ptr.i.i.i.i.i.i
+  %146 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %143, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
+  %cmp.i.i.i.i17 = icmp eq ptr %146, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i17, label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %for.end.i
-  call void @free(ptr noundef %148) #9
+  call void @free(ptr noundef %146) #9
   br label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
 
 _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %for.end.i, %if.then.i.i.i18

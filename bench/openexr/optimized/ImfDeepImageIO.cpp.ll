@@ -813,9 +813,8 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 
 if.end:                                           ; preds = %entry
   %2 = load i8, ptr %multiPart, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end26, label %do.body10
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %do.body10, label %if.end26
 
 do.body10:                                        ; preds = %if.end
   call void @_Z13iex_debugTrapv()
@@ -842,26 +841,25 @@ invoke.cont22:                                    ; preds = %invoke.cont18
           to label %unreachable unwind label %lpad13
 
 lpad13:                                           ; preds = %invoke.cont22, %invoke.cont16, %invoke.cont14, %do.body10
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad21:                                           ; preds = %invoke.cont18
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception20) #12
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %lpad21, %lpad13
-  %.pn12 = phi { ptr, i32 } [ %4, %lpad13 ], [ %5, %lpad21 ]
+  %.pn12 = phi { ptr, i32 } [ %3, %lpad13 ], [ %4, %lpad21 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s11) #12
   br label %eh.resume
 
 if.end26:                                         ; preds = %if.end
-  %6 = load i8, ptr %deep, align 1
-  %7 = and i8 %6, 1
-  %tobool27.not = icmp eq i8 %7, 0
-  br i1 %tobool27.not, label %do.body29, label %if.end45
+  %5 = load i8, ptr %deep, align 1
+  %tobool27 = trunc i8 %5 to i1
+  br i1 %tobool27, label %if.end45, label %do.body29
 
 do.body29:                                        ; preds = %if.end26
   call void @_Z13iex_debugTrapv()
@@ -888,18 +886,18 @@ invoke.cont41:                                    ; preds = %invoke.cont37
           to label %unreachable unwind label %lpad32
 
 lpad32:                                           ; preds = %invoke.cont41, %invoke.cont35, %invoke.cont33, %do.body29
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup43
 
 lpad40:                                           ; preds = %invoke.cont37
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception39) #12
   br label %ehcleanup43
 
 ehcleanup43:                                      ; preds = %lpad40, %lpad32
-  %.pn10 = phi { ptr, i32 } [ %8, %lpad32 ], [ %9, %lpad40 ]
+  %.pn10 = phi { ptr, i32 } [ %6, %lpad32 ], [ %7, %lpad40 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s30) #12
   br label %eh.resume
 
@@ -938,21 +936,20 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %land.end unwind label %lpad48
 
 land.end:                                         ; preds = %invoke.cont57, %invoke.cont53, %invoke.cont49
-  %10 = phi i1 [ false, %invoke.cont53 ], [ false, %invoke.cont49 ], [ %call60, %invoke.cont57 ]
-  %frombool = zext i1 %10 to i8
+  %8 = phi i1 [ false, %invoke.cont53 ], [ false, %invoke.cont49 ], [ %call60, %invoke.cont57 ]
+  %frombool = zext i1 %8 to i8
   store i8 %frombool, ptr %tiled, align 1
   call void @_ZN7Imf_3_218MultiPartInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %mpi) #12
-  %11 = load i8, ptr %tiled, align 1
-  %12 = and i8 %11, 1
-  %tobool62.not = icmp eq i8 %12, 0
-  br i1 %tobool62.not, label %if.else, label %if.then63
+  %9 = load i8, ptr %tiled, align 1
+  %tobool62 = trunc i8 %9 to i1
+  br i1 %tobool62, label %if.then63, label %if.else
 
 if.then63:                                        ; preds = %land.end
   call void @_ZN7Imf_3_218loadDeepTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9DeepImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
   br label %if.end64
 
 lpad48:                                           ; preds = %invoke.cont57, %invoke.cont55, %land.rhs, %invoke.cont51, %land.lhs.true, %if.end45
-  %13 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7Imf_3_218MultiPartInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %mpi) #12
   br label %eh.resume
@@ -965,7 +962,7 @@ if.end64:                                         ; preds = %if.else, %if.then63
   ret void
 
 eh.resume:                                        ; preds = %lpad48, %ehcleanup43, %ehcleanup24, %ehcleanup
-  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %ehcleanup24 ], [ %13, %lpad48 ], [ %.pn10, %ehcleanup43 ], [ %.pn, %ehcleanup ]
+  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %ehcleanup24 ], [ %10, %lpad48 ], [ %.pn10, %ehcleanup43 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn12.pn
 
 unreachable:                                      ; preds = %invoke.cont41, %invoke.cont22, %invoke.cont8

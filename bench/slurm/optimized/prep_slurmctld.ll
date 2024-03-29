@@ -87,16 +87,15 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
 .thread:                                          ; preds = %21, %24
   %31 = getelementptr inbounds i8, ptr %4, i64 708
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not47 = icmp eq i8 %33, 0
-  br i1 %.not47, label %56, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %56
 
 34:                                               ; preds = %.thread
   store i8 0, ptr %31, align 4
   %35 = getelementptr inbounds i8, ptr %4, i64 360
   %36 = load i32, ptr %35, align 8
-  %.not48 = icmp eq i32 %36, 0
-  %spec.select = select i1 %.not48, i32 %1, i32 %36
+  %.not47 = icmp eq i32 %36, 0
+  %spec.select = select i1 %.not47, i32 %1, i32 %36
   %37 = tail call i32 @job_requeue(i32 noundef 0, i32 noundef %spec.select, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #2
   switch i32 %37, label %38 [
     i32 2024, label %60
@@ -116,23 +115,23 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
 43:                                               ; preds = %41, %38
   %44 = tail call i32 @srun_user_message(ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #2
   %45 = load i32, ptr %35, align 8
-  %.not49 = icmp eq i32 %45, 0
-  br i1 %.not49, label %54, label %46
+  %.not48 = icmp eq i32 %45, 0
+  br i1 %.not48, label %54, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %4, i64 384
   %48 = load ptr, ptr %47, align 8
-  %.not50 = icmp eq ptr %48, null
-  br i1 %.not50, label %49, label %.thread55
+  %.not49 = icmp eq ptr %48, null
+  br i1 %.not49, label %49, label %.thread54
 
 49:                                               ; preds = %46
   %50 = tail call ptr @find_job_record(i32 noundef %45) #2
-  %.not51 = icmp eq ptr %50, null
-  br i1 %.not51, label %52, label %.thread55
+  %.not50 = icmp eq ptr %50, null
+  br i1 %.not50, label %52, label %.thread54
 
-.thread55:                                        ; preds = %46, %49
-  %.058 = phi ptr [ %50, %49 ], [ %4, %46 ]
-  %51 = tail call i32 @het_job_signal(ptr noundef nonnull %.058, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext false) #2
+.thread54:                                        ; preds = %46, %49
+  %.057 = phi ptr [ %50, %49 ], [ %4, %46 ]
+  %51 = tail call i32 @het_job_signal(ptr noundef nonnull %.057, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext false) #2
   br label %60
 
 52:                                               ; preds = %49
@@ -152,7 +151,7 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, i32 noundef %1) #2
   br label %60
 
-60:                                               ; preds = %34, %34, %56, %59, %.thread55, %52, %54
+60:                                               ; preds = %34, %34, %56, %59, %.thread54, %52, %54
   tail call void @prolog_running_decr(ptr noundef nonnull %4) #2
   br label %61
 

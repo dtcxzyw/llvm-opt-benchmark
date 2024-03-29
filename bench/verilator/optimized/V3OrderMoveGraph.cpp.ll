@@ -1670,9 +1670,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN17OrderMoveDomScope14DomSc
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -2337,28 +2336,28 @@ define linkonce_odr dso_local void @_ZN21OrderMoveGraphBuilder18iterateLogicVert
   %7 = getelementptr inbounds i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.0.034 = load ptr, ptr %9, align 8
-  %.not35 = icmp eq ptr %.sroa.0.034, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.sroa.0.033 = load ptr, ptr %9, align 8
+  %.not34 = icmp eq ptr %.sroa.0.033, null
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN21OrderMoveGraphBuilder7addEdgeEP15OrderMoveVertexS1_.exit
-  %.sroa.0.036 = phi ptr [ %.sroa.0.034, %.lr.ph ], [ %.sroa.0.0, %_ZN21OrderMoveGraphBuilder7addEdgeEP15OrderMoveVertexS1_.exit ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 8
+  %.sroa.0.035 = phi ptr [ %.sroa.0.033, %.lr.ph ], [ %.sroa.0.0, %_ZN21OrderMoveGraphBuilder7addEdgeEP15OrderMoveVertexS1_.exit ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.0.035, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not31 = icmp eq ptr %13, null
-  %14 = select i1 %.not31, ptr %.sroa.0.036, ptr %13
+  %14 = select i1 %.not31, ptr %.sroa.0.035, ptr %13
   call void @llvm.prefetch.p0(ptr nonnull %14, i32 1, i32 3, i32 1)
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 56
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.035, i64 56
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %_ZN21OrderMoveGraphBuilder7addEdgeEP15OrderMoveVertexS1_.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 48
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.035, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8
@@ -2367,9 +2366,8 @@ define linkonce_odr dso_local void @_ZN21OrderMoveGraphBuilder18iterateLogicVert
   %24 = extractvalue { ptr, i8 } %23, 0
   %25 = extractvalue { ptr, i8 } %23, 1
   %26 = getelementptr inbounds i8, ptr %24, i64 40
-  %27 = and i8 %25, 1
-  %.not32 = icmp eq i8 %27, 0
-  br i1 %.not32, label %thread-pre-split, label %28
+  %27 = trunc i8 %25 to i1
+  br i1 %27, label %28, label %thread-pre-split
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %3, align 8
@@ -2383,8 +2381,8 @@ thread-pre-split:                                 ; preds = %18
 
 31:                                               ; preds = %thread-pre-split, %28
   %32 = phi ptr [ %.pr, %thread-pre-split ], [ %30, %28 ]
-  %.not33 = icmp eq ptr %32, null
-  br i1 %.not33, label %_ZN21OrderMoveGraphBuilder7addEdgeEP15OrderMoveVertexS1_.exit, label %33
+  %.not32 = icmp eq ptr %32, null
+  br i1 %.not32, label %_ZN21OrderMoveGraphBuilder7addEdgeEP15OrderMoveVertexS1_.exit, label %33
 
 33:                                               ; preds = %31
   %34 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
@@ -2556,9 +2554,8 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %37, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %37
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.6)
@@ -2700,9 +2697,8 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %37
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %37, label %10
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.6)
@@ -2787,8 +2783,8 @@ _Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; p
   %38 = load i32, ptr %1, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %1, align 4
-  %.not8 = icmp eq i32 %39, 0
-  br i1 %.not8, label %40, label %49
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %40, label %49
 
 40:                                               ; preds = %37
   %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.6)
@@ -4196,9 +4192,8 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %37
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %37, label %10
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.6)

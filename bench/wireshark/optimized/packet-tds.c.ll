@@ -7285,12 +7285,11 @@ dissect_tds_sessionstate_token.exit:              ; preds = %1313, %1283
 
 1337:                                             ; preds = %1333
   %1338 = load i8, ptr %6, align 1
-  %1339 = and i8 %1338, 1
-  %.not27.i = icmp ne i8 %1339, 0
+  %1339 = trunc i8 %1338 to i1
   %1340 = load i32, ptr %7, align 4
   %or.cond.i = icmp ult i32 %1340, 2
-  %or.cond28.i = select i1 %.not27.i, i1 %or.cond.i, i1 false
-  br i1 %or.cond28.i, label %1342, label %1341
+  %or.cond27.i = select i1 %1339, i1 %or.cond.i, i1 false
+  br i1 %or.cond27.i, label %1342, label %1341
 
 1341:                                             ; preds = %1337, %1333
   br label %1342
@@ -7355,11 +7354,10 @@ define internal fastcc void @dissect_tds_nt(ptr noundef %0, ptr noundef %1, ptr 
 
 18:                                               ; preds = %14
   %19 = load i8, ptr %6, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp ne i8 %20, 0
+  %20 = trunc i8 %19 to i1
   %21 = load i32, ptr %7, align 4
   %or.cond = icmp ult i32 %21, 2
-  %or.cond15 = select i1 %.not, i1 %or.cond, i1 false
+  %or.cond15 = select i1 %20, i1 %or.cond, i1 false
   br i1 %or.cond15, label %22, label %25
 
 22:                                               ; preds = %18

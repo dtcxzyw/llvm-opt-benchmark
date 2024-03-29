@@ -5453,10 +5453,10 @@ reset_someip_parameter_base_type_list_cb.exit:    ; preds = %0, %2
   %4 = icmp ne ptr %3, null
   %5 = load ptr, ptr @someip_parameter_base_type_list, align 8
   %6 = icmp ne ptr %5, null
-  %or.cond.not = select i1 %4, i1 %6, i1 false
+  %or.cond.not13 = select i1 %4, i1 %6, i1 false
   %7 = load i32, ptr @someip_parameter_base_type_list_num, align 4
   %8 = icmp ne i32 %7, 0
-  %or.cond = select i1 %or.cond.not, i1 %8, i1 false
+  %or.cond = select i1 %or.cond.not13, i1 %8, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %reset_someip_parameter_base_type_list_cb.exit, %.lr.ph
@@ -5585,9 +5585,8 @@ define internal noundef zeroext i1 @update_someip_parameter_string_list(ptr noca
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc i32 %15 to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
-  %20 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %20, 0
-  br i1 %switch.lobit.not, label %17, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check, %.sink.split
   %.0 = phi i1 [ false, %.sink.split ], [ true, %switch.hole_check ]
@@ -5638,10 +5637,10 @@ define internal void @post_update_someip_parameter_string_list_cb() #0 {
   %5 = icmp ne ptr %4, null
   %6 = load ptr, ptr @someip_parameter_strings, align 8
   %7 = icmp ne ptr %6, null
-  %or.cond.not = select i1 %5, i1 %7, i1 false
+  %or.cond.not15 = select i1 %5, i1 %7, i1 false
   %8 = load i32, ptr @someip_parameter_strings_num, align 4
   %9 = icmp ne i32 %8, 0
-  %or.cond = select i1 %or.cond.not, i1 %9, i1 false
+  %or.cond = select i1 %or.cond.not15, i1 %9, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -5765,10 +5764,10 @@ reset_someip_parameter_typedef_list_cb.exit:      ; preds = %0, %2
   %4 = icmp ne ptr %3, null
   %5 = load ptr, ptr @someip_parameter_typedefs, align 8
   %6 = icmp ne ptr %5, null
-  %or.cond.not = select i1 %4, i1 %6, i1 false
+  %or.cond.not13 = select i1 %4, i1 %6, i1 false
   %7 = load i32, ptr @someip_parameter_typedefs_num, align 4
   %8 = icmp ne i32 %7, 0
-  %or.cond = select i1 %or.cond.not, i1 %8, i1 false
+  %or.cond = select i1 %or.cond.not13, i1 %8, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %reset_someip_parameter_typedef_list_cb.exit, %.lr.ph

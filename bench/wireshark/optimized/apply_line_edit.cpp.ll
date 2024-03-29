@@ -1122,9 +1122,8 @@ define void @_ZN13ApplyLineEdit15setEmptyAllowedEb(ptr nocapture noundef nonnull
 define noundef zeroext i1 @_ZN13ApplyLineEdit12emptyAllowedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1143,9 +1142,8 @@ define noundef zeroext i1 @_ZN13ApplyLineEdit11isValidTextER7QStringb(ptr nounde
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.not = icmp eq i8 %14, 0
-  br i1 %.not.not, label %.critedge, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %11, %3
   %16 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1172,10 +1170,10 @@ define noundef zeroext i1 @_ZN13ApplyLineEdit11isValidTextER7QStringb(ptr nounde
           to label %select.unfold unwind label %28
 
 select.unfold:                                    ; preds = %24
-  %.not12 = icmp eq i32 %25, 2
+  %.not = icmp eq i32 %25, 2
   call void @_ZN27QRegularExpressionValidatorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  br i1 %.not12, label %31, label %.critedge
+  br i1 %.not, label %31, label %.critedge
 
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }

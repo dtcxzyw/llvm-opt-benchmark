@@ -1541,9 +1541,8 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %bf.load.i = phi i32 [ %bf.load.i.pre, %for.end.loopexit ], [ %bf.load.i.i, %entry ]
-  %1 = and i32 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i32 %1, 0
-  br i1 %bf.cast.not.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit, label %if.end.i
+  %bf.cast.i = trunc i32 %bf.load.i to i1
+  br i1 %bf.cast.i, label %if.end.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit
 
 if.end.i:                                         ; preds = %for.end
   %bf.lshr.i.i13 = lshr i32 %bf.load.i, 1
@@ -1557,9 +1556,9 @@ _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit: ; preds = %for.end, 
   br i1 %cmp4.not32, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27
-  %next.034 = phi ptr [ %2, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ], [ %0, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ]
+  %next.034 = phi ptr [ %1, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ], [ %0, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ]
   %deallocated.033 = phi i64 [ %add, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ], [ %retval.0.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ]
-  %2 = load ptr, ptr %next.034, align 8
+  %1 = load ptr, ptr %next.034, align 8
   %allocated_size_.i.i15 = getelementptr inbounds i8, ptr %next.034, i64 8
   %bf.load.i.i16 = load i32, ptr %allocated_size_.i.i15, align 8
   %bf.lshr.i.i17 = lshr i32 %bf.load.i.i16, 1
@@ -1585,20 +1584,19 @@ for.end14.loopexit:                               ; preds = %for.body10
 
 for.end14:                                        ; preds = %for.end14.loopexit, %while.body
   %bf.load.i21 = phi i32 [ %bf.load.i21.pre, %for.end14.loopexit ], [ %bf.load.i.i16, %while.body ]
-  %3 = and i32 %bf.load.i21, 1
-  %bf.cast.not.i22 = icmp eq i32 %3, 0
-  br i1 %bf.cast.not.i22, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27, label %if.end.i23
+  %bf.cast.i22 = trunc i32 %bf.load.i21 to i1
+  br i1 %bf.cast.i22, label %if.end.i24, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27
 
-if.end.i23:                                       ; preds = %for.end14
-  %bf.lshr.i.i24 = lshr i32 %bf.load.i21, 1
-  %conv.i.i25 = zext nneg i32 %bf.lshr.i.i24 to i64
+if.end.i24:                                       ; preds = %for.end14
+  %bf.lshr.i.i25 = lshr i32 %bf.load.i21, 1
+  %conv.i.i26 = zext nneg i32 %bf.lshr.i.i25 to i64
   tail call void @_ZdlPv(ptr noundef nonnull %next.034) #26
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27
 
-_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27: ; preds = %for.end14, %if.end.i23
-  %retval.0.i26 = phi i64 [ %conv.i.i25, %if.end.i23 ], [ 0, %for.end14 ]
-  %add = add i64 %retval.0.i26, %deallocated.033
-  %cmp4.not = icmp eq ptr %2, null
+_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27: ; preds = %for.end14, %if.end.i24
+  %retval.0.i23 = phi i64 [ %conv.i.i26, %if.end.i24 ], [ 0, %for.end14 ]
+  %add = add i64 %retval.0.i23, %deallocated.033
+  %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit
@@ -2770,7 +2768,7 @@ while.body.i.preheader:                           ; preds = %_ZN6google8protobuf
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i"
-  %5 = phi i32 [ %26, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %4, %while.body.i.preheader ]
+  %5 = phi i32 [ %24, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %4, %while.body.i.preheader ]
   %chunk.012.i = phi ptr [ %6, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %while.body.i.preheader ]
   %6 = load ptr, ptr %chunk.012.i, align 8
   %conv.i.i.i = zext i32 %5 to i64
@@ -2827,9 +2825,8 @@ for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.then.i.i
   %bf.load.i.i.i.i = phi i32 [ %bf.load.i.pre.i.i.i, %for.end.loopexit.i.i.i ], [ %bf.load.i.i.i.i.i, %if.then.i.i ]
-  %13 = and i32 %bf.load.i.i.i.i, 1
-  %bf.cast.not.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %bf.cast.not.i.i.i.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i, label %if.end.i.i.i.i
+  %bf.cast.i.i.i.i = trunc i32 %bf.load.i.i.i.i to i1
+  br i1 %bf.cast.i.i.i.i, label %if.end.i.i.i.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.end.i.i.i
   %bf.lshr.i.i13.i.i.i = lshr i32 %bf.load.i.i.i.i, 1
@@ -2843,9 +2840,9 @@ _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i: ; preds = %if.
   br i1 %cmp4.not32.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i, label %while.body.i.i4.i
 
 while.body.i.i4.i:                                ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i
-  %next.034.i.i.i = phi ptr [ %14, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ], [ %12, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ]
+  %next.034.i.i.i = phi ptr [ %13, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ], [ %12, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ]
   %deallocated.033.i.i.i = phi i64 [ %add.i.i6.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ]
-  %14 = load ptr, ptr %next.034.i.i.i, align 8
+  %13 = load ptr, ptr %next.034.i.i.i, align 8
   %allocated_size_.i.i15.i.i.i = getelementptr inbounds i8, ptr %next.034.i.i.i, i64 8
   %bf.load.i.i16.i.i.i = load i32, ptr %allocated_size_.i.i15.i.i.i, align 8
   %bf.lshr.i.i17.i.i.i = lshr i32 %bf.load.i.i16.i.i.i, 1
@@ -2871,69 +2868,68 @@ for.end14.loopexit.i.i.i:                         ; preds = %for.body10.i.i.i
 
 for.end14.i.i.i:                                  ; preds = %for.end14.loopexit.i.i.i, %while.body.i.i4.i
   %bf.load.i21.i.i.i = phi i32 [ %bf.load.i21.pre.i.i.i, %for.end14.loopexit.i.i.i ], [ %bf.load.i.i16.i.i.i, %while.body.i.i4.i ]
-  %15 = and i32 %bf.load.i21.i.i.i, 1
-  %bf.cast.not.i22.i.i.i = icmp eq i32 %15, 0
-  br i1 %bf.cast.not.i22.i.i.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i, label %if.end.i23.i.i.i
+  %bf.cast.i22.i.i.i = trunc i32 %bf.load.i21.i.i.i to i1
+  br i1 %bf.cast.i22.i.i.i, label %if.end.i24.i.i.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i
 
-if.end.i23.i.i.i:                                 ; preds = %for.end14.i.i.i
-  %bf.lshr.i.i24.i.i.i = lshr i32 %bf.load.i21.i.i.i, 1
-  %conv.i.i25.i.i.i = zext nneg i32 %bf.lshr.i.i24.i.i.i to i64
+if.end.i24.i.i.i:                                 ; preds = %for.end14.i.i.i
+  %bf.lshr.i.i25.i.i.i = lshr i32 %bf.load.i21.i.i.i, 1
+  %conv.i.i26.i.i.i = zext nneg i32 %bf.lshr.i.i25.i.i.i to i64
   tail call void @_ZdlPv(ptr noundef nonnull %next.034.i.i.i) #26
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i
 
-_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i: ; preds = %if.end.i23.i.i.i, %for.end14.i.i.i
-  %retval.0.i26.i.i.i = phi i64 [ %conv.i.i25.i.i.i, %if.end.i23.i.i.i ], [ 0, %for.end14.i.i.i ]
-  %add.i.i6.i = add i64 %retval.0.i26.i.i.i, %deallocated.033.i.i.i
-  %cmp4.not.i.i.i = icmp eq ptr %14, null
+_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i: ; preds = %if.end.i24.i.i.i, %for.end14.i.i.i
+  %retval.0.i23.i.i.i = phi i64 [ %conv.i.i26.i.i.i, %if.end.i24.i.i.i ], [ 0, %for.end14.i.i.i ]
+  %add.i.i6.i = add i64 %retval.0.i23.i.i.i, %deallocated.033.i.i.i
+  %cmp4.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp4.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i, label %while.body.i.i4.i, !llvm.loop !17
 
 _ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i: ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i, %for.body.i.i
   %retval.0.i.i = phi i64 [ 0, %for.body.i.i ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ], [ %add.i.i6.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ]
-  %16 = load i64, ptr %space_allocated, align 8
-  %add.i.i = add i64 %16, %retval.0.i.i
+  %14 = load i64, ptr %space_allocated, align 8
+  %add.i.i = add i64 %14, %retval.0.i.i
   store i64 %add.i.i, ptr %space_allocated, align 8
   %head_.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 48
-  %17 = load atomic i64, ptr %head_.i.i.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %17 to ptr
+  %15 = load atomic i64, ptr %head_.i.i.i.i monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %15 to ptr
   %retval.sroa.4.0.in7.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 16
   %retval.sroa.4.08.i.i.i = load i64, ptr %retval.sroa.4.0.in7.i.i.i, align 8
-  %18 = load ptr, ptr %atomic-temp.i.0.i.i.i.i.i, align 8
-  %tobool.not9.i.i.i = icmp eq ptr %18, null
+  %16 = load ptr, ptr %atomic-temp.i.0.i.i.i.i.i, align 8
+  %tobool.not9.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not9.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i
   br i1 %tobool.not.i.i.i.i, label %while.body.us.i.i.i, label %while.body.i.i.i
 
 while.body.us.i.i.i:                              ; preds = %while.body.lr.ph.i.i.i, %while.body.us.i.i.i
-  %19 = phi ptr [ %21, %while.body.us.i.i.i ], [ %18, %while.body.lr.ph.i.i.i ]
+  %17 = phi ptr [ %19, %while.body.us.i.i.i ], [ %16, %while.body.lr.ph.i.i.i ]
   %retval.sroa.4.011.us.i.i.i = phi i64 [ %retval.sroa.4.0.us.i.i.i, %while.body.us.i.i.i ], [ %retval.sroa.4.08.i.i.i, %while.body.lr.ph.i.i.i ]
-  %retval.sroa.0.010.us.i.i.i = phi ptr [ %19, %while.body.us.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %while.body.lr.ph.i.i.i ]
+  %retval.sroa.0.010.us.i.i.i = phi ptr [ %17, %while.body.us.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %while.body.lr.ph.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.010.us.i.i.i) #26
-  %20 = load i64, ptr %space_allocated, align 8
-  %add.i.us.i.i.i = add i64 %20, %retval.sroa.4.011.us.i.i.i
+  %18 = load i64, ptr %space_allocated, align 8
+  %add.i.us.i.i.i = add i64 %18, %retval.sroa.4.011.us.i.i.i
   store i64 %add.i.us.i.i.i, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.us.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %retval.sroa.4.0.in.us.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %retval.sroa.4.0.us.i.i.i = load i64, ptr %retval.sroa.4.0.in.us.i.i.i, align 8
-  %21 = load ptr, ptr %19, align 8
-  %tobool.not.us.i.i.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %17, align 8
+  %tobool.not.us.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.us.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !22
 
 while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.i.i, %while.body.i.i.i
-  %22 = phi ptr [ %24, %while.body.i.i.i ], [ %18, %while.body.lr.ph.i.i.i ]
+  %20 = phi ptr [ %22, %while.body.i.i.i ], [ %16, %while.body.lr.ph.i.i.i ]
   %retval.sroa.4.011.i.i.i = phi i64 [ %retval.sroa.4.0.i.i.i, %while.body.i.i.i ], [ %retval.sroa.4.08.i.i.i, %while.body.lr.ph.i.i.i ]
-  %retval.sroa.0.010.i.i.i = phi ptr [ %22, %while.body.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %while.body.lr.ph.i.i.i ]
+  %retval.sroa.0.010.i.i.i = phi ptr [ %20, %while.body.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %while.body.lr.ph.i.i.i ]
   tail call void %cond.i(ptr noundef nonnull %retval.sroa.0.010.i.i.i, i64 noundef %retval.sroa.4.011.i.i.i)
-  %23 = load i64, ptr %space_allocated, align 8
-  %add.i.i.i.i = add i64 %23, %retval.sroa.4.011.i.i.i
+  %21 = load i64, ptr %space_allocated, align 8
+  %add.i.i.i.i = add i64 %21, %retval.sroa.4.011.i.i.i
   store i64 %add.i.i.i.i, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
+  %retval.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %retval.sroa.4.0.i.i.i = load i64, ptr %retval.sroa.4.0.in.i.i.i, align 8
-  %24 = load ptr, ptr %22, align 8
-  %tobool.not.i.i.i = icmp eq ptr %24, null
+  %22 = load ptr, ptr %20, align 8
+  %tobool.not.i.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.i.i.i, !llvm.loop !22
 
 _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i: ; preds = %while.body.i.i.i, %while.body.us.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i
-  %retval.sroa.0.0.lcssa.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i ], [ %19, %while.body.us.i.i.i ], [ %22, %while.body.i.i.i ]
+  %retval.sroa.0.0.lcssa.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i ], [ %17, %while.body.us.i.i.i ], [ %20, %while.body.i.i.i ]
   %retval.sroa.4.0.lcssa.i.i.i = phi i64 [ %retval.sroa.4.08.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i ], [ %retval.sroa.4.0.us.i.i.i, %while.body.us.i.i.i ], [ %retval.sroa.4.0.i.i.i, %while.body.i.i.i ]
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
@@ -2946,8 +2942,8 @@ if.else.i.i.i:                                    ; preds = %_ZN6google8protobuf
   br label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i
 
 _ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %25 = load i64, ptr %space_allocated, align 8
-  %add.i.i.i = add i64 %25, %retval.sroa.4.0.lcssa.i.i.i
+  %23 = load i64, ptr %space_allocated, align 8
+  %add.i.i.i = add i64 %23, %retval.sroa.4.0.lcssa.i.i.i
   store i64 %add.i.i.i, ptr %space_allocated, align 8
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !23
@@ -2955,23 +2951,23 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i: ; preds
 "_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i, %while.body.i
   tail call void @_ZdlPv(ptr noundef nonnull %chunk.012.i) #26
   %capacity.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %26 = load i32, ptr %capacity.i.i.i, align 8
-  %cmp.i.i = icmp eq i32 %26, 0
+  %24 = load i32, ptr %capacity.i.i.i, align 8
+  %cmp.i.i = icmp eq i32 %24, 0
   br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !24
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
   %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
   %call2 = tail call noundef i64 @_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_)
-  %27 = load i64, ptr %space_allocated, align 8
-  %add = add i64 %27, %call2
+  %25 = load i64, ptr %space_allocated, align 8
+  %add = add i64 %25, %call2
   store i64 %add, ptr %space_allocated, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %28 = load atomic i64, ptr %head_.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i1 = inttoptr i64 %28 to ptr
+  %26 = load atomic i64, ptr %head_.i.i monotonic, align 8
+  %atomic-temp.i.0.i.i.i1 = inttoptr i64 %26 to ptr
   %retval.sroa.4.0.in7.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i1, i64 16
   %retval.sroa.4.08.i = load i64, ptr %retval.sroa.4.0.in7.i, align 8
-  %29 = load ptr, ptr %atomic-temp.i.0.i.i.i1, align 8
-  %tobool.not9.i = icmp eq ptr %29, null
+  %27 = load ptr, ptr %atomic-temp.i.0.i.i.i1, align 8
+  %tobool.not9.i = icmp eq ptr %27, null
   br i1 %tobool.not9.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.lr.ph.i2
 
 while.body.lr.ph.i2:                              ; preds = %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit"
@@ -2979,35 +2975,35 @@ while.body.lr.ph.i2:                              ; preds = %"_ZN6google8protobu
   br i1 %tobool.not.i.i3, label %while.body.us.i, label %while.body.i4
 
 while.body.us.i:                                  ; preds = %while.body.lr.ph.i2, %while.body.us.i
-  %30 = phi ptr [ %32, %while.body.us.i ], [ %29, %while.body.lr.ph.i2 ]
+  %28 = phi ptr [ %30, %while.body.us.i ], [ %27, %while.body.lr.ph.i2 ]
   %retval.sroa.4.011.us.i = phi i64 [ %retval.sroa.4.0.us.i, %while.body.us.i ], [ %retval.sroa.4.08.i, %while.body.lr.ph.i2 ]
-  %retval.sroa.0.010.us.i = phi ptr [ %30, %while.body.us.i ], [ %atomic-temp.i.0.i.i.i1, %while.body.lr.ph.i2 ]
+  %retval.sroa.0.010.us.i = phi ptr [ %28, %while.body.us.i ], [ %atomic-temp.i.0.i.i.i1, %while.body.lr.ph.i2 ]
   tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.010.us.i) #26
-  %31 = load i64, ptr %space_allocated, align 8
-  %add.i.us.i = add i64 %31, %retval.sroa.4.011.us.i
+  %29 = load i64, ptr %space_allocated, align 8
+  %add.i.us.i = add i64 %29, %retval.sroa.4.011.us.i
   store i64 %add.i.us.i, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.us.i = getelementptr inbounds i8, ptr %30, i64 16
+  %retval.sroa.4.0.in.us.i = getelementptr inbounds i8, ptr %28, i64 16
   %retval.sroa.4.0.us.i = load i64, ptr %retval.sroa.4.0.in.us.i, align 8
-  %32 = load ptr, ptr %30, align 8
-  %tobool.not.us.i = icmp eq ptr %32, null
+  %30 = load ptr, ptr %28, align 8
+  %tobool.not.us.i = icmp eq ptr %30, null
   br i1 %tobool.not.us.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.us.i, !llvm.loop !22
 
 while.body.i4:                                    ; preds = %while.body.lr.ph.i2, %while.body.i4
-  %33 = phi ptr [ %35, %while.body.i4 ], [ %29, %while.body.lr.ph.i2 ]
+  %31 = phi ptr [ %33, %while.body.i4 ], [ %27, %while.body.lr.ph.i2 ]
   %retval.sroa.4.011.i = phi i64 [ %retval.sroa.4.0.i, %while.body.i4 ], [ %retval.sroa.4.08.i, %while.body.lr.ph.i2 ]
-  %retval.sroa.0.010.i = phi ptr [ %33, %while.body.i4 ], [ %atomic-temp.i.0.i.i.i1, %while.body.lr.ph.i2 ]
+  %retval.sroa.0.010.i = phi ptr [ %31, %while.body.i4 ], [ %atomic-temp.i.0.i.i.i1, %while.body.lr.ph.i2 ]
   tail call void %cond.i(ptr noundef nonnull %retval.sroa.0.010.i, i64 noundef %retval.sroa.4.011.i)
-  %34 = load i64, ptr %space_allocated, align 8
-  %add.i.i5 = add i64 %34, %retval.sroa.4.011.i
+  %32 = load i64, ptr %space_allocated, align 8
+  %add.i.i5 = add i64 %32, %retval.sroa.4.011.i
   store i64 %add.i.i5, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.i = getelementptr inbounds i8, ptr %33, i64 16
+  %retval.sroa.4.0.in.i = getelementptr inbounds i8, ptr %31, i64 16
   %retval.sroa.4.0.i = load i64, ptr %retval.sroa.4.0.in.i, align 8
-  %35 = load ptr, ptr %33, align 8
-  %tobool.not.i6 = icmp eq ptr %35, null
+  %33 = load ptr, ptr %31, align 8
+  %tobool.not.i6 = icmp eq ptr %33, null
   br i1 %tobool.not.i6, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.i4, !llvm.loop !22
 
 _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit: ; preds = %while.body.i4, %while.body.us.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit"
-  %retval.sroa.0.0.lcssa.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit" ], [ %30, %while.body.us.i ], [ %33, %while.body.i4 ]
+  %retval.sroa.0.0.lcssa.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit" ], [ %28, %while.body.us.i ], [ %31, %while.body.i4 ]
   %retval.sroa.4.0.lcssa.i = phi i64 [ %retval.sroa.4.08.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit" ], [ %retval.sroa.4.0.us.i, %while.body.us.i ], [ %retval.sroa.4.0.i, %while.body.i4 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.lcssa.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %retval.sroa.4.0.lcssa.i, 1
@@ -3050,9 +3046,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then
   %bf.load.i.i = phi i32 [ %bf.load.i.pre.i, %for.end.loopexit.i ], [ %bf.load.i.i.i, %if.then ]
-  %3 = and i32 %bf.load.i.i, 1
-  %bf.cast.not.i.i = icmp eq i32 %3, 0
-  br i1 %bf.cast.not.i.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i, label %if.end.i.i
+  %bf.cast.i.i = trunc i32 %bf.load.i.i to i1
+  br i1 %bf.cast.i.i, label %if.end.i.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i
 
 if.end.i.i:                                       ; preds = %for.end.i
   %bf.lshr.i.i13.i = lshr i32 %bf.load.i.i, 1
@@ -3066,9 +3061,9 @@ _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i: ; preds = %if.end.
   br i1 %cmp4.not32.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i
-  %next.034.i = phi ptr [ %4, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ], [ %2, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ]
+  %next.034.i = phi ptr [ %3, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ], [ %2, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ]
   %deallocated.033.i = phi i64 [ %add.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ], [ %retval.0.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ]
-  %4 = load ptr, ptr %next.034.i, align 8
+  %3 = load ptr, ptr %next.034.i, align 8
   %allocated_size_.i.i15.i = getelementptr inbounds i8, ptr %next.034.i, i64 8
   %bf.load.i.i16.i = load i32, ptr %allocated_size_.i.i15.i, align 8
   %bf.lshr.i.i17.i = lshr i32 %bf.load.i.i16.i, 1
@@ -3094,20 +3089,19 @@ for.end14.loopexit.i:                             ; preds = %for.body10.i
 
 for.end14.i:                                      ; preds = %for.end14.loopexit.i, %while.body.i
   %bf.load.i21.i = phi i32 [ %bf.load.i21.pre.i, %for.end14.loopexit.i ], [ %bf.load.i.i16.i, %while.body.i ]
-  %5 = and i32 %bf.load.i21.i, 1
-  %bf.cast.not.i22.i = icmp eq i32 %5, 0
-  br i1 %bf.cast.not.i22.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i, label %if.end.i23.i
+  %bf.cast.i22.i = trunc i32 %bf.load.i21.i to i1
+  br i1 %bf.cast.i22.i, label %if.end.i24.i, label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i
 
-if.end.i23.i:                                     ; preds = %for.end14.i
-  %bf.lshr.i.i24.i = lshr i32 %bf.load.i21.i, 1
-  %conv.i.i25.i = zext nneg i32 %bf.lshr.i.i24.i to i64
+if.end.i24.i:                                     ; preds = %for.end14.i
+  %bf.lshr.i.i25.i = lshr i32 %bf.load.i21.i, 1
+  %conv.i.i26.i = zext nneg i32 %bf.lshr.i.i25.i to i64
   tail call void @_ZdlPv(ptr noundef nonnull %next.034.i) #26
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i
 
-_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i: ; preds = %if.end.i23.i, %for.end14.i
-  %retval.0.i26.i = phi i64 [ %conv.i.i25.i, %if.end.i23.i ], [ 0, %for.end14.i ]
-  %add.i = add i64 %retval.0.i26.i, %deallocated.033.i
-  %cmp4.not.i = icmp eq ptr %4, null
+_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i: ; preds = %if.end.i24.i, %for.end14.i
+  %retval.0.i23.i = phi i64 [ %conv.i.i26.i, %if.end.i24.i ], [ 0, %for.end14.i ]
+  %add.i = add i64 %retval.0.i23.i, %deallocated.033.i
+  %cmp4.not.i = icmp eq ptr %3, null
   br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !17
 
 return:                                           ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i, %entry

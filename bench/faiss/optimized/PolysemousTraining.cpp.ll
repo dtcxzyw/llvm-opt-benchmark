@@ -707,9 +707,9 @@ define noundef double @_ZN5faiss27SimulatedAnnealingOptimizer16run_optimizationE
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph57, label %._crit_edge58
+  br i1 %5, label %.lr.ph56, label %._crit_edge57
 
-.lr.ph57:                                         ; preds = %2
+.lr.ph56:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = getelementptr inbounds i8, ptr %0, i64 41
   %8 = getelementptr inbounds i8, ptr %0, i64 72
@@ -717,9 +717,9 @@ define noundef double @_ZN5faiss27SimulatedAnnealingOptimizer16run_optimizationE
   %10 = getelementptr inbounds i8, ptr %0, i64 36
   br label %11
 
-11:                                               ; preds = %.lr.ph57, %_ZNSt6vectorIiSaIiEED2Ev.exit35
-  %.055 = phi double [ 1.000000e+30, %.lr.ph57 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit35 ]
-  %.02354 = phi i32 [ 0, %.lr.ph57 ], [ %61, %_ZNSt6vectorIiSaIiEED2Ev.exit35 ]
+11:                                               ; preds = %.lr.ph56, %_ZNSt6vectorIiSaIiEED2Ev.exit34
+  %.054 = phi double [ 1.000000e+30, %.lr.ph56 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ]
+  %.02353 = phi i32 [ 0, %.lr.ph56 ], [ %61, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ]
   %12 = load i32, ptr %6, align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
@@ -731,22 +731,22 @@ define noundef double @_ZN5faiss27SimulatedAnnealingOptimizer16run_optimizationE
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %11
   %.not.i.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i.i, label %.loopexit, label %.noexc33
+  br i1 %.not.i.i.i.i, label %.loopexit, label %.noexc32
 
-.noexc33:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+.noexc32:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 2
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #25
   store i32 0, ptr %16, align 4
   %17 = icmp eq i32 %12, 1
   br i1 %17, label %.lr.ph.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
-_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc33
+_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc32
   %18 = getelementptr i8, ptr %16, i64 4
   %19 = add nsw i64 %15, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %19, i1 false)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc33
+.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc32
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %.lr.ph
 
@@ -761,35 +761,34 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc33
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = load i8, ptr %7, align 1
-  %23 = and i8 %22, 1
-  %.not.not = icmp eq i8 %23, 0
-  br i1 %.not.not, label %.loopexit, label %.lr.ph53
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %.lr.ph52, label %.loopexit
 
-.lr.ph53:                                         ; preds = %._crit_edge, %29
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %29 ], [ 0, %._crit_edge ]
+.lr.ph52:                                         ; preds = %._crit_edge, %29
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %29 ], [ 0, %._crit_edge ]
   %24 = phi i32 [ %36, %29 ], [ %12, %._crit_edge ]
   %25 = load ptr, ptr %8, align 8
-  %26 = trunc i64 %indvars.iv65 to i32
+  %26 = trunc i64 %indvars.iv64 to i32
   %27 = sub nsw i32 %24, %26
   %28 = invoke noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000) %25, i32 noundef %27)
           to label %29 unwind label %.thread
 
-29:                                               ; preds = %.lr.ph53
+29:                                               ; preds = %.lr.ph52
   %30 = add nsw i32 %28, %26
-  %31 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv65
+  %31 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv64
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds i32, ptr %16, i64 %32
   %34 = load i32, ptr %31, align 4
   %35 = load i32, ptr %33, align 4
   store i32 %35, ptr %31, align 4
   store i32 %34, ptr %33, align 4
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %36 = load i32, ptr %6, align 8
   %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next66, %37
-  br i1 %38, label %.lr.ph53, label %.loopexit, !llvm.loop !12
+  %38 = icmp slt i64 %indvars.iv.next65, %37
+  br i1 %38, label %.lr.ph52, label %.loopexit, !llvm.loop !12
 
-.thread:                                          ; preds = %.lr.ph53
+.thread:                                          ; preds = %.lr.ph52
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -797,25 +796,25 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc33
 39:                                               ; preds = %.loopexit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %.sroa.0.17175, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.17073, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %40
 
 40:                                               ; preds = %.thread, %39
-  %lpad.phi81 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %39 ]
-  %.sroa.0.1717680 = phi ptr [ %16, %.thread ], [ %.sroa.0.17175, %39 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1717680) #26
+  %lpad.phi79 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %39 ]
+  %.sroa.0.1707478 = phi ptr [ %16, %.thread ], [ %.sroa.0.17073, %39 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1707478) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .loopexit:                                        ; preds = %29, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %._crit_edge
-  %.sroa.0.17175 = phi ptr [ %16, %._crit_edge ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %29 ]
-  %41 = invoke noundef double @_ZN5faiss27SimulatedAnnealingOptimizer8optimizeEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.sroa.0.17175)
+  %.sroa.0.17073 = phi ptr [ %16, %._crit_edge ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %29 ]
+  %41 = invoke noundef double @_ZN5faiss27SimulatedAnnealingOptimizer8optimizeEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.sroa.0.17073)
           to label %42 unwind label %39
 
 42:                                               ; preds = %.loopexit
   %43 = fptrunc double %41 to float
   %44 = load ptr, ptr %9, align 8
-  %.not31 = icmp eq ptr %44, null
-  br i1 %.not31, label %46, label %45
+  %.not = icmp eq ptr %44, null
+  br i1 %.not, label %46, label %45
 
 45:                                               ; preds = %42
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %44)
@@ -825,47 +824,47 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc33
   %47 = load i32, ptr %10, align 4
   %48 = icmp sgt i32 %47, 1
   %49 = fpext float %43 to double
-  br i1 %48, label %50, label %._crit_edge68
+  br i1 %48, label %50, label %._crit_edge67
 
 50:                                               ; preds = %46
-  %51 = fcmp ogt double %.055, %49
+  %51 = fcmp ogt double %.054, %49
   %52 = select i1 %51, ptr @.str.6, ptr @.str.7
-  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.02354, double noundef %49, ptr noundef nonnull %52)
-  br label %._crit_edge68
+  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.02353, double noundef %49, ptr noundef nonnull %52)
+  br label %._crit_edge67
 
-._crit_edge68:                                    ; preds = %46, %50
-  %54 = fcmp ogt double %.055, %49
+._crit_edge67:                                    ; preds = %46, %50
+  %54 = fcmp ogt double %.054, %49
   br i1 %54, label %55, label %59
 
-55:                                               ; preds = %._crit_edge68
+55:                                               ; preds = %._crit_edge67
   %56 = load i32, ptr %6, align 8
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %.sroa.0.17175, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %.sroa.0.17073, i64 %58, i1 false)
   br label %59
 
-59:                                               ; preds = %55, %._crit_edge68
-  %.1 = phi double [ %49, %55 ], [ %.055, %._crit_edge68 ]
-  %.not.i.i.i34 = icmp eq ptr %.sroa.0.17175, null
-  br i1 %.not.i.i.i34, label %_ZNSt6vectorIiSaIiEED2Ev.exit35, label %60
+59:                                               ; preds = %55, %._crit_edge67
+  %.1 = phi double [ %49, %55 ], [ %.054, %._crit_edge67 ]
+  %.not.i.i.i33 = icmp eq ptr %.sroa.0.17073, null
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIiSaIiEED2Ev.exit34, label %60
 
 60:                                               ; preds = %59
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.17175) #26
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit35
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.17073) #26
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit34
 
-_ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %59, %60
-  %61 = add nuw nsw i32 %.02354, 1
+_ZNSt6vectorIiSaIiEED2Ev.exit34:                  ; preds = %59, %60
+  %61 = add nuw nsw i32 %.02353, 1
   %62 = load i32, ptr %3, align 4
   %63 = icmp slt i32 %61, %62
-  br i1 %63, label %11, label %._crit_edge58, !llvm.loop !13
+  br i1 %63, label %11, label %._crit_edge57, !llvm.loop !13
 
-._crit_edge58:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit35, %2
-  %.0.lcssa = phi double [ 1.000000e+30, %2 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit35 ]
+._crit_edge57:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit34, %2
+  %.0.lcssa = phi double [ 1.000000e+30, %2 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ]
   ret double %.0.lcssa
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %40, %39
-  %lpad.phi82 = phi { ptr, i32 } [ %lpad.phi81, %40 ], [ %lpad.loopexit.split-lp, %39 ]
-  resume { ptr, i32 } %lpad.phi82
+  %lpad.phi80 = phi { ptr, i32 } [ %lpad.phi79, %40 ], [ %lpad.loopexit.split-lp, %39 ]
+  resume { ptr, i32 } %lpad.phi80
 }
 
 declare noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000), i32 noundef) local_unnamed_addr #8
@@ -907,21 +906,20 @@ define noundef double @_ZN5faiss27SimulatedAnnealingOptimizer8optimizeEPi(ptr no
   br label %25
 
 25:                                               ; preds = %.lr.ph, %83
-  %.059 = phi double [ %7, %.lr.ph ], [ %.1, %83 ]
-  %.03958 = phi i32 [ 0, %.lr.ph ], [ %84, %83 ]
-  %.04057 = phi i32 [ 0, %.lr.ph ], [ %.141, %83 ]
-  %.04256 = phi i32 [ 0, %.lr.ph ], [ %.143, %83 ]
-  %.04455 = phi double [ %19, %.lr.ph ], [ %27, %83 ]
+  %.058 = phi double [ %7, %.lr.ph ], [ %.1, %83 ]
+  %.03957 = phi i32 [ 0, %.lr.ph ], [ %84, %83 ]
+  %.04056 = phi i32 [ 0, %.lr.ph ], [ %.141, %83 ]
+  %.04255 = phi i32 [ 0, %.lr.ph ], [ %.143, %83 ]
+  %.04454 = phi double [ %19, %.lr.ph ], [ %27, %83 ]
   %26 = load double, ptr %20, align 8
-  %27 = fmul double %.04455, %26
+  %27 = fmul double %.04454, %26
   %28 = load i8, ptr %21, align 8
-  %29 = and i8 %28, 1
-  %.not52 = icmp eq i8 %29, 0
+  %29 = trunc i8 %28 to i1
   %30 = load ptr, ptr %22, align 8
   %31 = load i32, ptr %9, align 8
   %32 = tail call noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000) %30, i32 noundef %31)
   %33 = load ptr, ptr %22, align 8
-  br i1 %.not52, label %38, label %34
+  br i1 %29, label %34, label %38
 
 34:                                               ; preds = %25
   %35 = tail call noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000) %33, i32 noundef %.045)
@@ -964,47 +962,47 @@ define noundef double @_ZN5faiss27SimulatedAnnealingOptimizer8optimizeEPi(ptr no
   %62 = load i32, ptr %60, align 4
   store i32 %62, ptr %58, align 4
   store i32 %61, ptr %60, align 4
-  %63 = fadd double %.059, %49
-  %64 = add nsw i32 %.04256, 1
+  %63 = fadd double %.058, %49
+  %64 = add nsw i32 %.04255, 1
   %65 = fcmp ult double %49, 0.000000e+00
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %56
-  %67 = add nsw i32 %.04057, 1
+  %67 = add nsw i32 %.04056, 1
   br label %68
 
 68:                                               ; preds = %56, %66, %51
-  %.143 = phi i32 [ %64, %66 ], [ %64, %56 ], [ %.04256, %51 ]
-  %.141 = phi i32 [ %67, %66 ], [ %.04057, %56 ], [ %.04057, %51 ]
-  %.1 = phi double [ %63, %66 ], [ %63, %56 ], [ %.059, %51 ]
+  %.143 = phi i32 [ %64, %66 ], [ %64, %56 ], [ %.04255, %51 ]
+  %.141 = phi i32 [ %67, %66 ], [ %.04056, %56 ], [ %.04056, %51 ]
+  %.1 = phi double [ %63, %66 ], [ %63, %56 ], [ %.058, %51 ]
   %69 = load i32, ptr %23, align 4
   %70 = icmp sgt i32 %69, 2
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %68
   %72 = icmp eq i32 %69, 2
-  %73 = urem i32 %.03958, 10000
+  %73 = urem i32 %.03957, 10000
   %74 = icmp eq i32 %73, 0
   %or.cond = and i1 %74, %72
   br i1 %or.cond, label %75, label %79
 
 75:                                               ; preds = %71, %68
-  %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.03958, double noundef %.1, double noundef %27, i32 noundef %.143, i32 noundef %.141)
+  %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.03957, double noundef %.1, double noundef %27, i32 noundef %.143, i32 noundef %.141)
   %77 = load ptr, ptr @stdout, align 8
   %78 = tail call i32 @fflush(ptr noundef %77)
   br label %79
 
 79:                                               ; preds = %75, %71
   %80 = load ptr, ptr %24, align 8
-  %.not53 = icmp eq ptr %80, null
-  br i1 %.not53, label %83, label %81
+  %.not52 = icmp eq ptr %80, null
+  br i1 %.not52, label %83, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %80, ptr noundef nonnull @.str.9, i32 noundef %.03958, double noundef %.1, double noundef %27, i32 noundef %.143, i32 noundef %.141) #16
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %80, ptr noundef nonnull @.str.9, i32 noundef %.03957, double noundef %.1, double noundef %27, i32 noundef %.143, i32 noundef %.141) #16
   br label %83
 
 83:                                               ; preds = %79, %81
-  %84 = add nuw nsw i32 %.03958, 1
+  %84 = add nuw nsw i32 %.03957, 1
   %85 = load i32, ptr %15, align 8
   %86 = icmp slt i32 %84, %85
   br i1 %86, label %25, label %._crit_edge, !llvm.loop !15

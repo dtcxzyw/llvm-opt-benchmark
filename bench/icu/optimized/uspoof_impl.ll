@@ -1581,13 +1581,11 @@ entry:
   br i1 %cmp13, label %for.body, label %return
 
 for.body:                                         ; preds = %entry, %if.end10
-  %sawLeadCharacter.015 = phi i8 [ %sawLeadCharacter.1, %if.end10 ], [ 0, %entry ]
+  %sawLeadCharacter.015 = phi i1 [ %sawLeadCharacter.1, %if.end10 ], [ false, %entry ]
   %i.014 = phi i32 [ %add, %if.end10 ], [ 0, %entry ]
   %call2 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %i.014)
-  %4 = and i8 %sawLeadCharacter.015, 1
-  %tobool = icmp ne i8 %4, 0
   %cmp3 = icmp eq i32 %call2, 775
-  %or.cond = and i1 %tobool, %cmp3
+  %or.cond = and i1 %sawLeadCharacter.015, %cmp3
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
@@ -1599,20 +1597,19 @@ if.end:                                           ; preds = %for.body
 
 if.then8:                                         ; preds = %if.end, %if.end
   %call9 = tail call noundef zeroext i1 @_ZNK6icu_759SpoofImpl34isIllegalCombiningDotLeadCharacterEi(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %call2)
-  %frombool = zext i1 %call9 to i8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then8
-  %sawLeadCharacter.1 = phi i8 [ %frombool, %if.then8 ], [ %sawLeadCharacter.015, %if.end ]
+  %sawLeadCharacter.1 = phi i1 [ %call9, %if.then8 ], [ %sawLeadCharacter.015, %if.end ]
   %cmp11 = icmp ult i32 %call2, 65536
   %cond = select i1 %cmp11, i32 1, i32 2
   %add = add nuw nsw i32 %cond, %i.014
-  %5 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i = icmp slt i16 %5, 0
-  %6 = ashr i16 %5, 5
-  %shr.i.i = sext i16 %6 to i32
-  %7 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
+  %4 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i = icmp slt i16 %4, 0
+  %5 = ashr i16 %4, 5
+  %shr.i.i = sext i16 %5 to i32
+  %6 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %cmp = icmp slt i32 %add, %cond.i
   br i1 %cmp, label %for.body, label %return, !llvm.loop !12
 

@@ -196,11 +196,10 @@ entry:
 _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %entry
   %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 57
   %2 = load i8, ptr %strictLoopThread_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %cmp.i2.i = icmp eq i64 %1, 0
-  %spec.select.i = and i1 %cmp.i2.i, %tobool.not.i
-  br i1 %spec.select.i, label %cleanup.done, label %cond.false
+  %tobool.i = trunc i8 %2 to i1
+  %cmp.i2.i = icmp ne i64 %1, 0
+  %spec.select.i.not = or i1 %cmp.i2.i, %tobool.i
+  br i1 %spec.select.i.not, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 47)
@@ -216,26 +215,26 @@ cleanup.action:                                   ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #18
   unreachable
 
 cleanup.done:                                     ; preds = %entry, %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_left.i.i, align 8
+  %4 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp.i.not4 = icmp eq ptr %5, %add.ptr.i.i
+  %cmp.i.not4 = icmp eq ptr %4, %add.ptr.i.i
   br i1 %cmp.i.not4, label %for.end, label %for.body
 
 for.body:                                         ; preds = %cleanup.done, %for.body
-  %__begin1.sroa.0.05 = phi ptr [ %call.i, %for.body ], [ %5, %cleanup.done ]
+  %__begin1.sroa.0.05 = phi ptr [ %call.i, %for.body ], [ %4, %cleanup.done ]
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 40
-  %6 = load ptr, ptr %second, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %second, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(168) %6)
+  %6 = load ptr, ptr %vfn, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(168) %5)
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.05) #20
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -347,9 +346,8 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #17
   %forceStopped_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load atomic i8, ptr %forceStopped_ seq_cst, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not, label %if.then, label %if.end
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont7
   call void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 85)
@@ -363,32 +361,32 @@ invoke.cont12:                                    ; preds = %if.then
 invoke.cont14:                                    ; preds = %invoke.cont12
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #17
   %evb_ = getelementptr inbounds i8, ptr %this, i64 80
-  %3 = load ptr, ptr %evb_, align 8
-  %call16 = call noundef zeroext i1 @_ZN5folly9EventBase4loopEv(ptr noundef nonnull align 16 dereferenceable(568) %3)
+  %2 = load ptr, ptr %evb_, align 8
+  %call16 = call noundef zeroext i1 @_ZN5folly9EventBase4loopEv(ptr noundef nonnull align 16 dereferenceable(568) %2)
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont2, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad11:                                           ; preds = %invoke.cont12, %if.then
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont14, %invoke.cont7
   %callback_ = getelementptr inbounds i8, ptr %this, i64 72
-  %6 = load ptr, ptr %callback_, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %callback_, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %7 = load ptr, ptr %vfn, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %this)
+  %6 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %this)
   ret void
 
 eh.resume:                                        ; preds = %lpad11, %lpad
   %ref.tmp10.sink = phi ptr [ %ref.tmp10, %lpad11 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %5, %lpad11 ], [ %4, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad11 ], [ %3, %lpad ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10.sink) #17
   resume { ptr, i32 } %.pn
 }

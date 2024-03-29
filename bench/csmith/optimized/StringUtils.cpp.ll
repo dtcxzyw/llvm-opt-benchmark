@@ -79,10 +79,9 @@ switch.edge:
   %1 = icmp ult i8 %0, 33
   %switch.cast = zext nneg i8 %0 to i33
   %switch.downshift = lshr i33 -4294965760, %switch.cast
-  %2 = and i33 %switch.downshift, 1
-  %switch.masked = icmp ne i33 %2, 0
-  %3 = select i1 %1, i1 %switch.masked, i1 false
-  ret i1 %3
+  %switch.masked = trunc i33 %switch.downshift to i1
+  %2 = select i1 %1, i1 %switch.masked, i1 false
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

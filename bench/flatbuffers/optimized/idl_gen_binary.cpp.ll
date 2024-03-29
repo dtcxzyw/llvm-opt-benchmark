@@ -108,19 +108,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp20.i)
   %use_flexbuffers.i = getelementptr inbounds i8, ptr %parser, i64 1001
   %0 = load i8, ptr %use_flexbuffers.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %flex_builder_.i = getelementptr inbounds i8, ptr %parser, i64 584
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %parser, i64 592
-  %2 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %3 = load ptr, ptr %flex_builder_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %2 = load ptr, ptr %flex_builder_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.not.i.i.i.i.i = icmp eq ptr %2, %3
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread, label %cond.true.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then.i
@@ -133,86 +132,86 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
 
 lor.rhs.i:                                        ; preds = %cond.true.i.i.i.i.i
   %call5.i.i.i.i1.i5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #15
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i, ptr align 1 %3, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i, ptr align 1 %2, i64 %sub.ptr.sub.i.i.i, i1 false)
   invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %invoke.cont6.i unwind label %lpad.i
 
 invoke.cont6.i:                                   ; preds = %lor.rhs.i
   %call7.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
-  %4 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %5 = load ptr, ptr %flex_builder_.i, align 8
-  %sub.ptr.lhs.cast.i.i19.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i20.i = ptrtoint ptr %5 to i64
+  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %4 = load ptr, ptr %flex_builder_.i, align 8
+  %sub.ptr.lhs.cast.i.i19.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i20.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i21.i = sub i64 %sub.ptr.lhs.cast.i.i19.i, %sub.ptr.rhs.cast.i.i20.i
   %call13.i = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call7.i, ptr noundef nonnull %call5.i.i.i.i1.i5.i.i, i64 noundef %sub.ptr.sub.i.i21.i, i1 noundef zeroext true)
           to label %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit unwind label %lpad9.i
 
 lpad.i:                                           ; preds = %lor.rhs.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i25.i
 
 lpad9.i:                                          ; preds = %invoke.cont6.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
   br label %if.then.i.i.i25.i
 
 if.then.i.i.i25.i:                                ; preds = %lpad9.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad9.i ], [ %6, %lpad.i ]
+  %.pn.i = phi { ptr, i32 } [ %6, %lpad9.i ], [ %5, %lpad.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i5.i.i) #17
   br label %eh.resume.i
 
 if.end.i:                                         ; preds = %entry
   %size_.i.i.i = getelementptr inbounds i8, ptr %parser, i64 504
-  %8 = load i32, ptr %size_.i.i.i, align 8
-  %tobool18.not.not.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %size_.i.i.i, align 8
+  %tobool18.not.not.i = icmp eq i32 %7, 0
   br i1 %tobool18.not.not.i, label %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread, label %invoke.cont28.i
 
 invoke.cont28.i:                                  ; preds = %if.end.i
   call fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias nonnull align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   %call22.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #16
   %cur_.i.i.i = getelementptr inbounds i8, ptr %parser, i64 520
-  %9 = load ptr, ptr %cur_.i.i.i, align 8
-  %10 = load i32, ptr %size_.i.i.i, align 8
-  %conv.i = zext i32 %10 to i64
-  %call31.i = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call22.i, ptr noundef %9, i64 noundef %conv.i, i1 noundef zeroext true)
+  %8 = load ptr, ptr %cur_.i.i.i, align 8
+  %9 = load i32, ptr %size_.i.i.i, align 8
+  %conv.i = zext i32 %9 to i64
+  %call31.i = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call22.i, ptr noundef %8, i64 noundef %conv.i, i1 noundef zeroext true)
           to label %cleanup.action34.i unwind label %lpad24.i
 
 cleanup.action34.i:                               ; preds = %invoke.cont28.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  br i1 %call31.i, label %12, label %13
+  br i1 %call31.i, label %11, label %12
 
 lpad24.i:                                         ; preds = %invoke.cont28.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #16
   br label %eh.resume.i
 
 eh.resume.i:                                      ; preds = %lpad24.i, %if.then.i.i.i25.i
-  %.pn.pn.i = phi { ptr, i32 } [ %11, %lpad24.i ], [ %.pn.i, %if.then.i.i.i25.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %10, %lpad24.i ], [ %.pn.i, %if.then.i.i.i25.i ]
   resume { ptr, i32 } %.pn.pn.i
 
 _ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread: ; preds = %if.end.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  br label %12
+  br label %11
 
 _ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit: ; preds = %invoke.cont6.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i5.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  br i1 %call13.i, label %12, label %13
+  br i1 %call13.i, label %11, label %12
 
-12:                                               ; preds = %cleanup.action34.i, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit
-  br label %13
+11:                                               ; preds = %cleanup.action34.i, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit
+  br label %12
 
-13:                                               ; preds = %cleanup.action34.i, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit, %12
-  %14 = phi i32 [ 0, %12 ], [ 1, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit ], [ 1, %cleanup.action34.i ]
-  ret i32 %14
+12:                                               ; preds = %cleanup.action34.i, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit, %11
+  %13 = phi i32 [ 0, %11 ], [ 1, %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit ], [ 1, %cleanup.action34.i ]
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -208,9 +208,8 @@ define noundef i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, pt
   %102 = tail call i32 @hwloc_bitmap_and(ptr noundef %99, ptr noundef %101, ptr noundef %98) #6
   %103 = getelementptr inbounds i8, ptr %4, i64 2
   %104 = load i8, ptr %103, align 2
-  %105 = and i8 %104, 1
-  %.not.i = icmp eq i8 %105, 0
-  %..i = select i1 %.not.i, i32 2, i32 3
+  %105 = trunc i8 %104 to i1
+  %..i = select i1 %105, i32 3, i32 2
   br i1 %89, label %106, label %161
 
 106:                                              ; preds = %96
@@ -226,23 +225,23 @@ define noundef i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, pt
 
 hwloc_get_nbobjs_by_type.exit.i:                  ; preds = %106
   %112 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %110, i32 noundef %111) #7
-  %.not74.i = icmp eq i32 %112, 0
-  br i1 %.not74.i, label %.critedge.i, label %hwloc_get_obj_by_type.exit.lr.ph.i
+  %.not73.i = icmp eq i32 %112, 0
+  br i1 %.not73.i, label %.critedge.i, label %hwloc_get_obj_by_type.exit.lr.ph.i
 
 hwloc_get_obj_by_type.exit.lr.ph.i:               ; preds = %hwloc_get_nbobjs_by_type.exit.i, %106
-  %.0.i83.i = phi i32 [ %112, %hwloc_get_nbobjs_by_type.exit.i ], [ -1, %106 ]
+  %.0.i82.i = phi i32 [ %112, %hwloc_get_nbobjs_by_type.exit.i ], [ -1, %106 ]
   %113 = getelementptr inbounds i8, ptr %2, i64 184
   br label %hwloc_get_obj_by_type.exit.i
 
 114:                                              ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
-  %115 = add i16 %.05172.i, 1
+  %115 = add i16 %.05171.i, 1
   %116 = zext i16 %115 to i32
-  %117 = icmp ugt i32 %.0.i83.i, %116
+  %117 = icmp ugt i32 %.0.i82.i, %116
   br i1 %117, label %hwloc_get_obj_by_type.exit.i, label %.critedge.i, !llvm.loop !5
 
 hwloc_get_obj_by_type.exit.i:                     ; preds = %114, %hwloc_get_obj_by_type.exit.lr.ph.i
   %118 = phi i32 [ 0, %hwloc_get_obj_by_type.exit.lr.ph.i ], [ %116, %114 ]
-  %.05172.i = phi i16 [ 0, %hwloc_get_obj_by_type.exit.lr.ph.i ], [ %115, %114 ]
+  %.05171.i = phi i16 [ 0, %hwloc_get_obj_by_type.exit.lr.ph.i ], [ %115, %114 ]
   %119 = load ptr, ptr %107, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 128
   %121 = load ptr, ptr %120, align 8
@@ -297,11 +296,11 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %114, %hwloc_get_obj
   br i1 %.not13.i.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i, label %.preheader.i.i.i, !llvm.loop !7
 
 hwloc_get_nbobjs_inside_cpuset_by_type.exit.i:    ; preds = %145, %137, %hwloc_get_obj_by_type.exit.i
-  %.0.i61.i = phi i32 [ 0, %hwloc_get_obj_by_type.exit.i ], [ 0, %137 ], [ %.1.i.i.i, %145 ]
+  %.0.i60.i = phi i32 [ 0, %hwloc_get_obj_by_type.exit.i ], [ 0, %137 ], [ %.1.i.i.i, %145 ]
   %148 = load i16, ptr %4, align 8
   %149 = zext i16 %148 to i32
-  %.not58.i = icmp ult i32 %.0.i61.i, %149
-  br i1 %.not58.i, label %114, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i
+  %.not.i = icmp ult i32 %.0.i60.i, %149
+  br i1 %.not.i, label %114, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i
 
 .critedge.i:                                      ; preds = %114, %hwloc_get_nbobjs_by_type.exit.i, %106
   tail call void @hwloc_bitmap_free(ptr noundef %88) #6
@@ -332,8 +331,8 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.threadthread-pre-split.i: ; preds = 
 
 hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i: ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.threadthread-pre-split.i
   %167 = phi i16 [ %.pr.i, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.threadthread-pre-split.i ], [ %148, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i ]
-  %.not75.i = icmp eq i16 %167, 0
-  br i1 %.not75.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not74.i = icmp eq i16 %167, 0
+  br i1 %.not74.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i
   %168 = getelementptr inbounds i8, ptr %2, i64 240
@@ -352,11 +351,11 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i: ; preds = %hwloc_get_nbobj
 
 176:                                              ; preds = %170
   %177 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %173, i32 noundef %175, i32 noundef 0) #7
-  %.not.i.i62.i = icmp eq ptr %177, null
-  br i1 %.not.i.i62.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i63.i
+  %.not.i.i61.i = icmp eq ptr %177, null
+  br i1 %.not.i.i61.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i62.i
 
-.preheader.i.i63.i:                               ; preds = %176, %187
-  %.019.i.i.i = phi i32 [ %.1.i.i64.i, %187 ], [ 0, %176 ]
+.preheader.i.i62.i:                               ; preds = %176, %187
+  %.019.i.i.i = phi i32 [ %.1.i.i63.i, %187 ], [ 0, %176 ]
   %.01218.i.i.i = phi ptr [ %189, %187 ], [ %177, %176 ]
   %178 = getelementptr inbounds i8, ptr %.01218.i.i.i, i64 184
   %179 = load ptr, ptr %178, align 8
@@ -364,7 +363,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i: ; preds = %hwloc_get_nbobj
   %.not16.i.i.i = icmp eq i32 %180, 0
   br i1 %.not16.i.i.i, label %181, label %187
 
-181:                                              ; preds = %.preheader.i.i63.i
+181:                                              ; preds = %.preheader.i.i62.i
   %182 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %179, ptr noundef %174) #7
   %.not17.i.i.i = icmp eq i32 %182, 0
   br i1 %.not17.i.i.i, label %187, label %183
@@ -377,12 +376,12 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i: ; preds = %hwloc_get_nbobj
   %186 = add i32 %.019.i.i.i, 1
   br label %187
 
-187:                                              ; preds = %185, %181, %.preheader.i.i63.i
-  %.1.i.i64.i = phi i32 [ %.019.i.i.i, %.preheader.i.i63.i ], [ %186, %185 ], [ %.019.i.i.i, %181 ]
+187:                                              ; preds = %185, %181, %.preheader.i.i62.i
+  %.1.i.i63.i = phi i32 [ %.019.i.i.i, %.preheader.i.i62.i ], [ %186, %185 ], [ %.019.i.i.i, %181 ]
   %188 = getelementptr inbounds i8, ptr %.01218.i.i.i, i64 56
   %189 = load ptr, ptr %188, align 8
-  %.not15.i.i65.i = icmp eq ptr %189, null
-  br i1 %.not15.i.i65.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i63.i, !llvm.loop !8
+  %.not15.i.i64.i = icmp eq ptr %189, null
+  br i1 %.not15.i.i64.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i62.i, !llvm.loop !8
 
 hwloc_get_obj_inside_cpuset_by_type.exit.i:       ; preds = %183
   %190 = getelementptr inbounds i8, ptr %.01218.i.i.i, i64 184
@@ -490,116 +489,115 @@ hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %187, %hwloc_get_ob
 .lr.ph.i75:                                       ; preds = %246
   %250 = getelementptr inbounds i8, ptr %2, i64 184
   %251 = getelementptr inbounds i8, ptr %4, i64 2
-  br label %hwloc_get_next_obj_inside_cpuset_by_type.exit74.i
+  br label %hwloc_get_next_obj_inside_cpuset_by_type.exit71.i
 
-hwloc_get_next_obj_inside_cpuset_by_type.exit74.i: ; preds = %292, %.lr.ph.i75
+hwloc_get_next_obj_inside_cpuset_by_type.exit71.i: ; preds = %292, %.lr.ph.i75
   %252 = phi ptr [ %244, %.lr.ph.i75 ], [ %290, %292 ]
-  %.05094.i = phi ptr [ %.019.i.i.i71, %.lr.ph.i75 ], [ %.019.i.i69.i, %292 ]
+  %.05091.i = phi ptr [ %.019.i.i.i71, %.lr.ph.i75 ], [ %.019.i.i66.i, %292 ]
   %253 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
   %254 = load ptr, ptr %250, align 8
   %255 = tail call i32 @hwloc_bitmap_and(ptr noundef %253, ptr noundef %254, ptr noundef %252) #6
   %256 = load i8, ptr %251, align 2
-  %257 = and i8 %256, 1
-  %.not54.i = icmp eq i8 %257, 0
-  br i1 %.not54.i, label %261, label %258
+  %257 = trunc i8 %256 to i1
+  br i1 %257, label %258, label %261
 
-258:                                              ; preds = %hwloc_get_next_obj_inside_cpuset_by_type.exit74.i
+258:                                              ; preds = %hwloc_get_next_obj_inside_cpuset_by_type.exit71.i
   %259 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
   %260 = tail call i32 @hwloc_bitmap_weight(ptr noundef %259) #7
-  br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i76
+  br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i85
 
-261:                                              ; preds = %hwloc_get_next_obj_inside_cpuset_by_type.exit74.i
+261:                                              ; preds = %hwloc_get_next_obj_inside_cpuset_by_type.exit71.i
   %262 = load ptr, ptr %233, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 128
   %264 = load ptr, ptr %263, align 8
   %265 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
   %266 = tail call i32 @hwloc_get_type_depth(ptr noundef %264, i32 noundef 2) #6
   switch i32 %266, label %267 [
-    i32 -1, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i83
-    i32 -2, label %.thread89.i
+    i32 -1, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80
+    i32 -2, label %.thread86.i
   ]
 
 267:                                              ; preds = %261
   %268 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %264, i32 noundef %266, i32 noundef 0) #7
-  %.not.i.i61.i = icmp eq ptr %268, null
-  br i1 %.not.i.i61.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i83, label %.preheader.i.i62.i
+  %.not.i.i58.i = icmp eq ptr %268, null
+  br i1 %.not.i.i58.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80, label %.preheader.i.i59.i
 
-.preheader.i.i62.i:                               ; preds = %267, %275
-  %.017.i.i.i84 = phi i32 [ %.1.i.i.i86, %275 ], [ 0, %267 ]
-  %.01016.i.i.i85 = phi ptr [ %277, %275 ], [ %268, %267 ]
-  %269 = getelementptr inbounds i8, ptr %.01016.i.i.i85, i64 184
+.preheader.i.i59.i:                               ; preds = %267, %275
+  %.017.i.i.i81 = phi i32 [ %.1.i.i.i83, %275 ], [ 0, %267 ]
+  %.01016.i.i.i82 = phi ptr [ %277, %275 ], [ %268, %267 ]
+  %269 = getelementptr inbounds i8, ptr %.01016.i.i.i82, i64 184
   %270 = load ptr, ptr %269, align 8
   %271 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %270) #7
-  %.not14.i.i63.i = icmp eq i32 %271, 0
-  br i1 %.not14.i.i63.i, label %272, label %275
+  %.not14.i.i60.i = icmp eq i32 %271, 0
+  br i1 %.not14.i.i60.i, label %272, label %275
 
-272:                                              ; preds = %.preheader.i.i62.i
+272:                                              ; preds = %.preheader.i.i59.i
   %273 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %270, ptr noundef %265) #7
-  %.not15.i.i64.i = icmp ne i32 %273, 0
-  %274 = zext i1 %.not15.i.i64.i to i32
-  %spec.select.i.i.i88 = add i32 %.017.i.i.i84, %274
+  %.not15.i.i61.i = icmp ne i32 %273, 0
+  %274 = zext i1 %.not15.i.i61.i to i32
+  %spec.select.i.i.i87 = add i32 %.017.i.i.i81, %274
   br label %275
 
-275:                                              ; preds = %272, %.preheader.i.i62.i
-  %.1.i.i.i86 = phi i32 [ %.017.i.i.i84, %.preheader.i.i62.i ], [ %spec.select.i.i.i88, %272 ]
-  %276 = getelementptr inbounds i8, ptr %.01016.i.i.i85, i64 56
+275:                                              ; preds = %272, %.preheader.i.i59.i
+  %.1.i.i.i83 = phi i32 [ %.017.i.i.i81, %.preheader.i.i59.i ], [ %spec.select.i.i.i87, %272 ]
+  %276 = getelementptr inbounds i8, ptr %.01016.i.i.i82, i64 56
   %277 = load ptr, ptr %276, align 8
-  %.not13.i.i.i87 = icmp eq ptr %277, null
-  br i1 %.not13.i.i.i87, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i76, label %.preheader.i.i62.i, !llvm.loop !7
+  %.not13.i.i.i84 = icmp eq ptr %277, null
+  br i1 %.not13.i.i.i84, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i85, label %.preheader.i.i59.i, !llvm.loop !7
 
-hwloc_get_nbobjs_inside_cpuset_by_type.exit.i76:  ; preds = %275, %258
-  %.049.i77 = phi i32 [ %260, %258 ], [ %.1.i.i.i86, %275 ]
-  %.not55.i = icmp eq i32 %.049.i77, 0
-  br i1 %.not55.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i83, label %.thread89.i
+hwloc_get_nbobjs_inside_cpuset_by_type.exit.i85:  ; preds = %275, %258
+  %.049.i86 = phi i32 [ %260, %258 ], [ %.1.i.i.i83, %275 ]
+  %.not54.i = icmp eq i32 %.049.i86, 0
+  br i1 %.not54.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80, label %.thread86.i
 
-hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i83: ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i76, %267, %261
+hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80: ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i85, %267, %261
   %278 = load ptr, ptr %233, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 128
   %280 = load ptr, ptr %279, align 8
   %281 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 8), align 8
   %282 = load i32, ptr %238, align 4
   %283 = tail call i32 @hwloc_get_type_depth(ptr noundef %280, i32 noundef %282) #6
-  %or.cond.i65.i = icmp ugt i32 %283, -3
-  br i1 %or.cond.i65.i, label %.thread.i, label %284
+  %or.cond.i62.i = icmp ugt i32 %283, -3
+  br i1 %or.cond.i62.i, label %.thread.i, label %284
 
-284:                                              ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i83
-  %285 = getelementptr inbounds i8, ptr %.05094.i, i64 48
+284:                                              ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80
+  %285 = getelementptr inbounds i8, ptr %.05091.i, i64 48
   %286 = load i32, ptr %285, align 8
   %.not7.i.i.i.i = icmp eq i32 %286, %283
   br i1 %.not7.i.i.i.i, label %hwloc_get_next_obj_by_depth.exit.i.i.i, label %.thread.i
 
 hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %284
-  %287 = getelementptr inbounds i8, ptr %.05094.i, i64 56
+  %287 = getelementptr inbounds i8, ptr %.05091.i, i64 56
   %288 = load ptr, ptr %287, align 8
-  %.not.i.i67.i = icmp eq ptr %288, null
-  br i1 %.not.i.i67.i, label %.thread.i, label %.preheader.i.i68.i
+  %.not.i.i64.i = icmp eq ptr %288, null
+  br i1 %.not.i.i64.i, label %.thread.i, label %.preheader.i.i65.i
 
-.preheader.i.i68.i:                               ; preds = %hwloc_get_next_obj_by_depth.exit.i.i.i, %.critedge2.i.i71.i
-  %.019.i.i69.i = phi ptr [ %295, %.critedge2.i.i71.i ], [ %288, %hwloc_get_next_obj_by_depth.exit.i.i.i ]
-  %289 = getelementptr inbounds i8, ptr %.019.i.i69.i, i64 184
+.preheader.i.i65.i:                               ; preds = %hwloc_get_next_obj_by_depth.exit.i.i.i, %.critedge2.i.i68.i
+  %.019.i.i66.i = phi ptr [ %295, %.critedge2.i.i68.i ], [ %288, %hwloc_get_next_obj_by_depth.exit.i.i.i ]
+  %289 = getelementptr inbounds i8, ptr %.019.i.i66.i, i64 184
   %290 = load ptr, ptr %289, align 8
   %291 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %290) #7
-  %.not15.i.i70.i = icmp eq i32 %291, 0
-  br i1 %.not15.i.i70.i, label %292, label %.critedge2.i.i71.i
+  %.not15.i.i67.i = icmp eq i32 %291, 0
+  br i1 %.not15.i.i67.i, label %292, label %.critedge2.i.i68.i
 
-292:                                              ; preds = %.preheader.i.i68.i
+292:                                              ; preds = %.preheader.i.i65.i
   %293 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %290, ptr noundef %281) #7
-  %.not16.i.i73.i = icmp eq i32 %293, 0
-  br i1 %.not16.i.i73.i, label %.critedge2.i.i71.i, label %hwloc_get_next_obj_inside_cpuset_by_type.exit74.i, !llvm.loop !11
+  %.not16.i.i70.i = icmp eq i32 %293, 0
+  br i1 %.not16.i.i70.i, label %.critedge2.i.i68.i, label %hwloc_get_next_obj_inside_cpuset_by_type.exit71.i, !llvm.loop !11
 
-.critedge2.i.i71.i:                               ; preds = %292, %.preheader.i.i68.i
-  %294 = getelementptr inbounds i8, ptr %.019.i.i69.i, i64 56
+.critedge2.i.i68.i:                               ; preds = %292, %.preheader.i.i65.i
+  %294 = getelementptr inbounds i8, ptr %.019.i.i66.i, i64 56
   %295 = load ptr, ptr %294, align 8
-  %.not14.i.i72.i = icmp eq ptr %295, null
-  br i1 %.not14.i.i72.i, label %.thread.i, label %.preheader.i.i68.i, !llvm.loop !10
+  %.not14.i.i69.i = icmp eq ptr %295, null
+  br i1 %.not14.i.i69.i, label %.thread.i, label %.preheader.i.i65.i, !llvm.loop !10
 
-.thread.i:                                        ; preds = %.critedge2.i.i.i, %hwloc_get_next_obj_by_depth.exit.i.i.i, %284, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i83, %.critedge2.i.i71.i, %241, %228
+.thread.i:                                        ; preds = %.critedge2.i.i.i, %hwloc_get_next_obj_by_depth.exit.i.i.i, %284, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i80, %.critedge2.i.i68.i, %241, %228
   %296 = load ptr, ptr %43, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 140
   %298 = load i16, ptr %297, align 4
   %299 = and i16 %298, 4096
-  %.not59.i = icmp eq i16 %299, 0
-  br i1 %.not59.i, label %300, label %bind_multiple.exit
+  %.not56.i = icmp eq i16 %299, 0
+  br i1 %.not56.i, label %300, label %bind_multiple.exit
 
 300:                                              ; preds = %.thread.i
   %301 = getelementptr inbounds i8, ptr %2, i64 152
@@ -607,98 +605,95 @@ hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %284
   %303 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12, i32 noundef 1, ptr noundef %302) #6
   br label %bind_multiple.exit
 
-.thread89.i:                                      ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i76, %261
-  %304 = getelementptr inbounds i8, ptr %.05094.i, i64 184
+.thread86.i:                                      ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i85, %261
+  %304 = getelementptr inbounds i8, ptr %.05091.i, i64 184
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr %1, i64 456
   %307 = tail call i32 @hwloc_bitmap_list_asprintf(ptr noundef nonnull %306, ptr noundef %305) #6
   %308 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
   %309 = tail call i32 @pmix_output_get_verbosity(i32 noundef %308) #6
   %310 = icmp sgt i32 %309, 4
-  br i1 %310, label %311, label %326
+  br i1 %310, label %311, label %325
 
-311:                                              ; preds = %.thread89.i
+311:                                              ; preds = %.thread86.i
   %312 = load ptr, ptr %304, align 8
   %313 = load i8, ptr %251, align 2
-  %314 = and i8 %313, 1
-  %315 = icmp ne i8 %314, 0
-  %316 = load ptr, ptr %233, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 128
-  %318 = load ptr, ptr %317, align 8
-  %319 = tail call ptr @prte_hwloc_base_cset2str(ptr noundef %312, i1 noundef zeroext %315, ptr noundef %318) #6
-  %320 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
-  %321 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #6
-  %322 = getelementptr inbounds i8, ptr %1, i64 144
-  %323 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %322) #6
-  %324 = getelementptr inbounds i8, ptr %2, i64 152
-  %325 = load ptr, ptr %324, align 8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %320, ptr noundef nonnull @.str.13, ptr noundef %321, ptr noundef %323, ptr noundef %325, ptr noundef %319) #6
-  tail call void @free(ptr noundef %319) #6
-  br label %326
+  %314 = trunc i8 %313 to i1
+  %315 = load ptr, ptr %233, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 128
+  %317 = load ptr, ptr %316, align 8
+  %318 = tail call ptr @prte_hwloc_base_cset2str(ptr noundef %312, i1 noundef zeroext %314, ptr noundef %317) #6
+  %319 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_rmaps_base_framework, i64 0, i32 11), align 4
+  %320 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #6
+  %321 = getelementptr inbounds i8, ptr %1, i64 144
+  %322 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %321) #6
+  %323 = getelementptr inbounds i8, ptr %2, i64 152
+  %324 = load ptr, ptr %323, align 8
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %319, ptr noundef nonnull @.str.13, ptr noundef %320, ptr noundef %322, ptr noundef %324, ptr noundef %318) #6
+  tail call void @free(ptr noundef %318) #6
+  br label %325
 
-326:                                              ; preds = %311, %.thread89.i
-  %327 = load i8, ptr %251, align 2
-  %328 = and i8 %327, 1
-  %.not56.i = icmp eq i8 %328, 0
-  %..i78 = select i1 %.not56.i, i32 2, i32 3
-  %329 = load ptr, ptr %233, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 128
-  %331 = load ptr, ptr %330, align 8
-  %332 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
-  %333 = tail call i32 @hwloc_get_type_depth(ptr noundef %331, i32 noundef %..i78) #6
-  %or.cond.i75.i = icmp ult i32 %333, -2
-  tail call void @llvm.assume(i1 %or.cond.i75.i)
-  %334 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %331, i32 noundef %333, i32 noundef 0) #7
-  %.not.i.i76.i = icmp ne ptr %334, null
-  tail call void @llvm.assume(i1 %.not.i.i76.i)
-  br label %.preheader.i.i77.i
+325:                                              ; preds = %311, %.thread86.i
+  %326 = load i8, ptr %251, align 2
+  %327 = trunc i8 %326 to i1
+  %..i76 = select i1 %327, i32 3, i32 2
+  %328 = load ptr, ptr %233, align 8
+  %329 = getelementptr inbounds i8, ptr %328, i64 128
+  %330 = load ptr, ptr %329, align 8
+  %331 = load ptr, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 7), align 8
+  %332 = tail call i32 @hwloc_get_type_depth(ptr noundef %330, i32 noundef %..i76) #6
+  %or.cond.i72.i = icmp ult i32 %332, -2
+  tail call void @llvm.assume(i1 %or.cond.i72.i)
+  %333 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %330, i32 noundef %332, i32 noundef 0) #7
+  %.not.i.i73.i = icmp ne ptr %333, null
+  tail call void @llvm.assume(i1 %.not.i.i73.i)
+  br label %.preheader.i.i74.i
 
-.preheader.i.i77.i:                               ; preds = %340, %326
-  %.01218.i.i.i79 = phi ptr [ %342, %340 ], [ %334, %326 ]
-  %335 = getelementptr inbounds i8, ptr %.01218.i.i.i79, i64 184
-  %336 = load ptr, ptr %335, align 8
-  %337 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %336) #7
-  %.not16.i.i79.i = icmp eq i32 %337, 0
-  br i1 %.not16.i.i79.i, label %338, label %340
+.preheader.i.i74.i:                               ; preds = %339, %325
+  %.01218.i.i.i77 = phi ptr [ %341, %339 ], [ %333, %325 ]
+  %334 = getelementptr inbounds i8, ptr %.01218.i.i.i77, i64 184
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %335) #7
+  %.not16.i.i76.i = icmp eq i32 %336, 0
+  br i1 %.not16.i.i76.i, label %337, label %339
 
-338:                                              ; preds = %.preheader.i.i77.i
-  %339 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %336, ptr noundef %332) #7
-  %.not17.i.i.i80 = icmp eq i32 %339, 0
-  br i1 %.not17.i.i.i80, label %340, label %hwloc_get_obj_inside_cpuset_by_type.exit.i81
+337:                                              ; preds = %.preheader.i.i74.i
+  %338 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %335, ptr noundef %331) #7
+  %.not17.i.i.i78 = icmp eq i32 %338, 0
+  br i1 %.not17.i.i.i78, label %339, label %hwloc_get_obj_inside_cpuset_by_type.exit.i79
 
-340:                                              ; preds = %338, %.preheader.i.i77.i
-  %341 = getelementptr inbounds i8, ptr %.01218.i.i.i79, i64 56
-  %342 = load ptr, ptr %341, align 8, !nonnull !12, !noundef !12
-  br label %.preheader.i.i77.i
+339:                                              ; preds = %337, %.preheader.i.i74.i
+  %340 = getelementptr inbounds i8, ptr %.01218.i.i.i77, i64 56
+  %341 = load ptr, ptr %340, align 8, !nonnull !12, !noundef !12
+  br label %.preheader.i.i74.i
 
-hwloc_get_obj_inside_cpuset_by_type.exit.i81:     ; preds = %338
-  %343 = load ptr, ptr %250, align 8
-  %344 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %343, ptr noundef %343, ptr noundef %336) #6
-  %345 = load ptr, ptr %250, align 8
-  %346 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %345) #7
-  %.not57.i = icmp eq i32 %346, 0
-  br i1 %.not57.i, label %bind_multiple.exit, label %347
+hwloc_get_obj_inside_cpuset_by_type.exit.i79:     ; preds = %337
+  %342 = load ptr, ptr %250, align 8
+  %343 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %342, ptr noundef %342, ptr noundef %335) #6
+  %344 = load ptr, ptr %250, align 8
+  %345 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %344) #7
+  %.not55.i = icmp eq i32 %345, 0
+  br i1 %.not55.i, label %bind_multiple.exit, label %346
 
-347:                                              ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i81
-  %348 = getelementptr inbounds i8, ptr %4, i64 36
-  %349 = load i8, ptr %348, align 4
-  %350 = and i8 %349, 1
-  %.not58.i82 = icmp eq i8 %350, 0
-  br i1 %.not58.i82, label %bind_multiple.exit, label %351
+346:                                              ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i79
+  %347 = getelementptr inbounds i8, ptr %4, i64 36
+  %348 = load i8, ptr %347, align 4
+  %349 = trunc i8 %348 to i1
+  br i1 %349, label %350, label %bind_multiple.exit
 
-351:                                              ; preds = %347
-  %352 = getelementptr inbounds i8, ptr %2, i64 192
-  %353 = load ptr, ptr %352, align 8
-  %354 = tail call i32 @hwloc_bitmap_copy(ptr noundef %345, ptr noundef %353) #6
+350:                                              ; preds = %346
+  %351 = getelementptr inbounds i8, ptr %2, i64 192
+  %352 = load ptr, ptr %351, align 8
+  %353 = tail call i32 @hwloc_bitmap_copy(ptr noundef %344, ptr noundef %352) #6
   br label %bind_multiple.exit
 
 bind_generic.exit:                                ; preds = %224
-  %355 = tail call ptr @prte_strerror(i32 noundef -1) #6
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %355, ptr noundef nonnull @.str.2, i32 noundef 454) #6
+  %354 = tail call ptr @prte_strerror(i32 noundef -1) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %354, ptr noundef nonnull @.str.2, i32 noundef 454) #6
   br label %bind_multiple.exit
 
-bind_multiple.exit:                               ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i81, %347, %351, %.thread.i, %300, %._crit_edge.i, %.critedge.i, %bind_generic.exit, %70, %68, %68, %55, %57, %62, %31, %34, %40, %38, %38, %24, %24
-  %.057 = phi i32 [ 0, %24 ], [ 0, %24 ], [ 0, %34 ], [ %39, %40 ], [ %39, %38 ], [ 0, %31 ], [ %39, %38 ], [ 0, %62 ], [ 0, %57 ], [ 0, %55 ], [ %69, %68 ], [ %69, %68 ], [ %69, %70 ], [ -1, %bind_generic.exit ], [ 0, %._crit_edge.i ], [ -43, %.critedge.i ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit.i81 ], [ 0, %347 ], [ 0, %351 ], [ 0, %.thread.i ], [ -43, %300 ]
+bind_multiple.exit:                               ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i79, %346, %350, %.thread.i, %300, %._crit_edge.i, %.critedge.i, %bind_generic.exit, %70, %68, %68, %55, %57, %62, %31, %34, %40, %38, %38, %24, %24
+  %.057 = phi i32 [ 0, %24 ], [ 0, %24 ], [ 0, %34 ], [ %39, %40 ], [ %39, %38 ], [ 0, %31 ], [ %39, %38 ], [ 0, %62 ], [ 0, %57 ], [ 0, %55 ], [ %69, %68 ], [ %69, %68 ], [ %69, %70 ], [ -1, %bind_generic.exit ], [ 0, %._crit_edge.i ], [ -43, %.critedge.i ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit.i79 ], [ 0, %346 ], [ 0, %350 ], [ 0, %.thread.i ], [ -43, %300 ]
   ret i32 %.057
 }
 
@@ -728,9 +723,8 @@ define internal fastcc noundef i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 41
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  %19 = select i1 %.not, ptr @.str.6, ptr @.str.5
+  %18 = trunc i8 %17 to i1
+  %19 = select i1 %18, ptr @.str.5, ptr @.str.6
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %5, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %19) #6
   br label %20
 
@@ -738,7 +732,7 @@ define internal fastcc noundef i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread, label %24
+  br i1 %23, label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread, label %24
 
 24:                                               ; preds = %20
   %25 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %22, i32 noundef 44) #6
@@ -747,9 +741,8 @@ define internal fastcc noundef i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds i8, ptr %3, i64 2
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not58 = icmp eq i8 %31, 0
-  %. = select i1 %.not58, i32 2, i32 3
+  %31 = trunc i8 %30 to i1
+  %. = select i1 %31, i32 3, i32 2
   %32 = getelementptr inbounds i8, ptr %2, i64 240
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 128
@@ -757,9 +750,8 @@ define internal fastcc noundef i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %
   %36 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %35, i32 noundef 0, i32 noundef 0) #7
   %37 = getelementptr inbounds i8, ptr %3, i64 41
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not59 = icmp eq i8 %39, 0
-  br i1 %.not59, label %58, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %58
 
 40:                                               ; preds = %24
   %41 = getelementptr inbounds i8, ptr %36, i64 184
@@ -804,12 +796,12 @@ define internal fastcc noundef i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %
 
 .loopexit:                                        ; preds = %55, %40, %44
   tail call void @PMIx_Argv_free(ptr noundef nonnull %25) #6
-  br label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread
+  br label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread
 
 hwloc_get_obj_inside_cpuset_by_type.exit:         ; preds = %51
   %.pre = load ptr, ptr %32, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 128
-  %.pre82 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre79 = load ptr, ptr %.phi.trans.insert, align 8
   br label %60
 
 58:                                               ; preds = %24
@@ -818,7 +810,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit:         ; preds = %51
   br label %60
 
 60:                                               ; preds = %58, %hwloc_get_obj_inside_cpuset_by_type.exit
-  %61 = phi ptr [ %.pre82, %hwloc_get_obj_inside_cpuset_by_type.exit ], [ %35, %58 ]
+  %61 = phi ptr [ %.pre79, %hwloc_get_obj_inside_cpuset_by_type.exit ], [ %35, %58 ]
   %.051 = phi ptr [ %47, %hwloc_get_obj_inside_cpuset_by_type.exit ], [ %.051.pre, %58 ]
   %62 = tail call i32 @hwloc_get_type_depth(ptr noundef %61, i32 noundef 1) #6
   switch i32 %62, label %hwloc_get_nbobjs_by_type.exit [
@@ -828,27 +820,27 @@ hwloc_get_obj_inside_cpuset_by_type.exit:         ; preds = %51
 
 hwloc_get_nbobjs_by_type.exit:                    ; preds = %60
   %63 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %61, i32 noundef %62) #7
-  %.not78 = icmp eq i32 %63, 0
-  br i1 %.not78, label %.critedge, label %hwloc_get_obj_by_type.exit.preheader
+  %.not = icmp eq i32 %63, 0
+  br i1 %.not, label %.critedge, label %hwloc_get_obj_by_type.exit.preheader
 
 hwloc_get_obj_by_type.exit.preheader:             ; preds = %60, %hwloc_get_nbobjs_by_type.exit
-  %.0.i6088 = phi i32 [ %63, %hwloc_get_nbobjs_by_type.exit ], [ -1, %60 ]
+  %.0.i5885 = phi i32 [ %63, %hwloc_get_nbobjs_by_type.exit ], [ -1, %60 ]
   br label %hwloc_get_obj_by_type.exit
 
 64:                                               ; preds = %hwloc_get_obj_by_type.exit
-  %65 = add nuw i32 %.05277, 1
-  %exitcond.not = icmp eq i32 %65, %.0.i6088
+  %65 = add nuw i32 %.05275, 1
+  %exitcond.not = icmp eq i32 %65, %.0.i5885
   br i1 %exitcond.not, label %.critedge, label %hwloc_get_obj_by_type.exit, !llvm.loop !13
 
 hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_type.exit.preheader, %64
-  %.05277 = phi i32 [ %65, %64 ], [ 0, %hwloc_get_obj_by_type.exit.preheader ]
+  %.05275 = phi i32 [ %65, %64 ], [ 0, %hwloc_get_obj_by_type.exit.preheader ]
   %66 = load ptr, ptr %32, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 128
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @hwloc_get_type_depth(ptr noundef %68, i32 noundef 1) #6
   %switch.i = icmp ult i32 %69, -2
   tail call void @llvm.assume(i1 %switch.i)
-  %70 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %68, i32 noundef %69, i32 noundef %.05277) #7
+  %70 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %68, i32 noundef %69, i32 noundef %.05275) #7
   %71 = getelementptr inbounds i8, ptr %70, i64 184
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %.051, ptr noundef %72) #7
@@ -868,7 +860,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
   %84 = load ptr, ptr %21, align 8
   %85 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef %79, ptr noundef %83, ptr noundef %84) #6
   tail call void @PMIx_Argv_free(ptr noundef nonnull %25) #6
-  br label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread
+  br label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread
 
 86:                                               ; preds = %hwloc_get_obj_by_type.exit
   %87 = getelementptr inbounds i8, ptr %1, i64 456
@@ -894,51 +886,51 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
   %99 = getelementptr inbounds i8, ptr %98, i64 128
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 @hwloc_get_type_depth(ptr noundef %100, i32 noundef %.) #6
-  %or.cond.i62 = icmp ugt i32 %101, -3
-  br i1 %or.cond.i62, label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread, label %102
+  %or.cond.i60 = icmp ugt i32 %101, -3
+  br i1 %or.cond.i60, label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread, label %102
 
 102:                                              ; preds = %95
   %103 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %100, i32 noundef %101, i32 noundef 0) #7
-  %.not.i.i63 = icmp eq ptr %103, null
-  br i1 %.not.i.i63, label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread, label %.preheader.i.i64
+  %.not.i.i61 = icmp eq ptr %103, null
+  br i1 %.not.i.i61, label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread, label %.preheader.i.i62
 
-.preheader.i.i64:                                 ; preds = %102, %113
-  %.019.i.i65 = phi i32 [ %.1.i.i68, %113 ], [ 0, %102 ]
-  %.01218.i.i66 = phi ptr [ %115, %113 ], [ %103, %102 ]
-  %104 = getelementptr inbounds i8, ptr %.01218.i.i66, i64 184
+.preheader.i.i62:                                 ; preds = %102, %113
+  %.019.i.i63 = phi i32 [ %.1.i.i66, %113 ], [ 0, %102 ]
+  %.01218.i.i64 = phi ptr [ %115, %113 ], [ %103, %102 ]
+  %104 = getelementptr inbounds i8, ptr %.01218.i.i64, i64 184
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %105) #7
-  %.not16.i.i67 = icmp eq i32 %106, 0
-  br i1 %.not16.i.i67, label %107, label %113
+  %.not16.i.i65 = icmp eq i32 %106, 0
+  br i1 %.not16.i.i65, label %107, label %113
 
-107:                                              ; preds = %.preheader.i.i64
+107:                                              ; preds = %.preheader.i.i62
   %108 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %105, ptr noundef %97) #7
-  %.not17.i.i71 = icmp eq i32 %108, 0
-  br i1 %.not17.i.i71, label %113, label %109
+  %.not17.i.i69 = icmp eq i32 %108, 0
+  br i1 %.not17.i.i69, label %113, label %109
 
 109:                                              ; preds = %107
-  %110 = icmp eq i32 %.019.i.i65, %28
-  br i1 %110, label %hwloc_get_obj_inside_cpuset_by_type.exit72, label %111
+  %110 = icmp eq i32 %.019.i.i63, %28
+  br i1 %110, label %hwloc_get_obj_inside_cpuset_by_type.exit70, label %111
 
 111:                                              ; preds = %109
-  %112 = add i32 %.019.i.i65, 1
+  %112 = add i32 %.019.i.i63, 1
   br label %113
 
-113:                                              ; preds = %111, %107, %.preheader.i.i64
-  %.1.i.i68 = phi i32 [ %.019.i.i65, %.preheader.i.i64 ], [ %112, %111 ], [ %.019.i.i65, %107 ]
-  %114 = getelementptr inbounds i8, ptr %.01218.i.i66, i64 56
+113:                                              ; preds = %111, %107, %.preheader.i.i62
+  %.1.i.i66 = phi i32 [ %.019.i.i63, %.preheader.i.i62 ], [ %112, %111 ], [ %.019.i.i63, %107 ]
+  %114 = getelementptr inbounds i8, ptr %.01218.i.i64, i64 56
   %115 = load ptr, ptr %114, align 8
-  %.not15.i.i69 = icmp eq ptr %115, null
-  br i1 %.not15.i.i69, label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread, label %.preheader.i.i64, !llvm.loop !8
+  %.not15.i.i67 = icmp eq ptr %115, null
+  br i1 %.not15.i.i67, label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread, label %.preheader.i.i62, !llvm.loop !8
 
-hwloc_get_obj_inside_cpuset_by_type.exit72:       ; preds = %109
+hwloc_get_obj_inside_cpuset_by_type.exit70:       ; preds = %109
   %116 = getelementptr inbounds i8, ptr %2, i64 184
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %117, ptr noundef %117, ptr noundef %105) #6
-  br label %hwloc_get_obj_inside_cpuset_by_type.exit72.thread
+  br label %hwloc_get_obj_inside_cpuset_by_type.exit70.thread
 
-hwloc_get_obj_inside_cpuset_by_type.exit72.thread: ; preds = %113, %102, %95, %hwloc_get_obj_inside_cpuset_by_type.exit72, %20, %.critedge, %.loopexit
-  %.050 = phi i32 [ -2, %.loopexit ], [ -43, %.critedge ], [ -2, %20 ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit72 ], [ 0, %95 ], [ 0, %102 ], [ 0, %113 ]
+hwloc_get_obj_inside_cpuset_by_type.exit70.thread: ; preds = %113, %102, %95, %hwloc_get_obj_inside_cpuset_by_type.exit70, %20, %.critedge, %.loopexit
+  %.050 = phi i32 [ -2, %.loopexit ], [ -43, %.critedge ], [ -2, %20 ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit70 ], [ 0, %95 ], [ 0, %102 ], [ 0, %113 ]
   ret i32 %.050
 }
 

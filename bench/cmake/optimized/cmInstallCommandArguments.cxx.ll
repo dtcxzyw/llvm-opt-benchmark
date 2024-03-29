@@ -947,18 +947,17 @@ tailrecurse:                                      ; preds = %5, %1
   %.tr = phi ptr [ %0, %1 ], [ %7, %5 ]
   %2 = getelementptr inbounds i8, ptr %.tr, i64 296
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.not = icmp ne i8 %4, 0
-  br i1 %.not.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %8, label %5
 
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds i8, ptr %.tr, i64 400
   %7 = load ptr, ptr %6, align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %8, label %tailrecurse
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %tailrecurse
 
 8:                                                ; preds = %5, %tailrecurse
-  ret i1 %.not.not
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -969,18 +968,17 @@ tailrecurse:                                      ; preds = %5, %1
   %.tr = phi ptr [ %0, %1 ], [ %7, %5 ]
   %2 = getelementptr inbounds i8, ptr %.tr, i64 208
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.not = icmp ne i8 %4, 0
-  br i1 %.not.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %8, label %5
 
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds i8, ptr %.tr, i64 400
   %7 = load ptr, ptr %6, align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %8, label %tailrecurse
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %tailrecurse
 
 8:                                                ; preds = %5, %tailrecurse
-  ret i1 %.not.not
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -991,18 +989,17 @@ tailrecurse:                                      ; preds = %5, %1
   %.tr = phi ptr [ %0, %1 ], [ %7, %5 ]
   %2 = getelementptr inbounds i8, ptr %.tr, i64 297
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not.not = icmp ne i8 %4, 0
-  br i1 %.not.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %8, label %5
 
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds i8, ptr %.tr, i64 400
   %7 = load ptr, ptr %6, align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %8, label %tailrecurse
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %tailrecurse
 
 8:                                                ; preds = %5, %tailrecurse
-  ret i1 %.not.not
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1013,18 +1010,17 @@ tailrecurse:                                      ; preds = %5, %1
   %.tr = phi ptr [ %0, %1 ], [ %7, %5 ]
   %2 = getelementptr inbounds i8, ptr %.tr, i64 298
   %3 = load i8, ptr %2, align 2
-  %4 = and i8 %3, 1
-  %.not.not = icmp ne i8 %4, 0
-  br i1 %.not.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %8, label %5
 
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds i8, ptr %.tr, i64 400
   %7 = load ptr, ptr %6, align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %8, label %tailrecurse
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %tailrecurse
 
 8:                                                ; preds = %5, %tailrecurse
-  ret i1 %.not.not
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

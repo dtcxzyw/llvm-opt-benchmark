@@ -39,7 +39,7 @@ define dso_local i64 @networksel(ptr nocapture noundef readonly %0) local_unname
 21:                                               ; preds = %1
   %22 = icmp eq i32 %13, 3552
   %23 = select i1 %22, i64 4576918229304087675, i64 4572414629676717179
-  br label %107
+  br label %106
 
 24:                                               ; preds = %1
   %25 = load ptr, ptr %3, align 8
@@ -62,39 +62,38 @@ define dso_local i64 @networksel(ptr nocapture noundef readonly %0) local_unname
 34:                                               ; preds = %28, %31
   %35 = icmp eq i32 %13, 3552
   %36 = select i1 %35, i64 4576918229304087675, i64 4572414629676717179
-  br label %107
+  br label %106
 
 37:                                               ; preds = %24
   %38 = getelementptr inbounds i8, ptr %25, i64 32
   %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not32 = icmp eq i8 %40, 0
-  br i1 %.not32, label %47, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %47
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %2, i64 16
   %43 = load ptr, ptr %42, align 8
-  %.not36 = icmp eq ptr %43, null
-  br i1 %.not36, label %107, label %44
+  %.not34 = icmp eq ptr %43, null
+  br i1 %.not34, label %106, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %2, i64 24
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull %43) #9
-  br label %107
+  br label %106
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %25, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %2, i64 16
   %51 = load ptr, ptr %50, align 8
-  %.not33 = icmp eq ptr %51, null
-  br i1 %.not33, label %52, label %55
+  %.not32 = icmp eq ptr %51, null
+  br i1 %.not32, label %52, label %55
 
 52:                                               ; preds = %47
   %53 = icmp eq i32 %13, 3552
   %54 = select i1 %53, i64 4576918229304087675, i64 4572414629676717179
-  br label %107
+  br label %106
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds i8, ptr %51, i64 16
@@ -109,95 +108,93 @@ define dso_local i64 @networksel(ptr nocapture noundef readonly %0) local_unname
   %65 = call i32 @get_opcode(i32 noundef %13) #9
   call void @fmgr_info(i32 noundef %65, ptr noundef nonnull %7) #9
   %66 = load i8, ptr %4, align 1
-  %67 = and i8 %66, 1
-  %68 = icmp ne i8 %67, 0
-  %69 = call double @mcv_selectivity(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 0, i64 noundef %49, i1 noundef zeroext %68, ptr noundef nonnull %6) #9
-  %70 = load ptr, ptr %50, align 8
-  %71 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef %70, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
-  br i1 %71, label %72, label %88
+  %67 = trunc i8 %66 to i1
+  %68 = call double @mcv_selectivity(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 0, i64 noundef %49, i1 noundef zeroext %67, ptr noundef nonnull %6) #9
+  %69 = load ptr, ptr %50, align 8
+  %70 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef %69, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
+  br i1 %70, label %71, label %87
 
-72:                                               ; preds = %55
-  switch i32 %13, label %77 [
+71:                                               ; preds = %55
+  switch i32 %13, label %76 [
     i32 933, label %inet_opr_codenum.exit
-    i32 934, label %73
-    i32 3552, label %74
-    i32 932, label %75
-    i32 931, label %76
+    i32 934, label %72
+    i32 3552, label %73
+    i32 932, label %74
+    i32 931, label %75
   ]
 
-73:                                               ; preds = %72
+72:                                               ; preds = %71
   br label %inet_opr_codenum.exit
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   br label %inet_opr_codenum.exit
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   br label %inet_opr_codenum.exit
 
-76:                                               ; preds = %72
+75:                                               ; preds = %71
   br label %inet_opr_codenum.exit
 
-77:                                               ; preds = %72
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %13) #9
+76:                                               ; preds = %71
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %77)
+  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %13) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #9
   unreachable
 
-inet_opr_codenum.exit:                            ; preds = %72, %73, %74, %75, %76
-  %.0.i = phi i32 [ 2, %76 ], [ 1, %75 ], [ 0, %74 ], [ -1, %73 ], [ -2, %72 ]
-  %80 = load i8, ptr %4, align 1
-  %81 = and i8 %80, 1
-  %.not34 = icmp eq i8 %81, 0
-  %82 = sub nsw i32 0, %.0.i
-  %spec.select = select i1 %.not34, i32 %82, i32 %.0.i
-  %83 = getelementptr inbounds i8, ptr %5, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 24
-  %86 = load i32, ptr %85, align 8
-  %87 = call fastcc double @inet_hist_value_sel(ptr noundef %84, i32 noundef %86, i64 noundef %49, i32 noundef %spec.select)
+inet_opr_codenum.exit:                            ; preds = %71, %72, %73, %74, %75
+  %.0.i = phi i32 [ 2, %75 ], [ 1, %74 ], [ 0, %73 ], [ -1, %72 ], [ -2, %71 ]
+  %79 = load i8, ptr %4, align 1
+  %80 = trunc i8 %79 to i1
+  %81 = sub nsw i32 0, %.0.i
+  %spec.select = select i1 %80, i32 %.0.i, i32 %81
+  %82 = getelementptr inbounds i8, ptr %5, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %5, i64 24
+  %85 = load i32, ptr %84, align 8
+  %86 = call fastcc double @inet_hist_value_sel(ptr noundef %83, i32 noundef %85, i64 noundef %49, i32 noundef %spec.select)
   call void @free_attstatsslot(ptr noundef nonnull %5) #9
-  br label %91
+  br label %90
 
-88:                                               ; preds = %55
-  %89 = icmp eq i32 %13, 3552
-  %90 = select i1 %89, double 1.000000e-02, double 5.000000e-03
-  br label %91
+87:                                               ; preds = %55
+  %88 = icmp eq i32 %13, 3552
+  %89 = select i1 %88, double 1.000000e-02, double 5.000000e-03
+  br label %90
 
-91:                                               ; preds = %88, %inet_opr_codenum.exit
-  %.026 = phi double [ %87, %inet_opr_codenum.exit ], [ %90, %88 ]
-  %92 = fsub double 1.000000e+00, %64
-  %93 = load double, ptr %6, align 8
-  %94 = fsub double %92, %93
-  %95 = call double @llvm.fmuladd.f64(double %94, double %.026, double %69)
-  %96 = fcmp olt double %95, 0.000000e+00
-  br i1 %96, label %100, label %97
+90:                                               ; preds = %87, %inet_opr_codenum.exit
+  %.026 = phi double [ %86, %inet_opr_codenum.exit ], [ %89, %87 ]
+  %91 = fsub double 1.000000e+00, %64
+  %92 = load double, ptr %6, align 8
+  %93 = fsub double %91, %92
+  %94 = call double @llvm.fmuladd.f64(double %93, double %.026, double %68)
+  %95 = fcmp olt double %94, 0.000000e+00
+  br i1 %95, label %99, label %96
 
-97:                                               ; preds = %91
-  %98 = fcmp ogt double %95, 1.000000e+00
-  br i1 %98, label %99, label %100
+96:                                               ; preds = %90
+  %97 = fcmp ogt double %94, 1.000000e+00
+  br i1 %97, label %98, label %99
 
-99:                                               ; preds = %97
-  br label %100
+98:                                               ; preds = %96
+  br label %99
 
-100:                                              ; preds = %91, %97, %99
-  %.025 = phi double [ 1.000000e+00, %99 ], [ %95, %97 ], [ 0.000000e+00, %91 ]
-  %101 = load ptr, ptr %50, align 8
-  %.not35 = icmp eq ptr %101, null
-  br i1 %.not35, label %105, label %102
+99:                                               ; preds = %90, %96, %98
+  %.025 = phi double [ 1.000000e+00, %98 ], [ %94, %96 ], [ 0.000000e+00, %90 ]
+  %100 = load ptr, ptr %50, align 8
+  %.not33 = icmp eq ptr %100, null
+  br i1 %.not33, label %104, label %101
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %2, i64 24
-  %104 = load ptr, ptr %103, align 8
-  call void %104(ptr noundef nonnull %101) #9
-  br label %105
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %2, i64 24
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull %100) #9
+  br label %104
 
-105:                                              ; preds = %100, %102
-  %106 = bitcast double %.025 to i64
-  br label %107
+104:                                              ; preds = %99, %101
+  %105 = bitcast double %.025 to i64
+  br label %106
 
-107:                                              ; preds = %44, %41, %105, %52, %34, %21
-  %.024 = phi i64 [ %106, %105 ], [ %54, %52 ], [ %36, %34 ], [ %23, %21 ], [ 0, %41 ], [ 0, %44 ]
+106:                                              ; preds = %44, %41, %104, %52, %34, %21
+  %.024 = phi i64 [ %105, %104 ], [ %54, %52 ], [ %36, %34 ], [ %23, %21 ], [ 0, %41 ], [ 0, %44 ]
   ret i64 %.024
 }
 
@@ -1008,9 +1005,8 @@ networkjoinsel_inner.exit:                        ; preds = %188, %189
 
 196:                                              ; preds = %1, %1
   %197 = load i8, ptr %9, align 1
-  %198 = and i8 %197, 1
-  %.not = icmp eq i8 %198, 0
-  br i1 %.not, label %199, label %201
+  %198 = trunc i8 %197 to i1
+  br i1 %198, label %201, label %199
 
 199:                                              ; preds = %196
   %200 = call fastcc double @networkjoinsel_semi(i32 noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8)
@@ -1033,8 +1029,8 @@ networkjoinsel_inner.exit:                        ; preds = %188, %189
   %.0 = phi double [ %203, %201 ], [ %200, %199 ], [ %.4.i, %networkjoinsel_inner.exit ]
   %209 = getelementptr inbounds i8, ptr %7, i64 16
   %210 = load ptr, ptr %209, align 8
-  %.not16 = icmp eq ptr %210, null
-  br i1 %.not16, label %214, label %211
+  %.not = icmp eq ptr %210, null
+  br i1 %.not, label %214, label %211
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds i8, ptr %7, i64 24
@@ -1045,8 +1041,8 @@ networkjoinsel_inner.exit:                        ; preds = %188, %189
 214:                                              ; preds = %211, %208
   %215 = getelementptr inbounds i8, ptr %8, i64 16
   %216 = load ptr, ptr %215, align 8
-  %.not17 = icmp eq ptr %216, null
-  br i1 %.not17, label %220, label %217
+  %.not16 = icmp eq ptr %216, null
+  br i1 %.not16, label %220, label %217
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds i8, ptr %8, i64 24

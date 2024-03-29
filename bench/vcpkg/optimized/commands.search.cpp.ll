@@ -94,9 +94,9 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %.19.i.i.i.i.sroa.sel38.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.19.i.i.i.i.sroa.sel38.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i.sroa.sel38.v.sroa.sel.v.sroa.sel.v, i64 40
-  %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.19.i.i.i.i.sroa.sel38.v.sroa.sel.v.sroa.sel, align 8
+  %.19.i.i.i.i.sroa.sel37.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.19.i.i.i.i.sroa.sel37.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i.sroa.sel37.v.sroa.sel.v.sroa.sel.v, i64 40
+  %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.19.i.i.i.i.sroa.sel37.v.sroa.sel.v.sroa.sel, align 8
   %13 = call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr nonnull @.str.3, i64 11, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i) #7
   %spec.select.i.i.i = select i1 %13, ptr %8, ptr %.19.i.i.i.i
   br label %14
@@ -113,14 +113,14 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 
 _ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit: ; preds = %14
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %17) #7
-  %.sroa.230.sroa.0.0.copyload = load i8, ptr %4, align 8
-  %.sroa.230.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.10, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.230.sroa.3.0..sroa_idx, i64 15, i1 false)
+  %.sroa.229.sroa.0.0.copyload = load i8, ptr %4, align 8
+  %.sroa.229.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.10, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.229.sroa.3.0..sroa_idx, i64 15, i1 false)
   br label %21
 
 21:                                               ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit, %14
-  %.sroa.031.1 = phi i8 [ 0, %14 ], [ 1, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
-  %.sroa.5.1 = phi i8 [ 0, %14 ], [ %.sroa.230.sroa.0.0.copyload, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
+  %.sroa.030.1 = phi i8 [ 0, %14 ], [ 1, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
+  %.sroa.5.1 = phi i8 [ 0, %14 ], [ %.sroa.229.sroa.0.0.copyload, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
   %22 = load ptr, ptr %6, align 8
   %.not10.i.i.i.i9 = icmp eq ptr %22, null
   br i1 %.not10.i.i.i.i9, label %28, label %.lr.ph.i.i.i.i10
@@ -148,9 +148,9 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   %.19.i.i.i.i16.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %24, ptr %.0811.i.i.i.i12, ptr %.012.i.i.i.i11
   %.19.i.i.i.i16.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i16.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i22 = load ptr, ptr %.19.i.i.i.i16.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %.19.i.i.i.i16.sroa.sel41.v.sroa.sel.v.sroa.sel.v = select i1 %24, ptr %.0811.i.i.i.i12, ptr %.012.i.i.i.i11
-  %.19.i.i.i.i16.sroa.sel41.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i16.sroa.sel41.v.sroa.sel.v.sroa.sel.v, i64 40
-  %.sroa.2.0.copyload.i.i.i.i.i24 = load i64, ptr %.19.i.i.i.i16.sroa.sel41.v.sroa.sel.v.sroa.sel, align 8
+  %.19.i.i.i.i16.sroa.sel40.v.sroa.sel.v.sroa.sel.v = select i1 %24, ptr %.0811.i.i.i.i12, ptr %.012.i.i.i.i11
+  %.19.i.i.i.i16.sroa.sel40.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i16.sroa.sel40.v.sroa.sel.v.sroa.sel.v, i64 40
+  %.sroa.2.0.copyload.i.i.i.i.i24 = load i64, ptr %.19.i.i.i.i16.sroa.sel40.v.sroa.sel.v.sroa.sel, align 8
   %27 = call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr nonnull @.str.4, i64 6, ptr %.sroa.0.0.copyload.i.i.i.i.i22, i64 %.sroa.2.0.copyload.i.i.i.i.i24) #7
   %spec.select.i.i.i25 = select i1 %27, ptr %8, ptr %.19.i.i.i.i16
   br label %28
@@ -158,38 +158,39 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 28:                                               ; preds = %26, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i21, %21
   %.sroa.0.0.i.i.i26 = phi ptr [ %8, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i21 ], [ %8, %21 ], [ %spec.select.i.i.i25, %26 ]
   %29 = icmp ne ptr %.sroa.0.0.i.i.i26, %8
-  store i8 %.sroa.031.1, ptr %5, align 8
+  store i8 %.sroa.030.1, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %30, align 8
-  br i1 %20, label %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit, label %31
+  %31 = trunc i8 %.sroa.030.1 to i1
+  br i1 %31, label %32, label %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
 
-31:                                               ; preds = %28
+32:                                               ; preds = %28
   store i8 %.sroa.5.1, ptr %30, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.10.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.10, i64 15, i1 false)
   br label %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
 
-_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit: ; preds = %28, %31
-  %32 = getelementptr inbounds i8, ptr %1, i64 376
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 384
-  %35 = load ptr, ptr %34, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %33 to i64
-  %38 = sub i64 %36, %37
-  %39 = ashr exact i64 %38, 5
-  invoke void @_ZN5vcpkg26perform_find_port_and_exitERKNS_10VcpkgPathsEbbNS_8OptionalINS_10StringViewEEENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(400) %1, i1 noundef zeroext %15, i1 noundef zeroext %29, ptr noundef nonnull %5, ptr %33, i64 %39)
-          to label %40 unwind label %41
+_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit: ; preds = %28, %32
+  %33 = getelementptr inbounds i8, ptr %1, i64 376
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 384
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %34 to i64
+  %39 = sub i64 %37, %38
+  %40 = ashr exact i64 %39, 5
+  invoke void @_ZN5vcpkg26perform_find_port_and_exitERKNS_10VcpkgPathsEbbNS_8OptionalINS_10StringViewEEENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(400) %1, i1 noundef zeroext %15, i1 noundef zeroext %29, ptr noundef nonnull %5, ptr %34, i64 %40)
+          to label %41 unwind label %42
 
-40:                                               ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
+41:                                               ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
   call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #7
   ret void
 
-41:                                               ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #7
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %43
 }
 
 declare void @_ZNK5vcpkg17VcpkgCmdArguments15parse_argumentsERKNS_15CommandMetadataE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ParsedArguments") align 8, ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #1

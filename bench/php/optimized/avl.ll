@@ -1170,95 +1170,85 @@ define hidden noundef ptr @lexbor_avl_search(ptr nocapture noundef readnone %0, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %.loopexit97, label %6
+  br i1 %5, label %.loopexit95, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit97, label %.preheader98
+  br i1 %8, label %.loopexit95, label %.preheader96
 
-.preheader98:                                     ; preds = %6, %.preheader98
-  %.053 = phi ptr [ %10, %.preheader98 ], [ %7, %6 ]
+.preheader96:                                     ; preds = %6, %.preheader96
+  %.053 = phi ptr [ %10, %.preheader96 ], [ %7, %6 ]
   %9 = getelementptr inbounds i8, ptr %.053, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.preheader96, label %.preheader98
+  br i1 %.not, label %.preheader94, label %.preheader96
 
-.preheader96:                                     ; preds = %.preheader98
+.preheader94:                                     ; preds = %.preheader96
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.loopexit.outer
 
-.loopexit.outer:                                  ; preds = %48, %.preheader96
-  %.056.ph = phi i8 [ %., %48 ], [ 0, %.preheader96 ]
-  %.154.ph = phi ptr [ %13, %48 ], [ %.053, %.preheader96 ]
-  %.0.ph = phi ptr [ %.194, %48 ], [ %7, %.preheader96 ]
-  %.not70.not = icmp eq i8 %.056.ph, 0
-  br label %.loopexit.outer99
-
-.loopexit.outer99:                                ; preds = %.loopexit.outer99.backedge, %.loopexit.outer
-  %.154.ph100 = phi ptr [ %.154.ph, %.loopexit.outer ], [ %.154.ph100.be, %.loopexit.outer99.backedge ]
-  %.0.ph101 = phi ptr [ %.0.ph, %.loopexit.outer ], [ %.0.ph101.be, %.loopexit.outer99.backedge ]
+.loopexit.outer:                                  ; preds = %.loopexit.outer.backedge, %.preheader94
+  %.056.ph = phi i1 [ false, %.preheader94 ], [ %.056.ph.be, %.loopexit.outer.backedge ]
+  %.154.ph = phi ptr [ %.053, %.preheader94 ], [ %.154.ph.be, %.loopexit.outer.backedge ]
+  %.0.ph = phi ptr [ %7, %.preheader94 ], [ %.0.ph.be, %.loopexit.outer.backedge ]
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.backedge, %.loopexit.outer99
-  %.154 = phi ptr [ %.154.ph100, %.loopexit.outer99 ], [ %.154.be, %.loopexit.backedge ]
+.loopexit:                                        ; preds = %.loopexit.backedge, %.loopexit.outer
+  %.056 = phi i1 [ %.056.ph, %.loopexit.outer ], [ false, %.loopexit.backedge ]
+  %.154 = phi ptr [ %.154.ph, %.loopexit.outer ], [ %.154.be, %.loopexit.backedge ]
   %12 = getelementptr inbounds i8, ptr %.154, i64 40
   %13 = load ptr, ptr %12, align 8
-  br i1 %.not70.not, label %14, label %.thread87
+  br i1 %.056, label %.thread86, label %14
 
 14:                                               ; preds = %.loopexit
-  %15 = icmp eq ptr %.154, %.0.ph101
+  %15 = icmp eq ptr %.154, %.0.ph
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8
-  %.not95 = icmp eq ptr %18, %.154
+  %.not93 = icmp eq ptr %18, %.154
   %19 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.154, ptr noundef %3) #8
-  %.not71 = icmp eq i32 %19, 0
-  br i1 %.not71, label %28, label %.loopexit97
+  %.not70 = icmp eq i32 %19, 0
+  br i1 %.not70, label %28, label %.loopexit95
 
 .thread:                                          ; preds = %14
   %20 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.154, ptr noundef %3) #8
-  %.not7183 = icmp eq i32 %20, 0
-  br i1 %.not7183, label %21, label %.loopexit97
+  %.not7082 = icmp eq i32 %20, 0
+  br i1 %.not7082, label %21, label %.loopexit95
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %1, align 8
-  %.not79 = icmp eq ptr %22, %.154
-  br i1 %.not79, label %.loopexit102, label %23
+  %.not78 = icmp eq ptr %22, %.154
+  br i1 %.not78, label %.loopexit97, label %23
 
 23:                                               ; preds = %21
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.loopexit97, label %25
+  br i1 %24, label %.loopexit95, label %25
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %11, align 8
   %27 = icmp eq ptr %26, %22
-  br i1 %27, label %.loopexit102, label %.loopexit.outer99.backedge
-
-.loopexit.outer99.backedge:                       ; preds = %.preheader, %25
-  %.154.ph100.be = phi ptr [ %22, %25 ], [ %.3, %.preheader ]
-  %.0.ph101.be = phi ptr [ %22, %25 ], [ %.1, %.preheader ]
-  br label %.loopexit.outer99
+  br i1 %27, label %.loopexit97, label %.loopexit.outer.backedge
 
 28:                                               ; preds = %16
   %29 = load ptr, ptr %17, align 8
-  %.not72 = icmp eq ptr %29, %.154
-  br i1 %.not72, label %.loopexit102, label %30
+  %.not71 = icmp eq ptr %29, %.154
+  br i1 %.not71, label %.loopexit97, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %13, i64 32
   %32 = load ptr, ptr %31, align 8
-  %.not73 = icmp eq ptr %32, %.154
-  br i1 %.not73, label %.loopexit102, label %33
+  %.not72 = icmp eq ptr %32, %.154
+  br i1 %.not72, label %.loopexit97, label %33
 
 33:                                               ; preds = %30
-  br i1 %.not95, label %34, label %38
+  br i1 %.not93, label %34, label %38
 
 34:                                               ; preds = %33
-  %.not77 = icmp eq ptr %29, null
-  br i1 %.not77, label %.loopexit.backedge, label %35
+  %.not76 = icmp eq ptr %29, null
+  br i1 %.not76, label %.loopexit.backedge, label %35
 
 .loopexit.backedge:                               ; preds = %34, %35, %39
   %.154.be = phi ptr [ %32, %39 ], [ %13, %35 ], [ %13, %34 ]
@@ -1267,50 +1257,55 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapt
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8
-  %.not78 = icmp eq ptr %37, null
-  br i1 %.not78, label %.loopexit.backedge, label %.loopexit102
+  %.not77 = icmp eq ptr %37, null
+  br i1 %.not77, label %.loopexit.backedge, label %.loopexit97
 
 38:                                               ; preds = %33
-  %.not75 = icmp eq ptr %32, null
-  br i1 %.not75, label %.loopexit102, label %39
+  %.not74 = icmp eq ptr %32, null
+  br i1 %.not74, label %.loopexit97, label %39
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %11, align 8
-  %.not76 = icmp eq ptr %32, %40
-  br i1 %.not76, label %.loopexit102, label %.loopexit.backedge
+  %.not75 = icmp eq ptr %32, %40
+  br i1 %.not75, label %.loopexit97, label %.loopexit.backedge
 
-.loopexit102:                                     ; preds = %38, %35, %39, %30, %28, %25, %21
+.loopexit97:                                      ; preds = %38, %35, %39, %30, %28, %25, %21
   %.255 = phi ptr [ %.154, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.154, %28 ], [ %.154, %30 ], [ %32, %39 ]
-  %.1 = phi ptr [ %.154, %21 ], [ %22, %25 ], [ %.0.ph101, %28 ], [ %.0.ph101, %30 ], [ %.0.ph101, %39 ], [ %.0.ph101, %35 ], [ %.0.ph101, %38 ]
+  %.1 = phi ptr [ %.154, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
   %41 = getelementptr inbounds i8, ptr %.255, i64 32
   %42 = load ptr, ptr %41, align 8
-  %.not80 = icmp eq ptr %42, null
-  br i1 %.not80, label %.thread87, label %.preheader
+  %.not79 = icmp eq ptr %42, null
+  br i1 %.not79, label %.thread86, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit102, %.preheader
-  %.3 = phi ptr [ %44, %.preheader ], [ %42, %.loopexit102 ]
+.preheader:                                       ; preds = %.loopexit97, %.preheader
+  %.3 = phi ptr [ %44, %.preheader ], [ %42, %.loopexit97 ]
   %43 = getelementptr inbounds i8, ptr %.3, i64 24
   %44 = load ptr, ptr %43, align 8
-  %.not81 = icmp eq ptr %44, null
-  br i1 %.not81, label %.loopexit.outer99.backedge, label %.preheader
+  %.not80 = icmp eq ptr %44, null
+  br i1 %.not80, label %.loopexit.outer.backedge, label %.preheader
 
-.thread87:                                        ; preds = %.loopexit102, %.loopexit
-  %.194 = phi ptr [ %.0.ph101, %.loopexit ], [ %.1, %.loopexit102 ]
-  %.25593 = phi ptr [ %.154, %.loopexit ], [ %.255, %.loopexit102 ]
-  %45 = getelementptr inbounds i8, ptr %.194, i64 40
+.thread86:                                        ; preds = %.loopexit, %.loopexit97
+  %.192 = phi ptr [ %.1, %.loopexit97 ], [ %.0.ph, %.loopexit ]
+  %.25591 = phi ptr [ %.255, %.loopexit97 ], [ %.154, %.loopexit ]
+  %45 = getelementptr inbounds i8, ptr %.192, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %13, %46
-  br i1 %47, label %.loopexit97, label %48
+  br i1 %47, label %.loopexit95, label %48
 
-48:                                               ; preds = %.thread87
+48:                                               ; preds = %.thread86
   %49 = getelementptr inbounds i8, ptr %13, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = icmp ne ptr %.25593, %50
-  %. = zext i1 %51 to i8
+  %51 = icmp ne ptr %.25591, %50
+  br label %.loopexit.outer.backedge
+
+.loopexit.outer.backedge:                         ; preds = %.preheader, %48, %25
+  %.056.ph.be = phi i1 [ false, %25 ], [ %51, %48 ], [ false, %.preheader ]
+  %.154.ph.be = phi ptr [ %22, %25 ], [ %13, %48 ], [ %.3, %.preheader ]
+  %.0.ph.be = phi ptr [ %22, %25 ], [ %.192, %48 ], [ %.1, %.preheader ]
   br label %.loopexit.outer
 
-.loopexit97:                                      ; preds = %.thread, %23, %16, %.thread87, %4, %6
-  %.052 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %19, %16 ], [ %20, %.thread ], [ 0, %23 ], [ 0, %.thread87 ]
+.loopexit95:                                      ; preds = %16, %.thread, %.thread86, %23, %4, %6
+  %.052 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %19, %16 ], [ 0, %23 ], [ 0, %.thread86 ], [ %20, %.thread ]
   ret i32 %.052
 }
 

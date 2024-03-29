@@ -32,9 +32,8 @@ define dso_local void @DSMRegistryShmemInit() local_unnamed_addr #1 {
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 16, ptr noundef nonnull %1) #6
   store ptr %2, ptr @DSMRegistryCtx, align 8
   %3 = load i8, ptr %1, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %7
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %0
   store i32 0, ptr %2, align 8
@@ -150,9 +149,8 @@ init_dsm_registry.exit:                           ; preds = %22, %54
   %57 = phi ptr [ %25, %22 ], [ %.pre, %54 ]
   %58 = tail call ptr @dshash_find_or_insert(ptr noundef %57, ptr noundef nonnull %0, ptr noundef %3) #6
   %59 = load i8, ptr %3, align 1
-  %60 = and i8 %59, 1
-  %.not34 = icmp eq i8 %60, 0
-  br i1 %.not34, label %61, label %68
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %68, label %61
 
 61:                                               ; preds = %init_dsm_registry.exit
   %62 = tail call ptr @dsm_create(i64 noundef %1, i32 noundef 0) #6
@@ -164,8 +162,8 @@ init_dsm_registry.exit:                           ; preds = %22, %54
   %65 = getelementptr inbounds i8, ptr %58, i64 72
   store i64 %1, ptr %65, align 8
   %66 = tail call ptr @dsm_segment_address(ptr noundef %62) #6
-  %.not35 = icmp eq ptr %2, null
-  br i1 %.not35, label %89, label %67
+  %.not34 = icmp eq ptr %2, null
+  br i1 %.not34, label %89, label %67
 
 67:                                               ; preds = %61
   tail call void %2(ptr noundef %66) #6
@@ -174,8 +172,8 @@ init_dsm_registry.exit:                           ; preds = %22, %54
 68:                                               ; preds = %init_dsm_registry.exit
   %69 = getelementptr inbounds i8, ptr %58, i64 72
   %70 = load i64, ptr %69, align 8
-  %.not36 = icmp eq i64 %70, %1
-  br i1 %.not36, label %74, label %71
+  %.not35 = icmp eq i64 %70, %1
+  br i1 %.not35, label %74, label %71
 
 71:                                               ; preds = %68
   %72 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7

@@ -88,8 +88,8 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   %28 = call ptr @index_open(i32 noundef 3467, i32 noundef 1) #6
   %29 = call ptr @systable_beginscan_ordered(ptr noundef %27, ptr noundef %28, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   %30 = call ptr @systable_getnext_ordered(ptr noundef %29, i32 noundef 1) #6
-  %.not3236.i = icmp eq ptr %30, null
-  br i1 %.not3236.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not3234.i = icmp eq ptr %30, null
+  br i1 %.not3234.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
   %31 = getelementptr inbounds i8, ptr %27, i64 64
@@ -197,9 +197,8 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   %92 = getelementptr i8, ptr %90, i64 %91
   %93 = getelementptr i8, ptr %70, i64 734
   %94 = load i8, ptr %93, align 2
-  %95 = and i8 %94, 1
-  %.not20.i.i.i = icmp eq i8 %95, 0
-  br i1 %.not20.i.i.i, label %114, label %96
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %114
 
 96:                                               ; preds = %86
   %97 = getelementptr i8, ptr %70, i64 720
@@ -264,9 +263,8 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
 heap_getattr.exit.i:                              ; preds = %122, %121, %116, %114, %108, %105, %102, %99, %76
   %.0.i.i = phi i64 [ %77, %76 ], [ 0, %121 ], [ %123, %122 ], [ %117, %116 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %115, %114 ]
   %124 = load i8, ptr %6, align 1
-  %125 = and i8 %124, 1
-  %.not33.i = icmp eq i8 %125, 0
-  br i1 %.not33.i, label %126, label %155
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %155, label %126
 
 126:                                              ; preds = %heap_getattr.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -333,9 +331,8 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %140
 155:                                              ; preds = %DecodeTextArrayToBitmapset.exit.i, %heap_getattr.exit.i
   %156 = call ptr @hash_search(ptr noundef %26, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %7) #6
   %157 = load i8, ptr %7, align 1
-  %158 = and i8 %157, 1
-  %.not34.i = icmp eq i8 %158, 0
-  br i1 %.not34.i, label %163, label %159
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %163
 
 159:                                              ; preds = %155
   %160 = getelementptr inbounds i8, ptr %156, i64 8

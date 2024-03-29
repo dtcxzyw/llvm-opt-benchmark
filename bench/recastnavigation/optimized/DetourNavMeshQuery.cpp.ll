@@ -2614,9 +2614,8 @@ define noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP
   %23 = load i32, ptr %15, align 4
   store i32 %23, ptr %5, align 4
   %24 = load i8, ptr %16, align 8
-  %25 = and i8 %24, 1
-  %.not = icmp eq i8 %25, 0
-  %26 = select i1 %.not, i32 1073741824, i32 1073741840
+  %25 = trunc i8 %24 to i1
+  %26 = select i1 %25, i32 1073741840, i32 1073741824
   br label %27
 
 27:                                               ; preds = %18, %22
@@ -2647,8 +2646,8 @@ define noundef i32 @_ZNK14dtNavMeshQuery8findPathEjjPKfS1_PK13dtQueryFilterPjPii
   %19 = icmp ne ptr %18, null
   %20 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %20, null
-  %or.cond181 = select i1 %19, i1 %.not, i1 false
-  br i1 %or.cond181, label %21, label %22
+  %or.cond180 = select i1 %19, i1 %.not, i1 false
+  br i1 %or.cond180, label %21, label %22
 
 21:                                               ; preds = %9
   tail call void %18(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 978)
@@ -2660,8 +2659,8 @@ define noundef i32 @_ZNK14dtNavMeshQuery8findPathEjjPKfS1_PK13dtQueryFilterPjPii
   %25 = getelementptr inbounds i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
   %.not166 = icmp eq ptr %26, null
-  %or.cond183 = select i1 %24, i1 %.not166, i1 false
-  br i1 %or.cond183, label %27, label %28
+  %or.cond182 = select i1 %24, i1 %.not166, i1 false
+  br i1 %or.cond182, label %27, label %28
 
 27:                                               ; preds = %22
   tail call void %23(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 979)
@@ -2673,8 +2672,8 @@ define noundef i32 @_ZNK14dtNavMeshQuery8findPathEjjPKfS1_PK13dtQueryFilterPjPii
   %31 = getelementptr inbounds i8, ptr %0, i64 96
   %32 = load ptr, ptr %31, align 8
   %.not167 = icmp eq ptr %32, null
-  %or.cond185 = select i1 %30, i1 %.not167, i1 false
-  br i1 %or.cond185, label %33, label %34
+  %or.cond184 = select i1 %30, i1 %.not167, i1 false
+  br i1 %or.cond184, label %33, label %34
 
 33:                                               ; preds = %28
   tail call void %29(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 980)
@@ -2730,9 +2729,9 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %46
   %62 = load float, ptr %61, align 4
   %63 = tail call float @llvm.fabs.f32(float %62)
   %64 = fcmp ueq float %63, 0x7FF0000000000000
-  br i1 %64, label %_Z11dtVisfinitePKf.exit.thread, label %_Z11dtVisfinitePKf.exit188
+  br i1 %64, label %_Z11dtVisfinitePKf.exit.thread, label %_Z11dtVisfinitePKf.exit187
 
-_Z11dtVisfinitePKf.exit188:                       ; preds = %60
+_Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %65 = getelementptr inbounds i8, ptr %4, i64 8
   %66 = load float, ptr %65, align 4
   %67 = tail call float @llvm.fabs.f32(float %66)
@@ -2745,7 +2744,7 @@ _Z11dtVisfinitePKf.exit188:                       ; preds = %60
   %or.cond9.not = and i1 %71, %or.cond7
   br i1 %or.cond9.not, label %72, label %_Z11dtVisfinitePKf.exit.thread
 
-72:                                               ; preds = %_Z11dtVisfinitePKf.exit188
+72:                                               ; preds = %_Z11dtVisfinitePKf.exit187
   %73 = icmp eq i32 %1, %2
   br i1 %73, label %74, label %75
 
@@ -2807,9 +2806,9 @@ _Z11dtVisfinitePKf.exit188:                       ; preds = %60
   %112 = getelementptr inbounds i8, ptr %111, i64 12
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %._crit_edge, label %.lr.ph215
+  br i1 %114, label %._crit_edge, label %.lr.ph214
 
-.lr.ph215:                                        ; preds = %75
+.lr.ph214:                                        ; preds = %75
   %115 = load float, ptr %103, align 4
   %116 = getelementptr inbounds i8, ptr %5, i64 256
   %117 = getelementptr inbounds i8, ptr %5, i64 258
@@ -2818,22 +2817,22 @@ _Z11dtVisfinitePKf.exit188:                       ; preds = %60
   br label %124
 
 .loopexit:                                        ; preds = %312, %.thread
-  %.1144.lcssa = phi i8 [ %.0143212, %.thread ], [ %.2145, %312 ]
-  %.1141.lcssa = phi float [ %.0140213, %.thread ], [ %.2142, %312 ]
-  %.1139.lcssa = phi ptr [ %.0138214, %.thread ], [ %.2, %312 ]
+  %.1144.lcssa = phi i1 [ %.0143211, %.thread ], [ %.2145, %312 ]
+  %.1141.lcssa = phi float [ %.0140212, %.thread ], [ %.2142, %312 ]
+  %.1139.lcssa = phi ptr [ %.0138213, %.thread ], [ %.2, %312 ]
   %120 = load ptr, ptr %31, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 12
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %._crit_edge.loopexit, label %124, !llvm.loop !28
 
-124:                                              ; preds = %.lr.ph215, %.loopexit
-  %125 = phi i32 [ %113, %.lr.ph215 ], [ %122, %.loopexit ]
-  %126 = phi ptr [ %112, %.lr.ph215 ], [ %121, %.loopexit ]
-  %127 = phi ptr [ %111, %.lr.ph215 ], [ %120, %.loopexit ]
-  %.0138214 = phi ptr [ %80, %.lr.ph215 ], [ %.1139.lcssa, %.loopexit ]
-  %.0140213 = phi float [ %115, %.lr.ph215 ], [ %.1141.lcssa, %.loopexit ]
-  %.0143212 = phi i8 [ 0, %.lr.ph215 ], [ %.1144.lcssa, %.loopexit ]
+124:                                              ; preds = %.lr.ph214, %.loopexit
+  %125 = phi i32 [ %113, %.lr.ph214 ], [ %122, %.loopexit ]
+  %126 = phi ptr [ %112, %.lr.ph214 ], [ %121, %.loopexit ]
+  %127 = phi ptr [ %111, %.lr.ph214 ], [ %120, %.loopexit ]
+  %.0138213 = phi ptr [ %80, %.lr.ph214 ], [ %.1139.lcssa, %.loopexit ]
+  %.0140212 = phi float [ %115, %.lr.ph214 ], [ %.1141.lcssa, %.loopexit ]
+  %.0143211 = phi i1 [ false, %.lr.ph214 ], [ %.1144.lcssa, %.loopexit ]
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = add nsw i32 %125, -1
@@ -2880,11 +2879,11 @@ _Z11dtVisfinitePKf.exit188:                       ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %141, %152, %145
-  %.0148202 = phi i32 [ %151, %152 ], [ 0, %145 ], [ 0, %141 ]
+  %.0148201 = phi i32 [ %151, %152 ], [ 0, %145 ], [ 0, %141 ]
   %154 = load ptr, ptr %13, align 8
-  %.0150204 = load i32, ptr %154, align 4
-  %.not172205 = icmp eq i32 %.0150204, -1
-  br i1 %.not172205, label %.loopexit, label %.lr.ph
+  %.0150203 = load i32, ptr %154, align 4
+  %.not172204 = icmp eq i32 %.0150203, -1
+  br i1 %.not172204, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
   %155 = getelementptr inbounds i8, ptr %129, i64 4
@@ -2893,22 +2892,22 @@ _Z11dtVisfinitePKf.exit188:                       ; preds = %60
   %158 = ptrtoint ptr %129 to i64
   %.pre = load ptr, ptr %12, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
-  %.pre222 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre221 = load ptr, ptr %.phi.trans.insert, align 8
   br label %159
 
 159:                                              ; preds = %.lr.ph, %312
-  %160 = phi ptr [ %.pre222, %.lr.ph ], [ %315, %312 ]
-  %.0150209 = phi i32 [ %.0150204, %.lr.ph ], [ %.0150, %312 ]
-  %.1139208 = phi ptr [ %.0138214, %.lr.ph ], [ %.2, %312 ]
-  %.1141207 = phi float [ %.0140213, %.lr.ph ], [ %.2142, %312 ]
-  %.1144206 = phi i8 [ %.0143212, %.lr.ph ], [ %.2145, %312 ]
-  %161 = zext i32 %.0150209 to i64
+  %160 = phi ptr [ %.pre221, %.lr.ph ], [ %315, %312 ]
+  %.0150208 = phi i32 [ %.0150203, %.lr.ph ], [ %.0150, %312 ]
+  %.1139207 = phi ptr [ %.0138213, %.lr.ph ], [ %.2, %312 ]
+  %.1141206 = phi float [ %.0140212, %.lr.ph ], [ %.2142, %312 ]
+  %.1144205 = phi i1 [ %.0143211, %.lr.ph ], [ %.2145, %312 ]
+  %161 = zext i32 %.0150208 to i64
   %162 = getelementptr inbounds %struct.dtLink, ptr %160, i64 %161
   %163 = load i32, ptr %162, align 4
   %.not173 = icmp eq i32 %163, 0
-  %164 = icmp eq i32 %163, %.0148202
-  %or.cond186 = or i1 %.not173, %164
-  br i1 %or.cond186, label %312, label %165
+  %164 = icmp eq i32 %163, %.0148201
+  %or.cond185 = or i1 %.not173, %164
+  br i1 %or.cond185, label %312, label %165
 
 165:                                              ; preds = %159
   store ptr null, ptr %16, align 8
@@ -2920,11 +2919,11 @@ _Z11dtVisfinitePKf.exit188:                       ; preds = %60
   %169 = load i16, ptr %168, align 4
   %170 = load i16, ptr %116, align 4
   %171 = and i16 %170, %169
-  %.not.i189 = icmp ne i16 %171, 0
+  %.not.i188 = icmp ne i16 %171, 0
   %172 = load i16, ptr %117, align 2
   %173 = and i16 %172, %169
   %174 = icmp eq i16 %173, 0
-  %175 = select i1 %.not.i189, i1 %174, i1 false
+  %175 = select i1 %.not.i188, i1 %174, i1 false
   br i1 %175, label %176, label %312
 
 176:                                              ; preds = %165
@@ -3016,14 +3015,14 @@ _ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit: ; 
   %239 = fmul float %236, %236
   %240 = call float @llvm.fmuladd.f32(float %234, float %234, float %239)
   %241 = call float @llvm.fmuladd.f32(float %238, float %238, float %240)
-  %sqrt.i.i191 = call noundef float @llvm.sqrt.f32(float %241)
+  %sqrt.i.i190 = call noundef float @llvm.sqrt.f32(float %241)
   %242 = getelementptr inbounds i8, ptr %232, i64 31
   %243 = load i8, ptr %242, align 1
   %244 = and i8 %243, 63
   %245 = zext nneg i8 %244 to i64
   %246 = getelementptr inbounds [64 x float], ptr %5, i64 0, i64 %245
   %247 = load float, ptr %246, align 4
-  %248 = fmul float %247, %sqrt.i.i191
+  %248 = fmul float %247, %sqrt.i.i190
   %249 = load float, ptr %157, align 4
   %250 = fadd float %230, %249
   %251 = fadd float %250, %248
@@ -3041,8 +3040,8 @@ _ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit: ; 
   %261 = fmul float %258, %258
   %262 = call float @llvm.fmuladd.f32(float %256, float %256, float %261)
   %263 = call float @llvm.fmuladd.f32(float %260, float %260, float %262)
-  %sqrt.i193 = call noundef float @llvm.sqrt.f32(float %263)
-  %264 = fmul float %sqrt.i193, 0x3FEFF7CEE0000000
+  %sqrt.i192 = call noundef float @llvm.sqrt.f32(float %263)
+  %264 = fmul float %sqrt.i192, 0x3FEFF7CEE0000000
   br label %265
 
 265:                                              ; preds = %252, %231
@@ -3131,16 +3130,16 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %274, %272
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
 _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %303, %301, %291, %304
-  %310 = fcmp olt float %.0146, %.1141207
+  %310 = fcmp olt float %.0146, %.1141206
   br i1 %310, label %311, label %312
 
 311:                                              ; preds = %_ZN11dtNodeQueue6modifyEP6dtNode.exit
   br label %312
 
 312:                                              ; preds = %176, %_ZN11dtNodeQueue6modifyEP6dtNode.exit, %311, %274, %268, %165, %159
-  %.2145 = phi i8 [ %.1144206, %268 ], [ %.1144206, %274 ], [ %.1144206, %311 ], [ %.1144206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1144206, %165 ], [ %.1144206, %159 ], [ 1, %176 ]
-  %.2142 = phi float [ %.1141207, %268 ], [ %.1141207, %274 ], [ %.0146, %311 ], [ %.1141207, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1141207, %165 ], [ %.1141207, %159 ], [ %.1141207, %176 ]
-  %.2 = phi ptr [ %.1139208, %268 ], [ %.1139208, %274 ], [ %184, %311 ], [ %.1139208, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1139208, %165 ], [ %.1139208, %159 ], [ %.1139208, %176 ]
+  %.2145 = phi i1 [ %.1144205, %268 ], [ %.1144205, %274 ], [ %.1144205, %311 ], [ %.1144205, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1144205, %165 ], [ %.1144205, %159 ], [ true, %176 ]
+  %.2142 = phi float [ %.1141206, %268 ], [ %.1141206, %274 ], [ %.0146, %311 ], [ %.1141206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1141206, %165 ], [ %.1141206, %159 ], [ %.1141206, %176 ]
+  %.2 = phi ptr [ %.1139207, %268 ], [ %.1139207, %274 ], [ %184, %311 ], [ %.1139207, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1139207, %165 ], [ %.1139207, %159 ], [ %.1139207, %176 ]
   %313 = load ptr, ptr %12, align 8
   %314 = getelementptr inbounds i8, ptr %313, i64 32
   %315 = load ptr, ptr %314, align 8
@@ -3150,27 +3149,26 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %303, %301, %291, %3
   br i1 %.not172, label %.loopexit, label %159, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %124, %.loopexit
-  %.0143.lcssa.ph = phi i8 [ %.1144.lcssa, %.loopexit ], [ %.0143212, %124 ]
+  %.0143.lcssa.ph = phi i1 [ %.1144.lcssa, %.loopexit ], [ %.0143211, %124 ]
   %.3.ph = phi ptr [ %.1139.lcssa, %.loopexit ], [ %129, %124 ]
-  %317 = shl nuw nsw i8 %.0143.lcssa.ph, 5
-  %318 = and i8 %317, 32
-  %319 = zext nneg i8 %318 to i32
+  %317 = freeze i1 %.0143.lcssa.ph
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %75
-  %.0143.lcssa = phi i32 [ 0, %75 ], [ %319, %._crit_edge.loopexit ]
+  %.0143.lcssa = phi i1 [ false, %75 ], [ %317, %._crit_edge.loopexit ]
   %.3 = phi ptr [ %80, %75 ], [ %.3.ph, %._crit_edge.loopexit ]
-  %320 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.3, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8), !range !30
-  %321 = getelementptr inbounds i8, ptr %.3, i64 24
-  %322 = load i32, ptr %321, align 4
-  %.not179 = icmp eq i32 %322, %2
-  %323 = or disjoint i32 %320, 64
-  %spec.select187 = select i1 %.not179, i32 %320, i32 %323
-  %.1 = or disjoint i32 %spec.select187, %.0143.lcssa
+  %318 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.3, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8), !range !30
+  %319 = getelementptr inbounds i8, ptr %.3, i64 24
+  %320 = load i32, ptr %319, align 4
+  %.not179 = icmp eq i32 %320, %2
+  %321 = or disjoint i32 %318, 64
+  %spec.select186 = select i1 %.not179, i32 %318, i32 %321
+  %322 = or disjoint i32 %spec.select186, 32
+  %spec.select223 = select i1 %.0143.lcssa, i32 %322, i32 %spec.select186
   br label %_Z11dtVisfinitePKf.exit.thread
 
-_Z11dtVisfinitePKf.exit.thread:                   ; preds = %56, %60, %42, %46, %35, %38, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit188, %34, %._crit_edge, %74
-  %.0137 = phi i32 [ 1073741824, %74 ], [ %.1, %._crit_edge ], [ -2147483640, %34 ], [ -2147483640, %_Z11dtVisfinitePKf.exit188 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %38 ], [ -2147483640, %35 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ -2147483640, %60 ], [ -2147483640, %56 ]
+_Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge, %56, %60, %42, %46, %35, %38, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit187, %34, %74
+  %.0137 = phi i32 [ 1073741824, %74 ], [ -2147483640, %34 ], [ -2147483640, %_Z11dtVisfinitePKf.exit187 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %38 ], [ -2147483640, %35 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ -2147483640, %60 ], [ -2147483640, %56 ], [ %spec.select223, %._crit_edge ]
   ret i32 %.0137
 }
 
@@ -9233,9 +9231,9 @@ define linkonce_odr void @_ZN22dtFindNearestPolyQuery7processEPK10dtMeshTilePP6d
   %.pre = load ptr, ptr %10, align 8
   br label %18
 
-18:                                               ; preds = %.lr.ph, %80
-  %19 = phi ptr [ %.pre, %.lr.ph ], [ %46, %80 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
+18:                                               ; preds = %.lr.ph, %81
+  %19 = phi ptr [ %.pre, %.lr.ph ], [ %46, %81 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
   %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   store i8 0, ptr %7, align 1
@@ -9293,9 +9291,8 @@ _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %27, %31, %35,
   %51 = fsub float %48, %50
   %52 = load float, ptr %11, align 8
   %53 = load i8, ptr %7, align 1
-  %54 = and i8 %53, 1
-  %.not = icmp eq i8 %54, 0
-  br i1 %.not, label %66, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %66
 
 55:                                               ; preds = %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
   %56 = fcmp olt float %51, 0.000000e+00
@@ -9326,22 +9323,23 @@ _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %27, %31, %35,
   %.0 = phi float [ %65, %55 ], [ %75, %66 ]
   %77 = load float, ptr %13, align 8
   %78 = fcmp olt float %.0, %77
-  br i1 %78, label %79, label %80
+  br i1 %78, label %79, label %81
 
 79:                                               ; preds = %76
   store <2 x float> %49, ptr %14, align 8
   store float %52, ptr %15, align 8
   store float %.0, ptr %13, align 8
   store i32 %21, ptr %16, align 4
-  store i8 %54, ptr %17, align 4
-  br label %80
+  %80 = and i8 %53, 1
+  store i8 %80, ptr %17, align 4
+  br label %81
 
-80:                                               ; preds = %76, %79
+81:                                               ; preds = %76, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %80, %5
+._crit_edge:                                      ; preds = %81, %5
   ret void
 }
 

@@ -528,17 +528,16 @@ land.lhs.true5.i.i.i:                             ; preds = %if.end.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %17 = load i8, ptr @message_with_timestamp, align 1
-  %18 = and i8 %17, 1
-  %tobool7.not.i.i.i = icmp eq i8 %18, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %17 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
-  %19 = load i64, ptr %_now.i.i.i, align 8
+  %18 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %20 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, i64 noundef %addr, i64 noundef %conv34.i) #9
+  %19 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, i64 noundef %addr, i64 noundef %conv34.i) #9
   br label %ne2000_ioport_read.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -559,21 +558,21 @@ if.then5:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.then5
   %dcfg.i = getelementptr inbounds i8, ptr %opaque, i64 299
-  %21 = load i8, ptr %dcfg.i, align 1
-  %22 = and i8 %21, 1
-  %tobool.not.i = icmp eq i8 %22, 0
+  %20 = load i8, ptr %dcfg.i, align 1
+  %21 = and i8 %20, 1
+  %tobool.not.i = icmp eq i8 %21, 0
   %rsar1.i = getelementptr inbounds i8, ptr %opaque, i64 292
-  %23 = load i32, ptr %rsar1.i, align 4
+  %22 = load i32, ptr %rsar1.i, align 4
   br i1 %tobool.not.i, label %if.else.i19, label %if.then.i16
 
 if.then.i16:                                      ; preds = %if.then8
-  %and.i.i = and i32 %23, -2
+  %and.i.i = and i32 %22, -2
   %cmp.i.i = icmp ult i32 %and.i.i, 32
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i16
   %cmp1.i.i = icmp ugt i32 %and.i.i, 16383
-  %cmp4.i.i = icmp ult i32 %23, 49152
+  %cmp4.i.i = icmp ult i32 %22, 49152
   %or.cond.i.i = and i1 %cmp4.i.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %ne2000_mem_readw.exit.i
 
@@ -581,108 +580,108 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   %mem.i.i = getelementptr inbounds i8, ptr %opaque, i64 8552
   %idx.ext.i.i = zext i32 %and.i.i to i64
   %add.ptr.i.i = getelementptr i8, ptr %mem.i.i, i64 %idx.ext.i.i
-  %24 = load i16, ptr %add.ptr.i.i, align 2
-  %conv6.i.i = zext i16 %24 to i32
+  %23 = load i16, ptr %add.ptr.i.i, align 2
+  %conv6.i.i = zext i16 %23 to i32
   br label %ne2000_mem_readw.exit.i
 
 ne2000_mem_readw.exit.i:                          ; preds = %if.then.i.i, %lor.lhs.false.i.i
   %retval.0.i.i = phi i32 [ %conv6.i.i, %if.then.i.i ], [ 65535, %lor.lhs.false.i.i ]
-  %add.i.i = add i32 %23, 2
+  %add.i.i = add i32 %22, 2
   store i32 %add.i.i, ptr %rsar1.i, align 4
   %stop.i.i = getelementptr inbounds i8, ptr %opaque, i64 280
-  %25 = load i32, ptr %stop.i.i, align 8
-  %cmp.i7.i = icmp eq i32 %add.i.i, %25
+  %24 = load i32, ptr %stop.i.i, align 8
+  %cmp.i7.i = icmp eq i32 %add.i.i, %24
   br i1 %cmp.i7.i, label %if.then.i8.i, label %if.end.i.i
 
 if.then.i8.i:                                     ; preds = %ne2000_mem_readw.exit.i
   %start.i.i = getelementptr inbounds i8, ptr %opaque, i64 276
-  %26 = load i32, ptr %start.i.i, align 4
-  store i32 %26, ptr %rsar1.i, align 4
+  %25 = load i32, ptr %start.i.i, align 4
+  store i32 %25, ptr %rsar1.i, align 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i8.i, %ne2000_mem_readw.exit.i
   %rcnt.i.i = getelementptr inbounds i8, ptr %opaque, i64 290
-  %27 = load i16, ptr %rcnt.i.i, align 2
-  %cmp3.not.i.i = icmp ugt i16 %27, 2
+  %26 = load i16, ptr %rcnt.i.i, align 2
+  %cmp3.not.i.i = icmp ugt i16 %26, 2
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   store i16 0, ptr %rcnt.i.i, align 2
   %isr.i.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %28 = load i8, ptr %isr.i.i, align 2
-  %29 = or i8 %28, 64
-  store i8 %29, ptr %isr.i.i, align 2
+  %27 = load i8, ptr %isr.i.i, align 2
+  %28 = or i8 %27, 64
+  store i8 %28, ptr %isr.i.i, align 2
   %imr.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %30 = load i8, ptr %imr.i.i.i, align 4
-  %and4.i.i.i = and i8 %29, 127
-  %31 = and i8 %and4.i.i.i, %30
+  %29 = load i8, ptr %imr.i.i.i, align 4
+  %and4.i.i.i = and i8 %28, 127
+  %30 = and i8 %and4.i.i.i, %29
   %irq.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %32 = load ptr, ptr %irq.i.i.i, align 16
-  %cmp.i.i.i = icmp ne i8 %31, 0
+  %31 = load ptr, ptr %irq.i.i.i, align 16
+  %cmp.i.i.i = icmp ne i8 %30, 0
   %conv4.i.i.i = zext i1 %cmp.i.i.i to i32
-  tail call void @qemu_set_irq(ptr noundef %32, i32 noundef %conv4.i.i.i) #9
+  tail call void @qemu_set_irq(ptr noundef %31, i32 noundef %conv4.i.i.i) #9
   br label %ne2000_asic_ioport_read.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %conv11.i.i = add i16 %27, -2
+  %conv11.i.i = add i16 %26, -2
   store i16 %conv11.i.i, ptr %rcnt.i.i, align 2
   br label %ne2000_asic_ioport_read.exit
 
 if.else.i19:                                      ; preds = %if.then8
-  %cmp.i9.i = icmp ult i32 %23, 32
-  %33 = add i32 %23, -16384
-  %or.cond.i10.i = icmp ult i32 %33, 32768
+  %cmp.i9.i = icmp ult i32 %22, 32
+  %32 = add i32 %22, -16384
+  %or.cond.i10.i = icmp ult i32 %32, 32768
   %or.cond4.i.i = or i1 %cmp.i9.i, %or.cond.i10.i
   br i1 %or.cond4.i.i, label %if.then.i12.i, label %ne2000_mem_readb.exit.i
 
 if.then.i12.i:                                    ; preds = %if.else.i19
   %mem.i13.i = getelementptr inbounds i8, ptr %opaque, i64 8552
-  %idxprom.i.i = zext nneg i32 %23 to i64
+  %idxprom.i.i = zext nneg i32 %22 to i64
   %arrayidx.i.i = getelementptr [49152 x i8], ptr %mem.i13.i, i64 0, i64 %idxprom.i.i
-  %34 = load i8, ptr %arrayidx.i.i, align 1
-  %conv6.i14.i = zext i8 %34 to i32
+  %33 = load i8, ptr %arrayidx.i.i, align 1
+  %conv6.i14.i = zext i8 %33 to i32
   br label %ne2000_mem_readb.exit.i
 
 ne2000_mem_readb.exit.i:                          ; preds = %if.then.i12.i, %if.else.i19
   %retval.0.i11.i = phi i32 [ %conv6.i14.i, %if.then.i12.i ], [ 255, %if.else.i19 ]
-  %add.i16.i = add i32 %23, 1
+  %add.i16.i = add i32 %22, 1
   store i32 %add.i16.i, ptr %rsar1.i, align 4
   %stop.i17.i = getelementptr inbounds i8, ptr %opaque, i64 280
-  %35 = load i32, ptr %stop.i17.i, align 8
-  %cmp.i18.i = icmp eq i32 %add.i16.i, %35
+  %34 = load i32, ptr %stop.i17.i, align 8
+  %cmp.i18.i = icmp eq i32 %add.i16.i, %34
   br i1 %cmp.i18.i, label %if.then.i32.i, label %if.end.i19.i
 
 if.then.i32.i:                                    ; preds = %ne2000_mem_readb.exit.i
   %start.i33.i = getelementptr inbounds i8, ptr %opaque, i64 276
-  %36 = load i32, ptr %start.i33.i, align 4
-  store i32 %36, ptr %rsar1.i, align 4
+  %35 = load i32, ptr %start.i33.i, align 4
+  store i32 %35, ptr %rsar1.i, align 4
   br label %if.end.i19.i
 
 if.end.i19.i:                                     ; preds = %if.then.i32.i, %ne2000_mem_readb.exit.i
   %rcnt.i20.i = getelementptr inbounds i8, ptr %opaque, i64 290
-  %37 = load i16, ptr %rcnt.i20.i, align 2
-  %cmp3.not.i22.i = icmp ugt i16 %37, 1
+  %36 = load i16, ptr %rcnt.i20.i, align 2
+  %cmp3.not.i22.i = icmp ugt i16 %36, 1
   br i1 %cmp3.not.i22.i, label %if.else.i30.i, label %if.then5.i23.i
 
 if.then5.i23.i:                                   ; preds = %if.end.i19.i
   store i16 0, ptr %rcnt.i20.i, align 2
   %isr.i24.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %38 = load i8, ptr %isr.i24.i, align 2
-  %39 = or i8 %38, 64
-  store i8 %39, ptr %isr.i24.i, align 2
+  %37 = load i8, ptr %isr.i24.i, align 2
+  %38 = or i8 %37, 64
+  store i8 %38, ptr %isr.i24.i, align 2
   %imr.i.i25.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %40 = load i8, ptr %imr.i.i25.i, align 4
-  %and4.i.i26.i = and i8 %39, 127
-  %41 = and i8 %and4.i.i26.i, %40
+  %39 = load i8, ptr %imr.i.i25.i, align 4
+  %and4.i.i26.i = and i8 %38, 127
+  %40 = and i8 %and4.i.i26.i, %39
   %irq.i.i27.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %42 = load ptr, ptr %irq.i.i27.i, align 16
-  %cmp.i.i28.i = icmp ne i8 %41, 0
+  %41 = load ptr, ptr %irq.i.i27.i, align 16
+  %cmp.i.i28.i = icmp ne i8 %40, 0
   %conv4.i.i29.i = zext i1 %cmp.i.i28.i to i32
-  tail call void @qemu_set_irq(ptr noundef %42, i32 noundef %conv4.i.i29.i) #9
+  tail call void @qemu_set_irq(ptr noundef %41, i32 noundef %conv4.i.i29.i) #9
   br label %ne2000_asic_ioport_read.exit
 
 if.else.i30.i:                                    ; preds = %if.end.i19.i
-  %conv11.i31.i = add i16 %37, -1
+  %conv11.i31.i = add i16 %36, -1
   store i16 %conv11.i31.i, ptr %rcnt.i20.i, align 2
   br label %ne2000_asic_ioport_read.exit
 
@@ -693,11 +692,11 @@ ne2000_asic_ioport_read.exit:                     ; preds = %if.then5.i.i, %if.e
 
 if.else12:                                        ; preds = %if.then5
   %rsar.i20 = getelementptr inbounds i8, ptr %opaque, i64 292
-  %43 = load i32, ptr %rsar.i20, align 4
-  %and.i.i21 = and i32 %43, -2
+  %42 = load i32, ptr %rsar.i20, align 4
+  %and.i.i21 = and i32 %42, -2
   %cmp.i.i22 = icmp ult i32 %and.i.i21, 32
-  %44 = add i32 %and.i.i21, -16384
-  %or.cond.i.i23 = icmp ult i32 %44, 32765
+  %43 = add i32 %and.i.i21, -16384
+  %or.cond.i.i23 = icmp ult i32 %43, 32765
   %or.cond5.i.i = or i1 %cmp.i.i22, %or.cond.i.i23
   br i1 %or.cond5.i.i, label %if.then.i.i40, label %ne2000_mem_readl.exit.i
 
@@ -706,49 +705,49 @@ if.then.i.i40:                                    ; preds = %if.else12
   %idx.ext.i.i42 = zext nneg i32 %and.i.i21 to i64
   %add.ptr.i.i43 = getelementptr i8, ptr %mem.i.i41, i64 %idx.ext.i.i42
   %add.ptr.val.i.i = load i32, ptr %add.ptr.i.i43, align 1
-  %45 = zext i32 %add.ptr.val.i.i to i64
+  %44 = zext i32 %add.ptr.val.i.i to i64
   br label %ne2000_mem_readl.exit.i
 
 ne2000_mem_readl.exit.i:                          ; preds = %if.then.i.i40, %if.else12
-  %retval.0.i.i24 = phi i64 [ %45, %if.then.i.i40 ], [ 4294967295, %if.else12 ]
-  %add.i.i25 = add i32 %43, 4
+  %retval.0.i.i24 = phi i64 [ %44, %if.then.i.i40 ], [ 4294967295, %if.else12 ]
+  %add.i.i25 = add i32 %42, 4
   store i32 %add.i.i25, ptr %rsar.i20, align 4
   %stop.i.i26 = getelementptr inbounds i8, ptr %opaque, i64 280
-  %46 = load i32, ptr %stop.i.i26, align 8
-  %cmp.i3.i = icmp eq i32 %add.i.i25, %46
+  %45 = load i32, ptr %stop.i.i26, align 8
+  %cmp.i3.i = icmp eq i32 %add.i.i25, %45
   br i1 %cmp.i3.i, label %if.then.i4.i, label %if.end.i.i27
 
 if.then.i4.i:                                     ; preds = %ne2000_mem_readl.exit.i
   %start.i.i39 = getelementptr inbounds i8, ptr %opaque, i64 276
-  %47 = load i32, ptr %start.i.i39, align 4
-  store i32 %47, ptr %rsar.i20, align 4
+  %46 = load i32, ptr %start.i.i39, align 4
+  store i32 %46, ptr %rsar.i20, align 4
   br label %if.end.i.i27
 
 if.end.i.i27:                                     ; preds = %if.then.i4.i, %ne2000_mem_readl.exit.i
   %rcnt.i.i28 = getelementptr inbounds i8, ptr %opaque, i64 290
-  %48 = load i16, ptr %rcnt.i.i28, align 2
-  %cmp3.not.i.i29 = icmp ugt i16 %48, 4
+  %47 = load i16, ptr %rcnt.i.i28, align 2
+  %cmp3.not.i.i29 = icmp ugt i16 %47, 4
   br i1 %cmp3.not.i.i29, label %if.else.i.i37, label %if.then5.i.i30
 
 if.then5.i.i30:                                   ; preds = %if.end.i.i27
   store i16 0, ptr %rcnt.i.i28, align 2
   %isr.i.i31 = getelementptr inbounds i8, ptr %opaque, i64 298
-  %49 = load i8, ptr %isr.i.i31, align 2
-  %50 = or i8 %49, 64
-  store i8 %50, ptr %isr.i.i31, align 2
+  %48 = load i8, ptr %isr.i.i31, align 2
+  %49 = or i8 %48, 64
+  store i8 %49, ptr %isr.i.i31, align 2
   %imr.i.i.i32 = getelementptr inbounds i8, ptr %opaque, i64 300
-  %51 = load i8, ptr %imr.i.i.i32, align 4
-  %and4.i.i.i33 = and i8 %50, 127
-  %52 = and i8 %and4.i.i.i33, %51
+  %50 = load i8, ptr %imr.i.i.i32, align 4
+  %and4.i.i.i33 = and i8 %49, 127
+  %51 = and i8 %and4.i.i.i33, %50
   %irq.i.i.i34 = getelementptr inbounds i8, ptr %opaque, i64 320
-  %53 = load ptr, ptr %irq.i.i.i34, align 16
-  %cmp.i.i.i35 = icmp ne i8 %52, 0
+  %52 = load ptr, ptr %irq.i.i.i34, align 16
+  %cmp.i.i.i35 = icmp ne i8 %51, 0
   %conv4.i.i.i36 = zext i1 %cmp.i.i.i35 to i32
-  tail call void @qemu_set_irq(ptr noundef %53, i32 noundef %conv4.i.i.i36) #9
+  tail call void @qemu_set_irq(ptr noundef %52, i32 noundef %conv4.i.i.i36) #9
   br label %if.end29
 
 if.else.i.i37:                                    ; preds = %if.end.i.i27
-  %conv11.i.i38 = add i16 %48, -4
+  %conv11.i.i38 = add i16 %47, -4
   store i16 %conv11.i.i38, ptr %rcnt.i.i28, align 2
   br label %if.end29
 
@@ -772,13 +771,13 @@ if.then22:                                        ; preds = %if.else16
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then22
   %indvars.iv.i.i = phi i64 [ 15, %if.then22 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx5.i.i = getelementptr [49152 x i8], ptr %mem.i.i45, i64 0, i64 %indvars.iv.i.i
-  %54 = load i8, ptr %arrayidx5.i.i, align 1
-  %55 = shl nuw i64 %indvars.iv.i.i, 1
-  %arrayidx8.i.i = getelementptr [49152 x i8], ptr %mem.i.i45, i64 0, i64 %55
-  store i8 %54, ptr %arrayidx8.i.i, align 1
-  %56 = or disjoint i64 %55, 1
-  %arrayidx15.i.i = getelementptr [49152 x i8], ptr %mem.i.i45, i64 0, i64 %56
-  store i8 %54, ptr %arrayidx15.i.i, align 1
+  %53 = load i8, ptr %arrayidx5.i.i, align 1
+  %54 = shl nuw i64 %indvars.iv.i.i, 1
+  %arrayidx8.i.i = getelementptr [49152 x i8], ptr %mem.i.i45, i64 0, i64 %54
+  store i8 %53, ptr %arrayidx8.i.i, align 1
+  %55 = or disjoint i64 %54, 1
+  %arrayidx15.i.i = getelementptr [49152 x i8], ptr %mem.i.i45, i64 0, i64 %55
+  store i8 %53, ptr %arrayidx15.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %cmp.not.i.i, label %if.end29, label %for.body.i.i, !llvm.loop !5
@@ -793,32 +792,31 @@ if.else26:                                        ; preds = %if.else16
 if.end29:                                         ; preds = %for.body.i.i, %if.else.i.i37, %if.then5.i.i30, %ne2000_asic_ioport_read.exit, %if.else26, %ne2000_ioport_read.exit
   %val.0 = phi i64 [ %conv34.i, %ne2000_ioport_read.exit ], [ %conv11, %ne2000_asic_ioport_read.exit ], [ %sub, %if.else26 ], [ %retval.0.i.i24, %if.then5.i.i30 ], [ %retval.0.i.i24, %if.else.i.i37 ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %57 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %57, 0
-  %58 = load i16, ptr @_TRACE_NE2000_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %58, 0
+  %56 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %56, 0
+  %57 = load i16, ptr @_TRACE_NE2000_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %57, 0
   %or.cond.i.i47 = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i47, label %land.lhs.true5.i.i, label %trace_ne2000_read.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end29
-  %59 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %59, 32768
+  %58 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %58, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_ne2000_read.exit, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %land.lhs.true5.i.i
-  %60 = load i8, ptr @message_with_timestamp, align 1
-  %61 = and i8 %60, 1
-  %tobool7.not.i.i = icmp eq i8 %61, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i49, label %if.then8.i.i
+  %59 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %59 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i49
 
 if.then8.i.i:                                     ; preds = %if.then.i.i48
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %62 = load i64, ptr %_now.i.i, align 8
+  %60 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %63 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %62, i64 noundef %63, i64 noundef %addr, i64 noundef %val.0) #9
+  %61 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %60, i64 noundef %61, i64 noundef %addr, i64 noundef %val.0) #9
   br label %trace_ne2000_read.exit
 
 if.else.i.i49:                                    ; preds = %if.then.i.i48
@@ -851,17 +849,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %addr, i64 noundef %data) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %data) #9
   br label %trace_ne2000_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -880,32 +877,31 @@ if.then:                                          ; preds = %trace_ne2000_write.
   %conv2 = trunc i64 %data to i32
   %conv1.i = and i64 %data, 4294967295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %7 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %7, 0
-  %8 = load i16, ptr @_TRACE_NE2000_IOPORT_WRITE_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %8, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_NE2000_IOPORT_WRITE_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %7, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_ne2000_ioport_write.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %9, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_ne2000_ioport_write.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %10 = load i8, ptr @message_with_timestamp, align 1
-  %11 = and i8 %10, 1
-  %tobool7.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
-  %12 = load i64, ptr %_now.i.i.i, align 8
+  %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %13 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, i64 noundef %addr, i64 noundef %conv1.i) #9
+  %11 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %addr, i64 noundef %conv1.i) #9
   br label %trace_ne2000_ioport_write.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -927,30 +923,30 @@ if.then.i:                                        ; preds = %trace_ne2000_ioport
 
 if.then5.i:                                       ; preds = %if.then.i
   %isr.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %14 = load i8, ptr %isr.i, align 2
-  %15 = and i8 %14, 127
-  store i8 %15, ptr %isr.i, align 2
+  %12 = load i8, ptr %isr.i, align 2
+  %13 = and i8 %12, 127
+  store i8 %13, ptr %isr.i, align 2
   %and9.i = and i32 %conv2, 24
   %tobool10.not.i = icmp eq i32 %and9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then5.i
   %rcnt.i = getelementptr inbounds i8, ptr %opaque, i64 290
-  %16 = load i16, ptr %rcnt.i, align 2
-  %cmp12.i = icmp eq i16 %16, 0
+  %14 = load i16, ptr %rcnt.i, align 2
+  %cmp12.i = icmp eq i16 %14, 0
   br i1 %cmp12.i, label %if.then14.i, label %if.end.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  %17 = or i8 %15, 64
-  store i8 %17, ptr %isr.i, align 2
+  %15 = or i8 %13, 64
+  store i8 %15, ptr %isr.i, align 2
   %imr.i.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %18 = load i8, ptr %imr.i.i, align 4
-  %19 = and i8 %18, %17
+  %16 = load i8, ptr %imr.i.i, align 4
+  %17 = and i8 %16, %15
   %irq.i.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %20 = load ptr, ptr %irq.i.i, align 16
-  %cmp.i.i = icmp ne i8 %19, 0
+  %18 = load ptr, ptr %irq.i.i, align 16
+  %cmp.i.i = icmp ne i8 %17, 0
   %conv4.i.i = zext i1 %cmp.i.i to i32
-  tail call void @qemu_set_irq(ptr noundef %20, i32 noundef %conv4.i.i) #9
+  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %conv4.i.i) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %land.lhs.true.i, %if.then5.i
@@ -960,57 +956,57 @@ if.end.i:                                         ; preds = %if.then14.i, %land.
 
 if.then20.i:                                      ; preds = %if.end.i
   %tpsr.i = getelementptr inbounds i8, ptr %opaque, i64 286
-  %21 = load i8, ptr %tpsr.i, align 2
-  %conv21.i = zext i8 %21 to i32
+  %19 = load i8, ptr %tpsr.i, align 2
+  %conv21.i = zext i8 %19 to i32
   %shl.i = shl nuw nsw i32 %conv21.i, 8
-  %cmp23.i = icmp ugt i8 %21, -65
+  %cmp23.i = icmp ugt i8 %19, -65
   %sub.i = add nsw i32 %shl.i, -32768
   %spec.select.i = select i1 %cmp23.i, i32 %sub.i, i32 %shl.i
   %tcnt.i = getelementptr inbounds i8, ptr %opaque, i64 288
-  %22 = load i16, ptr %tcnt.i, align 16
-  %conv29.i = zext i16 %22 to i32
+  %20 = load i16, ptr %tcnt.i, align 16
+  %conv29.i = zext i16 %20 to i32
   %add.i = add nuw nsw i32 %spec.select.i, %conv29.i
   %cmp31.i = icmp ult i32 %add.i, 49153
   br i1 %cmp31.i, label %if.then33.i, label %if.end37.i
 
 if.then33.i:                                      ; preds = %if.then20.i
   %nic.i = getelementptr inbounds i8, ptr %opaque, i64 328
-  %23 = load ptr, ptr %nic.i, align 8
-  %call.i = tail call ptr @qemu_get_queue(ptr noundef %23) #9
+  %21 = load ptr, ptr %nic.i, align 8
+  %call.i = tail call ptr @qemu_get_queue(ptr noundef %21) #9
   %mem.i = getelementptr inbounds i8, ptr %opaque, i64 8552
   %idx.ext.i = zext nneg i32 %spec.select.i to i64
   %add.ptr.i = getelementptr i8, ptr %mem.i, i64 %idx.ext.i
-  %24 = load i16, ptr %tcnt.i, align 16
-  %conv35.i = zext i16 %24 to i32
+  %22 = load i16, ptr %tcnt.i, align 16
+  %conv35.i = zext i16 %22 to i32
   %call36.i = tail call i64 @qemu_send_packet(ptr noundef %call.i, ptr noundef %add.ptr.i, i32 noundef %conv35.i) #9
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then33.i, %if.then20.i
   %tsr.i = getelementptr inbounds i8, ptr %opaque, i64 285
   store i8 1, ptr %tsr.i, align 1
-  %25 = load i8, ptr %isr.i, align 2
-  %26 = or i8 %25, 2
-  store i8 %26, ptr %isr.i, align 2
-  %27 = load i8, ptr %cmd.i, align 16
-  %28 = and i8 %27, -5
-  store i8 %28, ptr %cmd.i, align 16
+  %23 = load i8, ptr %isr.i, align 2
+  %24 = or i8 %23, 2
+  store i8 %24, ptr %isr.i, align 2
+  %25 = load i8, ptr %cmd.i, align 16
+  %26 = and i8 %25, -5
+  store i8 %26, ptr %cmd.i, align 16
   %imr.i75.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %29 = load i8, ptr %imr.i75.i, align 4
-  %and4.i76.i = and i8 %26, 127
-  %30 = and i8 %and4.i76.i, %29
+  %27 = load i8, ptr %imr.i75.i, align 4
+  %and4.i76.i = and i8 %24, 127
+  %28 = and i8 %and4.i76.i, %27
   %irq.i77.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %31 = load ptr, ptr %irq.i77.i, align 16
-  %cmp.i78.i = icmp ne i8 %30, 0
+  %29 = load ptr, ptr %irq.i77.i, align 16
+  %cmp.i78.i = icmp ne i8 %28, 0
   %conv4.i79.i = zext i1 %cmp.i78.i to i32
-  tail call void @qemu_set_irq(ptr noundef %31, i32 noundef %conv4.i79.i) #9
+  tail call void @qemu_set_irq(ptr noundef %29, i32 noundef %conv4.i79.i) #9
   br label %if.end25
 
 if.else.i:                                        ; preds = %trace_ne2000_ioport_write.exit.i
   %cmd48.i = getelementptr inbounds i8, ptr %opaque, i64 272
-  %32 = load i8, ptr %cmd48.i, align 16
-  %33 = lshr i8 %32, 2
-  %34 = and i8 %33, 48
-  %shl50.i = zext nneg i8 %34 to i32
+  %30 = load i8, ptr %cmd48.i, align 16
+  %31 = lshr i8 %30, 2
+  %32 = and i8 %31, 48
+  %shl50.i = zext nneg i8 %32 to i32
   %or51.i = or disjoint i32 %shl50.i, %conv
   switch i32 %or51.i, label %if.end25 [
     i32 1, label %sw.bb.i
@@ -1080,14 +1076,14 @@ sw.bb75.i:                                        ; preds = %if.else.i
   %imr.i = getelementptr inbounds i8, ptr %opaque, i64 300
   store i8 %conv76.i, ptr %imr.i, align 4
   %isr1.i80.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %35 = load i8, ptr %isr1.i80.i, align 2
+  %33 = load i8, ptr %isr1.i80.i, align 2
   %and4.i82.i = and i8 %conv76.i, 127
-  %36 = and i8 %and4.i82.i, %35
+  %34 = and i8 %and4.i82.i, %33
   %irq.i83.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %37 = load ptr, ptr %irq.i83.i, align 16
-  %cmp.i84.i = icmp ne i8 %36, 0
+  %35 = load ptr, ptr %irq.i83.i, align 16
+  %cmp.i84.i = icmp ne i8 %34, 0
   %conv4.i85.i = zext i1 %cmp.i84.i to i32
-  tail call void @qemu_set_irq(ptr noundef %37, i32 noundef %conv4.i85.i) #9
+  tail call void @qemu_set_irq(ptr noundef %35, i32 noundef %conv4.i85.i) #9
   br label %if.end25
 
 sw.bb77.i:                                        ; preds = %if.else.i
@@ -1098,35 +1094,35 @@ sw.bb77.i:                                        ; preds = %if.else.i
 
 sw.bb80.i:                                        ; preds = %if.else.i
   %tcnt81.i = getelementptr inbounds i8, ptr %opaque, i64 288
-  %38 = load i16, ptr %tcnt81.i, align 16
-  %39 = and i16 %38, -256
-  %40 = trunc i64 %data to i16
-  %conv85.i = or i16 %39, %40
+  %36 = load i16, ptr %tcnt81.i, align 16
+  %37 = and i16 %36, -256
+  %38 = trunc i64 %data to i16
+  %conv85.i = or i16 %37, %38
   store i16 %conv85.i, ptr %tcnt81.i, align 16
   br label %if.end25
 
 sw.bb87.i:                                        ; preds = %if.else.i
   %tcnt88.i = getelementptr inbounds i8, ptr %opaque, i64 288
-  %41 = load i16, ptr %tcnt88.i, align 16
-  %42 = and i16 %41, 255
+  %39 = load i16, ptr %tcnt88.i, align 16
+  %40 = and i16 %39, 255
   %val.tr73.i = trunc i64 %data to i16
-  %43 = shl i16 %val.tr73.i, 8
-  %conv93.i = or disjoint i16 %42, %43
+  %41 = shl i16 %val.tr73.i, 8
+  %conv93.i = or disjoint i16 %40, %41
   store i16 %conv93.i, ptr %tcnt88.i, align 16
   br label %if.end25
 
 sw.bb95.i:                                        ; preds = %if.else.i
   %rsar.i = getelementptr inbounds i8, ptr %opaque, i64 292
-  %44 = load i32, ptr %rsar.i, align 4
-  %and96.i = and i32 %44, 65280
+  %42 = load i32, ptr %rsar.i, align 4
+  %and96.i = and i32 %42, 65280
   %or97.i = or i32 %and96.i, %conv2
   store i32 %or97.i, ptr %rsar.i, align 4
   br label %if.end25
 
 sw.bb99.i:                                        ; preds = %if.else.i
   %rsar100.i = getelementptr inbounds i8, ptr %opaque, i64 292
-  %45 = load i32, ptr %rsar100.i, align 4
-  %and101.i = and i32 %45, 255
+  %43 = load i32, ptr %rsar100.i, align 4
+  %and101.i = and i32 %43, 255
   %shl102.i = shl i32 %conv2, 8
   %or103.i = or disjoint i32 %and101.i, %shl102.i
   store i32 %or103.i, ptr %rsar100.i, align 4
@@ -1134,20 +1130,20 @@ sw.bb99.i:                                        ; preds = %if.else.i
 
 sw.bb105.i:                                       ; preds = %if.else.i
   %rcnt106.i = getelementptr inbounds i8, ptr %opaque, i64 290
-  %46 = load i16, ptr %rcnt106.i, align 2
-  %47 = and i16 %46, -256
-  %48 = trunc i64 %data to i16
-  %conv110.i = or i16 %47, %48
+  %44 = load i16, ptr %rcnt106.i, align 2
+  %45 = and i16 %44, -256
+  %46 = trunc i64 %data to i16
+  %conv110.i = or i16 %45, %46
   store i16 %conv110.i, ptr %rcnt106.i, align 2
   br label %if.end25
 
 sw.bb112.i:                                       ; preds = %if.else.i
   %rcnt113.i = getelementptr inbounds i8, ptr %opaque, i64 290
-  %49 = load i16, ptr %rcnt113.i, align 2
-  %50 = and i16 %49, 255
+  %47 = load i16, ptr %rcnt113.i, align 2
+  %48 = and i16 %47, 255
   %val.tr.i = trunc i64 %data to i16
-  %51 = shl i16 %val.tr.i, 8
-  %conv118.i = or disjoint i16 %50, %51
+  %49 = shl i16 %val.tr.i, 8
+  %conv118.i = or disjoint i16 %48, %49
   store i16 %conv118.i, ptr %rcnt113.i, align 2
   br label %if.end25
 
@@ -1165,21 +1161,21 @@ sw.bb122.i:                                       ; preds = %if.else.i
 
 sw.bb124.i:                                       ; preds = %if.else.i
   %isr126.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %52 = load i8, ptr %isr126.i, align 2
-  %53 = trunc i64 %data to i8
-  %54 = and i8 %53, 127
-  %55 = xor i8 %54, -1
-  %conv129.i = and i8 %52, %55
+  %50 = load i8, ptr %isr126.i, align 2
+  %51 = trunc i64 %data to i8
+  %52 = and i8 %51, 127
+  %53 = xor i8 %52, -1
+  %conv129.i = and i8 %50, %53
   store i8 %conv129.i, ptr %isr126.i, align 2
   %imr.i87.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %56 = load i8, ptr %imr.i87.i, align 4
+  %54 = load i8, ptr %imr.i87.i, align 4
   %and4.i88.i = and i8 %conv129.i, 127
-  %57 = and i8 %and4.i88.i, %56
+  %55 = and i8 %and4.i88.i, %54
   %irq.i89.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %58 = load ptr, ptr %irq.i89.i, align 16
-  %cmp.i90.i = icmp ne i8 %57, 0
+  %56 = load ptr, ptr %irq.i89.i, align 16
+  %cmp.i90.i = icmp ne i8 %55, 0
   %conv4.i91.i = zext i1 %cmp.i90.i to i32
-  tail call void @qemu_set_irq(ptr noundef %58, i32 noundef %conv4.i91.i) #9
+  tail call void @qemu_set_irq(ptr noundef %56, i32 noundef %conv4.i91.i) #9
   br label %if.end25
 
 sw.bb130.i:                                       ; preds = %if.else.i, %if.else.i, %if.else.i, %if.else.i, %if.else.i, %if.else.i
@@ -1221,27 +1217,27 @@ if.then5:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.then5
   %rcnt.i18 = getelementptr inbounds i8, ptr %opaque, i64 290
-  %59 = load i16, ptr %rcnt.i18, align 2
-  %cmp.i19 = icmp eq i16 %59, 0
+  %57 = load i16, ptr %rcnt.i18, align 2
+  %cmp.i19 = icmp eq i16 %57, 0
   br i1 %cmp.i19, label %if.end25, label %if.end.i20
 
 if.end.i20:                                       ; preds = %if.then8
   %dcfg.i21 = getelementptr inbounds i8, ptr %opaque, i64 299
-  %60 = load i8, ptr %dcfg.i21, align 1
-  %61 = and i8 %60, 1
-  %tobool.not.i22 = icmp eq i8 %61, 0
+  %58 = load i8, ptr %dcfg.i21, align 1
+  %59 = and i8 %58, 1
+  %tobool.not.i22 = icmp eq i8 %59, 0
   %rsar4.i = getelementptr inbounds i8, ptr %opaque, i64 292
-  %62 = load i32, ptr %rsar4.i, align 4
+  %60 = load i32, ptr %rsar4.i, align 4
   br i1 %tobool.not.i22, label %if.else.i27, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i20
-  %and.i.i = and i32 %62, -2
+  %and.i.i = and i32 %60, -2
   %cmp.i.i23 = icmp ult i32 %and.i.i, 32
   br i1 %cmp.i.i23, label %if.then.i.i26, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then3.i
   %cmp1.i.i = icmp ugt i32 %and.i.i, 16383
-  %cmp4.i.i = icmp ult i32 %62, 49152
+  %cmp4.i.i = icmp ult i32 %60, 49152
   %or.cond.i.i24 = and i1 %cmp4.i.i, %cmp1.i.i
   br i1 %or.cond.i.i24, label %if.then.i.i26, label %ne2000_mem_writew.exit.i
 
@@ -1254,114 +1250,114 @@ if.then.i.i26:                                    ; preds = %lor.lhs.false.i.i, 
   br label %ne2000_mem_writew.exit.i
 
 ne2000_mem_writew.exit.i:                         ; preds = %if.then.i.i26, %lor.lhs.false.i.i
-  %add.i.i = add i32 %62, 2
+  %add.i.i = add i32 %60, 2
   store i32 %add.i.i, ptr %rsar4.i, align 4
   %stop.i.i = getelementptr inbounds i8, ptr %opaque, i64 280
-  %63 = load i32, ptr %stop.i.i, align 8
-  %cmp.i9.i = icmp eq i32 %add.i.i, %63
+  %61 = load i32, ptr %stop.i.i, align 8
+  %cmp.i9.i = icmp eq i32 %add.i.i, %61
   br i1 %cmp.i9.i, label %if.then.i10.i, label %if.end.i.i
 
 if.then.i10.i:                                    ; preds = %ne2000_mem_writew.exit.i
   %start.i.i = getelementptr inbounds i8, ptr %opaque, i64 276
-  %64 = load i32, ptr %start.i.i, align 4
-  store i32 %64, ptr %rsar4.i, align 4
+  %62 = load i32, ptr %start.i.i, align 4
+  store i32 %62, ptr %rsar4.i, align 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i10.i, %ne2000_mem_writew.exit.i
-  %cmp3.not.i.i = icmp ugt i16 %59, 2
+  %cmp3.not.i.i = icmp ugt i16 %57, 2
   br i1 %cmp3.not.i.i, label %if.else.i.i25, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   store i16 0, ptr %rcnt.i18, align 2
   %isr.i.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %65 = load i8, ptr %isr.i.i, align 2
-  %66 = or i8 %65, 64
-  store i8 %66, ptr %isr.i.i, align 2
+  %63 = load i8, ptr %isr.i.i, align 2
+  %64 = or i8 %63, 64
+  store i8 %64, ptr %isr.i.i, align 2
   %imr.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %67 = load i8, ptr %imr.i.i.i, align 4
-  %and4.i.i.i = and i8 %66, 127
-  %68 = and i8 %and4.i.i.i, %67
+  %65 = load i8, ptr %imr.i.i.i, align 4
+  %and4.i.i.i = and i8 %64, 127
+  %66 = and i8 %and4.i.i.i, %65
   %irq.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %69 = load ptr, ptr %irq.i.i.i, align 16
-  %cmp.i.i.i = icmp ne i8 %68, 0
+  %67 = load ptr, ptr %irq.i.i.i, align 16
+  %cmp.i.i.i = icmp ne i8 %66, 0
   %conv4.i.i.i = zext i1 %cmp.i.i.i to i32
-  tail call void @qemu_set_irq(ptr noundef %69, i32 noundef %conv4.i.i.i) #9
+  tail call void @qemu_set_irq(ptr noundef %67, i32 noundef %conv4.i.i.i) #9
   br label %if.end25
 
 if.else.i.i25:                                    ; preds = %if.end.i.i
-  %conv11.i.i = add i16 %59, -2
+  %conv11.i.i = add i16 %57, -2
   store i16 %conv11.i.i, ptr %rcnt.i18, align 2
   br label %if.end25
 
 if.else.i27:                                      ; preds = %if.end.i20
-  %cmp.i11.i = icmp ult i32 %62, 32
-  %70 = add i32 %62, -16384
-  %or.cond.i12.i = icmp ult i32 %70, 32768
+  %cmp.i11.i = icmp ult i32 %60, 32
+  %68 = add i32 %60, -16384
+  %or.cond.i12.i = icmp ult i32 %68, 32768
   %or.cond4.i.i = or i1 %cmp.i11.i, %or.cond.i12.i
   br i1 %or.cond4.i.i, label %if.then.i14.i, label %ne2000_mem_writeb.exit.i
 
 if.then.i14.i:                                    ; preds = %if.else.i27
   %conv6.i15.i = trunc i64 %data to i8
   %mem.i16.i = getelementptr inbounds i8, ptr %opaque, i64 8552
-  %idxprom.i.i = zext nneg i32 %62 to i64
+  %idxprom.i.i = zext nneg i32 %60 to i64
   %arrayidx.i.i = getelementptr [49152 x i8], ptr %mem.i16.i, i64 0, i64 %idxprom.i.i
   store i8 %conv6.i15.i, ptr %arrayidx.i.i, align 1
   br label %ne2000_mem_writeb.exit.i
 
 ne2000_mem_writeb.exit.i:                         ; preds = %if.then.i14.i, %if.else.i27
-  %add.i18.i = add i32 %62, 1
+  %add.i18.i = add i32 %60, 1
   store i32 %add.i18.i, ptr %rsar4.i, align 4
   %stop.i19.i = getelementptr inbounds i8, ptr %opaque, i64 280
-  %71 = load i32, ptr %stop.i19.i, align 8
-  %cmp.i20.i = icmp eq i32 %add.i18.i, %71
+  %69 = load i32, ptr %stop.i19.i, align 8
+  %cmp.i20.i = icmp eq i32 %add.i18.i, %69
   br i1 %cmp.i20.i, label %if.then.i34.i, label %if.end.i21.i
 
 if.then.i34.i:                                    ; preds = %ne2000_mem_writeb.exit.i
   %start.i35.i = getelementptr inbounds i8, ptr %opaque, i64 276
-  %72 = load i32, ptr %start.i35.i, align 4
-  store i32 %72, ptr %rsar4.i, align 4
+  %70 = load i32, ptr %start.i35.i, align 4
+  store i32 %70, ptr %rsar4.i, align 4
   br label %if.end.i21.i
 
 if.end.i21.i:                                     ; preds = %if.then.i34.i, %ne2000_mem_writeb.exit.i
-  %cmp3.not.i24.not.i = icmp eq i16 %59, 1
+  %cmp3.not.i24.not.i = icmp eq i16 %57, 1
   br i1 %cmp3.not.i24.not.i, label %if.then5.i25.i, label %if.else.i32.i
 
 if.then5.i25.i:                                   ; preds = %if.end.i21.i
   store i16 0, ptr %rcnt.i18, align 2
   %isr.i26.i = getelementptr inbounds i8, ptr %opaque, i64 298
-  %73 = load i8, ptr %isr.i26.i, align 2
-  %74 = or i8 %73, 64
-  store i8 %74, ptr %isr.i26.i, align 2
+  %71 = load i8, ptr %isr.i26.i, align 2
+  %72 = or i8 %71, 64
+  store i8 %72, ptr %isr.i26.i, align 2
   %imr.i.i27.i = getelementptr inbounds i8, ptr %opaque, i64 300
-  %75 = load i8, ptr %imr.i.i27.i, align 4
-  %and4.i.i28.i = and i8 %74, 127
-  %76 = and i8 %and4.i.i28.i, %75
+  %73 = load i8, ptr %imr.i.i27.i, align 4
+  %and4.i.i28.i = and i8 %72, 127
+  %74 = and i8 %and4.i.i28.i, %73
   %irq.i.i29.i = getelementptr inbounds i8, ptr %opaque, i64 320
-  %77 = load ptr, ptr %irq.i.i29.i, align 16
-  %cmp.i.i30.i = icmp ne i8 %76, 0
+  %75 = load ptr, ptr %irq.i.i29.i, align 16
+  %cmp.i.i30.i = icmp ne i8 %74, 0
   %conv4.i.i31.i = zext i1 %cmp.i.i30.i to i32
-  tail call void @qemu_set_irq(ptr noundef %77, i32 noundef %conv4.i.i31.i) #9
+  tail call void @qemu_set_irq(ptr noundef %75, i32 noundef %conv4.i.i31.i) #9
   br label %if.end25
 
 if.else.i32.i:                                    ; preds = %if.end.i21.i
-  %conv11.i33.i = add i16 %59, -1
+  %conv11.i33.i = add i16 %57, -1
   store i16 %conv11.i33.i, ptr %rcnt.i18, align 2
   br label %if.end25
 
 if.else11:                                        ; preds = %if.then5
   %conv13 = trunc i64 %data to i32
   %rcnt.i28 = getelementptr inbounds i8, ptr %opaque, i64 290
-  %78 = load i16, ptr %rcnt.i28, align 2
-  %cmp.i29 = icmp eq i16 %78, 0
+  %76 = load i16, ptr %rcnt.i28, align 2
+  %cmp.i29 = icmp eq i16 %76, 0
   br i1 %cmp.i29, label %if.end25, label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.else11
   %rsar.i31 = getelementptr inbounds i8, ptr %opaque, i64 292
-  %79 = load i32, ptr %rsar.i31, align 4
-  %and.i.i32 = and i32 %79, -2
+  %77 = load i32, ptr %rsar.i31, align 4
+  %and.i.i32 = and i32 %77, -2
   %cmp.i.i33 = icmp ult i32 %and.i.i32, 32
-  %80 = add i32 %and.i.i32, -16384
-  %or.cond.i.i34 = icmp ult i32 %80, 32765
+  %78 = add i32 %and.i.i32, -16384
+  %or.cond.i.i34 = icmp ult i32 %78, 32765
   %or.cond5.i.i = or i1 %cmp.i.i33, %or.cond.i.i34
   br i1 %or.cond5.i.i, label %if.then.i.i49, label %ne2000_mem_writel.exit.i
 
@@ -1373,42 +1369,42 @@ if.then.i.i49:                                    ; preds = %if.end.i30
   br label %ne2000_mem_writel.exit.i
 
 ne2000_mem_writel.exit.i:                         ; preds = %if.then.i.i49, %if.end.i30
-  %add.i.i35 = add i32 %79, 4
+  %add.i.i35 = add i32 %77, 4
   store i32 %add.i.i35, ptr %rsar.i31, align 4
   %stop.i.i36 = getelementptr inbounds i8, ptr %opaque, i64 280
-  %81 = load i32, ptr %stop.i.i36, align 8
-  %cmp.i4.i = icmp eq i32 %add.i.i35, %81
+  %79 = load i32, ptr %stop.i.i36, align 8
+  %cmp.i4.i = icmp eq i32 %add.i.i35, %79
   br i1 %cmp.i4.i, label %if.then.i5.i, label %if.end.i.i37
 
 if.then.i5.i:                                     ; preds = %ne2000_mem_writel.exit.i
   %start.i.i48 = getelementptr inbounds i8, ptr %opaque, i64 276
-  %82 = load i32, ptr %start.i.i48, align 4
-  store i32 %82, ptr %rsar.i31, align 4
+  %80 = load i32, ptr %start.i.i48, align 4
+  store i32 %80, ptr %rsar.i31, align 4
   br label %if.end.i.i37
 
 if.end.i.i37:                                     ; preds = %if.then.i5.i, %ne2000_mem_writel.exit.i
-  %cmp3.not.i.i38 = icmp ugt i16 %78, 4
+  %cmp3.not.i.i38 = icmp ugt i16 %76, 4
   br i1 %cmp3.not.i.i38, label %if.else.i.i46, label %if.then5.i.i39
 
 if.then5.i.i39:                                   ; preds = %if.end.i.i37
   store i16 0, ptr %rcnt.i28, align 2
   %isr.i.i40 = getelementptr inbounds i8, ptr %opaque, i64 298
-  %83 = load i8, ptr %isr.i.i40, align 2
-  %84 = or i8 %83, 64
-  store i8 %84, ptr %isr.i.i40, align 2
+  %81 = load i8, ptr %isr.i.i40, align 2
+  %82 = or i8 %81, 64
+  store i8 %82, ptr %isr.i.i40, align 2
   %imr.i.i.i41 = getelementptr inbounds i8, ptr %opaque, i64 300
-  %85 = load i8, ptr %imr.i.i.i41, align 4
-  %and4.i.i.i42 = and i8 %84, 127
-  %86 = and i8 %and4.i.i.i42, %85
+  %83 = load i8, ptr %imr.i.i.i41, align 4
+  %and4.i.i.i42 = and i8 %82, 127
+  %84 = and i8 %and4.i.i.i42, %83
   %irq.i.i.i43 = getelementptr inbounds i8, ptr %opaque, i64 320
-  %87 = load ptr, ptr %irq.i.i.i43, align 16
-  %cmp.i.i.i44 = icmp ne i8 %86, 0
+  %85 = load ptr, ptr %irq.i.i.i43, align 16
+  %cmp.i.i.i44 = icmp ne i8 %84, 0
   %conv4.i.i.i45 = zext i1 %cmp.i.i.i44 to i32
-  tail call void @qemu_set_irq(ptr noundef %87, i32 noundef %conv4.i.i.i45) #9
+  tail call void @qemu_set_irq(ptr noundef %85, i32 noundef %conv4.i.i.i45) #9
   br label %if.end25
 
 if.else.i.i46:                                    ; preds = %if.end.i.i37
-  %conv11.i.i47 = add i16 %78, -4
+  %conv11.i.i47 = add i16 %76, -4
   store i16 %conv11.i.i47, ptr %rcnt.i28, align 2
   br label %if.end25
 

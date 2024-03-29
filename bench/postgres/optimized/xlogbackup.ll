@@ -84,9 +84,8 @@ define dso_local ptr @build_backup_content(ptr noundef %0, i1 noundef zeroext %1
   call void @appendStringInfoString(ptr noundef %7, ptr noundef nonnull @.str.4) #2
   %53 = getelementptr inbounds i8, ptr %0, i64 1064
   %54 = load i8, ptr %53, align 8
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  %56 = select i1 %.not, ptr @.str.7, ptr @.str.6
+  %55 = trunc i8 %54 to i1
+  %56 = select i1 %55, ptr @.str.6, ptr @.str.7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull %56) #2
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #2
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #2

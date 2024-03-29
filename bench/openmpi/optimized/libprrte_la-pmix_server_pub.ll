@@ -475,9 +475,8 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %6 = alloca %struct.timespec, align 8
   fence acquire
   %7 = load i8, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @prte_pmix_server_globals, i64 0, i32 9), align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %75
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %75, label %9
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -510,7 +509,7 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 22:                                               ; preds = %19
   %23 = load ptr, ptr @prte_tool_basename, align 8
   %24 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef %23, ptr noundef nonnull %10) #13
-  br label %init_server.exit.thread80
+  br label %init_server.exit.thread79
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %20, i64 1
@@ -521,7 +520,7 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 28:                                               ; preds = %25
   %29 = load ptr, ptr @prte_tool_basename, align 8
   %30 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef %29, ptr noundef nonnull %10) #13
-  br label %init_server.exit.thread80
+  br label %init_server.exit.thread79
 
 31:                                               ; preds = %25
   %32 = tail call noalias ptr @fopen(ptr noundef nonnull %26, ptr noundef nonnull @.str.23)
@@ -532,7 +531,7 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %35 = load ptr, ptr @prte_tool_basename, align 8
   %36 = load ptr, ptr @prte_data_server_uri, align 8
   %37 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef %35, ptr noundef %36) #13
-  br label %init_server.exit.thread80
+  br label %init_server.exit.thread79
 
 38:                                               ; preds = %31
   %39 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %32)
@@ -544,7 +543,7 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %43 = load ptr, ptr @prte_tool_basename, align 8
   %44 = load ptr, ptr @prte_data_server_uri, align 8
   %45 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.25, i32 noundef 1, ptr noundef %43, ptr noundef %44, ptr noundef %43) #13
-  br label %init_server.exit.thread80
+  br label %init_server.exit.thread79
 
 46:                                               ; preds = %38
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
@@ -563,10 +562,10 @@ define internal void @execute(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %54 = call i32 @prte_rml_parse_uris(ptr noundef %.019.i, ptr noundef nonnull getelementptr inbounds (%struct.pmix_server_globals_t, ptr @prte_pmix_server_globals, i64 0, i32 7), ptr noundef null) #13
   switch i32 %54, label %init_server.exit [
     i32 0, label %55
-    i32 -43, label %init_server.exit.thread84
+    i32 -43, label %init_server.exit.thread83
   ]
 
-init_server.exit.thread84:                        ; preds = %53
+init_server.exit.thread83:                        ; preds = %53
   call void @free(ptr noundef %.019.i) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
@@ -593,9 +592,8 @@ init_server.exit.thread84:                        ; preds = %53
 61:                                               ; preds = %55
   call void @PMIx_Value_destruct(ptr noundef nonnull %4) #13
   %62 = load i8, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @prte_pmix_server_globals, i64 0, i32 6), align 4
-  %63 = and i8 %62, 1
-  %.not26.i = icmp eq i8 %63, 0
-  br i1 %.not26.i, label %init_server.exit.thread, label %64
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %init_server.exit.thread
 
 64:                                               ; preds = %61
   %65 = load i32, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @prte_pmix_server_globals, i64 0, i32 5), align 8
@@ -612,7 +610,7 @@ init_server.exit.thread:                          ; preds = %60, %61, %64, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %75
 
-init_server.exit.thread80:                        ; preds = %22, %28, %34, %42
+init_server.exit.thread79:                        ; preds = %22, %28, %34, %42
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -627,8 +625,8 @@ init_server.exit:                                 ; preds = %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %70
 
-70:                                               ; preds = %init_server.exit, %init_server.exit.thread84, %init_server.exit.thread80
-  %.0.i83 = phi i32 [ -5, %init_server.exit.thread80 ], [ %54, %init_server.exit ], [ -43, %init_server.exit.thread84 ]
+70:                                               ; preds = %init_server.exit, %init_server.exit.thread83, %init_server.exit.thread79
+  %.0.i82 = phi i32 [ -5, %init_server.exit.thread79 ], [ %54, %init_server.exit ], [ -43, %init_server.exit.thread83 ]
   %71 = load ptr, ptr @prte_data_server_uri, align 8
   %72 = icmp eq ptr %71, null
   %73 = select i1 %72, ptr @.str.13, ptr %71
@@ -758,12 +756,12 @@ init_server.exit:                                 ; preds = %53
   br label %131
 
 131:                                              ; preds = %129, %88, %82, %70
-  %.055 = phi i32 [ %79, %82 ], [ %85, %88 ], [ %130, %129 ], [ %.0.i83, %70 ]
+  %.055 = phi i32 [ %79, %82 ], [ %85, %88 ], [ %130, %129 ], [ %.0.i82, %70 ]
   %.0 = phi i1 [ true, %82 ], [ true, %88 ], [ true, %129 ], [ false, %70 ]
   %132 = getelementptr inbounds i8, ptr %2, i64 1320
   %133 = load ptr, ptr %132, align 8
-  %.not74 = icmp eq ptr %133, null
-  br i1 %.not74, label %137, label %134
+  %.not73 = icmp eq ptr %133, null
+  br i1 %.not73, label %137, label %134
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds i8, ptr %2, i64 1376
@@ -774,8 +772,8 @@ init_server.exit:                                 ; preds = %53
 137:                                              ; preds = %131
   %138 = getelementptr inbounds i8, ptr %2, i64 1344
   %139 = load ptr, ptr %138, align 8
-  %.not75 = icmp eq ptr %139, null
-  br i1 %.not75, label %143, label %140
+  %.not74 = icmp eq ptr %139, null
+  br i1 %.not74, label %143, label %140
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds i8, ptr %2, i64 1376
@@ -834,8 +832,8 @@ init_server.exit:                                 ; preds = %53
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %159
   %168 = getelementptr inbounds i8, ptr %2, i64 96
   %169 = load ptr, ptr %168, align 8
-  %.not76 = icmp eq ptr %169, null
-  br i1 %.not76, label %172, label %170
+  %.not75 = icmp eq ptr %169, null
+  br i1 %.not75, label %172, label %170
 
 170:                                              ; preds = %pmix_obj_run_destructors.exit
   %171 = getelementptr inbounds i8, ptr %2, i64 56

@@ -622,46 +622,45 @@ if.end:                                           ; preds = %entry
   %and = and i32 %13, 8
   %cmp.not = icmp eq i32 %and, 0
   %14 = load i8, ptr %sign, align 1
-  %15 = and i8 %14, 1
-  %tobool.not = icmp ne i8 %15, 0
+  %tobool = trunc i8 %14 to i1
   %cmp3 = fcmp une double %value, 0.000000e+00
   %brmerge = select i1 %cmp3, i1 true, i1 %cmp.not
-  %or.cond9 = select i1 %tobool.not, i1 %brmerge, i1 false
+  %or.cond9 = select i1 %tobool, i1 %brmerge, i1 false
   br i1 %or.cond9, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
   %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %16 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %16, 1
+  %15 = load i32, ptr %position_.i, align 8
+  %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %position_.i, align 8
-  %17 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i = sext i32 %16 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i
+  %16 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i = sext i32 %15 to i64
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i
   store i8 45, ptr %arrayidx.i.i, align 1
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %18 = load i32, ptr %decimal_point, align 4
+  %17 = load i32, ptr %decimal_point, align 4
   %decimal_in_shortest_low_ = getelementptr inbounds i8, ptr %this, i64 28
-  %19 = load i32, ptr %decimal_in_shortest_low_, align 4
-  %cmp7.not.not = icmp sge i32 %19, %18
+  %18 = load i32, ptr %decimal_in_shortest_low_, align 4
+  %cmp7.not.not = icmp sge i32 %18, %17
   %decimal_in_shortest_high_ = getelementptr inbounds i8, ptr %this, i64 32
-  %20 = load i32, ptr %decimal_in_shortest_high_, align 8
-  %cmp9.not = icmp sgt i32 %18, %20
+  %19 = load i32, ptr %decimal_in_shortest_high_, align 8
+  %cmp9.not = icmp sgt i32 %17, %19
   %or.cond = select i1 %cmp7.not.not, i1 true, i1 %cmp9.not
   br i1 %or.cond, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %21 = load i32, ptr %decimal_rep_length, align 4
-  %sub14 = sub nsw i32 %21, %18
+  %20 = load i32, ptr %decimal_rep_length, align 4
+  %sub14 = sub nsw i32 %20, %17
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %sub14, i32 0)
-  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %21, i32 noundef %18, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
+  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %20, i32 noundef %17, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
   br label %return
 
 if.else:                                          ; preds = %if.end6
-  %sub = add nsw i32 %18, -1
-  %22 = load i32, ptr %decimal_rep_length, align 4
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %22, i32 noundef %sub, ptr noundef %result_builder)
+  %sub = add nsw i32 %17, -1
+  %21 = load i32, ptr %decimal_rep_length, align 4
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %21, i32 noundef %sub, ptr noundef %result_builder)
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %if.then9.i, %if.end7.i, %if.then.i, %if.then10, %if.else
@@ -857,10 +856,10 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   %15 = load i32, ptr %this, align 8
   %and = and i32 %15, 8
   %cmp9.not = icmp eq i32 %and, 0
-  %tobool.not = icmp slt i64 %0, 0
+  %tobool = icmp slt i64 %0, 0
   %cmp10 = fcmp une double %value, 0.000000e+00
   %brmerge = select i1 %cmp10, i1 true, i1 %cmp9.not
-  %or.cond11 = select i1 %tobool.not, i1 %brmerge, i1 false
+  %or.cond11 = select i1 %tobool, i1 %brmerge, i1 false
   br i1 %or.cond11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
@@ -1053,10 +1052,10 @@ if.end14:                                         ; preds = %_ZN17double_convers
   %21 = load i32, ptr %this, align 8
   %and = and i32 %21, 8
   %cmp15.not = icmp eq i32 %and, 0
-  %tobool.not = icmp slt i64 %0, 0
+  %tobool = icmp slt i64 %0, 0
   %cmp16 = fcmp une double %value, 0.000000e+00
   %brmerge = select i1 %cmp16, i1 true, i1 %cmp15.not
-  %or.cond14 = select i1 %tobool.not, i1 %brmerge, i1 false
+  %or.cond14 = select i1 %tobool, i1 %brmerge, i1 false
   br i1 %or.cond14, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14
@@ -1199,10 +1198,10 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   %15 = load i32, ptr %this, align 8
   %and = and i32 %15, 8
   %cmp6.not = icmp eq i32 %and, 0
-  %tobool.not = icmp slt i64 %0, 0
+  %tobool = icmp slt i64 %0, 0
   %cmp7 = fcmp une double %value, 0.000000e+00
   %brmerge = select i1 %cmp7, i1 true, i1 %cmp6.not
-  %or.cond12 = select i1 %tobool.not, i1 %brmerge, i1 false
+  %or.cond12 = select i1 %tobool, i1 %brmerge, i1 false
   br i1 %or.cond12, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit

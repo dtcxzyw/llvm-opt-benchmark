@@ -86,50 +86,49 @@ define hidden noundef ptr @_ZN3ue220generateCompileErrorERKNS_12CompileErrorE(pt
 entry:
   %hasIndex = getelementptr inbounds i8, ptr %e, i64 40
   %0 = load i8, ptr %hasIndex, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %index = getelementptr inbounds i8, ptr %e, i64 44
-  %2 = load i32, ptr %index, align 4
-  %cond = select i1 %tobool.not, i32 -1, i32 %2
+  %1 = load i32, ptr %index, align 4
+  %cond = select i1 %tobool, i32 %1, i32 -1
   %reason = getelementptr inbounds i8, ptr %e, i64 8
-  %3 = load ptr, ptr @hs_misc_alloc, align 8
-  %call.i = tail call ptr %3(i64 noundef 16)
+  %2 = load ptr, ptr @hs_misc_alloc, align 8
+  %call.i = tail call ptr %2(i64 noundef 16)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN3ue220generateCompileErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, label %if.else.i26.i
 
 if.else.i26.i:                                    ; preds = %entry
-  %4 = ptrtoint ptr %call.i to i64
-  %and.i27.i = and i64 %4, 7
+  %3 = ptrtoint ptr %call.i to i64
+  %and.i27.i = and i64 %3, 7
   %cmp.i28.i = icmp eq i64 %and.i27.i, 0
   br i1 %cmp.i28.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.else.i26.i
-  %5 = load ptr, ptr @hs_misc_free, align 8
-  tail call void %5(ptr noundef nonnull %call.i)
+  %4 = load ptr, ptr @hs_misc_free, align 8
+  tail call void %4(ptr noundef nonnull %call.i)
   br label %_ZN3ue220generateCompileErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
 
 if.end.i:                                         ; preds = %if.else.i26.i
-  %6 = load ptr, ptr @hs_misc_alloc, align 8
+  %5 = load ptr, ptr @hs_misc_alloc, align 8
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %reason) #3
   %add.i = add i64 %call3.i, 1
-  %call4.i = tail call ptr %6(i64 noundef %add.i)
+  %call4.i = tail call ptr %5(i64 noundef %add.i)
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %7 = ptrtoint ptr %call4.i to i64
-  %and.i.i = and i64 %7, 7
+  %6 = ptrtoint ptr %call4.i to i64
+  %and.i.i = and i64 %6, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else.i.i
-  %8 = load ptr, ptr @hs_misc_free, align 8
-  tail call void %8(ptr noundef nonnull %call4.i)
+  %7 = load ptr, ptr @hs_misc_free, align 8
+  tail call void %7(ptr noundef nonnull %call4.i)
   br label %_ZN3ue220generateCompileErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %9 = load ptr, ptr @hs_misc_free, align 8
-  tail call void %9(ptr noundef nonnull %call.i)
+  %8 = load ptr, ptr @hs_misc_free, align 8
+  tail call void %8(ptr noundef nonnull %call.i)
   br label %_ZN3ue220generateCompileErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
 
 lor.lhs.false.i:                                  ; preds = %if.else.i.i

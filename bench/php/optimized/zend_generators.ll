@@ -350,9 +350,8 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
 
 35:                                               ; preds = %28, %34, %29, %19
   %36 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 11), align 1
-  %37 = and i8 %36, 1
-  %.not60 = icmp eq i8 %37, 0
-  br i1 %.not60, label %39, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
   store ptr null, ptr %3, align 8
@@ -361,8 +360,8 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
 39:                                               ; preds = %35
   %40 = load i32, ptr %7, align 8
   %41 = and i32 %40, 524288
-  %.not61 = icmp eq i32 %41, 0
-  br i1 %.not61, label %.loopexit, label %42
+  %.not60 = icmp eq i32 %41, 0
+  br i1 %.not60, label %.loopexit, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %4, i64 44
@@ -387,8 +386,8 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
   %.053 = phi i32 [ %49, %42 ], [ %85, %83 ]
   %59 = getelementptr inbounds i8, ptr %.054, i64 9
   %60 = load i8, ptr %59, align 1
-  %.not62 = icmp eq i8 %60, 0
-  br i1 %.not62, label %83, label %61
+  %.not61 = icmp eq i8 %60, 0
+  br i1 %.not61, label %83, label %61
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %.054, align 8
@@ -397,8 +396,8 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
   tail call void @llvm.assume(i1 %64)
   %65 = add i32 %63, -1
   store i32 %65, ptr %62, align 4
-  %.not63 = icmp eq i32 %65, 0
-  br i1 %.not63, label %66, label %67
+  %.not62 = icmp eq i32 %65, 0
+  br i1 %.not62, label %66, label %67
 
 66:                                               ; preds = %61
   tail call void @rc_dtor_func(ptr noundef nonnull %62) #10
@@ -414,18 +413,18 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
   %72 = getelementptr inbounds i8, ptr %62, i64 17
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 2
-  %.not64 = icmp eq i8 %74, 0
-  br i1 %.not64, label %83, label %75
+  %.not63 = icmp eq i8 %74, 0
+  br i1 %.not63, label %83, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %62, i64 8
   %77 = load ptr, ptr %76, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %77, i64 4
-  %.pre67 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre66 = load i32, ptr %.phi.trans.insert, align 4
   br label %78
 
 78:                                               ; preds = %75, %67
-  %79 = phi i32 [ %.pre67, %75 ], [ %69, %67 ]
+  %79 = phi i32 [ %.pre66, %75 ], [ %69, %67 ]
   %.0 = phi ptr [ %77, %75 ], [ %62, %67 ]
   %80 = and i32 %79, -1008
   %81 = icmp eq i32 %80, 0
@@ -438,8 +437,8 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
 83:                                               ; preds = %66, %71, %82, %78, %58
   %84 = getelementptr inbounds i8, ptr %.054, i64 16
   %85 = add i32 %.053, -1
-  %.not65 = icmp eq i32 %85, 0
-  br i1 %.not65, label %.loopexit, label %58
+  %.not64 = icmp eq i32 %85, 0
+  br i1 %.not64, label %.loopexit, label %58
 
 .loopexit:                                        ; preds = %83, %39
   br i1 %1, label %87, label %86
@@ -451,8 +450,8 @@ define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %
 87:                                               ; preds = %86, %.loopexit
   %88 = load i32, ptr %7, align 8
   %89 = and i32 %88, 4194304
-  %.not66 = icmp eq i32 %89, 0
-  br i1 %.not66, label %105, label %90
+  %.not65 = icmp eq i32 %89, 0
+  br i1 %.not65, label %105, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %4, i64 24
@@ -3319,8 +3318,8 @@ zend_generator_update_root.exit:                  ; preds = %12, %15
 66:                                               ; preds = %.lr.ph.i
   %67 = getelementptr inbounds i8, ptr %.026.i, i64 %58
   %68 = add i32 %.02225.i, -1
-  %.not.i130 = icmp eq i32 %68, 0
-  br i1 %.not.i130, label %.loopexit.i, label %.lr.ph.i
+  %.not.i129 = icmp eq i32 %68, 0
+  br i1 %.not.i129, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %66, %64, %50
   tail call void @zend_hash_destroy(ptr noundef %45) #10
@@ -3398,9 +3397,8 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
 
 101:                                              ; preds = %95
   %102 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 11), align 1
-  %103 = and i8 %102, 1
-  %.not123 = icmp eq i8 %103, 0
-  br i1 %.not123, label %105, label %104
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %105
 
 104:                                              ; preds = %101, %95, %94
   tail call void @zend_generator_close(ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -3429,7 +3427,7 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
 
 120:                                              ; preds = %.lr.ph, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  %.0101136 = phi i32 [ -1, %.lr.ph ], [ %.1, %134 ]
+  %.0101135 = phi i32 [ -1, %.lr.ph ], [ %.1, %134 ]
   %121 = getelementptr inbounds %struct._zend_try_catch_element, ptr %119, i64 %indvars.iv
   %122 = load i32, ptr %121, align 4
   %123 = icmp ult i32 %114, %122
@@ -3452,32 +3450,32 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
   br label %134
 
 134:                                              ; preds = %128, %132
-  %.1 = phi i32 [ %133, %132 ], [ %.0101136, %128 ]
+  %.1 = phi i32 [ %133, %132 ], [ %.0101135, %128 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %120
 
 ._crit_edge:                                      ; preds = %134, %120
-  %.0101.lcssa = phi i32 [ %.1, %134 ], [ %.0101136, %120 ]
-  %.not124140 = icmp eq i32 %.0101.lcssa, -1
-  br i1 %.not124140, label %.loopexit, label %.lr.ph143.preheader
+  %.0101.lcssa = phi i32 [ %.1, %134 ], [ %.0101135, %120 ]
+  %.not123139 = icmp eq i32 %.0101.lcssa, -1
+  br i1 %.not123139, label %.loopexit, label %.lr.ph142.preheader
 
-.lr.ph143.preheader:                              ; preds = %._crit_edge
+.lr.ph142.preheader:                              ; preds = %._crit_edge
   %135 = zext i32 %.0101.lcssa to i64
-  br label %.lr.ph143
+  br label %.lr.ph142
 
-.lr.ph143:                                        ; preds = %.lr.ph143.preheader, %209
-  %indvars.iv151 = phi i64 [ %135, %.lr.ph143.preheader ], [ %indvars.iv.next152, %209 ]
+.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %209
+  %indvars.iv150 = phi i64 [ %135, %.lr.ph142.preheader ], [ %indvars.iv.next151, %209 ]
   %136 = load ptr, ptr %96, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 144
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %struct._zend_try_catch_element, ptr %138, i64 %indvars.iv151
+  %139 = getelementptr inbounds %struct._zend_try_catch_element, ptr %138, i64 %indvars.iv150
   %140 = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load i32, ptr %140, align 4
   %142 = icmp ult i32 %114, %141
   br i1 %142, label %143, label %170
 
-143:                                              ; preds = %.lr.ph143
+143:                                              ; preds = %.lr.ph142
   %144 = getelementptr inbounds i8, ptr %139, i64 8
   %145 = getelementptr inbounds i8, ptr %136, i64 88
   %146 = load ptr, ptr %145, align 8
@@ -3507,14 +3505,14 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
   %165 = or i8 %164, 2
   store i8 %165, ptr %163, align 8
   tail call void @zend_generator_resume(ptr noundef %0)
-  %.not128 = icmp eq ptr %154, null
-  br i1 %.not128, label %.loopexit, label %166
+  %.not127 = icmp eq ptr %154, null
+  br i1 %.not127, label %.loopexit, label %166
 
 166:                                              ; preds = %143
   store ptr %155, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 52), align 8
   %167 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not129 = icmp eq ptr %167, null
-  br i1 %.not129, label %169, label %168
+  %.not128 = icmp eq ptr %167, null
+  br i1 %.not128, label %169, label %168
 
 168:                                              ; preds = %166
   tail call void @zend_exception_set_previous(ptr noundef nonnull %167, ptr noundef nonnull %154) #10
@@ -3524,7 +3522,7 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
   store ptr %154, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   br label %.loopexit
 
-170:                                              ; preds = %.lr.ph143
+170:                                              ; preds = %.lr.ph142
   %171 = getelementptr inbounds i8, ptr %139, i64 12
   %172 = load i32, ptr %171, align 4
   %173 = icmp ult i32 %114, %172
@@ -3540,8 +3538,8 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
   %181 = getelementptr inbounds i8, ptr %3, i64 %180
   %182 = getelementptr inbounds i8, ptr %181, i64 12
   %183 = load i32, ptr %182, align 4
-  %.not125 = icmp eq i32 %183, -1
-  br i1 %.not125, label %195, label %184
+  %.not124 = icmp eq i32 %183, -1
+  br i1 %.not124, label %195, label %184
 
 184:                                              ; preds = %174
   %185 = zext i32 %183 to i64
@@ -3549,8 +3547,8 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
   %187 = getelementptr inbounds i8, ptr %186, i64 30
   %188 = load i8, ptr %187, align 2
   %189 = and i8 %188, 6
-  %.not126 = icmp eq i8 %189, 0
-  br i1 %.not126, label %195, label %190
+  %.not125 = icmp eq i8 %189, 0
+  br i1 %.not125, label %195, label %190
 
 190:                                              ; preds = %184
   %191 = getelementptr inbounds i8, ptr %186, i64 12
@@ -3562,8 +3560,8 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
 
 195:                                              ; preds = %184, %190, %174
   %196 = load ptr, ptr %181, align 8
-  %.not127 = icmp eq ptr %196, null
-  br i1 %.not127, label %209, label %197
+  %.not126 = icmp eq ptr %196, null
+  br i1 %.not126, label %209, label %197
 
 197:                                              ; preds = %195
   %198 = load i32, ptr %196, align 4
@@ -3590,9 +3588,9 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
   br label %209
 
 209:                                              ; preds = %170, %202, %208, %203, %195
-  %indvars.iv.next152 = add nsw i64 %indvars.iv151, -1
-  %.not124 = icmp eq i64 %indvars.iv151, 0
-  br i1 %.not124, label %.loopexit, label %.lr.ph143
+  %indvars.iv.next151 = add nsw i64 %indvars.iv150, -1
+  %.not123 = icmp eq i64 %indvars.iv150, 0
+  br i1 %.not123, label %.loopexit, label %.lr.ph142
 
 .loopexit:                                        ; preds = %209, %105, %._crit_edge, %143, %169, %168
   tail call void @zend_generator_close(ptr noundef %0, i1 noundef zeroext false)

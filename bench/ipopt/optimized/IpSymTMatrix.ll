@@ -354,16 +354,14 @@ define void @_ZNK5Ipopt10SymTMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr noca
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 232
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %29, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds i8, ptr %4, i64 233
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not1.i = icmp eq i8 %27, 0
-  br i1 %.not1.i, label %29, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %24
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %4)
@@ -402,111 +400,110 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %29, %_ZNK5Ipopt16De
   %44 = phi ptr [ %32, %29 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
   %45 = getelementptr inbounds i8, ptr %2, i64 233
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not59 = icmp eq i8 %47, 0
-  %invariant.gep69 = getelementptr i8, ptr %44, i64 -8
+  %47 = trunc i8 %46 to i1
+  %invariant.gep70 = getelementptr i8, ptr %44, i64 -8
   %48 = load ptr, ptr %13, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = icmp sgt i32 %50, 0
-  br i1 %.not59, label %77, label %52
+  br i1 %47, label %52, label %77
 
 52:                                               ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
   %53 = getelementptr inbounds i8, ptr %2, i64 240
   %54 = load double, ptr %53, align 8
   %55 = fmul double %54, %1
-  br i1 %51, label %.lr.ph, label %.loopexit
+  br i1 %51, label %.lr.ph78, label %.loopexit
 
-.lr.ph:                                           ; preds = %52, %68
-  %.04866 = phi ptr [ %70, %68 ], [ %16, %52 ]
-  %.04965 = phi i32 [ %72, %68 ], [ 0, %52 ]
-  %.05064 = phi ptr [ %71, %68 ], [ %18, %52 ]
-  %.05263 = phi ptr [ %69, %68 ], [ %20, %52 ]
-  %56 = load double, ptr %.05263, align 8
-  %57 = load i32, ptr %.04866, align 4
+.lr.ph78:                                         ; preds = %52, %68
+  %.04877 = phi ptr [ %70, %68 ], [ %16, %52 ]
+  %.04976 = phi i32 [ %72, %68 ], [ 0, %52 ]
+  %.05075 = phi ptr [ %71, %68 ], [ %18, %52 ]
+  %.05274 = phi ptr [ %69, %68 ], [ %20, %52 ]
+  %56 = load double, ptr %.05274, align 8
+  %57 = load i32, ptr %.04877, align 4
   %58 = sext i32 %57 to i64
-  %gep = getelementptr double, ptr %invariant.gep69, i64 %58
-  %59 = load double, ptr %gep, align 8
+  %gep71 = getelementptr double, ptr %invariant.gep70, i64 %58
+  %59 = load double, ptr %gep71, align 8
   %60 = tail call double @llvm.fmuladd.f64(double %55, double %56, double %59)
-  store double %60, ptr %gep, align 8
-  %61 = load i32, ptr %.04866, align 4
-  %62 = load i32, ptr %.05064, align 4
+  store double %60, ptr %gep71, align 8
+  %61 = load i32, ptr %.04877, align 4
+  %62 = load i32, ptr %.05075, align 4
   %.not58 = icmp eq i32 %61, %62
   br i1 %.not58, label %68, label %63
 
-63:                                               ; preds = %.lr.ph
-  %64 = load double, ptr %.05263, align 8
+63:                                               ; preds = %.lr.ph78
+  %64 = load double, ptr %.05274, align 8
   %65 = sext i32 %62 to i64
-  %gep62 = getelementptr double, ptr %invariant.gep69, i64 %65
-  %66 = load double, ptr %gep62, align 8
+  %gep73 = getelementptr double, ptr %invariant.gep70, i64 %65
+  %66 = load double, ptr %gep73, align 8
   %67 = tail call double @llvm.fmuladd.f64(double %55, double %64, double %66)
-  store double %67, ptr %gep62, align 8
+  store double %67, ptr %gep73, align 8
   br label %68
 
-68:                                               ; preds = %63, %.lr.ph
-  %69 = getelementptr inbounds i8, ptr %.05263, i64 8
-  %70 = getelementptr inbounds i8, ptr %.04866, i64 4
-  %71 = getelementptr inbounds i8, ptr %.05064, i64 4
-  %72 = add nuw nsw i32 %.04965, 1
+68:                                               ; preds = %63, %.lr.ph78
+  %69 = getelementptr inbounds i8, ptr %.05274, i64 8
+  %70 = getelementptr inbounds i8, ptr %.04877, i64 4
+  %71 = getelementptr inbounds i8, ptr %.05075, i64 4
+  %72 = add nuw nsw i32 %.04976, 1
   %73 = load ptr, ptr %13, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4
   %76 = icmp slt i32 %72, %75
-  br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  br i1 %76, label %.lr.ph78, label %.loopexit, !llvm.loop !4
 
 77:                                               ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
   %78 = getelementptr inbounds i8, ptr %2, i64 216
   %79 = load ptr, ptr %78, align 8
-  %invariant.gep67 = getelementptr i8, ptr %79, i64 -8
-  br i1 %51, label %.lr.ph79, label %.loopexit
+  %invariant.gep = getelementptr i8, ptr %79, i64 -8
+  br i1 %51, label %.lr.ph, label %.loopexit
 
-.lr.ph79:                                         ; preds = %77, %99
-  %.078 = phi i32 [ %103, %99 ], [ 0, %77 ]
-  %.177 = phi ptr [ %101, %99 ], [ %16, %77 ]
-  %.15176 = phi ptr [ %102, %99 ], [ %18, %77 ]
-  %.15375 = phi ptr [ %100, %99 ], [ %20, %77 ]
-  %80 = load double, ptr %.15375, align 8
+.lr.ph:                                           ; preds = %77, %99
+  %.069 = phi i32 [ %103, %99 ], [ 0, %77 ]
+  %.168 = phi ptr [ %101, %99 ], [ %16, %77 ]
+  %.15167 = phi ptr [ %102, %99 ], [ %18, %77 ]
+  %.15366 = phi ptr [ %100, %99 ], [ %20, %77 ]
+  %80 = load double, ptr %.15366, align 8
   %81 = fmul double %80, %1
-  %82 = load i32, ptr %.15176, align 4
+  %82 = load i32, ptr %.15167, align 4
   %83 = sext i32 %82 to i64
-  %gep68 = getelementptr double, ptr %invariant.gep67, i64 %83
-  %84 = load double, ptr %gep68, align 8
-  %85 = load i32, ptr %.177, align 4
+  %gep = getelementptr double, ptr %invariant.gep, i64 %83
+  %84 = load double, ptr %gep, align 8
+  %85 = load i32, ptr %.168, align 4
   %86 = sext i32 %85 to i64
-  %gep70 = getelementptr double, ptr %invariant.gep69, i64 %86
-  %87 = load double, ptr %gep70, align 8
+  %gep61 = getelementptr double, ptr %invariant.gep70, i64 %86
+  %87 = load double, ptr %gep61, align 8
   %88 = tail call double @llvm.fmuladd.f64(double %81, double %84, double %87)
-  store double %88, ptr %gep70, align 8
-  %89 = load i32, ptr %.177, align 4
-  %90 = load i32, ptr %.15176, align 4
+  store double %88, ptr %gep61, align 8
+  %89 = load i32, ptr %.168, align 4
+  %90 = load i32, ptr %.15167, align 4
   %.not = icmp eq i32 %89, %90
   br i1 %.not, label %99, label %91
 
-91:                                               ; preds = %.lr.ph79
-  %92 = load double, ptr %.15375, align 8
+91:                                               ; preds = %.lr.ph
+  %92 = load double, ptr %.15366, align 8
   %93 = fmul double %92, %1
   %94 = sext i32 %89 to i64
-  %gep72 = getelementptr double, ptr %invariant.gep67, i64 %94
-  %95 = load double, ptr %gep72, align 8
+  %gep63 = getelementptr double, ptr %invariant.gep, i64 %94
+  %95 = load double, ptr %gep63, align 8
   %96 = sext i32 %90 to i64
-  %gep74 = getelementptr double, ptr %invariant.gep69, i64 %96
-  %97 = load double, ptr %gep74, align 8
+  %gep65 = getelementptr double, ptr %invariant.gep70, i64 %96
+  %97 = load double, ptr %gep65, align 8
   %98 = tail call double @llvm.fmuladd.f64(double %93, double %95, double %97)
-  store double %98, ptr %gep74, align 8
+  store double %98, ptr %gep65, align 8
   br label %99
 
-99:                                               ; preds = %91, %.lr.ph79
-  %100 = getelementptr inbounds i8, ptr %.15375, i64 8
-  %101 = getelementptr inbounds i8, ptr %.177, i64 4
-  %102 = getelementptr inbounds i8, ptr %.15176, i64 4
-  %103 = add nuw nsw i32 %.078, 1
+99:                                               ; preds = %91, %.lr.ph
+  %100 = getelementptr inbounds i8, ptr %.15366, i64 8
+  %101 = getelementptr inbounds i8, ptr %.168, i64 4
+  %102 = getelementptr inbounds i8, ptr %.15167, i64 4
+  %103 = add nuw nsw i32 %.069, 1
   %104 = load ptr, ptr %13, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 20
   %106 = load i32, ptr %105, align 4
   %107 = icmp slt i32 %103, %106
-  br i1 %107, label %.lr.ph79, label %.loopexit, !llvm.loop !6
+  br i1 %107, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %68, %99, %52, %77
+.loopexit:                                        ; preds = %99, %68, %77, %52
   ret void
 }
 
@@ -619,16 +616,14 @@ define void @_ZNK5Ipopt10SymTMatrix18ComputeRowAMaxImplERNS_6VectorEb(ptr nocapt
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 232
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %27, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %27
 
 22:                                               ; preds = %10
   %23 = getelementptr inbounds i8, ptr %1, i64 233
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not1.i = icmp eq i8 %25, 0
-  br i1 %.not1.i, label %27, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
@@ -734,9 +729,8 @@ define void @_ZNK5Ipopt10SymTMatrix9PrintImplERKNS_10JournalistENS_13EJournalLev
   tail call void (ptr, i32, i32, i32, ptr, ...) %23(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef nonnull @.str.1, ptr noundef %11, ptr noundef %12, i32 noundef %16, i32 noundef %20)
   %24 = getelementptr inbounds i8, ptr %0, i64 96
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %56, label %.preheader
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.preheader, label %56
 
 .preheader:                                       ; preds = %7
   %27 = load ptr, ptr %17, align 8

@@ -353,28 +353,28 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %created_ = getelementptr inbounds i8, ptr %this, i64 48
   %created_.i = getelementptr inbounds i8, ptr %other, i64 48
   %1 = load i8, ptr %created_.i, align 8
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %created_, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %created_, align 8
   %async_ = getelementptr inbounds i8, ptr %this, i64 49
   %async_10 = getelementptr inbounds i8, ptr %other, i64 49
-  %3 = load i8, ptr %async_10, align 1
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %async_, align 1
+  %2 = load i8, ptr %async_10, align 1
+  %frombool11 = and i8 %2, 1
+  store i8 %frombool11, ptr %async_, align 1
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_) #8
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad3 ], [ %3, %lpad ]
   tail call void @_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) #8
   resume { ptr, i32 } %.pn
 }
@@ -491,14 +491,14 @@ if.end:
   store i32 %0, ptr %error_details_, align 4
   %created_.i = getelementptr inbounds i8, ptr %other, i64 48
   %1 = load i8, ptr %created_.i, align 8
-  %2 = and i8 %1, 1
   %created_ = getelementptr inbounds i8, ptr %this, i64 48
-  store i8 %2, ptr %created_, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %created_, align 8
   %async_ = getelementptr inbounds i8, ptr %other, i64 49
-  %3 = load i8, ptr %async_, align 1
-  %4 = and i8 %3, 1
+  %2 = load i8, ptr %async_, align 1
   %async_9 = getelementptr inbounds i8, ptr %this, i64 49
-  store i8 %4, ptr %async_9, align 1
+  %frombool10 = and i8 %2, 1
+  store i8 %frombool10, ptr %async_9, align 1
   ret ptr %this
 }
 

@@ -944,26 +944,25 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %6, %9, %
   %85 = call { <2 x float>, i8 } @sepFactor(ptr noundef %0)
   %.fca.0.extract.i = extractvalue { <2 x float>, i8 } %85, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, i8 } %85, 1
-  %86 = and i8 %.fca.1.extract.i, 1
-  %.not.i33 = icmp eq i8 %86, 0
+  %86 = trunc i8 %.fca.1.extract.i to i1
   %87 = fdiv <2 x float> %.fca.0.extract.i, <float 7.200000e+01, float 7.200000e+01>
-  %.033.i = select i1 %.not.i33, ptr @makePoly, ptr @makeAddPoly
-  %.sroa.014.0.i = select i1 %.not.i33, <2 x float> %.fca.0.extract.i, <2 x float> %87
+  %.033.i = select i1 %86, ptr @makeAddPoly, ptr @makePoly
+  %.sroa.014.0.i = select i1 %86, <2 x float> %87, <2 x float> %.fca.0.extract.i
   %88 = load i64, ptr @nsites, align 8
-  %.not37.i = icmp eq i64 %88, 0
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i34
+  %.not36.i = icmp eq i64 %88, 0
+  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i33
 
-.lr.ph.i34:                                       ; preds = %79
+.lr.ph.i33:                                       ; preds = %79
   %.sroa.014.0.vec.extract17.i = extractelement <2 x float> %.sroa.014.0.i, i64 0
   %.sroa.014.4.vec.extract20.i = extractelement <2 x float> %.sroa.014.0.i, i64 1
   br label %89
 
-89:                                               ; preds = %106, %.lr.ph.i34
-  %.03136.i = phi i64 [ 0, %.lr.ph.i34 ], [ %111, %106 ]
-  %.03235.i = phi ptr [ %84, %.lr.ph.i34 ], [ %110, %106 ]
+89:                                               ; preds = %106, %.lr.ph.i33
+  %.03135.i = phi i64 [ 0, %.lr.ph.i33 ], [ %111, %106 ]
+  %.03234.i = phi ptr [ %84, %.lr.ph.i33 ], [ %110, %106 ]
   %90 = load ptr, ptr @nodeInfo, align 8
-  %91 = getelementptr inbounds %struct.Info_t, ptr %90, i64 %.03136.i
-  %92 = getelementptr inbounds i8, ptr %.03235.i, i64 16
+  %91 = getelementptr inbounds %struct.Info_t, ptr %90, i64 %.03135.i
+  %92 = getelementptr inbounds i8, ptr %.03234.i, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 176
   %95 = load ptr, ptr %94, align 8
@@ -978,20 +977,20 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %6, %9, %
   %103 = getelementptr inbounds i8, ptr %91, i64 16
   store double %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %91, i64 48
-  %105 = call i32 %.033.i(ptr noundef nonnull %104, ptr noundef %.03235.i, float noundef %.sroa.014.0.vec.extract17.i, float noundef %.sroa.014.4.vec.extract20.i) #18, !callees !5
-  %.not34.i = icmp eq i32 %105, 0
-  br i1 %.not34.i, label %106, label %114
+  %105 = call i32 %.033.i(ptr noundef nonnull %104, ptr noundef %.03234.i, float noundef %.sroa.014.0.vec.extract17.i, float noundef %.sroa.014.4.vec.extract20.i) #18, !callees !5
+  %.not.i34 = icmp eq i32 %105, 0
+  br i1 %.not.i34, label %106, label %114
 
 106:                                              ; preds = %89
   %107 = getelementptr inbounds i8, ptr %91, i64 24
-  store i64 %.03136.i, ptr %107, align 8
+  store i64 %.03135.i, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %91, i64 32
   store i32 1, ptr %108, align 8
-  store ptr %.03235.i, ptr %91, align 8
+  store ptr %.03234.i, ptr %91, align 8
   %109 = getelementptr inbounds i8, ptr %91, i64 104
   store ptr null, ptr %109, align 8
-  %110 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03235.i) #18
-  %111 = add nuw i64 %.03136.i, 1
+  %110 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03234.i) #18
+  %111 = add nuw i64 %.03135.i, 1
   %112 = load i64, ptr @nsites, align 8
   %113 = icmp ult i64 %111, %112
   br i1 %113, label %89, label %124
@@ -1587,24 +1586,24 @@ define internal fastcc void @vpscAdjust(ptr noundef %0) unnamed_addr #6 {
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %10, align 8
   %11 = tail call ptr @agfstnode(ptr noundef %0) #18
-  %.not55 = icmp eq ptr %11, null
-  br i1 %.not55, label %._crit_edge, label %.preheader52.preheader
+  %.not54 = icmp eq ptr %11, null
+  br i1 %.not54, label %._crit_edge, label %.preheader51.preheader
 
-.preheader52.preheader:                           ; preds = %.critedge
+.preheader51.preheader:                           ; preds = %.critedge
   %12 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %.preheader52
+  br label %.preheader51
 
-.preheader52:                                     ; preds = %.preheader52.preheader, %.preheader52
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader52 ], [ 0, %.preheader52.preheader ]
-  %.04856 = phi ptr [ %36, %.preheader52 ], [ %11, %.preheader52.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.04856, i64 16
+.preheader51:                                     ; preds = %.preheader51.preheader, %.preheader51
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.preheader51 ], [ 0, %.preheader51.preheader ]
+  %.04855 = phi ptr [ %36, %.preheader51 ], [ %11, %.preheader51.preheader ]
+  %13 = getelementptr inbounds i8, ptr %.04855, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = load double, ptr %16, align 8
   %18 = fptrunc double %17 to float
   %19 = load ptr, ptr %2, align 16
-  %20 = getelementptr inbounds float, ptr %19, i64 %indvars.iv67
+  %20 = getelementptr inbounds float, ptr %19, i64 %indvars.iv66
   store float %18, ptr %20, align 4
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 176
@@ -1613,23 +1612,23 @@ define internal fastcc void @vpscAdjust(ptr noundef %0) unnamed_addr #6 {
   %25 = load double, ptr %24, align 8
   %26 = fptrunc double %25 to float
   %27 = load ptr, ptr %12, align 8
-  %28 = getelementptr inbounds float, ptr %27, i64 %indvars.iv67
+  %28 = getelementptr inbounds float, ptr %27, i64 %indvars.iv66
   store float %26, ptr %28, align 4
   %29 = load ptr, ptr %13, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 48
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.pointf_s, ptr %5, i64 %indvars.iv67
+  %32 = getelementptr inbounds %struct.pointf_s, ptr %5, i64 %indvars.iv66
   store double %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %29, i64 56
   %34 = load double, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %32, i64 8
   store double %34, ptr %35, align 8
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %36 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04856) #18
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %36 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04855) #18
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %._crit_edge, label %.preheader52
+  br i1 %.not, label %._crit_edge, label %.preheader51
 
-._crit_edge:                                      ; preds = %.preheader52, %.critedge
+._crit_edge:                                      ; preds = %.preheader51, %.critedge
   store i32 0, ptr %1, align 8
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   store double 0.000000e+00, ptr %37, align 8
@@ -1650,32 +1649,31 @@ gv_alloc.exit:                                    ; preds = %._crit_edge
   store ptr %39, ptr %44, align 8
   %45 = tail call { <2 x float>, i8 } @sepFactor(ptr noundef %0)
   %.fca.1.extract = extractvalue { <2 x float>, i8 } %45, 1
-  %46 = and i8 %.fca.1.extract, 1
-  %.not50 = icmp eq i8 %46, 0
+  %46 = trunc i8 %.fca.1.extract to i1
   %.fca.0.extract = extractvalue { <2 x float>, i8 } %45, 0
   %47 = fpext <2 x float> %.fca.0.extract to <2 x double>
   %48 = fdiv <2 x double> %47, <double 7.200000e+01, double 7.200000e+01>
   %49 = fmul <2 x double> %48, <double 2.000000e+00, double 2.000000e+00>
-  %50 = select i1 %.not50, <2 x double> <double 0x3FBC71C71C71C71C, double 0x3FBC71C71C71C71C>, <2 x double> %49
+  %50 = select i1 %46, <2 x double> %49, <2 x double> <double 0x3FBC71C71C71C71C, double 0x3FBC71C71C71C71C>
   %51 = getelementptr inbounds i8, ptr %1, i64 24
   store <2 x double> %50, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %5, ptr %52, align 8
   call void @removeoverlaps(i32 noundef %3, ptr noundef nonnull %2, ptr noundef nonnull %1) #18
   %53 = call ptr @agfstnode(ptr noundef %0) #18
-  %.not5159 = icmp eq ptr %53, null
-  br i1 %.not5159, label %._crit_edge62, label %.preheader.preheader
+  %.not5058 = icmp eq ptr %53, null
+  br i1 %.not5058, label %._crit_edge61, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %gv_alloc.exit
   %54 = getelementptr inbounds i8, ptr %2, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.preheader ], [ 0, %.preheader.preheader ]
-  %.14960 = phi ptr [ %71, %.preheader ], [ %53, %.preheader.preheader ]
-  %55 = getelementptr inbounds i8, ptr %.14960, i64 16
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.preheader ], [ 0, %.preheader.preheader ]
+  %.14959 = phi ptr [ %71, %.preheader ], [ %53, %.preheader.preheader ]
+  %55 = getelementptr inbounds i8, ptr %.14959, i64 16
   %56 = load ptr, ptr %2, align 16
-  %57 = getelementptr inbounds float, ptr %56, i64 %indvars.iv73
+  %57 = getelementptr inbounds float, ptr %56, i64 %indvars.iv72
   %58 = load float, ptr %57, align 4
   %59 = fpext float %58 to double
   %60 = load ptr, ptr %55, align 8
@@ -1683,7 +1681,7 @@ gv_alloc.exit:                                    ; preds = %._crit_edge
   %62 = load ptr, ptr %61, align 8
   store double %59, ptr %62, align 8
   %63 = load ptr, ptr %54, align 8
-  %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv73
+  %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv72
   %65 = load float, ptr %64, align 4
   %66 = fpext float %65 to double
   %67 = load ptr, ptr %55, align 8
@@ -1691,12 +1689,12 @@ gv_alloc.exit:                                    ; preds = %._crit_edge
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   store double %66, ptr %70, align 8
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %71 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.14960) #18
-  %.not51 = icmp eq ptr %71, null
-  br i1 %.not51, label %._crit_edge62, label %.preheader
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %71 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.14959) #18
+  %.not50 = icmp eq ptr %71, null
+  br i1 %.not50, label %._crit_edge61, label %.preheader
 
-._crit_edge62:                                    ; preds = %.preheader, %gv_alloc.exit
+._crit_edge61:                                    ; preds = %.preheader, %gv_alloc.exit
   %72 = load ptr, ptr %44, align 8
   call void @free(ptr noundef %72) #18
   call void @free(ptr noundef %8) #18
@@ -1751,7 +1749,7 @@ define { <2 x float>, i8 } @sepFactor(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca float, align 4
   %6 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.7) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %25, label %7
+  br i1 %.not, label %26, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -1761,7 +1759,7 @@ define { <2 x float>, i8 } @sepFactor(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %10, %7
   %.029.i = phi ptr [ %6, %7 ], [ %11, %10 ]
   %9 = load i8, ptr %.029.i, align 1
-  switch i8 %9, label %.loopexit41 [
+  switch i8 %9, label %.loopexit40 [
     i8 9, label %10
     i8 10, label %10
     i8 11, label %10
@@ -1777,10 +1775,9 @@ define { <2 x float>, i8 } @sepFactor(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %.029.i, i64 1
-  br label %.loopexit41
+  br label %.loopexit40
 
-.loopexit41:                                      ; preds = %8, %12
-  %.not33.i = phi i1 [ false, %12 ], [ true, %8 ]
+.loopexit40:                                      ; preds = %8, %12
   %.sink.i = phi i8 [ 1, %12 ], [ 0, %8 ]
   %.1.i = phi ptr [ %13, %12 ], [ %.029.i, %8 ]
   %14 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.52, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
@@ -1789,136 +1786,137 @@ define { <2 x float>, i8 } @sepFactor(ptr noundef %0) local_unnamed_addr #0 {
     i32 1, label %15
   ]
 
-parseFactor.exit.thread:                          ; preds = %.loopexit41
+parseFactor.exit.thread:                          ; preds = %.loopexit40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %25
+  br label %26
 
-15:                                               ; preds = %.loopexit41
+15:                                               ; preds = %.loopexit40
   %16 = load float, ptr %4, align 4
   store float %16, ptr %5, align 4
   br label %17
 
-17:                                               ; preds = %15, %.loopexit41
-  %18 = load float, ptr %4, align 4
-  br i1 %.not33.i, label %21, label %19
+17:                                               ; preds = %15, %.loopexit40
+  %18 = trunc i8 %.sink.i to i1
+  %19 = load float, ptr %4, align 4
+  br i1 %18, label %20, label %22
 
-19:                                               ; preds = %17
-  %.sroa.0.0.vec.insert20 = insertelement <2 x float> <float poison, float undef>, float %18, i64 0
-  %20 = load float, ptr %5, align 4
+20:                                               ; preds = %17
+  %.sroa.0.0.vec.insert21 = insertelement <2 x float> <float poison, float undef>, float %19, i64 0
+  %21 = load float, ptr %5, align 4
   br label %parseFactor.exit
 
-21:                                               ; preds = %17
-  %22 = fadd float %18, 1.000000e+00
-  %.sroa.0.0.vec.insert22 = insertelement <2 x float> <float poison, float undef>, float %22, i64 0
-  %23 = load float, ptr %5, align 4
-  %24 = fadd float %23, 1.000000e+00
+22:                                               ; preds = %17
+  %23 = fadd float %19, 1.000000e+00
+  %.sroa.0.0.vec.insert19 = insertelement <2 x float> <float poison, float undef>, float %23, i64 0
+  %24 = load float, ptr %5, align 4
+  %25 = fadd float %24, 1.000000e+00
   br label %parseFactor.exit
 
-parseFactor.exit:                                 ; preds = %19, %21
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.vec.insert22, %21 ], [ %.sroa.0.0.vec.insert20, %19 ]
-  %.sink39.i = phi float [ %24, %21 ], [ %20, %19 ]
-  %.sroa.0.4.vec.insert29 = insertelement <2 x float> %.sroa.0.0, float %.sink39.i, i64 1
+parseFactor.exit:                                 ; preds = %20, %22
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.vec.insert21, %20 ], [ %.sroa.0.0.vec.insert19, %22 ]
+  %.sink38.i = phi float [ %21, %20 ], [ %25, %22 ]
+  %.sroa.0.4.vec.insert28 = insertelement <2 x float> %.sroa.0.0, float %.sink38.i, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %48
+  br label %50
 
-25:                                               ; preds = %parseFactor.exit.thread, %1
-  %26 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.8) #18
-  %.not6 = icmp eq ptr %26, null
-  br i1 %.not6, label %48, label %27
+26:                                               ; preds = %parseFactor.exit.thread, %1
+  %27 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.8) #18
+  %.not6 = icmp eq ptr %27, null
+  br i1 %.not6, label %50, label %28
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %30, %27
-  %.029.i9 = phi ptr [ %26, %27 ], [ %31, %30 ]
-  %29 = load i8, ptr %.029.i9, align 1
-  switch i8 %29, label %.loopexit [
-    i8 9, label %30
-    i8 10, label %30
-    i8 11, label %30
-    i8 12, label %30
-    i8 13, label %30
-    i8 32, label %30
-    i8 43, label %32
+29:                                               ; preds = %31, %28
+  %.029.i9 = phi ptr [ %27, %28 ], [ %32, %31 ]
+  %30 = load i8, ptr %.029.i9, align 1
+  switch i8 %30, label %.loopexit [
+    i8 9, label %31
+    i8 10, label %31
+    i8 11, label %31
+    i8 12, label %31
+    i8 13, label %31
+    i8 32, label %31
+    i8 43, label %33
   ]
 
-30:                                               ; preds = %28, %28, %28, %28, %28, %28
-  %31 = getelementptr inbounds i8, ptr %.029.i9, i64 1
-  br label %28
+31:                                               ; preds = %29, %29, %29, %29, %29, %29
+  %32 = getelementptr inbounds i8, ptr %.029.i9, i64 1
+  br label %29
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.029.i9, i64 1
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %.029.i9, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %32
-  %.not33.i12 = phi i1 [ false, %32 ], [ true, %28 ]
-  %.sink.i10 = phi i8 [ 1, %32 ], [ 0, %28 ]
-  %.1.i11 = phi ptr [ %33, %32 ], [ %.029.i9, %28 ]
-  %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i11, ptr noundef nonnull @.str.52, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
-  switch i32 %34, label %37 [
-    i32 0, label %parseFactor.exit16.thread
-    i32 1, label %35
+.loopexit:                                        ; preds = %29, %33
+  %.sink.i10 = phi i8 [ 1, %33 ], [ 0, %29 ]
+  %.1.i11 = phi ptr [ %34, %33 ], [ %.029.i9, %29 ]
+  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i11, ptr noundef nonnull @.str.52, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
+  switch i32 %35, label %38 [
+    i32 0, label %parseFactor.exit15.thread
+    i32 1, label %36
   ]
 
-parseFactor.exit16.thread:                        ; preds = %.loopexit
+parseFactor.exit15.thread:                        ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %48
+  br label %50
 
-35:                                               ; preds = %.loopexit
-  %36 = load float, ptr %2, align 4
-  store float %36, ptr %3, align 4
-  br label %37
+36:                                               ; preds = %.loopexit
+  %37 = load float, ptr %2, align 4
+  store float %37, ptr %3, align 4
+  br label %38
 
-37:                                               ; preds = %35, %.loopexit
-  %38 = load float, ptr %2, align 4
-  %39 = fdiv float %38, 0x3FE99999A0000000
-  %40 = load float, ptr %3, align 4
+38:                                               ; preds = %36, %.loopexit
+  %39 = trunc i8 %.sink.i10 to i1
+  %40 = load float, ptr %2, align 4
   %41 = fdiv float %40, 0x3FE99999A0000000
-  br i1 %.not33.i12, label %45, label %42
+  %42 = load float, ptr %3, align 4
+  %43 = fdiv float %42, 0x3FE99999A0000000
+  br i1 %39, label %44, label %47
 
-42:                                               ; preds = %37
-  %43 = call float @llvm.maxnum.f32(float %39, float 4.000000e+00)
-  %.sroa.0.0.vec.insert24 = insertelement <2 x float> <float poison, float undef>, float %43, i64 0
-  %44 = call float @llvm.maxnum.f32(float %41, float 4.000000e+00)
-  br label %parseFactor.exit16
+44:                                               ; preds = %38
+  %45 = call float @llvm.maxnum.f32(float %41, float 4.000000e+00)
+  %.sroa.0.0.vec.insert25 = insertelement <2 x float> <float poison, float undef>, float %45, i64 0
+  %46 = call float @llvm.maxnum.f32(float %43, float 4.000000e+00)
+  br label %parseFactor.exit15
 
-45:                                               ; preds = %37
-  %46 = fadd float %39, 1.000000e+00
-  %.sroa.0.0.vec.insert26 = insertelement <2 x float> <float poison, float undef>, float %46, i64 0
-  %47 = fadd float %41, 1.000000e+00
-  br label %parseFactor.exit16
+47:                                               ; preds = %38
+  %48 = fadd float %41, 1.000000e+00
+  %.sroa.0.0.vec.insert23 = insertelement <2 x float> <float poison, float undef>, float %48, i64 0
+  %49 = fadd float %43, 1.000000e+00
+  br label %parseFactor.exit15
 
-parseFactor.exit16:                               ; preds = %42, %45
-  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert26, %45 ], [ %.sroa.0.0.vec.insert24, %42 ]
-  %.sink39.i14 = phi float [ %47, %45 ], [ %44, %42 ]
-  %.sroa.0.4.vec.insert31 = insertelement <2 x float> %.sroa.0.3, float %.sink39.i14, i64 1
+parseFactor.exit15:                               ; preds = %44, %47
+  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert25, %44 ], [ %.sroa.0.0.vec.insert23, %47 ]
+  %.sink38.i13 = phi float [ %46, %44 ], [ %49, %47 ]
+  %.sroa.0.4.vec.insert30 = insertelement <2 x float> %.sroa.0.3, float %.sink38.i13, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %48
+  br label %50
 
-48:                                               ; preds = %25, %parseFactor.exit16.thread, %parseFactor.exit16, %parseFactor.exit
-  %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit16 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit16.thread ], [ 1, %25 ]
-  %.sroa.0.6 = phi <2 x float> [ %.sroa.0.4.vec.insert31, %parseFactor.exit16 ], [ %.sroa.0.4.vec.insert29, %parseFactor.exit ], [ <float 4.000000e+00, float 4.000000e+00>, %parseFactor.exit16.thread ], [ <float 4.000000e+00, float 4.000000e+00>, %25 ]
-  %49 = load i8, ptr @Verbose, align 1
-  %.not8 = icmp eq i8 %49, 0
-  br i1 %.not8, label %56, label %50
+50:                                               ; preds = %26, %parseFactor.exit15.thread, %parseFactor.exit15, %parseFactor.exit
+  %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit15.thread ], [ 1, %26 ]
+  %.sroa.0.6 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 4.000000e+00, float 4.000000e+00>, %parseFactor.exit15.thread ], [ <float 4.000000e+00, float 4.000000e+00>, %26 ]
+  %51 = load i8, ptr @Verbose, align 1
+  %.not8 = icmp eq i8 %51, 0
+  br i1 %.not8, label %58, label %52
 
-50:                                               ; preds = %48
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = zext nneg i8 %.sroa.11.0 to i32
+52:                                               ; preds = %50
+  %53 = load ptr, ptr @stderr, align 8
+  %54 = zext nneg i8 %.sroa.11.0 to i32
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 0
-  %53 = fpext float %.sroa.0.0.vec.extract to double
+  %55 = fpext float %.sroa.0.0.vec.extract to double
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 1
-  %54 = fpext float %.sroa.0.4.vec.extract to double
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.9, i32 noundef %52, double noundef %53, double noundef %54) #21
-  br label %56
+  %56 = fpext float %.sroa.0.4.vec.extract to double
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.9, i32 noundef %54, double noundef %55, double noundef %56) #21
+  br label %58
 
-56:                                               ; preds = %50, %48
+58:                                               ; preds = %52, %50
   %.fca.0.insert = insertvalue { <2 x float>, i8 } poison, <2 x float> %.sroa.0.6, 0
   %.fca.1.insert = insertvalue { <2 x float>, i8 } %.fca.0.insert, i8 %.sroa.11.0, 1
   ret { <2 x float>, i8 } %.fca.1.insert
@@ -1932,7 +1930,7 @@ define { <2 x float>, i8 } @esepFactor(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca float, align 4
   %6 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.8) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %25, label %7
+  br i1 %.not, label %26, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -1942,7 +1940,7 @@ define { <2 x float>, i8 } @esepFactor(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %10, %7
   %.029.i = phi ptr [ %6, %7 ], [ %11, %10 ]
   %9 = load i8, ptr %.029.i, align 1
-  switch i8 %9, label %.loopexit41 [
+  switch i8 %9, label %.loopexit40 [
     i8 9, label %10
     i8 10, label %10
     i8 11, label %10
@@ -1958,10 +1956,9 @@ define { <2 x float>, i8 } @esepFactor(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %.029.i, i64 1
-  br label %.loopexit41
+  br label %.loopexit40
 
-.loopexit41:                                      ; preds = %8, %12
-  %.not33.i = phi i1 [ false, %12 ], [ true, %8 ]
+.loopexit40:                                      ; preds = %8, %12
   %.sink.i = phi i8 [ 1, %12 ], [ 0, %8 ]
   %.1.i = phi ptr [ %13, %12 ], [ %.029.i, %8 ]
   %14 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.52, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
@@ -1970,136 +1967,137 @@ define { <2 x float>, i8 } @esepFactor(ptr noundef %0) local_unnamed_addr #0 {
     i32 1, label %15
   ]
 
-parseFactor.exit.thread:                          ; preds = %.loopexit41
+parseFactor.exit.thread:                          ; preds = %.loopexit40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %25
+  br label %26
 
-15:                                               ; preds = %.loopexit41
+15:                                               ; preds = %.loopexit40
   %16 = load float, ptr %4, align 4
   store float %16, ptr %5, align 4
   br label %17
 
-17:                                               ; preds = %15, %.loopexit41
-  %18 = load float, ptr %4, align 4
-  br i1 %.not33.i, label %21, label %19
+17:                                               ; preds = %15, %.loopexit40
+  %18 = trunc i8 %.sink.i to i1
+  %19 = load float, ptr %4, align 4
+  br i1 %18, label %20, label %22
 
-19:                                               ; preds = %17
-  %.sroa.0.0.vec.insert20 = insertelement <2 x float> <float poison, float undef>, float %18, i64 0
-  %20 = load float, ptr %5, align 4
+20:                                               ; preds = %17
+  %.sroa.0.0.vec.insert21 = insertelement <2 x float> <float poison, float undef>, float %19, i64 0
+  %21 = load float, ptr %5, align 4
   br label %parseFactor.exit
 
-21:                                               ; preds = %17
-  %22 = fadd float %18, 1.000000e+00
-  %.sroa.0.0.vec.insert22 = insertelement <2 x float> <float poison, float undef>, float %22, i64 0
-  %23 = load float, ptr %5, align 4
-  %24 = fadd float %23, 1.000000e+00
+22:                                               ; preds = %17
+  %23 = fadd float %19, 1.000000e+00
+  %.sroa.0.0.vec.insert19 = insertelement <2 x float> <float poison, float undef>, float %23, i64 0
+  %24 = load float, ptr %5, align 4
+  %25 = fadd float %24, 1.000000e+00
   br label %parseFactor.exit
 
-parseFactor.exit:                                 ; preds = %19, %21
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.vec.insert22, %21 ], [ %.sroa.0.0.vec.insert20, %19 ]
-  %.sink39.i = phi float [ %24, %21 ], [ %20, %19 ]
-  %.sroa.0.4.vec.insert29 = insertelement <2 x float> %.sroa.0.0, float %.sink39.i, i64 1
+parseFactor.exit:                                 ; preds = %20, %22
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.vec.insert21, %20 ], [ %.sroa.0.0.vec.insert19, %22 ]
+  %.sink38.i = phi float [ %21, %20 ], [ %25, %22 ]
+  %.sroa.0.4.vec.insert28 = insertelement <2 x float> %.sroa.0.0, float %.sink38.i, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %48
+  br label %50
 
-25:                                               ; preds = %parseFactor.exit.thread, %1
-  %26 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.7) #18
-  %.not6 = icmp eq ptr %26, null
-  br i1 %.not6, label %48, label %27
+26:                                               ; preds = %parseFactor.exit.thread, %1
+  %27 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.7) #18
+  %.not6 = icmp eq ptr %27, null
+  br i1 %.not6, label %50, label %28
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %30, %27
-  %.029.i9 = phi ptr [ %26, %27 ], [ %31, %30 ]
-  %29 = load i8, ptr %.029.i9, align 1
-  switch i8 %29, label %.loopexit [
-    i8 9, label %30
-    i8 10, label %30
-    i8 11, label %30
-    i8 12, label %30
-    i8 13, label %30
-    i8 32, label %30
-    i8 43, label %32
+29:                                               ; preds = %31, %28
+  %.029.i9 = phi ptr [ %27, %28 ], [ %32, %31 ]
+  %30 = load i8, ptr %.029.i9, align 1
+  switch i8 %30, label %.loopexit [
+    i8 9, label %31
+    i8 10, label %31
+    i8 11, label %31
+    i8 12, label %31
+    i8 13, label %31
+    i8 32, label %31
+    i8 43, label %33
   ]
 
-30:                                               ; preds = %28, %28, %28, %28, %28, %28
-  %31 = getelementptr inbounds i8, ptr %.029.i9, i64 1
-  br label %28
+31:                                               ; preds = %29, %29, %29, %29, %29, %29
+  %32 = getelementptr inbounds i8, ptr %.029.i9, i64 1
+  br label %29
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.029.i9, i64 1
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %.029.i9, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %32
-  %.not33.i12 = phi i1 [ false, %32 ], [ true, %28 ]
-  %.sink.i10 = phi i8 [ 1, %32 ], [ 0, %28 ]
-  %.1.i11 = phi ptr [ %33, %32 ], [ %.029.i9, %28 ]
-  %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i11, ptr noundef nonnull @.str.52, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
-  switch i32 %34, label %37 [
-    i32 0, label %parseFactor.exit16.thread
-    i32 1, label %35
+.loopexit:                                        ; preds = %29, %33
+  %.sink.i10 = phi i8 [ 1, %33 ], [ 0, %29 ]
+  %.1.i11 = phi ptr [ %34, %33 ], [ %.029.i9, %29 ]
+  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i11, ptr noundef nonnull @.str.52, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
+  switch i32 %35, label %38 [
+    i32 0, label %parseFactor.exit15.thread
+    i32 1, label %36
   ]
 
-parseFactor.exit16.thread:                        ; preds = %.loopexit
+parseFactor.exit15.thread:                        ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %48
+  br label %50
 
-35:                                               ; preds = %.loopexit
-  %36 = load float, ptr %2, align 4
-  store float %36, ptr %3, align 4
-  br label %37
+36:                                               ; preds = %.loopexit
+  %37 = load float, ptr %2, align 4
+  store float %37, ptr %3, align 4
+  br label %38
 
-37:                                               ; preds = %35, %.loopexit
-  %38 = load float, ptr %2, align 4
-  %39 = fdiv float %38, 1.250000e+00
-  %40 = load float, ptr %3, align 4
+38:                                               ; preds = %36, %.loopexit
+  %39 = trunc i8 %.sink.i10 to i1
+  %40 = load float, ptr %2, align 4
   %41 = fdiv float %40, 1.250000e+00
-  br i1 %.not33.i12, label %45, label %42
+  %42 = load float, ptr %3, align 4
+  %43 = fdiv float %42, 1.250000e+00
+  br i1 %39, label %44, label %47
 
-42:                                               ; preds = %37
-  %43 = call float @llvm.minnum.f32(float %39, float 0x40099999A0000000)
-  %.sroa.0.0.vec.insert24 = insertelement <2 x float> <float poison, float undef>, float %43, i64 0
-  %44 = call float @llvm.minnum.f32(float %41, float 0x40099999A0000000)
-  br label %parseFactor.exit16
+44:                                               ; preds = %38
+  %45 = call float @llvm.minnum.f32(float %41, float 0x40099999A0000000)
+  %.sroa.0.0.vec.insert25 = insertelement <2 x float> <float poison, float undef>, float %45, i64 0
+  %46 = call float @llvm.minnum.f32(float %43, float 0x40099999A0000000)
+  br label %parseFactor.exit15
 
-45:                                               ; preds = %37
-  %46 = fadd float %39, 1.000000e+00
-  %.sroa.0.0.vec.insert26 = insertelement <2 x float> <float poison, float undef>, float %46, i64 0
-  %47 = fadd float %41, 1.000000e+00
-  br label %parseFactor.exit16
+47:                                               ; preds = %38
+  %48 = fadd float %41, 1.000000e+00
+  %.sroa.0.0.vec.insert23 = insertelement <2 x float> <float poison, float undef>, float %48, i64 0
+  %49 = fadd float %43, 1.000000e+00
+  br label %parseFactor.exit15
 
-parseFactor.exit16:                               ; preds = %42, %45
-  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert26, %45 ], [ %.sroa.0.0.vec.insert24, %42 ]
-  %.sink39.i14 = phi float [ %47, %45 ], [ %44, %42 ]
-  %.sroa.0.4.vec.insert31 = insertelement <2 x float> %.sroa.0.3, float %.sink39.i14, i64 1
+parseFactor.exit15:                               ; preds = %44, %47
+  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert25, %44 ], [ %.sroa.0.0.vec.insert23, %47 ]
+  %.sink38.i13 = phi float [ %46, %44 ], [ %49, %47 ]
+  %.sroa.0.4.vec.insert30 = insertelement <2 x float> %.sroa.0.3, float %.sink38.i13, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %48
+  br label %50
 
-48:                                               ; preds = %25, %parseFactor.exit16.thread, %parseFactor.exit16, %parseFactor.exit
-  %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit16 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit16.thread ], [ 1, %25 ]
-  %.sroa.0.6 = phi <2 x float> [ %.sroa.0.4.vec.insert31, %parseFactor.exit16 ], [ %.sroa.0.4.vec.insert29, %parseFactor.exit ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %parseFactor.exit16.thread ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %25 ]
-  %49 = load i8, ptr @Verbose, align 1
-  %.not8 = icmp eq i8 %49, 0
-  br i1 %.not8, label %56, label %50
+50:                                               ; preds = %26, %parseFactor.exit15.thread, %parseFactor.exit15, %parseFactor.exit
+  %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit15.thread ], [ 1, %26 ]
+  %.sroa.0.6 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %parseFactor.exit15.thread ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %26 ]
+  %51 = load i8, ptr @Verbose, align 1
+  %.not8 = icmp eq i8 %51, 0
+  br i1 %.not8, label %58, label %52
 
-50:                                               ; preds = %48
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = zext nneg i8 %.sroa.11.0 to i32
+52:                                               ; preds = %50
+  %53 = load ptr, ptr @stderr, align 8
+  %54 = zext nneg i8 %.sroa.11.0 to i32
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 0
-  %53 = fpext float %.sroa.0.0.vec.extract to double
+  %55 = fpext float %.sroa.0.0.vec.extract to double
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 1
-  %54 = fpext float %.sroa.0.4.vec.extract to double
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.10, i32 noundef %52, double noundef %53, double noundef %54) #21
-  br label %56
+  %56 = fpext float %.sroa.0.4.vec.extract to double
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.10, i32 noundef %54, double noundef %55, double noundef %56) #21
+  br label %58
 
-56:                                               ; preds = %50, %48
+58:                                               ; preds = %52, %50
   %.fca.0.insert = insertvalue { <2 x float>, i8 } poison, <2 x float> %.sroa.0.6, 0
   %.fca.1.insert = insertvalue { <2 x float>, i8 } %.fca.0.insert, i8 %.sroa.11.0, 1
   ret { <2 x float>, i8 } %.fca.1.insert

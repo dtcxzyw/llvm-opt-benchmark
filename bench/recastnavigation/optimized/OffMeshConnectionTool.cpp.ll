@@ -114,15 +114,14 @@ define dso_local void @_ZN21OffMeshConnectionTool5resetEv(ptr nocapture noundef 
 define dso_local void @_ZN21OffMeshConnectionTool10handleMenuEv(ptr nocapture noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 29
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  %5 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str, i1 noundef zeroext %.not, i1 noundef zeroext true)
-  br i1 %5, label %8, label %._crit_edge
+  %4 = trunc i8 %3 to i1
+  %5 = xor i1 %4, true
+  %6 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str, i1 noundef zeroext %5, i1 noundef zeroext true)
+  br i1 %6, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.pre = load i8, ptr %2, align 1
-  %6 = and i8 %.pre, 1
-  %7 = icmp ne i8 %6, 0
+  %7 = trunc i8 %.pre to i1
   br label %9
 
 8:                                                ; preds = %1
@@ -182,8 +181,8 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.033 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %24 ]
-  %.02132 = phi i32 [ -1, %.lr.ph ], [ %.122, %24 ]
+  %.031 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %24 ]
+  %.02130 = phi i32 [ -1, %.lr.ph ], [ %.122, %24 ]
   %25 = mul nuw nsw i64 %indvars.iv, 3
   %26 = getelementptr inbounds float, ptr %14, i64 %25
   %27 = load float, ptr %26, align 4
@@ -197,18 +196,18 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   %35 = fmul float %31, %31
   %36 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %35)
   %37 = tail call noundef float @llvm.fmuladd.f32(float %34, float %34, float %36)
-  %38 = fcmp olt float %37, %.033
+  %38 = fcmp olt float %37, %.031
   %39 = trunc i64 %indvars.iv to i32
   %40 = lshr i32 %39, 1
-  %.122 = select i1 %38, i32 %40, i32 %.02132
-  %.1 = select i1 %38, float %37, float %.033
+  %.122 = select i1 %38, i32 %40, i32 %.02130
+  %.1 = select i1 %38, float %37, float %.031
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %24
-  %.not30 = icmp eq i32 %.122, -1
-  br i1 %.not30, label %._crit_edge.thread, label %41
+  %.not28 = icmp eq i32 %.122, -1
+  br i1 %.not28, label %._crit_edge.thread, label %41
 
 41:                                               ; preds = %._crit_edge
   %42 = tail call float @sqrtf(float noundef %.1) #11
@@ -227,10 +226,9 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
 50:                                               ; preds = %12
   %51 = getelementptr inbounds i8, ptr %0, i64 28
   %52 = load i8, ptr %51, align 4
-  %53 = and i8 %52, 1
-  %.not28 = icmp eq i8 %53, 0
+  %53 = trunc i8 %52 to i1
   %54 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not28, label %55, label %63
+  br i1 %53, label %63, label %55
 
 55:                                               ; preds = %50
   %56 = load float, ptr %2, align 4
@@ -296,9 +294,8 @@ define dso_local void @_ZN21OffMeshConnectionTool12handleRenderEv(ptr nocapture 
   %8 = tail call noundef float %7(ptr noundef nonnull align 8 dereferenceable(200) %3)
   %9 = getelementptr inbounds i8, ptr %0, i64 28
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %20, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 16
@@ -317,8 +314,8 @@ define dso_local void @_ZN21OffMeshConnectionTool12handleRenderEv(ptr nocapture 
   %23 = getelementptr inbounds i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(200) %21)
-  %.not6 = icmp eq ptr %25, null
-  br i1 %.not6, label %27, label %26
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %27, label %26
 
 26:                                               ; preds = %20
   tail call void @_ZN9InputGeom22drawOffMeshConnectionsEP11duDebugDrawb(ptr noundef nonnull align 8 dereferenceable(50312) %25, ptr noundef nonnull %4, i1 noundef zeroext true)
@@ -339,9 +336,8 @@ define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(p
   %7 = alloca double, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %28, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %28
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -354,8 +350,8 @@ define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(p
   %19 = load float, ptr %18, align 8
   %20 = fpext float %19 to double
   %21 = call i32 @gluProject(double noundef %14, double noundef %17, double noundef %20, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.not6 = icmp eq i32 %21, 0
-  br i1 %.not6, label %28, label %22
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %11
   %23 = load double, ptr %5, align 8
@@ -370,11 +366,10 @@ define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(p
   %29 = getelementptr inbounds i8, ptr %3, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = load i8, ptr %8, align 4
-  %32 = and i8 %31, 1
-  %.not7 = icmp eq i8 %32, 0
+  %32 = trunc i8 %31 to i1
   %33 = add nsw i32 %30, -40
-  %.str.3..str.4 = select i1 %.not7, ptr @.str.3, ptr @.str.4
-  call void @_Z13imguiDrawTextiiiPKcj(i32 noundef 280, i32 noundef %33, i32 noundef 0, ptr noundef nonnull %.str.3..str.4, i32 noundef -1056964609)
+  %.str.4..str.3 = select i1 %32, ptr @.str.4, ptr @.str.3
+  call void @_Z13imguiDrawTextiiiPKcj(i32 noundef 280, i32 noundef %33, i32 noundef 0, ptr noundef nonnull %.str.4..str.3, i32 noundef -1056964609)
   ret void
 }
 

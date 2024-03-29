@@ -37,9 +37,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @format_type(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 28
@@ -52,9 +51,8 @@ define dso_local i64 @format_type(ptr nocapture noundef %0) local_unnamed_addr #
   %10 = trunc i64 %9 to i32
   %11 = getelementptr i8, ptr %0, i64 56
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not14 = icmp eq i8 %13, 0
-  br i1 %.not14, label %.split, label %.split13
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %.split13, label %.split
 
 .split13:                                         ; preds = %7
   %14 = tail call ptr @format_type_extended(i32 noundef %10, i32 noundef -1, i16 noundef zeroext 2)

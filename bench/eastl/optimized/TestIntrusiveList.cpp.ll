@@ -1574,7 +1574,7 @@ declare i32 @__gxx_personality_v0(...)
 define internal noundef zeroext i1 @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr nocapture noundef %first, ptr nocapture noundef readonly %last, i32 %0, ptr noundef %pName, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %last.val20 = load ptr, ptr %last, align 8
   %first.val21 = load ptr, ptr %first, align 8
   %cmp.i.not22 = icmp eq ptr %first.val21, %last.val20
@@ -1630,7 +1630,7 @@ for.inc.us:                                       ; preds = %if.then.us, %lor.rh
   %bReturnValue.1.us = phi i8 [ %bReturnValue.025.us, %lor.rhs.us ], [ 0, %if.then.us ]
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %first, align 8
-  %inc9.us = add nuw i32 %seqIndex.024.us, 1
+  %inc9.us = add nuw nsw i32 %seqIndex.024.us, 1
   %last.val.us = load ptr, ptr %last, align 8
   %cmp.i.not.us = icmp eq ptr %8, %last.val.us
   br i1 %cmp.i.not.us, label %for.end17, label %for.body.us, !llvm.loop !251
@@ -1679,7 +1679,7 @@ for.inc:                                          ; preds = %if.then, %lor.rhs
   %bReturnValue.1 = phi i8 [ %bReturnValue.025, %lor.rhs ], [ 0, %if.then ]
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %first, align 8
-  %inc9 = add nuw i32 %seqIndex.024, 1
+  %inc9 = add nuw nsw i32 %seqIndex.024, 1
   %last.val = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %15, %last.val
   br i1 %cmp.i.not, label %for.end17, label %for.body, !llvm.loop !251
@@ -1687,9 +1687,8 @@ for.inc:                                          ; preds = %if.then, %lor.rhs
 for.end17:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc9.us, %for.inc.us ], [ %inc9, %for.inc ]
   %bReturnValue.0.lcssa = phi i8 [ %bReturnValue.1.us, %for.inc.us ], [ %bReturnValue.1, %for.inc ]
-  %16 = and i8 %bReturnValue.0.lcssa, 1
-  %tobool18.not = icmp eq i8 %16, 0
-  br i1 %tobool18.not, label %if.end54, label %if.then19
+  %tobool18 = trunc i8 %bReturnValue.0.lcssa to i1
+  br i1 %tobool18, label %if.then19, label %if.end54
 
 if.then19:                                        ; preds = %entry, %for.end17
   %bReturnValue.0.lcssa50 = phi i8 [ %bReturnValue.0.lcssa, %for.end17 ], [ 1, %entry ]
@@ -1699,12 +1698,12 @@ if.then19:                                        ; preds = %entry, %for.end17
   br i1 %fits_in_gp23, label %vaarg.in_reg24, label %vaarg.in_mem26
 
 vaarg.in_reg24:                                   ; preds = %if.then19
-  %17 = getelementptr inbounds i8, ptr %args, i64 16
-  %reg_save_area25 = load ptr, ptr %17, align 16
-  %18 = zext nneg i32 %gp_offset22 to i64
-  %19 = getelementptr i8, ptr %reg_save_area25, i64 %18
-  %20 = add nuw nsw i32 %gp_offset22, 8
-  store i32 %20, ptr %args, align 16
+  %16 = getelementptr inbounds i8, ptr %args, i64 16
+  %reg_save_area25 = load ptr, ptr %16, align 16
+  %17 = zext nneg i32 %gp_offset22 to i64
+  %18 = getelementptr i8, ptr %reg_save_area25, i64 %17
+  %19 = add nuw nsw i32 %gp_offset22, 8
+  store i32 %19, ptr %args, align 16
   br label %vaarg.end30
 
 vaarg.in_mem26:                                   ; preds = %if.then19
@@ -1715,16 +1714,16 @@ vaarg.in_mem26:                                   ; preds = %if.then19
   br label %vaarg.end30
 
 vaarg.end30:                                      ; preds = %vaarg.in_mem26, %vaarg.in_reg24
-  %args.promoted = phi i32 [ %20, %vaarg.in_reg24 ], [ %gp_offset22, %vaarg.in_mem26 ]
-  %vaarg.addr31 = phi ptr [ %19, %vaarg.in_reg24 ], [ %overflow_arg_area28, %vaarg.in_mem26 ]
-  %21 = load i32, ptr %vaarg.addr31, align 4
-  %cmp32 = icmp eq i32 %21, -1
+  %args.promoted = phi i32 [ %19, %vaarg.in_reg24 ], [ %gp_offset22, %vaarg.in_mem26 ]
+  %vaarg.addr31 = phi ptr [ %18, %vaarg.in_reg24 ], [ %overflow_arg_area28, %vaarg.in_mem26 ]
+  %20 = load i32, ptr %vaarg.addr31, align 4
+  %cmp32 = icmp eq i32 %20, -1
   br i1 %cmp32, label %if.end54, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end30
   %overflow_arg_area_p42 = getelementptr inbounds i8, ptr %args, i64 8
-  %22 = getelementptr inbounds i8, ptr %args, i64 16
-  %reg_save_area40 = load ptr, ptr %22, align 16
+  %21 = getelementptr inbounds i8, ptr %args, i64 16
+  %reg_save_area40 = load ptr, ptr %21, align 16
   %overflow_arg_area_p42.promoted = load ptr, ptr %overflow_arg_area_p42, align 8
   br label %do.body
 
@@ -1737,10 +1736,10 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %fits_in_gp38, label %vaarg.in_reg39, label %vaarg.in_mem41
 
 vaarg.in_reg39:                                   ; preds = %do.body
-  %23 = zext nneg i32 %gp_offset3738 to i64
-  %24 = getelementptr i8, ptr %reg_save_area40, i64 %23
-  %25 = add nuw nsw i32 %gp_offset3738, 8
-  store i32 %25, ptr %args, align 16
+  %22 = zext nneg i32 %gp_offset3738 to i64
+  %23 = getelementptr i8, ptr %reg_save_area40, i64 %22
+  %24 = add nuw nsw i32 %gp_offset3738, 8
+  store i32 %24, ptr %args, align 16
   br label %vaarg.end45
 
 vaarg.in_mem41:                                   ; preds = %do.body
@@ -1750,10 +1749,10 @@ vaarg.in_mem41:                                   ; preds = %do.body
 
 vaarg.end45:                                      ; preds = %vaarg.in_mem41, %vaarg.in_reg39
   %overflow_arg_area4339 = phi ptr [ %overflow_arg_area4340, %vaarg.in_reg39 ], [ %overflow_arg_area.next44, %vaarg.in_mem41 ]
-  %gp_offset3737 = phi i32 [ %25, %vaarg.in_reg39 ], [ %gp_offset3738, %vaarg.in_mem41 ]
-  %vaarg.addr46 = phi ptr [ %24, %vaarg.in_reg39 ], [ %overflow_arg_area4340, %vaarg.in_mem41 ]
-  %26 = load i32, ptr %vaarg.addr46, align 4
-  %cmp47.not = icmp eq i32 %26, -1
+  %gp_offset3737 = phi i32 [ %24, %vaarg.in_reg39 ], [ %gp_offset3738, %vaarg.in_mem41 ]
+  %vaarg.addr46 = phi ptr [ %23, %vaarg.in_reg39 ], [ %overflow_arg_area4340, %vaarg.in_mem41 ]
+  %25 = load i32, ptr %vaarg.addr46, align 4
+  %cmp47.not = icmp eq i32 %25, -1
   br i1 %cmp47.not, label %do.end, label %do.body, !llvm.loop !252
 
 do.end:                                           ; preds = %vaarg.end45
@@ -1770,9 +1769,8 @@ if.else51:                                        ; preds = %do.end
 
 if.end54:                                         ; preds = %if.then50, %if.else51, %vaarg.end30, %for.end17
   %bReturnValue.2 = phi i8 [ %bReturnValue.0.lcssa50, %vaarg.end30 ], [ %bReturnValue.0.lcssa, %for.end17 ], [ 0, %if.else51 ], [ 0, %if.then50 ]
-  call void @llvm.va_end(ptr nonnull %args)
-  %27 = and i8 %bReturnValue.2, 1
-  %tobool56 = icmp ne i8 %27, 0
+  call void @llvm.va_end.p0(ptr nonnull %args)
+  %tobool56 = trunc i8 %bReturnValue.2 to i1
   ret i1 %tobool56
 }
 
@@ -2164,13 +2162,13 @@ if.end:                                           ; preds = %_ZN5eastl14intrusiv
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare void @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6

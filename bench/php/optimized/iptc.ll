@@ -61,7 +61,7 @@ define hidden void @zif_iptcembed(ptr noundef %0, ptr nocapture noundef writeonl
 
 21:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #10
-  br label %.thread417
+  br label %.thread416
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %0, i64 80
@@ -77,7 +77,7 @@ define hidden void @zif_iptcembed(ptr noundef %0, ptr nocapture noundef writeonl
 
 28:                                               ; preds = %22
   %29 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %23, ptr noundef nonnull %14, i32 noundef 1) #10
-  br i1 %29, label %._crit_edge, label %.thread417
+  br i1 %29, label %._crit_edge, label %.thread416
 
 ._crit_edge:                                      ; preds = %28
   %.pre = load ptr, ptr %14, align 8
@@ -101,7 +101,7 @@ define hidden void @zif_iptcembed(ptr noundef %0, ptr nocapture noundef writeonl
 
 40:                                               ; preds = %30
   %41 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %35, ptr noundef nonnull %13, i32 noundef 2) #10
-  br i1 %41, label %thread-pre-split, label %.thread417
+  br i1 %41, label %thread-pre-split, label %.thread416
 
 thread-pre-split:                                 ; preds = %40
   %.pr = load ptr, ptr %13, align 8
@@ -118,48 +118,48 @@ thread-pre-split:                                 ; preds = %40
   %47 = load i64, ptr %46, align 8
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #11
   %.not352 = icmp eq i64 %47, %48
-  br i1 %.not352, label %49, label %.thread417
+  br i1 %.not352, label %49, label %.thread416
 
 49:                                               ; preds = %42, %44
   %50 = getelementptr inbounds i8, ptr %43, i64 24
   %51 = icmp eq i32 %19, 2
-  br i1 %51, label %.thread432, label %52
+  br i1 %51, label %.thread431, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %0, i64 112
   %54 = getelementptr inbounds i8, ptr %0, i64 120
   %55 = load i8, ptr %54, align 8
   %56 = icmp eq i8 %55, 4
-  br i1 %56, label %.thread411, label %58
+  br i1 %56, label %.thread410, label %58
 
-.thread411:                                       ; preds = %52
+.thread410:                                       ; preds = %52
   %57 = load i64, ptr %53, align 8
   store i64 %57, ptr %15, align 8
-  br label %.thread432
+  br label %.thread431
 
 58:                                               ; preds = %52
   %59 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %53, ptr noundef nonnull %15, i32 noundef 3) #10
-  br i1 %59, label %.thread432, label %.thread417
+  br i1 %59, label %.thread431, label %.thread416
 
-.thread417:                                       ; preds = %58, %40, %44, %28, %21
-  %.0304429 = phi i32 [ 9, %40 ], [ 9, %44 ], [ 9, %28 ], [ 1, %21 ], [ 9, %58 ]
-  %.0306428 = phi i32 [ 16, %40 ], [ 16, %44 ], [ 4, %28 ], [ 0, %21 ], [ 0, %58 ]
-  %.0307427 = phi ptr [ %35, %40 ], [ %35, %44 ], [ %23, %28 ], [ null, %21 ], [ %53, %58 ]
-  %.0308426 = phi i32 [ 2, %40 ], [ 2, %44 ], [ 1, %28 ], [ 0, %21 ], [ 3, %58 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0304429, i32 noundef %.0308426, ptr noundef null, i32 noundef %.0306428, ptr noundef %.0307427) #10
-  br label %329
+.thread416:                                       ; preds = %58, %40, %44, %28, %21
+  %.0304428 = phi i32 [ 9, %40 ], [ 9, %44 ], [ 9, %28 ], [ 1, %21 ], [ 9, %58 ]
+  %.0306427 = phi i32 [ 16, %40 ], [ 16, %44 ], [ 4, %28 ], [ 0, %21 ], [ 0, %58 ]
+  %.0307426 = phi ptr [ %35, %40 ], [ %35, %44 ], [ %23, %28 ], [ null, %21 ], [ %53, %58 ]
+  %.0308425 = phi i32 [ 2, %40 ], [ 2, %44 ], [ 1, %28 ], [ 0, %21 ], [ 3, %58 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0304428, i32 noundef %.0308425, ptr noundef null, i32 noundef %.0306427, ptr noundef %.0307426) #10
+  br label %328
 
-.thread432:                                       ; preds = %58, %.thread411, %49
+.thread431:                                       ; preds = %58, %.thread410, %49
   %60 = call i32 @php_check_open_basedir(ptr noundef nonnull %50) #10
   %.not354 = icmp eq i32 %60, 0
   br i1 %.not354, label %63, label %61
 
-61:                                               ; preds = %.thread432
+61:                                               ; preds = %.thread431
   %62 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %62, align 8
-  br label %329
+  br label %328
 
-63:                                               ; preds = %.thread432
+63:                                               ; preds = %.thread431
   %64 = icmp ugt i64 %33, -1056
   br i1 %64, label %65, label %68
 
@@ -168,7 +168,7 @@ thread-pre-split:                                 ; preds = %40
   %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
-  br label %329
+  br label %328
 
 68:                                               ; preds = %63
   %69 = call noalias ptr @fopen(ptr noundef nonnull %50, ptr noundef nonnull @.str.1)
@@ -179,12 +179,12 @@ thread-pre-split:                                 ; preds = %40
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %50) #10
   %72 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %72, align 8
-  br label %329
+  br label %328
 
 73:                                               ; preds = %68
   %74 = load i64, ptr %15, align 8
   %75 = icmp slt i64 %74, 2
-  br i1 %75, label %76, label %thread-pre-split444
+  br i1 %75, label %76, label %thread-pre-split443
 
 76:                                               ; preds = %73
   %77 = call i32 @fileno(ptr noundef nonnull %69) #10
@@ -195,7 +195,7 @@ thread-pre-split:                                 ; preds = %40
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %80, align 8
-  br label %329
+  br label %328
 
 81:                                               ; preds = %76
   %82 = add nuw i64 %33, 1054
@@ -215,17 +215,17 @@ thread-pre-split:                                 ; preds = %40
   %92 = getelementptr inbounds i8, ptr %87, i64 24
   store ptr %92, ptr %16, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %92, i8 0, i64 %90, i1 false)
-  %.pre497 = load i64, ptr %15, align 8
+  %.pre496 = load i64, ptr %15, align 8
   br label %93
 
-thread-pre-split444:                              ; preds = %73
-  %.pr445 = load ptr, ptr %16, align 8
+thread-pre-split443:                              ; preds = %73
+  %.pr444 = load ptr, ptr %16, align 8
   br label %93
 
-93:                                               ; preds = %thread-pre-split444, %81
-  %94 = phi i64 [ %74, %thread-pre-split444 ], [ %.pre497, %81 ]
-  %95 = phi ptr [ %.pr445, %thread-pre-split444 ], [ %92, %81 ]
-  %.0314 = phi ptr [ null, %thread-pre-split444 ], [ %87, %81 ]
+93:                                               ; preds = %thread-pre-split443, %81
+  %94 = phi i64 [ %74, %thread-pre-split443 ], [ %.pre496, %81 ]
+  %95 = phi ptr [ %.pr444, %thread-pre-split443 ], [ %92, %81 ]
+  %.0314 = phi ptr [ null, %thread-pre-split443 ], [ %87, %81 ]
   %.not356 = icmp eq ptr %95, null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   %96 = call i32 @getc(ptr noundef nonnull %69)
@@ -265,8 +265,8 @@ php_iptc_get1.exit:                               ; preds = %104, %105
 
 109:                                              ; preds = %php_iptc_get1.exit.thread, %php_iptc_get1.exit
   %110 = call i32 @fclose(ptr noundef nonnull %69)
-  %.not377 = icmp eq ptr %.0314, null
-  br i1 %.not377, label %112, label %111
+  %.not376 = icmp eq ptr %.0314, null
+  br i1 %.not376, label %112, label %111
 
 111:                                              ; preds = %109
   call void @_efree(ptr noundef nonnull %.0314) #10
@@ -275,7 +275,7 @@ php_iptc_get1.exit:                               ; preds = %104, %105
 112:                                              ; preds = %111, %109
   %113 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %113, align 8
-  br label %329
+  br label %328
 
 114:                                              ; preds = %php_iptc_get1.exit
   %115 = load i64, ptr %15, align 8
@@ -284,9 +284,9 @@ php_iptc_get1.exit:                               ; preds = %104, %105
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %117 = call i32 @getc(ptr noundef nonnull %69)
   %118 = icmp eq i32 %117, -1
-  br i1 %118, label %php_iptc_get1.exit380.thread, label %119
+  br i1 %118, label %php_iptc_get1.exit379.thread, label %119
 
-php_iptc_get1.exit380.thread:                     ; preds = %114
+php_iptc_get1.exit379.thread:                     ; preds = %114
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %134
 
@@ -302,7 +302,7 @@ php_iptc_get1.exit380.thread:                     ; preds = %114
   br label %125
 
 125:                                              ; preds = %122, %119
-  br i1 %.not358, label %php_iptc_get1.exit380, label %126
+  br i1 %.not358, label %php_iptc_get1.exit379, label %126
 
 126:                                              ; preds = %125
   %127 = trunc i32 %117 to i8
@@ -310,30 +310,30 @@ php_iptc_get1.exit380.thread:                     ; preds = %114
   %129 = getelementptr inbounds i8, ptr %128, i64 1
   store ptr %129, ptr %16, align 8
   store i8 %127, ptr %128, align 1
-  br label %php_iptc_get1.exit380
+  br label %php_iptc_get1.exit379
 
-php_iptc_get1.exit380:                            ; preds = %125, %126
+php_iptc_get1.exit379:                            ; preds = %125, %126
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %.not359 = icmp eq i32 %117, 216
   br i1 %.not359, label %.preheader.preheader, label %134
 
-.preheader.preheader:                             ; preds = %php_iptc_get1.exit380
+.preheader.preheader:                             ; preds = %php_iptc_get1.exit379
   %130 = load i64, ptr %15, align 8
   %131 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %132 = call i32 @getc(ptr noundef %69)
   %133 = icmp eq i32 %132, -1
-  br i1 %133, label %php_iptc_get1.exit.thread.i, label %.lr.ph550
+  br i1 %133, label %php_iptc_get1.exit.thread.i, label %.lr.ph549
 
-.lr.ph550:                                        ; preds = %.preheader.preheader
-  %.not361544 = icmp eq ptr %131, null
-  %.2545 = select i1 %.not361544, ptr null, ptr %16
+.lr.ph549:                                        ; preds = %.preheader.preheader
+  %.not361543 = icmp eq ptr %131, null
+  %.2544 = select i1 %.not361543, ptr null, ptr %16
   br label %139
 
-134:                                              ; preds = %php_iptc_get1.exit380.thread, %php_iptc_get1.exit380
+134:                                              ; preds = %php_iptc_get1.exit379.thread, %php_iptc_get1.exit379
   %135 = call i32 @fclose(ptr noundef nonnull %69)
-  %.not376 = icmp eq ptr %.0314, null
-  br i1 %.not376, label %137, label %136
+  %.not375 = icmp eq ptr %.0314, null
+  br i1 %.not375, label %137, label %136
 
 136:                                              ; preds = %134
   call void @_efree(ptr noundef nonnull %.0314) #10
@@ -342,19 +342,19 @@ php_iptc_get1.exit380:                            ; preds = %125, %126
 137:                                              ; preds = %136, %134
   %138 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %138, align 8
-  br label %329
+  br label %328
 
 php_iptc_get1.exit.thread.i:                      ; preds = %.loopexit, %.preheader.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   br label %php_iptc_next_marker.exit.thread
 
-139:                                              ; preds = %.lr.ph550, %.loopexit
-  %140 = phi i32 [ %132, %.lr.ph550 ], [ %281, %.loopexit ]
-  %.2549 = phi ptr [ %.2545, %.lr.ph550 ], [ %.2, %.loopexit ]
-  %.not361548 = phi i1 [ %.not361544, %.lr.ph550 ], [ %.not361, %.loopexit ]
-  %141 = phi i64 [ %130, %.lr.ph550 ], [ %279, %.loopexit ]
-  %.3341472547 = phi i64 [ %33, %.lr.ph550 ], [ %.5343, %.loopexit ]
-  %.0312474546 = phi i8 [ 0, %.lr.ph550 ], [ %.1313, %.loopexit ]
+139:                                              ; preds = %.lr.ph549, %.loopexit
+  %140 = phi i32 [ %132, %.lr.ph549 ], [ %280, %.loopexit ]
+  %.2548 = phi ptr [ %.2544, %.lr.ph549 ], [ %.2, %.loopexit ]
+  %.not361547 = phi i1 [ %.not361543, %.lr.ph549 ], [ %.not361, %.loopexit ]
+  %141 = phi i64 [ %130, %.lr.ph549 ], [ %278, %.loopexit ]
+  %.3341471546 = phi i64 [ %33, %.lr.ph549 ], [ %.5343, %.loopexit ]
+  %.0312473545 = phi i1 [ false, %.lr.ph549 ], [ %.1313, %.loopexit ]
   %142 = trunc i64 %141 to i32
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %144, label %147
@@ -366,7 +366,7 @@ php_iptc_get1.exit.thread.i:                      ; preds = %.loopexit, %.prehea
   br label %147
 
 147:                                              ; preds = %144, %139
-  br i1 %.not361548, label %php_iptc_get1.exit.i, label %148
+  br i1 %.not361547, label %php_iptc_get1.exit.i, label %148
 
 148:                                              ; preds = %147
   %149 = trunc i32 %140 to i8
@@ -385,7 +385,7 @@ php_iptc_get1.exit.i:                             ; preds = %148, %147
   br i1 %143, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  br i1 %.not361548, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
+  br i1 %.not361547, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %php_iptc_get1.exit22.us.us.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
@@ -411,16 +411,16 @@ php_iptc_get1.exit22.us.i:                        ; preds = %.lr.ph.split.us.spl
   %158 = trunc i32 %156 to i8
   store i8 %158, ptr %9, align 1
   %159 = call i64 @php_output_write(ptr noundef nonnull %9, i64 noundef 1) #10
-  %160 = load ptr, ptr %.2549, align 8
+  %160 = load ptr, ptr %.2548, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 1
-  store ptr %161, ptr %.2549, align 8
+  store ptr %161, ptr %.2548, align 8
   store i8 %158, ptr %160, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %.not.us.i = icmp eq i32 %156, 255
   br i1 %.not.us.i, label %php_iptc_get1.exit23.preheader.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  br i1 %.not361548, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
+  br i1 %.not361547, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %php_iptc_get1.exit22.us27.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
@@ -437,7 +437,7 @@ php_iptc_get1.exit23.preheader.i:                 ; preds = %php_iptc_get1.exit2
   br i1 %143, label %php_iptc_get1.exit23.preheader.split.us.i, label %php_iptc_get1.exit23.preheader.split.i
 
 php_iptc_get1.exit23.preheader.split.us.i:        ; preds = %php_iptc_get1.exit23.preheader.i
-  br i1 %.not361548, label %php_iptc_get1.exit23.us.us.i, label %php_iptc_get1.exit23.us.i
+  br i1 %.not361547, label %php_iptc_get1.exit23.us.us.i, label %php_iptc_get1.exit23.us.i
 
 php_iptc_get1.exit23.us.us.i:                     ; preds = %php_iptc_get1.exit23.preheader.split.us.i, %php_iptc_put1.exit.us.us.i
   %164 = call i32 @getc(ptr noundef %69)
@@ -465,15 +465,15 @@ php_iptc_put1.exit.us.i:                          ; preds = %php_iptc_get1.exit2
   store i8 -1, ptr %8, align 1
   %167 = call i64 @php_output_write(ptr noundef nonnull %8, i64 noundef 1) #10
   %.pre.pre.i.us.i = load i8, ptr %8, align 1
-  %168 = load ptr, ptr %.2549, align 8
+  %168 = load ptr, ptr %.2548, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 1
-  store ptr %169, ptr %.2549, align 8
+  store ptr %169, ptr %.2548, align 8
   store i8 %.pre.pre.i.us.i, ptr %168, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %php_iptc_get1.exit23.us.i
 
 php_iptc_get1.exit23.preheader.split.i:           ; preds = %php_iptc_get1.exit23.preheader.i
-  br i1 %.not361548, label %php_iptc_get1.exit23.us29.i, label %php_iptc_get1.exit23.i
+  br i1 %.not361547, label %php_iptc_get1.exit23.us29.i, label %php_iptc_get1.exit23.i
 
 php_iptc_get1.exit23.us29.i:                      ; preds = %php_iptc_get1.exit23.preheader.split.i, %php_iptc_get1.exit23.us29.i
   %170 = call i32 @getc(ptr noundef %69)
@@ -494,9 +494,9 @@ php_iptc_get1.exit22.thread.i:                    ; preds = %.lr.ph.split.split.
 
 php_iptc_get1.exit22.i:                           ; preds = %.lr.ph.split.split.i
   %173 = trunc i32 %171 to i8
-  %174 = load ptr, ptr %.2549, align 8
+  %174 = load ptr, ptr %.2548, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 1
-  store ptr %175, ptr %.2549, align 8
+  store ptr %175, ptr %.2548, align 8
   store i8 %173, ptr %174, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %.not.i = icmp eq i32 %171, 255
@@ -511,9 +511,9 @@ php_iptc_get1.exit23.i:                           ; preds = %php_iptc_get1.exit2
 
 php_iptc_put1.exit.i:                             ; preds = %php_iptc_get1.exit23.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %177 = load ptr, ptr %.2549, align 8
+  %177 = load ptr, ptr %.2548, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 1
-  store ptr %178, ptr %.2549, align 8
+  store ptr %178, ptr %.2548, align 8
   store i8 -1, ptr %177, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %php_iptc_get1.exit23.i
@@ -554,8 +554,8 @@ php_iptc_next_marker.exit:                        ; preds = %php_iptc_get1.exit2
 
 php_iptc_put1.exit:                               ; preds = %187, %188
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  switch i32 %.017.i, label %275 [
-    i32 218, label %271
+  switch i32 %.017.i, label %274 [
+    i32 218, label %270
     i32 224, label %210
     i32 225, label %210
   ]
@@ -577,293 +577,291 @@ php_iptc_put1.exit:                               ; preds = %187, %188
   %201 = add nsw i32 %199, -2
   %202 = add nsw i32 %201, %200
   %.not20.i = icmp eq i32 %202, 0
-  br i1 %.not20.i, label %php_iptc_skip_variable.exit, label %.lr.ph.split.split.us.i383
+  br i1 %.not20.i, label %php_iptc_skip_variable.exit, label %.lr.ph.split.split.us.i382
 
-.lr.ph.split.split.us.i383:                       ; preds = %197, %.lr.ph.split.split.us.i383
-  %.01321.us22.i = phi i32 [ %205, %.lr.ph.split.split.us.i383 ], [ %202, %197 ]
+.lr.ph.split.split.us.i382:                       ; preds = %197, %.lr.ph.split.split.us.i382
+  %.01321.us22.i = phi i32 [ %205, %.lr.ph.split.split.us.i382 ], [ %202, %197 ]
   %203 = call i32 @getc(ptr noundef %69)
   %204 = icmp eq i32 %203, -1
   %205 = add i32 %.01321.us22.i, -1
   %.not.us24.i = icmp eq i32 %205, 0
-  %or.cond449 = select i1 %204, i1 true, i1 %.not.us24.i
-  br i1 %or.cond449, label %php_iptc_skip_variable.exit, label %.lr.ph.split.split.us.i383
+  %or.cond448 = select i1 %204, i1 true, i1 %.not.us24.i
+  br i1 %or.cond448, label %php_iptc_skip_variable.exit, label %.lr.ph.split.split.us.i382
 
-php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.us.i383, %194, %191, %197
+php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.us.i382, %194, %191, %197
   %206 = call i32 @fgetc(ptr noundef nonnull %69)
   %207 = load i64, ptr %15, align 8
   %208 = trunc i64 %207 to i32
   %209 = load ptr, ptr %16, align 8
-  %.not372 = icmp eq ptr %209, null
-  %.4 = select i1 %.not372, ptr null, ptr %16
+  %.not371 = icmp eq ptr %209, null
+  %.4 = select i1 %.not371, ptr null, ptr %16
   call fastcc void @php_iptc_read_remaining(ptr noundef nonnull %69, i32 noundef %208, ptr noundef %.4)
   br label %php_iptc_next_marker.exit.thread
 
 210:                                              ; preds = %php_iptc_put1.exit, %php_iptc_put1.exit
-  %211 = and i8 %.0312474546, 1
-  %.not365 = icmp eq i8 %211, 0
-  br i1 %.not365, label %212, label %.loopexit
+  br i1 %.0312473545, label %.loopexit, label %211
 
-212:                                              ; preds = %210
-  %213 = load i64, ptr %15, align 8
-  %214 = trunc i64 %213 to i32
-  %215 = load ptr, ptr %16, align 8
-  %.not366 = icmp eq ptr %215, null
-  %.5 = select i1 %.not366, ptr null, ptr %16
-  call fastcc void @php_iptc_skip_variable(ptr noundef nonnull %69, i32 noundef %214, ptr noundef %.5)
-  %216 = and i64 %.3341472547, 1
-  %spec.select = add i64 %216, %.3341472547
-  %217 = add i64 %spec.select, 28
-  %218 = lshr i64 %217, 8
-  %219 = trunc i64 %218 to i8
-  store i8 %219, ptr getelementptr inbounds ([29 x i8], ptr @psheader, i64 0, i64 2), align 2
-  %220 = trunc i64 %217 to i8
-  store i8 %220, ptr getelementptr inbounds ([29 x i8], ptr @psheader, i64 0, i64 3), align 1
-  br label %221
+211:                                              ; preds = %210
+  %212 = load i64, ptr %15, align 8
+  %213 = trunc i64 %212 to i32
+  %214 = load ptr, ptr %16, align 8
+  %.not365 = icmp eq ptr %214, null
+  %.5 = select i1 %.not365, ptr null, ptr %16
+  call fastcc void @php_iptc_skip_variable(ptr noundef nonnull %69, i32 noundef %213, ptr noundef %.5)
+  %215 = and i64 %.3341471546, 1
+  %spec.select = add i64 %215, %.3341471546
+  %216 = add i64 %spec.select, 28
+  %217 = lshr i64 %216, 8
+  %218 = trunc i64 %217 to i8
+  store i8 %218, ptr getelementptr inbounds ([29 x i8], ptr @psheader, i64 0, i64 2), align 2
+  %219 = trunc i64 %216 to i8
+  store i8 %219, ptr getelementptr inbounds ([29 x i8], ptr @psheader, i64 0, i64 3), align 1
+  br label %220
 
-221:                                              ; preds = %212, %php_iptc_put1.exit387
-  %.0315470 = phi i64 [ 0, %212 ], [ %234, %php_iptc_put1.exit387 ]
-  %222 = load i64, ptr %15, align 8
-  %223 = trunc i64 %222 to i32
-  %224 = getelementptr inbounds [29 x i8], ptr @psheader, i64 0, i64 %.0315470
-  %225 = load i8, ptr %224, align 1
-  %226 = load ptr, ptr %16, align 8
-  %.not371 = icmp eq ptr %226, null
+220:                                              ; preds = %211, %php_iptc_put1.exit386
+  %.0315469 = phi i64 [ 0, %211 ], [ %233, %php_iptc_put1.exit386 ]
+  %221 = load i64, ptr %15, align 8
+  %222 = trunc i64 %221 to i32
+  %223 = getelementptr inbounds [29 x i8], ptr @psheader, i64 0, i64 %.0315469
+  %224 = load i8, ptr %223, align 1
+  %225 = load ptr, ptr %16, align 8
+  %.not370 = icmp eq ptr %225, null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  store i8 %225, ptr %6, align 1
-  %227 = icmp sgt i32 %223, 0
-  br i1 %227, label %228, label %230
+  store i8 %224, ptr %6, align 1
+  %226 = icmp sgt i32 %222, 0
+  br i1 %226, label %227, label %229
 
-228:                                              ; preds = %221
-  %229 = call i64 @php_output_write(ptr noundef nonnull %6, i64 noundef 1) #10
-  %.pre.pre.i386 = load i8, ptr %6, align 1
-  br label %230
+227:                                              ; preds = %220
+  %228 = call i64 @php_output_write(ptr noundef nonnull %6, i64 noundef 1) #10
+  %.pre.pre.i385 = load i8, ptr %6, align 1
+  br label %229
 
-230:                                              ; preds = %228, %221
-  %.pre.i385 = phi i8 [ %.pre.pre.i386, %228 ], [ %225, %221 ]
-  br i1 %.not371, label %php_iptc_put1.exit387, label %231
+229:                                              ; preds = %227, %220
+  %.pre.i384 = phi i8 [ %.pre.pre.i385, %227 ], [ %224, %220 ]
+  br i1 %.not370, label %php_iptc_put1.exit386, label %230
 
-231:                                              ; preds = %230
-  %232 = load ptr, ptr %16, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 1
-  store ptr %233, ptr %16, align 8
-  store i8 %.pre.i385, ptr %232, align 1
-  br label %php_iptc_put1.exit387
+230:                                              ; preds = %229
+  %231 = load ptr, ptr %16, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 1
+  store ptr %232, ptr %16, align 8
+  store i8 %.pre.i384, ptr %231, align 1
+  br label %php_iptc_put1.exit386
 
-php_iptc_put1.exit387:                            ; preds = %230, %231
+php_iptc_put1.exit386:                            ; preds = %229, %230
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %234 = add nuw nsw i64 %.0315470, 1
-  %exitcond.not = icmp eq i64 %234, 28
-  br i1 %exitcond.not, label %235, label %221
+  %233 = add nuw nsw i64 %.0315469, 1
+  %exitcond.not = icmp eq i64 %233, 28
+  br i1 %exitcond.not, label %234, label %220
 
-235:                                              ; preds = %php_iptc_put1.exit387
-  %236 = load i64, ptr %15, align 8
-  %237 = trunc i64 %236 to i32
-  %238 = lshr i64 %spec.select, 8
-  %239 = trunc i64 %238 to i8
-  %240 = load ptr, ptr %16, align 8
-  %.not368 = icmp eq ptr %240, null
+234:                                              ; preds = %php_iptc_put1.exit386
+  %235 = load i64, ptr %15, align 8
+  %236 = trunc i64 %235 to i32
+  %237 = lshr i64 %spec.select, 8
+  %238 = trunc i64 %237 to i8
+  %239 = load ptr, ptr %16, align 8
+  %.not367 = icmp eq ptr %239, null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 %239, ptr %5, align 1
-  %241 = icmp sgt i32 %237, 0
-  br i1 %241, label %242, label %244
+  store i8 %238, ptr %5, align 1
+  %240 = icmp sgt i32 %236, 0
+  br i1 %240, label %241, label %243
 
-242:                                              ; preds = %235
-  %243 = call i64 @php_output_write(ptr noundef nonnull %5, i64 noundef 1) #10
-  %.pre.pre.i389 = load i8, ptr %5, align 1
-  %.pre499.pre = load ptr, ptr %16, align 8
-  br label %244
+241:                                              ; preds = %234
+  %242 = call i64 @php_output_write(ptr noundef nonnull %5, i64 noundef 1) #10
+  %.pre.pre.i388 = load i8, ptr %5, align 1
+  %.pre498.pre = load ptr, ptr %16, align 8
+  br label %243
 
-244:                                              ; preds = %242, %235
-  %.pre499 = phi ptr [ %.pre499.pre, %242 ], [ %240, %235 ]
-  %.pre.i388 = phi i8 [ %.pre.pre.i389, %242 ], [ %239, %235 ]
-  br i1 %.not368, label %php_iptc_put1.exit390, label %245
+243:                                              ; preds = %241, %234
+  %.pre498 = phi ptr [ %.pre498.pre, %241 ], [ %239, %234 ]
+  %.pre.i387 = phi i8 [ %.pre.pre.i388, %241 ], [ %238, %234 ]
+  br i1 %.not367, label %php_iptc_put1.exit389, label %244
 
-245:                                              ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %.pre499, i64 1
-  store ptr %246, ptr %16, align 8
-  store i8 %.pre.i388, ptr %.pre499, align 1
-  %.pre498 = load ptr, ptr %16, align 8
-  br label %php_iptc_put1.exit390
+244:                                              ; preds = %243
+  %245 = getelementptr inbounds i8, ptr %.pre498, i64 1
+  store ptr %245, ptr %16, align 8
+  store i8 %.pre.i387, ptr %.pre498, align 1
+  %.pre497 = load ptr, ptr %16, align 8
+  br label %php_iptc_put1.exit389
 
-php_iptc_put1.exit390:                            ; preds = %244, %245
-  %247 = phi ptr [ %.pre499, %244 ], [ %.pre498, %245 ]
+php_iptc_put1.exit389:                            ; preds = %243, %244
+  %246 = phi ptr [ %.pre498, %243 ], [ %.pre497, %244 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %248 = load i64, ptr %15, align 8
-  %249 = trunc i64 %248 to i32
-  %250 = trunc i64 %spec.select to i8
-  %.not369 = icmp eq ptr %247, null
+  %247 = load i64, ptr %15, align 8
+  %248 = trunc i64 %247 to i32
+  %249 = trunc i64 %spec.select to i8
+  %.not368 = icmp eq ptr %246, null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %250, ptr %4, align 1
-  %251 = icmp sgt i32 %249, 0
-  br i1 %251, label %252, label %254
+  store i8 %249, ptr %4, align 1
+  %250 = icmp sgt i32 %248, 0
+  br i1 %250, label %251, label %253
 
-252:                                              ; preds = %php_iptc_put1.exit390
-  %253 = call i64 @php_output_write(ptr noundef nonnull %4, i64 noundef 1) #10
-  %.pre.pre.i392 = load i8, ptr %4, align 1
-  br label %254
+251:                                              ; preds = %php_iptc_put1.exit389
+  %252 = call i64 @php_output_write(ptr noundef nonnull %4, i64 noundef 1) #10
+  %.pre.pre.i391 = load i8, ptr %4, align 1
+  br label %253
 
-254:                                              ; preds = %252, %php_iptc_put1.exit390
-  %.pre.i391 = phi i8 [ %.pre.pre.i392, %252 ], [ %250, %php_iptc_put1.exit390 ]
-  br i1 %.not369, label %php_iptc_put1.exit393, label %255
+253:                                              ; preds = %251, %php_iptc_put1.exit389
+  %.pre.i390 = phi i8 [ %.pre.pre.i391, %251 ], [ %249, %php_iptc_put1.exit389 ]
+  br i1 %.not368, label %php_iptc_put1.exit392, label %254
 
-255:                                              ; preds = %254
-  %256 = load ptr, ptr %16, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 1
-  store ptr %257, ptr %16, align 8
-  store i8 %.pre.i391, ptr %256, align 1
-  br label %php_iptc_put1.exit393
+254:                                              ; preds = %253
+  %255 = load ptr, ptr %16, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 1
+  store ptr %256, ptr %16, align 8
+  store i8 %.pre.i390, ptr %255, align 1
+  br label %php_iptc_put1.exit392
 
-php_iptc_put1.exit393:                            ; preds = %254, %255
+php_iptc_put1.exit392:                            ; preds = %253, %254
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %.not475 = icmp eq i64 %spec.select, 0
-  br i1 %.not475, label %.loopexit, label %.lr.ph
+  %.not474 = icmp eq i64 %spec.select, 0
+  br i1 %.not474, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %php_iptc_put1.exit393, %php_iptc_put1.exit396
-  %.1316471 = phi i64 [ %270, %php_iptc_put1.exit396 ], [ 0, %php_iptc_put1.exit393 ]
-  %258 = load i64, ptr %15, align 8
-  %259 = trunc i64 %258 to i32
-  %260 = getelementptr inbounds i8, ptr %34, i64 %.1316471
-  %261 = load i8, ptr %260, align 1
-  %262 = load ptr, ptr %16, align 8
-  %.not370 = icmp eq ptr %262, null
+.lr.ph:                                           ; preds = %php_iptc_put1.exit392, %php_iptc_put1.exit395
+  %.1316470 = phi i64 [ %269, %php_iptc_put1.exit395 ], [ 0, %php_iptc_put1.exit392 ]
+  %257 = load i64, ptr %15, align 8
+  %258 = trunc i64 %257 to i32
+  %259 = getelementptr inbounds i8, ptr %34, i64 %.1316470
+  %260 = load i8, ptr %259, align 1
+  %261 = load ptr, ptr %16, align 8
+  %.not369 = icmp eq ptr %261, null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 %261, ptr %3, align 1
-  %263 = icmp sgt i32 %259, 0
-  br i1 %263, label %264, label %266
+  store i8 %260, ptr %3, align 1
+  %262 = icmp sgt i32 %258, 0
+  br i1 %262, label %263, label %265
 
-264:                                              ; preds = %.lr.ph
-  %265 = call i64 @php_output_write(ptr noundef nonnull %3, i64 noundef 1) #10
-  %.pre.pre.i395 = load i8, ptr %3, align 1
-  br label %266
+263:                                              ; preds = %.lr.ph
+  %264 = call i64 @php_output_write(ptr noundef nonnull %3, i64 noundef 1) #10
+  %.pre.pre.i394 = load i8, ptr %3, align 1
+  br label %265
 
-266:                                              ; preds = %264, %.lr.ph
-  %.pre.i394 = phi i8 [ %.pre.pre.i395, %264 ], [ %261, %.lr.ph ]
-  br i1 %.not370, label %php_iptc_put1.exit396, label %267
+265:                                              ; preds = %263, %.lr.ph
+  %.pre.i393 = phi i8 [ %.pre.pre.i394, %263 ], [ %260, %.lr.ph ]
+  br i1 %.not369, label %php_iptc_put1.exit395, label %266
 
-267:                                              ; preds = %266
-  %268 = load ptr, ptr %16, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 1
-  store ptr %269, ptr %16, align 8
-  store i8 %.pre.i394, ptr %268, align 1
-  br label %php_iptc_put1.exit396
+266:                                              ; preds = %265
+  %267 = load ptr, ptr %16, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 1
+  store ptr %268, ptr %16, align 8
+  store i8 %.pre.i393, ptr %267, align 1
+  br label %php_iptc_put1.exit395
 
-php_iptc_put1.exit396:                            ; preds = %266, %267
+php_iptc_put1.exit395:                            ; preds = %265, %266
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %270 = add nuw i64 %.1316471, 1
-  %exitcond496.not = icmp eq i64 %270, %spec.select
-  br i1 %exitcond496.not, label %.loopexit, label %.lr.ph
+  %269 = add nuw i64 %.1316470, 1
+  %exitcond495.not = icmp eq i64 %269, %spec.select
+  br i1 %exitcond495.not, label %.loopexit, label %.lr.ph
 
-271:                                              ; preds = %php_iptc_put1.exit
-  %272 = load i64, ptr %15, align 8
-  %273 = trunc i64 %272 to i32
-  %274 = load ptr, ptr %16, align 8
-  %.not364 = icmp eq ptr %274, null
+270:                                              ; preds = %php_iptc_put1.exit
+  %271 = load i64, ptr %15, align 8
+  %272 = trunc i64 %271 to i32
+  %273 = load ptr, ptr %16, align 8
+  %.not364 = icmp eq ptr %273, null
   %.9 = select i1 %.not364, ptr null, ptr %16
-  call fastcc void @php_iptc_read_remaining(ptr noundef nonnull %69, i32 noundef %273, ptr noundef %.9)
+  call fastcc void @php_iptc_read_remaining(ptr noundef nonnull %69, i32 noundef %272, ptr noundef %.9)
   br label %php_iptc_next_marker.exit.thread
 
-275:                                              ; preds = %php_iptc_put1.exit
-  %276 = load i64, ptr %15, align 8
-  %277 = trunc i64 %276 to i32
-  %278 = load ptr, ptr %16, align 8
-  %.not373 = icmp eq ptr %278, null
-  %.10 = select i1 %.not373, ptr null, ptr %16
-  call fastcc void @php_iptc_skip_variable(ptr noundef nonnull %69, i32 noundef %277, ptr noundef %.10)
+274:                                              ; preds = %php_iptc_put1.exit
+  %275 = load i64, ptr %15, align 8
+  %276 = trunc i64 %275 to i32
+  %277 = load ptr, ptr %16, align 8
+  %.not372 = icmp eq ptr %277, null
+  %.10 = select i1 %.not372, ptr null, ptr %16
+  call fastcc void @php_iptc_skip_variable(ptr noundef nonnull %69, i32 noundef %276, ptr noundef %.10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %php_iptc_put1.exit396, %php_iptc_put1.exit393, %210, %275
-  %.5343 = phi i64 [ %.3341472547, %275 ], [ %.3341472547, %210 ], [ 0, %php_iptc_put1.exit393 ], [ %spec.select, %php_iptc_put1.exit396 ]
-  %.1313 = phi i8 [ %.0312474546, %275 ], [ %.0312474546, %210 ], [ 1, %php_iptc_put1.exit393 ], [ 1, %php_iptc_put1.exit396 ]
-  %279 = load i64, ptr %15, align 8
-  %280 = load ptr, ptr %16, align 8
-  %.not361 = icmp eq ptr %280, null
+.loopexit:                                        ; preds = %php_iptc_put1.exit395, %php_iptc_put1.exit392, %210, %274
+  %.5343 = phi i64 [ %.3341471546, %274 ], [ %.3341471546, %210 ], [ 0, %php_iptc_put1.exit392 ], [ %spec.select, %php_iptc_put1.exit395 ]
+  %.1313 = phi i1 [ %.0312473545, %274 ], [ true, %210 ], [ true, %php_iptc_put1.exit392 ], [ true, %php_iptc_put1.exit395 ]
+  %278 = load i64, ptr %15, align 8
+  %279 = load ptr, ptr %16, align 8
+  %.not361 = icmp eq ptr %279, null
   %.2 = select i1 %.not361, ptr null, ptr %16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %281 = call i32 @getc(ptr noundef %69)
-  %282 = icmp eq i32 %281, -1
-  br i1 %282, label %php_iptc_get1.exit.thread.i, label %139
+  %280 = call i32 @getc(ptr noundef %69)
+  %281 = icmp eq i32 %280, -1
+  br i1 %281, label %php_iptc_get1.exit.thread.i, label %139
 
-php_iptc_next_marker.exit.thread:                 ; preds = %php_iptc_next_marker.exit, %php_iptc_get1.exit23.i, %php_iptc_get1.exit23.us29.i, %php_iptc_get1.exit23.us.i, %php_iptc_get1.exit23.us.us.i, %php_iptc_skip_variable.exit, %271, %php_iptc_get1.exit22.thread.i, %php_iptc_get1.exit.thread.i
-  %283 = call i32 @fclose(ptr noundef nonnull %69)
-  %284 = load i64, ptr %15, align 8
-  %285 = icmp slt i64 %284, 2
-  br i1 %285, label %286, label %327
+php_iptc_next_marker.exit.thread:                 ; preds = %php_iptc_next_marker.exit, %php_iptc_get1.exit23.i, %php_iptc_get1.exit23.us29.i, %php_iptc_get1.exit23.us.i, %php_iptc_get1.exit23.us.us.i, %php_iptc_skip_variable.exit, %270, %php_iptc_get1.exit22.thread.i, %php_iptc_get1.exit.thread.i
+  %282 = call i32 @fclose(ptr noundef nonnull %69)
+  %283 = load i64, ptr %15, align 8
+  %284 = icmp slt i64 %283, 2
+  br i1 %284, label %285, label %326
 
-286:                                              ; preds = %php_iptc_next_marker.exit.thread
-  %287 = load ptr, ptr %16, align 8
-  %288 = getelementptr inbounds i8, ptr %.0314, i64 24
+285:                                              ; preds = %php_iptc_next_marker.exit.thread
+  %286 = load ptr, ptr %16, align 8
+  %287 = getelementptr inbounds i8, ptr %.0314, i64 24
+  %288 = ptrtoint ptr %286 to i64
   %289 = ptrtoint ptr %287 to i64
-  %290 = ptrtoint ptr %288 to i64
-  %291 = sub i64 %289, %290
-  %292 = getelementptr inbounds i8, ptr %.0314, i64 16
-  %293 = load i64, ptr %292, align 8
-  %294 = icmp ule i64 %291, %293
-  call void @llvm.assume(i1 %294)
-  %295 = getelementptr inbounds i8, ptr %.0314, i64 4
-  %296 = load i32, ptr %295, align 4
-  %297 = and i32 %296, 64
-  %.not374 = icmp eq i32 %297, 0
-  br i1 %.not374, label %298, label %310
+  %290 = sub i64 %288, %289
+  %291 = getelementptr inbounds i8, ptr %.0314, i64 16
+  %292 = load i64, ptr %291, align 8
+  %293 = icmp ule i64 %290, %292
+  call void @llvm.assume(i1 %293)
+  %294 = getelementptr inbounds i8, ptr %.0314, i64 4
+  %295 = load i32, ptr %294, align 4
+  %296 = and i32 %295, 64
+  %.not373 = icmp eq i32 %296, 0
+  br i1 %.not373, label %297, label %309
 
-298:                                              ; preds = %286
-  %299 = load i32, ptr %.0314, align 4
-  %300 = icmp eq i32 %299, 1
-  br i1 %300, label %301, label %310
+297:                                              ; preds = %285
+  %298 = load i32, ptr %.0314, align 4
+  %299 = icmp eq i32 %298, 1
+  br i1 %299, label %300, label %309
 
-301:                                              ; preds = %298
-  %302 = and i64 %291, -8
-  %303 = add i64 %302, 32
-  %304 = call ptr @_erealloc(ptr noundef nonnull %.0314, i64 noundef %303) #12
-  %305 = getelementptr inbounds i8, ptr %304, i64 16
-  store i64 %291, ptr %305, align 8
-  %306 = getelementptr inbounds i8, ptr %304, i64 8
-  store i64 0, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %304, i64 4
-  %308 = load i32, ptr %307, align 4
-  %309 = and i32 %308, -513
-  store i32 %309, ptr %307, align 4
-  br label %325
+300:                                              ; preds = %297
+  %301 = and i64 %290, -8
+  %302 = add i64 %301, 32
+  %303 = call ptr @_erealloc(ptr noundef nonnull %.0314, i64 noundef %302) #12
+  %304 = getelementptr inbounds i8, ptr %303, i64 16
+  store i64 %290, ptr %304, align 8
+  %305 = getelementptr inbounds i8, ptr %303, i64 8
+  store i64 0, ptr %305, align 8
+  %306 = getelementptr inbounds i8, ptr %303, i64 4
+  %307 = load i32, ptr %306, align 4
+  %308 = and i32 %307, -513
+  store i32 %308, ptr %306, align 4
+  br label %324
 
-310:                                              ; preds = %298, %286
-  %311 = and i64 %291, -8
-  %312 = add i64 %311, 32
-  %313 = call noalias ptr @_emalloc(i64 noundef %312) #13
-  store i32 1, ptr %313, align 4
-  %314 = getelementptr inbounds i8, ptr %313, i64 4
-  store i32 22, ptr %314, align 4
-  %315 = getelementptr inbounds i8, ptr %313, i64 8
-  store i64 0, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %313, i64 16
-  store i64 %291, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %313, i64 24
-  %318 = add i64 %291, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %317, ptr nonnull align 8 %288, i64 %318, i1 false)
-  %319 = load i32, ptr %295, align 4
-  %320 = and i32 %319, 64
-  %.not375 = icmp eq i32 %320, 0
-  br i1 %.not375, label %321, label %325
+309:                                              ; preds = %297, %285
+  %310 = and i64 %290, -8
+  %311 = add i64 %310, 32
+  %312 = call noalias ptr @_emalloc(i64 noundef %311) #13
+  store i32 1, ptr %312, align 4
+  %313 = getelementptr inbounds i8, ptr %312, i64 4
+  store i32 22, ptr %313, align 4
+  %314 = getelementptr inbounds i8, ptr %312, i64 8
+  store i64 0, ptr %314, align 8
+  %315 = getelementptr inbounds i8, ptr %312, i64 16
+  store i64 %290, ptr %315, align 8
+  %316 = getelementptr inbounds i8, ptr %312, i64 24
+  %317 = add i64 %290, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %316, ptr nonnull align 8 %287, i64 %317, i1 false)
+  %318 = load i32, ptr %294, align 4
+  %319 = and i32 %318, 64
+  %.not374 = icmp eq i32 %319, 0
+  br i1 %.not374, label %320, label %324
 
-321:                                              ; preds = %310
-  %322 = load i32, ptr %.0314, align 4
-  %323 = icmp ne i32 %322, 0
-  call void @llvm.assume(i1 %323)
-  %324 = add i32 %322, -1
-  store i32 %324, ptr %.0314, align 4
-  br label %325
+320:                                              ; preds = %309
+  %321 = load i32, ptr %.0314, align 4
+  %322 = icmp ne i32 %321, 0
+  call void @llvm.assume(i1 %322)
+  %323 = add i32 %321, -1
+  store i32 %323, ptr %.0314, align 4
+  br label %324
 
-325:                                              ; preds = %310, %321, %301
-  %.0310 = phi ptr [ %304, %301 ], [ %313, %321 ], [ %313, %310 ]
+324:                                              ; preds = %309, %320, %300
+  %.0310 = phi ptr [ %303, %300 ], [ %312, %320 ], [ %312, %309 ]
   store ptr %.0310, ptr %1, align 8
-  %326 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %326, align 8
-  br label %329
+  %325 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %325, align 8
+  br label %328
 
-327:                                              ; preds = %php_iptc_next_marker.exit.thread
-  %328 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %328, align 8
-  br label %329
+326:                                              ; preds = %php_iptc_next_marker.exit.thread
+  %327 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %327, align 8
+  br label %328
 
-329:                                              ; preds = %327, %325, %137, %112, %79, %71, %65, %61, %.thread417
+328:                                              ; preds = %326, %324, %137, %112, %79, %71, %65, %61, %.thread416
   ret void
 }
 

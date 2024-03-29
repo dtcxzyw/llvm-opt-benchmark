@@ -156,13 +156,12 @@ land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
   %can_track_err = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %can_track_err, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ false, %entry ], [ %tobool, %land.rhs ]
+  ret i1 %2
 }
 
 declare noundef zeroext i1 @_ZN9grpc_core22KernelSupportsErrqueueEv() local_unnamed_addr #0
@@ -177,13 +176,12 @@ entry:
 land.rhs:                                         ; preds = %entry
   %run_in_background = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %run_in_background, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ false, %entry ], [ %tobool, %land.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -202,13 +200,12 @@ land.rhs.i:                                       ; preds = %land.rhs
   %2 = load ptr, ptr @_ZL14g_event_engine, align 8
   %can_track_err.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr %can_track_err.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i = icmp ne i8 %4, 0
+  %tobool.i = trunc i8 %3 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs.i, %land.rhs, %entry
-  %5 = phi i1 [ false, %entry ], [ false, %land.rhs ], [ %tobool.i, %land.rhs.i ]
-  %call1 = tail call noundef ptr %1(i32 noundef %fd, ptr noundef %name, i1 noundef zeroext %5)
+  %4 = phi i1 [ false, %entry ], [ false, %land.rhs ], [ %tobool.i, %land.rhs.i ]
+  %call1 = tail call noundef ptr %1(i32 noundef %fd, ptr noundef %name, i1 noundef zeroext %4)
   ret ptr %call1
 }
 

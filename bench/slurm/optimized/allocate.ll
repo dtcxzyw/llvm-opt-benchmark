@@ -1338,7 +1338,7 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   store ptr %13, ptr @working_cluster_rec, align 8
   %14 = call i32 @get_log_level() #9
   %15 = icmp sgt i32 %14, 5
-  %.pre6 = load i32, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 17), align 4
+  %.pre5 = load i32, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 17), align 4
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
@@ -1347,21 +1347,20 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 152
   %21 = load ptr, ptr %20, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.6, i32 noundef %.pre6, ptr noundef %19, ptr noundef %21) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.6, i32 noundef %.pre5, ptr noundef %19, ptr noundef %21) #9
   %.pre = load i32, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 17), align 4
   br label %22
 
 22:                                               ; preds = %11, %16, %5
-  %23 = phi i32 [ %.pre6, %11 ], [ %.pre, %16 ], [ %3, %5 ]
+  %23 = phi i32 [ %.pre5, %11 ], [ %.pre, %16 ], [ %3, %5 ]
   %24 = call i32 @slurm_het_job_lookup(i32 noundef %23, ptr noundef nonnull %1) #9
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %22
   %27 = load i8, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i64 0, i32 32), align 4
-  %28 = and i8 %27, 1
-  %.not5 = icmp eq i8 %28, 0
-  br i1 %.not5, label %29, label %41
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %41, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__errno_location() #11

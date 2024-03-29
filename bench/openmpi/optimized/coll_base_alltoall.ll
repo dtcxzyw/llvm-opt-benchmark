@@ -114,9 +114,8 @@ define i32 @mca_coll_base_alltoall_intra_basic_inplace(ptr noundef %0, i32 nound
 55:                                               ; preds = %45
   %56 = getelementptr inbounds i8, ptr %49, i64 8
   %57 = load i8, ptr @opal_uses_threads, align 1
-  %58 = and i8 %57, 1
-  %.not.i.i.i.i.i = icmp eq i8 %58, 0
-  br i1 %.not.i.i.i.i.i, label %61, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %61
 
 59:                                               ; preds = %55
   %60 = atomicrmw volatile add ptr %56, i32 1 monotonic, align 4
@@ -425,7 +424,7 @@ opal_datatype_span.exit:                          ; preds = %13, %30
   %89 = load ptr, ptr %9, align 8
   %90 = mul nsw i32 %spec.select, %4
   %91 = sext i32 %90 to i64
-  %92 = mul nsw i64 %indvars.iv, %factor.op.mul
+  %92 = mul i64 %indvars.iv, %factor.op.mul
   %93 = call i32 @opal_datatype_add(ptr noundef %89, ptr noundef %5, i64 noundef %91, i64 noundef %92, i64 noundef %22) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, %85
   %94 = icmp slt i64 %indvars.iv.next, %23

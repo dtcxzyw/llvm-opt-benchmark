@@ -2327,17 +2327,16 @@ entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %extra_matcher_specified_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i8, ptr %extra_matcher_specified_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.37)
   %extra_matcher_ = getelementptr inbounds i8, ptr %this, i64 344
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds i8, ptr %this, i64 352
-  %2 = load ptr, ptr %vtable_.i, align 8
-  %cmp.i = icmp ne ptr %2, null
+  %1 = load ptr, ptr %vtable_.i, align 8
+  %cmp.i = icmp ne ptr %1, null
   %call.i = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %cmp.i)
   br i1 %call.i, label %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEE10DescribeToEPSo.exit, label %if.else.i
 
@@ -2351,16 +2350,16 @@ invoke.cont.i:                                    ; preds = %if.else.i
   br label %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEE10DescribeToEPSo.exit
 
 lpad.i:                                           ; preds = %if.else.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i) #18
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 _ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEE10DescribeToEPSo.exit: ; preds = %if.then, %invoke.cont.i
-  %4 = load ptr, ptr %vtable_.i, align 8
-  %describe.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %describe.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(24) %extra_matcher_, ptr noundef nonnull %os, i1 noundef zeroext false)
+  %3 = load ptr, ptr %vtable_.i, align 8
+  %describe.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %describe.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(24) %extra_matcher_, ptr noundef nonnull %os, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.38)
   br label %if.end
@@ -2854,7 +2853,7 @@ declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 declare noundef zeroext i1 @_ZN4absl12log_internal8VLogSite14SlowIsEnabled3Ei(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -5083,7 +5082,7 @@ attributes #9 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" 
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

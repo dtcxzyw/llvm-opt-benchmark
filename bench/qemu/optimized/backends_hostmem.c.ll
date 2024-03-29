@@ -71,9 +71,8 @@ define dso_local ptr @host_memory_backend_get_name(ptr noundef %backend) local_u
 entry:
   %use_canonical_path = getelementptr inbounds i8, ptr %backend, i64 50
   %0 = load i8, ptr %use_canonical_path, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @object_get_canonical_path_component(ptr noundef nonnull %backend) #8
@@ -130,8 +129,7 @@ define dso_local zeroext i1 @host_memory_backend_is_mapped(ptr nocapture noundef
 entry:
   %is_mapped = getelementptr inbounds i8, ptr %backend, i64 52
   %0 = load i8, ptr %is_mapped, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -277,9 +275,8 @@ if.end:                                           ; preds = %if.then
   %call7 = call i64 @memory_region_size(ptr noundef nonnull %mr) #8
   %merge = getelementptr inbounds i8, ptr %call.i, i64 48
   %2 = load i8, ptr %merge, align 16
-  %3 = and i8 %2, 1
-  %tobool8.not = icmp eq i8 %3, 0
-  br i1 %tobool8.not, label %if.end11, label %if.then9
+  %tobool8 = trunc i8 %2 to i1
+  br i1 %tobool8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
   %call10 = call i32 @qemu_madvise(ptr noundef %call5, i64 noundef %call7, i32 noundef 12) #8
@@ -287,10 +284,9 @@ if.then9:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then9, %if.end
   %dump = getelementptr inbounds i8, ptr %call.i, i64 49
-  %4 = load i8, ptr %dump, align 1
-  %5 = and i8 %4, 1
-  %tobool12.not = icmp eq i8 %5, 0
-  br i1 %tobool12.not, label %if.then13, label %if.end15
+  %3 = load i8, ptr %dump, align 1
+  %tobool12 = trunc i8 %3 to i1
+  br i1 %tobool12, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   %call14 = call i32 @qemu_madvise(ptr noundef %call5, i64 noundef %call7, i32 noundef 16) #8
@@ -302,9 +298,9 @@ if.end15:                                         ; preds = %if.then13, %if.end1
   %add = add i64 %call16, 1
   %rem = urem i64 %add, 129
   %policy = getelementptr inbounds i8, ptr %call.i, i64 96
-  %6 = load i32, ptr %policy, align 16
+  %4 = load i32, ptr %policy, align 16
   %tobool17.not = icmp ne i64 %rem, 0
-  %cmp = icmp eq i32 %6, 0
+  %cmp = icmp eq i32 %4, 0
   %or.cond = select i1 %tobool17.not, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then19, label %if.else
 
@@ -319,51 +315,50 @@ land.lhs.true21:                                  ; preds = %if.else
   br i1 %cmp, label %if.end48, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true21
-  %call26 = call ptr @qapi_enum_lookup(ptr noundef nonnull @HostMemPolicy_lookup, i32 noundef %6) #8
+  %call26 = call ptr @qapi_enum_lookup(ptr noundef nonnull @HostMemPolicy_lookup, i32 noundef %4) #8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @__func__.host_memory_backend_memory_complete, ptr noundef nonnull @.str.34, ptr noundef %call26) #8
   br label %return
 
 land.lhs.true34:                                  ; preds = %if.else
   %add37 = add nuw nsw i64 %rem, 1
-  %call38 = call i64 @mbind(ptr noundef %call5, i64 noundef %call7, i32 noundef %6, ptr noundef nonnull %host_nodes, i64 noundef %add37, i32 noundef 3) #8
+  %call38 = call i64 @mbind(ptr noundef %call5, i64 noundef %call7, i32 noundef %4, ptr noundef nonnull %host_nodes, i64 noundef %add37, i32 noundef 3) #8
   %tobool39.not = icmp eq i64 %call38, 0
   br i1 %tobool39.not, label %if.end48, label %if.then40
 
 if.then40:                                        ; preds = %land.lhs.true34
-  %7 = load i32, ptr %policy, align 16
-  %cmp42.not = icmp eq i32 %7, 0
+  %5 = load i32, ptr %policy, align 16
+  %cmp42.not = icmp eq i32 %5, 0
   %call43 = tail call ptr @__errno_location() #9
   br i1 %cmp42.not, label %lor.lhs.false, label %if.then45
 
 lor.lhs.false:                                    ; preds = %if.then40
-  %8 = load i32, ptr %call43, align 4
-  %cmp44.not = icmp eq i32 %8, 38
+  %6 = load i32, ptr %call43, align 4
+  %cmp44.not = icmp eq i32 %6, 38
   br i1 %cmp44.not, label %if.end48, label %if.then45
 
 if.then45:                                        ; preds = %if.then40, %lor.lhs.false
-  %9 = load i32, ptr %call43, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.host_memory_backend_memory_complete, i32 noundef %9, ptr noundef nonnull @.str.36) #8
+  %7 = load i32, ptr %call43, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.host_memory_backend_memory_complete, i32 noundef %7, ptr noundef nonnull @.str.36) #8
   br label %return
 
 if.end48:                                         ; preds = %land.lhs.true21, %lor.lhs.false, %land.lhs.true34
   %prealloc = getelementptr inbounds i8, ptr %call.i, i64 51
-  %10 = load i8, ptr %prealloc, align 1
-  %11 = and i8 %10, 1
-  %tobool49.not = icmp eq i8 %11, 0
-  br i1 %tobool49.not, label %out, label %if.then50
+  %8 = load i8, ptr %prealloc, align 1
+  %tobool49 = trunc i8 %8 to i1
+  br i1 %tobool49, label %if.then50, label %out
 
 if.then50:                                        ; preds = %if.end48
   %call52 = call i32 @memory_region_get_fd(ptr noundef nonnull %mr) #8
   %prealloc_threads = getelementptr inbounds i8, ptr %call.i, i64 56
-  %12 = load i32, ptr %prealloc_threads, align 8
+  %9 = load i32, ptr %prealloc_threads, align 8
   %prealloc_context = getelementptr inbounds i8, ptr %call.i, i64 64
-  %13 = load ptr, ptr %prealloc_context, align 16
-  call void @qemu_prealloc_mem(i32 noundef %call52, ptr noundef %call5, i64 noundef %call7, i32 noundef %12, ptr noundef %13, ptr noundef nonnull %local_err) #8
+  %10 = load ptr, ptr %prealloc_context, align 16
+  call void @qemu_prealloc_mem(i32 noundef %call52, ptr noundef %call5, i64 noundef %call7, i32 noundef %9, ptr noundef %10, ptr noundef nonnull %local_err) #8
   br label %out
 
 out:                                              ; preds = %if.then50, %entry, %if.end48, %if.then
-  %14 = load ptr, ptr %local_err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %14) #8
+  %11 = load ptr, ptr %local_err, align 8
+  call void @error_propagate(ptr noundef %errp, ptr noundef %11) #8
   br label %return
 
 return:                                           ; preds = %out, %if.then45, %if.then24, %if.then19
@@ -376,9 +371,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %is_mapped.i = getelementptr inbounds i8, ptr %call.i, i64 52
   %0 = load i8, ptr %is_mapped.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  ret i1 %tobool.i.not
+  %tobool.i = trunc i8 %0 to i1
+  %retval.0 = xor i1 %tobool.i, true
+  ret i1 %retval.0
 }
 
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -389,8 +384,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %merge = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load i8, ptr %merge, align 16
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -407,10 +401,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %merge, align 16
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp.not = xor i1 %2, %value
-  br i1 %cmp.not, label %if.end18, label %if.then8
+  %1 = trunc i8 %0 to i1
+  %2 = xor i1 %1, %value
+  br i1 %2, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.end
   %call9 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #8
@@ -435,8 +428,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %dump = getelementptr inbounds i8, ptr %call.i, i64 49
   %0 = load i8, ptr %dump, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -453,10 +445,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %dump, align 1
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp.not = xor i1 %2, %value
-  br i1 %cmp.not, label %if.end18, label %if.then8
+  %1 = trunc i8 %0 to i1
+  %2 = xor i1 %1, %value
+  br i1 %2, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.end
   %call9 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #8
@@ -479,8 +470,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %prealloc = getelementptr inbounds i8, ptr %call.i, i64 51
   %0 = load i8, ptr %prealloc, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -493,10 +483,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %reserve = getelementptr inbounds i8, ptr %call.i, i64 54
   %0 = load i8, ptr %reserve, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %brmerge.not = and i1 %tobool.not, %value
-  br i1 %brmerge.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  %value.not = xor i1 %value, true
+  %brmerge = or i1 %value.not, %tobool
+  br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.host_memory_backend_set_prealloc, ptr noundef nonnull @.str.37) #8
@@ -518,26 +508,25 @@ if.end6:                                          ; preds = %if.end
 
 land.lhs.true8:                                   ; preds = %if.end6
   %prealloc9 = getelementptr inbounds i8, ptr %call.i, i64 51
-  %2 = load i8, ptr %prealloc9, align 1
-  %3 = and i8 %2, 1
-  %tobool10.not = icmp eq i8 %3, 0
-  br i1 %tobool10.not, label %if.then11, label %if.end21
+  %1 = load i8, ptr %prealloc9, align 1
+  %tobool10 = trunc i8 %1 to i1
+  br i1 %tobool10, label %if.end21, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true8
   %call12 = tail call i32 @memory_region_get_fd(ptr noundef nonnull %mr.i) #8
   %call14 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #8
   %call16 = tail call i64 @memory_region_size(ptr noundef nonnull %mr.i) #8
   %prealloc_threads = getelementptr inbounds i8, ptr %call.i, i64 56
-  %4 = load i32, ptr %prealloc_threads, align 8
+  %2 = load i32, ptr %prealloc_threads, align 8
   %prealloc_context = getelementptr inbounds i8, ptr %call.i, i64 64
-  %5 = load ptr, ptr %prealloc_context, align 16
-  call void @qemu_prealloc_mem(i32 noundef %call12, ptr noundef %call14, i64 noundef %call16, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %local_err) #8
-  %6 = load ptr, ptr %local_err, align 8
-  %tobool17.not = icmp eq ptr %6, null
+  %3 = load ptr, ptr %prealloc_context, align 16
+  call void @qemu_prealloc_mem(i32 noundef %call12, ptr noundef %call14, i64 noundef %call16, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %local_err) #8
+  %4 = load ptr, ptr %local_err, align 8
+  %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.then11
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #8
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #8
   br label %if.end21
 
 if.end19:                                         ; preds = %if.then11
@@ -777,8 +766,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %share = getelementptr inbounds i8, ptr %call.i, i64 53
   %0 = load i8, ptr %share, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -811,8 +799,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %reserve = getelementptr inbounds i8, ptr %call.i, i64 54
   %0 = load i8, ptr %reserve, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -833,8 +820,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %prealloc = getelementptr inbounds i8, ptr %call.i, i64 51
   %0 = load i8, ptr %prealloc, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
+  %tobool.not = xor i1 %tobool, true
   %brmerge = or i1 %tobool.not, %value
   br i1 %brmerge, label %if.end4, label %if.then3
 
@@ -857,8 +844,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %use_canonical_path = getelementptr inbounds i8, ptr %call.i, i64 50
   %0 = load i8, ptr %use_canonical_path, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

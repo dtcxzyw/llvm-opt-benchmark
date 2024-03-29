@@ -599,7 +599,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   call void @col_set_str(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.67) #11
   %43 = load i32, ptr @proto_opcua, align 4
   %44 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
-  br label %209
+  br label %207
 
 45:                                               ; preds = %38, %35, %32, %29, %26, %23, %18
   %46 = phi i1 [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ true, %32 ], [ false, %35 ], [ false, %38 ]
@@ -617,7 +617,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #11
   %55 = call i32 %.0164(ptr noundef %54, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
   %or.cond = or i1 %46, %47
-  br i1 %or.cond, label %56, label %.thread205
+  br i1 %or.cond, label %56, label %.thread202
 
 56:                                               ; preds = %45
   store i32 3, ptr %9, align 4
@@ -715,9 +715,9 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %111 = load i8, ptr %110, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %112 = zext i8 %111 to i32
-  %.neg217 = add i32 %75, -9
+  %.neg215 = add i32 %75, -9
   %113 = add nuw nsw i32 %112, %106
-  %114 = sub i32 %.neg217, %113
+  %114 = sub i32 %.neg215, %113
   %115 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %80, i32 noundef %75, i32 noundef %75) #11
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %115, ptr noundef nonnull @.str.48) #11
   store i32 0, ptr %9, align 4
@@ -764,10 +764,10 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br label %132
 
 132:                                              ; preds = %opcua_get_footer_info.exit, %130, %104, %116
-  %.1197 = phi i32 [ 0, %130 ], [ 0, %opcua_get_footer_info.exit ], [ %112, %104 ], [ 0, %116 ]
+  %.1194 = phi i32 [ 0, %130 ], [ 0, %opcua_get_footer_info.exit ], [ %112, %104 ], [ 0, %116 ]
   %.1176 = phi i32 [ %131, %130 ], [ %129, %opcua_get_footer_info.exit ], [ %114, %104 ], [ 0, %116 ]
   %.0169 = phi ptr [ null, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %115, %104 ], [ null, %116 ]
-  %.not191 = phi i1 [ true, %130 ], [ true, %opcua_get_footer_info.exit ], [ false, %104 ], [ true, %116 ]
+  %.0167 = phi i1 [ false, %130 ], [ false, %opcua_get_footer_info.exit ], [ true, %104 ], [ false, %116 ]
   %.0161 = phi ptr [ %0, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %115, %104 ], [ %0, %116 ]
   %133 = load i32, ptr %9, align 4
   %134 = call i32 @tvb_get_letohl(ptr noundef %.0161, i32 noundef %133) #11
@@ -787,7 +787,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   store i32 0, ptr %9, align 4
   %143 = call i32 %.0164(ptr noundef %54, ptr noundef %.0161, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
   %144 = call i32 @parseAbort(ptr noundef %54, ptr noundef %.0161, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
-  br label %209
+  br label %207
 
 145:                                              ; preds = %132
   %146 = call ptr @fragment_get(ptr noundef nonnull @opcua_reassembly_table, ptr noundef nonnull %1, i32 noundef %137, ptr noundef null) #11
@@ -802,11 +802,11 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br i1 %or.cond4, label %.thread, label %169
 
 .thread:                                          ; preds = %145, %148
-  %.0178204 = phi ptr [ %149, %148 ], [ %146, %145 ]
+  %.0178201 = phi ptr [ %149, %148 ], [ %146, %145 ]
   %152 = getelementptr inbounds i8, ptr %1, i64 272
   %153 = load i32, ptr %152, align 8
   store i32 1, ptr %152, align 8
-  %154 = icmp eq ptr %.0178204, null
+  %154 = icmp eq ptr %.0178201, null
   %155 = icmp ne i8 %57, 70
   %156 = select i1 %154, i32 0, i32 %134
   %narrow = select i1 %154, i1 true, i1 %155
@@ -846,10 +846,10 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   %.1172 = phi i1 [ %.not189, %167 ], [ true, %148 ]
   %.2 = phi ptr [ %.1, %167 ], [ %.0161, %148 ]
   %170 = load i8, ptr %8, align 1
-  %171 = and i8 %170, 1
-  %.not190 = icmp eq i8 %171, 0
-  %or.cond6 = and i1 %.1172, %.not190
-  br i1 %or.cond6, label %172, label %.thread205
+  %171 = trunc i8 %170 to i1
+  %.not = xor i1 %171, true
+  %or.cond6 = and i1 %.1172, %.not
+  br i1 %or.cond6, label %172, label %.thread202
 
 172:                                              ; preds = %169
   br i1 %47, label %173, label %182
@@ -882,8 +882,8 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 
 183:                                              ; preds = %182
   %184 = call i32 @parseService(ptr noundef %54, ptr noundef %.2, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
-  %.not = icmp eq i32 %184, -1
-  br i1 %.not, label %190, label %185
+  %.not190 = icmp eq i32 %184, -1
+  br i1 %.not190, label %190, label %185
 
 185:                                              ; preds = %183
   %186 = call ptr @val_to_str(i32 noundef %184, ptr noundef nonnull @g_requesttypes, ptr noundef nonnull @.str.54) #11
@@ -900,50 +900,49 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 
 190:                                              ; preds = %182, %188, %189, %183, %175, %179, %177
   %191 = load i32, ptr %6, align 4
-  %192 = icmp ne i32 %191, 3
-  %or.cond194 = or i1 %.not191, %192
-  br i1 %or.cond194, label %197, label %193
+  switch i32 %191, label %.thread202 [
+    i32 3, label %192
+    i32 2, label %197
+  ]
 
-193:                                              ; preds = %190
+192:                                              ; preds = %190
+  br i1 %.0167, label %193, label %.thread202
+
+193:                                              ; preds = %192
   %194 = add i32 %.1176, 8
   %195 = load i8, ptr %7, align 1
   %196 = zext i8 %195 to i32
-  call void @parseSecurityFooterSAE(ptr noundef %54, ptr noundef %.0169, i32 noundef %194, i32 noundef %.1197, i32 noundef %196) #11
-  br label %.thread205
+  call void @parseSecurityFooterSAE(ptr noundef %54, ptr noundef %.0169, i32 noundef %194, i32 noundef %.1194, i32 noundef %196) #11
+  br label %.thread202
 
 197:                                              ; preds = %190
-  %198 = icmp eq i32 %191, 2
-  br i1 %198, label %199, label %.thread205
+  %198 = add i32 %.1176, 24
+  %199 = load i8, ptr %7, align 1
+  %200 = zext i8 %199 to i32
+  call void @parseSecurityFooterSO(ptr noundef %54, ptr noundef %.0169, i32 noundef %198, i32 noundef %200) #11
+  br label %.thread202
 
-199:                                              ; preds = %197
-  %200 = add i32 %.1176, 24
-  %201 = load i8, ptr %7, align 1
-  %202 = zext i8 %201 to i32
-  call void @parseSecurityFooterSO(ptr noundef %54, ptr noundef %.0169, i32 noundef %200, i32 noundef %202) #11
-  br label %.thread205
+.thread202:                                       ; preds = %190, %192, %45, %193, %197, %169
+  %.2212 = phi ptr [ %.2, %193 ], [ %.2, %197 ], [ %.2, %169 ], [ %0, %45 ], [ %.2, %192 ], [ %.2, %190 ]
+  %201 = load i8, ptr %8, align 1
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %.sink.split, label %203
 
-.thread205:                                       ; preds = %45, %193, %199, %197, %169
-  %.2215 = phi ptr [ %.2, %193 ], [ %.2, %199 ], [ %.2, %197 ], [ %.2, %169 ], [ %0, %45 ]
-  %203 = load i8, ptr %8, align 1
-  %204 = and i8 %203, 1
-  %.not192 = icmp eq i8 %204, 0
-  br i1 %.not192, label %205, label %.sink.split
+203:                                              ; preds = %.thread202
+  %204 = load i32, ptr %6, align 4
+  %205 = icmp eq i32 %204, 3
+  br i1 %205, label %.sink.split, label %207
 
-205:                                              ; preds = %.thread205
-  %206 = load i32, ptr %6, align 4
-  %207 = icmp eq i32 %206, 3
-  br i1 %207, label %.sink.split, label %209
+.sink.split:                                      ; preds = %203, %.thread202
+  %.str.58.sink = phi ptr [ @.str.58, %.thread202 ], [ @.str.59, %203 ]
+  %206 = load ptr, ptr %19, align 8
+  call void @col_append_str(ptr noundef %206, i32 noundef 25, ptr noundef nonnull %.str.58.sink) #11
+  br label %207
 
-.sink.split:                                      ; preds = %205, %.thread205
-  %.str.58.sink = phi ptr [ @.str.58, %.thread205 ], [ @.str.59, %205 ]
-  %208 = load ptr, ptr %19, align 8
-  call void @col_append_str(ptr noundef %208, i32 noundef 25, ptr noundef nonnull %.str.58.sink) #11
-  br label %209
-
-209:                                              ; preds = %205, %.sink.split, %139, %41
-  %.2215.sink = phi ptr [ %.0161, %139 ], [ %0, %41 ], [ %.2215, %.sink.split ], [ %.2215, %205 ]
-  %210 = call i32 @tvb_reported_length(ptr noundef %.2215.sink) #11
-  ret i32 %210
+207:                                              ; preds = %203, %.sink.split, %139, %41
+  %.2212.sink = phi ptr [ %.0161, %139 ], [ %0, %41 ], [ %.2212, %.sink.split ], [ %.2212, %203 ]
+  %208 = call i32 @tvb_reported_length(ptr noundef %.2212.sink) #11
+  ret i32 %208
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #4

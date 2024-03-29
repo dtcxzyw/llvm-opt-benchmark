@@ -383,9 +383,8 @@ do.body19.i:                                      ; preds = %do.end.i
 if.then:                                          ; preds = %if.end17.i, %sw.bb5.i
   %retval.0.i.ph = phi ptr [ %count.i, %sw.bb5.i ], [ %count18.i, %if.end17.i ]
   %12 = load i8, ptr @do_inline, align 1
-  %13 = and i8 %12, 1
-  %tobool3.not = icmp eq i8 %13, 0
-  br i1 %tobool3.not, label %if.else, label %if.then4
+  %tobool3 = trunc i8 %12 to i1
+  br i1 %tobool3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
   tail call void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef %call1, i32 noundef 0, ptr noundef nonnull %retval.0.i.ph, i64 noundef 1) #10
@@ -434,42 +433,41 @@ sw.bb:                                            ; preds = %for.body
 
 lor.lhs.false:                                    ; preds = %sw.bb
   %4 = load i8, ptr @verbose, align 1
-  %5 = and i8 %4, 1
-  %tobool1.not = icmp eq i8 %5, 0
-  br i1 %tobool1.not, label %for.inc, label %if.then
+  %tobool1 = trunc i8 %4 to i1
+  br i1 %tobool1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %lor.lhs.false, %sw.bb
-  %6 = load ptr, ptr %arrayidx, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.115, ptr noundef %6, i64 noundef %3) #10
+  %5 = load ptr, ptr %arrayidx, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.115, ptr noundef %5, i64 noundef %3) #10
   br label %for.inc
 
 sw.bb4:                                           ; preds = %for.body
-  %7 = load ptr, ptr %arrayidx, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.116, ptr noundef %7) #10
+  %6 = load ptr, ptr %arrayidx, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.116, ptr noundef %6) #10
   br label %for.inc
 
 sw.bb6:                                           ; preds = %for.body
-  %8 = load ptr, ptr %arrayidx, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.117, ptr noundef %8) #10
+  %7 = load ptr, ptr %arrayidx, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.117, ptr noundef %7) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb4, %sw.bb6, %if.then, %lor.lhs.false, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = load i32, ptr @class_table_sz, align 4
-  %10 = sext i32 %9 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %10
+  %8 = load i32, ptr @class_table_sz, align 4
+  %9 = sext i32 %8 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
-  %11 = load ptr, ptr @insns, align 8
-  %call8 = tail call ptr @g_hash_table_get_values(ptr noundef %11) #10
+  %10 = load ptr, ptr @insns, align 8
+  %call8 = tail call ptr @g_hash_table_get_values(ptr noundef %10) #10
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %glib_autoptr_cleanup_GString.exit, label %cond.true
 
 cond.true:                                        ; preds = %for.end
   %next = getelementptr inbounds i8, ptr %call8, i64 8
-  %12 = load ptr, ptr %next, align 8
-  %tobool11.not = icmp eq ptr %12, null
+  %11 = load ptr, ptr %next, align 8
+  %tobool11.not = icmp eq ptr %11, null
   br i1 %tobool11.not, label %glib_autoptr_cleanup_GString.exit, label %if.then12
 
 if.then12:                                        ; preds = %cond.true
@@ -480,48 +478,48 @@ if.then12:                                        ; preds = %cond.true
 
 cond.end:                                         ; preds = %if.then12, %cond.end29
   %i.134 = phi i32 [ %inc32, %cond.end29 ], [ 0, %if.then12 ]
-  %counts.033 = phi ptr [ %20, %cond.end29 ], [ %call13, %if.then12 ]
+  %counts.033 = phi ptr [ %19, %cond.end29 ], [ %call13, %if.then12 ]
   %next18 = getelementptr inbounds i8, ptr %counts.033, i64 8
-  %13 = load ptr, ptr %next18, align 8
-  %tobool20.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %next18, align 8
+  %tobool20.not = icmp eq ptr %12, null
   br i1 %tobool20.not, label %for.end39, label %for.body21
 
 for.body21:                                       ; preds = %cond.end
-  %14 = load ptr, ptr %counts.033, align 8
-  %15 = load ptr, ptr %14, align 8
-  %count22 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = load i64, ptr %count22, align 8
-  %opcode = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i32, ptr %opcode, align 8
-  %class23 = getelementptr inbounds i8, ptr %14, i64 24
-  %18 = load ptr, ptr %class23, align 8
-  %tobool24.not = icmp eq ptr %18, null
+  %13 = load ptr, ptr %counts.033, align 8
+  %14 = load ptr, ptr %13, align 8
+  %count22 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = load i64, ptr %count22, align 8
+  %opcode = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load i32, ptr %opcode, align 8
+  %class23 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %class23, align 8
+  %tobool24.not = icmp eq ptr %17, null
   br i1 %tobool24.not, label %cond.end29, label %cond.true25
 
 cond.true25:                                      ; preds = %for.body21
-  %19 = load ptr, ptr %18, align 8
+  %18 = load ptr, ptr %17, align 8
   br label %cond.end29
 
 cond.end29:                                       ; preds = %for.body21, %cond.true25
-  %cond30 = phi ptr [ %19, %cond.true25 ], [ @.str.120, %for.body21 ]
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.119, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %cond30) #10
+  %cond30 = phi ptr [ %18, %cond.true25 ], [ @.str.120, %for.body21 ]
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.119, ptr noundef %14, i64 noundef %15, i32 noundef %16, ptr noundef %cond30) #10
   %inc32 = add nuw nsw i32 %i.134, 1
-  %20 = load ptr, ptr %next18, align 8
+  %19 = load ptr, ptr %next18, align 8
   %cmp15 = icmp ugt i32 %i.134, 48
-  %tobool16.not = icmp eq ptr %20, null
+  %tobool16.not = icmp eq ptr %19, null
   %or.cond = select i1 %cmp15, i1 true, i1 %tobool16.not
   br i1 %or.cond, label %for.end39, label %cond.end, !llvm.loop !10
 
 for.end39:                                        ; preds = %cond.end, %cond.end29, %if.then12
-  %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %20, %cond.end29 ], [ %counts.033, %cond.end ]
+  %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %19, %cond.end29 ], [ %counts.033, %cond.end ]
   tail call void @g_list_free(ptr noundef %counts.0.lcssa) #10
   br label %glib_autoptr_cleanup_GString.exit
 
 glib_autoptr_cleanup_GString.exit:                ; preds = %for.end39, %cond.true, %for.end
-  %21 = load ptr, ptr @insns, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %21) #10
-  %22 = load ptr, ptr %call, align 8
-  tail call void @qemu_plugin_outs(ptr noundef %22) #10
+  %20 = load ptr, ptr @insns, align 8
+  tail call void @g_hash_table_destroy(ptr noundef %20) #10
+  %21 = load ptr, ptr %call, align 8
+  tail call void @qemu_plugin_outs(ptr noundef %21) #10
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #10
   ret void
 }

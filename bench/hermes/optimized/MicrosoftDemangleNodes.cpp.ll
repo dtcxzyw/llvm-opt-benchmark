@@ -1396,19 +1396,18 @@ _ZN12OutputStream4growEm.exit.i.i124:             ; preds = %if.then.i._ZN12Outp
   store i64 %add.i.i126, ptr %CurrentPosition.i.i.i112, align 8
   %IsTruncated = getelementptr inbounds i8, ptr %this, i64 40
   %27 = load i8, ptr %IsTruncated, align 8
-  %28 = and i8 %27, 1
-  %tobool.not = icmp eq i8 %28, 0
-  br i1 %tobool.not, label %if.end.i.i161, label %if.end.i.i136
+  %tobool = trunc i8 %27 to i1
+  br i1 %tobool, label %if.end.i.i136, label %if.end.i.i161
 
 if.end.i.i136:                                    ; preds = %_ZN12OutputStream4growEm.exit.i.i124
   %add.i.i.i138 = add i64 %26, 4
-  %29 = load i64, ptr %BufferCapacity.i.i.i114, align 8
-  %cmp.not.i.i.i140 = icmp ult i64 %add.i.i.i138, %29
+  %28 = load i64, ptr %BufferCapacity.i.i.i114, align 8
+  %cmp.not.i.i.i140 = icmp ult i64 %add.i.i.i138, %28
   %.pre.i.i141 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i140, label %_ZN12OutputStream4growEm.exit.i.i149, label %if.then.i.i.i142
 
 if.then.i.i.i142:                                 ; preds = %if.end.i.i136
-  %mul.i.i.i143 = shl i64 %29, 1
+  %mul.i.i.i143 = shl i64 %28, 1
   %spec.store.select.i.i.i144 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i143, i64 %add.i.i.i138)
   store i64 %spec.store.select.i.i.i144, ptr %BufferCapacity.i.i.i114, align 8
   %call.i.i.i145 = tail call ptr @realloc(ptr noundef %.pre.i.i141, i64 noundef %spec.store.select.i.i.i144) #9
@@ -1425,25 +1424,25 @@ if.then15.i.i.i152:                               ; preds = %if.then.i.i.i142
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i149:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i147, %if.end.i.i136
-  %30 = phi i64 [ %add.i.i126, %if.end.i.i136 ], [ %.pre5.i.i148, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i147 ]
-  %31 = phi ptr [ %.pre.i.i141, %if.end.i.i136 ], [ %call.i.i.i145, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i147 ]
-  %add.ptr.i.i150 = getelementptr inbounds i8, ptr %31, i64 %30
+  %29 = phi i64 [ %add.i.i126, %if.end.i.i136 ], [ %.pre5.i.i148, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i147 ]
+  %30 = phi ptr [ %.pre.i.i141, %if.end.i.i136 ], [ %call.i.i.i145, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i147 ]
+  %add.ptr.i.i150 = getelementptr inbounds i8, ptr %30, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i150, ptr noundef nonnull align 1 dereferenceable(3) @.str.26, i64 3, i1 false)
-  %32 = load i64, ptr %CurrentPosition.i.i.i112, align 8
-  %add.i.i151 = add i64 %32, 3
+  %31 = load i64, ptr %CurrentPosition.i.i.i112, align 8
+  %add.i.i151 = add i64 %31, 3
   store i64 %add.i.i151, ptr %CurrentPosition.i.i.i112, align 8
   br label %if.end.i.i161
 
 if.end.i.i161:                                    ; preds = %_ZN12OutputStream4growEm.exit.i.i124, %_ZN12OutputStream4growEm.exit.i.i149
-  %33 = phi i64 [ %add.i.i126, %_ZN12OutputStream4growEm.exit.i.i124 ], [ %add.i.i151, %_ZN12OutputStream4growEm.exit.i.i149 ]
-  %add.i.i.i163 = add i64 %33, 1
-  %34 = load i64, ptr %BufferCapacity.i.i.i114, align 8
-  %cmp.not.i.i.i165 = icmp ult i64 %add.i.i.i163, %34
+  %32 = phi i64 [ %add.i.i126, %_ZN12OutputStream4growEm.exit.i.i124 ], [ %add.i.i151, %_ZN12OutputStream4growEm.exit.i.i149 ]
+  %add.i.i.i163 = add i64 %32, 1
+  %33 = load i64, ptr %BufferCapacity.i.i.i114, align 8
+  %cmp.not.i.i.i165 = icmp ult i64 %add.i.i.i163, %33
   %.pre.i.i166 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i165, label %_ZN12OutputStream4growEm.exit.i.i174, label %if.then.i.i.i167
 
 if.then.i.i.i167:                                 ; preds = %if.end.i.i161
-  %mul.i.i.i168 = shl i64 %34, 1
+  %mul.i.i.i168 = shl i64 %33, 1
   %spec.store.select.i.i.i169 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i168, i64 %add.i.i.i163)
   store i64 %spec.store.select.i.i.i169, ptr %BufferCapacity.i.i.i114, align 8
   %call.i.i.i170 = tail call ptr @realloc(ptr noundef %.pre.i.i166, i64 noundef %spec.store.select.i.i.i169) #9
@@ -1460,12 +1459,12 @@ if.then15.i.i.i177:                               ; preds = %if.then.i.i.i167
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i174:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i172, %if.end.i.i161
-  %35 = phi i64 [ %33, %if.end.i.i161 ], [ %.pre5.i.i173, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i172 ]
-  %36 = phi ptr [ %.pre.i.i166, %if.end.i.i161 ], [ %call.i.i.i170, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i172 ]
-  %add.ptr.i.i175 = getelementptr inbounds i8, ptr %36, i64 %35
+  %34 = phi i64 [ %32, %if.end.i.i161 ], [ %.pre5.i.i173, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i172 ]
+  %35 = phi ptr [ %.pre.i.i166, %if.end.i.i161 ], [ %call.i.i.i170, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i172 ]
+  %add.ptr.i.i175 = getelementptr inbounds i8, ptr %35, i64 %34
   store i8 125, ptr %add.ptr.i.i175, align 1
-  %37 = load i64, ptr %CurrentPosition.i.i.i112, align 8
-  %add.i.i176 = add i64 %37, 1
+  %36 = load i64, ptr %CurrentPosition.i.i.i112, align 8
+  %add.i.i176 = add i64 %36, 1
   store i64 %add.i.i176, ptr %CurrentPosition.i.i.i112, align 8
   ret void
 }
@@ -1475,22 +1474,21 @@ define hidden void @_ZNK4llvh11ms_demangle18IntegerLiteralNode6outputER12OutputS
 entry:
   %IsNegative = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %IsNegative, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
-  %2 = load i64, ptr %CurrentPosition.i.i.i, align 8
-  %add.i.i.i = add i64 %2, 1
+  %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
+  %add.i.i.i = add i64 %1, 1
   %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
-  %3 = load i64, ptr %BufferCapacity.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %3
+  %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i, label %_ZN12OutputStreamlsEc.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %mul.i.i.i = shl i64 %3, 1
+  %mul.i.i.i = shl i64 %2, 1
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i, i64 %add.i.i.i)
   store i64 %spec.store.select.i.i.i, ptr %BufferCapacity.i.i.i, align 8
   %call.i.i.i = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.store.select.i.i.i) #9
@@ -1509,17 +1507,17 @@ if.then15.i.i.i:                                  ; preds = %if.then.i.i.i
 
 _ZN12OutputStreamlsEc.exit:                       ; preds = %if.then, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre2.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ], [ %add.i.i.i, %if.then ]
-  %4 = phi i64 [ %.pre1.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ], [ %2, %if.then ]
-  %5 = phi ptr [ %call.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ], [ %.pre.i.i, %if.then ]
+  %3 = phi i64 [ %.pre1.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ], [ %1, %if.then ]
+  %4 = phi ptr [ %call.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ], [ %.pre.i.i, %if.then ]
   store i64 %inc.pre-phi.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 45, ptr %arrayidx.i.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStreamlsEc.exit, %entry
   %Value = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %Value, align 8
-  tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %6, i1 noundef zeroext false)
+  %5 = load i64, ptr %Value, align 8
+  tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %5, i1 noundef zeroext false)
   ret void
 }
 
@@ -1887,31 +1885,30 @@ define hidden void @_ZNK4llvh11ms_demangle29DynamicStructorIdentifierNode6output
 entry:
   %IsDestructor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %IsDestructor, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %CurrentPosition.i.i.i17 = getelementptr inbounds i8, ptr %OS, i64 8
-  %2 = load i64, ptr %CurrentPosition.i.i.i17, align 8
-  %BufferCapacity.i.i.i19 = getelementptr inbounds i8, ptr %OS, i64 16
-  %3 = load i64, ptr %BufferCapacity.i.i.i19, align 8
-  %.pre.i.i21 = load ptr, ptr %OS, align 8
-  br i1 %tobool.not, label %if.end.i.i16, label %if.end.i.i
+  %tobool = trunc i8 %0 to i1
+  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
+  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
+  %.pre.i.i = load ptr, ptr %OS, align 8
+  br i1 %tobool, label %if.end.i.i, label %if.end.i.i16
 
 if.end.i.i:                                       ; preds = %entry
-  %add.i.i.i = add i64 %2, 31
-  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %3
+  %add.i.i.i = add i64 %1, 31
+  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   br i1 %cmp.not.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %mul.i.i.i = shl i64 %3, 1
+  %mul.i.i.i = shl i64 %2, 1
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i, i64 %add.i.i.i)
-  store i64 %spec.store.select.i.i.i, ptr %BufferCapacity.i.i.i19, align 8
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %.pre.i.i21, i64 noundef %spec.store.select.i.i.i) #9
+  store i64 %spec.store.select.i.i.i, ptr %BufferCapacity.i.i.i, align 8
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.store.select.i.i.i) #9
   store ptr %call.i.i.i, ptr %OS, align 8
   %cmp14.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp14.i.i.i, label %if.then15.i.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i
 
 if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i: ; preds = %if.then.i.i.i
-  %.pre5.i.i = load i64, ptr %CurrentPosition.i.i.i17, align 8
+  %.pre5.i.i = load i64, ptr %CurrentPosition.i.i.i, align 8
   br label %_ZN12OutputStream4growEm.exit.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -1919,28 +1916,28 @@ if.then15.i.i.i:                                  ; preds = %if.then.i.i.i
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i, %if.end.i.i
-  %4 = phi i64 [ %2, %if.end.i.i ], [ %.pre5.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
-  %5 = phi ptr [ %.pre.i.i21, %if.end.i.i ], [ %call.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %4
+  %3 = phi i64 [ %1, %if.end.i.i ], [ %.pre5.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end.i.i ], [ %call.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(31) @.str.32, i64 31, i1 false)
   br label %if.end
 
 if.end.i.i16:                                     ; preds = %entry
-  %add.i.i.i18 = add i64 %2, 25
-  %cmp.not.i.i.i20 = icmp ult i64 %add.i.i.i18, %3
+  %add.i.i.i18 = add i64 %1, 25
+  %cmp.not.i.i.i20 = icmp ult i64 %add.i.i.i18, %2
   br i1 %cmp.not.i.i.i20, label %_ZN12OutputStream4growEm.exit.i.i29, label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %if.end.i.i16
-  %mul.i.i.i23 = shl i64 %3, 1
+  %mul.i.i.i23 = shl i64 %2, 1
   %spec.store.select.i.i.i24 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i23, i64 %add.i.i.i18)
-  store i64 %spec.store.select.i.i.i24, ptr %BufferCapacity.i.i.i19, align 8
-  %call.i.i.i25 = tail call ptr @realloc(ptr noundef %.pre.i.i21, i64 noundef %spec.store.select.i.i.i24) #9
+  store i64 %spec.store.select.i.i.i24, ptr %BufferCapacity.i.i.i, align 8
+  %call.i.i.i25 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.store.select.i.i.i24) #9
   store ptr %call.i.i.i25, ptr %OS, align 8
   %cmp14.i.i.i26 = icmp eq ptr %call.i.i.i25, null
   br i1 %cmp14.i.i.i26, label %if.then15.i.i.i32, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27
 
 if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27: ; preds = %if.then.i.i.i22
-  %.pre5.i.i28 = load i64, ptr %CurrentPosition.i.i.i17, align 8
+  %.pre5.i.i28 = load i64, ptr %CurrentPosition.i.i.i, align 8
   br label %_ZN12OutputStream4growEm.exit.i.i29
 
 if.then15.i.i.i32:                                ; preds = %if.then.i.i.i22
@@ -1948,25 +1945,25 @@ if.then15.i.i.i32:                                ; preds = %if.then.i.i.i22
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i29:              ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27, %if.end.i.i16
-  %6 = phi i64 [ %2, %if.end.i.i16 ], [ %.pre5.i.i28, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27 ]
-  %7 = phi ptr [ %.pre.i.i21, %if.end.i.i16 ], [ %call.i.i.i25, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27 ]
-  %add.ptr.i.i30 = getelementptr inbounds i8, ptr %7, i64 %6
+  %5 = phi i64 [ %1, %if.end.i.i16 ], [ %.pre5.i.i28, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27 ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.i.i16 ], [ %call.i.i.i25, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i27 ]
+  %add.ptr.i.i30 = getelementptr inbounds i8, ptr %6, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %add.ptr.i.i30, ptr noundef nonnull align 1 dereferenceable(25) @.str.33, i64 25, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i.i29, %_ZN12OutputStream4growEm.exit.i.i
   %.sink135 = phi i64 [ 25, %_ZN12OutputStream4growEm.exit.i.i29 ], [ 31, %_ZN12OutputStream4growEm.exit.i.i ]
-  %8 = load i64, ptr %CurrentPosition.i.i.i17, align 8
-  %add.i.i31 = add i64 %8, %.sink135
-  store i64 %add.i.i31, ptr %CurrentPosition.i.i.i17, align 8
+  %7 = load i64, ptr %CurrentPosition.i.i.i, align 8
+  %add.i.i31 = add i64 %7, %.sink135
+  store i64 %add.i.i31, ptr %CurrentPosition.i.i.i, align 8
   %Variable = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %Variable, align 8
-  %tobool4.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %Variable, align 8
+  %tobool4.not = icmp eq ptr %8, null
   %CurrentPosition.i.i.i92 = getelementptr inbounds i8, ptr %OS, i64 8
   %add.i.i.i93 = add i64 %add.i.i31, 1
   %BufferCapacity.i.i.i94 = getelementptr inbounds i8, ptr %OS, i64 16
-  %10 = load i64, ptr %BufferCapacity.i.i.i94, align 8
-  %cmp.not.i.i.i95 = icmp ult i64 %add.i.i.i93, %10
+  %9 = load i64, ptr %BufferCapacity.i.i.i94, align 8
+  %cmp.not.i.i.i95 = icmp ult i64 %add.i.i.i93, %9
   %.pre.i.i96 = load ptr, ptr %OS, align 8
   br i1 %tobool4.not, label %if.end.i.i91, label %if.end.i.i41
 
@@ -1974,7 +1971,7 @@ if.end.i.i41:                                     ; preds = %if.end
   br i1 %cmp.not.i.i.i95, label %_ZN12OutputStream4growEm.exit.i.i54, label %if.then.i.i.i47
 
 if.then.i.i.i47:                                  ; preds = %if.end.i.i41
-  %mul.i.i.i48 = shl i64 %10, 1
+  %mul.i.i.i48 = shl i64 %9, 1
   %spec.store.select.i.i.i49 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i48, i64 %add.i.i.i93)
   store i64 %spec.store.select.i.i.i49, ptr %BufferCapacity.i.i.i94, align 8
   %call.i.i.i50 = tail call ptr @realloc(ptr noundef %.pre.i.i96, i64 noundef %spec.store.select.i.i.i49) #9
@@ -1991,27 +1988,27 @@ if.then15.i.i.i57:                                ; preds = %if.then.i.i.i47
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i54:              ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i52, %if.end.i.i41
-  %11 = phi i64 [ %add.i.i31, %if.end.i.i41 ], [ %.pre5.i.i53, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i52 ]
-  %12 = phi ptr [ %.pre.i.i96, %if.end.i.i41 ], [ %call.i.i.i50, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i52 ]
-  %add.ptr.i.i55 = getelementptr inbounds i8, ptr %12, i64 %11
+  %10 = phi i64 [ %add.i.i31, %if.end.i.i41 ], [ %.pre5.i.i53, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i52 ]
+  %11 = phi ptr [ %.pre.i.i96, %if.end.i.i41 ], [ %call.i.i.i50, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i52 ]
+  %add.ptr.i.i55 = getelementptr inbounds i8, ptr %11, i64 %10
   store i8 96, ptr %add.ptr.i.i55, align 1
-  %13 = load i64, ptr %CurrentPosition.i.i.i92, align 8
-  %add.i.i56 = add i64 %13, 1
+  %12 = load i64, ptr %CurrentPosition.i.i.i92, align 8
+  %add.i.i56 = add i64 %12, 1
   store i64 %add.i.i56, ptr %CurrentPosition.i.i.i92, align 8
-  %14 = load ptr, ptr %Variable, align 8
-  %vtable = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %Variable, align 8
+  %vtable = load ptr, ptr %13, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %15 = load ptr, ptr %vfn, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %16 = load i64, ptr %CurrentPosition.i.i.i92, align 8
-  %add.i.i.i68 = add i64 %16, 2
-  %17 = load i64, ptr %BufferCapacity.i.i.i94, align 8
-  %cmp.not.i.i.i70 = icmp ult i64 %add.i.i.i68, %17
+  %14 = load ptr, ptr %vfn, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
+  %15 = load i64, ptr %CurrentPosition.i.i.i92, align 8
+  %add.i.i.i68 = add i64 %15, 2
+  %16 = load i64, ptr %BufferCapacity.i.i.i94, align 8
+  %cmp.not.i.i.i70 = icmp ult i64 %add.i.i.i68, %16
   %.pre.i.i71 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i70, label %_ZN12OutputStream4growEm.exit.i.i79, label %if.then.i.i.i72
 
 if.then.i.i.i72:                                  ; preds = %_ZN12OutputStream4growEm.exit.i.i54
-  %mul.i.i.i73 = shl i64 %17, 1
+  %mul.i.i.i73 = shl i64 %16, 1
   %spec.store.select.i.i.i74 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i73, i64 %add.i.i.i68)
   store i64 %spec.store.select.i.i.i74, ptr %BufferCapacity.i.i.i94, align 8
   %call.i.i.i75 = tail call ptr @realloc(ptr noundef %.pre.i.i71, i64 noundef %spec.store.select.i.i.i74) #9
@@ -2028,16 +2025,16 @@ if.then15.i.i.i82:                                ; preds = %if.then.i.i.i72
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i79:              ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i77, %_ZN12OutputStream4growEm.exit.i.i54
-  %18 = phi i64 [ %16, %_ZN12OutputStream4growEm.exit.i.i54 ], [ %.pre5.i.i78, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i77 ]
-  %19 = phi ptr [ %.pre.i.i71, %_ZN12OutputStream4growEm.exit.i.i54 ], [ %call.i.i.i75, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i77 ]
-  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %19, i64 %18
+  %17 = phi i64 [ %15, %_ZN12OutputStream4growEm.exit.i.i54 ], [ %.pre5.i.i78, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i77 ]
+  %18 = phi ptr [ %.pre.i.i71, %_ZN12OutputStream4growEm.exit.i.i54 ], [ %call.i.i.i75, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i77 ]
+  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %18, i64 %17
   br label %if.end18
 
 if.end.i.i91:                                     ; preds = %if.end
   br i1 %cmp.not.i.i.i95, label %_ZN12OutputStream4growEm.exit.i.i104, label %if.then.i.i.i97
 
 if.then.i.i.i97:                                  ; preds = %if.end.i.i91
-  %mul.i.i.i98 = shl i64 %10, 1
+  %mul.i.i.i98 = shl i64 %9, 1
   %spec.store.select.i.i.i99 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i98, i64 %add.i.i.i93)
   store i64 %spec.store.select.i.i.i99, ptr %BufferCapacity.i.i.i94, align 8
   %call.i.i.i100 = tail call ptr @realloc(ptr noundef %.pre.i.i96, i64 noundef %spec.store.select.i.i.i99) #9
@@ -2054,28 +2051,28 @@ if.then15.i.i.i107:                               ; preds = %if.then.i.i.i97
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i104:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i102, %if.end.i.i91
-  %20 = phi i64 [ %add.i.i31, %if.end.i.i91 ], [ %.pre5.i.i103, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i102 ]
-  %21 = phi ptr [ %.pre.i.i96, %if.end.i.i91 ], [ %call.i.i.i100, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i102 ]
-  %add.ptr.i.i105 = getelementptr inbounds i8, ptr %21, i64 %20
+  %19 = phi i64 [ %add.i.i31, %if.end.i.i91 ], [ %.pre5.i.i103, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i102 ]
+  %20 = phi ptr [ %.pre.i.i96, %if.end.i.i91 ], [ %call.i.i.i100, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i102 ]
+  %add.ptr.i.i105 = getelementptr inbounds i8, ptr %20, i64 %19
   store i8 39, ptr %add.ptr.i.i105, align 1
-  %22 = load i64, ptr %CurrentPosition.i.i.i92, align 8
-  %add.i.i106 = add i64 %22, 1
+  %21 = load i64, ptr %CurrentPosition.i.i.i92, align 8
+  %add.i.i106 = add i64 %21, 1
   store i64 %add.i.i106, ptr %CurrentPosition.i.i.i92, align 8
   %Name = getelementptr inbounds i8, ptr %this, i64 32
-  %23 = load ptr, ptr %Name, align 8
-  %vtable14 = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %Name, align 8
+  %vtable14 = load ptr, ptr %22, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
-  %24 = load ptr, ptr %vfn15, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %25 = load i64, ptr %CurrentPosition.i.i.i92, align 8
-  %add.i.i.i118 = add i64 %25, 2
-  %26 = load i64, ptr %BufferCapacity.i.i.i94, align 8
-  %cmp.not.i.i.i120 = icmp ult i64 %add.i.i.i118, %26
+  %23 = load ptr, ptr %vfn15, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
+  %24 = load i64, ptr %CurrentPosition.i.i.i92, align 8
+  %add.i.i.i118 = add i64 %24, 2
+  %25 = load i64, ptr %BufferCapacity.i.i.i94, align 8
+  %cmp.not.i.i.i120 = icmp ult i64 %add.i.i.i118, %25
   %.pre.i.i121 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i120, label %_ZN12OutputStream4growEm.exit.i.i129, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %_ZN12OutputStream4growEm.exit.i.i104
-  %mul.i.i.i123 = shl i64 %26, 1
+  %mul.i.i.i123 = shl i64 %25, 1
   %spec.store.select.i.i.i124 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i123, i64 %add.i.i.i118)
   store i64 %spec.store.select.i.i.i124, ptr %BufferCapacity.i.i.i94, align 8
   %call.i.i.i125 = tail call ptr @realloc(ptr noundef %.pre.i.i121, i64 noundef %spec.store.select.i.i.i124) #9
@@ -2092,16 +2089,16 @@ if.then15.i.i.i132:                               ; preds = %if.then.i.i.i122
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i129:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i127, %_ZN12OutputStream4growEm.exit.i.i104
-  %27 = phi i64 [ %25, %_ZN12OutputStream4growEm.exit.i.i104 ], [ %.pre5.i.i128, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i127 ]
-  %28 = phi ptr [ %.pre.i.i121, %_ZN12OutputStream4growEm.exit.i.i104 ], [ %call.i.i.i125, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i127 ]
-  %add.ptr.i.i130 = getelementptr inbounds i8, ptr %28, i64 %27
+  %26 = phi i64 [ %24, %_ZN12OutputStream4growEm.exit.i.i104 ], [ %.pre5.i.i128, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i127 ]
+  %27 = phi ptr [ %.pre.i.i121, %_ZN12OutputStream4growEm.exit.i.i104 ], [ %call.i.i.i125, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i127 ]
+  %add.ptr.i.i130 = getelementptr inbounds i8, ptr %27, i64 %26
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i129, %_ZN12OutputStream4growEm.exit.i.i79
   %add.ptr.i.i130.sink = phi ptr [ %add.ptr.i.i130, %_ZN12OutputStream4growEm.exit.i.i129 ], [ %add.ptr.i.i80, %_ZN12OutputStream4growEm.exit.i.i79 ]
   store i16 10023, ptr %add.ptr.i.i130.sink, align 1
-  %29 = load i64, ptr %CurrentPosition.i.i.i92, align 8
-  %add.i.i131 = add i64 %29, 2
+  %28 = load i64, ptr %CurrentPosition.i.i.i92, align 8
+  %add.i.i131 = add i64 %28, 2
   store i64 %add.i.i131, ptr %CurrentPosition.i.i.i92, align 8
   ret void
 }
@@ -2693,22 +2690,21 @@ define hidden void @_ZNK4llvh11ms_demangle22StructorIdentifierNode6outputER12Out
 entry:
   %IsDestructor = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %IsDestructor, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.end.i.i
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end.i.i, label %if.end
 
 if.end.i.i:                                       ; preds = %entry
   %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
-  %2 = load i64, ptr %CurrentPosition.i.i.i, align 8
-  %add.i.i.i = add i64 %2, 1
+  %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
+  %add.i.i.i = add i64 %1, 1
   %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
-  %3 = load i64, ptr %BufferCapacity.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %3
+  %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %mul.i.i.i = shl i64 %3, 1
+  %mul.i.i.i = shl i64 %2, 1
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i, i64 %add.i.i.i)
   store i64 %spec.store.select.i.i.i, ptr %BufferCapacity.i.i.i, align 8
   %call.i.i.i = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.store.select.i.i.i) #9
@@ -2725,22 +2721,22 @@ if.then15.i.i.i:                                  ; preds = %if.then.i.i.i
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i, %if.end.i.i
-  %4 = phi i64 [ %2, %if.end.i.i ], [ %.pre5.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
-  %5 = phi ptr [ %.pre.i.i, %if.end.i.i ], [ %call.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %4
+  %3 = phi i64 [ %1, %if.end.i.i ], [ %.pre5.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end.i.i ], [ %call.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 126, ptr %add.ptr.i.i, align 1
-  %6 = load i64, ptr %CurrentPosition.i.i.i, align 8
-  %add.i.i = add i64 %6, 1
+  %5 = load i64, ptr %CurrentPosition.i.i.i, align 8
+  %add.i.i = add i64 %5, 1
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i.i, %entry
   %Class = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %Class, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %Class, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %8 = load ptr, ptr %vfn, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
+  %7 = load ptr, ptr %vfn, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   tail call void @_ZNK4llvh11ms_demangle14IdentifierNode24outputTemplateParametersER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags)
   ret void
 }

@@ -139,9 +139,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %is_closed_.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.not.i, label %cleanup.done.i, label %cond.false.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %cond.false.i, label %cleanup.done.i
 
 cond.false.i:                                     ; preds = %entry
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str, i32 noundef 100, i64 11, ptr nonnull @.str.2) #17
@@ -151,18 +150,18 @@ cond.false.i:                                     ; preds = %entry
 cleanup.done.i:                                   ; preds = %entry
   store i8 1, ptr %is_closed_.i, align 1
   %file_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %file_.i, align 8
+  %1 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %cleanup.done.i
-  %call.i.i = tail call i32 @close(i32 noundef %2)
+  %call.i.i = tail call i32 @close(i32 noundef %1)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
   %call1.i.i = tail call ptr @__errno_location() #19
-  %3 = load i32, ptr %call1.i.i, align 4
-  %cmp2.i.i = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call1.i.i, align 4
+  %cmp2.i.i = icmp eq i32 %2, 4
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then.i, !llvm.loop !4
 
 _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i: ; preds = %do.body.i.i
@@ -175,9 +174,9 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
   br label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
-  %4 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %3, %land.rhs.i.i ]
+  %3 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %2, %land.rhs.i.i ]
   %errno_.i = getelementptr inbounds i8, ptr %this, i64 24
-  store i32 %4, ptr %errno_.i, align 8
+  store i32 %3, ptr %errno_.i, align 8
   br label %_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream5CloseEv.exit
 
 _ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream5CloseEv.exit: ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i, %if.then.i
@@ -192,9 +191,8 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %cleanup.done, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 100, i64 11, ptr nonnull @.str.2) #17
@@ -204,18 +202,18 @@ cond.false:                                       ; preds = %entry
 cleanup.done:                                     ; preds = %entry
   store i8 1, ptr %is_closed_, align 1
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i32, ptr %file_, align 8
+  %1 = load i32, ptr %file_, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %cleanup.done
-  %call.i = tail call i32 @close(i32 noundef %2)
+  %call.i = tail call i32 @close(i32 noundef %1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit
 
 land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #19
-  %3 = load i32, ptr %call1.i, align 4
-  %cmp2.i = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call1.i, align 4
+  %cmp2.i = icmp eq i32 %2, 4
   br i1 %cmp2.i, label %do.body.i, label %if.then, !llvm.loop !4
 
 _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit: ; preds = %do.body.i
@@ -228,9 +226,9 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge: ;
 
 if.then:                                          ; preds = %land.rhs.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge
   %call10.pre-phi = phi ptr [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge ], [ %call1.i, %land.rhs.i ]
-  %4 = load i32, ptr %call10.pre-phi, align 4
+  %3 = load i32, ptr %call10.pre-phi, align 4
   %errno_ = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %4, ptr %errno_, align 8
+  store i32 %3, ptr %errno_, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit, %if.then
@@ -309,17 +307,15 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessage", align 8
   %close_on_delete_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %close_on_delete_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end14, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 13
-  %2 = load i8, ptr %is_closed_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.not.i, label %cleanup.done.i, label %cond.false.i
+  %1 = load i8, ptr %is_closed_.i, align 1
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %cond.false.i, label %cleanup.done.i
 
 cond.false.i:                                     ; preds = %if.then
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str, i32 noundef 100, i64 11, ptr nonnull @.str.2) #17
@@ -332,11 +328,11 @@ cond.false.i:                                     ; preds = %if.then
 cleanup.done.i:                                   ; preds = %if.then
   store i8 1, ptr %is_closed_.i, align 1
   %file_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i32, ptr %file_.i, align 8
+  %2 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %cleanup.done.i
-  %call.i.i1 = invoke i32 @close(i32 noundef %4)
+  %call.i.i1 = invoke i32 @close(i32 noundef %2)
           to label %call.i.i.noexc unwind label %terminate.lpad.loopexit
 
 call.i.i.noexc:                                   ; preds = %do.body.i.i
@@ -345,8 +341,8 @@ call.i.i.noexc:                                   ; preds = %do.body.i.i
 
 land.rhs.i.i:                                     ; preds = %call.i.i.noexc
   %call1.i.i = tail call ptr @__errno_location() #19
-  %5 = load i32, ptr %call1.i.i, align 4
-  %cmp2.i.i = icmp eq i32 %5, 4
+  %3 = load i32, ptr %call1.i.i, align 4
+  %cmp2.i.i = icmp eq i32 %3, 4
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then2, !llvm.loop !4
 
 _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i: ; preds = %call.i.i.noexc
@@ -363,9 +359,9 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
   br label %if.then2
 
 if.then2:                                         ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
-  %6 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %5, %land.rhs.i.i ]
+  %4 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %3, %land.rhs.i.i ]
   %errno_.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %6, ptr %errno_.i, align 8
+  store i32 %4, ptr %errno_.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 94) #17
           to label %invoke.cont4 unwind label %terminate.lpad.loopexit.split-lp
@@ -375,12 +371,12 @@ invoke.cont4:                                     ; preds = %if.then2
           to label %invoke.cont7 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %7 = load i32, ptr %errno_.i, align 8
-  %call10 = call ptr @strerror(i32 noundef %7) #16
+  %5 = load i32, ptr %errno_.i, align 8
+  %call10 = call ptr @strerror(i32 noundef %5) #16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
   %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  %8 = load ptr, ptr %data_.i, align 8
-  invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %8)
+  %6 = load ptr, ptr %data_.i, align 8
+  invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %6)
           to label %.noexc3 unwind label %terminate.lpad.loopexit.split-lp
 
 .noexc3:                                          ; preds = %invoke.cont7
@@ -394,7 +390,7 @@ invoke.cont.i:                                    ; preds = %.noexc3
           to label %invoke.cont11 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc3
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i) #16
   br label %terminate.lpad.body
@@ -419,9 +415,9 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.then2, %cond.fal
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad.loopexit, %terminate.lpad.loopexit.split-lp, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
-  %10 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %10) #18
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
+  %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 }
 
@@ -471,9 +467,8 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %do.body.preheader, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -486,21 +481,21 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  %2 = load i32, ptr %file_, align 8
-  %call8 = tail call i64 @read(i32 noundef %2, ptr noundef %buffer, i64 noundef %conv)
+  %1 = load i32, ptr %file_, align 8
+  %call8 = tail call i64 @read(i32 noundef %1, ptr noundef %buffer, i64 noundef %conv)
   %conv9 = trunc i64 %call8 to i32
   %cmp = icmp slt i32 %conv9, 0
   br i1 %cmp, label %land.rhs, label %if.end
 
 land.rhs:                                         ; preds = %do.body
   %call10 = tail call ptr @__errno_location() #19
-  %3 = load i32, ptr %call10, align 4
-  %cmp11 = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call10, align 4
+  %cmp11 = icmp eq i32 %2, 4
   br i1 %cmp11, label %do.body, label %if.then, !llvm.loop !6
 
 if.then:                                          ; preds = %land.rhs
   %errno_ = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %3, ptr %errno_, align 8
+  store i32 %2, ptr %errno_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %do.body, %if.then
@@ -516,9 +511,8 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %cleanup.done, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 131, i64 11, ptr nonnull @.str.2) #17
@@ -527,16 +521,15 @@ cond.false:                                       ; preds = %entry
 
 cleanup.done:                                     ; preds = %entry
   %previous_seek_failed_ = getelementptr inbounds i8, ptr %this, i64 20
-  %2 = load i8, ptr %previous_seek_failed_, align 4
-  %3 = and i8 %2, 1
-  %tobool8.not = icmp eq i8 %3, 0
-  br i1 %tobool8.not, label %land.lhs.true, label %if.else
+  %1 = load i8, ptr %previous_seek_failed_, align 4
+  %tobool8 = trunc i8 %1 to i1
+  br i1 %tobool8, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cleanup.done
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i32, ptr %file_, align 8
+  %2 = load i32, ptr %file_, align 8
   %conv = sext i32 %count to i64
-  %call9 = tail call i64 @lseek(i32 noundef %4, i64 noundef %conv, i32 noundef 1) #16
+  %call9 = tail call i64 @lseek(i32 noundef %2, i64 noundef %conv, i32 noundef 1) #16
   %cmp.not = icmp eq i64 %call9, -1
   br i1 %cmp.not, label %if.else, label %return
 
@@ -588,9 +581,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 61
   %0 = load i8, ptr %is_closed_.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.not.i, label %cleanup.done.i, label %cond.false.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %cond.false.i, label %cleanup.done.i
 
 cond.false.i:                                     ; preds = %entry
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str, i32 noundef 177, i64 11, ptr nonnull @.str.2) #17
@@ -600,18 +592,18 @@ cond.false.i:                                     ; preds = %entry
 cleanup.done.i:                                   ; preds = %entry
   store i8 1, ptr %is_closed_.i, align 1
   %file_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %file_.i, align 8
+  %1 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %cleanup.done.i
-  %call.i.i = tail call i32 @close(i32 noundef %2)
+  %call.i.i = tail call i32 @close(i32 noundef %1)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
   %call1.i.i = tail call ptr @__errno_location() #19
-  %3 = load i32, ptr %call1.i.i, align 4
-  %cmp2.i.i = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call1.i.i, align 4
+  %cmp2.i.i = icmp eq i32 %2, 4
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then.i, !llvm.loop !4
 
 _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i: ; preds = %do.body.i.i
@@ -624,16 +616,16 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
   br label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
-  %4 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %3, %land.rhs.i.i ]
+  %3 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %2, %land.rhs.i.i ]
   %errno_.i = getelementptr inbounds i8, ptr %this, i64 64
-  store i32 %4, ptr %errno_.i, align 8
+  store i32 %3, ptr %errno_.i, align 8
   br label %_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStream5CloseEv.exit
 
 _ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStream5CloseEv.exit: ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i, %if.then.i
   %cmp.not3.i = phi i1 [ true, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %5 = and i1 %call, %cmp.not3.i
-  ret i1 %5
+  %4 = and i1 %call, %cmp.not3.i
+  ret i1 %4
 }
 
 declare noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
@@ -644,9 +636,8 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %cleanup.done, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 177, i64 11, ptr nonnull @.str.2) #17
@@ -656,18 +647,18 @@ cond.false:                                       ; preds = %entry
 cleanup.done:                                     ; preds = %entry
   store i8 1, ptr %is_closed_, align 1
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i32, ptr %file_, align 8
+  %1 = load i32, ptr %file_, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %cleanup.done
-  %call.i = tail call i32 @close(i32 noundef %2)
+  %call.i = tail call i32 @close(i32 noundef %1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit
 
 land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #19
-  %3 = load i32, ptr %call1.i, align 4
-  %cmp2.i = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call1.i, align 4
+  %cmp2.i = icmp eq i32 %2, 4
   br i1 %cmp2.i, label %do.body.i, label %if.then, !llvm.loop !4
 
 _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit: ; preds = %do.body.i
@@ -680,9 +671,9 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge: ;
 
 if.then:                                          ; preds = %land.rhs.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge
   %call10.pre-phi = phi ptr [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge ], [ %call1.i, %land.rhs.i ]
-  %4 = load i32, ptr %call10.pre-phi, align 4
+  %3 = load i32, ptr %call10.pre-phi, align 4
   %errno_ = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %4, ptr %errno_, align 8
+  store i32 %3, ptr %errno_, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit, %if.then
@@ -741,17 +732,15 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessage", align 8
   %close_on_delete_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %close_on_delete_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end14, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 13
-  %2 = load i8, ptr %is_closed_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.not.i, label %cleanup.done.i, label %cond.false.i
+  %1 = load i8, ptr %is_closed_.i, align 1
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %cond.false.i, label %cleanup.done.i
 
 cond.false.i:                                     ; preds = %if.then
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str, i32 noundef 177, i64 11, ptr nonnull @.str.2) #17
@@ -764,11 +753,11 @@ cond.false.i:                                     ; preds = %if.then
 cleanup.done.i:                                   ; preds = %if.then
   store i8 1, ptr %is_closed_.i, align 1
   %file_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i32, ptr %file_.i, align 8
+  %2 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %cleanup.done.i
-  %call.i.i1 = invoke i32 @close(i32 noundef %4)
+  %call.i.i1 = invoke i32 @close(i32 noundef %2)
           to label %call.i.i.noexc unwind label %terminate.lpad.loopexit
 
 call.i.i.noexc:                                   ; preds = %do.body.i.i
@@ -777,8 +766,8 @@ call.i.i.noexc:                                   ; preds = %do.body.i.i
 
 land.rhs.i.i:                                     ; preds = %call.i.i.noexc
   %call1.i.i = tail call ptr @__errno_location() #19
-  %5 = load i32, ptr %call1.i.i, align 4
-  %cmp2.i.i = icmp eq i32 %5, 4
+  %3 = load i32, ptr %call1.i.i, align 4
+  %cmp2.i.i = icmp eq i32 %3, 4
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then2, !llvm.loop !4
 
 _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.i: ; preds = %call.i.i.noexc
@@ -795,9 +784,9 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
   br label %if.then2
 
 if.then2:                                         ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
-  %6 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %5, %land.rhs.i.i ]
+  %4 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %3, %land.rhs.i.i ]
   %errno_.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %6, ptr %errno_.i, align 8
+  store i32 %4, ptr %errno_.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 171) #17
           to label %invoke.cont4 unwind label %terminate.lpad.loopexit.split-lp
@@ -807,12 +796,12 @@ invoke.cont4:                                     ; preds = %if.then2
           to label %invoke.cont7 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %7 = load i32, ptr %errno_.i, align 8
-  %call10 = call ptr @strerror(i32 noundef %7) #16
+  %5 = load i32, ptr %errno_.i, align 8
+  %call10 = call ptr @strerror(i32 noundef %5) #16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
   %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  %8 = load ptr, ptr %data_.i, align 8
-  invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %8)
+  %6 = load ptr, ptr %data_.i, align 8
+  invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %6)
           to label %.noexc3 unwind label %terminate.lpad.loopexit.split-lp
 
 .noexc3:                                          ; preds = %invoke.cont7
@@ -826,7 +815,7 @@ invoke.cont.i:                                    ; preds = %.noexc3
           to label %invoke.cont11 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc3
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i) #16
   br label %terminate.lpad.body
@@ -851,9 +840,9 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.then2, %cond.fal
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad.loopexit, %terminate.lpad.loopexit.split-lp, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
-  %10 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %10) #18
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
+  %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 }
 
@@ -871,9 +860,8 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %while.cond.preheader, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
   %cmp14 = icmp slt i32 %size, 1
@@ -897,16 +885,16 @@ do.body.preheader:                                ; preds = %do.end, %do.body.pr
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  %2 = load i32, ptr %file_, align 8
-  %call8 = tail call i64 @write(i32 noundef %2, ptr noundef %add.ptr, i64 noundef %conv)
+  %1 = load i32, ptr %file_, align 8
+  %call8 = tail call i64 @write(i32 noundef %1, ptr noundef %add.ptr, i64 noundef %conv)
   %conv9 = trunc i64 %call8 to i32
   %cmp10 = icmp slt i32 %conv9, 0
   br i1 %cmp10, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body
   %call11 = tail call ptr @__errno_location() #19
-  %3 = load i32, ptr %call11, align 4
-  %cmp12 = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call11, align 4
+  %cmp12 = icmp eq i32 %2, 4
   br i1 %cmp12, label %do.body, label %if.then15, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
@@ -918,7 +906,7 @@ do.end:                                           ; preds = %do.body
 
 if.then15:                                        ; preds = %land.rhs
   %errno_ = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %3, ptr %errno_, align 8
+  store i32 %2, ptr %errno_, align 8
   br label %return
 
 return:                                           ; preds = %do.end, %while.cond.preheader, %if.then15

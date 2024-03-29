@@ -264,13 +264,12 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %seen_bits to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %seen_bits to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.real_report_garbage, i64 0, i64 %2
+  %1 = zext nneg i32 %seen_bits to i64
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.real_report_garbage, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call1 = call i32 @stat64(ptr noundef %path, ptr noundef nonnull %st) #6
   %tobool2.not = icmp eq i32 %call1, 0
@@ -278,16 +277,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.then3:                                         ; preds = %switch.lookup
   %st_size = getelementptr inbounds i8, ptr %st, i64 48
-  %3 = load i64, ptr %st_size, align 8
-  %4 = load i64, ptr @size_garbage, align 8
-  %add = add nsw i64 %4, %3
+  %2 = load i64, ptr %st_size, align 8
+  %3 = load i64, ptr @size_garbage, align 8
+  %add = add nsw i64 %3, %2
   store i64 %add, ptr @size_garbage, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %switch.lookup
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.16, ptr noundef nonnull %switch.load, ptr noundef %path) #6
-  %5 = load i64, ptr @garbage, align 8
-  %inc = add i64 %5, 1
+  %4 = load i64, ptr @garbage, align 8
+  %inc = add i64 %4, 1
   store i64 %inc, ptr @garbage, align 8
   br label %return
 

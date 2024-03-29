@@ -134,8 +134,8 @@ define dso_local noundef i64 @oidvectorin(ptr nocapture noundef %0) local_unname
   %.fr = freeze ptr %7
   %8 = tail call ptr @palloc0(i64 noundef 152) #11
   %9 = load i8, ptr %5, align 1
-  %.not3642 = icmp eq i8 %9, 0
-  br i1 %.not3642, label %._crit_edge, label %.lr.ph.lr.ph
+  %.not3541 = icmp eq i8 %9, 0
+  br i1 %.not3541, label %._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %1
   %10 = tail call ptr @__ctype_b_loc() #12
@@ -145,18 +145,18 @@ define dso_local noundef i64 @oidvectorin(ptr nocapture noundef %0) local_unname
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %29
   %12 = phi i8 [ %36, %29 ], [ %9, %.lr.ph.lr.ph ]
-  %.promoted46.us = phi ptr [ %.promoted.us, %29 ], [ %5, %.lr.ph.lr.ph ]
-  %.045.us = phi i32 [ %35, %29 ], [ 0, %.lr.ph.lr.ph ]
-  %.02544.us = phi i32 [ %.1.us, %29 ], [ 32, %.lr.ph.lr.ph ]
-  %.02643.us = phi ptr [ %.127.us, %29 ], [ %8, %.lr.ph.lr.ph ]
-  %.pre64 = load ptr, ptr %10, align 8
+  %.promoted45.us = phi ptr [ %.promoted.us, %29 ], [ %5, %.lr.ph.lr.ph ]
+  %.044.us = phi i32 [ %35, %29 ], [ 0, %.lr.ph.lr.ph ]
+  %.02543.us = phi i32 [ %.1.us, %29 ], [ 32, %.lr.ph.lr.ph ]
+  %.02642.us = phi ptr [ %.127.us, %29 ], [ %8, %.lr.ph.lr.ph ]
+  %.pre63 = load ptr, ptr %10, align 8
   br label %13
 
 13:                                               ; preds = %20, %.lr.ph.us
   %14 = phi i8 [ %12, %.lr.ph.us ], [ %22, %20 ]
-  %15 = phi ptr [ %.promoted46.us, %.lr.ph.us ], [ %21, %20 ]
+  %15 = phi ptr [ %.promoted45.us, %.lr.ph.us ], [ %21, %20 ]
   %16 = zext i8 %14 to i64
-  %17 = getelementptr i16, ptr %.pre64, i64 %16
+  %17 = getelementptr i16, ptr %.pre63, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8192
   %.not30.us = icmp eq i16 %19, 0
@@ -170,45 +170,45 @@ define dso_local noundef i64 @oidvectorin(ptr nocapture noundef %0) local_unname
   br i1 %.not.us, label %._crit_edge, label %13, !llvm.loop !8
 
 .critedge.us:                                     ; preds = %13
-  %.not31.us = icmp slt i32 %.045.us, %.02544.us
+  %.not31.us = icmp slt i32 %.044.us, %.02543.us
   br i1 %.not31.us, label %29, label %23
 
 23:                                               ; preds = %.critedge.us
-  %24 = shl i32 %.02544.us, 1
+  %24 = shl i32 %.02543.us, 1
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
   %27 = add nsw i64 %26, 24
-  %28 = call ptr @repalloc(ptr noundef %.02643.us, i64 noundef %27) #11
-  %.pre65 = load ptr, ptr %2, align 8
+  %28 = call ptr @repalloc(ptr noundef %.02642.us, i64 noundef %27) #11
+  %.pre64 = load ptr, ptr %2, align 8
   br label %29
 
 29:                                               ; preds = %23, %.critedge.us
-  %30 = phi ptr [ %.pre65, %23 ], [ %15, %.critedge.us ]
-  %.127.us = phi ptr [ %28, %23 ], [ %.02643.us, %.critedge.us ]
-  %.1.us = phi i32 [ %24, %23 ], [ %.02544.us, %.critedge.us ]
+  %30 = phi ptr [ %.pre64, %23 ], [ %15, %.critedge.us ]
+  %.127.us = phi ptr [ %28, %23 ], [ %.02642.us, %.critedge.us ]
+  %.1.us = phi i32 [ %24, %23 ], [ %.02543.us, %.critedge.us ]
   %31 = call i32 @uint32in_subr(ptr noundef %30, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef null) #11
   %32 = getelementptr inbounds i8, ptr %.127.us, i64 24
-  %33 = sext i32 %.045.us to i64
+  %33 = sext i32 %.044.us to i64
   %34 = getelementptr [0 x i32], ptr %32, i64 0, i64 %33
   store i32 %31, ptr %34, align 4
-  %35 = add i32 %.045.us, 1
+  %35 = add i32 %.044.us, 1
   %.promoted.us = load ptr, ptr %2, align 8
   %36 = load i8, ptr %.promoted.us, align 1
-  %.not36.us = icmp eq i8 %36, 0
-  br i1 %.not36.us, label %._crit_edge, label %.lr.ph.us
+  %.not35.us = icmp eq i8 %36, 0
+  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.us
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %67
   %37 = phi i8 [ %69, %67 ], [ %9, %.lr.ph.lr.ph ]
-  %.promoted46 = phi ptr [ %.promoted, %67 ], [ %5, %.lr.ph.lr.ph ]
-  %.045 = phi i32 [ %68, %67 ], [ 0, %.lr.ph.lr.ph ]
-  %.02544 = phi i32 [ %.1, %67 ], [ 32, %.lr.ph.lr.ph ]
-  %.02643 = phi ptr [ %.127, %67 ], [ %8, %.lr.ph.lr.ph ]
+  %.promoted45 = phi ptr [ %.promoted, %67 ], [ %5, %.lr.ph.lr.ph ]
+  %.044 = phi i32 [ %68, %67 ], [ 0, %.lr.ph.lr.ph ]
+  %.02543 = phi i32 [ %.1, %67 ], [ 32, %.lr.ph.lr.ph ]
+  %.02642 = phi ptr [ %.127, %67 ], [ %8, %.lr.ph.lr.ph ]
   %.pre = load ptr, ptr %10, align 8
   br label %38
 
 38:                                               ; preds = %.lr.ph, %45
   %39 = phi i8 [ %37, %.lr.ph ], [ %47, %45 ]
-  %40 = phi ptr [ %.promoted46, %.lr.ph ], [ %46, %45 ]
+  %40 = phi ptr [ %.promoted45, %.lr.ph ], [ %46, %45 ]
   %41 = zext i8 %39 to i64
   %42 = getelementptr i16, ptr %.pre, i64 %41
   %43 = load i16, ptr %42, align 2
@@ -224,25 +224,25 @@ define dso_local noundef i64 @oidvectorin(ptr nocapture noundef %0) local_unname
   br i1 %.not, label %._crit_edge, label %38, !llvm.loop !8
 
 .critedge:                                        ; preds = %38
-  %.not31 = icmp slt i32 %.045, %.02544
+  %.not31 = icmp slt i32 %.044, %.02543
   br i1 %.not31, label %54, label %48
 
 48:                                               ; preds = %.critedge
-  %49 = shl i32 %.02544, 1
+  %49 = shl i32 %.02543, 1
   %50 = sext i32 %49 to i64
   %51 = shl nsw i64 %50, 2
   %52 = add nsw i64 %51, 24
-  %53 = call ptr @repalloc(ptr noundef %.02643, i64 noundef %52) #11
-  %.pre63 = load ptr, ptr %2, align 8
+  %53 = call ptr @repalloc(ptr noundef %.02642, i64 noundef %52) #11
+  %.pre62 = load ptr, ptr %2, align 8
   br label %54
 
 54:                                               ; preds = %48, %.critedge
-  %55 = phi ptr [ %.pre63, %48 ], [ %40, %.critedge ]
-  %.127 = phi ptr [ %53, %48 ], [ %.02643, %.critedge ]
-  %.1 = phi i32 [ %49, %48 ], [ %.02544, %.critedge ]
+  %55 = phi ptr [ %.pre62, %48 ], [ %40, %.critedge ]
+  %.127 = phi ptr [ %53, %48 ], [ %.02642, %.critedge ]
+  %.1 = phi i32 [ %49, %48 ], [ %.02543, %.critedge ]
   %56 = call i32 @uint32in_subr(ptr noundef %55, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %.fr) #11
   %57 = getelementptr inbounds i8, ptr %.127, i64 24
-  %58 = sext i32 %.045 to i64
+  %58 = sext i32 %.044 to i64
   %59 = getelementptr [0 x i32], ptr %57, i64 0, i64 %58
   store i32 %56, ptr %59, align 4
   %60 = load i32, ptr %.fr, align 4
@@ -251,9 +251,8 @@ define dso_local noundef i64 @oidvectorin(ptr nocapture noundef %0) local_unname
 
 62:                                               ; preds = %54
   %63 = load i8, ptr %11, align 4
-  %64 = and i8 %63, 1
-  %.not33 = icmp eq i8 %64, 0
-  br i1 %.not33, label %67, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %0, i64 28
@@ -261,15 +260,15 @@ define dso_local noundef i64 @oidvectorin(ptr nocapture noundef %0) local_unname
   br label %78
 
 67:                                               ; preds = %54, %62
-  %68 = add i32 %.045, 1
+  %68 = add i32 %.044, 1
   %.promoted = load ptr, ptr %2, align 8
   %69 = load i8, ptr %.promoted, align 1
-  %.not36 = icmp eq i8 %69, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq i8 %69, 0
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %67, %45, %29, %20, %1
-  %.026.lcssa = phi ptr [ %8, %1 ], [ %.02643.us, %20 ], [ %.127.us, %29 ], [ %.02643, %45 ], [ %.127, %67 ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.045.us, %20 ], [ %35, %29 ], [ %.045, %45 ], [ %68, %67 ]
+  %.026.lcssa = phi ptr [ %8, %1 ], [ %.02642.us, %20 ], [ %.127.us, %29 ], [ %.02642, %45 ], [ %.127, %67 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.044.us, %20 ], [ %35, %29 ], [ %.044, %45 ], [ %68, %67 ]
   %70 = shl i32 %.0.lcssa, 4
   %71 = add i32 %70, 96
   store i32 %71, ptr %.026.lcssa, align 4

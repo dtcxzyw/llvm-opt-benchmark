@@ -153,16 +153,14 @@ entry:
   %drop = alloca %"class.zmq::msg_t", align 8
   %_receiving_reply = getelementptr inbounds i8, ptr %this, i64 1929
   %0 = load i8, ptr %_receiving_reply, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end5, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %_strict = getelementptr inbounds i8, ptr %this, i64 1952
-  %2 = load i8, ptr %_strict, align 8
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end5.thread, label %if.then3
+  %1 = load i8, ptr %_strict, align 8
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then3, label %if.end5.thread
 
 if.then3:                                         ; preds = %if.then
   %call = tail call ptr @__errno_location() #11
@@ -179,41 +177,39 @@ if.end5.thread:                                   ; preds = %if.then
 if.end5:                                          ; preds = %entry
   %_message_begins6.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 1930
   %.pre = load i8, ptr %_message_begins6.phi.trans.insert, align 2
-  %4 = and i8 %.pre, 1
-  %5 = icmp eq i8 %4, 0
+  %2 = trunc i8 %.pre to i1
   %_message_begins6 = getelementptr inbounds i8, ptr %this, i64 1930
-  br i1 %5, label %if.end71, label %if.then8
+  br i1 %2, label %if.then8, label %if.end71
 
 if.then8:                                         ; preds = %if.end5.thread, %if.end5
-  %_message_begins612 = phi ptr [ %_message_begins611, %if.end5.thread ], [ %_message_begins6, %if.end5 ]
+  %_message_begins613 = phi ptr [ %_message_begins611, %if.end5.thread ], [ %_message_begins6, %if.end5 ]
   %_reply_pipe = getelementptr inbounds i8, ptr %this, i64 1936
   store ptr null, ptr %_reply_pipe, align 8
   %_request_id_frames_enabled = getelementptr inbounds i8, ptr %this, i64 1944
-  %6 = load i8, ptr %_request_id_frames_enabled, align 8
-  %7 = and i8 %6, 1
-  %tobool9.not = icmp eq i8 %7, 0
-  br i1 %tobool9.not, label %if.end25, label %if.then10
+  %3 = load i8, ptr %_request_id_frames_enabled, align 8
+  %tobool9 = trunc i8 %3 to i1
+  br i1 %tobool9, label %if.then10, label %if.end25
 
 if.then10:                                        ; preds = %if.then8
   %_request_id = getelementptr inbounds i8, ptr %this, i64 1948
-  %8 = load i32, ptr %_request_id, align 4
-  %inc = add i32 %8, 1
+  %4 = load i32, ptr %_request_id, align 4
+  %inc = add i32 %4, 1
   store i32 %inc, ptr %_request_id, align 4
   %call11 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %id, i64 noundef 4)
   %call12 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %id)
-  %9 = load i32, ptr %_request_id, align 4
-  store i32 %9, ptr %call12, align 1
+  %5 = load i32, ptr %_request_id, align 4
+  store i32 %5, ptr %call12, align 1
   %cmp.not = icmp eq i32 %call11, 0
   br i1 %cmp.not, label %do.end, label %if.then14
 
 if.then14:                                        ; preds = %if.then10
   %call15 = tail call ptr @__errno_location() #11
-  %10 = load i32, ptr %call15, align 4
-  %call16 = call ptr @strerror(i32 noundef %10) #9
-  %11 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 52) #12
-  %12 = load ptr, ptr @stderr, align 8
-  %call18 = call i32 @fflush(ptr noundef %12)
+  %6 = load i32, ptr %call15, align 4
+  %call16 = call ptr @strerror(i32 noundef %6) #9
+  %7 = load ptr, ptr @stderr, align 8
+  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 52) #12
+  %8 = load ptr, ptr @stderr, align 8
+  %call18 = call i32 @fflush(ptr noundef %8)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call16)
   br label %do.end
 
@@ -230,12 +226,12 @@ if.end25:                                         ; preds = %do.end, %if.then8
 
 if.then31:                                        ; preds = %if.end25
   %call33 = tail call ptr @__errno_location() #11
-  %13 = load i32, ptr %call33, align 4
-  %call34 = call ptr @strerror(i32 noundef %13) #9
-  %14 = load ptr, ptr @stderr, align 8
-  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef %call34, ptr noundef nonnull @.str.1, i32 noundef 63) #12
-  %15 = load ptr, ptr @stderr, align 8
-  %call36 = call i32 @fflush(ptr noundef %15)
+  %9 = load i32, ptr %call33, align 4
+  %call34 = call ptr @strerror(i32 noundef %9) #9
+  %10 = load ptr, ptr @stderr, align 8
+  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef %call34, ptr noundef nonnull @.str.1, i32 noundef 63) #12
+  %11 = load ptr, ptr @stderr, align 8
+  %call36 = call i32 @fflush(ptr noundef %11)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call34)
   br label %do.end38
 
@@ -246,20 +242,20 @@ do.end38:                                         ; preds = %if.end25, %if.then3
   br i1 %cmp41.not, label %do.body44, label %return
 
 do.body44:                                        ; preds = %do.end38
-  %16 = load ptr, ptr %_reply_pipe, align 8
-  %tobool46.not = icmp eq ptr %16, null
+  %12 = load ptr, ptr %_reply_pipe, align 8
+  %tobool46.not = icmp eq ptr %12, null
   br i1 %tobool46.not, label %if.then48, label %do.end52
 
 if.then48:                                        ; preds = %do.body44
-  %17 = load ptr, ptr @stderr, align 8
-  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 69) #12
-  %18 = load ptr, ptr @stderr, align 8
-  %call50 = call i32 @fflush(ptr noundef %18)
+  %13 = load ptr, ptr @stderr, align 8
+  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 69) #12
+  %14 = load ptr, ptr @stderr, align 8
+  %call50 = call i32 @fflush(ptr noundef %14)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
   br label %do.end52
 
 do.end52:                                         ; preds = %do.body44, %if.then48
-  store i8 0, ptr %_message_begins612, align 2
+  store i8 0, ptr %_message_begins613, align 2
   br label %while.body
 
 while.body:                                       ; preds = %if.end69, %do.end52
@@ -269,12 +265,12 @@ while.body:                                       ; preds = %if.end69, %do.end52
 
 if.then58:                                        ; preds = %while.body
   %call60 = tail call ptr @__errno_location() #11
-  %19 = load i32, ptr %call60, align 4
-  %call61 = call ptr @strerror(i32 noundef %19) #9
-  %20 = load ptr, ptr @stderr, align 8
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef %call61, ptr noundef nonnull @.str.1, i32 noundef 81) #12
-  %21 = load ptr, ptr @stderr, align 8
-  %call63 = call i32 @fflush(ptr noundef %21)
+  %15 = load i32, ptr %call60, align 4
+  %call61 = call ptr @strerror(i32 noundef %15) #9
+  %16 = load ptr, ptr @stderr, align 8
+  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef %call61, ptr noundef nonnull @.str.1, i32 noundef 81) #12
+  %17 = load ptr, ptr @stderr, align 8
+  %call63 = call i32 @fflush(ptr noundef %17)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call61)
   br label %do.end65
 
@@ -288,20 +284,20 @@ if.end69:                                         ; preds = %do.end65
   br label %while.body, !llvm.loop !4
 
 if.end71:                                         ; preds = %do.end65, %if.end5
-  %_message_begins613 = phi ptr [ %_message_begins6, %if.end5 ], [ %_message_begins612, %do.end65 ]
+  %_message_begins612 = phi ptr [ %_message_begins6, %if.end5 ], [ %_message_begins613, %do.end65 ]
   %call72 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %call75 = call noundef i32 @_ZN3zmq8dealer_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1929) %this, ptr noundef nonnull %msg_)
   %cmp76.not = icmp eq i32 %call75, 0
   br i1 %cmp76.not, label %if.end78, label %return
 
 if.end78:                                         ; preds = %if.end71
-  %22 = and i8 %call72, 1
-  %cmp73.not = icmp eq i8 %22, 0
+  %18 = and i8 %call72, 1
+  %cmp73.not = icmp eq i8 %18, 0
   br i1 %cmp73.not, label %if.then80, label %return
 
 if.then80:                                        ; preds = %if.end78
   store i8 1, ptr %_receiving_reply, align 1
-  store i8 1, ptr %_message_begins613, align 2
+  store i8 1, ptr %_message_begins612, align 2
   br label %return
 
 return:                                           ; preds = %if.end78, %if.then80, %if.end71, %do.end38, %do.end, %if.then3
@@ -351,16 +347,14 @@ entry:
   %pipe.i = alloca ptr, align 8
   %_receiving_reply = getelementptr inbounds i8, ptr %this, i64 1929
   %0 = load i8, ptr %_receiving_reply, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %while.cond.preheader
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %while.cond.preheader, label %if.then
 
 while.cond.preheader:                             ; preds = %entry
   %_message_begins = getelementptr inbounds i8, ptr %this, i64 1930
-  %2 = load i8, ptr %_message_begins, align 2
-  %3 = and i8 %2, 1
-  %tobool2.not70 = icmp eq i8 %3, 0
-  br i1 %tobool2.not70, label %while.end70, label %while.body.lr.ph
+  %1 = load i8, ptr %_message_begins, align 2
+  %tobool270 = trunc i8 %1 to i1
+  br i1 %tobool270, label %while.body.lr.ph, label %while.end70
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %_request_id_frames_enabled = getelementptr inbounds i8, ptr %this, i64 1944
@@ -374,10 +368,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %4 = load i8, ptr %_request_id_frames_enabled, align 8
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  br i1 %tobool3.not, label %if.end32, label %if.then4
+  %2 = load i8, ptr %_request_id_frames_enabled, align 8
+  %tobool3 = trunc i8 %2 to i1
+  br i1 %tobool3, label %if.then4, label %if.end32
 
 if.then4:                                         ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pipe.i)
@@ -390,10 +383,10 @@ while.body.i:                                     ; preds = %if.end.i, %if.then4
   br i1 %cmp.not.i, label %if.end.i, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit
 
 if.end.i:                                         ; preds = %while.body.i
-  %6 = load ptr, ptr %_reply_pipe.i, align 8
-  %tobool.not.i = icmp eq ptr %6, null
-  %7 = load ptr, ptr %pipe.i, align 8
-  %cmp3.i = icmp eq ptr %7, %6
+  %3 = load ptr, ptr %_reply_pipe.i, align 8
+  %tobool.not.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %pipe.i, align 8
+  %cmp3.i = icmp eq ptr %4, %3
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp3.i
   br i1 %or.cond.i, label %if.end7, label %while.body.i, !llvm.loop !6
 
@@ -404,8 +397,8 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit:  ; preds = %while.body.i
 if.end7:                                          ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pipe.i)
   %call8 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %8 = and i8 %call8, 1
-  %tobool9.not = icmp eq i8 %8, 0
+  %5 = and i8 %call8, 1
+  %tobool9.not = icmp eq i8 %5, 0
   br i1 %tobool9.not, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7
@@ -415,16 +408,16 @@ lor.lhs.false:                                    ; preds = %if.end7
 
 lor.rhs:                                          ; preds = %lor.lhs.false
   %call12 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %9 = load i32, ptr %call12, align 4
-  %10 = load i32, ptr %_request_id, align 4
-  %cmp13.not = icmp eq i32 %9, %10
+  %6 = load i32, ptr %call12, align 4
+  %7 = load i32, ptr %_request_id, align 4
+  %cmp13.not = icmp eq i32 %6, %7
   br i1 %cmp13.not, label %if.end32, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end7, %lor.rhs
-  %call1766 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %11 = and i8 %call1766, 1
-  %tobool20.not67 = icmp eq i8 %11, 0
-  br i1 %tobool20.not67, label %while.cond.backedge, label %while.body21, !llvm.loop !7
+  %call1768 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
+  %8 = and i8 %call1768, 1
+  %tobool20.not69 = icmp eq i8 %8, 0
+  br i1 %tobool20.not69, label %while.cond.backedge, label %while.body21, !llvm.loop !7
 
 while.body21:                                     ; preds = %if.then15, %do.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pipe.i20)
@@ -437,10 +430,10 @@ while.body.i22:                                   ; preds = %if.end.i25, %while.
   br i1 %cmp.not.i24, label %if.end.i25, label %if.then25
 
 if.end.i25:                                       ; preds = %while.body.i22
-  %12 = load ptr, ptr %_reply_pipe.i, align 8
-  %tobool.not.i26 = icmp eq ptr %12, null
-  %13 = load ptr, ptr %pipe.i20, align 8
-  %cmp3.i27 = icmp eq ptr %13, %12
+  %9 = load ptr, ptr %_reply_pipe.i, align 8
+  %tobool.not.i26 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %pipe.i20, align 8
+  %cmp3.i27 = icmp eq ptr %10, %9
   %or.cond.i28 = select i1 %tobool.not.i26, i1 true, i1 %cmp3.i27
   br i1 %or.cond.i28, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit29.thread, label %while.body.i22, !llvm.loop !6
 
@@ -451,19 +444,19 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit29.thread: ; preds = %if.end.i25
 if.then25:                                        ; preds = %while.body.i22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pipe.i20)
   %call26 = tail call ptr @__errno_location() #11
-  %14 = load i32, ptr %call26, align 4
-  %call27 = call ptr @strerror(i32 noundef %14) #9
-  %15 = load ptr, ptr @stderr, align 8
-  %call28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef %call27, ptr noundef nonnull @.str.1, i32 noundef 127) #12
-  %16 = load ptr, ptr @stderr, align 8
-  %call29 = call i32 @fflush(ptr noundef %16)
+  %11 = load i32, ptr %call26, align 4
+  %call27 = call ptr @strerror(i32 noundef %11) #9
+  %12 = load ptr, ptr @stderr, align 8
+  %call28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %call27, ptr noundef nonnull @.str.1, i32 noundef 127) #12
+  %13 = load ptr, ptr @stderr, align 8
+  %call29 = call i32 @fflush(ptr noundef %13)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call27)
   br label %do.end
 
 do.end:                                           ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit29.thread, %if.then25
   %call17 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %17 = and i8 %call17, 1
-  %tobool20.not = icmp eq i8 %17, 0
+  %14 = and i8 %call17, 1
+  %tobool20.not = icmp eq i8 %14, 0
   br i1 %tobool20.not, label %while.cond.backedge, label %while.body21, !llvm.loop !8
 
 if.end32:                                         ; preds = %lor.rhs, %while.body
@@ -477,10 +470,10 @@ while.body.i32:                                   ; preds = %if.end.i35, %if.end
   br i1 %cmp.not.i34, label %if.end.i35, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit39
 
 if.end.i35:                                       ; preds = %while.body.i32
-  %18 = load ptr, ptr %_reply_pipe.i, align 8
-  %tobool.not.i36 = icmp eq ptr %18, null
-  %19 = load ptr, ptr %pipe.i30, align 8
-  %cmp3.i37 = icmp eq ptr %19, %18
+  %15 = load ptr, ptr %_reply_pipe.i, align 8
+  %tobool.not.i36 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %pipe.i30, align 8
+  %cmp3.i37 = icmp eq ptr %16, %15
   %or.cond.i38 = select i1 %tobool.not.i36, i1 true, i1 %cmp3.i37
   br i1 %or.cond.i38, label %if.end37, label %while.body.i32, !llvm.loop !6
 
@@ -491,8 +484,8 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit39: ; preds = %while.body.i32
 if.end37:                                         ; preds = %if.end.i35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pipe.i30)
   %call38 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %20 = and i8 %call38, 1
-  %tobool41.not = icmp eq i8 %20, 0
+  %17 = and i8 %call38, 1
+  %tobool41.not = icmp eq i8 %17, 0
   br i1 %tobool41.not, label %if.then47, label %lor.rhs42
 
 lor.rhs42:                                        ; preds = %if.end37
@@ -501,10 +494,10 @@ lor.rhs42:                                        ; preds = %if.end37
   br i1 %cmp44.not, label %if.end68, label %if.then47
 
 if.then47:                                        ; preds = %if.end37, %lor.rhs42
-  %call4968 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %21 = and i8 %call4968, 1
-  %tobool52.not69 = icmp eq i8 %21, 0
-  br i1 %tobool52.not69, label %while.cond.backedge, label %while.body53, !llvm.loop !7
+  %call4966 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
+  %18 = and i8 %call4966, 1
+  %tobool52.not67 = icmp eq i8 %18, 0
+  br i1 %tobool52.not67, label %while.cond.backedge, label %while.body53, !llvm.loop !7
 
 while.body53:                                     ; preds = %if.then47, %do.end66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pipe.i40)
@@ -517,10 +510,10 @@ while.body.i42:                                   ; preds = %if.end.i45, %while.
   br i1 %cmp.not.i44, label %if.end.i45, label %if.then59
 
 if.end.i45:                                       ; preds = %while.body.i42
-  %22 = load ptr, ptr %_reply_pipe.i, align 8
-  %tobool.not.i46 = icmp eq ptr %22, null
-  %23 = load ptr, ptr %pipe.i40, align 8
-  %cmp3.i47 = icmp eq ptr %23, %22
+  %19 = load ptr, ptr %_reply_pipe.i, align 8
+  %tobool.not.i46 = icmp eq ptr %19, null
+  %20 = load ptr, ptr %pipe.i40, align 8
+  %cmp3.i47 = icmp eq ptr %20, %19
   %or.cond.i48 = select i1 %tobool.not.i46, i1 true, i1 %cmp3.i47
   br i1 %or.cond.i48, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread, label %while.body.i42, !llvm.loop !6
 
@@ -531,30 +524,29 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %if.end.i45
 if.then59:                                        ; preds = %while.body.i42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pipe.i40)
   %call61 = tail call ptr @__errno_location() #11
-  %24 = load i32, ptr %call61, align 4
-  %call62 = call ptr @strerror(i32 noundef %24) #9
-  %25 = load ptr, ptr @stderr, align 8
-  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef %call62, ptr noundef nonnull @.str.1, i32 noundef 143) #12
-  %26 = load ptr, ptr @stderr, align 8
-  %call64 = call i32 @fflush(ptr noundef %26)
+  %21 = load i32, ptr %call61, align 4
+  %call62 = call ptr @strerror(i32 noundef %21) #9
+  %22 = load ptr, ptr @stderr, align 8
+  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, ptr noundef %call62, ptr noundef nonnull @.str.1, i32 noundef 143) #12
+  %23 = load ptr, ptr @stderr, align 8
+  %call64 = call i32 @fflush(ptr noundef %23)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call62)
   br label %do.end66
 
 do.end66:                                         ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread, %if.then59
   %call49 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %27 = and i8 %call49, 1
-  %tobool52.not = icmp eq i8 %27, 0
+  %24 = and i8 %call49, 1
+  %tobool52.not = icmp eq i8 %24, 0
   br i1 %tobool52.not, label %while.cond.backedge, label %while.body53, !llvm.loop !9
 
 if.end68:                                         ; preds = %lor.rhs42
   store i8 0, ptr %_message_begins, align 2
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %do.end, %do.end66, %if.then15, %if.then47, %if.end68
-  %28 = load i8, ptr %_message_begins, align 2
-  %29 = and i8 %28, 1
-  %tobool2.not = icmp eq i8 %29, 0
-  br i1 %tobool2.not, label %while.end70, label %while.body, !llvm.loop !7
+while.cond.backedge:                              ; preds = %do.end66, %do.end, %if.then47, %if.then15, %if.end68
+  %25 = load i8, ptr %_message_begins, align 2
+  %tobool2 = trunc i8 %25 to i1
+  br i1 %tobool2, label %while.body, label %while.end70, !llvm.loop !7
 
 while.end70:                                      ; preds = %while.cond.backedge, %while.cond.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pipe.i50)
@@ -568,10 +560,10 @@ while.body.i52:                                   ; preds = %if.end.i55, %while.
   br i1 %cmp.not.i54, label %if.end.i55, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59
 
 if.end.i55:                                       ; preds = %while.body.i52
-  %30 = load ptr, ptr %_reply_pipe.i51, align 8
-  %tobool.not.i56 = icmp eq ptr %30, null
-  %31 = load ptr, ptr %pipe.i50, align 8
-  %cmp3.i57 = icmp eq ptr %31, %30
+  %26 = load ptr, ptr %_reply_pipe.i51, align 8
+  %tobool.not.i56 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %pipe.i50, align 8
+  %cmp3.i57 = icmp eq ptr %27, %26
   %or.cond.i58 = select i1 %tobool.not.i56, i1 true, i1 %cmp3.i57
   br i1 %or.cond.i58, label %if.end75, label %while.body.i52, !llvm.loop !6
 
@@ -582,8 +574,8 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59: ; preds = %while.body.i52
 if.end75:                                         ; preds = %if.end.i55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pipe.i50)
   %call76 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %32 = and i8 %call76, 1
-  %tobool79.not = icmp eq i8 %32, 0
+  %28 = and i8 %call76, 1
+  %tobool79.not = icmp eq i8 %28, 0
   br i1 %tobool79.not, label %if.then80, label %return
 
 if.then80:                                        ; preds = %if.end75
@@ -628,9 +620,8 @@ define noundef zeroext i1 @_ZN3zmq5req_t7xhas_inEv(ptr noundef nonnull align 8 d
 entry:
   %_receiving_reply = getelementptr inbounds i8, ptr %this, i64 1929
   %0 = load i8, ptr %_receiving_reply, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZN3zmq8dealer_t7xhas_inEv(ptr noundef nonnull align 8 dereferenceable(1929) %this)
@@ -648,16 +639,14 @@ define noundef zeroext i1 @_ZN3zmq5req_t8xhas_outEv(ptr noundef nonnull align 8 
 entry:
   %_receiving_reply = getelementptr inbounds i8, ptr %this, i64 1929
   %0 = load i8, ptr %_receiving_reply, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %_strict = getelementptr inbounds i8, ptr %this, i64 1952
-  %2 = load i8, ptr %_strict, align 8
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end, label %return
+  %1 = load i8, ptr %_strict, align 8
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call = tail call noundef zeroext i1 @_ZN3zmq8dealer_t8xhas_outEv(ptr noundef nonnull align 8 dereferenceable(1929) %this)

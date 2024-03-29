@@ -503,10 +503,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
+  %46 = trunc i8 %45 to i1
   %47 = getelementptr inbounds i8, ptr %0, i64 40
-  br i1 %.not, label %63, label %48
+  br i1 %46, label %48, label %63
 
 48:                                               ; preds = %_ZN7QStringD2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

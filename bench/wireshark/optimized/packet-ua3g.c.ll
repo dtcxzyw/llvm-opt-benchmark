@@ -3774,29 +3774,31 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not29, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %switch.lookup
-  %14 = icmp eq i8 %5, 2
+  %switch.cast = trunc i8 %5 to i3
+  %switch.downshift = lshr exact i3 -4, %switch.cast
+  %switch.masked = trunc i3 %switch.downshift to i1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.132 = phi i1 [ true, %.lr.ph ], [ %14, %.lr.ph.preheader ]
-  %.02731 = phi i32 [ %28, %.lr.ph ], [ 4, %.lr.ph.preheader ]
-  %.02830 = phi i32 [ %29, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.02731) #9
-  %16 = zext i8 %15 to i32
-  %17 = add i32 %.02731, 1
-  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %17) #9
-  %19 = zext i8 %18 to i32
-  %20 = add i32 %.02731, 2
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %20) #9
-  %22 = zext i8 %21 to i32
-  %23 = load i32, ptr @hf_ua3g_call_timer, align 4
-  %24 = load i32, ptr @hf_ua3g_current_time, align 4
-  %25 = select i1 %.132, i32 %23, i32 %24
-  %26 = tail call i32 @tvb_get_ntoh24(ptr noundef %1, i32 noundef %.02731) #9
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %.02731, i32 noundef 3, i32 noundef %26, ptr noundef nonnull @.str.1156, i32 noundef %16, i32 noundef %19, i32 noundef %22) #9
-  %28 = add i32 %.02731, 3
-  %29 = add i32 %.02830, -3
-  %.not = icmp eq i32 %29, 0
+  %.132 = phi i1 [ true, %.lr.ph ], [ %switch.masked, %.lr.ph.preheader ]
+  %.02731 = phi i32 [ %27, %.lr.ph ], [ 4, %.lr.ph.preheader ]
+  %.02830 = phi i32 [ %28, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.02731) #9
+  %15 = zext i8 %14 to i32
+  %16 = add i32 %.02731, 1
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %16) #9
+  %18 = zext i8 %17 to i32
+  %19 = add i32 %.02731, 2
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %19) #9
+  %21 = zext i8 %20 to i32
+  %22 = load i32, ptr @hf_ua3g_call_timer, align 4
+  %23 = load i32, ptr @hf_ua3g_current_time, align 4
+  %24 = select i1 %.132, i32 %22, i32 %23
+  %25 = tail call i32 @tvb_get_ntoh24(ptr noundef %1, i32 noundef %.02731) #9
+  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %0, i32 noundef %24, ptr noundef %1, i32 noundef %.02731, i32 noundef 3, i32 noundef %25, ptr noundef nonnull @.str.1156, i32 noundef %15, i32 noundef %18, i32 noundef %21) #9
+  %27 = add i32 %.02731, 3
+  %28 = add i32 %.02830, -3
+  %.not = icmp eq i32 %28, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %switch.lookup

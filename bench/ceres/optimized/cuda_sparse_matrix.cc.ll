@@ -155,9 +155,8 @@ define hidden void @_ZN5ceres8internal16CudaSparseMatrix10InitializeEv(ptr nound
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 288
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not29 = icmp eq i8 %19, 0
-  br i1 %.not29, label %20, label %.critedge
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %1
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str.3, i32 noundef 154)
@@ -232,8 +231,8 @@ _ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store ptr %50, ptr %9, align 8
-  %.not30 = icmp eq ptr %50, null
-  br i1 %.not30, label %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %53
+  %.not29 = icmp eq ptr %50, null
+  br i1 %.not29, label %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %53
 
 53:                                               ; preds = %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull @.str.3, i32 noundef 166, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -292,8 +291,8 @@ _ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr %72, ptr %11, align 8
-  %.not31 = icmp eq ptr %72, null
-  br i1 %.not31, label %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit9.thread, label %75
+  %.not30 = icmp eq ptr %72, null
+  br i1 %.not30, label %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit9.thread, label %75
 
 75:                                               ; preds = %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit9
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull @.str.3, i32 noundef 176, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -347,8 +346,8 @@ _ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr %92, ptr %13, align 8
-  %.not32 = icmp eq ptr %92, null
-  br i1 %.not32, label %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit14.thread, label %95
+  %.not31 = icmp eq ptr %92, null
+  br i1 %.not31, label %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit14.thread, label %95
 
 95:                                               ; preds = %_ZN6google12Check_EQImplI16cusparseStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit14
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull @.str.3, i32 noundef 179, ptr noundef nonnull align 8 dereferenceable(8) %13)

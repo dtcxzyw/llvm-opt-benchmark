@@ -969,200 +969,199 @@ define void @_ZN10GPUProgram6reloadEv(ptr noundef nonnull align 8 dereferenceabl
 _ZN10GPUProgram6detachEv.exit:                    ; preds = %19, %22
   %28 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %.thread, label %29
+  br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %_ZN10GPUProgram6detachEv.exit
   %30 = tail call noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %28)
-  %31 = load ptr, ptr %11, align 8
-  %.not8 = icmp eq ptr %31, null
-  %.not34 = xor i1 %30, true
-  %brmerge = or i1 %.not8, %.not34
-  %.mux = and i1 %.not8, %30
-  br i1 %brmerge, label %35, label %.thread26
+  %31 = zext i1 %30 to i8
+  br label %32
 
-.thread:                                          ; preds = %_ZN10GPUProgram6detachEv.exit
-  %32 = load ptr, ptr %11, align 8
-  %.not824 = icmp eq ptr %32, null
-  br i1 %.not824, label %.thread42, label %.thread26
+32:                                               ; preds = %29, %_ZN10GPUProgram6detachEv.exit
+  %.0 = phi i8 [ %31, %29 ], [ 1, %_ZN10GPUProgram6detachEv.exit ]
+  %33 = load ptr, ptr %11, align 8
+  %.not8 = icmp eq ptr %33, null
+  br i1 %.not8, label %39, label %34
 
-.thread26:                                        ; preds = %29, %.thread
-  %33 = phi ptr [ %32, %.thread ], [ %31, %29 ]
-  %34 = tail call noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %33)
-  br label %35
+34:                                               ; preds = %32
+  %35 = trunc i8 %.0 to i1
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %29, %.thread26
-  %.1.shrunk = phi i1 [ %.mux, %29 ], [ %34, %.thread26 ]
-  %36 = load ptr, ptr %20, align 8
-  %.not10 = icmp eq ptr %36, null
-  br i1 %.not10, label %41, label %38
+36:                                               ; preds = %34
+  %37 = tail call noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %33)
+  %38 = zext i1 %37 to i8
+  br label %39
 
-.thread42:                                        ; preds = %.thread
-  %37 = load ptr, ptr %20, align 8
-  %.not1044 = icmp eq ptr %37, null
-  br i1 %.not1044, label %_ZN10GPUProgram21setGeometryParametersEiii.exit, label %.thread46
+39:                                               ; preds = %34, %36, %32
+  %.1 = phi i8 [ %.0, %32 ], [ 0, %34 ], [ %38, %36 ]
+  %40 = load ptr, ptr %20, align 8
+  %.not9 = icmp eq ptr %40, null
+  br i1 %.not9, label %46, label %41
 
-38:                                               ; preds = %35
-  br i1 %.1.shrunk, label %.thread46, label %.thread29
+41:                                               ; preds = %39
+  %42 = trunc i8 %.1 to i1
+  br i1 %42, label %43, label %.thread
 
-.thread46:                                        ; preds = %.thread42, %38
-  %39 = phi ptr [ %36, %38 ], [ %37, %.thread42 ]
-  %40 = tail call noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %39)
-  br i1 %40, label %44, label %.thread29
+43:                                               ; preds = %41
+  %44 = tail call noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %40)
+  %45 = zext i1 %44 to i8
+  br label %46
 
-41:                                               ; preds = %35
-  br i1 %.1.shrunk, label %_ZN10GPUProgram21setGeometryParametersEiii.exit, label %.thread29
+46:                                               ; preds = %43, %39
+  %.2 = phi i8 [ %.1, %39 ], [ %45, %43 ]
+  %47 = trunc i8 %.2 to i1
+  br i1 %47, label %50, label %.thread
 
-.thread29:                                        ; preds = %.thread46, %38, %41
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.1)
-  %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %44
+.thread:                                          ; preds = %41, %46
+  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.1)
+  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %50
 
-44:                                               ; preds = %.thread46, %.thread29
-  %.pr = load ptr, ptr %20, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 176
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 180
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = load i32, ptr %49, align 8
-  %.not.i13 = icmp eq ptr %.pr, null
-  br i1 %.not.i13, label %_ZN10GPUProgram21setGeometryParametersEiii.exit, label %51
+50:                                               ; preds = %.thread, %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 176
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 180
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %0, i64 184
+  %56 = load i32, ptr %55, align 8
+  %57 = load ptr, ptr %20, align 8
+  %.not.i10 = icmp eq ptr %57, null
+  br i1 %.not.i10, label %_ZN10GPUProgram21setGeometryParametersEiii.exit, label %58
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %.pr, i64 36
-  %53 = load i32, ptr %52, align 4
-  %.not3.i14 = icmp eq i32 %53, 0
-  br i1 %.not3.i14, label %_ZN10GPUProgram21setGeometryParametersEiii.exit, label %54
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds i8, ptr %57, i64 36
+  %60 = load i32, ptr %59, align 4
+  %.not3.i11 = icmp eq i32 %60, 0
+  br i1 %.not3.i11, label %_ZN10GPUProgram21setGeometryParametersEiii.exit, label %61
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr @__glewProgramParameteriEXT, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
-  %57 = load i32, ptr %56, align 8
-  tail call void %55(i32 noundef %57, i32 noundef 36315, i32 noundef %46)
-  %58 = load ptr, ptr @__glewProgramParameteriEXT, align 8
-  %59 = load i32, ptr %56, align 8
-  tail call void %58(i32 noundef %59, i32 noundef 36316, i32 noundef %48)
-  %60 = load ptr, ptr @__glewProgramParameteriEXT, align 8
-  %61 = load i32, ptr %56, align 8
-  tail call void %60(i32 noundef %61, i32 noundef 36314, i32 noundef %50)
+61:                                               ; preds = %58
+  %62 = load ptr, ptr @__glewProgramParameteriEXT, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = load i32, ptr %63, align 8
+  tail call void %62(i32 noundef %64, i32 noundef 36315, i32 noundef %52)
+  %65 = load ptr, ptr @__glewProgramParameteriEXT, align 8
+  %66 = load i32, ptr %63, align 8
+  tail call void %65(i32 noundef %66, i32 noundef 36316, i32 noundef %54)
+  %67 = load ptr, ptr @__glewProgramParameteriEXT, align 8
+  %68 = load i32, ptr %63, align 8
+  tail call void %67(i32 noundef %68, i32 noundef 36314, i32 noundef %56)
   br label %_ZN10GPUProgram21setGeometryParametersEiii.exit
 
-_ZN10GPUProgram21setGeometryParametersEiii.exit:  ; preds = %.thread42, %41, %44, %51, %54
-  %62 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %69, label %63
+_ZN10GPUProgram21setGeometryParametersEiii.exit:  ; preds = %50, %58, %61
+  %69 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %69, null
+  br i1 %.not.i.i, label %76, label %70
 
-63:                                               ; preds = %_ZN10GPUProgram21setGeometryParametersEiii.exit
-  %64 = load ptr, ptr @__glewAttachShader, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
-  %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %62, i64 36
-  %68 = load i32, ptr %67, align 4
-  tail call void %64(i32 noundef %66, i32 noundef %68)
-  br label %69
+70:                                               ; preds = %_ZN10GPUProgram21setGeometryParametersEiii.exit
+  %71 = load ptr, ptr @__glewAttachShader, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %73 = load i32, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %69, i64 36
+  %75 = load i32, ptr %74, align 4
+  tail call void %71(i32 noundef %73, i32 noundef %75)
+  br label %76
 
-69:                                               ; preds = %63, %_ZN10GPUProgram21setGeometryParametersEiii.exit
-  %70 = load ptr, ptr %11, align 8
-  %.not3.i.i = icmp eq ptr %70, null
-  br i1 %.not3.i.i, label %77, label %71
+76:                                               ; preds = %70, %_ZN10GPUProgram21setGeometryParametersEiii.exit
+  %77 = load ptr, ptr %11, align 8
+  %.not3.i.i = icmp eq ptr %77, null
+  br i1 %.not3.i.i, label %84, label %78
 
-71:                                               ; preds = %69
-  %72 = load ptr, ptr @__glewAttachShader, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 36
-  %76 = load i32, ptr %75, align 4
-  tail call void %72(i32 noundef %74, i32 noundef %76)
-  br label %77
+78:                                               ; preds = %76
+  %79 = load ptr, ptr @__glewAttachShader, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %77, i64 36
+  %83 = load i32, ptr %82, align 4
+  tail call void %79(i32 noundef %81, i32 noundef %83)
+  br label %84
 
-77:                                               ; preds = %71, %69
-  %78 = load ptr, ptr %20, align 8
-  %.not4.i.i = icmp eq ptr %78, null
-  br i1 %.not4.i.i, label %_ZN10GPUProgram13attachAndLinkEv.exit, label %79
+84:                                               ; preds = %78, %76
+  %85 = load ptr, ptr %20, align 8
+  %.not4.i.i = icmp eq ptr %85, null
+  br i1 %.not4.i.i, label %_ZN10GPUProgram13attachAndLinkEv.exit, label %86
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr @__glewAttachShader, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
-  %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %78, i64 36
-  %84 = load i32, ptr %83, align 4
-  tail call void %80(i32 noundef %82, i32 noundef %84)
+86:                                               ; preds = %84
+  %87 = load ptr, ptr @__glewAttachShader, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %85, i64 36
+  %91 = load i32, ptr %90, align 4
+  tail call void %87(i32 noundef %89, i32 noundef %91)
   br label %_ZN10GPUProgram13attachAndLinkEv.exit
 
-_ZN10GPUProgram13attachAndLinkEv.exit:            ; preds = %77, %79
+_ZN10GPUProgram13attachAndLinkEv.exit:            ; preds = %84, %86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 1, ptr %2, align 4
-  %85 = load ptr, ptr @__glewLinkProgram, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
-  %87 = load i32, ptr %86, align 8
-  tail call void %85(i32 noundef %87)
-  %88 = load ptr, ptr @__glewGetObjectParameterivARB, align 8
-  %89 = load i32, ptr %86, align 8
-  call void %88(i32 noundef %89, i32 noundef 35714, ptr noundef nonnull %2)
+  %92 = load ptr, ptr @__glewLinkProgram, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 24
+  %94 = load i32, ptr %93, align 8
+  tail call void %92(i32 noundef %94)
+  %95 = load ptr, ptr @__glewGetObjectParameterivARB, align 8
+  %96 = load i32, ptr %93, align 8
+  call void %95(i32 noundef %96, i32 noundef 35714, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %90 = getelementptr inbounds i8, ptr %0, i64 32
-  %91 = getelementptr inbounds i8, ptr %0, i64 56
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 40
-  %.not3235 = icmp eq ptr %92, %93
-  br i1 %.not3235, label %._crit_edge, label %.lr.ph
+  %97 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds i8, ptr %0, i64 56
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  %.not2123 = icmp eq ptr %99, %100
+  br i1 %.not2123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10GPUProgram13attachAndLinkEv.exit, %.lr.ph
-  %.sroa.020.036 = phi ptr [ %100, %.lr.ph ], [ %92, %_ZN10GPUProgram13attachAndLinkEv.exit ]
-  %94 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %95 = load i32, ptr %86, align 8
-  %96 = getelementptr inbounds i8, ptr %.sroa.020.036, i64 32
-  %97 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #12
-  %98 = call i32 %94(i32 noundef %95, ptr noundef %97)
-  %99 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(32) %96)
-  store i32 %98, ptr %99, align 4
-  %100 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.020.036) #16
-  %.not32 = icmp eq ptr %100, %93
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %.sroa.017.024 = phi ptr [ %107, %.lr.ph ], [ %99, %_ZN10GPUProgram13attachAndLinkEv.exit ]
+  %101 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %102 = load i32, ptr %93, align 8
+  %103 = getelementptr inbounds i8, ptr %.sroa.017.024, i64 32
+  %104 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %103) #12
+  %105 = call i32 %101(i32 noundef %102, ptr noundef %104)
+  %106 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(32) %103)
+  store i32 %105, ptr %106, align 4
+  %107 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.017.024) #16
+  %.not21 = icmp eq ptr %107, %100
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN10GPUProgram13attachAndLinkEv.exit
-  %101 = getelementptr inbounds i8, ptr %0, i64 104
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 88
-  %.not3337 = icmp eq ptr %102, %103
-  br i1 %.not3337, label %._crit_edge41, label %.lr.ph40
+  %108 = getelementptr inbounds i8, ptr %0, i64 104
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 88
+  %.not2225 = icmp eq ptr %109, %110
+  br i1 %.not2225, label %._crit_edge29, label %.lr.ph28
 
-.lr.ph40:                                         ; preds = %._crit_edge, %.lr.ph40
-  %.sroa.016.038 = phi ptr [ %110, %.lr.ph40 ], [ %102, %._crit_edge ]
-  %104 = load ptr, ptr @__glewGetAttribLocation, align 8
-  %105 = load i32, ptr %86, align 8
-  %106 = getelementptr inbounds i8, ptr %.sroa.016.038, i64 32
-  %107 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %106) #12
-  %108 = call i32 %104(i32 noundef %105, ptr noundef %107)
-  %109 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(32) %106)
-  store i32 %108, ptr %109, align 4
-  %110 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.016.038) #16
-  %.not33 = icmp eq ptr %110, %103
-  br i1 %.not33, label %._crit_edge41, label %.lr.ph40, !llvm.loop !9
+.lr.ph28:                                         ; preds = %._crit_edge, %.lr.ph28
+  %.sroa.013.026 = phi ptr [ %117, %.lr.ph28 ], [ %109, %._crit_edge ]
+  %111 = load ptr, ptr @__glewGetAttribLocation, align 8
+  %112 = load i32, ptr %93, align 8
+  %113 = getelementptr inbounds i8, ptr %.sroa.013.026, i64 32
+  %114 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #12
+  %115 = call i32 %111(i32 noundef %112, ptr noundef %114)
+  %116 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(32) %113)
+  store i32 %115, ptr %116, align 4
+  %117 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.013.026) #16
+  %.not22 = icmp eq ptr %117, %110
+  br i1 %.not22, label %._crit_edge29, label %.lr.ph28, !llvm.loop !9
 
-._crit_edge41:                                    ; preds = %.lr.ph40, %._crit_edge
-  %111 = getelementptr inbounds i8, ptr %0, i64 128
-  %112 = getelementptr inbounds i8, ptr %0, i64 144
-  %113 = load ptr, ptr %112, align 8
-  invoke void @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef %113)
-          to label %_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE5clearEv.exit unwind label %114
+._crit_edge29:                                    ; preds = %.lr.ph28, %._crit_edge
+  %118 = getelementptr inbounds i8, ptr %0, i64 128
+  %119 = getelementptr inbounds i8, ptr %0, i64 144
+  %120 = load ptr, ptr %119, align 8
+  invoke void @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef %120)
+          to label %_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE5clearEv.exit unwind label %121
 
-114:                                              ; preds = %._crit_edge41
-  %115 = landingpad { ptr, i32 }
+121:                                              ; preds = %._crit_edge29
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #13
+  %123 = extractvalue { ptr, i32 } %122, 0
+  call void @__clang_call_terminate(ptr %123) #13
   unreachable
 
-_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE5clearEv.exit: ; preds = %._crit_edge41
-  %117 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr null, ptr %112, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr %117, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 168
-  store i64 0, ptr %120, align 8
+_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE5clearEv.exit: ; preds = %._crit_edge29
+  %124 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr null, ptr %119, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %124, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr %124, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 0, ptr %127, align 8
   ret void
 }
 

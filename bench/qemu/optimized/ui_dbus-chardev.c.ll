@@ -80,14 +80,13 @@ sw.bb1:                                           ; preds = %entry
   %call1.i.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %5) #4
   %exported.i = getelementptr inbounds i8, ptr %4, i64 328
   %6 = load i8, ptr %exported.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %dbus_display_chardev_unexport.exit, label %if.end.i
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %if.end.i, label %dbus_display_chardev_unexport.exit
 
 if.end.i:                                         ; preds = %sw.bb1
   %server.i = getelementptr i8, ptr %notifier, i64 -136
-  %8 = load ptr, ptr %server.i, align 8
-  %call1.i = tail call i32 @g_dbus_object_manager_server_unexport(ptr noundef %8, ptr noundef %call1.i.i) #4
+  %7 = load ptr, ptr %server.i, align 8
+  %call1.i = tail call i32 @g_dbus_object_manager_server_unexport(ptr noundef %7, ptr noundef %call1.i.i) #4
   store i8 0, ptr %exported.i, align 8
   br label %dbus_display_chardev_unexport.exit
 
@@ -149,9 +148,8 @@ entry:
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %0) #4
   %exported = getelementptr inbounds i8, ptr %chr, i64 328
   %1 = load i8, ptr %exported, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %cleanup, label %cleanup.thread
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %cleanup.thread, label %cleanup
 
 cleanup.thread:                                   ; preds = %entry
   tail call void @g_free(ptr noundef %call1.i) #4
@@ -160,13 +158,13 @@ cleanup.thread:                                   ; preds = %entry
 cleanup:                                          ; preds = %entry
   %call1 = tail call ptr @g_dbus_object_skeleton_new(ptr noundef %call1.i) #4
   %iface = getelementptr inbounds i8, ptr %chr, i64 336
-  %3 = load ptr, ptr %iface, align 8
+  %2 = load ptr, ptr %iface, align 8
   %call2 = tail call i64 @g_dbus_interface_skeleton_get_type() #5
-  %call3 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %call2) #4
+  %call3 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %call2) #4
   tail call void @g_dbus_object_skeleton_add_interface(ptr noundef %call1, ptr noundef %call3) #4
   %server = getelementptr inbounds i8, ptr %dpy, i64 80
-  %4 = load ptr, ptr %server, align 8
-  tail call void @g_dbus_object_manager_server_export(ptr noundef %4, ptr noundef %call1) #4
+  %3 = load ptr, ptr %server, align 8
+  tail call void @g_dbus_object_manager_server_export(ptr noundef %3, ptr noundef %call1) #4
   store i8 1, ptr %exported, align 8
   tail call void @g_free(ptr noundef %call1.i) #4
   %tobool.not.i.i = icmp eq ptr %call1, null

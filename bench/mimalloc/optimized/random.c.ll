@@ -267,9 +267,8 @@ define hidden void @_mi_random_reinit_if_weak(ptr noundef %ctx) local_unnamed_ad
 entry:
   %weak = getelementptr inbounds i8, ptr %ctx, i64 132
   %0 = load i8, ptr %weak, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call fastcc void @mi_random_init_ex(ptr noundef nonnull %ctx, i1 noundef zeroext false) #6

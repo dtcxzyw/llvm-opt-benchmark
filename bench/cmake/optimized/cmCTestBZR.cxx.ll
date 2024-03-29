@@ -2910,9 +2910,8 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %14, %21
 29:                                               ; preds = %1
   %30 = getelementptr inbounds i8, ptr %0, i64 72
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %55
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %55, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %0, i64 640
@@ -3084,71 +3083,68 @@ _ZN10cmCTestBZR12UpdateParserD2Ev.exit:           ; preds = %1, %5
 define linkonce_odr dso_local noundef zeroext i1 @_ZN10cmCTestBZR12UpdateParser12ProcessChunkEPKci(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %.not24 = icmp eq i32 %2, 0
-  br i1 %.not24, label %.loopexit, label %.lr.ph
+  %.not23 = icmp eq i32 %2, 0
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, 13
   %8 = icmp eq i8 %6, 10
   %narrow = or i1 %7, %8
-  %9 = zext i1 %narrow to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %13
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %32
-  %.026 = phi ptr [ %1, %.lr.ph ], [ %33, %32 ]
-  %.01425 = phi i8 [ %9, %.lr.ph ], [ %.1, %32 ]
-  %14 = load i8, ptr %.026, align 1
-  switch i8 %14, label %30 [
-    i8 13, label %15
-    i8 10, label %15
+12:                                               ; preds = %.lr.ph, %30
+  %.025 = phi ptr [ %1, %.lr.ph ], [ %31, %30 ]
+  %.01424 = phi i1 [ %narrow, %.lr.ph ], [ %.1, %30 ]
+  %13 = load i8, ptr %.025, align 1
+  switch i8 %13, label %28 [
+    i8 13, label %14
+    i8 10, label %14
   ]
 
-15:                                               ; preds = %13, %13
-  %16 = and i8 %.01425, 1
-  %.not19 = icmp eq i8 %16, 0
-  br i1 %.not19, label %17, label %32
+14:                                               ; preds = %12, %12
+  br i1 %.01424, label %30, label %15
+
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %9, align 8
+  %.not19 = icmp eq ptr %16, null
+  br i1 %.not19, label %23, label %17
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %10, align 8
   %.not20 = icmp eq ptr %18, null
-  br i1 %.not20, label %25, label %19
+  br i1 %.not20, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %11, align 8
-  %.not21 = icmp eq ptr %20, null
-  br i1 %.not21, label %25, label %21
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %18)
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.8)
+  br label %23
 
-21:                                               ; preds = %19
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %20)
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.8)
-  br label %25
+23:                                               ; preds = %19, %17, %15
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(632) %0)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  br i1 %27, label %30, label %.loopexit
 
-25:                                               ; preds = %21, %19, %17
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(632) %0)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  br i1 %29, label %32, label %.loopexit
+28:                                               ; preds = %12
+  %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 1, i8 noundef signext %13)
+  br label %30
 
-30:                                               ; preds = %13
-  %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 1, i8 noundef signext %14)
-  br label %32
+30:                                               ; preds = %23, %28, %14
+  %.1 = phi i1 [ true, %14 ], [ false, %28 ], [ true, %23 ]
+  %31 = getelementptr inbounds i8, ptr %.025, i64 1
+  %.not = icmp eq ptr %31, %5
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !27
 
-32:                                               ; preds = %25, %30, %15
-  %.1 = phi i8 [ %.01425, %15 ], [ 0, %30 ], [ 1, %25 ]
-  %33 = getelementptr inbounds i8, ptr %.026, i64 1
-  %.not = icmp eq ptr %33, %5
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !27
-
-.loopexit:                                        ; preds = %32, %25, %3
-  %.not23 = phi i1 [ true, %3 ], [ false, %25 ], [ true, %32 ]
-  ret i1 %.not23
+.loopexit:                                        ; preds = %30, %23, %3
+  %.not22 = phi i1 [ true, %3 ], [ false, %23 ], [ true, %30 ]
+  ret i1 %.not22
 }
 
 ; Function Attrs: mustprogress uwtable

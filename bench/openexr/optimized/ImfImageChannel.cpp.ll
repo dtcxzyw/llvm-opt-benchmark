@@ -99,8 +99,7 @@ entry:
   %2 = load i32, ptr %_ySampling.i, align 4
   %_pLinear.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i8, ptr %_pLinear.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i = icmp ne i8 %4, 0
+  %tobool.i = trunc i8 %3 to i1
   call void @_ZN7Imf_3_27ChannelC1ENS_9PixelTypeEiib(ptr noundef nonnull align 4 dereferenceable(13) %retval, i32 noundef %call, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool.i)
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0

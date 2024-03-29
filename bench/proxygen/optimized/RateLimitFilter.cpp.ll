@@ -1293,68 +1293,66 @@ if.then6:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.then6, %if.end
   %kWantsCalls_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i8, ptr %kWantsCalls_, align 8
-  %3 = and i8 %2, 1
-  %tobool11.not = icmp eq i8 %3, 0
-  br i1 %tobool11.not, label %if.end26, label %land.lhs.true
+  %tobool11 = trunc i8 %2 to i1
+  br i1 %tobool11, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end10
   %callSource_ = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load ptr, ptr %callSource_, align 8
-  %tobool12.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %callSource_, align 8
+  %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
   %call_ = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load ptr, ptr %call_, align 8
-  %call_15 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %5, ptr %call_15, align 8
-  %tobool17.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %call_, align 8
+  %call_15 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %call_15, align 8
+  %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end26, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %if.then13
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN8proxygen9HTTPCodecE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0) #20
-  %tobool20.not = icmp eq ptr %6, null
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN8proxygen9HTTPCodecE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0) #20
+  %tobool20.not = icmp eq ptr %5, null
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %dynamic_cast.notnull
-  %7 = load ptr, ptr %callSource_, align 8
-  %callSource_23 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %7, ptr %callSource_23, align 8
+  %6 = load ptr, ptr %callSource_, align 8
+  %callSource_23 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %6, ptr %callSource_23, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %if.then21, %dynamic_cast.notnull, %land.lhs.true, %if.end10
   %kWantsCallbacks_ = getelementptr inbounds i8, ptr %this, i64 17
-  %8 = load i8, ptr %kWantsCallbacks_, align 1
-  %9 = and i8 %8, 1
-  %tobool27.not = icmp eq i8 %9, 0
-  br i1 %tobool27.not, label %if.end45, label %land.lhs.true28
+  %7 = load i8, ptr %kWantsCallbacks_, align 1
+  %tobool27 = trunc i8 %7 to i1
+  br i1 %tobool27, label %land.lhs.true28, label %if.end45
 
 land.lhs.true28:                                  ; preds = %if.end26
   %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
-  %10 = load ptr, ptr %callbackSource_, align 8
-  %tobool29.not = icmp eq ptr %10, null
+  %8 = load ptr, ptr %callbackSource_, align 8
+  %tobool29.not = icmp eq ptr %8, null
   br i1 %tobool29.not, label %if.end45, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true28
-  %vtable = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !7
-  %memptr.virtualfn = load ptr, ptr %11, align 8, !nosanitize !7
+  %vtable = load ptr, ptr %8, align 8
+  %9 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !7
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !7
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load ptr, ptr %callback_, align 8
-  tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %12)
-  %13 = load ptr, ptr %callback_, align 8
-  %tobool33.not = icmp eq ptr %13, null
+  %10 = load ptr, ptr %callback_, align 8
+  tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
+  %11 = load ptr, ptr %callback_, align 8
+  %tobool33.not = icmp eq ptr %11, null
   br i1 %tobool33.not, label %if.end45, label %dynamic_cast.notnull36
 
 dynamic_cast.notnull36:                           ; preds = %if.then30
-  %14 = tail call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTIN8proxygen9HTTPCodec8CallbackE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 8) #20
-  %tobool39.not = icmp eq ptr %14, null
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN8proxygen9HTTPCodec8CallbackE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 8) #20
+  %tobool39.not = icmp eq ptr %12, null
   br i1 %tobool39.not, label %if.end45, label %if.then40
 
 if.then40:                                        ; preds = %dynamic_cast.notnull36
-  %15 = load ptr, ptr %callbackSource_, align 8
-  %callbackSource_42 = getelementptr inbounds i8, ptr %14, i64 64
-  store ptr %15, ptr %callbackSource_42, align 8
+  %13 = load ptr, ptr %callbackSource_, align 8
+  %callbackSource_42 = getelementptr inbounds i8, ptr %12, i64 64
+  store ptr %13, ptr %callbackSource_42, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then30, %if.then40, %dynamic_cast.notnull36, %land.lhs.true28, %if.end26
@@ -1780,7 +1778,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
@@ -3571,24 +3569,23 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %hasValue.i.i = getelementptr inbounds i8, ptr %error, i64 73
   %0 = load i8, ptr %hasValue.i.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.else, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load ptr, ptr %callback_, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %callback_, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %streamID, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newTxn)
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %streamID, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newTxn)
   br label %if.end16
 
 if.else:                                          ; preds = %lor.lhs.false
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 648
-  %4 = load ptr, ptr %vfn3, align 8
-  %call4 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(168) %this)
+  %3 = load ptr, ptr %vfn3, align 8
+  %call4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(168) %this)
   br i1 %call4, label %if.then5, label %if.else11
 
 if.then5:                                         ; preds = %if.else
@@ -3600,11 +3597,11 @@ if.then5:                                         ; preds = %if.else
           to label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA122_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad9, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %11, %lpad9 ], [ %10, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %10, %lpad9 ], [ %9, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then5
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %common.resume
@@ -3619,35 +3616,35 @@ invoke.cont:                                      ; preds = %_ZN5folly2toINSt7__
   %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 13, ptr %proxygenError_.i, align 4
   %callback_6 = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load ptr, ptr %callback_6, align 8
-  %vtable7 = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %callback_6, align 8
+  %vtable7 = load ptr, ptr %5, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 72
-  %7 = load ptr, ptr %vfn8, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(96) %ex, i1 noundef zeroext true)
+  %6 = load ptr, ptr %vfn8, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(96) %ex, i1 noundef zeroext true)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, i32 0, i64 2), ptr %ex, align 8
   %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
-  %8 = load ptr, ptr %partialMsg_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %partialMsg_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
-  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %8) #20
-  call void @_ZdlPv(ptr noundef nonnull %8) #21
+  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %7) #20
+  call void @_ZdlPv(ptr noundef nonnull %7) #21
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont10
   store ptr null, ptr %partialMsg_.i, align 8
   %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
-  %9 = load ptr, ptr %currentIngressBuf_.i, align 8
-  %cmp.not.i1.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %currentIngressBuf_.i, align 8
+  %cmp.not.i1.i = icmp eq ptr %8, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #20
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %9) #20
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #20
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %8) #20
   br label %_ZN8proxygen13HTTPExceptionD2Ev.exit
 
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -3659,24 +3656,24 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   br label %if.end16
 
 lpad:                                             ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA122_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %common.resume
 
 lpad9:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #20
   br label %common.resume
 
 if.else11:                                        ; preds = %if.else
   %callback_12 = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load ptr, ptr %callback_12, align 8
-  %vtable14 = load ptr, ptr %12, align 8
+  %11 = load ptr, ptr %callback_12, align 8
+  %vtable14 = load ptr, ptr %11, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 72
-  %13 = load ptr, ptr %vfn15, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %streamID, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newTxn)
+  %12 = load ptr, ptr %vfn15, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %streamID, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newTxn)
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN8proxygen13HTTPExceptionD2Ev.exit, %if.else11, %if.then
@@ -4021,7 +4018,7 @@ attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

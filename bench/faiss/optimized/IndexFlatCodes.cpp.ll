@@ -82,9 +82,8 @@ define void @_ZN5faiss14IndexFlatCodes3addElPKf(ptr noundef nonnull align 8 dere
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 25
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %24
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %24, label %8
 
 8:                                                ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21

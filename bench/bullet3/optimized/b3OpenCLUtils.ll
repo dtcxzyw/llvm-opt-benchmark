@@ -1102,25 +1102,23 @@ if.end11:                                         ; preds = %_ZL6strip2PKcS0_.ex
 
 lor.lhs.false:                                    ; preds = %if.end11
   %4 = load i8, ptr @gDebugSkipLoadingBinary, align 1
-  %5 = and i8 %4, 1
-  %tobool15.not = icmp eq i8 %5, 0
-  br i1 %tobool15.not, label %lor.lhs.false16, label %if.then55
+  %tobool15 = trunc i8 %4 to i1
+  br i1 %tobool15, label %if.then55, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %6 = load i8, ptr @gDebugForceLoadingFromSource, align 1
-  %7 = and i8 %6, 1
-  %tobool17.not = icmp eq i8 %7, 0
-  br i1 %tobool17.not, label %if.then18, label %if.then55
+  %5 = load i8, ptr @gDebugForceLoadingFromSource, align 1
+  %tobool17 = trunc i8 %5 to i1
+  br i1 %tobool17, label %if.then55, label %if.then18
 
 if.then18:                                        ; preds = %lor.lhs.false16
-  %8 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8
-  %call19 = call i32 @mkdir(ptr noundef %8, i32 noundef 511) #12
+  %6 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8
+  %call19 = call i32 @mkdir(ptr noundef %6, i32 noundef 511) #12
   %cmp = icmp eq i32 %call19, -1
   br i1 %cmp, label %if.then24, label %if.else
 
 if.else:                                          ; preds = %if.then18
-  %9 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8
-  call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.62, ptr noundef %9)
+  %7 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8
+  call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.62, ptr noundef %7)
   br label %if.then24
 
 if.then24:                                        ; preds = %if.then18, %if.else
@@ -1137,34 +1135,34 @@ if.then28:                                        ; preds = %if.then24
   store ptr %call31, ptr %binary, align 8
   %call32 = call i64 @fread(ptr noundef %call31, i64 noundef 1, i64 noundef %call30, ptr noundef nonnull %call26)
   %call33 = call i32 @fclose(ptr noundef nonnull %call26)
-  %10 = load ptr, ptr @__clewCreateProgramWithBinary, align 8
-  %call34 = call ptr %10(ptr noundef %clContext, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef nonnull %binarySize, ptr noundef nonnull %binary, ptr noundef null, ptr noundef nonnull %status)
-  %11 = load ptr, ptr @__clewBuildProgram, align 8
-  %call35 = call i32 %11(ptr noundef %call34, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef nonnull %cond, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr @__clewCreateProgramWithBinary, align 8
+  %call34 = call ptr %8(ptr noundef %clContext, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef nonnull %binarySize, ptr noundef nonnull %binary, ptr noundef null, ptr noundef nonnull %status)
+  %9 = load ptr, ptr @__clewBuildProgram, align 8
+  %call35 = call i32 %9(ptr noundef %call34, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef nonnull %cond, ptr noundef null, ptr noundef null)
   store i32 %call35, ptr %status, align 4
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %if.end53, label %if.end53.thread75
 
 if.end53.thread75:                                ; preds = %if.then28
-  %12 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
-  %13 = load ptr, ptr %device.addr, align 8
-  %call38 = call i32 %12(ptr noundef %call34, ptr noundef %13, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %ret_val_size)
-  %14 = load i64, ptr %ret_val_size, align 8
-  %add = add i64 %14, 1
+  %10 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
+  %11 = load ptr, ptr %device.addr, align 8
+  %call38 = call i32 %10(ptr noundef %call34, ptr noundef %11, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %ret_val_size)
+  %12 = load i64, ptr %ret_val_size, align 8
+  %add = add i64 %12, 1
   %call40 = call noalias ptr @malloc(i64 noundef %add) #11
-  %15 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
-  %16 = load ptr, ptr %device.addr, align 8
-  %call41 = call i32 %15(ptr noundef %call34, ptr noundef %16, i32 noundef 4483, i64 noundef %14, ptr noundef %call40, ptr noundef null)
-  %17 = load i64, ptr %ret_val_size, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %call40, i64 %17
+  %13 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
+  %14 = load ptr, ptr %device.addr, align 8
+  %call41 = call i32 %13(ptr noundef %call34, ptr noundef %14, i32 noundef 4483, i64 noundef %12, ptr noundef %call40, ptr noundef null)
+  %15 = load i64, ptr %ret_val_size, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %call40, i64 %15
   store i8 0, ptr %arrayidx, align 1
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 778)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.64, ptr noundef %call40)
   call void @free(ptr noundef %call40) #12
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 783)
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.65, ptr noundef nonnull %binaryFileName)
-  %18 = load ptr, ptr %binary, align 8
-  call void @free(ptr noundef %18) #12
+  %16 = load ptr, ptr %binary, align 8
+  call void @free(ptr noundef %16) #12
   br label %if.then55
 
 do.body49:                                        ; preds = %if.then24
@@ -1174,8 +1172,8 @@ do.body49:                                        ; preds = %if.then24
 
 if.end53:                                         ; preds = %if.then28
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.66, ptr noundef nonnull %binaryFileName)
-  %19 = load ptr, ptr %binary, align 8
-  call void @free(ptr noundef %19) #12
+  %17 = load ptr, ptr %binary, align 8
+  call void @free(ptr noundef %17) #12
   %tobool54.not = icmp eq ptr %call34, null
   br i1 %tobool54.not, label %if.then55, label %return
 
@@ -1185,9 +1183,8 @@ if.then55:                                        ; preds = %lor.lhs.false, %lor
   br i1 %tobool56.not, label %if.then59, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %if.then55
-  %20 = load i8, ptr @gDebugForceLoadingFromSource, align 1
-  %21 = and i8 %20, 1
-  %tobool58 = icmp ne i8 %21, 0
+  %18 = load i8, ptr @gDebugForceLoadingFromSource, align 1
+  %tobool58 = trunc i8 %18 to i1
   %or.cond2 = and i1 %tobool3, %tobool58
   br i1 %or.cond2, label %if.then61, label %cond.true92
 
@@ -1202,14 +1199,14 @@ if.then61:                                        ; preds = %lor.lhs.false57, %i
 for.body:                                         ; preds = %if.then61, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then61 ]
   %arrayidx69 = getelementptr inbounds [4 x ptr], ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 0, i64 %indvars.iv
-  %22 = load ptr, ptr %arrayidx69, align 8
-  %call70 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %relativeFileName, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %22, ptr noundef %clFileNameForCaching) #12
+  %19 = load ptr, ptr %arrayidx69, align 8
+  %call70 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %relativeFileName, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %19, ptr noundef %clFileNameForCaching) #12
   %call72 = call noalias ptr @fopen(ptr noundef nonnull %relativeFileName, ptr noundef nonnull @.str.63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %tobool66.not = icmp eq ptr %call72, null
   %cmp67 = icmp ult i64 %indvars.iv, 2
-  %23 = and i1 %tobool66.not, %cmp67
-  br i1 %23, label %for.body, label %if.end73, !llvm.loop !10
+  %20 = and i1 %tobool66.not, %cmp67
+  br i1 %20, label %for.body, label %if.end73, !llvm.loop !10
 
 if.end73:                                         ; preds = %for.body
   br i1 %tobool66.not, label %if.end90, label %if.end90.thread82
@@ -1235,17 +1232,17 @@ if.end90:                                         ; preds = %if.end73
   br i1 %tobool56.not, label %cond.end95, label %cond.true92
 
 cond.true92:                                      ; preds = %lor.lhs.false57, %if.end90.thread82, %if.end90
-  %24 = phi ptr [ %call81, %if.end90.thread82 ], [ %kernelSourceOrg, %if.end90 ], [ %kernelSourceOrg, %lor.lhs.false57 ]
-  %call93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
+  %21 = phi ptr [ %call81, %if.end90.thread82 ], [ %kernelSourceOrg, %if.end90 ], [ %kernelSourceOrg, %lor.lhs.false57 ]
+  %call93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #10
   br label %cond.end95
 
 cond.end95:                                       ; preds = %if.then59, %if.end90, %cond.true92
   %cond96 = phi i64 [ %call93, %cond.true92 ], [ 0, %if.end90 ], [ 0, %if.then59 ]
   store i64 %cond96, ptr %program_length, align 8
-  %25 = load ptr, ptr @__clewCreateProgramWithSource, align 8
-  %call97 = call ptr %25(ptr noundef %clContext, i32 noundef 1, ptr noundef nonnull %kernelSource, ptr noundef nonnull %program_length, ptr noundef nonnull %localErrNum)
-  %26 = load i32, ptr %localErrNum, align 4
-  %cmp98.not = icmp eq i32 %26, 0
+  %22 = load ptr, ptr @__clewCreateProgramWithSource, align 8
+  %call97 = call ptr %22(ptr noundef %clContext, i32 noundef 1, ptr noundef nonnull %kernelSource, ptr noundef nonnull %program_length, ptr noundef nonnull %localErrNum)
+  %23 = load i32, ptr %localErrNum, align 4
+  %cmp98.not = icmp eq i32 %23, 0
   br i1 %cmp98.not, label %if.end103, label %if.then99
 
 if.then99:                                        ; preds = %cond.end95
@@ -1253,7 +1250,7 @@ if.then99:                                        ; preds = %cond.end95
   br i1 %tobool100.not, label %return, label %if.then101
 
 if.then101:                                       ; preds = %if.then99
-  store i32 %26, ptr %pErrNum, align 4
+  store i32 %23, ptr %pErrNum, align 4
   br label %return
 
 if.end103:                                        ; preds = %cond.end95
@@ -1263,24 +1260,24 @@ if.end103:                                        ; preds = %cond.end95
   %conv110 = ashr exact i64 %sext62, 32
   %call111 = call noalias ptr @malloc(i64 noundef %conv110) #11
   %call112 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call111, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef nonnull @.str.58, ptr noundef nonnull %cond) #12
-  %27 = load ptr, ptr @__clewBuildProgram, align 8
-  %call113 = call i32 %27(ptr noundef %call97, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef %call111, ptr noundef null, ptr noundef null)
+  %24 = load ptr, ptr @__clewBuildProgram, align 8
+  %call113 = call i32 %24(ptr noundef %call97, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef %call111, ptr noundef null, ptr noundef null)
   store i32 %call113, ptr %localErrNum, align 4
   %cmp114.not = icmp eq i32 %call113, 0
   br i1 %cmp114.not, label %if.end129, label %if.then115
 
 if.then115:                                       ; preds = %if.end103
+  %25 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
+  %26 = load ptr, ptr %device.addr, align 8
+  %call118 = call i32 %25(ptr noundef %call97, ptr noundef %26, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %ret_val_size117)
+  %27 = load i64, ptr %ret_val_size117, align 8
+  %add119 = add i64 %27, 1
+  %call121 = call noalias ptr @malloc(i64 noundef %add119) #11
   %28 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
   %29 = load ptr, ptr %device.addr, align 8
-  %call118 = call i32 %28(ptr noundef %call97, ptr noundef %29, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %ret_val_size117)
+  %call122 = call i32 %28(ptr noundef %call97, ptr noundef %29, i32 noundef 4483, i64 noundef %27, ptr noundef %call121, ptr noundef null)
   %30 = load i64, ptr %ret_val_size117, align 8
-  %add119 = add i64 %30, 1
-  %call121 = call noalias ptr @malloc(i64 noundef %add119) #11
-  %31 = load ptr, ptr @__clewGetProgramBuildInfo, align 8
-  %32 = load ptr, ptr %device.addr, align 8
-  %call122 = call i32 %31(ptr noundef %call97, ptr noundef %32, i32 noundef 4483, i64 noundef %30, ptr noundef %call121, ptr noundef null)
-  %33 = load i64, ptr %ret_val_size117, align 8
-  %arrayidx123 = getelementptr inbounds i8, ptr %call121, i64 %33
+  %arrayidx123 = getelementptr inbounds i8, ptr %call121, i64 %30
   store i8 0, ptr %arrayidx123, align 1
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 875)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.74, i32 noundef 875, ptr noundef nonnull @.str.2, ptr noundef %call121)
@@ -1289,39 +1286,39 @@ if.then115:                                       ; preds = %if.end103
   br i1 %tobool126.not, label %return, label %if.then127
 
 if.then127:                                       ; preds = %if.then115
-  %34 = load i32, ptr %localErrNum, align 4
-  store i32 %34, ptr %pErrNum, align 4
+  %31 = load i32, ptr %localErrNum, align 4
+  store i32 %31, ptr %pErrNum, align 4
   br label %return
 
 if.end129:                                        ; preds = %if.end103
   br i1 %or.cond, label %if.then133, label %if.end156
 
 if.then133:                                       ; preds = %if.end129
-  %35 = load ptr, ptr @__clewGetProgramInfo, align 8
-  %call134 = call i32 %35(ptr noundef %call97, i32 noundef 4450, i64 noundef 4, ptr noundef nonnull %numAssociatedDevices, ptr noundef null)
+  %32 = load ptr, ptr @__clewGetProgramInfo, align 8
+  %call134 = call i32 %32(ptr noundef %call97, i32 noundef 4450, i64 noundef 4, ptr noundef nonnull %numAssociatedDevices, ptr noundef null)
   store i32 %call134, ptr %status, align 4
-  %36 = load i32, ptr %numAssociatedDevices, align 4
-  %cmp135 = icmp eq i32 %36, 1
+  %33 = load i32, ptr %numAssociatedDevices, align 4
+  %cmp135 = icmp eq i32 %33, 1
   br i1 %cmp135, label %if.then136, label %if.end156
 
 if.then136:                                       ; preds = %if.then133
-  %37 = load ptr, ptr @__clewGetProgramInfo, align 8
-  %call139 = call i32 %37(ptr noundef %call97, i32 noundef 4453, i64 noundef 8, ptr noundef nonnull %binarySize137, ptr noundef null)
+  %34 = load ptr, ptr @__clewGetProgramInfo, align 8
+  %call139 = call i32 %34(ptr noundef %call97, i32 noundef 4453, i64 noundef 8, ptr noundef nonnull %binarySize137, ptr noundef null)
   store i32 %call139, ptr %status, align 4
-  %38 = load i64, ptr %binarySize137, align 8
-  %call141 = call noalias ptr @malloc(i64 noundef %38) #11
+  %35 = load i64, ptr %binarySize137, align 8
+  %call141 = call noalias ptr @malloc(i64 noundef %35) #11
   store ptr %call141, ptr %binary138, align 8
-  %39 = load ptr, ptr @__clewGetProgramInfo, align 8
-  %call142 = call i32 %39(ptr noundef %call97, i32 noundef 4454, i64 noundef 8, ptr noundef nonnull %binary138, ptr noundef null)
+  %36 = load ptr, ptr @__clewGetProgramInfo, align 8
+  %call142 = call i32 %36(ptr noundef %call97, i32 noundef 4454, i64 noundef 8, ptr noundef nonnull %binary138, ptr noundef null)
   store i32 %call142, ptr %status, align 4
   %call145 = call noalias ptr @fopen(ptr noundef nonnull %binaryFileName, ptr noundef nonnull @.str.75)
   %tobool146.not = icmp eq ptr %call145, null
   br i1 %tobool146.not, label %do.body151, label %if.then147
 
 if.then147:                                       ; preds = %if.then136
-  %40 = load ptr, ptr %binary138, align 8
-  %41 = load i64, ptr %binarySize137, align 8
-  %call148 = call i64 @fwrite(ptr noundef %40, i64 noundef 1, i64 noundef %41, ptr noundef nonnull %call145)
+  %37 = load ptr, ptr %binary138, align 8
+  %38 = load i64, ptr %binarySize137, align 8
+  %call148 = call i64 @fwrite(ptr noundef %37, i64 noundef 1, i64 noundef %38, ptr noundef nonnull %call145)
   %call149 = call i32 @fclose(ptr noundef nonnull %call145)
   br label %if.end154
 
@@ -1331,8 +1328,8 @@ do.body151:                                       ; preds = %if.then136
   br label %if.end154
 
 if.end154:                                        ; preds = %do.body151, %if.then147
-  %42 = load ptr, ptr %binary138, align 8
-  call void @free(ptr noundef %42) #12
+  %39 = load ptr, ptr %binary138, align 8
+  call void @free(ptr noundef %39) #12
   br label %if.end156
 
 if.end156:                                        ; preds = %if.then133, %if.end154, %if.end129

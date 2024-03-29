@@ -217,9 +217,8 @@ _ZN7GaelMls5RIMLSI6CMeshOED2Ev.exit:              ; preds = %1, %4
 define weak_odr noundef float @_ZNK7GaelMls5RIMLSI6CMeshOE9potentialERKN3vcg6Point3IfEEPi(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 84
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 88
@@ -249,8 +248,8 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %7, %12, %_ZNK3vcg6P
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
-  %.not7 = icmp eq ptr %2, null
-  br i1 %.not7, label %29, label %25
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %24
   store i32 1, ptr %2, align 4
@@ -270,9 +269,8 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %7, %12, %_ZNK3vcg6P
 define weak_odr { <2 x float>, float } @_ZNK7GaelMls5RIMLSI6CMeshOE8gradientERKN3vcg6Point3IfEEPi(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 84
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 88
@@ -302,8 +300,8 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %7, %12, %_ZNK3vcg6P
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
-  %.not5 = icmp eq ptr %2, null
-  br i1 %.not5, label %28, label %25
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %24
   store i32 1, ptr %2, align 4
@@ -311,14 +309,14 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %7, %12, %_ZNK3vcg6P
 
 26:                                               ; preds = %_ZNK3vcg6Point3IfEneERKS1_.exit.thread, %_ZNK3vcg6Point3IfEneERKS1_.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 268
-  %.sroa.0.0.copyload7 = load <2 x float>, ptr %27, align 4
+  %.sroa.0.0.copyload6 = load <2 x float>, ptr %27, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 276
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   br label %28
 
 28:                                               ; preds = %24, %25, %26
   %.sroa.4.0 = phi float [ %.sroa.4.0.copyload, %26 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %24 ]
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload7, %26 ], [ zeroinitializer, %25 ], [ zeroinitializer, %24 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload6, %26 ], [ zeroinitializer, %25 ], [ zeroinitializer, %24 ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.4.0, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -328,9 +326,8 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %7, %12, %_ZNK3vcg6P
 define weak_odr void @_ZNK7GaelMls5RIMLSI6CMeshOE7hessianERKN3vcg6Point3IfEEPi(ptr dead_on_unwind noalias writable sret(%"class.vcg::Matrix33") align 4 %0, ptr noundef nonnull align 8 dereferenceable(348) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef %3) unnamed_addr #1 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 84
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 88
@@ -360,8 +357,8 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %8, %13, %_ZNK3vcg6P
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
-  %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %29, label %26
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %25
   store i32 1, ptr %3, align 4
@@ -498,9 +495,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK7GaelMls10MlsSurfaceI6CMeshOE10isInD
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %11 = getelementptr inbounds i8, ptr %0, i64 84
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 88
@@ -558,7 +554,7 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %14, %19, %_ZNK3vcg6
   %45 = getelementptr inbounds i8, ptr %0, i64 72
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, %44
-  br i1 %47, label %147, label %48
+  br i1 %47, label %148, label %48
 
 48:                                               ; preds = %35
   %49 = getelementptr inbounds i8, ptr %0, i64 80
@@ -568,9 +564,9 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %14, %19, %_ZNK3vcg6
 
 .preheader:                                       ; preds = %48
   %52 = icmp sgt i32 %44, 0
-  br i1 %52, label %.lr.ph67, label %.loopexit
+  br i1 %52, label %.lr.ph66, label %.loopexit
 
-.lr.ph67:                                         ; preds = %.preheader
+.lr.ph66:                                         ; preds = %.preheader
   %53 = ashr exact i64 %42, 2
   %54 = getelementptr inbounds i8, ptr %0, i64 128
   %55 = getelementptr inbounds i8, ptr %0, i64 136
@@ -586,18 +582,18 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %14, %19, %_ZNK3vcg6
   %65 = and i64 %43, 2147483647
   br label %66
 
-66:                                               ; preds = %.lr.ph67, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next80, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ]
-  %exitcond82.not = icmp eq i64 %indvars.iv79, %53
-  br i1 %exitcond82.not, label %67, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
+66:                                               ; preds = %.lr.ph66, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
+  %indvars.iv78 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next79, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ]
+  %exitcond81.not = icmp eq i64 %indvars.iv78, %53
+  br i1 %exitcond81.not, label %67, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
 
 67:                                               ; preds = %66
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %53) #23
   unreachable
 
 _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %66
-  %exitcond83.not = icmp eq i64 %indvars.iv79, %61
-  br i1 %exitcond83.not, label %68, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
+  %exitcond82.not = icmp eq i64 %indvars.iv78, %61
+  br i1 %exitcond82.not, label %68, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
 
 68:                                               ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %61, i64 noundef %61) #23
@@ -605,18 +601,18 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %66
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   %69 = load ptr, ptr %62, align 8
-  %70 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv79
+  %70 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv78
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds float, ptr %69, i64 %72
   %74 = load float, ptr %73, align 4
   %75 = fmul float %74, %64
   %76 = fmul float %75, %75
-  %77 = getelementptr inbounds float, ptr %57, i64 %indvars.iv79
+  %77 = getelementptr inbounds float, ptr %57, i64 %indvars.iv78
   %78 = load float, ptr %77, align 4
   %79 = fcmp ogt float %78, %76
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %80 = icmp ult i64 %indvars.iv.next80, %65
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %80 = icmp ult i64 %indvars.iv.next79, %65
   %81 = select i1 %79, i1 %80, i1 false
   br i1 %81, label %66, label %.loopexit, !llvm.loop !7
 
@@ -652,24 +648,24 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %108 = and i64 %43, 2147483647
   br label %109
 
-109:                                              ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45 ]
+109:                                              ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %89
-  br i1 %exitcond.not, label %110, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
+  br i1 %exitcond.not, label %110, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42
 
 110:                                              ; preds = %109
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %89, i64 noundef %89) #23
   unreachable
 
-_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43:     ; preds = %109
-  %exitcond78.not = icmp eq i64 %indvars.iv, %97
-  br i1 %exitcond78.not, label %111, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45
+_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42:     ; preds = %109
+  %exitcond77.not = icmp eq i64 %indvars.iv, %97
+  br i1 %exitcond77.not, label %111, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44
 
-111:                                              ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
+111:                                              ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %97, i64 noundef %97) #23
   unreachable
 
-_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
+_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42
   %112 = load ptr, ptr %99, align 8
   %113 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4
@@ -708,13 +704,13 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45: ; preds = %_ZNK7GaelMls
   %146 = select i1 %144, i1 %145, i1 false
   br i1 %146, label %109, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %82, %.preheader
-  %.2.shrunk = phi i1 [ true, %.preheader ], [ true, %82 ], [ %79, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ], [ %144, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45 ]
-  %.not40 = xor i1 %.2.shrunk, true
-  br label %147
+.loopexit:                                        ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %82, %.preheader
+  %.2.shrunk = phi i1 [ true, %.preheader ], [ true, %82 ], [ %79, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ], [ %144, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44 ]
+  %147 = xor i1 %.2.shrunk, true
+  br label %148
 
-147:                                              ; preds = %35, %.loopexit
-  %.0 = phi i1 [ %.not40, %.loopexit ], [ false, %35 ]
+148:                                              ; preds = %35, %.loopexit
+  %.0 = phi i1 [ %147, %.loopexit ], [ false, %35 ]
   ret i1 %.0
 }
 

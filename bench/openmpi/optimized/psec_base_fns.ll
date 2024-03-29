@@ -19,28 +19,27 @@ define ptr @pmix_psec_base_get_available_modules() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = load i8, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 1), align 8
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  %.0510 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not811 = icmp eq ptr %.0510, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
-  %or.cond = select i1 %.not, i1 true, i1 %.not811
-  br i1 %or.cond, label %._crit_edge.thread, label %.lr.ph
+  %3 = trunc i8 %2 to i1
+  %.059 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
+  %.not10 = icmp ne ptr %.059, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  %or.cond.not = select i1 %3, i1 %.not10, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
-  %.0512 = phi ptr [ %.05, %.lr.ph ], [ %.0510, %0 ]
-  %4 = getelementptr inbounds i8, ptr %.0512, i64 160
+  %.0511 = phi ptr [ %.05, %.lr.ph ], [ %.059, %0 ]
+  %4 = getelementptr inbounds i8, ptr %.0511, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 84
   %7 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %1, ptr noundef nonnull %6) #3
-  %8 = getelementptr inbounds i8, ptr %.0512, i64 120
+  %8 = getelementptr inbounds i8, ptr %.0511, i64 120
   %.05 = load ptr, ptr %8, align 8
-  %.not8 = icmp eq ptr %.05, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  %.not = icmp eq ptr %.05, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load ptr, ptr %1, align 8
-  %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge.thread, label %9
+  %.not8 = icmp eq ptr %.pre, null
+  br i1 %.not8, label %._crit_edge.thread, label %9
 
 9:                                                ; preds = %._crit_edge
   %10 = call ptr @PMIx_Argv_join(ptr noundef nonnull %.pre, i32 noundef 44) #3
@@ -62,66 +61,65 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @pmix_psec_base_assign_module(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 1), align 8
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %.loopexit31, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %.loopexit30
 
 4:                                                ; preds = %1
-  %.not25 = icmp eq ptr %0, null
-  br i1 %.not25, label %.thread, label %5
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %4
   %6 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 44) #3
-  %.01935 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not2636 = icmp eq ptr %.01935, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
-  br i1 %.not2636, label %._crit_edge, label %.lr.ph38
+  %.01934 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
+  %.not2535 = icmp eq ptr %.01934, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  br i1 %.not2535, label %._crit_edge, label %.lr.ph37
 
 .thread:                                          ; preds = %4
-  %.0193548 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not263649 = icmp eq ptr %.0193548, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
-  br i1 %.not263649, label %.loopexit31, label %.lr.ph38.split.us.preheader
+  %.0193447 = load ptr, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1, i32 1), align 8
+  %.not253548 = icmp eq ptr %.0193447, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  br i1 %.not253548, label %.loopexit30, label %.lr.ph37.split.us.preheader
 
-.lr.ph38:                                         ; preds = %5
+.lr.ph37:                                         ; preds = %5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.lr.ph38.split.us.preheader, label %.lr.ph38.split
+  br i1 %7, label %.lr.ph37.split.us.preheader, label %.lr.ph37.split
 
-.lr.ph38.split.us.preheader:                      ; preds = %.thread, %.lr.ph38
-  %.01937.us.ph = phi ptr [ %.0193548, %.thread ], [ %.01935, %.lr.ph38 ]
-  br label %.lr.ph38.split.us
+.lr.ph37.split.us.preheader:                      ; preds = %.thread, %.lr.ph37
+  %.01936.us.ph = phi ptr [ %.0193447, %.thread ], [ %.01934, %.lr.ph37 ]
+  br label %.lr.ph37.split.us
 
-.lr.ph38.split.us:                                ; preds = %.lr.ph38.split.us.preheader, %13
-  %.01937.us = phi ptr [ %.019.us, %13 ], [ %.01937.us.ph, %.lr.ph38.split.us.preheader ]
-  %8 = getelementptr inbounds i8, ptr %.01937.us, i64 160
+.lr.ph37.split.us:                                ; preds = %.lr.ph37.split.us.preheader, %13
+  %.01936.us = phi ptr [ %.019.us, %13 ], [ %.01936.us.ph, %.lr.ph37.split.us.preheader ]
+  %8 = getelementptr inbounds i8, ptr %.01936.us, i64 160
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 248
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11() #3
-  %.not30.us = icmp eq ptr %12, null
-  br i1 %.not30.us, label %13, label %.loopexit31
+  %.not29.us = icmp eq ptr %12, null
+  br i1 %.not29.us, label %13, label %.loopexit30
 
-13:                                               ; preds = %.lr.ph38.split.us
-  %14 = getelementptr inbounds i8, ptr %.01937.us, i64 120
+13:                                               ; preds = %.lr.ph37.split.us
+  %14 = getelementptr inbounds i8, ptr %.01936.us, i64 120
   %.019.us = load ptr, ptr %14, align 8
-  %.not26.us = icmp eq ptr %.019.us, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
-  br i1 %.not26.us, label %._crit_edge, label %.lr.ph38.split.us, !llvm.loop !6
+  %.not25.us = icmp eq ptr %.019.us, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  br i1 %.not25.us, label %._crit_edge, label %.lr.ph37.split.us, !llvm.loop !6
 
-.lr.ph38.split:                                   ; preds = %.lr.ph38
+.lr.ph37.split:                                   ; preds = %.lr.ph37
   %15 = load ptr, ptr %6, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit31.sink.split, label %.preheader
+  br i1 %16, label %.loopexit30.sink.split, label %.preheader
 
 .preheaderthread-pre-split:                       ; preds = %.loopexit
   %.pr = load ptr, ptr %6, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph38.split, %.preheaderthread-pre-split
-  %17 = phi ptr [ %.pr, %.preheaderthread-pre-split ], [ %15, %.lr.ph38.split ]
-  %.01937 = phi ptr [ %.019, %.preheaderthread-pre-split ], [ %.01935, %.lr.ph38.split ]
-  %.not2833 = icmp eq ptr %17, null
-  br i1 %.not2833, label %.loopexit, label %.lr.ph
+.preheader:                                       ; preds = %.lr.ph37.split, %.preheaderthread-pre-split
+  %17 = phi ptr [ %.pr, %.preheaderthread-pre-split ], [ %15, %.lr.ph37.split ]
+  %.01936 = phi ptr [ %.019, %.preheaderthread-pre-split ], [ %.01934, %.lr.ph37.split ]
+  %.not2732 = icmp eq ptr %17, null
+  br i1 %.not2732, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %.01937, i64 160
+  %18 = getelementptr inbounds i8, ptr %.01936, i64 160
   br label %19
 
 19:                                               ; preds = %.lr.ph, %29
@@ -137,35 +135,35 @@ define ptr @pmix_psec_base_assign_module(ptr noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr inbounds i8, ptr %21, i64 248
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27() #3
-  %.not29 = icmp eq ptr %28, null
-  br i1 %.not29, label %29, label %.loopexit31.sink.split
+  %.not28 = icmp eq ptr %28, null
+  br i1 %.not28, label %29, label %.loopexit30.sink.split
 
 29:                                               ; preds = %19, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8
-  %.not28 = icmp eq ptr %31, null
-  br i1 %.not28, label %.loopexit, label %19, !llvm.loop !7
+  %.not27 = icmp eq ptr %31, null
+  br i1 %.not27, label %.loopexit, label %19, !llvm.loop !7
 
 .loopexit:                                        ; preds = %29, %.preheader
-  %32 = getelementptr inbounds i8, ptr %.01937, i64 120
+  %32 = getelementptr inbounds i8, ptr %.01936, i64 120
   %.019 = load ptr, ptr %32, align 8
-  %.not26 = icmp eq ptr %.019, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
-  br i1 %.not26, label %._crit_edge, label %.preheaderthread-pre-split, !llvm.loop !8
+  %.not25 = icmp eq ptr %.019, getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i64 0, i32 0, i32 1)
+  br i1 %.not25, label %._crit_edge, label %.preheaderthread-pre-split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %13, %5
-  %.01851 = phi ptr [ %6, %5 ], [ null, %13 ], [ %6, %.loopexit ]
-  %.not27 = icmp eq ptr %.01851, null
-  br i1 %.not27, label %.loopexit31, label %.loopexit31.sink.split
+  %.01850 = phi ptr [ %6, %5 ], [ null, %13 ], [ %6, %.loopexit ]
+  %.not26 = icmp eq ptr %.01850, null
+  br i1 %.not26, label %.loopexit30, label %.loopexit30.sink.split
 
-.loopexit31.sink.split:                           ; preds = %25, %._crit_edge, %.lr.ph38.split
-  %.0185162.sink = phi ptr [ %.01851, %._crit_edge ], [ %6, %.lr.ph38.split ], [ %6, %25 ]
-  %.020.ph = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph38.split ], [ %28, %25 ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %.0185162.sink) #3
-  br label %.loopexit31
+.loopexit30.sink.split:                           ; preds = %25, %._crit_edge, %.lr.ph37.split
+  %.0185061.sink = phi ptr [ %.01850, %._crit_edge ], [ %6, %.lr.ph37.split ], [ %6, %25 ]
+  %.020.ph = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph37.split ], [ %28, %25 ]
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %.0185061.sink) #3
+  br label %.loopexit30
 
-.loopexit31:                                      ; preds = %.lr.ph38.split.us, %.loopexit31.sink.split, %.thread, %._crit_edge, %1
-  %.020 = phi ptr [ null, %1 ], [ null, %._crit_edge ], [ null, %.thread ], [ %.020.ph, %.loopexit31.sink.split ], [ %12, %.lr.ph38.split.us ]
+.loopexit30:                                      ; preds = %.lr.ph37.split.us, %.loopexit30.sink.split, %.thread, %._crit_edge, %1
+  %.020 = phi ptr [ null, %1 ], [ null, %._crit_edge ], [ null, %.thread ], [ %.020.ph, %.loopexit30.sink.split ], [ %12, %.lr.ph37.split.us ]
   ret ptr %.020
 }
 

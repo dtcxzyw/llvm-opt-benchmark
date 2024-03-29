@@ -942,60 +942,59 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
   %m_drating = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %m_drating, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end6, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %0, ptr noundef %a)
   br i1 %call.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %3 = load ptr, ptr %this, align 8
-  %call3.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %3, ptr noundef %b)
+  %2 = load ptr, ptr %this, align 8
+  %call3.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %2, ptr noundef %b)
   br i1 %call3.i, label %_ZN3euf8ackerman9enable_eqEP4exprS2_S2_.exit, label %return
 
 _ZN3euf8ackerman9enable_eqEP4exprS2_S2_.exit:     ; preds = %land.lhs.true.i
-  %4 = load ptr, ptr %this, align 8
-  %call5.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %4, ptr noundef %c)
+  %3 = load ptr, ptr %this, align 8
+  %call5.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %3, ptr noundef %c)
   br i1 %call5.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %_ZN3euf8ackerman9enable_eqEP4exprS2_S2_.exit
-  %5 = load i32, ptr %a, align 4
-  %6 = load i32, ptr %b, align 4
-  %cmp.i = icmp ugt i32 %5, %6
+  %4 = load i32, ptr %a, align 4
+  %5 = load i32, ptr %b, align 4
+  %cmp.i = icmp ugt i32 %4, %5
   %spec.select.i = select i1 %cmp.i, ptr %b, ptr %a
   %spec.select8.i = select i1 %cmp.i, ptr %a, ptr %b
   %m_tmp_inference.i = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = load ptr, ptr %m_tmp_inference.i, align 8
-  %a3.i = getelementptr inbounds i8, ptr %7, i64 16
+  %6 = load ptr, ptr %m_tmp_inference.i, align 8
+  %a3.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %spec.select.i, ptr %a3.i, align 8
-  %b4.i = getelementptr inbounds i8, ptr %7, i64 24
+  %b4.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %spec.select8.i, ptr %b4.i, align 8
-  %c.i = getelementptr inbounds i8, ptr %7, i64 32
+  %c.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %c, ptr %c.i, align 8
-  %is_cc.i = getelementptr inbounds i8, ptr %7, i64 44
+  %is_cc.i = getelementptr inbounds i8, ptr %6, i64 44
   store i8 0, ptr %is_cc.i, align 4
-  %m_count.i = getelementptr inbounds i8, ptr %7, i64 40
+  %m_count.i = getelementptr inbounds i8, ptr %6, i64 40
   store i32 0, ptr %m_count.i, align 8
   tail call void @_ZN3euf8ackerman6insertEv(ptr noundef nonnull align 8 dereferenceable(68) %this)
   %m_num_propagations_since_last_gc.i = getelementptr inbounds i8, ptr %this, i64 64
-  %8 = load i32, ptr %m_num_propagations_since_last_gc.i, align 8
-  %inc.i = add i32 %8, 1
+  %7 = load i32, ptr %m_num_propagations_since_last_gc.i, align 8
+  %inc.i = add i32 %7, 1
   store i32 %inc.i, ptr %m_num_propagations_since_last_gc.i, align 8
-  %9 = load ptr, ptr %this, align 8
-  %m_dack_gc.i = getelementptr inbounds i8, ptr %9, i64 916
-  %10 = load i32, ptr %m_dack_gc.i, align 4
-  %cmp.not.i = icmp ugt i32 %inc.i, %10
+  %8 = load ptr, ptr %this, align 8
+  %m_dack_gc.i = getelementptr inbounds i8, ptr %8, i64 916
+  %9 = load i32, ptr %m_dack_gc.i, align 4
+  %cmp.not.i = icmp ugt i32 %inc.i, %9
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end8
   store i32 0, ptr %m_num_propagations_since_last_gc.i, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %m_gc_threshold.i = getelementptr inbounds i8, ptr %this, i64 56
-  %11 = load i32, ptr %m_size.i.i, align 4
-  %12 = load i32, ptr %m_gc_threshold.i, align 8
-  %cmp41.i = icmp ugt i32 %11, %12
+  %10 = load i32, ptr %m_size.i.i, align 4
+  %11 = load i32, ptr %m_gc_threshold.i, align 8
+  %cmp41.i = icmp ugt i32 %10, %11
   br i1 %cmp41.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
@@ -1003,17 +1002,17 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %13 = load ptr, ptr %m_queue.i, align 8
-  %m_prev.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %m_prev.i.i, align 8
-  tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %14)
-  %15 = load i32, ptr %m_size.i.i, align 4
-  %16 = load i32, ptr %m_gc_threshold.i, align 8
-  %cmp4.i = icmp ugt i32 %15, %16
+  %12 = load ptr, ptr %m_queue.i, align 8
+  %m_prev.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %m_prev.i.i, align 8
+  tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %13)
+  %14 = load i32, ptr %m_size.i.i, align 4
+  %15 = load i32, ptr %m_gc_threshold.i, align 8
+  %cmp4.i = icmp ugt i32 %14, %15
   br i1 %cmp4.i, label %while.body.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.i
-  %.lcssa.i = phi i32 [ %12, %if.end.i ], [ %16, %while.body.i ]
+  %.lcssa.i = phi i32 [ %11, %if.end.i ], [ %15, %while.body.i ]
   %mul.i = mul i32 %.lcssa.i, 110
   %div.i = udiv i32 %mul.i, 100
   %inc9.i = add nuw nsw i32 %div.i, 1
@@ -1030,27 +1029,26 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_drating = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %m_drating, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %0, ptr noundef %a)
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %3 = load ptr, ptr %this, align 8
-  %call3.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %3, ptr noundef %b)
+  %2 = load ptr, ptr %this, align 8
+  %call3.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %2, ptr noundef %b)
   br i1 %call3.i, label %if.end5.i, label %return
 
 if.end5.i:                                        ; preds = %if.end.i
   %m_num_args.i.i = getelementptr inbounds i8, ptr %a, i64 24
-  %4 = load i32, ptr %m_num_args.i.i, align 8
-  %idx.ext.i.i = zext i32 %4 to i64
+  %3 = load i32, ptr %m_num_args.i.i, align 8
+  %idx.ext.i.i = zext i32 %3 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %5 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %5, i64 32
-  %cmp.not16.i = icmp eq i32 %4, 0
+  %4 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr i8, ptr %4, i64 32
+  %cmp.not16.i = icmp eq i32 %3, 0
   br i1 %cmp.not16.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end5.i
@@ -1064,19 +1062,19 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %__begin1.017.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %m_args.i.ptr.i, %for.body.preheader.i ]
-  %6 = load ptr, ptr %__begin1.017.i, align 8
-  %7 = load ptr, ptr %this, align 8
-  %call9.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %7, ptr noundef %6)
+  %5 = load ptr, ptr %__begin1.017.i, align 8
+  %6 = load ptr, ptr %this, align 8
+  %call9.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %6, ptr noundef %5)
   br i1 %call9.i, label %for.cond.i, label %return
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end5.i
   %m_num_args.i12.i = getelementptr inbounds i8, ptr %b, i64 24
-  %8 = load i32, ptr %m_num_args.i12.i, align 8
-  %idx.ext.i13.i = zext i32 %8 to i64
+  %7 = load i32, ptr %m_num_args.i12.i, align 8
+  %idx.ext.i13.i = zext i32 %7 to i64
   %add.ptr.i14.idx.i = shl nuw nsw i64 %idx.ext.i13.i, 3
-  %9 = getelementptr i8, ptr %b, i64 %add.ptr.i14.idx.i
-  %add.ptr.i14.ptr.i = getelementptr i8, ptr %9, i64 32
-  %cmp18.not18.i = icmp eq i32 %8, 0
+  %8 = getelementptr i8, ptr %b, i64 %add.ptr.i14.idx.i
+  %add.ptr.i14.ptr.i = getelementptr i8, ptr %8, i64 32
+  %cmp18.not18.i = icmp eq i32 %7, 0
   br i1 %cmp18.not18.i, label %if.end3, label %for.body19.preheader.i
 
 for.body19.preheader.i:                           ; preds = %for.end.i
@@ -1090,47 +1088,47 @@ for.cond17.i:                                     ; preds = %for.body19.i
 
 for.body19.i:                                     ; preds = %for.cond17.i, %for.body19.preheader.i
   %__begin113.019.i = phi ptr [ %incdec.ptr26.i, %for.cond17.i ], [ %m_args.i10.ptr.i, %for.body19.preheader.i ]
-  %10 = load ptr, ptr %__begin113.019.i, align 8
-  %11 = load ptr, ptr %this, align 8
-  %call22.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %11, ptr noundef %10)
+  %9 = load ptr, ptr %__begin113.019.i, align 8
+  %10 = load ptr, ptr %this, align 8
+  %call22.i = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %10, ptr noundef %9)
   br i1 %call22.i, label %for.cond17.i, label %return
 
 if.end3:                                          ; preds = %for.cond17.i, %for.end.i
-  %12 = load i32, ptr %a, align 4
-  %13 = load i32, ptr %b, align 4
-  %cmp.i = icmp ugt i32 %12, %13
+  %11 = load i32, ptr %a, align 4
+  %12 = load i32, ptr %b, align 4
+  %cmp.i = icmp ugt i32 %11, %12
   %spec.select.i = select i1 %cmp.i, ptr %b, ptr %a
   %spec.select8.i = select i1 %cmp.i, ptr %a, ptr %b
   %m_tmp_inference.i = getelementptr inbounds i8, ptr %this, i64 48
-  %14 = load ptr, ptr %m_tmp_inference.i, align 8
-  %a3.i = getelementptr inbounds i8, ptr %14, i64 16
+  %13 = load ptr, ptr %m_tmp_inference.i, align 8
+  %a3.i = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %spec.select.i, ptr %a3.i, align 8
-  %b4.i = getelementptr inbounds i8, ptr %14, i64 24
+  %b4.i = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %spec.select8.i, ptr %b4.i, align 8
-  %c.i = getelementptr inbounds i8, ptr %14, i64 32
+  %c.i = getelementptr inbounds i8, ptr %13, i64 32
   store ptr null, ptr %c.i, align 8
-  %is_cc.i = getelementptr inbounds i8, ptr %14, i64 44
+  %is_cc.i = getelementptr inbounds i8, ptr %13, i64 44
   store i8 1, ptr %is_cc.i, align 4
-  %m_count.i = getelementptr inbounds i8, ptr %14, i64 40
+  %m_count.i = getelementptr inbounds i8, ptr %13, i64 40
   store i32 0, ptr %m_count.i, align 8
   tail call void @_ZN3euf8ackerman6insertEv(ptr noundef nonnull align 8 dereferenceable(68) %this)
   %m_num_propagations_since_last_gc.i = getelementptr inbounds i8, ptr %this, i64 64
-  %15 = load i32, ptr %m_num_propagations_since_last_gc.i, align 8
-  %inc.i = add i32 %15, 1
+  %14 = load i32, ptr %m_num_propagations_since_last_gc.i, align 8
+  %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %m_num_propagations_since_last_gc.i, align 8
-  %16 = load ptr, ptr %this, align 8
-  %m_dack_gc.i = getelementptr inbounds i8, ptr %16, i64 916
-  %17 = load i32, ptr %m_dack_gc.i, align 4
-  %cmp.not.i3 = icmp ugt i32 %inc.i, %17
+  %15 = load ptr, ptr %this, align 8
+  %m_dack_gc.i = getelementptr inbounds i8, ptr %15, i64 916
+  %16 = load i32, ptr %m_dack_gc.i, align 4
+  %cmp.not.i3 = icmp ugt i32 %inc.i, %16
   br i1 %cmp.not.i3, label %if.end.i4, label %return
 
 if.end.i4:                                        ; preds = %if.end3
   store i32 0, ptr %m_num_propagations_since_last_gc.i, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %m_gc_threshold.i = getelementptr inbounds i8, ptr %this, i64 56
-  %18 = load i32, ptr %m_size.i.i, align 4
-  %19 = load i32, ptr %m_gc_threshold.i, align 8
-  %cmp41.i = icmp ugt i32 %18, %19
+  %17 = load i32, ptr %m_size.i.i, align 4
+  %18 = load i32, ptr %m_gc_threshold.i, align 8
+  %cmp41.i = icmp ugt i32 %17, %18
   br i1 %cmp41.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i4
@@ -1138,17 +1136,17 @@ while.body.lr.ph.i:                               ; preds = %if.end.i4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %20 = load ptr, ptr %m_queue.i, align 8
-  %m_prev.i.i = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %m_prev.i.i, align 8
-  tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %21)
-  %22 = load i32, ptr %m_size.i.i, align 4
-  %23 = load i32, ptr %m_gc_threshold.i, align 8
-  %cmp4.i = icmp ugt i32 %22, %23
+  %19 = load ptr, ptr %m_queue.i, align 8
+  %m_prev.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %m_prev.i.i, align 8
+  tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %20)
+  %21 = load i32, ptr %m_size.i.i, align 4
+  %22 = load i32, ptr %m_gc_threshold.i, align 8
+  %cmp4.i = icmp ugt i32 %21, %22
   br i1 %cmp4.i, label %while.body.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.i4
-  %.lcssa.i = phi i32 [ %19, %if.end.i4 ], [ %23, %while.body.i ]
+  %.lcssa.i = phi i32 [ %18, %if.end.i4 ], [ %22, %while.body.i ]
   %mul.i = mul i32 %.lcssa.i, 110
   %div.i = udiv i32 %mul.i, 100
   %inc9.i = add nuw nsw i32 %div.i, 1
@@ -1207,29 +1205,28 @@ if.end:                                           ; preds = %for.body
   %num_prop.1 = add nuw i32 %num_prop.018, %inc
   %is_cc = getelementptr inbounds i8, ptr %n.019, i64 44
   %12 = load i8, ptr %is_cc, align 4
-  %13 = and i8 %12, 1
-  %tobool.not = icmp eq i8 %13, 0
-  %a20 = getelementptr inbounds i8, ptr %n.019, i64 16
-  %14 = load ptr, ptr %a20, align 8
-  %b21 = getelementptr inbounds i8, ptr %n.019, i64 24
-  %15 = load ptr, ptr %b21, align 8
-  br i1 %tobool.not, label %if.else, label %if.then19
+  %tobool = trunc i8 %12 to i1
+  %a = getelementptr inbounds i8, ptr %n.019, i64 16
+  %13 = load ptr, ptr %a, align 8
+  %b = getelementptr inbounds i8, ptr %n.019, i64 24
+  %14 = load ptr, ptr %b, align 8
+  br i1 %tobool, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end
-  tail call void @_ZN3euf8ackerman6add_ccEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %14, ptr noundef %15)
+  tail call void @_ZN3euf8ackerman6add_ccEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %13, ptr noundef %14)
   br label %if.end22
 
 if.else:                                          ; preds = %if.end
   %c = getelementptr inbounds i8, ptr %n.019, i64 32
-  %16 = load ptr, ptr %c, align 8
-  tail call void @_ZN3euf8ackerman6add_eqEP4exprS2_S2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %15 = load ptr, ptr %c, align 8
+  tail call void @_ZN3euf8ackerman6add_eqEP4exprS2_S2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then19
-  %17 = load ptr, ptr %this, align 8
-  %m_stats = getelementptr inbounds i8, ptr %17, i64 2248
-  %18 = load i32, ptr %m_stats, align 8
-  %inc24 = add i32 %18, 1
+  %16 = load ptr, ptr %this, align 8
+  %m_stats = getelementptr inbounds i8, ptr %16, i64 2248
+  %17 = load i32, ptr %m_stats, align 8
+  %inc24 = add i32 %17, 1
   store i32 %inc24, ptr %m_stats, align 8
   tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %n.019)
   br label %for.inc

@@ -14,25 +14,24 @@ define i32 @PMPI_Finalized(ptr noundef %0) #0 {
   tail call void @ompi_hook_base_mpi_finalized_top(ptr noundef %0) #2
   %2 = load volatile i32, ptr @ompi_mpi_state, align 4
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  %6 = icmp eq ptr %0, null
-  %or.cond3 = and i1 %6, %5
-  br i1 %or.cond3, label %7, label %9
+  %4 = trunc i8 %3 to i1
+  %5 = icmp eq ptr %0, null
+  %or.cond3 = and i1 %5, %4
+  br i1 %or.cond3, label %6, label %8
 
-7:                                                ; preds = %1
-  %8 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #2
-  br label %12
+6:                                                ; preds = %1
+  %7 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #2
+  br label %11
 
-9:                                                ; preds = %1
-  %10 = icmp sgt i32 %2, 3
-  %11 = zext i1 %10 to i32
-  store i32 %11, ptr %0, align 4
+8:                                                ; preds = %1
+  %9 = icmp sgt i32 %2, 3
+  %10 = zext i1 %9 to i32
+  store i32 %10, ptr %0, align 4
   tail call void @ompi_hook_base_mpi_finalized_bottom(ptr noundef nonnull %0) #2
-  br label %12
+  br label %11
 
-12:                                               ; preds = %7, %9
-  %.0 = phi i32 [ 0, %9 ], [ %8, %7 ]
+11:                                               ; preds = %6, %8
+  %.0 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.0
 }
 

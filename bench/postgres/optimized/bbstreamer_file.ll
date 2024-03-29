@@ -65,16 +65,15 @@ define internal void @bbstreamer_plain_writer_content(ptr nocapture noundef read
 define internal void @bbstreamer_plain_writer_finalize(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %12, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fclose(ptr noundef %7)
-  %.not6 = icmp eq i32 %8, 0
-  br i1 %.not6, label %12, label %9
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -129,9 +128,8 @@ define internal void @bbstreamer_extractor_content(ptr noundef %0, ptr noundef %
 18:                                               ; preds = %17, %6
   %19 = getelementptr inbounds i8, ptr %1, i64 1044
   %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %.not38 = icmp eq i8 %21, 0
-  br i1 %.not38, label %58, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %58
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %1, i64 1032
@@ -206,16 +204,15 @@ should_allow_existing_directory.exit.thread.i:    ; preds = %should_allow_existi
 58:                                               ; preds = %18
   %59 = getelementptr inbounds i8, ptr %1, i64 1045
   %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  %.not39 = icmp eq i8 %61, 0
-  br i1 %.not39, label %71, label %62
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %71
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %1, i64 1046
   %64 = getelementptr inbounds i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8
-  %.not40 = icmp eq ptr %65, null
-  br i1 %.not40, label %68, label %66
+  %.not38 = icmp eq ptr %65, null
+  br i1 %.not38, label %68, label %66
 
 66:                                               ; preds = %62
   %67 = tail call ptr %65(ptr noundef nonnull %63) #9
@@ -224,8 +221,8 @@ should_allow_existing_directory.exit.thread.i:    ; preds = %should_allow_existi
 68:                                               ; preds = %66, %62
   %.0 = phi ptr [ %67, %66 ], [ %63, %62 ]
   %69 = tail call i32 @symlink(ptr noundef %.0, ptr noundef nonnull %7) #9
-  %.not.i42 = icmp eq i32 %69, 0
-  br i1 %.not.i42, label %extract_directory.exit, label %70
+  %.not.i40 = icmp eq i32 %69, 0
+  br i1 %.not.i40, label %extract_directory.exit, label %70
 
 70:                                               ; preds = %68
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %7, ptr noundef %.0) #9
@@ -246,8 +243,8 @@ should_allow_existing_directory.exit.thread.i:    ; preds = %should_allow_existi
 
 77:                                               ; preds = %71
   %78 = tail call i32 @chmod(ptr noundef nonnull %7, i32 noundef %73) #9
-  %.not.i43 = icmp eq i32 %78, 0
-  br i1 %.not.i43, label %create_file_for_extract.exit, label %79
+  %.not.i41 = icmp eq i32 %78, 0
+  br i1 %.not.i41, label %create_file_for_extract.exit, label %79
 
 79:                                               ; preds = %77
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef nonnull %7) #9
@@ -262,8 +259,8 @@ create_file_for_extract.exit:                     ; preds = %77
 extract_directory.exit:                           ; preds = %68, %should_allow_existing_directory.exit.thread.i, %create_file_for_extract.exit
   %81 = getelementptr inbounds i8, ptr %0, i64 56
   %82 = load ptr, ptr %81, align 8
-  %.not41 = icmp eq ptr %82, null
-  br i1 %.not41, label %108, label %83
+  %.not39 = icmp eq ptr %82, null
+  br i1 %.not39, label %108, label %83
 
 83:                                               ; preds = %extract_directory.exit
   tail call void %82(ptr noundef nonnull %7) #9

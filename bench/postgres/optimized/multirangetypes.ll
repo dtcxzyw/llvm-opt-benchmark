@@ -1439,8 +1439,7 @@ define dso_local void @multirange_get_bounds(ptr nocapture noundef readonly %0, 
   %11 = load i8, ptr %10, align 1
   %12 = getelementptr inbounds i8, ptr %7, i64 10
   %13 = load i8, ptr %12, align 2
-  %14 = and i8 %13, 1
-  %.not95 = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %invariant.gep.i = getelementptr i8, ptr %1, i64 8
   %15 = icmp sgt i32 %2, 0
   %16 = zext i32 %2 to i64
@@ -1514,7 +1513,7 @@ multirange_get_bounds_offset.exit:                ; preds = %.lr.ph.i, %5
 
 54:                                               ; preds = %47
   %55 = sext i16 %9 to i32
-  br i1 %.not95, label %fetch_att.exit, label %56
+  br i1 %14, label %56, label %fetch_att.exit
 
 56:                                               ; preds = %54
   switch i16 %9, label %68 [
@@ -1556,7 +1555,7 @@ fetch_att.exit:                                   ; preds = %54
   br i1 %72, label %fetch_att.exit.thread, label %75
 
 fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, %fetch_att.exit
-  %.0.i98 = phi i64 [ %71, %fetch_att.exit ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %67, %66 ]
+  %.0.i97 = phi i64 [ %71, %fetch_att.exit ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %67, %66 ]
   %73 = zext nneg i32 %55 to i64
   %74 = getelementptr i8, ptr %51, i64 %73
   br label %104
@@ -1610,7 +1609,7 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
 
 104:                                              ; preds = %47, %fetch_att.exit.thread, %100
   %.067 = phi ptr [ %74, %fetch_att.exit.thread ], [ %103, %100 ], [ %51, %47 ]
-  %.066 = phi i64 [ %.0.i98, %fetch_att.exit.thread ], [ %71, %100 ], [ 0, %47 ]
+  %.066 = phi i64 [ %.0.i97, %fetch_att.exit.thread ], [ %71, %100 ], [ 0, %47 ]
   %105 = and i32 %52, 81
   %.not73 = icmp eq i32 %105, 0
   br i1 %.not73, label %109, label %fetch_att.exit80
@@ -1674,7 +1673,7 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
   %.0668690 = phi i64 [ %.0668692, %114 ], [ %.0668691, %119 ], [ %.0668691, %123 ], [ %.0668691, %126 ], [ %.0668691, %122 ]
   %131 = phi i64 [ %115, %114 ], [ %121, %119 ], [ %125, %123 ], [ %128, %126 ], [ %118, %122 ]
   %132 = inttoptr i64 %131 to ptr
-  br i1 %.not95, label %fetch_att.exit80, label %133
+  br i1 %14, label %133, label %fetch_att.exit80
 
 133:                                              ; preds = %129
   switch i32 %130, label %145 [
@@ -1824,14 +1823,13 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
 
 29:                                               ; preds = %multirange_get_typcache.exit
   %30 = tail call ptr @make_multirange(i32 noundef %6, ptr noundef %25, i32 noundef 0, ptr noundef null)
-  br label %96
+  br label %95
 
 31:                                               ; preds = %multirange_get_typcache.exit
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %38, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1862,8 +1860,8 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
   %51 = getelementptr inbounds i8, ptr %42, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %25, align 8
-  %.not34 = icmp eq i32 %52, %53
-  br i1 %.not34, label %57, label %54
+  %.not = icmp eq i32 %52, %53
+  br i1 %.not, label %57, label %54
 
 54:                                               ; preds = %50
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1886,58 +1884,56 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
   %63 = sext i16 %62 to i32
   %64 = getelementptr inbounds i8, ptr %25, i64 10
   %65 = load i8, ptr %64, align 2
-  %66 = and i8 %65, 1
-  %67 = icmp ne i8 %66, 0
-  %68 = getelementptr inbounds i8, ptr %25, i64 11
-  %69 = load i8, ptr %68, align 1
-  call void @deconstruct_array(ptr noundef nonnull %42, i32 noundef %52, i32 noundef %63, i1 noundef zeroext %67, i8 noundef signext %69, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2) #11
-  %70 = load i32, ptr %2, align 4
-  %71 = sext i32 %70 to i64
-  %72 = shl nsw i64 %71, 3
-  %73 = call ptr @palloc0(i64 noundef %72) #11
-  %74 = load i32, ptr %2, align 4
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph, label %.loopexit
+  %66 = trunc i8 %65 to i1
+  %67 = getelementptr inbounds i8, ptr %25, i64 11
+  %68 = load i8, ptr %67, align 1
+  call void @deconstruct_array(ptr noundef nonnull %42, i32 noundef %52, i32 noundef %63, i1 noundef zeroext %66, i8 noundef signext %68, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2) #11
+  %69 = load i32, ptr %2, align 4
+  %70 = sext i32 %69 to i64
+  %71 = shl nsw i64 %70, 3
+  %72 = call ptr @palloc0(i64 noundef %71) #11
+  %73 = load i32, ptr %2, align 4
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %60, %84
-  %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %60 ]
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr i8, ptr %76, i64 %indvars.iv
-  %78 = load i8, ptr %77, align 1
-  %79 = and i8 %78, 1
-  %.not35 = icmp eq i8 %79, 0
-  br i1 %.not35, label %84, label %80
+.lr.ph:                                           ; preds = %60, %83
+  %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %60 ]
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr i8, ptr %75, i64 %indvars.iv
+  %77 = load i8, ptr %76, align 1
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %83
 
-80:                                               ; preds = %.lr.ph
-  %81 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %81)
-  %82 = call i32 @errcode(i32 noundef 67108994) #11
-  %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #11
+79:                                               ; preds = %.lr.ph
+  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %80)
+  %81 = call i32 @errcode(i32 noundef 67108994) #11
+  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.multirange_constructor2) #11
   unreachable
 
-84:                                               ; preds = %.lr.ph
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr i64, ptr %85, i64 %indvars.iv
-  %87 = load i64, ptr %86, align 8
-  %88 = inttoptr i64 %87 to ptr
-  %89 = call ptr @pg_detoast_datum(ptr noundef %88) #11
-  %90 = getelementptr ptr, ptr %73, i64 %indvars.iv
-  store ptr %89, ptr %90, align 8
+83:                                               ; preds = %.lr.ph
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr i64, ptr %84, i64 %indvars.iv
+  %86 = load i64, ptr %85, align 8
+  %87 = inttoptr i64 %86 to ptr
+  %88 = call ptr @pg_detoast_datum(ptr noundef %87) #11
+  %89 = getelementptr ptr, ptr %72, i64 %indvars.iv
+  store ptr %88, ptr %89, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = load i32, ptr %2, align 4
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  %90 = load i32, ptr %2, align 4
+  %91 = sext i32 %90 to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %84, %60, %59
-  %94 = phi i32 [ 0, %59 ], [ %74, %60 ], [ %91, %84 ]
-  %.031 = phi ptr [ null, %59 ], [ %73, %60 ], [ %73, %84 ]
-  %95 = call ptr @make_multirange(i32 noundef %6, ptr noundef nonnull %25, i32 noundef %94, ptr noundef %.031)
-  br label %96
+.loopexit:                                        ; preds = %83, %60, %59
+  %93 = phi i32 [ 0, %59 ], [ %73, %60 ], [ %90, %83 ]
+  %.031 = phi ptr [ null, %59 ], [ %72, %60 ], [ %72, %83 ]
+  %94 = call ptr @make_multirange(i32 noundef %6, ptr noundef nonnull %25, i32 noundef %93, ptr noundef %.031)
+  br label %95
 
-96:                                               ; preds = %.loopexit, %29
-  %.030.in = phi ptr [ %30, %29 ], [ %95, %.loopexit ]
+95:                                               ; preds = %.loopexit, %29
+  %.030.in = phi ptr [ %30, %29 ], [ %94, %.loopexit ]
   %.030 = ptrtoint ptr %.030.in to i64
   ret i64 %.030
 }
@@ -1990,9 +1986,8 @@ multirange_get_typcache.exit:                     ; preds = %9, %19
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %30, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %30
 
 27:                                               ; preds = %multirange_get_typcache.exit
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2010,8 +2005,8 @@ multirange_get_typcache.exit:                     ; preds = %9, %19
   %35 = getelementptr inbounds i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %23, align 8
-  %.not10 = icmp eq i32 %36, %37
-  br i1 %.not10, label %41, label %38
+  %.not = icmp eq i32 %36, %37
+  br i1 %.not, label %41, label %38
 
 38:                                               ; preds = %30
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2701,9 +2696,8 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not10 = icmp eq i8 %17, 0
-  br i1 %.not10, label %21, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %2, align 8
@@ -2720,9 +2714,8 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = phi ptr [ %20, %18 ], [ %24, %21 ]
   %26 = getelementptr i8, ptr %0, i64 56
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not11 = icmp eq i8 %28, 0
-  br i1 %.not11, label %29, label %34
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %34, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr i8, ptr %0, i64 48
@@ -2763,9 +2756,8 @@ define dso_local noundef i64 @range_agg_finalfn(ptr noundef %0) local_unnamed_ad
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not26 = icmp eq i8 %10, 0
-  br i1 %.not26, label %11, label %.thread
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2927,9 +2919,8 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not22 = icmp eq i8 %36, 0
-  br i1 %.not22, label %41, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %multirange_get_typcache.exit
   %38 = load i32, ptr %33, align 8
@@ -2947,9 +2938,8 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
   %.021 = phi ptr [ %40, %37 ], [ %44, %41 ]
   %46 = getelementptr i8, ptr %0, i64 56
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not23 = icmp eq i8 %48, 0
-  br i1 %.not23, label %49, label %.loopexit
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %0, i64 48
@@ -3005,8 +2995,8 @@ multirange_deserialize.exit.thread:               ; preds = %49
   %75 = load ptr, ptr %2, align 8
   %76 = call ptr @accumArrayResult(ptr noundef %.021, i64 noundef %73, i1 noundef zeroext false, i32 noundef %74, ptr noundef %75) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond31.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  %exitcond29.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %multirange_deserialize.exit.thread, %.preheader, %65, %45
   %77 = ptrtoint ptr %.021 to i64
@@ -3206,9 +3196,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   call void @multirange_get_bounds(ptr noundef %34, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %35 = getelementptr inbounds i8, ptr %2, i64 8
   %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %38, label %40
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %40, label %38
 
 38:                                               ; preds = %multirange_get_typcache.exit
   %39 = load i64, ptr %2, align 8
@@ -3286,9 +3275,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   call void @multirange_get_bounds(ptr noundef %35, ptr noundef nonnull %7, i32 noundef %36, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %37 = getelementptr inbounds i8, ptr %3, i64 8
   %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %40, label %42
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %42, label %40
 
 40:                                               ; preds = %multirange_get_typcache.exit
   %41 = load i64, ptr %3, align 8
@@ -3637,12 +3625,12 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %5, i64 9
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 296
-  %13 = getelementptr inbounds i8, ptr %0, i64 292
-  %14 = getelementptr inbounds i8, ptr %4, i64 9
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %12 = getelementptr inbounds i8, ptr %0, i64 292
+  %13 = getelementptr inbounds i8, ptr %4, i64 9
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 9
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %multirange_elem_bsearch_comparison.exit
@@ -3651,15 +3639,14 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   %16 = add i32 %.01619.i, %.01520.i
   %17 = lshr i32 %16, 1
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %18 = load i8, ptr %11, align 8
-  %19 = and i8 %18, 1
-  %.not.i4 = icmp eq i8 %19, 0
-  br i1 %.not.i4, label %20, label %31
+  %18 = load i8, ptr %10, align 8
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %31, label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = load i32, ptr %13, align 4
+  %21 = load i32, ptr %12, align 4
   %22 = load i64, ptr %4, align 8
-  %23 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %12, i32 noundef %21, i64 noundef %22, i64 noundef %2) #11
+  %23 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %21, i64 noundef %22, i64 noundef %2) #11
   %24 = trunc i64 %23 to i32
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %multirange_elem_bsearch_comparison.exit, label %26
@@ -3669,21 +3656,19 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
-  %29 = load i8, ptr %14, align 1
-  %30 = and i8 %29, 1
-  %.not20.i = icmp eq i8 %30, 0
-  br i1 %.not20.i, label %multirange_elem_bsearch_comparison.exit, label %31
+  %29 = load i8, ptr %13, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %multirange_elem_bsearch_comparison.exit
 
 31:                                               ; preds = %28, %26, %.lr.ph.i
-  %32 = load i8, ptr %15, align 8
-  %33 = and i8 %32, 1
-  %.not21.i5 = icmp eq i8 %33, 0
-  br i1 %.not21.i5, label %34, label %multirange_bsearch_match.exit
+  %32 = load i8, ptr %14, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %multirange_bsearch_match.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = load i32, ptr %13, align 4
+  %35 = load i32, ptr %12, align 4
   %36 = load i64, ptr %5, align 8
-  %37 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %12, i32 noundef %35, i64 noundef %36, i64 noundef %2) #11
+  %37 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %35, i64 noundef %36, i64 noundef %2) #11
   %38 = trunc i64 %37 to i32
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %45, label %40
@@ -3693,10 +3678,9 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   br i1 %41, label %42, label %multirange_bsearch_match.exit
 
 42:                                               ; preds = %40
-  %43 = load i8, ptr %10, align 1
-  %44 = and i8 %43, 1
-  %.not22.i = icmp eq i8 %44, 0
-  br i1 %.not22.i, label %45, label %multirange_bsearch_match.exit
+  %43 = load i8, ptr %15, align 1
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %multirange_bsearch_match.exit, label %45
 
 45:                                               ; preds = %34, %42
   %46 = add nuw i32 %17, 1

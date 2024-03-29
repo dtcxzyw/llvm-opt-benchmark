@@ -84,9 +84,8 @@ define dso_local void @PgArchShmemInit() local_unnamed_addr #0 {
   %3 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.1, i64 noundef %2, ptr noundef nonnull %1) #18
   store ptr %3, ptr @PgArch, align 8
   %4 = load i8, ptr %1, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %27
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %27, label %6
 
 6:                                                ; preds = %0
   %7 = call i64 @add_size(i64 noundef 0, i64 noundef 8) #18

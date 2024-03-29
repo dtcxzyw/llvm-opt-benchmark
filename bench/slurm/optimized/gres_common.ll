@@ -38,25 +38,24 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %104, label %9
+  br i1 %.not, label %103, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 57
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not65 = icmp eq i8 %12, 0
-  br i1 %.not65, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
-  %.not66 = icmp eq ptr %15, null
-  br i1 %.not66, label %104, label %16
+  %.not65 = icmp eq ptr %15, null
+  br i1 %.not65, label %103, label %16
 
 16:                                               ; preds = %13, %9
   %17 = load ptr, ptr %0, align 8
-  %.not67 = icmp eq ptr %17, null
-  br i1 %.not67, label %104, label %18
+  %.not66 = icmp eq ptr %17, null
+  br i1 %.not66, label %103, label %18
 
 18:                                               ; preds = %16
   %19 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %8) #5
@@ -67,25 +66,23 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   br label %.outer
 
-.outer:                                           ; preds = %74, %18
-  %.059.ph = phi ptr [ @.str.4, %74 ], [ @.str, %18 ]
-  %.056.ph = phi i32 [ %.us-phi95, %74 ], [ -1, %18 ]
-  %.054.ph = phi i8 [ 1, %74 ], [ 0, %18 ]
-  %.052.ph = phi i32 [ %.153, %74 ], [ 0, %18 ]
-  %.051.ph = phi i8 [ %.1, %74 ], [ 0, %18 ]
-  br label %.outer85
+.outer:                                           ; preds = %73, %18
+  %.059.ph = phi ptr [ @.str.4, %73 ], [ @.str, %18 ]
+  %.056.ph = phi i32 [ %.us-phi89, %73 ], [ -1, %18 ]
+  %.054.ph = phi i1 [ true, %73 ], [ false, %18 ]
+  %.052.ph = phi i32 [ %.153, %73 ], [ 0, %18 ]
+  br label %.outer79
 
-.outer85:                                         ; preds = %.outer, %59
-  %.056.ph86 = phi i32 [ %.056.ph, %.outer ], [ %.us-phi95, %59 ]
-  %.054.ph87 = phi i8 [ %.054.ph, %.outer ], [ 1, %59 ]
-  %.052.ph88 = phi i32 [ %.052.ph, %.outer ], [ %.153, %59 ]
+.outer79:                                         ; preds = %.outer, %59
+  %.056.ph80 = phi i32 [ %.056.ph, %.outer ], [ %.us-phi89, %59 ]
+  %.054.ph81 = phi i1 [ %.054.ph, %.outer ], [ true, %59 ]
+  %.052.ph82 = phi i32 [ %.052.ph, %.outer ], [ %.153, %59 ]
   %25 = call ptr @slurm_list_next(ptr noundef %19) #5
-  %.not6893 = icmp eq ptr %25, null
-  br i1 %.not6893, label %.outer85._crit_edge, label %.lr.ph
+  %.not6787 = icmp eq ptr %25, null
+  br i1 %.not6787, label %.outer79._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.outer85
-  %.not75 = icmp eq i8 %.054.ph87, 0
-  br i1 %.not75, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %.outer79
+  br i1 %.054.ph81, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
   %26 = phi ptr [ %37, %.backedge.us ], [ %25, %.lr.ph ]
@@ -93,26 +90,26 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load i32, ptr %26, align 8
   %29 = sext i32 %28 to i64
   %30 = call i32 @slurm_bit_test(ptr noundef %27, i64 noundef %29) #5
-  %.not73.us = icmp eq i32 %30, 0
-  br i1 %.not73.us, label %.backedge.us, label %31
+  %.not72.us = icmp eq i32 %30, 0
+  br i1 %.not72.us, label %.backedge.us, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
   %32 = load i32, ptr %26, align 8
-  %33 = icmp slt i32 %.056.ph86, %32
+  %33 = icmp slt i32 %.056.ph80, %32
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %31
-  %.not74.us = icmp eq i32 %.056.ph86, %32
-  br i1 %.not74.us, label %.thread, label %35
+  %.not73.us = icmp eq i32 %.056.ph80, %32
+  br i1 %.not73.us, label %.backedge.us, label %35
 
 35:                                               ; preds = %34
-  %36 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph86, i32 noundef %32) #5
-  br label %.thread
+  %36 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph80, i32 noundef %32) #5
+  br label %.backedge.us
 
-.backedge.us:                                     ; preds = %.lr.ph.split.us
+.backedge.us:                                     ; preds = %34, %35, %.lr.ph.split.us
   %37 = call ptr @slurm_list_next(ptr noundef %19) #5
-  %.not68.us = icmp eq ptr %37, null
-  br i1 %.not68.us, label %.outer85._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
+  %.not67.us = icmp eq ptr %37, null
+  br i1 %.not67.us, label %.outer79._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %38 = phi ptr [ %43, %.backedge ], [ %25, %.lr.ph ]
@@ -120,41 +117,39 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %40 = load i32, ptr %38, align 8
   %41 = sext i32 %40 to i64
   %42 = call i32 @slurm_bit_test(ptr noundef %39, i64 noundef %41) #5
-  %.not73 = icmp eq i32 %42, 0
-  br i1 %.not73, label %.backedge, label %44
+  %.not72 = icmp eq i32 %42, 0
+  br i1 %.not72, label %.backedge, label %44
 
-.backedge:                                        ; preds = %48, %47, %.lr.ph.split
+.backedge:                                        ; preds = %.lr.ph.split
   %43 = call ptr @slurm_list_next(ptr noundef %19) #5
-  %.not68 = icmp eq ptr %43, null
-  br i1 %.not68, label %.outer85._crit_edge, label %.lr.ph.split, !llvm.loop !6
+  %.not67 = icmp eq ptr %43, null
+  br i1 %.not67, label %.outer79._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 44:                                               ; preds = %.lr.ph.split
   %45 = load i32, ptr %38, align 8
-  %46 = icmp slt i32 %.056.ph86, %45
+  %46 = icmp slt i32 %.056.ph80, %45
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %44
-  %.not74 = icmp eq i32 %.056.ph86, %45
-  br i1 %.not74, label %.backedge, label %48
+  %.not73 = icmp eq i32 %.056.ph80, %45
+  br i1 %.not73, label %.thread, label %48
 
 48:                                               ; preds = %47
-  %49 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph86, i32 noundef %45) #5
-  br label %.backedge
+  %49 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph80, i32 noundef %45) #5
+  br label %.thread
 
-.thread:                                          ; preds = %44, %31, %35, %34
-  %.us-phi = phi ptr [ %26, %34 ], [ %26, %35 ], [ %26, %31 ], [ %38, %44 ]
-  %.us-phi95 = phi i32 [ %.056.ph86, %34 ], [ %.056.ph86, %35 ], [ %32, %31 ], [ %45, %44 ]
+.thread:                                          ; preds = %31, %44, %47, %48
+  %.us-phi = phi ptr [ %38, %48 ], [ %38, %47 ], [ %38, %44 ], [ %26, %31 ]
+  %.us-phi89 = phi i32 [ %.056.ph80, %48 ], [ %.056.ph80, %47 ], [ %45, %44 ], [ %32, %31 ]
   %50 = load i8, ptr %20, align 8
-  %51 = and i8 %50, 1
-  %.not76 = icmp eq i8 %51, 0
+  %51 = trunc i8 %50 to i1
   %52 = getelementptr inbounds i8, ptr %.us-phi, i64 20
-  %.0.in = select i1 %.not76, ptr %.us-phi, ptr %52
+  %.0.in = select i1 %51, ptr %52, ptr %.us-phi
   %.0 = load i32, ptr %.0.in, align 4
-  %.153 = add nsw i32 %.052.ph88, %21
+  %.153 = add nsw i32 %.052.ph82, %21
   %53 = load i8, ptr %10, align 1
-  %54 = and i8 %53, 1
-  %.not77 = icmp eq i8 %54, 0
-  br i1 %.not77, label %63, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %63
 
 55:                                               ; preds = %.thread
   %56 = load ptr, ptr %22, align 8
@@ -165,106 +160,103 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   br label %59
 
 59:                                               ; preds = %55, %57
-  %60 = phi i32 [ %58, %57 ], [ %.052.ph88, %55 ]
+  %60 = phi i32 [ %58, %57 ], [ %.052.ph82, %55 ]
   %61 = sext i32 %60 to i64
   %62 = call i32 @slurm_bit_test(ptr noundef %56, i64 noundef %61) #5
-  %.not78 = icmp eq i32 %62, 0
-  br i1 %.not78, label %.outer85, label %63, !llvm.loop !6
+  %.not74 = icmp eq i32 %62, 0
+  br i1 %.not74, label %.outer79, label %63, !llvm.loop !6
 
 63:                                               ; preds = %59, %.thread
-  %64 = select i1 %6, i32 %.052.ph88, i32 %.0
-  %65 = and i8 %.051.ph, 1
-  %.not79 = icmp eq i8 %65, 0
-  br i1 %.not79, label %66, label %68
+  %64 = select i1 %6, i32 %.052.ph82, i32 %.0
+  br i1 %.054.ph, label %67, label %65
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %52, align 4
-  store i32 %67, ptr %23, align 4
-  br label %68
+65:                                               ; preds = %63
+  %66 = load i32, ptr %52, align 4
+  store i32 %66, ptr %23, align 4
+  br label %67
 
-68:                                               ; preds = %66, %63
-  %.1 = phi i8 [ %.051.ph, %63 ], [ 1, %66 ]
-  %69 = getelementptr inbounds i8, ptr %.us-phi, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %.not80 = icmp eq ptr %70, null
-  %71 = load ptr, ptr %24, align 8
-  br i1 %.not80, label %73, label %72
+67:                                               ; preds = %65, %63
+  %68 = getelementptr inbounds i8, ptr %.us-phi, i64 32
+  %69 = load ptr, ptr %68, align 8
+  %.not75 = icmp eq ptr %69, null
+  %70 = load ptr, ptr %24, align 8
+  br i1 %.not75, label %72, label %71
 
-72:                                               ; preds = %68
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %.059.ph, ptr noundef %71, ptr noundef nonnull %70) #5
-  br label %74
+71:                                               ; preds = %67
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %.059.ph, ptr noundef %70, ptr noundef nonnull %69) #5
+  br label %73
 
-73:                                               ; preds = %68
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %71, i32 noundef %64) #5
-  br label %74
+72:                                               ; preds = %67
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %70, i32 noundef %64) #5
+  br label %73
 
-74:                                               ; preds = %73, %72
-  %75 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %75, i32 noundef %.0) #5
+73:                                               ; preds = %72, %71
+  %74 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %74, i32 noundef %.0) #5
   br label %.outer, !llvm.loop !6
 
-.outer85._crit_edge:                              ; preds = %.outer85, %.backedge, %.backedge.us
+.outer79._crit_edge:                              ; preds = %.outer79, %.backedge, %.backedge.us
   call void @slurm_list_iterator_destroy(ptr noundef %19) #5
-  %76 = load ptr, ptr %2, align 8
-  %.not69 = icmp eq ptr %76, null
-  br i1 %.not69, label %80, label %77
+  %75 = load ptr, ptr %2, align 8
+  %.not68 = icmp eq ptr %75, null
+  br i1 %.not68, label %79, label %76
 
-77:                                               ; preds = %.outer85._crit_edge
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @slurm_xfree(ptr noundef nonnull %78) #5
-  %79 = load ptr, ptr %2, align 8
-  store ptr %79, ptr %78, align 8
-  br label %80
+76:                                               ; preds = %.outer79._crit_edge
+  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @slurm_xfree(ptr noundef nonnull %77) #5
+  %78 = load ptr, ptr %2, align 8
+  store ptr %78, ptr %77, align 8
+  br label %79
 
-80:                                               ; preds = %77, %.outer85._crit_edge
-  %81 = load ptr, ptr %3, align 8
-  %.not70 = icmp eq ptr %81, null
-  br i1 %.not70, label %85, label %82
+79:                                               ; preds = %76, %.outer79._crit_edge
+  %80 = load ptr, ptr %3, align 8
+  %.not69 = icmp eq ptr %80, null
+  br i1 %.not69, label %84, label %81
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @slurm_xfree(ptr noundef nonnull %83) #5
-  %84 = load ptr, ptr %3, align 8
-  store ptr %84, ptr %83, align 8
-  br label %85
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  call void @slurm_xfree(ptr noundef nonnull %82) #5
+  %83 = load ptr, ptr %3, align 8
+  store ptr %83, ptr %82, align 8
+  br label %84
 
-85:                                               ; preds = %82, %80
-  %86 = getelementptr inbounds i8, ptr %0, i64 16
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 1
-  %.not71 = icmp eq i32 %88, 0
-  br i1 %.not71, label %104, label %89
+84:                                               ; preds = %81, %79
+  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %86, 1
+  %.not70 = icmp eq i32 %87, 0
+  br i1 %.not70, label %103, label %88
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %22, align 8
-  %.not72 = icmp eq ptr %90, null
-  br i1 %.not72, label %93, label %91
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %22, align 8
+  %.not71 = icmp eq ptr %89, null
+  br i1 %.not71, label %92, label %90
 
-91:                                               ; preds = %89
-  %92 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef nonnull %90) #5
-  br label %95
+90:                                               ; preds = %88
+  %91 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef nonnull %89) #5
+  br label %94
 
-93:                                               ; preds = %89
-  %94 = call ptr @slurm_xstrdup(ptr noundef nonnull @.str.5) #5
-  br label %95
+92:                                               ; preds = %88
+  %93 = call ptr @slurm_xstrdup(ptr noundef nonnull @.str.5) #5
+  br label %94
 
-95:                                               ; preds = %93, %91
-  %storemerge = phi ptr [ %94, %93 ], [ %92, %91 ]
+94:                                               ; preds = %92, %90
+  %storemerge = phi ptr [ %93, %92 ], [ %91, %90 ]
   store ptr %storemerge, ptr %4, align 8
-  %96 = load ptr, ptr %0, align 8
-  %97 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef %96) #5
-  store ptr %97, ptr %5, align 8
-  %98 = load ptr, ptr @stderr, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 24
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 64
-  %102 = load ptr, ptr %101, align 8
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.6, ptr noundef %storemerge, ptr noundef %97, i32 noundef %.052.ph88, ptr noundef %100, ptr noundef %102) #6
+  %95 = load ptr, ptr %0, align 8
+  %96 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef %95) #5
+  store ptr %96, ptr %5, align 8
+  %97 = load ptr, ptr @stderr, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 64
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.6, ptr noundef %storemerge, ptr noundef %96, i32 noundef %.052.ph82, ptr noundef %99, ptr noundef %101) #6
   call void @slurm_xfree(ptr noundef nonnull %5) #5
   call void @slurm_xfree(ptr noundef nonnull %4) #5
-  br label %104
+  br label %103
 
-104:                                              ; preds = %16, %13, %1, %95, %85
+103:                                              ; preds = %16, %13, %1, %94, %84
   ret void
 }
 
@@ -411,20 +403,19 @@ define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %.str.9..str.8 = select i1 %.not, ptr @.str.9, ptr @.str.8
+  %5 = trunc i8 %4 to i1
+  %.str.8..str.9 = select i1 %5, ptr @.str.8, ptr @.str.9
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @.str, ptr %6, align 8
   tail call void @common_gres_set_env(ptr noundef %0)
   %7 = load ptr, ptr %0, align 8
-  %.not44 = icmp eq ptr %7, null
-  br i1 %.not44, label %.thread, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %1
   %9 = tail call i32 @slurm_bit_set_count(ptr noundef nonnull %7) #5
-  %.not45 = icmp eq i32 %9, 0
-  br i1 %.not45, label %.thread, label %10
+  %.not44 = icmp eq i32 %9, 0
+  br i1 %.not44, label %.thread, label %10
 
 10:                                               ; preds = %8
   %11 = sext i32 %9 to i64
@@ -440,8 +431,8 @@ define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 2
-  %.not46 = icmp eq i32 %18, 0
-  br i1 %.not46, label %19, label %23
+  %.not45 = icmp eq i32 %18, 0
+  br i1 %.not45, label %19, label %23
 
 19:                                               ; preds = %.thread
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -453,13 +444,13 @@ define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
 23:                                               ; preds = %.thread, %19, %10
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %.not47 = icmp eq ptr %25, null
-  br i1 %.not47, label %30, label %26
+  %.not46 = icmp eq ptr %25, null
+  br i1 %.not46, label %30, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = call i32 @slurm_env_array_overwrite(ptr noundef %28, ptr noundef nonnull %.str.9..str.8, ptr noundef nonnull %25) #5
+  %29 = call i32 @slurm_env_array_overwrite(ptr noundef %28, ptr noundef nonnull %.str.8..str.9, ptr noundef nonnull %25) #5
   call void @slurm_xfree(ptr noundef nonnull %24) #5
   br label %38
 
@@ -467,28 +458,28 @@ define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2
-  %.not48 = icmp eq i32 %33, 0
-  br i1 %.not48, label %34, label %38
+  %.not47 = icmp eq i32 %33, 0
+  br i1 %.not47, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  call void @slurm_unsetenvp(ptr noundef %37, ptr noundef nonnull %.str.9..str.8) #5
+  call void @slurm_unsetenvp(ptr noundef %37, ptr noundef nonnull %.str.8..str.9) #5
   br label %38
 
 38:                                               ; preds = %30, %34, %26
   %39 = getelementptr inbounds i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
-  %.not49 = icmp eq ptr %40, null
-  br i1 %.not49, label %74, label %41
+  %.not48 = icmp eq ptr %40, null
+  br i1 %.not48, label %74, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 32
-  %.not55 = icmp eq i32 %44, 0
-  br i1 %.not55, label %49, label %45
+  %.not54 = icmp eq i32 %44, 0
+  br i1 %.not54, label %49, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %0, i64 8
@@ -500,36 +491,36 @@ define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
 49:                                               ; preds = %45, %41
   %50 = phi i32 [ %.pre, %45 ], [ %43, %41 ]
   %51 = and i32 %50, 64
-  %.not56 = icmp eq i32 %51, 0
-  br i1 %.not56, label %57, label %52
+  %.not55 = icmp eq i32 %51, 0
+  br i1 %.not55, label %57, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %39, align 8
   %56 = call i32 @slurm_env_array_overwrite(ptr noundef %54, ptr noundef nonnull @.str.13, ptr noundef %55) #5
-  %.pre60 = load i32, ptr %42, align 8
+  %.pre59 = load i32, ptr %42, align 8
   br label %57
 
 57:                                               ; preds = %52, %49
-  %58 = phi i32 [ %.pre60, %52 ], [ %50, %49 ]
+  %58 = phi i32 [ %.pre59, %52 ], [ %50, %49 ]
   %59 = and i32 %58, 2048
-  %.not57 = icmp eq i32 %59, 0
-  br i1 %.not57, label %65, label %60
+  %.not56 = icmp eq i32 %59, 0
+  br i1 %.not56, label %65, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %39, align 8
   %64 = call i32 @slurm_env_array_overwrite(ptr noundef %62, ptr noundef nonnull @.str.14, ptr noundef %63) #5
-  %.pre61 = load i32, ptr %42, align 8
+  %.pre60 = load i32, ptr %42, align 8
   br label %65
 
 65:                                               ; preds = %60, %57
-  %66 = phi i32 [ %.pre61, %60 ], [ %58, %57 ]
+  %66 = phi i32 [ %.pre60, %60 ], [ %58, %57 ]
   %67 = and i32 %66, 128
-  %.not58 = icmp eq i32 %67, 0
-  br i1 %.not58, label %73, label %68
+  %.not57 = icmp eq i32 %67, 0
+  br i1 %.not57, label %73, label %68
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %0, i64 8
@@ -546,57 +537,57 @@ define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %75 = getelementptr inbounds i8, ptr %0, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 2
-  %.not50 = icmp eq i32 %77, 0
-  br i1 %.not50, label %78, label %107
+  %.not49 = icmp eq i32 %77, 0
+  br i1 %.not49, label %78, label %107
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 40
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 32
-  %.not51 = icmp eq i32 %81, 0
-  br i1 %.not51, label %86, label %82
+  %.not50 = icmp eq i32 %81, 0
+  br i1 %.not50, label %86, label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %84, align 8
   call void @slurm_unsetenvp(ptr noundef %85, ptr noundef nonnull @.str.12) #5
-  %.pre62 = load i32, ptr %79, align 8
+  %.pre61 = load i32, ptr %79, align 8
   br label %86
 
 86:                                               ; preds = %82, %78
-  %87 = phi i32 [ %.pre62, %82 ], [ %80, %78 ]
+  %87 = phi i32 [ %.pre61, %82 ], [ %80, %78 ]
   %88 = and i32 %87, 64
-  %.not52 = icmp eq i32 %88, 0
-  br i1 %.not52, label %93, label %89
+  %.not51 = icmp eq i32 %88, 0
+  br i1 %.not51, label %93, label %89
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %0, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
   call void @slurm_unsetenvp(ptr noundef %92, ptr noundef nonnull @.str.13) #5
-  %.pre63 = load i32, ptr %79, align 8
+  %.pre62 = load i32, ptr %79, align 8
   br label %93
 
 93:                                               ; preds = %89, %86
-  %94 = phi i32 [ %.pre63, %89 ], [ %87, %86 ]
+  %94 = phi i32 [ %.pre62, %89 ], [ %87, %86 ]
   %95 = and i32 %94, 2048
-  %.not53 = icmp eq i32 %95, 0
-  br i1 %.not53, label %100, label %96
+  %.not52 = icmp eq i32 %95, 0
+  br i1 %.not52, label %100, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   call void @slurm_unsetenvp(ptr noundef %99, ptr noundef nonnull @.str.14) #5
-  %.pre64 = load i32, ptr %79, align 8
+  %.pre63 = load i32, ptr %79, align 8
   br label %100
 
 100:                                              ; preds = %96, %93
-  %101 = phi i32 [ %.pre64, %96 ], [ %94, %93 ]
+  %101 = phi i32 [ %.pre63, %96 ], [ %94, %93 ]
   %102 = and i32 %101, 128
-  %.not54 = icmp eq i32 %102, 0
-  br i1 %.not54, label %107, label %103
+  %.not53 = icmp eq i32 %102, 0
+  br i1 %.not53, label %107, label %103
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 8

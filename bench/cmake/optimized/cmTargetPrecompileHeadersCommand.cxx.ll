@@ -314,9 +314,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 29:                                               ; preds = %24
   %30 = load i8, ptr %28, align 16
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt8optionalI19cmListFileBacktraceED2Ev.exit, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %_ZNSt8optionalI19cmListFileBacktraceED2Ev.exit
 
 32:                                               ; preds = %29
   store i8 0, ptr %28, align 16
@@ -477,8 +476,8 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZNSt8optionalI19cm
   %.05.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i ], [ %103, %_ZN19cmListFileBacktraceD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #13
   %106 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i14 = icmp eq ptr %106, %105
-  br i1 %.not.i.i.i.i14, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
+  %.not.i.i.i.i = icmp eq ptr %106, %105
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %9, align 8
@@ -962,9 +961,8 @@ declare void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind writable sret(
 define linkonce_odr dso_local void @_ZNSt8optionalI19cmListFileBacktraceED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %_ZNSt14_Optional_baseI19cmListFileBacktraceLb0ELb0EED2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZNSt14_Optional_baseI19cmListFileBacktraceLb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8

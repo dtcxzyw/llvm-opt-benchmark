@@ -13,6 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @alg_block_len = internal unnamed_addr constant [12 x i64] [i64 16, i64 16, i64 16, i64 8, i64 8, i64 8, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16], align 16
 @__PRETTY_FUNCTION__.qcrypto_cipher_get_key_len = private unnamed_addr constant [58 x i8] c"size_t qcrypto_cipher_get_key_len(QCryptoCipherAlgorithm)\00", align 1
 @alg_key_len = internal unnamed_addr constant [12 x i64] [i64 16, i64 24, i64 32, i64 8, i64 24, i64 16, i64 16, i64 24, i64 32, i64 16, i64 24, i64 32], align 16
+@mode_need_iv = internal unnamed_addr constant [4 x i8] c"\00\01\01\01", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"../qemu/crypto/cipher-gnutls.c.inc\00", align 1
 @__func__.qcrypto_cipher_ctx_new = private unnamed_addr constant [23 x i8] c"qcrypto_cipher_ctx_new\00", align 1
 @.str.3 = private unnamed_addr constant [45 x i8] c"Unsupported cipher algorithm %s with %s mode\00", align 1
@@ -72,20 +73,26 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local i64 @qcrypto_cipher_get_iv_len(i32 noundef %alg, i32 noundef %mode) local_unnamed_addr #2 {
 entry:
+  %conv = zext i32 %alg to i64
   %cmp = icmp ugt i32 %alg, 11
-  %0 = add i32 %mode, -4
-  %1 = icmp ult i32 %0, -3
-  %or.cond3 = or i1 %cmp, %1
-  br i1 %or.cond3, label %return, label %if.then7
+  %cmp3 = icmp ugt i32 %mode, 3
+  %or.cond = or i1 %cmp, %cmp3
+  br i1 %or.cond, label %return, label %if.end6
 
-if.then7:                                         ; preds = %entry
-  %conv = zext nneg i32 %alg to i64
+if.end6:                                          ; preds = %entry
+  %conv2 = zext nneg i32 %mode to i64
+  %arrayidx = getelementptr [4 x i8], ptr @mode_need_iv, i64 0, i64 %conv2
+  %0 = load i8, ptr %arrayidx, align 1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then7, label %return
+
+if.then7:                                         ; preds = %if.end6
   %arrayidx9 = getelementptr [12 x i64], ptr @alg_block_len, i64 0, i64 %conv
-  %2 = load i64, ptr %arrayidx9, align 8
+  %1 = load i64, ptr %arrayidx9, align 8
   br label %return
 
-return:                                           ; preds = %entry, %if.then7
-  %retval.0 = phi i64 [ %2, %if.then7 ], [ 0, %entry ]
+return:                                           ; preds = %if.end6, %entry, %if.then7
+  %retval.0 = phi i64 [ %1, %if.then7 ], [ 0, %entry ], [ 0, %if.end6 ]
   ret i64 %retval.0
 }
 

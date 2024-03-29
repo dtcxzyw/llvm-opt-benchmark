@@ -124,9 +124,8 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %48 = getelementptr %struct.LogicalSlotInfo, ptr %47, i64 %indvars.iv68
   %49 = getelementptr inbounds i8, ptr %48, i64 18
   %50 = load i8, ptr %49, align 2
-  %51 = and i8 %50, 1
-  %.not = icmp eq i8 %51, 0
-  br i1 %.not, label %52, label %62
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %62, label %52
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %48, i64 8

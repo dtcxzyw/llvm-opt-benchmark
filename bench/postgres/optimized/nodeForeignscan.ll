@@ -49,7 +49,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %.thread, %15
   %24 = phi ptr [ %14, %.thread ], [ %20, %15 ]
-  %.06781 = phi ptr [ %12, %.thread ], [ %18, %15 ]
+  %.06780 = phi ptr [ %12, %.thread ], [ %18, %15 ]
   %25 = tail call ptr @ExecTypeFromTL(ptr noundef %24) #5
   br label %30
 
@@ -61,7 +61,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 
 30:                                               ; preds = %26, %23
   %.sink = phi ptr [ %29, %26 ], [ %25, %23 ]
-  %.06780 = phi ptr [ %18, %26 ], [ %.06781, %23 ]
+  %.06779 = phi ptr [ %18, %26 ], [ %.06780, %23 ]
   %.066 = phi i32 [ %5, %26 ], [ -3, %23 ]
   tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %.sink, ptr noundef nonnull @TTSOpsHeapTuple) #5
   %31 = getelementptr inbounds i8, ptr %6, i64 192
@@ -82,9 +82,8 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   store ptr %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 38
   %42 = load i8, ptr %41, align 2
-  %43 = and i8 %42, 1
-  %.not73 = icmp eq i8 %43, 0
-  br i1 %.not73, label %49, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %49
 
 44:                                               ; preds = %30
   %45 = getelementptr inbounds i8, ptr %1, i64 240
@@ -98,13 +97,13 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   %51 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 %50, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %6, i64 248
-  store ptr %.06780, ptr %52, align 8
+  store ptr %.06779, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %6, i64 256
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 116
   %55 = load i32, ptr %54, align 4
-  %.not74 = icmp eq i32 %55, 0
-  br i1 %.not74, label %75, label %56
+  %.not73 = icmp eq i32 %55, 0
+  br i1 %.not73, label %75, label %56
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds i8, ptr %1, i64 240
@@ -141,8 +140,8 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 75:                                               ; preds = %73, %56, %49
   %76 = getelementptr inbounds i8, ptr %0, i64 64
   %77 = load ptr, ptr %76, align 8
-  %.not75 = icmp eq ptr %77, null
-  br i1 %.not75, label %81, label %78
+  %.not74 = icmp eq ptr %77, null
+  br i1 %.not74, label %81, label %78
 
 78:                                               ; preds = %75
   %79 = tail call ptr @ExecInitNode(ptr noundef nonnull %77, ptr noundef %1, i32 noundef %2) #5
@@ -153,8 +152,8 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 81:                                               ; preds = %78, %75
   %82 = getelementptr inbounds i8, ptr %0, i64 112
   %83 = load i32, ptr %82, align 8
-  %.not76 = icmp eq i32 %83, 1
-  br i1 %.not76, label %.sink.split, label %84
+  %.not75 = icmp eq i32 %83, 1
+  br i1 %.not75, label %.sink.split, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds i8, ptr %1, i64 240
@@ -163,8 +162,8 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   br i1 %87, label %.sink.split, label %90
 
 .sink.split:                                      ; preds = %81, %84
-  %.sink84 = phi i64 [ 184, %84 ], [ 32, %81 ]
-  %88 = getelementptr inbounds i8, ptr %.06780, i64 %.sink84
+  %.sink83 = phi i64 [ 184, %84 ], [ 32, %81 ]
+  %88 = getelementptr inbounds i8, ptr %.06779, i64 %.sink83
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %6, i32 noundef %2) #5
   br label %90
@@ -519,11 +518,10 @@ define internal ptr @ForeignNext(ptr noundef %0) #0 {
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 176
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not17 = icmp eq i8 %18, 0
-  %19 = icmp eq ptr %15, null
-  %or.cond = select i1 %.not17, i1 true, i1 %19
-  br i1 %or.cond, label %30, label %20
+  %18 = trunc i8 %17 to i1
+  %19 = icmp ne ptr %15, null
+  %or.cond.not = select i1 %18, i1 %19, i1 false
+  br i1 %or.cond.not, label %20, label %30
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds i8, ptr %15, i64 4

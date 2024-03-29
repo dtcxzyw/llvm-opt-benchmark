@@ -104,9 +104,8 @@ define void @_ZN21BufferedReadWriteFileD2Ev(ptr nocapture noundef nonnull readon
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @fclose(ptr noundef %5)
   %7 = load i8, ptr %0, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %12, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 24

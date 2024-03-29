@@ -68,9 +68,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %2, ptr %second3.i.i.i.i.i.i, align 8
   %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %attached.i.i.i.i.i, align 8
-  %4 = and i8 %3, 1
   %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store i8 %4, ptr %attached3.i.i.i.i.i, align 8
+  %frombool.i.i.i.i.i = and i8 %3, 1
+  store i8 %frombool.i.i.i.i.i, ptr %attached3.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
   store ptr %buf_, ptr %cachePtr_.i.i.i.i, align 8
   br label %invoke.cont
@@ -121,9 +121,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %2, ptr %second3.i.i.i.i.i.i, align 8
   %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %attached.i.i.i.i.i, align 8
-  %4 = and i8 %3, 1
   %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store i8 %4, ptr %attached3.i.i.i.i.i, align 8
+  %frombool.i.i.i.i.i = and i8 %3, 1
+  store i8 %frombool.i.i.i.i.i, ptr %attached3.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
   store ptr %buf_, ptr %cachePtr_.i.i.i.i, align 8
   br label %invoke.cont

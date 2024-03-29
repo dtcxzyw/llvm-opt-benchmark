@@ -38,8 +38,7 @@ entry:
   %0 = icmp ugt i8 %c, 32
   %switch.cast = zext nneg i8 %c to i33
   %switch.downshift = lshr i33 4294951423, %switch.cast
-  %1 = and i33 %switch.downshift, 1
-  %switch.masked = icmp ne i33 %1, 0
+  %switch.masked = trunc i33 %switch.downshift to i1
   %lnot = select i1 %0, i1 true, i1 %switch.masked
   ret i1 %lnot
 }

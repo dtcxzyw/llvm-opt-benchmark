@@ -52,36 +52,35 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @InitializeLatchSupport() local_unnamed_addr #0 {
   %1 = alloca %struct.__sigset_t, align 8
   %2 = load i8, ptr @IsUnderPostmaster, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = load i32, ptr @signal_fd, align 4
-  %6 = icmp ne i32 %5, -1
-  %or.cond = select i1 %4, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %9
+  %3 = trunc i8 %2 to i1
+  %4 = load i32, ptr @signal_fd, align 4
+  %5 = icmp ne i32 %4, -1
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %8
 
-7:                                                ; preds = %0
-  %8 = tail call i32 @close(i32 noundef %5) #14
+6:                                                ; preds = %0
+  %7 = tail call i32 @close(i32 noundef %4) #14
   store i32 -1, ptr @signal_fd, align 4
   tail call void @ReleaseExternalFD() #14
-  br label %9
+  br label %8
 
-9:                                                ; preds = %7, %0
-  %10 = tail call i32 @sigaddset(ptr noundef nonnull @UnBlockSig, i32 noundef 23) #14
-  %11 = call i32 @sigemptyset(ptr noundef nonnull %1) #14
-  %12 = call i32 @sigaddset(ptr noundef nonnull %1, i32 noundef 23) #14
-  %13 = call i32 @signalfd(i32 noundef -1, ptr noundef nonnull %1, i32 noundef 526336) #14
-  store i32 %13, ptr @signal_fd, align 4
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %18
+8:                                                ; preds = %6, %0
+  %9 = tail call i32 @sigaddset(ptr noundef nonnull @UnBlockSig, i32 noundef 23) #14
+  %10 = call i32 @sigemptyset(ptr noundef nonnull %1) #14
+  %11 = call i32 @sigaddset(ptr noundef nonnull %1, i32 noundef 23) #14
+  %12 = call i32 @signalfd(i32 noundef -1, ptr noundef nonnull %1, i32 noundef 526336) #14
+  store i32 %12, ptr @signal_fd, align 4
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %14, label %17
 
-15:                                               ; preds = %9
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  call void @llvm.assume(i1 %16)
-  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
+14:                                               ; preds = %8
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  call void @llvm.assume(i1 %15)
+  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 336, ptr noundef nonnull @__func__.InitializeLatchSupport) #14
   unreachable
 
-18:                                               ; preds = %9
+17:                                               ; preds = %8
   call void @ReserveExternalFD() #14
   ret void
 }
@@ -115,9 +114,8 @@ define dso_local void @InitializeLatchWaitSet() local_unnamed_addr #0 {
   %2 = load ptr, ptr @MyLatch, align 8
   %3 = tail call i32 @AddWaitEventToSet(ptr noundef %1, i32 noundef 1, i32 noundef -1, ptr noundef %2, ptr noundef null)
   %4 = load i8, ptr @IsUnderPostmaster, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %20, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr @LatchWaitSet, align 8
@@ -641,8 +639,8 @@ define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 no
 49:                                               ; preds = %.thread
   %50 = tail call ptr @__errno_location() #16
   %51 = load i32, ptr %50, align 4
-  %.not73.i = icmp eq i32 %51, 4
-  br i1 %.not73.i, label %WaitEventSetWaitBlock.exit, label %52
+  %.not72.i = icmp eq i32 %51, 4
+  br i1 %.not72.i, label %WaitEventSetWaitBlock.exit, label %52
 
 52:                                               ; preds = %49
   store volatile i32 0, ptr @waiting, align 4
@@ -665,19 +663,19 @@ define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 no
   %63 = and i1 %21, %62
   br i1 %63, label %.lr.ph.i, label %WaitEventSetWaitBlock.exit
 
-.lr.ph.i:                                         ; preds = %58, %.thread74.i
-  %.083.i = phi ptr [ %146, %.thread74.i ], [ %59, %58 ]
-  %.05482.i = phi ptr [ %.1.i, %.thread74.i ], [ %2, %58 ]
-  %.05581.i = phi i32 [ %.156.i, %.thread74.i ], [ 0, %58 ]
-  %64 = getelementptr inbounds i8, ptr %.083.i, i64 4
+.lr.ph.i:                                         ; preds = %58, %.thread73.i
+  %.082.i = phi ptr [ %146, %.thread73.i ], [ %59, %58 ]
+  %.05481.i = phi ptr [ %.1.i, %.thread73.i ], [ %2, %58 ]
+  %.05580.i = phi i32 [ %.156.i, %.thread73.i ], [ 0, %58 ]
+  %64 = getelementptr inbounds i8, ptr %.082.i, i64 4
   %65 = load ptr, ptr %64, align 1
   %66 = load i32, ptr %65, align 8
-  store i32 %66, ptr %.05482.i, align 8
+  store i32 %66, ptr %.05481.i, align 8
   %67 = getelementptr inbounds i8, ptr %65, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.05482.i, i64 16
+  %69 = getelementptr inbounds i8, ptr %.05481.i, i64 16
   store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.05482.i, i64 4
+  %70 = getelementptr inbounds i8, ptr %.05481.i, i64 4
   store i32 0, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %65, i64 4
   %72 = load i32, ptr %71, align 4
@@ -687,10 +685,10 @@ define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 no
   ]
 
 73:                                               ; preds = %.lr.ph.i
-  %74 = load i32, ptr %.083.i, align 1
+  %74 = load i32, ptr %.082.i, align 1
   %75 = and i32 %74, 25
   %.not.i = icmp eq i32 %75, 0
-  br i1 %.not.i, label %.thread74.i, label %76
+  br i1 %.not.i, label %.thread73.i, label %76
 
 76:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
@@ -742,54 +740,53 @@ define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 no
 drain.exit.i:                                     ; preds = %92, %81
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   %95 = load ptr, ptr %17, align 8
-  %.not71.i = icmp eq ptr %95, null
-  br i1 %.not71.i, label %.thread74.i, label %96
+  %.not70.i = icmp eq ptr %95, null
+  br i1 %.not70.i, label %.thread73.i, label %96
 
 96:                                               ; preds = %drain.exit.i
   %97 = load i32, ptr %95, align 4
-  %.not72.i = icmp eq i32 %97, 0
-  br i1 %.not72.i, label %.thread74.i, label %98
+  %.not71.i = icmp eq i32 %97, 0
+  br i1 %.not71.i, label %.thread73.i, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.05482.i, i64 8
+  %99 = getelementptr inbounds i8, ptr %.05481.i, i64 8
   store i32 -1, ptr %99, align 8
   store i32 1, ptr %70, align 4
-  %100 = getelementptr i8, ptr %.05482.i, i64 24
-  %101 = add i32 %.05581.i, 1
-  br label %.thread74.i
+  %100 = getelementptr i8, ptr %.05481.i, i64 24
+  %101 = add i32 %.05580.i, 1
+  br label %.thread73.i
 
 102:                                              ; preds = %.lr.ph.i
-  %103 = load i32, ptr %.083.i, align 1
+  %103 = load i32, ptr %.082.i, align 1
   %104 = and i32 %103, 25
   %.not61.i = icmp eq i32 %104, 0
-  br i1 %.not61.i, label %.thread74.i, label %105
+  br i1 %.not61.i, label %.thread73.i, label %105
 
 105:                                              ; preds = %102
   %106 = call zeroext i1 @PostmasterIsAliveInternal() #14
-  br i1 %106, label %.thread74.i, label %107
+  br i1 %106, label %.thread73.i, label %107
 
 107:                                              ; preds = %105
   %108 = load i8, ptr %22, align 4
-  %109 = and i8 %108, 1
-  %.not70.i = icmp eq i8 %109, 0
-  br i1 %.not70.i, label %111, label %110
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %111
 
 110:                                              ; preds = %107
   call void @proc_exit(i32 noundef 1) #17
   unreachable
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %.05482.i, i64 8
+  %112 = getelementptr inbounds i8, ptr %.05481.i, i64 8
   store i32 -1, ptr %112, align 8
   store i32 16, ptr %70, align 4
-  %113 = getelementptr i8, ptr %.05482.i, i64 24
-  %114 = add nsw i32 %.05581.i, 1
-  br label %.thread74.i
+  %113 = getelementptr i8, ptr %.05481.i, i64 24
+  %114 = add nsw i32 %.05580.i, 1
+  br label %.thread73.i
 
 115:                                              ; preds = %.lr.ph.i
   %116 = and i32 %72, 134
   %.not62.i = icmp eq i32 %116, 0
-  br i1 %.not62.i, label %.thread74.i, label %117
+  br i1 %.not62.i, label %.thread73.i, label %117
 
 117:                                              ; preds = %115
   %118 = and i32 %72, 2
@@ -797,7 +794,7 @@ drain.exit.i:                                     ; preds = %92, %81
   br i1 %.not63.i, label %123, label %119
 
 119:                                              ; preds = %117
-  %120 = load i32, ptr %.083.i, align 1
+  %120 = load i32, ptr %.082.i, align 1
   %121 = and i32 %120, 25
   %.not64.i = icmp eq i32 %121, 0
   br i1 %.not64.i, label %123, label %122
@@ -815,7 +812,7 @@ drain.exit.i:                                     ; preds = %92, %81
   br i1 %.not65.i, label %132, label %127
 
 127:                                              ; preds = %123
-  %128 = load i32, ptr %.083.i, align 1
+  %128 = load i32, ptr %.082.i, align 1
   %129 = and i32 %128, 28
   %.not66.i = icmp eq i32 %129, 0
   br i1 %.not66.i, label %132, label %130
@@ -823,44 +820,44 @@ drain.exit.i:                                     ; preds = %92, %81
 130:                                              ; preds = %127
   %131 = or disjoint i32 %124, 4
   store i32 %131, ptr %70, align 4
-  %.pre84.i = load i32, ptr %71, align 4
+  %.pre83.i = load i32, ptr %71, align 4
   br label %132
 
 132:                                              ; preds = %130, %127, %123
   %.pr.i = phi i32 [ %131, %130 ], [ %124, %127 ], [ %124, %123 ]
-  %133 = phi i32 [ %.pre84.i, %130 ], [ %125, %127 ], [ %125, %123 ]
+  %133 = phi i32 [ %.pre83.i, %130 ], [ %125, %127 ], [ %125, %123 ]
   %134 = and i32 %133, 128
   %.not67.i = icmp eq i32 %134, 0
   br i1 %.not67.i, label %139, label %135
 
 135:                                              ; preds = %132
-  %136 = load i32, ptr %.083.i, align 1
+  %136 = load i32, ptr %.082.i, align 1
   %137 = and i32 %136, 8216
   %.not68.i = icmp eq i32 %137, 0
-  br i1 %.not68.i, label %139, label %.thread76.i
+  br i1 %.not68.i, label %139, label %.thread75.i
 
-.thread76.i:                                      ; preds = %135
+.thread75.i:                                      ; preds = %135
   %138 = or i32 %.pr.i, 128
   store i32 %138, ptr %70, align 4
   br label %140
 
 139:                                              ; preds = %135, %132
   %.not69.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not69.i, label %.thread74.i, label %140
+  br i1 %.not69.i, label %.thread73.i, label %140
 
-140:                                              ; preds = %139, %.thread76.i
+140:                                              ; preds = %139, %.thread75.i
   %141 = getelementptr inbounds i8, ptr %65, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %.05482.i, i64 8
+  %143 = getelementptr inbounds i8, ptr %.05481.i, i64 8
   store i32 %142, ptr %143, align 8
-  %144 = getelementptr i8, ptr %.05482.i, i64 24
-  %145 = add nsw i32 %.05581.i, 1
-  br label %.thread74.i
+  %144 = getelementptr i8, ptr %.05481.i, i64 24
+  %145 = add nsw i32 %.05580.i, 1
+  br label %.thread73.i
 
-.thread74.i:                                      ; preds = %140, %139, %115, %111, %105, %102, %98, %96, %drain.exit.i, %73
-  %.156.i = phi i32 [ %101, %98 ], [ %.05581.i, %96 ], [ %.05581.i, %drain.exit.i ], [ %.05581.i, %105 ], [ %114, %111 ], [ %145, %140 ], [ %.05581.i, %139 ], [ %.05581.i, %115 ], [ %.05581.i, %102 ], [ %.05581.i, %73 ]
-  %.1.i = phi ptr [ %100, %98 ], [ %.05482.i, %96 ], [ %.05482.i, %drain.exit.i ], [ %.05482.i, %105 ], [ %113, %111 ], [ %144, %140 ], [ %.05482.i, %139 ], [ %.05482.i, %115 ], [ %.05482.i, %102 ], [ %.05482.i, %73 ]
-  %146 = getelementptr i8, ptr %.083.i, i64 12
+.thread73.i:                                      ; preds = %140, %139, %115, %111, %105, %102, %98, %96, %drain.exit.i, %73
+  %.156.i = phi i32 [ %101, %98 ], [ %.05580.i, %96 ], [ %.05580.i, %drain.exit.i ], [ %.05580.i, %105 ], [ %114, %111 ], [ %145, %140 ], [ %.05580.i, %139 ], [ %.05580.i, %115 ], [ %.05580.i, %102 ], [ %.05580.i, %73 ]
+  %.1.i = phi ptr [ %100, %98 ], [ %.05481.i, %96 ], [ %.05481.i, %drain.exit.i ], [ %.05481.i, %105 ], [ %113, %111 ], [ %144, %140 ], [ %.05481.i, %139 ], [ %.05481.i, %115 ], [ %.05481.i, %102 ], [ %.05481.i, %73 ]
+  %146 = getelementptr i8, ptr %.082.i, i64 12
   %147 = load ptr, ptr %19, align 8
   %148 = getelementptr %struct.epoll_event, ptr %147, i64 %60
   %149 = icmp ult ptr %146, %148
@@ -868,8 +865,8 @@ drain.exit.i:                                     ; preds = %92, %81
   %151 = select i1 %149, i1 %150, i1 false
   br i1 %151, label %.lr.ph.i, label %WaitEventSetWaitBlock.exit, !llvm.loop !7
 
-WaitEventSetWaitBlock.exit:                       ; preds = %.thread74.i, %49, %56, %58
-  %.053.i = phi i32 [ 0, %49 ], [ -1, %56 ], [ 0, %58 ], [ %.156.i, %.thread74.i ]
+WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %56, %58
+  %.053.i = phi i32 [ 0, %49 ], [ -1, %56 ], [ 0, %58 ], [ %.156.i, %.thread73.i ]
   %152 = load ptr, ptr %17, align 8
   %.not48 = icmp eq ptr %152, null
   br i1 %.not48, label %155, label %153
@@ -939,9 +936,8 @@ define dso_local i32 @WaitLatchOrSocket(ptr noundef %0, i32 noundef %1, i32 noun
 
 15:                                               ; preds = %13
   %16 = load i8, ptr @IsUnderPostmaster, align 1
-  %17 = and i8 %16, 1
-  %.not24 = icmp eq i8 %17, 0
-  br i1 %.not24, label %30, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %30
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %8, i64 16
@@ -966,14 +962,13 @@ define dso_local i32 @WaitLatchOrSocket(ptr noundef %0, i32 noundef %1, i32 noun
 
 30:                                               ; preds = %18, %15, %13
   %31 = and i32 %1, 32
-  %.not25 = icmp eq i32 %31, 0
-  br i1 %.not25, label %48, label %32
+  %.not24 = icmp eq i32 %31, 0
+  br i1 %.not24, label %48, label %32
 
 32:                                               ; preds = %30
   %33 = load i8, ptr @IsUnderPostmaster, align 1
-  %34 = and i8 %33, 1
-  %.not26 = icmp eq i8 %34, 0
-  br i1 %.not26, label %48, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %48
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %8, i64 36
@@ -1000,8 +995,8 @@ define dso_local i32 @WaitLatchOrSocket(ptr noundef %0, i32 noundef %1, i32 noun
 
 48:                                               ; preds = %35, %32, %30
   %49 = and i32 %1, 134
-  %.not27 = icmp eq i32 %49, 0
-  br i1 %.not27, label %52, label %50
+  %.not25 = icmp eq i32 %49, 0
+  br i1 %.not25, label %52, label %50
 
 50:                                               ; preds = %48
   %51 = tail call i32 @AddWaitEventToSet(ptr noundef %8, i32 noundef %49, i32 noundef %2, ptr noundef null, ptr noundef null)

@@ -27,8 +27,7 @@ do.body:                                          ; preds = %entry
 switch.lookup:                                    ; preds = %entry
   %switch.cast = trunc i32 %type to i6
   %switch.downshift = lshr i6 31, %switch.cast
-  %1 = and i6 %switch.downshift, 1
-  %switch.masked = icmp ne i6 %1, 0
+  %switch.masked = trunc i6 %switch.downshift to i1
   ret i1 %switch.masked
 }
 

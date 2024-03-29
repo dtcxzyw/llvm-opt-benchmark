@@ -241,9 +241,8 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
   %43 = load ptr, ptr %27, align 8
   %44 = call ptr @rbt_insert(ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %45 = load i8, ptr %8, align 1
-  %46 = and i8 %45, 1
-  %.not.i = icmp eq i8 %46, 0
-  br i1 %.not.i, label %ginInsertBAEntry.exit, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %ginInsertBAEntry.exit
 
 47:                                               ; preds = %38
   %48 = icmp eq i8 %42, 0
@@ -257,9 +256,8 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
   %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %53, i64 0, i64 %29
   %55 = getelementptr inbounds i8, ptr %54, i64 86
   %56 = load i8, ptr %55, align 2
-  %57 = and i8 %56, 1
-  %.not.i.i = icmp eq i8 %57, 0
-  br i1 %.not.i.i, label %58, label %getDatumCopy.exit.i
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %getDatumCopy.exit.i, label %58
 
 58:                                               ; preds = %49
   %59 = getelementptr inbounds i8, ptr %54, i64 72
@@ -348,10 +346,9 @@ define dso_local ptr @ginGetBAEntry(ptr noundef %0, ptr nocapture noundef writeo
   store i32 %19, ptr %4, align 4
   %20 = getelementptr inbounds i8, ptr %7, i64 44
   %21 = load i8, ptr %20, align 4
-  %22 = and i8 %21, 1
-  %.not = icmp ne i8 %22, 0
+  %22 = trunc i8 %21 to i1
   %23 = icmp ugt i32 %19, 1
-  %or.cond = select i1 %.not, i1 %23, i1 false
+  %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %26
 
 24:                                               ; preds = %9

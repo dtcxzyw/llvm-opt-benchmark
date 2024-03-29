@@ -30,21 +30,24 @@ define noundef i32 @pmix_prm_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = load i8, ptr getelementptr inbounds (%struct.pmix_prm_globals_t, ptr @pmix_prm_base, i64 0, i32 1), align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %49
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %46, label %5
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (%struct.pmix_prm_globals_t, ptr @pmix_prm_base, i64 0, i32 1), align 1
-  %.01931 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2632 = icmp eq ptr %.01931, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not2632, label %._crit_edge.thread, label %.lr.ph
+  %.01929 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not30 = icmp eq ptr %.01929, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not30, label %.critedge, label %.lr.ph.outer
 
-.lr.ph:                                           ; preds = %5, %35
-  %.01935 = phi ptr [ %.019, %35 ], [ %.01931, %5 ]
-  %.034 = phi i8 [ %.1, %35 ], [ 0, %5 ]
-  %.01633 = phi i32 [ %.117, %35 ], [ -1, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01935, i64 144
+.lr.ph.outer:                                     ; preds = %5, %.thread
+  %.01933.ph = phi ptr [ %.01936, %.thread ], [ %.01929, %5 ]
+  %.032.ph = phi i1 [ true, %.thread ], [ false, %5 ]
+  %.01631.ph = phi i32 [ %.lcssa, %.thread ], [ -1, %5 ]
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.outer, %34
+  %.01933 = phi ptr [ %.019, %34 ], [ %.01933.ph, %.lr.ph.outer ]
+  %6 = getelementptr inbounds i8, ptr %.01933, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %8, 64
@@ -70,73 +73,76 @@ define noundef i32 @pmix_prm_base_select() local_unnamed_addr #0 {
   %21 = load ptr, ptr %1, align 8
   %22 = icmp eq ptr %21, null
   %or.cond3 = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond3, label %35, label %23
+  br i1 %or.cond3, label %34, label %23
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
-  %.not28 = icmp eq ptr %25, null
-  br i1 %.not28, label %28, label %26
+  %.not26 = icmp eq ptr %25, null
+  br i1 %.not26, label %30, label %26
 
 26:                                               ; preds = %23
   %27 = call i32 %25() #3
-  %.not29 = icmp eq i32 %27, 0
-  br i1 %.not29, label %28, label %35
+  %.not27 = icmp eq i32 %27, 0
+  %28 = load i32, ptr %2, align 4
+  %29 = icmp slt i32 %.01631.ph, %28
+  %or.cond45 = select i1 %.not27, i1 %29, i1 false
+  br i1 %or.cond45, label %31, label %34
 
-28:                                               ; preds = %26, %23
-  %29 = load i32, ptr %2, align 4
-  %30 = icmp slt i32 %.01633, %29
-  br i1 %30, label %31, label %35
+30:                                               ; preds = %23
+  %.old = load i32, ptr %2, align 4
+  %.old44 = icmp slt i32 %.01631.ph, %.old
+  br i1 %.old44, label %31, label %34
 
-31:                                               ; preds = %28
+31:                                               ; preds = %26, %30
+  %.lcssa = phi i32 [ %.old, %30 ], [ %28, %26 ]
   %32 = load ptr, ptr getelementptr inbounds (%struct.pmix_prm_module_t, ptr @pmix_prm, i64 0, i32 2), align 8
-  %.not30 = icmp eq ptr %32, null
-  br i1 %.not30, label %34, label %33
+  %.not28 = icmp eq ptr %32, null
+  br i1 %.not28, label %.thread, label %33
 
 33:                                               ; preds = %31
   call void %32() #3
-  br label %34
+  br label %.thread
 
-34:                                               ; preds = %33, %31
+34:                                               ; preds = %30, %26, %16
+  %35 = getelementptr inbounds i8, ptr %.01933, i64 120
+  %.019 = load ptr, ptr %35, align 8
+  %.not = icmp eq ptr %.019, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+
+.thread:                                          ; preds = %31, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @pmix_prm, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false)
-  br label %35
+  %36 = getelementptr inbounds i8, ptr %.01933, i64 120
+  %.01936 = load ptr, ptr %36, align 8
+  %.not37 = icmp eq ptr %.01936, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not37, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !4
 
-35:                                               ; preds = %28, %34, %26, %16
-  %.117 = phi i32 [ %.01633, %16 ], [ %.01633, %26 ], [ %29, %34 ], [ %.01633, %28 ]
-  %.1 = phi i8 [ %.034, %16 ], [ %.034, %26 ], [ 1, %34 ], [ %.034, %28 ]
-  %36 = getelementptr inbounds i8, ptr %.01935, i64 120
-  %.019 = load ptr, ptr %36, align 8
-  %.not26 = icmp eq ptr %.019, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+._crit_edge:                                      ; preds = %34
+  br i1 %.032.ph, label %._crit_edge.thread, label %.critedge
 
-._crit_edge:                                      ; preds = %35
-  %37 = and i8 %.1, 1
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %._crit_edge.thread, label %40
+.critedge:                                        ; preds = %5, %._crit_edge
+  %37 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull @.str.3) #3
+  br label %46
 
-._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %39 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull @.str.3) #3
-  br label %49
+._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
+  %38 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 11), align 4
+  %or.cond5 = icmp ult i32 %38, 64
+  br i1 %or.cond5, label %39, label %46
 
-40:                                               ; preds = %._crit_edge
-  %41 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_prm_base_framework, i64 0, i32 11), align 4
-  %or.cond5 = icmp ult i32 %41, 64
-  br i1 %or.cond5, label %42, label %49
+39:                                               ; preds = %._crit_edge.thread
+  %40 = zext nneg i32 %38 to i64
+  %41 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %40, i32 2
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp sgt i32 %42, 4
+  br i1 %43, label %44, label %46
 
-42:                                               ; preds = %40
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %43, i32 2
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp sgt i32 %45, 4
-  br i1 %46, label %47, label %49
+44:                                               ; preds = %39
+  %45 = load ptr, ptr @pmix_prm, align 8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %38, ptr noundef nonnull @.str.4, ptr noundef %45) #3
+  br label %46
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr @pmix_prm, align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %41, ptr noundef nonnull @.str.4, ptr noundef %48) #3
-  br label %49
-
-49:                                               ; preds = %40, %42, %47, %0, %._crit_edge.thread
-  %.018 = phi i32 [ -2, %._crit_edge.thread ], [ 0, %0 ], [ 0, %47 ], [ 0, %42 ], [ 0, %40 ]
+46:                                               ; preds = %._crit_edge.thread, %39, %44, %0, %.critedge
+  %.018 = phi i32 [ -2, %.critedge ], [ 0, %0 ], [ 0, %44 ], [ 0, %39 ], [ 0, %._crit_edge.thread ]
   ret i32 %.018
 }
 

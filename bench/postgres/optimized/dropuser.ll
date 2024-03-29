@@ -72,7 +72,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.042 = phi ptr [ null, %2 ], [ %.042.be, %.backedge ]
   %.040 = phi ptr [ null, %2 ], [ %.040.be, %.backedge ]
   %.038 = phi i32 [ 0, %2 ], [ %.038.be, %.backedge ]
-  %.036 = phi i8 [ 0, %2 ], [ %.036.be, %.backedge ]
+  %.036 = phi i1 [ false, %2 ], [ %.036.be, %.backedge ]
   %.034 = phi i8 [ 0, %2 ], [ %.034.be, %.backedge ]
   %.032 = phi ptr [ null, %2 ], [ %.032.be, %.backedge ]
   %11 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #5
@@ -92,7 +92,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.042.be = phi ptr [ %.042, %24 ], [ %.042, %23 ], [ %.042, %20 ], [ %19, %17 ], [ %.042, %16 ], [ %.042, %13 ], [ %.042, %12 ], [ %.042, %10 ]
   %.040.be = phi ptr [ %.040, %24 ], [ %.040, %23 ], [ %22, %20 ], [ %.040, %17 ], [ %.040, %16 ], [ %.040, %13 ], [ %.040, %12 ], [ %.040, %10 ]
   %.038.be = phi i32 [ 2, %24 ], [ 1, %23 ], [ %.038, %20 ], [ %.038, %17 ], [ %.038, %16 ], [ %.038, %13 ], [ %.038, %12 ], [ %.038, %10 ]
-  %.036.be = phi i8 [ %.036, %24 ], [ %.036, %23 ], [ %.036, %20 ], [ %.036, %17 ], [ %.036, %16 ], [ %.036, %13 ], [ 1, %12 ], [ %.036, %10 ]
+  %.036.be = phi i1 [ %.036, %24 ], [ %.036, %23 ], [ %.036, %20 ], [ %.036, %17 ], [ %.036, %16 ], [ %.036, %13 ], [ true, %12 ], [ %.036, %10 ]
   %.034.be = phi i8 [ %.034, %24 ], [ %.034, %23 ], [ %.034, %20 ], [ %.034, %17 ], [ 1, %16 ], [ %.034, %13 ], [ %.034, %12 ], [ %.034, %10 ]
   %.032.be = phi ptr [ %.032, %24 ], [ %.032, %23 ], [ %.032, %20 ], [ %.032, %17 ], [ %.032, %16 ], [ %15, %13 ], [ %.032, %12 ], [ %.032, %10 ]
   br label %10, !llvm.loop !5
@@ -152,29 +152,29 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %36 = getelementptr ptr, ptr %1, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %41
+  br i1 %38, label %.thread, label %42
 
 .thread:                                          ; preds = %26, %34
-  %.not45 = icmp eq i8 %.034, 0
-  br i1 %.not45, label %40, label %.thread62
+  %39 = trunc i8 %.034 to i1
+  br i1 %39, label %.thread60, label %41
 
-.thread62:                                        ; preds = %.thread
-  %39 = call ptr @simple_prompt(ptr noundef nonnull @.str.13, i1 noundef zeroext true) #5
+.thread60:                                        ; preds = %.thread
+  %40 = call ptr @simple_prompt(ptr noundef nonnull @.str.13, i1 noundef zeroext true) #5
   br label %43
 
-40:                                               ; preds = %.thread
+41:                                               ; preds = %.thread
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14) #5
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %8) #5
   call void @exit(i32 noundef 1) #6
   unreachable
 
-41:                                               ; preds = %34
-  %42 = icmp eq i8 %.034, 0
-  br i1 %42, label %47, label %43
+42:                                               ; preds = %34
+  %.pre = trunc i8 %.034 to i1
+  br i1 %.pre, label %43, label %47
 
-43:                                               ; preds = %.thread62, %41
-  %.165 = phi ptr [ %39, %.thread62 ], [ %37, %41 ]
-  %44 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.15, ptr noundef %.165) #5
+43:                                               ; preds = %.thread60, %42
+  %.163 = phi ptr [ %40, %.thread60 ], [ %37, %42 ]
+  %44 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.15, ptr noundef %.163) #5
   %45 = call zeroext i1 @yesno_prompt(ptr noundef nonnull @.str.16) #5
   br i1 %45, label %47, label %46
 
@@ -182,8 +182,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @exit(i32 noundef 0) #6
   unreachable
 
-47:                                               ; preds = %43, %41
-  %.166 = phi ptr [ %.165, %43 ], [ %37, %41 ]
+47:                                               ; preds = %43, %42
+  %.164 = phi ptr [ %.163, %43 ], [ %37, %42 ]
   store ptr null, ptr %4, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.032, ptr %48, align 8
@@ -195,38 +195,37 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i32 %.038, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %52, align 8
-  %53 = icmp ne i8 %.036, 0
-  %54 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %53) #5
+  %53 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.036) #5
   call void @initPQExpBuffer(ptr noundef nonnull %5) #5
-  %55 = load i32, ptr @main.if_exists, align 4
-  %.not47 = icmp eq i32 %55, 0
-  %56 = select i1 %.not47, ptr @.str.19, ptr @.str.18
-  %57 = call ptr @fmtId(ptr noundef %.166) #5
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.17, ptr noundef nonnull %56, ptr noundef %57) #5
-  br i1 %53, label %58, label %61
+  %54 = load i32, ptr @main.if_exists, align 4
+  %.not45 = icmp eq i32 %54, 0
+  %55 = select i1 %.not45, ptr @.str.19, ptr @.str.18
+  %56 = call ptr @fmtId(ptr noundef %.164) #5
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.17, ptr noundef nonnull %55, ptr noundef %56) #5
+  br i1 %.036, label %57, label %60
 
-58:                                               ; preds = %47
-  %59 = load ptr, ptr %5, align 8
-  %60 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %59) #5
-  br label %61
+57:                                               ; preds = %47
+  %58 = load ptr, ptr %5, align 8
+  %59 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %58) #5
+  br label %60
 
-61:                                               ; preds = %58, %47
-  %62 = load ptr, ptr %5, align 8
-  %63 = call ptr @PQexec(ptr noundef %54, ptr noundef %62) #5
-  %64 = call i32 @PQresultStatus(ptr noundef %63) #5
-  %.not48 = icmp eq i32 %64, 1
-  br i1 %.not48, label %67, label %65
+60:                                               ; preds = %57, %47
+  %61 = load ptr, ptr %5, align 8
+  %62 = call ptr @PQexec(ptr noundef %53, ptr noundef %61) #5
+  %63 = call i32 @PQresultStatus(ptr noundef %62) #5
+  %.not46 = icmp eq i32 %63, 1
+  br i1 %.not46, label %66, label %64
 
-65:                                               ; preds = %61
-  %66 = call ptr @PQerrorMessage(ptr noundef %54) #5
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef %.166, ptr noundef %66) #5
-  call void @PQfinish(ptr noundef %54) #5
+64:                                               ; preds = %60
+  %65 = call ptr @PQerrorMessage(ptr noundef %53) #5
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef %.164, ptr noundef %65) #5
+  call void @PQfinish(ptr noundef %53) #5
   call void @exit(i32 noundef 1) #6
   unreachable
 
-67:                                               ; preds = %61
-  call void @PQclear(ptr noundef %63) #5
-  call void @PQfinish(ptr noundef %54) #5
+66:                                               ; preds = %60
+  call void @PQclear(ptr noundef %62) #5
+  call void @PQfinish(ptr noundef %53) #5
   call void @exit(i32 noundef 0) #6
   unreachable
 }

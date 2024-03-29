@@ -43,9 +43,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %sign = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i8, ptr %sign, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -53,16 +52,15 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
-  %5 = load ptr, ptr %m_false.i, align 8
-  %cmp.i6 = icmp eq ptr %5, %1
+  %4 = load ptr, ptr %m_false.i, align 8
+  %cmp.i6 = icmp eq ptr %4, %1
   br i1 %cmp.i6, label %land.lhs.true9, label %if.end17
 
 land.lhs.true9:                                   ; preds = %if.end
   %sign10 = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load i8, ptr %sign10, align 8
-  %7 = and i8 %6, 1
-  %tobool11.not = icmp eq i8 %7, 0
-  br i1 %tobool11.not, label %if.then12, label %if.end17
+  %5 = load i8, ptr %sign10, align 8
+  %tobool11 = trunc i8 %5 to i1
+  br i1 %tobool11, label %if.end17, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
@@ -71,16 +69,15 @@ if.then12:                                        ; preds = %land.lhs.true9
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true9, %if.end
-  %8 = load ptr, ptr %this, align 8
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %8, i32 noundef 2)
+  %6 = load ptr, ptr %this, align 8
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %6, i32 noundef 2)
   %sign21 = getelementptr inbounds i8, ptr %this, i64 32
-  %9 = load i8, ptr %sign21, align 8
-  %10 = and i8 %9, 1
-  %tobool22.not = icmp eq i8 %10, 0
-  %.str.3..str.4 = select i1 %tobool22.not, ptr @.str.4, ptr @.str.3
+  %7 = load i8, ptr %sign21, align 8
+  %tobool22 = trunc i8 %7 to i1
+  %.str.3..str.4 = select i1 %tobool22, ptr @.str.3, ptr @.str.4
   %call23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.3..str.4)
-  %11 = load ptr, ptr %rhs, align 8
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call23, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %11, i32 noundef 2)
+  %8 = load ptr, ptr %rhs, align 8
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call23, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %8, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %if.end17, %if.then12, %if.then

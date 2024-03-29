@@ -156,21 +156,20 @@ entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_deleteStream = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_deleteStream, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %_is = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load ptr, ptr %_is, align 8
-  %isnull = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_is, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(256) %2) #11
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %1) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry
@@ -579,21 +578,20 @@ entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_deleteStream = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_deleteStream, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %_os = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load ptr, ptr %_os, align 8
-  %isnull = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_os, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(248) %2) #11
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(248) %1) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry

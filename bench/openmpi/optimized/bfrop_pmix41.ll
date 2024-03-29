@@ -4823,81 +4823,80 @@ define internal noundef i32 @pmix41_bfrops_base_pack_general_int(ptr nocapture r
 
 switch.hole_check:                                ; preds = %15
   %switch.shifted = lshr i16 3829, %switch.tableidx
-  %19 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %19, 0
-  br i1 %switch.lobit.not, label %17, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %20 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 0, i64 %20
+  %19 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 4), align 8
-  %22 = call i32 %21(i16 noundef zeroext %4, ptr noundef nonnull %6) #12
-  switch i32 %22, label %23 [
-    i32 0, label %25
+  %20 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 4), align 8
+  %21 = call i32 %20(i16 noundef zeroext %4, ptr noundef nonnull %6) #12
+  switch i32 %21, label %22 [
+    i32 0, label %24
     i32 -2, label %.loopexit
   ]
 
-23:                                               ; preds = %switch.lookup
-  %24 = call ptr @PMIx_Error_string(i32 noundef %22) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %24, ptr noundef nonnull @.str.69, i32 noundef 431) #12
+22:                                               ; preds = %switch.lookup
+  %23 = call ptr @PMIx_Error_string(i32 noundef %21) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %23, ptr noundef nonnull @.str.69, i32 noundef 431) #12
   br label %.loopexit
 
-25:                                               ; preds = %switch.lookup
-  %26 = sext i32 %3 to i64
-  %27 = load i64, ptr %6, align 8
-  %28 = mul i64 %27, %26
-  %29 = call ptr @pmix_bfrop_buffer_extend(ptr noundef %1, i64 noundef %28) #12
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %34, label %.preheader
+24:                                               ; preds = %switch.lookup
+  %25 = sext i32 %3 to i64
+  %26 = load i64, ptr %6, align 8
+  %27 = mul i64 %26, %25
+  %28 = call ptr @pmix_bfrop_buffer_extend(ptr noundef %1, i64 noundef %27) #12
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %33, label %.preheader
 
-.preheader:                                       ; preds = %25
-  %31 = icmp sgt i32 %3, 0
-  br i1 %31, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %24
+  %30 = icmp sgt i32 %3, 0
+  br i1 %30, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %1, i64 136
-  %33 = getelementptr inbounds i8, ptr %1, i64 160
+  %31 = getelementptr inbounds i8, ptr %1, i64 136
+  %32 = getelementptr inbounds i8, ptr %1, i64 160
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %36
+  br label %35
 
-34:                                               ; preds = %25
-  %35 = call ptr @PMIx_Error_string(i32 noundef -29) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %35, ptr noundef nonnull @.str.69, i32 noundef 438) #12
+33:                                               ; preds = %24
+  %34 = call ptr @PMIx_Error_string(i32 noundef -29) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %34, ptr noundef nonnull @.str.69, i32 noundef 438) #12
   br label %.loopexit
 
-36:                                               ; preds = %.lr.ph, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %.03249 = phi ptr [ %29, %.lr.ph ], [ %45, %43 ]
-  %37 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 5), align 8
-  %38 = mul nuw nsw i64 %switch.load, %indvars.iv
-  %39 = getelementptr inbounds i8, ptr %2, i64 %38
-  %40 = call i32 %37(i16 noundef zeroext %4, ptr noundef %39, ptr noundef %.03249, ptr noundef nonnull %7) #12
-  switch i32 %40, label %41 [
-    i32 0, label %43
+35:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %.03249 = phi ptr [ %28, %.lr.ph ], [ %44, %42 ]
+  %36 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 5), align 8
+  %37 = mul nuw nsw i64 %switch.load, %indvars.iv
+  %38 = getelementptr inbounds i8, ptr %2, i64 %37
+  %39 = call i32 %36(i16 noundef zeroext %4, ptr noundef %38, ptr noundef %.03249, ptr noundef nonnull %7) #12
+  switch i32 %39, label %40 [
+    i32 0, label %42
     i32 -2, label %.loopexit
   ]
 
-41:                                               ; preds = %36
-  %42 = call ptr @PMIx_Error_string(i32 noundef %40) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %42, ptr noundef nonnull @.str.69, i32 noundef 445) #12
+40:                                               ; preds = %35
+  %41 = call ptr @PMIx_Error_string(i32 noundef %39) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %41, ptr noundef nonnull @.str.69, i32 noundef 445) #12
   br label %.loopexit
 
-43:                                               ; preds = %36
-  %44 = load i64, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %.03249, i64 %44
-  %46 = load ptr, ptr %32, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 %44
-  store ptr %47, ptr %32, align 8
-  %48 = load i64, ptr %33, align 8
-  %49 = add i64 %48, %44
-  store i64 %49, ptr %33, align 8
+42:                                               ; preds = %35
+  %43 = load i64, ptr %7, align 8
+  %44 = getelementptr inbounds i8, ptr %.03249, i64 %43
+  %45 = load ptr, ptr %31, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 %43
+  store ptr %46, ptr %31, align 8
+  %47 = load i64, ptr %32, align 8
+  %48 = add i64 %47, %43
+  store i64 %48, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !22
 
-.loopexit:                                        ; preds = %36, %43, %.preheader, %41, %23, %switch.lookup, %34, %17
-  %.035 = phi i32 [ -27, %17 ], [ -29, %34 ], [ %22, %switch.lookup ], [ %22, %23 ], [ %40, %41 ], [ 0, %.preheader ], [ %40, %43 ], [ %40, %36 ]
+.loopexit:                                        ; preds = %35, %42, %.preheader, %40, %22, %switch.lookup, %33, %17
+  %.035 = phi i32 [ -27, %17 ], [ -29, %33 ], [ %21, %switch.lookup ], [ %21, %22 ], [ %39, %40 ], [ 0, %.preheader ], [ %39, %42 ], [ %39, %35 ]
   ret i32 %.035
 }
 
@@ -4941,88 +4940,87 @@ define internal noundef i32 @pmix41_bfrops_base_unpack_general_int(ptr nocapture
 
 switch.hole_check:                                ; preds = %22
   %switch.shifted = lshr i16 3829, %switch.tableidx
-  %26 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %26, 0
-  br i1 %switch.lobit.not, label %24, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %27 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 0, i64 %27
+  %26 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 4), align 8
-  %29 = call i32 %28(i16 noundef zeroext %4, ptr noundef nonnull %7) #12
-  switch i32 %29, label %32 [
+  %27 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 4), align 8
+  %28 = call i32 %27(i16 noundef zeroext %4, ptr noundef nonnull %7) #12
+  switch i32 %28, label %31 [
     i32 0, label %.preheader
     i32 -2, label %.loopexit
   ]
 
 .preheader:                                       ; preds = %switch.lookup
-  %30 = load i32, ptr %3, align 4
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.preheader, label %.loopexit
+  %29 = load i32, ptr %3, align 4
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre = load ptr, ptr %19, align 8
   br label %.lr.ph
 
-32:                                               ; preds = %switch.lookup
-  %33 = call ptr @PMIx_Error_string(i32 noundef %29) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %33, ptr noundef nonnull @.str.69, i32 noundef 533) #12
+31:                                               ; preds = %switch.lookup
+  %32 = call ptr @PMIx_Error_string(i32 noundef %28) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %32, ptr noundef nonnull @.str.69, i32 noundef 533) #12
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %34 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %57, %55 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %35 = load ptr, ptr %17, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %34 to i64
-  %38 = sub i64 %36, %37
-  %39 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 6), align 8
-  %40 = mul nuw nsw i64 %switch.load, %indvars.iv
-  %41 = getelementptr inbounds i8, ptr %2, i64 %40
-  %42 = call i32 %39(i16 noundef zeroext %4, ptr noundef %34, i64 noundef %38, ptr noundef %41, ptr noundef nonnull %6) #12
-  switch i32 %42, label %43 [
-    i32 0, label %45
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %54
+  %33 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %56, %54 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
+  %34 = load ptr, ptr %17, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = ptrtoint ptr %33 to i64
+  %37 = sub i64 %35, %36
+  %38 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 6), align 8
+  %39 = mul nuw nsw i64 %switch.load, %indvars.iv
+  %40 = getelementptr inbounds i8, ptr %2, i64 %39
+  %41 = call i32 %38(i16 noundef zeroext %4, ptr noundef %33, i64 noundef %37, ptr noundef %40, ptr noundef nonnull %6) #12
+  switch i32 %41, label %42 [
+    i32 0, label %44
     i32 -2, label %.loopexit
   ]
 
-43:                                               ; preds = %.lr.ph
-  %44 = call ptr @PMIx_Error_string(i32 noundef %42) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %44, ptr noundef nonnull @.str.69, i32 noundef 543) #12
+42:                                               ; preds = %.lr.ph
+  %43 = call ptr @PMIx_Error_string(i32 noundef %41) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %43, ptr noundef nonnull @.str.69, i32 noundef 543) #12
   br label %.loopexit
 
-45:                                               ; preds = %.lr.ph
-  %46 = load i64, ptr %6, align 8
-  %47 = load i64, ptr %7, align 8
-  %48 = icmp ugt i64 %46, %47
-  br i1 %48, label %49, label %51
+44:                                               ; preds = %.lr.ph
+  %45 = load i64, ptr %6, align 8
+  %46 = load i64, ptr %7, align 8
+  %47 = icmp ugt i64 %45, %46
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %45
-  %50 = call ptr @PMIx_Error_string(i32 noundef -20) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %50, ptr noundef nonnull @.str.69, i32 noundef 549) #12
+48:                                               ; preds = %44
+  %49 = call ptr @PMIx_Error_string(i32 noundef -20) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %49, ptr noundef nonnull @.str.69, i32 noundef 549) #12
   br label %.loopexit
 
-51:                                               ; preds = %45
-  %52 = icmp ugt i64 %46, %38
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %44
+  %51 = icmp ugt i64 %45, %37
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %51
-  %54 = call ptr @PMIx_Error_string(i32 noundef -63) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %54, ptr noundef nonnull @.str.69, i32 noundef 554) #12
+52:                                               ; preds = %50
+  %53 = call ptr @PMIx_Error_string(i32 noundef -63) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %53, ptr noundef nonnull @.str.69, i32 noundef 554) #12
   br label %.loopexit
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %19, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %46
-  store ptr %57, ptr %19, align 8
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %19, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 %45
+  store ptr %56, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = load i32, ptr %3, align 4
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  %57 = load i32, ptr %3, align 4
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next, %58
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph, %55, %.preheader, %43, %32, %switch.lookup, %16, %53, %49, %24
-  %.037 = phi i32 [ -27, %24 ], [ -20, %49 ], [ -63, %53 ], [ -50, %16 ], [ %29, %switch.lookup ], [ %29, %32 ], [ %42, %43 ], [ 0, %.preheader ], [ %42, %55 ], [ %42, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %54, %.preheader, %42, %31, %switch.lookup, %16, %52, %48, %24
+  %.037 = phi i32 [ -27, %24 ], [ -20, %48 ], [ -63, %52 ], [ -50, %16 ], [ %28, %switch.lookup ], [ %28, %31 ], [ %41, %42 ], [ 0, %.preheader ], [ %41, %54 ], [ %41, %.lr.ph ]
   ret i32 %.037
 }
 

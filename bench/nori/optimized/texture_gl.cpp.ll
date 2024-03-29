@@ -235,33 +235,33 @@ define internal fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11P
   %11 = load i8, ptr %1, align 1
   %switch.tableidx = add i8 %11, -1
   %12 = icmp ult i8 %switch.tableidx, 10
-  br i1 %12, label %switch.hole_check, label %38
+  br i1 %12, label %switch.hole_check, label %34
 
 13:                                               ; preds = %8
   store i32 33319, ptr %2, align 4
   %14 = load i8, ptr %1, align 1
   %switch.tableidx72 = add i8 %14, -1
   %15 = icmp ult i8 %switch.tableidx72, 10
-  br i1 %15, label %switch.hole_check73, label %38
+  br i1 %15, label %switch.hole_check73, label %34
 
 16:                                               ; preds = %8
   store i32 6407, ptr %2, align 4
   %17 = load i8, ptr %1, align 1
   %switch.tableidx81 = add i8 %17, -1
   %18 = icmp ult i8 %switch.tableidx81, 10
-  br i1 %18, label %switch.hole_check82, label %38
+  br i1 %18, label %switch.hole_check82, label %34
 
 19:                                               ; preds = %8
   store i32 6408, ptr %2, align 4
   %20 = load i8, ptr %1, align 1
   %switch.tableidx90 = add i8 %20, -1
   %21 = icmp ult i8 %switch.tableidx90, 10
-  br i1 %21, label %switch.hole_check91, label %38
+  br i1 %21, label %switch.hole_check91, label %34
 
 22:                                               ; preds = %8
   store i32 6402, ptr %2, align 4
   %23 = load i8, ptr %1, align 1
-  switch i8 %23, label %38 [
+  switch i8 %23, label %34 [
     i8 1, label %24
     i8 2, label %24
     i8 3, label %24
@@ -283,7 +283,7 @@ define internal fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11P
 26:                                               ; preds = %8
   store i32 34041, ptr %2, align 4
   %27 = load i8, ptr %1, align 1
-  switch i8 %27, label %38 [
+  switch i8 %27, label %34 [
     i8 1, label %28
     i8 2, label %28
     i8 3, label %28
@@ -305,52 +305,48 @@ define internal fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11P
 switch.hole_check:                                ; preds = %10
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 783, %switch.maskindex
-  %30 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %30, 0
-  br i1 %switch.lobit.not, label %38, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %34
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %31 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_, i64 0, i64 %31
+  %30 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %thread-pre-split.sink.split
 
 switch.hole_check73:                              ; preds = %13
   %switch.maskindex75 = zext nneg i8 %switch.tableidx72 to i16
   %switch.shifted76 = lshr i16 783, %switch.maskindex75
-  %32 = and i16 %switch.shifted76, 1
-  %switch.lobit77.not = icmp eq i16 %32, 0
-  br i1 %switch.lobit77.not, label %38, label %switch.lookup74
+  %switch.lobit77 = trunc i16 %switch.shifted76 to i1
+  br i1 %switch.lobit77, label %switch.lookup74, label %34
 
 switch.lookup74:                                  ; preds = %switch.hole_check73
-  %33 = zext nneg i8 %switch.tableidx72 to i64
-  %switch.gep78 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.2, i64 0, i64 %33
+  %31 = zext nneg i8 %switch.tableidx72 to i64
+  %switch.gep78 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.2, i64 0, i64 %31
   %switch.load79 = load i32, ptr %switch.gep78, align 4
   br label %thread-pre-split.sink.split
 
 switch.hole_check82:                              ; preds = %16
   %switch.maskindex84 = zext nneg i8 %switch.tableidx81 to i16
   %switch.shifted85 = lshr i16 783, %switch.maskindex84
-  %34 = and i16 %switch.shifted85, 1
-  %switch.lobit86.not = icmp eq i16 %34, 0
-  br i1 %switch.lobit86.not, label %38, label %switch.lookup83
+  %switch.lobit86 = trunc i16 %switch.shifted85 to i1
+  br i1 %switch.lobit86, label %switch.lookup83, label %34
 
 switch.lookup83:                                  ; preds = %switch.hole_check82
-  %35 = zext nneg i8 %switch.tableidx81 to i64
-  %switch.gep87 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.3, i64 0, i64 %35
+  %32 = zext nneg i8 %switch.tableidx81 to i64
+  %switch.gep87 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.3, i64 0, i64 %32
   %switch.load88 = load i32, ptr %switch.gep87, align 4
   br label %thread-pre-split.sink.split
 
 switch.hole_check91:                              ; preds = %19
   %switch.maskindex93 = zext nneg i8 %switch.tableidx90 to i16
   %switch.shifted94 = lshr i16 783, %switch.maskindex93
-  %36 = and i16 %switch.shifted94, 1
-  %switch.lobit95.not = icmp eq i16 %36, 0
-  br i1 %switch.lobit95.not, label %38, label %switch.lookup92
+  %switch.lobit95 = trunc i16 %switch.shifted94 to i1
+  br i1 %switch.lobit95, label %switch.lookup92, label %34
 
 switch.lookup92:                                  ; preds = %switch.hole_check91
-  %37 = zext nneg i8 %switch.tableidx90 to i64
-  %switch.gep96 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.4, i64 0, i64 %37
+  %33 = zext nneg i8 %switch.tableidx90 to i64
+  %switch.gep96 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.4, i64 0, i64 %33
   %switch.load97 = load i32, ptr %switch.gep96, align 4
   br label %thread-pre-split.sink.split
 
@@ -361,91 +357,90 @@ thread-pre-split.sink.split:                      ; preds = %switch.lookup92, %s
 
 thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %8
   %.pr = load i8, ptr %1, align 1
-  br label %38
+  br label %34
 
-38:                                               ; preds = %switch.hole_check91, %19, %switch.hole_check82, %16, %switch.hole_check73, %13, %switch.hole_check, %10, %thread-pre-split, %26, %22
-  %39 = phi i8 [ %.pr, %thread-pre-split ], [ %27, %26 ], [ %23, %22 ], [ %20, %19 ], [ %17, %16 ], [ %14, %13 ], [ %11, %10 ], [ %11, %switch.hole_check ], [ %14, %switch.hole_check73 ], [ %17, %switch.hole_check82 ], [ %20, %switch.hole_check91 ]
-  %switch.tableidx99 = add i8 %39, -1
-  %40 = icmp ult i8 %switch.tableidx99, 10
-  br i1 %40, label %switch.hole_check100, label %41
+34:                                               ; preds = %switch.hole_check91, %19, %switch.hole_check82, %16, %switch.hole_check73, %13, %switch.hole_check, %10, %thread-pre-split, %26, %22
+  %35 = phi i8 [ %.pr, %thread-pre-split ], [ %27, %26 ], [ %23, %22 ], [ %20, %19 ], [ %17, %16 ], [ %14, %13 ], [ %11, %10 ], [ %11, %switch.hole_check ], [ %14, %switch.hole_check73 ], [ %17, %switch.hole_check82 ], [ %20, %switch.hole_check91 ]
+  %switch.tableidx99 = add i8 %35, -1
+  %36 = icmp ult i8 %switch.tableidx99, 10
+  br i1 %36, label %switch.hole_check100, label %37
 
-41:                                               ; preds = %switch.hole_check100, %38
+37:                                               ; preds = %switch.hole_check100, %34
   %.pr67 = load i32, ptr %3, align 4
-  %42 = icmp eq i32 %.pr67, 0
-  br i1 %42, label %43, label %.thread
+  %38 = icmp eq i32 %.pr67, 0
+  br i1 %38, label %39, label %.thread
 
-43:                                               ; preds = %41
-  %44 = tail call ptr @__cxa_allocate_exception(i64 16) #8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull @.str.9)
-          to label %45 unwind label %46
+39:                                               ; preds = %37
+  %40 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull @.str.9)
+          to label %41 unwind label %42
 
-45:                                               ; preds = %43
-  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+41:                                               ; preds = %39
+  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
   unreachable
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %61
 
-switch.hole_check100:                             ; preds = %38
+switch.hole_check100:                             ; preds = %34
   %switch.maskindex102 = zext nneg i8 %switch.tableidx99 to i16
   %switch.shifted103 = lshr i16 783, %switch.maskindex102
-  %48 = and i16 %switch.shifted103, 1
-  %switch.lobit104.not = icmp eq i16 %48, 0
-  br i1 %switch.lobit104.not, label %41, label %switch.lookup101
+  %switch.lobit104 = trunc i16 %switch.shifted103 to i1
+  br i1 %switch.lobit104, label %switch.lookup101, label %37
 
 switch.lookup101:                                 ; preds = %switch.hole_check100
-  %49 = zext nneg i8 %switch.tableidx99 to i64
-  %switch.gep105 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.5, i64 0, i64 %49
+  %44 = zext nneg i8 %switch.tableidx99 to i64
+  %switch.gep105 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.5, i64 0, i64 %44
   %switch.load106 = load i32, ptr %switch.gep105, align 4
   store i32 %switch.load106, ptr %3, align 4
   br label %.thread
 
-.thread:                                          ; preds = %switch.lookup101, %41
-  %50 = load i32, ptr %2, align 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %57
+.thread:                                          ; preds = %switch.lookup101, %37
+  %45 = load i32, ptr %2, align 4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %52
+
+47:                                               ; preds = %.thread
+  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.10)
+          to label %49 unwind label %50
+
+49:                                               ; preds = %47
+  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  unreachable
+
+50:                                               ; preds = %47
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  br label %61
 
 52:                                               ; preds = %.thread
-  %53 = tail call ptr @__cxa_allocate_exception(i64 16) #8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull @.str.10)
-          to label %54 unwind label %55
-
-54:                                               ; preds = %52
-  tail call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
-  unreachable
+  %53 = load i32, ptr %4, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %60
 
 55:                                               ; preds = %52
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  br label %66
+  %56 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull @.str.11)
+          to label %57 unwind label %58
 
-57:                                               ; preds = %.thread
-  %58 = load i32, ptr %4, align 4
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %65
-
-60:                                               ; preds = %57
-  %61 = tail call ptr @__cxa_allocate_exception(i64 16) #8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull @.str.11)
-          to label %62 unwind label %63
-
-62:                                               ; preds = %60
-  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+57:                                               ; preds = %55
+  tail call void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
   unreachable
 
-63:                                               ; preds = %60
-  %64 = landingpad { ptr, i32 }
+58:                                               ; preds = %55
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %61
 
-65:                                               ; preds = %57
+60:                                               ; preds = %52
   ret void
 
-66:                                               ; preds = %63, %55, %46
-  %.sink70 = phi ptr [ %61, %63 ], [ %53, %55 ], [ %44, %46 ]
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %56, %55 ], [ %47, %46 ]
+61:                                               ; preds = %58, %50, %42
+  %.sink70 = phi ptr [ %56, %58 ], [ %48, %50 ], [ %40, %42 ]
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %51, %50 ], [ %43, %42 ]
   tail call void @__cxa_free_exception(ptr %.sink70) #8
   resume { ptr, i32 } %.pn
 }
@@ -535,9 +530,8 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
 42:                                               ; preds = %35, %27
   %43 = getelementptr inbounds i8, ptr %0, i64 28
   %44 = load i8, ptr %43, align 4
-  %45 = and i8 %44, 1
-  %.not12 = icmp eq i8 %45, 0
-  br i1 %.not12, label %46, label %76
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %76, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %0, i64 14
@@ -546,8 +540,8 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
   %50 = getelementptr inbounds i8, ptr %0, i64 15
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 2
-  %or.cond15 = select i1 %49, i1 true, i1 %52
-  br i1 %or.cond15, label %53, label %76
+  %or.cond14 = select i1 %49, i1 true, i1 %52
+  br i1 %or.cond14, label %53, label %76
 
 53:                                               ; preds = %46
   %54 = load i8, ptr %6, align 1
@@ -793,9 +787,8 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   tail call void @glTexSubImage2D(i32 noundef %52, i32 noundef 0, i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef %1)
   %60 = getelementptr inbounds i8, ptr %0, i64 28
   %61 = load i8, ptr %60, align 4
-  %62 = and i8 %61, 1
-  %.not = icmp eq i8 %62, 0
-  br i1 %.not, label %63, label %75
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %75, label %63
 
 63:                                               ; preds = %.critedge
   %64 = getelementptr inbounds i8, ptr %0, i64 14

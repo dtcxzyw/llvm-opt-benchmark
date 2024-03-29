@@ -233,32 +233,31 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %tree, align 8
   call void @g_tree_foreach(ptr noundef %1, ptr noundef nonnull @iova_tree_alloc_traverse, ptr noundef nonnull %args) #10
   %2 = load i8, ptr %iova_found, align 8
-  %3 = and i8 %2, 1
-  %tobool5.not = icmp eq i8 %3, 0
-  br i1 %tobool5.not, label %if.end.i, label %if.end7
+  %tobool5 = trunc i8 %2 to i1
+  br i1 %tobool5, label %if.end7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %4 = load ptr, ptr %this, align 8
-  store ptr %4, ptr %prev, align 8
+  %3 = load ptr, ptr %this, align 8
+  store ptr %3, ptr %prev, align 8
   store ptr null, ptr %this, align 8
-  %tobool3.not.i = icmp eq ptr %4, null
+  %tobool3.not.i = icmp eq ptr %3, null
   br i1 %tobool3.not.i, label %cond.end18.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %5 = load i64, ptr %4, align 1
-  %size5.i = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = load i64, ptr %size5.i, align 1
-  %add6.i = add i64 %5, 1
-  %add7.i = add i64 %add6.i, %6
+  %4 = load i64, ptr %3, align 1
+  %size5.i = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = load i64, ptr %size5.i, align 1
+  %add6.i = add i64 %4, 1
+  %add7.i = add i64 %add6.i, %5
   br label %cond.end18.i
 
 cond.end18.i:                                     ; preds = %if.end.i, %cond.true.i
   %cond.i = phi i64 [ %add7.i, %cond.true.i ], [ 0, %if.end.i ]
-  %7 = load i64, ptr %iova_begin1, align 8
-  %cond13.i = call i64 @llvm.umax.i64(i64 %cond.i, i64 %7)
+  %6 = load i64, ptr %iova_begin1, align 8
+  %cond13.i = call i64 @llvm.umax.i64(i64 %cond.i, i64 %6)
   %sub.i = xor i64 %cond13.i, -1
-  %8 = load i64, ptr %args, align 8
-  %cmp20.i = icmp ult i64 %8, %sub.i
+  %7 = load i64, ptr %args, align 8
+  %cmp20.i = icmp ult i64 %7, %sub.i
   br i1 %cmp20.i, label %if.end7.thread, label %if.end7
 
 if.end7.thread:                                   ; preds = %cond.end18.i
@@ -267,40 +266,39 @@ if.end7.thread:                                   ; preds = %cond.end18.i
   br label %lor.lhs.false
 
 if.end7:                                          ; preds = %cond.end18.i, %if.end
-  %9 = and i8 %2, 1
-  %tobool9.not = icmp eq i8 %9, 0
-  br i1 %tobool9.not, label %return, label %lor.lhs.false
+  %tobool9 = trunc i8 %2 to i1
+  br i1 %tobool9, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end7.thread, %if.end7
-  %10 = load i64, ptr %iova_result, align 8
-  %11 = load i64, ptr %size, align 1
-  %add = add i64 %11, %10
+  %8 = load i64, ptr %iova_result, align 8
+  %9 = load i64, ptr %size, align 1
+  %add = add i64 %9, %8
   %cmp12 = icmp ugt i64 %add, %iova_last
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %lor.lhs.false
-  store i64 %10, ptr %map, align 1
-  %12 = xor i64 %10, -1
-  %cmp.i8 = icmp ugt i64 %11, %12
+  store i64 %8, ptr %map, align 1
+  %10 = xor i64 %8, -1
+  %cmp.i8 = icmp ugt i64 %9, %10
   br i1 %cmp.i8, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end15
   %perm.i = getelementptr inbounds i8, ptr %map, i64 24
-  %13 = load i32, ptr %perm.i, align 1
-  %cmp2.i = icmp eq i32 %13, 0
+  %11 = load i32, ptr %perm.i, align 1
+  %cmp2.i = icmp eq i32 %11, 0
   br i1 %cmp2.i, label %return, label %if.end.i9
 
 if.end.i9:                                        ; preds = %lor.lhs.false.i
-  %14 = load ptr, ptr %tree, align 8
-  %call.i.i = call ptr @g_tree_lookup(ptr noundef %14, ptr noundef nonnull %map) #10
+  %12 = load ptr, ptr %tree, align 8
+  %call.i.i = call ptr @g_tree_lookup(ptr noundef %12, ptr noundef nonnull %map) #10
   %tobool.not.i10 = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i10, label %if.end4.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i9
   %call5.i = call noalias dereferenceable_or_null(28) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 28) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call5.i, ptr noundef nonnull align 1 dereferenceable(28) %map, i64 28, i1 false)
-  %15 = load ptr, ptr %tree, align 8
-  call void @g_tree_insert(ptr noundef %15, ptr noundef %call5.i, ptr noundef %call5.i) #10
+  %13 = load ptr, ptr %tree, align 8
+  call void @g_tree_insert(ptr noundef %13, ptr noundef %call5.i, ptr noundef %call5.i) #10
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end.i9, %lor.lhs.false.i, %if.end15, %if.end7, %lor.lhs.false, %entry

@@ -247,8 +247,8 @@ define internal noundef ptr @_worker(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %10
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #8
-  %.not6997 = icmp eq i32 %16, 0
-  br i1 %.not6997, label %.lr.ph, label %._crit_edge
+  %.not6996 = icmp eq i32 %16, 0
+  br i1 %.not6996, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds i8, ptr %5, i64 16
@@ -265,9 +265,9 @@ define internal noundef ptr @_worker(ptr noundef %0) #0 {
   unreachable
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %.lcssa90 = phi i32 [ %16, %.preheader ], [ %164, %.backedge ]
+  %.lcssa89 = phi i32 [ %16, %.preheader ], [ %164, %.backedge ]
   %24 = tail call ptr @__errno_location() #9
-  store i32 %.lcssa90, ptr %24, align 4
+  store i32 %.lcssa89, ptr %24, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 327, ptr noundef nonnull @__func__._worker) #10
   unreachable
 
@@ -279,14 +279,13 @@ define internal noundef ptr @_worker(ptr noundef %0) #0 {
 
 28:                                               ; preds = %25
   %29 = load i8, ptr %21, align 8
-  %30 = and i8 %29, 1
-  %.not71 = icmp eq i8 %30, 0
-  br i1 %.not71, label %74, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %74
 
 31:                                               ; preds = %28
   %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
-  %.not75 = icmp eq i32 %32, 0
-  br i1 %.not75, label %35, label %33
+  %.not74 = icmp eq i32 %32, 0
+  br i1 %.not74, label %35, label %33
 
 33:                                               ; preds = %31
   %34 = tail call ptr @__errno_location() #9
@@ -297,8 +296,8 @@ define internal noundef ptr @_worker(ptr noundef %0) #0 {
 35:                                               ; preds = %31
   %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %37 = and i64 %36, 512
-  %.not76 = icmp eq i64 %37, 0
-  br i1 %.not76, label %42, label %38
+  %.not75 = icmp eq i64 %37, 0
+  br i1 %.not75, label %42, label %38
 
 38:                                               ; preds = %35
   %39 = call i32 @get_log_level() #8
@@ -382,8 +381,8 @@ _worker_delete.exit:                              ; preds = %42, %73
 74:                                               ; preds = %28
   %75 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %76 = and i64 %75, 512
-  %.not72 = icmp eq i64 %76, 0
-  br i1 %.not72, label %87, label %77
+  %.not71 = icmp eq i64 %76, 0
+  br i1 %.not71, label %87, label %77
 
 77:                                               ; preds = %74
   %78 = call i32 @get_log_level() #8
@@ -402,8 +401,8 @@ _worker_delete.exit:                              ; preds = %42, %73
 
 87:                                               ; preds = %80, %77, %74
   %88 = call i32 @pthread_cond_wait(ptr noundef nonnull %20, ptr noundef nonnull %6) #8
-  %.not73 = icmp eq i32 %88, 0
-  br i1 %.not73, label %92, label %89
+  %.not72 = icmp eq i32 %88, 0
+  br i1 %.not72, label %92, label %89
 
 89:                                               ; preds = %87
   %90 = tail call ptr @__errno_location() #9
@@ -413,8 +412,8 @@ _worker_delete.exit:                              ; preds = %42, %73
 
 92:                                               ; preds = %89, %87
   %93 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
-  %.not74 = icmp eq i32 %93, 0
-  br i1 %.not74, label %.backedge, label %94
+  %.not73 = icmp eq i32 %93, 0
+  br i1 %.not73, label %.backedge, label %94
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__errno_location() #9
@@ -430,8 +429,8 @@ _worker_delete.exit:                              ; preds = %42, %73
   store i32 %100, ptr %98, align 8
   %101 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %102 = and i64 %101, 512
-  %.not77 = icmp eq i64 %102, 0
-  br i1 %.not77, label %117, label %103
+  %.not76 = icmp eq i64 %102, 0
+  br i1 %.not76, label %117, label %103
 
 103:                                              ; preds = %96
   %104 = call i32 @get_log_level() #8
@@ -454,8 +453,8 @@ _worker_delete.exit:                              ; preds = %42, %73
 
 117:                                              ; preds = %106, %103, %96
   %118 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
-  %.not78 = icmp eq i32 %118, 0
-  br i1 %.not78, label %121, label %119
+  %.not77 = icmp eq i32 %118, 0
+  br i1 %.not77, label %121, label %119
 
 119:                                              ; preds = %117
   %120 = tail call ptr @__errno_location() #9
@@ -470,8 +469,8 @@ _worker_delete.exit:                              ; preds = %42, %73
   %125 = load ptr, ptr %124, align 8
   call void %123(ptr noundef %125) #8
   %126 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #8
-  %.not79 = icmp eq i32 %126, 0
-  br i1 %.not79, label %129, label %127
+  %.not78 = icmp eq i32 %126, 0
+  br i1 %.not78, label %129, label %127
 
 127:                                              ; preds = %121
   %128 = tail call ptr @__errno_location() #9
@@ -485,8 +484,8 @@ _worker_delete.exit:                              ; preds = %42, %73
   store i32 %131, ptr %19, align 8
   %132 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %133 = and i64 %132, 512
-  %.not80 = icmp eq i64 %133, 0
-  br i1 %.not80, label %148, label %134
+  %.not79 = icmp eq i64 %133, 0
+  br i1 %.not79, label %148, label %134
 
 134:                                              ; preds = %129
   %135 = call i32 @get_log_level() #8
@@ -509,8 +508,8 @@ _worker_delete.exit:                              ; preds = %42, %73
 
 148:                                              ; preds = %137, %134, %129
   %149 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %20) #8
-  %.not81 = icmp eq i32 %149, 0
-  br i1 %.not81, label %153, label %150
+  %.not80 = icmp eq i32 %149, 0
+  br i1 %.not80, label %153, label %150
 
 150:                                              ; preds = %148
   %151 = tail call ptr @__errno_location() #9
@@ -520,8 +519,8 @@ _worker_delete.exit:                              ; preds = %42, %73
 
 153:                                              ; preds = %150, %148
   %154 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
-  %.not82 = icmp eq i32 %154, 0
-  br i1 %.not82, label %157, label %155
+  %.not81 = icmp eq i32 %154, 0
+  br i1 %.not81, label %157, label %155
 
 155:                                              ; preds = %153
   %156 = tail call ptr @__errno_location() #9
@@ -930,9 +929,8 @@ define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not26 = icmp eq i8 %17, 0
-  br i1 %.not26, label %18, label %.thread
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -940,8 +938,8 @@ define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @list_append(ptr noundef %20, ptr noundef nonnull %6) #8
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %21) #8
-  %.not27 = icmp eq i32 %22, 0
-  br i1 %.not27, label %26, label %23
+  %.not26 = icmp eq i32 %22, 0
+  br i1 %.not26, label %26, label %23
 
 23:                                               ; preds = %18
   %24 = tail call ptr @__errno_location() #9
@@ -951,13 +949,13 @@ define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 26:                                               ; preds = %18, %23
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #8
-  %.not28 = icmp eq i32 %27, 0
-  br i1 %.not28, label %38, label %29
+  %.not27 = icmp eq i32 %27, 0
+  br i1 %.not27, label %38, label %29
 
 .thread:                                          ; preds = %14
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #8
-  %.not2831 = icmp eq i32 %28, 0
-  br i1 %.not2831, label %.thread33, label %29
+  %.not2730 = icmp eq i32 %28, 0
+  br i1 %.not2730, label %.thread32, label %29
 
 29:                                               ; preds = %.thread, %26
   %30 = phi i32 [ %28, %.thread ], [ %27, %26 ]
@@ -966,7 +964,7 @@ define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.workq_add_work) #10
   unreachable
 
-.thread33:                                        ; preds = %.thread
+.thread32:                                        ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %32 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -974,7 +972,7 @@ define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.not1.i = icmp eq i64 %33, 0
   br i1 %.not1.i, label %_work_delete.exit, label %34
 
-34:                                               ; preds = %.thread33
+34:                                               ; preds = %.thread32
   %35 = tail call i32 @get_log_level() #8
   %36 = icmp sgt i32 %35, 3
   br i1 %36, label %37, label %_work_delete.exit
@@ -983,15 +981,15 @@ define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__._work_delete) #8
   br label %_work_delete.exit
 
-_work_delete.exit:                                ; preds = %.thread33, %34, %37
+_work_delete.exit:                                ; preds = %.thread32, %34, %37
   store i32 767904749, ptr %6, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %26, %_work_delete.exit
-  %.03236 = phi i32 [ 2037, %_work_delete.exit ], [ 0, %26 ]
-  ret i32 %.03236
+  %.03134 = phi i32 [ 2037, %_work_delete.exit ], [ 0, %26 ]
+  ret i32 %.03134
 }
 
 ; Function Attrs: nounwind

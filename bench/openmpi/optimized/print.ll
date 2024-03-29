@@ -182,22 +182,21 @@ define noundef i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr noundef %1, ptr 
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %.not14 = icmp eq ptr %18, %1
-  br i1 %.not14, label %27, label %.sink.split
+  %.not13 = icmp eq ptr %18, %1
+  br i1 %.not13, label %27, label %.sink.split
 
 19:                                               ; preds = %11
   %20 = load i8, ptr %2, align 1
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  %22 = select i1 %.not, ptr @.str.4, ptr @.str.3
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, ptr @.str.3, ptr @.str.4
   %23 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %22) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %5, align 8
-  %.not13 = icmp eq ptr %26, %1
-  br i1 %.not13, label %27, label %.sink.split
+  %.not = icmp eq ptr %26, %1
+  br i1 %.not, label %27, label %.sink.split
 
 .sink.split:                                      ; preds = %25, %17
   %.sink = phi ptr [ %18, %17 ], [ %26, %25 ]

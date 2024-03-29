@@ -1204,9 +1204,9 @@ while.body.us.preheader:                          ; preds = %entry
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %for.body.us
 
-for.body.us:                                      ; preds = %for.body.us.backedge, %while.body.us.preheader
-  %indvars.iv = phi i64 [ 0, %while.body.us.preheader ], [ %indvars.iv.be, %for.body.us.backedge ]
-  %isSorted.0109.us = phi i8 [ 1, %while.body.us.preheader ], [ %isSorted.0109.us.be, %for.body.us.backedge ]
+for.body.us:                                      ; preds = %for.inc.us, %while.body.us.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %for.inc.us ], [ 0, %while.body.us.preheader ]
+  %isSorted.0109.us = phi i1 [ %isSorted.1.us.mux, %for.inc.us ], [ true, %while.body.us.preheader ]
   %1 = shl nsw i64 %indvars.iv, 2
   %2 = load i32, ptr %count.i, align 8
   %3 = sext i32 %2 to i64
@@ -1361,22 +1361,15 @@ if.then52.us:                                     ; preds = %if.end50.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then52.us, %if.end50.us, %if.else43.us
-  %isSorted.1.us = phi i8 [ 0, %if.then52.us ], [ %isSorted.0109.us, %if.end50.us ], [ %isSorted.0109.us, %if.else43.us ]
+  %isSorted.1.us = phi i1 [ false, %if.then52.us ], [ %isSorted.0109.us, %if.end50.us ], [ %isSorted.0109.us, %if.else43.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond.for.end_crit_edge.us, label %for.body.us.backedge
+  %brmerge.not = select i1 %exitcond.not, i1 %isSorted.1.us, i1 false
+  %indvars.iv.next.mux = select i1 %exitcond.not, i64 0, i64 %indvars.iv.next
+  %isSorted.1.us.mux = select i1 %exitcond.not, i1 true, i1 %isSorted.1.us
+  br i1 %brmerge.not, label %while.end, label %for.body.us, !llvm.loop !9
 
-for.body.us.backedge:                             ; preds = %for.inc.us, %for.cond.for.end_crit_edge.us
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.cond.for.end_crit_edge.us ]
-  %isSorted.0109.us.be = phi i8 [ %isSorted.1.us, %for.inc.us ], [ 1, %for.cond.for.end_crit_edge.us ]
-  br label %for.body.us, !llvm.loop !9
-
-for.cond.for.end_crit_edge.us:                    ; preds = %for.inc.us
-  %35 = and i8 %isSorted.1.us, 1
-  %tobool.not.us = icmp eq i8 %35, 0
-  br i1 %tobool.not.us, label %for.body.us.backedge, label %while.end
-
-while.end:                                        ; preds = %for.cond.for.end_crit_edge.us, %entry
+while.end:                                        ; preds = %for.inc.us, %entry
   ret void
 }
 

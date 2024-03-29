@@ -46,32 +46,29 @@ if.end:                                           ; preds = %entry
   %u = getelementptr inbounds i8, ptr %netdev, i64 16
   %has_server = getelementptr inbounds i8, ptr %netdev, i64 24
   %1 = load i8, ptr %has_server, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then2, label %lor.lhs.false
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %lor.lhs.false, label %if.then2
 
 lor.lhs.false:                                    ; preds = %if.end
   %server = getelementptr inbounds i8, ptr %netdev, i64 25
-  %3 = load i8, ptr %server, align 1
-  %4 = and i8 %3, 1
-  %tobool1.not = icmp eq i8 %4, 0
-  br i1 %tobool1.not, label %if.then2, label %if.end4
+  %2 = load i8, ptr %server, align 1
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
-  %5 = load ptr, ptr %u, align 8
+  %3 = load ptr, ptr %u, align 8
   %has_reconnect = getelementptr inbounds i8, ptr %netdev, i64 26
-  %6 = load i8, ptr %has_reconnect, align 2
-  %7 = and i8 %6, 1
-  %tobool3.not = icmp eq i8 %7, 0
-  br i1 %tobool3.not, label %cond.end, label %cond.true
+  %4 = load i8, ptr %has_reconnect, align 2
+  %tobool3 = trunc i8 %4 to i1
+  br i1 %tobool3, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then2
   %reconnect = getelementptr inbounds i8, ptr %netdev, i64 28
-  %8 = load i32, ptr %reconnect, align 4
+  %5 = load i32, ptr %reconnect, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then2, %cond.true
-  %cond = phi i32 [ %8, %cond.true ], [ 0, %if.then2 ]
+  %cond = phi i32 [ %5, %cond.true ], [ 0, %if.then2 ]
   %call.i = tail call ptr @qio_channel_socket_new() #6
   %call1.i = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_stream_info, ptr noundef %peer, ptr noundef nonnull @.str.2, ptr noundef %name) #6
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
@@ -85,34 +82,33 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   br i1 %tobool.not.i, label %net_stream_client_init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end
-  %call6.i = tail call ptr @qapi_clone(ptr noundef %5, ptr noundef nonnull @visit_type_SocketAddress) #6
+  %call6.i = tail call ptr @qapi_clone(ptr noundef %3, ptr noundef nonnull @visit_type_SocketAddress) #6
   %addr7.i = getelementptr inbounds i8, ptr %call1.i, i64 70088
   store ptr %call6.i, ptr %addr7.i, align 8
   br label %net_stream_client_init.exit
 
 net_stream_client_init.exit:                      ; preds = %cond.end, %if.then.i
-  tail call void @qio_channel_socket_connect_async(ptr noundef %call.i, ptr noundef %5, ptr noundef nonnull @net_stream_client_connected, ptr noundef nonnull %call1.i, ptr noundef null, ptr noundef null) #6
+  tail call void @qio_channel_socket_connect_async(ptr noundef %call.i, ptr noundef %3, ptr noundef nonnull @net_stream_client_connected, ptr noundef nonnull %call1.i, ptr noundef null, ptr noundef null) #6
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
   %has_reconnect5 = getelementptr inbounds i8, ptr %netdev, i64 26
-  %9 = load i8, ptr %has_reconnect5, align 2
-  %10 = and i8 %9, 1
-  %tobool6.not = icmp eq i8 %10, 0
-  br i1 %tobool6.not, label %if.end8, label %if.then7
+  %6 = load i8, ptr %has_reconnect5, align 2
+  %tobool6 = trunc i8 %6 to i1
+  br i1 %tobool6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.net_init_stream, ptr noundef nonnull @.str.3) #6
   br label %return
 
 if.end8:                                          ; preds = %if.end4
-  %11 = load ptr, ptr %u, align 8
+  %7 = load ptr, ptr %u, align 8
   %call.i12 = tail call ptr @qio_channel_socket_new() #6
   %call1.i13 = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_stream_info, ptr noundef %peer, ptr noundef nonnull @.str.2, ptr noundef %name) #6
   %call.i.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i12, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
   %listen_ioc.i = getelementptr inbounds i8, ptr %call1.i13, i64 376
   store ptr %call.i.i14, ptr %listen_ioc.i, align 8
-  tail call void @qio_channel_socket_listen_async(ptr noundef %call.i12, ptr noundef %11, i32 noundef 0, ptr noundef nonnull @net_stream_server_listening, ptr noundef %call1.i13, ptr noundef null, ptr noundef null) #6
+  tail call void @qio_channel_socket_listen_async(ptr noundef %call.i12, ptr noundef %7, i32 noundef 0, ptr noundef nonnull @net_stream_server_listening, ptr noundef %call1.i13, ptr noundef null, ptr noundef null) #6
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7, %net_stream_client_init.exit

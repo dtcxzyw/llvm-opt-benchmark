@@ -480,8 +480,7 @@ define dso_local zeroext i1 @cryptodev_backend_is_used(ptr nocapture noundef rea
 entry:
   %is_used = getelementptr inbounds i8, ptr %backend, i64 41
   %0 = load i8, ptr %is_used, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -499,8 +498,7 @@ define dso_local zeroext i1 @cryptodev_backend_is_ready(ptr nocapture noundef re
 entry:
   %ready = getelementptr inbounds i8, ptr %backend, i64 40
   %0 = load i8, ptr %ready, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -666,9 +664,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
   %is_used.i = getelementptr inbounds i8, ptr %call.i, i64 41
   %0 = load i8, ptr %is_used.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  ret i1 %tobool.i.not
+  %tobool.i = trunc i8 %0 to i1
+  %lnot = xor i1 %tobool.i, true
+  ret i1 %lnot
 }
 
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

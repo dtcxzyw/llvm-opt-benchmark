@@ -196,21 +196,19 @@ if.end10:                                         ; preds = %if.end5
   tail call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %call.i29, ptr noundef nonnull @usb_msd_scsi_info_storage, ptr noundef null) #2
   %removable = getelementptr inbounds i8, ptr %call.i, i64 6144
   %2 = load i8, ptr %removable, align 8
-  %3 = and i8 %2, 1
-  %tobool16 = icmp ne i8 %3, 0
+  %tobool16 = trunc i8 %2 to i1
   %bootindex = getelementptr inbounds i8, ptr %call.i, i64 6084
-  %4 = load i32, ptr %bootindex, align 4
+  %3 = load i32, ptr %bootindex, align 4
   %share_rw = getelementptr inbounds i8, ptr %call.i, i64 6120
-  %5 = load i8, ptr %share_rw, align 8
-  %6 = and i8 %5, 1
-  %tobool21 = icmp ne i8 %6, 0
+  %4 = load i8, ptr %share_rw, align 8
+  %tobool21 = trunc i8 %4 to i1
   %rerror = getelementptr inbounds i8, ptr %call.i, i64 6132
-  %7 = load i32, ptr %rerror, align 4
+  %5 = load i32, ptr %rerror, align 4
   %werror = getelementptr inbounds i8, ptr %call.i, i64 6136
-  %8 = load i32, ptr %werror, align 8
+  %6 = load i32, ptr %werror, align 8
   %serial = getelementptr inbounds i8, ptr %dev, i64 176
-  %9 = load ptr, ptr %serial, align 8
-  %call24 = tail call ptr @scsi_bus_legacy_add_drive(ptr noundef nonnull %bus, ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext %tobool16, i32 noundef %4, i1 noundef zeroext %tobool21, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %errp) #2
+  %7 = load ptr, ptr %serial, align 8
+  %call24 = tail call ptr @scsi_bus_legacy_add_drive(ptr noundef nonnull %bus, ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext %tobool16, i32 noundef %3, i1 noundef zeroext %tobool21, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %errp) #2
   tail call void @blk_unref(ptr noundef nonnull %0) #2
   %tobool25.not = icmp eq ptr %call24, null
   br i1 %tobool25.not, label %return, label %if.end27

@@ -681,7 +681,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
 
 39:                                               ; preds = %BufferGetPage.exit
   %40 = or disjoint i16 %37, 2
-  br label %BufferGetPage.exit145
+  br label %BufferGetPage.exit139
 
 41:                                               ; preds = %BufferGetPage.exit
   %42 = icmp slt i32 %4, 0
@@ -693,7 +693,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr ptr, ptr %44, i64 %46
   %48 = load ptr, ptr %47, align 8
-  br label %BufferGetPage.exit145
+  br label %BufferGetPage.exit139
 
 49:                                               ; preds = %41
   %50 = load ptr, ptr @BufferBlocks, align 8
@@ -701,9 +701,9 @@ BufferGetPage.exit:                               ; preds = %16, %22
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 13
   %54 = getelementptr i8, ptr %50, i64 %53
-  br label %BufferGetPage.exit145
+  br label %BufferGetPage.exit139
 
-BufferGetPage.exit145:                            ; preds = %49, %43, %39
+BufferGetPage.exit139:                            ; preds = %49, %43, %39
   %.0130 = phi ptr [ null, %39 ], [ %48, %43 ], [ %54, %49 ]
   %55 = phi i16 [ %40, %39 ], [ %37, %43 ], [ %37, %49 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 40
@@ -716,7 +716,7 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
     i32 2, label %171
   ]
 
-60:                                               ; preds = %BufferGetPage.exit145
+60:                                               ; preds = %BufferGetPage.exit139
   %61 = load volatile i32, ptr @CritSectionCount, align 4
   %62 = add i32 %61, 1
   store volatile i32 %62, ptr @CritSectionCount, align 4
@@ -749,9 +749,8 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
 81:                                               ; preds = %77, %70
   %82 = getelementptr inbounds i8, ptr %0, i64 105
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not141 = icmp eq i8 %84, 0
-  br i1 %.not141, label %85, label %86
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %86, label %85
 
 85:                                               ; preds = %81
   call void @XLogBeginInsert() #5
@@ -763,8 +762,8 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
   %89 = load i32, ptr %13, align 4
   %90 = load ptr, ptr %9, align 8
   call void %88(ptr noundef nonnull %0, i32 noundef %89, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %90) #5
-  %.not160 = icmp eq i32 %4, 0
-  br i1 %.not160, label %121, label %91
+  %.not154 = icmp eq i32 %4, 0
+  br i1 %.not154, label %121, label %91
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds i8, ptr %.0130, i64 16
@@ -804,9 +803,8 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
 116:                                              ; preds = %112, %105
   %117 = getelementptr inbounds i8, ptr %0, i64 105
   %118 = load i8, ptr %117, align 1
-  %119 = and i8 %118, 1
-  %.not142 = icmp eq i8 %119, 0
-  br i1 %.not142, label %120, label %121
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %121, label %120
 
 120:                                              ; preds = %116
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %4, i8 noundef zeroext 8) #5
@@ -841,14 +839,13 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
 139:                                              ; preds = %135, %128
   %140 = getelementptr inbounds i8, ptr %0, i64 105
   %141 = load i8, ptr %140, align 1
-  %142 = and i8 %141, 1
-  %.not143 = icmp eq i8 %142, 0
-  br i1 %.not143, label %143, label %168
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %168, label %143
 
 143:                                              ; preds = %139
   store i16 %55, ptr %10, align 2
   call void @XLogRegisterData(ptr noundef nonnull %10, i32 noundef 2) #5
-  br i1 %.not160, label %160, label %144
+  br i1 %.not154, label %160, label %144
 
 144:                                              ; preds = %143
   %145 = call i32 @BufferGetBlockNumber(i32 noundef %4) #5
@@ -881,7 +878,7 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
   %164 = trunc i64 %161 to i32
   %165 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
   store i32 %164, ptr %165, align 4
-  br i1 %.not160, label %168, label %166
+  br i1 %.not154, label %168, label %166
 
 166:                                              ; preds = %160
   store i32 %163, ptr %.0130, align 4
@@ -895,7 +892,7 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
   store volatile i32 %170, ptr @CritSectionCount, align 4
   br label %466
 
-171:                                              ; preds = %BufferGetPage.exit145
+171:                                              ; preds = %BufferGetPage.exit139
   %172 = getelementptr inbounds i8, ptr %0, i64 80
   %173 = load ptr, ptr %172, align 8
   %174 = call i32 @GinNewBuffer(ptr noundef %173) #5
@@ -905,9 +902,8 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
 175:                                              ; preds = %171
   %176 = getelementptr inbounds i8, ptr %0, i64 72
   %177 = load i8, ptr %176, align 8
-  %178 = and i8 %177, 1
-  %.not136 = icmp eq i8 %178, 0
-  br i1 %.not136, label %183, label %179
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %179, label %183
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds i8, ptr %5, i64 12
@@ -968,9 +964,8 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
 212:                                              ; preds = %209
   %213 = getelementptr inbounds i8, ptr %0, i64 72
   %214 = load i8, ptr %213, align 8
-  %215 = and i8 %214, 1
-  %.not138 = icmp eq i8 %215, 0
-  br i1 %.not138, label %220, label %216
+  %215 = trunc i8 %214 to i1
+  br i1 %215, label %216, label %220
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds i8, ptr %5, i64 12
@@ -1033,7 +1028,7 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
   %260 = zext nneg i32 %259 to i64
   %261 = getelementptr ptr, ptr %258, i64 %260
   %262 = load ptr, ptr %261, align 8
-  br label %BufferGetPage.exit147
+  br label %BufferGetPage.exit141
 
 263:                                              ; preds = %224
   %264 = load ptr, ptr @BufferBlocks, align 8
@@ -1041,21 +1036,21 @@ BufferGetPage.exit145:                            ; preds = %49, %43, %39
   %266 = sext i32 %265 to i64
   %267 = shl nsw i64 %266, 13
   %268 = getelementptr i8, ptr %264, i64 %267
-  br label %BufferGetPage.exit147
+  br label %BufferGetPage.exit141
 
-BufferGetPage.exit147:                            ; preds = %257, %263
-  %.0.i.i146 = phi ptr [ %262, %257 ], [ %268, %263 ]
-  %269 = getelementptr inbounds i8, ptr %.0.i.i146, i64 16
+BufferGetPage.exit141:                            ; preds = %257, %263
+  %.0.i.i140 = phi ptr [ %262, %257 ], [ %268, %263 ]
+  %269 = getelementptr inbounds i8, ptr %.0.i.i140, i64 16
   %270 = load i16, ptr %269, align 4
   %271 = zext i16 %270 to i64
-  %272 = getelementptr i8, ptr %.0.i.i146, i64 %271
+  %272 = getelementptr i8, ptr %.0.i.i140, i64 %271
   %273 = getelementptr inbounds i8, ptr %272, i64 6
   %274 = load i16, ptr %273, align 2
   %275 = and i16 %274, 2
-  %.not139 = icmp eq i16 %275, 0
-  br i1 %.not139, label %325, label %276
+  %.not137 = icmp eq i16 %275, 0
+  br i1 %.not137, label %325, label %276
 
-276:                                              ; preds = %BufferGetPage.exit147
+276:                                              ; preds = %BufferGetPage.exit141
   %277 = load ptr, ptr %172, align 8
   %278 = call i32 @BufferGetBlockNumber(i32 noundef %255) #5
   %279 = call i32 @BufferGetBlockNumber(i32 noundef %211) #5
@@ -1098,7 +1093,7 @@ BufferGetPage.exit147:                            ; preds = %257, %263
   %307 = zext nneg i32 %306 to i64
   %308 = getelementptr ptr, ptr %305, i64 %307
   %309 = load ptr, ptr %308, align 8
-  br label %BufferGetPage.exit149
+  br label %BufferGetPage.exit143
 
 310:                                              ; preds = %281
   %311 = load ptr, ptr @BufferBlocks, align 8
@@ -1106,33 +1101,33 @@ BufferGetPage.exit147:                            ; preds = %257, %263
   %313 = sext i32 %312 to i64
   %314 = shl nsw i64 %313, 13
   %315 = getelementptr i8, ptr %311, i64 %314
-  br label %BufferGetPage.exit149
+  br label %BufferGetPage.exit143
 
-BufferGetPage.exit149:                            ; preds = %304, %310
-  %.0.i.i148 = phi ptr [ %309, %304 ], [ %315, %310 ]
-  %316 = getelementptr inbounds i8, ptr %.0.i.i148, i64 16
+BufferGetPage.exit143:                            ; preds = %304, %310
+  %.0.i.i142 = phi ptr [ %309, %304 ], [ %315, %310 ]
+  %316 = getelementptr inbounds i8, ptr %.0.i.i142, i64 16
   %317 = load i16, ptr %316, align 4
   %318 = zext i16 %317 to i64
-  %319 = getelementptr i8, ptr %.0.i.i148, i64 %318
+  %319 = getelementptr i8, ptr %.0.i.i142, i64 %318
   %320 = getelementptr inbounds i8, ptr %319, i64 6
   %321 = load i16, ptr %320, align 2
   %322 = and i16 %321, 2
-  %.not137 = icmp eq i16 %322, 0
-  br i1 %.not137, label %325, label %.sink.split
+  %.not136 = icmp eq i16 %322, 0
+  br i1 %.not136, label %325, label %.sink.split
 
-.sink.split:                                      ; preds = %BufferGetPage.exit149, %276
-  %.sink164 = phi i32 [ %280, %276 ], [ %302, %BufferGetPage.exit149 ]
-  %.0128.ph = phi i32 [ %211, %276 ], [ 0, %BufferGetPage.exit149 ]
-  %.0127.ph = phi ptr [ %239, %276 ], [ null, %BufferGetPage.exit149 ]
-  %.sink161 = load ptr, ptr %172, align 8
-  %323 = call i32 @BufferGetBlockNumber(i32 noundef %.sink164) #5
+.sink.split:                                      ; preds = %BufferGetPage.exit143, %276
+  %.sink158 = phi i32 [ %280, %276 ], [ %302, %BufferGetPage.exit143 ]
+  %.0128.ph = phi i32 [ %211, %276 ], [ 0, %BufferGetPage.exit143 ]
+  %.0127.ph = phi ptr [ %239, %276 ], [ null, %BufferGetPage.exit143 ]
+  %.sink155 = load ptr, ptr %172, align 8
+  %323 = call i32 @BufferGetBlockNumber(i32 noundef %.sink158) #5
   %324 = call i32 @BufferGetBlockNumber(i32 noundef %174) #5
-  call void @PredicateLockPageSplit(ptr noundef %.sink161, i32 noundef %323, i32 noundef %324) #5
+  call void @PredicateLockPageSplit(ptr noundef %.sink155, i32 noundef %323, i32 noundef %324) #5
   br label %325
 
-325:                                              ; preds = %.sink.split, %BufferGetPage.exit149, %BufferGetPage.exit147
-  %.0128 = phi i32 [ %211, %BufferGetPage.exit147 ], [ 0, %BufferGetPage.exit149 ], [ %.0128.ph, %.sink.split ]
-  %.0127 = phi ptr [ %239, %BufferGetPage.exit147 ], [ null, %BufferGetPage.exit149 ], [ %.0127.ph, %.sink.split ]
+325:                                              ; preds = %.sink.split, %BufferGetPage.exit143, %BufferGetPage.exit141
+  %.0128 = phi i32 [ %211, %BufferGetPage.exit141 ], [ 0, %BufferGetPage.exit143 ], [ %.0128.ph, %.sink.split ]
+  %.0127 = phi ptr [ %239, %BufferGetPage.exit141 ], [ null, %BufferGetPage.exit143 ], [ %.0127.ph, %.sink.split ]
   %326 = load volatile i32, ptr @CritSectionCount, align 4
   %327 = add i32 %326, 1
   store volatile i32 %327, ptr @CritSectionCount, align 4
@@ -1155,7 +1150,7 @@ BufferGetPage.exit149:                            ; preds = %304, %310
   %336 = zext nneg i32 %335 to i64
   %337 = getelementptr ptr, ptr %334, i64 %336
   %338 = load ptr, ptr %337, align 8
-  br label %BufferGetPage.exit151
+  br label %BufferGetPage.exit145
 
 339:                                              ; preds = %331
   %340 = load ptr, ptr @BufferBlocks, align 8
@@ -1163,35 +1158,35 @@ BufferGetPage.exit149:                            ; preds = %304, %310
   %342 = sext i32 %341 to i64
   %343 = shl nsw i64 %342, 13
   %344 = getelementptr i8, ptr %340, i64 %343
-  br label %BufferGetPage.exit151
+  br label %BufferGetPage.exit145
 
-BufferGetPage.exit151:                            ; preds = %333, %339
-  %.0.i.i150 = phi ptr [ %338, %333 ], [ %344, %339 ]
+BufferGetPage.exit145:                            ; preds = %333, %339
+  %.0.i.i144 = phi ptr [ %338, %333 ], [ %344, %339 ]
   %345 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i150, ptr noundef nonnull align 1 dereferenceable(8192) %345, i64 8192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i144, ptr noundef nonnull align 1 dereferenceable(8192) %345, i64 8192, i1 false)
   %346 = icmp slt i32 %174, 0
   br i1 %346, label %347, label %353
 
-347:                                              ; preds = %BufferGetPage.exit151
+347:                                              ; preds = %BufferGetPage.exit145
   %348 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %349 = xor i32 %174, -1
   %350 = zext nneg i32 %349 to i64
   %351 = getelementptr ptr, ptr %348, i64 %350
   %352 = load ptr, ptr %351, align 8
-  br label %BufferGetPage.exit153
+  br label %BufferGetPage.exit147
 
-353:                                              ; preds = %BufferGetPage.exit151
+353:                                              ; preds = %BufferGetPage.exit145
   %354 = load ptr, ptr @BufferBlocks, align 8
   %355 = add nsw i32 %174, -1
   %356 = sext i32 %355 to i64
   %357 = shl nsw i64 %356, 13
   %358 = getelementptr i8, ptr %354, i64 %357
-  br label %BufferGetPage.exit153
+  br label %BufferGetPage.exit147
 
-BufferGetPage.exit153:                            ; preds = %347, %353
-  %.0.i.i152 = phi ptr [ %352, %347 ], [ %358, %353 ]
+BufferGetPage.exit147:                            ; preds = %347, %353
+  %.0.i.i146 = phi ptr [ %352, %347 ], [ %358, %353 ]
   %359 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i152, ptr noundef nonnull align 1 dereferenceable(8192) %359, i64 8192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i146, ptr noundef nonnull align 1 dereferenceable(8192) %359, i64 8192, i1 false)
   br label %376
 
 360:                                              ; preds = %325
@@ -1206,7 +1201,7 @@ BufferGetPage.exit153:                            ; preds = %347, %353
   %366 = zext nneg i32 %365 to i64
   %367 = getelementptr ptr, ptr %364, i64 %366
   %368 = load ptr, ptr %367, align 8
-  br label %BufferGetPage.exit155
+  br label %BufferGetPage.exit149
 
 369:                                              ; preds = %360
   %370 = load ptr, ptr @BufferBlocks, align 8
@@ -1214,15 +1209,15 @@ BufferGetPage.exit153:                            ; preds = %347, %353
   %372 = sext i32 %371 to i64
   %373 = shl nsw i64 %372, 13
   %374 = getelementptr i8, ptr %370, i64 %373
-  br label %BufferGetPage.exit155
+  br label %BufferGetPage.exit149
 
-BufferGetPage.exit155:                            ; preds = %363, %369
-  %.0.i.i154 = phi ptr [ %368, %363 ], [ %374, %369 ]
+BufferGetPage.exit149:                            ; preds = %363, %369
+  %.0.i.i148 = phi ptr [ %368, %363 ], [ %374, %369 ]
   %375 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i154, ptr noundef nonnull align 1 dereferenceable(8192) %375, i64 8192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i148, ptr noundef nonnull align 1 dereferenceable(8192) %375, i64 8192, i1 false)
   br label %376
 
-376:                                              ; preds = %BufferGetPage.exit155, %BufferGetPage.exit153
+376:                                              ; preds = %BufferGetPage.exit149, %BufferGetPage.exit147
   br i1 %.not, label %385, label %377
 
 377:                                              ; preds = %376
@@ -1266,9 +1261,8 @@ BufferGetPage.exit155:                            ; preds = %363, %369
 403:                                              ; preds = %399, %392
   %404 = getelementptr inbounds i8, ptr %0, i64 105
   %405 = load i8, ptr %404, align 1
-  %406 = and i8 %405, 1
-  %.not140 = icmp eq i8 %406, 0
-  br i1 %.not140, label %407, label %456
+  %406 = trunc i8 %405 to i1
+  br i1 %406, label %456, label %407
 
 407:                                              ; preds = %403
   call void @XLogBeginInsert() #5
@@ -1314,7 +1308,7 @@ BufferGetPage.exit155:                            ; preds = %363, %369
   %426 = zext nneg i32 %425 to i64
   %427 = getelementptr ptr, ptr %424, i64 %426
   %428 = load ptr, ptr %427, align 8
-  br label %BufferGetPage.exit157
+  br label %BufferGetPage.exit151
 
 429:                                              ; preds = %416
   %430 = load ptr, ptr @BufferBlocks, align 8
@@ -1322,18 +1316,18 @@ BufferGetPage.exit155:                            ; preds = %363, %369
   %432 = sext i32 %431 to i64
   %433 = shl nsw i64 %432, 13
   %434 = getelementptr i8, ptr %430, i64 %433
-  br label %BufferGetPage.exit157
+  br label %BufferGetPage.exit151
 
-BufferGetPage.exit157:                            ; preds = %423, %429
-  %.0.i.i156 = phi ptr [ %428, %423 ], [ %434, %429 ]
-  store i32 %419, ptr %.0.i.i156, align 4
-  %435 = getelementptr inbounds i8, ptr %.0.i.i156, i64 4
+BufferGetPage.exit151:                            ; preds = %423, %429
+  %.0.i.i150 = phi ptr [ %428, %423 ], [ %434, %429 ]
+  store i32 %419, ptr %.0.i.i150, align 4
+  %435 = getelementptr inbounds i8, ptr %.0.i.i150, i64 4
   store i32 %420, ptr %435, align 4
   %436 = load ptr, ptr %206, align 8
   %437 = icmp eq ptr %436, null
   br i1 %437, label %438, label %453
 
-438:                                              ; preds = %BufferGetPage.exit157
+438:                                              ; preds = %BufferGetPage.exit151
   %439 = icmp slt i32 %.0128, 0
   br i1 %439, label %440, label %446
 
@@ -1343,7 +1337,7 @@ BufferGetPage.exit157:                            ; preds = %423, %429
   %443 = zext nneg i32 %442 to i64
   %444 = getelementptr ptr, ptr %441, i64 %443
   %445 = load ptr, ptr %444, align 8
-  br label %BufferGetPage.exit159
+  br label %BufferGetPage.exit153
 
 446:                                              ; preds = %438
   %447 = load ptr, ptr @BufferBlocks, align 8
@@ -1351,16 +1345,16 @@ BufferGetPage.exit157:                            ; preds = %423, %429
   %449 = sext i32 %448 to i64
   %450 = shl nsw i64 %449, 13
   %451 = getelementptr i8, ptr %447, i64 %450
-  br label %BufferGetPage.exit159
+  br label %BufferGetPage.exit153
 
-BufferGetPage.exit159:                            ; preds = %440, %446
-  %.0.i.i158 = phi ptr [ %445, %440 ], [ %451, %446 ]
-  store i32 %419, ptr %.0.i.i158, align 4
-  %452 = getelementptr inbounds i8, ptr %.0.i.i158, i64 4
+BufferGetPage.exit153:                            ; preds = %440, %446
+  %.0.i.i152 = phi ptr [ %445, %440 ], [ %451, %446 ]
+  store i32 %419, ptr %.0.i.i152, align 4
+  %452 = getelementptr inbounds i8, ptr %.0.i.i152, i64 4
   store i32 %420, ptr %452, align 4
   br label %453
 
-453:                                              ; preds = %BufferGetPage.exit159, %BufferGetPage.exit157
+453:                                              ; preds = %BufferGetPage.exit153, %BufferGetPage.exit151
   br i1 %.not, label %456, label %454
 
 454:                                              ; preds = %453
@@ -1384,15 +1378,15 @@ BufferGetPage.exit159:                            ; preds = %440, %446
   %462 = icmp eq ptr %.pre, null
   br label %466
 
-463:                                              ; preds = %BufferGetPage.exit145
+463:                                              ; preds = %BufferGetPage.exit139
   %464 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   call void @llvm.assume(i1 %464)
   %465 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %59) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 650, ptr noundef nonnull @__func__.ginPlaceToPage) #5
   unreachable
 
-466:                                              ; preds = %456, %461, %BufferGetPage.exit145, %168
-  %.0 = phi i1 [ true, %168 ], [ true, %BufferGetPage.exit145 ], [ %462, %461 ], [ false, %456 ]
+466:                                              ; preds = %456, %461, %BufferGetPage.exit139, %168
+  %.0 = phi i1 [ true, %168 ], [ true, %BufferGetPage.exit139 ], [ %462, %461 ], [ false, %456 ]
   store ptr %30, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %29) #5
   ret i1 %.0

@@ -153,14 +153,14 @@ fmgr_isbuiltin.exit:                              ; preds = %17
   store i16 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %22, i64 6
   %28 = load i8, ptr %27, align 2
-  %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 14
-  store i8 %29, ptr %30, align 2
+  %29 = getelementptr inbounds i8, ptr %1, i64 14
+  %30 = and i8 %28, 1
+  store i8 %30, ptr %29, align 2
   %31 = getelementptr inbounds i8, ptr %22, i64 7
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 15
-  store i8 %33, ptr %34, align 1
+  %33 = getelementptr inbounds i8, ptr %1, i64 15
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 1
   %35 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 2, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %22, i64 16
@@ -194,22 +194,21 @@ fmgr_isbuiltin.exit.thread:                       ; preds = %4, %17, %fmgr_isbui
   store i16 %50, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %48, i64 99
   %53 = load i8, ptr %52, align 1
-  %54 = and i8 %53, 1
-  %55 = getelementptr inbounds i8, ptr %1, i64 14
-  store i8 %54, ptr %55, align 2
+  %54 = getelementptr inbounds i8, ptr %1, i64 14
+  %55 = and i8 %53, 1
+  store i8 %55, ptr %54, align 2
   %56 = getelementptr inbounds i8, ptr %48, i64 100
   %57 = load i8, ptr %56, align 4
-  %58 = and i8 %57, 1
-  %59 = getelementptr inbounds i8, ptr %1, i64 15
-  store i8 %58, ptr %59, align 1
+  %58 = getelementptr inbounds i8, ptr %1, i64 15
+  %59 = and i8 %57, 1
+  store i8 %59, ptr %58, align 1
   br i1 %3, label %72, label %60
 
 60:                                               ; preds = %42
   %61 = getelementptr inbounds i8, ptr %48, i64 97
   %62 = load i8, ptr %61, align 1
-  %63 = and i8 %62, 1
-  %.not63 = icmp eq i8 %63, 0
-  br i1 %.not63, label %64, label %70
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %70, label %64
 
 64:                                               ; preds = %60
   %65 = tail call zeroext i1 @heap_attisnull(ptr noundef nonnull %38, i32 noundef 29, ptr noundef null) #13
@@ -217,8 +216,8 @@ fmgr_isbuiltin.exit.thread:                       ; preds = %4, %17, %fmgr_isbui
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @needs_fmgr_hook, align 8
-  %.not64 = icmp eq ptr %67, null
-  br i1 %.not64, label %72, label %68
+  %.not63 = icmp eq ptr %67, null
+  br i1 %.not63, label %72, label %68
 
 68:                                               ; preds = %66
   %69 = tail call zeroext i1 %67(i32 noundef %0) #13
@@ -384,7 +383,7 @@ record_C_func.exit.i:                             ; preds = %139, %121
 
 152:                                              ; preds = %record_C_func.exit.i, %116
   %.019.i = phi ptr [ %120, %116 ], [ %130, %record_C_func.exit.i ]
-  %.0.i65 = phi ptr [ %118, %116 ], [ %128, %record_C_func.exit.i ]
+  %.0.i64 = phi ptr [ %118, %116 ], [ %128, %record_C_func.exit.i ]
   %153 = load i32, ptr %.019.i, align 4
   %cond.i = icmp eq i32 %153, 1
   br i1 %cond.i, label %fmgr_info_C_lang.exit, label %154
@@ -398,7 +397,7 @@ record_C_func.exit.i:                             ; preds = %139, %121
   unreachable
 
 fmgr_info_C_lang.exit:                            ; preds = %152
-  store ptr %.0.i65, ptr %1, align 8
+  store ptr %.0.i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %182
 
@@ -485,9 +484,8 @@ define dso_local void @fmgr_symbol(i32 noundef %0, ptr nocapture noundef writeon
   %15 = getelementptr i8, ptr %11, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 97
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not27 = icmp eq i8 %18, 0
-  br i1 %.not27, label %19, label %25
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %25, label %19
 
 19:                                               ; preds = %9
   %20 = tail call zeroext i1 @heap_attisnull(ptr noundef nonnull %5, i32 noundef 29, ptr noundef null) #13
@@ -495,8 +493,8 @@ define dso_local void @fmgr_symbol(i32 noundef %0, ptr nocapture noundef writeon
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @needs_fmgr_hook, align 8
-  %.not28 = icmp eq ptr %22, null
-  br i1 %.not28, label %27, label %23
+  %.not27 = icmp eq ptr %22, null
+  br i1 %.not27, label %27, label %23
 
 23:                                               ; preds = %21
   %24 = tail call zeroext i1 %22(i32 noundef %0) #13
@@ -737,9 +735,8 @@ define dso_local i64 @fmgr_security_definer(ptr noundef %0) #0 {
   %42 = getelementptr i8, ptr %38, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 97
   %44 = load i8, ptr %43, align 1
-  %45 = and i8 %44, 1
-  %.not112 = icmp eq i8 %45, 0
-  br i1 %.not112, label %50, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %36
   %47 = getelementptr inbounds i8, ptr %42, i64 72
@@ -752,9 +749,8 @@ define dso_local i64 @fmgr_security_definer(ptr noundef %0) #0 {
 50:                                               ; preds = %46, %36
   %51 = call i64 @SysCacheGetAttr(i32 noundef 45, ptr noundef nonnull %29, i16 noundef signext 29, ptr noundef nonnull %7) #13
   %52 = load i8, ptr %7, align 1
-  %53 = and i8 %52, 1
-  %.not113 = icmp eq i8 %53, 0
-  br i1 %.not113, label %54, label %85
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %85, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %0, align 8
@@ -786,17 +782,17 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %68 = getelementptr inbounds i8, ptr %.0..0..0..0.58, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %.not114 = icmp eq ptr %69, null
-  br i1 %.not114, label %._crit_edge, label %.lr.ph
+  %.not112 = icmp eq ptr %69, null
+  br i1 %.not112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pg_detoast_datum.exit
   %71 = getelementptr inbounds i8, ptr %69, i64 16
   %72 = load i32, ptr %70, align 4
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph135, label %._crit_edge
+  br i1 %73, label %.lr.ph133, label %._crit_edge
 
-.lr.ph135:                                        ; preds = %.lr.ph, %.lr.ph135
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph135 ], [ 0, %.lr.ph ]
+.lr.ph133:                                        ; preds = %.lr.ph, %.lr.ph133
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph133 ], [ 0, %.lr.ph ]
   %74 = load ptr, ptr %71, align 8
   %75 = getelementptr %union.ListCell, ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
@@ -812,9 +808,9 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %82 = load i32, ptr %70, align 4
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph135, label %._crit_edge
+  br i1 %84, label %.lr.ph133, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph135, %.lr.ph, %pg_detoast_datum.exit
+._crit_edge:                                      ; preds = %.lr.ph133, %.lr.ph, %pg_detoast_datum.exit
   store ptr %58, ptr @CurrentMemoryContext, align 8
   br label %85
 
@@ -835,8 +831,8 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %.0..0..0..0.62 = load volatile ptr, ptr %2, align 8
   %90 = getelementptr inbounds i8, ptr %.0..0..0..0.62, i64 56
   %91 = load ptr, ptr %90, align 8
-  %.not116 = icmp eq ptr %91, null
-  br i1 %.not116, label %94, label %92
+  %.not114 = icmp eq ptr %91, null
+  br i1 %.not114, label %94, label %92
 
 92:                                               ; preds = %89
   %93 = call i32 @NewGUCNestLevel() #13
@@ -851,8 +847,8 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %.0..0..0..0.63 = load volatile ptr, ptr %2, align 8
   %96 = getelementptr inbounds i8, ptr %.0..0..0..0.63, i64 48
   %97 = load i32, ptr %96, align 8
-  %.not117 = icmp eq i32 %97, 0
-  br i1 %.not117, label %103, label %98
+  %.not115 = icmp eq i32 %97, 0
+  br i1 %.not115, label %103, label %98
 
 98:                                               ; preds = %95
   %.0..0..0..0.64 = load volatile ptr, ptr %2, align 8
@@ -874,52 +870,52 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %108 = getelementptr inbounds i8, ptr %.0..0..0..0.67, i64 72
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 4
-  %.not118 = icmp eq ptr %105, null
-  %.not119 = icmp eq ptr %107, null
-  %.not120 = icmp eq ptr %109, null
+  %.not116 = icmp eq ptr %105, null
+  %.not117 = icmp eq ptr %107, null
+  %.not118 = icmp eq ptr %109, null
   %111 = getelementptr inbounds i8, ptr %105, i64 4
   %112 = getelementptr inbounds i8, ptr %105, i64 16
   %113 = getelementptr inbounds i8, ptr %107, i64 4
   %114 = getelementptr inbounds i8, ptr %107, i64 16
   %115 = getelementptr inbounds i8, ptr %109, i64 16
-  %116 = select i1 %.not120, i1 true, i1 %.not118
-  %or.cond144 = select i1 %116, i1 true, i1 %.not119
-  br i1 %or.cond144, label %.critedge, label %.split.split.split
+  %116 = select i1 %.not118, i1 true, i1 %.not116
+  %or.cond142 = select i1 %116, i1 true, i1 %.not117
+  br i1 %or.cond142, label %.critedge, label %.split.split.split
 
 .split.split.split:                               ; preds = %103, %142
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %142 ], [ 0, %103 ]
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %142 ], [ 0, %103 ]
   %117 = load i32, ptr %111, align 4
   %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv141, %118
+  %119 = icmp slt i64 %indvars.iv139, %118
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %.split.split.split
   %121 = load ptr, ptr %112, align 8
-  %122 = getelementptr %union.ListCell, ptr %121, i64 %indvars.iv141
+  %122 = getelementptr %union.ListCell, ptr %121, i64 %indvars.iv139
   br label %123
 
 123:                                              ; preds = %.split.split.split, %120
   %124 = phi ptr [ %122, %120 ], [ null, %.split.split.split ]
   %125 = load i32, ptr %113, align 4
   %126 = sext i32 %125 to i64
-  %127 = icmp slt i64 %indvars.iv141, %126
+  %127 = icmp slt i64 %indvars.iv139, %126
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %123
   %129 = load ptr, ptr %114, align 8
-  %130 = getelementptr %union.ListCell, ptr %129, i64 %indvars.iv141
+  %130 = getelementptr %union.ListCell, ptr %129, i64 %indvars.iv139
   br label %131
 
 131:                                              ; preds = %123, %128
   %132 = phi ptr [ %130, %128 ], [ null, %123 ]
   %133 = load i32, ptr %110, align 4
   %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv141, %134
+  %135 = icmp slt i64 %indvars.iv139, %134
   br i1 %135, label %136, label %.critedge
 
 136:                                              ; preds = %131
   %137 = load ptr, ptr %115, align 8
-  %138 = getelementptr %union.ListCell, ptr %137, i64 %indvars.iv141
+  %138 = getelementptr %union.ListCell, ptr %137, i64 %indvars.iv139
   %139 = icmp ne ptr %124, null
   %140 = icmp ne ptr %132, null
   %or.cond = select i1 %139, i1 %140, i1 false
@@ -935,13 +931,13 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %147 = load ptr, ptr %138, align 8
   %148 = call i32 @GetUserId() #13
   %149 = call i32 @set_config_with_handle(ptr noundef %145, ptr noundef %146, ptr noundef %147, i32 noundef %144, i32 noundef 13, i32 noundef %148, i32 noundef 2, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #13
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   br label %.split.split.split, !llvm.loop !7
 
 .critedge:                                        ; preds = %136, %131, %103
   %150 = load ptr, ptr @fmgr_hook, align 8
-  %.not121 = icmp eq ptr %150, null
-  br i1 %.not121, label %153, label %151
+  %.not119 = icmp eq ptr %150, null
+  br i1 %.not119, label %153, label %151
 
 151:                                              ; preds = %.critedge
   %.0..0..0..0.68 = load volatile ptr, ptr %2, align 8
@@ -991,16 +987,16 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %.0..0..0..0.73 = load volatile ptr, ptr %2, align 8
   %175 = getelementptr inbounds i8, ptr %.0..0..0..0.73, i64 56
   %176 = load ptr, ptr %175, align 8
-  %.not123 = icmp eq ptr %176, null
-  br i1 %.not123, label %183, label %182
+  %.not121 = icmp eq ptr %176, null
+  br i1 %.not121, label %183, label %182
 
 177:                                              ; preds = %153
   store ptr %155, ptr @PG_exception_stack, align 8
   store ptr %156, ptr @error_context_stack, align 8
   store ptr %154, ptr %0, align 8
   %178 = load ptr, ptr @fmgr_hook, align 8
-  %.not122 = icmp eq ptr %178, null
-  br i1 %.not122, label %181, label %179
+  %.not120 = icmp eq ptr %178, null
+  br i1 %.not120, label %181, label %179
 
 179:                                              ; preds = %177
   %.0..0..0..0.71 = load volatile ptr, ptr %2, align 8
@@ -1022,8 +1018,8 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
   %.0..0..0..0.74 = load volatile ptr, ptr %2, align 8
   %184 = getelementptr inbounds i8, ptr %.0..0..0..0.74, i64 48
   %185 = load i32, ptr %184, align 8
-  %.not124 = icmp eq i32 %185, 0
-  br i1 %.not124, label %189, label %186
+  %.not122 = icmp eq i32 %185, 0
+  br i1 %.not122, label %189, label %186
 
 186:                                              ; preds = %183
   %187 = load i32, ptr %3, align 4
@@ -1033,8 +1029,8 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
 
 189:                                              ; preds = %186, %183
   %190 = load ptr, ptr @fmgr_hook, align 8
-  %.not125 = icmp eq ptr %190, null
-  br i1 %.not125, label %193, label %191
+  %.not123 = icmp eq ptr %190, null
+  br i1 %.not123, label %193, label %191
 
 191:                                              ; preds = %189
   %.0..0..0..0.75 = load volatile ptr, ptr %2, align 8
@@ -1113,9 +1109,8 @@ define dso_local i64 @DirectFunctionCall1Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %9, align 8
   %10 = call i64 %0(ptr noundef nonnull %4) #13
   %11 = load i8, ptr %6, align 4
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
   %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1148,9 +1143,8 @@ define dso_local i64 @DirectFunctionCall2Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %12, align 8
   %13 = call i64 %0(ptr noundef nonnull %5) #13
   %14 = load i8, ptr %7, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %19, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %4
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1187,9 +1181,8 @@ define dso_local i64 @DirectFunctionCall3Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %15, align 8
   %16 = call i64 %0(ptr noundef nonnull %6) #13
   %17 = load i8, ptr %8, align 4
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %22, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %5
   %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1230,9 +1223,8 @@ define dso_local i64 @DirectFunctionCall4Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %18, align 8
   %19 = call i64 %0(ptr noundef nonnull %7) #13
   %20 = load i8, ptr %9, align 4
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %25, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
 22:                                               ; preds = %6
   %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1277,9 +1269,8 @@ define dso_local i64 @DirectFunctionCall5Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %21, align 8
   %22 = call i64 %0(ptr noundef nonnull %8) #13
   %23 = load i8, ptr %10, align 4
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %28, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %7
   %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1328,9 +1319,8 @@ define dso_local i64 @DirectFunctionCall6Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %24, align 8
   %25 = call i64 %0(ptr noundef nonnull %9) #13
   %26 = load i8, ptr %11, align 4
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %31, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %8
   %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1383,9 +1373,8 @@ define dso_local i64 @DirectFunctionCall7Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %27, align 8
   %28 = call i64 %0(ptr noundef nonnull %10) #13
   %29 = load i8, ptr %12, align 4
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %34, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %34
 
 31:                                               ; preds = %9
   %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1442,9 +1431,8 @@ define dso_local i64 @DirectFunctionCall8Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %30, align 8
   %31 = call i64 %0(ptr noundef nonnull %11) #13
   %32 = load i8, ptr %13, align 4
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %37, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %37
 
 34:                                               ; preds = %10
   %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1505,9 +1493,8 @@ define dso_local i64 @DirectFunctionCall9Coll(ptr noundef %0, i32 noundef %1, i6
   store i8 0, ptr %33, align 8
   %34 = call i64 %0(ptr noundef nonnull %12) #13
   %35 = load i8, ptr %14, align 4
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %40, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
 37:                                               ; preds = %11
   %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1538,9 +1525,8 @@ define dso_local i64 @CallerFInfoFunctionCall1(ptr noundef %0, ptr noundef %1, i
   store i8 0, ptr %11, align 8
   %12 = call i64 %0(ptr noundef nonnull %5) #13
   %13 = load i8, ptr %8, align 4
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %18, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %4
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1575,9 +1561,8 @@ define dso_local i64 @CallerFInfoFunctionCall2(ptr noundef %0, ptr noundef %1, i
   store i8 0, ptr %14, align 8
   %15 = call i64 %0(ptr noundef nonnull %6) #13
   %16 = load i8, ptr %9, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %21, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %5
   %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1605,9 +1590,8 @@ define dso_local i64 @FunctionCall0Coll(ptr noundef %0, i32 noundef %1) local_un
   %8 = load ptr, ptr %0, align 8
   %9 = call i64 %8(ptr noundef nonnull %3) #13
   %10 = load i8, ptr %6, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %17, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
   %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1641,9 +1625,8 @@ define dso_local i64 @FunctionCall1Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %11 = load ptr, ptr %0, align 8
   %12 = call i64 %11(ptr noundef nonnull %4) #13
   %13 = load i8, ptr %7, align 4
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %20, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %3
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1681,9 +1664,8 @@ define dso_local i64 @FunctionCall2Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %14 = load ptr, ptr %0, align 8
   %15 = call i64 %14(ptr noundef nonnull %5) #13
   %16 = load i8, ptr %8, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %23, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %23
 
 18:                                               ; preds = %4
   %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1725,9 +1707,8 @@ define dso_local i64 @FunctionCall3Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %17 = load ptr, ptr %0, align 8
   %18 = call i64 %17(ptr noundef nonnull %6) #13
   %19 = load i8, ptr %9, align 4
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %26, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %5
   %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1773,9 +1754,8 @@ define dso_local i64 @FunctionCall4Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %20 = load ptr, ptr %0, align 8
   %21 = call i64 %20(ptr noundef nonnull %7) #13
   %22 = load i8, ptr %10, align 4
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %29, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %6
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1825,9 +1805,8 @@ define dso_local i64 @FunctionCall5Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %23 = load ptr, ptr %0, align 8
   %24 = call i64 %23(ptr noundef nonnull %8) #13
   %25 = load i8, ptr %11, align 4
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %32, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %32
 
 27:                                               ; preds = %7
   %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1881,9 +1860,8 @@ define dso_local i64 @FunctionCall6Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %26 = load ptr, ptr %0, align 8
   %27 = call i64 %26(ptr noundef nonnull %9) #13
   %28 = load i8, ptr %12, align 4
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %35, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %8
   %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1941,9 +1919,8 @@ define dso_local i64 @FunctionCall7Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %29 = load ptr, ptr %0, align 8
   %30 = call i64 %29(ptr noundef nonnull %10) #13
   %31 = load i8, ptr %13, align 4
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %38, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %38
 
 33:                                               ; preds = %9
   %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2005,9 +1982,8 @@ define dso_local i64 @FunctionCall8Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %32 = load ptr, ptr %0, align 8
   %33 = call i64 %32(ptr noundef nonnull %11) #13
   %34 = load i8, ptr %14, align 4
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %41, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %41
 
 36:                                               ; preds = %10
   %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2073,9 +2049,8 @@ define dso_local i64 @FunctionCall9Coll(ptr noundef %0, i32 noundef %1, i64 noun
   %35 = load ptr, ptr %0, align 8
   %36 = call i64 %35(ptr noundef nonnull %12) #13
   %37 = load i8, ptr %15, align 4
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %11
   %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2109,9 +2084,8 @@ define dso_local i64 @OidFunctionCall0Coll(i32 noundef %0, i32 noundef %1) local
   %10 = load ptr, ptr %4, align 8
   %11 = call i64 %10(ptr noundef nonnull %3) #13
   %12 = load i8, ptr %8, align 4
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %FunctionCall0Coll.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %FunctionCall0Coll.exit
 
 14:                                               ; preds = %2
   %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2150,9 +2124,8 @@ define dso_local i64 @OidFunctionCall1Coll(i32 noundef %0, i32 noundef %1, i64 n
   %13 = load ptr, ptr %5, align 8
   %14 = call i64 %13(ptr noundef nonnull %4) #13
   %15 = load i8, ptr %9, align 4
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %FunctionCall1Coll.exit, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %FunctionCall1Coll.exit
 
 17:                                               ; preds = %3
   %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2195,9 +2168,8 @@ define dso_local i64 @OidFunctionCall2Coll(i32 noundef %0, i32 noundef %1, i64 n
   %16 = load ptr, ptr %6, align 8
   %17 = call i64 %16(ptr noundef nonnull %5) #13
   %18 = load i8, ptr %10, align 4
-  %19 = and i8 %18, 1
-  %.not.i = icmp eq i8 %19, 0
-  br i1 %.not.i, label %FunctionCall2Coll.exit, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %FunctionCall2Coll.exit
 
 20:                                               ; preds = %4
   %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2244,9 +2216,8 @@ define dso_local i64 @OidFunctionCall3Coll(i32 noundef %0, i32 noundef %1, i64 n
   %19 = load ptr, ptr %7, align 8
   %20 = call i64 %19(ptr noundef nonnull %6) #13
   %21 = load i8, ptr %11, align 4
-  %22 = and i8 %21, 1
-  %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %FunctionCall3Coll.exit, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %FunctionCall3Coll.exit
 
 23:                                               ; preds = %5
   %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2297,9 +2268,8 @@ define dso_local i64 @OidFunctionCall4Coll(i32 noundef %0, i32 noundef %1, i64 n
   %22 = load ptr, ptr %8, align 8
   %23 = call i64 %22(ptr noundef nonnull %7) #13
   %24 = load i8, ptr %12, align 4
-  %25 = and i8 %24, 1
-  %.not.i = icmp eq i8 %25, 0
-  br i1 %.not.i, label %FunctionCall4Coll.exit, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %FunctionCall4Coll.exit
 
 26:                                               ; preds = %6
   %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2354,9 +2324,8 @@ define dso_local i64 @OidFunctionCall5Coll(i32 noundef %0, i32 noundef %1, i64 n
   %25 = load ptr, ptr %9, align 8
   %26 = call i64 %25(ptr noundef nonnull %8) #13
   %27 = load i8, ptr %13, align 4
-  %28 = and i8 %27, 1
-  %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %FunctionCall5Coll.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %FunctionCall5Coll.exit
 
 29:                                               ; preds = %7
   %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2415,9 +2384,8 @@ define dso_local i64 @OidFunctionCall6Coll(i32 noundef %0, i32 noundef %1, i64 n
   %28 = load ptr, ptr %10, align 8
   %29 = call i64 %28(ptr noundef nonnull %9) #13
   %30 = load i8, ptr %14, align 4
-  %31 = and i8 %30, 1
-  %.not.i = icmp eq i8 %31, 0
-  br i1 %.not.i, label %FunctionCall6Coll.exit, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %FunctionCall6Coll.exit
 
 32:                                               ; preds = %8
   %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2480,9 +2448,8 @@ define dso_local i64 @OidFunctionCall7Coll(i32 noundef %0, i32 noundef %1, i64 n
   %31 = load ptr, ptr %11, align 8
   %32 = call i64 %31(ptr noundef nonnull %10) #13
   %33 = load i8, ptr %15, align 4
-  %34 = and i8 %33, 1
-  %.not.i = icmp eq i8 %34, 0
-  br i1 %.not.i, label %FunctionCall7Coll.exit, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %FunctionCall7Coll.exit
 
 35:                                               ; preds = %9
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2549,9 +2516,8 @@ define dso_local i64 @OidFunctionCall8Coll(i32 noundef %0, i32 noundef %1, i64 n
   %34 = load ptr, ptr %12, align 8
   %35 = call i64 %34(ptr noundef nonnull %11) #13
   %36 = load i8, ptr %16, align 4
-  %37 = and i8 %36, 1
-  %.not.i = icmp eq i8 %37, 0
-  br i1 %.not.i, label %FunctionCall8Coll.exit, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %FunctionCall8Coll.exit
 
 38:                                               ; preds = %10
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2622,9 +2588,8 @@ define dso_local i64 @OidFunctionCall9Coll(i32 noundef %0, i32 noundef %1, i64 n
   %37 = load ptr, ptr %13, align 8
   %38 = call i64 %37(ptr noundef nonnull %12) #13
   %39 = load i8, ptr %17, align 4
-  %40 = and i8 %39, 1
-  %.not.i = icmp eq i8 %40, 0
-  br i1 %.not.i, label %FunctionCall9Coll.exit, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %FunctionCall9Coll.exit
 
 41:                                               ; preds = %11
   %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2649,9 +2614,8 @@ define dso_local i64 @InputFunctionCall(ptr noundef %0, ptr noundef %1, i32 noun
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 14
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %40
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %40, label %11
 
 11:                                               ; preds = %4, %7
   store ptr %0, ptr %5, align 8
@@ -2678,12 +2642,11 @@ define dso_local i64 @InputFunctionCall(ptr noundef %0, ptr noundef %1, i32 noun
   %24 = load ptr, ptr %0, align 8
   %25 = call i64 %24(ptr noundef nonnull %5) #13
   %26 = load i8, ptr %13, align 4
-  %27 = and i8 %26, 1
-  %.not27 = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   br i1 %6, label %28, label %34
 
 28:                                               ; preds = %11
-  br i1 %.not27, label %29, label %40
+  br i1 %27, label %40, label %29
 
 29:                                               ; preds = %28
   %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2695,7 +2658,7 @@ define dso_local i64 @InputFunctionCall(ptr noundef %0, ptr noundef %1, i32 noun
   unreachable
 
 34:                                               ; preds = %11
-  br i1 %.not27, label %40, label %35
+  br i1 %27, label %35, label %40
 
 35:                                               ; preds = %34
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2720,9 +2683,8 @@ define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr n
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 14
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %14, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
   store i64 0, ptr %5, align 8
@@ -2758,8 +2720,8 @@ define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr n
   %29 = load ptr, ptr %0, align 8
   %30 = call i64 %29(ptr noundef nonnull %7) #13
   store i64 %30, ptr %5, align 8
-  %.not32 = icmp eq ptr %4, null
-  br i1 %.not32, label %38, label %31
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %38, label %31
 
 31:                                               ; preds = %14
   %32 = load i32, ptr %4, align 4
@@ -2769,18 +2731,16 @@ define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr n
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %4, i64 4
   %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, 1
-  %.not33 = icmp eq i8 %37, 0
-  br i1 %.not33, label %38, label %53
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %53, label %38
 
 38:                                               ; preds = %34, %31, %14
   %39 = load i8, ptr %18, align 4
-  %40 = and i8 %39, 1
-  %.not35 = icmp eq i8 %40, 0
+  %40 = trunc i8 %39 to i1
   br i1 %8, label %41, label %47
 
 41:                                               ; preds = %38
-  br i1 %.not35, label %42, label %53
+  br i1 %40, label %53, label %42
 
 42:                                               ; preds = %41
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2792,7 +2752,7 @@ define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr n
   unreachable
 
 47:                                               ; preds = %38
-  br i1 %.not35, label %53, label %48
+  br i1 %40, label %48, label %53
 
 48:                                               ; preds = %47
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2858,15 +2818,13 @@ define dso_local noundef zeroext i1 @DirectInputFunctionCallSafe(ptr noundef %0,
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %4, i64 4
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not28 = icmp eq i8 %32, 0
-  br i1 %.not28, label %33, label %39
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %39, label %33
 
 33:                                               ; preds = %29, %26, %10
   %34 = load i8, ptr %14, align 4
-  %35 = and i8 %34, 1
-  %.not29 = icmp eq i8 %35, 0
-  br i1 %.not29, label %39, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %33
   %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2897,9 +2855,8 @@ define dso_local ptr @OutputFunctionCall(ptr noundef %0, i64 noundef %1) local_u
   %9 = load ptr, ptr %0, align 8
   %10 = call i64 %9(ptr noundef nonnull %3) #13
   %11 = load i8, ptr %5, align 4
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %FunctionCall1Coll.exit, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %FunctionCall1Coll.exit
 
 13:                                               ; preds = %2
   %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2925,9 +2882,8 @@ define dso_local i64 @ReceiveFunctionCall(ptr noundef %0, ptr noundef %1, i32 no
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 14
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %40
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %40, label %11
 
 11:                                               ; preds = %4, %7
   store ptr %0, ptr %5, align 8
@@ -2954,12 +2910,11 @@ define dso_local i64 @ReceiveFunctionCall(ptr noundef %0, ptr noundef %1, i32 no
   %24 = load ptr, ptr %0, align 8
   %25 = call i64 %24(ptr noundef nonnull %5) #13
   %26 = load i8, ptr %13, align 4
-  %27 = and i8 %26, 1
-  %.not27 = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   br i1 %6, label %28, label %34
 
 28:                                               ; preds = %11
-  br i1 %.not27, label %29, label %40
+  br i1 %27, label %40, label %29
 
 29:                                               ; preds = %28
   %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2971,7 +2926,7 @@ define dso_local i64 @ReceiveFunctionCall(ptr noundef %0, ptr noundef %1, i32 no
   unreachable
 
 34:                                               ; preds = %11
-  br i1 %.not27, label %40, label %35
+  br i1 %27, label %35, label %40
 
 35:                                               ; preds = %34
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -3004,9 +2959,8 @@ define dso_local ptr @SendFunctionCall(ptr noundef %0, i64 noundef %1) local_unn
   %9 = load ptr, ptr %0, align 8
   %10 = call i64 %9(ptr noundef nonnull %3) #13
   %11 = load i8, ptr %5, align 4
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %FunctionCall1Coll.exit, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %FunctionCall1Coll.exit
 
 13:                                               ; preds = %2
   %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -3063,9 +3017,8 @@ define dso_local ptr @OidOutputFunctionCall(i32 noundef %0, i64 noundef %1) loca
   %11 = load ptr, ptr %4, align 8
   %12 = call i64 %11(ptr noundef nonnull %3) #13
   %13 = load i8, ptr %7, align 4
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %OutputFunctionCall.exit, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %OutputFunctionCall.exit
 
 15:                                               ; preds = %2
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -3111,9 +3064,8 @@ define dso_local ptr @OidSendFunctionCall(i32 noundef %0, i64 noundef %1) local_
   %11 = load ptr, ptr %4, align 8
   %12 = call i64 %11(ptr noundef nonnull %3) #13
   %13 = load i8, ptr %7, align 4
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %FunctionCall1Coll.exit.i, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %FunctionCall1Coll.exit.i
 
 15:                                               ; preds = %2
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -3237,115 +3189,113 @@ define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly %0, i32 noundef %
 switch.hole_check:                                ; preds = %6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
-  %9 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %9, 0
-  br i1 %switch.lobit.not, label %get_call_expr_argtype.exit, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_argtype.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %10
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 %switch.load
-  %.023.i = load ptr, ptr %11, align 8
-  %12 = icmp slt i32 %1, 0
-  br i1 %12, label %get_call_expr_argtype.exit, label %13
+  %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
+  %.023.i = load ptr, ptr %10, align 8
+  %11 = icmp slt i32 %1, 0
+  br i1 %11, label %get_call_expr_argtype.exit, label %12
 
-13:                                               ; preds = %switch.lookup
+12:                                               ; preds = %switch.lookup
   %.not.i.i = icmp eq ptr %.023.i, null
-  br i1 %.not.i.i, label %list_length.exit.i, label %14
+  br i1 %.not.i.i, label %list_length.exit.i, label %13
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.023.i, i64 4
-  %16 = load i32, ptr %15, align 4
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %.023.i, i64 4
+  %15 = load i32, ptr %14, align 4
   br label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %14, %13
-  %17 = phi i32 [ %16, %14 ], [ 0, %13 ]
-  %.not.i = icmp sgt i32 %17, %1
-  br i1 %.not.i, label %18, label %get_call_expr_argtype.exit
+list_length.exit.i:                               ; preds = %13, %12
+  %16 = phi i32 [ %15, %13 ], [ 0, %12 ]
+  %.not.i = icmp sgt i32 %16, %1
+  br i1 %.not.i, label %17, label %get_call_expr_argtype.exit
 
-18:                                               ; preds = %list_length.exit.i
-  %19 = getelementptr i8, ptr %.023.i, i64 16
-  %.023.val.i = load ptr, ptr %19, align 8
-  %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %union.ListCell, ptr %.023.val.i, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @exprType(ptr noundef %22) #13
-  %24 = load i32, ptr %5, align 4
-  %25 = icmp eq i32 %24, 18
-  %26 = icmp eq i32 %1, 1
-  %or.cond.i = and i1 %26, %25
-  br i1 %or.cond.i, label %27, label %get_call_expr_argtype.exit
+17:                                               ; preds = %list_length.exit.i
+  %18 = getelementptr i8, ptr %.023.i, i64 16
+  %.023.val.i = load ptr, ptr %18, align 8
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %union.ListCell, ptr %.023.val.i, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @exprType(ptr noundef %21) #13
+  %23 = load i32, ptr %5, align 4
+  %24 = icmp eq i32 %23, 18
+  %25 = icmp eq i32 %1, 1
+  %or.cond.i = and i1 %25, %24
+  br i1 %or.cond.i, label %26, label %get_call_expr_argtype.exit
 
-27:                                               ; preds = %18
-  %28 = tail call i32 @get_base_element_type(i32 noundef %23) #13
+26:                                               ; preds = %17
+  %27 = tail call i32 @get_base_element_type(i32 noundef %22) #13
   br label %get_call_expr_argtype.exit
 
-get_call_expr_argtype.exit:                       ; preds = %switch.hole_check, %6, %27, %18, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %28, %27 ], [ %23, %18 ], [ 0, %switch.hole_check ]
+get_call_expr_argtype.exit:                       ; preds = %switch.hole_check, %6, %26, %17, %list_length.exit.i, %switch.lookup, %2, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %27, %26 ], [ %22, %17 ], [ 0, %switch.hole_check ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_call_expr_argtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %27, label %4
+  br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   %switch.tableidx = add i32 %5, -11
   %6 = icmp ult i32 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %27
+  br i1 %6, label %switch.hole_check, label %26
 
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
-  %7 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %7, 0
-  br i1 %switch.lobit.not, label %27, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %26
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %8
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.023 = load ptr, ptr %9, align 8
-  %10 = icmp slt i32 %1, 0
-  br i1 %10, label %27, label %11
+  %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
+  %.023 = load ptr, ptr %8, align 8
+  %9 = icmp slt i32 %1, 0
+  br i1 %9, label %26, label %10
 
-11:                                               ; preds = %switch.lookup
+10:                                               ; preds = %switch.lookup
   %.not.i = icmp eq ptr %.023, null
-  br i1 %.not.i, label %list_length.exit, label %12
+  br i1 %.not.i, label %list_length.exit, label %11
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.023, i64 4
-  %14 = load i32, ptr %13, align 4
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %.023, i64 4
+  %13 = load i32, ptr %12, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %11, %12
-  %15 = phi i32 [ %14, %12 ], [ 0, %11 ]
-  %.not = icmp sgt i32 %15, %1
-  br i1 %.not, label %16, label %27
+list_length.exit:                                 ; preds = %10, %11
+  %14 = phi i32 [ %13, %11 ], [ 0, %10 ]
+  %.not = icmp sgt i32 %14, %1
+  br i1 %.not, label %15, label %26
 
-16:                                               ; preds = %list_length.exit
-  %17 = getelementptr i8, ptr %.023, i64 16
-  %.023.val = load ptr, ptr %17, align 8
-  %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %union.ListCell, ptr %.023.val, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @exprType(ptr noundef %20) #13
-  %22 = load i32, ptr %0, align 4
-  %23 = icmp eq i32 %22, 18
-  %24 = icmp eq i32 %1, 1
-  %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %25, label %27
+15:                                               ; preds = %list_length.exit
+  %16 = getelementptr i8, ptr %.023, i64 16
+  %.023.val = load ptr, ptr %16, align 8
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr %union.ListCell, ptr %.023.val, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 @exprType(ptr noundef %19) #13
+  %21 = load i32, ptr %0, align 4
+  %22 = icmp eq i32 %21, 18
+  %23 = icmp eq i32 %1, 1
+  %or.cond = and i1 %23, %22
+  br i1 %or.cond, label %24, label %26
 
-25:                                               ; preds = %16
-  %26 = tail call i32 @get_base_element_type(i32 noundef %21) #13
-  br label %27
+24:                                               ; preds = %15
+  %25 = tail call i32 @get_base_element_type(i32 noundef %20) #13
+  br label %26
 
-27:                                               ; preds = %switch.hole_check, %4, %16, %25, %switch.lookup, %list_length.exit, %2
-  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %26, %25 ], [ %21, %16 ], [ 0, %switch.hole_check ]
+26:                                               ; preds = %switch.hole_check, %4, %15, %24, %switch.lookup, %list_length.exit, %2
+  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %25, %24 ], [ %20, %15 ], [ 0, %switch.hole_check ]
   ret i32 %.024
 }
 
@@ -3371,151 +3321,148 @@ define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly
 switch.hole_check:                                ; preds = %6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
-  %9 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %9, 0
-  br i1 %switch.lobit.not, label %get_call_expr_arg_stable.exit, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_arg_stable.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %10
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 %switch.load
-  %.021.i = load ptr, ptr %11, align 8
-  %12 = icmp slt i32 %1, 0
-  br i1 %12, label %get_call_expr_arg_stable.exit, label %13
+  %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
+  %.021.i = load ptr, ptr %10, align 8
+  %11 = icmp slt i32 %1, 0
+  br i1 %11, label %get_call_expr_arg_stable.exit, label %12
 
-13:                                               ; preds = %switch.lookup
+12:                                               ; preds = %switch.lookup
   %.not.i.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i.i, label %list_length.exit.i, label %14
+  br i1 %.not.i.i, label %list_length.exit.i, label %13
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.021.i, i64 4
-  %16 = load i32, ptr %15, align 4
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %.021.i, i64 4
+  %15 = load i32, ptr %14, align 4
   br label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %14, %13
-  %17 = phi i32 [ %16, %14 ], [ 0, %13 ]
-  %.not.i = icmp sgt i32 %17, %1
-  br i1 %.not.i, label %18, label %get_call_expr_arg_stable.exit
+list_length.exit.i:                               ; preds = %13, %12
+  %16 = phi i32 [ %15, %13 ], [ 0, %12 ]
+  %.not.i = icmp sgt i32 %16, %1
+  br i1 %.not.i, label %17, label %get_call_expr_arg_stable.exit
 
-18:                                               ; preds = %list_length.exit.i
-  %19 = getelementptr i8, ptr %.021.i, i64 16
-  %.021.val.i = load ptr, ptr %19, align 8
-  %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %union.ListCell, ptr %.021.val.i, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %22, align 4
-  switch i32 %23, label %28 [
+17:                                               ; preds = %list_length.exit.i
+  %18 = getelementptr i8, ptr %.021.i, i64 16
+  %.021.val.i = load ptr, ptr %18, align 8
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %union.ListCell, ptr %.021.val.i, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %21, align 4
+  switch i32 %22, label %27 [
     i32 7, label %get_call_expr_arg_stable.exit
-    i32 8, label %24
+    i32 8, label %23
   ]
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %get_call_expr_arg_stable.exit, label %28
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %get_call_expr_arg_stable.exit, label %27
 
-28:                                               ; preds = %24, %18
+27:                                               ; preds = %23, %17
   br label %get_call_expr_arg_stable.exit
 
-get_call_expr_arg_stable.exit:                    ; preds = %switch.hole_check, %6, %28, %24, %18, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %28 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %18 ], [ true, %24 ], [ false, %switch.hole_check ]
+get_call_expr_arg_stable.exit:                    ; preds = %switch.hole_check, %6, %27, %23, %17, %list_length.exit.i, %switch.lookup, %2, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %27 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %17 ], [ true, %23 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %27, label %4
+  br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   %switch.tableidx = add i32 %5, -11
   %6 = icmp ult i32 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %27
+  br i1 %6, label %switch.hole_check, label %26
 
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
-  %7 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %7, 0
-  br i1 %switch.lobit.not, label %27, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %26
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %8
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.021 = load ptr, ptr %9, align 8
-  %10 = icmp slt i32 %1, 0
-  br i1 %10, label %27, label %11
+  %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
+  %.021 = load ptr, ptr %8, align 8
+  %9 = icmp slt i32 %1, 0
+  br i1 %9, label %26, label %10
 
-11:                                               ; preds = %switch.lookup
+10:                                               ; preds = %switch.lookup
   %.not.i = icmp eq ptr %.021, null
-  br i1 %.not.i, label %list_length.exit, label %12
+  br i1 %.not.i, label %list_length.exit, label %11
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.021, i64 4
-  %14 = load i32, ptr %13, align 4
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %.021, i64 4
+  %13 = load i32, ptr %12, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %11, %12
-  %15 = phi i32 [ %14, %12 ], [ 0, %11 ]
-  %.not = icmp sgt i32 %15, %1
-  br i1 %.not, label %16, label %27
+list_length.exit:                                 ; preds = %10, %11
+  %14 = phi i32 [ %13, %11 ], [ 0, %10 ]
+  %.not = icmp sgt i32 %14, %1
+  br i1 %.not, label %15, label %26
 
-16:                                               ; preds = %list_length.exit
-  %17 = getelementptr i8, ptr %.021, i64 16
-  %.021.val = load ptr, ptr %17, align 8
-  %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %union.ListCell, ptr %.021.val, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %20, align 4
-  switch i32 %21, label %26 [
-    i32 7, label %27
-    i32 8, label %22
+15:                                               ; preds = %list_length.exit
+  %16 = getelementptr i8, ptr %.021, i64 16
+  %.021.val = load ptr, ptr %16, align 8
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr %union.ListCell, ptr %.021.val, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %19, align 4
+  switch i32 %20, label %25 [
+    i32 7, label %26
+    i32 8, label %21
   ]
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %26, label %25
 
-26:                                               ; preds = %16, %22
-  br label %27
+25:                                               ; preds = %15, %21
+  br label %26
 
-27:                                               ; preds = %switch.hole_check, %4, %22, %16, %switch.lookup, %list_length.exit, %2, %26
-  %.0 = phi i1 [ false, %26 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %16 ], [ true, %22 ], [ false, %switch.hole_check ]
+26:                                               ; preds = %switch.hole_check, %4, %21, %15, %switch.lookup, %list_length.exit, %2, %25
+  %.0 = phi i1 [ false, %25 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %15 ], [ true, %21 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @get_fn_expr_variadic(ptr noundef readonly %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %2
+  br i1 %.not, label %12, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
-  br i1 %.not8, label %13, label %5
+  br i1 %.not8, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %4, align 4
   %7 = icmp eq i32 %6, 13
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %4, i64 13
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %12 = icmp ne i8 %11, 0
-  br label %13
+  %11 = trunc i8 %10 to i1
+  br label %12
 
-13:                                               ; preds = %5, %1, %2, %8
-  %.0 = phi i1 [ %12, %8 ], [ false, %2 ], [ false, %1 ], [ false, %5 ]
+12:                                               ; preds = %5, %1, %2, %8
+  %.0 = phi i1 [ %11, %8 ], [ false, %2 ], [ false, %1 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -3534,34 +3481,34 @@ declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @has_fn_opclass_options(ptr noundef readonly %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %16, label %2
+  br i1 %.not, label %17, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %4, null
-  br i1 %.not9, label %16, label %5
+  br i1 %.not9, label %17, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %4, align 4
   %7 = icmp eq i32 %6, 7
-  br i1 %7, label %8, label %16
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 17
-  br i1 %11, label %12, label %16
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 32
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not10 = icmp eq i8 %15, 0
-  br label %16
+  %15 = trunc i8 %14 to i1
+  %16 = xor i1 %15, true
+  br label %17
 
-16:                                               ; preds = %1, %2, %5, %8, %12
-  %.0 = phi i1 [ %.not10, %12 ], [ false, %8 ], [ false, %5 ], [ false, %2 ], [ false, %1 ]
+17:                                               ; preds = %1, %2, %5, %8, %12
+  %.0 = phi i1 [ %16, %12 ], [ false, %8 ], [ false, %5 ], [ false, %2 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -3590,9 +3537,8 @@ define dso_local ptr @get_fn_opclass_options(ptr noundef readonly %0) local_unna
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 32
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not10 = icmp eq i8 %15, 0
-  br i1 %.not10, label %16, label %pg_detoast_datum.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %pg_detoast_datum.exit, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %4, i64 24

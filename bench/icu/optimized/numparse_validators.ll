@@ -220,9 +220,8 @@ define void @_ZNK6icu_758numparse4impl22MultiplierParseHandler11postProcessERNS1
 entry:
   %bogus = getelementptr inbounds i8, ptr %result, i64 8
   %0 = load i8, ptr %bogus, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %fMultiplier = getelementptr inbounds i8, ptr %this, i64 8

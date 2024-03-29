@@ -1000,9 +1000,8 @@ if.end:                                           ; preds = %entry
 
 if.then66:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool67.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool67.not, ptr @.str.13, ptr @.str.12
+  %tobool67 = trunc i8 %3 to i1
+  %cond = select i1 %tobool67, ptr @.str.12, ptr @.str.13
   %call69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1024,7 +1023,7 @@ invoke.cont78:                                    ; preds = %invoke.cont75
           to label %done.sink.split unwind label %lpad79
 
 lpad79:                                           ; preds = %invoke.cont78
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup116
@@ -1043,7 +1042,7 @@ invoke.cont106:                                   ; preds = %if.then103
           to label %done.sink.split unwind label %lpad107
 
 lpad107:                                          ; preds = %invoke.cont106
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #9
   br label %ehcleanup116
@@ -1054,8 +1053,8 @@ done.sink.split:                                  ; preds = %invoke.cont106, %in
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then66
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17, ptr noundef nonnull align 4 dereferenceable(4) %args19, ptr noundef nonnull align 4 dereferenceable(4) %args21, ptr noundef nonnull align 8 dereferenceable(32) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 1 dereferenceable(1) %args31, ptr noundef nonnull align 4 dereferenceable(5) %args33, ptr noundef nonnull align 4 dereferenceable(5) %args35, ptr noundef nonnull align 1 dereferenceable(1) %args37, ptr noundef nonnull align 1 dereferenceable(1) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 8 dereferenceable(32) %args45, ptr noundef nonnull align 8 dereferenceable(32) %args47, ptr noundef nonnull align 8 dereferenceable(32) %args49, ptr noundef nonnull align 4 dereferenceable(17) %args51, ptr noundef nonnull align 4 dereferenceable(17) %args53, ptr noundef nonnull align 4 dereferenceable(9) %args55, ptr noundef nonnull align 4 dereferenceable(4) %args57)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17, ptr noundef nonnull align 4 dereferenceable(4) %args19, ptr noundef nonnull align 4 dereferenceable(4) %args21, ptr noundef nonnull align 8 dereferenceable(32) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 1 dereferenceable(1) %args31, ptr noundef nonnull align 4 dereferenceable(5) %args33, ptr noundef nonnull align 4 dereferenceable(5) %args35, ptr noundef nonnull align 1 dereferenceable(1) %args37, ptr noundef nonnull align 1 dereferenceable(1) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 8 dereferenceable(32) %args45, ptr noundef nonnull align 8 dereferenceable(32) %args47, ptr noundef nonnull align 8 dereferenceable(32) %args49, ptr noundef nonnull align 4 dereferenceable(17) %args51, ptr noundef nonnull align 4 dereferenceable(17) %args53, ptr noundef nonnull align 4 dereferenceable(9) %args55, ptr noundef nonnull align 4 dereferenceable(4) %args57)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1063,7 +1062,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup116:                                     ; preds = %lpad107, %lpad79, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad79 ], [ %6, %lpad107 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad79 ], [ %5, %lpad107 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1104,9 +1103,8 @@ if.end:                                           ; preds = %entry
 
 if.then64:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool65.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool65.not, ptr @.str.13, ptr @.str.12
+  %tobool65 = trunc i8 %3 to i1
+  %cond = select i1 %tobool65, ptr @.str.12, ptr @.str.13
   %call67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1128,7 +1126,7 @@ invoke.cont77:                                    ; preds = %invoke.cont74
           to label %done.sink.split unwind label %lpad78
 
 lpad78:                                           ; preds = %invoke.cont77
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup115
@@ -1147,7 +1145,7 @@ invoke.cont105:                                   ; preds = %if.then102
           to label %done.sink.split unwind label %lpad106
 
 lpad106:                                          ; preds = %invoke.cont105
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103) #9
   br label %ehcleanup115
@@ -1158,8 +1156,8 @@ done.sink.split:                                  ; preds = %invoke.cont105, %in
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then64
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17, ptr noundef nonnull align 4 dereferenceable(4) %args19, ptr noundef nonnull align 8 dereferenceable(32) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 4 dereferenceable(5) %args31, ptr noundef nonnull align 4 dereferenceable(5) %args33, ptr noundef nonnull align 1 dereferenceable(1) %args35, ptr noundef nonnull align 1 dereferenceable(1) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 8 dereferenceable(32) %args45, ptr noundef nonnull align 8 dereferenceable(32) %args47, ptr noundef nonnull align 4 dereferenceable(17) %args49, ptr noundef nonnull align 4 dereferenceable(17) %args51, ptr noundef nonnull align 4 dereferenceable(9) %args53, ptr noundef nonnull align 4 dereferenceable(4) %args55)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17, ptr noundef nonnull align 4 dereferenceable(4) %args19, ptr noundef nonnull align 8 dereferenceable(32) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 4 dereferenceable(5) %args31, ptr noundef nonnull align 4 dereferenceable(5) %args33, ptr noundef nonnull align 1 dereferenceable(1) %args35, ptr noundef nonnull align 1 dereferenceable(1) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 8 dereferenceable(32) %args45, ptr noundef nonnull align 8 dereferenceable(32) %args47, ptr noundef nonnull align 4 dereferenceable(17) %args49, ptr noundef nonnull align 4 dereferenceable(17) %args51, ptr noundef nonnull align 4 dereferenceable(9) %args53, ptr noundef nonnull align 4 dereferenceable(4) %args55)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1167,7 +1165,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup115:                                     ; preds = %lpad106, %lpad78, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad78 ], [ %6, %lpad106 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad78 ], [ %5, %lpad106 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1242,9 +1240,8 @@ if.end:                                           ; preds = %entry
 
 if.then62:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool63.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool63.not, ptr @.str.13, ptr @.str.12
+  %tobool63 = trunc i8 %3 to i1
+  %cond = select i1 %tobool63, ptr @.str.12, ptr @.str.13
   %call65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1266,7 +1263,7 @@ invoke.cont74:                                    ; preds = %invoke.cont71
           to label %done.sink.split unwind label %lpad75
 
 lpad75:                                           ; preds = %invoke.cont74
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup112
@@ -1285,7 +1282,7 @@ invoke.cont102:                                   ; preds = %if.then99
           to label %done.sink.split unwind label %lpad103
 
 lpad103:                                          ; preds = %invoke.cont102
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100) #9
   br label %ehcleanup112
@@ -1296,8 +1293,8 @@ done.sink.split:                                  ; preds = %invoke.cont102, %in
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then62
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17, ptr noundef nonnull align 8 dereferenceable(32) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 4 dereferenceable(5) %args29, ptr noundef nonnull align 4 dereferenceable(5) %args31, ptr noundef nonnull align 1 dereferenceable(1) %args33, ptr noundef nonnull align 1 dereferenceable(1) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 8 dereferenceable(32) %args45, ptr noundef nonnull align 4 dereferenceable(17) %args47, ptr noundef nonnull align 4 dereferenceable(17) %args49, ptr noundef nonnull align 4 dereferenceable(9) %args51, ptr noundef nonnull align 4 dereferenceable(4) %args53)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17, ptr noundef nonnull align 8 dereferenceable(32) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 4 dereferenceable(5) %args29, ptr noundef nonnull align 4 dereferenceable(5) %args31, ptr noundef nonnull align 1 dereferenceable(1) %args33, ptr noundef nonnull align 1 dereferenceable(1) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 8 dereferenceable(32) %args45, ptr noundef nonnull align 4 dereferenceable(17) %args47, ptr noundef nonnull align 4 dereferenceable(17) %args49, ptr noundef nonnull align 4 dereferenceable(9) %args51, ptr noundef nonnull align 4 dereferenceable(4) %args53)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1305,7 +1302,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup112:                                     ; preds = %lpad103, %lpad75, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad75 ], [ %6, %lpad103 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad75 ], [ %5, %lpad103 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1346,9 +1343,8 @@ if.end:                                           ; preds = %entry
 
 if.then60:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool61.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool61.not, ptr @.str.13, ptr @.str.12
+  %tobool61 = trunc i8 %3 to i1
+  %cond = select i1 %tobool61, ptr @.str.12, ptr @.str.13
   %call63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1370,7 +1366,7 @@ invoke.cont72:                                    ; preds = %invoke.cont69
           to label %done.sink.split unwind label %lpad73
 
 lpad73:                                           ; preds = %invoke.cont72
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup110
@@ -1389,7 +1385,7 @@ invoke.cont100:                                   ; preds = %if.then97
           to label %done.sink.split unwind label %lpad101
 
 lpad101:                                          ; preds = %invoke.cont100
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #9
   br label %ehcleanup110
@@ -1400,8 +1396,8 @@ done.sink.split:                                  ; preds = %invoke.cont100, %in
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then60
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 4 dereferenceable(4) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 4 dereferenceable(5) %args27, ptr noundef nonnull align 4 dereferenceable(5) %args29, ptr noundef nonnull align 1 dereferenceable(1) %args31, ptr noundef nonnull align 1 dereferenceable(1) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 4 dereferenceable(17) %args45, ptr noundef nonnull align 4 dereferenceable(17) %args47, ptr noundef nonnull align 4 dereferenceable(9) %args49, ptr noundef nonnull align 4 dereferenceable(4) %args51)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 4 dereferenceable(4) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 4 dereferenceable(5) %args27, ptr noundef nonnull align 4 dereferenceable(5) %args29, ptr noundef nonnull align 1 dereferenceable(1) %args31, ptr noundef nonnull align 1 dereferenceable(1) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 8 dereferenceable(32) %args43, ptr noundef nonnull align 4 dereferenceable(17) %args45, ptr noundef nonnull align 4 dereferenceable(17) %args47, ptr noundef nonnull align 4 dereferenceable(9) %args49, ptr noundef nonnull align 4 dereferenceable(4) %args51)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1409,7 +1405,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup110:                                     ; preds = %lpad101, %lpad73, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad73 ], [ %6, %lpad101 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad73 ], [ %5, %lpad101 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1450,9 +1446,8 @@ if.end:                                           ; preds = %entry
 
 if.then58:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool59.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool59.not, ptr @.str.13, ptr @.str.12
+  %tobool59 = trunc i8 %3 to i1
+  %cond = select i1 %tobool59, ptr @.str.12, ptr @.str.13
   %call61 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1474,7 +1469,7 @@ invoke.cont70:                                    ; preds = %invoke.cont67
           to label %done.sink.split unwind label %lpad71
 
 lpad71:                                           ; preds = %invoke.cont70
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup108
@@ -1493,7 +1488,7 @@ invoke.cont98:                                    ; preds = %if.then95
           to label %done.sink.split unwind label %lpad99
 
 lpad99:                                           ; preds = %invoke.cont98
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #9
   br label %ehcleanup108
@@ -1504,8 +1499,8 @@ done.sink.split:                                  ; preds = %invoke.cont98, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then58
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 4 dereferenceable(4) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 4 dereferenceable(5) %args25, ptr noundef nonnull align 4 dereferenceable(5) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 1 dereferenceable(1) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 4 dereferenceable(17) %args43, ptr noundef nonnull align 4 dereferenceable(17) %args45, ptr noundef nonnull align 4 dereferenceable(9) %args47, ptr noundef nonnull align 4 dereferenceable(4) %args49)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 4 dereferenceable(4) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 4 dereferenceable(5) %args25, ptr noundef nonnull align 4 dereferenceable(5) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 1 dereferenceable(1) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 8 dereferenceable(32) %args41, ptr noundef nonnull align 4 dereferenceable(17) %args43, ptr noundef nonnull align 4 dereferenceable(17) %args45, ptr noundef nonnull align 4 dereferenceable(9) %args47, ptr noundef nonnull align 4 dereferenceable(4) %args49)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1513,7 +1508,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup108:                                     ; preds = %lpad99, %lpad71, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad71 ], [ %6, %lpad99 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad71 ], [ %5, %lpad99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1554,9 +1549,8 @@ if.end:                                           ; preds = %entry
 
 if.then56:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool57.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool57.not, ptr @.str.13, ptr @.str.12
+  %tobool57 = trunc i8 %3 to i1
+  %cond = select i1 %tobool57, ptr @.str.12, ptr @.str.13
   %call59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1578,7 +1572,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
           to label %done.sink.split unwind label %lpad69
 
 lpad69:                                           ; preds = %invoke.cont68
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup106
@@ -1597,7 +1591,7 @@ invoke.cont96:                                    ; preds = %if.then93
           to label %done.sink.split unwind label %lpad97
 
 lpad97:                                           ; preds = %invoke.cont96
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94) #9
   br label %ehcleanup106
@@ -1608,8 +1602,8 @@ done.sink.split:                                  ; preds = %invoke.cont96, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then56
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 4 dereferenceable(4) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 4 dereferenceable(5) %args23, ptr noundef nonnull align 4 dereferenceable(5) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 4 dereferenceable(17) %args41, ptr noundef nonnull align 4 dereferenceable(17) %args43, ptr noundef nonnull align 4 dereferenceable(9) %args45, ptr noundef nonnull align 4 dereferenceable(4) %args47)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 4 dereferenceable(4) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 4 dereferenceable(5) %args23, ptr noundef nonnull align 4 dereferenceable(5) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 1 dereferenceable(1) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 8 dereferenceable(32) %args39, ptr noundef nonnull align 4 dereferenceable(17) %args41, ptr noundef nonnull align 4 dereferenceable(17) %args43, ptr noundef nonnull align 4 dereferenceable(9) %args45, ptr noundef nonnull align 4 dereferenceable(4) %args47)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1617,7 +1611,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup106:                                     ; preds = %lpad97, %lpad69, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad69 ], [ %6, %lpad97 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad69 ], [ %5, %lpad97 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1658,9 +1652,8 @@ if.end:                                           ; preds = %entry
 
 if.then54:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool55.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool55.not, ptr @.str.13, ptr @.str.12
+  %tobool55 = trunc i8 %3 to i1
+  %cond = select i1 %tobool55, ptr @.str.12, ptr @.str.13
   %call57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1682,7 +1675,7 @@ invoke.cont66:                                    ; preds = %invoke.cont63
           to label %done.sink.split unwind label %lpad67
 
 lpad67:                                           ; preds = %invoke.cont66
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup104
@@ -1701,7 +1694,7 @@ invoke.cont94:                                    ; preds = %if.then91
           to label %done.sink.split unwind label %lpad95
 
 lpad95:                                           ; preds = %invoke.cont94
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92) #9
   br label %ehcleanup104
@@ -1712,8 +1705,8 @@ done.sink.split:                                  ; preds = %invoke.cont94, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then54
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 4 dereferenceable(5) %args21, ptr noundef nonnull align 4 dereferenceable(5) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 4 dereferenceable(17) %args39, ptr noundef nonnull align 4 dereferenceable(17) %args41, ptr noundef nonnull align 4 dereferenceable(9) %args43, ptr noundef nonnull align 4 dereferenceable(4) %args45)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 4 dereferenceable(5) %args21, ptr noundef nonnull align 4 dereferenceable(5) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 1 dereferenceable(1) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 8 dereferenceable(32) %args37, ptr noundef nonnull align 4 dereferenceable(17) %args39, ptr noundef nonnull align 4 dereferenceable(17) %args41, ptr noundef nonnull align 4 dereferenceable(9) %args43, ptr noundef nonnull align 4 dereferenceable(4) %args45)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1721,7 +1714,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup104:                                     ; preds = %lpad95, %lpad67, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad67 ], [ %6, %lpad95 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad67 ], [ %5, %lpad95 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1762,9 +1755,8 @@ if.end:                                           ; preds = %entry
 
 if.then52:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool53.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool53.not, ptr @.str.13, ptr @.str.12
+  %tobool53 = trunc i8 %3 to i1
+  %cond = select i1 %tobool53, ptr @.str.12, ptr @.str.13
   %call55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1786,7 +1778,7 @@ invoke.cont64:                                    ; preds = %invoke.cont61
           to label %done.sink.split unwind label %lpad65
 
 lpad65:                                           ; preds = %invoke.cont64
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup102
@@ -1805,7 +1797,7 @@ invoke.cont92:                                    ; preds = %if.then89
           to label %done.sink.split unwind label %lpad93
 
 lpad93:                                           ; preds = %invoke.cont92
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90) #9
   br label %ehcleanup102
@@ -1816,8 +1808,8 @@ done.sink.split:                                  ; preds = %invoke.cont92, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then52
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 4 dereferenceable(5) %args19, ptr noundef nonnull align 4 dereferenceable(5) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 8 dereferenceable(32) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 4 dereferenceable(17) %args37, ptr noundef nonnull align 4 dereferenceable(17) %args39, ptr noundef nonnull align 4 dereferenceable(9) %args41, ptr noundef nonnull align 4 dereferenceable(4) %args43)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_RKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 1 dereferenceable(1) %args17, ptr noundef nonnull align 4 dereferenceable(5) %args19, ptr noundef nonnull align 4 dereferenceable(5) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 1 dereferenceable(1) %args25, ptr noundef nonnull align 8 dereferenceable(32) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 8 dereferenceable(32) %args35, ptr noundef nonnull align 4 dereferenceable(17) %args37, ptr noundef nonnull align 4 dereferenceable(17) %args39, ptr noundef nonnull align 4 dereferenceable(9) %args41, ptr noundef nonnull align 4 dereferenceable(4) %args43)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1825,7 +1817,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup102:                                     ; preds = %lpad93, %lpad65, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad65 ], [ %6, %lpad93 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad65 ], [ %5, %lpad93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1866,9 +1858,8 @@ if.end:                                           ; preds = %entry
 
 if.then50:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool51.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool51.not, ptr @.str.13, ptr @.str.12
+  %tobool51 = trunc i8 %3 to i1
+  %cond = select i1 %tobool51, ptr @.str.12, ptr @.str.13
   %call53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1890,7 +1881,7 @@ invoke.cont62:                                    ; preds = %invoke.cont59
           to label %done.sink.split unwind label %lpad63
 
 lpad63:                                           ; preds = %invoke.cont62
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup100
@@ -1909,7 +1900,7 @@ invoke.cont90:                                    ; preds = %if.then87
           to label %done.sink.split unwind label %lpad91
 
 lpad91:                                           ; preds = %invoke.cont90
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #9
   br label %ehcleanup100
@@ -1920,8 +1911,8 @@ done.sink.split:                                  ; preds = %invoke.cont90, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then50
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 4 dereferenceable(5) %args17, ptr noundef nonnull align 4 dereferenceable(5) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 8 dereferenceable(32) %args25, ptr noundef nonnull align 8 dereferenceable(32) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 4 dereferenceable(17) %args35, ptr noundef nonnull align 4 dereferenceable(17) %args37, ptr noundef nonnull align 4 dereferenceable(9) %args39, ptr noundef nonnull align 4 dereferenceable(4) %args41)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRKNS_25RenderingCoordinateSystemERKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_S3_S3_S3_RKN4pstd8optionalIiEESO_S3_S3_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 1 dereferenceable(1) %args15, ptr noundef nonnull align 4 dereferenceable(5) %args17, ptr noundef nonnull align 4 dereferenceable(5) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 1 dereferenceable(1) %args23, ptr noundef nonnull align 8 dereferenceable(32) %args25, ptr noundef nonnull align 8 dereferenceable(32) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 8 dereferenceable(32) %args33, ptr noundef nonnull align 4 dereferenceable(17) %args35, ptr noundef nonnull align 4 dereferenceable(17) %args37, ptr noundef nonnull align 4 dereferenceable(9) %args39, ptr noundef nonnull align 4 dereferenceable(4) %args41)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -1929,7 +1920,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup100:                                     ; preds = %lpad91, %lpad63, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad63 ], [ %6, %lpad91 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad63 ], [ %5, %lpad91 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -1970,9 +1961,8 @@ if.end:                                           ; preds = %entry
 
 if.then48:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool49.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool49.not, ptr @.str.13, ptr @.str.12
+  %tobool49 = trunc i8 %3 to i1
+  %cond = select i1 %tobool49, ptr @.str.12, ptr @.str.13
   %call51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -1994,7 +1984,7 @@ invoke.cont60:                                    ; preds = %invoke.cont57
           to label %done.sink.split unwind label %lpad61
 
 lpad61:                                           ; preds = %invoke.cont60
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup98
@@ -2013,7 +2003,7 @@ invoke.cont88:                                    ; preds = %if.then85
           to label %done.sink.split unwind label %lpad89
 
 lpad89:                                           ; preds = %invoke.cont88
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #9
   br label %ehcleanup98
@@ -2024,8 +2014,8 @@ done.sink.split:                                  ; preds = %invoke.cont88, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then48
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_25RenderingCoordinateSystemEJRKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSJ_SJ_SJ_RKN4pstd8optionalIiEESO_SJ_SJ_SH_SH_SH_SH_SH_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSF_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 8 dereferenceable(32) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 4 dereferenceable(5) %args15, ptr noundef nonnull align 4 dereferenceable(5) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 8 dereferenceable(32) %args23, ptr noundef nonnull align 8 dereferenceable(32) %args25, ptr noundef nonnull align 8 dereferenceable(32) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 4 dereferenceable(17) %args33, ptr noundef nonnull align 4 dereferenceable(17) %args35, ptr noundef nonnull align 4 dereferenceable(9) %args37, ptr noundef nonnull align 4 dereferenceable(4) %args39)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_25RenderingCoordinateSystemEJRKiRKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSJ_SJ_SJ_RKN4pstd8optionalIiEESO_SJ_SJ_SH_SH_SH_SH_SH_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSF_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 8 dereferenceable(32) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 1 dereferenceable(1) %args13, ptr noundef nonnull align 4 dereferenceable(5) %args15, ptr noundef nonnull align 4 dereferenceable(5) %args17, ptr noundef nonnull align 1 dereferenceable(1) %args19, ptr noundef nonnull align 1 dereferenceable(1) %args21, ptr noundef nonnull align 8 dereferenceable(32) %args23, ptr noundef nonnull align 8 dereferenceable(32) %args25, ptr noundef nonnull align 8 dereferenceable(32) %args27, ptr noundef nonnull align 8 dereferenceable(32) %args29, ptr noundef nonnull align 8 dereferenceable(32) %args31, ptr noundef nonnull align 4 dereferenceable(17) %args33, ptr noundef nonnull align 4 dereferenceable(17) %args35, ptr noundef nonnull align 4 dereferenceable(9) %args37, ptr noundef nonnull align 4 dereferenceable(4) %args39)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -2033,7 +2023,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup98:                                      ; preds = %lpad89, %lpad61, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad61 ], [ %6, %lpad89 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad61 ], [ %5, %lpad89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -2730,9 +2720,8 @@ if.end:                                           ; preds = %entry
 
 if.then38:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool39.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool39.not, ptr @.str.13, ptr @.str.12
+  %tobool39 = trunc i8 %3 to i1
+  %cond = select i1 %tobool39, ptr @.str.12, ptr @.str.13
   %call41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -2754,7 +2743,7 @@ invoke.cont50:                                    ; preds = %invoke.cont47
           to label %done.sink.split unwind label %lpad51
 
 lpad51:                                           ; preds = %invoke.cont50
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup88
@@ -2773,7 +2762,7 @@ invoke.cont78:                                    ; preds = %if.then75
           to label %done.sink.split unwind label %lpad79
 
 lpad79:                                           ; preds = %invoke.cont78
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #9
   br label %ehcleanup88
@@ -2784,8 +2773,8 @@ done.sink.split:                                  ; preds = %invoke.cont78, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then38
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_RKN4pstd8optionalIiEES8_S3_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS5_INS_7Bounds2IfEEEERKNS5_INSH_IiEEEERKNS5_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 4 dereferenceable(5) %args5, ptr noundef nonnull align 4 dereferenceable(5) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 8 dereferenceable(32) %args19, ptr noundef nonnull align 8 dereferenceable(32) %args21, ptr noundef nonnull align 4 dereferenceable(17) %args23, ptr noundef nonnull align 4 dereferenceable(17) %args25, ptr noundef nonnull align 4 dereferenceable(9) %args27, ptr noundef nonnull align 4 dereferenceable(4) %args29)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_S3_RKN4pstd8optionalIiEES8_S3_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS5_INS_7Bounds2IfEEEERKNS5_INSH_IiEEEERKNS5_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 4 dereferenceable(5) %args5, ptr noundef nonnull align 4 dereferenceable(5) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 1 dereferenceable(1) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 8 dereferenceable(32) %args19, ptr noundef nonnull align 8 dereferenceable(32) %args21, ptr noundef nonnull align 4 dereferenceable(17) %args23, ptr noundef nonnull align 4 dereferenceable(17) %args25, ptr noundef nonnull align 4 dereferenceable(9) %args27, ptr noundef nonnull align 4 dereferenceable(4) %args29)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -2793,7 +2782,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup88:                                      ; preds = %lpad79, %lpad51, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad51 ], [ %6, %lpad79 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad51 ], [ %5, %lpad79 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -3164,9 +3153,8 @@ if.end:                                           ; preds = %entry
 
 if.then36:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool37.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool37.not, ptr @.str.13, ptr @.str.12
+  %tobool37 = trunc i8 %3 to i1
+  %cond = select i1 %tobool37, ptr @.str.12, ptr @.str.13
   %call39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -3188,7 +3176,7 @@ invoke.cont48:                                    ; preds = %invoke.cont45
           to label %done.sink.split unwind label %lpad49
 
 lpad49:                                           ; preds = %invoke.cont48
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup86
@@ -3207,7 +3195,7 @@ invoke.cont76:                                    ; preds = %if.then73
           to label %done.sink.split unwind label %lpad77
 
 lpad77:                                           ; preds = %invoke.cont76
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #9
   br label %ehcleanup86
@@ -3218,8 +3206,8 @@ done.sink.split:                                  ; preds = %invoke.cont76, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then36
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_RKN4pstd8optionalIiEES8_S3_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS5_INS_7Bounds2IfEEEERKNS5_INSH_IiEEEERKNS5_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 4 dereferenceable(5) %args3, ptr noundef nonnull align 4 dereferenceable(5) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 8 dereferenceable(32) %args19, ptr noundef nonnull align 4 dereferenceable(17) %args21, ptr noundef nonnull align 4 dereferenceable(17) %args23, ptr noundef nonnull align 4 dereferenceable(9) %args25, ptr noundef nonnull align 4 dereferenceable(4) %args27)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJS3_RKN4pstd8optionalIiEES8_S3_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS5_INS_7Bounds2IfEEEERKNS5_INSH_IiEEEERKNS5_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 4 dereferenceable(5) %args3, ptr noundef nonnull align 4 dereferenceable(5) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 1 dereferenceable(1) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 8 dereferenceable(32) %args19, ptr noundef nonnull align 4 dereferenceable(17) %args21, ptr noundef nonnull align 4 dereferenceable(17) %args23, ptr noundef nonnull align 4 dereferenceable(9) %args25, ptr noundef nonnull align 4 dereferenceable(4) %args27)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -3227,7 +3215,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup86:                                      ; preds = %lpad77, %lpad49, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad49 ], [ %6, %lpad77 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad49 ], [ %5, %lpad77 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -3268,9 +3256,8 @@ if.end:                                           ; preds = %entry
 
 if.then34:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool35.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool35.not, ptr @.str.13, ptr @.str.12
+  %tobool35 = trunc i8 %3 to i1
+  %cond = select i1 %tobool35, ptr @.str.12, ptr @.str.13
   %call37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -3292,7 +3279,7 @@ invoke.cont46:                                    ; preds = %invoke.cont43
           to label %done.sink.split unwind label %lpad47
 
 lpad47:                                           ; preds = %invoke.cont46
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup84
@@ -3311,7 +3298,7 @@ invoke.cont74:                                    ; preds = %if.then71
           to label %done.sink.split unwind label %lpad75
 
 lpad75:                                           ; preds = %invoke.cont74
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #9
   br label %ehcleanup84
@@ -3322,8 +3309,8 @@ done.sink.split:                                  ; preds = %invoke.cont74, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then34
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRKN4pstd8optionalIiEES8_S3_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS5_INS_7Bounds2IfEEEERKNS5_INSH_IiEEEERKNS5_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 4 dereferenceable(5) %args1, ptr noundef nonnull align 4 dereferenceable(5) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 4 dereferenceable(17) %args19, ptr noundef nonnull align 4 dereferenceable(17) %args21, ptr noundef nonnull align 4 dereferenceable(9) %args23, ptr noundef nonnull align 4 dereferenceable(4) %args25)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRKN4pstd8optionalIiEES8_S3_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS5_INS_7Bounds2IfEEEERKNS5_INSH_IiEEEERKNS5_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 4 dereferenceable(5) %args1, ptr noundef nonnull align 4 dereferenceable(5) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 1 dereferenceable(1) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 8 dereferenceable(32) %args17, ptr noundef nonnull align 4 dereferenceable(17) %args19, ptr noundef nonnull align 4 dereferenceable(17) %args21, ptr noundef nonnull align 4 dereferenceable(9) %args23, ptr noundef nonnull align 4 dereferenceable(4) %args25)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -3331,7 +3318,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup84:                                      ; preds = %lpad75, %lpad47, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad47 ], [ %6, %lpad75 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad47 ], [ %5, %lpad75 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -3372,9 +3359,8 @@ if.end:                                           ; preds = %entry
 
 if.then32:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool33.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool33.not, ptr @.str.13, ptr @.str.12
+  %tobool33 = trunc i8 %3 to i1
+  %cond = select i1 %tobool33, ptr @.str.12, ptr @.str.13
   %call35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -3396,7 +3382,7 @@ invoke.cont44:                                    ; preds = %invoke.cont41
           to label %done.sink.split unwind label %lpad45
 
 lpad45:                                           ; preds = %invoke.cont44
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup82
@@ -3415,7 +3401,7 @@ invoke.cont72:                                    ; preds = %if.then69
           to label %done.sink.split unwind label %lpad73
 
 lpad73:                                           ; preds = %invoke.cont72
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #9
   br label %ehcleanup82
@@ -3426,8 +3412,8 @@ done.sink.split:                                  ; preds = %invoke.cont72, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then32
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4pstd8optionalIiEEJS6_RKbS8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS3_INS_7Bounds2IfEEEERKNS3_INSH_IiEEEERKNS3_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(5) %args, ptr noundef nonnull align 4 dereferenceable(5) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 4 dereferenceable(17) %args17, ptr noundef nonnull align 4 dereferenceable(17) %args19, ptr noundef nonnull align 4 dereferenceable(9) %args21, ptr noundef nonnull align 4 dereferenceable(4) %args23)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4pstd8optionalIiEEJS6_RKbS8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_SG_SG_RKNS3_INS_7Bounds2IfEEEERKNS3_INSH_IiEEEERKNS3_INS_6Point2IiEEEERKfEEEvPSE_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(5) %args, ptr noundef nonnull align 4 dereferenceable(5) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 8 dereferenceable(32) %args11, ptr noundef nonnull align 8 dereferenceable(32) %args13, ptr noundef nonnull align 8 dereferenceable(32) %args15, ptr noundef nonnull align 4 dereferenceable(17) %args17, ptr noundef nonnull align 4 dereferenceable(17) %args19, ptr noundef nonnull align 4 dereferenceable(9) %args21, ptr noundef nonnull align 4 dereferenceable(4) %args23)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -3435,7 +3421,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup82:                                      ; preds = %lpad73, %lpad45, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad45 ], [ %6, %lpad73 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad45 ], [ %5, %lpad73 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -3570,37 +3556,35 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 entry:
   %set.i = getelementptr inbounds i8, ptr %opt, i64 4
   %0 = load i8, ptr %set.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
-  %2 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIi, i64 1), align 8
-  %3 = load i8, ptr %2, align 1
-  %cmp.i4 = icmp eq i8 %3, 42
-  %cond.idx.i5 = zext i1 %cmp.i4 to i64
-  %cond.i6 = getelementptr inbounds i8, ptr %2, i64 %cond.idx.i5
-  %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull %cond.i6)
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  %tobool.i = trunc i8 %0 to i1
+  %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
+  %1 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIi, i64 1), align 8
+  %2 = load i8, ptr %1, align 1
+  %cmp.i = icmp eq i8 %2, 42
+  %cond.idx.i = zext i1 %cmp.i to i64
+  %cond.i = getelementptr inbounds i8, ptr %1, i64 %cond.idx.i
+  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull %cond.i)
+  br i1 %tobool.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.18)
+  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.18)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.19)
-  %4 = load i8, ptr %set.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %land.rhs.i, label %_ZNK4pstd8optionalIiE5valueEv.exit
+  %3 = load i8, ptr %set.i, align 4
+  %tobool.i4 = trunc i8 %3 to i1
+  br i1 %tobool.i4, label %_ZNK4pstd8optionalIiE5valueEv.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then
   tail call void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef 240, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.23) #10
   unreachable
 
 _ZNK4pstd8optionalIiE5valueEv.exit:               ; preds = %if.then
-  %6 = load i32, ptr %opt, align 4
-  %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %6)
+  %4 = load i32, ptr %opt, align 4
+  %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %4)
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull @.str.20)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.21)
+  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.21)
   br label %return
 
 return:                                           ; preds = %if.else, %_ZNK4pstd8optionalIiE5valueEv.exit
@@ -3961,9 +3945,8 @@ if.end:                                           ; preds = %entry
 
 if.then26:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool27.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool27.not, ptr @.str.13, ptr @.str.12
+  %tobool27 = trunc i8 %3 to i1
+  %cond = select i1 %tobool27, ptr @.str.12, ptr @.str.13
   %call29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -3985,7 +3968,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %done.sink.split unwind label %lpad39
 
 lpad39:                                           ; preds = %invoke.cont38
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup76
@@ -4004,7 +3987,7 @@ invoke.cont66:                                    ; preds = %if.then63
           to label %done.sink.split unwind label %lpad67
 
 lpad67:                                           ; preds = %invoke.cont66
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #9
   br label %ehcleanup76
@@ -4015,8 +3998,8 @@ done.sink.split:                                  ; preds = %invoke.cont66, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then26
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_SB_RKN4pstd8optionalINS_7Bounds2IfEEEERKNSD_INSE_IiEEEERKNSD_INS_6Point2IiEEEERKfEEEvPS9_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 8 dereferenceable(32) %args3, ptr noundef nonnull align 8 dereferenceable(32) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 4 dereferenceable(17) %args11, ptr noundef nonnull align 4 dereferenceable(17) %args13, ptr noundef nonnull align 4 dereferenceable(9) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_SB_RKN4pstd8optionalINS_7Bounds2IfEEEERKNSD_INSE_IiEEEERKNSD_INS_6Point2IiEEEERKfEEEvPS9_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 8 dereferenceable(32) %args3, ptr noundef nonnull align 8 dereferenceable(32) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 8 dereferenceable(32) %args9, ptr noundef nonnull align 4 dereferenceable(17) %args11, ptr noundef nonnull align 4 dereferenceable(17) %args13, ptr noundef nonnull align 4 dereferenceable(9) %args15, ptr noundef nonnull align 4 dereferenceable(4) %args17)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -4024,7 +4007,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup76:                                      ; preds = %lpad67, %lpad39, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad39 ], [ %6, %lpad67 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad39 ], [ %5, %lpad67 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -4065,9 +4048,8 @@ if.end:                                           ; preds = %entry
 
 if.then24:                                        ; preds = %if.end
   %3 = load i8, ptr %v, align 1
-  %4 = and i8 %3, 1
-  %tobool25.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool25.not, ptr @.str.13, ptr @.str.12
+  %tobool25 = trunc i8 %3 to i1
+  %cond = select i1 %tobool25, ptr @.str.12, ptr @.str.13
   %call27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %cond)
           to label %done unwind label %lpad
 
@@ -4089,7 +4071,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %done.sink.split unwind label %lpad37
 
 lpad37:                                           ; preds = %invoke.cont36
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   br label %ehcleanup74
@@ -4108,7 +4090,7 @@ invoke.cont64:                                    ; preds = %if.then61
           to label %done.sink.split unwind label %lpad65
 
 lpad65:                                           ; preds = %invoke.cont64
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #9
   br label %ehcleanup74
@@ -4119,8 +4101,8 @@ done.sink.split:                                  ; preds = %invoke.cont64, %inv
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.then24
-  %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS9_S9_S9_S9_RKN4pstd8optionalINS_7Bounds2IfEEEERKNSB_INSC_IiEEEERKNSB_INS_6Point2IiEEEERKfEEEvPS7_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 8 dereferenceable(32) %args3, ptr noundef nonnull align 8 dereferenceable(32) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 4 dereferenceable(17) %args9, ptr noundef nonnull align 4 dereferenceable(17) %args11, ptr noundef nonnull align 4 dereferenceable(9) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15)
+  %6 = load ptr, ptr %fmt.addr, align 8
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS9_S9_S9_S9_RKN4pstd8optionalINS_7Bounds2IfEEEERKNSB_INSC_IiEEEERKNSB_INS_6Point2IiEEEERKfEEEvPS7_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 8 dereferenceable(32) %args3, ptr noundef nonnull align 8 dereferenceable(32) %args5, ptr noundef nonnull align 8 dereferenceable(32) %args7, ptr noundef nonnull align 4 dereferenceable(17) %args9, ptr noundef nonnull align 4 dereferenceable(17) %args11, ptr noundef nonnull align 4 dereferenceable(9) %args13, ptr noundef nonnull align 4 dereferenceable(4) %args15)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -4128,7 +4110,7 @@ cleanup:                                          ; preds = %done
   ret void
 
 ehcleanup74:                                      ; preds = %lpad65, %lpad37, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %5, %lpad37 ], [ %6, %lpad65 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad37 ], [ %5, %lpad65 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nextFmt) #9
   resume { ptr, i32 } %.pn
 }
@@ -4889,19 +4871,17 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %set.i = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load i8, ptr %set.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
-  %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @_ZTSN4pbrt7Bounds2IfEE)
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  %tobool.i = trunc i8 %0 to i1
+  %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
+  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @_ZTSN4pbrt7Bounds2IfEE)
+  br i1 %tobool.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.18)
+  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.18)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.19)
-  %2 = load i8, ptr %set.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %land.rhs.i, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit
+  %1 = load i8, ptr %set.i, align 4
+  %tobool.i4 = trunc i8 %1 to i1
+  br i1 %tobool.i4, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then
   tail call void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef 240, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.23) #10
@@ -4915,12 +4895,12 @@ _ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit: ; preds = %if.then
           to label %_ZNK4pbrt7Bounds2IfE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %4, %lpad.i.i.i ], [ %5, %lpad.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i.i ], [ %3, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #9
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i.i:                                       ; preds = %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
@@ -4929,7 +4909,7 @@ _ZNK4pbrt7Bounds2IfE8ToStringB5cxx11Ev.exit.i:    ; preds = %_ZNK4pstd8optionalI
           to label %_ZN4pbrtlsINS_7Bounds2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNK4pbrt7Bounds2IfE8ToStringB5cxx11Ev.exit.i
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
@@ -4940,7 +4920,7 @@ _ZN4pbrtlsINS_7Bounds2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %_
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.21)
+  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.21)
   br label %return
 
 return:                                           ; preds = %if.else, %_ZN4pbrtlsINS_7Bounds2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit
@@ -5365,19 +5345,17 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %set.i = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load i8, ptr %set.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
-  %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @_ZTSN4pbrt7Bounds2IiEE)
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  %tobool.i = trunc i8 %0 to i1
+  %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
+  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @_ZTSN4pbrt7Bounds2IiEE)
+  br i1 %tobool.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.18)
+  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.18)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.19)
-  %2 = load i8, ptr %set.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %land.rhs.i, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit
+  %1 = load i8, ptr %set.i, align 4
+  %tobool.i4 = trunc i8 %1 to i1
+  br i1 %tobool.i4, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then
   tail call void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef 240, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.23) #10
@@ -5391,12 +5369,12 @@ _ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit: ; preds = %if.then
           to label %_ZNK4pbrt7Bounds2IiE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %4, %lpad.i.i.i ], [ %5, %lpad.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i.i ], [ %3, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #9
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i.i:                                       ; preds = %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
@@ -5405,7 +5383,7 @@ _ZNK4pbrt7Bounds2IiE8ToStringB5cxx11Ev.exit.i:    ; preds = %_ZNK4pstd8optionalI
           to label %_ZN4pbrtlsINS_7Bounds2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNK4pbrt7Bounds2IiE8ToStringB5cxx11Ev.exit.i
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
@@ -5416,7 +5394,7 @@ _ZN4pbrtlsINS_7Bounds2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %_
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.21)
+  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.21)
   br label %return
 
 return:                                           ; preds = %if.else, %_ZN4pbrtlsINS_7Bounds2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit
@@ -5841,19 +5819,17 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %set.i = getelementptr inbounds i8, ptr %opt, i64 8
   %0 = load i8, ptr %set.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
-  %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @_ZTSN4pbrt6Point2IiEE)
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  %tobool.i = trunc i8 %0 to i1
+  %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.17)
+  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @_ZTSN4pbrt6Point2IiEE)
+  br i1 %tobool.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.18)
+  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.18)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.19)
-  %2 = load i8, ptr %set.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %land.rhs.i, label %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit
+  %1 = load i8, ptr %set.i, align 4
+  %tobool.i5 = trunc i8 %1 to i1
+  br i1 %tobool.i5, label %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then
   tail call void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef 240, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.23) #10
@@ -5861,18 +5837,18 @@ land.rhs.i:                                       ; preds = %if.then
 
 _ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit: ; preds = %if.then
   %call6.val = load i32, ptr %opt, align 4, !noalias !8
-  %4 = getelementptr inbounds i8, ptr %opt, i64 4
-  %call6.val3 = load i32, ptr %4, align 4, !noalias !8
+  %2 = getelementptr inbounds i8, ptr %opt, i64 4
+  %call6.val3 = load i32, ptr %2, align 4, !noalias !8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4pbrt8internal9ToString2IiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %call6.val, i32 noundef %call6.val3)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #9
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %3
 
 _ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #9
@@ -5881,7 +5857,7 @@ _ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %_Z
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.21)
+  %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.21)
   br label %return
 
 return:                                           ; preds = %if.else, %_ZN4pbrtlsINS_6Point2IiEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit

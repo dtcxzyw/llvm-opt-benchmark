@@ -60,14 +60,13 @@ define internal i32 @isolation_start_test(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca [1024 x i8], align 16
   %8 = alloca %struct.StringInfoData, align 8
   %9 = load i8, ptr @looked_up_isolation_exec, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %17
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %17, label %11
 
 11:                                               ; preds = %4
   %12 = tail call i32 @find_other_exec(ptr noundef nonnull @saved_argv0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @isolation_exec) #7
-  %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %16, label %13
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8
@@ -108,8 +107,8 @@ define internal i32 @isolation_start_test(ptr noundef %0, ptr noundef %1, ptr no
   call void @add_stringlist_item(ptr noundef %2, ptr noundef nonnull %7) #7
   call void @initStringInfo(ptr noundef nonnull %8) #7
   %34 = load ptr, ptr @launcher, align 8
-  %.not14 = icmp eq ptr %34, null
-  br i1 %.not14, label %36, label %35
+  %.not13 = icmp eq ptr %34, null
+  br i1 %.not13, label %36, label %35
 
 35:                                               ; preds = %33
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef nonnull %34) #7

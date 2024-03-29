@@ -228,7 +228,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = add i32 %6, -8
   %9 = add i32 %6, -4
   %10 = icmp slt i32 %7, 1
-  br i1 %10, label %90, label %11
+  br i1 %10, label %89, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -346,58 +346,57 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %trunc = trunc i32 %.096 to i8
   %switch.tableidx = add i8 %trunc, -40
   %73 = icmp ult i8 %switch.tableidx, 7
-  br i1 %73, label %switch.hole_check, label %76
+  br i1 %73, label %switch.hole_check, label %75
 
 switch.hole_check:                                ; preds = %71
   %switch.shifted = lshr i8 99, %switch.tableidx
-  %74 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %74, 0
-  br i1 %switch.lobit.not, label %76, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %75
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %75 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i8 %75 to i56
+  %74 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt = zext nneg i8 %74 to i56
   %switch.downshift = lshr i56 282578800148738, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   store i8 %switch.masked, ptr %72, align 4
-  br label %76
+  br label %75
 
-76:                                               ; preds = %switch.hole_check, %71, %switch.lookup
-  %77 = phi i8 [ 0, %71 ], [ %switch.masked, %switch.lookup ], [ 0, %switch.hole_check ]
+75:                                               ; preds = %switch.hole_check, %71, %switch.lookup
+  %76 = phi i8 [ 0, %71 ], [ %switch.masked, %switch.lookup ], [ 0, %switch.hole_check ]
   %.not114 = icmp eq i32 %.097, 65
-  br i1 %.not114, label %82, label %78
+  br i1 %.not114, label %81, label %77
 
-78:                                               ; preds = %76
-  %79 = or disjoint i8 %77, -128
-  store i8 %79, ptr %72, align 4
+77:                                               ; preds = %75
+  %78 = or disjoint i8 %76, -128
+  store i8 %78, ptr %72, align 4
   %.not115 = icmp eq i32 %.097, 66
-  br i1 %.not115, label %82, label %80
+  br i1 %.not115, label %81, label %79
 
-80:                                               ; preds = %78
-  %81 = or disjoint i8 %77, -64
-  store i8 %81, ptr %72, align 4
-  br label %82
+79:                                               ; preds = %77
+  %80 = or disjoint i8 %76, -64
+  store i8 %80, ptr %72, align 4
+  br label %81
 
-82:                                               ; preds = %78, %80, %76
+81:                                               ; preds = %77, %79, %75
   store i32 0, ptr %5, align 4
-  %83 = load ptr, ptr @fc_handle, align 8
-  %.not116 = icmp eq ptr %83, null
-  br i1 %.not116, label %86, label %84
+  %82 = load ptr, ptr @fc_handle, align 8
+  %.not116 = icmp eq ptr %82, null
+  br i1 %.not116, label %85, label %83
 
-84:                                               ; preds = %82
-  %85 = call i32 @call_dissector_with_data(ptr noundef nonnull %83, ptr noundef %14, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #2
-  br label %88
+83:                                               ; preds = %81
+  %84 = call i32 @call_dissector_with_data(ptr noundef nonnull %82, ptr noundef %14, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #2
+  br label %87
 
-86:                                               ; preds = %82
-  %87 = tail call i32 @call_data_dissector(ptr noundef %14, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %88
+85:                                               ; preds = %81
+  %86 = tail call i32 @call_data_dissector(ptr noundef %14, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %87
 
-88:                                               ; preds = %86, %84
-  %89 = call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %90
+87:                                               ; preds = %85, %83
+  %88 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  br label %89
 
-90:                                               ; preds = %4, %88
-  %.094 = phi i32 [ %89, %88 ], [ 0, %4 ]
+89:                                               ; preds = %4, %87
+  %.094 = phi i32 [ %88, %87 ], [ 0, %4 ]
   ret i32 %.094
 }
 

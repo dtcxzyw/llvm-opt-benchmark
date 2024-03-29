@@ -474,9 +474,8 @@ if.end.i:                                         ; preds = %for.body.i.i, %_ZNK
 
 if.then.i22.i:                                    ; preds = %if.end.i
   %80 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %81 = and i8 %80, 1
-  %tobool2.not.i.i = icmp eq i8 %81, 0
-  br i1 %tobool2.not.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %80 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i22.i
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %79)
@@ -490,15 +489,15 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i: ; preds = %if.then3.
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i, %if.then.i, %if.then36
-  %82 = phi i32 [ %41, %if.then36 ], [ %41, %if.then.i ], [ %.pre.i.pre, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i ]
-  %83 = load ptr, ptr %m_data.i.i, align 8
-  %idxprom.i75 = sext i32 %82 to i64
-  %arrayidx.i76 = getelementptr inbounds %class.b3Vector3, ptr %83, i64 %idxprom.i75
+  %81 = phi i32 [ %41, %if.then36 ], [ %41, %if.then.i ], [ %.pre.i.pre, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i ]
+  %82 = load ptr, ptr %m_data.i.i, align 8
+  %idxprom.i75 = sext i32 %81 to i64
+  %arrayidx.i76 = getelementptr inbounds %class.b3Vector3, ptr %82, i64 %idxprom.i75
   store <2 x float> %40, ptr %arrayidx.i76, align 16
   %planeEquation.sroa.14.0.arrayidx.i76.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i76, i64 8
   store <2 x float> %planeEquation.sroa.14.12.vec.insert, ptr %planeEquation.sroa.14.0.arrayidx.i76.sroa_idx, align 8
-  %84 = load i32, ptr %m_size.i.i, align 4
-  %inc.i = add nsw i32 %84, 1
+  %83 = load i32, ptr %m_size.i.i, align 4
+  %inc.i = add nsw i32 %83, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
   br label %if.end38
 
@@ -507,8 +506,8 @@ if.end38:                                         ; preds = %for.body.lr.ph.i53,
 
 for.inc39:                                        ; preds = %if.end38
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %85 = trunc i64 %indvars.iv.next146 to i32
-  %cmp8 = icmp sgt i32 %0, %85
+  %84 = trunc i64 %indvars.iv.next146 to i32
+  %cmp8 = icmp sgt i32 %0, %84
   br i1 %cmp8, label %for.body9, label %for.cond2.loopexit, !llvm.loop !13
 
 for.end47:                                        ; preds = %for.cond.loopexit, %entry
@@ -784,9 +783,8 @@ if.end.i:                                         ; preds = %for.body.i.i, %_ZNK
 
 if.then.i22.i:                                    ; preds = %if.end.i
   %90 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %91 = and i8 %90, 1
-  %tobool2.not.i.i = icmp eq i8 %91, 0
-  br i1 %tobool2.not.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %90 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i22.i
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %89)
@@ -800,24 +798,24 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i: ; preds = %if.then3.
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i, %if.then.i, %if.then44
-  %92 = phi i32 [ %85, %if.then44 ], [ %85, %if.then.i ], [ %.pre.i.pre, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i ]
-  %93 = load ptr, ptr %m_data.i.i105, align 8
-  %idxprom.i98 = sext i32 %92 to i64
-  %arrayidx.i99 = getelementptr inbounds %class.b3Vector3, ptr %93, i64 %idxprom.i98
+  %91 = phi i32 [ %85, %if.then44 ], [ %85, %if.then.i ], [ %.pre.i.pre, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i ]
+  %92 = load ptr, ptr %m_data.i.i105, align 8
+  %idxprom.i98 = sext i32 %91 to i64
+  %arrayidx.i99 = getelementptr inbounds %class.b3Vector3, ptr %92, i64 %idxprom.i98
   store <2 x float> %68, ptr %arrayidx.i99, align 16
   %potentialVertex.sroa.16.0.arrayidx.i99.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i99, i64 8
   store float %mul5.i89, ptr %potentialVertex.sroa.16.0.arrayidx.i99.sroa_idx, align 8
   %potentialVertex.sroa.23.0.arrayidx.i99.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i99, i64 12
   store float 0.000000e+00, ptr %potentialVertex.sroa.23.0.arrayidx.i99.sroa_idx, align 4
-  %94 = load i32, ptr %m_size.i.i95, align 4
-  %inc.i = add nsw i32 %94, 1
+  %93 = load i32, ptr %m_size.i.i95, align 4
+  %inc.i = add nsw i32 %93, 1
   store i32 %inc.i, ptr %m_size.i.i95, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.lr.ph.i, %for.body9, %land.lhs.true, %land.lhs.true25, %_ZN14b3GeometryUtil19isPointInsidePlanesERK20b3AlignedObjectArrayI9b3Vector3ERKS1_f.exit, %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit, %if.then
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %95 = trunc i64 %indvars.iv.next195 to i32
-  %cmp8 = icmp sgt i32 %0, %95
+  %94 = trunc i64 %indvars.iv.next195 to i32
+  %cmp8 = icmp sgt i32 %0, %94
   br i1 %cmp8, label %for.body9, label %for.cond2.loopexit, !llvm.loop !16
 
 for.end52:                                        ; preds = %for.cond.loopexit, %entry

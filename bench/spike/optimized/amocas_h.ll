@@ -289,427 +289,425 @@ define linkonce_odr noundef signext i16 @_ZN5mmu_t20amo_compare_and_swapIsEET_mS
   %7 = alloca %class.target_endian, align 2
   %8 = alloca %"class.std::tuple", align 8
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 2, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %9 unwind label %84
+          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit unwind label %83
 
-9:                                                ; preds = %4
+_ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %4
   store i16 0, ptr %7, align 2
-  %10 = lshr i64 %1, 12
-  %11 = getelementptr inbounds i8, ptr %0, i64 39056
-  %12 = and i64 %10, 255
-  %13 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %12
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, %10
-  %16 = and i64 %1, 1
-  %17 = icmp eq i64 %16, 0
-  %brmerge.not = select i1 %17, i1 %15, i1 false
-  br i1 %brmerge.not, label %18, label %.critedge
+  %9 = lshr i64 %1, 12
+  %10 = getelementptr inbounds i8, ptr %0, i64 39056
+  %11 = and i64 %9, 255
+  %12 = getelementptr inbounds [256 x i64], ptr %10, i64 0, i64 %11
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, %9
+  %15 = and i64 %1, 1
+  %16 = icmp eq i64 %15, 0
+  %brmerge.not = select i1 %16, i1 %14, i1 false
+  br i1 %brmerge.not, label %17, label %.critedge
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 32912
-  %20 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %19, i64 0, i64 %12
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 %1
-  %23 = load i16, ptr %22, align 2
-  store i16 %23, ptr %7, align 2
-  br label %24
+17:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
+  %18 = getelementptr inbounds i8, ptr %0, i64 32912
+  %19 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %18, i64 0, i64 %11
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 %1
+  %22 = load i16, ptr %21, align 2
+  store i16 %22, ptr %7, align 2
+  br label %23
 
-.critedge:                                        ; preds = %9
+.critedge:                                        ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 2, ptr noundef nonnull %7, i8 0)
-          to label %24 unwind label %84
+          to label %23 unwind label %83
 
-24:                                               ; preds = %.critedge, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %47, label %27
+23:                                               ; preds = %.critedge, %17
+  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = load ptr, ptr %24, align 8
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %46, label %26
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 3801
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not102 = icmp eq i8 %30, 0
-  br i1 %.not102, label %47, label %31
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %25, i64 3801
+  %28 = load i8, ptr %27, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %46
 
-31:                                               ; preds = %27
+30:                                               ; preds = %26
   store i8 2, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 3736
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 3744
-  %37 = load ptr, ptr %36, align 8
-  %.not.i.i = icmp eq ptr %35, %37
-  br i1 %.not.i.i, label %45, label %38
+  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %1, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %25, i64 3736
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %25, i64 3744
+  %36 = load ptr, ptr %35, align 8
+  %.not.i.i = icmp eq ptr %34, %36
+  br i1 %.not.i.i, label %44, label %37
 
-38:                                               ; preds = %31
-  store i8 2, ptr %35, align 1
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
-  %40 = load i64, ptr %32, align 8
-  store i64 %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 16
-  %42 = load i64, ptr %33, align 8
-  store i64 %42, ptr %41, align 8
-  %43 = load ptr, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
-  store ptr %44, ptr %34, align 8
-  br label %47
+37:                                               ; preds = %30
+  store i8 2, ptr %34, align 1
+  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = load i64, ptr %31, align 8
+  store i64 %39, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = load i64, ptr %32, align 8
+  store i64 %41, ptr %40, align 8
+  %42 = load ptr, ptr %33, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  store ptr %43, ptr %33, align 8
+  br label %46
 
-45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %26, i64 3728
-  invoke void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr %35, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %47 unwind label %84
+44:                                               ; preds = %30
+  %45 = getelementptr inbounds i8, ptr %25, i64 3728
+  invoke void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr %34, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %46 unwind label %83
 
-47:                                               ; preds = %27, %24, %45, %38
+46:                                               ; preds = %26, %23, %44, %37
   %.sroa.044.0.copyload = load i16, ptr %7, align 2
-  %48 = icmp eq i16 %.sroa.044.0.copyload, %2
-  br i1 %48, label %49, label %.critedge4
+  %47 = icmp eq i16 %.sroa.044.0.copyload, %2
+  br i1 %47, label %48, label %.critedge4
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 41104
-  %51 = getelementptr inbounds [256 x i64], ptr %50, i64 0, i64 %12
-  %52 = load i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, %10
-  %54 = select i1 %17, i1 %53, i1 false
-  br i1 %54, label %55, label %60
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %0, i64 41104
+  %50 = getelementptr inbounds [256 x i64], ptr %49, i64 0, i64 %11
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %51, %9
+  %53 = select i1 %16, i1 %52, i1 false
+  br i1 %53, label %54, label %59
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %0, i64 32912
-  %57 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %56, i64 0, i64 %12
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 %1
-  store i16 %3, ptr %59, align 2
-  br label %61
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds i8, ptr %0, i64 32912
+  %56 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %55, i64 0, i64 %11
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 %1
+  store i16 %3, ptr %58, align 2
+  br label %60
 
-60:                                               ; preds = %49
+59:                                               ; preds = %48
   store i16 %3, ptr %5, align 2
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 2, ptr noundef nonnull %5, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %61 unwind label %84
+          to label %60 unwind label %83
 
-61:                                               ; preds = %60, %55
-  %62 = load ptr, ptr %25, align 8
-  %.not68 = icmp eq ptr %62, null
-  br i1 %.not68, label %.critedge4, label %63
+60:                                               ; preds = %59, %54
+  %61 = load ptr, ptr %24, align 8
+  %.not68 = icmp eq ptr %61, null
+  br i1 %.not68, label %.critedge4, label %62
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %62, i64 3801
-  %65 = load i8, ptr %64, align 1
-  %66 = and i8 %65, 1
-  %.not103 = icmp eq i8 %66, 0
-  br i1 %.not103, label %.critedge4, label %67
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds i8, ptr %61, i64 3801
+  %64 = load i8, ptr %63, align 1
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %.critedge4
 
-67:                                               ; preds = %63
+66:                                               ; preds = %62
   store i8 2, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
-  %69 = sext i16 %3 to i64
-  store i64 %69, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %1, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %62, i64 3760
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %62, i64 3768
-  %74 = load ptr, ptr %73, align 8
-  %.not.i.i79 = icmp eq ptr %72, %74
-  br i1 %.not.i.i79, label %82, label %75
+  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %68 = sext i16 %3 to i64
+  store i64 %68, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %1, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %61, i64 3760
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %61, i64 3768
+  %73 = load ptr, ptr %72, align 8
+  %.not.i.i82 = icmp eq ptr %71, %73
+  br i1 %.not.i.i82, label %81, label %74
 
-75:                                               ; preds = %67
-  store i8 2, ptr %72, align 1
-  %76 = getelementptr inbounds i8, ptr %72, i64 8
-  %77 = load i64, ptr %68, align 8
-  store i64 %77, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %72, i64 16
-  %79 = load i64, ptr %70, align 8
-  store i64 %79, ptr %78, align 8
-  %80 = load ptr, ptr %71, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
-  store ptr %81, ptr %71, align 8
+74:                                               ; preds = %66
+  store i8 2, ptr %71, align 1
+  %75 = getelementptr inbounds i8, ptr %71, i64 8
+  %76 = load i64, ptr %67, align 8
+  store i64 %76, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %78 = load i64, ptr %69, align 8
+  store i64 %78, ptr %77, align 8
+  %79 = load ptr, ptr %70, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  store ptr %80, ptr %70, align 8
   br label %.critedge4
 
-82:                                               ; preds = %67
-  %83 = getelementptr inbounds i8, ptr %62, i64 3752
-  invoke void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr %72, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %.critedge4 unwind label %84
+81:                                               ; preds = %66
+  %82 = getelementptr inbounds i8, ptr %61, i64 3752
+  invoke void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr %71, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %.critedge4 unwind label %83
 
-84:                                               ; preds = %82, %45, %60, %.critedge, %4
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %81, %44, %59, %.critedge, %4
+  %84 = landingpad { ptr, i32 }
           catch ptr @_ZTI28trap_load_address_misaligned
           catch ptr @_ZTI20trap_load_page_fault
           catch ptr @_ZTI22trap_load_access_fault
           catch ptr @_ZTI26trap_load_guest_page_fault
-  %86 = extractvalue { ptr, i32 } %85, 0
-  %87 = extractvalue { ptr, i32 } %85, 1
-  %88 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #16
-  %89 = icmp eq i32 %87, %88
-  br i1 %89, label %90, label %118
+  %85 = extractvalue { ptr, i32 } %84, 0
+  %86 = extractvalue { ptr, i32 } %84, 1
+  %87 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #16
+  %88 = icmp eq i32 %86, %87
+  br i1 %88, label %89, label %117
 
-90:                                               ; preds = %84
-  %91 = call ptr @__cxa_begin_catch(ptr %86) #16
-  %92 = call ptr @__cxa_allocate_exception(i64 48) #16
-  %93 = load ptr, ptr %91, align 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(48) %91)
-          to label %96 unwind label %221
+89:                                               ; preds = %83
+  %90 = call ptr @__cxa_begin_catch(ptr %85) #16
+  %91 = call ptr @__cxa_allocate_exception(i64 48) #16
+  %92 = load ptr, ptr %90, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(48) %90)
+          to label %95 unwind label %220
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %91, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = invoke noundef i64 %99(ptr noundef nonnull align 8 dereferenceable(48) %91)
-          to label %101 unwind label %221
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %90, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = invoke noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(48) %90)
+          to label %100 unwind label %220
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %91, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 32
-  %104 = load ptr, ptr %103, align 8
-  %105 = invoke noundef i64 %104(ptr noundef nonnull align 8 dereferenceable(48) %91)
-          to label %106 unwind label %221
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %90, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 32
+  %103 = load ptr, ptr %102, align 8
+  %104 = invoke noundef i64 %103(ptr noundef nonnull align 8 dereferenceable(48) %90)
+          to label %105 unwind label %220
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %91, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 48
-  %109 = load ptr, ptr %108, align 8
-  %110 = invoke noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(48) %91)
-          to label %111 unwind label %221
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %90, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 48
+  %108 = load ptr, ptr %107, align 8
+  %109 = invoke noundef i64 %108(ptr noundef nonnull align 8 dereferenceable(48) %90)
+          to label %110 unwind label %220
 
-111:                                              ; preds = %106
-  %112 = zext i1 %95 to i8
-  %113 = getelementptr inbounds i8, ptr %92, i64 8
-  store i64 6, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %92, i64 16
-  store i8 %112, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %92, i64 24
-  store i64 %100, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %92, i64 32
-  store i64 %105, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %92, i64 40
-  store i64 %110, ptr %117, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %92, align 8
-  invoke void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #17
-          to label %230 unwind label %223
+110:                                              ; preds = %105
+  %111 = zext i1 %94 to i8
+  %112 = getelementptr inbounds i8, ptr %91, i64 8
+  store i64 6, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %91, i64 16
+  store i8 %111, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %91, i64 24
+  store i64 %99, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %91, i64 32
+  store i64 %104, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %91, i64 40
+  store i64 %109, ptr %116, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %91, align 8
+  invoke void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #17
+          to label %229 unwind label %222
 
-118:                                              ; preds = %84
-  %119 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #16
-  %120 = icmp eq i32 %87, %119
-  br i1 %120, label %121, label %149
+117:                                              ; preds = %83
+  %118 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #16
+  %119 = icmp eq i32 %86, %118
+  br i1 %119, label %120, label %148
 
-121:                                              ; preds = %118
-  %122 = call ptr @__cxa_begin_catch(ptr %86) #16
-  %123 = call ptr @__cxa_allocate_exception(i64 48) #16
-  %124 = load ptr, ptr %122, align 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(48) %122)
-          to label %127 unwind label %216
+120:                                              ; preds = %117
+  %121 = call ptr @__cxa_begin_catch(ptr %85) #16
+  %122 = call ptr @__cxa_allocate_exception(i64 48) #16
+  %123 = load ptr, ptr %121, align 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(48) %121)
+          to label %126 unwind label %215
 
-127:                                              ; preds = %121
-  %128 = load ptr, ptr %122, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 16
-  %130 = load ptr, ptr %129, align 8
-  %131 = invoke noundef i64 %130(ptr noundef nonnull align 8 dereferenceable(48) %122)
-          to label %132 unwind label %216
+126:                                              ; preds = %120
+  %127 = load ptr, ptr %121, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8
+  %130 = invoke noundef i64 %129(ptr noundef nonnull align 8 dereferenceable(48) %121)
+          to label %131 unwind label %215
 
-132:                                              ; preds = %127
-  %133 = load ptr, ptr %122, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 32
-  %135 = load ptr, ptr %134, align 8
-  %136 = invoke noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(48) %122)
-          to label %137 unwind label %216
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %121, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 32
+  %134 = load ptr, ptr %133, align 8
+  %135 = invoke noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(48) %121)
+          to label %136 unwind label %215
 
-137:                                              ; preds = %132
-  %138 = load ptr, ptr %122, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 48
-  %140 = load ptr, ptr %139, align 8
-  %141 = invoke noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %122)
-          to label %142 unwind label %216
+136:                                              ; preds = %131
+  %137 = load ptr, ptr %121, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 48
+  %139 = load ptr, ptr %138, align 8
+  %140 = invoke noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %121)
+          to label %141 unwind label %215
 
-142:                                              ; preds = %137
-  %143 = zext i1 %126 to i8
-  %144 = getelementptr inbounds i8, ptr %123, i64 8
-  store i64 15, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %123, i64 16
-  store i8 %143, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %123, i64 24
-  store i64 %131, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %123, i64 32
-  store i64 %136, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %123, i64 40
-  store i64 %141, ptr %148, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %123, align 8
-  invoke void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #17
-          to label %230 unwind label %218
+141:                                              ; preds = %136
+  %142 = zext i1 %125 to i8
+  %143 = getelementptr inbounds i8, ptr %122, i64 8
+  store i64 15, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %122, i64 16
+  store i8 %142, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %122, i64 24
+  store i64 %130, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %122, i64 32
+  store i64 %135, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %122, i64 40
+  store i64 %140, ptr %147, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %122, align 8
+  invoke void @__cxa_throw(ptr nonnull %122, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #17
+          to label %229 unwind label %217
 
-149:                                              ; preds = %118
-  %150 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #16
-  %151 = icmp eq i32 %87, %150
-  br i1 %151, label %152, label %180
+148:                                              ; preds = %117
+  %149 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #16
+  %150 = icmp eq i32 %86, %149
+  br i1 %150, label %151, label %179
 
-152:                                              ; preds = %149
-  %153 = call ptr @__cxa_begin_catch(ptr %86) #16
-  %154 = call ptr @__cxa_allocate_exception(i64 48) #16
-  %155 = load ptr, ptr %153, align 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = invoke noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(48) %153)
-          to label %158 unwind label %211
+151:                                              ; preds = %148
+  %152 = call ptr @__cxa_begin_catch(ptr %85) #16
+  %153 = call ptr @__cxa_allocate_exception(i64 48) #16
+  %154 = load ptr, ptr %152, align 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = invoke noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(48) %152)
+          to label %157 unwind label %210
 
-158:                                              ; preds = %152
-  %159 = load ptr, ptr %153, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
-  %161 = load ptr, ptr %160, align 8
-  %162 = invoke noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(48) %153)
-          to label %163 unwind label %211
+157:                                              ; preds = %151
+  %158 = load ptr, ptr %152, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %161 = invoke noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(48) %152)
+          to label %162 unwind label %210
 
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %153, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 32
-  %166 = load ptr, ptr %165, align 8
-  %167 = invoke noundef i64 %166(ptr noundef nonnull align 8 dereferenceable(48) %153)
-          to label %168 unwind label %211
+162:                                              ; preds = %157
+  %163 = load ptr, ptr %152, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 32
+  %165 = load ptr, ptr %164, align 8
+  %166 = invoke noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(48) %152)
+          to label %167 unwind label %210
 
-168:                                              ; preds = %163
-  %169 = load ptr, ptr %153, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 48
-  %171 = load ptr, ptr %170, align 8
-  %172 = invoke noundef i64 %171(ptr noundef nonnull align 8 dereferenceable(48) %153)
-          to label %173 unwind label %211
+167:                                              ; preds = %162
+  %168 = load ptr, ptr %152, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 48
+  %170 = load ptr, ptr %169, align 8
+  %171 = invoke noundef i64 %170(ptr noundef nonnull align 8 dereferenceable(48) %152)
+          to label %172 unwind label %210
 
-173:                                              ; preds = %168
-  %174 = zext i1 %157 to i8
-  %175 = getelementptr inbounds i8, ptr %154, i64 8
-  store i64 7, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %154, i64 16
-  store i8 %174, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %154, i64 24
-  store i64 %162, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %154, i64 32
-  store i64 %167, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %154, i64 40
-  store i64 %172, ptr %179, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %154, align 8
-  invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #17
-          to label %230 unwind label %213
+172:                                              ; preds = %167
+  %173 = zext i1 %156 to i8
+  %174 = getelementptr inbounds i8, ptr %153, i64 8
+  store i64 7, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %153, i64 16
+  store i8 %173, ptr %175, align 8
+  %176 = getelementptr inbounds i8, ptr %153, i64 24
+  store i64 %161, ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %153, i64 32
+  store i64 %166, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %153, i64 40
+  store i64 %171, ptr %178, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %153, align 8
+  invoke void @__cxa_throw(ptr nonnull %153, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #17
+          to label %229 unwind label %212
 
-180:                                              ; preds = %149
-  %181 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #16
-  %182 = icmp eq i32 %87, %181
-  br i1 %182, label %183, label %226
+179:                                              ; preds = %148
+  %180 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #16
+  %181 = icmp eq i32 %86, %180
+  br i1 %181, label %182, label %225
 
-183:                                              ; preds = %180
-  %184 = call ptr @__cxa_begin_catch(ptr %86) #16
-  %185 = call ptr @__cxa_allocate_exception(i64 48) #16
-  %186 = load ptr, ptr %184, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 16
-  %188 = load ptr, ptr %187, align 8
-  %189 = invoke noundef i64 %188(ptr noundef nonnull align 8 dereferenceable(48) %184)
-          to label %190 unwind label %206
+182:                                              ; preds = %179
+  %183 = call ptr @__cxa_begin_catch(ptr %85) #16
+  %184 = call ptr @__cxa_allocate_exception(i64 48) #16
+  %185 = load ptr, ptr %183, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 16
+  %187 = load ptr, ptr %186, align 8
+  %188 = invoke noundef i64 %187(ptr noundef nonnull align 8 dereferenceable(48) %183)
+          to label %189 unwind label %205
 
-190:                                              ; preds = %183
-  %191 = load ptr, ptr %184, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 32
-  %193 = load ptr, ptr %192, align 8
-  %194 = invoke noundef i64 %193(ptr noundef nonnull align 8 dereferenceable(48) %184)
-          to label %195 unwind label %206
+189:                                              ; preds = %182
+  %190 = load ptr, ptr %183, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 32
+  %192 = load ptr, ptr %191, align 8
+  %193 = invoke noundef i64 %192(ptr noundef nonnull align 8 dereferenceable(48) %183)
+          to label %194 unwind label %205
 
-195:                                              ; preds = %190
-  %196 = load ptr, ptr %184, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 48
-  %198 = load ptr, ptr %197, align 8
-  %199 = invoke noundef i64 %198(ptr noundef nonnull align 8 dereferenceable(48) %184)
-          to label %200 unwind label %206
+194:                                              ; preds = %189
+  %195 = load ptr, ptr %183, align 8
+  %196 = getelementptr inbounds i8, ptr %195, i64 48
+  %197 = load ptr, ptr %196, align 8
+  %198 = invoke noundef i64 %197(ptr noundef nonnull align 8 dereferenceable(48) %183)
+          to label %199 unwind label %205
 
-200:                                              ; preds = %195
-  %201 = getelementptr inbounds i8, ptr %185, i64 8
-  store i64 23, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %185, i64 16
-  store i8 1, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %185, i64 24
-  store i64 %189, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %185, i64 32
-  store i64 %194, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %185, i64 40
-  store i64 %199, ptr %205, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %185, align 8
-  invoke void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #17
-          to label %230 unwind label %208
+199:                                              ; preds = %194
+  %200 = getelementptr inbounds i8, ptr %184, i64 8
+  store i64 23, ptr %200, align 8
+  %201 = getelementptr inbounds i8, ptr %184, i64 16
+  store i8 1, ptr %201, align 8
+  %202 = getelementptr inbounds i8, ptr %184, i64 24
+  store i64 %188, ptr %202, align 8
+  %203 = getelementptr inbounds i8, ptr %184, i64 32
+  store i64 %193, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %184, i64 40
+  store i64 %198, ptr %204, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %184, align 8
+  invoke void @__cxa_throw(ptr nonnull %184, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #17
+          to label %229 unwind label %207
 
-.critedge4:                                       ; preds = %75, %82, %61, %63, %47
+.critedge4:                                       ; preds = %74, %81, %60, %62, %46
   ret i16 %.sroa.044.0.copyload
 
-206:                                              ; preds = %195, %190, %183
-  %207 = landingpad { ptr, i32 }
+205:                                              ; preds = %194, %189, %182
+  %206 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %185) #16
-  br label %210
+  call void @__cxa_free_exception(ptr %184) #16
+  br label %209
 
-208:                                              ; preds = %200
-  %209 = landingpad { ptr, i32 }
+207:                                              ; preds = %199
+  %208 = landingpad { ptr, i32 }
           cleanup
-  br label %210
+  br label %209
 
-210:                                              ; preds = %208, %206
-  %.pn = phi { ptr, i32 } [ %209, %208 ], [ %207, %206 ]
+209:                                              ; preds = %207, %205
+  %.pn = phi { ptr, i32 } [ %208, %207 ], [ %206, %205 ]
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %227
+          to label %225 unwind label %226
 
-211:                                              ; preds = %168, %163, %158, %152
-  %212 = landingpad { ptr, i32 }
+210:                                              ; preds = %167, %162, %157, %151
+  %211 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %154) #16
-  br label %215
+  call void @__cxa_free_exception(ptr %153) #16
+  br label %214
 
-213:                                              ; preds = %173
-  %214 = landingpad { ptr, i32 }
+212:                                              ; preds = %172
+  %213 = landingpad { ptr, i32 }
           cleanup
-  br label %215
+  br label %214
 
-215:                                              ; preds = %213, %211
-  %.pn70 = phi { ptr, i32 } [ %214, %213 ], [ %212, %211 ]
+214:                                              ; preds = %212, %210
+  %.pn70 = phi { ptr, i32 } [ %213, %212 ], [ %211, %210 ]
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %227
+          to label %225 unwind label %226
 
-216:                                              ; preds = %137, %132, %127, %121
-  %217 = landingpad { ptr, i32 }
+215:                                              ; preds = %136, %131, %126, %120
+  %216 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %123) #16
-  br label %220
+  call void @__cxa_free_exception(ptr %122) #16
+  br label %219
 
-218:                                              ; preds = %142
-  %219 = landingpad { ptr, i32 }
+217:                                              ; preds = %141
+  %218 = landingpad { ptr, i32 }
           cleanup
-  br label %220
+  br label %219
 
-220:                                              ; preds = %218, %216
-  %.pn72 = phi { ptr, i32 } [ %219, %218 ], [ %217, %216 ]
+219:                                              ; preds = %217, %215
+  %.pn72 = phi { ptr, i32 } [ %218, %217 ], [ %216, %215 ]
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %227
+          to label %225 unwind label %226
 
-221:                                              ; preds = %106, %101, %96, %90
-  %222 = landingpad { ptr, i32 }
+220:                                              ; preds = %105, %100, %95, %89
+  %221 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %92) #16
-  br label %225
+  call void @__cxa_free_exception(ptr %91) #16
+  br label %224
 
-223:                                              ; preds = %111
-  %224 = landingpad { ptr, i32 }
+222:                                              ; preds = %110
+  %223 = landingpad { ptr, i32 }
           cleanup
-  br label %225
+  br label %224
 
-225:                                              ; preds = %223, %221
-  %.pn74 = phi { ptr, i32 } [ %224, %223 ], [ %222, %221 ]
+224:                                              ; preds = %222, %220
+  %.pn74 = phi { ptr, i32 } [ %223, %222 ], [ %221, %220 ]
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %227
+          to label %225 unwind label %226
 
-226:                                              ; preds = %225, %220, %215, %210, %180
-  %.merged = phi { ptr, i32 } [ %.pn74, %225 ], [ %.pn72, %220 ], [ %.pn70, %215 ], [ %.pn, %210 ], [ %85, %180 ]
+225:                                              ; preds = %224, %219, %214, %209, %179
+  %.merged = phi { ptr, i32 } [ %.pn74, %224 ], [ %.pn72, %219 ], [ %.pn70, %214 ], [ %.pn, %209 ], [ %84, %179 ]
   resume { ptr, i32 } %.merged
 
-227:                                              ; preds = %225, %220, %215, %210
-  %228 = landingpad { ptr, i32 }
+226:                                              ; preds = %224, %219, %214, %209
+  %227 = landingpad { ptr, i32 }
           catch ptr null
-  %229 = extractvalue { ptr, i32 } %228, 0
-  call void @__clang_call_terminate(ptr %229) #18
+  %228 = extractvalue { ptr, i32 } %227, 0
+  call void @__clang_call_terminate(ptr %228) #18
   unreachable
 
-230:                                              ; preds = %200, %173, %142, %111
+229:                                              ; preds = %199, %172, %141, %110
   unreachable
 }
 
@@ -1629,9 +1627,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %84
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1953,9 +1950,8 @@ _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
 define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2101,9 +2097,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

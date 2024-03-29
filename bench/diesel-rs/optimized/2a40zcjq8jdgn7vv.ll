@@ -291,7 +291,7 @@ define zeroext i1 @_ZN20migrations_internals29valid_sql_migration_directory17h1c
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ne i8 %6, 0
+  %8 = trunc i8 %6 to i1
   call void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull %.sroa.01.0.i, i1 zeroext %8)
   br label %_ZN20migrations_internals10file_names17h5988b79bfbe20f10E.exit
 

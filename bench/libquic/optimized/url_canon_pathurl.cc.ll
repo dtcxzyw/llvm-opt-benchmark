@@ -557,15 +557,14 @@ for.inc:                                          ; preds = %do.body.i.i26, %ret
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre51 = load i32, ptr %new_component, align 4
-  %17 = and i8 %success.1, 1
-  %18 = icmp ne i8 %17, 0
+  %17 = trunc i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %19 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
-  %success.0.lcssa = phi i1 [ true, %if.end ], [ %18, %for.end.loopexit ]
-  %20 = load i32, ptr %cur_len_.i18, align 4
-  %sub = sub nsw i32 %20, %19
+  %18 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %if.end ], [ %17, %for.end.loopexit ]
+  %19 = load i32, ptr %cur_len_.i18, align 4
+  %sub = sub nsw i32 %19, %18
   br label %if.end18
 
 if.else17:                                        ; preds = %entry
@@ -948,15 +947,14 @@ for.inc:                                          ; preds = %do.body.i.i26, %ret
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre51 = load i32, ptr %new_component, align 4
-  %18 = and i8 %success.1, 1
-  %19 = icmp ne i8 %18, 0
+  %18 = trunc i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %20 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
-  %success.0.lcssa = phi i1 [ true, %if.end ], [ %19, %for.end.loopexit ]
-  %21 = load i32, ptr %cur_len_.i18, align 4
-  %sub = sub nsw i32 %21, %20
+  %19 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %if.end ], [ %18, %for.end.loopexit ]
+  %20 = load i32, ptr %cur_len_.i18, align 4
+  %sub = sub nsw i32 %20, %19
   br label %if.end19
 
 if.else18:                                        ; preds = %entry

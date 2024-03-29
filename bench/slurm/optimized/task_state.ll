@@ -296,54 +296,53 @@ define dso_local noundef zeroext i1 @task_state_first_exit(ptr noundef %0) local
 2:                                                ; preds = %1
   %3 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #6
   %4 = tail call ptr @list_next(ptr noundef %3) #6
-  %.not1922 = icmp eq ptr %4, null
-  br i1 %.not1922, label %.sink.split, label %.lr.ph
+  %.not1921 = icmp ne ptr %4, null
+  br i1 %.not1921, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %2, %9
   %5 = phi ptr [ %13, %9 ], [ %4, %2 ]
-  %.023 = phi i32 [ %12, %9 ], [ 0, %2 ]
+  %.022 = phi i32 [ %12, %9 ], [ 0, %2 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not20 = icmp eq i8 %8, 0
-  br i1 %.not20, label %9, label %.sink.split
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %5, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = add nsw i32 %11, %.023
+  %12 = add nsw i32 %11, %.022
   %13 = tail call ptr @list_next(ptr noundef %3) #6
   %.not19 = icmp eq ptr %13, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %9
-  %14 = icmp ne i32 %12, 0
+._crit_edge:                                      ; preds = %9, %.lr.ph
+  %.0.lcssa.ph = phi i32 [ %12, %9 ], [ %.022, %.lr.ph ]
+  %14 = icmp eq i32 %.0.lcssa.ph, 0
   tail call void @list_iterator_destroy(ptr noundef %3) #6
-  %spec.select = and i1 %14, %.not20
-  br i1 %spec.select, label %15, label %21
+  %spec.select.not = or i1 %14, %8
+  br i1 %spec.select.not, label %21, label %15
 
 15:                                               ; preds = %._crit_edge
   %16 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #6
   %17 = tail call ptr @list_next(ptr noundef %16) #6
-  %.not2129 = icmp eq ptr %17, null
-  br i1 %.not2129, label %.sink.split, label %.lr.ph31
+  %.not2028 = icmp eq ptr %17, null
+  br i1 %.not2028, label %.sink.split, label %.lr.ph30
 
-.lr.ph31:                                         ; preds = %15, %.lr.ph31
-  %18 = phi ptr [ %20, %.lr.ph31 ], [ %17, %15 ]
+.lr.ph30:                                         ; preds = %15, %.lr.ph30
+  %18 = phi ptr [ %20, %.lr.ph30 ], [ %17, %15 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 32
   store i8 1, ptr %19, align 8
   %20 = tail call ptr @list_next(ptr noundef %16) #6
-  %.not21 = icmp eq ptr %20, null
-  br i1 %.not21, label %.sink.split, label %.lr.ph31, !llvm.loop !9
+  %.not20 = icmp eq ptr %20, null
+  br i1 %.not20, label %.sink.split, label %.lr.ph30, !llvm.loop !9
 
-.sink.split:                                      ; preds = %.lr.ph, %.lr.ph31, %15, %2
-  %.sink = phi ptr [ %3, %2 ], [ %16, %15 ], [ %16, %.lr.ph31 ], [ %3, %.lr.ph ]
-  %.015.ph = phi i1 [ false, %2 ], [ true, %15 ], [ true, %.lr.ph31 ], [ false, %.lr.ph ]
+.sink.split:                                      ; preds = %.lr.ph30, %15, %2
+  %.sink = phi ptr [ %3, %2 ], [ %16, %15 ], [ %16, %.lr.ph30 ]
   tail call void @list_iterator_destroy(ptr noundef %.sink) #6
   br label %21
 
 21:                                               ; preds = %.sink.split, %._crit_edge, %1
-  %.015 = phi i1 [ true, %1 ], [ false, %._crit_edge ], [ %.015.ph, %.sink.split ]
+  %.015 = phi i1 [ true, %1 ], [ false, %._crit_edge ], [ %.not1921, %.sink.split ]
   ret i1 %.015
 }
 
@@ -361,54 +360,53 @@ define dso_local noundef zeroext i1 @task_state_first_abnormal_exit(ptr noundef 
 2:                                                ; preds = %1
   %3 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #6
   %4 = tail call ptr @list_next(ptr noundef %3) #6
-  %.not1922 = icmp eq ptr %4, null
-  br i1 %.not1922, label %.sink.split, label %.lr.ph
+  %.not1921 = icmp ne ptr %4, null
+  br i1 %.not1921, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %2, %9
   %5 = phi ptr [ %13, %9 ], [ %4, %2 ]
-  %.023 = phi i32 [ %12, %9 ], [ 0, %2 ]
+  %.022 = phi i32 [ %12, %9 ], [ 0, %2 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 33
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not20 = icmp eq i8 %8, 0
-  br i1 %.not20, label %9, label %.sink.split
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = add nsw i32 %11, %.023
+  %12 = add nsw i32 %11, %.022
   %13 = tail call ptr @list_next(ptr noundef %3) #6
   %.not19 = icmp eq ptr %13, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %9
-  %14 = icmp ne i32 %12, 0
+._crit_edge:                                      ; preds = %9, %.lr.ph
+  %.0.lcssa.ph = phi i32 [ %12, %9 ], [ %.022, %.lr.ph ]
+  %14 = icmp eq i32 %.0.lcssa.ph, 0
   tail call void @list_iterator_destroy(ptr noundef %3) #6
-  %spec.select = and i1 %14, %.not20
-  br i1 %spec.select, label %15, label %21
+  %spec.select.not = or i1 %14, %8
+  br i1 %spec.select.not, label %21, label %15
 
 15:                                               ; preds = %._crit_edge
   %16 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #6
   %17 = tail call ptr @list_next(ptr noundef %16) #6
-  %.not2129 = icmp eq ptr %17, null
-  br i1 %.not2129, label %.sink.split, label %.lr.ph31
+  %.not2028 = icmp eq ptr %17, null
+  br i1 %.not2028, label %.sink.split, label %.lr.ph30
 
-.lr.ph31:                                         ; preds = %15, %.lr.ph31
-  %18 = phi ptr [ %20, %.lr.ph31 ], [ %17, %15 ]
+.lr.ph30:                                         ; preds = %15, %.lr.ph30
+  %18 = phi ptr [ %20, %.lr.ph30 ], [ %17, %15 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 33
   store i8 1, ptr %19, align 1
   %20 = tail call ptr @list_next(ptr noundef %16) #6
-  %.not21 = icmp eq ptr %20, null
-  br i1 %.not21, label %.sink.split, label %.lr.ph31, !llvm.loop !11
+  %.not20 = icmp eq ptr %20, null
+  br i1 %.not20, label %.sink.split, label %.lr.ph30, !llvm.loop !11
 
-.sink.split:                                      ; preds = %.lr.ph, %.lr.ph31, %15, %2
-  %.sink = phi ptr [ %3, %2 ], [ %16, %15 ], [ %16, %.lr.ph31 ], [ %3, %.lr.ph ]
-  %.015.ph = phi i1 [ false, %2 ], [ true, %15 ], [ true, %.lr.ph31 ], [ false, %.lr.ph ]
+.sink.split:                                      ; preds = %.lr.ph30, %15, %2
+  %.sink = phi ptr [ %3, %2 ], [ %16, %15 ], [ %16, %.lr.ph30 ]
   tail call void @list_iterator_destroy(ptr noundef %.sink) #6
   br label %21
 
 21:                                               ; preds = %.sink.split, %._crit_edge, %1
-  %.015 = phi i1 [ true, %1 ], [ false, %._crit_edge ], [ %.015.ph, %.sink.split ]
+  %.015 = phi i1 [ true, %1 ], [ false, %._crit_edge ], [ %.not1921, %.sink.split ]
   ret i1 %.015
 }
 

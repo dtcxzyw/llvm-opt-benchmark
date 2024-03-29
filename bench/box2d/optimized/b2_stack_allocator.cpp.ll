@@ -87,9 +87,8 @@ entry:
   %add.ptr = getelementptr inbounds %struct.b2StackEntry, ptr %m_entries, i64 %idx.ext
   %usedMalloc = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   %1 = load i8, ptr %usedMalloc, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   tail call void @_Z14b2Free_DefaultPv(ptr noundef %p)
@@ -100,21 +99,21 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %size = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %3 = load i32, ptr %size, align 8
+  %2 = load i32, ptr %size, align 8
   %m_index = getelementptr inbounds i8, ptr %this, i64 102400
-  %4 = load i32, ptr %m_index, align 8
-  %sub = sub nsw i32 %4, %3
+  %3 = load i32, ptr %m_index, align 8
+  %sub = sub nsw i32 %3, %2
   store i32 %sub, ptr %m_index, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %5 = phi i32 [ %0, %if.else ], [ %.pre3, %if.then ]
-  %6 = phi i32 [ %3, %if.else ], [ %.pre, %if.then ]
+  %4 = phi i32 [ %0, %if.else ], [ %.pre3, %if.then ]
+  %5 = phi i32 [ %2, %if.else ], [ %.pre, %if.then ]
   %m_allocation = getelementptr inbounds i8, ptr %this, i64 102404
-  %7 = load i32, ptr %m_allocation, align 4
-  %sub5 = sub nsw i32 %7, %6
+  %6 = load i32, ptr %m_allocation, align 4
+  %sub5 = sub nsw i32 %6, %5
   store i32 %sub5, ptr %m_allocation, align 4
-  %dec = add nsw i32 %5, -1
+  %dec = add nsw i32 %4, -1
   store i32 %dec, ptr %m_entryCount, align 8
   ret void
 }

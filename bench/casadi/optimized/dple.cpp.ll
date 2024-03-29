@@ -4814,18 +4814,18 @@ define void @_ZN6casadi4Dple4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_t
   %84 = getelementptr inbounds i8, ptr %1, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not262264 = icmp eq ptr %85, %86
-  br i1 %.not262264, label %._crit_edge, label %.lr.ph
+  %.not263 = icmp eq ptr %85, %86
+  br i1 %.not263, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %114
-  %.sroa.0232.0265 = phi ptr [ %115, %114 ], [ %85, %2 ]
-  %87 = getelementptr inbounds i8, ptr %.sroa.0232.0265, i64 32
+  %.sroa.0232.0264 = phi ptr [ %115, %114 ], [ %85, %2 ]
+  %87 = getelementptr inbounds i8, ptr %.sroa.0232.0264, i64 32
   %88 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull @.str.14) #21
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %.lr.ph
-  %91 = getelementptr inbounds i8, ptr %.sroa.0232.0265, i64 64
+  %91 = getelementptr inbounds i8, ptr %.sroa.0232.0264, i64 64
   %92 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %91)
   %93 = zext i1 %92 to i8
   store i8 %93, ptr %80, align 8
@@ -4837,7 +4837,7 @@ define void @_ZN6casadi4Dple4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %.sroa.0232.0265, i64 64
+  %98 = getelementptr inbounds i8, ptr %.sroa.0232.0264, i64 64
   %99 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %98)
   %100 = zext i1 %99 to i8
   store i8 %100, ptr %81, align 1
@@ -4849,7 +4849,7 @@ define void @_ZN6casadi4Dple4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %.sroa.0232.0265, i64 64
+  %105 = getelementptr inbounds i8, ptr %.sroa.0232.0264, i64 64
   %106 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
   %107 = zext i1 %106 to i8
   store i8 %107, ptr %82, align 2
@@ -4861,15 +4861,15 @@ define void @_ZN6casadi4Dple4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %.sroa.0232.0265, i64 64
+  %112 = getelementptr inbounds i8, ptr %.sroa.0232.0264, i64 64
   %113 = tail call noundef double @_ZNK6casadi11GenericType9to_doubleEv(ptr noundef nonnull align 8 dereferenceable(8) %112)
   store double %113, ptr %83, align 8
   br label %114
 
 114:                                              ; preds = %90, %104, %111, %108, %97
-  %115 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0232.0265) #25
-  %.not262 = icmp eq ptr %115, %86
-  br i1 %.not262, label %._crit_edge, label %.lr.ph
+  %115 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0232.0264) #25
+  %.not = icmp eq ptr %115, %86
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %114, %2
   %116 = getelementptr inbounds i8, ptr %0, i64 1320
@@ -5216,7 +5216,7 @@ _ZN6casadi8SparsityC2ERKS0_.exit:                 ; preds = %195
           cleanup
   br label %428
 
-.loopexit:                                        ; preds = %.lr.ph269
+.loopexit:                                        ; preds = %.lr.ph268
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %427
@@ -5338,20 +5338,20 @@ _ZN6casadi8SparsityC2ERKS0_.exit:                 ; preds = %195
   %247 = load ptr, ptr %23, align 8
   %248 = getelementptr inbounds i8, ptr %23, i64 8
   %249 = load ptr, ptr %248, align 8
-  %.not263266 = icmp eq ptr %247, %249
-  br i1 %.not263266, label %._crit_edge270, label %.lr.ph269
+  %.not262265 = icmp eq ptr %247, %249
+  br i1 %.not262265, label %._crit_edge269, label %.lr.ph268
 
 250:                                              ; preds = %_ZNK6casadi8SparsityeqERKS0_.exit
-  %251 = getelementptr inbounds i8, ptr %.sroa.0228.0267, i64 8
-  %.not263 = icmp eq ptr %251, %249
-  br i1 %.not263, label %._crit_edge270, label %.lr.ph269
+  %251 = getelementptr inbounds i8, ptr %.sroa.0228.0266, i64 8
+  %.not262 = icmp eq ptr %251, %249
+  br i1 %.not262, label %._crit_edge269, label %.lr.ph268
 
-.lr.ph269:                                        ; preds = %246, %250
-  %.sroa.0228.0267 = phi ptr [ %251, %250 ], [ %247, %246 ]
-  %252 = invoke noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0228.0267, ptr noundef nonnull align 8 dereferenceable(8) %24)
+.lr.ph268:                                        ; preds = %246, %250
+  %.sroa.0228.0266 = phi ptr [ %251, %250 ], [ %247, %246 ]
+  %252 = invoke noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0228.0266, ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %_ZNK6casadi8SparsityeqERKS0_.exit unwind label %.loopexit
 
-_ZNK6casadi8SparsityeqERKS0_.exit:                ; preds = %.lr.ph269
+_ZNK6casadi8SparsityeqERKS0_.exit:                ; preds = %.lr.ph268
   br i1 %252, label %250, label %253
 
 253:                                              ; preds = %_ZNK6casadi8SparsityeqERKS0_.exit
@@ -5483,13 +5483,12 @@ _ZNK6casadi8SparsityeqERKS0_.exit:                ; preds = %.lr.ph269
   call void @__cxa_free_exception(ptr %254) #21
   br label %427
 
-._crit_edge270:                                   ; preds = %250, %246
+._crit_edge269:                                   ; preds = %250, %246
   %287 = load i8, ptr %80, align 8
-  %288 = and i8 %287, 1
-  %.not = icmp eq i8 %288, 0
-  br i1 %.not, label %289, label %323
+  %288 = trunc i8 %287 to i1
+  br i1 %288, label %323, label %289
 
-289:                                              ; preds = %._crit_edge270
+289:                                              ; preds = %._crit_edge269
   %290 = call ptr @__cxa_allocate_exception(i64 40) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %50)
@@ -5618,7 +5617,7 @@ _ZNK6casadi8SparsityeqERKS0_.exit:                ; preds = %.lr.ph269
   call void @__cxa_free_exception(ptr %290) #21
   br label %427
 
-323:                                              ; preds = %._crit_edge270
+323:                                              ; preds = %._crit_edge269
   %324 = invoke noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %325 unwind label %.loopexit.split-lp
 

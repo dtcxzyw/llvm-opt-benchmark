@@ -314,14 +314,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %1 = load ptr, ptr %arrayidx, align 8
   %is_netdev = getelementptr inbounds i8, ptr %1, i64 352
   %2 = load i8, ptr %is_netdev, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %for.inc, label %if.then6
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then6, label %for.inc
 
 if.then6:                                         ; preds = %for.body
   %name = getelementptr inbounds i8, ptr %1, i64 56
-  %4 = load ptr, ptr %name, align 8
-  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %4) #4
+  %3 = load ptr, ptr %name, align 8
+  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %3) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6

@@ -1199,9 +1199,8 @@ define void @_ZNK18VoipCallsInfoModel8timeDataEP8nstime_tS1_(ptr dead_on_unwind 
   %9 = alloca %class.QString, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %43, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %43
 
 13:                                               ; preds = %4
   %14 = tail call double @nstime_to_msec(ptr noundef %2)
@@ -2010,9 +2009,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define noundef zeroext i1 @_ZNK18VoipCallsInfoModel9timeOfDayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -54,9 +54,8 @@ define internal noundef i32 @prte_mca_ras_slurm_component_query(ptr nocapture no
 
 5:                                                ; preds = %2
   %6 = load i8, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i64 0, i32 2), align 4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %2
   %9 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i64 0, i32 11), align 4

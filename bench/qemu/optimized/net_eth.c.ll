@@ -334,9 +334,8 @@ if.end46:                                         ; preds = %if.end39, %if.end19
   %ip_p.0 = phi i8 [ %14, %if.end19 ], [ %19, %if.end39 ]
   %fragment.0.in.in = phi ptr [ %fragment26, %if.end19 ], [ %fragment41, %if.end39 ]
   %fragment.0.in = load i8, ptr %fragment.0.in.in, align 1
-  %23 = and i8 %fragment.0.in, 1
-  %tobool47.not = icmp eq i8 %23, 0
-  br i1 %tobool47.not, label %if.end49, label %sw.epilog
+  %tobool47 = trunc i8 %fragment.0.in to i1
+  br i1 %tobool47, label %sw.epilog, label %if.end49
 
 if.end49:                                         ; preds = %if.end46
   switch i8 %ip_p.0, label %sw.epilog [
@@ -354,16 +353,16 @@ if.end.i73:                                       ; preds = %sw.bb
 
 land.lhs.true1.i.i77:                             ; preds = %if.end.i73
   %iov_len.i.i78 = getelementptr inbounds i8, ptr %iov, i64 8
-  %24 = load i64, ptr %iov_len.i.i78, align 8
-  %cmp.not.i.i79 = icmp ult i64 %24, %22
-  %sub.i.i80 = sub i64 %24, %22
+  %23 = load i64, ptr %iov_len.i.i78, align 8
+  %cmp.not.i.i79 = icmp ult i64 %23, %22
+  %sub.i.i80 = sub i64 %23, %22
   %cmp5.not.i.i81 = icmp ult i64 %sub.i.i80, 20
   %or.cond13.i.i82 = or i1 %cmp.not.i.i79, %cmp5.not.i.i81
   br i1 %or.cond13.i.i82, label %_eth_copy_chunk.exit, label %_eth_copy_chunk.exit.thread119
 
 _eth_copy_chunk.exit.thread119:                   ; preds = %land.lhs.true1.i.i77
-  %25 = load ptr, ptr %iov, align 8
-  %add.ptr.i.i83 = getelementptr i8, ptr %25, i64 %22
+  %24 = load ptr, ptr %iov, align 8
+  %add.ptr.i.i83 = getelementptr i8, ptr %24, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %l4hdr_info, ptr noundef nonnull align 1 dereferenceable(20) %add.ptr.i.i83, i64 20, i1 false)
   br label %if.then53
 
@@ -374,21 +373,21 @@ _eth_copy_chunk.exit:                             ; preds = %if.end.i73, %land.l
 
 if.then53:                                        ; preds = %_eth_copy_chunk.exit.thread119, %_eth_copy_chunk.exit
   store i32 1, ptr %proto3, align 4
-  %26 = load i64, ptr %l4hdr_off, align 8
+  %25 = load i64, ptr %l4hdr_off, align 8
   %th_offset_flags = getelementptr inbounds i8, ptr %l4hdr_info, i64 12
-  %27 = load i16, ptr %th_offset_flags, align 4
-  %28 = lshr i16 %27, 2
-  %29 = and i16 %28, 60
-  %conv61 = zext nneg i16 %29 to i64
-  %add62 = add i64 %26, %conv61
+  %26 = load i16, ptr %th_offset_flags, align 4
+  %27 = lshr i16 %26, 2
+  %28 = and i16 %27, 60
+  %conv61 = zext nneg i16 %28 to i64
+  %add62 = add i64 %25, %conv61
   store i64 %add62, ptr %l5hdr_off, align 8
   br i1 %cmp111, label %if.then.i87, label %if.else.i84
 
 if.then.i87:                                      ; preds = %if.then53
   %ip_len.i = getelementptr inbounds i8, ptr %ip4hdr_info, i64 2
-  %30 = load i16, ptr %ip_len.i, align 2
-  %31 = call noundef i16 @llvm.bswap.i16(i16 %30)
-  %conv.i88 = zext i16 %31 to i32
+  %29 = load i16, ptr %ip_len.i, align 2
+  %30 = call noundef i16 @llvm.bswap.i16(i16 %29)
+  %conv.i88 = zext i16 %30 to i32
   %ip4_hdr.val.i = load i8, ptr %ip4hdr_info, align 1
   %conv.i.i = zext i8 %ip4_hdr.val.i to i32
   %and.i = shl nuw nsw i32 %conv.i.i, 2
@@ -397,24 +396,24 @@ if.then.i87:                                      ; preds = %if.then53
   br label %_eth_tcp_has_data.exit
 
 if.else.i84:                                      ; preds = %if.then53
-  %32 = load i64, ptr %l4hdr_off, align 8
-  %33 = load i64, ptr %l3hdr_off, align 8
-  %sub.neg = sub i64 %33, %32
+  %31 = load i64, ptr %l4hdr_off, align 8
+  %32 = load i64, ptr %l3hdr_off, align 8
+  %sub.neg = sub i64 %32, %31
   %ip6_un1_plen.i = getelementptr inbounds i8, ptr %ip6hdr_info, i64 20
-  %34 = load i16, ptr %ip6_un1_plen.i, align 4
-  %35 = call noundef i16 @llvm.bswap.i16(i16 %34)
-  %conv4.i = zext i16 %35 to i64
+  %33 = load i16, ptr %ip6_un1_plen.i, align 4
+  %34 = call noundef i16 @llvm.bswap.i16(i16 %33)
+  %conv4.i = zext i16 %34 to i64
   %reass.sub.i = add i64 %sub.neg, %conv4.i
-  %36 = trunc i64 %reass.sub.i to i32
-  %conv6.i = add i32 %36, 40
+  %35 = trunc i64 %reass.sub.i to i32
+  %conv6.i = add i32 %35, 40
   br label %_eth_tcp_has_data.exit
 
 _eth_tcp_has_data.exit:                           ; preds = %if.then.i87, %if.else.i84
   %l4len.0.i = phi i32 [ %sub.i89, %if.then.i87 ], [ %conv6.i, %if.else.i84 ]
-  %37 = load i16, ptr %th_offset_flags, align 4
-  %38 = lshr i16 %37, 2
-  %39 = and i16 %38, 60
-  %shl10.i = zext nneg i16 %39 to i32
+  %36 = load i16, ptr %th_offset_flags, align 4
+  %37 = lshr i16 %36, 2
+  %38 = and i16 %37, 60
+  %shl10.i = zext nneg i16 %38 to i32
   %cmp.i86 = icmp ugt i32 %l4len.0.i, %shl10.i
   %has_tcp_data = getelementptr inbounds i8, ptr %l4hdr_info, i64 24
   %frombool68 = zext i1 %cmp.i86 to i8
@@ -430,18 +429,18 @@ if.end.i91:                                       ; preds = %sw.bb70
 
 land.lhs.true1.i.i99:                             ; preds = %if.end.i91
   %iov_len.i.i100 = getelementptr inbounds i8, ptr %iov, i64 8
-  %40 = load i64, ptr %iov_len.i.i100, align 8
-  %cmp.not.i.i101 = icmp ult i64 %40, %22
-  %sub.i.i102 = sub i64 %40, %22
+  %39 = load i64, ptr %iov_len.i.i100, align 8
+  %cmp.not.i.i101 = icmp ult i64 %39, %22
+  %sub.i.i102 = sub i64 %39, %22
   %cmp5.not.i.i103 = icmp ult i64 %sub.i.i102, 8
   %or.cond13.i.i104 = or i1 %cmp.not.i.i101, %cmp5.not.i.i103
   br i1 %or.cond13.i.i104, label %_eth_copy_chunk.exit107, label %_eth_copy_chunk.exit107.thread123
 
 _eth_copy_chunk.exit107.thread123:                ; preds = %land.lhs.true1.i.i99
-  %41 = load ptr, ptr %iov, align 8
-  %add.ptr.i.i106 = getelementptr i8, ptr %41, i64 %22
-  %42 = load i64, ptr %add.ptr.i.i106, align 1
-  store i64 %42, ptr %l4hdr_info, align 1
+  %40 = load ptr, ptr %iov, align 8
+  %add.ptr.i.i106 = getelementptr i8, ptr %40, i64 %22
+  %41 = load i64, ptr %add.ptr.i.i106, align 1
+  store i64 %41, ptr %l4hdr_info, align 1
   br label %if.then74
 
 _eth_copy_chunk.exit107:                          ; preds = %if.end.i91, %land.lhs.true1.i.i99
@@ -451,8 +450,8 @@ _eth_copy_chunk.exit107:                          ; preds = %if.end.i91, %land.l
 
 if.then74:                                        ; preds = %_eth_copy_chunk.exit107.thread123, %_eth_copy_chunk.exit107
   store i32 2, ptr %proto3, align 4
-  %43 = load i64, ptr %l4hdr_off, align 8
-  %add76 = add i64 %43, 8
+  %42 = load i64, ptr %l4hdr_off, align 8
+  %add76 = add i64 %42, 8
   store i64 %add76, ptr %l5hdr_off, align 8
   br label %sw.epilog
 

@@ -2452,9 +2452,8 @@ common.resume:                                    ; preds = %69, %.body
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 288
   %46 = load i8, ptr %45, align 8
-  %47 = and i8 %46, 1
-  %.not23 = icmp eq i8 %47, 0
-  br i1 %.not23, label %48, label %.critedge19
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %.critedge19, label %48
 
 48:                                               ; preds = %42
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull @.str, i32 noundef 305)

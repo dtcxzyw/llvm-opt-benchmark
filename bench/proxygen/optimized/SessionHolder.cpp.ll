@@ -1108,21 +1108,20 @@ if.then4:                                         ; preds = %if.end
   store i8 0, ptr %hasValue.i.i, align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %streamId, i64 8
   %3 = load i8, ptr %hasValue.i.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.i.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalImEC2ERKS1_.exit, label %invoke.cont2.i
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %invoke.cont2.i, label %_ZN5folly8OptionalImEC2ERKS1_.exit
 
 invoke.cont2.i:                                   ; preds = %if.then4
-  %5 = load i64, ptr %streamId, align 8
-  store i64 %5, ptr %agg.tmp, align 8
+  %4 = load i64, ptr %streamId, align 8
+  store i64 %4, ptr %agg.tmp, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   br label %_ZN5folly8OptionalImEC2ERKS1_.exit
 
 _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %if.then4, %invoke.cont2.i
   %vtable6 = load ptr, ptr %2, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 72
-  %6 = load ptr, ptr %vfn7, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr noundef nonnull %agg.tmp)
+  %5 = load ptr, ptr %vfn7, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr noundef nonnull %agg.tmp)
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZN5folly8OptionalImEC2ERKS1_.exit, %if.end
@@ -1753,12 +1752,11 @@ lpad14:                                           ; preds = %invoke.cont15, %inv
 
 invoke.cont21:                                    ; preds = %invoke.cont15, %lpad14
   %11 = load i8, ptr %external_.i, align 2
-  %12 = and i8 %11, 1
-  %tobool.not.i.i15 = icmp ne i8 %12, 0
+  %tobool.i.i = trunc i8 %11 to i1
   %family_.i.i.i = getelementptr inbounds i8, ptr %localAddr, i64 20
-  %13 = load i16, ptr %family_.i.i.i, align 4
-  %cmp1.i = icmp ne i16 %13, 0
-  %cmp.i = select i1 %tobool.not.i.i15, i1 true, i1 %cmp1.i
+  %12 = load i16, ptr %family_.i.i.i, align 4
+  %cmp1.i = icmp ne i16 %12, 0
+  %cmp.i = select i1 %tobool.i.i, i1 true, i1 %cmp1.i
   br i1 %cmp.i, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %invoke.cont21
@@ -1770,20 +1768,19 @@ invoke.cont24:                                    ; preds = %if.then23
           to label %invoke.cont31 unwind label %lpad19
 
 lpad19:                                           ; preds = %if.else38, %invoke.cont34, %if.then33, %if.else, %invoke.cont24, %if.then23, %lpad14
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %15 = load i8, ptr %external_.i14, align 2
-  %16 = and i8 %15, 1
-  %tobool.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i, label %ehcleanup, label %if.then.i
+  %14 = load i8, ptr %external_.i14, align 2
+  %tobool.i = trunc i8 %14 to i1
+  br i1 %tobool.i, label %if.then.i, label %ehcleanup
 
 if.then.i:                                        ; preds = %lpad19
-  %17 = load ptr, ptr %serverAddr, align 8
-  %isnull.i.i = icmp eq ptr %17, null
+  %15 = load ptr, ptr %serverAddr, align 8
+  %isnull.i.i = icmp eq ptr %15, null
   br i1 %isnull.i.i, label %ehcleanup, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  call void @_ZdlPv(ptr noundef nonnull %17) #24
+  call void @_ZdlPv(ptr noundef nonnull %15) #24
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont21
@@ -1791,14 +1788,13 @@ if.else:                                          ; preds = %invoke.cont21
           to label %invoke.cont31 unwind label %lpad19
 
 invoke.cont31:                                    ; preds = %invoke.cont24, %if.else
-  %18 = load i8, ptr %external_.i14, align 2
-  %19 = and i8 %18, 1
-  %tobool.not.i.i18 = icmp ne i8 %19, 0
-  %family_.i.i.i19 = getelementptr inbounds i8, ptr %serverAddr, i64 20
-  %20 = load i16, ptr %family_.i.i.i19, align 4
-  %cmp1.i20 = icmp ne i16 %20, 0
-  %cmp.i21 = select i1 %tobool.not.i.i18, i1 true, i1 %cmp1.i20
-  br i1 %cmp.i21, label %if.then33, label %if.else38
+  %16 = load i8, ptr %external_.i14, align 2
+  %tobool.i.i17 = trunc i8 %16 to i1
+  %family_.i.i.i18 = getelementptr inbounds i8, ptr %serverAddr, i64 20
+  %17 = load i16, ptr %family_.i.i.i18, align 4
+  %cmp1.i19 = icmp ne i16 %17, 0
+  %cmp.i20 = select i1 %tobool.i.i17, i1 true, i1 %cmp1.i19
+  br i1 %cmp.i20, label %if.then33, label %if.else38
 
 if.then33:                                        ; preds = %invoke.cont31
   %call35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.18)
@@ -1813,63 +1809,60 @@ if.else38:                                        ; preds = %invoke.cont31
           to label %if.end41 unwind label %lpad19
 
 if.end41:                                         ; preds = %if.else38, %invoke.cont34
-  %21 = load i8, ptr %external_.i14, align 2
-  %22 = and i8 %21, 1
-  %tobool.not.i23 = icmp eq i8 %22, 0
-  br i1 %tobool.not.i23, label %_ZN5folly13SocketAddressD2Ev.exit27, label %if.then.i24
+  %18 = load i8, ptr %external_.i14, align 2
+  %tobool.i22 = trunc i8 %18 to i1
+  br i1 %tobool.i22, label %if.then.i23, label %_ZN5folly13SocketAddressD2Ev.exit26
 
-if.then.i24:                                      ; preds = %if.end41
-  %23 = load ptr, ptr %serverAddr, align 8
-  %isnull.i.i25 = icmp eq ptr %23, null
-  br i1 %isnull.i.i25, label %_ZN5folly13SocketAddressD2Ev.exit27, label %delete.notnull.i.i26
+if.then.i23:                                      ; preds = %if.end41
+  %19 = load ptr, ptr %serverAddr, align 8
+  %isnull.i.i24 = icmp eq ptr %19, null
+  br i1 %isnull.i.i24, label %_ZN5folly13SocketAddressD2Ev.exit26, label %delete.notnull.i.i25
 
-delete.notnull.i.i26:                             ; preds = %if.then.i24
-  call void @_ZdlPv(ptr noundef nonnull %23) #24
-  br label %_ZN5folly13SocketAddressD2Ev.exit27
+delete.notnull.i.i25:                             ; preds = %if.then.i23
+  call void @_ZdlPv(ptr noundef nonnull %19) #24
+  br label %_ZN5folly13SocketAddressD2Ev.exit26
 
-_ZN5folly13SocketAddressD2Ev.exit27:              ; preds = %if.end41, %if.then.i24, %delete.notnull.i.i26
-  %24 = load i8, ptr %external_.i, align 2
-  %25 = and i8 %24, 1
-  %tobool.not.i29 = icmp eq i8 %25, 0
-  br i1 %tobool.not.i29, label %if.end44, label %if.then.i30
+_ZN5folly13SocketAddressD2Ev.exit26:              ; preds = %if.end41, %if.then.i23, %delete.notnull.i.i25
+  %20 = load i8, ptr %external_.i, align 2
+  %tobool.i28 = trunc i8 %20 to i1
+  br i1 %tobool.i28, label %if.then.i29, label %if.end44
 
-if.then.i30:                                      ; preds = %_ZN5folly13SocketAddressD2Ev.exit27
-  %26 = load ptr, ptr %localAddr, align 8
-  %isnull.i.i31 = icmp eq ptr %26, null
-  br i1 %isnull.i.i31, label %if.end44, label %delete.notnull.i.i32
+if.then.i29:                                      ; preds = %_ZN5folly13SocketAddressD2Ev.exit26
+  %21 = load ptr, ptr %localAddr, align 8
+  %isnull.i.i30 = icmp eq ptr %21, null
+  br i1 %isnull.i.i30, label %if.end44, label %delete.notnull.i.i31
 
-delete.notnull.i.i32:                             ; preds = %if.then.i30
-  call void @_ZdlPv(ptr noundef nonnull %26) #24
+delete.notnull.i.i31:                             ; preds = %if.then.i29
+  call void @_ZdlPv(ptr noundef nonnull %21) #24
   br label %if.end44
 
 ehcleanup:                                        ; preds = %delete.notnull.i.i, %if.then.i, %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %14, %lpad19 ], [ %14, %if.then.i ], [ %14, %delete.notnull.i.i ]
-  %27 = load i8, ptr %external_.i, align 2
-  %28 = and i8 %27, 1
-  %tobool.not.i35 = icmp eq i8 %28, 0
-  br i1 %tobool.not.i35, label %_ZN5folly13SocketAddressD2Ev.exit39, label %if.then.i36
+  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %13, %lpad19 ], [ %13, %if.then.i ], [ %13, %delete.notnull.i.i ]
+  %22 = load i8, ptr %external_.i, align 2
+  %tobool.i34 = trunc i8 %22 to i1
+  br i1 %tobool.i34, label %if.then.i35, label %_ZN5folly13SocketAddressD2Ev.exit38
 
-if.then.i36:                                      ; preds = %ehcleanup
-  %29 = load ptr, ptr %localAddr, align 8
-  %isnull.i.i37 = icmp eq ptr %29, null
-  br i1 %isnull.i.i37, label %_ZN5folly13SocketAddressD2Ev.exit39, label %delete.notnull.i.i38
+if.then.i35:                                      ; preds = %ehcleanup
+  %23 = load ptr, ptr %localAddr, align 8
+  %isnull.i.i36 = icmp eq ptr %23, null
+  br i1 %isnull.i.i36, label %_ZN5folly13SocketAddressD2Ev.exit38, label %delete.notnull.i.i37
 
-delete.notnull.i.i38:                             ; preds = %if.then.i36
-  call void @_ZdlPv(ptr noundef nonnull %29) #24
-  br label %_ZN5folly13SocketAddressD2Ev.exit39
+delete.notnull.i.i37:                             ; preds = %if.then.i35
+  call void @_ZdlPv(ptr noundef nonnull %23) #24
+  br label %_ZN5folly13SocketAddressD2Ev.exit38
 
-_ZN5folly13SocketAddressD2Ev.exit39:              ; preds = %ehcleanup, %if.then.i36, %delete.notnull.i.i38
+_ZN5folly13SocketAddressD2Ev.exit38:              ; preds = %ehcleanup, %if.then.i35, %delete.notnull.i.i37
   resume { ptr, i32 } %.pn
 
 if.else42:                                        ; preds = %if.end.i.i
   %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.20)
   br label %if.end44
 
-if.end44:                                         ; preds = %delete.notnull.i.i32, %if.then.i30, %_ZN5folly13SocketAddressD2Ev.exit27, %if.else42
+if.end44:                                         ; preds = %delete.notnull.i.i31, %if.then.i29, %_ZN5folly13SocketAddressD2Ev.exit26, %if.else42
   %call45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.21)
   %state_ = getelementptr inbounds i8, ptr %this, i64 80
-  %30 = load i32, ptr %state_, align 8
-  %call46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call45, i32 noundef %30)
+  %24 = load i32, ptr %state_, align 8
+  %call46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call45, i32 noundef %24)
   br label %return
 
 return:                                           ; preds = %if.end44, %if.then
@@ -2031,7 +2024,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 
 ; Function Attrs: uwtable
@@ -2070,7 +2063,7 @@ attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

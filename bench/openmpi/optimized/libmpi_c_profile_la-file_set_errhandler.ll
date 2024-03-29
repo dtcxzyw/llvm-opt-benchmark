@@ -33,9 +33,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_File_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %28, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %28
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -54,7 +53,7 @@ define i32 @PMPI_File_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
   %13 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 6), align 8
   %14 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 7), align 8
   %15 = tail call i32 @ompi_errhandler_invoke(ptr noundef %13, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %14, i32 noundef 30, ptr noundef nonnull @FUNC_NAME) #4
-  br label %65
+  br label %67
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %1, null
@@ -76,16 +75,15 @@ define i32 @PMPI_File_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
   %25 = getelementptr inbounds i8, ptr %0, i64 136
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @ompi_errhandler_invoke(ptr noundef %24, ptr noundef nonnull %0, i32 noundef %26, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
-  br label %65
+  br label %67
 
 28:                                               ; preds = %19, %19, %2
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i = icmp eq i8 %31, 0
-  br i1 %.not.i, label %opal_thread_add_fetch_32.exit.thread, label %35
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %35, label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit.thread:             ; preds = %28
+opal_thread_add_fetch_32.exit:                    ; preds = %28
   %32 = load volatile i32, ptr %29, align 4
   %33 = add nsw i32 %32, 1
   store volatile i32 %33, ptr %29, align 4
@@ -99,34 +97,33 @@ opal_thread_add_fetch_32.exit.thread:             ; preds = %28
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %39
 
-39:                                               ; preds = %opal_thread_add_fetch_32.exit.thread, %35
-  %40 = phi i8 [ %30, %opal_thread_add_fetch_32.exit.thread ], [ %.pre, %35 ]
+39:                                               ; preds = %opal_thread_add_fetch_32.exit, %35
+  %40 = phi i8 [ %30, %opal_thread_add_fetch_32.exit ], [ %.pre, %35 ]
   %41 = getelementptr inbounds i8, ptr %0, i64 128
   %42 = load ptr, ptr %41, align 8
   store ptr %1, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = and i8 %40, 1
-  %.not.i29 = icmp eq i8 %44, 0
-  br i1 %.not.i29, label %48, label %45
+  %44 = trunc i8 %40 to i1
+  br i1 %44, label %45, label %48
 
 45:                                               ; preds = %39
   %46 = atomicrmw volatile add ptr %43, i32 -1 monotonic, align 4
   %47 = add i32 %46, -1
-  br label %opal_thread_add_fetch_32.exit31
+  br label %opal_thread_add_fetch_32.exit27
 
 48:                                               ; preds = %39
   %49 = load volatile i32, ptr %43, align 4
   %50 = add nsw i32 %49, -1
   store volatile i32 %50, ptr %43, align 4
   %51 = load volatile i32, ptr %43, align 4
-  br label %opal_thread_add_fetch_32.exit31
+  br label %opal_thread_add_fetch_32.exit27
 
-opal_thread_add_fetch_32.exit31:                  ; preds = %45, %48
-  %.0.i30 = phi i32 [ %47, %45 ], [ %51, %48 ]
-  %52 = icmp eq i32 %.0.i30, 0
+opal_thread_add_fetch_32.exit27:                  ; preds = %45, %48
+  %.0.i26 = phi i32 [ %47, %45 ], [ %51, %48 ]
+  %52 = icmp eq i32 %.0.i26, 0
   br i1 %52, label %53, label %61
 
-53:                                               ; preds = %opal_thread_add_fetch_32.exit31
+53:                                               ; preds = %opal_thread_add_fetch_32.exit27
   %54 = load ptr, ptr %42, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
@@ -140,27 +137,26 @@ opal_thread_add_fetch_32.exit31:                  ; preds = %45, %48
   tail call void %58(ptr noundef nonnull %42) #4
   %59 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %60 = load ptr, ptr %59, align 8
-  %.not.i32 = icmp eq ptr %60, null
-  br i1 %.not.i32, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %53
   tail call void @free(ptr noundef %42) #4
-  %.pre33 = load i8, ptr @opal_uses_threads, align 1
-  %.pre34 = and i8 %.pre33, 1
+  %.pre28 = load i8, ptr @opal_uses_threads, align 1
   br label %61
 
-61:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit31
-  %.pre-phi = phi i8 [ %.pre34, %opal_obj_run_destructors.exit ], [ %44, %opal_thread_add_fetch_32.exit31 ]
-  %.not28 = icmp eq i8 %.pre-phi, 0
-  br i1 %.not28, label %65, label %62
+61:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit27
+  %62 = phi i8 [ %.pre28, %opal_obj_run_destructors.exit ], [ %40, %opal_thread_add_fetch_32.exit27 ]
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %67
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %0, i64 160
-  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %63) #4
-  br label %65
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %0, i64 160
+  %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %65) #4
+  br label %67
 
-65:                                               ; preds = %62, %61, %22, %12
-  %.0 = phi i32 [ %15, %12 ], [ %27, %22 ], [ 0, %61 ], [ 0, %62 ]
+67:                                               ; preds = %64, %61, %22, %12
+  %.0 = phi i32 [ %15, %12 ], [ %27, %22 ], [ 0, %61 ], [ 0, %64 ]
   ret i32 %.0
 }
 

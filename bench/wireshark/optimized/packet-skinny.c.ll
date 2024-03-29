@@ -12775,19 +12775,19 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noc
   store i8 0, ptr %24, align 1
   %25 = tail call ptr @tvb_memcpy(ptr noundef %7, ptr noundef %22, i32 noundef %6, i64 noundef %23) #6
   %26 = icmp sgt i32 %.057, 0
-  br i1 %26, label %.lr.ph, label %.critedge.thread
+  br i1 %26, label %.lr.ph, label %.critedge70
 
 .lr.ph:                                           ; preds = %14, %45
-  %.068 = phi i32 [ %.pre-phi, %45 ], [ 0, %14 ]
-  %.05467 = phi i8 [ %.155, %45 ], [ 0, %14 ]
-  %27 = sext i32 %.068 to i64
+  %.067 = phi i32 [ %.pre-phi, %45 ], [ 0, %14 ]
+  %.05466 = phi i1 [ %.155, %45 ], [ false, %14 ]
+  %27 = sext i32 %.067 to i64
   %28 = getelementptr i8, ptr %22, i64 %27
   %29 = load i8, ptr %28, align 1
   %.not = icmp eq i8 %29, 0
   br i1 %.not, label %.critedge, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = add nsw i32 %.068, 1
+  %31 = add nsw i32 %.067, 1
   %32 = icmp slt i32 %31, %.057
   br i1 %32, label %33, label %.thread
 
@@ -12807,8 +12807,8 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noc
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = tail call ptr @try_val_to_str_ext(i32 noundef %39, ptr noundef nonnull %DisplayLabels_36_ext.sink) #6
-  %.not63 = icmp eq ptr %40, null
-  br i1 %.not63, label %..threadthread-pre-split_crit_edge, label %41
+  %.not62 = icmp eq ptr %40, null
+  br i1 %.not62, label %..threadthread-pre-split_crit_edge, label %41
 
 ..threadthread-pre-split_crit_edge:               ; preds = %35
   %.pr.pre = load i8, ptr %28, align 1
@@ -12816,13 +12816,13 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noc
 
 41:                                               ; preds = %35
   tail call void @wmem_strbuf_append(ptr noundef %20, ptr noundef nonnull %40) #6
-  %.pre = add nsw i32 %.068, 2
+  %.pre = add nsw i32 %.067, 2
   br label %45
 
 .thread:                                          ; preds = %33, %..threadthread-pre-split_crit_edge, %30
   %42 = phi i8 [ %29, %30 ], [ %.pr.pre, %..threadthread-pre-split_crit_edge ], [ %29, %33 ]
-  %.not64 = icmp sgt i8 %42, -1
-  br i1 %.not64, label %44, label %43
+  %.not63 = icmp sgt i8 %42, -1
+  br i1 %.not63, label %44, label %43
 
 43:                                               ; preds = %.thread
   tail call void @wmem_strbuf_append_unichar(ptr noundef %20, i32 noundef 65533) #6
@@ -12834,27 +12834,25 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noc
 
 45:                                               ; preds = %41, %44, %43
   %.pre-phi = phi i32 [ %.pre, %41 ], [ %31, %44 ], [ %31, %43 ]
-  %.155 = phi i8 [ 1, %41 ], [ %.05467, %44 ], [ %.05467, %43 ]
+  %.155 = phi i1 [ true, %41 ], [ %.05466, %44 ], [ %.05466, %43 ]
   %46 = icmp slt i32 %.pre-phi, %.057
   br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !53
 
 .critedge:                                        ; preds = %.lr.ph, %45
-  %.054.lcssa.ph = phi i8 [ %.05467, %.lr.ph ], [ %.155, %45 ]
-  %47 = and i8 %.054.lcssa.ph, 1
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %.critedge.thread, label %49
+  %.054.lcssa = phi i1 [ %.155, %45 ], [ %.05466, %.lr.ph ]
+  br i1 %.054.lcssa, label %47, label %.critedge70
 
-49:                                               ; preds = %.critedge
-  %50 = tail call ptr @wmem_strbuf_get_str(ptr noundef %20) #6
-  %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %50) #6
-  %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
-  store ptr %51, ptr %53, align 8
-  %54 = tail call ptr @wmem_strbuf_get_str(ptr noundef %20) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2173, ptr noundef %54) #6
-  br label %.critedge.thread
+47:                                               ; preds = %.critedge
+  %48 = tail call ptr @wmem_strbuf_get_str(ptr noundef %20) #6
+  %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %48) #6
+  %50 = load ptr, ptr @si, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 80
+  store ptr %49, ptr %51, align 8
+  %52 = tail call ptr @wmem_strbuf_get_str(ptr noundef %20) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2173, ptr noundef %52) #6
+  br label %.critedge70
 
-.critedge.thread:                                 ; preds = %14, %49, %.critedge
+.critedge70:                                      ; preds = %14, %47, %.critedge
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %.057) #6
   ret void
 }

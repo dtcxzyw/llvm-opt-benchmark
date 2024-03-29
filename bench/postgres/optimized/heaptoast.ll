@@ -334,9 +334,8 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %11 = getelementptr [1664 x i8], ptr %4, i64 0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not37 = icmp eq i8 %13, 0
-  br i1 %.not37, label %14, label %28
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %28, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %indvars.iv, i32 3
@@ -412,33 +411,32 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   %65 = load i16, ptr %64, align 2
   %66 = or i16 %65, %62
   store i16 %66, ptr %64, align 2
-  br i1 %8, label %.lr.ph41.preheader, label %._crit_edge42
+  br i1 %8, label %.lr.ph40.preheader, label %._crit_edge41
 
-.lr.ph41.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count47 = zext nneg i32 %6 to i64
-  br label %.lr.ph41
+.lr.ph40.preheader:                               ; preds = %._crit_edge
+  %wide.trip.count46 = zext nneg i32 %6 to i64
+  br label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %74
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next45, %74 ]
-  %67 = getelementptr [1664 x i8], ptr %5, i64 0, i64 %indvars.iv44
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %74
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next44, %74 ]
+  %67 = getelementptr [1664 x i8], ptr %5, i64 0, i64 %indvars.iv43
   %68 = load i8, ptr %67, align 1
-  %69 = and i8 %68, 1
-  %.not = icmp eq i8 %69, 0
-  br i1 %.not, label %74, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %74
 
-70:                                               ; preds = %.lr.ph41
-  %71 = getelementptr [1664 x i64], ptr %3, i64 0, i64 %indvars.iv44
+70:                                               ; preds = %.lr.ph40
+  %71 = getelementptr [1664 x i64], ptr %3, i64 0, i64 %indvars.iv43
   %72 = load i64, ptr %71, align 8
   %73 = inttoptr i64 %72 to ptr
   call void @pfree(ptr noundef %73) #6
   br label %74
 
-74:                                               ; preds = %.lr.ph41, %70
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !11
+74:                                               ; preds = %.lr.ph40, %70
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !11
 
-._crit_edge42:                                    ; preds = %74, %._crit_edge
+._crit_edge41:                                    ; preds = %74, %._crit_edge
   ret ptr %29
 }
 
@@ -482,12 +480,11 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 
 17:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %.060 = phi i8 [ 0, %.lr.ph ], [ %.1, %37 ]
+  %.058 = phi i1 [ false, %.lr.ph ], [ %.1, %37 ]
   %18 = getelementptr [1664 x i8], ptr %6, i64 0, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not57 = icmp eq i8 %20, 0
-  br i1 %.not57, label %21, label %37
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %37, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv, i32 3
@@ -515,88 +512,85 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br label %37
 
 37:                                               ; preds = %25, %17, %33, %21
-  %.1 = phi i8 [ %.060, %33 ], [ %.060, %21 ], [ 1, %17 ], [ %.060, %25 ]
+  %.1 = phi i1 [ %.058, %33 ], [ %.058, %21 ], [ true, %17 ], [ %.058, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %37
-  %38 = and i8 %.1, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %._crit_edge.thread, label %40
+  br i1 %.1, label %38, label %._crit_edge.thread
 
-40:                                               ; preds = %._crit_edge
-  %41 = add nuw i32 %8, 7
-  %42 = sdiv i32 %41, 8
-  %narrow = add nsw i32 %42, 30
-  %43 = and i32 %narrow, -8
+38:                                               ; preds = %._crit_edge
+  %39 = add nuw i32 %8, 7
+  %40 = sdiv i32 %39, 8
+  %narrow = add nsw i32 %40, 30
+  %41 = and i32 %narrow, -8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %3, %40, %._crit_edge
-  %.0.lcssa71 = phi i1 [ false, %40 ], [ true, %._crit_edge ], [ true, %3 ]
-  %.053 = phi i32 [ %43, %40 ], [ 24, %._crit_edge ], [ 24, %3 ]
-  %44 = call i64 @heap_compute_data_size(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
-  %45 = trunc i64 %44 to i32
-  %46 = add i32 %.053, %45
-  %47 = sext i32 %46 to i64
-  %48 = call ptr @palloc0(i64 noundef %47) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %48, ptr noundef nonnull align 4 dereferenceable(23) %0, i64 23, i1 false)
-  %49 = getelementptr inbounds i8, ptr %48, i64 18
-  %50 = load i16, ptr %49, align 2
-  %51 = and i16 %50, -2048
-  %52 = trunc i32 %8 to i16
-  %53 = or i16 %51, %52
-  store i16 %53, ptr %49, align 2
-  %54 = trunc i32 %.053 to i8
-  %55 = getelementptr inbounds i8, ptr %48, i64 22
-  store i8 %54, ptr %55, align 2
-  %56 = shl i32 %46, 2
-  store i32 %56, ptr %48, align 4
-  %57 = getelementptr inbounds i8, ptr %2, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %48, i64 8
-  store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %48, i64 4
-  store i32 %61, ptr %62, align 4
-  %63 = sext i32 %.053 to i64
-  %64 = getelementptr i8, ptr %48, i64 %63
-  %sext = shl i64 %44, 32
-  %65 = ashr exact i64 %sext, 32
-  %66 = getelementptr inbounds i8, ptr %48, i64 20
-  %67 = getelementptr inbounds i8, ptr %48, i64 23
-  %spec.select = select i1 %.0.lcssa71, ptr null, ptr %67
-  call void @heap_fill_tuple(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %64, i64 noundef %65, ptr noundef nonnull %66, ptr noundef %spec.select) #6
-  br i1 %15, label %.lr.ph63.preheader, label %._crit_edge64
+._crit_edge.thread:                               ; preds = %3, %38, %._crit_edge
+  %.0.lcssa69 = phi i1 [ true, %38 ], [ false, %._crit_edge ], [ false, %3 ]
+  %.053 = phi i32 [ %41, %38 ], [ 24, %._crit_edge ], [ 24, %3 ]
+  %42 = call i64 @heap_compute_data_size(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %43 = trunc i64 %42 to i32
+  %44 = add i32 %.053, %43
+  %45 = sext i32 %44 to i64
+  %46 = call ptr @palloc0(i64 noundef %45) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %46, ptr noundef nonnull align 4 dereferenceable(23) %0, i64 23, i1 false)
+  %47 = getelementptr inbounds i8, ptr %46, i64 18
+  %48 = load i16, ptr %47, align 2
+  %49 = and i16 %48, -2048
+  %50 = trunc i32 %8 to i16
+  %51 = or i16 %49, %50
+  store i16 %51, ptr %47, align 2
+  %52 = trunc i32 %.053 to i8
+  %53 = getelementptr inbounds i8, ptr %46, i64 22
+  store i8 %52, ptr %53, align 2
+  %54 = shl i32 %44, 2
+  store i32 %54, ptr %46, align 4
+  %55 = getelementptr inbounds i8, ptr %2, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %46, i64 8
+  store i32 %56, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %46, i64 4
+  store i32 %59, ptr %60, align 4
+  %61 = sext i32 %.053 to i64
+  %62 = getelementptr i8, ptr %46, i64 %61
+  %sext = shl i64 %42, 32
+  %63 = ashr exact i64 %sext, 32
+  %64 = getelementptr inbounds i8, ptr %46, i64 20
+  %65 = getelementptr inbounds i8, ptr %46, i64 23
+  %spec.select = select i1 %.0.lcssa69, ptr %65, ptr null
+  call void @heap_fill_tuple(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %62, i64 noundef %63, ptr noundef nonnull %64, ptr noundef %spec.select) #6
+  br i1 %15, label %.lr.ph61.preheader, label %._crit_edge62
 
-.lr.ph63.preheader:                               ; preds = %._crit_edge.thread
-  %wide.trip.count68 = zext nneg i32 %8 to i64
-  br label %.lr.ph63
+.lr.ph61.preheader:                               ; preds = %._crit_edge.thread
+  %wide.trip.count66 = zext nneg i32 %8 to i64
+  br label %.lr.ph61
 
-.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %75
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next66, %75 ]
-  %68 = getelementptr [1664 x i8], ptr %7, i64 0, i64 %indvars.iv65
-  %69 = load i8, ptr %68, align 1
-  %70 = and i8 %69, 1
-  %.not56 = icmp eq i8 %70, 0
-  br i1 %.not56, label %75, label %71
+.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %73
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next64, %73 ]
+  %66 = getelementptr [1664 x i8], ptr %7, i64 0, i64 %indvars.iv63
+  %67 = load i8, ptr %66, align 1
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %73
 
-71:                                               ; preds = %.lr.ph63
-  %72 = getelementptr [1664 x i64], ptr %5, i64 0, i64 %indvars.iv65
-  %73 = load i64, ptr %72, align 8
-  %74 = inttoptr i64 %73 to ptr
-  call void @pfree(ptr noundef %74) #6
-  br label %75
+69:                                               ; preds = %.lr.ph61
+  %70 = getelementptr [1664 x i64], ptr %5, i64 0, i64 %indvars.iv63
+  %71 = load i64, ptr %70, align 8
+  %72 = inttoptr i64 %71 to ptr
+  call void @pfree(ptr noundef %72) #6
+  br label %73
 
-75:                                               ; preds = %.lr.ph63, %71
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !13
+73:                                               ; preds = %.lr.ph61, %69
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !13
 
-._crit_edge64:                                    ; preds = %75, %._crit_edge.thread
-  %76 = ptrtoint ptr %48 to i64
-  ret i64 %76
+._crit_edge62:                                    ; preds = %73, %._crit_edge.thread
+  %74 = ptrtoint ptr %46 to i64
+  ret i64 %74
 }
 
 declare ptr @detoast_attr(ptr noundef) local_unnamed_addr #1
@@ -626,9 +620,8 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr nocapture 
   %.02325 = phi i32 [ 0, %.lr.ph ], [ %.124, %32 ]
   %13 = getelementptr i8, ptr %2, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %32
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %32, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv, i32 3
@@ -931,11 +924,10 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %24 = getelementptr i8, ptr %22, i64 %23
   %25 = getelementptr inbounds i8, ptr %14, i64 86
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not20 = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds i8, ptr %14, i64 72
   %29 = load i16, ptr %28, align 4
-  br i1 %.not20, label %46, label %30
+  br i1 %27, label %30, label %46
 
 30:                                               ; preds = %18
   switch i16 %29, label %42 [

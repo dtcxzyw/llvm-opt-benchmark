@@ -233,9 +233,8 @@ define dso_local void @_ZN19DFSProgramGenerator11goGeneratorEv(ptr nocapture nou
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
   %13 = getelementptr inbounds i8, ptr %7, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not3 = icmp eq i8 %15, 0
-  br i1 %.not3, label %.lr.ph, label %._crit_edge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %16 = getelementptr inbounds i8, ptr %0, i64 8
@@ -278,9 +277,8 @@ define dso_local void @_ZN19DFSProgramGenerator11goGeneratorEv(ptr nocapture nou
   tail call void @_Z12reset_gensymv()
   tail call void @_ZN15PartialExpander19restore_init_valuesEv()
   %38 = load i8, ptr %13, align 8
-  %39 = and i8 %38, 1
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %20, label %._crit_edge, !llvm.loop !5
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %._crit_edge, label %20, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %37, %6
   ret void

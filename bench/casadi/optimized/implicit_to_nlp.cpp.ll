@@ -2199,9 +2199,9 @@ _ZSt6copy_nIPPdmS1_ET1_T_T0_S2_.exit:             ; preds = %_ZSt6copy_nIPPKdmS2
   %151 = tail call noundef ptr @_ZNK6casadi8Function6memoryEi(ptr noundef nonnull align 8 dereferenceable(8) %96, i32 noundef 0)
   %152 = getelementptr inbounds i8, ptr %151, i64 360
   %153 = load i8, ptr %152, align 8
-  %154 = and i8 %153, 1
-  %155 = getelementptr inbounds i8, ptr %1, i64 128
-  store i8 %154, ptr %155, align 8
+  %154 = getelementptr inbounds i8, ptr %1, i64 128
+  %155 = and i8 %153, 1
+  store i8 %155, ptr %154, align 8
   %156 = getelementptr inbounds i8, ptr %151, i64 364
   %157 = load i32, ptr %156, align 4
   %158 = getelementptr inbounds i8, ptr %1, i64 132

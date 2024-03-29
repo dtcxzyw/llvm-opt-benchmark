@@ -796,26 +796,22 @@ entry:
   %luks_opts.sroa.40.0.copyload = load i8, ptr %luks_opts.sroa.40.0.u.sroa_idx, align 8
   %luks_opts.sroa.4152.0.u.sroa_idx = getelementptr inbounds i8, ptr %options, i64 64
   %luks_opts.sroa.4152.0.copyload = load i64, ptr %luks_opts.sroa.4152.0.u.sroa_idx, align 8
-  %0 = and i8 %luks_opts.sroa.40.0.copyload, 1
-  %tobool.not = icmp eq i8 %0, 0
-  %spec.select = select i1 %tobool.not, i64 2000, i64 %luks_opts.sroa.4152.0.copyload
-  %1 = and i8 %luks_opts.sroa.2.0.copyload, 1
-  %tobool1.not = icmp eq i8 %1, 0
-  %luks_opts.sroa.325.0 = select i1 %tobool1.not, i32 2, i32 %luks_opts.sroa.325.0.copyload
-  %2 = and i8 %luks_opts.sroa.11.0.copyload, 1
-  %tobool5.not = icmp eq i8 %2, 0
-  %luks_opts.sroa.1232.0 = select i1 %tobool5.not, i32 2, i32 %luks_opts.sroa.1232.0.copyload
-  %3 = and i8 %luks_opts.sroa.18.0.copyload, 1
-  %tobool9.not = icmp eq i8 %3, 0
-  %luks_opts.sroa.1937.0 = select i1 %tobool9.not, i32 1, i32 %luks_opts.sroa.1937.0.copyload
-  %4 = and i8 %luks_opts.sroa.33.0.copyload, 1
-  %tobool13.not = icmp eq i8 %4, 0
-  %luks_opts.sroa.3447.0 = select i1 %tobool13.not, i32 3, i32 %luks_opts.sroa.3447.0.copyload
-  %cmp = icmp ne i32 %luks_opts.sroa.1937.0, 2
-  %5 = and i8 %luks_opts.sroa.25.0.copyload, 1
-  %tobool19.not = icmp ne i8 %5, 0
-  %or.cond.not = select i1 %cmp, i1 true, i1 %tobool19.not
-  %luks_opts.sroa.2843.0 = select i1 %or.cond.not, i32 %luks_opts.sroa.2843.0.copyload, i32 3
+  %tobool = trunc i8 %luks_opts.sroa.40.0.copyload to i1
+  %spec.select = select i1 %tobool, i64 %luks_opts.sroa.4152.0.copyload, i64 2000
+  %tobool1 = trunc i8 %luks_opts.sroa.2.0.copyload to i1
+  %luks_opts.sroa.325.0 = select i1 %tobool1, i32 %luks_opts.sroa.325.0.copyload, i32 2
+  %tobool5 = trunc i8 %luks_opts.sroa.11.0.copyload to i1
+  %luks_opts.sroa.1232.0 = select i1 %tobool5, i32 %luks_opts.sroa.1232.0.copyload, i32 2
+  %tobool9 = trunc i8 %luks_opts.sroa.18.0.copyload to i1
+  %luks_opts.sroa.1937.0 = select i1 %tobool9, i32 %luks_opts.sroa.1937.0.copyload, i32 1
+  %tobool13 = trunc i8 %luks_opts.sroa.33.0.copyload to i1
+  %luks_opts.sroa.3447.0 = select i1 %tobool13, i32 %luks_opts.sroa.3447.0.copyload, i32 3
+  %cmp = icmp eq i32 %luks_opts.sroa.1937.0, 2
+  %tobool19 = trunc i8 %luks_opts.sroa.25.0.copyload to i1
+  %spec.select131 = select i1 %tobool19, i8 %luks_opts.sroa.25.0.copyload, i8 1
+  %spec.select132 = select i1 %tobool19, i32 %luks_opts.sroa.2843.0.copyload, i32 3
+  %luks_opts.sroa.25.0 = select i1 %cmp, i8 %spec.select131, i8 %luks_opts.sroa.25.0.copyload
+  %luks_opts.sroa.2843.0 = select i1 %cmp, i32 %spec.select132, i32 %luks_opts.sroa.2843.0.copyload
   %call = tail call noalias dereferenceable_or_null(624) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 624) #17
   %opaque25 = getelementptr inbounds i8, ptr %block, i64 16
   store ptr %call, ptr %opaque25, align 8
@@ -829,8 +825,8 @@ entry:
   store i32 %luks_opts.sroa.2843.0, ptr %ivgen_hash_alg33, align 4
   %hash_alg35 = getelementptr inbounds i8, ptr %call, i64 612
   store i32 %luks_opts.sroa.3447.0, ptr %hash_alg35, align 4
-  %6 = load ptr, ptr %u, align 8
-  %tobool37.not = icmp eq ptr %6, null
+  %0 = load ptr, ptr %u, align 8
+  %tobool37.not = icmp eq ptr %0, null
   br i1 %tobool37.not, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %entry
@@ -840,7 +836,7 @@ if.then38:                                        ; preds = %entry
   br label %if.end245
 
 if.end40:                                         ; preds = %entry
-  %call43 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #16
+  %call43 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #16
   %secret = getelementptr inbounds i8, ptr %call, i64 616
   store ptr %call43, ptr %secret, align 8
   %call45 = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef %luks_opts.sroa.0.0.copyload, ptr noundef %errp) #16
@@ -862,24 +858,24 @@ for.cond1.preheader.i:                            ; preds = %for.inc12.i, %if.en
   %i.016.i = phi i64 [ 0, %if.end48 ], [ %inc13.i, %for.inc12.i ]
   %arrayidx.i = getelementptr %struct.QCryptoBlockLUKSCipherNameMap, ptr @qcrypto_block_luks_cipher_name_map, i64 %i.016.i
   %sizes.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %7 = load ptr, ptr %sizes.i, align 8
-  %8 = load i32, ptr %7, align 4
-  %cmp313.not.i = icmp eq i32 %8, 0
+  %1 = load ptr, ptr %sizes.i, align 8
+  %2 = load i32, ptr %1, align 4
+  %cmp313.not.i = icmp eq i32 %2, 0
   br i1 %cmp313.not.i, label %for.inc12.i, label %for.body5.i
 
 for.cond1.i:                                      ; preds = %for.body5.i
   %inc.i = add nuw nsw i64 %j.014.i, 1
-  %arrayidx2.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %7, i64 %inc.i
-  %9 = load i32, ptr %arrayidx2.i, align 4
-  %conv.i = zext i32 %9 to i64
+  %arrayidx2.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %1, i64 %inc.i
+  %3 = load i32, ptr %arrayidx2.i, align 4
+  %conv.i = zext i32 %3 to i64
   %cmp3.i = icmp ult i64 %inc.i, %conv.i
   br i1 %cmp3.i, label %for.body5.i, label %for.inc12.i, !llvm.loop !14
 
 for.body5.i:                                      ; preds = %for.cond1.preheader.i, %for.cond1.i
   %j.014.i = phi i64 [ %inc.i, %for.cond1.i ], [ 0, %for.cond1.preheader.i ]
-  %id.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %7, i64 %j.014.i, i32 1
-  %10 = load i32, ptr %id.i, align 4
-  %cmp9.i = icmp eq i32 %10, %luks_opts.sroa.325.0
+  %id.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %1, i64 %j.014.i, i32 1
+  %4 = load i32, ptr %id.i, align 4
+  %cmp9.i = icmp eq i32 %4, %luks_opts.sroa.325.0
   br i1 %cmp9.i, label %qcrypto_block_luks_cipher_alg_lookup.exit, label %for.cond1.i
 
 for.inc12.i:                                      ; preds = %for.cond1.i, %for.cond1.preheader.i
@@ -893,16 +889,15 @@ qcrypto_block_luks_cipher_alg_lookup.exit.thread: ; preds = %for.inc12.i
   br label %if.end245
 
 qcrypto_block_luks_cipher_alg_lookup.exit:        ; preds = %for.body5.i
-  %11 = load ptr, ptr %arrayidx.i, align 8
-  %tobool54.not = icmp eq ptr %11, null
+  %5 = load ptr, ptr %arrayidx.i, align 8
+  %tobool54.not = icmp eq ptr %5, null
   br i1 %tobool54.not, label %if.end245, label %if.end56
 
 if.end56:                                         ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit
   %call58 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoCipherMode_lookup, i32 noundef %luks_opts.sroa.1232.0) #16
   %call60 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, i32 noundef %luks_opts.sroa.1937.0) #16
-  %tobool62.not149 = icmp eq i8 %5, 0
-  %tobool62.not = select i1 %cmp, i1 %tobool62.not149, i1 false
-  br i1 %tobool62.not, label %if.else, label %if.then63
+  %tobool62 = trunc i8 %luks_opts.sroa.25.0 to i1
+  br i1 %tobool62, label %if.then63, label %if.else
 
 if.then63:                                        ; preds = %if.end56
   %call65 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoHashAlgorithm_lookup, i32 noundef %luks_opts.sroa.2843.0) #16
@@ -916,12 +911,12 @@ if.else:                                          ; preds = %if.end56
 if.end68:                                         ; preds = %if.else, %if.then63
   %storemerge = phi ptr [ %call67, %if.else ], [ %call66, %if.then63 ]
   %call70 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoHashAlgorithm_lookup, i32 noundef %luks_opts.sroa.3447.0) #16
-  %call71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #18
+  %call71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
   %cmp72 = icmp ugt i64 %call71, 31
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.end68
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1385, ptr noundef nonnull @__func__.qcrypto_block_luks_create, ptr noundef nonnull @.str.35, ptr noundef nonnull %11) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1385, ptr noundef nonnull @__func__.qcrypto_block_luks_create, ptr noundef nonnull @.str.35, ptr noundef nonnull %5) #16
   br label %if.end245
 
 if.end74:                                         ; preds = %if.end68
@@ -943,18 +938,18 @@ if.then81:                                        ; preds = %if.end78
   br label %if.end245
 
 if.end82:                                         ; preds = %if.end78
-  br i1 %cmp, label %if.else92, label %if.then85
+  br i1 %cmp, label %if.then85, label %if.else92
 
 if.then85:                                        ; preds = %if.end82
-  %call88 = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %luks_opts.sroa.325.0, i32 noundef %luks_opts.sroa.2843.0, ptr noundef nonnull %local_err)
+  %call88 = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %luks_opts.sroa.325.0, i32 noundef %spec.select132, ptr noundef nonnull %local_err)
   %ivgen_cipher_alg = getelementptr inbounds i8, ptr %call, i64 608
   store i32 %call88, ptr %ivgen_cipher_alg, align 8
-  %12 = load ptr, ptr %local_err, align 8
-  %tobool89.not = icmp eq ptr %12, null
+  %6 = load ptr, ptr %local_err, align 8
+  %tobool89.not = icmp eq ptr %6, null
   br i1 %tobool89.not, label %if.end95, label %if.then90
 
 if.then90:                                        ; preds = %if.then85
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #16
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #16
   br label %if.end245
 
 if.else92:                                        ; preds = %if.end82
@@ -964,7 +959,7 @@ if.else92:                                        ; preds = %if.end82
 
 if.end95:                                         ; preds = %if.then85, %if.else92
   %cipher_name = getelementptr inbounds i8, ptr %call, i64 8
-  %call98 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %cipher_name, ptr noundef nonnull dereferenceable(1) %11) #16
+  %call98 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %cipher_name, ptr noundef nonnull dereferenceable(1) %5) #16
   %cipher_mode100 = getelementptr inbounds i8, ptr %call, i64 40
   %call102 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %cipher_mode100, ptr noundef nonnull dereferenceable(1) %storemerge) #16
   %hash_spec = getelementptr inbounds i8, ptr %call, i64 72
@@ -974,26 +969,26 @@ if.end95:                                         ; preds = %if.then85, %if.else
   %master_key_len = getelementptr inbounds i8, ptr %call, i64 108
   %cmp110 = icmp eq i32 %luks_opts.sroa.1232.0, 2
   %mul = zext i1 %cmp110 to i32
-  %spec.select131 = shl i32 %conv, %mul
-  store i32 %spec.select131, ptr %master_key_len, align 4
+  %spec.select133 = shl i32 %conv, %mul
+  store i32 %spec.select133, ptr %master_key_len, align 4
   %master_key_salt = getelementptr inbounds i8, ptr %call, i64 132
   %call118 = call i32 @qcrypto_random_bytes(ptr noundef nonnull %master_key_salt, i64 noundef 32, ptr noundef %errp) #16
   %cmp119 = icmp slt i32 %call118, 0
   br i1 %cmp119, label %if.end245, label %if.end122
 
 if.end122:                                        ; preds = %if.end95
-  %13 = load i32, ptr %master_key_len, align 4
-  %conv125 = zext i32 %13 to i64
+  %7 = load i32, ptr %master_key_len, align 4
+  %conv125 = zext i32 %7 to i64
   %call126 = call noalias ptr @g_malloc0_n(i64 noundef %conv125, i64 noundef 1) #17
-  %14 = load i32, ptr %master_key_len, align 4
-  %conv129 = zext i32 %14 to i64
+  %8 = load i32, ptr %master_key_len, align 4
+  %conv129 = zext i32 %8 to i64
   %call130 = call i32 @qcrypto_random_bytes(ptr noundef %call126, i64 noundef %conv129, ptr noundef %errp) #16
   %cmp131 = icmp slt i32 %call130, 0
   br i1 %cmp131, label %error, label %if.end134
 
 if.end134:                                        ; preds = %if.end122
-  %15 = load i32, ptr %master_key_len, align 4
-  %conv139 = zext i32 %15 to i64
+  %9 = load i32, ptr %master_key_len, align 4
+  %conv139 = zext i32 %9 to i64
   %call140 = call i32 @qcrypto_block_init_cipher(ptr noundef %block, i32 noundef %luks_opts.sroa.325.0, i32 noundef %luks_opts.sroa.1232.0, ptr noundef %call126, i64 noundef %conv139, i64 noundef 1, ptr noundef %errp) #16
   %cmp141 = icmp slt i32 %call140, 0
   br i1 %cmp141, label %error, label %if.end144
@@ -1005,25 +1000,25 @@ if.end144:                                        ; preds = %if.end134
   %niv = getelementptr inbounds i8, ptr %block, i64 112
   store i64 %call148, ptr %niv, align 8
   %ivgen_cipher_alg150 = getelementptr inbounds i8, ptr %call, i64 608
-  %16 = load i32, ptr %ivgen_cipher_alg150, align 8
-  %17 = load i32, ptr %master_key_len, align 4
-  %conv154 = zext i32 %17 to i64
-  %call155 = call ptr @qcrypto_ivgen_new(i32 noundef %luks_opts.sroa.1937.0, i32 noundef %16, i32 noundef %luks_opts.sroa.2843.0, ptr noundef %call126, i64 noundef %conv154, ptr noundef %errp) #16
+  %10 = load i32, ptr %ivgen_cipher_alg150, align 8
+  %11 = load i32, ptr %master_key_len, align 4
+  %conv154 = zext i32 %11 to i64
+  %call155 = call ptr @qcrypto_ivgen_new(i32 noundef %luks_opts.sroa.1937.0, i32 noundef %10, i32 noundef %luks_opts.sroa.2843.0, ptr noundef %call126, i64 noundef %conv154, ptr noundef %errp) #16
   %ivgen = getelementptr inbounds i8, ptr %block, i64 48
   store ptr %call155, ptr %ivgen, align 8
   %tobool157.not = icmp eq ptr %call155, null
   br i1 %tobool157.not, label %error, label %if.end159
 
 if.end159:                                        ; preds = %if.end144
-  %18 = load i32, ptr %master_key_len, align 4
-  %conv163 = zext i32 %18 to i64
+  %12 = load i32, ptr %master_key_len, align 4
+  %conv163 = zext i32 %12 to i64
   %call167 = call i64 @qcrypto_pbkdf2_count_iters(i32 noundef %luks_opts.sroa.3447.0, ptr noundef %call126, i64 noundef %conv163, ptr noundef nonnull %master_key_salt, i64 noundef 32, i64 noundef 20, ptr noundef nonnull %local_err) #16
-  %19 = load ptr, ptr %local_err, align 8
-  %tobool168.not = icmp eq ptr %19, null
+  %13 = load ptr, ptr %local_err, align 8
+  %tobool168.not = icmp eq ptr %13, null
   br i1 %tobool168.not, label %if.end170, label %if.then169
 
 if.then169:                                       ; preds = %if.end159
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %19) #16
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %13) #16
   br label %error
 
 if.end170:                                        ; preds = %if.end159
@@ -1050,8 +1045,8 @@ if.end183:                                        ; preds = %if.end175
   %conv190 = trunc i64 %cond189 to i32
   %master_key_iterations = getelementptr inbounds i8, ptr %call, i64 164
   store i32 %conv190, ptr %master_key_iterations, align 4
-  %20 = load i32, ptr %master_key_len, align 4
-  %conv195 = zext i32 %20 to i64
+  %14 = load i32, ptr %master_key_len, align 4
+  %conv195 = zext i32 %14 to i64
   %conv201 = and i64 %cond189, 4294967295
   %master_key_digest = getelementptr inbounds i8, ptr %call, i64 112
   %call204 = call i32 @qcrypto_pbkdf2(i32 noundef %luks_opts.sroa.3447.0, ptr noundef %call126, i64 noundef %conv195, ptr noundef nonnull %master_key_salt, i64 noundef 32, i64 noundef %conv201, ptr noundef nonnull %master_key_digest, i64 noundef 20, ptr noundef %errp) #16
@@ -1061,27 +1056,27 @@ if.end183:                                        ; preds = %if.end175
 if.end208:                                        ; preds = %if.end183
   %call.val = load i32, ptr %master_key_len, align 4
   %mul.i = mul i32 %call.val, 4000
-  %conv.i132 = zext i32 %mul.i to i64
-  %sub.i = add nuw nsw i64 %conv.i132, 511
+  %conv.i134 = zext i32 %mul.i to i64
+  %sub.i = add nuw nsw i64 %conv.i134, 511
   %div2.i = lshr i64 %sub.i, 9
-  %21 = trunc i64 %div2.i to i32
-  %22 = add nuw nsw i32 %21, 7
-  %conv6.i = and i32 %22, 33554424
+  %15 = trunc i64 %div2.i to i32
+  %16 = add nuw nsw i32 %15, 7
+  %conv6.i = and i32 %16, 33554424
   %key_slots = getelementptr inbounds i8, ptr %call, i64 208
   br label %for.body
 
 for.body:                                         ; preds = %if.end208, %for.body
-  %i.0151 = phi i64 [ 0, %if.end208 ], [ %inc, %for.body ]
-  %arrayidx = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots, i64 0, i64 %i.0151
+  %i.0152 = phi i64 [ 0, %if.end208 ], [ %inc, %for.body ]
+  %arrayidx = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots, i64 0, i64 %i.0152
   store i32 57005, ptr %arrayidx, align 4
-  %23 = trunc i64 %i.0151 to i32
-  %24 = mul nuw nsw i32 %conv6.i, %23
-  %conv216 = add nuw nsw i32 %24, 8
+  %17 = trunc i64 %i.0152 to i32
+  %18 = mul nuw nsw i32 %conv6.i, %17
+  %conv216 = add nuw nsw i32 %18, 8
   %key_offset_sector = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i32 %conv216, ptr %key_offset_sector, align 4
   %stripes = getelementptr inbounds i8, ptr %arrayidx, i64 44
   store i32 4000, ptr %stripes, align 4
-  %inc = add nuw nsw i64 %i.0151, 1
+  %inc = add nuw nsw i64 %i.0152, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
@@ -1097,12 +1092,12 @@ for.end:                                          ; preds = %for.body
   %payload_offset = getelementptr inbounds i8, ptr %block, i64 120
   store i64 %mul225, ptr %payload_offset, align 8
   %call227 = call i32 %initfunc(ptr noundef %block, i64 noundef %mul225, ptr noundef %opaque, ptr noundef nonnull %local_err) #16
-  %25 = load ptr, ptr %local_err, align 8
-  %tobool228.not = icmp eq ptr %25, null
+  %19 = load ptr, ptr %local_err, align 8
+  %tobool228.not = icmp eq ptr %19, null
   br i1 %tobool228.not, label %if.end230, label %if.then229
 
 if.then229:                                       ; preds = %for.end
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %25) #16
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %19) #16
   br label %error
 
 if.end230:                                        ; preds = %for.end
@@ -1111,8 +1106,8 @@ if.end230:                                        ; preds = %for.end
   br i1 %cmp233, label %error, label %if.end236
 
 if.end236:                                        ; preds = %if.end230
-  %26 = load i32, ptr %master_key_len, align 4
-  %conv239 = zext i32 %26 to i64
+  %20 = load i32, ptr %master_key_len, align 4
+  %conv239 = zext i32 %20 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %call126, i8 0, i64 %conv239, i1 false)
   br label %cleanup
 
@@ -1121,29 +1116,29 @@ error:                                            ; preds = %if.end230, %if.end1
   br i1 %tobool240.not, label %if.end245, label %if.then241
 
 if.then241:                                       ; preds = %error
-  %27 = load i32, ptr %master_key_len, align 4
-  %conv244 = zext i32 %27 to i64
+  %21 = load i32, ptr %master_key_len, align 4
+  %conv244 = zext i32 %21 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call126, i8 0, i64 %conv244, i1 false)
   br label %if.end245
 
 if.end245:                                        ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit.thread, %if.then90, %if.end95, %if.then81, %if.then77, %if.then73, %qcrypto_block_luks_cipher_alg_lookup.exit, %if.end40, %if.then38, %if.then241, %error
-  %cipher_mode_spec.0148 = phi ptr [ %storemerge, %if.then241 ], [ %storemerge, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %storemerge, %if.then90 ], [ %storemerge, %if.end95 ], [ %storemerge, %if.then81 ], [ %storemerge, %if.then77 ], [ %storemerge, %if.then73 ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
-  %password.0147 = phi ptr [ %call45, %if.then241 ], [ %call45, %error ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %call45, %if.then90 ], [ %call45, %if.end95 ], [ %call45, %if.then81 ], [ %call45, %if.then77 ], [ %call45, %if.then73 ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
-  %masterkey.0146 = phi ptr [ %call126, %if.then241 ], [ null, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ null, %if.then90 ], [ null, %if.end95 ], [ null, %if.then81 ], [ null, %if.then77 ], [ null, %if.then73 ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
+  %cipher_mode_spec.0150 = phi ptr [ %storemerge, %if.then241 ], [ %storemerge, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %storemerge, %if.then90 ], [ %storemerge, %if.end95 ], [ %storemerge, %if.then81 ], [ %storemerge, %if.then77 ], [ %storemerge, %if.then73 ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
+  %password.0149 = phi ptr [ %call45, %if.then241 ], [ %call45, %error ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %call45, %if.then90 ], [ %call45, %if.end95 ], [ %call45, %if.then81 ], [ %call45, %if.then77 ], [ %call45, %if.then73 ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
+  %masterkey.0148 = phi ptr [ %call126, %if.then241 ], [ null, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ null, %if.then90 ], [ null, %if.end95 ], [ null, %if.then81 ], [ null, %if.then77 ], [ null, %if.then73 ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
   call void @qcrypto_block_free_cipher(ptr noundef %block) #16
   %ivgen246 = getelementptr inbounds i8, ptr %block, i64 48
-  %28 = load ptr, ptr %ivgen246, align 8
-  call void @qcrypto_ivgen_free(ptr noundef %28) #16
+  %22 = load ptr, ptr %ivgen246, align 8
+  call void @qcrypto_ivgen_free(ptr noundef %22) #16
   %secret247 = getelementptr inbounds i8, ptr %call, i64 616
-  %29 = load ptr, ptr %secret247, align 8
-  call void @g_free(ptr noundef %29) #16
+  %23 = load ptr, ptr %secret247, align 8
+  call void @g_free(ptr noundef %23) #16
   call void @g_free(ptr noundef %call) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end245, %if.end236
-  %masterkey.1 = phi ptr [ %masterkey.0146, %if.end245 ], [ %call126, %if.end236 ]
-  %password.1 = phi ptr [ %password.0147, %if.end245 ], [ %call45, %if.end236 ]
-  %cipher_mode_spec.1 = phi ptr [ %cipher_mode_spec.0148, %if.end245 ], [ %storemerge, %if.end236 ]
+  %masterkey.1 = phi ptr [ %masterkey.0148, %if.end245 ], [ %call126, %if.end236 ]
+  %password.1 = phi ptr [ %password.0149, %if.end245 ], [ %call45, %if.end236 ]
+  %cipher_mode_spec.1 = phi ptr [ %cipher_mode_spec.0150, %if.end245 ], [ %storemerge, %if.end236 ]
   %retval.0 = phi i32 [ -1, %if.end245 ], [ 0, %if.end236 ]
   call void @g_free(ptr noundef %cipher_mode_spec.1) #16
   call void @g_free(ptr noundef %password.1) #16
@@ -1167,32 +1162,31 @@ sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %opaque1.i, align 8
   %has_iter_time.i = getelementptr inbounds i8, ptr %options, i64 48
   %2 = load i8, ptr %has_iter_time.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %sw.bb
   %iter_time2.i = getelementptr inbounds i8, ptr %options, i64 56
-  %4 = load i64, ptr %iter_time2.i, align 8
+  %3 = load i64, ptr %iter_time2.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %sw.bb
-  %cond.i = phi i64 [ %4, %cond.true.i ], [ 2000, %sw.bb ]
+  %cond.i = phi i64 [ %3, %cond.true.i ], [ 2000, %sw.bb ]
   %secret3.i = getelementptr inbounds i8, ptr %options, i64 64
-  %5 = load ptr, ptr %secret3.i, align 8
-  %tobool4.not.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %secret3.i, align 8
+  %tobool4.not.i = icmp eq ptr %4, null
   br i1 %tobool4.not.i, label %cond.false6.i, label %cond.end8.i
 
 cond.false6.i:                                    ; preds = %cond.end.i
   %secret7.i = getelementptr inbounds i8, ptr %1, i64 616
-  %6 = load ptr, ptr %secret7.i, align 8
+  %5 = load ptr, ptr %secret7.i, align 8
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false6.i, %cond.end.i
-  %cond9.i = phi ptr [ %6, %cond.false6.i ], [ %5, %cond.end.i ]
+  %cond9.i = phi ptr [ %5, %cond.false6.i ], [ %4, %cond.end.i ]
   %new_secret.i = getelementptr inbounds i8, ptr %options, i64 16
-  %7 = load ptr, ptr %new_secret.i, align 8
-  %tobool10.not.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %new_secret.i, align 8
+  %tobool10.not.i = icmp eq ptr %6, null
   br i1 %tobool10.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.end8.i
@@ -1201,8 +1195,8 @@ if.then.i:                                        ; preds = %cond.end8.i
 
 if.end.i:                                         ; preds = %cond.end8.i
   %old_secret.i = getelementptr inbounds i8, ptr %options, i64 24
-  %8 = load ptr, ptr %old_secret.i, align 8
-  %tobool11.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %old_secret.i, align 8
+  %tobool11.not.i = icmp eq ptr %7, null
   br i1 %tobool11.not.i, label %if.end13.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end.i
@@ -1211,15 +1205,14 @@ if.then12.i:                                      ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.end.i
   %has_keyslot.i = getelementptr inbounds i8, ptr %options, i64 32
-  %9 = load i8, ptr %has_keyslot.i, align 8
-  %10 = and i8 %9, 1
-  %tobool14.not.i = icmp eq i8 %10, 0
-  br i1 %tobool14.not.i, label %if.else.i, label %if.then15.i
+  %8 = load i8, ptr %has_keyslot.i, align 8
+  %tobool14.i = trunc i8 %8 to i1
+  br i1 %tobool14.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %if.end13.i
   %keyslot16.i = getelementptr inbounds i8, ptr %options, i64 40
-  %11 = load i64, ptr %keyslot16.i, align 8
-  %conv.i = trunc i64 %11 to i32
+  %9 = load i64, ptr %keyslot16.i, align 8
+  %conv.i = trunc i64 %9 to i32
   %or.cond.i = icmp ugt i32 %conv.i, 7
   br i1 %or.cond.i, label %if.then20.i, label %if.end26.i
 
@@ -1234,8 +1227,8 @@ if.else.i:                                        ; preds = %if.end13.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.else.i
   %i.06.i.i = phi i64 [ 0, %if.else.i ], [ %inc.i.i, %for.inc.i.i ]
   %arrayidx.i.i.i = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i.i, i64 0, i64 %i.06.i.i
-  %12 = load i32, ptr %arrayidx.i.i.i, align 8
-  %cmp1.i.i.i = icmp eq i32 %12, 11301363
+  %10 = load i32, ptr %arrayidx.i.i.i, align 8
+  %cmp1.i.i.i = icmp eq i32 %10, 11301363
   br i1 %cmp1.i.i.i, label %for.inc.i.i, label %qcrypto_block_luks_find_free_keyslot.exit.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -1268,8 +1261,8 @@ qcrypto_block_luks_slot_active.exit.i:            ; preds = %land.lhs.true.i
   %key_slots.i.i = getelementptr inbounds i8, ptr %1, i64 208
   %idxprom.i.i = zext nneg i32 %keyslot.0.i to i64
   %arrayidx.i.i = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i, i64 0, i64 %idxprom.i.i
-  %13 = load i32, ptr %arrayidx.i.i, align 8
-  %cmp1.i.i = icmp eq i32 %13, 11301363
+  %11 = load i32, ptr %arrayidx.i.i, align 8
+  %cmp1.i.i = icmp eq i32 %11, 11301363
   br i1 %cmp1.i.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %qcrypto_block_luks_slot_active.exit.i
@@ -1283,8 +1276,8 @@ if.end31.i:                                       ; preds = %qcrypto_block_luks_
 
 if.end35.i:                                       ; preds = %if.end31.i
   %master_key_len.i = getelementptr inbounds i8, ptr %1, i64 108
-  %14 = load i32, ptr %master_key_len.i, align 4
-  %conv36.i = zext i32 %14 to i64
+  %12 = load i32, ptr %master_key_len.i, align 4
+  %conv36.i = zext i32 %12 to i64
   %call37.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv36.i, i64 noundef 1) #17
   br label %for.body.i31.i
 
@@ -1312,8 +1305,8 @@ if.then41.i:                                      ; preds = %for.body.i31.i, %fo
   br label %qcrypto_block_luks_amend_add_keyslot.exit
 
 if.end42.i:                                       ; preds = %if.end.i.i
-  %15 = load ptr, ptr %new_secret.i, align 8
-  %call44.i = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef %15, ptr noundef %errp) #16
+  %13 = load ptr, ptr %new_secret.i, align 8
+  %call44.i = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef %13, ptr noundef %errp) #16
   %tobool45.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool45.not.i, label %qcrypto_block_luks_amend_add_keyslot.exit, label %if.end47.i
 
@@ -1327,10 +1320,10 @@ if.then50.i:                                      ; preds = %if.end47.i
   br label %qcrypto_block_luks_amend_add_keyslot.exit
 
 qcrypto_block_luks_amend_add_keyslot.exit:        ; preds = %if.then.i, %if.then12.i, %if.then20.i, %if.then24.i, %if.then30.i, %if.end31.i, %if.then41.i, %if.end42.i, %if.end47.i, %if.then50.i
-  %old_password.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then24.i ], [ null, %if.end31.i ], [ %call32.i, %if.then41.i ], [ %call32.i, %if.end42.i ], [ %call32.i, %if.end47.i ], [ %call32.i, %if.then50.i ], [ null, %if.then30.i ], [ null, %if.then20.i ], [ null, %if.then12.i ]
-  %new_password.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then24.i ], [ null, %if.end31.i ], [ null, %if.then41.i ], [ null, %if.end42.i ], [ %call44.i, %if.end47.i ], [ %call44.i, %if.then50.i ], [ null, %if.then30.i ], [ null, %if.then20.i ], [ null, %if.then12.i ]
-  %master_key.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then24.i ], [ null, %if.end31.i ], [ %call37.i, %if.then41.i ], [ %call37.i, %if.end42.i ], [ %call37.i, %if.end47.i ], [ %call37.i, %if.then50.i ], [ null, %if.then30.i ], [ null, %if.then20.i ], [ null, %if.then12.i ]
-  %retval.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then24.i ], [ -1, %if.end31.i ], [ -1, %if.then41.i ], [ -1, %if.end42.i ], [ 0, %if.end47.i ], [ -1, %if.then50.i ], [ -1, %if.then30.i ], [ -1, %if.then20.i ], [ -1, %if.then12.i ]
+  %old_password.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then20.i ], [ null, %if.end31.i ], [ %call32.i, %if.then41.i ], [ %call32.i, %if.end42.i ], [ %call32.i, %if.end47.i ], [ %call32.i, %if.then50.i ], [ null, %if.then30.i ], [ null, %if.then24.i ], [ null, %if.then12.i ]
+  %new_password.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then20.i ], [ null, %if.end31.i ], [ null, %if.then41.i ], [ null, %if.end42.i ], [ %call44.i, %if.end47.i ], [ %call44.i, %if.then50.i ], [ null, %if.then30.i ], [ null, %if.then24.i ], [ null, %if.then12.i ]
+  %master_key.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then20.i ], [ null, %if.end31.i ], [ %call37.i, %if.then41.i ], [ %call37.i, %if.end42.i ], [ %call37.i, %if.end47.i ], [ %call37.i, %if.then50.i ], [ null, %if.then30.i ], [ null, %if.then24.i ], [ null, %if.then12.i ]
+  %retval.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then20.i ], [ -1, %if.end31.i ], [ -1, %if.then41.i ], [ -1, %if.end42.i ], [ 0, %if.end47.i ], [ -1, %if.then50.i ], [ -1, %if.then30.i ], [ -1, %if.then24.i ], [ -1, %if.then12.i ]
   tail call void @g_free(ptr noundef %master_key.0.i) #16
   tail call void @g_free(ptr noundef %new_password.0.i) #16
   tail call void @g_free(ptr noundef %old_password.0.i) #16
@@ -1339,31 +1332,30 @@ qcrypto_block_luks_amend_add_keyslot.exit:        ; preds = %if.then.i, %if.then
 sw.bb1:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %slots_to_erase_bitmap.i)
   %opaque1.i9 = getelementptr inbounds i8, ptr %block, i64 16
-  %16 = load ptr, ptr %opaque1.i9, align 8
+  %14 = load ptr, ptr %opaque1.i9, align 8
   %new_secret.i10 = getelementptr inbounds i8, ptr %options, i64 16
-  %17 = load ptr, ptr %new_secret.i10, align 8
-  %tobool.not.i11 = icmp eq ptr %17, null
-  br i1 %tobool.not.i11, label %if.end.i14, label %if.then.i12
+  %15 = load ptr, ptr %new_secret.i10, align 8
+  %tobool.not.i = icmp eq ptr %15, null
+  br i1 %tobool.not.i, label %if.end.i13, label %if.then.i11
 
-if.then.i12:                                      ; preds = %sw.bb1
+if.then.i11:                                      ; preds = %sw.bb1
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1681, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.48) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
-if.end.i14:                                       ; preds = %sw.bb1
-  %has_iter_time.i15 = getelementptr inbounds i8, ptr %options, i64 48
-  %18 = load i8, ptr %has_iter_time.i15, align 8
-  %19 = and i8 %18, 1
-  %tobool2.not.i = icmp eq i8 %19, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
+if.end.i13:                                       ; preds = %sw.bb1
+  %has_iter_time.i14 = getelementptr inbounds i8, ptr %options, i64 48
+  %16 = load i8, ptr %has_iter_time.i14, align 8
+  %tobool2.i = trunc i8 %16 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
-if.then3.i:                                       ; preds = %if.end.i14
+if.then3.i:                                       ; preds = %if.end.i13
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1686, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.49) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
-if.end4.i:                                        ; preds = %if.end.i14
+if.end4.i:                                        ; preds = %if.end.i13
   %secret.i = getelementptr inbounds i8, ptr %options, i64 64
-  %20 = load ptr, ptr %secret.i, align 8
-  %tobool5.not.i = icmp eq ptr %20, null
+  %17 = load ptr, ptr %secret.i, align 8
+  %tobool5.not.i = icmp eq ptr %17, null
   br i1 %tobool5.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
@@ -1371,51 +1363,50 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end7.i:                                        ; preds = %if.end4.i
-  %old_secret.i16 = getelementptr inbounds i8, ptr %options, i64 24
-  %21 = load ptr, ptr %old_secret.i16, align 8
-  %tobool8.not.i = icmp eq ptr %21, null
+  %old_secret.i15 = getelementptr inbounds i8, ptr %options, i64 24
+  %18 = load ptr, ptr %old_secret.i15, align 8
+  %tobool8.not.i = icmp eq ptr %18, null
   br i1 %tobool8.not.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %call.i = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %21, ptr noundef %errp) #16
-  %tobool11.not.i17 = icmp eq ptr %call.i, null
-  br i1 %tobool11.not.i17, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %if.end13.i18
+  %call.i = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %18, ptr noundef %errp) #16
+  %tobool11.not.i16 = icmp eq ptr %call.i, null
+  br i1 %tobool11.not.i16, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %if.end13.i17
 
-if.end13.i18:                                     ; preds = %if.then9.i
-  %master_key_len.i19 = getelementptr inbounds i8, ptr %16, i64 108
-  %22 = load i32, ptr %master_key_len.i19, align 4
-  %conv.i20 = zext i32 %22 to i64
-  %call14.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i20, i64 noundef 1) #17
+if.end13.i17:                                     ; preds = %if.then9.i
+  %master_key_len.i18 = getelementptr inbounds i8, ptr %14, i64 108
+  %19 = load i32, ptr %master_key_len.i18, align 4
+  %conv.i19 = zext i32 %19 to i64
+  %call14.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i19, i64 noundef 1) #17
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.end13.i18, %if.end7.i
-  %tmpkey.0.i = phi ptr [ null, %if.end7.i ], [ %call14.i, %if.end13.i18 ]
-  %old_password.0.i21 = phi ptr [ null, %if.end7.i ], [ %call.i, %if.end13.i18 ]
-  %has_keyslot.i22 = getelementptr inbounds i8, ptr %options, i64 32
-  %23 = load i8, ptr %has_keyslot.i22, align 8
-  %24 = and i8 %23, 1
-  %tobool16.not.i = icmp eq i8 %24, 0
-  br i1 %tobool16.not.i, label %if.else54.i, label %if.then17.i
+if.end15.i:                                       ; preds = %if.end13.i17, %if.end7.i
+  %tmpkey.0.i = phi ptr [ null, %if.end7.i ], [ %call14.i, %if.end13.i17 ]
+  %old_password.0.i20 = phi ptr [ null, %if.end7.i ], [ %call.i, %if.end13.i17 ]
+  %has_keyslot.i21 = getelementptr inbounds i8, ptr %options, i64 32
+  %20 = load i8, ptr %has_keyslot.i21, align 8
+  %tobool16.i = trunc i8 %20 to i1
+  br i1 %tobool16.i, label %if.then17.i, label %if.else54.i
 
 if.then17.i:                                      ; preds = %if.end15.i
   %keyslot18.i = getelementptr inbounds i8, ptr %options, i64 40
-  %25 = load i64, ptr %keyslot18.i, align 8
-  %conv19.i = trunc i64 %25 to i32
-  %or.cond.i23 = icmp ugt i32 %conv19.i, 7
-  br i1 %or.cond.i23, label %if.then23.i, label %if.end24.i
+  %21 = load i64, ptr %keyslot18.i, align 8
+  %conv19.i = trunc i64 %21 to i32
+  %or.cond.i22 = icmp ugt i32 %conv19.i, 7
+  br i1 %or.cond.i22, label %if.then23.i, label %if.end24.i
 
 if.then23.i:                                      ; preds = %if.then17.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1717, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.51, i32 noundef %conv19.i, i32 noundef 7) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end24.i:                                       ; preds = %if.then17.i
-  %26 = load ptr, ptr %old_secret.i16, align 8
-  %tobool26.not.i = icmp eq ptr %26, null
+  %22 = load ptr, ptr %old_secret.i15, align 8
+  %tobool26.not.i = icmp eq ptr %22, null
   br i1 %tobool26.not.i, label %if.end38.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
-  %conv28.i = and i64 %25, 7
-  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i21, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
+  %conv28.i = and i64 %21, 7
+  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
   switch i32 %call29.i, label %if.end38.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 0, label %if.then35.i
@@ -1426,33 +1417,33 @@ if.then35.i:                                      ; preds = %if.then27.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end38.i:                                       ; preds = %if.then27.i, %if.end24.i
-  br i1 %force, label %if.end49.i, label %qcrypto_block_luks_slot_active.exit.i24
+  br i1 %force, label %if.end49.i, label %qcrypto_block_luks_slot_active.exit.i23
 
-qcrypto_block_luks_slot_active.exit.i24:          ; preds = %if.end38.i
-  %key_slots.i.i25 = getelementptr inbounds i8, ptr %16, i64 208
-  %idxprom.i.i26 = and i64 %25, 7
-  %arrayidx.i.i27 = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i25, i64 0, i64 %idxprom.i.i26
-  %27 = load i32, ptr %arrayidx.i.i27, align 8
-  %cmp1.i.i28 = icmp eq i32 %27, 11301363
-  br i1 %cmp1.i.i28, label %for.body.i.i30, label %if.then41.i29
+qcrypto_block_luks_slot_active.exit.i23:          ; preds = %if.end38.i
+  %key_slots.i.i24 = getelementptr inbounds i8, ptr %14, i64 208
+  %idxprom.i.i25 = and i64 %21, 7
+  %arrayidx.i.i26 = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i24, i64 0, i64 %idxprom.i.i25
+  %23 = load i32, ptr %arrayidx.i.i26, align 8
+  %cmp1.i.i27 = icmp eq i32 %23, 11301363
+  br i1 %cmp1.i.i27, label %for.body.i.i29, label %if.then41.i28
 
-if.then41.i29:                                    ; preds = %qcrypto_block_luks_slot_active.exit.i24
+if.then41.i28:                                    ; preds = %qcrypto_block_luks_slot_active.exit.i23
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1743, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.53, i32 noundef %conv19.i) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
-for.body.i.i30:                                   ; preds = %qcrypto_block_luks_slot_active.exit.i24, %for.body.i.i30
-  %ret.05.i.i = phi i32 [ %spec.select.i.i, %for.body.i.i30 ], [ 0, %qcrypto_block_luks_slot_active.exit.i24 ]
-  %i.04.i.i = phi i64 [ %inc1.i.i, %for.body.i.i30 ], [ 0, %qcrypto_block_luks_slot_active.exit.i24 ]
-  %arrayidx.i.i.i31 = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i25, i64 0, i64 %i.04.i.i
-  %28 = load i32, ptr %arrayidx.i.i.i31, align 8
-  %cmp1.i.i.i32 = icmp eq i32 %28, 11301363
-  %inc.i.i33 = zext i1 %cmp1.i.i.i32 to i32
-  %spec.select.i.i = add i32 %ret.05.i.i, %inc.i.i33
+for.body.i.i29:                                   ; preds = %qcrypto_block_luks_slot_active.exit.i23, %for.body.i.i29
+  %ret.05.i.i = phi i32 [ %spec.select.i.i, %for.body.i.i29 ], [ 0, %qcrypto_block_luks_slot_active.exit.i23 ]
+  %i.04.i.i = phi i64 [ %inc1.i.i, %for.body.i.i29 ], [ 0, %qcrypto_block_luks_slot_active.exit.i23 ]
+  %arrayidx.i.i.i30 = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i24, i64 0, i64 %i.04.i.i
+  %24 = load i32, ptr %arrayidx.i.i.i30, align 8
+  %cmp1.i.i.i31 = icmp eq i32 %24, 11301363
+  %inc.i.i32 = zext i1 %cmp1.i.i.i31 to i32
+  %spec.select.i.i = add i32 %ret.05.i.i, %inc.i.i32
   %inc1.i.i = add nuw nsw i64 %i.04.i.i, 1
-  %exitcond.not.i.i34 = icmp eq i64 %inc1.i.i, 8
-  br i1 %exitcond.not.i.i34, label %qcrypto_block_luks_count_active_slots.exit.i, label %for.body.i.i30, !llvm.loop !19
+  %exitcond.not.i.i33 = icmp eq i64 %inc1.i.i, 8
+  br i1 %exitcond.not.i.i33, label %qcrypto_block_luks_count_active_slots.exit.i, label %for.body.i.i29, !llvm.loop !19
 
-qcrypto_block_luks_count_active_slots.exit.i:     ; preds = %for.body.i.i30
+qcrypto_block_luks_count_active_slots.exit.i:     ; preds = %for.body.i.i29
   %cmp46.i = icmp eq i32 %spec.select.i.i, 1
   br i1 %cmp46.i, label %if.then48.i, label %if.end49.i
 
@@ -1470,8 +1461,8 @@ if.then52.i:                                      ; preds = %if.end49.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.else54.i:                                      ; preds = %if.end15.i
-  %29 = load ptr, ptr %old_secret.i16, align 8
-  %tobool56.not.i = icmp eq ptr %29, null
+  %25 = load ptr, ptr %old_secret.i15, align 8
+  %tobool56.not.i = icmp eq ptr %25, null
   br i1 %tobool56.not.i, label %if.else100.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.else54.i
@@ -1480,7 +1471,7 @@ if.then57.i:                                      ; preds = %if.else54.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then57.i
   %i.076.i = phi i64 [ 0, %if.then57.i ], [ %inc.i, %for.inc.i ]
-  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i21, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
+  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
   switch i32 %call61.i, label %for.inc.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 1, label %if.then68.i
@@ -1498,8 +1489,8 @@ for.inc.i:                                        ; preds = %if.then68.i, %for.b
 for.end.i:                                        ; preds = %for.inc.i
   %slots_to_erase_bitmap.val.i = load i64, ptr %slots_to_erase_bitmap.i, align 8
   %and6.i.i = and i64 %slots_to_erase_bitmap.val.i, 255
-  %30 = call i64 @llvm.ctpop.i64(i64 %and6.i.i), !range !21
-  %conv72.i = trunc i64 %30 to i32
+  %26 = call i64 @llvm.ctpop.i64(i64 %and6.i.i), !range !21
+  %conv72.i = trunc i64 %26 to i32
   %cmp73.i = icmp eq i32 %conv72.i, 0
   br i1 %cmp73.i, label %if.then75.i, label %if.end76.i
 
@@ -1514,15 +1505,15 @@ for.body87.i.preheader:                           ; preds = %qcrypto_block_luks_
   br label %for.body87.i
 
 land.lhs.true78.i:                                ; preds = %if.end76.i
-  %key_slots.i.i60.i = getelementptr inbounds i8, ptr %16, i64 208
+  %key_slots.i.i60.i = getelementptr inbounds i8, ptr %14, i64 208
   br label %for.body.i61.i
 
 for.body.i61.i:                                   ; preds = %for.body.i61.i, %land.lhs.true78.i
   %ret.05.i62.i = phi i32 [ 0, %land.lhs.true78.i ], [ %spec.select.i67.i, %for.body.i61.i ]
   %i.04.i63.i = phi i64 [ 0, %land.lhs.true78.i ], [ %inc1.i68.i, %for.body.i61.i ]
   %arrayidx.i.i64.i = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i60.i, i64 0, i64 %i.04.i63.i
-  %31 = load i32, ptr %arrayidx.i.i64.i, align 8
-  %cmp1.i.i65.i = icmp eq i32 %31, 11301363
+  %27 = load i32, ptr %arrayidx.i.i64.i, align 8
+  %cmp1.i.i65.i = icmp eq i32 %27, 11301363
   %inc.i66.i = zext i1 %cmp1.i.i65.i to i32
   %spec.select.i67.i = add i32 %ret.05.i62.i, %inc.i66.i
   %inc1.i68.i = add nuw nsw i64 %i.04.i63.i, 1
@@ -1540,9 +1531,9 @@ if.then82.i:                                      ; preds = %qcrypto_block_luks_
 for.body87.i:                                     ; preds = %for.body87.i.preheader, %for.inc97.i
   %i.177.i = phi i64 [ %inc98.i, %for.inc97.i ], [ 0, %for.body87.i.preheader ]
   %slots_to_erase_bitmap.val59.i = load i64, ptr %slots_to_erase_bitmap.i, align 8
-  %32 = shl nuw nsw i64 1, %i.177.i
-  %33 = and i64 %slots_to_erase_bitmap.val59.i, %32
-  %tobool89.not.i = icmp eq i64 %33, 0
+  %28 = shl nuw nsw i64 1, %i.177.i
+  %29 = and i64 %slots_to_erase_bitmap.val59.i, %28
+  %tobool89.not.i = icmp eq i64 %29, 0
   br i1 %tobool89.not.i, label %for.inc97.i, label %if.end91.i
 
 if.end91.i:                                       ; preds = %for.body87.i
@@ -1564,10 +1555,10 @@ if.else100.i:                                     ; preds = %if.else54.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1818, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.59) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
-qcrypto_block_luks_amend_erase_keyslots.exit:     ; preds = %for.body.i, %for.inc97.i, %if.then.i12, %if.then3.i, %if.then6.i, %if.then9.i, %if.then23.i, %if.then27.i, %if.then35.i, %if.then41.i29, %if.then48.i, %if.end49.i, %if.then52.i, %if.then75.i, %if.then82.i, %if.then95.i, %if.else100.i
-  %tmpkey.1.i = phi ptr [ %tmpkey.0.i, %if.else100.i ], [ %tmpkey.0.i, %if.then75.i ], [ %tmpkey.0.i, %if.then95.i ], [ %tmpkey.0.i, %if.then82.i ], [ %tmpkey.0.i, %if.then23.i ], [ %tmpkey.0.i, %if.end49.i ], [ %tmpkey.0.i, %if.then52.i ], [ %tmpkey.0.i, %if.then48.i ], [ %tmpkey.0.i, %if.then41.i29 ], [ %tmpkey.0.i, %if.then35.i ], [ %tmpkey.0.i, %if.then27.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then3.i ], [ null, %if.then.i12 ], [ %tmpkey.0.i, %for.inc97.i ], [ %tmpkey.0.i, %for.body.i ]
-  %old_password.1.i = phi ptr [ %old_password.0.i21, %if.else100.i ], [ %old_password.0.i21, %if.then75.i ], [ %old_password.0.i21, %if.then95.i ], [ %old_password.0.i21, %if.then82.i ], [ %old_password.0.i21, %if.then23.i ], [ %old_password.0.i21, %if.end49.i ], [ %old_password.0.i21, %if.then52.i ], [ %old_password.0.i21, %if.then48.i ], [ %old_password.0.i21, %if.then41.i29 ], [ %old_password.0.i21, %if.then35.i ], [ %old_password.0.i21, %if.then27.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then3.i ], [ null, %if.then.i12 ], [ %old_password.0.i21, %for.inc97.i ], [ %old_password.0.i21, %for.body.i ]
-  %retval.0.i13 = phi i32 [ -1, %if.else100.i ], [ -1, %if.then75.i ], [ -1, %if.then95.i ], [ -1, %if.then82.i ], [ -1, %if.then23.i ], [ 0, %if.end49.i ], [ -1, %if.then52.i ], [ -1, %if.then48.i ], [ -1, %if.then41.i29 ], [ -1, %if.then35.i ], [ %call29.i, %if.then27.i ], [ -1, %if.then9.i ], [ -1, %if.then6.i ], [ -1, %if.then3.i ], [ -1, %if.then.i12 ], [ 0, %for.inc97.i ], [ %call61.i, %for.body.i ]
+qcrypto_block_luks_amend_erase_keyslots.exit:     ; preds = %for.body.i, %for.inc97.i, %if.then.i11, %if.then3.i, %if.then6.i, %if.then9.i, %if.then23.i, %if.then27.i, %if.then35.i, %if.then41.i28, %if.then48.i, %if.end49.i, %if.then52.i, %if.then75.i, %if.then82.i, %if.then95.i, %if.else100.i
+  %tmpkey.1.i = phi ptr [ null, %if.then3.i ], [ %tmpkey.0.i, %if.then23.i ], [ %tmpkey.0.i, %if.end49.i ], [ %tmpkey.0.i, %if.then52.i ], [ %tmpkey.0.i, %if.then48.i ], [ %tmpkey.0.i, %if.then41.i28 ], [ %tmpkey.0.i, %if.then35.i ], [ %tmpkey.0.i, %if.then27.i ], [ %tmpkey.0.i, %if.else100.i ], [ %tmpkey.0.i, %if.then75.i ], [ %tmpkey.0.i, %if.then95.i ], [ %tmpkey.0.i, %if.then82.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then.i11 ], [ %tmpkey.0.i, %for.inc97.i ], [ %tmpkey.0.i, %for.body.i ]
+  %old_password.1.i = phi ptr [ null, %if.then3.i ], [ %old_password.0.i20, %if.then23.i ], [ %old_password.0.i20, %if.end49.i ], [ %old_password.0.i20, %if.then52.i ], [ %old_password.0.i20, %if.then48.i ], [ %old_password.0.i20, %if.then41.i28 ], [ %old_password.0.i20, %if.then35.i ], [ %old_password.0.i20, %if.then27.i ], [ %old_password.0.i20, %if.else100.i ], [ %old_password.0.i20, %if.then75.i ], [ %old_password.0.i20, %if.then95.i ], [ %old_password.0.i20, %if.then82.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then.i11 ], [ %old_password.0.i20, %for.inc97.i ], [ %old_password.0.i20, %for.body.i ]
+  %retval.0.i12 = phi i32 [ -1, %if.then3.i ], [ -1, %if.then23.i ], [ 0, %if.end49.i ], [ -1, %if.then52.i ], [ -1, %if.then48.i ], [ -1, %if.then41.i28 ], [ -1, %if.then35.i ], [ %call29.i, %if.then27.i ], [ -1, %if.else100.i ], [ -1, %if.then75.i ], [ -1, %if.then95.i ], [ -1, %if.then82.i ], [ -1, %if.then9.i ], [ -1, %if.then6.i ], [ -1, %if.then.i11 ], [ 0, %for.inc97.i ], [ %call61.i, %for.body.i ]
   call void @g_free(ptr noundef %old_password.1.i) #16
   call void @g_free(ptr noundef %tmpkey.1.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slots_to_erase_bitmap.i)
@@ -1578,7 +1569,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %qcrypto_block_luks_amend_erase_keyslots.exit, %qcrypto_block_luks_amend_add_keyslot.exit
-  %retval.0 = phi i32 [ %retval.0.i13, %qcrypto_block_luks_amend_erase_keyslots.exit ], [ %retval.0.i, %qcrypto_block_luks_amend_add_keyslot.exit ]
+  %retval.0 = phi i32 [ %retval.0.i12, %qcrypto_block_luks_amend_erase_keyslots.exit ], [ %retval.0.i, %qcrypto_block_luks_amend_add_keyslot.exit ]
   ret i32 %retval.0
 }
 

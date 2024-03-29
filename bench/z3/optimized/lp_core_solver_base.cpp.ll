@@ -7269,36 +7269,35 @@ entry:
   store i32 %leaving, ptr %arrayidx.i18, align 4
   %m_tracing_basis_changes = getelementptr inbounds i8, ptr %this, i64 168
   %10 = load i8, ptr %m_tracing_basis_changes, align 8
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %10 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_trace_of_basis_change_vector.i = getelementptr inbounds i8, ptr %this, i64 160
-  %12 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
-  %cmp.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
+  %cmp.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i
 
 _ZNK6vectorIjLb1EjE4sizeEv.exit.i:                ; preds = %if.then
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 -4
-  %13 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i = icmp ugt i32 %13, 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %11, i64 -4
+  %12 = load i32, ptr %arrayidx.i.i, align 4
+  %cmp.i = icmp ugt i32 %12, 1
   br i1 %cmp.i, label %land.lhs.true.i, label %lor.lhs.false.i.i
 
 land.lhs.true.i:                                  ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i
-  %sub.i = add i32 %13, -2
+  %sub.i = add i32 %12, -2
   %idxprom.i.i = zext i32 %sub.i to i64
-  %arrayidx.i3.i = getelementptr inbounds i32, ptr %12, i64 %idxprom.i.i
-  %14 = load i32, ptr %arrayidx.i3.i, align 4
-  %cmp4.i = icmp eq i32 %14, %leaving
+  %arrayidx.i3.i = getelementptr inbounds i32, ptr %11, i64 %idxprom.i.i
+  %13 = load i32, ptr %arrayidx.i3.i, align 4
+  %cmp4.i = icmp eq i32 %13, %leaving
   br i1 %cmp4.i, label %land.lhs.true5.i, label %lor.lhs.false.i.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %sub7.i = add i32 %13, -1
+  %sub7.i = add i32 %12, -1
   %idxprom.i4.i = zext i32 %sub7.i to i64
-  %arrayidx.i5.i = getelementptr inbounds i32, ptr %12, i64 %idxprom.i4.i
-  %15 = load i32, ptr %arrayidx.i5.i, align 4
-  %cmp9.i = icmp eq i32 %15, %entering
+  %arrayidx.i5.i = getelementptr inbounds i32, ptr %11, i64 %idxprom.i4.i
+  %14 = load i32, ptr %arrayidx.i5.i, align 4
+  %cmp9.i = icmp eq i32 %14, %entering
   br i1 %cmp9.i, label %if.then.i, label %lor.lhs.false.i.i
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
@@ -7306,9 +7305,9 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br label %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE18trace_basis_changeEjj.exit
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true5.i, %land.lhs.true.i, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %12, i64 -8
-  %16 = load i32, ptr %arrayidx4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %13, %16
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %11, i64 -8
+  %15 = load i32, ptr %arrayidx4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %12, %15
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN6vectorIjLb1EjE9push_backERKj.exit.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then
@@ -7319,26 +7318,26 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %_ZN6vectorIjLb1EjE9push_backERKj.exit.i
 
 _ZN6vectorIjLb1EjE9push_backERKj.exit.i:          ; preds = %if.then.i.i, %lor.lhs.false.i.i
-  %17 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %13, %lor.lhs.false.i.i ]
-  %18 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %12, %lor.lhs.false.i.i ]
-  %idx.ext.i.i = zext i32 %17 to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %18, i64 %idx.ext.i.i
+  %16 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %12, %lor.lhs.false.i.i ]
+  %17 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %11, %lor.lhs.false.i.i ]
+  %idx.ext.i.i = zext i32 %16 to i64
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %17, i64 %idx.ext.i.i
   store i32 %entering, ptr %add.ptr.i.i, align 4
-  %19 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %19, i64 -4
-  %20 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i = add i32 %20, 1
+  %18 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %18, i64 -4
+  %19 = load i32, ptr %arrayidx10.i.i, align 4
+  %inc.i.i = add i32 %19, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  %21 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
-  %cmp.i12.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
+  %cmp.i12.i = icmp eq ptr %20, null
   br i1 %cmp.i12.i, label %if.then.i22.i, label %lor.lhs.false.i13.i
 
 lor.lhs.false.i13.i:                              ; preds = %_ZN6vectorIjLb1EjE9push_backERKj.exit.i
-  %arrayidx.i14.i = getelementptr inbounds i8, ptr %21, i64 -4
-  %22 = load i32, ptr %arrayidx.i14.i, align 4
-  %arrayidx4.i15.i = getelementptr inbounds i8, ptr %21, i64 -8
-  %23 = load i32, ptr %arrayidx4.i15.i, align 4
-  %cmp5.i16.i = icmp eq i32 %22, %23
+  %arrayidx.i14.i = getelementptr inbounds i8, ptr %20, i64 -4
+  %21 = load i32, ptr %arrayidx.i14.i, align 4
+  %arrayidx4.i15.i = getelementptr inbounds i8, ptr %20, i64 -8
+  %22 = load i32, ptr %arrayidx4.i15.i, align 4
+  %cmp5.i16.i = icmp eq i32 %21, %22
   br i1 %cmp5.i16.i, label %if.then.i22.i, label %_ZN6vectorIjLb1EjE9push_backERKj.exit26.i
 
 if.then.i22.i:                                    ; preds = %lor.lhs.false.i13.i, %_ZN6vectorIjLb1EjE9push_backERKj.exit.i
@@ -7349,19 +7348,19 @@ if.then.i22.i:                                    ; preds = %lor.lhs.false.i13.i
   br label %_ZN6vectorIjLb1EjE9push_backERKj.exit26.i
 
 _ZN6vectorIjLb1EjE9push_backERKj.exit26.i:        ; preds = %if.then.i22.i, %lor.lhs.false.i13.i
-  %24 = phi i32 [ %.pre1.i25.i, %if.then.i22.i ], [ %22, %lor.lhs.false.i13.i ]
-  %25 = phi ptr [ %.pre.i23.i, %if.then.i22.i ], [ %21, %lor.lhs.false.i13.i ]
-  %idx.ext.i18.i = zext i32 %24 to i64
-  %add.ptr.i19.i = getelementptr inbounds i32, ptr %25, i64 %idx.ext.i18.i
+  %23 = phi i32 [ %.pre1.i25.i, %if.then.i22.i ], [ %21, %lor.lhs.false.i13.i ]
+  %24 = phi ptr [ %.pre.i23.i, %if.then.i22.i ], [ %20, %lor.lhs.false.i13.i ]
+  %idx.ext.i18.i = zext i32 %23 to i64
+  %add.ptr.i19.i = getelementptr inbounds i32, ptr %24, i64 %idx.ext.i18.i
   store i32 %leaving, ptr %add.ptr.i19.i, align 4
   br label %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE18trace_basis_changeEjj.exit
 
 _ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE18trace_basis_changeEjj.exit: ; preds = %if.then.i, %_ZN6vectorIjLb1EjE9push_backERKj.exit26.i
   %.sink31.i = phi i32 [ 1, %_ZN6vectorIjLb1EjE9push_backERKj.exit26.i ], [ -1, %if.then.i ]
-  %26 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
-  %arrayidx10.i20.i = getelementptr inbounds i8, ptr %26, i64 -4
-  %27 = load i32, ptr %arrayidx10.i20.i, align 4
-  %inc.i21.i = add i32 %27, %.sink31.i
+  %25 = load ptr, ptr %m_trace_of_basis_change_vector.i, align 8
+  %arrayidx10.i20.i = getelementptr inbounds i8, ptr %25, i64 -4
+  %26 = load i32, ptr %arrayidx10.i20.i, align 4
+  %inc.i21.i = add i32 %26, %.sink31.i
   store i32 %inc.i21.i, ptr %arrayidx10.i20.i, align 4
   br label %if.end
 

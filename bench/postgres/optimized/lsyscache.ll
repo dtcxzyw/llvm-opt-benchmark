@@ -1595,9 +1595,8 @@ define dso_local i64 @get_attoptions(i32 noundef %0, i16 noundef signext %1) loc
 11:                                               ; preds = %2
   %12 = call i64 @SysCacheGetAttr(i32 noundef 6, ptr noundef nonnull %6, i16 noundef signext 24, ptr noundef nonnull %3) #8
   %13 = load i8, ptr %3, align 1
-  %14 = and i8 %13, 1
-  %.not9 = icmp eq i8 %14, 0
-  br i1 %.not9, label %15, label %17
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
   %16 = call i64 @datumCopy(i64 noundef %12, i1 noundef zeroext false, i32 noundef -1) #8
@@ -1693,10 +1692,9 @@ define dso_local zeroext i1 @get_collation_isdeterministic(i32 noundef %0) local
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 77
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  ret i1 %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2017,20 +2015,20 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
   %5 = getelementptr inbounds i8, ptr %4, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 382
-  br label %27
+  br label %26
 
 8:                                                ; preds = %2
   %9 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 8) #8
   %10 = getelementptr inbounds i8, ptr %9, i64 60
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 2987
-  br label %27
+  br label %26
 
 13:                                               ; preds = %2
   %14 = zext i32 %0 to i64
   %15 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %14) #8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %27, label %16
+  br i1 %.not, label %26, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -2042,12 +2040,11 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
   %23 = getelementptr inbounds i8, ptr %22, i64 77
   %24 = load i8, ptr %23, align 1
   tail call void @ReleaseSysCache(ptr noundef nonnull %15) #8
-  %25 = and i8 %24, 1
-  %26 = icmp ne i8 %25, 0
-  br label %27
+  %25 = trunc i8 %24 to i1
+  br label %26
 
-27:                                               ; preds = %8, %3, %16, %13
-  %.0 = phi i1 [ %26, %16 ], [ false, %13 ], [ %7, %3 ], [ %12, %8 ]
+26:                                               ; preds = %8, %3, %16, %13
+  %.0 = phi i1 [ %25, %16 ], [ false, %13 ], [ %7, %3 ], [ %12, %8 ]
   ret i1 %.0
 }
 
@@ -2065,20 +2062,20 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 626
-  br label %27
+  br label %26
 
 8:                                                ; preds = %2
   %9 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 16) #8
   %10 = getelementptr inbounds i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 6192
-  br label %27
+  br label %26
 
 13:                                               ; preds = %2
   %14 = zext i32 %0 to i64
   %15 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %14) #8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %27, label %16
+  br i1 %.not, label %26, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %15, i64 16
@@ -2090,12 +2087,11 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
   %23 = getelementptr inbounds i8, ptr %22, i64 78
   %24 = load i8, ptr %23, align 2
   tail call void @ReleaseSysCache(ptr noundef nonnull %15) #8
-  %25 = and i8 %24, 1
-  %26 = icmp ne i8 %25, 0
-  br label %27
+  %25 = trunc i8 %24 to i1
+  br label %26
 
-27:                                               ; preds = %8, %3, %16, %13
-  %.0 = phi i1 [ %26, %16 ], [ false, %13 ], [ %7, %3 ], [ %12, %8 ]
+26:                                               ; preds = %8, %3, %16, %13
+  %.0 = phi i1 [ %25, %16 ], [ false, %13 ], [ %7, %3 ], [ %12, %8 ]
   ret i1 %.0
 }
 
@@ -2148,10 +2144,9 @@ func_strict.exit:                                 ; preds = %15
   %26 = getelementptr i8, ptr %22, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 99
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
+  %29 = trunc i8 %28 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %17) #8
-  ret i1 %30
+  ret i1 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2177,10 +2172,9 @@ define dso_local zeroext i1 @func_strict(i32 noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 99
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  ret i1 %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2531,10 +2525,9 @@ define dso_local zeroext i1 @get_func_retset(i32 noundef %0) local_unnamed_addr 
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 100
   %15 = load i8, ptr %14, align 4
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  ret i1 %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2614,10 +2607,9 @@ define dso_local zeroext i1 @get_func_leakproof(i32 noundef %0) local_unnamed_ad
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 98
   %15 = load i8, ptr %14, align 2
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  ret i1 %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2753,7 +2745,7 @@ define dso_local zeroext i1 @get_rel_relispartition(i32 noundef %0) local_unname
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2764,13 +2756,12 @@ define dso_local zeroext i1 @get_rel_relispartition(i32 noundef %0) local_unname
   %10 = getelementptr i8, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 127
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
+  %13 = trunc i8 %12 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %1, %4
-  %.0 = phi i1 [ %14, %4 ], [ false, %1 ]
+14:                                               ; preds = %1, %4
+  %.0 = phi i1 [ %13, %4 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2890,7 +2881,7 @@ define dso_local zeroext i1 @get_typisdefined(i32 noundef %0) local_unnamed_addr
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %2) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2901,13 +2892,12 @@ define dso_local zeroext i1 @get_typisdefined(i32 noundef %0) local_unnamed_addr
   %10 = getelementptr i8, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 82
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
+  %13 = trunc i8 %12 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %1, %4
-  %.0 = phi i1 [ %14, %4 ], [ false, %1 ]
+14:                                               ; preds = %1, %4
+  %.0 = phi i1 [ %13, %4 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2940,7 +2930,7 @@ define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %2) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2951,13 +2941,12 @@ define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 
   %10 = getelementptr i8, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 78
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
+  %13 = trunc i8 %12 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %1, %4
-  %.0 = phi i1 [ %14, %4 ], [ false, %1 ]
+14:                                               ; preds = %1, %4
+  %.0 = phi i1 [ %13, %4 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -3202,22 +3191,20 @@ define dso_local ptr @get_typdefault(i32 noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %10, i64 %13
   %15 = call i64 @SysCacheGetAttr(i32 noundef 80, ptr noundef nonnull %4, i16 noundef signext 30, ptr noundef nonnull %2) #8
   %16 = load i8, ptr %2, align 1
-  %17 = and i8 %16, 1
-  %.not20 = icmp eq i8 %17, 0
-  br i1 %.not20, label %18, label %22
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %8
   %19 = inttoptr i64 %15 to ptr
   %20 = call ptr @text_to_cstring(ptr noundef %19) #8
   %21 = call ptr @stringToNode(ptr noundef %20) #8
-  br label %51
+  br label %50
 
 22:                                               ; preds = %8
   %23 = call i64 @SysCacheGetAttr(i32 noundef 80, ptr noundef nonnull %4, i16 noundef signext 31, ptr noundef nonnull %2) #8
   %24 = load i8, ptr %2, align 1
-  %25 = and i8 %24, 1
-  %.not21 = icmp eq i8 %25, 0
-  br i1 %.not21, label %26, label %51
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %50, label %26
 
 26:                                               ; preds = %22
   %27 = inttoptr i64 %23 to ptr
@@ -3248,14 +3235,13 @@ getTypeIOParam.exit:                              ; preds = %26, %38
   %45 = sext i16 %44 to i32
   %46 = getelementptr inbounds i8, ptr %14, i64 78
   %47 = load i8, ptr %46, align 2
-  %48 = and i8 %47, 1
-  %49 = icmp ne i8 %48, 0
-  %50 = call ptr @makeConst(i32 noundef %0, i32 noundef -1, i32 noundef %42, i32 noundef %45, i64 noundef %40, i1 noundef zeroext false, i1 noundef zeroext %49) #8
+  %48 = trunc i8 %47 to i1
+  %49 = call ptr @makeConst(i32 noundef %0, i32 noundef -1, i32 noundef %42, i32 noundef %45, i64 noundef %40, i1 noundef zeroext false, i1 noundef zeroext %48) #8
   call void @pfree(ptr noundef %28) #8
-  br label %51
+  br label %50
 
-51:                                               ; preds = %22, %getTypeIOParam.exit, %18
-  %.0 = phi ptr [ %50, %getTypeIOParam.exit ], [ %21, %18 ], [ null, %22 ]
+50:                                               ; preds = %22, %getTypeIOParam.exit, %18
+  %.0 = phi ptr [ %49, %getTypeIOParam.exit ], [ %21, %18 ], [ null, %22 ]
   call void @ReleaseSysCache(ptr noundef nonnull %4) #8
   ret ptr %.0
 }
@@ -3794,9 +3780,8 @@ define dso_local void @getTypeInputInfo(i32 noundef %0, ptr nocapture noundef wr
   %15 = getelementptr i8, ptr %11, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 82
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not14 = icmp eq i8 %18, 0
-  br i1 %.not14, label %19, label %24
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %24, label %19
 
 19:                                               ; preds = %9
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3810,8 +3795,8 @@ define dso_local void @getTypeInputInfo(i32 noundef %0, ptr nocapture noundef wr
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %15, i64 100
   %26 = load i32, ptr %25, align 4
-  %.not15 = icmp eq i32 %26, 0
-  br i1 %.not15, label %27, label %32
+  %.not14 = icmp eq i32 %26, 0
+  br i1 %.not14, label %27, label %32
 
 27:                                               ; preds = %24
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3868,9 +3853,8 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr nocapture noundef w
   %15 = getelementptr i8, ptr %11, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 82
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not15 = icmp eq i8 %18, 0
-  br i1 %.not15, label %19, label %24
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %24, label %19
 
 19:                                               ; preds = %9
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3884,8 +3868,8 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr nocapture noundef w
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %15, i64 104
   %26 = load i32, ptr %25, align 4
-  %.not16 = icmp eq i32 %26, 0
-  br i1 %.not16, label %27, label %32
+  %.not15 = icmp eq i32 %26, 0
+  br i1 %.not15, label %27, label %32
 
 27:                                               ; preds = %24
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3900,9 +3884,8 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr nocapture noundef w
   store i32 %26, ptr %1, align 4
   %33 = getelementptr inbounds i8, ptr %15, i64 78
   %34 = load i8, ptr %33, align 2
-  %35 = and i8 %34, 1
-  %.not17 = icmp eq i8 %35, 0
-  br i1 %.not17, label %36, label %41
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %41, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %15, i64 76
@@ -3941,9 +3924,8 @@ define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr nocapture noun
   %15 = getelementptr i8, ptr %11, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 82
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not14 = icmp eq i8 %18, 0
-  br i1 %.not14, label %19, label %24
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %24, label %19
 
 19:                                               ; preds = %9
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3957,8 +3939,8 @@ define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr nocapture noun
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %15, i64 108
   %26 = load i32, ptr %25, align 4
-  %.not15 = icmp eq i32 %26, 0
-  br i1 %.not15, label %27, label %32
+  %.not14 = icmp eq i32 %26, 0
+  br i1 %.not14, label %27, label %32
 
 27:                                               ; preds = %24
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4015,9 +3997,8 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr nocapture nou
   %15 = getelementptr i8, ptr %11, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 82
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not15 = icmp eq i8 %18, 0
-  br i1 %.not15, label %19, label %24
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %24, label %19
 
 19:                                               ; preds = %9
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4031,8 +4012,8 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr nocapture nou
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %15, i64 112
   %26 = load i32, ptr %25, align 4
-  %.not16 = icmp eq i32 %26, 0
-  br i1 %.not16, label %27, label %32
+  %.not15 = icmp eq i32 %26, 0
+  br i1 %.not15, label %27, label %32
 
 27:                                               ; preds = %24
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4047,9 +4028,8 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr nocapture nou
   store i32 %26, ptr %1, align 4
   %33 = getelementptr inbounds i8, ptr %15, i64 78
   %34 = load i8, ptr %33, align 2
-  %35 = and i8 %34, 1
-  %.not17 = icmp eq i8 %35, 0
-  br i1 %.not17, label %36, label %41
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %41, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %15, i64 76
@@ -4287,20 +4267,20 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   %15 = load i16, ptr %12, align 2
   %16 = sext i16 %15 to i32
   %17 = icmp eq i32 %16, %2
-  br i1 %17, label %.split76.us, label %.lr.ph
+  br i1 %17, label %.split75.us, label %.lr.ph
 
 18:                                               ; preds = %.lr.ph
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %19 = getelementptr i16, ptr %12, i64 %indvars.iv.next93
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %19 = getelementptr i16, ptr %12, i64 %indvars.iv.next92
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i32
   %22 = icmp eq i32 %21, %2
-  br i1 %22, label %.split76.us.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %22, label %.split75.us.loopexit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.split.us, %18
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %18 ], [ 0, %.split.us ]
-  %exitcond95.not = icmp eq i64 %indvars.iv92, 4
-  br i1 %exitcond95.not, label %.loopexit, label %18, !llvm.loop !15
+  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %18 ], [ 0, %.split.us ]
+  %exitcond94.not = icmp eq i64 %indvars.iv91, 4
+  br i1 %exitcond94.not, label %.loopexit, label %18, !llvm.loop !15
 
 .split:                                           ; preds = %5, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %5 ]
@@ -4315,7 +4295,7 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   %29 = getelementptr i32, ptr %14, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %3
-  br i1 %31, label %.split76.us.loopexit84, label %32
+  br i1 %31, label %.split75.us.loopexit83, label %32
 
 32:                                               ; preds = %.split, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4323,18 +4303,18 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !15
 
-.split76.us.loopexit:                             ; preds = %18
-  %34 = icmp ult i64 %indvars.iv92, 4
-  %35 = trunc i64 %indvars.iv.next93 to i32
-  br label %.split76.us
+.split75.us.loopexit:                             ; preds = %18
+  %34 = icmp ult i64 %indvars.iv91, 4
+  %35 = trunc i64 %indvars.iv.next92 to i32
+  br label %.split75.us
 
-.split76.us.loopexit84:                           ; preds = %28
+.split75.us.loopexit83:                           ; preds = %28
   %36 = trunc i64 %indvars.iv to i32
-  br label %.split76.us
+  br label %.split75.us
 
-.split76.us:                                      ; preds = %.split76.us.loopexit84, %.split76.us.loopexit, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %35, %.split76.us.loopexit ], [ %36, %.split76.us.loopexit84 ]
-  %.us-phi77 = phi i1 [ true, %.split.us ], [ %34, %.split76.us.loopexit ], [ %23, %.split76.us.loopexit84 ]
+.split75.us:                                      ; preds = %.split75.us.loopexit83, %.split75.us.loopexit, %.split.us
+  %.us-phi = phi i32 [ 0, %.split.us ], [ %35, %.split75.us.loopexit ], [ %36, %.split75.us.loopexit83 ]
+  %.us-phi76 = phi i1 [ true, %.split.us ], [ %34, %.split75.us.loopexit ], [ %23, %.split75.us.loopexit83 ]
   %37 = zext nneg i32 %.us-phi to i64
   %38 = getelementptr i32, ptr %14, i64 %37
   %39 = load i32, ptr %38, align 4
@@ -4346,9 +4326,9 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   store i32 %42, ptr %43, align 4
   %44 = and i32 %4, 1
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %83, label %45
+  br i1 %.not, label %82, label %45
 
-45:                                               ; preds = %.split76.us
+45:                                               ; preds = %.split75.us
   %46 = trunc i32 %.us-phi to i16
   %47 = add nuw nsw i16 %46, 27
   %48 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 63, ptr noundef %1, i16 noundef signext %47) #8
@@ -4382,83 +4362,81 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   %68 = sext i16 %67 to i32
   %69 = getelementptr inbounds i8, ptr %65, i64 78
   %70 = load i8, ptr %69, align 2
-  %71 = and i8 %70, 1
-  %72 = icmp ne i8 %71, 0
-  %73 = getelementptr inbounds i8, ptr %65, i64 128
-  %74 = load i8, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @deconstruct_array(ptr noundef nonnull %50, i32 noundef %52, i32 noundef %68, i1 noundef zeroext %72, i8 noundef signext %74, ptr noundef nonnull %75, ptr noundef null, ptr noundef nonnull %76) #8
-  %77 = load i8, ptr %69, align 2
-  %78 = and i8 %77, 1
-  %.not68 = icmp eq i8 %78, 0
-  br i1 %.not68, label %79, label %81
+  %71 = trunc i8 %70 to i1
+  %72 = getelementptr inbounds i8, ptr %65, i64 128
+  %73 = load i8, ptr %72, align 4
+  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @deconstruct_array(ptr noundef nonnull %50, i32 noundef %52, i32 noundef %68, i1 noundef zeroext %71, i8 noundef signext %73, ptr noundef nonnull %74, ptr noundef null, ptr noundef nonnull %75) #8
+  %76 = load i8, ptr %69, align 2
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %80, label %78
 
-79:                                               ; preds = %59
-  %80 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %50, ptr %80, align 8
-  br label %82
+78:                                               ; preds = %59
+  %79 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %50, ptr %79, align 8
+  br label %81
 
-81:                                               ; preds = %59
+80:                                               ; preds = %59
   tail call void @pfree(ptr noundef nonnull %50) #8
+  br label %81
+
+81:                                               ; preds = %80, %78
+  tail call void @ReleaseSysCache(ptr noundef nonnull %55) #8
   br label %82
 
-82:                                               ; preds = %81, %79
-  tail call void @ReleaseSysCache(ptr noundef nonnull %55) #8
-  br label %83
+82:                                               ; preds = %81, %.split75.us
+  %83 = and i32 %4, 2
+  %.not68 = icmp eq i32 %83, 0
+  br i1 %.not68, label %.loopexit, label %84
 
-83:                                               ; preds = %82, %.split76.us
-  %84 = and i32 %4, 2
-  %.not69 = icmp eq i32 %84, 0
-  br i1 %.not69, label %.loopexit, label %85
+84:                                               ; preds = %82
+  %85 = trunc i32 %.us-phi to i16
+  %86 = add nuw nsw i16 %85, 22
+  %87 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 63, ptr noundef %1, i16 noundef signext %86) #8
+  %88 = inttoptr i64 %87 to ptr
+  %89 = tail call ptr @pg_detoast_datum_copy(ptr noundef %88) #8
+  %90 = getelementptr i8, ptr %89, i64 16
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds i8, ptr %89, i64 4
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp ne i32 %93, 1
+  %95 = icmp slt i32 %91, 1
+  %or.cond = select i1 %94, i1 true, i1 %95
+  br i1 %or.cond, label %102, label %96
 
-85:                                               ; preds = %83
-  %86 = trunc i32 %.us-phi to i16
-  %87 = add nuw nsw i16 %86, 22
-  %88 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 63, ptr noundef %1, i16 noundef signext %87) #8
-  %89 = inttoptr i64 %88 to ptr
-  %90 = tail call ptr @pg_detoast_datum_copy(ptr noundef %89) #8
-  %91 = getelementptr i8, ptr %90, i64 16
-  %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %90, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp ne i32 %94, 1
-  %96 = icmp slt i32 %92, 1
-  %or.cond = select i1 %95, i1 true, i1 %96
-  br i1 %or.cond, label %103, label %97
+96:                                               ; preds = %84
+  %97 = getelementptr inbounds i8, ptr %89, i64 8
+  %98 = load i32, ptr %97, align 4
+  %.not69 = icmp eq i32 %98, 0
+  br i1 %.not69, label %99, label %102
 
-97:                                               ; preds = %85
-  %98 = getelementptr inbounds i8, ptr %90, i64 8
-  %99 = load i32, ptr %98, align 4
-  %.not70 = icmp eq i32 %99, 0
-  br i1 %.not70, label %100, label %103
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %89, i64 12
+  %101 = load i32, ptr %100, align 4
+  %.not70 = icmp eq i32 %101, 700
+  br i1 %.not70, label %105, label %102
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %90, i64 12
-  %102 = load i32, ptr %101, align 4
-  %.not71 = icmp eq i32 %102, 700
-  br i1 %.not71, label %106, label %103
-
-103:                                              ; preds = %100, %97, %85
-  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %104)
-  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #8
+102:                                              ; preds = %99, %96, %84
+  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %103)
+  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3281, ptr noundef nonnull @__func__.get_attstatsslot) #8
   unreachable
 
-106:                                              ; preds = %100
-  %107 = getelementptr i8, ptr %90, i64 24
-  %108 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %92, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %90, ptr %110, align 8
+105:                                              ; preds = %99
+  %106 = getelementptr i8, ptr %89, i64 24
+  %107 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %91, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %89, ptr %109, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.lr.ph, %83, %106
-  %111 = phi i1 [ %.us-phi77, %83 ], [ %.us-phi77, %106 ], [ false, %.lr.ph ], [ %33, %32 ]
-  ret i1 %111
+.loopexit:                                        ; preds = %32, %.lr.ph, %82, %105
+  %110 = phi i1 [ %.us-phi76, %82 ], [ %.us-phi76, %105 ], [ false, %.lr.ph ], [ %33, %32 ]
+  ret i1 %110
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -4703,7 +4681,7 @@ define dso_local zeroext i1 @get_index_isreplident(i32 noundef %0) local_unnamed
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 32, i64 noundef %2) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4714,13 +4692,12 @@ define dso_local zeroext i1 @get_index_isreplident(i32 noundef %0) local_unnamed
   %10 = getelementptr i8, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 22
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
+  %13 = trunc i8 %12 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %1, %4
-  %.0 = phi i1 [ %14, %4 ], [ false, %1 ]
+14:                                               ; preds = %1, %4
+  %.0 = phi i1 [ %13, %4 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -4747,10 +4724,9 @@ define dso_local zeroext i1 @get_index_isvalid(i32 noundef %0) local_unnamed_add
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 18
   %15 = load i8, ptr %14, align 2
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  ret i1 %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4776,10 +4752,9 @@ define dso_local zeroext i1 @get_index_isclustered(i32 noundef %0) local_unnamed
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 17
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
-  ret i1 %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable

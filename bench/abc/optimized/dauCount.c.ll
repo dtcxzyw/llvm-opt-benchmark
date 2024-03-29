@@ -19,55 +19,55 @@ define void @Abc_TtCountGenerate() local_unnamed_addr #0 {
   %1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   br label %.preheader17
 
-.preheader17:                                     ; preds = %0, %23
-  %indvars.iv23 = phi i64 [ 0, %0 ], [ %indvars.iv.next24, %23 ]
+.preheader17:                                     ; preds = %0, %24
+  %indvars.iv23 = phi i64 [ 0, %0 ], [ %indvars.iv.next24, %24 ]
   %2 = getelementptr inbounds [256 x i32], ptr @Abc_TtCountGenerate.bit_count, i64 0, i64 %indvars.iv23
   %3 = load i32, ptr %2, align 4
   br label %4
 
-4:                                                ; preds = %.preheader17, %18
-  %.01520 = phi i32 [ 0, %.preheader17 ], [ %22, %18 ]
+4:                                                ; preds = %.preheader17, %19
+  %.01520 = phi i32 [ 0, %.preheader17 ], [ %23, %19 ]
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %3)
-  br label %6
+  %6 = xor i32 %.01520, -1
+  br label %7
 
-6:                                                ; preds = %4, %6
-  %.018 = phi i32 [ 3, %4 ], [ %11, %6 ]
-  %7 = shl nuw i32 1, %.018
-  %8 = and i32 %7, %.01520
-  %.not.not = icmp eq i32 %8, 0
-  %9 = select i1 %.not.not, i32 %3, i32 0
-  %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %9)
-  %11 = add nsw i32 %.018, -1
+7:                                                ; preds = %4, %7
+  %.018 = phi i32 [ 3, %4 ], [ %12, %7 ]
+  %8 = lshr i32 %6, %.018
+  %9 = trunc i32 %8 to i1
+  %10 = select i1 %9, i32 %3, i32 0
+  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %10)
+  %12 = add nsw i32 %.018, -1
   %.not = icmp eq i32 %.018, 0
-  br i1 %.not, label %.preheader, label %6, !llvm.loop !4
+  br i1 %.not, label %.preheader, label %7, !llvm.loop !4
 
-.preheader:                                       ; preds = %6, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 2, %6 ]
-  %12 = getelementptr inbounds [3 x i64], ptr @Abc_TtCountGenerate.s_CMasks6, i64 0, i64 %indvars.iv
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, %indvars.iv23
-  %15 = getelementptr inbounds [256 x i32], ptr @Abc_TtCountGenerate.bit_count, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
-  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %16)
+.preheader:                                       ; preds = %7, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 2, %7 ]
+  %13 = getelementptr inbounds [3 x i64], ptr @Abc_TtCountGenerate.s_CMasks6, i64 0, i64 %indvars.iv
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, %indvars.iv23
+  %16 = getelementptr inbounds [256 x i32], ptr @Abc_TtCountGenerate.bit_count, i64 0, i64 %15
+  %17 = load i32, ptr %16, align 4
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not27 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not27, label %18, label %.preheader, !llvm.loop !6
+  br i1 %.not27, label %19, label %.preheader, !llvm.loop !6
 
-18:                                               ; preds = %.preheader
-  %19 = icmp eq i32 %.01520, 31
-  %20 = select i1 %19, ptr @.str.4, ptr @.str.5
-  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %20)
-  %22 = add nuw nsw i32 %.01520, 1
-  %exitcond.not = icmp eq i32 %22, 32
-  br i1 %exitcond.not, label %23, label %4, !llvm.loop !7
+19:                                               ; preds = %.preheader
+  %20 = icmp eq i32 %.01520, 31
+  %21 = select i1 %20, ptr @.str.4, ptr @.str.5
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %21)
+  %23 = add nuw nsw i32 %.01520, 1
+  %exitcond.not = icmp eq i32 %23, 32
+  br i1 %exitcond.not, label %24, label %4, !llvm.loop !7
 
-23:                                               ; preds = %18
+24:                                               ; preds = %19
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
+  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 256
-  br i1 %exitcond26.not, label %25, label %.preheader17, !llvm.loop !8
+  br i1 %exitcond26.not, label %26, label %.preheader17, !llvm.loop !8
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   ret void
 }
 

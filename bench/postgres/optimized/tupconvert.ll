@@ -163,9 +163,9 @@ define dso_local ptr @execute_attr_map_tuple(ptr noundef %0, ptr nocapture nound
   store i64 %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %8, i64 %22
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %29 = getelementptr i8, ptr %12, i64 %indvars.iv
-  store i8 %28, ptr %29, align 1
+  %28 = getelementptr i8, ptr %12, i64 %indvars.iv
+  %29 = and i8 %27, 1
+  store i8 %29, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %16, align 8
   %31 = sext i32 %30 to i64

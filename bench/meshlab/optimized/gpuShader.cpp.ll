@@ -112,9 +112,8 @@ define void @_ZN9GPUShaderC2E11SHADER_TYPERKNSt7__cxx1112basic_stringIcSt11char_
 
 .noexc5:                                          ; preds = %15
   %18 = load i8, ptr %8, align 8
-  %19 = and i8 %18, 1
-  %.not.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i.i, label %_ZN9GPUShader14loadAndCompileEv.exit, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %_ZN9GPUShader14loadAndCompileEv.exit
 
 20:                                               ; preds = %.noexc5
   invoke void @_ZN9GPUShader12printInfoLogEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
@@ -195,9 +194,8 @@ declare i32 @__gxx_personality_v0(...)
 define noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %_ZN9GPUShader7compileEv.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN9GPUShader7compileEv.exit
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN9GPUShader4loadEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
@@ -210,9 +208,8 @@ define noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull a
   tail call void %8(i32 noundef %10)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %_ZN9GPUShader7compileEv.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZN9GPUShader7compileEv.exit
 
 14:                                               ; preds = %7
   tail call void @_ZN9GPUShader12printInfoLogEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
@@ -230,9 +227,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define void @_ZN9GPUShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %9, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @__glewDeleteShader, align 8
@@ -613,9 +609,8 @@ define noundef zeroext i1 @_ZN9GPUShader7compileEv(ptr noundef nonnull align 8 d
   tail call void %2(i32 noundef %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %9, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
   tail call void @_ZN9GPUShader12printInfoLogEv(ptr noundef nonnull align 8 dereferenceable(42) %0)

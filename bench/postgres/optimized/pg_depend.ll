@@ -265,9 +265,8 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 4
   %4 = load i8, ptr @creating_extension, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %33, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %33
 
 6:                                                ; preds = %2
   br i1 %1, label %7, label %29
@@ -277,8 +276,8 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @getExtensionOfObject(i32 noundef %8, i32 noundef %10)
-  %.not8 = icmp eq i32 %11, 0
-  br i1 %.not8, label %21, label %12
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr @CurrentExtensionObject, align 4
@@ -389,9 +388,8 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @checkMembershipInCurrentExtension(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @creating_extension, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %19, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %19
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4

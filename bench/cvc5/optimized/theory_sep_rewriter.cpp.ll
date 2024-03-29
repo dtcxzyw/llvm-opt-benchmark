@@ -2483,9 +2483,8 @@ lpad21:                                           ; preds = %_ZNK4cvc58internal1
 switch.hole_check:                                ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEixERS7_.exit
   %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
-  %26 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %26, 0
-  br i1 %switch.lobit.not, label %if.else, label %return
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %return, label %if.else
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.cond, %switch.hole_check, %for.cond.preheader, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit, %_ZN4cvc58internal8TypeNodeD2Ev.exit
   %retval.0 = phi i1 [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit ], [ false, %for.cond.preheader ], [ true, %switch.hole_check ], [ %call23, %for.cond ], [ %call23, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]

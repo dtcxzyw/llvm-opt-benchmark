@@ -181,77 +181,76 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %m_sign.i = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i8, ptr %m_sign.i, align 4, !noalias !4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %m_kind.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %m_ptr.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr null, ptr %m_ptr.i.i.i4.i, align 8, !alias.scope !4
-  %m_den.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i32 1, ptr %m_den.i.i5.i, align 8, !alias.scope !4
-  %m_kind.i1.i.i6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  store i8 0, ptr %m_kind.i1.i.i6.i, align 4, !alias.scope !4
-  %m_ptr.i4.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i9.i, align 8, !alias.scope !4
-  %2 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !4
-  %..i = select i1 %tobool.not.i, i32 1, i32 -1
+  %tobool.i = trunc i8 %0 to i1
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !4
+  %m_den.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !4
+  %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  store i8 0, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !4
+  %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !4
+  %1 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !4
+  %..i = select i1 %tobool.i, i32 -1, i32 1
   store i32 %..i, ptr %ref.tmp, align 8, !alias.scope !4
-  store i8 0, ptr %m_kind.i.i.i1.i, align 4, !alias.scope !4
-  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i5.i)
-  store i32 1, ptr %m_den.i.i5.i, align 8, !alias.scope !4
+  store i8 0, ptr %m_kind.i.i.i.i, align 4, !alias.scope !4
+  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !4
   %m_type.i = getelementptr inbounds i8, ptr %f, i64 4
-  %3 = load i32, ptr %m_type.i, align 4
-  %cmp.i = icmp eq i32 %3, 0
-  %4 = load i32, ptr %f, align 4
+  %2 = load i32, ptr %m_type.i, align 4
+  %cmp.i = icmp eq i32 %2, 0
+  %3 = load i32, ptr %f, align 4
   br i1 %cmp.i, label %cond.end, label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %entry
   %m_monics.i = getelementptr inbounds i8, ptr %this, i64 4528
   %m_var2index.i = getelementptr inbounds i8, ptr %this, i64 4536
-  %5 = load ptr, ptr %m_var2index.i, align 8
-  %idxprom.i.i = zext i32 %4 to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i.i
-  %6 = load i32, ptr %arrayidx.i.i, align 4
-  %7 = load ptr, ptr %m_monics.i, align 8
-  %idxprom.i1.i = zext i32 %6 to i64
-  %arrayidx.i2.i = getelementptr inbounds %"class.nla::monic", ptr %7, i64 %idxprom.i1.i
-  %8 = load i32, ptr %arrayidx.i2.i, align 8
+  %4 = load ptr, ptr %m_var2index.i, align 8
+  %idxprom.i.i = zext i32 %3 to i64
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i
+  %5 = load i32, ptr %arrayidx.i.i, align 4
+  %6 = load ptr, ptr %m_monics.i, align 8
+  %idxprom.i1.i = zext i32 %5 to i64
+  %arrayidx.i2.i = getelementptr inbounds %"class.nla::monic", ptr %6, i64 %idxprom.i1.i
+  %7 = load i32, ptr %arrayidx.i2.i, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %invoke.cont8
-  %.sink8 = phi i32 [ %8, %invoke.cont8 ], [ %4, %entry ]
+  %.sink8 = phi i32 [ %7, %invoke.cont8 ], [ %3, %entry ]
   %.sink.in = getelementptr inbounds i8, ptr %this, i64 192
   %.sink = load ptr, ptr %.sink.in, align 8
   %m_r_x.i.i5 = getelementptr inbounds i8, ptr %.sink, i64 496
-  %9 = load ptr, ptr %m_r_x.i.i5, align 8
+  %8 = load ptr, ptr %m_r_x.i.i5, align 8
   %idxprom.i.i.i6 = zext i32 %.sink8 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds %"struct.lp::numeric_pair", ptr %9, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds %"struct.lp::numeric_pair", ptr %8, i64 %idxprom.i.i.i6
   invoke void @_ZmlRK8rationalS1_(ptr sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i7)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %cond.end
-  %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %9 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %invoke.cont12
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i5.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
           to label %_ZN8rationalD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.cont12
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #14
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   ret void
 
 lpad:                                             ; preds = %cond.end
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable

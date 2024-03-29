@@ -1077,18 +1077,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end.i
   %switch.maskindex = trunc i32 %lrgDiffCalUnit to i16
   %switch.shifted = lshr i16 32423, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %lrgDiffCalUnit to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %3
+  %2 = zext nneg i32 %lrgDiffCalUnit to i64
+  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fIntervalPatterns = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load ptr, ptr %fIntervalPatterns, align 8
-  %5 = load ptr, ptr %4, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %5, ptr noundef nonnull %skeleton)
+  %3 = load ptr, ptr %fIntervalPatterns, align 8
+  %4 = load ptr, ptr %3, align 8
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull %skeleton)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.then4, label %if.end15.thread
 
@@ -1124,8 +1123,8 @@ if.end15:                                         ; preds = %invoke.cont
   %.ptr = getelementptr inbounds i8, ptr %call5, i64 8
   %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %.ptr, i64 %switch.load
   %call16 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern)
-  %6 = load ptr, ptr %fIntervalPatterns, align 8
-  %7 = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %fIntervalPatterns, align 8
+  %6 = load ptr, ptr %5, align 8
   %call.i8 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #15
   %new.isnull.i = icmp eq ptr %call.i8, null
   br i1 %new.isnull.i, label %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %new.notnull.i
@@ -1135,13 +1134,13 @@ new.notnull.i:                                    ; preds = %if.end15
           to label %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %new.notnull.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call.i8) #15
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %if.end15, %new.notnull.i
-  %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %7, ptr noundef %call.i8, ptr noundef nonnull %.ptr, ptr noundef nonnull %status)
+  %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %6, ptr noundef %call.i8, ptr noundef nonnull %.ptr, ptr noundef nonnull %status)
   br label %if.end21
 
 if.end21:                                         ; preds = %sw.default.i, %entry, %if.end15.thread, %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %if.then13
@@ -1636,18 +1635,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end.i
   %switch.maskindex = trunc i32 %field to i16
   %switch.shifted = lshr i16 32423, %switch.maskindex
-  %5 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %5, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i32 %field to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %6
+  %5 = zext nneg i32 %field to i64
+  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i, i64 %switch.load
   %fUnion.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %7 = load i16, ptr %fUnion.i, align 8
-  %cmp.i10 = icmp ugt i16 %7, 31
+  %6 = load i16, ptr %fUnion.i, align 8
+  %cmp.i10 = icmp ugt i16 %6, 31
   br i1 %cmp.i10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %switch.lookup
@@ -1676,13 +1674,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end
   %switch.maskindex = trunc i32 %field to i16
   %switch.shifted = lshr i16 32423, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %field to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN6icu_7516DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode, i64 0, i64 %3
+  %2 = zext nneg i32 %field to i64
+  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._ZN6icu_7516DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -2315,7 +2312,7 @@ if.end85:                                         ; preds = %for.body78
   br i1 %cmp86, label %if.then87, label %if.else
 
 if.then87:                                        ; preds = %if.end85
-  %add = add nsw i32 %distance.0206, 4096
+  %add = add nuw nsw i32 %distance.0206, 4096
   br label %for.inc105
 
 if.else:                                          ; preds = %if.end85
@@ -2323,7 +2320,7 @@ if.else:                                          ; preds = %if.end85
   br i1 %cmp88, label %if.then89, label %if.else91
 
 if.then89:                                        ; preds = %if.else
-  %add90 = add nsw i32 %distance.0206, 4096
+  %add90 = add nuw nsw i32 %distance.0206, 4096
   br label %for.inc105
 
 if.else91:                                        ; preds = %if.else
@@ -2343,13 +2340,13 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
   br i1 %or.cond1.i, label %if.then96, label %if.else98
 
 if.then96:                                        ; preds = %lor.lhs.false.i, %if.then.i
-  %add97 = add nsw i32 %distance.0206, 256
+  %add97 = add nuw nsw i32 %distance.0206, 256
   br label %for.inc105
 
 if.else98:                                        ; preds = %lor.lhs.false.i, %if.else91
   %sub = sub nsw i32 %82, %83
   %cond = call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %add101 = add nsw i32 %cond, %distance.0206
+  %add101 = add nuw nsw i32 %cond, %distance.0206
   br label %for.inc105
 
 for.inc105:                                       ; preds = %if.then87, %if.then96, %if.else98, %if.then89, %for.body78
@@ -2886,21 +2883,20 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end.i
   %switch.maskindex = trunc i32 %lrgDiffCalUnit to i16
   %switch.shifted = lshr i16 32423, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %lrgDiffCalUnit to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %3
+  %2 = zext nneg i32 %lrgDiffCalUnit to i64
+  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7516DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %skeleton, ptr noundef %currentSkeleton, i32 noundef -1, i32 noundef 0)
   %dateIntervalInfo3 = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %dateIntervalInfo3, align 8
-  %fIntervalPatterns = getelementptr inbounds i8, ptr %4, i64 80
-  %5 = load ptr, ptr %fIntervalPatterns, align 8
-  %6 = load ptr, ptr %5, align 8
-  %call.i7 = invoke noundef ptr @uhash_get_75(ptr noundef %6, ptr noundef nonnull %skeleton)
+  %3 = load ptr, ptr %dateIntervalInfo3, align 8
+  %fIntervalPatterns = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = load ptr, ptr %fIntervalPatterns, align 8
+  %5 = load ptr, ptr %4, align 8
+  %call.i7 = invoke noundef ptr @uhash_get_75(ptr noundef %5, ptr noundef nonnull %skeleton)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %switch.lookup
@@ -2909,8 +2905,8 @@ invoke.cont:                                      ; preds = %switch.lookup
 
 lor.lhs.false:                                    ; preds = %invoke.cont
   %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i7, i64 %switch.load, i32 1
-  %7 = load i16, ptr %fUnion.i, align 8
-  %cmp.i8 = icmp ugt i16 %7, 31
+  %6 = load i16, ptr %fUnion.i, align 8
+  %cmp.i8 = icmp ugt i16 %6, 31
   br i1 %cmp.i8, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %invoke.cont
@@ -2919,30 +2915,30 @@ if.then7:                                         ; preds = %lor.lhs.false, %inv
   store i32 0, ptr %len.i, align 4, !noalias !19
   %vtable.i = load ptr, ptr %value, align 8, !noalias !19
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %8 = load ptr, ptr %vfn.i, align 8, !noalias !19
-  %call.i9 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %7 = load ptr, ptr %vfn.i, align 8, !noalias !19
+  %call.i9 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then7
   store ptr %call.i9, ptr %agg.tmp.i, align 8, !noalias !19
-  %9 = load i32, ptr %len.i, align 4, !noalias !19
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %pattern, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i, i32 noundef %9)
+  %8 = load i32, ptr %len.i, align 4, !noalias !19
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %pattern, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i, i32 noundef %8)
           to label %invoke.cont8 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %call.i.noexc
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %agg.tmp.i, align 8, !noalias !19
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #15, !srcloc !4
+  %10 = load ptr, ptr %agg.tmp.i, align 8, !noalias !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #15, !srcloc !4
   br label %ehcleanup
 
 invoke.cont8:                                     ; preds = %call.i.noexc
-  %12 = load ptr, ptr %agg.tmp.i, align 8, !noalias !19
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #15, !srcloc !4
+  %11 = load ptr, ptr %agg.tmp.i, align 8, !noalias !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #15, !srcloc !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %13 = load ptr, ptr %dateIntervalInfo3, align 8
-  invoke void @_ZN6icu_7516DateIntervalInfo28setIntervalPatternInternallyERKNS_13UnicodeStringE19UCalendarDateFieldsS3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull align 8 dereferenceable(64) %skeleton, i32 noundef %lrgDiffCalUnit, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %12 = load ptr, ptr %dateIntervalInfo3, align 8
+  invoke void @_ZN6icu_7516DateIntervalInfo28setIntervalPatternInternallyERKNS_13UnicodeStringE19UCalendarDateFieldsS3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(64) %skeleton, i32 noundef %lrgDiffCalUnit, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -2950,12 +2946,12 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   br label %if.end12
 
 lpad:                                             ; preds = %if.then7, %switch.lookup
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont8
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern) #15
   br label %ehcleanup
@@ -2968,7 +2964,7 @@ return:                                           ; preds = %sw.default.i, %entr
   ret void
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad10
-  %.pn = phi { ptr, i32 } [ %15, %lpad10 ], [ %14, %lpad ], [ %10, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad10 ], [ %13, %lpad ], [ %9, %lpad.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeleton) #15
   resume { ptr, i32 } %.pn
 }

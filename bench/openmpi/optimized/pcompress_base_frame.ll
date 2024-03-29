@@ -46,17 +46,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @compress_block(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
   %5 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %14
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
-  %.not1 = icmp eq i32 %11, 0
-  br i1 %.not1, label %12, label %14
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %7
   %13 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #3
@@ -75,17 +74,16 @@ define internal noundef zeroext i1 @decompress_block(ptr nocapture readnone %0, 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @compress_string(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i64 0, i32 2), align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %13
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 136
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
-  %.not1 = icmp eq i32 %10, 0
-  br i1 %.not1, label %11, label %13
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #3

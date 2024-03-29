@@ -319,14 +319,14 @@ BufferGetPage.exit:                               ; preds = %110, %116
   store ptr %143, ptr @CurrentMemoryContext, align 8
   %145 = getelementptr inbounds i8, ptr %140, i64 72
   %146 = load i32, ptr %145, align 8
-  %.027.i = add i32 %146, -1
-  %147 = icmp sgt i32 %.027.i, -1
+  %.026.i = add i32 %146, -1
+  %147 = icmp sgt i32 %.026.i, -1
   br i1 %147, label %.preheader.lr.ph.i, label %gistEmptyAllBuffers.exit
 
 .preheader.lr.ph.i:                               ; preds = %138
   %148 = getelementptr inbounds i8, ptr %140, i64 64
   %149 = getelementptr inbounds i8, ptr %140, i64 48
-  %150 = zext nneg i32 %.027.i to i64
+  %150 = zext nneg i32 %.026.i to i64
   br label %.preheader.i53
 
 .preheader.i53:                                   ; preds = %204, %.preheader.lr.ph.i
@@ -334,8 +334,8 @@ BufferGetPage.exit:                               ; preds = %110, %116
   %151 = load ptr, ptr %148, align 8
   %152 = getelementptr ptr, ptr %151, i64 %indvars.iv.i54
   %153 = load ptr, ptr %152, align 8
-  %.not26.i = icmp eq ptr %153, null
-  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i55
+  %.not25.i = icmp eq ptr %153, null
+  br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %.preheader.i53, %196
   %154 = phi ptr [ %199, %196 ], [ %153, %.preheader.i53 ]
@@ -350,9 +350,8 @@ BufferGetPage.exit:                               ; preds = %110, %116
 159:                                              ; preds = %.lr.ph.i55
   %160 = getelementptr inbounds i8, ptr %156, i64 24
   %161 = load i8, ptr %160, align 8
-  %162 = and i8 %161, 1
-  %.not25.i = icmp eq i8 %162, 0
-  br i1 %.not25.i, label %163, label %170
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %170, label %163
 
 163:                                              ; preds = %159
   %164 = load ptr, ptr %140, align 8
@@ -1640,9 +1639,8 @@ gistMemorizeAllDownlinks.exit:                    ; preds = %102, %BufferGetPage
   store i32 %122, ptr %13, align 4
   %126 = call ptr @hash_search(ptr noundef %.val54.i, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14) #10
   %127 = load i8, ptr %14, align 1
-  %128 = and i8 %127, 1
-  %.not.i.i = icmp eq i8 %128, 0
-  br i1 %.not.i.i, label %129, label %gistGetParent.exit.i
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %gistGetParent.exit.i, label %129
 
 129:                                              ; preds = %124
   %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11

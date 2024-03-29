@@ -505,11 +505,11 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h4f04274fe5a28
   call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h27ca911f24028e17E.llvm.9590015473903075546"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a9e935de8a7c6e5c5f33b8ec1fbb901.6.llvm.9590015473903075546, ptr noalias noundef nonnull readonly align 1 @anon.c130e2004995a43b288ea788b9f903b7.2, ptr noalias noundef nonnull readonly align 1 @anon.c130e2004995a43b288ea788b9f903b7.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a9e935de8a7c6e5c5f33b8ec1fbb901.7.llvm.9590015473903075546, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
-  %trunc.not = icmp eq i64 %24, 0
+  %trunc = trunc i64 %24 to i1
   %25 = getelementptr inbounds i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  br i1 %trunc.not, label %26, label %30
+  br i1 %trunc, label %30, label %26
 
 26:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
@@ -777,11 +777,11 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17heb407bd5a368d
   call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h27ca911f24028e17E.llvm.9590015473903075546"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 -33843391731495674151984101692994233225, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a9e935de8a7c6e5c5f33b8ec1fbb901.4.llvm.9590015473903075546, ptr noalias noundef nonnull readonly align 1 @anon.c130e2004995a43b288ea788b9f903b7.2, ptr noalias noundef nonnull readonly align 1 @anon.c130e2004995a43b288ea788b9f903b7.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a9e935de8a7c6e5c5f33b8ec1fbb901.5.llvm.9590015473903075546, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
-  %trunc.not = icmp eq i64 %24, 0
+  %trunc = trunc i64 %24 to i1
   %25 = getelementptr inbounds i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  br i1 %trunc.not, label %26, label %29
+  br i1 %trunc, label %29, label %26
 
 26:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
@@ -1183,9 +1183,9 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   %13 = getelementptr inbounds i8, ptr %1, i64 64
   call void @_ZN6diesel5mysql10connection14prepared_query17h4f04274fe5a282e8E.llvm.6990649103589732369(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c130e2004995a43b288ea788b9f903b7.5.llvm.6990649103589732369)
   %14 = load i64, ptr %9, align 8, !range !45, !noundef !5
-  %trunc.not = icmp eq i64 %14, 0
+  %trunc = trunc i64 %14 to i1
   %15 = getelementptr inbounds i8, ptr %9, i64 8
-  br i1 %trunc.not, label %16, label %28
+  br i1 %trunc, label %28, label %16
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -1196,11 +1196,11 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !141
   call void @"_ZN6diesel5mysql10connection4stmt116_$LT$impl$u20$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$7execute17hcc6db445f68d0732E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7), !noalias !138
   %17 = load i64, ptr %4, align 8, !range !45, !noalias !141, !noundef !5
-  %trunc.not.i = icmp eq i64 %17, 0
+  %trunc.i = trunc i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !141
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !141
-  br i1 %trunc.not.i, label %19, label %21
+  br i1 %trunc.i, label %21, label %19
 
 19:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !141
@@ -1322,11 +1322,11 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @"_ZN6diesel5mysql10connection4stmt116_$LT$impl$u20$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$7execute17hcc6db445f68d0732E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1)
   %5 = load i64, ptr %3, align 8, !range !45, !noundef !5
-  %trunc.not = icmp eq i64 %5, 0
+  %trunc = trunc i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br i1 %trunc.not, label %7, label %9
+  br i1 %trunc, label %9, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
@@ -1380,10 +1380,10 @@ define hidden void @"_ZN97_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   %11 = getelementptr inbounds i8, ptr %1, i64 64
   call void @_ZN6diesel5mysql10connection14prepared_query17heb407bd5a368d710E.llvm.6990649103589732369(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c130e2004995a43b288ea788b9f903b7.5.llvm.6990649103589732369)
   %12 = load i64, ptr %7, align 8, !range !45, !noundef !5
-  %trunc.not = icmp eq i64 %12, 0
+  %trunc = trunc i64 %12 to i1
   %.sroa.5.0.i.idx.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
   %13 = getelementptr inbounds i8, ptr %7, i64 8
-  br i1 %trunc.not, label %14, label %.thread
+  br i1 %trunc, label %.thread, label %14
 
 .thread:                                          ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0.i.idx.sroa.gep, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)

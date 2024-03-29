@@ -1071,9 +1071,8 @@ salsa208_word_specification.exit:                 ; preds = %for.body349.i
   call void @OPENSSL_cleanse(ptr noundef nonnull %x.i, i64 noundef 64) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %x.i)
   %div9 = lshr i64 %i.013, 1
-  %20 = and i64 %i.013, 1
-  %.not = icmp eq i64 %20, 0
-  %mul7 = select i1 %.not, i64 0, i64 %r
+  %20 = trunc i64 %i.013 to i1
+  %mul7 = select i1 %20, i64 %r, i64 0
   %add = add i64 %mul7, %div9
   %mul8 = shl i64 %add, 4
   %add.ptr9 = getelementptr inbounds i32, ptr %B_, i64 %mul8

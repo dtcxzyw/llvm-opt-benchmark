@@ -168,7 +168,7 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
 8:                                                ; preds = %0
   %9 = tail call i32 @g_hash_table_size(ptr noundef nonnull %7) #11
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %242
+  br i1 %10, label %11, label %240
 
 11:                                               ; preds = %8, %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -186,15 +186,15 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
 
 15:                                               ; preds = %13
   %16 = tail call ptr @g_hash_table_get_values(ptr noundef nonnull %14) #11
-  %.not3548.i = icmp eq ptr %16, null
-  br i1 %.not3548.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not3547.i = icmp eq ptr %16, null
+  br i1 %.not3547.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
-  %.02949.i = phi ptr [ %20, %.lr.ph.i ], [ %16, %15 ]
-  %17 = load ptr, ptr %.02949.i, align 8
+  %.02948.i = phi ptr [ %20, %.lr.ph.i ], [ %16, %15 ]
+  %17 = load ptr, ptr %.02948.i, align 8
   %18 = load ptr, ptr %17, align 8
   tail call void @iface_toolbar_remove(ptr noundef %18) #11
-  %19 = getelementptr inbounds i8, ptr %.02949.i, i64 8
+  %19 = getelementptr inbounds i8, ptr %.02948.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not35.i = icmp eq ptr %20, null
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
@@ -323,19 +323,19 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   %74 = load ptr, ptr %2, align 8
   call void @g_thread_pool_free(ptr noundef %74, i32 noundef 0, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %.not58.i = icmp eq i32 %46, 0
-  br i1 %.not58.i, label %.critedge.critedge.i, label %.lr.ph55.i
+  %.not57.i = icmp eq i32 %46, 0
+  br i1 %.not57.i, label %.critedge.critedge.i, label %.lr.ph54.i
 
-.lr.ph55.i:                                       ; preds = %extcap_run_all.exit.i
+.lr.ph54.i:                                       ; preds = %extcap_run_all.exit.i
   %75 = getelementptr inbounds i8, ptr %6, i64 8
   %76 = getelementptr inbounds i8, ptr %6, i64 16
   %77 = getelementptr inbounds i8, ptr %6, i64 24
   br label %78
 
-78:                                               ; preds = %.loopexit.i, %.lr.ph55.i
-  %indvars.iv64.i = phi i64 [ 0, %.lr.ph55.i ], [ %indvars.iv.next65.i, %.loopexit.i ]
-  %.054.i = phi i8 [ 0, %.lr.ph55.i ], [ %.3.i, %.loopexit.i ]
-  %79 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv64.i
+78:                                               ; preds = %.loopexit.i, %.lr.ph54.i
+  %indvars.iv63.i = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next64.i, %.loopexit.i ]
+  %.053.i = phi i1 [ false, %.lr.ph54.i ], [ %.3.i, %.loopexit.i ]
+  %79 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv63.i
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not37.i = icmp eq ptr %81, null
@@ -615,17 +615,17 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %204 = getelementptr inbounds i8, ptr %79, i64 16
   %205 = load i32, ptr %204, align 8
-  %.not59.i = icmp eq i32 %205, 0
-  br i1 %.not59.i, label %.loopexit.i, label %.lr.ph52.i
+  %.not58.i = icmp eq i32 %205, 0
+  br i1 %.not58.i, label %.loopexit.i, label %.lr.ph51.i
 
-.lr.ph52.i:                                       ; preds = %process_new_extcap.exit.i
+.lr.ph51.i:                                       ; preds = %process_new_extcap.exit.i
   %206 = getelementptr inbounds i8, ptr %79, i64 24
   br label %207
 
-207:                                              ; preds = %217, %.lr.ph52.i
-  %208 = phi i32 [ %205, %.lr.ph52.i ], [ %218, %217 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next.i, %217 ]
-  %.151.i = phi i8 [ %.054.i, %.lr.ph52.i ], [ %.2.i, %217 ]
+207:                                              ; preds = %217, %.lr.ph51.i
+  %208 = phi i32 [ %205, %.lr.ph51.i ], [ %218, %217 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph51.i ], [ %indvars.iv.next.i, %217 ]
+  %.150.i = phi i1 [ %.053.i, %.lr.ph51.i ], [ %.2.i, %217 ]
   %209 = load ptr, ptr %206, align 8
   %210 = getelementptr %struct.extcap_iface_info, ptr %209, i64 %indvars.iv.i
   %211 = getelementptr inbounds i8, ptr %210, i64 8
@@ -640,92 +640,87 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   store ptr %212, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
   %215 = call i32 @cb_preference(ptr noundef nonnull byval(%struct._extcap_callback_info_t) align 8 %6), !range !13
-  %216 = trunc i32 %215 to i8
+  %216 = trunc i32 %215 to i1
   %.pre.i = load i32, ptr %204, align 8
   br label %217
 
 217:                                              ; preds = %213, %207
   %218 = phi i32 [ %.pre.i, %213 ], [ %208, %207 ]
-  %.2.i = phi i8 [ %216, %213 ], [ %.151.i, %207 ]
+  %.2.i = phi i1 [ %216, %213 ], [ %.150.i, %207 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %219 = zext i32 %218 to i64
   %220 = icmp ult i64 %indvars.iv.next.i, %219
   br i1 %220, label %207, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %217, %process_new_extcap.exit.i, %78
-  %.3.i = phi i8 [ %.054.i, %78 ], [ %.054.i, %process_new_extcap.exit.i ], [ %.2.i, %217 ]
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next65.i, %47
-  br i1 %exitcond.not.i, label %.lr.ph22.preheader.i.i, label %78, !llvm.loop !15
+  %.3.i = phi i1 [ %.053.i, %78 ], [ %.053.i, %process_new_extcap.exit.i ], [ %.2.i, %217 ]
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next64.i, %47
+  br i1 %exitcond.not.i, label %.lr.ph22.i.i, label %78, !llvm.loop !15
 
-.lr.ph22.preheader.i.i:                           ; preds = %.loopexit.i
-  %221 = and i8 %.3.i, 1
-  br label %.lr.ph22.i.i
-
-.lr.ph22.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph22.preheader.i.i
-  %indvars.iv26.i.i = phi i64 [ 0, %.lr.ph22.preheader.i.i ], [ %indvars.iv.next27.i.i, %._crit_edge.i.i ]
-  %222 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv26.i.i
-  %223 = load ptr, ptr %222, align 8
-  call void @g_free(ptr noundef %223) #11
-  %224 = getelementptr inbounds i8, ptr %222, i64 8
-  %225 = load ptr, ptr %224, align 8
-  call void @g_free(ptr noundef %225) #11
-  %226 = getelementptr inbounds i8, ptr %222, i64 16
-  %227 = load i32, ptr %226, align 8
-  %.not24.i.i = icmp eq i32 %227, 0
+.lr.ph22.i.i:                                     ; preds = %.loopexit.i, %._crit_edge.i.i
+  %indvars.iv26.i.i = phi i64 [ %indvars.iv.next27.i.i, %._crit_edge.i.i ], [ 0, %.loopexit.i ]
+  %221 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv26.i.i
+  %222 = load ptr, ptr %221, align 8
+  call void @g_free(ptr noundef %222) #11
+  %223 = getelementptr inbounds i8, ptr %221, i64 8
+  %224 = load ptr, ptr %223, align 8
+  call void @g_free(ptr noundef %224) #11
+  %225 = getelementptr inbounds i8, ptr %221, i64 16
+  %226 = load i32, ptr %225, align 8
+  %.not24.i.i = icmp eq i32 %226, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i42.i
 
 .lr.ph.i42.i:                                     ; preds = %.lr.ph22.i.i
-  %228 = getelementptr inbounds i8, ptr %222, i64 24
-  br label %229
+  %227 = getelementptr inbounds i8, ptr %221, i64 24
+  br label %228
 
-229:                                              ; preds = %229, %.lr.ph.i42.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i42.i ], [ %indvars.iv.next.i.i, %229 ]
-  %230 = load ptr, ptr %228, align 8
-  %231 = getelementptr %struct.extcap_iface_info, ptr %230, i64 %indvars.iv.i.i
-  %232 = load ptr, ptr %231, align 8
-  call void @g_free(ptr noundef %232) #11
-  %233 = getelementptr inbounds i8, ptr %231, i64 8
-  %234 = load ptr, ptr %233, align 8
-  call void @g_free(ptr noundef %234) #11
+228:                                              ; preds = %228, %.lr.ph.i42.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i42.i ], [ %indvars.iv.next.i.i, %228 ]
+  %229 = load ptr, ptr %227, align 8
+  %230 = getelementptr %struct.extcap_iface_info, ptr %229, i64 %indvars.iv.i.i
+  %231 = load ptr, ptr %230, align 8
+  call void @g_free(ptr noundef %231) #11
+  %232 = getelementptr inbounds i8, ptr %230, i64 8
+  %233 = load ptr, ptr %232, align 8
+  call void @g_free(ptr noundef %233) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %235 = load i32, ptr %226, align 8
-  %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %indvars.iv.next.i.i, %236
-  br i1 %237, label %229, label %._crit_edge.i.i, !llvm.loop !16
+  %234 = load i32, ptr %225, align 8
+  %235 = zext i32 %234 to i64
+  %236 = icmp ult i64 %indvars.iv.next.i.i, %235
+  br i1 %236, label %228, label %._crit_edge.i.i, !llvm.loop !16
 
-._crit_edge.i.i:                                  ; preds = %229, %.lr.ph22.i.i
-  %238 = getelementptr inbounds i8, ptr %222, i64 24
-  %239 = load ptr, ptr %238, align 8
-  call void @g_free(ptr noundef %239) #11
+._crit_edge.i.i:                                  ; preds = %228, %.lr.ph22.i.i
+  %237 = getelementptr inbounds i8, ptr %221, i64 24
+  %238 = load ptr, ptr %237, align 8
+  call void @g_free(ptr noundef %238) #11
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next27.i.i, %47
   br i1 %exitcond.not.i.i, label %extcap_free_extcaps_info_array.exit.i, label %.lr.ph22.i.i, !llvm.loop !17
 
 extcap_free_extcaps_info_array.exit.i:            ; preds = %._crit_edge.i.i
-  %240 = icmp eq i8 %221, 0
   call void @g_free(ptr noundef nonnull %48) #11
   call void @g_free(ptr noundef %36) #11
-  br i1 %240, label %extcap_load_interface_list.exit, label %241
+  br i1 %.3.i, label %239, label %extcap_load_interface_list.exit
 
-241:                                              ; preds = %extcap_free_extcaps_info_array.exit.i
+239:                                              ; preds = %extcap_free_extcaps_info_array.exit.i
   call void @prefs_read_module(ptr noundef nonnull @.str) #11
   br label %extcap_load_interface_list.exit
 
 .critedge.critedge.i:                             ; preds = %extcap_run_all.exit.i, %extcap_run_all.exit.thread.i
-  %.0.i7076.ph.i = phi ptr [ %48, %extcap_run_all.exit.i ], [ null, %extcap_run_all.exit.thread.i ]
-  call void @g_free(ptr noundef %.0.i7076.ph.i) #11
+  %.0.i6975.ph.i = phi ptr [ %48, %extcap_run_all.exit.i ], [ null, %extcap_run_all.exit.thread.i ]
+  call void @g_free(ptr noundef %.0.i6975.ph.i) #11
   call void @g_free(ptr noundef %36) #11
   br label %extcap_load_interface_list.exit
 
-extcap_load_interface_list.exit:                  ; preds = %11, %24, %extcap_free_extcaps_info_array.exit.i, %241, %.critedge.critedge.i
+extcap_load_interface_list.exit:                  ; preds = %11, %24, %extcap_free_extcaps_info_array.exit.i, %239, %.critedge.critedge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %242
+  br label %240
 
-242:                                              ; preds = %extcap_load_interface_list.exit, %8
+240:                                              ; preds = %extcap_load_interface_list.exit, %8
   ret void
 }
 

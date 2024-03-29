@@ -3494,9 +3494,8 @@ entry:
   %sub = fsub double %mul, %3
   %reciprocal = getelementptr inbounds i8, ptr %this, i64 368
   %4 = load i8, ptr %reciprocal, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %return, label %if.then
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %cmp = fcmp oeq double %sub, 0.000000e+00
@@ -3522,9 +3521,8 @@ define noundef double @_ZNK6icu_755units14UnitsConverter14convertInverseEd(ptr n
 entry:
   %reciprocal = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i8, ptr %reciprocal, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end3, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %cmp = fcmp oeq double %inputValue, 0.000000e+00
@@ -3541,17 +3539,17 @@ if.end:                                           ; preds = %if.then
 if.end3:                                          ; preds = %if.end, %entry
   %result.0 = phi double [ %div, %if.end ], [ %inputValue, %entry ]
   %targetOffset = getelementptr inbounds i8, ptr %this, i64 360
-  %2 = load double, ptr %targetOffset, align 8
-  %add = fadd double %result.0, %2
+  %1 = load double, ptr %targetOffset, align 8
+  %add = fadd double %result.0, %1
   %factorDen = getelementptr inbounds i8, ptr %this, i64 344
-  %3 = load double, ptr %factorDen, align 8
+  %2 = load double, ptr %factorDen, align 8
   %factorNum = getelementptr inbounds i8, ptr %this, i64 336
-  %4 = load double, ptr %factorNum, align 8
-  %div7 = fdiv double %3, %4
+  %3 = load double, ptr %factorNum, align 8
+  %div7 = fdiv double %2, %3
   %mul = fmul double %add, %div7
   %sourceOffset = getelementptr inbounds i8, ptr %this, i64 352
-  %5 = load double, ptr %sourceOffset, align 8
-  %sub = fsub double %mul, %5
+  %4 = load double, ptr %sourceOffset, align 8
+  %sub = fsub double %mul, %4
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2
@@ -3578,9 +3576,9 @@ entry:
   store double %4, ptr %offset, align 8
   %reciprocal = getelementptr inbounds i8, ptr %this, i64 368
   %5 = load i8, ptr %reciprocal, align 8
-  %6 = and i8 %5, 1
   %reciprocal11 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 %6, ptr %reciprocal11, align 8
+  %frombool = and i8 %5, 1
+  store i8 %frombool, ptr %reciprocal11, align 8
   ret void
 }
 

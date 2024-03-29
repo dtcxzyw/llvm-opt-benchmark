@@ -49,9 +49,8 @@ define internal void @bernoulli_samplescangetsamplesize(ptr noundef %0, ptr noca
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %25
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %25, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %8, i64 24
@@ -60,8 +59,8 @@ define internal void @bernoulli_samplescangetsamplesize(ptr noundef %0, ptr noca
   %19 = bitcast i32 %18 to float
   %20 = fcmp ult float %19, 0.000000e+00
   %21 = fcmp ugt float %19, 1.000000e+02
-  %or.cond.not20 = or i1 %20, %21
-  br i1 %or.cond.not20, label %25, label %22
+  %or.cond.not19 = or i1 %20, %21
+  br i1 %or.cond.not19, label %25, label %22
 
 22:                                               ; preds = %15
   %23 = fdiv float %19, 1.000000e+02

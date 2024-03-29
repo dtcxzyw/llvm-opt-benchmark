@@ -88,9 +88,8 @@ define hidden noundef i32 @ps_open_user(ptr nocapture readnone %0, ptr nocapture
   %30 = icmp eq i32 %29, 0
   call void @llvm.assume(i1 %30)
   %31 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %3
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -146,20 +145,18 @@ define hidden noundef i32 @ps_close_user(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %26, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %26
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
   store ptr %3, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
   %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #9
-  %.not6 = icmp eq i32 %8, 0
-  call void @llvm.assume(i1 %.not6)
+  %.not = icmp eq i32 %8, 0
+  call void @llvm.assume(i1 %.not)
   %9 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %13, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -228,9 +225,8 @@ define hidden noundef i32 @ps_read_user(ptr nocapture readnone %0, ptr noundef %
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink, ptr %14, align 8
   %15 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %17, label %ps_call_handler.exit.thread
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %ps_call_handler.exit.thread, label %17
 
 ps_call_handler.exit.thread:                      ; preds = %13
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -337,9 +333,8 @@ define hidden noundef i32 @ps_write_user(ptr nocapture readnone %0, ptr noundef 
   %23 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %.sink19, ptr %23, align 8
   %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %25 = and i8 %24, 1
-  %.not.i = icmp eq i8 %25, 0
-  br i1 %.not.i, label %28, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -410,9 +405,8 @@ define hidden noundef i32 @ps_delete_user(ptr nocapture readnone %0, ptr noundef
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %.sink, ptr %12, align 8
   %13 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %14 = and i8 %13, 1
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %17, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -462,9 +456,8 @@ define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr noc
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %6, align 8
   %7 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %ps_call_handler.exit.thread
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %ps_call_handler.exit.thread, label %9
 
 ps_call_handler.exit.thread:                      ; preds = %3
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -525,9 +518,8 @@ define hidden ptr @ps_create_sid_user(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %9, label %ps_call_handler.exit.thread
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %ps_call_handler.exit.thread, label %9
 
 ps_call_handler.exit.thread:                      ; preds = %5
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -628,9 +620,8 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %.sink, ptr %15, align 8
   %16 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %20, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -716,18 +707,17 @@ define hidden noundef i32 @ps_update_timestamp_user(ptr nocapture readnone %0, p
   br label %22
 
 22:                                               ; preds = %13, %19
-  %.sink28 = phi i32 [ 262, %19 ], [ 6, %13 ]
+  %.sink27 = phi i32 [ 262, %19 ], [ 6, %13 ]
   %23 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %.sink28, ptr %23, align 8
+  store i32 %.sink27, ptr %23, align 8
   %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 24, i32 8, i32 1), align 8
   %25 = icmp eq i8 %24, 0
   %26 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  %27 = and i8 %26, 1
-  %.not.i20 = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   br i1 %25, label %41, label %28
 
 28:                                               ; preds = %22
-  br i1 %.not.i20, label %29, label %ps_call_handler.exit.sink.split
+  br i1 %27, label %ps_call_handler.exit.sink.split, label %29
 
 29:                                               ; preds = %28
   store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -764,7 +754,7 @@ define hidden noundef i32 @ps_update_timestamp_user(ptr nocapture readnone %0, p
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 41:                                               ; preds = %22
-  br i1 %.not.i20, label %42, label %ps_call_handler.exit.sink.split
+  br i1 %27, label %ps_call_handler.exit.sink.split, label %42
 
 42:                                               ; preds = %41
   store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -790,15 +780,15 @@ define hidden noundef i32 @ps_update_timestamp_user(ptr nocapture readnone %0, p
 
 52:                                               ; preds = %51, %47, %45
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
-  br label %.lr.ph.i21
+  br label %.lr.ph.i20
 
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %52
-  %indvars.iv.i22 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i23, %.lr.ph.i21 ]
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %indvars.iv.i22
+.lr.ph.i20:                                       ; preds = %.lr.ph.i20, %52
+  %indvars.iv.i21 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i22, %.lr.ph.i20 ]
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %indvars.iv.i21
   call void @zval_ptr_dtor(ptr noundef nonnull %53) #10
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 2
-  br i1 %exitcond.not.i24, label %ps_call_handler.exit, label %.lr.ph.i21
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 2
+  br i1 %exitcond.not.i23, label %ps_call_handler.exit, label %.lr.ph.i20
 
 ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -807,7 +797,7 @@ ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
-ps_call_handler.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i21, %ps_call_handler.exit.sink.split
+ps_call_handler.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i20, %ps_call_handler.exit.sink.split
   %55 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6), !range !4
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   ret i32 %55

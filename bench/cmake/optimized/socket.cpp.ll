@@ -1779,14 +1779,13 @@ _ZNSt18condition_variable4waitIZN3dap7RWMutex10lockWriterEvEUlvE_EEvRSt11unique_
   %47 = landingpad { ptr, i32 }
           cleanup
   %48 = load i8, ptr %34, align 8
-  %49 = and i8 %48, 1
-  %.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %2, align 8
-  %.not1.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not1.i.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i, label %52
+  %.not.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i, label %52
 
 52:                                               ; preds = %50
   %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %51) #15
@@ -1924,14 +1923,13 @@ _ZNSt18condition_variable4waitIZN3dap7RWMutex10lockWriterEvEUlvE_EEvRSt11unique_
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = load i8, ptr %30, align 8
-  %46 = and i8 %45, 1
-  %.not.i.i.i = icmp eq i8 %46, 0
-  br i1 %.not.i.i.i, label %common.resume, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %common.resume
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %2, align 8
-  %.not1.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not1.i.i.i.i, label %common.resume, label %49
+  %.not.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i, label %common.resume, label %49
 
 49:                                               ; preds = %47
   %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %48) #15

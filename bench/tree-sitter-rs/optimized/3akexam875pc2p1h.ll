@@ -720,7 +720,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %10 = icmp ne i64 %.pre2.i.i.i, %.pre4.i.i.i
   %.not34 = select i1 %9, i1 true, i1 %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !173
-  %11 = tail call noundef i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 43690)
+  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 43690)
   %cond.fr = freeze i1 %.not34
   %spec.select = select i1 %cond.fr, i64 0, i64 %11
   br label %12
@@ -1375,14 +1375,10 @@ define hidden void @_ZN3std2fs8read_dir17hf878f8595d888d27E(ptr noalias nocaptur
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i8, ptr %8, align 8, !range !318, !alias.scope !316, !noalias !313, !noundef !16
-  %10 = icmp eq i8 %9, 2
-  %11 = icmp ne i8 %9, 0
-  %12 = zext i1 %11 to i8
-  %.sink.i = select i1 %10, i8 2, i8 %12
   %.sink1.i = load ptr, ptr %3, align 8, !alias.scope !316, !noalias !313, !nonnull !16, !noundef !16
   store ptr %.sink1.i, ptr %0, align 8, !alias.scope !313, !noalias !316
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %13, align 8, !alias.scope !313, !noalias !316
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %9, ptr %10, align 8, !alias.scope !313, !noalias !316
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 }
@@ -2445,14 +2441,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4ba5c21b18fb6afe
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd97453bb14248d30E.llvm.6082948530530484711"(ptr noalias nocapture noundef writeonly sret({ [8 x i8], i8, [7 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !range !318, !noundef !16
-  %5 = icmp eq i8 %4, 2
-  %6 = icmp ne i8 %4, 0
-  %7 = zext i1 %6 to i8
-  %.sink = select i1 %5, i8 2, i8 %7
   %.sink1 = load ptr, ptr %1, align 8, !nonnull !16, !noundef !16
   store ptr %.sink1, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sink, ptr %8, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %4, ptr %5, align 8
   ret void
 }
 
@@ -3399,7 +3391,7 @@ define hidden void @_ZN5which9which_all17h8e9e19801d68a928E.llvm.608294853053048
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   invoke void @_ZN5which20build_binary_checker17hee3fca6b8a5f208bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %9)
-          to label %23 unwind label %.thread8
+          to label %23 unwind label %.thread6
 
 16:                                               ; preds = %3
   store i64 -9223372036854775808, ptr %11, align 8
@@ -3424,10 +3416,10 @@ define hidden void @_ZN5which9which_all17h8e9e19801d68a928E.llvm.608294853053048
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !815
   br label %15
 
-.thread8:                                         ; preds = %15
+.thread6:                                         ; preds = %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %.thread14
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -3451,21 +3443,21 @@ _ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$which..checker..CompositeChecker$GT$17h077442d1b07a1eceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #24
-          to label %28 unwind label %26
+          to label %.thread14 unwind label %26
 
-26:                                               ; preds = %28, %24
+26:                                               ; preds = %.thread14, %24
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #25
   unreachable
 
-28:                                               ; preds = %24, %.thread8
-  %.pn12 = phi { ptr, i32 } [ %22, %.thread8 ], [ %25, %24 ]
+.thread14:                                        ; preds = %24, %.thread6
+  %.pn10 = phi { ptr, i32 } [ %22, %.thread6 ], [ %25, %24 ]
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h430dbe4773754c14E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #24
-          to label %29 unwind label %26
+          to label %28 unwind label %26
 
-29:                                               ; preds = %28
-  resume { ptr, i32 } %.pn12
+28:                                               ; preds = %.thread14
+  resume { ptr, i32 } %.pn10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3918,8 +3910,8 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %6 = alloca { { i64, [5 x i64] } }, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %1, align 8, !range !942, !noundef !16
-  %trunc.not = icmp eq i32 %8, 0
-  br i1 %trunc.not, label %9, label %13
+  %trunc = trunc i32 %8 to i1
+  br i1 %trunc, label %13, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4005,8 +3997,8 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %6 = alloca { { i64, [5 x i64] } }, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %1, align 8, !range !942, !noundef !16
-  %trunc.not = icmp eq i32 %8, 0
-  br i1 %trunc.not, label %9, label %13
+  %trunc = trunc i32 %8 to i1
+  br i1 %trunc, label %13, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4092,8 +4084,8 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %6 = alloca { { i64, [5 x i64] } }, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %1, align 8, !range !942, !noundef !16
-  %trunc.not = icmp eq i32 %8, 0
-  br i1 %trunc.not, label %9, label %13
+  %trunc = trunc i32 %8 to i1
+  br i1 %trunc, label %13, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4178,10 +4170,10 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   %8 = alloca ptr, align 8
   %9 = load i64, ptr %1, align 8, !range !182, !noundef !16
-  %trunc.not = icmp eq i64 %9, 0
+  %trunc = trunc i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  br i1 %trunc.not, label %12, label %16
+  br i1 %trunc, label %16, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4244,8 +4236,8 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %6 = alloca { { i64, [5 x i64] } }, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %1, align 8, !range !942, !noundef !16
-  %trunc.not = icmp eq i32 %8, 0
-  br i1 %trunc.not, label %9, label %12
+  %trunc = trunc i32 %8 to i1
+  br i1 %trunc, label %12, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4455,8 +4447,8 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %3 = alloca { i64, [5 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = load i8, ptr %1, align 8, !range !1016, !noundef !16
-  %trunc.not = icmp eq i8 %5, 0
-  br i1 %trunc.not, label %6, label %10
+  %trunc = trunc i8 %5 to i1
+  br i1 %trunc, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 1
@@ -4747,10 +4739,10 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %8 = alloca { { { i64, ptr }, i64 } }, align 8
   %9 = alloca ptr, align 8
   %10 = load i64, ptr %1, align 8, !range !182, !noundef !16
-  %trunc.not = icmp eq i64 %10, 0
+  %trunc = trunc i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  br i1 %trunc.not, label %13, label %17
+  br i1 %trunc, label %17, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5245,8 +5237,8 @@ define hidden void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %7 = load i64, ptr %6, align 8, !range !182, !noundef !16
-  %trunc.not = icmp eq i64 %7, 0
-  br i1 %trunc.not, label %8, label %17
+  %trunc = trunc i64 %7 to i1
+  br i1 %trunc, label %17, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 8
@@ -5275,11 +5267,11 @@ define hidden void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde.
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.sink2 = phi i64 [ %14, %8 ], [ -9223372036854775808, %17 ]
-  %.sink = phi ptr [ %15, %8 ], [ %20, %17 ]
-  store i64 %.sink2, ptr %0, align 8
+  %.sink2 = phi ptr [ %20, %17 ], [ %15, %8 ]
+  %.sink = phi i64 [ -9223372036854775808, %17 ], [ %14, %8 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink2, ptr %22, align 8
+  store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 }

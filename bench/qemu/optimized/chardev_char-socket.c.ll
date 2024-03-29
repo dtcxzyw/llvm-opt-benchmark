@@ -195,23 +195,21 @@ if.end8:                                          ; preds = %if.then6, %if.end
   tail call void @g_free(ptr noundef %10) #9
   %registered_yank = getelementptr inbounds i8, ptr %call.i18, i64 248
   %11 = load i8, ptr %registered_yank, align 8
-  %12 = and i8 %11, 1
-  %tobool9.not = icmp eq i8 %12, 0
-  br i1 %tobool9.not, label %if.end14, label %if.then10
+  %tobool9 = trunc i8 %11 to i1
+  br i1 %tobool9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
   %handover_yank_instance = getelementptr inbounds i8, ptr %call.i, i64 120
-  %13 = load i8, ptr %handover_yank_instance, align 8
-  %14 = and i8 %13, 1
-  %tobool11.not = icmp eq i8 %14, 0
-  br i1 %tobool11.not, label %if.then12, label %if.end14
+  %12 = load i8, ptr %handover_yank_instance, align 8
+  %tobool11 = trunc i8 %12 to i1
+  br i1 %tobool11, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %label = getelementptr inbounds i8, ptr %call.i, i64 96
-  %15 = load ptr, ptr %label, align 8
-  store ptr %15, ptr %u, align 8
+  %13 = load ptr, ptr %label, align 8
+  store ptr %13, ptr %u, align 8
   call void @yank_unregister_instance(ptr noundef nonnull %.compoundliteral) #9
   br label %if.end14
 
@@ -326,14 +324,13 @@ tcp_set_msgfds.exit:                              ; preds = %remove_hup_source.e
   tail call void @remove_fd_in_watch(ptr noundef %chr) #9
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %10 = load i8, ptr %registered_yank, align 8
-  %11 = and i8 %10, 1
-  %tobool8.not = icmp eq i8 %11, 0
-  br i1 %tobool8.not, label %if.end17, label %land.lhs.true
+  %tobool8 = trunc i8 %10 to i1
+  br i1 %tobool8, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %tcp_set_msgfds.exit
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
-  %12 = load i32, ptr %state, align 8
-  %.off = add i32 %12, -1
+  %11 = load i32, ptr %state, align 8
+  %.off = add i32 %11, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %if.then15, label %if.end17
 
@@ -341,26 +338,26 @@ if.then15:                                        ; preds = %land.lhs.true
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %label = getelementptr inbounds i8, ptr %chr, i64 96
-  %13 = load ptr, ptr %label, align 8
-  store ptr %13, ptr %u, align 8
+  %12 = load ptr, ptr %label, align 8
+  store ptr %12, ptr %u, align 8
   %sioc = getelementptr inbounds i8, ptr %call.i, i64 160
-  %14 = load ptr, ptr %sioc, align 8
-  %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  %13 = load ptr, ptr %sioc, align 8
+  %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i24) #9
   br label %if.end17
 
 if.end17:                                         ; preds = %land.lhs.true, %if.then15, %tcp_set_msgfds.exit
   %sioc18 = getelementptr inbounds i8, ptr %call.i, i64 160
-  %15 = load ptr, ptr %sioc18, align 8
-  call void @object_unref(ptr noundef %15) #9
+  %14 = load ptr, ptr %sioc18, align 8
+  call void @object_unref(ptr noundef %14) #9
   store ptr null, ptr %sioc18, align 8
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
-  %16 = load ptr, ptr %ioc, align 8
-  call void @object_unref(ptr noundef %16) #9
+  %15 = load ptr, ptr %ioc, align 8
+  call void @object_unref(ptr noundef %15) #9
   store ptr null, ptr %ioc, align 8
   %filename = getelementptr inbounds i8, ptr %chr, i64 104
-  %17 = load ptr, ptr %filename, align 8
-  call void @g_free(ptr noundef %17) #9
+  %16 = load ptr, ptr %filename, align 8
+  call void @g_free(ptr noundef %16) #9
   store ptr null, ptr %filename, align 8
   %state9.i = getelementptr inbounds i8, ptr %call.i, i64 200
   store i32 0, ptr %state9.i, align 8
@@ -696,109 +693,102 @@ entry:
   %0 = load ptr, ptr %u, align 8
   %has_nodelay = getelementptr inbounds i8, ptr %0, i64 44
   %1 = load i8, ptr %has_nodelay, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %nodelay = getelementptr inbounds i8, ptr %0, i64 45
-  %3 = load i8, ptr %nodelay, align 1
-  %4 = and i8 %3, 1
-  %5 = zext nneg i8 %4 to i32
+  %2 = load i8, ptr %nodelay, align 1
+  %3 = and i8 %2, 1
+  %4 = zext nneg i8 %3 to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %5, %cond.true ], [ 0, %entry ]
+  %cond = phi i32 [ %4, %cond.true ], [ 0, %entry ]
   %has_server = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = load i8, ptr %has_server, align 8
-  %7 = and i8 %6, 1
-  %tobool3.not = icmp eq i8 %7, 0
-  br i1 %tobool3.not, label %cond.end9, label %cond.true5
+  %5 = load i8, ptr %has_server, align 8
+  %tobool3 = trunc i8 %5 to i1
+  br i1 %tobool3, label %cond.true5, label %cond.end9
 
 cond.true5:                                       ; preds = %cond.end
   %server = getelementptr inbounds i8, ptr %0, i64 41
-  %8 = load i8, ptr %server, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
+  %6 = load i8, ptr %server, align 1
+  %7 = and i8 %6, 1
+  %8 = icmp ne i8 %7, 0
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.true5
-  %cond10 = phi i1 [ %10, %cond.true5 ], [ true, %cond.end ]
+  %cond10 = phi i1 [ %8, %cond.true5 ], [ true, %cond.end ]
   %frombool12 = zext i1 %cond10 to i8
   %has_telnet = getelementptr inbounds i8, ptr %0, i64 46
-  %11 = load i8, ptr %has_telnet, align 2
-  %12 = and i8 %11, 1
-  %tobool13.not = icmp eq i8 %12, 0
-  br i1 %tobool13.not, label %cond.end19, label %cond.true15
+  %9 = load i8, ptr %has_telnet, align 2
+  %tobool13 = trunc i8 %9 to i1
+  br i1 %tobool13, label %cond.true15, label %cond.end19
 
 cond.true15:                                      ; preds = %cond.end9
   %telnet = getelementptr inbounds i8, ptr %0, i64 47
-  %13 = load i8, ptr %telnet, align 1
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
+  %10 = load i8, ptr %telnet, align 1
+  %11 = and i8 %10, 1
+  %12 = icmp ne i8 %11, 0
   br label %cond.end19
 
 cond.end19:                                       ; preds = %cond.end9, %cond.true15
-  %cond20 = phi i1 [ %15, %cond.true15 ], [ false, %cond.end9 ]
+  %cond20 = phi i1 [ %12, %cond.true15 ], [ false, %cond.end9 ]
   %frombool22 = zext i1 %cond20 to i8
   %has_tn3270 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = load i8, ptr %has_tn3270, align 8
-  %17 = and i8 %16, 1
-  %tobool23.not = icmp eq i8 %17, 0
-  br i1 %tobool23.not, label %cond.end29, label %cond.true25
+  %13 = load i8, ptr %has_tn3270, align 8
+  %tobool23 = trunc i8 %13 to i1
+  br i1 %tobool23, label %cond.true25, label %cond.end29
 
 cond.true25:                                      ; preds = %cond.end19
   %tn3270 = getelementptr inbounds i8, ptr %0, i64 49
-  %18 = load i8, ptr %tn3270, align 1
-  %19 = and i8 %18, 1
-  %20 = icmp ne i8 %19, 0
+  %14 = load i8, ptr %tn3270, align 1
+  %15 = and i8 %14, 1
+  %16 = icmp ne i8 %15, 0
   br label %cond.end29
 
 cond.end29:                                       ; preds = %cond.end19, %cond.true25
-  %cond30 = phi i1 [ %20, %cond.true25 ], [ false, %cond.end19 ]
+  %cond30 = phi i1 [ %16, %cond.true25 ], [ false, %cond.end19 ]
   %frombool32 = zext i1 %cond30 to i8
   %has_wait = getelementptr inbounds i8, ptr %0, i64 42
-  %21 = load i8, ptr %has_wait, align 2
-  %22 = and i8 %21, 1
-  %tobool33.not = icmp eq i8 %22, 0
-  br i1 %tobool33.not, label %cond.end39, label %cond.true35
+  %17 = load i8, ptr %has_wait, align 2
+  %tobool33 = trunc i8 %17 to i1
+  br i1 %tobool33, label %cond.true35, label %cond.end39
 
 cond.true35:                                      ; preds = %cond.end29
   %wait = getelementptr inbounds i8, ptr %0, i64 43
-  %23 = load i8, ptr %wait, align 1
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
+  %18 = load i8, ptr %wait, align 1
+  %19 = and i8 %18, 1
+  %20 = icmp ne i8 %19, 0
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end29, %cond.true35
-  %cond40 = phi i1 [ %25, %cond.true35 ], [ false, %cond.end29 ]
+  %cond40 = phi i1 [ %20, %cond.true35 ], [ false, %cond.end29 ]
   %has_websocket = getelementptr inbounds i8, ptr %0, i64 50
-  %26 = load i8, ptr %has_websocket, align 2
-  %27 = and i8 %26, 1
-  %tobool43.not = icmp eq i8 %27, 0
-  br i1 %tobool43.not, label %cond.end49, label %cond.true45
+  %21 = load i8, ptr %has_websocket, align 2
+  %tobool43 = trunc i8 %21 to i1
+  br i1 %tobool43, label %cond.true45, label %cond.end49
 
 cond.true45:                                      ; preds = %cond.end39
   %websocket = getelementptr inbounds i8, ptr %0, i64 51
-  %28 = load i8, ptr %websocket, align 1
-  %29 = and i8 %28, 1
+  %22 = load i8, ptr %websocket, align 1
+  %23 = and i8 %22, 1
   br label %cond.end49
 
 cond.end49:                                       ; preds = %cond.end39, %cond.true45
-  %cond50 = phi i8 [ %29, %cond.true45 ], [ 0, %cond.end39 ]
+  %cond50 = phi i8 [ %23, %cond.true45 ], [ 0, %cond.end39 ]
   %has_reconnect = getelementptr inbounds i8, ptr %0, i64 52
-  %30 = load i8, ptr %has_reconnect, align 4
-  %31 = and i8 %30, 1
-  %tobool53.not = icmp eq i8 %31, 0
-  br i1 %tobool53.not, label %cond.end58, label %cond.true55
+  %24 = load i8, ptr %has_reconnect, align 4
+  %tobool53 = trunc i8 %24 to i1
+  br i1 %tobool53, label %cond.true55, label %cond.end58
 
 cond.true55:                                      ; preds = %cond.end49
   %reconnect56 = getelementptr inbounds i8, ptr %0, i64 56
-  %32 = load i64, ptr %reconnect56, align 8
+  %25 = load i64, ptr %reconnect56, align 8
   br label %cond.end58
 
 cond.end58:                                       ; preds = %cond.end49, %cond.true55
-  %cond59 = phi i64 [ %32, %cond.true55 ], [ 0, %cond.end49 ]
+  %cond59 = phi i64 [ %25, %cond.true55 ], [ 0, %cond.end49 ]
   %is_listen61 = getelementptr inbounds i8, ptr %call.i, i64 264
   store i8 %frombool12, ptr %is_listen61, align 8
   %is_telnet64 = getelementptr inbounds i8, ptr %call.i, i64 265
@@ -810,20 +800,20 @@ cond.end58:                                       ; preds = %cond.end49, %cond.t
   %do_nodelay74 = getelementptr inbounds i8, ptr %call.i, i64 212
   store i32 %cond, ptr %do_nodelay74, align 4
   %tls_creds = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = load ptr, ptr %tls_creds, align 8
-  %tobool75.not = icmp eq ptr %33, null
+  %26 = load ptr, ptr %tls_creds, align 8
+  %tobool75.not = icmp eq ptr %26, null
   br i1 %tobool75.not, label %if.end98, label %if.then
 
 if.then:                                          ; preds = %cond.end58
   %call76 = tail call ptr @object_get_objects_root() #9
-  %34 = load ptr, ptr %tls_creds, align 8
-  %call78 = tail call ptr @object_resolve_path_component(ptr noundef %call76, ptr noundef %34) #9
+  %27 = load ptr, ptr %tls_creds, align 8
+  %call78 = tail call ptr @object_resolve_path_component(ptr noundef %call76, ptr noundef %27) #9
   %tobool79.not = icmp eq ptr %call78, null
   br i1 %tobool79.not, label %if.then80, label %if.end
 
 if.then80:                                        ; preds = %if.then
-  %35 = load ptr, ptr %tls_creds, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1353, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.34, ptr noundef %35) #9
+  %28 = load ptr, ptr %tls_creds, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1353, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.34, ptr noundef %28) #9
   br label %if.end136
 
 if.end:                                           ; preds = %if.then
@@ -834,26 +824,26 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool85.not, label %if.then86, label %if.end88
 
 if.then86:                                        ; preds = %if.end
-  %36 = load ptr, ptr %tls_creds, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1361, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.35, ptr noundef %36) #9
+  %29 = load ptr, ptr %tls_creds, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1361, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.35, ptr noundef %29) #9
   br label %if.end136
 
 if.end88:                                         ; preds = %if.end
   %call90 = tail call ptr @object_ref(ptr noundef nonnull %call82) #9
-  %37 = load ptr, ptr %tls_creds83, align 8
+  %30 = load ptr, ptr %tls_creds83, align 8
   %cond94 = zext i1 %cond10 to i32
-  %call95 = tail call zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef %37, i32 noundef %cond94, ptr noundef %errp) #9
+  %call95 = tail call zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef %30, i32 noundef %cond94, ptr noundef %errp) #9
   br i1 %call95, label %if.end98, label %if.end136
 
 if.end98:                                         ; preds = %if.end88, %cond.end58
   %tls_authz = getelementptr inbounds i8, ptr %0, i64 32
-  %38 = load ptr, ptr %tls_authz, align 8
-  %call99 = tail call noalias ptr @g_strdup(ptr noundef %38) #9
+  %31 = load ptr, ptr %tls_authz, align 8
+  %call99 = tail call noalias ptr @g_strdup(ptr noundef %31) #9
   %tls_authz100 = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr %call99, ptr %tls_authz100, align 8
   %addr101 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = load ptr, ptr %addr101, align 8
-  %call102 = tail call ptr @socket_address_flatten(ptr noundef %39) #9
+  %32 = load ptr, ptr %addr101, align 8
+  %call102 = tail call ptr @socket_address_flatten(ptr noundef %32) #9
   %addr103 = getelementptr inbounds i8, ptr %call.i, i64 256
   store ptr %call102, ptr %addr103, align 8
   %call102.val = load i32, ptr %call102, align 8
@@ -864,40 +854,37 @@ if.end98:                                         ; preds = %if.end88, %cond.end
   ]
 
 sw.bb.i:                                          ; preds = %if.end98
-  %40 = load i8, ptr %has_reconnect, align 4
-  %41 = and i8 %40, 1
-  %tobool.not.i = icmp eq i8 %41, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %33 = load i8, ptr %has_reconnect, align 4
+  %tobool.i = trunc i8 %33 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1260, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.36) #9
   br label %if.end136
 
 if.end.i:                                         ; preds = %sw.bb.i
-  %42 = load ptr, ptr %tls_creds, align 8
-  %tobool1.not.i = icmp eq ptr %42, null
+  %34 = load ptr, ptr %tls_creds, align 8
+  %tobool1.not.i = icmp eq ptr %34, null
   br i1 %tobool1.not.i, label %sw.epilog.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %43 = load i8, ptr %has_server, align 8
-  %44 = and i8 %43, 1
-  %tobool2.not.i = icmp eq i8 %44, 0
-  br i1 %tobool2.not.i, label %if.then5.i, label %land.lhs.true3.i
+  %35 = load i8, ptr %has_server, align 8
+  %tobool2.i = trunc i8 %35 to i1
+  br i1 %tobool2.i, label %land.lhs.true3.i, label %if.then5.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %server.i = getelementptr inbounds i8, ptr %0, i64 41
-  %45 = load i8, ptr %server.i, align 1
-  %46 = and i8 %45, 1
-  %tobool4.not.i = icmp eq i8 %46, 0
-  br i1 %tobool4.not.i, label %if.then5.i, label %sw.epilog.i
+  %36 = load i8, ptr %server.i, align 1
+  %tobool4.i = trunc i8 %36 to i1
+  br i1 %tobool4.i, label %sw.epilog.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true3.i, %land.lhs.true.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1267, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.37) #9
   br label %if.end136
 
 sw.bb7.i:                                         ; preds = %if.end98
-  %47 = load ptr, ptr %tls_creds, align 8
-  %tobool9.not.i = icmp eq ptr %47, null
+  %37 = load ptr, ptr %tls_creds, align 8
+  %tobool9.not.i = icmp eq ptr %37, null
   br i1 %tobool9.not.i, label %sw.epilog.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %sw.bb7.i
@@ -905,8 +892,8 @@ if.then10.i:                                      ; preds = %sw.bb7.i
   br label %if.end136
 
 sw.bb13.i:                                        ; preds = %if.end98
-  %48 = load ptr, ptr %tls_creds, align 8
-  %tobool15.not.i = icmp eq ptr %48, null
+  %38 = load ptr, ptr %tls_creds, align 8
+  %tobool15.not.i = icmp eq ptr %38, null
   br i1 %tobool15.not.i, label %sw.epilog.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %sw.bb13.i
@@ -914,13 +901,13 @@ if.then16.i:                                      ; preds = %sw.bb13.i
   br label %if.end136
 
 sw.epilog.i:                                      ; preds = %sw.bb13.i, %sw.bb7.i, %land.lhs.true3.i, %if.end.i, %if.end98
-  %49 = load ptr, ptr %tls_authz, align 8
-  %tobool18.not.i = icmp eq ptr %49, null
+  %39 = load ptr, ptr %tls_authz, align 8
+  %tobool18.not.i = icmp eq ptr %39, null
   br i1 %tobool18.not.i, label %if.end23.i, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %sw.epilog.i
-  %50 = load ptr, ptr %tls_creds, align 8
-  %tobool21.not.i = icmp eq ptr %50, null
+  %40 = load ptr, ptr %tls_creds, align 8
+  %tobool21.not.i = icmp eq ptr %40, null
   br i1 %tobool21.not.i, label %if.then22.i, label %if.end23.i
 
 if.then22.i:                                      ; preds = %land.lhs.true19.i
@@ -928,50 +915,44 @@ if.then22.i:                                      ; preds = %land.lhs.true19.i
   br label %if.end136
 
 if.end23.i:                                       ; preds = %land.lhs.true19.i, %sw.epilog.i
-  %51 = load i8, ptr %has_server, align 8
-  %52 = and i8 %51, 1
-  %tobool25.not.i = icmp eq i8 %52, 0
-  br i1 %tobool25.not.i, label %if.then28.i, label %lor.lhs.false.i
+  %41 = load i8, ptr %has_server, align 8
+  %tobool25.i = trunc i8 %41 to i1
+  br i1 %tobool25.i, label %lor.lhs.false.i, label %if.then28.i
 
 lor.lhs.false.i:                                  ; preds = %if.end23.i
   %server26.i = getelementptr inbounds i8, ptr %0, i64 41
-  %53 = load i8, ptr %server26.i, align 1
-  %54 = and i8 %53, 1
-  %tobool27.not.i = icmp eq i8 %54, 0
-  br i1 %tobool27.not.i, label %if.else.i, label %if.then28.i
+  %42 = load i8, ptr %server26.i, align 1
+  %tobool27.i = trunc i8 %42 to i1
+  br i1 %tobool27.i, label %if.then28.i, label %if.else.i
 
 if.then28.i:                                      ; preds = %lor.lhs.false.i, %if.end23.i
-  %55 = load i8, ptr %has_reconnect, align 4
-  %56 = and i8 %55, 1
-  %tobool30.not.i = icmp eq i8 %56, 0
-  br i1 %tobool30.not.i, label %if.end106, label %if.then31.i
+  %43 = load i8, ptr %has_reconnect, align 4
+  %tobool30.i = trunc i8 %43 to i1
+  br i1 %tobool30.i, label %if.then31.i, label %if.end106
 
 if.then31.i:                                      ; preds = %if.then28.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1306, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.41) #9
   br label %if.end136
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %57 = load i8, ptr %has_websocket, align 2
-  %58 = and i8 %57, 1
-  %tobool33.not.i = icmp eq i8 %58, 0
-  br i1 %tobool33.not.i, label %if.end37.i, label %land.lhs.true34.i
+  %44 = load i8, ptr %has_websocket, align 2
+  %tobool33.i = trunc i8 %44 to i1
+  br i1 %tobool33.i, label %land.lhs.true34.i, label %if.end37.i
 
 land.lhs.true34.i:                                ; preds = %if.else.i
   %websocket.i = getelementptr inbounds i8, ptr %0, i64 51
-  %59 = load i8, ptr %websocket.i, align 1
-  %60 = and i8 %59, 1
-  %tobool35.not.i = icmp eq i8 %60, 0
-  br i1 %tobool35.not.i, label %if.end37.i, label %if.then36.i
+  %45 = load i8, ptr %websocket.i, align 1
+  %tobool35.i = trunc i8 %45 to i1
+  br i1 %tobool35.i, label %if.then36.i, label %if.end37.i
 
 if.then36.i:                                      ; preds = %land.lhs.true34.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1311, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #9
   br label %if.end136
 
 if.end37.i:                                       ; preds = %land.lhs.true34.i, %if.else.i
-  %61 = load i8, ptr %has_wait, align 2
-  %62 = and i8 %61, 1
-  %tobool38.not.i = icmp eq i8 %62, 0
-  br i1 %tobool38.not.i, label %if.end106, label %if.then39.i
+  %46 = load i8, ptr %has_wait, align 2
+  %tobool38.i = trunc i8 %46 to i1
+  br i1 %tobool38.i, label %if.then39.i, label %if.end106
 
 if.then39.i:                                      ; preds = %if.end37.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1317, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44) #9
@@ -979,8 +960,8 @@ if.then39.i:                                      ; preds = %if.end37.i
 
 if.end106:                                        ; preds = %if.end37.i, %if.then28.i
   tail call void @qemu_chr_set_feature(ptr noundef %chr, i32 noundef 0) #9
-  %63 = load i32, ptr %call102, align 8
-  %cmp = icmp eq i32 %63, 1
+  %47 = load i32, ptr %call102, align 8
+  %cmp = icmp eq i32 %47, 1
   br i1 %cmp, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %if.end106
@@ -989,17 +970,16 @@ if.then108:                                       ; preds = %if.end106
 
 if.end109:                                        ; preds = %if.then108, %if.end106
   %handover_yank_instance = getelementptr inbounds i8, ptr %chr, i64 120
-  %64 = load i8, ptr %handover_yank_instance, align 8
-  %65 = and i8 %64, 1
-  %tobool110.not = icmp eq i8 %65, 0
-  br i1 %tobool110.not, label %if.then111, label %if.end117
+  %48 = load i8, ptr %handover_yank_instance, align 8
+  %tobool110 = trunc i8 %48 to i1
+  br i1 %tobool110, label %if.end117, label %if.then111
 
 if.then111:                                       ; preds = %if.end109
   store i32 1, ptr %.compoundliteral, align 8
   %u113 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %label = getelementptr inbounds i8, ptr %chr, i64 96
-  %66 = load ptr, ptr %label, align 8
-  store ptr %66, ptr %u113, align 8
+  %49 = load ptr, ptr %label, align 8
+  store ptr %49, ptr %u113, align 8
   %call114 = call zeroext i1 @yank_register_instance(ptr noundef nonnull %.compoundliteral, ptr noundef %errp) #9
   br i1 %call114, label %if.end117, label %if.end136
 
@@ -1008,15 +988,14 @@ if.end117:                                        ; preds = %if.then111, %if.end
   store i8 1, ptr %registered_yank, align 8
   store i8 0, ptr %be_opened, align 1
   call fastcc void @update_disconnected_filename(ptr noundef nonnull %call.i)
-  %67 = load i8, ptr %is_listen61, align 8
-  %68 = and i8 %67, 1
-  %tobool119.not = icmp eq i8 %68, 0
-  br i1 %tobool119.not, label %if.else, label %if.then120
+  %50 = load i8, ptr %is_listen61, align 8
+  %tobool119 = trunc i8 %50 to i1
+  br i1 %tobool119, label %if.then120, label %if.else
 
 if.then120:                                       ; preds = %if.end117
-  %69 = select i1 %cond20, i1 true, i1 %cond30
+  %51 = select i1 %cond20, i1 true, i1 %cond30
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  br i1 %69, label %if.then.i56, label %if.end.i51
+  br i1 %51, label %if.then.i56, label %if.end.i51
 
 if.then.i56:                                      ; preds = %if.then120
   %do_telnetopt.i = getelementptr inbounds i8, ptr %call.i.i, i64 208
@@ -1028,46 +1007,46 @@ if.end.i51:                                       ; preds = %if.then.i56, %if.th
   %listener.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   store ptr %call2.i, ptr %listener.i, align 8
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
-  %70 = load ptr, ptr %label.i, align 8
-  %call3.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.56, ptr noundef %70) #9
-  %71 = load ptr, ptr %listener.i, align 8
-  call void @qio_net_listener_set_name(ptr noundef %71, ptr noundef %call3.i) #9
+  %52 = load ptr, ptr %label.i, align 8
+  %call3.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.56, ptr noundef %52) #9
+  %53 = load ptr, ptr %listener.i, align 8
+  call void @qio_net_listener_set_name(ptr noundef %53, ptr noundef %call3.i) #9
   call void @g_free(ptr noundef %call3.i) #9
   %addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
-  %72 = load ptr, ptr %addr.i, align 8
-  %73 = load i32, ptr %72, align 8
-  %cmp.i = icmp eq i32 %73, 3
+  %54 = load ptr, ptr %addr.i, align 8
+  %55 = load i32, ptr %54, align 8
+  %cmp.i = icmp eq i32 %55, 3
   br i1 %cmp.i, label %land.lhs.true.i55, label %if.end8.i
 
 land.lhs.true.i55:                                ; preds = %if.end.i51
-  %u.i = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load ptr, ptr %u.i, align 8
-  %75 = load i8, ptr %74, align 1
-  %tobool6.not.i = icmp eq i8 %75, 0
+  %u.i = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = load ptr, ptr %u.i, align 8
+  %57 = load i8, ptr %56, align 1
+  %tobool6.not.i = icmp eq i8 %57, 0
   br i1 %tobool6.not.i, label %skip_listen.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %land.lhs.true.i55, %if.end.i51
-  %76 = load ptr, ptr %listener.i, align 8
-  %call11.i = call i32 @qio_net_listener_open_sync(ptr noundef %76, ptr noundef nonnull %72, i32 noundef 1, ptr noundef %errp) #9
+  %58 = load ptr, ptr %listener.i, align 8
+  %call11.i = call i32 @qio_net_listener_open_sync(ptr noundef %58, ptr noundef nonnull %54, i32 noundef 1, ptr noundef %errp) #9
   %cmp12.i = icmp slt i32 %call11.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.end8.i
-  %77 = load ptr, ptr %listener.i, align 8
-  call void @object_unref(ptr noundef %77) #9
+  %59 = load ptr, ptr %listener.i, align 8
+  call void @object_unref(ptr noundef %59) #9
   store ptr null, ptr %listener.i, align 8
   br label %if.end136
 
 if.end16.i:                                       ; preds = %if.end8.i
-  %78 = load ptr, ptr %addr.i, align 8
-  call void @qapi_free_SocketAddress(ptr noundef %78) #9
-  %79 = load ptr, ptr %listener.i, align 8
-  %sioc.i = getelementptr inbounds i8, ptr %79, i64 48
-  %80 = load ptr, ptr %sioc.i, align 8
-  %81 = load ptr, ptr %80, align 8
-  %fd.i = getelementptr inbounds i8, ptr %81, i64 96
-  %82 = load i32, ptr %fd.i, align 8
-  %call19.i = call ptr @socket_local_address(i32 noundef %82, ptr noundef %errp) #9
+  %60 = load ptr, ptr %addr.i, align 8
+  call void @qapi_free_SocketAddress(ptr noundef %60) #9
+  %61 = load ptr, ptr %listener.i, align 8
+  %sioc.i = getelementptr inbounds i8, ptr %61, i64 48
+  %62 = load ptr, ptr %sioc.i, align 8
+  %63 = load ptr, ptr %62, align 8
+  %fd.i = getelementptr inbounds i8, ptr %63, i64 96
+  %64 = load i32, ptr %fd.i, align 8
+  %call19.i = call ptr @socket_local_address(i32 noundef %64, ptr noundef %errp) #9
   store ptr %call19.i, ptr %addr.i, align 8
   br label %skip_listen.i
 
@@ -1080,10 +1059,10 @@ if.then22.i54:                                    ; preds = %skip_listen.i
   br label %if.end136
 
 if.else.i52:                                      ; preds = %skip_listen.i
-  %83 = load ptr, ptr %listener.i, align 8
+  %65 = load ptr, ptr %listener.i, align 8
   %gcontext.i = getelementptr inbounds i8, ptr %chr, i64 136
-  %84 = load ptr, ptr %gcontext.i, align 8
-  call void @qio_net_listener_set_client_func_full(ptr noundef %83, ptr noundef nonnull @tcp_chr_accept, ptr noundef nonnull %chr, ptr noundef null, ptr noundef %84) #9
+  %66 = load ptr, ptr %gcontext.i, align 8
+  call void @qio_net_listener_set_client_func_full(ptr noundef %65, ptr noundef nonnull @tcp_chr_accept, ptr noundef nonnull %chr, ptr noundef null, ptr noundef %66) #9
   br label %if.end136
 
 if.else:                                          ; preds = %if.end117
@@ -1113,22 +1092,22 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_telnet = getelementptr inbounds i8, ptr %call.i, i64 265
   %0 = load i8, ptr %is_telnet, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %optset, align 1
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %optset, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %optset, i64 1
   %is_tn3270 = getelementptr inbounds i8, ptr %call.i, i64 266
-  %2 = load i8, ptr %is_tn3270, align 2
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %arrayinit.element, align 1
+  %1 = load i8, ptr %is_tn3270, align 2
+  %frombool2 = and i8 %1, 1
+  store i8 %frombool2, ptr %arrayinit.element, align 1
   %arrayinit.element3 = getelementptr inbounds i8, ptr %optset, i64 2
   %is_websock = getelementptr inbounds i8, ptr %call.i, i64 288
-  %4 = load i8, ptr %is_websock, align 8
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %arrayinit.element3, align 1
+  %2 = load i8, ptr %is_websock, align 8
+  %frombool5 = and i8 %2, 1
+  store i8 %frombool5, ptr %arrayinit.element3, align 1
   %arrayinit.element6 = getelementptr inbounds i8, ptr %optset, i64 3
   %tls_creds = getelementptr inbounds i8, ptr %call.i, i64 184
-  %6 = load ptr, ptr %tls_creds, align 8
-  %tobool7 = icmp ne ptr %6, null
+  %3 = load ptr, ptr %tls_creds, align 8
+  %tobool7 = icmp ne ptr %3, null
   %frombool8 = zext i1 %tobool7 to i8
   store i8 %frombool8, ptr %arrayinit.element6, align 1
   br label %for.body
@@ -1136,15 +1115,14 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.023 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %arrayidx = getelementptr [4 x i8], ptr %optset, i64 0, i64 %i.023
-  %7 = load i8, ptr %arrayidx, align 1
-  %8 = and i8 %7, 1
-  %tobool9.not = icmp eq i8 %8, 0
-  br i1 %tobool9.not, label %for.inc, label %if.then
+  %4 = load i8, ptr %arrayidx, align 1
+  %tobool9 = trunc i8 %4 to i1
+  br i1 %tobool9, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %arrayidx10 = getelementptr [4 x ptr], ptr @__const.tcp_chr_wait_connected.opts, i64 0, i64 %i.023
-  %9 = load ptr, ptr %arrayidx10, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 988, ptr noundef nonnull @__func__.tcp_chr_wait_connected, ptr noundef nonnull @.str.76, ptr noundef %9) #9
+  %5 = load ptr, ptr %arrayidx10, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 988, ptr noundef nonnull @__func__.tcp_chr_wait_connected, ptr noundef nonnull @.str.76, ptr noundef %5) #9
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -1154,27 +1132,27 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc
   %reconnect_timer.i = getelementptr inbounds i8, ptr %call.i, i64 296
-  %10 = load ptr, ptr %reconnect_timer.i, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %6 = load ptr, ptr %reconnect_timer.i, align 8
+  %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %tcp_chr_reconn_timer_cancel.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  tail call void @g_source_destroy(ptr noundef nonnull %10) #9
-  %11 = load ptr, ptr %reconnect_timer.i, align 8
-  tail call void @g_source_unref(ptr noundef %11) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %6) #9
+  %7 = load ptr, ptr %reconnect_timer.i, align 8
+  tail call void @g_source_unref(ptr noundef %7) #9
   store ptr null, ptr %reconnect_timer.i, align 8
   br label %tcp_chr_reconn_timer_cancel.exit
 
 tcp_chr_reconn_timer_cancel.exit:                 ; preds = %for.end, %if.then.i
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
-  %12 = load i32, ptr %state, align 8
-  %cmp11 = icmp eq i32 %12, 1
+  %8 = load i32, ptr %state, align 8
+  %cmp11 = icmp eq i32 %8, 1
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %tcp_chr_reconn_timer_cancel.exit
   %connect_task = getelementptr inbounds i8, ptr %call.i, i64 320
-  %13 = load ptr, ptr %connect_task, align 8
-  %tobool13.not = icmp eq ptr %13, null
+  %9 = load ptr, ptr %connect_task, align 8
+  %tobool13.not = icmp eq ptr %9, null
   br i1 %tobool13.not, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.then12
@@ -1183,14 +1161,14 @@ if.then14:                                        ; preds = %if.then12
 
 if.end15:                                         ; preds = %if.then12
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
-  %14 = load ptr, ptr %gcontext, align 8
-  %call16 = tail call i32 @g_main_context_acquire(ptr noundef %14) #9
-  %15 = load ptr, ptr %connect_task, align 8
-  tail call void @qio_task_wait_thread(ptr noundef %15) #9
-  %16 = load ptr, ptr %gcontext, align 8
-  tail call void @g_main_context_release(ptr noundef %16) #9
-  %17 = load ptr, ptr %connect_task, align 8
-  %tobool20.not = icmp eq ptr %17, null
+  %10 = load ptr, ptr %gcontext, align 8
+  %call16 = tail call i32 @g_main_context_acquire(ptr noundef %10) #9
+  %11 = load ptr, ptr %connect_task, align 8
+  tail call void @qio_task_wait_thread(ptr noundef %11) #9
+  %12 = load ptr, ptr %gcontext, align 8
+  tail call void @g_main_context_release(ptr noundef %12) #9
+  %13 = load ptr, ptr %connect_task, align 8
+  %tobool20.not = icmp eq ptr %13, null
   br i1 %tobool20.not, label %if.end15.if.end23_crit_edge, label %if.else
 
 if.end15.if.end23_crit_edge:                      ; preds = %if.end15
@@ -1202,8 +1180,8 @@ if.else:                                          ; preds = %if.end15
   unreachable
 
 if.end23:                                         ; preds = %if.end15.if.end23_crit_edge, %tcp_chr_reconn_timer_cancel.exit
-  %18 = phi i32 [ %.pre, %if.end15.if.end23_crit_edge ], [ %12, %tcp_chr_reconn_timer_cancel.exit ]
-  %cmp25.not24 = icmp eq i32 %18, 2
+  %14 = phi i32 [ %.pre, %if.end15.if.end23_crit_edge ], [ %8, %tcp_chr_reconn_timer_cancel.exit ]
+  %cmp25.not24 = icmp eq i32 %14, 2
   br i1 %cmp25.not24, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
@@ -1212,10 +1190,9 @@ while.body.lr.ph:                                 ; preds = %if.end23
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
-  %19 = load i8, ptr %is_listen, align 8
-  %20 = and i8 %19, 1
-  %tobool26.not = icmp eq i8 %20, 0
-  br i1 %tobool26.not, label %if.else28, label %if.then27
+  %15 = load i8, ptr %is_listen, align 8
+  %tobool26 = trunc i8 %15 to i1
+  br i1 %tobool26, label %if.then27, label %if.else28
 
 if.then27:                                        ; preds = %while.body
   call fastcc void @tcp_chr_accept_server_sync(ptr noundef %chr)
@@ -1228,25 +1205,25 @@ if.else28:                                        ; preds = %while.body
   br i1 %cmp30, label %if.then31, label %if.end39
 
 if.then31:                                        ; preds = %if.else28
-  %21 = load i64, ptr %reconnect_time, align 8
-  %tobool32.not = icmp eq i64 %21, 0
-  %22 = load ptr, ptr %err, align 8
+  %16 = load i64, ptr %reconnect_time, align 8
+  %tobool32.not = icmp eq i64 %16, 0
+  %17 = load ptr, ptr %err, align 8
   br i1 %tobool32.not, label %if.else36, label %if.then33
 
 if.then33:                                        ; preds = %if.then31
-  call void @error_free(ptr noundef %22) #9
-  %23 = load i64, ptr %reconnect_time, align 8
-  %mul35 = mul i64 %23, 1000000
+  call void @error_free(ptr noundef %17) #9
+  %18 = load i64, ptr %reconnect_time, align 8
+  %mul35 = mul i64 %18, 1000000
   call void @g_usleep(i64 noundef %mul35) #9
   br label %if.end39
 
 if.else36:                                        ; preds = %if.then31
-  call void @error_propagate(ptr noundef %errp, ptr noundef %22) #9
+  call void @error_propagate(ptr noundef %errp, ptr noundef %17) #9
   br label %return
 
 if.end39:                                         ; preds = %if.else28, %if.then33, %if.then27
-  %24 = load i32, ptr %state, align 8
-  %cmp25.not = icmp eq i32 %24, 2
+  %19 = load i32, ptr %state, align 8
+  %cmp25.not = icmp eq i32 %19, 2
   br i1 %cmp25.not, label %return, label %while.body, !llvm.loop !9
 
 return:                                           ; preds = %if.end39, %if.end23, %if.else36, %if.then14, %if.then
@@ -1474,26 +1451,24 @@ tcp_chr_change_state.exit:                        ; preds = %if.end3
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %2 = load i8, ptr %is_listen.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
+  %tobool.i = trunc i8 %2 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
-  %4 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %4) #9
+  %3 = load ptr, ptr %label.i, align 8
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
-  %5 = load i8, ptr %registered_yank, align 8
-  %6 = and i8 %5, 1
-  %tobool4.not = icmp eq i8 %6, 0
-  br i1 %tobool4.not, label %if.end7, label %if.then5
+  %4 = load i8, ptr %registered_yank, align 8
+  %tobool4 = trunc i8 %4 to i1
+  br i1 %tobool4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  %7 = load ptr, ptr %label.i, align 8
-  store ptr %7, ptr %u, align 8
+  %5 = load ptr, ptr %label.i, align 8
+  store ptr %5, ptr %u, align 8
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i10) #9
   br label %if.end7
@@ -1645,91 +1620,82 @@ if.then:                                          ; preds = %entry
 sw.bb.i:                                          ; preds = %if.then
   %is_telnet.i.i = getelementptr inbounds i8, ptr %s, i64 265
   %3 = load i8, ptr %is_telnet.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %qemu_chr_socket_protocol.exit.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %qemu_chr_socket_protocol.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i
   %is_websock.i.i = getelementptr inbounds i8, ptr %s, i64 288
-  %5 = load i8, ptr %is_websock.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool1.not.i.i = icmp eq i8 %6, 0
-  %cond.i.i = select i1 %tobool1.not.i.i, ptr @.str.55, ptr @.str.26
+  %4 = load i8, ptr %is_websock.i.i, align 8
+  %tobool1.i.i = trunc i8 %4 to i1
+  %cond.i.i = select i1 %tobool1.i.i, ptr @.str.26, ptr @.str.55
   br label %qemu_chr_socket_protocol.exit.i
 
 qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb.i
   %retval.0.i.i = phi ptr [ %cond.i.i, %if.end.i.i ], [ @.str.24, %sw.bb.i ]
   %u.i = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load ptr, ptr %u.i, align 8
+  %5 = load ptr, ptr %u.i, align 8
   %port.i = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load ptr, ptr %port.i, align 8
+  %6 = load ptr, ptr %port.i, align 8
   %is_listen.i = getelementptr inbounds i8, ptr %s, i64 264
-  %9 = load i8, ptr %is_listen.i, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.49, ptr @.str.48
-  %call4.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, ptr noundef nonnull %retval.0.i.i, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %cond.i) #9
+  %7 = load i8, ptr %is_listen.i, align 8
+  %tobool.i = trunc i8 %7 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.48, ptr @.str.49
+  %call4.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, ptr noundef nonnull %retval.0.i.i, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %cond.i) #9
   br label %if.end
 
 sw.bb5.i:                                         ; preds = %if.then
   %u7.i = getelementptr inbounds i8, ptr %1, i64 8
   %has_abstract.i = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = load i8, ptr %has_abstract.i, align 8
-  %12 = and i8 %11, 1
-  %tobool8.not.i = icmp eq i8 %12, 0
-  br i1 %tobool8.not.i, label %if.end16.i, label %land.lhs.true.i
+  %8 = load i8, ptr %has_abstract.i, align 8
+  %tobool8.i = trunc i8 %8 to i1
+  br i1 %tobool8.i, label %land.lhs.true.i, label %if.end16.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb5.i
   %abstract9.i = getelementptr inbounds i8, ptr %1, i64 17
-  %13 = load i8, ptr %abstract9.i, align 1
-  %14 = and i8 %13, 1
-  %tobool10.not.i = icmp eq i8 %14, 0
-  br i1 %tobool10.not.i, label %if.end16.i, label %if.then.i
+  %9 = load i8, ptr %abstract9.i, align 1
+  %tobool10.i = trunc i8 %9 to i1
+  br i1 %tobool10.i, label %if.then.i, label %if.end16.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %has_tight.i = getelementptr inbounds i8, ptr %1, i64 18
-  %15 = load i8, ptr %has_tight.i, align 2
-  %16 = and i8 %15, 1
-  %tobool11.not.i = icmp eq i8 %16, 0
-  br i1 %tobool11.not.i, label %if.end16.i, label %land.lhs.true12.i
+  %10 = load i8, ptr %has_tight.i, align 2
+  %tobool11.i = trunc i8 %10 to i1
+  br i1 %tobool11.i, label %land.lhs.true12.i, label %if.end16.i
 
 land.lhs.true12.i:                                ; preds = %if.then.i
   %tight13.i = getelementptr inbounds i8, ptr %1, i64 19
-  %17 = load i8, ptr %tight13.i, align 1
-  %18 = and i8 %17, 1
-  %tobool14.not.i = icmp eq i8 %18, 0
-  %spec.select.i = select i1 %tobool14.not.i, ptr @.str.49, ptr @.str.51
+  %11 = load i8, ptr %tight13.i, align 1
+  %tobool14.i = trunc i8 %11 to i1
+  %spec.select.i = select i1 %tobool14.i, ptr @.str.51, ptr @.str.49
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %land.lhs.true12.i, %if.then.i, %land.lhs.true.i, %sw.bb5.i
   %tight.0.i = phi ptr [ @.str.49, %if.then.i ], [ @.str.49, %land.lhs.true.i ], [ @.str.49, %sw.bb5.i ], [ %spec.select.i, %land.lhs.true12.i ]
   %abstract.0.i = phi ptr [ @.str.50, %if.then.i ], [ @.str.49, %land.lhs.true.i ], [ @.str.49, %sw.bb5.i ], [ @.str.50, %land.lhs.true12.i ]
-  %19 = load ptr, ptr %u7.i, align 8
+  %12 = load ptr, ptr %u7.i, align 8
   %is_listen17.i = getelementptr inbounds i8, ptr %s, i64 264
-  %20 = load i8, ptr %is_listen17.i, align 8
-  %21 = and i8 %20, 1
-  %tobool18.not.i = icmp eq i8 %21, 0
-  %cond19.i = select i1 %tobool18.not.i, ptr @.str.49, ptr @.str.48
-  %call20.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.45, ptr noundef %19, ptr noundef nonnull %abstract.0.i, ptr noundef nonnull %tight.0.i, ptr noundef nonnull %cond19.i) #9
+  %13 = load i8, ptr %is_listen17.i, align 8
+  %tobool18.i = trunc i8 %13 to i1
+  %cond19.i = select i1 %tobool18.i, ptr @.str.48, ptr @.str.49
+  %call20.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.45, ptr noundef %12, ptr noundef nonnull %abstract.0.i, ptr noundef nonnull %tight.0.i, ptr noundef nonnull %cond19.i) #9
   br label %if.end
 
 sw.bb21.i:                                        ; preds = %if.then
   %u23.i = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = load ptr, ptr %u23.i, align 8
+  %14 = load ptr, ptr %u23.i, align 8
   %is_listen24.i = getelementptr inbounds i8, ptr %s, i64 264
-  %23 = load i8, ptr %is_listen24.i, align 8
-  %24 = and i8 %23, 1
-  %tobool25.not.i = icmp eq i8 %24, 0
-  %cond26.i = select i1 %tobool25.not.i, ptr @.str.49, ptr @.str.48
-  %call27.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.45, ptr noundef %22, ptr noundef nonnull %cond26.i) #9
+  %15 = load i8, ptr %is_listen24.i, align 8
+  %tobool25.i = trunc i8 %15 to i1
+  %cond26.i = select i1 %tobool25.i, ptr @.str.48, ptr @.str.49
+  %call27.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.45, ptr noundef %14, ptr noundef nonnull %cond26.i) #9
   br label %if.end
 
 sw.bb28.i:                                        ; preds = %if.then
   %u30.i = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load ptr, ptr %u30.i, align 8
+  %16 = load ptr, ptr %u30.i, align 8
   %port33.i = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = load ptr, ptr %port33.i, align 8
-  %call34.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.45, ptr noundef %25, ptr noundef %26) #9
+  %17 = load ptr, ptr %port33.i, align 8
+  %call34.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.45, ptr noundef %16, ptr noundef %17) #9
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.then
@@ -1784,26 +1750,24 @@ tcp_chr_change_state.exit:                        ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %3 = load i8, ptr %is_listen.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
+  %tobool.i = trunc i8 %3 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
-  %5 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %5) #9
+  %4 = load ptr, ptr %label.i, align 8
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %4) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
-  %6 = load i8, ptr %registered_yank, align 8
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %5 = load i8, ptr %registered_yank, align 8
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  %8 = load ptr, ptr %label.i, align 8
-  store ptr %8, ptr %u, align 8
+  %6 = load ptr, ptr %label.i, align 8
+  store ptr %6, ptr %u, align 8
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i10) #9
   br label %if.end
@@ -1834,26 +1798,24 @@ tcp_chr_change_state.exit:                        ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
+  %tobool.i = trunc i8 %1 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %3 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
+  %2 = load ptr, ptr %label.i, align 8
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
   %registered_yank = getelementptr inbounds i8, ptr %call.i7, i64 248
-  %4 = load i8, ptr %registered_yank, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %3 = load i8, ptr %registered_yank, align 8
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  %6 = load ptr, ptr %label.i, align 8
-  store ptr %6, ptr %u, align 8
+  %4 = load ptr, ptr %label.i, align 8
+  store ptr %4, ptr %u, align 8
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i8) #9
   br label %if.end
@@ -1920,26 +1882,25 @@ if.then15:                                        ; preds = %if.end13
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %7 = load i8, ptr %is_listen.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i = icmp eq i8 %8, 0
-  %ioc2.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
-  %9 = load ptr, ptr %ioc2.i, align 8
-  %tls_creds3.i = getelementptr inbounds i8, ptr %call.i.i, i64 184
-  %10 = load ptr, ptr %tls_creds3.i, align 8
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %7 to i1
+  %ioc.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
+  %8 = load ptr, ptr %ioc.i, align 8
+  %tls_creds.i = getelementptr inbounds i8, ptr %call.i.i, i64 184
+  %9 = load ptr, ptr %tls_creds.i, align 8
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then15
   %tls_authz.i = getelementptr inbounds i8, ptr %call.i.i, i64 192
-  %11 = load ptr, ptr %tls_authz.i, align 8
-  %call1.i = tail call ptr @qio_channel_tls_new_server(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef null) #9
+  %10 = load ptr, ptr %tls_authz.i, align 8
+  %call1.i = tail call ptr @qio_channel_tls_new_server(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null) #9
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then15
   %addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
-  %12 = load ptr, ptr %addr.i, align 8
-  %u.i = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %u.i, align 8
-  %call4.i = tail call ptr @qio_channel_tls_new_client(ptr noundef %9, ptr noundef %10, ptr noundef %13, ptr noundef null) #9
+  %11 = load ptr, ptr %addr.i, align 8
+  %u.i = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %u.i, align 8
+  %call4.i = tail call ptr @qio_channel_tls_new_client(ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef null) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -1948,40 +1909,38 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %15 = inttoptr i64 %14 to ptr
+  %13 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %14 = inttoptr i64 %13 to ptr
   %chr_write_lock.i.i = getelementptr inbounds i8, ptr %chr, i64 40
-  tail call void %15(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  tail call void %14(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
   br label %return
 
 if.end6.i:                                        ; preds = %if.end.i
-  %16 = load i8, ptr %is_listen.i, align 8
-  %17 = and i8 %16, 1
-  %tobool8.not.i = icmp eq i8 %17, 0
-  %cond.i = select i1 %tobool8.not.i, ptr @.str.59, ptr @.str.23
+  %15 = load i8, ptr %is_listen.i, align 8
+  %tobool8.i = trunc i8 %15 to i1
+  %cond.i = select i1 %tobool8.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
-  %18 = load ptr, ptr %label.i, align 8
-  %call9.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond.i, ptr noundef %18) #9
+  %16 = load ptr, ptr %label.i, align 8
+  %call9.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond.i, ptr noundef %16) #9
   %call.i18.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i18.i, ptr noundef %call9.i) #9
   tail call void @g_free(ptr noundef %call9.i) #9
-  %19 = load ptr, ptr %ioc2.i, align 8
-  tail call void @object_unref(ptr noundef %19) #9
+  %17 = load ptr, ptr %ioc.i, align 8
+  tail call void @object_unref(ptr noundef %17) #9
   %call.i19.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  store ptr %call.i19.i, ptr %ioc2.i, align 8
+  store ptr %call.i19.i, ptr %ioc.i, align 8
   %gcontext.i = getelementptr inbounds i8, ptr %chr, i64 136
-  %20 = load ptr, ptr %gcontext.i, align 8
-  tail call void @qio_channel_tls_handshake(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @tcp_chr_tls_handshake, ptr noundef %chr, ptr noundef null, ptr noundef %20) #9
+  %18 = load ptr, ptr %gcontext.i, align 8
+  tail call void @qio_channel_tls_handshake(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @tcp_chr_tls_handshake, ptr noundef %chr, ptr noundef null, ptr noundef %18) #9
   br label %return
 
 if.else:                                          ; preds = %if.end13
   %is_websock = getelementptr inbounds i8, ptr %call.i, i64 288
-  %21 = load i8, ptr %is_websock, align 8
-  %22 = and i8 %21, 1
-  %tobool16.not = icmp eq i8 %22, 0
-  br i1 %tobool16.not, label %if.else18, label %if.then17
+  %19 = load i8, ptr %is_websock, align 8
+  %tobool16 = trunc i8 %19 to i1
+  br i1 %tobool16, label %if.then17, label %if.else18
 
 if.then17:                                        ; preds = %if.else
   tail call fastcc void @tcp_chr_websock_init(ptr noundef %chr)
@@ -1989,8 +1948,8 @@ if.then17:                                        ; preds = %if.else
 
 if.else18:                                        ; preds = %if.else
   %do_telnetopt = getelementptr inbounds i8, ptr %call.i, i64 208
-  %23 = load i32, ptr %do_telnetopt, align 8
-  %tobool19.not = icmp eq i32 %23, 0
+  %20 = load i32, ptr %do_telnetopt, align 8
+  %tobool19.not = icmp eq i32 %20, 0
   br i1 %tobool19.not, label %if.else21, label %if.then20
 
 if.then20:                                        ; preds = %if.else18
@@ -2060,20 +2019,19 @@ if.end:                                           ; preds = %tcp_chr_telnet_dest
   store ptr %call1, ptr %telnet_init, align 8
   %is_tn3270 = getelementptr inbounds i8, ptr %call.i, i64 266
   %3 = load i8, ptr %is_tn3270, align 2
-  %4 = and i8 %3, 1
-  %tobool4.not = icmp eq i8 %4, 0
-  %buflen = getelementptr inbounds i8, ptr %call1, i64 24
-  br i1 %tobool4.not, label %if.then5, label %if.else
+  %tobool4 = trunc i8 %3 to i1
+  %buflen45 = getelementptr inbounds i8, ptr %call1, i64 24
+  br i1 %tobool4, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %arrayidx32 = getelementptr i8, ptr %call1, i64 8
-  store i64 12, ptr %buflen, align 8
+  %arrayidx77 = getelementptr i8, ptr %call1, i64 8
+  store i64 12, ptr %buflen45, align 8
   store <8 x i8> <i8 -1, i8 -5, i8 1, i8 -1, i8 -5, i8 3, i8 -1, i8 -5>, ptr %call1, align 1
-  store <4 x i8> <i8 0, i8 -1, i8 -3, i8 0>, ptr %arrayidx32, align 1
+  store <4 x i8> <i8 0, i8 -1, i8 -3, i8 0>, ptr %arrayidx77, align 1
   br label %cont
 
 if.else:                                          ; preds = %if.end
-  store i64 21, ptr %buflen, align 8
+  store i64 21, ptr %buflen45, align 8
   store <16 x i8> <i8 -1, i8 -3, i8 25, i8 -1, i8 -5, i8 25, i8 -1, i8 -3, i8 0, i8 -1, i8 -5, i8 0, i8 -1, i8 -3, i8 24, i8 -1>, ptr %call1, align 1
   %arrayidx107 = getelementptr i8, ptr %call1, i64 16
   store <4 x i8> <i8 -6, i8 24, i8 1, i8 -1>, ptr %arrayidx107, align 1
@@ -2083,10 +2041,10 @@ if.else:                                          ; preds = %if.end
 
 cont:                                             ; preds = %if.then5, %if.else, %tcp_chr_telnet_destroy.exit
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
-  %5 = load ptr, ptr %ioc, align 8
+  %4 = load ptr, ptr %ioc, align 8
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
-  %6 = load ptr, ptr %gcontext, align 8
-  %call124 = tail call ptr @qio_channel_add_watch_source(ptr noundef %5, i32 noundef 4, ptr noundef nonnull @tcp_chr_telnet_init_io, ptr noundef nonnull %call.i, ptr noundef null, ptr noundef %6) #9
+  %5 = load ptr, ptr %gcontext, align 8
+  %call124 = tail call ptr @qio_channel_add_watch_source(ptr noundef %4, i32 noundef 4, ptr noundef nonnull @tcp_chr_telnet_init_io, ptr noundef nonnull %call.i, ptr noundef null, ptr noundef %5) #9
   store ptr %call124, ptr %telnet_source.i, align 8
   ret void
 }
@@ -2126,9 +2084,8 @@ sw.bb.i:                                          ; preds = %entry
   %sun_path.i = getelementptr inbounds i8, ptr %1, i64 106
   %is_listen.i = getelementptr inbounds i8, ptr %call.i6, i64 264
   %5 = load i8, ptr %is_listen.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.49, ptr @.str.48
+  %tobool.i = trunc i8 %5 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.48, ptr @.str.49
   %call.i7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.65, ptr noundef nonnull %sun_path.i, ptr noundef nonnull %cond.i) #9
   br label %qemu_chr_compute_filename.exit
 
@@ -2141,26 +2098,23 @@ sw.bb6.i:                                         ; preds = %sw.bb5.i, %entry
   %call9.i = call i32 @getnameinfo(ptr noundef nonnull %localAddr.i, i32 noundef %2, ptr noundef nonnull %shost.i, i32 noundef 1025, ptr noundef nonnull %sserv.i, i32 noundef 32, i32 noundef 3) #9
   %call12.i = call i32 @getnameinfo(ptr noundef nonnull %remoteAddr.i, i32 noundef %3, ptr noundef nonnull %phost.i, i32 noundef 1025, ptr noundef nonnull %pserv.i, i32 noundef 32, i32 noundef 3) #9
   %is_telnet.i.i = getelementptr inbounds i8, ptr %call.i6, i64 265
-  %7 = load i8, ptr %is_telnet.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %qemu_chr_socket_protocol.exit.i
+  %6 = load i8, ptr %is_telnet.i.i, align 1
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %qemu_chr_socket_protocol.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb6.i
   %is_websock.i.i = getelementptr inbounds i8, ptr %call.i6, i64 288
-  %9 = load i8, ptr %is_websock.i.i, align 8
-  %10 = and i8 %9, 1
-  %tobool1.not.i.i = icmp eq i8 %10, 0
-  %cond.i.i = select i1 %tobool1.not.i.i, ptr @.str.55, ptr @.str.26
+  %7 = load i8, ptr %is_websock.i.i, align 8
+  %tobool1.i.i = trunc i8 %7 to i1
+  %cond.i.i = select i1 %tobool1.i.i, ptr @.str.26, ptr @.str.55
   br label %qemu_chr_socket_protocol.exit.i
 
 qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb6.i
   %retval.0.i.i = phi ptr [ %cond.i.i, %if.end.i.i ], [ @.str.24, %sw.bb6.i ]
   %is_listen16.i = getelementptr inbounds i8, ptr %call.i6, i64 264
-  %11 = load i8, ptr %is_listen16.i, align 8
-  %12 = and i8 %11, 1
-  %tobool17.not.i = icmp eq i8 %12, 0
-  %cond19.i = select i1 %tobool17.not.i, ptr @.str.49, ptr @.str.48
+  %8 = load i8, ptr %is_listen16.i, align 8
+  %tobool17.i = trunc i8 %8 to i1
+  %cond19.i = select i1 %tobool17.i, ptr @.str.48, ptr @.str.49
   %call22.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.68, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %left.0.i, ptr noundef nonnull %shost.i, ptr noundef nonnull %right.0.i, ptr noundef nonnull %sserv.i, ptr noundef nonnull %cond19.i, ptr noundef nonnull %left.0.i, ptr noundef nonnull %phost.i, ptr noundef nonnull %right.0.i, ptr noundef nonnull %pserv.i) #9
   br label %qemu_chr_compute_filename.exit
 
@@ -2176,8 +2130,8 @@ qemu_chr_compute_filename.exit:                   ; preds = %sw.bb.i, %qemu_chr_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pserv.i)
   store ptr %retval.0.i, ptr %filename, align 8
   %state4.i = getelementptr inbounds i8, ptr %call.i6, i64 200
-  %13 = load i32, ptr %state4.i, align 8
-  %cmp5.i = icmp eq i32 %13, 1
+  %9 = load i32, ptr %state4.i, align 8
+  %cmp5.i = icmp eq i32 %9, 1
   br i1 %cmp5.i, label %tcp_chr_change_state.exit, label %if.else7.i
 
 if.else7.i:                                       ; preds = %qemu_chr_compute_filename.exit
@@ -2221,9 +2175,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %is_websock = getelementptr inbounds i8, ptr %user_data, i64 288
   %4 = load i8, ptr %is_websock, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.else2, label %if.then1
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then1, label %if.else2
 
 if.then1:                                         ; preds = %if.else
   call fastcc void @tcp_chr_websock_init(ptr noundef nonnull %user_data)
@@ -2231,8 +2184,8 @@ if.then1:                                         ; preds = %if.else
 
 if.else2:                                         ; preds = %if.else
   %do_telnetopt = getelementptr inbounds i8, ptr %user_data, i64 208
-  %6 = load i32, ptr %do_telnetopt, align 8
-  %tobool3.not = icmp eq i32 %6, 0
+  %5 = load i32, ptr %do_telnetopt, align 8
+  %tobool3.not = icmp eq i32 %5, 0
   br i1 %tobool3.not, label %if.else5, label %if.then4
 
 if.then4:                                         ; preds = %if.else2
@@ -2522,7 +2475,7 @@ if.then10.i:                                      ; preds = %if.then7.i
 
 if.end90.thread.i:                                ; preds = %if.then10.i, %if.then7.i
   %inc.i = add i32 %j.061.i, 1
-  br label %15
+  br label %14
 
 if.else.i:                                        ; preds = %if.then.i
   %cmp19.i = icmp eq i8 %8, -13
@@ -2536,9 +2489,8 @@ if.then25.i:                                      ; preds = %if.else.i
 
 if.else28.i:                                      ; preds = %if.else.i
   %10 = load i8, ptr %is_tn3270.i, align 2
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %if.end90.i, label %land.lhs.true30.i
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %land.lhs.true30.i, label %if.end90.i
 
 land.lhs.true30.i:                                ; preds = %if.else28.i
   switch i8 %8, label %if.end90.i [
@@ -2557,11 +2509,11 @@ if.then51.i:                                      ; preds = %land.lhs.true47.i
   %idxprom53.i = sext i32 %j.061.i to i64
   %arrayidx54.i = getelementptr i8, ptr %buf, i64 %idxprom53.i
   store i8 -1, ptr %arrayidx54.i, align 1
-  %12 = load i8, ptr %arrayidx.i, align 1
+  %11 = load i8, ptr %arrayidx.i, align 1
   %inc57.i = add i32 %j.061.i, 2
   %idxprom58.i = sext i32 %inc52.i to i64
   %arrayidx59.i = getelementptr i8, ptr %buf, i64 %idxprom58.i
-  store i8 %12, ptr %arrayidx59.i, align 1
+  store i8 %11, ptr %arrayidx59.i, align 1
   br label %if.end90.sink.split.i
 
 land.lhs.true78.i:                                ; preds = %land.lhs.true30.i, %land.lhs.true30.i
@@ -2569,24 +2521,24 @@ land.lhs.true78.i:                                ; preds = %land.lhs.true30.i, 
   br label %if.end90.i
 
 if.end90.sink.split.i:                            ; preds = %if.then51.i, %if.then25.i
-  %13 = phi i32 [ 2, %if.then51.i ], [ %.pre, %if.then25.i ]
+  %12 = phi i32 [ 2, %if.then51.i ], [ %.pre, %if.then25.i ]
   %j.1.ph.i = phi i32 [ %inc57.i, %if.then51.i ], [ %j.061.i, %if.then25.i ]
-  %inc27.i = add i32 %13, 1
+  %inc27.i = add i32 %12, 1
   br label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end90.sink.split.i, %land.lhs.true78.i, %land.lhs.true47.i, %land.lhs.true30.i, %if.else28.i
-  %14 = phi i32 [ %.pr20, %if.else28.i ], [ %.pr20, %land.lhs.true30.i ], [ %.pr20, %land.lhs.true47.i ], [ %spec.select63.i, %land.lhs.true78.i ], [ %inc27.i, %if.end90.sink.split.i ]
+  %13 = phi i32 [ %.pr20, %if.else28.i ], [ %.pr20, %land.lhs.true30.i ], [ %.pr20, %land.lhs.true47.i ], [ %spec.select63.i, %land.lhs.true78.i ], [ %inc27.i, %if.end90.sink.split.i ]
   %j.1.i = phi i32 [ %j.061.i, %if.else28.i ], [ %j.061.i, %land.lhs.true30.i ], [ %j.061.i, %land.lhs.true47.i ], [ %j.061.i, %land.lhs.true78.i ], [ %j.1.ph.i, %if.end90.sink.split.i ]
-  %.fr.i = freeze i32 %14
+  %.fr.i = freeze i32 %13
   %inc89.i = add i32 %.fr.i, 1
   %cmp92.i = icmp sgt i32 %inc89.i, 3
   %spec.select.i = select i1 %cmp92.i, i32 1, i32 %inc89.i
-  br label %15
+  br label %14
 
-15:                                               ; preds = %if.end90.i, %if.end90.thread.i
+14:                                               ; preds = %if.end90.i, %if.end90.thread.i
   %j.257.i = phi i32 [ %inc.i, %if.end90.thread.i ], [ %j.1.i, %if.end90.i ]
-  %16 = phi i32 [ 1, %if.end90.thread.i ], [ %spec.select.i, %if.end90.i ]
-  store i32 %16, ptr %do_telnetopt, align 8
+  %15 = phi i32 [ 1, %if.end90.thread.i ], [ %spec.select.i, %if.end90.i ]
+  store i32 %15, ptr %do_telnetopt, align 8
   br label %for.inc.i
 
 if.else97.i:                                      ; preds = %for.body.i
@@ -2597,8 +2549,8 @@ if.then103.i:                                     ; preds = %if.else97.i
   br label %for.inc.i
 
 if.else105.i:                                     ; preds = %if.else97.i
-  %17 = zext i32 %j.061.i to i64
-  %cmp106.not.i = icmp eq i64 %indvars.iv.i, %17
+  %16 = zext i32 %j.061.i to i64
+  %cmp106.not.i = icmp eq i64 %indvars.iv.i, %16
   br i1 %cmp106.not.i, label %if.end113.i, label %if.then108.i
 
 if.then108.i:                                     ; preds = %if.else105.i
@@ -2611,9 +2563,9 @@ if.end113.i:                                      ; preds = %if.then108.i, %if.e
   %inc114.i = add i32 %j.061.i, 1
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end113.i, %if.then103.i, %15
-  %.pr = phi i32 [ 2, %if.then103.i ], [ %.pr20, %if.end113.i ], [ %16, %15 ]
-  %j.3.i = phi i32 [ %j.061.i, %if.then103.i ], [ %inc114.i, %if.end113.i ], [ %j.257.i, %15 ]
+for.inc.i:                                        ; preds = %if.end113.i, %if.then103.i, %14
+  %.pr = phi i32 [ 2, %if.then103.i ], [ %.pr20, %if.end113.i ], [ %15, %14 ]
+  %j.3.i = phi i32 [ %j.061.i, %if.then103.i ], [ %inc114.i, %if.end113.i ], [ %j.257.i, %14 ]
   %exitcond.not = icmp eq i64 %indvars.iv.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %exitcond.not, label %if.end24, label %for.body.i, !llvm.loop !12
@@ -2811,26 +2763,24 @@ tcp_chr_change_state.exit:                        ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
+  %tobool.i = trunc i8 %1 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
-  %3 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
+  %2 = load ptr, ptr %label.i, align 8
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
-  %4 = load i8, ptr %registered_yank, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %3 = load i8, ptr %registered_yank, align 8
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  %6 = load ptr, ptr %label.i, align 8
-  store ptr %6, ptr %u, align 8
+  %4 = load ptr, ptr %label.i, align 8
+  store ptr %4, ptr %u, align 8
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i11) #9
   br label %if.end
@@ -2841,10 +2791,10 @@ if.end:                                           ; preds = %if.then, %tcp_chr_c
   %connect_task = getelementptr inbounds i8, ptr %call.i, i64 320
   store ptr %call4, ptr %connect_task, align 8
   %addr = getelementptr inbounds i8, ptr %call.i, i64 256
-  %7 = load ptr, ptr %addr, align 8
+  %5 = load ptr, ptr %addr, align 8
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
-  %8 = load ptr, ptr %gcontext, align 8
-  call void @qio_task_run_in_thread(ptr noundef %call4, ptr noundef nonnull @tcp_chr_connect_client_task, ptr noundef %7, ptr noundef null, ptr noundef %8) #9
+  %6 = load ptr, ptr %gcontext, align 8
+  call void @qio_task_run_in_thread(ptr noundef %call4, ptr noundef nonnull @tcp_chr_connect_client_task, ptr noundef %5, ptr noundef null, ptr noundef %6) #9
   ret void
 }
 
@@ -2868,18 +2818,17 @@ tcp_chr_change_state.exit:                        ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
+  %tobool.i = trunc i8 %1 to i1
+  %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
-  %3 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
+  %2 = load ptr, ptr %label.i, align 8
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
   %addr = getelementptr inbounds i8, ptr %call.i, i64 256
-  %4 = load ptr, ptr %addr, align 8
-  %call2 = tail call i32 @qio_channel_socket_connect_sync(ptr noundef %call1, ptr noundef %4, ptr noundef %errp) #9
+  %3 = load ptr, ptr %addr, align 8
+  %call2 = tail call i32 @qio_channel_socket_connect_sync(ptr noundef %call1, ptr noundef %3, ptr noundef %errp) #9
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -2890,16 +2839,15 @@ if.then:                                          ; preds = %tcp_chr_change_stat
 
 if.end:                                           ; preds = %tcp_chr_change_state.exit
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
-  %5 = load i8, ptr %registered_yank, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end5, label %if.then3
+  %4 = load i8, ptr %registered_yank, align 8
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  %7 = load ptr, ptr %label.i, align 8
-  store ptr %7, ptr %u, align 8
+  %5 = load ptr, ptr %label.i, align 8
+  store ptr %5, ptr %u, align 8
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i13) #9
   br label %if.end5
@@ -2938,38 +2886,36 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %state9.i, align 8
   %registered_yank = getelementptr inbounds i8, ptr %call.i11, i64 248
   %0 = load i8, ptr %registered_yank, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then5
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
   store i32 1, ptr %.compoundliteral, align 8
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %label = getelementptr inbounds i8, ptr %call.i10, i64 96
-  %2 = load ptr, ptr %label, align 8
-  store ptr %2, ptr %u, align 8
+  %1 = load ptr, ptr %label, align 8
+  store ptr %1, ptr %u, align 8
   %call.i12 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i12) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %3 = load ptr, ptr %err, align 8
+  %2 = load ptr, ptr %err, align 8
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %connect_err_reported.i = getelementptr inbounds i8, ptr %call.i.i, i64 312
-  %4 = load i8, ptr %connect_err_reported.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.else.i
+  %3 = load i8, ptr %connect_err_reported.i, align 8
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %label.i = getelementptr inbounds i8, ptr %call.i10, i64 96
-  %6 = load ptr, ptr %label.i, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef %6) #9
+  %4 = load ptr, ptr %label.i, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %2, ptr noundef nonnull @.str.72, ptr noundef %4) #9
   store i8 1, ptr %connect_err_reported.i, align 8
   br label %check_report_connect_error.exit
 
 if.else.i:                                        ; preds = %if.end
-  call void @error_free(ptr noundef %3) #9
+  call void @error_free(ptr noundef %2) #9
   br label %check_report_connect_error.exit
 
 check_report_connect_error.exit:                  ; preds = %if.then.i, %if.else.i

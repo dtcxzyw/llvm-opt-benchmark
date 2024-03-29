@@ -42,7 +42,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
   invoke void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17h4b5d1cf377e28ff6E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %9, i64 %11)
-          to label %27 unwind label %35
+          to label %27 unwind label %36
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %5, i64 8
@@ -50,7 +50,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
   invoke void @"_ZN59_$LT$str$u20$as$u20$heck..lower_camel..ToLowerCamelCase$GT$19to_lower_camel_case17h9cbd1064b406c88dE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %14, i64 %16)
-          to label %27 unwind label %35
+          to label %27 unwind label %36
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %5, i64 8
@@ -58,7 +58,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !3
   invoke void @"_ZN48_$LT$str$u20$as$u20$heck..snake..ToSnakeCase$GT$13to_snake_case17hb005bcbcbda6684eE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %19, i64 %21)
-          to label %27 unwind label %35
+          to label %27 unwind label %36
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds i8, ptr %5, i64 8
@@ -66,10 +66,9 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   %25 = getelementptr inbounds i8, ptr %5, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !3
   invoke void @"_ZN61_$LT$str$u20$as$u20$heck..shouty_snake..ToShoutySnakeCase$GT$20to_shouty_snake_case17hfb6abd9b998d16acE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %24, i64 %26)
-          to label %27 unwind label %35
+          to label %27 unwind label %36
 
 27:                                               ; preds = %.invoke, %22, %17, %12, %7
-  %.not31 = phi i1 [ false, %22 ], [ false, %17 ], [ false, %12 ], [ true, %7 ], [ false, %.invoke ]
   %.0 = phi i8 [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 0, %7 ], [ 1, %.invoke ]
   %28 = getelementptr inbounds i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
@@ -77,62 +76,63 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = load i64, ptr %2, align 8, !range !4, !noundef !3
   %33 = icmp eq i64 %32, -9223372036854775808
-  br i1 %33, label %37, label %40
+  br i1 %33, label %38, label %41
 
-34:                                               ; preds = %41, %35
-  %.1 = phi i8 [ %.2, %35 ], [ %.0, %41 ]
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %42, %41 ]
-  %.not = icmp eq i8 %.1, 0
-  br i1 %.not, label %49, label %50
+34:                                               ; preds = %42, %36
+  %.1 = phi i8 [ %.2, %36 ], [ %.0, %42 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %43, %42 ]
+  %35 = trunc i8 %.1 to i1
+  br i1 %35, label %52, label %51
 
-35:                                               ; preds = %.invoke, %43, %22, %17, %12
-  %.2 = phi i8 [ %.0, %43 ], [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 1, %.invoke ]
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %.invoke, %44, %22, %17, %12
+  %.2 = phi i8 [ %.0, %44 ], [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 1, %.invoke ]
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %34
 
-37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %2, i64 12
-  %39 = load i32, ptr %38, align 4, !range !5, !noundef !3
-  br label %40
+38:                                               ; preds = %27
+  %39 = getelementptr inbounds i8, ptr %2, i64 12
+  %40 = load i32, ptr %39, align 4, !range !5, !noundef !3
+  br label %41
 
-40:                                               ; preds = %27, %37
-  %.029 = phi i32 [ %39, %37 ], [ 0, %27 ]
+41:                                               ; preds = %27, %38
+  %.029 = phi i32 [ %40, %38 ], [ 0, %27 ]
   invoke void @_ZN11proc_macro25Ident3new17hee6f187f8c441b98E(ptr sret({ { i64, [3 x i64] }, { {} } }) align 8 %0, ptr nonnull align 1 %29, i64 %31, i32 %.029, ptr nonnull align 8 @anon.dd19c8fde667f98f0e6d950f111fec75.1)
-          to label %43 unwind label %41
+          to label %44 unwind label %42
 
-41:                                               ; preds = %40
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %41
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4d27c8f4534fc6e3E"(ptr nonnull align 8 %4) #5
-          to label %34 unwind label %47
+          to label %34 unwind label %49
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4d27c8f4534fc6e3E"(ptr nonnull align 8 %4)
-          to label %44 unwind label %35
+          to label %45 unwind label %36
 
-44:                                               ; preds = %43
-  br i1 %.not31, label %45, label %46
+45:                                               ; preds = %44
+  %46 = trunc i8 %.0 to i1
+  br i1 %46, label %48, label %47
 
-45:                                               ; preds = %46, %44
+47:                                               ; preds = %48, %45
   ret void
 
-46:                                               ; preds = %44
+48:                                               ; preds = %45
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4d27c8f4534fc6e3E"(ptr nonnull align 8 %5)
-  br label %45
+  br label %47
 
-47:                                               ; preds = %50, %41
-  %48 = landingpad { ptr, i32 }
+49:                                               ; preds = %52, %42
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #6
   unreachable
 
-49:                                               ; preds = %50, %34
+51:                                               ; preds = %52, %34
   resume { ptr, i32 } %.pn
 
-50:                                               ; preds = %34
+52:                                               ; preds = %34
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4d27c8f4534fc6e3E"(ptr nonnull align 8 %5) #5
-          to label %49 unwind label %47
+          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable

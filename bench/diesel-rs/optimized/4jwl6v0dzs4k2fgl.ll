@@ -25,8 +25,8 @@ define hidden void @"_ZN20migrations_internals22migrations_directories28_$u7b$$u
   call void @"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec050ee4479fdd33E.llvm.4395320261768566802"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %.pre = load i64, ptr %5, align 8, !range !5
-  %12 = icmp eq i64 %.pre, 0
-  br i1 %12, label %13, label %17
+  %12 = trunc i64 %.pre to i1
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %5, i64 8
@@ -366,30 +366,30 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   call void @"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec050ee4479fdd33E.llvm.4395320261768566802"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !119
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !119
   %.pre.i = load i64, ptr %5, align 8, !range !5, !noalias !119
-  %9 = icmp eq i64 %.pre.i, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !119
-  br i1 %9, label %12, label %._crit_edge
+  %9 = trunc i64 %.pre.i to i1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !119
+  br i1 %9, label %._crit_edge, label %10
 
-12:                                               ; preds = %8
-  %13 = icmp eq ptr %11, null
-  br i1 %13, label %"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit", label %16
+10:                                               ; preds = %8
+  %11 = icmp eq ptr %.pre, null
+  br i1 %11, label %"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit", label %14
 
 ._crit_edge:                                      ; preds = %8, %.thread.i
-  %14 = phi ptr [ %.sroa.3.0.copyload, %.thread.i ], [ %11, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %15, align 8, !alias.scope !116, !noalias !121
+  %12 = phi ptr [ %.sroa.3.0.copyload, %.thread.i ], [ %.pre, %8 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %13, align 8, !alias.scope !116, !noalias !121
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %14, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !116, !noalias !121
+  store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !116, !noalias !121
   br label %"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit"
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !121
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %.phi.trans.insert, i64 40, i1 false), !noalias !121
   br label %"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit"
 
-"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit": ; preds = %12, %._crit_edge, %16
-  %.sink = phi i64 [ 1, %._crit_edge ], [ 1, %16 ], [ 0, %12 ]
+"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit": ; preds = %10, %._crit_edge, %14
+  %.sink = phi i64 [ 1, %._crit_edge ], [ 1, %14 ], [ 0, %10 ]
   store i64 %.sink, ptr %0, align 8, !alias.scope !116, !noalias !121
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !119
   ret void

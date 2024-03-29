@@ -860,11 +860,10 @@ if.then22:                                        ; preds = %land.lhs.true
   %call1.i23 = call ptr @qdev_get_hotplug_handler(ptr noundef %call.i.i22) #10
   %partially_hotplugged.i = getelementptr inbounds i8, ptr %call.i, i64 160
   %8 = load i8, ptr %partially_hotplugged.i, align 16
-  %9 = and i8 %8, 1
-  %tobool.not.i24 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i24, label %if.end.i, label %if.then.i25
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %if.then.i24, label %if.end.i
 
-if.then.i25:                                      ; preds = %if.then22
+if.then.i24:                                      ; preds = %if.then22
   %pending_deleted_event.i = getelementptr inbounds i8, ptr %call.i, i64 57
   store i8 0, ptr %pending_deleted_event.i, align 1
   br label %return
@@ -876,54 +875,54 @@ if.end.i:                                         ; preds = %if.then22
   br label %return
 
 if.end23:                                         ; preds = %land.lhs.true, %if.end18
-  %10 = and i16 %add.ptr7.val, 1792
-  %11 = icmp eq i16 %10, 1792
-  br i1 %11, label %if.then25, label %if.end28
+  %9 = and i16 %add.ptr7.val, 1792
+  %10 = icmp eq i16 %9, 1792
+  br i1 %10, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.end23
-  %call.i.i26 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i19, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
-  %call1.i27 = call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i.i26) #10
-  %12 = load ptr, ptr %config, align 8
-  %13 = load i8, ptr %exp, align 8
-  %idx.ext.i28 = zext i8 %13 to i64
-  %add.ptr.i29 = getelementptr i8, ptr %12, i64 %idx.ext.i28
-  %add.ptr3.i = getelementptr i8, ptr %add.ptr.i29, i64 12
+  %call.i.i25 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i19, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
+  %call1.i26 = call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i.i25) #10
+  %11 = load ptr, ptr %config, align 8
+  %12 = load i8, ptr %exp, align 8
+  %idx.ext.i27 = zext i8 %12 to i64
+  %add.ptr.i28 = getelementptr i8, ptr %11, i64 %idx.ext.i27
+  %add.ptr3.i = getelementptr i8, ptr %add.ptr.i28, i64 12
   %add.ptr3.val.i = load i32, ptr %add.ptr3.i, align 1
-  call void @pci_for_each_device_under_bus(ptr noundef %call1.i27, ptr noundef nonnull @pcie_unplug_device, ptr noundef null) #10
-  %add.ptr5.i = getelementptr i8, ptr %add.ptr.i29, i64 26
+  call void @pci_for_each_device_under_bus(ptr noundef %call1.i26, ptr noundef nonnull @pcie_unplug_device, ptr noundef null) #10
+  %add.ptr5.i = getelementptr i8, ptr %add.ptr.i28, i64 26
   %config.val.i.i = load i16, ptr %add.ptr5.i, align 1
   %and.i.i = and i16 %config.val.i.i, -65
   store i16 %and.i.i, ptr %add.ptr5.i, align 1
   %cap_present.i = getelementptr inbounds i8, ptr %call.i19, i64 1260
-  %14 = load i32, ptr %cap_present.i, align 4
-  %and.i = and i32 %14, 256
-  %tobool.not.i30 = icmp eq i32 %and.i, 0
+  %13 = load i32, ptr %cap_present.i, align 4
+  %and.i = and i32 %13, 256
+  %tobool.not.i29 = icmp eq i32 %and.i, 0
   %and7.i = and i32 %add.ptr3.val.i, 1048576
   %tobool8.not.i = icmp eq i32 %and7.i, 0
-  %or.cond.i = select i1 %tobool.not.i30, i1 %tobool8.not.i, i1 false
-  br i1 %or.cond.i, label %pcie_cap_slot_do_unplug.exit, label %if.then.i31
+  %or.cond.i = select i1 %tobool.not.i29, i1 %tobool8.not.i, i1 false
+  br i1 %or.cond.i, label %pcie_cap_slot_do_unplug.exit, label %if.then.i30
 
-if.then.i31:                                      ; preds = %if.then25
-  %add.ptr9.i = getelementptr i8, ptr %add.ptr.i29, i64 18
+if.then.i30:                                      ; preds = %if.then25
+  %add.ptr9.i = getelementptr i8, ptr %add.ptr.i28, i64 18
   %config.val.i7.i = load i16, ptr %add.ptr9.i, align 1
   %and.i8.i = and i16 %config.val.i7.i, -8193
   store i16 %and.i8.i, ptr %add.ptr9.i, align 1
   br label %pcie_cap_slot_do_unplug.exit
 
-pcie_cap_slot_do_unplug.exit:                     ; preds = %if.then25, %if.then.i31
+pcie_cap_slot_do_unplug.exit:                     ; preds = %if.then25, %if.then.i30
   %or.i.i = or i16 %and.i.i, 8
   store i16 %or.i.i, ptr %add.ptr5.i, align 1
   call fastcc void @hotplug_event_notify(ptr noundef nonnull %call.i19)
   %config.val.i = load i16, ptr %add.ptr2.i, align 1
-  %and.i33 = and i16 %config.val.i, -2
-  store i16 %and.i33, ptr %add.ptr2.i, align 1
+  %and.i32 = and i16 %config.val.i, -2
+  store i16 %and.i32, ptr %add.ptr2.i, align 1
   br label %return
 
 if.end28:                                         ; preds = %if.end23
-  %15 = load ptr, ptr %config, align 8
-  %16 = load i8, ptr %exp, align 8
-  %idx.ext.i.i = zext i8 %16 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %15, i64 %idx.ext.i.i
+  %14 = load ptr, ptr %config, align 8
+  %15 = load i8, ptr %exp, align 8
+  %idx.ext.i.i = zext i8 %15 to i64
+  %add.ptr.i.i = getelementptr i8, ptr %14, i64 %idx.ext.i.i
   %add.ptr1.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 26
   %config.val.i.i.i = load i16, ptr %add.ptr1.i.i, align 1
   %or.i.i.i = or i16 %config.val.i.i.i, 1
@@ -936,7 +935,7 @@ if.end.i.i:                                       ; preds = %if.end28
   call fastcc void @hotplug_event_notify(ptr noundef nonnull %call.i19)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.end28, %if.end.i, %if.then.i25, %pcie_cap_slot_do_unplug.exit, %if.then17, %if.then11, %if.then
+return:                                           ; preds = %if.end.i.i, %if.end28, %if.end.i, %if.then.i24, %pcie_cap_slot_do_unplug.exit, %if.then17, %if.then11, %if.then
   ret void
 }
 
@@ -949,9 +948,8 @@ entry:
   %call1 = tail call ptr @qdev_get_hotplug_handler(ptr noundef %call.i) #10
   %partially_hotplugged = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i8, ptr %partially_hotplugged, align 16
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %pending_deleted_event = getelementptr inbounds i8, ptr %dev, i64 57
@@ -991,10 +989,9 @@ entry:
   %narrow.i = select i1 %tobool.not.i, i1 %tobool10.i, i1 false
   %frombool.i = zext i1 %narrow.i to i8
   store i8 %frombool.i, ptr %hpev_notified, align 2
-  %5 = and i8 %0, 1
-  %6 = icmp eq i8 %5, 0
-  %cmp = xor i1 %6, %narrow.i
-  br i1 %cmp, label %if.end26, label %if.end
+  %5 = trunc i8 %0 to i1
+  %6 = xor i1 %narrow.i, %5
+  br i1 %6, label %if.end, label %if.end26
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @msix_enabled(ptr noundef nonnull %dev) #10
@@ -1105,27 +1102,25 @@ entry:
   store i32 %or.i35, ptr %add.ptr10, align 1
   %hotplug = getelementptr inbounds i8, ptr %s, i64 7165
   %5 = load i8, ptr %hotplug, align 1
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %hide_native_hotplug_cap = getelementptr inbounds i8, ptr %s, i64 7166
-  %7 = load i8, ptr %hide_native_hotplug_cap, align 2
-  %8 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %8, 0
-  br i1 %tobool18.not, label %if.then, label %lor.lhs.false
+  %6 = load i8, ptr %hide_native_hotplug_cap, align 2
+  %tobool18 = trunc i8 %6 to i1
+  br i1 %tobool18, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
-  %9 = load i32, ptr %hotplugged, align 8
-  %tobool20.not = icmp eq i32 %9, 0
+  %7 = load i32, ptr %hotplugged, align 8
+  %tobool20.not = icmp eq i32 %7, 0
   br i1 %tobool20.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %10 = load ptr, ptr %config, align 8
-  %add.ptr23 = getelementptr i8, ptr %10, i64 %idx.ext
+  %8 = load ptr, ptr %config, align 8
+  %add.ptr23 = getelementptr i8, ptr %8, i64 %idx.ext
   %add.ptr24 = getelementptr i8, ptr %add.ptr23, i64 20
   %config.val.i37 = load i32, ptr %add.ptr24, align 1
   %or.i38 = or i32 %config.val.i37, 96
@@ -1134,27 +1129,27 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false, %entry
   %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
-  %11 = load i32, ptr %cap_present, align 4
-  %and = and i32 %11, 128
+  %9 = load i32, ptr %cap_present, align 4
+  %and = and i32 %9, 128
   %tobool26.not = icmp eq i32 %and, 0
   br i1 %tobool26.not, label %if.end42, label %if.then27
 
 if.then27:                                        ; preds = %if.end
-  %12 = load ptr, ptr %config, align 8
-  %add.ptr30 = getelementptr i8, ptr %12, i64 %idx.ext
+  %10 = load ptr, ptr %config, align 8
+  %add.ptr30 = getelementptr i8, ptr %10, i64 %idx.ext
   %add.ptr31 = getelementptr i8, ptr %add.ptr30, i64 20
   %config.val.i40 = load i32, ptr %add.ptr31, align 1
   %or.i41 = or i32 %config.val.i40, 2
   store i32 %or.i41, ptr %add.ptr31, align 1
-  %13 = load ptr, ptr %config, align 8
-  %add.ptr35 = getelementptr i8, ptr %13, i64 %idx.ext
+  %11 = load ptr, ptr %config, align 8
+  %add.ptr35 = getelementptr i8, ptr %11, i64 %idx.ext
   %add.ptr36 = getelementptr i8, ptr %add.ptr35, i64 24
   %config.val.i43 = load i16, ptr %add.ptr36, align 1
   %and.i44 = and i16 %config.val.i43, -1025
   store i16 %and.i44, ptr %add.ptr36, align 1
   %wmask = getelementptr inbounds i8, ptr %dev, i64 184
-  %14 = load ptr, ptr %wmask, align 8
-  %add.ptr39 = getelementptr i8, ptr %14, i64 %idx.ext
+  %12 = load ptr, ptr %wmask, align 8
+  %add.ptr39 = getelementptr i8, ptr %12, i64 %idx.ext
   %add.ptr40 = getelementptr i8, ptr %add.ptr39, i64 24
   %config.val.i45 = load i16, ptr %add.ptr40, align 1
   %or.i46 = or i16 %config.val.i45, 1024
@@ -1162,41 +1157,41 @@ if.then27:                                        ; preds = %if.end
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then27, %if.end
-  %15 = load ptr, ptr %config, align 8
-  %add.ptr45 = getelementptr i8, ptr %15, i64 %idx.ext
+  %13 = load ptr, ptr %config, align 8
+  %add.ptr45 = getelementptr i8, ptr %13, i64 %idx.ext
   %add.ptr46 = getelementptr i8, ptr %add.ptr45, i64 24
   %config.val.i48 = load i16, ptr %add.ptr46, align 1
   %and.i49 = and i16 %config.val.i48, -961
   store i16 %and.i49, ptr %add.ptr46, align 1
-  %16 = load ptr, ptr %config, align 8
-  %add.ptr50 = getelementptr i8, ptr %16, i64 %idx.ext
+  %14 = load ptr, ptr %config, align 8
+  %add.ptr50 = getelementptr i8, ptr %14, i64 %idx.ext
   %add.ptr51 = getelementptr i8, ptr %add.ptr50, i64 24
   %config.val.i51 = load i16, ptr %add.ptr51, align 1
   %or.i52 = or i16 %config.val.i51, 960
   store i16 %or.i52, ptr %add.ptr51, align 1
   %wmask53 = getelementptr inbounds i8, ptr %dev, i64 184
-  %17 = load ptr, ptr %wmask53, align 8
-  %add.ptr55 = getelementptr i8, ptr %17, i64 %idx.ext
+  %15 = load ptr, ptr %wmask53, align 8
+  %add.ptr55 = getelementptr i8, ptr %15, i64 %idx.ext
   %add.ptr56 = getelementptr i8, ptr %add.ptr55, i64 24
   %config.val.i54 = load i16, ptr %add.ptr56, align 1
   %or.i55 = or i16 %config.val.i54, 1017
   store i16 %or.i55, ptr %add.ptr56, align 1
-  %18 = load ptr, ptr %wmask53, align 8
-  %add.ptr60 = getelementptr i8, ptr %18, i64 %idx.ext
+  %16 = load ptr, ptr %wmask53, align 8
+  %add.ptr60 = getelementptr i8, ptr %16, i64 %idx.ext
   %add.ptr61 = getelementptr i8, ptr %add.ptr60, i64 24
   %config.val.i57 = load i16, ptr %add.ptr61, align 1
   %or.i58 = or i16 %config.val.i57, 2048
   store i16 %or.i58, ptr %add.ptr61, align 1
   %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
-  %19 = load ptr, ptr %w1cmask, align 16
-  %add.ptr64 = getelementptr i8, ptr %19, i64 %idx.ext
+  %17 = load ptr, ptr %w1cmask, align 16
+  %add.ptr64 = getelementptr i8, ptr %17, i64 %idx.ext
   %add.ptr65 = getelementptr i8, ptr %add.ptr64, i64 26
   %config.val.i60 = load i16, ptr %add.ptr65, align 1
   %or.i61 = or i16 %config.val.i60, 25
   store i16 %or.i61, ptr %add.ptr65, align 1
   %cmask = getelementptr inbounds i8, ptr %dev, i64 176
-  %20 = load ptr, ptr %cmask, align 16
-  %add.ptr68 = getelementptr i8, ptr %20, i64 %idx.ext
+  %18 = load ptr, ptr %cmask, align 16
+  %add.ptr68 = getelementptr i8, ptr %18, i64 %idx.ext
   %add.ptr69 = getelementptr i8, ptr %add.ptr68, i64 26
   %config.val.i63 = load i16, ptr %add.ptr69, align 1
   %and.i64 = and i16 %config.val.i63, -65
@@ -1412,9 +1407,8 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true2.i
   %9 = load i8, ptr %hpev_notified.i.i, align 2
-  %10 = and i8 %9, 1
-  %tobool5.not.i = icmp eq i8 %10, 0
-  br i1 %tobool5.not.i, label %if.then.i, label %if.end17
+  %tobool5.i = trunc i8 %9 to i1
+  br i1 %tobool5.i, label %if.end17, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true4.i
   tail call void @pci_set_irq(ptr noundef nonnull %dev, i32 noundef 0) #10
@@ -1440,29 +1434,29 @@ if.end25:                                         ; preds = %if.end17
   br i1 %tobool28.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %if.end25
-  %11 = xor i16 %sltsta.1, 128
-  store i16 %11, ptr %add.ptr2, align 1
+  %10 = xor i16 %sltsta.1, 128
+  store i16 %10, ptr %add.ptr2, align 1
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then29, %if.end25
-  %sltsta.2 = phi i16 [ %11, %if.then29 ], [ %sltsta.1, %if.end25 ]
-  %12 = and i16 %sltsta.2, 64
-  %tobool36.not = icmp eq i16 %12, 0
-  %13 = and i32 %val, 1792
-  %14 = icmp ne i32 %13, 1792
-  %or.cond.not52 = or i1 %14, %tobool36.not
-  %15 = and i16 %old_slt_ctl, 1792
-  %16 = icmp eq i16 %15, 1792
-  %or.cond51 = or i1 %16, %or.cond.not52
+  %sltsta.2 = phi i16 [ %10, %if.then29 ], [ %sltsta.1, %if.end25 ]
+  %11 = and i16 %sltsta.2, 64
+  %tobool36.not = icmp eq i16 %11, 0
+  %12 = and i32 %val, 1792
+  %13 = icmp ne i32 %12, 1792
+  %or.cond.not52 = or i1 %13, %tobool36.not
+  %14 = and i16 %old_slt_ctl, 1792
+  %15 = icmp eq i16 %14, 1792
+  %or.cond51 = or i1 %15, %or.cond.not52
   br i1 %or.cond51, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %if.end33
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
   %call1.i27 = tail call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i.i) #10
-  %17 = load ptr, ptr %config, align 8
-  %18 = load i8, ptr %exp, align 8
-  %idx.ext.i = zext i8 %18 to i64
-  %add.ptr.i = getelementptr i8, ptr %17, i64 %idx.ext.i
+  %16 = load ptr, ptr %config, align 8
+  %17 = load i8, ptr %exp, align 8
+  %idx.ext.i = zext i8 %17 to i64
+  %add.ptr.i = getelementptr i8, ptr %16, i64 %idx.ext.i
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 12
   %add.ptr3.val.i = load i32, ptr %add.ptr3.i, align 1
   tail call void @pci_for_each_device_under_bus(ptr noundef %call1.i27, ptr noundef nonnull @pcie_unplug_device, ptr noundef null) #10
@@ -1471,8 +1465,8 @@ if.then42:                                        ; preds = %if.end33
   %and.i.i = and i16 %config.val.i.i, -65
   store i16 %and.i.i, ptr %add.ptr5.i, align 1
   %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
-  %19 = load i32, ptr %cap_present.i, align 4
-  %and.i28 = and i32 %19, 256
+  %18 = load i32, ptr %cap_present.i, align 4
+  %and.i28 = and i32 %18, 256
   %tobool.not.i29 = icmp eq i32 %and.i28, 0
   %and7.i = and i32 %add.ptr3.val.i, 1048576
   %tobool8.not.i = icmp eq i32 %and7.i, 0
@@ -1493,10 +1487,10 @@ pcie_cap_slot_do_unplug.exit:                     ; preds = %if.then42, %if.then
 
 if.end43:                                         ; preds = %pcie_cap_slot_do_unplug.exit, %if.end33
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %power.i)
-  %20 = load ptr, ptr %config, align 8
-  %21 = load i8, ptr %exp, align 8
-  %idx.ext.i33 = zext i8 %21 to i64
-  %add.ptr.i34 = getelementptr i8, ptr %20, i64 %idx.ext.i33
+  %19 = load ptr, ptr %config, align 8
+  %20 = load i8, ptr %exp, align 8
+  %idx.ext.i33 = zext i8 %20 to i64
+  %add.ptr.i34 = getelementptr i8, ptr %19, i64 %idx.ext.i33
   %call.i.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
   %call2.i = tail call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i.i35) #10
   %add.ptr3.i36 = getelementptr i8, ptr %add.ptr.i34, i64 20
@@ -1505,8 +1499,8 @@ if.end43:                                         ; preds = %pcie_cap_slot_do_un
   %add.ptr5.val.i = load i16, ptr %add.ptr5.i38, align 1
   %and.i39 = and i32 %add.ptr3.val.i37, 2
   %tobool.not.i40 = icmp eq i32 %and.i39, 0
-  %22 = and i16 %add.ptr5.val.i, 1024
-  %cmp.i41 = icmp eq i16 %22, 0
+  %21 = and i16 %add.ptr5.val.i, 1024
+  %cmp.i41 = icmp eq i16 %21, 0
   %narrow.i = select i1 %tobool.not.i40, i1 true, i1 %cmp.i41
   %storemerge.i = zext i1 %narrow.i to i8
   store i8 %storemerge.i, ptr %power.i, align 1
@@ -1514,10 +1508,10 @@ if.end43:                                         ; preds = %pcie_cap_slot_do_un
   call void @pci_for_each_device(ptr noundef %call2.i, i32 noundef %call10.i, ptr noundef nonnull @pcie_set_power_device, ptr noundef nonnull %power.i) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %power.i)
   call fastcc void @hotplug_event_notify(ptr noundef nonnull %dev)
-  %23 = load ptr, ptr %config, align 8
-  %24 = load i8, ptr %exp, align 8
-  %idx.ext.i44 = zext i8 %24 to i64
-  %add.ptr.i45 = getelementptr i8, ptr %23, i64 %idx.ext.i44
+  %22 = load ptr, ptr %config, align 8
+  %23 = load i8, ptr %exp, align 8
+  %idx.ext.i44 = zext i8 %23 to i64
+  %add.ptr.i45 = getelementptr i8, ptr %22, i64 %idx.ext.i44
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i45, i64 26
   %config.val.i.i46 = load i16, ptr %add.ptr1.i, align 1
   %or.i.i47 = or i16 %config.val.i.i46, 16
@@ -2153,8 +2147,7 @@ declare i32 @pci_bus_num(ptr noundef) local_unnamed_addr #2
 define internal void @pcie_set_power_device(ptr nocapture readnone %bus, ptr noundef %dev, ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %0 = load i8, ptr %opaque, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   tail call void @pci_set_power(ptr noundef %dev, i1 noundef zeroext %tobool) #10
   ret void
 }

@@ -812,9 +812,8 @@ wg_dissect_decrypted_static.exit.i:               ; preds = %wg_prepare_handshak
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   %198 = getelementptr inbounds i8, ptr %.0.i43, i64 28
   %199 = load i8, ptr %198, align 4
-  %200 = and i8 %199, 1
-  %.not17.i.i = icmp eq i8 %200, 0
-  br i1 %.not17.i.i, label %wg_dissect_decrypted_timestamp.exit.i, label %201
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %201, label %wg_dissect_decrypted_timestamp.exit.i
 
 201:                                              ; preds = %195
   %202 = getelementptr inbounds i8, ptr %.0.i43, i64 16
@@ -2129,13 +2128,13 @@ define internal void @wg_key_uat_apply() #0 {
   %1 = alloca i64, align 8
   %2 = alloca [45 x i8], align 16
   %3 = alloca %struct.wg_qqword, align 1
-  %.b = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b, label %4, label %.loopexit
+  %.b13 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b13, label %4, label %.loopexit
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @wg_static_keys, align 8
-  %.not6 = icmp eq ptr %5, null
-  br i1 %.not6, label %6, label %8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %4
   %7 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_int_hash, ptr noundef nonnull @wg_pubkey_equal, ptr noundef null, ptr noundef nonnull @g_free) #15
@@ -2159,8 +2158,8 @@ define internal void @wg_key_uat_apply() #0 {
 
 wg_keylog_reset.exit:                             ; preds = %9, %11
   %13 = load i32, ptr @num_wg_key_records, align 4
-  %.not12 = icmp eq i32 %13, 0
-  br i1 %.not12, label %.loopexit, label %.lr.ph
+  %.not11 = icmp eq i32 %13, 0
+  br i1 %.not11, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %wg_keylog_reset.exit, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %wg_keylog_reset.exit ]
@@ -2171,8 +2170,8 @@ wg_keylog_reset.exit:                             ; preds = %9, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %2)
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
-  %.not.i8 = icmp eq i64 %18, 44
-  br i1 %.not.i8, label %19, label %22
+  %.not.i7 = icmp eq i64 %18, 44
+  br i1 %.not.i7, label %19, label %22
 
 19:                                               ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %2, ptr noundef nonnull align 1 dereferenceable(45) %17, i64 45, i1 false)
@@ -2409,8 +2408,8 @@ decode_base64_key.exit.thread:                    ; preds = %58, %60
 
 71:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %.b = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b, label %72, label %wg_add_ephemeral_privkey.exit
+  %.b103 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b103, label %72, label %wg_add_ephemeral_privkey.exit
 
 72:                                               ; preds = %71
   %73 = call i32 @crypto_scalarmult_curve25519_base(ptr noundef nonnull %3, ptr noundef nonnull %8) #15
@@ -2424,8 +2423,8 @@ decode_base64_key.exit.thread:                    ; preds = %58, %60
 priv_to_pub.exit.i:                               ; preds = %72
   %76 = load ptr, ptr @wg_ephemeral_keys, align 8
   %77 = call ptr @wmem_map_lookup(ptr noundef %76, ptr noundef nonnull %3) #15
-  %.not11.i = icmp eq ptr %77, null
-  br i1 %.not11.i, label %78, label %wg_add_ephemeral_privkey.exit
+  %.not.i86 = icmp eq ptr %77, null
+  br i1 %.not.i86, label %78, label %wg_add_ephemeral_privkey.exit
 
 78:                                               ; preds = %priv_to_pub.exit.i
   %79 = call ptr @wmem_file_scope() #15
@@ -2622,10 +2621,10 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @wg_keylog_read() unnamed_addr #0 {
   %1 = alloca [512 x i8], align 16
-  %.b = load i1, ptr @wg_decryption_supported, align 1
+  %.b14 = load i1, ptr @wg_decryption_supported, align 1
   %2 = load ptr, ptr @pref_keylog_file, align 8
   %3 = icmp ne ptr %2, null
-  %or.cond = select i1 %.b, i1 %3, i1 false
+  %or.cond = select i1 %.b14, i1 %3, i1 false
   br i1 %or.cond, label %4, label %wg_keylog_reset.exit10
 
 4:                                                ; preds = %0
@@ -2799,8 +2798,8 @@ define internal fastcc void @wg_dissect_pubkey(ptr noundef %0, ptr noundef %1, i
   %10 = load i32, ptr @hf_wg_static, align 4
   %11 = select i1 %.not, i32 %10, i32 %9
   %12 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 32, ptr noundef %8) #15
-  %.b = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b, label %13, label %55
+  %.b16 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b16, label %13, label %55
 
 13:                                               ; preds = %4
   %14 = load i32, ptr @ett_key_info, align 4
@@ -3294,8 +3293,8 @@ declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @wg_add_static_key(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [9 x i8], align 1
-  %.b = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b, label %5, label %39
+  %.b18 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b18, label %5, label %39
 
 5:                                                ; preds = %2
   %6 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #18
@@ -3324,8 +3323,8 @@ define internal fastcc void @wg_add_static_key(ptr noundef %0, i32 noundef %1) u
 priv_to_pub.exit:                                 ; preds = %8, %16
   %17 = load ptr, ptr @wg_static_keys, align 8
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef nonnull %6) #15
-  %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %27, label %19
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %27, label %19
 
 19:                                               ; preds = %priv_to_pub.exit
   %20 = getelementptr i8, ptr %18, i64 95

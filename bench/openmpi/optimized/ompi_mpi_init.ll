@@ -192,30 +192,30 @@ define i32 @ompi_mpi_init(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 14:                                               ; preds = %11
   %15 = load ptr, ptr @opal_show_help, align 8
   %16 = tail call i32 (ptr, ptr, i32, ...) %15(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1) #6
-  br label %.loopexit133
+  br label %.loopexit122
 
 17:                                               ; preds = %11
   %18 = icmp sgt i32 %12, 0
   br i1 %18, label %19, label %opal_atomic_compare_exchange_strong_32.exit.thread
 
 19:                                               ; preds = %17
-  br i1 %4, label %.preheader132, label %25
+  br i1 %4, label %.preheader121, label %25
 
-.preheader132:                                    ; preds = %19
+.preheader121:                                    ; preds = %19
   %20 = load volatile i32, ptr @ompi_mpi_state, align 4
   %21 = icmp slt i32 %20, 2
-  br i1 %21, label %.lr.ph, label %.loopexit133
+  br i1 %21, label %.lr.ph, label %.loopexit122
 
-.lr.ph:                                           ; preds = %.preheader132, %.lr.ph
+.lr.ph:                                           ; preds = %.preheader121, %.lr.ph
   %22 = tail call i32 @usleep(i32 noundef 1) #6
   %23 = load volatile i32, ptr @ompi_mpi_state, align 4
   %24 = icmp slt i32 %23, 2
-  br i1 %24, label %.lr.ph, label %.loopexit133, !llvm.loop !4
+  br i1 %24, label %.lr.ph, label %.loopexit122, !llvm.loop !4
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr @opal_show_help, align 8
   %27 = tail call i32 (ptr, ptr, i32, ...) %26(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 1) #6
-  br label %.loopexit133
+  br label %.loopexit122
 
 opal_atomic_compare_exchange_strong_32.exit.thread: ; preds = %5, %17
   %28 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #6
@@ -293,82 +293,76 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
 
 60:                                               ; preds = %56, %53
   %61 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %62 = and i8 %61, 1
-  %.not91 = icmp eq i8 %62, 0
-  br i1 %.not91, label %63, label %.loopexit131
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %.loopexit120, label %63
 
 63:                                               ; preds = %60
   %64 = load i8, ptr @opal_pmix_base_async_modex, align 1
-  %65 = and i8 %64, 1
-  %.not92 = icmp eq i8 %65, 0
-  br i1 %.not92, label %72, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %72
 
 66:                                               ; preds = %63
   %67 = load i8, ptr @opal_pmix_collect_all_data, align 1
-  %68 = and i8 %67, 1
-  %.not95 = icmp eq i8 %68, 0
-  br i1 %.not95, label %.loopexit131, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %.loopexit120
 
 69:                                               ; preds = %66
   store volatile i8 1, ptr %6, align 1
   fence release
   %70 = call i32 @PMIx_Info_load(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef nonnull @opal_pmix_collect_all_data, i16 noundef zeroext 1) #6
   %71 = call i32 @PMIx_Fence_nb(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull @fence_release, ptr noundef nonnull %6) #6
-  %.not96 = icmp eq i32 %71, 0
-  br i1 %.not96, label %.loopexit131, label %148
+  %.not92 = icmp eq i32 %71, 0
+  br i1 %.not92, label %.loopexit120, label %148
 
 72:                                               ; preds = %63
   store volatile i8 1, ptr %6, align 1
   fence release
   %73 = call i32 @PMIx_Info_load(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef nonnull @opal_pmix_collect_all_data, i16 noundef zeroext 1) #6
   %74 = call i32 @PMIx_Fence_nb(ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef nonnull @fence_release, ptr noundef nonnull %6) #6
-  %.not93 = icmp eq i32 %74, 0
-  br i1 %.not93, label %.preheader130, label %148
+  %.not91 = icmp eq i32 %74, 0
+  br i1 %.not91, label %.preheader119, label %148
 
-.preheader130:                                    ; preds = %72
+.preheader119:                                    ; preds = %72
   %75 = load volatile i8, ptr %6, align 1
-  %76 = and i8 %75, 1
-  %.not94134 = icmp eq i8 %76, 0
-  br i1 %.not94134, label %.loopexit131, label %.lr.ph135
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %.lr.ph123, label %.loopexit120
 
-.lr.ph135:                                        ; preds = %.preheader130, %.lr.ph135
+.lr.ph123:                                        ; preds = %.preheader119, %.lr.ph123
   %77 = call i32 @opal_progress() #6
   %78 = call i32 @usleep(i32 noundef 100) #6
   %79 = load volatile i8, ptr %6, align 1
-  %80 = and i8 %79, 1
-  %.not94 = icmp eq i8 %80, 0
-  br i1 %.not94, label %.loopexit131, label %.lr.ph135, !llvm.loop !6
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %.lr.ph123, label %.loopexit120, !llvm.loop !6
 
-.loopexit131:                                     ; preds = %.lr.ph135, %.preheader130, %69, %66, %60
-  %.069 = phi i1 [ false, %60 ], [ true, %69 ], [ false, %66 ], [ false, %.preheader130 ], [ false, %.lr.ph135 ]
+.loopexit120:                                     ; preds = %.lr.ph123, %.preheader119, %69, %66, %60
+  %.069 = phi i1 [ false, %60 ], [ true, %69 ], [ false, %66 ], [ false, %.preheader119 ], [ false, %.lr.ph123 ]
   %81 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 4), align 8
   %82 = call i32 %81(ptr noundef nonnull @ompi_mpi_comm_world) #6
   %83 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 4), align 8
   %84 = call i32 %83(ptr noundef nonnull @ompi_mpi_comm_self) #6
   %85 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %86 = and i8 %85, 1
-  %.not97 = icmp eq i8 %86, 0
-  br i1 %.not97, label %103, label %87
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %103
 
-87:                                               ; preds = %.loopexit131
+87:                                               ; preds = %.loopexit120
   %88 = call i32 @ompi_comm_rbcast_init() #6
-  %.not98 = icmp eq i32 %88, 0
-  br i1 %.not98, label %89, label %.loopexit133
+  %.not93 = icmp eq i32 %88, 0
+  br i1 %.not93, label %89, label %.loopexit122
 
 89:                                               ; preds = %87
   %90 = call i32 @ompi_comm_revoke_init() #6
-  %.not99 = icmp eq i32 %90, 0
-  br i1 %.not99, label %91, label %.loopexit133
+  %.not94 = icmp eq i32 %90, 0
+  br i1 %.not94, label %91, label %.loopexit122
 
 91:                                               ; preds = %89
   %92 = call i32 @ompi_comm_failure_propagator_init() #6
-  %.not100 = icmp eq i32 %92, 0
-  br i1 %.not100, label %93, label %.loopexit133
+  %.not95 = icmp eq i32 %92, 0
+  br i1 %.not95, label %93, label %.loopexit122
 
 93:                                               ; preds = %91
   %94 = call i32 @ompi_comm_failure_detector_init() #6
-  %.not101 = icmp eq i32 %94, 0
-  br i1 %.not101, label %95, label %.loopexit133
+  %.not96 = icmp eq i32 %94, 0
+  br i1 %.not96, label %95, label %.loopexit122
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr @opal_sync_event_base, align 8
@@ -382,11 +376,10 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
   %102 = call i32 (ptr, ptr, i32, ...) %101(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 1) #6
   br label %103
 
-103:                                              ; preds = %95, %100, %.loopexit131
+103:                                              ; preds = %95, %100, %.loopexit120
   %104 = load i8, ptr @ompi_mpi_show_mca_params, align 1
-  %105 = and i8 %104, 1
-  %.not102 = icmp eq i8 %105, 0
-  br i1 %.not102, label %111, label %106
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %111
 
 106:                                              ; preds = %103
   %107 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 6), align 4
@@ -398,32 +391,28 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
 111:                                              ; preds = %106, %103
   call void @ompi_rte_wait_for_debugger() #6
   %112 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %113 = and i8 %112, 1
-  %.not103 = icmp eq i8 %113, 0
-  br i1 %.not103, label %114, label %.loopexit
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %.loopexit, label %114
 
 114:                                              ; preds = %111
   br i1 %.069, label %.preheader, label %121
 
 .preheader:                                       ; preds = %114
   %115 = load volatile i8, ptr %6, align 1
-  %116 = and i8 %115, 1
-  %.not107138 = icmp eq i8 %116, 0
-  br i1 %.not107138, label %.loopexit, label %.lr.ph139
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %.lr.ph125, label %.loopexit
 
-.lr.ph139:                                        ; preds = %.preheader, %.lr.ph139
+.lr.ph125:                                        ; preds = %.preheader, %.lr.ph125
   %117 = call i32 @opal_progress() #6
   %118 = call i32 @usleep(i32 noundef 100) #6
   %119 = load volatile i8, ptr %6, align 1
-  %120 = and i8 %119, 1
-  %.not107 = icmp eq i8 %120, 0
-  br i1 %.not107, label %.loopexit, label %.lr.ph139, !llvm.loop !7
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %.lr.ph125, label %.loopexit, !llvm.loop !7
 
 121:                                              ; preds = %114
   %122 = load i8, ptr @ompi_async_mpi_init, align 1
-  %123 = and i8 %122, 1
-  %.not104 = icmp eq i8 %123, 0
-  br i1 %.not104, label %124, label %.loopexit
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %.loopexit, label %124
 
 124:                                              ; preds = %121
   store i8 0, ptr %8, align 1
@@ -431,91 +420,88 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
   fence release
   %125 = call i32 @PMIx_Info_load(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef nonnull %8, i16 noundef zeroext 1) #6
   %126 = call i32 @PMIx_Fence_nb(ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef nonnull @fence_release, ptr noundef nonnull %6) #6
-  %.not105 = icmp eq i32 %126, 0
-  br i1 %.not105, label %.preheader128, label %148
+  %.not97 = icmp eq i32 %126, 0
+  br i1 %.not97, label %.preheader117, label %148
 
-.preheader128:                                    ; preds = %124
+.preheader117:                                    ; preds = %124
   %127 = load volatile i8, ptr %6, align 1
-  %128 = and i8 %127, 1
-  %.not106136 = icmp eq i8 %128, 0
-  br i1 %.not106136, label %.loopexit, label %.lr.ph137
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %.lr.ph124, label %.loopexit
 
-.lr.ph137:                                        ; preds = %.preheader128, %.lr.ph137
+.lr.ph124:                                        ; preds = %.preheader117, %.lr.ph124
   %129 = call i32 @opal_progress() #6
   %130 = call i32 @usleep(i32 noundef 100) #6
   %131 = load volatile i8, ptr %6, align 1
-  %132 = and i8 %131, 1
-  %.not106 = icmp eq i8 %132, 0
-  br i1 %.not106, label %.loopexit, label %.lr.ph137, !llvm.loop !8
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %.lr.ph124, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph137, %.lr.ph139, %.preheader128, %.preheader, %121, %111
+.loopexit:                                        ; preds = %.lr.ph124, %.lr.ph125, %.preheader117, %.preheader, %121, %111
   %133 = call i32 @opal_progress_set_event_flag(i32 noundef 0) #6
   %134 = or i32 %133, 2
   %135 = call i32 @opal_progress_set_event_flag(i32 noundef %134) #6
   %136 = call i32 @ompi_init_preconnect_mpi() #6
-  %.not108 = icmp eq i32 %136, 0
-  br i1 %.not108, label %137, label %.thread
+  %.not98 = icmp eq i32 %136, 0
+  br i1 %.not98, label %137, label %.thread
 
 137:                                              ; preds = %.loopexit
   %138 = call i32 @mca_coll_base_comm_select(ptr noundef nonnull @ompi_mpi_comm_world) #6
-  %.not109 = icmp eq i32 %138, 0
-  br i1 %.not109, label %139, label %.thread
+  %.not99 = icmp eq i32 %138, 0
+  br i1 %.not99, label %139, label %.thread
 
 139:                                              ; preds = %137
   %140 = call i32 @mca_coll_base_comm_select(ptr noundef nonnull @ompi_mpi_comm_self) #6
-  %.not110 = icmp eq i32 %140, 0
-  br i1 %.not110, label %141, label %.thread
+  %.not100 = icmp eq i32 %140, 0
+  br i1 %.not100, label %141, label %.thread
 
 141:                                              ; preds = %139
   %142 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %143 = and i8 %142, 1
-  %.not111 = icmp eq i8 %143, 0
-  br i1 %.not111, label %146, label %144
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
   %145 = call i32 @ompi_comm_failure_detector_start() #6
-  %.not112 = icmp eq i32 %145, 0
-  br i1 %.not112, label %146, label %.loopexit133
+  %.not101 = icmp eq i32 %145, 0
+  br i1 %.not101, label %146, label %.loopexit122
 
 146:                                              ; preds = %144, %141
   %147 = call i32 @ompi_dpm_dyn_init() #6
-  %.not113 = icmp eq i32 %147, 0
-  br i1 %.not113, label %.thread123, label %.loopexit133
+  %.not102 = icmp eq i32 %147, 0
+  br i1 %.not102, label %.thread112, label %.loopexit122
 
 148:                                              ; preds = %124, %72, %69
   %.sink = phi i32 [ %71, %69 ], [ %74, %72 ], [ %126, %124 ]
   %.068 = phi ptr [ @.str.11, %69 ], [ @.str.12, %72 ], [ @.str.11, %124 ]
   %149 = call i32 @opal_pmix_convert_status(i32 noundef %.sink) #6
-  %.not114 = icmp eq i32 %149, 0
-  br i1 %.not114, label %.thread123, label %.thread
+  %.not103 = icmp eq i32 %149, 0
+  br i1 %.not103, label %.thread112, label %.thread
 
 .thread:                                          ; preds = %139, %137, %.loopexit, %40, %ompi_mpi_thread_level.exit, %148
-  %.067122 = phi i32 [ %149, %148 ], [ %140, %139 ], [ %138, %137 ], [ %136, %.loopexit ], [ %41, %40 ], [ %39, %ompi_mpi_thread_level.exit ]
-  %.068121 = phi ptr [ %.068, %148 ], [ @.str.18, %139 ], [ @.str.17, %137 ], [ @.str.16, %.loopexit ], [ @.str.6, %40 ], [ @.str.5, %ompi_mpi_thread_level.exit ]
-  %.not127 = icmp eq i32 %.067122, -43
-  br i1 %.not127, label %153, label %.thread.thread
+  %.067111 = phi i32 [ %149, %148 ], [ %140, %139 ], [ %138, %137 ], [ %136, %.loopexit ], [ %41, %40 ], [ %39, %ompi_mpi_thread_level.exit ]
+  %.068110 = phi ptr [ %.068, %148 ], [ @.str.18, %139 ], [ @.str.17, %137 ], [ @.str.16, %.loopexit ], [ @.str.6, %40 ], [ @.str.5, %ompi_mpi_thread_level.exit ]
+  %.not116 = icmp eq i32 %.067111, -43
+  br i1 %.not116, label %153, label %.thread.thread
 
 .thread.thread:                                   ; preds = %42, %.thread
-  %.068121146 = phi ptr [ %.068121, %.thread ], [ @.str.7, %42 ]
-  %.067122144 = phi i32 [ %.067122, %.thread ], [ -5, %42 ]
-  %150 = call ptr @opal_strerror(i32 noundef %.067122144) #6
+  %.068110132 = phi ptr [ %.068110, %.thread ], [ @.str.7, %42 ]
+  %.067111130 = phi i32 [ %.067111, %.thread ], [ -5, %42 ]
+  %150 = call ptr @opal_strerror(i32 noundef %.067111130) #6
   %151 = load ptr, ptr @opal_show_help, align 8
-  %152 = call i32 (ptr, ptr, i32, ...) %151(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.20, ptr noundef nonnull %.068121146, ptr noundef %150, i32 noundef %.067122144) #6
+  %152 = call i32 (ptr, ptr, i32, ...) %151(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.20, ptr noundef nonnull %.068110132, ptr noundef %150, i32 noundef %.067111130) #6
   br label %153
 
 153:                                              ; preds = %.thread.thread, %.thread
-  %.067122145 = phi i32 [ %.067122144, %.thread.thread ], [ -43, %.thread ]
+  %.067111131 = phi i32 [ %.067111130, %.thread.thread ], [ -43, %.thread ]
   call void @ompi_hook_base_mpi_init_error(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3) #6
-  br label %.loopexit133
+  br label %.loopexit122
 
-.thread123:                                       ; preds = %146, %148
+.thread112:                                       ; preds = %146, %148
   fence release
   %154 = atomicrmw volatile xchg ptr @ompi_mpi_state, i32 2 monotonic, align 4
   call void @ompi_hook_base_mpi_init_bottom(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3) #6
-  br label %.loopexit133
+  br label %.loopexit122
 
-.loopexit133:                                     ; preds = %.lr.ph, %.preheader132, %146, %144, %93, %91, %89, %87, %.thread123, %153, %25, %14
-  %.0 = phi i32 [ %.067122145, %153 ], [ 0, %.thread123 ], [ 16, %14 ], [ 16, %25 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %145, %144 ], [ %147, %146 ], [ 0, %.preheader132 ], [ 0, %.lr.ph ]
+.loopexit122:                                     ; preds = %.lr.ph, %.preheader121, %146, %144, %93, %91, %89, %87, %.thread112, %153, %25, %14
+  %.0 = phi i32 [ %.067111131, %153 ], [ 0, %.thread112 ], [ 16, %14 ], [ 16, %25 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %145, %144 ], [ %147, %146 ], [ 0, %.preheader121 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

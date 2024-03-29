@@ -362,27 +362,26 @@ format_string.exit:                               ; preds = %if.end18.i, %if.the
 while.end:                                        ; preds = %format_string.exit, %sw.epilog
   %human = getelementptr inbounds i8, ptr %v, i64 216
   %22 = load i8, ptr %human, align 8
-  %23 = and i8 %22, 1
-  %tobool57.not = icmp eq i8 %23, 0
-  br i1 %tobool57.not, label %return, label %if.then58
+  %tobool57 = trunc i8 %22 to i1
+  br i1 %tobool57, label %if.then58, label %return
 
 if.then58:                                        ; preds = %while.end
-  %24 = load ptr, ptr %ranges, align 8
+  %23 = load ptr, ptr %ranges, align 8
   %string = getelementptr inbounds i8, ptr %v, i64 224
-  %25 = load ptr, ptr %string, align 8
-  %call60 = tail call ptr @g_string_append(ptr noundef %25, ptr noundef nonnull @.str.2) #6
-  %tobool62.not135 = icmp eq ptr %24, null
+  %24 = load ptr, ptr %string, align 8
+  %call60 = tail call ptr @g_string_append(ptr noundef %24, ptr noundef nonnull @.str.2) #6
+  %tobool62.not135 = icmp eq ptr %23, null
   br i1 %tobool62.not135, label %while.end69, label %while.body63
 
 while.body63:                                     ; preds = %if.then58, %format_string.exit131
-  %l.1136 = phi ptr [ %31, %format_string.exit131 ], [ %24, %if.then58 ]
-  %26 = load ptr, ptr %l.1136, align 8
+  %l.1136 = phi ptr [ %30, %format_string.exit131 ], [ %23, %if.then58 ]
+  %25 = load ptr, ptr %l.1136, align 8
   %next66 = getelementptr inbounds i8, ptr %l.1136, i64 8
-  %27 = load ptr, ptr %next66, align 8
-  %cmp67.not = icmp eq ptr %27, null
-  %.val62 = load i64, ptr %26, align 8
-  %28 = getelementptr i8, ptr %26, i64 8
-  %.val63 = load i64, ptr %28, align 8
+  %26 = load ptr, ptr %next66, align 8
+  %cmp67.not = icmp eq ptr %26, null
+  %.val62 = load i64, ptr %25, align 8
+  %27 = getelementptr i8, ptr %25, i64 8
+  %.val63 = load i64, ptr %27, align 8
   %cmp.not.i.i.i.i114 = icmp ule i64 %.val62, %.val63
   %add.i.i.i.i115 = add i64 %.val63, 1
   %cmp3.i.i.i.i116 = icmp eq i64 %add.i.i.i.i115, %.val62
@@ -403,33 +402,33 @@ if.else.i.i130:                                   ; preds = %range_is_empty.exit
 
 range_upb.exit.i121:                              ; preds = %range_is_empty.exit.i.i119
   %cmp.not.i122 = icmp eq i64 %.val62, %.val63
-  %29 = load ptr, ptr %string, align 8
+  %28 = load ptr, ptr %string, align 8
   br i1 %cmp.not.i122, label %if.else9.i129, label %if.then.i124
 
 if.then.i124:                                     ; preds = %range_upb.exit.i121
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %29, ptr noundef nonnull @.str.7, i64 noundef %.val62, i64 noundef %.val63) #6
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %28, ptr noundef nonnull @.str.7, i64 noundef %.val62, i64 noundef %.val63) #6
   br label %if.end18.i125
 
 if.else9.i129:                                    ; preds = %range_upb.exit.i121
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %29, ptr noundef nonnull @.str.9, i64 noundef %.val62) #6
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %28, ptr noundef nonnull @.str.9, i64 noundef %.val62) #6
   br label %if.end18.i125
 
 if.end18.i125:                                    ; preds = %if.else9.i129, %if.then.i124
   br i1 %cmp67.not, label %format_string.exit131, label %if.then20.i126
 
 if.then20.i126:                                   ; preds = %if.end18.i125
-  %30 = load ptr, ptr %string, align 8
-  %call22.i128 = tail call ptr @g_string_append(ptr noundef %30, ptr noundef nonnull @.str.11) #6
+  %29 = load ptr, ptr %string, align 8
+  %call22.i128 = tail call ptr @g_string_append(ptr noundef %29, ptr noundef nonnull @.str.11) #6
   br label %format_string.exit131
 
 format_string.exit131:                            ; preds = %if.end18.i125, %if.then20.i126
-  %31 = load ptr, ptr %next66, align 8
-  %tobool62.not = icmp eq ptr %31, null
+  %30 = load ptr, ptr %next66, align 8
+  %tobool62.not = icmp eq ptr %30, null
   br i1 %tobool62.not, label %while.end69, label %while.body63, !llvm.loop !7
 
 while.end69:                                      ; preds = %format_string.exit131, %if.then58
-  %32 = load ptr, ptr %string, align 8
-  %call71 = tail call ptr @g_string_append(ptr noundef %32, ptr noundef nonnull @.str.3) #6
+  %31 = load ptr, ptr %string, align 8
+  %call71 = tail call ptr @g_string_append(ptr noundef %31, ptr noundef nonnull @.str.3) #6
   br label %return
 
 return:                                           ; preds = %while.end, %while.end69, %if.end22, %sw.bb1
@@ -451,19 +450,18 @@ define internal noundef zeroext i1 @print_type_size(ptr nocapture noundef %v, pt
 entry:
   %human = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i8, ptr %human, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %2 = load i64, ptr %obj, align 8
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  %1 = load i64, ptr %obj, align 8
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, i64 noundef %2) #6
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, i64 noundef %1) #6
   tail call fastcc void @string_output_set(ptr noundef nonnull %v, ptr noundef %call1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @size_to_str(i64 noundef %2) #6
-  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.13, i64 noundef %2, ptr noundef %call2) #6
+  %call2 = tail call ptr @size_to_str(i64 noundef %1) #6
+  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.13, i64 noundef %1, ptr noundef %call2) #6
   tail call fastcc void @string_output_set(ptr noundef nonnull %v, ptr noundef %call3)
   tail call void @g_free(ptr noundef %call2) #6
   br label %return
@@ -476,9 +474,8 @@ return:                                           ; preds = %if.end, %if.then
 define internal noundef zeroext i1 @print_type_bool(ptr nocapture noundef %v, ptr nocapture readnone %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %0 = load i8, ptr %obj, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.16, ptr @.str.15
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.15, ptr @.str.16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull %cond) #6
   tail call fastcc void @string_output_set(ptr noundef %v, ptr noundef %call1)
   ret i1 true
@@ -489,17 +486,16 @@ define internal noundef zeroext i1 @print_type_str(ptr nocapture noundef %v, ptr
 entry:
   %human = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i8, ptr %human, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %2 = load ptr, ptr %obj, align 8
-  %tobool4.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %1 = load ptr, ptr %obj, align 8
+  %tobool1.not = icmp eq ptr %1, null
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  br i1 %tobool4.not, label %cond.false, label %cond.true
+  br i1 %tobool1.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then
-  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull %2) #6
+  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #6
   br label %if.end
 
 cond.false:                                       ; preds = %if.then
@@ -507,7 +503,7 @@ cond.false:                                       ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %spec.select = select i1 %tobool4.not, ptr @.str.19, ptr %2
+  %spec.select = select i1 %tobool1.not, ptr @.str.19, ptr %1
   %call9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #6
   br label %if.end
 
@@ -531,10 +527,9 @@ define internal noundef zeroext i1 @print_type_null(ptr nocapture noundef %v, pt
 entry:
   %human = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i8, ptr %human, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %.str.19..str.18 = select i1 %tobool.not, ptr @.str.19, ptr @.str.18
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.19..str.18) #6
+  %tobool = trunc i8 %0 to i1
+  %.str.18..str.19 = select i1 %tobool, ptr @.str.18, ptr @.str.19
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.18..str.19) #6
   tail call fastcc void @string_output_set(ptr noundef nonnull %v, ptr noundef %call2)
   ret i1 true
 }

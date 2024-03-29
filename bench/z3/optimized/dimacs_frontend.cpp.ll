@@ -1176,36 +1176,34 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load i8, ptr @g_display_statistics, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(16) @_ZL4g_st)
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(16) @_ZL4g_st)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %4 = load ptr, ptr @_ZL8g_solver, align 8
-  %tobool3.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr @_ZL8g_solver, align 8
+  %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end11, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
-  %5 = load i8, ptr @g_display_statistics, align 1
-  %6 = and i8 %5, 1
-  %tobool5.not = icmp eq i8 %6, 0
-  br i1 %tobool5.not, label %if.end11, label %if.then6
+  %4 = load i8, ptr @g_display_statistics, align 1
+  %tobool5 = trunc i8 %4 to i1
+  br i1 %tobool5, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %land.lhs.true4
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
-  %7 = load ptr, ptr @_ZL8g_solver, align 8
-  tail call void @_ZNK3sat6solver18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(4408) %7, ptr noundef nonnull align 8 dereferenceable(16) @_ZL4g_st)
+  %5 = load ptr, ptr @_ZL8g_solver, align 8
+  tail call void @_ZNK3sat6solver18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(4408) %5, ptr noundef nonnull align 8 dereferenceable(16) @_ZL4g_st)
   %conv = sitofp i64 %call to double
-  %8 = load i64, ptr @_ZL12g_start_time, align 8
-  %conv9 = sitofp i64 %8 to double
+  %6 = load i64, ptr @_ZL12g_start_time, align 8
+  %conv9 = sitofp i64 %6 to double
   %sub = fsub double %conv, %conv9
   %div = fdiv double %sub, 1.000000e+06
   tail call void @_ZN10statistics6updateEPKcd(ptr noundef nonnull align 8 dereferenceable(16) @_ZL4g_st, ptr noundef nonnull @.str.19, double noundef %div)

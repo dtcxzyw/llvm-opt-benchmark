@@ -285,19 +285,18 @@ switch.lookup:                                    ; preds = %if.end14
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_virtual, ptr noundef nonnull @riscv_gdb_set_virtual, i32 noundef 1, ptr noundef nonnull %switch.load, i32 noundef 0) #8
   %ext_zicsr = getelementptr inbounds i8, ptr %call.i, i64 15338
   %14 = load i8, ptr %ext_zicsr, align 2
-  %15 = and i8 %14, 1
-  %tobool16.not = icmp eq i8 %15, 0
-  br i1 %tobool16.not, label %if.end21, label %if.then17
+  %tobool16 = trunc i8 %14 to i1
+  br i1 %tobool16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %switch.lookup
   %gdb_num_regs19 = getelementptr inbounds i8, ptr %cs, i64 560
-  %16 = load i32, ptr %gdb_num_regs19, align 16
+  %15 = load i32, ptr %gdb_num_regs19, align 16
   %call.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %env1.i = getelementptr inbounds i8, ptr %call.i.i15, i64 10176
   %call2.i16 = tail call ptr @g_string_new(ptr noundef null) #8
   %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15188
-  %17 = load i32, ptr %misa_mxl_max.i, align 4
-  %shl.i = shl i32 16, %17
+  %16 = load i32, ptr %misa_mxl_max.i, align 4
+  %shl.i = shl i32 16, %16
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %shl.i, i32 64)
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.10) #8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.30) #8
@@ -307,42 +306,42 @@ if.then17:                                        ; preds = %switch.lookup
 
 for.body.i17:                                     ; preds = %for.inc.i, %if.then17
   %indvars.iv.i18 = phi i64 [ 0, %if.then17 ], [ %indvars.iv.next.i21, %for.inc.i ]
-  %18 = load i64, ptr %priv_ver.i, align 8
+  %17 = load i64, ptr %priv_ver.i, align 8
   %arrayidx.i19 = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %indvars.iv.i18
   %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 56
-  %19 = load i32, ptr %min_priv_ver.i, align 8
-  %conv.i20 = zext i32 %19 to i64
-  %cmp4.i = icmp ult i64 %18, %conv.i20
+  %18 = load i32, ptr %min_priv_ver.i, align 8
+  %conv.i20 = zext i32 %18 to i64
+  %cmp4.i = icmp ult i64 %17, %conv.i20
   br i1 %cmp4.i, label %for.inc.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %for.body.i17
   %predicate10.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
-  %20 = load ptr, ptr %predicate10.i, align 8
-  %tobool.not.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %predicate10.i, align 8
+  %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7.i
-  %21 = trunc i64 %indvars.iv.i18 to i32
-  %call11.i = tail call i32 %20(ptr noundef nonnull %env1.i, i32 noundef %21) #8
+  %20 = trunc i64 %indvars.iv.i18 to i32
+  %call11.i = tail call i32 %19(ptr noundef nonnull %env1.i, i32 noundef %20) #8
   %cmp12.i = icmp eq i32 %call11.i, -1
   br i1 %cmp12.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  %22 = load ptr, ptr %arrayidx.i19, align 16
-  %tobool17.not.i = icmp eq ptr %22, null
+  %21 = load ptr, ptr %arrayidx.i19, align 16
+  %tobool17.not.i = icmp eq ptr %21, null
   br i1 %tobool17.not.i, label %if.else.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.then14.i
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.32, ptr noundef nonnull %22) #8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.32, ptr noundef nonnull %21) #8
   br label %if.end22.i
 
 if.else.i:                                        ; preds = %if.then14.i
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.33, i32 noundef %21) #8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.33, i32 noundef %20) #8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.else.i, %if.then18.i
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.34, i32 noundef %spec.store.select.i) #8
-  %add.i = add i32 %16, %21
+  %add.i = add i32 %15, %20
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.35, i32 noundef %add.i) #8
   br label %for.inc.i
 

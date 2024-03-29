@@ -10,19 +10,18 @@ define dso_local noundef i64 @_ZN4absl18profiling_internal17ExponentialBiased12G
 entry:
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %initialized_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %entry.if.end_crit_edge
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %.pre = load i64, ptr %this, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = ptrtoint ptr %this to i64
-  %3 = atomicrmw add ptr @_ZZN4absl18profiling_internal17ExponentialBiased10InitializeEvE11global_rand, i32 1 monotonic, align 4
-  %conv.i = zext i32 %3 to i64
-  %add.i = add i64 %conv.i, %2
+  %1 = ptrtoint ptr %this to i64
+  %2 = atomicrmw add ptr @_ZZN4absl18profiling_internal17ExponentialBiased10InitializeEvE11global_rand, i32 1 monotonic, align 4
+  %conv.i = zext i32 %2 to i64
+  %add.i = add i64 %conv.i, %1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
@@ -40,30 +39,30 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit: ; preds = %f
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit
-  %4 = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %and.i.i, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit ]
-  %mul.i = mul i64 %4, 25214903917
+  %3 = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %and.i.i, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit ]
+  %mul.i = mul i64 %3, 25214903917
   %add.i5 = add i64 %mul.i, 11
   %and.i = and i64 %add.i5, 281474976710655
   store i64 %and.i, ptr %this, align 8
   %shr = lshr i64 %and.i, 22
   %conv = trunc i64 %shr to i32
-  %5 = add nuw nsw i32 %conv, 1
-  %add = uitofp i32 %5 to double
+  %4 = add nuw nsw i32 %conv, 1
+  %add = uitofp i32 %4 to double
   %bias_ = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load double, ptr %bias_, align 8
+  %5 = load double, ptr %bias_, align 8
   %call4 = tail call double @log2(double noundef %add) #4
   %sub = fadd double %call4, -2.600000e+01
   %conv6 = sitofp i64 %mean to double
   %mul = fmul double %conv6, 0xBFE62E42FEFA39EF
-  %7 = tail call double @llvm.fmuladd.f64(double %sub, double %mul, double %6)
-  %cmp = fcmp ogt double %7, 0x43D0000000000000
+  %6 = tail call double @llvm.fmuladd.f64(double %sub, double %mul, double %5)
+  %cmp = fcmp ogt double %6, 0x43D0000000000000
   br i1 %cmp, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %8 = tail call double @llvm.rint.f64(double %7)
-  %sub14 = fsub double %7, %8
+  %7 = tail call double @llvm.rint.f64(double %6)
+  %sub14 = fsub double %6, %7
   store double %sub14, ptr %bias_, align 8
-  %conv16 = fptosi double %8 to i64
+  %conv16 = fptosi double %7 to i64
   br label %return
 
 return:                                           ; preds = %if.end, %if.end13
@@ -112,19 +111,18 @@ entry:
   %sub = add nsw i64 %mean, -1
   %initialized_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %initialized_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then.i, label %entry.if.end_crit_edge.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %entry.if.end_crit_edge.i, label %if.then.i
 
 entry.if.end_crit_edge.i:                         ; preds = %entry
   %.pre.i = load i64, ptr %this, align 8
   br label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = ptrtoint ptr %this to i64
-  %3 = atomicrmw add ptr @_ZZN4absl18profiling_internal17ExponentialBiased10InitializeEvE11global_rand, i32 1 monotonic, align 4
-  %conv.i.i = zext i32 %3 to i64
-  %add.i.i = add i64 %conv.i.i, %2
+  %1 = ptrtoint ptr %this to i64
+  %2 = atomicrmw add ptr @_ZZN4absl18profiling_internal17ExponentialBiased10InitializeEvE11global_rand, i32 1 monotonic, align 4
+  %conv.i.i = zext i32 %2 to i64
+  %add.i.i = add i64 %conv.i.i, %1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
@@ -141,35 +139,35 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i: ; preds = 
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i, %entry.if.end_crit_edge.i
-  %4 = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %add.i.i.i, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i ]
-  %mul.i.i = mul i64 %4, 25214903917
+  %3 = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %add.i.i.i, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i ]
+  %mul.i.i = mul i64 %3, 25214903917
   %add.i5.i = add i64 %mul.i.i, 11
   %and.i.i = and i64 %add.i5.i, 281474976710655
   store i64 %and.i.i, ptr %this, align 8
   %shr.i = lshr i64 %and.i.i, 22
   %conv.i = trunc i64 %shr.i to i32
-  %5 = add nuw nsw i32 %conv.i, 1
-  %add.i = uitofp i32 %5 to double
+  %4 = add nuw nsw i32 %conv.i, 1
+  %add.i = uitofp i32 %4 to double
   %bias_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load double, ptr %bias_.i, align 8
+  %5 = load double, ptr %bias_.i, align 8
   %call4.i = tail call double @log2(double noundef %add.i) #4
   %sub.i = fadd double %call4.i, -2.600000e+01
   %conv6.i = sitofp i64 %sub to double
   %mul.i = fmul double %conv6.i, 0xBFE62E42FEFA39EF
-  %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %mul.i, double %6)
-  %cmp.i = fcmp ogt double %7, 0x43D0000000000000
+  %6 = tail call double @llvm.fmuladd.f64(double %sub.i, double %mul.i, double %5)
+  %cmp.i = fcmp ogt double %6, 0x43D0000000000000
   br i1 %cmp.i, label %_ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i
-  %8 = tail call double @llvm.rint.f64(double %7)
-  %sub14.i = fsub double %7, %8
+  %7 = tail call double @llvm.rint.f64(double %6)
+  %sub14.i = fsub double %6, %7
   store double %sub14.i, ptr %bias_.i, align 8
-  %conv16.i = fptosi double %8 to i64
-  %9 = add nsw i64 %conv16.i, 1
+  %conv16.i = fptosi double %7 to i64
+  %8 = add nsw i64 %conv16.i, 1
   br label %_ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit
 
 _ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit: ; preds = %if.end.i, %if.end13.i
-  %retval.0.i = phi i64 [ %9, %if.end13.i ], [ 4611686018427387904, %if.end.i ]
+  %retval.0.i = phi i64 [ %8, %if.end13.i ], [ 4611686018427387904, %if.end.i ]
   ret i64 %retval.0.i
 }
 

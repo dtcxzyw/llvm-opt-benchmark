@@ -244,9 +244,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %47
 _ZN7QStringD2Ev.exit:                             ; preds = %47, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %50
   %52 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 56
   %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, 1
-  %.not65 = icmp ne i8 %54, 0
-  invoke void @_ZN13QStandardItem12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %37, i1 noundef zeroext %.not65)
+  %54 = trunc i8 %53 to i1
+  invoke void @_ZN13QStandardItem12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %37, i1 noundef zeroext %54)
           to label %63 unwind label %55
 
 55:                                               ; preds = %_ZN7QStringD2Ev.exit, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.thread.i.i.i20, %110, %_ZN7QStringD2Ev.exit37, %36
@@ -323,9 +322,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i28:    ; preds = %76
 _ZN7QStringD2Ev.exit30:                           ; preds = %76, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i28, %79
   %81 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 57
   %82 = load i8, ptr %81, align 1
-  %83 = and i8 %82, 1
-  %.not66 = icmp eq i8 %83, 0
-  br i1 %.not66, label %_ZN7QStringD2Ev.exit37, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %_ZN7QStringD2Ev.exit37
 
 84:                                               ; preds = %_ZN7QStringD2Ev.exit30
   call void @llvm.experimental.noalias.scope.decl(metadata !10)

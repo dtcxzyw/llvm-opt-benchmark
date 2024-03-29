@@ -305,9 +305,8 @@ define internal i64 @fun_si_cp50221_decoder(ptr nocapture noundef readonly %0, p
 switch.hole_check:                                ; preds = %16
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 4351, %switch.maskindex
-  %23 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %23, 0
-  br i1 %switch.lobit.not, label %19, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %19
 
 switch.lookup:                                    ; preds = %switch.hole_check, %5, %19, %12, %8, %22
   %.0 = phi i64 [ 7, %22 ], [ 15, %8 ], [ 64, %12 ], [ 64, %19 ], [ %spec.select, %5 ], [ 64, %switch.hole_check ]

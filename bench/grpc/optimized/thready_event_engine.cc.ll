@@ -300,8 +300,7 @@ invoke.cont5:                                     ; preds = %do.end.i
   %10 = icmp ne ptr %.pre, null
   %options_.i = getelementptr inbounds i8, ptr %t, i64 16
   %11 = load i8, ptr %options_.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.i.i = icmp ne i8 %12, 0
+  %tobool.i.i = trunc i8 %11 to i1
   %lnot.i = select i1 %tobool.i.i, i1 %10, i1 false
   br i1 %lnot.i, label %if.then.i, label %_ZN9grpc_core6ThreadD2Ev.exit
 
@@ -313,30 +312,30 @@ invoke.cont2.i:                                   ; preds = %if.then.i
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #18
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #18
   unreachable
 
 _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %do.body6.i, %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %call2.i.noexc, %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %16(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #15
+  %15 = load ptr, ptr %manager_5.i.i.i, align 16
+  call void %15(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #15
   br label %eh.resume
 
 lpad4:                                            ; preds = %if.then10.i.invoke, %do.end.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t) #15
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %17, %lpad4 ], [ %15, %lpad ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad4 ], [ %14, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -347,11 +346,10 @@ define linkonce_odr void @_ZN9grpc_core6ThreadD2Ev(ptr noundef nonnull align 8 d
 entry:
   %options_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %options_, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %impl_, align 8
-  %cmp = icmp ne ptr %2, null
+  %1 = load ptr, ptr %impl_, align 8
+  %cmp = icmp ne ptr %1, null
   %lnot = select i1 %tobool.i, i1 %cmp, i1 false
   br i1 %lnot, label %if.then, label %do.end
 
@@ -366,10 +364,10 @@ do.end:                                           ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #18
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 

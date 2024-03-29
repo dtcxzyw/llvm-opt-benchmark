@@ -393,9 +393,9 @@ define void @_ZN5faiss20IndexBinaryFromFloatC2EPNS_5IndexE(ptr noundef nonnull a
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 25
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %10, ptr %11, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 25
+  %11 = and i8 %9, 1
+  store i8 %11, ptr %10, align 1
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -408,9 +408,8 @@ define void @_ZN5faiss20IndexBinaryFromFloatD2Ev(ptr noundef nonnull align 8 der
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32

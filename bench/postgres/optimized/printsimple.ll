@@ -170,9 +170,8 @@ slot_getallattrs.exit:                            ; preds = %2, %14
   %30 = load ptr, ptr %26, align 8
   %31 = getelementptr i8, ptr %30, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %40, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %40
 
 34:                                               ; preds = %29
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 4) #6
@@ -205,10 +204,10 @@ slot_getallattrs.exit:                            ; preds = %2, %14
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = and i32 %50, 1
-  %.not35 = icmp eq i32 %51, 0
+  %.not = icmp eq i32 %51, 0
   %52 = getelementptr inbounds i8, ptr %48, i64 1
   %53 = getelementptr inbounds i8, ptr %48, i64 4
-  %54 = select i1 %.not35, ptr %53, ptr %52
+  %54 = select i1 %.not, ptr %53, ptr %52
   %55 = icmp eq i8 %49, 1
   br i1 %55, label %56, label %64
 
@@ -224,7 +223,7 @@ slot_getallattrs.exit:                            ; preds = %2, %14
   br label %72
 
 64:                                               ; preds = %46
-  br i1 %.not35, label %68, label %65
+  br i1 %.not, label %68, label %65
 
 65:                                               ; preds = %64
   %66 = lshr i32 %50, 1

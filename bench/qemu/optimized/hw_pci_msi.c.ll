@@ -100,17 +100,16 @@ land.end:                                         ; preds = %land.rhs, %entry
 define dso_local i32 @msi_init(ptr noundef %dev, i8 noundef zeroext %offset, i32 noundef %nr_vectors, i1 noundef zeroext %msi64bit, i1 noundef zeroext %msi_per_vector_mask, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @msi_nonbroken, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %do.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 202, ptr noundef nonnull @__func__.msi_init, ptr noundef nonnull @.str.1) #7
   br label %return
 
 do.end:                                           ; preds = %entry
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %nr_vectors), !range !5
-  %tobool2.not = icmp ult i32 %2, 2
+  %1 = tail call i32 @llvm.ctpop.i32(i32 %nr_vectors), !range !5
+  %tobool2.not = icmp ult i32 %1, 2
   br i1 %tobool2.not, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %do.end
@@ -134,16 +133,16 @@ if.else10:                                        ; preds = %if.end7
   unreachable
 
 if.end11:                                         ; preds = %if.end7
-  %3 = tail call i32 @llvm.cttz.i32(i32 %nr_vectors, i1 true), !range !5
-  %.tr = trunc i32 %3 to i16
+  %2 = tail call i32 @llvm.cttz.i32(i32 %nr_vectors, i1 true), !range !5
+  %.tr = trunc i32 %2 to i16
   %conv = shl nuw nsw i16 %.tr, 1
   %conv16 = or disjoint i16 %conv, 128
   %flags.0 = select i1 %msi64bit, i16 %conv16, i16 %conv
-  %4 = or disjoint i16 %flags.0, 256
-  %flags.1 = select i1 %msi_per_vector_mask, i16 %4, i16 %flags.0
-  %5 = lshr i16 %flags.1, 4
-  %6 = and i16 %5, 2040
-  %switch.shiftamt = zext nneg i16 %6 to i32
+  %3 = or disjoint i16 %flags.0, 256
+  %flags.1 = select i1 %msi_per_vector_mask, i16 %3, i16 %flags.0
+  %4 = lshr i16 %flags.1, 4
+  %5 = and i16 %4, 2040
+  %switch.shiftamt = zext nneg i16 %5 to i32
   %switch.downshift = lshr i32 403967498, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %call25 = tail call i32 @pci_add_capability(ptr noundef %dev, i8 noundef zeroext 5, i8 noundef zeroext %offset, i8 noundef zeroext %switch.masked, ptr noundef %errp) #7
@@ -155,56 +154,56 @@ if.end29:                                         ; preds = %if.end11
   %msi_cap = getelementptr inbounds i8, ptr %dev, i64 2160
   store i8 %conv30, ptr %msi_cap, align 16
   %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
-  %7 = load i32, ptr %cap_present, align 4
-  %or31 = or i32 %7, 1
+  %6 = load i32, ptr %cap_present, align 4
+  %or31 = or i32 %6, 1
   store i32 %or31, ptr %cap_present, align 4
   %config = getelementptr inbounds i8, ptr %dev, i64 168
-  %8 = load ptr, ptr %config, align 8
+  %7 = load ptr, ptr %config, align 8
   %add.i = add i8 %conv30, 2
   %idx.ext = zext i8 %add.i to i64
-  %add.ptr = getelementptr i8, ptr %8, i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr %7, i64 %idx.ext
   store i16 %flags.1, ptr %add.ptr, align 1
   %wmask = getelementptr inbounds i8, ptr %dev, i64 184
-  %9 = load ptr, ptr %wmask, align 8
+  %8 = load ptr, ptr %wmask, align 8
   %dev.val = load i8, ptr %msi_cap, align 16
   %add.i36 = add i8 %dev.val, 2
   %idx.ext36 = zext i8 %add.i36 to i64
-  %add.ptr37 = getelementptr i8, ptr %9, i64 %idx.ext36
+  %add.ptr37 = getelementptr i8, ptr %8, i64 %idx.ext36
   store i16 113, ptr %add.ptr37, align 1
-  %10 = load ptr, ptr %wmask, align 8
+  %9 = load ptr, ptr %wmask, align 8
   %dev.val32 = load i8, ptr %msi_cap, align 16
   %add.i37 = add i8 %dev.val32, 4
   %idx.ext41 = zext i8 %add.i37 to i64
-  %add.ptr42 = getelementptr i8, ptr %10, i64 %idx.ext41
+  %add.ptr42 = getelementptr i8, ptr %9, i64 %idx.ext41
   store i32 -4, ptr %add.ptr42, align 1
   br i1 %msi64bit, label %if.then44, label %if.end50
 
 if.then44:                                        ; preds = %if.end29
-  %11 = load ptr, ptr %wmask, align 8
+  %10 = load ptr, ptr %wmask, align 8
   %dev.val34 = load i8, ptr %msi_cap, align 16
   %add.i38 = add i8 %dev.val34, 8
   %idx.ext48 = zext i8 %add.i38 to i64
-  %add.ptr49 = getelementptr i8, ptr %11, i64 %idx.ext48
+  %add.ptr49 = getelementptr i8, ptr %10, i64 %idx.ext48
   store i32 -1, ptr %add.ptr49, align 1
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then44, %if.end29
   %cond.i = phi i8 [ 12, %if.then44 ], [ 8, %if.end29 ]
-  %12 = load ptr, ptr %wmask, align 8
+  %11 = load ptr, ptr %wmask, align 8
   %dev.val33 = load i8, ptr %msi_cap, align 16
   %add.i39 = add i8 %dev.val33, %cond.i
   %idx.ext55 = zext i8 %add.i39 to i64
-  %add.ptr56 = getelementptr i8, ptr %12, i64 %idx.ext55
+  %add.ptr56 = getelementptr i8, ptr %11, i64 %idx.ext55
   store i16 -1, ptr %add.ptr56, align 1
   br i1 %msi_per_vector_mask, label %if.then58, label %if.end66
 
 if.then58:                                        ; preds = %if.end50
-  %13 = load ptr, ptr %wmask, align 8
+  %12 = load ptr, ptr %wmask, align 8
   %dev.val35 = load i8, ptr %msi_cap, align 16
   %cond.i40 = select i1 %msi64bit, i8 16, i8 12
   %add.i41 = add i8 %dev.val35, %cond.i40
   %idx.ext63 = zext i8 %add.i41 to i64
-  %add.ptr64 = getelementptr i8, ptr %13, i64 %idx.ext63
+  %add.ptr64 = getelementptr i8, ptr %12, i64 %idx.ext63
   %sub65 = sub nuw nsw i32 32, %nr_vectors
   %shr = lshr i32 -1, %sub65
   store i32 %shr, ptr %add.ptr64, align 1

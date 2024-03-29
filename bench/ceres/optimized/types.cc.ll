@@ -1124,7 +1124,7 @@ define hidden noundef zeroext i1 @_ZN5ceres41IsSparseLinearAlgebraLibraryTypeAva
 
 10:                                               ; preds = %8
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #6
-  br label %14
+  br label %13
 
 11:                                               ; preds = %8, %6, %4
   %12 = landingpad { ptr, i32 }
@@ -1135,11 +1135,10 @@ define hidden noundef zeroext i1 @_ZN5ceres41IsSparseLinearAlgebraLibraryTypeAva
 switch.lookup:                                    ; preds = %1
   %switch.cast = trunc i32 %0 to i5
   %switch.downshift = lshr i5 -6, %switch.cast
-  %13 = and i5 %switch.downshift, 1
-  %switch.masked = icmp ne i5 %13, 0
-  br label %14
+  %switch.masked = trunc i5 %switch.downshift to i1
+  br label %13
 
-14:                                               ; preds = %switch.lookup, %10
+13:                                               ; preds = %switch.lookup, %10
   %.0 = phi i1 [ false, %10 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0
 }

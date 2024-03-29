@@ -2337,9 +2337,8 @@ define internal noundef i32 @_reset_visited(ptr nocapture noundef writeonly %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_list_find_prec_by_pid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i8, ptr %0, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %10
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4
@@ -2363,9 +2362,8 @@ declare ptr @slurm_list_dequeue(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_list_find_prec_by_ppid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i8, ptr %0, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %10
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4

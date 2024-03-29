@@ -3953,7 +3953,7 @@ define internal noundef zeroext i16 @de_tp_sub_channel(ptr noundef %0, ptr nound
 14:                                               ; preds = %switch.hole_check, %7
   %15 = and i32 %10, 60
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %21, label %17
+  br i1 %16, label %20, label %17
 
 17:                                               ; preds = %14
   %18 = and i32 %10, 62
@@ -3961,27 +3961,26 @@ define internal noundef zeroext i16 @de_tp_sub_channel(ptr noundef %0, ptr nound
   %switch.select = select i1 %switch.selectcmp, ptr @.str.941, ptr @.str.169
   %switch.selectcmp22 = icmp eq i32 %18, 2
   %switch.select23 = select i1 %switch.selectcmp22, ptr @.str.940, ptr %switch.select
-  br label %21
+  br label %20
 
 switch.hole_check:                                ; preds = %7
   %switch.maskindex = trunc i32 %12 to i8
   %switch.shifted = lshr i8 71, %switch.maskindex
-  %19 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %19, 0
-  br i1 %switch.lobit.not, label %14, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %14
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %20 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.de_tp_sub_channel, i64 0, i64 %20
+  %19 = zext nneg i32 %12 to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.de_tp_sub_channel, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %switch.lookup, %17, %14
+20:                                               ; preds = %switch.lookup, %17, %14
   %.0 = phi ptr [ @.str.939, %14 ], [ %switch.select23, %17 ], [ %switch.load, %switch.lookup ]
-  %22 = load i32, ptr @hf_gsm_a_dtap_test_loop, align 4
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.150, ptr noundef nonnull %.0) #6
-  %24 = load i32, ptr @hf_gsm_a_dtap_subchannel, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
+  %21 = load i32, ptr @hf_gsm_a_dtap_test_loop, align 4
+  %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.150, ptr noundef nonnull %.0) #6
+  %23 = load i32, ptr @hf_gsm_a_dtap_subchannel, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   ret i16 1
 }
 

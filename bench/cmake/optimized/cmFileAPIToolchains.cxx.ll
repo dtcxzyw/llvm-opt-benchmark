@@ -1123,9 +1123,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_110Toolchains21DumpToolchainVariabl
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   %26 = getelementptr inbounds i8, ptr %3, i64 64
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %63, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %63
 
 29:                                               ; preds = %4
   %30 = invoke ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -1171,12 +1170,12 @@ _ZN6cmList5clearEv.exit.i.i:                      ; preds = %31
   %39 = load ptr, ptr %8, align 8
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8
-  %.not810 = icmp eq ptr %39, %41
-  br i1 %.not810, label %._crit_edge, label %.lr.ph
+  %.not89 = icmp eq ptr %39, %41
+  br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %44
-  %.sroa.03.011 = phi ptr [ %45, %44 ], [ %39, %38 ]
-  invoke void @_ZN4Json5ValueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.011)
+  %.sroa.03.010 = phi ptr [ %45, %44 ], [ %39, %38 ]
+  invoke void @_ZN4Json5ValueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.010)
           to label %42 unwind label %.loopexit
 
 42:                                               ; preds = %.lr.ph
@@ -1185,7 +1184,7 @@ _ZN6cmList5clearEv.exit.i.i:                      ; preds = %31
 
 44:                                               ; preds = %42
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
-  %45 = getelementptr inbounds i8, ptr %.sroa.03.011, i64 32
+  %45 = getelementptr inbounds i8, ptr %.sroa.03.010, i64 32
   %.not8 = icmp eq ptr %45, %41
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1265,8 +1264,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %65 unwind label %46
 
 65:                                               ; preds = %63
-  %.not9 = icmp eq ptr %64, null
-  br i1 %.not9, label %_ZN6cmListD2Ev.exit, label %66
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %_ZN6cmListD2Ev.exit, label %66
 
 66:                                               ; preds = %65
   invoke void @_ZN4Json5ValueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(32) %64)

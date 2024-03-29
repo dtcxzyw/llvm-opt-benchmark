@@ -188,12 +188,12 @@ if.else168:                                       ; preds = %if.end146
   br i1 %or.cond, label %if.then174, label %if.end177
 
 if.then174:                                       ; preds = %if.else168
-  %shr175 = lshr i64 %shl158, 20
+  %shr175 = lshr exact i64 %shl158, 20
   br label %pack
 
 if.end177:                                        ; preds = %if.else168, %if.then166
   %sigZ.0 = phi i64 [ %or167, %if.then166 ], [ %shr163, %if.else168 ]
-  %tobool178 = icmp ne i8 %signZ.1, 0
+  %tobool178 = trunc i8 %signZ.1 to i1
   %conv179 = sext i8 %sub161 to i64
   %call180 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool178, i64 noundef %conv179, i64 noundef %sigZ.0) #3
   br label %return

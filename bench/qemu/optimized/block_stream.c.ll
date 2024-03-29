@@ -85,9 +85,8 @@ if.then12:                                        ; preds = %if.end10
   %0 = load ptr, ptr %drv, align 8
   %is_filter = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %is_filter, align 4
-  %2 = and i8 %1, 1
-  %tobool13.not = icmp eq i8 %2, 0
-  br i1 %tobool13.not, label %if.end31, label %if.else15
+  %tobool13 = trunc i8 %1 to i1
+  br i1 %tobool13, label %if.else15, label %if.end31
 
 if.else15:                                        ; preds = %if.then12
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.stream_start) #6
@@ -110,11 +109,11 @@ if.end23:                                         ; preds = %if.else17
   br i1 %tobool.not.i.i, label %bdrv_cow_bs.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end23
-  %3 = load ptr, ptr %call.i, align 8
+  %2 = load ptr, ptr %call.i, align 8
   br label %bdrv_cow_bs.exit
 
 bdrv_cow_bs.exit:                                 ; preds = %if.end23, %cond.true.i.i
-  %cond.i.i = phi ptr [ %3, %cond.true.i.i ], [ null, %if.end23 ]
+  %cond.i.i = phi ptr [ %2, %cond.true.i.i ], [ null, %if.end23 ]
   %cmp.not = icmp eq ptr %cond.i.i, %base
   br i1 %cmp.not, label %if.end31, label %if.then25
 
@@ -125,11 +124,11 @@ if.then25:                                        ; preds = %bdrv_cow_bs.exit
 
 while.cond.sink.split:                            ; preds = %if.then25, %cond.true.i.i93
   %call.i91.sink = phi ptr [ %call.i91, %cond.true.i.i93 ], [ %call.i82, %if.then25 ]
-  %4 = load ptr, ptr %call.i91.sink, align 8
+  %3 = load ptr, ptr %call.i91.sink, align 8
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then25, %while.cond.sink.split
-  %above_base.0.ph = phi ptr [ %4, %while.cond.sink.split ], [ null, %if.then25 ]
+  %above_base.0.ph = phi ptr [ %3, %while.cond.sink.split ], [ null, %if.then25 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
@@ -139,11 +138,11 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %tobool.not.i.i88, label %bdrv_filter_bs.exit, label %cond.true.i.i89
 
 cond.true.i.i89:                                  ; preds = %while.cond
-  %5 = load ptr, ptr %call.i87, align 8
+  %4 = load ptr, ptr %call.i87, align 8
   br label %bdrv_filter_bs.exit
 
 bdrv_filter_bs.exit:                              ; preds = %while.cond, %cond.true.i.i89
-  %cond.i.i90 = phi ptr [ %5, %cond.true.i.i89 ], [ null, %while.cond ]
+  %cond.i.i90 = phi ptr [ %4, %cond.true.i.i89 ], [ null, %while.cond ]
   %cmp28.not = icmp eq ptr %cond.i.i90, %base
   br i1 %cmp28.not, label %if.end31, label %while.body
 
@@ -215,8 +214,8 @@ if.end61:                                         ; preds = %if.end57
 
 if.end66:                                         ; preds = %if.end61
   tail call void @blk_set_disable_request_queuing(ptr noundef nonnull %call62, i1 noundef zeroext true) #5
-  %6 = load ptr, ptr %blk, align 8
-  tail call void @blk_set_allow_aio_context_change(ptr noundef %6, i1 noundef zeroext true) #5
+  %5 = load ptr, ptr %blk, align 8
+  tail call void @blk_set_allow_aio_context_change(ptr noundef %5, i1 noundef zeroext true) #5
   tail call void @bdrv_graph_wrlock(ptr noundef %bs) #5
   %call71 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call58, ptr noundef nonnull @.str.11, ptr noundef %bs, i64 noundef 0, i64 noundef 7, ptr noundef %errp) #5
   %tobool72.not = icmp eq i32 %call71, 0
@@ -228,21 +227,21 @@ if.end74:                                         ; preds = %if.end66
   br i1 %tobool.not.i.i97, label %bdrv_filter_or_cow_bs.exit, label %cond.true.i.i98
 
 cond.true.i.i98:                                  ; preds = %if.end74
-  %7 = load ptr, ptr %call.i96, align 8
+  %6 = load ptr, ptr %call.i96, align 8
   br label %bdrv_filter_or_cow_bs.exit
 
 bdrv_filter_or_cow_bs.exit:                       ; preds = %if.end74, %cond.true.i.i98
-  %cond.i.i99 = phi ptr [ %7, %cond.true.i.i98 ], [ null, %if.end74 ]
+  %cond.i.i99 = phi ptr [ %6, %cond.true.i.i98 ], [ null, %if.end74 ]
   %call.i100 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %bs) #5
   %tobool.not.i.i101 = icmp eq ptr %call.i100, null
   br i1 %tobool.not.i.i101, label %bdrv_filter_or_cow_bs.exit104, label %cond.true.i.i102
 
 cond.true.i.i102:                                 ; preds = %bdrv_filter_or_cow_bs.exit
-  %8 = load ptr, ptr %call.i100, align 8
+  %7 = load ptr, ptr %call.i100, align 8
   br label %bdrv_filter_or_cow_bs.exit104
 
 bdrv_filter_or_cow_bs.exit104:                    ; preds = %bdrv_filter_or_cow_bs.exit, %cond.true.i.i102
-  %cond.i.i103 = phi ptr [ %8, %cond.true.i.i102 ], [ null, %bdrv_filter_or_cow_bs.exit ]
+  %cond.i.i103 = phi ptr [ %7, %cond.true.i.i102 ], [ null, %bdrv_filter_or_cow_bs.exit ]
   %cmp77.not141 = icmp eq ptr %cond.i.i103, %cond.i.i99
   br i1 %cmp77.not141, label %for.end, label %for.body
 
@@ -258,11 +257,11 @@ for.inc:                                          ; preds = %for.body
   br i1 %tobool.not.i.i106, label %bdrv_filter_or_cow_bs.exit109, label %cond.true.i.i107
 
 cond.true.i.i107:                                 ; preds = %for.inc
-  %9 = load ptr, ptr %call.i105, align 8
+  %8 = load ptr, ptr %call.i105, align 8
   br label %bdrv_filter_or_cow_bs.exit109
 
 bdrv_filter_or_cow_bs.exit109:                    ; preds = %for.inc, %cond.true.i.i107
-  %cond.i.i108 = phi ptr [ %9, %cond.true.i.i107 ], [ null, %for.inc ]
+  %cond.i.i108 = phi ptr [ %8, %cond.true.i.i107 ], [ null, %for.inc ]
   %cmp77.not = icmp eq ptr %cond.i.i108, %cond.i.i99
   br i1 %cmp77.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -284,32 +283,31 @@ for.end:                                          ; preds = %bdrv_filter_or_cow_
   %on_error95 = getelementptr inbounds i8, ptr %call58, i64 560
   store i32 %on_error, ptr %on_error95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_STREAM_START_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %11, 0
+  %9 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %9, 0
+  %10 = load i16, ptr @_TRACE_STREAM_START_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %10, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_stream_start.exit
 
 land.lhs.true5.i.i:                               ; preds = %for.end
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %12, 32768
+  %11 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %11, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_stream_start.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %14 = and i8 %13, 1
-  %tobool7.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %12 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %12 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %15 = load i64, ptr %_now.i.i, align 8
+  %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %16 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %bs, ptr noundef %cond.i.i99, ptr noundef nonnull %call58) #5
+  %14 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %bs, ptr noundef %cond.i.i99, ptr noundef nonnull %call58) #5
   br label %trace_stream_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -469,26 +467,24 @@ land.lhs.true5.i.i:                               ; preds = %for.inc44
 
 if.then.i.i40:                                    ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i40
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
-  %6 = load i64, ptr %_now.i.i, align 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %job, i64 noundef %offset.069, i64 noundef %12, i32 noundef %ret.2) #5
+  %5 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %job, i64 noundef %offset.069, i64 noundef %11, i32 noundef %ret.2) #5
   br label %trace_stream_one_iteration.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i40
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %job, i64 noundef %offset.069, i64 noundef %12, i32 noundef %ret.2) #5
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %job, i64 noundef %offset.069, i64 noundef %11, i32 noundef %ret.2) #5
   br label %trace_stream_one_iteration.exit
 
 trace_stream_one_iteration.exit:                  ; preds = %for.inc44, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %tobool47.not = icmp eq i8 %copy.1, 0
-  br i1 %tobool47.not, label %if.end50, label %if.then48
+  br i1 %copy.1, label %if.then48, label %if.end50
 
 if.then30:                                        ; preds = %if.end17
   %call.i = call ptr @bdrv_cow_child(ptr noundef %call1) #5
@@ -496,17 +492,17 @@ if.then30:                                        ; preds = %if.end17
   br i1 %tobool.not.i.i41, label %bdrv_cow_bs.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then30
-  %8 = load ptr, ptr %call.i, align 8
+  %7 = load ptr, ptr %call.i, align 8
   br label %bdrv_cow_bs.exit
 
 bdrv_cow_bs.exit:                                 ; preds = %if.then30, %cond.true.i.i
-  %cond.i.i = phi ptr [ %8, %cond.true.i.i ], [ null, %if.then30 ]
-  %9 = load ptr, ptr %base_overlay, align 8
-  %10 = load i64, ptr %n, align 8
-  %call33 = call i32 @bdrv_co_is_allocated_above(ptr noundef %cond.i.i, ptr noundef %9, i1 noundef zeroext true, i64 noundef %offset.069, i64 noundef %10, ptr noundef nonnull %n) #5
+  %cond.i.i = phi ptr [ %7, %cond.true.i.i ], [ null, %if.then30 ]
+  %8 = load ptr, ptr %base_overlay, align 8
+  %9 = load i64, ptr %n, align 8
+  %call33 = call i32 @bdrv_co_is_allocated_above(ptr noundef %cond.i.i, ptr noundef %8, i1 noundef zeroext true, i64 noundef %offset.069, i64 noundef %9, ptr noundef nonnull %n) #5
   %cmp34 = icmp eq i32 %call33, 0
-  %11 = load i64, ptr %n, align 8
-  %cmp36 = icmp eq i64 %11, 0
+  %10 = load i64, ptr %n, align 8
+  %cmp36 = icmp eq i64 %10, 0
   %or.cond = select i1 %cmp34, i1 %cmp36, i1 false
   br i1 %or.cond, label %if.then38, label %if.end39
 
@@ -516,25 +512,24 @@ if.then38:                                        ; preds = %bdrv_cow_bs.exit
 
 if.end39:                                         ; preds = %if.then38, %bdrv_cow_bs.exit
   %cmp40 = icmp sgt i32 %call33, 0
-  %frombool = zext i1 %cmp40 to i8
   br label %for.inc44
 
 for.inc44:                                        ; preds = %if.end17, %if.end39
-  %copy.1 = phi i8 [ %frombool, %if.end39 ], [ 0, %if.end17 ]
+  %copy.1 = phi i1 [ %cmp40, %if.end39 ], [ false, %if.end17 ]
   %ret.2 = phi i32 [ %call33, %if.end39 ], [ %call24, %if.end17 ]
   call void @bdrv_graph_co_rdunlock() #5
-  %12 = load i64, ptr %n, align 8
+  %11 = load i64, ptr %n, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %13 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %13, 0
-  %14 = load i16, ptr @_TRACE_STREAM_ONE_ITERATION_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %14, 0
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %12, 0
+  %13 = load i16, ptr @_TRACE_STREAM_ONE_ITERATION_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %13, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_stream_one_iteration.exit
 
 if.then48:                                        ; preds = %trace_stream_one_iteration.exit
-  %15 = load i64, ptr %n, align 8
-  %cmp.not.i = icmp eq i64 %15, -1
+  %14 = load i64, ptr %n, align 8
+  %cmp.not.i = icmp eq i64 %14, -1
   br i1 %cmp.not.i, label %if.else.i, label %stream_populate.exit
 
 if.else.i:                                        ; preds = %if.then48
@@ -542,8 +537,8 @@ if.else.i:                                        ; preds = %if.then48
   unreachable
 
 stream_populate.exit:                             ; preds = %if.then48
-  %16 = load ptr, ptr %blk, align 8
-  %call.i42 = call i32 @blk_co_preadv(ptr noundef %16, i64 noundef %offset.069, i64 noundef %15, ptr noundef null, i32 noundef 512) #5
+  %15 = load ptr, ptr %blk, align 8
+  %call.i42 = call i32 @blk_co_preadv(ptr noundef %15, i64 noundef %offset.069, i64 noundef %14, ptr noundef null, i32 noundef 512) #5
   br label %if.end50
 
 if.end50:                                         ; preds = %stream_populate.exit, %trace_stream_one_iteration.exit
@@ -552,9 +547,9 @@ if.end50:                                         ; preds = %stream_populate.exi
   br i1 %cmp51, label %if.then53, label %if.end69
 
 if.then53:                                        ; preds = %if.end50
-  %17 = load i32, ptr %on_error, align 8
+  %16 = load i32, ptr %on_error, align 8
   %sub55 = sub i32 0, %ret.3
-  %call56 = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %17, i32 noundef 1, i32 noundef %sub55) #5
+  %call56 = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %16, i32 noundef 1, i32 noundef %sub55) #5
   %cmp57 = icmp eq i32 %call56, 2
   br i1 %cmp57, label %if.then59, label %if.end60
 
@@ -570,10 +565,10 @@ if.end60:                                         ; preds = %if.then53
 
 if.end69:                                         ; preds = %if.end60, %if.end50
   %error.2 = phi i32 [ %spec.select, %if.end60 ], [ %error.070, %if.end50 ]
-  %18 = load i64, ptr %n, align 8
-  call void @job_progress_update(ptr noundef %job, i64 noundef %18) #5
+  %17 = load i64, ptr %n, align 8
+  call void @job_progress_update(ptr noundef %job, i64 noundef %17) #5
   %.pre73 = load i64, ptr %n, align 8
-  br i1 %tobool47.not, label %for.inc76, label %if.then73
+  br i1 %copy.1, label %if.then73, label %for.inc76
 
 if.then73:                                        ; preds = %if.end69
   call void @block_job_ratelimit_processed_bytes(ptr noundef %job, i64 noundef %.pre73) #5
@@ -581,9 +576,9 @@ if.then73:                                        ; preds = %if.end69
   br label %for.inc76
 
 for.inc76:                                        ; preds = %if.end69, %if.then73, %if.then59
-  %19 = phi i64 [ 0, %if.then59 ], [ %.pre, %if.then73 ], [ %.pre73, %if.end69 ]
+  %18 = phi i64 [ 0, %if.then59 ], [ %.pre, %if.then73 ], [ %.pre73, %if.end69 ]
   %error.3 = phi i32 [ %error.070, %if.then59 ], [ %error.2, %if.then73 ], [ %error.2, %if.end69 ]
-  %add = add i64 %19, %offset.069
+  %add = add i64 %18, %offset.069
   %cmp9 = icmp slt i64 %add, %call3
   br i1 %cmp9, label %for.body11, label %return, !llvm.loop !8
 
@@ -721,20 +716,19 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr null, ptr %blk, align 8
   %bs_read_only = getelementptr inbounds i8, ptr %job, i64 576
   %2 = load i8, ptr %bs_read_only, align 8
-  %3 = and i8 %2, 1
-  %tobool4.not = icmp eq i8 %3, 0
-  br i1 %tobool4.not, label %if.end6, label %if.then5
+  %tobool4 = trunc i8 %2 to i1
+  br i1 %tobool4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
   %target_bs = getelementptr inbounds i8, ptr %job, i64 552
-  %4 = load ptr, ptr %target_bs, align 8
-  %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %4, i1 noundef zeroext true, ptr noundef null) #5
+  %3 = load ptr, ptr %target_bs, align 8
+  %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %3, i1 noundef zeroext true, ptr noundef null) #5
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
   %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
-  %5 = load ptr, ptr %backing_file_str, align 8
-  tail call void @g_free(ptr noundef %5) #5
+  %4 = load ptr, ptr %backing_file_str, align 8
+  tail call void @g_free(ptr noundef %4) #5
   ret void
 }
 

@@ -103,26 +103,25 @@ entry:
 if.end.i:                                         ; preds = %entry
   %m_own_allocator.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i8, ptr %m_own_allocator.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %m_allocator.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %m_allocator.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %m_allocator.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %3) #8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %3)
+  tail call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %2) #8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
           to label %_ZN11rpolynomial7manager3impD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #9
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #9
   unreachable
 
 _ZN11rpolynomial7manager3impD2Ev.exit.i:          ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
@@ -133,10 +132,10 @@ invoke.cont:                                      ; preds = %entry, %_ZN11rpolyn
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN11rpolynomial7manager3impD2Ev.exit.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #9
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #9
   unreachable
 }
 

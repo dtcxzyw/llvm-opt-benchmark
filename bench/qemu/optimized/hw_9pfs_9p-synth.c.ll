@@ -353,9 +353,8 @@ if.then24.i28:                                    ; preds = %if.end.i21
 v9fs_add_dir_node.exit37:                         ; preds = %if.end.i21, %if.then24.i28
   store i1 true, ptr @synth_fs, align 4
   %10 = load i8, ptr @qtest_allowed, align 1
-  %11 = and i8 %10, 1
-  %tobool.i.not = icmp eq i8 %11, 0
-  br i1 %tobool.i.not, label %if.end41, label %if.then
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %if.then, label %if.end41
 
 if.then:                                          ; preds = %v9fs_add_dir_node.exit37
   store ptr null, ptr %node, align 8
@@ -364,8 +363,8 @@ if.then:                                          ; preds = %v9fs_add_dir_node.e
 for.body:                                         ; preds = %if.then, %if.end
   %i.038 = phi i32 [ 0, %if.then ], [ %inc, %if.end ]
   %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, i32 noundef %i.038) #18
-  %12 = load ptr, ptr %node, align 8
-  %call6 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef %12, i32 noundef 448, ptr noundef %call5, ptr noundef nonnull %node), !range !8
+  %11 = load ptr, ptr %node, align 8
+  %call6 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef %11, i32 noundef 448, ptr noundef %call5, ptr noundef nonnull %node), !range !8
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %if.else
 
@@ -413,7 +412,7 @@ if.end22:                                         ; preds = %if.end17
   br i1 %tobool24.not, label %for.cond28.preheader, label %if.else26
 
 for.cond28.preheader:                             ; preds = %if.end22
-  %13 = load ptr, ptr %dir, align 8
+  %12 = load ptr, ptr %dir, align 8
   br label %for.body30
 
 if.else26:                                        ; preds = %if.end22
@@ -423,7 +422,7 @@ if.else26:                                        ; preds = %if.end22
 for.body30:                                       ; preds = %for.cond28.preheader, %if.end37
   %i.139 = phi i32 [ 0, %for.cond28.preheader ], [ %inc39, %if.end37 ]
   %call32 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, i32 noundef %i.139) #18
-  %call33 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef %13, i32 noundef 0, ptr noundef %call32, ptr noundef null, ptr noundef null, ptr noundef %ctx), !range !8
+  %call33 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef %12, i32 noundef 0, ptr noundef %call32, ptr noundef null, ptr noundef null, ptr noundef %ctx), !range !8
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end37, label %if.else36
 
@@ -698,9 +697,8 @@ while.end.i10.i:                                  ; preds = %if.end.i.i
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i, label %rcu_read_unlock.exit.i, label %while.end21.i.i
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_unlock.exit.i
 
 while.end21.i.i:                                  ; preds = %while.end.i10.i
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
@@ -726,16 +724,16 @@ if.then:                                          ; preds = %if.end5.i
   %d_name.i.i = getelementptr inbounds i8, ptr %0, i64 35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %d_name.i.i, ptr nonnull align 8 %name.i.i, i64 %add.i.i, i1 false)
   %attr.i.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 280
-  %8 = load ptr, ptr %attr.i.i, align 8
-  %inode.i.i = getelementptr inbounds i8, ptr %8, i64 4
-  %9 = load i32, ptr %inode.i.i, align 4
-  %conv.i.i = sext i32 %9 to i64
+  %7 = load ptr, ptr %attr.i.i, align 8
+  %inode.i.i = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = load i32, ptr %inode.i.i, align 4
+  %conv.i.i = sext i32 %8 to i64
   store i64 %conv.i.i, ptr %dent, align 8
   %add6.i.i = add i64 %2, 1
   %d_off.i.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %add6.i.i, ptr %d_off.i.i, align 8
-  %10 = load i64, ptr %0, align 8
-  %inc = add i64 %10, 1
+  %9 = load i64, ptr %0, align 8
+  %inc = add i64 %9, 1
   store i64 %inc, ptr %0, align 8
   br label %if.end
 
@@ -1103,9 +1101,8 @@ while.end.i11:                                    ; preds = %if.end.i
   fence seq_cst
   %waiting.i = getelementptr inbounds i8, ptr %call.i8, i64 8
   %5 = load atomic i8, ptr %waiting.i monotonic, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %rcu_read_unlock.exit, label %while.end21.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %while.end21.i, label %rcu_read_unlock.exit
 
 while.end21.i:                                    ; preds = %while.end.i11
   store atomic i8 0, ptr %waiting.i monotonic, align 8
@@ -1113,8 +1110,8 @@ while.end21.i:                                    ; preds = %while.end.i11
   br label %rcu_read_unlock.exit
 
 rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.end.i11, %while.end21.i
-  %7 = load ptr, ptr %node, align 8
-  %tobool17.not = icmp eq ptr %7, null
+  %6 = load ptr, ptr %node, align 8
+  %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.then18, label %out
 
 if.then18:                                        ; preds = %rcu_read_unlock.exit
@@ -1124,8 +1121,8 @@ if.then18:                                        ; preds = %rcu_read_unlock.exi
 
 out:                                              ; preds = %rcu_read_unlock.exit, %if.then9
   %data21 = getelementptr inbounds i8, ptr %target, i64 8
-  %8 = load ptr, ptr %data21, align 8
-  tail call void @g_free(ptr noundef %8) #18
+  %7 = load ptr, ptr %data21, align 8
+  tail call void @g_free(ptr noundef %7) #18
   %call22 = call dereferenceable_or_null(8) ptr @g_memdup(ptr noundef nonnull %node, i32 noundef 8) #22
   store ptr %call22, ptr %data21, align 8
   store i16 8, ptr %target, align 8

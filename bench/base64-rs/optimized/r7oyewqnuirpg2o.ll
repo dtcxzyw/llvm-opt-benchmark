@@ -191,8 +191,8 @@ define { ptr, i64 } @_ZN6base648alphabet8Alphabet6as_str17h481df87ac0f4bfe4E(ptr
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef 64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %4 = load i64, ptr %3, align 8, !range !9, !alias.scope !6, !noundef !4
-  %trunc.not.i = icmp eq i64 %4, 0
-  br i1 %trunc.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit", label %5
+  %trunc.i = trunc i64 %4 to i1
+  br i1 %trunc.i, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit"
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !6

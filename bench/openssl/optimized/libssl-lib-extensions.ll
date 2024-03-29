@@ -2189,6 +2189,7 @@ entry:
   %s3 = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load i64, ptr %s3, align 8
   %and = and i64 %0, 512
+  %tobool.not = icmp ne i64 %and, 0
   %1 = and i64 %0, 4608
   %or.cond.not = icmp eq i64 %1, 4096
   br i1 %or.cond.not, label %return.sink.split, label %if.end
@@ -2206,14 +2207,12 @@ land.lhs.true6:                                   ; preds = %if.end
   br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true6
-  %tobool12.not = icmp eq i64 %and, 0
   %session = getelementptr inbounds i8, ptr %s, i64 2176
   %4 = load ptr, ptr %session, align 8
   %flags13 = getelementptr inbounds i8, ptr %4, i64 912
   %5 = load i32, ptr %flags13, align 8
-  %6 = and i32 %5, 1
-  %7 = icmp eq i32 %6, 0
-  %cmp.not.not = xor i1 %tobool12.not, %7
+  %6 = trunc i32 %5 to i1
+  %cmp.not.not = xor i1 %tobool.not, %6
   br i1 %cmp.not.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.then8, %entry

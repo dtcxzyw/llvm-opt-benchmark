@@ -791,49 +791,49 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17hda81468696fc8174E.exit.split.
 
 144:                                              ; preds = %_ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17hda81468696fc8174E.exit.split.split
   %145 = load i16, ptr %34, align 8, !range !53, !alias.scope !54, !noundef !4
-  %trunc.not.i = icmp eq i16 %145, 0
+  %trunc.i = trunc i16 %145 to i1
   %146 = load ptr, ptr %36, align 8, !alias.scope !54, !nonnull !4, !align !57
-  %.0.i = select i1 %trunc.not.i, ptr %146, ptr %35
+  %.0.i = select i1 %trunc.i, ptr %35, ptr %146
   %147 = load i16, ptr %37, align 8, !range !53, !alias.scope !58, !noundef !4
-  %trunc.not.i79 = icmp eq i16 %147, 0
+  %trunc.i79 = trunc i16 %147 to i1
   %148 = load ptr, ptr %39, align 8, !alias.scope !58, !nonnull !4, !align !57
-  %.0.i80 = select i1 %trunc.not.i79, ptr %148, ptr %38
+  %.0.i80 = select i1 %trunc.i79, ptr %38, ptr %148
   %149 = load i16, ptr %40, align 8, !range !53, !alias.scope !61, !noundef !4
-  %trunc.not.i81 = icmp eq i16 %149, 0
+  %trunc.i81 = trunc i16 %149 to i1
   %150 = load ptr, ptr %42, align 8, !alias.scope !61, !nonnull !4, !align !57
-  %.0.i82 = select i1 %trunc.not.i81, ptr %150, ptr %41
+  %.0.i82 = select i1 %trunc.i81, ptr %41, ptr %150
   %151 = load i16, ptr %43, align 8, !range !53, !alias.scope !64, !noundef !4
-  %trunc.not.i83 = icmp eq i16 %151, 0
+  %trunc.i83 = trunc i16 %151 to i1
   %152 = load ptr, ptr %45, align 8, !alias.scope !64, !nonnull !4, !align !57
-  %.0.i84 = select i1 %trunc.not.i83, ptr %152, ptr %44
+  %.0.i84 = select i1 %trunc.i83, ptr %44, ptr %152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %15, i32 noundef %.147, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i80, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i)
   %153 = load i32, ptr %9, align 8, !range !67, !noundef !4
-  %trunc.not = icmp eq i32 %153, 0
+  %trunc = trunc i32 %153 to i1
   %154 = load ptr, ptr %47, align 8, !nonnull !4
   %155 = load i32, ptr %48, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %trunc.not, label %156, label %164
+  br i1 %trunc, label %164, label %156
 
 156:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %14, i32 noundef %.145, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i82, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i84)
   %157 = load i32, ptr %8, align 8, !range !67, !noundef !4
-  %trunc52.not = icmp eq i32 %157, 0
+  %trunc52 = trunc i32 %157 to i1
   %158 = load ptr, ptr %49, align 8, !nonnull !4
   %159 = load i32, ptr %50, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %trunc52.not, label %160, label %164
+  br i1 %trunc52, label %164, label %160
 
 160:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %13, i32 noundef %.143, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i82, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i84)
   %161 = load i32, ptr %7, align 8, !range !67, !noundef !4
-  %trunc54.not = icmp eq i32 %161, 0
+  %trunc54 = trunc i32 %161 to i1
   %162 = load ptr, ptr %51, align 8, !nonnull !4
   %163 = load i32, ptr %52, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %trunc54.not, label %57, label %164
+  br i1 %trunc54, label %164, label %57
 
 164:                                              ; preds = %160, %156, %144
   %.1 = phi ptr [ %154, %144 ], [ %158, %156 ], [ %162, %160 ]
@@ -1179,49 +1179,49 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17h05a10f7cf1b6fbcdE.exit.split.
 
 145:                                              ; preds = %_ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17h05a10f7cf1b6fbcdE.exit.split.split
   %146 = load i16, ptr %34, align 8, !range !53, !alias.scope !103, !noundef !4
-  %trunc.not.i = icmp eq i16 %146, 0
+  %trunc.i = trunc i16 %146 to i1
   %147 = load ptr, ptr %36, align 8, !alias.scope !103, !nonnull !4, !align !57
-  %.0.i = select i1 %trunc.not.i, ptr %147, ptr %35
+  %.0.i = select i1 %trunc.i, ptr %35, ptr %147
   %148 = load i16, ptr %37, align 8, !range !53, !alias.scope !106, !noundef !4
-  %trunc.not.i79 = icmp eq i16 %148, 0
+  %trunc.i79 = trunc i16 %148 to i1
   %149 = load ptr, ptr %39, align 8, !alias.scope !106, !nonnull !4, !align !57
-  %.0.i80 = select i1 %trunc.not.i79, ptr %149, ptr %38
+  %.0.i80 = select i1 %trunc.i79, ptr %38, ptr %149
   %150 = load i16, ptr %40, align 8, !range !53, !alias.scope !109, !noundef !4
-  %trunc.not.i81 = icmp eq i16 %150, 0
+  %trunc.i81 = trunc i16 %150 to i1
   %151 = load ptr, ptr %42, align 8, !alias.scope !109, !nonnull !4, !align !57
-  %.0.i82 = select i1 %trunc.not.i81, ptr %151, ptr %41
+  %.0.i82 = select i1 %trunc.i81, ptr %41, ptr %151
   %152 = load i16, ptr %43, align 8, !range !53, !alias.scope !112, !noundef !4
-  %trunc.not.i83 = icmp eq i16 %152, 0
+  %trunc.i83 = trunc i16 %152 to i1
   %153 = load ptr, ptr %45, align 8, !alias.scope !112, !nonnull !4, !align !57
-  %.0.i84 = select i1 %trunc.not.i83, ptr %153, ptr %44
+  %.0.i84 = select i1 %trunc.i83, ptr %44, ptr %153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %15, i32 noundef %.147, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i80, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i)
   %154 = load i32, ptr %9, align 8, !range !67, !noundef !4
-  %trunc.not = icmp eq i32 %154, 0
+  %trunc = trunc i32 %154 to i1
   %155 = load ptr, ptr %47, align 8, !nonnull !4
   %156 = load i32, ptr %48, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %trunc.not, label %157, label %165
+  br i1 %trunc, label %165, label %157
 
 157:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %14, i32 noundef %.145, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i82, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i84)
   %158 = load i32, ptr %8, align 8, !range !67, !noundef !4
-  %trunc52.not = icmp eq i32 %158, 0
+  %trunc52 = trunc i32 %158 to i1
   %159 = load ptr, ptr %49, align 8, !nonnull !4
   %160 = load i32, ptr %50, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %trunc52.not, label %161, label %165
+  br i1 %trunc52, label %165, label %161
 
 161:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %13, i32 noundef %.143, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i82, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i84)
   %162 = load i32, ptr %7, align 8, !range !67, !noundef !4
-  %trunc54.not = icmp eq i32 %162, 0
+  %trunc54 = trunc i32 %162 to i1
   %163 = load ptr, ptr %51, align 8, !nonnull !4
   %164 = load i32, ptr %52, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %trunc54.not, label %57, label %165
+  br i1 %trunc54, label %165, label %57
 
 165:                                              ; preds = %161, %157, %145
   %.1 = phi ptr [ %155, %145 ], [ %159, %157 ], [ %163, %161 ]
@@ -1496,21 +1496,21 @@ _ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h0f2a1787d9f52929E.exit: ; pred
 
 85:                                               ; preds = %_ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h0f2a1787d9f52929E.exit.split.preheader
   %86 = load i16, ptr %28, align 8, !range !53, !alias.scope !147, !noundef !4
-  %trunc.not.i = icmp eq i16 %86, 0
+  %trunc.i = trunc i16 %86 to i1
   %87 = load ptr, ptr %30, align 8, !alias.scope !147, !nonnull !4, !align !57
-  %.0.i = select i1 %trunc.not.i, ptr %87, ptr %29
+  %.0.i = select i1 %trunc.i, ptr %29, ptr %87
   %88 = load i16, ptr %31, align 8, !range !53, !alias.scope !150, !noundef !4
-  %trunc.not.i40 = icmp eq i16 %88, 0
+  %trunc.i40 = trunc i16 %88 to i1
   %89 = load ptr, ptr %33, align 8, !alias.scope !150, !nonnull !4, !align !57
-  %.0.i41 = select i1 %trunc.not.i40, ptr %89, ptr %32
+  %.0.i41 = select i1 %trunc.i40, ptr %32, ptr %89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %34, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %8, i32 noundef %.1, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i41, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i)
   %90 = load i32, ptr %7, align 8, !range !67, !noundef !4
-  %trunc.not = icmp eq i32 %90, 0
+  %trunc = trunc i32 %90 to i1
   %91 = load ptr, ptr %35, align 8, !nonnull !4
   %92 = load i32, ptr %36, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %trunc.not, label %40, label %93
+  br i1 %trunc, label %93, label %40
 
 93:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
@@ -1787,21 +1787,21 @@ _ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h73cfc0f00a4129b6E.exit: ; pred
 
 98:                                               ; preds = %_ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h73cfc0f00a4129b6E.exit.split.preheader
   %99 = load i16, ptr %28, align 8, !range !53, !alias.scope !182, !noundef !4
-  %trunc.not.i = icmp eq i16 %99, 0
+  %trunc.i = trunc i16 %99 to i1
   %100 = load ptr, ptr %30, align 8, !alias.scope !182, !nonnull !4, !align !57
-  %.0.i = select i1 %trunc.not.i, ptr %100, ptr %29
+  %.0.i = select i1 %trunc.i, ptr %29, ptr %100
   %101 = load i16, ptr %31, align 8, !range !53, !alias.scope !185, !noundef !4
-  %trunc.not.i40 = icmp eq i16 %101, 0
+  %trunc.i40 = trunc i16 %101 to i1
   %102 = load ptr, ptr %33, align 8, !alias.scope !185, !nonnull !4, !align !57
-  %.0.i41 = select i1 %trunc.not.i40, ptr %102, ptr %32
+  %.0.i41 = select i1 %trunc.i40, ptr %32, ptr %102
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h1855d547b745c127E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %34, ptr noalias noundef nonnull readonly align 4 dereferenceable(256) %8, i32 noundef %.1, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i41, ptr noalias noundef nonnull readonly align 2 dereferenceable(1024) %.0.i)
   %103 = load i32, ptr %7, align 8, !range !67, !noundef !4
-  %trunc.not = icmp eq i32 %103, 0
+  %trunc = trunc i32 %103 to i1
   %104 = load ptr, ptr %35, align 8, !nonnull !4
   %105 = load i32, ptr %36, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %trunc.not, label %40, label %106
+  br i1 %trunc, label %106, label %40
 
 106:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)

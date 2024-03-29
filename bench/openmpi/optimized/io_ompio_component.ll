@@ -153,9 +153,8 @@ define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = load i8, ptr @opal_uses_threads, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %8, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_ompio_mutex, i64 0, i32 1)) #9
@@ -164,9 +163,8 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
 8:                                                ; preds = %3, %6
   %9 = tail call i32 @mca_common_ompio_file_delete(ptr noundef %0, ptr noundef %1) #9
   %10 = load i8, ptr @opal_uses_threads, align 1
-  %11 = and i8 %10, 1
-  %.not2 = icmp eq i8 %11, 0
-  br i1 %.not2, label %14, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_ompio_mutex, i64 0, i32 1)) #9

@@ -727,8 +727,8 @@ define dso_local void @_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv(ptr nocaptu
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.not89 = icmp eq ptr %4, %6
-  br i1 %.not89, label %._crit_edge, label %.lr.ph
+  %.not8 = icmp eq ptr %4, %6
+  br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -743,17 +743,16 @@ define dso_local void @_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv(ptr nocaptu
 
 15:                                               ; preds = %.lr.ph, %28
   %16 = phi ptr [ %6, %.lr.ph ], [ %29, %28 ]
-  %.sroa.04.010 = phi ptr [ %4, %.lr.ph ], [ %30, %28 ]
-  %17 = load ptr, ptr %.sroa.04.010, align 8
+  %.sroa.04.09 = phi ptr [ %4, %.lr.ph ], [ %30, %28 ]
+  %17 = load ptr, ptr %.sroa.04.09, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 267
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %28
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %28, label %21
 
 21:                                               ; preds = %15
   %22 = tail call noundef i32 @_Z13pure_rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %14, ptr noundef null, ptr noundef null)
-  %23 = load ptr, ptr %.sroa.04.010, align 8
+  %23 = load ptr, ptr %.sroa.04.09, align 8
   %24 = sext i32 %22 to i64
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %24
@@ -764,9 +763,9 @@ define dso_local void @_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv(ptr nocaptu
 
 28:                                               ; preds = %15, %21
   %29 = phi ptr [ %16, %15 ], [ %.pre, %21 ]
-  %30 = getelementptr inbounds i8, ptr %.sroa.04.010, i64 8
-  %.not8 = icmp eq ptr %30, %29
-  br i1 %.not8, label %._crit_edge, label %15, !llvm.loop !10
+  %30 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 8
+  %.not = icmp eq ptr %30, %29
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %28, %1
   ret void
@@ -817,10 +816,10 @@ _ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit: ; preds = %13, %1
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load ptr, ptr %27, align 8
-  %.not89.i = icmp eq ptr %26, %28
-  br i1 %.not89.i, label %_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv.exit, label %.lr.ph.i1
+  %.not8.i1 = icmp eq ptr %26, %28
+  br i1 %.not8.i1, label %_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv.exit, label %.lr.ph.i2
 
-.lr.ph.i1:                                        ; preds = %_ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit
+.lr.ph.i2:                                        ; preds = %_ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
@@ -831,19 +830,18 @@ _ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit: ; preds = %13, %1
   %36 = trunc i64 %35 to i32
   br label %37
 
-37:                                               ; preds = %50, %.lr.ph.i1
-  %38 = phi ptr [ %28, %.lr.ph.i1 ], [ %51, %50 ]
-  %.sroa.04.010.i = phi ptr [ %26, %.lr.ph.i1 ], [ %52, %50 ]
-  %39 = load ptr, ptr %.sroa.04.010.i, align 8
+37:                                               ; preds = %50, %.lr.ph.i2
+  %38 = phi ptr [ %28, %.lr.ph.i2 ], [ %51, %50 ]
+  %.sroa.04.09.i = phi ptr [ %26, %.lr.ph.i2 ], [ %52, %50 ]
+  %39 = load ptr, ptr %.sroa.04.09.i, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 267
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not.i2 = icmp eq i8 %42, 0
-  br i1 %.not.i2, label %43, label %50
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %50, label %43
 
 43:                                               ; preds = %37
   %44 = tail call noundef i32 @_Z13pure_rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %36, ptr noundef null, ptr noundef null)
-  %45 = load ptr, ptr %.sroa.04.010.i, align 8
+  %45 = load ptr, ptr %.sroa.04.09.i, align 8
   %46 = sext i32 %44 to i64
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %46
@@ -854,9 +852,9 @@ _ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit: ; preds = %13, %1
 
 50:                                               ; preds = %43, %37
   %51 = phi ptr [ %38, %37 ], [ %.pre.i, %43 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 8
-  %.not8.i3 = icmp eq ptr %52, %51
-  br i1 %.not8.i3, label %_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv.exit, label %37, !llvm.loop !10
+  %52 = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 8
+  %.not.i3 = icmp eq ptr %52, %51
+  br i1 %.not.i3, label %_ZN16DefaultOutputMgr20RandomOutputFuncDefsEv.exit, label %37, !llvm.loop !10
 
 _ZN16DefaultOutputMgr20RandomOutputFuncDefsEv.exit: ; preds = %50, %_ZN16DefaultOutputMgr19RandomOutputVarDefsEv.exit
   ret void

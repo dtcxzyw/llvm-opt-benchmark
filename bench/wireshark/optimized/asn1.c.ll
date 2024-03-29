@@ -308,9 +308,8 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %.03.i, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  ret i1 %14
+  %13 = trunc i8 %12 to i1
+  ret i1 %13
 }
 
 ; Function Attrs: nounwind uwtable

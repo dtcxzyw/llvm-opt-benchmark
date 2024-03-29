@@ -557,13 +557,12 @@ lpad17:                                           ; preds = %new.notnull14
 switch.hole_check:                                ; preds = %new.cont22
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 263, %switch.maskindex
-  %4 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %4, 0
-  br i1 %switch.lobit.not, label %if.end37, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %if.end37
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN6icu_758RBBINodeC2ENS0_8NodeTypeE, i64 0, i64 %5
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN6icu_758RBBINodeC2ENS0_8NodeTypeE, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %fPrecedence, align 8
   br label %if.end37

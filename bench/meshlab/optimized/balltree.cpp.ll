@@ -93,9 +93,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define weak_odr void @_ZNK7GaelMls8BallTreeIfE16computeNeighborsERKN3vcg6Point3IfEEPNS_12NeighborhoodIfEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %8
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
   tail call void @_ZN7GaelMls8BallTreeIfE7rebuildEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
@@ -1266,9 +1265,8 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdEC2ERKN3vcg16ConstDataWrapperINS2_6P
 define weak_odr void @_ZNK7GaelMls8BallTreeIdE16computeNeighborsERKN3vcg6Point3IdEEPNS_12NeighborhoodIdEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %8
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
   tail call void @_ZN7GaelMls8BallTreeIdE7rebuildEv(ptr noundef nonnull align 8 dereferenceable(104) %0)

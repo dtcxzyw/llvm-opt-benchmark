@@ -13,9 +13,8 @@ define dso_local i64 @gtsquery_compress(ptr nocapture noundef readonly %0) local
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 26
   %6 = load i8, ptr %5, align 2
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %24, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %24
 
 8:                                                ; preds = %1
   %9 = tail call ptr @palloc(i64 noundef 32) #7

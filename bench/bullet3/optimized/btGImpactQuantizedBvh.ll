@@ -671,9 +671,8 @@ _ZNK20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE4copyEiiPS0_.exit.i.i: ; pred
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE4copyEiiPS0_.exit.i.i
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %26 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %27 = and i8 %26, 1
-  %tobool2.not.i.i.i = icmp eq i8 %27, 0
-  br i1 %tobool2.not.i.i.i, label %if.end.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %26 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %if.end.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
@@ -688,14 +687,14 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
   %m_data9.i = getelementptr inbounds i8, ptr %this, i64 24
-  %28 = sext i32 %21 to i64
+  %27 = sext i32 %21 to i64
   %wide.trip.count.i6 = sext i32 %mul to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
-  %indvars.iv.i7 = phi i64 [ %28, %for.body8.lr.ph.i ], [ %indvars.iv.next.i8, %for.body8.i ]
-  %29 = load ptr, ptr %m_data9.i, align 8
-  %ref.tmp.sroa.1.0.arrayidx11.i.sroa_idx = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %29, i64 %indvars.iv.i7, i32 2
+  %indvars.iv.i7 = phi i64 [ %27, %for.body8.lr.ph.i ], [ %indvars.iv.next.i8, %for.body8.i ]
+  %28 = load ptr, ptr %m_data9.i, align 8
+  %ref.tmp.sroa.1.0.arrayidx11.i.sroa_idx = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %28, i64 %indvars.iv.i7, i32 2
   store i32 0, ptr %ref.tmp.sroa.1.0.arrayidx11.i.sroa_idx, align 4
   %indvars.iv.next.i8 = add nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, %wide.trip.count.i6
@@ -703,8 +702,8 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
 
 _ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit: ; preds = %for.body8.i, %_ZN18btQuantizedBvhTree17calc_quantizationER18GIM_BVH_DATA_ARRAYf.exit
   store i32 %mul, ptr %m_size.i.i4, align 4
-  %30 = load i32, ptr %m_size.i.i, align 4
-  tail call void @_ZN18btQuantizedBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(25) %primitive_boxes, i32 noundef 0, i32 noundef %30)
+  %29 = load i32, ptr %m_size.i.i, align 4
+  tail call void @_ZN18btQuantizedBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(25) %primitive_boxes, i32 noundef 0, i32 noundef %29)
   ret void
 }
 
@@ -1007,9 +1006,8 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %for.
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i
   %5 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i.i, label %for.body8.lr.ph.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %for.body8.lr.ph.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -1025,8 +1023,8 @@ for.body8.lr.ph.i:                                ; preds = %_ZNK20btAlignedObje
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
-  %7 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx11.i = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %7, i64 %indvars.iv.i
+  %6 = load ptr, ptr %m_data.i.i.i, align 8
+  %arrayidx11.i = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %6, i64 %indvars.iv.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i, i8 0, i64 16, i1 false)
   %m_max.i.i.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_max.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.16.m_max3.i.i.i.sroa_idx, i64 16, i1 false)
@@ -1042,24 +1040,24 @@ _ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit: ; preds = %for.bod
 
 for.body:                                         ; preds = %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit, %invoke.cont11
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont11 ], [ 0, %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit ]
-  %8 = load ptr, ptr %m_primitive_manager, align 8
-  %9 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %9, i64 %indvars.iv
-  %vtable9 = load ptr, ptr %8, align 8
+  %7 = load ptr, ptr %m_primitive_manager, align 8
+  %8 = load ptr, ptr %m_data.i.i.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %8, i64 %indvars.iv
+  %vtable9 = load ptr, ptr %7, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 32
-  %10 = load ptr, ptr %vfn10, align 8
-  %11 = trunc i64 %indvars.iv to i32
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i)
+  %9 = load ptr, ptr %vfn10, align 8
+  %10 = trunc i64 %indvars.iv to i32
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i)
           to label %invoke.cont11 unwind label %lpad.loopexit
 
 invoke.cont11:                                    ; preds = %for.body
-  %12 = load ptr, ptr %m_data.i.i.i, align 8
-  %m_data = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %12, i64 %indvars.iv, i32 1
-  store i32 %11, ptr %m_data, align 4
+  %11 = load ptr, ptr %m_data.i.i.i, align 8
+  %m_data = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %11, i64 %indvars.iv, i32 1
+  store i32 %10, ptr %m_data, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %m_size.i.i.i, align 4
-  %14 = sext i32 %13 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %14
+  %12 = load i32, ptr %m_size.i.i.i, align 4
+  %13 = sext i32 %12 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 lpad.loopexit:                                    ; preds = %for.body
@@ -1082,25 +1080,24 @@ for.end:                                          ; preds = %invoke.cont11, %_ZN
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %for.end
-  %15 = load ptr, ptr %m_data.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %m_data.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZN18GIM_BVH_DATA_ARRAYD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont14
-  %16 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %tobool2.not.i.i.i.i, label %_ZN18GIM_BVH_DATA_ARRAYD2Ev.exit, label %if.then3.i.i.i.i
+  %15 = load i8, ptr %m_ownsMemory.i.i.i, align 8
+  %tobool2.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN18GIM_BVH_DATA_ARRAYD2Ev.exit
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %15)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %14)
           to label %_ZN18GIM_BVH_DATA_ARRAYD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #15
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #15
   unreachable
 
 _ZN18GIM_BVH_DATA_ARRAYD2Ev.exit:                 ; preds = %invoke.cont14, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -1123,19 +1120,18 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #15
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -1342,9 +1338,8 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %for.body.i.i.i, %_Z
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   %25 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %26 = and i8 %25, 1
-  %tobool2.not.i.i.i = icmp eq i8 %26, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %25 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %24)
@@ -1358,13 +1353,13 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, 
   br label %if.end.thread
 
 if.end.thread:                                    ; preds = %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, %if.then.i, %if.then
-  %27 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %19, %if.then.i ], [ %19, %if.then ]
-  %28 = load ptr, ptr %m_data.i.i.i57, align 8
-  %idxprom.i = sext i32 %27 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %28, i64 %idxprom.i
+  %26 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %19, %if.then.i ], [ %19, %if.then ]
+  %27 = load ptr, ptr %m_data.i.i.i57, align 8
+  %idxprom.i = sext i32 %26 to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i
   store i32 %18, ptr %arrayidx.i, align 4
-  %29 = load i32, ptr %m_size.i.i, align 4
-  %inc.i = add nsw i32 %29, 1
+  %28 = load i32, ptr %m_size.i.i, align 4
+  %inc.i = add nsw i32 %28, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
   br label %if.then14
 
@@ -1379,10 +1374,10 @@ if.then14:                                        ; preds = %if.end.thread, %if.
   br label %if.end16
 
 if.else:                                          ; preds = %if.end
-  %30 = load ptr, ptr %m_data.i.i, align 8
-  %m_escapeIndexOrDataIndex.i.i.i60 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %30, i64 %idxprom.i.i, i32 2
-  %31 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i60, align 4
-  %add = sub i32 %curIndex.071, %31
+  %29 = load ptr, ptr %m_data.i.i, align 8
+  %m_escapeIndexOrDataIndex.i.i.i60 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %29, i64 %idxprom.i.i, i32 2
+  %30 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i60, align 4
+  %add = sub i32 %curIndex.071, %30
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then14
@@ -1392,8 +1387,8 @@ if.end16:                                         ; preds = %if.else, %if.then14
 
 while.end:                                        ; preds = %if.end16, %entry
   %m_size.i = getelementptr inbounds i8, ptr %collided_results, i64 4
-  %32 = load i32, ptr %m_size.i, align 4
-  %cmp18 = icmp sgt i32 %32, 0
+  %31 = load i32, ptr %m_size.i, align 4
+  %cmp18 = icmp sgt i32 %31, 0
   ret i1 %cmp18
 }
 
@@ -1514,9 +1509,8 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %for.body.i.i.i, %_Z
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   %24 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %25 = and i8 %24, 1
-  %tobool2.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %24 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %23)
@@ -1530,13 +1524,13 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, 
   br label %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit
 
 _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %if.then, %if.then.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
-  %26 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %18, %if.then.i ], [ %18, %if.then ]
-  %27 = load ptr, ptr %m_data.i.i.i16, align 8
-  %idxprom.i = sext i32 %26 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i
+  %25 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %18, %if.then.i ], [ %18, %if.then ]
+  %26 = load ptr, ptr %m_data.i.i.i16, align 8
+  %idxprom.i = sext i32 %25 to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %26, i64 %idxprom.i
   store i32 %17, ptr %arrayidx.i, align 4
-  %28 = load i32, ptr %m_size.i.i, align 4
-  %inc.i = add nsw i32 %28, 1
+  %27 = load i32, ptr %m_size.i.i, align 4
+  %inc.i = add nsw i32 %27, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
   br label %if.end
 
@@ -1549,10 +1543,10 @@ if.then9:                                         ; preds = %if.end
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %29 = load ptr, ptr %m_data.i.i.i, align 8
-  %m_escapeIndexOrDataIndex.i.i.i20 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %29, i64 %idxprom.i.i.i, i32 2
-  %30 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i20, align 4
-  %add = sub i32 %curIndex.022, %30
+  %28 = load ptr, ptr %m_data.i.i.i, align 8
+  %m_escapeIndexOrDataIndex.i.i.i20 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %28, i64 %idxprom.i.i.i, i32 2
+  %29 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i20, align 4
+  %add = sub i32 %curIndex.022, %29
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then9
@@ -1562,8 +1556,8 @@ if.end11:                                         ; preds = %if.else, %if.then9
 
 while.end:                                        ; preds = %if.end11, %entry
   %m_size.i = getelementptr inbounds i8, ptr %collided_results, i64 4
-  %31 = load i32, ptr %m_size.i, align 4
-  %cmp13 = icmp sgt i32 %31, 0
+  %30 = load i32, ptr %m_size.i, align 4
+  %cmp13 = icmp sgt i32 %30, 0
   ret i1 %cmp13
 }
 
@@ -1941,9 +1935,8 @@ _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i: ; preds = %for.bod
 if.then.i7.i.i.i:                                 ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %collision_pairs, i64 24
   %11 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i, label %if.then3.i.i.i.i
+  %tobool2.i.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i7.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %10)
@@ -1958,29 +1951,29 @@ _ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i: ; preds = %if.the
   br label %_ZN9btPairSet9push_pairEii.exit
 
 _ZN9btPairSet9push_pairEii.exit:                  ; preds = %if.then4, %if.then.i.i, %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
-  %13 = phi i32 [ %.pre2.i.i, %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i ], [ %4, %if.then.i.i ], [ %4, %if.then4 ]
+  %12 = phi i32 [ %.pre2.i.i, %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i ], [ %4, %if.then.i.i ], [ %4, %if.then4 ]
   %m_data.i.i = getelementptr inbounds i8, ptr %collision_pairs, i64 16
-  %14 = load ptr, ptr %m_data.i.i, align 8
-  %idxprom.i.i = sext i32 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.GIM_PAIR, ptr %14, i64 %idxprom.i.i
+  %13 = load ptr, ptr %m_data.i.i, align 8
+  %idxprom.i.i = sext i32 %12 to i64
+  %arrayidx.i.i = getelementptr inbounds %struct.GIM_PAIR, ptr %13, i64 %idxprom.i.i
   store i32 %1, ptr %arrayidx.i.i, align 4
   %m_index23.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   store i32 %3, ptr %m_index23.i.i.i, align 4
-  %15 = load i32, ptr %m_size.i.i.i, align 4
-  %inc.i.i = add nsw i32 %15, 1
+  %14 = load i32, ptr %m_size.i.i.i, align 4
+  %inc.i.i = add nsw i32 %14, 1
   store i32 %inc.i.i, ptr %m_size.i.i.i, align 4
   br label %if.end25
 
 if.else:                                          ; preds = %if.then2
   %add.i.i = add nsw i32 %node1.tr141, 1
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %node0.tr.ph143, i32 noundef %add.i.i, i1 noundef zeroext false)
-  %16 = load ptr, ptr %m_data.i.i.i71, align 8
+  %15 = load ptr, ptr %m_data.i.i.i71, align 8
   %idxprom.i.i.i84 = sext i32 %add.i.i to i64
-  %m_escapeIndexOrDataIndex.i.i.i85 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %16, i64 %idxprom.i.i.i84, i32 2
-  %17 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i85, align 4
+  %m_escapeIndexOrDataIndex.i.i.i85 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %15, i64 %idxprom.i.i.i84, i32 2
+  %16 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i85, align 4
   %add3.i.i = add nsw i32 %node1.tr141, 2
-  %add9.i.i = sub i32 %add.i.i, %17
-  %cmp.i8.i.i = icmp slt i32 %17, 0
+  %add9.i.i = sub i32 %add.i.i, %16
+  %cmp.i8.i.i = icmp slt i32 %16, 0
   %retval.0.i.i = select i1 %cmp.i8.i.i, i32 %add9.i.i, i32 %add3.i.i
   %call = tail call noundef zeroext i1 @_Z25_quantized_node_collisionPK21btGImpactQuantizedBvhS1_RK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %node0.tr.ph143, i32 noundef %retval.0.i.i, i1 noundef zeroext false)
   br i1 %call, label %if.end, label %if.end25
@@ -1991,13 +1984,13 @@ if.else10:                                        ; preds = %if.end
 
 if.then12:                                        ; preds = %if.else10
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %add.i.i90, i32 noundef %node1.tr141, i1 noundef zeroext false)
-  %18 = load ptr, ptr %m_data.i.i.i, align 8
+  %17 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i93 = sext i32 %add.i.i90 to i64
-  %m_escapeIndexOrDataIndex.i.i.i94 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %18, i64 %idxprom.i.i.i93, i32 2
-  %19 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i94, align 4
+  %m_escapeIndexOrDataIndex.i.i.i94 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %17, i64 %idxprom.i.i.i93, i32 2
+  %18 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i94, align 4
   %add3.i.i95 = add nsw i32 %node0.tr.ph143, 2
-  %add9.i.i96 = sub i32 %add.i.i90, %19
-  %cmp.i8.i.i97 = icmp slt i32 %19, 0
+  %add9.i.i96 = sub i32 %add.i.i90, %18
+  %cmp.i8.i.i97 = icmp slt i32 %18, 0
   %retval.0.i.i98 = select i1 %cmp.i8.i.i97, i32 %add9.i.i96, i32 %add3.i.i95
   br label %tailrecurse.outer.backedge
 
@@ -2010,35 +2003,35 @@ tailrecurse.outer.backedge:                       ; preds = %if.then12, %if.else
 if.else15:                                        ; preds = %if.else10
   %add.i.i100 = add nsw i32 %node1.tr141, 1
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %add.i.i90, i32 noundef %add.i.i100, i1 noundef zeroext false)
-  %20 = load ptr, ptr %m_data.i.i.i71, align 8
+  %19 = load ptr, ptr %m_data.i.i.i71, align 8
   %idxprom.i.i.i104 = sext i32 %add.i.i100 to i64
-  %m_escapeIndexOrDataIndex.i.i.i105 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %20, i64 %idxprom.i.i.i104, i32 2
-  %21 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i105, align 4
+  %m_escapeIndexOrDataIndex.i.i.i105 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %19, i64 %idxprom.i.i.i104, i32 2
+  %20 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i105, align 4
   %add3.i.i106 = add nsw i32 %node1.tr141, 2
-  %add9.i.i107 = sub i32 %add.i.i100, %21
-  %cmp.i8.i.i108 = icmp slt i32 %21, 0
+  %add9.i.i107 = sub i32 %add.i.i100, %20
+  %cmp.i8.i.i108 = icmp slt i32 %20, 0
   %retval.0.i.i109 = select i1 %cmp.i8.i.i108, i32 %add9.i.i107, i32 %add3.i.i106
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %add.i.i90, i32 noundef %retval.0.i.i109, i1 noundef zeroext false)
-  %22 = load ptr, ptr %m_data.i.i.i, align 8
+  %21 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i112 = sext i32 %add.i.i90 to i64
-  %m_escapeIndexOrDataIndex.i.i.i113 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %22, i64 %idxprom.i.i.i112, i32 2
-  %23 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i113, align 4
+  %m_escapeIndexOrDataIndex.i.i.i113 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %21, i64 %idxprom.i.i.i112, i32 2
+  %22 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i113, align 4
   %add3.i.i114 = add nsw i32 %node0.tr.ph143, 2
-  %add9.i.i115 = sub i32 %add.i.i90, %23
-  %cmp.i8.i.i116 = icmp slt i32 %23, 0
+  %add9.i.i115 = sub i32 %add.i.i90, %22
+  %cmp.i8.i.i116 = icmp slt i32 %22, 0
   %retval.0.i.i117 = select i1 %cmp.i8.i.i116, i32 %add9.i.i115, i32 %add3.i.i114
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %retval.0.i.i117, i32 noundef %add.i.i100, i1 noundef zeroext false)
-  %24 = load ptr, ptr %m_data.i.i.i, align 8
-  %m_escapeIndexOrDataIndex.i.i.i122 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %24, i64 %idxprom.i.i.i112, i32 2
-  %25 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i122, align 4
-  %add9.i.i124 = sub i32 %add.i.i90, %25
-  %cmp.i8.i.i125 = icmp slt i32 %25, 0
+  %23 = load ptr, ptr %m_data.i.i.i, align 8
+  %m_escapeIndexOrDataIndex.i.i.i122 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %23, i64 %idxprom.i.i.i112, i32 2
+  %24 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i122, align 4
+  %add9.i.i124 = sub i32 %add.i.i90, %24
+  %cmp.i8.i.i125 = icmp slt i32 %24, 0
   %retval.0.i.i126 = select i1 %cmp.i8.i.i125, i32 %add9.i.i124, i32 %add3.i.i114
-  %26 = load ptr, ptr %m_data.i.i.i71, align 8
-  %m_escapeIndexOrDataIndex.i.i.i130 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %26, i64 %idxprom.i.i.i104, i32 2
-  %27 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i130, align 4
-  %add9.i.i132 = sub i32 %add.i.i100, %27
-  %cmp.i8.i.i133 = icmp slt i32 %27, 0
+  %25 = load ptr, ptr %m_data.i.i.i71, align 8
+  %m_escapeIndexOrDataIndex.i.i.i130 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %25, i64 %idxprom.i.i.i104, i32 2
+  %26 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i130, align 4
+  %add9.i.i132 = sub i32 %add.i.i100, %26
+  %cmp.i8.i.i133 = icmp slt i32 %26, 0
   %retval.0.i.i134 = select i1 %cmp.i8.i.i133, i32 %add9.i.i132, i32 %add3.i.i106
   br label %tailrecurse.outer.backedge
 

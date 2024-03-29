@@ -269,9 +269,8 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @BufFileExportFileSet(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %BufFileFlush.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %BufFileFlush.exit
 
 5:                                                ; preds = %1
   tail call fastcc void @BufFileDumpBuffer(ptr noundef nonnull %0)
@@ -287,9 +286,8 @@ BufFileFlush.exit:                                ; preds = %1, %5
 define dso_local void @BufFileClose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %BufFileFlush.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %BufFileFlush.exit
 
 5:                                                ; preds = %1
   tail call fastcc void @BufFileDumpBuffer(ptr noundef nonnull %0)
@@ -339,17 +337,16 @@ define internal fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr nocapture noun
   %8 = alloca %struct.timespec, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 17
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %BufFileFlush.exit, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %BufFileFlush.exit
 
 12:                                               ; preds = %5
   tail call fastcc void @BufFileDumpBuffer(ptr noundef nonnull %0)
   br label %BufFileFlush.exit
 
 BufFileFlush.exit:                                ; preds = %5, %12
-  %.not56 = icmp eq i64 %2, 0
-  br i1 %.not56, label %BufFileLoadBuffer.exit._crit_edge, label %.lr.ph
+  %.not55 = icmp eq i64 %2, 0
+  br i1 %.not55, label %BufFileLoadBuffer.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufFileFlush.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 64
@@ -366,9 +363,9 @@ BufFileFlush.exit:                                ; preds = %5, %12
 
 22:                                               ; preds = %.lr.ph, %76
   %23 = phi i32 [ %.pre, %.lr.ph ], [ %85, %76 ]
-  %.03959 = phi i64 [ 0, %.lr.ph ], [ %88, %76 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %86, %76 ]
-  %.04157 = phi i64 [ %2, %.lr.ph ], [ %87, %76 ]
+  %.03958 = phi i64 [ 0, %.lr.ph ], [ %88, %76 ]
+  %.04057 = phi ptr [ %1, %.lr.ph ], [ %86, %76 ]
+  %.04156 = phi i64 [ %2, %.lr.ph ], [ %87, %76 ]
   %24 = load i32, ptr %14, align 4
   %.not46 = icmp slt i32 %23, %24
   br i1 %.not46, label %76, label %25
@@ -403,9 +400,8 @@ BufFileFlush.exit:                                ; preds = %5, %12
   %40 = getelementptr i32, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load i8, ptr @track_io_timing, align 1
-  %43 = and i8 %42, 1
-  %.not.i52 = icmp eq i8 %43, 0
-  br i1 %.not.i52, label %48, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %48
 
 44:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -413,14 +409,14 @@ BufFileFlush.exit:                                ; preds = %5, %12
   %46 = load i64, ptr %8, align 8
   %.neg.i = mul i64 %46, -1000000000
   %47 = load i64, ptr %18, align 8
-  %.neg18.i = sub i64 %.neg.i, %47
+  %.neg17.i = sub i64 %.neg.i, %47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %.pre20.i = load i64, ptr %15, align 8
+  %.pre19.i = load i64, ptr %15, align 8
   br label %48
 
 48:                                               ; preds = %44, %._crit_edge.i
-  %49 = phi i64 [ %.pre20.i, %44 ], [ %36, %._crit_edge.i ]
-  %.sroa.03.0.neg19.i = phi i64 [ %.neg18.i, %44 ], [ 0, %._crit_edge.i ]
+  %49 = phi i64 [ %.pre19.i, %44 ], [ %36, %._crit_edge.i ]
+  %.sroa.03.0.neg18.i = phi i64 [ %.neg17.i, %44 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %19, ptr %7, align 8
   store i64 8192, ptr %20, align 8
@@ -443,9 +439,8 @@ BufFileFlush.exit:                                ; preds = %5, %12
 
 58:                                               ; preds = %48
   %59 = load i8, ptr @track_io_timing, align 1
-  %60 = and i8 %59, 1
-  %.not17.i = icmp eq i8 %60, 0
-  br i1 %.not17.i, label %70, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %70
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -455,15 +450,15 @@ BufFileFlush.exit:                                ; preds = %5, %12
   %65 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %66 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 14), align 8
-  %67 = add i64 %65, %.sroa.03.0.neg19.i
+  %67 = add i64 %65, %.sroa.03.0.neg18.i
   %68 = add i64 %67, %64
   %69 = add i64 %68, %66
   store i64 %69, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 14), align 8
-  %.pre21.i = load i32, ptr %14, align 4
+  %.pr.i = load i32, ptr %14, align 4
   br label %70
 
 70:                                               ; preds = %61, %58
-  %71 = phi i32 [ %.pre21.i, %61 ], [ %51, %58 ]
+  %71 = phi i32 [ %.pr.i, %61 ], [ %51, %58 ]
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %BufFileLoadBuffer.exit, label %BufFileLoadBuffer.exit._crit_edge
 
@@ -471,35 +466,35 @@ BufFileLoadBuffer.exit:                           ; preds = %70
   %73 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 8), align 8
   %74 = add i64 %73, 1
   store i64 %74, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 8), align 8
-  %.pre61 = load i32, ptr %14, align 4
-  %75 = icmp slt i32 %.pre61, 1
-  br i1 %75, label %BufFileLoadBuffer.exit._crit_edge, label %BufFileLoadBuffer.exit._crit_edge62
+  %.pre60 = load i32, ptr %14, align 4
+  %75 = icmp slt i32 %.pre60, 1
+  br i1 %75, label %BufFileLoadBuffer.exit._crit_edge, label %BufFileLoadBuffer.exit._crit_edge61
 
-BufFileLoadBuffer.exit._crit_edge62:              ; preds = %BufFileLoadBuffer.exit
-  %.pre63 = load i32, ptr %13, align 8
+BufFileLoadBuffer.exit._crit_edge61:              ; preds = %BufFileLoadBuffer.exit
+  %.pre62 = load i32, ptr %13, align 8
   br label %76
 
-76:                                               ; preds = %BufFileLoadBuffer.exit._crit_edge62, %22
-  %77 = phi i32 [ %.pre63, %BufFileLoadBuffer.exit._crit_edge62 ], [ %23, %22 ]
-  %78 = phi i32 [ %.pre61, %BufFileLoadBuffer.exit._crit_edge62 ], [ %24, %22 ]
+76:                                               ; preds = %BufFileLoadBuffer.exit._crit_edge61, %22
+  %77 = phi i32 [ %.pre62, %BufFileLoadBuffer.exit._crit_edge61 ], [ %23, %22 ]
+  %78 = phi i32 [ %.pre60, %BufFileLoadBuffer.exit._crit_edge61 ], [ %24, %22 ]
   %79 = sub i32 %78, %77
   %80 = sext i32 %79 to i64
-  %spec.select = call i64 @llvm.umin.i64(i64 %.04157, i64 %80)
+  %spec.select = call i64 @llvm.umin.i64(i64 %.04156, i64 %80)
   %81 = sext i32 %77 to i64
   %82 = getelementptr i8, ptr %19, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04058, ptr align 1 %82, i64 %spec.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04057, ptr align 1 %82, i64 %spec.select, i1 false)
   %83 = load i32, ptr %13, align 8
   %84 = trunc i64 %spec.select to i32
   %85 = add i32 %83, %84
   store i32 %85, ptr %13, align 8
-  %86 = getelementptr i8, ptr %.04058, i64 %spec.select
-  %87 = sub i64 %.04157, %spec.select
-  %88 = add i64 %spec.select, %.03959
+  %86 = getelementptr i8, ptr %.04057, i64 %spec.select
+  %87 = sub i64 %.04156, %spec.select
+  %88 = add i64 %spec.select, %.03958
   %.not = icmp eq i64 %87, 0
   br i1 %.not, label %BufFileLoadBuffer.exit._crit_edge, label %22, !llvm.loop !7
 
 BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLoadBuffer.exit, %BufFileFlush.exit
-  %.039.lcssa = phi i64 [ 0, %BufFileFlush.exit ], [ %.03959, %70 ], [ %.03959, %BufFileLoadBuffer.exit ], [ %88, %76 ]
+  %.039.lcssa = phi i64 [ 0, %BufFileFlush.exit ], [ %.03958, %70 ], [ %.03958, %BufFileLoadBuffer.exit ], [ %88, %76 ]
   %.not47 = icmp eq i64 %.039.lcssa, %2
   %not. = xor i1 %3, true
   %or.cond.not = select i1 %not., i1 true, i1 %.not47
@@ -547,8 +542,8 @@ define dso_local i64 @BufFileReadMaybeEOF(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BufFileWrite(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
-  %.not32 = icmp eq i64 %2, 0
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.not31 = icmp eq i64 %2, 0
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -561,20 +556,19 @@ define dso_local void @BufFileWrite(ptr noundef %0, ptr nocapture noundef readon
 
 9:                                                ; preds = %.lr.ph, %32
   %10 = phi i32 [ %.pre, %.lr.ph ], [ %28, %32 ]
-  %.02634 = phi i64 [ %2, %.lr.ph ], [ %34, %32 ]
-  %.02733 = phi ptr [ %1, %.lr.ph ], [ %33, %32 ]
+  %.02633 = phi i64 [ %2, %.lr.ph ], [ %34, %32 ]
+  %.02732 = phi ptr [ %1, %.lr.ph ], [ %33, %32 ]
   %11 = icmp sgt i32 %10, 8191
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %9
   %13 = load i8, ptr %5, align 1
-  %14 = and i8 %13, 1
-  %.not31 = icmp eq i8 %14, 0
-  br i1 %.not31, label %16, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %12
   tail call fastcc void @BufFileDumpBuffer(ptr noundef nonnull %0)
-  %.pre35 = load i32, ptr %4, align 8
+  %.pre34 = load i32, ptr %4, align 8
   br label %20
 
 16:                                               ; preds = %12
@@ -587,13 +581,13 @@ define dso_local void @BufFileWrite(ptr noundef %0, ptr nocapture noundef readon
   br label %20
 
 20:                                               ; preds = %15, %16, %9
-  %21 = phi i32 [ %.pre35, %15 ], [ 0, %16 ], [ %10, %9 ]
+  %21 = phi i32 [ %.pre34, %15 ], [ 0, %16 ], [ %10, %9 ]
   %22 = sub i32 8192, %21
   %23 = sext i32 %22 to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.02634, i64 %23)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.02633, i64 %23)
   %24 = sext i32 %21 to i64
   %25 = getelementptr i8, ptr %8, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.02733, i64 %spec.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.02732, i64 %spec.select, i1 false)
   store i8 1, ptr %5, align 1
   %26 = load i32, ptr %4, align 8
   %27 = trunc i64 %spec.select to i32
@@ -608,8 +602,8 @@ define dso_local void @BufFileWrite(ptr noundef %0, ptr nocapture noundef readon
   br label %32
 
 32:                                               ; preds = %31, %20
-  %33 = getelementptr i8, ptr %.02733, i64 %spec.select
-  %34 = sub i64 %.02634, %spec.select
+  %33 = getelementptr i8, ptr %.02732, i64 %spec.select
+  %34 = sub i64 %.02633, %spec.select
   %.not = icmp eq i64 %34, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !8
 
@@ -626,9 +620,9 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph53, label %._crit_edge54
+  br i1 %8, label %.lr.ph51, label %._crit_edge52
 
-.lr.ph53:                                         ; preds = %1
+.lr.ph51:                                         ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = getelementptr inbounds i8, ptr %0, i64 40
@@ -642,19 +636,19 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph53, %103
-  %21 = phi i32 [ %7, %.lr.ph53 ], [ %110, %103 ]
-  %.051 = phi i32 [ 0, %.lr.ph53 ], [ %107, %103 ]
+20:                                               ; preds = %.lr.ph51, %102
+  %21 = phi i32 [ %7, %.lr.ph51 ], [ %109, %102 ]
+  %.049 = phi i32 [ 0, %.lr.ph51 ], [ %106, %102 ]
   %22 = load i64, ptr %9, align 8
   %23 = icmp sgt i64 %22, 1073741823
-  %.pre63 = load i32, ptr %10, align 8
-  br i1 %23, label %.preheader, label %59
+  %.pre61 = load i32, ptr %10, align 8
+  br i1 %23, label %.preheader, label %58
 
 .preheader:                                       ; preds = %20
-  %24 = add i32 %.pre63, 1
+  %24 = add i32 %.pre61, 1
   %25 = load i32, ptr %0, align 8
-  %.not50 = icmp slt i32 %24, %25
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp slt i32 %24, %25
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %extendBufFile.exit
   %26 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -662,50 +656,49 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   store ptr %27, ptr @CurrentResourceOwner, align 8
   %28 = load ptr, ptr %12, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %35
+  br i1 %29, label %30, label %34
 
 30:                                               ; preds = %.lr.ph
   %31 = load i8, ptr %14, align 8
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %32, 0
-  %34 = call i32 @OpenTemporaryFile(i1 noundef zeroext %33) #10
+  %32 = trunc i8 %31 to i1
+  %33 = call i32 @OpenTemporaryFile(i1 noundef zeroext %32) #10
   br label %extendBufFile.exit
 
-35:                                               ; preds = %.lr.ph
-  %36 = load i32, ptr %0, align 8
+34:                                               ; preds = %.lr.ph
+  %35 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
-  %37 = load ptr, ptr %13, align 8
-  %38 = add i32 %36, 1
-  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %37, i32 noundef %38) #10
-  %40 = load ptr, ptr %12, align 8
-  %41 = call zeroext i1 @FileSetDelete(ptr noundef %40, ptr noundef nonnull %5, i1 noundef zeroext true) #10
-  %42 = load ptr, ptr %13, align 8
-  %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %42, i32 noundef %36) #10
-  %44 = load ptr, ptr %12, align 8
-  %45 = call i32 @FileSetCreate(ptr noundef %44, ptr noundef nonnull %5) #10
+  %36 = load ptr, ptr %13, align 8
+  %37 = add i32 %35, 1
+  %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %36, i32 noundef %37) #10
+  %39 = load ptr, ptr %12, align 8
+  %40 = call zeroext i1 @FileSetDelete(ptr noundef %39, ptr noundef nonnull %5, i1 noundef zeroext true) #10
+  %41 = load ptr, ptr %13, align 8
+  %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %41, i32 noundef %35) #10
+  %43 = load ptr, ptr %12, align 8
+  %44 = call i32 @FileSetCreate(ptr noundef %43, ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   br label %extendBufFile.exit
 
-extendBufFile.exit:                               ; preds = %30, %35
-  %.0.i = phi i32 [ %34, %30 ], [ %45, %35 ]
+extendBufFile.exit:                               ; preds = %30, %34
+  %.0.i = phi i32 [ %33, %30 ], [ %44, %34 ]
   store ptr %26, ptr @CurrentResourceOwner, align 8
-  %46 = load ptr, ptr %15, align 8
-  %47 = load i32, ptr %0, align 8
-  %48 = add i32 %47, 1
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 2
-  %51 = call ptr @repalloc(ptr noundef %46, i64 noundef %50) #10
-  store ptr %51, ptr %15, align 8
-  %52 = load i32, ptr %0, align 8
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr i32, ptr %51, i64 %53
-  store i32 %.0.i, ptr %54, align 4
-  %55 = load i32, ptr %0, align 8
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %0, align 8
-  %57 = load i32, ptr %10, align 8
-  %58 = add i32 %57, 1
-  %.not = icmp slt i32 %58, %56
+  %45 = load ptr, ptr %15, align 8
+  %46 = load i32, ptr %0, align 8
+  %47 = add i32 %46, 1
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 2
+  %50 = call ptr @repalloc(ptr noundef %45, i64 noundef %49) #10
+  store ptr %50, ptr %15, align 8
+  %51 = load i32, ptr %0, align 8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr i32, ptr %50, i64 %52
+  store i32 %.0.i, ptr %53, align 4
+  %54 = load i32, ptr %0, align 8
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %0, align 8
+  %56 = load i32, ptr %10, align 8
+  %57 = add i32 %56, 1
+  %.not = icmp slt i32 %57, %55
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %extendBufFile.exit
@@ -714,124 +707,122 @@ extendBufFile.exit:                               ; preds = %30, %35
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.pre = phi i32 [ %21, %.preheader ], [ %.pre.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ %24, %.preheader ], [ %58, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %24, %.preheader ], [ %57, %._crit_edge.loopexit ]
   store i32 %.lcssa, ptr %10, align 8
   store i64 0, ptr %9, align 8
-  br label %59
+  br label %58
 
-59:                                               ; preds = %._crit_edge, %20
-  %60 = phi i32 [ %.lcssa, %._crit_edge ], [ %.pre63, %20 ]
-  %61 = phi i64 [ 0, %._crit_edge ], [ %22, %20 ]
-  %62 = phi i32 [ %.pre, %._crit_edge ], [ %21, %20 ]
-  %63 = sub i32 %62, %.051
-  %64 = sub i64 1073741824, %61
-  %65 = sext i32 %63 to i64
-  %66 = icmp slt i64 %64, %65
-  %67 = trunc i64 %64 to i32
-  %spec.select = select i1 %66, i32 %67, i32 %63
-  %68 = load ptr, ptr %15, align 8
-  %69 = sext i32 %60 to i64
-  %70 = getelementptr i32, ptr %68, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = load i8, ptr @track_io_timing, align 1
-  %73 = and i8 %72, 1
-  %.not42 = icmp eq i8 %73, 0
-  br i1 %.not42, label %78, label %74
+58:                                               ; preds = %._crit_edge, %20
+  %59 = phi i32 [ %.lcssa, %._crit_edge ], [ %.pre61, %20 ]
+  %60 = phi i64 [ 0, %._crit_edge ], [ %22, %20 ]
+  %61 = phi i32 [ %.pre, %._crit_edge ], [ %21, %20 ]
+  %62 = sub i32 %61, %.049
+  %63 = sub i64 1073741824, %60
+  %64 = sext i32 %62 to i64
+  %65 = icmp slt i64 %63, %64
+  %66 = trunc i64 %63 to i32
+  %spec.select = select i1 %65, i32 %66, i32 %62
+  %67 = load ptr, ptr %15, align 8
+  %68 = sext i32 %59 to i64
+  %69 = getelementptr i32, ptr %67, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = load i8, ptr @track_io_timing, align 1
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %77
 
-74:                                               ; preds = %59
+73:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %75 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
-  %76 = load i64, ptr %4, align 8
-  %.neg = mul i64 %76, -1000000000
-  %77 = load i64, ptr %16, align 8
-  %.neg57 = sub i64 %.neg, %77
+  %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
+  %75 = load i64, ptr %4, align 8
+  %.neg = mul i64 %75, -1000000000
+  %76 = load i64, ptr %16, align 8
+  %.neg55 = sub i64 %.neg, %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.pre64 = load i64, ptr %9, align 8
-  br label %78
+  %.pre62 = load i64, ptr %9, align 8
+  br label %77
 
-78:                                               ; preds = %59, %74
-  %79 = phi i64 [ %.pre64, %74 ], [ %61, %59 ]
-  %.sroa.03.0.neg58 = phi i64 [ %.neg57, %74 ], [ 0, %59 ]
-  %80 = sext i32 %.051 to i64
-  %81 = getelementptr i8, ptr %17, i64 %80
-  %82 = sext i32 %spec.select to i64
+77:                                               ; preds = %58, %73
+  %78 = phi i64 [ %.pre62, %73 ], [ %60, %58 ]
+  %.sroa.03.0.neg56 = phi i64 [ %.neg55, %73 ], [ 0, %58 ]
+  %79 = sext i32 %.049 to i64
+  %80 = getelementptr i8, ptr %17, i64 %79
+  %81 = sext i32 %spec.select to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store ptr %81, ptr %3, align 8
-  store i64 %82, ptr %18, align 8
-  %83 = call i64 @FileWriteV(i32 noundef %71, ptr noundef nonnull %3, i32 noundef 1, i64 noundef %79, i32 noundef 167772165) #10
+  store ptr %80, ptr %3, align 8
+  store i64 %81, ptr %18, align 8
+  %82 = call i64 @FileWriteV(i32 noundef %70, ptr noundef nonnull %3, i32 noundef 1, i64 noundef %78, i32 noundef 167772165) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %84 = trunc i64 %83 to i32
-  %85 = icmp slt i32 %84, 1
-  br i1 %85, label %86, label %91
+  %83 = trunc i64 %82 to i32
+  %84 = icmp slt i32 %83, 1
+  br i1 %84, label %85, label %90
 
-86:                                               ; preds = %78
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 @errcode_for_file_access() #10
-  %89 = call ptr @FilePathName(i32 noundef %71) #10
-  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %89) #10
+85:                                               ; preds = %77
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %86)
+  %87 = call i32 @errcode_for_file_access() #10
+  %88 = call ptr @FilePathName(i32 noundef %70) #10
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %88) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__func__.BufFileDumpBuffer) #10
   unreachable
 
-91:                                               ; preds = %78
-  %92 = load i8, ptr @track_io_timing, align 1
-  %93 = and i8 %92, 1
-  %.not43 = icmp eq i8 %93, 0
-  br i1 %.not43, label %103, label %94
+90:                                               ; preds = %77
+  %91 = load i8, ptr @track_io_timing, align 1
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %102
 
-94:                                               ; preds = %91
+93:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %95 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
-  %96 = load i64, ptr %2, align 8
-  %97 = mul i64 %96, 1000000000
-  %98 = load i64, ptr %19, align 8
+  %94 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
+  %95 = load i64, ptr %2, align 8
+  %96 = mul i64 %95, 1000000000
+  %97 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %99 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 15), align 8
-  %100 = add i64 %98, %.sroa.03.0.neg58
-  %101 = add i64 %100, %97
-  %102 = add i64 %101, %99
-  store i64 %102, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 15), align 8
-  br label %103
+  %98 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 15), align 8
+  %99 = add i64 %97, %.sroa.03.0.neg56
+  %100 = add i64 %99, %96
+  %101 = add i64 %100, %98
+  store i64 %101, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 15), align 8
+  br label %102
 
-103:                                              ; preds = %94, %91
-  %104 = and i64 %83, 2147483647
-  %105 = load i64, ptr %9, align 8
-  %106 = add i64 %105, %104
-  store i64 %106, ptr %9, align 8
-  %107 = add i32 %.051, %84
-  %108 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 9), align 8
-  %109 = add i64 %108, 1
-  store i64 %109, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 9), align 8
-  %110 = load i32, ptr %6, align 4
-  %111 = icmp slt i32 %107, %110
-  br i1 %111, label %20, label %._crit_edge54, !llvm.loop !10
+102:                                              ; preds = %93, %90
+  %103 = and i64 %82, 2147483647
+  %104 = load i64, ptr %9, align 8
+  %105 = add i64 %104, %103
+  store i64 %105, ptr %9, align 8
+  %106 = add i32 %.049, %83
+  %107 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 9), align 8
+  %108 = add i64 %107, 1
+  store i64 %108, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 9), align 8
+  %109 = load i32, ptr %6, align 4
+  %110 = icmp slt i32 %106, %109
+  br i1 %110, label %20, label %._crit_edge52, !llvm.loop !10
 
-._crit_edge54:                                    ; preds = %103, %1
-  %.lcssa45 = phi i32 [ %7, %1 ], [ %110, %103 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 17
-  store i8 0, ptr %112, align 1
-  %113 = getelementptr inbounds i8, ptr %0, i64 64
-  %114 = load i32, ptr %113, align 8
-  %115 = sub i32 %.lcssa45, %114
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i8, ptr %0, i64 56
-  %118 = load i64, ptr %117, align 8
-  %119 = sub i64 %118, %116
-  store i64 %119, ptr %117, align 8
-  %120 = icmp slt i64 %119, 0
-  br i1 %120, label %121, label %126
+._crit_edge52:                                    ; preds = %102, %1
+  %.lcssa43 = phi i32 [ %7, %1 ], [ %109, %102 ]
+  %111 = getelementptr inbounds i8, ptr %0, i64 17
+  store i8 0, ptr %111, align 1
+  %112 = getelementptr inbounds i8, ptr %0, i64 64
+  %113 = load i32, ptr %112, align 8
+  %114 = sub i32 %.lcssa43, %113
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr %0, i64 56
+  %117 = load i64, ptr %116, align 8
+  %118 = sub i64 %117, %115
+  store i64 %118, ptr %116, align 8
+  %119 = icmp slt i64 %118, 0
+  br i1 %119, label %120, label %125
 
-121:                                              ; preds = %._crit_edge54
-  %122 = getelementptr inbounds i8, ptr %0, i64 48
-  %123 = load i32, ptr %122, align 8
-  %124 = add i32 %123, -1
-  store i32 %124, ptr %122, align 8
-  %125 = add nsw i64 %119, 1073741824
-  store i64 %125, ptr %117, align 8
-  br label %126
+120:                                              ; preds = %._crit_edge52
+  %121 = getelementptr inbounds i8, ptr %0, i64 48
+  %122 = load i32, ptr %121, align 8
+  %123 = add i32 %122, -1
+  store i32 %123, ptr %121, align 8
+  %124 = add nsw i64 %118, 1073741824
+  store i64 %124, ptr %116, align 8
+  br label %125
 
-126:                                              ; preds = %121, %._crit_edge54
-  store i32 0, ptr %113, align 8
+125:                                              ; preds = %120, %._crit_edge52
+  store i32 0, ptr %112, align 8
   store i32 0, ptr %6, align 4
   ret void
 }
@@ -960,9 +951,8 @@ define dso_local noundef i32 @BufFileSeek(ptr noundef %0, i32 noundef %1, i64 no
 71:                                               ; preds = %62, %59, %._crit_edge
   %72 = getelementptr inbounds i8, ptr %0, i64 17
   %73 = load i8, ptr %72, align 1
-  %74 = and i8 %73, 1
-  %.not.i = icmp eq i8 %74, 0
-  br i1 %.not.i, label %BufFileFlush.exit, label %75
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %BufFileFlush.exit
 
 75:                                               ; preds = %71
   tail call fastcc void @BufFileDumpBuffer(ptr noundef nonnull %0)

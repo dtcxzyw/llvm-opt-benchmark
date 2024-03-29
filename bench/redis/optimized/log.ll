@@ -15,9 +15,8 @@ entry:
   %0 = load ptr, ptr %name, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #2
   %1 = load atomic i8, ptr @log_init_done acquire, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %return, label %while.body
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %while.body, label %return
 
 while.body:                                       ; preds = %entry, %if.end7
   %segment_begin.0 = phi ptr [ %add.ptr12, %if.end7 ], [ @log_var_names, %entry ]
@@ -25,8 +24,8 @@ while.body:                                       ; preds = %entry, %if.end7
 
 for.cond.i:                                       ; preds = %for.inc.i, %while.body
   %end.0.i = phi ptr [ %segment_begin.0, %while.body ], [ %incdec.ptr.i, %for.inc.i ]
-  %3 = load i8, ptr %end.0.i, align 1
-  switch i8 %3, label %for.inc.i [
+  %2 = load i8, ptr %end.0.i, align 1
+  switch i8 %2, label %for.inc.i [
     i8 0, label %log_var_extract_segment.exit
     i8 124, label %log_var_extract_segment.exit
   ]
@@ -43,8 +42,8 @@ log_var_extract_segment.exit:                     ; preds = %for.cond.i, %for.co
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %log_var_extract_segment.exit
-  %4 = load i8, ptr %segment_begin.0, align 1
-  %cmp6.i = icmp eq i8 %4, 46
+  %3 = load i8, ptr %segment_begin.0, align 1
+  %cmp6.i = icmp eq i8 %3, 46
   br i1 %cmp6.i, label %return.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %log_var_extract_segment.exit
@@ -67,12 +66,12 @@ if.then15.i:                                      ; preds = %if.else.i
 
 log_var_matches_segment.exit:                     ; preds = %if.then15.i
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %cmp20.i = icmp eq i8 %5, 46
+  %4 = load i8, ptr %arrayidx.i, align 1
+  %cmp20.i = icmp eq i8 %4, 46
   br i1 %cmp20.i, label %return.sink.split, label %if.end7
 
 if.end7:                                          ; preds = %if.else.i, %if.then15.i, %if.then10.i, %log_var_matches_segment.exit
-  %cmp = icmp eq i8 %3, 0
+  %cmp = icmp eq i8 %2, 0
   %add.ptr12 = getelementptr inbounds i8, ptr %end.0.i, i64 1
   br i1 %cmp, label %return.sink.split, label %while.body
 

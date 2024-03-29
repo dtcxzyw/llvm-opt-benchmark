@@ -45,24 +45,23 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %has_providers = getelementptr inbounds i8, ptr %filter, i64 4
+  %errp2.i11 = getelementptr inbounds i8, ptr %_auto_errp_prop.i10, i64 8
+  %tobool.i12 = icmp eq ptr %errp, null
+  %cmp.i13 = icmp eq ptr %errp, @error_fatal
+  %or.cond.i14 = or i1 %tobool.i12, %cmp.i13
+  %spec.select.i15 = select i1 %or.cond.i14, ptr %_auto_errp_prop.i10, ptr %errp
+  %u.i27 = getelementptr inbounds i8, ptr %filter, i64 16
+  %vcpus.i30 = getelementptr inbounds i8, ptr %filter, i64 24
   %providers = getelementptr inbounds i8, ptr %filter, i64 8
   %errp2.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
-  %tobool.i = icmp eq ptr %errp, null
-  %cmp.i = icmp eq ptr %errp, @error_fatal
-  %or.cond.i = or i1 %tobool.i, %cmp.i
-  %spec.select.i = select i1 %or.cond.i, ptr %_auto_errp_prop.i, ptr %errp
-  %u.i = getelementptr inbounds i8, ptr %filter, i64 16
-  %vcpus.i = getelementptr inbounds i8, ptr %filter, i64 24
-  %errp2.i11 = getelementptr inbounds i8, ptr %_auto_errp_prop.i10, i64 8
-  %spec.select.i15 = select i1 %or.cond.i, ptr %_auto_errp_prop.i10, ptr %errp
+  %spec.select.i = select i1 %or.cond.i14, ptr %_auto_errp_prop.i, ptr %errp
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc11
   %entry1.047 = phi ptr [ %entry1.045, %for.body.lr.ph ], [ %entry1.0, %for.inc11 ]
   %0 = load i8, ptr %has_providers, align 4
-  %1 = and i8 %0, 1
-  %tobool2.not = icmp eq i8 %1, 0
-  br i1 %tobool2.not, label %if.else, label %if.then
+  %tobool2 = trunc i8 %0 to i1
+  br i1 %tobool2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
   %request.042 = load ptr, ptr %providers, align 8
@@ -76,50 +75,48 @@ for.body5.lr.ph:                                  ; preds = %if.then
 for.body5:                                        ; preds = %for.body5.lr.ph, %invoke_stats_cb.exit
   %request.044 = phi ptr [ %request.042, %for.body5.lr.ph ], [ %request.0, %invoke_stats_cb.exit ]
   %value = getelementptr inbounds i8, ptr %request.044, i64 8
-  %2 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
   store ptr %errp, ptr %errp2.i, align 8
-  %tobool4.not.i = icmp eq ptr %2, null
+  %tobool4.not.i = icmp eq ptr %1, null
   br i1 %tobool4.not.i, label %if.end18.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body5
-  %3 = load i32, ptr %2, align 8
-  %4 = load i32, ptr %entry1.047, align 8
-  %cmp7.not.i = icmp eq i32 %3, %4
+  %2 = load i32, ptr %1, align 8
+  %3 = load i32, ptr %entry1.047, align 8
+  %cmp7.not.i = icmp eq i32 %2, %3
   br i1 %cmp7.not.i, label %if.end9.i, label %invoke_stats_cb.exit
 
 if.end9.i:                                        ; preds = %if.then5.i
-  %has_names.i = getelementptr inbounds i8, ptr %2, i64 4
-  %5 = load i8, ptr %has_names.i, align 4
-  %6 = and i8 %5, 1
-  %tobool10.not.i = icmp eq i8 %6, 0
-  br i1 %tobool10.not.i, label %if.end18.i, label %land.lhs.true.i
+  %has_names.i = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = load i8, ptr %has_names.i, align 4
+  %tobool10.i = trunc i8 %4 to i1
+  br i1 %tobool10.i, label %land.lhs.true.i, label %if.end18.i
 
 land.lhs.true.i:                                  ; preds = %if.end9.i
-  %names11.i = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load ptr, ptr %names11.i, align 8
-  %tobool12.not.i = icmp eq ptr %7, null
+  %names11.i = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load ptr, ptr %names11.i, align 8
+  %tobool12.not.i = icmp eq ptr %5, null
   br i1 %tobool12.not.i, label %invoke_stats_cb.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %land.lhs.true.i, %if.end9.i, %for.body5
-  %names.0.i = phi ptr [ null, %for.body5 ], [ null, %if.end9.i ], [ %7, %land.lhs.true.i ]
-  %8 = load i32, ptr %filter, align 8
-  switch i32 %8, label %sw.default.i [
+  %names.0.i = phi ptr [ null, %for.body5 ], [ null, %if.end9.i ], [ %5, %land.lhs.true.i ]
+  %6 = load i32, ptr %filter, align 8
+  switch i32 %6, label %sw.default.i [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.bb19.i
     i32 2, label %sw.epilog.i
   ]
 
 sw.bb19.i:                                        ; preds = %if.end18.i
-  %9 = load i8, ptr %u.i, align 8
-  %10 = and i8 %9, 1
-  %tobool20.not.i = icmp eq i8 %10, 0
-  br i1 %tobool20.not.i, label %sw.epilog.i, label %if.then21.i
+  %7 = load i8, ptr %u.i27, align 8
+  %tobool20.i = trunc i8 %7 to i1
+  br i1 %tobool20.i, label %if.then21.i, label %sw.epilog.i
 
 if.then21.i:                                      ; preds = %sw.bb19.i
-  %11 = load ptr, ptr %vcpus.i, align 8
-  %tobool23.not.i = icmp eq ptr %11, null
+  %8 = load ptr, ptr %vcpus.i30, align 8
+  %tobool23.not.i = icmp eq ptr %8, null
   br i1 %tobool23.not.i, label %invoke_stats_cb.exit, label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end18.i
@@ -127,11 +124,11 @@ sw.default.i:                                     ; preds = %if.end18.i
   unreachable
 
 sw.epilog.i:                                      ; preds = %if.then21.i, %sw.bb19.i, %if.end18.i, %if.end18.i
-  %targets.0.i = phi ptr [ null, %sw.bb19.i ], [ null, %if.end18.i ], [ null, %if.end18.i ], [ %11, %if.then21.i ]
-  %12 = load ptr, ptr %stats_cb.i, align 8
-  call void %12(ptr noundef nonnull %stats_results, i32 noundef %8, ptr noundef %names.0.i, ptr noundef %targets.0.i, ptr noundef nonnull %spec.select.i) #8
-  %13 = load ptr, ptr %spec.select.i, align 8
-  %tobool31.not.i = icmp eq ptr %13, null
+  %targets.0.i = phi ptr [ null, %sw.bb19.i ], [ null, %if.end18.i ], [ null, %if.end18.i ], [ %8, %if.then21.i ]
+  %9 = load ptr, ptr %stats_cb.i, align 8
+  call void %9(ptr noundef nonnull %stats_results, i32 noundef %6, ptr noundef %names.0.i, ptr noundef %targets.0.i, ptr noundef nonnull %spec.select.i) #8
+  %10 = load ptr, ptr %spec.select.i, align 8
+  %tobool31.not.i = icmp eq ptr %10, null
   br i1 %tobool31.not.i, label %sw.epilog.i.invoke_stats_cb.exit_crit_edge, label %invoke_stats_cb.exit.thread
 
 sw.epilog.i.invoke_stats_cb.exit_crit_edge:       ; preds = %sw.epilog.i
@@ -140,8 +137,8 @@ sw.epilog.i.invoke_stats_cb.exit_crit_edge:       ; preds = %sw.epilog.i
   br label %invoke_stats_cb.exit
 
 invoke_stats_cb.exit.thread:                      ; preds = %sw.epilog.i
-  %14 = load ptr, ptr %stats_results, align 8
-  call void @qapi_free_StatsResultList(ptr noundef %14) #8
+  %11 = load ptr, ptr %stats_results, align 8
+  call void @qapi_free_StatsResultList(ptr noundef %11) #8
   store ptr null, ptr %stats_results, align 8
   %_auto_errp_prop.val.i35 = load ptr, ptr %_auto_errp_prop.i, align 8
   %_auto_errp_prop.val17.i36 = load ptr, ptr %errp2.i, align 8
@@ -162,22 +159,21 @@ if.else:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i10)
   store ptr null, ptr %_auto_errp_prop.i10, align 8
   store ptr %errp, ptr %errp2.i11, align 8
-  %15 = load i32, ptr %filter, align 8
-  switch i32 %15, label %sw.default.i32 [
+  %12 = load i32, ptr %filter, align 8
+  switch i32 %12, label %sw.default.i32 [
     i32 0, label %sw.epilog.i18
     i32 1, label %sw.bb19.i26
     i32 2, label %sw.epilog.i18
   ]
 
 sw.bb19.i26:                                      ; preds = %if.else
-  %16 = load i8, ptr %u.i, align 8
-  %17 = and i8 %16, 1
-  %tobool20.not.i28 = icmp eq i8 %17, 0
-  br i1 %tobool20.not.i28, label %sw.epilog.i18, label %if.then21.i29
+  %13 = load i8, ptr %u.i27, align 8
+  %tobool20.i28 = trunc i8 %13 to i1
+  br i1 %tobool20.i28, label %if.then21.i29, label %sw.epilog.i18
 
 if.then21.i29:                                    ; preds = %sw.bb19.i26
-  %18 = load ptr, ptr %vcpus.i, align 8
-  %tobool23.not.i31 = icmp eq ptr %18, null
+  %14 = load ptr, ptr %vcpus.i30, align 8
+  %tobool23.not.i31 = icmp eq ptr %14, null
   br i1 %tobool23.not.i31, label %invoke_stats_cb.exit33.thread, label %sw.epilog.i18
 
 sw.default.i32:                                   ; preds = %if.else
@@ -185,12 +181,12 @@ sw.default.i32:                                   ; preds = %if.else
   unreachable
 
 sw.epilog.i18:                                    ; preds = %if.then21.i29, %sw.bb19.i26, %if.else, %if.else
-  %targets.0.i19 = phi ptr [ null, %sw.bb19.i26 ], [ null, %if.else ], [ null, %if.else ], [ %18, %if.then21.i29 ]
+  %targets.0.i19 = phi ptr [ null, %sw.bb19.i26 ], [ null, %if.else ], [ null, %if.else ], [ %14, %if.then21.i29 ]
   %stats_cb.i20 = getelementptr inbounds i8, ptr %entry1.047, i64 8
-  %19 = load ptr, ptr %stats_cb.i20, align 8
-  call void %19(ptr noundef nonnull %stats_results, i32 noundef %15, ptr noundef null, ptr noundef %targets.0.i19, ptr noundef nonnull %spec.select.i15) #8
-  %20 = load ptr, ptr %spec.select.i15, align 8
-  %tobool31.not.i21 = icmp eq ptr %20, null
+  %15 = load ptr, ptr %stats_cb.i20, align 8
+  call void %15(ptr noundef nonnull %stats_results, i32 noundef %12, ptr noundef null, ptr noundef %targets.0.i19, ptr noundef nonnull %spec.select.i15) #8
+  %16 = load ptr, ptr %spec.select.i15, align 8
+  %tobool31.not.i21 = icmp eq ptr %16, null
   br i1 %tobool31.not.i21, label %sw.epilog.i18.invoke_stats_cb.exit33.thread_crit_edge, label %invoke_stats_cb.exit33
 
 sw.epilog.i18.invoke_stats_cb.exit33.thread_crit_edge: ; preds = %sw.epilog.i18
@@ -206,8 +202,8 @@ invoke_stats_cb.exit33.thread:                    ; preds = %sw.epilog.i18.invok
   br label %for.inc11
 
 invoke_stats_cb.exit33:                           ; preds = %sw.epilog.i18
-  %21 = load ptr, ptr %stats_results, align 8
-  call void @qapi_free_StatsResultList(ptr noundef %21) #8
+  %17 = load ptr, ptr %stats_results, align 8
+  call void @qapi_free_StatsResultList(ptr noundef %17) #8
   store ptr null, ptr %stats_results, align 8
   %_auto_errp_prop.val.i24 = load ptr, ptr %_auto_errp_prop.i10, align 8
   %_auto_errp_prop.val17.i25 = load ptr, ptr %errp2.i11, align 8
@@ -222,8 +218,8 @@ for.inc11:                                        ; preds = %invoke_stats_cb.exi
   br i1 %tobool.not, label %for.end13, label %for.body, !llvm.loop !7
 
 for.end13:                                        ; preds = %for.inc11, %entry, %invoke_stats_cb.exit33
-  %22 = load ptr, ptr %stats_results, align 8
-  ret ptr %22
+  %18 = load ptr, ptr %stats_results, align 8
+  ret ptr %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

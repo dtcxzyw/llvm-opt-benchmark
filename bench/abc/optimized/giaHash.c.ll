@@ -21,18 +21,16 @@ define i32 @Gia_ManHashLookupInt(ptr nocapture noundef readonly %0, i32 noundef 
   %.val.i = load i32, ptr %4, align 4
   %5 = ashr i32 %spec.select, 1
   %6 = mul nsw i32 %5, 7937
-  %7 = add i32 %6, -2011
-  %8 = ashr i32 %spec.select14, 1
-  %9 = mul nsw i32 %8, 2971
-  %10 = add i32 %7, %9
-  %11 = and i32 %spec.select, 1
-  %.not.i.i = icmp eq i32 %11, 0
-  %12 = select i1 %.not.i.i, i32 0, i32 911
-  %13 = add i32 %10, %12
-  %14 = and i32 %spec.select14, 1
-  %.not11.i.i = icmp eq i32 %14, 0
-  %15 = select i1 %.not11.i.i, i32 0, i32 353
-  %16 = add i32 %13, %15
+  %7 = ashr i32 %spec.select14, 1
+  %8 = mul nsw i32 %7, 2971
+  %9 = trunc i32 %spec.select to i1
+  %10 = select i1 %9, i32 911, i32 0
+  %11 = trunc i32 %spec.select14 to i1
+  %12 = select i1 %11, i32 353, i32 0
+  %13 = add i32 %6, -2011
+  %14 = add i32 %13, %10
+  %15 = add i32 %14, %8
+  %16 = add i32 %15, %12
   %17 = urem i32 %16, %.val.i
   %18 = getelementptr i8, ptr %0, i64 104
   %.val21.i = load ptr, ptr %18, align 8
@@ -40,8 +38,8 @@ define i32 @Gia_ManHashLookupInt(ptr nocapture noundef readonly %0, i32 noundef 
   %20 = getelementptr inbounds i32, ptr %.val21.i, i64 %19
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i32, ptr %20, align 4
-  %.not27.i = icmp eq i32 %22, 0
-  br i1 %.not27.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
+  %.not26.i = icmp eq i32 %22, 0
+  br i1 %.not26.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %23 = getelementptr i8, ptr %0, i64 32
@@ -113,18 +111,16 @@ define internal fastcc noundef ptr @Gia_ManHashFind(ptr nocapture noundef readon
   %6 = mul nsw i32 %3, 2011
   %7 = ashr i32 %1, 1
   %8 = mul nsw i32 %7, 7937
-  %9 = add i32 %6, %8
-  %10 = ashr i32 %2, 1
-  %11 = mul nsw i32 %10, 2971
-  %12 = add i32 %9, %11
-  %13 = and i32 %1, 1
-  %.not.i = icmp eq i32 %13, 0
-  %14 = select i1 %.not.i, i32 0, i32 911
-  %15 = add i32 %12, %14
-  %16 = and i32 %2, 1
-  %.not11.i = icmp eq i32 %16, 0
-  %17 = select i1 %.not11.i, i32 0, i32 353
-  %18 = add i32 %15, %17
+  %9 = ashr i32 %2, 1
+  %10 = mul nsw i32 %9, 2971
+  %11 = trunc i32 %1 to i1
+  %12 = select i1 %11, i32 911, i32 0
+  %13 = trunc i32 %2 to i1
+  %14 = select i1 %13, i32 353, i32 0
+  %15 = add i32 %12, %8
+  %16 = add i32 %15, %6
+  %17 = add i32 %16, %10
+  %18 = add i32 %17, %14
   %19 = urem i32 %18, %.val
   %20 = getelementptr i8, ptr %0, i64 104
   %.val21 = load ptr, ptr %20, align 8
@@ -132,8 +128,8 @@ define internal fastcc noundef ptr @Gia_ManHashFind(ptr nocapture noundef readon
   %22 = getelementptr inbounds i32, ptr %.val21, i64 %21
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i32, ptr %22, align 4
-  %.not27 = icmp eq i32 %24, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i32 %24, 0
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %25 = getelementptr i8, ptr %0, i64 32
@@ -143,7 +139,7 @@ define internal fastcc noundef ptr @Gia_ManHashFind(ptr nocapture noundef readon
 
 27:                                               ; preds = %.lr.ph, %56
   %28 = phi i32 [ %24, %.lr.ph ], [ %58, %56 ]
-  %.028 = phi ptr [ %22, %.lr.ph ], [ %57, %56 ]
+  %.027 = phi ptr [ %22, %.lr.ph ], [ %57, %56 ]
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23, i64 %29
   %.val24 = load i64, ptr %30, align 4
@@ -191,7 +187,7 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %50
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %56, %Gia_ObjFaninLit2p.exit, %50, %4
-  %.0.lcssa = phi ptr [ %22, %4 ], [ %.028, %50 ], [ %.028, %Gia_ObjFaninLit2p.exit ], [ %57, %56 ]
+  %.0.lcssa = phi ptr [ %22, %4 ], [ %.027, %50 ], [ %.027, %Gia_ObjFaninLit2p.exit ], [ %57, %56 ]
   ret ptr %.0.lcssa
 }
 
@@ -224,18 +220,16 @@ define i32 @Gia_ManHashLookup(ptr nocapture noundef readonly %0, ptr noundef %1,
   %.val.i.i = load i32, ptr %24, align 4
   %25 = ashr i32 %spec.select.i, 1
   %26 = mul nsw i32 %25, 7937
-  %27 = add i32 %26, -2011
-  %28 = ashr i32 %spec.select14.i, 1
-  %29 = mul nsw i32 %28, 2971
-  %30 = add i32 %27, %29
-  %31 = and i32 %spec.select.i, 1
-  %.not.i.i.i = icmp eq i32 %31, 0
-  %32 = select i1 %.not.i.i.i, i32 0, i32 911
-  %33 = add i32 %30, %32
-  %34 = and i32 %spec.select14.i, 1
-  %.not11.i.i.i = icmp eq i32 %34, 0
-  %35 = select i1 %.not11.i.i.i, i32 0, i32 353
-  %36 = add i32 %33, %35
+  %27 = ashr i32 %spec.select14.i, 1
+  %28 = mul nsw i32 %27, 2971
+  %29 = trunc i32 %spec.select.i to i1
+  %30 = select i1 %29, i32 911, i32 0
+  %31 = trunc i32 %spec.select14.i to i1
+  %32 = select i1 %31, i32 353, i32 0
+  %33 = add i32 %26, -2011
+  %34 = add i32 %33, %30
+  %35 = add i32 %34, %28
+  %36 = add i32 %35, %32
   %37 = urem i32 %36, %.val.i.i
   %38 = getelementptr i8, ptr %0, i64 104
   %.val21.i.i = load ptr, ptr %38, align 8
@@ -243,8 +237,8 @@ define i32 @Gia_ManHashLookup(ptr nocapture noundef readonly %0, ptr noundef %1,
   %40 = getelementptr inbounds i32, ptr %.val21.i.i, i64 %39
   %41 = getelementptr inbounds i8, ptr %0, i64 40
   %42 = load i32, ptr %40, align 4
-  %.not27.i.i = icmp eq i32 %42, 0
-  br i1 %.not27.i.i, label %Gia_ManHashLookupInt.exit, label %.lr.ph.i.i
+  %.not26.i.i = icmp eq i32 %42, 0
+  br i1 %.not26.i.i, label %Gia_ManHashLookupInt.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
   %43 = getelementptr i8, ptr %0, i64 88
@@ -513,9 +507,9 @@ define void @Gia_ManHashStart(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr i8, ptr %0, i64 88
   br label %10
 
-10:                                               ; preds = %.lr.ph, %105
-  %11 = phi i32 [ %4, %.lr.ph ], [ %106, %105 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
+10:                                               ; preds = %.lr.ph, %107
+  %11 = phi i32 [ %4, %.lr.ph ], [ %108, %107 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %.val = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %.val, null
   br i1 %.not, label %.critedge, label %12
@@ -528,7 +522,7 @@ define void @Gia_ManHashStart(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %15 = and i64 %.val19, 536870911
   %16 = icmp eq i64 %15, 536870911
   %narrow.i.not = or i1 %.not.i, %16
-  br i1 %narrow.i.not, label %105, label %17
+  br i1 %narrow.i.not, label %107, label %17
 
 17:                                               ; preds = %12
   %18 = trunc i64 %.val19 to i32
@@ -565,119 +559,119 @@ Gia_ObjFaninLit2.exit:                            ; preds = %17, %35
   %39 = mul nsw i32 %38, 2011
   %40 = mul nsw i32 %21, 7937
   %41 = mul nsw i32 %29, 2971
-  %.not.i.i = icmp eq i32 %23, 0
-  %42 = select i1 %.not.i.i, i32 0, i32 911
-  %.not11.i.i = icmp eq i32 %32, 0
-  %43 = select i1 %.not11.i.i, i32 0, i32 353
-  %44 = add i32 %41, %40
-  %45 = add i32 %44, %42
-  %46 = add i32 %45, %43
-  %47 = add i32 %46, %39
-  %48 = urem i32 %47, %.val.i
+  %42 = trunc i32 %22 to i1
+  %43 = select i1 %42, i32 911, i32 0
+  %44 = trunc i64 %30 to i1
+  %45 = select i1 %44, i32 353, i32 0
+  %46 = add i32 %40, %45
+  %47 = add i32 %46, %43
+  %48 = add i32 %47, %41
+  %49 = add i32 %48, %39
+  %50 = urem i32 %49, %.val.i
   %.val21.i = load ptr, ptr %8, align 8
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %.val21.i, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %.not27.i = icmp eq i32 %51, 0
-  br i1 %.not27.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %.val21.i, i64 %51
+  %53 = load i32, ptr %52, align 4
+  %.not26.i = icmp eq i32 %53, 0
+  br i1 %.not26.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Gia_ObjFaninLit2.exit
   br i1 %.not.i21, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %74
-  %52 = phi i32 [ %76, %74 ], [ %51, %.lr.ph.i ]
-  %.028.i.us = phi ptr [ %75, %74 ], [ %50, %.lr.ph.i ]
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %53
-  %.val24.i.us = load i64, ptr %54, align 4
-  %55 = trunc i64 %.val24.i.us to i32
-  %56 = and i32 %55, 536870911
-  %57 = sub nsw i32 %52, %56
-  %58 = lshr i32 %55, 29
-  %59 = and i32 %58, 1
-  %60 = shl nsw i32 %57, 1
-  %61 = or disjoint i32 %60, %59
-  %62 = icmp eq i32 %61, %25
-  br i1 %62, label %63, label %74
+.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %76
+  %54 = phi i32 [ %78, %76 ], [ %53, %.lr.ph.i ]
+  %.027.i.us = phi ptr [ %77, %76 ], [ %52, %.lr.ph.i ]
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %55
+  %.val24.i.us = load i64, ptr %56, align 4
+  %57 = trunc i64 %.val24.i.us to i32
+  %58 = and i32 %57, 536870911
+  %59 = sub nsw i32 %54, %58
+  %60 = lshr i32 %57, 29
+  %61 = and i32 %60, 1
+  %62 = shl nsw i32 %59, 1
+  %63 = or disjoint i32 %62, %61
+  %64 = icmp eq i32 %63, %25
+  br i1 %64, label %65, label %76
 
-63:                                               ; preds = %.lr.ph.i.split.us
-  %64 = lshr i64 %.val24.i.us, 32
-  %65 = trunc i64 %64 to i32
-  %66 = and i32 %65, 536870911
-  %67 = sub nsw i32 %52, %66
-  %68 = lshr i64 %.val24.i.us, 61
-  %69 = trunc i64 %68 to i32
-  %70 = and i32 %69, 1
-  %71 = shl nsw i32 %67, 1
-  %72 = or disjoint i32 %71, %70
-  %73 = icmp eq i32 %72, %34
-  br i1 %73, label %Gia_ManHashFind.exit, label %74
+65:                                               ; preds = %.lr.ph.i.split.us
+  %66 = lshr i64 %.val24.i.us, 32
+  %67 = trunc i64 %66 to i32
+  %68 = and i32 %67, 536870911
+  %69 = sub nsw i32 %54, %68
+  %70 = lshr i64 %.val24.i.us, 61
+  %71 = trunc i64 %70 to i32
+  %72 = and i32 %71, 1
+  %73 = shl nsw i32 %69, 1
+  %74 = or disjoint i32 %73, %72
+  %75 = icmp eq i32 %74, %34
+  br i1 %75, label %Gia_ManHashFind.exit, label %76
 
-74:                                               ; preds = %63, %.lr.ph.i.split.us
+76:                                               ; preds = %65, %.lr.ph.i.split.us
   %.val22.i.us = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i32, ptr %.val22.i.us, i64 %53
-  %76 = load i32, ptr %75, align 4
-  %.not.i22.us = icmp eq i32 %76, 0
+  %77 = getelementptr inbounds i32, ptr %.val22.i.us, i64 %55
+  %78 = load i32, ptr %77, align 4
+  %.not.i22.us = icmp eq i32 %78, 0
   br i1 %.not.i22.us, label %Gia_ManHashFind.exit, label %.lr.ph.i.split.us, !llvm.loop !4
 
-.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %102
-  %77 = phi i32 [ %104, %102 ], [ %51, %.lr.ph.i ]
-  %.028.i = phi ptr [ %103, %102 ], [ %50, %.lr.ph.i ]
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %78
-  %.val24.i = load i64, ptr %79, align 4
-  %80 = trunc i64 %.val24.i to i32
-  %81 = and i32 %80, 536870911
-  %82 = sub nsw i32 %77, %81
-  %83 = lshr i32 %80, 29
-  %84 = and i32 %83, 1
-  %85 = shl nsw i32 %82, 1
-  %86 = or disjoint i32 %85, %84
-  %87 = icmp eq i32 %86, %25
-  br i1 %87, label %88, label %102
+.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %104
+  %79 = phi i32 [ %106, %104 ], [ %53, %.lr.ph.i ]
+  %.027.i = phi ptr [ %105, %104 ], [ %52, %.lr.ph.i ]
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %80
+  %.val24.i = load i64, ptr %81, align 4
+  %82 = trunc i64 %.val24.i to i32
+  %83 = and i32 %82, 536870911
+  %84 = sub nsw i32 %79, %83
+  %85 = lshr i32 %82, 29
+  %86 = and i32 %85, 1
+  %87 = shl nsw i32 %84, 1
+  %88 = or disjoint i32 %87, %86
+  %89 = icmp eq i32 %88, %25
+  br i1 %89, label %90, label %104
 
-88:                                               ; preds = %.lr.ph.i.split
-  %89 = lshr i64 %.val24.i, 32
-  %90 = trunc i64 %89 to i32
-  %91 = and i32 %90, 536870911
-  %92 = sub nsw i32 %77, %91
-  %93 = lshr i64 %.val24.i, 61
-  %94 = trunc i64 %93 to i32
-  %95 = and i32 %94, 1
-  %96 = shl nsw i32 %92, 1
-  %97 = or disjoint i32 %96, %95
-  %98 = icmp eq i32 %97, %34
-  br i1 %98, label %Gia_ObjFaninLit2p.exit.i, label %102
+90:                                               ; preds = %.lr.ph.i.split
+  %91 = lshr i64 %.val24.i, 32
+  %92 = trunc i64 %91 to i32
+  %93 = and i32 %92, 536870911
+  %94 = sub nsw i32 %79, %93
+  %95 = lshr i64 %.val24.i, 61
+  %96 = trunc i64 %95 to i32
+  %97 = and i32 %96, 1
+  %98 = shl nsw i32 %94, 1
+  %99 = or disjoint i32 %98, %97
+  %100 = icmp eq i32 %99, %34
+  br i1 %100, label %Gia_ObjFaninLit2p.exit.i, label %104
 
-Gia_ObjFaninLit2p.exit.i:                         ; preds = %88
-  %99 = getelementptr inbounds i32, ptr %.val20, i64 %78
-  %100 = load i32, ptr %99, align 4
-  %.not7.i.i = icmp eq i32 %100, 0
-  %spec.select.i.i = select i1 %.not7.i.i, i32 -1, i32 %100
-  %101 = icmp eq i32 %spec.select.i.i, %38
-  br i1 %101, label %Gia_ManHashFind.exit, label %102
+Gia_ObjFaninLit2p.exit.i:                         ; preds = %90
+  %101 = getelementptr inbounds i32, ptr %.val20, i64 %80
+  %102 = load i32, ptr %101, align 4
+  %.not7.i.i = icmp eq i32 %102, 0
+  %spec.select.i.i = select i1 %.not7.i.i, i32 -1, i32 %102
+  %103 = icmp eq i32 %spec.select.i.i, %38
+  br i1 %103, label %Gia_ManHashFind.exit, label %104
 
-102:                                              ; preds = %Gia_ObjFaninLit2p.exit.i, %88, %.lr.ph.i.split
+104:                                              ; preds = %Gia_ObjFaninLit2p.exit.i, %90, %.lr.ph.i.split
   %.val22.i = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds i32, ptr %.val22.i, i64 %78
-  %104 = load i32, ptr %103, align 4
-  %.not.i22 = icmp eq i32 %104, 0
+  %105 = getelementptr inbounds i32, ptr %.val22.i, i64 %80
+  %106 = load i32, ptr %105, align 4
+  %.not.i22 = icmp eq i32 %106, 0
   br i1 %.not.i22, label %Gia_ManHashFind.exit, label %.lr.ph.i.split, !llvm.loop !4
 
-Gia_ManHashFind.exit:                             ; preds = %102, %Gia_ObjFaninLit2p.exit.i, %74, %63, %Gia_ObjFaninLit2.exit
-  %.0.lcssa.i = phi ptr [ %50, %Gia_ObjFaninLit2.exit ], [ %.028.i.us, %63 ], [ %75, %74 ], [ %103, %102 ], [ %.028.i, %Gia_ObjFaninLit2p.exit.i ]
+Gia_ManHashFind.exit:                             ; preds = %104, %Gia_ObjFaninLit2p.exit.i, %76, %65, %Gia_ObjFaninLit2.exit
+  %.0.lcssa.i = phi ptr [ %52, %Gia_ObjFaninLit2.exit ], [ %.027.i.us, %65 ], [ %77, %76 ], [ %105, %104 ], [ %.027.i, %Gia_ObjFaninLit2p.exit.i ]
   store i32 %20, ptr %.0.lcssa.i, align 4
   %.pre = load i32, ptr %3, align 8
-  br label %105
+  br label %107
 
-105:                                              ; preds = %Gia_ManHashFind.exit, %12
-  %106 = phi i32 [ %.pre, %Gia_ManHashFind.exit ], [ %11, %12 ]
+107:                                              ; preds = %Gia_ManHashFind.exit, %12
+  %108 = phi i32 [ %.pre, %Gia_ManHashFind.exit ], [ %11, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next, %107
-  br i1 %108, label %10, label %.critedge, !llvm.loop !9
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next, %109
+  br i1 %110, label %10, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %10, %105, %1
+.critedge:                                        ; preds = %10, %107, %1
   ret void
 }
 
@@ -792,9 +786,9 @@ Abc_PrimeCudd.exit:                               ; preds = %18
 Vec_IntFill.exit:                                 ; preds = %26, %Abc_PrimeCudd.exit
   store i32 %16, ptr %.sroa.2.0..sroa_idx, align 4
   %29 = icmp sgt i32 %.sroa.2.0.copyload, 0
-  br i1 %29, label %.lr.ph61, label %.critedge
+  br i1 %29, label %.lr.ph60, label %.critedge
 
-.lr.ph61:                                         ; preds = %Vec_IntFill.exit
+.lr.ph60:                                         ; preds = %Vec_IntFill.exit
   %30 = getelementptr i8, ptr %0, i64 88
   %31 = getelementptr i8, ptr %0, i64 32
   %32 = getelementptr inbounds i8, ptr %0, i64 40
@@ -802,13 +796,13 @@ Vec_IntFill.exit:                                 ; preds = %26, %Abc_PrimeCudd.
   %.val35.pre = load ptr, ptr %30, align 8
   br label %33
 
-33:                                               ; preds = %.lr.ph61, %._crit_edge
-  %.val35 = phi ptr [ %.val35.pre, %.lr.ph61 ], [ %.val3570, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next, %._crit_edge ]
+33:                                               ; preds = %.lr.ph60, %._crit_edge
+  %.val35 = phi ptr [ %.val35.pre, %.lr.ph60 ], [ %.val3569, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next, %._crit_edge ]
   %34 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
-  %.not55 = icmp eq i32 %35, 0
-  br i1 %.not55, label %._crit_edge, label %.lr.ph.preheader
+  %.not54 = icmp eq i32 %35, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %33
   %36 = sext i32 %35 to i64
@@ -817,18 +811,18 @@ Vec_IntFill.exit:                                 ; preds = %26, %Abc_PrimeCudd.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Gia_ManHashFind.exit
   %.val37 = phi ptr [ %.val36, %Gia_ManHashFind.exit ], [ %.val35, %.lr.ph.preheader ]
-  %.02958.in = phi ptr [ %134, %Gia_ManHashFind.exit ], [ %37, %.lr.ph.preheader ]
-  %.02857 = phi i32 [ %.02958, %Gia_ManHashFind.exit ], [ %35, %.lr.ph.preheader ]
-  %.02958 = load i32, ptr %.02958.in, align 4
+  %.02957.in = phi ptr [ %136, %Gia_ManHashFind.exit ], [ %37, %.lr.ph.preheader ]
+  %.02856 = phi i32 [ %.02957, %Gia_ManHashFind.exit ], [ %35, %.lr.ph.preheader ]
+  %.02957 = load i32, ptr %.02957.in, align 4
   %.val31 = load ptr, ptr %31, align 8
-  %38 = sext i32 %.02857 to i64
+  %38 = sext i32 %.02856 to i64
   %39 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val31, i64 %38
   %40 = getelementptr inbounds i32, ptr %.val37, i64 %38
   store i32 0, ptr %40, align 4
   %.val32 = load i64, ptr %39, align 4
   %41 = trunc i64 %.val32 to i32
   %42 = and i32 %41, 536870911
-  %43 = sub nsw i32 %.02857, %42
+  %43 = sub nsw i32 %.02856, %42
   %44 = lshr i32 %41, 29
   %45 = and i32 %44, 1
   %46 = shl nsw i32 %43, 1
@@ -836,7 +830,7 @@ Vec_IntFill.exit:                                 ; preds = %26, %Abc_PrimeCudd.
   %48 = lshr i64 %.val32, 32
   %49 = trunc i64 %48 to i32
   %50 = and i32 %49, 536870911
-  %51 = sub nsw i32 %.02857, %50
+  %51 = sub nsw i32 %.02856, %50
   %52 = lshr i64 %.val32, 61
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 1
@@ -866,130 +860,130 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %.lr.ph, %58
   %67 = mul nsw i32 %66, 2011
   %68 = mul nsw i32 %43, 7937
   %69 = mul nsw i32 %51, 2971
-  %.not.i.i43 = icmp eq i32 %45, 0
-  %70 = select i1 %.not.i.i43, i32 0, i32 911
-  %.not11.i.i = icmp eq i32 %54, 0
-  %71 = select i1 %.not11.i.i, i32 0, i32 353
-  %72 = add i32 %69, %68
-  %73 = add i32 %72, %70
-  %74 = add i32 %73, %71
-  %75 = add i32 %74, %67
-  %76 = urem i32 %75, %.val.i42
+  %70 = trunc i32 %44 to i1
+  %71 = select i1 %70, i32 911, i32 0
+  %72 = trunc i64 %52 to i1
+  %73 = select i1 %72, i32 353, i32 0
+  %74 = add i32 %68, %73
+  %75 = add i32 %74, %71
+  %76 = add i32 %75, %69
+  %77 = add i32 %76, %67
+  %78 = urem i32 %77, %.val.i42
   %.val21.i = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %.val21.i, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %.not27.i = icmp eq i32 %79, 0
-  br i1 %.not27.i, label %Gia_ManHashFind.exit, label %.lr.ph.i44
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i32, ptr %.val21.i, i64 %79
+  %81 = load i32, ptr %80, align 4
+  %.not26.i = icmp eq i32 %81, 0
+  br i1 %.not26.i, label %Gia_ManHashFind.exit, label %.lr.ph.i43
 
-.lr.ph.i44:                                       ; preds = %Gia_ObjFaninLit2p.exit
+.lr.ph.i43:                                       ; preds = %Gia_ObjFaninLit2p.exit
   %.val23.i = load ptr, ptr %31, align 8
-  br i1 %.not.i40, label %.lr.ph.i44.split.us, label %.lr.ph.i44.split
+  br i1 %.not.i40, label %.lr.ph.i43.split.us, label %.lr.ph.i43.split
 
-.lr.ph.i44.split.us:                              ; preds = %.lr.ph.i44, %102
-  %80 = phi i32 [ %104, %102 ], [ %79, %.lr.ph.i44 ]
-  %.028.i.us = phi ptr [ %103, %102 ], [ %78, %.lr.ph.i44 ]
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23.i, i64 %81
-  %.val24.i.us = load i64, ptr %82, align 4
-  %83 = trunc i64 %.val24.i.us to i32
-  %84 = and i32 %83, 536870911
-  %85 = sub nsw i32 %80, %84
-  %86 = lshr i32 %83, 29
-  %87 = and i32 %86, 1
-  %88 = shl nsw i32 %85, 1
-  %89 = or disjoint i32 %88, %87
-  %90 = icmp eq i32 %89, %47
-  br i1 %90, label %91, label %102
+.lr.ph.i43.split.us:                              ; preds = %.lr.ph.i43, %104
+  %82 = phi i32 [ %106, %104 ], [ %81, %.lr.ph.i43 ]
+  %.027.i.us = phi ptr [ %105, %104 ], [ %80, %.lr.ph.i43 ]
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23.i, i64 %83
+  %.val24.i.us = load i64, ptr %84, align 4
+  %85 = trunc i64 %.val24.i.us to i32
+  %86 = and i32 %85, 536870911
+  %87 = sub nsw i32 %82, %86
+  %88 = lshr i32 %85, 29
+  %89 = and i32 %88, 1
+  %90 = shl nsw i32 %87, 1
+  %91 = or disjoint i32 %90, %89
+  %92 = icmp eq i32 %91, %47
+  br i1 %92, label %93, label %104
 
-91:                                               ; preds = %.lr.ph.i44.split.us
-  %92 = lshr i64 %.val24.i.us, 32
-  %93 = trunc i64 %92 to i32
-  %94 = and i32 %93, 536870911
-  %95 = sub nsw i32 %80, %94
-  %96 = lshr i64 %.val24.i.us, 61
-  %97 = trunc i64 %96 to i32
-  %98 = and i32 %97, 1
-  %99 = shl nsw i32 %95, 1
-  %100 = or disjoint i32 %99, %98
-  %101 = icmp eq i32 %100, %56
-  br i1 %101, label %Gia_ManHashFind.exit, label %102
+93:                                               ; preds = %.lr.ph.i43.split.us
+  %94 = lshr i64 %.val24.i.us, 32
+  %95 = trunc i64 %94 to i32
+  %96 = and i32 %95, 536870911
+  %97 = sub nsw i32 %82, %96
+  %98 = lshr i64 %.val24.i.us, 61
+  %99 = trunc i64 %98 to i32
+  %100 = and i32 %99, 1
+  %101 = shl nsw i32 %97, 1
+  %102 = or disjoint i32 %101, %100
+  %103 = icmp eq i32 %102, %56
+  br i1 %103, label %Gia_ManHashFind.exit, label %104
 
-102:                                              ; preds = %91, %.lr.ph.i44.split.us
+104:                                              ; preds = %93, %.lr.ph.i43.split.us
   %.val22.i.us = load ptr, ptr %30, align 8
-  %103 = getelementptr inbounds i32, ptr %.val22.i.us, i64 %81
-  %104 = load i32, ptr %103, align 4
-  %.not.i45.us = icmp eq i32 %104, 0
-  br i1 %.not.i45.us, label %Gia_ManHashFind.exit, label %.lr.ph.i44.split.us, !llvm.loop !4
+  %105 = getelementptr inbounds i32, ptr %.val22.i.us, i64 %83
+  %106 = load i32, ptr %105, align 4
+  %.not.i44.us = icmp eq i32 %106, 0
+  br i1 %.not.i44.us, label %Gia_ManHashFind.exit, label %.lr.ph.i43.split.us, !llvm.loop !4
 
-.lr.ph.i44.split:                                 ; preds = %.lr.ph.i44, %130
-  %105 = phi i32 [ %132, %130 ], [ %79, %.lr.ph.i44 ]
-  %.028.i = phi ptr [ %131, %130 ], [ %78, %.lr.ph.i44 ]
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23.i, i64 %106
-  %.val24.i = load i64, ptr %107, align 4
-  %108 = trunc i64 %.val24.i to i32
-  %109 = and i32 %108, 536870911
-  %110 = sub nsw i32 %105, %109
-  %111 = lshr i32 %108, 29
-  %112 = and i32 %111, 1
-  %113 = shl nsw i32 %110, 1
-  %114 = or disjoint i32 %113, %112
-  %115 = icmp eq i32 %114, %47
-  br i1 %115, label %116, label %130
+.lr.ph.i43.split:                                 ; preds = %.lr.ph.i43, %132
+  %107 = phi i32 [ %134, %132 ], [ %81, %.lr.ph.i43 ]
+  %.027.i = phi ptr [ %133, %132 ], [ %80, %.lr.ph.i43 ]
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23.i, i64 %108
+  %.val24.i = load i64, ptr %109, align 4
+  %110 = trunc i64 %.val24.i to i32
+  %111 = and i32 %110, 536870911
+  %112 = sub nsw i32 %107, %111
+  %113 = lshr i32 %110, 29
+  %114 = and i32 %113, 1
+  %115 = shl nsw i32 %112, 1
+  %116 = or disjoint i32 %115, %114
+  %117 = icmp eq i32 %116, %47
+  br i1 %117, label %118, label %132
 
-116:                                              ; preds = %.lr.ph.i44.split
-  %117 = lshr i64 %.val24.i, 32
-  %118 = trunc i64 %117 to i32
-  %119 = and i32 %118, 536870911
-  %120 = sub nsw i32 %105, %119
-  %121 = lshr i64 %.val24.i, 61
-  %122 = trunc i64 %121 to i32
-  %123 = and i32 %122, 1
-  %124 = shl nsw i32 %120, 1
-  %125 = or disjoint i32 %124, %123
-  %126 = icmp eq i32 %125, %56
-  br i1 %126, label %Gia_ObjFaninLit2p.exit.i, label %130
+118:                                              ; preds = %.lr.ph.i43.split
+  %119 = lshr i64 %.val24.i, 32
+  %120 = trunc i64 %119 to i32
+  %121 = and i32 %120, 536870911
+  %122 = sub nsw i32 %107, %121
+  %123 = lshr i64 %.val24.i, 61
+  %124 = trunc i64 %123 to i32
+  %125 = and i32 %124, 1
+  %126 = shl nsw i32 %122, 1
+  %127 = or disjoint i32 %126, %125
+  %128 = icmp eq i32 %127, %56
+  br i1 %128, label %Gia_ObjFaninLit2p.exit.i, label %132
 
-Gia_ObjFaninLit2p.exit.i:                         ; preds = %116
-  %127 = getelementptr inbounds i32, ptr %57, i64 %106
-  %128 = load i32, ptr %127, align 4
-  %.not7.i.i = icmp eq i32 %128, 0
-  %spec.select.i.i = select i1 %.not7.i.i, i32 -1, i32 %128
-  %129 = icmp eq i32 %spec.select.i.i, %66
-  br i1 %129, label %Gia_ManHashFind.exit, label %130
+Gia_ObjFaninLit2p.exit.i:                         ; preds = %118
+  %129 = getelementptr inbounds i32, ptr %57, i64 %108
+  %130 = load i32, ptr %129, align 4
+  %.not7.i.i = icmp eq i32 %130, 0
+  %spec.select.i.i = select i1 %.not7.i.i, i32 -1, i32 %130
+  %131 = icmp eq i32 %spec.select.i.i, %66
+  br i1 %131, label %Gia_ManHashFind.exit, label %132
 
-130:                                              ; preds = %Gia_ObjFaninLit2p.exit.i, %116, %.lr.ph.i44.split
+132:                                              ; preds = %Gia_ObjFaninLit2p.exit.i, %118, %.lr.ph.i43.split
   %.val22.i = load ptr, ptr %30, align 8
-  %131 = getelementptr inbounds i32, ptr %.val22.i, i64 %106
-  %132 = load i32, ptr %131, align 4
-  %.not.i45 = icmp eq i32 %132, 0
-  br i1 %.not.i45, label %Gia_ManHashFind.exit, label %.lr.ph.i44.split, !llvm.loop !4
+  %133 = getelementptr inbounds i32, ptr %.val22.i, i64 %108
+  %134 = load i32, ptr %133, align 4
+  %.not.i44 = icmp eq i32 %134, 0
+  br i1 %.not.i44, label %Gia_ManHashFind.exit, label %.lr.ph.i43.split, !llvm.loop !4
 
-Gia_ManHashFind.exit:                             ; preds = %130, %Gia_ObjFaninLit2p.exit.i, %102, %91, %Gia_ObjFaninLit2p.exit
-  %.0.lcssa.i = phi ptr [ %78, %Gia_ObjFaninLit2p.exit ], [ %.028.i.us, %91 ], [ %103, %102 ], [ %131, %130 ], [ %.028.i, %Gia_ObjFaninLit2p.exit.i ]
-  store i32 %.02857, ptr %.0.lcssa.i, align 4
+Gia_ManHashFind.exit:                             ; preds = %132, %Gia_ObjFaninLit2p.exit.i, %104, %93, %Gia_ObjFaninLit2p.exit
+  %.0.lcssa.i = phi ptr [ %80, %Gia_ObjFaninLit2p.exit ], [ %.027.i.us, %93 ], [ %105, %104 ], [ %133, %132 ], [ %.027.i, %Gia_ObjFaninLit2p.exit.i ]
+  store i32 %.02856, ptr %.0.lcssa.i, align 4
   %.val36 = load ptr, ptr %30, align 8
-  %133 = sext i32 %.02958 to i64
-  %134 = getelementptr inbounds i32, ptr %.val36, i64 %133
-  %.not = icmp eq i32 %.02958, 0
+  %135 = sext i32 %.02957 to i64
+  %136 = getelementptr inbounds i32, ptr %.val36, i64 %135
+  %.not = icmp eq i32 %.02957, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %Gia_ManHashFind.exit, %33
-  %.val3570 = phi ptr [ %.val35, %33 ], [ %.val36, %Gia_ManHashFind.exit ]
+  %.val3569 = phi ptr [ %.val35, %33 ], [ %.val36, %Gia_ManHashFind.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %33, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge, %Vec_IntFill.exit
-  %.not.i48 = icmp eq ptr %.sroa.4.0.copyload, null
-  br i1 %.not.i48, label %Vec_IntErase.exit, label %135
+  %.not.i47 = icmp eq ptr %.sroa.4.0.copyload, null
+  br i1 %.not.i47, label %Vec_IntErase.exit, label %137
 
-135:                                              ; preds = %.critedge
+137:                                              ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %.sroa.4.0.copyload) #24
   br label %Vec_IntErase.exit
 
-Vec_IntErase.exit:                                ; preds = %.critedge, %135
+Vec_IntErase.exit:                                ; preds = %.critedge, %137
   ret void
 }
 
@@ -1140,10 +1134,10 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %.val.i71 = load i32, ptr %36, align 4
   %37 = lshr i32 %spec.select, 1
   %38 = mul nsw i32 %37, 7937
-  %39 = add nsw i32 %38, -2011
-  %40 = lshr i32 %spec.select68, 1
-  %41 = mul nsw i32 %40, 2971
-  %42 = add i32 %39, %41
+  %39 = lshr i32 %spec.select68, 1
+  %40 = mul nsw i32 %39, 2971
+  %41 = add nsw i32 %38, -2011
+  %42 = add i32 %41, %40
   %43 = urem i32 %42, %.val.i71
   %44 = getelementptr i8, ptr %0, i64 104
   %.val21.i = load ptr, ptr %44, align 8
@@ -1151,8 +1145,8 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %46 = getelementptr inbounds i32, ptr %.val21.i, i64 %45
   %47 = getelementptr inbounds i8, ptr %0, i64 40
   %48 = load i32, ptr %46, align 4
-  %.not27.i = icmp eq i32 %48, 0
-  br i1 %.not27.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
+  %.not26.i = icmp eq i32 %48, 0
+  br i1 %.not26.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %49 = getelementptr i8, ptr %0, i64 32
@@ -1162,7 +1156,7 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 51:                                               ; preds = %80, %.lr.ph.i
   %.pr = phi i32 [ %48, %.lr.ph.i ], [ %82, %80 ]
-  %.028.i = phi ptr [ %46, %.lr.ph.i ], [ %81, %80 ]
+  %.027.i = phi ptr [ %46, %.lr.ph.i ], [ %81, %80 ]
   %52 = sext i32 %.pr to i64
   %53 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23.i, i64 %52
   %.val24.i = load i64, ptr %53, align 4
@@ -1213,7 +1207,7 @@ Gia_ManHashFind.exit:                             ; preds = %Gia_ObjFaninLit2p.e
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, 1
   store i64 %85, ptr %83, align 8
-  %86 = load i32, ptr %.028.i, align 4
+  %86 = load i32, ptr %.027.i, align 4
   %87 = shl nsw i32 %86, 1
   %88 = or disjoint i32 %87, %.1
   br label %105
@@ -2408,18 +2402,16 @@ define i32 @Gia_ManHashAndTry(ptr nocapture noundef readonly %0, i32 noundef %1,
   %.val.i = load i32, ptr %17, align 4
   %18 = lshr i32 %spec.select, 1
   %19 = mul nsw i32 %18, 7937
-  %20 = add nsw i32 %19, -2011
-  %21 = lshr i32 %spec.select32, 1
-  %22 = mul nsw i32 %21, 2971
-  %23 = add i32 %20, %22
-  %24 = and i32 %spec.select, 1
-  %.not.i.i = icmp eq i32 %24, 0
-  %25 = select i1 %.not.i.i, i32 0, i32 911
-  %26 = add i32 %23, %25
-  %27 = and i32 %spec.select32, 1
-  %.not11.i.i = icmp eq i32 %27, 0
-  %28 = select i1 %.not11.i.i, i32 0, i32 353
-  %29 = add i32 %26, %28
+  %20 = lshr i32 %spec.select32, 1
+  %21 = mul nsw i32 %20, 2971
+  %22 = trunc i32 %spec.select to i1
+  %23 = select i1 %22, i32 911, i32 0
+  %24 = trunc i32 %spec.select32 to i1
+  %25 = select i1 %24, i32 353, i32 0
+  %26 = add nsw i32 %19, -2011
+  %27 = add nsw i32 %26, %23
+  %28 = add i32 %27, %21
+  %29 = add i32 %28, %25
   %30 = urem i32 %29, %.val.i
   %31 = getelementptr i8, ptr %0, i64 104
   %.val21.i = load ptr, ptr %31, align 8
@@ -2427,8 +2419,8 @@ define i32 @Gia_ManHashAndTry(ptr nocapture noundef readonly %0, i32 noundef %1,
   %33 = getelementptr inbounds i32, ptr %.val21.i, i64 %32
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load i32, ptr %33, align 4
-  %.not27.i = icmp eq i32 %35, 0
-  br i1 %.not27.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
+  %.not26.i = icmp eq i32 %35, 0
+  br i1 %.not26.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
   %36 = getelementptr i8, ptr %0, i64 32

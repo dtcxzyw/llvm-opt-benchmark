@@ -628,136 +628,135 @@ define internal i32 @dissect_netlink_netfilter(ptr noundef %0, ptr noundef %1, p
   %trunc = trunc i16 %26 to i8
   %switch.tableidx = add i8 %trunc, -2
   %27 = icmp ult i8 %switch.tableidx, 9
-  br i1 %27, label %switch.hole_check, label %33
+  br i1 %27, label %switch.hole_check, label %32
 
 switch.hole_check:                                ; preds = %10
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
-  %28 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %28, 0
-  br i1 %switch.lobit.not, label %33, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %32
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %29 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_netlink_netfilter, i64 0, i64 %29
+  %28 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_netlink_netfilter, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %30 = load i32, ptr %switch.load, align 4
-  %31 = load i32, ptr %18, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %31) #4
-  br label %33
+  %29 = load i32, ptr %switch.load, align 4
+  %30 = load i32, ptr %18, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %30) #4
+  br label %32
 
-33:                                               ; preds = %switch.hole_check, %10, %switch.lookup
+32:                                               ; preds = %switch.hole_check, %10, %switch.lookup
   store ptr %1, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
-  store i16 0, ptr %34, align 8
-  %35 = load i16, ptr %24, align 4
-  %36 = lshr i16 %35, 8
-  %trunc59 = trunc i16 %36 to i8
-  switch i8 %trunc59, label %100 [
-    i8 1, label %37
-    i8 2, label %50
-    i8 3, label %63
-    i8 4, label %80
-    i8 6, label %87
+  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  store i16 0, ptr %33, align 8
+  %34 = load i16, ptr %24, align 4
+  %35 = lshr i16 %34, 8
+  %trunc59 = trunc i16 %35 to i8
+  switch i8 %trunc59, label %99 [
+    i8 1, label %36
+    i8 2, label %49
+    i8 3, label %62
+    i8 4, label %79
+    i8 6, label %86
   ]
 
-37:                                               ; preds = %33
-  %38 = load i32, ptr @hf_netlink_netfilter_family, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %38, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
-  %40 = add i32 %20, 1
-  %41 = load i32, ptr @hf_netlink_netfilter_version, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 1, i32 noundef 0) #4
-  %43 = add i32 %20, 2
-  %44 = load i32, ptr @hf_netlink_netfilter_resid, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef 0) #4
-  %46 = add i32 %20, 4
-  %47 = load i32, ptr @hf_nfct_attr, align 4
-  %48 = load i32, ptr @ett_nfct_attr, align 4
-  %49 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %47, i32 noundef %48, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %46, ptr noundef nonnull @dissect_nfct_attrs) #4
+36:                                               ; preds = %32
+  %37 = load i32, ptr @hf_netlink_netfilter_family, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %37, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
+  %39 = add i32 %20, 1
+  %40 = load i32, ptr @hf_netlink_netfilter_version, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0) #4
+  %42 = add i32 %20, 2
+  %43 = load i32, ptr @hf_netlink_netfilter_resid, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0) #4
+  %45 = add i32 %20, 4
+  %46 = load i32, ptr @hf_nfct_attr, align 4
+  %47 = load i32, ptr @ett_nfct_attr, align 4
+  %48 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %46, i32 noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %45, ptr noundef nonnull @dissect_nfct_attrs) #4
   br label %dissect_netfilter_queue.exit
 
-50:                                               ; preds = %33
-  %51 = load i32, ptr @hf_netlink_netfilter_family, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %51, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
-  %53 = add i32 %20, 1
-  %54 = load i32, ptr @hf_netlink_netfilter_version, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %54, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0) #4
-  %56 = add i32 %20, 2
-  %57 = load i32, ptr @hf_netlink_netfilter_resid, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 2, i32 noundef 0) #4
-  %59 = add i32 %20, 4
-  %60 = load i32, ptr @hf_nfexp_attr, align 4
-  %61 = load i32, ptr @ett_nfexp_attr, align 4
-  %62 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %59, ptr noundef nonnull @dissect_nfexp_attrs) #4
+49:                                               ; preds = %32
+  %50 = load i32, ptr @hf_netlink_netfilter_family, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %50, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
+  %52 = add i32 %20, 1
+  %53 = load i32, ptr @hf_netlink_netfilter_version, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0) #4
+  %55 = add i32 %20, 2
+  %56 = load i32, ptr @hf_netlink_netfilter_resid, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0) #4
+  %58 = add i32 %20, 4
+  %59 = load i32, ptr @hf_nfexp_attr, align 4
+  %60 = load i32, ptr @ett_nfexp_attr, align 4
+  %61 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %59, i32 noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %58, ptr noundef nonnull @dissect_nfexp_attrs) #4
   br label %dissect_netfilter_queue.exit
 
-63:                                               ; preds = %33
-  %64 = load i32, ptr @hf_netlink_netfilter_family, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %64, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
-  %66 = add i32 %20, 1
-  %67 = load i32, ptr @hf_netlink_netfilter_version, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 1, i32 noundef 0) #4
-  %69 = add i32 %20, 2
-  %70 = load i32, ptr @hf_netlink_netfilter_resid, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0) #4
-  %72 = add i32 %20, 4
-  %trunc.i = trunc i16 %35 to i8
-  %73 = icmp ult i8 %trunc.i, 3
-  br i1 %73, label %switch.lookup62, label %dissect_netfilter_queue.exit
+62:                                               ; preds = %32
+  %63 = load i32, ptr @hf_netlink_netfilter_family, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %63, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
+  %65 = add i32 %20, 1
+  %66 = load i32, ptr @hf_netlink_netfilter_version, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 1, i32 noundef 0) #4
+  %68 = add i32 %20, 2
+  %69 = load i32, ptr @hf_netlink_netfilter_resid, align 4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0) #4
+  %71 = add i32 %20, 4
+  %trunc.i = trunc i16 %34 to i8
+  %72 = icmp ult i8 %trunc.i, 3
+  br i1 %72, label %switch.lookup62, label %dissect_netfilter_queue.exit
 
-switch.lookup62:                                  ; preds = %63
-  %trunc.i.mask = and i16 %35, 3
-  %74 = zext nneg i16 %trunc.i.mask to i64
-  %switch.gep63 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_netlink_netfilter.2, i64 0, i64 %74
+switch.lookup62:                                  ; preds = %62
+  %trunc.i.mask = and i16 %34, 3
+  %73 = zext nneg i16 %trunc.i.mask to i64
+  %switch.gep63 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_netlink_netfilter.2, i64 0, i64 %73
   %switch.load64 = load ptr, ptr %switch.gep63, align 8
-  %trunc.i.mask69 = and i16 %35, 3
-  %75 = zext nneg i16 %trunc.i.mask69 to i64
-  %switch.gep65 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_netlink_netfilter.3, i64 0, i64 %75
+  %trunc.i.mask69 = and i16 %34, 3
+  %74 = zext nneg i16 %trunc.i.mask69 to i64
+  %switch.gep65 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_netlink_netfilter.3, i64 0, i64 %74
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
-  %trunc.i.mask70 = and i16 %35, 3
-  %76 = zext nneg i16 %trunc.i.mask70 to i64
-  %switch.gep67 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_netlink_netfilter.4, i64 0, i64 %76
+  %trunc.i.mask70 = and i16 %34, 3
+  %75 = zext nneg i16 %trunc.i.mask70 to i64
+  %switch.gep67 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_netlink_netfilter.4, i64 0, i64 %75
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
-  %77 = load i32, ptr %switch.load64, align 4
-  %78 = load i32, ptr %switch.load66, align 4
-  %79 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %77, i32 noundef %78, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %72, ptr noundef nonnull %switch.load68) #4
+  %76 = load i32, ptr %switch.load64, align 4
+  %77 = load i32, ptr %switch.load66, align 4
+  %78 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %76, i32 noundef %77, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %71, ptr noundef nonnull %switch.load68) #4
   br label %dissect_netfilter_queue.exit
 
-80:                                               ; preds = %33
-  %81 = and i16 %35, 255
-  %cond.i = icmp eq i16 %81, 0
-  br i1 %cond.i, label %82, label %dissect_netfilter_queue.exit
+79:                                               ; preds = %32
+  %80 = and i16 %34, 255
+  %cond.i = icmp eq i16 %80, 0
+  br i1 %cond.i, label %81, label %dissect_netfilter_queue.exit
 
-82:                                               ; preds = %80
-  %83 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %20) #4
-  %84 = load ptr, ptr @nflog_handle, align 8
-  %85 = tail call i32 @call_dissector(ptr noundef %84, ptr noundef %83, ptr noundef nonnull %1, ptr noundef %17) #4
-  %86 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+81:                                               ; preds = %79
+  %82 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %20) #4
+  %83 = load ptr, ptr @nflog_handle, align 8
+  %84 = tail call i32 @call_dissector(ptr noundef %83, ptr noundef %82, ptr noundef nonnull %1, ptr noundef %17) #4
+  %85 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   br label %dissect_netfilter_queue.exit
 
-87:                                               ; preds = %33
-  %88 = load i32, ptr @hf_netlink_netfilter_family, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %88, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
-  %90 = add i32 %20, 1
-  %91 = load i32, ptr @hf_netlink_netfilter_version, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef 0) #4
-  %93 = add i32 %20, 2
-  %94 = load i32, ptr @hf_netlink_netfilter_resid, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef 0) #4
-  %96 = add i32 %20, 4
-  %97 = load i32, ptr @hf_ipset_attr, align 4
-  %98 = load i32, ptr @ett_ipset_attr, align 4
-  %99 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %97, i32 noundef %98, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %96, ptr noundef nonnull @dissect_ipset_attrs) #4
+86:                                               ; preds = %32
+  %87 = load i32, ptr @hf_netlink_netfilter_family, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %87, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
+  %89 = add i32 %20, 1
+  %90 = load i32, ptr @hf_netlink_netfilter_version, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 1, i32 noundef 0) #4
+  %92 = add i32 %20, 2
+  %93 = load i32, ptr @hf_netlink_netfilter_resid, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0) #4
+  %95 = add i32 %20, 4
+  %96 = load i32, ptr @hf_ipset_attr, align 4
+  %97 = load i32, ptr @ett_ipset_attr, align 4
+  %98 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %96, i32 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %95, ptr noundef nonnull @dissect_ipset_attrs) #4
   br label %dissect_netfilter_queue.exit
 
-100:                                              ; preds = %33
-  %101 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %20) #4
-  %102 = tail call i32 @call_data_dissector(ptr noundef %101, ptr noundef nonnull %1, ptr noundef %17) #4
-  %103 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+99:                                               ; preds = %32
+  %100 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %20) #4
+  %101 = tail call i32 @call_data_dissector(ptr noundef %100, ptr noundef nonnull %1, ptr noundef %17) #4
+  %102 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   br label %dissect_netfilter_queue.exit
 
-dissect_netfilter_queue.exit:                     ; preds = %63, %82, %80, %switch.lookup62, %100, %87, %50, %37
-  %.0 = phi i32 [ %103, %100 ], [ %99, %87 ], [ %62, %50 ], [ %49, %37 ], [ %72, %63 ], [ %79, %switch.lookup62 ], [ %86, %82 ], [ %20, %80 ]
+dissect_netfilter_queue.exit:                     ; preds = %62, %81, %79, %switch.lookup62, %99, %86, %49, %36
+  %.0 = phi i32 [ %102, %99 ], [ %98, %86 ], [ %61, %49 ], [ %48, %36 ], [ %71, %62 ], [ %78, %switch.lookup62 ], [ %85, %81 ], [ %20, %79 ]
   ret i32 %.0
 }
 

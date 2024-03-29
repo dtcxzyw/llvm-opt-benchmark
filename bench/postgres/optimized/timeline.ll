@@ -22,21 +22,19 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3, %.outer
-  %.048.ph105 = phi i8 [ 0, %3 ], [ %.1, %.outer ]
-  %.049.ph104 = phi ptr [ %0, %3 ], [ %.2, %.outer ]
-  %.051.ph103 = phi i64 [ 0, %3 ], [ %49, %.outer ]
-  %.052.ph102 = phi i32 [ 0, %3 ], [ %34, %.outer ]
-  %.053.ph101 = phi i32 [ 0, %3 ], [ %36, %.outer ]
-  %.054.ph100 = phi ptr [ null, %3 ], [ %39, %.outer ]
+  %.049.ph102 = phi ptr [ %0, %3 ], [ %.2, %.outer ]
+  %.051.ph101 = phi i64 [ 0, %3 ], [ %48, %.outer ]
+  %.052.ph100 = phi i32 [ 0, %3 ], [ %33, %.outer ]
+  %.053.ph99 = phi i32 [ 0, %3 ], [ %35, %.outer ]
+  %.054.ph98 = phi ptr [ null, %3 ], [ %38, %.outer ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
-  %.04892 = phi i8 [ %.048.ph105, %.preheader.lr.ph ], [ %.1, %.thread ]
-  %.04991 = phi ptr [ %.049.ph104, %.preheader.lr.ph ], [ %.2, %.thread ]
+  %.04989 = phi ptr [ %.049.ph102, %.preheader.lr.ph ], [ %.2, %.thread ]
   br label %7
 
 7:                                                ; preds = %.preheader, %9
-  %.150 = phi ptr [ %10, %9 ], [ %.04991, %.preheader ]
+  %.150 = phi ptr [ %10, %9 ], [ %.04989, %.preheader ]
   %8 = load i8, ptr %.150, align 1
   switch i8 %8, label %9 [
     i8 0, label %.loopexit
@@ -54,10 +52,10 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
 
 .loopexit:                                        ; preds = %7, %11
   %.2 = phi ptr [ %12, %11 ], [ %.150, %7 ]
-  %.1 = phi i8 [ %.04892, %11 ], [ 1, %7 ]
-  %13 = load i8, ptr %.04991, align 1
-  %.not6588 = icmp eq i8 %13, 0
-  br i1 %.not6588, label %.thread, label %.lr.ph
+  %.1 = phi i1 [ false, %11 ], [ true, %7 ]
+  %13 = load i8, ptr %.04989, align 1
+  %.not6487 = icmp eq i8 %13, 0
+  br i1 %.not6487, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
   %14 = tail call ptr @__ctype_b_loc() #5
@@ -65,127 +63,123 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br label %19
 
 16:                                               ; preds = %19
-  %17 = getelementptr i8, ptr %.089, i64 1
+  %17 = getelementptr i8, ptr %.088, i64 1
   %18 = load i8, ptr %17, align 1
-  %.not65 = icmp eq i8 %18, 0
-  br i1 %.not65, label %.thread, label %19, !llvm.loop !7
+  %.not64 = icmp eq i8 %18, 0
+  br i1 %.not64, label %.thread, label %19, !llvm.loop !7
 
 19:                                               ; preds = %.lr.ph, %16
   %20 = phi i8 [ %13, %.lr.ph ], [ %18, %16 ]
-  %.089 = phi ptr [ %.04991, %.lr.ph ], [ %17, %16 ]
+  %.088 = phi ptr [ %.04989, %.lr.ph ], [ %17, %16 ]
   %21 = zext i8 %20 to i64
   %22 = getelementptr i16, ptr %15, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8192
-  %.not66 = icmp eq i16 %24, 0
-  br i1 %.not66, label %25, label %16
+  %.not65 = icmp eq i16 %24, 0
+  br i1 %.not65, label %25, label %16
 
 25:                                               ; preds = %19
   %cond = icmp eq i8 %20, 35
-  br i1 %cond, label %.thread, label %27
+  br i1 %cond, label %.thread, label %26
 
 .thread:                                          ; preds = %16, %.loopexit, %25
-  %26 = and i8 %.1, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %.preheader, label %.outer._crit_edge, !llvm.loop !8
+  br i1 %.1, label %.outer._crit_edge, label %.preheader, !llvm.loop !8
 
-27:                                               ; preds = %25
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.04991, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
-  %29 = icmp slt i32 %28, 1
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %25
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.04989, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %28 = icmp slt i32 %27, 1
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %27
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04991) #6
+29:                                               ; preds = %26
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04989) #6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.2) #6
   call void @exit(i32 noundef 1) #7
   unreachable
 
-31:                                               ; preds = %27
-  %.not67 = icmp eq i32 %28, 3
-  br i1 %.not67, label %33, label %32
+30:                                               ; preds = %26
+  %.not66 = icmp eq i32 %27, 3
+  br i1 %.not66, label %32, label %31
 
-32:                                               ; preds = %31
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04991) #6
+31:                                               ; preds = %30
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04989) #6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.3) #6
   call void @exit(i32 noundef 1) #7
   unreachable
 
-33:                                               ; preds = %31
-  %.not68 = icmp eq ptr %.054.ph100, null
-  %34 = load i32, ptr %4, align 4
-  %.not69 = icmp ugt i32 %34, %.052.ph102
-  %or.cond = select i1 %.not68, i1 true, i1 %.not69
-  br i1 %or.cond, label %.outer, label %35
+32:                                               ; preds = %30
+  %.not67 = icmp eq ptr %.054.ph98, null
+  %33 = load i32, ptr %4, align 4
+  %.not68 = icmp ugt i32 %33, %.052.ph100
+  %or.cond = select i1 %.not67, i1 true, i1 %.not68
+  br i1 %or.cond, label %.outer, label %34
 
-35:                                               ; preds = %33
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.04991) #6
+34:                                               ; preds = %32
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.04989) #6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.5) #6
   call void @exit(i32 noundef 1) #7
   unreachable
 
-.outer:                                           ; preds = %33
-  %36 = add i32 %.053.ph101, 1
-  %37 = sext i32 %36 to i64
-  %38 = mul nsw i64 %37, 24
-  %39 = call ptr @pg_realloc(ptr noundef %.054.ph100, i64 noundef %38) #6
-  %40 = sext i32 %.053.ph101 to i64
-  %41 = getelementptr %struct.TimeLineHistoryEntry, ptr %39, i64 %40
-  %42 = load i32, ptr %4, align 4
-  store i32 %42, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
-  store i64 %.051.ph103, ptr %43, align 8
-  %44 = load i32, ptr %5, align 4
-  %45 = zext i32 %44 to i64
-  %46 = shl nuw i64 %45, 32
-  %47 = load i32, ptr %6, align 4
-  %48 = zext i32 %47 to i64
-  %49 = or disjoint i64 %46, %48
-  %50 = getelementptr inbounds i8, ptr %41, i64 16
-  store i64 %49, ptr %50, align 8
-  %51 = and i8 %.1, 1
-  %.not90 = icmp eq i8 %51, 0
-  br i1 %.not90, label %.preheader.lr.ph, label %.outer._crit_edge, !llvm.loop !8
+.outer:                                           ; preds = %32
+  %35 = add i32 %.053.ph99, 1
+  %36 = sext i32 %35 to i64
+  %37 = mul nsw i64 %36, 24
+  %38 = call ptr @pg_realloc(ptr noundef %.054.ph98, i64 noundef %37) #6
+  %39 = sext i32 %.053.ph99 to i64
+  %40 = getelementptr %struct.TimeLineHistoryEntry, ptr %38, i64 %39
+  %41 = load i32, ptr %4, align 4
+  store i32 %41, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  store i64 %.051.ph101, ptr %42, align 8
+  %43 = load i32, ptr %5, align 4
+  %44 = zext i32 %43 to i64
+  %45 = shl nuw i64 %44, 32
+  %46 = load i32, ptr %6, align 4
+  %47 = zext i32 %46 to i64
+  %48 = or disjoint i64 %45, %47
+  %49 = getelementptr inbounds i8, ptr %40, i64 16
+  store i64 %48, ptr %49, align 8
+  br i1 %.1, label %.outer._crit_edge, label %.preheader.lr.ph, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.outer, %.thread
-  %.054.ph.lcssa87 = phi ptr [ %.054.ph100, %.thread ], [ %39, %.outer ]
-  %.053.ph.lcssa84 = phi i32 [ %.053.ph101, %.thread ], [ %36, %.outer ]
-  %.052.ph.lcssa81 = phi i32 [ %.052.ph102, %.thread ], [ %34, %.outer ]
-  %.051.ph.lcssa78 = phi i64 [ %.051.ph103, %.thread ], [ %49, %.outer ]
-  %.not60 = icmp eq ptr %.054.ph.lcssa87, null
-  %.not61 = icmp ult i32 %.052.ph.lcssa81, %1
-  %or.cond70 = select i1 %.not60, i1 true, i1 %.not61
-  br i1 %or.cond70, label %53, label %52
+  %.054.ph.lcssa86 = phi ptr [ %.054.ph98, %.thread ], [ %38, %.outer ]
+  %.053.ph.lcssa83 = phi i32 [ %.053.ph99, %.thread ], [ %35, %.outer ]
+  %.052.ph.lcssa80 = phi i32 [ %.052.ph100, %.thread ], [ %33, %.outer ]
+  %.051.ph.lcssa77 = phi i64 [ %.051.ph101, %.thread ], [ %48, %.outer ]
+  %.not = icmp eq ptr %.054.ph.lcssa86, null
+  %.not60 = icmp ult i32 %.052.ph.lcssa80, %1
+  %or.cond69 = select i1 %.not, i1 true, i1 %.not60
+  br i1 %or.cond69, label %51, label %50
 
-52:                                               ; preds = %.outer._crit_edge
+50:                                               ; preds = %.outer._crit_edge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6) #6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.7) #6
   call void @exit(i32 noundef 1) #7
   unreachable
 
-53:                                               ; preds = %.outer._crit_edge
-  %54 = add i32 %.053.ph.lcssa84, 1
-  br i1 %.not60, label %59, label %55
+51:                                               ; preds = %.outer._crit_edge
+  %52 = add i32 %.053.ph.lcssa83, 1
+  br i1 %.not, label %57, label %53
 
-55:                                               ; preds = %53
-  %56 = sext i32 %54 to i64
-  %57 = mul nsw i64 %56, 24
-  %58 = call ptr @pg_realloc(ptr noundef nonnull %.054.ph.lcssa87, i64 noundef %57) #6
-  br label %61
+53:                                               ; preds = %51
+  %54 = sext i32 %52 to i64
+  %55 = mul nsw i64 %54, 24
+  %56 = call ptr @pg_realloc(ptr noundef nonnull %.054.ph.lcssa86, i64 noundef %55) #6
+  br label %59
 
-59:                                               ; preds = %53
-  %60 = call ptr @pg_malloc(i64 noundef 24) #6
-  br label %61
+57:                                               ; preds = %51
+  %58 = call ptr @pg_malloc(i64 noundef 24) #6
+  br label %59
 
-61:                                               ; preds = %59, %55
-  %.155 = phi ptr [ %58, %55 ], [ %60, %59 ]
-  %62 = sext i32 %.053.ph.lcssa84 to i64
-  %63 = getelementptr %struct.TimeLineHistoryEntry, ptr %.155, i64 %62
-  store i32 %1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store i64 %.051.ph.lcssa78, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 16
-  store i64 0, ptr %65, align 8
-  store i32 %54, ptr %2, align 4
+59:                                               ; preds = %57, %53
+  %.155 = phi ptr [ %56, %53 ], [ %58, %57 ]
+  %60 = sext i32 %.053.ph.lcssa83 to i64
+  %61 = getelementptr %struct.TimeLineHistoryEntry, ptr %.155, i64 %60
+  store i32 %1, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  store i64 %.051.ph.lcssa77, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %61, i64 16
+  store i64 0, ptr %63, align 8
+  store i32 %52, ptr %2, align 4
   ret ptr %.155
 }
 

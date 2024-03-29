@@ -8110,9 +8110,8 @@ define internal i64 @rb_stat_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %7 = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %10, label %get_stat.exit
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %get_stat.exit, label %10
 
 10:                                               ; preds = %5
   %11 = load i64, ptr @rb_eTypeError, align 8
@@ -8127,16 +8126,15 @@ get_stat.exit:                                    ; preds = %5
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @stat_data_type) #22
   %15 = getelementptr inbounds i8, ptr %14, i64 144
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not.i19 = icmp eq i8 %17, 0
-  br i1 %.not.i19, label %18, label %get_stat.exit20
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %get_stat.exit19, label %18
 
 18:                                               ; preds = %get_stat.exit
   %19 = load i64, ptr @rb_eTypeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.147) #24
   unreachable
 
-get_stat.exit20:                                  ; preds = %get_stat.exit
+get_stat.exit19:                                  ; preds = %get_stat.exit
   %20 = getelementptr i8, ptr %14, i64 88
   %.val17 = load i64, ptr %20, align 8
   %21 = getelementptr i8, ptr %14, i64 96
@@ -8144,7 +8142,7 @@ get_stat.exit20:                                  ; preds = %get_stat.exit
   %22 = icmp eq i64 %.val, %.val17
   br i1 %22, label %23, label %27
 
-23:                                               ; preds = %get_stat.exit20
+23:                                               ; preds = %get_stat.exit19
   %24 = icmp eq i64 %.val16, %.val18
   br i1 %24, label %29, label %25
 
@@ -8153,7 +8151,7 @@ get_stat.exit20:                                  ; preds = %get_stat.exit
   %. = select i1 %26, i64 -1, i64 3
   br label %29
 
-27:                                               ; preds = %get_stat.exit20
+27:                                               ; preds = %get_stat.exit19
   %28 = icmp slt i64 %.val, %.val17
   %.15 = select i1 %28, i64 -1, i64 3
   br label %29
@@ -8168,9 +8166,8 @@ define internal i64 @rb_stat_dev(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8201,9 +8198,8 @@ define internal i64 @rb_stat_dev_major(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8224,9 +8220,8 @@ define internal i64 @rb_stat_dev_minor(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8247,9 +8242,8 @@ define internal i64 @rb_stat_ino(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8281,9 +8275,8 @@ define internal i64 @rb_stat_mode(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8304,9 +8297,8 @@ define internal i64 @rb_stat_nlink(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8338,9 +8330,8 @@ define internal i64 @rb_stat_uid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8361,9 +8352,8 @@ define internal i64 @rb_stat_gid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8384,9 +8374,8 @@ define internal i64 @rb_stat_rdev(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8418,9 +8407,8 @@ define internal i64 @rb_stat_rdev_major(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8442,9 +8430,8 @@ define internal i64 @rb_stat_rdev_minor(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8466,9 +8453,8 @@ define internal i64 @rb_stat_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8501,9 +8487,8 @@ define internal i64 @rb_stat_blksize(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8535,9 +8520,8 @@ define internal i64 @rb_stat_blocks(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8569,9 +8553,8 @@ define internal i64 @rb_stat_atime(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8592,9 +8575,8 @@ define internal i64 @rb_stat_mtime(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8615,9 +8597,8 @@ define internal i64 @rb_stat_ctime(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8641,9 +8622,8 @@ define internal i64 @rb_stat_inspect(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %9
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %1
   %7 = tail call ptr @rb_obj_classname(i64 noundef %0) #22
@@ -8659,23 +8639,23 @@ define internal i64 @rb_stat_inspect(i64 noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %9, %43
-  %.02732 = phi i64 [ 0, %9 ], [ %44, %43 ]
-  %.not28 = icmp eq i64 %.02732, 0
-  br i1 %.not28, label %18, label %16
+  %.02731 = phi i64 [ 0, %9 ], [ %44, %43 ]
+  %.not = icmp eq i64 %.02731, 0
+  br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %15
   %17 = tail call i64 @rb_str_cat(i64 noundef %11, ptr noundef nonnull @.str.138, i64 noundef 2) #22
   br label %18
 
 18:                                               ; preds = %16, %15
-  %19 = getelementptr [13 x %struct.anon.8], ptr @rb_stat_inspect.member, i64 0, i64 %.02732
+  %19 = getelementptr [13 x %struct.anon.8], ptr @rb_stat_inspect.member, i64 0, i64 %.02731
   %20 = load ptr, ptr %19, align 16
   %21 = tail call i64 @rb_str_cat_cstr(i64 noundef %11, ptr noundef %20) #22
   %22 = tail call i64 @rb_str_cat(i64 noundef %11, ptr noundef nonnull @.str.151, i64 noundef 1) #22
   %23 = getelementptr inbounds i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24(i64 noundef %0) #22
-  switch i64 %.02732, label %40 [
+  switch i64 %.02731, label %40 [
     i64 2, label %26
     i64 6, label %33
     i64 0, label %33
@@ -8701,20 +8681,20 @@ rb_num2ulong_inline.exit:                         ; preds = %28, %30
 
 33:                                               ; preds = %18, %18
   %34 = and i64 %25, 1
-  %.not.i29 = icmp eq i64 %34, 0
-  br i1 %.not.i29, label %37, label %35
+  %.not.i28 = icmp eq i64 %34, 0
+  br i1 %.not.i28, label %37, label %35
 
 35:                                               ; preds = %33
   %36 = ashr i64 %25, 1
-  br label %rb_num2ulong_inline.exit31
+  br label %rb_num2ulong_inline.exit30
 
 37:                                               ; preds = %33
   %38 = tail call i64 @rb_num2ulong(i64 noundef %25) #22
-  br label %rb_num2ulong_inline.exit31
+  br label %rb_num2ulong_inline.exit30
 
-rb_num2ulong_inline.exit31:                       ; preds = %35, %37
-  %.0.i30 = phi i64 [ %36, %35 ], [ %38, %37 ]
-  %39 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %11, ptr noundef nonnull @.str.153, i64 noundef %.0.i30) #22
+rb_num2ulong_inline.exit30:                       ; preds = %35, %37
+  %.0.i29 = phi i64 [ %36, %35 ], [ %38, %37 ]
+  %39 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %11, ptr noundef nonnull @.str.153, i64 noundef %.0.i29) #22
   br label %43
 
 40:                                               ; preds = %18
@@ -8722,8 +8702,8 @@ rb_num2ulong_inline.exit31:                       ; preds = %35, %37
   %42 = tail call i64 @rb_str_append(i64 noundef %11, i64 noundef %41) #22
   br label %43
 
-43:                                               ; preds = %rb_num2ulong_inline.exit, %40, %rb_num2ulong_inline.exit31
-  %44 = add nuw nsw i64 %.02732, 1
+43:                                               ; preds = %rb_num2ulong_inline.exit, %40, %rb_num2ulong_inline.exit30
+  %44 = add nuw nsw i64 %.02731, 1
   %exitcond.not = icmp eq i64 %44, 13
   br i1 %exitcond.not, label %45, label %15, !llvm.loop !179
 
@@ -8741,9 +8721,8 @@ define internal i64 @rb_stat_ftype(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8776,9 +8755,8 @@ define internal i64 @rb_stat_d(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8799,9 +8777,8 @@ define internal i64 @rb_stat_r(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8817,9 +8794,8 @@ get_stat.exit:                                    ; preds = %1
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %12 = getelementptr inbounds i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %rb_stat_owned.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %rb_stat_owned.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load i64, ptr @rb_eTypeError, align 8
@@ -8845,9 +8821,8 @@ rb_stat_owned.exit:                               ; preds = %10
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %27 = getelementptr inbounds i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not.i.i10 = icmp eq i8 %29, 0
-  br i1 %.not.i.i10, label %30, label %rb_stat_grpowned.exit
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %rb_stat_grpowned.exit, label %30
 
 30:                                               ; preds = %25
   %31 = load i64, ptr @rb_eTypeError, align 8
@@ -8858,10 +8833,10 @@ rb_stat_grpowned.exit:                            ; preds = %25
   %32 = getelementptr inbounds i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33), !range !139
-  %.not.i11 = icmp eq i32 %34, 0
+  %.not.i = icmp eq i32 %34, 0
   %35 = getelementptr inbounds i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8
-  br i1 %.not.i11, label %40, label %37
+  br i1 %.not.i, label %40, label %37
 
 37:                                               ; preds = %rb_stat_grpowned.exit
   %38 = and i32 %36, 32
@@ -8885,9 +8860,8 @@ define internal i64 @rb_stat_R(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8903,9 +8877,8 @@ get_stat.exit:                                    ; preds = %1
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %12 = getelementptr inbounds i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %rb_stat_rowned.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %rb_stat_rowned.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load i64, ptr @rb_eTypeError, align 8
@@ -8931,16 +8904,15 @@ rb_stat_rowned.exit:                              ; preds = %10
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %27 = getelementptr inbounds i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not.i10 = icmp eq i8 %29, 0
-  br i1 %.not.i10, label %30, label %get_stat.exit11
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %get_stat.exit10, label %30
 
 30:                                               ; preds = %25
   %31 = load i64, ptr @rb_eTypeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %31, ptr noundef nonnull @.str.147) #24
   unreachable
 
-get_stat.exit11:                                  ; preds = %25
+get_stat.exit10:                                  ; preds = %25
   %32 = getelementptr inbounds i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33), !range !139
@@ -8949,13 +8921,13 @@ get_stat.exit11:                                  ; preds = %25
   %36 = load i32, ptr %35, align 8
   br i1 %.not6, label %40, label %37
 
-37:                                               ; preds = %get_stat.exit11
+37:                                               ; preds = %get_stat.exit10
   %38 = and i32 %36, 32
   %.not8 = icmp eq i32 %38, 0
   %39 = select i1 %.not8, i64 0, i64 20
   br label %42
 
-40:                                               ; preds = %get_stat.exit11
+40:                                               ; preds = %get_stat.exit10
   %41 = and i32 %36, 4
   %.not7 = icmp eq i32 %41, 0
   %. = select i1 %.not7, i64 0, i64 20
@@ -8971,9 +8943,8 @@ define internal i64 @rb_stat_wr(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -8998,9 +8969,8 @@ define internal i64 @rb_stat_w(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9016,9 +8986,8 @@ get_stat.exit:                                    ; preds = %1
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %12 = getelementptr inbounds i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %rb_stat_owned.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %rb_stat_owned.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load i64, ptr @rb_eTypeError, align 8
@@ -9044,9 +9013,8 @@ rb_stat_owned.exit:                               ; preds = %10
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %27 = getelementptr inbounds i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not.i.i10 = icmp eq i8 %29, 0
-  br i1 %.not.i.i10, label %30, label %rb_stat_grpowned.exit
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %rb_stat_grpowned.exit, label %30
 
 30:                                               ; preds = %25
   %31 = load i64, ptr @rb_eTypeError, align 8
@@ -9057,10 +9025,10 @@ rb_stat_grpowned.exit:                            ; preds = %25
   %32 = getelementptr inbounds i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33), !range !139
-  %.not.i11 = icmp eq i32 %34, 0
+  %.not.i = icmp eq i32 %34, 0
   %35 = getelementptr inbounds i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8
-  br i1 %.not.i11, label %40, label %37
+  br i1 %.not.i, label %40, label %37
 
 37:                                               ; preds = %rb_stat_grpowned.exit
   %38 = and i32 %36, 16
@@ -9084,9 +9052,8 @@ define internal i64 @rb_stat_W(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9102,9 +9069,8 @@ get_stat.exit:                                    ; preds = %1
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %12 = getelementptr inbounds i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %rb_stat_rowned.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %rb_stat_rowned.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load i64, ptr @rb_eTypeError, align 8
@@ -9130,16 +9096,15 @@ rb_stat_rowned.exit:                              ; preds = %10
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %27 = getelementptr inbounds i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not.i10 = icmp eq i8 %29, 0
-  br i1 %.not.i10, label %30, label %get_stat.exit11
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %get_stat.exit10, label %30
 
 30:                                               ; preds = %25
   %31 = load i64, ptr @rb_eTypeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %31, ptr noundef nonnull @.str.147) #24
   unreachable
 
-get_stat.exit11:                                  ; preds = %25
+get_stat.exit10:                                  ; preds = %25
   %32 = getelementptr inbounds i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33), !range !139
@@ -9148,13 +9113,13 @@ get_stat.exit11:                                  ; preds = %25
   %36 = load i32, ptr %35, align 8
   br i1 %.not6, label %40, label %37
 
-37:                                               ; preds = %get_stat.exit11
+37:                                               ; preds = %get_stat.exit10
   %38 = and i32 %36, 16
   %.not8 = icmp eq i32 %38, 0
   %39 = select i1 %.not8, i64 0, i64 20
   br label %42
 
-40:                                               ; preds = %get_stat.exit11
+40:                                               ; preds = %get_stat.exit10
   %41 = and i32 %36, 2
   %.not7 = icmp eq i32 %41, 0
   %. = select i1 %.not7, i64 0, i64 20
@@ -9170,9 +9135,8 @@ define internal i64 @rb_stat_ww(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9197,9 +9161,8 @@ define internal i64 @rb_stat_x(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9221,9 +9184,8 @@ get_stat.exit:                                    ; preds = %1
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %16 = getelementptr inbounds i8, ptr %15, i64 144
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i, label %19, label %rb_stat_owned.exit
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %rb_stat_owned.exit, label %19
 
 19:                                               ; preds = %14
   %20 = load i64, ptr @rb_eTypeError, align 8
@@ -9247,9 +9209,8 @@ rb_stat_owned.exit:                               ; preds = %14
   %29 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %30 = getelementptr inbounds i8, ptr %29, i64 144
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not.i.i12 = icmp eq i8 %32, 0
-  br i1 %.not.i.i12, label %33, label %rb_stat_grpowned.exit
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %rb_stat_grpowned.exit, label %33
 
 33:                                               ; preds = %28
   %34 = load i64, ptr @rb_eTypeError, align 8
@@ -9260,10 +9221,10 @@ rb_stat_grpowned.exit:                            ; preds = %28
   %35 = getelementptr inbounds i8, ptr %29, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = tail call fastcc i32 @rb_group_member(i32 noundef %36), !range !139
-  %.not.i13 = icmp eq i32 %37, 0
+  %.not.i = icmp eq i32 %37, 0
   %38 = getelementptr inbounds i8, ptr %2, i64 24
   %39 = load i32, ptr %38, align 8
-  br i1 %.not.i13, label %42, label %40
+  br i1 %.not.i, label %42, label %40
 
 40:                                               ; preds = %rb_stat_grpowned.exit
   %41 = and i32 %39, 8
@@ -9285,9 +9246,8 @@ define internal i64 @rb_stat_X(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9309,9 +9269,8 @@ get_stat.exit:                                    ; preds = %1
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %16 = getelementptr inbounds i8, ptr %15, i64 144
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i, label %19, label %rb_stat_rowned.exit
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %rb_stat_rowned.exit, label %19
 
 19:                                               ; preds = %14
   %20 = load i64, ptr @rb_eTypeError, align 8
@@ -9335,16 +9294,15 @@ rb_stat_rowned.exit:                              ; preds = %14
   %29 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %30 = getelementptr inbounds i8, ptr %29, i64 144
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not.i12 = icmp eq i8 %32, 0
-  br i1 %.not.i12, label %33, label %get_stat.exit13
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %get_stat.exit12, label %33
 
 33:                                               ; preds = %28
   %34 = load i64, ptr @rb_eTypeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %34, ptr noundef nonnull @.str.147) #24
   unreachable
 
-get_stat.exit13:                                  ; preds = %28
+get_stat.exit12:                                  ; preds = %28
   %35 = getelementptr inbounds i8, ptr %29, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = tail call fastcc i32 @rb_group_member(i32 noundef %36), !range !139
@@ -9353,11 +9311,11 @@ get_stat.exit13:                                  ; preds = %28
   %39 = load i32, ptr %38, align 8
   br i1 %.not7, label %42, label %40
 
-40:                                               ; preds = %get_stat.exit13
+40:                                               ; preds = %get_stat.exit12
   %41 = and i32 %39, 8
   br label %44
 
-42:                                               ; preds = %get_stat.exit13
+42:                                               ; preds = %get_stat.exit12
   %43 = and i32 %39, 1
   br label %44
 
@@ -9373,9 +9331,8 @@ define internal i64 @rb_stat_f(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9396,9 +9353,8 @@ define internal i64 @rb_stat_z(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9418,9 +9374,8 @@ define internal i64 @rb_stat_s(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9457,9 +9412,8 @@ define internal i64 @rb_stat_owned(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9480,9 +9434,8 @@ define internal noundef i64 @rb_stat_grpowned(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9503,9 +9456,8 @@ define internal i64 @rb_stat_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9526,9 +9478,8 @@ define internal i64 @rb_stat_l(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9549,9 +9500,8 @@ define internal i64 @rb_stat_S(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9572,9 +9522,8 @@ define internal i64 @rb_stat_b(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9595,9 +9544,8 @@ define internal i64 @rb_stat_c(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9618,9 +9566,8 @@ define internal i64 @rb_stat_suid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9641,9 +9588,8 @@ define internal i64 @rb_stat_sgid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8
@@ -9664,9 +9610,8 @@ define internal i64 @rb_stat_sticky(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %get_stat.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %get_stat.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eTypeError, align 8

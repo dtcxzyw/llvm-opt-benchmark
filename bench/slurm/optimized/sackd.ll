@@ -957,9 +957,8 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 define internal noundef i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 148
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %13
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
   %8 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #13
@@ -973,8 +972,8 @@ define internal noundef i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %1, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %.not13 = icmp eq i32 %15, %16
-  br i1 %.not13, label %25, label %17
+  %.not = icmp eq i32 %15, %16
+  br i1 %.not, label %25, label %17
 
 17:                                               ; preds = %13
   %18 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #13
@@ -1005,8 +1004,8 @@ define internal noundef i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %33 = getelementptr inbounds i8, ptr %1, i64 192
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @write_configs_to_conf_cache(ptr noundef %34, ptr noundef nonnull @.str.27) #13
-  %.not14 = icmp eq i32 %35, 0
-  br i1 %.not14, label %38, label %36
+  %.not13 = icmp eq i32 %35, 0
+  br i1 %.not13, label %38, label %36
 
 36:                                               ; preds = %32
   %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._on_msg) #13

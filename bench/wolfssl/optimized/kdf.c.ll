@@ -23,16 +23,15 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 59, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.wc_PRF, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.wc_PRF, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep93 = getelementptr inbounds [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %3
+  %2 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep93 = getelementptr inbounds [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %2
   %switch.load94 = load i32, ptr %switch.gep93, align 4
   %div = udiv i32 %resLen, %switch.load
   %rem = urem i32 %resLen, %switch.load

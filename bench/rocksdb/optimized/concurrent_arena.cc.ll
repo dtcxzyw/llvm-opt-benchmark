@@ -325,26 +325,26 @@ invoke.cont:                                      ; preds = %lor.lhs.false2
 
 if.else4.i:                                       ; preds = %invoke.cont
   %5 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %6 = and i8 %5, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.i.i.not.i.i, label %invoke.cont7, label %invoke.cont19
+  %tobool.i.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i.i, label %invoke.cont19, label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.else4.i
-  %7 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %if.end, label %invoke.cont19
+  %frombool.i.i = and i8 %5, 1
+  %6 = cmpxchg weak ptr %arena_mutex_, i8 %frombool.i.i, i8 1 acquire monotonic, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  br i1 %7, label %if.end, label %invoke.cont19
 
 for.cond.i.i:                                     ; preds = %entry, %for.inc.i.i
   %tries.0.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %9 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %10 = and i8 %9, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, label %if.end.i.i
+  %8 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
+  %tobool.i.i.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %for.cond.i.i
-  %11 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %if.end, label %if.end.i.i
+  %frombool.i.i.i = and i8 %8, 1
+  %9 = cmpxchg weak ptr %arena_mutex_, i8 %frombool.i.i.i, i8 1 acquire monotonic, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %for.cond.i.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -360,76 +360,76 @@ for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.e
   br label %for.cond.i.i, !llvm.loop !7
 
 if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
-  %13 = load ptr, ptr %func, align 8
-  %14 = getelementptr inbounds i8, ptr %func, i64 8
-  %15 = load i64, ptr %14, align 8
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %13, i64 2352
-  %16 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %cmp.not.i.i = icmp ult i64 %16, %15
+  %11 = load ptr, ptr %func, align 8
+  %12 = getelementptr inbounds i8, ptr %func, i64 8
+  %13 = load i64, ptr %12, align 8
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %11, i64 2352
+  %14 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
+  %cmp.not.i.i = icmp ult i64 %14, %13
   br i1 %cmp.not.i.i, label %if.end.i.i45, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %unaligned_alloc_ptr_.i.i = getelementptr inbounds i8, ptr %13, i64 2336
-  %17 = load ptr, ptr %unaligned_alloc_ptr_.i.i, align 16
-  %idx.neg.i.i = sub i64 0, %15
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %idx.neg.i.i
+  %unaligned_alloc_ptr_.i.i = getelementptr inbounds i8, ptr %11, i64 2336
+  %15 = load ptr, ptr %unaligned_alloc_ptr_.i.i, align 16
+  %idx.neg.i.i = sub i64 0, %13
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %idx.neg.i.i
   store ptr %add.ptr.i.i, ptr %unaligned_alloc_ptr_.i.i, align 16
-  %sub.i.i = sub i64 %16, %15
+  %sub.i.i = sub i64 %14, %13
   store i64 %sub.i.i, ptr %alloc_bytes_remaining_.i.i, align 16
   br label %cleanup74.thread
 
 if.end.i.i45:                                     ; preds = %if.end
-  %arena_.i = getelementptr inbounds i8, ptr %13, i64 96
-  %call.i.i46 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %15, i1 noundef zeroext false)
-          to label %cleanup74.thread unwind label %if.then3.i.i112
+  %arena_.i = getelementptr inbounds i8, ptr %11, i64 96
+  %call.i.i46 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %13, i1 noundef zeroext false)
+          to label %cleanup74.thread unwind label %if.then3.i.i116
 
 cleanup74.thread:                                 ; preds = %if.end.i.i45, %if.then.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %call.i.i46, %if.end.i.i45 ]
   %alloc_bytes_remaining_.i.i47 = getelementptr inbounds i8, ptr %this, i64 2352
-  %18 = load i64, ptr %alloc_bytes_remaining_.i.i47, align 16
+  %16 = load i64, ptr %alloc_bytes_remaining_.i.i47, align 16
   %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
-  store atomic i64 %18, ptr %arena_allocated_and_unused_.i monotonic, align 8
+  store atomic i64 %16, ptr %arena_allocated_and_unused_.i monotonic, align 8
   %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
-  %19 = load i64, ptr %blocks_memory_.i.i, align 16
+  %17 = load i64, ptr %blocks_memory_.i.i, align 16
   %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
-  store atomic i64 %19, ptr %memory_allocated_bytes_.i monotonic, align 16
+  store atomic i64 %17, ptr %memory_allocated_bytes_.i monotonic, align 16
   %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
-  %20 = load i64, ptr %irregular_block_num.i.i, align 8
+  %18 = load i64, ptr %irregular_block_num.i.i, align 8
   %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
-  store atomic i64 %20, ptr %irregular_block_num_.i monotonic, align 8
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107
+  store atomic i64 %18, ptr %irregular_block_num_.i monotonic, align 8
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
   %shards_16 = getelementptr inbounds i8, ptr %this, i64 72
   %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %21 = load i32, ptr %size_shift_.i, align 16
-  %sh_prom.i = zext nneg i32 %21 to i64
+  %19 = load i32, ptr %size_shift_.i, align 16
+  %sh_prom.i = zext nneg i32 %19 to i64
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub = xor i64 %notmask, -1
   %and = and i64 %2, %sub
-  %22 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
+  %20 = load ptr, ptr %shards_16, align 8
+  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %20, i64 %and
   %mutex = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
-  %23 = load atomic i8, ptr %mutex monotonic, align 1
-  %24 = and i8 %23, 1
-  %tobool.i.i.not.i = icmp eq i8 %24, 0
-  br i1 %tobool.i.i.not.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit, label %if.then23
+  %21 = load atomic i8, ptr %mutex monotonic, align 1
+  %tobool.i.i.i = trunc i8 %21 to i1
+  br i1 %tobool.i.i.i, label %if.then23, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %invoke.cont19
-  %25 = cmpxchg weak ptr %mutex, i8 0, i8 1 acquire monotonic, align 1
-  %26 = extractvalue { i8, i1 } %25, 1
-  br i1 %26, label %if.end28, label %if.then23
+  %frombool.i48 = and i8 %21, 1
+  %22 = cmpxchg weak ptr %mutex, i8 %frombool.i48, i8 1 acquire monotonic, align 1
+  %23 = extractvalue { i8, i1 } %22, 1
+  br i1 %23, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %invoke.cont19, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %call.i.i51 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
-  %cmp.i.i48 = icmp slt i32 %call.i.i51, 0
-  br i1 %cmp.i.i48, label %if.then.i.i49, label %if.else.i.i
+  %call.i.i52 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
+  %cmp.i.i49 = icmp slt i32 %call.i.i52, 0
+  br i1 %cmp.i.i49, label %if.then.i.i50, label %if.else.i.i
 
-if.then.i.i49:                                    ; preds = %if.then23
-  %call2.i.i52 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %27 = load i32, ptr %size_shift_.i, align 16
-  %28 = load i32, ptr %call2.i.i52, align 4
-  %conv.i.i.i.i = zext i32 %28 to i64
+if.then.i.i50:                                    ; preds = %if.then23
+  %call2.i.i53 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
+  %24 = load i32, ptr %size_shift_.i, align 16
+  %25 = load i32, ptr %call2.i.i53, align 4
+  %conv.i.i.i.i = zext i32 %25 to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 16807
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 31
   %and.i.i.i.i = and i64 %mul.i.i.i.i, 2147483647
@@ -438,26 +438,26 @@ if.then.i.i49:                                    ; preds = %if.then23
   %cmp.i.i.i.i = icmp slt i32 %conv2.i.i.i.i, 0
   %sub.i.i.i.i = add i32 %conv2.i.i.i.i, -2147483647
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %sub.i.i.i.i, i32 %conv2.i.i.i.i
-  store i32 %spec.select.i.i.i.i, ptr %call2.i.i52, align 4
-  %notmask.i.i = shl nsw i32 -1, %27
-  %29 = xor i32 %notmask.i.i, -1
-  %rem.i.i.i = and i32 %spec.select.i.i.i.i, %29
+  store i32 %spec.select.i.i.i.i, ptr %call2.i.i53, align 4
+  %notmask.i.i = shl nsw i32 -1, %24
+  %26 = xor i32 %notmask.i.i, -1
+  %rem.i.i.i = and i32 %spec.select.i.i.i.i, %26
   %conv.i.i = zext nneg i32 %rem.i.i.i to i64
   %.pre.i = load i32, ptr %size_shift_.i, align 16
   br label %invoke.cont24
 
 if.else.i.i:                                      ; preds = %if.then23
-  %30 = load i32, ptr %size_shift_.i, align 16
-  %31 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i.i51, i32 %30)
-  %conv6.i.i = sext i32 %31 to i64
+  %27 = load i32, ptr %size_shift_.i, align 16
+  %28 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i.i52, i32 %27)
+  %conv6.i.i = sext i32 %28 to i64
   br label %invoke.cont24
 
-invoke.cont24:                                    ; preds = %if.else.i.i, %if.then.i.i49
-  %32 = phi i32 [ %30, %if.else.i.i ], [ %.pre.i, %if.then.i.i49 ]
-  %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i49 ]
-  %33 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %33, i64 %storemerge.i.i
-  %sh_prom.i.i = zext nneg i32 %32 to i64
+invoke.cont24:                                    ; preds = %if.else.i.i, %if.then.i.i50
+  %29 = phi i32 [ %27, %if.else.i.i ], [ %.pre.i, %if.then.i.i50 ]
+  %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i50 ]
+  %30 = load ptr, ptr %shards_16, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %30, i64 %storemerge.i.i
+  %sh_prom.i.i = zext nneg i32 %29 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i = or i64 %shl.i.i, %storemerge.i.i
   store i64 %or.i, ptr %1, align 8
@@ -466,15 +466,15 @@ invoke.cont24:                                    ; preds = %if.else.i.i, %if.th
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont24
   %tries.0.i = phi i64 [ 0, %invoke.cont24 ], [ %inc.i, %for.inc.i ]
-  %34 = load atomic i8, ptr %mutex26 monotonic, align 1
-  %35 = and i8 %34, 1
-  %tobool.i.i.not.i.i53 = icmp eq i8 %35, 0
-  br i1 %tobool.i.i.not.i.i53, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, label %if.end.i
+  %31 = load atomic i8, ptr %mutex26 monotonic, align 1
+  %tobool.i.i.i.i54 = trunc i8 %31 to i1
+  br i1 %tobool.i.i.i.i54, label %if.end.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %for.cond.i
-  %36 = cmpxchg weak ptr %mutex26, i8 0, i8 1 acquire monotonic, align 1
-  %37 = extractvalue { i8, i1 } %36, 1
-  br i1 %37, label %if.end28, label %if.end.i
+  %frombool.i.i55 = and i8 %31, 1
+  %32 = cmpxchg weak ptr %mutex26, i8 %frombool.i.i55, i8 1 acquire monotonic, align 1
+  %33 = extractvalue { i8, i1 } %32, 1
+  br i1 %33, label %if.end28, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %for.cond.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -493,93 +493,93 @@ if.end28:                                         ; preds = %_ZN7rocksdb9SpinMut
   %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
   %mutex29 = getelementptr inbounds i8, ptr %s.0, i64 40
   %allocated_and_unused_31 = getelementptr inbounds i8, ptr %s.0, i64 56
-  %38 = load atomic i64, ptr %allocated_and_unused_31 monotonic, align 8
-  %cmp33 = icmp ult i64 %38, %bytes
-  br i1 %cmp33, label %for.cond.i.i55, label %if.end61
+  %34 = load atomic i64, ptr %allocated_and_unused_31 monotonic, align 8
+  %cmp33 = icmp ult i64 %34, %bytes
+  br i1 %cmp33, label %for.cond.i.i57, label %if.end61
 
-for.cond.i.i55:                                   ; preds = %if.end28, %for.inc.i.i60
-  %tries.0.i.i56 = phi i64 [ %inc.i.i61, %for.inc.i.i60 ], [ 0, %if.end28 ]
-  %39 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %40 = and i8 %39, 1
-  %tobool.i.i.not.i.i.i57 = icmp eq i8 %40, 0
-  br i1 %tobool.i.i.not.i.i.i57, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i64, label %if.end.i.i58
+for.cond.i.i57:                                   ; preds = %if.end28, %for.inc.i.i64
+  %tries.0.i.i58 = phi i64 [ %inc.i.i65, %for.inc.i.i64 ], [ 0, %if.end28 ]
+  %35 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
+  %tobool.i.i.i.i.i59 = trunc i8 %35 to i1
+  br i1 %tobool.i.i.i.i.i59, label %if.end.i.i62, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i60
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i64:      ; preds = %for.cond.i.i55
-  %41 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %42 = extractvalue { i8, i1 } %41, 1
-  br i1 %42, label %invoke.cont37, label %if.end.i.i58
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i60:      ; preds = %for.cond.i.i57
+  %frombool.i.i.i61 = and i8 %35, 1
+  %36 = cmpxchg weak ptr %arena_mutex_, i8 %frombool.i.i.i61, i8 1 acquire monotonic, align 1
+  %37 = extractvalue { i8, i1 } %36, 1
+  br i1 %37, label %invoke.cont37, label %if.end.i.i62
 
-if.end.i.i58:                                     ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i64, %for.cond.i.i55
+if.end.i.i62:                                     ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i60, %for.cond.i.i57
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i.i59 = icmp ugt i64 %tries.0.i.i56, 100
-  br i1 %cmp.i.i59, label %if.then2.i.i62, label %for.inc.i.i60
+  %cmp.i.i63 = icmp ugt i64 %tries.0.i.i58, 100
+  br i1 %cmp.i.i63, label %if.then2.i.i66, label %for.inc.i.i64
 
-if.then2.i.i62:                                   ; preds = %if.end.i.i58
-  %call.i.i.i.i63 = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i.i60
+if.then2.i.i66:                                   ; preds = %if.end.i.i62
+  %call.i.i.i.i67 = tail call noundef i32 @sched_yield() #11
+  br label %for.inc.i.i64
 
-for.inc.i.i60:                                    ; preds = %if.then2.i.i62, %if.end.i.i58
-  %inc.i.i61 = add i64 %tries.0.i.i56, 1
-  br label %for.cond.i.i55, !llvm.loop !7
+for.inc.i.i64:                                    ; preds = %if.then2.i.i66, %if.end.i.i62
+  %inc.i.i65 = add i64 %tries.0.i.i58, 1
+  br label %for.cond.i.i57, !llvm.loop !7
 
-invoke.cont37:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i64
+invoke.cont37:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i60
   %arena_allocated_and_unused_ = getelementptr inbounds i8, ptr %this, i64 2392
-  %43 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %cmp39.not = icmp ult i64 %43, %bytes
+  %38 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
+  %cmp39.not = icmp ult i64 %38, %bytes
   br i1 %cmp39.not, label %if.end49, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %invoke.cont37
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 2216
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 2184
-  %44 = load ptr, ptr %_M_finish.i.i, align 8
-  %45 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %44, %45
+  %39 = load ptr, ptr %_M_finish.i.i, align 8
+  %40 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %39, %40
   %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 2296
   %_M_start.i2.i = getelementptr inbounds i8, ptr %this, i64 2264
-  %46 = load ptr, ptr %_M_finish.i1.i, align 8
-  %47 = load ptr, ptr %_M_start.i2.i, align 8
-  %cmp.i.i3.i = icmp eq ptr %46, %47
-  %48 = select i1 %cmp.i.i.i, i1 %cmp.i.i3.i, i1 false
-  br i1 %48, label %if.then44, label %if.end49
+  %41 = load ptr, ptr %_M_finish.i1.i, align 8
+  %42 = load ptr, ptr %_M_start.i2.i, align 8
+  %cmp.i.i3.i = icmp eq ptr %41, %42
+  %43 = select i1 %cmp.i.i.i, i1 %cmp.i.i3.i, i1 false
+  br i1 %43, label %if.then44, label %if.end49
 
 if.then44:                                        ; preds = %land.lhs.true40
-  %49 = load ptr, ptr %func, align 8
-  %50 = getelementptr inbounds i8, ptr %func, i64 8
-  %51 = load i64, ptr %50, align 8
-  %alloc_bytes_remaining_.i.i65 = getelementptr inbounds i8, ptr %49, i64 2352
-  %52 = load i64, ptr %alloc_bytes_remaining_.i.i65, align 16
-  %cmp.not.i.i66 = icmp ult i64 %52, %51
-  br i1 %cmp.not.i.i66, label %if.end.i.i73, label %if.then.i.i67
+  %44 = load ptr, ptr %func, align 8
+  %45 = getelementptr inbounds i8, ptr %func, i64 8
+  %46 = load i64, ptr %45, align 8
+  %alloc_bytes_remaining_.i.i68 = getelementptr inbounds i8, ptr %44, i64 2352
+  %47 = load i64, ptr %alloc_bytes_remaining_.i.i68, align 16
+  %cmp.not.i.i69 = icmp ult i64 %47, %46
+  br i1 %cmp.not.i.i69, label %if.end.i.i76, label %if.then.i.i70
 
-if.then.i.i67:                                    ; preds = %if.then44
-  %unaligned_alloc_ptr_.i.i68 = getelementptr inbounds i8, ptr %49, i64 2336
-  %53 = load ptr, ptr %unaligned_alloc_ptr_.i.i68, align 16
-  %idx.neg.i.i69 = sub i64 0, %51
-  %add.ptr.i.i70 = getelementptr inbounds i8, ptr %53, i64 %idx.neg.i.i69
-  store ptr %add.ptr.i.i70, ptr %unaligned_alloc_ptr_.i.i68, align 16
-  %sub.i.i71 = sub i64 %52, %51
-  store i64 %sub.i.i71, ptr %alloc_bytes_remaining_.i.i65, align 16
+if.then.i.i70:                                    ; preds = %if.then44
+  %unaligned_alloc_ptr_.i.i71 = getelementptr inbounds i8, ptr %44, i64 2336
+  %48 = load ptr, ptr %unaligned_alloc_ptr_.i.i71, align 16
+  %idx.neg.i.i72 = sub i64 0, %46
+  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %48, i64 %idx.neg.i.i72
+  store ptr %add.ptr.i.i73, ptr %unaligned_alloc_ptr_.i.i71, align 16
+  %sub.i.i74 = sub i64 %47, %46
+  store i64 %sub.i.i74, ptr %alloc_bytes_remaining_.i.i68, align 16
   br label %cleanup
 
-if.end.i.i73:                                     ; preds = %if.then44
-  %arena_.i74 = getelementptr inbounds i8, ptr %49, i64 96
-  %call.i.i76 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i74, i64 noundef %51, i1 noundef zeroext false)
+if.end.i.i76:                                     ; preds = %if.then44
+  %arena_.i77 = getelementptr inbounds i8, ptr %44, i64 96
+  %call.i.i79 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i77, i64 noundef %46, i1 noundef zeroext false)
           to label %cleanup unwind label %ehcleanup75.thread
 
-ehcleanup75.thread:                               ; preds = %if.end49, %if.end.i.i73
-  %54 = landingpad { ptr, i32 }
+ehcleanup75.thread:                               ; preds = %if.end49, %if.end.i.i76
+  %49 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit114
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit117
 
 if.end49:                                         ; preds = %land.lhs.true40, %invoke.cont37
-  %55 = load i64, ptr %shard_block_size_, align 16
-  %div5130 = lshr i64 %55, 1
-  %cmp52.not = icmp uge i64 %43, %div5130
-  %mul = shl i64 %55, 1
-  %cmp55 = icmp ult i64 %43, %mul
+  %50 = load i64, ptr %shard_block_size_, align 16
+  %div5130 = lshr i64 %50, 1
+  %cmp52.not = icmp uge i64 %38, %div5130
+  %mul = shl i64 %50, 1
+  %cmp55 = icmp ult i64 %38, %mul
   %or.cond = and i1 %cmp52.not, %cmp55
-  %cond = select i1 %or.cond, i64 %43, i64 %55
+  %cond = select i1 %or.cond, i64 %38, i64 %50
   %arena_57 = getelementptr inbounds i8, ptr %this, i64 96
   %call59 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_57, i64 noundef %cond, i64 noundef 0, ptr noundef null)
           to label %cleanup.thread unwind label %ehcleanup75.thread
@@ -587,73 +587,73 @@ if.end49:                                         ; preds = %land.lhs.true40, %i
 cleanup.thread:                                   ; preds = %if.end49
   %free_begin_ = getelementptr inbounds i8, ptr %s.0, i64 48
   store ptr %call59, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i84 = getelementptr inbounds i8, ptr %this, i64 2352
-  %56 = load i64, ptr %alloc_bytes_remaining_.i.i84, align 16
-  store atomic i64 %56, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i86 = getelementptr inbounds i8, ptr %this, i64 2368
-  %57 = load i64, ptr %blocks_memory_.i.i86, align 16
-  %memory_allocated_bytes_.i87 = getelementptr inbounds i8, ptr %this, i64 2400
-  store atomic i64 %57, ptr %memory_allocated_bytes_.i87 monotonic, align 16
-  %irregular_block_num.i.i88 = getelementptr inbounds i8, ptr %this, i64 2328
-  %58 = load i64, ptr %irregular_block_num.i.i88, align 8
-  %irregular_block_num_.i89 = getelementptr inbounds i8, ptr %this, i64 2408
-  store atomic i64 %58, ptr %irregular_block_num_.i89 monotonic, align 8
+  %alloc_bytes_remaining_.i.i87 = getelementptr inbounds i8, ptr %this, i64 2352
+  %51 = load i64, ptr %alloc_bytes_remaining_.i.i87, align 16
+  store atomic i64 %51, ptr %arena_allocated_and_unused_ monotonic, align 8
+  %blocks_memory_.i.i89 = getelementptr inbounds i8, ptr %this, i64 2368
+  %52 = load i64, ptr %blocks_memory_.i.i89, align 16
+  %memory_allocated_bytes_.i90 = getelementptr inbounds i8, ptr %this, i64 2400
+  store atomic i64 %52, ptr %memory_allocated_bytes_.i90 monotonic, align 16
+  %irregular_block_num.i.i91 = getelementptr inbounds i8, ptr %this, i64 2328
+  %53 = load i64, ptr %irregular_block_num.i.i91, align 8
+  %irregular_block_num_.i92 = getelementptr inbounds i8, ptr %this, i64 2408
+  store atomic i64 %53, ptr %irregular_block_num_.i92 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %if.end61
 
-cleanup:                                          ; preds = %if.end.i.i73, %if.then.i.i67
-  %retval.0.i.i72 = phi ptr [ %add.ptr.i.i70, %if.then.i.i67 ], [ %call.i.i76, %if.end.i.i73 ]
-  %alloc_bytes_remaining_.i.i78 = getelementptr inbounds i8, ptr %this, i64 2352
-  %59 = load i64, ptr %alloc_bytes_remaining_.i.i78, align 16
-  store atomic i64 %59, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i80 = getelementptr inbounds i8, ptr %this, i64 2368
-  %60 = load i64, ptr %blocks_memory_.i.i80, align 16
-  %memory_allocated_bytes_.i81 = getelementptr inbounds i8, ptr %this, i64 2400
-  store atomic i64 %60, ptr %memory_allocated_bytes_.i81 monotonic, align 16
-  %irregular_block_num.i.i82 = getelementptr inbounds i8, ptr %this, i64 2328
-  %61 = load i64, ptr %irregular_block_num.i.i82, align 8
-  %irregular_block_num_.i83 = getelementptr inbounds i8, ptr %this, i64 2408
-  store atomic i64 %61, ptr %irregular_block_num_.i83 monotonic, align 8
+cleanup:                                          ; preds = %if.end.i.i76, %if.then.i.i70
+  %retval.0.i.i75 = phi ptr [ %add.ptr.i.i73, %if.then.i.i70 ], [ %call.i.i79, %if.end.i.i76 ]
+  %alloc_bytes_remaining_.i.i81 = getelementptr inbounds i8, ptr %this, i64 2352
+  %54 = load i64, ptr %alloc_bytes_remaining_.i.i81, align 16
+  store atomic i64 %54, ptr %arena_allocated_and_unused_ monotonic, align 8
+  %blocks_memory_.i.i83 = getelementptr inbounds i8, ptr %this, i64 2368
+  %55 = load i64, ptr %blocks_memory_.i.i83, align 16
+  %memory_allocated_bytes_.i84 = getelementptr inbounds i8, ptr %this, i64 2400
+  store atomic i64 %55, ptr %memory_allocated_bytes_.i84 monotonic, align 16
+  %irregular_block_num.i.i85 = getelementptr inbounds i8, ptr %this, i64 2328
+  %56 = load i64, ptr %irregular_block_num.i.i85, align 8
+  %irregular_block_num_.i86 = getelementptr inbounds i8, ptr %this, i64 2408
+  store atomic i64 %56, ptr %irregular_block_num_.i86 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 if.end61:                                         ; preds = %cleanup.thread, %if.end28
-  %avail.1 = phi i64 [ %38, %if.end28 ], [ %cond, %cleanup.thread ]
+  %avail.1 = phi i64 [ %34, %if.end28 ], [ %cond, %cleanup.thread ]
   %sub63 = sub i64 %avail.1, %bytes
   store atomic i64 %sub63, ptr %allocated_and_unused_31 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp65 = icmp eq i64 %rem, 0
   %free_begin_67 = getelementptr inbounds i8, ptr %s.0, i64 48
-  %62 = load ptr, ptr %free_begin_67, align 8
+  %57 = load ptr, ptr %free_begin_67, align 8
   br i1 %cmp65, label %if.then66, label %if.else
 
 if.then66:                                        ; preds = %if.end61
-  %add.ptr = getelementptr inbounds i8, ptr %62, i64 %bytes
+  %add.ptr = getelementptr inbounds i8, ptr %57, i64 %bytes
   store ptr %add.ptr, ptr %free_begin_67, align 8
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 if.else:                                          ; preds = %if.end61
-  %add.ptr70 = getelementptr inbounds i8, ptr %62, i64 %avail.1
+  %add.ptr70 = getelementptr inbounds i8, ptr %57, i64 %avail.1
   %idx.neg = sub nsw i64 0, %bytes
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 %idx.neg
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107: ; preds = %if.else, %if.then66, %cleanup, %cleanup74.thread
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110: ; preds = %if.else, %if.then66, %cleanup, %cleanup74.thread
   %mutex29.sink = phi ptr [ %arena_mutex_, %cleanup74.thread ], [ %mutex29, %cleanup ], [ %mutex29, %if.then66 ], [ %mutex29, %if.else ]
-  %retval.2135 = phi ptr [ %retval.0.i.i, %cleanup74.thread ], [ %retval.0.i.i72, %cleanup ], [ %62, %if.then66 ], [ %add.ptr71, %if.else ]
+  %retval.2137 = phi ptr [ %retval.0.i.i, %cleanup74.thread ], [ %retval.0.i.i75, %cleanup ], [ %57, %if.then66 ], [ %add.ptr71, %if.else ]
   store atomic i8 0, ptr %mutex29.sink release, align 1
-  ret ptr %retval.2135
+  ret ptr %retval.2137
 
-if.then3.i.i112:                                  ; preds = %if.end.i.i45
+if.then3.i.i116:                                  ; preds = %if.end.i.i45
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit114
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit117
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit114: ; preds = %ehcleanup75.thread, %if.then3.i.i112
-  %mutex29.sink141 = phi ptr [ %mutex29, %ehcleanup75.thread ], [ %arena_mutex_, %if.then3.i.i112 ]
-  %.pn32138 = phi { ptr, i32 } [ %54, %ehcleanup75.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i112 ]
-  store atomic i8 0, ptr %mutex29.sink141 release, align 1
-  resume { ptr, i32 } %.pn32138
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit117: ; preds = %ehcleanup75.thread, %if.then3.i.i116
+  %mutex29.sink145 = phi ptr [ %mutex29, %ehcleanup75.thread ], [ %arena_mutex_, %if.then3.i.i116 ]
+  %.pn32141 = phi { ptr, i32 } [ %49, %ehcleanup75.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i116 ]
+  store atomic i8 0, ptr %mutex29.sink145 release, align 1
+  resume { ptr, i32 } %.pn32141
 }
 
 declare noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, i64 noundef, ptr noundef) unnamed_addr #1
@@ -690,26 +690,26 @@ invoke.cont:                                      ; preds = %lor.lhs.false2
 
 if.else4.i:                                       ; preds = %invoke.cont
   %5 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %6 = and i8 %5, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.i.i.not.i.i, label %invoke.cont7, label %invoke.cont19
+  %tobool.i.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i.i, label %invoke.cont19, label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.else4.i
-  %7 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %if.end, label %invoke.cont19
+  %frombool.i.i = and i8 %5, 1
+  %6 = cmpxchg weak ptr %arena_mutex_, i8 %frombool.i.i, i8 1 acquire monotonic, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  br i1 %7, label %if.end, label %invoke.cont19
 
 for.cond.i.i:                                     ; preds = %entry, %for.inc.i.i
   %tries.0.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %9 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %10 = and i8 %9, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, label %if.end.i.i
+  %8 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
+  %tobool.i.i.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %for.cond.i.i
-  %11 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %if.end, label %if.end.i.i
+  %frombool.i.i.i = and i8 %8, 1
+  %9 = cmpxchg weak ptr %arena_mutex_, i8 %frombool.i.i.i, i8 1 acquire monotonic, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %for.cond.i.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -725,63 +725,63 @@ for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.e
   br label %for.cond.i.i, !llvm.loop !7
 
 if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
-  %13 = load ptr, ptr %func, align 8
-  %arena_.i = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = getelementptr inbounds i8, ptr %func, i64 8
+  %11 = load ptr, ptr %func, align 8
+  %arena_.i = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds i8, ptr %func, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %func, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %func, i64 16
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %func, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %call.i4546 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %15, i64 noundef %17, ptr noundef %19)
-          to label %cleanup72.thread unwind label %if.then3.i.i100
+  %16 = getelementptr inbounds i8, ptr %func, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %call.i4546 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %13, i64 noundef %15, ptr noundef %17)
+          to label %cleanup72.thread unwind label %if.then3.i.i104
 
 cleanup72.thread:                                 ; preds = %if.end
   %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %this, i64 2352
-  %20 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
+  %18 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
   %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
-  store atomic i64 %20, ptr %arena_allocated_and_unused_.i monotonic, align 8
+  store atomic i64 %18, ptr %arena_allocated_and_unused_.i monotonic, align 8
   %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
-  %21 = load i64, ptr %blocks_memory_.i.i, align 16
+  %19 = load i64, ptr %blocks_memory_.i.i, align 16
   %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
-  store atomic i64 %21, ptr %memory_allocated_bytes_.i monotonic, align 16
+  store atomic i64 %19, ptr %memory_allocated_bytes_.i monotonic, align 16
   %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
-  %22 = load i64, ptr %irregular_block_num.i.i, align 8
+  %20 = load i64, ptr %irregular_block_num.i.i, align 8
   %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
-  store atomic i64 %22, ptr %irregular_block_num_.i monotonic, align 8
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95
+  store atomic i64 %20, ptr %irregular_block_num_.i monotonic, align 8
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
   %shards_16 = getelementptr inbounds i8, ptr %this, i64 72
   %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %23 = load i32, ptr %size_shift_.i, align 16
-  %sh_prom.i = zext nneg i32 %23 to i64
+  %21 = load i32, ptr %size_shift_.i, align 16
+  %sh_prom.i = zext nneg i32 %21 to i64
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub = xor i64 %notmask, -1
   %and = and i64 %2, %sub
-  %24 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %24, i64 %and
+  %22 = load ptr, ptr %shards_16, align 8
+  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
   %mutex = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
-  %25 = load atomic i8, ptr %mutex monotonic, align 1
-  %26 = and i8 %25, 1
-  %tobool.i.i.not.i = icmp eq i8 %26, 0
-  br i1 %tobool.i.i.not.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit, label %if.then22
+  %23 = load atomic i8, ptr %mutex monotonic, align 1
+  %tobool.i.i.i = trunc i8 %23 to i1
+  br i1 %tobool.i.i.i, label %if.then22, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %invoke.cont19
-  %27 = cmpxchg weak ptr %mutex, i8 0, i8 1 acquire monotonic, align 1
-  %28 = extractvalue { i8, i1 } %27, 1
-  br i1 %28, label %if.end27, label %if.then22
+  %frombool.i47 = and i8 %23, 1
+  %24 = cmpxchg weak ptr %mutex, i8 %frombool.i47, i8 1 acquire monotonic, align 1
+  %25 = extractvalue { i8, i1 } %24, 1
+  br i1 %25, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %invoke.cont19, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %call.i.i48 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
-  %cmp.i.i47 = icmp slt i32 %call.i.i48, 0
-  br i1 %cmp.i.i47, label %if.then.i.i, label %if.else.i.i
+  %call.i.i49 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
+  %cmp.i.i48 = icmp slt i32 %call.i.i49, 0
+  br i1 %cmp.i.i48, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then22
-  %call2.i.i49 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %29 = load i32, ptr %size_shift_.i, align 16
-  %30 = load i32, ptr %call2.i.i49, align 4
-  %conv.i.i.i.i = zext i32 %30 to i64
+  %call2.i.i50 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
+  %26 = load i32, ptr %size_shift_.i, align 16
+  %27 = load i32, ptr %call2.i.i50, align 4
+  %conv.i.i.i.i = zext i32 %27 to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 16807
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 31
   %and.i.i.i.i = and i64 %mul.i.i.i.i, 2147483647
@@ -790,26 +790,26 @@ if.then.i.i:                                      ; preds = %if.then22
   %cmp.i.i.i.i = icmp slt i32 %conv2.i.i.i.i, 0
   %sub.i.i.i.i = add i32 %conv2.i.i.i.i, -2147483647
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %sub.i.i.i.i, i32 %conv2.i.i.i.i
-  store i32 %spec.select.i.i.i.i, ptr %call2.i.i49, align 4
-  %notmask.i.i = shl nsw i32 -1, %29
-  %31 = xor i32 %notmask.i.i, -1
-  %rem.i.i.i = and i32 %spec.select.i.i.i.i, %31
+  store i32 %spec.select.i.i.i.i, ptr %call2.i.i50, align 4
+  %notmask.i.i = shl nsw i32 -1, %26
+  %28 = xor i32 %notmask.i.i, -1
+  %rem.i.i.i = and i32 %spec.select.i.i.i.i, %28
   %conv.i.i = zext nneg i32 %rem.i.i.i to i64
   %.pre.i = load i32, ptr %size_shift_.i, align 16
   br label %invoke.cont23
 
 if.else.i.i:                                      ; preds = %if.then22
-  %32 = load i32, ptr %size_shift_.i, align 16
-  %33 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i.i48, i32 %32)
-  %conv6.i.i = sext i32 %33 to i64
+  %29 = load i32, ptr %size_shift_.i, align 16
+  %30 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i.i49, i32 %29)
+  %conv6.i.i = sext i32 %30 to i64
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %34 = phi i32 [ %32, %if.else.i.i ], [ %.pre.i, %if.then.i.i ]
+  %31 = phi i32 [ %29, %if.else.i.i ], [ %.pre.i, %if.then.i.i ]
   %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i ]
-  %35 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %35, i64 %storemerge.i.i
-  %sh_prom.i.i = zext nneg i32 %34 to i64
+  %32 = load ptr, ptr %shards_16, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %32, i64 %storemerge.i.i
+  %sh_prom.i.i = zext nneg i32 %31 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i = or i64 %shl.i.i, %storemerge.i.i
   store i64 %or.i, ptr %1, align 8
@@ -818,15 +818,15 @@ invoke.cont23:                                    ; preds = %if.else.i.i, %if.th
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont23
   %tries.0.i = phi i64 [ 0, %invoke.cont23 ], [ %inc.i, %for.inc.i ]
-  %36 = load atomic i8, ptr %mutex25 monotonic, align 1
-  %37 = and i8 %36, 1
-  %tobool.i.i.not.i.i50 = icmp eq i8 %37, 0
-  br i1 %tobool.i.i.not.i.i50, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, label %if.end.i
+  %33 = load atomic i8, ptr %mutex25 monotonic, align 1
+  %tobool.i.i.i.i51 = trunc i8 %33 to i1
+  br i1 %tobool.i.i.i.i51, label %if.end.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %for.cond.i
-  %38 = cmpxchg weak ptr %mutex25, i8 0, i8 1 acquire monotonic, align 1
-  %39 = extractvalue { i8, i1 } %38, 1
-  br i1 %39, label %if.end27, label %if.end.i
+  %frombool.i.i52 = and i8 %33, 1
+  %34 = cmpxchg weak ptr %mutex25, i8 %frombool.i.i52, i8 1 acquire monotonic, align 1
+  %35 = extractvalue { i8, i1 } %34, 1
+  br i1 %35, label %if.end27, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %for.cond.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -845,81 +845,81 @@ if.end27:                                         ; preds = %_ZN7rocksdb9SpinMut
   %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
   %mutex28 = getelementptr inbounds i8, ptr %s.0, i64 40
   %allocated_and_unused_30 = getelementptr inbounds i8, ptr %s.0, i64 56
-  %40 = load atomic i64, ptr %allocated_and_unused_30 monotonic, align 8
-  %cmp32 = icmp ult i64 %40, %bytes
-  br i1 %cmp32, label %for.cond.i.i52, label %if.end59
+  %36 = load atomic i64, ptr %allocated_and_unused_30 monotonic, align 8
+  %cmp32 = icmp ult i64 %36, %bytes
+  br i1 %cmp32, label %for.cond.i.i54, label %if.end59
 
-for.cond.i.i52:                                   ; preds = %if.end27, %for.inc.i.i57
-  %tries.0.i.i53 = phi i64 [ %inc.i.i58, %for.inc.i.i57 ], [ 0, %if.end27 ]
-  %41 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %42 = and i8 %41, 1
-  %tobool.i.i.not.i.i.i54 = icmp eq i8 %42, 0
-  br i1 %tobool.i.i.not.i.i.i54, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i61, label %if.end.i.i55
+for.cond.i.i54:                                   ; preds = %if.end27, %for.inc.i.i61
+  %tries.0.i.i55 = phi i64 [ %inc.i.i62, %for.inc.i.i61 ], [ 0, %if.end27 ]
+  %37 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
+  %tobool.i.i.i.i.i56 = trunc i8 %37 to i1
+  br i1 %tobool.i.i.i.i.i56, label %if.end.i.i59, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i57
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i61:      ; preds = %for.cond.i.i52
-  %43 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %44 = extractvalue { i8, i1 } %43, 1
-  br i1 %44, label %invoke.cont36, label %if.end.i.i55
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i57:      ; preds = %for.cond.i.i54
+  %frombool.i.i.i58 = and i8 %37, 1
+  %38 = cmpxchg weak ptr %arena_mutex_, i8 %frombool.i.i.i58, i8 1 acquire monotonic, align 1
+  %39 = extractvalue { i8, i1 } %38, 1
+  br i1 %39, label %invoke.cont36, label %if.end.i.i59
 
-if.end.i.i55:                                     ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i61, %for.cond.i.i52
+if.end.i.i59:                                     ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i57, %for.cond.i.i54
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i.i56 = icmp ugt i64 %tries.0.i.i53, 100
-  br i1 %cmp.i.i56, label %if.then2.i.i59, label %for.inc.i.i57
+  %cmp.i.i60 = icmp ugt i64 %tries.0.i.i55, 100
+  br i1 %cmp.i.i60, label %if.then2.i.i63, label %for.inc.i.i61
 
-if.then2.i.i59:                                   ; preds = %if.end.i.i55
-  %call.i.i.i.i60 = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i.i57
+if.then2.i.i63:                                   ; preds = %if.end.i.i59
+  %call.i.i.i.i64 = tail call noundef i32 @sched_yield() #11
+  br label %for.inc.i.i61
 
-for.inc.i.i57:                                    ; preds = %if.then2.i.i59, %if.end.i.i55
-  %inc.i.i58 = add i64 %tries.0.i.i53, 1
-  br label %for.cond.i.i52, !llvm.loop !7
+for.inc.i.i61:                                    ; preds = %if.then2.i.i63, %if.end.i.i59
+  %inc.i.i62 = add i64 %tries.0.i.i55, 1
+  br label %for.cond.i.i54, !llvm.loop !7
 
-invoke.cont36:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i61
+invoke.cont36:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i57
   %arena_allocated_and_unused_ = getelementptr inbounds i8, ptr %this, i64 2392
-  %45 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %cmp38.not = icmp ult i64 %45, %bytes
+  %40 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
+  %cmp38.not = icmp ult i64 %40, %bytes
   br i1 %cmp38.not, label %if.end47, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %invoke.cont36
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 2216
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 2184
-  %46 = load ptr, ptr %_M_finish.i.i, align 8
-  %47 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %46, %47
+  %41 = load ptr, ptr %_M_finish.i.i, align 8
+  %42 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %41, %42
   %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 2296
   %_M_start.i2.i = getelementptr inbounds i8, ptr %this, i64 2264
-  %48 = load ptr, ptr %_M_finish.i1.i, align 8
-  %49 = load ptr, ptr %_M_start.i2.i, align 8
-  %cmp.i.i3.i = icmp eq ptr %48, %49
-  %50 = select i1 %cmp.i.i.i, i1 %cmp.i.i3.i, i1 false
-  br i1 %50, label %if.then41, label %if.end47
+  %43 = load ptr, ptr %_M_finish.i1.i, align 8
+  %44 = load ptr, ptr %_M_start.i2.i, align 8
+  %cmp.i.i3.i = icmp eq ptr %43, %44
+  %45 = select i1 %cmp.i.i.i, i1 %cmp.i.i3.i, i1 false
+  br i1 %45, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %land.lhs.true39
-  %51 = load ptr, ptr %func, align 8
-  %arena_.i62 = getelementptr inbounds i8, ptr %51, i64 96
-  %52 = getelementptr inbounds i8, ptr %func, i64 8
-  %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %func, i64 16
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %func, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %call.i6364 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i62, i64 noundef %53, i64 noundef %55, ptr noundef %57)
+  %46 = load ptr, ptr %func, align 8
+  %arena_.i65 = getelementptr inbounds i8, ptr %46, i64 96
+  %47 = getelementptr inbounds i8, ptr %func, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %func, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %func, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %call.i6667 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i65, i64 noundef %48, i64 noundef %50, ptr noundef %52)
           to label %cleanup unwind label %ehcleanup73.thread
 
 ehcleanup73.thread:                               ; preds = %if.end47, %if.then41
-  %58 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit102
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit105
 
 if.end47:                                         ; preds = %land.lhs.true39, %invoke.cont36
-  %59 = load i64, ptr %shard_block_size_, align 16
-  %div4930 = lshr i64 %59, 1
-  %cmp50.not = icmp uge i64 %45, %div4930
-  %mul = shl i64 %59, 1
-  %cmp53 = icmp ult i64 %45, %mul
+  %54 = load i64, ptr %shard_block_size_, align 16
+  %div4930 = lshr i64 %54, 1
+  %cmp50.not = icmp uge i64 %40, %div4930
+  %mul = shl i64 %54, 1
+  %cmp53 = icmp ult i64 %40, %mul
   %or.cond = and i1 %cmp50.not, %cmp53
-  %cond = select i1 %or.cond, i64 %45, i64 %59
+  %cond = select i1 %or.cond, i64 %40, i64 %54
   %arena_55 = getelementptr inbounds i8, ptr %this, i64 96
   %call57 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_55, i64 noundef %cond, i64 noundef 0, ptr noundef null)
           to label %cleanup.thread unwind label %ehcleanup73.thread
@@ -927,72 +927,72 @@ if.end47:                                         ; preds = %land.lhs.true39, %i
 cleanup.thread:                                   ; preds = %if.end47
   %free_begin_ = getelementptr inbounds i8, ptr %s.0, i64 48
   store ptr %call57, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i72 = getelementptr inbounds i8, ptr %this, i64 2352
-  %60 = load i64, ptr %alloc_bytes_remaining_.i.i72, align 16
-  store atomic i64 %60, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i74 = getelementptr inbounds i8, ptr %this, i64 2368
-  %61 = load i64, ptr %blocks_memory_.i.i74, align 16
-  %memory_allocated_bytes_.i75 = getelementptr inbounds i8, ptr %this, i64 2400
-  store atomic i64 %61, ptr %memory_allocated_bytes_.i75 monotonic, align 16
-  %irregular_block_num.i.i76 = getelementptr inbounds i8, ptr %this, i64 2328
-  %62 = load i64, ptr %irregular_block_num.i.i76, align 8
-  %irregular_block_num_.i77 = getelementptr inbounds i8, ptr %this, i64 2408
-  store atomic i64 %62, ptr %irregular_block_num_.i77 monotonic, align 8
+  %alloc_bytes_remaining_.i.i75 = getelementptr inbounds i8, ptr %this, i64 2352
+  %55 = load i64, ptr %alloc_bytes_remaining_.i.i75, align 16
+  store atomic i64 %55, ptr %arena_allocated_and_unused_ monotonic, align 8
+  %blocks_memory_.i.i77 = getelementptr inbounds i8, ptr %this, i64 2368
+  %56 = load i64, ptr %blocks_memory_.i.i77, align 16
+  %memory_allocated_bytes_.i78 = getelementptr inbounds i8, ptr %this, i64 2400
+  store atomic i64 %56, ptr %memory_allocated_bytes_.i78 monotonic, align 16
+  %irregular_block_num.i.i79 = getelementptr inbounds i8, ptr %this, i64 2328
+  %57 = load i64, ptr %irregular_block_num.i.i79, align 8
+  %irregular_block_num_.i80 = getelementptr inbounds i8, ptr %this, i64 2408
+  store atomic i64 %57, ptr %irregular_block_num_.i80 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %if.end59
 
 cleanup:                                          ; preds = %if.then41
-  %alloc_bytes_remaining_.i.i66 = getelementptr inbounds i8, ptr %this, i64 2352
-  %63 = load i64, ptr %alloc_bytes_remaining_.i.i66, align 16
-  store atomic i64 %63, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i68 = getelementptr inbounds i8, ptr %this, i64 2368
-  %64 = load i64, ptr %blocks_memory_.i.i68, align 16
-  %memory_allocated_bytes_.i69 = getelementptr inbounds i8, ptr %this, i64 2400
-  store atomic i64 %64, ptr %memory_allocated_bytes_.i69 monotonic, align 16
-  %irregular_block_num.i.i70 = getelementptr inbounds i8, ptr %this, i64 2328
-  %65 = load i64, ptr %irregular_block_num.i.i70, align 8
-  %irregular_block_num_.i71 = getelementptr inbounds i8, ptr %this, i64 2408
-  store atomic i64 %65, ptr %irregular_block_num_.i71 monotonic, align 8
+  %alloc_bytes_remaining_.i.i69 = getelementptr inbounds i8, ptr %this, i64 2352
+  %58 = load i64, ptr %alloc_bytes_remaining_.i.i69, align 16
+  store atomic i64 %58, ptr %arena_allocated_and_unused_ monotonic, align 8
+  %blocks_memory_.i.i71 = getelementptr inbounds i8, ptr %this, i64 2368
+  %59 = load i64, ptr %blocks_memory_.i.i71, align 16
+  %memory_allocated_bytes_.i72 = getelementptr inbounds i8, ptr %this, i64 2400
+  store atomic i64 %59, ptr %memory_allocated_bytes_.i72 monotonic, align 16
+  %irregular_block_num.i.i73 = getelementptr inbounds i8, ptr %this, i64 2328
+  %60 = load i64, ptr %irregular_block_num.i.i73, align 8
+  %irregular_block_num_.i74 = getelementptr inbounds i8, ptr %this, i64 2408
+  store atomic i64 %60, ptr %irregular_block_num_.i74 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 if.end59:                                         ; preds = %cleanup.thread, %if.end27
-  %avail.1 = phi i64 [ %40, %if.end27 ], [ %cond, %cleanup.thread ]
+  %avail.1 = phi i64 [ %36, %if.end27 ], [ %cond, %cleanup.thread ]
   %sub61 = sub i64 %avail.1, %bytes
   store atomic i64 %sub61, ptr %allocated_and_unused_30 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp63 = icmp eq i64 %rem, 0
   %free_begin_65 = getelementptr inbounds i8, ptr %s.0, i64 48
-  %66 = load ptr, ptr %free_begin_65, align 8
+  %61 = load ptr, ptr %free_begin_65, align 8
   br i1 %cmp63, label %if.then64, label %if.else
 
 if.then64:                                        ; preds = %if.end59
-  %add.ptr = getelementptr inbounds i8, ptr %66, i64 %bytes
+  %add.ptr = getelementptr inbounds i8, ptr %61, i64 %bytes
   store ptr %add.ptr, ptr %free_begin_65, align 8
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 if.else:                                          ; preds = %if.end59
-  %add.ptr68 = getelementptr inbounds i8, ptr %66, i64 %avail.1
+  %add.ptr68 = getelementptr inbounds i8, ptr %61, i64 %avail.1
   %idx.neg = sub nsw i64 0, %bytes
   %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr68, i64 %idx.neg
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95: ; preds = %if.else, %if.then64, %cleanup, %cleanup72.thread
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98: ; preds = %if.else, %if.then64, %cleanup, %cleanup72.thread
   %mutex28.sink = phi ptr [ %arena_mutex_, %cleanup72.thread ], [ %mutex28, %cleanup ], [ %mutex28, %if.then64 ], [ %mutex28, %if.else ]
-  %retval.2123 = phi ptr [ %call.i4546, %cleanup72.thread ], [ %call.i6364, %cleanup ], [ %66, %if.then64 ], [ %add.ptr69, %if.else ]
+  %retval.2125 = phi ptr [ %call.i4546, %cleanup72.thread ], [ %call.i6667, %cleanup ], [ %61, %if.then64 ], [ %add.ptr69, %if.else ]
   store atomic i8 0, ptr %mutex28.sink release, align 1
-  ret ptr %retval.2123
+  ret ptr %retval.2125
 
-if.then3.i.i100:                                  ; preds = %if.end
+if.then3.i.i104:                                  ; preds = %if.end
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit102
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit105
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit102: ; preds = %ehcleanup73.thread, %if.then3.i.i100
-  %mutex28.sink129 = phi ptr [ %mutex28, %ehcleanup73.thread ], [ %arena_mutex_, %if.then3.i.i100 ]
-  %.pn32126 = phi { ptr, i32 } [ %58, %ehcleanup73.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i100 ]
-  store atomic i8 0, ptr %mutex28.sink129 release, align 1
-  resume { ptr, i32 } %.pn32126
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit105: ; preds = %ehcleanup73.thread, %if.then3.i.i104
+  %mutex28.sink133 = phi ptr [ %mutex28, %ehcleanup73.thread ], [ %arena_mutex_, %if.then3.i.i104 ]
+  %.pn32129 = phi { ptr, i32 } [ %53, %ehcleanup73.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i104 ]
+  store atomic i8 0, ptr %mutex28.sink133 release, align 1
+  resume { ptr, i32 } %.pn32129
 }
 
 ; Function Attrs: uwtable

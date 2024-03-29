@@ -65,9 +65,8 @@ define i32 @mca_coll_monitoring_scatter(ptr noundef %0, i32 noundef %1, ptr noun
 42:                                               ; preds = %32
   %43 = getelementptr inbounds i8, ptr %36, i64 8
   %44 = load i8, ptr @opal_uses_threads, align 1
-  %45 = and i8 %44, 1
-  %.not.i.i.i.i = icmp eq i8 %45, 0
-  br i1 %.not.i.i.i.i, label %48, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %42
   %47 = atomicrmw volatile add ptr %43, i32 1 monotonic, align 4
@@ -203,9 +202,8 @@ define i32 @mca_coll_monitoring_iscatter(ptr noundef %0, i32 noundef %1, ptr nou
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %37, i64 8
   %45 = load i8, ptr @opal_uses_threads, align 1
-  %46 = and i8 %45, 1
-  %.not.i.i.i.i = icmp eq i8 %46, 0
-  br i1 %.not.i.i.i.i, label %49, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
   %48 = atomicrmw volatile add ptr %44, i32 1 monotonic, align 4

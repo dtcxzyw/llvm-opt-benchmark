@@ -90,21 +90,20 @@ if.else:                                          ; preds = %entry
   %call14 = tail call i64 @write(i32 noundef 2, ptr noundef %call11, i64 noundef %call13)
   %2 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN8facebook5velox7process20fatalSignalProcessedE)
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end18
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %callback_ = getelementptr inbounds i8, ptr %1, i64 64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %1, i64 80
-  %5 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i.not = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
   store i8 1, ptr %2, align 1
-  %6 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i11 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i11 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i11, label %if.then.i, label %_ZNKSt8functionIFvvEEclEv.exit
 
 if.then.i:                                        ; preds = %if.then16
@@ -113,8 +112,8 @@ if.then.i:                                        ; preds = %if.then16
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %if.then16
   %_M_invoker.i = getelementptr inbounds i8, ptr %1, i64 88
-  %7 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %callback_)
+  %6 = load ptr, ptr %_M_invoker.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %callback_)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %land.lhs.true, %_ZNKSt8functionIFvvEEclEv.exit, %if.then

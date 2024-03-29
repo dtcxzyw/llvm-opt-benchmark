@@ -71,13 +71,12 @@ lpad:                                             ; preds = %invoke.cont, %while
 while.end:                                        ; preds = %entry
   %pendingContextUpdate_ = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i8, ptr %pendingContextUpdate_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %3 = load ptr, ptr @_ZZN8proxygen16HPACKEncoderBase26handlePendingContextUpdateERNS_17HPACKEncodeBufferEjE8vlocal__, align 8
-  %cmp = icmp eq ptr %3, null
+  %2 = load ptr, ptr @_ZZN8proxygen16HPACKEncoderBase26handlePendingContextUpdateERNS_17HPACKEncodeBufferEjE8vlocal__, align 8
+  %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then
@@ -85,8 +84,8 @@ cond.true:                                        ; preds = %if.then
   br i1 %call10, label %cond.false14, label %cleanup.done
 
 cond.end:                                         ; preds = %if.then
-  %4 = load i32, ptr %3, align 4
-  %cmp11 = icmp sgt i32 %4, 4
+  %3 = load i32, ptr %2, align 4
+  %cmp11 = icmp sgt i32 %3, 4
   br i1 %cmp11, label %cond.false14, label %cleanup.done
 
 cond.false14:                                     ; preds = %cond.true, %cond.end
@@ -113,10 +112,10 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   br label %if.end
 
 lpad17:                                           ; preds = %invoke.cont20, %invoke.cont18, %cond.false14
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #8
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %cleanup.done, %while.end
   %encoded.0 = phi i32 [ %call29, %cleanup.done ], [ 0, %while.end ]

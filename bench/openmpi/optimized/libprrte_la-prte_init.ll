@@ -962,53 +962,50 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 1, i32 1)) #11
   %5 = load volatile i8, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
-  %6 = and i8 %5, 1
-  %.not66 = icmp eq i8 %6, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %7 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 1, i32 1)) #11
   %8 = load volatile i8, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   fence acquire
   store volatile i8 1, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
   %10 = load i8, ptr @prte_initialized, align 1
-  %11 = and i8 %10, 1
-  %.not40 = icmp eq i8 %11, 0
+  %11 = trunc i8 %10 to i1
   store volatile i8 0, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
   fence release
   %12 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 2)) #11
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 1, i32 1)) #11
-  br i1 %.not40, label %14, label %62
+  br i1 %11, label %62, label %14
 
 14:                                               ; preds = %._crit_edge
   %15 = tail call i32 @prte_init_util(i8 noundef zeroext %2)
-  %.not41 = icmp eq i32 %15, 0
-  br i1 %.not41, label %16, label %62
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %62
 
 16:                                               ; preds = %14
   %17 = tail call i32 @prte_event_base_open() #11
-  %.not42 = icmp eq i32 %17, 0
-  br i1 %.not42, label %18, label %59
+  %.not40 = icmp eq i32 %17, 0
+  br i1 %.not40, label %18, label %59
 
 18:                                               ; preds = %16
   %19 = tail call i32 @prte_locks_init() #11
-  %.not43 = icmp eq i32 %19, 0
-  br i1 %.not43, label %20, label %59
+  %.not41 = icmp eq i32 %19, 0
+  br i1 %.not41, label %20, label %59
 
 20:                                               ; preds = %18
   %21 = tail call i32 @prte_proc_info() #11
-  %.not44 = icmp eq i32 %21, 0
-  br i1 %.not44, label %22, label %59
+  %.not42 = icmp eq i32 %21, 0
+  br i1 %.not42, label %22, label %59
 
 22:                                               ; preds = %20
   %23 = tail call i32 @prte_hwloc_base_register() #11
-  %.not45 = icmp eq i32 %23, 0
-  br i1 %.not45, label %24, label %59
+  %.not43 = icmp eq i32 %23, 0
+  br i1 %.not43, label %24, label %59
 
 24:                                               ; preds = %22
   tail call void @pmix_server_register_params() #11
@@ -1048,8 +1045,8 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 36:                                               ; preds = %34
   %37 = tail call i32 @prte_schizo_base_select() #11
-  %.not50 = icmp eq i32 %37, 0
-  br i1 %.not50, label %38, label %59
+  %.not48 = icmp eq i32 %37, 0
+  br i1 %.not48, label %38, label %59
 
 38:                                               ; preds = %36
   %39 = tail call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_ess_base_framework, i32 noundef 0) #11
@@ -1060,16 +1057,16 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 40:                                               ; preds = %38
   %41 = tail call i32 @prte_ess_base_select() #11
-  %.not52 = icmp eq i32 %41, 0
-  br i1 %.not52, label %42, label %59
+  %.not50 = icmp eq i32 %41, 0
+  br i1 %.not50, label %42, label %59
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr @prte_ess, align 8
   %44 = load i32, ptr %0, align 4
   %45 = load ptr, ptr %1, align 8
   %46 = tail call i32 %43(i32 noundef %44, ptr noundef %45) #11
-  %.not53 = icmp eq i32 %46, 0
-  br i1 %.not53, label %47, label %59
+  %.not51 = icmp eq i32 %46, 0
+  br i1 %.not51, label %47, label %59
 
 47:                                               ; preds = %42
   tail call void @pmix_ifgetaliases(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8)) #11
@@ -1078,18 +1075,16 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %49 = tail call i32 @pmix_pointer_array_init(ptr noundef %48, i32 noundef 1, i32 noundef 2147483647, i32 noundef 1) #11
   %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 1, i32 1)) #11
   %51 = load volatile i8, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
-  %52 = and i8 %51, 1
-  %.not5467 = icmp eq i8 %52, 0
-  br i1 %.not5467, label %._crit_edge70, label %.lr.ph69
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %.lr.ph64, label %._crit_edge65
 
-.lr.ph69:                                         ; preds = %47, %.lr.ph69
+.lr.ph64:                                         ; preds = %47, %.lr.ph64
   %53 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 1, i32 1)) #11
   %54 = load volatile i8, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
-  %55 = and i8 %54, 1
-  %.not54 = icmp eq i8 %55, 0
-  br i1 %.not54, label %._crit_edge70, label %.lr.ph69, !llvm.loop !15
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %.lr.ph64, label %._crit_edge65, !llvm.loop !15
 
-._crit_edge70:                                    ; preds = %.lr.ph69, %47
+._crit_edge65:                                    ; preds = %.lr.ph64, %47
   fence acquire
   store volatile i8 1, ptr getelementptr inbounds (%struct.pmix_lock_t, ptr @prte_init_lock, i64 0, i32 3), align 8
   store i8 1, ptr @prte_initialized, align 1
@@ -1100,28 +1095,28 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br label %62
 
 .sink.split:                                      ; preds = %38, %34, %31, %28, %24
-  %.sink72 = phi i32 [ %27, %24 ], [ %30, %28 ], [ %33, %31 ], [ %35, %34 ], [ %39, %38 ]
-  %.sink71 = phi i32 [ 298, %24 ], [ 307, %28 ], [ 316, %31 ], [ 326, %34 ], [ 340, %38 ]
+  %.sink67 = phi i32 [ %27, %24 ], [ %30, %28 ], [ %33, %31 ], [ %35, %34 ], [ %39, %38 ]
+  %.sink66 = phi i32 [ 298, %24 ], [ 307, %28 ], [ 316, %31 ], [ 326, %34 ], [ 340, %38 ]
   %.0.ph = phi ptr [ @.str.14, %24 ], [ @.str.15, %28 ], [ @.str.16, %31 ], [ @.str.17, %34 ], [ @.str.19, %38 ]
-  %58 = tail call ptr @PMIx_Error_string(i32 noundef %.sink72) #11
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %58, ptr noundef nonnull @.str.1, i32 noundef %.sink71) #11
+  %58 = tail call ptr @PMIx_Error_string(i32 noundef %.sink67) #11
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %58, ptr noundef nonnull @.str.1, i32 noundef %.sink66) #11
   br label %59
 
 59:                                               ; preds = %.sink.split, %42, %40, %36, %22, %20, %18, %16
-  %.025 = phi i32 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %37, %36 ], [ %41, %40 ], [ %46, %42 ], [ %.sink72, %.sink.split ]
+  %.025 = phi i32 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %37, %36 ], [ %41, %40 ], [ %46, %42 ], [ %.sink67, %.sink.split ]
   %.0 = phi ptr [ @.str.9, %16 ], [ @.str.10, %18 ], [ @.str.11, %20 ], [ @.str.12, %22 ], [ @.str.18, %36 ], [ @.str.20, %40 ], [ @.str.21, %42 ], [ %.0.ph, %.sink.split ]
-  %.not60 = icmp eq i32 %.025, -43
-  br i1 %.not60, label %62, label %.thread
+  %.not57 = icmp eq i32 %.025, -43
+  br i1 %.not57, label %62, label %.thread
 
 .thread:                                          ; preds = %38, %34, %31, %28, %24, %59
-  %.065 = phi ptr [ %.0, %59 ], [ @.str.19, %38 ], [ @.str.17, %34 ], [ @.str.16, %31 ], [ @.str.15, %28 ], [ @.str.14, %24 ]
-  %.02564 = phi i32 [ %.025, %59 ], [ %39, %38 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %24 ]
-  %60 = tail call ptr @prte_strerror(i32 noundef %.02564) #11
-  %61 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef nonnull %.065, ptr noundef %60, i32 noundef %.02564) #11
+  %.062 = phi ptr [ %.0, %59 ], [ @.str.19, %38 ], [ @.str.17, %34 ], [ @.str.16, %31 ], [ @.str.15, %28 ], [ @.str.14, %24 ]
+  %.02561 = phi i32 [ %.025, %59 ], [ %39, %38 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %24 ]
+  %60 = tail call ptr @prte_strerror(i32 noundef %.02561) #11
+  %61 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef nonnull %.062, ptr noundef %60, i32 noundef %.02561) #11
   br label %62
 
-62:                                               ; preds = %._crit_edge, %59, %.thread, %14, %._crit_edge70
-  %.026 = phi i32 [ 0, %._crit_edge70 ], [ %15, %14 ], [ %.02564, %.thread ], [ -43, %59 ], [ 0, %._crit_edge ]
+62:                                               ; preds = %._crit_edge, %59, %.thread, %14, %._crit_edge65
+  %.026 = phi i32 [ 0, %._crit_edge65 ], [ %15, %14 ], [ %.02561, %.thread ], [ -43, %59 ], [ 0, %._crit_edge ]
   ret i32 %.026
 }
 

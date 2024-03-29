@@ -428,9 +428,8 @@ if.end16:                                         ; preds = %if.end13, %if.end
   %3 = load ptr, ptr %send_fn, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %call17, i64 70081
   %4 = load i8, ptr %write_poll.i.i, align 1
-  %5 = and i8 %4, 1
-  %tobool1.not.i.i = icmp eq i8 %5, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i = trunc i8 %4 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
   call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef %3, ptr noundef %cond2.i.i, ptr noundef nonnull %call17) #9
   br i1 %or.cond, label %if.then23, label %if.else
 
@@ -438,11 +437,11 @@ if.then23:                                        ; preds = %if.end16
   %dgram_dst = getelementptr inbounds i8, ptr %call17, i64 70052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dgram_dst, ptr noundef nonnull align 4 dereferenceable(16) %saddr, i64 16, i1 false)
   %sin_addr24 = getelementptr inbounds i8, ptr %saddr, i64 4
-  %6 = load i32, ptr %sin_addr24, align 4
-  %call25 = call ptr @inet_ntoa(i32 %6) #9
+  %5 = load i32, ptr %sin_addr24, align 4
+  %call25 = call ptr @inet_ntoa(i32 %5) #9
   %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
-  %7 = load i16, ptr %sin_port, align 2
-  %call26 = call zeroext i16 @ntohs(i16 noundef zeroext %7) #10
+  %6 = load i16, ptr %sin_port, align 2
+  %call26 = call zeroext i16 @ntohs(i16 noundef zeroext %6) #10
   %conv = zext i16 %call26 to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call17, ptr noundef nonnull @.str.11, i32 noundef %fd, ptr noundef %call25, i32 noundef %conv) #9
   br label %return
@@ -493,15 +492,14 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %fd2, align 4
   %write_poll.i.i.i = getelementptr inbounds i8, ptr %call, i64 70081
   %1 = load i8, ptr %write_poll.i.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool1.not.i.i.i = icmp eq i8 %2, 0
-  %cond2.i.i.i = select i1 %tobool1.not.i.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i.i = trunc i8 %1 to i1
+  %cond2.i.i.i = select i1 %tobool1.i.i.i, ptr @net_socket_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef nonnull @net_socket_send, ptr noundef %cond2.i.i.i, ptr noundef nonnull %call) #9
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %fd2, align 4
-  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef null, ptr noundef nonnull @net_socket_connect, ptr noundef nonnull %call) #9
+  %2 = load i32, ptr %fd2, align 4
+  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef null, ptr noundef nonnull @net_socket_connect, ptr noundef nonnull %call) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -797,25 +795,23 @@ if.then4:                                         ; preds = %if.end
   %1 = load i32, ptr %fd, align 4
   %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
   %2 = load i8, ptr %write_poll.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not.i.i = icmp eq i8 %3, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i = trunc i8 %2 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %opaque) #9
   store i8 0, ptr %write_poll.i.i, align 1
-  %4 = load i32, ptr %fd, align 4
-  %5 = load i8, ptr %read_poll.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %net_socket_write_poll.exit, label %cond.true.i.i
+  %3 = load i32, ptr %fd, align 4
+  %4 = load i8, ptr %read_poll.i, align 8
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then4
   %send_fn.i.i = getelementptr inbounds i8, ptr %opaque, i64 70072
-  %7 = load ptr, ptr %send_fn.i.i, align 8
+  %5 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %if.then4, %cond.true.i.i
-  %cond.i.i = phi ptr [ %7, %cond.true.i.i ], [ null, %if.then4 ]
-  tail call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #9
+  %cond.i.i = phi ptr [ %5, %cond.true.i.i ], [ null, %if.then4 ]
+  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #9
   br label %if.end13
 
 if.end5:                                          ; preds = %if.end
@@ -826,13 +822,12 @@ if.end5:                                          ; preds = %if.end
 if.then12:                                        ; preds = %if.end5
   %read_poll.i10 = getelementptr inbounds i8, ptr %opaque, i64 70080
   store i8 0, ptr %read_poll.i10, align 8
-  %8 = load i32, ptr %fd, align 4
+  %6 = load i32, ptr %fd, align 4
   %write_poll.i.i13 = getelementptr inbounds i8, ptr %opaque, i64 70081
-  %9 = load i8, ptr %write_poll.i.i13, align 1
-  %10 = and i8 %9, 1
-  %tobool1.not.i.i14 = icmp eq i8 %10, 0
-  %cond2.i.i15 = select i1 %tobool1.not.i.i14, ptr null, ptr @net_socket_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %8, ptr noundef null, ptr noundef %cond2.i.i15, ptr noundef nonnull %opaque) #9
+  %7 = load i8, ptr %write_poll.i.i13, align 1
+  %tobool1.i.i14 = trunc i8 %7 to i1
+  %cond2.i.i15 = select i1 %tobool1.i.i14, ptr @net_socket_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef null, ptr noundef %cond2.i.i15, ptr noundef nonnull %opaque) #9
   br label %if.end13
 
 if.end13:                                         ; preds = %entry, %if.then12, %if.end5, %net_socket_write_poll.exit
@@ -859,9 +854,8 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %fd.i.i, align 4
   %write_poll.i.i = getelementptr i8, ptr %rs, i64 69697
   %2 = load i8, ptr %write_poll.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not.i.i = icmp eq i8 %3, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i = trunc i8 %2 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %add.ptr) #9
   br label %if.end
 
@@ -941,17 +935,16 @@ if.then:                                          ; preds = %land.rhs
   %3 = load i32, ptr %fd, align 4
   %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70080
   %4 = load i8, ptr %read_poll.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %net_socket_write_poll.exit, label %cond.true.i.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then
   %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
-  %6 = load ptr, ptr %send_fn.i.i, align 8
+  %5 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %if.then, %cond.true.i.i
-  %cond.i.i = phi ptr [ %6, %cond.true.i.i ], [ null, %if.then ]
+  %cond.i.i = phi ptr [ %5, %cond.true.i.i ], [ null, %if.then ]
   tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef nonnull @net_socket_writable, ptr noundef nonnull %nc) #9
   br label %return
 
@@ -973,40 +966,38 @@ if.then:                                          ; preds = %entry
   store i8 0, ptr %read_poll.i, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70081
   %1 = load i8, ptr %write_poll.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool1.not.i.i = icmp eq i8 %2, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i = trunc i8 %1 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #9
   store i8 0, ptr %write_poll.i.i, align 1
-  %3 = load i32, ptr %fd, align 4
-  %4 = load i8, ptr %read_poll.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %net_socket_write_poll.exit, label %cond.true.i.i
+  %2 = load i32, ptr %fd, align 4
+  %3 = load i8, ptr %read_poll.i, align 8
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then
   %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
-  %6 = load ptr, ptr %send_fn.i.i, align 8
+  %4 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %if.then, %cond.true.i.i
-  %cond.i.i = phi ptr [ %6, %cond.true.i.i ], [ null, %if.then ]
-  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %nc) #9
-  %7 = load i32, ptr %fd, align 4
-  %call = tail call i32 @close(i32 noundef %7) #9
+  %cond.i.i = phi ptr [ %4, %cond.true.i.i ], [ null, %if.then ]
+  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %nc) #9
+  %5 = load i32, ptr %fd, align 4
+  %call = tail call i32 @close(i32 noundef %5) #9
   store i32 -1, ptr %fd, align 4
   br label %if.end
 
 if.end:                                           ; preds = %net_socket_write_poll.exit, %entry
   %listen_fd = getelementptr inbounds i8, ptr %nc, i64 376
-  %8 = load i32, ptr %listen_fd, align 8
-  %cmp4.not = icmp eq i32 %8, -1
+  %6 = load i32, ptr %listen_fd, align 8
+  %cmp4.not = icmp eq i32 %6, -1
   br i1 %cmp4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call void @qemu_set_fd_handler(i32 noundef %8, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  %9 = load i32, ptr %listen_fd, align 8
-  %call8 = tail call i32 @close(i32 noundef %9) #9
+  tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null) #9
+  %7 = load i32, ptr %listen_fd, align 8
+  %call8 = tail call i32 @close(i32 noundef %7) #9
   store i32 -1, ptr %listen_fd, align 8
   br label %if.end10
 
@@ -1029,17 +1020,16 @@ entry:
   %0 = load i32, ptr %fd.i.i, align 4
   %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70080
   %1 = load i8, ptr %read_poll.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %net_socket_write_poll.exit, label %cond.true.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %entry
   %send_fn.i.i = getelementptr inbounds i8, ptr %opaque, i64 70072
-  %3 = load ptr, ptr %send_fn.i.i, align 8
+  %2 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %entry, %cond.true.i.i
-  %cond.i.i = phi ptr [ %3, %cond.true.i.i ], [ null, %entry ]
+  %cond.i.i = phi ptr [ %2, %cond.true.i.i ], [ null, %entry ]
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #9
   tail call void @qemu_flush_queued_packets(ptr noundef nonnull %opaque) #9
   ret void
@@ -1056,22 +1046,20 @@ define internal void @net_socket_send_completed(ptr noundef %nc, i64 %len) #0 {
 entry:
   %read_poll = getelementptr inbounds i8, ptr %nc, i64 70080
   %0 = load i8, ptr %read_poll, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %read_poll, align 8
   %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 380
-  %2 = load i32, ptr %fd.i.i, align 4
+  %1 = load i32, ptr %fd.i.i, align 4
   %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
-  %3 = load ptr, ptr %send_fn.i.i, align 8
+  %2 = load ptr, ptr %send_fn.i.i, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70081
-  %4 = load i8, ptr %write_poll.i.i, align 1
-  %5 = and i8 %4, 1
-  %tobool1.not.i.i = icmp eq i8 %5, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef %3, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #9
+  %3 = load i8, ptr %write_poll.i.i, align 1
+  %tobool1.i.i = trunc i8 %3 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef %2, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1091,9 +1079,8 @@ entry:
   %0 = load i32, ptr %fd.i.i, align 4
   %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
   %1 = load i8, ptr %write_poll.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool1.not.i.i = icmp eq i8 %2, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i = trunc i8 %1 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef nonnull @net_socket_send, ptr noundef %cond2.i.i, ptr noundef nonnull %opaque) #9
   ret void
 }
@@ -1152,17 +1139,16 @@ if.then24:                                        ; preds = %if.end21
   %6 = load i32, ptr %fd, align 4
   %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70080
   %7 = load i8, ptr %read_poll.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i, label %net_socket_write_poll.exit, label %cond.true.i.i
+  %tobool.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then24
   %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
-  %9 = load ptr, ptr %send_fn.i.i, align 8
+  %8 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %if.then24, %cond.true.i.i
-  %cond.i.i = phi ptr [ %9, %cond.true.i.i ], [ null, %if.then24 ]
+  %cond.i.i = phi ptr [ %8, %cond.true.i.i ], [ null, %if.then24 ]
   call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef %cond.i.i, ptr noundef nonnull @net_socket_writable, ptr noundef nonnull %nc) #9
   br label %return
 
@@ -1206,37 +1192,35 @@ eoc:                                              ; preds = %if.end19, %if.else,
   %2 = load i32, ptr %fd, align 4
   %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
   %3 = load i8, ptr %write_poll.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool1.not.i.i = icmp eq i8 %4, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i = trunc i8 %3 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
   call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %opaque) #9
   store i8 0, ptr %write_poll.i.i, align 1
-  %5 = load i32, ptr %fd, align 4
-  %6 = load i8, ptr %read_poll.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i, label %net_socket_write_poll.exit, label %cond.true.i.i
+  %4 = load i32, ptr %fd, align 4
+  %5 = load i8, ptr %read_poll.i, align 8
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %eoc
   %send_fn.i.i = getelementptr inbounds i8, ptr %opaque, i64 70072
-  %8 = load ptr, ptr %send_fn.i.i, align 8
+  %6 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %eoc, %cond.true.i.i
-  %cond.i.i = phi ptr [ %8, %cond.true.i.i ], [ null, %eoc ]
-  call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #9
+  %cond.i.i = phi ptr [ %6, %cond.true.i.i ], [ null, %eoc ]
+  call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #9
   %listen_fd = getelementptr inbounds i8, ptr %opaque, i64 376
-  %9 = load i32, ptr %listen_fd, align 8
-  %cmp9.not = icmp eq i32 %9, -1
+  %7 = load i32, ptr %listen_fd, align 8
+  %cmp9.not = icmp eq i32 %7, -1
   br i1 %cmp9.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %net_socket_write_poll.exit
-  call void @qemu_set_fd_handler(i32 noundef %9, ptr noundef nonnull @net_socket_accept, ptr noundef null, ptr noundef nonnull %opaque) #9
+  call void @qemu_set_fd_handler(i32 noundef %7, ptr noundef nonnull @net_socket_accept, ptr noundef null, ptr noundef nonnull %opaque) #9
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %net_socket_write_poll.exit
-  %10 = load i32, ptr %fd, align 4
-  %call15 = call i32 @close(i32 noundef %10) #9
+  %8 = load i32, ptr %fd, align 4
+  %call15 = call i32 @close(i32 noundef %8) #9
   store i32 -1, ptr %fd, align 4
   %rs = getelementptr inbounds i8, ptr %opaque, i64 384
   call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_socket_rs_finalize, i1 noundef zeroext false) #9
@@ -1289,16 +1273,15 @@ if.then4:                                         ; preds = %for.cond
   store i8 1, ptr %read_poll.i.i, align 8
   %write_poll.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
   %3 = load i8, ptr %write_poll.i.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool1.not.i.i.i = icmp eq i8 %4, 0
-  %cond2.i.i.i = select i1 %tobool1.not.i.i.i, ptr null, ptr @net_socket_writable
+  %tobool1.i.i.i = trunc i8 %3 to i1
+  %cond2.i.i.i = select i1 %tobool1.i.i.i, ptr @net_socket_writable, ptr null
   call void @qemu_set_fd_handler(i32 noundef %call, ptr noundef nonnull @net_socket_send, ptr noundef %cond2.i.i.i, ptr noundef nonnull %opaque) #9
   %sin_addr = getelementptr inbounds i8, ptr %saddr, i64 4
-  %5 = load i32, ptr %sin_addr, align 4
-  %call9 = call ptr @inet_ntoa(i32 %5) #9
+  %4 = load i32, ptr %sin_addr, align 4
+  %call9 = call ptr @inet_ntoa(i32 %4) #9
   %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
-  %6 = load i16, ptr %sin_port, align 2
-  %call10 = call zeroext i16 @ntohs(i16 noundef zeroext %6) #10
+  %5 = load i16, ptr %sin_port, align 2
+  %call10 = call zeroext i16 @ntohs(i16 noundef zeroext %5) #10
   %conv = zext i16 %call10 to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.23, ptr noundef %call9, i32 noundef %conv) #9
   br label %return

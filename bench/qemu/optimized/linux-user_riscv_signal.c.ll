@@ -62,17 +62,16 @@ land.lhs.true5.i.i:                               ; preds = %get_sigframe.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %env, i64 noundef %retval.0.i) #6
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i64 noundef %retval.0.i) #6
   br label %trace_user_setup_rt_frame.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -91,12 +90,12 @@ if.end:                                           ; preds = %trace_user_setup_rt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %uc, i8 0, i64 16, i1 false)
   tail call void @target_save_altstack(ptr noundef nonnull %uc_stack.i, ptr noundef nonnull %env) #6
   %uc_sigmask.i = getelementptr inbounds i8, ptr %call1, i64 168
-  %9 = load i64, ptr %set, align 8
-  store i64 %9, ptr %uc_sigmask.i, align 1
+  %8 = load i64, ptr %set, align 8
+  store i64 %8, ptr %uc_sigmask.i, align 1
   %uc_mcontext.i = getelementptr inbounds i8, ptr %call1, i64 304
   %pc1.i.i = getelementptr inbounds i8, ptr %env, i64 4656
-  %10 = load i64, ptr %pc1.i.i, align 16
-  store i64 %10, ptr %uc_mcontext.i, align 1
+  %9 = load i64, ptr %pc1.i.i, align 16
+  store i64 %9, ptr %uc_mcontext.i, align 1
   %gpr.i.i = getelementptr inbounds i8, ptr %call1, i64 312
   br label %do.body2.i.i
 
@@ -107,11 +106,11 @@ for.cond7.preheader.i.i:                          ; preds = %do.body2.i.i
 
 do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.end
   %indvars.iv.i.i = phi i64 [ 1, %if.end ], [ %indvars.iv.next.i.i, %do.body2.i.i ]
-  %11 = add nsw i64 %indvars.iv.i.i, -1
-  %arrayidx.i.i = getelementptr [31 x i64], ptr %gpr.i.i, i64 0, i64 %11
+  %10 = add nsw i64 %indvars.iv.i.i, -1
+  %arrayidx.i.i = getelementptr [31 x i64], ptr %gpr.i.i, i64 0, i64 %10
   %arrayidx5.i.i = getelementptr [32 x i64], ptr %env, i64 0, i64 %indvars.iv.i.i
-  %12 = load i64, ptr %arrayidx5.i.i, align 8
-  store i64 %12, ptr %arrayidx.i.i, align 1
+  %11 = load i64, ptr %arrayidx5.i.i, align 8
+  store i64 %11, ptr %arrayidx.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %for.cond7.preheader.i.i, label %do.body2.i.i, !llvm.loop !5
@@ -120,8 +119,8 @@ do.body10.i.i:                                    ; preds = %do.body10.i.i, %for
   %indvars.iv18.i.i = phi i64 [ 0, %for.cond7.preheader.i.i ], [ %indvars.iv.next19.i.i, %do.body10.i.i ]
   %arrayidx12.i.i = getelementptr [32 x i64], ptr %fpr.i.i, i64 0, i64 %indvars.iv18.i.i
   %arrayidx15.i.i = getelementptr [32 x i64], ptr %fpr13.i.i, i64 0, i64 %indvars.iv18.i.i
-  %13 = load i64, ptr %arrayidx15.i.i, align 8
-  store i64 %13, ptr %arrayidx12.i.i, align 1
+  %12 = load i64, ptr %arrayidx15.i.i, align 8
+  store i64 %12, ptr %arrayidx12.i.i, align 1
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next19.i.i, 32
   br i1 %exitcond21.not.i.i, label %setup_ucontext.exit, label %do.body10.i.i, !llvm.loop !7
@@ -130,14 +129,14 @@ setup_ucontext.exit:                              ; preds = %do.body10.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i.i)
   store i64 0, ptr %val.i.i.i, align 8
   %call.i.i.i = call i32 @riscv_csrrw(ptr noundef nonnull %env, i32 noundef 3, ptr noundef nonnull %val.i.i.i, i64 noundef 0, i64 noundef 0) #6
-  %14 = load i64, ptr %val.i.i.i, align 8
+  %13 = load i64, ptr %val.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i.i)
-  %conv.i.i = trunc i64 %14 to i32
+  %conv.i.i = trunc i64 %13 to i32
   %fcsr21.i.i = getelementptr inbounds i8, ptr %call1, i64 816
   store i32 %conv.i.i, ptr %fcsr21.i.i, align 1
   call void @tswap_siginfo(ptr noundef nonnull %call1, ptr noundef %info) #6
-  %15 = load i64, ptr %ka, align 8
-  store i64 %15, ptr %pc1.i.i, align 16
+  %14 = load i64, ptr %ka, align 8
+  store i64 %14, ptr %pc1.i.i, align 16
   store i64 %retval.0.i, ptr %0, align 16
   %conv = sext i32 %sig to i64
   %arrayidx4 = getelementptr i8, ptr %env, i64 80
@@ -147,9 +146,9 @@ setup_ucontext.exit:                              ; preds = %do.body10.i.i
   %add7 = add i64 %retval.0.i, 128
   %arrayidx9 = getelementptr i8, ptr %env, i64 96
   store i64 %add7, ptr %arrayidx9, align 16
-  %16 = load i64, ptr @default_rt_sigreturn, align 8
+  %15 = load i64, ptr @default_rt_sigreturn, align 8
   %arrayidx11 = getelementptr i8, ptr %env, i64 8
-  store i64 %16, ptr %arrayidx11, align 8
+  store i64 %15, ptr %arrayidx11, align 8
   br label %return
 
 badframe:                                         ; preds = %trace_user_setup_rt_frame.exit
@@ -198,17 +197,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i64 noundef %0) #6
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %env, i64 noundef %0) #6
   br label %trace_user_do_sigreturn.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -243,8 +241,8 @@ for.cond8.preheader.i.i:                          ; preds = %do.body2.i.i
 
 do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.end
   %indvars.iv.i.i = phi i64 [ 1, %if.end ], [ %indvars.iv.next.i.i, %do.body2.i.i ]
-  %8 = add nsw i64 %indvars.iv.i.i, -1
-  %arrayidx.i.i = getelementptr [31 x i64], ptr %gpr.i.i, i64 0, i64 %8
+  %7 = add nsw i64 %indvars.iv.i.i, -1
+  %arrayidx.i.i = getelementptr [31 x i64], ptr %gpr.i.i, i64 0, i64 %7
   %arrayidx.val.i.i = load i64, ptr %arrayidx.i.i, align 1
   %arrayidx6.i.i = getelementptr [32 x i64], ptr %env, i64 0, i64 %indvars.iv.i.i
   store i64 %arrayidx.val.i.i, ptr %arrayidx6.i.i, align 8

@@ -49,9 +49,8 @@ define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7maximumEv(ptr nocap
 define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7elapsedEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %11
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #11

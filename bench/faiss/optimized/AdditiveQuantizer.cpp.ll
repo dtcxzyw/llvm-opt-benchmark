@@ -110,9 +110,8 @@ define void @_ZNK5faiss17AdditiveQuantizer6decodeEPKhPfm(ptr noundef nonnull ali
   store i64 %3, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 130
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %30
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %30, label %14
 
 14:                                               ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
@@ -196,9 +195,8 @@ define void @_ZNK5faiss17AdditiveQuantizer15decode_unpackedEPKiPfml(ptr noundef 
   store i64 %4, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 130
   %14 = load i8, ptr %13, align 2
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %32
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %32, label %16
 
 16:                                               ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15

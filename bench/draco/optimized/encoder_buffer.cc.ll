@@ -249,9 +249,8 @@ define void @_ZN5draco13EncoderBuffer14EndBitEncodingEv(ptr noundef nonnull alig
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %45, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %45
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %0, align 8

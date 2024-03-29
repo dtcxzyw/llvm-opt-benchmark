@@ -106,9 +106,8 @@ define linkonce_odr void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_tra
 entry:
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -738,9 +737,8 @@ invoke.cont6:                                     ; preds = %_ZNSt7__cxx1112basi
   %using_os_timezone_db = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 1, ptr %using_os_timezone_db, align 8
   %40 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %41 = and i8 %40, 1
-  %tobool.not.i.i.i.i.i = icmp eq i8 %41, 0
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %40 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont6
   %timezone_db_path = getelementptr inbounds i8, ptr %agg.result, i64 72
@@ -752,12 +750,12 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   ret void
 
 lpad:                                             ; preds = %if.else12.i18, %if.else6.i15, %if.else.i12, %invoke.cont2, %if.else12.i, %if.else6.i, %if.else.i, %invoke.cont, %entry
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %eh.resume.i24, %eh.resume.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %42, %lpad ], [ %.pn.i26, %eh.resume.i24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %41, %lpad ], [ %.pn.i26, %eh.resume.i24 ]
   call void @_ZN5arrow11RuntimeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.result) #9
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -772,9 +770,8 @@ define linkonce_odr void @_ZN5arrow11RuntimeInfoD2Ev(ptr noundef nonnull align 8
 entry:
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i.i
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %timezone_db_path = getelementptr inbounds i8, ptr %this, i64 72
@@ -794,9 +791,8 @@ define void @_ZN5arrow10InitializeERKNS_13GlobalOptionsE(ptr noalias sret(%"clas
 entry:
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %options, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN5arrow6Status8FromArgsIJRA115_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(115) @.str.11)
@@ -810,10 +806,10 @@ return:                                           ; preds = %if.then, %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #10
+  %2 = extractvalue { ptr, i32 } %1, 0
+  tail call void @__clang_call_terminate(ptr %2) #10
   unreachable
 }
 

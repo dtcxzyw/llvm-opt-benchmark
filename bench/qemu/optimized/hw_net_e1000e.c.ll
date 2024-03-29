@@ -288,17 +288,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #9
   br label %trace_e1000e_cb_pci_realize.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -310,25 +309,25 @@ trace_e1000e_cb_pci_realize.exit:                 ; preds = %entry, %land.lhs.tr
   %config_write = getelementptr inbounds i8, ptr %pci_dev, i64 1224
   store ptr @e1000e_write_config, ptr %config_write, align 8
   %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
-  %7 = load ptr, ptr %config, align 8
-  %arrayidx = getelementptr i8, ptr %7, i64 12
+  %6 = load ptr, ptr %config, align 8
+  %arrayidx = getelementptr i8, ptr %6, i64 12
   store i8 16, ptr %arrayidx, align 1
-  %8 = load ptr, ptr %config, align 8
-  %arrayidx2 = getelementptr i8, ptr %8, i64 61
+  %7 = load ptr, ptr %config, align 8
+  %arrayidx2 = getelementptr i8, ptr %7, i64 61
   store i8 1, ptr %arrayidx2, align 1
-  %9 = load ptr, ptr %config, align 8
-  %add.ptr = getelementptr i8, ptr %9, i64 44
+  %8 = load ptr, ptr %config, align 8
+  %add.ptr = getelementptr i8, ptr %8, i64 44
   %subsys_ven = getelementptr inbounds i8, ptr %call.i, i64 11924
-  %10 = load i16, ptr %subsys_ven, align 4
-  store i16 %10, ptr %add.ptr, align 1
-  %11 = load ptr, ptr %config, align 8
-  %add.ptr5 = getelementptr i8, ptr %11, i64 46
+  %9 = load i16, ptr %subsys_ven, align 4
+  store i16 %9, ptr %add.ptr, align 1
+  %10 = load ptr, ptr %config, align 8
+  %add.ptr5 = getelementptr i8, ptr %10, i64 46
   %subsys = getelementptr inbounds i8, ptr %call.i, i64 11926
-  %12 = load i16, ptr %subsys, align 2
-  store i16 %12, ptr %add.ptr5, align 1
+  %11 = load i16, ptr %subsys, align 2
+  store i16 %11, ptr %add.ptr5, align 1
   %subsys_ven_used = getelementptr inbounds i8, ptr %call.i, i64 11928
-  %13 = load <2 x i16>, ptr %subsys_ven, align 4
-  store <2 x i16> %13, ptr %subsys_ven_used, align 8
+  %12 = load <2 x i16>, ptr %subsys_ven, align 4
+  store <2 x i16> %12, ptr %subsys_ven_used, align 8
   %mmio = getelementptr inbounds i8, ptr %call.i, i64 10832
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %call.i, ptr noundef nonnull @mmio_ops, ptr noundef %call.i, ptr noundef nonnull @.str.16, i64 noundef 131072) #9
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #9
@@ -350,32 +349,31 @@ trace_e1000e_cb_pci_realize.exit:                 ; preds = %entry, %land.lhs.tr
 
 if.then.i:                                        ; preds = %trace_e1000e_cb_pci_realize.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %14 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %14, 0
-  %15 = load i16, ptr @_TRACE_E1000E_MSIX_INIT_FAIL_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %15, 0
+  %13 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %13, 0
+  %14 = load i16, ptr @_TRACE_E1000E_MSIX_INIT_FAIL_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %14, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_e1000e_msix_init_fail.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then.i
-  %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %16, 32768
+  %15 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %15, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_e1000e_msix_init_fail.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %17 = load i8, ptr @message_with_timestamp, align 1
-  %18 = and i8 %17, 1
-  %tobool7.not.i.i.i = icmp eq i8 %18, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %16 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %16 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
-  %19 = load i64, ptr %_now.i.i.i, align 8
+  %17 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %20 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %call2.i) #9
+  %18 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %call2.i) #9
   br label %trace_e1000e_msix_init_fail.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -411,39 +409,38 @@ if.end:                                           ; preds = %e1000e_init_msix.ex
 
 if.then18:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i45)
-  %21 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i46 = icmp ne i32 %21, 0
-  %22 = load i16, ptr @_TRACE_E1000E_MSI_INIT_FAIL_DSTATE, align 2
-  %tobool4.i.i47 = icmp ne i16 %22, 0
+  %19 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i46 = icmp ne i32 %19, 0
+  %20 = load i16, ptr @_TRACE_E1000E_MSI_INIT_FAIL_DSTATE, align 2
+  %tobool4.i.i47 = icmp ne i16 %20, 0
   %or.cond.i.i48 = select i1 %tobool.i.i46, i1 %tobool4.i.i47, i1 false
   br i1 %or.cond.i.i48, label %land.lhs.true5.i.i49, label %trace_e1000e_msi_init_fail.exit
 
 land.lhs.true5.i.i49:                             ; preds = %if.then18
-  %23 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i50 = and i32 %23, 32768
+  %21 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i50 = and i32 %21, 32768
   %cmp.i.not.i.i51 = icmp eq i32 %and.i.i.i50, 0
   br i1 %cmp.i.not.i.i51, label %trace_e1000e_msi_init_fail.exit, label %if.then.i.i52
 
 if.then.i.i52:                                    ; preds = %land.lhs.true5.i.i49
-  %24 = load i8, ptr @message_with_timestamp, align 1
-  %25 = and i8 %24, 1
-  %tobool7.not.i.i53 = icmp eq i8 %25, 0
-  br i1 %tobool7.not.i.i53, label %if.else.i.i58, label %if.then8.i.i54
+  %22 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i53 = trunc i8 %22 to i1
+  br i1 %tobool7.i.i53, label %if.then8.i.i55, label %if.else.i.i54
 
-if.then8.i.i54:                                   ; preds = %if.then.i.i52
-  %call9.i.i55 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i45, ptr noundef null) #9
-  %call10.i.i56 = tail call i32 @qemu_get_thread_id() #9
-  %26 = load i64, ptr %_now.i.i45, align 8
-  %tv_usec.i.i57 = getelementptr inbounds i8, ptr %_now.i.i45, i64 8
-  %27 = load i64, ptr %tv_usec.i.i57, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i56, i64 noundef %26, i64 noundef %27, i32 noundef %call17) #9
+if.then8.i.i55:                                   ; preds = %if.then.i.i52
+  %call9.i.i56 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i45, ptr noundef null) #9
+  %call10.i.i57 = tail call i32 @qemu_get_thread_id() #9
+  %23 = load i64, ptr %_now.i.i45, align 8
+  %tv_usec.i.i58 = getelementptr inbounds i8, ptr %_now.i.i45, i64 8
+  %24 = load i64, ptr %tv_usec.i.i58, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i57, i64 noundef %23, i64 noundef %24, i32 noundef %call17) #9
   br label %trace_e1000e_msi_init_fail.exit
 
-if.else.i.i58:                                    ; preds = %if.then.i.i52
+if.else.i.i54:                                    ; preds = %if.then.i.i52
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call17) #9
   br label %trace_e1000e_msi_init_fail.exit
 
-trace_e1000e_msi_init_fail.exit:                  ; preds = %if.then18, %land.lhs.true5.i.i49, %if.then8.i.i54, %if.else.i.i58
+trace_e1000e_msi_init_fail.exit:                  ; preds = %if.then18, %land.lhs.true5.i.i49, %if.then8.i.i55, %if.else.i.i54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i45)
   br label %if.end19
 
@@ -451,25 +448,25 @@ if.end19:                                         ; preds = %trace_e1000e_msi_in
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   %call.i59 = call i32 @pci_add_capability(ptr noundef %pci_dev, i8 noundef zeroext 1, i8 noundef zeroext -56, i8 noundef zeroext 8, ptr noundef nonnull %local_err.i) #9
-  %28 = load ptr, ptr %local_err.i, align 8
-  %tobool.not.i = icmp eq ptr %28, null
+  %25 = load ptr, ptr %local_err.i, align 8
+  %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i60
 
 if.then.i60:                                      ; preds = %if.end19
-  call void @error_report_err(ptr noundef nonnull %28) #9
+  call void @error_report_err(ptr noundef nonnull %25) #9
   br label %e1000e_add_pm_capability.exit
 
 if.end.i:                                         ; preds = %if.end19
-  %29 = load ptr, ptr %config, align 8
-  %add.ptr1.i = getelementptr i8, ptr %29, i64 202
+  %26 = load ptr, ptr %config, align 8
+  %add.ptr1.i = getelementptr i8, ptr %26, i64 202
   store i16 34, ptr %add.ptr1.i, align 1
   %wmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 184
-  %30 = load ptr, ptr %wmask.i, align 8
-  %add.ptr7.i = getelementptr i8, ptr %30, i64 204
+  %27 = load ptr, ptr %wmask.i, align 8
+  %add.ptr7.i = getelementptr i8, ptr %27, i64 204
   store i16 7939, ptr %add.ptr7.i, align 1
   %w1cmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 192
-  %31 = load ptr, ptr %w1cmask.i, align 16
-  %add.ptr11.i = getelementptr i8, ptr %31, i64 204
+  %28 = load ptr, ptr %w1cmask.i, align 16
+  %add.ptr11.i = getelementptr i8, ptr %28, i64 204
   store i16 -32768, ptr %add.ptr11.i, align 1
   br label %e1000e_add_pm_capability.exit
 
@@ -493,26 +490,26 @@ if.then26:                                        ; preds = %if.end23
 
 if.end27:                                         ; preds = %if.end23
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 2621
-  %32 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %32 to i64
+  %29 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %29 to i64
   %arrayidx1.i = getelementptr i8, ptr %call.i, i64 2620
-  %33 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %33 to i64
+  %30 = load i8, ptr %arrayidx1.i, align 1
+  %conv2.i = zext i8 %30 to i64
   %shl.i = shl nuw nsw i64 %conv2.i, 8
   %arrayidx3.i = getelementptr i8, ptr %call.i, i64 2619
-  %34 = load i8, ptr %arrayidx3.i, align 1
-  %conv4.i = zext i8 %34 to i64
+  %31 = load i8, ptr %arrayidx3.i, align 1
+  %conv4.i = zext i8 %31 to i64
   %shl5.i = shl nuw nsw i64 %conv4.i, 16
   %arrayidx9.i = getelementptr i8, ptr %call.i, i64 2618
-  %35 = load i8, ptr %arrayidx9.i, align 1
-  %conv10.i = zext i8 %35 to i64
+  %32 = load i8, ptr %arrayidx9.i, align 1
+  %conv10.i = zext i8 %32 to i64
   %shl11.i = shl nuw nsw i64 %conv10.i, 40
   %arrayidx13.i = getelementptr i8, ptr %call.i, i64 2617
-  %36 = load i8, ptr %arrayidx13.i, align 1
-  %conv14.i = zext i8 %36 to i64
+  %33 = load i8, ptr %arrayidx13.i, align 1
+  %conv14.i = zext i8 %33 to i64
   %shl15.i = shl nuw nsw i64 %conv14.i, 48
-  %37 = load i8, ptr %conf, align 1
-  %conv18.i = zext i8 %37 to i64
+  %34 = load i8, ptr %conf, align 1
+  %conv18.i = zext i8 %34 to i64
   %shl19.i = shl nuw i64 %conv18.i, 56
   %or.i = or disjoint i64 %shl.i, %conv.i
   %or6.i = or disjoint i64 %or.i, %shl5.i
@@ -524,244 +521,239 @@ if.end27:                                         ; preds = %if.end23
   %call.i.i62 = call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1.i = call ptr @object_get_typename(ptr noundef %call.i) #9
   %id.i = getelementptr inbounds i8, ptr %call.i.i62, i64 40
-  %38 = load ptr, ptr %id.i, align 8
+  %35 = load ptr, ptr %id.i, align 8
   %mem_reentrancy_guard.i = getelementptr inbounds i8, ptr %call.i.i62, i64 152
-  %call2.i63 = call ptr @qemu_new_nic(ptr noundef nonnull @net_e1000e_info, ptr noundef nonnull %conf, ptr noundef %call1.i, ptr noundef %38, ptr noundef nonnull %mem_reentrancy_guard.i, ptr noundef %call.i) #9
+  %call2.i63 = call ptr @qemu_new_nic(ptr noundef nonnull @net_e1000e_info, ptr noundef nonnull %conf, ptr noundef %call1.i, ptr noundef %35, ptr noundef nonnull %mem_reentrancy_guard.i, ptr noundef %call.i) #9
   %nic.i = getelementptr inbounds i8, ptr %call.i, i64 2608
   store ptr %call2.i63, ptr %nic.i, align 16
   %queues.i = getelementptr inbounds i8, ptr %call.i, i64 10816
-  %39 = load i32, ptr %queues.i, align 8
-  %spec.select.i = call i32 @llvm.usub.sat.i32(i32 %39, i32 1)
+  %36 = load i32, ptr %queues.i, align 8
+  %spec.select.i = call i32 @llvm.usub.sat.i32(i32 %36, i32 1)
   %max_queue_num.i = getelementptr inbounds i8, ptr %call.i, i64 143700
   store i32 %spec.select.i, ptr %max_queue_num.i, align 4
-  %40 = load i8, ptr %conf, align 1
-  %41 = load i8, ptr %arrayidx13.i, align 1
-  %42 = load i8, ptr %arrayidx9.i, align 1
-  %43 = load i8, ptr %arrayidx3.i, align 1
-  %44 = load i8, ptr %arrayidx1.i, align 1
-  %45 = load i8, ptr %arrayidx.i, align 1
+  %37 = load i8, ptr %conf, align 1
+  %38 = load i8, ptr %arrayidx13.i, align 1
+  %39 = load i8, ptr %arrayidx9.i, align 1
+  %40 = load i8, ptr %arrayidx3.i, align 1
+  %41 = load i8, ptr %arrayidx1.i, align 1
+  %42 = load i8, ptr %arrayidx.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i61)
-  %46 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i65 = icmp ne i32 %46, 0
-  %47 = load i16, ptr @_TRACE_E1000E_MAC_SET_PERMANENT_DSTATE, align 2
-  %tobool4.i.i.i66 = icmp ne i16 %47, 0
+  %43 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i65 = icmp ne i32 %43, 0
+  %44 = load i16, ptr @_TRACE_E1000E_MAC_SET_PERMANENT_DSTATE, align 2
+  %tobool4.i.i.i66 = icmp ne i16 %44, 0
   %or.cond.i.i.i67 = select i1 %tobool.i.i.i65, i1 %tobool4.i.i.i66, i1 false
   br i1 %or.cond.i.i.i67, label %land.lhs.true5.i.i.i70, label %trace_e1000e_mac_set_permanent.exit.i
 
 land.lhs.true5.i.i.i70:                           ; preds = %if.end27
-  %48 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i71 = and i32 %48, 32768
+  %45 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i71 = and i32 %45, 32768
   %cmp.i.not.i.i.i72 = icmp eq i32 %and.i.i.i.i71, 0
   br i1 %cmp.i.not.i.i.i72, label %trace_e1000e_mac_set_permanent.exit.i, label %if.then.i.i.i73
 
 if.then.i.i.i73:                                  ; preds = %land.lhs.true5.i.i.i70
-  %49 = load i8, ptr @message_with_timestamp, align 1
-  %50 = and i8 %49, 1
-  %tobool7.not.i.i.i74 = icmp eq i8 %50, 0
-  br i1 %tobool7.not.i.i.i74, label %if.else.i.i.i79, label %if.then8.i.i.i75
+  %46 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i74 = trunc i8 %46 to i1
+  br i1 %tobool7.i.i.i74, label %if.then8.i.i.i76, label %if.else.i.i.i75
 
-if.then8.i.i.i75:                                 ; preds = %if.then.i.i.i73
-  %call9.i.i.i76 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i61, ptr noundef null) #9
-  %call10.i.i.i77 = call i32 @qemu_get_thread_id() #9
-  %51 = load i64, ptr %_now.i.i.i61, align 8
-  %tv_usec.i.i.i78 = getelementptr inbounds i8, ptr %_now.i.i.i61, i64 8
-  %52 = load i64, ptr %tv_usec.i.i.i78, align 8
-  %conv11.i.i.i = zext i8 %40 to i32
-  %conv12.i.i.i = zext i8 %41 to i32
-  %conv13.i.i.i = zext i8 %42 to i32
-  %conv14.i.i.i = zext i8 %43 to i32
-  %conv15.i.i.i = zext i8 %44 to i32
-  %conv16.i.i.i = zext i8 %45 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i77, i64 noundef %51, i64 noundef %52, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i) #9
+if.then8.i.i.i76:                                 ; preds = %if.then.i.i.i73
+  %call9.i.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i61, ptr noundef null) #9
+  %call10.i.i.i78 = call i32 @qemu_get_thread_id() #9
+  %47 = load i64, ptr %_now.i.i.i61, align 8
+  %tv_usec.i.i.i79 = getelementptr inbounds i8, ptr %_now.i.i.i61, i64 8
+  %48 = load i64, ptr %tv_usec.i.i.i79, align 8
+  %conv11.i.i.i = zext i8 %37 to i32
+  %conv12.i.i.i = zext i8 %38 to i32
+  %conv13.i.i.i = zext i8 %39 to i32
+  %conv14.i.i.i = zext i8 %40 to i32
+  %conv15.i.i.i = zext i8 %41 to i32
+  %conv16.i.i.i = zext i8 %42 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i78, i64 noundef %47, i64 noundef %48, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i) #9
   br label %trace_e1000e_mac_set_permanent.exit.i
 
-if.else.i.i.i79:                                  ; preds = %if.then.i.i.i73
-  %conv17.i.i.i = zext i8 %40 to i32
-  %conv18.i.i.i = zext i8 %41 to i32
-  %conv19.i.i.i = zext i8 %42 to i32
-  %conv20.i.i.i = zext i8 %43 to i32
-  %conv21.i.i.i = zext i8 %44 to i32
-  %conv22.i.i.i = zext i8 %45 to i32
+if.else.i.i.i75:                                  ; preds = %if.then.i.i.i73
+  %conv17.i.i.i = zext i8 %37 to i32
+  %conv18.i.i.i = zext i8 %38 to i32
+  %conv19.i.i.i = zext i8 %39 to i32
+  %conv20.i.i.i = zext i8 %40 to i32
+  %conv21.i.i.i = zext i8 %41 to i32
+  %conv22.i.i.i = zext i8 %42 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %conv17.i.i.i, i32 noundef %conv18.i.i.i, i32 noundef %conv19.i.i.i, i32 noundef %conv20.i.i.i, i32 noundef %conv21.i.i.i, i32 noundef %conv22.i.i.i) #9
   br label %trace_e1000e_mac_set_permanent.exit.i
 
-trace_e1000e_mac_set_permanent.exit.i:            ; preds = %if.else.i.i.i79, %if.then8.i.i.i75, %land.lhs.true5.i.i.i70, %if.end27
+trace_e1000e_mac_set_permanent.exit.i:            ; preds = %if.else.i.i.i75, %if.then8.i.i.i76, %land.lhs.true5.i.i.i70, %if.end27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i61)
   %permanent_mac.i = getelementptr inbounds i8, ptr %call.i, i64 144098
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %permanent_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %conf, i64 6, i1 false)
-  %53 = load ptr, ptr %nic.i, align 16
-  %call14.i = call ptr @qemu_get_queue(ptr noundef %53) #9
+  %49 = load ptr, ptr %nic.i, align 16
+  %call14.i = call ptr @qemu_get_queue(ptr noundef %49) #9
   call void @qemu_format_nic_info_str(ptr noundef %call14.i, ptr noundef nonnull %conf) #9
   %disable_vnet.i = getelementptr inbounds i8, ptr %call.i, i64 11932
-  %54 = load i8, ptr %disable_vnet.i, align 4
-  %55 = and i8 %54, 1
-  %tobool15.not.i = icmp eq i8 %55, 0
-  %has_vnet18.i = getelementptr inbounds i8, ptr %call.i, i64 143696
-  br i1 %tobool15.not.i, label %if.else.i, label %if.then.i68
+  %50 = load i8, ptr %disable_vnet.i, align 4
+  %tobool15.i = trunc i8 %50 to i1
+  %has_vnet.i = getelementptr inbounds i8, ptr %call.i, i64 143696
+  br i1 %tobool15.i, label %if.then.i69, label %if.else.i
 
-if.then.i68:                                      ; preds = %trace_e1000e_mac_set_permanent.exit.i
-  store i8 0, ptr %has_vnet18.i, align 16
+if.then.i69:                                      ; preds = %trace_e1000e_mac_set_permanent.exit.i
+  store i8 0, ptr %has_vnet.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34.i)
-  %56 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i35.i = icmp ne i32 %56, 0
-  %57 = load i16, ptr @_TRACE_E1000E_CFG_SUPPORT_VIRTIO_DSTATE, align 2
-  %tobool4.i.i36.i = icmp ne i16 %57, 0
+  %51 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i35.i = icmp ne i32 %51, 0
+  %52 = load i16, ptr @_TRACE_E1000E_CFG_SUPPORT_VIRTIO_DSTATE, align 2
+  %tobool4.i.i36.i = icmp ne i16 %52, 0
   %or.cond.i.i37.i = select i1 %tobool.i.i35.i, i1 %tobool4.i.i36.i, i1 false
   br i1 %or.cond.i.i37.i, label %land.lhs.true5.i.i38.i, label %trace_e1000e_cfg_support_virtio.exit.i
 
-land.lhs.true5.i.i38.i:                           ; preds = %if.then.i68
-  %58 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i39.i = and i32 %58, 32768
+land.lhs.true5.i.i38.i:                           ; preds = %if.then.i69
+  %53 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i39.i = and i32 %53, 32768
   %cmp.i.not.i.i40.i = icmp eq i32 %and.i.i.i39.i, 0
   br i1 %cmp.i.not.i.i40.i, label %trace_e1000e_cfg_support_virtio.exit.i, label %if.then.i.i41.i
 
 if.then.i.i41.i:                                  ; preds = %land.lhs.true5.i.i38.i
-  %59 = load i8, ptr @message_with_timestamp, align 1
-  %60 = and i8 %59, 1
-  %tobool7.not.i.i42.i = icmp eq i8 %60, 0
-  br i1 %tobool7.not.i.i42.i, label %if.else.i.i47.i, label %if.then8.i.i43.i
+  %54 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i42.i = trunc i8 %54 to i1
+  br i1 %tobool7.i.i42.i, label %if.then8.i.i44.i, label %if.else.i.i43.i
 
-if.then8.i.i43.i:                                 ; preds = %if.then.i.i41.i
-  %call9.i.i44.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34.i, ptr noundef null) #9
-  %call10.i.i45.i = call i32 @qemu_get_thread_id() #9
-  %61 = load i64, ptr %_now.i.i34.i, align 8
-  %tv_usec.i.i46.i = getelementptr inbounds i8, ptr %_now.i.i34.i, i64 8
-  %62 = load i64, ptr %tv_usec.i.i46.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i45.i, i64 noundef %61, i64 noundef %62, i32 noundef 0) #9
+if.then8.i.i44.i:                                 ; preds = %if.then.i.i41.i
+  %call9.i.i45.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34.i, ptr noundef null) #9
+  %call10.i.i46.i = call i32 @qemu_get_thread_id() #9
+  %55 = load i64, ptr %_now.i.i34.i, align 8
+  %tv_usec.i.i47.i = getelementptr inbounds i8, ptr %_now.i.i34.i, i64 8
+  %56 = load i64, ptr %tv_usec.i.i47.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i46.i, i64 noundef %55, i64 noundef %56, i32 noundef 0) #9
   br label %trace_e1000e_cfg_support_virtio.exit.i
 
-if.else.i.i47.i:                                  ; preds = %if.then.i.i41.i
+if.else.i.i43.i:                                  ; preds = %if.then.i.i41.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef 0) #9
   br label %trace_e1000e_cfg_support_virtio.exit.i
 
-trace_e1000e_cfg_support_virtio.exit.i:           ; preds = %if.else.i.i47.i, %if.then8.i.i43.i, %land.lhs.true5.i.i38.i, %if.then.i68
+trace_e1000e_cfg_support_virtio.exit.i:           ; preds = %if.else.i.i43.i, %if.then8.i.i44.i, %land.lhs.true5.i.i38.i, %if.then.i69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i34.i)
   br label %e1000e_init_net_peer.exit
 
 if.else.i:                                        ; preds = %trace_e1000e_mac_set_permanent.exit.i
-  store i8 1, ptr %has_vnet18.i, align 16
-  %63 = load i32, ptr %queues.i, align 8
-  %cmp78.i = icmp sgt i32 %63, 0
+  store i8 1, ptr %has_vnet.i, align 16
+  %57 = load i32, ptr %queues.i, align 8
+  %cmp78.i = icmp sgt i32 %57, 0
   br i1 %cmp78.i, label %for.body.i, label %for.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %inc.i = add nuw nsw i32 %i.079.i, 1
-  %64 = load i32, ptr %queues.i, align 8
-  %cmp.i69 = icmp slt i32 %inc.i, %64
-  br i1 %cmp.i69, label %for.body.i, label %for.end.i, !llvm.loop !7
+  %58 = load i32, ptr %queues.i, align 8
+  %cmp.i68 = icmp slt i32 %inc.i, %58
+  br i1 %cmp.i68, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.else.i, %for.cond.i
   %i.079.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.else.i ]
-  %65 = load ptr, ptr %nic.i, align 16
-  %call23.i = call ptr @qemu_get_subqueue(ptr noundef %65, i32 noundef %i.079.i) #9
+  %59 = load ptr, ptr %nic.i, align 16
+  %call23.i = call ptr @qemu_get_subqueue(ptr noundef %59, i32 noundef %i.079.i) #9
   %peer.i = getelementptr inbounds i8, ptr %call23.i, i64 32
-  %66 = load ptr, ptr %peer.i, align 8
-  %tobool24.not.i = icmp eq ptr %66, null
+  %60 = load ptr, ptr %peer.i, align 8
+  %tobool24.not.i = icmp eq ptr %60, null
   br i1 %tobool24.not.i, label %if.then27.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %call26.i = call zeroext i1 @qemu_has_vnet_hdr(ptr noundef nonnull %66) #9
+  %call26.i = call zeroext i1 @qemu_has_vnet_hdr(ptr noundef nonnull %60) #9
   br i1 %call26.i, label %for.cond.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %lor.lhs.false.i, %for.body.i
-  store i8 0, ptr %has_vnet18.i, align 16
+  store i8 0, ptr %has_vnet.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i48.i)
-  %67 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i49.i = icmp ne i32 %67, 0
-  %68 = load i16, ptr @_TRACE_E1000E_CFG_SUPPORT_VIRTIO_DSTATE, align 2
-  %tobool4.i.i50.i = icmp ne i16 %68, 0
+  %61 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i49.i = icmp ne i32 %61, 0
+  %62 = load i16, ptr @_TRACE_E1000E_CFG_SUPPORT_VIRTIO_DSTATE, align 2
+  %tobool4.i.i50.i = icmp ne i16 %62, 0
   %or.cond.i.i51.i = select i1 %tobool.i.i49.i, i1 %tobool4.i.i50.i, i1 false
   br i1 %or.cond.i.i51.i, label %land.lhs.true5.i.i52.i, label %trace_e1000e_cfg_support_virtio.exit62.i
 
 land.lhs.true5.i.i52.i:                           ; preds = %if.then27.i
-  %69 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i53.i = and i32 %69, 32768
+  %63 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i53.i = and i32 %63, 32768
   %cmp.i.not.i.i54.i = icmp eq i32 %and.i.i.i53.i, 0
   br i1 %cmp.i.not.i.i54.i, label %trace_e1000e_cfg_support_virtio.exit62.i, label %if.then.i.i55.i
 
 if.then.i.i55.i:                                  ; preds = %land.lhs.true5.i.i52.i
-  %70 = load i8, ptr @message_with_timestamp, align 1
-  %71 = and i8 %70, 1
-  %tobool7.not.i.i56.i = icmp eq i8 %71, 0
-  br i1 %tobool7.not.i.i56.i, label %if.else.i.i61.i, label %if.then8.i.i57.i
+  %64 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i56.i = trunc i8 %64 to i1
+  br i1 %tobool7.i.i56.i, label %if.then8.i.i58.i, label %if.else.i.i57.i
 
-if.then8.i.i57.i:                                 ; preds = %if.then.i.i55.i
-  %call9.i.i58.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48.i, ptr noundef null) #9
-  %call10.i.i59.i = call i32 @qemu_get_thread_id() #9
-  %72 = load i64, ptr %_now.i.i48.i, align 8
-  %tv_usec.i.i60.i = getelementptr inbounds i8, ptr %_now.i.i48.i, i64 8
-  %73 = load i64, ptr %tv_usec.i.i60.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i59.i, i64 noundef %72, i64 noundef %73, i32 noundef 0) #9
+if.then8.i.i58.i:                                 ; preds = %if.then.i.i55.i
+  %call9.i.i59.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48.i, ptr noundef null) #9
+  %call10.i.i60.i = call i32 @qemu_get_thread_id() #9
+  %65 = load i64, ptr %_now.i.i48.i, align 8
+  %tv_usec.i.i61.i = getelementptr inbounds i8, ptr %_now.i.i48.i, i64 8
+  %66 = load i64, ptr %tv_usec.i.i61.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i60.i, i64 noundef %65, i64 noundef %66, i32 noundef 0) #9
   br label %trace_e1000e_cfg_support_virtio.exit62.i
 
-if.else.i.i61.i:                                  ; preds = %if.then.i.i55.i
+if.else.i.i57.i:                                  ; preds = %if.then.i.i55.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef 0) #9
   br label %trace_e1000e_cfg_support_virtio.exit62.i
 
-trace_e1000e_cfg_support_virtio.exit62.i:         ; preds = %if.else.i.i61.i, %if.then8.i.i57.i, %land.lhs.true5.i.i52.i, %if.then27.i
+trace_e1000e_cfg_support_virtio.exit62.i:         ; preds = %if.else.i.i57.i, %if.then8.i.i58.i, %land.lhs.true5.i.i52.i, %if.then27.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i48.i)
   br label %e1000e_init_net_peer.exit
 
 for.end.i:                                        ; preds = %for.cond.i, %if.else.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i63.i)
-  %74 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i64.i = icmp ne i32 %74, 0
-  %75 = load i16, ptr @_TRACE_E1000E_CFG_SUPPORT_VIRTIO_DSTATE, align 2
-  %tobool4.i.i65.i = icmp ne i16 %75, 0
+  %67 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i64.i = icmp ne i32 %67, 0
+  %68 = load i16, ptr @_TRACE_E1000E_CFG_SUPPORT_VIRTIO_DSTATE, align 2
+  %tobool4.i.i65.i = icmp ne i16 %68, 0
   %or.cond.i.i66.i = select i1 %tobool.i.i64.i, i1 %tobool4.i.i65.i, i1 false
   br i1 %or.cond.i.i66.i, label %land.lhs.true5.i.i67.i, label %trace_e1000e_cfg_support_virtio.exit77.i
 
 land.lhs.true5.i.i67.i:                           ; preds = %for.end.i
-  %76 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i68.i = and i32 %76, 32768
+  %69 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i68.i = and i32 %69, 32768
   %cmp.i.not.i.i69.i = icmp eq i32 %and.i.i.i68.i, 0
   br i1 %cmp.i.not.i.i69.i, label %trace_e1000e_cfg_support_virtio.exit77.i, label %if.then.i.i70.i
 
 if.then.i.i70.i:                                  ; preds = %land.lhs.true5.i.i67.i
-  %77 = load i8, ptr @message_with_timestamp, align 1
-  %78 = and i8 %77, 1
-  %tobool7.not.i.i71.i = icmp eq i8 %78, 0
-  br i1 %tobool7.not.i.i71.i, label %if.else.i.i76.i, label %if.then8.i.i72.i
+  %70 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i71.i = trunc i8 %70 to i1
+  br i1 %tobool7.i.i71.i, label %if.then8.i.i73.i, label %if.else.i.i72.i
 
-if.then8.i.i72.i:                                 ; preds = %if.then.i.i70.i
-  %call9.i.i73.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63.i, ptr noundef null) #9
-  %call10.i.i74.i = call i32 @qemu_get_thread_id() #9
-  %79 = load i64, ptr %_now.i.i63.i, align 8
-  %tv_usec.i.i75.i = getelementptr inbounds i8, ptr %_now.i.i63.i, i64 8
-  %80 = load i64, ptr %tv_usec.i.i75.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i74.i, i64 noundef %79, i64 noundef %80, i32 noundef 1) #9
+if.then8.i.i73.i:                                 ; preds = %if.then.i.i70.i
+  %call9.i.i74.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63.i, ptr noundef null) #9
+  %call10.i.i75.i = call i32 @qemu_get_thread_id() #9
+  %71 = load i64, ptr %_now.i.i63.i, align 8
+  %tv_usec.i.i76.i = getelementptr inbounds i8, ptr %_now.i.i63.i, i64 8
+  %72 = load i64, ptr %tv_usec.i.i76.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i75.i, i64 noundef %71, i64 noundef %72, i32 noundef 1) #9
   br label %trace_e1000e_cfg_support_virtio.exit77.i
 
-if.else.i.i76.i:                                  ; preds = %if.then.i.i70.i
+if.else.i.i72.i:                                  ; preds = %if.then.i.i70.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef 1) #9
   br label %trace_e1000e_cfg_support_virtio.exit77.i
 
-trace_e1000e_cfg_support_virtio.exit77.i:         ; preds = %if.else.i.i76.i, %if.then8.i.i72.i, %land.lhs.true5.i.i67.i, %for.end.i
+trace_e1000e_cfg_support_virtio.exit77.i:         ; preds = %if.else.i.i72.i, %if.then8.i.i73.i, %land.lhs.true5.i.i67.i, %for.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i63.i)
-  %81 = load i32, ptr %queues.i, align 8
-  %cmp3580.i = icmp sgt i32 %81, 0
+  %73 = load i32, ptr %queues.i, align 8
+  %cmp3580.i = icmp sgt i32 %73, 0
   br i1 %cmp3580.i, label %for.body36.i, label %e1000e_init_net_peer.exit
 
 for.body36.i:                                     ; preds = %trace_e1000e_cfg_support_virtio.exit77.i, %for.body36.i
   %i.181.i = phi i32 [ %inc42.i, %for.body36.i ], [ 0, %trace_e1000e_cfg_support_virtio.exit77.i ]
-  %82 = load ptr, ptr %nic.i, align 16
-  %call38.i = call ptr @qemu_get_subqueue(ptr noundef %82, i32 noundef %i.181.i) #9
+  %74 = load ptr, ptr %nic.i, align 16
+  %call38.i = call ptr @qemu_get_subqueue(ptr noundef %74, i32 noundef %i.181.i) #9
   %peer39.i = getelementptr inbounds i8, ptr %call38.i, i64 32
-  %83 = load ptr, ptr %peer39.i, align 8
-  call void @qemu_set_vnet_hdr_len(ptr noundef %83, i32 noundef 10) #9
-  %84 = load ptr, ptr %peer39.i, align 8
-  call void @qemu_using_vnet_hdr(ptr noundef %84, i1 noundef zeroext true) #9
+  %75 = load ptr, ptr %peer39.i, align 8
+  call void @qemu_set_vnet_hdr_len(ptr noundef %75, i32 noundef 10) #9
+  %76 = load ptr, ptr %peer39.i, align 8
+  call void @qemu_using_vnet_hdr(ptr noundef %76, i1 noundef zeroext true) #9
   %inc42.i = add nuw nsw i32 %i.181.i, 1
-  %85 = load i32, ptr %queues.i, align 8
-  %cmp35.i = icmp slt i32 %inc42.i, %85
+  %77 = load i32, ptr %queues.i, align 8
+  %cmp35.i = icmp slt i32 %inc42.i, %77
   br i1 %cmp35.i, label %for.body36.i, label %e1000e_init_net_peer.exit, !llvm.loop !8
 
 e1000e_init_net_peer.exit:                        ; preds = %for.body36.i, %trace_e1000e_cfg_support_virtio.exit.i, %trace_e1000e_cfg_support_virtio.exit62.i, %trace_e1000e_cfg_support_virtio.exit77.i
   %owner.i = getelementptr inbounds i8, ptr %call.i, i64 144112
   store ptr %call.i, ptr %owner.i, align 16
-  %86 = load ptr, ptr %nic.i, align 16
+  %78 = load ptr, ptr %nic.i, align 16
   %owner_nic.i = getelementptr inbounds i8, ptr %call.i, i64 144104
-  store ptr %86, ptr %owner_nic.i, align 8
+  store ptr %78, ptr %owner_nic.i, align 8
   %core = getelementptr inbounds i8, ptr %call.i, i64 11936
   call void @e1000e_core_pci_realize(ptr noundef nonnull %core, ptr noundef nonnull @e1000e_eeprom_template, i32 noundef 128, ptr noundef nonnull %conf) #9
   ret void
@@ -788,17 +780,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #9
   br label %trace_e1000e_cb_pci_uninit.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -812,8 +803,8 @@ trace_e1000e_cb_pci_uninit.exit:                  ; preds = %entry, %land.lhs.tr
   tail call void @pcie_aer_exit(ptr noundef %pci_dev) #9
   tail call void @pcie_cap_exit(ptr noundef %pci_dev) #9
   %nic = getelementptr inbounds i8, ptr %call.i, i64 2608
-  %7 = load ptr, ptr %nic, align 16
-  tail call void @qemu_del_nic(ptr noundef %7) #9
+  %6 = load ptr, ptr %nic, align 16
+  tail call void @qemu_del_nic(ptr noundef %6) #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %call1.i = tail call i32 @msix_present(ptr noundef %call.i.i) #9
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -859,17 +850,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #9
   br label %trace_e1000e_cb_qdev_reset_hold.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -881,10 +871,9 @@ trace_e1000e_cb_qdev_reset_hold.exit:             ; preds = %entry, %land.lhs.tr
   %core = getelementptr inbounds i8, ptr %call.i, i64 11936
   tail call void @e1000e_core_reset(ptr noundef nonnull %core) #9
   %init_vet = getelementptr inbounds i8, ptr %call.i, i64 144136
-  %7 = load i8, ptr %init_vet, align 8
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %6 = load i8, ptr %init_vet, align 8
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_e1000e_cb_qdev_reset_hold.exit
   %arrayidx = getelementptr i8, ptr %call.i, i64 11992
@@ -1019,17 +1008,16 @@ land.lhs.true5.i.i:                               ; preds = %sw.bb
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %conv) #9
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %conv) #9
   br label %trace_e1000e_io_read_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1038,93 +1026,91 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_e1000e_io_read_addr.exit:                   ; preds = %sw.bb, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load i32, ptr %ioaddr, align 16
-  %conv2 = zext i32 %8 to i64
+  %7 = load i32, ptr %ioaddr, align 16
+  %conv2 = zext i32 %7 to i64
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %9 = getelementptr i8, ptr %opaque, i64 11920
-  %opaque.val = load i32, ptr %9, align 16
+  %8 = getelementptr i8, ptr %opaque, i64 11920
+  %opaque.val = load i32, ptr %8, align 16
   %call = call fastcc zeroext i1 @e1000e_io_get_reg_index(i32 %opaque.val, ptr noundef nonnull %idx)
   br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.bb3
   %core = getelementptr inbounds i8, ptr %opaque, i64 11936
-  %10 = load i32, ptr %idx, align 4
-  %conv4 = zext i32 %10 to i64
+  %9 = load i32, ptr %idx, align 4
+  %conv4 = zext i32 %9 to i64
   %call5 = tail call i64 @e1000e_core_read(ptr noundef nonnull %core, i64 noundef %conv4, i32 noundef 8) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i6)
-  %11 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i7 = icmp ne i32 %11, 0
-  %12 = load i16, ptr @_TRACE_E1000E_IO_READ_DATA_DSTATE, align 2
-  %tobool4.i.i8 = icmp ne i16 %12, 0
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i7 = icmp ne i32 %10, 0
+  %11 = load i16, ptr @_TRACE_E1000E_IO_READ_DATA_DSTATE, align 2
+  %tobool4.i.i8 = icmp ne i16 %11, 0
   %or.cond.i.i9 = select i1 %tobool.i.i7, i1 %tobool4.i.i8, i1 false
   br i1 %or.cond.i.i9, label %land.lhs.true5.i.i10, label %trace_e1000e_io_read_data.exit
 
 land.lhs.true5.i.i10:                             ; preds = %if.then
-  %13 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i11 = and i32 %13, 32768
+  %12 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i11 = and i32 %12, 32768
   %cmp.i.not.i.i12 = icmp eq i32 %and.i.i.i11, 0
   br i1 %cmp.i.not.i.i12, label %trace_e1000e_io_read_data.exit, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %land.lhs.true5.i.i10
-  %14 = load i8, ptr @message_with_timestamp, align 1
-  %15 = and i8 %14, 1
-  %tobool7.not.i.i14 = icmp eq i8 %15, 0
-  br i1 %tobool7.not.i.i14, label %if.else.i.i19, label %if.then8.i.i15
+  %13 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i14 = trunc i8 %13 to i1
+  br i1 %tobool7.i.i14, label %if.then8.i.i16, label %if.else.i.i15
 
-if.then8.i.i15:                                   ; preds = %if.then.i.i13
-  %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #9
-  %call10.i.i17 = tail call i32 @qemu_get_thread_id() #9
-  %16 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
-  %17 = load i64, ptr %tv_usec.i.i18, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i17, i64 noundef %16, i64 noundef %17, i64 noundef %conv4, i64 noundef %call5) #9
+if.then8.i.i16:                                   ; preds = %if.then.i.i13
+  %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #9
+  %call10.i.i18 = tail call i32 @qemu_get_thread_id() #9
+  %14 = load i64, ptr %_now.i.i6, align 8
+  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
+  %15 = load i64, ptr %tv_usec.i.i19, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i18, i64 noundef %14, i64 noundef %15, i64 noundef %conv4, i64 noundef %call5) #9
   br label %trace_e1000e_io_read_data.exit
 
-if.else.i.i19:                                    ; preds = %if.then.i.i13
+if.else.i.i15:                                    ; preds = %if.then.i.i13
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i64 noundef %conv4, i64 noundef %call5) #9
   br label %trace_e1000e_io_read_data.exit
 
-trace_e1000e_io_read_data.exit:                   ; preds = %if.then, %land.lhs.true5.i.i10, %if.then8.i.i15, %if.else.i.i19
+trace_e1000e_io_read_data.exit:                   ; preds = %if.then, %land.lhs.true5.i.i10, %if.then8.i.i16, %if.else.i.i15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i6)
   br label %return
 
 sw.default:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i20)
-  %18 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i21 = icmp ne i32 %18, 0
-  %19 = load i16, ptr @_TRACE_E1000E_WRN_IO_READ_UNKNOWN_DSTATE, align 2
-  %tobool4.i.i22 = icmp ne i16 %19, 0
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i21 = icmp ne i32 %16, 0
+  %17 = load i16, ptr @_TRACE_E1000E_WRN_IO_READ_UNKNOWN_DSTATE, align 2
+  %tobool4.i.i22 = icmp ne i16 %17, 0
   %or.cond.i.i23 = select i1 %tobool.i.i21, i1 %tobool4.i.i22, i1 false
   br i1 %or.cond.i.i23, label %land.lhs.true5.i.i24, label %trace_e1000e_wrn_io_read_unknown.exit
 
 land.lhs.true5.i.i24:                             ; preds = %sw.default
-  %20 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i25 = and i32 %20, 32768
+  %18 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i25 = and i32 %18, 32768
   %cmp.i.not.i.i26 = icmp eq i32 %and.i.i.i25, 0
   br i1 %cmp.i.not.i.i26, label %trace_e1000e_wrn_io_read_unknown.exit, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %land.lhs.true5.i.i24
-  %21 = load i8, ptr @message_with_timestamp, align 1
-  %22 = and i8 %21, 1
-  %tobool7.not.i.i28 = icmp eq i8 %22, 0
-  br i1 %tobool7.not.i.i28, label %if.else.i.i33, label %if.then8.i.i29
+  %19 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i28 = trunc i8 %19 to i1
+  br i1 %tobool7.i.i28, label %if.then8.i.i30, label %if.else.i.i29
 
-if.then8.i.i29:                                   ; preds = %if.then.i.i27
-  %call9.i.i30 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i20, ptr noundef null) #9
-  %call10.i.i31 = tail call i32 @qemu_get_thread_id() #9
-  %23 = load i64, ptr %_now.i.i20, align 8
-  %tv_usec.i.i32 = getelementptr inbounds i8, ptr %_now.i.i20, i64 8
-  %24 = load i64, ptr %tv_usec.i.i32, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i31, i64 noundef %23, i64 noundef %24, i64 noundef %addr) #9
+if.then8.i.i30:                                   ; preds = %if.then.i.i27
+  %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i20, ptr noundef null) #9
+  %call10.i.i32 = tail call i32 @qemu_get_thread_id() #9
+  %20 = load i64, ptr %_now.i.i20, align 8
+  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i20, i64 8
+  %21 = load i64, ptr %tv_usec.i.i33, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i32, i64 noundef %20, i64 noundef %21, i64 noundef %addr) #9
   br label %trace_e1000e_wrn_io_read_unknown.exit
 
-if.else.i.i33:                                    ; preds = %if.then.i.i27
+if.else.i.i29:                                    ; preds = %if.then.i.i27
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i64 noundef %addr) #9
   br label %trace_e1000e_wrn_io_read_unknown.exit
 
-trace_e1000e_wrn_io_read_unknown.exit:            ; preds = %sw.default, %land.lhs.true5.i.i24, %if.then8.i.i29, %if.else.i.i33
+trace_e1000e_wrn_io_read_unknown.exit:            ; preds = %sw.default, %land.lhs.true5.i.i24, %if.then8.i.i30, %if.else.i.i29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i20)
   br label %return
 
@@ -1163,17 +1149,16 @@ land.lhs.true5.i.i:                               ; preds = %sw.bb
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %val) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %val) #9
   br label %trace_e1000e_io_write_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1188,48 +1173,47 @@ trace_e1000e_io_write_addr.exit:                  ; preds = %sw.bb, %land.lhs.tr
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %7 = getelementptr i8, ptr %opaque, i64 11920
-  %opaque.val = load i32, ptr %7, align 16
+  %6 = getelementptr i8, ptr %opaque, i64 11920
+  %opaque.val = load i32, ptr %6, align 16
   %call = call fastcc zeroext i1 @e1000e_io_get_reg_index(i32 %opaque.val, ptr noundef nonnull %idx)
   br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.bb1
-  %8 = load i32, ptr %idx, align 4
-  %conv2 = zext i32 %8 to i64
+  %7 = load i32, ptr %idx, align 4
+  %conv2 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i7)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i8 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_E1000E_IO_WRITE_DATA_DSTATE, align 2
-  %tobool4.i.i9 = icmp ne i16 %10, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i8 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_E1000E_IO_WRITE_DATA_DSTATE, align 2
+  %tobool4.i.i9 = icmp ne i16 %9, 0
   %or.cond.i.i10 = select i1 %tobool.i.i8, i1 %tobool4.i.i9, i1 false
   br i1 %or.cond.i.i10, label %land.lhs.true5.i.i11, label %trace_e1000e_io_write_data.exit
 
 land.lhs.true5.i.i11:                             ; preds = %if.then
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i12 = and i32 %11, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i12 = and i32 %10, 32768
   %cmp.i.not.i.i13 = icmp eq i32 %and.i.i.i12, 0
   br i1 %cmp.i.not.i.i13, label %trace_e1000e_io_write_data.exit, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %land.lhs.true5.i.i11
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i15 = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i15, label %if.else.i.i20, label %if.then8.i.i16
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i15 = trunc i8 %11 to i1
+  br i1 %tobool7.i.i15, label %if.then8.i.i17, label %if.else.i.i16
 
-if.then8.i.i16:                                   ; preds = %if.then.i.i14
-  %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #9
-  %call10.i.i18 = tail call i32 @qemu_get_thread_id() #9
-  %14 = load i64, ptr %_now.i.i7, align 8
-  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
-  %15 = load i64, ptr %tv_usec.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i18, i64 noundef %14, i64 noundef %15, i64 noundef %conv2, i64 noundef %val) #9
+if.then8.i.i17:                                   ; preds = %if.then.i.i14
+  %call9.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #9
+  %call10.i.i19 = tail call i32 @qemu_get_thread_id() #9
+  %12 = load i64, ptr %_now.i.i7, align 8
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
+  %13 = load i64, ptr %tv_usec.i.i20, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i19, i64 noundef %12, i64 noundef %13, i64 noundef %conv2, i64 noundef %val) #9
   br label %trace_e1000e_io_write_data.exit
 
-if.else.i.i20:                                    ; preds = %if.then.i.i14
+if.else.i.i16:                                    ; preds = %if.then.i.i14
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i64 noundef %conv2, i64 noundef %val) #9
   br label %trace_e1000e_io_write_data.exit
 
-trace_e1000e_io_write_data.exit:                  ; preds = %if.then, %land.lhs.true5.i.i11, %if.then8.i.i16, %if.else.i.i20
+trace_e1000e_io_write_data.exit:                  ; preds = %if.then, %land.lhs.true5.i.i11, %if.then8.i.i17, %if.else.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i7)
   %core = getelementptr inbounds i8, ptr %opaque, i64 11936
   tail call void @e1000e_core_write(ptr noundef nonnull %core, i64 noundef %conv2, i64 noundef %val, i32 noundef 8) #9
@@ -1237,39 +1221,38 @@ trace_e1000e_io_write_data.exit:                  ; preds = %if.then, %land.lhs.
 
 sw.default:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i21)
-  %16 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i22 = icmp ne i32 %16, 0
-  %17 = load i16, ptr @_TRACE_E1000E_WRN_IO_WRITE_UNKNOWN_DSTATE, align 2
-  %tobool4.i.i23 = icmp ne i16 %17, 0
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i22 = icmp ne i32 %14, 0
+  %15 = load i16, ptr @_TRACE_E1000E_WRN_IO_WRITE_UNKNOWN_DSTATE, align 2
+  %tobool4.i.i23 = icmp ne i16 %15, 0
   %or.cond.i.i24 = select i1 %tobool.i.i22, i1 %tobool4.i.i23, i1 false
   br i1 %or.cond.i.i24, label %land.lhs.true5.i.i25, label %trace_e1000e_wrn_io_write_unknown.exit
 
 land.lhs.true5.i.i25:                             ; preds = %sw.default
-  %18 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i26 = and i32 %18, 32768
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i26 = and i32 %16, 32768
   %cmp.i.not.i.i27 = icmp eq i32 %and.i.i.i26, 0
   br i1 %cmp.i.not.i.i27, label %trace_e1000e_wrn_io_write_unknown.exit, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %land.lhs.true5.i.i25
-  %19 = load i8, ptr @message_with_timestamp, align 1
-  %20 = and i8 %19, 1
-  %tobool7.not.i.i29 = icmp eq i8 %20, 0
-  br i1 %tobool7.not.i.i29, label %if.else.i.i34, label %if.then8.i.i30
+  %17 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i29 = trunc i8 %17 to i1
+  br i1 %tobool7.i.i29, label %if.then8.i.i31, label %if.else.i.i30
 
-if.then8.i.i30:                                   ; preds = %if.then.i.i28
-  %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #9
-  %call10.i.i32 = tail call i32 @qemu_get_thread_id() #9
-  %21 = load i64, ptr %_now.i.i21, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
-  %22 = load i64, ptr %tv_usec.i.i33, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i32, i64 noundef %21, i64 noundef %22, i64 noundef %addr) #9
+if.then8.i.i31:                                   ; preds = %if.then.i.i28
+  %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #9
+  %call10.i.i33 = tail call i32 @qemu_get_thread_id() #9
+  %18 = load i64, ptr %_now.i.i21, align 8
+  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
+  %19 = load i64, ptr %tv_usec.i.i34, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i33, i64 noundef %18, i64 noundef %19, i64 noundef %addr) #9
   br label %trace_e1000e_wrn_io_write_unknown.exit
 
-if.else.i.i34:                                    ; preds = %if.then.i.i28
+if.else.i.i30:                                    ; preds = %if.then.i.i28
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i64 noundef %addr) #9
   br label %trace_e1000e_wrn_io_write_unknown.exit
 
-trace_e1000e_wrn_io_write_unknown.exit:           ; preds = %sw.default, %land.lhs.true5.i.i25, %if.then8.i.i30, %if.else.i.i34
+trace_e1000e_wrn_io_write_unknown.exit:           ; preds = %sw.default, %land.lhs.true5.i.i25, %if.then8.i.i31, %if.else.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i21)
   br label %return
 
@@ -1312,17 +1295,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then4
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %conv) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %conv) #9
   br label %trace_e1000e_wrn_io_addr_undefined.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1340,77 +1322,75 @@ if.end6:                                          ; preds = %if.end
 
 if.then10:                                        ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i7)
-  %7 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i8 = icmp ne i32 %7, 0
-  %8 = load i16, ptr @_TRACE_E1000E_WRN_IO_ADDR_FLASH_DSTATE, align 2
-  %tobool4.i.i9 = icmp ne i16 %8, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i8 = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_E1000E_WRN_IO_ADDR_FLASH_DSTATE, align 2
+  %tobool4.i.i9 = icmp ne i16 %7, 0
   %or.cond.i.i10 = select i1 %tobool.i.i8, i1 %tobool4.i.i9, i1 false
   br i1 %or.cond.i.i10, label %land.lhs.true5.i.i11, label %trace_e1000e_wrn_io_addr_flash.exit
 
 land.lhs.true5.i.i11:                             ; preds = %if.then10
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i12 = and i32 %9, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i12 = and i32 %8, 32768
   %cmp.i.not.i.i13 = icmp eq i32 %and.i.i.i12, 0
   br i1 %cmp.i.not.i.i13, label %trace_e1000e_wrn_io_addr_flash.exit, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %land.lhs.true5.i.i11
-  %10 = load i8, ptr @message_with_timestamp, align 1
-  %11 = and i8 %10, 1
-  %tobool7.not.i.i15 = icmp eq i8 %11, 0
-  br i1 %tobool7.not.i.i15, label %if.else.i.i20, label %if.then8.i.i16
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i15 = trunc i8 %9 to i1
+  br i1 %tobool7.i.i15, label %if.then8.i.i17, label %if.else.i.i16
 
-if.then8.i.i16:                                   ; preds = %if.then.i.i14
-  %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #9
-  %call10.i.i18 = tail call i32 @qemu_get_thread_id() #9
-  %12 = load i64, ptr %_now.i.i7, align 8
-  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
-  %13 = load i64, ptr %tv_usec.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i18, i64 noundef %12, i64 noundef %13, i64 noundef %conv12) #9
+if.then8.i.i17:                                   ; preds = %if.then.i.i14
+  %call9.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #9
+  %call10.i.i19 = tail call i32 @qemu_get_thread_id() #9
+  %10 = load i64, ptr %_now.i.i7, align 8
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
+  %11 = load i64, ptr %tv_usec.i.i20, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i19, i64 noundef %10, i64 noundef %11, i64 noundef %conv12) #9
   br label %trace_e1000e_wrn_io_addr_flash.exit
 
-if.else.i.i20:                                    ; preds = %if.then.i.i14
+if.else.i.i16:                                    ; preds = %if.then.i.i14
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i64 noundef %conv12) #9
   br label %trace_e1000e_wrn_io_addr_flash.exit
 
-trace_e1000e_wrn_io_addr_flash.exit:              ; preds = %if.then10, %land.lhs.true5.i.i11, %if.then8.i.i16, %if.else.i.i20
+trace_e1000e_wrn_io_addr_flash.exit:              ; preds = %if.then10, %land.lhs.true5.i.i11, %if.then8.i.i17, %if.else.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i7)
   br label %return
 
 if.end13:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i21)
-  %14 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i22 = icmp ne i32 %14, 0
-  %15 = load i16, ptr @_TRACE_E1000E_WRN_IO_ADDR_UNKNOWN_DSTATE, align 2
-  %tobool4.i.i23 = icmp ne i16 %15, 0
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i22 = icmp ne i32 %12, 0
+  %13 = load i16, ptr @_TRACE_E1000E_WRN_IO_ADDR_UNKNOWN_DSTATE, align 2
+  %tobool4.i.i23 = icmp ne i16 %13, 0
   %or.cond.i.i24 = select i1 %tobool.i.i22, i1 %tobool4.i.i23, i1 false
   br i1 %or.cond.i.i24, label %land.lhs.true5.i.i25, label %trace_e1000e_wrn_io_addr_unknown.exit
 
 land.lhs.true5.i.i25:                             ; preds = %if.end13
-  %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i26 = and i32 %16, 32768
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i26 = and i32 %14, 32768
   %cmp.i.not.i.i27 = icmp eq i32 %and.i.i.i26, 0
   br i1 %cmp.i.not.i.i27, label %trace_e1000e_wrn_io_addr_unknown.exit, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %land.lhs.true5.i.i25
-  %17 = load i8, ptr @message_with_timestamp, align 1
-  %18 = and i8 %17, 1
-  %tobool7.not.i.i29 = icmp eq i8 %18, 0
-  br i1 %tobool7.not.i.i29, label %if.else.i.i34, label %if.then8.i.i30
+  %15 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i29 = trunc i8 %15 to i1
+  br i1 %tobool7.i.i29, label %if.then8.i.i31, label %if.else.i.i30
 
-if.then8.i.i30:                                   ; preds = %if.then.i.i28
-  %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #9
-  %call10.i.i32 = tail call i32 @qemu_get_thread_id() #9
-  %19 = load i64, ptr %_now.i.i21, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
-  %20 = load i64, ptr %tv_usec.i.i33, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i32, i64 noundef %19, i64 noundef %20, i64 noundef %conv12) #9
+if.then8.i.i31:                                   ; preds = %if.then.i.i28
+  %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #9
+  %call10.i.i33 = tail call i32 @qemu_get_thread_id() #9
+  %16 = load i64, ptr %_now.i.i21, align 8
+  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
+  %17 = load i64, ptr %tv_usec.i.i34, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i33, i64 noundef %16, i64 noundef %17, i64 noundef %conv12) #9
   br label %trace_e1000e_wrn_io_addr_unknown.exit
 
-if.else.i.i34:                                    ; preds = %if.then.i.i28
+if.else.i.i30:                                    ; preds = %if.then.i.i28
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i64 noundef %conv12) #9
   br label %trace_e1000e_wrn_io_addr_unknown.exit
 
-trace_e1000e_wrn_io_addr_unknown.exit:            ; preds = %if.end13, %land.lhs.true5.i.i25, %if.then8.i.i30, %if.else.i.i34
+trace_e1000e_wrn_io_addr_unknown.exit:            ; preds = %if.end13, %land.lhs.true5.i.i25, %if.then8.i.i31, %if.else.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i21)
   br label %return
 
@@ -1526,17 +1506,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #9
   br label %trace_e1000e_cb_post_load.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1546,23 +1525,23 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_e1000e_cb_post_load.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %subsys = getelementptr inbounds i8, ptr %opaque, i64 11926
-  %7 = load i16, ptr %subsys, align 2
+  %6 = load i16, ptr %subsys, align 2
   %subsys_used = getelementptr inbounds i8, ptr %opaque, i64 11930
-  %8 = load i16, ptr %subsys_used, align 2
-  %cmp.not = icmp eq i16 %7, %8
+  %7 = load i16, ptr %subsys_used, align 2
+  %cmp.not = icmp eq i16 %6, %7
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %trace_e1000e_cb_post_load.exit
   %subsys_ven = getelementptr inbounds i8, ptr %opaque, i64 11924
-  %9 = load i16, ptr %subsys_ven, align 4
+  %8 = load i16, ptr %subsys_ven, align 4
   %subsys_ven_used = getelementptr inbounds i8, ptr %opaque, i64 11928
-  %10 = load i16, ptr %subsys_ven_used, align 8
-  %cmp5.not = icmp eq i16 %9, %10
+  %9 = load i16, ptr %subsys_ven_used, align 8
+  %cmp5.not = icmp eq i16 %8, %9
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_e1000e_cb_post_load.exit
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 72, i64 1, ptr %11) #11
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 72, i64 1, ptr %10) #11
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1595,17 +1574,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #9
   br label %trace_e1000e_cb_pre_save.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1624,8 +1602,7 @@ define internal zeroext i1 @e1000e_migrate_timadj(ptr nocapture noundef readonly
 entry:
   %timadj = getelementptr inbounds i8, ptr %opaque, i64 144137
   %0 = load i8, ptr %timadj, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

@@ -127,112 +127,113 @@ define dso_local noundef nonnull ptr @_ZN24FunctionInvocationBinary30CreateFunct
   ]
 
 9:                                                ; preds = %8, %8, %8, %8, %8, %8, %8
-  %10 = load <2 x i8>, ptr %2, align 4
-  %11 = trunc <2 x i8> %10 to <2 x i1>
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = extractelement <2 x i1> %11, i64 0
-  %15 = tail call noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %14, i32 noundef %13)
-  %16 = extractelement <2 x i1> %11, i64 1
-  %17 = tail call noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %16, i32 noundef %13)
-  %18 = tail call noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
-  call void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(192) %18, i32 noundef %15)
+  %10 = load i8, ptr %2, align 4
+  %11 = trunc i8 %10 to i1
+  %12 = getelementptr inbounds i8, ptr %2, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = tail call noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %11, i32 noundef %16)
+  %18 = tail call noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %14, i32 noundef %16)
+  %19 = tail call noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
+  call void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(192) %19, i32 noundef %17)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  %19 = and i32 %1, -2
-  %or.cond = icmp eq i32 %19, 16
-  br i1 %or.cond, label %20, label %23
+  %20 = and i32 %1, -2
+  %or.cond = icmp eq i32 %20, 16
+  br i1 %or.cond, label %21, label %24
 
-20:                                               ; preds = %9
-  invoke void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %18, i32 noundef %17)
-          to label %24 unwind label %21
+21:                                               ; preds = %9
+  invoke void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %19, i32 noundef %18)
+          to label %25 unwind label %22
 
-21:                                               ; preds = %24, %23, %20
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %25, %24, %21
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %40
 
-23:                                               ; preds = %9
-  invoke void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %18, i32 noundef %15)
-          to label %24 unwind label %21
+24:                                               ; preds = %9
+  invoke void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %19, i32 noundef %17)
+          to label %25 unwind label %22
 
-24:                                               ; preds = %23, %20
-  %.sink32 = phi ptr [ %6, %20 ], [ %7, %23 ]
-  %25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #15
+25:                                               ; preds = %24, %21
+  %.sink32 = phi ptr [ %6, %21 ], [ %7, %24 ]
+  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #15
-  %26 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
-          to label %27 unwind label %21
+  %27 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
+          to label %28 unwind label %22
 
-27:                                               ; preds = %24
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %26, i32 noundef 0, ptr noundef nonnull %2)
-          to label %.noexc unwind label %37
+28:                                               ; preds = %25
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %27, i32 noundef 0, ptr noundef nonnull %2)
+          to label %.noexc unwind label %38
 
-.noexc:                                           ; preds = %27
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i64 0, i32 0, i64 2), ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 56
-  store i32 %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %30 unwind label %32
+.noexc:                                           ; preds = %28
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i64 0, i32 0, i64 2), ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 56
+  store i32 %1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %27, i64 64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %31 unwind label %33
 
-30:                                               ; preds = %.noexc
-  %31 = getelementptr inbounds i8, ptr %26, i64 96
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit unwind label %34
+31:                                               ; preds = %.noexc
+  %32 = getelementptr inbounds i8, ptr %27, i64 96
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit unwind label %35
 
-32:                                               ; preds = %.noexc
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %.noexc
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %37
 
-34:                                               ; preds = %30
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %31
+  %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #15
-  br label %36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #15
+  br label %37
 
-36:                                               ; preds = %34, %32
-  %.pn.i = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #15
+37:                                               ; preds = %35, %33
+  %.pn.i = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
+  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #15
   br label %.body
 
-_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit: ; preds = %30
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
-  br label %43
-
-37:                                               ; preds = %27
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-.body:                                            ; preds = %36, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %.pn.i, %36 ]
-  call void @_ZdlPv(ptr noundef nonnull %26) #14
-  br label %39
-
-39:                                               ; preds = %.body, %21
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %22, %21 ]
+_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit: ; preds = %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   br label %44
+
+38:                                               ; preds = %28
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %37, %38
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %.pn.i, %37 ]
+  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  br label %40
+
+40:                                               ; preds = %.body, %22
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %23, %22 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
+  br label %45
 
 _ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit: ; preds = %8, %3
-  %40 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
-  invoke void @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(128) %40, i32 noundef %1, ptr noundef %2)
-          to label %43 unwind label %41
+  %41 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
+  invoke void @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(128) %41, i32 noundef %1, ptr noundef %2)
+          to label %44 unwind label %42
 
-41:                                               ; preds = %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit
+  %43 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %40) #14
-  br label %44
+  tail call void @_ZdlPv(ptr noundef nonnull %41) #14
+  br label %45
 
-43:                                               ; preds = %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit, %_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit
-  %.027 = phi ptr [ %26, %_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit ], [ %40, %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit ]
+44:                                               ; preds = %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit, %_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit
+  %.027 = phi ptr [ %27, %_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit ], [ %41, %_ZN24FunctionInvocationBinary8safe_opsE10eBinaryOps.exit ]
   ret ptr %.027
 
-44:                                               ; preds = %41, %39
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %42, %41 ]
+45:                                               ; preds = %42, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -241,8 +242,7 @@ define dso_local noundef zeroext i1 @_ZN24FunctionInvocationBinary8safe_opsE10eB
   %2 = icmp ult i32 %0, 18
   %switch.cast = trunc i32 %0 to i18
   %switch.downshift = lshr i18 -65505, %switch.cast
-  %3 = and i18 %switch.downshift, 1
-  %switch.masked = icmp ne i18 %3, 0
+  %switch.masked = trunc i18 %switch.downshift to i1
   %.0 = select i1 %2, i1 %switch.masked, i1 false
   ret i1 %.0
 }
@@ -612,16 +612,14 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -11769, %switch.maskindex
-  %55 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %55, 0
-  br i1 %switch.lobit.not, label %16, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %16
 
 switch.hole_check9:                               ; preds = %33
   %switch.maskindex11 = trunc i32 %switch.tableidx8 to i16
   %switch.shifted12 = lshr i16 561, %switch.maskindex11
-  %56 = and i16 %switch.shifted12, 1
-  %switch.lobit13.not = icmp eq i16 %56, 0
-  br i1 %switch.lobit13.not, label %37, label %switch.lookup
+  %switch.lobit13 = trunc i16 %switch.shifted12 to i1
+  br i1 %switch.lobit13, label %switch.lookup, label %37
 
 switch.lookup:                                    ; preds = %switch.hole_check9, %switch.hole_check, %53, %42, %24, %24, %24, %54
   %.0 = phi i1 [ false, %54 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %42 ], [ true, %53 ], [ true, %switch.hole_check ], [ true, %switch.hole_check9 ]
@@ -724,7 +722,7 @@ declare noundef zeroext i1 @_ZNK4Type9is_signedEv(ptr noundef nonnull align 8 de
 define dso_local void @_ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %3 = icmp ult i32 %1, 16
-  br i1 %3, label %switch.hole_check, label %9
+  br i1 %3, label %switch.hole_check, label %8
 
 4:                                                ; preds = %switch.lookup
   %5 = landingpad { ptr, i32 }
@@ -735,18 +733,17 @@ define dso_local void @_ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = trunc i32 %1 to i16
   %switch.shifted = lshr i16 -8161, %switch.maskindex
-  %6 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %6, 0
-  br i1 %switch.lobit.not, label %9, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %8
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps, i64 0, i64 %7
+  %6 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %switch.load)
-          to label %9 unwind label %4
+  %7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %switch.load)
+          to label %8 unwind label %4
 
-9:                                                ; preds = %switch.hole_check, %2, %switch.lookup
+8:                                                ; preds = %switch.hole_check, %2, %switch.lookup
   ret void
 }
 

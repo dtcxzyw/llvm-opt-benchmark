@@ -326,16 +326,15 @@ if.end17:                                         ; preds = %if.end14
 if.end20:                                         ; preds = %if.end17
   %enabled = getelementptr inbounds i8, ptr %call15, i64 40
   %6 = load i8, ptr %enabled, align 8
-  %7 = and i8 %6, 1
-  %tobool21.not = icmp eq i8 %7, 0
-  br i1 %tobool21.not, label %if.then22, label %if.end27
+  %tobool21 = trunc i8 %6 to i1
+  br i1 %tobool21, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
   %disable_reason = getelementptr inbounds i8, ptr %call15, i64 48
-  %8 = load ptr, ptr %disable_reason, align 8
-  %tobool23.not = icmp eq ptr %8, null
+  %7 = load ptr, ptr %disable_reason, align 8
+  %tobool23.not = icmp eq ptr %7, null
   %cond = select i1 %tobool23.not, ptr @.str.11, ptr @.str.10
-  %..str.11 = select i1 %tobool23.not, ptr @.str.11, ptr %8
+  %..str.11 = select i1 %tobool23.not, ptr @.str.11, ptr %7
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 186, ptr noundef nonnull @__func__.qmp_dispatch, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %command.0, ptr noundef nonnull %cond, ptr noundef nonnull %..str.11) #5
   br label %out
 
@@ -344,8 +343,8 @@ if.end27:                                         ; preds = %if.end20
 
 land.lhs.true:                                    ; preds = %if.end27
   %options = getelementptr inbounds i8, ptr %call15, i64 16
-  %9 = load i32, ptr %options, align 8
-  %and = and i32 %9, 2
+  %8 = load i32, ptr %options, align 8
+  %and = and i32 %8, 2
   %tobool29.not = icmp eq i32 %and, 0
   br i1 %tobool29.not, label %if.then30, label %if.end31
 
@@ -373,8 +372,8 @@ if.else39:                                        ; preds = %if.end34
 
 if.then.i52:                                      ; preds = %if.else39
   %refcnt.i = getelementptr inbounds i8, ptr %call40, i64 8
-  %10 = load i64, ptr %refcnt.i, align 8
-  %inc.i = add i64 %10, 1
+  %9 = load i64, ptr %refcnt.i, align 8
+  %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   br label %if.end48
 
@@ -401,19 +400,19 @@ if.else58:                                        ; preds = %if.end54
 
 if.end59:                                         ; preds = %if.end54
   %options60 = getelementptr inbounds i8, ptr %call15, i64 16
-  %11 = load i32, ptr %options60, align 8
+  %10 = load i32, ptr %options60, align 8
   %call64 = call zeroext i1 @qemu_in_coroutine() #5
-  %12 = and i32 %11, 8
-  %13 = icmp eq i32 %12, 0
-  %cmp65 = xor i1 %call64, %13
+  %11 = and i32 %10, 8
+  %12 = icmp eq i32 %11, 0
+  %cmp65 = xor i1 %call64, %12
   br i1 %cmp65, label %if.then67, label %if.else72
 
 if.then67:                                        ; preds = %if.end59
   %call68 = call ptr @qemu_coroutine_self() #5
   %call69 = call ptr @monitor_set_cur(ptr noundef %call68, ptr noundef %cur_mon) #5
   %fn = getelementptr inbounds i8, ptr %call15, i64 8
-  %14 = load ptr, ptr %fn, align 8
-  call void %14(ptr noundef %args.0, ptr noundef nonnull %ret, ptr noundef nonnull %err) #5
+  %13 = load ptr, ptr %fn, align 8
+  call void %13(ptr noundef %args.0, ptr noundef nonnull %ret, ptr noundef nonnull %err) #5
   %call70 = call ptr @qemu_coroutine_self() #5
   %call71 = call ptr @monitor_set_cur(ptr noundef %call70, ptr noundef null) #5
   br label %if.end90
@@ -426,8 +425,8 @@ land.lhs.true74:                                  ; preds = %if.else72
   br i1 %call75, label %land.lhs.true77, label %if.else82
 
 land.lhs.true77:                                  ; preds = %land.lhs.true74
-  %15 = load i32, ptr %options60, align 8
-  %and79 = and i32 %15, 8
+  %14 = load i32, ptr %options60, align 8
+  %and79 = and i32 %14, 8
   %tobool80.not = icmp eq i32 %and79, 0
   br i1 %tobool80.not, label %if.end83, label %if.else82
 
@@ -459,8 +458,8 @@ if.end90:                                         ; preds = %if.end83, %if.then6
 
 lor.lhs.false.i54:                                ; preds = %if.end90
   %refcnt.i55 = getelementptr inbounds i8, ptr %args.0, i64 8
-  %16 = load i64, ptr %refcnt.i55, align 8
-  %tobool1.not.i = icmp eq i64 %16, 0
+  %15 = load i64, ptr %refcnt.i55, align 8
+  %tobool1.not.i = icmp eq i64 %15, 0
   br i1 %tobool1.not.i, label %if.else.i58, label %land.lhs.true.i56
 
 if.else.i58:                                      ; preds = %lor.lhs.false.i54
@@ -468,7 +467,7 @@ if.else.i58:                                      ; preds = %lor.lhs.false.i54
   unreachable
 
 land.lhs.true.i56:                                ; preds = %lor.lhs.false.i54
-  %dec.i = add i64 %16, -1
+  %dec.i = add i64 %15, -1
   store i64 %dec.i, ptr %refcnt.i55, align 8
   %cmp.i57 = icmp eq i64 %dec.i, 0
   br i1 %cmp.i57, label %if.then5.i, label %qobject_unref_impl.exit
@@ -478,21 +477,21 @@ if.then5.i:                                       ; preds = %land.lhs.true.i56
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.end90, %land.lhs.true.i56, %if.then5.i
-  %17 = load ptr, ptr %err, align 8
-  %tobool101.not = icmp eq ptr %17, null
+  %16 = load ptr, ptr %err, align 8
+  %tobool101.not = icmp eq ptr %16, null
   br i1 %tobool101.not, label %if.end113, label %if.then102
 
 if.then102:                                       ; preds = %qobject_unref_impl.exit
-  %18 = load ptr, ptr %ret, align 8
-  call fastcc void @qobject_unref_impl(ptr noundef %18)
+  %17 = load ptr, ptr %ret, align 8
+  call fastcc void @qobject_unref_impl(ptr noundef %17)
   br label %out
 
 if.end113:                                        ; preds = %qobject_unref_impl.exit
-  %19 = load i32, ptr %options60, align 8
-  %and115 = and i32 %19, 1
+  %18 = load i32, ptr %options60, align 8
+  %and115 = and i32 %18, 1
   %tobool116.not = icmp eq i32 %and115, 0
-  %20 = load ptr, ptr %ret, align 8
-  %tobool123.not = icmp eq ptr %20, null
+  %19 = load ptr, ptr %ret, align 8
+  %tobool123.not = icmp eq ptr %19, null
   br i1 %tobool116.not, label %if.else122, label %do.body
 
 do.body:                                          ; preds = %if.end113
@@ -512,15 +511,15 @@ if.then124:                                       ; preds = %if.else122
 
 if.end137:                                        ; preds = %if.else122, %if.then124
   %call138 = call ptr @qdict_new() #5
-  %21 = load ptr, ptr %ret, align 8
-  call void @qdict_put_obj(ptr noundef %call138, ptr noundef nonnull @.str.19, ptr noundef %21) #5
+  %20 = load ptr, ptr %ret, align 8
+  call void @qdict_put_obj(ptr noundef %call138, ptr noundef nonnull @.str.19, ptr noundef %20) #5
   br label %out
 
 out:                                              ; preds = %if.then29.i, %if.then11.i, %if.then9.i, %if.then18.i, %if.else24.i, %if.end31, %if.end17, %if.end137, %if.then102, %if.then30, %if.then22, %if.then16, %if.then
   %rsp.0 = phi ptr [ null, %if.then16 ], [ null, %if.then102 ], [ %call138, %if.end137 ], [ null, %if.end31 ], [ null, %if.then30 ], [ null, %if.then22 ], [ null, %if.end17 ], [ null, %if.then ], [ null, %if.else24.i ], [ null, %if.then18.i ], [ null, %if.then9.i ], [ null, %if.then11.i ], [ null, %if.then29.i ]
   %id.0 = phi ptr [ %call1, %if.then16 ], [ %call1, %if.then102 ], [ %call1, %if.end137 ], [ %call1, %if.end31 ], [ %call1, %if.then30 ], [ %call1, %if.then22 ], [ %call1, %if.end17 ], [ null, %if.then ], [ %call1, %if.else24.i ], [ %call1, %if.then18.i ], [ %call1, %if.then9.i ], [ %call1, %if.then11.i ], [ %call1, %if.then29.i ]
-  %22 = load ptr, ptr %err, align 8
-  %tobool139.not = icmp eq ptr %22, null
+  %21 = load ptr, ptr %err, align 8
+  %tobool139.not = icmp eq ptr %21, null
   br i1 %tobool139.not, label %if.end146, label %if.then140
 
 if.then140:                                       ; preds = %out
@@ -532,11 +531,11 @@ if.else143:                                       ; preds = %if.then140
   unreachable
 
 if.end144:                                        ; preds = %if.then140
-  %call.i59 = call i32 @error_get_class(ptr noundef nonnull %22) #5
+  %call.i59 = call i32 @error_get_class(ptr noundef nonnull %21) #5
   %call1.i60 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QapiErrorClass_lookup, i32 noundef %call.i59) #5
-  %call2.i61 = call ptr @error_get_pretty(ptr noundef nonnull %22) #5
+  %call2.i61 = call ptr @error_get_pretty(ptr noundef nonnull %21) #5
   %call3.i62 = call ptr (ptr, ...) @qdict_from_jsonf_nofail(ptr noundef nonnull @.str, ptr noundef %call1.i60, ptr noundef %call2.i61) #5
-  call void @error_free(ptr noundef nonnull %22) #5
+  call void @error_free(ptr noundef nonnull %21) #5
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end144, %out
@@ -554,8 +553,8 @@ if.end150:                                        ; preds = %if.end146
 
 qobject_ref_impl.exit68:                          ; preds = %if.end150
   %refcnt.i65 = getelementptr inbounds i8, ptr %id.0, i64 8
-  %23 = load i64, ptr %refcnt.i65, align 8
-  %inc.i66 = add i64 %23, 1
+  %22 = load i64, ptr %refcnt.i65, align 8
+  %inc.i66 = add i64 %22, 1
   store i64 %inc.i66, ptr %refcnt.i65, align 8
   call void @qdict_put_obj(ptr noundef nonnull %rsp.1, ptr noundef nonnull @.str.5, ptr noundef nonnull %id.0) #5
   br label %return

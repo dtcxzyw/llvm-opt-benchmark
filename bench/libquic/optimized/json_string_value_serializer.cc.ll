@@ -68,9 +68,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %pretty_print_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %pretty_print_.i, align 8
-  %2 = shl i8 %1, 2
-  %3 = and i8 %2, 4
-  %options.1.i = zext nneg i8 %3 to i32
+  %tobool5.i = trunc i8 %1 to i1
+  %options.1.i = select i1 %tobool5.i, i32 4, i32 0
   %call.i = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %root, i32 noundef %options.1.i, ptr noundef nonnull %0)
   br label %_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit
 
@@ -88,13 +87,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %spec.select = zext i1 %omit_binary_values to i32
   %pretty_print_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %pretty_print_, align 8
-  %2 = shl i8 %1, 2
-  %3 = and i8 %2, 4
-  %4 = zext i1 %omit_binary_values to i8
-  %5 = or disjoint i8 %3, %4
-  %options.1 = zext nneg i8 %5 to i32
+  %tobool5 = trunc i8 %1 to i1
+  %or7 = or disjoint i32 %spec.select, 4
+  %options.1 = select i1 %tobool5, i32 %or7, i32 %spec.select
   %call = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %root, i32 noundef %options.1, ptr noundef nonnull %0)
   br label %return
 
@@ -114,10 +112,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %pretty_print_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %pretty_print_.i, align 8
-  %2 = shl i8 %1, 2
-  %3 = and i8 %2, 4
-  %4 = or disjoint i8 %3, 1
-  %options.1.i = zext nneg i8 %4 to i32
+  %tobool5.i = trunc i8 %1 to i1
+  %options.1.i = select i1 %tobool5.i, i32 5, i32 1
   %call.i = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %root, i32 noundef %options.1.i, ptr noundef nonnull %0)
   br label %_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit
 

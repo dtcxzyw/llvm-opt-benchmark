@@ -73,9 +73,8 @@ if.end:                                           ; preds = %entry
 
 while.cond16.preheader:                           ; preds = %if.end
   %1 = load i8, ptr %data, align 8
-  %2 = and i8 %1, 1
-  %tobool18.not4 = icmp eq i8 %2, 0
-  br i1 %tobool18.not4, label %while.body20, label %if.end24
+  %tobool184 = trunc i8 %1 to i1
+  br i1 %tobool184, label %if.end24, label %while.body20
 
 if.else14:                                        ; preds = %if.end
   call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_wait_bh_oneshot) #5
@@ -84,13 +83,12 @@ if.else14:                                        ; preds = %if.end
 while.body20:                                     ; preds = %while.cond16.preheader, %while.body20
   %call21 = call ptr @qemu_get_aio_context() #4
   %call22 = call zeroext i1 @aio_poll(ptr noundef %call21, i1 noundef zeroext true) #4
-  %3 = load i8, ptr %data, align 8
-  %4 = and i8 %3, 1
-  %tobool18.not = icmp eq i8 %4, 0
-  br i1 %tobool18.not, label %while.body20, label %if.end24, !llvm.loop !6
+  %2 = load i8, ptr %data, align 8
+  %tobool18 = trunc i8 %2 to i1
+  br i1 %tobool18, label %if.end24, label %while.body20, !llvm.loop !6
 
 if.end24:                                         ; preds = %while.body20, %while.cond16.preheader
-  %5 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
+  %3 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
   ret void
 }
 

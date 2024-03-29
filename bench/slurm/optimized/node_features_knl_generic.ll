@@ -2617,21 +2617,21 @@ define ptr @node_features_p_job_xlate(ptr noundef %0, ptr nocapture noundef read
   store ptr null, ptr %4, align 8
   store ptr null, ptr %6, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %28, label %7
+  br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %3
   %8 = tail call ptr @xstrdup(ptr noundef nonnull %0) #15
   store ptr %8, ptr %5, align 8
   %9 = call ptr @strtok_r(ptr noundef %8, ptr noundef nonnull @.str.93, ptr noundef nonnull %6) #15
-  %.not2230 = icmp eq ptr %9, null
-  br i1 %.not2230, label %._crit_edge, label %.lr.ph
+  %.not2229 = icmp eq ptr %9, null
+  br i1 %.not2229, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %26
-  %.01234 = phi i8 [ %.113, %26 ], [ 0, %7 ]
-  %.01433 = phi i8 [ %.115, %26 ], [ 0, %7 ]
-  %.01632 = phi ptr [ %27, %26 ], [ %9, %7 ]
-  %.01731 = phi ptr [ %.118, %26 ], [ @.str.49, %7 ]
-  %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01632, i32 noundef 42) #17
+.lr.ph:                                           ; preds = %7, %28
+  %.01233 = phi i8 [ %.113, %28 ], [ 0, %7 ]
+  %.01432 = phi i1 [ %.115, %28 ], [ false, %7 ]
+  %.01631 = phi ptr [ %29, %28 ], [ %9, %7 ]
+  %.01730 = phi ptr [ %.118, %28 ], [ @.str.49, %7 ]
+  %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01631, i32 noundef 42) #17
   %.not23 = icmp eq ptr %10, null
   br i1 %.not23, label %12, label %11
 
@@ -2640,61 +2640,61 @@ define ptr @node_features_p_job_xlate(ptr noundef %0, ptr nocapture noundef read
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph
-  %13 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.01632), !range !6
-  %.not24 = icmp ne i16 %13, 0
-  %14 = and i8 %.01234, 1
-  %.not25 = icmp eq i8 %14, 0
-  %or.cond = select i1 %.not24, i1 %.not25, i1 false
-  %.113 = select i1 %or.cond, i8 1, i8 %.01234
-  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.01632, ptr noundef nonnull @.str.62) #15
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %_knl_numa_token.exit, label %16
+  %13 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.01631), !range !6
+  %.not24 = icmp eq i16 %13, 0
+  %14 = trunc i8 %.01233 to i1
+  %15 = select i1 %.not24, i1 true, i1 %14
+  %.113 = select i1 %15, i8 %.01233, i8 1
+  %16 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.62) #15
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %_knl_numa_token.exit, label %17
 
-16:                                               ; preds = %12
-  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.01632, ptr noundef nonnull @.str.68) #15
-  %.not10.i = icmp eq i32 %17, 0
-  br i1 %.not10.i, label %_knl_numa_token.exit, label %18
+17:                                               ; preds = %12
+  %18 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.68) #15
+  %.not10.i = icmp eq i32 %18, 0
+  br i1 %.not10.i, label %_knl_numa_token.exit, label %19
 
-18:                                               ; preds = %16
-  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.01632, ptr noundef nonnull @.str.70) #15
-  %.not11.i = icmp eq i32 %19, 0
-  br i1 %.not11.i, label %_knl_numa_token.exit, label %20
+19:                                               ; preds = %17
+  %20 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.70) #15
+  %.not11.i = icmp eq i32 %20, 0
+  br i1 %.not11.i, label %_knl_numa_token.exit, label %21
 
-20:                                               ; preds = %18
-  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.01632, ptr noundef nonnull @.str.64) #15
-  %.not12.i = icmp eq i32 %21, 0
-  br i1 %.not12.i, label %_knl_numa_token.exit, label %22
+21:                                               ; preds = %19
+  %22 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.64) #15
+  %.not12.i = icmp eq i32 %22, 0
+  br i1 %.not12.i, label %_knl_numa_token.exit, label %23
 
-22:                                               ; preds = %20
-  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.01632, ptr noundef nonnull @.str.66) #15
-  %.not13.i = icmp eq i32 %23, 0
+23:                                               ; preds = %21
+  %24 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.66) #15
+  %.not13.i = icmp eq i32 %24, 0
+  %spec.select.i = select i1 %.not13.i, i16 16, i16 0
   br label %_knl_numa_token.exit
 
-_knl_numa_token.exit:                             ; preds = %12, %16, %18, %20, %22
-  %.0.i = phi i1 [ true, %12 ], [ true, %16 ], [ true, %18 ], [ true, %20 ], [ %.not13.i, %22 ]
-  %24 = and i8 %.01433, 1
-  %.not27 = icmp eq i8 %24, 0
-  %or.cond29 = select i1 %.0.i, i1 %.not27, i1 false
-  %.115 = select i1 %or.cond29, i8 1, i8 %.01433
-  %narrow = select i1 %or.cond29, i1 true, i1 %or.cond
-  br i1 %narrow, label %25, label %26
+_knl_numa_token.exit:                             ; preds = %12, %17, %19, %21, %23
+  %.0.i = phi i16 [ 1, %12 ], [ 1, %17 ], [ 1, %19 ], [ 1, %21 ], [ %spec.select.i, %23 ]
+  %.not25 = icmp eq i16 %.0.i, 0
+  %25 = select i1 %.not25, i1 true, i1 %.01432
+  %not. = xor i1 %25, true
+  %.115 = select i1 %not., i1 true, i1 %.01432
+  %26 = select i1 %25, i1 %15, i1 false
+  br i1 %26, label %28, label %27
 
-25:                                               ; preds = %_knl_numa_token.exit
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef %.01731, ptr noundef nonnull %.01632) #15
-  br label %26
-
-26:                                               ; preds = %25, %_knl_numa_token.exit
-  %.118 = phi ptr [ @.str.3, %25 ], [ %.01731, %_knl_numa_token.exit ]
-  %27 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.93, ptr noundef nonnull %6) #15
-  %.not22 = icmp eq ptr %27, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !26
-
-._crit_edge:                                      ; preds = %26, %7
-  call void @slurm_xfree(ptr noundef nonnull %5) #15
-  %.019.pre = load ptr, ptr %4, align 8
+27:                                               ; preds = %_knl_numa_token.exit
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef %.01730, ptr noundef nonnull %.01631) #15
   br label %28
 
-28:                                               ; preds = %3, %._crit_edge
+28:                                               ; preds = %27, %_knl_numa_token.exit
+  %.118 = phi ptr [ @.str.3, %27 ], [ %.01730, %_knl_numa_token.exit ]
+  %29 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.93, ptr noundef nonnull %6) #15
+  %.not22 = icmp eq ptr %29, null
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+
+._crit_edge:                                      ; preds = %28, %7
+  call void @slurm_xfree(ptr noundef nonnull %5) #15
+  %.019.pre = load ptr, ptr %4, align 8
+  br label %30
+
+30:                                               ; preds = %3, %._crit_edge
   %.019 = phi ptr [ null, %3 ], [ %.019.pre, %._crit_edge ]
   ret ptr %.019
 }
@@ -3573,37 +3573,37 @@ define noundef zeroext i1 @node_features_p_node_update_valid(ptr nocapture nound
   %16 = tail call ptr @xstrdup(ptr noundef nonnull %12) #15
   store ptr %16, ptr %3, align 8
   %17 = call ptr @strtok_r(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
-  %.not51.not95 = icmp eq ptr %17, null
-  br i1 %.not51.not95, label %.critedge.critedge, label %.lr.ph
+  %.not51.not94 = icmp eq ptr %17, null
+  br i1 %.not51.not94, label %.critedge.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %_knl_numa_token.exit
-  %.03996 = phi ptr [ %29, %_knl_numa_token.exit ], [ %17, %15 ]
-  %18 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.03996), !range !6
+  %.03995 = phi ptr [ %29, %_knl_numa_token.exit ], [ %17, %15 ]
+  %18 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.03995), !range !6
   %.not52 = icmp eq i16 %18, 0
   br i1 %.not52, label %19, label %_knl_numa_token.exit.thread
 
 19:                                               ; preds = %.lr.ph
-  %20 = call i32 @xstrcasecmp(ptr noundef nonnull %.03996, ptr noundef nonnull @.str.62) #15
+  %20 = call i32 @xstrcasecmp(ptr noundef nonnull %.03995, ptr noundef nonnull @.str.62) #15
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_knl_numa_token.exit.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = call i32 @xstrcasecmp(ptr noundef nonnull %.03996, ptr noundef nonnull @.str.68) #15
+  %22 = call i32 @xstrcasecmp(ptr noundef nonnull %.03995, ptr noundef nonnull @.str.68) #15
   %.not10.i = icmp eq i32 %22, 0
   br i1 %.not10.i, label %_knl_numa_token.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = call i32 @xstrcasecmp(ptr noundef nonnull %.03996, ptr noundef nonnull @.str.70) #15
+  %24 = call i32 @xstrcasecmp(ptr noundef nonnull %.03995, ptr noundef nonnull @.str.70) #15
   %.not11.i = icmp eq i32 %24, 0
   br i1 %.not11.i, label %_knl_numa_token.exit.thread, label %25
 
 25:                                               ; preds = %23
-  %26 = call i32 @xstrcasecmp(ptr noundef nonnull %.03996, ptr noundef nonnull @.str.64) #15
+  %26 = call i32 @xstrcasecmp(ptr noundef nonnull %.03995, ptr noundef nonnull @.str.64) #15
   %.not12.i = icmp eq i32 %26, 0
   br i1 %.not12.i, label %_knl_numa_token.exit.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = call i32 @xstrcasecmp(ptr noundef nonnull %.03996, ptr noundef nonnull @.str.66) #15
+  %28 = call i32 @xstrcasecmp(ptr noundef nonnull %.03995, ptr noundef nonnull @.str.66) #15
   %.not13.i = icmp eq i32 %28, 0
   br i1 %.not13.i, label %_knl_numa_token.exit.thread, label %_knl_numa_token.exit
 
@@ -3630,133 +3630,133 @@ _knl_numa_token.exit.thread:                      ; preds = %27, %25, %23, %21, 
   %32 = call ptr @xstrdup(ptr noundef nonnull %30) #15
   store ptr %32, ptr %3, align 8
   %33 = call ptr @strtok_r(ptr noundef %32, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
-  %.not55.not97 = icmp eq ptr %33, null
-  br i1 %.not55.not97, label %.critedge67, label %.lr.ph99
+  %.not5596 = icmp eq ptr %33, null
+  br i1 %.not5596, label %._crit_edge, label %.lr.ph98
 
-.lr.ph99:                                         ; preds = %31, %_knl_numa_token.exit78
-  %.14098 = phi ptr [ %45, %_knl_numa_token.exit78 ], [ %33, %31 ]
-  %34 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.14098), !range !6
+.lr.ph98:                                         ; preds = %31, %_knl_numa_token.exit73
+  %.14097 = phi ptr [ %45, %_knl_numa_token.exit73 ], [ %33, %31 ]
+  %34 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.14097), !range !6
   %.not56 = icmp eq i16 %34, 0
-  br i1 %.not56, label %35, label %_knl_numa_token.exit78.thread
+  br i1 %.not56, label %35, label %_knl_numa_token.exit73.thread
 
-35:                                               ; preds = %.lr.ph99
-  %36 = call i32 @xstrcasecmp(ptr noundef nonnull %.14098, ptr noundef nonnull @.str.62) #15
-  %.not.i71 = icmp eq i32 %36, 0
-  br i1 %.not.i71, label %_knl_numa_token.exit78.thread, label %37
+35:                                               ; preds = %.lr.ph98
+  %36 = call i32 @xstrcasecmp(ptr noundef nonnull %.14097, ptr noundef nonnull @.str.62) #15
+  %.not.i66 = icmp eq i32 %36, 0
+  br i1 %.not.i66, label %_knl_numa_token.exit73.thread, label %37
 
 37:                                               ; preds = %35
-  %38 = call i32 @xstrcasecmp(ptr noundef nonnull %.14098, ptr noundef nonnull @.str.68) #15
-  %.not10.i72 = icmp eq i32 %38, 0
-  br i1 %.not10.i72, label %_knl_numa_token.exit78.thread, label %39
+  %38 = call i32 @xstrcasecmp(ptr noundef nonnull %.14097, ptr noundef nonnull @.str.68) #15
+  %.not10.i67 = icmp eq i32 %38, 0
+  br i1 %.not10.i67, label %_knl_numa_token.exit73.thread, label %39
 
 39:                                               ; preds = %37
-  %40 = call i32 @xstrcasecmp(ptr noundef nonnull %.14098, ptr noundef nonnull @.str.70) #15
-  %.not11.i73 = icmp eq i32 %40, 0
-  br i1 %.not11.i73, label %_knl_numa_token.exit78.thread, label %41
+  %40 = call i32 @xstrcasecmp(ptr noundef nonnull %.14097, ptr noundef nonnull @.str.70) #15
+  %.not11.i68 = icmp eq i32 %40, 0
+  br i1 %.not11.i68, label %_knl_numa_token.exit73.thread, label %41
 
 41:                                               ; preds = %39
-  %42 = call i32 @xstrcasecmp(ptr noundef nonnull %.14098, ptr noundef nonnull @.str.64) #15
-  %.not12.i74 = icmp eq i32 %42, 0
-  br i1 %.not12.i74, label %_knl_numa_token.exit78.thread, label %43
+  %42 = call i32 @xstrcasecmp(ptr noundef nonnull %.14097, ptr noundef nonnull @.str.64) #15
+  %.not12.i69 = icmp eq i32 %42, 0
+  br i1 %.not12.i69, label %_knl_numa_token.exit73.thread, label %43
 
 43:                                               ; preds = %41
-  %44 = call i32 @xstrcasecmp(ptr noundef nonnull %.14098, ptr noundef nonnull @.str.66) #15
-  %.not13.i75 = icmp eq i32 %44, 0
-  br i1 %.not13.i75, label %_knl_numa_token.exit78.thread, label %_knl_numa_token.exit78
+  %44 = call i32 @xstrcasecmp(ptr noundef nonnull %.14097, ptr noundef nonnull @.str.66) #15
+  %.not13.i70 = icmp eq i32 %44, 0
+  br i1 %.not13.i70, label %_knl_numa_token.exit73.thread, label %_knl_numa_token.exit73
 
-_knl_numa_token.exit78:                           ; preds = %43
+_knl_numa_token.exit73:                           ; preds = %43
   %45 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
-  %.not55.not = icmp eq ptr %45, null
-  br i1 %.not55.not, label %.critedge67, label %.lr.ph99, !llvm.loop !35
+  %.not55 = icmp eq ptr %45, null
+  br i1 %.not55, label %._crit_edge, label %.lr.ph98, !llvm.loop !35
 
-_knl_numa_token.exit78.thread:                    ; preds = %43, %41, %39, %37, %35, %.lr.ph99
+._crit_edge:                                      ; preds = %_knl_numa_token.exit73, %31
+  call void @slurm_xfree(ptr noundef nonnull %3) #15
+  br label %52
+
+_knl_numa_token.exit73.thread:                    ; preds = %43, %41, %39, %37, %35, %.lr.ph98
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   %46 = call i32 @get_log_level() #15
   %47 = icmp sgt i32 %46, 2
   br i1 %47, label %48, label %94
 
-48:                                               ; preds = %_knl_numa_token.exit78.thread
+48:                                               ; preds = %_knl_numa_token.exit73.thread
   %49 = load ptr, ptr %5, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 256
   %51 = load ptr, ptr %50, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.101, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_update_valid, ptr noundef %49, ptr noundef %51) #15
   br label %94
 
-.critedge67:                                      ; preds = %_knl_numa_token.exit78, %31
-  call void @slurm_xfree(ptr noundef nonnull %3) #15
-  br label %52
-
-52:                                               ; preds = %.critedge67, %.critedge
+52:                                               ; preds = %._crit_edge, %.critedge
   %53 = getelementptr inbounds i8, ptr %1, i64 32
   %54 = load ptr, ptr %53, align 8
-  %.not59 = icmp eq ptr %54, null
-  br i1 %.not59, label %76, label %55
+  %.not58 = icmp eq ptr %54, null
+  br i1 %.not58, label %76, label %55
 
 55:                                               ; preds = %52
   %56 = call ptr @xstrdup(ptr noundef nonnull %54) #15
   store ptr %56, ptr %3, align 8
   %57 = call ptr @strtok_r(ptr noundef %56, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
-  %.not60100 = icmp eq ptr %57, null
-  br i1 %.not60100, label %._crit_edge, label %.lr.ph102
+  %.not5999 = icmp eq ptr %57, null
+  br i1 %.not5999, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %55, %_knl_numa_token.exit86
-  %.241101 = phi ptr [ %69, %_knl_numa_token.exit86 ], [ %57, %55 ]
-  %58 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.241101), !range !6
-  %.not61 = icmp eq i16 %58, 0
-  br i1 %.not61, label %59, label %_knl_numa_token.exit86.thread
+.lr.ph102:                                        ; preds = %55, %_knl_numa_token.exit81
+  %.241100 = phi ptr [ %69, %_knl_numa_token.exit81 ], [ %57, %55 ]
+  %58 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.241100), !range !6
+  %.not60 = icmp eq i16 %58, 0
+  br i1 %.not60, label %59, label %.thread92
 
 59:                                               ; preds = %.lr.ph102
-  %60 = call i32 @xstrcasecmp(ptr noundef nonnull %.241101, ptr noundef nonnull @.str.62) #15
-  %.not.i79 = icmp eq i32 %60, 0
-  br i1 %.not.i79, label %_knl_numa_token.exit86.thread, label %61
+  %60 = call i32 @xstrcasecmp(ptr noundef nonnull %.241100, ptr noundef nonnull @.str.62) #15
+  %.not.i74 = icmp eq i32 %60, 0
+  br i1 %.not.i74, label %.thread92, label %61
 
 61:                                               ; preds = %59
-  %62 = call i32 @xstrcasecmp(ptr noundef nonnull %.241101, ptr noundef nonnull @.str.68) #15
-  %.not10.i80 = icmp eq i32 %62, 0
-  br i1 %.not10.i80, label %_knl_numa_token.exit86.thread, label %63
+  %62 = call i32 @xstrcasecmp(ptr noundef nonnull %.241100, ptr noundef nonnull @.str.68) #15
+  %.not10.i75 = icmp eq i32 %62, 0
+  br i1 %.not10.i75, label %.thread92, label %63
 
 63:                                               ; preds = %61
-  %64 = call i32 @xstrcasecmp(ptr noundef nonnull %.241101, ptr noundef nonnull @.str.70) #15
-  %.not11.i81 = icmp eq i32 %64, 0
-  br i1 %.not11.i81, label %_knl_numa_token.exit86.thread, label %65
+  %64 = call i32 @xstrcasecmp(ptr noundef nonnull %.241100, ptr noundef nonnull @.str.70) #15
+  %.not11.i76 = icmp eq i32 %64, 0
+  br i1 %.not11.i76, label %.thread92, label %65
 
 65:                                               ; preds = %63
-  %66 = call i32 @xstrcasecmp(ptr noundef nonnull %.241101, ptr noundef nonnull @.str.64) #15
-  %.not12.i82 = icmp eq i32 %66, 0
-  br i1 %.not12.i82, label %_knl_numa_token.exit86.thread, label %67
+  %66 = call i32 @xstrcasecmp(ptr noundef nonnull %.241100, ptr noundef nonnull @.str.64) #15
+  %.not12.i77 = icmp eq i32 %66, 0
+  br i1 %.not12.i77, label %.thread92, label %67
 
 67:                                               ; preds = %65
-  %68 = call i32 @xstrcasecmp(ptr noundef nonnull %.241101, ptr noundef nonnull @.str.66) #15
-  %.not13.i83 = icmp eq i32 %68, 0
-  br i1 %.not13.i83, label %_knl_numa_token.exit86.thread, label %_knl_numa_token.exit86
+  %68 = call i32 @xstrcasecmp(ptr noundef nonnull %.241100, ptr noundef nonnull @.str.66) #15
+  %.not13.i78 = icmp eq i32 %68, 0
+  br i1 %.not13.i78, label %.thread92, label %_knl_numa_token.exit81
 
-_knl_numa_token.exit86:                           ; preds = %67
+_knl_numa_token.exit81:                           ; preds = %67
   %69 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
-  %.not60 = icmp eq ptr %69, null
-  br i1 %.not60, label %._crit_edge, label %.lr.ph102, !llvm.loop !36
+  %.not59 = icmp eq ptr %69, null
+  br i1 %.not59, label %._crit_edge103, label %.lr.ph102, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %_knl_numa_token.exit86, %55
-  call void @slurm_xfree(ptr noundef nonnull %3) #15
-  br label %76
-
-_knl_numa_token.exit86.thread:                    ; preds = %67, %65, %63, %61, %59, %.lr.ph102
+.thread92:                                        ; preds = %.lr.ph102, %59, %61, %63, %65, %67
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   %70 = call i32 @get_log_level() #15
   %71 = icmp sgt i32 %70, 2
   br i1 %71, label %72, label %94
 
-72:                                               ; preds = %_knl_numa_token.exit86.thread
+._crit_edge103:                                   ; preds = %_knl_numa_token.exit81, %55
+  call void @slurm_xfree(ptr noundef nonnull %3) #15
+  br label %76
+
+72:                                               ; preds = %.thread92
   %73 = load ptr, ptr %53, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 256
   %75 = load ptr, ptr %74, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.102, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_update_valid, ptr noundef %73, ptr noundef %75) #15
   br label %94
 
-76:                                               ; preds = %._crit_edge, %52
+76:                                               ; preds = %._crit_edge103, %52
   %77 = load ptr, ptr %5, align 8
-  %.not63 = icmp eq ptr %77, null
+  %.not62 = icmp eq ptr %77, null
   %78 = load ptr, ptr %53, align 8
-  br i1 %.not63, label %79, label %81
+  br i1 %.not62, label %79, label %81
 
 79:                                               ; preds = %76
   %80 = call ptr @xstrdup(ptr noundef %78) #15
@@ -3764,8 +3764,8 @@ _knl_numa_token.exit86.thread:                    ; preds = %67, %65, %63, %61, 
   br label %94
 
 81:                                               ; preds = %76
-  %.not64 = icmp eq ptr %78, null
-  br i1 %.not64, label %82, label %84
+  %.not63 = icmp eq ptr %78, null
+  br i1 %.not63, label %82, label %84
 
 82:                                               ; preds = %81
   %83 = call ptr @xstrdup(ptr noundef nonnull %77) #15
@@ -3774,8 +3774,8 @@ _knl_numa_token.exit86.thread:                    ; preds = %67, %65, %63, %61, 
 
 84:                                               ; preds = %81
   %85 = call i32 @xstrcmp(ptr noundef nonnull %77, ptr noundef nonnull %78) #15
-  %.not65 = icmp eq i32 %85, 0
-  br i1 %.not65, label %94, label %86
+  %.not64 = icmp eq i32 %85, 0
+  br i1 %.not64, label %94, label %86
 
 86:                                               ; preds = %84
   %87 = call i32 @get_log_level() #15
@@ -3790,8 +3790,8 @@ _knl_numa_token.exit86.thread:                    ; preds = %67, %65, %63, %61, 
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.103, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_update_valid, ptr noundef %90, ptr noundef %91, ptr noundef %93) #15
   br label %94
 
-94:                                               ; preds = %_knl_numa_token.exit.thread, %79, %84, %82, %86, %89, %_knl_numa_token.exit86.thread, %72, %_knl_numa_token.exit78.thread, %48, %7
-  %.042 = phi i1 [ true, %7 ], [ true, %_knl_numa_token.exit.thread ], [ false, %48 ], [ false, %_knl_numa_token.exit78.thread ], [ false, %72 ], [ false, %_knl_numa_token.exit86.thread ], [ false, %89 ], [ false, %86 ], [ true, %82 ], [ true, %84 ], [ true, %79 ]
+94:                                               ; preds = %_knl_numa_token.exit.thread, %79, %84, %82, %86, %89, %.thread92, %72, %_knl_numa_token.exit73.thread, %48, %7
+  %.042 = phi i1 [ true, %7 ], [ true, %_knl_numa_token.exit.thread ], [ false, %48 ], [ false, %_knl_numa_token.exit73.thread ], [ false, %72 ], [ false, %.thread92 ], [ false, %89 ], [ false, %86 ], [ true, %82 ], [ true, %84 ], [ true, %79 ]
   ret i1 %.042
 }
 
@@ -3850,198 +3850,199 @@ define ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = tail call ptr @xstrdup(ptr noundef nonnull %2) #15
   store ptr %9, ptr %6, align 8
   %10 = call ptr @strtok_r(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
-  %.not75130 = icmp eq ptr %10, null
-  br i1 %.not75130, label %._crit_edge.thread, label %.lr.ph
+  %.not75127 = icmp eq ptr %10, null
+  br i1 %.not75127, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %8
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %24
 
 .lr.ph:                                           ; preds = %8, %_knl_numa_token.exit.thread
-  %.0133 = phi i8 [ %.1, %_knl_numa_token.exit.thread ], [ 0, %8 ]
-  %.057132 = phi ptr [ %22, %_knl_numa_token.exit.thread ], [ %10, %8 ]
-  %.061131 = phi ptr [ %.162, %_knl_numa_token.exit.thread ], [ @.str.49, %8 ]
-  %11 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.057132), !range !6
-  %.not89 = icmp eq i16 %11, 0
-  br i1 %.not89, label %12, label %_knl_numa_token.exit.thread
+  %.0130 = phi i8 [ %.1, %_knl_numa_token.exit.thread ], [ 0, %8 ]
+  %.057129 = phi ptr [ %22, %_knl_numa_token.exit.thread ], [ %10, %8 ]
+  %.061128 = phi ptr [ %.162, %_knl_numa_token.exit.thread ], [ @.str.49, %8 ]
+  %11 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.057129), !range !6
+  %.not86 = icmp eq i16 %11, 0
+  br i1 %.not86, label %12, label %_knl_numa_token.exit.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = call i32 @xstrcasecmp(ptr noundef nonnull %.057132, ptr noundef nonnull @.str.62) #15
+  %13 = call i32 @xstrcasecmp(ptr noundef nonnull %.057129, ptr noundef nonnull @.str.62) #15
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_knl_numa_token.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.057132, ptr noundef nonnull @.str.68) #15
+  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.057129, ptr noundef nonnull @.str.68) #15
   %.not10.i = icmp eq i32 %15, 0
   br i1 %.not10.i, label %_knl_numa_token.exit.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.057132, ptr noundef nonnull @.str.70) #15
+  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.057129, ptr noundef nonnull @.str.70) #15
   %.not11.i = icmp eq i32 %17, 0
   br i1 %.not11.i, label %_knl_numa_token.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.057132, ptr noundef nonnull @.str.64) #15
+  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.057129, ptr noundef nonnull @.str.64) #15
   %.not12.i = icmp eq i32 %19, 0
   br i1 %.not12.i, label %_knl_numa_token.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.057132, ptr noundef nonnull @.str.66) #15
+  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.057129, ptr noundef nonnull @.str.66) #15
   %.not13.i = icmp eq i32 %21, 0
   br i1 %.not13.i, label %_knl_numa_token.exit.thread, label %_knl_numa_token.exit
 
 _knl_numa_token.exit:                             ; preds = %20
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.061131, ptr noundef nonnull %.057132) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.061128, ptr noundef nonnull %.057129) #15
   br label %_knl_numa_token.exit.thread
 
 _knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, %12, %.lr.ph, %_knl_numa_token.exit
-  %.162 = phi ptr [ @.str.3, %_knl_numa_token.exit ], [ %.061131, %.lr.ph ], [ %.061131, %12 ], [ %.061131, %14 ], [ %.061131, %16 ], [ %.061131, %18 ], [ %.061131, %20 ]
-  %.1 = phi i8 [ %.0133, %_knl_numa_token.exit ], [ 1, %.lr.ph ], [ 1, %12 ], [ 1, %14 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ]
+  %.162 = phi ptr [ @.str.3, %_knl_numa_token.exit ], [ %.061128, %.lr.ph ], [ %.061128, %12 ], [ %.061128, %14 ], [ %.061128, %16 ], [ %.061128, %18 ], [ %.061128, %20 ]
+  %.1 = phi i8 [ %.0130, %_knl_numa_token.exit ], [ 1, %.lr.ph ], [ 1, %12 ], [ 1, %14 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ]
   %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
   %.not75 = icmp eq ptr %22, null
   br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_knl_numa_token.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %6) #15
-  %23 = and i8 %.1, 1
-  %.not76 = icmp eq i8 %23, 0
-  br i1 %.not76, label %24, label %25
+  %23 = trunc i8 %.1 to i1
+  br i1 %23, label %25, label %24
 
 24:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa164 = phi i8 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %.0.lcssa160 = phi i8 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   br label %25
 
 25:                                               ; preds = %._crit_edge, %24, %4
   %.263 = phi ptr [ %.162, %._crit_edge ], [ @.str.49, %24 ], [ @.str.49, %4 ]
-  %.2 = phi i8 [ %.1, %._crit_edge ], [ %.0.lcssa164, %24 ], [ 0, %4 ]
-  %.not77 = icmp eq ptr %0, null
-  %.pre = and i8 %.2, 1
-  br i1 %.not77, label %._crit_edge160, label %26
+  %.2 = phi i8 [ %.1, %._crit_edge ], [ %.0.lcssa160, %24 ], [ 0, %4 ]
+  %.not76 = icmp eq ptr %0, null
+  %.pre = trunc i8 %.2 to i1
+  br i1 %.not76, label %._crit_edge157, label %26
+
+._crit_edge157:                                   ; preds = %25
+  br i1 %.pre, label %90, label %99
 
 26:                                               ; preds = %25
-  %.not78 = icmp eq i8 %.pre, 0
-  br i1 %.not78, label %27, label %43
+  br i1 %.pre, label %43, label %27
 
 27:                                               ; preds = %26
   %28 = call ptr @xstrdup(ptr noundef nonnull %0) #15
   store ptr %28, ptr %6, align 8
   %29 = call ptr @strtok_r(ptr noundef %28, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
-  %.not135 = icmp eq ptr %29, null
-  br i1 %.not135, label %._crit_edge140, label %.lr.ph139
+  %.not132 = icmp eq ptr %29, null
+  br i1 %.not132, label %._crit_edge137, label %.lr.ph136
 
-.lr.ph139:                                        ; preds = %27, %_knl_numa_token.exit99.thread
-  %.158137 = phi ptr [ %42, %_knl_numa_token.exit99.thread ], [ %29, %27 ]
-  %.364136 = phi ptr [ %.465, %_knl_numa_token.exit99.thread ], [ %.263, %27 ]
-  %30 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.158137), !range !6
+.lr.ph136:                                        ; preds = %27, %_knl_numa_token.exit96.thread
+  %.158134 = phi ptr [ %42, %_knl_numa_token.exit96.thread ], [ %29, %27 ]
+  %.364133 = phi ptr [ %.465, %_knl_numa_token.exit96.thread ], [ %.263, %27 ]
+  %30 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.158134), !range !6
   %31 = icmp eq i16 %30, 0
-  br i1 %31, label %32, label %_knl_numa_token.exit99.thread
+  br i1 %31, label %32, label %_knl_numa_token.exit96.thread
 
-32:                                               ; preds = %.lr.ph139
-  %33 = call i32 @xstrcasecmp(ptr noundef nonnull %.158137, ptr noundef nonnull @.str.62) #15
-  %.not.i92 = icmp eq i32 %33, 0
-  br i1 %.not.i92, label %_knl_numa_token.exit99.thread, label %34
+32:                                               ; preds = %.lr.ph136
+  %33 = call i32 @xstrcasecmp(ptr noundef nonnull %.158134, ptr noundef nonnull @.str.62) #15
+  %.not.i89 = icmp eq i32 %33, 0
+  br i1 %.not.i89, label %_knl_numa_token.exit96.thread, label %34
 
 34:                                               ; preds = %32
-  %35 = call i32 @xstrcasecmp(ptr noundef nonnull %.158137, ptr noundef nonnull @.str.68) #15
-  %.not10.i93 = icmp eq i32 %35, 0
-  br i1 %.not10.i93, label %_knl_numa_token.exit99.thread, label %36
+  %35 = call i32 @xstrcasecmp(ptr noundef nonnull %.158134, ptr noundef nonnull @.str.68) #15
+  %.not10.i90 = icmp eq i32 %35, 0
+  br i1 %.not10.i90, label %_knl_numa_token.exit96.thread, label %36
 
 36:                                               ; preds = %34
-  %37 = call i32 @xstrcasecmp(ptr noundef nonnull %.158137, ptr noundef nonnull @.str.70) #15
-  %.not11.i94 = icmp eq i32 %37, 0
-  br i1 %.not11.i94, label %_knl_numa_token.exit99.thread, label %38
+  %37 = call i32 @xstrcasecmp(ptr noundef nonnull %.158134, ptr noundef nonnull @.str.70) #15
+  %.not11.i91 = icmp eq i32 %37, 0
+  br i1 %.not11.i91, label %_knl_numa_token.exit96.thread, label %38
 
 38:                                               ; preds = %36
-  %39 = call i32 @xstrcasecmp(ptr noundef nonnull %.158137, ptr noundef nonnull @.str.64) #15
-  %.not12.i95 = icmp eq i32 %39, 0
-  br i1 %.not12.i95, label %_knl_numa_token.exit99.thread, label %40
+  %39 = call i32 @xstrcasecmp(ptr noundef nonnull %.158134, ptr noundef nonnull @.str.64) #15
+  %.not12.i92 = icmp eq i32 %39, 0
+  br i1 %.not12.i92, label %_knl_numa_token.exit96.thread, label %40
 
 40:                                               ; preds = %38
-  %41 = call i32 @xstrcasecmp(ptr noundef nonnull %.158137, ptr noundef nonnull @.str.66) #15
-  %.not13.i96 = icmp eq i32 %41, 0
-  br i1 %.not13.i96, label %_knl_numa_token.exit99.thread, label %_knl_numa_token.exit99
+  %41 = call i32 @xstrcasecmp(ptr noundef nonnull %.158134, ptr noundef nonnull @.str.66) #15
+  %.not13.i93 = icmp eq i32 %41, 0
+  br i1 %.not13.i93, label %_knl_numa_token.exit96.thread, label %_knl_numa_token.exit96
 
-_knl_numa_token.exit99:                           ; preds = %40
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.364136, ptr noundef nonnull %.158137) #15
-  br label %_knl_numa_token.exit99.thread
+_knl_numa_token.exit96:                           ; preds = %40
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.364133, ptr noundef nonnull %.158134) #15
+  br label %_knl_numa_token.exit96.thread
 
-_knl_numa_token.exit99.thread:                    ; preds = %40, %38, %36, %34, %32, %_knl_numa_token.exit99, %.lr.ph139
-  %.465 = phi ptr [ @.str.3, %_knl_numa_token.exit99 ], [ %.364136, %.lr.ph139 ], [ %.364136, %32 ], [ %.364136, %34 ], [ %.364136, %36 ], [ %.364136, %38 ], [ %.364136, %40 ]
+_knl_numa_token.exit96.thread:                    ; preds = %40, %38, %36, %34, %32, %_knl_numa_token.exit96, %.lr.ph136
+  %.465 = phi ptr [ @.str.3, %_knl_numa_token.exit96 ], [ %.364133, %.lr.ph136 ], [ %.364133, %32 ], [ %.364133, %34 ], [ %.364133, %36 ], [ %.364133, %38 ], [ %.364133, %40 ]
   %42 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge140, label %.lr.ph139, !llvm.loop !38
+  br i1 %.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !38
 
-._crit_edge140:                                   ; preds = %_knl_numa_token.exit99.thread, %27
-  %.364.lcssa = phi ptr [ %.263, %27 ], [ %.465, %_knl_numa_token.exit99.thread ]
+._crit_edge137:                                   ; preds = %_knl_numa_token.exit96.thread, %27
+  %.364.lcssa = phi ptr [ %.263, %27 ], [ %.465, %_knl_numa_token.exit96.thread ]
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %43
 
-43:                                               ; preds = %._crit_edge140, %26
-  %.5 = phi ptr [ %.364.lcssa, %._crit_edge140 ], [ %.263, %26 ]
+43:                                               ; preds = %._crit_edge137, %26
+  %.5 = phi ptr [ %.364.lcssa, %._crit_edge137 ], [ %.263, %26 ]
   %44 = call ptr @xstrdup(ptr noundef nonnull %0) #15
   store ptr %44, ptr %6, align 8
   %45 = call ptr @strtok_r(ptr noundef %44, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
-  %.not79142 = icmp eq ptr %45, null
-  br i1 %.not79142, label %._crit_edge148, label %.lr.ph147
+  %.not77139 = icmp eq ptr %45, null
+  br i1 %.not77139, label %._crit_edge145, label %.lr.ph144
 
-.lr.ph147:                                        ; preds = %43, %60
-  %.049145 = phi i16 [ %.150, %60 ], [ 0, %43 ]
-  %.052144 = phi i16 [ %.153, %60 ], [ 0, %43 ]
-  %.259143 = phi ptr [ %61, %60 ], [ %45, %43 ]
-  %46 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.259143), !range !6
-  %.not87 = icmp eq i16 %46, 0
-  br i1 %.not87, label %49, label %47
+.lr.ph144:                                        ; preds = %43, %60
+  %.049142 = phi i16 [ %.150, %60 ], [ 0, %43 ]
+  %.052141 = phi i16 [ %.153, %60 ], [ 0, %43 ]
+  %.259140 = phi ptr [ %61, %60 ], [ %45, %43 ]
+  %46 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.259140), !range !6
+  %.not84 = icmp eq i16 %46, 0
+  br i1 %.not84, label %49, label %47
 
-47:                                               ; preds = %.lr.ph147
-  %48 = or i16 %46, %.052144
+47:                                               ; preds = %.lr.ph144
+  %48 = or i16 %46, %.052141
   br label %60
 
-49:                                               ; preds = %.lr.ph147
-  %50 = call i32 @xstrcasecmp(ptr noundef nonnull %.259143, ptr noundef nonnull @.str.62) #15
-  %.not.i100 = icmp eq i32 %50, 0
-  br i1 %.not.i100, label %_knl_numa_token.exit107, label %51
+49:                                               ; preds = %.lr.ph144
+  %50 = call i32 @xstrcasecmp(ptr noundef nonnull %.259140, ptr noundef nonnull @.str.62) #15
+  %.not.i97 = icmp eq i32 %50, 0
+  br i1 %.not.i97, label %_knl_numa_token.exit104, label %51
 
 51:                                               ; preds = %49
-  %52 = call i32 @xstrcasecmp(ptr noundef nonnull %.259143, ptr noundef nonnull @.str.68) #15
-  %.not10.i101 = icmp eq i32 %52, 0
-  br i1 %.not10.i101, label %_knl_numa_token.exit107, label %53
+  %52 = call i32 @xstrcasecmp(ptr noundef nonnull %.259140, ptr noundef nonnull @.str.68) #15
+  %.not10.i98 = icmp eq i32 %52, 0
+  br i1 %.not10.i98, label %_knl_numa_token.exit104, label %53
 
 53:                                               ; preds = %51
-  %54 = call i32 @xstrcasecmp(ptr noundef nonnull %.259143, ptr noundef nonnull @.str.70) #15
-  %.not11.i102 = icmp eq i32 %54, 0
-  br i1 %.not11.i102, label %_knl_numa_token.exit107, label %55
+  %54 = call i32 @xstrcasecmp(ptr noundef nonnull %.259140, ptr noundef nonnull @.str.70) #15
+  %.not11.i99 = icmp eq i32 %54, 0
+  br i1 %.not11.i99, label %_knl_numa_token.exit104, label %55
 
 55:                                               ; preds = %53
-  %56 = call i32 @xstrcasecmp(ptr noundef nonnull %.259143, ptr noundef nonnull @.str.64) #15
-  %.not12.i103 = icmp eq i32 %56, 0
-  br i1 %.not12.i103, label %_knl_numa_token.exit107, label %57
+  %56 = call i32 @xstrcasecmp(ptr noundef nonnull %.259140, ptr noundef nonnull @.str.64) #15
+  %.not12.i100 = icmp eq i32 %56, 0
+  br i1 %.not12.i100, label %_knl_numa_token.exit104, label %57
 
 57:                                               ; preds = %55
-  %58 = call i32 @xstrcasecmp(ptr noundef nonnull %.259143, ptr noundef nonnull @.str.66) #15
-  %.not13.i104 = icmp eq i32 %58, 0
-  %spec.select.i105 = select i1 %.not13.i104, i16 16, i16 0
-  br label %_knl_numa_token.exit107
+  %58 = call i32 @xstrcasecmp(ptr noundef nonnull %.259140, ptr noundef nonnull @.str.66) #15
+  %.not13.i101 = icmp eq i32 %58, 0
+  %spec.select.i102 = select i1 %.not13.i101, i16 16, i16 0
+  br label %_knl_numa_token.exit104
 
-_knl_numa_token.exit107:                          ; preds = %49, %51, %53, %55, %57
-  %.0.i106 = phi i16 [ 1, %49 ], [ 2, %51 ], [ 4, %53 ], [ 8, %55 ], [ %spec.select.i105, %57 ]
-  %59 = or i16 %.0.i106, %.049145
+_knl_numa_token.exit104:                          ; preds = %49, %51, %53, %55, %57
+  %.0.i103 = phi i16 [ 1, %49 ], [ 2, %51 ], [ 4, %53 ], [ 8, %55 ], [ %spec.select.i102, %57 ]
+  %59 = or i16 %.0.i103, %.049142
   br label %60
 
-60:                                               ; preds = %_knl_numa_token.exit107, %47
-  %.153 = phi i16 [ %48, %47 ], [ %.052144, %_knl_numa_token.exit107 ]
-  %.150 = phi i16 [ %.049145, %47 ], [ %59, %_knl_numa_token.exit107 ]
+60:                                               ; preds = %_knl_numa_token.exit104, %47
+  %.153 = phi i16 [ %48, %47 ], [ %.052141, %_knl_numa_token.exit104 ]
+  %.150 = phi i16 [ %.049142, %47 ], [ %59, %_knl_numa_token.exit104 ]
   %61 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
-  %.not79 = icmp eq ptr %61, null
-  br i1 %.not79, label %._crit_edge148, label %.lr.ph147, !llvm.loop !39
+  %.not77 = icmp eq ptr %61, null
+  br i1 %.not77, label %._crit_edge145, label %.lr.ph144, !llvm.loop !39
 
-._crit_edge148:                                   ; preds = %60, %43
+._crit_edge145:                                   ; preds = %60, %43
   %.052.lcssa = phi i16 [ 0, %43 ], [ %.153, %60 ]
   %.049.lcssa = phi i16 [ 0, %43 ], [ %.150, %60 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #15
-  br i1 %.not78, label %84, label %62
+  br i1 %.pre, label %62, label %84
 
-62:                                               ; preds = %._crit_edge148
+62:                                               ; preds = %._crit_edge145
   %63 = icmp eq i16 %.052.lcssa, 0
   %64 = icmp eq i16 %.049.lcssa, 0
   %or.cond4 = select i1 %63, i1 true, i1 %64
@@ -4051,117 +4052,116 @@ _knl_numa_token.exit107:                          ; preds = %49, %51, %53, %55, 
   %66 = call ptr @xstrdup(ptr noundef %1) #15
   store ptr %66, ptr %6, align 8
   %67 = call ptr @strtok_r(ptr noundef %66, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
-  %.not80151 = icmp eq ptr %67, null
-  br i1 %.not80151, label %._crit_edge157, label %.lr.ph156
+  %.not78148 = icmp eq ptr %67, null
+  br i1 %.not78148, label %._crit_edge154, label %.lr.ph153
 
-.lr.ph156:                                        ; preds = %65, %_knl_numa_token.exit115
-  %.251154 = phi i16 [ %.3, %_knl_numa_token.exit115 ], [ %.049.lcssa, %65 ]
-  %.254153 = phi i16 [ %.355, %_knl_numa_token.exit115 ], [ %.052.lcssa, %65 ]
-  %.360152 = phi ptr [ %83, %_knl_numa_token.exit115 ], [ %67, %65 ]
-  %68 = icmp eq i16 %.254153, 0
+.lr.ph153:                                        ; preds = %65, %_knl_numa_token.exit112
+  %.251151 = phi i16 [ %.3, %_knl_numa_token.exit112 ], [ %.049.lcssa, %65 ]
+  %.254150 = phi i16 [ %.355, %_knl_numa_token.exit112 ], [ %.052.lcssa, %65 ]
+  %.360149 = phi ptr [ %83, %_knl_numa_token.exit112 ], [ %67, %65 ]
+  %68 = icmp eq i16 %.254150, 0
   br i1 %68, label %69, label %71
 
-69:                                               ; preds = %.lr.ph156
-  %70 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.360152), !range !6
-  %.not85 = icmp eq i16 %70, 0
-  br i1 %.not85, label %71, label %_knl_numa_token.exit115
+69:                                               ; preds = %.lr.ph153
+  %70 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.360149), !range !6
+  %.not82 = icmp eq i16 %70, 0
+  br i1 %.not82, label %71, label %_knl_numa_token.exit112
 
-71:                                               ; preds = %69, %.lr.ph156
-  %72 = icmp eq i16 %.251154, 0
-  br i1 %72, label %73, label %_knl_numa_token.exit115
+71:                                               ; preds = %69, %.lr.ph153
+  %72 = icmp eq i16 %.251151, 0
+  br i1 %72, label %73, label %_knl_numa_token.exit112
 
 73:                                               ; preds = %71
-  %74 = call i32 @xstrcasecmp(ptr noundef nonnull %.360152, ptr noundef nonnull @.str.62) #15
-  %.not.i108 = icmp eq i32 %74, 0
-  br i1 %.not.i108, label %_knl_numa_token.exit115, label %75
+  %74 = call i32 @xstrcasecmp(ptr noundef nonnull %.360149, ptr noundef nonnull @.str.62) #15
+  %.not.i105 = icmp eq i32 %74, 0
+  br i1 %.not.i105, label %_knl_numa_token.exit112, label %75
 
 75:                                               ; preds = %73
-  %76 = call i32 @xstrcasecmp(ptr noundef nonnull %.360152, ptr noundef nonnull @.str.68) #15
-  %.not10.i109 = icmp eq i32 %76, 0
-  br i1 %.not10.i109, label %_knl_numa_token.exit115, label %77
+  %76 = call i32 @xstrcasecmp(ptr noundef nonnull %.360149, ptr noundef nonnull @.str.68) #15
+  %.not10.i106 = icmp eq i32 %76, 0
+  br i1 %.not10.i106, label %_knl_numa_token.exit112, label %77
 
 77:                                               ; preds = %75
-  %78 = call i32 @xstrcasecmp(ptr noundef nonnull %.360152, ptr noundef nonnull @.str.70) #15
-  %.not11.i110 = icmp eq i32 %78, 0
-  br i1 %.not11.i110, label %_knl_numa_token.exit115, label %79
+  %78 = call i32 @xstrcasecmp(ptr noundef nonnull %.360149, ptr noundef nonnull @.str.70) #15
+  %.not11.i107 = icmp eq i32 %78, 0
+  br i1 %.not11.i107, label %_knl_numa_token.exit112, label %79
 
 79:                                               ; preds = %77
-  %80 = call i32 @xstrcasecmp(ptr noundef nonnull %.360152, ptr noundef nonnull @.str.64) #15
-  %.not12.i111 = icmp eq i32 %80, 0
-  br i1 %.not12.i111, label %_knl_numa_token.exit115, label %81
+  %80 = call i32 @xstrcasecmp(ptr noundef nonnull %.360149, ptr noundef nonnull @.str.64) #15
+  %.not12.i108 = icmp eq i32 %80, 0
+  br i1 %.not12.i108, label %_knl_numa_token.exit112, label %81
 
 81:                                               ; preds = %79
-  %82 = call i32 @xstrcasecmp(ptr noundef nonnull %.360152, ptr noundef nonnull @.str.66) #15
-  %.not13.i112 = icmp eq i32 %82, 0
-  %spec.select = select i1 %.not13.i112, i16 16, i16 0
-  br label %_knl_numa_token.exit115
+  %82 = call i32 @xstrcasecmp(ptr noundef nonnull %.360149, ptr noundef nonnull @.str.66) #15
+  %.not13.i109 = icmp eq i32 %82, 0
+  %spec.select = select i1 %.not13.i109, i16 16, i16 0
+  br label %_knl_numa_token.exit112
 
-_knl_numa_token.exit115:                          ; preds = %81, %79, %77, %75, %73, %69, %71
-  %.355 = phi i16 [ %.254153, %71 ], [ %70, %69 ], [ %.254153, %73 ], [ %.254153, %75 ], [ %.254153, %77 ], [ %.254153, %79 ], [ %.254153, %81 ]
-  %.3 = phi i16 [ %.251154, %71 ], [ %.251154, %69 ], [ 1, %73 ], [ 2, %75 ], [ 4, %77 ], [ 8, %79 ], [ %spec.select, %81 ]
+_knl_numa_token.exit112:                          ; preds = %81, %79, %77, %75, %73, %69, %71
+  %.355 = phi i16 [ %.254150, %71 ], [ %70, %69 ], [ %.254150, %73 ], [ %.254150, %75 ], [ %.254150, %77 ], [ %.254150, %79 ], [ %.254150, %81 ]
+  %.3 = phi i16 [ %.251151, %71 ], [ %.251151, %69 ], [ 1, %73 ], [ 2, %75 ], [ 4, %77 ], [ 8, %79 ], [ %spec.select, %81 ]
   %83 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
-  %.not80 = icmp eq ptr %83, null
-  br i1 %.not80, label %._crit_edge157, label %.lr.ph156, !llvm.loop !40
+  %.not78 = icmp eq ptr %83, null
+  br i1 %.not78, label %._crit_edge154, label %.lr.ph153, !llvm.loop !40
 
-._crit_edge157:                                   ; preds = %_knl_numa_token.exit115, %65
-  %.254.lcssa = phi i16 [ %.052.lcssa, %65 ], [ %.355, %_knl_numa_token.exit115 ]
-  %.251.lcssa = phi i16 [ %.049.lcssa, %65 ], [ %.3, %_knl_numa_token.exit115 ]
+._crit_edge154:                                   ; preds = %_knl_numa_token.exit112, %65
+  %.254.lcssa = phi i16 [ %.052.lcssa, %65 ], [ %.355, %_knl_numa_token.exit112 ]
+  %.251.lcssa = phi i16 [ %.049.lcssa, %65 ], [ %.3, %_knl_numa_token.exit112 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %84
 
-84:                                               ; preds = %._crit_edge157, %._crit_edge148
-  %.456 = phi i16 [ %.254.lcssa, %._crit_edge157 ], [ %.052.lcssa, %._crit_edge148 ]
-  %.4 = phi i16 [ %.251.lcssa, %._crit_edge157 ], [ %.049.lcssa, %._crit_edge148 ]
-  %.not81 = icmp eq i16 %.456, 0
-  br i1 %.not81, label %86, label %.thread
+84:                                               ; preds = %._crit_edge154, %._crit_edge145
+  %.456 = phi i16 [ %.254.lcssa, %._crit_edge154 ], [ %.052.lcssa, %._crit_edge145 ]
+  %.4 = phi i16 [ %.251.lcssa, %._crit_edge154 ], [ %.049.lcssa, %._crit_edge145 ]
+  %.not79 = icmp eq i16 %.456, 0
+  br i1 %.not79, label %86, label %.thread
 
 .thread:                                          ; preds = %62, %84
-  %.4128 = phi i16 [ %.4, %84 ], [ %.049.lcssa, %62 ]
-  %.456127 = phi i16 [ %.456, %84 ], [ %.052.lcssa, %62 ]
-  %85 = call fastcc ptr @_knl_mcdram_str(i16 noundef zeroext %.456127)
+  %.4125 = phi i16 [ %.4, %84 ], [ %.049.lcssa, %62 ]
+  %.456124 = phi i16 [ %.456, %84 ], [ %.052.lcssa, %62 ]
+  %85 = call fastcc ptr @_knl_mcdram_str(i16 noundef zeroext %.456124)
   store ptr %85, ptr %6, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.5, ptr noundef %85) #15
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %86
 
 86:                                               ; preds = %.thread, %84
-  %.4129 = phi i16 [ %.4128, %.thread ], [ %.4, %84 ]
+  %.4126 = phi i16 [ %.4125, %.thread ], [ %.4, %84 ]
   %.6 = phi ptr [ @.str.3, %.thread ], [ %.5, %84 ]
-  %.not82 = icmp eq i16 %.4129, 0
-  br i1 %.not82, label %._crit_edge160, label %87
+  %.not80 = icmp eq i16 %.4126, 0
+  br i1 %.not80, label %89, label %87
 
 87:                                               ; preds = %86
-  %88 = call fastcc ptr @_knl_numa_str(i16 noundef zeroext %.4129)
+  %88 = call fastcc ptr @_knl_numa_str(i16 noundef zeroext %.4126)
   store ptr %88, ptr %6, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.6, ptr noundef %88) #15
   call void @slurm_xfree(ptr noundef nonnull %6) #15
-  br label %._crit_edge160
+  br i1 %.pre, label %90, label %99
 
-._crit_edge160:                                   ; preds = %25, %86, %87
-  %.not83 = icmp eq i8 %.pre, 0
-  br i1 %.not83, label %98, label %89
+89:                                               ; preds = %86
+  br i1 %.pre, label %90, label %99
 
-89:                                               ; preds = %._crit_edge160
-  %90 = load ptr, ptr @knl_node_bitmap, align 8
-  %.not84 = icmp eq ptr %90, null
-  br i1 %.not84, label %91, label %95
+90:                                               ; preds = %87, %._crit_edge157, %89
+  %91 = load ptr, ptr @knl_node_bitmap, align 8
+  %.not81 = icmp eq ptr %91, null
+  br i1 %.not81, label %92, label %96
 
-91:                                               ; preds = %89
-  %92 = load i32, ptr @node_record_count, align 4
-  %93 = sext i32 %92 to i64
-  %94 = call ptr @bit_alloc(i64 noundef %93) #15
-  store ptr %94, ptr @knl_node_bitmap, align 8
-  br label %95
+92:                                               ; preds = %90
+  %93 = load i32, ptr @node_record_count, align 4
+  %94 = sext i32 %93 to i64
+  %95 = call ptr @bit_alloc(i64 noundef %94) #15
+  store ptr %95, ptr @knl_node_bitmap, align 8
+  br label %96
 
-95:                                               ; preds = %91, %89
-  %96 = phi ptr [ %94, %91 ], [ %90, %89 ]
-  %97 = sext i32 %3 to i64
-  call void @bit_set(ptr noundef %96, i64 noundef %97) #15
-  br label %98
+96:                                               ; preds = %92, %90
+  %97 = phi ptr [ %95, %92 ], [ %91, %90 ]
+  %98 = sext i32 %3 to i64
+  call void @bit_set(ptr noundef %97, i64 noundef %98) #15
+  br label %99
 
-98:                                               ; preds = %95, %._crit_edge160
-  %99 = load ptr, ptr %5, align 8
-  ret ptr %99
+99:                                               ; preds = %87, %._crit_edge157, %96, %89
+  %100 = load ptr, ptr %5, align 8
+  ret ptr %100
 }
 
 declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #1

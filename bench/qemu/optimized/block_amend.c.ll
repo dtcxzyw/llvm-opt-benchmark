@@ -167,12 +167,11 @@ glib_autoptr_cleanup_GraphLockable.exit:
   %4 = load ptr, ptr %opts, align 8
   %force = getelementptr inbounds i8, ptr %job, i64 296
   %5 = load i8, ptr %force, align 8
-  %6 = and i8 %5, 1
-  %tobool = icmp ne i8 %6, 0
+  %tobool = trunc i8 %5 to i1
   %call2 = tail call i32 %3(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %tobool, ptr noundef %errp) #3
   tail call void @job_progress_update(ptr noundef %job, i64 noundef 1) #3
-  %7 = load ptr, ptr %opts, align 8
-  tail call void @qapi_free_BlockdevAmendOptions(ptr noundef %7) #3
+  %6 = load ptr, ptr %opts, align 8
+  tail call void @qapi_free_BlockdevAmendOptions(ptr noundef %6) #3
   tail call void @bdrv_graph_co_rdunlock() #3
   ret i32 %call2
 }

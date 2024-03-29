@@ -239,9 +239,8 @@ define dso_local void @free_buf(ptr noundef %0) #0 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not1 = icmp eq i8 %6, 0
-  br i1 %.not1, label %14, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -255,9 +254,8 @@ define dso_local void @free_buf(ptr noundef %0) #0 {
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 25
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not2 = icmp eq i8 %17, 0
-  br i1 %.not2, label %18, label %20
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 8
@@ -281,9 +279,8 @@ define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
   %7 = add nuw nsw i64 %6, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %12, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.6) #16
@@ -292,9 +289,8 @@ define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 25
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not9 = icmp eq i8 %15, 0
-  br i1 %.not9, label %17, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7) #16
@@ -351,9 +347,8 @@ define dso_local ptr @xfer_buf_data(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.11) #16
@@ -362,9 +357,8 @@ define dso_local ptr @xfer_buf_data(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 25
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not1 = icmp eq i8 %10, 0
-  br i1 %.not1, label %12, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.12) #16
@@ -392,16 +386,14 @@ define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
   %11 = add nuw nsw i64 %10, 8
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %try_grow_buf_remaining.exit.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not11.i.i = icmp eq i8 %18, 0
-  br i1 %.not11.i.i, label %19, label %try_grow_buf_remaining.exit.thread
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i32 %4, -65544
@@ -414,8 +406,8 @@ define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %26
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %11 to i32
@@ -484,16 +476,14 @@ define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
   %13 = add nuw nsw i64 %12, 4
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i, label %17, label %pack32.exit
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %pack32.exit, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %1, i64 25
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not11.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not11.i.i.i, label %21, label %pack32.exit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %pack32.exit, label %21
 
 21:                                               ; preds = %17
   %22 = icmp ugt i32 %6, -65540
@@ -506,8 +496,8 @@ define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %27, null
-  br i1 %.not12.i.i.i, label %pack32.exit, label %28
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %pack32.exit, label %28
 
 28:                                               ; preds = %25
   %29 = trunc i64 %13 to i32
@@ -576,16 +566,14 @@ define dso_local void @packdouble(double noundef %0, ptr noundef %1) #0 {
   %11 = add nuw nsw i64 %10, 8
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %try_grow_buf_remaining.exit.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not11.i.i = icmp eq i8 %18, 0
-  br i1 %.not11.i.i, label %19, label %try_grow_buf_remaining.exit.thread
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i32 %4, -65544
@@ -598,8 +586,8 @@ define dso_local void @packdouble(double noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %26
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %11 to i32
@@ -742,16 +730,14 @@ define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
   %11 = add nuw nsw i64 %10, 8
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %try_grow_buf_remaining.exit.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not11.i.i = icmp eq i8 %18, 0
-  br i1 %.not11.i.i, label %19, label %try_grow_buf_remaining.exit.thread
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i32 %4, -65544
@@ -764,8 +750,8 @@ define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %26
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %11 to i32
@@ -833,16 +819,14 @@ define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
   %11 = add nuw nsw i64 %10, 4
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %try_grow_buf_remaining.exit.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not11.i.i = icmp eq i8 %18, 0
-  br i1 %.not11.i.i, label %19, label %try_grow_buf_remaining.exit.thread
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i32 %4, -65540
@@ -855,8 +839,8 @@ define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %26
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %11 to i32
@@ -924,16 +908,14 @@ define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
   %11 = add nuw nsw i64 %10, 2
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i, label %15, label %try_grow_buf_remaining.exit.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not11.i.i = icmp eq i8 %18, 0
-  br i1 %.not11.i.i, label %19, label %try_grow_buf_remaining.exit.thread
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i32 %4, -65538
@@ -946,8 +928,8 @@ define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %26
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %11 to i32
@@ -1014,16 +996,14 @@ define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i, label %14, label %try_grow_buf_remaining.exit.thread
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %try_grow_buf_remaining.exit.thread, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %1, i64 25
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not11.i.i = icmp eq i8 %17, 0
-  br i1 %.not11.i.i, label %18, label %try_grow_buf_remaining.exit.thread
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %try_grow_buf_remaining.exit.thread, label %18
 
 18:                                               ; preds = %14
   %19 = icmp ugt i32 %4, -65537
@@ -1036,8 +1016,8 @@ define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   %24 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %24, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %25
+  %.not.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %25
 
 25:                                               ; preds = %22
   %26 = trunc i64 %10 to i32
@@ -1102,16 +1082,14 @@ define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
   %11 = add nuw nsw i64 %10, 1
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i, label %15, label %pack8.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %pack8.exit, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not11.i.i.i = icmp eq i8 %18, 0
-  br i1 %.not11.i.i.i, label %19, label %pack8.exit
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %pack8.exit, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i32 %5, -65537
@@ -1124,8 +1102,8 @@ define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %25, null
-  br i1 %.not12.i.i.i, label %pack8.exit, label %26
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %pack8.exit, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %11 to i32
@@ -1191,16 +1169,14 @@ define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 nound
   %12 = add nuw nsw i64 %11, 4
   %13 = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i, label %16, label %pack32.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not11.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not11.i.i.i, label %20, label %pack32.exit
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %pack32.exit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp ugt i32 %5, -65540
@@ -1213,8 +1189,8 @@ define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 nound
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %26, null
-  br i1 %.not12.i.i.i, label %pack32.exit, label %27
+  %.not.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
   %28 = trunc i64 %12 to i32
@@ -1260,15 +1236,13 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   %48 = zext i32 %43 to i64
   %49 = add nuw nsw i64 %48, 2
   %50 = load i8, ptr %37, align 8
-  %51 = and i8 %50, 1
-  %.not.i.i.i8 = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i8, label %52, label %pack16.exit
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %pack16.exit, label %52
 
 52:                                               ; preds = %47
   %53 = load i8, ptr %38, align 1
-  %54 = and i8 %53, 1
-  %.not11.i.i.i9 = icmp eq i8 %54, 0
-  br i1 %.not11.i.i.i9, label %55, label %pack16.exit
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %pack16.exit, label %55
 
 55:                                               ; preds = %52
   %56 = icmp ugt i32 %43, -65538
@@ -1280,17 +1254,17 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
 
 59:                                               ; preds = %55
   %60 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %39, i64 noundef 1, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i10 = icmp eq ptr %60, null
-  br i1 %.not12.i.i.i10, label %pack16.exit, label %61
+  %.not.i.i.i8 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i8, label %pack16.exit, label %61
 
 61:                                               ; preds = %59
   %62 = trunc i64 %49 to i32
   store i32 %62, ptr %4, align 8
-  %.pre.i11 = load i32, ptr %6, align 4
+  %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
 
 try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
-  %63 = phi i32 [ %.pre.i11, %61 ], [ %44, %40 ]
+  %63 = phi i32 [ %.pre.i9, %61 ], [ %44, %40 ]
   %64 = tail call zeroext i16 @htons(i16 noundef zeroext %42) #17
   %65 = load ptr, ptr %39, align 8
   %66 = zext i32 %63 to i64
@@ -1406,16 +1380,14 @@ define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 nound
   %12 = add nuw nsw i64 %11, 4
   %13 = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i, label %16, label %pack32.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not11.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not11.i.i.i, label %20, label %pack32.exit
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %pack32.exit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp ugt i32 %5, -65540
@@ -1428,8 +1400,8 @@ define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 nound
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %26, null
-  br i1 %.not12.i.i.i, label %pack32.exit, label %27
+  %.not.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
   %28 = trunc i64 %12 to i32
@@ -1461,8 +1433,8 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   %wide.trip.count = zext i32 %1 to i64
   br label %40
 
-40:                                               ; preds = %.lr.ph, %pack32.exit12
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack32.exit12 ]
+40:                                               ; preds = %.lr.ph, %pack32.exit10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack32.exit10 ]
   %41 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %4, align 8
@@ -1475,15 +1447,13 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   %48 = zext i32 %43 to i64
   %49 = add nuw nsw i64 %48, 4
   %50 = load i8, ptr %37, align 8
-  %51 = and i8 %50, 1
-  %.not.i.i.i8 = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i8, label %52, label %pack32.exit12
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %pack32.exit10, label %52
 
 52:                                               ; preds = %47
   %53 = load i8, ptr %38, align 1
-  %54 = and i8 %53, 1
-  %.not11.i.i.i9 = icmp eq i8 %54, 0
-  br i1 %.not11.i.i.i9, label %55, label %pack32.exit12
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %pack32.exit10, label %55
 
 55:                                               ; preds = %52
   %56 = icmp ugt i32 %43, -65540
@@ -1491,21 +1461,21 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
 
 57:                                               ; preds = %55
   %58 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.try_grow_buf, i64 noundef %49, i32 noundef -65536) #15
-  br label %pack32.exit12
+  br label %pack32.exit10
 
 59:                                               ; preds = %55
   %60 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %39, i64 noundef 1, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i10 = icmp eq ptr %60, null
-  br i1 %.not12.i.i.i10, label %pack32.exit12, label %61
+  %.not.i.i.i8 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i8, label %pack32.exit10, label %61
 
 61:                                               ; preds = %59
   %62 = trunc i64 %49 to i32
   store i32 %62, ptr %4, align 8
-  %.pre.i11 = load i32, ptr %6, align 4
+  %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
 
 try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
-  %63 = phi i32 [ %.pre.i11, %61 ], [ %44, %40 ]
+  %63 = phi i32 [ %.pre.i9, %61 ], [ %44, %40 ]
   %64 = tail call i32 @htonl(i32 noundef %42) #17
   %65 = load ptr, ptr %39, align 8
   %66 = zext i32 %63 to i64
@@ -1514,14 +1484,14 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
   %68 = load i32, ptr %6, align 4
   %69 = add i32 %68, 4
   store i32 %69, ptr %6, align 4
-  br label %pack32.exit12
+  br label %pack32.exit10
 
-pack32.exit12:                                    ; preds = %47, %52, %57, %59, %try_grow_buf_remaining.exit.i7
+pack32.exit10:                                    ; preds = %47, %52, %57, %59, %try_grow_buf_remaining.exit.i7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %pack32.exit12, %pack32.exit
+._crit_edge:                                      ; preds = %pack32.exit10, %pack32.exit
   ret void
 }
 
@@ -1633,16 +1603,14 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
   %20 = add nuw nsw i64 %19, %18
   %21 = getelementptr inbounds i8, ptr %2, i64 24
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i, label %24, label %try_grow_buf_remaining.exit.thread
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %try_grow_buf_remaining.exit.thread, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %2, i64 25
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not11.i.i = icmp eq i8 %27, 0
-  br i1 %.not11.i.i, label %28, label %try_grow_buf_remaining.exit.thread
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %try_grow_buf_remaining.exit.thread, label %28
 
 28:                                               ; preds = %24
   %29 = icmp ugt i64 %20, 4294901760
@@ -1655,8 +1623,8 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %33, i64 noundef 1, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %34, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %35
+  %.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %35
 
 35:                                               ; preds = %32
   %36 = trunc i64 %20 to i32
@@ -2037,16 +2005,14 @@ define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noun
   %12 = add nuw nsw i64 %11, 4
   %13 = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %16, label %try_grow_buf_remaining.exit.thread
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %try_grow_buf_remaining.exit.thread, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not11.i.i = icmp eq i8 %19, 0
-  br i1 %.not11.i.i, label %20, label %try_grow_buf_remaining.exit.thread
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %try_grow_buf_remaining.exit.thread, label %20
 
 20:                                               ; preds = %16
   %21 = icmp ugt i32 %5, -65540
@@ -2059,8 +2025,8 @@ define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noun
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %26, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %27
+  %.not.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %27
 
 27:                                               ; preds = %24
   %28 = trunc i64 %12 to i32
@@ -2208,16 +2174,14 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
   %13 = add nuw nsw i64 %12, %10
   %14 = getelementptr inbounds i8, ptr %2, i64 24
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i, label %17, label %try_grow_buf_remaining.exit.thread
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %try_grow_buf_remaining.exit.thread, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %2, i64 25
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not11.i.i = icmp eq i8 %20, 0
-  br i1 %.not11.i.i, label %21, label %try_grow_buf_remaining.exit.thread
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %try_grow_buf_remaining.exit.thread, label %21
 
 21:                                               ; preds = %17
   %22 = icmp ugt i64 %13, 4294901760
@@ -2230,8 +2194,8 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %27, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %28
+  %.not.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %28
 
 28:                                               ; preds = %25
   %29 = trunc i64 %13 to i32
@@ -2324,16 +2288,14 @@ define dso_local noundef i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local
   %7 = add nuw nsw i64 %6, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %24
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %24, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 25
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %.not11 = icmp eq i8 %14, 0
-  br i1 %.not11, label %15, label %24
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %24, label %15
 
 15:                                               ; preds = %11
   %16 = icmp ugt i64 %7, 4294901760
@@ -2346,8 +2308,8 @@ define dso_local noundef i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %20, i64 noundef 1, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12 = icmp eq ptr %21, null
-  br i1 %.not12, label %24, label %22
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %19
   %23 = trunc i64 %7 to i32
@@ -2375,16 +2337,14 @@ define dso_local noundef i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef
   %12 = add nuw nsw i64 %11, %10
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %16, label %try_grow_buf.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %try_grow_buf.exit, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 25
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not11.i = icmp eq i8 %19, 0
-  br i1 %.not11.i, label %20, label %try_grow_buf.exit
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %try_grow_buf.exit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp ugt i64 %12, 4294901760
@@ -2397,8 +2357,8 @@ define dso_local noundef i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i = icmp eq ptr %26, null
-  br i1 %.not12.i, label %try_grow_buf.exit, label %27
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %try_grow_buf.exit, label %27
 
 27:                                               ; preds = %24
   %28 = trunc i64 %12 to i32
@@ -2545,16 +2505,14 @@ define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 nound
   %12 = add nuw nsw i64 %11, 4
   %13 = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i, label %16, label %pack32.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not11.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not11.i.i.i, label %20, label %pack32.exit
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %pack32.exit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp ugt i32 %5, -65540
@@ -2567,8 +2525,8 @@ define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 nound
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %26, null
-  br i1 %.not12.i.i.i, label %pack32.exit, label %27
+  %.not.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
   %28 = trunc i64 %12 to i32
@@ -2614,15 +2572,13 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   %48 = zext i32 %43 to i64
   %49 = add nuw nsw i64 %48, 8
   %50 = load i8, ptr %37, align 8
-  %51 = and i8 %50, 1
-  %.not.i.i.i8 = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i8, label %52, label %pack64.exit
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %pack64.exit, label %52
 
 52:                                               ; preds = %47
   %53 = load i8, ptr %38, align 1
-  %54 = and i8 %53, 1
-  %.not11.i.i.i9 = icmp eq i8 %54, 0
-  br i1 %.not11.i.i.i9, label %55, label %pack64.exit
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %pack64.exit, label %55
 
 55:                                               ; preds = %52
   %56 = icmp ugt i32 %43, -65544
@@ -2634,17 +2590,17 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
 
 59:                                               ; preds = %55
   %60 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %39, i64 noundef 1, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i10 = icmp eq ptr %60, null
-  br i1 %.not12.i.i.i10, label %pack64.exit, label %61
+  %.not.i.i.i8 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i8, label %pack64.exit, label %61
 
 61:                                               ; preds = %59
   %62 = trunc i64 %49 to i32
   store i32 %62, ptr %4, align 8
-  %.pre.i11 = load i32, ptr %6, align 4
+  %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
 
 try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
-  %63 = phi i32 [ %.pre.i11, %61 ], [ %44, %40 ]
+  %63 = phi i32 [ %.pre.i9, %61 ], [ %44, %40 ]
   %64 = tail call i64 @llvm.bswap.i64(i64 %42)
   %65 = load ptr, ptr %39, align 8
   %66 = zext i32 %63 to i64
@@ -2760,16 +2716,14 @@ define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 n
   %12 = add nuw nsw i64 %11, 4
   %13 = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i, label %16, label %pack32.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not11.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not11.i.i.i, label %20, label %pack32.exit
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %pack32.exit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp ugt i32 %5, -65540
@@ -2782,8 +2736,8 @@ define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 n
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %26, null
-  br i1 %.not12.i.i.i, label %pack32.exit, label %27
+  %.not.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
   %28 = trunc i64 %12 to i32
@@ -2829,15 +2783,13 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   %48 = zext i32 %43 to i64
   %49 = add nuw nsw i64 %48, 8
   %50 = load i8, ptr %37, align 8
-  %51 = and i8 %50, 1
-  %.not.i.i.i8 = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i8, label %52, label %packdouble.exit
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %packdouble.exit, label %52
 
 52:                                               ; preds = %47
   %53 = load i8, ptr %38, align 1
-  %54 = and i8 %53, 1
-  %.not11.i.i.i9 = icmp eq i8 %54, 0
-  br i1 %.not11.i.i.i9, label %55, label %packdouble.exit
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %packdouble.exit, label %55
 
 55:                                               ; preds = %52
   %56 = icmp ugt i32 %43, -65544
@@ -2849,17 +2801,17 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
 
 59:                                               ; preds = %55
   %60 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %39, i64 noundef 1, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i10 = icmp eq ptr %60, null
-  br i1 %.not12.i.i.i10, label %packdouble.exit, label %61
+  %.not.i.i.i8 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i8, label %packdouble.exit, label %61
 
 61:                                               ; preds = %59
   %62 = trunc i64 %49 to i32
   store i32 %62, ptr %4, align 8
-  %.pre.i11 = load i32, ptr %6, align 4
+  %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
 
 try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
-  %63 = phi i32 [ %.pre.i11, %61 ], [ %44, %40 ]
+  %63 = phi i32 [ %.pre.i9, %61 ], [ %44, %40 ]
   %64 = fmul double %42, 1.000000e+06
   %65 = bitcast double %64 to i64
   %66 = tail call i64 @llvm.bswap.i64(i64 %65)
@@ -2975,16 +2927,14 @@ define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i
   %13 = add nuw nsw i64 %12, 4
   %14 = getelementptr inbounds i8, ptr %2, i64 24
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i, label %17, label %pack32.exit
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %pack32.exit, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %2, i64 25
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not11.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not11.i.i.i, label %21, label %pack32.exit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %pack32.exit, label %21
 
 21:                                               ; preds = %17
   %22 = icmp ugt i32 %6, -65540
@@ -2997,8 +2947,8 @@ define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i.i = icmp eq ptr %27, null
-  br i1 %.not12.i.i.i, label %pack32.exit, label %28
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %pack32.exit, label %28
 
 28:                                               ; preds = %25
   %29 = trunc i64 %13 to i32
@@ -3190,16 +3140,14 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
   %15 = add nuw nsw i64 %14, %12
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i, label %19, label %try_grow_buf_remaining.exit.thread
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %1, i64 25
   %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, 1
-  %.not11.i.i = icmp eq i8 %22, 0
-  br i1 %.not11.i.i, label %23, label %try_grow_buf_remaining.exit.thread
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %try_grow_buf_remaining.exit.thread, label %23
 
 23:                                               ; preds = %19
   %24 = icmp ugt i64 %15, 4294901760
@@ -3212,8 +3160,8 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %28, i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
-  %.not12.i.i = icmp eq ptr %29, null
-  br i1 %.not12.i.i, label %try_grow_buf_remaining.exit.thread, label %30
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %30
 
 30:                                               ; preds = %27
   %31 = trunc i64 %15 to i32

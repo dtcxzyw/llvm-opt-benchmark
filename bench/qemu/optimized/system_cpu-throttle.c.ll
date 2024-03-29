@@ -33,13 +33,12 @@ while.end.i:                                      ; preds = %if.then
   br i1 %tobool1.not5.i, label %for.end.i, label %while.end6.i
 
 while.end6.i:                                     ; preds = %while.end.i, %while.end19.i
-  %cpu.06.in.i = phi i64 [ %5, %while.end19.i ], [ %2, %while.end.i ]
+  %cpu.06.in.i = phi i64 [ %4, %while.end19.i ], [ %2, %while.end.i ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
   %throttle_thread_scheduled.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 745
   %3 = atomicrmw xchg ptr %throttle_thread_scheduled.i, i8 1 seq_cst, align 1
-  %4 = and i8 %3, 1
-  %tobool9.not.i = icmp eq i8 %4, 0
-  br i1 %tobool9.not.i, label %if.then13.i, label %while.end19.i
+  %tobool9.i = trunc i8 %3 to i1
+  br i1 %tobool9.i, label %while.end19.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %while.end6.i
   tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @cpu_throttle_thread, i64 0) #6
@@ -47,23 +46,23 @@ if.then13.i:                                      ; preds = %while.end6.i
 
 while.end19.i:                                    ; preds = %if.then13.i, %while.end6.i
   %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
-  %5 = load atomic i64, ptr %node.i monotonic, align 8
+  %4 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %tobool1.not.i = icmp eq i64 %5, 0
+  %tobool1.not.i = icmp eq i64 %4, 0
   br i1 %tobool1.not.i, label %for.end.i, label %while.end6.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %while.end19.i, %while.end.i
-  %6 = load atomic i32, ptr @throttle_percentage monotonic, align 4
-  %conv.i = sitofp i32 %6 to double
+  %5 = load atomic i32, ptr @throttle_percentage monotonic, align 4
+  %conv.i = sitofp i32 %5 to double
   %div.i = fdiv double %conv.i, 1.000000e+02
-  %7 = load ptr, ptr @throttle_timer, align 8
+  %6 = load ptr, ptr @throttle_timer, align 8
   %call22.i = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #6
   %conv23.i = sitofp i64 %call22.i to double
   %sub.i = fsub double 1.000000e+00, %div.i
   %div24.i = fdiv double 1.000000e+07, %sub.i
   %add.i = fadd double %div24.i, %conv23.i
   %conv25.i = fptosi double %add.i to i64
-  tail call void @timer_mod(ptr noundef %7, i64 noundef %conv25.i) #6
+  tail call void @timer_mod(ptr noundef %6, i64 noundef %conv25.i) #6
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.then, %entry
@@ -92,13 +91,12 @@ while.end:                                        ; preds = %entry
   br i1 %tobool1.not5, label %for.end, label %while.end6
 
 while.end6:                                       ; preds = %while.end, %while.end19
-  %cpu.06.in = phi i64 [ %4, %while.end19 ], [ %1, %while.end ]
+  %cpu.06.in = phi i64 [ %3, %while.end19 ], [ %1, %while.end ]
   %cpu.06 = inttoptr i64 %cpu.06.in to ptr
   %throttle_thread_scheduled = getelementptr inbounds i8, ptr %cpu.06, i64 745
   %2 = atomicrmw xchg ptr %throttle_thread_scheduled, i8 1 seq_cst, align 1
-  %3 = and i8 %2, 1
-  %tobool9.not = icmp eq i8 %3, 0
-  br i1 %tobool9.not, label %if.then13, label %while.end19
+  %tobool9 = trunc i8 %2 to i1
+  br i1 %tobool9, label %while.end19, label %if.then13
 
 if.then13:                                        ; preds = %while.end6
   tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06, ptr noundef nonnull @cpu_throttle_thread, i64 0) #6
@@ -106,23 +104,23 @@ if.then13:                                        ; preds = %while.end6
 
 while.end19:                                      ; preds = %while.end6, %if.then13
   %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
-  %4 = load atomic i64, ptr %node monotonic, align 8
+  %3 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %tobool1.not = icmp eq i64 %4, 0
+  %tobool1.not = icmp eq i64 %3, 0
   br i1 %tobool1.not, label %for.end, label %while.end6, !llvm.loop !7
 
 for.end:                                          ; preds = %while.end19, %while.end
-  %5 = load atomic i32, ptr @throttle_percentage monotonic, align 4
-  %conv = sitofp i32 %5 to double
+  %4 = load atomic i32, ptr @throttle_percentage monotonic, align 4
+  %conv = sitofp i32 %4 to double
   %div = fdiv double %conv, 1.000000e+02
-  %6 = load ptr, ptr @throttle_timer, align 8
+  %5 = load ptr, ptr @throttle_timer, align 8
   %call22 = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #6
   %conv23 = sitofp i64 %call22 to double
   %sub = fsub double 1.000000e+00, %div
   %div24 = fdiv double 1.000000e+07, %sub
   %add = fadd double %div24, %conv23
   %conv25 = fptosi double %add to i64
-  tail call void @timer_mod(ptr noundef %6, i64 noundef %conv25) #6
+  tail call void @timer_mod(ptr noundef %5, i64 noundef %conv25) #6
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -171,30 +169,29 @@ if.end:                                           ; preds = %entry
   %conv3 = fptosi double %2 to i64
   %call4 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #6
   %add = add i64 %call4, %conv3
-  %stop = getelementptr inbounds i8, ptr %cpu, i64 202
   %cmp9 = icmp sgt i64 %conv3, 0
   br i1 %cmp9, label %land.rhs.lr.ph, label %while.end19
 
 land.rhs.lr.ph:                                   ; preds = %if.end
+  %stop = getelementptr inbounds i8, ptr %cpu, i64 202
   %halt_cond = getelementptr inbounds i8, ptr %cpu, i64 192
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end13
   %sleeptime_ns.010 = phi i64 [ %conv3, %land.rhs.lr.ph ], [ %sub15, %if.end13 ]
   %3 = load i8, ptr %stop, align 2
-  %4 = and i8 %3, 1
-  %tobool6.not = icmp eq i8 %4, 0
-  br i1 %tobool6.not, label %while.body, label %while.end19
+  %tobool6 = trunc i8 %3 to i1
+  br i1 %tobool6, label %while.end19, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %cmp7 = icmp ugt i64 %sleeptime_ns.010, 1000000
   br i1 %cmp7, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %while.body
-  %5 = load ptr, ptr %halt_cond, align 16
+  %4 = load ptr, ptr %halt_cond, align 16
   %div10 = udiv i64 %sleeptime_ns.010, 1000000
   %conv11 = trunc i64 %div10 to i32
-  tail call void @qemu_cond_timedwait_iothread(ptr noundef %5, i32 noundef %conv11) #6
+  tail call void @qemu_cond_timedwait_iothread(ptr noundef %4, i32 noundef %conv11) #6
   br label %if.end13
 
 if.else:                                          ; preds = %while.body

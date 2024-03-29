@@ -10,13 +10,12 @@ entry:
   br i1 %cmp.i90, label %if.then, label %if.end
 
 if.then.loopexit:                                 ; preds = %sw.epilog
-  %0 = and i8 %in_wildcard_match.1, 1
-  %1 = icmp ne i8 %0, 0
+  %0 = trunc i8 %in_wildcard_match.1 to i1
   br label %if.then
 
 if.then:                                          ; preds = %if.then.loopexit, %entry
   %str.sroa.0.0.lcssa = phi i64 [ %str.coerce0, %entry ], [ %str.sroa.0.1, %if.then.loopexit ]
-  %in_wildcard_match.0.lcssa = phi i1 [ false, %entry ], [ %1, %if.then.loopexit ]
+  %in_wildcard_match.0.lcssa = phi i1 [ false, %entry ], [ %0, %if.then.loopexit ]
   %cmp.i4 = icmp eq i64 %str.sroa.0.0.lcssa, 0
   %spec.select = select i1 %in_wildcard_match.0.lcssa, i1 true, i1 %cmp.i4
   br label %return
@@ -33,8 +32,8 @@ if.end:                                           ; preds = %entry, %sw.epilog
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %__pos.addr.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end ]
   %arrayidx.i = getelementptr inbounds i8, ptr %pattern.sroa.12.091, i64 %__pos.addr.05.i
-  %2 = load i8, ptr %arrayidx.i, align 1
-  %cmp.i.i = icmp eq i8 %2, 42
+  %1 = load i8, ptr %arrayidx.i, align 1
+  %cmp.i.i = icmp eq i8 %1, 42
   br i1 %cmp.i.i, label %for.inc.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -48,8 +47,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; pre
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %3 = load i8, ptr %pattern.sroa.12.091, align 1
-  switch i8 %3, label %sw.default [
+  %2 = load i8, ptr %pattern.sroa.12.091, align 1
+  switch i8 %2, label %sw.default [
     i8 42, label %sw.bb
     i8 63, label %sw.bb7
   ]
@@ -67,15 +66,14 @@ sw.bb7:                                           ; preds = %if.end5
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end5
-  %4 = and i8 %in_wildcard_match.095, 1
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.else, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
+  %tobool8 = trunc i8 %in_wildcard_match.095 to i1
+  br i1 %tobool8, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, label %if.else
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %sw.default, %for.inc.i.i
   %__pos.addr.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %sw.default ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %pattern.sroa.12.091, i64 %__pos.addr.07.i.i
-  %5 = load i8, ptr %arrayidx.i.i, align 1
-  switch i8 %5, label %for.inc.i.i [
+  %3 = load i8, ptr %arrayidx.i.i, align 1
+  switch i8 %3, label %for.inc.i.i [
     i8 63, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
     i8 42, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
   ]
@@ -104,7 +102,7 @@ if.end6.i.i:                                      ; preds = %if.end14
 
 while.body.lr.ph.i.i:                             ; preds = %if.end6.i.i
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %str.sroa.10.093, i64 %str.sroa.0.094
-  %conv.i.i.i18 = sext i8 %3 to i32
+  %conv.i.i.i18 = sext i8 %2 to i32
   %sub.ptr.lhs.cast20.i.i = ptrtoint ptr %add.ptr9.i.i to i64
   br label %while.body.i.i
 
@@ -150,8 +148,8 @@ if.end18:                                         ; preds = %if.end14, %_ZNKSt17
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.default
-  %6 = load i8, ptr %str.sroa.10.093, align 1
-  %cmp25.not = icmp eq i8 %3, %6
+  %4 = load i8, ptr %str.sroa.10.093, align 1
+  %cmp25.not = icmp eq i8 %2, %4
   br i1 %cmp25.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.else
@@ -162,11 +160,11 @@ if.end27:                                         ; preds = %if.else
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end18, %if.end27, %sw.bb7, %sw.bb
-  %pattern.sroa.12.1 = phi ptr [ %add.ptr.i31, %if.end27 ], [ %add.ptr.i23, %if.end18 ], [ %add.ptr.i9, %sw.bb7 ], [ %add.ptr.i, %sw.bb ]
-  %pattern.sroa.0.1 = phi i64 [ %sub.i32, %if.end27 ], [ %sub.i24, %if.end18 ], [ %sub.i10, %sw.bb7 ], [ %sub.i, %sw.bb ]
-  %str.sroa.10.1 = phi ptr [ %add.ptr.i34, %if.end27 ], [ %add.ptr.i26, %if.end18 ], [ %add.ptr.i12, %sw.bb7 ], [ %str.sroa.10.093, %sw.bb ]
-  %str.sroa.0.1 = phi i64 [ %sub.i35, %if.end27 ], [ %sub.i27, %if.end18 ], [ %sub.i13, %sw.bb7 ], [ %str.sroa.0.094, %sw.bb ]
-  %in_wildcard_match.1 = phi i8 [ %in_wildcard_match.095, %if.end27 ], [ 0, %if.end18 ], [ %in_wildcard_match.095, %sw.bb7 ], [ 1, %sw.bb ]
+  %pattern.sroa.12.1 = phi ptr [ %add.ptr.i23, %if.end18 ], [ %add.ptr.i31, %if.end27 ], [ %add.ptr.i9, %sw.bb7 ], [ %add.ptr.i, %sw.bb ]
+  %pattern.sroa.0.1 = phi i64 [ %sub.i24, %if.end18 ], [ %sub.i32, %if.end27 ], [ %sub.i10, %sw.bb7 ], [ %sub.i, %sw.bb ]
+  %str.sroa.10.1 = phi ptr [ %add.ptr.i26, %if.end18 ], [ %add.ptr.i34, %if.end27 ], [ %add.ptr.i12, %sw.bb7 ], [ %str.sroa.10.093, %sw.bb ]
+  %str.sroa.0.1 = phi i64 [ %sub.i27, %if.end18 ], [ %sub.i35, %if.end27 ], [ %sub.i13, %sw.bb7 ], [ %str.sroa.0.094, %sw.bb ]
+  %in_wildcard_match.1 = phi i8 [ 0, %if.end18 ], [ %in_wildcard_match.095, %if.end27 ], [ %in_wildcard_match.095, %sw.bb7 ], [ 1, %sw.bb ]
   %cmp.i = icmp eq i64 %pattern.sroa.0.1, 0
   br i1 %cmp.i, label %if.then.loopexit, label %if.end, !llvm.loop !9
 

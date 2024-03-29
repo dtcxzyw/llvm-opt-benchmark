@@ -679,15 +679,14 @@ if.end.i:                                         ; preds = %entry
   store i8 0, ptr %use_mutex.i.i, align 8
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i8, ptr %use_mutex.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end3.i, label %if.then2.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
-  %3 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %4 = extractvalue { i8, i1 } %3, 1
-  br i1 %4, label %if.end3.i, label %if.then.i.i
+  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %3 = extractvalue { i8, i1 } %2, 1
+  br i1 %3, label %if.end3.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #4
@@ -695,20 +694,19 @@ if.then.i.i:                                      ; preds = %if.then2.i
 
 if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
   %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %5 = load ptr, ptr %hash_state.i, align 8
-  %call4.i = tail call ptr @Hacl_Streaming_Keccak_copy(ptr noundef %5) #4
+  %4 = load ptr, ptr %hash_state.i, align 8
+  %call4.i = tail call ptr @Hacl_Streaming_Keccak_copy(ptr noundef %4) #4
   %hash_state5.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %call4.i, ptr %hash_state5.i, align 8
-  %6 = load i8, ptr %use_mutex.i, align 8
-  %7 = and i8 %6, 1
-  %tobool7.not.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i, label %_sha3_sha3_224_copy_impl.exit, label %if.then8.i
+  %5 = load i8, ptr %use_mutex.i, align 8
+  %tobool7.i = trunc i8 %5 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %_sha3_sha3_224_copy_impl.exit
 
 if.then8.i:                                       ; preds = %if.end3.i
   %mutex9.i = getelementptr inbounds i8, ptr %self, i64 17
-  %8 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %9 = extractvalue { i8, i1 } %8, 1
-  br i1 %9, label %_sha3_sha3_224_copy_impl.exit, label %if.then.i7.i
+  %6 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  br i1 %7, label %_sha3_sha3_224_copy_impl.exit, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %if.then8.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex9.i) #4
@@ -725,15 +723,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i8, ptr %use_mutex.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #4
@@ -741,26 +738,25 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
   %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %4 = load ptr, ptr %hash_state.i, align 8
-  %call.i = call zeroext i8 @Hacl_Streaming_Keccak_finish(ptr noundef %4, ptr noundef nonnull %digest.i) #4
-  %5 = load i8, ptr %use_mutex.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_sha3_sha3_224_digest_impl.exit, label %if.then3.i
+  %3 = load ptr, ptr %hash_state.i, align 8
+  %call.i = call zeroext i8 @Hacl_Streaming_Keccak_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #4
+  %4 = load i8, ptr %use_mutex.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_sha3_sha3_224_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 17
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %_sha3_sha3_224_digest_impl.exit, label %if.then.i6.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %_sha3_sha3_224_digest_impl.exit, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #4
   br label %_sha3_sha3_224_digest_impl.exit
 
 _sha3_sha3_224_digest_impl.exit:                  ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
-  %9 = load ptr, ptr %hash_state.i, align 8
-  %call8.i = call i32 @Hacl_Streaming_Keccak_hash_len(ptr noundef %9) #4
+  %7 = load ptr, ptr %hash_state.i, align 8
+  %call8.i = call i32 @Hacl_Streaming_Keccak_hash_len(ptr noundef %7) #4
   %conv.i = zext i32 %call8.i to i64
   %call9.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
@@ -774,15 +770,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i8, ptr %use_mutex.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #4
@@ -790,26 +785,25 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
   %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %4 = load ptr, ptr %hash_state.i, align 8
-  %call.i = call zeroext i8 @Hacl_Streaming_Keccak_finish(ptr noundef %4, ptr noundef nonnull %digest.i) #4
-  %5 = load i8, ptr %use_mutex.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_sha3_sha3_224_hexdigest_impl.exit, label %if.then3.i
+  %3 = load ptr, ptr %hash_state.i, align 8
+  %call.i = call zeroext i8 @Hacl_Streaming_Keccak_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #4
+  %4 = load i8, ptr %use_mutex.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_sha3_sha3_224_hexdigest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 17
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %_sha3_sha3_224_hexdigest_impl.exit, label %if.then.i6.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %_sha3_sha3_224_hexdigest_impl.exit, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #4
   br label %_sha3_sha3_224_hexdigest_impl.exit
 
 _sha3_sha3_224_hexdigest_impl.exit:               ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
-  %9 = load ptr, ptr %hash_state.i, align 8
-  %call8.i = call i32 @Hacl_Streaming_Keccak_hash_len(ptr noundef %9) #4
+  %7 = load ptr, ptr %hash_state.i, align 8
+  %call8.i = call i32 @Hacl_Streaming_Keccak_hash_len(ptr noundef %7) #4
   %conv.i = zext i32 %call8.i to i64
   %call9.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
@@ -863,29 +857,27 @@ if.then10:                                        ; preds = %if.end8
 do.end:                                           ; preds = %if.end8
   %use_mutex = getelementptr inbounds i8, ptr %self, i64 16
   %7 = load i8, ptr %use_mutex, align 8
-  %8 = and i8 %7, 1
-  %tobool12.not9 = icmp eq i8 %8, 0
+  %tobool12 = trunc i8 %7 to i1
   %len = getelementptr inbounds i8, ptr %buf, i64 16
-  %9 = load i64, ptr %len, align 8
-  %cmp13 = icmp sgt i64 %9, 2047
-  %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
-  br i1 %or.cond, label %if.end16.thread, label %if.end16
+  %8 = load i64, ptr %len, align 8
+  %cmp13 = icmp slt i64 %8, 2048
+  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
+  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %do.end
   store i8 1, ptr %use_mutex, align 8
   br label %if.then19
 
 if.end16:                                         ; preds = %do.end
-  %10 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %10, 0
-  br i1 %tobool18.not, label %if.else, label %if.then19
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #4
   %mutex = getelementptr inbounds i8, ptr %self, i64 17
-  %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
+  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
   call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #4
@@ -893,62 +885,62 @@ if.then.i:                                        ; preds = %if.then19
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
   %hash_state = getelementptr inbounds i8, ptr %self, i64 24
-  %13 = load ptr, ptr %hash_state, align 8
-  %14 = load ptr, ptr %buf, align 8
-  %15 = load i64, ptr %len, align 8
-  %cmp6.i = icmp sgt i64 %15, 4294967295
+  %11 = load ptr, ptr %hash_state, align 8
+  %12 = load ptr, ptr %buf, align 8
+  %13 = load i64, ptr %len, align 8
+  %cmp6.i = icmp sgt i64 %13, 4294967295
   br i1 %cmp6.i, label %while.body.i, label %sha3_update.exit
 
 while.body.i:                                     ; preds = %PyMutex_Lock.exit, %while.body.i
-  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %15, %PyMutex_Lock.exit ]
-  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %14, %PyMutex_Lock.exit ]
-  %call.i = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %13, ptr noundef %buf.addr.07.i, i32 noundef -1) #4
+  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %13, %PyMutex_Lock.exit ]
+  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %12, %PyMutex_Lock.exit ]
+  %call.i = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %11, ptr noundef %buf.addr.07.i, i32 noundef -1) #4
   %sub.i = add nsw i64 %len.addr.08.i, -4294967295
   %add.ptr.i = getelementptr i8, ptr %buf.addr.07.i, i64 4294967295
   %cmp.i = icmp ugt i64 %len.addr.08.i, 8589934590
   br i1 %cmp.i, label %while.body.i, label %sha3_update.exit, !llvm.loop !4
 
 sha3_update.exit:                                 ; preds = %while.body.i, %PyMutex_Lock.exit
-  %buf.addr.0.lcssa.i = phi ptr [ %14, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
-  %len.addr.0.lcssa.i = phi i64 [ %15, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
-  %conv.i10 = trunc i64 %len.addr.0.lcssa.i to i32
-  %call1.i = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %13, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i10) #4
-  %16 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %PyMutex_Unlock.exit, label %if.then.i11
+  %buf.addr.0.lcssa.i = phi ptr [ %12, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
+  %len.addr.0.lcssa.i = phi i64 [ %13, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
+  %conv.i9 = trunc i64 %len.addr.0.lcssa.i to i32
+  %call1.i = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %11, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i9) #4
+  %14 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
+  %15 = extractvalue { i8, i1 } %14, 1
+  br i1 %15, label %PyMutex_Unlock.exit, label %if.then.i10
 
-if.then.i11:                                      ; preds = %sha3_update.exit
+if.then.i10:                                      ; preds = %sha3_update.exit
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #4
   br label %PyMutex_Unlock.exit
 
-PyMutex_Unlock.exit:                              ; preds = %sha3_update.exit, %if.then.i11
+PyMutex_Unlock.exit:                              ; preds = %sha3_update.exit, %if.then.i10
   call void @PyEval_RestoreThread(ptr noundef %call20) #4
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
   %hash_state24 = getelementptr inbounds i8, ptr %self, i64 24
-  %18 = load ptr, ptr %hash_state24, align 8
-  %19 = load ptr, ptr %buf, align 8
-  %cmp6.i12 = icmp sgt i64 %9, 4294967295
-  br i1 %cmp6.i12, label %while.body.i17, label %sha3_update.exit24
+  %16 = load ptr, ptr %hash_state24, align 8
+  %17 = load ptr, ptr %buf, align 8
+  %cmp6.i11 = icmp sgt i64 %8, 4294967295
+  br i1 %cmp6.i11, label %while.body.i16, label %sha3_update.exit23
 
-while.body.i17:                                   ; preds = %if.else, %while.body.i17
-  %len.addr.08.i18 = phi i64 [ %sub.i21, %while.body.i17 ], [ %9, %if.else ]
-  %buf.addr.07.i19 = phi ptr [ %add.ptr.i22, %while.body.i17 ], [ %19, %if.else ]
-  %call.i20 = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %18, ptr noundef %buf.addr.07.i19, i32 noundef -1) #4
-  %sub.i21 = add nsw i64 %len.addr.08.i18, -4294967295
-  %add.ptr.i22 = getelementptr i8, ptr %buf.addr.07.i19, i64 4294967295
-  %cmp.i23 = icmp ugt i64 %len.addr.08.i18, 8589934590
-  br i1 %cmp.i23, label %while.body.i17, label %sha3_update.exit24, !llvm.loop !4
+while.body.i16:                                   ; preds = %if.else, %while.body.i16
+  %len.addr.08.i17 = phi i64 [ %sub.i20, %while.body.i16 ], [ %8, %if.else ]
+  %buf.addr.07.i18 = phi ptr [ %add.ptr.i21, %while.body.i16 ], [ %17, %if.else ]
+  %call.i19 = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %16, ptr noundef %buf.addr.07.i18, i32 noundef -1) #4
+  %sub.i20 = add nsw i64 %len.addr.08.i17, -4294967295
+  %add.ptr.i21 = getelementptr i8, ptr %buf.addr.07.i18, i64 4294967295
+  %cmp.i22 = icmp ugt i64 %len.addr.08.i17, 8589934590
+  br i1 %cmp.i22, label %while.body.i16, label %sha3_update.exit23, !llvm.loop !4
 
-sha3_update.exit24:                               ; preds = %while.body.i17, %if.else
-  %buf.addr.0.lcssa.i13 = phi ptr [ %19, %if.else ], [ %add.ptr.i22, %while.body.i17 ]
-  %len.addr.0.lcssa.i14 = phi i64 [ %9, %if.else ], [ %sub.i21, %while.body.i17 ]
-  %conv.i15 = trunc i64 %len.addr.0.lcssa.i14 to i32
-  %call1.i16 = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %18, ptr noundef %buf.addr.0.lcssa.i13, i32 noundef %conv.i15) #4
+sha3_update.exit23:                               ; preds = %while.body.i16, %if.else
+  %buf.addr.0.lcssa.i12 = phi ptr [ %17, %if.else ], [ %add.ptr.i21, %while.body.i16 ]
+  %len.addr.0.lcssa.i13 = phi i64 [ %8, %if.else ], [ %sub.i20, %while.body.i16 ]
+  %conv.i14 = trunc i64 %len.addr.0.lcssa.i13 to i32
+  %call1.i15 = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %16, ptr noundef %buf.addr.0.lcssa.i12, i32 noundef %conv.i14) #4
   br label %if.end27
 
-if.end27:                                         ; preds = %sha3_update.exit24, %PyMutex_Unlock.exit
+if.end27:                                         ; preds = %sha3_update.exit23, %PyMutex_Unlock.exit
   call void @PyBuffer_Release(ptr noundef nonnull %buf) #4
   br label %return
 

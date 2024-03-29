@@ -250,13 +250,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i
-  %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx58.i, 32
+  %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx54.i, 32
   %cmp.not.i = icmp eq i64 %__begin1.0.add.i, 416
   br i1 %cmp.not.i, label %for.body6.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %__begin1.0.idx58.i = phi i64 [ 0, %entry ], [ %__begin1.0.add.i, %for.cond.i ]
-  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZL12kCipherTests, i64 %__begin1.0.idx58.i
+  %__begin1.0.idx54.i = phi i64 [ 0, %entry ], [ %__begin1.0.add.i, %for.cond.i ]
+  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZL12kCipherTests, i64 %__begin1.0.idx54.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ctx.i.i)
   %call.i.i = tail call ptr @TLS_method()
   %call1.i.i = tail call ptr @SSL_CTX_new(ptr noundef %call.i.i)
@@ -288,7 +288,7 @@ lpad.loopexit.i.i:                                ; preds = %invoke.cont28.i.i, 
           cleanup
   br label %common.resume.i
 
-lpad.loopexit.split-lp.i.loopexit.i:              ; preds = %for.inc.i.i, %for.inc.critedge.i.i, %if.then7.i.i, %for.body.i34.i
+lpad.loopexit.split-lp.i.loopexit.i:              ; preds = %for.inc.i.i, %for.inc.critedge.i.i, %if.then7.i.i, %for.body.i33.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -300,7 +300,7 @@ lpad.loopexit.split-lp.i.loopexit.split-lp.i:     ; preds = %if.then14.invoke.i.
 
 common.resume.i:                                  ; preds = %lpad.loopexit.split-lp.i17.i, %lpad.loopexit.i25.i, %lpad.i, %lpad.loopexit.split-lp.i.loopexit.split-lp.i, %lpad.loopexit.split-lp.i.loopexit.i, %lpad.loopexit.i.i
   %ctx.i11.sink.i = phi ptr [ %ctx.i, %lpad.i ], [ %ctx.i.i, %lpad.loopexit.split-lp.i.loopexit.i ], [ %ctx.i.i, %lpad.loopexit.split-lp.i.loopexit.split-lp.i ], [ %ctx.i.i, %lpad.loopexit.i.i ], [ %ctx.i11.i, %lpad.loopexit.split-lp.i17.i ], [ %ctx.i11.i, %lpad.loopexit.i25.i ]
-  %common.resume.op.i = phi { ptr, i32 } [ %41, %lpad.i ], [ %lpad.loopexit.i, %lpad.loopexit.split-lp.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad.loopexit.split-lp.i.loopexit.split-lp.i ], [ %lpad.loopexit22.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp9.i.i, %lpad.loopexit.split-lp.i17.i ], [ %lpad.loopexit8.i.i, %lpad.loopexit.i25.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %40, %lpad.i ], [ %lpad.loopexit.i, %lpad.loopexit.split-lp.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad.loopexit.split-lp.i.loopexit.split-lp.i ], [ %lpad.loopexit22.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp9.i.i, %lpad.loopexit.split-lp.i17.i ], [ %lpad.loopexit8.i.i, %lpad.loopexit.i25.i ]
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ctx.i11.sink.i) #26
   resume { ptr, i32 } %common.resume.op.i
 
@@ -337,140 +337,134 @@ if.then14.invoke.i.i:                             ; preds = %lor.lhs.false.i.i, 
   %call44.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.25, ptr noundef %8) #25
   %9 = load ptr, ptr %cipher_list.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %call12.i3243.i = invoke i64 @sk_num(ptr noundef %10)
-          to label %call12.i32.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i
+  %call14.i39.i = invoke i64 @sk_num(ptr noundef %10)
+          to label %call14.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i
 
-call12.i32.noexc.i:                               ; preds = %if.then14.invoke.i.i
-  %cmp13.not.i.i = icmp eq i64 %call12.i3243.i, 0
-  br i1 %cmp13.not.i.i, label %if.then.i.i.i, label %for.body.lr.ph.i.i
+call14.i.noexc.i:                                 ; preds = %if.then14.invoke.i.i
+  %cmp15.not.i.i = icmp eq i64 %call14.i39.i, 0
+  br i1 %cmp15.not.i.i, label %if.then.i.i.i, label %for.body.lr.ph.i.i
 
-for.body.lr.ph.i.i:                               ; preds = %call12.i32.noexc.i
-  %in_group_flags.i33.i = getelementptr inbounds i8, ptr %9, i64 8
-  br label %for.body.i34.i
+for.body.lr.ph.i.i:                               ; preds = %call14.i.noexc.i
+  %in_group_flags.i32.i = getelementptr inbounds i8, ptr %9, i64 8
+  br label %for.body.i33.i
 
-for.body.i34.i:                                   ; preds = %call.i39.noexc.i, %for.body.lr.ph.i.i
-  %in_group.015.i.i = phi i8 [ 0, %for.body.lr.ph.i.i ], [ %in_group.2.i.i, %call.i39.noexc.i ]
-  %i.014.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i38.i, %call.i39.noexc.i ]
+for.body.i33.i:                                   ; preds = %call.i37.noexc.i, %for.body.lr.ph.i.i
+  %in_group.017.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %in_group.2.i.i, %call.i37.noexc.i ]
+  %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i36.i, %call.i37.noexc.i ]
   %11 = load ptr, ptr %9, align 8
-  %call2.i44.i = invoke ptr @sk_value(ptr noundef %11, i64 noundef %i.014.i.i)
+  %call2.i40.i = invoke ptr @sk_value(ptr noundef %11, i64 noundef %i.016.i.i)
           to label %call2.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
-call2.i.noexc.i:                                  ; preds = %for.body.i34.i
-  %12 = and i8 %in_group.015.i.i, 1
-  %tobool.not.i35.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i35.i, label %land.lhs.true.i.i, label %if.end.i36.i
+call2.i.noexc.i:                                  ; preds = %for.body.i33.i
+  br i1 %in_group.017.i.i, label %if.then7.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %call2.i.noexc.i
-  %13 = load ptr, ptr %in_group_flags.i33.i, align 8
-  %arrayidx.i41.i = getelementptr inbounds i8, ptr %13, i64 %i.014.i.i
-  %14 = load i8, ptr %arrayidx.i41.i, align 1
-  %tobool3.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool3.not.i.i, label %if.end.i36.i, label %if.then.i42.i
+  %12 = load ptr, ptr %in_group_flags.i32.i, align 8
+  %arrayidx.i34.i = getelementptr inbounds i8, ptr %12, i64 %i.016.i.i
+  %13 = load i8, ptr %arrayidx.i34.i, align 1
+  %tobool3.not.i.i = icmp eq i8 %13, 0
+  %14 = load ptr, ptr @stderr, align 8
+  br i1 %tobool3.not.i.i, label %for.inc.critedge.i.i, label %if.end.thread.i.i
 
-if.then.i42.i:                                    ; preds = %land.lhs.true.i.i
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 3, i64 1, ptr %15) #25
-  br label %if.end.i36.i
+if.end.thread.i.i:                                ; preds = %land.lhs.true.i.i
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 3, i64 1, ptr %14) #25
+  br label %if.then7.i.i
 
-if.end.i36.i:                                     ; preds = %if.then.i42.i, %land.lhs.true.i.i, %call2.i.noexc.i
-  %in_group.1.i.i = phi i8 [ %in_group.015.i.i, %call2.i.noexc.i ], [ 1, %if.then.i42.i ], [ %in_group.015.i.i, %land.lhs.true.i.i ]
+if.then7.i.i:                                     ; preds = %if.end.thread.i.i, %call2.i.noexc.i
+  %16 = load ptr, ptr @stderr, align 8
+  %fputc19.i.i = tail call i32 @fputc(i32 9, ptr %16)
   %17 = load ptr, ptr @stderr, align 8
-  %fputc.i.i = tail call i32 @fputc(i32 9, ptr %17)
-  %18 = and i8 %in_group.1.i.i, 1
-  %tobool6.not.i.i = icmp eq i8 %18, 0
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 2, i64 1, ptr %17) #25
   %19 = load ptr, ptr @stderr, align 8
-  br i1 %tobool6.not.i.i, label %for.inc.critedge.i.i, label %if.then7.i.i
-
-if.then7.i.i:                                     ; preds = %if.end.i36.i
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 2, i64 1, ptr %19) #25
-  %21 = load ptr, ptr @stderr, align 8
-  %call10.i45.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i44.i)
+  %call10.i41.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i40.i)
           to label %call10.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call10.i.noexc.i:                                 ; preds = %if.then7.i.i
-  %call11.i37.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.29, ptr noundef %call10.i45.i) #25
-  %22 = load ptr, ptr %in_group_flags.i33.i, align 8
-  %arrayidx15.i.i = getelementptr inbounds i8, ptr %22, i64 %i.014.i.i
-  %23 = load i8, ptr %arrayidx15.i.i, align 1
-  %tobool16.not.i.i = icmp eq i8 %23, 0
+  %call11.i35.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.29, ptr noundef %call10.i41.i) #25
+  %20 = load ptr, ptr %in_group_flags.i32.i, align 8
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %20, i64 %i.016.i.i
+  %21 = load i8, ptr %arrayidx15.i.i, align 1
+  %tobool16.not.i.i = icmp eq i8 %21, 0
   br i1 %tobool16.not.i.i, label %if.then17.i.i, label %for.inc.i.i
 
 if.then17.i.i:                                    ; preds = %call10.i.noexc.i
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 3, i64 1, ptr %24) #25
+  %22 = load ptr, ptr @stderr, align 8
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 3, i64 1, ptr %22) #25
   br label %for.inc.i.i
 
-for.inc.critedge.i.i:                             ; preds = %if.end.i36.i
-  %call10.c.i46.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i44.i)
+for.inc.critedge.i.i:                             ; preds = %land.lhs.true.i.i
+  %fputc.i.i = tail call i32 @fputc(i32 9, ptr %14)
+  %24 = load ptr, ptr @stderr, align 8
+  %call10.c.i42.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i40.i)
           to label %call10.c.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call10.c.i.noexc.i:                               ; preds = %for.inc.critedge.i.i
-  %call11.c.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.29, ptr noundef %call10.c.i46.i) #25
+  %call11.c.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.29, ptr noundef %call10.c.i42.i) #25
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %call10.c.i.noexc.i, %if.then17.i.i, %call10.i.noexc.i
-  %in_group.2.i.i = phi i8 [ %in_group.1.i.i, %call10.i.noexc.i ], [ 0, %if.then17.i.i ], [ %in_group.1.i.i, %call10.c.i.noexc.i ]
-  %26 = load ptr, ptr %9, align 8
-  %call.i3947.i = invoke i64 @sk_num(ptr noundef %26)
-          to label %call.i39.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
+  %in_group.2.i.i = phi i1 [ true, %call10.i.noexc.i ], [ false, %if.then17.i.i ], [ false, %call10.c.i.noexc.i ]
+  %25 = load ptr, ptr %9, align 8
+  %call.i3743.i = invoke i64 @sk_num(ptr noundef %25)
+          to label %call.i37.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
-call.i39.noexc.i:                                 ; preds = %for.inc.i.i
-  %inc.i38.i = add nuw i64 %i.014.i.i, 1
-  %cmp.i40.i = icmp ult i64 %inc.i38.i, %call.i3947.i
-  br i1 %cmp.i40.i, label %for.body.i34.i, label %if.then.i.i.i, !llvm.loop !7
+call.i37.noexc.i:                                 ; preds = %for.inc.i.i
+  %inc.i36.i = add nuw i64 %i.016.i.i, 1
+  %cmp.i38.i = icmp ult i64 %inc.i36.i, %call.i3743.i
+  br i1 %cmp.i38.i, label %for.body.i33.i, label %if.then.i.i.i, !llvm.loop !7
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %inc.i.i = add nuw i64 %i.029.i.i, 1
-  %27 = load ptr, ptr %_M_finish.i.i.i, align 16
-  %sub.ptr.lhs.cast.i14.i.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i15.i.i = ptrtoint ptr %32 to i64
+  %26 = load ptr, ptr %_M_finish.i.i.i, align 16
+  %sub.ptr.lhs.cast.i14.i.i = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i15.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i16.i.i = sub i64 %sub.ptr.lhs.cast.i14.i.i, %sub.ptr.rhs.cast.i15.i.i
   %sub.ptr.div.i17.i.i = ashr exact i64 %sub.ptr.sub.i16.i.i, 4
   %cmp24.i.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i17.i.i
   br i1 %cmp24.i.i, label %for.body.i.i, label %if.then.i.i.i, !llvm.loop !9
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
-  %28 = phi ptr [ %34, %for.cond.i.i ], [ %.pre.i.i, %for.body.preheader.i.i ]
+  %27 = phi ptr [ %33, %for.cond.i.i ], [ %.pre.i.i, %for.body.preheader.i.i ]
   %i.029.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %for.body.preheader.i.i ]
-  %29 = load ptr, ptr %28, align 8
-  %call29.i.i = invoke ptr @sk_value(ptr noundef %29, i64 noundef %i.029.i.i)
+  %28 = load ptr, ptr %27, align 8
+  %call29.i.i = invoke ptr @sk_value(ptr noundef %28, i64 noundef %i.029.i.i)
           to label %invoke.cont28.i.i unwind label %lpad.loopexit.i.i
 
 invoke.cont28.i.i:                                ; preds = %for.body.i.i
-  %30 = load ptr, ptr %expected.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %struct.ExpectedCipher, ptr %30, i64 %i.029.i.i
-  %31 = load i64, ptr %add.ptr.i.i.i, align 8
+  %29 = load ptr, ptr %expected.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %struct.ExpectedCipher, ptr %29, i64 %i.029.i.i
+  %30 = load i64, ptr %add.ptr.i.i.i, align 8
   %call33.i.i = invoke i32 @SSL_CIPHER_get_id(ptr noundef %call29.i.i)
           to label %invoke.cont32.i.i unwind label %lpad.loopexit.i.i
 
 invoke.cont32.i.i:                                ; preds = %invoke.cont28.i.i
   %conv.i.i = zext i32 %call33.i.i to i64
-  %cmp34.not.i.i = icmp eq i64 %31, %conv.i.i
+  %cmp34.not.i.i = icmp eq i64 %30, %conv.i.i
   br i1 %cmp34.not.i.i, label %lor.lhs.false.i.i, label %if.then14.invoke.i.i
 
 lor.lhs.false.i.i:                                ; preds = %invoke.cont32.i.i
-  %32 = load ptr, ptr %expected.i.i, align 8
-  %in_group_flag.i.i = getelementptr inbounds %struct.ExpectedCipher, ptr %32, i64 %i.029.i.i, i32 1
-  %33 = load i32, ptr %in_group_flag.i.i, align 8
-  %34 = load ptr, ptr %cipher_list.i.i, align 8
-  %in_group_flags.i.i = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load ptr, ptr %in_group_flags.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %35, i64 %i.029.i.i
-  %36 = load i8, ptr %arrayidx.i.i, align 1
-  %conv39.i.i = zext i8 %36 to i32
-  %cmp40.not.i.i = icmp eq i32 %33, %conv39.i.i
+  %31 = load ptr, ptr %expected.i.i, align 8
+  %in_group_flag.i.i = getelementptr inbounds %struct.ExpectedCipher, ptr %31, i64 %i.029.i.i, i32 1
+  %32 = load i32, ptr %in_group_flag.i.i, align 8
+  %33 = load ptr, ptr %cipher_list.i.i, align 8
+  %in_group_flags.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %in_group_flags.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %34, i64 %i.029.i.i
+  %35 = load i8, ptr %arrayidx.i.i, align 1
+  %conv39.i.i = zext i8 %35 to i32
+  %cmp40.not.i.i = icmp eq i32 %32, %conv39.i.i
   br i1 %cmp40.not.i.i, label %for.cond.i.i, label %if.then14.invoke.i.i
 
-if.then.i.i.i:                                    ; preds = %for.cond.i.i, %call.i39.noexc.i, %call12.i32.noexc.i, %for.cond.preheader.i.i, %if.then5.i.i
-  %retval.0.ph.i.i = phi i1 [ false, %if.then5.i.i ], [ true, %for.cond.preheader.i.i ], [ false, %call12.i32.noexc.i ], [ false, %call.i39.noexc.i ], [ true, %for.cond.i.i ]
+if.then.i.i.i:                                    ; preds = %for.cond.i.i, %call.i37.noexc.i, %call14.i.noexc.i, %for.cond.preheader.i.i, %if.then5.i.i
+  %retval.0.ph.i.i = phi i1 [ false, %if.then5.i.i ], [ true, %for.cond.preheader.i.i ], [ false, %call14.i.noexc.i ], [ false, %call.i37.noexc.i ], [ true, %for.cond.i.i ]
   invoke void @SSL_CTX_free(ptr noundef nonnull %call1.i.i)
           to label %_ZL14TestCipherRuleRK10CipherTest.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #27
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #27
   unreachable
 
 _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %if.then.i.i.i
@@ -478,14 +472,14 @@ _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %if.then.i.i.i
   br i1 %retval.0.ph.i.i, label %for.cond.i, label %_ZL15TestCipherRulesv.exit.thread
 
 for.cond4.i:                                      ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i
-  %__begin12.0.add.i = add nuw nsw i64 %__begin12.0.idx59.i, 8
+  %__begin12.0.add.i = add nuw nsw i64 %__begin12.0.idx55.i, 8
   %cmp5.not.i = icmp eq i64 %__begin12.0.add.i, 104
   br i1 %cmp5.not.i, label %for.body27.i, label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.cond.i, %for.cond4.i
-  %__begin12.0.idx59.i = phi i64 [ %__begin12.0.add.i, %for.cond4.i ], [ 0, %for.cond.i ]
-  %__begin12.0.ptr.i = getelementptr inbounds i8, ptr @_ZL9kBadRules, i64 %__begin12.0.idx59.i
-  %39 = load ptr, ptr %__begin12.0.ptr.i, align 8
+  %__begin12.0.idx55.i = phi i64 [ %__begin12.0.add.i, %for.cond4.i ], [ 0, %for.cond.i ]
+  %__begin12.0.ptr.i = getelementptr inbounds i8, ptr @_ZL9kBadRules, i64 %__begin12.0.idx55.i
+  %38 = load ptr, ptr %__begin12.0.ptr.i, align 8
   %call7.i = tail call ptr @SSLv23_server_method()
   %call8.i = tail call ptr @SSL_CTX_new(ptr noundef %call7.i)
   store ptr %call8.i, ptr %ctx.i, align 8
@@ -493,7 +487,7 @@ for.body6.i:                                      ; preds = %for.cond.i, %for.co
   br i1 %cmp.i.not.i, label %_ZL15TestCipherRulesv.exit.thread, label %if.end11.i
 
 if.end11.i:                                       ; preds = %for.body6.i
-  %call13.i = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %call8.i, ptr noundef %39)
+  %call13.i = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %call8.i, ptr noundef %38)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end11.i
@@ -501,12 +495,12 @@ invoke.cont.i:                                    ; preds = %if.end11.i
   br i1 %tobool.not.not.i, label %if.end17.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %invoke.cont.i
-  %40 = load ptr, ptr @stderr, align 8
-  %call16.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.23, ptr noundef %39) #25
+  %39 = load ptr, ptr @stderr, align 8
+  %call16.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.23, ptr noundef %38) #25
   br label %if.then.i.i
 
 lpad.i:                                           ; preds = %if.end17.i, %if.end11.i
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
@@ -519,10 +513,10 @@ if.then.i.i:                                      ; preds = %if.end17.i, %if.the
           to label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #27
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #27
   unreachable
 
 _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i: ; preds = %if.then.i.i
@@ -530,14 +524,14 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   br i1 %tobool.not.not.i, label %for.cond4.i, label %_ZL15TestCipherRulesv.exit.thread
 
 for.cond25.i:                                     ; preds = %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i
-  %__begin123.0.add.i = add nuw nsw i64 %__begin123.0.idx60.i, 8
+  %__begin123.0.add.i = add nuw nsw i64 %__begin123.0.idx56.i, 8
   %cmp26.not.i = icmp eq i64 %__begin123.0.add.i, 104
   br i1 %cmp26.not.i, label %lor.lhs.false, label %for.body27.i
 
 for.body27.i:                                     ; preds = %for.cond4.i, %for.cond25.i
-  %__begin123.0.idx60.i = phi i64 [ %__begin123.0.add.i, %for.cond25.i ], [ 0, %for.cond4.i ]
-  %__begin123.0.ptr.i = getelementptr inbounds i8, ptr @_ZL19kMustNotIncludeNull, i64 %__begin123.0.idx60.i
-  %44 = load ptr, ptr %__begin123.0.ptr.i, align 8
+  %__begin123.0.idx56.i = phi i64 [ %__begin123.0.add.i, %for.cond25.i ], [ 0, %for.cond4.i ]
+  %__begin123.0.ptr.i = getelementptr inbounds i8, ptr @_ZL19kMustNotIncludeNull, i64 %__begin123.0.idx56.i
+  %43 = load ptr, ptr %__begin123.0.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ctx.i11.i)
   %call.i12.i = tail call ptr @SSLv23_server_method()
   %call1.i13.i = tail call ptr @SSL_CTX_new(ptr noundef %call.i12.i)
@@ -550,7 +544,7 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %for.body27.i
   br label %_ZL15TestCipherRulesv.exit.thread
 
 if.end.i15.i:                                     ; preds = %for.body27.i
-  %call4.i16.i = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %call1.i13.i, ptr noundef %44)
+  %call4.i16.i = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %call1.i13.i, ptr noundef %43)
           to label %invoke.cont.i20.i unwind label %lpad.loopexit.split-lp.i17.i
 
 invoke.cont.i20.i:                                ; preds = %if.end.i15.i
@@ -573,9 +567,9 @@ lpad.loopexit.split-lp.i17.i:                     ; preds = %if.end.i15.i
 
 for.cond.i24.i:                                   ; preds = %invoke.cont17.i.i, %for.cond.preheader.i22.i
   %i.0.i.i = phi i64 [ %inc.i31.i, %invoke.cont17.i.i ], [ 0, %for.cond.preheader.i22.i ]
-  %45 = load ptr, ptr %cipher_list.i23.i, align 8
-  %46 = load ptr, ptr %45, align 8
-  %call11.i.i = invoke i64 @sk_num(ptr noundef %46)
+  %44 = load ptr, ptr %cipher_list.i23.i, align 8
+  %45 = load ptr, ptr %44, align 8
+  %call11.i.i = invoke i64 @sk_num(ptr noundef %45)
           to label %invoke.cont10.i.i unwind label %lpad.loopexit.i25.i
 
 invoke.cont10.i.i:                                ; preds = %for.cond.i24.i
@@ -583,9 +577,9 @@ invoke.cont10.i.i:                                ; preds = %for.cond.i24.i
   br i1 %cmp.i26.i, label %for.body.i30.i, label %if.then.i.i27.i
 
 for.body.i30.i:                                   ; preds = %invoke.cont10.i.i
-  %47 = load ptr, ptr %cipher_list.i23.i, align 8
-  %48 = load ptr, ptr %47, align 8
-  %call16.i.i = invoke ptr @sk_value(ptr noundef %48, i64 noundef %i.0.i.i)
+  %46 = load ptr, ptr %cipher_list.i23.i, align 8
+  %47 = load ptr, ptr %46, align 8
+  %call16.i.i = invoke ptr @sk_value(ptr noundef %47, i64 noundef %i.0.i.i)
           to label %invoke.cont15.i.i unwind label %lpad.loopexit.i25.i
 
 invoke.cont15.i.i:                                ; preds = %for.body.i30.i
@@ -599,8 +593,8 @@ invoke.cont17.i.i:                                ; preds = %invoke.cont15.i.i
 
 if.then.i.sink.split.i.i:                         ; preds = %invoke.cont17.i.i, %invoke.cont.i20.i
   %.str.57.sink.i.i = phi ptr [ @.str.57, %invoke.cont.i20.i ], [ @.str.58, %invoke.cont17.i.i ]
-  %49 = load ptr, ptr @stderr, align 8
-  %call7.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull %.str.57.sink.i.i, ptr noundef %44) #25
+  %48 = load ptr, ptr @stderr, align 8
+  %call7.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull %.str.57.sink.i.i, ptr noundef %43) #25
   br label %if.then.i.i27.i
 
 if.then.i.i27.i:                                  ; preds = %invoke.cont10.i.i, %if.then.i.sink.split.i.i
@@ -609,10 +603,10 @@ if.then.i.i27.i:                                  ; preds = %invoke.cont10.i.i, 
           to label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i unwind label %terminate.lpad.i.i29.i
 
 terminate.lpad.i.i29.i:                           ; preds = %if.then.i.i27.i
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #27
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #27
   unreachable
 
 _ZL26TestRuleDoesNotIncludeNullPKc.exit.i:        ; preds = %if.then.i.i27.i
@@ -656,14 +650,14 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false10
 
 if.end.i:                                         ; preds = %lor.lhs.false12
   %min_version.i = getelementptr inbounds i8, ptr %call1.i, i64 66
-  %52 = load i16, ptr %min_version.i, align 2
-  %cmp.i = icmp eq i16 %52, 0
+  %51 = load i16, ptr %min_version.i, align 2
+  %cmp.i = icmp eq i16 %51, 0
   br i1 %cmp.i, label %land.rhs.i, label %if.then.i.i2
 
 land.rhs.i:                                       ; preds = %if.end.i
   %max_version.i = getelementptr inbounds i8, ptr %call1.i, i64 64
-  %53 = load i16, ptr %max_version.i, align 8
-  %cmp8.i = icmp eq i16 %53, 0
+  %52 = load i16, ptr %max_version.i, align 8
+  %cmp8.i = icmp eq i16 %52, 0
   br label %if.then.i.i2
 
 if.then.i.i2:                                     ; preds = %land.rhs.i, %if.end.i
@@ -672,10 +666,10 @@ if.then.i.i2:                                     ; preds = %land.rhs.i, %if.end
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit unwind label %terminate.lpad.i.i3
 
 terminate.lpad.i.i3:                              ; preds = %if.then.i.i2
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #27
+  %54 = extractvalue { ptr, i32 } %53, 0
+  tail call void @__clang_call_terminate(ptr %54) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit: ; preds = %if.then.i.i2
@@ -689,14 +683,14 @@ lor.lhs.false14:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i8:                                        ; preds = %lor.lhs.false14
   %min_version.i9 = getelementptr inbounds i8, ptr %call1.i6, i64 66
-  %56 = load i16, ptr %min_version.i9, align 2
-  %cmp.i10 = icmp eq i16 %56, 768
+  %55 = load i16, ptr %min_version.i9, align 2
+  %cmp.i10 = icmp eq i16 %55, 768
   br i1 %cmp.i10, label %land.rhs.i16, label %if.then.i.i11
 
 land.rhs.i16:                                     ; preds = %if.end.i8
   %max_version.i17 = getelementptr inbounds i8, ptr %call1.i6, i64 64
-  %57 = load i16, ptr %max_version.i17, align 8
-  %cmp8.i18 = icmp eq i16 %57, 768
+  %56 = load i16, ptr %max_version.i17, align 8
+  %cmp8.i18 = icmp eq i16 %56, 768
   br label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %land.rhs.i16, %if.end.i8
@@ -705,10 +699,10 @@ if.then.i.i11:                                    ; preds = %land.rhs.i16, %if.e
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit19 unwind label %terminate.lpad.i.i13
 
 terminate.lpad.i.i13:                             ; preds = %if.then.i.i11
-  %58 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #27
+  %58 = extractvalue { ptr, i32 } %57, 0
+  tail call void @__clang_call_terminate(ptr %58) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit19: ; preds = %if.then.i.i11
@@ -722,14 +716,14 @@ lor.lhs.false16:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i23:                                       ; preds = %lor.lhs.false16
   %min_version.i24 = getelementptr inbounds i8, ptr %call1.i21, i64 66
-  %60 = load i16, ptr %min_version.i24, align 2
-  %cmp.i25 = icmp eq i16 %60, 769
+  %59 = load i16, ptr %min_version.i24, align 2
+  %cmp.i25 = icmp eq i16 %59, 769
   br i1 %cmp.i25, label %land.rhs.i31, label %if.then.i.i26
 
 land.rhs.i31:                                     ; preds = %if.end.i23
   %max_version.i32 = getelementptr inbounds i8, ptr %call1.i21, i64 64
-  %61 = load i16, ptr %max_version.i32, align 8
-  %cmp8.i33 = icmp eq i16 %61, 769
+  %60 = load i16, ptr %max_version.i32, align 8
+  %cmp8.i33 = icmp eq i16 %60, 769
   br label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %land.rhs.i31, %if.end.i23
@@ -738,10 +732,10 @@ if.then.i.i26:                                    ; preds = %land.rhs.i31, %if.e
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit34 unwind label %terminate.lpad.i.i28
 
 terminate.lpad.i.i28:                             ; preds = %if.then.i.i26
-  %62 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #27
+  %62 = extractvalue { ptr, i32 } %61, 0
+  tail call void @__clang_call_terminate(ptr %62) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit34: ; preds = %if.then.i.i26
@@ -755,14 +749,14 @@ lor.lhs.false18:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i38:                                       ; preds = %lor.lhs.false18
   %min_version.i39 = getelementptr inbounds i8, ptr %call1.i36, i64 66
-  %64 = load i16, ptr %min_version.i39, align 2
-  %cmp.i40 = icmp eq i16 %64, 770
+  %63 = load i16, ptr %min_version.i39, align 2
+  %cmp.i40 = icmp eq i16 %63, 770
   br i1 %cmp.i40, label %land.rhs.i46, label %if.then.i.i41
 
 land.rhs.i46:                                     ; preds = %if.end.i38
   %max_version.i47 = getelementptr inbounds i8, ptr %call1.i36, i64 64
-  %65 = load i16, ptr %max_version.i47, align 8
-  %cmp8.i48 = icmp eq i16 %65, 770
+  %64 = load i16, ptr %max_version.i47, align 8
+  %cmp8.i48 = icmp eq i16 %64, 770
   br label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %land.rhs.i46, %if.end.i38
@@ -771,10 +765,10 @@ if.then.i.i41:                                    ; preds = %land.rhs.i46, %if.e
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit49 unwind label %terminate.lpad.i.i43
 
 terminate.lpad.i.i43:                             ; preds = %if.then.i.i41
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  tail call void @__clang_call_terminate(ptr %67) #27
+  %66 = extractvalue { ptr, i32 } %65, 0
+  tail call void @__clang_call_terminate(ptr %66) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit49: ; preds = %if.then.i.i41
@@ -788,14 +782,14 @@ lor.lhs.false20:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i53:                                       ; preds = %lor.lhs.false20
   %min_version.i54 = getelementptr inbounds i8, ptr %call1.i51, i64 66
-  %68 = load i16, ptr %min_version.i54, align 2
-  %cmp.i55 = icmp eq i16 %68, 771
+  %67 = load i16, ptr %min_version.i54, align 2
+  %cmp.i55 = icmp eq i16 %67, 771
   br i1 %cmp.i55, label %land.rhs.i61, label %if.then.i.i56
 
 land.rhs.i61:                                     ; preds = %if.end.i53
   %max_version.i62 = getelementptr inbounds i8, ptr %call1.i51, i64 64
-  %69 = load i16, ptr %max_version.i62, align 8
-  %cmp8.i63 = icmp eq i16 %69, 771
+  %68 = load i16, ptr %max_version.i62, align 8
+  %cmp8.i63 = icmp eq i16 %68, 771
   br label %if.then.i.i56
 
 if.then.i.i56:                                    ; preds = %land.rhs.i61, %if.end.i53
@@ -804,10 +798,10 @@ if.then.i.i56:                                    ; preds = %land.rhs.i61, %if.e
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit64 unwind label %terminate.lpad.i.i58
 
 terminate.lpad.i.i58:                             ; preds = %if.then.i.i56
-  %70 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #27
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit64: ; preds = %if.then.i.i56
@@ -821,14 +815,14 @@ lor.lhs.false22:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i68:                                       ; preds = %lor.lhs.false22
   %min_version.i69 = getelementptr inbounds i8, ptr %call1.i66, i64 66
-  %72 = load i16, ptr %min_version.i69, align 2
-  %cmp.i70 = icmp eq i16 %72, 0
+  %71 = load i16, ptr %min_version.i69, align 2
+  %cmp.i70 = icmp eq i16 %71, 0
   br i1 %cmp.i70, label %land.rhs.i76, label %if.then.i.i71
 
 land.rhs.i76:                                     ; preds = %if.end.i68
   %max_version.i77 = getelementptr inbounds i8, ptr %call1.i66, i64 64
-  %73 = load i16, ptr %max_version.i77, align 8
-  %cmp8.i78 = icmp eq i16 %73, 0
+  %72 = load i16, ptr %max_version.i77, align 8
+  %cmp8.i78 = icmp eq i16 %72, 0
   br label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %land.rhs.i76, %if.end.i68
@@ -837,10 +831,10 @@ if.then.i.i71:                                    ; preds = %land.rhs.i76, %if.e
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit79 unwind label %terminate.lpad.i.i73
 
 terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
-  %74 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #27
+  %74 = extractvalue { ptr, i32 } %73, 0
+  tail call void @__clang_call_terminate(ptr %74) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit79: ; preds = %if.then.i.i71
@@ -854,14 +848,14 @@ lor.lhs.false24:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i83:                                       ; preds = %lor.lhs.false24
   %min_version.i84 = getelementptr inbounds i8, ptr %call1.i81, i64 66
-  %76 = load i16, ptr %min_version.i84, align 2
-  %cmp.i85 = icmp eq i16 %76, -257
+  %75 = load i16, ptr %min_version.i84, align 2
+  %cmp.i85 = icmp eq i16 %75, -257
   br i1 %cmp.i85, label %land.rhs.i91, label %if.then.i.i86
 
 land.rhs.i91:                                     ; preds = %if.end.i83
   %max_version.i92 = getelementptr inbounds i8, ptr %call1.i81, i64 64
-  %77 = load i16, ptr %max_version.i92, align 8
-  %cmp8.i93 = icmp eq i16 %77, -257
+  %76 = load i16, ptr %max_version.i92, align 8
+  %cmp8.i93 = icmp eq i16 %76, -257
   br label %if.then.i.i86
 
 if.then.i.i86:                                    ; preds = %land.rhs.i91, %if.end.i83
@@ -870,10 +864,10 @@ if.then.i.i86:                                    ; preds = %land.rhs.i91, %if.e
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit94 unwind label %terminate.lpad.i.i88
 
 terminate.lpad.i.i88:                             ; preds = %if.then.i.i86
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #27
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit94: ; preds = %if.then.i.i86
@@ -887,14 +881,14 @@ lor.lhs.false26:                                  ; preds = %_ZL18TestDefaultVer
 
 if.end.i98:                                       ; preds = %lor.lhs.false26
   %min_version.i99 = getelementptr inbounds i8, ptr %call1.i96, i64 66
-  %80 = load i16, ptr %min_version.i99, align 2
-  %cmp.i100 = icmp eq i16 %80, -259
+  %79 = load i16, ptr %min_version.i99, align 2
+  %cmp.i100 = icmp eq i16 %79, -259
   br i1 %cmp.i100, label %land.rhs.i106, label %if.then.i.i101
 
 land.rhs.i106:                                    ; preds = %if.end.i98
   %max_version.i107 = getelementptr inbounds i8, ptr %call1.i96, i64 64
-  %81 = load i16, ptr %max_version.i107, align 8
-  %cmp8.i108 = icmp eq i16 %81, -259
+  %80 = load i16, ptr %max_version.i107, align 8
+  %cmp8.i108 = icmp eq i16 %80, -259
   br label %if.then.i.i101
 
 if.then.i.i101:                                   ; preds = %land.rhs.i106, %if.end.i98
@@ -903,10 +897,10 @@ if.then.i.i101:                                   ; preds = %land.rhs.i106, %if.
           to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit109 unwind label %terminate.lpad.i.i103
 
 terminate.lpad.i.i103:                            ; preds = %if.then.i.i101
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #27
+  %82 = extractvalue { ptr, i32 } %81, 0
+  tail call void @__clang_call_terminate(ptr %82) #27
   unreachable
 
 _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit109: ; preds = %if.then.i.i101
@@ -937,8 +931,8 @@ lor.lhs.false38:                                  ; preds = %lor.lhs.false36
   br i1 %call39, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false26, %lor.lhs.false24, %lor.lhs.false22, %lor.lhs.false20, %lor.lhs.false18, %lor.lhs.false16, %lor.lhs.false14, %lor.lhs.false12, %_ZL15TestCipherRulesv.exit.thread, %lor.lhs.false38, %lor.lhs.false36, %lor.lhs.false34, %lor.lhs.false32, %lor.lhs.false30, %lor.lhs.false28, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit109, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit94, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit79, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit64, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit49, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit34, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit19, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit, %lor.lhs.false10, %lor.lhs.false8, %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false
-  %84 = load ptr, ptr @stderr, align 8
-  tail call void @ERR_print_errors_fp(ptr noundef %84)
+  %83 = load ptr, ptr @stderr, align 8
+  tail call void @ERR_print_errors_fp(ptr noundef %83)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false38

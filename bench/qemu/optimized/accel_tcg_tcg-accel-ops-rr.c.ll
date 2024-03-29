@@ -63,9 +63,8 @@ define dso_local void @rr_start_vcpu_thread(ptr noundef %cpu) local_unnamed_addr
 entry:
   %thread_name = alloca [16 x i8], align 16
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %do.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @__func__.rr_start_vcpu_thread, ptr noundef nonnull @.str.1) #9
@@ -73,8 +72,8 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @tcg_cpu_init_cflags(ptr noundef %cpu, i1 noundef zeroext false) #8
-  %2 = load ptr, ptr @rr_start_vcpu_thread.single_tcg_cpu_thread, align 8
-  %tobool1.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr @rr_start_vcpu_thread.single_tcg_cpu_thread, align 8
+  %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then2, label %if.else10
 
 if.then2:                                         ; preds = %do.end
@@ -86,27 +85,27 @@ if.then2:                                         ; preds = %do.end
   store ptr %call3, ptr %halt_cond, align 16
   tail call void @qemu_cond_init(ptr noundef %call3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %thread_name, ptr noundef nonnull align 1 dereferenceable(13) @.str.2, i64 13, i1 false)
-  %3 = load ptr, ptr %thread, align 16
-  call void @qemu_thread_create(ptr noundef %3, ptr noundef nonnull %thread_name, ptr noundef nonnull @rr_cpu_thread_fn, ptr noundef %cpu, i32 noundef 0) #8
-  %4 = load ptr, ptr %halt_cond, align 16
-  store ptr %4, ptr @rr_start_vcpu_thread.single_tcg_halt_cond, align 8
-  %5 = load ptr, ptr %thread, align 16
-  store ptr %5, ptr @rr_start_vcpu_thread.single_tcg_cpu_thread, align 8
+  %2 = load ptr, ptr %thread, align 16
+  call void @qemu_thread_create(ptr noundef %2, ptr noundef nonnull %thread_name, ptr noundef nonnull @rr_cpu_thread_fn, ptr noundef %cpu, i32 noundef 0) #8
+  %3 = load ptr, ptr %halt_cond, align 16
+  store ptr %3, ptr @rr_start_vcpu_thread.single_tcg_halt_cond, align 8
+  %4 = load ptr, ptr %thread, align 16
+  store ptr %4, ptr @rr_start_vcpu_thread.single_tcg_cpu_thread, align 8
   br label %if.end16
 
 if.else10:                                        ; preds = %do.end
   %thread11 = getelementptr inbounds i8, ptr %cpu, i64 176
-  store ptr %2, ptr %thread11, align 16
-  %6 = load ptr, ptr @rr_start_vcpu_thread.single_tcg_halt_cond, align 8
+  store ptr %1, ptr %thread11, align 16
+  %5 = load ptr, ptr @rr_start_vcpu_thread.single_tcg_halt_cond, align 8
   %halt_cond12 = getelementptr inbounds i8, ptr %cpu, i64 192
-  store ptr %6, ptr %halt_cond12, align 16
-  %7 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
+  store ptr %5, ptr %halt_cond12, align 16
+  %6 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %7 = inttoptr i64 %6 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %thread_id = getelementptr inbounds i8, ptr %8, i64 184
-  %9 = load i32, ptr %thread_id, align 8
+  %thread_id = getelementptr inbounds i8, ptr %7, i64 184
+  %8 = load i32, ptr %thread_id, align 8
   %thread_id15 = getelementptr inbounds i8, ptr %cpu, i64 184
-  store i32 %9, ptr %thread_id15, align 8
+  store i32 %8, ptr %thread_id15, align 8
   %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
   store i8 1, ptr %can_do_io, align 4
   %created = getelementptr inbounds i8, ptr %cpu, i64 201
@@ -131,9 +130,8 @@ define internal noundef ptr @rr_cpu_thread_fn(ptr noundef %arg) #4 {
 entry:
   %force_rcu = alloca %struct.Notifier, align 8
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @__PRETTY_FUNCTION__.rr_cpu_thread_fn) #9
@@ -146,8 +144,8 @@ if.end:                                           ; preds = %entry
   call void @tcg_register_thread() #8
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 191) #8
   %thread = getelementptr inbounds i8, ptr %arg, i64 176
-  %2 = load ptr, ptr %thread, align 16
-  call void @qemu_thread_get_self(ptr noundef %2) #8
+  %1 = load ptr, ptr %thread, align 16
+  call void @qemu_thread_get_self(ptr noundef %1) #8
   %call = call i32 @qemu_get_thread_id() #8
   %thread_id = getelementptr inbounds i8, ptr %arg, i64 184
   store i32 %call, ptr %thread_id, align 8
@@ -155,95 +153,93 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %can_do_io, align 4
   call void @cpu_thread_signal_created(ptr noundef %arg) #8
   %random_seed = getelementptr inbounds i8, ptr %arg, i64 240
-  %3 = load i64, ptr %random_seed, align 16
-  call void @qemu_guest_random_seed_thread_part2(i64 noundef %3) #8
-  %4 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
+  %2 = load i64, ptr %random_seed, align 16
+  call void @qemu_guest_random_seed_thread_part2(i64 noundef %2) #8
+  %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
-  %stopped62 = getelementptr inbounds i8, ptr %5, i64 203
-  %6 = load i8, ptr %stopped62, align 1
-  %7 = and i8 %6, 1
-  %tobool2.not63 = icmp eq i8 %7, 0
-  %.pre = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  br i1 %tobool2.not63, label %while.end23, label %while.end8
+  %stopped62 = getelementptr inbounds i8, ptr %4, i64 203
+  %5 = load i8, ptr %stopped62, align 1
+  %tobool263 = trunc i8 %5 to i1
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  br i1 %tobool263, label %while.end8, label %while.end23
 
 while.cond.loopexit:                              ; preds = %for.body, %while.end8
-  %8 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %7 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %8 = inttoptr i64 %7 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
-  %stopped = getelementptr inbounds i8, ptr %9, i64 203
-  %10 = load i8, ptr %stopped, align 1
-  %11 = and i8 %10, 1
-  %tobool2.not = icmp eq i8 %11, 0
-  br i1 %tobool2.not, label %while.end23, label %while.end8, !llvm.loop !11
+  %stopped = getelementptr inbounds i8, ptr %8, i64 203
+  %9 = load i8, ptr %stopped, align 1
+  %tobool2 = trunc i8 %9 to i1
+  br i1 %tobool2, label %while.end8, label %while.end23, !llvm.loop !11
 
 while.end8:                                       ; preds = %if.end, %while.cond.loopexit
-  %12 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %13 = inttoptr i64 %12 to ptr
+  %10 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %11 = inttoptr i64 %10 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
-  %halt_cond = getelementptr inbounds i8, ptr %13, i64 192
-  %14 = load ptr, ptr %halt_cond, align 16
-  call void @qemu_cond_wait_iothread(ptr noundef %14) #8
-  %15 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %halt_cond = getelementptr inbounds i8, ptr %11, i64 192
+  %12 = load ptr, ptr %halt_cond, align 16
+  call void @qemu_cond_wait_iothread(ptr noundef %12) #8
+  %13 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  %tobool16.not60 = icmp eq i64 %15, 0
+  %tobool16.not60 = icmp eq i64 %13, 0
   br i1 %tobool16.not60, label %while.cond.loopexit, label %for.body
 
 for.body:                                         ; preds = %while.end8, %for.body
-  %cpu.0.in61 = phi i64 [ %16, %for.body ], [ %15, %while.end8 ]
+  %cpu.0.in61 = phi i64 [ %14, %for.body ], [ %13, %while.end8 ]
   %cpu.0 = inttoptr i64 %cpu.0.in61 to ptr
-  store ptr %cpu.0, ptr %.pre, align 8
+  store ptr %cpu.0, ptr %6, align 8
   call void @qemu_wait_io_event_common(ptr noundef nonnull %cpu.0) #8
   %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
-  %16 = load atomic i64, ptr %node monotonic, align 8
+  %14 = load atomic i64, ptr %node monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
-  %tobool16.not = icmp eq i64 %16, 0
+  %tobool16.not = icmp eq i64 %14, 0
   br i1 %tobool16.not, label %while.cond.loopexit, label %for.body, !llvm.loop !15
 
 while.end23:                                      ; preds = %while.cond.loopexit, %if.end
   call fastcc void @rr_start_kick_timer()
-  %17 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %18 = inttoptr i64 %17 to ptr
+  %15 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %16 = inttoptr i64 %15 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
-  %exit_request = getelementptr inbounds i8, ptr %18, i64 207
+  %exit_request = getelementptr inbounds i8, ptr %16, i64 207
   store i8 1, ptr %exit_request, align 1
   br label %while.body31
 
 while.body31:                                     ; preds = %while.body31.backedge, %while.end23
-  %cpu.1 = phi ptr [ %18, %while.end23 ], [ %cpu.450, %while.body31.backedge ]
+  %cpu.1 = phi ptr [ %16, %while.end23 ], [ %cpu.450, %while.body31.backedge ]
   call void @qemu_mutex_unlock_iothread() #8
   call void @replay_mutex_lock() #8
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 223) #8
-  %19 = load i32, ptr @use_icount, align 4
-  %tobool32.not = icmp eq i32 %19, 0
+  %17 = load i32, ptr @use_icount, align 4
+  %tobool32.not = icmp eq i32 %17, 0
   br i1 %tobool32.not, label %if.end36, label %if.then33
 
 if.then33:                                        ; preds = %while.body31
-  %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %21 = inttoptr i64 %20 to ptr
-  call void %21(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #8
+  %18 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %19 = inttoptr i64 %18 to ptr
+  call void %19(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #8
   %call2.i = call i32 @cpu_list_generation_id_get() #8
-  %22 = load i32, ptr @rr_cpu_count.last_gen_id, align 4
-  %cmp.not.i = icmp eq i32 %call2.i, %22
+  %20 = load i32, ptr @rr_cpu_count.last_gen_id, align 4
+  %cmp.not.i = icmp eq i32 %call2.i, %20
   br i1 %cmp.not.i, label %rr_cpu_count.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then33
   store i32 0, ptr @rr_cpu_count.cpu_count, align 4
-  %23 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %21 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
-  %tobool.not2.i = icmp eq i64 %23, 0
+  %tobool.not2.i = icmp eq i64 %21, 0
   br i1 %tobool.not2.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
-  %cpu.0.in3.i = phi i64 [ %25, %for.body.i ], [ %23, %if.then.i ]
+  %cpu.0.in3.i = phi i64 [ %23, %for.body.i ], [ %21, %if.then.i ]
   %cpu.0.i = inttoptr i64 %cpu.0.in3.i to ptr
-  %24 = load i32, ptr @rr_cpu_count.cpu_count, align 4
-  %inc.i = add i32 %24, 1
+  %22 = load i32, ptr @rr_cpu_count.cpu_count, align 4
+  %inc.i = add i32 %22, 1
   store i32 %inc.i, ptr @rr_cpu_count.cpu_count, align 4
   %node.i = getelementptr inbounds i8, ptr %cpu.0.i, i64 568
-  %25 = load atomic i64, ptr %node.i monotonic, align 8
+  %23 = load atomic i64, ptr %node.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
-  %tobool.not.i = icmp eq i64 %25, 0
+  %tobool.not.i = icmp eq i64 %23, 0
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %for.body.i, %if.then.i
@@ -252,11 +248,11 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   br label %rr_cpu_count.exit
 
 rr_cpu_count.exit:                                ; preds = %if.then33, %for.end.i
-  %26 = load i32, ptr @rr_cpu_count.cpu_count, align 4
+  %24 = load i32, ptr @rr_cpu_count.cpu_count, align 4
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #8
   call void @icount_account_warp_timer() #8
   call void @icount_handle_deadline() #8
-  %call35 = call i64 @icount_percpu_budget(i32 noundef %26) #8
+  %call35 = call i64 @icount_percpu_budget(i32 noundef %24) #8
   br label %if.end36
 
 if.end36:                                         ; preds = %rr_cpu_count.exit, %while.body31
@@ -266,14 +262,14 @@ if.end36:                                         ; preds = %rr_cpu_count.exit, 
   br i1 %tobool37.not, label %if.end45, label %land.lhs.true.preheader
 
 if.end45:                                         ; preds = %if.end36
-  %27 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %28 = inttoptr i64 %27 to ptr
+  %25 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %26 = inttoptr i64 %25 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !20
-  %tobool47.not64 = icmp eq i64 %27, 0
+  %tobool47.not64 = icmp eq i64 %25, 0
   br i1 %tobool47.not64, label %while.end103.thread51, label %land.lhs.true.preheader
 
 land.lhs.true.preheader:                          ; preds = %if.end36, %if.end45
-  %cpu.365.ph = phi ptr [ %cpu.1, %if.end36 ], [ %28, %if.end45 ]
+  %cpu.365.ph = phi ptr [ %cpu.1, %if.end36 ], [ %26, %if.end45 ]
   br label %land.lhs.true
 
 while.end103.thread51:                            ; preds = %while.end94, %if.end45
@@ -281,25 +277,24 @@ while.end103.thread51:                            ; preds = %while.end94, %if.en
   br label %if.end125
 
 land.lhs.true:                                    ; preds = %land.lhs.true.preheader, %while.end94
-  %cpu.365 = phi ptr [ %41, %while.end94 ], [ %cpu.365.ph, %land.lhs.true.preheader ]
+  %cpu.365 = phi ptr [ %36, %while.end94 ], [ %cpu.365.ph, %land.lhs.true.preheader ]
   %call48 = call zeroext i1 @cpu_work_list_empty(ptr noundef nonnull %cpu.365) #8
   br i1 %call48, label %land.rhs, label %while.end103.thread
 
 land.rhs:                                         ; preds = %land.lhs.true
   %exit_request49 = getelementptr inbounds i8, ptr %cpu.365, i64 207
-  %29 = load i8, ptr %exit_request49, align 1
-  %30 = and i8 %29, 1
-  %tobool50.not = icmp eq i8 %30, 0
-  br i1 %tobool50.not, label %while.end56, label %while.end103.thread
+  %27 = load i8, ptr %exit_request49, align 1
+  %tobool50 = trunc i8 %27 to i1
+  br i1 %tobool50, label %while.end103.thread, label %while.end56
 
 while.end56:                                      ; preds = %land.rhs
-  %31 = ptrtoint ptr %cpu.365 to i64
-  %32 = atomicrmw xchg ptr @rr_current_cpu, i64 %31 seq_cst, align 8
+  %28 = ptrtoint ptr %cpu.365 to i64
+  %29 = atomicrmw xchg ptr @rr_current_cpu, i64 %28 seq_cst, align 8
   fence syncscope("singlethread") seq_cst
-  store ptr %cpu.365, ptr %.pre, align 8
+  store ptr %cpu.365, ptr %6, align 8
   %singlestep_enabled = getelementptr inbounds i8, ptr %cpu.365, i64 220
-  %33 = load i32, ptr %singlestep_enabled, align 4
-  %and = and i32 %33, 4
+  %30 = load i32, ptr %singlestep_enabled, align 4
+  %and = and i32 %30, 4
   %cmp = icmp eq i32 %and, 0
   call void @qemu_clock_enable(i32 noundef 1, i1 noundef zeroext %cmp) #8
   %call59 = call zeroext i1 @cpu_can_run(ptr noundef nonnull %cpu.365) #8
@@ -307,8 +302,8 @@ while.end56:                                      ; preds = %land.rhs
 
 if.then60:                                        ; preds = %while.end56
   call void @qemu_mutex_unlock_iothread() #8
-  %34 = load i32, ptr @use_icount, align 4
-  %tobool61.not = icmp eq i32 %34, 0
+  %31 = load i32, ptr @use_icount, align 4
+  %tobool61.not = icmp eq i32 %31, 0
   br i1 %tobool61.not, label %if.end63, label %if.then62
 
 if.then62:                                        ; preds = %if.then60
@@ -317,8 +312,8 @@ if.then62:                                        ; preds = %if.then60
 
 if.end63:                                         ; preds = %if.then62, %if.then60
   %call64 = call i32 @tcg_cpus_exec(ptr noundef nonnull %cpu.365) #8
-  %35 = load i32, ptr @use_icount, align 4
-  %tobool65.not = icmp eq i32 %35, 0
+  %32 = load i32, ptr @use_icount, align 4
+  %tobool65.not = icmp eq i32 %32, 0
   br i1 %tobool65.not, label %if.end67, label %if.then66
 
 if.then66:                                        ; preds = %if.end63
@@ -344,24 +339,22 @@ if.then72:                                        ; preds = %if.end67
 
 if.else75:                                        ; preds = %while.end56
   %stop = getelementptr inbounds i8, ptr %cpu.365, i64 202
-  %36 = load i8, ptr %stop, align 2
-  %37 = and i8 %36, 1
-  %tobool76.not = icmp eq i8 %37, 0
-  br i1 %tobool76.not, label %while.end94, label %if.then77
+  %33 = load i8, ptr %stop, align 2
+  %tobool76 = trunc i8 %33 to i1
+  br i1 %tobool76, label %if.then77, label %while.end94
 
 if.then77:                                        ; preds = %if.else75
   %unplug = getelementptr inbounds i8, ptr %cpu.365, i64 205
-  %38 = load i8, ptr %unplug, align 1
-  %39 = and i8 %38, 1
-  %tobool78.not = icmp eq i8 %39, 0
-  br i1 %tobool78.not, label %while.end103.thread, label %while.end103
+  %34 = load i8, ptr %unplug, align 1
+  %tobool78 = trunc i8 %34 to i1
+  br i1 %tobool78, label %while.end103, label %while.end103.thread
 
 while.end94:                                      ; preds = %if.end67, %if.else75
   %node95 = getelementptr inbounds i8, ptr %cpu.365, i64 568
-  %40 = load atomic i64, ptr %node95 monotonic, align 8
-  %41 = inttoptr i64 %40 to ptr
+  %35 = load atomic i64, ptr %node95 monotonic, align 8
+  %36 = inttoptr i64 %35 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !21
-  %tobool47.not = icmp eq i64 %40, 0
+  %tobool47.not = icmp eq i64 %35, 0
   br i1 %tobool47.not, label %while.end103.thread51, label %land.lhs.true, !llvm.loop !22
 
 while.end103.thread:                              ; preds = %land.rhs, %land.lhs.true, %if.then69, %if.then72, %if.then77
@@ -370,30 +363,29 @@ while.end103.thread:                              ; preds = %land.rhs, %land.lhs
 
 while.end103:                                     ; preds = %if.then77
   %node85 = getelementptr inbounds i8, ptr %cpu.365, i64 568
-  %42 = load atomic i64, ptr %node85 monotonic, align 8
-  %43 = inttoptr i64 %42 to ptr
+  %37 = load atomic i64, ptr %node85 monotonic, align 8
+  %38 = inttoptr i64 %37 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !23
   store atomic i64 0, ptr @rr_current_cpu monotonic, align 8
-  %tobool106.not = icmp eq i64 %42, 0
+  %tobool106.not = icmp eq i64 %37, 0
   br i1 %tobool106.not, label %if.end125, label %land.lhs.true107
 
 land.lhs.true107:                                 ; preds = %while.end103.thread, %while.end103
-  %cpu.449 = phi ptr [ %cpu.365, %while.end103.thread ], [ %43, %while.end103 ]
+  %cpu.449 = phi ptr [ %cpu.365, %while.end103.thread ], [ %38, %while.end103 ]
   %exit_request108 = getelementptr inbounds i8, ptr %cpu.449, i64 207
-  %44 = load i8, ptr %exit_request108, align 1
-  %45 = and i8 %44, 1
-  %tobool109.not = icmp eq i8 %45, 0
-  br i1 %tobool109.not, label %if.end125, label %while.end115
+  %39 = load i8, ptr %exit_request108, align 1
+  %tobool109 = trunc i8 %39 to i1
+  br i1 %tobool109, label %while.end115, label %if.end125
 
 while.end115:                                     ; preds = %land.lhs.true107
-  %46 = atomicrmw xchg ptr %exit_request108, i8 0 seq_cst, align 1
+  %40 = atomicrmw xchg ptr %exit_request108, i8 0 seq_cst, align 1
   fence syncscope("singlethread") seq_cst
   br label %if.end125
 
 if.end125:                                        ; preds = %while.end103.thread51, %while.end115, %land.lhs.true107, %while.end103
   %cpu.450 = phi ptr [ %cpu.449, %while.end115 ], [ %cpu.449, %land.lhs.true107 ], [ null, %while.end103 ], [ null, %while.end103.thread51 ]
-  %47 = load i32, ptr @use_icount, align 4
-  %tobool126.not = icmp eq i32 %47, 0
+  %41 = load i32, ptr @use_icount, align 4
+  %tobool126.not = icmp eq i32 %41, 0
   br i1 %tobool126.not, label %if.end130, label %land.lhs.true127
 
 land.lhs.true127:                                 ; preds = %if.end125
@@ -409,42 +401,42 @@ if.end130:                                        ; preds = %if.then129, %land.l
   br i1 %call3.i, label %while.body.i, label %while.end3.i
 
 while.body.i:                                     ; preds = %if.end130, %rr_stop_kick_timer.exit.i
-  %48 = load ptr, ptr @rr_kick_vcpu_timer, align 8
-  %tobool.not.i.i = icmp eq ptr %48, null
+  %42 = load ptr, ptr @rr_kick_vcpu_timer, align 8
+  %tobool.not.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i, label %rr_stop_kick_timer.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i
-  %call.i.i = call zeroext i1 @timer_pending(ptr noundef nonnull %48) #8
+  %call.i.i = call zeroext i1 @timer_pending(ptr noundef nonnull %42) #8
   br i1 %call.i.i, label %if.then.i.i, label %rr_stop_kick_timer.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %49 = load ptr, ptr @rr_kick_vcpu_timer, align 8
-  call void @timer_del(ptr noundef %49) #8
+  %43 = load ptr, ptr @rr_kick_vcpu_timer, align 8
+  call void @timer_del(ptr noundef %43) #8
   br label %rr_stop_kick_timer.exit.i
 
 rr_stop_kick_timer.exit.i:                        ; preds = %if.then.i.i, %land.lhs.true.i.i, %while.body.i
-  %50 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %51 = inttoptr i64 %50 to ptr
+  %44 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %45 = inttoptr i64 %44 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
-  %halt_cond.i = getelementptr inbounds i8, ptr %51, i64 192
-  %52 = load ptr, ptr %halt_cond.i, align 16
-  call void @qemu_cond_wait_iothread(ptr noundef %52) #8
+  %halt_cond.i = getelementptr inbounds i8, ptr %45, i64 192
+  %46 = load ptr, ptr %halt_cond.i, align 16
+  call void @qemu_cond_wait_iothread(ptr noundef %46) #8
   %call.i = call zeroext i1 @all_cpu_threads_idle() #8
   br i1 %call.i, label %while.body.i, label %while.end3.i, !llvm.loop !25
 
 while.end3.i:                                     ; preds = %rr_stop_kick_timer.exit.i, %if.end130
-  %53 = load ptr, ptr @rr_kick_vcpu_timer, align 8
-  %tobool.not.i42 = icmp eq ptr %53, null
+  %47 = load ptr, ptr @rr_kick_vcpu_timer, align 8
+  %tobool.not.i42 = icmp eq ptr %47, null
   br i1 %tobool.not.i42, label %while.end5.i, label %land.lhs.true9.i
 
 while.end5.i:                                     ; preds = %while.end3.i
-  %54 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %55 = inttoptr i64 %54 to ptr
+  %48 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %49 = inttoptr i64 %48 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !26
-  %node.i45 = getelementptr inbounds i8, ptr %55, i64 568
-  %56 = load atomic i64, ptr %node.i45 monotonic, align 8
+  %node.i45 = getelementptr inbounds i8, ptr %49, i64 568
+  %50 = load atomic i64, ptr %node.i45 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !27
-  %tobool7.not.i = icmp eq i64 %56, 0
+  %tobool7.not.i = icmp eq i64 %50, 0
   br i1 %tobool7.not.i, label %if.endthread-pre-split.i, label %if.then.i46
 
 if.then.i46:                                      ; preds = %while.end5.i
@@ -458,70 +450,69 @@ if.endthread-pre-split.i:                         ; preds = %while.end5.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.endthread-pre-split.i, %if.then.i46
-  %57 = phi ptr [ %.pr.i, %if.endthread-pre-split.i ], [ %call.i.i.i.i, %if.then.i46 ]
-  %tobool8.not.i = icmp eq ptr %57, null
+  %51 = phi ptr [ %.pr.i, %if.endthread-pre-split.i ], [ %call.i.i.i.i, %if.then.i46 ]
+  %tobool8.not.i = icmp eq ptr %51, null
   br i1 %tobool8.not.i, label %rr_start_kick_timer.exit, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %if.end.i, %while.end3.i
-  %58 = phi ptr [ %57, %if.end.i ], [ %53, %while.end3.i ]
-  %call10.i43 = call zeroext i1 @timer_pending(ptr noundef nonnull %58) #8
+  %52 = phi ptr [ %51, %if.end.i ], [ %47, %while.end3.i ]
+  %call10.i43 = call zeroext i1 @timer_pending(ptr noundef nonnull %52) #8
   br i1 %call10.i43, label %rr_start_kick_timer.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true9.i
-  %59 = load ptr, ptr @rr_kick_vcpu_timer, align 8
+  %53 = load ptr, ptr @rr_kick_vcpu_timer, align 8
   %call.i.i44 = call i64 @qemu_clock_get_ns(i32 noundef 1) #8
   %add.i.i = add i64 %call.i.i44, 100000000
-  call void @timer_mod(ptr noundef %59, i64 noundef %add.i.i) #8
+  call void @timer_mod(ptr noundef %53, i64 noundef %add.i.i) #8
   br label %rr_start_kick_timer.exit
 
 rr_start_kick_timer.exit:                         ; preds = %if.end.i, %land.lhs.true9.i, %if.then11.i
-  %60 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %54 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !28
-  %tobool.not4.i = icmp eq i64 %60, 0
+  %tobool.not4.i = icmp eq i64 %54, 0
   br i1 %tobool.not4.i, label %rr_wait_io_event.exit, label %for.body.i31
 
 for.body.i31:                                     ; preds = %rr_start_kick_timer.exit, %for.body.i31
-  %cpu.0.in5.i = phi i64 [ %61, %for.body.i31 ], [ %60, %rr_start_kick_timer.exit ]
+  %cpu.0.in5.i = phi i64 [ %55, %for.body.i31 ], [ %54, %rr_start_kick_timer.exit ]
   %cpu.0.i32 = inttoptr i64 %cpu.0.in5.i to ptr
   call void @qemu_wait_io_event_common(ptr noundef nonnull %cpu.0.i32) #8
   %node.i33 = getelementptr inbounds i8, ptr %cpu.0.i32, i64 568
-  %61 = load atomic i64, ptr %node.i33 monotonic, align 8
+  %55 = load atomic i64, ptr %node.i33 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !29
-  %tobool.not.i34 = icmp eq i64 %61, 0
+  %tobool.not.i34 = icmp eq i64 %55, 0
   br i1 %tobool.not.i34, label %rr_wait_io_event.exit, label %for.body.i31, !llvm.loop !30
 
 rr_wait_io_event.exit:                            ; preds = %for.body.i31, %rr_start_kick_timer.exit
-  %62 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %56 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !31
-  %tobool.not7.i = icmp eq i64 %62, 0
+  %tobool.not7.i = icmp eq i64 %56, 0
   br i1 %tobool.not7.i, label %while.body31.backedge, label %for.body.i36
 
-while.body31.backedge:                            ; preds = %while.end6.i, %rr_wait_io_event.exit, %if.then.i38
+while.body31.backedge:                            ; preds = %while.end6.i, %rr_wait_io_event.exit, %if.then.i41
   br label %while.body31
 
 for.body.i36:                                     ; preds = %rr_wait_io_event.exit, %while.end6.i
-  %cpu.08.in.i = phi i64 [ %65, %while.end6.i ], [ %62, %rr_wait_io_event.exit ]
+  %cpu.08.in.i = phi i64 [ %58, %while.end6.i ], [ %56, %rr_wait_io_event.exit ]
   %cpu.08.i = inttoptr i64 %cpu.08.in.i to ptr
   %unplug.i = getelementptr inbounds i8, ptr %cpu.08.i, i64 205
-  %63 = load i8, ptr %unplug.i, align 1
-  %64 = and i8 %63, 1
-  %tobool1.not.i = icmp eq i8 %64, 0
-  br i1 %tobool1.not.i, label %while.end6.i, label %land.lhs.true.i
+  %57 = load i8, ptr %unplug.i, align 1
+  %tobool1.i = trunc i8 %57 to i1
+  br i1 %tobool1.i, label %land.lhs.true.i, label %while.end6.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i36
-  %call.i37 = call zeroext i1 @cpu_can_run(ptr noundef nonnull %cpu.08.i) #8
-  br i1 %call.i37, label %while.end6.i, label %if.then.i38
+  %call.i40 = call zeroext i1 @cpu_can_run(ptr noundef nonnull %cpu.08.i) #8
+  br i1 %call.i40, label %while.end6.i, label %if.then.i41
 
-if.then.i38:                                      ; preds = %land.lhs.true.i
+if.then.i41:                                      ; preds = %land.lhs.true.i
   call void @tcg_cpus_destroy(ptr noundef nonnull %cpu.08.i) #8
   br label %while.body31.backedge
 
 while.end6.i:                                     ; preds = %land.lhs.true.i, %for.body.i36
-  %node.i40 = getelementptr inbounds i8, ptr %cpu.08.i, i64 568
-  %65 = load atomic i64, ptr %node.i40 monotonic, align 8
+  %node.i37 = getelementptr inbounds i8, ptr %cpu.08.i, i64 568
+  %58 = load atomic i64, ptr %node.i37 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !32
-  %tobool.not.i41 = icmp eq i64 %65, 0
-  br i1 %tobool.not.i41, label %while.body31.backedge, label %for.body.i36, !llvm.loop !33
+  %tobool.not.i38 = icmp eq i64 %58, 0
+  br i1 %tobool.not.i38, label %while.body31.backedge, label %for.body.i36, !llvm.loop !33
 }
 
 ; Function Attrs: noreturn nounwind

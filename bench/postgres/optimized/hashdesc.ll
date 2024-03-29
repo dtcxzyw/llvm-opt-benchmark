@@ -77,9 +77,8 @@ define dso_local void @hash_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %23 = zext i16 %22 to i32
   %24 = getelementptr inbounds i8, ptr %6, i64 2
   %25 = load i8, ptr %24, align 2
-  %26 = and i8 %25, 1
-  %.not53 = icmp eq i8 %26, 0
-  %27 = select i1 %.not53, i32 70, i32 84
+  %26 = trunc i8 %25 to i1
+  %27 = select i1 %26, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %23, i32 noundef %27) #3
   br label %80
 
@@ -89,11 +88,11 @@ define dso_local void @hash_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i32
   %33 = and i32 %32, 1
-  %.not51 = icmp eq i32 %33, 0
-  %34 = select i1 %.not51, i32 70, i32 84
+  %.not = icmp eq i32 %33, 0
+  %34 = select i1 %.not, i32 70, i32 84
   %35 = and i32 %32, 2
-  %.not52 = icmp eq i32 %35, 0
-  %36 = select i1 %.not52, i32 70, i32 84
+  %.not47 = icmp eq i32 %35, 0
+  %36 = select i1 %.not47, i32 70, i32 84
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %29, i32 noundef %34, i32 noundef %36) #3
   br label %80
 
@@ -111,9 +110,8 @@ define dso_local void @hash_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %45 = zext i16 %44 to i32
   %46 = getelementptr inbounds i8, ptr %6, i64 2
   %47 = load i8, ptr %46, align 2
-  %48 = and i8 %47, 1
-  %.not50 = icmp eq i8 %48, 0
-  %49 = select i1 %.not50, i32 70, i32 84
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %45, i32 noundef %49) #3
   br label %80
 
@@ -126,22 +124,19 @@ define dso_local void @hash_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %56 = zext i16 %55 to i32
   %57 = getelementptr inbounds i8, ptr %6, i64 10
   %58 = load i8, ptr %57, align 2
-  %59 = and i8 %58, 1
-  %.not49 = icmp eq i8 %59, 0
-  %60 = select i1 %.not49, i32 70, i32 84
+  %59 = trunc i8 %58 to i1
+  %60 = select i1 %59, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %51, i32 noundef %53, i32 noundef %56, i32 noundef %60) #3
   br label %80
 
 61:                                               ; preds = %2
   %62 = load i8, ptr %6, align 1
-  %63 = and i8 %62, 1
-  %.not47 = icmp eq i8 %63, 0
-  %64 = select i1 %.not47, i32 70, i32 84
+  %63 = trunc i8 %62 to i1
+  %64 = select i1 %63, i32 84, i32 70
   %65 = getelementptr inbounds i8, ptr %6, i64 1
   %66 = load i8, ptr %65, align 1
-  %67 = and i8 %66, 1
-  %.not48 = icmp eq i8 %67, 0
-  %68 = select i1 %.not48, i32 70, i32 84
+  %67 = trunc i8 %66 to i1
+  %68 = select i1 %67, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %64, i32 noundef %68) #3
   br label %80
 
@@ -157,9 +152,8 @@ define dso_local void @hash_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %75 = load i32, ptr %6, align 4
   %76 = getelementptr inbounds i8, ptr %6, i64 6
   %77 = load i8, ptr %76, align 2
-  %78 = and i8 %77, 1
-  %.not = icmp eq i8 %78, 0
-  %79 = select i1 %.not, i32 70, i32 84
+  %78 = trunc i8 %77 to i1
+  %79 = select i1 %78, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %74, i32 noundef %75, i32 noundef %79) #3
   br label %80
 

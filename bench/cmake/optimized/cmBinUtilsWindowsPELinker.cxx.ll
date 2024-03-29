@@ -432,20 +432,20 @@ define dso_local noundef zeroext i1 @_ZN25cmBinUtilsWindowsPELinker16ScanDepende
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %7, i64 16
-  %.not109 = icmp eq ptr %24, %25
-  br i1 %.not109, label %48, label %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i
+  %.not107 = icmp eq ptr %24, %25
+  br i1 %.not107, label %48, label %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i: ; preds = %32
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   %35 = shl nuw nsw i64 %28, 1
   %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #15
-          to label %.noexc35 unwind label %120
+          to label %.noexc34 unwind label %120
 
-.noexc35:                                         ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i
+.noexc34:                                         ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i
   %37 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencyPSB_SB_ET0_T_SG_SF_RSaIT1_E(ptr noundef null, ptr noundef null, ptr noundef nonnull %36)
           to label %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i unwind label %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i.i
 
-_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i.i: ; preds = %.noexc35
+_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i.i: ; preds = %.noexc34
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
@@ -470,27 +470,27 @@ _ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1
 46:                                               ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i.i
   unreachable
 
-_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i: ; preds = %.noexc35
-  %.pre98.pre = load ptr, ptr %23, align 8
+_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i: ; preds = %.noexc34
+  %.pre96.pre = load ptr, ptr %23, align 8
   %.pre.pre = load ptr, ptr %6, align 8
   store ptr %36, ptr %7, align 8
   store ptr %36, ptr %34, align 8
   %47 = getelementptr inbounds %struct.WinPEDependency, ptr %36, i64 %29
   store ptr %47, ptr %33, align 8
-  %.pre102 = ptrtoint ptr %.pre98.pre to i64
-  %.pre103 = ptrtoint ptr %.pre.pre to i64
-  %.pre105 = sub i64 %.pre102, %.pre103
-  %.pre107 = ashr exact i64 %.pre105, 5
+  %.pre100 = ptrtoint ptr %.pre96.pre to i64
+  %.pre101 = ptrtoint ptr %.pre.pre to i64
+  %.pre103 = sub i64 %.pre100, %.pre101
+  %.pre105 = ashr exact i64 %.pre103, 5
   br label %48
 
 48:                                               ; preds = %32, %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i
-  %.pre-phi108 = phi i64 [ %29, %32 ], [ %.pre107, %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i ]
+  %.pre-phi106 = phi i64 [ %29, %32 ], [ %.pre105, %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i ]
   %49 = phi ptr [ null, %32 ], [ %36, %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i ]
   %50 = phi ptr [ %25, %32 ], [ %.pre.pre, %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE13_M_deallocateEPSB_m.exit.i ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %51 = icmp sgt i64 %.pre-phi108, 0
-  br i1 %51, label %.lr.ph.i.i.i.i.i, label %.loopexit67
+  %51 = icmp sgt i64 %.pre-phi106, 0
+  br i1 %51, label %.lr.ph.i.i.i.i.i, label %.loopexit65
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %48
   %52 = getelementptr inbounds i8, ptr %4, i64 32
@@ -499,7 +499,7 @@ _ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1
 
 54:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %55 = phi ptr [ %49, %.lr.ph.i.i.i.i.i ], [ %105, %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i ]
-  %.0830.i.i.i.i.i = phi i64 [ %.pre-phi108, %.lr.ph.i.i.i.i.i ], [ %107, %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i ]
+  %.0830.i.i.i.i.i = phi i64 [ %.pre-phi106, %.lr.ph.i.i.i.i.i ], [ %107, %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i ]
   %.0929.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %106, %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.0929.i.i.i.i.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #13
@@ -676,7 +676,7 @@ _ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDepende
   %106 = getelementptr inbounds i8, ptr %.0929.i.i.i.i.i, i64 32
   %107 = add nsw i64 %.0830.i.i.i.i.i, -1
   %108 = icmp sgt i64 %.0830.i.i.i.i.i, 1
-  br i1 %108, label %54, label %.loopexit67, !llvm.loop !14
+  br i1 %108, label %54, label %.loopexit65, !llvm.loop !14
 
 .loopexit.i.i.i.i.i:                              ; preds = %76, %59
   %lpad.loopexit.i.i.i.i.i = landingpad { ptr, i32 }
@@ -699,18 +699,18 @@ _ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDepende
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   br label %.body
 
-.loopexit67:                                      ; preds = %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i, %48
+.loopexit65:                                      ; preds = %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i, %48
   %.val = phi ptr [ %49, %48 ], [ %105, %_ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISC_EEEaSEOSC_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   invoke void @_ZN5cmsys11SystemTools15GetFilenamePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %109 unwind label %120
 
-109:                                              ; preds = %.loopexit67
-  %.val31 = load ptr, ptr %7, align 8
+109:                                              ; preds = %.loopexit65
+  %.val30 = load ptr, ptr %7, align 8
   %110 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not6682 = icmp eq ptr %.val31, %.val
-  br i1 %.not6682, label %.loopexit, label %.lr.ph
+  %.not80 = icmp eq ptr %.val30, %.val
+  br i1 %.not80, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %109
   %111 = getelementptr inbounds i8, ptr %0, i64 8
@@ -718,9 +718,9 @@ _ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDepende
   br label %113
 
 113:                                              ; preds = %.lr.ph, %161
-  %.sroa.065.083 = phi ptr [ %.val31, %.lr.ph ], [ %162, %161 ]
+  %.sroa.064.081 = phi ptr [ %.val30, %.lr.ph ], [ %162, %161 ]
   %114 = load ptr, ptr %111, align 8
-  %115 = getelementptr inbounds i8, ptr %.sroa.065.083, i64 32
+  %115 = getelementptr inbounds i8, ptr %.sroa.064.081, i64 32
   %116 = invoke noundef zeroext i1 @_ZNK26cmRuntimeDependencyArchive13IsPreExcludedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(440) %114, ptr noundef nonnull align 8 dereferenceable(32) %115)
           to label %117 unwind label %122
 
@@ -733,7 +733,7 @@ _ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDepende
   %119 = invoke noundef zeroext i1 @_ZN25cmBinUtilsWindowsPELinker17ResolveDependencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_Rb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %126 unwind label %124
 
-120:                                              ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i, %31, %.loopexit67
+120:                                              ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i, %31, %.loopexit65
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -750,10 +750,9 @@ _ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDepende
 
 126:                                              ; preds = %118
   %127 = load i8, ptr %10, align 1
-  %128 = and i8 %127, 1
-  %.not = icmp eq i8 %128, 0
+  %128 = trunc i8 %127 to i1
   %129 = load ptr, ptr %111, align 8
-  br i1 %.not, label %158, label %130
+  br i1 %128, label %130, label %158
 
 130:                                              ; preds = %126
   %131 = invoke noundef zeroext i1 @_ZNK26cmRuntimeDependencyArchive14IsPostExcludedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(440) %129, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -764,38 +763,38 @@ _ZNSt20back_insert_iteratorISt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDepende
 
 133:                                              ; preds = %132
   %134 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
-  %135 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.065.083) #13
+  %135 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.064.081) #13
   %136 = sub i64 0, %135
   %137 = getelementptr inbounds i8, ptr %134, i64 %136
   %138 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
-  %139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_RKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr %137, ptr %138, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.065.083)
+  %139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_RKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr %137, ptr %138, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.064.081)
           to label %140 unwind label %124
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr %111, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  invoke void @_ZN26cmRuntimeDependencyArchive15AddResolvedPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RbSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(440) %141, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.065.083, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12)
+  invoke void @_ZN26cmRuntimeDependencyArchive15AddResolvedPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RbSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(440) %141, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.064.081, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12)
           to label %142 unwind label %156
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %12, align 8
   %144 = load ptr, ptr %112, align 8
-  %.not4.i.i.i.i38 = icmp eq ptr %143, %144
-  br i1 %.not4.i.i.i.i38, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39
+  %.not4.i.i.i.i37 = icmp eq ptr %143, %144
+  br i1 %.not4.i.i.i.i37, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i38
 
-.lr.ph.i.i.i.i39:                                 ; preds = %142, %.lr.ph.i.i.i.i39
-  %.05.i.i.i.i40 = phi ptr [ %145, %.lr.ph.i.i.i.i39 ], [ %143, %142 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i40) #13
-  %145 = getelementptr inbounds i8, ptr %.05.i.i.i.i40, i64 32
-  %.not.i.i.i.i41 = icmp eq ptr %145, %144
-  br i1 %.not.i.i.i.i41, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i39, !llvm.loop !5
+.lr.ph.i.i.i.i38:                                 ; preds = %142, %.lr.ph.i.i.i.i38
+  %.05.i.i.i.i39 = phi ptr [ %145, %.lr.ph.i.i.i.i38 ], [ %143, %142 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i39) #13
+  %145 = getelementptr inbounds i8, ptr %.05.i.i.i.i39, i64 32
+  %.not.i.i.i.i40 = icmp eq ptr %145, %144
+  br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i38, !llvm.loop !5
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i39
-  %.pr.i42 = load ptr, ptr %12, align 8
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i38
+  %.pr.i41 = load ptr, ptr %12, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %142
-  %146 = phi ptr [ %.pr.i42, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %143, %142 ]
+  %146 = phi ptr [ %.pr.i41, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %143, %142 ]
   %.not.i.i.i = icmp eq ptr %146, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %147
 
@@ -805,9 +804,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %147
   %148 = load i8, ptr %11, align 1
-  %149 = and i8 %148, 1
-  %.not26 = icmp eq i8 %149, 0
-  br i1 %.not26, label %.critedge, label %150
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %150, label %.critedge
 
 150:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %151 = load ptr, ptr %0, align 8
@@ -826,7 +824,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %160
 
 158:                                              ; preds = %126
-  invoke void @_ZN26cmRuntimeDependencyArchive17AddUnresolvedPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(440) %129, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.065.083)
+  invoke void @_ZN26cmRuntimeDependencyArchive17AddUnresolvedPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(440) %129, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.064.081)
           to label %.critedge unwind label %124
 
 .critedge:                                        ; preds = %158, %132, %155, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
@@ -843,38 +841,38 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %168
 
 161:                                              ; preds = %.critedge, %117
-  %162 = getelementptr inbounds i8, ptr %.sroa.065.083, i64 64
-  %.not66 = icmp eq ptr %162, %.val
-  br i1 %.not66, label %.loopexit, label %113
+  %162 = getelementptr inbounds i8, ptr %.sroa.064.081, i64 64
+  %.not = icmp eq ptr %162, %.val
+  br i1 %.not, label %.loopexit, label %113
 
 .loopexit:                                        ; preds = %161, %109, %159
-  %.not6672 = phi i1 [ false, %159 ], [ true, %109 ], [ true, %161 ]
+  %.not70 = phi i1 [ false, %159 ], [ true, %109 ], [ true, %161 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   %163 = load ptr, ptr %7, align 8
   %164 = load ptr, ptr %110, align 8
-  %.not4.i.i.i.i43 = icmp eq ptr %163, %164
-  br i1 %.not4.i.i.i.i43, label %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i48, label %.lr.ph.i.i.i.i44
+  %.not4.i.i.i.i42 = icmp eq ptr %163, %164
+  br i1 %.not4.i.i.i.i42, label %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i47, label %.lr.ph.i.i.i.i43
 
-.lr.ph.i.i.i.i44:                                 ; preds = %.loopexit, %.lr.ph.i.i.i.i44
-  %.05.i.i.i.i45 = phi ptr [ %166, %.lr.ph.i.i.i.i44 ], [ %163, %.loopexit ]
-  %165 = getelementptr inbounds i8, ptr %.05.i.i.i.i45, i64 32
+.lr.ph.i.i.i.i43:                                 ; preds = %.loopexit, %.lr.ph.i.i.i.i43
+  %.05.i.i.i.i44 = phi ptr [ %166, %.lr.ph.i.i.i.i43 ], [ %163, %.loopexit ]
+  %165 = getelementptr inbounds i8, ptr %.05.i.i.i.i44, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %165) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i45) #13
-  %166 = getelementptr inbounds i8, ptr %.05.i.i.i.i45, i64 64
-  %.not.i.i.i.i46 = icmp eq ptr %166, %164
-  br i1 %.not.i.i.i.i46, label %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i47, label %.lr.ph.i.i.i.i44, !llvm.loop !13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i44) #13
+  %166 = getelementptr inbounds i8, ptr %.05.i.i.i.i44, i64 64
+  %.not.i.i.i.i45 = icmp eq ptr %166, %164
+  br i1 %.not.i.i.i.i45, label %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i46, label %.lr.ph.i.i.i.i43, !llvm.loop !13
 
-_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i47: ; preds = %.lr.ph.i.i.i.i44
+_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i46: ; preds = %.lr.ph.i.i.i.i43
   %.val.pr.i = load ptr, ptr %7, align 8
-  br label %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i48
+  br label %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i47
 
-_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i48: ; preds = %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i47, %.loopexit
-  %.val.i49 = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i47 ], [ %163, %.loopexit ]
-  %.not.i.i.i50 = icmp eq ptr %.val.i49, null
-  br i1 %.not.i.i.i50, label %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit, label %167
+_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i47: ; preds = %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i46, %.loopexit
+  %.val.i48 = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exitthread-pre-split.i46 ], [ %163, %.loopexit ]
+  %.not.i.i.i49 = icmp eq ptr %.val.i48, null
+  br i1 %.not.i.i.i49, label %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit, label %167
 
-167:                                              ; preds = %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i48
-  call void @_ZdlPv(ptr noundef nonnull %.val.i49) #14
+167:                                              ; preds = %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i47
+  call void @_ZdlPv(ptr noundef nonnull %.val.i48) #14
   br label %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit
 
 168:                                              ; preds = %160, %122
@@ -887,35 +885,35 @@ _ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112ba
   call fastcc void @_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   br label %175
 
-_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit: ; preds = %167, %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i48, %19
-  %.4 = phi i1 [ false, %19 ], [ %.not6672, %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i48 ], [ %.not6672, %167 ]
+_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit: ; preds = %167, %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i47, %19
+  %.4 = phi i1 [ false, %19 ], [ %.not70, %_ZSt8_DestroyIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySB_EvT_SD_RSaIT0_E.exit.i47 ], [ %.not70, %167 ]
   %169 = load ptr, ptr %6, align 8
   %170 = getelementptr inbounds i8, ptr %6, i64 8
   %171 = load ptr, ptr %170, align 8
-  %.not4.i.i.i.i51 = icmp eq ptr %169, %171
-  br i1 %.not4.i.i.i.i51, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i57, label %.lr.ph.i.i.i.i52
+  %.not4.i.i.i.i50 = icmp eq ptr %169, %171
+  br i1 %.not4.i.i.i.i50, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i56, label %.lr.ph.i.i.i.i51
 
-.lr.ph.i.i.i.i52:                                 ; preds = %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit, %.lr.ph.i.i.i.i52
-  %.05.i.i.i.i53 = phi ptr [ %172, %.lr.ph.i.i.i.i52 ], [ %169, %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i53) #13
-  %172 = getelementptr inbounds i8, ptr %.05.i.i.i.i53, i64 32
-  %.not.i.i.i.i54 = icmp eq ptr %172, %171
-  br i1 %.not.i.i.i.i54, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i55, label %.lr.ph.i.i.i.i52, !llvm.loop !5
+.lr.ph.i.i.i.i51:                                 ; preds = %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit, %.lr.ph.i.i.i.i51
+  %.05.i.i.i.i52 = phi ptr [ %172, %.lr.ph.i.i.i.i51 ], [ %169, %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i52) #13
+  %172 = getelementptr inbounds i8, ptr %.05.i.i.i.i52, i64 32
+  %.not.i.i.i.i53 = icmp eq ptr %172, %171
+  br i1 %.not.i.i.i.i53, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i54, label %.lr.ph.i.i.i.i51, !llvm.loop !5
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i55: ; preds = %.lr.ph.i.i.i.i52
-  %.pr.i56 = load ptr, ptr %6, align 8
-  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i57
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i54: ; preds = %.lr.ph.i.i.i.i51
+  %.pr.i55 = load ptr, ptr %6, align 8
+  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i56
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i57: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i55, %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit
-  %173 = phi ptr [ %.pr.i56, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i55 ], [ %169, %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit ]
-  %.not.i.i.i58 = icmp eq ptr %173, null
-  br i1 %.not.i.i.i58, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit59, label %174
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i56: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i54, %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit
+  %173 = phi ptr [ %.pr.i55, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i54 ], [ %169, %_ZNSt6vectorIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EED2Ev.exit ]
+  %.not.i.i.i57 = icmp eq ptr %173, null
+  br i1 %.not.i.i.i57, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit58, label %174
 
-174:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i57
+174:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i56
   call void @_ZdlPv(ptr noundef nonnull %173) #14
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit59
+  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit58
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit59: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i57, %174
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit58: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i56, %174
   ret i1 %.4
 
 175:                                              ; preds = %.body, %20

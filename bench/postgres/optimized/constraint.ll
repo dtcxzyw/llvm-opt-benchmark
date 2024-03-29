@@ -96,111 +96,110 @@ define dso_local noundef i64 @unique_key_recheck(ptr nocapture noundef readonly 
   %43 = tail call ptr %42(ptr noundef %38) #6
   store i8 0, ptr %6, align 1
   %44 = load i32, ptr @CheckXidAlive, align 4
-  %45 = icmp ne i32 %44, 0
+  %45 = icmp eq i32 %44, 0
   %46 = load i8, ptr @bsysscan, align 1
-  %47 = and i8 %46, 1
-  %.not.i = icmp eq i8 %47, 0
-  %48 = select i1 %45, i1 %.not.i, i1 false
-  br i1 %48, label %49, label %table_index_fetch_tuple.exit
+  %47 = trunc i8 %46 to i1
+  %.not7.i = select i1 %45, i1 true, i1 %47
+  br i1 %.not7.i, label %table_index_fetch_tuple.exit, label %48
 
-49:                                               ; preds = %31
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
+48:                                               ; preds = %31
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %49)
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1248, ptr noundef nonnull @__func__.table_index_fetch_tuple) #6
   unreachable
 
 table_index_fetch_tuple.exit:                     ; preds = %31
-  %52 = load ptr, ptr %43, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 312
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 112
-  %56 = load ptr, ptr %55, align 8
-  %57 = call zeroext i1 %56(ptr noundef nonnull %43, ptr noundef nonnull %3, ptr noundef nonnull @SnapshotSelfData, ptr noundef %37, ptr noundef nonnull %6, ptr noundef null) #6
-  br i1 %57, label %64, label %58
+  %51 = load ptr, ptr %43, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 312
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 112
+  %55 = load ptr, ptr %54, align 8
+  %56 = call zeroext i1 %55(ptr noundef nonnull %43, ptr noundef nonnull %3, ptr noundef nonnull @SnapshotSelfData, ptr noundef %37, ptr noundef nonnull %6, ptr noundef null) #6
+  br i1 %56, label %63, label %57
 
-58:                                               ; preds = %table_index_fetch_tuple.exit
+57:                                               ; preds = %table_index_fetch_tuple.exit
   call void @ExecDropSingleTupleTableSlot(ptr noundef %37) #6
-  %59 = load ptr, ptr %43, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 312
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 104
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull %43) #6
-  br label %101
-
-64:                                               ; preds = %table_index_fetch_tuple.exit
-  %65 = load ptr, ptr %43, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 312
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 104
-  %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull %43) #6
-  %70 = getelementptr inbounds i8, ptr %8, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
-  %73 = load i32, ptr %72, align 8
-  %74 = call ptr @index_open(i32 noundef %73, i32 noundef 3) #6
-  %75 = call ptr @BuildIndexInfo(ptr noundef %74) #6
-  %76 = getelementptr inbounds i8, ptr %75, i64 80
-  %77 = load ptr, ptr %76, align 8
-  %.not48 = icmp eq ptr %77, null
-  br i1 %.not48, label %78, label %81
-
-78:                                               ; preds = %64
-  %79 = getelementptr inbounds i8, ptr %75, i64 112
-  %80 = load ptr, ptr %79, align 8
-  %.not49 = icmp eq ptr %80, null
-  br i1 %.not49, label %90, label %81
-
-81:                                               ; preds = %78, %64
-  %82 = call ptr @CreateExecutorState() #6
-  %83 = getelementptr inbounds i8, ptr %82, i64 232
-  %84 = load ptr, ptr %83, align 8
-  %.not50 = icmp eq ptr %84, null
-  br i1 %.not50, label %85, label %87
-
-85:                                               ; preds = %81
-  %86 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %82) #6
-  br label %87
-
-87:                                               ; preds = %81, %85
-  %88 = phi ptr [ %86, %85 ], [ %84, %81 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  store ptr %37, ptr %89, align 8
-  br label %90
-
-90:                                               ; preds = %78, %87
-  %.043 = phi ptr [ %82, %87 ], [ null, %78 ]
-  call void @FormIndexDatum(ptr noundef nonnull %75, ptr noundef %37, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  %91 = getelementptr inbounds i8, ptr %75, i64 112
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, null
-  %94 = load ptr, ptr %35, align 8
-  br i1 %93, label %95, label %97
-
-95:                                               ; preds = %90
-  %96 = call zeroext i1 @index_insert(ptr noundef %74, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %94, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %75) #6
-  br label %98
-
-97:                                               ; preds = %90
-  call void @check_exclusion_constraint(ptr noundef %94, ptr noundef %74, ptr noundef nonnull %75, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %.043, i1 noundef zeroext false) #6
-  br label %98
-
-98:                                               ; preds = %97, %95
-  %.not51 = icmp eq ptr %.043, null
-  br i1 %.not51, label %100, label %99
-
-99:                                               ; preds = %98
-  call void @FreeExecutorState(ptr noundef nonnull %.043) #6
+  %58 = load ptr, ptr %43, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 312
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 104
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull %43) #6
   br label %100
 
-100:                                              ; preds = %99, %98
-  call void @ExecDropSingleTupleTableSlot(ptr noundef %37) #6
-  call void @index_close(ptr noundef %74, i32 noundef 3) #6
-  br label %101
+63:                                               ; preds = %table_index_fetch_tuple.exit
+  %64 = load ptr, ptr %43, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 312
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 104
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull %43) #6
+  %69 = getelementptr inbounds i8, ptr %8, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 32
+  %72 = load i32, ptr %71, align 8
+  %73 = call ptr @index_open(i32 noundef %72, i32 noundef 3) #6
+  %74 = call ptr @BuildIndexInfo(ptr noundef %73) #6
+  %75 = getelementptr inbounds i8, ptr %74, i64 80
+  %76 = load ptr, ptr %75, align 8
+  %.not48 = icmp eq ptr %76, null
+  br i1 %.not48, label %77, label %80
 
-101:                                              ; preds = %100, %58
+77:                                               ; preds = %63
+  %78 = getelementptr inbounds i8, ptr %74, i64 112
+  %79 = load ptr, ptr %78, align 8
+  %.not49 = icmp eq ptr %79, null
+  br i1 %.not49, label %89, label %80
+
+80:                                               ; preds = %77, %63
+  %81 = call ptr @CreateExecutorState() #6
+  %82 = getelementptr inbounds i8, ptr %81, i64 232
+  %83 = load ptr, ptr %82, align 8
+  %.not50 = icmp eq ptr %83, null
+  br i1 %.not50, label %84, label %86
+
+84:                                               ; preds = %80
+  %85 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %81) #6
+  br label %86
+
+86:                                               ; preds = %80, %84
+  %87 = phi ptr [ %85, %84 ], [ %83, %80 ]
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  store ptr %37, ptr %88, align 8
+  br label %89
+
+89:                                               ; preds = %77, %86
+  %.043 = phi ptr [ %81, %86 ], [ null, %77 ]
+  call void @FormIndexDatum(ptr noundef nonnull %74, ptr noundef %37, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  %90 = getelementptr inbounds i8, ptr %74, i64 112
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, null
+  %93 = load ptr, ptr %35, align 8
+  br i1 %92, label %94, label %96
+
+94:                                               ; preds = %89
+  %95 = call zeroext i1 @index_insert(ptr noundef %73, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %93, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %74) #6
+  br label %97
+
+96:                                               ; preds = %89
+  call void @check_exclusion_constraint(ptr noundef %93, ptr noundef %73, ptr noundef nonnull %74, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %.043, i1 noundef zeroext false) #6
+  br label %97
+
+97:                                               ; preds = %96, %94
+  %.not51 = icmp eq ptr %.043, null
+  br i1 %.not51, label %99, label %98
+
+98:                                               ; preds = %97
+  call void @FreeExecutorState(ptr noundef nonnull %.043) #6
+  br label %99
+
+99:                                               ; preds = %98, %97
+  call void @ExecDropSingleTupleTableSlot(ptr noundef %37) #6
+  call void @index_close(ptr noundef %73, i32 noundef 3) #6
+  br label %100
+
+100:                                              ; preds = %99, %57
   ret i64 0
 }
 

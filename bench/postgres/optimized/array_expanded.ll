@@ -48,25 +48,24 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef %
   store i16 %22, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %23 = getelementptr inbounds i8, ptr %17, i64 78
   %24 = load i8, ptr %23, align 2
+  %spec.store.select.sroa.sel79.v.sroa.sel.v.sroa.sel.v = select i1 %18, ptr %4, ptr %2
+  %spec.store.select.sroa.sel79.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel79.v.sroa.sel.v.sroa.sel.v, i64 6
   %25 = and i8 %24, 1
-  %spec.store.select.sroa.sel80.v.sroa.sel.v.sroa.sel.v = select i1 %18, ptr %4, ptr %2
-  %spec.store.select.sroa.sel80.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel80.v.sroa.sel.v.sroa.sel.v, i64 6
-  store i8 %25, ptr %spec.store.select.sroa.sel80.v.sroa.sel.v.sroa.sel, align 2
+  store i8 %25, ptr %spec.store.select.sroa.sel79.v.sroa.sel.v.sroa.sel, align 2
   %26 = getelementptr inbounds i8, ptr %17, i64 79
   %27 = load i8, ptr %26, align 1
-  %spec.store.select.sroa.sel83.v.sroa.sel.v.sroa.sel.v = select i1 %18, ptr %4, ptr %2
-  %spec.store.select.sroa.sel83.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel83.v.sroa.sel.v.sroa.sel.v, i64 7
-  store i8 %27, ptr %spec.store.select.sroa.sel83.v.sroa.sel.v.sroa.sel, align 1
+  %spec.store.select.sroa.sel82.v.sroa.sel.v.sroa.sel.v = select i1 %18, ptr %4, ptr %2
+  %spec.store.select.sroa.sel82.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel82.v.sroa.sel.v.sroa.sel.v, i64 7
+  store i8 %27, ptr %spec.store.select.sroa.sel82.v.sroa.sel.v.sroa.sel, align 1
   %28 = load i8, ptr %23, align 2
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %85, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %85
 
 30:                                               ; preds = %16
   %31 = getelementptr inbounds i8, ptr %17, i64 80
   %32 = load ptr, ptr %31, align 8
-  %.not74 = icmp eq ptr %32, null
-  br i1 %.not74, label %85, label %33
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %85, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %6, i64 16
@@ -102,9 +101,9 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef %
   %58 = getelementptr inbounds i8, ptr %6, i64 76
   store i16 %57, ptr %58, align 4
   %59 = load i8, ptr %23, align 2
-  %60 = and i8 %59, 1
-  %61 = getelementptr inbounds i8, ptr %6, i64 78
-  store i8 %60, ptr %61, align 2
+  %60 = getelementptr inbounds i8, ptr %6, i64 78
+  %61 = and i8 %59, 1
+  store i8 %61, ptr %60, align 2
   %62 = load i8, ptr %26, align 1
   %63 = getelementptr inbounds i8, ptr %6, i64 79
   store i8 %62, ptr %63, align 1
@@ -171,8 +170,8 @@ copy_byval_expanded_array.exit:                   ; preds = %71, %75
   %99 = load i32, ptr %98, align 4
   %100 = getelementptr inbounds i8, ptr %6, i64 72
   store i32 %99, ptr %100, align 8
-  %.not75 = icmp eq ptr %.072, null
-  br i1 %.not75, label %.thread, label %104
+  %.not74 = icmp eq ptr %.072, null
+  br i1 %.not74, label %.thread, label %104
 
 .thread:                                          ; preds = %85
   %101 = getelementptr inbounds i8, ptr %6, i64 76
@@ -193,9 +192,9 @@ copy_byval_expanded_array.exit:                   ; preds = %71, %75
   store i16 %109, ptr %110, align 4
   %111 = getelementptr inbounds i8, ptr %.072, i64 6
   %112 = load i8, ptr %111, align 2
-  %113 = and i8 %112, 1
-  %114 = getelementptr inbounds i8, ptr %6, i64 78
-  store i8 %113, ptr %114, align 2
+  %113 = getelementptr inbounds i8, ptr %6, i64 78
+  %114 = and i8 %112, 1
+  store i8 %114, ptr %113, align 2
   %115 = getelementptr inbounds i8, ptr %.072, i64 7
   %116 = load i8, ptr %115, align 1
   %117 = getelementptr inbounds i8, ptr %6, i64 79
@@ -213,9 +212,9 @@ copy_byval_expanded_array.exit:                   ; preds = %71, %75
   %124 = getelementptr inbounds i8, ptr %.072, i64 4
   store i16 %123, ptr %124, align 4
   %125 = load i8, ptr %120, align 2
-  %126 = and i8 %125, 1
-  %127 = getelementptr inbounds i8, ptr %.072, i64 6
-  store i8 %126, ptr %127, align 2
+  %126 = getelementptr inbounds i8, ptr %.072, i64 6
+  %127 = and i8 %125, 1
+  store i8 %127, ptr %126, align 2
   %128 = load i8, ptr %121, align 1
   %129 = getelementptr inbounds i8, ptr %.072, i64 7
   store i8 %128, ptr %129, align 1
@@ -228,8 +227,8 @@ copy_byval_expanded_array.exit:                   ; preds = %71, %75
   store ptr %87, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %87, i64 8
   %134 = load i32, ptr %133, align 4
-  %.not76 = icmp eq i32 %134, 0
-  br i1 %.not76, label %137, label %135
+  %.not75 = icmp eq i32 %134, 0
+  br i1 %.not75, label %137, label %135
 
 135:                                              ; preds = %130
   %136 = sext i32 %134 to i64
@@ -326,9 +325,9 @@ define dso_local ptr @DatumGetExpandedArrayX(i64 noundef %0, ptr noundef %1) loc
   store i16 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %11, i64 78
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 6
-  store i8 %20, ptr %21, align 2
+  %20 = getelementptr inbounds i8, ptr %1, i64 6
+  %21 = and i8 %19, 1
+  store i8 %21, ptr %20, align 2
   %22 = getelementptr inbounds i8, ptr %11, i64 79
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr inbounds i8, ptr %1, i64 7
@@ -383,7 +382,7 @@ define dso_local void @deconstruct_expanded_array(ptr nocapture noundef %0) loca
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %33
+  br i1 %7, label %8, label %32
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -400,29 +399,28 @@ define dso_local void @deconstruct_expanded_array(ptr nocapture noundef %0) loca
   %18 = sext i16 %17 to i32
   %19 = getelementptr inbounds i8, ptr %0, i64 78
   %20 = load i8, ptr %19, align 2
-  %21 = and i8 %20, 1
-  %22 = icmp ne i8 %21, 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 79
-  %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
-  %26 = load i32, ptr %25, align 4
-  %.not = icmp eq i32 %26, 0
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds i8, ptr %0, i64 79
+  %23 = load i8, ptr %22, align 1
+  %24 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = load i32, ptr %24, align 4
+  %.not = icmp eq i32 %25, 0
   %. = select i1 %.not, ptr null, ptr %3
-  call void @deconstruct_array(ptr noundef %13, i32 noundef %15, i32 noundef %18, i1 noundef zeroext %22, i8 noundef signext %24, ptr noundef nonnull %2, ptr noundef %., ptr noundef nonnull %4) #7
-  %27 = load ptr, ptr %2, align 8
-  store ptr %27, ptr %5, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %28, ptr %29, align 8
-  %30 = load i32, ptr %4, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 100
-  store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 %30, ptr %32, align 8
+  call void @deconstruct_array(ptr noundef %13, i32 noundef %15, i32 noundef %18, i1 noundef zeroext %21, i8 noundef signext %23, ptr noundef nonnull %2, ptr noundef %., ptr noundef nonnull %4) #7
+  %26 = load ptr, ptr %2, align 8
+  store ptr %26, ptr %5, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %27, ptr %28, align 8
+  %29 = load i32, ptr %4, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 %29, ptr %31, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %8, %1
+32:                                               ; preds = %8, %1
   ret void
 }
 
@@ -468,15 +466,14 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
 
 23:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %.05471 = phi i64 [ 0, %.lr.ph ], [ %.1, %83 ]
+  %.05470 = phi i64 [ 0, %.lr.ph ], [ %.1, %83 ]
   br i1 %.not65, label %28, label %24
 
 24:                                               ; preds = %23
   %25 = getelementptr i8, ptr %19, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not66 = icmp eq i8 %27, 0
-  br i1 %.not66, label %28, label %83
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %83, label %28
 
 28:                                               ; preds = %24, %23
   %29 = load i16, ptr %21, align 4
@@ -513,8 +510,8 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
 
 50:                                               ; preds = %38
   %51 = and i8 %39, 1
-  %.not67 = icmp eq i8 %51, 0
-  br i1 %.not67, label %55, label %52
+  %.not66 = icmp eq i8 %51, 0
+  br i1 %.not66, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i8 %39, 1
@@ -537,8 +534,8 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
   br label %64
 
 64:                                               ; preds = %41, %58, %61, %31
-  %.pn68 = phi i64 [ %32, %31 ], [ %63, %61 ], [ %49, %41 ], [ %60, %58 ]
-  %65 = add i64 %.pn68, %.05471
+  %.pn67 = phi i64 [ %32, %31 ], [ %63, %61 ], [ %49, %41 ], [ %60, %58 ]
+  %65 = add i64 %.pn67, %.05470
   %66 = load i8, ptr %22, align 1
   switch i8 %66, label %73 [
     i8 105, label %67
@@ -575,7 +572,7 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
   unreachable
 
 83:                                               ; preds = %76, %24
-  %.1 = phi i64 [ %.05471, %24 ], [ %77, %76 ]
+  %.1 = phi i64 [ %.05470, %24 ], [ %77, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !5
@@ -620,7 +617,7 @@ define internal void @EA_flatten_into(ptr nocapture noundef readonly %0, ptr nou
 
 6:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 4 %5, i64 %2, i1 false)
-  br label %49
+  br label %48
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 100
@@ -673,14 +670,13 @@ define internal void @EA_flatten_into(ptr nocapture noundef readonly %0, ptr nou
   %42 = sext i16 %41 to i32
   %43 = getelementptr inbounds i8, ptr %0, i64 78
   %44 = load i8, ptr %43, align 2
-  %45 = and i8 %44, 1
-  %46 = icmp ne i8 %45, 0
-  %47 = getelementptr inbounds i8, ptr %0, i64 79
-  %48 = load i8, ptr %47, align 1
-  tail call void @CopyArrayEls(ptr noundef nonnull %1, ptr noundef %38, ptr noundef %39, i32 noundef %9, i32 noundef %42, i1 noundef zeroext %46, i8 noundef signext %48, i1 noundef zeroext false) #7
-  br label %49
+  %45 = trunc i8 %44 to i1
+  %46 = getelementptr inbounds i8, ptr %0, i64 79
+  %47 = load i8, ptr %46, align 1
+  tail call void @CopyArrayEls(ptr noundef nonnull %1, ptr noundef %38, ptr noundef %39, i32 noundef %9, i32 noundef %42, i1 noundef zeroext %45, i8 noundef signext %47, i1 noundef zeroext false) #7
+  br label %48
 
-49:                                               ; preds = %21, %6
+48:                                               ; preds = %21, %6
   ret void
 }
 

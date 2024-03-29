@@ -585,8 +585,8 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !137
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %34), !noalias !134
   %35 = load i64, ptr %7, align 8, !range !139, !noalias !137, !noundef !4
-  %trunc.not.i = icmp eq i64 %35, 0
-  br i1 %trunc.not.i, label %36, label %45
+  %trunc.i = trunc i64 %35 to i1
+  br i1 %trunc.i, label %45, label %36
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %7, i64 8
@@ -615,11 +615,11 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$11visit_bytes17h47d67e606ebb6192E.exit"
 
 "_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$11visit_bytes17h47d67e606ebb6192E.exit": ; preds = %36, %45
-  %.sink2.i = phi i64 [ %42, %36 ], [ -9223372036854775808, %45 ]
-  %.sink.i = phi ptr [ %43, %36 ], [ %48, %45 ]
-  store i64 %.sink2.i, ptr %0, align 8, !alias.scope !134, !noalias !144
+  %.sink2.i = phi ptr [ %48, %45 ], [ %43, %36 ]
+  %.sink.i = phi i64 [ -9223372036854775808, %45 ], [ %42, %36 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %49, align 8, !alias.scope !134, !noalias !144
+  store ptr %.sink2.i, ptr %49, align 8, !alias.scope !134, !noalias !144
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !134, !noalias !144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !137
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   br label %70
@@ -635,8 +635,8 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !153
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %54), !noalias !155
   %55 = load i64, ptr %5, align 8, !range !139, !noalias !153, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %55, 0
-  br i1 %trunc.not.i.i, label %56, label %65
+  %trunc.i.i = trunc i64 %55 to i1
+  br i1 %trunc.i.i, label %65, label %56
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds i8, ptr %5, i64 8
@@ -665,11 +665,11 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %_ZN5serde2de7Visitor20visit_borrowed_bytes17hc036130f88351643E.exit
 
 _ZN5serde2de7Visitor20visit_borrowed_bytes17hc036130f88351643E.exit: ; preds = %56, %65
-  %.sink2.i.i = phi i64 [ %62, %56 ], [ -9223372036854775808, %65 ]
-  %.sink.i.i = phi ptr [ %63, %56 ], [ %68, %65 ]
-  store i64 %.sink2.i.i, ptr %0, align 8, !alias.scope !155, !noalias !160
+  %.sink2.i.i = phi ptr [ %68, %65 ], [ %63, %56 ]
+  %.sink.i.i = phi i64 [ -9223372036854775808, %65 ], [ %62, %56 ]
   %69 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i.i, ptr %69, align 8, !alias.scope !155, !noalias !160
+  store ptr %.sink2.i.i, ptr %69, align 8, !alias.scope !155, !noalias !160
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !155, !noalias !160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !153
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !151
   br label %70
@@ -1384,7 +1384,7 @@ define hidden { i64, i64 } @_ZN5serde2de9size_hint11from_bounds17h11e9309f94574c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h4b1e8f4537688584E(i64 noundef %0, i64 %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 43690)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 43690)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -1392,7 +1392,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h4b1e8f4537688584E(i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h713325e0b2aa0470E(i64 noundef %0, i64 %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
-  %3 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 3449)
+  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 3449)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
   ret i64 %.0.sroa.speculated.i
 }
@@ -2407,13 +2407,13 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 .noexc.i.i:                                       ; preds = %28
   %30 = load i8, ptr %6, align 8, !range !11, !noalias !358, !noundef !4
-  %trunc.not.i.i.i.i = icmp eq i8 %30, 0
-  br i1 %trunc.not.i.i.i.i, label %31, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h9a88958b2351d494E.llvm.669709109315833292.exit.thread.i.i.i"
+  %trunc.i.i.i.i = trunc i8 %30 to i1
+  br i1 %trunc.i.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h9a88958b2351d494E.llvm.669709109315833292.exit.thread.i.i.i", label %31
 
 31:                                               ; preds = %.noexc.i.i
   %32 = load i8, ptr %20, align 1, !range !11, !noalias !358, !noundef !4
-  %trunc1.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %trunc1.not.i.i.i.i, label %35, label %37
+  %trunc1.i.i.i.i = trunc i8 %32 to i1
+  br i1 %trunc1.i.i.i.i, label %37, label %35
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h9a88958b2351d494E.llvm.669709109315833292.exit.thread.i.i.i": ; preds = %.noexc.i.i
   %33 = getelementptr inbounds i8, ptr %6, i64 8

@@ -997,14 +997,13 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %17
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %17, label %10
 
 10:                                               ; preds = %6
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(35) @.str.21) #10
-  %.not37 = icmp eq i32 %11, 0
-  br i1 %.not37, label %16, label %12
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
@@ -1119,9 +1118,9 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
   unreachable
 
 70:                                               ; preds = %63, %60, %57
-  %.sink43 = phi i32 [ 0, %57 ], [ 1, %60 ], [ 2, %63 ]
+  %.sink42 = phi i32 [ 0, %57 ], [ 1, %60 ], [ 2, %63 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.sink43, ptr %71, align 8
+  store i32 %.sink42, ptr %71, align 8
   store i32 11, ptr %4, align 8
   br label %76
 

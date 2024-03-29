@@ -79,9 +79,8 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %23 = load ptr, ptr @RelfilenumberMapHash, align 8
   %24 = call ptr @hash_search(ptr noundef %23, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #7
   %25 = load i8, ptr %5, align 1
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %30, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr inbounds i8, ptr %24, i64 8
@@ -104,15 +103,14 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %38 = call ptr @systable_beginscan(ptr noundef %33, i32 noundef 3455, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #7
   store i8 0, ptr %5, align 1
   %39 = call ptr @systable_getnext(ptr noundef %38) #7
-  %.not4046 = icmp eq ptr %39, null
-  br i1 %.not4046, label %._crit_edge, label %.lr.ph
+  %.not42 = icmp eq ptr %39, null
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %46
   %40 = phi ptr [ %54, %46 ], [ %39, %32 ]
   %41 = load i8, ptr %5, align 1
-  %42 = and i8 %41, 1
-  %.not42 = icmp eq i8 %42, 0
-  br i1 %.not42, label %46, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %46
 
 43:                                               ; preds = %.lr.ph
   %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -131,17 +129,16 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   store i8 1, ptr %5, align 1
   %53 = load i32, ptr %52, align 4
   %54 = call ptr @systable_getnext(ptr noundef %38) #7
-  %.not40 = icmp eq ptr %54, null
-  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  %.not = icmp eq ptr %54, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %46, %32
   %.038.lcssa = phi i32 [ 0, %32 ], [ %53, %46 ]
   call void @systable_endscan(ptr noundef %38) #7
   call void @table_close(ptr noundef %33, i32 noundef 1) #7
   %55 = load i8, ptr %5, align 1
-  %56 = and i8 %55, 1
-  %.not41 = icmp eq i8 %56, 0
-  br i1 %.not41, label %.sink.split, label %58
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %58, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %30
   %57 = call i32 @RelationMapFilenumberToOid(i32 noundef %1, i1 noundef zeroext %31) #7
@@ -152,9 +149,8 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %59 = load ptr, ptr @RelfilenumberMapHash, align 8
   %60 = call ptr @hash_search(ptr noundef %59, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #7
   %61 = load i8, ptr %5, align 1
-  %62 = and i8 %61, 1
-  %.not43 = icmp eq i8 %62, 0
-  br i1 %.not43, label %66, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %66
 
 63:                                               ; preds = %58
   %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8

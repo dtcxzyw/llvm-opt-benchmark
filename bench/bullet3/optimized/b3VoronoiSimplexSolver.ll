@@ -213,13 +213,13 @@ entry:
   %p214 = alloca %class.b3Vector3, align 16
   %m_needsUpdate = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load i8, ptr %m_needsUpdate, align 16
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %entry.if.end359_crit_edge, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %entry.if.end359_crit_edge
 
 entry.if.end359_crit_edge:                        ; preds = %entry
   %m_cachedValidClosest360.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 324
   %.pre = load i8, ptr %m_cachedValidClosest360.phi.trans.insert, align 4
+  %1 = trunc i8 %.pre to i1
   br label %if.end359
 
 if.then:                                          ; preds = %entry
@@ -393,8 +393,8 @@ if.then29.i:                                      ; preds = %land.lhs.true24.i
 _ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit: ; preds = %land.lhs.true24.i, %if.then29.i
   %cmp.i162 = fcmp oge float %sub, 0.000000e+00
   %cmp4.i164 = fcmp oge float %19, 0.000000e+00
-  %or.cond.i165.not = and i1 %cmp.i162, %cmp4.i164
-  %frombool115 = zext i1 %or.cond.i165.not to i8
+  %or.cond.i165.not672 = and i1 %cmp.i162, %cmp4.i164
+  %frombool115 = zext i1 %or.cond.i165.not672 to i8
   %m_cachedValidClosest114 = getelementptr inbounds i8, ptr %this, i64 324
   store i8 %frombool115, ptr %m_cachedValidClosest114, align 4
   br label %if.end359
@@ -613,8 +613,8 @@ _ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit354: ; preds
   %102 = insertelement <4 x float> %101, float %98, i64 0
   %103 = insertelement <4 x float> %102, float %99, i64 1
   %104 = insertelement <4 x float> %103, float %100, i64 3
-  %.fr684 = freeze <4 x float> %104
-  %105 = fcmp ult <4 x float> %.fr684, zeroinitializer
+  %.fr687 = freeze <4 x float> %104
+  %105 = fcmp ult <4 x float> %.fr687, zeroinitializer
   %106 = bitcast <4 x i1> %105 to i4
   %107 = icmp eq i4 %106, 0
   %frombool212 = zext i1 %107 to i8
@@ -757,11 +757,11 @@ if.then233:                                       ; preds = %sw.bb213
   %196 = fsub <2 x float> %170, %194
   %shift = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %197 = fsub <2 x float> %shift, %184
-  %retval.sroa.3.12.vec.insert.i.i528683 = insertelement <2 x float> %197, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i.i528686 = insertelement <2 x float> %197, float 0.000000e+00, i64 1
   %m_cachedV338 = getelementptr inbounds i8, ptr %this, i64 288
   store <2 x float> %196, ptr %m_cachedV338, align 16
   %ref.tmp332.sroa.2.0.m_cachedV338.sroa_idx = getelementptr inbounds i8, ptr %this, i64 296
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i528683, ptr %ref.tmp332.sroa.2.0.m_cachedV338.sroa_idx, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i528686, ptr %ref.tmp332.sroa.2.0.m_cachedV338.sroa_idx, align 8
   %198 = load i32, ptr %this, align 16
   %cmp.i531 = icmp sgt i32 %198, 3
   br i1 %cmp.i531, label %land.lhs.true.i581, label %if.end.i532
@@ -879,17 +879,16 @@ _ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit596: ; preds
 if.else341:                                       ; preds = %sw.bb213
   %m_degenerate = getelementptr inbounds i8, ptr %this, i64 372
   %209 = load i8, ptr %m_degenerate, align 4
-  %210 = and i8 %209, 1
-  %tobool343.not = icmp eq i8 %210, 0
-  %m_cachedValidClosest347 = getelementptr inbounds i8, ptr %this, i64 324
-  br i1 %tobool343.not, label %if.else346, label %if.then344
+  %tobool343 = trunc i8 %209 to i1
+  %m_cachedValidClosest345 = getelementptr inbounds i8, ptr %this, i64 324
+  br i1 %tobool343, label %if.then344, label %if.else346
 
 if.then344:                                       ; preds = %if.else341
-  store i8 0, ptr %m_cachedValidClosest347, align 4
+  store i8 0, ptr %m_cachedValidClosest345, align 4
   br label %if.end359
 
 if.else346:                                       ; preds = %if.else341
-  store i8 1, ptr %m_cachedValidClosest347, align 4
+  store i8 1, ptr %m_cachedValidClosest345, align 4
   %m_cachedV348 = getelementptr inbounds i8, ptr %this, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_cachedV348, i8 0, i64 16, i1 false)
   br label %if.end359
@@ -900,9 +899,7 @@ sw.default:                                       ; preds = %if.then
   br label %if.end359
 
 if.end359:                                        ; preds = %entry.if.end359_crit_edge, %sw.bb, %_ZN25b3SubSimplexClosestResult7isValidEv.exit, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit354, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit596, %sw.default, %if.else346, %if.then344
-  %211 = phi i8 [ %.pre, %entry.if.end359_crit_edge ], [ 0, %sw.bb ], [ 1, %_ZN25b3SubSimplexClosestResult7isValidEv.exit ], [ %frombool115, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit ], [ %frombool212, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit354 ], [ %frombool357, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit596 ], [ 0, %sw.default ], [ 1, %if.else346 ], [ 0, %if.then344 ]
-  %212 = and i8 %211, 1
-  %tobool361 = icmp ne i8 %212, 0
+  %tobool361 = phi i1 [ %1, %entry.if.end359_crit_edge ], [ false, %sw.bb ], [ true, %_ZN25b3SubSimplexClosestResult7isValidEv.exit ], [ %or.cond.i165.not672, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit ], [ %107, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit354 ], [ %208, %_ZN22b3VoronoiSimplexSolver14reduceVerticesERK15b3UsageBitfield.exit596 ], [ false, %sw.default ], [ true, %if.else346 ], [ false, %if.then344 ]
   ret i1 %tobool361
 }
 
@@ -1672,7 +1669,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9b3Vector3eqERKS_.exit.thread
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK9b3Vector3eqERKS_.exit.thread ]
-  %found.020 = phi i8 [ 0, %for.body.lr.ph ], [ %9, %_ZNK9b3Vector3eqERKS_.exit.thread ]
+  %found.020 = phi i1 [ false, %for.body.lr.ph ], [ %9, %_ZNK9b3Vector3eqERKS_.exit.thread ]
   %arrayidx = getelementptr inbounds [5 x %class.b3Vector3], ptr %m_simplexVectorW, i64 0, i64 %indvars.iv
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %5 = load float, ptr %arrayidx.i, align 4
@@ -1695,54 +1692,49 @@ _ZNK9b3Vector3eqERKS_.exit:                       ; preds = %land.lhs.true6.i
   %8 = load float, ptr %arrayidx, align 16
   %cmp12.i = fcmp oeq float %8, %4
   %cond.fr = freeze i1 %cmp12.i
-  %spec.select = select i1 %cond.fr, i8 1, i8 %found.020
+  %spec.select = select i1 %cond.fr, i1 true, i1 %found.020
   br label %_ZNK9b3Vector3eqERKS_.exit.thread
 
 _ZNK9b3Vector3eqERKS_.exit.thread:                ; preds = %_ZNK9b3Vector3eqERKS_.exit, %for.body, %land.lhs.true.i, %land.lhs.true6.i
-  %9 = phi i8 [ %found.020, %land.lhs.true6.i ], [ %found.020, %land.lhs.true.i ], [ %found.020, %for.body ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ]
+  %9 = phi i1 [ %found.020, %land.lhs.true6.i ], [ %found.020, %land.lhs.true.i ], [ %found.020, %for.body ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end.loopexit:                                 ; preds = %_ZNK9b3Vector3eqERKS_.exit.thread
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  br label %for.end
-
-for.end:                                          ; preds = %entry.for.end_crit_edge, %for.end.loopexit
-  %12 = phi float [ %.pre, %entry.for.end_crit_edge ], [ %1, %for.end.loopexit ]
-  %found.0.lcssa = phi i1 [ false, %entry.for.end_crit_edge ], [ %11, %for.end.loopexit ]
+for.end:                                          ; preds = %_ZNK9b3Vector3eqERKS_.exit.thread, %entry.for.end_crit_edge
+  %10 = phi float [ %.pre, %entry.for.end_crit_edge ], [ %1, %_ZNK9b3Vector3eqERKS_.exit.thread ]
+  %found.0.lcssa = phi i1 [ false, %entry.for.end_crit_edge ], [ %9, %_ZNK9b3Vector3eqERKS_.exit.thread ]
   %m_lastW = getelementptr inbounds i8, ptr %this, i64 304
   %arrayidx2.i5 = getelementptr inbounds i8, ptr %this, i64 316
-  %13 = load float, ptr %arrayidx2.i5, align 4
-  %cmp.i6 = fcmp oeq float %12, %13
+  %11 = load float, ptr %arrayidx2.i5, align 4
+  %cmp.i6 = fcmp oeq float %10, %11
   br i1 %cmp.i6, label %land.lhs.true.i7, label %_ZNK9b3Vector3eqERKS_.exit17
 
 land.lhs.true.i7:                                 ; preds = %for.end
   %arrayidx3.i8 = getelementptr inbounds i8, ptr %w, i64 8
-  %14 = load float, ptr %arrayidx3.i8, align 8
+  %12 = load float, ptr %arrayidx3.i8, align 8
   %arrayidx4.i9 = getelementptr inbounds i8, ptr %this, i64 312
-  %15 = load float, ptr %arrayidx4.i9, align 8
-  %cmp5.i10 = fcmp oeq float %14, %15
+  %13 = load float, ptr %arrayidx4.i9, align 8
+  %cmp5.i10 = fcmp oeq float %12, %13
   br i1 %cmp5.i10, label %land.lhs.true6.i11, label %_ZNK9b3Vector3eqERKS_.exit17
 
 land.lhs.true6.i11:                               ; preds = %land.lhs.true.i7
   %arrayidx7.i12 = getelementptr inbounds i8, ptr %w, i64 4
-  %16 = load float, ptr %arrayidx7.i12, align 4
+  %14 = load float, ptr %arrayidx7.i12, align 4
   %arrayidx8.i13 = getelementptr inbounds i8, ptr %this, i64 308
-  %17 = load float, ptr %arrayidx8.i13, align 4
-  %cmp9.i14 = fcmp oeq float %16, %17
+  %15 = load float, ptr %arrayidx8.i13, align 4
+  %cmp9.i14 = fcmp oeq float %14, %15
   br i1 %cmp9.i14, label %land.rhs.i15, label %_ZNK9b3Vector3eqERKS_.exit17
 
 land.rhs.i15:                                     ; preds = %land.lhs.true6.i11
-  %18 = load float, ptr %w, align 16
-  %19 = load float, ptr %m_lastW, align 16
-  %cmp12.i16 = fcmp oeq float %18, %19
-  %20 = select i1 %cmp12.i16, i1 true, i1 %found.0.lcssa
+  %16 = load float, ptr %w, align 16
+  %17 = load float, ptr %m_lastW, align 16
+  %cmp12.i16 = fcmp oeq float %16, %17
+  %18 = select i1 %cmp12.i16, i1 true, i1 %found.0.lcssa
   br label %_ZNK9b3Vector3eqERKS_.exit17
 
 _ZNK9b3Vector3eqERKS_.exit17:                     ; preds = %for.end, %land.lhs.true.i7, %land.lhs.true6.i11, %land.rhs.i15
-  %retval.0 = phi i1 [ %found.0.lcssa, %land.lhs.true6.i11 ], [ %found.0.lcssa, %land.lhs.true.i7 ], [ %found.0.lcssa, %for.end ], [ %20, %land.rhs.i15 ]
+  %retval.0 = phi i1 [ %found.0.lcssa, %land.lhs.true6.i11 ], [ %found.0.lcssa, %land.lhs.true.i7 ], [ %found.0.lcssa, %for.end ], [ %18, %land.rhs.i15 ]
   ret i1 %retval.0
 }
 

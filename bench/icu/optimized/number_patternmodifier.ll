@@ -862,15 +862,16 @@ invoke.cont:                                      ; preds = %entry
           to label %call.i.i.noexc unwind label %lpad2
 
 call.i.i.noexc:                                   ; preds = %invoke.cont
+  %fApproximately.i.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i.i = trunc i8 %3 to i1
   %fPlural.i.i = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural.i.i, align 4
+  %4 = load i32, ptr %fPlural.i.i, align 4
   %fPerMilleReplacesPercent.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i.i = trunc i8 %5 to i1
   %currentAffix.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i5, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i5, i1 noundef zeroext %tobool2.i.i, i32 noundef %4, i1 noundef zeroext %tobool3.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %call.i.i.noexc
@@ -881,19 +882,19 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %.noexc
-  %8 = load ptr, ptr %fPatternInfo.i.i, align 8
-  %9 = load i32, ptr %fSignDisplay.i.i, align 4
-  %10 = load i32, ptr %fSignum.i.i, align 8
-  %call.i.i20 = invoke noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %9, i32 noundef %10)
+  %6 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %7 = load i32, ptr %fSignDisplay.i.i, align 4
+  %8 = load i32, ptr %fSignum.i.i, align 8
+  %call.i.i20 = invoke noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %7, i32 noundef %8)
           to label %call.i.i.noexc19 unwind label %lpad2
 
 call.i.i.noexc19:                                 ; preds = %invoke.cont3
-  %11 = load i32, ptr %fPlural.i.i, align 4
-  %12 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i.i, align 8
-  %13 = trunc <2 x i8> %12 to <2 x i1>
-  %14 = extractelement <2 x i1> %13, i64 0
-  %15 = extractelement <2 x i1> %13, i64 1
-  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false, i32 noundef %call.i.i20, i1 noundef zeroext %15, i32 noundef %11, i1 noundef zeroext %14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  %9 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i.i11 = trunc i8 %9 to i1
+  %10 = load i32, ptr %fPlural.i.i, align 4
+  %11 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i.i14 = trunc i8 %11 to i1
+  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false, i32 noundef %call.i.i20, i1 noundef zeroext %tobool2.i.i11, i32 noundef %10, i1 noundef zeroext %tobool3.i.i14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
           to label %.noexc21 unwind label %lpad2
 
 .noexc21:                                         ; preds = %call.i.i.noexc19
@@ -902,11 +903,11 @@ call.i.i.noexc19:                                 ; preds = %invoke.cont3
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %.noexc21
-  %16 = load ptr, ptr %fPatternInfo.i.i, align 8
-  %vtable = load ptr, ptr %16, align 8
+  %12 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %17 = load ptr, ptr %vfn, align 8
-  %call7 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %13 = load ptr, ptr %vfn, align 8
+  %call7 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -918,36 +919,35 @@ if.then:                                          ; preds = %invoke.cont6
   br i1 %new.isnull, label %cleanup, label %new.notnull
 
 new.notnull:                                      ; preds = %if.then
-  %18 = load ptr, ptr %fPatternInfo.i.i, align 8
-  %vtable10 = load ptr, ptr %18, align 8
+  %14 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %vtable10 = load ptr, ptr %14, align 8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 80
-  %19 = load ptr, ptr %vfn11, align 8
-  %call14 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %15 = load ptr, ptr %vfn11, align 8
+  %call14 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %new.notnull
   %lnot = xor i1 %call14, true
   %fStrong = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load i8, ptr %fStrong, align 8
-  %21 = and i8 %20, 1
-  %tobool = icmp ne i8 %21, 0
+  %16 = load i8, ptr %fStrong, align 8
+  %tobool = trunc i8 %16 to i1
   %fSymbols = getelementptr inbounds i8, ptr %this, i64 56
-  %22 = load ptr, ptr %fSymbols, align 8
-  invoke void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierC1ERKNS_22FormattedStringBuilderES5_bbRKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %call8, ptr noundef nonnull align 8 dereferenceable(136) %a, ptr noundef nonnull align 8 dereferenceable(136) %b, i1 noundef zeroext %lnot, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(2883) %22, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %17 = load ptr, ptr %fSymbols, align 8
+  invoke void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierC1ERKNS_22FormattedStringBuilderES5_bbRKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %call8, ptr noundef nonnull align 8 dereferenceable(136) %a, ptr noundef nonnull align 8 dereferenceable(136) %b, i1 noundef zeroext %lnot, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(2883) %17, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup unwind label %lpad12
 
 lpad:                                             ; preds = %entry
-  %23 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
 lpad2:                                            ; preds = %.noexc21, %call.i.i.noexc19, %invoke.cont3, %.noexc, %call.i.i.noexc, %invoke.cont, %invoke.cont4
-  %24 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont13, %new.notnull
-  %25 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call8) #21
   br label %ehcleanup
@@ -958,19 +958,19 @@ if.else:                                          ; preds = %invoke.cont6
   br i1 %new.isnull17, label %cleanup, label %new.notnull18
 
 new.notnull18:                                    ; preds = %if.else
-  %26 = load ptr, ptr %fPatternInfo.i.i, align 8
-  %vtable22 = load ptr, ptr %26, align 8
+  %21 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %vtable22 = load ptr, ptr %21, align 8
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 80
-  %27 = load ptr, ptr %vfn23, align 8
-  %call26 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  %22 = load ptr, ptr %vfn23, align 8
+  %call26 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %new.notnull18
   %lnot27 = xor i1 %call26, true
   %fStrong28 = getelementptr inbounds i8, ptr %this, i64 24
-  %28 = load i8, ptr %fStrong28, align 8
-  %29 = and i8 %28, 1
+  %23 = load i8, ptr %fStrong28, align 8
   %frombool.i = zext i1 %lnot27 to i8
+  %frombool1.i = and i8 %23, 1
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %call16, align 8
   %fPrefix.i = getelementptr inbounds i8, ptr %call16, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i, ptr noundef nonnull align 8 dereferenceable(136) %a)
@@ -985,44 +985,44 @@ invoke.cont4.i:                                   ; preds = %invoke.cont.i
   %fOverwrite.i = getelementptr inbounds i8, ptr %call16, i64 280
   store i8 %frombool.i, ptr %fOverwrite.i, align 8
   %fStrong.i = getelementptr inbounds i8, ptr %call16, i64 281
-  store i8 %29, ptr %fStrong.i, align 1
+  store i8 %frombool1.i, ptr %fStrong.i, align 1
   %fParameters.i = getelementptr inbounds i8, ptr %call16, i64 288
   invoke void @_ZN6icu_756number4impl8Modifier10ParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %fParameters.i)
           to label %cleanup unwind label %lpad8.i
 
 lpad.i:                                           ; preds = %invoke.cont25
-  %30 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup10.i
 
 lpad3.i:                                          ; preds = %invoke.cont.i
-  %31 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad8.i:                                          ; preds = %invoke.cont4.i
-  %32 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #21
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad8.i, %lpad3.i
-  %.pn.i = phi { ptr, i32 } [ %32, %lpad8.i ], [ %31, %lpad3.i ]
+  %.pn.i = phi { ptr, i32 } [ %26, %lpad8.i ], [ %25, %lpad3.i ]
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i) #21
   br label %ehcleanup10.i
 
 ehcleanup10.i:                                    ; preds = %ehcleanup.i, %lpad.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %30, %lpad.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %24, %lpad.i ]
   call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call16) #21
   br label %lpad24.body
 
 lpad24:                                           ; preds = %new.notnull18
-  %33 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24.body
 
 lpad24.body:                                      ; preds = %ehcleanup10.i, %lpad24
-  %eh.lpad-body = phi { ptr, i32 } [ %33, %lpad24 ], [ %.pn.pn.i, %ehcleanup10.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %lpad24 ], [ %.pn.pn.i, %ehcleanup10.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call16) #21
   br label %ehcleanup
 
@@ -1033,12 +1033,12 @@ cleanup:                                          ; preds = %invoke.cont4.i, %if
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad24.body, %lpad12, %lpad2
-  %.pn = phi { ptr, i32 } [ %25, %lpad12 ], [ %eh.lpad-body, %lpad24.body ], [ %24, %lpad2 ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad12 ], [ %eh.lpad-body, %lpad24.body ], [ %19, %lpad2 ]
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %b) #21
   br label %ehcleanup36
 
 ehcleanup36:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %18, %lpad ]
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %a) #21
   resume { ptr, i32 } %.pn.pn
 }
@@ -1279,15 +1279,16 @@ entry:
   %fSignum.i = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load i32, ptr %fSignum.i, align 8
   %call.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
+  %fApproximately.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately.i, align 1
+  %tobool2.i = trunc i8 %3 to i1
   %fPlural.i = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural.i, align 4
+  %4 = load i32, ptr %fPlural.i, align 4
   %fPerMilleReplacesPercent.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i, align 8
+  %tobool3.i = trunc i8 %5 to i1
   %currentAffix.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i, i1 noundef zeroext %tobool2.i, i32 noundef %4, i1 noundef zeroext %tobool3.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %fField = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload = load i8, ptr %fField, align 8
@@ -1305,15 +1306,16 @@ entry:
   %fSignum.i = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load i32, ptr %fSignum.i, align 8
   %call.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
+  %fApproximately.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately.i, align 1
+  %tobool2.i = trunc i8 %3 to i1
   %fPlural.i = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural.i, align 4
+  %4 = load i32, ptr %fPlural.i, align 4
   %fPerMilleReplacesPercent.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i, align 8
+  %tobool3.i = trunc i8 %5 to i1
   %currentAffix.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false, i32 noundef %call.i, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false, i32 noundef %call.i, i1 noundef zeroext %tobool2.i, i32 noundef %4, i1 noundef zeroext %tobool3.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %fField = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload = load i8, ptr %fField, align 8
@@ -1599,39 +1601,37 @@ entry:
   %2 = load i32, ptr %fSignum.i.i, align 8
   %call.i.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
   %fApproximately.i.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i.i = trunc i8 %3 to i1
   %fPlural.i.i = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural.i.i, align 4
+  %4 = load i32, ptr %fPlural.i.i, align 4
   %fPerMilleReplacesPercent.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i.i = trunc i8 %5 to i1
   %currentAffix.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i, i1 noundef zeroext %tobool2.i.i, i32 noundef %4, i1 noundef zeroext %tobool3.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %fField.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i = load i8, ptr %fField.i, align 8
   %call.i = tail call noundef i32 @_ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add = add i32 %call.i, %rightIndex
-  %8 = load ptr, ptr %fPatternInfo.i.i, align 8
-  %9 = load i32, ptr %fSignDisplay.i.i, align 4
-  %10 = load i32, ptr %fSignum.i.i, align 8
-  %call.i.i22 = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %9, i32 noundef %10)
-  %11 = load i8, ptr %fApproximately.i.i, align 1
-  %12 = and i8 %11, 1
-  %tobool2.i.i24 = icmp ne i8 %12, 0
-  %13 = load i32, ptr %fPlural.i.i, align 4
-  %14 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
-  %15 = and i8 %14, 1
-  %tobool3.i.i27 = icmp ne i8 %15, 0
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false, i32 noundef %call.i.i22, i1 noundef zeroext %tobool2.i.i24, i32 noundef %13, i1 noundef zeroext %tobool3.i.i27, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  %6 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %7 = load i32, ptr %fSignDisplay.i.i, align 4
+  %8 = load i32, ptr %fSignum.i.i, align 8
+  %call.i.i22 = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %7, i32 noundef %8)
+  %9 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i.i24 = trunc i8 %9 to i1
+  %10 = load i32, ptr %fPlural.i.i, align 4
+  %11 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i.i27 = trunc i8 %11 to i1
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false, i32 noundef %call.i.i22, i1 noundef zeroext %tobool2.i.i24, i32 noundef %10, i1 noundef zeroext %tobool3.i.i27, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
   %agg.tmp.sroa.0.0.copyload.i31 = load i8, ptr %fField.i, align 8
   %call.i32 = tail call noundef i32 @_ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 %agg.tmp.sroa.0.0.copyload.i31, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %16 = load ptr, ptr %fPatternInfo.i.i, align 8
-  %vtable = load ptr, ptr %16, align 8
+  %12 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
-  %17 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %13 = load ptr, ptr %vfn, align 8
+  %call3 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
   br i1 %call3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1647,17 +1647,17 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %18 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #21
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %overwriteLen.0 = phi i32 [ 0, %entry ], [ %call6, %invoke.cont ]
   %add8 = add i32 %add, %overwriteLen.0
   %fSymbols = getelementptr inbounds i8, ptr %this, i64 56
-  %19 = load ptr, ptr %fSymbols, align 8
-  %call9 = call noundef i32 @_ZN6icu_756number4impl30CurrencySpacingEnabledModifier20applyCurrencySpacingERNS_22FormattedStringBuilderEiiiiRKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %call.i, i32 noundef %add8, i32 noundef %call.i32, ptr noundef nonnull align 8 dereferenceable(2883) %19, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %15 = load ptr, ptr %fSymbols, align 8
+  %call9 = call noundef i32 @_ZN6icu_756number4impl30CurrencySpacingEnabledModifier20applyCurrencySpacingERNS_22FormattedStringBuilderEiiiiRKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %call.i, i32 noundef %add8, i32 noundef %call.i32, ptr noundef nonnull align 8 dereferenceable(2883) %15, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add10 = add i32 %call.i32, %call.i
   %add11 = add i32 %add10, %overwriteLen.0
   ret i32 %add11
@@ -1690,15 +1690,16 @@ entry:
   %fSignum.i = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load i32, ptr %fSignum.i, align 8
   %call.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
+  %fApproximately.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately.i, align 1
+  %tobool2.i = trunc i8 %3 to i1
   %fPlural.i = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural.i, align 4
+  %4 = load i32, ptr %fPlural.i, align 4
   %fPerMilleReplacesPercent.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i, align 8
+  %tobool3.i = trunc i8 %5 to i1
   %currentAffix.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i, i1 noundef zeroext %tobool2.i, i32 noundef %4, i1 noundef zeroext %tobool3.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %call = call noundef i32 @_ZN6icu_756number4impl10AffixUtils23unescapedCodePointCountERKNS_13UnicodeStringERKNS1_14SymbolProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -1714,15 +1715,16 @@ entry:
   %fSignum = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load i32, ptr %fSignum, align 8
   %call = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
+  %fApproximately = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately, align 1
+  %tobool2 = trunc i8 %3 to i1
   %fPlural = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural, align 4
+  %4 = load i32, ptr %fPlural, align 4
   %fPerMilleReplacesPercent = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent, align 8
+  %tobool3 = trunc i8 %5 to i1
   %currentAffix = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext %isPrefix, i32 noundef %call, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext %isPrefix, i32 noundef %call, i1 noundef zeroext %tobool2, i32 noundef %4, i1 noundef zeroext %tobool3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix)
   ret void
 }
 
@@ -1741,15 +1743,16 @@ entry:
   %fSignum.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %2 = load i32, ptr %fSignum.i.i, align 8
   %call.i.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
+  %fApproximately.i.i = getelementptr inbounds i8, ptr %this, i64 41
+  %3 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i.i = trunc i8 %3 to i1
   %fPlural.i.i = getelementptr inbounds i8, ptr %this, i64 308
-  %3 = load i32, ptr %fPlural.i.i, align 4
+  %4 = load i32, ptr %fPlural.i.i, align 4
   %fPerMilleReplacesPercent.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i.i = trunc i8 %5 to i1
   %currentAffix.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i, i1 noundef zeroext %tobool2.i.i, i32 noundef %4, i1 noundef zeroext %tobool3.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = call noundef i32 @_ZN6icu_756number4impl10AffixUtils23unescapedCodePointCountERKNS_13UnicodeStringERKNS1_14SymbolProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -1769,29 +1772,27 @@ entry:
   %2 = load i32, ptr %fSignum.i, align 8
   %call.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
   %fApproximately.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %fApproximately.i, align 1
+  %tobool2.i = trunc i8 %3 to i1
   %fPlural.i = getelementptr inbounds i8, ptr %this, i64 316
-  %3 = load i32, ptr %fPlural.i, align 4
+  %4 = load i32, ptr %fPlural.i, align 4
   %fPerMilleReplacesPercent.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load <2 x i8>, ptr %fPerMilleReplacesPercent.i, align 8
-  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i, align 8
+  %tobool3.i = trunc i8 %5 to i1
   %currentAffix.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i, i1 noundef zeroext %7, i32 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i, i1 noundef zeroext %tobool2.i, i32 noundef %4, i1 noundef zeroext %tobool3.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %call = call noundef i32 @_ZN6icu_756number4impl10AffixUtils23unescapedCodePointCountERKNS_13UnicodeStringERKNS1_14SymbolProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %8 = load ptr, ptr %fPatternInfo.i, align 8
-  %9 = load i32, ptr %fSignDisplay.i, align 4
-  %10 = load i32, ptr %fSignum.i, align 8
-  %call.i6 = call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %9, i32 noundef %10)
-  %11 = load i8, ptr %fApproximately.i, align 1
-  %12 = and i8 %11, 1
-  %tobool2.i8 = icmp ne i8 %12, 0
-  %13 = load i32, ptr %fPlural.i, align 4
-  %14 = load i8, ptr %fPerMilleReplacesPercent.i, align 8
-  %15 = and i8 %14, 1
-  %tobool3.i11 = icmp ne i8 %15, 0
-  call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false, i32 noundef %call.i6, i1 noundef zeroext %tobool2.i8, i32 noundef %13, i1 noundef zeroext %tobool3.i11, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
+  %6 = load ptr, ptr %fPatternInfo.i, align 8
+  %7 = load i32, ptr %fSignDisplay.i, align 4
+  %8 = load i32, ptr %fSignum.i, align 8
+  %call.i6 = call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %7, i32 noundef %8)
+  %9 = load i8, ptr %fApproximately.i, align 1
+  %tobool2.i8 = trunc i8 %9 to i1
+  %10 = load i32, ptr %fPlural.i, align 4
+  %11 = load i8, ptr %fPerMilleReplacesPercent.i, align 8
+  %tobool3.i11 = trunc i8 %11 to i1
+  call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false, i32 noundef %call.i6, i1 noundef zeroext %tobool2.i8, i32 noundef %10, i1 noundef zeroext %tobool3.i11, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i)
   %call4 = call noundef i32 @_ZN6icu_756number4impl10AffixUtils23unescapedCodePointCountERKNS_13UnicodeStringERKNS1_14SymbolProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add = add nsw i32 %call4, %call
   ret i32 %add
@@ -1800,9 +1801,42 @@ entry:
 ; Function Attrs: uwtable
 define noundef i32 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier17getCodePointCountEv(ptr noundef %this) unnamed_addr #12 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  %call = tail call noundef i32 @_ZNK6icu_756number4impl22MutablePatternModifier17getCodePointCountEv(ptr noundef nonnull align 8 dereferenceable(392) %0)
-  ret i32 %call
+  %status.i = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
+  store i32 0, ptr %status.i, align 4
+  %fPatternInfo.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %fSignDisplay.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %1 = load i32, ptr %fSignDisplay.i.i, align 4
+  %fSignum.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %2 = load i32, ptr %fSignum.i.i, align 8
+  %call.i.i = tail call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %1, i32 noundef %2)
+  %fApproximately.i.i = getelementptr inbounds i8, ptr %this, i64 41
+  %3 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i.i = trunc i8 %3 to i1
+  %fPlural.i.i = getelementptr inbounds i8, ptr %this, i64 308
+  %4 = load i32, ptr %fPlural.i.i, align 4
+  %fPerMilleReplacesPercent.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %5 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i.i = trunc i8 %5 to i1
+  %currentAffix.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  tail call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true, i32 noundef %call.i.i, i1 noundef zeroext %tobool2.i.i, i32 noundef %4, i1 noundef zeroext %tobool3.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
+  %call.i = call noundef i32 @_ZN6icu_756number4impl10AffixUtils23unescapedCodePointCountERKNS_13UnicodeStringERKNS1_14SymbolProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
+  %6 = load ptr, ptr %fPatternInfo.i.i, align 8
+  %7 = load i32, ptr %fSignDisplay.i.i, align 4
+  %8 = load i32, ptr %fSignum.i.i, align 8
+  %call.i6.i = call noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %7, i32 noundef %8)
+  %9 = load i8, ptr %fApproximately.i.i, align 1
+  %tobool2.i8.i = trunc i8 %9 to i1
+  %10 = load i32, ptr %fPlural.i.i, align 4
+  %11 = load i8, ptr %fPerMilleReplacesPercent.i.i, align 8
+  %tobool3.i11.i = trunc i8 %11 to i1
+  call void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false, i32 noundef %call.i6.i, i1 noundef zeroext %tobool2.i8.i, i32 noundef %10, i1 noundef zeroext %tobool3.i11.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i)
+  %call4.i = call noundef i32 @_ZN6icu_756number4impl10AffixUtils23unescapedCodePointCountERKNS_13UnicodeStringERKNS1_14SymbolProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
+  %add.i = add nsw i32 %call4.i, %call.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
+  ret i32 %add.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1810,8 +1844,7 @@ define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier8isStr
 entry:
   %fStrong = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %fStrong, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1820,8 +1853,7 @@ define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier8
 entry:
   %fStrong.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %fStrong.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 

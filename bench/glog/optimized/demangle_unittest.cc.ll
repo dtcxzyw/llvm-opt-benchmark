@@ -960,9 +960,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %1, %60, %_ZNKSt14de
   store ptr null, ptr %35, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.33, ptr noundef nonnull %2)
   %61 = load i8, ptr %7, align 8
-  %62 = and i8 %61, 1
-  %.not = icmp eq i8 %62, 0
-  br i1 %.not, label %65, label %87
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %87, label %65
 
 63:                                               ; preds = %65
   %64 = landingpad { ptr, i32 }
@@ -1146,9 +1145,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %_ZN7testing15Assert
   store ptr null, ptr %92, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %14, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.33, ptr noundef nonnull %2)
   %118 = load i8, ptr %14, align 8
-  %119 = and i8 %118, 1
-  %.not153 = icmp eq i8 %119, 0
-  br i1 %.not153, label %122, label %144
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %144, label %122
 
 120:                                              ; preds = %122
   %121 = landingpad { ptr, i32 }
@@ -1812,9 +1810,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %1, %81, %_ZNKSt14de
   store ptr null, ptr %56, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.50, ptr noundef nonnull %2)
   %82 = load i8, ptr %7, align 8
-  %83 = and i8 %82, 1
-  %.not = icmp eq i8 %83, 0
-  br i1 %.not, label %86, label %108
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %108, label %86
 
 84:                                               ; preds = %86
   %85 = landingpad { ptr, i32 }
@@ -1998,9 +1995,8 @@ _ZN7testing15AssertionResultD2Ev.exit120:         ; preds = %_ZN7testing15Assert
   store ptr null, ptr %113, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %14, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.50, ptr noundef nonnull %2)
   %139 = load i8, ptr %14, align 8
-  %140 = and i8 %139, 1
-  %.not261 = icmp eq i8 %140, 0
-  br i1 %.not261, label %143, label %165
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %165, label %143
 
 141:                                              ; preds = %143
   %142 = landingpad { ptr, i32 }
@@ -2184,9 +2180,8 @@ _ZN7testing15AssertionResultD2Ev.exit140:         ; preds = %_ZN7testing15Assert
   store ptr null, ptr %170, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %21, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.50, ptr noundef nonnull %2)
   %196 = load i8, ptr %21, align 8
-  %197 = and i8 %196, 1
-  %.not262 = icmp eq i8 %197, 0
-  br i1 %.not262, label %200, label %222
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %222, label %200
 
 198:                                              ; preds = %200
   %199 = landingpad { ptr, i32 }
@@ -2370,9 +2365,8 @@ _ZN7testing15AssertionResultD2Ev.exit160:         ; preds = %_ZN7testing15Assert
   store ptr null, ptr %227, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %28, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.50, ptr noundef nonnull %2)
   %253 = load i8, ptr %28, align 8
-  %254 = and i8 %253, 1
-  %.not263 = icmp eq i8 %254, 0
-  br i1 %.not263, label %257, label %279
+  %254 = trunc i8 %253 to i1
+  br i1 %254, label %279, label %257
 
 255:                                              ; preds = %257
   %256 = landingpad { ptr, i32 }
@@ -2556,9 +2550,8 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %_ZN7testing15Assert
   store ptr null, ptr %284, align 8
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %35, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.50, ptr noundef nonnull %2)
   %310 = load i8, ptr %35, align 8
-  %311 = and i8 %310, 1
-  %.not264 = icmp eq i8 %311, 0
-  br i1 %.not264, label %314, label %336
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %336, label %314
 
 312:                                              ; preds = %314
   %313 = landingpad { ptr, i32 }
@@ -3248,9 +3241,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %30, %62, %_ZNKSt14d
 
 _ZN7testing8internal11CmpHelperNEImmEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %85, %86
   %87 = load i8, ptr %10, align 8
-  %88 = and i8 %87, 1
-  %.not = icmp eq i8 %88, 0
-  br i1 %.not, label %91, label %112
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %112, label %91
 
 89:                                               ; preds = %91
   %90 = landingpad { ptr, i32 }
@@ -3368,9 +3360,8 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %112, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultESA_SA_RKSC_RKSD_.exit: ; preds = %124, %125
   %126 = load i8, ptr %15, align 8
-  %127 = and i8 %126, 1
-  %.not57 = icmp eq i8 %127, 0
-  br i1 %.not57, label %135, label %156
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %156, label %135
 
 128:                                              ; preds = %_ZN7testing7MessageD2Ev.exit38, %89
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %_ZN7testing7MessageD2Ev.exit38 ], [ %90, %89 ]
@@ -3545,9 +3536,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %8 = load ptr, ptr %7, align 8
   call void @_ZN6google17InitGoogleLoggingEPKc(ptr noundef %8)
   %9 = load i8, ptr @_ZN3fLB21FLAGS_demangle_filterE, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %31, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %31
 
 11:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21

@@ -412,9 +412,8 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   %9 = alloca [4 x %struct._zval_struct], align 16
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 11), align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %13, label %111
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %111, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 116
@@ -429,8 +428,8 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef %18) #11
   %24 = tail call ptr @zend_hash_str_find(ptr noundef %23, ptr noundef nonnull @.str.3, i64 noundef 6) #11
-  %.not146 = icmp eq ptr %24, null
-  br i1 %.not146, label %.thread, label %25
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %.thread, label %25
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds i8, ptr %24, i64 8
@@ -442,8 +441,8 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   %30 = load ptr, ptr %24, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
-  %.not147 = icmp eq i8 %32, 0
-  br i1 %.not147, label %.thread, label %33
+  %.not146 = icmp eq i8 %32, 0
+  br i1 %.not146, label %.thread, label %33
 
 33:                                               ; preds = %25, %29
   %34 = phi ptr [ %30, %29 ], [ %24, %25 ]
@@ -468,7 +467,7 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %29, %13, %33
-  %.not148158 = phi i1 [ false, %33 ], [ true, %13 ], [ true, %29 ]
+  %.not147157 = phi i1 [ false, %33 ], [ true, %13 ], [ true, %29 ]
   %47 = phi ptr [ %34, %33 ], [ null, %13 ], [ null, %29 ]
   %48 = tail call noalias ptr @_emalloc_32() #11
   store i32 1, ptr %48, align 4
@@ -496,8 +495,8 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   store ptr %60, ptr %58, align 16
   %61 = getelementptr inbounds i8, ptr %9, i64 24
   store i32 265, ptr %61, align 8
-  %.not149 = icmp eq ptr %4, null
-  br i1 %.not149, label %66, label %62
+  %.not148 = icmp eq ptr %4, null
+  br i1 %.not148, label %66, label %62
 
 62:                                               ; preds = %.thread
   %63 = getelementptr inbounds i8, ptr %9, i64 32
@@ -524,8 +523,8 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   store ptr %71, ptr %70, align 16
   store i32 266, ptr %69, align 8
   %76 = and i32 %5, 2
-  %.not150 = icmp eq i32 %76, 0
-  %77 = select i1 %.not150, i32 2, i32 3
+  %.not149 = icmp eq i32 %76, 0
+  %77 = select i1 %.not149, i32 2, i32 3
   %78 = getelementptr inbounds i8, ptr %9, i64 48
   %79 = getelementptr inbounds i8, ptr %9, i64 56
   store i32 %77, ptr %79, align 8
@@ -534,8 +533,8 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   %81 = icmp ne i32 %80, 0
   %82 = getelementptr inbounds i8, ptr %8, i64 8
   %83 = load i8, ptr %82, align 8
-  %.not151 = icmp eq i8 %83, 0
-  %or.cond = select i1 %81, i1 true, i1 %.not151
+  %.not150 = icmp eq i8 %83, 0
+  %or.cond = select i1 %81, i1 true, i1 %.not150
   br i1 %or.cond, label %87, label %84
 
 84:                                               ; preds = %66
@@ -554,7 +553,7 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
 
 90:                                               ; preds = %87, %89, %84
   %.0140 = phi i32 [ %86, %84 ], [ 0, %89 ], [ 0, %87 ]
-  br i1 %.not149, label %100, label %91
+  br i1 %.not148, label %100, label %91
 
 91:                                               ; preds = %90
   %92 = load i8, ptr %69, align 8
@@ -576,42 +575,42 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
 
 100:                                              ; preds = %98, %90
   %101 = load ptr, ptr %2, align 8
-  %.not152 = icmp eq ptr %101, null
-  br i1 %.not152, label %.loopexit159, label %102
+  %.not151 = icmp eq ptr %101, null
+  br i1 %.not151, label %.loopexit158, label %102
 
 102:                                              ; preds = %100
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6) #11
   %103 = load ptr, ptr %2, align 8
-  %.not153160 = icmp eq ptr %103, null
-  br i1 %.not153160, label %.loopexit159, label %.lr.ph
+  %.not152159 = icmp eq ptr %103, null
+  br i1 %.not152159, label %.loopexit158, label %.lr.ph
 
 .lr.ph:                                           ; preds = %102, %.lr.ph
   %104 = phi ptr [ %105, %.lr.ph ], [ %103, %102 ]
   call void @php_stream_bucket_unlink(ptr noundef nonnull %104) #11
   call void @php_stream_bucket_delref(ptr noundef nonnull %104) #11
   %105 = load ptr, ptr %2, align 8
-  %.not153 = icmp eq ptr %105, null
-  br i1 %.not153, label %.loopexit159, label %.lr.ph
+  %.not152 = icmp eq ptr %105, null
+  br i1 %.not152, label %.loopexit158, label %.lr.ph
 
-.loopexit159:                                     ; preds = %.lr.ph, %102, %100
-  %.not154 = icmp eq i32 %.0140, 2
-  br i1 %.not154, label %.loopexit, label %.preheader
+.loopexit158:                                     ; preds = %.lr.ph, %102, %100
+  %.not153 = icmp eq i32 %.0140, 2
+  br i1 %.not153, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit159
-  %.0161 = load ptr, ptr %3, align 8
-  %.not155162 = icmp eq ptr %.0161, null
-  br i1 %.not155162, label %.loopexit, label %.lr.ph164
+.preheader:                                       ; preds = %.loopexit158
+  %.0160 = load ptr, ptr %3, align 8
+  %.not154161 = icmp eq ptr %.0160, null
+  br i1 %.not154161, label %.loopexit, label %.lr.ph163
 
-.lr.ph164:                                        ; preds = %.preheader, %.lr.ph164
-  %.0163 = phi ptr [ %.0, %.lr.ph164 ], [ %.0161, %.preheader ]
-  call void @php_stream_bucket_unlink(ptr noundef nonnull %.0163) #11
-  call void @php_stream_bucket_delref(ptr noundef nonnull %.0163) #11
+.lr.ph163:                                        ; preds = %.preheader, %.lr.ph163
+  %.0162 = phi ptr [ %.0, %.lr.ph163 ], [ %.0160, %.preheader ]
+  call void @php_stream_bucket_unlink(ptr noundef nonnull %.0162) #11
+  call void @php_stream_bucket_delref(ptr noundef nonnull %.0162) #11
   %.0 = load ptr, ptr %3, align 8
-  %.not155 = icmp eq ptr %.0, null
-  br i1 %.not155, label %.loopexit, label %.lr.ph164
+  %.not154 = icmp eq ptr %.0, null
+  br i1 %.not154, label %.loopexit, label %.lr.ph163
 
-.loopexit:                                        ; preds = %.lr.ph164, %.preheader, %.loopexit159
-  br i1 %.not148158, label %107, label %106
+.loopexit:                                        ; preds = %.lr.ph163, %.preheader, %.loopexit158
+  br i1 %.not147157, label %107, label %106
 
 106:                                              ; preds = %.loopexit
   call void @convert_to_null(ptr noundef nonnull %47) #11

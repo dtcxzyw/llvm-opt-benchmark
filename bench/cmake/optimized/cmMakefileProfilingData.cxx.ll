@@ -494,9 +494,8 @@ define dso_local void @_ZN23cmMakefileProfilingData10StartEntryERKNSt7__cxx1112b
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #11
   %63 = getelementptr inbounds i8, ptr %3, i64 40
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %86, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %86
 
 66:                                               ; preds = %61
   %67 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull @.str.12)
@@ -997,9 +996,8 @@ define dso_local void @_ZN23cmMakefileProfilingData4RAIIC2ERS_RKNSt7__cxx1112bas
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store i8 0, ptr %8, align 8
   %9 = load i8, ptr %7, align 8
-  %10 = and i8 %9, 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit
 
 11:                                               ; preds = %5
   call void @_ZN4Json5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %4) #11
@@ -1012,9 +1010,8 @@ _ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit:        ; preds = %5, %11
 
 12:                                               ; preds = %_ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit
   %13 = load i8, ptr %8, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit
 
 15:                                               ; preds = %12
   store i8 0, ptr %8, align 8
@@ -1028,16 +1025,15 @@ _ZNSt8optionalIN4Json5ValueEED2Ev.exit:           ; preds = %12, %15
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load i8, ptr %8, align 8
-  %19 = and i8 %18, 1
-  %.not.i.i.i.i5 = icmp eq i8 %19, 0
-  br i1 %.not.i.i.i.i5, label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit6, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit5
 
 20:                                               ; preds = %16
   store i8 0, ptr %8, align 8
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #11
-  br label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit6
+  br label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit5
 
-_ZNSt8optionalIN4Json5ValueEED2Ev.exit6:          ; preds = %16, %20
+_ZNSt8optionalIN4Json5ValueEED2Ev.exit5:          ; preds = %16, %20
   resume { ptr, i32 } %17
 }
 

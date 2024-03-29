@@ -77,8 +77,7 @@ global_state_do_store.exit:                       ; preds = %entry
 define dso_local zeroext i1 @global_state_received() local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i64 0, i32 3), align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -135,17 +134,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %runstate1) #7
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %runstate1) #7
   br label %trace_migrate_global_state_post_load.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -169,12 +167,12 @@ if.end:                                           ; preds = %if.then, %trace_mig
   br i1 %cmp6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
-  %7 = load ptr, ptr %local_err, align 8
-  %tobool.not = icmp eq ptr %7, null
+  %6 = load ptr, ptr %local_err, align 8
+  %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.then7
-  call void @error_report_err(ptr noundef nonnull %7) #7
+  call void @error_report_err(ptr noundef nonnull %6) #7
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -208,17 +206,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %runstate) #7
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %runstate) #7
   br label %trace_migrate_global_state_pre_save.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -228,8 +225,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_migrate_global_state_pre_save.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %runstate, i64 noundef 100) #8
-  %7 = trunc i64 %call to i32
-  %conv = add i32 %7, 1
+  %6 = trunc i64 %call to i32
+  %conv = add i32 %6, 1
   store i32 %conv, ptr %opaque, align 4
   %cmp = icmp ult i32 %conv, 101
   br i1 %cmp, label %if.end, label %if.else
@@ -249,9 +246,8 @@ entry:
   %call = tail call ptr @migrate_get_current() #7
   %store_global_state = getelementptr inbounds i8, ptr %call, i64 1537
   %0 = load i8, ptr %store_global_state, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %runstate1, ptr noundef nonnull dereferenceable(8) @.str.11) #8

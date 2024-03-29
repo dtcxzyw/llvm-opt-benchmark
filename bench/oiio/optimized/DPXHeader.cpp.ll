@@ -2337,19 +2337,18 @@ define hidden noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr nocapture noun
 entry:
   %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
   %0 = load i8, ptr %datumSwap, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %or.cond.i = icmp ugt i32 %element, 7
-  %or.cond = or i1 %or.cond.i, %tobool.not
-  br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+  %tobool = trunc i8 %0 to i1
+  %or.cond.i = icmp ult i32 %element, 8
+  %or.cond.not = and i1 %or.cond.i, %tobool
+  br i1 %or.cond.not, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, label %return
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
   %chan.i = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom.i = zext nneg i32 %element to i64
   %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
-  %2 = load i8, ptr %descriptor.i, align 4
-  %switch.selectcmp.case1 = icmp eq i8 %2, 50
-  %switch.selectcmp.case2 = icmp eq i8 %2, 100
+  %1 = load i8, ptr %descriptor.i, align 4
+  %switch.selectcmp.case1 = icmp eq i8 %1, 50
+  %switch.selectcmp.case2 = icmp eq i8 %1, 100
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   br label %return
 

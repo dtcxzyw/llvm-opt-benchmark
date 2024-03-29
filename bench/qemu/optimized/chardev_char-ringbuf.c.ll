@@ -392,21 +392,20 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
   %has_size = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %has_size, align 2
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %size = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load i64, ptr %size, align 8
+  %2 = load i64, ptr %size, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i64 [ %3, %cond.true ], [ 65536, %entry ]
+  %cond = phi i64 [ %2, %cond.true ], [ 65536, %entry ]
   %size1 = getelementptr inbounds i8, ptr %call.i, i64 152
   store i64 %cond, ptr %size1, align 8
-  %4 = tail call i64 @llvm.ctpop.i64(i64 %cond), !range !8
-  %tobool4.not = icmp ult i64 %4, 2
+  %3 = tail call i64 @llvm.ctpop.i64(i64 %cond), !range !8
+  %tobool4.not = icmp ult i64 %3, 2
   br i1 %tobool4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end

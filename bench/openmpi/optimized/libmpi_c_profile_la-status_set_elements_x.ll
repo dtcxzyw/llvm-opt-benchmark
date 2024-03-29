@@ -20,9 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %20, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %20
 
 7:                                                ; preds = %3
   %8 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -43,12 +42,12 @@ define noundef i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr nou
   %16 = icmp sgt i64 %2, -1
   %17 = lshr i64 %2, 62
   %18 = trunc i64 %17 to i32
-  %spec.select23 = and i32 %18, 2
+  %spec.select22 = and i32 %18, 2
   br i1 %16, label %20, label %.thread
 
 .thread:                                          ; preds = %12, %15
-  %.01927 = phi i32 [ %spec.select23, %15 ], [ 3, %12 ]
-  %19 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.01927, ptr noundef nonnull @FUNC_NAME) #2
+  %.01926 = phi i32 [ %spec.select22, %15 ], [ 3, %12 ]
+  %19 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.01926, ptr noundef nonnull @FUNC_NAME) #2
   br label %33
 
 20:                                               ; preds = %15, %3
@@ -59,13 +58,13 @@ define noundef i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr nou
   %23 = getelementptr i8, ptr %1, i64 16
   %.val = load i16, ptr %23, align 8
   %24 = and i16 %.val, 512
-  %.not22 = icmp eq i16 %24, 0
-  br i1 %.not22, label %29, label %25
+  %.not21 = icmp eq i16 %24, 0
+  br i1 %.not21, label %29, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr i8, ptr %1, i64 24
-  %.val24 = load i64, ptr %26, align 8
-  %27 = mul i64 %.val24, %2
+  %.val23 = load i64, ptr %26, align 8
+  %27 = mul i64 %.val23, %2
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %27, ptr %28, align 8
   br label %33
@@ -78,7 +77,7 @@ define noundef i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr nou
   br label %33
 
 33:                                               ; preds = %25, %29, %20, %.thread
-  %.0 = phi i32 [ %.01927, %.thread ], [ 0, %20 ], [ 0, %29 ], [ 0, %25 ]
+  %.0 = phi i32 [ %.01926, %.thread ], [ 0, %20 ], [ 0, %29 ], [ 0, %25 ]
   ret i32 %.0
 }
 

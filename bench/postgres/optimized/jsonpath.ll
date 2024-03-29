@@ -130,13 +130,12 @@ define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noun
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %2, i64 4
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %.not21 = icmp eq i8 %12, 0
-  br i1 %.not21, label %13, label %33
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %33, label %13
 
 13:                                               ; preds = %9, %6, %3
-  %.not22 = icmp eq ptr %5, null
-  br i1 %.not22, label %14, label %19
+  %.not21 = icmp eq ptr %5, null
+  br i1 %.not21, label %14, label %19
 
 14:                                               ; preds = %13
   %15 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #12
@@ -167,9 +166,8 @@ define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noun
   store i32 1, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not23 = icmp eq i8 %31, 0
-  %spec.store.select = select i1 %.not23, i32 1, i32 -2147483647
+  %31 = trunc i8 %30 to i1
+  %spec.store.select = select i1 %31, i32 -2147483647, i32 1
   store i32 %spec.store.select, ptr %28, align 4
   %32 = ptrtoint ptr %24 to i64
   br label %33
@@ -235,8 +233,8 @@ define dso_local i64 @jsonpath_out(ptr nocapture noundef readonly %0) local_unna
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %9) #12
   %10 = getelementptr inbounds i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4
-  %.not9.i = icmp sgt i32 %11, -1
-  br i1 %.not9.i, label %12, label %jsonPathToCstring.exit
+  %.not10.i = icmp sgt i32 %11, -1
+  br i1 %.not10.i, label %12, label %jsonPathToCstring.exit
 
 12:                                               ; preds = %1
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.41) #12
@@ -269,8 +267,8 @@ define dso_local i64 @jsonpath_send(ptr nocapture noundef readonly %0) local_unn
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %10) #12
   %11 = getelementptr inbounds i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not9.i = icmp sgt i32 %12, -1
-  br i1 %.not9.i, label %13, label %jsonPathToCstring.exit
+  %.not10.i = icmp sgt i32 %12, -1
+  br i1 %.not10.i, label %13, label %jsonPathToCstring.exit
 
 13:                                               ; preds = %1
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.41) #12
@@ -329,13 +327,12 @@ define dso_local noundef nonnull ptr @jspOperationName(i32 noundef %0) local_unn
 switch.hole_check:                                ; preds = %1
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 1125796693540851, %switch.maskindex
-  %6 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %6, 0
-  br i1 %switch.lobit.not, label %3, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.jspOperationName, i64 0, i64 %7
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.jspOperationName, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

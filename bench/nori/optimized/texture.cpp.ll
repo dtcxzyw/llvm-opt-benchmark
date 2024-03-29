@@ -327,9 +327,9 @@ define hidden noundef i64 @_ZNK7nanogui7Texture15bytes_per_pixelEv(ptr nocapture
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #6
   unreachable
 
-common.resume:                                    ; preds = %17, %8
-  %.sink = phi ptr [ %15, %17 ], [ %6, %8 ]
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %9, %8 ]
+common.resume:                                    ; preds = %16, %8
+  %.sink = phi ptr [ %14, %16 ], [ %6, %8 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %9, %8 ]
   tail call void @__cxa_free_exception(ptr %.sink) #5
   resume { ptr, i32 } %common.resume.op
 
@@ -341,39 +341,38 @@ common.resume:                                    ; preds = %17, %8
 switch.hole_check:                                ; preds = %1
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 831, %switch.maskindex
-  %10 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %10, 0
-  br i1 %switch.lobit.not, label %5, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
-  %12 = load i8, ptr %11, align 4
-  %13 = icmp ult i8 %12, 8
-  br i1 %13, label %switch.lookup3, label %14
+  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = load i8, ptr %10, align 4
+  %12 = icmp ult i8 %11, 8
+  br i1 %12, label %switch.lookup3, label %13
 
-14:                                               ; preds = %switch.lookup
-  %15 = tail call ptr @__cxa_allocate_exception(i64 16) #5
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.5)
-          to label %16 unwind label %17
+13:                                               ; preds = %switch.lookup
+  %14 = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.5)
+          to label %15 unwind label %16
 
-16:                                               ; preds = %14
-  tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #6
+15:                                               ; preds = %13
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #6
   unreachable
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 switch.lookup3:                                   ; preds = %switch.lookup
-  %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv, i64 0, i64 %19
+  %18 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
-  %20 = zext nneg i8 %12 to i64
-  %switch.gep4 = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 0, i64 %20
+  %19 = zext nneg i8 %11 to i64
+  %switch.gep4 = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 0, i64 %19
   %switch.load5 = load i64, ptr %switch.gep4, align 8
-  %21 = mul nuw nsw i64 %switch.load5, %switch.load
-  ret i64 %21
+  %20 = mul nuw nsw i64 %switch.load5, %switch.load
+  ret i64 %20
 }
 
 ; Function Attrs: mustprogress uwtable

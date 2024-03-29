@@ -58,16 +58,15 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %active = getelementptr inbounds i8, ptr %vinput, i64 584
   %0 = load i8, ptr %active, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %qindex = getelementptr inbounds i8, ptr %vinput, i64 576
-  %2 = load i32, ptr %qindex, align 8
+  %1 = load i32, ptr %qindex, align 8
   %qsize = getelementptr inbounds i8, ptr %vinput, i64 580
-  %3 = load i32, ptr %qsize, align 4
-  %cmp = icmp eq i32 %2, %3
+  %2 = load i32, ptr %qsize, align 4
+  %cmp = icmp eq i32 %1, %2
   br i1 %cmp, label %if.then1, label %if.end.if.end5_crit_edge
 
 if.end.if.end5_crit_edge:                         ; preds = %if.end
@@ -76,40 +75,40 @@ if.end.if.end5_crit_edge:                         ; preds = %if.end
   br label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %inc = add i32 %2, 1
+  %inc = add i32 %1, 1
   store i32 %inc, ptr %qsize, align 4
   %queue = getelementptr inbounds i8, ptr %vinput, i64 568
-  %4 = load ptr, ptr %queue, align 8
+  %3 = load ptr, ptr %queue, align 8
   %conv = zext i32 %inc to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %call = tail call ptr @g_realloc(ptr noundef %4, i64 noundef %mul) #10
+  %call = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %mul) #10
   store ptr %call, ptr %queue, align 8
   %.pre47 = load i32, ptr %qindex, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end.if.end5_crit_edge, %if.then1
-  %5 = phi i32 [ %2, %if.end.if.end5_crit_edge ], [ %.pre47, %if.then1 ]
-  %6 = phi ptr [ %.pre, %if.end.if.end5_crit_edge ], [ %call, %if.then1 ]
+  %4 = phi i32 [ %1, %if.end.if.end5_crit_edge ], [ %.pre47, %if.then1 ]
+  %5 = phi ptr [ %.pre, %if.end.if.end5_crit_edge ], [ %call, %if.then1 ]
   %queue6 = getelementptr inbounds i8, ptr %vinput, i64 568
-  %inc8 = add i32 %5, 1
+  %inc8 = add i32 %4, 1
   store i32 %inc8, ptr %qindex, align 8
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr %struct.anon, ptr %6, i64 %idxprom
-  %7 = load i64, ptr %event, align 4
-  store i64 %7, ptr %arrayidx, align 8
-  %8 = load i16, ptr %event, align 4
-  %cmp13.not = icmp eq i16 %8, 0
+  %idxprom = zext i32 %4 to i64
+  %arrayidx = getelementptr %struct.anon, ptr %5, i64 %idxprom
+  %6 = load i64, ptr %event, align 4
+  store i64 %6, ptr %arrayidx, align 8
+  %7 = load i16, ptr %event, align 4
+  %cmp13.not = icmp eq i16 %7, 0
   br i1 %cmp13.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end5
   %code = getelementptr inbounds i8, ptr %event, i64 2
-  %9 = load i16, ptr %code, align 2
-  %cmp18.not = icmp eq i16 %9, 0
+  %8 = load i16, ptr %code, align 2
+  %cmp18.not = icmp eq i16 %8, 0
   br i1 %cmp18.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %10 = load i32, ptr %qindex, align 8
-  %cmp2339.not = icmp eq i32 %10, 0
+  %9 = load i32, ptr %qindex, align 8
+  %cmp2339.not = icmp eq i32 %9, 0
   br i1 %cmp2339.not, label %for.end60, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -117,8 +116,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond42.preheader:                             ; preds = %if.end36
-  %11 = icmp eq i32 %24, 0
-  br i1 %11, label %for.end60, label %for.body46.lr.ph
+  %10 = icmp eq i32 %22, 0
+  br i1 %10, label %for.end60, label %for.body46.lr.ph
 
 for.body46.lr.ph:                                 ; preds = %for.cond42.preheader
   %evt57 = getelementptr inbounds i8, ptr %vinput, i64 544
@@ -126,8 +125,8 @@ for.body46.lr.ph:                                 ; preds = %for.cond42.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end36
   %i.040 = phi i32 [ 0, %for.body.lr.ph ], [ %inc41, %if.end36 ]
-  %12 = load ptr, ptr %evt, align 8
-  %call25 = tail call ptr @virtqueue_pop(ptr noundef %12, i64 noundef 56) #10
+  %11 = load ptr, ptr %evt, align 8
+  %call25 = tail call ptr @virtqueue_pop(ptr noundef %11, i64 noundef 56) #10
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %while.cond.preheader, label %if.end36
 
@@ -138,12 +137,12 @@ while.cond.preheader:                             ; preds = %for.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %dec45 = phi i32 [ %dec, %while.body ], [ %dec43, %while.cond.preheader ]
-  %13 = load ptr, ptr %evt, align 8
-  %14 = load ptr, ptr %queue6, align 8
+  %12 = load ptr, ptr %evt, align 8
+  %13 = load ptr, ptr %queue6, align 8
   %idxprom32 = zext nneg i32 %dec45 to i64
-  %elem34 = getelementptr %struct.anon, ptr %14, i64 %idxprom32, i32 1
-  %15 = load ptr, ptr %elem34, align 8
-  tail call void @virtqueue_unpop(ptr noundef %13, ptr noundef %15, i32 noundef 0) #10
+  %elem34 = getelementptr %struct.anon, ptr %13, i64 %idxprom32, i32 1
+  %14 = load ptr, ptr %elem34, align 8
+  tail call void @virtqueue_unpop(ptr noundef %12, ptr noundef %14, i32 noundef 0) #10
   %dec = add nsw i32 %dec45, -1
   %cmp28.not = icmp eq i32 %dec45, 0
   br i1 %cmp28.not, label %while.end, label %while.body, !llvm.loop !5
@@ -151,32 +150,31 @@ while.body:                                       ; preds = %while.cond.preheade
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   store i32 0, ptr %qindex, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %16 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %16, 0
-  %17 = load i16, ptr @_TRACE_VIRTIO_INPUT_QUEUE_FULL_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %17, 0
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %15, 0
+  %16 = load i16, ptr @_TRACE_VIRTIO_INPUT_QUEUE_FULL_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %16, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_virtio_input_queue_full.exit
 
 land.lhs.true5.i.i:                               ; preds = %while.end
-  %18 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %18, 32768
+  %17 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %17, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_virtio_input_queue_full.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %19 = load i8, ptr @message_with_timestamp, align 1
-  %20 = and i8 %19, 1
-  %tobool7.not.i.i = icmp eq i8 %20, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %18 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %18 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %21 = load i64, ptr %_now.i.i, align 8
+  %19 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %22 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22) #10
+  %20 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20) #10
   br label %trace_virtio_input_queue_full.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -188,61 +186,61 @@ trace_virtio_input_queue_full.exit:               ; preds = %while.end, %land.lh
   br label %return
 
 if.end36:                                         ; preds = %for.body
-  %23 = load ptr, ptr %queue6, align 8
+  %21 = load ptr, ptr %queue6, align 8
   %idxprom38 = sext i32 %i.040 to i64
-  %elem40 = getelementptr %struct.anon, ptr %23, i64 %idxprom38, i32 1
+  %elem40 = getelementptr %struct.anon, ptr %21, i64 %idxprom38, i32 1
   store ptr %call25, ptr %elem40, align 8
   %inc41 = add nuw i32 %i.040, 1
-  %24 = load i32, ptr %qindex, align 8
-  %cmp23 = icmp ult i32 %inc41, %24
+  %22 = load i32, ptr %qindex, align 8
+  %cmp23 = icmp ult i32 %inc41, %22
   br i1 %cmp23, label %for.body, label %for.cond42.preheader, !llvm.loop !7
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %iov_from_buf.exit
   %i.242 = phi i32 [ 0, %for.body46.lr.ph ], [ %inc59, %iov_from_buf.exit ]
-  %25 = load ptr, ptr %queue6, align 8
+  %23 = load ptr, ptr %queue6, align 8
   %idxprom48 = sext i32 %i.242 to i64
-  %arrayidx49 = getelementptr %struct.anon, ptr %25, i64 %idxprom48
+  %arrayidx49 = getelementptr %struct.anon, ptr %23, i64 %idxprom48
   %elem50 = getelementptr inbounds i8, ptr %arrayidx49, i64 8
-  %26 = load ptr, ptr %elem50, align 8
-  %in_sg = getelementptr inbounds i8, ptr %26, i64 40
-  %27 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = load i32, ptr %in_num, align 8
-  %tobool.not.i = icmp eq i32 %28, 0
+  %24 = load ptr, ptr %elem50, align 8
+  %in_sg = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = load ptr, ptr %in_sg, align 8
+  %in_num = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = load i32, ptr %in_num, align 8
+  %tobool.not.i = icmp eq i32 %26, 0
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %for.body46
-  %iov_len.i = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load i64, ptr %iov_len.i, align 8
-  %cmp5.i = icmp ugt i64 %29, 7
+  %iov_len.i = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load i64, ptr %iov_len.i, align 8
+  %cmp5.i = icmp ugt i64 %27, 7
   br i1 %cmp5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true2.i
-  %30 = load ptr, ptr %27, align 8
-  %31 = load i64, ptr %arrayidx49, align 1
-  store i64 %31, ptr %30, align 1
+  %28 = load ptr, ptr %25, align 8
+  %29 = load i64, ptr %arrayidx49, align 1
+  store i64 %29, ptr %28, align 1
   br label %iov_from_buf.exit
 
 if.else.i:                                        ; preds = %land.lhs.true2.i, %for.body46
-  %call.i = tail call i64 @iov_from_buf_full(ptr noundef %27, i32 noundef %28, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #10
+  %call.i = tail call i64 @iov_from_buf_full(ptr noundef %25, i32 noundef %26, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #10
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i64 [ 8, %if.then.i ], [ %call.i, %if.else.i ]
   %conv56 = trunc i64 %retval.0.i to i32
-  %32 = load ptr, ptr %evt57, align 8
-  tail call void @virtqueue_push(ptr noundef %32, ptr noundef nonnull %26, i32 noundef %conv56) #10
-  tail call void @g_free(ptr noundef nonnull %26) #10
+  %30 = load ptr, ptr %evt57, align 8
+  tail call void @virtqueue_push(ptr noundef %30, ptr noundef nonnull %24, i32 noundef %conv56) #10
+  tail call void @g_free(ptr noundef nonnull %24) #10
   %inc59 = add nuw i32 %i.242, 1
-  %33 = load i32, ptr %qindex, align 8
-  %cmp44 = icmp ult i32 %inc59, %33
+  %31 = load i32, ptr %qindex, align 8
+  %cmp44 = icmp ult i32 %inc59, %31
   br i1 %cmp44, label %for.body46, label %for.end60, !llvm.loop !8
 
 for.end60:                                        ; preds = %iov_from_buf.exit, %for.cond.preheader, %for.cond42.preheader
   %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vinput, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #10
   %evt62 = getelementptr inbounds i8, ptr %vinput, i64 544
-  %34 = load ptr, ptr %evt62, align 8
-  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %34) #10
+  %32 = load ptr, ptr %evt62, align 8
+  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %32) #10
   store i32 0, ptr %qindex, align 8
   br label %return
 
@@ -784,19 +782,18 @@ entry:
 if.then:                                          ; preds = %entry
   %active = getelementptr inbounds i8, ptr %call.i5, i64 584
   %1 = load i8, ptr %active, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end9
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.then
   store i8 1, ptr %active, align 8
   %change_active = getelementptr inbounds i8, ptr %call1.i, i64 384
-  %3 = load ptr, ptr %change_active, align 8
-  %tobool5.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %change_active, align 8
+  %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  tail call void %3(ptr noundef nonnull %call.i5) #10
+  tail call void %2(ptr noundef nonnull %call.i5) #10
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %if.then6, %if.then3, %entry
@@ -811,19 +808,18 @@ entry:
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
   %active = getelementptr inbounds i8, ptr %call.i5, i64 584
   %0 = load i8, ptr %active, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end6, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %active, align 8
   %change_active = getelementptr inbounds i8, ptr %call1.i, i64 384
-  %2 = load ptr, ptr %change_active, align 8
-  %tobool3.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %change_active, align 8
+  %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  tail call void %2(ptr noundef nonnull %call.i5) #10
+  tail call void %1(ptr noundef nonnull %call.i5) #10
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %if.then4, %entry

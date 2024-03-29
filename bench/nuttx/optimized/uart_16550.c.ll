@@ -48,9 +48,9 @@ define internal noundef i32 @u16550_setup(ptr nocapture noundef readonly %0) #0 
   %.0 = select i1 %8, i8 %switch.masked, i8 3
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i8, ptr %9, align 4
-  %11 = shl i8 %10, 2
-  %12 = and i8 %11, 4
-  %spec.select = or disjoint i8 %12, %.0
+  %11 = trunc i8 %10 to i1
+  %12 = or disjoint i8 %.0, 4
+  %spec.select = select i1 %11, i8 %12, i8 %.0
   %13 = getelementptr inbounds i8, ptr %3, i64 14
   %14 = load i8, ptr %13, align 2
   switch i8 %14, label %19 [

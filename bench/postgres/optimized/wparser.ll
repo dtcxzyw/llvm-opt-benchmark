@@ -932,9 +932,8 @@ define dso_local i64 @ts_headline_jsonb_byid_opt(ptr nocapture noundef readonly 
   call void @pfree(ptr noundef %63) #7
   %64 = getelementptr inbounds i8, ptr %24, i64 40
   %65 = load i8, ptr %64, align 8
-  %66 = and i8 %65, 1
-  %.not39 = icmp eq i8 %66, 0
-  br i1 %.not39, label %72, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %72
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1136,9 +1135,8 @@ define dso_local i64 @ts_headline_json_byid_opt(ptr nocapture noundef readonly %
   call void @pfree(ptr noundef %63) #7
   %64 = getelementptr inbounds i8, ptr %24, i64 40
   %65 = load i8, ptr %64, align 8
-  %66 = and i8 %65, 1
-  %.not39 = icmp eq i8 %66, 0
-  br i1 %.not39, label %72, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %72
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %2, i64 24

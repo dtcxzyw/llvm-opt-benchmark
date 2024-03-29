@@ -96,13 +96,12 @@ do.body:                                          ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end
   %switch.maskindex = trunc i32 %spec.select to i16
   %switch.shifted = lshr i16 287, %switch.maskindex
-  %4 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %4, 0
-  br i1 %switch.lobit.not, label %do.body, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %do.body
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %spec.select to i64
-  %switch.gep = getelementptr inbounds [9 x i8], ptr @switch.table.helper_set_rounding_mode_chkfrm, i64 0, i64 %5
+  %4 = zext nneg i32 %spec.select to i64
+  %switch.gep = getelementptr inbounds [9 x i8], ptr @switch.table.helper_set_rounding_mode_chkfrm, i64 0, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   %float_rounding_mode.i = getelementptr inbounds i8, ptr %env, i64 4946
   store i8 %switch.load, ptr %float_rounding_mode.i, align 2
@@ -117,30 +116,28 @@ define dso_local i64 @helper_fmadd_s(ptr noundef %env, i64 noundef %frs1, i64 no
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i32
   %cmp.i.i = icmp ugt i64 %frs1, -4294967297
-  %spec.select.i.i = select i1 %cmp.i.i, i32 %conv.i.i, i32 2143289344
-  %retval.0.i.i = select i1 %tobool.not.i.i, i32 %spec.select.i.i, i32 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i32 %conv.i.i, i32 2143289344
   %conv.i9.i = trunc i64 %frs2 to i32
   %cmp.i10.i = icmp ugt i64 %frs2, -4294967297
-  %spec.select.i11.i = select i1 %cmp.i10.i, i32 %conv.i9.i, i32 2143289344
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i32 %spec.select.i11.i, i32 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i32
-  %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
-  %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i32 %conv.i9.i, i32 2143289344
+  %conv.i13.i = trunc i64 %frs3 to i32
+  %cmp.i14.i = icmp ugt i64 %frs3, -4294967297
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i32 %conv.i13.i, i32 2143289344
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 0, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i11.i, i32 noundef %retval.0.i15.i, i32 noundef 0, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i32 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i32 %call3.i to i64
   %conv1.i.i = zext i32 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -4294967296
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -158,30 +155,28 @@ define dso_local i64 @helper_fmadd_h(ptr noundef %env, i64 noundef %frs1, i64 no
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i16
   %cmp.i.i = icmp ugt i64 %frs1, -65537
-  %spec.select.i.i = select i1 %cmp.i.i, i16 %conv.i.i, i16 32256
-  %retval.0.i.i = select i1 %tobool.not.i.i, i16 %spec.select.i.i, i16 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i16 %conv.i.i, i16 32256
   %conv.i9.i = trunc i64 %frs2 to i16
   %cmp.i10.i = icmp ugt i64 %frs2, -65537
-  %spec.select.i11.i = select i1 %cmp.i10.i, i16 %conv.i9.i, i16 32256
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i16 %spec.select.i11.i, i16 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i16
-  %cmp.i15.i = icmp ugt i64 %frs3, -65537
-  %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i16 %conv.i9.i, i16 32256
+  %conv.i13.i = trunc i64 %frs3 to i16
+  %cmp.i14.i = icmp ugt i64 %frs3, -65537
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i16 %conv.i13.i, i16 32256
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 0, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i11.i, i16 noundef zeroext %retval.0.i15.i, i32 noundef 0, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i16 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i16 %call3.i to i64
   %conv1.i.i = zext i16 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -65536
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -189,30 +184,28 @@ define dso_local i64 @helper_fmsub_s(ptr noundef %env, i64 noundef %frs1, i64 no
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i32
   %cmp.i.i = icmp ugt i64 %frs1, -4294967297
-  %spec.select.i.i = select i1 %cmp.i.i, i32 %conv.i.i, i32 2143289344
-  %retval.0.i.i = select i1 %tobool.not.i.i, i32 %spec.select.i.i, i32 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i32 %conv.i.i, i32 2143289344
   %conv.i9.i = trunc i64 %frs2 to i32
   %cmp.i10.i = icmp ugt i64 %frs2, -4294967297
-  %spec.select.i11.i = select i1 %cmp.i10.i, i32 %conv.i9.i, i32 2143289344
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i32 %spec.select.i11.i, i32 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i32
-  %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
-  %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i32 %conv.i9.i, i32 2143289344
+  %conv.i13.i = trunc i64 %frs3 to i32
+  %cmp.i14.i = icmp ugt i64 %frs3, -4294967297
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i32 %conv.i13.i, i32 2143289344
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 1, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i11.i, i32 noundef %retval.0.i15.i, i32 noundef 1, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i32 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i32 %call3.i to i64
   %conv1.i.i = zext i32 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -4294967296
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -228,30 +221,28 @@ define dso_local i64 @helper_fmsub_h(ptr noundef %env, i64 noundef %frs1, i64 no
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i16
   %cmp.i.i = icmp ugt i64 %frs1, -65537
-  %spec.select.i.i = select i1 %cmp.i.i, i16 %conv.i.i, i16 32256
-  %retval.0.i.i = select i1 %tobool.not.i.i, i16 %spec.select.i.i, i16 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i16 %conv.i.i, i16 32256
   %conv.i9.i = trunc i64 %frs2 to i16
   %cmp.i10.i = icmp ugt i64 %frs2, -65537
-  %spec.select.i11.i = select i1 %cmp.i10.i, i16 %conv.i9.i, i16 32256
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i16 %spec.select.i11.i, i16 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i16
-  %cmp.i15.i = icmp ugt i64 %frs3, -65537
-  %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i16 %conv.i9.i, i16 32256
+  %conv.i13.i = trunc i64 %frs3 to i16
+  %cmp.i14.i = icmp ugt i64 %frs3, -65537
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i16 %conv.i13.i, i16 32256
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 1, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i11.i, i16 noundef zeroext %retval.0.i15.i, i32 noundef 1, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i16 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i16 %call3.i to i64
   %conv1.i.i = zext i16 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -65536
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -259,30 +250,28 @@ define dso_local i64 @helper_fnmsub_s(ptr noundef %env, i64 noundef %frs1, i64 n
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i32
   %cmp.i.i = icmp ugt i64 %frs1, -4294967297
-  %spec.select.i.i = select i1 %cmp.i.i, i32 %conv.i.i, i32 2143289344
-  %retval.0.i.i = select i1 %tobool.not.i.i, i32 %spec.select.i.i, i32 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i32 %conv.i.i, i32 2143289344
   %conv.i9.i = trunc i64 %frs2 to i32
   %cmp.i10.i = icmp ugt i64 %frs2, -4294967297
-  %spec.select.i11.i = select i1 %cmp.i10.i, i32 %conv.i9.i, i32 2143289344
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i32 %spec.select.i11.i, i32 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i32
-  %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
-  %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i32 %conv.i9.i, i32 2143289344
+  %conv.i13.i = trunc i64 %frs3 to i32
+  %cmp.i14.i = icmp ugt i64 %frs3, -4294967297
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i32 %conv.i13.i, i32 2143289344
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 2, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i11.i, i32 noundef %retval.0.i15.i, i32 noundef 2, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i32 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i32 %call3.i to i64
   %conv1.i.i = zext i32 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -4294967296
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -298,30 +287,28 @@ define dso_local i64 @helper_fnmsub_h(ptr noundef %env, i64 noundef %frs1, i64 n
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i16
   %cmp.i.i = icmp ugt i64 %frs1, -65537
-  %spec.select.i.i = select i1 %cmp.i.i, i16 %conv.i.i, i16 32256
-  %retval.0.i.i = select i1 %tobool.not.i.i, i16 %spec.select.i.i, i16 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i16 %conv.i.i, i16 32256
   %conv.i9.i = trunc i64 %frs2 to i16
   %cmp.i10.i = icmp ugt i64 %frs2, -65537
-  %spec.select.i11.i = select i1 %cmp.i10.i, i16 %conv.i9.i, i16 32256
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i16 %spec.select.i11.i, i16 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i16
-  %cmp.i15.i = icmp ugt i64 %frs3, -65537
-  %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i16 %conv.i9.i, i16 32256
+  %conv.i13.i = trunc i64 %frs3 to i16
+  %cmp.i14.i = icmp ugt i64 %frs3, -65537
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i16 %conv.i13.i, i16 32256
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 2, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i11.i, i16 noundef zeroext %retval.0.i15.i, i32 noundef 2, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i16 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i16 %call3.i to i64
   %conv1.i.i = zext i16 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -65536
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -329,30 +316,28 @@ define dso_local i64 @helper_fnmadd_s(ptr noundef %env, i64 noundef %frs1, i64 n
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i32
   %cmp.i.i = icmp ugt i64 %frs1, -4294967297
-  %spec.select.i.i = select i1 %cmp.i.i, i32 %conv.i.i, i32 2143289344
-  %retval.0.i.i = select i1 %tobool.not.i.i, i32 %spec.select.i.i, i32 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i32 %conv.i.i, i32 2143289344
   %conv.i9.i = trunc i64 %frs2 to i32
   %cmp.i10.i = icmp ugt i64 %frs2, -4294967297
-  %spec.select.i11.i = select i1 %cmp.i10.i, i32 %conv.i9.i, i32 2143289344
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i32 %spec.select.i11.i, i32 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i32
-  %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
-  %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i32 %conv.i9.i, i32 2143289344
+  %conv.i13.i = trunc i64 %frs3 to i32
+  %cmp.i14.i = icmp ugt i64 %frs3, -4294967297
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i32 %conv.i13.i, i32 2143289344
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 3, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i11.i, i32 noundef %retval.0.i15.i, i32 noundef 3, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i32 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i32 %call3.i to i64
   %conv1.i.i = zext i32 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -4294967296
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -368,30 +353,28 @@ define dso_local i64 @helper_fnmadd_h(ptr noundef %env, i64 noundef %frs1, i64 n
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
-  %1 = and i8 %env.val.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %env.val.i to i1
   %conv.i.i = trunc i64 %frs1 to i16
   %cmp.i.i = icmp ugt i64 %frs1, -65537
-  %spec.select.i.i = select i1 %cmp.i.i, i16 %conv.i.i, i16 32256
-  %retval.0.i.i = select i1 %tobool.not.i.i, i16 %spec.select.i.i, i16 %conv.i.i
+  %1 = or i1 %cmp.i.i, %tobool.i.i
+  %retval.0.i.i = select i1 %1, i16 %conv.i.i, i16 32256
   %conv.i9.i = trunc i64 %frs2 to i16
   %cmp.i10.i = icmp ugt i64 %frs2, -65537
-  %spec.select.i11.i = select i1 %cmp.i10.i, i16 %conv.i9.i, i16 32256
-  %retval.0.i12.i = select i1 %tobool.not.i.i, i16 %spec.select.i11.i, i16 %conv.i9.i
-  %conv.i14.i = trunc i64 %frs3 to i16
-  %cmp.i15.i = icmp ugt i64 %frs3, -65537
-  %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
-  %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
+  %2 = or i1 %cmp.i10.i, %tobool.i.i
+  %retval.0.i11.i = select i1 %2, i16 %conv.i9.i, i16 32256
+  %conv.i13.i = trunc i64 %frs3 to i16
+  %cmp.i14.i = icmp ugt i64 %frs3, -65537
+  %3 = or i1 %cmp.i14.i, %tobool.i.i
+  %retval.0.i15.i = select i1 %3, i16 %conv.i13.i, i16 32256
   %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
-  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 3, ptr noundef nonnull %fp_status.i) #8
+  %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i11.i, i16 noundef zeroext %retval.0.i15.i, i32 noundef 3, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
-  %2 = and i8 %env.val7.i, 1
-  %tobool.not.i18.i = icmp eq i8 %2, 0
-  %conv.i19.i = sext i16 %call3.i to i64
+  %tobool.i16.i = trunc i8 %env.val7.i to i1
+  %conv.i17.i = sext i16 %call3.i to i64
   %conv1.i.i = zext i16 %call3.i to i64
   %or.i.i = or disjoint i64 %conv1.i.i, -65536
-  %retval.0.i20.i = select i1 %tobool.not.i18.i, i64 %or.i.i, i64 %conv.i19.i
-  ret i64 %retval.0.i20.i
+  %retval.0.i18.i = select i1 %tobool.i16.i, i64 %conv.i17.i, i64 %or.i.i
+  ret i64 %retval.0.i18.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -399,26 +382,24 @@ define dso_local i64 @helper_fadd_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i7 = trunc i64 %rs2 to i32
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
-  %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i32 %conv.i7, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call i32 @float32_add(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_add(i32 noundef %retval.0.i, i32 noundef %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i32 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare i32 @float32_add(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -428,26 +409,24 @@ define dso_local i64 @helper_fsub_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i7 = trunc i64 %rs2 to i32
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
-  %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i32 %conv.i7, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call i32 @float32_sub(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_sub(i32 noundef %retval.0.i, i32 noundef %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i32 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare i32 @float32_sub(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -457,26 +436,24 @@ define dso_local i64 @helper_fmul_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i7 = trunc i64 %rs2 to i32
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
-  %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i32 %conv.i7, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call i32 @float32_mul(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_mul(i32 noundef %retval.0.i, i32 noundef %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i32 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare i32 @float32_mul(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -486,26 +463,24 @@ define dso_local i64 @helper_fdiv_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i7 = trunc i64 %rs2 to i32
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
-  %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i32 %conv.i7, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call i32 @float32_div(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_div(i32 noundef %retval.0.i, i32 noundef %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i32 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare i32 @float32_div(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -515,40 +490,38 @@ define dso_local i64 @helper_fmin_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val8, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val8 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i11 = trunc i64 %rs2 to i32
   %cmp.i12 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i13 = select i1 %cmp.i12, i32 %conv.i11, i32 2143289344
-  %retval.0.i14 = select i1 %tobool.not.i, i32 %spec.select.i13, i32 %conv.i11
+  %2 = or i1 %cmp.i12, %tobool.i
+  %retval.0.i13 = select i1 %2, i32 %conv.i11, i32 2143289344
   %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
-  %2 = load i64, ptr %priv_ver, align 8
-  %cmp = icmp eq i64 %2, 0
+  %3 = load i64, ptr %priv_ver, align 8
+  %cmp = icmp eq i64 %3, 0
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = tail call i32 @float32_minnum(i32 noundef %retval.0.i, i32 noundef %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_minnum(i32 noundef %retval.0.i, i32 noundef %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call4 = tail call i32 @float32_minimum_number(i32 noundef %retval.0.i, i32 noundef %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call4 = tail call i32 @float32_minimum_number(i32 noundef %retval.0.i, i32 noundef %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %call2, %cond.true ], [ %call4, %cond.false ]
   %env.val9 = load i8, ptr %0, align 1
-  %3 = and i8 %env.val9, 1
-  %tobool.not.i15 = icmp eq i8 %3, 0
-  %conv.i16 = sext i32 %cond to i64
+  %tobool.i14 = trunc i8 %env.val9 to i1
+  %conv.i15 = sext i32 %cond to i64
   %conv1.i = zext i32 %cond to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i17 = select i1 %tobool.not.i15, i64 %or.i, i64 %conv.i16
-  ret i64 %retval.0.i17
+  %retval.0.i16 = select i1 %tobool.i14, i64 %conv.i15, i64 %or.i
+  ret i64 %retval.0.i16
 }
 
 declare i32 @float32_minnum(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -560,26 +533,24 @@ define dso_local i64 @helper_fminm_s(ptr noundef %env, i64 noundef %rs1, i64 nou
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i7 = trunc i64 %rs2 to i32
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
-  %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i32 %conv.i7, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call i32 @float32_min(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_min(i32 noundef %retval.0.i, i32 noundef %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i32 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare i32 @float32_min(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -589,40 +560,38 @@ define dso_local i64 @helper_fmax_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val8, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val8 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i11 = trunc i64 %rs2 to i32
   %cmp.i12 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i13 = select i1 %cmp.i12, i32 %conv.i11, i32 2143289344
-  %retval.0.i14 = select i1 %tobool.not.i, i32 %spec.select.i13, i32 %conv.i11
+  %2 = or i1 %cmp.i12, %tobool.i
+  %retval.0.i13 = select i1 %2, i32 %conv.i11, i32 2143289344
   %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
-  %2 = load i64, ptr %priv_ver, align 8
-  %cmp = icmp eq i64 %2, 0
+  %3 = load i64, ptr %priv_ver, align 8
+  %cmp = icmp eq i64 %3, 0
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = tail call i32 @float32_maxnum(i32 noundef %retval.0.i, i32 noundef %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_maxnum(i32 noundef %retval.0.i, i32 noundef %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call4 = tail call i32 @float32_maximum_number(i32 noundef %retval.0.i, i32 noundef %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call4 = tail call i32 @float32_maximum_number(i32 noundef %retval.0.i, i32 noundef %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %call2, %cond.true ], [ %call4, %cond.false ]
   %env.val9 = load i8, ptr %0, align 1
-  %3 = and i8 %env.val9, 1
-  %tobool.not.i15 = icmp eq i8 %3, 0
-  %conv.i16 = sext i32 %cond to i64
+  %tobool.i14 = trunc i8 %env.val9 to i1
+  %conv.i15 = sext i32 %cond to i64
   %conv1.i = zext i32 %cond to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i17 = select i1 %tobool.not.i15, i64 %or.i, i64 %conv.i16
-  ret i64 %retval.0.i17
+  %retval.0.i16 = select i1 %tobool.i14, i64 %conv.i15, i64 %or.i
+  ret i64 %retval.0.i16
 }
 
 declare i32 @float32_maxnum(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -634,26 +603,24 @@ define dso_local i64 @helper_fmaxm_s(ptr noundef %env, i64 noundef %rs1, i64 nou
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i7 = trunc i64 %rs2 to i32
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
-  %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i32 %conv.i7, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call i32 @float32_max(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call i32 @float32_max(i32 noundef %retval.0.i, i32 noundef %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i32 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare i32 @float32_max(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -663,21 +630,19 @@ define dso_local i64 @helper_fsqrt_s(ptr noundef %env, i64 noundef %rs1) local_u
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_sqrt(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val3, 1
-  %tobool.not.i4 = icmp eq i8 %2, 0
+  %tobool.i4 = trunc i8 %env.val3 to i1
   %conv.i5 = sext i32 %call1 to i64
   %conv1.i = zext i32 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i6 = select i1 %tobool.not.i4, i64 %or.i, i64 %conv.i5
+  %retval.0.i6 = select i1 %tobool.i4, i64 %conv.i5, i64 %or.i
   ret i64 %retval.0.i6
 }
 
@@ -688,20 +653,19 @@ define dso_local i64 @helper_fle_s(ptr noundef %env, i64 noundef %rs1, i64 nound
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i5 = trunc i64 %rs2 to i32
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
-  %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i32 %conv.i5, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float32_compare(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
-  %cmp.i9 = icmp slt i32 %call.i, 1
-  %conv = zext i1 %cmp.i9 to i64
+  %call.i = tail call i32 @float32_compare(i32 noundef %retval.0.i, i32 noundef %retval.0.i7, ptr noundef nonnull %fp_status) #8
+  %cmp.i8 = icmp slt i32 %call.i, 1
+  %conv = zext i1 %cmp.i8 to i64
   ret i64 %conv
 }
 
@@ -710,20 +674,19 @@ define dso_local i64 @helper_fleq_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i5 = trunc i64 %rs2 to i32
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
-  %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i32 %conv.i5, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
-  %cmp.i9 = icmp slt i32 %call.i, 1
-  %conv = zext i1 %cmp.i9 to i64
+  %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i7, ptr noundef nonnull %fp_status) #8
+  %cmp.i8 = icmp slt i32 %call.i, 1
+  %conv = zext i1 %cmp.i8 to i64
   ret i64 %conv
 }
 
@@ -732,18 +695,17 @@ define dso_local i64 @helper_flt_s(ptr noundef %env, i64 noundef %rs1, i64 nound
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i5 = trunc i64 %rs2 to i32
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
-  %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i32 %conv.i5, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float32_compare(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
+  %call.i = tail call i32 @float32_compare(i32 noundef %retval.0.i, i32 noundef %retval.0.i7, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
   ret i64 %conv
@@ -754,18 +716,17 @@ define dso_local i64 @helper_fltq_s(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i5 = trunc i64 %rs2 to i32
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
-  %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i32 %conv.i5, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
+  %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i7, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
   ret i64 %conv
@@ -776,20 +737,19 @@ define dso_local i64 @helper_feq_s(ptr noundef %env, i64 noundef %rs1, i64 nound
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %conv.i5 = trunc i64 %rs2 to i32
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
-  %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
-  %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i32 %conv.i5, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
-  %cmp.i9 = icmp eq i32 %call.i, 0
-  %conv = zext i1 %cmp.i9 to i64
+  %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i7, ptr noundef nonnull %fp_status) #8
+  %cmp.i8 = icmp eq i32 %call.i, 0
+  %conv = zext i1 %cmp.i8 to i64
   ret i64 %conv
 }
 
@@ -798,12 +758,11 @@ define dso_local i64 @helper_fcvt_w_s(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_to_int32(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
@@ -817,12 +776,11 @@ define dso_local i64 @helper_fcvt_wu_s(ptr noundef %env, i64 noundef %rs1) local
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_to_uint32(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
@@ -836,12 +794,11 @@ define dso_local i64 @helper_fcvt_l_s(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float32_to_int64(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
@@ -854,12 +811,11 @@ define dso_local i64 @helper_fcvt_lu_s(ptr noundef %env, i64 noundef %rs1) local
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float32_to_uint64(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
@@ -875,12 +831,11 @@ entry:
   %call = tail call i32 @int32_to_float32(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i32 %call to i64
   %conv1.i = zext i32 %call to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -894,12 +849,11 @@ entry:
   %call = tail call i32 @uint32_to_float32(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i32 %call to i64
   %conv1.i = zext i32 %call to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -912,12 +866,11 @@ entry:
   %call = tail call i32 @int64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i32 %call to i64
   %conv1.i = zext i32 %call to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -930,12 +883,11 @@ entry:
   %call = tail call i32 @uint64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i32 %call to i64
   %conv1.i = zext i32 %call to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -946,12 +898,11 @@ define dso_local i64 @helper_fclass_s(ptr nocapture noundef readonly %env, i64 n
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i64 %rs1, i64 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i64 %spec.select.i, i64 %rs1
-  %conv = and i64 %retval.0.i, 4294967295
+  %1 = or i1 %cmp.i, %tobool.i
+  %2 = and i64 %rs1, 4294967295
+  %conv = select i1 %1, i64 %2, i64 2143289344
   %call1 = tail call i64 @fclass_s(i64 noundef %conv) #8
   ret i64 %call1
 }
@@ -966,24 +917,22 @@ entry:
   %0 = and i16 %fp_status.val9, 16
   %1 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %1, align 1
-  %2 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i11 = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i11, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i11
+  %2 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %2, i32 %conv.i11, i32 2143289344
   %call2 = tail call i32 @float32_round_to_int(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %fp_status.val = load i16, ptr %fp_status, align 2
   %3 = and i16 %fp_status.val, -17
   %or17 = or disjoint i16 %3, %0
   store i16 %or17, ptr %fp_status, align 2
   %env.val10 = load i8, ptr %1, align 1
-  %4 = and i8 %env.val10, 1
-  %tobool.not.i14 = icmp eq i8 %4, 0
+  %tobool.i14 = trunc i8 %env.val10 to i1
   %conv.i15 = sext i32 %call2 to i64
   %conv1.i = zext i32 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i16 = select i1 %tobool.not.i14, i64 %or.i, i64 %conv.i15
+  %retval.0.i16 = select i1 %tobool.i14, i64 %conv.i15, i64 %or.i
   ret i64 %retval.0.i16
 }
 
@@ -994,21 +943,19 @@ define dso_local i64 @helper_froundnx_s(ptr noundef %env, i64 noundef %rs1) loca
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_round_to_int(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val4 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val4, 1
-  %tobool.not.i5 = icmp eq i8 %2, 0
+  %tobool.i5 = trunc i8 %env.val4 to i1
   %conv.i6 = sext i32 %call1 to i64
   %conv1.i = zext i32 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i7 = select i1 %tobool.not.i5, i64 %or.i, i64 %conv.i6
+  %retval.0.i7 = select i1 %tobool.i5, i64 %conv.i6, i64 %or.i
   ret i64 %retval.0.i7
 }
 
@@ -1131,12 +1078,11 @@ entry:
   %call = tail call i32 @float64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i32 %call to i64
   %conv1.i = zext i32 %call to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -1147,12 +1093,11 @@ define dso_local i64 @helper_fcvt_d_s(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float32_to_float64(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
@@ -1353,26 +1298,24 @@ define dso_local i64 @helper_fadd_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i7 = trunc i64 %rs2 to i16
   %cmp.i8 = icmp ugt i64 %rs2, -65537
-  %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
-  %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i16 %conv.i7, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call zeroext i16 @float16_add(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_add(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i16 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare zeroext i16 @float16_add(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1382,26 +1325,24 @@ define dso_local i64 @helper_fsub_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i7 = trunc i64 %rs2 to i16
   %cmp.i8 = icmp ugt i64 %rs2, -65537
-  %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
-  %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i16 %conv.i7, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call zeroext i16 @float16_sub(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_sub(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i16 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare zeroext i16 @float16_sub(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1411,26 +1352,24 @@ define dso_local i64 @helper_fmul_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i7 = trunc i64 %rs2 to i16
   %cmp.i8 = icmp ugt i64 %rs2, -65537
-  %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
-  %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i16 %conv.i7, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call zeroext i16 @float16_mul(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_mul(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i16 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare zeroext i16 @float16_mul(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1440,26 +1379,24 @@ define dso_local i64 @helper_fdiv_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i7 = trunc i64 %rs2 to i16
   %cmp.i8 = icmp ugt i64 %rs2, -65537
-  %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
-  %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i16 %conv.i7, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call zeroext i16 @float16_div(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_div(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i16 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare zeroext i16 @float16_div(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1469,40 +1406,38 @@ define dso_local i64 @helper_fmin_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val8, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val8 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i11 = trunc i64 %rs2 to i16
   %cmp.i12 = icmp ugt i64 %rs2, -65537
-  %spec.select.i13 = select i1 %cmp.i12, i16 %conv.i11, i16 32256
-  %retval.0.i14 = select i1 %tobool.not.i, i16 %spec.select.i13, i16 %conv.i11
+  %2 = or i1 %cmp.i12, %tobool.i
+  %retval.0.i13 = select i1 %2, i16 %conv.i11, i16 32256
   %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
-  %2 = load i64, ptr %priv_ver, align 8
-  %cmp = icmp eq i64 %2, 0
+  %3 = load i64, ptr %priv_ver, align 8
+  %cmp = icmp eq i64 %3, 0
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = tail call zeroext i16 @float16_minnum(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_minnum(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call4 = tail call zeroext i16 @float16_minimum_number(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call4 = tail call zeroext i16 @float16_minimum_number(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond.in = phi i16 [ %call2, %cond.true ], [ %call4, %cond.false ]
   %env.val9 = load i8, ptr %0, align 1
-  %3 = and i8 %env.val9, 1
-  %tobool.not.i15 = icmp eq i8 %3, 0
-  %conv.i16 = sext i16 %cond.in to i64
+  %tobool.i14 = trunc i8 %env.val9 to i1
+  %conv.i15 = sext i16 %cond.in to i64
   %conv1.i = zext i16 %cond.in to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i17 = select i1 %tobool.not.i15, i64 %or.i, i64 %conv.i16
-  ret i64 %retval.0.i17
+  %retval.0.i16 = select i1 %tobool.i14, i64 %conv.i15, i64 %or.i
+  ret i64 %retval.0.i16
 }
 
 declare zeroext i16 @float16_minnum(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1514,26 +1449,24 @@ define dso_local i64 @helper_fminm_h(ptr noundef %env, i64 noundef %rs1, i64 nou
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i7 = trunc i64 %rs2 to i16
   %cmp.i8 = icmp ugt i64 %rs2, -65537
-  %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
-  %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i16 %conv.i7, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call zeroext i16 @float16_min(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_min(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i16 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare zeroext i16 @float16_min(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1543,40 +1476,38 @@ define dso_local i64 @helper_fmax_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val8, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val8 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i11 = trunc i64 %rs2 to i16
   %cmp.i12 = icmp ugt i64 %rs2, -65537
-  %spec.select.i13 = select i1 %cmp.i12, i16 %conv.i11, i16 32256
-  %retval.0.i14 = select i1 %tobool.not.i, i16 %spec.select.i13, i16 %conv.i11
+  %2 = or i1 %cmp.i12, %tobool.i
+  %retval.0.i13 = select i1 %2, i16 %conv.i11, i16 32256
   %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
-  %2 = load i64, ptr %priv_ver, align 8
-  %cmp = icmp eq i64 %2, 0
+  %3 = load i64, ptr %priv_ver, align 8
+  %cmp = icmp eq i64 %3, 0
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = tail call zeroext i16 @float16_maxnum(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_maxnum(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call4 = tail call zeroext i16 @float16_maximum_number(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i14, ptr noundef nonnull %fp_status) #8
+  %call4 = tail call zeroext i16 @float16_maximum_number(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i13, ptr noundef nonnull %fp_status) #8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond.in = phi i16 [ %call2, %cond.true ], [ %call4, %cond.false ]
   %env.val9 = load i8, ptr %0, align 1
-  %3 = and i8 %env.val9, 1
-  %tobool.not.i15 = icmp eq i8 %3, 0
-  %conv.i16 = sext i16 %cond.in to i64
+  %tobool.i14 = trunc i8 %env.val9 to i1
+  %conv.i15 = sext i16 %cond.in to i64
   %conv1.i = zext i16 %cond.in to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i17 = select i1 %tobool.not.i15, i64 %or.i, i64 %conv.i16
-  ret i64 %retval.0.i17
+  %retval.0.i16 = select i1 %tobool.i14, i64 %conv.i15, i64 %or.i
+  ret i64 %retval.0.i16
 }
 
 declare zeroext i16 @float16_maxnum(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1588,26 +1519,24 @@ define dso_local i64 @helper_fmaxm_h(ptr noundef %env, i64 noundef %rs1, i64 nou
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val4, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val4 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i7 = trunc i64 %rs2 to i16
   %cmp.i8 = icmp ugt i64 %rs2, -65537
-  %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
-  %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
+  %2 = or i1 %cmp.i8, %tobool.i
+  %retval.0.i9 = select i1 %2, i16 %conv.i7, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call2 = tail call zeroext i16 @float16_max(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
+  %call2 = tail call zeroext i16 @float16_max(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i9, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val5, 1
-  %tobool.not.i11 = icmp eq i8 %2, 0
-  %conv.i12 = sext i16 %call2 to i64
+  %tobool.i10 = trunc i8 %env.val5 to i1
+  %conv.i11 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i13 = select i1 %tobool.not.i11, i64 %or.i, i64 %conv.i12
-  ret i64 %retval.0.i13
+  %retval.0.i12 = select i1 %tobool.i10, i64 %conv.i11, i64 %or.i
+  ret i64 %retval.0.i12
 }
 
 declare zeroext i16 @float16_max(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
@@ -1617,21 +1546,19 @@ define dso_local i64 @helper_fsqrt_h(ptr noundef %env, i64 noundef %rs1) local_u
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float16_sqrt(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val3, 1
-  %tobool.not.i4 = icmp eq i8 %2, 0
+  %tobool.i4 = trunc i8 %env.val3 to i1
   %conv.i5 = sext i16 %call1 to i64
   %conv1.i = zext i16 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i6 = select i1 %tobool.not.i4, i64 %or.i, i64 %conv.i5
+  %retval.0.i6 = select i1 %tobool.i4, i64 %conv.i5, i64 %or.i
   ret i64 %retval.0.i6
 }
 
@@ -1642,20 +1569,19 @@ define dso_local i64 @helper_fle_h(ptr noundef %env, i64 noundef %rs1, i64 nound
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i5 = trunc i64 %rs2 to i16
   %cmp.i6 = icmp ugt i64 %rs2, -65537
-  %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
-  %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i16 %conv.i5, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float16_compare(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
-  %cmp.i9 = icmp slt i32 %call.i, 1
-  %conv = zext i1 %cmp.i9 to i64
+  %call.i = tail call i32 @float16_compare(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i7, ptr noundef nonnull %fp_status) #8
+  %cmp.i8 = icmp slt i32 %call.i, 1
+  %conv = zext i1 %cmp.i8 to i64
   ret i64 %conv
 }
 
@@ -1664,20 +1590,19 @@ define dso_local i64 @helper_fleq_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i5 = trunc i64 %rs2 to i16
   %cmp.i6 = icmp ugt i64 %rs2, -65537
-  %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
-  %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i16 %conv.i5, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
-  %cmp.i9 = icmp slt i32 %call.i, 1
-  %conv = zext i1 %cmp.i9 to i64
+  %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i7, ptr noundef nonnull %fp_status) #8
+  %cmp.i8 = icmp slt i32 %call.i, 1
+  %conv = zext i1 %cmp.i8 to i64
   ret i64 %conv
 }
 
@@ -1686,18 +1611,17 @@ define dso_local i64 @helper_flt_h(ptr noundef %env, i64 noundef %rs1, i64 nound
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i5 = trunc i64 %rs2 to i16
   %cmp.i6 = icmp ugt i64 %rs2, -65537
-  %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
-  %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i16 %conv.i5, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float16_compare(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
+  %call.i = tail call i32 @float16_compare(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i7, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
   ret i64 %conv
@@ -1708,18 +1632,17 @@ define dso_local i64 @helper_fltq_h(ptr noundef %env, i64 noundef %rs1, i64 noun
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i5 = trunc i64 %rs2 to i16
   %cmp.i6 = icmp ugt i64 %rs2, -65537
-  %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
-  %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i16 %conv.i5, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
+  %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i7, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
   ret i64 %conv
@@ -1730,20 +1653,19 @@ define dso_local i64 @helper_feq_h(ptr noundef %env, i64 noundef %rs1, i64 nound
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %conv.i5 = trunc i64 %rs2 to i16
   %cmp.i6 = icmp ugt i64 %rs2, -65537
-  %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
-  %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
+  %2 = or i1 %cmp.i6, %tobool.i
+  %retval.0.i7 = select i1 %2, i16 %conv.i5, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
-  %cmp.i9 = icmp eq i32 %call.i, 0
-  %conv = zext i1 %cmp.i9 to i64
+  %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i7, ptr noundef nonnull %fp_status) #8
+  %cmp.i8 = icmp eq i32 %call.i, 0
+  %conv = zext i1 %cmp.i8 to i64
   ret i64 %conv
 }
 
@@ -1752,12 +1674,11 @@ define dso_local i64 @helper_fclass_h(ptr nocapture noundef readonly %env, i64 n
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i64 %rs1, i64 32256
-  %retval.0.i = select i1 %tobool.not.i, i64 %spec.select.i, i64 %rs1
-  %conv = and i64 %retval.0.i, 65535
+  %1 = or i1 %cmp.i, %tobool.i
+  %2 = and i64 %rs1, 65535
+  %conv = select i1 %1, i64 %2, i64 32256
   %call1 = tail call i64 @fclass_h(i64 noundef %conv) #8
   ret i64 %call1
 }
@@ -1772,24 +1693,22 @@ entry:
   %0 = and i16 %fp_status.val9, 16
   %1 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %1, align 1
-  %2 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i11 = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i11, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i11
+  %2 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %2, i16 %conv.i11, i16 32256
   %call2 = tail call zeroext i16 @float16_round_to_int(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %fp_status.val = load i16, ptr %fp_status, align 2
   %3 = and i16 %fp_status.val, -17
   %or17 = or disjoint i16 %3, %0
   store i16 %or17, ptr %fp_status, align 2
   %env.val10 = load i8, ptr %1, align 1
-  %4 = and i8 %env.val10, 1
-  %tobool.not.i14 = icmp eq i8 %4, 0
+  %tobool.i14 = trunc i8 %env.val10 to i1
   %conv.i15 = sext i16 %call2 to i64
   %conv1.i = zext i16 %call2 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i16 = select i1 %tobool.not.i14, i64 %or.i, i64 %conv.i15
+  %retval.0.i16 = select i1 %tobool.i14, i64 %conv.i15, i64 %or.i
   ret i64 %retval.0.i16
 }
 
@@ -1800,21 +1719,19 @@ define dso_local i64 @helper_froundnx_h(ptr noundef %env, i64 noundef %rs1) loca
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %conv.i = trunc i64 %rs1 to i16
+  %tobool.i = trunc i8 %env.val to i1
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 0
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %2 = trunc i64 %rs1 to i16
+  %conv = select i1 %1, i16 %2, i16 0
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
-  %call1 = tail call zeroext i16 @float16_round_to_int(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
+  %call1 = tail call zeroext i16 @float16_round_to_int(i16 noundef zeroext %conv, ptr noundef nonnull %fp_status) #8
   %env.val4 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val4, 1
-  %tobool.not.i5 = icmp eq i8 %2, 0
+  %tobool.i5 = trunc i8 %env.val4 to i1
   %conv.i6 = sext i16 %call1 to i64
   %conv1.i = zext i16 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i7 = select i1 %tobool.not.i5, i64 %or.i, i64 %conv.i6
+  %retval.0.i7 = select i1 %tobool.i5, i64 %conv.i6, i64 %or.i
   ret i64 %retval.0.i7
 }
 
@@ -1823,12 +1740,11 @@ define dso_local i64 @helper_fcvt_w_h(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float16_to_int32(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
@@ -1842,12 +1758,11 @@ define dso_local i64 @helper_fcvt_wu_h(ptr noundef %env, i64 noundef %rs1) local
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float16_to_uint32(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
@@ -1861,12 +1776,11 @@ define dso_local i64 @helper_fcvt_l_h(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float16_to_int64(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
@@ -1879,12 +1793,11 @@ define dso_local i64 @helper_fcvt_lu_h(ptr noundef %env, i64 noundef %rs1) local
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float16_to_uint64(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
@@ -1900,12 +1813,11 @@ entry:
   %call = tail call zeroext i16 @int32_to_float16(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i16 %call to i64
   %conv1.i = zext i16 %call to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -1919,12 +1831,11 @@ entry:
   %call = tail call zeroext i16 @uint32_to_float16(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i16 %call to i64
   %conv1.i = zext i16 %call to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -1937,12 +1848,11 @@ entry:
   %call = tail call zeroext i16 @int64_to_float16(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i16 %call to i64
   %conv1.i = zext i16 %call to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -1955,12 +1865,11 @@ entry:
   %call = tail call zeroext i16 @uint64_to_float16(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i16 %call to i64
   %conv1.i = zext i16 %call to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -1971,21 +1880,19 @@ define dso_local i64 @helper_fcvt_h_s(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float32_to_float16(i32 noundef %retval.0.i, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val3, 1
-  %tobool.not.i4 = icmp eq i8 %2, 0
+  %tobool.i4 = trunc i8 %env.val3 to i1
   %conv.i5 = sext i16 %call1 to i64
   %conv1.i = zext i16 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i6 = select i1 %tobool.not.i4, i64 %or.i, i64 %conv.i5
+  %retval.0.i6 = select i1 %tobool.i4, i64 %conv.i5, i64 %or.i
   ret i64 %retval.0.i6
 }
 
@@ -1996,21 +1903,19 @@ define dso_local i64 @helper_fcvt_s_h(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float16_to_float32(i16 noundef zeroext %retval.0.i, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   %env.val = load i8, ptr %0, align 1
-  %2 = and i8 %env.val, 1
-  %tobool.not.i4 = icmp eq i8 %2, 0
+  %tobool.i4 = trunc i8 %env.val to i1
   %conv.i5 = sext i32 %call1 to i64
   %conv1.i = zext i32 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i6 = select i1 %tobool.not.i4, i64 %or.i, i64 %conv.i5
+  %retval.0.i6 = select i1 %tobool.i4, i64 %conv.i5, i64 %or.i
   ret i64 %retval.0.i6
 }
 
@@ -2023,12 +1928,11 @@ entry:
   %call = tail call zeroext i16 @float64_to_float16(i64 noundef %rs1, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = sext i16 %call to i64
   %conv1.i = zext i16 %call to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i = select i1 %tobool.not.i, i64 %or.i, i64 %conv.i
+  %retval.0.i = select i1 %tobool.i, i64 %conv.i, i64 %or.i
   ret i64 %retval.0.i
 }
 
@@ -2039,12 +1943,11 @@ define dso_local i64 @helper_fcvt_d_h(ptr noundef %env, i64 noundef %rs1) local_
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float16_to_float64(i16 noundef zeroext %retval.0.i, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
@@ -2057,21 +1960,19 @@ define dso_local i64 @helper_fcvt_bf16_s(ptr noundef %env, i64 noundef %rs1) loc
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
-  %1 = and i8 %env.val, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val to i1
   %conv.i = trunc i64 %rs1 to i32
   %cmp.i = icmp ugt i64 %rs1, -4294967297
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
-  %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i32 %conv.i, i32 2143289344
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float32_to_bfloat16(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
-  %2 = and i8 %env.val3, 1
-  %tobool.not.i4 = icmp eq i8 %2, 0
+  %tobool.i4 = trunc i8 %env.val3 to i1
   %conv.i5 = sext i16 %call1 to i64
   %conv1.i = zext i16 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -65536
-  %retval.0.i6 = select i1 %tobool.not.i4, i64 %or.i, i64 %conv.i5
+  %retval.0.i6 = select i1 %tobool.i4, i64 %conv.i5, i64 %or.i
   ret i64 %retval.0.i6
 }
 
@@ -2082,21 +1983,19 @@ define dso_local i64 @helper_fcvt_s_bf16(ptr noundef %env, i64 noundef %rs1) loc
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
-  %1 = and i8 %env.val3, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %env.val3 to i1
   %conv.i = trunc i64 %rs1 to i16
   %cmp.i = icmp ugt i64 %rs1, -65537
-  %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
-  %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
+  %1 = or i1 %cmp.i, %tobool.i
+  %retval.0.i = select i1 %1, i16 %conv.i, i16 32256
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @bfloat16_to_float32(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val = load i8, ptr %0, align 1
-  %2 = and i8 %env.val, 1
-  %tobool.not.i4 = icmp eq i8 %2, 0
+  %tobool.i4 = trunc i8 %env.val to i1
   %conv.i5 = sext i32 %call1 to i64
   %conv1.i = zext i32 %call1 to i64
   %or.i = or disjoint i64 %conv1.i, -4294967296
-  %retval.0.i6 = select i1 %tobool.not.i4, i64 %or.i, i64 %conv.i5
+  %retval.0.i6 = select i1 %tobool.i4, i64 %conv.i5, i64 %or.i
   ret i64 %retval.0.i6
 }
 

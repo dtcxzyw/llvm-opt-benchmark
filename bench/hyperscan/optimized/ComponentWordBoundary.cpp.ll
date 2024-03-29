@@ -38,8 +38,8 @@ entry:
   %ucp = getelementptr inbounds i8, ptr %this, i64 25
   %ucp3 = getelementptr inbounds i8, ptr %mode, i64 4
   %1 = load i8, ptr %ucp3, align 1
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %ucp, align 1
+  %frombool5 = and i8 %1, 1
+  store i8 %frombool5, ptr %ucp, align 1
   %prefilter = getelementptr inbounds i8, ptr %this, i64 26
   store i8 0, ptr %prefilter, align 2
   ret void
@@ -80,18 +80,18 @@ invoke.cont:
   %negated.i = getelementptr inbounds i8, ptr %call, i64 24
   %negated4.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %negated4.i, align 8
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %negated.i, align 8
+  %frombool.i = and i8 %1, 1
+  store i8 %frombool.i, ptr %negated.i, align 8
   %ucp.i = getelementptr inbounds i8, ptr %call, i64 25
   %ucp5.i = getelementptr inbounds i8, ptr %this, i64 25
-  %3 = load i8, ptr %ucp5.i, align 1
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %ucp.i, align 1
+  %2 = load i8, ptr %ucp5.i, align 1
+  %frombool7.i = and i8 %2, 1
+  store i8 %frombool7.i, ptr %ucp.i, align 1
   %prefilter.i = getelementptr inbounds i8, ptr %call, i64 26
   %prefilter8.i = getelementptr inbounds i8, ptr %this, i64 26
-  %5 = load i8, ptr %prefilter8.i, align 2
-  %6 = and i8 %5, 1
-  store i8 %6, ptr %prefilter.i, align 2
+  %3 = load i8, ptr %prefilter8.i, align 2
+  %frombool10.i = and i8 %3, 1
+  store i8 %frombool10.i, ptr %prefilter.i, align 2
   ret ptr %call
 }
 
@@ -153,22 +153,22 @@ entry:
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 1)
   %position = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %call4, ptr %position, align 4
-  %negated14 = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load <2 x i8>, ptr %negated14, align 8
-  %3 = and <2 x i8> %2, <i8 1, i8 1>
-  %4 = icmp eq <2 x i8> %3, zeroinitializer
-  %vtable22 = load ptr, ptr %call, align 8
-  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 80
-  %5 = load ptr, ptr %vfn23, align 8
-  %6 = extractelement <2 x i1> %4, i64 0
-  %. = select i1 %6, i32 1536, i32 6144
-  %.5 = select i1 %6, i32 24, i32 96
-  %7 = extractelement <2 x i1> %4, i64 1
-  %.sink = select i1 %7, i32 %.5, i32 %.
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call4, i32 noundef %.sink)
-  %8 = load i32, ptr %position, align 4
-  %add = add i32 %8, 1
-  tail call void @_ZN3ue29Component15recordPosBoundsEjj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %8, i32 noundef %add)
+  %ucp = getelementptr inbounds i8, ptr %this, i64 25
+  %2 = load i8, ptr %ucp, align 1
+  %tobool = trunc i8 %2 to i1
+  %negated = getelementptr inbounds i8, ptr %this, i64 24
+  %3 = load i8, ptr %negated, align 8
+  %tobool5 = trunc i8 %3 to i1
+  %vtable8 = load ptr, ptr %call, align 8
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 80
+  %4 = load ptr, ptr %vfn9, align 8
+  %. = select i1 %tobool5, i32 6144, i32 1536
+  %.5 = select i1 %tobool5, i32 96, i32 24
+  %.sink = select i1 %tobool, i32 %., i32 %.5
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call4, i32 noundef %.sink)
+  %5 = load i32, ptr %position, align 4
+  %add = add i32 %5, 1
+  tail call void @_ZN3ue29Component15recordPosBoundsEjj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %5, i32 noundef %add)
   ret void
 }
 

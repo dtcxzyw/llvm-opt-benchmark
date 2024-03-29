@@ -64,10 +64,9 @@ entry:
 
 while.body.preheader:                             ; preds = %entry
   %cmp54 = icmp eq i32 %1, %event
-  %spec.select5 = zext i1 %cmp54 to i8
-  %.off6 = add i32 %1, -10
-  %switch7 = icmp ult i32 %.off6, 12
-  br i1 %switch7, label %sw.bb, label %sw.default
+  %.off5 = add i32 %1, -10
+  %switch6 = icmp ult i32 %.off5, 12
+  br i1 %switch6, label %sw.bb, label %return
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp eq i32 %1, 0
@@ -82,25 +81,19 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 sw.bb:                                            ; preds = %while.body.preheader, %sw.bb
-  %.off9 = phi i32 [ %.off, %sw.bb ], [ %.off6, %while.body.preheader ]
-  %spec.select8 = phi i8 [ %spec.select, %sw.bb ], [ %spec.select5, %while.body.preheader ]
+  %.off8 = phi i32 [ %.off, %sw.bb ], [ %.off5, %while.body.preheader ]
+  %spec.select7 = phi i1 [ %spec.select, %sw.bb ], [ %cmp54, %while.body.preheader ]
   tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off9) #11
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8) #11
   %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
   %cmp5 = icmp eq i32 %2, %event
-  %spec.select = select i1 %cmp5, i8 1, i8 %spec.select8
+  %spec.select = select i1 %cmp5, i1 true, i1 %spec.select7
   %.off = add i32 %2, -10
   %switch = icmp ult i32 %.off, 12
-  br i1 %switch, label %sw.bb, label %sw.default
+  br i1 %switch, label %sw.bb, label %return
 
-sw.default:                                       ; preds = %sw.bb, %while.body.preheader
-  %spec.select.lcssa = phi i8 [ %spec.select5, %while.body.preheader ], [ %spec.select, %sw.bb ]
-  %3 = and i8 %spec.select.lcssa, 1
-  %tobool = icmp ne i8 %3, 0
-  br label %return
-
-return:                                           ; preds = %sw.default, %if.end
-  %retval.0 = phi i1 [ %cmp3, %if.end ], [ %tobool, %sw.default ]
+return:                                           ; preds = %sw.bb, %while.body.preheader, %if.end
+  %retval.0 = phi i1 [ %cmp3, %if.end ], [ %cmp54, %while.body.preheader ], [ %spec.select, %sw.bb ]
   ret i1 %retval.0
 }
 
@@ -138,10 +131,9 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %while.body.preheader.i, label %if.then.i
 
 while.body.preheader.i:                           ; preds = %do.end
-  %spec.select5.i = zext i1 %cmp54.i to i8
-  %.off6.i = add i32 %1, -10
-  %switch7.i = icmp ult i32 %.off6.i, 12
-  br i1 %switch7.i, label %sw.bb.i, label %replay_next_event_is.exit
+  %.off5.i = add i32 %1, -10
+  %switch6.i = icmp ult i32 %.off5.i, 12
+  br i1 %switch6.i, label %sw.bb.i, label %replay_next_event_is.exit
 
 if.then.i:                                        ; preds = %do.end
   br i1 %cmp54.i, label %if.then2, label %if.else.i
@@ -151,37 +143,35 @@ if.else.i:                                        ; preds = %if.then.i
   unreachable
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
-  %.off9.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off6.i, %while.body.preheader.i ]
-  %spec.select8.i = phi i8 [ %spec.select.i, %sw.bb.i ], [ %spec.select5.i, %while.body.preheader.i ]
+  %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
+  %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off9.i) #11
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
   %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
   %cmp5.i = icmp eq i32 %2, 0
-  %spec.select.i = select i1 %cmp5.i, i8 1, i8 %spec.select8.i
+  %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %2, -10
   %switch.i = icmp ult i32 %.off.i, 12
   br i1 %switch.i, label %sw.bb.i, label %replay_next_event_is.exit
 
 replay_next_event_is.exit:                        ; preds = %sw.bb.i, %while.body.preheader.i
-  %spec.select.lcssa.i = phi i8 [ %spec.select5.i, %while.body.preheader.i ], [ %spec.select.i, %sw.bb.i ]
-  %3 = and i8 %spec.select.lcssa.i, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.end15, label %replay_next_event_is.exit.if.then2_crit_edge
+  %retval.0.i = phi i1 [ %cmp54.i, %while.body.preheader.i ], [ %spec.select.i, %sw.bb.i ]
+  br i1 %retval.0.i, label %replay_next_event_is.exit.if.then2_crit_edge, label %if.end15
 
 replay_next_event_is.exit.if.then2_crit_edge:     ; preds = %replay_next_event_is.exit
   %.pre = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
   br label %if.then2
 
 if.then2:                                         ; preds = %replay_next_event_is.exit.if.then2_crit_edge, %if.then.i
-  %4 = phi i32 [ %.pre, %replay_next_event_is.exit.if.then2_crit_edge ], [ %0, %if.then.i ]
-  %5 = load i64, ptr @replay_break_icount, align 8
-  %cmp.not = icmp eq i64 %5, -1
+  %3 = phi i32 [ %.pre, %replay_next_event_is.exit.if.then2_crit_edge ], [ %0, %if.then.i ]
+  %4 = load i64, ptr @replay_break_icount, align 8
+  %cmp.not = icmp eq i64 %4, -1
   br i1 %cmp.not, label %if.end15, label %if.then3
 
 if.then3:                                         ; preds = %if.then2
   %call.i = tail call i64 @icount_get_raw() #11
-  %6 = load i64, ptr @replay_break_icount, align 8
-  %cmp5.not = icmp ult i64 %6, %call.i
+  %5 = load i64, ptr @replay_break_icount, align 8
+  %cmp5.not = icmp ult i64 %5, %call.i
   br i1 %cmp5.not, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.then3
@@ -189,18 +179,18 @@ if.else7:                                         ; preds = %if.then3
   unreachable
 
 if.end8:                                          ; preds = %if.then3
-  %conv = sext i32 %4 to i64
+  %conv = sext i32 %3 to i64
   %add = add i64 %call.i, %conv
-  %cmp9 = icmp ugt i64 %add, %6
+  %cmp9 = icmp ugt i64 %add, %5
   br i1 %cmp9, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end8
-  %sub = sub i64 %6, %call.i
+  %sub = sub i64 %5, %call.i
   %conv12 = trunc i64 %sub to i32
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then2, %if.then11, %if.end8, %replay_next_event_is.exit
-  %res.0 = phi i32 [ %conv12, %if.then11 ], [ %4, %if.end8 ], [ %4, %if.then2 ], [ 0, %replay_next_event_is.exit ]
+  %res.0 = phi i32 [ %conv12, %if.then11 ], [ %3, %if.end8 ], [ %3, %if.then2 ], [ 0, %replay_next_event_is.exit ]
   ret i32 %res.0
 }
 
@@ -337,10 +327,9 @@ replay_account_executed_instructions.exit:        ; preds = %replay_account_exec
 
 while.body.preheader.i:                           ; preds = %replay_account_executed_instructions.exit
   %cmp54.i = icmp eq i32 %4, 2
-  %spec.select5.i = zext i1 %cmp54.i to i8
-  %.off6.i = add i32 %4, -10
-  %switch7.i = icmp ult i32 %.off6.i, 12
-  br i1 %switch7.i, label %sw.bb.i, label %sw.default.i
+  %.off5.i = add i32 %4, -10
+  %switch6.i = icmp ult i32 %.off5.i, 12
+  br i1 %switch6.i, label %sw.bb.i, label %if.end3
 
 if.then.i:                                        ; preds = %replay_account_executed_instructions.exit
   %cmp1.i = icmp eq i32 %4, 0
@@ -351,25 +340,19 @@ if.else.i1:                                       ; preds = %if.then.i
   unreachable
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
-  %.off9.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off6.i, %while.body.preheader.i ]
-  %spec.select8.i = phi i8 [ %spec.select.i, %sw.bb.i ], [ %spec.select5.i, %while.body.preheader.i ]
+  %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
+  %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off9.i) #11
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
   %5 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
   %cmp5.i = icmp eq i32 %5, 2
-  %spec.select.i = select i1 %cmp5.i, i8 1, i8 %spec.select8.i
+  %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %5, -10
   %switch.i = icmp ult i32 %.off.i, 12
-  br i1 %switch.i, label %sw.bb.i, label %sw.default.i
+  br i1 %switch.i, label %sw.bb.i, label %if.end3
 
-sw.default.i:                                     ; preds = %sw.bb.i, %while.body.preheader.i
-  %spec.select.lcssa.i = phi i8 [ %spec.select5.i, %while.body.preheader.i ], [ %spec.select.i, %sw.bb.i ]
-  %6 = and i8 %spec.select.lcssa.i, 1
-  %tobool.i = icmp ne i8 %6, 0
-  br label %if.end3
-
-if.end3:                                          ; preds = %sw.default.i, %if.then.i, %entry
-  %res.0 = phi i1 [ false, %entry ], [ %tobool.i, %sw.default.i ], [ false, %if.then.i ]
+if.end3:                                          ; preds = %sw.bb.i, %while.body.preheader.i, %if.then.i, %entry
+  %res.0 = phi i1 [ false, %entry ], [ %cmp54.i, %while.body.preheader.i ], [ false, %if.then.i ], [ %spec.select.i, %sw.bb.i ]
   ret i1 %res.0
 }
 
@@ -466,10 +449,9 @@ replay_account_executed_instructions.exit:        ; preds = %replay_account_exec
 
 while.body.preheader.i:                           ; preds = %replay_account_executed_instructions.exit
   %cmp54.i = icmp eq i32 %4, 1
-  %spec.select5.i = zext i1 %cmp54.i to i8
-  %.off6.i = add i32 %4, -10
-  %switch7.i = icmp ult i32 %.off6.i, 12
-  br i1 %switch7.i, label %sw.bb.i, label %sw.default.i
+  %.off5.i = add i32 %4, -10
+  %switch6.i = icmp ult i32 %.off5.i, 12
+  br i1 %switch6.i, label %sw.bb.i, label %if.end3
 
 if.then.i:                                        ; preds = %replay_account_executed_instructions.exit
   %cmp1.i = icmp eq i32 %4, 0
@@ -480,25 +462,19 @@ if.else.i1:                                       ; preds = %if.then.i
   unreachable
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
-  %.off9.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off6.i, %while.body.preheader.i ]
-  %spec.select8.i = phi i8 [ %spec.select.i, %sw.bb.i ], [ %spec.select5.i, %while.body.preheader.i ]
+  %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
+  %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off9.i) #11
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
   %5 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
   %cmp5.i = icmp eq i32 %5, 1
-  %spec.select.i = select i1 %cmp5.i, i8 1, i8 %spec.select8.i
+  %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %5, -10
   %switch.i = icmp ult i32 %.off.i, 12
-  br i1 %switch.i, label %sw.bb.i, label %sw.default.i
+  br i1 %switch.i, label %sw.bb.i, label %if.end3
 
-sw.default.i:                                     ; preds = %sw.bb.i, %while.body.preheader.i
-  %spec.select.lcssa.i = phi i8 [ %spec.select5.i, %while.body.preheader.i ], [ %spec.select.i, %sw.bb.i ]
-  %6 = and i8 %spec.select.lcssa.i, 1
-  %tobool.i = icmp ne i8 %6, 0
-  br label %if.end3
-
-if.end3:                                          ; preds = %sw.default.i, %if.then.i, %entry
-  %res.0 = phi i1 [ false, %entry ], [ %tobool.i, %sw.default.i ], [ false, %if.then.i ]
+if.end3:                                          ; preds = %sw.bb.i, %while.body.preheader.i, %if.then.i, %entry
+  %res.0 = phi i1 [ false, %entry ], [ %cmp54.i, %while.body.preheader.i ], [ false, %if.then.i ], [ %spec.select.i, %sw.bb.i ]
   ret i1 %res.0
 }
 
@@ -562,10 +538,9 @@ do.end:                                           ; preds = %do.body
 
 while.body.preheader.i:                           ; preds = %do.end
   %cmp54.i = icmp eq i32 %2, %add
-  %spec.select5.i = zext i1 %cmp54.i to i8
-  %.off6.i = add i32 %2, -10
-  %switch7.i = icmp ult i32 %.off6.i, 12
-  br i1 %switch7.i, label %sw.bb.i, label %replay_next_event_is.exit
+  %.off5.i = add i32 %2, -10
+  %switch6.i = icmp ult i32 %.off5.i, 12
+  br i1 %switch6.i, label %sw.bb.i, label %replay_next_event_is.exit
 
 if.then.i:                                        ; preds = %do.end
   %cmp1.i = icmp eq i32 %2, 0
@@ -580,22 +555,20 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then8, label %return
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
-  %.off9.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off6.i, %while.body.preheader.i ]
-  %spec.select8.i = phi i8 [ %spec.select.i, %sw.bb.i ], [ %spec.select5.i, %while.body.preheader.i ]
+  %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
+  %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
   tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off9.i) #11
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
   %3 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 3), align 4
   %cmp5.i = icmp eq i32 %3, %add
-  %spec.select.i = select i1 %cmp5.i, i8 1, i8 %spec.select8.i
+  %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %3, -10
   %switch.i = icmp ult i32 %.off.i, 12
   br i1 %switch.i, label %sw.bb.i, label %replay_next_event_is.exit
 
 replay_next_event_is.exit:                        ; preds = %sw.bb.i, %while.body.preheader.i
-  %spec.select.lcssa.i = phi i8 [ %spec.select5.i, %while.body.preheader.i ], [ %spec.select.i, %sw.bb.i ]
-  %4 = and i8 %spec.select.lcssa.i, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %return, label %if.then8
+  %retval.0.i = phi i1 [ %cmp54.i, %while.body.preheader.i ], [ %spec.select.i, %sw.bb.i ]
+  br i1 %retval.0.i, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end.i, %replay_next_event_is.exit
   tail call void @replay_finish_event() #11

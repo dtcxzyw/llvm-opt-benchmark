@@ -2067,7 +2067,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h51ad31eb524af9aeE.exit: ; 
 
 33:                                               ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h51ad31eb524af9aeE.exit
   %34 = load i8, ptr %25, align 1, !range !470, !noundef !18
-  %35 = icmp ne i8 %34, 0
+  %35 = trunc i8 %34 to i1
   ret i1 %35
 }
 
@@ -2088,9 +2088,9 @@ define void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches7get_raw17
   store i64 %3, ptr %10, align 8, !noalias !476
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !476
   %11 = load i64, ptr %9, align 8, !range !478, !alias.scope !474, !noalias !479, !noundef !18
-  %trunc.not.i = icmp eq i64 %11, 0
+  %trunc.i = trunc i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %9, i64 8
-  br i1 %trunc.not.i, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h3fd57c462dd239dcE.exit, label %13
+  br i1 %trunc.i, label %13, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h3fd57c462dd239dcE.exit
 
 13:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !noalias !479

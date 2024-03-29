@@ -3304,7 +3304,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #21
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #21
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3323,7 +3323,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4121,35 +4121,35 @@ Abc_Clock.exit:                                   ; preds = %2, %11
   %71 = load ptr, ptr %15, align 8
   %72 = load ptr, ptr %62, align 8
   %73 = call signext i8 @satoko_var_polarity(ptr noundef %72, i32 noundef %70) #21
-  %74 = icmp eq i8 %73, 0
-  %75 = getelementptr i8, ptr %71, i64 816
-  %.val.i62 = load i32, ptr %75, align 8
-  %76 = getelementptr i8, ptr %71, i64 832
-  %.val6.i = load ptr, ptr %76, align 8
-  %77 = getelementptr i8, ptr %.val6.i, i64 8
-  %.val6.val.i = load ptr, ptr %77, align 8
-  %78 = mul nsw i32 %.val.i62, %68
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i64, ptr %.val6.val.i, i64 %79
-  %81 = getelementptr inbounds i8, ptr %71, i64 812
-  %82 = load i32, ptr %81, align 4
-  %83 = ashr i32 %82, 5
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %80, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %82, 31
-  %88 = shl nuw i32 1, %87
-  %89 = and i32 %88, %86
-  %90 = icmp eq i32 %89, 0
-  %.not.i = xor i1 %74, %90
-  br i1 %.not.i, label %Cec2_ObjSimSetInputBit.exit, label %91
+  %74 = getelementptr i8, ptr %71, i64 816
+  %.val.i62 = load i32, ptr %74, align 8
+  %75 = getelementptr i8, ptr %71, i64 832
+  %.val6.i = load ptr, ptr %75, align 8
+  %76 = getelementptr i8, ptr %.val6.i, i64 8
+  %.val6.val.i = load ptr, ptr %76, align 8
+  %77 = mul nsw i32 %.val.i62, %68
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i64, ptr %.val6.val.i, i64 %78
+  %80 = getelementptr inbounds i8, ptr %71, i64 812
+  %81 = load i32, ptr %80, align 4
+  %82 = ashr i32 %81, 5
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i32, ptr %79, i64 %83
+  %85 = load i32, ptr %84, align 4
+  %86 = and i32 %81, 31
+  %87 = lshr i32 %85, %86
+  %88 = trunc i32 %87 to i1
+  %89 = icmp ne i8 %73, 0
+  %.not.i = xor i1 %89, %88
+  br i1 %.not.i, label %Cec2_ObjSimSetInputBit.exit, label %90
 
-91:                                               ; preds = %63
-  %92 = xor i32 %88, %86
-  store i32 %92, ptr %85, align 4
+90:                                               ; preds = %63
+  %91 = shl nuw i32 1, %86
+  %92 = xor i32 %91, %85
+  store i32 %92, ptr %84, align 4
   br label %Cec2_ObjSimSetInputBit.exit
 
-Cec2_ObjSimSetInputBit.exit:                      ; preds = %63, %91
+Cec2_ObjSimSetInputBit.exit:                      ; preds = %63, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %93 = load ptr, ptr %58, align 8
   %94 = getelementptr i8, ptr %93, i64 4
@@ -5706,24 +5706,24 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
-
 declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #17
@@ -5757,9 +5757,9 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

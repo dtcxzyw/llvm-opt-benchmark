@@ -475,9 +475,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %p2p = getelementptr inbounds i8, ptr %call.i, i64 44
   %0 = load i8, ptr %p2p, align 4
-  %1 = and i8 %0, 1
-  %tobool3.not = icmp eq i8 %1, 0
-  br i1 %tobool3.not, label %if.else, label %if.then4
+  %tobool3 = trunc i8 %0 to i1
+  br i1 %tobool3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
   store ptr %call.i, ptr @dbus_display, align 8
@@ -485,17 +484,17 @@ if.then4:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
-  %2 = load ptr, ptr %dbus_addr, align 8
-  %tobool5.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %dbus_addr, align 8
+  %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.else11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %3 = load i8, ptr %2, align 1
-  %tobool7.not = icmp eq i8 %3, 0
+  %2 = load i8, ptr %1, align 1
+  %tobool7.not = icmp eq i8 %2, 0
   br i1 %tobool7.not, label %if.else11, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %call10 = call ptr @g_dbus_connection_new_for_address_sync(ptr noundef nonnull %2, i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #4
+  %call10 = call ptr @g_dbus_connection_new_for_address_sync(ptr noundef nonnull %1, i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #4
   %bus = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call10, ptr %bus, align 8
   br label %if.end15
@@ -507,54 +506,53 @@ if.else11:                                        ; preds = %land.lhs.true, %if.
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.else11, %if.then4
-  %4 = load ptr, ptr %err, align 8
-  %tobool16.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %err, align 8
+  %tobool16.not = icmp eq ptr %3, null
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %message = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %message, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 218, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.18, ptr noundef %5) #4
+  %message = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %message, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 218, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.18, ptr noundef %4) #4
   br label %glib_autoptr_cleanup_GArray.exit
 
 if.end18:                                         ; preds = %if.end15
   %audiodev = getelementptr inbounds i8, ptr %call.i, i64 56
-  %6 = load ptr, ptr %audiodev, align 8
-  %tobool19.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %audiodev, align 8
+  %tobool19.not = icmp eq ptr %5, null
   br i1 %tobool19.not, label %if.end38, label %land.lhs.true20
 
 land.lhs.true20:                                  ; preds = %if.end18
-  %7 = load i8, ptr %6, align 1
-  %tobool23.not = icmp eq i8 %7, 0
+  %6 = load i8, ptr %5, align 1
+  %tobool23.not = icmp eq i8 %6, 0
   br i1 %tobool23.not, label %if.end38, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true20
-  %call26 = call ptr @audio_state_by_name(ptr noundef nonnull %6, ptr noundef %errp) #4
+  %call26 = call ptr @audio_state_by_name(ptr noundef nonnull %5, ptr noundef %errp) #4
   %tobool27.not = icmp eq ptr %call26, null
   br i1 %tobool27.not, label %glib_autoptr_cleanup_GArray.exit, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
-  %8 = load ptr, ptr %call26, align 8
-  %9 = load ptr, ptr %8, align 8
-  %call30 = call i32 @g_str_equal(ptr noundef %9, ptr noundef nonnull @.str.19) #4
+  %7 = load ptr, ptr %call26, align 8
+  %8 = load ptr, ptr %7, align 8
+  %call30 = call i32 @g_str_equal(ptr noundef %8, ptr noundef nonnull @.str.19) #4
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end29
-  %10 = load ptr, ptr %audiodev, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 229, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.20, ptr noundef %10) #4
+  %9 = load ptr, ptr %audiodev, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 229, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.20, ptr noundef %9) #4
   br label %glib_autoptr_cleanup_GArray.exit
 
 if.end34:                                         ; preds = %if.end29
-  %11 = load ptr, ptr %call26, align 8
-  %set_dbus_server = getelementptr inbounds i8, ptr %11, i64 32
-  %12 = load ptr, ptr %set_dbus_server, align 8
+  %10 = load ptr, ptr %call26, align 8
+  %set_dbus_server = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = load ptr, ptr %set_dbus_server, align 8
   %server = getelementptr inbounds i8, ptr %call.i, i64 80
-  %13 = load ptr, ptr %server, align 8
-  %14 = load i8, ptr %p2p, align 4
-  %15 = and i8 %14, 1
-  %tobool37 = icmp ne i8 %15, 0
-  call void %12(ptr noundef nonnull %call26, ptr noundef %13, i1 noundef zeroext %tobool37) #4
+  %12 = load ptr, ptr %server, align 8
+  %13 = load i8, ptr %p2p, align 4
+  %tobool37 = trunc i8 %13 to i1
+  call void %11(ptr noundef nonnull %call26, ptr noundef %12, i1 noundef zeroext %tobool37) #4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end34, %land.lhs.true20, %if.end18
@@ -572,8 +570,8 @@ if.end43.lr.ph:                                   ; preds = %if.end38
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end43.lr.ph, %dbus_display_add_console.exit
-  %16 = load i32, ptr %idx, align 4
-  %call.i29 = call ptr @qemu_console_lookup_by_index(i32 noundef %16) #4
+  %14 = load i32, ptr %idx, align 4
+  %call.i29 = call ptr @qemu_console_lookup_by_index(i32 noundef %14) #4
   %tobool.not.i = icmp eq ptr %call.i29, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
 
@@ -586,8 +584,8 @@ if.end.i:                                         ; preds = %if.end43
   br i1 %call1.i, label %land.lhs.true.i, label %dbus_display_add_console.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %17 = load i32, ptr %gl_mode.i, align 8
-  %cmp.not.i = icmp eq i32 %17, 0
+  %15 = load i32, ptr %gl_mode.i, align 8
+  %cmp.not.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i, label %dbus_display_add_console.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
@@ -596,15 +594,15 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
 
 dbus_display_add_console.exit:                    ; preds = %if.end.i, %land.lhs.true.i, %if.then2.i
   %call4.i = call ptr @dbus_display_console_new(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i29) #4
-  %18 = load ptr, ptr %consoles.i, align 8
-  call void @g_ptr_array_insert(ptr noundef %18, i32 noundef %16, ptr noundef %call4.i) #4
-  %19 = load ptr, ptr %server.i, align 8
+  %16 = load ptr, ptr %consoles.i, align 8
+  call void @g_ptr_array_insert(ptr noundef %16, i32 noundef %14, ptr noundef %call4.i) #4
+  %17 = load ptr, ptr %server.i, align 8
   %call5.i = tail call i64 @g_dbus_object_skeleton_get_type() #5
   %call6.i = call ptr @g_type_check_instance_cast(ptr noundef %call4.i, i64 noundef %call5.i) #4
-  call void @g_dbus_object_manager_server_export(ptr noundef %19, ptr noundef %call6.i) #4
+  call void @g_dbus_object_manager_server_export(ptr noundef %17, ptr noundef %call6.i) #4
   %call47 = call ptr @g_array_append_vals(ptr noundef %call39, ptr noundef nonnull %idx, i32 noundef 1) #4
-  %20 = load i32, ptr %idx, align 4
-  %inc = add i32 %20, 1
+  %18 = load i32, ptr %idx, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr %idx, align 4
   %call40 = call ptr @qemu_console_lookup_by_index(i32 noundef %inc) #4
   %tobool41.not = icmp eq ptr %call40, null
@@ -612,29 +610,29 @@ dbus_display_add_console.exit:                    ; preds = %if.end.i, %land.lhs
 
 for.end:                                          ; preds = %dbus_display_add_console.exit, %if.end38
   %call48 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.21) #4
-  %21 = load ptr, ptr %call39, align 8
+  %19 = load ptr, ptr %call39, align 8
   %len = getelementptr inbounds i8, ptr %call39, i64 8
-  %22 = load i32, ptr %len, align 8
-  %conv49 = zext i32 %22 to i64
+  %20 = load i32, ptr %len, align 8
+  %conv49 = zext i32 %20 to i64
   %mul = shl nuw nsw i64 %conv49, 2
-  %call50 = call ptr @g_variant_new_from_data(ptr noundef %call48, ptr noundef %21, i64 noundef %mul, i32 noundef 1, ptr noundef nonnull @g_array_unref, ptr noundef nonnull %call39) #4
+  %call50 = call ptr @g_variant_new_from_data(ptr noundef %call48, ptr noundef %19, i64 noundef %mul, i32 noundef 1, ptr noundef nonnull @g_array_unref, ptr noundef nonnull %call39) #4
   %iface = getelementptr inbounds i8, ptr %call.i, i64 88
-  %23 = load ptr, ptr %iface, align 8
-  %24 = load ptr, ptr @qemu_name, align 8
-  %tobool52.not = icmp eq ptr %24, null
-  %..str.23 = select i1 %tobool52.not, ptr @.str.23, ptr %24
-  call void (ptr, ptr, ...) @g_object_set(ptr noundef %23, ptr noundef nonnull @.str.22, ptr noundef nonnull %..str.23, ptr noundef nonnull @.str.24, ptr noundef %call1, ptr noundef nonnull @.str.25, ptr noundef %call50, ptr noundef null) #4
+  %21 = load ptr, ptr %iface, align 8
+  %22 = load ptr, ptr @qemu_name, align 8
+  %tobool52.not = icmp eq ptr %22, null
+  %..str.23 = select i1 %tobool52.not, ptr @.str.23, ptr %22
+  call void (ptr, ptr, ...) @g_object_set(ptr noundef %21, ptr noundef nonnull @.str.22, ptr noundef nonnull %..str.23, ptr noundef nonnull @.str.24, ptr noundef %call1, ptr noundef nonnull @.str.25, ptr noundef %call50, ptr noundef null) #4
   %bus53 = getelementptr inbounds i8, ptr %call.i, i64 72
-  %25 = load ptr, ptr %bus53, align 8
-  %tobool54.not = icmp eq ptr %25, null
+  %23 = load ptr, ptr %bus53, align 8
+  %tobool54.not = icmp eq ptr %23, null
   br i1 %tobool54.not, label %glib_autoptr_cleanup_GArray.exit, label %if.then55
 
 if.then55:                                        ; preds = %for.end
   %server56 = getelementptr inbounds i8, ptr %call.i, i64 80
-  %26 = load ptr, ptr %server56, align 8
-  call void @g_dbus_object_manager_server_set_connection(ptr noundef %26, ptr noundef nonnull %25) #4
-  %27 = load ptr, ptr %bus53, align 8
-  %call59 = call i32 @g_bus_own_name_on_connection(ptr noundef %27, ptr noundef nonnull @.str.26, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #4
+  %24 = load ptr, ptr %server56, align 8
+  call void @g_dbus_object_manager_server_set_connection(ptr noundef %24, ptr noundef nonnull %23) #4
+  %25 = load ptr, ptr %bus53, align 8
+  %call59 = call i32 @g_bus_own_name_on_connection(ptr noundef %25, ptr noundef nonnull @.str.26, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #4
   br label %glib_autoptr_cleanup_GArray.exit
 
 glib_autoptr_cleanup_GArray.exit:                 ; preds = %if.then, %if.then17, %if.then32, %if.then24, %if.then55, %for.end
@@ -659,8 +657,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #4
   %p2p = getelementptr inbounds i8, ptr %call.i, i64 44
   %0 = load i8, ptr %p2p, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -791,15 +788,14 @@ define internal void @early_dbus_init(ptr nocapture noundef readonly %opts) #0 {
 entry:
   %has_gl = getelementptr inbounds i8, ptr %opts, i64 10
   %0 = load i8, ptr %has_gl, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %cond.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %if.end
 
 cond.true:                                        ; preds = %entry
   %gl = getelementptr inbounds i8, ptr %opts, i64 12
-  %2 = load i32, ptr %gl, align 4
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %if.end, label %if.then
+  %1 = load i32, ptr %gl, align 4
+  %2 = icmp eq i32 %1, 0
+  br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.true
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29) #4
@@ -815,28 +811,26 @@ define internal void @dbus_init(ptr nocapture readnone %ds, ptr nocapture nounde
 entry:
   %has_gl = getelementptr inbounds i8, ptr %opts, i64 10
   %0 = load i8, ptr %has_gl, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %gl = getelementptr inbounds i8, ptr %opts, i64 12
-  %2 = load i32, ptr %gl, align 4
+  %1 = load i32, ptr %gl, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ 0, %entry ]
+  %cond = phi i32 [ %1, %cond.true ], [ 0, %entry ]
   %addr = getelementptr inbounds i8, ptr %opts, i64 24
-  %3 = load ptr, ptr %addr, align 8
-  %tobool1.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %addr, align 8
+  %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
   %p2p = getelementptr inbounds i8, ptr %opts, i64 33
-  %4 = load i8, ptr %p2p, align 1
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  br i1 %tobool3.not, label %if.end, label %if.then
+  %3 = load i8, ptr %p2p, align 1
+  %tobool3 = trunc i8 %3 to i1
+  br i1 %tobool3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.38) #4
@@ -846,19 +840,18 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %land.lhs.true, %cond.end
   store i32 1, ptr @using_dbus_display, align 4
   %call = tail call ptr @object_get_objects_root() #4
-  %6 = load ptr, ptr %addr, align 8
-  %tobool6.not = icmp eq ptr %6, null
-  %..str.16 = select i1 %tobool6.not, ptr @.str.16, ptr %6
+  %4 = load ptr, ptr %addr, align 8
+  %tobool6.not = icmp eq ptr %4, null
+  %..str.16 = select i1 %tobool6.not, ptr @.str.16, ptr %4
   %audiodev = getelementptr inbounds i8, ptr %opts, i64 40
-  %7 = load ptr, ptr %audiodev, align 8
-  %tobool12.not = icmp eq ptr %7, null
-  %cond16 = select i1 %tobool12.not, ptr @.str.16, ptr %7
+  %5 = load ptr, ptr %audiodev, align 8
+  %tobool12.not = icmp eq ptr %5, null
+  %cond16 = select i1 %tobool12.not, ptr @.str.16, ptr %5
   %call17 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @DisplayGLMode_lookup, i32 noundef %cond) #4
   %p2p19 = getelementptr inbounds i8, ptr %opts, i64 33
-  %8 = load i8, ptr %p2p19, align 1
-  %9 = and i8 %8, 1
-  %tobool20.not = icmp eq i8 %9, 0
-  %cond.i = select i1 %tobool20.not, ptr @.str.40, ptr @.str.39
+  %6 = load i8, ptr %p2p19, align 1
+  %tobool20 = trunc i8 %6 to i1
+  %cond.i = select i1 %tobool20, ptr @.str.39, ptr @.str.40
   %call22 = tail call ptr (ptr, ptr, ptr, ptr, ...) @object_new_with_props(ptr noundef nonnull @.str.4, ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str.11, ptr noundef nonnull %..str.16, ptr noundef nonnull @.str.12, ptr noundef nonnull %cond16, ptr noundef nonnull @.str.13, ptr noundef %call17, ptr noundef nonnull @.str.10, ptr noundef nonnull %cond.i, ptr noundef null) #4
   ret void
 }

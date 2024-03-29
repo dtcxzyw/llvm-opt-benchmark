@@ -51,8 +51,8 @@ define dso_local ptr @job_features_list2feature_sets(ptr noundef %0, ptr noundef
 17:                                               ; preds = %3
   %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %19 = and i64 %18, 140737488355328
-  %.not3 = icmp eq i64 %19, 0
-  br i1 %.not3, label %24, label %20
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %17
   %21 = tail call i32 @get_log_level() #4
@@ -69,8 +69,8 @@ define dso_local ptr @job_features_list2feature_sets(ptr noundef %0, ptr noundef
   %27 = load ptr, ptr %13, align 8
   %28 = call i32 @list_transfer(ptr noundef %26, ptr noundef %27) #4
   %29 = load ptr, ptr %13, align 8
-  %.not4 = icmp eq ptr %29, null
-  br i1 %.not4, label %31, label %30
+  %.not3 = icmp eq ptr %29, null
+  br i1 %.not3, label %31, label %30
 
 30:                                               ; preds = %24
   call void @list_destroy(ptr noundef nonnull %29) #4
@@ -80,8 +80,8 @@ define dso_local ptr @job_features_list2feature_sets(ptr noundef %0, ptr noundef
   store ptr null, ptr %13, align 8
   %32 = getelementptr inbounds i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %35, label %34
+  %.not4 = icmp eq ptr %33, null
+  br i1 %.not4, label %35, label %34
 
 34:                                               ; preds = %31
   call void @list_destroy(ptr noundef nonnull %33) #4
@@ -150,7 +150,7 @@ define internal noundef i32 @_evaluate_job_feature(ptr noundef %0, ptr nocapture
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
   tail call void @list_append(ptr noundef %27, ptr noundef %28) #4
-  br label %53
+  br label %52
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %1, i64 16
@@ -176,12 +176,12 @@ define internal noundef i32 @_evaluate_job_feature(ptr noundef %0, ptr nocapture
   %39 = phi ptr [ %.pre, %35 ], [ %34, %32 ]
   %40 = tail call ptr @list_find_first_ro(ptr noundef %39, ptr noundef nonnull @_cmp_job_feature, ptr noundef nonnull %0) #4
   %.not79 = icmp eq ptr %40, null
-  br i1 %.not79, label %41, label %53
+  br i1 %.not79, label %41, label %52
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %33, align 8
   tail call void @list_append(ptr noundef %42, ptr noundef nonnull %0) #4
-  br label %53
+  br label %52
 
 43:                                               ; preds = %29
   %44 = tail call ptr @list_create(ptr noundef nonnull @list_destroy) #4
@@ -190,169 +190,166 @@ define internal noundef i32 @_evaluate_job_feature(ptr noundef %0, ptr nocapture
   tail call void @list_append(ptr noundef %44, ptr noundef %45) #4
   %46 = getelementptr inbounds i8, ptr %1, i64 24
   %47 = load i8, ptr %1, align 8
-  %48 = and i8 %47, 1
-  %49 = icmp ne i8 %48, 0
-  tail call fastcc void @_distribute_lists(ptr noundef nonnull %46, ptr noundef %44, i1 noundef zeroext %49)
-  %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %50, ptr %51, align 8
+  %48 = trunc i8 %47 to i1
+  tail call fastcc void @_distribute_lists(ptr noundef nonnull %46, ptr noundef %44, i1 noundef zeroext %48)
+  %49 = load ptr, ptr %46, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %49, ptr %50, align 8
   %.not77 = icmp eq ptr %44, null
-  br i1 %.not77, label %53, label %52
+  br i1 %.not77, label %52, label %51
 
-52:                                               ; preds = %43
+51:                                               ; preds = %43
   tail call void @list_destroy(ptr noundef nonnull %44) #4
-  br label %53
+  br label %52
 
-53:                                               ; preds = %43, %52, %41, %38, %23
-  %54 = load i32, ptr %6, align 4
-  %55 = load i16, ptr %8, align 8
-  %56 = zext i16 %55 to i32
-  %57 = icmp sgt i32 %54, %56
-  br i1 %57, label %58, label %83
+52:                                               ; preds = %43, %51, %41, %38, %23
+  %53 = load i32, ptr %6, align 4
+  %54 = load i16, ptr %8, align 8
+  %55 = zext i16 %54 to i32
+  %56 = icmp sgt i32 %53, %55
+  br i1 %56, label %57, label %81
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %1, i64 12
-  %60 = load i32, ptr %59, align 4
-  switch i32 %60, label %67 [
-    i32 0, label %61
-    i32 2, label %61
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %1, i64 12
+  %59 = load i32, ptr %58, align 4
+  switch i32 %59, label %66 [
+    i32 0, label %60
+    i32 2, label %60
   ]
 
-61:                                               ; preds = %58, %58
-  %62 = getelementptr inbounds i8, ptr %1, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @list_transfer(ptr noundef %63, ptr noundef %65) #4
-  br label %74
+60:                                               ; preds = %57, %57
+  %61 = getelementptr inbounds i8, ptr %1, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call i32 @list_transfer(ptr noundef %62, ptr noundef %64) #4
+  br label %72
 
-67:                                               ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i8, ptr %1, align 8
-  %72 = and i8 %71, 1
-  %73 = icmp ne i8 %72, 0
-  tail call fastcc void @_distribute_lists(ptr noundef nonnull %68, ptr noundef %70, i1 noundef zeroext %73)
-  br label %74
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds i8, ptr %1, i64 24
+  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i8, ptr %1, align 8
+  %71 = trunc i8 %70 to i1
+  tail call fastcc void @_distribute_lists(ptr noundef nonnull %67, ptr noundef %69, i1 noundef zeroext %71)
+  br label %72
 
-74:                                               ; preds = %61, %67
-  %75 = getelementptr inbounds i8, ptr %1, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %.not80 = icmp eq ptr %76, null
-  br i1 %.not80, label %.thread, label %77
+72:                                               ; preds = %60, %66
+  %73 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %.not80 = icmp eq ptr %74, null
+  br i1 %.not80, label %.thread, label %75
 
-77:                                               ; preds = %74
-  tail call void @list_destroy(ptr noundef nonnull %76) #4
+75:                                               ; preds = %72
+  tail call void @list_destroy(ptr noundef nonnull %74) #4
   br label %.thread
 
-.thread:                                          ; preds = %74, %77
-  store ptr null, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr null, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %86
+.thread:                                          ; preds = %72, %75
+  store ptr null, ptr %73, align 8
+  %76 = getelementptr inbounds i8, ptr %1, i64 40
+  store ptr null, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %1, i64 16
+  br label %84
 
-83:                                               ; preds = %53
+81:                                               ; preds = %52
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
-  %.pre87 = load ptr, ptr %.phi.trans.insert, align 8
-  %84 = icmp eq ptr %.pre87, null
-  %85 = getelementptr inbounds i8, ptr %1, i64 16
-  br i1 %84, label %86, label %96
+  %.pre86 = load ptr, ptr %.phi.trans.insert, align 8
+  %82 = icmp eq ptr %.pre86, null
+  %83 = getelementptr inbounds i8, ptr %1, i64 16
+  br i1 %82, label %84, label %94
 
-86:                                               ; preds = %.thread, %83
-  %87 = phi ptr [ %82, %.thread ], [ %85, %83 ]
-  %88 = getelementptr inbounds i8, ptr %0, i64 14
-  %89 = load i8, ptr %88, align 2
-  switch i8 %89, label %96 [
-    i8 0, label %90
-    i8 2, label %90
+84:                                               ; preds = %.thread, %81
+  %85 = phi ptr [ %80, %.thread ], [ %83, %81 ]
+  %86 = getelementptr inbounds i8, ptr %0, i64 14
+  %87 = load i8, ptr %86, align 2
+  switch i8 %87, label %94 [
+    i8 0, label %88
+    i8 2, label %88
   ]
 
-90:                                               ; preds = %86, %86
-  %91 = getelementptr inbounds i8, ptr %1, i64 32
+88:                                               ; preds = %84, %84
+  %89 = getelementptr inbounds i8, ptr %1, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 24
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 24
-  %94 = load ptr, ptr %93, align 8
-  %95 = tail call i32 @list_transfer(ptr noundef %92, ptr noundef %94) #4
-  br label %96
+  %93 = tail call i32 @list_transfer(ptr noundef %90, ptr noundef %92) #4
+  br label %94
 
-96:                                               ; preds = %86, %90, %83
-  %97 = phi ptr [ %87, %86 ], [ %87, %90 ], [ %85, %83 ]
-  %98 = load i8, ptr %1, align 8
-  %99 = and i8 %98, 1
-  %.not82 = icmp eq i8 %99, 0
-  br i1 %.not82, label %126, label %100
+94:                                               ; preds = %84, %88, %81
+  %95 = phi ptr [ %85, %84 ], [ %85, %88 ], [ %83, %81 ]
+  %96 = load i8, ptr %1, align 8
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %124
 
-100:                                              ; preds = %96
+98:                                               ; preds = %94
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 24
-  %102 = load ptr, ptr %101, align 8
-  %.not83 = icmp eq ptr %102, null
-  br i1 %.not83, label %105, label %103
+  %99 = getelementptr inbounds i8, ptr %1, i64 24
+  %100 = load ptr, ptr %99, align 8
+  %.not82 = icmp eq ptr %100, null
+  br i1 %.not82, label %103, label %101
 
-103:                                              ; preds = %100
-  %104 = call i32 @list_for_each(ptr noundef nonnull %102, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %3) #4
-  br label %105
+101:                                              ; preds = %98
+  %102 = call i32 @list_for_each(ptr noundef nonnull %100, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %3) #4
+  br label %103
 
-105:                                              ; preds = %103, %100
-  %106 = getelementptr inbounds i8, ptr %1, i64 32
-  %107 = load ptr, ptr %106, align 8
-  %.not84 = icmp eq ptr %107, null
-  br i1 %.not84, label %110, label %108
+103:                                              ; preds = %101, %98
+  %104 = getelementptr inbounds i8, ptr %1, i64 32
+  %105 = load ptr, ptr %104, align 8
+  %.not83 = icmp eq ptr %105, null
+  br i1 %.not83, label %108, label %106
 
-108:                                              ; preds = %105
-  %109 = call i32 @list_for_each(ptr noundef nonnull %107, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %4) #4
-  br label %110
+106:                                              ; preds = %103
+  %107 = call i32 @list_for_each(ptr noundef nonnull %105, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %4) #4
+  br label %108
 
-110:                                              ; preds = %108, %105
-  %111 = load ptr, ptr %97, align 8
-  %.not85 = icmp eq ptr %111, null
-  br i1 %.not85, label %114, label %112
+108:                                              ; preds = %106, %103
+  %109 = load ptr, ptr %95, align 8
+  %.not84 = icmp eq ptr %109, null
+  br i1 %.not84, label %112, label %110
 
-112:                                              ; preds = %110
-  %113 = call i32 @list_for_each(ptr noundef nonnull %111, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %5) #4
-  br label %114
+110:                                              ; preds = %108
+  %111 = call i32 @list_for_each(ptr noundef nonnull %109, ptr noundef nonnull @job_features_set2str, ptr noundef nonnull %5) #4
+  br label %112
 
-114:                                              ; preds = %110, %112
-  %115 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %116 = and i64 %115, 140737488355328
-  %.not86 = icmp eq i64 %116, 0
-  br i1 %.not86, label %125, label %117
+112:                                              ; preds = %108, %110
+  %113 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %114 = and i64 %113, 140737488355328
+  %.not85 = icmp eq i64 %114, 0
+  br i1 %.not85, label %123, label %115
 
-117:                                              ; preds = %114
-  %118 = call i32 @get_log_level() #4
-  %119 = icmp sgt i32 %118, 3
-  br i1 %119, label %120, label %125
+115:                                              ; preds = %112
+  %116 = call i32 @get_log_level() #4
+  %117 = icmp sgt i32 %116, 3
+  br i1 %117, label %118, label %123
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %0, align 8
-  %122 = load ptr, ptr %4, align 8
-  %123 = load ptr, ptr %3, align 8
-  %124 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._evaluate_job_feature, ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef %124) #4
-  br label %125
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %0, align 8
+  %120 = load ptr, ptr %4, align 8
+  %121 = load ptr, ptr %3, align 8
+  %122 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._evaluate_job_feature, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122) #4
+  br label %123
 
-125:                                              ; preds = %114, %117, %120
+123:                                              ; preds = %112, %115, %118
   call void @slurm_xfree(ptr noundef nonnull %3) #4
   call void @slurm_xfree(ptr noundef nonnull %4) #4
   call void @slurm_xfree(ptr noundef nonnull %5) #4
-  br label %126
+  br label %124
 
-126:                                              ; preds = %125, %96
-  %127 = getelementptr inbounds i8, ptr %0, i64 14
-  %128 = load i8, ptr %127, align 2
-  %129 = zext i8 %128 to i32
-  store i32 %129, ptr %21, align 8
-  %130 = load i16, ptr %8, align 8
-  %131 = zext i16 %130 to i32
-  store i32 %131, ptr %6, align 4
+124:                                              ; preds = %123, %94
+  %125 = getelementptr inbounds i8, ptr %0, i64 14
+  %126 = load i8, ptr %125, align 2
+  %127 = zext i8 %126 to i32
+  store i32 %127, ptr %21, align 8
+  %128 = load i16, ptr %8, align 8
+  %129 = zext i16 %128 to i32
+  store i32 %129, ptr %6, align 4
   ret i32 0
 }
 
@@ -385,12 +382,11 @@ declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_job_feature2str(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load i8, ptr %1, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %0, align 8
-  br i1 %.not, label %9, label %8
+  br i1 %4, label %8, label %9
 
 8:                                                ; preds = %2
   tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef %7) #4
@@ -533,9 +529,8 @@ define internal noundef i32 @_distribute_one_list(ptr noundef %0, ptr nocapture 
   %14 = load ptr, ptr %13, align 8
   tail call void @list_append(ptr noundef %14, ptr noundef %11) #4
   %15 = load i8, ptr %1, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %41, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %41
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %9, align 8
@@ -559,9 +554,9 @@ define internal noundef i32 @_distribute_one_list(ptr noundef %0, ptr nocapture 
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %26 = call ptr @xstrchr(ptr noundef null, i32 noundef 41) #4
-  %.not.i12 = icmp eq ptr %26, null
-  %.str.2..str.1.i13 = select i1 %.not.i12, ptr @.str.2, ptr @.str.1
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %25, ptr noundef nonnull %24, ptr noundef nonnull %.str.2..str.1.i13) #4
+  %.not.i11 = icmp eq ptr %26, null
+  %.str.2..str.1.i12 = select i1 %.not.i11, ptr @.str.2, ptr @.str.1
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %25, ptr noundef nonnull %24, ptr noundef nonnull %.str.2..str.1.i12) #4
   %27 = call i32 @list_for_each(ptr noundef %0, ptr noundef nonnull @_foreach_job_feature2str, ptr noundef nonnull %4) #4
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %25, ptr noundef nonnull %24, ptr noundef nonnull @.str.3) #4
   %28 = load ptr, ptr %25, align 8
@@ -573,9 +568,9 @@ define internal noundef i32 @_distribute_one_list(ptr noundef %0, ptr nocapture 
   %30 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %31 = call ptr @xstrchr(ptr noundef null, i32 noundef 41) #4
-  %.not.i14 = icmp eq ptr %31, null
-  %.str.2..str.1.i15 = select i1 %.not.i14, ptr @.str.2, ptr @.str.1
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %.str.2..str.1.i15) #4
+  %.not.i13 = icmp eq ptr %31, null
+  %.str.2..str.1.i14 = select i1 %.not.i13, ptr @.str.2, ptr @.str.1
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %.str.2..str.1.i14) #4
   %32 = call i32 @list_for_each(ptr noundef %11, ptr noundef nonnull @_foreach_job_feature2str, ptr noundef nonnull %3) #4
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull @.str.3) #4
   %33 = load ptr, ptr %30, align 8
@@ -583,8 +578,8 @@ define internal noundef i32 @_distribute_one_list(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %34 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %35 = and i64 %34, 140737488355328
-  %.not11 = icmp eq i64 %35, 0
-  br i1 %.not11, label %40, label %36
+  %.not = icmp eq i64 %35, 0
+  br i1 %.not, label %40, label %36
 
 36:                                               ; preds = %17
   %37 = call i32 @get_log_level() #4

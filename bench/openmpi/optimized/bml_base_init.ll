@@ -21,9 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @mca_bml_base_inited() local_unnamed_addr #0 {
   %1 = load i8, ptr @mca_bml_component_init_called, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -31,22 +30,21 @@ define i32 @mca_bml_base_init(i1 noundef zeroext %0, i1 noundef zeroext %1) loca
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load i8, ptr @mca_bml_component_init_called, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %._crit_edge.thread
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %._crit_edge.thread, label %6
 
 6:                                                ; preds = %2
   store i8 1, ptr @mca_bml_component_init_called, align 1
-  %.026 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2527 = icmp eq ptr %.026, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not2527, label %._crit_edge.thread, label %.lr.ph
+  %.025 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not26 = icmp eq ptr %.025, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not26, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %25
-  %.031 = phi ptr [ %.0, %25 ], [ %.026, %6 ]
-  %.01630 = phi i32 [ %.1, %25 ], [ -1, %6 ]
-  %.01729 = phi ptr [ %.118, %25 ], [ null, %6 ]
-  %.01928 = phi ptr [ %.120, %25 ], [ null, %6 ]
-  %7 = getelementptr inbounds i8, ptr %.031, i64 40
+  %.030 = phi ptr [ %.0, %25 ], [ %.025, %6 ]
+  %.01629 = phi i32 [ %.1, %25 ], [ -1, %6 ]
+  %.01728 = phi ptr [ %.118, %25 ], [ null, %6 ]
+  %.01927 = phi ptr [ %.120, %25 ], [ null, %6 ]
+  %7 = getelementptr inbounds i8, ptr %.030, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 264
   %10 = load ptr, ptr %9, align 8
@@ -71,20 +69,20 @@ define i32 @mca_bml_base_init(i1 noundef zeroext %0, i1 noundef zeroext %1) loca
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %3, align 4
-  %23 = icmp sgt i32 %22, %.01630
+  %23 = icmp sgt i32 %22, %.01629
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
   br label %25
 
 25:                                               ; preds = %21, %24, %18, %15, %12
-  %.120 = phi ptr [ %.01928, %15 ], [ %.01928, %12 ], [ %.01928, %18 ], [ %8, %24 ], [ %.01928, %21 ]
-  %.118 = phi ptr [ %.01729, %15 ], [ %.01729, %12 ], [ %.01729, %18 ], [ %19, %24 ], [ %.01729, %21 ]
-  %.1 = phi i32 [ %.01630, %15 ], [ %.01630, %12 ], [ %.01630, %18 ], [ %22, %24 ], [ %.01630, %21 ]
-  %26 = getelementptr inbounds i8, ptr %.031, i64 16
+  %.120 = phi ptr [ %.01927, %15 ], [ %.01927, %12 ], [ %.01927, %18 ], [ %8, %24 ], [ %.01927, %21 ]
+  %.118 = phi ptr [ %.01728, %15 ], [ %.01728, %12 ], [ %.01728, %18 ], [ %19, %24 ], [ %.01728, %21 ]
+  %.1 = phi i32 [ %.01629, %15 ], [ %.01629, %12 ], [ %.01629, %18 ], [ %22, %24 ], [ %.01629, %21 ]
+  %26 = getelementptr inbounds i8, ptr %.030, i64 16
   %.0 = load volatile ptr, ptr %26, align 8
-  %.not25 = icmp eq ptr %.0, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_bml_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %25
   %27 = icmp eq ptr %.118, null

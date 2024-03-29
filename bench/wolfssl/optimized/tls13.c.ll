@@ -7003,29 +7003,28 @@ if.then36:                                        ; preds = %if.end32
   %8 = icmp ult i8 %7, 15
   %switch.cast = zext nneg i8 %7 to i15
   %switch.downshift = lshr i15 -8212, %switch.cast
-  %9 = and i15 %switch.downshift, 1
-  %switch.masked = icmp ne i15 %9, 0
-  %10 = select i1 %8, i1 %switch.masked, i1 false
+  %switch.masked = trunc i15 %switch.downshift to i1
+  %9 = select i1 %8, i1 %switch.masked, i1 false
   %call100 = tail call i32 @SendBuffered(ptr noundef nonnull %ssl) #11
   %cmp101 = icmp eq i32 %call100, 0
   br i1 %cmp101, label %if.then103, label %if.else123
 
 if.then103:                                       ; preds = %if.then36
   %fragOffset = getelementptr inbounds i8, ptr %ssl, i64 672
-  %11 = load i32, ptr %fragOffset, align 16
-  %cmp104 = icmp eq i32 %11, 0
+  %10 = load i32, ptr %fragOffset, align 16
+  %cmp104 = icmp eq i32 %10, 0
   br i1 %cmp104, label %land.lhs.true, label %if.end127
 
 land.lhs.true:                                    ; preds = %if.then103
   %bf.load107 = load i64, ptr %side, align 8
-  %12 = and i64 %bf.load107, 288230376151711744
-  %tobool111 = icmp eq i64 %12, 0
-  %or.cond = and i1 %10, %tobool111
+  %11 = and i64 %bf.load107, 288230376151711744
+  %tobool111 = icmp eq i64 %11, 0
+  %or.cond = and i1 %9, %tobool111
   br i1 %or.cond, label %if.then114, label %if.end127
 
 if.then114:                                       ; preds = %land.lhs.true
-  %13 = load i8, ptr %acceptState, align 1
-  %inc = add i8 %13, 1
+  %12 = load i8, ptr %acceptState, align 1
+  %inc = add i8 %12, 1
   store i8 %inc, ptr %acceptState, align 1
   tail call void @FreeAsyncCtx(ptr noundef nonnull %ssl, i8 noundef zeroext 0) #11
   br label %if.end127
@@ -7047,8 +7046,8 @@ if.then131:                                       ; preds = %if.end127
 
 if.end134:                                        ; preds = %if.end127
   %acceptState136 = getelementptr inbounds i8, ptr %ssl, i64 1027
-  %14 = load i8, ptr %acceptState136, align 1
-  switch i8 %14, label %return [
+  %13 = load i8, ptr %acceptState136, align 1
+  switch i8 %13, label %return [
     i8 0, label %while.cond.preheader
     i8 2, label %sw.bb158
     i8 3, label %sw.bb176
@@ -7072,8 +7071,8 @@ while.cond.preheader:                             ; preds = %if.end134
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %15 = load i8, ptr %clientState, align 2
-  %cmp140 = icmp ult i8 %15, 12
+  %14 = load i8, ptr %clientState, align 2
+  %cmp140 = icmp ult i8 %14, 12
   br i1 %cmp140, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -7085,8 +7084,8 @@ while.body:                                       ; preds = %while.cond
 while.end:                                        ; preds = %while.cond
   store i8 2, ptr %acceptState136, align 1
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
-  %16 = load i16, ptr %version, align 2
-  %call153 = tail call i32 @IsAtLeastTLSv1_3(i16 %16) #11
+  %15 = load i16, ptr %version, align 2
+  %call153 = tail call i32 @IsAtLeastTLSv1_3(i16 %15) #11
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %if.then155, label %sw.bb158
 
@@ -7096,8 +7095,8 @@ if.then155:                                       ; preds = %while.end
 
 sw.bb158:                                         ; preds = %while.end, %if.end134
   %serverState = getelementptr inbounds i8, ptr %ssl, i64 1021
-  %17 = load i8, ptr %serverState, align 1
-  %cmp161 = icmp eq i8 %17, 2
+  %16 = load i8, ptr %serverState, align 1
+  %cmp161 = icmp eq i8 %16, 2
   br i1 %cmp161, label %if.then163, label %sw.bb176
 
 if.then163:                                       ; preds = %sw.bb158
@@ -7113,8 +7112,8 @@ sw.bb176:                                         ; preds = %sw.bb158, %if.then1
 
 sw.bb181:                                         ; preds = %sw.bb176, %if.end134
   %serverState183 = getelementptr inbounds i8, ptr %ssl, i64 1021
-  %18 = load i8, ptr %serverState183, align 1
-  %cmp185 = icmp eq i8 %18, 2
+  %17 = load i8, ptr %serverState183, align 1
+  %cmp185 = icmp eq i8 %17, 2
   br i1 %cmp185, label %if.then187, label %if.end205
 
 if.then187:                                       ; preds = %sw.bb181
@@ -7168,13 +7167,13 @@ if.end241:                                        ; preds = %if.end234
 
 sw.bb246:                                         ; preds = %if.end241, %if.end134
   %bf.load248 = load i64, ptr %side, align 8
-  %19 = and i64 %bf.load248, 2048
-  %tobool252.not = icmp eq i64 %19, 0
+  %18 = and i64 %bf.load248, 2048
+  %tobool252.not = icmp eq i64 %18, 0
   br i1 %tobool252.not, label %if.then253, label %if.end274
 
 if.then253:                                       ; preds = %sw.bb246
-  %20 = and i64 %bf.load248, 64
-  %tobool259.not = icmp eq i64 %20, 0
+  %19 = and i64 %bf.load248, 64
+  %tobool259.not = icmp eq i64 %19, 0
   br i1 %tobool259.not, label %if.else269, label %if.then260
 
 if.then260:                                       ; preds = %if.then253
@@ -7195,8 +7194,8 @@ if.end274:                                        ; preds = %if.else269, %if.the
 
 sw.bb279:                                         ; preds = %if.end274, %if.end134
   %bf.load282 = load i64, ptr %side, align 8
-  %21 = and i64 %bf.load282, 2048
-  %tobool286.not = icmp ne i64 %21, 0
+  %20 = and i64 %bf.load282, 2048
+  %tobool286.not = icmp ne i64 %20, 0
   %bf.cast291108 = and i64 %bf.load282, 3
   %tobool293.not = icmp eq i64 %bf.cast291108, 0
   %or.cond113 = or i1 %tobool286.not, %tobool293.not
@@ -7215,8 +7214,8 @@ if.end302:                                        ; preds = %if.then294, %sw.bb2
 
 sw.bb307:                                         ; preds = %if.end302, %if.end134
   %bf.load310 = load i64, ptr %side, align 8
-  %22 = and i64 %bf.load310, 2048
-  %tobool314.not = icmp ne i64 %22, 0
+  %21 = and i64 %bf.load310, 2048
+  %tobool314.not = icmp ne i64 %21, 0
   %bf.cast320109 = and i64 %bf.load310, 3
   %tobool322.not = icmp eq i64 %bf.cast320109, 0
   %or.cond114 = or i1 %tobool314.not, %tobool322.not
@@ -7250,8 +7249,8 @@ sw.bb353:                                         ; preds = %sw.bb348, %if.end13
   br label %while.cond354
 
 while.cond354:                                    ; preds = %while.body360, %sw.bb353
-  %23 = load i8, ptr %clientState356, align 2
-  %cmp358 = icmp ult i8 %23, 15
+  %22 = load i8, ptr %clientState356, align 2
+  %cmp358 = icmp ult i8 %22, 15
   br i1 %cmp358, label %while.body360, label %while.end368
 
 while.body360:                                    ; preds = %while.cond354
@@ -7266,8 +7265,8 @@ while.end368:                                     ; preds = %while.cond354
 
 sw.bb373:                                         ; preds = %while.end368, %if.end134
   %bf.load376 = load i64, ptr %side, align 8
-  %24 = and i64 %bf.load376, 4294969664
-  %or.cond117 = icmp eq i64 %24, 64
+  %23 = and i64 %bf.load376, 4294969664
+  %or.cond117 = icmp eq i64 %23, 64
   br i1 %or.cond117, label %if.then404, label %if.end410
 
 if.then404:                                       ; preds = %sw.bb373
@@ -7277,8 +7276,8 @@ if.then404:                                       ; preds = %sw.bb373
 
 if.end410:                                        ; preds = %if.then404, %sw.bb373
   %bf.load413 = phi i64 [ %bf.set409, %if.then404 ], [ %bf.load376, %sw.bb373 ]
-  %25 = and i64 %bf.load413, 1125899906842624
-  %tobool417.not = icmp eq i64 %25, 0
+  %24 = and i64 %bf.load413, 1125899906842624
+  %tobool417.not = icmp eq i64 %24, 0
   br i1 %tobool417.not, label %return, label %if.end421
 
 if.end421:                                        ; preds = %if.end410
@@ -7287,14 +7286,14 @@ if.end421:                                        ; preds = %if.end410
 
 sw.bb426:                                         ; preds = %if.end421, %if.end134
   %hsDoneCb = getelementptr inbounds i8, ptr %ssl, i64 192
-  %26 = load ptr, ptr %hsDoneCb, align 16
-  %tobool427.not = icmp eq ptr %26, null
+  %25 = load ptr, ptr %hsDoneCb, align 16
+  %tobool427.not = icmp eq ptr %25, null
   br i1 %tobool427.not, label %if.end438, label %if.then428
 
 if.then428:                                       ; preds = %sw.bb426
   %hsDoneCtx = getelementptr inbounds i8, ptr %ssl, i64 200
-  %27 = load ptr, ptr %hsDoneCtx, align 8
-  %call430 = tail call i32 %26(ptr noundef nonnull %ssl, ptr noundef %27) #11
+  %26 = load ptr, ptr %hsDoneCtx, align 8
+  %call430 = tail call i32 %25(ptr noundef nonnull %ssl, ptr noundef %26) #11
   %cmp431 = icmp slt i32 %call430, 0
   br i1 %cmp431, label %if.then433, label %if.end438
 
@@ -7305,8 +7304,8 @@ if.then433:                                       ; preds = %if.then428
 
 if.end438:                                        ; preds = %if.then428, %sw.bb426
   %bf.load440 = load i64, ptr %side, align 8
-  %28 = and i64 %bf.load440, 140737488355328
-  %tobool444.not = icmp eq i64 %28, 0
+  %27 = and i64 %bf.load440, 140737488355328
+  %tobool444.not = icmp eq i64 %27, 0
   br i1 %tobool444.not, label %if.then445, label %if.end446
 
 if.then445:                                       ; preds = %if.end438

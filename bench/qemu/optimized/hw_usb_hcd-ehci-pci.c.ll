@@ -105,9 +105,8 @@ entry:
   store i64 %or.i, ptr %categories, align 8
   %companion = getelementptr inbounds i8, ptr %data, i64 13
   %4 = load i8, ptr %companion, align 1
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hotpluggable = getelementptr inbounds i8, ptr %call.i8, i64 129
@@ -139,9 +138,8 @@ entry:
   store <4 x i16> <i16 0, i16 32, i16 68, i16 6>, ptr %capsbase, align 2
   %hotpluggable = getelementptr inbounds i8, ptr %call1.i, i64 129
   %0 = load i8, ptr %hotpluggable, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %companion_enable = getelementptr inbounds i8, ptr %call.i9, i64 3924

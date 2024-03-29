@@ -25,10 +25,10 @@ define dso_local noundef zeroext i1 @vhost_svq_valid_features(i64 noundef %featu
 entry:
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %b.016 = phi i64 [ 28, %entry ], [ %inc, %for.inc ]
-  %svq_features.015 = phi i64 [ %features, %entry ], [ %svq_features.1, %for.inc ]
-  %ok.014 = phi i8 [ 1, %entry ], [ %ok.1, %for.inc ]
+for.body:                                         ; preds = %for.body.backedge, %entry
+  %b.016 = phi i64 [ 28, %entry ], [ %b.016.be, %for.body.backedge ]
+  %svq_features.015 = phi i64 [ %features, %entry ], [ %svq_features.015.be, %for.body.backedge ]
+  %ok.014 = phi i1 [ true, %entry ], [ %ok.014.be, %for.body.backedge ]
   switch i64 %b.016, label %sw.default [
     i64 27, label %for.inc
     i64 29, label %for.inc
@@ -39,9 +39,9 @@ for.body:                                         ; preds = %entry, %for.inc
 sw.bb1:                                           ; preds = %for.body, %for.body
   %shl = shl nuw nsw i64 1, %b.016
   %and = and i64 %shl, %svq_features.015
-  %tobool.not = icmp eq i64 %and, 0
-  %spec.select = select i1 %tobool.not, i8 0, i8 %ok.014
-  %or = select i1 %tobool.not, i64 %shl, i64 0
+  %tobool.not = icmp ne i64 %and, 0
+  %spec.select = select i1 %tobool.not, i1 %ok.014, i1 false
+  %or = select i1 %tobool.not, i64 0, i64 %shl
   %spec.select13 = or i64 %or, %svq_features.015
   br label %for.inc
 
@@ -49,31 +49,39 @@ sw.default:                                       ; preds = %for.body
   %shl3 = shl nuw nsw i64 1, %b.016
   %and4 = and i64 %shl3, %svq_features.015
   %tobool5.not = icmp eq i64 %and4, 0
-  br i1 %tobool5.not, label %for.inc, label %if.then6
+  br i1 %tobool5.not, label %for.inc, label %for.inc.thread
 
-if.then6:                                         ; preds = %sw.default
-  %not = xor i64 %shl3, -1
-  %and8 = and i64 %svq_features.015, %not
-  br label %for.inc
-
-for.inc:                                          ; preds = %sw.bb1, %if.then6, %sw.default, %for.body, %for.body
-  %ok.1 = phi i8 [ 0, %if.then6 ], [ %ok.014, %sw.default ], [ %ok.014, %for.body ], [ %ok.014, %for.body ], [ %spec.select, %sw.bb1 ]
-  %svq_features.1 = phi i64 [ %and8, %if.then6 ], [ %svq_features.015, %sw.default ], [ %svq_features.015, %for.body ], [ %svq_features.015, %for.body ], [ %spec.select13, %sw.bb1 ]
+for.inc:                                          ; preds = %sw.bb1, %sw.default, %for.body, %for.body
+  %ok.1 = phi i1 [ %ok.014, %sw.default ], [ %ok.014, %for.body ], [ %ok.014, %for.body ], [ %spec.select, %sw.bb1 ]
+  %svq_features.1 = phi i64 [ %svq_features.015, %sw.default ], [ %svq_features.015, %for.body ], [ %svq_features.015, %for.body ], [ %spec.select13, %sw.bb1 ]
   %inc = add nuw nsw i64 %b.016, 1
   %exitcond.not = icmp eq i64 %inc, 42
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body.backedge
+
+for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
+  %b.016.be = phi i64 [ %inc, %for.inc ], [ %inc19, %for.inc.thread ]
+  %svq_features.015.be = phi i64 [ %svq_features.1, %for.inc ], [ %and8, %for.inc.thread ]
+  %ok.014.be = phi i1 [ %ok.1, %for.inc ], [ false, %for.inc.thread ]
+  br label %for.body, !llvm.loop !5
+
+for.inc.thread:                                   ; preds = %sw.default
+  %not = xor i64 %shl3, -1
+  %and8 = and i64 %svq_features.015, %not
+  %inc19 = add nuw nsw i64 %b.016, 1
+  %exitcond.not20 = icmp eq i64 %inc19, 42
+  br i1 %exitcond.not20, label %if.then11, label %for.body.backedge
 
 for.end:                                          ; preds = %for.inc
-  %0 = and i8 %ok.1, 1
-  %tobool10 = icmp ne i8 %0, 0
-  br i1 %tobool10, label %if.end12, label %if.then11
+  br i1 %ok.1, label %if.end12, label %if.then11
 
-if.then11:                                        ; preds = %for.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__func__.vhost_svq_valid_features, ptr noundef nonnull @.str.1, i64 noundef %features, i64 noundef %svq_features.1) #11
+if.then11:                                        ; preds = %for.inc.thread, %for.end
+  %svq_features.12225 = phi i64 [ %svq_features.1, %for.end ], [ %and8, %for.inc.thread ]
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__func__.vhost_svq_valid_features, ptr noundef nonnull @.str.1, i64 noundef %features, i64 noundef %svq_features.12225) #11
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %for.end
-  ret i1 %tobool10
+  %ok.12127 = phi i1 [ false, %if.then11 ], [ true, %for.end ]
+  ret i1 %ok.12127
 }
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -188,9 +196,8 @@ if.then.i:                                        ; preds = %if.end16
 
 if.end.i:                                         ; preds = %if.end16
   %20 = load i16, ptr %16, align 4
-  %21 = and i16 %20, 1
-  %.not.i = icmp eq i16 %21, 0
-  br i1 %.not.i, label %if.end12.i, label %return
+  %21 = trunc i16 %20 to i1
+  br i1 %21, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i, %if.then.i
   %hdev_kick.i = getelementptr inbounds i8, ptr %svq, i64 32

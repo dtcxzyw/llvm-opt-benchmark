@@ -58,17 +58,16 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @host_memory_backend_get_name(ptr noundef nonnull %backend) #2
   %share = getelementptr inbounds i8, ptr %backend, i64 53
   %1 = load i8, ptr %share, align 1
-  %2 = shl i8 %1, 1
-  %3 = and i8 %2, 2
+  %tobool1 = trunc i8 %1 to i1
+  %cond = select i1 %tobool1, i32 2, i32 0
   %reserve = getelementptr inbounds i8, ptr %backend, i64 54
-  %4 = load i8, ptr %reserve, align 2
-  %5 = xor i8 %4, -1
-  %6 = shl i8 %5, 7
-  %or10 = or disjoint i8 %3, %6
-  %or = zext i8 %or10 to i32
+  %2 = load i8, ptr %reserve, align 2
+  %tobool2 = trunc i8 %2 to i1
+  %cond3 = select i1 %tobool2, i32 0, i32 128
+  %or = or disjoint i32 %cond3, %cond
   %mr = getelementptr inbounds i8, ptr %backend, i64 112
-  %7 = load i64, ptr %size, align 8
-  tail call void @memory_region_init_ram_flags_nomigrate(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call, i64 noundef %7, i32 noundef %or, ptr noundef %errp) #2
+  %3 = load i64, ptr %size, align 8
+  tail call void @memory_region_init_ram_flags_nomigrate(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call, i64 noundef %3, i32 noundef %or, ptr noundef %errp) #2
   tail call void @g_free(ptr noundef %call) #2
   br label %return
 

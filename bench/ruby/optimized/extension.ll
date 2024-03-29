@@ -551,14 +551,14 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
   %17 = shl nuw nsw i64 %16, 1
   %18 = or disjoint i64 %17, 1
   %19 = load ptr, ptr %13, align 8
-  %.not36 = icmp eq ptr %19, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq ptr %19, null
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %RSTRING_PTR.exit, %rbimpl_intern_const.exit27
-  %.039 = phi i64 [ %36, %rbimpl_intern_const.exit27 ], [ %18, %RSTRING_PTR.exit ]
-  %.01938 = phi i64 [ %26, %rbimpl_intern_const.exit27 ], [ 0, %RSTRING_PTR.exit ]
-  %.02037 = phi ptr [ %37, %rbimpl_intern_const.exit27 ], [ %19, %RSTRING_PTR.exit ]
-  %20 = getelementptr inbounds i8, ptr %.02037, i64 8
+.lr.ph:                                           ; preds = %RSTRING_PTR.exit, %rbimpl_intern_const.exit26
+  %.038 = phi i64 [ %36, %rbimpl_intern_const.exit26 ], [ %18, %RSTRING_PTR.exit ]
+  %.01937 = phi i64 [ %26, %rbimpl_intern_const.exit26 ], [ 0, %RSTRING_PTR.exit ]
+  %.02036 = phi ptr [ %37, %rbimpl_intern_const.exit26 ], [ %19, %RSTRING_PTR.exit ]
+  %20 = getelementptr inbounds i8, ptr %.02036, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 1
@@ -575,7 +575,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %.lr.ph
   %.lcssa.i = phi i64 [ %.pr.i, %.lr.ph ], [ %25, %.lr.ph.i ]
-  %26 = add i64 %.01938, 1
+  %26 = add i64 %.01937, 1
   %27 = shl i64 %26, 5
   %28 = icmp ult i64 %27, 4611686018427387904
   br i1 %28, label %29, label %32
@@ -592,49 +592,48 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %.lr.ph
 rb_ulong2num_inline.exit:                         ; preds = %29, %32
   %.0.i = phi i64 [ %31, %29 ], [ %33, %32 ]
   %34 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %24, i64 noundef %.lcssa.i, i32 noundef 1, i64 noundef %.0.i) #8
-  %.pr.i22 = load i64, ptr @integer_parse.rbimpl_id.64, align 8
-  %.not4.i23 = icmp eq i64 %.pr.i22, 0
-  br i1 %.not4.i23, label %.lr.ph.i25, label %rbimpl_intern_const.exit27
+  %.pr.i21 = load i64, ptr @integer_parse.rbimpl_id.64, align 8
+  %.not4.i22 = icmp eq i64 %.pr.i21, 0
+  br i1 %.not4.i22, label %.lr.ph.i24, label %rbimpl_intern_const.exit26
 
-.lr.ph.i25:                                       ; preds = %rb_ulong2num_inline.exit, %.lr.ph.i25
+.lr.ph.i24:                                       ; preds = %rb_ulong2num_inline.exit, %.lr.ph.i24
   %35 = call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 1) #8
   store i64 %35, ptr @integer_parse.rbimpl_id.64, align 8
-  %.not.i26 = icmp eq i64 %35, 0
-  br i1 %.not.i26, label %.lr.ph.i25, label %rbimpl_intern_const.exit27, !llvm.loop !15
+  %.not.i25 = icmp eq i64 %35, 0
+  br i1 %.not.i25, label %.lr.ph.i24, label %rbimpl_intern_const.exit26, !llvm.loop !15
 
-rbimpl_intern_const.exit27:                       ; preds = %.lr.ph.i25, %rb_ulong2num_inline.exit
-  %.lcssa.i24 = phi i64 [ %.pr.i22, %rb_ulong2num_inline.exit ], [ %35, %.lr.ph.i25 ]
-  %36 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %34, i64 noundef %.lcssa.i24, i32 noundef 1, i64 noundef %.039) #8
-  %37 = load ptr, ptr %.02037, align 8
+rbimpl_intern_const.exit26:                       ; preds = %.lr.ph.i24, %rb_ulong2num_inline.exit
+  %.lcssa.i23 = phi i64 [ %.pr.i21, %rb_ulong2num_inline.exit ], [ %35, %.lr.ph.i24 ]
+  %36 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %34, i64 noundef %.lcssa.i23, i32 noundef 1, i64 noundef %.038) #8
+  %37 = load ptr, ptr %.02036, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %rbimpl_intern_const.exit27, %RSTRING_PTR.exit
-  %.0.lcssa = phi i64 [ %18, %RSTRING_PTR.exit ], [ %36, %rbimpl_intern_const.exit27 ]
+._crit_edge:                                      ; preds = %rbimpl_intern_const.exit26, %RSTRING_PTR.exit
+  %.0.lcssa = phi i64 [ %18, %RSTRING_PTR.exit ], [ %36, %rbimpl_intern_const.exit26 ]
   %38 = getelementptr inbounds i8, ptr %3, i64 24
   %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not21 = icmp eq i8 %40, 0
-  br i1 %.not21, label %44, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %44
 
 41:                                               ; preds = %._crit_edge
-  %.pr.i28 = load i64, ptr @integer_parse.rbimpl_id.66, align 8
-  %.not4.i29 = icmp eq i64 %.pr.i28, 0
-  br i1 %.not4.i29, label %.lr.ph.i31, label %rbimpl_intern_const.exit33
+  %.pr.i27 = load i64, ptr @integer_parse.rbimpl_id.66, align 8
+  %.not4.i28 = icmp eq i64 %.pr.i27, 0
+  br i1 %.not4.i28, label %.lr.ph.i30, label %rbimpl_intern_const.exit32
 
-.lr.ph.i31:                                       ; preds = %41, %.lr.ph.i31
+.lr.ph.i30:                                       ; preds = %41, %.lr.ph.i30
   %42 = call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 2) #8
   store i64 %42, ptr @integer_parse.rbimpl_id.66, align 8
-  %.not.i32 = icmp eq i64 %42, 0
-  br i1 %.not.i32, label %.lr.ph.i31, label %rbimpl_intern_const.exit33, !llvm.loop !15
+  %.not.i31 = icmp eq i64 %42, 0
+  br i1 %.not.i31, label %.lr.ph.i30, label %rbimpl_intern_const.exit32, !llvm.loop !15
 
-rbimpl_intern_const.exit33:                       ; preds = %.lr.ph.i31, %41
-  %.lcssa.i30 = phi i64 [ %.pr.i28, %41 ], [ %42, %.lr.ph.i31 ]
-  %43 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.lcssa, i64 noundef %.lcssa.i30, i32 noundef 0) #8
+rbimpl_intern_const.exit32:                       ; preds = %.lr.ph.i30, %41
+  %.lcssa.i29 = phi i64 [ %.pr.i27, %41 ], [ %42, %.lr.ph.i30 ]
+  %43 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.lcssa, i64 noundef %.lcssa.i29, i32 noundef 0) #8
   br label %44
 
-44:                                               ; preds = %rbimpl_intern_const.exit33, %._crit_edge
-  %.1 = phi i64 [ %43, %rbimpl_intern_const.exit33 ], [ %.0.lcssa, %._crit_edge ]
+44:                                               ; preds = %rbimpl_intern_const.exit32, %._crit_edge
+  %.1 = phi i64 [ %43, %rbimpl_intern_const.exit32 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @pm_integer_string(ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %45 = call ptr @pm_buffer_value(ptr noundef nonnull %4) #8
@@ -931,9 +930,8 @@ define internal i64 @encoding_all(i64 %0) #0 {
   store i64 %9, ptr %2, align 16
   %10 = getelementptr inbounds i8, ptr %6, i64 40
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  %13 = select i1 %.not, i64 0, i64 20
+  %12 = trunc i8 %11 to i1
+  %13 = select i1 %12, i64 20, i64 0
   store i64 %13, ptr %4, align 8
   %14 = load i64, ptr @rb_cPrismDebugEncoding, align 8
   %15 = call i64 @rb_class_new_instance(i32 noundef 2, ptr noundef nonnull %2, i64 noundef %14) #8

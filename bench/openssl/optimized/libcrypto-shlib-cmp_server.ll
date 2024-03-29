@@ -693,24 +693,23 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end
   %switch.maskindex = trunc i32 %call to i8
   %switch.shifted = lshr i8 -107, %switch.maskindex
-  %2 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %2, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %call to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.process_cert_request, i64 0, i64 %3
+  %2 = zext nneg i32 %call to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.process_cert_request, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef %req) #2
   %cmp8 = icmp eq i32 %call7, 4
   %body = getelementptr inbounds i8, ptr %req, i64 8
-  %4 = load ptr, ptr %body, align 8
-  %value = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %value, align 8
+  %3 = load ptr, ptr %body, align 8
+  %value = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %value, align 8
   br i1 %cmp8, label %if.end30, label %if.else
 
 if.else:                                          ; preds = %switch.lookup
-  %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #2
+  %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #2
   %cmp15.not = icmp eq i32 %call14, 1
   br i1 %cmp15.not, label %if.end18, label %if.then17
 
@@ -721,7 +720,7 @@ if.then17:                                        ; preds = %if.else
   br label %return
 
 if.end18:                                         ; preds = %if.else
-  %call20 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef 0) #2
+  %call20 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef 0) #2
   %cmp21 = icmp eq ptr %call20, null
   br i1 %cmp21, label %if.then23, label %if.end24
 
@@ -744,14 +743,14 @@ if.then28:                                        ; preds = %if.end24
 
 if.end30:                                         ; preds = %switch.lookup, %if.end24
   %crm.0 = phi ptr [ %call20, %if.end24 ], [ null, %switch.lookup ]
-  %p10cr.0 = phi ptr [ null, %if.end24 ], [ %5, %switch.lookup ]
+  %p10cr.0 = phi ptr [ null, %if.end24 ], [ %4, %switch.lookup ]
   %certReqId.0 = phi i32 [ 0, %if.end24 ], [ -1, %switch.lookup ]
   %certReqId31 = getelementptr inbounds i8, ptr %srv_ctx, i64 16
   store i32 %certReqId.0, ptr %certReqId31, align 8
-  %6 = load ptr, ptr %ctx, align 8
+  %5 = load ptr, ptr %ctx, align 8
   %acceptRAVerified = getelementptr inbounds i8, ptr %srv_ctx, i64 80
-  %7 = load i32, ptr %acceptRAVerified, align 8
-  %call33 = tail call i32 @ossl_cmp_verify_popo(ptr noundef %6, ptr noundef nonnull %req, i32 noundef %7) #2
+  %6 = load i32, ptr %acceptRAVerified, align 8
+  %call33 = tail call i32 @ossl_cmp_verify_popo(ptr noundef %5, ptr noundef nonnull %req, i32 noundef %6) #2
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.then35, label %if.else43
 
@@ -765,32 +764,32 @@ if.then35:                                        ; preds = %if.end30
 if.else43:                                        ; preds = %if.end30
   %call44 = tail call ptr @OSSL_CMP_MSG_get0_header(ptr noundef nonnull %req) #2
   %process_cert_request = getelementptr inbounds i8, ptr %srv_ctx, i64 24
-  %8 = load ptr, ptr %process_cert_request, align 8
-  %call45 = call ptr %8(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req, i32 noundef %certReqId.0, ptr noundef %crm.0, ptr noundef %p10cr.0, ptr noundef nonnull %certOut, ptr noundef nonnull %chainOut, ptr noundef nonnull %caPubs) #2
+  %7 = load ptr, ptr %process_cert_request, align 8
+  %call45 = call ptr %7(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req, i32 noundef %certReqId.0, ptr noundef %crm.0, ptr noundef %p10cr.0, ptr noundef nonnull %certOut, ptr noundef nonnull %chainOut, ptr noundef nonnull %caPubs) #2
   %cmp46 = icmp eq ptr %call45, null
   br i1 %cmp46, label %err, label %if.end49
 
 if.end49:                                         ; preds = %if.else43
-  %9 = load ptr, ptr %ctx, align 8
+  %8 = load ptr, ptr %ctx, align 8
   %call51 = call i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef %call44) #2
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %land.end58, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end49
   %grantImplicitConfirm = getelementptr inbounds i8, ptr %srv_ctx, i64 84
-  %10 = load i32, ptr %grantImplicitConfirm, align 4
-  %tobool54.not = icmp eq i32 %10, 0
+  %9 = load i32, ptr %grantImplicitConfirm, align 4
+  %tobool54.not = icmp eq i32 %9, 0
   br i1 %tobool54.not, label %land.end58, label %land.rhs55
 
 land.rhs55:                                       ; preds = %land.lhs.true53
-  %11 = load ptr, ptr %certOut, align 8
-  %cmp56 = icmp ne ptr %11, null
-  %12 = zext i1 %cmp56 to i32
+  %10 = load ptr, ptr %certOut, align 8
+  %cmp56 = icmp ne ptr %10, null
+  %11 = zext i1 %cmp56 to i32
   br label %land.end58
 
 land.end58:                                       ; preds = %land.rhs55, %land.lhs.true53, %if.end49
-  %land.ext59 = phi i32 [ 0, %land.lhs.true53 ], [ 0, %if.end49 ], [ %12, %land.rhs55 ]
-  %call60 = call i32 @OSSL_CMP_CTX_set_option(ptr noundef %9, i32 noundef 25, i32 noundef %land.ext59) #2
+  %land.ext59 = phi i32 [ 0, %land.lhs.true53 ], [ 0, %if.end49 ], [ %11, %land.rhs55 ]
+  %call60 = call i32 @OSSL_CMP_CTX_set_option(ptr noundef %8, i32 noundef 25, i32 noundef %land.ext59) #2
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %err, label %land.end58.if.end64_crit_edge
 
@@ -801,14 +800,14 @@ land.end58.if.end64_crit_edge:                    ; preds = %land.end58
   br label %if.end64
 
 if.end64:                                         ; preds = %land.end58.if.end64_crit_edge, %if.then35
-  %13 = phi ptr [ %.pre28, %land.end58.if.end64_crit_edge ], [ null, %if.then35 ]
-  %14 = phi ptr [ %.pre27, %land.end58.if.end64_crit_edge ], [ null, %if.then35 ]
-  %15 = phi ptr [ %.pre, %land.end58.if.end64_crit_edge ], [ null, %if.then35 ]
+  %12 = phi ptr [ %.pre28, %land.end58.if.end64_crit_edge ], [ null, %if.then35 ]
+  %13 = phi ptr [ %.pre27, %land.end58.if.end64_crit_edge ], [ null, %if.then35 ]
+  %14 = phi ptr [ %.pre, %land.end58.if.end64_crit_edge ], [ null, %if.then35 ]
   %si.0 = phi ptr [ %call45, %land.end58.if.end64_crit_edge ], [ %call38, %if.then35 ]
-  %16 = load ptr, ptr %ctx, align 8
+  %15 = load ptr, ptr %ctx, align 8
   %sendUnprotectedErrors = getelementptr inbounds i8, ptr %srv_ctx, i64 72
-  %17 = load i32, ptr %sendUnprotectedErrors, align 8
-  %call66 = call ptr @ossl_cmp_certrep_new(ptr noundef %16, i32 noundef %switch.load, i32 noundef %certReqId.0, ptr noundef nonnull %si.0, ptr noundef %15, ptr noundef null, ptr noundef %14, ptr noundef %13, i32 noundef %17) #2
+  %16 = load i32, ptr %sendUnprotectedErrors, align 8
+  %call66 = call ptr @ossl_cmp_certrep_new(ptr noundef %15, i32 noundef %switch.load, i32 noundef %certReqId.0, ptr noundef nonnull %si.0, ptr noundef %14, ptr noundef null, ptr noundef %13, ptr noundef %12, i32 noundef %16) #2
   %cmp67 = icmp eq ptr %call66, null
   br i1 %cmp67, label %if.then69, label %err
 
@@ -822,12 +821,12 @@ err:                                              ; preds = %if.end64, %if.then6
   %si.1 = phi ptr [ null, %if.else43 ], [ %si.0, %if.then69 ], [ %si.0, %if.end64 ], [ %call45, %land.end58 ]
   %msg.0 = phi ptr [ null, %if.else43 ], [ null, %if.then69 ], [ %call66, %if.end64 ], [ null, %land.end58 ]
   call void @OSSL_CMP_PKISI_free(ptr noundef %si.1) #2
-  %18 = load ptr, ptr %certOut, align 8
-  call void @X509_free(ptr noundef %18) #2
-  %19 = load ptr, ptr %chainOut, align 8
+  %17 = load ptr, ptr %certOut, align 8
+  call void @X509_free(ptr noundef %17) #2
+  %18 = load ptr, ptr %chainOut, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %18) #2
+  %19 = load ptr, ptr %caPubs, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %19) #2
-  %20 = load ptr, ptr %caPubs, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %20) #2
   br label %return
 
 return:                                           ; preds = %if.then35, %entry, %err, %if.then28, %if.then23, %if.then17, %sw.default

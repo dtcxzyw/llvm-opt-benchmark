@@ -95,9 +95,9 @@ define dso_local noundef ptr @ExecInitGatherMerge(ptr noundef %0, ptr noundef %1
   %49 = load ptr, ptr %38, align 8
   %50 = getelementptr i8, ptr %49, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %53 = getelementptr inbounds i8, ptr %43, i64 13
-  store i8 %52, ptr %53, align 1
+  %52 = getelementptr inbounds i8, ptr %43, i64 13
+  %53 = and i8 %51, 1
+  store i8 %53, ptr %52, align 1
   %54 = load ptr, ptr %39, align 8
   %55 = getelementptr i16, ptr %54, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2
@@ -174,9 +174,8 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
 5:                                                ; preds = %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not48 = icmp eq i8 %8, 0
-  br i1 %.not48, label %9, label %68
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %68, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -191,19 +190,18 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %11, i64 248
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not49 = icmp eq i8 %20, 0
-  br i1 %.not49, label %58, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %58
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 240
   %23 = load ptr, ptr %22, align 8
-  %.not50 = icmp eq ptr %23, null
+  %.not48 = icmp eq ptr %23, null
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %13, i64 152
   %27 = load ptr, ptr %26, align 8
-  br i1 %.not50, label %28, label %32
+  br i1 %.not48, label %28, label %32
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 208
@@ -258,9 +256,8 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
 
 58:                                               ; preds = %41, %55, %17, %9
   %59 = load i8, ptr @parallel_leader_participation, align 1
-  %60 = and i8 %59, 1
-  %.not51 = icmp eq i8 %60, 0
-  br i1 %.not51, label %61, label %65
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %65, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %0, i64 252
@@ -285,9 +282,8 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
   tail call void @MemoryContextReset(ptr noundef %72) #4
   %73 = getelementptr inbounds i8, ptr %0, i64 201
   %74 = load i8, ptr %73, align 1
-  %75 = and i8 %74, 1
-  %.not.i = icmp eq i8 %75, 0
-  br i1 %.not.i, label %76, label %182
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %182, label %76
 
 76:                                               ; preds = %68
   %77 = getelementptr inbounds i8, ptr %0, i64 252
@@ -330,60 +326,58 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
   %97 = getelementptr inbounds i8, ptr %0, i64 280
   %98 = load ptr, ptr %97, align 8
   tail call void @binaryheap_reset(ptr noundef %98) #4
-  %.not54.i.i = icmp slt i32 %78, 0
+  %.not51.i.i = icmp slt i32 %78, 0
   %99 = getelementptr inbounds i8, ptr %0, i64 272
   %100 = getelementptr inbounds i8, ptr %0, i64 202
   %101 = getelementptr inbounds i8, ptr %0, i64 264
-  %.not4658.i.i = icmp slt i32 %78, 1
-  br i1 %.not54.i.i, label %gather_merge_init.exit.i, label %.lr.ph57.i.i
+  %.not4655.i.i = icmp slt i32 %78, 1
+  br i1 %.not51.i.i, label %gather_merge_init.exit.i, label %.lr.ph54.i.i
 
-.lr.ph57.i.i.loopexit:                            ; preds = %175, %169
-  br label %.lr.ph57.i.i
+.lr.ph54.i.i.loopexit:                            ; preds = %175, %169
+  br label %.lr.ph54.i.i
 
-.lr.ph57.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph57.i.i.loopexit
-  %.042.i.i = phi i1 [ false, %.lr.ph57.i.i.loopexit ], [ true, %._crit_edge.i.i ]
+.lr.ph54.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph54.i.i.loopexit
+  %.042.i.i = phi i1 [ false, %.lr.ph54.i.i.loopexit ], [ true, %._crit_edge.i.i ]
   br label %103
 
 ..preheader_crit_edge.i.i:                        ; preds = %load_tuple_array.exit.i.i
-  br i1 %.not4658.i.i, label %gather_merge_init.exit.i, label %.lr.ph60.i.i
+  br i1 %.not4655.i.i, label %gather_merge_init.exit.i, label %.lr.ph57.i.i
 
-.lr.ph60.i.i:                                     ; preds = %..preheader_crit_edge.i.i
+.lr.ph57.i.i:                                     ; preds = %..preheader_crit_edge.i.i
   %102 = load ptr, ptr %99, align 8
   br label %163
 
-103:                                              ; preds = %load_tuple_array.exit.i.i, %.lr.ph57.i.i
-  %.155.i.i = phi i32 [ 0, %.lr.ph57.i.i ], [ %162, %load_tuple_array.exit.i.i ]
+103:                                              ; preds = %load_tuple_array.exit.i.i, %.lr.ph54.i.i
+  %.152.i.i = phi i32 [ 0, %.lr.ph54.i.i ], [ %162, %load_tuple_array.exit.i.i ]
   %104 = load volatile i32, ptr @InterruptPending, align 4
-  %.not49.i.i = icmp eq i32 %104, 0
-  br i1 %.not49.i.i, label %106, label %105
+  %.not48.i.i = icmp eq i32 %104, 0
+  br i1 %.not48.i.i, label %106, label %105
 
 105:                                              ; preds = %103
   tail call void @ProcessInterrupts() #4
   br label %106
 
 106:                                              ; preds = %105, %103
-  %107 = icmp eq i32 %.155.i.i, 0
+  %107 = icmp eq i32 %.152.i.i, 0
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %106
   %109 = load i8, ptr %100, align 2
-  %110 = and i8 %109, 1
-  %.not51.i.i = icmp eq i8 %110, 0
-  br i1 %.not51.i.i, label %load_tuple_array.exit.i.i, label %118
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %118, label %load_tuple_array.exit.i.i
 
 111:                                              ; preds = %106
   %112 = load ptr, ptr %99, align 8
-  %113 = add i32 %.155.i.i, -1
+  %113 = add i32 %.152.i.i, -1
   %114 = sext i32 %113 to i64
   %115 = getelementptr %struct.GMReaderTupleBuffer, ptr %112, i64 %114, i32 3
   %116 = load i8, ptr %115, align 8
-  %117 = and i8 %116, 1
-  %.not50.i.i = icmp eq i8 %117, 0
-  br i1 %.not50.i.i, label %118, label %load_tuple_array.exit.i.i
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %load_tuple_array.exit.i.i, label %118
 
 118:                                              ; preds = %111, %108
   %119 = load ptr, ptr %79, align 8
-  %120 = sext i32 %.155.i.i to i64
+  %120 = sext i32 %.152.i.i to i64
   %121 = getelementptr ptr, ptr %119, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
@@ -393,11 +387,11 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
   %125 = getelementptr inbounds i8, ptr %122, i64 4
   %126 = load i16, ptr %125, align 4
   %127 = and i16 %126, 2
-  %.not52.i.i = icmp eq i16 %127, 0
-  br i1 %.not52.i.i, label %132, label %128
+  %.not49.i.i = icmp eq i16 %127, 0
+  br i1 %.not49.i.i, label %132, label %128
 
 128:                                              ; preds = %124, %118
-  %129 = tail call fastcc zeroext i1 @gather_merge_readnext(ptr noundef nonnull %0, i32 noundef %.155.i.i, i1 noundef zeroext %.042.i.i)
+  %129 = tail call fastcc zeroext i1 @gather_merge_readnext(ptr noundef nonnull %0, i32 noundef %.152.i.i, i1 noundef zeroext %.042.i.i)
   br i1 %129, label %130, label %load_tuple_array.exit.i.i
 
 130:                                              ; preds = %128
@@ -410,7 +404,7 @@ define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr %99, align 8
-  %135 = add i32 %.155.i.i, -1
+  %135 = add i32 %.152.i.i, -1
   %136 = sext i32 %135 to i64
   %137 = getelementptr %struct.GMReaderTupleBuffer, ptr %134, i64 %136
   %138 = getelementptr inbounds i8, ptr %137, i64 8
@@ -470,37 +464,36 @@ gm_readnext_tuple.exit.i.i.i:                     ; preds = %151
   br i1 %exitcond.not.i.i.i, label %load_tuple_array.exit.i.i, label %148, !llvm.loop !9
 
 load_tuple_array.exit.i.i:                        ; preds = %157, %gm_readnext_tuple.exit.i.i.i, %151, %143, %132, %130, %128, %111, %108
-  %162 = add i32 %.155.i.i, 1
+  %162 = add i32 %.152.i.i, 1
   %.not.i.i = icmp sgt i32 %162, %78
   br i1 %.not.i.i, label %..preheader_crit_edge.i.i, label %103, !llvm.loop !10
 
-163:                                              ; preds = %179, %.lr.ph60.i.i
-  %.259.i.i = phi i32 [ 1, %.lr.ph60.i.i ], [ %180, %179 ]
-  %164 = add i32 %.259.i.i, -1
+163:                                              ; preds = %179, %.lr.ph57.i.i
+  %.256.i.i = phi i32 [ 1, %.lr.ph57.i.i ], [ %180, %179 ]
+  %164 = add i32 %.256.i.i, -1
   %165 = sext i32 %164 to i64
   %166 = getelementptr %struct.GMReaderTupleBuffer, ptr %102, i64 %165, i32 3
   %167 = load i8, ptr %166, align 8
-  %168 = and i8 %167, 1
-  %.not47.i.i = icmp eq i8 %168, 0
-  br i1 %.not47.i.i, label %169, label %179
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %179, label %169
 
 169:                                              ; preds = %163
   %170 = load ptr, ptr %79, align 8
-  %171 = sext i32 %.259.i.i to i64
+  %171 = sext i32 %.256.i.i to i64
   %172 = getelementptr ptr, ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %.lr.ph57.i.i.loopexit, label %175
+  br i1 %174, label %.lr.ph54.i.i.loopexit, label %175
 
 175:                                              ; preds = %169
   %176 = getelementptr inbounds i8, ptr %173, i64 4
   %177 = load i16, ptr %176, align 4
   %178 = and i16 %177, 2
-  %.not48.i.i = icmp eq i16 %178, 0
-  br i1 %.not48.i.i, label %179, label %.lr.ph57.i.i.loopexit
+  %.not47.i.i = icmp eq i16 %178, 0
+  br i1 %.not47.i.i, label %179, label %.lr.ph54.i.i.loopexit
 
 179:                                              ; preds = %175, %163
-  %180 = add i32 %.259.i.i, 1
+  %180 = add i32 %.256.i.i, 1
   %.not46.i.i = icmp sgt i32 %180, %78
   br i1 %.not46.i.i, label %gather_merge_init.exit.i, label %163, !llvm.loop !11
 
@@ -602,8 +595,8 @@ gather_merge_getnext.exit:                        ; preds = %193
   %239 = getelementptr inbounds i8, ptr %236, i64 4
   %240 = load i16, ptr %239, align 4
   %241 = and i16 %240, 2
-  %.not52 = icmp eq i16 %241, 0
-  br i1 %.not52, label %242, label %gather_merge_getnext.exit.thread
+  %.not49 = icmp eq i16 %241, 0
+  br i1 %.not49, label %242, label %gather_merge_getnext.exit.thread
 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds i8, ptr %0, i64 136
@@ -883,9 +876,8 @@ define internal fastcc noundef zeroext i1 @gather_merge_readnext(ptr nocapture n
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 202
   %7 = load i8, ptr %6, align 2
-  %8 = and i8 %7, 1
-  %.not38 = icmp eq i8 %8, 0
-  br i1 %.not38, label %gm_readnext_tuple.exit.thread, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %gm_readnext_tuple.exit.thread
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 72
@@ -894,8 +886,8 @@ define internal fastcc noundef zeroext i1 @gather_merge_readnext(ptr nocapture n
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 240
   %15 = load ptr, ptr %14, align 8
-  %.not39 = icmp eq ptr %15, null
-  br i1 %.not39, label %19, label %16
+  %.not37 = icmp eq ptr %15, null
+  br i1 %.not37, label %19, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %15, i64 48
@@ -927,8 +919,8 @@ ExecProcNode.exit:                                ; preds = %19, %24
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = and i16 %31, 2
-  %.not40 = icmp eq i16 %32, 0
-  br i1 %.not40, label %33, label %36
+  %.not38 = icmp eq i16 %32, 0
+  br i1 %.not38, label %33, label %36
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %0, i64 256
@@ -965,14 +957,13 @@ ExecProcNode.exit:                                ; preds = %19, %24
 54:                                               ; preds = %37
   %55 = getelementptr inbounds i8, ptr %42, i64 16
   %56 = load i8, ptr %55, align 8
-  %57 = and i8 %56, 1
-  %.not = icmp eq i8 %57, 0
-  br i1 %.not, label %58, label %gm_readnext_tuple.exit.thread
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %gm_readnext_tuple.exit.thread, label %58
 
 58:                                               ; preds = %54
   %59 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i41 = icmp eq i32 %59, 0
-  br i1 %.not.i41, label %61, label %60
+  %.not.i39 = icmp eq i32 %59, 0
+  br i1 %.not.i39, label %61, label %60
 
 60:                                               ; preds = %58
   tail call void @ProcessInterrupts() #4
@@ -989,8 +980,8 @@ ExecProcNode.exit:                                ; preds = %19, %24
 
 gm_readnext_tuple.exit:                           ; preds = %61
   %67 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %66) #4
-  %.not37 = icmp eq ptr %67, null
-  br i1 %.not37, label %gm_readnext_tuple.exit.thread, label %68
+  %.not = icmp eq ptr %67, null
+  br i1 %.not, label %gm_readnext_tuple.exit.thread, label %68
 
 68:                                               ; preds = %gm_readnext_tuple.exit
   %69 = load ptr, ptr %38, align 8
@@ -1037,8 +1028,8 @@ gm_readnext_tuple.exit:                           ; preds = %61
 
 gm_readnext_tuple.exit.i:                         ; preds = %84
   %89 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %88) #4
-  %.not.i42 = icmp eq ptr %89, null
-  br i1 %.not.i42, label %load_tuple_array.exit, label %90
+  %.not.i40 = icmp eq ptr %89, null
+  br i1 %.not.i40, label %load_tuple_array.exit, label %90
 
 90:                                               ; preds = %gm_readnext_tuple.exit.i
   %91 = load ptr, ptr %70, align 8
@@ -1138,59 +1129,54 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr i64, ptr %36, i64 %32
-  %38 = load i64, ptr %37, align 8
-  %39 = load i16, ptr %19, align 2
-  %40 = icmp slt i16 %39, %26
-  br i1 %40, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
+  %35 = load ptr, ptr %18, align 8
+  %36 = getelementptr i64, ptr %35, i64 %32
+  %37 = load i64, ptr %36, align 8
+  %38 = load i16, ptr %19, align 2
+  %39 = icmp slt i16 %38, %26
+  br i1 %39, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
 
 slot_getsomeattrs.exit.i26:                       ; preds = %slot_getattr.exit
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %11, i32 noundef %27) #4
   br label %slot_getattr.exit27
 
 slot_getattr.exit27:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i26
-  %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr i8, ptr %41, i64 %32
-  %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr i64, ptr %45, i64 %32
-  %47 = load i64, ptr %46, align 8
-  %.not44 = icmp eq i8 %35, 0
-  %.not45 = icmp eq i8 %44, 0
-  br i1 %.not44, label %53, label %48
+  %40 = load ptr, ptr %20, align 8
+  %41 = getelementptr i8, ptr %40, i64 %32
+  %42 = load i8, ptr %41, align 1
+  %43 = load ptr, ptr %21, align 8
+  %44 = getelementptr i64, ptr %43, i64 %32
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i8 %34 to i1
+  %47 = trunc i8 %42 to i1
+  br i1 %46, label %48, label %53
 
 48:                                               ; preds = %slot_getattr.exit27
-  br i1 %.not45, label %49, label %ApplySortComparator.exit.thread32
+  br i1 %47, label %ApplySortComparator.exit.thread32, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %24, i64 13
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not13.i = icmp eq i8 %52, 0
-  br i1 %.not13.i, label %ApplySortComparator.exit.thread.thread, label %ApplySortComparator.exit.thread.thread40
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %ApplySortComparator.exit.thread.thread40, label %ApplySortComparator.exit.thread.thread
 
 53:                                               ; preds = %slot_getattr.exit27
-  br i1 %.not45, label %58, label %54
+  br i1 %47, label %54, label %58
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %24, i64 13
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not12.i = icmp eq i8 %57, 0
-  br i1 %.not12.i, label %ApplySortComparator.exit.thread.thread40, label %ApplySortComparator.exit.thread.thread
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %ApplySortComparator.exit.thread.thread, label %ApplySortComparator.exit.thread.thread40
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %24, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 %60(i64 noundef %38, i64 noundef %47, ptr noundef %24) #4
+  %61 = tail call i32 %60(i64 noundef %37, i64 noundef %45, ptr noundef %24) #4
   %62 = getelementptr inbounds i8, ptr %24, i64 12
   %63 = load i8, ptr %62, align 4
-  %64 = and i8 %63, 1
-  %.not.i = icmp eq i8 %64, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %ApplySortComparator.exit
 
 65:                                               ; preds = %58
   %66 = icmp slt i32 %61, 0
@@ -1208,7 +1194,7 @@ ApplySortComparator.exit.thread:                  ; preds = %ApplySortComparator
   %69 = sub i32 0, %.0.i.fr
   br i1 %68, label %ApplySortComparator.exit.thread.thread40, label %ApplySortComparator.exit.thread.thread
 
-ApplySortComparator.exit.thread.thread40:         ; preds = %54, %49, %ApplySortComparator.exit.thread
+ApplySortComparator.exit.thread.thread40:         ; preds = %49, %54, %ApplySortComparator.exit.thread
   br label %ApplySortComparator.exit.thread.thread
 
 ApplySortComparator.exit.thread32:                ; preds = %48, %ApplySortComparator.exit
@@ -1218,8 +1204,8 @@ ApplySortComparator.exit.thread32:                ; preds = %48, %ApplySortCompa
   %72 = icmp slt i64 %indvars.iv.next, %71
   br i1 %72, label %22, label %ApplySortComparator.exit.thread.thread, !llvm.loop !14
 
-ApplySortComparator.exit.thread.thread:           ; preds = %ApplySortComparator.exit.thread32, %65, %3, %49, %54, %ApplySortComparator.exit.thread.thread40, %ApplySortComparator.exit.thread
-  %.0 = phi i32 [ 1, %ApplySortComparator.exit.thread.thread40 ], [ %69, %ApplySortComparator.exit.thread ], [ -1, %54 ], [ -1, %49 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread32 ], [ -1, %65 ]
+ApplySortComparator.exit.thread.thread:           ; preds = %ApplySortComparator.exit.thread32, %65, %3, %54, %49, %ApplySortComparator.exit.thread.thread40, %ApplySortComparator.exit.thread
+  %.0 = phi i32 [ 1, %ApplySortComparator.exit.thread.thread40 ], [ %69, %ApplySortComparator.exit.thread ], [ -1, %49 ], [ -1, %54 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread32 ], [ -1, %65 ]
   ret i32 %.0
 }
 

@@ -734,11 +734,10 @@ entry:
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp ne ptr %1, %p
   %spec.select.idx = zext i1 %cmp5 to i64
-  %retval.0.in.in.in.v = select i1 %cmp, i64 2, i64 %spec.select.idx
-  %retval.0.in.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.in.v
-  %retval.0.in.in = load i8, ptr %retval.0.in.in.in, align 1
-  %retval.0.in = and i8 %retval.0.in.in, 1
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in.in.v = select i1 %cmp, i64 2, i64 %spec.select.idx
+  %retval.0.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v
+  %retval.0.in = load i8, ptr %retval.0.in.in, align 1
+  %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
 }
 
@@ -752,11 +751,10 @@ entry:
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %1, %p
   %spec.select.idx = select i1 %cmp5, i64 2, i64 0
-  %retval.0.in.in.in.v = select i1 %cmp, i64 1, i64 %spec.select.idx
-  %retval.0.in.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.in.v
-  %retval.0.in.in = load i8, ptr %retval.0.in.in.in, align 1
-  %retval.0.in = and i8 %retval.0.in.in, 1
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in.in.v = select i1 %cmp, i64 1, i64 %spec.select.idx
+  %retval.0.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v
+  %retval.0.in = load i8, ptr %retval.0.in.in, align 1
+  %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
 }
 
@@ -838,9 +836,8 @@ entry:
   %. = select i1 %cmp5, i64 3, i64 4
   %.sink = select i1 %cmp, i64 5, i64 %.
   %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %retval.0.in.in = load i8, ptr %arrayidx12, align 1
-  %retval.0.in = and i8 %retval.0.in.in, 1
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in = load i8, ptr %arrayidx12, align 1
+  %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
 }
 
@@ -856,9 +853,8 @@ entry:
   %. = select i1 %cmp5, i64 5, i64 3
   %.sink = select i1 %cmp, i64 4, i64 %.
   %delaunay_edge11 = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %retval.0.in.in = load i8, ptr %delaunay_edge11, align 1
-  %retval.0.in = and i8 %retval.0.in.in, 1
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %retval.0.in = load i8, ptr %delaunay_edge11, align 1
+  %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
 }
 

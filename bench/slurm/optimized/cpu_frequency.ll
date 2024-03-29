@@ -1513,9 +1513,8 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds %struct.cpu_freq_data, ptr %13, i64 %14, i32 2
   %16 = load i8, ptr %15, align 2
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %18, label %_cpu_freq_current_state.exit
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %_cpu_freq_current_state.exit, label %18
 
 18:                                               ; preds = %12
   %19 = load i32, ptr @_cpu_freq_current_state.freq_file, align 4
@@ -1644,7 +1643,7 @@ _cpu_freq_current_state.exit:                     ; preds = %75, %12
   %78 = getelementptr inbounds i8, ptr %0, i64 348
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, -2
-  br i1 %80, label %81, label %.thread62
+  br i1 %80, label %81, label %.thread61
 
 81:                                               ; preds = %_cpu_freq_current_state.exit
   %82 = getelementptr inbounds i8, ptr %0, i64 352
@@ -1654,7 +1653,7 @@ _cpu_freq_current_state.exit:                     ; preds = %75, %12
   br i1 %.not, label %89, label %84
 
 84:                                               ; preds = %81
-  switch i32 %.pr, label %.thread60 [
+  switch i32 %.pr, label %.thread59 [
     i32 -2, label %85
     i32 -2139095040, label %92
   ]
@@ -1664,18 +1663,18 @@ _cpu_freq_current_state.exit:                     ; preds = %75, %12
   %87 = load ptr, ptr @cpufreq, align 8
   %88 = getelementptr inbounds %struct.cpu_freq_data, ptr %87, i64 %14, i32 7
   store i32 %86, ptr %88, align 4
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
 89:                                               ; preds = %81
   %90 = icmp eq i32 %.pr, -2139095040
-  br i1 %90, label %92, label %thread-pre-split58
+  br i1 %90, label %92, label %thread-pre-split57
 
-.thread62:                                        ; preds = %_cpu_freq_current_state.exit
-  %.pr63 = load i32, ptr %7, align 4
-  %91 = icmp eq i32 %.pr63, -2139095040
+.thread61:                                        ; preds = %_cpu_freq_current_state.exit
+  %.pr62 = load i32, ptr %7, align 4
+  %91 = icmp eq i32 %.pr62, -2139095040
   br i1 %91, label %92, label %110
 
-92:                                               ; preds = %84, %.thread62, %89
+92:                                               ; preds = %84, %.thread61, %89
   %93 = load ptr, ptr @cpufreq, align 8
   %94 = getelementptr inbounds %struct.cpu_freq_data, ptr %93, i64 %14
   %95 = load i8, ptr %94, align 4
@@ -1707,11 +1706,11 @@ _cpu_freq_govspec_string.exit:                    ; preds = %92, %97
   store i32 %103, ptr %109, align 4
   br label %_cpu_freq_current_state.exit.thread
 
-110:                                              ; preds = %.thread62
+110:                                              ; preds = %.thread61
   %111 = getelementptr inbounds i8, ptr %0, i64 352
   %112 = load i32, ptr %111, align 8
   %.not50 = icmp eq i32 %112, -2
-  br i1 %.not50, label %thread-pre-split58, label %113
+  br i1 %.not50, label %thread-pre-split57, label %113
 
 113:                                              ; preds = %110
   %114 = call i32 @_cpu_freq_freqspec_num(i32 noundef %79, i32 noundef %1)
@@ -1723,21 +1722,21 @@ _cpu_freq_govspec_string.exit:                    ; preds = %92, %97
   %119 = load ptr, ptr @cpufreq, align 8
   %120 = getelementptr inbounds %struct.cpu_freq_data, ptr %119, i64 %14, i32 11
   store i32 %118, ptr %120, align 4
-  %.pr59.pre = load i32, ptr %7, align 4
-  br label %thread-pre-split58
+  %.pr58.pre = load i32, ptr %7, align 4
+  br label %thread-pre-split57
 
-thread-pre-split58:                               ; preds = %113, %110, %89
-  %121 = phi i32 [ %.pr, %89 ], [ %.pr63, %110 ], [ %.pr59.pre, %113 ]
+thread-pre-split57:                               ; preds = %113, %110, %89
+  %121 = phi i32 [ %.pr, %89 ], [ %.pr62, %110 ], [ %.pr58.pre, %113 ]
   %.not51 = icmp eq i32 %121, -2
-  br i1 %.not51, label %_cpu_freq_govspec_string.exit55, label %.thread60
+  br i1 %.not51, label %_cpu_freq_govspec_string.exit54, label %.thread59
 
-.thread60:                                        ; preds = %84, %thread-pre-split58
-  %122 = phi i32 [ %121, %thread-pre-split58 ], [ %.pr, %84 ]
+.thread59:                                        ; preds = %84, %thread-pre-split57
+  %122 = phi i32 [ %121, %thread-pre-split57 ], [ %.pr, %84 ]
   %123 = icmp sgt i32 %122, -1
-  br i1 %123, label %_cpu_freq_govspec_string.exit55, label %124
+  br i1 %123, label %_cpu_freq_govspec_string.exit54, label %124
 
-124:                                              ; preds = %.thread60
-  switch i32 %122, label %_cpu_freq_govspec_string.exit55 [
+124:                                              ; preds = %.thread59
+  switch i32 %122, label %_cpu_freq_govspec_string.exit54 [
     i32 -2013265920, label %125
     i32 -2080374784, label %132
     i32 -2113929216, label %139
@@ -1752,12 +1751,12 @@ thread-pre-split58:                               ; preds = %113, %110, %89
   %128 = load i8, ptr %127, align 4
   %129 = and i8 %128, 1
   %.not19.i = icmp eq i8 %129, 0
-  br i1 %.not19.i, label %_cpu_freq_govspec_string.exit55, label %130
+  br i1 %.not19.i, label %_cpu_freq_govspec_string.exit54, label %130
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds i8, ptr %127, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %131, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false) #11
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
 132:                                              ; preds = %124
   %133 = load ptr, ptr @cpufreq, align 8
@@ -1765,12 +1764,12 @@ thread-pre-split58:                               ; preds = %113, %110, %89
   %135 = load i8, ptr %134, align 4
   %136 = and i8 %135, 2
   %.not18.i = icmp eq i8 %136, 0
-  br i1 %.not18.i, label %_cpu_freq_govspec_string.exit55, label %137
+  br i1 %.not18.i, label %_cpu_freq_govspec_string.exit54, label %137
 
 137:                                              ; preds = %132
   %138 = getelementptr inbounds i8, ptr %134, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %138, ptr noundef nonnull align 1 dereferenceable(9) @.str.9, i64 9, i1 false) #11
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
 139:                                              ; preds = %124
   %140 = load ptr, ptr @cpufreq, align 8
@@ -1778,12 +1777,12 @@ thread-pre-split58:                               ; preds = %113, %110, %89
   %142 = load i8, ptr %141, align 4
   %143 = and i8 %142, 4
   %.not17.i = icmp eq i8 %143, 0
-  br i1 %.not17.i, label %_cpu_freq_govspec_string.exit55, label %144
+  br i1 %.not17.i, label %_cpu_freq_govspec_string.exit54, label %144
 
 144:                                              ; preds = %139
   %145 = getelementptr inbounds i8, ptr %141, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %145, ptr noundef nonnull align 1 dereferenceable(12) @.str.11, i64 12, i1 false) #11
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
 146:                                              ; preds = %124
   %147 = load ptr, ptr @cpufreq, align 8
@@ -1791,40 +1790,40 @@ thread-pre-split58:                               ; preds = %113, %110, %89
   %149 = load i8, ptr %148, align 4
   %150 = and i8 %149, 8
   %.not16.i = icmp eq i8 %150, 0
-  br i1 %.not16.i, label %_cpu_freq_govspec_string.exit55, label %151
+  br i1 %.not16.i, label %_cpu_freq_govspec_string.exit54, label %151
 
 151:                                              ; preds = %146
   %152 = getelementptr inbounds i8, ptr %148, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %152, ptr noundef nonnull align 1 dereferenceable(10) @.str.13, i64 10, i1 false) #11
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
 153:                                              ; preds = %124
   %154 = load ptr, ptr @cpufreq, align 8
   %155 = getelementptr inbounds %struct.cpu_freq_data, ptr %154, i64 %14
   %156 = load i8, ptr %155, align 4
   %157 = and i8 %156, 16
-  %.not15.i54 = icmp eq i8 %157, 0
-  br i1 %.not15.i54, label %_cpu_freq_govspec_string.exit55, label %158
+  %.not15.i53 = icmp eq i8 %157, 0
+  br i1 %.not15.i53, label %_cpu_freq_govspec_string.exit54, label %158
 
 158:                                              ; preds = %153
   %159 = getelementptr inbounds i8, ptr %155, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %159, ptr noundef nonnull align 1 dereferenceable(10) @.str.15, i64 10, i1 false) #11
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
 160:                                              ; preds = %124
   %161 = load ptr, ptr @cpufreq, align 8
   %162 = getelementptr inbounds %struct.cpu_freq_data, ptr %161, i64 %14
   %163 = load i8, ptr %162, align 4
   %164 = and i8 %163, 32
-  %.not.i53 = icmp eq i8 %164, 0
-  br i1 %.not.i53, label %_cpu_freq_govspec_string.exit55, label %165
+  %.not.i = icmp eq i8 %164, 0
+  br i1 %.not.i, label %_cpu_freq_govspec_string.exit54, label %165
 
 165:                                              ; preds = %160
   %166 = getelementptr inbounds i8, ptr %162, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %166, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 10, i1 false) #11
-  br label %_cpu_freq_govspec_string.exit55
+  br label %_cpu_freq_govspec_string.exit54
 
-_cpu_freq_govspec_string.exit55:                  ; preds = %165, %160, %158, %153, %151, %146, %144, %139, %137, %132, %130, %125, %124, %.thread60, %thread-pre-split58, %85
+_cpu_freq_govspec_string.exit54:                  ; preds = %165, %160, %158, %153, %151, %146, %144, %139, %137, %132, %130, %125, %124, %.thread59, %thread-pre-split57, %85
   %167 = load ptr, ptr @cpufreq, align 8
   %168 = getelementptr inbounds %struct.cpu_freq_data, ptr %167, i64 %14
   %169 = getelementptr inbounds i8, ptr %168, i64 312
@@ -1832,7 +1831,7 @@ _cpu_freq_govspec_string.exit55:                  ; preds = %165, %160, %158, %1
   %.not52 = icmp eq i32 %170, -2
   br i1 %.not52, label %_cpu_freq_current_state.exit.thread, label %171
 
-171:                                              ; preds = %_cpu_freq_govspec_string.exit55
+171:                                              ; preds = %_cpu_freq_govspec_string.exit54
   %172 = getelementptr inbounds i8, ptr %168, i64 316
   %173 = load i32, ptr %172, align 4
   %174 = icmp ult i32 %170, %173
@@ -1842,12 +1841,12 @@ _cpu_freq_govspec_string.exit55:                  ; preds = %165, %160, %158, %1
   %176 = getelementptr inbounds i8, ptr %168, i64 320
   store i32 %170, ptr %176, align 4
   %.pre = load ptr, ptr @cpufreq, align 8
-  %.phi.trans.insert68 = getelementptr inbounds %struct.cpu_freq_data, ptr %.pre, i64 %14, i32 7
-  %.pre69 = load i32, ptr %.phi.trans.insert68, align 4
+  %.phi.trans.insert67 = getelementptr inbounds %struct.cpu_freq_data, ptr %.pre, i64 %14, i32 7
+  %.pre68 = load i32, ptr %.phi.trans.insert67, align 4
   br label %177
 
 177:                                              ; preds = %175, %171
-  %178 = phi i32 [ %.pre69, %175 ], [ %170, %171 ]
+  %178 = phi i32 [ %.pre68, %175 ], [ %170, %171 ]
   %179 = phi ptr [ %.pre, %175 ], [ %167, %171 ]
   %180 = getelementptr inbounds %struct.cpu_freq_data, ptr %179, i64 %14
   %181 = getelementptr inbounds i8, ptr %180, i64 324
@@ -1860,7 +1859,7 @@ _cpu_freq_govspec_string.exit55:                  ; preds = %165, %160, %158, %1
   store i32 %178, ptr %185, align 4
   br label %_cpu_freq_current_state.exit.thread
 
-_cpu_freq_current_state.exit.thread:              ; preds = %_cpu_freq_get_cur_gov.exit.i, %33, %28, %25, %177, %184, %_cpu_freq_govspec_string.exit, %_cpu_freq_govspec_string.exit55, %102
+_cpu_freq_current_state.exit.thread:              ; preds = %_cpu_freq_get_cur_gov.exit.i, %33, %28, %25, %177, %184, %_cpu_freq_govspec_string.exit, %_cpu_freq_govspec_string.exit54, %102
   ret void
 }
 

@@ -4003,14 +4003,13 @@ if.end204:                                        ; preds = %if.then174, %if.the
 do.body209:                                       ; preds = %if.then174, %if.end204, %if.then194
   %_generator = getelementptr inbounds i8, ptr %node, i64 128
   %47 = load i8, ptr %_generator, align 8
-  %48 = and i8 %47, 1
-  %tobool210.not = icmp eq i8 %48, 0
-  br i1 %tobool210.not, label %if.then212, label %if.end242
+  %tobool210 = trunc i8 %47 to i1
+  br i1 %tobool210, label %if.end242, label %if.then212
 
 if.then212:                                       ; preds = %do.body209
   %mode_213 = getelementptr inbounds i8, ptr %this, i64 16
-  %49 = load i32, ptr %mode_213, align 8
-  switch i32 %49, label %if.end242 [
+  %48 = load i32, ptr %mode_213, align 8
+  switch i32 %48, label %if.end242 [
     i32 0, label %do.body248
     i32 1, label %if.then219
   ]
@@ -4020,49 +4019,47 @@ if.then219:                                       ; preds = %if.then212
   %call.i175 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_221, ptr nonnull @.str, i64 18) #7
   %cmp.i176 = icmp eq i32 %call.i175, -1
   %NumBuckets.i.i177 = getelementptr inbounds i8, ptr %this, i64 40
-  %50 = load i32, ptr %NumBuckets.i.i177, align 8
-  %idx.ext.i.i178 = zext i32 %50 to i64
+  %49 = load i32, ptr %NumBuckets.i.i177, align 8
+  %idx.ext.i.i178 = zext i32 %49 to i64
   %idx.ext.i179 = sext i32 %call.i175 to i64
   %cmp.i.i185.not228 = icmp eq i64 %idx.ext.i179, %idx.ext.i.i178
   %cmp.i.i185.not = select i1 %cmp.i176, i1 true, i1 %cmp.i.i185.not228
   br i1 %cmp.i.i185.not, label %if.end242, label %if.then232
 
 if.then232:                                       ; preds = %if.then219
-  %51 = load ptr, ptr %ignoredEmptyFields_221, align 8
-  %retval.sroa.0.0.i181 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i179
-  %52 = load ptr, ptr %retval.sroa.0.0.i181, align 8
-  %second234 = getelementptr inbounds i8, ptr %52, i64 8
+  %50 = load ptr, ptr %ignoredEmptyFields_221, align 8
+  %retval.sroa.0.0.i181 = getelementptr inbounds ptr, ptr %50, i64 %idx.ext.i179
+  %51 = load ptr, ptr %retval.sroa.0.0.i181, align 8
+  %second234 = getelementptr inbounds i8, ptr %51, i64 8
   %call.i.i186 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second234, ptr nonnull @.str.250, i64 9) #7
   %cmp.i.i187 = icmp eq i32 %call.i.i186, -1
-  %NumBuckets.i.i.i188 = getelementptr inbounds i8, ptr %52, i64 16
-  %53 = load i32, ptr %NumBuckets.i.i.i188, align 8
-  %idx.ext.i.i.i189 = zext i32 %53 to i64
+  %NumBuckets.i.i.i188 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = load i32, ptr %NumBuckets.i.i.i188, align 8
+  %idx.ext.i.i.i189 = zext i32 %52 to i64
   %idx.ext.i.i190 = sext i32 %call.i.i186 to i64
   %cmp.i23.i191 = icmp eq i64 %idx.ext.i.i190, %idx.ext.i.i.i189
   %cmp.i2.not.i192.not = select i1 %cmp.i.i187, i1 true, i1 %cmp.i23.i191
   br i1 %cmp.i2.not.i192.not, label %if.end242, label %do.body248
 
 if.end242:                                        ; preds = %if.then212, %if.then232, %if.then219, %do.body209
-  %54 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.250, i64 9) #7
-  %55 = load i8, ptr %_generator, align 8
-  %56 = and i8 %55, 1
-  %tobool246 = icmp ne i8 %56, 0
+  %53 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr nonnull @.str.250, i64 9) #7
+  %54 = load i8, ptr %_generator, align 8
+  %tobool246 = trunc i8 %54 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool246) #7
   br label %do.body248
 
 do.body248:                                       ; preds = %if.then212, %if.end242, %if.then232
   %_async = getelementptr inbounds i8, ptr %node, i64 129
-  %57 = load i8, ptr %_async, align 1
-  %58 = and i8 %57, 1
-  %tobool249.not = icmp eq i8 %58, 0
-  br i1 %tobool249.not, label %if.then251, label %if.end281
+  %55 = load i8, ptr %_async, align 1
+  %tobool249 = trunc i8 %55 to i1
+  br i1 %tobool249, label %if.end281, label %if.then251
 
 if.then251:                                       ; preds = %do.body248
   %mode_252 = getelementptr inbounds i8, ptr %this, i64 16
-  %59 = load i32, ptr %mode_252, align 8
-  switch i32 %59, label %if.end281 [
+  %56 = load i32, ptr %mode_252, align 8
+  switch i32 %56, label %if.end281 [
     i32 0, label %do.end286
     i32 1, label %if.then258
   ]
@@ -4072,34 +4069,33 @@ if.then258:                                       ; preds = %if.then251
   %call.i195 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_260, ptr nonnull @.str, i64 18) #7
   %cmp.i196 = icmp eq i32 %call.i195, -1
   %NumBuckets.i.i197 = getelementptr inbounds i8, ptr %this, i64 40
-  %60 = load i32, ptr %NumBuckets.i.i197, align 8
-  %idx.ext.i.i198 = zext i32 %60 to i64
+  %57 = load i32, ptr %NumBuckets.i.i197, align 8
+  %idx.ext.i.i198 = zext i32 %57 to i64
   %idx.ext.i199 = sext i32 %call.i195 to i64
   %cmp.i.i205.not229 = icmp eq i64 %idx.ext.i199, %idx.ext.i.i198
   %cmp.i.i205.not = select i1 %cmp.i196, i1 true, i1 %cmp.i.i205.not229
   br i1 %cmp.i.i205.not, label %if.end281, label %if.then271
 
 if.then271:                                       ; preds = %if.then258
-  %61 = load ptr, ptr %ignoredEmptyFields_260, align 8
-  %retval.sroa.0.0.i201 = getelementptr inbounds ptr, ptr %61, i64 %idx.ext.i199
-  %62 = load ptr, ptr %retval.sroa.0.0.i201, align 8
-  %second273 = getelementptr inbounds i8, ptr %62, i64 8
+  %58 = load ptr, ptr %ignoredEmptyFields_260, align 8
+  %retval.sroa.0.0.i201 = getelementptr inbounds ptr, ptr %58, i64 %idx.ext.i199
+  %59 = load ptr, ptr %retval.sroa.0.0.i201, align 8
+  %second273 = getelementptr inbounds i8, ptr %59, i64 8
   %call.i.i206 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second273, ptr nonnull @.str.251, i64 5) #7
   %cmp.i.i207 = icmp eq i32 %call.i.i206, -1
-  %NumBuckets.i.i.i208 = getelementptr inbounds i8, ptr %62, i64 16
-  %63 = load i32, ptr %NumBuckets.i.i.i208, align 8
-  %idx.ext.i.i.i209 = zext i32 %63 to i64
+  %NumBuckets.i.i.i208 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = load i32, ptr %NumBuckets.i.i.i208, align 8
+  %idx.ext.i.i.i209 = zext i32 %60 to i64
   %idx.ext.i.i210 = sext i32 %call.i.i206 to i64
   %cmp.i23.i211 = icmp eq i64 %idx.ext.i.i210, %idx.ext.i.i.i209
   %cmp.i2.not.i212.not = select i1 %cmp.i.i207, i1 true, i1 %cmp.i23.i211
   br i1 %cmp.i2.not.i212.not, label %if.end281, label %do.end286
 
 if.end281:                                        ; preds = %if.then251, %if.then271, %if.then258, %do.body248
-  %64 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr nonnull @.str.251, i64 5) #7
-  %65 = load i8, ptr %_async, align 1
-  %66 = and i8 %65, 1
-  %tobool285 = icmp ne i8 %66, 0
+  %61 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr nonnull @.str.251, i64 5) #7
+  %62 = load i8, ptr %_async, align 1
+  %tobool285 = trunc i8 %62 to i1
   %this.val71 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val71, i1 noundef zeroext %tobool285) #7
   br label %do.end286
@@ -4400,14 +4396,13 @@ if.end204:                                        ; preds = %if.then174, %if.the
 do.body209:                                       ; preds = %if.then174, %if.end204, %if.then194
   %_expression = getelementptr inbounds i8, ptr %node, i64 128
   %47 = load i8, ptr %_expression, align 8
-  %48 = and i8 %47, 1
-  %tobool210.not = icmp eq i8 %48, 0
-  br i1 %tobool210.not, label %if.then212, label %if.end242
+  %tobool210 = trunc i8 %47 to i1
+  br i1 %tobool210, label %if.end242, label %if.then212
 
 if.then212:                                       ; preds = %do.body209
   %mode_213 = getelementptr inbounds i8, ptr %this, i64 16
-  %49 = load i32, ptr %mode_213, align 8
-  switch i32 %49, label %if.end242 [
+  %48 = load i32, ptr %mode_213, align 8
+  switch i32 %48, label %if.end242 [
     i32 0, label %do.body248
     i32 1, label %if.then219
   ]
@@ -4417,49 +4412,47 @@ if.then219:                                       ; preds = %if.then212
   %call.i175 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_221, ptr nonnull @.str.4, i64 23) #7
   %cmp.i176 = icmp eq i32 %call.i175, -1
   %NumBuckets.i.i177 = getelementptr inbounds i8, ptr %this, i64 40
-  %50 = load i32, ptr %NumBuckets.i.i177, align 8
-  %idx.ext.i.i178 = zext i32 %50 to i64
+  %49 = load i32, ptr %NumBuckets.i.i177, align 8
+  %idx.ext.i.i178 = zext i32 %49 to i64
   %idx.ext.i179 = sext i32 %call.i175 to i64
   %cmp.i.i185.not228 = icmp eq i64 %idx.ext.i179, %idx.ext.i.i178
   %cmp.i.i185.not = select i1 %cmp.i176, i1 true, i1 %cmp.i.i185.not228
   br i1 %cmp.i.i185.not, label %if.end242, label %if.then232
 
 if.then232:                                       ; preds = %if.then219
-  %51 = load ptr, ptr %ignoredEmptyFields_221, align 8
-  %retval.sroa.0.0.i181 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i179
-  %52 = load ptr, ptr %retval.sroa.0.0.i181, align 8
-  %second234 = getelementptr inbounds i8, ptr %52, i64 8
+  %50 = load ptr, ptr %ignoredEmptyFields_221, align 8
+  %retval.sroa.0.0.i181 = getelementptr inbounds ptr, ptr %50, i64 %idx.ext.i179
+  %51 = load ptr, ptr %retval.sroa.0.0.i181, align 8
+  %second234 = getelementptr inbounds i8, ptr %51, i64 8
   %call.i.i186 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second234, ptr nonnull @.str.252, i64 10) #7
   %cmp.i.i187 = icmp eq i32 %call.i.i186, -1
-  %NumBuckets.i.i.i188 = getelementptr inbounds i8, ptr %52, i64 16
-  %53 = load i32, ptr %NumBuckets.i.i.i188, align 8
-  %idx.ext.i.i.i189 = zext i32 %53 to i64
+  %NumBuckets.i.i.i188 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = load i32, ptr %NumBuckets.i.i.i188, align 8
+  %idx.ext.i.i.i189 = zext i32 %52 to i64
   %idx.ext.i.i190 = sext i32 %call.i.i186 to i64
   %cmp.i23.i191 = icmp eq i64 %idx.ext.i.i190, %idx.ext.i.i.i189
   %cmp.i2.not.i192.not = select i1 %cmp.i.i187, i1 true, i1 %cmp.i23.i191
   br i1 %cmp.i2.not.i192.not, label %if.end242, label %do.body248
 
 if.end242:                                        ; preds = %if.then212, %if.then232, %if.then219, %do.body209
-  %54 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.252, i64 10) #7
-  %55 = load i8, ptr %_expression, align 8
-  %56 = and i8 %55, 1
-  %tobool246 = icmp ne i8 %56, 0
+  %53 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr nonnull @.str.252, i64 10) #7
+  %54 = load i8, ptr %_expression, align 8
+  %tobool246 = trunc i8 %54 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool246) #7
   br label %do.body248
 
 do.body248:                                       ; preds = %if.then212, %if.end242, %if.then232
   %_async = getelementptr inbounds i8, ptr %node, i64 129
-  %57 = load i8, ptr %_async, align 1
-  %58 = and i8 %57, 1
-  %tobool249.not = icmp eq i8 %58, 0
-  br i1 %tobool249.not, label %if.then251, label %if.end281
+  %55 = load i8, ptr %_async, align 1
+  %tobool249 = trunc i8 %55 to i1
+  br i1 %tobool249, label %if.end281, label %if.then251
 
 if.then251:                                       ; preds = %do.body248
   %mode_252 = getelementptr inbounds i8, ptr %this, i64 16
-  %59 = load i32, ptr %mode_252, align 8
-  switch i32 %59, label %if.end281 [
+  %56 = load i32, ptr %mode_252, align 8
+  switch i32 %56, label %if.end281 [
     i32 0, label %do.end286
     i32 1, label %if.then258
   ]
@@ -4469,34 +4462,33 @@ if.then258:                                       ; preds = %if.then251
   %call.i195 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_260, ptr nonnull @.str.4, i64 23) #7
   %cmp.i196 = icmp eq i32 %call.i195, -1
   %NumBuckets.i.i197 = getelementptr inbounds i8, ptr %this, i64 40
-  %60 = load i32, ptr %NumBuckets.i.i197, align 8
-  %idx.ext.i.i198 = zext i32 %60 to i64
+  %57 = load i32, ptr %NumBuckets.i.i197, align 8
+  %idx.ext.i.i198 = zext i32 %57 to i64
   %idx.ext.i199 = sext i32 %call.i195 to i64
   %cmp.i.i205.not229 = icmp eq i64 %idx.ext.i199, %idx.ext.i.i198
   %cmp.i.i205.not = select i1 %cmp.i196, i1 true, i1 %cmp.i.i205.not229
   br i1 %cmp.i.i205.not, label %if.end281, label %if.then271
 
 if.then271:                                       ; preds = %if.then258
-  %61 = load ptr, ptr %ignoredEmptyFields_260, align 8
-  %retval.sroa.0.0.i201 = getelementptr inbounds ptr, ptr %61, i64 %idx.ext.i199
-  %62 = load ptr, ptr %retval.sroa.0.0.i201, align 8
-  %second273 = getelementptr inbounds i8, ptr %62, i64 8
+  %58 = load ptr, ptr %ignoredEmptyFields_260, align 8
+  %retval.sroa.0.0.i201 = getelementptr inbounds ptr, ptr %58, i64 %idx.ext.i199
+  %59 = load ptr, ptr %retval.sroa.0.0.i201, align 8
+  %second273 = getelementptr inbounds i8, ptr %59, i64 8
   %call.i.i206 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second273, ptr nonnull @.str.251, i64 5) #7
   %cmp.i.i207 = icmp eq i32 %call.i.i206, -1
-  %NumBuckets.i.i.i208 = getelementptr inbounds i8, ptr %62, i64 16
-  %63 = load i32, ptr %NumBuckets.i.i.i208, align 8
-  %idx.ext.i.i.i209 = zext i32 %63 to i64
+  %NumBuckets.i.i.i208 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = load i32, ptr %NumBuckets.i.i.i208, align 8
+  %idx.ext.i.i.i209 = zext i32 %60 to i64
   %idx.ext.i.i210 = sext i32 %call.i.i206 to i64
   %cmp.i23.i211 = icmp eq i64 %idx.ext.i.i210, %idx.ext.i.i.i209
   %cmp.i2.not.i212.not = select i1 %cmp.i.i207, i1 true, i1 %cmp.i23.i211
   br i1 %cmp.i2.not.i212.not, label %if.end281, label %do.end286
 
 if.end281:                                        ; preds = %if.then251, %if.then271, %if.then258, %do.body248
-  %64 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr nonnull @.str.251, i64 5) #7
-  %65 = load i8, ptr %_async, align 1
-  %66 = and i8 %65, 1
-  %tobool285 = icmp ne i8 %66, 0
+  %61 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr nonnull @.str.251, i64 5) #7
+  %62 = load i8, ptr %_async, align 1
+  %tobool285 = trunc i8 %62 to i1
   %this.val71 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val71, i1 noundef zeroext %tobool285) #7
   br label %do.end286
@@ -4797,14 +4789,13 @@ if.end204:                                        ; preds = %if.then174, %if.the
 do.body209:                                       ; preds = %if.then174, %if.end204, %if.then194
   %_generator = getelementptr inbounds i8, ptr %node, i64 128
   %47 = load i8, ptr %_generator, align 8
-  %48 = and i8 %47, 1
-  %tobool210.not = icmp eq i8 %48, 0
-  br i1 %tobool210.not, label %if.then212, label %if.end242
+  %tobool210 = trunc i8 %47 to i1
+  br i1 %tobool210, label %if.end242, label %if.then212
 
 if.then212:                                       ; preds = %do.body209
   %mode_213 = getelementptr inbounds i8, ptr %this, i64 16
-  %49 = load i32, ptr %mode_213, align 8
-  switch i32 %49, label %if.end242 [
+  %48 = load i32, ptr %mode_213, align 8
+  switch i32 %48, label %if.end242 [
     i32 0, label %do.body248
     i32 1, label %if.then219
   ]
@@ -4814,49 +4805,47 @@ if.then219:                                       ; preds = %if.then212
   %call.i175 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_221, ptr nonnull @.str.5, i64 19) #7
   %cmp.i176 = icmp eq i32 %call.i175, -1
   %NumBuckets.i.i177 = getelementptr inbounds i8, ptr %this, i64 40
-  %50 = load i32, ptr %NumBuckets.i.i177, align 8
-  %idx.ext.i.i178 = zext i32 %50 to i64
+  %49 = load i32, ptr %NumBuckets.i.i177, align 8
+  %idx.ext.i.i178 = zext i32 %49 to i64
   %idx.ext.i179 = sext i32 %call.i175 to i64
   %cmp.i.i185.not228 = icmp eq i64 %idx.ext.i179, %idx.ext.i.i178
   %cmp.i.i185.not = select i1 %cmp.i176, i1 true, i1 %cmp.i.i185.not228
   br i1 %cmp.i.i185.not, label %if.end242, label %if.then232
 
 if.then232:                                       ; preds = %if.then219
-  %51 = load ptr, ptr %ignoredEmptyFields_221, align 8
-  %retval.sroa.0.0.i181 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i179
-  %52 = load ptr, ptr %retval.sroa.0.0.i181, align 8
-  %second234 = getelementptr inbounds i8, ptr %52, i64 8
+  %50 = load ptr, ptr %ignoredEmptyFields_221, align 8
+  %retval.sroa.0.0.i181 = getelementptr inbounds ptr, ptr %50, i64 %idx.ext.i179
+  %51 = load ptr, ptr %retval.sroa.0.0.i181, align 8
+  %second234 = getelementptr inbounds i8, ptr %51, i64 8
   %call.i.i186 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second234, ptr nonnull @.str.250, i64 9) #7
   %cmp.i.i187 = icmp eq i32 %call.i.i186, -1
-  %NumBuckets.i.i.i188 = getelementptr inbounds i8, ptr %52, i64 16
-  %53 = load i32, ptr %NumBuckets.i.i.i188, align 8
-  %idx.ext.i.i.i189 = zext i32 %53 to i64
+  %NumBuckets.i.i.i188 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = load i32, ptr %NumBuckets.i.i.i188, align 8
+  %idx.ext.i.i.i189 = zext i32 %52 to i64
   %idx.ext.i.i190 = sext i32 %call.i.i186 to i64
   %cmp.i23.i191 = icmp eq i64 %idx.ext.i.i190, %idx.ext.i.i.i189
   %cmp.i2.not.i192.not = select i1 %cmp.i.i187, i1 true, i1 %cmp.i23.i191
   br i1 %cmp.i2.not.i192.not, label %if.end242, label %do.body248
 
 if.end242:                                        ; preds = %if.then212, %if.then232, %if.then219, %do.body209
-  %54 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.250, i64 9) #7
-  %55 = load i8, ptr %_generator, align 8
-  %56 = and i8 %55, 1
-  %tobool246 = icmp ne i8 %56, 0
+  %53 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr nonnull @.str.250, i64 9) #7
+  %54 = load i8, ptr %_generator, align 8
+  %tobool246 = trunc i8 %54 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool246) #7
   br label %do.body248
 
 do.body248:                                       ; preds = %if.then212, %if.end242, %if.then232
   %_async = getelementptr inbounds i8, ptr %node, i64 129
-  %57 = load i8, ptr %_async, align 1
-  %58 = and i8 %57, 1
-  %tobool249.not = icmp eq i8 %58, 0
-  br i1 %tobool249.not, label %if.then251, label %if.end281
+  %55 = load i8, ptr %_async, align 1
+  %tobool249 = trunc i8 %55 to i1
+  br i1 %tobool249, label %if.end281, label %if.then251
 
 if.then251:                                       ; preds = %do.body248
   %mode_252 = getelementptr inbounds i8, ptr %this, i64 16
-  %59 = load i32, ptr %mode_252, align 8
-  switch i32 %59, label %if.end281 [
+  %56 = load i32, ptr %mode_252, align 8
+  switch i32 %56, label %if.end281 [
     i32 0, label %do.end286
     i32 1, label %if.then258
   ]
@@ -4866,34 +4855,33 @@ if.then258:                                       ; preds = %if.then251
   %call.i195 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_260, ptr nonnull @.str.5, i64 19) #7
   %cmp.i196 = icmp eq i32 %call.i195, -1
   %NumBuckets.i.i197 = getelementptr inbounds i8, ptr %this, i64 40
-  %60 = load i32, ptr %NumBuckets.i.i197, align 8
-  %idx.ext.i.i198 = zext i32 %60 to i64
+  %57 = load i32, ptr %NumBuckets.i.i197, align 8
+  %idx.ext.i.i198 = zext i32 %57 to i64
   %idx.ext.i199 = sext i32 %call.i195 to i64
   %cmp.i.i205.not229 = icmp eq i64 %idx.ext.i199, %idx.ext.i.i198
   %cmp.i.i205.not = select i1 %cmp.i196, i1 true, i1 %cmp.i.i205.not229
   br i1 %cmp.i.i205.not, label %if.end281, label %if.then271
 
 if.then271:                                       ; preds = %if.then258
-  %61 = load ptr, ptr %ignoredEmptyFields_260, align 8
-  %retval.sroa.0.0.i201 = getelementptr inbounds ptr, ptr %61, i64 %idx.ext.i199
-  %62 = load ptr, ptr %retval.sroa.0.0.i201, align 8
-  %second273 = getelementptr inbounds i8, ptr %62, i64 8
+  %58 = load ptr, ptr %ignoredEmptyFields_260, align 8
+  %retval.sroa.0.0.i201 = getelementptr inbounds ptr, ptr %58, i64 %idx.ext.i199
+  %59 = load ptr, ptr %retval.sroa.0.0.i201, align 8
+  %second273 = getelementptr inbounds i8, ptr %59, i64 8
   %call.i.i206 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second273, ptr nonnull @.str.251, i64 5) #7
   %cmp.i.i207 = icmp eq i32 %call.i.i206, -1
-  %NumBuckets.i.i.i208 = getelementptr inbounds i8, ptr %62, i64 16
-  %63 = load i32, ptr %NumBuckets.i.i.i208, align 8
-  %idx.ext.i.i.i209 = zext i32 %63 to i64
+  %NumBuckets.i.i.i208 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = load i32, ptr %NumBuckets.i.i.i208, align 8
+  %idx.ext.i.i.i209 = zext i32 %60 to i64
   %idx.ext.i.i210 = sext i32 %call.i.i206 to i64
   %cmp.i23.i211 = icmp eq i64 %idx.ext.i.i210, %idx.ext.i.i.i209
   %cmp.i2.not.i212.not = select i1 %cmp.i.i207, i1 true, i1 %cmp.i23.i211
   br i1 %cmp.i2.not.i212.not, label %if.end281, label %do.end286
 
 if.end281:                                        ; preds = %if.then251, %if.then271, %if.then258, %do.body248
-  %64 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr nonnull @.str.251, i64 5) #7
-  %65 = load i8, ptr %_async, align 1
-  %66 = and i8 %65, 1
-  %tobool285 = icmp ne i8 %66, 0
+  %61 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr nonnull @.str.251, i64 5) #7
+  %62 = load i8, ptr %_async, align 1
+  %tobool285 = trunc i8 %62 to i1
   %this.val71 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val71, i1 noundef zeroext %tobool285) #7
   br label %do.end286
@@ -5650,14 +5638,13 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_await = getelementptr inbounds i8, ptr %node, i64 80
   %24 = load i8, ptr %_await, align 8
-  %25 = and i8 %24, 1
-  %tobool99.not = icmp eq i8 %25, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %24 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %do.body98
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load i32, ptr %mode_102, align 8
-  switch i32 %26, label %if.end131 [
+  %25 = load i32, ptr %mode_102, align 8
+  switch i32 %25, label %if.end131 [
     i32 0, label %do.end136
     i32 1, label %if.then108
   ]
@@ -5667,34 +5654,33 @@ if.then108:                                       ; preds = %if.then101
   %call.i79 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.36, i64 14) #7
   %cmp.i80 = icmp eq i32 %call.i79, -1
   %NumBuckets.i.i81 = getelementptr inbounds i8, ptr %this, i64 40
-  %27 = load i32, ptr %NumBuckets.i.i81, align 8
-  %idx.ext.i.i82 = zext i32 %27 to i64
+  %26 = load i32, ptr %NumBuckets.i.i81, align 8
+  %idx.ext.i.i82 = zext i32 %26 to i64
   %idx.ext.i83 = sext i32 %call.i79 to i64
   %cmp.i.i89.not105 = icmp eq i64 %idx.ext.i83, %idx.ext.i.i82
   %cmp.i.i89.not = select i1 %cmp.i80, i1 true, i1 %cmp.i.i89.not105
   br i1 %cmp.i.i89.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %28 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i85 = getelementptr inbounds ptr, ptr %28, i64 %idx.ext.i83
-  %29 = load ptr, ptr %retval.sroa.0.0.i85, align 8
-  %second123 = getelementptr inbounds i8, ptr %29, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i85 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i83
+  %28 = load ptr, ptr %retval.sroa.0.0.i85, align 8
+  %second123 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i90 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.256, i64 5) #7
   %cmp.i.i91 = icmp eq i32 %call.i.i90, -1
-  %NumBuckets.i.i.i92 = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load i32, ptr %NumBuckets.i.i.i92, align 8
-  %idx.ext.i.i.i93 = zext i32 %30 to i64
+  %NumBuckets.i.i.i92 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i92, align 8
+  %idx.ext.i.i.i93 = zext i32 %29 to i64
   %idx.ext.i.i94 = sext i32 %call.i.i90 to i64
   %cmp.i23.i95 = icmp eq i64 %idx.ext.i.i94, %idx.ext.i.i.i93
   %cmp.i2.not.i96.not = select i1 %cmp.i.i91, i1 true, i1 %cmp.i23.i95
   br i1 %cmp.i2.not.i96.not, label %if.end131, label %do.end136
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %do.body98
-  %31 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.256, i64 5) #7
-  %32 = load i8, ptr %_await, align 8
-  %33 = and i8 %32, 1
-  %tobool135 = icmp ne i8 %33, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.256, i64 5) #7
+  %31 = load i8, ptr %_await, align 8
+  %tobool135 = trunc i8 %31 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.end136
@@ -6854,14 +6840,13 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load i8, ptr %_value, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end22
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
   %mode_ = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %mode_, align 8
-  switch i32 %2, label %if.end22 [
+  %1 = load i32, ptr %mode_, align 8
+  switch i32 %1, label %if.end22 [
     i32 0, label %do.end
     i32 1, label %if.then5
   ]
@@ -6871,34 +6856,33 @@ if.then5:                                         ; preds = %if.then
   %call.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_, ptr nonnull @.str.52, i64 14) #7
   %cmp.i = icmp eq i32 %call.i, -1
   %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load i32, ptr %NumBuckets.i.i, align 8
-  %idx.ext.i.i = zext i32 %3 to i64
+  %2 = load i32, ptr %NumBuckets.i.i, align 8
+  %idx.ext.i.i = zext i32 %2 to i64
   %idx.ext.i = sext i32 %call.i to i64
   %cmp.i.i.not12 = icmp eq i64 %idx.ext.i, %idx.ext.i.i
   %cmp.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp.i.i.not12
   br i1 %cmp.i.i.not, label %if.end22, label %if.then13
 
 if.then13:                                        ; preds = %if.then5
-  %4 = load ptr, ptr %ignoredEmptyFields_, align 8
-  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
-  %5 = load ptr, ptr %retval.sroa.0.0.i, align 8
-  %second = getelementptr inbounds i8, ptr %5, i64 8
+  %3 = load ptr, ptr %ignoredEmptyFields_, align 8
+  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i
+  %4 = load ptr, ptr %retval.sroa.0.0.i, align 8
+  %second = getelementptr inbounds i8, ptr %4, i64 8
   %call.i.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second, ptr nonnull @.str.270, i64 5) #7
   %cmp.i.i9 = icmp eq i32 %call.i.i, -1
-  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load i32, ptr %NumBuckets.i.i.i, align 8
-  %idx.ext.i.i.i = zext i32 %6 to i64
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i32, ptr %NumBuckets.i.i.i, align 8
+  %idx.ext.i.i.i = zext i32 %5 to i64
   %idx.ext.i.i10 = sext i32 %call.i.i to i64
   %cmp.i23.i = icmp eq i64 %idx.ext.i.i10, %idx.ext.i.i.i
   %cmp.i2.not.i.not = select i1 %cmp.i.i9, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end22, label %do.end
 
 if.end22:                                         ; preds = %if.then, %if.then13, %if.then5, %entry
-  %7 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr nonnull @.str.270, i64 5) #7
-  %8 = load i8, ptr %_value, align 8
-  %9 = and i8 %8, 1
-  %tobool25 = icmp ne i8 %9, 0
+  %6 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr nonnull @.str.270, i64 5) #7
+  %7 = load i8, ptr %_value, align 8
+  %tobool25 = trunc i8 %7 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool25) #7
   br label %do.end
@@ -7175,14 +7159,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_trailingComma = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load i8, ptr %_trailingComma, align 8
-  %8 = and i8 %7, 1
-  %tobool25.not = icmp eq i8 %8, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %7 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %mode_28, align 8
-  switch i32 %9, label %if.end57 [
+  %8 = load i32, ptr %mode_28, align 8
+  switch i32 %8, label %if.end57 [
     i32 0, label %do.end62
     i32 1, label %if.then34
   ]
@@ -7192,34 +7175,33 @@ if.then34:                                        ; preds = %if.then27
   %call.i20 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.61, i64 15) #7
   %cmp.i21 = icmp eq i32 %call.i20, -1
   %NumBuckets.i.i22 = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load i32, ptr %NumBuckets.i.i22, align 8
-  %idx.ext.i.i23 = zext i32 %10 to i64
+  %9 = load i32, ptr %NumBuckets.i.i22, align 8
+  %idx.ext.i.i23 = zext i32 %9 to i64
   %idx.ext.i24 = sext i32 %call.i20 to i64
   %cmp.i.i30.not42 = icmp eq i64 %idx.ext.i24, %idx.ext.i.i23
   %cmp.i.i30.not = select i1 %cmp.i21, i1 true, i1 %cmp.i.i30.not42
   br i1 %cmp.i.i30.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i26 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i24
-  %12 = load ptr, ptr %retval.sroa.0.0.i26, align 8
-  %second49 = getelementptr inbounds i8, ptr %12, i64 8
+  %10 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i26 = getelementptr inbounds ptr, ptr %10, i64 %idx.ext.i24
+  %11 = load ptr, ptr %retval.sroa.0.0.i26, align 8
+  %second49 = getelementptr inbounds i8, ptr %11, i64 8
   %call.i.i31 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.277, i64 13) #7
   %cmp.i.i32 = icmp eq i32 %call.i.i31, -1
-  %NumBuckets.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %NumBuckets.i.i.i33, align 8
-  %idx.ext.i.i.i34 = zext i32 %13 to i64
+  %NumBuckets.i.i.i33 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i32, ptr %NumBuckets.i.i.i33, align 8
+  %idx.ext.i.i.i34 = zext i32 %12 to i64
   %idx.ext.i.i35 = sext i32 %call.i.i31 to i64
   %cmp.i23.i36 = icmp eq i64 %idx.ext.i.i35, %idx.ext.i.i.i34
   %cmp.i2.not.i37.not = select i1 %cmp.i.i32, i1 true, i1 %cmp.i23.i36
   br i1 %cmp.i2.not.i37.not, label %if.end57, label %do.end62
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %14 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.277, i64 13) #7
-  %15 = load i8, ptr %_trailingComma, align 8
-  %16 = and i8 %15, 1
-  %tobool61 = icmp ne i8 %16, 0
+  %13 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr nonnull @.str.277, i64 13) #7
+  %14 = load i8, ptr %_trailingComma, align 8
+  %tobool61 = trunc i8 %14 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.end62
@@ -7484,14 +7466,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_delegate = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load i8, ptr %_delegate, align 8
-  %9 = and i8 %8, 1
-  %tobool25.not = icmp eq i8 %9, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %8 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load i32, ptr %mode_28, align 8
-  switch i32 %10, label %if.end57 [
+  %9 = load i32, ptr %mode_28, align 8
+  switch i32 %9, label %if.end57 [
     i32 0, label %do.end62
     i32 1, label %if.then34
   ]
@@ -7501,34 +7482,33 @@ if.then34:                                        ; preds = %if.then27
   %call.i21 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.63, i64 15) #7
   %cmp.i22 = icmp eq i32 %call.i21, -1
   %NumBuckets.i.i23 = getelementptr inbounds i8, ptr %this, i64 40
-  %11 = load i32, ptr %NumBuckets.i.i23, align 8
-  %idx.ext.i.i24 = zext i32 %11 to i64
+  %10 = load i32, ptr %NumBuckets.i.i23, align 8
+  %idx.ext.i.i24 = zext i32 %10 to i64
   %idx.ext.i25 = sext i32 %call.i21 to i64
   %cmp.i.i31.not43 = icmp eq i64 %idx.ext.i25, %idx.ext.i.i24
   %cmp.i.i31.not = select i1 %cmp.i22, i1 true, i1 %cmp.i.i31.not43
   br i1 %cmp.i.i31.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %12 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i27 = getelementptr inbounds ptr, ptr %12, i64 %idx.ext.i25
-  %13 = load ptr, ptr %retval.sroa.0.0.i27, align 8
-  %second49 = getelementptr inbounds i8, ptr %13, i64 8
+  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i27 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i25
+  %12 = load ptr, ptr %retval.sroa.0.0.i27, align 8
+  %second49 = getelementptr inbounds i8, ptr %12, i64 8
   %call.i.i32 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.280, i64 8) #7
   %cmp.i.i33 = icmp eq i32 %call.i.i32, -1
-  %NumBuckets.i.i.i34 = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load i32, ptr %NumBuckets.i.i.i34, align 8
-  %idx.ext.i.i.i35 = zext i32 %14 to i64
+  %NumBuckets.i.i.i34 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = load i32, ptr %NumBuckets.i.i.i34, align 8
+  %idx.ext.i.i.i35 = zext i32 %13 to i64
   %idx.ext.i.i36 = sext i32 %call.i.i32 to i64
   %cmp.i23.i37 = icmp eq i64 %idx.ext.i.i36, %idx.ext.i.i.i35
   %cmp.i2.not.i38.not = select i1 %cmp.i.i33, i1 true, i1 %cmp.i23.i37
   br i1 %cmp.i2.not.i38.not, label %if.end57, label %do.end62
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %15 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr nonnull @.str.280, i64 8) #7
-  %16 = load i8, ptr %_delegate, align 8
-  %17 = and i8 %16, 1
-  %tobool61 = icmp ne i8 %17, 0
+  %14 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.280, i64 8) #7
+  %15 = load i8, ptr %_delegate, align 8
+  %tobool61 = trunc i8 %15 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.end62
@@ -7990,14 +7970,13 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_optional = getelementptr inbounds i8, ptr %node, i64 80
   %23 = load i8, ptr %_optional, align 8
-  %24 = and i8 %23, 1
-  %tobool99.not = icmp eq i8 %24, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %23 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %do.body98
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %25 = load i32, ptr %mode_102, align 8
-  switch i32 %25, label %if.end131 [
+  %24 = load i32, ptr %mode_102, align 8
+  switch i32 %24, label %if.end131 [
     i32 0, label %do.end136
     i32 1, label %if.then108
   ]
@@ -8007,34 +7986,33 @@ if.then108:                                       ; preds = %if.then101
   %call.i78 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.11, i64 22) #7
   %cmp.i79 = icmp eq i32 %call.i78, -1
   %NumBuckets.i.i80 = getelementptr inbounds i8, ptr %this, i64 40
-  %26 = load i32, ptr %NumBuckets.i.i80, align 8
-  %idx.ext.i.i81 = zext i32 %26 to i64
+  %25 = load i32, ptr %NumBuckets.i.i80, align 8
+  %idx.ext.i.i81 = zext i32 %25 to i64
   %idx.ext.i82 = sext i32 %call.i78 to i64
   %cmp.i.i88.not104 = icmp eq i64 %idx.ext.i82, %idx.ext.i.i81
   %cmp.i.i88.not = select i1 %cmp.i79, i1 true, i1 %cmp.i.i88.not104
   br i1 %cmp.i.i88.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %27 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i82
-  %28 = load ptr, ptr %retval.sroa.0.0.i84, align 8
-  %second123 = getelementptr inbounds i8, ptr %28, i64 8
+  %26 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i82
+  %27 = load ptr, ptr %retval.sroa.0.0.i84, align 8
+  %second123 = getelementptr inbounds i8, ptr %27, i64 8
   %call.i.i89 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i90 = icmp eq i32 %call.i.i89, -1
-  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %28, i64 16
-  %29 = load i32, ptr %NumBuckets.i.i.i91, align 8
-  %idx.ext.i.i.i92 = zext i32 %29 to i64
+  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = load i32, ptr %NumBuckets.i.i.i91, align 8
+  %idx.ext.i.i.i92 = zext i32 %28 to i64
   %idx.ext.i.i93 = sext i32 %call.i.i89 to i64
   %cmp.i23.i94 = icmp eq i64 %idx.ext.i.i93, %idx.ext.i.i.i92
   %cmp.i2.not.i95.not = select i1 %cmp.i.i90, i1 true, i1 %cmp.i23.i94
   br i1 %cmp.i2.not.i95.not, label %if.end131, label %do.end136
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %do.body98
-  %30 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.14, i64 8) #7
-  %31 = load i8, ptr %_optional, align 8
-  %32 = and i8 %31, 1
-  %tobool135 = icmp ne i8 %32, 0
+  %29 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr nonnull @.str.14, i64 8) #7
+  %30 = load i8, ptr %_optional, align 8
+  %tobool135 = trunc i8 %30 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.end136
@@ -8238,14 +8216,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_prefix = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load i8, ptr %_prefix, align 8
-  %11 = and i8 %10, 1
-  %tobool62.not = icmp eq i8 %11, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %10 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load i32, ptr %mode_65, align 8
-  switch i32 %12, label %if.end94 [
+  %11 = load i32, ptr %mode_65, align 8
+  switch i32 %11, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -8255,34 +8232,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i31 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.67, i64 15) #7
   %cmp.i32 = icmp eq i32 %call.i31, -1
   %NumBuckets.i.i33 = getelementptr inbounds i8, ptr %this, i64 40
-  %13 = load i32, ptr %NumBuckets.i.i33, align 8
-  %idx.ext.i.i34 = zext i32 %13 to i64
+  %12 = load i32, ptr %NumBuckets.i.i33, align 8
+  %idx.ext.i.i34 = zext i32 %12 to i64
   %idx.ext.i35 = sext i32 %call.i31 to i64
   %cmp.i.i41.not53 = icmp eq i64 %idx.ext.i35, %idx.ext.i.i34
   %cmp.i.i41.not = select i1 %cmp.i32, i1 true, i1 %cmp.i.i41.not53
   br i1 %cmp.i.i41.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %14 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i37 = getelementptr inbounds ptr, ptr %14, i64 %idx.ext.i35
-  %15 = load ptr, ptr %retval.sroa.0.0.i37, align 8
-  %second86 = getelementptr inbounds i8, ptr %15, i64 8
+  %13 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i37 = getelementptr inbounds ptr, ptr %13, i64 %idx.ext.i35
+  %14 = load ptr, ptr %retval.sroa.0.0.i37, align 8
+  %second86 = getelementptr inbounds i8, ptr %14, i64 8
   %call.i.i42 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.284, i64 6) #7
   %cmp.i.i43 = icmp eq i32 %call.i.i42, -1
-  %NumBuckets.i.i.i44 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load i32, ptr %NumBuckets.i.i.i44, align 8
-  %idx.ext.i.i.i45 = zext i32 %16 to i64
+  %NumBuckets.i.i.i44 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load i32, ptr %NumBuckets.i.i.i44, align 8
+  %idx.ext.i.i.i45 = zext i32 %15 to i64
   %idx.ext.i.i46 = sext i32 %call.i.i42 to i64
   %cmp.i23.i47 = icmp eq i64 %idx.ext.i.i46, %idx.ext.i.i.i45
   %cmp.i2.not.i48.not = select i1 %cmp.i.i43, i1 true, i1 %cmp.i23.i47
   br i1 %cmp.i2.not.i48.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %17 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.284, i64 6) #7
-  %18 = load i8, ptr %_prefix, align 8
-  %19 = and i8 %18, 1
-  %tobool98 = icmp ne i8 %19, 0
+  %16 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr nonnull @.str.284, i64 6) #7
+  %17 = load i8, ptr %_prefix, align 8
+  %tobool98 = trunc i8 %17 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -8364,14 +8340,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_prefix = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load i8, ptr %_prefix, align 8
-  %11 = and i8 %10, 1
-  %tobool62.not = icmp eq i8 %11, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %10 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load i32, ptr %mode_65, align 8
-  switch i32 %12, label %if.end94 [
+  %11 = load i32, ptr %mode_65, align 8
+  switch i32 %11, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -8381,34 +8356,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i31 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.68, i64 16) #7
   %cmp.i32 = icmp eq i32 %call.i31, -1
   %NumBuckets.i.i33 = getelementptr inbounds i8, ptr %this, i64 40
-  %13 = load i32, ptr %NumBuckets.i.i33, align 8
-  %idx.ext.i.i34 = zext i32 %13 to i64
+  %12 = load i32, ptr %NumBuckets.i.i33, align 8
+  %idx.ext.i.i34 = zext i32 %12 to i64
   %idx.ext.i35 = sext i32 %call.i31 to i64
   %cmp.i.i41.not53 = icmp eq i64 %idx.ext.i35, %idx.ext.i.i34
   %cmp.i.i41.not = select i1 %cmp.i32, i1 true, i1 %cmp.i.i41.not53
   br i1 %cmp.i.i41.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %14 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i37 = getelementptr inbounds ptr, ptr %14, i64 %idx.ext.i35
-  %15 = load ptr, ptr %retval.sroa.0.0.i37, align 8
-  %second86 = getelementptr inbounds i8, ptr %15, i64 8
+  %13 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i37 = getelementptr inbounds ptr, ptr %13, i64 %idx.ext.i35
+  %14 = load ptr, ptr %retval.sroa.0.0.i37, align 8
+  %second86 = getelementptr inbounds i8, ptr %14, i64 8
   %call.i.i42 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.284, i64 6) #7
   %cmp.i.i43 = icmp eq i32 %call.i.i42, -1
-  %NumBuckets.i.i.i44 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load i32, ptr %NumBuckets.i.i.i44, align 8
-  %idx.ext.i.i.i45 = zext i32 %16 to i64
+  %NumBuckets.i.i.i44 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load i32, ptr %NumBuckets.i.i.i44, align 8
+  %idx.ext.i.i.i45 = zext i32 %15 to i64
   %idx.ext.i.i46 = sext i32 %call.i.i42 to i64
   %cmp.i23.i47 = icmp eq i64 %idx.ext.i.i46, %idx.ext.i.i.i45
   %cmp.i2.not.i48.not = select i1 %cmp.i.i43, i1 true, i1 %cmp.i23.i47
   br i1 %cmp.i2.not.i48.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %17 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.284, i64 6) #7
-  %18 = load i8, ptr %_prefix, align 8
-  %19 = and i8 %18, 1
-  %tobool98 = icmp ne i8 %19, 0
+  %16 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr nonnull @.str.284, i64 6) #7
+  %17 = load i8, ptr %_prefix, align 8
+  %tobool98 = trunc i8 %17 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -8518,14 +8492,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_computed = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_computed, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -8535,34 +8508,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.69, i64 16) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.286, i64 8) #7
-  %24 = load i8, ptr %_computed, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.286, i64 8) #7
+  %23 = load i8, ptr %_computed, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -8672,14 +8644,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_computed = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_computed, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -8689,49 +8660,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i60 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.70, i64 24) #7
   %cmp.i61 = icmp eq i32 %call.i60, -1
   %NumBuckets.i.i62 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i62, align 8
-  %idx.ext.i.i63 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i62, align 8
+  %idx.ext.i.i63 = zext i32 %18 to i64
   %idx.ext.i64 = sext i32 %call.i60 to i64
   %cmp.i.i70.not105 = icmp eq i64 %idx.ext.i64, %idx.ext.i.i63
   %cmp.i.i70.not = select i1 %cmp.i61, i1 true, i1 %cmp.i.i70.not105
   br i1 %cmp.i.i70.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i66 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i64
-  %21 = load ptr, ptr %retval.sroa.0.0.i66, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i66 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i64
+  %20 = load ptr, ptr %retval.sroa.0.0.i66, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i71 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i72 = icmp eq i32 %call.i.i71, -1
-  %NumBuckets.i.i.i73 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i73, align 8
-  %idx.ext.i.i.i74 = zext i32 %22 to i64
+  %NumBuckets.i.i.i73 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i73, align 8
+  %idx.ext.i.i.i74 = zext i32 %21 to i64
   %idx.ext.i.i75 = sext i32 %call.i.i71 to i64
   %cmp.i23.i76 = icmp eq i64 %idx.ext.i.i75, %idx.ext.i.i.i74
   %cmp.i2.not.i77.not = select i1 %cmp.i.i72, i1 true, i1 %cmp.i23.i76
   br i1 %cmp.i2.not.i77.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.286, i64 8) #7
-  %24 = load i8, ptr %_computed, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.286, i64 8) #7
+  %23 = load i8, ptr %_computed, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_optional = getelementptr inbounds i8, ptr %node, i64 65
-  %26 = load i8, ptr %_optional, align 1
-  %27 = and i8 %26, 1
-  %tobool101.not = icmp eq i8 %27, 0
-  br i1 %tobool101.not, label %if.then103, label %if.end133
+  %24 = load i8, ptr %_optional, align 1
+  %tobool101 = trunc i8 %24 to i1
+  br i1 %tobool101, label %if.end133, label %if.then103
 
 if.then103:                                       ; preds = %do.body100
   %mode_104 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i32, ptr %mode_104, align 8
-  switch i32 %28, label %if.end133 [
+  %25 = load i32, ptr %mode_104, align 8
+  switch i32 %25, label %if.end133 [
     i32 0, label %do.end138
     i32 1, label %if.then110
   ]
@@ -8741,34 +8710,33 @@ if.then110:                                       ; preds = %if.then103
   %call.i80 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_112, ptr nonnull @.str.70, i64 24) #7
   %cmp.i81 = icmp eq i32 %call.i80, -1
   %NumBuckets.i.i82 = getelementptr inbounds i8, ptr %this, i64 40
-  %29 = load i32, ptr %NumBuckets.i.i82, align 8
-  %idx.ext.i.i83 = zext i32 %29 to i64
+  %26 = load i32, ptr %NumBuckets.i.i82, align 8
+  %idx.ext.i.i83 = zext i32 %26 to i64
   %idx.ext.i84 = sext i32 %call.i80 to i64
   %cmp.i.i90.not106 = icmp eq i64 %idx.ext.i84, %idx.ext.i.i83
   %cmp.i.i90.not = select i1 %cmp.i81, i1 true, i1 %cmp.i.i90.not106
   br i1 %cmp.i.i90.not, label %if.end133, label %if.then123
 
 if.then123:                                       ; preds = %if.then110
-  %30 = load ptr, ptr %ignoredEmptyFields_112, align 8
-  %retval.sroa.0.0.i86 = getelementptr inbounds ptr, ptr %30, i64 %idx.ext.i84
-  %31 = load ptr, ptr %retval.sroa.0.0.i86, align 8
-  %second125 = getelementptr inbounds i8, ptr %31, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_112, align 8
+  %retval.sroa.0.0.i86 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i84
+  %28 = load ptr, ptr %retval.sroa.0.0.i86, align 8
+  %second125 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i91 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second125, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i92 = icmp eq i32 %call.i.i91, -1
-  %NumBuckets.i.i.i93 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i32, ptr %NumBuckets.i.i.i93, align 8
-  %idx.ext.i.i.i94 = zext i32 %32 to i64
+  %NumBuckets.i.i.i93 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i93, align 8
+  %idx.ext.i.i.i94 = zext i32 %29 to i64
   %idx.ext.i.i95 = sext i32 %call.i.i91 to i64
   %cmp.i23.i96 = icmp eq i64 %idx.ext.i.i95, %idx.ext.i.i.i94
   %cmp.i2.not.i97.not = select i1 %cmp.i.i92, i1 true, i1 %cmp.i23.i96
   br i1 %cmp.i2.not.i97.not, label %if.end133, label %do.end138
 
 if.end133:                                        ; preds = %if.then103, %if.then123, %if.then110, %do.body100
-  %33 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.14, i64 8) #7
-  %34 = load i8, ptr %_optional, align 1
-  %35 = and i8 %34, 1
-  %tobool137 = icmp ne i8 %35, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.14, i64 8) #7
+  %31 = load i8, ptr %_optional, align 1
+  %tobool137 = trunc i8 %31 to i1
   %this.val35 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val35, i1 noundef zeroext %tobool137) #7
   br label %do.end138
@@ -9324,14 +9292,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load i8, ptr %_optional, align 8
-  %11 = and i8 %10, 1
-  %tobool62.not = icmp eq i8 %11, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %10 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load i32, ptr %mode_65, align 8
-  switch i32 %12, label %if.end94 [
+  %11 = load i32, ptr %mode_65, align 8
+  switch i32 %11, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -9341,34 +9308,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i31 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.12, i64 10) #7
   %cmp.i32 = icmp eq i32 %call.i31, -1
   %NumBuckets.i.i33 = getelementptr inbounds i8, ptr %this, i64 40
-  %13 = load i32, ptr %NumBuckets.i.i33, align 8
-  %idx.ext.i.i34 = zext i32 %13 to i64
+  %12 = load i32, ptr %NumBuckets.i.i33, align 8
+  %idx.ext.i.i34 = zext i32 %12 to i64
   %idx.ext.i35 = sext i32 %call.i31 to i64
   %cmp.i.i41.not53 = icmp eq i64 %idx.ext.i35, %idx.ext.i.i34
   %cmp.i.i41.not = select i1 %cmp.i32, i1 true, i1 %cmp.i.i41.not53
   br i1 %cmp.i.i41.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %14 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i37 = getelementptr inbounds ptr, ptr %14, i64 %idx.ext.i35
-  %15 = load ptr, ptr %retval.sroa.0.0.i37, align 8
-  %second86 = getelementptr inbounds i8, ptr %15, i64 8
+  %13 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i37 = getelementptr inbounds ptr, ptr %13, i64 %idx.ext.i35
+  %14 = load ptr, ptr %retval.sroa.0.0.i37, align 8
+  %second86 = getelementptr inbounds i8, ptr %14, i64 8
   %call.i.i42 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i43 = icmp eq i32 %call.i.i42, -1
-  %NumBuckets.i.i.i44 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load i32, ptr %NumBuckets.i.i.i44, align 8
-  %idx.ext.i.i.i45 = zext i32 %16 to i64
+  %NumBuckets.i.i.i44 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load i32, ptr %NumBuckets.i.i.i44, align 8
+  %idx.ext.i.i.i45 = zext i32 %15 to i64
   %idx.ext.i.i46 = sext i32 %call.i.i42 to i64
   %cmp.i23.i47 = icmp eq i64 %idx.ext.i.i46, %idx.ext.i.i.i45
   %cmp.i2.not.i48.not = select i1 %cmp.i.i43, i1 true, i1 %cmp.i23.i47
   br i1 %cmp.i2.not.i48.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %17 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.14, i64 8) #7
-  %18 = load i8, ptr %_optional, align 8
-  %19 = and i8 %18, 1
-  %tobool98 = icmp ne i8 %19, 0
+  %16 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr nonnull @.str.14, i64 8) #7
+  %17 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %17 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -10118,14 +10084,13 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_tail = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load i8, ptr %_tail, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end22
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
   %mode_ = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %mode_, align 8
-  switch i32 %2, label %if.end22 [
+  %1 = load i32, ptr %mode_, align 8
+  switch i32 %1, label %if.end22 [
     i32 0, label %do.body26
     i32 1, label %if.then5
   ]
@@ -10135,50 +10100,49 @@ if.then5:                                         ; preds = %if.then
   %call.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_, ptr nonnull @.str.84, i64 15) #7
   %cmp.i = icmp eq i32 %call.i, -1
   %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load i32, ptr %NumBuckets.i.i, align 8
-  %idx.ext.i.i = zext i32 %3 to i64
+  %2 = load i32, ptr %NumBuckets.i.i, align 8
+  %idx.ext.i.i = zext i32 %2 to i64
   %idx.ext.i = sext i32 %call.i to i64
   %cmp.i.i.not39 = icmp eq i64 %idx.ext.i, %idx.ext.i.i
   %cmp.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp.i.i.not39
   br i1 %cmp.i.i.not, label %if.end22, label %if.then13
 
 if.then13:                                        ; preds = %if.then5
-  %4 = load ptr, ptr %ignoredEmptyFields_, align 8
-  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
-  %5 = load ptr, ptr %retval.sroa.0.0.i, align 8
-  %second = getelementptr inbounds i8, ptr %5, i64 8
+  %3 = load ptr, ptr %ignoredEmptyFields_, align 8
+  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i
+  %4 = load ptr, ptr %retval.sroa.0.0.i, align 8
+  %second = getelementptr inbounds i8, ptr %4, i64 8
   %call.i.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second, ptr nonnull @.str.295, i64 4) #7
   %cmp.i.i29 = icmp eq i32 %call.i.i, -1
-  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load i32, ptr %NumBuckets.i.i.i, align 8
-  %idx.ext.i.i.i = zext i32 %6 to i64
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i32, ptr %NumBuckets.i.i.i, align 8
+  %idx.ext.i.i.i = zext i32 %5 to i64
   %idx.ext.i.i30 = sext i32 %call.i.i to i64
   %cmp.i23.i = icmp eq i64 %idx.ext.i.i30, %idx.ext.i.i.i
   %cmp.i2.not.i.not = select i1 %cmp.i.i29, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end22, label %do.body26
 
 if.end22:                                         ; preds = %if.then, %if.then13, %if.then5, %entry
-  %7 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr nonnull @.str.295, i64 4) #7
-  %8 = load i8, ptr %_tail, align 8
-  %9 = and i8 %8, 1
-  %tobool25 = icmp ne i8 %9, 0
+  %6 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr nonnull @.str.295, i64 4) #7
+  %7 = load i8, ptr %_tail, align 8
+  %tobool25 = trunc i8 %7 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool25) #7
   br label %do.body26
 
 do.body26:                                        ; preds = %if.then, %if.end22, %if.then13
   %_cooked = getelementptr inbounds i8, ptr %node, i64 56
-  %10 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.296, i64 6) #7
-  %11 = load ptr, ptr %_cooked, align 8
+  %8 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.296, i64 6) #7
+  %9 = load ptr, ptr %_cooked, align 8
   %this.val26 = load ptr, ptr %this, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body26
-  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %11, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %9, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
   br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
@@ -10189,16 +10153,16 @@ if.else.i:                                        ; preds = %do.body26
 
 _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_raw = getelementptr inbounds i8, ptr %node, i64 64
-  %12 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr nonnull @.str.297, i64 3) #7
-  %13 = load ptr, ptr %_raw, align 8
+  %10 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.297, i64 3) #7
+  %11 = load ptr, ptr %_raw, align 8
   %this.val27 = load ptr, ptr %this, align 8
-  %tobool.not.i31 = icmp eq ptr %13, null
+  %tobool.not.i31 = icmp eq ptr %11, null
   br i1 %tobool.not.i31, label %if.else.i36, label %if.then.i32
 
 if.then.i32:                                      ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
-  %agg.tmp.sroa.0.0.copyload.i33 = load ptr, ptr %13, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i34 = getelementptr inbounds i8, ptr %13, i64 8
+  %agg.tmp.sroa.0.0.copyload.i33 = load ptr, ptr %11, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i34 = getelementptr inbounds i8, ptr %11, i64 8
   %agg.tmp.sroa.2.0.copyload.i35 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i34, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val27, ptr %agg.tmp.sroa.0.0.copyload.i33, i64 %agg.tmp.sroa.2.0.copyload.i35) #7
   br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit37
@@ -10332,14 +10296,13 @@ if.else.i:                                        ; preds = %do.body61
 _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %18 = load i8, ptr %_computed, align 8
-  %19 = and i8 %18, 1
-  %tobool99.not = icmp eq i8 %19, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %18 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %20 = load i32, ptr %mode_102, align 8
-  switch i32 %20, label %if.end131 [
+  %19 = load i32, ptr %mode_102, align 8
+  switch i32 %19, label %if.end131 [
     i32 0, label %do.body137
     i32 1, label %if.then108
   ]
@@ -10349,49 +10312,47 @@ if.then108:                                       ; preds = %if.then101
   %call.i80 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.85, i64 8) #7
   %cmp.i81 = icmp eq i32 %call.i80, -1
   %NumBuckets.i.i82 = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load i32, ptr %NumBuckets.i.i82, align 8
-  %idx.ext.i.i83 = zext i32 %21 to i64
+  %20 = load i32, ptr %NumBuckets.i.i82, align 8
+  %idx.ext.i.i83 = zext i32 %20 to i64
   %idx.ext.i84 = sext i32 %call.i80 to i64
   %cmp.i.i90.not146 = icmp eq i64 %idx.ext.i84, %idx.ext.i.i83
   %cmp.i.i90.not = select i1 %cmp.i81, i1 true, i1 %cmp.i.i90.not146
   br i1 %cmp.i.i90.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %22 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i86 = getelementptr inbounds ptr, ptr %22, i64 %idx.ext.i84
-  %23 = load ptr, ptr %retval.sroa.0.0.i86, align 8
-  %second123 = getelementptr inbounds i8, ptr %23, i64 8
+  %21 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i86 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i84
+  %22 = load ptr, ptr %retval.sroa.0.0.i86, align 8
+  %second123 = getelementptr inbounds i8, ptr %22, i64 8
   %call.i.i91 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i92 = icmp eq i32 %call.i.i91, -1
-  %NumBuckets.i.i.i93 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load i32, ptr %NumBuckets.i.i.i93, align 8
-  %idx.ext.i.i.i94 = zext i32 %24 to i64
+  %NumBuckets.i.i.i93 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load i32, ptr %NumBuckets.i.i.i93, align 8
+  %idx.ext.i.i.i94 = zext i32 %23 to i64
   %idx.ext.i.i95 = sext i32 %call.i.i91 to i64
   %cmp.i23.i96 = icmp eq i64 %idx.ext.i.i95, %idx.ext.i.i.i94
   %cmp.i2.not.i97.not = select i1 %cmp.i.i92, i1 true, i1 %cmp.i23.i96
   br i1 %cmp.i2.not.i97.not, label %if.end131, label %do.body137
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
-  %25 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr nonnull @.str.286, i64 8) #7
-  %26 = load i8, ptr %_computed, align 8
-  %27 = and i8 %26, 1
-  %tobool135 = icmp ne i8 %27, 0
+  %24 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.286, i64 8) #7
+  %25 = load i8, ptr %_computed, align 8
+  %tobool135 = trunc i8 %25 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.body137
 
 do.body137:                                       ; preds = %if.then101, %if.end131, %if.then121
   %_method = getelementptr inbounds i8, ptr %node, i64 73
-  %28 = load i8, ptr %_method, align 1
-  %29 = and i8 %28, 1
-  %tobool138.not = icmp eq i8 %29, 0
-  br i1 %tobool138.not, label %if.then140, label %if.end170
+  %26 = load i8, ptr %_method, align 1
+  %tobool138 = trunc i8 %26 to i1
+  br i1 %tobool138, label %if.end170, label %if.then140
 
 if.then140:                                       ; preds = %do.body137
   %mode_141 = getelementptr inbounds i8, ptr %this, i64 16
-  %30 = load i32, ptr %mode_141, align 8
-  switch i32 %30, label %if.end170 [
+  %27 = load i32, ptr %mode_141, align 8
+  switch i32 %27, label %if.end170 [
     i32 0, label %do.body176
     i32 1, label %if.then147
   ]
@@ -10401,49 +10362,47 @@ if.then147:                                       ; preds = %if.then140
   %call.i100 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_149, ptr nonnull @.str.85, i64 8) #7
   %cmp.i101 = icmp eq i32 %call.i100, -1
   %NumBuckets.i.i102 = getelementptr inbounds i8, ptr %this, i64 40
-  %31 = load i32, ptr %NumBuckets.i.i102, align 8
-  %idx.ext.i.i103 = zext i32 %31 to i64
+  %28 = load i32, ptr %NumBuckets.i.i102, align 8
+  %idx.ext.i.i103 = zext i32 %28 to i64
   %idx.ext.i104 = sext i32 %call.i100 to i64
   %cmp.i.i110.not147 = icmp eq i64 %idx.ext.i104, %idx.ext.i.i103
   %cmp.i.i110.not = select i1 %cmp.i101, i1 true, i1 %cmp.i.i110.not147
   br i1 %cmp.i.i110.not, label %if.end170, label %if.then160
 
 if.then160:                                       ; preds = %if.then147
-  %32 = load ptr, ptr %ignoredEmptyFields_149, align 8
-  %retval.sroa.0.0.i106 = getelementptr inbounds ptr, ptr %32, i64 %idx.ext.i104
-  %33 = load ptr, ptr %retval.sroa.0.0.i106, align 8
-  %second162 = getelementptr inbounds i8, ptr %33, i64 8
+  %29 = load ptr, ptr %ignoredEmptyFields_149, align 8
+  %retval.sroa.0.0.i106 = getelementptr inbounds ptr, ptr %29, i64 %idx.ext.i104
+  %30 = load ptr, ptr %retval.sroa.0.0.i106, align 8
+  %second162 = getelementptr inbounds i8, ptr %30, i64 8
   %call.i.i111 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second162, ptr nonnull @.str.299, i64 6) #7
   %cmp.i.i112 = icmp eq i32 %call.i.i111, -1
-  %NumBuckets.i.i.i113 = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load i32, ptr %NumBuckets.i.i.i113, align 8
-  %idx.ext.i.i.i114 = zext i32 %34 to i64
+  %NumBuckets.i.i.i113 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load i32, ptr %NumBuckets.i.i.i113, align 8
+  %idx.ext.i.i.i114 = zext i32 %31 to i64
   %idx.ext.i.i115 = sext i32 %call.i.i111 to i64
   %cmp.i23.i116 = icmp eq i64 %idx.ext.i.i115, %idx.ext.i.i.i114
   %cmp.i2.not.i117.not = select i1 %cmp.i.i112, i1 true, i1 %cmp.i23.i116
   br i1 %cmp.i2.not.i117.not, label %if.end170, label %do.body176
 
 if.end170:                                        ; preds = %if.then140, %if.then160, %if.then147, %do.body137
-  %35 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr nonnull @.str.299, i64 6) #7
-  %36 = load i8, ptr %_method, align 1
-  %37 = and i8 %36, 1
-  %tobool174 = icmp ne i8 %37, 0
+  %32 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr nonnull @.str.299, i64 6) #7
+  %33 = load i8, ptr %_method, align 1
+  %tobool174 = trunc i8 %33 to i1
   %this.val53 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val53, i1 noundef zeroext %tobool174) #7
   br label %do.body176
 
 do.body176:                                       ; preds = %if.then140, %if.end170, %if.then160
   %_shorthand = getelementptr inbounds i8, ptr %node, i64 74
-  %38 = load i8, ptr %_shorthand, align 2
-  %39 = and i8 %38, 1
-  %tobool177.not = icmp eq i8 %39, 0
-  br i1 %tobool177.not, label %if.then179, label %if.end209
+  %34 = load i8, ptr %_shorthand, align 2
+  %tobool177 = trunc i8 %34 to i1
+  br i1 %tobool177, label %if.end209, label %if.then179
 
 if.then179:                                       ; preds = %do.body176
   %mode_180 = getelementptr inbounds i8, ptr %this, i64 16
-  %40 = load i32, ptr %mode_180, align 8
-  switch i32 %40, label %if.end209 [
+  %35 = load i32, ptr %mode_180, align 8
+  switch i32 %35, label %if.end209 [
     i32 0, label %do.end214
     i32 1, label %if.then186
   ]
@@ -10453,34 +10412,33 @@ if.then186:                                       ; preds = %if.then179
   %call.i120 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_188, ptr nonnull @.str.85, i64 8) #7
   %cmp.i121 = icmp eq i32 %call.i120, -1
   %NumBuckets.i.i122 = getelementptr inbounds i8, ptr %this, i64 40
-  %41 = load i32, ptr %NumBuckets.i.i122, align 8
-  %idx.ext.i.i123 = zext i32 %41 to i64
+  %36 = load i32, ptr %NumBuckets.i.i122, align 8
+  %idx.ext.i.i123 = zext i32 %36 to i64
   %idx.ext.i124 = sext i32 %call.i120 to i64
   %cmp.i.i130.not148 = icmp eq i64 %idx.ext.i124, %idx.ext.i.i123
   %cmp.i.i130.not = select i1 %cmp.i121, i1 true, i1 %cmp.i.i130.not148
   br i1 %cmp.i.i130.not, label %if.end209, label %if.then199
 
 if.then199:                                       ; preds = %if.then186
-  %42 = load ptr, ptr %ignoredEmptyFields_188, align 8
-  %retval.sroa.0.0.i126 = getelementptr inbounds ptr, ptr %42, i64 %idx.ext.i124
-  %43 = load ptr, ptr %retval.sroa.0.0.i126, align 8
-  %second201 = getelementptr inbounds i8, ptr %43, i64 8
+  %37 = load ptr, ptr %ignoredEmptyFields_188, align 8
+  %retval.sroa.0.0.i126 = getelementptr inbounds ptr, ptr %37, i64 %idx.ext.i124
+  %38 = load ptr, ptr %retval.sroa.0.0.i126, align 8
+  %second201 = getelementptr inbounds i8, ptr %38, i64 8
   %call.i.i131 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second201, ptr nonnull @.str.300, i64 9) #7
   %cmp.i.i132 = icmp eq i32 %call.i.i131, -1
-  %NumBuckets.i.i.i133 = getelementptr inbounds i8, ptr %43, i64 16
-  %44 = load i32, ptr %NumBuckets.i.i.i133, align 8
-  %idx.ext.i.i.i134 = zext i32 %44 to i64
+  %NumBuckets.i.i.i133 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = load i32, ptr %NumBuckets.i.i.i133, align 8
+  %idx.ext.i.i.i134 = zext i32 %39 to i64
   %idx.ext.i.i135 = sext i32 %call.i.i131 to i64
   %cmp.i23.i136 = icmp eq i64 %idx.ext.i.i135, %idx.ext.i.i.i134
   %cmp.i2.not.i137.not = select i1 %cmp.i.i132, i1 true, i1 %cmp.i23.i136
   br i1 %cmp.i2.not.i137.not, label %if.end209, label %do.end214
 
 if.end209:                                        ; preds = %if.then179, %if.then199, %if.then186, %do.body176
-  %45 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr nonnull @.str.300, i64 9) #7
-  %46 = load i8, ptr %_shorthand, align 2
-  %47 = and i8 %46, 1
-  %tobool213 = icmp ne i8 %47, 0
+  %40 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr nonnull @.str.300, i64 9) #7
+  %41 = load i8, ptr %_shorthand, align 2
+  %tobool213 = trunc i8 %41 to i1
   %this.val54 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val54, i1 noundef zeroext %tobool213) #7
   br label %do.end214
@@ -11323,14 +11281,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_computed = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_computed, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -11340,49 +11297,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i107 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.20, i64 13) #7
   %cmp.i108 = icmp eq i32 %call.i107, -1
   %NumBuckets.i.i109 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i109, align 8
-  %idx.ext.i.i110 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i109, align 8
+  %idx.ext.i.i110 = zext i32 %18 to i64
   %idx.ext.i111 = sext i32 %call.i107 to i64
   %cmp.i.i117.not257 = icmp eq i64 %idx.ext.i111, %idx.ext.i.i110
   %cmp.i.i117.not = select i1 %cmp.i108, i1 true, i1 %cmp.i.i117.not257
   br i1 %cmp.i.i117.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i113 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i111
-  %21 = load ptr, ptr %retval.sroa.0.0.i113, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i113 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i111
+  %20 = load ptr, ptr %retval.sroa.0.0.i113, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i118 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i119 = icmp eq i32 %call.i.i118, -1
-  %NumBuckets.i.i.i120 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i120, align 8
-  %idx.ext.i.i.i121 = zext i32 %22 to i64
+  %NumBuckets.i.i.i120 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i120, align 8
+  %idx.ext.i.i.i121 = zext i32 %21 to i64
   %idx.ext.i.i122 = sext i32 %call.i.i118 to i64
   %cmp.i23.i123 = icmp eq i64 %idx.ext.i.i122, %idx.ext.i.i.i121
   %cmp.i2.not.i124.not = select i1 %cmp.i.i119, i1 true, i1 %cmp.i23.i123
   br i1 %cmp.i2.not.i124.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.286, i64 8) #7
-  %24 = load i8, ptr %_computed, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.286, i64 8) #7
+  %23 = load i8, ptr %_computed, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_static = getelementptr inbounds i8, ptr %node, i64 65
-  %26 = load i8, ptr %_static, align 1
-  %27 = and i8 %26, 1
-  %tobool101.not = icmp eq i8 %27, 0
-  br i1 %tobool101.not, label %if.then103, label %if.end133
+  %24 = load i8, ptr %_static, align 1
+  %tobool101 = trunc i8 %24 to i1
+  br i1 %tobool101, label %if.end133, label %if.then103
 
 if.then103:                                       ; preds = %do.body100
   %mode_104 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i32, ptr %mode_104, align 8
-  switch i32 %28, label %if.end133 [
+  %25 = load i32, ptr %mode_104, align 8
+  switch i32 %25, label %if.end133 [
     i32 0, label %do.body139
     i32 1, label %if.then110
   ]
@@ -11392,49 +11347,47 @@ if.then110:                                       ; preds = %if.then103
   %call.i127 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_112, ptr nonnull @.str.20, i64 13) #7
   %cmp.i128 = icmp eq i32 %call.i127, -1
   %NumBuckets.i.i129 = getelementptr inbounds i8, ptr %this, i64 40
-  %29 = load i32, ptr %NumBuckets.i.i129, align 8
-  %idx.ext.i.i130 = zext i32 %29 to i64
+  %26 = load i32, ptr %NumBuckets.i.i129, align 8
+  %idx.ext.i.i130 = zext i32 %26 to i64
   %idx.ext.i131 = sext i32 %call.i127 to i64
   %cmp.i.i137.not258 = icmp eq i64 %idx.ext.i131, %idx.ext.i.i130
   %cmp.i.i137.not = select i1 %cmp.i128, i1 true, i1 %cmp.i.i137.not258
   br i1 %cmp.i.i137.not, label %if.end133, label %if.then123
 
 if.then123:                                       ; preds = %if.then110
-  %30 = load ptr, ptr %ignoredEmptyFields_112, align 8
-  %retval.sroa.0.0.i133 = getelementptr inbounds ptr, ptr %30, i64 %idx.ext.i131
-  %31 = load ptr, ptr %retval.sroa.0.0.i133, align 8
-  %second125 = getelementptr inbounds i8, ptr %31, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_112, align 8
+  %retval.sroa.0.0.i133 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i131
+  %28 = load ptr, ptr %retval.sroa.0.0.i133, align 8
+  %second125 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i138 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second125, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i139 = icmp eq i32 %call.i.i138, -1
-  %NumBuckets.i.i.i140 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i32, ptr %NumBuckets.i.i.i140, align 8
-  %idx.ext.i.i.i141 = zext i32 %32 to i64
+  %NumBuckets.i.i.i140 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i140, align 8
+  %idx.ext.i.i.i141 = zext i32 %29 to i64
   %idx.ext.i.i142 = sext i32 %call.i.i138 to i64
   %cmp.i23.i143 = icmp eq i64 %idx.ext.i.i142, %idx.ext.i.i.i141
   %cmp.i2.not.i144.not = select i1 %cmp.i.i139, i1 true, i1 %cmp.i23.i143
   br i1 %cmp.i2.not.i144.not, label %if.end133, label %do.body139
 
 if.end133:                                        ; preds = %if.then103, %if.then123, %if.then110, %do.body100
-  %33 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.302, i64 6) #7
-  %34 = load i8, ptr %_static, align 1
-  %35 = and i8 %34, 1
-  %tobool137 = icmp ne i8 %35, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.302, i64 6) #7
+  %31 = load i8, ptr %_static, align 1
+  %tobool137 = trunc i8 %31 to i1
   %this.val80 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val80, i1 noundef zeroext %tobool137) #7
   br label %do.body139
 
 do.body139:                                       ; preds = %if.then103, %if.end133, %if.then123
   %_declare = getelementptr inbounds i8, ptr %node, i64 66
-  %36 = load i8, ptr %_declare, align 2
-  %37 = and i8 %36, 1
-  %tobool140.not = icmp eq i8 %37, 0
-  br i1 %tobool140.not, label %if.then142, label %if.end172
+  %32 = load i8, ptr %_declare, align 2
+  %tobool140 = trunc i8 %32 to i1
+  br i1 %tobool140, label %if.end172, label %if.then142
 
 if.then142:                                       ; preds = %do.body139
   %mode_143 = getelementptr inbounds i8, ptr %this, i64 16
-  %38 = load i32, ptr %mode_143, align 8
-  switch i32 %38, label %if.end172 [
+  %33 = load i32, ptr %mode_143, align 8
+  switch i32 %33, label %if.end172 [
     i32 0, label %do.body178
     i32 1, label %if.then149
   ]
@@ -11444,49 +11397,47 @@ if.then149:                                       ; preds = %if.then142
   %call.i147 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_151, ptr nonnull @.str.20, i64 13) #7
   %cmp.i148 = icmp eq i32 %call.i147, -1
   %NumBuckets.i.i149 = getelementptr inbounds i8, ptr %this, i64 40
-  %39 = load i32, ptr %NumBuckets.i.i149, align 8
-  %idx.ext.i.i150 = zext i32 %39 to i64
+  %34 = load i32, ptr %NumBuckets.i.i149, align 8
+  %idx.ext.i.i150 = zext i32 %34 to i64
   %idx.ext.i151 = sext i32 %call.i147 to i64
   %cmp.i.i157.not259 = icmp eq i64 %idx.ext.i151, %idx.ext.i.i150
   %cmp.i.i157.not = select i1 %cmp.i148, i1 true, i1 %cmp.i.i157.not259
   br i1 %cmp.i.i157.not, label %if.end172, label %if.then162
 
 if.then162:                                       ; preds = %if.then149
-  %40 = load ptr, ptr %ignoredEmptyFields_151, align 8
-  %retval.sroa.0.0.i153 = getelementptr inbounds ptr, ptr %40, i64 %idx.ext.i151
-  %41 = load ptr, ptr %retval.sroa.0.0.i153, align 8
-  %second164 = getelementptr inbounds i8, ptr %41, i64 8
+  %35 = load ptr, ptr %ignoredEmptyFields_151, align 8
+  %retval.sroa.0.0.i153 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i151
+  %36 = load ptr, ptr %retval.sroa.0.0.i153, align 8
+  %second164 = getelementptr inbounds i8, ptr %36, i64 8
   %call.i.i158 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second164, ptr nonnull @.str.303, i64 7) #7
   %cmp.i.i159 = icmp eq i32 %call.i.i158, -1
-  %NumBuckets.i.i.i160 = getelementptr inbounds i8, ptr %41, i64 16
-  %42 = load i32, ptr %NumBuckets.i.i.i160, align 8
-  %idx.ext.i.i.i161 = zext i32 %42 to i64
+  %NumBuckets.i.i.i160 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %NumBuckets.i.i.i160, align 8
+  %idx.ext.i.i.i161 = zext i32 %37 to i64
   %idx.ext.i.i162 = sext i32 %call.i.i158 to i64
   %cmp.i23.i163 = icmp eq i64 %idx.ext.i.i162, %idx.ext.i.i.i161
   %cmp.i2.not.i164.not = select i1 %cmp.i.i159, i1 true, i1 %cmp.i23.i163
   br i1 %cmp.i2.not.i164.not, label %if.end172, label %do.body178
 
 if.end172:                                        ; preds = %if.then142, %if.then162, %if.then149, %do.body139
-  %43 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %43, ptr nonnull @.str.303, i64 7) #7
-  %44 = load i8, ptr %_declare, align 2
-  %45 = and i8 %44, 1
-  %tobool176 = icmp ne i8 %45, 0
+  %38 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.303, i64 7) #7
+  %39 = load i8, ptr %_declare, align 2
+  %tobool176 = trunc i8 %39 to i1
   %this.val81 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val81, i1 noundef zeroext %tobool176) #7
   br label %do.body178
 
 do.body178:                                       ; preds = %if.then142, %if.end172, %if.then162
   %_optional = getelementptr inbounds i8, ptr %node, i64 67
-  %46 = load i8, ptr %_optional, align 1
-  %47 = and i8 %46, 1
-  %tobool179.not = icmp eq i8 %47, 0
-  br i1 %tobool179.not, label %if.then181, label %if.end211
+  %40 = load i8, ptr %_optional, align 1
+  %tobool179 = trunc i8 %40 to i1
+  br i1 %tobool179, label %if.end211, label %if.then181
 
 if.then181:                                       ; preds = %do.body178
   %mode_182 = getelementptr inbounds i8, ptr %this, i64 16
-  %48 = load i32, ptr %mode_182, align 8
-  switch i32 %48, label %if.end211 [
+  %41 = load i32, ptr %mode_182, align 8
+  switch i32 %41, label %if.end211 [
     i32 0, label %do.body217
     i32 1, label %if.then188
   ]
@@ -11496,48 +11447,47 @@ if.then188:                                       ; preds = %if.then181
   %call.i167 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_190, ptr nonnull @.str.20, i64 13) #7
   %cmp.i168 = icmp eq i32 %call.i167, -1
   %NumBuckets.i.i169 = getelementptr inbounds i8, ptr %this, i64 40
-  %49 = load i32, ptr %NumBuckets.i.i169, align 8
-  %idx.ext.i.i170 = zext i32 %49 to i64
+  %42 = load i32, ptr %NumBuckets.i.i169, align 8
+  %idx.ext.i.i170 = zext i32 %42 to i64
   %idx.ext.i171 = sext i32 %call.i167 to i64
   %cmp.i.i177.not260 = icmp eq i64 %idx.ext.i171, %idx.ext.i.i170
   %cmp.i.i177.not = select i1 %cmp.i168, i1 true, i1 %cmp.i.i177.not260
   br i1 %cmp.i.i177.not, label %if.end211, label %if.then201
 
 if.then201:                                       ; preds = %if.then188
-  %50 = load ptr, ptr %ignoredEmptyFields_190, align 8
-  %retval.sroa.0.0.i173 = getelementptr inbounds ptr, ptr %50, i64 %idx.ext.i171
-  %51 = load ptr, ptr %retval.sroa.0.0.i173, align 8
-  %second203 = getelementptr inbounds i8, ptr %51, i64 8
+  %43 = load ptr, ptr %ignoredEmptyFields_190, align 8
+  %retval.sroa.0.0.i173 = getelementptr inbounds ptr, ptr %43, i64 %idx.ext.i171
+  %44 = load ptr, ptr %retval.sroa.0.0.i173, align 8
+  %second203 = getelementptr inbounds i8, ptr %44, i64 8
   %call.i.i178 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second203, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i179 = icmp eq i32 %call.i.i178, -1
-  %NumBuckets.i.i.i180 = getelementptr inbounds i8, ptr %51, i64 16
-  %52 = load i32, ptr %NumBuckets.i.i.i180, align 8
-  %idx.ext.i.i.i181 = zext i32 %52 to i64
+  %NumBuckets.i.i.i180 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = load i32, ptr %NumBuckets.i.i.i180, align 8
+  %idx.ext.i.i.i181 = zext i32 %45 to i64
   %idx.ext.i.i182 = sext i32 %call.i.i178 to i64
   %cmp.i23.i183 = icmp eq i64 %idx.ext.i.i182, %idx.ext.i.i.i181
   %cmp.i2.not.i184.not = select i1 %cmp.i.i179, i1 true, i1 %cmp.i23.i183
   br i1 %cmp.i2.not.i184.not, label %if.end211, label %do.body217
 
 if.end211:                                        ; preds = %if.then181, %if.then201, %if.then188, %do.body178
-  %53 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr nonnull @.str.14, i64 8) #7
-  %54 = load i8, ptr %_optional, align 1
-  %55 = and i8 %54, 1
-  %tobool215 = icmp ne i8 %55, 0
+  %46 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr nonnull @.str.14, i64 8) #7
+  %47 = load i8, ptr %_optional, align 1
+  %tobool215 = trunc i8 %47 to i1
   %this.val82 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val82, i1 noundef zeroext %tobool215) #7
   br label %do.body217
 
 do.body217:                                       ; preds = %if.then181, %if.end211, %if.then201
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
-  %56 = load ptr, ptr %_variance, align 8
-  %cmp.i186 = icmp eq ptr %56, null
+  %48 = load ptr, ptr %_variance, align 8
+  %cmp.i186 = icmp eq ptr %48, null
   br i1 %cmp.i186, label %if.then219, label %if.end249
 
 if.then219:                                       ; preds = %do.body217
   %mode_220 = getelementptr inbounds i8, ptr %this, i64 16
-  %57 = load i32, ptr %mode_220, align 8
-  switch i32 %57, label %if.end249 [
+  %49 = load i32, ptr %mode_220, align 8
+  switch i32 %49, label %if.end249 [
     i32 0, label %do.body254
     i32 1, label %if.then226
   ]
@@ -11547,45 +11497,45 @@ if.then226:                                       ; preds = %if.then219
   %call.i187 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_228, ptr nonnull @.str.20, i64 13) #7
   %cmp.i188 = icmp eq i32 %call.i187, -1
   %NumBuckets.i.i189 = getelementptr inbounds i8, ptr %this, i64 40
-  %58 = load i32, ptr %NumBuckets.i.i189, align 8
-  %idx.ext.i.i190 = zext i32 %58 to i64
+  %50 = load i32, ptr %NumBuckets.i.i189, align 8
+  %idx.ext.i.i190 = zext i32 %50 to i64
   %idx.ext.i191 = sext i32 %call.i187 to i64
   %cmp.i.i197.not261 = icmp eq i64 %idx.ext.i191, %idx.ext.i.i190
   %cmp.i.i197.not = select i1 %cmp.i188, i1 true, i1 %cmp.i.i197.not261
   br i1 %cmp.i.i197.not, label %if.end249, label %if.then239
 
 if.then239:                                       ; preds = %if.then226
-  %59 = load ptr, ptr %ignoredEmptyFields_228, align 8
-  %retval.sroa.0.0.i193 = getelementptr inbounds ptr, ptr %59, i64 %idx.ext.i191
-  %60 = load ptr, ptr %retval.sroa.0.0.i193, align 8
-  %second241 = getelementptr inbounds i8, ptr %60, i64 8
+  %51 = load ptr, ptr %ignoredEmptyFields_228, align 8
+  %retval.sroa.0.0.i193 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i191
+  %52 = load ptr, ptr %retval.sroa.0.0.i193, align 8
+  %second241 = getelementptr inbounds i8, ptr %52, i64 8
   %call.i.i198 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second241, ptr nonnull @.str.21, i64 8) #7
   %cmp.i.i199 = icmp eq i32 %call.i.i198, -1
-  %NumBuckets.i.i.i200 = getelementptr inbounds i8, ptr %60, i64 16
-  %61 = load i32, ptr %NumBuckets.i.i.i200, align 8
-  %idx.ext.i.i.i201 = zext i32 %61 to i64
+  %NumBuckets.i.i.i200 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load i32, ptr %NumBuckets.i.i.i200, align 8
+  %idx.ext.i.i.i201 = zext i32 %53 to i64
   %idx.ext.i.i202 = sext i32 %call.i.i198 to i64
   %cmp.i23.i203 = icmp eq i64 %idx.ext.i.i202, %idx.ext.i.i.i201
   %cmp.i2.not.i204.not = select i1 %cmp.i.i199, i1 true, i1 %cmp.i23.i203
   br i1 %cmp.i2.not.i204.not, label %if.end249, label %do.body254
 
 if.end249:                                        ; preds = %if.then219, %if.then239, %if.then226, %do.body217
-  %62 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr nonnull @.str.21, i64 8) #7
-  %63 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %63)
+  %54 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.21, i64 8) #7
+  %55 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %55)
   br label %do.body254
 
 do.body254:                                       ; preds = %if.then219, %if.end249, %if.then239
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
-  %64 = load ptr, ptr %_typeAnnotation, align 8
-  %cmp.i206 = icmp eq ptr %64, null
+  %56 = load ptr, ptr %_typeAnnotation, align 8
+  %cmp.i206 = icmp eq ptr %56, null
   br i1 %cmp.i206, label %if.then256, label %if.end286
 
 if.then256:                                       ; preds = %do.body254
   %mode_257 = getelementptr inbounds i8, ptr %this, i64 16
-  %65 = load i32, ptr %mode_257, align 8
-  switch i32 %65, label %if.end286 [
+  %57 = load i32, ptr %mode_257, align 8
+  switch i32 %57, label %if.end286 [
     i32 0, label %do.body291
     i32 1, label %if.then263
   ]
@@ -11595,45 +11545,45 @@ if.then263:                                       ; preds = %if.then256
   %call.i207 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_265, ptr nonnull @.str.20, i64 13) #7
   %cmp.i208 = icmp eq i32 %call.i207, -1
   %NumBuckets.i.i209 = getelementptr inbounds i8, ptr %this, i64 40
-  %66 = load i32, ptr %NumBuckets.i.i209, align 8
-  %idx.ext.i.i210 = zext i32 %66 to i64
+  %58 = load i32, ptr %NumBuckets.i.i209, align 8
+  %idx.ext.i.i210 = zext i32 %58 to i64
   %idx.ext.i211 = sext i32 %call.i207 to i64
   %cmp.i.i217.not262 = icmp eq i64 %idx.ext.i211, %idx.ext.i.i210
   %cmp.i.i217.not = select i1 %cmp.i208, i1 true, i1 %cmp.i.i217.not262
   br i1 %cmp.i.i217.not, label %if.end286, label %if.then276
 
 if.then276:                                       ; preds = %if.then263
-  %67 = load ptr, ptr %ignoredEmptyFields_265, align 8
-  %retval.sroa.0.0.i213 = getelementptr inbounds ptr, ptr %67, i64 %idx.ext.i211
-  %68 = load ptr, ptr %retval.sroa.0.0.i213, align 8
-  %second278 = getelementptr inbounds i8, ptr %68, i64 8
+  %59 = load ptr, ptr %ignoredEmptyFields_265, align 8
+  %retval.sroa.0.0.i213 = getelementptr inbounds ptr, ptr %59, i64 %idx.ext.i211
+  %60 = load ptr, ptr %retval.sroa.0.0.i213, align 8
+  %second278 = getelementptr inbounds i8, ptr %60, i64 8
   %call.i.i218 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second278, ptr nonnull @.str.13, i64 14) #7
   %cmp.i.i219 = icmp eq i32 %call.i.i218, -1
-  %NumBuckets.i.i.i220 = getelementptr inbounds i8, ptr %68, i64 16
-  %69 = load i32, ptr %NumBuckets.i.i.i220, align 8
-  %idx.ext.i.i.i221 = zext i32 %69 to i64
+  %NumBuckets.i.i.i220 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = load i32, ptr %NumBuckets.i.i.i220, align 8
+  %idx.ext.i.i.i221 = zext i32 %61 to i64
   %idx.ext.i.i222 = sext i32 %call.i.i218 to i64
   %cmp.i23.i223 = icmp eq i64 %idx.ext.i.i222, %idx.ext.i.i.i221
   %cmp.i2.not.i224.not = select i1 %cmp.i.i219, i1 true, i1 %cmp.i23.i223
   br i1 %cmp.i2.not.i224.not, label %if.end286, label %do.body291
 
 if.end286:                                        ; preds = %if.then256, %if.then276, %if.then263, %do.body254
-  %70 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %70, ptr nonnull @.str.13, i64 14) #7
-  %71 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %71)
+  %62 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr nonnull @.str.13, i64 14) #7
+  %63 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %63)
   br label %do.body291
 
 do.body291:                                       ; preds = %if.then256, %if.end286, %if.then276
   %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
-  %72 = load ptr, ptr %_tsModifiers, align 8
-  %cmp.i226 = icmp eq ptr %72, null
+  %64 = load ptr, ptr %_tsModifiers, align 8
+  %cmp.i226 = icmp eq ptr %64, null
   br i1 %cmp.i226, label %if.then293, label %if.end323
 
 if.then293:                                       ; preds = %do.body291
   %mode_294 = getelementptr inbounds i8, ptr %this, i64 16
-  %73 = load i32, ptr %mode_294, align 8
-  switch i32 %73, label %if.end323 [
+  %65 = load i32, ptr %mode_294, align 8
+  switch i32 %65, label %if.end323 [
     i32 0, label %do.end327
     i32 1, label %if.then300
   ]
@@ -11643,33 +11593,33 @@ if.then300:                                       ; preds = %if.then293
   %call.i227 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_302, ptr nonnull @.str.20, i64 13) #7
   %cmp.i228 = icmp eq i32 %call.i227, -1
   %NumBuckets.i.i229 = getelementptr inbounds i8, ptr %this, i64 40
-  %74 = load i32, ptr %NumBuckets.i.i229, align 8
-  %idx.ext.i.i230 = zext i32 %74 to i64
+  %66 = load i32, ptr %NumBuckets.i.i229, align 8
+  %idx.ext.i.i230 = zext i32 %66 to i64
   %idx.ext.i231 = sext i32 %call.i227 to i64
   %cmp.i.i237.not263 = icmp eq i64 %idx.ext.i231, %idx.ext.i.i230
   %cmp.i.i237.not = select i1 %cmp.i228, i1 true, i1 %cmp.i.i237.not263
   br i1 %cmp.i.i237.not, label %if.end323, label %if.then313
 
 if.then313:                                       ; preds = %if.then300
-  %75 = load ptr, ptr %ignoredEmptyFields_302, align 8
-  %retval.sroa.0.0.i233 = getelementptr inbounds ptr, ptr %75, i64 %idx.ext.i231
-  %76 = load ptr, ptr %retval.sroa.0.0.i233, align 8
-  %second315 = getelementptr inbounds i8, ptr %76, i64 8
+  %67 = load ptr, ptr %ignoredEmptyFields_302, align 8
+  %retval.sroa.0.0.i233 = getelementptr inbounds ptr, ptr %67, i64 %idx.ext.i231
+  %68 = load ptr, ptr %retval.sroa.0.0.i233, align 8
+  %second315 = getelementptr inbounds i8, ptr %68, i64 8
   %call.i.i238 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second315, ptr nonnull @.str.22, i64 11) #7
   %cmp.i.i239 = icmp eq i32 %call.i.i238, -1
-  %NumBuckets.i.i.i240 = getelementptr inbounds i8, ptr %76, i64 16
-  %77 = load i32, ptr %NumBuckets.i.i.i240, align 8
-  %idx.ext.i.i.i241 = zext i32 %77 to i64
+  %NumBuckets.i.i.i240 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = load i32, ptr %NumBuckets.i.i.i240, align 8
+  %idx.ext.i.i.i241 = zext i32 %69 to i64
   %idx.ext.i.i242 = sext i32 %call.i.i238 to i64
   %cmp.i23.i243 = icmp eq i64 %idx.ext.i.i242, %idx.ext.i.i.i241
   %cmp.i2.not.i244.not = select i1 %cmp.i.i239, i1 true, i1 %cmp.i23.i243
   br i1 %cmp.i2.not.i244.not, label %if.end323, label %do.end327
 
 if.end323:                                        ; preds = %if.then293, %if.then313, %if.then300, %do.body291
-  %78 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %78, ptr nonnull @.str.22, i64 11) #7
-  %79 = load ptr, ptr %_tsModifiers, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %79)
+  %70 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %70, ptr nonnull @.str.22, i64 11) #7
+  %71 = load ptr, ptr %_tsModifiers, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %71)
   br label %do.end327
 
 do.end327:                                        ; preds = %if.then293, %if.then313, %if.end323
@@ -11777,14 +11727,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_static = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_static, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -11794,49 +11743,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i97 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.23, i64 20) #7
   %cmp.i98 = icmp eq i32 %call.i97, -1
   %NumBuckets.i.i99 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i99, align 8
-  %idx.ext.i.i100 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i99, align 8
+  %idx.ext.i.i100 = zext i32 %18 to i64
   %idx.ext.i101 = sext i32 %call.i97 to i64
   %cmp.i.i107.not226 = icmp eq i64 %idx.ext.i101, %idx.ext.i.i100
   %cmp.i.i107.not = select i1 %cmp.i98, i1 true, i1 %cmp.i.i107.not226
   br i1 %cmp.i.i107.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i103 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i101
-  %21 = load ptr, ptr %retval.sroa.0.0.i103, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i103 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i101
+  %20 = load ptr, ptr %retval.sroa.0.0.i103, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i108 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i109 = icmp eq i32 %call.i.i108, -1
-  %NumBuckets.i.i.i110 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i110, align 8
-  %idx.ext.i.i.i111 = zext i32 %22 to i64
+  %NumBuckets.i.i.i110 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i110, align 8
+  %idx.ext.i.i.i111 = zext i32 %21 to i64
   %idx.ext.i.i112 = sext i32 %call.i.i108 to i64
   %cmp.i23.i113 = icmp eq i64 %idx.ext.i.i112, %idx.ext.i.i.i111
   %cmp.i2.not.i114.not = select i1 %cmp.i.i109, i1 true, i1 %cmp.i23.i113
   br i1 %cmp.i2.not.i114.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.302, i64 6) #7
-  %24 = load i8, ptr %_static, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.302, i64 6) #7
+  %23 = load i8, ptr %_static, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_declare = getelementptr inbounds i8, ptr %node, i64 65
-  %26 = load i8, ptr %_declare, align 1
-  %27 = and i8 %26, 1
-  %tobool101.not = icmp eq i8 %27, 0
-  br i1 %tobool101.not, label %if.then103, label %if.end133
+  %24 = load i8, ptr %_declare, align 1
+  %tobool101 = trunc i8 %24 to i1
+  br i1 %tobool101, label %if.end133, label %if.then103
 
 if.then103:                                       ; preds = %do.body100
   %mode_104 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i32, ptr %mode_104, align 8
-  switch i32 %28, label %if.end133 [
+  %25 = load i32, ptr %mode_104, align 8
+  switch i32 %25, label %if.end133 [
     i32 0, label %do.body139
     i32 1, label %if.then110
   ]
@@ -11846,49 +11793,47 @@ if.then110:                                       ; preds = %if.then103
   %call.i117 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_112, ptr nonnull @.str.23, i64 20) #7
   %cmp.i118 = icmp eq i32 %call.i117, -1
   %NumBuckets.i.i119 = getelementptr inbounds i8, ptr %this, i64 40
-  %29 = load i32, ptr %NumBuckets.i.i119, align 8
-  %idx.ext.i.i120 = zext i32 %29 to i64
+  %26 = load i32, ptr %NumBuckets.i.i119, align 8
+  %idx.ext.i.i120 = zext i32 %26 to i64
   %idx.ext.i121 = sext i32 %call.i117 to i64
   %cmp.i.i127.not227 = icmp eq i64 %idx.ext.i121, %idx.ext.i.i120
   %cmp.i.i127.not = select i1 %cmp.i118, i1 true, i1 %cmp.i.i127.not227
   br i1 %cmp.i.i127.not, label %if.end133, label %if.then123
 
 if.then123:                                       ; preds = %if.then110
-  %30 = load ptr, ptr %ignoredEmptyFields_112, align 8
-  %retval.sroa.0.0.i123 = getelementptr inbounds ptr, ptr %30, i64 %idx.ext.i121
-  %31 = load ptr, ptr %retval.sroa.0.0.i123, align 8
-  %second125 = getelementptr inbounds i8, ptr %31, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_112, align 8
+  %retval.sroa.0.0.i123 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i121
+  %28 = load ptr, ptr %retval.sroa.0.0.i123, align 8
+  %second125 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i128 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second125, ptr nonnull @.str.303, i64 7) #7
   %cmp.i.i129 = icmp eq i32 %call.i.i128, -1
-  %NumBuckets.i.i.i130 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i32, ptr %NumBuckets.i.i.i130, align 8
-  %idx.ext.i.i.i131 = zext i32 %32 to i64
+  %NumBuckets.i.i.i130 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i130, align 8
+  %idx.ext.i.i.i131 = zext i32 %29 to i64
   %idx.ext.i.i132 = sext i32 %call.i.i128 to i64
   %cmp.i23.i133 = icmp eq i64 %idx.ext.i.i132, %idx.ext.i.i.i131
   %cmp.i2.not.i134.not = select i1 %cmp.i.i129, i1 true, i1 %cmp.i23.i133
   br i1 %cmp.i2.not.i134.not, label %if.end133, label %do.body139
 
 if.end133:                                        ; preds = %if.then103, %if.then123, %if.then110, %do.body100
-  %33 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.303, i64 7) #7
-  %34 = load i8, ptr %_declare, align 1
-  %35 = and i8 %34, 1
-  %tobool137 = icmp ne i8 %35, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.303, i64 7) #7
+  %31 = load i8, ptr %_declare, align 1
+  %tobool137 = trunc i8 %31 to i1
   %this.val71 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val71, i1 noundef zeroext %tobool137) #7
   br label %do.body139
 
 do.body139:                                       ; preds = %if.then103, %if.end133, %if.then123
   %_optional = getelementptr inbounds i8, ptr %node, i64 66
-  %36 = load i8, ptr %_optional, align 2
-  %37 = and i8 %36, 1
-  %tobool140.not = icmp eq i8 %37, 0
-  br i1 %tobool140.not, label %if.then142, label %if.end172
+  %32 = load i8, ptr %_optional, align 2
+  %tobool140 = trunc i8 %32 to i1
+  br i1 %tobool140, label %if.end172, label %if.then142
 
 if.then142:                                       ; preds = %do.body139
   %mode_143 = getelementptr inbounds i8, ptr %this, i64 16
-  %38 = load i32, ptr %mode_143, align 8
-  switch i32 %38, label %if.end172 [
+  %33 = load i32, ptr %mode_143, align 8
+  switch i32 %33, label %if.end172 [
     i32 0, label %do.body178
     i32 1, label %if.then149
   ]
@@ -11898,48 +11843,47 @@ if.then149:                                       ; preds = %if.then142
   %call.i137 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_151, ptr nonnull @.str.23, i64 20) #7
   %cmp.i138 = icmp eq i32 %call.i137, -1
   %NumBuckets.i.i139 = getelementptr inbounds i8, ptr %this, i64 40
-  %39 = load i32, ptr %NumBuckets.i.i139, align 8
-  %idx.ext.i.i140 = zext i32 %39 to i64
+  %34 = load i32, ptr %NumBuckets.i.i139, align 8
+  %idx.ext.i.i140 = zext i32 %34 to i64
   %idx.ext.i141 = sext i32 %call.i137 to i64
   %cmp.i.i147.not228 = icmp eq i64 %idx.ext.i141, %idx.ext.i.i140
   %cmp.i.i147.not = select i1 %cmp.i138, i1 true, i1 %cmp.i.i147.not228
   br i1 %cmp.i.i147.not, label %if.end172, label %if.then162
 
 if.then162:                                       ; preds = %if.then149
-  %40 = load ptr, ptr %ignoredEmptyFields_151, align 8
-  %retval.sroa.0.0.i143 = getelementptr inbounds ptr, ptr %40, i64 %idx.ext.i141
-  %41 = load ptr, ptr %retval.sroa.0.0.i143, align 8
-  %second164 = getelementptr inbounds i8, ptr %41, i64 8
+  %35 = load ptr, ptr %ignoredEmptyFields_151, align 8
+  %retval.sroa.0.0.i143 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i141
+  %36 = load ptr, ptr %retval.sroa.0.0.i143, align 8
+  %second164 = getelementptr inbounds i8, ptr %36, i64 8
   %call.i.i148 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second164, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i149 = icmp eq i32 %call.i.i148, -1
-  %NumBuckets.i.i.i150 = getelementptr inbounds i8, ptr %41, i64 16
-  %42 = load i32, ptr %NumBuckets.i.i.i150, align 8
-  %idx.ext.i.i.i151 = zext i32 %42 to i64
+  %NumBuckets.i.i.i150 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %NumBuckets.i.i.i150, align 8
+  %idx.ext.i.i.i151 = zext i32 %37 to i64
   %idx.ext.i.i152 = sext i32 %call.i.i148 to i64
   %cmp.i23.i153 = icmp eq i64 %idx.ext.i.i152, %idx.ext.i.i.i151
   %cmp.i2.not.i154.not = select i1 %cmp.i.i149, i1 true, i1 %cmp.i23.i153
   br i1 %cmp.i2.not.i154.not, label %if.end172, label %do.body178
 
 if.end172:                                        ; preds = %if.then142, %if.then162, %if.then149, %do.body139
-  %43 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %43, ptr nonnull @.str.14, i64 8) #7
-  %44 = load i8, ptr %_optional, align 2
-  %45 = and i8 %44, 1
-  %tobool176 = icmp ne i8 %45, 0
+  %38 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.14, i64 8) #7
+  %39 = load i8, ptr %_optional, align 2
+  %tobool176 = trunc i8 %39 to i1
   %this.val72 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val72, i1 noundef zeroext %tobool176) #7
   br label %do.body178
 
 do.body178:                                       ; preds = %if.then142, %if.end172, %if.then162
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
-  %46 = load ptr, ptr %_variance, align 8
-  %cmp.i156 = icmp eq ptr %46, null
+  %40 = load ptr, ptr %_variance, align 8
+  %cmp.i156 = icmp eq ptr %40, null
   br i1 %cmp.i156, label %if.then180, label %if.end210
 
 if.then180:                                       ; preds = %do.body178
   %mode_181 = getelementptr inbounds i8, ptr %this, i64 16
-  %47 = load i32, ptr %mode_181, align 8
-  switch i32 %47, label %if.end210 [
+  %41 = load i32, ptr %mode_181, align 8
+  switch i32 %41, label %if.end210 [
     i32 0, label %do.body215
     i32 1, label %if.then187
   ]
@@ -11949,45 +11893,45 @@ if.then187:                                       ; preds = %if.then180
   %call.i157 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_189, ptr nonnull @.str.23, i64 20) #7
   %cmp.i158 = icmp eq i32 %call.i157, -1
   %NumBuckets.i.i159 = getelementptr inbounds i8, ptr %this, i64 40
-  %48 = load i32, ptr %NumBuckets.i.i159, align 8
-  %idx.ext.i.i160 = zext i32 %48 to i64
+  %42 = load i32, ptr %NumBuckets.i.i159, align 8
+  %idx.ext.i.i160 = zext i32 %42 to i64
   %idx.ext.i161 = sext i32 %call.i157 to i64
   %cmp.i.i167.not229 = icmp eq i64 %idx.ext.i161, %idx.ext.i.i160
   %cmp.i.i167.not = select i1 %cmp.i158, i1 true, i1 %cmp.i.i167.not229
   br i1 %cmp.i.i167.not, label %if.end210, label %if.then200
 
 if.then200:                                       ; preds = %if.then187
-  %49 = load ptr, ptr %ignoredEmptyFields_189, align 8
-  %retval.sroa.0.0.i163 = getelementptr inbounds ptr, ptr %49, i64 %idx.ext.i161
-  %50 = load ptr, ptr %retval.sroa.0.0.i163, align 8
-  %second202 = getelementptr inbounds i8, ptr %50, i64 8
+  %43 = load ptr, ptr %ignoredEmptyFields_189, align 8
+  %retval.sroa.0.0.i163 = getelementptr inbounds ptr, ptr %43, i64 %idx.ext.i161
+  %44 = load ptr, ptr %retval.sroa.0.0.i163, align 8
+  %second202 = getelementptr inbounds i8, ptr %44, i64 8
   %call.i.i168 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second202, ptr nonnull @.str.21, i64 8) #7
   %cmp.i.i169 = icmp eq i32 %call.i.i168, -1
-  %NumBuckets.i.i.i170 = getelementptr inbounds i8, ptr %50, i64 16
-  %51 = load i32, ptr %NumBuckets.i.i.i170, align 8
-  %idx.ext.i.i.i171 = zext i32 %51 to i64
+  %NumBuckets.i.i.i170 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = load i32, ptr %NumBuckets.i.i.i170, align 8
+  %idx.ext.i.i.i171 = zext i32 %45 to i64
   %idx.ext.i.i172 = sext i32 %call.i.i168 to i64
   %cmp.i23.i173 = icmp eq i64 %idx.ext.i.i172, %idx.ext.i.i.i171
   %cmp.i2.not.i174.not = select i1 %cmp.i.i169, i1 true, i1 %cmp.i23.i173
   br i1 %cmp.i2.not.i174.not, label %if.end210, label %do.body215
 
 if.end210:                                        ; preds = %if.then180, %if.then200, %if.then187, %do.body178
-  %52 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr nonnull @.str.21, i64 8) #7
-  %53 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %53)
+  %46 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr nonnull @.str.21, i64 8) #7
+  %47 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %47)
   br label %do.body215
 
 do.body215:                                       ; preds = %if.then180, %if.end210, %if.then200
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
-  %54 = load ptr, ptr %_typeAnnotation, align 8
-  %cmp.i176 = icmp eq ptr %54, null
+  %48 = load ptr, ptr %_typeAnnotation, align 8
+  %cmp.i176 = icmp eq ptr %48, null
   br i1 %cmp.i176, label %if.then217, label %if.end247
 
 if.then217:                                       ; preds = %do.body215
   %mode_218 = getelementptr inbounds i8, ptr %this, i64 16
-  %55 = load i32, ptr %mode_218, align 8
-  switch i32 %55, label %if.end247 [
+  %49 = load i32, ptr %mode_218, align 8
+  switch i32 %49, label %if.end247 [
     i32 0, label %do.body252
     i32 1, label %if.then224
   ]
@@ -11997,45 +11941,45 @@ if.then224:                                       ; preds = %if.then217
   %call.i177 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_226, ptr nonnull @.str.23, i64 20) #7
   %cmp.i178 = icmp eq i32 %call.i177, -1
   %NumBuckets.i.i179 = getelementptr inbounds i8, ptr %this, i64 40
-  %56 = load i32, ptr %NumBuckets.i.i179, align 8
-  %idx.ext.i.i180 = zext i32 %56 to i64
+  %50 = load i32, ptr %NumBuckets.i.i179, align 8
+  %idx.ext.i.i180 = zext i32 %50 to i64
   %idx.ext.i181 = sext i32 %call.i177 to i64
   %cmp.i.i187.not230 = icmp eq i64 %idx.ext.i181, %idx.ext.i.i180
   %cmp.i.i187.not = select i1 %cmp.i178, i1 true, i1 %cmp.i.i187.not230
   br i1 %cmp.i.i187.not, label %if.end247, label %if.then237
 
 if.then237:                                       ; preds = %if.then224
-  %57 = load ptr, ptr %ignoredEmptyFields_226, align 8
-  %retval.sroa.0.0.i183 = getelementptr inbounds ptr, ptr %57, i64 %idx.ext.i181
-  %58 = load ptr, ptr %retval.sroa.0.0.i183, align 8
-  %second239 = getelementptr inbounds i8, ptr %58, i64 8
+  %51 = load ptr, ptr %ignoredEmptyFields_226, align 8
+  %retval.sroa.0.0.i183 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i181
+  %52 = load ptr, ptr %retval.sroa.0.0.i183, align 8
+  %second239 = getelementptr inbounds i8, ptr %52, i64 8
   %call.i.i188 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second239, ptr nonnull @.str.13, i64 14) #7
   %cmp.i.i189 = icmp eq i32 %call.i.i188, -1
-  %NumBuckets.i.i.i190 = getelementptr inbounds i8, ptr %58, i64 16
-  %59 = load i32, ptr %NumBuckets.i.i.i190, align 8
-  %idx.ext.i.i.i191 = zext i32 %59 to i64
+  %NumBuckets.i.i.i190 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load i32, ptr %NumBuckets.i.i.i190, align 8
+  %idx.ext.i.i.i191 = zext i32 %53 to i64
   %idx.ext.i.i192 = sext i32 %call.i.i188 to i64
   %cmp.i23.i193 = icmp eq i64 %idx.ext.i.i192, %idx.ext.i.i.i191
   %cmp.i2.not.i194.not = select i1 %cmp.i.i189, i1 true, i1 %cmp.i23.i193
   br i1 %cmp.i2.not.i194.not, label %if.end247, label %do.body252
 
 if.end247:                                        ; preds = %if.then217, %if.then237, %if.then224, %do.body215
-  %60 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr nonnull @.str.13, i64 14) #7
-  %61 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %61)
+  %54 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.13, i64 14) #7
+  %55 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %55)
   br label %do.body252
 
 do.body252:                                       ; preds = %if.then217, %if.end247, %if.then237
   %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
-  %62 = load ptr, ptr %_tsModifiers, align 8
-  %cmp.i196 = icmp eq ptr %62, null
+  %56 = load ptr, ptr %_tsModifiers, align 8
+  %cmp.i196 = icmp eq ptr %56, null
   br i1 %cmp.i196, label %if.then254, label %if.end284
 
 if.then254:                                       ; preds = %do.body252
   %mode_255 = getelementptr inbounds i8, ptr %this, i64 16
-  %63 = load i32, ptr %mode_255, align 8
-  switch i32 %63, label %if.end284 [
+  %57 = load i32, ptr %mode_255, align 8
+  switch i32 %57, label %if.end284 [
     i32 0, label %do.end288
     i32 1, label %if.then261
   ]
@@ -12045,33 +11989,33 @@ if.then261:                                       ; preds = %if.then254
   %call.i197 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_263, ptr nonnull @.str.23, i64 20) #7
   %cmp.i198 = icmp eq i32 %call.i197, -1
   %NumBuckets.i.i199 = getelementptr inbounds i8, ptr %this, i64 40
-  %64 = load i32, ptr %NumBuckets.i.i199, align 8
-  %idx.ext.i.i200 = zext i32 %64 to i64
+  %58 = load i32, ptr %NumBuckets.i.i199, align 8
+  %idx.ext.i.i200 = zext i32 %58 to i64
   %idx.ext.i201 = sext i32 %call.i197 to i64
   %cmp.i.i207.not231 = icmp eq i64 %idx.ext.i201, %idx.ext.i.i200
   %cmp.i.i207.not = select i1 %cmp.i198, i1 true, i1 %cmp.i.i207.not231
   br i1 %cmp.i.i207.not, label %if.end284, label %if.then274
 
 if.then274:                                       ; preds = %if.then261
-  %65 = load ptr, ptr %ignoredEmptyFields_263, align 8
-  %retval.sroa.0.0.i203 = getelementptr inbounds ptr, ptr %65, i64 %idx.ext.i201
-  %66 = load ptr, ptr %retval.sroa.0.0.i203, align 8
-  %second276 = getelementptr inbounds i8, ptr %66, i64 8
+  %59 = load ptr, ptr %ignoredEmptyFields_263, align 8
+  %retval.sroa.0.0.i203 = getelementptr inbounds ptr, ptr %59, i64 %idx.ext.i201
+  %60 = load ptr, ptr %retval.sroa.0.0.i203, align 8
+  %second276 = getelementptr inbounds i8, ptr %60, i64 8
   %call.i.i208 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second276, ptr nonnull @.str.22, i64 11) #7
   %cmp.i.i209 = icmp eq i32 %call.i.i208, -1
-  %NumBuckets.i.i.i210 = getelementptr inbounds i8, ptr %66, i64 16
-  %67 = load i32, ptr %NumBuckets.i.i.i210, align 8
-  %idx.ext.i.i.i211 = zext i32 %67 to i64
+  %NumBuckets.i.i.i210 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = load i32, ptr %NumBuckets.i.i.i210, align 8
+  %idx.ext.i.i.i211 = zext i32 %61 to i64
   %idx.ext.i.i212 = sext i32 %call.i.i208 to i64
   %cmp.i23.i213 = icmp eq i64 %idx.ext.i.i212, %idx.ext.i.i.i211
   %cmp.i2.not.i214.not = select i1 %cmp.i.i209, i1 true, i1 %cmp.i23.i213
   br i1 %cmp.i2.not.i214.not, label %if.end284, label %do.end288
 
 if.end284:                                        ; preds = %if.then254, %if.then274, %if.then261, %do.body252
-  %68 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %68, ptr nonnull @.str.22, i64 11) #7
-  %69 = load ptr, ptr %_tsModifiers, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %69)
+  %62 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr nonnull @.str.22, i64 11) #7
+  %63 = load ptr, ptr %_tsModifiers, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %63)
   br label %do.end288
 
 do.end288:                                        ; preds = %if.then254, %if.then274, %if.end284
@@ -12199,14 +12143,13 @@ if.else.i:                                        ; preds = %do.body61
 _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %18 = load i8, ptr %_computed, align 8
-  %19 = and i8 %18, 1
-  %tobool99.not = icmp eq i8 %19, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %18 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %20 = load i32, ptr %mode_102, align 8
-  switch i32 %20, label %if.end131 [
+  %19 = load i32, ptr %mode_102, align 8
+  switch i32 %19, label %if.end131 [
     i32 0, label %do.body137
     i32 1, label %if.then108
   ]
@@ -12216,49 +12159,47 @@ if.then108:                                       ; preds = %if.then101
   %call.i70 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.87, i64 16) #7
   %cmp.i71 = icmp eq i32 %call.i70, -1
   %NumBuckets.i.i72 = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load i32, ptr %NumBuckets.i.i72, align 8
-  %idx.ext.i.i73 = zext i32 %21 to i64
+  %20 = load i32, ptr %NumBuckets.i.i72, align 8
+  %idx.ext.i.i73 = zext i32 %20 to i64
   %idx.ext.i74 = sext i32 %call.i70 to i64
   %cmp.i.i80.not115 = icmp eq i64 %idx.ext.i74, %idx.ext.i.i73
   %cmp.i.i80.not = select i1 %cmp.i71, i1 true, i1 %cmp.i.i80.not115
   br i1 %cmp.i.i80.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %22 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i76 = getelementptr inbounds ptr, ptr %22, i64 %idx.ext.i74
-  %23 = load ptr, ptr %retval.sroa.0.0.i76, align 8
-  %second123 = getelementptr inbounds i8, ptr %23, i64 8
+  %21 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i76 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i74
+  %22 = load ptr, ptr %retval.sroa.0.0.i76, align 8
+  %second123 = getelementptr inbounds i8, ptr %22, i64 8
   %call.i.i81 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i82 = icmp eq i32 %call.i.i81, -1
-  %NumBuckets.i.i.i83 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load i32, ptr %NumBuckets.i.i.i83, align 8
-  %idx.ext.i.i.i84 = zext i32 %24 to i64
+  %NumBuckets.i.i.i83 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load i32, ptr %NumBuckets.i.i.i83, align 8
+  %idx.ext.i.i.i84 = zext i32 %23 to i64
   %idx.ext.i.i85 = sext i32 %call.i.i81 to i64
   %cmp.i23.i86 = icmp eq i64 %idx.ext.i.i85, %idx.ext.i.i.i84
   %cmp.i2.not.i87.not = select i1 %cmp.i.i82, i1 true, i1 %cmp.i23.i86
   br i1 %cmp.i2.not.i87.not, label %if.end131, label %do.body137
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
-  %25 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr nonnull @.str.286, i64 8) #7
-  %26 = load i8, ptr %_computed, align 8
-  %27 = and i8 %26, 1
-  %tobool135 = icmp ne i8 %27, 0
+  %24 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.286, i64 8) #7
+  %25 = load i8, ptr %_computed, align 8
+  %tobool135 = trunc i8 %25 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.body137
 
 do.body137:                                       ; preds = %if.then101, %if.end131, %if.then121
   %_static = getelementptr inbounds i8, ptr %node, i64 73
-  %28 = load i8, ptr %_static, align 1
-  %29 = and i8 %28, 1
-  %tobool138.not = icmp eq i8 %29, 0
-  br i1 %tobool138.not, label %if.then140, label %if.end170
+  %26 = load i8, ptr %_static, align 1
+  %tobool138 = trunc i8 %26 to i1
+  br i1 %tobool138, label %if.end170, label %if.then140
 
 if.then140:                                       ; preds = %do.body137
   %mode_141 = getelementptr inbounds i8, ptr %this, i64 16
-  %30 = load i32, ptr %mode_141, align 8
-  switch i32 %30, label %if.end170 [
+  %27 = load i32, ptr %mode_141, align 8
+  switch i32 %27, label %if.end170 [
     i32 0, label %do.end175
     i32 1, label %if.then147
   ]
@@ -12268,34 +12209,33 @@ if.then147:                                       ; preds = %if.then140
   %call.i90 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_149, ptr nonnull @.str.87, i64 16) #7
   %cmp.i91 = icmp eq i32 %call.i90, -1
   %NumBuckets.i.i92 = getelementptr inbounds i8, ptr %this, i64 40
-  %31 = load i32, ptr %NumBuckets.i.i92, align 8
-  %idx.ext.i.i93 = zext i32 %31 to i64
+  %28 = load i32, ptr %NumBuckets.i.i92, align 8
+  %idx.ext.i.i93 = zext i32 %28 to i64
   %idx.ext.i94 = sext i32 %call.i90 to i64
   %cmp.i.i100.not116 = icmp eq i64 %idx.ext.i94, %idx.ext.i.i93
   %cmp.i.i100.not = select i1 %cmp.i91, i1 true, i1 %cmp.i.i100.not116
   br i1 %cmp.i.i100.not, label %if.end170, label %if.then160
 
 if.then160:                                       ; preds = %if.then147
-  %32 = load ptr, ptr %ignoredEmptyFields_149, align 8
-  %retval.sroa.0.0.i96 = getelementptr inbounds ptr, ptr %32, i64 %idx.ext.i94
-  %33 = load ptr, ptr %retval.sroa.0.0.i96, align 8
-  %second162 = getelementptr inbounds i8, ptr %33, i64 8
+  %29 = load ptr, ptr %ignoredEmptyFields_149, align 8
+  %retval.sroa.0.0.i96 = getelementptr inbounds ptr, ptr %29, i64 %idx.ext.i94
+  %30 = load ptr, ptr %retval.sroa.0.0.i96, align 8
+  %second162 = getelementptr inbounds i8, ptr %30, i64 8
   %call.i.i101 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second162, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i102 = icmp eq i32 %call.i.i101, -1
-  %NumBuckets.i.i.i103 = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load i32, ptr %NumBuckets.i.i.i103, align 8
-  %idx.ext.i.i.i104 = zext i32 %34 to i64
+  %NumBuckets.i.i.i103 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load i32, ptr %NumBuckets.i.i.i103, align 8
+  %idx.ext.i.i.i104 = zext i32 %31 to i64
   %idx.ext.i.i105 = sext i32 %call.i.i101 to i64
   %cmp.i23.i106 = icmp eq i64 %idx.ext.i.i105, %idx.ext.i.i.i104
   %cmp.i2.not.i107.not = select i1 %cmp.i.i102, i1 true, i1 %cmp.i23.i106
   br i1 %cmp.i2.not.i107.not, label %if.end170, label %do.end175
 
 if.end170:                                        ; preds = %if.then140, %if.then160, %if.then147, %do.body137
-  %35 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr nonnull @.str.302, i64 6) #7
-  %36 = load i8, ptr %_static, align 1
-  %37 = and i8 %36, 1
-  %tobool174 = icmp ne i8 %37, 0
+  %32 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr nonnull @.str.302, i64 6) #7
+  %33 = load i8, ptr %_static, align 1
+  %tobool174 = trunc i8 %33 to i1
   %this.val44 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val44, i1 noundef zeroext %tobool174) #7
   br label %do.end175
@@ -14053,14 +13993,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_selfClosing = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load i8, ptr %_selfClosing, align 8
-  %16 = and i8 %15, 1
-  %tobool62.not = icmp eq i8 %16, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %15 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %17 = load i32, ptr %mode_65, align 8
-  switch i32 %17, label %if.end94 [
+  %16 = load i32, ptr %mode_65, align 8
+  switch i32 %16, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -14070,48 +14009,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i58 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.26, i64 17) #7
   %cmp.i59 = icmp eq i32 %call.i58, -1
   %NumBuckets.i.i60 = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load i32, ptr %NumBuckets.i.i60, align 8
-  %idx.ext.i.i61 = zext i32 %18 to i64
+  %17 = load i32, ptr %NumBuckets.i.i60, align 8
+  %idx.ext.i.i61 = zext i32 %17 to i64
   %idx.ext.i62 = sext i32 %call.i58 to i64
   %cmp.i.i68.not103 = icmp eq i64 %idx.ext.i62, %idx.ext.i.i61
   %cmp.i.i68.not = select i1 %cmp.i59, i1 true, i1 %cmp.i.i68.not103
   br i1 %cmp.i.i68.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i64 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i62
-  %20 = load ptr, ptr %retval.sroa.0.0.i64, align 8
-  %second86 = getelementptr inbounds i8, ptr %20, i64 8
+  %18 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i64 = getelementptr inbounds ptr, ptr %18, i64 %idx.ext.i62
+  %19 = load ptr, ptr %retval.sroa.0.0.i64, align 8
+  %second86 = getelementptr inbounds i8, ptr %19, i64 8
   %call.i.i69 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.313, i64 11) #7
   %cmp.i.i70 = icmp eq i32 %call.i.i69, -1
-  %NumBuckets.i.i.i71 = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load i32, ptr %NumBuckets.i.i.i71, align 8
-  %idx.ext.i.i.i72 = zext i32 %21 to i64
+  %NumBuckets.i.i.i71 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load i32, ptr %NumBuckets.i.i.i71, align 8
+  %idx.ext.i.i.i72 = zext i32 %20 to i64
   %idx.ext.i.i73 = sext i32 %call.i.i69 to i64
   %cmp.i23.i74 = icmp eq i64 %idx.ext.i.i73, %idx.ext.i.i.i72
   %cmp.i2.not.i75.not = select i1 %cmp.i.i70, i1 true, i1 %cmp.i23.i74
   br i1 %cmp.i2.not.i75.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %22 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.313, i64 11) #7
-  %23 = load i8, ptr %_selfClosing, align 8
-  %24 = and i8 %23, 1
-  %tobool98 = icmp ne i8 %24, 0
+  %21 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr nonnull @.str.313, i64 11) #7
+  %22 = load i8, ptr %_selfClosing, align 8
+  %tobool98 = trunc i8 %22 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 80
-  %25 = load ptr, ptr %_typeArguments, align 8
-  %cmp.i77 = icmp eq ptr %25, null
+  %23 = load ptr, ptr %_typeArguments, align 8
+  %cmp.i77 = icmp eq ptr %23, null
   br i1 %cmp.i77, label %if.then102, label %if.end132
 
 if.then102:                                       ; preds = %do.body100
   %mode_103 = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load i32, ptr %mode_103, align 8
-  switch i32 %26, label %if.end132 [
+  %24 = load i32, ptr %mode_103, align 8
+  switch i32 %24, label %if.end132 [
     i32 0, label %do.end136
     i32 1, label %if.then109
   ]
@@ -14121,33 +14059,33 @@ if.then109:                                       ; preds = %if.then102
   %call.i78 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_111, ptr nonnull @.str.26, i64 17) #7
   %cmp.i79 = icmp eq i32 %call.i78, -1
   %NumBuckets.i.i80 = getelementptr inbounds i8, ptr %this, i64 40
-  %27 = load i32, ptr %NumBuckets.i.i80, align 8
-  %idx.ext.i.i81 = zext i32 %27 to i64
+  %25 = load i32, ptr %NumBuckets.i.i80, align 8
+  %idx.ext.i.i81 = zext i32 %25 to i64
   %idx.ext.i82 = sext i32 %call.i78 to i64
   %cmp.i.i88.not104 = icmp eq i64 %idx.ext.i82, %idx.ext.i.i81
   %cmp.i.i88.not = select i1 %cmp.i79, i1 true, i1 %cmp.i.i88.not104
   br i1 %cmp.i.i88.not, label %if.end132, label %if.then122
 
 if.then122:                                       ; preds = %if.then109
-  %28 = load ptr, ptr %ignoredEmptyFields_111, align 8
-  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %28, i64 %idx.ext.i82
-  %29 = load ptr, ptr %retval.sroa.0.0.i84, align 8
-  %second124 = getelementptr inbounds i8, ptr %29, i64 8
+  %26 = load ptr, ptr %ignoredEmptyFields_111, align 8
+  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i82
+  %27 = load ptr, ptr %retval.sroa.0.0.i84, align 8
+  %second124 = getelementptr inbounds i8, ptr %27, i64 8
   %call.i.i89 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second124, ptr nonnull @.str.9, i64 13) #7
   %cmp.i.i90 = icmp eq i32 %call.i.i89, -1
-  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load i32, ptr %NumBuckets.i.i.i91, align 8
-  %idx.ext.i.i.i92 = zext i32 %30 to i64
+  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = load i32, ptr %NumBuckets.i.i.i91, align 8
+  %idx.ext.i.i.i92 = zext i32 %28 to i64
   %idx.ext.i.i93 = sext i32 %call.i.i89 to i64
   %cmp.i23.i94 = icmp eq i64 %idx.ext.i.i93, %idx.ext.i.i.i92
   %cmp.i2.not.i95.not = select i1 %cmp.i.i90, i1 true, i1 %cmp.i23.i94
   br i1 %cmp.i2.not.i95.not, label %if.end132, label %do.end136
 
 if.end132:                                        ; preds = %if.then102, %if.then122, %if.then109, %do.body100
-  %31 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.9, i64 13) #7
-  %32 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %32)
+  %29 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr nonnull @.str.9, i64 13) #7
+  %30 = load ptr, ptr %_typeArguments, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %30)
   br label %do.end136
 
 do.end136:                                        ; preds = %if.then102, %if.then122, %if.end132
@@ -14863,14 +14801,13 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load i8, ptr %_value, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end22
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
   %mode_ = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %mode_, align 8
-  switch i32 %2, label %if.end22 [
+  %1 = load i32, ptr %mode_, align 8
+  switch i32 %1, label %if.end22 [
     i32 0, label %do.body26
     i32 1, label %if.then5
   ]
@@ -14880,50 +14817,49 @@ if.then5:                                         ; preds = %if.then
   %call.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_, ptr nonnull @.str.123, i64 28) #7
   %cmp.i = icmp eq i32 %call.i, -1
   %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load i32, ptr %NumBuckets.i.i, align 8
-  %idx.ext.i.i = zext i32 %3 to i64
+  %2 = load i32, ptr %NumBuckets.i.i, align 8
+  %idx.ext.i.i = zext i32 %2 to i64
   %idx.ext.i = sext i32 %call.i to i64
   %cmp.i.i.not22 = icmp eq i64 %idx.ext.i, %idx.ext.i.i
   %cmp.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp.i.i.not22
   br i1 %cmp.i.i.not, label %if.end22, label %if.then13
 
 if.then13:                                        ; preds = %if.then5
-  %4 = load ptr, ptr %ignoredEmptyFields_, align 8
-  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
-  %5 = load ptr, ptr %retval.sroa.0.0.i, align 8
-  %second = getelementptr inbounds i8, ptr %5, i64 8
+  %3 = load ptr, ptr %ignoredEmptyFields_, align 8
+  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i
+  %4 = load ptr, ptr %retval.sroa.0.0.i, align 8
+  %second = getelementptr inbounds i8, ptr %4, i64 8
   %call.i.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second, ptr nonnull @.str.270, i64 5) #7
   %cmp.i.i19 = icmp eq i32 %call.i.i, -1
-  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load i32, ptr %NumBuckets.i.i.i, align 8
-  %idx.ext.i.i.i = zext i32 %6 to i64
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i32, ptr %NumBuckets.i.i.i, align 8
+  %idx.ext.i.i.i = zext i32 %5 to i64
   %idx.ext.i.i20 = sext i32 %call.i.i to i64
   %cmp.i23.i = icmp eq i64 %idx.ext.i.i20, %idx.ext.i.i.i
   %cmp.i2.not.i.not = select i1 %cmp.i.i19, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end22, label %do.body26
 
 if.end22:                                         ; preds = %if.then, %if.then13, %if.then5, %entry
-  %7 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr nonnull @.str.270, i64 5) #7
-  %8 = load i8, ptr %_value, align 8
-  %9 = and i8 %8, 1
-  %tobool25 = icmp ne i8 %9, 0
+  %6 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr nonnull @.str.270, i64 5) #7
+  %7 = load i8, ptr %_value, align 8
+  %tobool25 = trunc i8 %7 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool25) #7
   br label %do.body26
 
 do.body26:                                        ; preds = %if.then, %if.end22, %if.then13
   %_raw = getelementptr inbounds i8, ptr %node, i64 56
-  %10 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.297, i64 3) #7
-  %11 = load ptr, ptr %_raw, align 8
+  %8 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.297, i64 3) #7
+  %9 = load ptr, ptr %_raw, align 8
   %this.val17 = load ptr, ptr %this, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body26
-  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %11, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %9, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val17, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
   br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
@@ -15282,14 +15218,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_optional, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -15299,34 +15234,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.131, i64 17) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.14, i64 8) #7
-  %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.14, i64 8) #7
+  %23 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -15633,14 +15567,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_optional, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -15650,34 +15583,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.133, i64 22) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.14, i64 8) #7
-  %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.14, i64 8) #7
+  %23 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -16382,14 +16314,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_optional, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -16399,48 +16330,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i59 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.142, i64 23) #7
   %cmp.i60 = icmp eq i32 %call.i59, -1
   %NumBuckets.i.i61 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i61, align 8
-  %idx.ext.i.i62 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i61, align 8
+  %idx.ext.i.i62 = zext i32 %18 to i64
   %idx.ext.i63 = sext i32 %call.i59 to i64
   %cmp.i.i69.not104 = icmp eq i64 %idx.ext.i63, %idx.ext.i.i62
   %cmp.i.i69.not = select i1 %cmp.i60, i1 true, i1 %cmp.i.i69.not104
   br i1 %cmp.i.i69.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i65 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i63
-  %21 = load ptr, ptr %retval.sroa.0.0.i65, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i65 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i63
+  %20 = load ptr, ptr %retval.sroa.0.0.i65, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i70 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i71 = icmp eq i32 %call.i.i70, -1
-  %NumBuckets.i.i.i72 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i72, align 8
-  %idx.ext.i.i.i73 = zext i32 %22 to i64
+  %NumBuckets.i.i.i72 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i72, align 8
+  %idx.ext.i.i.i73 = zext i32 %21 to i64
   %idx.ext.i.i74 = sext i32 %call.i.i70 to i64
   %cmp.i23.i75 = icmp eq i64 %idx.ext.i.i74, %idx.ext.i.i.i73
   %cmp.i2.not.i76.not = select i1 %cmp.i.i71, i1 true, i1 %cmp.i23.i75
   br i1 %cmp.i2.not.i76.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.14, i64 8) #7
-  %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.14, i64 8) #7
+  %23 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
-  %26 = load ptr, ptr %_variance, align 8
-  %cmp.i78 = icmp eq ptr %26, null
+  %24 = load ptr, ptr %_variance, align 8
+  %cmp.i78 = icmp eq ptr %24, null
   br i1 %cmp.i78, label %if.then102, label %if.end132
 
 if.then102:                                       ; preds = %do.body100
   %mode_103 = getelementptr inbounds i8, ptr %this, i64 16
-  %27 = load i32, ptr %mode_103, align 8
-  switch i32 %27, label %if.end132 [
+  %25 = load i32, ptr %mode_103, align 8
+  switch i32 %25, label %if.end132 [
     i32 0, label %do.end136
     i32 1, label %if.then109
   ]
@@ -16450,33 +16380,33 @@ if.then109:                                       ; preds = %if.then102
   %call.i79 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_111, ptr nonnull @.str.142, i64 23) #7
   %cmp.i80 = icmp eq i32 %call.i79, -1
   %NumBuckets.i.i81 = getelementptr inbounds i8, ptr %this, i64 40
-  %28 = load i32, ptr %NumBuckets.i.i81, align 8
-  %idx.ext.i.i82 = zext i32 %28 to i64
+  %26 = load i32, ptr %NumBuckets.i.i81, align 8
+  %idx.ext.i.i82 = zext i32 %26 to i64
   %idx.ext.i83 = sext i32 %call.i79 to i64
   %cmp.i.i89.not105 = icmp eq i64 %idx.ext.i83, %idx.ext.i.i82
   %cmp.i.i89.not = select i1 %cmp.i80, i1 true, i1 %cmp.i.i89.not105
   br i1 %cmp.i.i89.not, label %if.end132, label %if.then122
 
 if.then122:                                       ; preds = %if.then109
-  %29 = load ptr, ptr %ignoredEmptyFields_111, align 8
-  %retval.sroa.0.0.i85 = getelementptr inbounds ptr, ptr %29, i64 %idx.ext.i83
-  %30 = load ptr, ptr %retval.sroa.0.0.i85, align 8
-  %second124 = getelementptr inbounds i8, ptr %30, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_111, align 8
+  %retval.sroa.0.0.i85 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i83
+  %28 = load ptr, ptr %retval.sroa.0.0.i85, align 8
+  %second124 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i90 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second124, ptr nonnull @.str.21, i64 8) #7
   %cmp.i.i91 = icmp eq i32 %call.i.i90, -1
-  %NumBuckets.i.i.i92 = getelementptr inbounds i8, ptr %30, i64 16
-  %31 = load i32, ptr %NumBuckets.i.i.i92, align 8
-  %idx.ext.i.i.i93 = zext i32 %31 to i64
+  %NumBuckets.i.i.i92 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i92, align 8
+  %idx.ext.i.i.i93 = zext i32 %29 to i64
   %idx.ext.i.i94 = sext i32 %call.i.i90 to i64
   %cmp.i23.i95 = icmp eq i64 %idx.ext.i.i94, %idx.ext.i.i.i93
   %cmp.i2.not.i96.not = select i1 %cmp.i.i91, i1 true, i1 %cmp.i23.i95
   br i1 %cmp.i2.not.i96.not, label %if.end132, label %do.end136
 
 if.end132:                                        ; preds = %if.then102, %if.then122, %if.then109, %do.body100
-  %32 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr nonnull @.str.21, i64 8) #7
-  %33 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %33)
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.21, i64 8) #7
+  %31 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %31)
   br label %do.end136
 
 do.end136:                                        ; preds = %if.then102, %if.then122, %if.end132
@@ -17002,14 +16932,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_optional, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -17019,34 +16948,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.149, i64 25) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.14, i64 8) #7
-  %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.14, i64 8) #7
+  %23 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -17354,14 +17282,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_asserts = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_asserts, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -17371,34 +17298,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.151, i64 13) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.332, i64 7) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.332, i64 7) #7
-  %24 = load i8, ptr %_asserts, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.332, i64 7) #7
+  %23 = load i8, ptr %_asserts, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -19560,14 +19486,13 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_default = getelementptr inbounds i8, ptr %node, i64 80
   %23 = load i8, ptr %_default, align 8
-  %24 = and i8 %23, 1
-  %tobool99.not = icmp eq i8 %24, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %23 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %do.body98
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %25 = load i32, ptr %mode_102, align 8
-  switch i32 %25, label %if.end131 [
+  %24 = load i32, ptr %mode_102, align 8
+  switch i32 %24, label %if.end131 [
     i32 0, label %do.end136
     i32 1, label %if.then108
   ]
@@ -19577,34 +19502,33 @@ if.then108:                                       ; preds = %if.then101
   %call.i78 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.164, i64 24) #7
   %cmp.i79 = icmp eq i32 %call.i78, -1
   %NumBuckets.i.i80 = getelementptr inbounds i8, ptr %this, i64 40
-  %26 = load i32, ptr %NumBuckets.i.i80, align 8
-  %idx.ext.i.i81 = zext i32 %26 to i64
+  %25 = load i32, ptr %NumBuckets.i.i80, align 8
+  %idx.ext.i.i81 = zext i32 %25 to i64
   %idx.ext.i82 = sext i32 %call.i78 to i64
   %cmp.i.i88.not104 = icmp eq i64 %idx.ext.i82, %idx.ext.i.i81
   %cmp.i.i88.not = select i1 %cmp.i79, i1 true, i1 %cmp.i.i88.not104
   br i1 %cmp.i.i88.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %27 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i82
-  %28 = load ptr, ptr %retval.sroa.0.0.i84, align 8
-  %second123 = getelementptr inbounds i8, ptr %28, i64 8
+  %26 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i82
+  %27 = load ptr, ptr %retval.sroa.0.0.i84, align 8
+  %second123 = getelementptr inbounds i8, ptr %27, i64 8
   %call.i.i89 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.337, i64 7) #7
   %cmp.i.i90 = icmp eq i32 %call.i.i89, -1
-  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %28, i64 16
-  %29 = load i32, ptr %NumBuckets.i.i.i91, align 8
-  %idx.ext.i.i.i92 = zext i32 %29 to i64
+  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = load i32, ptr %NumBuckets.i.i.i91, align 8
+  %idx.ext.i.i.i92 = zext i32 %28 to i64
   %idx.ext.i.i93 = sext i32 %call.i.i89 to i64
   %cmp.i23.i94 = icmp eq i64 %idx.ext.i.i93, %idx.ext.i.i.i92
   %cmp.i2.not.i95.not = select i1 %cmp.i.i90, i1 true, i1 %cmp.i23.i94
   br i1 %cmp.i2.not.i95.not, label %if.end131, label %do.end136
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %do.body98
-  %30 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.337, i64 7) #7
-  %31 = load i8, ptr %_default, align 8
-  %32 = and i8 %31, 1
-  %tobool135 = icmp ne i8 %32, 0
+  %29 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr nonnull @.str.337, i64 7) #7
+  %30 = load i8, ptr %_default, align 8
+  %tobool135 = trunc i8 %30 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.end136
@@ -20294,14 +20218,13 @@ if.end130:                                        ; preds = %if.then100, %if.the
 do.body135:                                       ; preds = %if.then100, %if.end130, %if.then120
   %_inexact = getelementptr inbounds i8, ptr %node, i64 112
   %28 = load i8, ptr %_inexact, align 8
-  %29 = and i8 %28, 1
-  %tobool136.not = icmp eq i8 %29, 0
-  br i1 %tobool136.not, label %if.then138, label %if.end168
+  %tobool136 = trunc i8 %28 to i1
+  br i1 %tobool136, label %if.end168, label %if.then138
 
 if.then138:                                       ; preds = %do.body135
   %mode_139 = getelementptr inbounds i8, ptr %this, i64 16
-  %30 = load i32, ptr %mode_139, align 8
-  switch i32 %30, label %if.end168 [
+  %29 = load i32, ptr %mode_139, align 8
+  switch i32 %29, label %if.end168 [
     i32 0, label %do.body174
     i32 1, label %if.then145
   ]
@@ -20311,49 +20234,47 @@ if.then145:                                       ; preds = %if.then138
   %call.i117 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_147, ptr nonnull @.str.171, i64 20) #7
   %cmp.i118 = icmp eq i32 %call.i117, -1
   %NumBuckets.i.i119 = getelementptr inbounds i8, ptr %this, i64 40
-  %31 = load i32, ptr %NumBuckets.i.i119, align 8
-  %idx.ext.i.i120 = zext i32 %31 to i64
+  %30 = load i32, ptr %NumBuckets.i.i119, align 8
+  %idx.ext.i.i120 = zext i32 %30 to i64
   %idx.ext.i121 = sext i32 %call.i117 to i64
   %cmp.i.i127.not166 = icmp eq i64 %idx.ext.i121, %idx.ext.i.i120
   %cmp.i.i127.not = select i1 %cmp.i118, i1 true, i1 %cmp.i.i127.not166
   br i1 %cmp.i.i127.not, label %if.end168, label %if.then158
 
 if.then158:                                       ; preds = %if.then145
-  %32 = load ptr, ptr %ignoredEmptyFields_147, align 8
-  %retval.sroa.0.0.i123 = getelementptr inbounds ptr, ptr %32, i64 %idx.ext.i121
-  %33 = load ptr, ptr %retval.sroa.0.0.i123, align 8
-  %second160 = getelementptr inbounds i8, ptr %33, i64 8
+  %31 = load ptr, ptr %ignoredEmptyFields_147, align 8
+  %retval.sroa.0.0.i123 = getelementptr inbounds ptr, ptr %31, i64 %idx.ext.i121
+  %32 = load ptr, ptr %retval.sroa.0.0.i123, align 8
+  %second160 = getelementptr inbounds i8, ptr %32, i64 8
   %call.i.i128 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second160, ptr nonnull @.str.341, i64 7) #7
   %cmp.i.i129 = icmp eq i32 %call.i.i128, -1
-  %NumBuckets.i.i.i130 = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load i32, ptr %NumBuckets.i.i.i130, align 8
-  %idx.ext.i.i.i131 = zext i32 %34 to i64
+  %NumBuckets.i.i.i130 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = load i32, ptr %NumBuckets.i.i.i130, align 8
+  %idx.ext.i.i.i131 = zext i32 %33 to i64
   %idx.ext.i.i132 = sext i32 %call.i.i128 to i64
   %cmp.i23.i133 = icmp eq i64 %idx.ext.i.i132, %idx.ext.i.i.i131
   %cmp.i2.not.i134.not = select i1 %cmp.i.i129, i1 true, i1 %cmp.i23.i133
   br i1 %cmp.i2.not.i134.not, label %if.end168, label %do.body174
 
 if.end168:                                        ; preds = %if.then138, %if.then158, %if.then145, %do.body135
-  %35 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr nonnull @.str.341, i64 7) #7
-  %36 = load i8, ptr %_inexact, align 8
-  %37 = and i8 %36, 1
-  %tobool172 = icmp ne i8 %37, 0
+  %34 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr nonnull @.str.341, i64 7) #7
+  %35 = load i8, ptr %_inexact, align 8
+  %tobool172 = trunc i8 %35 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool172) #7
   br label %do.body174
 
 do.body174:                                       ; preds = %if.then138, %if.end168, %if.then158
   %_exact = getelementptr inbounds i8, ptr %node, i64 113
-  %38 = load i8, ptr %_exact, align 1
-  %39 = and i8 %38, 1
-  %tobool175.not = icmp eq i8 %39, 0
-  br i1 %tobool175.not, label %if.then177, label %if.end207
+  %36 = load i8, ptr %_exact, align 1
+  %tobool175 = trunc i8 %36 to i1
+  br i1 %tobool175, label %if.end207, label %if.then177
 
 if.then177:                                       ; preds = %do.body174
   %mode_178 = getelementptr inbounds i8, ptr %this, i64 16
-  %40 = load i32, ptr %mode_178, align 8
-  switch i32 %40, label %if.end207 [
+  %37 = load i32, ptr %mode_178, align 8
+  switch i32 %37, label %if.end207 [
     i32 0, label %do.end212
     i32 1, label %if.then184
   ]
@@ -20363,34 +20284,33 @@ if.then184:                                       ; preds = %if.then177
   %call.i137 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_186, ptr nonnull @.str.171, i64 20) #7
   %cmp.i138 = icmp eq i32 %call.i137, -1
   %NumBuckets.i.i139 = getelementptr inbounds i8, ptr %this, i64 40
-  %41 = load i32, ptr %NumBuckets.i.i139, align 8
-  %idx.ext.i.i140 = zext i32 %41 to i64
+  %38 = load i32, ptr %NumBuckets.i.i139, align 8
+  %idx.ext.i.i140 = zext i32 %38 to i64
   %idx.ext.i141 = sext i32 %call.i137 to i64
   %cmp.i.i147.not167 = icmp eq i64 %idx.ext.i141, %idx.ext.i.i140
   %cmp.i.i147.not = select i1 %cmp.i138, i1 true, i1 %cmp.i.i147.not167
   br i1 %cmp.i.i147.not, label %if.end207, label %if.then197
 
 if.then197:                                       ; preds = %if.then184
-  %42 = load ptr, ptr %ignoredEmptyFields_186, align 8
-  %retval.sroa.0.0.i143 = getelementptr inbounds ptr, ptr %42, i64 %idx.ext.i141
-  %43 = load ptr, ptr %retval.sroa.0.0.i143, align 8
-  %second199 = getelementptr inbounds i8, ptr %43, i64 8
+  %39 = load ptr, ptr %ignoredEmptyFields_186, align 8
+  %retval.sroa.0.0.i143 = getelementptr inbounds ptr, ptr %39, i64 %idx.ext.i141
+  %40 = load ptr, ptr %retval.sroa.0.0.i143, align 8
+  %second199 = getelementptr inbounds i8, ptr %40, i64 8
   %call.i.i148 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second199, ptr nonnull @.str.342, i64 5) #7
   %cmp.i.i149 = icmp eq i32 %call.i.i148, -1
-  %NumBuckets.i.i.i150 = getelementptr inbounds i8, ptr %43, i64 16
-  %44 = load i32, ptr %NumBuckets.i.i.i150, align 8
-  %idx.ext.i.i.i151 = zext i32 %44 to i64
+  %NumBuckets.i.i.i150 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = load i32, ptr %NumBuckets.i.i.i150, align 8
+  %idx.ext.i.i.i151 = zext i32 %41 to i64
   %idx.ext.i.i152 = sext i32 %call.i.i148 to i64
   %cmp.i23.i153 = icmp eq i64 %idx.ext.i.i152, %idx.ext.i.i.i151
   %cmp.i2.not.i154.not = select i1 %cmp.i.i149, i1 true, i1 %cmp.i23.i153
   br i1 %cmp.i2.not.i154.not, label %if.end207, label %do.end212
 
 if.end207:                                        ; preds = %if.then177, %if.then197, %if.then184, %do.body174
-  %45 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr nonnull @.str.342, i64 5) #7
-  %46 = load i8, ptr %_exact, align 1
-  %47 = and i8 %46, 1
-  %tobool211 = icmp ne i8 %47, 0
+  %42 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr nonnull @.str.342, i64 5) #7
+  %43 = load i8, ptr %_exact, align 1
+  %tobool211 = trunc i8 %43 to i1
   %this.val53 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val53, i1 noundef zeroext %tobool211) #7
   br label %do.end212
@@ -20500,14 +20420,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_method = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_method, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -20517,49 +20436,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i99 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.172, i64 18) #7
   %cmp.i100 = icmp eq i32 %call.i99, -1
   %NumBuckets.i.i101 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i101, align 8
-  %idx.ext.i.i102 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i101, align 8
+  %idx.ext.i.i102 = zext i32 %18 to i64
   %idx.ext.i103 = sext i32 %call.i99 to i64
   %cmp.i.i109.not207 = icmp eq i64 %idx.ext.i103, %idx.ext.i.i102
   %cmp.i.i109.not = select i1 %cmp.i100, i1 true, i1 %cmp.i.i109.not207
   br i1 %cmp.i.i109.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i105 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i103
-  %21 = load ptr, ptr %retval.sroa.0.0.i105, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i105 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i103
+  %20 = load ptr, ptr %retval.sroa.0.0.i105, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i110 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.299, i64 6) #7
   %cmp.i.i111 = icmp eq i32 %call.i.i110, -1
-  %NumBuckets.i.i.i112 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i112, align 8
-  %idx.ext.i.i.i113 = zext i32 %22 to i64
+  %NumBuckets.i.i.i112 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i112, align 8
+  %idx.ext.i.i.i113 = zext i32 %21 to i64
   %idx.ext.i.i114 = sext i32 %call.i.i110 to i64
   %cmp.i23.i115 = icmp eq i64 %idx.ext.i.i114, %idx.ext.i.i.i113
   %cmp.i2.not.i116.not = select i1 %cmp.i.i111, i1 true, i1 %cmp.i23.i115
   br i1 %cmp.i2.not.i116.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.299, i64 6) #7
-  %24 = load i8, ptr %_method, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.299, i64 6) #7
+  %23 = load i8, ptr %_method, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_optional = getelementptr inbounds i8, ptr %node, i64 65
-  %26 = load i8, ptr %_optional, align 1
-  %27 = and i8 %26, 1
-  %tobool101.not = icmp eq i8 %27, 0
-  br i1 %tobool101.not, label %if.then103, label %if.end133
+  %24 = load i8, ptr %_optional, align 1
+  %tobool101 = trunc i8 %24 to i1
+  br i1 %tobool101, label %if.end133, label %if.then103
 
 if.then103:                                       ; preds = %do.body100
   %mode_104 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i32, ptr %mode_104, align 8
-  switch i32 %28, label %if.end133 [
+  %25 = load i32, ptr %mode_104, align 8
+  switch i32 %25, label %if.end133 [
     i32 0, label %do.body139
     i32 1, label %if.then110
   ]
@@ -20569,49 +20486,47 @@ if.then110:                                       ; preds = %if.then103
   %call.i119 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_112, ptr nonnull @.str.172, i64 18) #7
   %cmp.i120 = icmp eq i32 %call.i119, -1
   %NumBuckets.i.i121 = getelementptr inbounds i8, ptr %this, i64 40
-  %29 = load i32, ptr %NumBuckets.i.i121, align 8
-  %idx.ext.i.i122 = zext i32 %29 to i64
+  %26 = load i32, ptr %NumBuckets.i.i121, align 8
+  %idx.ext.i.i122 = zext i32 %26 to i64
   %idx.ext.i123 = sext i32 %call.i119 to i64
   %cmp.i.i129.not208 = icmp eq i64 %idx.ext.i123, %idx.ext.i.i122
   %cmp.i.i129.not = select i1 %cmp.i120, i1 true, i1 %cmp.i.i129.not208
   br i1 %cmp.i.i129.not, label %if.end133, label %if.then123
 
 if.then123:                                       ; preds = %if.then110
-  %30 = load ptr, ptr %ignoredEmptyFields_112, align 8
-  %retval.sroa.0.0.i125 = getelementptr inbounds ptr, ptr %30, i64 %idx.ext.i123
-  %31 = load ptr, ptr %retval.sroa.0.0.i125, align 8
-  %second125 = getelementptr inbounds i8, ptr %31, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_112, align 8
+  %retval.sroa.0.0.i125 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i123
+  %28 = load ptr, ptr %retval.sroa.0.0.i125, align 8
+  %second125 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i130 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second125, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i131 = icmp eq i32 %call.i.i130, -1
-  %NumBuckets.i.i.i132 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i32, ptr %NumBuckets.i.i.i132, align 8
-  %idx.ext.i.i.i133 = zext i32 %32 to i64
+  %NumBuckets.i.i.i132 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i132, align 8
+  %idx.ext.i.i.i133 = zext i32 %29 to i64
   %idx.ext.i.i134 = sext i32 %call.i.i130 to i64
   %cmp.i23.i135 = icmp eq i64 %idx.ext.i.i134, %idx.ext.i.i.i133
   %cmp.i2.not.i136.not = select i1 %cmp.i.i131, i1 true, i1 %cmp.i23.i135
   br i1 %cmp.i2.not.i136.not, label %if.end133, label %do.body139
 
 if.end133:                                        ; preds = %if.then103, %if.then123, %if.then110, %do.body100
-  %33 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.14, i64 8) #7
-  %34 = load i8, ptr %_optional, align 1
-  %35 = and i8 %34, 1
-  %tobool137 = icmp ne i8 %35, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.14, i64 8) #7
+  %31 = load i8, ptr %_optional, align 1
+  %tobool137 = trunc i8 %31 to i1
   %this.val71 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val71, i1 noundef zeroext %tobool137) #7
   br label %do.body139
 
 do.body139:                                       ; preds = %if.then103, %if.end133, %if.then123
   %_static = getelementptr inbounds i8, ptr %node, i64 66
-  %36 = load i8, ptr %_static, align 2
-  %37 = and i8 %36, 1
-  %tobool140.not = icmp eq i8 %37, 0
-  br i1 %tobool140.not, label %if.then142, label %if.end172
+  %32 = load i8, ptr %_static, align 2
+  %tobool140 = trunc i8 %32 to i1
+  br i1 %tobool140, label %if.end172, label %if.then142
 
 if.then142:                                       ; preds = %do.body139
   %mode_143 = getelementptr inbounds i8, ptr %this, i64 16
-  %38 = load i32, ptr %mode_143, align 8
-  switch i32 %38, label %if.end172 [
+  %33 = load i32, ptr %mode_143, align 8
+  switch i32 %33, label %if.end172 [
     i32 0, label %do.body178
     i32 1, label %if.then149
   ]
@@ -20621,49 +20536,47 @@ if.then149:                                       ; preds = %if.then142
   %call.i139 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_151, ptr nonnull @.str.172, i64 18) #7
   %cmp.i140 = icmp eq i32 %call.i139, -1
   %NumBuckets.i.i141 = getelementptr inbounds i8, ptr %this, i64 40
-  %39 = load i32, ptr %NumBuckets.i.i141, align 8
-  %idx.ext.i.i142 = zext i32 %39 to i64
+  %34 = load i32, ptr %NumBuckets.i.i141, align 8
+  %idx.ext.i.i142 = zext i32 %34 to i64
   %idx.ext.i143 = sext i32 %call.i139 to i64
   %cmp.i.i149.not209 = icmp eq i64 %idx.ext.i143, %idx.ext.i.i142
   %cmp.i.i149.not = select i1 %cmp.i140, i1 true, i1 %cmp.i.i149.not209
   br i1 %cmp.i.i149.not, label %if.end172, label %if.then162
 
 if.then162:                                       ; preds = %if.then149
-  %40 = load ptr, ptr %ignoredEmptyFields_151, align 8
-  %retval.sroa.0.0.i145 = getelementptr inbounds ptr, ptr %40, i64 %idx.ext.i143
-  %41 = load ptr, ptr %retval.sroa.0.0.i145, align 8
-  %second164 = getelementptr inbounds i8, ptr %41, i64 8
+  %35 = load ptr, ptr %ignoredEmptyFields_151, align 8
+  %retval.sroa.0.0.i145 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i143
+  %36 = load ptr, ptr %retval.sroa.0.0.i145, align 8
+  %second164 = getelementptr inbounds i8, ptr %36, i64 8
   %call.i.i150 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second164, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i151 = icmp eq i32 %call.i.i150, -1
-  %NumBuckets.i.i.i152 = getelementptr inbounds i8, ptr %41, i64 16
-  %42 = load i32, ptr %NumBuckets.i.i.i152, align 8
-  %idx.ext.i.i.i153 = zext i32 %42 to i64
+  %NumBuckets.i.i.i152 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %NumBuckets.i.i.i152, align 8
+  %idx.ext.i.i.i153 = zext i32 %37 to i64
   %idx.ext.i.i154 = sext i32 %call.i.i150 to i64
   %cmp.i23.i155 = icmp eq i64 %idx.ext.i.i154, %idx.ext.i.i.i153
   %cmp.i2.not.i156.not = select i1 %cmp.i.i151, i1 true, i1 %cmp.i23.i155
   br i1 %cmp.i2.not.i156.not, label %if.end172, label %do.body178
 
 if.end172:                                        ; preds = %if.then142, %if.then162, %if.then149, %do.body139
-  %43 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %43, ptr nonnull @.str.302, i64 6) #7
-  %44 = load i8, ptr %_static, align 2
-  %45 = and i8 %44, 1
-  %tobool176 = icmp ne i8 %45, 0
+  %38 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.302, i64 6) #7
+  %39 = load i8, ptr %_static, align 2
+  %tobool176 = trunc i8 %39 to i1
   %this.val72 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val72, i1 noundef zeroext %tobool176) #7
   br label %do.body178
 
 do.body178:                                       ; preds = %if.then142, %if.end172, %if.then162
   %_proto = getelementptr inbounds i8, ptr %node, i64 67
-  %46 = load i8, ptr %_proto, align 1
-  %47 = and i8 %46, 1
-  %tobool179.not = icmp eq i8 %47, 0
-  br i1 %tobool179.not, label %if.then181, label %if.end211
+  %40 = load i8, ptr %_proto, align 1
+  %tobool179 = trunc i8 %40 to i1
+  br i1 %tobool179, label %if.end211, label %if.then181
 
 if.then181:                                       ; preds = %do.body178
   %mode_182 = getelementptr inbounds i8, ptr %this, i64 16
-  %48 = load i32, ptr %mode_182, align 8
-  switch i32 %48, label %if.end211 [
+  %41 = load i32, ptr %mode_182, align 8
+  switch i32 %41, label %if.end211 [
     i32 0, label %do.body217
     i32 1, label %if.then188
   ]
@@ -20673,48 +20586,47 @@ if.then188:                                       ; preds = %if.then181
   %call.i159 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_190, ptr nonnull @.str.172, i64 18) #7
   %cmp.i160 = icmp eq i32 %call.i159, -1
   %NumBuckets.i.i161 = getelementptr inbounds i8, ptr %this, i64 40
-  %49 = load i32, ptr %NumBuckets.i.i161, align 8
-  %idx.ext.i.i162 = zext i32 %49 to i64
+  %42 = load i32, ptr %NumBuckets.i.i161, align 8
+  %idx.ext.i.i162 = zext i32 %42 to i64
   %idx.ext.i163 = sext i32 %call.i159 to i64
   %cmp.i.i169.not210 = icmp eq i64 %idx.ext.i163, %idx.ext.i.i162
   %cmp.i.i169.not = select i1 %cmp.i160, i1 true, i1 %cmp.i.i169.not210
   br i1 %cmp.i.i169.not, label %if.end211, label %if.then201
 
 if.then201:                                       ; preds = %if.then188
-  %50 = load ptr, ptr %ignoredEmptyFields_190, align 8
-  %retval.sroa.0.0.i165 = getelementptr inbounds ptr, ptr %50, i64 %idx.ext.i163
-  %51 = load ptr, ptr %retval.sroa.0.0.i165, align 8
-  %second203 = getelementptr inbounds i8, ptr %51, i64 8
+  %43 = load ptr, ptr %ignoredEmptyFields_190, align 8
+  %retval.sroa.0.0.i165 = getelementptr inbounds ptr, ptr %43, i64 %idx.ext.i163
+  %44 = load ptr, ptr %retval.sroa.0.0.i165, align 8
+  %second203 = getelementptr inbounds i8, ptr %44, i64 8
   %call.i.i170 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second203, ptr nonnull @.str.343, i64 5) #7
   %cmp.i.i171 = icmp eq i32 %call.i.i170, -1
-  %NumBuckets.i.i.i172 = getelementptr inbounds i8, ptr %51, i64 16
-  %52 = load i32, ptr %NumBuckets.i.i.i172, align 8
-  %idx.ext.i.i.i173 = zext i32 %52 to i64
+  %NumBuckets.i.i.i172 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = load i32, ptr %NumBuckets.i.i.i172, align 8
+  %idx.ext.i.i.i173 = zext i32 %45 to i64
   %idx.ext.i.i174 = sext i32 %call.i.i170 to i64
   %cmp.i23.i175 = icmp eq i64 %idx.ext.i.i174, %idx.ext.i.i.i173
   %cmp.i2.not.i176.not = select i1 %cmp.i.i171, i1 true, i1 %cmp.i23.i175
   br i1 %cmp.i2.not.i176.not, label %if.end211, label %do.body217
 
 if.end211:                                        ; preds = %if.then181, %if.then201, %if.then188, %do.body178
-  %53 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr nonnull @.str.343, i64 5) #7
-  %54 = load i8, ptr %_proto, align 1
-  %55 = and i8 %54, 1
-  %tobool215 = icmp ne i8 %55, 0
+  %46 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr nonnull @.str.343, i64 5) #7
+  %47 = load i8, ptr %_proto, align 1
+  %tobool215 = trunc i8 %47 to i1
   %this.val73 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val73, i1 noundef zeroext %tobool215) #7
   br label %do.body217
 
 do.body217:                                       ; preds = %if.then181, %if.end211, %if.then201
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
-  %56 = load ptr, ptr %_variance, align 8
-  %cmp.i178 = icmp eq ptr %56, null
+  %48 = load ptr, ptr %_variance, align 8
+  %cmp.i178 = icmp eq ptr %48, null
   br i1 %cmp.i178, label %if.then219, label %if.end249
 
 if.then219:                                       ; preds = %do.body217
   %mode_220 = getelementptr inbounds i8, ptr %this, i64 16
-  %57 = load i32, ptr %mode_220, align 8
-  switch i32 %57, label %if.end249 [
+  %49 = load i32, ptr %mode_220, align 8
+  switch i32 %49, label %if.end249 [
     i32 0, label %do.body254
     i32 1, label %if.then226
   ]
@@ -20724,47 +20636,47 @@ if.then226:                                       ; preds = %if.then219
   %call.i179 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_228, ptr nonnull @.str.172, i64 18) #7
   %cmp.i180 = icmp eq i32 %call.i179, -1
   %NumBuckets.i.i181 = getelementptr inbounds i8, ptr %this, i64 40
-  %58 = load i32, ptr %NumBuckets.i.i181, align 8
-  %idx.ext.i.i182 = zext i32 %58 to i64
+  %50 = load i32, ptr %NumBuckets.i.i181, align 8
+  %idx.ext.i.i182 = zext i32 %50 to i64
   %idx.ext.i183 = sext i32 %call.i179 to i64
   %cmp.i.i189.not211 = icmp eq i64 %idx.ext.i183, %idx.ext.i.i182
   %cmp.i.i189.not = select i1 %cmp.i180, i1 true, i1 %cmp.i.i189.not211
   br i1 %cmp.i.i189.not, label %if.end249, label %if.then239
 
 if.then239:                                       ; preds = %if.then226
-  %59 = load ptr, ptr %ignoredEmptyFields_228, align 8
-  %retval.sroa.0.0.i185 = getelementptr inbounds ptr, ptr %59, i64 %idx.ext.i183
-  %60 = load ptr, ptr %retval.sroa.0.0.i185, align 8
-  %second241 = getelementptr inbounds i8, ptr %60, i64 8
+  %51 = load ptr, ptr %ignoredEmptyFields_228, align 8
+  %retval.sroa.0.0.i185 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i183
+  %52 = load ptr, ptr %retval.sroa.0.0.i185, align 8
+  %second241 = getelementptr inbounds i8, ptr %52, i64 8
   %call.i.i190 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second241, ptr nonnull @.str.21, i64 8) #7
   %cmp.i.i191 = icmp eq i32 %call.i.i190, -1
-  %NumBuckets.i.i.i192 = getelementptr inbounds i8, ptr %60, i64 16
-  %61 = load i32, ptr %NumBuckets.i.i.i192, align 8
-  %idx.ext.i.i.i193 = zext i32 %61 to i64
+  %NumBuckets.i.i.i192 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load i32, ptr %NumBuckets.i.i.i192, align 8
+  %idx.ext.i.i.i193 = zext i32 %53 to i64
   %idx.ext.i.i194 = sext i32 %call.i.i190 to i64
   %cmp.i23.i195 = icmp eq i64 %idx.ext.i.i194, %idx.ext.i.i.i193
   %cmp.i2.not.i196.not = select i1 %cmp.i.i191, i1 true, i1 %cmp.i23.i195
   br i1 %cmp.i2.not.i196.not, label %if.end249, label %do.body254
 
 if.end249:                                        ; preds = %if.then219, %if.then239, %if.then226, %do.body217
-  %62 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr nonnull @.str.21, i64 8) #7
-  %63 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %63)
+  %54 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.21, i64 8) #7
+  %55 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %55)
   br label %do.body254
 
 do.body254:                                       ; preds = %if.then219, %if.end249, %if.then239
   %_kind = getelementptr inbounds i8, ptr %node, i64 80
-  %64 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr nonnull @.str.290, i64 4) #7
-  %65 = load ptr, ptr %_kind, align 8
+  %56 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %56, ptr nonnull @.str.290, i64 4) #7
+  %57 = load ptr, ptr %_kind, align 8
   %this.val74 = load ptr, ptr %this, align 8
-  %tobool.not.i = icmp eq ptr %65, null
+  %tobool.not.i = icmp eq ptr %57, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body254
-  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %65, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %65, i64 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %57, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this.val74, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #7
   br label %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
@@ -20932,14 +20844,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_optional, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -20949,49 +20860,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i70 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.174, i64 22) #7
   %cmp.i71 = icmp eq i32 %call.i70, -1
   %NumBuckets.i.i72 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i72, align 8
-  %idx.ext.i.i73 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i72, align 8
+  %idx.ext.i.i73 = zext i32 %18 to i64
   %idx.ext.i74 = sext i32 %call.i70 to i64
   %cmp.i.i80.not136 = icmp eq i64 %idx.ext.i74, %idx.ext.i.i73
   %cmp.i.i80.not = select i1 %cmp.i71, i1 true, i1 %cmp.i.i80.not136
   br i1 %cmp.i.i80.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i76 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i74
-  %21 = load ptr, ptr %retval.sroa.0.0.i76, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i76 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i74
+  %20 = load ptr, ptr %retval.sroa.0.0.i76, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i81 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i82 = icmp eq i32 %call.i.i81, -1
-  %NumBuckets.i.i.i83 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i83, align 8
-  %idx.ext.i.i.i84 = zext i32 %22 to i64
+  %NumBuckets.i.i.i83 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i83, align 8
+  %idx.ext.i.i.i84 = zext i32 %21 to i64
   %idx.ext.i.i85 = sext i32 %call.i.i81 to i64
   %cmp.i23.i86 = icmp eq i64 %idx.ext.i.i85, %idx.ext.i.i.i84
   %cmp.i2.not.i87.not = select i1 %cmp.i.i82, i1 true, i1 %cmp.i23.i86
   br i1 %cmp.i2.not.i87.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.14, i64 8) #7
-  %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.14, i64 8) #7
+  %23 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_static = getelementptr inbounds i8, ptr %node, i64 65
-  %26 = load i8, ptr %_static, align 1
-  %27 = and i8 %26, 1
-  %tobool101.not = icmp eq i8 %27, 0
-  br i1 %tobool101.not, label %if.then103, label %if.end133
+  %24 = load i8, ptr %_static, align 1
+  %tobool101 = trunc i8 %24 to i1
+  br i1 %tobool101, label %if.end133, label %if.then103
 
 if.then103:                                       ; preds = %do.body100
   %mode_104 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i32, ptr %mode_104, align 8
-  switch i32 %28, label %if.end133 [
+  %25 = load i32, ptr %mode_104, align 8
+  switch i32 %25, label %if.end133 [
     i32 0, label %do.body139
     i32 1, label %if.then110
   ]
@@ -21001,49 +20910,47 @@ if.then110:                                       ; preds = %if.then103
   %call.i90 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_112, ptr nonnull @.str.174, i64 22) #7
   %cmp.i91 = icmp eq i32 %call.i90, -1
   %NumBuckets.i.i92 = getelementptr inbounds i8, ptr %this, i64 40
-  %29 = load i32, ptr %NumBuckets.i.i92, align 8
-  %idx.ext.i.i93 = zext i32 %29 to i64
+  %26 = load i32, ptr %NumBuckets.i.i92, align 8
+  %idx.ext.i.i93 = zext i32 %26 to i64
   %idx.ext.i94 = sext i32 %call.i90 to i64
   %cmp.i.i100.not137 = icmp eq i64 %idx.ext.i94, %idx.ext.i.i93
   %cmp.i.i100.not = select i1 %cmp.i91, i1 true, i1 %cmp.i.i100.not137
   br i1 %cmp.i.i100.not, label %if.end133, label %if.then123
 
 if.then123:                                       ; preds = %if.then110
-  %30 = load ptr, ptr %ignoredEmptyFields_112, align 8
-  %retval.sroa.0.0.i96 = getelementptr inbounds ptr, ptr %30, i64 %idx.ext.i94
-  %31 = load ptr, ptr %retval.sroa.0.0.i96, align 8
-  %second125 = getelementptr inbounds i8, ptr %31, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_112, align 8
+  %retval.sroa.0.0.i96 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i94
+  %28 = load ptr, ptr %retval.sroa.0.0.i96, align 8
+  %second125 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i101 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second125, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i102 = icmp eq i32 %call.i.i101, -1
-  %NumBuckets.i.i.i103 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i32, ptr %NumBuckets.i.i.i103, align 8
-  %idx.ext.i.i.i104 = zext i32 %32 to i64
+  %NumBuckets.i.i.i103 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i103, align 8
+  %idx.ext.i.i.i104 = zext i32 %29 to i64
   %idx.ext.i.i105 = sext i32 %call.i.i101 to i64
   %cmp.i23.i106 = icmp eq i64 %idx.ext.i.i105, %idx.ext.i.i.i104
   %cmp.i2.not.i107.not = select i1 %cmp.i.i102, i1 true, i1 %cmp.i23.i106
   br i1 %cmp.i2.not.i107.not, label %if.end133, label %do.body139
 
 if.end133:                                        ; preds = %if.then103, %if.then123, %if.then110, %do.body100
-  %33 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.302, i64 6) #7
-  %34 = load i8, ptr %_static, align 1
-  %35 = and i8 %34, 1
-  %tobool137 = icmp ne i8 %35, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.302, i64 6) #7
+  %31 = load i8, ptr %_static, align 1
+  %tobool137 = trunc i8 %31 to i1
   %this.val44 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val44, i1 noundef zeroext %tobool137) #7
   br label %do.body139
 
 do.body139:                                       ; preds = %if.then103, %if.end133, %if.then123
   %_method = getelementptr inbounds i8, ptr %node, i64 66
-  %36 = load i8, ptr %_method, align 2
-  %37 = and i8 %36, 1
-  %tobool140.not = icmp eq i8 %37, 0
-  br i1 %tobool140.not, label %if.then142, label %if.end172
+  %32 = load i8, ptr %_method, align 2
+  %tobool140 = trunc i8 %32 to i1
+  br i1 %tobool140, label %if.end172, label %if.then142
 
 if.then142:                                       ; preds = %do.body139
   %mode_143 = getelementptr inbounds i8, ptr %this, i64 16
-  %38 = load i32, ptr %mode_143, align 8
-  switch i32 %38, label %if.end172 [
+  %33 = load i32, ptr %mode_143, align 8
+  switch i32 %33, label %if.end172 [
     i32 0, label %do.end177
     i32 1, label %if.then149
   ]
@@ -21053,34 +20960,33 @@ if.then149:                                       ; preds = %if.then142
   %call.i110 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_151, ptr nonnull @.str.174, i64 22) #7
   %cmp.i111 = icmp eq i32 %call.i110, -1
   %NumBuckets.i.i112 = getelementptr inbounds i8, ptr %this, i64 40
-  %39 = load i32, ptr %NumBuckets.i.i112, align 8
-  %idx.ext.i.i113 = zext i32 %39 to i64
+  %34 = load i32, ptr %NumBuckets.i.i112, align 8
+  %idx.ext.i.i113 = zext i32 %34 to i64
   %idx.ext.i114 = sext i32 %call.i110 to i64
   %cmp.i.i120.not138 = icmp eq i64 %idx.ext.i114, %idx.ext.i.i113
   %cmp.i.i120.not = select i1 %cmp.i111, i1 true, i1 %cmp.i.i120.not138
   br i1 %cmp.i.i120.not, label %if.end172, label %if.then162
 
 if.then162:                                       ; preds = %if.then149
-  %40 = load ptr, ptr %ignoredEmptyFields_151, align 8
-  %retval.sroa.0.0.i116 = getelementptr inbounds ptr, ptr %40, i64 %idx.ext.i114
-  %41 = load ptr, ptr %retval.sroa.0.0.i116, align 8
-  %second164 = getelementptr inbounds i8, ptr %41, i64 8
+  %35 = load ptr, ptr %ignoredEmptyFields_151, align 8
+  %retval.sroa.0.0.i116 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i114
+  %36 = load ptr, ptr %retval.sroa.0.0.i116, align 8
+  %second164 = getelementptr inbounds i8, ptr %36, i64 8
   %call.i.i121 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second164, ptr nonnull @.str.299, i64 6) #7
   %cmp.i.i122 = icmp eq i32 %call.i.i121, -1
-  %NumBuckets.i.i.i123 = getelementptr inbounds i8, ptr %41, i64 16
-  %42 = load i32, ptr %NumBuckets.i.i.i123, align 8
-  %idx.ext.i.i.i124 = zext i32 %42 to i64
+  %NumBuckets.i.i.i123 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %NumBuckets.i.i.i123, align 8
+  %idx.ext.i.i.i124 = zext i32 %37 to i64
   %idx.ext.i.i125 = sext i32 %call.i.i121 to i64
   %cmp.i23.i126 = icmp eq i64 %idx.ext.i.i125, %idx.ext.i.i.i124
   %cmp.i2.not.i127.not = select i1 %cmp.i.i122, i1 true, i1 %cmp.i23.i126
   br i1 %cmp.i2.not.i127.not, label %if.end172, label %do.end177
 
 if.end172:                                        ; preds = %if.then142, %if.then162, %if.then149, %do.body139
-  %43 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %43, ptr nonnull @.str.299, i64 6) #7
-  %44 = load i8, ptr %_method, align 2
-  %45 = and i8 %44, 1
-  %tobool176 = icmp ne i8 %45, 0
+  %38 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.299, i64 6) #7
+  %39 = load i8, ptr %_method, align 2
+  %tobool176 = trunc i8 %39 to i1
   %this.val45 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val45, i1 noundef zeroext %tobool176) #7
   br label %do.end177
@@ -21142,14 +21048,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_static = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load i8, ptr %_static, align 8
-  %9 = and i8 %8, 1
-  %tobool25.not = icmp eq i8 %9, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %8 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load i32, ptr %mode_28, align 8
-  switch i32 %10, label %if.end57 [
+  %9 = load i32, ptr %mode_28, align 8
+  switch i32 %9, label %if.end57 [
     i32 0, label %do.end62
     i32 1, label %if.then34
   ]
@@ -21159,34 +21064,33 @@ if.then34:                                        ; preds = %if.then27
   %call.i21 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.175, i64 22) #7
   %cmp.i22 = icmp eq i32 %call.i21, -1
   %NumBuckets.i.i23 = getelementptr inbounds i8, ptr %this, i64 40
-  %11 = load i32, ptr %NumBuckets.i.i23, align 8
-  %idx.ext.i.i24 = zext i32 %11 to i64
+  %10 = load i32, ptr %NumBuckets.i.i23, align 8
+  %idx.ext.i.i24 = zext i32 %10 to i64
   %idx.ext.i25 = sext i32 %call.i21 to i64
   %cmp.i.i31.not43 = icmp eq i64 %idx.ext.i25, %idx.ext.i.i24
   %cmp.i.i31.not = select i1 %cmp.i22, i1 true, i1 %cmp.i.i31.not43
   br i1 %cmp.i.i31.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %12 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i27 = getelementptr inbounds ptr, ptr %12, i64 %idx.ext.i25
-  %13 = load ptr, ptr %retval.sroa.0.0.i27, align 8
-  %second49 = getelementptr inbounds i8, ptr %13, i64 8
+  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i27 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i25
+  %12 = load ptr, ptr %retval.sroa.0.0.i27, align 8
+  %second49 = getelementptr inbounds i8, ptr %12, i64 8
   %call.i.i32 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i33 = icmp eq i32 %call.i.i32, -1
-  %NumBuckets.i.i.i34 = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load i32, ptr %NumBuckets.i.i.i34, align 8
-  %idx.ext.i.i.i35 = zext i32 %14 to i64
+  %NumBuckets.i.i.i34 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = load i32, ptr %NumBuckets.i.i.i34, align 8
+  %idx.ext.i.i.i35 = zext i32 %13 to i64
   %idx.ext.i.i36 = sext i32 %call.i.i32 to i64
   %cmp.i23.i37 = icmp eq i64 %idx.ext.i.i36, %idx.ext.i.i.i35
   %cmp.i2.not.i38.not = select i1 %cmp.i.i33, i1 true, i1 %cmp.i23.i37
   br i1 %cmp.i2.not.i38.not, label %if.end57, label %do.end62
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %15 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr nonnull @.str.302, i64 6) #7
-  %16 = load i8, ptr %_static, align 8
-  %17 = and i8 %16, 1
-  %tobool61 = icmp ne i8 %17, 0
+  %14 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.302, i64 6) #7
+  %15 = load i8, ptr %_static, align 8
+  %tobool61 = trunc i8 %15 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.end62
@@ -21344,14 +21248,13 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_static = getelementptr inbounds i8, ptr %node, i64 72
   %24 = load i8, ptr %_static, align 8
-  %25 = and i8 %24, 1
-  %tobool99.not = icmp eq i8 %25, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %24 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %do.body98
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load i32, ptr %mode_102, align 8
-  switch i32 %26, label %if.end131 [
+  %25 = load i32, ptr %mode_102, align 8
+  switch i32 %25, label %if.end131 [
     i32 0, label %do.body137
     i32 1, label %if.then108
   ]
@@ -21361,48 +21264,47 @@ if.then108:                                       ; preds = %if.then101
   %call.i88 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.176, i64 17) #7
   %cmp.i89 = icmp eq i32 %call.i88, -1
   %NumBuckets.i.i90 = getelementptr inbounds i8, ptr %this, i64 40
-  %27 = load i32, ptr %NumBuckets.i.i90, align 8
-  %idx.ext.i.i91 = zext i32 %27 to i64
+  %26 = load i32, ptr %NumBuckets.i.i90, align 8
+  %idx.ext.i.i91 = zext i32 %26 to i64
   %idx.ext.i92 = sext i32 %call.i88 to i64
   %cmp.i.i98.not135 = icmp eq i64 %idx.ext.i92, %idx.ext.i.i91
   %cmp.i.i98.not = select i1 %cmp.i89, i1 true, i1 %cmp.i.i98.not135
   br i1 %cmp.i.i98.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %28 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i94 = getelementptr inbounds ptr, ptr %28, i64 %idx.ext.i92
-  %29 = load ptr, ptr %retval.sroa.0.0.i94, align 8
-  %second123 = getelementptr inbounds i8, ptr %29, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i94 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i92
+  %28 = load ptr, ptr %retval.sroa.0.0.i94, align 8
+  %second123 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i99 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i100 = icmp eq i32 %call.i.i99, -1
-  %NumBuckets.i.i.i101 = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load i32, ptr %NumBuckets.i.i.i101, align 8
-  %idx.ext.i.i.i102 = zext i32 %30 to i64
+  %NumBuckets.i.i.i101 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i101, align 8
+  %idx.ext.i.i.i102 = zext i32 %29 to i64
   %idx.ext.i.i103 = sext i32 %call.i.i99 to i64
   %cmp.i23.i104 = icmp eq i64 %idx.ext.i.i103, %idx.ext.i.i.i102
   %cmp.i2.not.i105.not = select i1 %cmp.i.i100, i1 true, i1 %cmp.i23.i104
   br i1 %cmp.i2.not.i105.not, label %if.end131, label %do.body137
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %do.body98
-  %31 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.302, i64 6) #7
-  %32 = load i8, ptr %_static, align 8
-  %33 = and i8 %32, 1
-  %tobool135 = icmp ne i8 %33, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.302, i64 6) #7
+  %31 = load i8, ptr %_static, align 8
+  %tobool135 = trunc i8 %31 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.body137
 
 do.body137:                                       ; preds = %if.then101, %if.end131, %if.then121
   %_variance = getelementptr inbounds i8, ptr %node, i64 80
-  %34 = load ptr, ptr %_variance, align 8
-  %cmp.i107 = icmp eq ptr %34, null
+  %32 = load ptr, ptr %_variance, align 8
+  %cmp.i107 = icmp eq ptr %32, null
   br i1 %cmp.i107, label %if.then139, label %if.end169
 
 if.then139:                                       ; preds = %do.body137
   %mode_140 = getelementptr inbounds i8, ptr %this, i64 16
-  %35 = load i32, ptr %mode_140, align 8
-  switch i32 %35, label %if.end169 [
+  %33 = load i32, ptr %mode_140, align 8
+  switch i32 %33, label %if.end169 [
     i32 0, label %do.end173
     i32 1, label %if.then146
   ]
@@ -21412,33 +21314,33 @@ if.then146:                                       ; preds = %if.then139
   %call.i108 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_148, ptr nonnull @.str.176, i64 17) #7
   %cmp.i109 = icmp eq i32 %call.i108, -1
   %NumBuckets.i.i110 = getelementptr inbounds i8, ptr %this, i64 40
-  %36 = load i32, ptr %NumBuckets.i.i110, align 8
-  %idx.ext.i.i111 = zext i32 %36 to i64
+  %34 = load i32, ptr %NumBuckets.i.i110, align 8
+  %idx.ext.i.i111 = zext i32 %34 to i64
   %idx.ext.i112 = sext i32 %call.i108 to i64
   %cmp.i.i118.not136 = icmp eq i64 %idx.ext.i112, %idx.ext.i.i111
   %cmp.i.i118.not = select i1 %cmp.i109, i1 true, i1 %cmp.i.i118.not136
   br i1 %cmp.i.i118.not, label %if.end169, label %if.then159
 
 if.then159:                                       ; preds = %if.then146
-  %37 = load ptr, ptr %ignoredEmptyFields_148, align 8
-  %retval.sroa.0.0.i114 = getelementptr inbounds ptr, ptr %37, i64 %idx.ext.i112
-  %38 = load ptr, ptr %retval.sroa.0.0.i114, align 8
-  %second161 = getelementptr inbounds i8, ptr %38, i64 8
+  %35 = load ptr, ptr %ignoredEmptyFields_148, align 8
+  %retval.sroa.0.0.i114 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i112
+  %36 = load ptr, ptr %retval.sroa.0.0.i114, align 8
+  %second161 = getelementptr inbounds i8, ptr %36, i64 8
   %call.i.i119 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second161, ptr nonnull @.str.21, i64 8) #7
   %cmp.i.i120 = icmp eq i32 %call.i.i119, -1
-  %NumBuckets.i.i.i121 = getelementptr inbounds i8, ptr %38, i64 16
-  %39 = load i32, ptr %NumBuckets.i.i.i121, align 8
-  %idx.ext.i.i.i122 = zext i32 %39 to i64
+  %NumBuckets.i.i.i121 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %NumBuckets.i.i.i121, align 8
+  %idx.ext.i.i.i122 = zext i32 %37 to i64
   %idx.ext.i.i123 = sext i32 %call.i.i119 to i64
   %cmp.i23.i124 = icmp eq i64 %idx.ext.i.i123, %idx.ext.i.i.i122
   %cmp.i2.not.i125.not = select i1 %cmp.i.i120, i1 true, i1 %cmp.i23.i124
   br i1 %cmp.i2.not.i125.not, label %if.end169, label %do.end173
 
 if.end169:                                        ; preds = %if.then139, %if.then159, %if.then146, %do.body137
-  %40 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr nonnull @.str.21, i64 8) #7
-  %41 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %41)
+  %38 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.21, i64 8) #7
+  %39 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %39)
   br label %do.end173
 
 do.end173:                                        ; preds = %if.then139, %if.then159, %if.end169
@@ -21911,14 +21813,13 @@ if.end130:                                        ; preds = %if.then100, %if.the
 do.body135:                                       ; preds = %if.then100, %if.end130, %if.then120
   %_usesExtendsBound = getelementptr inbounds i8, ptr %node, i64 80
   %26 = load i8, ptr %_usesExtendsBound, align 8
-  %27 = and i8 %26, 1
-  %tobool136.not = icmp eq i8 %27, 0
-  br i1 %tobool136.not, label %if.then138, label %if.end168
+  %tobool136 = trunc i8 %26 to i1
+  br i1 %tobool136, label %if.end168, label %if.then138
 
 if.then138:                                       ; preds = %do.body135
   %mode_139 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load i32, ptr %mode_139, align 8
-  switch i32 %28, label %if.end168 [
+  %27 = load i32, ptr %mode_139, align 8
+  switch i32 %27, label %if.end168 [
     i32 0, label %do.end173
     i32 1, label %if.then145
   ]
@@ -21928,34 +21829,33 @@ if.then145:                                       ; preds = %if.then138
   %call.i89 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_147, ptr nonnull @.str.27, i64 13) #7
   %cmp.i90 = icmp eq i32 %call.i89, -1
   %NumBuckets.i.i91 = getelementptr inbounds i8, ptr %this, i64 40
-  %29 = load i32, ptr %NumBuckets.i.i91, align 8
-  %idx.ext.i.i92 = zext i32 %29 to i64
+  %28 = load i32, ptr %NumBuckets.i.i91, align 8
+  %idx.ext.i.i92 = zext i32 %28 to i64
   %idx.ext.i93 = sext i32 %call.i89 to i64
   %cmp.i.i99.not115 = icmp eq i64 %idx.ext.i93, %idx.ext.i.i92
   %cmp.i.i99.not = select i1 %cmp.i90, i1 true, i1 %cmp.i.i99.not115
   br i1 %cmp.i.i99.not, label %if.end168, label %if.then158
 
 if.then158:                                       ; preds = %if.then145
-  %30 = load ptr, ptr %ignoredEmptyFields_147, align 8
-  %retval.sroa.0.0.i95 = getelementptr inbounds ptr, ptr %30, i64 %idx.ext.i93
-  %31 = load ptr, ptr %retval.sroa.0.0.i95, align 8
-  %second160 = getelementptr inbounds i8, ptr %31, i64 8
+  %29 = load ptr, ptr %ignoredEmptyFields_147, align 8
+  %retval.sroa.0.0.i95 = getelementptr inbounds ptr, ptr %29, i64 %idx.ext.i93
+  %30 = load ptr, ptr %retval.sroa.0.0.i95, align 8
+  %second160 = getelementptr inbounds i8, ptr %30, i64 8
   %call.i.i100 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second160, ptr nonnull @.str.28, i64 16) #7
   %cmp.i.i101 = icmp eq i32 %call.i.i100, -1
-  %NumBuckets.i.i.i102 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i32, ptr %NumBuckets.i.i.i102, align 8
-  %idx.ext.i.i.i103 = zext i32 %32 to i64
+  %NumBuckets.i.i.i102 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load i32, ptr %NumBuckets.i.i.i102, align 8
+  %idx.ext.i.i.i103 = zext i32 %31 to i64
   %idx.ext.i.i104 = sext i32 %call.i.i100 to i64
   %cmp.i23.i105 = icmp eq i64 %idx.ext.i.i104, %idx.ext.i.i.i103
   %cmp.i2.not.i106.not = select i1 %cmp.i.i101, i1 true, i1 %cmp.i23.i105
   br i1 %cmp.i2.not.i106.not, label %if.end168, label %do.end173
 
 if.end168:                                        ; preds = %if.then138, %if.then158, %if.then145, %do.body135
-  %33 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.28, i64 16) #7
-  %34 = load i8, ptr %_usesExtendsBound, align 8
-  %35 = and i8 %34, 1
-  %tobool172 = icmp ne i8 %35, 0
+  %32 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr nonnull @.str.28, i64 16) #7
+  %33 = load i8, ptr %_usesExtendsBound, align 8
+  %tobool172 = trunc i8 %33 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool172) #7
   br label %do.end173
@@ -22429,14 +22329,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_explicitType = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load i8, ptr %_explicitType, align 8
-  %8 = and i8 %7, 1
-  %tobool25.not = icmp eq i8 %8, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %7 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %mode_28, align 8
-  switch i32 %9, label %if.end57 [
+  %8 = load i32, ptr %mode_28, align 8
+  switch i32 %8, label %if.end57 [
     i32 0, label %do.body63
     i32 1, label %if.then34
   ]
@@ -22446,49 +22345,47 @@ if.then34:                                        ; preds = %if.then27
   %call.i30 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.186, i64 14) #7
   %cmp.i31 = icmp eq i32 %call.i30, -1
   %NumBuckets.i.i32 = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load i32, ptr %NumBuckets.i.i32, align 8
-  %idx.ext.i.i33 = zext i32 %10 to i64
+  %9 = load i32, ptr %NumBuckets.i.i32, align 8
+  %idx.ext.i.i33 = zext i32 %9 to i64
   %idx.ext.i34 = sext i32 %call.i30 to i64
   %cmp.i.i40.not73 = icmp eq i64 %idx.ext.i34, %idx.ext.i.i33
   %cmp.i.i40.not = select i1 %cmp.i31, i1 true, i1 %cmp.i.i40.not73
   br i1 %cmp.i.i40.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i36 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i34
-  %12 = load ptr, ptr %retval.sroa.0.0.i36, align 8
-  %second49 = getelementptr inbounds i8, ptr %12, i64 8
+  %10 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i36 = getelementptr inbounds ptr, ptr %10, i64 %idx.ext.i34
+  %11 = load ptr, ptr %retval.sroa.0.0.i36, align 8
+  %second49 = getelementptr inbounds i8, ptr %11, i64 8
   %call.i.i41 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.349, i64 12) #7
   %cmp.i.i42 = icmp eq i32 %call.i.i41, -1
-  %NumBuckets.i.i.i43 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %NumBuckets.i.i.i43, align 8
-  %idx.ext.i.i.i44 = zext i32 %13 to i64
+  %NumBuckets.i.i.i43 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i32, ptr %NumBuckets.i.i.i43, align 8
+  %idx.ext.i.i.i44 = zext i32 %12 to i64
   %idx.ext.i.i45 = sext i32 %call.i.i41 to i64
   %cmp.i23.i46 = icmp eq i64 %idx.ext.i.i45, %idx.ext.i.i.i44
   %cmp.i2.not.i47.not = select i1 %cmp.i.i42, i1 true, i1 %cmp.i23.i46
   br i1 %cmp.i2.not.i47.not, label %if.end57, label %do.body63
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %14 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.349, i64 12) #7
-  %15 = load i8, ptr %_explicitType, align 8
-  %16 = and i8 %15, 1
-  %tobool61 = icmp ne i8 %16, 0
+  %13 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr nonnull @.str.349, i64 12) #7
+  %14 = load i8, ptr %_explicitType, align 8
+  %tobool61 = trunc i8 %14 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.body63
 
 do.body63:                                        ; preds = %if.then27, %if.end57, %if.then47
   %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 65
-  %17 = load i8, ptr %_hasUnknownMembers, align 1
-  %18 = and i8 %17, 1
-  %tobool64.not = icmp eq i8 %18, 0
-  br i1 %tobool64.not, label %if.then66, label %if.end96
+  %15 = load i8, ptr %_hasUnknownMembers, align 1
+  %tobool64 = trunc i8 %15 to i1
+  br i1 %tobool64, label %if.end96, label %if.then66
 
 if.then66:                                        ; preds = %do.body63
   %mode_67 = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load i32, ptr %mode_67, align 8
-  switch i32 %19, label %if.end96 [
+  %16 = load i32, ptr %mode_67, align 8
+  switch i32 %16, label %if.end96 [
     i32 0, label %do.end101
     i32 1, label %if.then73
   ]
@@ -22498,34 +22395,33 @@ if.then73:                                        ; preds = %if.then66
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_75, ptr nonnull @.str.186, i64 14) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %20 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %20 to i64
+  %17 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %17 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end96, label %if.then86
 
 if.then86:                                        ; preds = %if.then73
-  %21 = load ptr, ptr %ignoredEmptyFields_75, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i54
-  %22 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second88 = getelementptr inbounds i8, ptr %22, i64 8
+  %18 = load ptr, ptr %ignoredEmptyFields_75, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %18, i64 %idx.ext.i54
+  %19 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second88 = getelementptr inbounds i8, ptr %19, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second88, ptr nonnull @.str.350, i64 17) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %22, i64 16
-  %23 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %23 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %20 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end96, label %do.end101
 
 if.end96:                                         ; preds = %if.then66, %if.then86, %if.then73, %do.body63
-  %24 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.350, i64 17) #7
-  %25 = load i8, ptr %_hasUnknownMembers, align 1
-  %26 = and i8 %25, 1
-  %tobool100 = icmp ne i8 %26, 0
+  %21 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr nonnull @.str.350, i64 17) #7
+  %22 = load i8, ptr %_hasUnknownMembers, align 1
+  %tobool100 = trunc i8 %22 to i1
   %this.val26 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, i1 noundef zeroext %tobool100) #7
   br label %do.end101
@@ -22586,14 +22482,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_explicitType = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load i8, ptr %_explicitType, align 8
-  %8 = and i8 %7, 1
-  %tobool25.not = icmp eq i8 %8, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %7 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %mode_28, align 8
-  switch i32 %9, label %if.end57 [
+  %8 = load i32, ptr %mode_28, align 8
+  switch i32 %8, label %if.end57 [
     i32 0, label %do.body63
     i32 1, label %if.then34
   ]
@@ -22603,49 +22498,47 @@ if.then34:                                        ; preds = %if.then27
   %call.i30 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.187, i64 14) #7
   %cmp.i31 = icmp eq i32 %call.i30, -1
   %NumBuckets.i.i32 = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load i32, ptr %NumBuckets.i.i32, align 8
-  %idx.ext.i.i33 = zext i32 %10 to i64
+  %9 = load i32, ptr %NumBuckets.i.i32, align 8
+  %idx.ext.i.i33 = zext i32 %9 to i64
   %idx.ext.i34 = sext i32 %call.i30 to i64
   %cmp.i.i40.not73 = icmp eq i64 %idx.ext.i34, %idx.ext.i.i33
   %cmp.i.i40.not = select i1 %cmp.i31, i1 true, i1 %cmp.i.i40.not73
   br i1 %cmp.i.i40.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i36 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i34
-  %12 = load ptr, ptr %retval.sroa.0.0.i36, align 8
-  %second49 = getelementptr inbounds i8, ptr %12, i64 8
+  %10 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i36 = getelementptr inbounds ptr, ptr %10, i64 %idx.ext.i34
+  %11 = load ptr, ptr %retval.sroa.0.0.i36, align 8
+  %second49 = getelementptr inbounds i8, ptr %11, i64 8
   %call.i.i41 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.349, i64 12) #7
   %cmp.i.i42 = icmp eq i32 %call.i.i41, -1
-  %NumBuckets.i.i.i43 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %NumBuckets.i.i.i43, align 8
-  %idx.ext.i.i.i44 = zext i32 %13 to i64
+  %NumBuckets.i.i.i43 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i32, ptr %NumBuckets.i.i.i43, align 8
+  %idx.ext.i.i.i44 = zext i32 %12 to i64
   %idx.ext.i.i45 = sext i32 %call.i.i41 to i64
   %cmp.i23.i46 = icmp eq i64 %idx.ext.i.i45, %idx.ext.i.i.i44
   %cmp.i2.not.i47.not = select i1 %cmp.i.i42, i1 true, i1 %cmp.i23.i46
   br i1 %cmp.i2.not.i47.not, label %if.end57, label %do.body63
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %14 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.349, i64 12) #7
-  %15 = load i8, ptr %_explicitType, align 8
-  %16 = and i8 %15, 1
-  %tobool61 = icmp ne i8 %16, 0
+  %13 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr nonnull @.str.349, i64 12) #7
+  %14 = load i8, ptr %_explicitType, align 8
+  %tobool61 = trunc i8 %14 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.body63
 
 do.body63:                                        ; preds = %if.then27, %if.end57, %if.then47
   %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 65
-  %17 = load i8, ptr %_hasUnknownMembers, align 1
-  %18 = and i8 %17, 1
-  %tobool64.not = icmp eq i8 %18, 0
-  br i1 %tobool64.not, label %if.then66, label %if.end96
+  %15 = load i8, ptr %_hasUnknownMembers, align 1
+  %tobool64 = trunc i8 %15 to i1
+  br i1 %tobool64, label %if.end96, label %if.then66
 
 if.then66:                                        ; preds = %do.body63
   %mode_67 = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load i32, ptr %mode_67, align 8
-  switch i32 %19, label %if.end96 [
+  %16 = load i32, ptr %mode_67, align 8
+  switch i32 %16, label %if.end96 [
     i32 0, label %do.end101
     i32 1, label %if.then73
   ]
@@ -22655,34 +22548,33 @@ if.then73:                                        ; preds = %if.then66
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_75, ptr nonnull @.str.187, i64 14) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %20 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %20 to i64
+  %17 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %17 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end96, label %if.then86
 
 if.then86:                                        ; preds = %if.then73
-  %21 = load ptr, ptr %ignoredEmptyFields_75, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i54
-  %22 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second88 = getelementptr inbounds i8, ptr %22, i64 8
+  %18 = load ptr, ptr %ignoredEmptyFields_75, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %18, i64 %idx.ext.i54
+  %19 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second88 = getelementptr inbounds i8, ptr %19, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second88, ptr nonnull @.str.350, i64 17) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %22, i64 16
-  %23 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %23 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %20 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end96, label %do.end101
 
 if.end96:                                         ; preds = %if.then66, %if.then86, %if.then73, %do.body63
-  %24 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.350, i64 17) #7
-  %25 = load i8, ptr %_hasUnknownMembers, align 1
-  %26 = and i8 %25, 1
-  %tobool100 = icmp ne i8 %26, 0
+  %21 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr nonnull @.str.350, i64 17) #7
+  %22 = load i8, ptr %_hasUnknownMembers, align 1
+  %tobool100 = trunc i8 %22 to i1
   %this.val26 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, i1 noundef zeroext %tobool100) #7
   br label %do.end101
@@ -22743,14 +22635,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_explicitType = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load i8, ptr %_explicitType, align 8
-  %8 = and i8 %7, 1
-  %tobool25.not = icmp eq i8 %8, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %7 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %mode_28, align 8
-  switch i32 %9, label %if.end57 [
+  %8 = load i32, ptr %mode_28, align 8
+  switch i32 %8, label %if.end57 [
     i32 0, label %do.body63
     i32 1, label %if.then34
   ]
@@ -22760,49 +22651,47 @@ if.then34:                                        ; preds = %if.then27
   %call.i30 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.188, i64 15) #7
   %cmp.i31 = icmp eq i32 %call.i30, -1
   %NumBuckets.i.i32 = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load i32, ptr %NumBuckets.i.i32, align 8
-  %idx.ext.i.i33 = zext i32 %10 to i64
+  %9 = load i32, ptr %NumBuckets.i.i32, align 8
+  %idx.ext.i.i33 = zext i32 %9 to i64
   %idx.ext.i34 = sext i32 %call.i30 to i64
   %cmp.i.i40.not73 = icmp eq i64 %idx.ext.i34, %idx.ext.i.i33
   %cmp.i.i40.not = select i1 %cmp.i31, i1 true, i1 %cmp.i.i40.not73
   br i1 %cmp.i.i40.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i36 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i34
-  %12 = load ptr, ptr %retval.sroa.0.0.i36, align 8
-  %second49 = getelementptr inbounds i8, ptr %12, i64 8
+  %10 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i36 = getelementptr inbounds ptr, ptr %10, i64 %idx.ext.i34
+  %11 = load ptr, ptr %retval.sroa.0.0.i36, align 8
+  %second49 = getelementptr inbounds i8, ptr %11, i64 8
   %call.i.i41 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.349, i64 12) #7
   %cmp.i.i42 = icmp eq i32 %call.i.i41, -1
-  %NumBuckets.i.i.i43 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %NumBuckets.i.i.i43, align 8
-  %idx.ext.i.i.i44 = zext i32 %13 to i64
+  %NumBuckets.i.i.i43 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i32, ptr %NumBuckets.i.i.i43, align 8
+  %idx.ext.i.i.i44 = zext i32 %12 to i64
   %idx.ext.i.i45 = sext i32 %call.i.i41 to i64
   %cmp.i23.i46 = icmp eq i64 %idx.ext.i.i45, %idx.ext.i.i.i44
   %cmp.i2.not.i47.not = select i1 %cmp.i.i42, i1 true, i1 %cmp.i23.i46
   br i1 %cmp.i2.not.i47.not, label %if.end57, label %do.body63
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %14 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.349, i64 12) #7
-  %15 = load i8, ptr %_explicitType, align 8
-  %16 = and i8 %15, 1
-  %tobool61 = icmp ne i8 %16, 0
+  %13 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr nonnull @.str.349, i64 12) #7
+  %14 = load i8, ptr %_explicitType, align 8
+  %tobool61 = trunc i8 %14 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.body63
 
 do.body63:                                        ; preds = %if.then27, %if.end57, %if.then47
   %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 65
-  %17 = load i8, ptr %_hasUnknownMembers, align 1
-  %18 = and i8 %17, 1
-  %tobool64.not = icmp eq i8 %18, 0
-  br i1 %tobool64.not, label %if.then66, label %if.end96
+  %15 = load i8, ptr %_hasUnknownMembers, align 1
+  %tobool64 = trunc i8 %15 to i1
+  br i1 %tobool64, label %if.end96, label %if.then66
 
 if.then66:                                        ; preds = %do.body63
   %mode_67 = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load i32, ptr %mode_67, align 8
-  switch i32 %19, label %if.end96 [
+  %16 = load i32, ptr %mode_67, align 8
+  switch i32 %16, label %if.end96 [
     i32 0, label %do.end101
     i32 1, label %if.then73
   ]
@@ -22812,34 +22701,33 @@ if.then73:                                        ; preds = %if.then66
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_75, ptr nonnull @.str.188, i64 15) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %20 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %20 to i64
+  %17 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %17 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end96, label %if.then86
 
 if.then86:                                        ; preds = %if.then73
-  %21 = load ptr, ptr %ignoredEmptyFields_75, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i54
-  %22 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second88 = getelementptr inbounds i8, ptr %22, i64 8
+  %18 = load ptr, ptr %ignoredEmptyFields_75, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %18, i64 %idx.ext.i54
+  %19 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second88 = getelementptr inbounds i8, ptr %19, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second88, ptr nonnull @.str.350, i64 17) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %22, i64 16
-  %23 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %23 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %20 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end96, label %do.end101
 
 if.end96:                                         ; preds = %if.then66, %if.then86, %if.then73, %do.body63
-  %24 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.350, i64 17) #7
-  %25 = load i8, ptr %_hasUnknownMembers, align 1
-  %26 = and i8 %25, 1
-  %tobool100 = icmp ne i8 %26, 0
+  %21 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr nonnull @.str.350, i64 17) #7
+  %22 = load i8, ptr %_hasUnknownMembers, align 1
+  %tobool100 = trunc i8 %22 to i1
   %this.val26 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val26, i1 noundef zeroext %tobool100) #7
   br label %do.end101
@@ -22900,14 +22788,13 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load i8, ptr %_hasUnknownMembers, align 8
-  %8 = and i8 %7, 1
-  %tobool25.not = icmp eq i8 %8, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %7 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %do.body24
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %mode_28, align 8
-  switch i32 %9, label %if.end57 [
+  %8 = load i32, ptr %mode_28, align 8
+  switch i32 %8, label %if.end57 [
     i32 0, label %do.end62
     i32 1, label %if.then34
   ]
@@ -22917,34 +22804,33 @@ if.then34:                                        ; preds = %if.then27
   %call.i20 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.189, i64 14) #7
   %cmp.i21 = icmp eq i32 %call.i20, -1
   %NumBuckets.i.i22 = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load i32, ptr %NumBuckets.i.i22, align 8
-  %idx.ext.i.i23 = zext i32 %10 to i64
+  %9 = load i32, ptr %NumBuckets.i.i22, align 8
+  %idx.ext.i.i23 = zext i32 %9 to i64
   %idx.ext.i24 = sext i32 %call.i20 to i64
   %cmp.i.i30.not42 = icmp eq i64 %idx.ext.i24, %idx.ext.i.i23
   %cmp.i.i30.not = select i1 %cmp.i21, i1 true, i1 %cmp.i.i30.not42
   br i1 %cmp.i.i30.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %11 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i26 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i24
-  %12 = load ptr, ptr %retval.sroa.0.0.i26, align 8
-  %second49 = getelementptr inbounds i8, ptr %12, i64 8
+  %10 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i26 = getelementptr inbounds ptr, ptr %10, i64 %idx.ext.i24
+  %11 = load ptr, ptr %retval.sroa.0.0.i26, align 8
+  %second49 = getelementptr inbounds i8, ptr %11, i64 8
   %call.i.i31 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.350, i64 17) #7
   %cmp.i.i32 = icmp eq i32 %call.i.i31, -1
-  %NumBuckets.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %NumBuckets.i.i.i33, align 8
-  %idx.ext.i.i.i34 = zext i32 %13 to i64
+  %NumBuckets.i.i.i33 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i32, ptr %NumBuckets.i.i.i33, align 8
+  %idx.ext.i.i.i34 = zext i32 %12 to i64
   %idx.ext.i.i35 = sext i32 %call.i.i31 to i64
   %cmp.i23.i36 = icmp eq i64 %idx.ext.i.i35, %idx.ext.i.i.i34
   %cmp.i2.not.i37.not = select i1 %cmp.i.i32, i1 true, i1 %cmp.i23.i36
   br i1 %cmp.i2.not.i37.not, label %if.end57, label %do.end62
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %do.body24
-  %14 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr nonnull @.str.350, i64 17) #7
-  %15 = load i8, ptr %_hasUnknownMembers, align 8
-  %16 = and i8 %15, 1
-  %tobool61 = icmp ne i8 %16, 0
+  %13 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr nonnull @.str.350, i64 17) #7
+  %14 = load i8, ptr %_hasUnknownMembers, align 8
+  %tobool61 = trunc i8 %14 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.end62
@@ -23414,14 +23300,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_shorthand = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_shorthand, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -23431,34 +23316,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.194, i64 18) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.300, i64 9) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.300, i64 9) #7
-  %24 = load i8, ptr %_shorthand, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.300, i64 9) #7
+  %23 = load i8, ptr %_shorthand, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99
@@ -24665,14 +24549,13 @@ if.else.i:                                        ; preds = %do.body24
 _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_readonly = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load i8, ptr %_readonly, align 8
-  %11 = and i8 %10, 1
-  %tobool62.not = icmp eq i8 %11, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %10 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load i32, ptr %mode_65, align 8
-  switch i32 %12, label %if.end94 [
+  %11 = load i32, ptr %mode_65, align 8
+  switch i32 %11, label %if.end94 [
     i32 0, label %do.body100
     i32 1, label %if.then71
   ]
@@ -24682,49 +24565,47 @@ if.then71:                                        ; preds = %if.then64
   %call.i51 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.218, i64 19) #7
   %cmp.i52 = icmp eq i32 %call.i51, -1
   %NumBuckets.i.i53 = getelementptr inbounds i8, ptr %this, i64 40
-  %13 = load i32, ptr %NumBuckets.i.i53, align 8
-  %idx.ext.i.i54 = zext i32 %13 to i64
+  %12 = load i32, ptr %NumBuckets.i.i53, align 8
+  %idx.ext.i.i54 = zext i32 %12 to i64
   %idx.ext.i55 = sext i32 %call.i51 to i64
   %cmp.i.i61.not115 = icmp eq i64 %idx.ext.i55, %idx.ext.i.i54
   %cmp.i.i61.not = select i1 %cmp.i52, i1 true, i1 %cmp.i.i61.not115
   br i1 %cmp.i.i61.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %14 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i57 = getelementptr inbounds ptr, ptr %14, i64 %idx.ext.i55
-  %15 = load ptr, ptr %retval.sroa.0.0.i57, align 8
-  %second86 = getelementptr inbounds i8, ptr %15, i64 8
+  %13 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i57 = getelementptr inbounds ptr, ptr %13, i64 %idx.ext.i55
+  %14 = load ptr, ptr %retval.sroa.0.0.i57, align 8
+  %second86 = getelementptr inbounds i8, ptr %14, i64 8
   %call.i.i62 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.356, i64 8) #7
   %cmp.i.i63 = icmp eq i32 %call.i.i62, -1
-  %NumBuckets.i.i.i64 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load i32, ptr %NumBuckets.i.i.i64, align 8
-  %idx.ext.i.i.i65 = zext i32 %16 to i64
+  %NumBuckets.i.i.i64 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load i32, ptr %NumBuckets.i.i.i64, align 8
+  %idx.ext.i.i.i65 = zext i32 %15 to i64
   %idx.ext.i.i66 = sext i32 %call.i.i62 to i64
   %cmp.i23.i67 = icmp eq i64 %idx.ext.i.i66, %idx.ext.i.i.i65
   %cmp.i2.not.i68.not = select i1 %cmp.i.i63, i1 true, i1 %cmp.i23.i67
   br i1 %cmp.i2.not.i68.not, label %if.end94, label %do.body100
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
-  %17 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.356, i64 8) #7
-  %18 = load i8, ptr %_readonly, align 8
-  %19 = and i8 %18, 1
-  %tobool98 = icmp ne i8 %19, 0
+  %16 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr nonnull @.str.356, i64 8) #7
+  %17 = load i8, ptr %_readonly, align 8
+  %tobool98 = trunc i8 %17 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.body100
 
 do.body100:                                       ; preds = %if.then64, %if.end94, %if.then84
   %_static = getelementptr inbounds i8, ptr %node, i64 65
-  %20 = load i8, ptr %_static, align 1
-  %21 = and i8 %20, 1
-  %tobool101.not = icmp eq i8 %21, 0
-  br i1 %tobool101.not, label %if.then103, label %if.end133
+  %18 = load i8, ptr %_static, align 1
+  %tobool101 = trunc i8 %18 to i1
+  br i1 %tobool101, label %if.end133, label %if.then103
 
 if.then103:                                       ; preds = %do.body100
   %mode_104 = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load i32, ptr %mode_104, align 8
-  switch i32 %22, label %if.end133 [
+  %19 = load i32, ptr %mode_104, align 8
+  switch i32 %19, label %if.end133 [
     i32 0, label %do.body139
     i32 1, label %if.then110
   ]
@@ -24734,49 +24615,47 @@ if.then110:                                       ; preds = %if.then103
   %call.i71 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_112, ptr nonnull @.str.218, i64 19) #7
   %cmp.i72 = icmp eq i32 %call.i71, -1
   %NumBuckets.i.i73 = getelementptr inbounds i8, ptr %this, i64 40
-  %23 = load i32, ptr %NumBuckets.i.i73, align 8
-  %idx.ext.i.i74 = zext i32 %23 to i64
+  %20 = load i32, ptr %NumBuckets.i.i73, align 8
+  %idx.ext.i.i74 = zext i32 %20 to i64
   %idx.ext.i75 = sext i32 %call.i71 to i64
   %cmp.i.i81.not116 = icmp eq i64 %idx.ext.i75, %idx.ext.i.i74
   %cmp.i.i81.not = select i1 %cmp.i72, i1 true, i1 %cmp.i.i81.not116
   br i1 %cmp.i.i81.not, label %if.end133, label %if.then123
 
 if.then123:                                       ; preds = %if.then110
-  %24 = load ptr, ptr %ignoredEmptyFields_112, align 8
-  %retval.sroa.0.0.i77 = getelementptr inbounds ptr, ptr %24, i64 %idx.ext.i75
-  %25 = load ptr, ptr %retval.sroa.0.0.i77, align 8
-  %second125 = getelementptr inbounds i8, ptr %25, i64 8
+  %21 = load ptr, ptr %ignoredEmptyFields_112, align 8
+  %retval.sroa.0.0.i77 = getelementptr inbounds ptr, ptr %21, i64 %idx.ext.i75
+  %22 = load ptr, ptr %retval.sroa.0.0.i77, align 8
+  %second125 = getelementptr inbounds i8, ptr %22, i64 8
   %call.i.i82 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second125, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i83 = icmp eq i32 %call.i.i82, -1
-  %NumBuckets.i.i.i84 = getelementptr inbounds i8, ptr %25, i64 16
-  %26 = load i32, ptr %NumBuckets.i.i.i84, align 8
-  %idx.ext.i.i.i85 = zext i32 %26 to i64
+  %NumBuckets.i.i.i84 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load i32, ptr %NumBuckets.i.i.i84, align 8
+  %idx.ext.i.i.i85 = zext i32 %23 to i64
   %idx.ext.i.i86 = sext i32 %call.i.i82 to i64
   %cmp.i23.i87 = icmp eq i64 %idx.ext.i.i86, %idx.ext.i.i.i85
   %cmp.i2.not.i88.not = select i1 %cmp.i.i83, i1 true, i1 %cmp.i23.i87
   br i1 %cmp.i2.not.i88.not, label %if.end133, label %do.body139
 
 if.end133:                                        ; preds = %if.then103, %if.then123, %if.then110, %do.body100
-  %27 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr nonnull @.str.302, i64 6) #7
-  %28 = load i8, ptr %_static, align 1
-  %29 = and i8 %28, 1
-  %tobool137 = icmp ne i8 %29, 0
+  %24 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.302, i64 6) #7
+  %25 = load i8, ptr %_static, align 1
+  %tobool137 = trunc i8 %25 to i1
   %this.val44 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val44, i1 noundef zeroext %tobool137) #7
   br label %do.body139
 
 do.body139:                                       ; preds = %if.then103, %if.end133, %if.then123
   %_export = getelementptr inbounds i8, ptr %node, i64 66
-  %30 = load i8, ptr %_export, align 2
-  %31 = and i8 %30, 1
-  %tobool140.not = icmp eq i8 %31, 0
-  br i1 %tobool140.not, label %if.then142, label %if.end172
+  %26 = load i8, ptr %_export, align 2
+  %tobool140 = trunc i8 %26 to i1
+  br i1 %tobool140, label %if.end172, label %if.then142
 
 if.then142:                                       ; preds = %do.body139
   %mode_143 = getelementptr inbounds i8, ptr %this, i64 16
-  %32 = load i32, ptr %mode_143, align 8
-  switch i32 %32, label %if.end172 [
+  %27 = load i32, ptr %mode_143, align 8
+  switch i32 %27, label %if.end172 [
     i32 0, label %do.end177
     i32 1, label %if.then149
   ]
@@ -24786,34 +24665,33 @@ if.then149:                                       ; preds = %if.then142
   %call.i91 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_151, ptr nonnull @.str.218, i64 19) #7
   %cmp.i92 = icmp eq i32 %call.i91, -1
   %NumBuckets.i.i93 = getelementptr inbounds i8, ptr %this, i64 40
-  %33 = load i32, ptr %NumBuckets.i.i93, align 8
-  %idx.ext.i.i94 = zext i32 %33 to i64
+  %28 = load i32, ptr %NumBuckets.i.i93, align 8
+  %idx.ext.i.i94 = zext i32 %28 to i64
   %idx.ext.i95 = sext i32 %call.i91 to i64
   %cmp.i.i101.not117 = icmp eq i64 %idx.ext.i95, %idx.ext.i.i94
   %cmp.i.i101.not = select i1 %cmp.i92, i1 true, i1 %cmp.i.i101.not117
   br i1 %cmp.i.i101.not, label %if.end172, label %if.then162
 
 if.then162:                                       ; preds = %if.then149
-  %34 = load ptr, ptr %ignoredEmptyFields_151, align 8
-  %retval.sroa.0.0.i97 = getelementptr inbounds ptr, ptr %34, i64 %idx.ext.i95
-  %35 = load ptr, ptr %retval.sroa.0.0.i97, align 8
-  %second164 = getelementptr inbounds i8, ptr %35, i64 8
+  %29 = load ptr, ptr %ignoredEmptyFields_151, align 8
+  %retval.sroa.0.0.i97 = getelementptr inbounds ptr, ptr %29, i64 %idx.ext.i95
+  %30 = load ptr, ptr %retval.sroa.0.0.i97, align 8
+  %second164 = getelementptr inbounds i8, ptr %30, i64 8
   %call.i.i102 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second164, ptr nonnull @.str.357, i64 6) #7
   %cmp.i.i103 = icmp eq i32 %call.i.i102, -1
-  %NumBuckets.i.i.i104 = getelementptr inbounds i8, ptr %35, i64 16
-  %36 = load i32, ptr %NumBuckets.i.i.i104, align 8
-  %idx.ext.i.i.i105 = zext i32 %36 to i64
+  %NumBuckets.i.i.i104 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load i32, ptr %NumBuckets.i.i.i104, align 8
+  %idx.ext.i.i.i105 = zext i32 %31 to i64
   %idx.ext.i.i106 = sext i32 %call.i.i102 to i64
   %cmp.i23.i107 = icmp eq i64 %idx.ext.i.i106, %idx.ext.i.i.i105
   %cmp.i2.not.i108.not = select i1 %cmp.i.i103, i1 true, i1 %cmp.i23.i107
   br i1 %cmp.i2.not.i108.not, label %if.end172, label %do.end177
 
 if.end172:                                        ; preds = %if.then142, %if.then162, %if.then149, %do.body139
-  %37 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr nonnull @.str.357, i64 6) #7
-  %38 = load i8, ptr %_export, align 2
-  %39 = and i8 %38, 1
-  %tobool176 = icmp ne i8 %39, 0
+  %32 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr nonnull @.str.357, i64 6) #7
+  %33 = load i8, ptr %_export, align 2
+  %tobool176 = trunc i8 %33 to i1
   %this.val45 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val45, i1 noundef zeroext %tobool176) #7
   br label %do.end177
@@ -26600,14 +26478,13 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_optional = getelementptr inbounds i8, ptr %node, i64 72
   %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool99.not = icmp eq i8 %25, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %24 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %do.body98
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load i32, ptr %mode_102, align 8
-  switch i32 %26, label %if.end131 [
+  %25 = load i32, ptr %mode_102, align 8
+  switch i32 %25, label %if.end131 [
     i32 0, label %do.body137
     i32 1, label %if.then108
   ]
@@ -26617,49 +26494,47 @@ if.then108:                                       ; preds = %if.then101
   %call.i119 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.236, i64 19) #7
   %cmp.i120 = icmp eq i32 %call.i119, -1
   %NumBuckets.i.i121 = getelementptr inbounds i8, ptr %this, i64 40
-  %27 = load i32, ptr %NumBuckets.i.i121, align 8
-  %idx.ext.i.i122 = zext i32 %27 to i64
+  %26 = load i32, ptr %NumBuckets.i.i121, align 8
+  %idx.ext.i.i122 = zext i32 %26 to i64
   %idx.ext.i123 = sext i32 %call.i119 to i64
   %cmp.i.i129.not229 = icmp eq i64 %idx.ext.i123, %idx.ext.i.i122
   %cmp.i.i129.not = select i1 %cmp.i120, i1 true, i1 %cmp.i.i129.not229
   br i1 %cmp.i.i129.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %28 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i125 = getelementptr inbounds ptr, ptr %28, i64 %idx.ext.i123
-  %29 = load ptr, ptr %retval.sroa.0.0.i125, align 8
-  %second123 = getelementptr inbounds i8, ptr %29, i64 8
+  %27 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i125 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i123
+  %28 = load ptr, ptr %retval.sroa.0.0.i125, align 8
+  %second123 = getelementptr inbounds i8, ptr %28, i64 8
   %call.i.i130 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i131 = icmp eq i32 %call.i.i130, -1
-  %NumBuckets.i.i.i132 = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load i32, ptr %NumBuckets.i.i.i132, align 8
-  %idx.ext.i.i.i133 = zext i32 %30 to i64
+  %NumBuckets.i.i.i132 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %NumBuckets.i.i.i132, align 8
+  %idx.ext.i.i.i133 = zext i32 %29 to i64
   %idx.ext.i.i134 = sext i32 %call.i.i130 to i64
   %cmp.i23.i135 = icmp eq i64 %idx.ext.i.i134, %idx.ext.i.i.i133
   %cmp.i2.not.i136.not = select i1 %cmp.i.i131, i1 true, i1 %cmp.i23.i135
   br i1 %cmp.i2.not.i136.not, label %if.end131, label %do.body137
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %do.body98
-  %31 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.14, i64 8) #7
-  %32 = load i8, ptr %_optional, align 8
-  %33 = and i8 %32, 1
-  %tobool135 = icmp ne i8 %33, 0
+  %30 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.14, i64 8) #7
+  %31 = load i8, ptr %_optional, align 8
+  %tobool135 = trunc i8 %31 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.body137
 
 do.body137:                                       ; preds = %if.then101, %if.end131, %if.then121
   %_computed = getelementptr inbounds i8, ptr %node, i64 73
-  %34 = load i8, ptr %_computed, align 1
-  %35 = and i8 %34, 1
-  %tobool138.not = icmp eq i8 %35, 0
-  br i1 %tobool138.not, label %if.then140, label %if.end170
+  %32 = load i8, ptr %_computed, align 1
+  %tobool138 = trunc i8 %32 to i1
+  br i1 %tobool138, label %if.end170, label %if.then140
 
 if.then140:                                       ; preds = %do.body137
   %mode_141 = getelementptr inbounds i8, ptr %this, i64 16
-  %36 = load i32, ptr %mode_141, align 8
-  switch i32 %36, label %if.end170 [
+  %33 = load i32, ptr %mode_141, align 8
+  switch i32 %33, label %if.end170 [
     i32 0, label %do.body176
     i32 1, label %if.then147
   ]
@@ -26669,49 +26544,47 @@ if.then147:                                       ; preds = %if.then140
   %call.i139 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_149, ptr nonnull @.str.236, i64 19) #7
   %cmp.i140 = icmp eq i32 %call.i139, -1
   %NumBuckets.i.i141 = getelementptr inbounds i8, ptr %this, i64 40
-  %37 = load i32, ptr %NumBuckets.i.i141, align 8
-  %idx.ext.i.i142 = zext i32 %37 to i64
+  %34 = load i32, ptr %NumBuckets.i.i141, align 8
+  %idx.ext.i.i142 = zext i32 %34 to i64
   %idx.ext.i143 = sext i32 %call.i139 to i64
   %cmp.i.i149.not230 = icmp eq i64 %idx.ext.i143, %idx.ext.i.i142
   %cmp.i.i149.not = select i1 %cmp.i140, i1 true, i1 %cmp.i.i149.not230
   br i1 %cmp.i.i149.not, label %if.end170, label %if.then160
 
 if.then160:                                       ; preds = %if.then147
-  %38 = load ptr, ptr %ignoredEmptyFields_149, align 8
-  %retval.sroa.0.0.i145 = getelementptr inbounds ptr, ptr %38, i64 %idx.ext.i143
-  %39 = load ptr, ptr %retval.sroa.0.0.i145, align 8
-  %second162 = getelementptr inbounds i8, ptr %39, i64 8
+  %35 = load ptr, ptr %ignoredEmptyFields_149, align 8
+  %retval.sroa.0.0.i145 = getelementptr inbounds ptr, ptr %35, i64 %idx.ext.i143
+  %36 = load ptr, ptr %retval.sroa.0.0.i145, align 8
+  %second162 = getelementptr inbounds i8, ptr %36, i64 8
   %call.i.i150 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second162, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i151 = icmp eq i32 %call.i.i150, -1
-  %NumBuckets.i.i.i152 = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load i32, ptr %NumBuckets.i.i.i152, align 8
-  %idx.ext.i.i.i153 = zext i32 %40 to i64
+  %NumBuckets.i.i.i152 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %NumBuckets.i.i.i152, align 8
+  %idx.ext.i.i.i153 = zext i32 %37 to i64
   %idx.ext.i.i154 = sext i32 %call.i.i150 to i64
   %cmp.i23.i155 = icmp eq i64 %idx.ext.i.i154, %idx.ext.i.i.i153
   %cmp.i2.not.i156.not = select i1 %cmp.i.i151, i1 true, i1 %cmp.i23.i155
   br i1 %cmp.i2.not.i156.not, label %if.end170, label %do.body176
 
 if.end170:                                        ; preds = %if.then140, %if.then160, %if.then147, %do.body137
-  %41 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr nonnull @.str.286, i64 8) #7
-  %42 = load i8, ptr %_computed, align 1
-  %43 = and i8 %42, 1
-  %tobool174 = icmp ne i8 %43, 0
+  %38 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.286, i64 8) #7
+  %39 = load i8, ptr %_computed, align 1
+  %tobool174 = trunc i8 %39 to i1
   %this.val71 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val71, i1 noundef zeroext %tobool174) #7
   br label %do.body176
 
 do.body176:                                       ; preds = %if.then140, %if.end170, %if.then160
   %_readonly = getelementptr inbounds i8, ptr %node, i64 74
-  %44 = load i8, ptr %_readonly, align 2
-  %45 = and i8 %44, 1
-  %tobool177.not = icmp eq i8 %45, 0
-  br i1 %tobool177.not, label %if.then179, label %if.end209
+  %40 = load i8, ptr %_readonly, align 2
+  %tobool177 = trunc i8 %40 to i1
+  br i1 %tobool177, label %if.end209, label %if.then179
 
 if.then179:                                       ; preds = %do.body176
   %mode_180 = getelementptr inbounds i8, ptr %this, i64 16
-  %46 = load i32, ptr %mode_180, align 8
-  switch i32 %46, label %if.end209 [
+  %41 = load i32, ptr %mode_180, align 8
+  switch i32 %41, label %if.end209 [
     i32 0, label %do.body215
     i32 1, label %if.then186
   ]
@@ -26721,49 +26594,47 @@ if.then186:                                       ; preds = %if.then179
   %call.i159 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_188, ptr nonnull @.str.236, i64 19) #7
   %cmp.i160 = icmp eq i32 %call.i159, -1
   %NumBuckets.i.i161 = getelementptr inbounds i8, ptr %this, i64 40
-  %47 = load i32, ptr %NumBuckets.i.i161, align 8
-  %idx.ext.i.i162 = zext i32 %47 to i64
+  %42 = load i32, ptr %NumBuckets.i.i161, align 8
+  %idx.ext.i.i162 = zext i32 %42 to i64
   %idx.ext.i163 = sext i32 %call.i159 to i64
   %cmp.i.i169.not231 = icmp eq i64 %idx.ext.i163, %idx.ext.i.i162
   %cmp.i.i169.not = select i1 %cmp.i160, i1 true, i1 %cmp.i.i169.not231
   br i1 %cmp.i.i169.not, label %if.end209, label %if.then199
 
 if.then199:                                       ; preds = %if.then186
-  %48 = load ptr, ptr %ignoredEmptyFields_188, align 8
-  %retval.sroa.0.0.i165 = getelementptr inbounds ptr, ptr %48, i64 %idx.ext.i163
-  %49 = load ptr, ptr %retval.sroa.0.0.i165, align 8
-  %second201 = getelementptr inbounds i8, ptr %49, i64 8
+  %43 = load ptr, ptr %ignoredEmptyFields_188, align 8
+  %retval.sroa.0.0.i165 = getelementptr inbounds ptr, ptr %43, i64 %idx.ext.i163
+  %44 = load ptr, ptr %retval.sroa.0.0.i165, align 8
+  %second201 = getelementptr inbounds i8, ptr %44, i64 8
   %call.i.i170 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second201, ptr nonnull @.str.356, i64 8) #7
   %cmp.i.i171 = icmp eq i32 %call.i.i170, -1
-  %NumBuckets.i.i.i172 = getelementptr inbounds i8, ptr %49, i64 16
-  %50 = load i32, ptr %NumBuckets.i.i.i172, align 8
-  %idx.ext.i.i.i173 = zext i32 %50 to i64
+  %NumBuckets.i.i.i172 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = load i32, ptr %NumBuckets.i.i.i172, align 8
+  %idx.ext.i.i.i173 = zext i32 %45 to i64
   %idx.ext.i.i174 = sext i32 %call.i.i170 to i64
   %cmp.i23.i175 = icmp eq i64 %idx.ext.i.i174, %idx.ext.i.i.i173
   %cmp.i2.not.i176.not = select i1 %cmp.i.i171, i1 true, i1 %cmp.i23.i175
   br i1 %cmp.i2.not.i176.not, label %if.end209, label %do.body215
 
 if.end209:                                        ; preds = %if.then179, %if.then199, %if.then186, %do.body176
-  %51 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr nonnull @.str.356, i64 8) #7
-  %52 = load i8, ptr %_readonly, align 2
-  %53 = and i8 %52, 1
-  %tobool213 = icmp ne i8 %53, 0
+  %46 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr nonnull @.str.356, i64 8) #7
+  %47 = load i8, ptr %_readonly, align 2
+  %tobool213 = trunc i8 %47 to i1
   %this.val72 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val72, i1 noundef zeroext %tobool213) #7
   br label %do.body215
 
 do.body215:                                       ; preds = %if.then179, %if.end209, %if.then199
   %_static = getelementptr inbounds i8, ptr %node, i64 75
-  %54 = load i8, ptr %_static, align 1
-  %55 = and i8 %54, 1
-  %tobool216.not = icmp eq i8 %55, 0
-  br i1 %tobool216.not, label %if.then218, label %if.end248
+  %48 = load i8, ptr %_static, align 1
+  %tobool216 = trunc i8 %48 to i1
+  br i1 %tobool216, label %if.end248, label %if.then218
 
 if.then218:                                       ; preds = %do.body215
   %mode_219 = getelementptr inbounds i8, ptr %this, i64 16
-  %56 = load i32, ptr %mode_219, align 8
-  switch i32 %56, label %if.end248 [
+  %49 = load i32, ptr %mode_219, align 8
+  switch i32 %49, label %if.end248 [
     i32 0, label %do.body254
     i32 1, label %if.then225
   ]
@@ -26773,49 +26644,47 @@ if.then225:                                       ; preds = %if.then218
   %call.i179 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_227, ptr nonnull @.str.236, i64 19) #7
   %cmp.i180 = icmp eq i32 %call.i179, -1
   %NumBuckets.i.i181 = getelementptr inbounds i8, ptr %this, i64 40
-  %57 = load i32, ptr %NumBuckets.i.i181, align 8
-  %idx.ext.i.i182 = zext i32 %57 to i64
+  %50 = load i32, ptr %NumBuckets.i.i181, align 8
+  %idx.ext.i.i182 = zext i32 %50 to i64
   %idx.ext.i183 = sext i32 %call.i179 to i64
   %cmp.i.i189.not232 = icmp eq i64 %idx.ext.i183, %idx.ext.i.i182
   %cmp.i.i189.not = select i1 %cmp.i180, i1 true, i1 %cmp.i.i189.not232
   br i1 %cmp.i.i189.not, label %if.end248, label %if.then238
 
 if.then238:                                       ; preds = %if.then225
-  %58 = load ptr, ptr %ignoredEmptyFields_227, align 8
-  %retval.sroa.0.0.i185 = getelementptr inbounds ptr, ptr %58, i64 %idx.ext.i183
-  %59 = load ptr, ptr %retval.sroa.0.0.i185, align 8
-  %second240 = getelementptr inbounds i8, ptr %59, i64 8
+  %51 = load ptr, ptr %ignoredEmptyFields_227, align 8
+  %retval.sroa.0.0.i185 = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i183
+  %52 = load ptr, ptr %retval.sroa.0.0.i185, align 8
+  %second240 = getelementptr inbounds i8, ptr %52, i64 8
   %call.i.i190 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second240, ptr nonnull @.str.302, i64 6) #7
   %cmp.i.i191 = icmp eq i32 %call.i.i190, -1
-  %NumBuckets.i.i.i192 = getelementptr inbounds i8, ptr %59, i64 16
-  %60 = load i32, ptr %NumBuckets.i.i.i192, align 8
-  %idx.ext.i.i.i193 = zext i32 %60 to i64
+  %NumBuckets.i.i.i192 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load i32, ptr %NumBuckets.i.i.i192, align 8
+  %idx.ext.i.i.i193 = zext i32 %53 to i64
   %idx.ext.i.i194 = sext i32 %call.i.i190 to i64
   %cmp.i23.i195 = icmp eq i64 %idx.ext.i.i194, %idx.ext.i.i.i193
   %cmp.i2.not.i196.not = select i1 %cmp.i.i191, i1 true, i1 %cmp.i23.i195
   br i1 %cmp.i2.not.i196.not, label %if.end248, label %do.body254
 
 if.end248:                                        ; preds = %if.then218, %if.then238, %if.then225, %do.body215
-  %61 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr nonnull @.str.302, i64 6) #7
-  %62 = load i8, ptr %_static, align 1
-  %63 = and i8 %62, 1
-  %tobool252 = icmp ne i8 %63, 0
+  %54 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr nonnull @.str.302, i64 6) #7
+  %55 = load i8, ptr %_static, align 1
+  %tobool252 = trunc i8 %55 to i1
   %this.val73 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val73, i1 noundef zeroext %tobool252) #7
   br label %do.body254
 
 do.body254:                                       ; preds = %if.then218, %if.end248, %if.then238
   %_export = getelementptr inbounds i8, ptr %node, i64 76
-  %64 = load i8, ptr %_export, align 4
-  %65 = and i8 %64, 1
-  %tobool255.not = icmp eq i8 %65, 0
-  br i1 %tobool255.not, label %if.then257, label %if.end287
+  %56 = load i8, ptr %_export, align 4
+  %tobool255 = trunc i8 %56 to i1
+  br i1 %tobool255, label %if.end287, label %if.then257
 
 if.then257:                                       ; preds = %do.body254
   %mode_258 = getelementptr inbounds i8, ptr %this, i64 16
-  %66 = load i32, ptr %mode_258, align 8
-  switch i32 %66, label %if.end287 [
+  %57 = load i32, ptr %mode_258, align 8
+  switch i32 %57, label %if.end287 [
     i32 0, label %do.end292
     i32 1, label %if.then264
   ]
@@ -26825,34 +26694,33 @@ if.then264:                                       ; preds = %if.then257
   %call.i199 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_266, ptr nonnull @.str.236, i64 19) #7
   %cmp.i200 = icmp eq i32 %call.i199, -1
   %NumBuckets.i.i201 = getelementptr inbounds i8, ptr %this, i64 40
-  %67 = load i32, ptr %NumBuckets.i.i201, align 8
-  %idx.ext.i.i202 = zext i32 %67 to i64
+  %58 = load i32, ptr %NumBuckets.i.i201, align 8
+  %idx.ext.i.i202 = zext i32 %58 to i64
   %idx.ext.i203 = sext i32 %call.i199 to i64
   %cmp.i.i209.not233 = icmp eq i64 %idx.ext.i203, %idx.ext.i.i202
   %cmp.i.i209.not = select i1 %cmp.i200, i1 true, i1 %cmp.i.i209.not233
   br i1 %cmp.i.i209.not, label %if.end287, label %if.then277
 
 if.then277:                                       ; preds = %if.then264
-  %68 = load ptr, ptr %ignoredEmptyFields_266, align 8
-  %retval.sroa.0.0.i205 = getelementptr inbounds ptr, ptr %68, i64 %idx.ext.i203
-  %69 = load ptr, ptr %retval.sroa.0.0.i205, align 8
-  %second279 = getelementptr inbounds i8, ptr %69, i64 8
+  %59 = load ptr, ptr %ignoredEmptyFields_266, align 8
+  %retval.sroa.0.0.i205 = getelementptr inbounds ptr, ptr %59, i64 %idx.ext.i203
+  %60 = load ptr, ptr %retval.sroa.0.0.i205, align 8
+  %second279 = getelementptr inbounds i8, ptr %60, i64 8
   %call.i.i210 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second279, ptr nonnull @.str.357, i64 6) #7
   %cmp.i.i211 = icmp eq i32 %call.i.i210, -1
-  %NumBuckets.i.i.i212 = getelementptr inbounds i8, ptr %69, i64 16
-  %70 = load i32, ptr %NumBuckets.i.i.i212, align 8
-  %idx.ext.i.i.i213 = zext i32 %70 to i64
+  %NumBuckets.i.i.i212 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = load i32, ptr %NumBuckets.i.i.i212, align 8
+  %idx.ext.i.i.i213 = zext i32 %61 to i64
   %idx.ext.i.i214 = sext i32 %call.i.i210 to i64
   %cmp.i23.i215 = icmp eq i64 %idx.ext.i.i214, %idx.ext.i.i.i213
   %cmp.i2.not.i216.not = select i1 %cmp.i.i211, i1 true, i1 %cmp.i23.i215
   br i1 %cmp.i2.not.i216.not, label %if.end287, label %do.end292
 
 if.end287:                                        ; preds = %if.then257, %if.then277, %if.then264, %do.body254
-  %71 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %71, ptr nonnull @.str.357, i64 6) #7
-  %72 = load i8, ptr %_export, align 4
-  %73 = and i8 %72, 1
-  %tobool291 = icmp ne i8 %73, 0
+  %62 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr nonnull @.str.357, i64 6) #7
+  %63 = load i8, ptr %_export, align 4
+  %tobool291 = trunc i8 %63 to i1
   %this.val74 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val74, i1 noundef zeroext %tobool291) #7
   br label %do.end292
@@ -27009,14 +26877,13 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_computed = getelementptr inbounds i8, ptr %node, i64 80
   %23 = load i8, ptr %_computed, align 8
-  %24 = and i8 %23, 1
-  %tobool99.not = icmp eq i8 %24, 0
-  br i1 %tobool99.not, label %if.then101, label %if.end131
+  %tobool99 = trunc i8 %23 to i1
+  br i1 %tobool99, label %if.end131, label %if.then101
 
 if.then101:                                       ; preds = %do.body98
   %mode_102 = getelementptr inbounds i8, ptr %this, i64 16
-  %25 = load i32, ptr %mode_102, align 8
-  switch i32 %25, label %if.end131 [
+  %24 = load i32, ptr %mode_102, align 8
+  switch i32 %24, label %if.end131 [
     i32 0, label %do.end136
     i32 1, label %if.then108
   ]
@@ -27026,34 +26893,33 @@ if.then108:                                       ; preds = %if.then101
   %call.i78 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_110, ptr nonnull @.str.237, i64 17) #7
   %cmp.i79 = icmp eq i32 %call.i78, -1
   %NumBuckets.i.i80 = getelementptr inbounds i8, ptr %this, i64 40
-  %26 = load i32, ptr %NumBuckets.i.i80, align 8
-  %idx.ext.i.i81 = zext i32 %26 to i64
+  %25 = load i32, ptr %NumBuckets.i.i80, align 8
+  %idx.ext.i.i81 = zext i32 %25 to i64
   %idx.ext.i82 = sext i32 %call.i78 to i64
   %cmp.i.i88.not104 = icmp eq i64 %idx.ext.i82, %idx.ext.i.i81
   %cmp.i.i88.not = select i1 %cmp.i79, i1 true, i1 %cmp.i.i88.not104
   br i1 %cmp.i.i88.not, label %if.end131, label %if.then121
 
 if.then121:                                       ; preds = %if.then108
-  %27 = load ptr, ptr %ignoredEmptyFields_110, align 8
-  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %27, i64 %idx.ext.i82
-  %28 = load ptr, ptr %retval.sroa.0.0.i84, align 8
-  %second123 = getelementptr inbounds i8, ptr %28, i64 8
+  %26 = load ptr, ptr %ignoredEmptyFields_110, align 8
+  %retval.sroa.0.0.i84 = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i82
+  %27 = load ptr, ptr %retval.sroa.0.0.i84, align 8
+  %second123 = getelementptr inbounds i8, ptr %27, i64 8
   %call.i.i89 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second123, ptr nonnull @.str.286, i64 8) #7
   %cmp.i.i90 = icmp eq i32 %call.i.i89, -1
-  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %28, i64 16
-  %29 = load i32, ptr %NumBuckets.i.i.i91, align 8
-  %idx.ext.i.i.i92 = zext i32 %29 to i64
+  %NumBuckets.i.i.i91 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = load i32, ptr %NumBuckets.i.i.i91, align 8
+  %idx.ext.i.i.i92 = zext i32 %28 to i64
   %idx.ext.i.i93 = sext i32 %call.i.i89 to i64
   %cmp.i23.i94 = icmp eq i64 %idx.ext.i.i93, %idx.ext.i.i.i92
   %cmp.i2.not.i95.not = select i1 %cmp.i.i90, i1 true, i1 %cmp.i23.i94
   br i1 %cmp.i2.not.i95.not, label %if.end131, label %do.end136
 
 if.end131:                                        ; preds = %if.then101, %if.then121, %if.then108, %do.body98
-  %30 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.286, i64 8) #7
-  %31 = load i8, ptr %_computed, align 8
-  %32 = and i8 %31, 1
-  %tobool135 = icmp ne i8 %32, 0
+  %29 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr nonnull @.str.286, i64 8) #7
+  %30 = load i8, ptr %_computed, align 8
+  %tobool135 = trunc i8 %30 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool135) #7
   br label %do.end136
@@ -27289,14 +27155,13 @@ if.else.i:                                        ; preds = %entry
 _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_readonly = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load i8, ptr %_readonly, align 8
-  %3 = and i8 %2, 1
-  %tobool25.not = icmp eq i8 %3, 0
-  br i1 %tobool25.not, label %if.then27, label %if.end57
+  %tobool25 = trunc i8 %2 to i1
+  br i1 %tobool25, label %if.end57, label %if.then27
 
 if.then27:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
   %mode_28 = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i32, ptr %mode_28, align 8
-  switch i32 %4, label %if.end57 [
+  %3 = load i32, ptr %mode_28, align 8
+  switch i32 %3, label %if.end57 [
     i32 0, label %do.end62
     i32 1, label %if.then34
   ]
@@ -27306,34 +27171,33 @@ if.then34:                                        ; preds = %if.then27
   %call.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_36, ptr nonnull @.str.240, i64 11) #7
   %cmp.i = icmp eq i32 %call.i, -1
   %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %5 = load i32, ptr %NumBuckets.i.i, align 8
-  %idx.ext.i.i = zext i32 %5 to i64
+  %4 = load i32, ptr %NumBuckets.i.i, align 8
+  %idx.ext.i.i = zext i32 %4 to i64
   %idx.ext.i = sext i32 %call.i to i64
   %cmp.i.i.not22 = icmp eq i64 %idx.ext.i, %idx.ext.i.i
   %cmp.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp.i.i.not22
   br i1 %cmp.i.i.not, label %if.end57, label %if.then47
 
 if.then47:                                        ; preds = %if.then34
-  %6 = load ptr, ptr %ignoredEmptyFields_36, align 8
-  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext.i
-  %7 = load ptr, ptr %retval.sroa.0.0.i, align 8
-  %second49 = getelementptr inbounds i8, ptr %7, i64 8
+  %5 = load ptr, ptr %ignoredEmptyFields_36, align 8
+  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %6 = load ptr, ptr %retval.sroa.0.0.i, align 8
+  %second49 = getelementptr inbounds i8, ptr %6, i64 8
   %call.i.i = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second49, ptr nonnull @.str.356, i64 8) #7
   %cmp.i.i19 = icmp eq i32 %call.i.i, -1
-  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load i32, ptr %NumBuckets.i.i.i, align 8
-  %idx.ext.i.i.i = zext i32 %8 to i64
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = load i32, ptr %NumBuckets.i.i.i, align 8
+  %idx.ext.i.i.i = zext i32 %7 to i64
   %idx.ext.i.i20 = sext i32 %call.i.i to i64
   %cmp.i23.i = icmp eq i64 %idx.ext.i.i20, %idx.ext.i.i.i
   %cmp.i2.not.i.not = select i1 %cmp.i.i19, i1 true, i1 %cmp.i23.i
   br i1 %cmp.i2.not.i.not, label %if.end57, label %do.end62
 
 if.end57:                                         ; preds = %if.then27, %if.then47, %if.then34, %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
-  %9 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr nonnull @.str.356, i64 8) #7
-  %10 = load i8, ptr %_readonly, align 8
-  %11 = and i8 %10, 1
-  %tobool61 = icmp ne i8 %11, 0
+  %8 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.356, i64 8) #7
+  %9 = load i8, ptr %_readonly, align 8
+  %tobool61 = trunc i8 %9 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool61) #7
   br label %do.end62
@@ -27551,14 +27415,13 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_optional = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load i8, ptr %_optional, align 8
-  %17 = and i8 %16, 1
-  %tobool62.not = icmp eq i8 %17, 0
-  br i1 %tobool62.not, label %if.then64, label %if.end94
+  %tobool62 = trunc i8 %16 to i1
+  br i1 %tobool62, label %if.end94, label %if.then64
 
 if.then64:                                        ; preds = %do.body61
   %mode_65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %mode_65, align 8
-  switch i32 %18, label %if.end94 [
+  %17 = load i32, ptr %mode_65, align 8
+  switch i32 %17, label %if.end94 [
     i32 0, label %do.end99
     i32 1, label %if.then71
   ]
@@ -27568,34 +27431,33 @@ if.then71:                                        ; preds = %if.then64
   %call.i50 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %ignoredEmptyFields_73, ptr nonnull @.str.245, i64 20) #7
   %cmp.i51 = icmp eq i32 %call.i50, -1
   %NumBuckets.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %19 = load i32, ptr %NumBuckets.i.i52, align 8
-  %idx.ext.i.i53 = zext i32 %19 to i64
+  %18 = load i32, ptr %NumBuckets.i.i52, align 8
+  %idx.ext.i.i53 = zext i32 %18 to i64
   %idx.ext.i54 = sext i32 %call.i50 to i64
   %cmp.i.i60.not74 = icmp eq i64 %idx.ext.i54, %idx.ext.i.i53
   %cmp.i.i60.not = select i1 %cmp.i51, i1 true, i1 %cmp.i.i60.not74
   br i1 %cmp.i.i60.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.then71
-  %20 = load ptr, ptr %ignoredEmptyFields_73, align 8
-  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i54
-  %21 = load ptr, ptr %retval.sroa.0.0.i56, align 8
-  %second86 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = load ptr, ptr %ignoredEmptyFields_73, align 8
+  %retval.sroa.0.0.i56 = getelementptr inbounds ptr, ptr %19, i64 %idx.ext.i54
+  %20 = load ptr, ptr %retval.sroa.0.0.i56, align 8
+  %second86 = getelementptr inbounds i8, ptr %20, i64 8
   %call.i.i61 = tail call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %second86, ptr nonnull @.str.14, i64 8) #7
   %cmp.i.i62 = icmp eq i32 %call.i.i61, -1
-  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %NumBuckets.i.i.i63, align 8
-  %idx.ext.i.i.i64 = zext i32 %22 to i64
+  %NumBuckets.i.i.i63 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %NumBuckets.i.i.i63, align 8
+  %idx.ext.i.i.i64 = zext i32 %21 to i64
   %idx.ext.i.i65 = sext i32 %call.i.i61 to i64
   %cmp.i23.i66 = icmp eq i64 %idx.ext.i.i65, %idx.ext.i.i.i64
   %cmp.i2.not.i67.not = select i1 %cmp.i.i62, i1 true, i1 %cmp.i23.i66
   br i1 %cmp.i2.not.i67.not, label %if.end94, label %do.end99
 
 if.end94:                                         ; preds = %if.then64, %if.then84, %if.then71, %do.body61
-  %23 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.14, i64 8) #7
-  %24 = load i8, ptr %_optional, align 8
-  %25 = and i8 %24, 1
-  %tobool98 = icmp ne i8 %25, 0
+  %22 = load ptr, ptr %this, align 8
+  tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.14, i64 8) #7
+  %23 = load i8, ptr %_optional, align 8
+  %tobool98 = trunc i8 %23 to i1
   %this.val = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %this.val, i1 noundef zeroext %tobool98) #7
   br label %do.end99

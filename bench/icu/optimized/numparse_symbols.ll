@@ -463,17 +463,16 @@ define noundef zeroext i1 @_ZNK6icu_758numparse4impl16MinusSignMatcher10isDisabl
 entry:
   %fAllowTrailing = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %fAllowTrailing, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.rhs, label %land.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216) %result)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %call, %land.rhs ]
-  ret i1 %2
+  %1 = phi i1 [ false, %entry ], [ %call, %land.rhs ]
+  ret i1 %1
 }
 
 declare noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #1
@@ -784,17 +783,16 @@ define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PlusSignMatcher10isDisable
 entry:
   %fAllowTrailing = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %fAllowTrailing, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.rhs, label %land.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216) %result)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %call, %land.rhs ]
-  ret i1 %2
+  %1 = phi i1 [ false, %entry ], [ %call, %land.rhs ]
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable

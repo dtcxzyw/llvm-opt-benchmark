@@ -9,16 +9,15 @@ entry:
   %call = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %is_idle1 = getelementptr inbounds i8, ptr %call, i64 336
   %0 = load atomic i8, ptr %is_idle1 monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   %ticker3 = getelementptr inbounds i8, ptr %call, i64 328
-  %2 = load atomic i32, ptr %ticker3 monotonic, align 4
+  %1 = load atomic i32, ptr %ticker3 monotonic, align 4
   %wait_start5 = getelementptr inbounds i8, ptr %call, i64 332
-  %3 = load atomic i32, ptr %wait_start5 monotonic, align 4
-  %sub = sub nsw i32 %2, %3
-  %cmp = icmp sgt i32 %sub, 60
-  %or.cond = select i1 %tobool.i.i.not, i1 %cmp, i1 false
-  br i1 %or.cond, label %if.then, label %if.end
+  %2 = load atomic i32, ptr %wait_start5 monotonic, align 4
+  %sub = sub nsw i32 %1, %2
+  %cmp = icmp slt i32 %sub, 61
+  %or.cond.not = select i1 %tobool.i.i, i1 true, i1 %cmp
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store atomic i8 1, ptr %is_idle1 monotonic, align 1

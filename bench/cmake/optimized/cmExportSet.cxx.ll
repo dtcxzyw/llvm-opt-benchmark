@@ -204,9 +204,8 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN11cmExportS
   %4 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = getelementptr inbounds i8, ptr %4, i64 36
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %14
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %14, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 32

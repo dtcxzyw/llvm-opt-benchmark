@@ -139,21 +139,22 @@ if.else18:                                        ; preds = %if.else10
 if.end25:                                         ; preds = %if.then5, %if.else18, %if.then13, %if.then
   %_must_mask = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load i8, ptr %_must_mask, align 8
-  %4 = shl i8 %3, 7
+  %tobool = trunc i8 %3 to i1
+  %conv = select i1 %tobool, i8 -128, i8 0
   %_tmp_buf26 = getelementptr inbounds i8, ptr %this, i64 72
   %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 73
-  store i8 %4, ptr %arrayidx28, align 1
-  %5 = load ptr, ptr %_in_progress.i, align 8
-  %call30 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  %6 = load i8, ptr %_is_binary, align 8
-  %7 = and i8 %6, 1
-  %8 = zext nneg i8 %7 to i64
-  %spec.select = add i64 %call30, %8
-  %9 = load ptr, ptr %_in_progress.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %9, i64 43
-  %10 = load i8, ptr %flags.i, align 1
-  %11 = and i8 %10, 28
-  switch i8 %11, label %if.end42 [
+  store i8 %conv, ptr %arrayidx28, align 1
+  %4 = load ptr, ptr %_in_progress.i, align 8
+  %call30 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %5 = load i8, ptr %_is_binary, align 8
+  %6 = and i8 %5, 1
+  %inc34 = zext nneg i8 %6 to i64
+  %spec.select = add i64 %call30, %inc34
+  %7 = load ptr, ptr %_in_progress.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %7, i64 43
+  %8 = load i8, ptr %flags.i, align 1
+  %9 = and i8 %8, 28
+  switch i8 %9, label %if.end42 [
     i8 12, label %if.then40
     i8 16, label %if.then40
   ]
@@ -165,12 +166,12 @@ if.then40:                                        ; preds = %if.end25, %if.end25
 if.end42:                                         ; preds = %if.end25, %if.then40
   %size.1 = phi i64 [ %inc41, %if.then40 ], [ %spec.select, %if.end25 ]
   %cmp = icmp ult i64 %size.1, 126
-  %12 = load i8, ptr %arrayidx28, align 1
+  %10 = load i8, ptr %arrayidx28, align 1
   br i1 %cmp, label %if.then43, label %if.else52
 
 if.then43:                                        ; preds = %if.end42
   %conv44 = trunc i64 %size.1 to i8
-  %or = or i8 %12, %conv44
+  %or = or i8 %10, %conv44
   store i8 %or, ptr %arrayidx28, align 1
   br label %if.end84
 
@@ -179,8 +180,8 @@ if.else52:                                        ; preds = %if.end42
   br i1 %cmp53, label %if.then54, label %if.else74
 
 if.then54:                                        ; preds = %if.else52
-  %13 = or i8 %12, 126
-  store i8 %13, ptr %arrayidx28, align 1
+  %11 = or i8 %10, 126
+  store i8 %11, ptr %arrayidx28, align 1
   %shr = lshr i64 %size.1, 8
   %conv63 = trunc i64 %shr to i8
   %arrayidx67 = getelementptr inbounds i8, ptr %this, i64 74
@@ -191,8 +192,8 @@ if.then54:                                        ; preds = %if.else52
   br label %if.end84
 
 if.else74:                                        ; preds = %if.else52
-  %14 = or i8 %12, 127
-  store i8 %14, ptr %arrayidx28, align 1
+  %12 = or i8 %10, 127
+  store i8 %12, ptr %arrayidx28, align 1
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 74
   %shr.i = lshr i64 %size.1, 56
   %conv.i = trunc i64 %shr.i to i8
@@ -228,10 +229,9 @@ if.else74:                                        ; preds = %if.else52
 
 if.end84:                                         ; preds = %if.then54, %if.else74, %if.then43
   %offset.1 = phi i32 [ 2, %if.then43 ], [ 4, %if.then54 ], [ 10, %if.else74 ]
-  %15 = load i8, ptr %_must_mask, align 8
-  %16 = and i8 %15, 1
-  %tobool86.not = icmp eq i8 %16, 0
-  br i1 %tobool86.not, label %if.end95, label %if.then87
+  %13 = load i8, ptr %_must_mask, align 8
+  %tobool86 = trunc i8 %13 to i1
+  br i1 %tobool86, label %if.then87, label %if.end95
 
 if.then87:                                        ; preds = %if.end84
   %call88 = tail call noundef i32 @_ZN3zmq15generate_randomEv()
@@ -262,30 +262,29 @@ if.then87:                                        ; preds = %if.end84
   %add94 = add nuw nsw i32 %offset.1, 4
   %.pre = load i8, ptr %_is_binary, align 8
   %.pre67.pre = load ptr, ptr %_in_progress.i, align 8
-  %.pre69 = and i8 %.pre, 1
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then87, %if.end84
-  %.pre-phi = phi i8 [ %.pre69, %if.then87 ], [ %7, %if.end84 ]
-  %.pre67 = phi ptr [ %.pre67.pre, %if.then87 ], [ %9, %if.end84 ]
+  %.pre67 = phi ptr [ %.pre67.pre, %if.then87 ], [ %7, %if.end84 ]
+  %14 = phi i8 [ %.pre, %if.then87 ], [ %5, %if.end84 ]
   %offset.2 = phi i32 [ %add94, %if.then87 ], [ %offset.1, %if.end84 ]
-  %tobool97.not = icmp eq i8 %.pre-phi, 0
-  br i1 %tobool97.not, label %if.end134, label %if.then98
+  %tobool97 = trunc i8 %14 to i1
+  br i1 %tobool97, label %if.then98, label %if.end134
 
 if.then98:                                        ; preds = %if.end95
   %call100 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %.pre67)
-  %17 = and i8 %call100, 1
-  %18 = load ptr, ptr %_in_progress.i, align 8
-  %call110 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %18)
-  %19 = and i8 %call110, 2
-  %protocol_flags.1 = or disjoint i8 %19, %17
-  %20 = load i8, ptr %_must_mask, align 8
-  %21 = and i8 %20, 1
-  %tobool120.not.not = icmp eq i8 %21, 0
+  %15 = and i8 %call100, 1
+  %16 = load ptr, ptr %_in_progress.i, align 8
+  %call110 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %16)
+  %17 = and i8 %call110, 2
+  %protocol_flags.1 = or disjoint i8 %17, %15
+  %18 = load i8, ptr %_must_mask, align 8
+  %tobool120 = trunc i8 %18 to i1
   %_mask122 = getelementptr inbounds i8, ptr %this, i64 89
-  %22 = load i8, ptr %_mask122, align 1
-  %mask_index.0 = zext nneg i8 %21 to i64
-  %xor31 = select i1 %tobool120.not.not, i8 0, i8 %22
+  %19 = load i8, ptr %_mask122, align 1
+  %tobool120.mask = and i8 %18, 1
+  %mask_index.0 = zext nneg i8 %tobool120.mask to i64
+  %xor31 = select i1 %tobool120, i8 %19, i8 0
   %cond128.in = xor i8 %xor31, %protocol_flags.1
   %inc131 = add nuw nsw i32 %offset.2, 1
   %idxprom132 = zext nneg i32 %offset.2 to i64
@@ -295,44 +294,42 @@ if.then98:                                        ; preds = %if.end95
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then98, %if.end95
-  %23 = phi ptr [ %.pre66, %if.then98 ], [ %.pre67, %if.end95 ]
+  %20 = phi ptr [ %.pre66, %if.then98 ], [ %.pre67, %if.end95 ]
   %mask_index.1 = phi i64 [ %mask_index.0, %if.then98 ], [ 0, %if.end95 ]
   %offset.3 = phi i32 [ %inc131, %if.then98 ], [ %offset.2, %if.end95 ]
-  %flags.i61 = getelementptr inbounds i8, ptr %23, i64 43
-  %24 = load i8, ptr %flags.i61, align 1
-  %25 = and i8 %24, 28
-  switch i8 %25, label %if.end177 [
+  %flags.i61 = getelementptr inbounds i8, ptr %20, i64 43
+  %21 = load i8, ptr %flags.i61, align 1
+  %22 = and i8 %21, 28
+  switch i8 %22, label %if.end177 [
     i8 12, label %if.then137
     i8 16, label %if.then158
   ]
 
 if.then137:                                       ; preds = %if.end134
-  %26 = load i8, ptr %_must_mask, align 8
-  %27 = and i8 %26, 1
-  %tobool139.not = icmp eq i8 %27, 0
-  br i1 %tobool139.not, label %if.end177.sink.split, label %cond.true140
+  %23 = load i8, ptr %_must_mask, align 8
+  %tobool139 = trunc i8 %23 to i1
+  br i1 %tobool139, label %cond.true140, label %if.end177.sink.split
 
 cond.true140:                                     ; preds = %if.then137
   %_mask141 = getelementptr inbounds i8, ptr %this, i64 89
   %arrayidx144 = getelementptr inbounds [4 x i8], ptr %_mask141, i64 0, i64 %mask_index.1
-  %28 = load i8, ptr %arrayidx144, align 1
-  %29 = xor i8 %28, 1
+  %24 = load i8, ptr %arrayidx144, align 1
+  %25 = xor i8 %24, 1
   br label %if.end177.sink.split
 
 if.then158:                                       ; preds = %if.end134
-  %30 = load i8, ptr %_must_mask, align 8
-  %31 = and i8 %30, 1
-  %tobool160.not = icmp eq i8 %31, 0
-  br i1 %tobool160.not, label %if.end177.sink.split, label %cond.true161
+  %26 = load i8, ptr %_must_mask, align 8
+  %tobool160 = trunc i8 %26 to i1
+  br i1 %tobool160, label %cond.true161, label %if.end177.sink.split
 
 cond.true161:                                     ; preds = %if.then158
   %_mask162 = getelementptr inbounds i8, ptr %this, i64 89
   %arrayidx165 = getelementptr inbounds [4 x i8], ptr %_mask162, i64 0, i64 %mask_index.1
-  %32 = load i8, ptr %arrayidx165, align 1
+  %27 = load i8, ptr %arrayidx165, align 1
   br label %if.end177.sink.split
 
 if.end177.sink.split:                             ; preds = %cond.true161, %if.then158, %cond.true140, %if.then137
-  %cond170.sink = phi i8 [ %29, %cond.true140 ], [ 1, %if.then137 ], [ %32, %cond.true161 ], [ 0, %if.then158 ]
+  %cond170.sink = phi i8 [ %25, %cond.true140 ], [ 1, %if.then137 ], [ %27, %cond.true161 ], [ 0, %if.then158 ]
   %inc173 = add nuw nsw i32 %offset.3, 1
   %idxprom174 = zext nneg i32 %offset.3 to i64
   %arrayidx175 = getelementptr inbounds [16 x i8], ptr %_tmp_buf26, i64 0, i64 %idxprom174
@@ -422,24 +419,23 @@ define void @_ZN3zmq12ws_encoder_t10size_readyEv(ptr noundef nonnull align 8 der
 entry:
   %_must_mask = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_must_mask, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %_in_progress.i19 = getelementptr inbounds i8, ptr %this, i64 64
-  %2 = load ptr, ptr %_in_progress.i19, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
+  %1 = load ptr, ptr %_in_progress.i, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  %3 = load ptr, ptr %_in_progress.i19, align 8
-  %call4 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %4 = load ptr, ptr %_in_progress.i19, align 8
-  %call6 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %call2 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %2 = load ptr, ptr %_in_progress.i, align 8
+  %call4 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %_in_progress.i, align 8
+  %call6 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %tobool7.not = icmp sgt i8 %call6, -1
   br i1 %tobool7.not, label %lor.lhs.false, label %if.then10
 
 lor.lhs.false:                                    ; preds = %if.then
-  %5 = load ptr, ptr %_in_progress.i19, align 8
-  %call9 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t7is_cmsgEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %4 = load ptr, ptr %_in_progress.i, align 8
+  %call9 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t7is_cmsgEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   br i1 %call9, label %if.then10, label %if.end
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.then
@@ -452,14 +448,14 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
 if.end:                                           ; preds = %if.then10, %lor.lhs.false
   %dest.0 = phi ptr [ %call15, %if.then10 ], [ %call4, %lor.lhs.false ]
   %_is_binary = getelementptr inbounds i8, ptr %this, i64 160
-  %6 = load i8, ptr %_is_binary, align 8
-  %7 = and i8 %6, 1
-  %spec.select = zext nneg i8 %7 to i32
-  %8 = load ptr, ptr %_in_progress.i19, align 8
-  %flags.i = getelementptr inbounds i8, ptr %8, i64 43
-  %9 = load i8, ptr %flags.i, align 1
-  %10 = and i8 %9, 28
-  switch i8 %10, label %if.end26 [
+  %5 = load i8, ptr %_is_binary, align 8
+  %6 = and i8 %5, 1
+  %spec.select = zext nneg i8 %6 to i32
+  %7 = load ptr, ptr %_in_progress.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %7, i64 43
+  %8 = load i8, ptr %flags.i, align 1
+  %9 = and i8 %8, 28
+  switch i8 %9, label %if.end26 [
     i8 12, label %if.then24
     i8 16, label %if.then24
   ]
@@ -481,12 +477,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mask_index.228 = phi i32 [ %mask_index.1, %for.body.lr.ph ], [ %inc33, %for.body ]
   %i.027 = phi i64 [ 0, %for.body.lr.ph ], [ %inc32, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %call4, i64 %i.027
-  %11 = load i8, ptr %arrayidx, align 1
+  %10 = load i8, ptr %arrayidx, align 1
   %rem.urem = and i32 %mask_index.228, 3
   %idxprom = zext nneg i32 %rem.urem to i64
   %arrayidx28 = getelementptr inbounds [4 x i8], ptr %_mask, i64 0, i64 %idxprom
-  %12 = load i8, ptr %arrayidx28, align 1
-  %xor11 = xor i8 %12, %11
+  %11 = load i8, ptr %arrayidx28, align 1
+  %xor11 = xor i8 %11, %10
   %arrayidx31 = getelementptr inbounds i8, ptr %dest.0, i64 %i.027
   store i8 %xor11, ptr %arrayidx31, align 1
   %inc32 = add nuw i64 %i.027, 1
@@ -495,9 +491,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %if.end39, label %for.body, !llvm.loop !4
 
 if.else:                                          ; preds = %entry
-  %call35 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  %13 = load ptr, ptr %_in_progress.i19, align 8
-  %call37 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %call35 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %12 = load ptr, ptr %_in_progress.i, align 8
+  %call37 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
   br label %if.end39
 
 if.end39:                                         ; preds = %for.body, %if.end26, %if.else
@@ -559,41 +555,40 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then9:                                         ; preds = %while.body
   %5 = load i8, ptr %_new_msg_flag, align 8
-  %6 = and i8 %5, 1
-  %tobool10.not = icmp eq i8 %6, 0
-  br i1 %tobool10.not, label %if.end34, label %if.then11
+  %tobool10 = trunc i8 %5 to i1
+  br i1 %tobool10, label %if.then11, label %if.end34
 
 if.then11:                                        ; preds = %if.then9
-  %7 = load ptr, ptr %_in_progress.i, align 8
-  %call12 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
+  %6 = load ptr, ptr %_in_progress.i, align 8
+  %call12 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %do.end, label %if.then14
 
 if.then14:                                        ; preds = %if.then11
   %call15 = tail call ptr @__errno_location() #18
-  %8 = load i32, ptr %call15, align 4
-  %call16 = tail call ptr @strerror(i32 noundef %8) #15
+  %7 = load i32, ptr %call15, align 4
+  %call16 = tail call ptr @strerror(i32 noundef %7) #15
+  %8 = load ptr, ptr @stderr, align 8
+  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 63) #14
   %9 = load ptr, ptr @stderr, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 63) #14
-  %10 = load ptr, ptr @stderr, align 8
-  %call18 = tail call i32 @fflush(ptr noundef %10)
+  %call18 = tail call i32 @fflush(ptr noundef %9)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call16)
   br label %do.end
 
 do.end:                                           ; preds = %if.then11, %if.then14
-  %11 = load ptr, ptr %_in_progress.i, align 8
-  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+  %10 = load ptr, ptr %_in_progress.i, align 8
+  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
   %cmp23.not = icmp eq i32 %call21, 0
   br i1 %cmp23.not, label %do.end32, label %if.then25
 
 if.then25:                                        ; preds = %do.end
   %call27 = tail call ptr @__errno_location() #18
-  %12 = load i32, ptr %call27, align 4
-  %call28 = tail call ptr @strerror(i32 noundef %12) #15
+  %11 = load i32, ptr %call27, align 4
+  %call28 = tail call ptr @strerror(i32 noundef %11) #15
+  %12 = load ptr, ptr @stderr, align 8
+  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %call28, ptr noundef nonnull @.str.1, i32 noundef 65) #14
   %13 = load ptr, ptr @stderr, align 8
-  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %call28, ptr noundef nonnull @.str.1, i32 noundef 65) #14
-  %14 = load ptr, ptr @stderr, align 8
-  %call30 = tail call i32 @fflush(ptr noundef %14)
+  %call30 = tail call i32 @fflush(ptr noundef %13)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call28)
   br label %do.end32
 
@@ -604,16 +599,16 @@ do.end32:                                         ; preds = %do.end, %if.then25
 if.end34:                                         ; preds = %if.then9
   %.unpack = load i64, ptr %_next, align 8
   %.unpack22 = load i64, ptr %.elt21, align 8
-  %15 = getelementptr inbounds i8, ptr %this, i64 %.unpack22
-  %16 = and i64 %.unpack, 1
-  %memptr.isvirtual.not = icmp eq i64 %16, 0
+  %14 = getelementptr inbounds i8, ptr %this, i64 %.unpack22
+  %15 = and i64 %.unpack, 1
+  %memptr.isvirtual.not = icmp eq i64 %15, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
 
 memptr.virtual:                                   ; preds = %if.end34
-  %vtable = load ptr, ptr %15, align 8
-  %17 = getelementptr i8, ptr %vtable, i64 %.unpack
-  %18 = getelementptr i8, ptr %17, i64 -1
-  %memptr.virtualfn = load ptr, ptr %18, align 8, !nosanitize !6
+  %vtable = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %vtable, i64 %.unpack
+  %17 = getelementptr i8, ptr %16, i64 -1
+  %memptr.virtualfn = load ptr, ptr %17, align 8, !nosanitize !6
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end34
@@ -621,8 +616,8 @@ memptr.nonvirtual:                                ; preds = %if.end34
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %19 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(168) %15)
+  %18 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(168) %14)
   %.pre32.pre = load i64, ptr %_to_write, align 8
   br label %if.end35
 
@@ -636,8 +631,8 @@ if.end35.if.end45_crit_edge:                      ; preds = %if.end35
   br label %if.end45
 
 land.lhs.true:                                    ; preds = %if.end35
-  %20 = load ptr, ptr %data_, align 8
-  %tobool37.not = icmp ne ptr %20, null
+  %19 = load ptr, ptr %data_, align 8
+  %tobool37.not = icmp ne ptr %19, null
   %cmp40.not = icmp ult i64 %.pre32, %cond6
   %or.cond = select i1 %tobool37.not, i1 true, i1 %cmp40.not
   %.pre34 = load ptr, ptr %_write_pos48, align 8
@@ -645,22 +640,22 @@ land.lhs.true:                                    ; preds = %if.end35
 
 if.then41:                                        ; preds = %land.lhs.true
   store ptr %.pre34, ptr %data_, align 8
-  %21 = load i64, ptr %_to_write, align 8
+  %20 = load i64, ptr %_to_write, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_write_pos48, i8 0, i64 16, i1 false)
   br label %return
 
 if.end45:                                         ; preds = %if.end35.if.end45_crit_edge, %land.lhs.true
-  %22 = phi ptr [ %.pre33, %if.end35.if.end45_crit_edge ], [ %.pre34, %land.lhs.true ]
+  %21 = phi ptr [ %.pre33, %if.end35.if.end45_crit_edge ], [ %.pre34, %land.lhs.true ]
   %sub = sub i64 %cond6, %pos.029
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %.pre32)
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %pos.029
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %22, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %21, i64 %.sroa.speculated, i1 false)
   %add = add i64 %.sroa.speculated, %pos.029
-  %23 = load ptr, ptr %_write_pos48, align 8
-  %add.ptr50 = getelementptr inbounds i8, ptr %23, i64 %.sroa.speculated
+  %22 = load ptr, ptr %_write_pos48, align 8
+  %add.ptr50 = getelementptr inbounds i8, ptr %22, i64 %.sroa.speculated
   store ptr %add.ptr50, ptr %_write_pos48, align 8
-  %24 = load i64, ptr %_to_write, align 8
-  %sub52 = sub i64 %24, %.sroa.speculated
+  %23 = load i64, ptr %_to_write, align 8
+  %sub52 = sub i64 %23, %.sroa.speculated
   store i64 %sub52, ptr %_to_write, align 8
   %cmp7 = icmp ult i64 %add, %cond6
   br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !7
@@ -671,7 +666,7 @@ while.end:                                        ; preds = %if.end45, %while.co
   br label %return
 
 return:                                           ; preds = %entry, %while.end, %if.then41
-  %retval.0 = phi i64 [ %21, %if.then41 ], [ %pos.026, %while.end ], [ 0, %entry ]
+  %retval.0 = phi i64 [ %20, %if.then41 ], [ %pos.026, %while.end ], [ 0, %entry ]
   ret i64 %retval.0
 }
 

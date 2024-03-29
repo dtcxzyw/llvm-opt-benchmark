@@ -59,9 +59,8 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %7 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %6, ptr noundef nonnull %1) #11
   store ptr %7, ptr @ProcSignal, align 8
   %8 = load i8, ptr %1, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %.loopexit25
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.loopexit25, label %10
 
 10:                                               ; preds = %0
   store volatile i64 0, ptr %7, align 8
@@ -494,7 +493,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %42, label %4
+  br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %0
   store volatile i32 0, ptr @ProcSignalBarrierPending, align 4
@@ -504,7 +503,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   %8 = load ptr, ptr @ProcSignal, align 8
   %9 = load volatile i64, ptr %8, align 8
   %10 = icmp eq i64 %7, %9
-  br i1 %10, label %42, label %11
+  br i1 %10, label %39, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %5, i64 72
@@ -512,28 +511,26 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   store volatile i32 %13, ptr %1, align 4
   %.0..0..0..0.9 = load volatile i32, ptr %1, align 4
   %.not19 = icmp eq i32 %.0..0..0..0.9, 0
-  br i1 %.not19, label %38, label %14
+  br i1 %.not19, label %35, label %14
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @PG_exception_stack, align 8
   %16 = load ptr, ptr @error_context_stack, align 8
   %17 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #14
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %31
 
 19:                                               ; preds = %14
   store ptr %2, ptr @PG_exception_stack, align 8
-  %.0..0..0..0.1024 = load volatile i32, ptr %1, align 4
-  %.not2025 = icmp eq i32 %.0..0..0..0.1024, 0
-  br i1 %.not2025, label %._crit_edge.thread, label %.lr.ph
+  %.0..0..0..0.1023 = load volatile i32, ptr %1, align 4
+  %.not2024 = icmp eq i32 %.0..0..0..0.1023, 0
+  br i1 %.not2024, label %.critedge, label %.lr.ph.outer
 
-._crit_edge.thread:                               ; preds = %19
-  store ptr %15, ptr @PG_exception_stack, align 8
-  store ptr %16, ptr @error_context_stack, align 8
-  br label %38
+.lr.ph.outer:                                     ; preds = %19, %.thread26
+  %.01725.ph = phi i1 [ false, %.thread26 ], [ true, %19 ]
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %31
-  %.01726 = phi i8 [ %.1, %31 ], [ 1, %19 ]
+.lr.ph:                                           ; preds = %.lr.ph.outer, %27
   %.0..0..0..0.11 = load volatile i32, ptr %1, align 4
   %20 = call i32 @llvm.cttz.i32(i32 %.0..0..0..0.11, i1 true), !range !15
   %cond = icmp eq i32 %20, 0
@@ -542,60 +539,69 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 .thread:                                          ; preds = %.lr.ph
   %21 = shl nuw i32 1, %20
   %22 = xor i32 %21, -1
-  %.0..0..0..0.1223 = load volatile i32, ptr %1, align 4
-  %23 = and i32 %.0..0..0..0.1223, %22
+  %.0..0..0..0.1222 = load volatile i32, ptr %1, align 4
+  %23 = and i32 %.0..0..0..0.1222, %22
   store volatile i32 %23, ptr %1, align 4
-  br label %31
+  br label %27
 
 24:                                               ; preds = %.lr.ph
   %25 = call zeroext i1 @ProcessBarrierSmgrRelease() #11
   %.0..0..0..0.12 = load volatile i32, ptr %1, align 4
   %26 = and i32 %.0..0..0..0.12, -2
   store volatile i32 %26, ptr %1, align 4
-  br i1 %25, label %31, label %27
+  br i1 %25, label %27, label %.thread26
 
-27:                                               ; preds = %24
+27:                                               ; preds = %.thread, %24
+  %.0..0..0..0.10 = load volatile i32, ptr %1, align 4
+  %.not20 = icmp eq i32 %.0..0..0..0.10, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+
+.thread26:                                        ; preds = %24
   %28 = load ptr, ptr @MyProcSignalSlot, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 72
   %30 = atomicrmw or ptr %29, i32 1 seq_cst, align 4
   store volatile i32 1, ptr @ProcSignalBarrierPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
-  br label %31
+  %.0..0..0..0.1028 = load volatile i32, ptr %1, align 4
+  %.not2029 = icmp eq i32 %.0..0..0..0.1028, 0
+  br i1 %.not2029, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !16
 
-31:                                               ; preds = %.thread, %27, %24
-  %.1 = phi i8 [ %.01726, %24 ], [ 0, %27 ], [ %.01726, %.thread ]
-  %.0..0..0..0.10 = load volatile i32, ptr %1, align 4
-  %.not20 = icmp eq i32 %.0..0..0..0.10, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+._crit_edge.thread:                               ; preds = %.thread26
+  store ptr %15, ptr @PG_exception_stack, align 8
+  store ptr %16, ptr @error_context_stack, align 8
+  br label %39
 
-32:                                               ; preds = %14
+31:                                               ; preds = %14
   store ptr %15, ptr @PG_exception_stack, align 8
   store ptr %16, ptr @error_context_stack, align 8
   %.0..0..0..0.13 = load volatile i32, ptr %1, align 4
-  %33 = load ptr, ptr @MyProcSignalSlot, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
-  %35 = atomicrmw or ptr %34, i32 %.0..0..0..0.13 seq_cst, align 4
+  %32 = load ptr, ptr @MyProcSignalSlot, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %34 = atomicrmw or ptr %33, i32 %.0..0..0..0.13 seq_cst, align 4
   store volatile i32 1, ptr @ProcSignalBarrierPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
   call void @pg_re_throw() #15
   unreachable
 
-._crit_edge:                                      ; preds = %31
-  %36 = and i8 %.1, 1
-  %37 = icmp eq i8 %36, 0
+._crit_edge:                                      ; preds = %27
   store ptr %15, ptr @PG_exception_stack, align 8
   store ptr %16, ptr @error_context_stack, align 8
-  br i1 %37, label %42, label %38
+  br i1 %.01725.ph, label %35, label %39
 
-38:                                               ; preds = %._crit_edge.thread, %._crit_edge, %11
-  %39 = load ptr, ptr @MyProcSignalSlot, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 64
-  store volatile i64 %9, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 76
-  call void @ConditionVariableBroadcast(ptr noundef nonnull %41) #11
-  br label %42
+.critedge:                                        ; preds = %19
+  store ptr %15, ptr @PG_exception_stack, align 8
+  store ptr %16, ptr @error_context_stack, align 8
+  br label %35
 
-42:                                               ; preds = %._crit_edge, %4, %0, %38
+35:                                               ; preds = %.critedge, %._crit_edge, %11
+  %36 = load ptr, ptr @MyProcSignalSlot, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  store volatile i64 %9, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 76
+  call void @ConditionVariableBroadcast(ptr noundef nonnull %38) #11
+  br label %39
+
+39:                                               ; preds = %._crit_edge.thread, %._crit_edge, %4, %0, %35
   ret void
 }
 

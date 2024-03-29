@@ -12,25 +12,24 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @PMPI_T_category_get_num(ptr noundef writeonly %0) #0 {
   %2 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not3 = icmp eq i32 %2, 0
-  br i1 %.not3, label %10, label %3
+  br i1 %.not3, label %9, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  %7 = icmp eq ptr %0, null
-  %or.cond = and i1 %7, %6
-  br i1 %or.cond, label %10, label %8
+  %5 = trunc i8 %4 to i1
+  %6 = icmp eq ptr %0, null
+  %or.cond = and i1 %6, %5
+  br i1 %or.cond, label %9, label %7
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @ompi_mpit_lock() #2
-  %9 = tail call i32 @mca_base_var_group_get_count() #2
-  store i32 %9, ptr %0, align 4
+  %8 = tail call i32 @mca_base_var_group_get_count() #2
+  store i32 %8, ptr %0, align 4
   tail call void @ompi_mpit_unlock() #2
-  br label %10
+  br label %9
 
-10:                                               ; preds = %3, %1, %8
-  %.0 = phi i32 [ 0, %8 ], [ 55, %1 ], [ 72, %3 ]
+9:                                                ; preds = %3, %1, %7
+  %.0 = phi i32 [ 0, %7 ], [ 55, %1 ], [ 72, %3 ]
   ret i32 %.0
 }
 

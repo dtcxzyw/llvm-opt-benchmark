@@ -145,25 +145,24 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
   %5 = extractvalue { ptr, i8 } %call9.i.i, 0
   %6 = extractvalue { ptr, i8 } %call9.i.i, 1
-  %7 = and i8 %6, 1
-  %tobool.i.i.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.i.not, label %while.body, label %message_done
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %message_done, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
   %ptr.addr.116 = phi ptr [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %8 = load i8, ptr %ptr.addr.116, align 1
-  %conv.i = zext i8 %8 to i32
-  %cmp.i = icmp sgt i8 %8, -1
+  %7 = load i8, ptr %ptr.addr.116, align 1
+  %conv.i = zext i8 %7 to i32
+  %cmp.i = icmp sgt i8 %7, -1
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.116, i64 1
   br i1 %cmp.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
-  %9 = load i8, ptr %add.ptr.i, align 1
-  %conv2.i = zext i8 %9 to i32
+  %8 = load i8, ptr %add.ptr.i, align 1
+  %conv2.i = zext i8 %8 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
   %add.i = or disjoint i32 %sub.i, %shl.i
-  %cmp3.i = icmp sgt i8 %9, -1
+  %cmp3.i = icmp sgt i8 %8, -1
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -172,13 +171,13 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.116, i32 noundef %add.i)
-  %10 = extractvalue { ptr, i32 } %call.i, 0
-  %11 = extractvalue { ptr, i32 } %call.i, 1
+  %9 = extractvalue { ptr, i32 } %call.i, 0
+  %10 = extractvalue { ptr, i32 } %call.i, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %while.body, %if.then4.i, %if.end6.i
-  %tag.0 = phi i32 [ %add.i, %if.then4.i ], [ %11, %if.end6.i ], [ %conv.i, %while.body ]
-  %retval.0.i = phi ptr [ %add.ptr5.i, %if.then4.i ], [ %10, %if.end6.i ], [ %add.ptr.i, %while.body ]
+  %tag.0 = phi i32 [ %add.i, %if.then4.i ], [ %10, %if.end6.i ], [ %conv.i, %while.body ]
+  %retval.0.i = phi ptr [ %add.ptr5.i, %if.then4.i ], [ %9, %if.end6.i ], [ %add.ptr.i, %while.body ]
   %cmp = icmp eq i32 %tag.0, 0
   %and = and i32 %tag.0, 7
   %cmp3 = icmp eq i32 %and, 4
@@ -197,15 +196,15 @@ if.end:                                           ; preds = %if.then
 
 if.end6:                                          ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %conv = zext i32 %tag.0 to i64
-  %12 = load i64, ptr %_internal_metadata_, align 8
-  %and.i = and i64 %12, 1
+  %11 = load i64, ptr %_internal_metadata_, align 8
+  %and.i = and i64 %11, 1
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %and.i5 = and i64 %12, -2
-  %13 = inttoptr i64 %and.i5 to ptr
-  %unknown_fields.i = getelementptr inbounds i8, ptr %13, i64 8
+  %and.i5 = and i64 %11, -2
+  %12 = inttoptr i64 %and.i5 to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %12, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i:                                        ; preds = %if.end6

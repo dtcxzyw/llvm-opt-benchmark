@@ -10,8 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_T_pvar_start(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load volatile i32, ptr @ompi_mpit_init_count, align 4
-  %.not17 = icmp eq i32 %3, 0
-  br i1 %.not17, label %23, label %4
+  %.not16 = icmp eq i32 %3, 0
+  br i1 %.not16, label %23, label %4
 
 4:                                                ; preds = %2
   tail call void @ompi_mpit_lock() #2
@@ -21,21 +21,20 @@ define i32 @PMPI_T_pvar_start(ptr noundef %0, ptr noundef %1) #0 {
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %.0918 = load volatile ptr, ptr %8, align 8
-  %.not1219 = icmp eq ptr %.0918, %7
-  br i1 %.not1219, label %.loopexit, label %.lr.ph
+  %.0917 = load volatile ptr, ptr %8, align 8
+  %.not1218 = icmp eq ptr %.0917, %7
+  br i1 %.not1218, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %mca_base_pvar_handle_is_running.exit.thread
-  %.0921 = phi ptr [ %.09, %mca_base_pvar_handle_is_running.exit.thread ], [ %.0918, %6 ]
-  %.020 = phi i32 [ %.1, %mca_base_pvar_handle_is_running.exit.thread ], [ 0, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0921, i64 136
+  %.0920 = phi ptr [ %.09, %mca_base_pvar_handle_is_running.exit.thread ], [ %.0917, %6 ]
+  %.019 = phi i32 [ %.1, %mca_base_pvar_handle_is_running.exit.thread ], [ 0, %6 ]
+  %9 = getelementptr inbounds i8, ptr %.0920, i64 136
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %mca_base_pvar_handle_is_running.exit, label %mca_base_pvar_handle_is_running.exit.thread
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %mca_base_pvar_handle_is_running.exit.thread, label %mca_base_pvar_handle_is_running.exit
 
 mca_base_pvar_handle_is_running.exit:             ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.0921, i64 88
+  %12 = getelementptr inbounds i8, ptr %.0920, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
@@ -44,26 +43,26 @@ mca_base_pvar_handle_is_running.exit:             ; preds = %.lr.ph
   br i1 %.not, label %17, label %mca_base_pvar_handle_is_running.exit.thread
 
 17:                                               ; preds = %mca_base_pvar_handle_is_running.exit
-  %18 = tail call i32 @mca_base_pvar_handle_start(ptr noundef nonnull %.0921) #2
-  %.not.i14 = icmp eq i32 %18, 0
-  %spec.select = select i1 %.not.i14, i32 %.020, i32 65
+  %18 = tail call i32 @mca_base_pvar_handle_start(ptr noundef nonnull %.0920) #2
+  %.not.i = icmp eq i32 %18, 0
+  %spec.select = select i1 %.not.i, i32 %.019, i32 65
   br label %mca_base_pvar_handle_is_running.exit.thread
 
 mca_base_pvar_handle_is_running.exit.thread:      ; preds = %.lr.ph, %17, %mca_base_pvar_handle_is_running.exit
-  %.1 = phi i32 [ %.020, %mca_base_pvar_handle_is_running.exit ], [ %spec.select, %17 ], [ %.020, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %.0921, i64 16
+  %.1 = phi i32 [ %.019, %mca_base_pvar_handle_is_running.exit ], [ %spec.select, %17 ], [ %.019, %.lr.ph ]
+  %19 = getelementptr inbounds i8, ptr %.0920, i64 16
   %.09 = load volatile ptr, ptr %19, align 8
   %.not12 = icmp eq ptr %.09, %7
   br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 20:                                               ; preds = %4
   %21 = tail call i32 @mca_base_pvar_handle_start(ptr noundef %1) #2
-  %.not.i15 = icmp eq i32 %21, 0
-  %..i16 = select i1 %.not.i15, i32 0, i32 65
+  %.not.i14 = icmp eq i32 %21, 0
+  %..i15 = select i1 %.not.i14, i32 0, i32 65
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mca_base_pvar_handle_is_running.exit.thread, %6, %20
-  %.2 = phi i32 [ %..i16, %20 ], [ 0, %6 ], [ %.1, %mca_base_pvar_handle_is_running.exit.thread ]
+  %.2 = phi i32 [ %..i15, %20 ], [ 0, %6 ], [ %.1, %mca_base_pvar_handle_is_running.exit.thread ]
   tail call void @ompi_mpit_unlock() #2
   %22 = tail call i32 @ompit_opal_to_mpit_error(i32 noundef %.2) #2
   br label %23

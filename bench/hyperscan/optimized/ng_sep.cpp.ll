@@ -45,9 +45,8 @@ define hidden noundef zeroext i1 @_ZN3ue25isSEPERKNS_8NGHolderERKNS_13ReportMana
 entry:
   %mergeSEP = getelementptr inbounds i8, ptr %grey, i64 46
   %0 = load i8, ptr %mergeSEP, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZN3ue211can_exhaustERKNS_8NGHolderERKNS_13ReportManagerE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 1 %rm)
@@ -57,11 +56,11 @@ if.end:                                           ; preds = %lor.lhs.false
   %start = getelementptr inbounds i8, ptr %g, i64 72
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %m_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 136
-  %__begin1.sroa.0.064.i = load ptr, ptr %m_header.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.not65.i = icmp eq ptr %__begin1.sroa.0.064.i, %m_header.i.i.i.i.i.i.i
+  %__begin1.sroa.0.067.i = load ptr, ptr %m_header.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.not68.i = icmp eq ptr %__begin1.sroa.0.067.i, %m_header.i.i.i.i.i.i.i
   %startDs.phi.trans.insert = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp3.sroa.0.0.copyload.pre = load ptr, ptr %startDs.phi.trans.insert, align 8
-  br i1 %cmp.i.i.i.i.i.i.i.not65.i, label %lor.lhs.false2, label %for.body.lr.ph.i
+  br i1 %cmp.i.i.i.i.i.i.i.not68.i, label %lor.lhs.false2, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %out_edge_list.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.sroa.0.0.copyload.pre, i64 128
@@ -73,21 +72,21 @@ for.body.lr.ph.i:                                 ; preds = %if.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__begin1.sroa.0.066.i = phi ptr [ %__begin1.sroa.0.064.i, %for.body.lr.ph.i ], [ %__begin1.sroa.0.0.i, %for.inc.i ]
-  %target.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066.i, i64 40
-  %2 = load ptr, ptr %target.i.i.i.i, align 8
-  %cmp.i.i = icmp eq ptr %2, %agg.tmp3.sroa.0.0.copyload.pre
+  %__begin1.sroa.0.069.i = phi ptr [ %__begin1.sroa.0.067.i, %for.body.lr.ph.i ], [ %__begin1.sroa.0.0.i, %for.inc.i ]
+  %target.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.069.i, i64 40
+  %1 = load ptr, ptr %target.i.i.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, %agg.tmp3.sroa.0.0.copyload.pre
   br i1 %cmp.i.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %in_edge_list.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 104
-  %3 = load i64, ptr %in_edge_list.i.i.i.i, align 8, !noalias !5
-  %4 = load i64, ptr %out_edge_list.i.i.i.i, align 8, !noalias !5
-  %cmp.i.i.i = icmp ult i64 %3, %4
+  %in_edge_list.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %2 = load i64, ptr %in_edge_list.i.i.i.i, align 8, !noalias !5
+  %3 = load i64, ptr %out_edge_list.i.i.i.i, align 8, !noalias !5
+  %cmp.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.cond19.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %m_header.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
+  %m_header.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -98,8 +97,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %source.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i.i.i, i64 16
-  %5 = load ptr, ptr %source.i.i.i.i, align 8, !noalias !5
-  %cmp.i.i.i.i = icmp eq ptr %5, %agg.tmp3.sroa.0.0.copyload.pre
+  %4 = load ptr, ptr %source.i.i.i.i, align 8, !noalias !5
+  %cmp.i.i.i.i = icmp eq ptr %4, %agg.tmp3.sroa.0.0.copyload.pre
   br i1 %cmp.i.i.i.i, label %if.else.i, label %for.cond.i.i.i
 
 for.cond19.i.i.i:                                 ; preds = %if.end.i, %for.body21.i.i.i
@@ -110,19 +109,19 @@ for.cond19.i.i.i:                                 ; preds = %if.end.i, %for.body
 
 for.body21.i.i.i:                                 ; preds = %for.cond19.i.i.i
   %target.i.i.i8.i = getelementptr inbounds i8, ptr %__begin017.sroa.0.0.i.i.i, i64 40
-  %6 = load ptr, ptr %target.i.i.i8.i, align 8, !noalias !5
-  %cmp.i16.i.i.i = icmp eq ptr %6, %2
+  %5 = load ptr, ptr %target.i.i.i8.i, align 8, !noalias !5
+  %cmp.i16.i.i.i = icmp eq ptr %5, %1
   br i1 %cmp.i16.i.i.i, label %if.else.i, label %for.cond19.i.i.i
 
 if.else.i:                                        ; preds = %for.body21.i.i.i, %for.body.i.i.i
-  %out_edge_list.i.i.i = getelementptr inbounds i8, ptr %2, i64 128
-  %7 = load i64, ptr %out_edge_list.i.i.i, align 8
-  %cmp.i = icmp eq i64 %7, 1
+  %out_edge_list.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %6 = load i64, ptr %out_edge_list.i.i.i, align 8
+  %cmp.i = icmp eq i64 %6, 1
   br i1 %cmp.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %if.else.i
-  %8 = load i64, ptr %in_edge_list.i.i.i9.i, align 8, !noalias !10
-  %cmp.i.i11.i = icmp eq i64 %8, 0
+  %7 = load i64, ptr %in_edge_list.i.i.i9.i, align 8, !noalias !10
+  %cmp.i.i11.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i11.i, label %for.cond.i.i28.i, label %if.else.i.i12.i
 
 for.cond.i.i28.i:                                 ; preds = %land.rhs.i, %for.body.i.i32.i
@@ -133,12 +132,12 @@ for.cond.i.i28.i:                                 ; preds = %land.rhs.i, %for.bo
 
 for.body.i.i32.i:                                 ; preds = %for.cond.i.i28.i
   %source.i.i.i33.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i.i30.i, i64 16
-  %9 = load ptr, ptr %source.i.i.i33.i, align 8, !noalias !10
-  %cmp.i.i.i34.i = icmp eq ptr %9, %2
+  %8 = load ptr, ptr %source.i.i.i33.i, align 8, !noalias !10
+  %cmp.i.i.i34.i = icmp eq ptr %8, %1
   br i1 %cmp.i.i.i34.i, label %for.inc.i, label %for.cond.i.i28.i
 
 if.else.i.i12.i:                                  ; preds = %land.rhs.i
-  %m_header.i.i.i.i.i6.i.i13.i = getelementptr inbounds i8, ptr %2, i64 136
+  %m_header.i.i.i.i.i6.i.i13.i = getelementptr inbounds i8, ptr %1, i64 136
   br label %for.cond19.i.i14.i
 
 for.cond19.i.i14.i:                               ; preds = %for.body21.i.i18.i, %if.else.i.i12.i
@@ -149,20 +148,20 @@ for.cond19.i.i14.i:                               ; preds = %for.body21.i.i18.i,
 
 for.body21.i.i18.i:                               ; preds = %for.cond19.i.i14.i
   %target.i.i.i19.i = getelementptr inbounds i8, ptr %__begin017.sroa.0.0.i.i16.i, i64 40
-  %10 = load ptr, ptr %target.i.i.i19.i, align 8, !noalias !10
-  %cmp.i16.i.i20.i = icmp eq ptr %10, %agg.tmp12.sroa.0.0.copyload.i
+  %9 = load ptr, ptr %target.i.i.i19.i, align 8, !noalias !10
+  %cmp.i16.i.i20.i = icmp eq ptr %9, %agg.tmp12.sroa.0.0.copyload.i
   br i1 %cmp.i16.i.i20.i, label %for.inc.i, label %for.cond19.i.i14.i
 
 for.inc.i:                                        ; preds = %for.body21.i.i18.i, %for.body.i.i32.i, %for.body.i
-  %__begin1.sroa.0.0.i = load ptr, ptr %__begin1.sroa.0.066.i, align 8
+  %__begin1.sroa.0.0.i = load ptr, ptr %__begin1.sroa.0.069.i, align 8
   %cmp.i.i.i.i.i.i.i.not.i = icmp eq ptr %__begin1.sroa.0.0.i, %m_header.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.not.i, label %lor.lhs.false2, label %for.body.i
 
 lor.lhs.false2:                                   ; preds = %for.inc.i, %if.end
   %m_header.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.tmp3.sroa.0.0.copyload.pre, i64 136
-  %__begin1.sroa.0.064.i6 = load ptr, ptr %m_header.i.i.i.i.i.i.i5, align 8
-  %cmp.i.i.i.i.i.i.i.not65.i7 = icmp eq ptr %__begin1.sroa.0.064.i6, %m_header.i.i.i.i.i.i.i5
-  br i1 %cmp.i.i.i.i.i.i.i.not65.i7, label %return, label %for.body.lr.ph.i8
+  %__begin1.sroa.0.067.i6 = load ptr, ptr %m_header.i.i.i.i.i.i.i5, align 8
+  %cmp.i.i.i.i.i.i.i.not68.i7 = icmp eq ptr %__begin1.sroa.0.067.i6, %m_header.i.i.i.i.i.i.i5
+  br i1 %cmp.i.i.i.i.i.i.i.not68.i7, label %return, label %for.body.lr.ph.i8
 
 for.body.lr.ph.i8:                                ; preds = %lor.lhs.false2
   %out_edge_list.i.i.i.i11 = getelementptr inbounds i8, ptr %agg.tmp3.sroa.0.0.copyload.pre, i64 128
@@ -173,21 +172,21 @@ for.body.lr.ph.i8:                                ; preds = %lor.lhs.false2
   br label %for.body.i17
 
 for.body.i17:                                     ; preds = %for.inc.i46, %for.body.lr.ph.i8
-  %__begin1.sroa.0.066.i18 = phi ptr [ %__begin1.sroa.0.064.i6, %for.body.lr.ph.i8 ], [ %__begin1.sroa.0.0.i47, %for.inc.i46 ]
-  %target.i.i.i.i19 = getelementptr inbounds i8, ptr %__begin1.sroa.0.066.i18, i64 40
-  %11 = load ptr, ptr %target.i.i.i.i19, align 8
-  %cmp.i.i20 = icmp eq ptr %11, %agg.tmp3.sroa.0.0.copyload.pre
+  %__begin1.sroa.0.069.i18 = phi ptr [ %__begin1.sroa.0.067.i6, %for.body.lr.ph.i8 ], [ %__begin1.sroa.0.0.i47, %for.inc.i46 ]
+  %target.i.i.i.i19 = getelementptr inbounds i8, ptr %__begin1.sroa.0.069.i18, i64 40
+  %10 = load ptr, ptr %target.i.i.i.i19, align 8
+  %cmp.i.i20 = icmp eq ptr %10, %agg.tmp3.sroa.0.0.copyload.pre
   br i1 %cmp.i.i20, label %for.inc.i46, label %if.end.i21
 
 if.end.i21:                                       ; preds = %for.body.i17
-  %in_edge_list.i.i.i.i22 = getelementptr inbounds i8, ptr %11, i64 104
-  %12 = load i64, ptr %in_edge_list.i.i.i.i22, align 8, !noalias !15
-  %13 = load i64, ptr %out_edge_list.i.i.i.i11, align 8, !noalias !15
-  %cmp.i.i.i23 = icmp ult i64 %12, %13
+  %in_edge_list.i.i.i.i22 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = load i64, ptr %in_edge_list.i.i.i.i22, align 8, !noalias !15
+  %12 = load i64, ptr %out_edge_list.i.i.i.i11, align 8, !noalias !15
+  %cmp.i.i.i23 = icmp ult i64 %11, %12
   br i1 %cmp.i.i.i23, label %if.then.i.i.i56, label %for.cond19.i.i.i24
 
 if.then.i.i.i56:                                  ; preds = %if.end.i21
-  %m_header.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %11, i64 112
+  %m_header.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %10, i64 112
   br label %for.cond.i.i.i58
 
 for.cond.i.i.i58:                                 ; preds = %for.body.i.i.i62, %if.then.i.i.i56
@@ -198,8 +197,8 @@ for.cond.i.i.i58:                                 ; preds = %for.body.i.i.i62, %
 
 for.body.i.i.i62:                                 ; preds = %for.cond.i.i.i58
   %source.i.i.i.i63 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i.i.i60, i64 16
-  %14 = load ptr, ptr %source.i.i.i.i63, align 8, !noalias !15
-  %cmp.i.i.i.i64 = icmp eq ptr %14, %agg.tmp3.sroa.0.0.copyload.pre
+  %13 = load ptr, ptr %source.i.i.i.i63, align 8, !noalias !15
+  %cmp.i.i.i.i64 = icmp eq ptr %13, %agg.tmp3.sroa.0.0.copyload.pre
   br i1 %cmp.i.i.i.i64, label %if.else.i31, label %for.cond.i.i.i58
 
 for.cond19.i.i.i24:                               ; preds = %if.end.i21, %for.body21.i.i.i28
@@ -210,19 +209,19 @@ for.cond19.i.i.i24:                               ; preds = %if.end.i21, %for.bo
 
 for.body21.i.i.i28:                               ; preds = %for.cond19.i.i.i24
   %target.i.i.i8.i29 = getelementptr inbounds i8, ptr %__begin017.sroa.0.0.i.i.i26, i64 40
-  %15 = load ptr, ptr %target.i.i.i8.i29, align 8, !noalias !15
-  %cmp.i16.i.i.i30 = icmp eq ptr %15, %11
+  %14 = load ptr, ptr %target.i.i.i8.i29, align 8, !noalias !15
+  %cmp.i16.i.i.i30 = icmp eq ptr %14, %10
   br i1 %cmp.i16.i.i.i30, label %if.else.i31, label %for.cond19.i.i.i24
 
 if.else.i31:                                      ; preds = %for.body21.i.i.i28, %for.body.i.i.i62
-  %out_edge_list.i.i.i32 = getelementptr inbounds i8, ptr %11, i64 128
-  %16 = load i64, ptr %out_edge_list.i.i.i32, align 8
-  %cmp.i33 = icmp eq i64 %16, 1
+  %out_edge_list.i.i.i32 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = load i64, ptr %out_edge_list.i.i.i32, align 8
+  %cmp.i33 = icmp eq i64 %15, 1
   br i1 %cmp.i33, label %land.rhs.i35, label %return
 
 land.rhs.i35:                                     ; preds = %if.else.i31
-  %17 = load i64, ptr %in_edge_list.i.i.i9.i15, align 8, !noalias !20
-  %cmp.i.i11.i36 = icmp eq i64 %17, 0
+  %16 = load i64, ptr %in_edge_list.i.i.i9.i15, align 8, !noalias !20
+  %cmp.i.i11.i36 = icmp eq i64 %16, 0
   br i1 %cmp.i.i11.i36, label %for.cond.i.i28.i49, label %if.else.i.i12.i37
 
 for.cond.i.i28.i49:                               ; preds = %land.rhs.i35, %for.body.i.i32.i53
@@ -233,12 +232,12 @@ for.cond.i.i28.i49:                               ; preds = %land.rhs.i35, %for.
 
 for.body.i.i32.i53:                               ; preds = %for.cond.i.i28.i49
   %source.i.i.i33.i54 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i.i30.i51, i64 16
-  %18 = load ptr, ptr %source.i.i.i33.i54, align 8, !noalias !20
-  %cmp.i.i.i34.i55 = icmp eq ptr %18, %11
+  %17 = load ptr, ptr %source.i.i.i33.i54, align 8, !noalias !20
+  %cmp.i.i.i34.i55 = icmp eq ptr %17, %10
   br i1 %cmp.i.i.i34.i55, label %for.inc.i46, label %for.cond.i.i28.i49
 
 if.else.i.i12.i37:                                ; preds = %land.rhs.i35
-  %m_header.i.i.i.i.i6.i.i13.i38 = getelementptr inbounds i8, ptr %11, i64 136
+  %m_header.i.i.i.i.i6.i.i13.i38 = getelementptr inbounds i8, ptr %10, i64 136
   br label %for.cond19.i.i14.i39
 
 for.cond19.i.i14.i39:                             ; preds = %for.body21.i.i18.i43, %if.else.i.i12.i37
@@ -249,12 +248,12 @@ for.cond19.i.i14.i39:                             ; preds = %for.body21.i.i18.i4
 
 for.body21.i.i18.i43:                             ; preds = %for.cond19.i.i14.i39
   %target.i.i.i19.i44 = getelementptr inbounds i8, ptr %__begin017.sroa.0.0.i.i16.i41, i64 40
-  %19 = load ptr, ptr %target.i.i.i19.i44, align 8, !noalias !20
-  %cmp.i16.i.i20.i45 = icmp eq ptr %19, %agg.tmp12.sroa.0.0.copyload.i14
+  %18 = load ptr, ptr %target.i.i.i19.i44, align 8, !noalias !20
+  %cmp.i16.i.i20.i45 = icmp eq ptr %18, %agg.tmp12.sroa.0.0.copyload.i14
   br i1 %cmp.i16.i.i20.i45, label %for.inc.i46, label %for.cond19.i.i14.i39
 
 for.inc.i46:                                      ; preds = %for.body21.i.i18.i43, %for.body.i.i32.i53, %for.body.i17
-  %__begin1.sroa.0.0.i47 = load ptr, ptr %__begin1.sroa.0.066.i18, align 8
+  %__begin1.sroa.0.0.i47 = load ptr, ptr %__begin1.sroa.0.069.i18, align 8
   %cmp.i.i.i.i.i.i.i.not.i48 = icmp eq ptr %__begin1.sroa.0.0.i47, %m_header.i.i.i.i.i.i.i5
   br i1 %cmp.i.i.i.i.i.i.i.not.i48, label %return, label %for.body.i17
 

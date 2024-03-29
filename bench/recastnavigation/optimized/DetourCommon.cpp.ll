@@ -564,11 +564,11 @@ define noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr nocapture noundef rea
 
 8:                                                ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.02125 = phi i32 [ %5, %.lr.ph ], [ %34, %33 ]
-  %.02224 = phi i8 [ 0, %.lr.ph ], [ %.1, %33 ]
+  %.02124 = phi i32 [ %5, %.lr.ph ], [ %34, %33 ]
+  %.02223 = phi i1 [ false, %.lr.ph ], [ %.1, %33 ]
   %9 = mul nuw nsw i64 %indvars.iv, 3
   %10 = getelementptr inbounds float, ptr %1, i64 %9
-  %11 = mul nsw i32 %.02125, 3
+  %11 = mul nsw i32 %.02124, 3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %1, i64 %12
   %14 = getelementptr inbounds i8, ptr %10, i64 8
@@ -594,23 +594,18 @@ define noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr nocapture noundef rea
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %20
-  %32 = xor i8 %.02224, 1
+  %32 = xor i1 %.02223, true
   br label %33
 
 33:                                               ; preds = %8, %20, %31
-  %.1 = phi i8 [ %32, %31 ], [ %.02224, %20 ], [ %.02224, %8 ]
+  %.1 = phi i1 [ %32, %31 ], [ %.02223, %20 ], [ %.02223, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = trunc i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %33
-  %35 = and i8 %.1, 1
-  %36 = icmp ne i8 %35, 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.022.lcssa = phi i1 [ false, %3 ], [ %36, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %33, %3
+  %.022.lcssa = phi i1 [ false, %3 ], [ %.1, %33 ]
   ret i1 %.022.lcssa
 }
 
@@ -627,11 +622,11 @@ define noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr nocaptur
 
 9:                                                ; preds = %.lr.ph, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
-  %.02832 = phi i32 [ %7, %.lr.ph ], [ %70, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
-  %.02931 = phi i8 [ 0, %.lr.ph ], [ %.1, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
+  %.02831 = phi i32 [ %7, %.lr.ph ], [ %70, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
+  %.02930 = phi i1 [ false, %.lr.ph ], [ %.1, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
   %10 = mul nuw nsw i64 %indvars.iv, 3
   %11 = getelementptr inbounds float, ptr %1, i64 %10
-  %12 = mul nsw i32 %.02832, 3
+  %12 = mul nsw i32 %.02831, 3
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds float, ptr %1, i64 %13
   %15 = getelementptr inbounds i8, ptr %11, i64 8
@@ -643,31 +638,31 @@ define noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr nocaptur
   %21 = fcmp ule float %20, %17
   %.not = xor i1 %18, %21
   %.pre = load float, ptr %11, align 4
-  %.pre34 = load float, ptr %14, align 4
-  %.pre35 = load float, ptr %0, align 4
+  %.pre33 = load float, ptr %14, align 4
+  %.pre34 = load float, ptr %0, align 4
   br i1 %.not, label %32, label %22
 
 22:                                               ; preds = %9
-  %23 = fsub float %.pre34, %.pre
+  %23 = fsub float %.pre33, %.pre
   %24 = fsub float %17, %16
   %25 = fmul float %24, %23
   %26 = fsub float %20, %16
   %27 = fdiv float %25, %26
   %28 = fadd float %.pre, %27
-  %29 = fcmp olt float %.pre35, %28
+  %29 = fcmp olt float %.pre34, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %22
-  %31 = xor i8 %.02931, 1
+  %31 = xor i1 %.02930, true
   br label %32
 
 32:                                               ; preds = %30, %22, %9
-  %.1 = phi i8 [ %31, %30 ], [ %.02931, %22 ], [ %.02931, %9 ]
-  %33 = sext i32 %.02832 to i64
+  %.1 = phi i1 [ %31, %30 ], [ %.02930, %22 ], [ %.02930, %9 ]
+  %33 = sext i32 %.02831 to i64
   %34 = getelementptr inbounds float, ptr %4, i64 %33
-  %35 = insertelement <2 x float> poison, float %.pre35, i64 0
+  %35 = insertelement <2 x float> poison, float %.pre34, i64 0
   %36 = insertelement <2 x float> %35, float %.pre, i64 1
-  %37 = insertelement <2 x float> poison, float %.pre34, i64 0
+  %37 = insertelement <2 x float> poison, float %.pre33, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = fsub <2 x float> %36, %38
   %40 = insertelement <2 x float> poison, float %17, i64 0
@@ -716,15 +711,10 @@ _Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit:         ; preds = %54, %.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = trunc i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %9, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
 
-._crit_edge.loopexit:                             ; preds = %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit
-  %71 = and i8 %.1, 1
-  %72 = icmp ne i8 %71, 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.029.lcssa = phi i1 [ false, %5 ], [ %72, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit, %5
+  %.029.lcssa = phi i1 [ false, %5 ], [ %.1, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
   ret i1 %.029.lcssa
 }
 

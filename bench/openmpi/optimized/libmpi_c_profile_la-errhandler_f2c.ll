@@ -31,9 +31,8 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %11, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -47,46 +46,41 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
 11:                                               ; preds = %6, %9, %3
   %12 = icmp sgt i32 %0, -1
   %13 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 4), align 8
-  %.not6 = icmp sgt i32 %13, %0
-  %or.cond = select i1 %12, i1 %.not6, i1 false
+  %.not = icmp sgt i32 %13, %0
+  %or.cond = select i1 %12, i1 %.not, i1 false
   br i1 %or.cond, label %14, label %opal_pointer_array_get_item.exit
 
 14:                                               ; preds = %11
   %15 = load i8, ptr @opal_uses_threads, align 1
-  %16 = and i8 %15, 1
-  %.not9.i = icmp eq i8 %16, 0
-  br i1 %.not9.i, label %.thread.i, label %21
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
 
-.thread.i:                                        ; preds = %14
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 8), align 8
-  %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  br label %opal_pointer_array_get_item.exit
-
-21:                                               ; preds = %14
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 1, i32 1)) #3
+17:                                               ; preds = %14
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 1, i32 1)) #3
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre1.i = and i8 %.pre.i, 1
-  %23 = icmp eq i8 %.pre1.i, 0
-  %24 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 8), align 8
-  %25 = zext nneg i32 %0 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  br i1 %23, label %opal_pointer_array_get_item.exit, label %28
+  br label %19
 
-28:                                               ; preds = %21
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 1, i32 1)) #3
+19:                                               ; preds = %17, %14
+  %20 = phi i8 [ %15, %14 ], [ %.pre.i, %17 ]
+  %21 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 8), align 8
+  %22 = zext nneg i32 %0 to i64
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  %25 = trunc i8 %20 to i1
+  br i1 %25, label %26, label %opal_pointer_array_get_item.exit
+
+26:                                               ; preds = %19
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errhandler_f_to_c_table, i64 0, i32 1, i32 1)) #3
   br label %opal_pointer_array_get_item.exit
 
 switch.lookup:                                    ; preds = %1
-  %30 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.PMPI_Errhandler_f2c, i64 0, i64 %30
+  %28 = zext nneg i32 %0 to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.PMPI_Errhandler_f2c, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %switch.lookup, %28, %21, %.thread.i, %11
-  %.0 = phi ptr [ null, %11 ], [ %27, %21 ], [ %27, %28 ], [ %20, %.thread.i ], [ %switch.load, %switch.lookup ]
+opal_pointer_array_get_item.exit:                 ; preds = %switch.lookup, %26, %19, %11
+  %.0 = phi ptr [ null, %11 ], [ %24, %19 ], [ %24, %26 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 

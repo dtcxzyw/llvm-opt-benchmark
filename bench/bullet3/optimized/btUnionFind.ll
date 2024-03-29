@@ -26,9 +26,8 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayI9btElementED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayI9btElementED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -45,10 +44,10 @@ _ZN20btAlignedObjectArrayI9btElementED2Ev.exit:   ; preds = %if.then3.i.i.i, %en
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #5
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #5
   unreachable
 }
 
@@ -63,9 +62,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN20btAlignedObjectArrayI9btElementE5clearEv.exit, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20btAlignedObjectArrayI9btElementE5clearEv.exit
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -165,9 +163,8 @@ _ZNK20btAlignedObjectArrayI9btElementE4copyEiiPS0_.exit.i.i: ; preds = %for.body
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI9btElementE4copyEiiPS0_.exit.i.i
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool2.not.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool2.not.i.i.i, label %if.end.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %6 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %if.end.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %5)
@@ -182,14 +179,14 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
   %m_data9.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = sext i32 %0 to i64
+  %7 = sext i32 %0 to i64
   %wide.trip.count.i = sext i32 %N to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
-  %indvars.iv.i = phi i64 [ %8, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
-  %9 = load ptr, ptr %m_data9.i, align 8
-  %arrayidx11.i = getelementptr inbounds %struct.btElement, ptr %9, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %7, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
+  %8 = load ptr, ptr %m_data9.i, align 8
+  %arrayidx11.i = getelementptr inbounds %struct.btElement, ptr %8, i64 %indvars.iv.i
   store i64 0, ptr %arrayidx11.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -256,9 +253,8 @@ _ZNK20btAlignedObjectArrayI9btElementE4copyEiiPS0_.exit.i.i.i: ; preds = %for.bo
 if.then.i7.i.i.i:                                 ; preds = %_ZNK20btAlignedObjectArrayI9btElementE4copyEiiPS0_.exit.i.i.i
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool2.not.i.i.i.i, label %if.end.i.i, label %if.then3.i.i.i.i
+  %tobool2.i.i.i.i = trunc i8 %6 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i7.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %5)
@@ -273,14 +269,14 @@ if.end.i.i:                                       ; preds = %if.then3.i.i.i.i, %
 
 for.body8.lr.ph.i.i:                              ; preds = %if.end.i.i, %if.then4.i.i
   %m_data9.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = sext i32 %0 to i64
+  %7 = sext i32 %0 to i64
   %wide.trip.count.i.i = sext i32 %N to i64
   br label %for.body8.i.i
 
 for.body8.i.i:                                    ; preds = %for.body8.i.i, %for.body8.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %8, %for.body8.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body8.i.i ]
-  %9 = load ptr, ptr %m_data9.i.i, align 8
-  %arrayidx11.i.i = getelementptr inbounds %struct.btElement, ptr %9, i64 %indvars.iv.i.i
+  %indvars.iv.i.i = phi i64 [ %7, %for.body8.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body8.i.i ]
+  %8 = load ptr, ptr %m_data9.i.i, align 8
+  %arrayidx11.i.i = getelementptr inbounds %struct.btElement, ptr %8, i64 %indvars.iv.i.i
   store i64 0, ptr %arrayidx11.i.i, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -298,12 +294,12 @@ for.body.lr.ph:                                   ; preds = %_ZN11btUnionFind8al
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %10 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.btElement, ptr %10, i64 %indvars.iv
-  %11 = trunc i64 %indvars.iv to i32
-  store i32 %11, ptr %arrayidx.i, align 4
-  %12 = load ptr, ptr %m_data.i, align 8
-  %m_sz = getelementptr inbounds %struct.btElement, ptr %12, i64 %indvars.iv, i32 1
+  %9 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.btElement, ptr %9, i64 %indvars.iv
+  %10 = trunc i64 %indvars.iv to i32
+  store i32 %10, ptr %arrayidx.i, align 4
+  %11 = load ptr, ptr %m_data.i, align 8
+  %m_sz = getelementptr inbounds %struct.btElement, ptr %11, i64 %indvars.iv, i32 1
   store i32 1, ptr %m_sz, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -408,7 +404,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   %arrayidx4 = getelementptr inbounds %struct.btElement, ptr %2, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx4, align 4
   %cmp.i = icmp slt i32 %4, %x.sroa.0.0.extract.trunc
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp.i, label %while.cond, label %while.cond5.preheader, !llvm.loop !11
 
 while.cond5.preheader:                            ; preds = %while.cond
@@ -422,7 +418,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
   %arrayidx8 = getelementptr inbounds %struct.btElement, ptr %2, i64 %indvars.iv29
   %7 = load i32, ptr %arrayidx8, align 4
   %cmp.i24 = icmp sgt i32 %7, %x.sroa.0.0.extract.trunc
-  %indvars.iv.next30 = add i64 %indvars.iv29, -1
+  %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
   br i1 %cmp.i24, label %while.cond5, label %while.end11, !llvm.loop !12
 
 while.end11:                                      ; preds = %while.cond5

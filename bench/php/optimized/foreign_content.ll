@@ -447,9 +447,8 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %0, i64 81
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not34 = icmp eq i8 %35, 0
-  br i1 %.not34, label %.loopexit, label %.lr.ph
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %32
   %36 = load ptr, ptr %3, align 8
@@ -458,34 +457,34 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.backedge
-  %.03040 = phi ptr [ %36, %.lr.ph ], [ %47, %.backedge ]
-  %40 = load i8, ptr %.03040, align 1
+  %.03039 = phi ptr [ %36, %.lr.ph ], [ %47, %.backedge ]
+  %40 = load i8, ptr %.03039, align 1
   %41 = icmp eq i8 %40, -17
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
-  %43 = ptrtoint ptr %.03040 to i64
+  %43 = ptrtoint ptr %.03039 to i64
   %44 = sub i64 %38, %43
   %45 = icmp slt i64 %44, 3
   br i1 %45, label %.loopexit.sink.split, label %46
 
 46:                                               ; preds = %42
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.03040, ptr noundef nonnull dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3)
-  %.not37 = icmp eq i32 %bcmp, 0
-  br i1 %.not37, label %.backedge, label %.loopexit.sink.split
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.03039, ptr noundef nonnull dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3)
+  %.not36 = icmp eq i32 %bcmp, 0
+  br i1 %.not36, label %.backedge, label %.loopexit.sink.split
 
 .backedge:                                        ; preds = %46, %48
-  %.sink41 = phi i64 [ 1, %48 ], [ 3, %46 ]
-  %47 = getelementptr inbounds i8, ptr %.03040, i64 %.sink41
-  %.not35 = icmp eq ptr %47, %37
-  br i1 %.not35, label %.loopexit, label %39
+  %.sink40 = phi i64 [ 1, %48 ], [ 3, %46 ]
+  %47 = getelementptr inbounds i8, ptr %.03039, i64 %.sink40
+  %.not34 = icmp eq ptr %47, %37
+  br i1 %.not34, label %.loopexit, label %39
 
 48:                                               ; preds = %39
   %49 = zext i8 %40 to i64
   %50 = getelementptr inbounds [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %.not36 = icmp eq i8 %51, 2
-  br i1 %.not36, label %.backedge, label %.loopexit.sink.split
+  %.not35 = icmp eq i8 %51, 2
+  br i1 %.not35, label %.backedge, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %48, %46, %42
   store i8 0, ptr %33, align 1
@@ -494,8 +493,8 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %32
   %52 = call i32 @lxb_html_tree_insert_character_for_data(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #4
   store i32 %52, ptr %19, align 8
-  %.not38 = icmp eq i32 %52, 0
-  br i1 %.not38, label %55, label %53
+  %.not37 = icmp eq i32 %52, 0
+  br i1 %.not37, label %55, label %53
 
 53:                                               ; preds = %.loopexit
   %54 = call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4

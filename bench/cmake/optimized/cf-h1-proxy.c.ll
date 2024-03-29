@@ -110,8 +110,8 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   %19 = getelementptr inbounds i8, ptr %1, i64 2642
   %20 = load i64, ptr %19, align 2
   %21 = and i64 %20, 268435456
-  %.not65 = icmp eq i64 %21, 0
-  br i1 %.not65, label %28, label %22
+  %.not64 = icmp eq i64 %21, 0
+  br i1 %.not64, label %28, label %22
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
@@ -136,14 +136,13 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
 
 35:                                               ; preds = %28
   %36 = load i8, ptr %3, align 1
-  %37 = and i8 %36, 1
-  %.not48 = icmp eq i8 %37, 0
-  br i1 %.not48, label %tunnel_init.exit.thread, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %tunnel_init.exit.thread
 
 38:                                               ; preds = %35
   store i8 0, ptr %3, align 1
-  %.not49 = icmp eq ptr %12, null
-  br i1 %.not49, label %39, label %tunnel_is_established.exit.i
+  %.not48 = icmp eq ptr %12, null
+  br i1 %.not48, label %39, label %tunnel_is_established.exit.i
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i8, ptr %0, i64 24
@@ -243,22 +242,22 @@ tunnel_is_failed.exit.preheader.i:                ; preds = %tunnel_is_establish
   %92 = getelementptr inbounds i8, ptr %72, i64 672
   br label %tunnel_is_failed.exit.i
 
-tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.exit147.i, %tunnel_is_failed.exit.preheader.i
+tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.exit145.i, %tunnel_is_failed.exit.preheader.i
   %93 = call i64 @Curl_timeleft(ptr noundef %1, ptr noundef null, i1 noundef zeroext true) #5
   %94 = icmp slt i64 %93, 1
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %tunnel_is_failed.exit.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.12) #5
-  br label %.thread157.i
+  br label %.thread155.i
 
 96:                                               ; preds = %tunnel_is_failed.exit.i
   %97 = load i32, ptr %73, align 8
-  switch i32 %97, label %h1_tunnel_go_state.exit147.i [
+  switch i32 %97, label %h1_tunnel_go_state.exit145.i [
     i32 0, label %98
     i32 1, label %h1_tunnel_go_state.exit.i
-    i32 2, label %h1_tunnel_go_state.exit140.i
-    i32 3, label %h1_tunnel_go_state.exit145.i
+    i32 2, label %h1_tunnel_go_state.exit138.i
+    i32 3, label %h1_tunnel_go_state.exit143.i
   ]
 
 98:                                               ; preds = %96
@@ -267,8 +266,8 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
 99:                                               ; preds = %98
   %100 = load i64, ptr %75, align 2
   %101 = and i64 %100, 268435456
-  %.not.i53 = icmp eq i64 %101, 0
-  br i1 %.not.i53, label %108, label %102
+  %.not.i52 = icmp eq i64 %101, 0
+  br i1 %.not.i52, label %108, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %0, align 8
@@ -289,8 +288,8 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
   call void %109(ptr noundef %110) #5
   store ptr null, ptr %76, align 8
   %111 = call i32 @Curl_http_proxy_create_CONNECT(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, i32 noundef 1) #5
-  %.not.i136.i = icmp eq i32 %111, 0
-  br i1 %.not.i136.i, label %112, label %.thread.i.i
+  %.not.i134.i = icmp eq i32 %111, 0
+  br i1 %.not.i134.i, label %112, label %.thread.i.i
 
 112:                                              ; preds = %108
   %113 = load i64, ptr %75, align 2
@@ -336,7 +335,7 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
 start_CONNECT.exit.i:                             ; preds = %129, %127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %.not117.i = icmp eq i32 %.026.i.i, 0
-  br i1 %.not117.i, label %130, label %.thread157.i
+  br i1 %.not117.i, label %130, label %.thread155.i
 
 130:                                              ; preds = %start_CONNECT.exit.i
   %131 = load i32, ptr %73, align 8
@@ -346,8 +345,8 @@ start_CONNECT.exit.i:                             ; preds = %129, %127
 133:                                              ; preds = %130
   %134 = load i64, ptr %75, align 2
   %135 = and i64 %134, 268435456
-  %.not199.i = icmp eq i64 %135, 0
-  br i1 %.not199.i, label %142, label %136
+  %.not197.i = icmp eq i64 %135, 0
+  br i1 %.not197.i, label %142, label %136
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr %0, align 8
@@ -372,8 +371,8 @@ h1_tunnel_go_state.exit.i:                        ; preds = %96
 h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.exit.i, %142, %130
   %143 = load i64, ptr %75, align 2
   %144 = and i64 %143, 268435456
-  %.not200.i = icmp eq i64 %144, 0
-  br i1 %.not200.i, label %151, label %145
+  %.not198.i = icmp eq i64 %144, 0
+  br i1 %.not198.i, label %151, label %145
 
 145:                                              ; preds = %h1_tunnel_go_state.exit.thread.i
   %146 = load ptr, ptr %0, align 8
@@ -387,14 +386,14 @@ h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.
   br label %151
 
 151:                                              ; preds = %150, %145, %h1_tunnel_go_state.exit.thread.i, %h1_tunnel_go_state.exit.i
-  %.not118155.i = phi i1 [ true, %h1_tunnel_go_state.exit.i ], [ false, %h1_tunnel_go_state.exit.thread.i ], [ false, %145 ], [ false, %150 ]
+  %.not118153.i = phi i1 [ true, %h1_tunnel_go_state.exit.i ], [ false, %h1_tunnel_go_state.exit.thread.i ], [ false, %145 ], [ false, %150 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %152 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %77) #5
   %153 = call i64 @Curl_dyn_len(ptr noundef nonnull %77) #5
   store i32 0, ptr %8, align 4
   %154 = load i64, ptr %78, align 8
-  %.not.i137.i = icmp ugt i64 %153, %154
-  br i1 %.not.i137.i, label %155, label %172
+  %.not.i135.i = icmp ugt i64 %153, %154
+  br i1 %.not.i135.i, label %155, label %172
 
 155:                                              ; preds = %151
   %156 = sub i64 %153, %154
@@ -423,38 +422,38 @@ h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.
 170:                                              ; preds = %167, %164
   %171 = phi i32 [ %165, %164 ], [ %.pr.i.i, %167 ]
   %.not25.i.i = icmp eq i32 %171, 0
-  br i1 %.not25.i.i, label %172, label %.thread.i138.i
+  br i1 %.not25.i.i, label %172, label %.thread.i136.i
 
-.thread.i138.i:                                   ; preds = %170
+.thread.i136.i:                                   ; preds = %170
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.22) #5
   %.pr28.pre.i.i = load i32, ptr %8, align 4
   %.not26.i.i = icmp eq i32 %.pr28.pre.i.i, 0
   br i1 %.not26.i.i, label %172, label %send_CONNECT.exit.i
 
-send_CONNECT.exit.i:                              ; preds = %.thread.i138.i
+send_CONNECT.exit.i:                              ; preds = %.thread.i136.i
   store i8 0, ptr %10, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %.thread157.i
+  br label %.thread155.i
 
-172:                                              ; preds = %.thread.i138.i, %170, %164, %151
+172:                                              ; preds = %.thread.i136.i, %170, %164, %151
   %173 = load i64, ptr %78, align 8
-  %.not201.i = icmp ult i64 %173, %153
+  %.not199.i = icmp ult i64 %173, %153
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br i1 %.not201.i, label %.loopexit, label %174
+  br i1 %.not199.i, label %.loopexit, label %174
 
 174:                                              ; preds = %172
   %175 = load i32, ptr %73, align 8
   %176 = icmp eq i32 %175, 2
-  br i1 %176, label %h1_tunnel_go_state.exit140.i, label %177
+  br i1 %176, label %h1_tunnel_go_state.exit138.i, label %177
 
 177:                                              ; preds = %174
-  br i1 %.not118155.i, label %187, label %178
+  br i1 %.not118153.i, label %187, label %178
 
 178:                                              ; preds = %177
   %179 = load i64, ptr %75, align 2
   %180 = and i64 %179, 268435456
-  %.not202.i = icmp eq i64 %180, 0
-  br i1 %.not202.i, label %187, label %181
+  %.not200.i = icmp eq i64 %180, 0
+  br i1 %.not200.i, label %187, label %181
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr %0, align 8
@@ -469,16 +468,16 @@ send_CONNECT.exit.i:                              ; preds = %.thread.i138.i
 
 187:                                              ; preds = %186, %181, %178, %177
   store i32 2, ptr %73, align 8
-  br label %h1_tunnel_go_state.exit140.i
+  br label %h1_tunnel_go_state.exit138.i
 
-h1_tunnel_go_state.exit140.i:                     ; preds = %187, %174, %96
+h1_tunnel_go_state.exit138.i:                     ; preds = %187, %174, %96
   br i1 %.not46, label %197, label %188
 
-188:                                              ; preds = %h1_tunnel_go_state.exit140.i
+188:                                              ; preds = %h1_tunnel_go_state.exit138.i
   %189 = load i64, ptr %75, align 2
   %190 = and i64 %189, 268435456
-  %.not203.i = icmp eq i64 %190, 0
-  br i1 %.not203.i, label %197, label %191
+  %.not201.i = icmp eq i64 %190, 0
+  br i1 %.not201.i, label %197, label %191
 
 191:                                              ; preds = %188
   %192 = load ptr, ptr %0, align 8
@@ -491,7 +490,7 @@ h1_tunnel_go_state.exit140.i:                     ; preds = %187, %174, %96
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
   br label %197
 
-197:                                              ; preds = %196, %191, %188, %h1_tunnel_go_state.exit140.i
+197:                                              ; preds = %196, %191, %188, %h1_tunnel_go_state.exit138.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -518,7 +517,7 @@ h1_tunnel_go_state.exit140.i:                     ; preds = %187, %174, %96
 
 206:                                              ; preds = %204
   %.not116.i.i = icmp eq i32 %202, 0
-  br i1 %.not116.i.i, label %207, label %.thread.i141.i
+  br i1 %.not116.i.i, label %207, label %.thread.i139.i
 
 207:                                              ; preds = %206
   %208 = load i64, ptr %5, align 8
@@ -599,9 +598,9 @@ h1_tunnel_go_state.exit140.i:                     ; preds = %187, %174, %96
   br label %.backedge.thread.sink.split.i.i
 
 .backedge.i.i:                                    ; preds = %on_resp_header.exit.i.i, %278, %277, %271, %268, %245, %235, %230, %227
-  %.pr.i142.i = load i32, ptr %79, align 8
-  %.not.i143.i = icmp eq i32 %.pr.i142.i, 0
-  br i1 %.not.i143.i, label %.backedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !5
+  %.pr.i140.i = load i32, ptr %79, align 8
+  %.not.i141.i = icmp eq i32 %.pr.i140.i, 0
+  br i1 %.not.i141.i, label %.backedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
 242:                                              ; preds = %222
   %243 = call i32 @Curl_dyn_addn(ptr noundef nonnull %80, ptr noundef nonnull %6, i64 noundef 1) #5
@@ -907,7 +906,7 @@ on_resp_header.exit.i.i:                          ; preds = %377, %373, %369, %3
   store i8 1, ptr %10, align 1
   br label %recv_CONNECT_resp.exit.i
 
-.thread.i141.i:                                   ; preds = %206
+.thread.i139.i:                                   ; preds = %206
   store i32 0, ptr %79, align 8
   store i8 1, ptr %10, align 1
   br label %recv_CONNECT_resp.exit.i
@@ -927,306 +926,306 @@ on_resp_header.exit.i.i:                          ; preds = %377, %373, %369, %3
   %388 = call i32 @Curl_http_auth_act(ptr noundef nonnull %1) #5
   br label %recv_CONNECT_resp.exit.i
 
-recv_CONNECT_resp.exit.i:                         ; preds = %308, %296, %256, %247, %233, %204, %.lr.ph.i.i, %387, %.backedge.thread.i.i, %.thread.i141.i, %.thread.thread169.i.i, %244, %197
-  %.not124.i = phi i1 [ true, %244 ], [ true, %197 ], [ false, %.thread.i141.i ], [ false, %387 ], [ false, %.backedge.thread.i.i ], [ false, %.thread.thread169.i.i ], [ true, %.lr.ph.i.i ], [ true, %204 ], [ true, %233 ], [ true, %247 ], [ true, %256 ], [ true, %296 ], [ true, %308 ]
-  %.0.i.i = phi i32 [ 56, %244 ], [ 0, %197 ], [ %202, %.thread.i141.i ], [ %388, %387 ], [ 0, %.backedge.thread.i.i ], [ 56, %.thread.thread169.i.i ], [ %309, %308 ], [ 27, %296 ], [ %257, %256 ], [ %255, %247 ], [ %234, %233 ], [ 42, %204 ], [ 0, %.lr.ph.i.i ]
+recv_CONNECT_resp.exit.i:                         ; preds = %308, %296, %256, %247, %233, %204, %.lr.ph.i.i, %387, %.backedge.thread.i.i, %.thread.i139.i, %.thread.thread169.i.i, %244, %197
+  %389 = phi i1 [ false, %244 ], [ false, %197 ], [ true, %.thread.i139.i ], [ true, %387 ], [ true, %.backedge.thread.i.i ], [ true, %.thread.thread169.i.i ], [ false, %.lr.ph.i.i ], [ false, %204 ], [ false, %233 ], [ false, %247 ], [ false, %256 ], [ false, %296 ], [ false, %308 ]
+  %.0.i.i = phi i32 [ 56, %244 ], [ 0, %197 ], [ %202, %.thread.i139.i ], [ %388, %387 ], [ 0, %.backedge.thread.i.i ], [ 56, %.thread.thread169.i.i ], [ %309, %308 ], [ 27, %296 ], [ %257, %256 ], [ %255, %247 ], [ %234, %233 ], [ 42, %204 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %389 = call i32 @Curl_pgrsUpdate(ptr noundef %1) #5
-  %.not122.i = icmp eq i32 %389, 0
-  br i1 %.not122.i, label %390, label %.thread157.i
+  %390 = call i32 @Curl_pgrsUpdate(ptr noundef %1) #5
+  %.not121.i = icmp eq i32 %390, 0
+  br i1 %.not121.i, label %391, label %.thread155.i
 
-390:                                              ; preds = %recv_CONNECT_resp.exit.i
-  %.not123.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not123.i, label %391, label %.thread157.i
-
-391:                                              ; preds = %390
-  br i1 %.not124.i, label %.loopexit, label %392
+391:                                              ; preds = %recv_CONNECT_resp.exit.i
+  %.not122.i = icmp eq i32 %.0.i.i, 0
+  br i1 %.not122.i, label %392, label %.thread155.i
 
 392:                                              ; preds = %391
-  %393 = load i32, ptr %73, align 8
-  %394 = icmp eq i32 %393, 3
-  br i1 %394, label %h1_tunnel_go_state.exit145.i, label %395
+  br i1 %389, label %393, label %.loopexit
 
-395:                                              ; preds = %392
-  br i1 %.not46, label %405, label %396
+393:                                              ; preds = %392
+  %394 = load i32, ptr %73, align 8
+  %395 = icmp eq i32 %394, 3
+  br i1 %395, label %h1_tunnel_go_state.exit143.i, label %396
 
-396:                                              ; preds = %395
-  %397 = load i64, ptr %75, align 2
-  %398 = and i64 %397, 268435456
-  %.not204.i = icmp eq i64 %398, 0
-  br i1 %.not204.i, label %405, label %399
+396:                                              ; preds = %393
+  br i1 %.not46, label %406, label %397
 
-399:                                              ; preds = %396
-  %400 = load ptr, ptr %0, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 12
-  %402 = load i32, ptr %401, align 4
-  %403 = icmp sgt i32 %402, 0
-  br i1 %403, label %404, label %405
+397:                                              ; preds = %396
+  %398 = load i64, ptr %75, align 2
+  %399 = and i64 %398, 268435456
+  %.not202.i = icmp eq i64 %399, 0
+  br i1 %.not202.i, label %406, label %400
 
-404:                                              ; preds = %399
+400:                                              ; preds = %397
+  %401 = load ptr, ptr %0, align 8
+  %402 = getelementptr inbounds i8, ptr %401, i64 12
+  %403 = load i32, ptr %402, align 4
+  %404 = icmp sgt i32 %403, 0
+  br i1 %404, label %405, label %406
+
+405:                                              ; preds = %400
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #5
-  br label %405
+  br label %406
 
-405:                                              ; preds = %404, %399, %396, %395
+406:                                              ; preds = %405, %400, %397, %396
   store i32 3, ptr %73, align 8
-  br label %h1_tunnel_go_state.exit145.i
+  br label %h1_tunnel_go_state.exit143.i
 
-h1_tunnel_go_state.exit145.i:                     ; preds = %405, %392, %96
-  br i1 %.not46, label %415, label %406
+h1_tunnel_go_state.exit143.i:                     ; preds = %406, %393, %96
+  br i1 %.not46, label %416, label %407
 
-406:                                              ; preds = %h1_tunnel_go_state.exit145.i
-  %407 = load i64, ptr %75, align 2
-  %408 = and i64 %407, 268435456
-  %.not205.i = icmp eq i64 %408, 0
-  br i1 %.not205.i, label %415, label %409
+407:                                              ; preds = %h1_tunnel_go_state.exit143.i
+  %408 = load i64, ptr %75, align 2
+  %409 = and i64 %408, 268435456
+  %.not203.i = icmp eq i64 %409, 0
+  br i1 %.not203.i, label %416, label %410
 
-409:                                              ; preds = %406
-  %410 = load ptr, ptr %0, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 12
-  %412 = load i32, ptr %411, align 4
-  %413 = icmp sgt i32 %412, 0
-  br i1 %413, label %414, label %415
+410:                                              ; preds = %407
+  %411 = load ptr, ptr %0, align 8
+  %412 = getelementptr inbounds i8, ptr %411, i64 12
+  %413 = load i32, ptr %412, align 4
+  %414 = icmp sgt i32 %413, 0
+  br i1 %414, label %415, label %416
 
-414:                                              ; preds = %409
+415:                                              ; preds = %410
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #5
-  br label %415
+  br label %416
 
-415:                                              ; preds = %414, %409, %406, %h1_tunnel_go_state.exit145.i
-  %416 = load ptr, ptr %76, align 8
-  %.not126.i = icmp eq ptr %416, null
-  br i1 %.not126.i, label %h1_tunnel_go_state.exit147.thread.i, label %417
+416:                                              ; preds = %415, %410, %407, %h1_tunnel_go_state.exit143.i
+  %417 = load ptr, ptr %76, align 8
+  %.not124.i = icmp eq ptr %417, null
+  br i1 %.not124.i, label %h1_tunnel_go_state.exit145.thread.i, label %418
 
-417:                                              ; preds = %415
-  %418 = load i8, ptr %86, align 4
-  %419 = and i8 %418, 2
-  %.not127.i = icmp eq i8 %419, 0
-  br i1 %.not127.i, label %420, label %423
+418:                                              ; preds = %416
+  %419 = load i8, ptr %86, align 4
+  %420 = and i8 %419, 2
+  %.not125.i = icmp eq i8 %420, 0
+  br i1 %.not125.i, label %421, label %424
 
-420:                                              ; preds = %417
-  %421 = load i32, ptr %92, align 8
-  %422 = and i32 %421, 64
-  %.not128.i = icmp eq i32 %422, 0
-  br i1 %.not128.i, label %433, label %423
+421:                                              ; preds = %418
+  %422 = load i32, ptr %92, align 8
+  %423 = and i32 %422, 64
+  %.not126.i = icmp eq i32 %423, 0
+  br i1 %.not126.i, label %434, label %424
 
-423:                                              ; preds = %420, %417
-  %424 = load i64, ptr %75, align 2
-  %425 = and i64 %424, 268435456
-  %.not206.i = icmp eq i64 %425, 0
-  br i1 %.not206.i, label %.thread, label %426
+424:                                              ; preds = %421, %418
+  %425 = load i64, ptr %75, align 2
+  %426 = and i64 %425, 268435456
+  %.not204.i = icmp eq i64 %426, 0
+  br i1 %.not204.i, label %.thread, label %427
 
-426:                                              ; preds = %423
-  %427 = load ptr, ptr %0, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 12
-  %429 = load i32, ptr %428, align 4
-  %430 = icmp sgt i32 %429, 0
-  br i1 %430, label %431, label %.thread.i
+427:                                              ; preds = %424
+  %428 = load ptr, ptr %0, align 8
+  %429 = getelementptr inbounds i8, ptr %428, i64 12
+  %430 = load i32, ptr %429, align 4
+  %431 = icmp sgt i32 %430, 0
+  br i1 %431, label %432, label %.thread.i
 
-431:                                              ; preds = %426
+432:                                              ; preds = %427
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #5
   %.pre.i = load i64, ptr %75, align 2
-  %.pre187.i = and i64 %.pre.i, 268435456
-  %432 = icmp eq i64 %.pre187.i, 0
-  br i1 %432, label %.thread, label %.thread.i
+  %.pre185.i = and i64 %.pre.i, 268435456
+  %433 = icmp eq i64 %.pre185.i, 0
+  br i1 %433, label %.thread, label %.thread.i
 
-.thread.i:                                        ; preds = %431, %426
+.thread.i:                                        ; preds = %432, %427
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.18) #5
   br label %.thread
 
-433:                                              ; preds = %420
-  %434 = load i32, ptr %73, align 8
-  %435 = icmp eq i32 %434, 0
-  br i1 %435, label %h1_tunnel_go_state.exit147.i, label %436
+434:                                              ; preds = %421
+  %435 = load i32, ptr %73, align 8
+  %436 = icmp eq i32 %435, 0
+  br i1 %436, label %h1_tunnel_go_state.exit145.i, label %437
 
-436:                                              ; preds = %433
-  %437 = load i64, ptr %75, align 2
-  %438 = and i64 %437, 268435456
-  %.not207.i = icmp eq i64 %438, 0
-  br i1 %.not207.i, label %445, label %439
+437:                                              ; preds = %434
+  %438 = load i64, ptr %75, align 2
+  %439 = and i64 %438, 268435456
+  %.not205.i = icmp eq i64 %439, 0
+  br i1 %.not205.i, label %446, label %440
 
-439:                                              ; preds = %436
-  %440 = load ptr, ptr %0, align 8
-  %441 = getelementptr inbounds i8, ptr %440, i64 12
-  %442 = load i32, ptr %441, align 4
-  %443 = icmp sgt i32 %442, 0
-  br i1 %443, label %444, label %445
+440:                                              ; preds = %437
+  %441 = load ptr, ptr %0, align 8
+  %442 = getelementptr inbounds i8, ptr %441, i64 12
+  %443 = load i32, ptr %442, align 4
+  %444 = icmp sgt i32 %443, 0
+  br i1 %444, label %445, label %446
 
-444:                                              ; preds = %439
+445:                                              ; preds = %440
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #5
-  br label %445
+  br label %446
 
-445:                                              ; preds = %444, %439, %436
+446:                                              ; preds = %445, %440, %437
   call void @Curl_dyn_reset(ptr noundef nonnull %80) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %77) #5
   store i32 0, ptr %73, align 8
   store i32 1, ptr %79, align 8
   store i64 0, ptr %85, align 8
-  %446 = load i8, ptr %86, align 4
-  %447 = and i8 %446, -3
-  store i8 %447, ptr %86, align 4
-  br label %h1_tunnel_go_state.exit147.i
+  %447 = load i8, ptr %86, align 4
+  %448 = and i8 %447, -3
+  store i8 %448, ptr %86, align 4
+  br label %h1_tunnel_go_state.exit145.i
 
-h1_tunnel_go_state.exit147.i:                     ; preds = %445, %433, %96
+h1_tunnel_go_state.exit145.i:                     ; preds = %446, %434, %96
   %.pr.i = load ptr, ptr %76, align 8
-  %.not130.i = icmp eq ptr %.pr.i, null
-  br i1 %.not130.i, label %h1_tunnel_go_state.exit147.thread.i, label %tunnel_is_failed.exit.i, !llvm.loop !7
+  %.not128.i = icmp eq ptr %.pr.i, null
+  br i1 %.not128.i, label %h1_tunnel_go_state.exit145.thread.i, label %tunnel_is_failed.exit.i, !llvm.loop !7
 
-h1_tunnel_go_state.exit147.thread.i:              ; preds = %h1_tunnel_go_state.exit147.i, %415
-  %448 = load i32, ptr %88, align 4
-  %.off.i = add i32 %448, -200
-  %.not131.i = icmp ult i32 %.off.i, 100
-  br i1 %.not131.i, label %467, label %449
+h1_tunnel_go_state.exit145.thread.i:              ; preds = %h1_tunnel_go_state.exit145.i, %416
+  %449 = load i32, ptr %88, align 4
+  %.off.i = add i32 %449, -200
+  %.not129.i = icmp ult i32 %.off.i, 100
+  br i1 %.not129.i, label %468, label %450
 
-449:                                              ; preds = %h1_tunnel_go_state.exit147.thread.i
-  %450 = load ptr, ptr @Curl_cfree, align 8
-  call void %450(ptr noundef null) #5
+450:                                              ; preds = %h1_tunnel_go_state.exit145.thread.i
+  %451 = load ptr, ptr @Curl_cfree, align 8
+  call void %451(ptr noundef null) #5
   store ptr null, ptr %76, align 8
   call void @Curl_conncontrol(ptr noundef %72, i32 noundef 2) #5
-  %451 = load i32, ptr %73, align 8
-  %452 = icmp eq i32 %451, 5
-  br i1 %452, label %h1_tunnel_go_state.exit149.i, label %453
+  %452 = load i32, ptr %73, align 8
+  %453 = icmp eq i32 %452, 5
+  br i1 %453, label %h1_tunnel_go_state.exit147.i, label %454
 
-453:                                              ; preds = %449
-  %454 = load i64, ptr %75, align 2
-  %455 = and i64 %454, 268435456
-  %.not208.i = icmp eq i64 %455, 0
-  br i1 %.not208.i, label %462, label %456
+454:                                              ; preds = %450
+  %455 = load i64, ptr %75, align 2
+  %456 = and i64 %455, 268435456
+  %.not206.i = icmp eq i64 %456, 0
+  br i1 %.not206.i, label %463, label %457
 
-456:                                              ; preds = %453
-  %457 = load ptr, ptr %0, align 8
-  %458 = getelementptr inbounds i8, ptr %457, i64 12
-  %459 = load i32, ptr %458, align 4
-  %460 = icmp sgt i32 %459, 0
-  br i1 %460, label %461, label %462
+457:                                              ; preds = %454
+  %458 = load ptr, ptr %0, align 8
+  %459 = getelementptr inbounds i8, ptr %458, i64 12
+  %460 = load i32, ptr %459, align 4
+  %461 = icmp sgt i32 %460, 0
+  br i1 %461, label %462, label %463
 
-461:                                              ; preds = %456
+462:                                              ; preds = %457
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #5
-  br label %462
+  br label %463
 
-462:                                              ; preds = %461, %456, %453
+463:                                              ; preds = %462, %457, %454
   store i32 5, ptr %73, align 8
   call void @Curl_dyn_reset(ptr noundef nonnull %80) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %77) #5
-  %463 = getelementptr inbounds i8, ptr %1, i64 4952
-  store i32 0, ptr %463, align 8
-  %464 = load ptr, ptr @Curl_cfree, align 8
-  %465 = load ptr, ptr %91, align 8
-  call void %464(ptr noundef %465) #5
+  %464 = getelementptr inbounds i8, ptr %1, i64 4952
+  store i32 0, ptr %464, align 8
+  %465 = load ptr, ptr @Curl_cfree, align 8
+  %466 = load ptr, ptr %91, align 8
+  call void %465(ptr noundef %466) #5
   store ptr null, ptr %91, align 8
-  br label %h1_tunnel_go_state.exit149.i
+  br label %h1_tunnel_go_state.exit147.i
 
-h1_tunnel_go_state.exit149.i:                     ; preds = %462, %449
-  %466 = load i32, ptr %83, align 8
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, i32 noundef %466) #5
+h1_tunnel_go_state.exit147.i:                     ; preds = %463, %450
+  %467 = load i32, ptr %83, align 8
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, i32 noundef %467) #5
   br label %.critedge
 
-467:                                              ; preds = %h1_tunnel_go_state.exit147.thread.i
+468:                                              ; preds = %h1_tunnel_go_state.exit145.thread.i
   call fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef nonnull %.1, i32 noundef 4, ptr noundef nonnull %1)
-  %468 = load i64, ptr %75, align 2
-  %469 = and i64 %468, 268435456
-  %.not133.i = icmp eq i64 %469, 0
-  br i1 %.not133.i, label %.loopexit, label %470
+  %469 = load i64, ptr %75, align 2
+  %470 = and i64 %469, 268435456
+  %.not131.i = icmp eq i64 %470, 0
+  br i1 %.not131.i, label %.loopexit, label %471
 
-470:                                              ; preds = %467
-  %471 = load i32, ptr %88, align 4
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i32 noundef %471) #5
+471:                                              ; preds = %468
+  %472 = load i32, ptr %88, align 4
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i32 noundef %472) #5
   br label %.loopexit
 
-.thread:                                          ; preds = %423, %.thread.i, %431
+.thread:                                          ; preds = %424, %.thread.i, %432
   call void @Curl_conn_cf_close(ptr noundef %0, ptr noundef nonnull %1) #5
   call void @Curl_conncontrol(ptr noundef %72, i32 noundef 0) #5
-  %472 = load ptr, ptr %29, align 8
-  %473 = call i32 @Curl_conn_cf_connect(ptr noundef %472, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %10) #5
-  %.not134.i = icmp eq i32 %473, 0
-  br i1 %.not134.i, label %.loopexit, label %.thread157.i
+  %473 = load ptr, ptr %29, align 8
+  %474 = call i32 @Curl_conn_cf_connect(ptr noundef %473, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %10) #5
+  %.not132.i = icmp eq i32 %474, 0
+  br i1 %.not132.i, label %.loopexit, label %.thread155.i
 
-.thread157.i:                                     ; preds = %390, %recv_CONNECT_resp.exit.i, %start_CONNECT.exit.i, %.thread, %send_CONNECT.exit.i, %95
-  %.0104160.i = phi i32 [ %473, %.thread ], [ %.pr28.pre.i.i, %send_CONNECT.exit.i ], [ 28, %95 ], [ 42, %recv_CONNECT_resp.exit.i ], [ %.026.i.i, %start_CONNECT.exit.i ], [ %.0.i.i, %390 ]
-  %474 = load i32, ptr %73, align 8
-  %475 = icmp eq i32 %474, 5
-  br i1 %475, label %.critedge, label %476
+.thread155.i:                                     ; preds = %391, %recv_CONNECT_resp.exit.i, %start_CONNECT.exit.i, %.thread, %send_CONNECT.exit.i, %95
+  %.0104158.i = phi i32 [ %474, %.thread ], [ %.pr28.pre.i.i, %send_CONNECT.exit.i ], [ 28, %95 ], [ 42, %recv_CONNECT_resp.exit.i ], [ %.026.i.i, %start_CONNECT.exit.i ], [ %.0.i.i, %391 ]
+  %475 = load i32, ptr %73, align 8
+  %476 = icmp eq i32 %475, 5
+  br i1 %476, label %.critedge, label %477
 
-476:                                              ; preds = %.thread157.i
-  br i1 %.not46, label %486, label %477
+477:                                              ; preds = %.thread155.i
+  br i1 %.not46, label %487, label %478
 
-477:                                              ; preds = %476
-  %478 = load i64, ptr %75, align 2
-  %479 = and i64 %478, 268435456
-  %.not209.i = icmp eq i64 %479, 0
-  br i1 %.not209.i, label %486, label %480
+478:                                              ; preds = %477
+  %479 = load i64, ptr %75, align 2
+  %480 = and i64 %479, 268435456
+  %.not207.i = icmp eq i64 %480, 0
+  br i1 %.not207.i, label %487, label %481
 
-480:                                              ; preds = %477
-  %481 = load ptr, ptr %0, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i64 12
-  %483 = load i32, ptr %482, align 4
-  %484 = icmp sgt i32 %483, 0
-  br i1 %484, label %485, label %486
+481:                                              ; preds = %478
+  %482 = load ptr, ptr %0, align 8
+  %483 = getelementptr inbounds i8, ptr %482, i64 12
+  %484 = load i32, ptr %483, align 4
+  %485 = icmp sgt i32 %484, 0
+  br i1 %485, label %486, label %487
 
-485:                                              ; preds = %480
+486:                                              ; preds = %481
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #5
-  br label %486
+  br label %487
 
-486:                                              ; preds = %485, %480, %477, %476
+487:                                              ; preds = %486, %481, %478, %477
   store i32 5, ptr %73, align 8
   call void @Curl_dyn_reset(ptr noundef nonnull %80) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %77) #5
-  %487 = getelementptr inbounds i8, ptr %1, i64 4952
-  store i32 0, ptr %487, align 8
-  %488 = load ptr, ptr @Curl_cfree, align 8
-  %489 = load ptr, ptr %91, align 8
-  call void %488(ptr noundef %489) #5
+  %488 = getelementptr inbounds i8, ptr %1, i64 4952
+  store i32 0, ptr %488, align 8
+  %489 = load ptr, ptr @Curl_cfree, align 8
+  %490 = load ptr, ptr %91, align 8
+  call void %489(ptr noundef %490) #5
   store ptr null, ptr %91, align 8
   br label %.critedge
 
-.loopexit:                                        ; preds = %391, %172, %tunnel_is_established.exit.i, %.thread, %467, %470
+.loopexit:                                        ; preds = %392, %172, %tunnel_is_established.exit.i, %.thread, %468, %471
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %490 = load ptr, ptr @Curl_cfree, align 8
-  %491 = getelementptr inbounds i8, ptr %1, i64 4824
-  %492 = load ptr, ptr %491, align 8
-  call void %490(ptr noundef %492) #5
-  store ptr null, ptr %491, align 8
-  %493 = load ptr, ptr %11, align 8
-  %.not.i54 = icmp eq ptr %493, null
-  br i1 %.not.i54, label %tunnel_is_established.exit.thread, label %tunnel_is_established.exit
+  %491 = load ptr, ptr @Curl_cfree, align 8
+  %492 = getelementptr inbounds i8, ptr %1, i64 4824
+  %493 = load ptr, ptr %492, align 8
+  call void %491(ptr noundef %493) #5
+  store ptr null, ptr %492, align 8
+  %494 = load ptr, ptr %11, align 8
+  %.not.i53 = icmp eq ptr %494, null
+  br i1 %.not.i53, label %tunnel_is_established.exit.thread, label %tunnel_is_established.exit
 
 tunnel_is_established.exit.thread:                ; preds = %.loopexit
   store i8 0, ptr %3, align 1
   br label %tunnel_init.exit.thread
 
 tunnel_is_established.exit:                       ; preds = %.loopexit
-  %494 = getelementptr inbounds i8, ptr %493, i64 280
-  %495 = load i32, ptr %494, align 8
-  %496 = icmp eq i32 %495, 4
-  %497 = zext i1 %496 to i8
-  store i8 %497, ptr %3, align 1
-  br i1 %496, label %498, label %tunnel_init.exit.thread
+  %495 = getelementptr inbounds i8, ptr %494, i64 280
+  %496 = load i32, ptr %495, align 8
+  %497 = icmp eq i32 %496, 4
+  %498 = zext i1 %497 to i8
+  store i8 %498, ptr %3, align 1
+  br i1 %497, label %499, label %tunnel_init.exit.thread
 
-498:                                              ; preds = %tunnel_is_established.exit
-  %499 = load i8, ptr %13, align 4
-  %500 = or i8 %499, 1
-  store i8 %500, ptr %13, align 4
-  %501 = getelementptr inbounds i8, ptr %1, i64 403
-  %502 = load i16, ptr %501, align 1
-  %503 = getelementptr inbounds i8, ptr %1, i64 232
-  store i64 0, ptr %503, align 8
-  %504 = and i16 %502, -34
-  %505 = or disjoint i16 %504, 1
-  store i16 %505, ptr %501, align 1
+499:                                              ; preds = %tunnel_is_established.exit
+  %500 = load i8, ptr %13, align 4
+  %501 = or i8 %500, 1
+  store i8 %501, ptr %13, align 4
+  %502 = getelementptr inbounds i8, ptr %1, i64 403
+  %503 = load i16, ptr %502, align 1
+  %504 = getelementptr inbounds i8, ptr %1, i64 232
+  store i64 0, ptr %504, align 8
+  %505 = and i16 %503, -34
+  %506 = or disjoint i16 %505, 1
+  store i16 %506, ptr %502, align 1
   call void @Curl_client_cleanup(ptr noundef nonnull %1) #5
   call void @Curl_pgrsSetUploadCounter(ptr noundef nonnull %1, i64 noundef 0) #5
-  %506 = call i32 @Curl_pgrsSetDownloadCounter(ptr noundef nonnull %1, i64 noundef 0) #5
+  %507 = call i32 @Curl_pgrsSetDownloadCounter(ptr noundef nonnull %1, i64 noundef 0) #5
   call fastcc void @tunnel_free(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tunnel_init.exit.thread
 
-.critedge:                                        ; preds = %tunnel_is_established.exit.i, %486, %.thread157.i, %h1_tunnel_go_state.exit149.i
-  %.0.i52 = phi i32 [ 56, %h1_tunnel_go_state.exit149.i ], [ %.0104160.i, %.thread157.i ], [ %.0104160.i, %486 ], [ 56, %tunnel_is_established.exit.i ]
+.critedge:                                        ; preds = %tunnel_is_established.exit.i, %487, %.thread155.i, %h1_tunnel_go_state.exit147.i
+  %.0.i51 = phi i32 [ 56, %h1_tunnel_go_state.exit147.i ], [ %.0104158.i, %.thread155.i ], [ %.0104158.i, %487 ], [ 56, %tunnel_is_established.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   store i8 0, ptr %3, align 1
   br label %tunnel_init.exit.thread
 
-tunnel_init.exit.thread:                          ; preds = %51, %49, %47, %tunnel_is_established.exit.thread, %tunnel_is_established.exit, %498, %.critedge, %28, %35, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %35 ], [ %34, %28 ], [ %.0.i52, %.critedge ], [ 0, %498 ], [ 0, %tunnel_is_established.exit ], [ 0, %tunnel_is_established.exit.thread ], [ 27, %51 ], [ %50, %49 ], [ 1, %47 ]
+tunnel_init.exit.thread:                          ; preds = %51, %49, %47, %tunnel_is_established.exit.thread, %tunnel_is_established.exit, %499, %.critedge, %28, %35, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %35 ], [ %34, %28 ], [ %.0.i51, %.critedge ], [ 0, %499 ], [ 0, %tunnel_is_established.exit ], [ 0, %tunnel_is_established.exit.thread ], [ 27, %51 ], [ %50, %49 ], [ 1, %47 ]
   ret i32 %.0
 }
 

@@ -493,9 +493,8 @@ define dso_local noundef zeroext i1 @_ZN18cmInstallGenerator11HaveInstallEv(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN18cmInstallGenerator12CheckCMP0082ERbS0_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #7 align 2 {
   %4 = load i8, ptr %1, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
   store i8 1, ptr %2, align 1
@@ -1408,12 +1407,12 @@ define dso_local void @_ZN18cmInstallGenerator14GenerateScriptERSo(ptr noundef n
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = getelementptr inbounds i8, ptr %0, i64 180
-  %6 = getelementptr inbounds i8, ptr %0, i64 181
-  %7 = load <2 x i8>, ptr %5, align 4
-  %8 = trunc <2 x i8> %7 to <2 x i1>
-  %9 = extractelement <2 x i1> %8, i64 0
-  %10 = extractelement <2 x i1> %8, i64 1
-  call void @_ZN18cmInstallGenerator19CreateComponentTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %9, i1 noundef zeroext %10)
+  %6 = load i8, ptr %5, align 4
+  %7 = trunc i8 %6 to i1
+  %8 = getelementptr inbounds i8, ptr %0, i64 181
+  %9 = load i8, ptr %8, align 1
+  %10 = trunc i8 %9 to i1
+  call void @_ZN18cmInstallGenerator19CreateComponentTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %7, i1 noundef zeroext %10)
   %11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   br i1 %11, label %19, label %_ZlsRSo23cmScriptGeneratorIndent.exit
 
@@ -1436,26 +1435,24 @@ _ZlsRSo23cmScriptGeneratorIndent.exit:            ; preds = %2
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %15, %2
-  %20 = load i8, ptr %6, align 1
-  %21 = shl i8 %20, 1
-  %22 = and i8 %21, 2
-  %23 = xor i8 %22, 2
-  %spec.select = zext nneg i8 %23 to i32
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %spec.select)
-          to label %27 unwind label %17
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %spec.select = select i1 %21, i32 0, i32 2
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = load ptr, ptr %23, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %spec.select)
+          to label %25 unwind label %17
 
-27:                                               ; preds = %19
-  %28 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  br i1 %28, label %30, label %_ZlsRSo23cmScriptGeneratorIndent.exit11
+25:                                               ; preds = %19
+  %26 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  br i1 %26, label %28, label %_ZlsRSo23cmScriptGeneratorIndent.exit11
 
-_ZlsRSo23cmScriptGeneratorIndent.exit11:          ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.46)
-          to label %30 unwind label %17
+_ZlsRSo23cmScriptGeneratorIndent.exit11:          ; preds = %25
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.46)
+          to label %28 unwind label %17
 
-30:                                               ; preds = %_ZlsRSo23cmScriptGeneratorIndent.exit11, %27
+28:                                               ; preds = %_ZlsRSo23cmScriptGeneratorIndent.exit11, %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   ret void
 }

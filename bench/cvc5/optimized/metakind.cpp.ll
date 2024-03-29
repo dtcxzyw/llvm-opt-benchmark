@@ -8844,8 +8844,7 @@ cond.false.i146:                                  ; preds = %sw.bb14
 _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit: ; preds = %sw.bb14, %cond.false.i146
   %cond-lvalue.i147 = phi ptr [ %7, %cond.false.i146 ], [ %d_children.i145, %sw.bb14 ]
   %8 = load i8, ptr %cond-lvalue.i147, align 1
-  %9 = and i8 %8, 1
-  %tobool = icmp ne i8 %9, 0
+  %tobool = trunc i8 %8 to i1
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %out, i1 noundef zeroext %tobool)
   br label %sw.epilog
 
@@ -8858,11 +8857,11 @@ sw.bb17:                                          ; preds = %entry
   br i1 %cmp.i151, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit, label %cond.false.i153
 
 cond.false.i153:                                  ; preds = %sw.bb17
-  %10 = load ptr, ptr %d_children.i152, align 8
+  %9 = load ptr, ptr %d_children.i152, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit: ; preds = %sw.bb17, %cond.false.i153
-  %cond-lvalue.i154 = phi ptr [ %10, %cond.false.i153 ], [ %d_children.i152, %sw.bb17 ]
+  %cond-lvalue.i154 = phi ptr [ %9, %cond.false.i153 ], [ %d_children.i152, %sw.bb17 ]
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_21CardinalityConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i154)
   br label %sw.epilog
 
@@ -8875,11 +8874,11 @@ sw.bb20:                                          ; preds = %entry
   br i1 %cmp.i158, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit, label %cond.false.i160
 
 cond.false.i160:                                  ; preds = %sw.bb20
-  %11 = load ptr, ptr %d_children.i159, align 8
+  %10 = load ptr, ptr %d_children.i159, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit: ; preds = %sw.bb20, %cond.false.i160
-  %cond-lvalue.i161 = phi ptr [ %11, %cond.false.i160 ], [ %d_children.i159, %sw.bb20 ]
+  %cond-lvalue.i161 = phi ptr [ %10, %cond.false.i160 ], [ %d_children.i159, %sw.bb20 ]
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_29CombinedCardinalityConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i161)
   br label %sw.epilog
 
@@ -8892,11 +8891,11 @@ sw.bb23:                                          ; preds = %entry
   br i1 %cmp.i165, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit, label %cond.false.i167
 
 cond.false.i167:                                  ; preds = %sw.bb23
-  %12 = load ptr, ptr %d_children.i166, align 8
+  %11 = load ptr, ptr %d_children.i166, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit: ; preds = %sw.bb23, %cond.false.i167
-  %cond-lvalue.i168 = phi ptr [ %12, %cond.false.i167 ], [ %d_children.i166, %sw.bb23 ]
+  %cond-lvalue.i168 = phi ptr [ %11, %cond.false.i167 ], [ %d_children.i166, %sw.bb23 ]
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_18FunctionArrayConstE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i168)
   br label %sw.epilog
 
@@ -8909,11 +8908,11 @@ sw.bb26:                                          ; preds = %entry
   br i1 %cmp.i172, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit, label %cond.false.i174
 
 cond.false.i174:                                  ; preds = %sw.bb26
-  %13 = load ptr, ptr %d_children.i173, align 8
+  %12 = load ptr, ptr %d_children.i173, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit: ; preds = %sw.bb26, %cond.false.i174
-  %cond-lvalue.i175 = phi ptr [ %13, %cond.false.i174 ], [ %d_children.i173, %sw.bb26 ]
+  %cond-lvalue.i175 = phi ptr [ %12, %cond.false.i174 ], [ %d_children.i173, %sw.bb26 ]
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_14IntToBitVectorE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i175)
   br label %sw.epilog
 
@@ -8926,11 +8925,11 @@ sw.bb29:                                          ; preds = %entry
   br i1 %cmp.i179, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit, label %cond.false.i181
 
 cond.false.i181:                                  ; preds = %sw.bb29
-  %14 = load ptr, ptr %d_children.i180, align 8
+  %13 = load ptr, ptr %d_children.i180, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit: ; preds = %sw.bb29, %cond.false.i181
-  %cond-lvalue.i182 = phi ptr [ %14, %cond.false.i181 ], [ %d_children.i180, %sw.bb29 ]
+  %cond-lvalue.i182 = phi ptr [ %13, %cond.false.i181 ], [ %d_children.i180, %sw.bb29 ]
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9DivisibleE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i182)
   br label %sw.epilog
 
@@ -8943,11 +8942,11 @@ sw.bb32:                                          ; preds = %entry
   br i1 %cmp.i186, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, label %cond.false.i188
 
 cond.false.i188:                                  ; preds = %sw.bb32
-  %15 = load ptr, ptr %d_children.i187, align 8
+  %14 = load ptr, ptr %d_children.i187, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds = %sw.bb32, %cond.false.i188
-  %cond-lvalue.i189 = phi ptr [ %15, %cond.false.i188 ], [ %d_children.i187, %sw.bb32 ]
+  %cond-lvalue.i189 = phi ptr [ %14, %cond.false.i188 ], [ %d_children.i187, %sw.bb32 ]
   %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i189)
   br label %sw.epilog
 
@@ -8960,11 +8959,11 @@ sw.bb35:                                          ; preds = %entry
   br i1 %cmp.i193, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit197, label %cond.false.i195
 
 cond.false.i195:                                  ; preds = %sw.bb35
-  %16 = load ptr, ptr %d_children.i194, align 8
+  %15 = load ptr, ptr %d_children.i194, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit197
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit197: ; preds = %sw.bb35, %cond.false.i195
-  %cond-lvalue.i196 = phi ptr [ %16, %cond.false.i195 ], [ %d_children.i194, %sw.bb35 ]
+  %cond-lvalue.i196 = phi ptr [ %15, %cond.false.i195 ], [ %d_children.i194, %sw.bb35 ]
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i196)
   br label %sw.epilog
 
@@ -8977,11 +8976,11 @@ sw.bb38:                                          ; preds = %entry
   br i1 %cmp.i201, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit, label %cond.false.i203
 
 cond.false.i203:                                  ; preds = %sw.bb38
-  %17 = load ptr, ptr %d_children.i202, align 8
+  %16 = load ptr, ptr %d_children.i202, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit: ; preds = %sw.bb38, %cond.false.i203
-  %cond-lvalue.i204 = phi ptr [ %17, %cond.false.i203 ], [ %d_children.i202, %sw.bb38 ]
+  %cond-lvalue.i204 = phi ptr [ %16, %cond.false.i203 ], [ %d_children.i202, %sw.bb38 ]
   %call40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_19RealAlgebraicNumberE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i204)
   br label %sw.epilog
 
@@ -8994,11 +8993,11 @@ sw.bb41:                                          ; preds = %entry
   br i1 %cmp.i208, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit, label %cond.false.i210
 
 cond.false.i210:                                  ; preds = %sw.bb41
-  %18 = load ptr, ptr %d_children.i209, align 8
+  %17 = load ptr, ptr %d_children.i209, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit: ; preds = %sw.bb41, %cond.false.i210
-  %cond-lvalue.i211 = phi ptr [ %18, %cond.false.i210 ], [ %d_children.i209, %sw.bb41 ]
+  %cond-lvalue.i211 = phi ptr [ %17, %cond.false.i210 ], [ %d_children.i209, %sw.bb41 ]
   %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_20IndexedRootPredicateE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i211)
   br label %sw.epilog
 
@@ -9011,11 +9010,11 @@ sw.bb44:                                          ; preds = %entry
   br i1 %cmp.i215, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit, label %cond.false.i217
 
 cond.false.i217:                                  ; preds = %sw.bb44
-  %19 = load ptr, ptr %d_children.i216, align 8
+  %18 = load ptr, ptr %d_children.i216, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit: ; preds = %sw.bb44, %cond.false.i217
-  %cond-lvalue.i218 = phi ptr [ %19, %cond.false.i217 ], [ %d_children.i216, %sw.bb44 ]
+  %cond-lvalue.i218 = phi ptr [ %18, %cond.false.i217 ], [ %d_children.i216, %sw.bb44 ]
   %call46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_6IntAndE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i218)
   br label %sw.epilog
 
@@ -9028,13 +9027,13 @@ sw.bb47:                                          ; preds = %entry
   br i1 %cmp.i222, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit, label %cond.false.i224
 
 cond.false.i224:                                  ; preds = %sw.bb47
-  %20 = load ptr, ptr %d_children.i223, align 8
+  %19 = load ptr, ptr %d_children.i223, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit: ; preds = %sw.bb47, %cond.false.i224
-  %cond-lvalue.i225 = phi ptr [ %20, %cond.false.i224 ], [ %d_children.i223, %sw.bb47 ]
-  %21 = load i32, ptr %cond-lvalue.i225, align 4
-  %call50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %21)
+  %cond-lvalue.i225 = phi ptr [ %19, %cond.false.i224 ], [ %d_children.i223, %sw.bb47 ]
+  %20 = load i32, ptr %cond-lvalue.i225, align 4
+  %call50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %20)
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %entry
@@ -9046,11 +9045,11 @@ sw.bb51:                                          ; preds = %entry
   br i1 %cmp.i229, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit, label %cond.false.i231
 
 cond.false.i231:                                  ; preds = %sw.bb51
-  %22 = load ptr, ptr %d_children.i230, align 8
+  %21 = load ptr, ptr %d_children.i230, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit: ; preds = %sw.bb51, %cond.false.i231
-  %cond-lvalue.i232 = phi ptr [ %22, %cond.false.i231 ], [ %d_children.i230, %sw.bb51 ]
+  %cond-lvalue.i232 = phi ptr [ %21, %cond.false.i231 ], [ %d_children.i230, %sw.bb51 ]
   %call53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i232)
   br label %sw.epilog
 
@@ -9063,11 +9062,11 @@ sw.bb54:                                          ; preds = %entry
   br i1 %cmp.i236, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit, label %cond.false.i238
 
 cond.false.i238:                                  ; preds = %sw.bb54
-  %23 = load ptr, ptr %d_children.i237, align 8
+  %22 = load ptr, ptr %d_children.i237, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit: ; preds = %sw.bb54, %cond.false.i238
-  %cond-lvalue.i239 = phi ptr [ %23, %cond.false.i238 ], [ %d_children.i237, %sw.bb54 ]
+  %cond-lvalue.i239 = phi ptr [ %22, %cond.false.i238 ], [ %d_children.i237, %sw.bb54 ]
   %call56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_14BitVectorBitOfE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i239)
   br label %sw.epilog
 
@@ -9080,11 +9079,11 @@ sw.bb57:                                          ; preds = %entry
   br i1 %cmp.i243, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, label %cond.false.i245
 
 cond.false.i245:                                  ; preds = %sw.bb57
-  %24 = load ptr, ptr %d_children.i244, align 8
+  %23 = load ptr, ptr %d_children.i244, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit: ; preds = %sw.bb57, %cond.false.i245
-  %cond-lvalue.i246 = phi ptr [ %24, %cond.false.i245 ], [ %d_children.i244, %sw.bb57 ]
+  %cond-lvalue.i246 = phi ptr [ %23, %cond.false.i245 ], [ %d_children.i244, %sw.bb57 ]
   %call59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_16BitVectorExtractE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i246)
   br label %sw.epilog
 
@@ -9097,13 +9096,13 @@ sw.bb60:                                          ; preds = %entry
   br i1 %cmp.i250, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit, label %cond.false.i252
 
 cond.false.i252:                                  ; preds = %sw.bb60
-  %25 = load ptr, ptr %d_children.i251, align 8
+  %24 = load ptr, ptr %d_children.i251, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit: ; preds = %sw.bb60, %cond.false.i252
-  %cond-lvalue.i253 = phi ptr [ %25, %cond.false.i252 ], [ %d_children.i251, %sw.bb60 ]
-  %26 = load i32, ptr %cond-lvalue.i253, align 4
-  %call63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %26)
+  %cond-lvalue.i253 = phi ptr [ %24, %cond.false.i252 ], [ %d_children.i251, %sw.bb60 ]
+  %25 = load i32, ptr %cond-lvalue.i253, align 4
+  %call63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %25)
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %entry
@@ -9115,13 +9114,13 @@ sw.bb64:                                          ; preds = %entry
   br i1 %cmp.i257, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit, label %cond.false.i259
 
 cond.false.i259:                                  ; preds = %sw.bb64
-  %27 = load ptr, ptr %d_children.i258, align 8
+  %26 = load ptr, ptr %d_children.i258, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit: ; preds = %sw.bb64, %cond.false.i259
-  %cond-lvalue.i260 = phi ptr [ %27, %cond.false.i259 ], [ %d_children.i258, %sw.bb64 ]
-  %28 = load i32, ptr %cond-lvalue.i260, align 4
-  %call67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %28)
+  %cond-lvalue.i260 = phi ptr [ %26, %cond.false.i259 ], [ %d_children.i258, %sw.bb64 ]
+  %27 = load i32, ptr %cond-lvalue.i260, align 4
+  %call67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %27)
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %entry
@@ -9133,13 +9132,13 @@ sw.bb68:                                          ; preds = %entry
   br i1 %cmp.i264, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit, label %cond.false.i266
 
 cond.false.i266:                                  ; preds = %sw.bb68
-  %29 = load ptr, ptr %d_children.i265, align 8
+  %28 = load ptr, ptr %d_children.i265, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit: ; preds = %sw.bb68, %cond.false.i266
-  %cond-lvalue.i267 = phi ptr [ %29, %cond.false.i266 ], [ %d_children.i265, %sw.bb68 ]
-  %30 = load i32, ptr %cond-lvalue.i267, align 4
-  %call71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %30)
+  %cond-lvalue.i267 = phi ptr [ %28, %cond.false.i266 ], [ %d_children.i265, %sw.bb68 ]
+  %29 = load i32, ptr %cond-lvalue.i267, align 4
+  %call71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %29)
   br label %sw.epilog
 
 sw.bb72:                                          ; preds = %entry
@@ -9151,13 +9150,13 @@ sw.bb72:                                          ; preds = %entry
   br i1 %cmp.i271, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit, label %cond.false.i273
 
 cond.false.i273:                                  ; preds = %sw.bb72
-  %31 = load ptr, ptr %d_children.i272, align 8
+  %30 = load ptr, ptr %d_children.i272, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit: ; preds = %sw.bb72, %cond.false.i273
-  %cond-lvalue.i274 = phi ptr [ %31, %cond.false.i273 ], [ %d_children.i272, %sw.bb72 ]
-  %32 = load i32, ptr %cond-lvalue.i274, align 4
-  %call75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %32)
+  %cond-lvalue.i274 = phi ptr [ %30, %cond.false.i273 ], [ %d_children.i272, %sw.bb72 ]
+  %31 = load i32, ptr %cond-lvalue.i274, align 4
+  %call75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %31)
   br label %sw.epilog
 
 sw.bb76:                                          ; preds = %entry
@@ -9169,13 +9168,13 @@ sw.bb76:                                          ; preds = %entry
   br i1 %cmp.i278, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit, label %cond.false.i280
 
 cond.false.i280:                                  ; preds = %sw.bb76
-  %33 = load ptr, ptr %d_children.i279, align 8
+  %32 = load ptr, ptr %d_children.i279, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit: ; preds = %sw.bb76, %cond.false.i280
-  %cond-lvalue.i281 = phi ptr [ %33, %cond.false.i280 ], [ %d_children.i279, %sw.bb76 ]
-  %34 = load i32, ptr %cond-lvalue.i281, align 4
-  %call79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %34)
+  %cond-lvalue.i281 = phi ptr [ %32, %cond.false.i280 ], [ %d_children.i279, %sw.bb76 ]
+  %33 = load i32, ptr %cond-lvalue.i281, align 4
+  %call79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %33)
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %entry
@@ -9187,11 +9186,11 @@ sw.bb80:                                          ; preds = %entry
   br i1 %cmp.i285, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit, label %cond.false.i287
 
 cond.false.i287:                                  ; preds = %sw.bb80
-  %35 = load ptr, ptr %d_children.i286, align 8
+  %34 = load ptr, ptr %d_children.i286, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit: ; preds = %sw.bb80, %cond.false.i287
-  %cond-lvalue.i288 = phi ptr [ %35, %cond.false.i287 ], [ %d_children.i286, %sw.bb80 ]
+  %cond-lvalue.i288 = phi ptr [ %34, %cond.false.i287 ], [ %d_children.i286, %sw.bb80 ]
   %call82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_6FfSizeE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i288)
   br label %sw.epilog
 
@@ -9204,11 +9203,11 @@ sw.bb83:                                          ; preds = %entry
   br i1 %cmp.i292, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit, label %cond.false.i294
 
 cond.false.i294:                                  ; preds = %sw.bb83
-  %36 = load ptr, ptr %d_children.i293, align 8
+  %35 = load ptr, ptr %d_children.i293, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit: ; preds = %sw.bb83, %cond.false.i294
-  %cond-lvalue.i295 = phi ptr [ %36, %cond.false.i294 ], [ %d_children.i293, %sw.bb83 ]
+  %cond-lvalue.i295 = phi ptr [ %35, %cond.false.i294 ], [ %d_children.i293, %sw.bb83 ]
   %call85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_16FiniteFieldValueE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i295)
   br label %sw.epilog
 
@@ -9221,11 +9220,11 @@ sw.bb86:                                          ; preds = %entry
   br i1 %cmp.i299, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit, label %cond.false.i301
 
 cond.false.i301:                                  ; preds = %sw.bb86
-  %37 = load ptr, ptr %d_children.i300, align 8
+  %36 = load ptr, ptr %d_children.i300, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit: ; preds = %sw.bb86, %cond.false.i301
-  %cond-lvalue.i302 = phi ptr [ %37, %cond.false.i301 ], [ %d_children.i300, %sw.bb86 ]
+  %cond-lvalue.i302 = phi ptr [ %36, %cond.false.i301 ], [ %d_children.i300, %sw.bb86 ]
   %call88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13FloatingPointE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i302)
   br label %sw.epilog
 
@@ -9238,13 +9237,13 @@ sw.bb89:                                          ; preds = %entry
   br i1 %cmp.i306, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit, label %cond.false.i308
 
 cond.false.i308:                                  ; preds = %sw.bb89
-  %38 = load ptr, ptr %d_children.i307, align 8
+  %37 = load ptr, ptr %d_children.i307, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit: ; preds = %sw.bb89, %cond.false.i308
-  %cond-lvalue.i309 = phi ptr [ %38, %cond.false.i308 ], [ %d_children.i307, %sw.bb89 ]
-  %39 = load i32, ptr %cond-lvalue.i309, align 4
-  %call91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_12RoundingModeE(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %39)
+  %cond-lvalue.i309 = phi ptr [ %37, %cond.false.i308 ], [ %d_children.i307, %sw.bb89 ]
+  %38 = load i32, ptr %cond-lvalue.i309, align 4
+  %call91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_12RoundingModeE(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %38)
   br label %sw.epilog
 
 sw.bb92:                                          ; preds = %entry
@@ -9256,11 +9255,11 @@ sw.bb92:                                          ; preds = %entry
   br i1 %cmp.i313, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, label %cond.false.i315
 
 cond.false.i315:                                  ; preds = %sw.bb92
-  %40 = load ptr, ptr %d_children.i314, align 8
+  %39 = load ptr, ptr %d_children.i314, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit: ; preds = %sw.bb92, %cond.false.i315
-  %cond-lvalue.i316 = phi ptr [ %40, %cond.false.i315 ], [ %d_children.i314, %sw.bb92 ]
+  %cond-lvalue.i316 = phi ptr [ %39, %cond.false.i315 ], [ %d_children.i314, %sw.bb92 ]
   %call94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_17FloatingPointSizeE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i316)
   br label %sw.epilog
 
@@ -9273,11 +9272,11 @@ sw.bb95:                                          ; preds = %entry
   br i1 %cmp.i320, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, label %cond.false.i322
 
 cond.false.i322:                                  ; preds = %sw.bb95
-  %41 = load ptr, ptr %d_children.i321, align 8
+  %40 = load ptr, ptr %d_children.i321, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit: ; preds = %sw.bb95, %cond.false.i322
-  %cond-lvalue.i323 = phi ptr [ %41, %cond.false.i322 ], [ %d_children.i321, %sw.bb95 ]
+  %cond-lvalue.i323 = phi ptr [ %40, %cond.false.i322 ], [ %d_children.i321, %sw.bb95 ]
   %call97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_24FloatingPointConvertSortE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i323)
   br label %sw.epilog
 
@@ -9290,11 +9289,11 @@ sw.bb98:                                          ; preds = %entry
   br i1 %cmp.i327, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, label %cond.false.i329
 
 cond.false.i329:                                  ; preds = %sw.bb98
-  %42 = load ptr, ptr %d_children.i328, align 8
+  %41 = load ptr, ptr %d_children.i328, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit: ; preds = %sw.bb98, %cond.false.i329
-  %cond-lvalue.i330 = phi ptr [ %42, %cond.false.i329 ], [ %d_children.i328, %sw.bb98 ]
+  %cond-lvalue.i330 = phi ptr [ %41, %cond.false.i329 ], [ %d_children.i328, %sw.bb98 ]
   %call100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_24FloatingPointConvertSortE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i330)
   br label %sw.epilog
 
@@ -9307,11 +9306,11 @@ sw.bb101:                                         ; preds = %entry
   br i1 %cmp.i334, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, label %cond.false.i336
 
 cond.false.i336:                                  ; preds = %sw.bb101
-  %43 = load ptr, ptr %d_children.i335, align 8
+  %42 = load ptr, ptr %d_children.i335, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit: ; preds = %sw.bb101, %cond.false.i336
-  %cond-lvalue.i337 = phi ptr [ %43, %cond.false.i336 ], [ %d_children.i335, %sw.bb101 ]
+  %cond-lvalue.i337 = phi ptr [ %42, %cond.false.i336 ], [ %d_children.i335, %sw.bb101 ]
   %call103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_24FloatingPointConvertSortE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i337)
   br label %sw.epilog
 
@@ -9324,11 +9323,11 @@ sw.bb104:                                         ; preds = %entry
   br i1 %cmp.i341, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, label %cond.false.i343
 
 cond.false.i343:                                  ; preds = %sw.bb104
-  %44 = load ptr, ptr %d_children.i342, align 8
+  %43 = load ptr, ptr %d_children.i342, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit: ; preds = %sw.bb104, %cond.false.i343
-  %cond-lvalue.i344 = phi ptr [ %44, %cond.false.i343 ], [ %d_children.i342, %sw.bb104 ]
+  %cond-lvalue.i344 = phi ptr [ %43, %cond.false.i343 ], [ %d_children.i342, %sw.bb104 ]
   %call106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_24FloatingPointConvertSortE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i344)
   br label %sw.epilog
 
@@ -9341,11 +9340,11 @@ sw.bb107:                                         ; preds = %entry
   br i1 %cmp.i348, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, label %cond.false.i350
 
 cond.false.i350:                                  ; preds = %sw.bb107
-  %45 = load ptr, ptr %d_children.i349, align 8
+  %44 = load ptr, ptr %d_children.i349, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit: ; preds = %sw.bb107, %cond.false.i350
-  %cond-lvalue.i351 = phi ptr [ %45, %cond.false.i350 ], [ %d_children.i349, %sw.bb107 ]
+  %cond-lvalue.i351 = phi ptr [ %44, %cond.false.i350 ], [ %d_children.i349, %sw.bb107 ]
   %call109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_24FloatingPointConvertSortE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i351)
   br label %sw.epilog
 
@@ -9358,13 +9357,13 @@ sw.bb110:                                         ; preds = %entry
   br i1 %cmp.i355, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, label %cond.false.i357
 
 cond.false.i357:                                  ; preds = %sw.bb110
-  %46 = load ptr, ptr %d_children.i356, align 8
+  %45 = load ptr, ptr %d_children.i356, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit: ; preds = %sw.bb110, %cond.false.i357
-  %cond-lvalue.i358 = phi ptr [ %46, %cond.false.i357 ], [ %d_children.i356, %sw.bb110 ]
-  %47 = load i32, ptr %cond-lvalue.i358, align 4
-  %call113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %47)
+  %cond-lvalue.i358 = phi ptr [ %45, %cond.false.i357 ], [ %d_children.i356, %sw.bb110 ]
+  %46 = load i32, ptr %cond-lvalue.i358, align 4
+  %call113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %46)
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %entry
@@ -9376,13 +9375,13 @@ sw.bb114:                                         ; preds = %entry
   br i1 %cmp.i362, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, label %cond.false.i364
 
 cond.false.i364:                                  ; preds = %sw.bb114
-  %48 = load ptr, ptr %d_children.i363, align 8
+  %47 = load ptr, ptr %d_children.i363, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit: ; preds = %sw.bb114, %cond.false.i364
-  %cond-lvalue.i365 = phi ptr [ %48, %cond.false.i364 ], [ %d_children.i363, %sw.bb114 ]
-  %49 = load i32, ptr %cond-lvalue.i365, align 4
-  %call117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %49)
+  %cond-lvalue.i365 = phi ptr [ %47, %cond.false.i364 ], [ %d_children.i363, %sw.bb114 ]
+  %48 = load i32, ptr %cond-lvalue.i365, align 4
+  %call117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %48)
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %entry
@@ -9394,13 +9393,13 @@ sw.bb118:                                         ; preds = %entry
   br i1 %cmp.i369, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, label %cond.false.i371
 
 cond.false.i371:                                  ; preds = %sw.bb118
-  %50 = load ptr, ptr %d_children.i370, align 8
+  %49 = load ptr, ptr %d_children.i370, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit: ; preds = %sw.bb118, %cond.false.i371
-  %cond-lvalue.i372 = phi ptr [ %50, %cond.false.i371 ], [ %d_children.i370, %sw.bb118 ]
-  %51 = load i32, ptr %cond-lvalue.i372, align 4
-  %call121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %51)
+  %cond-lvalue.i372 = phi ptr [ %49, %cond.false.i371 ], [ %d_children.i370, %sw.bb118 ]
+  %50 = load i32, ptr %cond-lvalue.i372, align 4
+  %call121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %50)
   br label %sw.epilog
 
 sw.bb122:                                         ; preds = %entry
@@ -9412,13 +9411,13 @@ sw.bb122:                                         ; preds = %entry
   br i1 %cmp.i376, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, label %cond.false.i378
 
 cond.false.i378:                                  ; preds = %sw.bb122
-  %52 = load ptr, ptr %d_children.i377, align 8
+  %51 = load ptr, ptr %d_children.i377, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit: ; preds = %sw.bb122, %cond.false.i378
-  %cond-lvalue.i379 = phi ptr [ %52, %cond.false.i378 ], [ %d_children.i377, %sw.bb122 ]
-  %53 = load i32, ptr %cond-lvalue.i379, align 4
-  %call125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %53)
+  %cond-lvalue.i379 = phi ptr [ %51, %cond.false.i378 ], [ %d_children.i377, %sw.bb122 ]
+  %52 = load i32, ptr %cond-lvalue.i379, align 4
+  %call125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %52)
   br label %sw.epilog
 
 sw.bb126:                                         ; preds = %entry
@@ -9430,11 +9429,11 @@ sw.bb126:                                         ; preds = %entry
   br i1 %cmp.i383, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, label %cond.false.i385
 
 cond.false.i385:                                  ; preds = %sw.bb126
-  %54 = load ptr, ptr %d_children.i384, align 8
+  %53 = load ptr, ptr %d_children.i384, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; preds = %sw.bb126, %cond.false.i385
-  %cond-lvalue.i386 = phi ptr [ %54, %cond.false.i385 ], [ %d_children.i384, %sw.bb126 ]
+  %cond-lvalue.i386 = phi ptr [ %53, %cond.false.i385 ], [ %d_children.i384, %sw.bb126 ]
   %call128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13ArrayStoreAllE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i386)
   br label %sw.epilog
 
@@ -9447,11 +9446,11 @@ sw.bb129:                                         ; preds = %entry
   br i1 %cmp.i390, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, label %cond.false.i392
 
 cond.false.i392:                                  ; preds = %sw.bb129
-  %55 = load ptr, ptr %d_children.i391, align 8
+  %54 = load ptr, ptr %d_children.i391, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit: ; preds = %sw.bb129, %cond.false.i392
-  %cond-lvalue.i393 = phi ptr [ %55, %cond.false.i392 ], [ %d_children.i391, %sw.bb129 ]
+  %cond-lvalue.i393 = phi ptr [ %54, %cond.false.i392 ], [ %d_children.i391, %sw.bb129 ]
   call void @_ZN4cvc58internal14AscriptionTypeC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i393)
   %call131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_14AscriptionTypeE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -9461,10 +9460,10 @@ invoke.cont:                                      ; preds = %_ZNK4cvc58internal4
   br label %sw.epilog
 
 lpad:                                             ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal14AscriptionTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #16
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %55
 
 sw.bb132:                                         ; preds = %entry
   %d_nchildren.i394 = getelementptr inbounds i8, ptr %nv, i64 12
@@ -9475,11 +9474,11 @@ sw.bb132:                                         ; preds = %entry
   br i1 %cmp.i397, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i399
 
 cond.false.i399:                                  ; preds = %sw.bb132
-  %57 = load ptr, ptr %d_children.i398, align 8
+  %56 = load ptr, ptr %d_children.i398, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %sw.bb132, %cond.false.i399
-  %cond-lvalue.i400 = phi ptr [ %57, %cond.false.i399 ], [ %d_children.i398, %sw.bb132 ]
+  %cond-lvalue.i400 = phi ptr [ %56, %cond.false.i399 ], [ %d_children.i398, %sw.bb132 ]
   %call134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i400)
   br label %sw.epilog
 
@@ -9492,11 +9491,11 @@ sw.bb135:                                         ; preds = %entry
   br i1 %cmp.i404, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, label %cond.false.i406
 
 cond.false.i406:                                  ; preds = %sw.bb135
-  %58 = load ptr, ptr %d_children.i405, align 8
+  %57 = load ptr, ptr %d_children.i405, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit: ; preds = %sw.bb135, %cond.false.i406
-  %cond-lvalue.i407 = phi ptr [ %58, %cond.false.i406 ], [ %d_children.i405, %sw.bb135 ]
+  %cond-lvalue.i407 = phi ptr [ %57, %cond.false.i406 ], [ %d_children.i405, %sw.bb135 ]
   %call137 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_23CodatatypeBoundVariableE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i407)
   br label %sw.epilog
 
@@ -9509,11 +9508,11 @@ sw.bb138:                                         ; preds = %entry
   br i1 %cmp.i411, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, label %cond.false.i413
 
 cond.false.i413:                                  ; preds = %sw.bb138
-  %59 = load ptr, ptr %d_children.i412, align 8
+  %58 = load ptr, ptr %d_children.i412, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds = %sw.bb138, %cond.false.i413
-  %cond-lvalue.i414 = phi ptr [ %59, %cond.false.i413 ], [ %d_children.i412, %sw.bb138 ]
+  %cond-lvalue.i414 = phi ptr [ %58, %cond.false.i413 ], [ %d_children.i412, %sw.bb138 ]
   %call140 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8EmptySetE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i414)
   br label %sw.epilog
 
@@ -9526,11 +9525,11 @@ sw.bb141:                                         ; preds = %entry
   br i1 %cmp.i418, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit422, label %cond.false.i420
 
 cond.false.i420:                                  ; preds = %sw.bb141
-  %60 = load ptr, ptr %d_children.i419, align 8
+  %59 = load ptr, ptr %d_children.i419, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit422
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit422: ; preds = %sw.bb141, %cond.false.i420
-  %cond-lvalue.i421 = phi ptr [ %60, %cond.false.i420 ], [ %d_children.i419, %sw.bb141 ]
+  %cond-lvalue.i421 = phi ptr [ %59, %cond.false.i420 ], [ %d_children.i419, %sw.bb141 ]
   %call143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i421)
   br label %sw.epilog
 
@@ -9543,11 +9542,11 @@ sw.bb144:                                         ; preds = %entry
   br i1 %cmp.i426, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit430, label %cond.false.i428
 
 cond.false.i428:                                  ; preds = %sw.bb144
-  %61 = load ptr, ptr %d_children.i427, align 8
+  %60 = load ptr, ptr %d_children.i427, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit430
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit430: ; preds = %sw.bb144, %cond.false.i428
-  %cond-lvalue.i429 = phi ptr [ %61, %cond.false.i428 ], [ %d_children.i427, %sw.bb144 ]
+  %cond-lvalue.i429 = phi ptr [ %60, %cond.false.i428 ], [ %d_children.i427, %sw.bb144 ]
   %call146 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i429)
   br label %sw.epilog
 
@@ -9560,11 +9559,11 @@ sw.bb147:                                         ; preds = %entry
   br i1 %cmp.i434, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit438, label %cond.false.i436
 
 cond.false.i436:                                  ; preds = %sw.bb147
-  %62 = load ptr, ptr %d_children.i435, align 8
+  %61 = load ptr, ptr %d_children.i435, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit438
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit438: ; preds = %sw.bb147, %cond.false.i436
-  %cond-lvalue.i437 = phi ptr [ %62, %cond.false.i436 ], [ %d_children.i435, %sw.bb147 ]
+  %cond-lvalue.i437 = phi ptr [ %61, %cond.false.i436 ], [ %d_children.i435, %sw.bb147 ]
   %call149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i437)
   br label %sw.epilog
 
@@ -9577,11 +9576,11 @@ sw.bb150:                                         ; preds = %entry
   br i1 %cmp.i442, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, label %cond.false.i444
 
 cond.false.i444:                                  ; preds = %sw.bb150
-  %63 = load ptr, ptr %d_children.i443, align 8
+  %62 = load ptr, ptr %d_children.i443, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds = %sw.bb150, %cond.false.i444
-  %cond-lvalue.i445 = phi ptr [ %63, %cond.false.i444 ], [ %d_children.i443, %sw.bb150 ]
+  %cond-lvalue.i445 = phi ptr [ %62, %cond.false.i444 ], [ %d_children.i443, %sw.bb150 ]
   %call152 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8EmptyBagE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i445)
   br label %sw.epilog
 
@@ -9594,11 +9593,11 @@ sw.bb153:                                         ; preds = %entry
   br i1 %cmp.i449, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit453, label %cond.false.i451
 
 cond.false.i451:                                  ; preds = %sw.bb153
-  %64 = load ptr, ptr %d_children.i450, align 8
+  %63 = load ptr, ptr %d_children.i450, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit453
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit453: ; preds = %sw.bb153, %cond.false.i451
-  %cond-lvalue.i452 = phi ptr [ %64, %cond.false.i451 ], [ %d_children.i450, %sw.bb153 ]
+  %cond-lvalue.i452 = phi ptr [ %63, %cond.false.i451 ], [ %d_children.i450, %sw.bb153 ]
   %call155 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i452)
   br label %sw.epilog
 
@@ -9611,11 +9610,11 @@ sw.bb156:                                         ; preds = %entry
   br i1 %cmp.i457, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit461, label %cond.false.i459
 
 cond.false.i459:                                  ; preds = %sw.bb156
-  %65 = load ptr, ptr %d_children.i458, align 8
+  %64 = load ptr, ptr %d_children.i458, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit461
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit461: ; preds = %sw.bb156, %cond.false.i459
-  %cond-lvalue.i460 = phi ptr [ %65, %cond.false.i459 ], [ %d_children.i458, %sw.bb156 ]
+  %cond-lvalue.i460 = phi ptr [ %64, %cond.false.i459 ], [ %d_children.i458, %sw.bb156 ]
   %call158 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i460)
   br label %sw.epilog
 
@@ -9628,11 +9627,11 @@ sw.bb159:                                         ; preds = %entry
   br i1 %cmp.i465, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit469, label %cond.false.i467
 
 cond.false.i467:                                  ; preds = %sw.bb159
-  %66 = load ptr, ptr %d_children.i466, align 8
+  %65 = load ptr, ptr %d_children.i466, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit469
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit469: ; preds = %sw.bb159, %cond.false.i467
-  %cond-lvalue.i468 = phi ptr [ %66, %cond.false.i467 ], [ %d_children.i466, %sw.bb159 ]
+  %cond-lvalue.i468 = phi ptr [ %65, %cond.false.i467 ], [ %d_children.i466, %sw.bb159 ]
   %call161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i468)
   br label %sw.epilog
 
@@ -9645,11 +9644,11 @@ sw.bb162:                                         ; preds = %entry
   br i1 %cmp.i473, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit477, label %cond.false.i475
 
 cond.false.i475:                                  ; preds = %sw.bb162
-  %67 = load ptr, ptr %d_children.i474, align 8
+  %66 = load ptr, ptr %d_children.i474, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit477
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit477: ; preds = %sw.bb162, %cond.false.i475
-  %cond-lvalue.i476 = phi ptr [ %67, %cond.false.i475 ], [ %d_children.i474, %sw.bb162 ]
+  %cond-lvalue.i476 = phi ptr [ %66, %cond.false.i475 ], [ %d_children.i474, %sw.bb162 ]
   %call164 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_9ProjectOpE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i476)
   br label %sw.epilog
 
@@ -9662,11 +9661,11 @@ sw.bb165:                                         ; preds = %entry
   br i1 %cmp.i481, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, label %cond.false.i483
 
 cond.false.i483:                                  ; preds = %sw.bb165
-  %68 = load ptr, ptr %d_children.i482, align 8
+  %67 = load ptr, ptr %d_children.i482, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %sw.bb165, %cond.false.i483
-  %cond-lvalue.i484 = phi ptr [ %68, %cond.false.i483 ], [ %d_children.i482, %sw.bb165 ]
+  %cond-lvalue.i484 = phi ptr [ %67, %cond.false.i483 ], [ %d_children.i482, %sw.bb165 ]
   %call167 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i484)
   br label %sw.epilog
 
@@ -9679,11 +9678,11 @@ sw.bb168:                                         ; preds = %entry
   br i1 %cmp.i488, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, label %cond.false.i490
 
 cond.false.i490:                                  ; preds = %sw.bb168
-  %69 = load ptr, ptr %d_children.i489, align 8
+  %68 = load ptr, ptr %d_children.i489, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds = %sw.bb168, %cond.false.i490
-  %cond-lvalue.i491 = phi ptr [ %69, %cond.false.i490 ], [ %d_children.i489, %sw.bb168 ]
+  %cond-lvalue.i491 = phi ptr [ %68, %cond.false.i490 ], [ %d_children.i489, %sw.bb168 ]
   %call170 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8SequenceE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i491)
   br label %sw.epilog
 
@@ -9696,11 +9695,11 @@ sw.bb171:                                         ; preds = %entry
   br i1 %cmp.i495, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, label %cond.false.i497
 
 cond.false.i497:                                  ; preds = %sw.bb171
-  %70 = load ptr, ptr %d_children.i496, align 8
+  %69 = load ptr, ptr %d_children.i496, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; preds = %sw.bb171, %cond.false.i497
-  %cond-lvalue.i498 = phi ptr [ %70, %cond.false.i497 ], [ %d_children.i496, %sw.bb171 ]
+  %cond-lvalue.i498 = phi ptr [ %69, %cond.false.i497 ], [ %d_children.i496, %sw.bb171 ]
   %call173 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_12RegExpRepeatE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i498)
   br label %sw.epilog
 
@@ -9713,11 +9712,11 @@ sw.bb174:                                         ; preds = %entry
   br i1 %cmp.i502, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, label %cond.false.i504
 
 cond.false.i504:                                  ; preds = %sw.bb174
-  %71 = load ptr, ptr %d_children.i503, align 8
+  %70 = load ptr, ptr %d_children.i503, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit: ; preds = %sw.bb174, %cond.false.i504
-  %cond-lvalue.i505 = phi ptr [ %71, %cond.false.i504 ], [ %d_children.i503, %sw.bb174 ]
+  %cond-lvalue.i505 = phi ptr [ %70, %cond.false.i504 ], [ %d_children.i503, %sw.bb174 ]
   %call176 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_10RegExpLoopE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i505)
   br label %sw.epilog
 
@@ -9744,7 +9743,7 @@ invoke.cont188:                                   ; preds = %invoke.cont180
   unreachable
 
 lpad177:                                          ; preds = %invoke.cont180, %invoke.cont178, %sw.default
-  %72 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   unreachable

@@ -195,8 +195,8 @@ define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
   br i1 %18, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %17, %13
-  %.sink74 = phi i32 [ 1, %13 ], [ -1, %17 ]
-  %19 = add nsw i32 %12, %.sink74
+  %.sink73 = phi i32 [ 1, %13 ], [ -1, %17 ]
+  %19 = add nsw i32 %12, %.sink73
   store i32 %19, ptr %11, align 4
   br label %20
 
@@ -241,19 +241,19 @@ define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %46
-  %.073 = phi ptr [ %47, %46 ], [ %41, %32 ]
-  %.in75 = getelementptr inbounds i8, ptr %7, i64 24
-  %48 = load ptr, ptr %.in75, align 8
+  %.072 = phi ptr [ %47, %46 ], [ %41, %32 ]
+  %.in74 = getelementptr inbounds i8, ptr %7, i64 24
+  %48 = load ptr, ptr %.in74, align 8
   %.in = getelementptr inbounds i8, ptr %7, i64 32
   %49 = load ptr, ptr %.in, align 8
-  %50 = getelementptr inbounds i8, ptr %.073, i64 4
-  %51 = getelementptr inbounds i8, ptr %.073, i64 16
+  %50 = getelementptr inbounds i8, ptr %.072, i64 4
+  %51 = getelementptr inbounds i8, ptr %.072, i64 16
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   %53 = load i32, ptr %50, align 4
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph67, label %._crit_edge
+  br i1 %54, label %.lr.ph66, label %._crit_edge
 
-.lr.ph67:                                         ; preds = %.lr.ph, %72
+.lr.ph66:                                         ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.lr.ph ]
   %55 = load ptr, ptr %51, align 8
   %56 = getelementptr %union.ListCell, ptr %55, i64 %indvars.iv
@@ -266,29 +266,28 @@ define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
   %63 = getelementptr i64, ptr %48, i64 %indvars.iv
   store i64 %62, ptr %63, align 8
   %64 = load i8, ptr %59, align 1
-  %65 = and i8 %64, 1
-  %.not58 = icmp eq i8 %65, 0
-  br i1 %.not58, label %66, label %72
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %72, label %66
 
-66:                                               ; preds = %.lr.ph67
+66:                                               ; preds = %.lr.ph66
   %67 = getelementptr inbounds i8, ptr %58, i64 24
   %68 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %67, i64 0, i64 %indvars.iv, i32 3
   %69 = load i16, ptr %68, align 4
-  %.not59 = icmp eq i16 %69, -1
-  br i1 %.not59, label %70, label %72
+  %.not58 = icmp eq i16 %69, -1
+  br i1 %.not58, label %70, label %72
 
 70:                                               ; preds = %66
   %71 = tail call i64 @MakeExpandedObjectReadOnlyInternal(i64 noundef %62) #3
   br label %72
 
-72:                                               ; preds = %.lr.ph67, %66, %70
-  %73 = phi i64 [ %71, %70 ], [ %62, %66 ], [ %62, %.lr.ph67 ]
+72:                                               ; preds = %.lr.ph66, %66, %70
+  %73 = phi i64 [ %71, %70 ], [ %62, %66 ], [ %62, %.lr.ph66 ]
   store i64 %73, ptr %63, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %50, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph67, label %._crit_edge
+  br i1 %76, label %.lr.ph66, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %.lr.ph, %46
   store ptr %44, ptr @CurrentMemoryContext, align 8

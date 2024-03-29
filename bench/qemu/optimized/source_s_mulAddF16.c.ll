@@ -21,7 +21,6 @@ entry:
   %4 = and i64 %uiC, 32768
   %5 = icmp ne i64 %4, 0
   %tobool25 = xor i1 %cmp, %5
-  %frombool26 = zext i1 %tobool25 to i8
   %6 = lshr i64 %uiC, 10
   %7 = trunc i64 %6 to i8
   %conv31 = and i8 %7, 31
@@ -31,7 +30,6 @@ entry:
   %9 = and i64 %8, 32768
   %10 = icmp ne i64 %9, 0
   %tobool42 = xor i1 %cmp39, %10
-  %frombool43 = zext i1 %tobool42 to i8
   %cmp45 = icmp eq i8 %conv5, 31
   br i1 %cmp45, label %if.then, label %if.end54
 
@@ -258,7 +256,6 @@ if.end185:                                        ; preds = %if.then181
 
 if.then188:                                       ; preds = %if.end185
   %lnot = xor i1 %tobool42, true
-  %frombool190 = zext i1 %lnot to i8
   %sub191 = sub nsw i64 0, %sub182
   br label %if.end200
 
@@ -285,7 +282,7 @@ softfloat_shiftRightJam32.exit138:                ; preds = %if.else193, %cond.t
   br label %if.end200
 
 if.end200:                                        ; preds = %softfloat_shiftRightJam32.exit138, %if.then188, %if.end185, %softfloat_shiftRightJam32.exit126
-  %signZ.0 = phi i8 [ %frombool26, %softfloat_shiftRightJam32.exit126 ], [ %frombool43, %softfloat_shiftRightJam32.exit138 ], [ %frombool190, %if.then188 ], [ %frombool43, %if.end185 ]
+  %signZ.0 = phi i1 [ %tobool25, %softfloat_shiftRightJam32.exit126 ], [ %tobool42, %softfloat_shiftRightJam32.exit138 ], [ %lnot, %if.then188 ], [ %tobool42, %if.end185 ]
   %expZ.1 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit126 ], [ %expProd.0, %softfloat_shiftRightJam32.exit138 ], [ %expProd.0, %if.then188 ], [ %expProd.0, %if.end185 ]
   %sig32Z.0 = phi i64 [ %sub178, %softfloat_shiftRightJam32.exit126 ], [ %sub198, %softfloat_shiftRightJam32.exit138 ], [ %sub191, %if.then188 ], [ %sub182, %if.end185 ]
   %conv201 = trunc i64 %sig32Z.0 to i32
@@ -329,12 +326,11 @@ if.else229:                                       ; preds = %if.end200
   br label %roundPack
 
 roundPack:                                        ; preds = %if.then160, %if.end157, %if.else229, %if.then216, %if.then105
-  %signZ.1 = phi i8 [ %frombool43, %if.then160 ], [ %frombool43, %if.end157 ], [ %signZ.0, %if.then216 ], [ %signZ.0, %if.else229 ], [ %frombool43, %if.then105 ]
+  %signZ.1 = phi i1 [ %tobool42, %if.then160 ], [ %tobool42, %if.end157 ], [ %signZ.0, %if.then216 ], [ %signZ.0, %if.else229 ], [ %tobool42, %if.then105 ]
   %expZ.2 = phi i8 [ %dec161, %if.then160 ], [ %expZ.0, %if.end157 ], [ %sub208, %if.then216 ], [ %sub208, %if.else229 ], [ %sub107, %if.then105 ]
   %sigZ.1 = phi i64 [ %shl162, %if.then160 ], [ %sigZ.0, %if.end157 ], [ %or228, %if.then216 ], [ %shl232, %if.else229 ], [ %or114, %if.then105 ]
-  %tobool235 = icmp ne i8 %signZ.1, 0
   %conv236 = sext i8 %expZ.2 to i64
-  %call237 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool235, i64 noundef %conv236, i64 noundef %sigZ.1) #2
+  %call237 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %signZ.1, i64 noundef %conv236, i64 noundef %sigZ.1) #2
   br label %return
 
 propagateNaN_ABC:                                 ; preds = %if.then58, %if.then, %lor.lhs.false

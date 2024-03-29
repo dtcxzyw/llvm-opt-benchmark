@@ -23,9 +23,8 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 656, ptr noundef nonnull %1) #3
   store ptr %2, ptr @scan_locations, align 8
   %3 = load i8, ptr @IsUnderPostmaster, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %.loopexit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %0
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -40,15 +39,15 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   %10 = getelementptr [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %indvars.iv
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %11, align 8
-  %.not12 = icmp eq i64 %indvars.iv, 0
+  %.not = icmp eq i64 %indvars.iv, 0
   %12 = add nsw i64 %indvars.iv, -1
   %13 = getelementptr [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %12
-  %14 = select i1 %.not12, ptr null, ptr %13
+  %14 = select i1 %.not, ptr null, ptr %13
   store ptr %14, ptr %10, align 8
-  %.not13 = icmp eq i64 %indvars.iv, 19
+  %.not12 = icmp eq i64 %indvars.iv, 19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %indvars.iv.next
-  %16 = select i1 %.not13, ptr null, ptr %15
+  %16 = select i1 %.not12, ptr null, ptr %15
   %17 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %16, ptr %17, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20

@@ -3087,8 +3087,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic7
 entry:
   %m_updated = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i8, ptr %m_updated, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -3263,8 +3262,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_t
 entry:
   %m_updated.i = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load i8, ptr %m_updated.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 
@@ -7517,9 +7515,8 @@ entry:
   store i64 0, ptr %m_elapsed.i.i.i, align 8
   %m_running.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %m_running.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZN10sls_engine16reset_statisticsEv.exit
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %_ZN10sls_engine16reset_statisticsEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %m_stopwatch.i.i = getelementptr inbounds i8, ptr %0, i64 16

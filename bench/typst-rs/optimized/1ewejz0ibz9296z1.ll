@@ -1256,9 +1256,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 278:                                              ; preds = %278, %276
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %276 ], [ %spec.select7.i.i.i.i, %278 ]
-  %279 = icmp uge i64 %.sroa.0.011.i.i.i.i, %268
-  %not..i.i.i.i = xor i1 %279, true
-  %280 = zext i1 %not..i.i.i.i to i64
+  %279 = icmp ult i64 %.sroa.0.011.i.i.i.i, %268
+  %280 = zext i1 %279 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %280
   %281 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %281)
@@ -1269,9 +1268,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %285 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %286 = getelementptr inbounds i8, ptr %283, i64 184
   store i16 %285, ptr %286, align 8, !noalias !200
-  %.not3.i.i.i.i.i.i = icmp ugt i64 %spec.select7.i.i.i.i, %268
-  %or.cond.i.i.i.i = select i1 %279, i1 true, i1 %.not3.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %290, label %278
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %268
+  %or.cond.i.not.i.i.i = select i1 %279, i1 %.not.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.i.not.i.i.i, label %278, label %290
 
 287:                                              ; preds = %255
   %288 = landingpad { ptr, i32 }
@@ -1828,9 +1827,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i.i: ; 
 
 190:                                              ; preds = %190, %188
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %188 ], [ %spec.select7.i.i.i.i, %190 ]
-  %191 = icmp uge i64 %.sroa.0.011.i.i.i.i, %180
-  %not..i.i.i.i = xor i1 %191, true
-  %192 = zext i1 %not..i.i.i.i to i64
+  %191 = icmp ult i64 %.sroa.0.011.i.i.i.i, %180
+  %192 = zext i1 %191 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %192
   %193 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %193)
@@ -1840,9 +1838,9 @@ _ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i.i: ; 
   %196 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %197 = getelementptr inbounds i8, ptr %195, i64 140
   store i16 %196, ptr %197, align 4, !noalias !318
-  %.not3.i.i.i.i.i.i = icmp ugt i64 %spec.select7.i.i.i.i, %180
-  %or.cond.i.i.i.i = select i1 %191, i1 true, i1 %.not3.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h0e0716c86665e83eE.exit.i", label %190
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %180
+  %or.cond.i.not.i.i.i = select i1 %191, i1 %.not.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.i.not.i.i.i, label %190, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h0e0716c86665e83eE.exit.i"
 
 198:                                              ; preds = %165, %163
   %.pn.i.i = phi { ptr, i32 } [ %166, %165 ], [ %164, %163 ]
@@ -2427,9 +2425,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i.i: ; 
 
 160:                                              ; preds = %160, %158
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %158 ], [ %spec.select7.i.i.i.i, %160 ]
-  %161 = icmp uge i64 %.sroa.0.011.i.i.i.i, %150
-  %not..i.i.i.i = xor i1 %161, true
-  %162 = zext i1 %not..i.i.i.i to i64
+  %161 = icmp ult i64 %.sroa.0.011.i.i.i.i, %150
+  %162 = zext i1 %161 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %162
   %163 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %163)
@@ -2439,9 +2436,9 @@ _ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i.i: ; 
   %166 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %167 = getelementptr inbounds i8, ptr %165, i64 448
   store i16 %166, ptr %167, align 8, !noalias !439
-  %.not3.i.i.i.i.i.i = icmp ugt i64 %spec.select7.i.i.i.i, %150
-  %or.cond.i.i.i.i = select i1 %161, i1 true, i1 %.not3.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17he73eaee6e10befebE.exit.i", label %160
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %150
+  %or.cond.i.not.i.i.i = select i1 %161, i1 %.not.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.i.not.i.i.i, label %160, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17he73eaee6e10befebE.exit.i"
 
 168:                                              ; preds = %138, %136
   %.pn.i.i = phi { ptr, i32 } [ %139, %138 ], [ %137, %136 ]
@@ -2915,8 +2912,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %trunc.not29 = icmp eq i64 %8, 0
-  br i1 %trunc.not29, label %._crit_edge, label %.lr.ph
+  %trunc29 = trunc i64 %8 to i1
+  br i1 %trunc29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %12
   %10 = phi i64 [ %20, %12 ], [ %9, %4 ]
@@ -2953,8 +2950,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %trunc.not = icmp eq i64 %19, 0
-  br i1 %trunc.not, label %._crit_edge, label %.lr.ph
+  %trunc = trunc i64 %19 to i1
+  br i1 %trunc, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

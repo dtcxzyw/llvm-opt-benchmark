@@ -69,9 +69,8 @@ return:                                           ; preds = %entry, %if.end
 define dso_local noundef ptr @qmp_query_balloon(ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @kvm_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call zeroext i1 @kvm_has_sync_mmu() #6
@@ -82,8 +81,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %2 = load ptr, ptr @balloon_event_fn, align 8
-  %tobool1.not.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr @balloon_event_fn, align 8
+  %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -92,9 +91,9 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.end.i
   %call1 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #7
-  %3 = load ptr, ptr @balloon_stat_fn, align 8
-  %4 = load ptr, ptr @balloon_opaque, align 8
-  tail call void %3(ptr noundef %4, ptr noundef %call1) #6
+  %2 = load ptr, ptr @balloon_stat_fn, align 8
+  %3 = load ptr, ptr @balloon_opaque, align 8
+  tail call void %2(ptr noundef %3, ptr noundef %call1) #6
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then2.i, %if.end
@@ -110,9 +109,8 @@ define dso_local void @qmp_balloon(i64 noundef %value, ptr noundef %errp) local_
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i8, ptr @kvm_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call zeroext i1 @kvm_has_sync_mmu() #6
@@ -123,8 +121,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %2 = load ptr, ptr @balloon_event_fn, align 8
-  %tobool1.not.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr @balloon_event_fn, align 8
+  %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -140,45 +138,44 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %3 = load ptr, ptr @balloon_opaque, align 8
+  %2 = load ptr, ptr @balloon_opaque, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %4 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %4, 0
-  %5 = load i16, ptr @_TRACE_BALLOON_EVENT_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %5, 0
+  %3 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %3, 0
+  %4 = load i16, ptr @_TRACE_BALLOON_EVENT_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %4, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_balloon_event.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end2
-  %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %6, 32768
+  %5 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %5, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_balloon_event.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %6 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %9 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, i64 noundef %value) #6
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %2, i64 noundef %value) #6
   br label %trace_balloon_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef %3, i64 noundef %value) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef %2, i64 noundef %value) #6
   br label %trace_balloon_event.exit
 
 trace_balloon_event.exit:                         ; preds = %if.end2, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %11 = load ptr, ptr @balloon_event_fn, align 8
-  %12 = load ptr, ptr @balloon_opaque, align 8
-  tail call void %11(ptr noundef %12, i64 noundef %value) #6
+  %9 = load ptr, ptr @balloon_event_fn, align 8
+  %10 = load ptr, ptr @balloon_opaque, align 8
+  tail call void %9(ptr noundef %10, i64 noundef %value) #6
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then2.i, %trace_balloon_event.exit, %if.then1

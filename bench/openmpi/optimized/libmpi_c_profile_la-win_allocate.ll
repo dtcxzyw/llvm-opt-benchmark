@@ -29,9 +29,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Win_allocate(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i8, ptr @ompi_mpi_param_check, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 224
@@ -71,9 +70,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %14, %ompi_comm_inva
 23:                                               ; preds = %21
   %24 = getelementptr i8, ptr %2, i64 76
   %.val = load i8, ptr %24, align 4
-  %25 = and i8 %.val, 1
-  %.not39 = icmp eq i8 %25, 0
-  br i1 %.not39, label %32, label %26
+  %25 = trunc i8 %.val to i1
+  br i1 %25, label %26, label %32
 
 26:                                               ; preds = %23, %21
   %27 = getelementptr inbounds i8, ptr %3, i64 296
@@ -122,8 +120,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %14, %ompi_comm_inva
 56:                                               ; preds = %._crit_edge, %48
   %57 = phi i32 [ %.pre, %._crit_edge ], [ %18, %48 ]
   %58 = and i32 %57, 1
-  %.not35 = icmp eq i32 %58, 0
-  br i1 %.not35, label %65, label %59
+  %.not34 = icmp eq i32 %58, 0
+  br i1 %.not34, label %65, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %3, i64 296
@@ -135,8 +133,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %14, %ompi_comm_inva
 
 65:                                               ; preds = %56
   %66 = tail call i32 @ompi_win_allocate(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) #2
-  %.not36 = icmp eq i32 %66, 0
-  br i1 %.not36, label %73, label %67
+  %.not35 = icmp eq i32 %66, 0
+  br i1 %.not35, label %73, label %67
 
 67:                                               ; preds = %65
   store ptr @ompi_mpi_win_null, ptr %5, align 8

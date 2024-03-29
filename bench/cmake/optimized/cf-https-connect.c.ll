@@ -144,8 +144,8 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   %18 = getelementptr inbounds i8, ptr %1, i64 2642
   %19 = load i64, ptr %18, align 2
   %20 = and i64 %19, 268435456
-  %.not126 = icmp eq i64 %20, 0
-  br i1 %.not126, label %27, label %21
+  %.not117 = icmp eq i64 %20, 0
+  br i1 %.not117, label %27, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %0, align 8
@@ -165,9 +165,8 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   store i32 %14, ptr %.sroa.312.0..sroa_idx, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 84
   %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %.not103 = icmp eq i8 %31, 0
-  br i1 %.not103, label %54, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %54
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds i8, ptr %6, i64 40
@@ -194,9 +193,8 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   store ptr %36, ptr %35, align 8
   %47 = getelementptr inbounds i8, ptr %6, i64 132
   %48 = load i8, ptr %47, align 4
-  %49 = and i8 %48, 1
-  %.not105 = icmp eq i8 %49, 0
-  br i1 %.not105, label %78, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %78
 
 50:                                               ; preds = %32
   %51 = getelementptr inbounds i8, ptr %6, i64 136
@@ -208,9 +206,8 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
 54:                                               ; preds = %27
   %55 = getelementptr inbounds i8, ptr %6, i64 132
   %56 = load i8, ptr %55, align 4
-  %57 = and i8 %56, 1
-  %.not104 = icmp eq i8 %57, 0
-  br i1 %.not104, label %78, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %78
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %6, i64 88
@@ -229,8 +226,8 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   %70 = extractvalue { i64, i32 } %69, 0
   %71 = extractvalue { i64, i32 } %69, 1
   store i64 %70, ptr %68, align 8
-  %.sroa.2.0..sroa_idx.i118 = getelementptr inbounds i8, ptr %6, i64 120
-  store i32 %71, ptr %.sroa.2.0..sroa_idx.i118, align 8
+  %.sroa.2.0..sroa_idx.i110 = getelementptr inbounds i8, ptr %6, i64 120
+  store i32 %71, ptr %.sroa.2.0..sroa_idx.i110, align 8
   %72 = getelementptr inbounds i8, ptr %65, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %73, i32 noundef %64, i32 noundef 1) #4
@@ -250,21 +247,20 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   %80 = getelementptr inbounds i8, ptr %6, i64 40
   %81 = getelementptr inbounds i8, ptr %6, i64 84
   %82 = load i8, ptr %81, align 4
-  %83 = and i8 %82, 1
-  %.not.i = icmp eq i8 %83, 0
-  br i1 %.not.i, label %cf_hc_baller_is_active.exit.thread, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %cf_hc_baller_is_active.exit.thread
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds i8, ptr %6, i64 48
   %86 = load ptr, ptr %85, align 8
-  %.not3.i = icmp eq ptr %86, null
-  br i1 %.not3.i, label %cf_hc_baller_is_active.exit.thread, label %cf_hc_baller_is_active.exit
+  %.not.i = icmp eq ptr %86, null
+  br i1 %.not.i, label %cf_hc_baller_is_active.exit.thread, label %cf_hc_baller_is_active.exit
 
 cf_hc_baller_is_active.exit:                      ; preds = %84
   %87 = getelementptr inbounds i8, ptr %6, i64 56
   %88 = load i32, ptr %87, align 8
-  %.not4.i = icmp eq i32 %88, 0
-  br i1 %.not4.i, label %89, label %cf_hc_baller_is_active.exit.thread
+  %.not3.i = icmp eq i32 %88, 0
+  br i1 %.not3.i, label %89, label %cf_hc_baller_is_active.exit.thread
 
 89:                                               ; preds = %cf_hc_baller_is_active.exit
   %90 = getelementptr inbounds i8, ptr %0, i64 8
@@ -276,14 +272,13 @@ cf_hc_baller_is_active.exit:                      ; preds = %84
   store ptr %93, ptr %85, align 8
   store ptr %91, ptr %90, align 8
   %94 = load i32, ptr %87, align 8
-  %.not106 = icmp eq i32 %94, 0
-  br i1 %.not106, label %95, label %cf_hc_baller_is_active.exit.thread
+  %.not103 = icmp eq i32 %94, 0
+  br i1 %.not103, label %95, label %cf_hc_baller_is_active.exit.thread
 
 95:                                               ; preds = %89
   %96 = load i8, ptr %3, align 1
-  %97 = and i8 %96, 1
-  %.not107 = icmp eq i8 %97, 0
-  br i1 %.not107, label %cf_hc_baller_is_active.exit.thread, label %98
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %cf_hc_baller_is_active.exit.thread
 
 98:                                               ; preds = %95
   %99 = tail call fastcc i32 @baller_connected(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %80)
@@ -293,34 +288,32 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %79, %84, %89, %95, 
   %100 = load ptr, ptr %5, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 132
   %102 = load i8, ptr %101, align 4
-  %103 = and i8 %102, 1
-  %.not.i119 = icmp eq i8 %103, 0
-  br i1 %.not.i119, label %time_to_start_h21.exit, label %104
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %time_to_start_h21.exit
 
 104:                                              ; preds = %cf_hc_baller_is_active.exit.thread
   %105 = getelementptr i8, ptr %100, i64 96
   %.val.i = load ptr, ptr %105, align 8
-  %.not41.i = icmp eq ptr %.val.i, null
-  br i1 %.not41.i, label %106, label %time_to_start_h21.exit
+  %.not39.i = icmp eq ptr %.val.i, null
+  br i1 %.not39.i, label %106, label %time_to_start_h21.exit
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds i8, ptr %100, i64 84
   %108 = load i8, ptr %107, align 4
-  %109 = and i8 %108, 1
-  %.not36.i = icmp eq i8 %109, 0
-  br i1 %.not36.i, label %162, label %110
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %162
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %100, i64 48
   %112 = load ptr, ptr %111, align 8
-  %.not3.i.i = icmp eq ptr %112, null
-  br i1 %.not3.i.i, label %162, label %cf_hc_baller_is_active.exit.i
+  %.not.i.i = icmp eq ptr %112, null
+  br i1 %.not.i.i, label %162, label %cf_hc_baller_is_active.exit.i
 
 cf_hc_baller_is_active.exit.i:                    ; preds = %110
   %113 = getelementptr inbounds i8, ptr %100, i64 56
   %114 = load i32, ptr %113, align 8
-  %.not4.i.i = icmp eq i32 %114, 0
-  br i1 %.not4.i.i, label %115, label %162
+  %.not3.i.i = icmp eq i32 %114, 0
+  br i1 %.not3.i.i, label %115, label %162
 
 115:                                              ; preds = %cf_hc_baller_is_active.exit.i
   %116 = getelementptr inbounds i8, ptr %100, i64 16
@@ -331,19 +324,19 @@ cf_hc_baller_is_active.exit.i:                    ; preds = %110
   %121 = getelementptr inbounds i8, ptr %100, i64 140
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %122 to i64
-  %.not37.i = icmp slt i64 %120, %123
-  br i1 %.not37.i, label %135, label %124
+  %.not.i111 = icmp slt i64 %120, %123
+  br i1 %.not.i111, label %135, label %124
 
 124:                                              ; preds = %115
-  %.not40.i = icmp eq ptr %1, null
-  br i1 %.not40.i, label %162, label %125
+  %.not38.i = icmp eq ptr %1, null
+  br i1 %.not38.i, label %162, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds i8, ptr %1, i64 2642
   %127 = load i64, ptr %126, align 2
   %128 = and i64 %127, 268435456
-  %.not42.i = icmp eq i64 %128, 0
-  br i1 %.not42.i, label %162, label %129
+  %.not40.i = icmp eq i64 %128, 0
+  br i1 %.not40.i, label %162, label %129
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %0, align 8
@@ -360,8 +353,8 @@ cf_hc_baller_is_active.exit.i:                    ; preds = %110
   %136 = getelementptr inbounds i8, ptr %100, i64 136
   %137 = load i32, ptr %136, align 8
   %138 = sext i32 %137 to i64
-  %.not38.i = icmp slt i64 %120, %138
-  br i1 %.not38.i, label %time_to_start_h21.exit, label %139
+  %.not36.i = icmp slt i64 %120, %138
+  br i1 %.not36.i, label %time_to_start_h21.exit, label %139
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds i8, ptr %100, i64 80
@@ -381,19 +374,19 @@ cf_hc_baller_reply_ms.exit.i:                     ; preds = %139
 
 cf_hc_baller_reply_ms.exit.cf_hc_baller_reply_ms.exit.thread_crit_edge.i: ; preds = %cf_hc_baller_reply_ms.exit.i
   %.pre.i = load i32, ptr %121, align 4
-  %.pre44.i = sext i32 %.pre.i to i64
+  %.pre42.i = sext i32 %.pre.i to i64
   br label %cf_hc_baller_reply_ms.exit.thread.i
 
 149:                                              ; preds = %cf_hc_baller_reply_ms.exit.i
-  %.not39.i = icmp eq ptr %1, null
-  br i1 %.not39.i, label %162, label %150
+  %.not37.i = icmp eq ptr %1, null
+  br i1 %.not37.i, label %162, label %150
 
 150:                                              ; preds = %149
   %151 = getelementptr inbounds i8, ptr %1, i64 2642
   %152 = load i64, ptr %151, align 2
   %153 = and i64 %152, 268435456
-  %.not43.i = icmp eq i64 %153, 0
-  br i1 %.not43.i, label %162, label %154
+  %.not41.i = icmp eq i64 %153, 0
+  br i1 %.not41.i, label %162, label %154
 
 154:                                              ; preds = %150
   %155 = load ptr, ptr %0, align 8
@@ -408,7 +401,7 @@ cf_hc_baller_reply_ms.exit.cf_hc_baller_reply_ms.exit.thread_crit_edge.i: ; pred
   br label %162
 
 cf_hc_baller_reply_ms.exit.thread.i:              ; preds = %cf_hc_baller_reply_ms.exit.cf_hc_baller_reply_ms.exit.thread_crit_edge.i, %139
-  %.pre-phi.i = phi i64 [ %.pre44.i, %cf_hc_baller_reply_ms.exit.cf_hc_baller_reply_ms.exit.thread_crit_edge.i ], [ %123, %139 ]
+  %.pre-phi.i = phi i64 [ %.pre42.i, %cf_hc_baller_reply_ms.exit.cf_hc_baller_reply_ms.exit.thread_crit_edge.i ], [ %123, %139 ]
   %161 = sub nsw i64 %.pre-phi.i, %120
   tail call void @Curl_expire(ptr noundef %1, i64 noundef %161, i32 noundef 14) #4
   br label %time_to_start_h21.exit
@@ -430,8 +423,8 @@ cf_hc_baller_reply_ms.exit.thread.i:              ; preds = %cf_hc_baller_reply_
   %174 = extractvalue { i64, i32 } %173, 0
   %175 = extractvalue { i64, i32 } %173, 1
   store i64 %174, ptr %172, align 8
-  %.sroa.2.0..sroa_idx.i120 = getelementptr inbounds i8, ptr %6, i64 120
-  store i32 %175, ptr %.sroa.2.0..sroa_idx.i120, align 8
+  %.sroa.2.0..sroa_idx.i112 = getelementptr inbounds i8, ptr %6, i64 120
+  store i32 %175, ptr %.sroa.2.0..sroa_idx.i112, align 8
   %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load ptr, ptr %176, align 8
   %178 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %177, i32 noundef %168, i32 noundef 1) #4
@@ -447,32 +440,31 @@ time_to_start_h21.exit:                           ; preds = %cf_hc_baller_reply_
   %182 = getelementptr inbounds i8, ptr %6, i64 88
   %183 = getelementptr inbounds i8, ptr %6, i64 132
   %184 = load i8, ptr %183, align 4
-  %185 = and i8 %184, 1
-  %.not.i121 = icmp eq i8 %185, 0
-  br i1 %.not.i121, label %cf_hc_baller_is_active.exit124.thread, label %186
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %cf_hc_baller_is_active.exit115.thread
 
 186:                                              ; preds = %time_to_start_h21.exit
   %187 = getelementptr inbounds i8, ptr %6, i64 96
   %188 = load ptr, ptr %187, align 8
-  %.not3.i122 = icmp eq ptr %188, null
-  br i1 %.not3.i122, label %cf_hc_baller_is_active.exit124.thread, label %cf_hc_baller_is_active.exit124
+  %.not.i113 = icmp eq ptr %188, null
+  br i1 %.not.i113, label %cf_hc_baller_is_active.exit115.thread, label %cf_hc_baller_is_active.exit115
 
-cf_hc_baller_is_active.exit124:                   ; preds = %186
+cf_hc_baller_is_active.exit115:                   ; preds = %186
   %189 = getelementptr inbounds i8, ptr %6, i64 104
   %190 = load i32, ptr %189, align 8
-  %.not4.i123 = icmp eq i32 %190, 0
-  br i1 %.not4.i123, label %191, label %cf_hc_baller_is_active.exit124.thread
+  %.not3.i114 = icmp eq i32 %190, 0
+  br i1 %.not3.i114, label %191, label %cf_hc_baller_is_active.exit115.thread
 
-191:                                              ; preds = %cf_hc_baller_is_active.exit124
-  %.not108 = icmp eq ptr %1, null
-  br i1 %.not108, label %202, label %192
+191:                                              ; preds = %cf_hc_baller_is_active.exit115
+  %.not104 = icmp eq ptr %1, null
+  br i1 %.not104, label %202, label %192
 
 192:                                              ; preds = %191
   %193 = getelementptr inbounds i8, ptr %1, i64 2642
   %194 = load i64, ptr %193, align 2
   %195 = and i64 %194, 268435456
-  %.not127 = icmp eq i64 %195, 0
-  br i1 %.not127, label %202, label %196
+  %.not118 = icmp eq i64 %195, 0
+  br i1 %.not118, label %202, label %196
 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %0, align 8
@@ -497,53 +489,50 @@ cf_hc_baller_is_active.exit124:                   ; preds = %186
   store ptr %207, ptr %187, align 8
   store ptr %205, ptr %204, align 8
   %208 = load i32, ptr %189, align 8
-  %.not109 = icmp eq i32 %208, 0
-  br i1 %.not109, label %209, label %cf_hc_baller_is_active.exit124.thread
+  %.not105 = icmp eq i32 %208, 0
+  br i1 %.not105, label %209, label %cf_hc_baller_is_active.exit115.thread
 
 209:                                              ; preds = %202
   %210 = load i8, ptr %3, align 1
-  %211 = and i8 %210, 1
-  %.not110 = icmp eq i8 %211, 0
-  br i1 %.not110, label %cf_hc_baller_is_active.exit124.thread, label %212
+  %211 = trunc i8 %210 to i1
+  br i1 %211, label %212, label %cf_hc_baller_is_active.exit115.thread
 
 212:                                              ; preds = %209
   %213 = tail call fastcc i32 @baller_connected(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %182)
   br label %248
 
-cf_hc_baller_is_active.exit124.thread:            ; preds = %time_to_start_h21.exit, %186, %202, %209, %cf_hc_baller_is_active.exit124
+cf_hc_baller_is_active.exit115.thread:            ; preds = %time_to_start_h21.exit, %186, %202, %209, %cf_hc_baller_is_active.exit115
   %214 = load i8, ptr %81, align 4
-  %215 = and i8 %214, 1
-  %.not111 = icmp eq i8 %215, 0
-  br i1 %.not111, label %219, label %216
+  %215 = trunc i8 %214 to i1
+  br i1 %215, label %216, label %219
 
-216:                                              ; preds = %cf_hc_baller_is_active.exit124.thread
+216:                                              ; preds = %cf_hc_baller_is_active.exit115.thread
   %217 = getelementptr inbounds i8, ptr %6, i64 56
   %218 = load i32, ptr %217, align 8
-  %.not112 = icmp eq i32 %218, 0
-  br i1 %.not112, label %239, label %219
+  %.not106 = icmp eq i32 %218, 0
+  br i1 %.not106, label %239, label %219
 
-219:                                              ; preds = %216, %cf_hc_baller_is_active.exit124.thread
+219:                                              ; preds = %216, %cf_hc_baller_is_active.exit115.thread
   %220 = load i8, ptr %183, align 4
-  %221 = and i8 %220, 1
-  %.not113 = icmp eq i8 %221, 0
-  br i1 %.not113, label %225, label %222
+  %221 = trunc i8 %220 to i1
+  br i1 %221, label %222, label %225
 
 222:                                              ; preds = %219
   %223 = getelementptr inbounds i8, ptr %6, i64 104
   %224 = load i32, ptr %223, align 8
-  %.not114 = icmp eq i32 %224, 0
-  br i1 %.not114, label %239, label %225
+  %.not107 = icmp eq i32 %224, 0
+  br i1 %.not107, label %239, label %225
 
 225:                                              ; preds = %219, %222
-  %.not115 = icmp eq ptr %1, null
-  br i1 %.not115, label %236, label %226
+  %.not108 = icmp eq ptr %1, null
+  br i1 %.not108, label %236, label %226
 
 226:                                              ; preds = %225
   %227 = getelementptr inbounds i8, ptr %1, i64 2642
   %228 = load i64, ptr %227, align 2
   %229 = and i64 %228, 268435456
-  %.not128 = icmp eq i64 %229, 0
-  br i1 %.not128, label %236, label %230
+  %.not119 = icmp eq i64 %229, 0
+  br i1 %.not119, label %236, label %230
 
 230:                                              ; preds = %226
   %231 = load ptr, ptr %0, align 8
@@ -554,14 +543,13 @@ cf_hc_baller_is_active.exit124.thread:            ; preds = %time_to_start_h21.e
 
 235:                                              ; preds = %230
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #4
-  %.pre130 = load i8, ptr %81, align 4
-  %.pre131 = and i8 %.pre130, 1
+  %.pre121 = load i8, ptr %81, align 4
+  %.pre122 = trunc i8 %.pre121 to i1
   br label %236
 
 236:                                              ; preds = %225, %226, %230, %235
-  %.pre-phi = phi i8 [ %215, %225 ], [ %215, %226 ], [ %215, %230 ], [ %.pre131, %235 ]
-  %.not116 = icmp eq i8 %.pre-phi, 0
-  %.in.v = select i1 %.not116, i64 104, i64 56
+  %.pre-phi = phi i1 [ %215, %225 ], [ %215, %226 ], [ %215, %230 ], [ %.pre122, %235 ]
+  %.in.v = select i1 %.pre-phi, i64 56, i64 104
   %.in = getelementptr inbounds i8, ptr %6, i64 %.in.v
   %237 = load i32, ptr %.in, align 8
   %238 = getelementptr inbounds i8, ptr %6, i64 32
@@ -591,15 +579,15 @@ cf_hc_baller_is_active.exit124.thread:            ; preds = %time_to_start_h21.e
 
 248:                                              ; preds = %98, %212, %236, %245, %240, %239, %11
   %.096 = phi i32 [ 0, %11 ], [ 0, %245 ], [ %242, %240 ], [ %237, %236 ], [ 0, %239 ], [ %213, %212 ], [ %99, %98 ]
-  %.not117 = icmp eq ptr %1, null
-  br i1 %.not117, label %262, label %249
+  %.not109 = icmp eq ptr %1, null
+  br i1 %.not109, label %262, label %249
 
 249:                                              ; preds = %248
   %250 = getelementptr inbounds i8, ptr %1, i64 2642
   %251 = load i64, ptr %250, align 2
   %252 = and i64 %251, 268435456
-  %.not129 = icmp eq i64 %252, 0
-  br i1 %.not129, label %262, label %253
+  %.not120 = icmp eq i64 %252, 0
+  br i1 %.not120, label %262, label %253
 
 253:                                              ; preds = %249
   %254 = load ptr, ptr %0, align 8
@@ -740,21 +728,20 @@ define internal void @cf_hc_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
   %.021.sroa.phi.sroa.speculated = phi ptr [ %10, %7 ], [ %11, %cf_hc_baller_is_active.exit.thread ]
   %14 = getelementptr inbounds i8, ptr %.021.sroa.phi.sroa.speculated, i64 44
   %15 = load i8, ptr %14, align 4
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %cf_hc_baller_is_active.exit.thread, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %cf_hc_baller_is_active.exit.thread
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %.021.sroa.phi.sroa.speculated, i64 8
   %19 = load ptr, ptr %18, align 8
-  %.not3.i = icmp eq ptr %19, null
-  br i1 %.not3.i, label %cf_hc_baller_is_active.exit.thread, label %cf_hc_baller_is_active.exit
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %cf_hc_baller_is_active.exit.thread, label %cf_hc_baller_is_active.exit
 
 cf_hc_baller_is_active.exit:                      ; preds = %17
   %20 = getelementptr inbounds i8, ptr %.021.sroa.phi.sroa.speculated, i64 16
   %21 = load i32, ptr %20, align 8
-  %.not4.i = icmp eq i32 %21, 0
-  br i1 %.not4.i, label %22, label %cf_hc_baller_is_active.exit.thread
+  %.not3.i = icmp eq i32 %21, 0
+  br i1 %.not3.i, label %22, label %cf_hc_baller_is_active.exit.thread
 
 22:                                               ; preds = %cf_hc_baller_is_active.exit
   tail call void @Curl_conn_cf_adjust_pollset(ptr noundef nonnull %19, ptr noundef %1, ptr noundef %2) #4
@@ -1270,23 +1257,22 @@ define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr nocapture readon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.16.val, i64 132
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %.thread, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %.16.val, i64 96
   %9 = load ptr, ptr %8, align 8
-  %.not31 = icmp eq ptr %9, null
-  br i1 %.not31, label %.thread, label %10
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %.thread, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %3) #4
-  %.not32 = icmp eq i32 %14, 0
-  br i1 %.not32, label %15, label %.thread
+  %.not31 = icmp eq i32 %14, 0
+  br i1 %.not31, label %15, label %.thread
 
 15:                                               ; preds = %10
   %16 = load i64, ptr %3, align 8
@@ -1313,23 +1299,22 @@ define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr nocapture readon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %.16.val, i64 84
   %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %.not33 = icmp eq i8 %27, 0
-  br i1 %.not33, label %.thread2, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %.thread2
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds i8, ptr %.16.val, i64 48
   %30 = load ptr, ptr %29, align 8
-  %.not34 = icmp eq ptr %30, null
-  br i1 %.not34, label %.thread2, label %31
+  %.not32 = icmp eq ptr %30, null
+  br i1 %.not32, label %.thread2, label %31
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 104
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 %34(ptr noundef nonnull %30, ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %3) #4
-  %.not35 = icmp eq i32 %35, 0
-  br i1 %.not35, label %36, label %.thread2
+  %.not33 = icmp eq i32 %35, 0
+  br i1 %.not33, label %36, label %.thread2
 
 36:                                               ; preds = %31
   %37 = load i64, ptr %3, align 8

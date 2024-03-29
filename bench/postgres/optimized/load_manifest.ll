@@ -713,9 +713,8 @@ define dso_local ptr @manifest_files_iterate(ptr nocapture noundef readonly %0, 
 
 7:                                                ; preds = %24, %2
   %8 = phi i8 [ %25, %24 ], [ %.promoted, %2 ]
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %28
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %28, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
@@ -1011,9 +1010,8 @@ define internal void @combinebackup_per_file_cb(ptr nocapture noundef readonly %
   %12 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %11) #17
   %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef %1, i32 noundef %12, ptr noundef nonnull %7)
   %14 = load i8, ptr %7, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %17, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %6
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %1) #17
@@ -1067,9 +1065,9 @@ define internal void @combinebackup_per_wal_range_cb(ptr nocapture noundef reado
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @report_manifest_error(ptr nocapture readnone %0, ptr noundef %1, ...) #13 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   call void @exit(i32 noundef 1) #18
   unreachable
 }
@@ -1079,13 +1077,7 @@ declare void @json_parse_manifest(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare void @pg_log_generic_v(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -1093,6 +1085,12 @@ declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

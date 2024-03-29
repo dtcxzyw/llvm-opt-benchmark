@@ -135,36 +135,40 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %HasError.i = getelementptr inbounds i8, ptr %NewBufOrErr, i64 16
   %2 = and i64 %sub.ptr.sub.i, 137438953440
-  %cmp.not26 = icmp eq i64 %2, 0
-  %bf.load.i14.pre = load i8, ptr %HasError.i, align 8
-  br i1 %cmp.not26, label %for.end, label %land.rhs.lr.ph
+  %cmp.not27 = icmp eq i64 %2, 0
+  br i1 %cmp.not27, label %entry.for.end_crit_edge, label %land.rhs.lr.ph
+
+entry.for.end_crit_edge:                          ; preds = %entry
+  %HasError.i13.phi.trans.insert = getelementptr inbounds i8, ptr %NewBufOrErr, i64 16
+  %bf.load.i14.pre = load i8, ptr %HasError.i13.phi.trans.insert, align 8
+  br label %for.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 5
+  %HasError.i = getelementptr inbounds i8, ptr %NewBufOrErr, i64 16
   %LHSKind.i8 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   %RHSKind.i9 = getelementptr inbounds i8, ptr %ref.tmp14, i64 17
   %HasError.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
   %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %3 = getelementptr inbounds i8, ptr %NewBufOrErr, i64 8
   %4 = and i64 %sub.ptr.div.i, 4294967295
+  %bf.load.i.pre = load i8, ptr %HasError.i, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
-  %bf.load.i = phi i8 [ %bf.load.i14.pre, %land.rhs.lr.ph ], [ %bf.set9.i.i.i.i.sink, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %bf.load.i = phi i8 [ %bf.load.i.pre, %land.rhs.lr.ph ], [ %bf.clear4.i.i.i.i.sink, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
-  %5 = and i8 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i8 %5, 0
-  br i1 %bf.cast.not.i, label %for.end, label %for.body
+  %bf.cast.i = trunc i8 %bf.load.i to i1
+  br i1 %bf.cast.i, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs
-  %6 = load ptr, ptr %IncludeDirectories, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %6, i64 %indvars.iv
+  %5 = load ptr, ptr %IncludeDirectories, align 8
+  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %indvars.iv
   %call10 = call { ptr, i64 } @_ZN4llvh3sys4path13get_separatorENS1_5StyleE(i32 noundef 2) #18
-  %7 = extractvalue { ptr, i64 } %call10, 0
+  %6 = extractvalue { ptr, i64 } %call10, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #18
-  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %7) #18
+  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %6) #18
   %call.i7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %Filename) #18, !noalias !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call.i7) #18
   %call12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %IncludedFile, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #18
@@ -175,37 +179,35 @@ for.body:                                         ; preds = %land.rhs
   store ptr %IncludedFile, ptr %ref.tmp14, align 8
   call void @_ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp14, i64 noundef -1, i1 noundef zeroext true, i1 noundef zeroext false) #18
   %bf.load.i.i.i = load i8, ptr %HasError.i, align 8
-  %8 = and i8 %bf.load.i.i.i, 1
-  %bf.cast.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %bf.cast.not.i.i.i, label %if.then.i.i.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
+  %bf.cast.i.i.i = trunc i8 %bf.load.i.i.i to i1
+  br i1 %bf.cast.i.i.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %9 = load ptr, ptr %NewBufOrErr, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %9, null
+  %7 = load ptr, ptr %NewBufOrErr, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %9, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
-  %10 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  %bf.load3.i.i.pre.pre.i.i = load i8, ptr %HasError.i, align 8
+  %8 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %bf.load7.i.i.pre.pre.i.i = load i8, ptr %HasError.i, align 8
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i, %if.then.i.i.i
-  %bf.load3.i.i.pre.i.i = phi i8 [ %bf.load3.i.i.pre.pre.i.i, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i ], [ %bf.load.i.i.i, %if.then.i.i.i ]
+  %bf.load7.i.i.pre.i.i = phi i8 [ %bf.load7.i.i.pre.pre.i.i, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i ], [ %bf.load.i.i.i, %if.then.i.i.i ]
   store ptr null, ptr %NewBufOrErr, align 8
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
 
 _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i, %for.body
-  %bf.load3.i.i.i.i = phi i8 [ %bf.load.i.i.i, %for.body ], [ %bf.load3.i.i.pre.i.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i ]
+  %bf.load7.i.i.i.i = phi i8 [ %bf.load.i.i.i, %for.body ], [ %bf.load7.i.i.pre.i.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i ]
   %bf.load.i.i.i.i = load i8, ptr %HasError.i.i.i.i, align 8
-  %11 = and i8 %bf.load.i.i.i.i, 1
-  %bf.cast.not.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %bf.cast.not.i.i.i.i, label %if.then.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit
+  %bf.cast.i.i.i.i = trunc i8 %bf.load.i.i.i.i to i1
+  br i1 %bf.cast.i.i.i.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit.thread, label %if.then.i
 
-_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit: ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
-  %bf.set9.i.i.i.i = or i8 %bf.load3.i.i.i.i, 1
+_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit.thread: ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
+  %bf.set9.i.i.i.i = or i8 %bf.load7.i.i.i.i, 1
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %ref.tmp13, align 8
   %retval.sroa.31.0.copyload.i.i.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %NewBufOrErr, align 8
@@ -213,66 +215,65 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
-  %bf.clear4.i.i.i.i = and i8 %bf.load3.i.i.i.i, -2
-  %12 = load i64, ptr %ref.tmp13, align 8
-  store i64 %12, ptr %NewBufOrErr, align 8
+  %bf.clear4.i.i.i.i = and i8 %bf.load7.i.i.i.i, -2
+  %9 = load i64, ptr %ref.tmp13, align 8
+  store i64 %9, ptr %NewBufOrErr, align 8
   store ptr null, ptr %ref.tmp13, align 8
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit, %if.then.i
-  %bf.set9.i.i.i.i.sink = phi i8 [ %bf.clear4.i.i.i.i, %if.then.i ], [ %bf.set9.i.i.i.i, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit ]
-  store i8 %bf.set9.i.i.i.i.sink, ptr %HasError.i, align 8
+_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit.thread, %if.then.i
+  %bf.clear4.i.i.i.i.sink = phi i8 [ %bf.set9.i.i.i.i, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEaSEOS6_.exit.thread ], [ %bf.clear4.i.i.i.i, %if.then.i ]
+  store i8 %bf.clear4.i.i.i.i.sink, ptr %HasError.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq i64 %indvars.iv.next, %4
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !7
 
-for.end:                                          ; preds = %land.rhs, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, %entry
-  %bf.load.i14 = phi i8 [ %bf.load.i14.pre, %entry ], [ %bf.load.i, %land.rhs ], [ %bf.set9.i.i.i.i.sink, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
-  %13 = and i8 %bf.load.i14, 1
-  %bf.cast.not.i15 = icmp eq i8 %13, 0
-  br i1 %bf.cast.not.i15, label %if.end, label %cleanup
+for.end:                                          ; preds = %land.rhs, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, %entry.for.end_crit_edge
+  %bf.load.i14 = phi i8 [ %bf.load.i14.pre, %entry.for.end_crit_edge ], [ %bf.load.i, %land.rhs ], [ %bf.clear4.i.i.i.i.sink, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %HasError.i13 = getelementptr inbounds i8, ptr %NewBufOrErr, i64 16
+  %bf.cast.i15 = trunc i8 %bf.load.i14 to i1
+  br i1 %bf.cast.i15, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %for.end
-  %14 = load i64, ptr %NewBufOrErr, align 8
-  store i64 %14, ptr %agg.tmp, align 8
+  %10 = load i64, ptr %NewBufOrErr, align 8
+  store i64 %10, ptr %agg.tmp, align 8
   store ptr null, ptr %NewBufOrErr, align 8
   %call20 = call noundef i32 @_ZN4llvh9SourceMgr18AddNewSourceBufferESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %agg.tmp, ptr %IncludeLoc.coerce)
-  %15 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %15, null
+  %11 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i: ; preds = %if.end
-  %vtable.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i = load ptr, ptr %11, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %12 = load ptr, ptr %vfn.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %bf.load.i17.pre = load i8, ptr %HasError.i, align 8
+  %bf.load.i18.pre = load i8, ptr %HasError.i13, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
-  %bf.load.i17 = phi i8 [ %bf.load.i17.pre, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ %bf.load.i14, %for.end ]
+  %bf.load.i18 = phi i8 [ %bf.load.i18.pre, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ %bf.load.i14, %for.end ]
   %retval.0 = phi i32 [ %call20, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ 0, %for.end ]
-  %17 = and i8 %bf.load.i17, 1
-  %bf.cast.not.i18 = icmp eq i8 %17, 0
-  br i1 %bf.cast.not.i18, label %if.then.i19, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit25
+  %bf.cast.i19 = trunc i8 %bf.load.i18 to i1
+  br i1 %bf.cast.i19, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit26, label %if.then.i20
 
-if.then.i19:                                      ; preds = %cleanup
-  %18 = load ptr, ptr %NewBufOrErr, align 8
-  %cmp.not.i.i20 = icmp eq ptr %18, null
-  br i1 %cmp.not.i.i20, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit25, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i21
+if.then.i20:                                      ; preds = %cleanup
+  %13 = load ptr, ptr %NewBufOrErr, align 8
+  %cmp.not.i.i21 = icmp eq ptr %13, null
+  br i1 %cmp.not.i.i21, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit26, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i22
 
-_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i21: ; preds = %if.then.i19
-  %vtable.i.i.i22 = load ptr, ptr %18, align 8
-  %vfn.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i22, i64 8
-  %19 = load ptr, ptr %vfn.i.i.i23, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit25
+_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i22: ; preds = %if.then.i20
+  %vtable.i.i.i23 = load ptr, ptr %13, align 8
+  %vfn.i.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i.i23, i64 8
+  %14 = load ptr, ptr %vfn.i.i.i24, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
+  br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit26
 
-_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit25: ; preds = %if.then.i19, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i21, %cleanup
+_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit26: ; preds = %if.then.i20, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i22, %cleanup
   ret i32 %retval.0
 }
 
@@ -3332,14 +3333,14 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIPKcjSt4le
   br i1 %cmp.i5, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store ptr %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %3 = load i32, ptr %__args1, align 4
   store i32 %3, ptr %second.i.i.i.i.i.i.i.i, align 8
-  %call5.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPKcSt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
+  %call5.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPKcSt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
   %4 = extractvalue { ptr, ptr } %call5.i.i, 0
   %5 = extractvalue { ptr, ptr } %call5.i.i, 1
   %tobool.not.i.i = icmp eq ptr %5, null

@@ -1182,9 +1182,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 533
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not40 = icmp eq i8 %7, 0
-  br i1 %.not40, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 544
@@ -1195,8 +1194,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 11:                                               ; preds = %8, %4, %1
   %12 = getelementptr inbounds i8, ptr %0, i64 568
   %13 = load ptr, ptr %12, align 8
-  %.not41 = icmp eq ptr %13, null
-  br i1 %.not41, label %15, label %14
+  %.not40 = icmp eq ptr %13, null
+  br i1 %.not40, label %15, label %14
 
 14:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %13) #12
@@ -1205,8 +1204,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 15:                                               ; preds = %14, %11
   %16 = getelementptr inbounds i8, ptr %0, i64 576
   %17 = load ptr, ptr %16, align 8
-  %.not42 = icmp eq ptr %17, null
-  br i1 %.not42, label %19, label %18
+  %.not41 = icmp eq ptr %17, null
+  br i1 %.not41, label %19, label %18
 
 18:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %17) #12
@@ -1215,8 +1214,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 19:                                               ; preds = %18, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 592
   %21 = load ptr, ptr %20, align 8
-  %.not43 = icmp eq ptr %21, null
-  br i1 %.not43, label %23, label %22
+  %.not42 = icmp eq ptr %21, null
+  br i1 %.not42, label %23, label %22
 
 22:                                               ; preds = %19
   tail call void @free(ptr noundef nonnull %21) #12
@@ -1225,8 +1224,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 23:                                               ; preds = %22, %19
   %24 = getelementptr inbounds i8, ptr %0, i64 600
   %25 = load ptr, ptr %24, align 8
-  %.not44 = icmp eq ptr %25, null
-  br i1 %.not44, label %27, label %26
+  %.not43 = icmp eq ptr %25, null
+  br i1 %.not43, label %27, label %26
 
 26:                                               ; preds = %23
   tail call void @free(ptr noundef nonnull %25) #12
@@ -1235,8 +1234,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 27:                                               ; preds = %26, %23
   %28 = getelementptr inbounds i8, ptr %0, i64 616
   %29 = load ptr, ptr %28, align 8
-  %.not45 = icmp eq ptr %29, null
-  br i1 %.not45, label %31, label %30
+  %.not44 = icmp eq ptr %29, null
+  br i1 %.not44, label %31, label %30
 
 30:                                               ; preds = %27
   tail call void @free(ptr noundef nonnull %29) #12
@@ -1245,8 +1244,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 31:                                               ; preds = %30, %27
   %32 = getelementptr inbounds i8, ptr %0, i64 624
   %33 = load ptr, ptr %32, align 8
-  %.not46 = icmp eq ptr %33, null
-  br i1 %.not46, label %35, label %34
+  %.not45 = icmp eq ptr %33, null
+  br i1 %.not45, label %35, label %34
 
 34:                                               ; preds = %31
   tail call void @free(ptr noundef nonnull %33) #12
@@ -1255,8 +1254,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 35:                                               ; preds = %34, %31
   %36 = getelementptr inbounds i8, ptr %0, i64 640
   %37 = load ptr, ptr %36, align 8
-  %.not47 = icmp eq ptr %37, null
-  br i1 %.not47, label %39, label %38
+  %.not46 = icmp eq ptr %37, null
+  br i1 %.not46, label %39, label %38
 
 38:                                               ; preds = %35
   tail call void @free(ptr noundef nonnull %37) #12
@@ -1265,8 +1264,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 39:                                               ; preds = %38, %35
   %40 = getelementptr inbounds i8, ptr %0, i64 648
   %41 = load ptr, ptr %40, align 8
-  %.not48 = icmp eq ptr %41, null
-  br i1 %.not48, label %43, label %42
+  %.not47 = icmp eq ptr %41, null
+  br i1 %.not47, label %43, label %42
 
 42:                                               ; preds = %39
   tail call void @free(ptr noundef nonnull %41) #12
@@ -1275,8 +1274,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 43:                                               ; preds = %42, %39
   %44 = getelementptr inbounds i8, ptr %0, i64 664
   %45 = load ptr, ptr %44, align 8
-  %.not49 = icmp eq ptr %45, null
-  br i1 %.not49, label %47, label %46
+  %.not48 = icmp eq ptr %45, null
+  br i1 %.not48, label %47, label %46
 
 46:                                               ; preds = %43
   tail call void @free(ptr noundef nonnull %45) #12
@@ -1285,8 +1284,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 47:                                               ; preds = %46, %43
   %48 = getelementptr inbounds i8, ptr %0, i64 672
   %49 = load ptr, ptr %48, align 8
-  %.not50 = icmp eq ptr %49, null
-  br i1 %.not50, label %51, label %50
+  %.not49 = icmp eq ptr %49, null
+  br i1 %.not49, label %51, label %50
 
 50:                                               ; preds = %47
   tail call void @free(ptr noundef nonnull %49) #12
@@ -1295,8 +1294,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 51:                                               ; preds = %50, %47
   %52 = getelementptr inbounds i8, ptr %0, i64 688
   %53 = load ptr, ptr %52, align 8
-  %.not51 = icmp eq ptr %53, null
-  br i1 %.not51, label %55, label %54
+  %.not50 = icmp eq ptr %53, null
+  br i1 %.not50, label %55, label %54
 
 54:                                               ; preds = %51
   tail call void @free(ptr noundef nonnull %53) #12
@@ -1305,8 +1304,8 @@ define internal void @req_des(ptr nocapture noundef readonly %0) #0 {
 55:                                               ; preds = %54, %51
   %56 = getelementptr inbounds i8, ptr %0, i64 696
   %57 = load ptr, ptr %56, align 8
-  %.not52 = icmp eq ptr %57, null
-  br i1 %.not52, label %59, label %58
+  %.not51 = icmp eq ptr %57, null
+  br i1 %.not51, label %59, label %58
 
 58:                                               ; preds = %55
   tail call void @free(ptr noundef nonnull %57) #12

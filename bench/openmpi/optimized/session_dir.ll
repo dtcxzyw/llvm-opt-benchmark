@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.b17.i = load i1, ptr @setup_base_complete, align 1
-  br i1 %.b17.i, label %setup_base.exit.thread34, label %3
+  br i1 %.b17.i, label %setup_base.exit.thread33, label %3
 
 3:                                                ; preds = %1
   store i1 true, ptr @setup_base_complete, align 1
@@ -90,9 +90,9 @@ define noundef i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #9
   %27 = tail call i32 @strncmp(ptr noundef %21, ptr noundef %25, i64 noundef %26) #9
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %setup_base.exit.thread.thread44, label %22
+  br i1 %28, label %setup_base.exit.thread.thread43, label %22
 
-setup_base.exit.thread.thread44:                  ; preds = %23
+setup_base.exit.thread.thread43:                  ; preds = %23
   %29 = load ptr, ptr @prte_prohibited_session_dirs, align 8
   %30 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 1, ptr noundef %21, ptr noundef %29) #8
   tail call void @PMIx_Argv_free(ptr noundef nonnull %18) #8
@@ -154,7 +154,7 @@ setup_base.exit.thread.thread44:                  ; preds = %23
 55:                                               ; preds = %53, %50, %50
   %56 = tail call i32 @prte_pmix_convert_status(i32 noundef %52) #8
   switch i32 %56, label %setup_base.exit.thread [
-    i32 0, label %setup_base.exit.thread34
+    i32 0, label %setup_base.exit.thread33
     i32 -43, label %setup_base.exit.thread.thread
   ]
 
@@ -165,24 +165,24 @@ setup_base.exit.thread:                           ; preds = %38, %49, %55
   %58 = icmp eq i32 %.01116.i.i, -6
   br i1 %58, label %59, label %setup_base.exit.thread.thread
 
-59:                                               ; preds = %setup_base.exit.thread.thread44, %setup_base.exit.thread
+59:                                               ; preds = %setup_base.exit.thread.thread43, %setup_base.exit.thread
   br label %setup_base.exit.thread.thread
 
-setup_base.exit.thread34:                         ; preds = %55, %1
+setup_base.exit.thread33:                         ; preds = %55, %1
   %60 = tail call ptr @prte_get_job_data_object(ptr noundef %0) #8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %64
 
-62:                                               ; preds = %setup_base.exit.thread34
+62:                                               ; preds = %setup_base.exit.thread33
   %63 = tail call ptr @prte_strerror(i32 noundef -13) #8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %63, ptr noundef nonnull @.str.1, i32 noundef 280) #8
   br label %setup_base.exit.thread.thread
 
-64:                                               ; preds = %setup_base.exit.thread34
+64:                                               ; preds = %setup_base.exit.thread33
   %65 = getelementptr inbounds i8, ptr %60, i64 424
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %_setup_job_session_dir.exit.thread39
+  br i1 %67, label %68, label %_setup_job_session_dir.exit.thread38
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), align 8
@@ -208,23 +208,23 @@ setup_base.exit.thread34:                         ; preds = %55, %1
 _setup_job_session_dir.exit:                      ; preds = %74, %74, %77
   %79 = tail call i32 @prte_pmix_convert_status(i32 noundef %76) #8
   switch i32 %79, label %_setup_job_session_dir.exit.thread [
-    i32 0, label %_setup_job_session_dir.exit.thread39
+    i32 0, label %_setup_job_session_dir.exit.thread38
     i32 -43, label %setup_base.exit.thread.thread
   ]
 
 _setup_job_session_dir.exit.thread:               ; preds = %68, %_setup_job_session_dir.exit
-  %.05.i38 = phi i32 [ %79, %_setup_job_session_dir.exit ], [ -2, %68 ]
-  %80 = tail call ptr @prte_strerror(i32 noundef %.05.i38) #8
+  %.05.i37 = phi i32 [ %79, %_setup_job_session_dir.exit ], [ -2, %68 ]
+  %80 = tail call ptr @prte_strerror(i32 noundef %.05.i37) #8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %80, ptr noundef nonnull @.str.1, i32 noundef 284) #8
   br label %setup_base.exit.thread.thread
 
-_setup_job_session_dir.exit.thread39:             ; preds = %64, %_setup_job_session_dir.exit
+_setup_job_session_dir.exit.thread38:             ; preds = %64, %_setup_job_session_dir.exit
   %81 = getelementptr inbounds i8, ptr %0, i64 256
   %82 = load i32, ptr %81, align 4
   %83 = icmp ult i32 %82, -51
   br i1 %83, label %84, label %97
 
-84:                                               ; preds = %_setup_job_session_dir.exit.thread39
+84:                                               ; preds = %_setup_job_session_dir.exit.thread38
   %.val = load ptr, ptr %65, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %85 = tail call ptr @pmix_util_print_rank(i32 noundef %82) #8
@@ -260,16 +260,15 @@ _setup_proc_session_dir.exit:                     ; preds = %88, %88, %91
   ]
 
 95:                                               ; preds = %_setup_proc_session_dir.exit.thread, %_setup_proc_session_dir.exit
-  %.0.i3042 = phi i32 [ -2, %_setup_proc_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.exit ]
-  %96 = call ptr @prte_strerror(i32 noundef %.0.i3042) #8
+  %.0.i2941 = phi i32 [ -2, %_setup_proc_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.exit ]
+  %96 = call ptr @prte_strerror(i32 noundef %.0.i2941) #8
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %96, ptr noundef nonnull @.str.1, i32 noundef 290) #8
   br label %setup_base.exit.thread.thread
 
-97:                                               ; preds = %_setup_proc_session_dir.exit, %_setup_job_session_dir.exit.thread39
+97:                                               ; preds = %_setup_proc_session_dir.exit, %_setup_job_session_dir.exit.thread38
   %98 = load i8, ptr @prte_debug_flag, align 1
-  %99 = and i8 %98, 1
-  %.not25 = icmp eq i8 %99, 0
-  br i1 %.not25, label %setup_base.exit.thread.thread, label %100
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %100, label %setup_base.exit.thread.thread
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %65, align 8
@@ -287,7 +286,7 @@ _setup_proc_session_dir.exit:                     ; preds = %88, %88, %91
   br label %setup_base.exit.thread.thread
 
 setup_base.exit.thread.thread:                    ; preds = %55, %10, %36, %59, %setup_base.exit.thread, %100, %97, %95, %_setup_proc_session_dir.exit, %_setup_job_session_dir.exit.thread, %_setup_job_session_dir.exit, %62
-  %.0 = phi i32 [ -13, %62 ], [ %79, %_setup_job_session_dir.exit ], [ %.05.i38, %_setup_job_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.exit ], [ %.0.i3042, %95 ], [ 0, %100 ], [ 0, %97 ], [ -43, %59 ], [ %.01116.i.i, %setup_base.exit.thread ], [ %9, %10 ], [ %37, %36 ], [ %56, %55 ]
+  %.0 = phi i32 [ -13, %62 ], [ %79, %_setup_job_session_dir.exit ], [ %.05.i37, %_setup_job_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.exit ], [ %.0.i2941, %95 ], [ 0, %100 ], [ 0, %97 ], [ -43, %59 ], [ %.01116.i.i, %setup_base.exit.thread ], [ %9, %10 ], [ %37, %36 ], [ %56, %55 ]
   ret i32 %.0
 }
 
@@ -300,15 +299,13 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 14), align 8
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %34
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %33, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i64 0, i32 4), align 8
-  %6 = and i8 %5, 1
-  %.not9 = icmp eq i8 %6, 0
-  br i1 %.not9, label %13, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
   %8 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
@@ -317,47 +314,46 @@ define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0
   %11 = load i32, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 0, i32 1), align 8
   %12 = icmp eq i32 %11, 1
   %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %34, label %13
+  br i1 %or.cond, label %33, label %13
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds i8, ptr %0, i64 424
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %34, label %17
+  br i1 %16, label %33, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 168
   %19 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull @prte_process_info, ptr noundef nonnull %18) #8
-  br i1 %19, label %20, label %28
+  br i1 %19, label %20, label %27
 
 20:                                               ; preds = %17
   %21 = load i8, ptr @prte_finalizing, align 1
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  %24 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), align 8
-  %25 = icmp ne ptr %24, null
-  %or.cond3 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond3, label %26, label %34
+  %22 = trunc i8 %21 to i1
+  %23 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), align 8
+  %24 = icmp ne ptr %23, null
+  %or.cond3 = select i1 %22, i1 %24, i1 false
+  br i1 %or.cond3, label %25, label %33
 
-26:                                               ; preds = %20
-  %27 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef nonnull %24, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
+25:                                               ; preds = %20
+  %26 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef nonnull %23, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
   br label %.sink.split
 
-28:                                               ; preds = %17
-  %29 = load ptr, ptr %14, align 8
-  %30 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %29, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %14, align 8
+  %29 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %28, i1 noundef zeroext false, ptr noundef nonnull @_check_file) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %28, %26
-  %.sink13 = phi ptr [ getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), %26 ], [ %14, %28 ]
-  %31 = load ptr, ptr %.sink13, align 8
-  %32 = tail call i32 @rmdir(ptr noundef %31) #8
-  %33 = load ptr, ptr %.sink13, align 8
-  tail call void @free(ptr noundef %33) #8
-  store ptr null, ptr %.sink13, align 8
-  br label %34
+.sink.split:                                      ; preds = %27, %25
+  %.sink12 = phi ptr [ getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 13), %25 ], [ %14, %27 ]
+  %30 = load ptr, ptr %.sink12, align 8
+  %31 = tail call i32 @rmdir(ptr noundef %30) #8
+  %32 = load ptr, ptr %.sink12, align 8
+  tail call void @free(ptr noundef %32) #8
+  store ptr null, ptr %.sink12, align 8
+  br label %33
 
-34:                                               ; preds = %.sink.split, %20, %13, %7, %1
+33:                                               ; preds = %.sink.split, %20, %13, %7, %1
   ret void
 }
 
@@ -421,9 +417,8 @@ define internal fastcc noundef i32 @_setup_tmpdir_base() unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = load i8, ptr @prte_silence_shared_fs, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %20
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
@@ -434,8 +429,8 @@ define internal fastcc noundef i32 @_setup_tmpdir_base() unnamed_addr #0 {
 
 20:                                               ; preds = %15, %12, %8
   %21 = load ptr, ptr %1, align 8
-  %.not6 = icmp eq ptr %21, null
-  br i1 %.not6, label %.thread, label %22
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %.thread, label %22
 
 22:                                               ; preds = %20
   call void @free(ptr noundef nonnull %21) #8
@@ -447,8 +442,8 @@ define internal fastcc noundef i32 @_setup_tmpdir_base() unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %20, %22, %23
-  %.010 = phi i32 [ -2, %23 ], [ 0, %22 ], [ 0, %20 ]
-  ret i32 %.010
+  %.09 = phi i32 [ -2, %23 ], [ 0, %22 ], [ 0, %20 ]
+  ret i32 %.09
 }
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1

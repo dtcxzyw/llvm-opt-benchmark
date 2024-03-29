@@ -11,27 +11,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Keyval_free(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = icmp eq ptr %0, null
-  %or.cond = and i1 %5, %4
-  br i1 %or.cond, label %6, label %8
+  %3 = trunc i8 %2 to i1
+  %4 = icmp eq ptr %0, null
+  %or.cond = and i1 %4, %3
+  br i1 %or.cond, label %5, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 36, ptr noundef nonnull @FUNC_NAME) #2
-  br label %12
+5:                                                ; preds = %1
+  %6 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 36, ptr noundef nonnull @FUNC_NAME) #2
+  br label %11
 
-8:                                                ; preds = %1
-  %9 = tail call i32 @ompi_attr_free_keyval(i32 noundef 1, ptr noundef %0, i1 noundef zeroext false) #2
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %12, label %10
+7:                                                ; preds = %1
+  %8 = tail call i32 @ompi_attr_free_keyval(i32 noundef 1, ptr noundef %0, i1 noundef zeroext false) #2
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %11, label %9
 
-10:                                               ; preds = %8
-  %11 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 16, ptr noundef nonnull @FUNC_NAME) #2
-  br label %12
+9:                                                ; preds = %7
+  %10 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 16, ptr noundef nonnull @FUNC_NAME) #2
+  br label %11
 
-12:                                               ; preds = %8, %10, %6
-  %.0 = phi i32 [ %7, %6 ], [ 16, %10 ], [ 0, %8 ]
+11:                                               ; preds = %7, %9, %5
+  %.0 = phi i32 [ %6, %5 ], [ 16, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 

@@ -304,7 +304,7 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %.not136 = icmp eq ptr %5, null
-  br i1 %.not136, label %116, label %11
+  br i1 %.not136, label %118, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @tvb_captured_length(ptr noundef nonnull %5) #8
@@ -393,135 +393,137 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
 53:                                               ; preds = %45, %48
   %.0122 = phi i8 [ %52, %48 ], [ 0, %45 ]
   %cond = icmp eq i32 %6, -1
-  br i1 %cond, label %54, label %77
+  br i1 %cond, label %54, label %78
 
 54:                                               ; preds = %53
-  %.not142 = icmp eq i8 %.0122, 0
-  %55 = icmp sgt i32 %.0125, 63
-  %or.cond3 = select i1 %.not142, i1 %55, i1 false
-  %56 = icmp ugt i32 %.0118, 3
-  %or.cond5 = select i1 %or.cond3, i1 %56, i1 false
-  br i1 %or.cond5, label %.thread149, label %77
+  %55 = trunc i8 %.0122 to i1
+  %.not = xor i1 %55, true
+  %56 = icmp sgt i32 %.0125, 63
+  %or.cond3 = select i1 %.not, i1 %56, i1 false
+  %57 = icmp ugt i32 %.0118, 3
+  %or.cond5 = select i1 %or.cond3, i1 %57, i1 false
+  br i1 %or.cond5, label %.thread149, label %78
 
 .thread149:                                       ; preds = %42, %54
-  %57 = icmp ult i32 %.0, %.0118
-  br i1 %57, label %58, label %64
+  %.0122152 = phi i8 [ %.0122, %54 ], [ 0, %42 ]
+  %58 = icmp ult i32 %.0, %.0118
+  br i1 %58, label %59, label %65
 
-58:                                               ; preds = %.thread149
-  %59 = add i32 %.0118, -4
-  %60 = icmp ugt i32 %.0, %59
-  br i1 %60, label %61, label %69
+59:                                               ; preds = %.thread149
+  %60 = add i32 %.0118, -4
+  %61 = icmp ugt i32 %.0, %60
+  br i1 %61, label %62, label %70
 
-61:                                               ; preds = %58
-  %.neg = sub i32 %59, %.0
-  %62 = load i32, ptr %10, align 4
-  %63 = add i32 %.neg, %62
-  store i32 %63, ptr %10, align 4
-  br label %69
+62:                                               ; preds = %59
+  %.neg = sub i32 %60, %.0
+  %63 = load i32, ptr %10, align 4
+  %64 = add i32 %.neg, %63
+  store i32 %64, ptr %10, align 4
+  br label %70
 
-64:                                               ; preds = %.thread149
-  %65 = add i32 %.0, -4
-  %66 = add i32 %.0118, -4
-  %67 = load i32, ptr %10, align 4
-  %68 = add i32 %67, -4
-  store i32 %68, ptr %10, align 4
-  br label %69
+65:                                               ; preds = %.thread149
+  %66 = add i32 %.0, -4
+  %67 = add i32 %.0118, -4
+  %68 = load i32, ptr %10, align 4
+  %69 = add i32 %68, -4
+  store i32 %69, ptr %10, align 4
+  br label %70
 
-69:                                               ; preds = %58, %61, %64
-  %.1119 = phi i32 [ %66, %64 ], [ %59, %61 ], [ %59, %58 ]
-  %.2 = phi i32 [ %65, %64 ], [ %59, %61 ], [ %.0, %58 ]
-  %70 = call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %5, i32 noundef %.1121, i32 noundef %.2, i32 noundef %.1119) #8
-  %71 = call i32 @tvb_reported_length(ptr noundef %70) #8
-  %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %77, label %72
+70:                                               ; preds = %59, %62, %65
+  %.1119 = phi i32 [ %67, %65 ], [ %60, %62 ], [ %60, %59 ]
+  %.2 = phi i32 [ %66, %65 ], [ %60, %62 ], [ %.0, %59 ]
+  %71 = call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %5, i32 noundef %.1121, i32 noundef %.2, i32 noundef %.1119) #8
+  %72 = call i32 @tvb_reported_length(ptr noundef %71) #8
+  %.not142 = icmp eq i32 %72, 0
+  br i1 %.not142, label %78, label %73
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr @eth_trailer_subdissector_list, align 8
-  %74 = call i32 @dissector_try_heuristic(ptr noundef %73, ptr noundef %70, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
-  %75 = icmp ne i32 %74, 0
-  %76 = zext i1 %75 to i8
-  br label %77
+73:                                               ; preds = %70
+  %74 = load ptr, ptr @eth_trailer_subdissector_list, align 8
+  %75 = call i32 @dissector_try_heuristic(ptr noundef %74, ptr noundef %71, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  %76 = icmp ne i32 %75, 0
+  %77 = zext i1 %76 to i8
+  br label %78
 
-77:                                               ; preds = %53, %54, %72, %69
-  %.not144 = phi i1 [ false, %72 ], [ false, %69 ], [ true, %54 ], [ true, %53 ]
-  %.1127 = phi ptr [ %70, %72 ], [ %70, %69 ], [ %46, %54 ], [ %46, %53 ]
-  %.1123 = phi i8 [ %76, %72 ], [ 0, %69 ], [ %.0122, %54 ], [ %.0122, %53 ]
-  %.3 = phi i32 [ %.2, %72 ], [ %.2, %69 ], [ %.0, %54 ], [ %.0, %53 ]
-  %.not143 = icmp eq i8 %.1123, 0
-  %78 = icmp ne i32 %.3, 0
-  %or.cond14 = select i1 %.not143, i1 %78, i1 false
-  br i1 %or.cond14, label %79, label %89
+78:                                               ; preds = %53, %54, %73, %70
+  %.not144 = phi i1 [ false, %73 ], [ false, %70 ], [ true, %54 ], [ true, %53 ]
+  %.1127 = phi ptr [ %71, %73 ], [ %71, %70 ], [ %46, %54 ], [ %46, %53 ]
+  %.1123 = phi i8 [ %77, %73 ], [ %.0122152, %70 ], [ %.0122, %54 ], [ %.0122, %53 ]
+  %.3 = phi i32 [ %.2, %73 ], [ %.2, %70 ], [ %.0, %54 ], [ %.0, %53 ]
+  %79 = trunc i8 %.1123 to i1
+  %80 = icmp eq i32 %.3, 0
+  %or.cond14.not = select i1 %79, i1 true, i1 %80
+  br i1 %or.cond14.not, label %91, label %81
 
-79:                                               ; preds = %77
+81:                                               ; preds = %78
   call void @tvb_ensure_bytes_exist(ptr noundef %.1127, i32 noundef 0, i32 noundef %.3) #8
-  %80 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %.1127, i32 noundef 0, i32 noundef %.3, i32 noundef 0) #8
-  br i1 %29, label %81, label %89
+  %82 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %.1127, i32 noundef 0, i32 noundef %.3, i32 noundef 0) #8
+  br i1 %29, label %83, label %91
 
-81:                                               ; preds = %79
-  %82 = load i32, ptr @eth_padding, align 4
-  %83 = icmp eq i32 %82, 2
-  %84 = icmp ne i32 %.1121, 0
-  %or.cond7 = and i1 %84, %83
-  br i1 %or.cond7, label %.sink.split, label %85
+83:                                               ; preds = %81
+  %84 = load i32, ptr @eth_padding, align 4
+  %85 = icmp eq i32 %84, 2
+  %86 = icmp ne i32 %.1121, 0
+  %or.cond7 = and i1 %86, %85
+  br i1 %or.cond7, label %.sink.split, label %87
 
-85:                                               ; preds = %81
-  %86 = icmp eq i32 %82, 1
-  %87 = icmp eq i32 %.1121, 0
-  %or.cond9 = and i1 %87, %86
-  br i1 %or.cond9, label %.sink.split, label %89
+87:                                               ; preds = %83
+  %88 = icmp eq i32 %84, 1
+  %89 = icmp eq i32 %.1121, 0
+  %or.cond9 = and i1 %89, %88
+  br i1 %or.cond9, label %.sink.split, label %91
 
-.sink.split:                                      ; preds = %85, %81
-  %.str.sink = phi ptr [ @.str, %81 ], [ @.str.1, %85 ]
-  %88 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %80, ptr noundef nonnull @ei_eth_padding_bad, ptr noundef nonnull %.str.sink) #8
-  br label %89
+.sink.split:                                      ; preds = %87, %83
+  %.str.sink = phi ptr [ @.str, %83 ], [ @.str.1, %87 ]
+  %90 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %82, ptr noundef nonnull @ei_eth_padding_bad, ptr noundef nonnull %.str.sink) #8
+  br label %91
 
-89:                                               ; preds = %.sink.split, %85, %79, %77
-  br i1 %.not144, label %112, label %90
+91:                                               ; preds = %.sink.split, %87, %81, %78
+  br i1 %.not144, label %114, label %92
 
-90:                                               ; preds = %89
-  %91 = add i32 %.3, %.1121
-  %92 = call i32 @tvb_get_ntohl(ptr noundef nonnull %5, i32 noundef %91) #8
-  %93 = load i32, ptr @eth_check_fcs, align 4
-  %94 = icmp ne i32 %93, 0
-  %95 = icmp eq i32 %7, 14
-  %or.cond11 = and i1 %95, %94
-  br i1 %or.cond11, label %96, label %106
+92:                                               ; preds = %91
+  %93 = add i32 %.3, %.1121
+  %94 = call i32 @tvb_get_ntohl(ptr noundef nonnull %5, i32 noundef %93) #8
+  %95 = load i32, ptr @eth_check_fcs, align 4
+  %96 = icmp ne i32 %95, 0
+  %97 = icmp eq i32 %7, 14
+  %or.cond11 = and i1 %97, %96
+  br i1 %or.cond11, label %98, label %108
 
-96:                                               ; preds = %90
-  %97 = call i32 @tvb_captured_length(ptr noundef %4) #8
-  %98 = add i32 %97, -4
-  %99 = call i32 @crc32_802_tvb(ptr noundef %4, i32 noundef %98) #8
-  %100 = load i32, ptr @hf_eth_fcs, align 4
-  %101 = load i32, ptr @hf_eth_fcs_status, align 4
-  %102 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %91, i32 noundef %100, i32 noundef %101, ptr noundef nonnull @ei_eth_fcs_bad, ptr noundef %0, i32 noundef %99, i32 noundef 0, i32 noundef 1) #8
-  %.not145 = icmp eq i32 %99, %92
-  br i1 %.not145, label %110, label %103
+98:                                               ; preds = %92
+  %99 = call i32 @tvb_captured_length(ptr noundef %4) #8
+  %100 = add i32 %99, -4
+  %101 = call i32 @crc32_802_tvb(ptr noundef %4, i32 noundef %100) #8
+  %102 = load i32, ptr @hf_eth_fcs, align 4
+  %103 = load i32, ptr @hf_eth_fcs_status, align 4
+  %104 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %93, i32 noundef %102, i32 noundef %103, ptr noundef nonnull @ei_eth_fcs_bad, ptr noundef %0, i32 noundef %101, i32 noundef 0, i32 noundef 1) #8
+  %.not145 = icmp eq i32 %101, %94
+  br i1 %.not145, label %112, label %105
 
-103:                                              ; preds = %96
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
-  %105 = load ptr, ptr %104, align 8
-  call void @col_append_str(ptr noundef %105, i32 noundef 25, ptr noundef nonnull @.str.2) #8
-  br label %110
-
-106:                                              ; preds = %90
-  %107 = load i32, ptr @hf_eth_fcs, align 4
-  %108 = load i32, ptr @hf_eth_fcs_status, align 4
-  %109 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %91, i32 noundef %107, i32 noundef %108, ptr noundef nonnull @ei_eth_fcs_bad, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
-  br label %110
-
-110:                                              ; preds = %96, %103, %106
-  %111 = add i32 %.3, 4
+105:                                              ; preds = %98
+  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %107 = load ptr, ptr %106, align 8
+  call void @col_append_str(ptr noundef %107, i32 noundef 25, ptr noundef nonnull @.str.2) #8
   br label %112
 
-112:                                              ; preds = %110, %89
-  %.4 = phi i32 [ %111, %110 ], [ %.3, %89 ]
-  %113 = call i32 @tvb_captured_length(ptr noundef %4) #8
-  %114 = add i32 %.4, %.1121
-  %115 = sub i32 %113, %114
-  call void @proto_tree_set_appendix(ptr noundef %2, ptr noundef %4, i32 noundef %115, i32 noundef %114) #8
-  br label %116
+108:                                              ; preds = %92
+  %109 = load i32, ptr @hf_eth_fcs, align 4
+  %110 = load i32, ptr @hf_eth_fcs_status, align 4
+  %111 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %93, i32 noundef %109, i32 noundef %110, ptr noundef nonnull @ei_eth_fcs_bad, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  br label %112
 
-116:                                              ; preds = %112, %8
+112:                                              ; preds = %98, %105, %108
+  %113 = add i32 %.3, 4
+  br label %114
+
+114:                                              ; preds = %112, %91
+  %.4 = phi i32 [ %113, %112 ], [ %.3, %91 ]
+  %115 = call i32 @tvb_captured_length(ptr noundef %4) #8
+  %116 = add i32 %.4, %.1121
+  %117 = sub i32 %115, %116
+  call void @proto_tree_set_appendix(ptr noundef %2, ptr noundef %4, i32 noundef %117, i32 noundef %116) #8
+  br label %118
+
+118:                                              ; preds = %114, %8
   ret void
 }
 

@@ -12,46 +12,45 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @PMPI_T_cvar_write(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not13 = icmp eq i32 %3, 0
-  br i1 %.not13, label %22, label %4
+  br i1 %.not13, label %21, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  %8 = icmp eq ptr %1, null
-  %or.cond = and i1 %8, %7
-  br i1 %or.cond, label %22, label %9
+  %6 = trunc i8 %5 to i1
+  %7 = icmp eq ptr %1, null
+  %or.cond = and i1 %7, %6
+  br i1 %or.cond, label %21, label %8
 
-9:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call void @ompi_mpit_lock() #2
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 108
-  %12 = load i32, ptr %11, align 4
-  %switch = icmp ult i32 %12, 2
-  br i1 %switch, label %21, label %13
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 108
+  %11 = load i32, ptr %10, align 4
+  %switch = icmp ult i32 %11, 2
+  br i1 %switch, label %20, label %12
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
-  %15 = load i32, ptr %14, align 8
-  %16 = and i32 %15, 4
-  %.not11 = icmp eq i32 %16, 0
-  br i1 %.not11, label %21, label %17
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %9, i64 104
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, 4
+  %.not11 = icmp eq i32 %15, 0
+  br i1 %.not11, label %20, label %16
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %10, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = tail call i32 @mca_base_var_set_value(i32 noundef %19, ptr noundef %1, i64 noundef 8, i32 noundef 4, ptr noundef null) #2
-  %.not12 = icmp eq i32 %20, 0
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = tail call i32 @mca_base_var_set_value(i32 noundef %18, ptr noundef %1, i64 noundef 8, i32 noundef 4, ptr noundef null) #2
+  %.not12 = icmp eq i32 %19, 0
   %spec.store.select = select i1 %.not12, i32 0, i32 63
+  br label %20
+
+20:                                               ; preds = %8, %12, %16
+  %.0 = phi i32 [ %spec.store.select, %16 ], [ 64, %8 ], [ 63, %12 ]
+  tail call void @ompi_mpit_unlock() #2
   br label %21
 
-21:                                               ; preds = %9, %13, %17
-  %.0 = phi i32 [ %spec.store.select, %17 ], [ 64, %9 ], [ 63, %13 ]
-  tail call void @ompi_mpit_unlock() #2
-  br label %22
-
-22:                                               ; preds = %4, %2, %21
-  %.09 = phi i32 [ %.0, %21 ], [ 55, %2 ], [ 72, %4 ]
+21:                                               ; preds = %4, %2, %20
+  %.09 = phi i32 [ %.0, %20 ], [ 55, %2 ], [ 72, %4 ]
   ret i32 %.09
 }
 

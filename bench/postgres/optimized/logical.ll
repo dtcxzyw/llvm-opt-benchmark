@@ -381,11 +381,11 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   store i8 %97, ptr %95, align 1
   %98 = getelementptr inbounds i8, ptr %76, i64 220
   %99 = load i8, ptr %98, align 4
-  %100 = and i8 %99, 1
-  %101 = getelementptr inbounds i8, ptr %76, i64 24
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 232
-  store i8 %100, ptr %103, align 8
+  %100 = getelementptr inbounds i8, ptr %76, i64 24
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 232
+  %103 = and i8 %99, 1
+  store i8 %103, ptr %102, align 8
   ret ptr %76
 }
 
@@ -862,9 +862,8 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   store ptr %81, ptr @CurrentMemoryContext, align 8
   %95 = getelementptr inbounds i8, ptr %10, i64 136
   %96 = load i8, ptr %95, align 8
-  %97 = and i8 %96, 1
-  %.not54 = icmp eq i8 %97, 0
-  br i1 %.not54, label %98, label %102
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %102, label %98
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds i8, ptr %79, i64 282
@@ -879,21 +878,20 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   %106 = and i8 %105, 1
   %107 = zext nneg i8 %106 to i32
   %108 = and i32 %103, %107
-  %.not55 = icmp eq i32 %108, 0
+  %.not54 = icmp eq i32 %108, 0
   %109 = trunc i32 %108 to i8
   store i8 %109, ptr %104, align 1
-  br i1 %.not55, label %121, label %110
+  br i1 %.not54, label %121, label %110
 
 110:                                              ; preds = %102
   %111 = load i8, ptr %95, align 8
-  %112 = and i8 %111, 1
-  %.not56 = icmp eq i8 %112, 0
-  br i1 %.not56, label %113, label %121
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %121, label %113
 
 113:                                              ; preds = %110
   %114 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #10, !srcloc !5
-  %.not57 = icmp eq i8 %114, 0
-  br i1 %.not57, label %117, label %115
+  %.not55 = icmp eq i8 %114, 0
+  br i1 %.not55, label %117, label %115
 
 115:                                              ; preds = %113
   %116 = call i32 @s_lock(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, i32 noundef 610, ptr noundef nonnull @__func__.CreateDecodingContext) #10
@@ -915,11 +913,11 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 121:                                              ; preds = %117, %110, %102
   %122 = getelementptr inbounds i8, ptr %79, i64 220
   %123 = load i8, ptr %122, align 4
-  %124 = and i8 %123, 1
-  %125 = getelementptr inbounds i8, ptr %79, i64 24
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 232
-  store i8 %124, ptr %127, align 8
+  %124 = getelementptr inbounds i8, ptr %79, i64 24
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 232
+  %127 = and i8 %123, 1
+  store i8 %127, ptr %126, align 8
   %128 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %128, label %129, label %142
 
@@ -987,8 +985,8 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   %17 = load ptr, ptr %5, align 8
   %18 = call ptr @XLogReadRecord(ptr noundef %17, ptr noundef nonnull %2) #10
   %19 = load ptr, ptr %2, align 8
-  %.not22 = icmp eq ptr %19, null
-  br i1 %.not22, label %.lr.ph, label %._crit_edge
+  %.not21 = icmp eq ptr %19, null
+  br i1 %.not21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1056,9 +1054,8 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   store i64 %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %4, i64 136
   %51 = load i8, ptr %50, align 8
-  %52 = and i8 %51, 1
-  %.not21 = icmp eq i8 %52, 0
-  br i1 %.not21, label %58, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %58
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %5, align 8
@@ -1144,9 +1141,8 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 define dso_local void @OutputPluginPrepareWrite(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 283
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %9
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1172,9 +1168,8 @@ define dso_local void @OutputPluginPrepareWrite(ptr noundef %0, i1 noundef zeroe
 define dso_local void @OutputPluginWrite(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 284
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %9
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1756,8 +1751,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
 
 36:                                               ; preds = %34, %33
   %37 = load i8, ptr %20, align 1
-  %38 = and i8 %37, 1
-  %.not19 = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = load volatile i32, ptr @InterruptPending, align 4
   %.not16 = icmp eq i32 %39, 0
   br i1 %.not16, label %41, label %40
@@ -1767,7 +1761,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   br label %41
 
 41:                                               ; preds = %36, %40
-  br i1 %.not19, label %21, label %.critedge, !llvm.loop !17
+  br i1 %38, label %.critedge, label %21, !llvm.loop !17
 
 .critedge:                                        ; preds = %41, %21
   %42 = getelementptr inbounds i8, ptr %14, i64 104

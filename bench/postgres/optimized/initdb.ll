@@ -821,7 +821,7 @@ define dso_local void @setup_locale_encoding() local_unnamed_addr #0 {
 
 setlocales.exit.thread:                           ; preds = %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %87
+  br label %85
 
 42:                                               ; preds = %29
   %43 = load ptr, ptr @icu_locale, align 8
@@ -902,219 +902,216 @@ icu_language_tag.exit.i:                          ; preds = %55
 72:                                               ; preds = %70
   %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) @.str.150, i64 4)
   %73 = icmp eq i32 %bcmp10.i.i, 0
-  br i1 %73, label %setlocales.exit, label %.lr.ph.i.i
+  br i1 %73, label %setlocales.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.i:                                       ; preds = %72, %84
-  %.114.i.i = phi i8 [ %.2.i.i, %84 ], [ 0, %72 ]
-  %.0813.i.i = phi i32 [ %85, %84 ], [ 0, %72 ]
+.lr.ph.i.preheader.i:                             ; preds = %72
   %74 = call i32 @uloc_countAvailable_70() #18
-  %75 = icmp slt i32 %.0813.i.i, %74
-  br i1 %75, label %76, label %.critedge.i.i
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %.lr.ph.i, label %.critedge.i.i
 
-76:                                               ; preds = %.lr.ph.i.i
-  %77 = call ptr @uloc_getAvailable_70(i32 noundef %.0813.i.i) #18
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.backedge.i.i
+  %.0812.i12.i = phi i32 [ %.0812.be.i.i, %.lr.ph.backedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %76 = call ptr @uloc_getAvailable_70(i32 noundef %.0812.i12.i) #18
   store i32 0, ptr %1, align 4
-  %78 = call i32 @uloc_getLanguage_70(ptr noundef %77, ptr noundef nonnull %3, i32 noundef 12, ptr noundef nonnull %1) #18
-  %79 = load i32, ptr %1, align 4
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %84, label %81
+  %77 = call i32 @uloc_getLanguage_70(ptr noundef %76, ptr noundef nonnull %3, i32 noundef 12, ptr noundef nonnull %1) #18
+  %78 = load i32, ptr %1, align 4
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %.lr.ph.backedge.i.i, label %80
 
-81:                                               ; preds = %76
-  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #20
-  %83 = icmp eq i32 %82, 0
-  %spec.select.i.i = select i1 %83, i8 1, i8 %.114.i.i
-  br label %84
+80:                                               ; preds = %.lr.ph.i
+  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #20
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %setlocales.exit, label %.lr.ph.backedge.i.i
 
-84:                                               ; preds = %81, %76
-  %.2.i.i = phi i8 [ %.114.i.i, %76 ], [ %spec.select.i.i, %81 ]
-  %85 = add nuw nsw i32 %.0813.i.i, 1
-  %86 = and i8 %.2.i.i, 1
-  %.not.i.i = icmp eq i8 %86, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %setlocales.exit, !llvm.loop !5
+.lr.ph.backedge.i.i:                              ; preds = %80, %.lr.ph.i
+  %.0812.be.i.i = add nuw nsw i32 %.0812.i12.i, 1
+  %83 = call i32 @uloc_countAvailable_70() #18
+  %84 = icmp slt i32 %.0812.be.i.i, %83
+  br i1 %84, label %.lr.ph.i, label %.critedge.i.i, !llvm.loop !5
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i
+.critedge.i.i:                                    ; preds = %.lr.ph.backedge.i.i, %.lr.ph.i.preheader.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.151, ptr noundef %.0.i.i, ptr noundef nonnull %2) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-setlocales.exit:                                  ; preds = %84, %68, %70, %72
+setlocales.exit:                                  ; preds = %80, %68, %70, %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %.b11.pr = load i1, ptr @locale_provider, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.b11.pr, label %115, label %87
+  br i1 %.b11.pr, label %113, label %85
 
-87:                                               ; preds = %setlocales.exit.thread, %setlocales.exit
-  %88 = load ptr, ptr @lc_ctype, align 8
-  %89 = load ptr, ptr @lc_collate, align 8
-  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %89) #20
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %115
+85:                                               ; preds = %setlocales.exit.thread, %setlocales.exit
+  %86 = load ptr, ptr @lc_ctype, align 8
+  %87 = load ptr, ptr @lc_collate, align 8
+  %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %87) #20
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %113
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr @lc_time, align 8
-  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %93) #20
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %115
+90:                                               ; preds = %85
+  %91 = load ptr, ptr @lc_time, align 8
+  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %91) #20
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %113
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr @lc_numeric, align 8
-  %98 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %97) #20
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %115
+94:                                               ; preds = %90
+  %95 = load ptr, ptr @lc_numeric, align 8
+  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %95) #20
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %113
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr @lc_monetary, align 8
-  %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %101) #20
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %115
+98:                                               ; preds = %94
+  %99 = load ptr, ptr @lc_monetary, align 8
+  %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %99) #20
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %113
 
-104:                                              ; preds = %100
-  %105 = load ptr, ptr @lc_messages, align 8
-  %106 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %105) #20
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %115
+102:                                              ; preds = %98
+  %103 = load ptr, ptr @lc_messages, align 8
+  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %103) #20
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %113
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr @icu_locale, align 8
-  %.not = icmp eq ptr %109, null
-  br i1 %.not, label %113, label %110
+106:                                              ; preds = %102
+  %107 = load ptr, ptr @icu_locale, align 8
+  %.not = icmp eq ptr %107, null
+  br i1 %.not, label %111, label %108
 
-110:                                              ; preds = %108
-  %111 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %109) #20
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %113, label %115
+108:                                              ; preds = %106
+  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %107) #20
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %113
 
-113:                                              ; preds = %110, %108
-  %114 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.9, ptr noundef %88) #18
-  br label %129
+111:                                              ; preds = %108, %106
+  %112 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.9, ptr noundef %86) #18
+  br label %127
 
-115:                                              ; preds = %110, %104, %100, %96, %92, %87, %setlocales.exit
-  %116 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.10) #18
+113:                                              ; preds = %108, %102, %98, %94, %90, %85, %setlocales.exit
+  %114 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.10) #18
   %.b10 = load i1, ptr @locale_provider, align 1
   %switch.select2.i = select i1 %.b10, ptr @.str.113, ptr @.str.114
-  %117 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %switch.select2.i) #18
-  %118 = load ptr, ptr @icu_locale, align 8
-  %.not12 = icmp eq ptr %118, null
-  br i1 %.not12, label %121, label %119
+  %115 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %switch.select2.i) #18
+  %116 = load ptr, ptr @icu_locale, align 8
+  %.not12 = icmp eq ptr %116, null
+  br i1 %.not12, label %119, label %117
 
-119:                                              ; preds = %115
-  %120 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.12, ptr noundef nonnull %118) #18
-  br label %121
+117:                                              ; preds = %113
+  %118 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.12, ptr noundef nonnull %116) #18
+  br label %119
 
-121:                                              ; preds = %119, %115
-  %122 = load ptr, ptr @lc_collate, align 8
-  %123 = load ptr, ptr @lc_ctype, align 8
-  %124 = load ptr, ptr @lc_messages, align 8
-  %125 = load ptr, ptr @lc_monetary, align 8
-  %126 = load ptr, ptr @lc_numeric, align 8
-  %127 = load ptr, ptr @lc_time, align 8
-  %128 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.13, ptr noundef %122, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %127) #18
-  br label %129
+119:                                              ; preds = %117, %113
+  %120 = load ptr, ptr @lc_collate, align 8
+  %121 = load ptr, ptr @lc_ctype, align 8
+  %122 = load ptr, ptr @lc_messages, align 8
+  %123 = load ptr, ptr @lc_monetary, align 8
+  %124 = load ptr, ptr @lc_numeric, align 8
+  %125 = load ptr, ptr @lc_time, align 8
+  %126 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.13, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef %124, ptr noundef %125) #18
+  br label %127
 
-129:                                              ; preds = %121, %113
-  %130 = load ptr, ptr @encoding, align 8
-  %.not13 = icmp eq ptr %130, null
-  br i1 %.not13, label %131, label %150
+127:                                              ; preds = %119, %111
+  %128 = load ptr, ptr @encoding, align 8
+  %.not13 = icmp eq ptr %128, null
+  br i1 %.not13, label %129, label %148
 
-131:                                              ; preds = %129
-  %132 = load ptr, ptr @lc_ctype, align 8
-  %133 = call i32 @pg_get_encoding_from_locale(ptr noundef %132, i1 noundef zeroext true) #18
+129:                                              ; preds = %127
+  %130 = load ptr, ptr @lc_ctype, align 8
+  %131 = call i32 @pg_get_encoding_from_locale(ptr noundef %130, i1 noundef zeroext true) #18
   %.b9 = load i1, ptr @locale_provider, align 1
-  %134 = icmp eq i32 %133, 0
-  %or.cond = select i1 %.b9, i1 %134, i1 false
-  %spec.store.select = select i1 %or.cond, i32 6, i32 %133
-  %135 = icmp eq i32 %spec.store.select, -1
-  br i1 %135, label %136, label %140
+  %132 = icmp eq i32 %131, 0
+  %or.cond = select i1 %.b9, i1 %132, i1 false
+  %spec.store.select = select i1 %or.cond, i32 6, i32 %131
+  %133 = icmp eq i32 %spec.store.select, -1
+  br i1 %133, label %134, label %138
 
-136:                                              ; preds = %131
-  %137 = load ptr, ptr @lc_ctype, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %137) #18
-  %138 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %138) #18
-  %139 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %139) #18
+134:                                              ; preds = %129
+  %135 = load ptr, ptr @lc_ctype, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %135) #18
+  %136 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %136) #18
+  %137 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %137) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-140:                                              ; preds = %131
-  %141 = call i32 @pg_valid_server_encoding_id_private(i32 noundef %spec.store.select) #18
-  %.not14 = icmp eq i32 %141, 0
-  br i1 %.not14, label %142, label %147
+138:                                              ; preds = %129
+  %139 = call i32 @pg_valid_server_encoding_id_private(i32 noundef %spec.store.select) #18
+  %.not14 = icmp eq i32 %139, 0
+  br i1 %.not14, label %140, label %145
 
-142:                                              ; preds = %140
-  %143 = load ptr, ptr @lc_ctype, align 8
-  %144 = call ptr @pg_encoding_to_char_private(i32 noundef %spec.store.select) #18
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %143, ptr noundef %144) #18
-  %145 = call ptr @pg_encoding_to_char_private(i32 noundef %spec.store.select) #18
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %145) #18
-  %146 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %146) #18
+140:                                              ; preds = %138
+  %141 = load ptr, ptr @lc_ctype, align 8
+  %142 = call ptr @pg_encoding_to_char_private(i32 noundef %spec.store.select) #18
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %141, ptr noundef %142) #18
+  %143 = call ptr @pg_encoding_to_char_private(i32 noundef %spec.store.select) #18
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %143) #18
+  %144 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %144) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-147:                                              ; preds = %140
+145:                                              ; preds = %138
   store i32 %spec.store.select, ptr @encodingid, align 4
-  %148 = call ptr @pg_encoding_to_char_private(i32 noundef %spec.store.select) #18
-  %149 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %148) #18
+  %146 = call ptr @pg_encoding_to_char_private(i32 noundef %spec.store.select) #18
+  %147 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %146) #18
   %.pre = load i32, ptr @encodingid, align 4
-  br label %156
+  br label %154
 
-150:                                              ; preds = %129
-  %151 = load i8, ptr %130, align 1
-  %.not.i15 = icmp eq i8 %151, 0
-  br i1 %.not.i15, label %155, label %152
+148:                                              ; preds = %127
+  %149 = load i8, ptr %128, align 1
+  %.not.i15 = icmp eq i8 %149, 0
+  br i1 %.not.i15, label %153, label %150
 
-152:                                              ; preds = %150
-  %153 = call i32 @pg_valid_server_encoding_private(ptr noundef nonnull %130) #18
-  %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %get_encoding_id.exit, label %155
+150:                                              ; preds = %148
+  %151 = call i32 @pg_valid_server_encoding_private(ptr noundef nonnull %128) #18
+  %152 = icmp sgt i32 %151, -1
+  br i1 %152, label %get_encoding_id.exit, label %153
 
-155:                                              ; preds = %152, %150
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.153, ptr noundef nonnull %130) #18
+153:                                              ; preds = %150, %148
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.153, ptr noundef nonnull %128) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-get_encoding_id.exit:                             ; preds = %152
-  store i32 %153, ptr @encodingid, align 4
-  br label %156
+get_encoding_id.exit:                             ; preds = %150
+  store i32 %151, ptr @encodingid, align 4
+  br label %154
 
-156:                                              ; preds = %get_encoding_id.exit, %147
-  %157 = phi i32 [ %153, %get_encoding_id.exit ], [ %.pre, %147 ]
-  %158 = load ptr, ptr @lc_ctype, align 8
-  %159 = call fastcc zeroext i1 @check_locale_encoding(ptr noundef %158, i32 noundef %157)
-  br i1 %159, label %160, label %164
+154:                                              ; preds = %get_encoding_id.exit, %145
+  %155 = phi i32 [ %151, %get_encoding_id.exit ], [ %.pre, %145 ]
+  %156 = load ptr, ptr @lc_ctype, align 8
+  %157 = call fastcc zeroext i1 @check_locale_encoding(ptr noundef %156, i32 noundef %155)
+  br i1 %157, label %158, label %162
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr @lc_collate, align 8
-  %162 = load i32, ptr @encodingid, align 4
-  %163 = call fastcc zeroext i1 @check_locale_encoding(ptr noundef %161, i32 noundef %162)
-  br i1 %163, label %165, label %164
+158:                                              ; preds = %154
+  %159 = load ptr, ptr @lc_collate, align 8
+  %160 = load i32, ptr @encodingid, align 4
+  %161 = call fastcc zeroext i1 @check_locale_encoding(ptr noundef %159, i32 noundef %160)
+  br i1 %161, label %163, label %162
 
-164:                                              ; preds = %160, %156
+162:                                              ; preds = %158, %154
   call void @exit(i32 noundef 1) #19
   unreachable
 
-165:                                              ; preds = %160
+163:                                              ; preds = %158
   %.b = load i1, ptr @locale_provider, align 1
-  br i1 %.b, label %166, label %check_icu_locale_encoding.exit.thread
+  br i1 %.b, label %164, label %check_icu_locale_encoding.exit.thread
 
-166:                                              ; preds = %165
-  %167 = load i32, ptr @encodingid, align 4
-  %168 = call zeroext i1 @is_encoding_supported_by_icu(i32 noundef %167) #18
-  br i1 %168, label %check_icu_locale_encoding.exit.thread, label %169
+164:                                              ; preds = %163
+  %165 = load i32, ptr @encodingid, align 4
+  %166 = call zeroext i1 @is_encoding_supported_by_icu(i32 noundef %165) #18
+  br i1 %166, label %check_icu_locale_encoding.exit.thread, label %167
 
-169:                                              ; preds = %166
+167:                                              ; preds = %164
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.155) #18
-  %170 = call ptr @pg_encoding_to_char_private(i32 noundef %167) #18
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef %170) #18
-  %171 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.157, ptr noundef %171) #18
+  %168 = call ptr @pg_encoding_to_char_private(i32 noundef %165) #18
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef %168) #18
+  %169 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.157, ptr noundef %169) #18
   call void @exit(i32 noundef 1) #19
   unreachable
 
-check_icu_locale_encoding.exit.thread:            ; preds = %166, %165
+check_icu_locale_encoding.exit.thread:            ; preds = %164, %163
   ret void
 }
 

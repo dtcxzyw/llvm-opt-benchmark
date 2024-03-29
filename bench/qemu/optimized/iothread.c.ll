@@ -44,9 +44,8 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %stopping = getelementptr inbounds i8, ptr %iothread, i64 216
   %1 = load i8, ptr %stopping, align 8
-  %2 = and i8 %1, 1
-  %tobool1.not = icmp eq i8 %2, 0
-  br i1 %tobool1.not, label %if.end, label %return
+  %tobool1 = trunc i8 %1 to i1
+  br i1 %tobool1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   store i8 1, ptr %stopping, align 8
@@ -274,9 +273,8 @@ entry:
 lor.lhs.false.i:                                  ; preds = %entry
   %stopping.i = getelementptr inbounds i8, ptr %call.i, i64 216
   %1 = load i8, ptr %stopping.i, align 8
-  %2 = and i8 %1, 1
-  %tobool1.not.i = icmp eq i8 %2, 0
-  br i1 %tobool1.not.i, label %iothread_stop.exit, label %if.then
+  %tobool1.i = trunc i8 %1 to i1
+  br i1 %tobool1.i, label %if.then, label %iothread_stop.exit
 
 iothread_stop.exit:                               ; preds = %lor.lhs.false.i
   store i8 1, ptr %stopping.i, align 8
@@ -295,16 +293,16 @@ if.then:                                          ; preds = %lor.lhs.false.i, %i
 
 if.end:                                           ; preds = %entry, %if.then, %iothread_stop.exit
   %worker_context = getelementptr inbounds i8, ptr %call.i, i64 88
-  %3 = load ptr, ptr %worker_context, align 8
-  %tobool3.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %worker_context, align 8
+  %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @g_main_context_unref(ptr noundef nonnull %3) #6
+  tail call void @g_main_context_unref(ptr noundef nonnull %2) #6
   store ptr null, ptr %worker_context, align 8
   %main_loop = getelementptr inbounds i8, ptr %call.i, i64 96
-  %4 = load ptr, ptr %main_loop, align 8
-  tail call void @g_main_loop_unref(ptr noundef %4) #6
+  %3 = load ptr, ptr %main_loop, align 8
+  tail call void @g_main_loop_unref(ptr noundef %3) #6
   store ptr null, ptr %main_loop, align 8
   br label %if.end8
 
@@ -546,9 +544,8 @@ entry:
   tail call void @qemu_sem_post(ptr noundef nonnull %init_done_sem) #6
   %running = getelementptr inbounds i8, ptr %opaque, i64 217
   %2 = load i8, ptr %running, align 1
-  %3 = and i8 %2, 1
-  %tobool.not10 = icmp eq i8 %3, 0
-  br i1 %tobool.not10, label %while.end9, label %while.body.lr.ph
+  %tobool10 = trunc i8 %2 to i1
+  br i1 %tobool10, label %while.body.lr.ph, label %while.end9
 
 while.body.lr.ph:                                 ; preds = %entry
   %run_gcontext = getelementptr inbounds i8, ptr %opaque, i64 80
@@ -556,34 +553,31 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %4 = load ptr, ptr %ctx, align 8
-  %call2 = tail call zeroext i1 @aio_poll(ptr noundef %4, i1 noundef zeroext true) #6
-  %5 = load i8, ptr %running, align 1
-  %6 = and i8 %5, 1
-  %tobool4.not = icmp eq i8 %6, 0
-  br i1 %tobool4.not, label %if.end, label %while.end
+  %3 = load ptr, ptr %ctx, align 8
+  %call2 = tail call zeroext i1 @aio_poll(ptr noundef %3, i1 noundef zeroext true) #6
+  %4 = load i8, ptr %running, align 1
+  %tobool4 = trunc i8 %4 to i1
+  br i1 %tobool4, label %while.end, label %if.end
 
 while.end:                                        ; preds = %while.body
-  %7 = load atomic i8, ptr %run_gcontext monotonic, align 8
-  %8 = and i8 %7, 1
-  %tobool7.not = icmp eq i8 %8, 0
-  br i1 %tobool7.not, label %if.end, label %if.then
+  %5 = load atomic i8, ptr %run_gcontext monotonic, align 8
+  %tobool7 = trunc i8 %5 to i1
+  br i1 %tobool7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %9 = load ptr, ptr %main_loop, align 8
-  tail call void @g_main_loop_run(ptr noundef %9) #6
+  %6 = load ptr, ptr %main_loop, align 8
+  tail call void @g_main_loop_run(ptr noundef %6) #6
   %.pre = load i8, ptr %running, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.end, %while.body
-  %10 = phi i8 [ %.pre, %if.then ], [ %5, %while.end ], [ %5, %while.body ]
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %while.end9, label %while.body, !llvm.loop !7
+  %7 = phi i8 [ %.pre, %if.then ], [ %4, %while.end ], [ %4, %while.body ]
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %while.body, label %while.end9, !llvm.loop !7
 
 while.end9:                                       ; preds = %if.end, %entry
-  %12 = load ptr, ptr %worker_context, align 8
-  tail call void @g_main_context_pop_thread_default(ptr noundef %12) #6
+  %8 = load ptr, ptr %worker_context, align 8
+  tail call void @g_main_context_pop_thread_default(ptr noundef %8) #6
   tail call void @rcu_unregister_thread() #6
   ret ptr null
 }

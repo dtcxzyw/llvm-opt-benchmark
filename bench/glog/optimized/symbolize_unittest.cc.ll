@@ -846,9 +846,8 @@ define hidden void @_ZN24Symbolize_Symbolize_Test8TestBodyEv(ptr nocapture nonnu
   %_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol..i = select i1 %14, ptr @_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol, ptr null
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %2, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef %_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol..i)
   %15 = load i8, ptr %2, align 8
-  %16 = and i8 %15, 1
-  %.not58 = icmp eq i8 %16, 0
-  br i1 %.not58, label %19, label %41
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %41, label %19
 
 17:                                               ; preds = %19
   %18 = landingpad { ptr, i32 }
@@ -970,8 +969,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %41, %_ZNKSt14defaul
   br label %_ZN7testing15AssertionResultD2Ev.exit41
 
 54:                                               ; preds = %.critedge
-  %bcmp59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.30, ptr noundef nonnull dereferenceable(14) @_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol, i64 14)
-  %55 = icmp eq i32 %bcmp59, 0
+  %bcmp58 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.30, ptr noundef nonnull dereferenceable(14) @_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol, i64 14)
+  %55 = icmp eq i32 %bcmp58, 0
   %56 = zext i1 %55 to i8
   store i8 %56, ptr %6, align 8
   %57 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1260,9 +1259,8 @@ define hidden void @_ZN38Symbolize_SymbolizeWithDemangling_Test8TestBodyEv(ptr n
   %_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol..i = select i1 %7, ptr @_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol, ptr null
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef %_ZZL12TrySymbolizePvN6google24glog_internal_namespace_16SymbolizeOptionsEE6symbol..i)
   %8 = load i8, ptr %3, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %34
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %34, label %12
 
 10:                                               ; preds = %12
   %11 = landingpad { ptr, i32 }
@@ -1379,9 +1377,8 @@ define hidden void @_ZN40Symbolize_SymbolizeStackConsumption_Test8TestBodyEv(ptr
   %19 = call fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef nonnull @nonstatic_func, ptr noundef nonnull %2)
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.27, ptr noundef %19)
   %20 = load i8, ptr %3, align 8
-  %21 = and i8 %20, 1
-  %.not70 = icmp eq i8 %21, 0
-  br i1 %.not70, label %24, label %46
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %46, label %24
 
 22:                                               ; preds = %24
   %23 = landingpad { ptr, i32 }
@@ -1484,9 +1481,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %46, %_ZNKSt14defaul
 
 _ZN7testing8internal11CmpHelperGTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %51, %52
   %53 = load i8, ptr %6, align 8
-  %54 = and i8 %53, 1
-  %.not71 = icmp eq i8 %54, 0
-  br i1 %.not71, label %57, label %79
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %79, label %57
 
 55:                                               ; preds = %57
   %56 = landingpad { ptr, i32 }
@@ -1723,9 +1719,8 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %93, %.thread, %123,
 
 _ZN7testing8internal11CmpHelperGTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit56: ; preds = %127, %128
   %129 = load i8, ptr %15, align 8
-  %130 = and i8 %129, 1
-  %.not72 = icmp eq i8 %130, 0
-  br i1 %.not72, label %133, label %155
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %155, label %133
 
 131:                                              ; preds = %133
   %132 = landingpad { ptr, i32 }

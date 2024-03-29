@@ -40,9 +40,8 @@ define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, pt
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3
   %8 = getelementptr inbounds i8, ptr %2, i64 24
@@ -58,9 +57,8 @@ define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, pt
   %10 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %indvars.iv
   %11 = getelementptr inbounds i8, ptr %10, i64 95
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not36 = icmp eq i8 %13, 0
-  br i1 %.not36, label %14, label %18
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds i8, ptr %10, i64 72
@@ -76,28 +74,28 @@ define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, pt
 .loopexit:                                        ; preds = %18, %.preheader, %3
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
-  %.not37 = icmp eq ptr %20, null
-  br i1 %.not37, label %.thread43, label %38
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.thread41, label %38
 
 .loopexit.thread:                                 ; preds = %14
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %.not3746 = icmp eq ptr %22, null
-  br i1 %.not3746, label %.thread.thread, label %.thread50
+  %.not44 = icmp eq ptr %22, null
+  br i1 %.not44, label %.thread.thread, label %.thread48
 
-.thread50:                                        ; preds = %.loopexit.thread
+.thread48:                                        ; preds = %.loopexit.thread
   %23 = getelementptr inbounds i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef %24) #4
   br label %.thread.thread
 
-.thread43:                                        ; preds = %.loopexit
+.thread41:                                        ; preds = %.loopexit
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %26, align 8
   br label %48
 
-.thread.thread:                                   ; preds = %.loopexit.thread, %.thread50
-  %.sink = phi ptr [ %25, %.thread50 ], [ null, %.loopexit.thread ]
+.thread.thread:                                   ; preds = %.loopexit.thread, %.thread48
+  %.sink = phi ptr [ %25, %.thread48 ], [ null, %.loopexit.thread ]
   %27 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %.sink, ptr %27, align 8
   store ptr @tstoreReceiveSlot_detoast, ptr %0, align 8
@@ -122,8 +120,8 @@ define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, pt
   %41 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef %40) #4
   %42 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %41, ptr %42, align 8
-  %.not38 = icmp eq ptr %41, null
-  br i1 %.not38, label %48, label %43
+  %.not36 = icmp eq ptr %41, null
+  br i1 %.not36, label %48, label %43
 
 43:                                               ; preds = %38
   store ptr @tstoreReceiveSlot_tupmap, ptr %0, align 8
@@ -135,7 +133,7 @@ define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, pt
   store ptr %46, ptr %47, align 8
   br label %51
 
-48:                                               ; preds = %.thread43, %38
+48:                                               ; preds = %.thread41, %38
   store ptr @tstoreReceiveSlot_notoast, ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 80
   %50 = getelementptr inbounds i8, ptr %0, i64 104
@@ -252,16 +250,15 @@ slot_getallattrs.exit:                            ; preds = %2, %10
 
 17:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.038 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
+  %.037 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr i64, ptr %18, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %indvars.iv
   %22 = getelementptr inbounds i8, ptr %21, i64 95
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %25, label %45
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %45, label %25
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds i8, ptr %21, i64 72
@@ -273,9 +270,8 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %30 = load ptr, ptr %14, align 8
   %31 = getelementptr i8, ptr %30, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not36 = icmp eq i8 %33, 0
-  br i1 %.not36, label %34, label %45
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %45, label %34
 
 34:                                               ; preds = %29
   %35 = inttoptr i64 %20 to ptr
@@ -287,15 +283,15 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %39 = tail call ptr @detoast_external_attr(ptr noundef nonnull %35) #4
   %40 = ptrtoint ptr %39 to i64
   %41 = load ptr, ptr %15, align 8
-  %42 = add i32 %.038, 1
-  %43 = sext i32 %.038 to i64
+  %42 = add i32 %.037, 1
+  %43 = sext i32 %.037 to i64
   %44 = getelementptr i64, ptr %41, i64 %43
   store i64 %40, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %34, %38, %29, %25, %17
   %.033 = phi i64 [ %20, %17 ], [ %20, %29 ], [ %40, %38 ], [ %20, %34 ], [ %20, %25 ]
-  %.1 = phi i32 [ %.038, %17 ], [ %.038, %29 ], [ %42, %38 ], [ %.038, %34 ], [ %.038, %25 ]
+  %.1 = phi i32 [ %.037, %17 ], [ %.037, %29 ], [ %42, %38 ], [ %.037, %34 ], [ %.037, %25 ]
   %46 = load ptr, ptr %16, align 8
   %47 = getelementptr i64, ptr %46, i64 %indvars.iv
   store i64 %.033, ptr %47, align 8
@@ -318,25 +314,25 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   tail call void @tuplestore_putvalues(ptr noundef %52, ptr noundef nonnull %4, ptr noundef %54, ptr noundef %56) #4
   store ptr %50, ptr @CurrentMemoryContext, align 8
   %57 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %57, label %.lr.ph41, label %._crit_edge42
+  br i1 %57, label %.lr.ph40, label %._crit_edge41
 
-.lr.ph41:                                         ; preds = %._crit_edge
+.lr.ph40:                                         ; preds = %._crit_edge
   %58 = getelementptr inbounds i8, ptr %1, i64 88
-  %wide.trip.count47 = zext nneg i32 %.0.lcssa to i64
+  %wide.trip.count46 = zext nneg i32 %.0.lcssa to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph41, %59
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %59 ]
+59:                                               ; preds = %.lr.ph40, %59
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next44, %59 ]
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr i64, ptr %60, i64 %indvars.iv44
+  %61 = getelementptr i64, ptr %60, i64 %indvars.iv43
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
   tail call void @pfree(ptr noundef %63) #4
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge42, label %59, !llvm.loop !8
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %._crit_edge41, label %59, !llvm.loop !8
 
-._crit_edge42:                                    ; preds = %59, %._crit_edge
+._crit_edge41:                                    ; preds = %59, %._crit_edge
   ret i1 true
 }
 

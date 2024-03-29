@@ -488,8 +488,8 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
 8:                                                ; preds = %4
   %9 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #3
   %10 = tail call ptr @slurm_list_next(ptr noundef %9) #3
-  %.not415156 = icmp eq ptr %10, null
-  br i1 %.not415156, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not415055 = icmp eq ptr %10, null
+  br i1 %.not415055, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 154
@@ -498,12 +498,13 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
 
 .loopexit:                                        ; preds = %57, %.preheader
   %13 = call ptr @slurm_list_next(ptr noundef %9) #3
-  %.not4151 = icmp eq ptr %13, null
-  br i1 %.not4151, label %.outer._crit_edge, label %.lr.ph
+  %.not4150 = icmp eq ptr %13, null
+  br i1 %.not4150, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
   %14 = phi ptr [ %10, %.lr.ph.lr.ph ], [ %13, %.loopexit ]
-  %.not46 = phi i1 [ false, %.lr.ph.lr.ph ], [ true, %.loopexit ]
+  %.030.ph57 = phi i1 [ false, %.lr.ph.lr.ph ], [ true, %.loopexit ]
+  %.031.ph56 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.loopexit ]
   br label %15
 
 15:                                               ; preds = %.lr.ph, %31
@@ -522,7 +523,7 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   br i1 %24, label %31, label %.thread
 
 .thread:                                          ; preds = %15, %21
-  %.03348 = phi i64 [ %23, %21 ], [ %20, %15 ]
+  %.03347 = phi i64 [ %23, %21 ], [ %20, %15 ]
   %25 = getelementptr inbounds i8, ptr %18, i64 96
   %26 = load ptr, ptr %25, align 8
   %.not43 = icmp eq ptr %26, null
@@ -533,10 +534,10 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   store i32 0, ptr %3, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = call ptr @next_node_bitmap(ptr noundef %28, ptr noundef nonnull %3) #3
-  %.not4453 = icmp eq ptr %29, null
-  br i1 %.not4453, label %.loopexit, label %.lr.ph55, !llvm.loop !10
+  %.not4452 = icmp eq ptr %29, null
+  br i1 %.not4452, label %.loopexit, label %.lr.ph54, !llvm.loop !10
 
-.lr.ph55:                                         ; preds = %.preheader
+.lr.ph54:                                         ; preds = %.preheader
   %30 = getelementptr inbounds i8, ptr %16, i64 4
   br label %33
 
@@ -545,9 +546,9 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   %.not41 = icmp eq ptr %32, null
   br i1 %.not41, label %.outer._crit_edge, label %15, !llvm.loop !10
 
-33:                                               ; preds = %.lr.ph55, %57
-  %indvars.iv = phi i64 [ -1, %.lr.ph55 ], [ %indvars.iv.next, %57 ]
-  %34 = phi ptr [ %29, %.lr.ph55 ], [ %61, %57 ]
+33:                                               ; preds = %.lr.ph54, %57
+  %indvars.iv = phi i64 [ -1, %.lr.ph54 ], [ %indvars.iv.next, %57 ]
+  %34 = phi ptr [ %29, %.lr.ph54 ], [ %61, %57 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %35 = load i8, ptr %11, align 2
   %36 = icmp eq i8 %35, 1
@@ -576,10 +577,10 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
 50:                                               ; preds = %45, %41
   %.034.in = phi ptr [ %44, %41 ], [ %49, %45 ]
   %.034 = load i64, ptr %.034.in, align 8
-  %51 = mul i64 %.034, %.03348
+  %51 = mul i64 %.034, %.03347
   %52 = load ptr, ptr %12, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 %indvars.iv.next
-  br i1 %.not46, label %54, label %.sink.split
+  br i1 %.031.ph56, label %.sink.split, label %54
 
 54:                                               ; preds = %50
   %55 = load i64, ptr %53, align 8
@@ -601,7 +602,7 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   br i1 %.not44, label %.loopexit, label %33, !llvm.loop !11
 
 .outer._crit_edge:                                ; preds = %.loopexit, %31, %8
-  %.030.ph.lcssa = phi i1 [ false, %8 ], [ %.not46, %31 ], [ true, %.loopexit ]
+  %.030.ph.lcssa = phi i1 [ false, %8 ], [ %.030.ph57, %31 ], [ true, %.loopexit ]
   call void @slurm_list_iterator_destroy(ptr noundef %9) #3
   br label %62
 

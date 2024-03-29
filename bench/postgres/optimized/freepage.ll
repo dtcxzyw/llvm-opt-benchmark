@@ -59,9 +59,8 @@ define dso_local noundef zeroext i1 @FreePageManagerGet(ptr noundef %0, i64 noun
 10:                                               ; preds = %9, %3
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %FreePageManagerUpdateLargest.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %FreePageManagerUpdateLargest.exit
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 64
@@ -474,8 +473,8 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %invariant.gep = getelementptr i8, ptr %4, i64 -1
   %6 = load i64, ptr %5, align 8
-  %.not99 = icmp eq i64 %6, 0
-  br i1 %.not99, label %.loopexit90, label %.lr.ph
+  %.not98 = icmp eq i64 %6, 0
+  br i1 %.not98, label %.loopexit89, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -492,7 +491,7 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #1
   %16 = getelementptr i8, ptr %15, i64 -1
   %17 = getelementptr i8, ptr %15, i64 7
   %18 = load i64, ptr %17, align 8
-  switch i64 %18, label %.loopexit90 [
+  switch i64 %18, label %.loopexit89 [
     i64 1, label %19
     i64 2, label %60
   ]
@@ -545,8 +544,8 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #1
   %49 = icmp eq ptr %46, null
   %50 = ptrtoint ptr %46 to i64
   %51 = ptrtoint ptr %41 to i64
-  %reass.sub104 = sub i64 %50, %51
-  %52 = add i64 %reass.sub104, 1
+  %reass.sub103 = sub i64 %50, %51
+  %52 = add i64 %reass.sub103, 1
   %.0.i.i = select i1 %49, i64 0, i64 %52
   %53 = getelementptr inbounds i8, ptr %47, i64 24
   store i64 %.0.i.i, ptr %53, align 8
@@ -567,12 +566,12 @@ FreePageBtreeRecycle.exit:                        ; preds = %35, %55
   store i32 %58, ptr %12, align 4
   %59 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %59, 0
-  br i1 %.not, label %.loopexit90, label %13, !llvm.loop !11
+  br i1 %.not, label %.loopexit89, label %13, !llvm.loop !11
 
 60:                                               ; preds = %13
   %61 = load i32, ptr %16, align 8
   %62 = icmp eq i32 %61, -1729435864
-  br i1 %62, label %63, label %.loopexit90
+  br i1 %62, label %63, label %.loopexit89
 
 63:                                               ; preds = %60
   %64 = getelementptr i8, ptr %15, i64 23
@@ -584,14 +583,14 @@ FreePageBtreeRecycle.exit:                        ; preds = %35, %55
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %68, 1
   %72 = icmp eq i64 %71, %70
-  br i1 %72, label %73, label %.loopexit90
+  br i1 %72, label %73, label %.loopexit89
 
 73:                                               ; preds = %63
   %74 = ptrtoint ptr %16 to i64
   %75 = sub i64 %74, %10
   %76 = lshr i64 %75, 12
   %77 = icmp eq i64 %68, %76
-  br i1 %77, label %78, label %.loopexit90
+  br i1 %77, label %78, label %.loopexit89
 
 78:                                               ; preds = %73
   %79 = load i64, ptr %0, align 8
@@ -659,9 +658,9 @@ FreePagePopSpanLeader.exit:                       ; preds = %98, %101
   %122 = getelementptr i8, ptr %111, i64 %120
   %123 = getelementptr i8, ptr %122, i64 -1
   %124 = select i1 %121, ptr null, ptr %123
-  %.not25.i71 = icmp eq ptr %118, null
-  %.not.i72 = or i1 %116, %.not25.i71
-  br i1 %.not.i72, label %127, label %125
+  %.not25.i70 = icmp eq ptr %118, null
+  %.not.i71 = or i1 %116, %.not25.i70
+  br i1 %.not.i71, label %127, label %125
 
 125:                                              ; preds = %FreePagePopSpanLeader.exit
   %126 = getelementptr i8, ptr %117, i64 15
@@ -669,28 +668,28 @@ FreePagePopSpanLeader.exit:                       ; preds = %98, %101
   br label %127
 
 127:                                              ; preds = %125, %FreePagePopSpanLeader.exit
-  %.not24.i73 = icmp eq ptr %124, null
-  br i1 %.not24.i73, label %131, label %128
+  %.not24.i72 = icmp eq ptr %124, null
+  br i1 %.not24.i72, label %131, label %128
 
 128:                                              ; preds = %127
   %129 = load i64, ptr %114, align 8
   %130 = getelementptr inbounds i8, ptr %124, i64 24
   store i64 %129, ptr %130, align 8
-  br label %FreePagePopSpanLeader.exit76
+  br label %FreePagePopSpanLeader.exit75
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds i8, ptr %113, i64 8
   %133 = load i64, ptr %132, align 8
   %134 = add nsw i64 %133, -1
-  %.inv.i74 = icmp ugt i64 %133, 128
-  %spec.select.i75 = select i1 %.inv.i74, i64 128, i64 %134
+  %.inv.i73 = icmp ugt i64 %133, 128
+  %spec.select.i74 = select i1 %.inv.i73, i64 128, i64 %134
   %135 = load i64, ptr %114, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 64
-  %137 = getelementptr [129 x %union.RelptrFreePageSpanLeader], ptr %136, i64 0, i64 %spec.select.i75
+  %137 = getelementptr [129 x %union.RelptrFreePageSpanLeader], ptr %136, i64 0, i64 %spec.select.i74
   store i64 %135, ptr %137, align 8
-  br label %FreePagePopSpanLeader.exit76
+  br label %FreePagePopSpanLeader.exit75
 
-FreePagePopSpanLeader.exit76:                     ; preds = %128, %131
+FreePagePopSpanLeader.exit75:                     ; preds = %128, %131
   %138 = load i64, ptr %64, align 8
   store i64 %138, ptr %8, align 8
   %139 = load i64, ptr %66, align 8
@@ -723,39 +722,39 @@ FreePagePopSpanLeader.exit76:                     ; preds = %128, %131
   %161 = ptrtoint ptr %146 to i64
   %reass.sub = sub i64 %160, %161
   %162 = add i64 %reass.sub, 1
-  %.0.i.i79 = select i1 %159, i64 0, i64 %162
+  %.0.i.i78 = select i1 %159, i64 0, i64 %162
   %163 = getelementptr inbounds i8, ptr %157, i64 24
-  store i64 %.0.i.i79, ptr %163, align 8
+  store i64 %.0.i.i78, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %157, i64 16
   store i64 0, ptr %164, align 8
-  %.pre.i80 = or disjoint i64 %156, 1
+  %.pre.i79 = or disjoint i64 %156, 1
   br i1 %159, label %FreePagePushSpanLeader.exit, label %165
 
-165:                                              ; preds = %FreePagePopSpanLeader.exit76
+165:                                              ; preds = %FreePagePopSpanLeader.exit75
   %166 = getelementptr inbounds i8, ptr %155, i64 16
-  store i64 %.pre.i80, ptr %166, align 8
+  store i64 %.pre.i79, ptr %166, align 8
   br label %FreePagePushSpanLeader.exit
 
-FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLeader.exit76, %165
-  store i64 %.pre.i80, ptr %150, align 8
+FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLeader.exit75, %165
+  store i64 %.pre.i79, ptr %150, align 8
   %167 = load i64, ptr %9, align 8
-  br label %.loopexit90
+  br label %.loopexit89
 
-.loopexit90:                                      ; preds = %FreePageBtreeRecycle.exit, %13, %1, %60, %63, %FreePagePushSpanLeader.exit, %73
+.loopexit89:                                      ; preds = %FreePageBtreeRecycle.exit, %13, %1, %60, %63, %FreePagePushSpanLeader.exit, %73
   %.0 = phi i64 [ %167, %FreePagePushSpanLeader.exit ], [ 0, %73 ], [ 0, %63 ], [ 0, %60 ], [ 0, %1 ], [ 0, %13 ], [ 0, %FreePageBtreeRecycle.exit ]
   %168 = getelementptr inbounds i8, ptr %0, i64 28
   %169 = load i32, ptr %168, align 4
-  %.not68101 = icmp eq i32 %169, 0
-  br i1 %.not68101, label %.loopexit, label %.lr.ph103
+  %.not67100 = icmp eq i32 %169, 0
+  br i1 %.not67100, label %.loopexit, label %.lr.ph102
 
-.lr.ph103:                                        ; preds = %.loopexit90
+.lr.ph102:                                        ; preds = %.loopexit89
   %170 = getelementptr inbounds i8, ptr %0, i64 16
   %171 = ptrtoint ptr %4 to i64
   br label %172
 
-172:                                              ; preds = %.lr.ph103, %222
-  %173 = phi i32 [ %169, %.lr.ph103 ], [ %223, %222 ]
-  %.1102 = phi i64 [ %.0, %.lr.ph103 ], [ %spec.select, %222 ]
+172:                                              ; preds = %.lr.ph102, %222
+  %173 = phi i32 [ %169, %.lr.ph102 ], [ %223, %222 ]
+  %.1101 = phi i64 [ %.0, %.lr.ph102 ], [ %spec.select, %222 ]
   %174 = load i64, ptr %0, align 8
   %175 = sub i64 1, %174
   %176 = getelementptr i8, ptr %0, i64 %175
@@ -770,8 +769,8 @@ FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLead
   %185 = getelementptr i8, ptr %176, i64 %183
   %186 = getelementptr i8, ptr %185, i64 -1
   %.not21.i = icmp eq ptr %186, null
-  %.not.i81 = select i1 %184, i1 true, i1 %.not21.i
-  br i1 %.not.i81, label %FreePageBtreeGetRecycled.exit, label %.split17.i
+  %.not.i80 = select i1 %184, i1 true, i1 %.not21.i
+  br i1 %.not.i80, label %FreePageBtreeGetRecycled.exit, label %.split17.i
 
 .split17.i:                                       ; preds = %172
   %187 = getelementptr inbounds i8, ptr %181, i64 16
@@ -780,8 +779,8 @@ FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLead
   store i64 %188, ptr %189, align 8
   %190 = ptrtoint ptr %186 to i64
   %191 = ptrtoint ptr %176 to i64
-  %reass.sub105 = sub i64 %190, %191
-  %192 = add i64 %reass.sub105, 1
+  %reass.sub104 = sub i64 %190, %191
+  %192 = add i64 %reass.sub104, 1
   %.pre = load i32, ptr %168, align 4
   br label %FreePageBtreeGetRecycled.exit
 
@@ -815,37 +814,37 @@ FreePageBtreeGetRecycled.exit:                    ; preds = %172, %.split17.i
   %212 = icmp eq ptr %208, null
   %213 = ptrtoint ptr %208 to i64
   %214 = ptrtoint ptr %203 to i64
-  %reass.sub106 = sub i64 %213, %214
-  %215 = add i64 %reass.sub106, 1
-  %.0.i.i84 = select i1 %212, i64 0, i64 %215
+  %reass.sub105 = sub i64 %213, %214
+  %215 = add i64 %reass.sub105, 1
+  %.0.i.i83 = select i1 %212, i64 0, i64 %215
   %216 = getelementptr inbounds i8, ptr %210, i64 24
-  store i64 %.0.i.i84, ptr %216, align 8
+  store i64 %.0.i.i83, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %210, i64 16
   store i64 0, ptr %217, align 8
-  %.pre.i85 = or disjoint i64 %209, 1
-  br i1 %212, label %FreePageBtreeRecycle.exit86, label %218
+  %.pre.i84 = or disjoint i64 %209, 1
+  br i1 %212, label %FreePageBtreeRecycle.exit85, label %218
 
 218:                                              ; preds = %200
   %219 = getelementptr inbounds i8, ptr %208, i64 16
-  store i64 %.pre.i85, ptr %219, align 8
-  br label %FreePageBtreeRecycle.exit86
+  store i64 %.pre.i84, ptr %219, align 8
+  br label %FreePageBtreeRecycle.exit85
 
-FreePageBtreeRecycle.exit86:                      ; preds = %200, %218
-  store i64 %.pre.i85, ptr %170, align 8
+FreePageBtreeRecycle.exit85:                      ; preds = %200, %218
+  store i64 %.pre.i84, ptr %170, align 8
   %220 = load i32, ptr %168, align 4
   %221 = add i32 %220, 1
   store i32 %221, ptr %168, align 4
   br label %.loopexit
 
 222:                                              ; preds = %FreePageBtreeGetRecycled.exit
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %198, i64 %.1102)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %198, i64 %.1101)
   %223 = load i32, ptr %168, align 4
-  %.not68 = icmp eq i32 %223, 0
-  br i1 %.not68, label %.loopexit, label %172, !llvm.loop !12
+  %.not67 = icmp eq i32 %223, 0
+  br i1 %.not67, label %.loopexit, label %172, !llvm.loop !12
 
-.loopexit:                                        ; preds = %222, %.loopexit90, %FreePageBtreeRecycle.exit86
-  %.193 = phi i64 [ %.1102, %FreePageBtreeRecycle.exit86 ], [ %.0, %.loopexit90 ], [ %spec.select, %222 ]
-  ret i64 %.193
+.loopexit:                                        ; preds = %222, %.loopexit89, %FreePageBtreeRecycle.exit85
+  %.192 = phi i64 [ %.1101, %FreePageBtreeRecycle.exit85 ], [ %.0, %.loopexit89 ], [ %spec.select, %222 ]
+  ret i64 %.192
 }
 
 ; Function Attrs: nounwind uwtable
@@ -873,9 +872,8 @@ define dso_local void @FreePageManagerPut(ptr noundef %0, i64 noundef %1, i64 no
 13:                                               ; preds = %12, %8
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %FreePageManagerUpdateLargest.exit, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %FreePageManagerUpdateLargest.exit
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2549,8 +2547,8 @@ define dso_local ptr @FreePageManagerDump(ptr noundef %0) local_unnamed_addr #1 
   %28 = icmp eq i64 %27, 0
   %29 = getelementptr i8, ptr %5, i64 %27
   %30 = getelementptr i8, ptr %29, i64 -1
-  %.not4153 = icmp eq ptr %30, null
-  %.not41 = select i1 %28, i1 true, i1 %.not4153
+  %.not4152 = icmp eq ptr %30, null
+  %.not41 = select i1 %28, i1 true, i1 %.not4152
   br i1 %.not41, label %46, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
@@ -2598,86 +2596,83 @@ FreePageManagerDumpSpans.exit:                    ; preds = %select.unfold.i
   %invariant.gep = getelementptr i8, ptr %5, i64 -1
   br label %48
 
-48:                                               ; preds = %46, %74
-  %.056 = phi i8 [ 0, %46 ], [ %.2, %74 ]
-  %.03355 = phi i64 [ 0, %46 ], [ %.pre-phi, %74 ]
-  %49 = getelementptr [129 x %union.RelptrFreePageSpanLeader], ptr %47, i64 0, i64 %.03355
+48:                                               ; preds = %46, %73
+  %.055 = phi i1 [ false, %46 ], [ %.2, %73 ]
+  %.03354 = phi i64 [ 0, %46 ], [ %.pre-phi, %73 ]
+  %49 = getelementptr [129 x %union.RelptrFreePageSpanLeader], ptr %47, i64 0, i64 %.03354
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %._crit_edge, label %52
 
 ._crit_edge:                                      ; preds = %48
-  %.pre = add nuw nsw i64 %.03355, 1
-  br label %74
+  %.pre = add nuw nsw i64 %.03354, 1
+  br label %73
 
 52:                                               ; preds = %48
-  %53 = and i8 %.056, 1
-  %.not42 = icmp eq i8 %53, 0
-  br i1 %.not42, label %54, label %55
+  br i1 %.055, label %54, label %53
 
-54:                                               ; preds = %52
+53:                                               ; preds = %52
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #12
-  br label %55
+  br label %54
 
-55:                                               ; preds = %54, %52
-  %.1 = phi i8 [ %.056, %52 ], [ 1, %54 ]
-  %56 = add nuw nsw i64 %.03355, 1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef %56) #12
-  %57 = load i64, ptr %49, align 8
-  %58 = icmp eq i64 %57, 0
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %57
-  %59 = load i64, ptr %0, align 8
-  %60 = sub i64 1, %59
-  %61 = getelementptr i8, ptr %0, i64 %60
-  %invariant.gep.i43 = getelementptr i8, ptr %61, i64 -1
-  %.not18.i4454 = icmp eq ptr %gep, null
-  %.not18.i44 = select i1 %58, i1 true, i1 %.not18.i4454
-  br i1 %.not18.i44, label %FreePageManagerDumpSpans.exit52, label %.lr.ph.i45
+54:                                               ; preds = %53, %52
+  %55 = add nuw nsw i64 %.03354, 1
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef %55) #12
+  %56 = load i64, ptr %49, align 8
+  %57 = icmp eq i64 %56, 0
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %56
+  %58 = load i64, ptr %0, align 8
+  %59 = sub i64 1, %58
+  %60 = getelementptr i8, ptr %0, i64 %59
+  %invariant.gep.i42 = getelementptr i8, ptr %60, i64 -1
+  %.not18.i4353 = icmp eq ptr %gep, null
+  %.not18.i43 = select i1 %57, i1 true, i1 %.not18.i4353
+  br i1 %.not18.i43, label %FreePageManagerDumpSpans.exit51, label %.lr.ph.i44
 
-.lr.ph.i45:                                       ; preds = %55
-  %62 = ptrtoint ptr %61 to i64
-  br label %63
+.lr.ph.i44:                                       ; preds = %54
+  %61 = ptrtoint ptr %60 to i64
+  br label %62
 
-63:                                               ; preds = %select.unfold.i48, %.lr.ph.i45
-  %.019.i46 = phi ptr [ %gep, %.lr.ph.i45 ], [ %gep.i49, %select.unfold.i48 ]
-  %64 = getelementptr inbounds i8, ptr %.019.i46, i64 8
-  %65 = load i64, ptr %64, align 8
-  %.not17.i47 = icmp eq i64 %65, %56
-  %66 = ptrtoint ptr %.019.i46 to i64
-  %67 = sub i64 %66, %62
-  %68 = lshr i64 %67, 12
-  br i1 %.not17.i47, label %70, label %69
+62:                                               ; preds = %select.unfold.i47, %.lr.ph.i44
+  %.019.i45 = phi ptr [ %gep, %.lr.ph.i44 ], [ %gep.i48, %select.unfold.i47 ]
+  %63 = getelementptr inbounds i8, ptr %.019.i45, i64 8
+  %64 = load i64, ptr %63, align 8
+  %.not17.i46 = icmp eq i64 %64, %55
+  %65 = ptrtoint ptr %.019.i45 to i64
+  %66 = sub i64 %65, %61
+  %67 = lshr i64 %66, 12
+  br i1 %.not17.i46, label %69, label %68
 
-69:                                               ; preds = %63
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i64 noundef %68, i64 noundef %65) #12
-  br label %select.unfold.i48
+68:                                               ; preds = %62
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i64 noundef %67, i64 noundef %64) #12
+  br label %select.unfold.i47
 
-70:                                               ; preds = %63
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i64 noundef %68) #12
-  br label %select.unfold.i48
+69:                                               ; preds = %62
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i64 noundef %67) #12
+  br label %select.unfold.i47
 
-select.unfold.i48:                                ; preds = %70, %69
-  %71 = getelementptr inbounds i8, ptr %.019.i46, i64 24
-  %72 = load i64, ptr %71, align 8
-  %73 = icmp eq i64 %72, 0
-  %gep.i49 = getelementptr i8, ptr %invariant.gep.i43, i64 %72
-  %.not20.i50 = icmp eq ptr %gep.i49, null
-  %.not.i51 = select i1 %73, i1 true, i1 %.not20.i50
-  br i1 %.not.i51, label %FreePageManagerDumpSpans.exit52, label %63
+select.unfold.i47:                                ; preds = %69, %68
+  %70 = getelementptr inbounds i8, ptr %.019.i45, i64 24
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp eq i64 %71, 0
+  %gep.i48 = getelementptr i8, ptr %invariant.gep.i42, i64 %71
+  %.not20.i49 = icmp eq ptr %gep.i48, null
+  %.not.i50 = select i1 %72, i1 true, i1 %.not20.i49
+  br i1 %.not.i50, label %FreePageManagerDumpSpans.exit51, label %62
 
-FreePageManagerDumpSpans.exit52:                  ; preds = %select.unfold.i48, %55
+FreePageManagerDumpSpans.exit51:                  ; preds = %select.unfold.i47, %54
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #12
-  br label %74
+  br label %73
 
-74:                                               ; preds = %._crit_edge, %FreePageManagerDumpSpans.exit52
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %56, %FreePageManagerDumpSpans.exit52 ]
-  %.2 = phi i8 [ %.056, %._crit_edge ], [ %.1, %FreePageManagerDumpSpans.exit52 ]
+73:                                               ; preds = %._crit_edge, %FreePageManagerDumpSpans.exit51
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %55, %FreePageManagerDumpSpans.exit51 ]
+  %.2 = phi i1 [ %.055, %._crit_edge ], [ true, %FreePageManagerDumpSpans.exit51 ]
   %exitcond.not = icmp eq i64 %.pre-phi, 129
-  br i1 %exitcond.not, label %75, label %48, !llvm.loop !17
+  br i1 %exitcond.not, label %74, label %48, !llvm.loop !17
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %2, align 8
-  ret ptr %76
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %2, align 8
+  ret ptr %75
 }
 
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #3

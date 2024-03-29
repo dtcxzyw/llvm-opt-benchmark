@@ -70,17 +70,17 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
   %.sroa.40.0 = phi ptr [ null, %2 ], [ %.sroa.40.0.be, %openFile.exit.i.backedge ]
   %.sroa.76.0 = phi i32 [ 123, %2 ], [ %.sroa.76.0.be, %openFile.exit.i.backedge ]
   %.sroa.70.0 = phi i32 [ 0, %2 ], [ %.sroa.70.0.be, %openFile.exit.i.backedge ]
-  %.sroa.65.0 = phi i8 [ 0, %2 ], [ %.sroa.65.0.be, %openFile.exit.i.backedge ]
+  %.sroa.65.0 = phi i1 [ false, %2 ], [ %.sroa.65.0.be, %openFile.exit.i.backedge ]
   %.sroa.62.0 = phi ptr [ @.str, %2 ], [ %.sroa.62.0.be, %openFile.exit.i.backedge ]
   %.sroa.57.0 = phi i32 [ 0, %2 ], [ %.sroa.57.0.be, %openFile.exit.i.backedge ]
   %.sroa.54.0 = phi i32 [ 0, %2 ], [ %.sroa.54.0.be, %openFile.exit.i.backedge ]
-  %.sroa.51.0 = phi i8 [ 1, %2 ], [ %.sroa.51.0.be, %openFile.exit.i.backedge ]
+  %.sroa.51.0 = phi i1 [ true, %2 ], [ %.sroa.51.0.be, %openFile.exit.i.backedge ]
   %.sroa.48.0 = phi i32 [ -1, %2 ], [ %.sroa.48.0.be, %openFile.exit.i.backedge ]
   %.sroa.45.0 = phi i32 [ 0, %2 ], [ %.sroa.45.0.be, %openFile.exit.i.backedge ]
   %.sroa.43.0 = phi ptr [ null, %2 ], [ %.sroa.43.0.be, %openFile.exit.i.backedge ]
   %.sroa.37.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.37.0.be, %openFile.exit.i.backedge ]
   %.sroa.33.0 = phi i32 [ 1, %2 ], [ %.sroa.33.0.be, %openFile.exit.i.backedge ]
-  %.sroa.31.0 = phi i8 [ 0, %2 ], [ %.sroa.31.0.be, %openFile.exit.i.backedge ]
+  %.sroa.31.0 = phi i1 [ false, %2 ], [ %.sroa.31.0.be, %openFile.exit.i.backedge ]
   %.sroa.21.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.21.0.be, %openFile.exit.i.backedge ]
   %.sroa.18.0 = phi i32 [ -1, %2 ], [ %.sroa.18.0.be, %openFile.exit.i.backedge ]
   %.sroa.13.0 = phi double [ 0.000000e+00, %2 ], [ %.sroa.13.0.be, %openFile.exit.i.backedge ]
@@ -208,17 +208,17 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %148, %117
   %.sroa.40.0.be = phi ptr [ %.sroa.40.0, %openFile.exit.i ], [ %.sroa.40.0, %165 ], [ %.sroa.40.0, %167 ], [ %.sroa.40.0, %159 ], [ %.sroa.40.0, %171 ], [ %.sroa.40.0, %146 ], [ %128, %127 ], [ %.sroa.40.0, %103 ], [ %.sroa.40.0, %98 ], [ %.sroa.40.0, %90 ], [ %.sroa.40.0, %89 ], [ %.sroa.40.0, %88 ], [ %.sroa.40.0, %87 ], [ %.sroa.40.0, %57 ], [ %.sroa.40.0, %68 ], [ %.sroa.40.0, %46 ], [ %.sroa.40.0, %41 ], [ %.sroa.40.0, %30 ], [ %.sroa.40.0, %91 ], [ %.sroa.40.0, %114 ], [ %.sroa.40.0, %117 ], [ %.sroa.40.0, %148 ], [ %.sroa.40.0, %76 ], [ %.sroa.40.0, %81 ]
   %.sroa.76.0.be = phi i32 [ %.sroa.76.0, %openFile.exit.i ], [ %.sroa.76.0, %165 ], [ %.sroa.76.0, %167 ], [ %.sroa.76.0, %159 ], [ %.sroa.76.0, %171 ], [ %147, %146 ], [ %.sroa.76.0, %127 ], [ %.sroa.76.0, %103 ], [ %.sroa.76.0, %98 ], [ %.sroa.76.0, %90 ], [ %.sroa.76.0, %89 ], [ %.sroa.76.0, %88 ], [ %.sroa.76.0, %87 ], [ %.sroa.76.0, %57 ], [ %.sroa.76.0, %68 ], [ %.sroa.76.0, %46 ], [ %.sroa.76.0, %41 ], [ %.sroa.76.0, %30 ], [ %.sroa.76.0, %91 ], [ %.sroa.76.0, %114 ], [ %.sroa.76.0, %117 ], [ %.sroa.76.0, %148 ], [ %.sroa.76.0, %76 ], [ %.sroa.76.0, %81 ]
   %.sroa.70.0.be = phi i32 [ %.sroa.70.0, %openFile.exit.i ], [ %.sroa.70.0, %165 ], [ %.sroa.70.0, %167 ], [ %.sroa.70.0, %159 ], [ %.sroa.70.0, %171 ], [ %.sroa.70.0, %146 ], [ %.sroa.70.0, %127 ], [ %.sroa.70.0, %103 ], [ %.sroa.70.0, %98 ], [ %.sroa.70.0, %90 ], [ %.sroa.70.0, %89 ], [ %.sroa.70.0, %88 ], [ %.sroa.70.0, %87 ], [ %.sroa.70.0, %57 ], [ %70, %68 ], [ %.sroa.70.0, %46 ], [ %.sroa.70.0, %41 ], [ %.sroa.70.0, %30 ], [ %.sroa.70.0, %91 ], [ %.sroa.70.0, %114 ], [ %.sroa.70.0, %117 ], [ %.sroa.70.0, %148 ], [ %.sroa.70.0, %76 ], [ %.sroa.70.0, %81 ]
-  %.sroa.65.0.be = phi i8 [ %.sroa.65.0, %openFile.exit.i ], [ %.sroa.65.0, %165 ], [ %.sroa.65.0, %167 ], [ %.sroa.65.0, %159 ], [ %.sroa.65.0, %171 ], [ %.sroa.65.0, %146 ], [ %.sroa.65.0, %127 ], [ %.sroa.65.0, %103 ], [ %.sroa.65.0, %98 ], [ %.sroa.65.0, %90 ], [ %.sroa.65.0, %89 ], [ %.sroa.65.0, %88 ], [ 1, %87 ], [ %.sroa.65.0, %57 ], [ %.sroa.65.0, %68 ], [ %.sroa.65.0, %46 ], [ %.sroa.65.0, %41 ], [ %.sroa.65.0, %30 ], [ %.sroa.65.0, %91 ], [ %.sroa.65.0, %114 ], [ %.sroa.65.0, %117 ], [ %.sroa.65.0, %148 ], [ %.sroa.65.0, %76 ], [ %.sroa.65.0, %81 ]
+  %.sroa.65.0.be = phi i1 [ %.sroa.65.0, %openFile.exit.i ], [ %.sroa.65.0, %165 ], [ %.sroa.65.0, %167 ], [ %.sroa.65.0, %159 ], [ %.sroa.65.0, %171 ], [ %.sroa.65.0, %146 ], [ %.sroa.65.0, %127 ], [ %.sroa.65.0, %103 ], [ %.sroa.65.0, %98 ], [ %.sroa.65.0, %90 ], [ %.sroa.65.0, %89 ], [ %.sroa.65.0, %88 ], [ true, %87 ], [ %.sroa.65.0, %57 ], [ %.sroa.65.0, %68 ], [ %.sroa.65.0, %46 ], [ %.sroa.65.0, %41 ], [ %.sroa.65.0, %30 ], [ %.sroa.65.0, %91 ], [ %.sroa.65.0, %114 ], [ %.sroa.65.0, %117 ], [ %.sroa.65.0, %148 ], [ %.sroa.65.0, %76 ], [ %.sroa.65.0, %81 ]
   %.sroa.62.0.be = phi ptr [ %.sroa.62.0, %openFile.exit.i ], [ %.sroa.62.0, %165 ], [ %.sroa.62.0, %167 ], [ %160, %159 ], [ %.sroa.62.0, %171 ], [ %.sroa.62.0, %146 ], [ %.sroa.62.0, %127 ], [ %.sroa.62.0, %103 ], [ %.sroa.62.0, %98 ], [ %.sroa.62.0, %90 ], [ %.sroa.62.0, %89 ], [ %.sroa.62.0, %88 ], [ %.sroa.62.0, %87 ], [ %.sroa.62.0, %57 ], [ %.sroa.62.0, %68 ], [ %.sroa.62.0, %46 ], [ %.sroa.62.0, %41 ], [ %.sroa.62.0, %30 ], [ %.sroa.62.0, %91 ], [ %.sroa.62.0, %114 ], [ %.sroa.62.0, %117 ], [ %.sroa.62.0, %148 ], [ %.sroa.62.0, %76 ], [ %.sroa.62.0, %81 ]
   %.sroa.57.0.be = phi i32 [ %.sroa.57.0, %openFile.exit.i ], [ %.sroa.57.0, %165 ], [ %.sroa.57.0, %167 ], [ %.sroa.57.0, %159 ], [ %.sroa.57.0, %171 ], [ %.sroa.57.0, %146 ], [ %.sroa.57.0, %127 ], [ %.sroa.57.0, %103 ], [ %.sroa.57.0, %98 ], [ %.sroa.57.0, %90 ], [ %.sroa.57.0, %89 ], [ %.sroa.57.0, %88 ], [ %.sroa.57.0, %87 ], [ %59, %57 ], [ %.sroa.57.0, %68 ], [ %.sroa.57.0, %46 ], [ %.sroa.57.0, %41 ], [ %.sroa.57.0, %30 ], [ %.sroa.57.0, %91 ], [ %.sroa.57.0, %114 ], [ %.sroa.57.0, %117 ], [ %.sroa.57.0, %148 ], [ %.sroa.57.0, %76 ], [ %.sroa.57.0, %81 ]
   %.sroa.54.0.be = phi i32 [ %.sroa.54.0, %openFile.exit.i ], [ %.sroa.54.0, %165 ], [ %.sroa.54.0, %167 ], [ %.sroa.54.0, %159 ], [ %.sroa.54.0, %171 ], [ %.sroa.54.0, %146 ], [ %.sroa.54.0, %127 ], [ %.sroa.54.0, %103 ], [ %.sroa.54.0, %98 ], [ %.sroa.54.0, %90 ], [ %.sroa.54.0, %89 ], [ %.sroa.54.0, %88 ], [ %.sroa.54.0, %87 ], [ %.sroa.54.0, %57 ], [ %.sroa.54.0, %68 ], [ %.sroa.54.0, %46 ], [ %.sroa.54.0, %41 ], [ %.sroa.54.0, %30 ], [ %.sroa.54.0, %91 ], [ %.sroa.54.0, %114 ], [ %.sroa.54.0, %117 ], [ %152, %148 ], [ %.sroa.54.0, %76 ], [ %.sroa.54.0, %81 ]
-  %.sroa.51.0.be = phi i8 [ %.sroa.51.0, %openFile.exit.i ], [ %.sroa.51.0, %165 ], [ %.sroa.51.0, %167 ], [ %.sroa.51.0, %159 ], [ %.sroa.51.0, %171 ], [ %.sroa.51.0, %146 ], [ %.sroa.51.0, %127 ], [ %.sroa.51.0, %103 ], [ 0, %98 ], [ %.sroa.51.0, %90 ], [ %.sroa.51.0, %89 ], [ %.sroa.51.0, %88 ], [ %.sroa.51.0, %87 ], [ %.sroa.51.0, %57 ], [ %.sroa.51.0, %68 ], [ %.sroa.51.0, %46 ], [ %.sroa.51.0, %41 ], [ %.sroa.51.0, %30 ], [ %.sroa.51.0, %91 ], [ %.sroa.51.0, %114 ], [ %.sroa.51.0, %117 ], [ %.sroa.51.0, %148 ], [ %.sroa.51.0, %76 ], [ %.sroa.51.0, %81 ]
+  %.sroa.51.0.be = phi i1 [ %.sroa.51.0, %openFile.exit.i ], [ %.sroa.51.0, %165 ], [ %.sroa.51.0, %167 ], [ %.sroa.51.0, %159 ], [ %.sroa.51.0, %171 ], [ %.sroa.51.0, %146 ], [ %.sroa.51.0, %127 ], [ %.sroa.51.0, %103 ], [ false, %98 ], [ %.sroa.51.0, %90 ], [ %.sroa.51.0, %89 ], [ %.sroa.51.0, %88 ], [ %.sroa.51.0, %87 ], [ %.sroa.51.0, %57 ], [ %.sroa.51.0, %68 ], [ %.sroa.51.0, %46 ], [ %.sroa.51.0, %41 ], [ %.sroa.51.0, %30 ], [ %.sroa.51.0, %91 ], [ %.sroa.51.0, %114 ], [ %.sroa.51.0, %117 ], [ %.sroa.51.0, %148 ], [ %.sroa.51.0, %76 ], [ %.sroa.51.0, %81 ]
   %.sroa.48.0.be = phi i32 [ %.sroa.48.0, %openFile.exit.i ], [ %.sroa.48.0, %165 ], [ %.sroa.48.0, %167 ], [ %.sroa.48.0, %159 ], [ %.sroa.48.0, %171 ], [ %.sroa.48.0, %146 ], [ %.sroa.48.0, %127 ], [ %104, %103 ], [ %.sroa.48.0, %98 ], [ %.sroa.48.0, %90 ], [ %.sroa.48.0, %89 ], [ %.sroa.48.0, %88 ], [ %.sroa.48.0, %87 ], [ %.sroa.48.0, %57 ], [ %.sroa.48.0, %68 ], [ %.sroa.48.0, %46 ], [ %.sroa.48.0, %41 ], [ %.sroa.48.0, %30 ], [ %.sroa.48.0, %91 ], [ %.sroa.48.0, %114 ], [ %.sroa.48.0, %117 ], [ %.sroa.48.0, %148 ], [ %.sroa.48.0, %76 ], [ %.sroa.48.0, %81 ]
   %.sroa.45.0.be = phi i32 [ %.sroa.45.0, %openFile.exit.i ], [ %.sroa.45.0, %165 ], [ %.sroa.45.0, %167 ], [ %.sroa.45.0, %159 ], [ %.sroa.45.0, %171 ], [ %.sroa.45.0, %146 ], [ %.sroa.45.0, %127 ], [ %.sroa.45.0, %103 ], [ %.sroa.45.0, %98 ], [ %.sroa.45.0, %90 ], [ %.sroa.45.0, %89 ], [ %.sroa.45.0, %88 ], [ %.sroa.45.0, %87 ], [ %.sroa.45.0, %57 ], [ %.sroa.45.0, %68 ], [ %.sroa.45.0, %46 ], [ %.sroa.45.0, %41 ], [ %.sroa.45.0, %30 ], [ %.sroa.45.0, %91 ], [ %.sroa.45.0, %114 ], [ %.sroa.45.0, %117 ], [ %.sroa.45.0, %148 ], [ %.sroa.45.0, %76 ], [ %spec.select19, %81 ]
   %.sroa.43.0.be = phi ptr [ %.sroa.43.0, %openFile.exit.i ], [ %.sroa.43.0, %165 ], [ %.sroa.43.0, %167 ], [ %.sroa.43.0, %159 ], [ %.sroa.43.0, %171 ], [ %.sroa.43.0, %146 ], [ %.sroa.43.0, %127 ], [ %.sroa.43.0, %103 ], [ %.sroa.43.0, %98 ], [ %.sroa.43.0, %90 ], [ %.sroa.43.0, %89 ], [ %.sroa.43.0, %88 ], [ %.sroa.43.0, %87 ], [ %.sroa.43.0, %57 ], [ %.sroa.43.0, %68 ], [ %.sroa.43.0, %46 ], [ %.sroa.43.0, %41 ], [ %.sroa.43.0, %30 ], [ %.sroa.43.0, %91 ], [ %26, %114 ], [ %.sroa.43.0, %117 ], [ %.sroa.43.0, %148 ], [ %.sroa.43.0, %76 ], [ %.sroa.43.0, %81 ]
   %.sroa.37.0.be = phi double [ %.sroa.37.0, %openFile.exit.i ], [ %166, %165 ], [ %.sroa.37.0, %167 ], [ %.sroa.37.0, %159 ], [ %.sroa.37.0, %171 ], [ %.sroa.37.0, %146 ], [ %.sroa.37.0, %127 ], [ %.sroa.37.0, %103 ], [ %.sroa.37.0, %98 ], [ %.sroa.37.0, %90 ], [ %.sroa.37.0, %89 ], [ %.sroa.37.0, %88 ], [ %.sroa.37.0, %87 ], [ %.sroa.37.0, %57 ], [ %.sroa.37.0, %68 ], [ %.sroa.37.0, %46 ], [ %.sroa.37.0, %41 ], [ %.sroa.37.0, %30 ], [ %.sroa.37.0, %91 ], [ %.sroa.37.0, %114 ], [ %.sroa.37.0, %117 ], [ %.sroa.37.0, %148 ], [ %.sroa.37.0, %76 ], [ %.sroa.37.0, %81 ]
   %.sroa.33.0.be = phi i32 [ %.sroa.33.0, %openFile.exit.i ], [ %.sroa.33.0, %165 ], [ %.sroa.33.0, %167 ], [ %.sroa.33.0, %159 ], [ %.sroa.33.0, %171 ], [ %.sroa.33.0, %146 ], [ 0, %127 ], [ %.sroa.33.0, %103 ], [ %.sroa.33.0, %98 ], [ %.sroa.33.0, %90 ], [ %.sroa.33.0, %89 ], [ %.sroa.33.0, %88 ], [ %.sroa.33.0, %87 ], [ %.sroa.33.0, %57 ], [ %.sroa.33.0, %68 ], [ %.sroa.33.0, %46 ], [ %.sroa.33.0, %41 ], [ %.sroa.33.0, %30 ], [ %.sroa.33.0, %91 ], [ %.sroa.33.0, %114 ], [ %121, %117 ], [ %.sroa.33.0, %148 ], [ %.sroa.33.0, %76 ], [ %.sroa.33.0, %81 ]
-  %.sroa.31.0.be = phi i8 [ %.sroa.31.0, %openFile.exit.i ], [ %.sroa.31.0, %165 ], [ %.sroa.31.0, %167 ], [ %.sroa.31.0, %159 ], [ %.sroa.31.0, %171 ], [ %.sroa.31.0, %146 ], [ %.sroa.31.0, %127 ], [ %.sroa.31.0, %103 ], [ %.sroa.31.0, %98 ], [ 1, %90 ], [ %.sroa.31.0, %89 ], [ %.sroa.31.0, %88 ], [ %.sroa.31.0, %87 ], [ %.sroa.31.0, %57 ], [ %.sroa.31.0, %68 ], [ %.sroa.31.0, %46 ], [ %.sroa.31.0, %41 ], [ %.sroa.31.0, %30 ], [ %.sroa.31.0, %91 ], [ %.sroa.31.0, %114 ], [ %.sroa.31.0, %117 ], [ %.sroa.31.0, %148 ], [ %.sroa.31.0, %76 ], [ %.sroa.31.0, %81 ]
+  %.sroa.31.0.be = phi i1 [ %.sroa.31.0, %openFile.exit.i ], [ %.sroa.31.0, %165 ], [ %.sroa.31.0, %167 ], [ %.sroa.31.0, %159 ], [ %.sroa.31.0, %171 ], [ %.sroa.31.0, %146 ], [ %.sroa.31.0, %127 ], [ %.sroa.31.0, %103 ], [ %.sroa.31.0, %98 ], [ true, %90 ], [ %.sroa.31.0, %89 ], [ %.sroa.31.0, %88 ], [ %.sroa.31.0, %87 ], [ %.sroa.31.0, %57 ], [ %.sroa.31.0, %68 ], [ %.sroa.31.0, %46 ], [ %.sroa.31.0, %41 ], [ %.sroa.31.0, %30 ], [ %.sroa.31.0, %91 ], [ %.sroa.31.0, %114 ], [ %.sroa.31.0, %117 ], [ %.sroa.31.0, %148 ], [ %.sroa.31.0, %76 ], [ %.sroa.31.0, %81 ]
   %.sroa.21.0.be = phi double [ %.sroa.21.0, %openFile.exit.i ], [ %.sroa.21.0, %165 ], [ %.sroa.21.0, %167 ], [ %.sroa.21.0, %159 ], [ %.sroa.21.0, %171 ], [ %.sroa.21.0, %146 ], [ %.sroa.21.0, %127 ], [ %.sroa.21.0, %103 ], [ %.sroa.21.0, %98 ], [ %.sroa.21.0, %90 ], [ %.sroa.21.0, %89 ], [ %.sroa.21.0, %88 ], [ %.sroa.21.0, %87 ], [ %.sroa.21.0, %57 ], [ %.sroa.21.0, %68 ], [ %.sroa.21.0, %46 ], [ %.sroa.21.0, %41 ], [ %34, %30 ], [ %.sroa.21.0, %91 ], [ %.sroa.21.0, %114 ], [ %.sroa.21.0, %117 ], [ %.sroa.21.0, %148 ], [ %.sroa.21.0, %76 ], [ %.sroa.21.0, %81 ]
   %.sroa.18.0.be = phi i32 [ %.sroa.18.0, %openFile.exit.i ], [ %.sroa.18.0, %165 ], [ %.sroa.18.0, %167 ], [ %.sroa.18.0, %159 ], [ %.sroa.18.0, %171 ], [ %.sroa.18.0, %146 ], [ %.sroa.18.0, %127 ], [ %.sroa.18.0, %103 ], [ %.sroa.18.0, %98 ], [ %.sroa.18.0, %90 ], [ %.sroa.18.0, %89 ], [ %.sroa.18.0, %88 ], [ %.sroa.18.0, %87 ], [ %.sroa.18.0, %57 ], [ %.sroa.18.0, %68 ], [ %.sroa.18.0, %46 ], [ %.sroa.18.0, %41 ], [ %.sroa.18.0, %30 ], [ %.sroa.18.0, %91 ], [ %.sroa.18.0, %114 ], [ %.sroa.18.0, %117 ], [ %.sroa.18.0, %148 ], [ %spec.select, %76 ], [ %.sroa.18.0, %81 ]
   %.sroa.13.0.be = phi double [ %.sroa.13.0, %openFile.exit.i ], [ %.sroa.13.0, %165 ], [ %.sroa.13.0, %167 ], [ %.sroa.13.0, %159 ], [ %.sroa.13.0, %171 ], [ %.sroa.13.0, %146 ], [ %.sroa.13.0, %127 ], [ %.sroa.13.0, %103 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %90 ], [ %.sroa.13.0, %89 ], [ %.sroa.13.0, %88 ], [ %.sroa.13.0, %87 ], [ %.sroa.13.0, %57 ], [ %.sroa.13.0, %68 ], [ %47, %46 ], [ %.sroa.13.0, %41 ], [ %.sroa.13.0, %30 ], [ %.sroa.13.0, %91 ], [ %.sroa.13.0, %114 ], [ %.sroa.13.0, %117 ], [ %.sroa.13.0, %148 ], [ %.sroa.13.0, %76 ], [ %.sroa.13.0, %81 ]
@@ -422,26 +422,23 @@ init.exit:                                        ; preds = %openFile.exit.i
   br i1 %.not200, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %init.exit
-  %195 = icmp ne i8 %.sroa.65.0, 0
-  %196 = icmp ne i8 %.sroa.51.0, 0
   %.not97.i.i = icmp eq ptr %.sroa.40.0, null
-  %197 = icmp ne i32 %.sroa.45.0, 0
-  %198 = icmp sgt i32 %.sroa.45.0, 0
-  %.not98.i.i = icmp eq i8 %.sroa.31.0, 0
-  br label %199
+  %195 = icmp ne i32 %.sroa.45.0, 0
+  %196 = icmp sgt i32 %.sroa.45.0, 0
+  br label %197
 
-199:                                              ; preds = %.lr.ph, %mapFromGraph.exit
-  %200 = phi ptr [ %194, %.lr.ph ], [ %260, %mapFromGraph.exit ]
-  %.0202 = phi ptr [ null, %.lr.ph ], [ %200, %mapFromGraph.exit ]
+197:                                              ; preds = %.lr.ph, %mapFromGraph.exit
+  %198 = phi ptr [ %194, %.lr.ph ], [ %258, %mapFromGraph.exit ]
+  %.0202 = phi ptr [ null, %.lr.ph ], [ %198, %mapFromGraph.exit ]
   %.sroa.70.2201 = phi i32 [ %.sroa.70.0, %.lr.ph ], [ %.sroa.70.3, %mapFromGraph.exit ]
   %.not6 = icmp eq ptr %.0202, null
-  br i1 %.not6, label %203, label %201
+  br i1 %.not6, label %201, label %199
 
-201:                                              ; preds = %199
-  %202 = call i32 @agclose(ptr noundef nonnull %.0202) #10
-  br label %203
+199:                                              ; preds = %197
+  %200 = call i32 @agclose(ptr noundef nonnull %.0202) #10
+  br label %201
 
-203:                                              ; preds = %201, %199
+201:                                              ; preds = %199, %197
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -456,17 +453,17 @@ init.exit:                                        ; preds = %openFile.exit.i
   store ptr null, ptr %19, align 8
   store ptr null, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  call void @initDotIO(ptr noundef nonnull %200) #10
-  %204 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %200, i32 noundef %.sroa.54.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.33.0, i32 noundef %.sroa.29.0, i32 noundef %.sroa.26.0) #10
-  %205 = load i32, ptr %14, align 4
-  %206 = load ptr, ptr %16, align 8
-  %207 = load ptr, ptr %15, align 8
-  %208 = load ptr, ptr %18, align 8
-  %209 = load ptr, ptr %17, align 8
-  %210 = load ptr, ptr %22, align 8
-  %211 = load ptr, ptr %19, align 8
-  %212 = load ptr, ptr %20, align 8
-  %213 = load ptr, ptr %21, align 8
+  call void @initDotIO(ptr noundef nonnull %198) #10
+  %202 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %198, i32 noundef %.sroa.54.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.33.0, i32 noundef %.sroa.29.0, i32 noundef %.sroa.26.0) #10
+  %203 = load i32, ptr %14, align 4
+  %204 = load ptr, ptr %16, align 8
+  %205 = load ptr, ptr %15, align 8
+  %206 = load ptr, ptr %18, align 8
+  %207 = load ptr, ptr %17, align 8
+  %208 = load ptr, ptr %22, align 8
+  %209 = load ptr, ptr %19, align 8
+  %210 = load ptr, ptr %20, align 8
+  %211 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -478,124 +475,124 @@ init.exit:                                        ; preds = %openFile.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  store ptr %211, ptr %3, align 8
-  store ptr %212, ptr %4, align 8
-  store ptr %213, ptr %5, align 8
+  store ptr %209, ptr %3, align 8
+  store ptr %210, ptr %4, align 8
+  store ptr %211, ptr %5, align 8
   store i32 %.sroa.48.0, ptr %13, align 4
   %.not.i.i = icmp eq i32 %.sroa.70.2201, 0
-  br i1 %.not.i.i, label %validateCluster.exit.i.i, label %214
+  br i1 %.not.i.i, label %validateCluster.exit.i.i, label %212
 
-214:                                              ; preds = %203
-  %215 = icmp sgt i32 %205, 0
-  br i1 %215, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
+212:                                              ; preds = %201
+  %213 = icmp sgt i32 %203, 0
+  br i1 %213, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %214
-  %wide.trip.count.i.i.i = zext nneg i32 %205 to i64
+.lr.ph.preheader.i.i.i:                           ; preds = %212
+  %wide.trip.count.i.i.i = zext nneg i32 %203 to i64
   br label %.lr.ph.i.i.i
 
-216:                                              ; preds = %.lr.ph.i.i.i
+214:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %216, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %216 ]
-  %217 = getelementptr inbounds i32, ptr %208, i64 %indvars.iv.i.i.i
-  %218 = load i32, ptr %217, align 4
-  %219 = icmp eq i32 %218, %.sroa.70.2201
-  br i1 %219, label %validateCluster.exit.i.i, label %216
+.lr.ph.i.i.i:                                     ; preds = %214, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %214 ]
+  %215 = getelementptr inbounds i32, ptr %206, i64 %indvars.iv.i.i.i
+  %216 = load i32, ptr %215, align 4
+  %217 = icmp eq i32 %216, %.sroa.70.2201
+  br i1 %217, label %validateCluster.exit.i.i, label %214
 
-._crit_edge.i.i.i:                                ; preds = %216, %214
-  %220 = load ptr, ptr @stderr, align 8
-  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.2201) #11
+._crit_edge.i.i.i:                                ; preds = %214, %212
+  %218 = load ptr, ptr @stderr, align 8
+  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.2201) #11
   br label %validateCluster.exit.i.i
 
-validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %203
-  %.sroa.70.3 = phi i32 [ 0, %203 ], [ 0, %._crit_edge.i.i.i ], [ %.sroa.70.2201, %.lr.ph.i.i.i ]
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %195, i32 noundef %205, i32 noundef 2, ptr noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef %204, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
-  %222 = load i8, ptr @Verbose, align 1
-  %.not96.i.i = icmp eq i8 %222, 0
-  br i1 %.not96.i.i, label %227, label %223
+validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %201
+  %.sroa.70.3 = phi i32 [ 0, %201 ], [ 0, %._crit_edge.i.i.i ], [ %.sroa.70.2201, %.lr.ph.i.i.i ]
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %203, i32 noundef 2, ptr noundef %204, ptr noundef %205, ptr noundef %206, ptr noundef %202, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
+  %220 = load i8, ptr @Verbose, align 1
+  %.not96.i.i = icmp eq i8 %220, 0
+  br i1 %.not96.i.i, label %225, label %221
 
-223:                                              ; preds = %validateCluster.exit.i.i
-  %224 = load ptr, ptr @stderr, align 8
-  %225 = load i32, ptr %13, align 4
-  %226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.16, i32 noundef %225) #11
-  br label %227
+221:                                              ; preds = %validateCluster.exit.i.i
+  %222 = load ptr, ptr @stderr, align 8
+  %223 = load i32, ptr %13, align 4
+  %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.16, i32 noundef %223) #11
+  br label %225
 
-227:                                              ; preds = %223, %validateCluster.exit.i.i
-  %228 = load ptr, ptr %12, align 8
-  %229 = icmp ne ptr %228, null
-  %or.cond.i.i = select i1 %196, i1 %229, i1 false
+225:                                              ; preds = %221, %validateCluster.exit.i.i
+  %226 = load ptr, ptr %12, align 8
+  %227 = icmp ne ptr %226, null
+  %or.cond.i.i = select i1 %.sroa.51.0, i1 %227, i1 false
+  %228 = icmp ne ptr %209, null
+  %or.cond3.i.i = and i1 %228, %or.cond.i.i
+  %229 = icmp ne ptr %210, null
+  %or.cond5.i.i = and i1 %229, %or.cond3.i.i
   %230 = icmp ne ptr %211, null
-  %or.cond3.i.i = and i1 %230, %or.cond.i.i
-  %231 = icmp ne ptr %212, null
-  %or.cond5.i.i = and i1 %231, %or.cond3.i.i
-  %232 = icmp ne ptr %213, null
-  %or.cond7.i.i = and i1 %232, %or.cond5.i.i
-  br i1 %or.cond7.i.i, label %233, label %234
+  %or.cond7.i.i = and i1 %230, %or.cond5.i.i
+  br i1 %or.cond7.i.i, label %231, label %232
 
-233:                                              ; preds = %227
-  call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %228, ptr noundef nonnull %211, ptr noundef nonnull %212, ptr noundef nonnull %213) #10
-  br label %236
+231:                                              ; preds = %225
+  call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %226, ptr noundef nonnull %209, ptr noundef nonnull %210, ptr noundef nonnull %211) #10
+  br label %234
 
-234:                                              ; preds = %227
-  br i1 %.not97.i.i, label %236, label %235
+232:                                              ; preds = %225
+  br i1 %.not97.i.i, label %234, label %233
 
-235:                                              ; preds = %234
-  call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %228, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  br label %236
+233:                                              ; preds = %232
+  call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %226, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  br label %234
 
-236:                                              ; preds = %235, %234, %233
-  %237 = icmp ne ptr %204, null
-  %or.cond9.i.i = select i1 %237, i1 %197, i1 false
+234:                                              ; preds = %233, %232, %231
+  %235 = icmp ne ptr %202, null
+  %or.cond9.i.i = select i1 %235, i1 %195, i1 false
   br i1 %or.cond9.i.i, label %.preheader.i.i, label %mapFromGraph.exit
 
-.preheader.i.i:                                   ; preds = %236
-  br i1 %198, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %234
+  br i1 %196, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.099.i.i = phi i32 [ %239, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %238 = load ptr, ptr %8, align 8
-  call void @improve_contiguity(i32 noundef %205, i32 noundef 2, ptr noundef %208, ptr noundef %238, ptr noundef %206, ptr noundef nonnull %204) #10
+  %.098.i.i = phi i32 [ %237, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %236 = load ptr, ptr %8, align 8
+  call void @improve_contiguity(i32 noundef %203, i32 noundef 2, ptr noundef %206, ptr noundef %236, ptr noundef %204, ptr noundef nonnull %202) #10
   store i32 %.sroa.48.0, ptr %13, align 4
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %195, i32 noundef %205, i32 noundef 2, ptr noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef nonnull %204, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
-  %239 = add nuw nsw i32 %.099.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %239, %.sroa.45.0
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %203, i32 noundef 2, ptr noundef %204, ptr noundef %205, ptr noundef %206, ptr noundef nonnull %202, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
+  %237 = add nuw nsw i32 %.098.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %237, %.sroa.45.0
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %240 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %204) #10
-  call void @remove_overlap(i32 noundef 2, ptr noundef %240, ptr noundef %206, ptr noundef %207, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #10
-  call void @SparseMatrix_delete(ptr noundef %240) #10
+  %238 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %202) #10
+  call void @remove_overlap(i32 noundef 2, ptr noundef %238, ptr noundef %204, ptr noundef %205, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #10
+  call void @SparseMatrix_delete(ptr noundef %238) #10
   store i32 %.sroa.48.0, ptr %13, align 4
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %195, i32 noundef %205, i32 noundef 2, ptr noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef nonnull %204, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %203, i32 noundef 2, ptr noundef %204, ptr noundef %205, ptr noundef %206, ptr noundef nonnull %202, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
   br label %mapFromGraph.exit
 
-mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i.i
-  %241 = load ptr, ptr %3, align 8
-  %242 = load ptr, ptr %4, align 8
-  %243 = load ptr, ptr %5, align 8
-  call void @Dot_SetClusterColor(ptr noundef nonnull %200, ptr noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef %208) #10
-  %244 = load ptr, ptr %7, align 8
-  %245 = load ptr, ptr %6, align 8
-  %246 = load ptr, ptr %11, align 8
-  %247 = load ptr, ptr %10, align 8
-  %248 = load ptr, ptr %3, align 8
-  %249 = load ptr, ptr %4, align 8
-  %250 = load ptr, ptr %5, align 8
-  %251 = select i1 %.not98.i.i, ptr null, ptr %204
-  call void @plot_dot_map(ptr noundef nonnull %200, i32 noundef %205, i32 noundef 2, ptr noundef %206, ptr noundef %244, ptr noundef %245, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %246, ptr noundef %247, ptr noundef %209, ptr noundef %210, ptr noundef %248, ptr noundef %249, ptr noundef %250, ptr noundef %.sroa.43.0, ptr noundef %251, ptr noundef %.sroa.5.2) #10
-  %252 = load ptr, ptr %7, align 8
+mapFromGraph.exit:                                ; preds = %234, %._crit_edge.i.i
+  %239 = load ptr, ptr %3, align 8
+  %240 = load ptr, ptr %4, align 8
+  %241 = load ptr, ptr %5, align 8
+  call void @Dot_SetClusterColor(ptr noundef nonnull %198, ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %206) #10
+  %242 = load ptr, ptr %7, align 8
+  %243 = load ptr, ptr %6, align 8
+  %244 = load ptr, ptr %11, align 8
+  %245 = load ptr, ptr %10, align 8
+  %246 = load ptr, ptr %3, align 8
+  %247 = load ptr, ptr %4, align 8
+  %248 = load ptr, ptr %5, align 8
+  %249 = select i1 %.sroa.31.0, ptr %202, ptr null
+  call void @plot_dot_map(ptr noundef nonnull %198, i32 noundef %203, i32 noundef 2, ptr noundef %204, ptr noundef %242, ptr noundef %243, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %244, ptr noundef %245, ptr noundef %207, ptr noundef %208, ptr noundef %246, ptr noundef %247, ptr noundef %248, ptr noundef %.sroa.43.0, ptr noundef %249, ptr noundef %.sroa.5.2) #10
+  %250 = load ptr, ptr %7, align 8
+  call void @SparseMatrix_delete(ptr noundef %250) #10
+  %251 = load ptr, ptr %6, align 8
+  call void @SparseMatrix_delete(ptr noundef %251) #10
+  %252 = load ptr, ptr %8, align 8
   call void @SparseMatrix_delete(ptr noundef %252) #10
-  %253 = load ptr, ptr %6, align 8
-  call void @SparseMatrix_delete(ptr noundef %253) #10
-  %254 = load ptr, ptr %8, align 8
-  call void @SparseMatrix_delete(ptr noundef %254) #10
-  %255 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %255) #10
-  %256 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %256) #10
+  %253 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %253) #10
+  %254 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %254) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -607,12 +604,12 @@ mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %257 = load ptr, ptr %19, align 8
+  %255 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %255) #10
+  %256 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %256) #10
+  %257 = load ptr, ptr %21, align 8
   call void @free(ptr noundef %257) #10
-  %258 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %258) #10
-  %259 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %259) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -622,9 +619,9 @@ mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %260 = call ptr @nextGraph(ptr noundef nonnull %27) #10
-  %.not = icmp eq ptr %260, null
-  br i1 %.not, label %._crit_edge, label %199
+  %258 = call ptr @nextGraph(ptr noundef nonnull %27) #10
+  %.not = icmp eq ptr %258, null
+  br i1 %.not, label %._crit_edge, label %197
 
 ._crit_edge:                                      ; preds = %mapFromGraph.exit, %init.exit
   call fastcc void @graphviz_exit(i32 noundef 0) #13

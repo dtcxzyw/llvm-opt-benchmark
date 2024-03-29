@@ -2836,16 +2836,14 @@ define internal fastcc i32 @get_sane_expected_response_type(ptr nocapture nounde
 
 18:                                               ; preds = %8
   %19 = load i8, ptr %0, align 4
-  %20 = and i8 %19, 1
-  %.not12 = icmp eq i8 %20, 0
-  br i1 %.not12, label %29, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %29
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not13 = icmp eq i8 %24, 0
-  br i1 %.not13, label %26, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
   store i8 0, ptr %22, align 4

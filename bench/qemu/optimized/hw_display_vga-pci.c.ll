@@ -230,9 +230,8 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %big_endian_fb = getelementptr inbounds i8, ptr %ptr, i64 2730
   %0 = load i8, ptr %big_endian_fb, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %conv = select i1 %tobool.not, i64 505290270, i64 3200171710
+  %tobool = trunc i8 %0 to i1
+  %conv = select i1 %tobool, i64 3200171710, i64 505290270
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -379,8 +378,7 @@ entry:
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
   %big_endian_fb = getelementptr inbounds i8, ptr %call.i1, i64 5338
   %0 = load i8, ptr %big_endian_fb, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

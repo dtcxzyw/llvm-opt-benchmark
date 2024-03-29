@@ -324,114 +324,113 @@ define internal i32 @dissect_dpaux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.078.i = phi ptr [ null, %.thread.i ], [ %93, %94 ]
   %106 = zext i8 %73 to i32
   %107 = icmp ult i8 %73, 9
-  br i1 %107, label %switch.hole_check, label %111
+  br i1 %107, label %switch.hole_check, label %110
 
 switch.hole_check:                                ; preds = %105
   %switch.maskindex = zext nneg i8 %73 to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
-  %108 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %108, 0
-  br i1 %switch.lobit.not, label %111, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %110
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %109 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_dpaux, i64 0, i64 %109
+  %108 = zext nneg i8 %73 to i64
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_dpaux, i64 0, i64 %108
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %110 = load ptr, ptr %9, align 8
-  tail call void @col_set_str(ptr noundef %110, i32 noundef 25, ptr noundef nonnull %switch.load) #2
-  br label %111
+  %109 = load ptr, ptr %9, align 8
+  tail call void @col_set_str(ptr noundef %109, i32 noundef 25, ptr noundef nonnull %switch.load) #2
+  br label %110
 
-111:                                              ; preds = %switch.hole_check, %105, %switch.lookup
-  %112 = load i32, ptr @hf_dpaux_reply_cmd, align 4
-  %113 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %112, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %106) #2
+110:                                              ; preds = %switch.hole_check, %105, %switch.lookup
+  %111 = load i32, ptr @hf_dpaux_reply_cmd, align 4
+  %112 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %111, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %106) #2
   %.not72.i = icmp eq i8 %81, 0
-  br i1 %.not72.i, label %dissect_dpaux_from_source.exit, label %114
+  br i1 %.not72.i, label %dissect_dpaux_from_source.exit, label %113
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %9, align 8
-  %116 = zext i8 %81 to i32
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %9, align 8
+  %115 = zext i8 %81 to i32
   %.not73.i = icmp eq i8 %81, 1
-  %117 = select i1 %.not73.i, ptr @.str.83, ptr @.str.82
-  br i1 %.not6980.i, label %124, label %118
+  %116 = select i1 %.not73.i, ptr @.str.83, ptr @.str.82
+  br i1 %.not6980.i, label %123, label %117
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %.078.i, i64 4
-  %120 = load i32, ptr %119, align 4
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %115, i32 noundef 25, ptr noundef nonnull @.str.89, i32 noundef %116, ptr noundef nonnull %117, i32 noundef %120) #2
-  %121 = load i32, ptr @hf_dpaux_addr, align 4
-  %122 = load i32, ptr %119, align 4
-  %123 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %121, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %122) #2
-  br label %125
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds i8, ptr %.078.i, i64 4
+  %119 = load i32, ptr %118, align 4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.89, i32 noundef %115, ptr noundef nonnull %116, i32 noundef %119) #2
+  %120 = load i32, ptr @hf_dpaux_addr, align 4
+  %121 = load i32, ptr %118, align 4
+  %122 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %120, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %121) #2
+  br label %124
 
-124:                                              ; preds = %114
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %115, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %116, ptr noundef nonnull %117) #2
-  br label %125
+123:                                              ; preds = %113
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %115, ptr noundef nonnull %116) #2
+  br label %124
 
-125:                                              ; preds = %124, %118
-  %126 = load i32, ptr @hf_dpaux_len, align 4
-  %127 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %116) #2
-  %128 = load i32, ptr @hf_dpaux_data, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %128, ptr noundef %0, i32 noundef 1, i32 noundef %116, i32 noundef 0) #2
-  br i1 %.not6980.i, label %dissect_dpaux_from_source.exit, label %130
+124:                                              ; preds = %123, %117
+  %125 = load i32, ptr @hf_dpaux_len, align 4
+  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %125, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %115) #2
+  %127 = load i32, ptr @hf_dpaux_data, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %127, ptr noundef %0, i32 noundef 1, i32 noundef %115, i32 noundef 0) #2
+  br i1 %.not6980.i, label %dissect_dpaux_from_source.exit, label %129
 
-130:                                              ; preds = %125
-  %131 = load i32, ptr %.078.i, align 4
-  %.not75.i = icmp eq i32 %131, 0
+129:                                              ; preds = %124
+  %130 = load i32, ptr %.078.i, align 4
+  %.not75.i = icmp eq i32 %130, 0
   br i1 %.not75.i, label %dissect_dpaux_from_source.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %.078.i, i64 4
-  br label %133
+.preheader.i:                                     ; preds = %129
+  %131 = getelementptr inbounds i8, ptr %.078.i, i64 4
+  br label %132
 
-133:                                              ; preds = %dissect_dpaux_register.exit.i, %.preheader.i
-  %.06683.i = phi i32 [ 0, %.preheader.i ], [ %135, %dissect_dpaux_register.exit.i ]
-  %134 = load i32, ptr @hf_dpaux_reg_addr, align 4
-  %135 = add nuw nsw i32 %.06683.i, 1
-  %136 = load i32, ptr %132, align 4
-  %137 = add i32 %136, %.06683.i
-  %138 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %135) #2
-  %139 = zext i8 %138 to i32
-  %140 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %17, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef 1, i32 noundef %137, ptr noundef nonnull @.str.91, i32 noundef %137, i32 noundef %139) #2
-  %141 = load i32, ptr @ett_register, align 4
-  %142 = tail call ptr @proto_item_add_subtree(ptr noundef %140, i32 noundef %141) #2
-  %143 = load i32, ptr %132, align 4
-  %144 = add i32 %143, %.06683.i
-  br label %146
+132:                                              ; preds = %dissect_dpaux_register.exit.i, %.preheader.i
+  %.06683.i = phi i32 [ 0, %.preheader.i ], [ %134, %dissect_dpaux_register.exit.i ]
+  %133 = load i32, ptr @hf_dpaux_reg_addr, align 4
+  %134 = add nuw nsw i32 %.06683.i, 1
+  %135 = load i32, ptr %131, align 4
+  %136 = add i32 %135, %.06683.i
+  %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %134) #2
+  %138 = zext i8 %137 to i32
+  %139 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %17, i32 noundef %133, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef %136, ptr noundef nonnull @.str.91, i32 noundef %136, i32 noundef %138) #2
+  %140 = load i32, ptr @ett_register, align 4
+  %141 = tail call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140) #2
+  %142 = load i32, ptr %131, align 4
+  %143 = add i32 %142, %.06683.i
+  br label %145
 
-145:                                              ; preds = %146
+144:                                              ; preds = %145
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %dissect_dpaux_register.exit.i, label %146, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %dissect_dpaux_register.exit.i, label %145, !llvm.loop !4
 
-146:                                              ; preds = %145, %133
-  %indvars.iv.i.i = phi i64 [ 0, %133 ], [ %indvars.iv.next.i.i, %145 ]
-  %147 = getelementptr [5 x %struct.dpaux_register], ptr @registers, i64 0, i64 %indvars.iv.i.i
-  %148 = load i32, ptr %147, align 8
-  %149 = icmp eq i32 %148, %144
-  br i1 %149, label %150, label %145
+145:                                              ; preds = %144, %132
+  %indvars.iv.i.i = phi i64 [ 0, %132 ], [ %indvars.iv.next.i.i, %144 ]
+  %146 = getelementptr [5 x %struct.dpaux_register], ptr @registers, i64 0, i64 %indvars.iv.i.i
+  %147 = load i32, ptr %146, align 8
+  %148 = icmp eq i32 %147, %143
+  br i1 %148, label %149, label %144
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %147, i64 4
-  %152 = load i8, ptr %151, align 4
-  %cond.i.i = icmp eq i8 %152, 0
-  br i1 %cond.i.i, label %153, label %dissect_dpaux_register.exit.i
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds i8, ptr %146, i64 4
+  %151 = load i8, ptr %150, align 4
+  %cond.i.i = icmp eq i8 %151, 0
+  br i1 %cond.i.i, label %152, label %dissect_dpaux_register.exit.i
 
-153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %147, i64 8
-  %155 = load ptr, ptr %154, align 8
-  %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds i8, ptr %147, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %142, ptr noundef %0, i32 noundef %135, i32 noundef %156, i32 noundef 0, ptr noundef %158, i32 noundef 0, i32 noundef 0) #2
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %146, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = load i32, ptr %154, align 4
+  %156 = getelementptr inbounds i8, ptr %146, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %158 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %141, ptr noundef %0, i32 noundef %134, i32 noundef %155, i32 noundef 0, ptr noundef %157, i32 noundef 0, i32 noundef 0) #2
   br label %dissect_dpaux_register.exit.i
 
-dissect_dpaux_register.exit.i:                    ; preds = %145, %153, %150
-  %exitcond.not.i = icmp eq i32 %135, %116
-  br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %133, !llvm.loop !6
+dissect_dpaux_register.exit.i:                    ; preds = %144, %152, %149
+  %exitcond.not.i = icmp eq i32 %134, %115
+  br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %132, !llvm.loop !6
 
-dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.exit.i, %130, %125, %111, %69, %64
-  %160 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %160
+dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.exit.i, %129, %124, %110, %69, %64
+  %159 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %159
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

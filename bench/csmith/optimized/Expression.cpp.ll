@@ -287,25 +287,23 @@ define dso_local noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK1
   %13 = load ptr, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 73
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not52.us = icmp eq i8 %16, 0
-  br i1 %.not52.us, label %19, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %19, label %17
 
 17:                                               ; preds = %.preheader.split.us
-  %18 = tail call noundef ptr @_ZN4Type21choose_random_nonvoidEv()
+  %18 = tail call noundef ptr @_ZN4Type33choose_random_nonvoid_nonvolatileEv()
   br label %.loopexit
 
 19:                                               ; preds = %.preheader.split.us
-  %20 = tail call noundef ptr @_ZN4Type33choose_random_nonvoid_nonvolatileEv()
+  %20 = tail call noundef ptr @_ZN4Type21choose_random_nonvoidEv()
   br label %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader, %29
   %21 = load ptr, ptr %11, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 73
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not52 = icmp eq i8 %24, 0
-  br i1 %.not52, label %27, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.preheader.split
   %26 = tail call noundef ptr @_ZN4Type21choose_random_nonvoidEv()
@@ -322,7 +320,7 @@ define dso_local noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK1
   br i1 %32, label %.preheader.split, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %29, %17, %19, %9
-  %.038 = phi ptr [ %1, %9 ], [ %18, %17 ], [ %20, %19 ], [ %30, %29 ]
+  %.038 = phi ptr [ %1, %9 ], [ %20, %19 ], [ %18, %17 ], [ %30, %29 ]
   %33 = icmp eq i32 %5, 5
   br i1 %33, label %34, label %86
 

@@ -416,11 +416,10 @@ define internal void @_ZN6googleL21DumpStackTraceAndExitEv() #12 {
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
   %8 = load i8, ptr @_ZN3fLB26FLAGS_symbolize_stacktraceE, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds [32 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  br i1 %.not.i, label %20, label %12
+  br i1 %9, label %12, label %20
 
 12:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
@@ -540,11 +539,10 @@ define void @_ZN6google13GetStackTraceB5cxx11Ev(ptr dead_on_unwind noalias nonnu
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
   %8 = load i8, ptr @_ZN3fLB26FLAGS_symbolize_stacktraceE, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  br i1 %.not.i, label %17, label %12
+  br i1 %9, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)

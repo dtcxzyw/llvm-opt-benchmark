@@ -4710,37 +4710,36 @@ _ZN11AlignDialog11currentNodeEv.exit:             ; preds = %.lr.ph.i.i.i
   %23 = getelementptr inbounds i8, ptr %19, i64 704
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %19, i64 688
-  %.not10.i.i.i5 = icmp ne ptr %24, %25
-  tail call void @llvm.assume(i1 %.not10.i.i.i5)
+  %.not10.i.i.i4 = icmp ne ptr %24, %25
+  tail call void @llvm.assume(i1 %.not10.i.i.i4)
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %22
-  br i1 %30, label %_ZN11AlignDialog11currentNodeEv.exit10, label %.lr.ph.i.i.i6
+  br i1 %30, label %_ZN11AlignDialog11currentNodeEv.exit9, label %.lr.ph.i.i.i5
 
-.lr.ph.i.i.i6:                                    ; preds = %_ZN11AlignDialog11currentNodeEv.exit, %.lr.ph.i.i.i6
-  %.sroa.07.011.i.i.i739 = phi ptr [ %31, %.lr.ph.i.i.i6 ], [ %24, %_ZN11AlignDialog11currentNodeEv.exit ]
-  %31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i739) #21
-  %.not.i.i.i8 = icmp ne ptr %31, %25
-  tail call void @llvm.assume(i1 %.not.i.i.i8)
+.lr.ph.i.i.i5:                                    ; preds = %_ZN11AlignDialog11currentNodeEv.exit, %.lr.ph.i.i.i5
+  %.sroa.07.011.i.i.i638 = phi ptr [ %31, %.lr.ph.i.i.i5 ], [ %24, %_ZN11AlignDialog11currentNodeEv.exit ]
+  %31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i638) #21
+  %.not.i.i.i7 = icmp ne ptr %31, %25
+  tail call void @llvm.assume(i1 %.not.i.i.i7)
   %32 = getelementptr inbounds i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %22
-  br i1 %36, label %_ZN11AlignDialog11currentNodeEv.exit10, label %.lr.ph.i.i.i6
+  br i1 %36, label %_ZN11AlignDialog11currentNodeEv.exit9, label %.lr.ph.i.i.i5
 
-_ZN11AlignDialog11currentNodeEv.exit10:           ; preds = %.lr.ph.i.i.i6, %_ZN11AlignDialog11currentNodeEv.exit
-  %.lcssa38 = phi ptr [ %27, %_ZN11AlignDialog11currentNodeEv.exit ], [ %33, %.lr.ph.i.i.i6 ]
-  %37 = load i8, ptr %.lcssa38, align 8
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
+_ZN11AlignDialog11currentNodeEv.exit9:            ; preds = %.lr.ph.i.i.i5, %_ZN11AlignDialog11currentNodeEv.exit
+  %.lcssa37 = phi ptr [ %27, %_ZN11AlignDialog11currentNodeEv.exit ], [ %33, %.lr.ph.i.i.i5 ]
+  %37 = load i8, ptr %.lcssa37, align 8
+  %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
-  br i1 %.not, label %49, label %41
+  br i1 %38, label %41, label %49
 
-41:                                               ; preds = %_ZN11AlignDialog11currentNodeEv.exit10
+41:                                               ; preds = %_ZN11AlignDialog11currentNodeEv.exit9
   %42 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.61, i32 noundef 14)
   store ptr %42, ptr %2, align 8
   invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -4766,9 +4765,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 47:                                               ; preds = %41
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %133
 
-49:                                               ; preds = %_ZN11AlignDialog11currentNodeEv.exit10
+49:                                               ; preds = %_ZN11AlignDialog11currentNodeEv.exit9
   %50 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.44, i32 noundef 14)
   store ptr %50, ptr %3, align 8
   invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -4777,31 +4776,31 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 51:                                               ; preds = %49
   %52 = load ptr, ptr %3, align 8
   %53 = load atomic i32, ptr %52 monotonic, align 4
-  switch i32 %53, label %_ZN9QtPrivate8RefCount5derefEv.exit.i12 [
+  switch i32 %53, label %_ZN9QtPrivate8RefCount5derefEv.exit.i11 [
     i32 0, label %_ZN7QStringD2Ev.exit.sink.split
     i32 -1, label %_ZN7QStringD2Ev.exit
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i12:          ; preds = %51
+_ZN9QtPrivate8RefCount5derefEv.exit.i11:          ; preds = %51
   %54 = atomicrmw sub ptr %52, i32 1 seq_cst, align 4
-  %.not.i13 = icmp eq i32 %54, 1
-  br i1 %.not.i13, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i14, label %_ZN7QStringD2Ev.exit
+  %.not.i12 = icmp eq i32 %54, 1
+  br i1 %.not.i12, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i13, label %_ZN7QStringD2Ev.exit
 
-_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i14: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i12
-  %.pre.i15 = load ptr, ptr %3, align 8
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i13: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i11
+  %.pre.i14 = load ptr, ptr %3, align 8
   br label %_ZN7QStringD2Ev.exit.sink.split
 
 55:                                               ; preds = %49
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %133
 
-_ZN7QStringD2Ev.exit.sink.split:                  ; preds = %51, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i14, %43, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i
-  %.sink = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %44, %43 ], [ %.pre.i15, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i14 ], [ %52, %51 ]
+_ZN7QStringD2Ev.exit.sink.split:                  ; preds = %51, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i13, %43, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i
+  %.sink = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %44, %43 ], [ %.pre.i14, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i13 ], [ %52, %51 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #19
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exit.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i12, %51, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %43
+_ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exit.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i11, %51, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %43
   %57 = getelementptr inbounds i8, ptr %0, i64 128
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %4, align 8
@@ -4811,125 +4810,123 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exi
   %63 = getelementptr inbounds i8, ptr %59, i64 704
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %59, i64 688
-  %.not10.i.i.i17 = icmp ne ptr %64, %65
-  call void @llvm.assume(i1 %.not10.i.i.i17)
+  %.not10.i.i.i16 = icmp ne ptr %64, %65
+  call void @llvm.assume(i1 %.not10.i.i.i16)
   %66 = getelementptr inbounds i8, ptr %64, i64 40
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %62
-  br i1 %70, label %_ZN11AlignDialog11currentNodeEv.exit22, label %.lr.ph.i.i.i18
+  br i1 %70, label %_ZN11AlignDialog11currentNodeEv.exit21, label %.lr.ph.i.i.i17
 
-.lr.ph.i.i.i18:                                   ; preds = %_ZN7QStringD2Ev.exit, %.lr.ph.i.i.i18
-  %.sroa.07.011.i.i.i1940 = phi ptr [ %71, %.lr.ph.i.i.i18 ], [ %64, %_ZN7QStringD2Ev.exit ]
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i1940) #21
-  %.not.i.i.i20 = icmp ne ptr %71, %65
-  call void @llvm.assume(i1 %.not.i.i.i20)
+.lr.ph.i.i.i17:                                   ; preds = %_ZN7QStringD2Ev.exit, %.lr.ph.i.i.i17
+  %.sroa.07.011.i.i.i1839 = phi ptr [ %71, %.lr.ph.i.i.i17 ], [ %64, %_ZN7QStringD2Ev.exit ]
+  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i1839) #21
+  %.not.i.i.i19 = icmp ne ptr %71, %65
+  call void @llvm.assume(i1 %.not.i.i.i19)
   %72 = getelementptr inbounds i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, %62
-  br i1 %76, label %_ZN11AlignDialog11currentNodeEv.exit22, label %.lr.ph.i.i.i18
+  br i1 %76, label %_ZN11AlignDialog11currentNodeEv.exit21, label %.lr.ph.i.i.i17
 
-_ZN11AlignDialog11currentNodeEv.exit22:           ; preds = %.lr.ph.i.i.i18, %_ZN7QStringD2Ev.exit
-  %.lcssa37 = phi ptr [ %67, %_ZN7QStringD2Ev.exit ], [ %73, %.lr.ph.i.i.i18 ]
-  %77 = load i8, ptr %.lcssa37, align 8
-  %78 = and i8 %77, 1
-  %79 = icmp ne i8 %78, 0
-  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %58, i1 noundef zeroext %79)
-  %80 = getelementptr inbounds i8, ptr %0, i64 120
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 672
-  %84 = load ptr, ptr %83, align 8
-  %85 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %84)
-  %86 = getelementptr inbounds i8, ptr %82, i64 704
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %82, i64 688
-  %.not10.i.i.i23 = icmp ne ptr %87, %88
-  call void @llvm.assume(i1 %.not10.i.i.i23)
-  %89 = getelementptr inbounds i8, ptr %87, i64 40
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, %85
-  br i1 %93, label %_ZN11AlignDialog11currentNodeEv.exit28, label %.lr.ph.i.i.i24
+_ZN11AlignDialog11currentNodeEv.exit21:           ; preds = %.lr.ph.i.i.i17, %_ZN7QStringD2Ev.exit
+  %.lcssa36 = phi ptr [ %67, %_ZN7QStringD2Ev.exit ], [ %73, %.lr.ph.i.i.i17 ]
+  %77 = load i8, ptr %.lcssa36, align 8
+  %78 = trunc i8 %77 to i1
+  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %58, i1 noundef zeroext %78)
+  %79 = getelementptr inbounds i8, ptr %0, i64 120
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 672
+  %83 = load ptr, ptr %82, align 8
+  %84 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %83)
+  %85 = getelementptr inbounds i8, ptr %81, i64 704
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %81, i64 688
+  %.not10.i.i.i22 = icmp ne ptr %86, %87
+  call void @llvm.assume(i1 %.not10.i.i.i22)
+  %88 = getelementptr inbounds i8, ptr %86, i64 40
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, %84
+  br i1 %92, label %_ZN11AlignDialog11currentNodeEv.exit27, label %.lr.ph.i.i.i23
 
-.lr.ph.i.i.i24:                                   ; preds = %_ZN11AlignDialog11currentNodeEv.exit22, %.lr.ph.i.i.i24
-  %.sroa.07.011.i.i.i2543 = phi ptr [ %94, %.lr.ph.i.i.i24 ], [ %87, %_ZN11AlignDialog11currentNodeEv.exit22 ]
-  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i2543) #21
-  %.not.i.i.i26 = icmp ne ptr %94, %88
-  call void @llvm.assume(i1 %.not.i.i.i26)
-  %95 = getelementptr inbounds i8, ptr %94, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %85
-  br i1 %99, label %_ZN11AlignDialog11currentNodeEv.exit28, label %.lr.ph.i.i.i24
+.lr.ph.i.i.i23:                                   ; preds = %_ZN11AlignDialog11currentNodeEv.exit21, %.lr.ph.i.i.i23
+  %.sroa.07.011.i.i.i2442 = phi ptr [ %93, %.lr.ph.i.i.i23 ], [ %86, %_ZN11AlignDialog11currentNodeEv.exit21 ]
+  %93 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i2442) #21
+  %.not.i.i.i25 = icmp ne ptr %93, %87
+  call void @llvm.assume(i1 %.not.i.i.i25)
+  %94 = getelementptr inbounds i8, ptr %93, i64 40
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %97, %84
+  br i1 %98, label %_ZN11AlignDialog11currentNodeEv.exit27, label %.lr.ph.i.i.i23
 
-_ZN11AlignDialog11currentNodeEv.exit28:           ; preds = %.lr.ph.i.i.i24, %_ZN11AlignDialog11currentNodeEv.exit22
-  %.lcssa36 = phi ptr [ %90, %_ZN11AlignDialog11currentNodeEv.exit22 ], [ %96, %.lr.ph.i.i.i24 ]
-  %100 = load i8, ptr %.lcssa36, align 8
-  %101 = and i8 %100, 1
-  %102 = icmp ne i8 %101, 0
-  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %81, i1 noundef zeroext %102)
-  %103 = getelementptr inbounds i8, ptr %0, i64 256
+_ZN11AlignDialog11currentNodeEv.exit27:           ; preds = %.lr.ph.i.i.i23, %_ZN11AlignDialog11currentNodeEv.exit21
+  %.lcssa35 = phi ptr [ %89, %_ZN11AlignDialog11currentNodeEv.exit21 ], [ %95, %.lr.ph.i.i.i23 ]
+  %99 = load i8, ptr %.lcssa35, align 8
+  %100 = trunc i8 %99 to i1
+  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %80, i1 noundef zeroext %100)
+  %101 = getelementptr inbounds i8, ptr %0, i64 256
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %0, i64 296
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 296
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, null
-  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %104, i1 noundef zeroext %107)
-  %108 = getelementptr inbounds i8, ptr %0, i64 248
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %105, align 8
-  %111 = icmp eq ptr %110, null
-  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %109, i1 noundef zeroext %111)
-  %112 = getelementptr inbounds i8, ptr %0, i64 144
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 672
-  %116 = load ptr, ptr %115, align 8
-  %117 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %116)
-  %118 = getelementptr inbounds i8, ptr %114, i64 704
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %114, i64 688
-  %.not10.i.i.i29 = icmp ne ptr %119, %120
-  call void @llvm.assume(i1 %.not10.i.i.i29)
-  %121 = getelementptr inbounds i8, ptr %119, i64 40
+  %105 = icmp eq ptr %104, null
+  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %102, i1 noundef zeroext %105)
+  %106 = getelementptr inbounds i8, ptr %0, i64 248
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %103, align 8
+  %109 = icmp eq ptr %108, null
+  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %107, i1 noundef zeroext %109)
+  %110 = getelementptr inbounds i8, ptr %0, i64 144
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %4, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 672
+  %114 = load ptr, ptr %113, align 8
+  %115 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %114)
+  %116 = getelementptr inbounds i8, ptr %112, i64 704
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %112, i64 688
+  %.not10.i.i.i28 = icmp ne ptr %117, %118
+  call void @llvm.assume(i1 %.not10.i.i.i28)
+  %119 = getelementptr inbounds i8, ptr %117, i64 40
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, %117
-  br i1 %125, label %_ZN11AlignDialog11currentNodeEv.exit34, label %.lr.ph.i.i.i30
+  %123 = icmp eq ptr %122, %115
+  br i1 %123, label %_ZN11AlignDialog11currentNodeEv.exit33, label %.lr.ph.i.i.i29
 
-.lr.ph.i.i.i30:                                   ; preds = %_ZN11AlignDialog11currentNodeEv.exit28, %.lr.ph.i.i.i30
-  %.sroa.07.011.i.i.i3146 = phi ptr [ %126, %.lr.ph.i.i.i30 ], [ %119, %_ZN11AlignDialog11currentNodeEv.exit28 ]
-  %126 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i3146) #21
-  %.not.i.i.i32 = icmp ne ptr %126, %120
-  call void @llvm.assume(i1 %.not.i.i.i32)
-  %127 = getelementptr inbounds i8, ptr %126, i64 40
+.lr.ph.i.i.i29:                                   ; preds = %_ZN11AlignDialog11currentNodeEv.exit27, %.lr.ph.i.i.i29
+  %.sroa.07.011.i.i.i3045 = phi ptr [ %124, %.lr.ph.i.i.i29 ], [ %117, %_ZN11AlignDialog11currentNodeEv.exit27 ]
+  %124 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i3045) #21
+  %.not.i.i.i31 = icmp ne ptr %124, %118
+  call void @llvm.assume(i1 %.not.i.i.i31)
+  %125 = getelementptr inbounds i8, ptr %124, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, %117
-  br i1 %131, label %_ZN11AlignDialog11currentNodeEv.exit34, label %.lr.ph.i.i.i30
+  %129 = icmp eq ptr %128, %115
+  br i1 %129, label %_ZN11AlignDialog11currentNodeEv.exit33, label %.lr.ph.i.i.i29
 
-_ZN11AlignDialog11currentNodeEv.exit34:           ; preds = %.lr.ph.i.i.i30, %_ZN11AlignDialog11currentNodeEv.exit28
-  %.lcssa = phi ptr [ %122, %_ZN11AlignDialog11currentNodeEv.exit28 ], [ %128, %.lr.ph.i.i.i30 ]
-  %132 = load i8, ptr %.lcssa, align 8
-  %133 = and i8 %132, 1
-  %.not4 = icmp eq i8 %133, 0
-  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %113, i1 noundef zeroext %.not4)
+_ZN11AlignDialog11currentNodeEv.exit33:           ; preds = %.lr.ph.i.i.i29, %_ZN11AlignDialog11currentNodeEv.exit27
+  %.lcssa = phi ptr [ %120, %_ZN11AlignDialog11currentNodeEv.exit27 ], [ %126, %.lr.ph.i.i.i29 ]
+  %130 = load i8, ptr %.lcssa, align 8
+  %131 = trunc i8 %130 to i1
+  %132 = xor i1 %131, true
+  call void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %111, i1 noundef zeroext %132)
   br label %_ZN11AlignDialog11currentNodeEv.exit.thread
 
-_ZN11AlignDialog11currentNodeEv.exit.thread:      ; preds = %17, %1, %_ZN11AlignDialog11currentNodeEv.exit34
+_ZN11AlignDialog11currentNodeEv.exit.thread:      ; preds = %17, %1, %_ZN11AlignDialog11currentNodeEv.exit33
   ret void
 
-134:                                              ; preds = %55, %47
-  %.sink57 = phi ptr [ %3, %55 ], [ %2, %47 ]
+133:                                              ; preds = %55, %47
+  %.sink56 = phi ptr [ %3, %55 ], [ %2, %47 ]
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %48, %47 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink57) #19
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink56) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -5755,9 +5752,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %44, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %49 = load i8, ptr %1, align 8
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %_ZN7QStringD2Ev.exit30, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %_ZN7QStringD2Ev.exit30
 
 51:                                               ; preds = %_ZN7QStringD2Ev.exit
   %52 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.62, i32 noundef 1)
@@ -5840,9 +5836,8 @@ _ZN7QStringD2Ev.exit30:                           ; preds = %_ZN9QtPrivate8RefCo
   %72 = load ptr, ptr %18, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 1204
   %74 = load i8, ptr %73, align 4
-  %75 = and i8 %74, 1
-  %.not76 = icmp eq i8 %75, 0
-  br i1 %.not76, label %94, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %94
 
 76:                                               ; preds = %_ZN7QStringD2Ev.exit30
   %77 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.63, i32 noundef 20)
@@ -7217,9 +7212,8 @@ define void @_ZN11AlignDialog11onClickItemEP15QTreeWidgetItemi(ptr noundef nonnu
   %25 = load ptr, ptr %19, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 1204
   %27 = load i8, ptr %26, align 4
-  %28 = and i8 %27, 1
-  %.not37 = icmp eq i8 %28, 0
-  br i1 %.not37, label %46, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %46
 
 29:                                               ; preds = %18
   %30 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.63, i32 noundef 20)

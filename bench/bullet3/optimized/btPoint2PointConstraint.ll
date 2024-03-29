@@ -386,12 +386,11 @@ define dso_local void @_ZN23btPoint2PointConstraint8getInfo1EPN17btTypedConstrai
 entry:
   %m_useSolveConstraintObsolete.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i8, ptr %m_useSolveConstraintObsolete.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %spec.select.i = select i1 %tobool.not.i, i32 3, i32 0
+  %tobool.i = trunc i8 %0 to i1
+  %spec.select.i = select i1 %tobool.i, i32 0, i32 3
   store i32 %spec.select.i, ptr %info, align 4
-  %2 = getelementptr inbounds i8, ptr %info, i64 4
-  store i32 %spec.select.i, ptr %2, align 4
+  %1 = getelementptr inbounds i8, ptr %info, i64 4
+  store i32 %spec.select.i, ptr %1, align 4
   ret void
 }
 
@@ -400,12 +399,11 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo1NonVirtualEPN17btTy
 entry:
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i8, ptr %m_useSolveConstraintObsolete, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %spec.select = select i1 %tobool.not, i32 3, i32 0
+  %tobool = trunc i8 %0 to i1
+  %spec.select = select i1 %tobool, i32 0, i32 3
   store i32 %spec.select, ptr %info, align 4
-  %2 = getelementptr inbounds i8, ptr %info, i64 4
-  store i32 %spec.select, ptr %2, align 4
+  %1 = getelementptr inbounds i8, ptr %info, i64 4
+  store i32 %spec.select, ptr %1, align 4
   ret void
 }
 

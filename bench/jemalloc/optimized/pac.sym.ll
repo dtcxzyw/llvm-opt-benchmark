@@ -141,10 +141,9 @@ if.end:                                           ; preds = %if.then8.i, %entry
 
 if.then8:                                         ; preds = %if.end
   %4 = load i8, ptr @opt_retain, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not.i = icmp ne i8 %5, 0
-  %brmerge.not.i = and i1 %tobool.i.not.i, %frequent_reuse
-  br i1 %brmerge.not.i, label %if.then.i, label %if.else.i
+  %tobool.i.i = trunc i8 %4 to i1
+  %brmerge.demorgan.i = and i1 %tobool.i.i, %frequent_reuse
+  br i1 %brmerge.demorgan.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then8
   %sba.i = getelementptr inbounds i8, ptr %self, i64 58520
@@ -160,8 +159,8 @@ if.else.i:                                        ; preds = %if.then8
 
 land.lhs.true.i.i:                                ; preds = %if.else.i
   %time_ms.i.i.i.i.i = getelementptr inbounds i8, ptr %self, i64 60552
-  %6 = load atomic i64, ptr %time_ms.i.i.i.i.i monotonic, align 8
-  %cmp.i.not.i.i = icmp eq i64 %6, 0
+  %5 = load atomic i64, ptr %time_ms.i.i.i.i.i monotonic, align 8
+  %cmp.i.not.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i.not.i.i, label %if.then8.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i
@@ -178,16 +177,16 @@ if.then8.i.i:                                     ; preds = %if.end.i.i, %land.l
 
 if.then13.i.i:                                    ; preds = %if.then8.i.i
   %stats.i.i = getelementptr inbounds i8, ptr %self, i64 62224
-  %7 = load ptr, ptr %stats.i.i, align 8
-  %pac_mapped.i.i = getelementptr inbounds i8, ptr %7, i64 56
-  %8 = atomicrmw add ptr %pac_mapped.i.i, i64 %add.i.i monotonic, align 8
+  %6 = load ptr, ptr %stats.i.i, align 8
+  %pac_mapped.i.i = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = atomicrmw add ptr %pac_mapped.i.i, i64 %add.i.i monotonic, align 8
   br label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.then13.i.i, %if.end.i.i, %if.else.i
   %edata.1.i.ph.i = phi ptr [ %call.i.i, %if.else.i ], [ %call6.i.i, %if.end.i.i ], [ %call11.i.i, %if.then13.i.i ]
   %emap.i = getelementptr inbounds i8, ptr %self, i64 58384
-  %9 = load ptr, ptr %emap.i, align 8
-  tail call void @san_guard_pages(ptr noundef %tsdn, ptr noundef %call.i, ptr noundef nonnull %edata.1.i.ph.i, ptr noundef %9, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #8
+  %8 = load ptr, ptr %emap.i, align 8
+  tail call void @san_guard_pages(ptr noundef %tsdn, ptr noundef %call.i, ptr noundef nonnull %edata.1.i.ph.i, ptr noundef %8, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then, %if.end.i, %if.then13.i, %do.end9.i, %if.then8.i.i, %if.then.i, %if.end
@@ -516,8 +515,7 @@ define internal fastcc void @pac_decay_to_limit(ptr noundef %tsdn, ptr noundef %
 entry:
   %purging = getelementptr inbounds i8, ptr %decay, i64 112
   %0 = load i8, ptr %purging, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp = icmp eq i64 %npages_decay_max, 0
   %or.cond = or i1 %cmp, %tobool
   br i1 %or.cond, label %return, label %if.end
@@ -528,21 +526,21 @@ if.end:                                           ; preds = %entry
   store atomic i8 0, ptr %locked.i monotonic, align 1
   %lock.i = getelementptr inbounds i8, ptr %decay, i64 72
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #8
-  %2 = getelementptr i8, ptr %pac, i64 58376
-  %pac.val.i = load ptr, ptr %2, align 8
+  %1 = getelementptr i8, ptr %pac, i64 58376
+  %pac.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call ptr @base_ehooks_get(ptr noundef %pac.val.i) #8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end, %edata_list_inactive_append.exit.i
-  %decay_extents.sroa.0.0 = phi ptr [ null, %if.end ], [ %12, %edata_list_inactive_append.exit.i ]
+  %decay_extents.sroa.0.0 = phi ptr [ null, %if.end ], [ %11, %edata_list_inactive_append.exit.i ]
   %nstashed.010.i = phi i64 [ 0, %if.end ], [ %add.i, %edata_list_inactive_append.exit.i ]
   %call2.i = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i, ptr noundef %ecache, i64 noundef %npages_limit) #8
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %pac_stash_decayed.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %3 = getelementptr inbounds i8, ptr %call2.i, i64 64
-  store ptr %call2.i, ptr %3, align 8
+  %2 = getelementptr inbounds i8, ptr %call2.i, i64 64
+  store ptr %call2.i, ptr %2, align 8
   %qre_prev.i.i = getelementptr inbounds i8, ptr %call2.i, i64 72
   store ptr %call2.i, ptr %qre_prev.i.i, align 8
   %cmp.i.i = icmp eq ptr %decay_extents.sroa.0.0, null
@@ -550,26 +548,26 @@ if.end.i:                                         ; preds = %while.body.i
 
 do.body2.i.i:                                     ; preds = %if.end.i
   %qre_prev5.i.i = getelementptr inbounds i8, ptr %decay_extents.sroa.0.0, i64 72
-  %4 = load ptr, ptr %qre_prev5.i.i, align 8
-  store ptr %4, ptr %3, align 8
+  %3 = load ptr, ptr %qre_prev5.i.i, align 8
+  store ptr %3, ptr %2, align 8
   store ptr %call2.i, ptr %qre_prev5.i.i, align 8
-  %5 = load ptr, ptr %qre_prev.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %qre_prev.i.i, align 8
-  %8 = load ptr, ptr %qre_prev5.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
-  store ptr %decay_extents.sroa.0.0, ptr %9, align 8
-  %10 = load ptr, ptr %qre_prev.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  store ptr %call2.i, ptr %11, align 8
-  %.pre.i.i = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %qre_prev.i.i, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %qre_prev.i.i, align 8
+  %7 = load ptr, ptr %qre_prev5.i.i, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  store ptr %decay_extents.sroa.0.0, ptr %8, align 8
+  %9 = load ptr, ptr %qre_prev.i.i, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  store ptr %call2.i, ptr %10, align 8
+  %.pre.i.i = load ptr, ptr %2, align 8
   br label %edata_list_inactive_append.exit.i
 
 edata_list_inactive_append.exit.i:                ; preds = %do.body2.i.i, %if.end.i
-  %12 = phi ptr [ %.pre.i.i, %do.body2.i.i ], [ %call2.i, %if.end.i ]
-  %13 = getelementptr i8, ptr %call2.i, i64 16
-  %call2.val.i = load i64, ptr %13, align 8
+  %11 = phi ptr [ %.pre.i.i, %do.body2.i.i ], [ %call2.i, %if.end.i ]
+  %12 = getelementptr i8, ptr %call2.i, i64 16
+  %call2.val.i = load i64, ptr %12, align 8
   %shr.i = lshr i64 %call2.val.i, 12
   %add.i = add i64 %shr.i, %nstashed.010.i
   %cmp.i = icmp ult i64 %add.i, %npages_decay_max
@@ -580,14 +578,14 @@ pac_stash_decayed.exit:                           ; preds = %while.body.i
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %edata_list_inactive_append.exit.i, %pac_stash_decayed.exit
-  %decay_extents.sroa.0.131 = phi ptr [ %decay_extents.sroa.0.0, %pac_stash_decayed.exit ], [ %12, %edata_list_inactive_append.exit.i ]
-  %pac.val.i15 = load ptr, ptr %2, align 8
+  %decay_extents.sroa.0.131 = phi ptr [ %decay_extents.sroa.0.0, %pac_stash_decayed.exit ], [ %11, %edata_list_inactive_append.exit.i ]
+  %pac.val.i15 = load ptr, ptr %1, align 8
   %call.i.i16 = tail call ptr @base_ehooks_get(ptr noundef %pac.val.i15) #8
   br i1 %fully_decay, label %land.end.thread.i, label %land.end.i
 
 land.end.i:                                       ; preds = %if.then4
   %time_ms.i.i.i = getelementptr inbounds i8, ptr %pac, i64 60552
-  %14 = load atomic i64, ptr %time_ms.i.i.i monotonic, align 8
+  %13 = load atomic i64, ptr %time_ms.i.i.i monotonic, align 8
   %cmp4.not2.i = icmp eq ptr %decay_extents.sroa.0.131, null
   br i1 %cmp4.not2.i, label %pac_decay_stashed.exit, label %for.body.lr.ph.i
 
@@ -596,7 +594,7 @@ land.end.thread.i:                                ; preds = %if.then4
   br i1 %cmp4.not214.i, label %pac_decay_stashed.exit, label %if.end.i.us.i.preheader
 
 for.body.lr.ph.i:                                 ; preds = %land.end.i
-  %.fr.i = freeze i64 %14
+  %.fr.i = freeze i64 %13
   %cmp.i17 = icmp eq i64 %.fr.i, 0
   %state.i = getelementptr inbounds i8, ptr %ecache, i64 19424
   %ecache_muzzy.i = getelementptr inbounds i8, ptr %pac, i64 19496
@@ -606,107 +604,107 @@ if.end.i.us.i.preheader:                          ; preds = %for.body.lr.ph.i, %
   br label %if.end.i.us.i
 
 if.end.i.us.i:                                    ; preds = %if.end.i.us.i.preheader, %edata_list_inactive_remove.exit.us.i
-  %15 = phi ptr [ %decay_extents.sroa.0.2, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.131, %if.end.i.us.i.preheader ]
+  %14 = phi ptr [ %decay_extents.sroa.0.2, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.131, %if.end.i.us.i.preheader ]
   %nmadvise.05.us.i = phi i64 [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %nunmapped.04.us.i = phi i64 [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %npurged.03.us.i = phi i64 [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8
-  %cmp7.not.i.us.i = icmp eq ptr %17, %15
+  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %cmp7.not.i.us.i = icmp eq ptr %16, %14
   br i1 %cmp7.not.i.us.i, label %edata_list_inactive_remove.exit.us.i, label %do.body9.i.us.i
 
 do.body9.i.us.i:                                  ; preds = %if.end.i.us.i
-  %qre_prev.i.us.i = getelementptr inbounds i8, ptr %17, i64 72
-  %18 = load ptr, ptr %qre_prev.i.us.i, align 8
-  %qre_prev11.i.us.i = getelementptr inbounds i8, ptr %15, i64 72
-  %19 = load ptr, ptr %qre_prev11.i.us.i, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %qre_prev11.i.us.i, align 8
-  %22 = load ptr, ptr %16, align 8
-  %qre_prev15.i.us.i = getelementptr inbounds i8, ptr %22, i64 72
-  store ptr %21, ptr %qre_prev15.i.us.i, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 64
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %qre_prev11.i.us.i, align 8
-  %25 = load ptr, ptr %16, align 8
-  %qre_prev21.i.us.i = getelementptr inbounds i8, ptr %25, i64 72
-  %26 = load ptr, ptr %qre_prev21.i.us.i, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 64
-  store ptr %25, ptr %27, align 8
-  %28 = load ptr, ptr %qre_prev11.i.us.i, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
-  store ptr %15, ptr %29, align 8
+  %qre_prev.i.us.i = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = load ptr, ptr %qre_prev.i.us.i, align 8
+  %qre_prev11.i.us.i = getelementptr inbounds i8, ptr %14, i64 72
+  %18 = load ptr, ptr %qre_prev11.i.us.i, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  store ptr %17, ptr %19, align 8
+  %20 = load ptr, ptr %qre_prev11.i.us.i, align 8
+  %21 = load ptr, ptr %15, align 8
+  %qre_prev15.i.us.i = getelementptr inbounds i8, ptr %21, i64 72
+  store ptr %20, ptr %qre_prev15.i.us.i, align 8
+  %22 = getelementptr inbounds i8, ptr %20, i64 64
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %qre_prev11.i.us.i, align 8
+  %24 = load ptr, ptr %15, align 8
+  %qre_prev21.i.us.i = getelementptr inbounds i8, ptr %24, i64 72
+  %25 = load ptr, ptr %qre_prev21.i.us.i, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  store ptr %24, ptr %26, align 8
+  %27 = load ptr, ptr %qre_prev11.i.us.i, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 64
+  store ptr %14, ptr %28, align 8
   br label %edata_list_inactive_remove.exit.us.i
 
 edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.body9.i.us.i
-  %decay_extents.sroa.0.2 = phi ptr [ %17, %do.body9.i.us.i ], [ null, %if.end.i.us.i ]
-  %30 = getelementptr i8, ptr %15, i64 16
-  %edata.0.val.us.i = load i64, ptr %30, align 8
+  %decay_extents.sroa.0.2 = phi ptr [ %16, %do.body9.i.us.i ], [ null, %if.end.i.us.i ]
+  %29 = getelementptr i8, ptr %14, i64 16
+  %edata.0.val.us.i = load i64, ptr %29, align 8
   %shr.us.i = lshr i64 %edata.0.val.us.i, 12
   %inc.us.i = add i64 %nmadvise.05.us.i, 1
   %add.us.i = add i64 %shr.us.i, %npurged.03.us.i
-  tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %15) #8
+  tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %14) #8
   %add14.us.i = add i64 %shr.us.i, %nunmapped.04.us.i
   %cmp4.not.us.i = icmp eq ptr %decay_extents.sroa.0.2, null
   br i1 %cmp4.not.us.i, label %pac_decay_stashed.exit, label %if.end.i.us.i, !llvm.loop !7
 
 if.end.i.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
-  %31 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
+  %30 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
   %nmadvise.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %nunmapped.04.i = phi i64 [ %nunmapped.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %npurged.03.i = phi i64 [ %add.i21, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 64
-  %33 = load ptr, ptr %32, align 8
-  %cmp7.not.i.i = icmp eq ptr %33, %31
+  %31 = getelementptr inbounds i8, ptr %30, i64 64
+  %32 = load ptr, ptr %31, align 8
+  %cmp7.not.i.i = icmp eq ptr %32, %30
   br i1 %cmp7.not.i.i, label %edata_list_inactive_remove.exit.i, label %do.body9.i.i
 
 do.body9.i.i:                                     ; preds = %if.end.i.i
-  %qre_prev.i.i18 = getelementptr inbounds i8, ptr %33, i64 72
-  %34 = load ptr, ptr %qre_prev.i.i18, align 8
-  %qre_prev11.i.i19 = getelementptr inbounds i8, ptr %31, i64 72
-  %35 = load ptr, ptr %qre_prev11.i.i19, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %qre_prev11.i.i19, align 8
-  %38 = load ptr, ptr %32, align 8
-  %qre_prev15.i.i = getelementptr inbounds i8, ptr %38, i64 72
-  store ptr %37, ptr %qre_prev15.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 64
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %qre_prev11.i.i19, align 8
-  %41 = load ptr, ptr %32, align 8
-  %qre_prev21.i.i = getelementptr inbounds i8, ptr %41, i64 72
-  %42 = load ptr, ptr %qre_prev21.i.i, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 64
-  store ptr %41, ptr %43, align 8
-  %44 = load ptr, ptr %qre_prev11.i.i19, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 64
-  store ptr %31, ptr %45, align 8
+  %qre_prev.i.i18 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = load ptr, ptr %qre_prev.i.i18, align 8
+  %qre_prev11.i.i19 = getelementptr inbounds i8, ptr %30, i64 72
+  %34 = load ptr, ptr %qre_prev11.i.i19, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %qre_prev11.i.i19, align 8
+  %37 = load ptr, ptr %31, align 8
+  %qre_prev15.i.i = getelementptr inbounds i8, ptr %37, i64 72
+  store ptr %36, ptr %qre_prev15.i.i, align 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 64
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %qre_prev11.i.i19, align 8
+  %40 = load ptr, ptr %31, align 8
+  %qre_prev21.i.i = getelementptr inbounds i8, ptr %40, i64 72
+  %41 = load ptr, ptr %qre_prev21.i.i, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  store ptr %40, ptr %42, align 8
+  %43 = load ptr, ptr %qre_prev11.i.i19, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 64
+  store ptr %30, ptr %44, align 8
   br label %edata_list_inactive_remove.exit.i
 
 edata_list_inactive_remove.exit.i:                ; preds = %if.end.i.i, %do.body9.i.i
-  %decay_extents.sroa.0.3 = phi ptr [ %33, %do.body9.i.i ], [ null, %if.end.i.i ]
-  %46 = getelementptr i8, ptr %31, i64 16
-  %edata.0.val.i = load i64, ptr %46, align 8
+  %decay_extents.sroa.0.3 = phi ptr [ %32, %do.body9.i.i ], [ null, %if.end.i.i ]
+  %45 = getelementptr i8, ptr %30, i64 16
+  %edata.0.val.i = load i64, ptr %45, align 8
   %shr.i20 = lshr i64 %edata.0.val.i, 12
   %inc.i = add i64 %nmadvise.05.i, 1
   %add.i21 = add i64 %shr.i20, %npurged.03.i
-  %47 = load i32, ptr %state.i, align 8
-  %switch.i = icmp eq i32 %47, 2
+  %46 = load i32, ptr %state.i, align 8
+  %switch.i = icmp eq i32 %46, 2
   br i1 %switch.i, label %sw.bb13.i, label %if.then.i
 
 if.then.i:                                        ; preds = %edata_list_inactive_remove.exit.i
   %and.i.i = and i64 %edata.0.val.i, -4096
-  %call8.i = tail call zeroext i1 @extent_purge_lazy_wrapper(ptr noundef %tsdn, ptr noundef %call.i.i16, ptr noundef nonnull %31, i64 noundef 0, i64 noundef %and.i.i) #8
+  %call8.i = tail call zeroext i1 @extent_purge_lazy_wrapper(ptr noundef %tsdn, ptr noundef %call.i.i16, ptr noundef nonnull %30, i64 noundef 0, i64 noundef %and.i.i) #8
   br i1 %call8.i, label %sw.bb13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then.i
-  tail call void @ecache_dalloc(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %ecache_muzzy.i, ptr noundef nonnull %31) #8
+  tail call void @ecache_dalloc(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %ecache_muzzy.i, ptr noundef nonnull %30) #8
   br label %for.inc.i
 
 sw.bb13.i:                                        ; preds = %if.then.i, %edata_list_inactive_remove.exit.i
-  tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %31) #8
+  tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %30) #8
   %add14.i = add i64 %shr.i20, %nunmapped.04.i
   br label %for.inc.i
 
@@ -719,16 +717,16 @@ pac_decay_stashed.exit:                           ; preds = %for.inc.i, %edata_l
   %npurged.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ %add.i21, %for.inc.i ]
   %nunmapped.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ %nunmapped.1.i, %for.inc.i ]
   %nmadvise.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ %inc.i, %for.inc.i ]
-  %48 = atomicrmw add ptr %decay_stats, i64 1 monotonic, align 8
+  %47 = atomicrmw add ptr %decay_stats, i64 1 monotonic, align 8
   %nmadvise19.i = getelementptr inbounds i8, ptr %decay_stats, i64 8
-  %49 = atomicrmw add ptr %nmadvise19.i, i64 %nmadvise.0.lcssa.i monotonic, align 8
+  %48 = atomicrmw add ptr %nmadvise19.i, i64 %nmadvise.0.lcssa.i monotonic, align 8
   %purged.i = getelementptr inbounds i8, ptr %decay_stats, i64 16
-  %50 = atomicrmw add ptr %purged.i, i64 %npurged.0.lcssa.i monotonic, align 8
+  %49 = atomicrmw add ptr %purged.i, i64 %npurged.0.lcssa.i monotonic, align 8
   %stats.i = getelementptr inbounds i8, ptr %pac, i64 62224
-  %51 = load ptr, ptr %stats.i, align 8
-  %pac_mapped.i = getelementptr inbounds i8, ptr %51, i64 56
+  %50 = load ptr, ptr %stats.i, align 8
+  %pac_mapped.i = getelementptr inbounds i8, ptr %50, i64 56
   %shl.i = shl i64 %nunmapped.0.lcssa.i, 12
-  %52 = atomicrmw sub ptr %pac_mapped.i, i64 %shl.i monotonic, align 8
+  %51 = atomicrmw sub ptr %pac_mapped.i, i64 %shl.i monotonic, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %pac_decay_stashed.exit, %pac_stash_decayed.exit
@@ -743,19 +741,19 @@ if.then.i23:                                      ; preds = %if.end7
 
 if.end.i25:                                       ; preds = %if.then.i23, %if.end7
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %decay, i64 56
-  %53 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %53, 1
+  %52 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %52, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %decay, i64 48
-  %54 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %54, %tsdn
+  %53 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %53, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i25
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %decay, i64 40
-  %55 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %55, 1
+  %54 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %54, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 

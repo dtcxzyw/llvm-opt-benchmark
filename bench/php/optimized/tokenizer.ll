@@ -897,8 +897,8 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 775, ptr %67, align 8
   %68 = call i32 @lex_scan(ptr noundef nonnull %7, ptr noundef null) #10
-  %.not5261.i = icmp eq i32 %68, 0
-  br i1 %.not5261.i, label %.loopexit.i, label %.lr.ph.i
+  %.not5260.i = icmp eq i32 %68, 0
+  br i1 %.not5260.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %63
   %69 = getelementptr inbounds i8, ptr %7, i64 8
@@ -907,14 +907,14 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
 
 71:                                               ; preds = %108, %.lr.ph.i
   %72 = phi i32 [ %68, %.lr.ph.i ], [ %110, %108 ]
-  %.063.i = phi i32 [ 1, %.lr.ph.i ], [ %109, %108 ]
-  %.04762.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %108 ]
+  %.062.i = phi i32 [ 1, %.lr.ph.i ], [ %109, %108 ]
+  %.04761.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %108 ]
   %73 = icmp ne i32 %72, 406
   call void @llvm.assume(i1 %73)
   %74 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 4), align 8
   %75 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
   %76 = zext i32 %75 to i64
-  call fastcc void @add_token(ptr noundef nonnull %0, i32 noundef %72, ptr noundef %74, i64 noundef %76, i32 noundef %.063.i, ptr noundef %3, ptr noundef nonnull %8)
+  call fastcc void @add_token(ptr noundef nonnull %0, i32 noundef %72, ptr noundef %74, i64 noundef %76, i32 noundef %.062.i, ptr noundef %3, ptr noundef nonnull %8)
   %77 = load i8, ptr %69, align 8
   %.not53.i = icmp eq i8 %77, 0
   br i1 %.not53.i, label %88, label %78
@@ -944,7 +944,7 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   br label %88
 
 88:                                               ; preds = %87, %71
-  %.not56.i = icmp eq i32 %.04762.i, -1
+  %.not56.i = icmp eq i32 %.04761.i, -1
   br i1 %.not56.i, label %101, label %89
 
 89:                                               ; preds = %88
@@ -956,7 +956,7 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   ]
 
 90:                                               ; preds = %89
-  %91 = add nsw i32 %.04762.i, -1
+  %91 = add nsw i32 %.04761.i, -1
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %103
 
@@ -970,7 +970,7 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   %98 = ptrtoint ptr %95 to i64
   %99 = ptrtoint ptr %94 to i64
   %100 = sub i64 %98, %99
-  call fastcc void @add_token(ptr noundef nonnull %0, i32 noundef 267, ptr noundef %94, i64 noundef %100, i32 noundef %.063.i, ptr noundef %3, ptr noundef nonnull %8)
+  call fastcc void @add_token(ptr noundef nonnull %0, i32 noundef 267, ptr noundef %94, i64 noundef %100, i32 noundef %.062.i, ptr noundef %3, ptr noundef nonnull %8)
   br label %.loopexit.i
 
 101:                                              ; preds = %88
@@ -979,12 +979,11 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   br label %103
 
 103:                                              ; preds = %101, %90, %89, %89, %89, %89
-  %.1.i = phi i32 [ %91, %90 ], [ %.04762.i, %89 ], [ %.04762.i, %89 ], [ %.04762.i, %89 ], [ %.04762.i, %89 ], [ %spec.select.i, %101 ]
+  %.1.i = phi i32 [ %91, %90 ], [ %.04761.i, %89 ], [ %.04761.i, %89 ], [ %.04761.i, %89 ], [ %.04761.i, %89 ], [ %spec.select.i, %101 ]
   %104 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 16), align 1
-  %105 = and i8 %104, 1
-  %.not57.i = icmp eq i8 %105, 0
+  %105 = trunc i8 %104 to i1
   %.pre.i = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  br i1 %.not57.i, label %108, label %106
+  br i1 %105, label %106, label %108
 
 106:                                              ; preds = %103
   %107 = add nsw i32 %.pre.i, 1
@@ -1001,8 +1000,8 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
 .loopexit.i:                                      ; preds = %108, %97, %93, %63
   %111 = getelementptr inbounds i8, ptr %5, i64 9
   %112 = load i8, ptr %111, align 1
-  %.not58.i = icmp eq i8 %112, 0
-  br i1 %.not58.i, label %tokenize.exit, label %113
+  %.not57.i = icmp eq i8 %112, 0
+  br i1 %.not57.i, label %tokenize.exit, label %113
 
 113:                                              ; preds = %.loopexit.i
   %114 = load ptr, ptr %5, align 8
@@ -1011,8 +1010,8 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   call void @llvm.assume(i1 %116)
   %117 = add i32 %115, -1
   store i32 %117, ptr %114, align 4
-  %.not59.i = icmp eq i32 %117, 0
-  br i1 %.not59.i, label %118, label %tokenize.exit
+  %.not58.i = icmp eq i32 %117, 0
+  br i1 %.not58.i, label %118, label %tokenize.exit
 
 118:                                              ; preds = %113
   %119 = load ptr, ptr %5, align 8

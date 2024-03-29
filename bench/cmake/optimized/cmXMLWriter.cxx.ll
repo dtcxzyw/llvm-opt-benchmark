@@ -192,16 +192,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define dso_local void @_ZN11cmXMLWriter12StartElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 81
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not1.i = icmp eq i8 %9, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -238,9 +236,8 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i:  ; preds = %19, %10, %6
 _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
   %29 = getelementptr inbounds i8, ptr %0, i64 82
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %32, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %32
 
 32:                                               ; preds = %_ZN11cmXMLWriter17CloseStartElementEv.exit
   %33 = load ptr, ptr %0, align 8
@@ -250,8 +247,8 @@ _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWrite
   %37 = load i64, ptr %35, align 8
   %38 = load i64, ptr %36, align 8
   %39 = sub i64 0, %37
-  %.not.i3 = icmp eq i64 %38, %39
-  br i1 %.not.i3, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %38, %39
+  br i1 %.not.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
   %40 = getelementptr inbounds i8, ptr %0, i64 32
@@ -276,8 +273,8 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit:    ; preds = %41, %_ZN11cmXMLWrit
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
-  %.not.i.i4 = icmp eq ptr %53, %55
-  br i1 %.not.i.i4, label %59, label %56
+  %.not.i.i3 = icmp eq ptr %53, %55
+  br i1 %.not.i.i3, label %59, label %56
 
 56:                                               ; preds = %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -306,16 +303,14 @@ _ZNSt5stackINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaI
 define dso_local void @_ZN11cmXMLWriter17CloseStartElementEv(ptr noundef nonnull align 8 dereferenceable(83) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %28, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %28
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 81
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not1 = icmp eq i8 %8, 0
-  br i1 %.not1, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
@@ -397,9 +392,8 @@ define dso_local void @_ZN11cmXMLWriter10EndElementEv(ptr noundef nonnull align 
   store i64 %4, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8
@@ -409,9 +403,8 @@ define dso_local void @_ZN11cmXMLWriter10EndElementEv(ptr noundef nonnull align 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 82
   %13 = load i8, ptr %12, align 2
-  %14 = and i8 %13, 1
-  %.not1 = icmp eq i8 %14, 0
-  br i1 %.not1, label %15, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8
@@ -463,16 +456,14 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit:    ; preds = %23, %11, %15
 define dso_local void @_ZN11cmXMLWriter7ElementEPKc(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 81
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not1.i = icmp eq i8 %9, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -509,9 +500,8 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i:  ; preds = %19, %10, %6
 _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
   %29 = getelementptr inbounds i8, ptr %0, i64 82
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %32, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %32
 
 32:                                               ; preds = %_ZN11cmXMLWriter17CloseStartElementEv.exit
   %33 = load ptr, ptr %0, align 8
@@ -521,8 +511,8 @@ _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWrite
   %37 = load i64, ptr %35, align 8
   %38 = load i64, ptr %36, align 8
   %39 = sub i64 0, %37
-  %.not.i2 = icmp eq i64 %38, %39
-  br i1 %.not.i2, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %38, %39
+  br i1 %.not.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
   %40 = getelementptr inbounds i8, ptr %0, i64 32
@@ -558,16 +548,14 @@ define dso_local void @_ZN11cmXMLWriter15BreakAttributesEv(ptr nocapture noundef
 define dso_local void @_ZN11cmXMLWriter7CommentEPKc(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 81
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not1.i = icmp eq i8 %9, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -604,9 +592,8 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i:  ; preds = %19, %10, %6
 _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
   %29 = getelementptr inbounds i8, ptr %0, i64 82
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %32, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %32
 
 32:                                               ; preds = %_ZN11cmXMLWriter17CloseStartElementEv.exit
   %33 = load ptr, ptr %0, align 8
@@ -616,8 +603,8 @@ _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWrite
   %37 = load i64, ptr %35, align 8
   %38 = load i64, ptr %36, align 8
   %39 = sub i64 0, %37
-  %.not.i2 = icmp eq i64 %38, %39
-  br i1 %.not.i2, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %38, %39
+  br i1 %.not.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
   %40 = getelementptr inbounds i8, ptr %0, i64 32
@@ -646,16 +633,14 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit:    ; preds = %41, %_ZN11cmXMLWrit
 define dso_local void @_ZN11cmXMLWriter5CDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i.i = icmp eq i8 %5, 0
-  br i1 %.not.i.i, label %_ZN11cmXMLWriter10PreContentEv.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZN11cmXMLWriter10PreContentEv.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 81
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not1.i.i = icmp eq i8 %9, 0
-  br i1 %.not1.i.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i.i, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i.i
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -703,16 +688,14 @@ _ZN11cmXMLWriter10PreContentEv.exit:              ; preds = %2, %_ZN11cmXMLWrite
 define dso_local void @_ZN11cmXMLWriter10PreContentEv(ptr noundef nonnull align 8 dereferenceable(83) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 81
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not1.i = icmp eq i8 %8, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
@@ -756,16 +739,14 @@ _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %1, %_ZN11cmXMLWrite
 define dso_local void @_ZN11cmXMLWriter7DoctypeEPKc(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 81
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not1.i = icmp eq i8 %9, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -802,9 +783,8 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i:  ; preds = %19, %10, %6
 _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
   %29 = getelementptr inbounds i8, ptr %0, i64 82
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %32, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %32
 
 32:                                               ; preds = %_ZN11cmXMLWriter17CloseStartElementEv.exit
   %33 = load ptr, ptr %0, align 8
@@ -814,8 +794,8 @@ _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %2, %_ZN11cmXMLWrite
   %37 = load i64, ptr %35, align 8
   %38 = load i64, ptr %36, align 8
   %39 = sub i64 0, %37
-  %.not.i2 = icmp eq i64 %38, %39
-  br i1 %.not.i2, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %38, %39
+  br i1 %.not.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
   %40 = getelementptr inbounds i8, ptr %0, i64 32
@@ -844,16 +824,14 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit:    ; preds = %41, %_ZN11cmXMLWrit
 define dso_local void @_ZN11cmXMLWriter21ProcessingInstructionEPKcS1_(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 81
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not1.i = icmp eq i8 %10, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
@@ -890,9 +868,8 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i:  ; preds = %20, %11, %7
 _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %3, %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
   %30 = getelementptr inbounds i8, ptr %0, i64 82
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %33
 
 33:                                               ; preds = %_ZN11cmXMLWriter17CloseStartElementEv.exit
   %34 = load ptr, ptr %0, align 8
@@ -902,8 +879,8 @@ _ZN11cmXMLWriter17CloseStartElementEv.exit:       ; preds = %3, %_ZN11cmXMLWrite
   %38 = load i64, ptr %36, align 8
   %39 = load i64, ptr %37, align 8
   %40 = sub i64 0, %38
-  %.not.i3 = icmp eq i64 %39, %40
-  br i1 %.not.i3, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %39, %40
+  br i1 %.not.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33
   %41 = getelementptr inbounds i8, ptr %0, i64 32
@@ -935,16 +912,14 @@ define dso_local void @_ZN11cmXMLWriter12FragmentFileEPKc(ptr noundef nonnull al
   %3 = alloca %"class.std::basic_ifstream", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %_ZN11cmXMLWriter17CloseStartElementEv.exit, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %_ZN11cmXMLWriter17CloseStartElementEv.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 81
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not1.i = icmp eq i8 %10, 0
-  br i1 %.not1.i, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit.i
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
@@ -1021,9 +996,8 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZN11cmXMLWriter12PreAttributeEv(ptr noundef nonnull align 8 dereferenceable(83) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 81
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not1 = icmp eq i8 %4, 0
-  br i1 %.not1, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
@@ -1053,9 +1027,8 @@ define dso_local void @_ZN11cmXMLWriter12PreAttributeEv(ptr noundef nonnull alig
 
 _ZN11cmXMLWriter20ConditionalLineBreakEb.exit:    ; preds = %14, %1, %5
   %22 = load i8, ptr %2, align 1
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %24, label %27
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %27, label %24
 
 24:                                               ; preds = %_ZN11cmXMLWriter20ConditionalLineBreakEb.exit
   %25 = load ptr, ptr %0, align 8

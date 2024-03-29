@@ -172,9 +172,8 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
   %37 = load i8, ptr @pmix_output_redirected_to_syslog, align 1
-  %38 = and i8 %37, 1
-  %.not31 = icmp eq i8 %38, 0
-  br i1 %.not31, label %45, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %45
 
 39:                                               ; preds = %pmix_obj_run_constructors.exit
   store i8 1, ptr getelementptr inbounds (%struct.pmix_output_stream_t, ptr @verbose, i64 0, i32 7), align 1
@@ -316,9 +315,8 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %10 ]
   %13 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %indvars.iv
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not65 = icmp eq i8 %15, 0
-  br i1 %.not65, label %.loopexit.loopexit, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %.loopexit.loopexit
 
 16:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -354,8 +352,8 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %spec.store.select, i64 136
   %32 = load ptr, ptr %31, align 8
-  %.not67 = icmp eq ptr %32, null
-  br i1 %.not67, label %39, label %33
+  %.not65 = icmp eq ptr %32, null
+  br i1 %.not65, label %39, label %33
 
 33:                                               ; preds = %.loopexit
   %34 = tail call noalias ptr @strdup(ptr noundef nonnull %32) #21
@@ -377,8 +375,8 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
   store i32 %.sink, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %spec.store.select, i64 144
   %44 = load ptr, ptr %43, align 8
-  %.not68 = icmp eq ptr %44, null
-  br i1 %.not68, label %51, label %45
+  %.not66 = icmp eq ptr %44, null
+  br i1 %.not66, label %51, label %45
 
 45:                                               ; preds = %41
   %46 = tail call noalias ptr @strdup(ptr noundef nonnull %44) #21
@@ -395,13 +393,12 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
   br label %53
 
 53:                                               ; preds = %51, %45
-  %.sink75 = phi i32 [ 0, %51 ], [ %50, %45 ]
+  %.sink72 = phi i32 [ 0, %51 ], [ %50, %45 ]
   %54 = getelementptr inbounds i8, ptr %21, i64 48
-  store i32 %.sink75, ptr %54, align 8
+  store i32 %.sink72, ptr %54, align 8
   %55 = load i8, ptr @pmix_output_redirected_to_syslog, align 1
-  %56 = and i8 %55, 1
-  %.not69 = icmp eq i8 %56, 0
-  br i1 %.not69, label %62, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %62
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %21, i64 52
@@ -428,14 +425,14 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %spec.store.select, i64 154
   %68 = load i8, ptr %67, align 2
-  %69 = and i8 %68, 1
-  %70 = getelementptr inbounds i8, ptr %21, i64 52
-  store i8 %69, ptr %70, align 4
+  %69 = getelementptr inbounds i8, ptr %21, i64 52
+  %70 = and i8 %68, 1
+  store i8 %70, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %spec.store.select, i64 155
   %72 = load i8, ptr %71, align 1
-  %73 = and i8 %72, 1
-  %74 = getelementptr inbounds i8, ptr %21, i64 53
-  store i8 %73, ptr %74, align 1
+  %73 = getelementptr inbounds i8, ptr %21, i64 53
+  %74 = and i8 %72, 1
+  store i8 %74, ptr %73, align 1
   %75 = getelementptr inbounds i8, ptr %21, i64 64
   store i32 -1, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %spec.store.select, i64 156
@@ -444,11 +441,11 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
   br label %79
 
 79:                                               ; preds = %66, %63
-  %.sink76 = phi i8 [ %78, %66 ], [ 1, %63 ]
+  %.sink73 = phi i8 [ %78, %66 ], [ 1, %63 ]
   %80 = getelementptr inbounds i8, ptr %21, i64 54
-  store i8 %.sink76, ptr %80, align 2
-  %.not70 = icmp eq ptr %11, null
-  br i1 %.not70, label %81, label %.sink.split
+  store i8 %.sink73, ptr %80, align 2
+  %.not67 = icmp eq ptr %11, null
+  br i1 %.not67, label %81, label %.sink.split
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %spec.store.select, i64 160
@@ -457,19 +454,19 @@ define internal fastcc i32 @do_open(i32 noundef %0, ptr noundef readonly %1) unn
   br i1 %84, label %86, label %.sink.split
 
 .sink.split:                                      ; preds = %81, %79
-  %.sink80 = phi ptr [ %11, %79 ], [ %83, %81 ]
-  %85 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink80) #21
+  %.sink77 = phi ptr [ %11, %79 ], [ %83, %81 ]
+  %85 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink77) #21
   br label %86
 
 86:                                               ; preds = %.sink.split, %81
-  %.sink78 = phi ptr [ null, %81 ], [ %85, %.sink.split ]
+  %.sink75 = phi ptr [ null, %81 ], [ %85, %.sink.split ]
   %87 = getelementptr inbounds i8, ptr %21, i64 56
-  store ptr %.sink78, ptr %87, align 8
+  store ptr %.sink75, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %spec.store.select, i64 157
   %89 = load i8, ptr %88, align 1
-  %90 = and i8 %89, 1
-  %91 = getelementptr inbounds i8, ptr %21, i64 55
-  store i8 %90, ptr %91, align 1
+  %90 = getelementptr inbounds i8, ptr %21, i64 55
+  %91 = and i8 %89, 1
+  store i8 %91, ptr %90, align 1
   %92 = getelementptr inbounds i8, ptr %21, i64 68
   store i32 0, ptr %92, align 4
   br label %.thread
@@ -497,19 +494,18 @@ define zeroext i1 @pmix_output_switch(i32 noundef %0, i1 noundef zeroext %1) loc
 
 6:                                                ; preds = %4, %2
   %or.cond = icmp ult i32 %0, 64
-  br i1 %or.cond, label %7, label %13
+  br i1 %or.cond, label %7, label %12
 
 7:                                                ; preds = %6
   %8 = zext nneg i32 %0 to i64
   %9 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 1
   %10 = load i8, ptr %9, align 1
   store i8 %3, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %12 = icmp ne i8 %11, 0
-  br label %13
+  %11 = trunc i8 %10 to i1
+  br label %12
 
-13:                                               ; preds = %7, %6
-  %.0 = phi i1 [ %12, %7 ], [ false, %6 ]
+12:                                               ; preds = %7, %6
+  %.0 = phi i1 [ %11, %7 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -566,16 +562,14 @@ define void @pmix_output_close(i32 noundef %0) local_unnamed_addr #2 {
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %.loopexit, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not14 = icmp eq i8 %11, 0
-  br i1 %.not14, label %.loopexit, label %.loopexit.loopexit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %.loopexit.loopexit, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %8
   tail call fastcc void @free_descriptor(i32 noundef %0)
@@ -594,22 +588,20 @@ define internal fastcc void @free_descriptor(i32 noundef %0) unnamed_addr #2 {
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %33, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %33
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 1
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not25 = icmp eq i8 %10, 0
-  br i1 %.not25, label %33, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %33
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %4, i64 64
   %13 = load i32, ptr %12, align 8
-  %.not26 = icmp eq i32 %13, -1
-  br i1 %.not26, label %16, label %14
+  %.not = icmp eq i32 %13, -1
+  br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i32 @close(i32 noundef %13) #21
@@ -619,8 +611,8 @@ define internal fastcc void @free_descriptor(i32 noundef %0) unnamed_addr #2 {
   store i8 0, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 24
   %18 = load ptr, ptr %17, align 8
-  %.not27 = icmp eq ptr %18, null
-  br i1 %.not27, label %20, label %19
+  %.not25 = icmp eq ptr %18, null
+  br i1 %.not25, label %20, label %19
 
 19:                                               ; preds = %16
   tail call void @free(ptr noundef nonnull %18) #21
@@ -630,8 +622,8 @@ define internal fastcc void @free_descriptor(i32 noundef %0) unnamed_addr #2 {
   store ptr null, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 40
   %22 = load ptr, ptr %21, align 8
-  %.not28 = icmp eq ptr %22, null
-  br i1 %.not28, label %24, label %23
+  %.not26 = icmp eq ptr %22, null
+  br i1 %.not26, label %24, label %23
 
 23:                                               ; preds = %20
   tail call void @free(ptr noundef nonnull %22) #21
@@ -641,8 +633,8 @@ define internal fastcc void @free_descriptor(i32 noundef %0) unnamed_addr #2 {
   store ptr null, ptr %21, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 56
   %26 = load ptr, ptr %25, align 8
-  %.not29 = icmp eq ptr %26, null
-  br i1 %.not29, label %28, label %27
+  %.not27 = icmp eq ptr %26, null
+  br i1 %.not27, label %28, label %27
 
 27:                                               ; preds = %24
   tail call void @free(ptr noundef nonnull %26) #21
@@ -652,8 +644,8 @@ define internal fastcc void @free_descriptor(i32 noundef %0) unnamed_addr #2 {
   store ptr null, ptr %25, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8
-  %.not30 = icmp eq ptr %30, null
-  br i1 %.not30, label %32, label %31
+  %.not28 = icmp eq ptr %30, null
+  br i1 %.not28, label %32, label %31
 
 31:                                               ; preds = %28
   tail call void @free(ptr noundef nonnull %30) #21
@@ -676,7 +668,7 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   br i1 %or.cond, label %6, label %143
 
 6:                                                ; preds = %2
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4)
   store ptr null, ptr %3, align 8
@@ -691,16 +683,14 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   %10 = zext nneg i32 %0 to i64
   %11 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %make_string.exit.i, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %make_string.exit.i
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %11, i64 1
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not29.i = icmp eq i8 %17, 0
-  br i1 %.not29.i, label %make_string.exit.i, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %make_string.exit.i
 
 18:                                               ; preds = %14
   %19 = call i32 @vasprintf(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %5) #21
@@ -819,9 +809,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 73:                                               ; preds = %71, %69, %66, %64, %60, %58, %55, %53
   %74 = getelementptr inbounds i8, ptr %11, i64 52
   %75 = load i8, ptr %74, align 4
-  %76 = and i8 %75, 1
-  %.not31.i = icmp eq i8 %76, 0
-  br i1 %.not31.i, label %87, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %87
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr @stdout, align 8
@@ -841,9 +830,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 87:                                               ; preds = %84, %73
   %88 = getelementptr inbounds i8, ptr %11, i64 53
   %89 = load i8, ptr %88, align 1
-  %90 = and i8 %89, 1
-  %.not32.i = icmp eq i8 %90, 0
-  br i1 %.not32.i, label %106, label %91
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %106
 
 91:                                               ; preds = %87
   %92 = load i32, ptr @default_stderr_fd, align 4
@@ -858,8 +846,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 97:                                               ; preds = %94, %91
   %98 = phi i32 [ %96, %94 ], [ %92, %91 ]
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #22
-  %sext33.i = shl i64 %99, 32
-  %100 = ashr exact i64 %sext33.i, 32
+  %sext29.i = shl i64 %99, 32
+  %100 = ashr exact i64 %sext29.i, 32
   %101 = call i64 @write(i32 noundef %98, ptr noundef nonnull %47, i64 noundef %100) #21
   %102 = icmp slt i64 %101, 0
   br i1 %102, label %make_string.exit.i, label %103
@@ -872,9 +860,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 106:                                              ; preds = %103, %87
   %107 = getelementptr inbounds i8, ptr %11, i64 54
   %108 = load i8, ptr %107, align 2
-  %109 = and i8 %108, 1
-  %.not34.i = icmp eq i8 %109, 0
-  br i1 %.not34.i, label %.thread57.i, label %110
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %.thread53.i
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %11, i64 64
@@ -884,10 +871,10 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 
 114:                                              ; preds = %110
   %115 = call fastcc i32 @open_file(i32 noundef %0), !range !8
-  %.not35.i = icmp eq i32 %115, 0
+  %.not30.i = icmp eq i32 %115, 0
   %116 = getelementptr inbounds i8, ptr %11, i64 68
   %117 = load i32, ptr %116, align 4
-  br i1 %.not35.i, label %120, label %118
+  br i1 %.not30.i, label %120, label %118
 
 118:                                              ; preds = %114
   %119 = add nsw i32 %117, 1
@@ -907,8 +894,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   %126 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %4, i64 noundef 8191, ptr noundef nonnull @.str.21, i32 noundef %117) #21
   %127 = load i32, ptr %111, align 8
   %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
-  %sext36.i = shl i64 %128, 32
-  %129 = ashr exact i64 %sext36.i, 32
+  %sext31.i = shl i64 %128, 32
+  %129 = ashr exact i64 %sext31.i, 32
   %130 = call i64 @write(i32 noundef %127, ptr noundef nonnull %4, i64 noundef %129) #21
   %131 = icmp slt i64 %130, 0
   br i1 %131, label %make_string.exit.i, label %thread-pre-split.sink.split.i
@@ -924,61 +911,55 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.si
 
 132:                                              ; preds = %thread-pre-split.i, %122
   %133 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %123, %122 ]
-  %.not37.i = icmp eq i32 %133, -1
-  br i1 %.not37.i, label %.thread57.i, label %.thread.i
+  %.not32.i = icmp eq i32 %133, -1
+  br i1 %.not32.i, label %.thread53.i, label %.thread.i
 
 .thread.i:                                        ; preds = %132, %110
   %134 = phi i32 [ %133, %132 ], [ %112, %110 ]
   %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #22
-  %sext38.i = shl i64 %135, 32
-  %136 = ashr exact i64 %sext38.i, 32
+  %sext33.i = shl i64 %135, 32
+  %136 = ashr exact i64 %sext33.i, 32
   %137 = call i64 @write(i32 noundef %134, ptr noundef nonnull %47, i64 noundef %136) #21
   %138 = icmp slt i64 %137, 0
-  br i1 %138, label %make_string.exit.i, label %.thread57.i
+  br i1 %138, label %make_string.exit.i, label %.thread53.i
 
-.thread57.i:                                      ; preds = %.thread.i, %132, %106
+.thread53.i:                                      ; preds = %.thread.i, %132, %106
   %139 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %139) #21
   store ptr null, ptr %3, align 8
   br label %142
 
 make_string.exit.i:                               ; preds = %.thread.i, %125, %97, %77, %45, %18, %14, %9
-  %.1.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ %47, %77 ], [ %47, %97 ], [ %47, %.thread.i ], [ %47, %125 ], [ null, %14 ], [ null, %9 ]
-  %.pr50.i = load ptr, ptr %3, align 8
-  %.not39.i = icmp eq ptr %.pr50.i, null
-  br i1 %.not39.i, label %141, label %140
+  %.1.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %9 ], [ null, %14 ], [ %47, %.thread.i ], [ %47, %125 ], [ %47, %97 ], [ %47, %77 ]
+  %.pr46.i = load ptr, ptr %3, align 8
+  %.not34.i = icmp eq ptr %.pr46.i, null
+  br i1 %.not34.i, label %141, label %140
 
 140:                                              ; preds = %make_string.exit.i
-  call void @free(ptr noundef nonnull %.pr50.i) #21
+  call void @free(ptr noundef nonnull %.pr46.i) #21
   br label %141
 
 141:                                              ; preds = %140, %make_string.exit.i
-  %.not40.i = icmp eq ptr %.1.ph.i, null
-  br i1 %.not40.i, label %output.exit, label %142
+  %.not35.i = icmp eq ptr %.1.ph.i, null
+  br i1 %.not35.i, label %output.exit, label %142
 
-142:                                              ; preds = %141, %.thread57.i
-  %.15563.i = phi ptr [ %47, %.thread57.i ], [ %.1.ph.i, %141 ]
-  call void @free(ptr noundef nonnull %.15563.i) #21
+142:                                              ; preds = %141, %.thread53.i
+  %.15159.i = phi ptr [ %47, %.thread53.i ], [ %.1.ph.i, %141 ]
+  call void @free(ptr noundef nonnull %.15159.i) #21
   br label %output.exit
 
 output.exit:                                      ; preds = %141, %142
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br label %143
 
 143:                                              ; preds = %output.exit, %2
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @pmix_output_set_verbosity(i32 noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @pmix_output_set_verbosity(i32 noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %or.cond = icmp ult i32 %0, 64
   br i1 %or.cond, label %3, label %6
 
@@ -1158,10 +1139,10 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #13
+declare ptr @__ctype_b_loc() local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @pmix_output_finalize() local_unnamed_addr #2 {
@@ -1177,16 +1158,14 @@ define void @pmix_output_finalize() local_unnamed_addr #2 {
   %5 = zext nneg i32 %2 to i64
   %6 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %5
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %pmix_output_close.exit, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %pmix_output_close.exit
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %6, i64 1
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not14.i = icmp eq i8 %12, 0
-  br i1 %.not14.i, label %pmix_output_close.exit, label %.loopexit.loopexit.i
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %.loopexit.loopexit.i, label %pmix_output_close.exit
 
 .loopexit.loopexit.i:                             ; preds = %9
   tail call fastcc void @free_descriptor(i32 noundef %2)
@@ -1213,8 +1192,8 @@ pmix_output_close.exit:                           ; preds = %.loopexit.loopexit.
   tail call void %20(ptr noundef nonnull @verbose) #21
   %21 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %22 = load ptr, ptr %21, align 8
-  %.not.i2 = icmp eq ptr %22, null
-  br i1 %.not.i2, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !12
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !12
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %pmix_output_close.exit
   store i1 false, ptr @initialized, align 1
@@ -1225,7 +1204,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %pmix_out
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @pmix_output_get_verbosity(i32 noundef %0) local_unnamed_addr #14 {
+define i32 @pmix_output_get_verbosity(i32 noundef %0) local_unnamed_addr #13 {
   %or.cond = icmp ult i32 %0, 64
   br i1 %or.cond, label %2, label %10
 
@@ -1233,9 +1212,8 @@ define i32 @pmix_output_get_verbosity(i32 noundef %0) local_unnamed_addr #14 {
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %10, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1248,18 +1226,18 @@ define i32 @pmix_output_get_verbosity(i32 noundef %0) local_unnamed_addr #14 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 declare i32 @close(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
@@ -1274,45 +1252,43 @@ define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
 5:                                                ; preds = %3
   %6 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %28, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %28
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %6, i64 54
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not45 = icmp eq i8 %12, 0
-  br i1 %.not45, label %28, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %2
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
-  %.not46 = icmp eq ptr %16, null
+  %.not = icmp eq ptr %16, null
   %17 = getelementptr inbounds i8, ptr %6, i64 56
   %18 = load ptr, ptr %17, align 8
-  %.not49 = icmp eq ptr %18, null
-  br i1 %.not46, label %22, label %19
+  %.not47 = icmp eq ptr %18, null
+  br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %13
-  br i1 %.not49, label %.loopexit, label %20
+  br i1 %.not47, label %.loopexit, label %20
 
 20:                                               ; preds = %19
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %18) #22
-  %.not48 = icmp eq i32 %21, 0
-  br i1 %.not48, label %.thread57, label %.loopexit
+  %.not46 = icmp eq i32 %21, 0
+  br i1 %.not46, label %.thread54, label %.loopexit
 
 22:                                               ; preds = %13
-  br i1 %.not49, label %.thread57, label %.loopexit
+  br i1 %.not47, label %.thread54, label %.loopexit
 
-.thread57:                                        ; preds = %20, %22
+.thread54:                                        ; preds = %20, %22
   %23 = getelementptr inbounds i8, ptr %6, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.loopexit, label %26
 
-26:                                               ; preds = %.thread57
+26:                                               ; preds = %.thread54
   %27 = getelementptr inbounds i8, ptr %14, i64 64
   store i32 %24, ptr %27, align 8
   br label %61
@@ -1322,10 +1298,10 @@ define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !13
 
-.loopexit:                                        ; preds = %28, %19, %.thread57, %22, %20
+.loopexit:                                        ; preds = %28, %19, %.thread54, %22, %20
   %29 = load ptr, ptr @output_dir, align 8
-  %.not51 = icmp eq ptr %29, null
-  br i1 %.not51, label %60, label %30
+  %.not49 = icmp eq ptr %29, null
+  br i1 %.not49, label %60, label %30
 
 30:                                               ; preds = %.loopexit
   %31 = tail call noalias dereferenceable_or_null(4097) ptr @malloc(i64 noundef 4097) #23
@@ -1355,8 +1331,8 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %35
   %endptr = getelementptr inbounds i8, ptr %31, i64 %strlen
   store i16 47, ptr %endptr, align 1
   %39 = load ptr, ptr @output_prefix, align 8
-  %.not52 = icmp eq ptr %39, null
-  br i1 %.not52, label %42, label %40
+  %.not50 = icmp eq ptr %39, null
+  br i1 %.not50, label %42, label %40
 
 40:                                               ; preds = %pmix_strncpy.exit
   %41 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %39) #21
@@ -1366,25 +1342,24 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %35
   %43 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %2
   %44 = getelementptr inbounds i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
-  %.not53 = icmp eq ptr %45, null
-  br i1 %.not53, label %48, label %46
+  %.not51 = icmp eq ptr %45, null
+  br i1 %.not51, label %48, label %46
 
 46:                                               ; preds = %42
   %47 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %45) #21
   br label %49
 
 48:                                               ; preds = %42
-  %strlen54 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %31)
-  %endptr55 = getelementptr inbounds i8, ptr %31, i64 %strlen54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr55, ptr noundef nonnull align 1 dereferenceable(11) @.str.28, i64 11, i1 false)
+  %strlen52 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %31)
+  %endptr53 = getelementptr inbounds i8, ptr %31, i64 %strlen52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %endptr53, ptr noundef nonnull align 1 dereferenceable(11) @.str.28, i64 11, i1 false)
   br label %49
 
 49:                                               ; preds = %48, %46
   %50 = getelementptr inbounds i8, ptr %43, i64 55
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not56 = icmp eq i8 %52, 0
-  %spec.select = select i1 %.not56, i32 578, i32 66
+  %52 = trunc i8 %51 to i1
+  %spec.select = select i1 %52, i32 66, i32 578
   %53 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %31, i32 noundef %spec.select, i32 noundef 420) #21
   %54 = getelementptr inbounds i8, ptr %43, i64 64
   store i32 %53, ptr %54, align 8
@@ -1415,18 +1390,24 @@ declare i32 @pmix_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #16
+declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #15
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
@@ -1447,15 +1428,15 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind }

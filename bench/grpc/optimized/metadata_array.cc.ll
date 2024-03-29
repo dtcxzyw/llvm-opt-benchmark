@@ -16,9 +16,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @grpc_metadata_array_init(ptr noundef %array) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.i.not, label %if.end, label %if.then
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 30, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %array)
@@ -38,9 +37,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define void @grpc_metadata_array_destroy(ptr noundef %array) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.i.not, label %if.end, label %if.then
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 35, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %array)
@@ -48,8 +46,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %metadata = getelementptr inbounds i8, ptr %array, i64 16
-  %2 = load ptr, ptr %metadata, align 8
-  tail call void @gpr_free(ptr noundef %2)
+  %1 = load ptr, ptr %metadata, align 8
+  tail call void @gpr_free(ptr noundef %1)
   ret void
 }
 

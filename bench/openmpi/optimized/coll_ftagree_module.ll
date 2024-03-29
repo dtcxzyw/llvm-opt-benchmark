@@ -31,9 +31,8 @@ declare i32 @mca_coll_ftagree_era_init() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %opal_obj_new.exit.thread, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %opal_obj_new.exit.thread
 
 5:                                                ; preds = %2
   %6 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_ftagree_module_t_class, i64 0, i32 8), align 8
@@ -58,7 +57,7 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture no
   %14 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_ftagree_module_t_class, i64 0, i32 6), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread31, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit.thread30, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
@@ -67,18 +66,18 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture no
   %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread31, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread30, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread31:                       ; preds = %.lr.ph.i.i, %12
+opal_obj_new.exit.thread30:                       ; preds = %.lr.ph.i.i, %12
   %19 = load i32, ptr @mca_coll_ftagree_priority, align 4
   store i32 %19, ptr %1, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 224
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 1
-  %.not26 = icmp eq i32 %22, 0
-  br i1 %.not26, label %30, label %ompi_comm_remote_size.exit
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %30, label %ompi_comm_remote_size.exit
 
-ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.thread31
+ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.thread30
   %23 = getelementptr inbounds i8, ptr %0, i64 256
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
@@ -90,15 +89,15 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   %29 = add nsw i32 %.val.val, %26
   br label %33
 
-30:                                               ; preds = %opal_obj_new.exit.thread31
+30:                                               ; preds = %opal_obj_new.exit.thread30
   %31 = getelementptr i8, ptr %0, i64 248
-  %.val29 = load ptr, ptr %31, align 8
-  %32 = getelementptr i8, ptr %.val29, i64 16
-  %.val29.val = load i32, ptr %32, align 8
+  %.val28 = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %.val28, i64 16
+  %.val28.val = load i32, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %30, %ompi_comm_remote_size.exit
-  %.024 = phi i32 [ %29, %ompi_comm_remote_size.exit ], [ %.val29.val, %30 ]
+  %.024 = phi i32 [ %29, %ompi_comm_remote_size.exit ], [ %.val28.val, %30 ]
   %34 = shl nsw i32 %.024, 1
   %35 = getelementptr inbounds i8, ptr %7, i64 600
   store i32 %34, ptr %35, align 8
@@ -122,7 +121,7 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   ]
 
 46:                                               ; preds = %33
-  br i1 %.not26, label %47, label %opal_obj_new.exit.thread
+  br i1 %.not, label %47, label %opal_obj_new.exit.thread
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %7, i64 552
@@ -133,9 +132,9 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   %50 = tail call i32 @mca_coll_ftagree_era_comm_init(ptr noundef nonnull %0, ptr noundef nonnull %7) #4
   %51 = load i32, ptr %20, align 8
   %52 = and i32 %51, 1
-  %.not28 = icmp eq i32 %52, 0
+  %.not27 = icmp eq i32 %52, 0
   %53 = getelementptr inbounds i8, ptr %7, i64 552
-  br i1 %.not28, label %55, label %54
+  br i1 %.not27, label %55, label %54
 
 54:                                               ; preds = %49
   store ptr @mca_coll_ftagree_era_inter, ptr %53, align 8

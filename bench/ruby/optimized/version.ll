@@ -76,16 +76,15 @@ declare void @rb_provide(ptr noundef) local_unnamed_addr #1
 define hidden void @Init_ruby_description(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %10
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 4096
-  %.not3 = icmp eq i16 %8, 0
-  %9 = select i1 %.not3, ptr @.str.11, ptr @.str.10
+  %.not = icmp eq i16 %8, 0
+  %9 = select i1 %.not, ptr @.str.11, ptr @.str.10
   br label %10
 
 10:                                               ; preds = %1, %5
@@ -95,9 +94,8 @@ define hidden void @Init_ruby_description(ptr nocapture noundef readonly %0) loc
   %13 = select i1 %.not.i, ptr @.str.11, ptr @.str.13
   %14 = tail call ptr @rb_ruby_prism_ptr() #4
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not4.i = icmp eq i8 %16, 0
-  %17 = select i1 %.not4.i, ptr @.str.11, ptr @.str.14
+  %16 = trunc i8 %15 to i1
+  %17 = select i1 %16, ptr @.str.14, ptr @.str.11
   %18 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull @define_ruby_description.desc, i64 noundef 80, ptr noundef nonnull @.str.15, i32 noundef 54, ptr noundef nonnull @ruby_description, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %17, ptr noundef nonnull getelementptr inbounds ([70 x i8], ptr @ruby_description, i64 0, i64 54)) #4
   %19 = sext i32 %18 to i64
   %20 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @define_ruby_description.desc, i64 noundef %19) #4
@@ -128,9 +126,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %5 = select i1 %.not.i1, ptr @.str.11, ptr @.str.13
   %6 = tail call ptr @rb_ruby_prism_ptr() #4
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not4.i = icmp eq i8 %8, 0
-  %9 = select i1 %.not4.i, ptr @.str.11, ptr @.str.14
+  %8 = trunc i8 %7 to i1
+  %9 = select i1 %8, ptr @.str.14, ptr @.str.11
   %10 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull @define_ruby_description.desc, i64 noundef 80, ptr noundef nonnull @.str.15, i32 noundef 54, ptr noundef nonnull @ruby_description, ptr noundef nonnull @.str.10, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull getelementptr inbounds ([70 x i8], ptr @ruby_description, i64 0, i64 54)) #4
   %11 = sext i32 %10 to i64
   %12 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @define_ruby_description.desc, i64 noundef %11) #4

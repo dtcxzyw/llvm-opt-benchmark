@@ -90,9 +90,8 @@ define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonl
   store ptr %10, ptr @CurrentMemoryContext, align 8
   %13 = tail call ptr @palloc0(i64 noundef 512) #12
   %14 = load i8, ptr @trace_sort, align 1
-  %15 = and i8 %14, 1
-  %.not36 = icmp eq i8 %15, 0
-  br i1 %.not36, label %18, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %13, i64 352
@@ -131,13 +130,12 @@ define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonl
 
 33:                                               ; preds = %18
   %34 = load i8, ptr %1, align 8
-  %35 = and i8 %34, 1
-  %.not37 = icmp eq i8 %35, 0
+  %35 = trunc i8 %34 to i1
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %13, i64 328
   store ptr %37, ptr %38, align 8
-  br i1 %.not37, label %47, label %39
+  br i1 %35, label %39, label %47
 
 39:                                               ; preds = %33
   %40 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %37, i8 1, ptr elementtype(i8) %37) #12, !srcloc !5
@@ -238,16 +236,16 @@ define internal fastcc void @tuplesort_begin_batch(ptr nocapture noundef %0) unn
   %.not30 = icmp eq ptr %27, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 188
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %.not30, label %..thread_crit_edge35, label %30
+  br i1 %.not30, label %..thread_crit_edge34, label %30
 
-..thread_crit_edge35:                             ; preds = %14
+..thread_crit_edge34:                             ; preds = %14
   %28 = sext i32 %.pre to i64
   %29 = mul nsw i64 %28, 24
   br label %.thread
 
 30:                                               ; preds = %14
   %.not31 = icmp eq i32 %.pre, 1024
-  br i1 %.not31, label %thread-pre-split33, label %31
+  br i1 %.not31, label %thread-pre-split32, label %31
 
 31:                                               ; preds = %30
   tail call void @pfree(ptr noundef nonnull %27) #12
@@ -255,26 +253,25 @@ define internal fastcc void @tuplesort_begin_batch(ptr nocapture noundef %0) unn
   store i32 1024, ptr %.phi.trans.insert, align 4
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge35, %31
-  %32 = phi i64 [ %29, %..thread_crit_edge35 ], [ 24576, %31 ]
+.thread:                                          ; preds = %..thread_crit_edge34, %31
+  %32 = phi i64 [ %29, %..thread_crit_edge34 ], [ 24576, %31 ]
   %33 = tail call ptr @palloc(i64 noundef %32) #12
   store ptr %33, ptr %26, align 8
   %34 = tail call i64 @GetMemoryChunkSpace(ptr noundef %33) #12
   %35 = load i64, ptr %21, align 8
   %36 = sub i64 %35, %34
   store i64 %36, ptr %21, align 8
-  br label %thread-pre-split33
+  br label %thread-pre-split32
 
-thread-pre-split33:                               ; preds = %30, %.thread
+thread-pre-split32:                               ; preds = %30, %.thread
   %37 = phi i64 [ %36, %.thread ], [ %20, %30 ]
   %38 = icmp slt i64 %37, 0
   br i1 %38, label %39, label %45
 
-39:                                               ; preds = %thread-pre-split33
+39:                                               ; preds = %thread-pre-split32
   %40 = load i8, ptr %25, align 1
-  %41 = and i8 %40, 1
-  %.not32 = icmp eq i8 %41, 0
-  br i1 %.not32, label %42, label %45
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %39
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -283,7 +280,7 @@ thread-pre-split33:                               ; preds = %30, %.thread
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @__func__.tuplesort_begin_batch) #12
   unreachable
 
-45:                                               ; preds = %39, %thread-pre-split33
+45:                                               ; preds = %39, %thread-pre-split32
   %46 = getelementptr inbounds i8, ptr %0, i64 240
   store i32 0, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 288
@@ -350,9 +347,8 @@ define dso_local void @tuplesort_set_bound(ptr nocapture noundef %0, i64 noundef
 define dso_local zeroext i1 @tuplesort_used_bound(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 117
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -396,17 +392,16 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %.thread, %16, %14
-  %.029 = phi i64 [ %13, %.thread ], [ %15, %16 ], [ %15, %14 ]
+  %.028 = phi i64 [ %13, %.thread ], [ %15, %16 ], [ %15, %14 ]
   %18 = load i8, ptr @trace_sort, align 1
-  %19 = and i8 %18, 1
-  %.not24 = icmp eq i8 %19, 0
-  br i1 %.not24, label %45, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %45
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %5, align 8
-  %.not25 = icmp eq ptr %21, null
+  %.not24 = icmp eq ptr %21, null
   %22 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
-  br i1 %.not25, label %34, label %23
+  br i1 %.not24, label %34, label %23
 
 23:                                               ; preds = %20
   br i1 %22, label %24, label %45
@@ -420,7 +415,7 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 352
   %32 = tail call ptr @pg_rusage_show(ptr noundef nonnull %31) #12
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %28, i32 noundef %30, i64 noundef %.029, ptr noundef %32) #12
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %28, i32 noundef %30, i64 noundef %.028, ptr noundef %32) #12
   br label %.sink.split
 
 34:                                               ; preds = %20
@@ -435,7 +430,7 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   %41 = load i32, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 352
   %43 = tail call ptr @pg_rusage_show(ptr noundef nonnull %42) #12
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, ptr noundef nonnull %39, i32 noundef %41, i64 noundef %.029, ptr noundef %43) #12
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, ptr noundef nonnull %39, i32 noundef %41, i64 noundef %.028, ptr noundef %43) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %24
@@ -446,8 +441,8 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
 45:                                               ; preds = %.sink.split, %23, %34, %17
   %46 = getelementptr inbounds i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8
-  %.not26 = icmp eq ptr %47, null
-  br i1 %.not26, label %49, label %48
+  %.not25 = icmp eq ptr %47, null
+  br i1 %.not25, label %49, label %48
 
 48:                                               ; preds = %45
   tail call void %47(ptr noundef nonnull %0) #12
@@ -467,7 +462,7 @@ define dso_local void @tuplesort_reset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp ne ptr %3, null
-  br i1 %.not.i, label %14, label %4
+  br i1 %.not.i, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 136
@@ -477,46 +472,44 @@ define dso_local void @tuplesort_reset(ptr noundef %0) local_unnamed_addr #0 {
   %9 = sub i64 %6, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 160
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %20, label %tuplesort_updatemax.exit
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %tuplesort_updatemax.exit, label %19
 
-14:                                               ; preds = %1
-  %15 = tail call i64 @LogicalTapeSetBlocks(ptr noundef nonnull %3) #12
-  %16 = shl i64 %15, 13
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
-  %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not17.i = icmp eq i8 %19, 0
-  br i1 %.not17.i, label %24, label %20
+13:                                               ; preds = %1
+  %14 = tail call i64 @LogicalTapeSetBlocks(ptr noundef nonnull %3) #12
+  %15 = shl i64 %14, 13
+  %16 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = load i8, ptr %16, align 8
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %23
 
-20:                                               ; preds = %14, %4
-  %.0151922.i = phi i64 [ %9, %4 ], [ %16, %14 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
-  %22 = load i64, ptr %21, align 8
-  %23 = icmp sgt i64 %.0151922.i, %22
-  br i1 %23, label %24, label %tuplesort_updatemax.exit
+19:                                               ; preds = %13, %4
+  %.0151821.i = phi i64 [ %9, %4 ], [ %15, %13 ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp sgt i64 %.0151821.i, %21
+  br i1 %22, label %23, label %tuplesort_updatemax.exit
 
-24:                                               ; preds = %20, %14
-  %.01521.i = phi i64 [ %.0151922.i, %20 ], [ %16, %14 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.01521.i, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
-  %27 = zext i1 %.not.i to i8
-  store i8 %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 164
-  store i32 %29, ptr %30, align 4
+23:                                               ; preds = %19, %13
+  %.01520.i = phi i64 [ %.0151821.i, %19 ], [ %15, %13 ]
+  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  store i64 %.01520.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %26 = zext i1 %.not.i to i8
+  store i8 %26, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 %28, ptr %29, align 4
   br label %tuplesort_updatemax.exit
 
-tuplesort_updatemax.exit:                         ; preds = %4, %20, %24
+tuplesort_updatemax.exit:                         ; preds = %4, %19, %23
   tail call fastcc void @tuplesort_free(ptr noundef nonnull %0)
   tail call fastcc void @tuplesort_begin_batch(ptr noundef nonnull %0)
-  %31 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  %30 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   ret void
 }
 
@@ -627,13 +620,12 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   %70 = sub i64 %67, %69
   %71 = getelementptr inbounds i8, ptr %0, i64 192
   %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 1
-  %.not.i60 = icmp eq i8 %73, 0
-  br i1 %.not.i60, label %grow_memtuples.exit, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %grow_memtuples.exit
 
 74:                                               ; preds = %65
-  %.not40.i = icmp sgt i64 %70, %69
-  br i1 %.not40.i, label %79, label %75
+  %.not.i57 = icmp sgt i64 %70, %69
+  br i1 %.not.i57, label %79, label %75
 
 75:                                               ; preds = %74
   %76 = icmp slt i32 %63, 1073741823
@@ -650,30 +642,30 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   %83 = sitofp i32 %63 to double
   %84 = fmul double %82, %83
   %85 = fcmp olt double %84, 0x41DFFFFFFFC00000
-  %.03548.i = select i1 %85, double %84, double 0x41DFFFFFFFC00000
-  %.035.i = fptosi double %.03548.i to i32
+  %.03546.i = select i1 %85, double %84, double 0x41DFFFFFFFC00000
+  %.035.i = fptosi double %.03546.i to i32
   store i8 0, ptr %71, align 8
   br label %86
 
 86:                                               ; preds = %79, %77
   %.1.i = phi i32 [ %78, %77 ], [ %.035.i, %79 ]
-  %.not41.i = icmp sgt i32 %.1.i, %63
-  br i1 %.not41.i, label %87, label %115
+  %.not40.i = icmp sgt i32 %.1.i, %63
+  br i1 %.not40.i, label %87, label %115
 
 .thread.i:                                        ; preds = %75
   store i8 0, ptr %71, align 8
-  %.not4144.not.i = icmp eq i32 %63, 2147483647
-  br i1 %.not4144.not.i, label %115, label %.thread46.i
+  %.not4042.not.i = icmp eq i32 %63, 2147483647
+  br i1 %.not4042.not.i, label %115, label %.thread44.i
 
 87:                                               ; preds = %86
   %88 = icmp slt i32 %.1.i, 0
-  br i1 %88, label %89, label %.thread46.i
+  br i1 %88, label %89, label %.thread44.i
 
 89:                                               ; preds = %87
   store i8 0, ptr %71, align 8
-  br label %.thread46.i
+  br label %.thread44.i
 
-.thread46.i:                                      ; preds = %89, %87, %.thread.i
+.thread44.i:                                      ; preds = %89, %87, %.thread.i
   %.2.i = phi i32 [ 1431655765, %89 ], [ %.1.i, %87 ], [ 2147483647, %.thread.i ]
   %90 = sub i32 %.2.i, %63
   %91 = sext i32 %90 to i64
@@ -681,7 +673,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   %93 = icmp slt i64 %69, %92
   br i1 %93, label %115, label %94
 
-94:                                               ; preds = %.thread46.i
+94:                                               ; preds = %.thread44.i
   %95 = getelementptr inbounds i8, ptr %0, i64 176
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i64 @GetMemoryChunkSpace(ptr noundef %96) #12
@@ -704,9 +696,8 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
 108:                                              ; preds = %94
   %109 = getelementptr inbounds i8, ptr %0, i64 193
   %110 = load i8, ptr %109, align 1
-  %111 = and i8 %110, 1
-  %.not42.i = icmp eq i8 %111, 0
-  br i1 %.not42.i, label %112, label %grow_memtuples.exit
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %grow_memtuples.exit, label %112
 
 112:                                              ; preds = %108
   %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -715,7 +706,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1174, ptr noundef nonnull @__func__.grow_memtuples) #12
   unreachable
 
-115:                                              ; preds = %.thread46.i, %.thread.i, %86
+115:                                              ; preds = %.thread44.i, %.thread.i, %86
   store i8 0, ptr %71, align 8
   br label %grow_memtuples.exit
 
@@ -730,20 +721,19 @@ grow_memtuples.exit:                              ; preds = %115, %108, %94, %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %122 = getelementptr inbounds i8, ptr %0, i64 116
   %123 = load i8, ptr %122, align 4
-  %124 = and i8 %123, 1
-  %.not56 = icmp eq i8 %124, 0
-  %.pre76 = load i32, ptr %60, align 8
-  br i1 %.not56, label %241, label %125
+  %124 = trunc i8 %123 to i1
+  %.pre70 = load i32, ptr %60, align 8
+  br i1 %124, label %125, label %241
 
 125:                                              ; preds = %grow_memtuples.exit
   %126 = getelementptr inbounds i8, ptr %0, i64 120
   %127 = load i32, ptr %126, align 8
   %128 = shl i32 %127, 1
-  %129 = icmp sgt i32 %.pre76, %128
+  %129 = icmp sgt i32 %.pre70, %128
   br i1 %129, label %140, label %130
 
 130:                                              ; preds = %125
-  %131 = icmp sgt i32 %.pre76, %127
+  %131 = icmp sgt i32 %.pre70, %127
   br i1 %131, label %132, label %241
 
 132:                                              ; preds = %130
@@ -755,31 +745,29 @@ grow_memtuples.exit:                              ; preds = %115, %108, %94, %65
 136:                                              ; preds = %132
   %137 = getelementptr inbounds i8, ptr %0, i64 193
   %138 = load i8, ptr %137, align 1
-  %139 = and i8 %138, 1
-  %.not57 = icmp eq i8 %139, 0
-  br i1 %.not57, label %140, label %241
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %241, label %140
 
 140:                                              ; preds = %136, %125
   %141 = load i8, ptr @trace_sort, align 1
-  %142 = and i8 %141, 1
-  %.not59 = icmp eq i8 %142, 0
-  br i1 %.not59, label %149, label %143
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %149
 
 143:                                              ; preds = %140
   %144 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
-  %.pre75 = load i32, ptr %60, align 8
+  %.pre72 = load i32, ptr %60, align 8
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %143
   %146 = getelementptr inbounds i8, ptr %0, i64 352
   %147 = tail call ptr @pg_rusage_show(ptr noundef nonnull %146) #12
-  %148 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.pre75, ptr noundef %147) #12
+  %148 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.pre72, ptr noundef %147) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1266, ptr noundef nonnull @__func__.tuplesort_puttuple_common) #12
-  %.pre74 = load i32, ptr %60, align 8
+  %.pre71 = load i32, ptr %60, align 8
   br label %149
 
 149:                                              ; preds = %145, %143, %140
-  %150 = phi i32 [ %.pre74, %145 ], [ %.pre75, %143 ], [ %.pre76, %140 ]
+  %150 = phi i32 [ %.pre71, %145 ], [ %.pre72, %143 ], [ %.pre70, %140 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %151 = getelementptr inbounds i8, ptr %0, i64 76
   %152 = load i32, ptr %151, align 4
@@ -899,8 +887,8 @@ tuplesort_heap_insert.exit.i:                     ; preds = %190, %.lr.ph.i22.i,
 
 free_sort_tuple.exit.i:                           ; preds = %205, %203
   %210 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i62 = icmp eq i32 %210, 0
-  br i1 %.not.i62, label %240, label %211
+  %.not.i58 = icmp eq i32 %210, 0
+  br i1 %.not.i58, label %240, label %211
 
 211:                                              ; preds = %free_sort_tuple.exit.i
   call void @ProcessInterrupts() #12
@@ -924,7 +912,7 @@ free_sort_tuple.exit.i:                           ; preds = %205, %203
   %217 = phi i32 [ %238, %235 ], [ 1, %215 ]
   %218 = phi i32 [ %237, %235 ], [ 0, %215 ]
   %.02632.i.i = phi i32 [ %.0.i.i, %235 ], [ 0, %215 ]
-  %219 = add i32 %218, 2
+  %219 = add nuw i32 %218, 2
   %220 = icmp ult i32 %219, %216
   br i1 %220, label %221, label %229
 
@@ -975,7 +963,7 @@ make_bounded_heap.exit:                           ; preds = %240, %reversedirect
 
 241:                                              ; preds = %136, %132, %130, %grow_memtuples.exit
   %242 = load i32, ptr %62, align 4
-  %243 = icmp slt i32 %.pre76, %242
+  %243 = icmp slt i32 %.pre70, %242
   br i1 %243, label %244, label %252
 
 244:                                              ; preds = %241
@@ -987,9 +975,8 @@ make_bounded_heap.exit:                           ; preds = %240, %reversedirect
 248:                                              ; preds = %244
   %249 = getelementptr inbounds i8, ptr %0, i64 193
   %250 = load i8, ptr %249, align 1
-  %251 = and i8 %250, 1
-  %.not58 = icmp eq i8 %251, 0
-  br i1 %.not58, label %252, label %318
+  %251 = trunc i8 %250 to i1
+  br i1 %251, label %318, label %252
 
 252:                                              ; preds = %248, %241
   tail call fastcc void @inittapes(ptr noundef nonnull %0, i1 noundef zeroext true)
@@ -1006,8 +993,8 @@ make_bounded_heap.exit:                           ; preds = %240, %reversedirect
 
 259:                                              ; preds = %253
   %260 = load ptr, ptr %1, align 8
-  %.not.i63 = icmp eq ptr %260, null
-  br i1 %.not.i63, label %free_sort_tuple.exit, label %261
+  %.not.i59 = icmp eq ptr %260, null
+  br i1 %.not.i59, label %free_sort_tuple.exit, label %261
 
 261:                                              ; preds = %259
   %262 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %260) #12
@@ -1032,8 +1019,8 @@ free_sort_tuple.exit:                             ; preds = %259, %261
 269:                                              ; preds = %253
   %270 = load ptr, ptr %255, align 8
   %271 = load ptr, ptr %270, align 8
-  %.not.i64 = icmp eq ptr %271, null
-  br i1 %.not.i64, label %free_sort_tuple.exit65, label %272
+  %.not.i60 = icmp eq ptr %271, null
+  br i1 %.not.i60, label %free_sort_tuple.exit61, label %272
 
 272:                                              ; preds = %269
   %273 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %271) #12
@@ -1045,33 +1032,33 @@ free_sort_tuple.exit:                             ; preds = %259, %261
   tail call void @pfree(ptr noundef %277) #12
   store ptr null, ptr %270, align 8
   %.pre = load ptr, ptr %255, align 8
-  br label %free_sort_tuple.exit65
+  br label %free_sort_tuple.exit61
 
-free_sort_tuple.exit65:                           ; preds = %269, %272
+free_sort_tuple.exit61:                           ; preds = %269, %272
   %278 = phi ptr [ %270, %269 ], [ %.pre, %272 ]
   %279 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i66 = icmp eq i32 %279, 0
-  br i1 %.not.i66, label %281, label %280
+  %.not.i62 = icmp eq i32 %279, 0
+  br i1 %.not.i62, label %281, label %280
 
-280:                                              ; preds = %free_sort_tuple.exit65
+280:                                              ; preds = %free_sort_tuple.exit61
   tail call void @ProcessInterrupts() #12
   br label %281
 
-281:                                              ; preds = %280, %free_sort_tuple.exit65
+281:                                              ; preds = %280, %free_sort_tuple.exit61
   %282 = getelementptr inbounds i8, ptr %0, i64 184
   %283 = load i32, ptr %282, align 8
   %.not3031.i = icmp ugt i32 %283, 1
-  br i1 %.not3031.i, label %.lr.ph.i67, label %tuplesort_heap_replace_top.exit
+  br i1 %.not3031.i, label %.lr.ph.i63, label %tuplesort_heap_replace_top.exit
 
-.lr.ph.i67:                                       ; preds = %281, %302
+.lr.ph.i63:                                       ; preds = %281, %302
   %284 = phi i32 [ %305, %302 ], [ 1, %281 ]
   %285 = phi i32 [ %304, %302 ], [ 0, %281 ]
-  %.02632.i = phi i32 [ %.0.i68, %302 ], [ 0, %281 ]
-  %286 = add i32 %285, 2
+  %.02632.i = phi i32 [ %.0.i64, %302 ], [ 0, %281 ]
+  %286 = add nuw i32 %285, 2
   %287 = icmp ult i32 %286, %283
   br i1 %287, label %288, label %296
 
-288:                                              ; preds = %.lr.ph.i67
+288:                                              ; preds = %.lr.ph.i63
   %289 = load ptr, ptr %0, align 8
   %290 = zext i32 %284 to i64
   %291 = getelementptr %struct.SortTuple, ptr %278, i64 %290
@@ -1082,26 +1069,26 @@ free_sort_tuple.exit65:                           ; preds = %269, %272
   %spec.select.i = select i1 %295, i32 %286, i32 %284
   br label %296
 
-296:                                              ; preds = %288, %.lr.ph.i67
-  %.0.i68 = phi i32 [ %284, %.lr.ph.i67 ], [ %spec.select.i, %288 ]
+296:                                              ; preds = %288, %.lr.ph.i63
+  %.0.i64 = phi i32 [ %284, %.lr.ph.i63 ], [ %spec.select.i, %288 ]
   %297 = load ptr, ptr %0, align 8
-  %298 = zext i32 %.0.i68 to i64
+  %298 = zext i32 %.0.i64 to i64
   %299 = getelementptr %struct.SortTuple, ptr %278, i64 %298
   %300 = tail call i32 %297(ptr noundef nonnull %1, ptr noundef %299, ptr noundef nonnull %0) #12
   %301 = icmp slt i32 %300, 1
-  %.pre77 = zext i32 %.02632.i to i64
+  %.pre73 = zext i32 %.02632.i to i64
   br i1 %301, label %tuplesort_heap_replace_top.exit, label %302
 
 302:                                              ; preds = %296
-  %303 = getelementptr %struct.SortTuple, ptr %278, i64 %.pre77
+  %303 = getelementptr %struct.SortTuple, ptr %278, i64 %.pre73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %303, ptr noundef nonnull align 8 dereferenceable(24) %299, i64 24, i1 false)
-  %304 = shl i32 %.0.i68, 1
+  %304 = shl i32 %.0.i64, 1
   %305 = or disjoint i32 %304, 1
   %.not30.i = icmp ult i32 %305, %283
-  br i1 %.not30.i, label %.lr.ph.i67, label %tuplesort_heap_replace_top.exit
+  br i1 %.not30.i, label %.lr.ph.i63, label %tuplesort_heap_replace_top.exit
 
 tuplesort_heap_replace_top.exit:                  ; preds = %302, %296, %281
-  %.026.lcssa.i = phi i64 [ 0, %281 ], [ %298, %302 ], [ %.pre77, %296 ]
+  %.026.lcssa.i = phi i64 [ 0, %281 ], [ %298, %302 ], [ %.pre73, %296 ]
   %306 = getelementptr %struct.SortTuple, ptr %278, i64 %.026.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %306, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %318
@@ -1156,13 +1143,12 @@ define internal fastcc void @inittapes(ptr noundef %0, i1 noundef zeroext %1) un
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %.sink, ptr %11, align 8
   %12 = load i8, ptr @trace_sort, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %22, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %10
   %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
-  %.pre23 = load i32, ptr %11, align 8
+  %.pre22 = load i32, ptr %11, align 8
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %14
@@ -1170,13 +1156,13 @@ define internal fastcc void @inittapes(ptr noundef %0, i1 noundef zeroext %1) un
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 352
   %20 = tail call ptr @pg_rusage_show(ptr noundef nonnull %19) #12
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %18, i32 noundef %.pre23, ptr noundef %20) #12
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %18, i32 noundef %.pre22, ptr noundef %20) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1907, ptr noundef nonnull @__func__.inittapes) #12
   %.pre = load i32, ptr %11, align 8
   br label %22
 
 22:                                               ; preds = %16, %14, %10
-  %23 = phi i32 [ %.pre, %16 ], [ %.pre23, %14 ], [ %.sink, %10 ]
+  %23 = phi i32 [ %.pre, %16 ], [ %.pre22, %14 ], [ %.sink, %10 ]
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 13
   %26 = getelementptr inbounds i8, ptr %0, i64 176
@@ -1199,9 +1185,9 @@ inittapestate.exit:                               ; preds = %22, %33
   tail call void @PrepareTempTablespaces() #12
   %37 = getelementptr inbounds i8, ptr %0, i64 328
   %38 = load ptr, ptr %37, align 8
-  %.not22 = icmp eq ptr %38, null
+  %.not = icmp eq ptr %38, null
   %39 = getelementptr inbounds i8, ptr %38, i64 12
-  %spec.select = select i1 %.not22, ptr null, ptr %39
+  %spec.select = select i1 %.not, ptr null, ptr %39
   %40 = getelementptr inbounds i8, ptr %0, i64 320
   %41 = load i32, ptr %40, align 8
   %42 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext false, ptr noundef %spec.select, i32 noundef %41) #12
@@ -1260,9 +1246,9 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 193
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  %brmerge = or i1 %.not, %1
+  %16 = trunc i8 %15 to i1
+  %.not40 = xor i1 %16, true
+  %brmerge = or i1 %.not40, %1
   br i1 %brmerge, label %18, label %130
 
 17:                                               ; preds = %9
@@ -1276,9 +1262,9 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
 
 22:                                               ; preds = %18
   %23 = icmp sgt i32 %21, 0
-  br i1 %23, label %130, label %.thread49
+  br i1 %23, label %130, label %.thread46
 
-.thread49:                                        ; preds = %22
+.thread46:                                        ; preds = %22
   %24 = getelementptr inbounds i8, ptr %0, i64 240
   br label %65
 
@@ -1324,7 +1310,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   store i32 %51, ptr %35, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 276
   %53 = load i32, ptr %52, align 4
-  %.pre47.pre = load i32, ptr %26, align 8
+  %.pre44.pre = load i32, ptr %26, align 8
   br label %selectnewtape.exit
 
 54:                                               ; preds = %34
@@ -1341,22 +1327,21 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   br label %selectnewtape.exit
 
 selectnewtape.exit:                               ; preds = %40, %54
-  %.pre47 = phi i32 [ %21, %54 ], [ %.pre47.pre, %40 ]
+  %.pre44 = phi i32 [ %21, %54 ], [ %.pre44.pre, %40 ]
   %.sink15.i = phi i32 [ %58, %54 ], [ %53, %40 ]
   %.sink14.i = phi ptr [ %57, %54 ], [ %52, %40 ]
   %64 = add i32 %.sink15.i, 1
   store i32 %64, ptr %.sink14.i, align 4
   br label %65
 
-65:                                               ; preds = %.thread49, %selectnewtape.exit, %32
-  %66 = phi ptr [ %26, %selectnewtape.exit ], [ %26, %32 ], [ %24, %.thread49 ]
-  %67 = phi i32 [ %.pre47, %selectnewtape.exit ], [ %21, %32 ], [ %21, %.thread49 ]
+65:                                               ; preds = %.thread46, %selectnewtape.exit, %32
+  %66 = phi ptr [ %26, %selectnewtape.exit ], [ %26, %32 ], [ %24, %.thread46 ]
+  %67 = phi i32 [ %.pre44, %selectnewtape.exit ], [ %21, %32 ], [ %21, %.thread46 ]
   %68 = add i32 %67, 1
   store i32 %68, ptr %66, align 8
   %69 = load i8, ptr @trace_sort, align 1
-  %70 = and i8 %69, 1
-  %.not40 = icmp eq i8 %70, 0
-  br i1 %.not40, label %80, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %80
 
 71:                                               ; preds = %65
   %72 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -1375,9 +1360,8 @@ selectnewtape.exit:                               ; preds = %40, %54
 80:                                               ; preds = %73, %71, %65
   tail call fastcc void @tuplesort_sort_memtuples(ptr noundef nonnull %0)
   %81 = load i8, ptr @trace_sort, align 1
-  %82 = and i8 %81, 1
-  %.not41 = icmp eq i8 %82, 0
-  br i1 %.not41, label %92, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %92
 
 83:                                               ; preds = %80
   %84 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -1414,8 +1398,8 @@ selectnewtape.exit:                               ; preds = %40, %54
   %103 = load ptr, ptr %97, align 8
   tail call void %102(ptr noundef nonnull %0, ptr noundef %103, ptr noundef %101) #12
   %104 = load ptr, ptr %101, align 8
-  %.not43 = icmp eq ptr %104, null
-  br i1 %.not43, label %109, label %105
+  %.not = icmp eq ptr %104, null
+  br i1 %.not, label %109, label %105
 
 105:                                              ; preds = %99
   %106 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %104) #12
@@ -1441,9 +1425,8 @@ selectnewtape.exit:                               ; preds = %40, %54
   call void @LogicalTapeWrite(ptr noundef %113, ptr noundef nonnull %3, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %114 = load i8, ptr @trace_sort, align 1
-  %115 = and i8 %114, 1
-  %.not42 = icmp eq i8 %115, 0
-  br i1 %.not42, label %130, label %116
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %130
 
 116:                                              ; preds = %._crit_edge
   %117 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -1479,9 +1462,8 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = load i8, ptr @trace_sort, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %1
   %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -1519,8 +1501,8 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %0, i64 320
   %27 = load i32, ptr %26, align 8
-  %.not38 = icmp eq i32 %27, -1
-  br i1 %.not38, label %48, label %28
+  %.not = icmp eq i32 %27, -1
+  br i1 %.not, label %48, label %28
 
 28:                                               ; preds = %25
   tail call fastcc void @inittapes(ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -1667,14 +1649,14 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
   %98 = getelementptr inbounds i8, ptr %0, i64 184
   %99 = load i32, ptr %98, align 8
   %100 = icmp sgt i32 %99, 1
-  br i1 %100, label %.lr.ph.i40, label %._crit_edge.i
+  br i1 %100, label %.lr.ph.i38, label %._crit_edge.i
 
-.lr.ph.i40:                                       ; preds = %97
+.lr.ph.i38:                                       ; preds = %97
   %101 = getelementptr inbounds i8, ptr %0, i64 176
   br label %102
 
-102:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %.lr.ph.i40
-  %103 = phi i32 [ %99, %.lr.ph.i40 ], [ %.pr.i, %tuplesort_heap_delete_top.exit.i ]
+102:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %.lr.ph.i38
+  %103 = phi i32 [ %99, %.lr.ph.i38 ], [ %.pr.i, %tuplesort_heap_delete_top.exit.i ]
   %104 = load ptr, ptr %101, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
   %105 = add nsw i32 %103, -1
@@ -1699,7 +1681,7 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
   %112 = phi i32 [ %133, %130 ], [ 1, %110 ]
   %113 = phi i32 [ %132, %130 ], [ 0, %110 ]
   %.02632.i.i.i = phi i32 [ %.0.i.i.i, %130 ], [ 0, %110 ]
-  %114 = add i32 %113, 2
+  %114 = add nuw i32 %113, 2
   %115 = icmp ult i32 %114, %111
   br i1 %115, label %116, label %124
 
@@ -1809,9 +1791,8 @@ sort_bounded_heap.exit:                           ; preds = %.lr.ph.i.i, %._crit
   %168 = getelementptr inbounds i8, ptr %0, i64 316
   store i8 0, ptr %168, align 4
   %169 = load i8, ptr @trace_sort, align 1
-  %170 = and i8 %169, 1
-  %.not39 = icmp eq i8 %170, 0
-  br i1 %.not39, label %191, label %171
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %191
 
 171:                                              ; preds = %166
   %172 = load i32, ptr %18, align 8
@@ -1863,15 +1844,14 @@ define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_ad
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %32, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %32
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
-  %.not26 = icmp eq ptr %11, null
-  br i1 %.not26, label %32, label %12
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %11, i64 24
@@ -1911,11 +1891,11 @@ define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_ad
 32:                                               ; preds = %26, %9, %5
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   %34 = load ptr, ptr %33, align 8
-  %.not27 = icmp eq ptr %34, null
+  %.not26 = icmp eq ptr %34, null
   %35 = getelementptr inbounds i8, ptr %0, i64 176
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %3 to i64
-  br i1 %.not27, label %39, label %38
+  br i1 %.not26, label %39, label %38
 
 38:                                               ; preds = %32
   tail call fastcc void @qsort_ssup(ptr noundef %36, i64 noundef %37, ptr noundef nonnull %34)
@@ -1978,9 +1958,8 @@ define internal fastcc void @mergeruns(ptr noundef %0) unnamed_addr #0 {
   store ptr null, ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 100
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not87 = icmp eq i8 %32, 0
-  br i1 %.not87, label %53, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %53
 
 33:                                               ; preds = %20
   %34 = getelementptr inbounds i8, ptr %0, i64 272
@@ -2054,9 +2033,8 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   store i64 %66, ptr %67, align 8
   store i64 0, ptr %26, align 8
   %68 = load i8, ptr @trace_sort, align 1
-  %69 = and i8 %68, 1
-  %.not88 = icmp eq i8 %69, 0
-  br i1 %.not88, label %78, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %78
 
 70:                                               ; preds = %init_slab_allocator.exit
   %71 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -2148,62 +2126,61 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %130 = sdiv i64 %128, %129
   %spec.select.i = call i64 @llvm.smax.i64(i64 %130, i64 0)
   %131 = load i8, ptr @trace_sort, align 1
-  %132 = and i8 %131, 1
-  %.not89 = icmp eq i8 %132, 0
-  br i1 %.not89, label %140, label %133
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %140
 
 133:                                              ; preds = %111
   %134 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
-  %.pre130 = load i32, ptr %80, align 8
+  %.pre127 = load i32, ptr %80, align 8
   br i1 %134, label %135, label %140
 
 135:                                              ; preds = %133
   %136 = load i32, ptr %79, align 4
   %137 = lshr i64 %spec.select.i, 10
   %138 = call ptr @pg_rusage_show(ptr noundef nonnull %85) #12
-  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %136, i32 noundef %.pre130, i64 noundef %137, ptr noundef %138) #12
+  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %136, i32 noundef %.pre127, i64 noundef %137, ptr noundef %138) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2170, ptr noundef nonnull @__func__.mergeruns) #12
-  %.pre129 = load i32, ptr %80, align 8
+  %.pre126 = load i32, ptr %80, align 8
   br label %140
 
 140:                                              ; preds = %135, %133, %111
-  %141 = phi i32 [ %.pre129, %135 ], [ %.pre130, %133 ], [ %119, %111 ]
+  %141 = phi i32 [ %.pre126, %135 ], [ %.pre127, %133 ], [ %119, %111 ]
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph109, label %._crit_edge110
+  br i1 %142, label %.lr.ph106, label %._crit_edge107
 
-.lr.ph109:                                        ; preds = %140, %.lr.ph109
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph109 ], [ 0, %140 ]
+.lr.ph106:                                        ; preds = %140, %.lr.ph106
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph106 ], [ 0, %140 ]
   %143 = load ptr, ptr %81, align 8
-  %144 = getelementptr ptr, ptr %143, i64 %indvars.iv123
+  %144 = getelementptr ptr, ptr %143, i64 %indvars.iv120
   %145 = load ptr, ptr %144, align 8
   call void @LogicalTapeRewindForRead(ptr noundef %145, i64 noundef %spec.select.i) #12
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %146 = load i32, ptr %80, align 8
   %147 = sext i32 %146 to i64
-  %148 = icmp slt i64 %indvars.iv.next124, %147
-  br i1 %148, label %.lr.ph109, label %._crit_edge110, !llvm.loop !18
+  %148 = icmp slt i64 %indvars.iv.next121, %147
+  br i1 %148, label %.lr.ph106, label %._crit_edge107, !llvm.loop !18
 
-._crit_edge110:                                   ; preds = %.lr.ph109, %140
-  %.lcssa = phi i32 [ %141, %140 ], [ %146, %.lr.ph109 ]
+._crit_edge107:                                   ; preds = %.lr.ph106, %140
+  %.lcssa = phi i32 [ %141, %140 ], [ %146, %.lr.ph106 ]
   %149 = load i32, ptr %86, align 8
   %150 = and i32 %149, 1
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %161
 
-152:                                              ; preds = %._crit_edge110
+152:                                              ; preds = %._crit_edge107
   %153 = load i32, ptr %79, align 4
-  %.not90 = icmp sgt i32 %153, %.lcssa
-  br i1 %.not90, label %161, label %154
+  %.not87 = icmp sgt i32 %153, %.lcssa
+  br i1 %.not87, label %161, label %154
 
 154:                                              ; preds = %152
   %155 = load ptr, ptr %87, align 8
-  %.not91 = icmp eq ptr %155, null
-  br i1 %.not91, label %158, label %156
+  %.not88 = icmp eq ptr %155, null
+  br i1 %.not88, label %158, label %156
 
 156:                                              ; preds = %154
   %157 = load i32, ptr %88, align 8
-  %.not92 = icmp eq i32 %157, -1
-  br i1 %.not92, label %158, label %161
+  %.not89 = icmp eq i32 %157, -1
+  br i1 %.not89, label %158, label %161
 
 158:                                              ; preds = %156, %154
   %159 = load ptr, ptr %90, align 8
@@ -2213,7 +2190,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   store i32 5, ptr %160, align 8
   br label %.loopexit
 
-161:                                              ; preds = %._crit_edge110, %152, %156, %99
+161:                                              ; preds = %._crit_edge107, %152, %156, %99
   %162 = load i32, ptr %56, align 8
   %163 = load i32, ptr %84, align 8
   %164 = icmp slt i32 %162, %163
@@ -2252,9 +2229,9 @@ selectnewtape.exit:                               ; preds = %165, %175
   call fastcc void @beginmerge(ptr noundef nonnull %0)
   %183 = load i32, ptr %91, align 8
   %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.lr.ph.i96, label %mergeonerun.exit
+  br i1 %184, label %.lr.ph.i93, label %mergeonerun.exit
 
-.lr.ph.i96:                                       ; preds = %selectnewtape.exit, %276
+.lr.ph.i93:                                       ; preds = %selectnewtape.exit, %276
   %185 = load ptr, ptr %23, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 20
   %187 = load i32, ptr %186, align 4
@@ -2267,10 +2244,10 @@ selectnewtape.exit:                               ; preds = %165, %175
   call void %192(ptr noundef nonnull %0, ptr noundef %193, ptr noundef %185) #12
   %194 = load ptr, ptr %23, align 8
   %195 = load ptr, ptr %194, align 8
-  %.not.i97 = icmp eq ptr %195, null
-  br i1 %.not.i97, label %204, label %196
+  %.not.i94 = icmp eq ptr %195, null
+  br i1 %.not.i94, label %204, label %196
 
-196:                                              ; preds = %.lr.ph.i96
+196:                                              ; preds = %.lr.ph.i93
   %197 = load ptr, ptr %93, align 8
   %.not26.i = icmp ult ptr %195, %197
   br i1 %.not26.i, label %203, label %198
@@ -2290,7 +2267,7 @@ selectnewtape.exit:                               ; preds = %165, %175
   call void @pfree(ptr noundef nonnull %195) #12
   br label %204
 
-204:                                              ; preds = %203, %201, %.lr.ph.i96
+204:                                              ; preds = %203, %201, %.lr.ph.i93
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %205 = call i64 @LogicalTapeRead(ptr noundef %191, ptr noundef nonnull %4, i64 noundef 4) #12
   %.not.i.i.i = icmp eq i64 %205, 4
@@ -2331,7 +2308,7 @@ getlen.exit.i.i:                                  ; preds = %204
   %217 = phi i32 [ %238, %235 ], [ 1, %215 ]
   %218 = phi i32 [ %237, %235 ], [ 0, %215 ]
   %.02632.i.i = phi i32 [ %.0.i.i, %235 ], [ 0, %215 ]
-  %219 = add i32 %218, 2
+  %219 = add nuw i32 %218, 2
   %220 = icmp ult i32 %219, %216
   br i1 %220, label %221, label %229
 
@@ -2399,7 +2376,7 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
   %251 = phi i32 [ %272, %269 ], [ 1, %249 ]
   %252 = phi i32 [ %271, %269 ], [ 0, %249 ]
   %.02632.i.i.i = phi i32 [ %.0.i.i.i, %269 ], [ 0, %249 ]
-  %253 = add i32 %252, 2
+  %253 = add nuw i32 %252, 2
   %254 = icmp ult i32 %253, %250
   br i1 %254, label %255, label %263
 
@@ -2447,7 +2424,7 @@ tuplesort_heap_delete_top.exit.i:                 ; preds = %tuplesort_heap_repl
 276:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %tuplesort_heap_replace_top.exit.i
   %277 = load i32, ptr %91, align 8
   %278 = icmp sgt i32 %277, 0
-  br i1 %278, label %.lr.ph.i96, label %mergeonerun.exit, !llvm.loop !19
+  br i1 %278, label %.lr.ph.i93, label %mergeonerun.exit, !llvm.loop !19
 
 mergeonerun.exit:                                 ; preds = %276, %selectnewtape.exit
   %279 = load ptr, ptr %89, align 8
@@ -2474,13 +2451,13 @@ mergeonerun.exit:                                 ; preds = %276, %selectnewtape
   %288 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %287, ptr %288, align 8
   %289 = load ptr, ptr %87, align 8
-  %.not93 = icmp eq ptr %289, null
-  br i1 %.not93, label %292, label %290
+  %.not90 = icmp eq ptr %289, null
+  br i1 %.not90, label %292, label %290
 
 290:                                              ; preds = %285
   %291 = load i32, ptr %88, align 8
-  %.not94 = icmp eq i32 %291, -1
-  br i1 %.not94, label %292, label %293
+  %.not91 = icmp eq i32 %291, -1
+  br i1 %.not91, label %292, label %293
 
 292:                                              ; preds = %290, %285
   call void @LogicalTapeFreeze(ptr noundef %287, ptr noundef null) #12
@@ -2495,8 +2472,8 @@ mergeonerun.exit:                                 ; preds = %276, %selectnewtape
   %295 = load ptr, ptr %288, align 8
   call void @LogicalTapeFreeze(ptr noundef %295, ptr noundef nonnull %2) #12
   %296 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %289, i8 1, ptr nonnull elementtype(i8) %289) #12, !srcloc !5
-  %.not.i98 = icmp eq i8 %296, 0
-  br i1 %.not.i98, label %worker_freeze_result_tape.exit, label %297
+  %.not.i95 = icmp eq i8 %296, 0
+  br i1 %.not.i95, label %worker_freeze_result_tape.exit, label %297
 
 297:                                              ; preds = %293
   %298 = call i32 @s_lock(ptr noundef nonnull %289, ptr noundef nonnull @.str.1, i32 noundef 3069, ptr noundef nonnull @__func__.worker_freeze_result_tape) #12
@@ -2523,21 +2500,21 @@ worker_freeze_result_tape.exit:                   ; preds = %293, %297
   store i32 4, ptr %308, align 8
   %309 = load i32, ptr %80, align 8
   %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %.lr.ph113, label %.loopexit
+  br i1 %310, label %.lr.ph110, label %.loopexit
 
-.lr.ph113:                                        ; preds = %307, %.lr.ph113
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph113 ], [ 0, %307 ]
+.lr.ph110:                                        ; preds = %307, %.lr.ph110
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph110 ], [ 0, %307 ]
   %311 = load ptr, ptr %81, align 8
-  %312 = getelementptr ptr, ptr %311, i64 %indvars.iv126
+  %312 = getelementptr ptr, ptr %311, i64 %indvars.iv123
   %313 = load ptr, ptr %312, align 8
   call void @LogicalTapeClose(ptr noundef %313) #12
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %314 = load i32, ptr %80, align 8
   %315 = sext i32 %314 to i64
-  %316 = icmp slt i64 %indvars.iv.next127, %315
-  br i1 %316, label %.lr.ph113, label %.loopexit, !llvm.loop !20
+  %316 = icmp slt i64 %indvars.iv.next124, %315
+  br i1 %316, label %.lr.ph110, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph113, %307, %158
+.loopexit:                                        ; preds = %.lr.ph110, %307, %158
   ret void
 }
 
@@ -2580,15 +2557,14 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   store i8 1, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 116
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %.not115 = icmp eq i8 %26, 0
-  br i1 %.not115, label %233, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %233
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 120
   %29 = load i32, ptr %28, align 8
-  %.not116 = icmp slt i32 %11, %29
-  br i1 %.not116, label %233, label %30
+  %.not112 = icmp slt i32 %11, %29
+  br i1 %.not112, label %233, label %30
 
 30:                                               ; preds = %27
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2604,9 +2580,8 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %0, i64 300
   %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, 1
-  %.not114 = icmp eq i8 %38, 0
-  br i1 %.not114, label %40, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %40
 
 39:                                               ; preds = %35
   store i8 0, ptr %36, align 4
@@ -2664,12 +2639,11 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
 65:                                               ; preds = %64, %50
   %66 = getelementptr inbounds i8, ptr %0, i64 300
   %67 = load i8, ptr %66, align 4
-  %68 = and i8 %67, 1
-  %.not112 = icmp eq i8 %68, 0
+  %68 = trunc i8 %67 to i1
   br i1 %1, label %69, label %84
 
 69:                                               ; preds = %65
-  br i1 %.not112, label %70, label %233
+  br i1 %68, label %233, label %70
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds i8, ptr %0, i64 288
@@ -2689,8 +2663,8 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
 getlen.exit:                                      ; preds = %70
   %77 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.not113 = icmp eq i32 %77, 0
-  br i1 %.not113, label %83, label %78
+  %.not111 = icmp eq i32 %77, 0
+  br i1 %.not111, label %83, label %78
 
 78:                                               ; preds = %getlen.exit
   %79 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2708,7 +2682,7 @@ getlen.exit:                                      ; preds = %70
 84:                                               ; preds = %65
   %85 = getelementptr inbounds i8, ptr %0, i64 288
   %86 = load ptr, ptr %85, align 8
-  br i1 %.not112, label %93, label %87
+  br i1 %68, label %87, label %93
 
 87:                                               ; preds = %84
   %88 = tail call i64 @LogicalTapeBackspace(ptr noundef %86, i64 noundef 8) #12
@@ -2754,8 +2728,8 @@ getlen.exit:                                      ; preds = %70
   br i1 %106, label %233, label %107
 
 107:                                              ; preds = %98
-  %.not109 = icmp eq i64 %104, %103
-  br i1 %.not109, label %111, label %108
+  %.not108 = icmp eq i64 %104, %103
+  br i1 %.not108, label %111, label %108
 
 108:                                              ; preds = %107
   %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2771,8 +2745,8 @@ getlen.exit:                                      ; preds = %70
   %115 = load ptr, ptr %112, align 8
   %116 = zext i32 %114 to i64
   %117 = tail call i64 @LogicalTapeBackspace(ptr noundef %115, i64 noundef %116) #12
-  %.not111 = icmp eq i64 %117, %116
-  br i1 %.not111, label %121, label %118
+  %.not110 = icmp eq i64 %117, %116
+  br i1 %.not110, label %121, label %118
 
 118:                                              ; preds = %111
   %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2857,8 +2831,8 @@ getlen.exit:                                      ; preds = %70
 getlen.exit.i:                                    ; preds = %145
   %160 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %.not119 = icmp eq i32 %160, 0
-  br i1 %.not119, label %mergereadnext.exit, label %198
+  %.not115 = icmp eq i32 %160, 0
+  br i1 %.not115, label %mergereadnext.exit, label %198
 
 mergereadnext.exit:                               ; preds = %getlen.exit.i
   %161 = load ptr, ptr %146, align 8
@@ -2872,8 +2846,8 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
   %166 = zext nneg i32 %163 to i64
   %167 = getelementptr %struct.SortTuple, ptr %161, i64 %166
   %168 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i117 = icmp eq i32 %168, 0
-  br i1 %.not.i.i117, label %170, label %169
+  %.not.i.i113 = icmp eq i32 %168, 0
+  br i1 %.not.i.i113, label %170, label %169
 
 169:                                              ; preds = %165
   call void @ProcessInterrupts() #12
@@ -2889,7 +2863,7 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
   %172 = phi i32 [ %193, %190 ], [ 1, %170 ]
   %173 = phi i32 [ %192, %190 ], [ 0, %170 ]
   %.02632.i.i = phi i32 [ %.0.i.i, %190 ], [ 0, %170 ]
-  %174 = add i32 %173, 2
+  %174 = add nuw i32 %173, 2
   %175 = icmp ult i32 %174, %171
   br i1 %175, label %176, label %184
 
@@ -2944,8 +2918,8 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
   store i32 %149, ptr %201, align 4
   %202 = load ptr, ptr %146, align 8
   %203 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i118 = icmp eq i32 %203, 0
-  br i1 %.not.i118, label %205, label %204
+  %.not.i114 = icmp eq i32 %203, 0
+  br i1 %.not.i114, label %205, label %204
 
 204:                                              ; preds = %198
   call void @ProcessInterrupts() #12
@@ -2960,7 +2934,7 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
   %207 = phi i32 [ %228, %225 ], [ 1, %205 ]
   %208 = phi i32 [ %227, %225 ], [ 0, %205 ]
   %.02632.i = phi i32 [ %.0.i, %225 ], [ 0, %205 ]
-  %209 = add i32 %208, 2
+  %209 = add nuw i32 %208, 2
   %210 = icmp ult i32 %209, %206
   br i1 %210, label %211, label %219
 
@@ -3081,15 +3055,14 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   store i8 1, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 116
   %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %.not21 = icmp eq i8 %21, 0
-  br i1 %.not21, label %44, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %44
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %0, i64 120
   %24 = load i32, ptr %23, align 8
-  %.not22 = icmp slt i32 %9, %24
-  br i1 %.not22, label %44, label %25
+  %.not21 = icmp slt i32 %9, %24
+  br i1 %.not21, label %44, label %25
 
 25:                                               ; preds = %22
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -3240,9 +3213,9 @@ define dso_local void @tuplesort_markpos(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %11, %7
   %20 = getelementptr inbounds i8, ptr %0, i64 300
   %21 = load i8, ptr %20, align 4
-  %22 = and i8 %21, 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 316
-  store i8 %22, ptr %23, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 316
+  %23 = and i8 %21, 1
+  store i8 %23, ptr %22, align 4
   store ptr %4, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -3289,9 +3262,9 @@ define dso_local void @tuplesort_restorepos(ptr nocapture noundef %0) local_unna
 21:                                               ; preds = %11, %7
   %22 = getelementptr inbounds i8, ptr %0, i64 316
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 300
-  store i8 %24, ptr %25, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 300
+  %25 = and i8 %23, 1
+  store i8 %25, ptr %24, align 4
   store ptr %4, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -3303,7 +3276,7 @@ define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocaptu
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ne ptr %4, null
-  br i1 %.not.i, label %15, label %5
+  br i1 %.not.i, label %14, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -3313,77 +3286,74 @@ define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocaptu
   %10 = sub i64 %7, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 160
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %21, label %tuplesort_updatemax.exit
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %tuplesort_updatemax.exit, label %20
 
-15:                                               ; preds = %2
-  %16 = tail call i64 @LogicalTapeSetBlocks(ptr noundef nonnull %4) #12
-  %17 = shl i64 %16, 13
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
-  %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not17.i = icmp eq i8 %20, 0
-  br i1 %.not17.i, label %26, label %21
+14:                                               ; preds = %2
+  %15 = tail call i64 @LogicalTapeSetBlocks(ptr noundef nonnull %4) #12
+  %16 = shl i64 %15, 13
+  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %25
 
-21:                                               ; preds = %15, %5
-  %22 = phi i8 [ %12, %5 ], [ %19, %15 ]
-  %.0151922.i = phi i64 [ %10, %5 ], [ %17, %15 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp sgt i64 %.0151922.i, %24
-  br i1 %25, label %26, label %tuplesort_updatemax.exit
+20:                                               ; preds = %14, %5
+  %21 = phi i8 [ %12, %5 ], [ %18, %14 ]
+  %.0151821.i = phi i64 [ %10, %5 ], [ %16, %14 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp sgt i64 %.0151821.i, %23
+  br i1 %24, label %25, label %tuplesort_updatemax.exit
 
-26:                                               ; preds = %21, %15
-  %.01521.i = phi i64 [ %.0151922.i, %21 ], [ %17, %15 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.01521.i, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 160
-  %29 = zext i1 %.not.i to i8
-  store i8 %29, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 164
-  store i32 %31, ptr %32, align 4
+25:                                               ; preds = %20, %14
+  %.01520.i = phi i64 [ %.0151821.i, %20 ], [ %16, %14 ]
+  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  store i64 %.01520.i, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 160
+  %28 = zext i1 %.not.i to i8
+  store i8 %28, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 %30, ptr %31, align 4
   br label %tuplesort_updatemax.exit
 
-tuplesort_updatemax.exit:                         ; preds = %5, %21, %26
-  %33 = phi i8 [ %12, %5 ], [ %22, %21 ], [ %29, %26 ]
-  %34 = and i8 %33, 1
-  %35 = xor i8 %34, 1
-  %spec.select = zext nneg i8 %35 to i32
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %spec.select, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 152
-  %38 = load i64, ptr %37, align 8
-  %39 = add i64 %38, 1023
-  %40 = sdiv i64 %39, 1024
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 164
-  %43 = load i32, ptr %42, align 4
-  switch i32 %43, label %49 [
-    i32 3, label %44
-    i32 4, label %50
-    i32 5, label %48
+tuplesort_updatemax.exit:                         ; preds = %5, %20, %25
+  %32 = phi i8 [ %12, %5 ], [ %21, %20 ], [ %28, %25 ]
+  %33 = and i8 %32, 1
+  %34 = xor i8 %33, 1
+  %spec.select = zext nneg i8 %34 to i32
+  %35 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %spec.select, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 152
+  %37 = load i64, ptr %36, align 8
+  %38 = add i64 %37, 1023
+  %39 = sdiv i64 %38, 1024
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 164
+  %42 = load i32, ptr %41, align 4
+  switch i32 %42, label %48 [
+    i32 3, label %43
+    i32 4, label %49
+    i32 5, label %47
   ]
 
-44:                                               ; preds = %tuplesort_updatemax.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 117
-  %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not13 = icmp eq i8 %47, 0
-  %. = select i1 %.not13, i32 2, i32 1
-  br label %50
+43:                                               ; preds = %tuplesort_updatemax.exit
+  %44 = getelementptr inbounds i8, ptr %0, i64 117
+  %45 = load i8, ptr %44, align 1
+  %46 = trunc i8 %45 to i1
+  %. = select i1 %46, i32 1, i32 2
+  br label %49
+
+47:                                               ; preds = %tuplesort_updatemax.exit
+  br label %49
 
 48:                                               ; preds = %tuplesort_updatemax.exit
-  br label %50
+  br label %49
 
-49:                                               ; preds = %tuplesort_updatemax.exit
-  br label %50
-
-50:                                               ; preds = %tuplesort_updatemax.exit, %44, %49, %48
-  %.sink = phi i32 [ 0, %49 ], [ 8, %48 ], [ %., %44 ], [ %43, %tuplesort_updatemax.exit ]
+49:                                               ; preds = %tuplesort_updatemax.exit, %43, %48, %47
+  %.sink = phi i32 [ 0, %48 ], [ 8, %47 ], [ %., %43 ], [ %42, %tuplesort_updatemax.exit ]
   store i32 %.sink, ptr %1, align 8
   ret void
 }
@@ -3688,53 +3658,49 @@ define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef %1
   %22 = icmp ult i64 %.0, 7
   %23 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.0
   %24 = icmp ult ptr %14, %23
-  br i1 %22, label %.preheader253, label %64
+  br i1 %22, label %.preheader238, label %64
 
-.preheader253:                                    ; preds = %21
+.preheader238:                                    ; preds = %21
   br i1 %24, label %.preheader, label %.critedge170
 
-.preheader:                                       ; preds = %.preheader253, %.critedge
-  %.0139307 = phi ptr [ %.0139, %.critedge ], [ %14, %.preheader253 ]
-  %25 = icmp ugt ptr %.0139307, %.0137.ph
-  br i1 %25, label %.lr.ph303, label %.critedge
+.preheader:                                       ; preds = %.preheader238, %.critedge
+  %.0139292 = phi ptr [ %.0139, %.critedge ], [ %14, %.preheader238 ]
+  %25 = icmp ugt ptr %.0139292, %.0137.ph
+  br i1 %25, label %.lr.ph288, label %.critedge
 
-.lr.ph303:                                        ; preds = %.preheader, %qsort_tuple_unsigned_compare.exit.thread
-  %.0140302 = phi ptr [ %26, %qsort_tuple_unsigned_compare.exit.thread ], [ %.0139307, %.preheader ]
-  %26 = getelementptr i8, ptr %.0140302, i64 -24
-  %27 = getelementptr i8, ptr %.0140302, i64 -16
+.lr.ph288:                                        ; preds = %.preheader, %qsort_tuple_unsigned_compare.exit.thread
+  %.0140287 = phi ptr [ %26, %qsort_tuple_unsigned_compare.exit.thread ], [ %.0139292, %.preheader ]
+  %26 = getelementptr i8, ptr %.0140287, i64 -24
+  %27 = getelementptr i8, ptr %.0140287, i64 -16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr i8, ptr %.0140302, i64 -8
+  %29 = getelementptr i8, ptr %.0140287, i64 -8
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not19.i = icmp eq i8 %31, 0
-  %32 = getelementptr inbounds i8, ptr %.0140302, i64 8
+  %31 = trunc i8 %30 to i1
+  %32 = getelementptr inbounds i8, ptr %.0140287, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0140302, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0140287, i64 16
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not20.i = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = load ptr, ptr %11, align 8
-  br i1 %.not19.i, label %43, label %38
+  br i1 %31, label %38, label %43
 
-38:                                               ; preds = %.lr.ph303
-  br i1 %.not20.i, label %39, label %ApplyUnsignedSortComparator.exit.thread16.i
+38:                                               ; preds = %.lr.ph288
+  br i1 %36, label %ApplyUnsignedSortComparator.exit.thread16.i, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i8, ptr %37, i64 13
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not13.i.i = icmp eq i8 %42, 0
-  br i1 %.not13.i.i, label %qsort_tuple_unsigned_compare.exit.thread, label %.critedge
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.critedge, label %qsort_tuple_unsigned_compare.exit.thread
 
-43:                                               ; preds = %.lr.ph303
-  br i1 %.not20.i, label %48, label %44
+43:                                               ; preds = %.lr.ph288
+  br i1 %36, label %44, label %48
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %37, i64 13
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not12.i.i = icmp eq i8 %47, 0
-  br i1 %.not12.i.i, label %.critedge, label %qsort_tuple_unsigned_compare.exit.thread
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %qsort_tuple_unsigned_compare.exit.thread, label %.critedge
 
 48:                                               ; preds = %43
   %49 = icmp ult i64 %28, %33
@@ -3743,9 +3709,8 @@ define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef %1
   %52 = select i1 %49, i32 -1, i32 %51
   %53 = getelementptr inbounds i8, ptr %37, i64 12
   %54 = load i8, ptr %53, align 4
-  %55 = and i8 %54, 1
-  %.not.i.i = icmp eq i8 %55, 0
-  br i1 %.not.i.i, label %ApplyUnsignedSortComparator.exit.i, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %ApplyUnsignedSortComparator.exit.i
 
 56:                                               ; preds = %48
   %.neg.i.i = sext i1 %50 to i32
@@ -3763,7 +3728,7 @@ ApplyUnsignedSortComparator.exit.thread16.i:      ; preds = %ApplyUnsignedSortCo
 
 58:                                               ; preds = %ApplyUnsignedSortComparator.exit.thread16.i
   %59 = load ptr, ptr %13, align 8
-  %60 = tail call i32 %59(ptr noundef nonnull %26, ptr noundef nonnull %.0140302, ptr noundef nonnull %2) #12
+  %60 = tail call i32 %59(ptr noundef nonnull %26, ptr noundef nonnull %.0140287, ptr noundef nonnull %2) #12
   br label %qsort_tuple_unsigned_compare.exit
 
 qsort_tuple_unsigned_compare.exit:                ; preds = %ApplyUnsignedSortComparator.exit.i, %58
@@ -3771,25 +3736,25 @@ qsort_tuple_unsigned_compare.exit:                ; preds = %ApplyUnsignedSortCo
   %61 = icmp sgt i32 %.0.i, 0
   br i1 %61, label %qsort_tuple_unsigned_compare.exit.thread, label %.critedge
 
-qsort_tuple_unsigned_compare.exit.thread:         ; preds = %39, %56, %44, %qsort_tuple_unsigned_compare.exit
+qsort_tuple_unsigned_compare.exit.thread:         ; preds = %44, %56, %39, %qsort_tuple_unsigned_compare.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140302, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140302, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140287, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140287, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %62 = icmp ugt ptr %26, %.0137.ph
-  br i1 %62, label %.lr.ph303, label %.critedge, !llvm.loop !24
+  br i1 %62, label %.lr.ph288, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %qsort_tuple_unsigned_compare.exit.thread, %qsort_tuple_unsigned_compare.exit, %ApplyUnsignedSortComparator.exit.thread16.i, %39, %44, %.preheader
-  %.0139 = getelementptr i8, ptr %.0139307, i64 24
+.critedge:                                        ; preds = %qsort_tuple_unsigned_compare.exit.thread, %qsort_tuple_unsigned_compare.exit, %ApplyUnsignedSortComparator.exit.thread16.i, %44, %39, %.preheader
+  %.0139 = getelementptr i8, ptr %.0139292, i64 24
   %63 = icmp ult ptr %.0139, %23
   br i1 %63, label %.preheader, label %.critedge170, !llvm.loop !25
 
 64:                                               ; preds = %21
   br i1 %24, label %.lr.ph, label %.critedge170
 
-.lr.ph:                                           ; preds = %64, %qsort_tuple_unsigned_compare.exit185.thread231
-  %.1271 = phi ptr [ %104, %qsort_tuple_unsigned_compare.exit185.thread231 ], [ %14, %64 ]
+.lr.ph:                                           ; preds = %64, %qsort_tuple_unsigned_compare.exit180.thread216
+  %.1256 = phi ptr [ %104, %qsort_tuple_unsigned_compare.exit180.thread216 ], [ %14, %64 ]
   %65 = load volatile i32, ptr @InterruptPending, align 4
   %.not161 = icmp eq i32 %65, 0
   br i1 %.not161, label %67, label %66
@@ -3799,41 +3764,37 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %39, %56, %44, %qsor
   br label %67
 
 67:                                               ; preds = %.lr.ph, %66
-  %68 = getelementptr i8, ptr %.1271, i64 -24
-  %69 = getelementptr i8, ptr %.1271, i64 -16
+  %68 = getelementptr i8, ptr %.1256, i64 -24
+  %69 = getelementptr i8, ptr %.1256, i64 -16
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr i8, ptr %.1271, i64 -8
+  %71 = getelementptr i8, ptr %.1256, i64 -8
   %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 1
-  %.not19.i171 = icmp eq i8 %73, 0
-  %74 = getelementptr inbounds i8, ptr %.1271, i64 8
+  %73 = trunc i8 %72 to i1
+  %74 = getelementptr inbounds i8, ptr %.1256, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.1271, i64 16
+  %76 = getelementptr inbounds i8, ptr %.1256, i64 16
   %77 = load i8, ptr %76, align 8
-  %78 = and i8 %77, 1
-  %.not20.i172 = icmp eq i8 %78, 0
+  %78 = trunc i8 %77 to i1
   %79 = load ptr, ptr %11, align 8
-  br i1 %.not19.i171, label %85, label %80
+  br i1 %73, label %80, label %85
 
 80:                                               ; preds = %67
-  br i1 %.not20.i172, label %81, label %ApplyUnsignedSortComparator.exit.thread16.i173
+  br i1 %78, label %ApplyUnsignedSortComparator.exit.thread16.i175, label %81
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %79, i64 13
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not13.i.i176 = icmp eq i8 %84, 0
-  br i1 %.not13.i.i176, label %qsort_tuple_unsigned_compare.exit185.thread, label %qsort_tuple_unsigned_compare.exit185.thread231
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %qsort_tuple_unsigned_compare.exit180.thread216, label %qsort_tuple_unsigned_compare.exit180.thread
 
 85:                                               ; preds = %67
-  br i1 %.not20.i172, label %90, label %86
+  br i1 %78, label %86, label %90
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds i8, ptr %79, i64 13
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not12.i.i178 = icmp eq i8 %89, 0
-  br i1 %.not12.i.i178, label %qsort_tuple_unsigned_compare.exit185.thread231, label %qsort_tuple_unsigned_compare.exit185.thread
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %qsort_tuple_unsigned_compare.exit180.thread, label %qsort_tuple_unsigned_compare.exit180.thread216
 
 90:                                               ; preds = %85
   %91 = icmp ult i64 %70, %75
@@ -3842,46 +3803,45 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %39, %56, %44, %qsor
   %94 = select i1 %91, i32 -1, i32 %93
   %95 = getelementptr inbounds i8, ptr %79, i64 12
   %96 = load i8, ptr %95, align 4
-  %97 = and i8 %96, 1
-  %.not.i.i180 = icmp eq i8 %97, 0
-  br i1 %.not.i.i180, label %ApplyUnsignedSortComparator.exit.i182, label %98
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %ApplyUnsignedSortComparator.exit.i171
 
 98:                                               ; preds = %90
-  %.neg.i.i181 = sext i1 %92 to i32
-  br i1 %91, label %qsort_tuple_unsigned_compare.exit185.thread, label %ApplyUnsignedSortComparator.exit.i182
+  %.neg.i.i177 = sext i1 %92 to i32
+  br i1 %91, label %qsort_tuple_unsigned_compare.exit180.thread, label %ApplyUnsignedSortComparator.exit.i171
 
-ApplyUnsignedSortComparator.exit.i182:            ; preds = %98, %90
-  %.0.i.i183 = phi i32 [ %.neg.i.i181, %98 ], [ %94, %90 ]
-  %.not.i184 = icmp eq i32 %.0.i.i183, 0
-  br i1 %.not.i184, label %ApplyUnsignedSortComparator.exit.thread16.i173, label %qsort_tuple_unsigned_compare.exit185
+ApplyUnsignedSortComparator.exit.i171:            ; preds = %98, %90
+  %.0.i.i172 = phi i32 [ %.neg.i.i177, %98 ], [ %94, %90 ]
+  %.not.i173 = icmp eq i32 %.0.i.i172, 0
+  br i1 %.not.i173, label %ApplyUnsignedSortComparator.exit.thread16.i175, label %qsort_tuple_unsigned_compare.exit180
 
-ApplyUnsignedSortComparator.exit.thread16.i173:   ; preds = %ApplyUnsignedSortComparator.exit.i182, %80
+ApplyUnsignedSortComparator.exit.thread16.i175:   ; preds = %ApplyUnsignedSortComparator.exit.i171, %80
   %99 = load ptr, ptr %12, align 8
-  %.not13.i174 = icmp eq ptr %99, null
-  br i1 %.not13.i174, label %100, label %qsort_tuple_unsigned_compare.exit185.thread231
+  %.not13.i176 = icmp eq ptr %99, null
+  br i1 %.not13.i176, label %100, label %qsort_tuple_unsigned_compare.exit180.thread216
 
-100:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i173
+100:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i175
   %101 = load ptr, ptr %13, align 8
-  %102 = tail call i32 %101(ptr noundef nonnull %68, ptr noundef nonnull %.1271, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_unsigned_compare.exit185
+  %102 = tail call i32 %101(ptr noundef nonnull %68, ptr noundef nonnull %.1256, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_unsigned_compare.exit180
 
-qsort_tuple_unsigned_compare.exit185:             ; preds = %ApplyUnsignedSortComparator.exit.i182, %100
-  %.0.i175 = phi i32 [ %102, %100 ], [ %.0.i.i183, %ApplyUnsignedSortComparator.exit.i182 ]
-  %103 = icmp sgt i32 %.0.i175, 0
-  br i1 %103, label %qsort_tuple_unsigned_compare.exit185.thread, label %qsort_tuple_unsigned_compare.exit185.thread231
+qsort_tuple_unsigned_compare.exit180:             ; preds = %ApplyUnsignedSortComparator.exit.i171, %100
+  %.0.i174 = phi i32 [ %102, %100 ], [ %.0.i.i172, %ApplyUnsignedSortComparator.exit.i171 ]
+  %103 = icmp sgt i32 %.0.i174, 0
+  br i1 %103, label %qsort_tuple_unsigned_compare.exit180.thread, label %qsort_tuple_unsigned_compare.exit180.thread216
 
-qsort_tuple_unsigned_compare.exit185.thread231:   ; preds = %86, %81, %ApplyUnsignedSortComparator.exit.thread16.i173, %qsort_tuple_unsigned_compare.exit185
-  %104 = getelementptr i8, ptr %.1271, i64 24
+qsort_tuple_unsigned_compare.exit180.thread216:   ; preds = %81, %86, %ApplyUnsignedSortComparator.exit.thread16.i175, %qsort_tuple_unsigned_compare.exit180
+  %104 = getelementptr i8, ptr %.1256, i64 24
   %105 = icmp ult ptr %104, %23
   br i1 %105, label %.lr.ph, label %.critedge170, !llvm.loop !26
 
-qsort_tuple_unsigned_compare.exit185.thread:      ; preds = %81, %98, %86, %qsort_tuple_unsigned_compare.exit185
+qsort_tuple_unsigned_compare.exit180.thread:      ; preds = %86, %98, %81, %qsort_tuple_unsigned_compare.exit180
   %106 = lshr i64 %.0, 1
   %107 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %106
   %.not163 = icmp eq i64 %.0, 7
-  br i1 %.not163, label %qsort_tuple_unsigned_compare.exit185.thread._crit_edge, label %108
+  br i1 %.not163, label %qsort_tuple_unsigned_compare.exit180.thread._crit_edge, label %108
 
-108:                                              ; preds = %qsort_tuple_unsigned_compare.exit185.thread
+108:                                              ; preds = %qsort_tuple_unsigned_compare.exit180.thread
   %109 = add nsw i64 %.0, -1
   %110 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %109
   %111 = icmp ugt i64 %.0, 40
@@ -3908,11 +3868,11 @@ qsort_tuple_unsigned_compare.exit185.thread:      ; preds = %81, %98, %86, %qsor
   %.2 = phi ptr [ %121, %112 ], [ %107, %108 ]
   %.0138 = phi ptr [ %125, %112 ], [ %110, %108 ]
   %127 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.1141, ptr noundef %.2, ptr noundef %.0138, ptr noundef nonnull %2)
-  br label %qsort_tuple_unsigned_compare.exit185.thread._crit_edge
+  br label %qsort_tuple_unsigned_compare.exit180.thread._crit_edge
 
-qsort_tuple_unsigned_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit185.thread, %126
-  %.pre-phi = phi i64 [ %109, %126 ], [ 6, %qsort_tuple_unsigned_compare.exit185.thread ]
-  %.3 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_unsigned_compare.exit185.thread ]
+qsort_tuple_unsigned_compare.exit180.thread._crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit180.thread, %126
+  %.pre-phi = phi i64 [ %109, %126 ], [ 6, %qsort_tuple_unsigned_compare.exit180.thread ]
+  %.3 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_unsigned_compare.exit180.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
@@ -3921,49 +3881,45 @@ qsort_tuple_unsigned_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_u
   %128 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
   br label %129
 
-129:                                              ; preds = %qsort_tuple_unsigned_compare.exit215.thread245, %qsort_tuple_unsigned_compare.exit185.thread._crit_edge
-  %.0149 = phi ptr [ %14, %qsort_tuple_unsigned_compare.exit185.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_unsigned_compare.exit215.thread245 ]
-  %.0147 = phi ptr [ %14, %qsort_tuple_unsigned_compare.exit185.thread._crit_edge ], [ %208, %qsort_tuple_unsigned_compare.exit215.thread245 ]
-  %.0145 = phi ptr [ %128, %qsort_tuple_unsigned_compare.exit185.thread._crit_edge ], [ %209, %qsort_tuple_unsigned_compare.exit215.thread245 ]
-  %.0142 = phi ptr [ %128, %qsort_tuple_unsigned_compare.exit185.thread._crit_edge ], [ %.1143292, %qsort_tuple_unsigned_compare.exit215.thread245 ]
-  %.not164274 = icmp ugt ptr %.0147, %.0145
-  br i1 %.not164274, label %.critedge2, label %.lr.ph277
+129:                                              ; preds = %qsort_tuple_unsigned_compare.exit200.thread230, %qsort_tuple_unsigned_compare.exit180.thread._crit_edge
+  %.0149 = phi ptr [ %14, %qsort_tuple_unsigned_compare.exit180.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_unsigned_compare.exit200.thread230 ]
+  %.0147 = phi ptr [ %14, %qsort_tuple_unsigned_compare.exit180.thread._crit_edge ], [ %208, %qsort_tuple_unsigned_compare.exit200.thread230 ]
+  %.0145 = phi ptr [ %128, %qsort_tuple_unsigned_compare.exit180.thread._crit_edge ], [ %209, %qsort_tuple_unsigned_compare.exit200.thread230 ]
+  %.0142 = phi ptr [ %128, %qsort_tuple_unsigned_compare.exit180.thread._crit_edge ], [ %.1143277, %qsort_tuple_unsigned_compare.exit200.thread230 ]
+  %.not164259 = icmp ugt ptr %.0147, %.0145
+  br i1 %.not164259, label %.critedge2, label %.lr.ph262
 
-.lr.ph277:                                        ; preds = %129, %168
-  %.1148276 = phi ptr [ %165, %168 ], [ %.0147, %129 ]
-  %.1150275 = phi ptr [ %.2151, %168 ], [ %.0149, %129 ]
-  %130 = getelementptr inbounds i8, ptr %.1148276, i64 8
+.lr.ph262:                                        ; preds = %129, %168
+  %.1148261 = phi ptr [ %165, %168 ], [ %.0147, %129 ]
+  %.1150260 = phi ptr [ %.2151, %168 ], [ %.0149, %129 ]
+  %130 = getelementptr inbounds i8, ptr %.1148261, i64 8
   %131 = load i64, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.1148276, i64 16
+  %132 = getelementptr inbounds i8, ptr %.1148261, i64 16
   %133 = load i8, ptr %132, align 8
-  %134 = and i8 %133, 1
-  %.not19.i186 = icmp eq i8 %134, 0
+  %134 = trunc i8 %133 to i1
   %135 = load i64, ptr %15, align 8
   %136 = load i8, ptr %16, align 8
-  %137 = and i8 %136, 1
-  %.not20.i187 = icmp eq i8 %137, 0
+  %137 = trunc i8 %136 to i1
   %138 = load ptr, ptr %11, align 8
-  br i1 %.not19.i186, label %144, label %139
+  br i1 %134, label %139, label %144
 
-139:                                              ; preds = %.lr.ph277
-  br i1 %.not20.i187, label %140, label %ApplyUnsignedSortComparator.exit.thread16.i188
+139:                                              ; preds = %.lr.ph262
+  br i1 %137, label %ApplyUnsignedSortComparator.exit.thread16.i185, label %140
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds i8, ptr %138, i64 13
   %142 = load i8, ptr %141, align 1
-  %143 = and i8 %142, 1
-  %.not13.i.i191 = icmp eq i8 %143, 0
-  br i1 %.not13.i.i191, label %.critedge2, label %qsort_tuple_unsigned_compare.exit200.thread.thread
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %qsort_tuple_unsigned_compare.exit190.thread.thread, label %.critedge2
 
-144:                                              ; preds = %.lr.ph277
-  br i1 %.not20.i187, label %149, label %145
+144:                                              ; preds = %.lr.ph262
+  br i1 %137, label %145, label %149
 
 145:                                              ; preds = %144
   %146 = getelementptr inbounds i8, ptr %138, i64 13
   %147 = load i8, ptr %146, align 1
-  %148 = and i8 %147, 1
-  %.not12.i.i193 = icmp eq i8 %148, 0
-  br i1 %.not12.i.i193, label %qsort_tuple_unsigned_compare.exit200.thread.thread, label %.critedge2
+  %148 = trunc i8 %147 to i1
+  br i1 %148, label %.critedge2, label %qsort_tuple_unsigned_compare.exit190.thread.thread
 
 149:                                              ; preds = %144
   %150 = icmp ult i64 %131, %135
@@ -3972,103 +3928,98 @@ qsort_tuple_unsigned_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_u
   %153 = select i1 %150, i32 -1, i32 %152
   %154 = getelementptr inbounds i8, ptr %138, i64 12
   %155 = load i8, ptr %154, align 4
-  %156 = and i8 %155, 1
-  %.not.i.i195 = icmp eq i8 %156, 0
-  br i1 %.not.i.i195, label %ApplyUnsignedSortComparator.exit.i197, label %157
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %157, label %ApplyUnsignedSortComparator.exit.i181
 
 157:                                              ; preds = %149
-  %.neg.i.i196 = sext i1 %151 to i32
-  br i1 %150, label %.critedge2, label %ApplyUnsignedSortComparator.exit.i197
+  %.neg.i.i187 = sext i1 %151 to i32
+  br i1 %150, label %.critedge2, label %ApplyUnsignedSortComparator.exit.i181
 
-ApplyUnsignedSortComparator.exit.i197:            ; preds = %157, %149
-  %.0.i.i198 = phi i32 [ %.neg.i.i196, %157 ], [ %153, %149 ]
-  %.not.i199 = icmp eq i32 %.0.i.i198, 0
-  br i1 %.not.i199, label %ApplyUnsignedSortComparator.exit.thread16.i188, label %qsort_tuple_unsigned_compare.exit200
+ApplyUnsignedSortComparator.exit.i181:            ; preds = %157, %149
+  %.0.i.i182 = phi i32 [ %.neg.i.i187, %157 ], [ %153, %149 ]
+  %.not.i183 = icmp eq i32 %.0.i.i182, 0
+  br i1 %.not.i183, label %ApplyUnsignedSortComparator.exit.thread16.i185, label %qsort_tuple_unsigned_compare.exit190
 
-ApplyUnsignedSortComparator.exit.thread16.i188:   ; preds = %ApplyUnsignedSortComparator.exit.i197, %139
+ApplyUnsignedSortComparator.exit.thread16.i185:   ; preds = %ApplyUnsignedSortComparator.exit.i181, %139
   %158 = load ptr, ptr %12, align 8
-  %.not13.i189 = icmp eq ptr %158, null
-  br i1 %.not13.i189, label %159, label %qsort_tuple_unsigned_compare.exit200.thread.thread248
+  %.not13.i186 = icmp eq ptr %158, null
+  br i1 %.not13.i186, label %159, label %qsort_tuple_unsigned_compare.exit190.thread.thread233
 
-159:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i188
+159:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i185
   %160 = load ptr, ptr %13, align 8
-  %161 = tail call i32 %160(ptr noundef nonnull %.1148276, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_unsigned_compare.exit200
+  %161 = tail call i32 %160(ptr noundef nonnull %.1148261, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_unsigned_compare.exit190
 
-qsort_tuple_unsigned_compare.exit200:             ; preds = %ApplyUnsignedSortComparator.exit.i197, %159
-  %.0.i190 = phi i32 [ %161, %159 ], [ %.0.i.i198, %ApplyUnsignedSortComparator.exit.i197 ]
-  %162 = icmp slt i32 %.0.i190, 1
-  br i1 %162, label %qsort_tuple_unsigned_compare.exit200.thread, label %.critedge2
+qsort_tuple_unsigned_compare.exit190:             ; preds = %ApplyUnsignedSortComparator.exit.i181, %159
+  %.0.i184 = phi i32 [ %161, %159 ], [ %.0.i.i182, %ApplyUnsignedSortComparator.exit.i181 ]
+  %162 = icmp slt i32 %.0.i184, 1
+  br i1 %162, label %qsort_tuple_unsigned_compare.exit190.thread, label %.critedge2
 
-qsort_tuple_unsigned_compare.exit200.thread:      ; preds = %qsort_tuple_unsigned_compare.exit200
-  %163 = icmp eq i32 %.0.i190, 0
-  br i1 %163, label %qsort_tuple_unsigned_compare.exit200.thread.thread248, label %qsort_tuple_unsigned_compare.exit200.thread.thread
+qsort_tuple_unsigned_compare.exit190.thread:      ; preds = %qsort_tuple_unsigned_compare.exit190
+  %163 = icmp eq i32 %.0.i184, 0
+  br i1 %163, label %qsort_tuple_unsigned_compare.exit190.thread.thread233, label %qsort_tuple_unsigned_compare.exit190.thread.thread
 
-qsort_tuple_unsigned_compare.exit200.thread.thread248: ; preds = %ApplyUnsignedSortComparator.exit.thread16.i188, %qsort_tuple_unsigned_compare.exit200.thread
+qsort_tuple_unsigned_compare.exit190.thread.thread233: ; preds = %ApplyUnsignedSortComparator.exit.thread16.i185, %qsort_tuple_unsigned_compare.exit190.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150275, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150275, ptr noundef nonnull align 8 dereferenceable(24) %.1148276, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148276, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150260, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150260, ptr noundef nonnull align 8 dereferenceable(24) %.1148261, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148261, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %164 = getelementptr i8, ptr %.1150275, i64 24
-  br label %qsort_tuple_unsigned_compare.exit200.thread.thread
+  %164 = getelementptr i8, ptr %.1150260, i64 24
+  br label %qsort_tuple_unsigned_compare.exit190.thread.thread
 
-qsort_tuple_unsigned_compare.exit200.thread.thread: ; preds = %145, %140, %qsort_tuple_unsigned_compare.exit200.thread.thread248, %qsort_tuple_unsigned_compare.exit200.thread
-  %.2151 = phi ptr [ %164, %qsort_tuple_unsigned_compare.exit200.thread.thread248 ], [ %.1150275, %qsort_tuple_unsigned_compare.exit200.thread ], [ %.1150275, %140 ], [ %.1150275, %145 ]
-  %165 = getelementptr i8, ptr %.1148276, i64 24
+qsort_tuple_unsigned_compare.exit190.thread.thread: ; preds = %140, %145, %qsort_tuple_unsigned_compare.exit190.thread.thread233, %qsort_tuple_unsigned_compare.exit190.thread
+  %.2151 = phi ptr [ %164, %qsort_tuple_unsigned_compare.exit190.thread.thread233 ], [ %.1150260, %qsort_tuple_unsigned_compare.exit190.thread ], [ %.1150260, %145 ], [ %.1150260, %140 ]
+  %165 = getelementptr i8, ptr %.1148261, i64 24
   %166 = load volatile i32, ptr @InterruptPending, align 4
   %.not168 = icmp eq i32 %166, 0
   br i1 %.not168, label %168, label %167
 
-167:                                              ; preds = %qsort_tuple_unsigned_compare.exit200.thread.thread
+167:                                              ; preds = %qsort_tuple_unsigned_compare.exit190.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %168
 
-168:                                              ; preds = %qsort_tuple_unsigned_compare.exit200.thread.thread, %167
+168:                                              ; preds = %qsort_tuple_unsigned_compare.exit190.thread.thread, %167
   %.not164 = icmp ugt ptr %165, %.0145
-  br i1 %.not164, label %.critedge2, label %.lr.ph277, !llvm.loop !27
+  br i1 %.not164, label %.critedge2, label %.lr.ph262, !llvm.loop !27
 
-.critedge2:                                       ; preds = %qsort_tuple_unsigned_compare.exit200, %168, %145, %157, %140, %129
-  %.1150.lcssa = phi ptr [ %.0149, %129 ], [ %.1150275, %140 ], [ %.1150275, %157 ], [ %.1150275, %145 ], [ %.2151, %168 ], [ %.1150275, %qsort_tuple_unsigned_compare.exit200 ]
-  %.1148.lcssa = phi ptr [ %.0147, %129 ], [ %.1148276, %140 ], [ %.1148276, %157 ], [ %.1148276, %145 ], [ %165, %168 ], [ %.1148276, %qsort_tuple_unsigned_compare.exit200 ]
-  %.not165290 = icmp ugt ptr %.1148.lcssa, %.0145
-  br i1 %.not165290, label %.critedge4, label %.lr.ph293
+.critedge2:                                       ; preds = %qsort_tuple_unsigned_compare.exit190, %168, %140, %157, %145, %129
+  %.1150.lcssa = phi ptr [ %.0149, %129 ], [ %.1150260, %145 ], [ %.1150260, %157 ], [ %.1150260, %140 ], [ %.2151, %168 ], [ %.1150260, %qsort_tuple_unsigned_compare.exit190 ]
+  %.1148.lcssa = phi ptr [ %.0147, %129 ], [ %.1148261, %145 ], [ %.1148261, %157 ], [ %.1148261, %140 ], [ %165, %168 ], [ %.1148261, %qsort_tuple_unsigned_compare.exit190 ]
+  %.not165275 = icmp ugt ptr %.1148.lcssa, %.0145
+  br i1 %.not165275, label %.critedge4, label %.lr.ph278
 
-.lr.ph293:                                        ; preds = %.critedge2, %207
-  %.1143292 = phi ptr [ %.2144, %207 ], [ %.0142, %.critedge2 ]
-  %.1146291 = phi ptr [ %204, %207 ], [ %.0145, %.critedge2 ]
-  %169 = getelementptr inbounds i8, ptr %.1146291, i64 8
+.lr.ph278:                                        ; preds = %.critedge2, %207
+  %.1143277 = phi ptr [ %.2144, %207 ], [ %.0142, %.critedge2 ]
+  %.1146276 = phi ptr [ %204, %207 ], [ %.0145, %.critedge2 ]
+  %169 = getelementptr inbounds i8, ptr %.1146276, i64 8
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %.1146291, i64 16
+  %171 = getelementptr inbounds i8, ptr %.1146276, i64 16
   %172 = load i8, ptr %171, align 8
-  %173 = and i8 %172, 1
-  %.not19.i201 = icmp eq i8 %173, 0
+  %173 = trunc i8 %172 to i1
   %174 = load i64, ptr %15, align 8
   %175 = load i8, ptr %16, align 8
-  %176 = and i8 %175, 1
-  %.not20.i202 = icmp eq i8 %176, 0
+  %176 = trunc i8 %175 to i1
   %177 = load ptr, ptr %11, align 8
-  br i1 %.not19.i201, label %183, label %178
+  br i1 %173, label %178, label %183
 
-178:                                              ; preds = %.lr.ph293
-  br i1 %.not20.i202, label %179, label %ApplyUnsignedSortComparator.exit.thread16.i203
+178:                                              ; preds = %.lr.ph278
+  br i1 %176, label %ApplyUnsignedSortComparator.exit.thread16.i195, label %179
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds i8, ptr %177, i64 13
   %181 = load i8, ptr %180, align 1
-  %182 = and i8 %181, 1
-  %.not13.i.i206 = icmp eq i8 %182, 0
-  br i1 %.not13.i.i206, label %qsort_tuple_unsigned_compare.exit215.thread.thread, label %qsort_tuple_unsigned_compare.exit215.thread245
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %qsort_tuple_unsigned_compare.exit200.thread230, label %qsort_tuple_unsigned_compare.exit200.thread.thread
 
-183:                                              ; preds = %.lr.ph293
-  br i1 %.not20.i202, label %188, label %184
+183:                                              ; preds = %.lr.ph278
+  br i1 %176, label %184, label %188
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds i8, ptr %177, i64 13
   %186 = load i8, ptr %185, align 1
-  %187 = and i8 %186, 1
-  %.not12.i.i208 = icmp eq i8 %187, 0
-  br i1 %.not12.i.i208, label %qsort_tuple_unsigned_compare.exit215.thread245, label %qsort_tuple_unsigned_compare.exit215.thread.thread
+  %187 = trunc i8 %186 to i1
+  br i1 %187, label %qsort_tuple_unsigned_compare.exit200.thread.thread, label %qsort_tuple_unsigned_compare.exit200.thread230
 
 188:                                              ; preds = %183
   %189 = icmp ult i64 %170, %174
@@ -4077,70 +4028,69 @@ qsort_tuple_unsigned_compare.exit200.thread.thread: ; preds = %145, %140, %qsort
   %192 = select i1 %189, i32 -1, i32 %191
   %193 = getelementptr inbounds i8, ptr %177, i64 12
   %194 = load i8, ptr %193, align 4
-  %195 = and i8 %194, 1
-  %.not.i.i210 = icmp eq i8 %195, 0
-  br i1 %.not.i.i210, label %ApplyUnsignedSortComparator.exit.i212, label %196
+  %195 = trunc i8 %194 to i1
+  br i1 %195, label %196, label %ApplyUnsignedSortComparator.exit.i191
 
 196:                                              ; preds = %188
-  %.neg.i.i211 = sext i1 %190 to i32
-  br i1 %189, label %qsort_tuple_unsigned_compare.exit215.thread.thread, label %ApplyUnsignedSortComparator.exit.i212
+  %.neg.i.i197 = sext i1 %190 to i32
+  br i1 %189, label %qsort_tuple_unsigned_compare.exit200.thread.thread, label %ApplyUnsignedSortComparator.exit.i191
 
-ApplyUnsignedSortComparator.exit.i212:            ; preds = %196, %188
-  %.0.i.i213 = phi i32 [ %.neg.i.i211, %196 ], [ %192, %188 ]
-  %.not.i214 = icmp eq i32 %.0.i.i213, 0
-  br i1 %.not.i214, label %ApplyUnsignedSortComparator.exit.thread16.i203, label %qsort_tuple_unsigned_compare.exit215
+ApplyUnsignedSortComparator.exit.i191:            ; preds = %196, %188
+  %.0.i.i192 = phi i32 [ %.neg.i.i197, %196 ], [ %192, %188 ]
+  %.not.i193 = icmp eq i32 %.0.i.i192, 0
+  br i1 %.not.i193, label %ApplyUnsignedSortComparator.exit.thread16.i195, label %qsort_tuple_unsigned_compare.exit200
 
-ApplyUnsignedSortComparator.exit.thread16.i203:   ; preds = %ApplyUnsignedSortComparator.exit.i212, %178
+ApplyUnsignedSortComparator.exit.thread16.i195:   ; preds = %ApplyUnsignedSortComparator.exit.i191, %178
   %197 = load ptr, ptr %12, align 8
-  %.not13.i204 = icmp eq ptr %197, null
-  br i1 %.not13.i204, label %198, label %qsort_tuple_unsigned_compare.exit215.thread.thread251
+  %.not13.i196 = icmp eq ptr %197, null
+  br i1 %.not13.i196, label %198, label %qsort_tuple_unsigned_compare.exit200.thread.thread236
 
-198:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i203
+198:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i195
   %199 = load ptr, ptr %13, align 8
-  %200 = tail call i32 %199(ptr noundef nonnull %.1146291, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_unsigned_compare.exit215
+  %200 = tail call i32 %199(ptr noundef nonnull %.1146276, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_unsigned_compare.exit200
 
-qsort_tuple_unsigned_compare.exit215:             ; preds = %ApplyUnsignedSortComparator.exit.i212, %198
-  %.0.i205 = phi i32 [ %200, %198 ], [ %.0.i.i213, %ApplyUnsignedSortComparator.exit.i212 ]
-  %201 = icmp sgt i32 %.0.i205, -1
-  br i1 %201, label %qsort_tuple_unsigned_compare.exit215.thread, label %qsort_tuple_unsigned_compare.exit215.thread245
+qsort_tuple_unsigned_compare.exit200:             ; preds = %ApplyUnsignedSortComparator.exit.i191, %198
+  %.0.i194 = phi i32 [ %200, %198 ], [ %.0.i.i192, %ApplyUnsignedSortComparator.exit.i191 ]
+  %201 = icmp sgt i32 %.0.i194, -1
+  br i1 %201, label %qsort_tuple_unsigned_compare.exit200.thread, label %qsort_tuple_unsigned_compare.exit200.thread230
 
-qsort_tuple_unsigned_compare.exit215.thread:      ; preds = %qsort_tuple_unsigned_compare.exit215
-  %202 = icmp eq i32 %.0.i205, 0
-  br i1 %202, label %qsort_tuple_unsigned_compare.exit215.thread.thread251, label %qsort_tuple_unsigned_compare.exit215.thread.thread
+qsort_tuple_unsigned_compare.exit200.thread:      ; preds = %qsort_tuple_unsigned_compare.exit200
+  %202 = icmp eq i32 %.0.i194, 0
+  br i1 %202, label %qsort_tuple_unsigned_compare.exit200.thread.thread236, label %qsort_tuple_unsigned_compare.exit200.thread.thread
 
-qsort_tuple_unsigned_compare.exit215.thread.thread251: ; preds = %ApplyUnsignedSortComparator.exit.thread16.i203, %qsort_tuple_unsigned_compare.exit215.thread
+qsort_tuple_unsigned_compare.exit200.thread.thread236: ; preds = %ApplyUnsignedSortComparator.exit.thread16.i195, %qsort_tuple_unsigned_compare.exit200.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146291, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146291, ptr noundef nonnull align 8 dereferenceable(24) %.1143292, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143292, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146276, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146276, ptr noundef nonnull align 8 dereferenceable(24) %.1143277, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143277, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %203 = getelementptr i8, ptr %.1143292, i64 -24
-  br label %qsort_tuple_unsigned_compare.exit215.thread.thread
+  %203 = getelementptr i8, ptr %.1143277, i64 -24
+  br label %qsort_tuple_unsigned_compare.exit200.thread.thread
 
-qsort_tuple_unsigned_compare.exit215.thread.thread: ; preds = %179, %184, %196, %qsort_tuple_unsigned_compare.exit215.thread.thread251, %qsort_tuple_unsigned_compare.exit215.thread
-  %.2144 = phi ptr [ %203, %qsort_tuple_unsigned_compare.exit215.thread.thread251 ], [ %.1143292, %qsort_tuple_unsigned_compare.exit215.thread ], [ %.1143292, %196 ], [ %.1143292, %184 ], [ %.1143292, %179 ]
-  %204 = getelementptr i8, ptr %.1146291, i64 -24
+qsort_tuple_unsigned_compare.exit200.thread.thread: ; preds = %184, %179, %196, %qsort_tuple_unsigned_compare.exit200.thread.thread236, %qsort_tuple_unsigned_compare.exit200.thread
+  %.2144 = phi ptr [ %203, %qsort_tuple_unsigned_compare.exit200.thread.thread236 ], [ %.1143277, %qsort_tuple_unsigned_compare.exit200.thread ], [ %.1143277, %196 ], [ %.1143277, %179 ], [ %.1143277, %184 ]
+  %204 = getelementptr i8, ptr %.1146276, i64 -24
   %205 = load volatile i32, ptr @InterruptPending, align 4
   %.not167 = icmp eq i32 %205, 0
   br i1 %.not167, label %207, label %206
 
-206:                                              ; preds = %qsort_tuple_unsigned_compare.exit215.thread.thread
+206:                                              ; preds = %qsort_tuple_unsigned_compare.exit200.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %207
 
-207:                                              ; preds = %qsort_tuple_unsigned_compare.exit215.thread.thread, %206
+207:                                              ; preds = %qsort_tuple_unsigned_compare.exit200.thread.thread, %206
   %.not165 = icmp ugt ptr %.1148.lcssa, %204
-  br i1 %.not165, label %.critedge4, label %.lr.ph293, !llvm.loop !28
+  br i1 %.not165, label %.critedge4, label %.lr.ph278, !llvm.loop !28
 
-qsort_tuple_unsigned_compare.exit215.thread245:   ; preds = %184, %179, %qsort_tuple_unsigned_compare.exit215
+qsort_tuple_unsigned_compare.exit200.thread230:   ; preds = %179, %184, %qsort_tuple_unsigned_compare.exit200
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146291, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146291, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146276, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146276, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %208 = getelementptr i8, ptr %.1148.lcssa, i64 24
-  %209 = getelementptr i8, ptr %.1146291, i64 -24
+  %209 = getelementptr i8, ptr %.1146276, i64 -24
   br label %129
 
 .critedge4:                                       ; preds = %.critedge2, %207
@@ -4155,8 +4105,8 @@ qsort_tuple_unsigned_compare.exit215.thread245:   ; preds = %184, %179, %qsort_t
   %. = tail call i64 @llvm.smin.i64(i64 %212, i64 %215)
   %216 = sub nsw i64 0, %.
   %217 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %216
-  %.not.i216 = icmp eq i64 %., 0
-  br i1 %.not.i216, label %qsort_tuple_unsigned_swapn.exit, label %.lr.ph.i
+  %.not.i201 = icmp eq i64 %., 0
+  br i1 %.not.i201, label %qsort_tuple_unsigned_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %220, %.lr.ph.i ], [ 0, %.critedge4 ]
@@ -4183,27 +4133,27 @@ qsort_tuple_unsigned_swapn.exit:                  ; preds = %.lr.ph.i, %.critedg
   %229 = tail call i64 @llvm.smin.i64(i64 %224, i64 %228)
   %230 = sub nsw i64 0, %229
   %231 = getelementptr %struct.SortTuple, ptr %23, i64 %230
-  %.not.i217 = icmp eq i64 %229, 0
-  br i1 %.not.i217, label %qsort_tuple_unsigned_swapn.exit221, label %.lr.ph.i218
+  %.not.i202 = icmp eq i64 %229, 0
+  br i1 %.not.i202, label %qsort_tuple_unsigned_swapn.exit206, label %.lr.ph.i203
 
-.lr.ph.i218:                                      ; preds = %qsort_tuple_unsigned_swapn.exit, %.lr.ph.i218
-  %.06.i219 = phi i64 [ %234, %.lr.ph.i218 ], [ 0, %qsort_tuple_unsigned_swapn.exit ]
-  %232 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i219
-  %233 = getelementptr %struct.SortTuple, ptr %231, i64 %.06.i219
+.lr.ph.i203:                                      ; preds = %qsort_tuple_unsigned_swapn.exit, %.lr.ph.i203
+  %.06.i204 = phi i64 [ %234, %.lr.ph.i203 ], [ 0, %qsort_tuple_unsigned_swapn.exit ]
+  %232 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i204
+  %233 = getelementptr %struct.SortTuple, ptr %231, i64 %.06.i204
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %232, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %232, ptr noundef nonnull align 8 dereferenceable(24) %233, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %233, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %234 = add nuw i64 %.06.i219, 1
-  %exitcond.not.i220 = icmp eq i64 %234, %229
-  br i1 %exitcond.not.i220, label %qsort_tuple_unsigned_swapn.exit221, label %.lr.ph.i218, !llvm.loop !29
+  %234 = add nuw i64 %.06.i204, 1
+  %exitcond.not.i205 = icmp eq i64 %234, %229
+  br i1 %exitcond.not.i205, label %qsort_tuple_unsigned_swapn.exit206, label %.lr.ph.i203, !llvm.loop !29
 
-qsort_tuple_unsigned_swapn.exit221:               ; preds = %.lr.ph.i218, %qsort_tuple_unsigned_swapn.exit
+qsort_tuple_unsigned_swapn.exit206:               ; preds = %.lr.ph.i203, %qsort_tuple_unsigned_swapn.exit
   %.not166 = icmp ugt i64 %215, %224
   br i1 %.not166, label %243, label %235
 
-235:                                              ; preds = %qsort_tuple_unsigned_swapn.exit221
+235:                                              ; preds = %qsort_tuple_unsigned_swapn.exit206
   %236 = icmp ugt i64 %215, 1
   br i1 %236, label %237, label %238
 
@@ -4220,7 +4170,7 @@ qsort_tuple_unsigned_swapn.exit221:               ; preds = %.lr.ph.i218, %qsort
   %242 = getelementptr %struct.SortTuple, ptr %23, i64 %241
   br label %.outer
 
-243:                                              ; preds = %qsort_tuple_unsigned_swapn.exit221
+243:                                              ; preds = %qsort_tuple_unsigned_swapn.exit206
   %244 = icmp ugt i64 %224, 1
   br i1 %244, label %245, label %248
 
@@ -4234,7 +4184,7 @@ qsort_tuple_unsigned_swapn.exit221:               ; preds = %.lr.ph.i218, %qsort
   %249 = icmp ugt i64 %215, 1
   br i1 %249, label %18, label %.critedge170
 
-.critedge170:                                     ; preds = %238, %248, %64, %qsort_tuple_unsigned_compare.exit185.thread231, %.critedge, %.preheader253
+.critedge170:                                     ; preds = %238, %248, %64, %qsort_tuple_unsigned_compare.exit180.thread216, %.critedge, %.preheader238
   ret void
 }
 
@@ -4275,53 +4225,49 @@ define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef %1, 
   %22 = icmp ult i64 %.0, 7
   %23 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.0
   %24 = icmp ult ptr %14, %23
-  br i1 %22, label %.preheader253, label %64
+  br i1 %22, label %.preheader238, label %64
 
-.preheader253:                                    ; preds = %21
+.preheader238:                                    ; preds = %21
   br i1 %24, label %.preheader, label %.critedge170
 
-.preheader:                                       ; preds = %.preheader253, %.critedge
-  %.0139307 = phi ptr [ %.0139, %.critedge ], [ %14, %.preheader253 ]
-  %25 = icmp ugt ptr %.0139307, %.0137.ph
-  br i1 %25, label %.lr.ph303, label %.critedge
+.preheader:                                       ; preds = %.preheader238, %.critedge
+  %.0139292 = phi ptr [ %.0139, %.critedge ], [ %14, %.preheader238 ]
+  %25 = icmp ugt ptr %.0139292, %.0137.ph
+  br i1 %25, label %.lr.ph288, label %.critedge
 
-.lr.ph303:                                        ; preds = %.preheader, %qsort_tuple_signed_compare.exit.thread
-  %.0140302 = phi ptr [ %26, %qsort_tuple_signed_compare.exit.thread ], [ %.0139307, %.preheader ]
-  %26 = getelementptr i8, ptr %.0140302, i64 -24
-  %27 = getelementptr i8, ptr %.0140302, i64 -16
+.lr.ph288:                                        ; preds = %.preheader, %qsort_tuple_signed_compare.exit.thread
+  %.0140287 = phi ptr [ %26, %qsort_tuple_signed_compare.exit.thread ], [ %.0139292, %.preheader ]
+  %26 = getelementptr i8, ptr %.0140287, i64 -24
+  %27 = getelementptr i8, ptr %.0140287, i64 -16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr i8, ptr %.0140302, i64 -8
+  %29 = getelementptr i8, ptr %.0140287, i64 -8
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not19.i = icmp eq i8 %31, 0
-  %32 = getelementptr inbounds i8, ptr %.0140302, i64 8
+  %31 = trunc i8 %30 to i1
+  %32 = getelementptr inbounds i8, ptr %.0140287, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0140302, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0140287, i64 16
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not20.i = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = load ptr, ptr %11, align 8
-  br i1 %.not19.i, label %43, label %38
+  br i1 %31, label %38, label %43
 
-38:                                               ; preds = %.lr.ph303
-  br i1 %.not20.i, label %39, label %ApplySignedSortComparator.exit.thread16.i
+38:                                               ; preds = %.lr.ph288
+  br i1 %36, label %ApplySignedSortComparator.exit.thread16.i, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i8, ptr %37, i64 13
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not13.i.i = icmp eq i8 %42, 0
-  br i1 %.not13.i.i, label %qsort_tuple_signed_compare.exit.thread, label %.critedge
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.critedge, label %qsort_tuple_signed_compare.exit.thread
 
-43:                                               ; preds = %.lr.ph303
-  br i1 %.not20.i, label %48, label %44
+43:                                               ; preds = %.lr.ph288
+  br i1 %36, label %44, label %48
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %37, i64 13
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not12.i.i = icmp eq i8 %47, 0
-  br i1 %.not12.i.i, label %.critedge, label %qsort_tuple_signed_compare.exit.thread
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %qsort_tuple_signed_compare.exit.thread, label %.critedge
 
 48:                                               ; preds = %43
   %49 = icmp slt i64 %28, %33
@@ -4330,9 +4276,8 @@ define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef %1, 
   %52 = select i1 %49, i32 -1, i32 %51
   %53 = getelementptr inbounds i8, ptr %37, i64 12
   %54 = load i8, ptr %53, align 4
-  %55 = and i8 %54, 1
-  %.not.i.i = icmp eq i8 %55, 0
-  br i1 %.not.i.i, label %ApplySignedSortComparator.exit.i, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %ApplySignedSortComparator.exit.i
 
 56:                                               ; preds = %48
   %.neg.i.i = sext i1 %50 to i32
@@ -4350,7 +4295,7 @@ ApplySignedSortComparator.exit.thread16.i:        ; preds = %ApplySignedSortComp
 
 58:                                               ; preds = %ApplySignedSortComparator.exit.thread16.i
   %59 = load ptr, ptr %13, align 8
-  %60 = tail call i32 %59(ptr noundef nonnull %26, ptr noundef nonnull %.0140302, ptr noundef nonnull %2) #12
+  %60 = tail call i32 %59(ptr noundef nonnull %26, ptr noundef nonnull %.0140287, ptr noundef nonnull %2) #12
   br label %qsort_tuple_signed_compare.exit
 
 qsort_tuple_signed_compare.exit:                  ; preds = %ApplySignedSortComparator.exit.i, %58
@@ -4358,25 +4303,25 @@ qsort_tuple_signed_compare.exit:                  ; preds = %ApplySignedSortComp
   %61 = icmp sgt i32 %.0.i, 0
   br i1 %61, label %qsort_tuple_signed_compare.exit.thread, label %.critedge
 
-qsort_tuple_signed_compare.exit.thread:           ; preds = %39, %56, %44, %qsort_tuple_signed_compare.exit
+qsort_tuple_signed_compare.exit.thread:           ; preds = %44, %56, %39, %qsort_tuple_signed_compare.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140302, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140302, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140287, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140287, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %62 = icmp ugt ptr %26, %.0137.ph
-  br i1 %62, label %.lr.ph303, label %.critedge, !llvm.loop !30
+  br i1 %62, label %.lr.ph288, label %.critedge, !llvm.loop !30
 
-.critedge:                                        ; preds = %qsort_tuple_signed_compare.exit.thread, %qsort_tuple_signed_compare.exit, %ApplySignedSortComparator.exit.thread16.i, %39, %44, %.preheader
-  %.0139 = getelementptr i8, ptr %.0139307, i64 24
+.critedge:                                        ; preds = %qsort_tuple_signed_compare.exit.thread, %qsort_tuple_signed_compare.exit, %ApplySignedSortComparator.exit.thread16.i, %44, %39, %.preheader
+  %.0139 = getelementptr i8, ptr %.0139292, i64 24
   %63 = icmp ult ptr %.0139, %23
   br i1 %63, label %.preheader, label %.critedge170, !llvm.loop !31
 
 64:                                               ; preds = %21
   br i1 %24, label %.lr.ph, label %.critedge170
 
-.lr.ph:                                           ; preds = %64, %qsort_tuple_signed_compare.exit185.thread231
-  %.1271 = phi ptr [ %104, %qsort_tuple_signed_compare.exit185.thread231 ], [ %14, %64 ]
+.lr.ph:                                           ; preds = %64, %qsort_tuple_signed_compare.exit180.thread216
+  %.1256 = phi ptr [ %104, %qsort_tuple_signed_compare.exit180.thread216 ], [ %14, %64 ]
   %65 = load volatile i32, ptr @InterruptPending, align 4
   %.not161 = icmp eq i32 %65, 0
   br i1 %.not161, label %67, label %66
@@ -4386,41 +4331,37 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %39, %56, %44, %qsor
   br label %67
 
 67:                                               ; preds = %.lr.ph, %66
-  %68 = getelementptr i8, ptr %.1271, i64 -24
-  %69 = getelementptr i8, ptr %.1271, i64 -16
+  %68 = getelementptr i8, ptr %.1256, i64 -24
+  %69 = getelementptr i8, ptr %.1256, i64 -16
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr i8, ptr %.1271, i64 -8
+  %71 = getelementptr i8, ptr %.1256, i64 -8
   %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 1
-  %.not19.i171 = icmp eq i8 %73, 0
-  %74 = getelementptr inbounds i8, ptr %.1271, i64 8
+  %73 = trunc i8 %72 to i1
+  %74 = getelementptr inbounds i8, ptr %.1256, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.1271, i64 16
+  %76 = getelementptr inbounds i8, ptr %.1256, i64 16
   %77 = load i8, ptr %76, align 8
-  %78 = and i8 %77, 1
-  %.not20.i172 = icmp eq i8 %78, 0
+  %78 = trunc i8 %77 to i1
   %79 = load ptr, ptr %11, align 8
-  br i1 %.not19.i171, label %85, label %80
+  br i1 %73, label %80, label %85
 
 80:                                               ; preds = %67
-  br i1 %.not20.i172, label %81, label %ApplySignedSortComparator.exit.thread16.i173
+  br i1 %78, label %ApplySignedSortComparator.exit.thread16.i175, label %81
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %79, i64 13
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not13.i.i176 = icmp eq i8 %84, 0
-  br i1 %.not13.i.i176, label %qsort_tuple_signed_compare.exit185.thread, label %qsort_tuple_signed_compare.exit185.thread231
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %qsort_tuple_signed_compare.exit180.thread216, label %qsort_tuple_signed_compare.exit180.thread
 
 85:                                               ; preds = %67
-  br i1 %.not20.i172, label %90, label %86
+  br i1 %78, label %86, label %90
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds i8, ptr %79, i64 13
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not12.i.i178 = icmp eq i8 %89, 0
-  br i1 %.not12.i.i178, label %qsort_tuple_signed_compare.exit185.thread231, label %qsort_tuple_signed_compare.exit185.thread
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %qsort_tuple_signed_compare.exit180.thread, label %qsort_tuple_signed_compare.exit180.thread216
 
 90:                                               ; preds = %85
   %91 = icmp slt i64 %70, %75
@@ -4429,46 +4370,45 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %39, %56, %44, %qsor
   %94 = select i1 %91, i32 -1, i32 %93
   %95 = getelementptr inbounds i8, ptr %79, i64 12
   %96 = load i8, ptr %95, align 4
-  %97 = and i8 %96, 1
-  %.not.i.i180 = icmp eq i8 %97, 0
-  br i1 %.not.i.i180, label %ApplySignedSortComparator.exit.i182, label %98
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %ApplySignedSortComparator.exit.i171
 
 98:                                               ; preds = %90
-  %.neg.i.i181 = sext i1 %92 to i32
-  br i1 %91, label %qsort_tuple_signed_compare.exit185.thread, label %ApplySignedSortComparator.exit.i182
+  %.neg.i.i177 = sext i1 %92 to i32
+  br i1 %91, label %qsort_tuple_signed_compare.exit180.thread, label %ApplySignedSortComparator.exit.i171
 
-ApplySignedSortComparator.exit.i182:              ; preds = %98, %90
-  %.0.i.i183 = phi i32 [ %.neg.i.i181, %98 ], [ %94, %90 ]
-  %.not.i184 = icmp eq i32 %.0.i.i183, 0
-  br i1 %.not.i184, label %ApplySignedSortComparator.exit.thread16.i173, label %qsort_tuple_signed_compare.exit185
+ApplySignedSortComparator.exit.i171:              ; preds = %98, %90
+  %.0.i.i172 = phi i32 [ %.neg.i.i177, %98 ], [ %94, %90 ]
+  %.not.i173 = icmp eq i32 %.0.i.i172, 0
+  br i1 %.not.i173, label %ApplySignedSortComparator.exit.thread16.i175, label %qsort_tuple_signed_compare.exit180
 
-ApplySignedSortComparator.exit.thread16.i173:     ; preds = %ApplySignedSortComparator.exit.i182, %80
+ApplySignedSortComparator.exit.thread16.i175:     ; preds = %ApplySignedSortComparator.exit.i171, %80
   %99 = load ptr, ptr %12, align 8
-  %.not13.i174 = icmp eq ptr %99, null
-  br i1 %.not13.i174, label %100, label %qsort_tuple_signed_compare.exit185.thread231
+  %.not13.i176 = icmp eq ptr %99, null
+  br i1 %.not13.i176, label %100, label %qsort_tuple_signed_compare.exit180.thread216
 
-100:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i173
+100:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i175
   %101 = load ptr, ptr %13, align 8
-  %102 = tail call i32 %101(ptr noundef nonnull %68, ptr noundef nonnull %.1271, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_signed_compare.exit185
+  %102 = tail call i32 %101(ptr noundef nonnull %68, ptr noundef nonnull %.1256, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_signed_compare.exit180
 
-qsort_tuple_signed_compare.exit185:               ; preds = %ApplySignedSortComparator.exit.i182, %100
-  %.0.i175 = phi i32 [ %102, %100 ], [ %.0.i.i183, %ApplySignedSortComparator.exit.i182 ]
-  %103 = icmp sgt i32 %.0.i175, 0
-  br i1 %103, label %qsort_tuple_signed_compare.exit185.thread, label %qsort_tuple_signed_compare.exit185.thread231
+qsort_tuple_signed_compare.exit180:               ; preds = %ApplySignedSortComparator.exit.i171, %100
+  %.0.i174 = phi i32 [ %102, %100 ], [ %.0.i.i172, %ApplySignedSortComparator.exit.i171 ]
+  %103 = icmp sgt i32 %.0.i174, 0
+  br i1 %103, label %qsort_tuple_signed_compare.exit180.thread, label %qsort_tuple_signed_compare.exit180.thread216
 
-qsort_tuple_signed_compare.exit185.thread231:     ; preds = %86, %81, %ApplySignedSortComparator.exit.thread16.i173, %qsort_tuple_signed_compare.exit185
-  %104 = getelementptr i8, ptr %.1271, i64 24
+qsort_tuple_signed_compare.exit180.thread216:     ; preds = %81, %86, %ApplySignedSortComparator.exit.thread16.i175, %qsort_tuple_signed_compare.exit180
+  %104 = getelementptr i8, ptr %.1256, i64 24
   %105 = icmp ult ptr %104, %23
   br i1 %105, label %.lr.ph, label %.critedge170, !llvm.loop !32
 
-qsort_tuple_signed_compare.exit185.thread:        ; preds = %81, %98, %86, %qsort_tuple_signed_compare.exit185
+qsort_tuple_signed_compare.exit180.thread:        ; preds = %86, %98, %81, %qsort_tuple_signed_compare.exit180
   %106 = lshr i64 %.0, 1
   %107 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %106
   %.not163 = icmp eq i64 %.0, 7
-  br i1 %.not163, label %qsort_tuple_signed_compare.exit185.thread._crit_edge, label %108
+  br i1 %.not163, label %qsort_tuple_signed_compare.exit180.thread._crit_edge, label %108
 
-108:                                              ; preds = %qsort_tuple_signed_compare.exit185.thread
+108:                                              ; preds = %qsort_tuple_signed_compare.exit180.thread
   %109 = add nsw i64 %.0, -1
   %110 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %109
   %111 = icmp ugt i64 %.0, 40
@@ -4495,11 +4435,11 @@ qsort_tuple_signed_compare.exit185.thread:        ; preds = %81, %98, %86, %qsor
   %.2 = phi ptr [ %121, %112 ], [ %107, %108 ]
   %.0138 = phi ptr [ %125, %112 ], [ %110, %108 ]
   %127 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.1141, ptr noundef %.2, ptr noundef %.0138, ptr noundef nonnull %2)
-  br label %qsort_tuple_signed_compare.exit185.thread._crit_edge
+  br label %qsort_tuple_signed_compare.exit180.thread._crit_edge
 
-qsort_tuple_signed_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_signed_compare.exit185.thread, %126
-  %.pre-phi = phi i64 [ %109, %126 ], [ 6, %qsort_tuple_signed_compare.exit185.thread ]
-  %.3 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_signed_compare.exit185.thread ]
+qsort_tuple_signed_compare.exit180.thread._crit_edge: ; preds = %qsort_tuple_signed_compare.exit180.thread, %126
+  %.pre-phi = phi i64 [ %109, %126 ], [ 6, %qsort_tuple_signed_compare.exit180.thread ]
+  %.3 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_signed_compare.exit180.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
@@ -4508,49 +4448,45 @@ qsort_tuple_signed_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_sig
   %128 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
   br label %129
 
-129:                                              ; preds = %qsort_tuple_signed_compare.exit215.thread245, %qsort_tuple_signed_compare.exit185.thread._crit_edge
-  %.0149 = phi ptr [ %14, %qsort_tuple_signed_compare.exit185.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_signed_compare.exit215.thread245 ]
-  %.0147 = phi ptr [ %14, %qsort_tuple_signed_compare.exit185.thread._crit_edge ], [ %208, %qsort_tuple_signed_compare.exit215.thread245 ]
-  %.0145 = phi ptr [ %128, %qsort_tuple_signed_compare.exit185.thread._crit_edge ], [ %209, %qsort_tuple_signed_compare.exit215.thread245 ]
-  %.0142 = phi ptr [ %128, %qsort_tuple_signed_compare.exit185.thread._crit_edge ], [ %.1143292, %qsort_tuple_signed_compare.exit215.thread245 ]
-  %.not164274 = icmp ugt ptr %.0147, %.0145
-  br i1 %.not164274, label %.critedge2, label %.lr.ph277
+129:                                              ; preds = %qsort_tuple_signed_compare.exit200.thread230, %qsort_tuple_signed_compare.exit180.thread._crit_edge
+  %.0149 = phi ptr [ %14, %qsort_tuple_signed_compare.exit180.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_signed_compare.exit200.thread230 ]
+  %.0147 = phi ptr [ %14, %qsort_tuple_signed_compare.exit180.thread._crit_edge ], [ %208, %qsort_tuple_signed_compare.exit200.thread230 ]
+  %.0145 = phi ptr [ %128, %qsort_tuple_signed_compare.exit180.thread._crit_edge ], [ %209, %qsort_tuple_signed_compare.exit200.thread230 ]
+  %.0142 = phi ptr [ %128, %qsort_tuple_signed_compare.exit180.thread._crit_edge ], [ %.1143277, %qsort_tuple_signed_compare.exit200.thread230 ]
+  %.not164259 = icmp ugt ptr %.0147, %.0145
+  br i1 %.not164259, label %.critedge2, label %.lr.ph262
 
-.lr.ph277:                                        ; preds = %129, %168
-  %.1148276 = phi ptr [ %165, %168 ], [ %.0147, %129 ]
-  %.1150275 = phi ptr [ %.2151, %168 ], [ %.0149, %129 ]
-  %130 = getelementptr inbounds i8, ptr %.1148276, i64 8
+.lr.ph262:                                        ; preds = %129, %168
+  %.1148261 = phi ptr [ %165, %168 ], [ %.0147, %129 ]
+  %.1150260 = phi ptr [ %.2151, %168 ], [ %.0149, %129 ]
+  %130 = getelementptr inbounds i8, ptr %.1148261, i64 8
   %131 = load i64, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.1148276, i64 16
+  %132 = getelementptr inbounds i8, ptr %.1148261, i64 16
   %133 = load i8, ptr %132, align 8
-  %134 = and i8 %133, 1
-  %.not19.i186 = icmp eq i8 %134, 0
+  %134 = trunc i8 %133 to i1
   %135 = load i64, ptr %15, align 8
   %136 = load i8, ptr %16, align 8
-  %137 = and i8 %136, 1
-  %.not20.i187 = icmp eq i8 %137, 0
+  %137 = trunc i8 %136 to i1
   %138 = load ptr, ptr %11, align 8
-  br i1 %.not19.i186, label %144, label %139
+  br i1 %134, label %139, label %144
 
-139:                                              ; preds = %.lr.ph277
-  br i1 %.not20.i187, label %140, label %ApplySignedSortComparator.exit.thread16.i188
+139:                                              ; preds = %.lr.ph262
+  br i1 %137, label %ApplySignedSortComparator.exit.thread16.i185, label %140
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds i8, ptr %138, i64 13
   %142 = load i8, ptr %141, align 1
-  %143 = and i8 %142, 1
-  %.not13.i.i191 = icmp eq i8 %143, 0
-  br i1 %.not13.i.i191, label %.critedge2, label %qsort_tuple_signed_compare.exit200.thread.thread
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %qsort_tuple_signed_compare.exit190.thread.thread, label %.critedge2
 
-144:                                              ; preds = %.lr.ph277
-  br i1 %.not20.i187, label %149, label %145
+144:                                              ; preds = %.lr.ph262
+  br i1 %137, label %145, label %149
 
 145:                                              ; preds = %144
   %146 = getelementptr inbounds i8, ptr %138, i64 13
   %147 = load i8, ptr %146, align 1
-  %148 = and i8 %147, 1
-  %.not12.i.i193 = icmp eq i8 %148, 0
-  br i1 %.not12.i.i193, label %qsort_tuple_signed_compare.exit200.thread.thread, label %.critedge2
+  %148 = trunc i8 %147 to i1
+  br i1 %148, label %.critedge2, label %qsort_tuple_signed_compare.exit190.thread.thread
 
 149:                                              ; preds = %144
   %150 = icmp slt i64 %131, %135
@@ -4559,103 +4495,98 @@ qsort_tuple_signed_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_sig
   %153 = select i1 %150, i32 -1, i32 %152
   %154 = getelementptr inbounds i8, ptr %138, i64 12
   %155 = load i8, ptr %154, align 4
-  %156 = and i8 %155, 1
-  %.not.i.i195 = icmp eq i8 %156, 0
-  br i1 %.not.i.i195, label %ApplySignedSortComparator.exit.i197, label %157
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %157, label %ApplySignedSortComparator.exit.i181
 
 157:                                              ; preds = %149
-  %.neg.i.i196 = sext i1 %151 to i32
-  br i1 %150, label %.critedge2, label %ApplySignedSortComparator.exit.i197
+  %.neg.i.i187 = sext i1 %151 to i32
+  br i1 %150, label %.critedge2, label %ApplySignedSortComparator.exit.i181
 
-ApplySignedSortComparator.exit.i197:              ; preds = %157, %149
-  %.0.i.i198 = phi i32 [ %.neg.i.i196, %157 ], [ %153, %149 ]
-  %.not.i199 = icmp eq i32 %.0.i.i198, 0
-  br i1 %.not.i199, label %ApplySignedSortComparator.exit.thread16.i188, label %qsort_tuple_signed_compare.exit200
+ApplySignedSortComparator.exit.i181:              ; preds = %157, %149
+  %.0.i.i182 = phi i32 [ %.neg.i.i187, %157 ], [ %153, %149 ]
+  %.not.i183 = icmp eq i32 %.0.i.i182, 0
+  br i1 %.not.i183, label %ApplySignedSortComparator.exit.thread16.i185, label %qsort_tuple_signed_compare.exit190
 
-ApplySignedSortComparator.exit.thread16.i188:     ; preds = %ApplySignedSortComparator.exit.i197, %139
+ApplySignedSortComparator.exit.thread16.i185:     ; preds = %ApplySignedSortComparator.exit.i181, %139
   %158 = load ptr, ptr %12, align 8
-  %.not13.i189 = icmp eq ptr %158, null
-  br i1 %.not13.i189, label %159, label %qsort_tuple_signed_compare.exit200.thread.thread248
+  %.not13.i186 = icmp eq ptr %158, null
+  br i1 %.not13.i186, label %159, label %qsort_tuple_signed_compare.exit190.thread.thread233
 
-159:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i188
+159:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i185
   %160 = load ptr, ptr %13, align 8
-  %161 = tail call i32 %160(ptr noundef nonnull %.1148276, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_signed_compare.exit200
+  %161 = tail call i32 %160(ptr noundef nonnull %.1148261, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_signed_compare.exit190
 
-qsort_tuple_signed_compare.exit200:               ; preds = %ApplySignedSortComparator.exit.i197, %159
-  %.0.i190 = phi i32 [ %161, %159 ], [ %.0.i.i198, %ApplySignedSortComparator.exit.i197 ]
-  %162 = icmp slt i32 %.0.i190, 1
-  br i1 %162, label %qsort_tuple_signed_compare.exit200.thread, label %.critedge2
+qsort_tuple_signed_compare.exit190:               ; preds = %ApplySignedSortComparator.exit.i181, %159
+  %.0.i184 = phi i32 [ %161, %159 ], [ %.0.i.i182, %ApplySignedSortComparator.exit.i181 ]
+  %162 = icmp slt i32 %.0.i184, 1
+  br i1 %162, label %qsort_tuple_signed_compare.exit190.thread, label %.critedge2
 
-qsort_tuple_signed_compare.exit200.thread:        ; preds = %qsort_tuple_signed_compare.exit200
-  %163 = icmp eq i32 %.0.i190, 0
-  br i1 %163, label %qsort_tuple_signed_compare.exit200.thread.thread248, label %qsort_tuple_signed_compare.exit200.thread.thread
+qsort_tuple_signed_compare.exit190.thread:        ; preds = %qsort_tuple_signed_compare.exit190
+  %163 = icmp eq i32 %.0.i184, 0
+  br i1 %163, label %qsort_tuple_signed_compare.exit190.thread.thread233, label %qsort_tuple_signed_compare.exit190.thread.thread
 
-qsort_tuple_signed_compare.exit200.thread.thread248: ; preds = %ApplySignedSortComparator.exit.thread16.i188, %qsort_tuple_signed_compare.exit200.thread
+qsort_tuple_signed_compare.exit190.thread.thread233: ; preds = %ApplySignedSortComparator.exit.thread16.i185, %qsort_tuple_signed_compare.exit190.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150275, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150275, ptr noundef nonnull align 8 dereferenceable(24) %.1148276, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148276, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150260, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150260, ptr noundef nonnull align 8 dereferenceable(24) %.1148261, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148261, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %164 = getelementptr i8, ptr %.1150275, i64 24
-  br label %qsort_tuple_signed_compare.exit200.thread.thread
+  %164 = getelementptr i8, ptr %.1150260, i64 24
+  br label %qsort_tuple_signed_compare.exit190.thread.thread
 
-qsort_tuple_signed_compare.exit200.thread.thread: ; preds = %145, %140, %qsort_tuple_signed_compare.exit200.thread.thread248, %qsort_tuple_signed_compare.exit200.thread
-  %.2151 = phi ptr [ %164, %qsort_tuple_signed_compare.exit200.thread.thread248 ], [ %.1150275, %qsort_tuple_signed_compare.exit200.thread ], [ %.1150275, %140 ], [ %.1150275, %145 ]
-  %165 = getelementptr i8, ptr %.1148276, i64 24
+qsort_tuple_signed_compare.exit190.thread.thread: ; preds = %140, %145, %qsort_tuple_signed_compare.exit190.thread.thread233, %qsort_tuple_signed_compare.exit190.thread
+  %.2151 = phi ptr [ %164, %qsort_tuple_signed_compare.exit190.thread.thread233 ], [ %.1150260, %qsort_tuple_signed_compare.exit190.thread ], [ %.1150260, %145 ], [ %.1150260, %140 ]
+  %165 = getelementptr i8, ptr %.1148261, i64 24
   %166 = load volatile i32, ptr @InterruptPending, align 4
   %.not168 = icmp eq i32 %166, 0
   br i1 %.not168, label %168, label %167
 
-167:                                              ; preds = %qsort_tuple_signed_compare.exit200.thread.thread
+167:                                              ; preds = %qsort_tuple_signed_compare.exit190.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %168
 
-168:                                              ; preds = %qsort_tuple_signed_compare.exit200.thread.thread, %167
+168:                                              ; preds = %qsort_tuple_signed_compare.exit190.thread.thread, %167
   %.not164 = icmp ugt ptr %165, %.0145
-  br i1 %.not164, label %.critedge2, label %.lr.ph277, !llvm.loop !33
+  br i1 %.not164, label %.critedge2, label %.lr.ph262, !llvm.loop !33
 
-.critedge2:                                       ; preds = %qsort_tuple_signed_compare.exit200, %168, %145, %157, %140, %129
-  %.1150.lcssa = phi ptr [ %.0149, %129 ], [ %.1150275, %140 ], [ %.1150275, %157 ], [ %.1150275, %145 ], [ %.2151, %168 ], [ %.1150275, %qsort_tuple_signed_compare.exit200 ]
-  %.1148.lcssa = phi ptr [ %.0147, %129 ], [ %.1148276, %140 ], [ %.1148276, %157 ], [ %.1148276, %145 ], [ %165, %168 ], [ %.1148276, %qsort_tuple_signed_compare.exit200 ]
-  %.not165290 = icmp ugt ptr %.1148.lcssa, %.0145
-  br i1 %.not165290, label %.critedge4, label %.lr.ph293
+.critedge2:                                       ; preds = %qsort_tuple_signed_compare.exit190, %168, %140, %157, %145, %129
+  %.1150.lcssa = phi ptr [ %.0149, %129 ], [ %.1150260, %145 ], [ %.1150260, %157 ], [ %.1150260, %140 ], [ %.2151, %168 ], [ %.1150260, %qsort_tuple_signed_compare.exit190 ]
+  %.1148.lcssa = phi ptr [ %.0147, %129 ], [ %.1148261, %145 ], [ %.1148261, %157 ], [ %.1148261, %140 ], [ %165, %168 ], [ %.1148261, %qsort_tuple_signed_compare.exit190 ]
+  %.not165275 = icmp ugt ptr %.1148.lcssa, %.0145
+  br i1 %.not165275, label %.critedge4, label %.lr.ph278
 
-.lr.ph293:                                        ; preds = %.critedge2, %207
-  %.1143292 = phi ptr [ %.2144, %207 ], [ %.0142, %.critedge2 ]
-  %.1146291 = phi ptr [ %204, %207 ], [ %.0145, %.critedge2 ]
-  %169 = getelementptr inbounds i8, ptr %.1146291, i64 8
+.lr.ph278:                                        ; preds = %.critedge2, %207
+  %.1143277 = phi ptr [ %.2144, %207 ], [ %.0142, %.critedge2 ]
+  %.1146276 = phi ptr [ %204, %207 ], [ %.0145, %.critedge2 ]
+  %169 = getelementptr inbounds i8, ptr %.1146276, i64 8
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %.1146291, i64 16
+  %171 = getelementptr inbounds i8, ptr %.1146276, i64 16
   %172 = load i8, ptr %171, align 8
-  %173 = and i8 %172, 1
-  %.not19.i201 = icmp eq i8 %173, 0
+  %173 = trunc i8 %172 to i1
   %174 = load i64, ptr %15, align 8
   %175 = load i8, ptr %16, align 8
-  %176 = and i8 %175, 1
-  %.not20.i202 = icmp eq i8 %176, 0
+  %176 = trunc i8 %175 to i1
   %177 = load ptr, ptr %11, align 8
-  br i1 %.not19.i201, label %183, label %178
+  br i1 %173, label %178, label %183
 
-178:                                              ; preds = %.lr.ph293
-  br i1 %.not20.i202, label %179, label %ApplySignedSortComparator.exit.thread16.i203
+178:                                              ; preds = %.lr.ph278
+  br i1 %176, label %ApplySignedSortComparator.exit.thread16.i195, label %179
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds i8, ptr %177, i64 13
   %181 = load i8, ptr %180, align 1
-  %182 = and i8 %181, 1
-  %.not13.i.i206 = icmp eq i8 %182, 0
-  br i1 %.not13.i.i206, label %qsort_tuple_signed_compare.exit215.thread.thread, label %qsort_tuple_signed_compare.exit215.thread245
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %qsort_tuple_signed_compare.exit200.thread230, label %qsort_tuple_signed_compare.exit200.thread.thread
 
-183:                                              ; preds = %.lr.ph293
-  br i1 %.not20.i202, label %188, label %184
+183:                                              ; preds = %.lr.ph278
+  br i1 %176, label %184, label %188
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds i8, ptr %177, i64 13
   %186 = load i8, ptr %185, align 1
-  %187 = and i8 %186, 1
-  %.not12.i.i208 = icmp eq i8 %187, 0
-  br i1 %.not12.i.i208, label %qsort_tuple_signed_compare.exit215.thread245, label %qsort_tuple_signed_compare.exit215.thread.thread
+  %187 = trunc i8 %186 to i1
+  br i1 %187, label %qsort_tuple_signed_compare.exit200.thread.thread, label %qsort_tuple_signed_compare.exit200.thread230
 
 188:                                              ; preds = %183
   %189 = icmp slt i64 %170, %174
@@ -4664,70 +4595,69 @@ qsort_tuple_signed_compare.exit200.thread.thread: ; preds = %145, %140, %qsort_t
   %192 = select i1 %189, i32 -1, i32 %191
   %193 = getelementptr inbounds i8, ptr %177, i64 12
   %194 = load i8, ptr %193, align 4
-  %195 = and i8 %194, 1
-  %.not.i.i210 = icmp eq i8 %195, 0
-  br i1 %.not.i.i210, label %ApplySignedSortComparator.exit.i212, label %196
+  %195 = trunc i8 %194 to i1
+  br i1 %195, label %196, label %ApplySignedSortComparator.exit.i191
 
 196:                                              ; preds = %188
-  %.neg.i.i211 = sext i1 %190 to i32
-  br i1 %189, label %qsort_tuple_signed_compare.exit215.thread.thread, label %ApplySignedSortComparator.exit.i212
+  %.neg.i.i197 = sext i1 %190 to i32
+  br i1 %189, label %qsort_tuple_signed_compare.exit200.thread.thread, label %ApplySignedSortComparator.exit.i191
 
-ApplySignedSortComparator.exit.i212:              ; preds = %196, %188
-  %.0.i.i213 = phi i32 [ %.neg.i.i211, %196 ], [ %192, %188 ]
-  %.not.i214 = icmp eq i32 %.0.i.i213, 0
-  br i1 %.not.i214, label %ApplySignedSortComparator.exit.thread16.i203, label %qsort_tuple_signed_compare.exit215
+ApplySignedSortComparator.exit.i191:              ; preds = %196, %188
+  %.0.i.i192 = phi i32 [ %.neg.i.i197, %196 ], [ %192, %188 ]
+  %.not.i193 = icmp eq i32 %.0.i.i192, 0
+  br i1 %.not.i193, label %ApplySignedSortComparator.exit.thread16.i195, label %qsort_tuple_signed_compare.exit200
 
-ApplySignedSortComparator.exit.thread16.i203:     ; preds = %ApplySignedSortComparator.exit.i212, %178
+ApplySignedSortComparator.exit.thread16.i195:     ; preds = %ApplySignedSortComparator.exit.i191, %178
   %197 = load ptr, ptr %12, align 8
-  %.not13.i204 = icmp eq ptr %197, null
-  br i1 %.not13.i204, label %198, label %qsort_tuple_signed_compare.exit215.thread.thread251
+  %.not13.i196 = icmp eq ptr %197, null
+  br i1 %.not13.i196, label %198, label %qsort_tuple_signed_compare.exit200.thread.thread236
 
-198:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i203
+198:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i195
   %199 = load ptr, ptr %13, align 8
-  %200 = tail call i32 %199(ptr noundef nonnull %.1146291, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_signed_compare.exit215
+  %200 = tail call i32 %199(ptr noundef nonnull %.1146276, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_signed_compare.exit200
 
-qsort_tuple_signed_compare.exit215:               ; preds = %ApplySignedSortComparator.exit.i212, %198
-  %.0.i205 = phi i32 [ %200, %198 ], [ %.0.i.i213, %ApplySignedSortComparator.exit.i212 ]
-  %201 = icmp sgt i32 %.0.i205, -1
-  br i1 %201, label %qsort_tuple_signed_compare.exit215.thread, label %qsort_tuple_signed_compare.exit215.thread245
+qsort_tuple_signed_compare.exit200:               ; preds = %ApplySignedSortComparator.exit.i191, %198
+  %.0.i194 = phi i32 [ %200, %198 ], [ %.0.i.i192, %ApplySignedSortComparator.exit.i191 ]
+  %201 = icmp sgt i32 %.0.i194, -1
+  br i1 %201, label %qsort_tuple_signed_compare.exit200.thread, label %qsort_tuple_signed_compare.exit200.thread230
 
-qsort_tuple_signed_compare.exit215.thread:        ; preds = %qsort_tuple_signed_compare.exit215
-  %202 = icmp eq i32 %.0.i205, 0
-  br i1 %202, label %qsort_tuple_signed_compare.exit215.thread.thread251, label %qsort_tuple_signed_compare.exit215.thread.thread
+qsort_tuple_signed_compare.exit200.thread:        ; preds = %qsort_tuple_signed_compare.exit200
+  %202 = icmp eq i32 %.0.i194, 0
+  br i1 %202, label %qsort_tuple_signed_compare.exit200.thread.thread236, label %qsort_tuple_signed_compare.exit200.thread.thread
 
-qsort_tuple_signed_compare.exit215.thread.thread251: ; preds = %ApplySignedSortComparator.exit.thread16.i203, %qsort_tuple_signed_compare.exit215.thread
+qsort_tuple_signed_compare.exit200.thread.thread236: ; preds = %ApplySignedSortComparator.exit.thread16.i195, %qsort_tuple_signed_compare.exit200.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146291, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146291, ptr noundef nonnull align 8 dereferenceable(24) %.1143292, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143292, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146276, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146276, ptr noundef nonnull align 8 dereferenceable(24) %.1143277, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143277, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %203 = getelementptr i8, ptr %.1143292, i64 -24
-  br label %qsort_tuple_signed_compare.exit215.thread.thread
+  %203 = getelementptr i8, ptr %.1143277, i64 -24
+  br label %qsort_tuple_signed_compare.exit200.thread.thread
 
-qsort_tuple_signed_compare.exit215.thread.thread: ; preds = %179, %184, %196, %qsort_tuple_signed_compare.exit215.thread.thread251, %qsort_tuple_signed_compare.exit215.thread
-  %.2144 = phi ptr [ %203, %qsort_tuple_signed_compare.exit215.thread.thread251 ], [ %.1143292, %qsort_tuple_signed_compare.exit215.thread ], [ %.1143292, %196 ], [ %.1143292, %184 ], [ %.1143292, %179 ]
-  %204 = getelementptr i8, ptr %.1146291, i64 -24
+qsort_tuple_signed_compare.exit200.thread.thread: ; preds = %184, %179, %196, %qsort_tuple_signed_compare.exit200.thread.thread236, %qsort_tuple_signed_compare.exit200.thread
+  %.2144 = phi ptr [ %203, %qsort_tuple_signed_compare.exit200.thread.thread236 ], [ %.1143277, %qsort_tuple_signed_compare.exit200.thread ], [ %.1143277, %196 ], [ %.1143277, %179 ], [ %.1143277, %184 ]
+  %204 = getelementptr i8, ptr %.1146276, i64 -24
   %205 = load volatile i32, ptr @InterruptPending, align 4
   %.not167 = icmp eq i32 %205, 0
   br i1 %.not167, label %207, label %206
 
-206:                                              ; preds = %qsort_tuple_signed_compare.exit215.thread.thread
+206:                                              ; preds = %qsort_tuple_signed_compare.exit200.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %207
 
-207:                                              ; preds = %qsort_tuple_signed_compare.exit215.thread.thread, %206
+207:                                              ; preds = %qsort_tuple_signed_compare.exit200.thread.thread, %206
   %.not165 = icmp ugt ptr %.1148.lcssa, %204
-  br i1 %.not165, label %.critedge4, label %.lr.ph293, !llvm.loop !34
+  br i1 %.not165, label %.critedge4, label %.lr.ph278, !llvm.loop !34
 
-qsort_tuple_signed_compare.exit215.thread245:     ; preds = %184, %179, %qsort_tuple_signed_compare.exit215
+qsort_tuple_signed_compare.exit200.thread230:     ; preds = %179, %184, %qsort_tuple_signed_compare.exit200
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146291, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146291, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146276, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146276, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %208 = getelementptr i8, ptr %.1148.lcssa, i64 24
-  %209 = getelementptr i8, ptr %.1146291, i64 -24
+  %209 = getelementptr i8, ptr %.1146276, i64 -24
   br label %129
 
 .critedge4:                                       ; preds = %.critedge2, %207
@@ -4742,8 +4672,8 @@ qsort_tuple_signed_compare.exit215.thread245:     ; preds = %184, %179, %qsort_t
   %. = tail call i64 @llvm.smin.i64(i64 %212, i64 %215)
   %216 = sub nsw i64 0, %.
   %217 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %216
-  %.not.i216 = icmp eq i64 %., 0
-  br i1 %.not.i216, label %qsort_tuple_signed_swapn.exit, label %.lr.ph.i
+  %.not.i201 = icmp eq i64 %., 0
+  br i1 %.not.i201, label %qsort_tuple_signed_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %220, %.lr.ph.i ], [ 0, %.critedge4 ]
@@ -4770,27 +4700,27 @@ qsort_tuple_signed_swapn.exit:                    ; preds = %.lr.ph.i, %.critedg
   %229 = tail call i64 @llvm.smin.i64(i64 %224, i64 %228)
   %230 = sub nsw i64 0, %229
   %231 = getelementptr %struct.SortTuple, ptr %23, i64 %230
-  %.not.i217 = icmp eq i64 %229, 0
-  br i1 %.not.i217, label %qsort_tuple_signed_swapn.exit221, label %.lr.ph.i218
+  %.not.i202 = icmp eq i64 %229, 0
+  br i1 %.not.i202, label %qsort_tuple_signed_swapn.exit206, label %.lr.ph.i203
 
-.lr.ph.i218:                                      ; preds = %qsort_tuple_signed_swapn.exit, %.lr.ph.i218
-  %.06.i219 = phi i64 [ %234, %.lr.ph.i218 ], [ 0, %qsort_tuple_signed_swapn.exit ]
-  %232 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i219
-  %233 = getelementptr %struct.SortTuple, ptr %231, i64 %.06.i219
+.lr.ph.i203:                                      ; preds = %qsort_tuple_signed_swapn.exit, %.lr.ph.i203
+  %.06.i204 = phi i64 [ %234, %.lr.ph.i203 ], [ 0, %qsort_tuple_signed_swapn.exit ]
+  %232 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i204
+  %233 = getelementptr %struct.SortTuple, ptr %231, i64 %.06.i204
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %232, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %232, ptr noundef nonnull align 8 dereferenceable(24) %233, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %233, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %234 = add nuw i64 %.06.i219, 1
-  %exitcond.not.i220 = icmp eq i64 %234, %229
-  br i1 %exitcond.not.i220, label %qsort_tuple_signed_swapn.exit221, label %.lr.ph.i218, !llvm.loop !35
+  %234 = add nuw i64 %.06.i204, 1
+  %exitcond.not.i205 = icmp eq i64 %234, %229
+  br i1 %exitcond.not.i205, label %qsort_tuple_signed_swapn.exit206, label %.lr.ph.i203, !llvm.loop !35
 
-qsort_tuple_signed_swapn.exit221:                 ; preds = %.lr.ph.i218, %qsort_tuple_signed_swapn.exit
+qsort_tuple_signed_swapn.exit206:                 ; preds = %.lr.ph.i203, %qsort_tuple_signed_swapn.exit
   %.not166 = icmp ugt i64 %215, %224
   br i1 %.not166, label %243, label %235
 
-235:                                              ; preds = %qsort_tuple_signed_swapn.exit221
+235:                                              ; preds = %qsort_tuple_signed_swapn.exit206
   %236 = icmp ugt i64 %215, 1
   br i1 %236, label %237, label %238
 
@@ -4807,7 +4737,7 @@ qsort_tuple_signed_swapn.exit221:                 ; preds = %.lr.ph.i218, %qsort
   %242 = getelementptr %struct.SortTuple, ptr %23, i64 %241
   br label %.outer
 
-243:                                              ; preds = %qsort_tuple_signed_swapn.exit221
+243:                                              ; preds = %qsort_tuple_signed_swapn.exit206
   %244 = icmp ugt i64 %224, 1
   br i1 %244, label %245, label %248
 
@@ -4821,7 +4751,7 @@ qsort_tuple_signed_swapn.exit221:                 ; preds = %.lr.ph.i218, %qsort
   %249 = icmp ugt i64 %215, 1
   br i1 %249, label %18, label %.critedge170
 
-.critedge170:                                     ; preds = %238, %248, %64, %qsort_tuple_signed_compare.exit185.thread231, %.critedge, %.preheader253
+.critedge170:                                     ; preds = %238, %248, %64, %qsort_tuple_signed_compare.exit180.thread216, %.critedge, %.preheader238
   ret void
 }
 
@@ -4862,53 +4792,49 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef %1, p
   %22 = icmp ult i64 %.0, 7
   %23 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.0
   %24 = icmp ult ptr %14, %23
-  br i1 %22, label %.preheader253, label %66
+  br i1 %22, label %.preheader238, label %66
 
-.preheader253:                                    ; preds = %21
+.preheader238:                                    ; preds = %21
   br i1 %24, label %.preheader, label %.critedge170
 
-.preheader:                                       ; preds = %.preheader253, %.critedge
-  %.0139307 = phi ptr [ %.0139, %.critedge ], [ %14, %.preheader253 ]
-  %25 = icmp ugt ptr %.0139307, %.0137.ph
-  br i1 %25, label %.lr.ph303, label %.critedge
+.preheader:                                       ; preds = %.preheader238, %.critedge
+  %.0139292 = phi ptr [ %.0139, %.critedge ], [ %14, %.preheader238 ]
+  %25 = icmp ugt ptr %.0139292, %.0137.ph
+  br i1 %25, label %.lr.ph288, label %.critedge
 
-.lr.ph303:                                        ; preds = %.preheader, %qsort_tuple_int32_compare.exit.thread
-  %.0140302 = phi ptr [ %26, %qsort_tuple_int32_compare.exit.thread ], [ %.0139307, %.preheader ]
-  %26 = getelementptr i8, ptr %.0140302, i64 -24
-  %27 = getelementptr i8, ptr %.0140302, i64 -16
+.lr.ph288:                                        ; preds = %.preheader, %qsort_tuple_int32_compare.exit.thread
+  %.0140287 = phi ptr [ %26, %qsort_tuple_int32_compare.exit.thread ], [ %.0139292, %.preheader ]
+  %26 = getelementptr i8, ptr %.0140287, i64 -24
+  %27 = getelementptr i8, ptr %.0140287, i64 -16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr i8, ptr %.0140302, i64 -8
+  %29 = getelementptr i8, ptr %.0140287, i64 -8
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not19.i = icmp eq i8 %31, 0
-  %32 = getelementptr inbounds i8, ptr %.0140302, i64 8
+  %31 = trunc i8 %30 to i1
+  %32 = getelementptr inbounds i8, ptr %.0140287, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0140302, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0140287, i64 16
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not20.i = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = load ptr, ptr %11, align 8
-  br i1 %.not19.i, label %43, label %38
+  br i1 %31, label %38, label %43
 
-38:                                               ; preds = %.lr.ph303
-  br i1 %.not20.i, label %39, label %ApplyInt32SortComparator.exit.thread16.i
+38:                                               ; preds = %.lr.ph288
+  br i1 %36, label %ApplyInt32SortComparator.exit.thread16.i, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i8, ptr %37, i64 13
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not13.i.i = icmp eq i8 %42, 0
-  br i1 %.not13.i.i, label %qsort_tuple_int32_compare.exit.thread, label %.critedge
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.critedge, label %qsort_tuple_int32_compare.exit.thread
 
-43:                                               ; preds = %.lr.ph303
-  br i1 %.not20.i, label %48, label %44
+43:                                               ; preds = %.lr.ph288
+  br i1 %36, label %44, label %48
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %37, i64 13
   %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 1
-  %.not12.i.i = icmp eq i8 %47, 0
-  br i1 %.not12.i.i, label %.critedge, label %qsort_tuple_int32_compare.exit.thread
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %qsort_tuple_int32_compare.exit.thread, label %.critedge
 
 48:                                               ; preds = %43
   %49 = trunc i64 %28 to i32
@@ -4919,9 +4845,8 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef %1, p
   %54 = select i1 %51, i32 -1, i32 %53
   %55 = getelementptr inbounds i8, ptr %37, i64 12
   %56 = load i8, ptr %55, align 4
-  %57 = and i8 %56, 1
-  %.not.i.i = icmp eq i8 %57, 0
-  br i1 %.not.i.i, label %ApplyInt32SortComparator.exit.i, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %ApplyInt32SortComparator.exit.i
 
 58:                                               ; preds = %48
   %.neg.i.i = sext i1 %52 to i32
@@ -4939,7 +4864,7 @@ ApplyInt32SortComparator.exit.thread16.i:         ; preds = %ApplyInt32SortCompa
 
 60:                                               ; preds = %ApplyInt32SortComparator.exit.thread16.i
   %61 = load ptr, ptr %13, align 8
-  %62 = tail call i32 %61(ptr noundef nonnull %26, ptr noundef nonnull %.0140302, ptr noundef nonnull %2) #12
+  %62 = tail call i32 %61(ptr noundef nonnull %26, ptr noundef nonnull %.0140287, ptr noundef nonnull %2) #12
   br label %qsort_tuple_int32_compare.exit
 
 qsort_tuple_int32_compare.exit:                   ; preds = %ApplyInt32SortComparator.exit.i, %60
@@ -4947,25 +4872,25 @@ qsort_tuple_int32_compare.exit:                   ; preds = %ApplyInt32SortCompa
   %63 = icmp sgt i32 %.0.i, 0
   br i1 %63, label %qsort_tuple_int32_compare.exit.thread, label %.critedge
 
-qsort_tuple_int32_compare.exit.thread:            ; preds = %39, %58, %44, %qsort_tuple_int32_compare.exit
+qsort_tuple_int32_compare.exit.thread:            ; preds = %44, %58, %39, %qsort_tuple_int32_compare.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140302, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140302, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140287, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140287, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %64 = icmp ugt ptr %26, %.0137.ph
-  br i1 %64, label %.lr.ph303, label %.critedge, !llvm.loop !36
+  br i1 %64, label %.lr.ph288, label %.critedge, !llvm.loop !36
 
-.critedge:                                        ; preds = %qsort_tuple_int32_compare.exit.thread, %qsort_tuple_int32_compare.exit, %ApplyInt32SortComparator.exit.thread16.i, %39, %44, %.preheader
-  %.0139 = getelementptr i8, ptr %.0139307, i64 24
+.critedge:                                        ; preds = %qsort_tuple_int32_compare.exit.thread, %qsort_tuple_int32_compare.exit, %ApplyInt32SortComparator.exit.thread16.i, %44, %39, %.preheader
+  %.0139 = getelementptr i8, ptr %.0139292, i64 24
   %65 = icmp ult ptr %.0139, %23
   br i1 %65, label %.preheader, label %.critedge170, !llvm.loop !37
 
 66:                                               ; preds = %21
   br i1 %24, label %.lr.ph, label %.critedge170
 
-.lr.ph:                                           ; preds = %66, %qsort_tuple_int32_compare.exit185.thread231
-  %.1271 = phi ptr [ %108, %qsort_tuple_int32_compare.exit185.thread231 ], [ %14, %66 ]
+.lr.ph:                                           ; preds = %66, %qsort_tuple_int32_compare.exit180.thread216
+  %.1256 = phi ptr [ %108, %qsort_tuple_int32_compare.exit180.thread216 ], [ %14, %66 ]
   %67 = load volatile i32, ptr @InterruptPending, align 4
   %.not161 = icmp eq i32 %67, 0
   br i1 %.not161, label %69, label %68
@@ -4975,41 +4900,37 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %39, %58, %44, %qsor
   br label %69
 
 69:                                               ; preds = %.lr.ph, %68
-  %70 = getelementptr i8, ptr %.1271, i64 -24
-  %71 = getelementptr i8, ptr %.1271, i64 -16
+  %70 = getelementptr i8, ptr %.1256, i64 -24
+  %71 = getelementptr i8, ptr %.1256, i64 -16
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr i8, ptr %.1271, i64 -8
+  %73 = getelementptr i8, ptr %.1256, i64 -8
   %74 = load i8, ptr %73, align 8
-  %75 = and i8 %74, 1
-  %.not19.i171 = icmp eq i8 %75, 0
-  %76 = getelementptr inbounds i8, ptr %.1271, i64 8
+  %75 = trunc i8 %74 to i1
+  %76 = getelementptr inbounds i8, ptr %.1256, i64 8
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.1271, i64 16
+  %78 = getelementptr inbounds i8, ptr %.1256, i64 16
   %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, 1
-  %.not20.i172 = icmp eq i8 %80, 0
+  %80 = trunc i8 %79 to i1
   %81 = load ptr, ptr %11, align 8
-  br i1 %.not19.i171, label %87, label %82
+  br i1 %75, label %82, label %87
 
 82:                                               ; preds = %69
-  br i1 %.not20.i172, label %83, label %ApplyInt32SortComparator.exit.thread16.i173
+  br i1 %80, label %ApplyInt32SortComparator.exit.thread16.i175, label %83
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds i8, ptr %81, i64 13
   %85 = load i8, ptr %84, align 1
-  %86 = and i8 %85, 1
-  %.not13.i.i176 = icmp eq i8 %86, 0
-  br i1 %.not13.i.i176, label %qsort_tuple_int32_compare.exit185.thread, label %qsort_tuple_int32_compare.exit185.thread231
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %qsort_tuple_int32_compare.exit180.thread216, label %qsort_tuple_int32_compare.exit180.thread
 
 87:                                               ; preds = %69
-  br i1 %.not20.i172, label %92, label %88
+  br i1 %80, label %88, label %92
 
 88:                                               ; preds = %87
   %89 = getelementptr inbounds i8, ptr %81, i64 13
   %90 = load i8, ptr %89, align 1
-  %91 = and i8 %90, 1
-  %.not12.i.i178 = icmp eq i8 %91, 0
-  br i1 %.not12.i.i178, label %qsort_tuple_int32_compare.exit185.thread231, label %qsort_tuple_int32_compare.exit185.thread
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %qsort_tuple_int32_compare.exit180.thread, label %qsort_tuple_int32_compare.exit180.thread216
 
 92:                                               ; preds = %87
   %93 = trunc i64 %72 to i32
@@ -5020,46 +4941,45 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %39, %58, %44, %qsor
   %98 = select i1 %95, i32 -1, i32 %97
   %99 = getelementptr inbounds i8, ptr %81, i64 12
   %100 = load i8, ptr %99, align 4
-  %101 = and i8 %100, 1
-  %.not.i.i180 = icmp eq i8 %101, 0
-  br i1 %.not.i.i180, label %ApplyInt32SortComparator.exit.i182, label %102
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %ApplyInt32SortComparator.exit.i171
 
 102:                                              ; preds = %92
-  %.neg.i.i181 = sext i1 %96 to i32
-  br i1 %95, label %qsort_tuple_int32_compare.exit185.thread, label %ApplyInt32SortComparator.exit.i182
+  %.neg.i.i177 = sext i1 %96 to i32
+  br i1 %95, label %qsort_tuple_int32_compare.exit180.thread, label %ApplyInt32SortComparator.exit.i171
 
-ApplyInt32SortComparator.exit.i182:               ; preds = %102, %92
-  %.0.i.i183 = phi i32 [ %.neg.i.i181, %102 ], [ %98, %92 ]
-  %.not.i184 = icmp eq i32 %.0.i.i183, 0
-  br i1 %.not.i184, label %ApplyInt32SortComparator.exit.thread16.i173, label %qsort_tuple_int32_compare.exit185
+ApplyInt32SortComparator.exit.i171:               ; preds = %102, %92
+  %.0.i.i172 = phi i32 [ %.neg.i.i177, %102 ], [ %98, %92 ]
+  %.not.i173 = icmp eq i32 %.0.i.i172, 0
+  br i1 %.not.i173, label %ApplyInt32SortComparator.exit.thread16.i175, label %qsort_tuple_int32_compare.exit180
 
-ApplyInt32SortComparator.exit.thread16.i173:      ; preds = %ApplyInt32SortComparator.exit.i182, %82
+ApplyInt32SortComparator.exit.thread16.i175:      ; preds = %ApplyInt32SortComparator.exit.i171, %82
   %103 = load ptr, ptr %12, align 8
-  %.not13.i174 = icmp eq ptr %103, null
-  br i1 %.not13.i174, label %104, label %qsort_tuple_int32_compare.exit185.thread231
+  %.not13.i176 = icmp eq ptr %103, null
+  br i1 %.not13.i176, label %104, label %qsort_tuple_int32_compare.exit180.thread216
 
-104:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i173
+104:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i175
   %105 = load ptr, ptr %13, align 8
-  %106 = tail call i32 %105(ptr noundef nonnull %70, ptr noundef nonnull %.1271, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_int32_compare.exit185
+  %106 = tail call i32 %105(ptr noundef nonnull %70, ptr noundef nonnull %.1256, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_int32_compare.exit180
 
-qsort_tuple_int32_compare.exit185:                ; preds = %ApplyInt32SortComparator.exit.i182, %104
-  %.0.i175 = phi i32 [ %106, %104 ], [ %.0.i.i183, %ApplyInt32SortComparator.exit.i182 ]
-  %107 = icmp sgt i32 %.0.i175, 0
-  br i1 %107, label %qsort_tuple_int32_compare.exit185.thread, label %qsort_tuple_int32_compare.exit185.thread231
+qsort_tuple_int32_compare.exit180:                ; preds = %ApplyInt32SortComparator.exit.i171, %104
+  %.0.i174 = phi i32 [ %106, %104 ], [ %.0.i.i172, %ApplyInt32SortComparator.exit.i171 ]
+  %107 = icmp sgt i32 %.0.i174, 0
+  br i1 %107, label %qsort_tuple_int32_compare.exit180.thread, label %qsort_tuple_int32_compare.exit180.thread216
 
-qsort_tuple_int32_compare.exit185.thread231:      ; preds = %88, %83, %ApplyInt32SortComparator.exit.thread16.i173, %qsort_tuple_int32_compare.exit185
-  %108 = getelementptr i8, ptr %.1271, i64 24
+qsort_tuple_int32_compare.exit180.thread216:      ; preds = %83, %88, %ApplyInt32SortComparator.exit.thread16.i175, %qsort_tuple_int32_compare.exit180
+  %108 = getelementptr i8, ptr %.1256, i64 24
   %109 = icmp ult ptr %108, %23
   br i1 %109, label %.lr.ph, label %.critedge170, !llvm.loop !38
 
-qsort_tuple_int32_compare.exit185.thread:         ; preds = %83, %102, %88, %qsort_tuple_int32_compare.exit185
+qsort_tuple_int32_compare.exit180.thread:         ; preds = %88, %102, %83, %qsort_tuple_int32_compare.exit180
   %110 = lshr i64 %.0, 1
   %111 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %110
   %.not163 = icmp eq i64 %.0, 7
-  br i1 %.not163, label %qsort_tuple_int32_compare.exit185.thread._crit_edge, label %112
+  br i1 %.not163, label %qsort_tuple_int32_compare.exit180.thread._crit_edge, label %112
 
-112:                                              ; preds = %qsort_tuple_int32_compare.exit185.thread
+112:                                              ; preds = %qsort_tuple_int32_compare.exit180.thread
   %113 = add nsw i64 %.0, -1
   %114 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %113
   %115 = icmp ugt i64 %.0, 40
@@ -5086,11 +5006,11 @@ qsort_tuple_int32_compare.exit185.thread:         ; preds = %83, %102, %88, %qso
   %.2 = phi ptr [ %125, %116 ], [ %111, %112 ]
   %.0138 = phi ptr [ %129, %116 ], [ %114, %112 ]
   %131 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.1141, ptr noundef %.2, ptr noundef %.0138, ptr noundef nonnull %2)
-  br label %qsort_tuple_int32_compare.exit185.thread._crit_edge
+  br label %qsort_tuple_int32_compare.exit180.thread._crit_edge
 
-qsort_tuple_int32_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_int32_compare.exit185.thread, %130
-  %.pre-phi = phi i64 [ %113, %130 ], [ 6, %qsort_tuple_int32_compare.exit185.thread ]
-  %.3 = phi ptr [ %131, %130 ], [ %111, %qsort_tuple_int32_compare.exit185.thread ]
+qsort_tuple_int32_compare.exit180.thread._crit_edge: ; preds = %qsort_tuple_int32_compare.exit180.thread, %130
+  %.pre-phi = phi i64 [ %113, %130 ], [ 6, %qsort_tuple_int32_compare.exit180.thread ]
+  %.3 = phi ptr [ %131, %130 ], [ %111, %qsort_tuple_int32_compare.exit180.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
@@ -5099,49 +5019,45 @@ qsort_tuple_int32_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_int3
   %132 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
   br label %133
 
-133:                                              ; preds = %qsort_tuple_int32_compare.exit215.thread245, %qsort_tuple_int32_compare.exit185.thread._crit_edge
-  %.0149 = phi ptr [ %14, %qsort_tuple_int32_compare.exit185.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_int32_compare.exit215.thread245 ]
-  %.0147 = phi ptr [ %14, %qsort_tuple_int32_compare.exit185.thread._crit_edge ], [ %216, %qsort_tuple_int32_compare.exit215.thread245 ]
-  %.0145 = phi ptr [ %132, %qsort_tuple_int32_compare.exit185.thread._crit_edge ], [ %217, %qsort_tuple_int32_compare.exit215.thread245 ]
-  %.0142 = phi ptr [ %132, %qsort_tuple_int32_compare.exit185.thread._crit_edge ], [ %.1143292, %qsort_tuple_int32_compare.exit215.thread245 ]
-  %.not164274 = icmp ugt ptr %.0147, %.0145
-  br i1 %.not164274, label %.critedge2, label %.lr.ph277
+133:                                              ; preds = %qsort_tuple_int32_compare.exit200.thread230, %qsort_tuple_int32_compare.exit180.thread._crit_edge
+  %.0149 = phi ptr [ %14, %qsort_tuple_int32_compare.exit180.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_int32_compare.exit200.thread230 ]
+  %.0147 = phi ptr [ %14, %qsort_tuple_int32_compare.exit180.thread._crit_edge ], [ %216, %qsort_tuple_int32_compare.exit200.thread230 ]
+  %.0145 = phi ptr [ %132, %qsort_tuple_int32_compare.exit180.thread._crit_edge ], [ %217, %qsort_tuple_int32_compare.exit200.thread230 ]
+  %.0142 = phi ptr [ %132, %qsort_tuple_int32_compare.exit180.thread._crit_edge ], [ %.1143277, %qsort_tuple_int32_compare.exit200.thread230 ]
+  %.not164259 = icmp ugt ptr %.0147, %.0145
+  br i1 %.not164259, label %.critedge2, label %.lr.ph262
 
-.lr.ph277:                                        ; preds = %133, %174
-  %.1148276 = phi ptr [ %171, %174 ], [ %.0147, %133 ]
-  %.1150275 = phi ptr [ %.2151, %174 ], [ %.0149, %133 ]
-  %134 = getelementptr inbounds i8, ptr %.1148276, i64 8
+.lr.ph262:                                        ; preds = %133, %174
+  %.1148261 = phi ptr [ %171, %174 ], [ %.0147, %133 ]
+  %.1150260 = phi ptr [ %.2151, %174 ], [ %.0149, %133 ]
+  %134 = getelementptr inbounds i8, ptr %.1148261, i64 8
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %.1148276, i64 16
+  %136 = getelementptr inbounds i8, ptr %.1148261, i64 16
   %137 = load i8, ptr %136, align 8
-  %138 = and i8 %137, 1
-  %.not19.i186 = icmp eq i8 %138, 0
+  %138 = trunc i8 %137 to i1
   %139 = load i64, ptr %15, align 8
   %140 = load i8, ptr %16, align 8
-  %141 = and i8 %140, 1
-  %.not20.i187 = icmp eq i8 %141, 0
+  %141 = trunc i8 %140 to i1
   %142 = load ptr, ptr %11, align 8
-  br i1 %.not19.i186, label %148, label %143
+  br i1 %138, label %143, label %148
 
-143:                                              ; preds = %.lr.ph277
-  br i1 %.not20.i187, label %144, label %ApplyInt32SortComparator.exit.thread16.i188
+143:                                              ; preds = %.lr.ph262
+  br i1 %141, label %ApplyInt32SortComparator.exit.thread16.i185, label %144
 
 144:                                              ; preds = %143
   %145 = getelementptr inbounds i8, ptr %142, i64 13
   %146 = load i8, ptr %145, align 1
-  %147 = and i8 %146, 1
-  %.not13.i.i191 = icmp eq i8 %147, 0
-  br i1 %.not13.i.i191, label %.critedge2, label %qsort_tuple_int32_compare.exit200.thread.thread
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %qsort_tuple_int32_compare.exit190.thread.thread, label %.critedge2
 
-148:                                              ; preds = %.lr.ph277
-  br i1 %.not20.i187, label %153, label %149
+148:                                              ; preds = %.lr.ph262
+  br i1 %141, label %149, label %153
 
 149:                                              ; preds = %148
   %150 = getelementptr inbounds i8, ptr %142, i64 13
   %151 = load i8, ptr %150, align 1
-  %152 = and i8 %151, 1
-  %.not12.i.i193 = icmp eq i8 %152, 0
-  br i1 %.not12.i.i193, label %qsort_tuple_int32_compare.exit200.thread.thread, label %.critedge2
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %.critedge2, label %qsort_tuple_int32_compare.exit190.thread.thread
 
 153:                                              ; preds = %148
   %154 = trunc i64 %135 to i32
@@ -5152,103 +5068,98 @@ qsort_tuple_int32_compare.exit185.thread._crit_edge: ; preds = %qsort_tuple_int3
   %159 = select i1 %156, i32 -1, i32 %158
   %160 = getelementptr inbounds i8, ptr %142, i64 12
   %161 = load i8, ptr %160, align 4
-  %162 = and i8 %161, 1
-  %.not.i.i195 = icmp eq i8 %162, 0
-  br i1 %.not.i.i195, label %ApplyInt32SortComparator.exit.i197, label %163
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %163, label %ApplyInt32SortComparator.exit.i181
 
 163:                                              ; preds = %153
-  %.neg.i.i196 = sext i1 %157 to i32
-  br i1 %156, label %.critedge2, label %ApplyInt32SortComparator.exit.i197
+  %.neg.i.i187 = sext i1 %157 to i32
+  br i1 %156, label %.critedge2, label %ApplyInt32SortComparator.exit.i181
 
-ApplyInt32SortComparator.exit.i197:               ; preds = %163, %153
-  %.0.i.i198 = phi i32 [ %.neg.i.i196, %163 ], [ %159, %153 ]
-  %.not.i199 = icmp eq i32 %.0.i.i198, 0
-  br i1 %.not.i199, label %ApplyInt32SortComparator.exit.thread16.i188, label %qsort_tuple_int32_compare.exit200
+ApplyInt32SortComparator.exit.i181:               ; preds = %163, %153
+  %.0.i.i182 = phi i32 [ %.neg.i.i187, %163 ], [ %159, %153 ]
+  %.not.i183 = icmp eq i32 %.0.i.i182, 0
+  br i1 %.not.i183, label %ApplyInt32SortComparator.exit.thread16.i185, label %qsort_tuple_int32_compare.exit190
 
-ApplyInt32SortComparator.exit.thread16.i188:      ; preds = %ApplyInt32SortComparator.exit.i197, %143
+ApplyInt32SortComparator.exit.thread16.i185:      ; preds = %ApplyInt32SortComparator.exit.i181, %143
   %164 = load ptr, ptr %12, align 8
-  %.not13.i189 = icmp eq ptr %164, null
-  br i1 %.not13.i189, label %165, label %qsort_tuple_int32_compare.exit200.thread.thread248
+  %.not13.i186 = icmp eq ptr %164, null
+  br i1 %.not13.i186, label %165, label %qsort_tuple_int32_compare.exit190.thread.thread233
 
-165:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i188
+165:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i185
   %166 = load ptr, ptr %13, align 8
-  %167 = tail call i32 %166(ptr noundef nonnull %.1148276, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_int32_compare.exit200
+  %167 = tail call i32 %166(ptr noundef nonnull %.1148261, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_int32_compare.exit190
 
-qsort_tuple_int32_compare.exit200:                ; preds = %ApplyInt32SortComparator.exit.i197, %165
-  %.0.i190 = phi i32 [ %167, %165 ], [ %.0.i.i198, %ApplyInt32SortComparator.exit.i197 ]
-  %168 = icmp slt i32 %.0.i190, 1
-  br i1 %168, label %qsort_tuple_int32_compare.exit200.thread, label %.critedge2
+qsort_tuple_int32_compare.exit190:                ; preds = %ApplyInt32SortComparator.exit.i181, %165
+  %.0.i184 = phi i32 [ %167, %165 ], [ %.0.i.i182, %ApplyInt32SortComparator.exit.i181 ]
+  %168 = icmp slt i32 %.0.i184, 1
+  br i1 %168, label %qsort_tuple_int32_compare.exit190.thread, label %.critedge2
 
-qsort_tuple_int32_compare.exit200.thread:         ; preds = %qsort_tuple_int32_compare.exit200
-  %169 = icmp eq i32 %.0.i190, 0
-  br i1 %169, label %qsort_tuple_int32_compare.exit200.thread.thread248, label %qsort_tuple_int32_compare.exit200.thread.thread
+qsort_tuple_int32_compare.exit190.thread:         ; preds = %qsort_tuple_int32_compare.exit190
+  %169 = icmp eq i32 %.0.i184, 0
+  br i1 %169, label %qsort_tuple_int32_compare.exit190.thread.thread233, label %qsort_tuple_int32_compare.exit190.thread.thread
 
-qsort_tuple_int32_compare.exit200.thread.thread248: ; preds = %ApplyInt32SortComparator.exit.thread16.i188, %qsort_tuple_int32_compare.exit200.thread
+qsort_tuple_int32_compare.exit190.thread.thread233: ; preds = %ApplyInt32SortComparator.exit.thread16.i185, %qsort_tuple_int32_compare.exit190.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150275, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150275, ptr noundef nonnull align 8 dereferenceable(24) %.1148276, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148276, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150260, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150260, ptr noundef nonnull align 8 dereferenceable(24) %.1148261, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148261, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %170 = getelementptr i8, ptr %.1150275, i64 24
-  br label %qsort_tuple_int32_compare.exit200.thread.thread
+  %170 = getelementptr i8, ptr %.1150260, i64 24
+  br label %qsort_tuple_int32_compare.exit190.thread.thread
 
-qsort_tuple_int32_compare.exit200.thread.thread:  ; preds = %149, %144, %qsort_tuple_int32_compare.exit200.thread.thread248, %qsort_tuple_int32_compare.exit200.thread
-  %.2151 = phi ptr [ %170, %qsort_tuple_int32_compare.exit200.thread.thread248 ], [ %.1150275, %qsort_tuple_int32_compare.exit200.thread ], [ %.1150275, %144 ], [ %.1150275, %149 ]
-  %171 = getelementptr i8, ptr %.1148276, i64 24
+qsort_tuple_int32_compare.exit190.thread.thread:  ; preds = %144, %149, %qsort_tuple_int32_compare.exit190.thread.thread233, %qsort_tuple_int32_compare.exit190.thread
+  %.2151 = phi ptr [ %170, %qsort_tuple_int32_compare.exit190.thread.thread233 ], [ %.1150260, %qsort_tuple_int32_compare.exit190.thread ], [ %.1150260, %149 ], [ %.1150260, %144 ]
+  %171 = getelementptr i8, ptr %.1148261, i64 24
   %172 = load volatile i32, ptr @InterruptPending, align 4
   %.not168 = icmp eq i32 %172, 0
   br i1 %.not168, label %174, label %173
 
-173:                                              ; preds = %qsort_tuple_int32_compare.exit200.thread.thread
+173:                                              ; preds = %qsort_tuple_int32_compare.exit190.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %174
 
-174:                                              ; preds = %qsort_tuple_int32_compare.exit200.thread.thread, %173
+174:                                              ; preds = %qsort_tuple_int32_compare.exit190.thread.thread, %173
   %.not164 = icmp ugt ptr %171, %.0145
-  br i1 %.not164, label %.critedge2, label %.lr.ph277, !llvm.loop !39
+  br i1 %.not164, label %.critedge2, label %.lr.ph262, !llvm.loop !39
 
-.critedge2:                                       ; preds = %qsort_tuple_int32_compare.exit200, %174, %149, %163, %144, %133
-  %.1150.lcssa = phi ptr [ %.0149, %133 ], [ %.1150275, %144 ], [ %.1150275, %163 ], [ %.1150275, %149 ], [ %.2151, %174 ], [ %.1150275, %qsort_tuple_int32_compare.exit200 ]
-  %.1148.lcssa = phi ptr [ %.0147, %133 ], [ %.1148276, %144 ], [ %.1148276, %163 ], [ %.1148276, %149 ], [ %171, %174 ], [ %.1148276, %qsort_tuple_int32_compare.exit200 ]
-  %.not165290 = icmp ugt ptr %.1148.lcssa, %.0145
-  br i1 %.not165290, label %.critedge4, label %.lr.ph293
+.critedge2:                                       ; preds = %qsort_tuple_int32_compare.exit190, %174, %144, %163, %149, %133
+  %.1150.lcssa = phi ptr [ %.0149, %133 ], [ %.1150260, %149 ], [ %.1150260, %163 ], [ %.1150260, %144 ], [ %.2151, %174 ], [ %.1150260, %qsort_tuple_int32_compare.exit190 ]
+  %.1148.lcssa = phi ptr [ %.0147, %133 ], [ %.1148261, %149 ], [ %.1148261, %163 ], [ %.1148261, %144 ], [ %171, %174 ], [ %.1148261, %qsort_tuple_int32_compare.exit190 ]
+  %.not165275 = icmp ugt ptr %.1148.lcssa, %.0145
+  br i1 %.not165275, label %.critedge4, label %.lr.ph278
 
-.lr.ph293:                                        ; preds = %.critedge2, %215
-  %.1143292 = phi ptr [ %.2144, %215 ], [ %.0142, %.critedge2 ]
-  %.1146291 = phi ptr [ %212, %215 ], [ %.0145, %.critedge2 ]
-  %175 = getelementptr inbounds i8, ptr %.1146291, i64 8
+.lr.ph278:                                        ; preds = %.critedge2, %215
+  %.1143277 = phi ptr [ %.2144, %215 ], [ %.0142, %.critedge2 ]
+  %.1146276 = phi ptr [ %212, %215 ], [ %.0145, %.critedge2 ]
+  %175 = getelementptr inbounds i8, ptr %.1146276, i64 8
   %176 = load i64, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %.1146291, i64 16
+  %177 = getelementptr inbounds i8, ptr %.1146276, i64 16
   %178 = load i8, ptr %177, align 8
-  %179 = and i8 %178, 1
-  %.not19.i201 = icmp eq i8 %179, 0
+  %179 = trunc i8 %178 to i1
   %180 = load i64, ptr %15, align 8
   %181 = load i8, ptr %16, align 8
-  %182 = and i8 %181, 1
-  %.not20.i202 = icmp eq i8 %182, 0
+  %182 = trunc i8 %181 to i1
   %183 = load ptr, ptr %11, align 8
-  br i1 %.not19.i201, label %189, label %184
+  br i1 %179, label %184, label %189
 
-184:                                              ; preds = %.lr.ph293
-  br i1 %.not20.i202, label %185, label %ApplyInt32SortComparator.exit.thread16.i203
+184:                                              ; preds = %.lr.ph278
+  br i1 %182, label %ApplyInt32SortComparator.exit.thread16.i195, label %185
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds i8, ptr %183, i64 13
   %187 = load i8, ptr %186, align 1
-  %188 = and i8 %187, 1
-  %.not13.i.i206 = icmp eq i8 %188, 0
-  br i1 %.not13.i.i206, label %qsort_tuple_int32_compare.exit215.thread.thread, label %qsort_tuple_int32_compare.exit215.thread245
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %qsort_tuple_int32_compare.exit200.thread230, label %qsort_tuple_int32_compare.exit200.thread.thread
 
-189:                                              ; preds = %.lr.ph293
-  br i1 %.not20.i202, label %194, label %190
+189:                                              ; preds = %.lr.ph278
+  br i1 %182, label %190, label %194
 
 190:                                              ; preds = %189
   %191 = getelementptr inbounds i8, ptr %183, i64 13
   %192 = load i8, ptr %191, align 1
-  %193 = and i8 %192, 1
-  %.not12.i.i208 = icmp eq i8 %193, 0
-  br i1 %.not12.i.i208, label %qsort_tuple_int32_compare.exit215.thread245, label %qsort_tuple_int32_compare.exit215.thread.thread
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %qsort_tuple_int32_compare.exit200.thread.thread, label %qsort_tuple_int32_compare.exit200.thread230
 
 194:                                              ; preds = %189
   %195 = trunc i64 %176 to i32
@@ -5259,70 +5170,69 @@ qsort_tuple_int32_compare.exit200.thread.thread:  ; preds = %149, %144, %qsort_t
   %200 = select i1 %197, i32 -1, i32 %199
   %201 = getelementptr inbounds i8, ptr %183, i64 12
   %202 = load i8, ptr %201, align 4
-  %203 = and i8 %202, 1
-  %.not.i.i210 = icmp eq i8 %203, 0
-  br i1 %.not.i.i210, label %ApplyInt32SortComparator.exit.i212, label %204
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %204, label %ApplyInt32SortComparator.exit.i191
 
 204:                                              ; preds = %194
-  %.neg.i.i211 = sext i1 %198 to i32
-  br i1 %197, label %qsort_tuple_int32_compare.exit215.thread.thread, label %ApplyInt32SortComparator.exit.i212
+  %.neg.i.i197 = sext i1 %198 to i32
+  br i1 %197, label %qsort_tuple_int32_compare.exit200.thread.thread, label %ApplyInt32SortComparator.exit.i191
 
-ApplyInt32SortComparator.exit.i212:               ; preds = %204, %194
-  %.0.i.i213 = phi i32 [ %.neg.i.i211, %204 ], [ %200, %194 ]
-  %.not.i214 = icmp eq i32 %.0.i.i213, 0
-  br i1 %.not.i214, label %ApplyInt32SortComparator.exit.thread16.i203, label %qsort_tuple_int32_compare.exit215
+ApplyInt32SortComparator.exit.i191:               ; preds = %204, %194
+  %.0.i.i192 = phi i32 [ %.neg.i.i197, %204 ], [ %200, %194 ]
+  %.not.i193 = icmp eq i32 %.0.i.i192, 0
+  br i1 %.not.i193, label %ApplyInt32SortComparator.exit.thread16.i195, label %qsort_tuple_int32_compare.exit200
 
-ApplyInt32SortComparator.exit.thread16.i203:      ; preds = %ApplyInt32SortComparator.exit.i212, %184
+ApplyInt32SortComparator.exit.thread16.i195:      ; preds = %ApplyInt32SortComparator.exit.i191, %184
   %205 = load ptr, ptr %12, align 8
-  %.not13.i204 = icmp eq ptr %205, null
-  br i1 %.not13.i204, label %206, label %qsort_tuple_int32_compare.exit215.thread.thread251
+  %.not13.i196 = icmp eq ptr %205, null
+  br i1 %.not13.i196, label %206, label %qsort_tuple_int32_compare.exit200.thread.thread236
 
-206:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i203
+206:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i195
   %207 = load ptr, ptr %13, align 8
-  %208 = tail call i32 %207(ptr noundef nonnull %.1146291, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
-  br label %qsort_tuple_int32_compare.exit215
+  %208 = tail call i32 %207(ptr noundef nonnull %.1146276, ptr noundef nonnull %.0137.ph, ptr noundef nonnull %2) #12
+  br label %qsort_tuple_int32_compare.exit200
 
-qsort_tuple_int32_compare.exit215:                ; preds = %ApplyInt32SortComparator.exit.i212, %206
-  %.0.i205 = phi i32 [ %208, %206 ], [ %.0.i.i213, %ApplyInt32SortComparator.exit.i212 ]
-  %209 = icmp sgt i32 %.0.i205, -1
-  br i1 %209, label %qsort_tuple_int32_compare.exit215.thread, label %qsort_tuple_int32_compare.exit215.thread245
+qsort_tuple_int32_compare.exit200:                ; preds = %ApplyInt32SortComparator.exit.i191, %206
+  %.0.i194 = phi i32 [ %208, %206 ], [ %.0.i.i192, %ApplyInt32SortComparator.exit.i191 ]
+  %209 = icmp sgt i32 %.0.i194, -1
+  br i1 %209, label %qsort_tuple_int32_compare.exit200.thread, label %qsort_tuple_int32_compare.exit200.thread230
 
-qsort_tuple_int32_compare.exit215.thread:         ; preds = %qsort_tuple_int32_compare.exit215
-  %210 = icmp eq i32 %.0.i205, 0
-  br i1 %210, label %qsort_tuple_int32_compare.exit215.thread.thread251, label %qsort_tuple_int32_compare.exit215.thread.thread
+qsort_tuple_int32_compare.exit200.thread:         ; preds = %qsort_tuple_int32_compare.exit200
+  %210 = icmp eq i32 %.0.i194, 0
+  br i1 %210, label %qsort_tuple_int32_compare.exit200.thread.thread236, label %qsort_tuple_int32_compare.exit200.thread.thread
 
-qsort_tuple_int32_compare.exit215.thread.thread251: ; preds = %ApplyInt32SortComparator.exit.thread16.i203, %qsort_tuple_int32_compare.exit215.thread
+qsort_tuple_int32_compare.exit200.thread.thread236: ; preds = %ApplyInt32SortComparator.exit.thread16.i195, %qsort_tuple_int32_compare.exit200.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146291, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146291, ptr noundef nonnull align 8 dereferenceable(24) %.1143292, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143292, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146276, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146276, ptr noundef nonnull align 8 dereferenceable(24) %.1143277, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143277, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %211 = getelementptr i8, ptr %.1143292, i64 -24
-  br label %qsort_tuple_int32_compare.exit215.thread.thread
+  %211 = getelementptr i8, ptr %.1143277, i64 -24
+  br label %qsort_tuple_int32_compare.exit200.thread.thread
 
-qsort_tuple_int32_compare.exit215.thread.thread:  ; preds = %185, %190, %204, %qsort_tuple_int32_compare.exit215.thread.thread251, %qsort_tuple_int32_compare.exit215.thread
-  %.2144 = phi ptr [ %211, %qsort_tuple_int32_compare.exit215.thread.thread251 ], [ %.1143292, %qsort_tuple_int32_compare.exit215.thread ], [ %.1143292, %204 ], [ %.1143292, %190 ], [ %.1143292, %185 ]
-  %212 = getelementptr i8, ptr %.1146291, i64 -24
+qsort_tuple_int32_compare.exit200.thread.thread:  ; preds = %190, %185, %204, %qsort_tuple_int32_compare.exit200.thread.thread236, %qsort_tuple_int32_compare.exit200.thread
+  %.2144 = phi ptr [ %211, %qsort_tuple_int32_compare.exit200.thread.thread236 ], [ %.1143277, %qsort_tuple_int32_compare.exit200.thread ], [ %.1143277, %204 ], [ %.1143277, %185 ], [ %.1143277, %190 ]
+  %212 = getelementptr i8, ptr %.1146276, i64 -24
   %213 = load volatile i32, ptr @InterruptPending, align 4
   %.not167 = icmp eq i32 %213, 0
   br i1 %.not167, label %215, label %214
 
-214:                                              ; preds = %qsort_tuple_int32_compare.exit215.thread.thread
+214:                                              ; preds = %qsort_tuple_int32_compare.exit200.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %215
 
-215:                                              ; preds = %qsort_tuple_int32_compare.exit215.thread.thread, %214
+215:                                              ; preds = %qsort_tuple_int32_compare.exit200.thread.thread, %214
   %.not165 = icmp ugt ptr %.1148.lcssa, %212
-  br i1 %.not165, label %.critedge4, label %.lr.ph293, !llvm.loop !40
+  br i1 %.not165, label %.critedge4, label %.lr.ph278, !llvm.loop !40
 
-qsort_tuple_int32_compare.exit215.thread245:      ; preds = %190, %185, %qsort_tuple_int32_compare.exit215
+qsort_tuple_int32_compare.exit200.thread230:      ; preds = %185, %190, %qsort_tuple_int32_compare.exit200
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146291, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146291, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146276, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146276, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %216 = getelementptr i8, ptr %.1148.lcssa, i64 24
-  %217 = getelementptr i8, ptr %.1146291, i64 -24
+  %217 = getelementptr i8, ptr %.1146276, i64 -24
   br label %133
 
 .critedge4:                                       ; preds = %.critedge2, %215
@@ -5337,8 +5247,8 @@ qsort_tuple_int32_compare.exit215.thread245:      ; preds = %190, %185, %qsort_t
   %. = tail call i64 @llvm.smin.i64(i64 %220, i64 %223)
   %224 = sub nsw i64 0, %.
   %225 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %224
-  %.not.i216 = icmp eq i64 %., 0
-  br i1 %.not.i216, label %qsort_tuple_int32_swapn.exit, label %.lr.ph.i
+  %.not.i201 = icmp eq i64 %., 0
+  br i1 %.not.i201, label %qsort_tuple_int32_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %228, %.lr.ph.i ], [ 0, %.critedge4 ]
@@ -5365,27 +5275,27 @@ qsort_tuple_int32_swapn.exit:                     ; preds = %.lr.ph.i, %.critedg
   %237 = tail call i64 @llvm.smin.i64(i64 %232, i64 %236)
   %238 = sub nsw i64 0, %237
   %239 = getelementptr %struct.SortTuple, ptr %23, i64 %238
-  %.not.i217 = icmp eq i64 %237, 0
-  br i1 %.not.i217, label %qsort_tuple_int32_swapn.exit221, label %.lr.ph.i218
+  %.not.i202 = icmp eq i64 %237, 0
+  br i1 %.not.i202, label %qsort_tuple_int32_swapn.exit206, label %.lr.ph.i203
 
-.lr.ph.i218:                                      ; preds = %qsort_tuple_int32_swapn.exit, %.lr.ph.i218
-  %.06.i219 = phi i64 [ %242, %.lr.ph.i218 ], [ 0, %qsort_tuple_int32_swapn.exit ]
-  %240 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i219
-  %241 = getelementptr %struct.SortTuple, ptr %239, i64 %.06.i219
+.lr.ph.i203:                                      ; preds = %qsort_tuple_int32_swapn.exit, %.lr.ph.i203
+  %.06.i204 = phi i64 [ %242, %.lr.ph.i203 ], [ 0, %qsort_tuple_int32_swapn.exit ]
+  %240 = getelementptr %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i204
+  %241 = getelementptr %struct.SortTuple, ptr %239, i64 %.06.i204
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %240, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %240, ptr noundef nonnull align 8 dereferenceable(24) %241, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %241, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %242 = add nuw i64 %.06.i219, 1
-  %exitcond.not.i220 = icmp eq i64 %242, %237
-  br i1 %exitcond.not.i220, label %qsort_tuple_int32_swapn.exit221, label %.lr.ph.i218, !llvm.loop !41
+  %242 = add nuw i64 %.06.i204, 1
+  %exitcond.not.i205 = icmp eq i64 %242, %237
+  br i1 %exitcond.not.i205, label %qsort_tuple_int32_swapn.exit206, label %.lr.ph.i203, !llvm.loop !41
 
-qsort_tuple_int32_swapn.exit221:                  ; preds = %.lr.ph.i218, %qsort_tuple_int32_swapn.exit
+qsort_tuple_int32_swapn.exit206:                  ; preds = %.lr.ph.i203, %qsort_tuple_int32_swapn.exit
   %.not166 = icmp ugt i64 %223, %232
   br i1 %.not166, label %251, label %243
 
-243:                                              ; preds = %qsort_tuple_int32_swapn.exit221
+243:                                              ; preds = %qsort_tuple_int32_swapn.exit206
   %244 = icmp ugt i64 %223, 1
   br i1 %244, label %245, label %246
 
@@ -5402,7 +5312,7 @@ qsort_tuple_int32_swapn.exit221:                  ; preds = %.lr.ph.i218, %qsort
   %250 = getelementptr %struct.SortTuple, ptr %23, i64 %249
   br label %.outer
 
-251:                                              ; preds = %qsort_tuple_int32_swapn.exit221
+251:                                              ; preds = %qsort_tuple_int32_swapn.exit206
   %252 = icmp ugt i64 %232, 1
   br i1 %252, label %253, label %256
 
@@ -5416,7 +5326,7 @@ qsort_tuple_int32_swapn.exit221:                  ; preds = %.lr.ph.i218, %qsort
   %257 = icmp ugt i64 %223, 1
   br i1 %257, label %18, label %.critedge170
 
-.critedge170:                                     ; preds = %246, %256, %66, %qsort_tuple_int32_compare.exit185.thread231, %.critedge, %.preheader253
+.critedge170:                                     ; preds = %246, %256, %66, %qsort_tuple_int32_compare.exit180.thread216, %.critedge, %.preheader238
   ret void
 }
 
@@ -5429,9 +5339,9 @@ define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef %1, ptr noun
   %8 = alloca %struct.SortTuple, align 8
   %9 = alloca %struct.SortTuple, align 8
   %10 = alloca %struct.SortTuple, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 13
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = getelementptr inbounds i8, ptr %2, i64 13
   br label %.outer
 
 .outer:                                           ; preds = %207, %3
@@ -5457,57 +5367,52 @@ define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef %1, ptr noun
   %22 = icmp ult i64 %.0, 7
   %23 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %.0
   %24 = icmp ult ptr %14, %23
-  br i1 %22, label %.preheader249, label %56
+  br i1 %22, label %.preheader231, label %56
 
-.preheader249:                                    ; preds = %21
+.preheader231:                                    ; preds = %21
   br i1 %24, label %.preheader, label %.critedge178
 
-.preheader:                                       ; preds = %.preheader249, %.critedge
-  %.0147302 = phi ptr [ %.0147, %.critedge ], [ %14, %.preheader249 ]
-  %25 = icmp ugt ptr %.0147302, %.0145.ph
-  br i1 %25, label %.lr.ph297, label %.critedge
+.preheader:                                       ; preds = %.preheader231, %.critedge
+  %.0147284 = phi ptr [ %.0147, %.critedge ], [ %14, %.preheader231 ]
+  %25 = icmp ugt ptr %.0147284, %.0145.ph
+  br i1 %25, label %.lr.ph279, label %.critedge
 
-.lr.ph297:                                        ; preds = %.preheader, %ApplySortComparator.exit.thread
-  %.0148296 = phi ptr [ %53, %ApplySortComparator.exit.thread ], [ %.0147302, %.preheader ]
-  %26 = getelementptr i8, ptr %.0148296, i64 -16
+.lr.ph279:                                        ; preds = %.preheader, %ApplySortComparator.exit.thread
+  %.0148278 = phi ptr [ %53, %ApplySortComparator.exit.thread ], [ %.0147284, %.preheader ]
+  %26 = getelementptr i8, ptr %.0148278, i64 -16
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr i8, ptr %.0148296, i64 -8
+  %28 = getelementptr i8, ptr %.0148278, i64 -8
   %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 1
-  %.not247 = icmp eq i8 %30, 0
-  %31 = getelementptr inbounds i8, ptr %.0148296, i64 8
+  %30 = trunc i8 %29 to i1
+  %31 = getelementptr inbounds i8, ptr %.0148278, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.0148296, i64 16
+  %33 = getelementptr inbounds i8, ptr %.0148278, i64 16
   %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %.not248 = icmp eq i8 %35, 0
-  br i1 %.not247, label %40, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %30, label %36, label %40
 
-36:                                               ; preds = %.lr.ph297
-  br i1 %.not248, label %37, label %.critedge
+36:                                               ; preds = %.lr.ph279
+  br i1 %35, label %.critedge, label %37
 
 37:                                               ; preds = %36
-  %38 = load i8, ptr %11, align 1
-  %39 = and i8 %38, 1
-  %.not13.i = icmp eq i8 %39, 0
-  br i1 %.not13.i, label %ApplySortComparator.exit.thread, label %.critedge
+  %38 = load i8, ptr %13, align 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %.critedge, label %ApplySortComparator.exit.thread
 
-40:                                               ; preds = %.lr.ph297
-  br i1 %.not248, label %44, label %41
+40:                                               ; preds = %.lr.ph279
+  br i1 %35, label %41, label %44
 
 41:                                               ; preds = %40
-  %42 = load i8, ptr %11, align 1
-  %43 = and i8 %42, 1
-  %.not12.i = icmp eq i8 %43, 0
-  br i1 %.not12.i, label %.critedge, label %ApplySortComparator.exit.thread
+  %42 = load i8, ptr %13, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %ApplySortComparator.exit.thread, label %.critedge
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %12, align 8
+  %45 = load ptr, ptr %11, align 8
   %46 = tail call i32 %45(i64 noundef %27, i64 noundef %32, ptr noundef %2) #12
-  %47 = load i8, ptr %13, align 4
-  %48 = and i8 %47, 1
-  %.not.i = icmp eq i8 %48, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %49
+  %47 = load i8, ptr %12, align 4
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %ApplySortComparator.exit
 
 49:                                               ; preds = %44
   %50 = icmp slt i32 %46, 0
@@ -5519,26 +5424,26 @@ ApplySortComparator.exit:                         ; preds = %49, %44
   %52 = icmp sgt i32 %.0.i, 0
   br i1 %52, label %ApplySortComparator.exit.thread, label %.critedge
 
-ApplySortComparator.exit.thread:                  ; preds = %37, %49, %41, %ApplySortComparator.exit
-  %53 = getelementptr i8, ptr %.0148296, i64 -24
+ApplySortComparator.exit.thread:                  ; preds = %41, %49, %37, %ApplySortComparator.exit
+  %53 = getelementptr i8, ptr %.0148278, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0148296, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0148296, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0148278, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0148278, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %54 = icmp ugt ptr %53, %.0145.ph
-  br i1 %54, label %.lr.ph297, label %.critedge, !llvm.loop !42
+  br i1 %54, label %.lr.ph279, label %.critedge, !llvm.loop !42
 
-.critedge:                                        ; preds = %ApplySortComparator.exit.thread, %ApplySortComparator.exit, %36, %37, %41, %.preheader
-  %.0147 = getelementptr i8, ptr %.0147302, i64 24
+.critedge:                                        ; preds = %ApplySortComparator.exit.thread, %ApplySortComparator.exit, %36, %41, %37, %.preheader
+  %.0147 = getelementptr i8, ptr %.0147284, i64 24
   %55 = icmp ult ptr %.0147, %23
   br i1 %55, label %.preheader, label %.critedge178, !llvm.loop !43
 
 56:                                               ; preds = %21
   br i1 %24, label %.lr.ph, label %.critedge178
 
-.lr.ph:                                           ; preds = %56, %ApplySortComparator.exit185.thread217
-  %.1266 = phi ptr [ %87, %ApplySortComparator.exit185.thread217 ], [ %14, %56 ]
+.lr.ph:                                           ; preds = %56, %ApplySortComparator.exit182.thread207
+  %.1248 = phi ptr [ %87, %ApplySortComparator.exit182.thread207 ], [ %14, %56 ]
   %57 = load volatile i32, ptr @InterruptPending, align 4
   %.not169 = icmp eq i32 %57, 0
   br i1 %.not169, label %59, label %58
@@ -5548,68 +5453,63 @@ ApplySortComparator.exit.thread:                  ; preds = %37, %49, %41, %Appl
   br label %59
 
 59:                                               ; preds = %.lr.ph, %58
-  %60 = getelementptr i8, ptr %.1266, i64 -16
+  %60 = getelementptr i8, ptr %.1248, i64 -16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr i8, ptr %.1266, i64 -8
+  %62 = getelementptr i8, ptr %.1248, i64 -8
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %.not241 = icmp eq i8 %64, 0
-  %65 = getelementptr inbounds i8, ptr %.1266, i64 8
+  %64 = trunc i8 %63 to i1
+  %65 = getelementptr inbounds i8, ptr %.1248, i64 8
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.1266, i64 16
+  %67 = getelementptr inbounds i8, ptr %.1248, i64 16
   %68 = load i8, ptr %67, align 8
-  %69 = and i8 %68, 1
-  %.not242 = icmp eq i8 %69, 0
-  br i1 %.not241, label %74, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %64, label %70, label %74
 
 70:                                               ; preds = %59
-  br i1 %.not242, label %71, label %ApplySortComparator.exit185.thread217
+  br i1 %69, label %ApplySortComparator.exit182.thread207, label %71
 
 71:                                               ; preds = %70
-  %72 = load i8, ptr %11, align 1
-  %73 = and i8 %72, 1
-  %.not13.i183 = icmp eq i8 %73, 0
-  br i1 %.not13.i183, label %ApplySortComparator.exit185.thread, label %ApplySortComparator.exit185.thread217
+  %72 = load i8, ptr %13, align 1
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %ApplySortComparator.exit182.thread207, label %ApplySortComparator.exit182.thread
 
 74:                                               ; preds = %59
-  br i1 %.not242, label %78, label %75
+  br i1 %69, label %75, label %78
 
 75:                                               ; preds = %74
-  %76 = load i8, ptr %11, align 1
-  %77 = and i8 %76, 1
-  %.not12.i181 = icmp eq i8 %77, 0
-  br i1 %.not12.i181, label %ApplySortComparator.exit185.thread217, label %ApplySortComparator.exit185.thread
+  %76 = load i8, ptr %13, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %ApplySortComparator.exit182.thread, label %ApplySortComparator.exit182.thread207
 
 78:                                               ; preds = %74
-  %79 = load ptr, ptr %12, align 8
+  %79 = load ptr, ptr %11, align 8
   %80 = tail call i32 %79(i64 noundef %61, i64 noundef %66, ptr noundef %2) #12
-  %81 = load i8, ptr %13, align 4
-  %82 = and i8 %81, 1
-  %.not.i179 = icmp eq i8 %82, 0
-  br i1 %.not.i179, label %ApplySortComparator.exit185, label %83
+  %81 = load i8, ptr %12, align 4
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %ApplySortComparator.exit182
 
 83:                                               ; preds = %78
   %84 = icmp slt i32 %80, 0
   %85 = sub i32 0, %80
-  br i1 %84, label %ApplySortComparator.exit185.thread, label %ApplySortComparator.exit185
+  br i1 %84, label %ApplySortComparator.exit182.thread, label %ApplySortComparator.exit182
 
-ApplySortComparator.exit185:                      ; preds = %83, %78
-  %.0.i180 = phi i32 [ %85, %83 ], [ %80, %78 ]
-  %86 = icmp sgt i32 %.0.i180, 0
-  br i1 %86, label %ApplySortComparator.exit185.thread, label %ApplySortComparator.exit185.thread217
+ApplySortComparator.exit182:                      ; preds = %83, %78
+  %.0.i179 = phi i32 [ %85, %83 ], [ %80, %78 ]
+  %86 = icmp sgt i32 %.0.i179, 0
+  br i1 %86, label %ApplySortComparator.exit182.thread, label %ApplySortComparator.exit182.thread207
 
-ApplySortComparator.exit185.thread217:            ; preds = %75, %71, %70, %ApplySortComparator.exit185
-  %87 = getelementptr i8, ptr %.1266, i64 24
+ApplySortComparator.exit182.thread207:            ; preds = %71, %75, %70, %ApplySortComparator.exit182
+  %87 = getelementptr i8, ptr %.1248, i64 24
   %88 = icmp ult ptr %87, %23
   br i1 %88, label %.lr.ph, label %.critedge178, !llvm.loop !44
 
-ApplySortComparator.exit185.thread:               ; preds = %71, %83, %75, %ApplySortComparator.exit185
+ApplySortComparator.exit182.thread:               ; preds = %75, %83, %71, %ApplySortComparator.exit182
   %89 = lshr i64 %.0, 1
   %90 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %89
   %.not171 = icmp eq i64 %.0, 7
-  br i1 %.not171, label %ApplySortComparator.exit185.thread._crit_edge, label %91
+  br i1 %.not171, label %ApplySortComparator.exit182.thread._crit_edge, label %91
 
-91:                                               ; preds = %ApplySortComparator.exit185.thread
+91:                                               ; preds = %ApplySortComparator.exit182.thread
   %92 = add nsw i64 %.0, -1
   %93 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %92
   %94 = icmp ugt i64 %.0, 40
@@ -5636,11 +5536,11 @@ ApplySortComparator.exit185.thread:               ; preds = %71, %83, %75, %Appl
   %.2 = phi ptr [ %104, %95 ], [ %90, %91 ]
   %.0146 = phi ptr [ %108, %95 ], [ %93, %91 ]
   %110 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.2, ptr noundef %.0146, ptr noundef nonnull %2)
-  br label %ApplySortComparator.exit185.thread._crit_edge
+  br label %ApplySortComparator.exit182.thread._crit_edge
 
-ApplySortComparator.exit185.thread._crit_edge:    ; preds = %ApplySortComparator.exit185.thread, %109
-  %.pre-phi = phi i64 [ %92, %109 ], [ 6, %ApplySortComparator.exit185.thread ]
-  %.3 = phi ptr [ %110, %109 ], [ %90, %ApplySortComparator.exit185.thread ]
+ApplySortComparator.exit182.thread._crit_edge:    ; preds = %ApplySortComparator.exit182.thread, %109
+  %.pre-phi = phi i64 [ %92, %109 ], [ 6, %ApplySortComparator.exit182.thread ]
+  %.3 = phi ptr [ %110, %109 ], [ %90, %ApplySortComparator.exit182.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
@@ -5649,186 +5549,176 @@ ApplySortComparator.exit185.thread._crit_edge:    ; preds = %ApplySortComparator
   %111 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %.pre-phi
   br label %112
 
-112:                                              ; preds = %ApplySortComparator.exit199.thread233, %ApplySortComparator.exit185.thread._crit_edge
-  %.0157 = phi ptr [ %14, %ApplySortComparator.exit185.thread._crit_edge ], [ %.1158.lcssa, %ApplySortComparator.exit199.thread233 ]
-  %.0155 = phi ptr [ %14, %ApplySortComparator.exit185.thread._crit_edge ], [ %175, %ApplySortComparator.exit199.thread233 ]
-  %.0153 = phi ptr [ %111, %ApplySortComparator.exit185.thread._crit_edge ], [ %176, %ApplySortComparator.exit199.thread233 ]
-  %.0150 = phi ptr [ %111, %ApplySortComparator.exit185.thread._crit_edge ], [ %.1151286, %ApplySortComparator.exit199.thread233 ]
-  %.not172268 = icmp ugt ptr %.0155, %.0153
-  br i1 %.not172268, label %.critedge2, label %.lr.ph271
+112:                                              ; preds = %ApplySortComparator.exit190.thread223, %ApplySortComparator.exit182.thread._crit_edge
+  %.0157 = phi ptr [ %14, %ApplySortComparator.exit182.thread._crit_edge ], [ %.1158.lcssa, %ApplySortComparator.exit190.thread223 ]
+  %.0155 = phi ptr [ %14, %ApplySortComparator.exit182.thread._crit_edge ], [ %175, %ApplySortComparator.exit190.thread223 ]
+  %.0153 = phi ptr [ %111, %ApplySortComparator.exit182.thread._crit_edge ], [ %176, %ApplySortComparator.exit190.thread223 ]
+  %.0150 = phi ptr [ %111, %ApplySortComparator.exit182.thread._crit_edge ], [ %.1151268, %ApplySortComparator.exit190.thread223 ]
+  %.not172250 = icmp ugt ptr %.0155, %.0153
+  br i1 %.not172250, label %.critedge2, label %.lr.ph253
 
-.lr.ph271:                                        ; preds = %112, %143
-  %.1156270 = phi ptr [ %140, %143 ], [ %.0155, %112 ]
-  %.1158269 = phi ptr [ %.2159, %143 ], [ %.0157, %112 ]
-  %113 = getelementptr inbounds i8, ptr %.1156270, i64 8
+.lr.ph253:                                        ; preds = %112, %143
+  %.1156252 = phi ptr [ %140, %143 ], [ %.0155, %112 ]
+  %.1158251 = phi ptr [ %.2159, %143 ], [ %.0157, %112 ]
+  %113 = getelementptr inbounds i8, ptr %.1156252, i64 8
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %.1156270, i64 16
+  %115 = getelementptr inbounds i8, ptr %.1156252, i64 16
   %116 = load i8, ptr %115, align 8
-  %117 = and i8 %116, 1
-  %.not243 = icmp eq i8 %117, 0
+  %117 = trunc i8 %116 to i1
   %118 = load i64, ptr %15, align 8
   %119 = load i8, ptr %16, align 8
-  %120 = and i8 %119, 1
-  %.not244 = icmp eq i8 %120, 0
-  br i1 %.not243, label %125, label %121
+  %120 = trunc i8 %119 to i1
+  br i1 %117, label %121, label %125
 
-121:                                              ; preds = %.lr.ph271
-  br i1 %.not244, label %122, label %ApplySortComparator.exit192.thread.thread236
+121:                                              ; preds = %.lr.ph253
+  br i1 %120, label %ApplySortComparator.exit186.thread.thread226, label %122
 
 122:                                              ; preds = %121
-  %123 = load i8, ptr %11, align 1
-  %124 = and i8 %123, 1
-  %.not13.i190 = icmp eq i8 %124, 0
-  br i1 %.not13.i190, label %.critedge2, label %ApplySortComparator.exit192.thread.thread
+  %123 = load i8, ptr %13, align 1
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %ApplySortComparator.exit186.thread.thread, label %.critedge2
 
-125:                                              ; preds = %.lr.ph271
-  br i1 %.not244, label %129, label %126
+125:                                              ; preds = %.lr.ph253
+  br i1 %120, label %126, label %129
 
 126:                                              ; preds = %125
-  %127 = load i8, ptr %11, align 1
-  %128 = and i8 %127, 1
-  %.not12.i188 = icmp eq i8 %128, 0
-  br i1 %.not12.i188, label %ApplySortComparator.exit192.thread.thread, label %.critedge2
+  %127 = load i8, ptr %13, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %.critedge2, label %ApplySortComparator.exit186.thread.thread
 
 129:                                              ; preds = %125
-  %130 = load ptr, ptr %12, align 8
+  %130 = load ptr, ptr %11, align 8
   %131 = tail call i32 %130(i64 noundef %114, i64 noundef %118, ptr noundef %2) #12
-  %132 = load i8, ptr %13, align 4
-  %133 = and i8 %132, 1
-  %.not.i186 = icmp eq i8 %133, 0
-  br i1 %.not.i186, label %ApplySortComparator.exit192, label %134
+  %132 = load i8, ptr %12, align 4
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %ApplySortComparator.exit186
 
 134:                                              ; preds = %129
   %135 = icmp slt i32 %131, 0
   %136 = sub i32 0, %131
-  br i1 %135, label %.critedge2, label %ApplySortComparator.exit192
+  br i1 %135, label %.critedge2, label %ApplySortComparator.exit186
 
-ApplySortComparator.exit192:                      ; preds = %134, %129
-  %.0.i187 = phi i32 [ %136, %134 ], [ %131, %129 ]
-  %137 = icmp slt i32 %.0.i187, 1
-  br i1 %137, label %ApplySortComparator.exit192.thread, label %.critedge2
+ApplySortComparator.exit186:                      ; preds = %134, %129
+  %.0.i183 = phi i32 [ %136, %134 ], [ %131, %129 ]
+  %137 = icmp slt i32 %.0.i183, 1
+  br i1 %137, label %ApplySortComparator.exit186.thread, label %.critedge2
 
-ApplySortComparator.exit192.thread:               ; preds = %ApplySortComparator.exit192
-  %138 = icmp eq i32 %.0.i187, 0
-  br i1 %138, label %ApplySortComparator.exit192.thread.thread236, label %ApplySortComparator.exit192.thread.thread
+ApplySortComparator.exit186.thread:               ; preds = %ApplySortComparator.exit186
+  %138 = icmp eq i32 %.0.i183, 0
+  br i1 %138, label %ApplySortComparator.exit186.thread.thread226, label %ApplySortComparator.exit186.thread.thread
 
-ApplySortComparator.exit192.thread.thread236:     ; preds = %121, %ApplySortComparator.exit192.thread
+ApplySortComparator.exit186.thread.thread226:     ; preds = %121, %ApplySortComparator.exit186.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1158269, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158269, ptr noundef nonnull align 8 dereferenceable(24) %.1156270, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156270, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1158251, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158251, ptr noundef nonnull align 8 dereferenceable(24) %.1156252, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156252, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %139 = getelementptr i8, ptr %.1158269, i64 24
-  br label %ApplySortComparator.exit192.thread.thread
+  %139 = getelementptr i8, ptr %.1158251, i64 24
+  br label %ApplySortComparator.exit186.thread.thread
 
-ApplySortComparator.exit192.thread.thread:        ; preds = %126, %122, %ApplySortComparator.exit192.thread.thread236, %ApplySortComparator.exit192.thread
-  %.2159 = phi ptr [ %139, %ApplySortComparator.exit192.thread.thread236 ], [ %.1158269, %ApplySortComparator.exit192.thread ], [ %.1158269, %122 ], [ %.1158269, %126 ]
-  %140 = getelementptr i8, ptr %.1156270, i64 24
+ApplySortComparator.exit186.thread.thread:        ; preds = %122, %126, %ApplySortComparator.exit186.thread.thread226, %ApplySortComparator.exit186.thread
+  %.2159 = phi ptr [ %139, %ApplySortComparator.exit186.thread.thread226 ], [ %.1158251, %ApplySortComparator.exit186.thread ], [ %.1158251, %126 ], [ %.1158251, %122 ]
+  %140 = getelementptr i8, ptr %.1156252, i64 24
   %141 = load volatile i32, ptr @InterruptPending, align 4
   %.not176 = icmp eq i32 %141, 0
   br i1 %.not176, label %143, label %142
 
-142:                                              ; preds = %ApplySortComparator.exit192.thread.thread
+142:                                              ; preds = %ApplySortComparator.exit186.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %143
 
-143:                                              ; preds = %ApplySortComparator.exit192.thread.thread, %142
+143:                                              ; preds = %ApplySortComparator.exit186.thread.thread, %142
   %.not172 = icmp ugt ptr %140, %.0153
-  br i1 %.not172, label %.critedge2, label %.lr.ph271, !llvm.loop !45
+  br i1 %.not172, label %.critedge2, label %.lr.ph253, !llvm.loop !45
 
-.critedge2:                                       ; preds = %ApplySortComparator.exit192, %143, %126, %134, %122, %112
-  %.1158.lcssa = phi ptr [ %.0157, %112 ], [ %.1158269, %122 ], [ %.1158269, %134 ], [ %.1158269, %126 ], [ %.2159, %143 ], [ %.1158269, %ApplySortComparator.exit192 ]
-  %.1156.lcssa = phi ptr [ %.0155, %112 ], [ %.1156270, %122 ], [ %.1156270, %134 ], [ %.1156270, %126 ], [ %140, %143 ], [ %.1156270, %ApplySortComparator.exit192 ]
-  %.not173284 = icmp ugt ptr %.1156.lcssa, %.0153
-  br i1 %.not173284, label %.critedge4, label %.lr.ph287
+.critedge2:                                       ; preds = %ApplySortComparator.exit186, %143, %122, %134, %126, %112
+  %.1158.lcssa = phi ptr [ %.0157, %112 ], [ %.1158251, %126 ], [ %.1158251, %134 ], [ %.1158251, %122 ], [ %.2159, %143 ], [ %.1158251, %ApplySortComparator.exit186 ]
+  %.1156.lcssa = phi ptr [ %.0155, %112 ], [ %.1156252, %126 ], [ %.1156252, %134 ], [ %.1156252, %122 ], [ %140, %143 ], [ %.1156252, %ApplySortComparator.exit186 ]
+  %.not173266 = icmp ugt ptr %.1156.lcssa, %.0153
+  br i1 %.not173266, label %.critedge4, label %.lr.ph269
 
-.lr.ph287:                                        ; preds = %.critedge2, %174
-  %.1151286 = phi ptr [ %.2152, %174 ], [ %.0150, %.critedge2 ]
-  %.1154285 = phi ptr [ %171, %174 ], [ %.0153, %.critedge2 ]
-  %144 = getelementptr inbounds i8, ptr %.1154285, i64 8
+.lr.ph269:                                        ; preds = %.critedge2, %174
+  %.1151268 = phi ptr [ %.2152, %174 ], [ %.0150, %.critedge2 ]
+  %.1154267 = phi ptr [ %171, %174 ], [ %.0153, %.critedge2 ]
+  %144 = getelementptr inbounds i8, ptr %.1154267, i64 8
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %.1154285, i64 16
+  %146 = getelementptr inbounds i8, ptr %.1154267, i64 16
   %147 = load i8, ptr %146, align 8
-  %148 = and i8 %147, 1
-  %.not245 = icmp eq i8 %148, 0
+  %148 = trunc i8 %147 to i1
   %149 = load i64, ptr %15, align 8
   %150 = load i8, ptr %16, align 8
-  %151 = and i8 %150, 1
-  %.not246 = icmp eq i8 %151, 0
-  br i1 %.not245, label %156, label %152
+  %151 = trunc i8 %150 to i1
+  br i1 %148, label %152, label %156
 
-152:                                              ; preds = %.lr.ph287
-  br i1 %.not246, label %153, label %ApplySortComparator.exit199.thread.thread239
+152:                                              ; preds = %.lr.ph269
+  br i1 %151, label %ApplySortComparator.exit190.thread.thread229, label %153
 
 153:                                              ; preds = %152
-  %154 = load i8, ptr %11, align 1
-  %155 = and i8 %154, 1
-  %.not13.i197 = icmp eq i8 %155, 0
-  br i1 %.not13.i197, label %ApplySortComparator.exit199.thread.thread, label %ApplySortComparator.exit199.thread233
+  %154 = load i8, ptr %13, align 1
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %ApplySortComparator.exit190.thread223, label %ApplySortComparator.exit190.thread.thread
 
-156:                                              ; preds = %.lr.ph287
-  br i1 %.not246, label %160, label %157
+156:                                              ; preds = %.lr.ph269
+  br i1 %151, label %157, label %160
 
 157:                                              ; preds = %156
-  %158 = load i8, ptr %11, align 1
-  %159 = and i8 %158, 1
-  %.not12.i195 = icmp eq i8 %159, 0
-  br i1 %.not12.i195, label %ApplySortComparator.exit199.thread233, label %ApplySortComparator.exit199.thread.thread
+  %158 = load i8, ptr %13, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %ApplySortComparator.exit190.thread.thread, label %ApplySortComparator.exit190.thread223
 
 160:                                              ; preds = %156
-  %161 = load ptr, ptr %12, align 8
+  %161 = load ptr, ptr %11, align 8
   %162 = tail call i32 %161(i64 noundef %145, i64 noundef %149, ptr noundef %2) #12
-  %163 = load i8, ptr %13, align 4
-  %164 = and i8 %163, 1
-  %.not.i193 = icmp eq i8 %164, 0
-  br i1 %.not.i193, label %ApplySortComparator.exit199, label %165
+  %163 = load i8, ptr %12, align 4
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %ApplySortComparator.exit190
 
 165:                                              ; preds = %160
   %166 = icmp slt i32 %162, 0
   %167 = sub i32 0, %162
-  br i1 %166, label %ApplySortComparator.exit199.thread.thread, label %ApplySortComparator.exit199
+  br i1 %166, label %ApplySortComparator.exit190.thread.thread, label %ApplySortComparator.exit190
 
-ApplySortComparator.exit199:                      ; preds = %165, %160
-  %.0.i194 = phi i32 [ %167, %165 ], [ %162, %160 ]
-  %168 = icmp sgt i32 %.0.i194, -1
-  br i1 %168, label %ApplySortComparator.exit199.thread, label %ApplySortComparator.exit199.thread233
+ApplySortComparator.exit190:                      ; preds = %165, %160
+  %.0.i187 = phi i32 [ %167, %165 ], [ %162, %160 ]
+  %168 = icmp sgt i32 %.0.i187, -1
+  br i1 %168, label %ApplySortComparator.exit190.thread, label %ApplySortComparator.exit190.thread223
 
-ApplySortComparator.exit199.thread:               ; preds = %ApplySortComparator.exit199
-  %169 = icmp eq i32 %.0.i194, 0
-  br i1 %169, label %ApplySortComparator.exit199.thread.thread239, label %ApplySortComparator.exit199.thread.thread
+ApplySortComparator.exit190.thread:               ; preds = %ApplySortComparator.exit190
+  %169 = icmp eq i32 %.0.i187, 0
+  br i1 %169, label %ApplySortComparator.exit190.thread.thread229, label %ApplySortComparator.exit190.thread.thread
 
-ApplySortComparator.exit199.thread.thread239:     ; preds = %152, %ApplySortComparator.exit199.thread
+ApplySortComparator.exit190.thread.thread229:     ; preds = %152, %ApplySortComparator.exit190.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1154285, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1154285, ptr noundef nonnull align 8 dereferenceable(24) %.1151286, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1151286, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1154267, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1154267, ptr noundef nonnull align 8 dereferenceable(24) %.1151268, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1151268, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %170 = getelementptr i8, ptr %.1151286, i64 -24
-  br label %ApplySortComparator.exit199.thread.thread
+  %170 = getelementptr i8, ptr %.1151268, i64 -24
+  br label %ApplySortComparator.exit190.thread.thread
 
-ApplySortComparator.exit199.thread.thread:        ; preds = %153, %165, %157, %ApplySortComparator.exit199.thread.thread239, %ApplySortComparator.exit199.thread
-  %.2152 = phi ptr [ %170, %ApplySortComparator.exit199.thread.thread239 ], [ %.1151286, %ApplySortComparator.exit199.thread ], [ %.1151286, %157 ], [ %.1151286, %165 ], [ %.1151286, %153 ]
-  %171 = getelementptr i8, ptr %.1154285, i64 -24
+ApplySortComparator.exit190.thread.thread:        ; preds = %157, %165, %153, %ApplySortComparator.exit190.thread.thread229, %ApplySortComparator.exit190.thread
+  %.2152 = phi ptr [ %170, %ApplySortComparator.exit190.thread.thread229 ], [ %.1151268, %ApplySortComparator.exit190.thread ], [ %.1151268, %153 ], [ %.1151268, %165 ], [ %.1151268, %157 ]
+  %171 = getelementptr i8, ptr %.1154267, i64 -24
   %172 = load volatile i32, ptr @InterruptPending, align 4
   %.not175 = icmp eq i32 %172, 0
   br i1 %.not175, label %174, label %173
 
-173:                                              ; preds = %ApplySortComparator.exit199.thread.thread
+173:                                              ; preds = %ApplySortComparator.exit190.thread.thread
   tail call void @ProcessInterrupts() #12
   br label %174
 
-174:                                              ; preds = %ApplySortComparator.exit199.thread.thread, %173
+174:                                              ; preds = %ApplySortComparator.exit190.thread.thread, %173
   %.not173 = icmp ugt ptr %.1156.lcssa, %171
-  br i1 %.not173, label %.critedge4, label %.lr.ph287, !llvm.loop !46
+  br i1 %.not173, label %.critedge4, label %.lr.ph269, !llvm.loop !46
 
-ApplySortComparator.exit199.thread233:            ; preds = %157, %153, %ApplySortComparator.exit199
+ApplySortComparator.exit190.thread223:            ; preds = %153, %157, %ApplySortComparator.exit190
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1156.lcssa, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1154285, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1154285, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1154267, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1154267, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %175 = getelementptr i8, ptr %.1156.lcssa, i64 24
-  %176 = getelementptr i8, ptr %.1154285, i64 -24
+  %176 = getelementptr i8, ptr %.1154267, i64 -24
   br label %112
 
 .critedge4:                                       ; preds = %.critedge2, %174
@@ -5843,8 +5733,8 @@ ApplySortComparator.exit199.thread233:            ; preds = %157, %153, %ApplySo
   %. = tail call i64 @llvm.smin.i64(i64 %179, i64 %182)
   %183 = sub nsw i64 0, %.
   %184 = getelementptr %struct.SortTuple, ptr %.1156.lcssa, i64 %183
-  %.not.i200 = icmp eq i64 %., 0
-  br i1 %.not.i200, label %qsort_ssup_swapn.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %., 0
+  br i1 %.not.i, label %qsort_ssup_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %187, %.lr.ph.i ], [ 0, %.critedge4 ]
@@ -5871,27 +5761,27 @@ qsort_ssup_swapn.exit:                            ; preds = %.lr.ph.i, %.critedg
   %196 = tail call i64 @llvm.smin.i64(i64 %191, i64 %195)
   %197 = sub nsw i64 0, %196
   %198 = getelementptr %struct.SortTuple, ptr %23, i64 %197
-  %.not.i201 = icmp eq i64 %196, 0
-  br i1 %.not.i201, label %qsort_ssup_swapn.exit205, label %.lr.ph.i202
+  %.not.i191 = icmp eq i64 %196, 0
+  br i1 %.not.i191, label %qsort_ssup_swapn.exit195, label %.lr.ph.i192
 
-.lr.ph.i202:                                      ; preds = %qsort_ssup_swapn.exit, %.lr.ph.i202
-  %.06.i203 = phi i64 [ %201, %.lr.ph.i202 ], [ 0, %qsort_ssup_swapn.exit ]
-  %199 = getelementptr %struct.SortTuple, ptr %.1156.lcssa, i64 %.06.i203
-  %200 = getelementptr %struct.SortTuple, ptr %198, i64 %.06.i203
+.lr.ph.i192:                                      ; preds = %qsort_ssup_swapn.exit, %.lr.ph.i192
+  %.06.i193 = phi i64 [ %201, %.lr.ph.i192 ], [ 0, %qsort_ssup_swapn.exit ]
+  %199 = getelementptr %struct.SortTuple, ptr %.1156.lcssa, i64 %.06.i193
+  %200 = getelementptr %struct.SortTuple, ptr %198, i64 %.06.i193
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %199, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %200, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %201 = add nuw i64 %.06.i203, 1
-  %exitcond.not.i204 = icmp eq i64 %201, %196
-  br i1 %exitcond.not.i204, label %qsort_ssup_swapn.exit205, label %.lr.ph.i202, !llvm.loop !47
+  %201 = add nuw i64 %.06.i193, 1
+  %exitcond.not.i194 = icmp eq i64 %201, %196
+  br i1 %exitcond.not.i194, label %qsort_ssup_swapn.exit195, label %.lr.ph.i192, !llvm.loop !47
 
-qsort_ssup_swapn.exit205:                         ; preds = %.lr.ph.i202, %qsort_ssup_swapn.exit
+qsort_ssup_swapn.exit195:                         ; preds = %.lr.ph.i192, %qsort_ssup_swapn.exit
   %.not174 = icmp ugt i64 %182, %191
   br i1 %.not174, label %210, label %202
 
-202:                                              ; preds = %qsort_ssup_swapn.exit205
+202:                                              ; preds = %qsort_ssup_swapn.exit195
   %203 = icmp ugt i64 %182, 1
   br i1 %203, label %204, label %205
 
@@ -5908,7 +5798,7 @@ qsort_ssup_swapn.exit205:                         ; preds = %.lr.ph.i202, %qsort
   %209 = getelementptr %struct.SortTuple, ptr %23, i64 %208
   br label %.outer
 
-210:                                              ; preds = %qsort_ssup_swapn.exit205
+210:                                              ; preds = %qsort_ssup_swapn.exit195
   %211 = icmp ugt i64 %191, 1
   br i1 %211, label %212, label %215
 
@@ -5922,7 +5812,7 @@ qsort_ssup_swapn.exit205:                         ; preds = %.lr.ph.i202, %qsort
   %216 = icmp ugt i64 %182, 1
   br i1 %216, label %18, label %.critedge178
 
-.critedge178:                                     ; preds = %205, %215, %56, %ApplySortComparator.exit185.thread217, %.critedge, %.preheader249
+.critedge178:                                     ; preds = %205, %215, %56, %ApplySortComparator.exit182.thread207, %.critedge, %.preheader231
   ret void
 }
 
@@ -6350,37 +6240,33 @@ define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, pt
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not19.i = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not20.i = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
-  br i1 %.not19.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %4
-  br i1 %.not20.i, label %18, label %ApplyUnsignedSortComparator.exit.thread16.i
+  br i1 %14, label %ApplyUnsignedSortComparator.exit.thread16.i, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %16, i64 13
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not13.i.i = icmp eq i8 %21, 0
-  br i1 %.not13.i.i, label %qsort_tuple_unsigned_compare.exit.thread, label %qsort_tuple_unsigned_compare.exit.thread84
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %qsort_tuple_unsigned_compare.exit.thread64, label %qsort_tuple_unsigned_compare.exit.thread
 
 22:                                               ; preds = %4
-  br i1 %.not20.i, label %27, label %23
+  br i1 %14, label %23, label %27
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %16, i64 13
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not12.i.i = icmp eq i8 %26, 0
-  br i1 %.not12.i.i, label %qsort_tuple_unsigned_compare.exit.thread84, label %qsort_tuple_unsigned_compare.exit.thread
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %qsort_tuple_unsigned_compare.exit.thread, label %qsort_tuple_unsigned_compare.exit.thread64
 
 27:                                               ; preds = %22
   %28 = icmp ult i64 %6, %11
@@ -6389,9 +6275,8 @@ define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, pt
   %31 = select i1 %28, i32 -1, i32 %30
   %32 = getelementptr inbounds i8, ptr %16, i64 12
   %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %.not.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i, label %ApplyUnsignedSortComparator.exit.i, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %ApplyUnsignedSortComparator.exit.i
 
 35:                                               ; preds = %27
   %.neg.i.i = sext i1 %29 to i32
@@ -6412,52 +6297,48 @@ ApplyUnsignedSortComparator.exit.thread16.i:      ; preds = %ApplyUnsignedSortCo
   %39 = getelementptr inbounds i8, ptr %3, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
-  %.pre120.pre = load i64, ptr %10, align 8
+  %.pre100.pre = load i64, ptr %10, align 8
   %.pre.pre = load i8, ptr %12, align 8
-  %.pre121.pre = load ptr, ptr %15, align 8
+  %.pre101.pre = load ptr, ptr %15, align 8
   br label %qsort_tuple_unsigned_compare.exit
 
 qsort_tuple_unsigned_compare.exit:                ; preds = %ApplyUnsignedSortComparator.exit.i, %38
-  %.pre121 = phi ptr [ %.pre121.pre, %38 ], [ %16, %ApplyUnsignedSortComparator.exit.i ]
+  %.pre101 = phi ptr [ %.pre101.pre, %38 ], [ %16, %ApplyUnsignedSortComparator.exit.i ]
   %.pre = phi i8 [ %.pre.pre, %38 ], [ %13, %ApplyUnsignedSortComparator.exit.i ]
-  %.pre120 = phi i64 [ %.pre120.pre, %38 ], [ %11, %ApplyUnsignedSortComparator.exit.i ]
+  %.pre100 = phi i64 [ %.pre100.pre, %38 ], [ %11, %ApplyUnsignedSortComparator.exit.i ]
   %.0.i = phi i32 [ %41, %38 ], [ %.0.i.i, %ApplyUnsignedSortComparator.exit.i ]
   %42 = icmp slt i32 %.0.i, 0
-  br i1 %42, label %qsort_tuple_unsigned_compare.exit.thread84, label %qsort_tuple_unsigned_compare.exit.thread
+  br i1 %42, label %qsort_tuple_unsigned_compare.exit.thread64, label %qsort_tuple_unsigned_compare.exit.thread
 
-qsort_tuple_unsigned_compare.exit.thread84:       ; preds = %23, %18, %qsort_tuple_unsigned_compare.exit
-  %43 = phi ptr [ %16, %23 ], [ %16, %18 ], [ %.pre121, %qsort_tuple_unsigned_compare.exit ]
-  %44 = phi i8 [ %13, %23 ], [ %13, %18 ], [ %.pre, %qsort_tuple_unsigned_compare.exit ]
-  %45 = phi i64 [ %11, %23 ], [ %11, %18 ], [ %.pre120, %qsort_tuple_unsigned_compare.exit ]
-  %46 = and i8 %44, 1
-  %.not19.i21 = icmp eq i8 %46, 0
+qsort_tuple_unsigned_compare.exit.thread64:       ; preds = %18, %23, %qsort_tuple_unsigned_compare.exit
+  %43 = phi ptr [ %16, %18 ], [ %16, %23 ], [ %.pre101, %qsort_tuple_unsigned_compare.exit ]
+  %44 = phi i8 [ %13, %18 ], [ %13, %23 ], [ %.pre, %qsort_tuple_unsigned_compare.exit ]
+  %45 = phi i64 [ %11, %18 ], [ %11, %23 ], [ %.pre100, %qsort_tuple_unsigned_compare.exit ]
+  %46 = trunc i8 %44 to i1
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %2, i64 16
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 1
-  %.not20.i22 = icmp eq i8 %51, 0
-  br i1 %.not19.i21, label %57, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %46, label %52, label %57
 
-52:                                               ; preds = %qsort_tuple_unsigned_compare.exit.thread84
-  br i1 %.not20.i22, label %53, label %ApplyUnsignedSortComparator.exit.thread16.i23
+52:                                               ; preds = %qsort_tuple_unsigned_compare.exit.thread64
+  br i1 %51, label %ApplyUnsignedSortComparator.exit.thread16.i25, label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %43, i64 13
   %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 1
-  %.not13.i.i26 = icmp eq i8 %56, 0
-  br i1 %.not13.i.i26, label %qsort_tuple_unsigned_compare.exit35.thread, label %qsort_tuple_unsigned_compare.exit35.thread90
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %qsort_tuple_unsigned_compare.exit30.thread70, label %qsort_tuple_unsigned_compare.exit30.thread
 
-57:                                               ; preds = %qsort_tuple_unsigned_compare.exit.thread84
-  br i1 %.not20.i22, label %62, label %58
+57:                                               ; preds = %qsort_tuple_unsigned_compare.exit.thread64
+  br i1 %51, label %58, label %62
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds i8, ptr %43, i64 13
   %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  %.not12.i.i28 = icmp eq i8 %61, 0
-  br i1 %.not12.i.i28, label %qsort_tuple_unsigned_compare.exit35.thread90, label %qsort_tuple_unsigned_compare.exit35.thread
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %qsort_tuple_unsigned_compare.exit30.thread, label %qsort_tuple_unsigned_compare.exit30.thread70
 
 62:                                               ; preds = %57
   %63 = icmp ult i64 %45, %48
@@ -6466,73 +6347,68 @@ qsort_tuple_unsigned_compare.exit.thread84:       ; preds = %23, %18, %qsort_tup
   %66 = select i1 %63, i32 -1, i32 %65
   %67 = getelementptr inbounds i8, ptr %43, i64 12
   %68 = load i8, ptr %67, align 4
-  %69 = and i8 %68, 1
-  %.not.i.i30 = icmp eq i8 %69, 0
-  br i1 %.not.i.i30, label %ApplyUnsignedSortComparator.exit.i32, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %ApplyUnsignedSortComparator.exit.i21
 
 70:                                               ; preds = %62
-  %.neg.i.i31 = sext i1 %64 to i32
-  br i1 %63, label %qsort_tuple_unsigned_compare.exit35.thread, label %ApplyUnsignedSortComparator.exit.i32
+  %.neg.i.i27 = sext i1 %64 to i32
+  br i1 %63, label %qsort_tuple_unsigned_compare.exit30.thread, label %ApplyUnsignedSortComparator.exit.i21
 
-ApplyUnsignedSortComparator.exit.i32:             ; preds = %70, %62
-  %.0.i.i33 = phi i32 [ %.neg.i.i31, %70 ], [ %66, %62 ]
-  %.not.i34 = icmp eq i32 %.0.i.i33, 0
-  br i1 %.not.i34, label %ApplyUnsignedSortComparator.exit.thread16.i23, label %qsort_tuple_unsigned_compare.exit35
+ApplyUnsignedSortComparator.exit.i21:             ; preds = %70, %62
+  %.0.i.i22 = phi i32 [ %.neg.i.i27, %70 ], [ %66, %62 ]
+  %.not.i23 = icmp eq i32 %.0.i.i22, 0
+  br i1 %.not.i23, label %ApplyUnsignedSortComparator.exit.thread16.i25, label %qsort_tuple_unsigned_compare.exit30
 
-ApplyUnsignedSortComparator.exit.thread16.i23:    ; preds = %ApplyUnsignedSortComparator.exit.i32, %52
+ApplyUnsignedSortComparator.exit.thread16.i25:    ; preds = %ApplyUnsignedSortComparator.exit.i21, %52
   %71 = getelementptr inbounds i8, ptr %3, i64 88
   %72 = load ptr, ptr %71, align 8
-  %.not13.i24 = icmp eq ptr %72, null
-  br i1 %.not13.i24, label %73, label %qsort_tuple_unsigned_compare.exit35.thread
+  %.not13.i26 = icmp eq ptr %72, null
+  br i1 %.not13.i26, label %73, label %qsort_tuple_unsigned_compare.exit30.thread
 
-73:                                               ; preds = %ApplyUnsignedSortComparator.exit.thread16.i23
+73:                                               ; preds = %ApplyUnsignedSortComparator.exit.thread16.i25
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %75(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_unsigned_compare.exit35
+  br label %qsort_tuple_unsigned_compare.exit30
 
-qsort_tuple_unsigned_compare.exit35:              ; preds = %ApplyUnsignedSortComparator.exit.i32, %73
-  %.0.i25 = phi i32 [ %76, %73 ], [ %.0.i.i33, %ApplyUnsignedSortComparator.exit.i32 ]
-  %77 = icmp slt i32 %.0.i25, 0
-  br i1 %77, label %qsort_tuple_unsigned_compare.exit35.thread90, label %qsort_tuple_unsigned_compare.exit35.qsort_tuple_unsigned_compare.exit35.thread_crit_edge
+qsort_tuple_unsigned_compare.exit30:              ; preds = %ApplyUnsignedSortComparator.exit.i21, %73
+  %.0.i24 = phi i32 [ %76, %73 ], [ %.0.i.i22, %ApplyUnsignedSortComparator.exit.i21 ]
+  %77 = icmp slt i32 %.0.i24, 0
+  br i1 %77, label %qsort_tuple_unsigned_compare.exit30.thread70, label %qsort_tuple_unsigned_compare.exit30.qsort_tuple_unsigned_compare.exit30.thread_crit_edge
 
-qsort_tuple_unsigned_compare.exit35.qsort_tuple_unsigned_compare.exit35.thread_crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit35
-  %.pre122 = load i64, ptr %47, align 8
-  %.pre123 = load i8, ptr %49, align 8
-  %.pre124 = load ptr, ptr %15, align 8
-  br label %qsort_tuple_unsigned_compare.exit35.thread
+qsort_tuple_unsigned_compare.exit30.qsort_tuple_unsigned_compare.exit30.thread_crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit30
+  %.pre102 = load i64, ptr %47, align 8
+  %.pre103 = load i8, ptr %49, align 8
+  %.pre104 = load ptr, ptr %15, align 8
+  br label %qsort_tuple_unsigned_compare.exit30.thread
 
-qsort_tuple_unsigned_compare.exit35.thread:       ; preds = %qsort_tuple_unsigned_compare.exit35.qsort_tuple_unsigned_compare.exit35.thread_crit_edge, %53, %70, %58, %ApplyUnsignedSortComparator.exit.thread16.i23
-  %78 = phi ptr [ %.pre124, %qsort_tuple_unsigned_compare.exit35.qsort_tuple_unsigned_compare.exit35.thread_crit_edge ], [ %43, %53 ], [ %43, %70 ], [ %43, %58 ], [ %43, %ApplyUnsignedSortComparator.exit.thread16.i23 ]
-  %79 = phi i8 [ %.pre123, %qsort_tuple_unsigned_compare.exit35.qsort_tuple_unsigned_compare.exit35.thread_crit_edge ], [ %50, %53 ], [ %50, %70 ], [ %50, %58 ], [ %50, %ApplyUnsignedSortComparator.exit.thread16.i23 ]
-  %80 = phi i64 [ %.pre122, %qsort_tuple_unsigned_compare.exit35.qsort_tuple_unsigned_compare.exit35.thread_crit_edge ], [ %48, %53 ], [ %48, %70 ], [ %48, %58 ], [ %48, %ApplyUnsignedSortComparator.exit.thread16.i23 ]
+qsort_tuple_unsigned_compare.exit30.thread:       ; preds = %qsort_tuple_unsigned_compare.exit30.qsort_tuple_unsigned_compare.exit30.thread_crit_edge, %58, %70, %53, %ApplyUnsignedSortComparator.exit.thread16.i25
+  %78 = phi ptr [ %.pre104, %qsort_tuple_unsigned_compare.exit30.qsort_tuple_unsigned_compare.exit30.thread_crit_edge ], [ %43, %58 ], [ %43, %70 ], [ %43, %53 ], [ %43, %ApplyUnsignedSortComparator.exit.thread16.i25 ]
+  %79 = phi i8 [ %.pre103, %qsort_tuple_unsigned_compare.exit30.qsort_tuple_unsigned_compare.exit30.thread_crit_edge ], [ %50, %58 ], [ %50, %70 ], [ %50, %53 ], [ %50, %ApplyUnsignedSortComparator.exit.thread16.i25 ]
+  %80 = phi i64 [ %.pre102, %qsort_tuple_unsigned_compare.exit30.qsort_tuple_unsigned_compare.exit30.thread_crit_edge ], [ %48, %58 ], [ %48, %70 ], [ %48, %53 ], [ %48, %ApplyUnsignedSortComparator.exit.thread16.i25 ]
   %81 = load i64, ptr %5, align 8
   %82 = load i8, ptr %7, align 8
-  %83 = and i8 %82, 1
-  %.not19.i36 = icmp eq i8 %83, 0
-  %84 = and i8 %79, 1
-  %.not20.i37 = icmp eq i8 %84, 0
-  br i1 %.not19.i36, label %90, label %85
+  %83 = trunc i8 %82 to i1
+  %84 = trunc i8 %79 to i1
+  br i1 %83, label %85, label %90
 
-85:                                               ; preds = %qsort_tuple_unsigned_compare.exit35.thread
-  br i1 %.not20.i37, label %86, label %ApplyUnsignedSortComparator.exit.thread16.i38
+85:                                               ; preds = %qsort_tuple_unsigned_compare.exit30.thread
+  br i1 %84, label %ApplyUnsignedSortComparator.exit.thread16.i35, label %86
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds i8, ptr %78, i64 13
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not13.i.i41 = icmp eq i8 %89, 0
-  br i1 %.not13.i.i41, label %qsort_tuple_unsigned_compare.exit35.thread90, label %qsort_tuple_unsigned_compare.exit50.thread97
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %qsort_tuple_unsigned_compare.exit40.thread77, label %qsort_tuple_unsigned_compare.exit30.thread70
 
-90:                                               ; preds = %qsort_tuple_unsigned_compare.exit35.thread
-  br i1 %.not20.i37, label %95, label %91
+90:                                               ; preds = %qsort_tuple_unsigned_compare.exit30.thread
+  br i1 %84, label %91, label %95
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i8, ptr %78, i64 13
   %93 = load i8, ptr %92, align 1
-  %94 = and i8 %93, 1
-  %.not12.i.i43 = icmp eq i8 %94, 0
-  br i1 %.not12.i.i43, label %qsort_tuple_unsigned_compare.exit50.thread97, label %qsort_tuple_unsigned_compare.exit35.thread90
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %qsort_tuple_unsigned_compare.exit30.thread70, label %qsort_tuple_unsigned_compare.exit40.thread77
 
 95:                                               ; preds = %90
   %96 = icmp ult i64 %81, %80
@@ -6541,73 +6417,68 @@ qsort_tuple_unsigned_compare.exit35.thread:       ; preds = %qsort_tuple_unsigne
   %99 = select i1 %96, i32 -1, i32 %98
   %100 = getelementptr inbounds i8, ptr %78, i64 12
   %101 = load i8, ptr %100, align 4
-  %102 = and i8 %101, 1
-  %.not.i.i45 = icmp eq i8 %102, 0
-  br i1 %.not.i.i45, label %ApplyUnsignedSortComparator.exit.i47, label %103
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %ApplyUnsignedSortComparator.exit.i31
 
 103:                                              ; preds = %95
-  %.neg.i.i46 = sext i1 %97 to i32
-  br i1 %96, label %qsort_tuple_unsigned_compare.exit35.thread90, label %ApplyUnsignedSortComparator.exit.i47
+  %.neg.i.i37 = sext i1 %97 to i32
+  br i1 %96, label %qsort_tuple_unsigned_compare.exit30.thread70, label %ApplyUnsignedSortComparator.exit.i31
 
-ApplyUnsignedSortComparator.exit.i47:             ; preds = %103, %95
-  %.0.i.i48 = phi i32 [ %.neg.i.i46, %103 ], [ %99, %95 ]
-  %.not.i49 = icmp eq i32 %.0.i.i48, 0
-  br i1 %.not.i49, label %ApplyUnsignedSortComparator.exit.thread16.i38, label %qsort_tuple_unsigned_compare.exit50
+ApplyUnsignedSortComparator.exit.i31:             ; preds = %103, %95
+  %.0.i.i32 = phi i32 [ %.neg.i.i37, %103 ], [ %99, %95 ]
+  %.not.i33 = icmp eq i32 %.0.i.i32, 0
+  br i1 %.not.i33, label %ApplyUnsignedSortComparator.exit.thread16.i35, label %qsort_tuple_unsigned_compare.exit40
 
-ApplyUnsignedSortComparator.exit.thread16.i38:    ; preds = %ApplyUnsignedSortComparator.exit.i47, %85
+ApplyUnsignedSortComparator.exit.thread16.i35:    ; preds = %ApplyUnsignedSortComparator.exit.i31, %85
   %104 = getelementptr inbounds i8, ptr %3, i64 88
   %105 = load ptr, ptr %104, align 8
-  %.not13.i39 = icmp eq ptr %105, null
-  br i1 %.not13.i39, label %106, label %qsort_tuple_unsigned_compare.exit35.thread90
+  %.not13.i36 = icmp eq ptr %105, null
+  br i1 %.not13.i36, label %106, label %qsort_tuple_unsigned_compare.exit30.thread70
 
-106:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i38
+106:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i35
   %107 = getelementptr inbounds i8, ptr %3, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_unsigned_compare.exit50
+  br label %qsort_tuple_unsigned_compare.exit40
 
-qsort_tuple_unsigned_compare.exit50:              ; preds = %ApplyUnsignedSortComparator.exit.i47, %106
-  %.0.i40 = phi i32 [ %109, %106 ], [ %.0.i.i48, %ApplyUnsignedSortComparator.exit.i47 ]
-  %.0.i40.fr = freeze i32 %.0.i40
-  %110 = icmp slt i32 %.0.i40.fr, 0
-  br i1 %110, label %qsort_tuple_unsigned_compare.exit50.thread97, label %qsort_tuple_unsigned_compare.exit35.thread90
+qsort_tuple_unsigned_compare.exit40:              ; preds = %ApplyUnsignedSortComparator.exit.i31, %106
+  %.0.i34 = phi i32 [ %109, %106 ], [ %.0.i.i32, %ApplyUnsignedSortComparator.exit.i31 ]
+  %.0.i34.fr = freeze i32 %.0.i34
+  %110 = icmp slt i32 %.0.i34.fr, 0
+  br i1 %110, label %qsort_tuple_unsigned_compare.exit40.thread77, label %qsort_tuple_unsigned_compare.exit30.thread70
 
-qsort_tuple_unsigned_compare.exit50.thread97:     ; preds = %91, %86, %qsort_tuple_unsigned_compare.exit50
-  br label %qsort_tuple_unsigned_compare.exit35.thread90
+qsort_tuple_unsigned_compare.exit40.thread77:     ; preds = %86, %91, %qsort_tuple_unsigned_compare.exit40
+  br label %qsort_tuple_unsigned_compare.exit30.thread70
 
-qsort_tuple_unsigned_compare.exit.thread:         ; preds = %qsort_tuple_unsigned_compare.exit, %18, %35, %23, %ApplyUnsignedSortComparator.exit.thread16.i
-  %111 = phi ptr [ %16, %18 ], [ %16, %35 ], [ %16, %23 ], [ %16, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre121, %qsort_tuple_unsigned_compare.exit ]
-  %112 = phi i8 [ %13, %18 ], [ %13, %35 ], [ %13, %23 ], [ %13, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_unsigned_compare.exit ]
-  %113 = phi i64 [ %11, %18 ], [ %11, %35 ], [ %11, %23 ], [ %11, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre120, %qsort_tuple_unsigned_compare.exit ]
-  %114 = and i8 %112, 1
-  %.not19.i51 = icmp eq i8 %114, 0
+qsort_tuple_unsigned_compare.exit.thread:         ; preds = %qsort_tuple_unsigned_compare.exit, %23, %35, %18, %ApplyUnsignedSortComparator.exit.thread16.i
+  %111 = phi ptr [ %16, %23 ], [ %16, %35 ], [ %16, %18 ], [ %16, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre101, %qsort_tuple_unsigned_compare.exit ]
+  %112 = phi i8 [ %13, %23 ], [ %13, %35 ], [ %13, %18 ], [ %13, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_unsigned_compare.exit ]
+  %113 = phi i64 [ %11, %23 ], [ %11, %35 ], [ %11, %18 ], [ %11, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre100, %qsort_tuple_unsigned_compare.exit ]
+  %114 = trunc i8 %112 to i1
   %115 = getelementptr inbounds i8, ptr %2, i64 8
   %116 = load i64, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %2, i64 16
   %118 = load i8, ptr %117, align 8
-  %119 = and i8 %118, 1
-  %.not20.i52 = icmp eq i8 %119, 0
-  br i1 %.not19.i51, label %125, label %120
+  %119 = trunc i8 %118 to i1
+  br i1 %114, label %120, label %125
 
 120:                                              ; preds = %qsort_tuple_unsigned_compare.exit.thread
-  br i1 %.not20.i52, label %121, label %ApplyUnsignedSortComparator.exit.thread16.i53
+  br i1 %119, label %ApplyUnsignedSortComparator.exit.thread16.i45, label %121
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds i8, ptr %111, i64 13
   %123 = load i8, ptr %122, align 1
-  %124 = and i8 %123, 1
-  %.not13.i.i56 = icmp eq i8 %124, 0
-  br i1 %.not13.i.i56, label %qsort_tuple_unsigned_compare.exit35.thread90, label %qsort_tuple_unsigned_compare.exit65.thread104
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %qsort_tuple_unsigned_compare.exit50.thread84, label %qsort_tuple_unsigned_compare.exit30.thread70
 
 125:                                              ; preds = %qsort_tuple_unsigned_compare.exit.thread
-  br i1 %.not20.i52, label %130, label %126
+  br i1 %119, label %126, label %130
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds i8, ptr %111, i64 13
   %128 = load i8, ptr %127, align 1
-  %129 = and i8 %128, 1
-  %.not12.i.i58 = icmp eq i8 %129, 0
-  br i1 %.not12.i.i58, label %qsort_tuple_unsigned_compare.exit65.thread104, label %qsort_tuple_unsigned_compare.exit35.thread90
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %qsort_tuple_unsigned_compare.exit30.thread70, label %qsort_tuple_unsigned_compare.exit50.thread84
 
 130:                                              ; preds = %125
   %131 = icmp ult i64 %113, %116
@@ -6616,73 +6487,68 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %qsort_tuple_unsigne
   %134 = select i1 %131, i32 -1, i32 %133
   %135 = getelementptr inbounds i8, ptr %111, i64 12
   %136 = load i8, ptr %135, align 4
-  %137 = and i8 %136, 1
-  %.not.i.i60 = icmp eq i8 %137, 0
-  br i1 %.not.i.i60, label %ApplyUnsignedSortComparator.exit.i62, label %138
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %ApplyUnsignedSortComparator.exit.i41
 
 138:                                              ; preds = %130
-  %.neg.i.i61 = sext i1 %132 to i32
-  br i1 %131, label %qsort_tuple_unsigned_compare.exit35.thread90, label %ApplyUnsignedSortComparator.exit.i62
+  %.neg.i.i47 = sext i1 %132 to i32
+  br i1 %131, label %qsort_tuple_unsigned_compare.exit30.thread70, label %ApplyUnsignedSortComparator.exit.i41
 
-ApplyUnsignedSortComparator.exit.i62:             ; preds = %138, %130
-  %.0.i.i63 = phi i32 [ %.neg.i.i61, %138 ], [ %134, %130 ]
-  %.not.i64 = icmp eq i32 %.0.i.i63, 0
-  br i1 %.not.i64, label %ApplyUnsignedSortComparator.exit.thread16.i53, label %qsort_tuple_unsigned_compare.exit65
+ApplyUnsignedSortComparator.exit.i41:             ; preds = %138, %130
+  %.0.i.i42 = phi i32 [ %.neg.i.i47, %138 ], [ %134, %130 ]
+  %.not.i43 = icmp eq i32 %.0.i.i42, 0
+  br i1 %.not.i43, label %ApplyUnsignedSortComparator.exit.thread16.i45, label %qsort_tuple_unsigned_compare.exit50
 
-ApplyUnsignedSortComparator.exit.thread16.i53:    ; preds = %ApplyUnsignedSortComparator.exit.i62, %120
+ApplyUnsignedSortComparator.exit.thread16.i45:    ; preds = %ApplyUnsignedSortComparator.exit.i41, %120
   %139 = getelementptr inbounds i8, ptr %3, i64 88
   %140 = load ptr, ptr %139, align 8
-  %.not13.i54 = icmp eq ptr %140, null
-  br i1 %.not13.i54, label %141, label %qsort_tuple_unsigned_compare.exit65.thread104
+  %.not13.i46 = icmp eq ptr %140, null
+  br i1 %.not13.i46, label %141, label %qsort_tuple_unsigned_compare.exit50.thread84
 
-141:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i53
+141:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i45
   %142 = getelementptr inbounds i8, ptr %3, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = tail call i32 %143(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_unsigned_compare.exit65
+  br label %qsort_tuple_unsigned_compare.exit50
 
-qsort_tuple_unsigned_compare.exit65:              ; preds = %ApplyUnsignedSortComparator.exit.i62, %141
-  %.0.i55 = phi i32 [ %144, %141 ], [ %.0.i.i63, %ApplyUnsignedSortComparator.exit.i62 ]
-  %145 = icmp sgt i32 %.0.i55, 0
-  br i1 %145, label %qsort_tuple_unsigned_compare.exit35.thread90, label %qsort_tuple_unsigned_compare.exit65.qsort_tuple_unsigned_compare.exit65.thread104_crit_edge
+qsort_tuple_unsigned_compare.exit50:              ; preds = %ApplyUnsignedSortComparator.exit.i41, %141
+  %.0.i44 = phi i32 [ %144, %141 ], [ %.0.i.i42, %ApplyUnsignedSortComparator.exit.i41 ]
+  %145 = icmp sgt i32 %.0.i44, 0
+  br i1 %145, label %qsort_tuple_unsigned_compare.exit30.thread70, label %qsort_tuple_unsigned_compare.exit50.qsort_tuple_unsigned_compare.exit50.thread84_crit_edge
 
-qsort_tuple_unsigned_compare.exit65.qsort_tuple_unsigned_compare.exit65.thread104_crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit65
-  %.pre117 = load i64, ptr %115, align 8
-  %.pre118 = load i8, ptr %117, align 8
-  %.pre119 = load ptr, ptr %15, align 8
-  br label %qsort_tuple_unsigned_compare.exit65.thread104
+qsort_tuple_unsigned_compare.exit50.qsort_tuple_unsigned_compare.exit50.thread84_crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit50
+  %.pre97 = load i64, ptr %115, align 8
+  %.pre98 = load i8, ptr %117, align 8
+  %.pre99 = load ptr, ptr %15, align 8
+  br label %qsort_tuple_unsigned_compare.exit50.thread84
 
-qsort_tuple_unsigned_compare.exit65.thread104:    ; preds = %qsort_tuple_unsigned_compare.exit65.qsort_tuple_unsigned_compare.exit65.thread104_crit_edge, %126, %121, %ApplyUnsignedSortComparator.exit.thread16.i53
-  %146 = phi ptr [ %.pre119, %qsort_tuple_unsigned_compare.exit65.qsort_tuple_unsigned_compare.exit65.thread104_crit_edge ], [ %111, %126 ], [ %111, %121 ], [ %111, %ApplyUnsignedSortComparator.exit.thread16.i53 ]
-  %147 = phi i8 [ %.pre118, %qsort_tuple_unsigned_compare.exit65.qsort_tuple_unsigned_compare.exit65.thread104_crit_edge ], [ %118, %126 ], [ %118, %121 ], [ %118, %ApplyUnsignedSortComparator.exit.thread16.i53 ]
-  %148 = phi i64 [ %.pre117, %qsort_tuple_unsigned_compare.exit65.qsort_tuple_unsigned_compare.exit65.thread104_crit_edge ], [ %116, %126 ], [ %116, %121 ], [ %116, %ApplyUnsignedSortComparator.exit.thread16.i53 ]
+qsort_tuple_unsigned_compare.exit50.thread84:     ; preds = %qsort_tuple_unsigned_compare.exit50.qsort_tuple_unsigned_compare.exit50.thread84_crit_edge, %121, %126, %ApplyUnsignedSortComparator.exit.thread16.i45
+  %146 = phi ptr [ %.pre99, %qsort_tuple_unsigned_compare.exit50.qsort_tuple_unsigned_compare.exit50.thread84_crit_edge ], [ %111, %121 ], [ %111, %126 ], [ %111, %ApplyUnsignedSortComparator.exit.thread16.i45 ]
+  %147 = phi i8 [ %.pre98, %qsort_tuple_unsigned_compare.exit50.qsort_tuple_unsigned_compare.exit50.thread84_crit_edge ], [ %118, %121 ], [ %118, %126 ], [ %118, %ApplyUnsignedSortComparator.exit.thread16.i45 ]
+  %148 = phi i64 [ %.pre97, %qsort_tuple_unsigned_compare.exit50.qsort_tuple_unsigned_compare.exit50.thread84_crit_edge ], [ %116, %121 ], [ %116, %126 ], [ %116, %ApplyUnsignedSortComparator.exit.thread16.i45 ]
   %149 = load i64, ptr %5, align 8
   %150 = load i8, ptr %7, align 8
-  %151 = and i8 %150, 1
-  %.not19.i66 = icmp eq i8 %151, 0
-  %152 = and i8 %147, 1
-  %.not20.i67 = icmp eq i8 %152, 0
-  br i1 %.not19.i66, label %158, label %153
+  %151 = trunc i8 %150 to i1
+  %152 = trunc i8 %147 to i1
+  br i1 %151, label %153, label %158
 
-153:                                              ; preds = %qsort_tuple_unsigned_compare.exit65.thread104
-  br i1 %.not20.i67, label %154, label %ApplyUnsignedSortComparator.exit.thread16.i68
+153:                                              ; preds = %qsort_tuple_unsigned_compare.exit50.thread84
+  br i1 %152, label %ApplyUnsignedSortComparator.exit.thread16.i55, label %154
 
 154:                                              ; preds = %153
   %155 = getelementptr inbounds i8, ptr %146, i64 13
   %156 = load i8, ptr %155, align 1
-  %157 = and i8 %156, 1
-  %.not13.i.i71 = icmp eq i8 %157, 0
-  br i1 %.not13.i.i71, label %qsort_tuple_unsigned_compare.exit35.thread90, label %qsort_tuple_unsigned_compare.exit80.thread112
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %qsort_tuple_unsigned_compare.exit60.thread92, label %qsort_tuple_unsigned_compare.exit30.thread70
 
-158:                                              ; preds = %qsort_tuple_unsigned_compare.exit65.thread104
-  br i1 %.not20.i67, label %163, label %159
+158:                                              ; preds = %qsort_tuple_unsigned_compare.exit50.thread84
+  br i1 %152, label %159, label %163
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds i8, ptr %146, i64 13
   %161 = load i8, ptr %160, align 1
-  %162 = and i8 %161, 1
-  %.not12.i.i73 = icmp eq i8 %162, 0
-  br i1 %.not12.i.i73, label %qsort_tuple_unsigned_compare.exit80.thread112, label %qsort_tuple_unsigned_compare.exit35.thread90
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %qsort_tuple_unsigned_compare.exit30.thread70, label %qsort_tuple_unsigned_compare.exit60.thread92
 
 163:                                              ; preds = %158
   %164 = icmp ult i64 %149, %148
@@ -6691,42 +6557,41 @@ qsort_tuple_unsigned_compare.exit65.thread104:    ; preds = %qsort_tuple_unsigne
   %167 = select i1 %164, i32 -1, i32 %166
   %168 = getelementptr inbounds i8, ptr %146, i64 12
   %169 = load i8, ptr %168, align 4
-  %170 = and i8 %169, 1
-  %.not.i.i75 = icmp eq i8 %170, 0
-  br i1 %.not.i.i75, label %ApplyUnsignedSortComparator.exit.i77, label %171
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %ApplyUnsignedSortComparator.exit.i51
 
 171:                                              ; preds = %163
-  %.neg.i.i76 = sext i1 %165 to i32
-  br i1 %164, label %qsort_tuple_unsigned_compare.exit35.thread90, label %ApplyUnsignedSortComparator.exit.i77
+  %.neg.i.i57 = sext i1 %165 to i32
+  br i1 %164, label %qsort_tuple_unsigned_compare.exit30.thread70, label %ApplyUnsignedSortComparator.exit.i51
 
-ApplyUnsignedSortComparator.exit.i77:             ; preds = %171, %163
-  %.0.i.i78 = phi i32 [ %.neg.i.i76, %171 ], [ %167, %163 ]
-  %.not.i79 = icmp eq i32 %.0.i.i78, 0
-  br i1 %.not.i79, label %ApplyUnsignedSortComparator.exit.thread16.i68, label %qsort_tuple_unsigned_compare.exit80
+ApplyUnsignedSortComparator.exit.i51:             ; preds = %171, %163
+  %.0.i.i52 = phi i32 [ %.neg.i.i57, %171 ], [ %167, %163 ]
+  %.not.i53 = icmp eq i32 %.0.i.i52, 0
+  br i1 %.not.i53, label %ApplyUnsignedSortComparator.exit.thread16.i55, label %qsort_tuple_unsigned_compare.exit60
 
-ApplyUnsignedSortComparator.exit.thread16.i68:    ; preds = %ApplyUnsignedSortComparator.exit.i77, %153
+ApplyUnsignedSortComparator.exit.thread16.i55:    ; preds = %ApplyUnsignedSortComparator.exit.i51, %153
   %172 = getelementptr inbounds i8, ptr %3, i64 88
   %173 = load ptr, ptr %172, align 8
-  %.not13.i69 = icmp eq ptr %173, null
-  br i1 %.not13.i69, label %174, label %qsort_tuple_unsigned_compare.exit35.thread90
+  %.not13.i56 = icmp eq ptr %173, null
+  br i1 %.not13.i56, label %174, label %qsort_tuple_unsigned_compare.exit30.thread70
 
-174:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i68
+174:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i55
   %175 = getelementptr inbounds i8, ptr %3, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = tail call i32 %176(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_unsigned_compare.exit80
+  br label %qsort_tuple_unsigned_compare.exit60
 
-qsort_tuple_unsigned_compare.exit80:              ; preds = %ApplyUnsignedSortComparator.exit.i77, %174
-  %.0.i70 = phi i32 [ %177, %174 ], [ %.0.i.i78, %ApplyUnsignedSortComparator.exit.i77 ]
-  %.0.i70.fr = freeze i32 %.0.i70
-  %178 = icmp slt i32 %.0.i70.fr, 0
-  br i1 %178, label %qsort_tuple_unsigned_compare.exit80.thread112, label %qsort_tuple_unsigned_compare.exit35.thread90
+qsort_tuple_unsigned_compare.exit60:              ; preds = %ApplyUnsignedSortComparator.exit.i51, %174
+  %.0.i54 = phi i32 [ %177, %174 ], [ %.0.i.i52, %ApplyUnsignedSortComparator.exit.i51 ]
+  %.0.i54.fr = freeze i32 %.0.i54
+  %178 = icmp slt i32 %.0.i54.fr, 0
+  br i1 %178, label %qsort_tuple_unsigned_compare.exit60.thread92, label %qsort_tuple_unsigned_compare.exit30.thread70
 
-qsort_tuple_unsigned_compare.exit80.thread112:    ; preds = %159, %154, %qsort_tuple_unsigned_compare.exit80
-  br label %qsort_tuple_unsigned_compare.exit35.thread90
+qsort_tuple_unsigned_compare.exit60.thread92:     ; preds = %154, %159, %qsort_tuple_unsigned_compare.exit60
+  br label %qsort_tuple_unsigned_compare.exit30.thread70
 
-qsort_tuple_unsigned_compare.exit35.thread90:     ; preds = %154, %171, %159, %ApplyUnsignedSortComparator.exit.thread16.i68, %121, %138, %126, %86, %103, %91, %ApplyUnsignedSortComparator.exit.thread16.i38, %58, %53, %qsort_tuple_unsigned_compare.exit80.thread112, %qsort_tuple_unsigned_compare.exit80, %qsort_tuple_unsigned_compare.exit50.thread97, %qsort_tuple_unsigned_compare.exit50, %qsort_tuple_unsigned_compare.exit65, %qsort_tuple_unsigned_compare.exit35
-  %179 = phi ptr [ %1, %qsort_tuple_unsigned_compare.exit35 ], [ %1, %qsort_tuple_unsigned_compare.exit65 ], [ %2, %qsort_tuple_unsigned_compare.exit50.thread97 ], [ %0, %qsort_tuple_unsigned_compare.exit50 ], [ %0, %qsort_tuple_unsigned_compare.exit80.thread112 ], [ %2, %qsort_tuple_unsigned_compare.exit80 ], [ %1, %53 ], [ %1, %58 ], [ %0, %ApplyUnsignedSortComparator.exit.thread16.i38 ], [ %0, %91 ], [ %0, %103 ], [ %0, %86 ], [ %1, %126 ], [ %1, %138 ], [ %1, %121 ], [ %2, %ApplyUnsignedSortComparator.exit.thread16.i68 ], [ %2, %159 ], [ %2, %171 ], [ %2, %154 ]
+qsort_tuple_unsigned_compare.exit30.thread70:     ; preds = %159, %171, %154, %ApplyUnsignedSortComparator.exit.thread16.i55, %126, %138, %121, %91, %103, %86, %ApplyUnsignedSortComparator.exit.thread16.i35, %53, %58, %qsort_tuple_unsigned_compare.exit60.thread92, %qsort_tuple_unsigned_compare.exit60, %qsort_tuple_unsigned_compare.exit40.thread77, %qsort_tuple_unsigned_compare.exit40, %qsort_tuple_unsigned_compare.exit50, %qsort_tuple_unsigned_compare.exit30
+  %179 = phi ptr [ %1, %qsort_tuple_unsigned_compare.exit30 ], [ %1, %qsort_tuple_unsigned_compare.exit50 ], [ %2, %qsort_tuple_unsigned_compare.exit40.thread77 ], [ %0, %qsort_tuple_unsigned_compare.exit40 ], [ %0, %qsort_tuple_unsigned_compare.exit60.thread92 ], [ %2, %qsort_tuple_unsigned_compare.exit60 ], [ %1, %58 ], [ %1, %53 ], [ %0, %ApplyUnsignedSortComparator.exit.thread16.i35 ], [ %0, %86 ], [ %0, %103 ], [ %0, %91 ], [ %1, %121 ], [ %1, %138 ], [ %1, %126 ], [ %2, %ApplyUnsignedSortComparator.exit.thread16.i55 ], [ %2, %154 ], [ %2, %171 ], [ %2, %159 ]
   ret ptr %179
 }
 
@@ -6736,37 +6601,33 @@ define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr 
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not19.i = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not20.i = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
-  br i1 %.not19.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %4
-  br i1 %.not20.i, label %18, label %ApplySignedSortComparator.exit.thread16.i
+  br i1 %14, label %ApplySignedSortComparator.exit.thread16.i, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %16, i64 13
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not13.i.i = icmp eq i8 %21, 0
-  br i1 %.not13.i.i, label %qsort_tuple_signed_compare.exit.thread, label %qsort_tuple_signed_compare.exit.thread84
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %qsort_tuple_signed_compare.exit.thread64, label %qsort_tuple_signed_compare.exit.thread
 
 22:                                               ; preds = %4
-  br i1 %.not20.i, label %27, label %23
+  br i1 %14, label %23, label %27
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %16, i64 13
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not12.i.i = icmp eq i8 %26, 0
-  br i1 %.not12.i.i, label %qsort_tuple_signed_compare.exit.thread84, label %qsort_tuple_signed_compare.exit.thread
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %qsort_tuple_signed_compare.exit.thread, label %qsort_tuple_signed_compare.exit.thread64
 
 27:                                               ; preds = %22
   %28 = icmp slt i64 %6, %11
@@ -6775,9 +6636,8 @@ define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr 
   %31 = select i1 %28, i32 -1, i32 %30
   %32 = getelementptr inbounds i8, ptr %16, i64 12
   %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %.not.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i, label %ApplySignedSortComparator.exit.i, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %ApplySignedSortComparator.exit.i
 
 35:                                               ; preds = %27
   %.neg.i.i = sext i1 %29 to i32
@@ -6798,52 +6658,48 @@ ApplySignedSortComparator.exit.thread16.i:        ; preds = %ApplySignedSortComp
   %39 = getelementptr inbounds i8, ptr %3, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
-  %.pre120.pre = load i64, ptr %10, align 8
+  %.pre100.pre = load i64, ptr %10, align 8
   %.pre.pre = load i8, ptr %12, align 8
-  %.pre121.pre = load ptr, ptr %15, align 8
+  %.pre101.pre = load ptr, ptr %15, align 8
   br label %qsort_tuple_signed_compare.exit
 
 qsort_tuple_signed_compare.exit:                  ; preds = %ApplySignedSortComparator.exit.i, %38
-  %.pre121 = phi ptr [ %.pre121.pre, %38 ], [ %16, %ApplySignedSortComparator.exit.i ]
+  %.pre101 = phi ptr [ %.pre101.pre, %38 ], [ %16, %ApplySignedSortComparator.exit.i ]
   %.pre = phi i8 [ %.pre.pre, %38 ], [ %13, %ApplySignedSortComparator.exit.i ]
-  %.pre120 = phi i64 [ %.pre120.pre, %38 ], [ %11, %ApplySignedSortComparator.exit.i ]
+  %.pre100 = phi i64 [ %.pre100.pre, %38 ], [ %11, %ApplySignedSortComparator.exit.i ]
   %.0.i = phi i32 [ %41, %38 ], [ %.0.i.i, %ApplySignedSortComparator.exit.i ]
   %42 = icmp slt i32 %.0.i, 0
-  br i1 %42, label %qsort_tuple_signed_compare.exit.thread84, label %qsort_tuple_signed_compare.exit.thread
+  br i1 %42, label %qsort_tuple_signed_compare.exit.thread64, label %qsort_tuple_signed_compare.exit.thread
 
-qsort_tuple_signed_compare.exit.thread84:         ; preds = %23, %18, %qsort_tuple_signed_compare.exit
-  %43 = phi ptr [ %16, %23 ], [ %16, %18 ], [ %.pre121, %qsort_tuple_signed_compare.exit ]
-  %44 = phi i8 [ %13, %23 ], [ %13, %18 ], [ %.pre, %qsort_tuple_signed_compare.exit ]
-  %45 = phi i64 [ %11, %23 ], [ %11, %18 ], [ %.pre120, %qsort_tuple_signed_compare.exit ]
-  %46 = and i8 %44, 1
-  %.not19.i21 = icmp eq i8 %46, 0
+qsort_tuple_signed_compare.exit.thread64:         ; preds = %18, %23, %qsort_tuple_signed_compare.exit
+  %43 = phi ptr [ %16, %18 ], [ %16, %23 ], [ %.pre101, %qsort_tuple_signed_compare.exit ]
+  %44 = phi i8 [ %13, %18 ], [ %13, %23 ], [ %.pre, %qsort_tuple_signed_compare.exit ]
+  %45 = phi i64 [ %11, %18 ], [ %11, %23 ], [ %.pre100, %qsort_tuple_signed_compare.exit ]
+  %46 = trunc i8 %44 to i1
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %2, i64 16
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 1
-  %.not20.i22 = icmp eq i8 %51, 0
-  br i1 %.not19.i21, label %57, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %46, label %52, label %57
 
-52:                                               ; preds = %qsort_tuple_signed_compare.exit.thread84
-  br i1 %.not20.i22, label %53, label %ApplySignedSortComparator.exit.thread16.i23
+52:                                               ; preds = %qsort_tuple_signed_compare.exit.thread64
+  br i1 %51, label %ApplySignedSortComparator.exit.thread16.i25, label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %43, i64 13
   %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 1
-  %.not13.i.i26 = icmp eq i8 %56, 0
-  br i1 %.not13.i.i26, label %qsort_tuple_signed_compare.exit35.thread, label %qsort_tuple_signed_compare.exit35.thread90
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %qsort_tuple_signed_compare.exit30.thread70, label %qsort_tuple_signed_compare.exit30.thread
 
-57:                                               ; preds = %qsort_tuple_signed_compare.exit.thread84
-  br i1 %.not20.i22, label %62, label %58
+57:                                               ; preds = %qsort_tuple_signed_compare.exit.thread64
+  br i1 %51, label %58, label %62
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds i8, ptr %43, i64 13
   %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  %.not12.i.i28 = icmp eq i8 %61, 0
-  br i1 %.not12.i.i28, label %qsort_tuple_signed_compare.exit35.thread90, label %qsort_tuple_signed_compare.exit35.thread
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %qsort_tuple_signed_compare.exit30.thread, label %qsort_tuple_signed_compare.exit30.thread70
 
 62:                                               ; preds = %57
   %63 = icmp slt i64 %45, %48
@@ -6852,73 +6708,68 @@ qsort_tuple_signed_compare.exit.thread84:         ; preds = %23, %18, %qsort_tup
   %66 = select i1 %63, i32 -1, i32 %65
   %67 = getelementptr inbounds i8, ptr %43, i64 12
   %68 = load i8, ptr %67, align 4
-  %69 = and i8 %68, 1
-  %.not.i.i30 = icmp eq i8 %69, 0
-  br i1 %.not.i.i30, label %ApplySignedSortComparator.exit.i32, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %ApplySignedSortComparator.exit.i21
 
 70:                                               ; preds = %62
-  %.neg.i.i31 = sext i1 %64 to i32
-  br i1 %63, label %qsort_tuple_signed_compare.exit35.thread, label %ApplySignedSortComparator.exit.i32
+  %.neg.i.i27 = sext i1 %64 to i32
+  br i1 %63, label %qsort_tuple_signed_compare.exit30.thread, label %ApplySignedSortComparator.exit.i21
 
-ApplySignedSortComparator.exit.i32:               ; preds = %70, %62
-  %.0.i.i33 = phi i32 [ %.neg.i.i31, %70 ], [ %66, %62 ]
-  %.not.i34 = icmp eq i32 %.0.i.i33, 0
-  br i1 %.not.i34, label %ApplySignedSortComparator.exit.thread16.i23, label %qsort_tuple_signed_compare.exit35
+ApplySignedSortComparator.exit.i21:               ; preds = %70, %62
+  %.0.i.i22 = phi i32 [ %.neg.i.i27, %70 ], [ %66, %62 ]
+  %.not.i23 = icmp eq i32 %.0.i.i22, 0
+  br i1 %.not.i23, label %ApplySignedSortComparator.exit.thread16.i25, label %qsort_tuple_signed_compare.exit30
 
-ApplySignedSortComparator.exit.thread16.i23:      ; preds = %ApplySignedSortComparator.exit.i32, %52
+ApplySignedSortComparator.exit.thread16.i25:      ; preds = %ApplySignedSortComparator.exit.i21, %52
   %71 = getelementptr inbounds i8, ptr %3, i64 88
   %72 = load ptr, ptr %71, align 8
-  %.not13.i24 = icmp eq ptr %72, null
-  br i1 %.not13.i24, label %73, label %qsort_tuple_signed_compare.exit35.thread
+  %.not13.i26 = icmp eq ptr %72, null
+  br i1 %.not13.i26, label %73, label %qsort_tuple_signed_compare.exit30.thread
 
-73:                                               ; preds = %ApplySignedSortComparator.exit.thread16.i23
+73:                                               ; preds = %ApplySignedSortComparator.exit.thread16.i25
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %75(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_signed_compare.exit35
+  br label %qsort_tuple_signed_compare.exit30
 
-qsort_tuple_signed_compare.exit35:                ; preds = %ApplySignedSortComparator.exit.i32, %73
-  %.0.i25 = phi i32 [ %76, %73 ], [ %.0.i.i33, %ApplySignedSortComparator.exit.i32 ]
-  %77 = icmp slt i32 %.0.i25, 0
-  br i1 %77, label %qsort_tuple_signed_compare.exit35.thread90, label %qsort_tuple_signed_compare.exit35.qsort_tuple_signed_compare.exit35.thread_crit_edge
+qsort_tuple_signed_compare.exit30:                ; preds = %ApplySignedSortComparator.exit.i21, %73
+  %.0.i24 = phi i32 [ %76, %73 ], [ %.0.i.i22, %ApplySignedSortComparator.exit.i21 ]
+  %77 = icmp slt i32 %.0.i24, 0
+  br i1 %77, label %qsort_tuple_signed_compare.exit30.thread70, label %qsort_tuple_signed_compare.exit30.qsort_tuple_signed_compare.exit30.thread_crit_edge
 
-qsort_tuple_signed_compare.exit35.qsort_tuple_signed_compare.exit35.thread_crit_edge: ; preds = %qsort_tuple_signed_compare.exit35
-  %.pre122 = load i64, ptr %47, align 8
-  %.pre123 = load i8, ptr %49, align 8
-  %.pre124 = load ptr, ptr %15, align 8
-  br label %qsort_tuple_signed_compare.exit35.thread
+qsort_tuple_signed_compare.exit30.qsort_tuple_signed_compare.exit30.thread_crit_edge: ; preds = %qsort_tuple_signed_compare.exit30
+  %.pre102 = load i64, ptr %47, align 8
+  %.pre103 = load i8, ptr %49, align 8
+  %.pre104 = load ptr, ptr %15, align 8
+  br label %qsort_tuple_signed_compare.exit30.thread
 
-qsort_tuple_signed_compare.exit35.thread:         ; preds = %qsort_tuple_signed_compare.exit35.qsort_tuple_signed_compare.exit35.thread_crit_edge, %53, %70, %58, %ApplySignedSortComparator.exit.thread16.i23
-  %78 = phi ptr [ %.pre124, %qsort_tuple_signed_compare.exit35.qsort_tuple_signed_compare.exit35.thread_crit_edge ], [ %43, %53 ], [ %43, %70 ], [ %43, %58 ], [ %43, %ApplySignedSortComparator.exit.thread16.i23 ]
-  %79 = phi i8 [ %.pre123, %qsort_tuple_signed_compare.exit35.qsort_tuple_signed_compare.exit35.thread_crit_edge ], [ %50, %53 ], [ %50, %70 ], [ %50, %58 ], [ %50, %ApplySignedSortComparator.exit.thread16.i23 ]
-  %80 = phi i64 [ %.pre122, %qsort_tuple_signed_compare.exit35.qsort_tuple_signed_compare.exit35.thread_crit_edge ], [ %48, %53 ], [ %48, %70 ], [ %48, %58 ], [ %48, %ApplySignedSortComparator.exit.thread16.i23 ]
+qsort_tuple_signed_compare.exit30.thread:         ; preds = %qsort_tuple_signed_compare.exit30.qsort_tuple_signed_compare.exit30.thread_crit_edge, %58, %70, %53, %ApplySignedSortComparator.exit.thread16.i25
+  %78 = phi ptr [ %.pre104, %qsort_tuple_signed_compare.exit30.qsort_tuple_signed_compare.exit30.thread_crit_edge ], [ %43, %58 ], [ %43, %70 ], [ %43, %53 ], [ %43, %ApplySignedSortComparator.exit.thread16.i25 ]
+  %79 = phi i8 [ %.pre103, %qsort_tuple_signed_compare.exit30.qsort_tuple_signed_compare.exit30.thread_crit_edge ], [ %50, %58 ], [ %50, %70 ], [ %50, %53 ], [ %50, %ApplySignedSortComparator.exit.thread16.i25 ]
+  %80 = phi i64 [ %.pre102, %qsort_tuple_signed_compare.exit30.qsort_tuple_signed_compare.exit30.thread_crit_edge ], [ %48, %58 ], [ %48, %70 ], [ %48, %53 ], [ %48, %ApplySignedSortComparator.exit.thread16.i25 ]
   %81 = load i64, ptr %5, align 8
   %82 = load i8, ptr %7, align 8
-  %83 = and i8 %82, 1
-  %.not19.i36 = icmp eq i8 %83, 0
-  %84 = and i8 %79, 1
-  %.not20.i37 = icmp eq i8 %84, 0
-  br i1 %.not19.i36, label %90, label %85
+  %83 = trunc i8 %82 to i1
+  %84 = trunc i8 %79 to i1
+  br i1 %83, label %85, label %90
 
-85:                                               ; preds = %qsort_tuple_signed_compare.exit35.thread
-  br i1 %.not20.i37, label %86, label %ApplySignedSortComparator.exit.thread16.i38
+85:                                               ; preds = %qsort_tuple_signed_compare.exit30.thread
+  br i1 %84, label %ApplySignedSortComparator.exit.thread16.i35, label %86
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds i8, ptr %78, i64 13
   %88 = load i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not13.i.i41 = icmp eq i8 %89, 0
-  br i1 %.not13.i.i41, label %qsort_tuple_signed_compare.exit35.thread90, label %qsort_tuple_signed_compare.exit50.thread97
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %qsort_tuple_signed_compare.exit40.thread77, label %qsort_tuple_signed_compare.exit30.thread70
 
-90:                                               ; preds = %qsort_tuple_signed_compare.exit35.thread
-  br i1 %.not20.i37, label %95, label %91
+90:                                               ; preds = %qsort_tuple_signed_compare.exit30.thread
+  br i1 %84, label %91, label %95
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i8, ptr %78, i64 13
   %93 = load i8, ptr %92, align 1
-  %94 = and i8 %93, 1
-  %.not12.i.i43 = icmp eq i8 %94, 0
-  br i1 %.not12.i.i43, label %qsort_tuple_signed_compare.exit50.thread97, label %qsort_tuple_signed_compare.exit35.thread90
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %qsort_tuple_signed_compare.exit30.thread70, label %qsort_tuple_signed_compare.exit40.thread77
 
 95:                                               ; preds = %90
   %96 = icmp slt i64 %81, %80
@@ -6927,73 +6778,68 @@ qsort_tuple_signed_compare.exit35.thread:         ; preds = %qsort_tuple_signed_
   %99 = select i1 %96, i32 -1, i32 %98
   %100 = getelementptr inbounds i8, ptr %78, i64 12
   %101 = load i8, ptr %100, align 4
-  %102 = and i8 %101, 1
-  %.not.i.i45 = icmp eq i8 %102, 0
-  br i1 %.not.i.i45, label %ApplySignedSortComparator.exit.i47, label %103
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %ApplySignedSortComparator.exit.i31
 
 103:                                              ; preds = %95
-  %.neg.i.i46 = sext i1 %97 to i32
-  br i1 %96, label %qsort_tuple_signed_compare.exit35.thread90, label %ApplySignedSortComparator.exit.i47
+  %.neg.i.i37 = sext i1 %97 to i32
+  br i1 %96, label %qsort_tuple_signed_compare.exit30.thread70, label %ApplySignedSortComparator.exit.i31
 
-ApplySignedSortComparator.exit.i47:               ; preds = %103, %95
-  %.0.i.i48 = phi i32 [ %.neg.i.i46, %103 ], [ %99, %95 ]
-  %.not.i49 = icmp eq i32 %.0.i.i48, 0
-  br i1 %.not.i49, label %ApplySignedSortComparator.exit.thread16.i38, label %qsort_tuple_signed_compare.exit50
+ApplySignedSortComparator.exit.i31:               ; preds = %103, %95
+  %.0.i.i32 = phi i32 [ %.neg.i.i37, %103 ], [ %99, %95 ]
+  %.not.i33 = icmp eq i32 %.0.i.i32, 0
+  br i1 %.not.i33, label %ApplySignedSortComparator.exit.thread16.i35, label %qsort_tuple_signed_compare.exit40
 
-ApplySignedSortComparator.exit.thread16.i38:      ; preds = %ApplySignedSortComparator.exit.i47, %85
+ApplySignedSortComparator.exit.thread16.i35:      ; preds = %ApplySignedSortComparator.exit.i31, %85
   %104 = getelementptr inbounds i8, ptr %3, i64 88
   %105 = load ptr, ptr %104, align 8
-  %.not13.i39 = icmp eq ptr %105, null
-  br i1 %.not13.i39, label %106, label %qsort_tuple_signed_compare.exit35.thread90
+  %.not13.i36 = icmp eq ptr %105, null
+  br i1 %.not13.i36, label %106, label %qsort_tuple_signed_compare.exit30.thread70
 
-106:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i38
+106:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i35
   %107 = getelementptr inbounds i8, ptr %3, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_signed_compare.exit50
+  br label %qsort_tuple_signed_compare.exit40
 
-qsort_tuple_signed_compare.exit50:                ; preds = %ApplySignedSortComparator.exit.i47, %106
-  %.0.i40 = phi i32 [ %109, %106 ], [ %.0.i.i48, %ApplySignedSortComparator.exit.i47 ]
-  %.0.i40.fr = freeze i32 %.0.i40
-  %110 = icmp slt i32 %.0.i40.fr, 0
-  br i1 %110, label %qsort_tuple_signed_compare.exit50.thread97, label %qsort_tuple_signed_compare.exit35.thread90
+qsort_tuple_signed_compare.exit40:                ; preds = %ApplySignedSortComparator.exit.i31, %106
+  %.0.i34 = phi i32 [ %109, %106 ], [ %.0.i.i32, %ApplySignedSortComparator.exit.i31 ]
+  %.0.i34.fr = freeze i32 %.0.i34
+  %110 = icmp slt i32 %.0.i34.fr, 0
+  br i1 %110, label %qsort_tuple_signed_compare.exit40.thread77, label %qsort_tuple_signed_compare.exit30.thread70
 
-qsort_tuple_signed_compare.exit50.thread97:       ; preds = %91, %86, %qsort_tuple_signed_compare.exit50
-  br label %qsort_tuple_signed_compare.exit35.thread90
+qsort_tuple_signed_compare.exit40.thread77:       ; preds = %86, %91, %qsort_tuple_signed_compare.exit40
+  br label %qsort_tuple_signed_compare.exit30.thread70
 
-qsort_tuple_signed_compare.exit.thread:           ; preds = %qsort_tuple_signed_compare.exit, %18, %35, %23, %ApplySignedSortComparator.exit.thread16.i
-  %111 = phi ptr [ %16, %18 ], [ %16, %35 ], [ %16, %23 ], [ %16, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre121, %qsort_tuple_signed_compare.exit ]
-  %112 = phi i8 [ %13, %18 ], [ %13, %35 ], [ %13, %23 ], [ %13, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_signed_compare.exit ]
-  %113 = phi i64 [ %11, %18 ], [ %11, %35 ], [ %11, %23 ], [ %11, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre120, %qsort_tuple_signed_compare.exit ]
-  %114 = and i8 %112, 1
-  %.not19.i51 = icmp eq i8 %114, 0
+qsort_tuple_signed_compare.exit.thread:           ; preds = %qsort_tuple_signed_compare.exit, %23, %35, %18, %ApplySignedSortComparator.exit.thread16.i
+  %111 = phi ptr [ %16, %23 ], [ %16, %35 ], [ %16, %18 ], [ %16, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre101, %qsort_tuple_signed_compare.exit ]
+  %112 = phi i8 [ %13, %23 ], [ %13, %35 ], [ %13, %18 ], [ %13, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_signed_compare.exit ]
+  %113 = phi i64 [ %11, %23 ], [ %11, %35 ], [ %11, %18 ], [ %11, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre100, %qsort_tuple_signed_compare.exit ]
+  %114 = trunc i8 %112 to i1
   %115 = getelementptr inbounds i8, ptr %2, i64 8
   %116 = load i64, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %2, i64 16
   %118 = load i8, ptr %117, align 8
-  %119 = and i8 %118, 1
-  %.not20.i52 = icmp eq i8 %119, 0
-  br i1 %.not19.i51, label %125, label %120
+  %119 = trunc i8 %118 to i1
+  br i1 %114, label %120, label %125
 
 120:                                              ; preds = %qsort_tuple_signed_compare.exit.thread
-  br i1 %.not20.i52, label %121, label %ApplySignedSortComparator.exit.thread16.i53
+  br i1 %119, label %ApplySignedSortComparator.exit.thread16.i45, label %121
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds i8, ptr %111, i64 13
   %123 = load i8, ptr %122, align 1
-  %124 = and i8 %123, 1
-  %.not13.i.i56 = icmp eq i8 %124, 0
-  br i1 %.not13.i.i56, label %qsort_tuple_signed_compare.exit35.thread90, label %qsort_tuple_signed_compare.exit65.thread104
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %qsort_tuple_signed_compare.exit50.thread84, label %qsort_tuple_signed_compare.exit30.thread70
 
 125:                                              ; preds = %qsort_tuple_signed_compare.exit.thread
-  br i1 %.not20.i52, label %130, label %126
+  br i1 %119, label %126, label %130
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds i8, ptr %111, i64 13
   %128 = load i8, ptr %127, align 1
-  %129 = and i8 %128, 1
-  %.not12.i.i58 = icmp eq i8 %129, 0
-  br i1 %.not12.i.i58, label %qsort_tuple_signed_compare.exit65.thread104, label %qsort_tuple_signed_compare.exit35.thread90
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %qsort_tuple_signed_compare.exit30.thread70, label %qsort_tuple_signed_compare.exit50.thread84
 
 130:                                              ; preds = %125
   %131 = icmp slt i64 %113, %116
@@ -7002,73 +6848,68 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %qsort_tuple_signed_
   %134 = select i1 %131, i32 -1, i32 %133
   %135 = getelementptr inbounds i8, ptr %111, i64 12
   %136 = load i8, ptr %135, align 4
-  %137 = and i8 %136, 1
-  %.not.i.i60 = icmp eq i8 %137, 0
-  br i1 %.not.i.i60, label %ApplySignedSortComparator.exit.i62, label %138
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %ApplySignedSortComparator.exit.i41
 
 138:                                              ; preds = %130
-  %.neg.i.i61 = sext i1 %132 to i32
-  br i1 %131, label %qsort_tuple_signed_compare.exit35.thread90, label %ApplySignedSortComparator.exit.i62
+  %.neg.i.i47 = sext i1 %132 to i32
+  br i1 %131, label %qsort_tuple_signed_compare.exit30.thread70, label %ApplySignedSortComparator.exit.i41
 
-ApplySignedSortComparator.exit.i62:               ; preds = %138, %130
-  %.0.i.i63 = phi i32 [ %.neg.i.i61, %138 ], [ %134, %130 ]
-  %.not.i64 = icmp eq i32 %.0.i.i63, 0
-  br i1 %.not.i64, label %ApplySignedSortComparator.exit.thread16.i53, label %qsort_tuple_signed_compare.exit65
+ApplySignedSortComparator.exit.i41:               ; preds = %138, %130
+  %.0.i.i42 = phi i32 [ %.neg.i.i47, %138 ], [ %134, %130 ]
+  %.not.i43 = icmp eq i32 %.0.i.i42, 0
+  br i1 %.not.i43, label %ApplySignedSortComparator.exit.thread16.i45, label %qsort_tuple_signed_compare.exit50
 
-ApplySignedSortComparator.exit.thread16.i53:      ; preds = %ApplySignedSortComparator.exit.i62, %120
+ApplySignedSortComparator.exit.thread16.i45:      ; preds = %ApplySignedSortComparator.exit.i41, %120
   %139 = getelementptr inbounds i8, ptr %3, i64 88
   %140 = load ptr, ptr %139, align 8
-  %.not13.i54 = icmp eq ptr %140, null
-  br i1 %.not13.i54, label %141, label %qsort_tuple_signed_compare.exit65.thread104
+  %.not13.i46 = icmp eq ptr %140, null
+  br i1 %.not13.i46, label %141, label %qsort_tuple_signed_compare.exit50.thread84
 
-141:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i53
+141:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i45
   %142 = getelementptr inbounds i8, ptr %3, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = tail call i32 %143(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_signed_compare.exit65
+  br label %qsort_tuple_signed_compare.exit50
 
-qsort_tuple_signed_compare.exit65:                ; preds = %ApplySignedSortComparator.exit.i62, %141
-  %.0.i55 = phi i32 [ %144, %141 ], [ %.0.i.i63, %ApplySignedSortComparator.exit.i62 ]
-  %145 = icmp sgt i32 %.0.i55, 0
-  br i1 %145, label %qsort_tuple_signed_compare.exit35.thread90, label %qsort_tuple_signed_compare.exit65.qsort_tuple_signed_compare.exit65.thread104_crit_edge
+qsort_tuple_signed_compare.exit50:                ; preds = %ApplySignedSortComparator.exit.i41, %141
+  %.0.i44 = phi i32 [ %144, %141 ], [ %.0.i.i42, %ApplySignedSortComparator.exit.i41 ]
+  %145 = icmp sgt i32 %.0.i44, 0
+  br i1 %145, label %qsort_tuple_signed_compare.exit30.thread70, label %qsort_tuple_signed_compare.exit50.qsort_tuple_signed_compare.exit50.thread84_crit_edge
 
-qsort_tuple_signed_compare.exit65.qsort_tuple_signed_compare.exit65.thread104_crit_edge: ; preds = %qsort_tuple_signed_compare.exit65
-  %.pre117 = load i64, ptr %115, align 8
-  %.pre118 = load i8, ptr %117, align 8
-  %.pre119 = load ptr, ptr %15, align 8
-  br label %qsort_tuple_signed_compare.exit65.thread104
+qsort_tuple_signed_compare.exit50.qsort_tuple_signed_compare.exit50.thread84_crit_edge: ; preds = %qsort_tuple_signed_compare.exit50
+  %.pre97 = load i64, ptr %115, align 8
+  %.pre98 = load i8, ptr %117, align 8
+  %.pre99 = load ptr, ptr %15, align 8
+  br label %qsort_tuple_signed_compare.exit50.thread84
 
-qsort_tuple_signed_compare.exit65.thread104:      ; preds = %qsort_tuple_signed_compare.exit65.qsort_tuple_signed_compare.exit65.thread104_crit_edge, %126, %121, %ApplySignedSortComparator.exit.thread16.i53
-  %146 = phi ptr [ %.pre119, %qsort_tuple_signed_compare.exit65.qsort_tuple_signed_compare.exit65.thread104_crit_edge ], [ %111, %126 ], [ %111, %121 ], [ %111, %ApplySignedSortComparator.exit.thread16.i53 ]
-  %147 = phi i8 [ %.pre118, %qsort_tuple_signed_compare.exit65.qsort_tuple_signed_compare.exit65.thread104_crit_edge ], [ %118, %126 ], [ %118, %121 ], [ %118, %ApplySignedSortComparator.exit.thread16.i53 ]
-  %148 = phi i64 [ %.pre117, %qsort_tuple_signed_compare.exit65.qsort_tuple_signed_compare.exit65.thread104_crit_edge ], [ %116, %126 ], [ %116, %121 ], [ %116, %ApplySignedSortComparator.exit.thread16.i53 ]
+qsort_tuple_signed_compare.exit50.thread84:       ; preds = %qsort_tuple_signed_compare.exit50.qsort_tuple_signed_compare.exit50.thread84_crit_edge, %121, %126, %ApplySignedSortComparator.exit.thread16.i45
+  %146 = phi ptr [ %.pre99, %qsort_tuple_signed_compare.exit50.qsort_tuple_signed_compare.exit50.thread84_crit_edge ], [ %111, %121 ], [ %111, %126 ], [ %111, %ApplySignedSortComparator.exit.thread16.i45 ]
+  %147 = phi i8 [ %.pre98, %qsort_tuple_signed_compare.exit50.qsort_tuple_signed_compare.exit50.thread84_crit_edge ], [ %118, %121 ], [ %118, %126 ], [ %118, %ApplySignedSortComparator.exit.thread16.i45 ]
+  %148 = phi i64 [ %.pre97, %qsort_tuple_signed_compare.exit50.qsort_tuple_signed_compare.exit50.thread84_crit_edge ], [ %116, %121 ], [ %116, %126 ], [ %116, %ApplySignedSortComparator.exit.thread16.i45 ]
   %149 = load i64, ptr %5, align 8
   %150 = load i8, ptr %7, align 8
-  %151 = and i8 %150, 1
-  %.not19.i66 = icmp eq i8 %151, 0
-  %152 = and i8 %147, 1
-  %.not20.i67 = icmp eq i8 %152, 0
-  br i1 %.not19.i66, label %158, label %153
+  %151 = trunc i8 %150 to i1
+  %152 = trunc i8 %147 to i1
+  br i1 %151, label %153, label %158
 
-153:                                              ; preds = %qsort_tuple_signed_compare.exit65.thread104
-  br i1 %.not20.i67, label %154, label %ApplySignedSortComparator.exit.thread16.i68
+153:                                              ; preds = %qsort_tuple_signed_compare.exit50.thread84
+  br i1 %152, label %ApplySignedSortComparator.exit.thread16.i55, label %154
 
 154:                                              ; preds = %153
   %155 = getelementptr inbounds i8, ptr %146, i64 13
   %156 = load i8, ptr %155, align 1
-  %157 = and i8 %156, 1
-  %.not13.i.i71 = icmp eq i8 %157, 0
-  br i1 %.not13.i.i71, label %qsort_tuple_signed_compare.exit35.thread90, label %qsort_tuple_signed_compare.exit80.thread112
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %qsort_tuple_signed_compare.exit60.thread92, label %qsort_tuple_signed_compare.exit30.thread70
 
-158:                                              ; preds = %qsort_tuple_signed_compare.exit65.thread104
-  br i1 %.not20.i67, label %163, label %159
+158:                                              ; preds = %qsort_tuple_signed_compare.exit50.thread84
+  br i1 %152, label %159, label %163
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds i8, ptr %146, i64 13
   %161 = load i8, ptr %160, align 1
-  %162 = and i8 %161, 1
-  %.not12.i.i73 = icmp eq i8 %162, 0
-  br i1 %.not12.i.i73, label %qsort_tuple_signed_compare.exit80.thread112, label %qsort_tuple_signed_compare.exit35.thread90
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %qsort_tuple_signed_compare.exit30.thread70, label %qsort_tuple_signed_compare.exit60.thread92
 
 163:                                              ; preds = %158
   %164 = icmp slt i64 %149, %148
@@ -7077,42 +6918,41 @@ qsort_tuple_signed_compare.exit65.thread104:      ; preds = %qsort_tuple_signed_
   %167 = select i1 %164, i32 -1, i32 %166
   %168 = getelementptr inbounds i8, ptr %146, i64 12
   %169 = load i8, ptr %168, align 4
-  %170 = and i8 %169, 1
-  %.not.i.i75 = icmp eq i8 %170, 0
-  br i1 %.not.i.i75, label %ApplySignedSortComparator.exit.i77, label %171
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %ApplySignedSortComparator.exit.i51
 
 171:                                              ; preds = %163
-  %.neg.i.i76 = sext i1 %165 to i32
-  br i1 %164, label %qsort_tuple_signed_compare.exit35.thread90, label %ApplySignedSortComparator.exit.i77
+  %.neg.i.i57 = sext i1 %165 to i32
+  br i1 %164, label %qsort_tuple_signed_compare.exit30.thread70, label %ApplySignedSortComparator.exit.i51
 
-ApplySignedSortComparator.exit.i77:               ; preds = %171, %163
-  %.0.i.i78 = phi i32 [ %.neg.i.i76, %171 ], [ %167, %163 ]
-  %.not.i79 = icmp eq i32 %.0.i.i78, 0
-  br i1 %.not.i79, label %ApplySignedSortComparator.exit.thread16.i68, label %qsort_tuple_signed_compare.exit80
+ApplySignedSortComparator.exit.i51:               ; preds = %171, %163
+  %.0.i.i52 = phi i32 [ %.neg.i.i57, %171 ], [ %167, %163 ]
+  %.not.i53 = icmp eq i32 %.0.i.i52, 0
+  br i1 %.not.i53, label %ApplySignedSortComparator.exit.thread16.i55, label %qsort_tuple_signed_compare.exit60
 
-ApplySignedSortComparator.exit.thread16.i68:      ; preds = %ApplySignedSortComparator.exit.i77, %153
+ApplySignedSortComparator.exit.thread16.i55:      ; preds = %ApplySignedSortComparator.exit.i51, %153
   %172 = getelementptr inbounds i8, ptr %3, i64 88
   %173 = load ptr, ptr %172, align 8
-  %.not13.i69 = icmp eq ptr %173, null
-  br i1 %.not13.i69, label %174, label %qsort_tuple_signed_compare.exit35.thread90
+  %.not13.i56 = icmp eq ptr %173, null
+  br i1 %.not13.i56, label %174, label %qsort_tuple_signed_compare.exit30.thread70
 
-174:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i68
+174:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i55
   %175 = getelementptr inbounds i8, ptr %3, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = tail call i32 %176(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_signed_compare.exit80
+  br label %qsort_tuple_signed_compare.exit60
 
-qsort_tuple_signed_compare.exit80:                ; preds = %ApplySignedSortComparator.exit.i77, %174
-  %.0.i70 = phi i32 [ %177, %174 ], [ %.0.i.i78, %ApplySignedSortComparator.exit.i77 ]
-  %.0.i70.fr = freeze i32 %.0.i70
-  %178 = icmp slt i32 %.0.i70.fr, 0
-  br i1 %178, label %qsort_tuple_signed_compare.exit80.thread112, label %qsort_tuple_signed_compare.exit35.thread90
+qsort_tuple_signed_compare.exit60:                ; preds = %ApplySignedSortComparator.exit.i51, %174
+  %.0.i54 = phi i32 [ %177, %174 ], [ %.0.i.i52, %ApplySignedSortComparator.exit.i51 ]
+  %.0.i54.fr = freeze i32 %.0.i54
+  %178 = icmp slt i32 %.0.i54.fr, 0
+  br i1 %178, label %qsort_tuple_signed_compare.exit60.thread92, label %qsort_tuple_signed_compare.exit30.thread70
 
-qsort_tuple_signed_compare.exit80.thread112:      ; preds = %159, %154, %qsort_tuple_signed_compare.exit80
-  br label %qsort_tuple_signed_compare.exit35.thread90
+qsort_tuple_signed_compare.exit60.thread92:       ; preds = %154, %159, %qsort_tuple_signed_compare.exit60
+  br label %qsort_tuple_signed_compare.exit30.thread70
 
-qsort_tuple_signed_compare.exit35.thread90:       ; preds = %154, %171, %159, %ApplySignedSortComparator.exit.thread16.i68, %121, %138, %126, %86, %103, %91, %ApplySignedSortComparator.exit.thread16.i38, %58, %53, %qsort_tuple_signed_compare.exit80.thread112, %qsort_tuple_signed_compare.exit80, %qsort_tuple_signed_compare.exit50.thread97, %qsort_tuple_signed_compare.exit50, %qsort_tuple_signed_compare.exit65, %qsort_tuple_signed_compare.exit35
-  %179 = phi ptr [ %1, %qsort_tuple_signed_compare.exit35 ], [ %1, %qsort_tuple_signed_compare.exit65 ], [ %2, %qsort_tuple_signed_compare.exit50.thread97 ], [ %0, %qsort_tuple_signed_compare.exit50 ], [ %0, %qsort_tuple_signed_compare.exit80.thread112 ], [ %2, %qsort_tuple_signed_compare.exit80 ], [ %1, %53 ], [ %1, %58 ], [ %0, %ApplySignedSortComparator.exit.thread16.i38 ], [ %0, %91 ], [ %0, %103 ], [ %0, %86 ], [ %1, %126 ], [ %1, %138 ], [ %1, %121 ], [ %2, %ApplySignedSortComparator.exit.thread16.i68 ], [ %2, %159 ], [ %2, %171 ], [ %2, %154 ]
+qsort_tuple_signed_compare.exit30.thread70:       ; preds = %159, %171, %154, %ApplySignedSortComparator.exit.thread16.i55, %126, %138, %121, %91, %103, %86, %ApplySignedSortComparator.exit.thread16.i35, %53, %58, %qsort_tuple_signed_compare.exit60.thread92, %qsort_tuple_signed_compare.exit60, %qsort_tuple_signed_compare.exit40.thread77, %qsort_tuple_signed_compare.exit40, %qsort_tuple_signed_compare.exit50, %qsort_tuple_signed_compare.exit30
+  %179 = phi ptr [ %1, %qsort_tuple_signed_compare.exit30 ], [ %1, %qsort_tuple_signed_compare.exit50 ], [ %2, %qsort_tuple_signed_compare.exit40.thread77 ], [ %0, %qsort_tuple_signed_compare.exit40 ], [ %0, %qsort_tuple_signed_compare.exit60.thread92 ], [ %2, %qsort_tuple_signed_compare.exit60 ], [ %1, %58 ], [ %1, %53 ], [ %0, %ApplySignedSortComparator.exit.thread16.i35 ], [ %0, %86 ], [ %0, %103 ], [ %0, %91 ], [ %1, %121 ], [ %1, %138 ], [ %1, %126 ], [ %2, %ApplySignedSortComparator.exit.thread16.i55 ], [ %2, %154 ], [ %2, %171 ], [ %2, %159 ]
   ret ptr %179
 }
 
@@ -7122,37 +6962,33 @@ define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr n
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not19.i = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not20.i = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
-  br i1 %.not19.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %4
-  br i1 %.not20.i, label %18, label %ApplyInt32SortComparator.exit.thread16.i
+  br i1 %14, label %ApplyInt32SortComparator.exit.thread16.i, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %16, i64 13
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not13.i.i = icmp eq i8 %21, 0
-  br i1 %.not13.i.i, label %qsort_tuple_int32_compare.exit.thread, label %qsort_tuple_int32_compare.exit.thread84
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %qsort_tuple_int32_compare.exit.thread64, label %qsort_tuple_int32_compare.exit.thread
 
 22:                                               ; preds = %4
-  br i1 %.not20.i, label %27, label %23
+  br i1 %14, label %23, label %27
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %16, i64 13
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not12.i.i = icmp eq i8 %26, 0
-  br i1 %.not12.i.i, label %qsort_tuple_int32_compare.exit.thread84, label %qsort_tuple_int32_compare.exit.thread
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %qsort_tuple_int32_compare.exit.thread, label %qsort_tuple_int32_compare.exit.thread64
 
 27:                                               ; preds = %22
   %28 = trunc i64 %6 to i32
@@ -7163,9 +6999,8 @@ define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr n
   %33 = select i1 %30, i32 -1, i32 %32
   %34 = getelementptr inbounds i8, ptr %16, i64 12
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %.not.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i, label %ApplyInt32SortComparator.exit.i, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %ApplyInt32SortComparator.exit.i
 
 37:                                               ; preds = %27
   %.neg.i.i = sext i1 %31 to i32
@@ -7186,52 +7021,48 @@ ApplyInt32SortComparator.exit.thread16.i:         ; preds = %ApplyInt32SortCompa
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
-  %.pre120.pre = load i64, ptr %10, align 8
+  %.pre100.pre = load i64, ptr %10, align 8
   %.pre.pre = load i8, ptr %12, align 8
-  %.pre121.pre = load ptr, ptr %15, align 8
+  %.pre101.pre = load ptr, ptr %15, align 8
   br label %qsort_tuple_int32_compare.exit
 
 qsort_tuple_int32_compare.exit:                   ; preds = %ApplyInt32SortComparator.exit.i, %40
-  %.pre121 = phi ptr [ %.pre121.pre, %40 ], [ %16, %ApplyInt32SortComparator.exit.i ]
+  %.pre101 = phi ptr [ %.pre101.pre, %40 ], [ %16, %ApplyInt32SortComparator.exit.i ]
   %.pre = phi i8 [ %.pre.pre, %40 ], [ %13, %ApplyInt32SortComparator.exit.i ]
-  %.pre120 = phi i64 [ %.pre120.pre, %40 ], [ %11, %ApplyInt32SortComparator.exit.i ]
+  %.pre100 = phi i64 [ %.pre100.pre, %40 ], [ %11, %ApplyInt32SortComparator.exit.i ]
   %.0.i = phi i32 [ %43, %40 ], [ %.0.i.i, %ApplyInt32SortComparator.exit.i ]
   %44 = icmp slt i32 %.0.i, 0
-  br i1 %44, label %qsort_tuple_int32_compare.exit.thread84, label %qsort_tuple_int32_compare.exit.thread
+  br i1 %44, label %qsort_tuple_int32_compare.exit.thread64, label %qsort_tuple_int32_compare.exit.thread
 
-qsort_tuple_int32_compare.exit.thread84:          ; preds = %23, %18, %qsort_tuple_int32_compare.exit
-  %45 = phi ptr [ %16, %23 ], [ %16, %18 ], [ %.pre121, %qsort_tuple_int32_compare.exit ]
-  %46 = phi i8 [ %13, %23 ], [ %13, %18 ], [ %.pre, %qsort_tuple_int32_compare.exit ]
-  %47 = phi i64 [ %11, %23 ], [ %11, %18 ], [ %.pre120, %qsort_tuple_int32_compare.exit ]
-  %48 = and i8 %46, 1
-  %.not19.i21 = icmp eq i8 %48, 0
+qsort_tuple_int32_compare.exit.thread64:          ; preds = %18, %23, %qsort_tuple_int32_compare.exit
+  %45 = phi ptr [ %16, %18 ], [ %16, %23 ], [ %.pre101, %qsort_tuple_int32_compare.exit ]
+  %46 = phi i8 [ %13, %18 ], [ %13, %23 ], [ %.pre, %qsort_tuple_int32_compare.exit ]
+  %47 = phi i64 [ %11, %18 ], [ %11, %23 ], [ %.pre100, %qsort_tuple_int32_compare.exit ]
+  %48 = trunc i8 %46 to i1
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 16
   %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not20.i22 = icmp eq i8 %53, 0
-  br i1 %.not19.i21, label %59, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %48, label %54, label %59
 
-54:                                               ; preds = %qsort_tuple_int32_compare.exit.thread84
-  br i1 %.not20.i22, label %55, label %ApplyInt32SortComparator.exit.thread16.i23
+54:                                               ; preds = %qsort_tuple_int32_compare.exit.thread64
+  br i1 %53, label %ApplyInt32SortComparator.exit.thread16.i25, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds i8, ptr %45, i64 13
   %57 = load i8, ptr %56, align 1
-  %58 = and i8 %57, 1
-  %.not13.i.i26 = icmp eq i8 %58, 0
-  br i1 %.not13.i.i26, label %qsort_tuple_int32_compare.exit35.thread, label %qsort_tuple_int32_compare.exit35.thread90
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %qsort_tuple_int32_compare.exit30.thread70, label %qsort_tuple_int32_compare.exit30.thread
 
-59:                                               ; preds = %qsort_tuple_int32_compare.exit.thread84
-  br i1 %.not20.i22, label %64, label %60
+59:                                               ; preds = %qsort_tuple_int32_compare.exit.thread64
+  br i1 %53, label %60, label %64
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds i8, ptr %45, i64 13
   %62 = load i8, ptr %61, align 1
-  %63 = and i8 %62, 1
-  %.not12.i.i28 = icmp eq i8 %63, 0
-  br i1 %.not12.i.i28, label %qsort_tuple_int32_compare.exit35.thread90, label %qsort_tuple_int32_compare.exit35.thread
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %qsort_tuple_int32_compare.exit30.thread, label %qsort_tuple_int32_compare.exit30.thread70
 
 64:                                               ; preds = %59
   %65 = trunc i64 %47 to i32
@@ -7242,73 +7073,68 @@ qsort_tuple_int32_compare.exit.thread84:          ; preds = %23, %18, %qsort_tup
   %70 = select i1 %67, i32 -1, i32 %69
   %71 = getelementptr inbounds i8, ptr %45, i64 12
   %72 = load i8, ptr %71, align 4
-  %73 = and i8 %72, 1
-  %.not.i.i30 = icmp eq i8 %73, 0
-  br i1 %.not.i.i30, label %ApplyInt32SortComparator.exit.i32, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %ApplyInt32SortComparator.exit.i21
 
 74:                                               ; preds = %64
-  %.neg.i.i31 = sext i1 %68 to i32
-  br i1 %67, label %qsort_tuple_int32_compare.exit35.thread, label %ApplyInt32SortComparator.exit.i32
+  %.neg.i.i27 = sext i1 %68 to i32
+  br i1 %67, label %qsort_tuple_int32_compare.exit30.thread, label %ApplyInt32SortComparator.exit.i21
 
-ApplyInt32SortComparator.exit.i32:                ; preds = %74, %64
-  %.0.i.i33 = phi i32 [ %.neg.i.i31, %74 ], [ %70, %64 ]
-  %.not.i34 = icmp eq i32 %.0.i.i33, 0
-  br i1 %.not.i34, label %ApplyInt32SortComparator.exit.thread16.i23, label %qsort_tuple_int32_compare.exit35
+ApplyInt32SortComparator.exit.i21:                ; preds = %74, %64
+  %.0.i.i22 = phi i32 [ %.neg.i.i27, %74 ], [ %70, %64 ]
+  %.not.i23 = icmp eq i32 %.0.i.i22, 0
+  br i1 %.not.i23, label %ApplyInt32SortComparator.exit.thread16.i25, label %qsort_tuple_int32_compare.exit30
 
-ApplyInt32SortComparator.exit.thread16.i23:       ; preds = %ApplyInt32SortComparator.exit.i32, %54
+ApplyInt32SortComparator.exit.thread16.i25:       ; preds = %ApplyInt32SortComparator.exit.i21, %54
   %75 = getelementptr inbounds i8, ptr %3, i64 88
   %76 = load ptr, ptr %75, align 8
-  %.not13.i24 = icmp eq ptr %76, null
-  br i1 %.not13.i24, label %77, label %qsort_tuple_int32_compare.exit35.thread
+  %.not13.i26 = icmp eq ptr %76, null
+  br i1 %.not13.i26, label %77, label %qsort_tuple_int32_compare.exit30.thread
 
-77:                                               ; preds = %ApplyInt32SortComparator.exit.thread16.i23
+77:                                               ; preds = %ApplyInt32SortComparator.exit.thread16.i25
   %78 = getelementptr inbounds i8, ptr %3, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 %79(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_int32_compare.exit35
+  br label %qsort_tuple_int32_compare.exit30
 
-qsort_tuple_int32_compare.exit35:                 ; preds = %ApplyInt32SortComparator.exit.i32, %77
-  %.0.i25 = phi i32 [ %80, %77 ], [ %.0.i.i33, %ApplyInt32SortComparator.exit.i32 ]
-  %81 = icmp slt i32 %.0.i25, 0
-  br i1 %81, label %qsort_tuple_int32_compare.exit35.thread90, label %qsort_tuple_int32_compare.exit35.qsort_tuple_int32_compare.exit35.thread_crit_edge
+qsort_tuple_int32_compare.exit30:                 ; preds = %ApplyInt32SortComparator.exit.i21, %77
+  %.0.i24 = phi i32 [ %80, %77 ], [ %.0.i.i22, %ApplyInt32SortComparator.exit.i21 ]
+  %81 = icmp slt i32 %.0.i24, 0
+  br i1 %81, label %qsort_tuple_int32_compare.exit30.thread70, label %qsort_tuple_int32_compare.exit30.qsort_tuple_int32_compare.exit30.thread_crit_edge
 
-qsort_tuple_int32_compare.exit35.qsort_tuple_int32_compare.exit35.thread_crit_edge: ; preds = %qsort_tuple_int32_compare.exit35
-  %.pre122 = load i64, ptr %49, align 8
-  %.pre123 = load i8, ptr %51, align 8
-  %.pre124 = load ptr, ptr %15, align 8
-  br label %qsort_tuple_int32_compare.exit35.thread
+qsort_tuple_int32_compare.exit30.qsort_tuple_int32_compare.exit30.thread_crit_edge: ; preds = %qsort_tuple_int32_compare.exit30
+  %.pre102 = load i64, ptr %49, align 8
+  %.pre103 = load i8, ptr %51, align 8
+  %.pre104 = load ptr, ptr %15, align 8
+  br label %qsort_tuple_int32_compare.exit30.thread
 
-qsort_tuple_int32_compare.exit35.thread:          ; preds = %qsort_tuple_int32_compare.exit35.qsort_tuple_int32_compare.exit35.thread_crit_edge, %55, %74, %60, %ApplyInt32SortComparator.exit.thread16.i23
-  %82 = phi ptr [ %.pre124, %qsort_tuple_int32_compare.exit35.qsort_tuple_int32_compare.exit35.thread_crit_edge ], [ %45, %55 ], [ %45, %74 ], [ %45, %60 ], [ %45, %ApplyInt32SortComparator.exit.thread16.i23 ]
-  %83 = phi i8 [ %.pre123, %qsort_tuple_int32_compare.exit35.qsort_tuple_int32_compare.exit35.thread_crit_edge ], [ %52, %55 ], [ %52, %74 ], [ %52, %60 ], [ %52, %ApplyInt32SortComparator.exit.thread16.i23 ]
-  %84 = phi i64 [ %.pre122, %qsort_tuple_int32_compare.exit35.qsort_tuple_int32_compare.exit35.thread_crit_edge ], [ %50, %55 ], [ %50, %74 ], [ %50, %60 ], [ %50, %ApplyInt32SortComparator.exit.thread16.i23 ]
+qsort_tuple_int32_compare.exit30.thread:          ; preds = %qsort_tuple_int32_compare.exit30.qsort_tuple_int32_compare.exit30.thread_crit_edge, %60, %74, %55, %ApplyInt32SortComparator.exit.thread16.i25
+  %82 = phi ptr [ %.pre104, %qsort_tuple_int32_compare.exit30.qsort_tuple_int32_compare.exit30.thread_crit_edge ], [ %45, %60 ], [ %45, %74 ], [ %45, %55 ], [ %45, %ApplyInt32SortComparator.exit.thread16.i25 ]
+  %83 = phi i8 [ %.pre103, %qsort_tuple_int32_compare.exit30.qsort_tuple_int32_compare.exit30.thread_crit_edge ], [ %52, %60 ], [ %52, %74 ], [ %52, %55 ], [ %52, %ApplyInt32SortComparator.exit.thread16.i25 ]
+  %84 = phi i64 [ %.pre102, %qsort_tuple_int32_compare.exit30.qsort_tuple_int32_compare.exit30.thread_crit_edge ], [ %50, %60 ], [ %50, %74 ], [ %50, %55 ], [ %50, %ApplyInt32SortComparator.exit.thread16.i25 ]
   %85 = load i64, ptr %5, align 8
   %86 = load i8, ptr %7, align 8
-  %87 = and i8 %86, 1
-  %.not19.i36 = icmp eq i8 %87, 0
-  %88 = and i8 %83, 1
-  %.not20.i37 = icmp eq i8 %88, 0
-  br i1 %.not19.i36, label %94, label %89
+  %87 = trunc i8 %86 to i1
+  %88 = trunc i8 %83 to i1
+  br i1 %87, label %89, label %94
 
-89:                                               ; preds = %qsort_tuple_int32_compare.exit35.thread
-  br i1 %.not20.i37, label %90, label %ApplyInt32SortComparator.exit.thread16.i38
+89:                                               ; preds = %qsort_tuple_int32_compare.exit30.thread
+  br i1 %88, label %ApplyInt32SortComparator.exit.thread16.i35, label %90
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds i8, ptr %82, i64 13
   %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, 1
-  %.not13.i.i41 = icmp eq i8 %93, 0
-  br i1 %.not13.i.i41, label %qsort_tuple_int32_compare.exit35.thread90, label %qsort_tuple_int32_compare.exit50.thread97
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %qsort_tuple_int32_compare.exit40.thread77, label %qsort_tuple_int32_compare.exit30.thread70
 
-94:                                               ; preds = %qsort_tuple_int32_compare.exit35.thread
-  br i1 %.not20.i37, label %99, label %95
+94:                                               ; preds = %qsort_tuple_int32_compare.exit30.thread
+  br i1 %88, label %95, label %99
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds i8, ptr %82, i64 13
   %97 = load i8, ptr %96, align 1
-  %98 = and i8 %97, 1
-  %.not12.i.i43 = icmp eq i8 %98, 0
-  br i1 %.not12.i.i43, label %qsort_tuple_int32_compare.exit50.thread97, label %qsort_tuple_int32_compare.exit35.thread90
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %qsort_tuple_int32_compare.exit30.thread70, label %qsort_tuple_int32_compare.exit40.thread77
 
 99:                                               ; preds = %94
   %100 = trunc i64 %85 to i32
@@ -7319,73 +7145,68 @@ qsort_tuple_int32_compare.exit35.thread:          ; preds = %qsort_tuple_int32_c
   %105 = select i1 %102, i32 -1, i32 %104
   %106 = getelementptr inbounds i8, ptr %82, i64 12
   %107 = load i8, ptr %106, align 4
-  %108 = and i8 %107, 1
-  %.not.i.i45 = icmp eq i8 %108, 0
-  br i1 %.not.i.i45, label %ApplyInt32SortComparator.exit.i47, label %109
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %ApplyInt32SortComparator.exit.i31
 
 109:                                              ; preds = %99
-  %.neg.i.i46 = sext i1 %103 to i32
-  br i1 %102, label %qsort_tuple_int32_compare.exit35.thread90, label %ApplyInt32SortComparator.exit.i47
+  %.neg.i.i37 = sext i1 %103 to i32
+  br i1 %102, label %qsort_tuple_int32_compare.exit30.thread70, label %ApplyInt32SortComparator.exit.i31
 
-ApplyInt32SortComparator.exit.i47:                ; preds = %109, %99
-  %.0.i.i48 = phi i32 [ %.neg.i.i46, %109 ], [ %105, %99 ]
-  %.not.i49 = icmp eq i32 %.0.i.i48, 0
-  br i1 %.not.i49, label %ApplyInt32SortComparator.exit.thread16.i38, label %qsort_tuple_int32_compare.exit50
+ApplyInt32SortComparator.exit.i31:                ; preds = %109, %99
+  %.0.i.i32 = phi i32 [ %.neg.i.i37, %109 ], [ %105, %99 ]
+  %.not.i33 = icmp eq i32 %.0.i.i32, 0
+  br i1 %.not.i33, label %ApplyInt32SortComparator.exit.thread16.i35, label %qsort_tuple_int32_compare.exit40
 
-ApplyInt32SortComparator.exit.thread16.i38:       ; preds = %ApplyInt32SortComparator.exit.i47, %89
+ApplyInt32SortComparator.exit.thread16.i35:       ; preds = %ApplyInt32SortComparator.exit.i31, %89
   %110 = getelementptr inbounds i8, ptr %3, i64 88
   %111 = load ptr, ptr %110, align 8
-  %.not13.i39 = icmp eq ptr %111, null
-  br i1 %.not13.i39, label %112, label %qsort_tuple_int32_compare.exit35.thread90
+  %.not13.i36 = icmp eq ptr %111, null
+  br i1 %.not13.i36, label %112, label %qsort_tuple_int32_compare.exit30.thread70
 
-112:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i38
+112:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i35
   %113 = getelementptr inbounds i8, ptr %3, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = tail call i32 %114(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_int32_compare.exit50
+  br label %qsort_tuple_int32_compare.exit40
 
-qsort_tuple_int32_compare.exit50:                 ; preds = %ApplyInt32SortComparator.exit.i47, %112
-  %.0.i40 = phi i32 [ %115, %112 ], [ %.0.i.i48, %ApplyInt32SortComparator.exit.i47 ]
-  %.0.i40.fr = freeze i32 %.0.i40
-  %116 = icmp slt i32 %.0.i40.fr, 0
-  br i1 %116, label %qsort_tuple_int32_compare.exit50.thread97, label %qsort_tuple_int32_compare.exit35.thread90
+qsort_tuple_int32_compare.exit40:                 ; preds = %ApplyInt32SortComparator.exit.i31, %112
+  %.0.i34 = phi i32 [ %115, %112 ], [ %.0.i.i32, %ApplyInt32SortComparator.exit.i31 ]
+  %.0.i34.fr = freeze i32 %.0.i34
+  %116 = icmp slt i32 %.0.i34.fr, 0
+  br i1 %116, label %qsort_tuple_int32_compare.exit40.thread77, label %qsort_tuple_int32_compare.exit30.thread70
 
-qsort_tuple_int32_compare.exit50.thread97:        ; preds = %95, %90, %qsort_tuple_int32_compare.exit50
-  br label %qsort_tuple_int32_compare.exit35.thread90
+qsort_tuple_int32_compare.exit40.thread77:        ; preds = %90, %95, %qsort_tuple_int32_compare.exit40
+  br label %qsort_tuple_int32_compare.exit30.thread70
 
-qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_compare.exit, %18, %37, %23, %ApplyInt32SortComparator.exit.thread16.i
-  %117 = phi ptr [ %16, %18 ], [ %16, %37 ], [ %16, %23 ], [ %16, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre121, %qsort_tuple_int32_compare.exit ]
-  %118 = phi i8 [ %13, %18 ], [ %13, %37 ], [ %13, %23 ], [ %13, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_int32_compare.exit ]
-  %119 = phi i64 [ %11, %18 ], [ %11, %37 ], [ %11, %23 ], [ %11, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre120, %qsort_tuple_int32_compare.exit ]
-  %120 = and i8 %118, 1
-  %.not19.i51 = icmp eq i8 %120, 0
+qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_compare.exit, %23, %37, %18, %ApplyInt32SortComparator.exit.thread16.i
+  %117 = phi ptr [ %16, %23 ], [ %16, %37 ], [ %16, %18 ], [ %16, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre101, %qsort_tuple_int32_compare.exit ]
+  %118 = phi i8 [ %13, %23 ], [ %13, %37 ], [ %13, %18 ], [ %13, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_int32_compare.exit ]
+  %119 = phi i64 [ %11, %23 ], [ %11, %37 ], [ %11, %18 ], [ %11, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre100, %qsort_tuple_int32_compare.exit ]
+  %120 = trunc i8 %118 to i1
   %121 = getelementptr inbounds i8, ptr %2, i64 8
   %122 = load i64, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %2, i64 16
   %124 = load i8, ptr %123, align 8
-  %125 = and i8 %124, 1
-  %.not20.i52 = icmp eq i8 %125, 0
-  br i1 %.not19.i51, label %131, label %126
+  %125 = trunc i8 %124 to i1
+  br i1 %120, label %126, label %131
 
 126:                                              ; preds = %qsort_tuple_int32_compare.exit.thread
-  br i1 %.not20.i52, label %127, label %ApplyInt32SortComparator.exit.thread16.i53
+  br i1 %125, label %ApplyInt32SortComparator.exit.thread16.i45, label %127
 
 127:                                              ; preds = %126
   %128 = getelementptr inbounds i8, ptr %117, i64 13
   %129 = load i8, ptr %128, align 1
-  %130 = and i8 %129, 1
-  %.not13.i.i56 = icmp eq i8 %130, 0
-  br i1 %.not13.i.i56, label %qsort_tuple_int32_compare.exit35.thread90, label %qsort_tuple_int32_compare.exit65.thread104
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %qsort_tuple_int32_compare.exit50.thread84, label %qsort_tuple_int32_compare.exit30.thread70
 
 131:                                              ; preds = %qsort_tuple_int32_compare.exit.thread
-  br i1 %.not20.i52, label %136, label %132
+  br i1 %125, label %132, label %136
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds i8, ptr %117, i64 13
   %134 = load i8, ptr %133, align 1
-  %135 = and i8 %134, 1
-  %.not12.i.i58 = icmp eq i8 %135, 0
-  br i1 %.not12.i.i58, label %qsort_tuple_int32_compare.exit65.thread104, label %qsort_tuple_int32_compare.exit35.thread90
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %qsort_tuple_int32_compare.exit30.thread70, label %qsort_tuple_int32_compare.exit50.thread84
 
 136:                                              ; preds = %131
   %137 = trunc i64 %119 to i32
@@ -7396,73 +7217,68 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_c
   %142 = select i1 %139, i32 -1, i32 %141
   %143 = getelementptr inbounds i8, ptr %117, i64 12
   %144 = load i8, ptr %143, align 4
-  %145 = and i8 %144, 1
-  %.not.i.i60 = icmp eq i8 %145, 0
-  br i1 %.not.i.i60, label %ApplyInt32SortComparator.exit.i62, label %146
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %ApplyInt32SortComparator.exit.i41
 
 146:                                              ; preds = %136
-  %.neg.i.i61 = sext i1 %140 to i32
-  br i1 %139, label %qsort_tuple_int32_compare.exit35.thread90, label %ApplyInt32SortComparator.exit.i62
+  %.neg.i.i47 = sext i1 %140 to i32
+  br i1 %139, label %qsort_tuple_int32_compare.exit30.thread70, label %ApplyInt32SortComparator.exit.i41
 
-ApplyInt32SortComparator.exit.i62:                ; preds = %146, %136
-  %.0.i.i63 = phi i32 [ %.neg.i.i61, %146 ], [ %142, %136 ]
-  %.not.i64 = icmp eq i32 %.0.i.i63, 0
-  br i1 %.not.i64, label %ApplyInt32SortComparator.exit.thread16.i53, label %qsort_tuple_int32_compare.exit65
+ApplyInt32SortComparator.exit.i41:                ; preds = %146, %136
+  %.0.i.i42 = phi i32 [ %.neg.i.i47, %146 ], [ %142, %136 ]
+  %.not.i43 = icmp eq i32 %.0.i.i42, 0
+  br i1 %.not.i43, label %ApplyInt32SortComparator.exit.thread16.i45, label %qsort_tuple_int32_compare.exit50
 
-ApplyInt32SortComparator.exit.thread16.i53:       ; preds = %ApplyInt32SortComparator.exit.i62, %126
+ApplyInt32SortComparator.exit.thread16.i45:       ; preds = %ApplyInt32SortComparator.exit.i41, %126
   %147 = getelementptr inbounds i8, ptr %3, i64 88
   %148 = load ptr, ptr %147, align 8
-  %.not13.i54 = icmp eq ptr %148, null
-  br i1 %.not13.i54, label %149, label %qsort_tuple_int32_compare.exit65.thread104
+  %.not13.i46 = icmp eq ptr %148, null
+  br i1 %.not13.i46, label %149, label %qsort_tuple_int32_compare.exit50.thread84
 
-149:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i53
+149:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i45
   %150 = getelementptr inbounds i8, ptr %3, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = tail call i32 %151(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_int32_compare.exit65
+  br label %qsort_tuple_int32_compare.exit50
 
-qsort_tuple_int32_compare.exit65:                 ; preds = %ApplyInt32SortComparator.exit.i62, %149
-  %.0.i55 = phi i32 [ %152, %149 ], [ %.0.i.i63, %ApplyInt32SortComparator.exit.i62 ]
-  %153 = icmp sgt i32 %.0.i55, 0
-  br i1 %153, label %qsort_tuple_int32_compare.exit35.thread90, label %qsort_tuple_int32_compare.exit65.qsort_tuple_int32_compare.exit65.thread104_crit_edge
+qsort_tuple_int32_compare.exit50:                 ; preds = %ApplyInt32SortComparator.exit.i41, %149
+  %.0.i44 = phi i32 [ %152, %149 ], [ %.0.i.i42, %ApplyInt32SortComparator.exit.i41 ]
+  %153 = icmp sgt i32 %.0.i44, 0
+  br i1 %153, label %qsort_tuple_int32_compare.exit30.thread70, label %qsort_tuple_int32_compare.exit50.qsort_tuple_int32_compare.exit50.thread84_crit_edge
 
-qsort_tuple_int32_compare.exit65.qsort_tuple_int32_compare.exit65.thread104_crit_edge: ; preds = %qsort_tuple_int32_compare.exit65
-  %.pre117 = load i64, ptr %121, align 8
-  %.pre118 = load i8, ptr %123, align 8
-  %.pre119 = load ptr, ptr %15, align 8
-  br label %qsort_tuple_int32_compare.exit65.thread104
+qsort_tuple_int32_compare.exit50.qsort_tuple_int32_compare.exit50.thread84_crit_edge: ; preds = %qsort_tuple_int32_compare.exit50
+  %.pre97 = load i64, ptr %121, align 8
+  %.pre98 = load i8, ptr %123, align 8
+  %.pre99 = load ptr, ptr %15, align 8
+  br label %qsort_tuple_int32_compare.exit50.thread84
 
-qsort_tuple_int32_compare.exit65.thread104:       ; preds = %qsort_tuple_int32_compare.exit65.qsort_tuple_int32_compare.exit65.thread104_crit_edge, %132, %127, %ApplyInt32SortComparator.exit.thread16.i53
-  %154 = phi ptr [ %.pre119, %qsort_tuple_int32_compare.exit65.qsort_tuple_int32_compare.exit65.thread104_crit_edge ], [ %117, %132 ], [ %117, %127 ], [ %117, %ApplyInt32SortComparator.exit.thread16.i53 ]
-  %155 = phi i8 [ %.pre118, %qsort_tuple_int32_compare.exit65.qsort_tuple_int32_compare.exit65.thread104_crit_edge ], [ %124, %132 ], [ %124, %127 ], [ %124, %ApplyInt32SortComparator.exit.thread16.i53 ]
-  %156 = phi i64 [ %.pre117, %qsort_tuple_int32_compare.exit65.qsort_tuple_int32_compare.exit65.thread104_crit_edge ], [ %122, %132 ], [ %122, %127 ], [ %122, %ApplyInt32SortComparator.exit.thread16.i53 ]
+qsort_tuple_int32_compare.exit50.thread84:        ; preds = %qsort_tuple_int32_compare.exit50.qsort_tuple_int32_compare.exit50.thread84_crit_edge, %127, %132, %ApplyInt32SortComparator.exit.thread16.i45
+  %154 = phi ptr [ %.pre99, %qsort_tuple_int32_compare.exit50.qsort_tuple_int32_compare.exit50.thread84_crit_edge ], [ %117, %127 ], [ %117, %132 ], [ %117, %ApplyInt32SortComparator.exit.thread16.i45 ]
+  %155 = phi i8 [ %.pre98, %qsort_tuple_int32_compare.exit50.qsort_tuple_int32_compare.exit50.thread84_crit_edge ], [ %124, %127 ], [ %124, %132 ], [ %124, %ApplyInt32SortComparator.exit.thread16.i45 ]
+  %156 = phi i64 [ %.pre97, %qsort_tuple_int32_compare.exit50.qsort_tuple_int32_compare.exit50.thread84_crit_edge ], [ %122, %127 ], [ %122, %132 ], [ %122, %ApplyInt32SortComparator.exit.thread16.i45 ]
   %157 = load i64, ptr %5, align 8
   %158 = load i8, ptr %7, align 8
-  %159 = and i8 %158, 1
-  %.not19.i66 = icmp eq i8 %159, 0
-  %160 = and i8 %155, 1
-  %.not20.i67 = icmp eq i8 %160, 0
-  br i1 %.not19.i66, label %166, label %161
+  %159 = trunc i8 %158 to i1
+  %160 = trunc i8 %155 to i1
+  br i1 %159, label %161, label %166
 
-161:                                              ; preds = %qsort_tuple_int32_compare.exit65.thread104
-  br i1 %.not20.i67, label %162, label %ApplyInt32SortComparator.exit.thread16.i68
+161:                                              ; preds = %qsort_tuple_int32_compare.exit50.thread84
+  br i1 %160, label %ApplyInt32SortComparator.exit.thread16.i55, label %162
 
 162:                                              ; preds = %161
   %163 = getelementptr inbounds i8, ptr %154, i64 13
   %164 = load i8, ptr %163, align 1
-  %165 = and i8 %164, 1
-  %.not13.i.i71 = icmp eq i8 %165, 0
-  br i1 %.not13.i.i71, label %qsort_tuple_int32_compare.exit35.thread90, label %qsort_tuple_int32_compare.exit80.thread112
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %qsort_tuple_int32_compare.exit60.thread92, label %qsort_tuple_int32_compare.exit30.thread70
 
-166:                                              ; preds = %qsort_tuple_int32_compare.exit65.thread104
-  br i1 %.not20.i67, label %171, label %167
+166:                                              ; preds = %qsort_tuple_int32_compare.exit50.thread84
+  br i1 %160, label %167, label %171
 
 167:                                              ; preds = %166
   %168 = getelementptr inbounds i8, ptr %154, i64 13
   %169 = load i8, ptr %168, align 1
-  %170 = and i8 %169, 1
-  %.not12.i.i73 = icmp eq i8 %170, 0
-  br i1 %.not12.i.i73, label %qsort_tuple_int32_compare.exit80.thread112, label %qsort_tuple_int32_compare.exit35.thread90
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %qsort_tuple_int32_compare.exit30.thread70, label %qsort_tuple_int32_compare.exit60.thread92
 
 171:                                              ; preds = %166
   %172 = trunc i64 %157 to i32
@@ -7473,42 +7289,41 @@ qsort_tuple_int32_compare.exit65.thread104:       ; preds = %qsort_tuple_int32_c
   %177 = select i1 %174, i32 -1, i32 %176
   %178 = getelementptr inbounds i8, ptr %154, i64 12
   %179 = load i8, ptr %178, align 4
-  %180 = and i8 %179, 1
-  %.not.i.i75 = icmp eq i8 %180, 0
-  br i1 %.not.i.i75, label %ApplyInt32SortComparator.exit.i77, label %181
+  %180 = trunc i8 %179 to i1
+  br i1 %180, label %181, label %ApplyInt32SortComparator.exit.i51
 
 181:                                              ; preds = %171
-  %.neg.i.i76 = sext i1 %175 to i32
-  br i1 %174, label %qsort_tuple_int32_compare.exit35.thread90, label %ApplyInt32SortComparator.exit.i77
+  %.neg.i.i57 = sext i1 %175 to i32
+  br i1 %174, label %qsort_tuple_int32_compare.exit30.thread70, label %ApplyInt32SortComparator.exit.i51
 
-ApplyInt32SortComparator.exit.i77:                ; preds = %181, %171
-  %.0.i.i78 = phi i32 [ %.neg.i.i76, %181 ], [ %177, %171 ]
-  %.not.i79 = icmp eq i32 %.0.i.i78, 0
-  br i1 %.not.i79, label %ApplyInt32SortComparator.exit.thread16.i68, label %qsort_tuple_int32_compare.exit80
+ApplyInt32SortComparator.exit.i51:                ; preds = %181, %171
+  %.0.i.i52 = phi i32 [ %.neg.i.i57, %181 ], [ %177, %171 ]
+  %.not.i53 = icmp eq i32 %.0.i.i52, 0
+  br i1 %.not.i53, label %ApplyInt32SortComparator.exit.thread16.i55, label %qsort_tuple_int32_compare.exit60
 
-ApplyInt32SortComparator.exit.thread16.i68:       ; preds = %ApplyInt32SortComparator.exit.i77, %161
+ApplyInt32SortComparator.exit.thread16.i55:       ; preds = %ApplyInt32SortComparator.exit.i51, %161
   %182 = getelementptr inbounds i8, ptr %3, i64 88
   %183 = load ptr, ptr %182, align 8
-  %.not13.i69 = icmp eq ptr %183, null
-  br i1 %.not13.i69, label %184, label %qsort_tuple_int32_compare.exit35.thread90
+  %.not13.i56 = icmp eq ptr %183, null
+  br i1 %.not13.i56, label %184, label %qsort_tuple_int32_compare.exit30.thread70
 
-184:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i68
+184:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i55
   %185 = getelementptr inbounds i8, ptr %3, i64 8
   %186 = load ptr, ptr %185, align 8
   %187 = tail call i32 %186(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  br label %qsort_tuple_int32_compare.exit80
+  br label %qsort_tuple_int32_compare.exit60
 
-qsort_tuple_int32_compare.exit80:                 ; preds = %ApplyInt32SortComparator.exit.i77, %184
-  %.0.i70 = phi i32 [ %187, %184 ], [ %.0.i.i78, %ApplyInt32SortComparator.exit.i77 ]
-  %.0.i70.fr = freeze i32 %.0.i70
-  %188 = icmp slt i32 %.0.i70.fr, 0
-  br i1 %188, label %qsort_tuple_int32_compare.exit80.thread112, label %qsort_tuple_int32_compare.exit35.thread90
+qsort_tuple_int32_compare.exit60:                 ; preds = %ApplyInt32SortComparator.exit.i51, %184
+  %.0.i54 = phi i32 [ %187, %184 ], [ %.0.i.i52, %ApplyInt32SortComparator.exit.i51 ]
+  %.0.i54.fr = freeze i32 %.0.i54
+  %188 = icmp slt i32 %.0.i54.fr, 0
+  br i1 %188, label %qsort_tuple_int32_compare.exit60.thread92, label %qsort_tuple_int32_compare.exit30.thread70
 
-qsort_tuple_int32_compare.exit80.thread112:       ; preds = %167, %162, %qsort_tuple_int32_compare.exit80
-  br label %qsort_tuple_int32_compare.exit35.thread90
+qsort_tuple_int32_compare.exit60.thread92:        ; preds = %162, %167, %qsort_tuple_int32_compare.exit60
+  br label %qsort_tuple_int32_compare.exit30.thread70
 
-qsort_tuple_int32_compare.exit35.thread90:        ; preds = %162, %181, %167, %ApplyInt32SortComparator.exit.thread16.i68, %127, %146, %132, %90, %109, %95, %ApplyInt32SortComparator.exit.thread16.i38, %60, %55, %qsort_tuple_int32_compare.exit80.thread112, %qsort_tuple_int32_compare.exit80, %qsort_tuple_int32_compare.exit50.thread97, %qsort_tuple_int32_compare.exit50, %qsort_tuple_int32_compare.exit65, %qsort_tuple_int32_compare.exit35
-  %189 = phi ptr [ %1, %qsort_tuple_int32_compare.exit35 ], [ %1, %qsort_tuple_int32_compare.exit65 ], [ %2, %qsort_tuple_int32_compare.exit50.thread97 ], [ %0, %qsort_tuple_int32_compare.exit50 ], [ %0, %qsort_tuple_int32_compare.exit80.thread112 ], [ %2, %qsort_tuple_int32_compare.exit80 ], [ %1, %55 ], [ %1, %60 ], [ %0, %ApplyInt32SortComparator.exit.thread16.i38 ], [ %0, %95 ], [ %0, %109 ], [ %0, %90 ], [ %1, %132 ], [ %1, %146 ], [ %1, %127 ], [ %2, %ApplyInt32SortComparator.exit.thread16.i68 ], [ %2, %167 ], [ %2, %181 ], [ %2, %162 ]
+qsort_tuple_int32_compare.exit30.thread70:        ; preds = %167, %181, %162, %ApplyInt32SortComparator.exit.thread16.i55, %132, %146, %127, %95, %109, %90, %ApplyInt32SortComparator.exit.thread16.i35, %55, %60, %qsort_tuple_int32_compare.exit60.thread92, %qsort_tuple_int32_compare.exit60, %qsort_tuple_int32_compare.exit40.thread77, %qsort_tuple_int32_compare.exit40, %qsort_tuple_int32_compare.exit50, %qsort_tuple_int32_compare.exit30
+  %189 = phi ptr [ %1, %qsort_tuple_int32_compare.exit30 ], [ %1, %qsort_tuple_int32_compare.exit50 ], [ %2, %qsort_tuple_int32_compare.exit40.thread77 ], [ %0, %qsort_tuple_int32_compare.exit40 ], [ %0, %qsort_tuple_int32_compare.exit60.thread92 ], [ %2, %qsort_tuple_int32_compare.exit60 ], [ %1, %60 ], [ %1, %55 ], [ %0, %ApplyInt32SortComparator.exit.thread16.i35 ], [ %0, %90 ], [ %0, %109 ], [ %0, %95 ], [ %1, %127 ], [ %1, %146 ], [ %1, %132 ], [ %2, %ApplyInt32SortComparator.exit.thread16.i55 ], [ %2, %162 ], [ %2, %181 ], [ %2, %167 ]
   ret ptr %189
 }
 
@@ -7518,35 +7333,31 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not98 = icmp eq i8 %14, 0
-  br i1 %.not, label %20, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %9, label %15, label %20
 
 15:                                               ; preds = %4
-  br i1 %.not98, label %16, label %ApplySortComparator.exit.thread
+  br i1 %14, label %ApplySortComparator.exit.thread, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %3, i64 13
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not13.i = icmp eq i8 %19, 0
-  br i1 %.not13.i, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit.thread63
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %ApplySortComparator.exit.thread51, label %ApplySortComparator.exit.thread
 
 20:                                               ; preds = %4
-  br i1 %.not98, label %25, label %21
+  br i1 %14, label %21, label %25
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %3, i64 13
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not12.i = icmp eq i8 %24, 0
-  br i1 %.not12.i, label %ApplySortComparator.exit.thread63, label %ApplySortComparator.exit.thread
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit.thread51
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7554,9 +7365,8 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr
   %28 = tail call i32 %27(i64 noundef %6, i64 noundef %11, ptr noundef %3) #12
   %29 = getelementptr inbounds i8, ptr %3, i64 12
   %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %.not.i = icmp eq i8 %31, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %ApplySortComparator.exit
 
 32:                                               ; preds = %25
   %33 = icmp slt i32 %28, 0
@@ -7564,49 +7374,45 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr
   br i1 %33, label %.ApplySortComparator.exit.thread_crit_edge, label %ApplySortComparator.exit
 
 .ApplySortComparator.exit.thread_crit_edge:       ; preds = %32
-  %.pre110 = load i64, ptr %10, align 8
-  %.pre112 = load i8, ptr %12, align 8
+  %.pre87 = load i64, ptr %10, align 8
+  %.pre = load i8, ptr %12, align 8
   br label %ApplySortComparator.exit.thread
 
 ApplySortComparator.exit:                         ; preds = %32, %25
   %.0.i = phi i32 [ %34, %32 ], [ %28, %25 ]
   %35 = icmp slt i32 %.0.i, 0
-  %.pre111 = load i64, ptr %10, align 8
-  %.pre113 = load i8, ptr %12, align 8
-  br i1 %35, label %ApplySortComparator.exit.thread63, label %ApplySortComparator.exit.thread
+  %.pre88 = load i64, ptr %10, align 8
+  %.pre89 = load i8, ptr %12, align 8
+  br i1 %35, label %ApplySortComparator.exit.thread51, label %ApplySortComparator.exit.thread
 
-ApplySortComparator.exit.thread63:                ; preds = %ApplySortComparator.exit, %21, %16
-  %36 = phi i8 [ %13, %21 ], [ %13, %16 ], [ %.pre113, %ApplySortComparator.exit ]
-  %37 = phi i64 [ %11, %21 ], [ %11, %16 ], [ %.pre111, %ApplySortComparator.exit ]
-  %38 = and i8 %36, 1
-  %.not99 = icmp eq i8 %38, 0
+ApplySortComparator.exit.thread51:                ; preds = %ApplySortComparator.exit, %16, %21
+  %36 = phi i8 [ %13, %16 ], [ %13, %21 ], [ %.pre89, %ApplySortComparator.exit ]
+  %37 = phi i64 [ %11, %16 ], [ %11, %21 ], [ %.pre88, %ApplySortComparator.exit ]
+  %38 = trunc i8 %36 to i1
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %2, i64 16
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %.not100 = icmp eq i8 %43, 0
-  br i1 %.not99, label %49, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %38, label %44, label %49
 
-44:                                               ; preds = %ApplySortComparator.exit.thread63
-  br i1 %.not100, label %45, label %ApplySortComparator.exit37.thread
+44:                                               ; preds = %ApplySortComparator.exit.thread51
+  br i1 %43, label %ApplySortComparator.exit34.thread, label %45
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds i8, ptr %3, i64 13
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not13.i35 = icmp eq i8 %48, 0
-  br i1 %.not13.i35, label %ApplySortComparator.exit37.thread, label %ApplySortComparator.exit37.thread70
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit34.thread
 
-49:                                               ; preds = %ApplySortComparator.exit.thread63
-  br i1 %.not100, label %54, label %50
+49:                                               ; preds = %ApplySortComparator.exit.thread51
+  br i1 %43, label %50, label %54
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds i8, ptr %3, i64 13
   %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %.not12.i33 = icmp eq i8 %53, 0
-  br i1 %.not12.i33, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit37.thread
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %ApplySortComparator.exit34.thread, label %ApplySortComparator.exit34.thread58
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7614,50 +7420,45 @@ ApplySortComparator.exit.thread63:                ; preds = %ApplySortComparator
   %57 = tail call i32 %56(i64 noundef %37, i64 noundef %40, ptr noundef nonnull %3) #12
   %58 = getelementptr inbounds i8, ptr %3, i64 12
   %59 = load i8, ptr %58, align 4
-  %60 = and i8 %59, 1
-  %.not.i31 = icmp eq i8 %60, 0
-  br i1 %.not.i31, label %ApplySortComparator.exit37, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %ApplySortComparator.exit34
 
 61:                                               ; preds = %54
   %62 = icmp slt i32 %57, 0
   %63 = sub i32 0, %57
-  br i1 %62, label %ApplySortComparator.exit37.thread, label %ApplySortComparator.exit37
+  br i1 %62, label %ApplySortComparator.exit34.thread, label %ApplySortComparator.exit34
 
-ApplySortComparator.exit37:                       ; preds = %61, %54
-  %.0.i32 = phi i32 [ %63, %61 ], [ %57, %54 ]
-  %64 = icmp slt i32 %.0.i32, 0
-  br i1 %64, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit37.thread
+ApplySortComparator.exit34:                       ; preds = %61, %54
+  %.0.i31 = phi i32 [ %63, %61 ], [ %57, %54 ]
+  %64 = icmp slt i32 %.0.i31, 0
+  br i1 %64, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit34.thread
 
-ApplySortComparator.exit37.thread:                ; preds = %45, %61, %50, %44, %ApplySortComparator.exit37
+ApplySortComparator.exit34.thread:                ; preds = %50, %61, %45, %44, %ApplySortComparator.exit34
   %65 = load i64, ptr %5, align 8
   %66 = load i8, ptr %7, align 8
-  %67 = and i8 %66, 1
-  %.not101 = icmp eq i8 %67, 0
+  %67 = trunc i8 %66 to i1
   %68 = load i64, ptr %39, align 8
   %69 = load i8, ptr %41, align 8
-  %70 = and i8 %69, 1
-  %.not102 = icmp eq i8 %70, 0
-  br i1 %.not101, label %76, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %67, label %71, label %76
 
-71:                                               ; preds = %ApplySortComparator.exit37.thread
-  br i1 %.not102, label %72, label %ApplySortComparator.exit37.thread70
+71:                                               ; preds = %ApplySortComparator.exit34.thread
+  br i1 %70, label %ApplySortComparator.exit34.thread58, label %72
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds i8, ptr %3, i64 13
   %74 = load i8, ptr %73, align 1
-  %75 = and i8 %74, 1
-  %.not13.i42 = icmp eq i8 %75, 0
-  br i1 %.not13.i42, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit44.thread78
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %ApplySortComparator.exit38.thread66, label %ApplySortComparator.exit34.thread58
 
-76:                                               ; preds = %ApplySortComparator.exit37.thread
-  br i1 %.not102, label %81, label %77
+76:                                               ; preds = %ApplySortComparator.exit34.thread
+  br i1 %70, label %77, label %81
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds i8, ptr %3, i64 13
   %79 = load i8, ptr %78, align 1
-  %80 = and i8 %79, 1
-  %.not12.i40 = icmp eq i8 %80, 0
-  br i1 %.not12.i40, label %ApplySortComparator.exit44.thread78, label %ApplySortComparator.exit37.thread70
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit38.thread66
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7665,56 +7466,51 @@ ApplySortComparator.exit37.thread:                ; preds = %45, %61, %50, %44, 
   %84 = tail call i32 %83(i64 noundef %65, i64 noundef %68, ptr noundef nonnull %3) #12
   %85 = getelementptr inbounds i8, ptr %3, i64 12
   %86 = load i8, ptr %85, align 4
-  %87 = and i8 %86, 1
-  %.not.i38 = icmp eq i8 %87, 0
-  br i1 %.not.i38, label %ApplySortComparator.exit44, label %88
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %ApplySortComparator.exit38
 
 88:                                               ; preds = %81
   %89 = icmp slt i32 %84, 0
   %90 = sub i32 0, %84
-  br i1 %89, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit44
+  br i1 %89, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit38
 
-ApplySortComparator.exit44:                       ; preds = %88, %81
-  %.0.i39 = phi i32 [ %90, %88 ], [ %84, %81 ]
-  %.0.i39.fr = freeze i32 %.0.i39
-  %91 = icmp slt i32 %.0.i39.fr, 0
-  br i1 %91, label %ApplySortComparator.exit44.thread78, label %ApplySortComparator.exit37.thread70
+ApplySortComparator.exit38:                       ; preds = %88, %81
+  %.0.i35 = phi i32 [ %90, %88 ], [ %84, %81 ]
+  %.0.i35.fr = freeze i32 %.0.i35
+  %91 = icmp slt i32 %.0.i35.fr, 0
+  br i1 %91, label %ApplySortComparator.exit38.thread66, label %ApplySortComparator.exit34.thread58
 
-ApplySortComparator.exit44.thread78:              ; preds = %77, %72, %ApplySortComparator.exit44
-  br label %ApplySortComparator.exit37.thread70
+ApplySortComparator.exit38.thread66:              ; preds = %72, %77, %ApplySortComparator.exit38
+  br label %ApplySortComparator.exit34.thread58
 
-ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparator.exit.thread_crit_edge, %16, %21, %15, %ApplySortComparator.exit
-  %92 = phi i8 [ %.pre112, %.ApplySortComparator.exit.thread_crit_edge ], [ %13, %16 ], [ %13, %21 ], [ %13, %15 ], [ %.pre113, %ApplySortComparator.exit ]
-  %93 = phi i64 [ %.pre110, %.ApplySortComparator.exit.thread_crit_edge ], [ %11, %16 ], [ %11, %21 ], [ %11, %15 ], [ %.pre111, %ApplySortComparator.exit ]
-  %94 = and i8 %92, 1
-  %.not103 = icmp eq i8 %94, 0
+ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparator.exit.thread_crit_edge, %21, %16, %15, %ApplySortComparator.exit
+  %92 = phi i8 [ %.pre, %.ApplySortComparator.exit.thread_crit_edge ], [ %13, %21 ], [ %13, %16 ], [ %13, %15 ], [ %.pre89, %ApplySortComparator.exit ]
+  %93 = phi i64 [ %.pre87, %.ApplySortComparator.exit.thread_crit_edge ], [ %11, %21 ], [ %11, %16 ], [ %11, %15 ], [ %.pre88, %ApplySortComparator.exit ]
+  %94 = trunc i8 %92 to i1
   %95 = getelementptr inbounds i8, ptr %2, i64 8
   %96 = load i64, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %2, i64 16
   %98 = load i8, ptr %97, align 8
-  %99 = and i8 %98, 1
-  %.not104 = icmp eq i8 %99, 0
-  br i1 %.not103, label %105, label %100
+  %99 = trunc i8 %98 to i1
+  br i1 %94, label %100, label %105
 
 100:                                              ; preds = %ApplySortComparator.exit.thread
-  br i1 %.not104, label %101, label %ApplySortComparator.exit51.thread86
+  br i1 %99, label %ApplySortComparator.exit42.thread74, label %101
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds i8, ptr %3, i64 13
   %103 = load i8, ptr %102, align 1
-  %104 = and i8 %103, 1
-  %.not13.i49 = icmp eq i8 %104, 0
-  br i1 %.not13.i49, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit51.thread86
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %ApplySortComparator.exit42.thread74, label %ApplySortComparator.exit34.thread58
 
 105:                                              ; preds = %ApplySortComparator.exit.thread
-  br i1 %.not104, label %110, label %106
+  br i1 %99, label %106, label %110
 
 106:                                              ; preds = %105
   %107 = getelementptr inbounds i8, ptr %3, i64 13
   %108 = load i8, ptr %107, align 1
-  %109 = and i8 %108, 1
-  %.not12.i47 = icmp eq i8 %109, 0
-  br i1 %.not12.i47, label %ApplySortComparator.exit51.thread86, label %ApplySortComparator.exit37.thread70
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.thread74
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7722,55 +7518,50 @@ ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparato
   %113 = tail call i32 %112(i64 noundef %93, i64 noundef %96, ptr noundef %3) #12
   %114 = getelementptr inbounds i8, ptr %3, i64 12
   %115 = load i8, ptr %114, align 4
-  %116 = and i8 %115, 1
-  %.not.i45 = icmp eq i8 %116, 0
-  br i1 %.not.i45, label %ApplySortComparator.exit51, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %ApplySortComparator.exit42
 
 117:                                              ; preds = %110
   %118 = icmp slt i32 %113, 0
   %119 = sub i32 0, %113
-  br i1 %118, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit51
+  br i1 %118, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42
 
-ApplySortComparator.exit51:                       ; preds = %117, %110
-  %.0.i46 = phi i32 [ %119, %117 ], [ %113, %110 ]
-  %120 = icmp sgt i32 %.0.i46, 0
-  br i1 %120, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit51.ApplySortComparator.exit51.thread86_crit_edge
+ApplySortComparator.exit42:                       ; preds = %117, %110
+  %.0.i39 = phi i32 [ %119, %117 ], [ %113, %110 ]
+  %120 = icmp sgt i32 %.0.i39, 0
+  br i1 %120, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge
 
-ApplySortComparator.exit51.ApplySortComparator.exit51.thread86_crit_edge: ; preds = %ApplySortComparator.exit51
-  %.pre = load i64, ptr %95, align 8
-  %.pre107 = load i8, ptr %97, align 8
-  br label %ApplySortComparator.exit51.thread86
+ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge: ; preds = %ApplySortComparator.exit42
+  %.pre90 = load i64, ptr %95, align 8
+  %.pre91 = load i8, ptr %97, align 8
+  br label %ApplySortComparator.exit42.thread74
 
-ApplySortComparator.exit51.thread86:              ; preds = %ApplySortComparator.exit51.ApplySortComparator.exit51.thread86_crit_edge, %106, %101, %100
-  %121 = phi i8 [ %.pre107, %ApplySortComparator.exit51.ApplySortComparator.exit51.thread86_crit_edge ], [ %98, %106 ], [ %98, %101 ], [ %98, %100 ]
-  %122 = phi i64 [ %.pre, %ApplySortComparator.exit51.ApplySortComparator.exit51.thread86_crit_edge ], [ %96, %106 ], [ %96, %101 ], [ %96, %100 ]
+ApplySortComparator.exit42.thread74:              ; preds = %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge, %101, %106, %100
+  %121 = phi i8 [ %.pre91, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge ], [ %98, %101 ], [ %98, %106 ], [ %98, %100 ]
+  %122 = phi i64 [ %.pre90, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge ], [ %96, %101 ], [ %96, %106 ], [ %96, %100 ]
   %123 = load i64, ptr %5, align 8
   %124 = load i8, ptr %7, align 8
-  %125 = and i8 %124, 1
-  %.not105 = icmp eq i8 %125, 0
-  %126 = and i8 %121, 1
-  %.not106 = icmp eq i8 %126, 0
-  br i1 %.not105, label %132, label %127
+  %125 = trunc i8 %124 to i1
+  %126 = trunc i8 %121 to i1
+  br i1 %125, label %127, label %132
 
-127:                                              ; preds = %ApplySortComparator.exit51.thread86
-  br i1 %.not106, label %128, label %ApplySortComparator.exit37.thread70
+127:                                              ; preds = %ApplySortComparator.exit42.thread74
+  br i1 %126, label %ApplySortComparator.exit34.thread58, label %128
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds i8, ptr %3, i64 13
   %130 = load i8, ptr %129, align 1
-  %131 = and i8 %130, 1
-  %.not13.i56 = icmp eq i8 %131, 0
-  br i1 %.not13.i56, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit58.thread95
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
 
-132:                                              ; preds = %ApplySortComparator.exit51.thread86
-  br i1 %.not106, label %137, label %133
+132:                                              ; preds = %ApplySortComparator.exit42.thread74
+  br i1 %126, label %133, label %137
 
 133:                                              ; preds = %132
   %134 = getelementptr inbounds i8, ptr %3, i64 13
   %135 = load i8, ptr %134, align 1
-  %136 = and i8 %135, 1
-  %.not12.i54 = icmp eq i8 %136, 0
-  br i1 %.not12.i54, label %ApplySortComparator.exit58.thread95, label %ApplySortComparator.exit37.thread70
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46.thread83
 
 137:                                              ; preds = %132
   %138 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7778,26 +7569,25 @@ ApplySortComparator.exit51.thread86:              ; preds = %ApplySortComparator
   %140 = tail call i32 %139(i64 noundef %123, i64 noundef %122, ptr noundef %3) #12
   %141 = getelementptr inbounds i8, ptr %3, i64 12
   %142 = load i8, ptr %141, align 4
-  %143 = and i8 %142, 1
-  %.not.i52 = icmp eq i8 %143, 0
-  br i1 %.not.i52, label %ApplySortComparator.exit58, label %144
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %ApplySortComparator.exit46
 
 144:                                              ; preds = %137
   %145 = icmp slt i32 %140, 0
   %146 = sub i32 0, %140
-  br i1 %145, label %ApplySortComparator.exit37.thread70, label %ApplySortComparator.exit58
+  br i1 %145, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46
 
-ApplySortComparator.exit58:                       ; preds = %144, %137
-  %.0.i53 = phi i32 [ %146, %144 ], [ %140, %137 ]
-  %.0.i53.fr = freeze i32 %.0.i53
-  %147 = icmp slt i32 %.0.i53.fr, 0
-  br i1 %147, label %ApplySortComparator.exit58.thread95, label %ApplySortComparator.exit37.thread70
+ApplySortComparator.exit46:                       ; preds = %144, %137
+  %.0.i43 = phi i32 [ %146, %144 ], [ %140, %137 ]
+  %.0.i43.fr = freeze i32 %.0.i43
+  %147 = icmp slt i32 %.0.i43.fr, 0
+  br i1 %147, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
 
-ApplySortComparator.exit58.thread95:              ; preds = %133, %128, %ApplySortComparator.exit58
-  br label %ApplySortComparator.exit37.thread70
+ApplySortComparator.exit46.thread83:              ; preds = %128, %133, %ApplySortComparator.exit46
+  br label %ApplySortComparator.exit34.thread58
 
-ApplySortComparator.exit37.thread70:              ; preds = %128, %144, %133, %127, %101, %117, %106, %72, %88, %77, %71, %50, %45, %ApplySortComparator.exit58.thread95, %ApplySortComparator.exit58, %ApplySortComparator.exit44.thread78, %ApplySortComparator.exit44, %ApplySortComparator.exit51, %ApplySortComparator.exit37
-  %148 = phi ptr [ %1, %ApplySortComparator.exit37 ], [ %1, %ApplySortComparator.exit51 ], [ %2, %ApplySortComparator.exit44.thread78 ], [ %0, %ApplySortComparator.exit44 ], [ %0, %ApplySortComparator.exit58.thread95 ], [ %2, %ApplySortComparator.exit58 ], [ %1, %45 ], [ %1, %50 ], [ %0, %71 ], [ %0, %77 ], [ %0, %88 ], [ %0, %72 ], [ %1, %106 ], [ %1, %117 ], [ %1, %101 ], [ %2, %127 ], [ %2, %133 ], [ %2, %144 ], [ %2, %128 ]
+ApplySortComparator.exit34.thread58:              ; preds = %133, %144, %128, %127, %106, %117, %101, %77, %88, %72, %71, %45, %50, %ApplySortComparator.exit46.thread83, %ApplySortComparator.exit46, %ApplySortComparator.exit38.thread66, %ApplySortComparator.exit38, %ApplySortComparator.exit42, %ApplySortComparator.exit34
+  %148 = phi ptr [ %1, %ApplySortComparator.exit34 ], [ %1, %ApplySortComparator.exit42 ], [ %2, %ApplySortComparator.exit38.thread66 ], [ %0, %ApplySortComparator.exit38 ], [ %0, %ApplySortComparator.exit46.thread83 ], [ %2, %ApplySortComparator.exit46 ], [ %1, %50 ], [ %1, %45 ], [ %0, %71 ], [ %0, %72 ], [ %0, %88 ], [ %0, %77 ], [ %1, %101 ], [ %1, %117 ], [ %1, %106 ], [ %2, %127 ], [ %2, %128 ], [ %2, %144 ], [ %2, %133 ]
   ret ptr %148
 }
 

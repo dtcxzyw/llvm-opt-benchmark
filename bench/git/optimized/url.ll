@@ -32,12 +32,11 @@ land.end:                                         ; preds = %land.rhs, %entry
   %4 = icmp ult i32 %ch, 47
   %switch.cast = zext nneg i32 %ch to i47
   %switch.downshift = lshr i47 -26388279066624, %switch.cast
-  %5 = and i47 %switch.downshift, 1
-  %switch.masked = icmp ne i47 %5, 0
-  %6 = select i1 %4, i1 %switch.masked, i1 false
+  %switch.masked = trunc i47 %switch.downshift to i1
+  %5 = select i1 %4, i1 %switch.masked, i1 false
   %tobool11.not = icmp eq i32 %first_flag, 0
-  %7 = and i1 %tobool11.not, %6
-  %narrow = or i1 %3, %7
+  %6 = and i1 %tobool11.not, %5
+  %narrow = or i1 %3, %6
   %lor.ext17 = zext i1 %narrow to i32
   ret i32 %lor.ext17
 }
@@ -87,27 +86,26 @@ land.end.i9:                                      ; preds = %land.rhs.i12, %whil
   %7 = icmp ult i8 %3, 47
   %switch.cast = zext nneg i8 %3 to i47
   %switch.downshift = lshr i47 -26388279066624, %switch.cast
-  %8 = and i47 %switch.downshift, 1
-  %switch.masked = icmp ne i47 %8, 0
-  %9 = select i1 %7, i1 %switch.masked, i1 false
-  %narrow.i = or i1 %6, %9
+  %switch.masked = trunc i47 %switch.downshift to i1
+  %8 = select i1 %7, i1 %switch.masked, i1 false
+  %narrow.i = or i1 %6, %8
   br i1 %narrow.i, label %while.cond, label %return, !llvm.loop !5
 
 land.lhs.true:                                    ; preds = %while.cond
   %arrayidx15 = getelementptr inbounds i8, ptr %url.pn, i64 2
-  %10 = load i8, ptr %arrayidx15, align 1
-  %cmp17 = icmp eq i8 %10, 47
+  %9 = load i8, ptr %arrayidx15, align 1
+  %cmp17 = icmp eq i8 %9, 47
   br i1 %cmp17, label %land.rhs19, label %return
 
 land.rhs19:                                       ; preds = %land.lhs.true
   %arrayidx20 = getelementptr inbounds i8, ptr %url.pn, i64 3
-  %11 = load i8, ptr %arrayidx20, align 1
-  %cmp22 = icmp eq i8 %11, 47
-  %12 = zext i1 %cmp22 to i32
+  %10 = load i8, ptr %arrayidx20, align 1
+  %cmp22 = icmp eq i8 %10, 47
+  %11 = zext i1 %cmp22 to i32
   br label %return
 
 return:                                           ; preds = %while.cond, %land.end.i9, %lor.lhs.false, %land.lhs.true, %land.rhs19, %entry, %land.rhs.i
-  %retval.0 = phi i32 [ 0, %land.rhs.i ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %12, %land.rhs19 ], [ 0, %lor.lhs.false ], [ 0, %land.end.i9 ], [ 0, %while.cond ]
+  %retval.0 = phi i32 [ 0, %land.rhs.i ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %11, %land.rhs19 ], [ 0, %lor.lhs.false ], [ 0, %land.end.i9 ], [ 0, %while.cond ]
   ret i32 %retval.0
 }
 

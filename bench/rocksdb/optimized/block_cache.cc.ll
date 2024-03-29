@@ -340,20 +340,18 @@ _ZNSt10unique_ptrIN7rocksdb12Block_kIndexESt14default_deleteIS1_EE5resetEPS1_.ex
   %4 = load ptr, ptr %raw_ucmp, align 8
   %index_value_is_full = getelementptr inbounds i8, ptr %this, i64 46
   %5 = load i8, ptr %index_value_is_full, align 2
-  %6 = and i8 %5, 1
-  %tobool = icmp ne i8 %6, 0
+  %tobool = trunc i8 %5 to i1
   %index_has_first_key = getelementptr inbounds i8, ptr %this, i64 47
-  %7 = load i8, ptr %index_has_first_key, align 1
-  %8 = and i8 %7, 1
-  %tobool3 = icmp ne i8 %8, 0
+  %6 = load i8, ptr %index_has_first_key, align 1
+  %tobool3 = trunc i8 %6 to i1
   tail call void @_ZN7rocksdb5Block34InitializeIndexBlockProtectionInfoEhPKNS_10ComparatorEbb(ptr noundef nonnull align 8 dereferenceable(84) %2, i8 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3)
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #12
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %7
 }
 
 declare void @_ZN7rocksdb5Block34InitializeIndexBlockProtectionInfoEhPKNS_10ComparatorEbb(ptr noundef nonnull align 8 dereferenceable(84), i8 noundef zeroext, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
@@ -387,20 +385,18 @@ _ZNSt10unique_ptrIN7rocksdb27Block_kFilterPartitionIndexESt14default_deleteIS1_E
   %4 = load ptr, ptr %raw_ucmp, align 8
   %index_value_is_full = getelementptr inbounds i8, ptr %this, i64 46
   %5 = load i8, ptr %index_value_is_full, align 2
-  %6 = and i8 %5, 1
-  %tobool = icmp ne i8 %6, 0
+  %tobool = trunc i8 %5 to i1
   %index_has_first_key = getelementptr inbounds i8, ptr %this, i64 47
-  %7 = load i8, ptr %index_has_first_key, align 1
-  %8 = and i8 %7, 1
-  %tobool3 = icmp ne i8 %8, 0
+  %6 = load i8, ptr %index_has_first_key, align 1
+  %tobool3 = trunc i8 %6 to i1
   tail call void @_ZN7rocksdb5Block34InitializeIndexBlockProtectionInfoEhPKNS_10ComparatorEbb(ptr noundef nonnull align 8 dereferenceable(84) %2, i8 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3)
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #12
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable

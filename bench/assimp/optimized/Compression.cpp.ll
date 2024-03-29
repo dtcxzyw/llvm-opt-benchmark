@@ -84,9 +84,8 @@ define hidden void @_ZN6Assimp11CompressionD2Ev(ptr nocapture noundef nonnull re
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %delete.notnull, label %if.end.i
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end.i, label %delete.notnull
 
 if.end.i:                                         ; preds = %entry
   %mZSstream.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -94,25 +93,25 @@ if.end.i:                                         ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.end.i
-  %3 = load ptr, ptr %this, align 8
-  store i8 0, ptr %3, align 8
+  %2 = load ptr, ptr %this, align 8
+  store i8 0, ptr %2, align 8
   %.pr = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %.pr, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry, %if.end
-  %4 = phi ptr [ %.pr, %if.end ], [ %0, %entry ]
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #15
+  %3 = phi ptr [ %.pr, %if.end ], [ %0, %entry ]
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.end.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #16
   unreachable
 }
 
@@ -121,19 +120,18 @@ define hidden noundef zeroext i1 @_ZN6Assimp11Compression5closeEv(ptr nocapture 
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp ne i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %mZSstream = getelementptr inbounds i8, ptr %0, i64 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %mZSstream)
-  %3 = load ptr, ptr %this, align 8
-  store i8 0, ptr %3, align 8
+  %2 = load ptr, ptr %this, align 8
+  store i8 0, ptr %2, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  ret i1 %tobool.not
+  ret i1 %tobool
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -152,30 +150,29 @@ define hidden noundef zeroext i1 @_ZN6Assimp11Compression4openENS0_6FormatENS0_9
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %opaque = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %opaque, align 8
-  %3 = load ptr, ptr %this, align 8
-  %zalloc = getelementptr inbounds i8, ptr %3, i64 72
+  %2 = load ptr, ptr %this, align 8
+  %zalloc = getelementptr inbounds i8, ptr %2, i64 72
   store ptr null, ptr %zalloc, align 8
-  %4 = load ptr, ptr %this, align 8
-  %zfree = getelementptr inbounds i8, ptr %4, i64 80
+  %3 = load ptr, ptr %this, align 8
+  %zfree = getelementptr inbounds i8, ptr %3, i64 80
   store ptr null, ptr %zfree, align 8
-  %5 = load ptr, ptr %this, align 8
-  %mFlushMode = getelementptr inbounds i8, ptr %5, i64 120
+  %4 = load ptr, ptr %this, align 8
+  %mFlushMode = getelementptr inbounds i8, ptr %4, i64 120
   store i32 %flush, ptr %mFlushMode, align 8
   %cmp = icmp ne i32 %format, 0
-  %6 = load ptr, ptr %this, align 8
-  %data_type = getelementptr inbounds i8, ptr %6, i64 96
+  %5 = load ptr, ptr %this, align 8
+  %data_type = getelementptr inbounds i8, ptr %5, i64 96
   %. = zext i1 %cmp to i32
   store i32 %., ptr %data_type, align 8
   %cmp15 = icmp eq i32 %windowBits, 0
-  %7 = load ptr, ptr %this, align 8
-  %mZSstream18 = getelementptr inbounds i8, ptr %7, i64 8
+  %6 = load ptr, ptr %this, align 8
+  %mZSstream18 = getelementptr inbounds i8, ptr %6, i64 8
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.end
@@ -187,12 +184,11 @@ if.else19:                                        ; preds = %if.end
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else19, %if.then16
+  %7 = load ptr, ptr %this, align 8
+  store i8 1, ptr %7, align 8
   %8 = load ptr, ptr %this, align 8
-  store i8 1, ptr %8, align 8
-  %9 = load ptr, ptr %this, align 8
-  %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %tobool28 = icmp ne i8 %11, 0
+  %9 = load i8, ptr %8, align 8
+  %tobool28 = trunc i8 %9 to i1
   br label %return
 
 return:                                           ; preds = %entry, %if.end23
@@ -589,8 +585,7 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11Compression6isOpenEv(ptr nocaptur
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 

@@ -33,9 +33,8 @@ define noundef i32 @ompi_group_free(ptr nocapture noundef %0) local_unnamed_addr
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %9, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
   %7 = atomicrmw volatile add ptr %3, i32 -1 monotonic, align 4
@@ -68,8 +67,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %6, %9
   tail call void %19(ptr noundef nonnull %2) #11
   %20 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %21 = load ptr, ptr %20, align 8
-  %.not.i6 = icmp eq ptr %21, null
-  br i1 %.not.i6, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %14
   tail call void @free(ptr noundef %2) #11
@@ -1218,13 +1217,13 @@ ompi_group_get_proc_name.exit40:                  ; preds = %37, %41
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %._crit_edge68.thread, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = icmp eq ptr %0, @ompi_mpi_group_empty
   %7 = icmp eq ptr %1, @ompi_mpi_group_empty
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %._crit_edge68.thread, label %8
+  br i1 %or.cond, label %.critedge, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1232,22 +1231,22 @@ define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef read
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
-  br i1 %.not, label %.preheader, label %._crit_edge68.thread
+  br i1 %.not, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %8
-  %.not4764 = icmp sgt i32 %10, 0
-  br i1 %.not4764, label %.lr.ph67, label %._crit_edge68.thread
+  %.not4662 = icmp sgt i32 %10, 0
+  br i1 %.not4662, label %.lr.ph65, label %.critedge
 
-.lr.ph67:                                         ; preds = %.preheader
+.lr.ph65:                                         ; preds = %.preheader
   %13 = getelementptr i8, ptr %0, i64 32
   %14 = getelementptr i8, ptr %1, i64 32
   br label %15
 
-15:                                               ; preds = %.lr.ph67, %43
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next73, %43 ]
-  %.04265 = phi i8 [ 1, %.lr.ph67 ], [ %spec.select, %43 ]
-  %.val48 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val48, i64 %indvars.iv72
+15:                                               ; preds = %.lr.ph65, %43
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next71, %43 ]
+  %.04263 = phi i1 [ true, %.lr.ph65 ], [ %spec.select, %43 ]
+  %.val47 = load ptr, ptr %13, align 8
+  %16 = getelementptr inbounds ptr, ptr %.val47, i64 %indvars.iv70
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -1269,8 +1268,8 @@ define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef read
 ompi_group_get_proc_name.exit:                    ; preds = %20, %24
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i, %20 ], [ %.sroa.0.0.copyload.i, %24 ]
   %26 = load i32, ptr %11, align 8
-  %.not4562 = icmp sgt i32 %26, 0
-  br i1 %.not4562, label %.lr.ph, label %._crit_edge68.thread
+  %.not4560 = icmp sgt i32 %26, 0
+  br i1 %.not4560, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %ompi_group_get_proc_name.exit, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %ompi_group_get_proc_name.exit ]
@@ -1279,54 +1278,51 @@ ompi_group_get_proc_name.exit:                    ; preds = %20, %24
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
-  %.not.i49 = icmp eq i64 %30, 0
-  br i1 %.not.i49, label %35, label %31
+  %.not.i48 = icmp eq i64 %30, 0
+  br i1 %.not.i48, label %35, label %31
 
 31:                                               ; preds = %.lr.ph
   %32 = lshr i64 %29, 1
   %33 = and i64 %32, 32767
   %34 = and i64 %29, -65536
-  %.sroa.0.0.insert.insert.i.i50 = or disjoint i64 %33, %34
-  br label %ompi_group_get_proc_name.exit53
+  %.sroa.0.0.insert.insert.i.i49 = or disjoint i64 %33, %34
+  br label %ompi_group_get_proc_name.exit52
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %28, i64 40
-  %.sroa.0.0.copyload.i52 = load i64, ptr %36, align 8
-  br label %ompi_group_get_proc_name.exit53
+  %.sroa.0.0.copyload.i51 = load i64, ptr %36, align 8
+  br label %ompi_group_get_proc_name.exit52
 
-ompi_group_get_proc_name.exit53:                  ; preds = %31, %35
-  %.sroa.0.0.i51 = phi i64 [ %.sroa.0.0.insert.insert.i.i50, %31 ], [ %.sroa.0.0.copyload.i52, %35 ]
+ompi_group_get_proc_name.exit52:                  ; preds = %31, %35
+  %.sroa.0.0.i50 = phi i64 [ %.sroa.0.0.insert.insert.i.i49, %31 ], [ %.sroa.0.0.copyload.i51, %35 ]
   %37 = load ptr, ptr @opal_compare_proc, align 8
-  %38 = tail call i32 %37(i64 %.sroa.0.0.i, i64 %.sroa.0.0.i51) #11
+  %38 = tail call i32 %37(i64 %.sroa.0.0.i, i64 %.sroa.0.0.i50) #11
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %43, label %40
 
-40:                                               ; preds = %ompi_group_get_proc_name.exit53
+40:                                               ; preds = %ompi_group_get_proc_name.exit52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %11, align 8
   %42 = sext i32 %41 to i64
   %.not45 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %.not45, label %.lr.ph, label %._crit_edge68.thread, !llvm.loop !28
+  br i1 %.not45, label %.lr.ph, label %.critedge, !llvm.loop !28
 
-43:                                               ; preds = %ompi_group_get_proc_name.exit53
+43:                                               ; preds = %ompi_group_get_proc_name.exit52
   %44 = and i64 %indvars.iv, 4294967295
-  %.not44 = icmp eq i64 %indvars.iv72, %44
-  %spec.select = select i1 %.not44, i8 %.04265, i8 0
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %.not44 = icmp eq i64 %indvars.iv70, %44
+  %spec.select = select i1 %.not44, i1 %.04263, i1 false
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %45 = load i32, ptr %9, align 8
   %46 = sext i32 %45 to i64
-  %.not47 = icmp slt i64 %indvars.iv.next73, %46
-  br i1 %.not47, label %15, label %._crit_edge68, !llvm.loop !29
+  %.not46 = icmp slt i64 %indvars.iv.next71, %46
+  br i1 %.not46, label %15, label %._crit_edge66, !llvm.loop !29
 
-._crit_edge68:                                    ; preds = %43
-  %47 = shl i8 %spec.select, 1
-  %48 = and i8 %47, 2
-  %49 = xor i8 %48, 2
-  %spec.select77 = zext nneg i8 %49 to i32
-  br label %._crit_edge68.thread
+._crit_edge66:                                    ; preds = %43
+  %spec.select74 = select i1 %spec.select, i32 0, i32 2
+  br label %.critedge
 
-._crit_edge68.thread:                             ; preds = %ompi_group_get_proc_name.exit, %40, %._crit_edge68, %.preheader, %8, %5, %3
-  %.sink = phi i32 [ 0, %3 ], [ 3, %5 ], [ 3, %8 ], [ 0, %.preheader ], [ %spec.select77, %._crit_edge68 ], [ 3, %40 ], [ 3, %ompi_group_get_proc_name.exit ]
+.critedge:                                        ; preds = %ompi_group_get_proc_name.exit, %40, %._crit_edge66, %.preheader, %8, %5, %3
+  %.sink = phi i32 [ 0, %3 ], [ 3, %5 ], [ 3, %8 ], [ 0, %.preheader ], [ %spec.select74, %._crit_edge66 ], [ 3, %40 ], [ 3, %ompi_group_get_proc_name.exit ]
   store i32 %.sink, ptr %2, align 4
   ret i32 0
 }

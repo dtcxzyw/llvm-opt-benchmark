@@ -265,9 +265,8 @@ entry:
   %0 = load ptr, ptr %drv_opaque, align 8
   %p2p = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %p2p, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %cond.false, label %cond.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
   %call = tail call ptr @g_dbus_method_invocation_get_sender(ptr noundef %invocation) #11
@@ -282,32 +281,31 @@ cond.end:                                         ; preds = %entry, %cond.false
   %cond6.in = getelementptr inbounds i8, ptr %0, i64 %cond6.in.v
   %cond6 = load ptr, ptr %cond6.in, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %3 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %3, 0
-  %4 = load i16, ptr @_TRACE_DBUS_AUDIO_REGISTER_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %4, 0
+  %2 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %2, 0
+  %3 = load i16, ptr @_TRACE_DBUS_AUDIO_REGISTER_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %3, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_dbus_audio_register.exit
 
 land.lhs.true5.i.i:                               ; preds = %cond.end
-  %5 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %5, 32768
+  %4 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %4, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_dbus_audio_register.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %5 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %8 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %cond, ptr noundef nonnull %cond8) #11
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %cond, ptr noundef nonnull %cond8) #11
   br label %trace_dbus_audio_register.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -328,59 +326,59 @@ if.then:                                          ; preds = %trace_dbus_audio_re
 if.end:                                           ; preds = %trace_dbus_audio_register.exit
   %call12 = tail call i32 @g_variant_get_handle(ptr noundef %arg_listener) #11
   %call13 = call i32 @g_unix_fd_list_get(ptr noundef %fd_list, i32 noundef %call12, ptr noundef nonnull %err) #11
-  %10 = load ptr, ptr %err, align 8
-  %tobool14.not = icmp eq ptr %10, null
+  %8 = load ptr, ptr %err, align 8
+  %tobool14.not = icmp eq ptr %8, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end
   %call16 = call i32 @dbus_display_error_quark() #11
-  %11 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %message, align 8
-  call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call16, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %12) #11
+  %9 = load ptr, ptr %err, align 8
+  %message = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %message, align 8
+  call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call16, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %10) #11
   br label %cleanup.thread
 
 if.end17:                                         ; preds = %if.end
   %call18 = call ptr @g_socket_new_from_fd(i32 noundef %call13, ptr noundef nonnull %err) #11
-  %13 = load ptr, ptr %err, align 8
-  %tobool19.not = icmp eq ptr %13, null
+  %11 = load ptr, ptr %err, align 8
+  %tobool19.not = icmp eq ptr %11, null
   br i1 %tobool19.not, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
   %call21 = call i32 @dbus_display_error_quark() #11
-  %14 = load ptr, ptr %err, align 8
-  %message22 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %message22, align 8
-  call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call21, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %15) #11
+  %12 = load ptr, ptr %err, align 8
+  %message22 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %message22, align 8
+  call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call21, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %13) #11
   %call23 = call i32 @close(i32 noundef %call13) #11
   br label %cleanup.thread
 
 if.end24:                                         ; preds = %if.end17
   %call25 = call ptr @g_socket_connection_factory_create_connection(ptr noundef %call18) #11
   %iface = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %iface, align 8
+  %14 = load ptr, ptr %iface, align 8
   br i1 %out, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.end24
-  call void @qemu_dbus_display1_audio_complete_register_out_listener(ptr noundef %16, ptr noundef %invocation, ptr noundef null) #11
+  call void @qemu_dbus_display1_audio_complete_register_out_listener(ptr noundef %14, ptr noundef %invocation, ptr noundef null) #11
   br label %if.end29
 
 if.else:                                          ; preds = %if.end24
-  call void @qemu_dbus_display1_audio_complete_register_in_listener(ptr noundef %16, ptr noundef %invocation, ptr noundef null) #11
+  call void @qemu_dbus_display1_audio_complete_register_in_listener(ptr noundef %14, ptr noundef %invocation, ptr noundef null) #11
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else, %if.then27
   %call30 = tail call i64 @g_io_stream_get_type() #14
   %call31 = call ptr @g_type_check_instance_cast(ptr noundef %call25, i64 noundef %call30) #11
   %call32 = call ptr @g_dbus_connection_new_sync(ptr noundef %call31, ptr noundef %call1, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #11
-  %17 = load ptr, ptr %err, align 8
-  %tobool33.not = icmp eq ptr %17, null
+  %15 = load ptr, ptr %err, align 8
+  %tobool33.not = icmp eq ptr %15, null
   br i1 %tobool33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %if.end29
-  %message35 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %message35, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14, ptr noundef %18) #11
+  %message35 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %message35, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14, ptr noundef %16) #11
   br label %cleanup
 
 if.end36:                                         ; preds = %if.end29
@@ -399,10 +397,10 @@ cond.end44.thread:                                ; preds = %if.end36
   br i1 %tobool46.not60, label %if.then47, label %if.else56
 
 if.then47:                                        ; preds = %cond.end44.thread, %cond.end44
-  %19 = load ptr, ptr %err, align 8
-  %message48 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %message48, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef %20) #11
+  %17 = load ptr, ptr %err, align 8
+  %message48 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %message48, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef %18) #11
   br label %cleanup
 
 if.then51:                                        ; preds = %cond.end44
@@ -418,37 +416,37 @@ for.body.lr.ph:                                   ; preds = %if.then51
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %hw.077 = phi ptr [ %hw.075, %for.body.lr.ph ], [ %hw.0, %for.body ]
   %call54 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call40, i64 noundef %call53) #11
-  %21 = ptrtoint ptr %hw.077 to i64
+  %19 = ptrtoint ptr %hw.077 to i64
   %info.i = getelementptr inbounds i8, ptr %hw.077, i64 20
-  %22 = load i32, ptr %info.i, align 4
-  %conv.i = trunc i32 %22 to i8
+  %20 = load i32, ptr %info.i, align 4
+  %conv.i = trunc i32 %20 to i8
   %is_signed.i = getelementptr inbounds i8, ptr %hw.077, i64 24
-  %23 = load i8, ptr %is_signed.i, align 4
-  %24 = and i8 %23, 1
-  %conv2.i = zext nneg i8 %24 to i32
+  %21 = load i8, ptr %is_signed.i, align 4
+  %22 = and i8 %21, 1
+  %conv2.i = zext nneg i8 %22 to i32
   %is_float.i = getelementptr inbounds i8, ptr %hw.077, i64 25
-  %25 = load i8, ptr %is_float.i, align 1
-  %26 = and i8 %25, 1
-  %conv5.i = zext nneg i8 %26 to i32
+  %23 = load i8, ptr %is_float.i, align 1
+  %24 = and i8 %23, 1
+  %conv5.i = zext nneg i8 %24 to i32
   %freq.i = getelementptr inbounds i8, ptr %hw.077, i64 28
-  %27 = load i32, ptr %freq.i, align 4
+  %25 = load i32, ptr %freq.i, align 4
   %nchannels.i = getelementptr inbounds i8, ptr %hw.077, i64 32
-  %28 = load i32, ptr %nchannels.i, align 4
-  %conv8.i = trunc i32 %28 to i8
+  %26 = load i32, ptr %nchannels.i, align 4
+  %conv8.i = trunc i32 %26 to i8
   %bytes_per_frame.i = getelementptr inbounds i8, ptr %hw.077, i64 36
-  %29 = load i32, ptr %bytes_per_frame.i, align 4
+  %27 = load i32, ptr %bytes_per_frame.i, align 4
   %bytes_per_second.i = getelementptr inbounds i8, ptr %hw.077, i64 40
-  %30 = load i32, ptr %bytes_per_second.i, align 4
+  %28 = load i32, ptr %bytes_per_second.i, align 4
   %swap_endianness.i = getelementptr inbounds i8, ptr %hw.077, i64 44
-  %31 = load i32, ptr %swap_endianness.i, align 4
-  %tobool12.not.i = icmp ne i32 %31, 0
+  %29 = load i32, ptr %swap_endianness.i, align 4
+  %tobool12.not.i = icmp ne i32 %29, 0
   %cond.i = zext i1 %tobool12.not.i to i32
-  call void @qemu_dbus_display1_audio_out_listener_call_init(ptr noundef %call54, i64 noundef %21, i8 noundef zeroext %conv.i, i32 noundef %conv2.i, i32 noundef %conv5.i, i32 noundef %27, i8 noundef zeroext %conv8.i, i32 noundef %29, i32 noundef %30, i32 noundef %cond.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  call void @qemu_dbus_display1_audio_out_listener_call_init(ptr noundef %call54, i64 noundef %19, i8 noundef zeroext %conv.i, i32 noundef %conv2.i, i32 noundef %conv5.i, i32 noundef %25, i8 noundef zeroext %conv8.i, i32 noundef %27, i32 noundef %28, i32 noundef %cond.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %enabled = getelementptr inbounds i8, ptr %hw.077, i64 168
-  %32 = load i8, ptr %enabled, align 8
-  %33 = and i8 %32, 1
-  %conv = zext nneg i8 %33 to i32
-  call void @qemu_dbus_display1_audio_out_listener_call_set_enabled(ptr noundef %call54, i64 noundef %21, i32 noundef %conv, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  %30 = load i8, ptr %enabled, align 8
+  %31 = and i8 %30, 1
+  %conv = zext nneg i8 %31 to i32
+  call void @qemu_dbus_display1_audio_out_listener_call_set_enabled(ptr noundef %call54, i64 noundef %19, i32 noundef %conv, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %entries = getelementptr inbounds i8, ptr %hw.077, i64 152
   %hw.0 = load ptr, ptr %entries, align 8
   %tobool52.not = icmp eq ptr %hw.0, null
@@ -468,37 +466,37 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   %hw57.074 = phi ptr [ %hw57.072, %for.body61.lr.ph ], [ %hw57.0, %for.body61 ]
   %call68 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call43, i64 noundef %call67) #11
   %call70 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call43, i64 noundef %call67) #11
-  %34 = ptrtoint ptr %hw57.074 to i64
+  %32 = ptrtoint ptr %hw57.074 to i64
   %info.i37 = getelementptr inbounds i8, ptr %hw57.074, i64 16
-  %35 = load i32, ptr %info.i37, align 8
-  %conv.i38 = trunc i32 %35 to i8
+  %33 = load i32, ptr %info.i37, align 8
+  %conv.i38 = trunc i32 %33 to i8
   %is_signed.i39 = getelementptr inbounds i8, ptr %hw57.074, i64 20
-  %36 = load i8, ptr %is_signed.i39, align 4
-  %37 = and i8 %36, 1
-  %conv2.i40 = zext nneg i8 %37 to i32
+  %34 = load i8, ptr %is_signed.i39, align 4
+  %35 = and i8 %34, 1
+  %conv2.i40 = zext nneg i8 %35 to i32
   %is_float.i41 = getelementptr inbounds i8, ptr %hw57.074, i64 21
-  %38 = load i8, ptr %is_float.i41, align 1
-  %39 = and i8 %38, 1
-  %conv5.i42 = zext nneg i8 %39 to i32
+  %36 = load i8, ptr %is_float.i41, align 1
+  %37 = and i8 %36, 1
+  %conv5.i42 = zext nneg i8 %37 to i32
   %freq.i43 = getelementptr inbounds i8, ptr %hw57.074, i64 24
-  %40 = load i32, ptr %freq.i43, align 8
+  %38 = load i32, ptr %freq.i43, align 8
   %nchannels.i44 = getelementptr inbounds i8, ptr %hw57.074, i64 28
-  %41 = load i32, ptr %nchannels.i44, align 4
-  %conv8.i45 = trunc i32 %41 to i8
+  %39 = load i32, ptr %nchannels.i44, align 4
+  %conv8.i45 = trunc i32 %39 to i8
   %bytes_per_frame.i46 = getelementptr inbounds i8, ptr %hw57.074, i64 32
-  %42 = load i32, ptr %bytes_per_frame.i46, align 8
+  %40 = load i32, ptr %bytes_per_frame.i46, align 8
   %bytes_per_second.i47 = getelementptr inbounds i8, ptr %hw57.074, i64 36
-  %43 = load i32, ptr %bytes_per_second.i47, align 4
+  %41 = load i32, ptr %bytes_per_second.i47, align 4
   %swap_endianness.i48 = getelementptr inbounds i8, ptr %hw57.074, i64 40
-  %44 = load i32, ptr %swap_endianness.i48, align 8
-  %tobool12.not.i49 = icmp ne i32 %44, 0
+  %42 = load i32, ptr %swap_endianness.i48, align 8
+  %tobool12.not.i49 = icmp ne i32 %42, 0
   %cond.i50 = zext i1 %tobool12.not.i49 to i32
-  call void @qemu_dbus_display1_audio_in_listener_call_init(ptr noundef %call70, i64 noundef %34, i8 noundef zeroext %conv.i38, i32 noundef %conv2.i40, i32 noundef %conv5.i42, i32 noundef %40, i8 noundef zeroext %conv8.i45, i32 noundef %42, i32 noundef %43, i32 noundef %cond.i50, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  call void @qemu_dbus_display1_audio_in_listener_call_init(ptr noundef %call70, i64 noundef %32, i8 noundef zeroext %conv.i38, i32 noundef %conv2.i40, i32 noundef %conv5.i42, i32 noundef %38, i8 noundef zeroext %conv8.i45, i32 noundef %40, i32 noundef %41, i32 noundef %cond.i50, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %enabled71 = getelementptr inbounds i8, ptr %hw57.074, i64 168
-  %45 = load i8, ptr %enabled71, align 8
-  %46 = and i8 %45, 1
-  %conv73 = zext nneg i8 %46 to i32
-  call void @qemu_dbus_display1_audio_in_listener_call_set_enabled(ptr noundef %call68, i64 noundef %34, i32 noundef %conv73, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  %43 = load i8, ptr %enabled71, align 8
+  %44 = and i8 %43, 1
+  %conv73 = zext nneg i8 %44 to i32
+  call void @qemu_dbus_display1_audio_in_listener_call_set_enabled(ptr noundef %call68, i64 noundef %32, i32 noundef %conv73, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %entries75 = getelementptr inbounds i8, ptr %hw57.074, i64 152
   %hw57.0 = load ptr, ptr %entries75, align 8
   %tobool60.not = icmp eq ptr %hw57.0, null
@@ -848,17 +846,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %10 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %size) #11
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %size) #11
   br label %trace_dbus_audio_put_buffer_out.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -867,32 +864,32 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_audio_put_buffer_out.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %12 = load i64, ptr %buf_pos, align 8
-  %13 = load i64, ptr %buf_size, align 8
-  %cmp9 = icmp ult i64 %12, %13
+  %11 = load i64, ptr %buf_pos, align 8
+  %12 = load i64, ptr %buf_size, align 8
+  %cmp9 = icmp ult i64 %11, %12
   br i1 %cmp9, label %glib_autoptr_cleanup_GBytes.exit, label %if.end11
 
 if.end11:                                         ; preds = %trace_dbus_audio_put_buffer_out.exit
-  %14 = load ptr, ptr %buf1, align 8
+  %13 = load ptr, ptr %buf1, align 8
   store ptr null, ptr %buf1, align 8
-  %call14 = tail call ptr @g_bytes_new_take(ptr noundef %14, i64 noundef %13) #11
+  %call14 = tail call ptr @g_bytes_new_take(ptr noundef %13, i64 noundef %12) #11
   %call15 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.23) #11
   %call16 = tail call ptr @g_variant_new_from_bytes(ptr noundef %call15, ptr noundef %call14, i32 noundef 1) #11
   %call17 = tail call ptr @g_variant_ref_sink(ptr noundef %call16) #11
   %out_listeners = getelementptr inbounds i8, ptr %1, i64 32
-  %15 = load ptr, ptr %out_listeners, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %15) #11
+  %14 = load ptr, ptr %out_listeners, align 8
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %14) #11
   %call1824 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
   %tobool.not25 = icmp eq i32 %call1824, 0
   br i1 %tobool.not25, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end11
-  %16 = ptrtoint ptr %hw to i64
+  %15 = ptrtoint ptr %hw to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %17 = load ptr, ptr %listener, align 8
-  call void @qemu_dbus_display1_audio_out_listener_call_write(ptr noundef %17, i64 noundef %16, ptr noundef %call16, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  %16 = load ptr, ptr %listener, align 8
+  call void @qemu_dbus_display1_audio_out_listener_call_write(ptr noundef %16, i64 noundef %15, ptr noundef %call16, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %call18 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %cleanup, label %while.body, !llvm.loop !10
@@ -989,13 +986,12 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %dbus_volume_out_listener.exit
   %4 = load ptr, ptr %listener, align 8
   %5 = load i8, ptr %has_volume, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %dbus_volume_out_listener.exit, label %if.end.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.end.i, label %dbus_volume_out_listener.exit
 
 if.end.i:                                         ; preds = %while.body
-  %7 = load i32, ptr %channels.i, align 4
-  %cmp.i = icmp ult i32 %7, 16
+  %6 = load i32, ptr %channels.i, align 4
+  %cmp.i = icmp ult i32 %6, 16
   br i1 %cmp.i, label %cleanup.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -1003,13 +999,13 @@ if.else.i:                                        ; preds = %if.end.i
   unreachable
 
 cleanup.i:                                        ; preds = %if.end.i
-  %conv.i = zext nneg i32 %7 to i64
+  %conv.i = zext nneg i32 %6 to i64
   %call.i = call ptr @g_bytes_new(ptr noundef nonnull %vol4.i, i64 noundef %conv.i) #11
   %call7.i = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.23) #11
   %call8.i = call ptr @g_variant_new_from_bytes(ptr noundef %call7.i, ptr noundef %call.i, i32 noundef 1) #11
-  %8 = load i8, ptr %volume, align 4
-  %9 = and i8 %8, 1
-  %conv10.i = zext nneg i8 %9 to i32
+  %7 = load i8, ptr %volume, align 4
+  %8 = and i8 %7, 1
+  %conv10.i = zext nneg i8 %8 to i32
   call void @qemu_dbus_display1_audio_out_listener_call_set_volume(ptr noundef %4, i64 noundef %3, i32 noundef %conv10.i, ptr noundef %call8.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %tobool.not.i.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i.i, label %dbus_volume_out_listener.exit, label %if.then.i.i.i
@@ -1146,17 +1142,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %size) #11
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %size) #11
   br label %trace_dbus_audio_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1166,9 +1161,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_audio_read.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %in_listeners = getelementptr inbounds i8, ptr %1, i64 40
-  %9 = load ptr, ptr %in_listeners, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %9) #11
-  %10 = ptrtoint ptr %hw to i64
+  %8 = load ptr, ptr %in_listeners, align 8
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %8) #11
+  %9 = ptrtoint ptr %hw to i64
   br label %while.cond
 
 while.cond:                                       ; preds = %glib_autoptr_cleanup_GVariant.exit, %trace_dbus_audio_read.exit
@@ -1180,16 +1175,16 @@ while.cond:                                       ; preds = %glib_autoptr_cleanu
 while.body:                                       ; preds = %while.cond
   store ptr null, ptr %v_data, align 8
   store i64 0, ptr %n, align 8
-  %11 = load ptr, ptr %listener, align 8
-  %call1 = call i32 @qemu_dbus_display1_audio_in_listener_call_read_sync(ptr noundef %11, i64 noundef %10, i64 noundef %size.addr.0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %v_data, ptr noundef null, ptr noundef null) #11
+  %10 = load ptr, ptr %listener, align 8
+  %call1 = call i32 @qemu_dbus_display1_audio_in_listener_call_read_sync(ptr noundef %10, i64 noundef %9, i64 noundef %size.addr.0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %v_data, ptr noundef null, ptr noundef null) #11
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %12 = load ptr, ptr %v_data, align 8
-  %call3 = call ptr @g_variant_get_fixed_array(ptr noundef %12, ptr noundef nonnull %n, i64 noundef 1) #11
-  %13 = load i64, ptr %n, align 8
-  %cmp.not = icmp ugt i64 %13, %size.addr.0
+  %11 = load ptr, ptr %v_data, align 8
+  %call3 = call ptr @g_variant_get_fixed_array(ptr noundef %11, ptr noundef nonnull %n, i64 noundef 1) #11
+  %12 = load i64, ptr %n, align 8
+  %cmp.not = icmp ugt i64 %12, %size.addr.0
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %if.then
@@ -1198,8 +1193,8 @@ if.else:                                          ; preds = %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.then, %if.else
-  %14 = phi i64 [ %13, %if.then ], [ %.pre, %if.else ]
-  %cond = call i64 @llvm.umin.i64(i64 %14, i64 %size.addr.0)
+  %13 = phi i64 [ %12, %if.then ], [ %.pre, %if.else ]
+  %cond = call i64 @llvm.umin.i64(i64 %13, i64 %size.addr.0)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %call3, i64 %cond, i1 false)
   br label %cleanup
 
@@ -1295,13 +1290,12 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %dbus_volume_in_listener.exit
   %4 = load ptr, ptr %listener, align 8
   %5 = load i8, ptr %has_volume, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %dbus_volume_in_listener.exit, label %if.end.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.end.i, label %dbus_volume_in_listener.exit
 
 if.end.i:                                         ; preds = %while.body
-  %7 = load i32, ptr %channels.i, align 4
-  %cmp.i = icmp ult i32 %7, 16
+  %6 = load i32, ptr %channels.i, align 4
+  %cmp.i = icmp ult i32 %6, 16
   br i1 %cmp.i, label %cleanup.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -1309,13 +1303,13 @@ if.else.i:                                        ; preds = %if.end.i
   unreachable
 
 cleanup.i:                                        ; preds = %if.end.i
-  %conv.i = zext nneg i32 %7 to i64
+  %conv.i = zext nneg i32 %6 to i64
   %call.i = call ptr @g_bytes_new(ptr noundef nonnull %vol4.i, i64 noundef %conv.i) #11
   %call7.i = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.23) #11
   %call8.i = call ptr @g_variant_new_from_bytes(ptr noundef %call7.i, ptr noundef %call.i, i32 noundef 1) #11
-  %8 = load i8, ptr %volume, align 4
-  %9 = and i8 %8, 1
-  %conv10.i = zext nneg i8 %9 to i32
+  %7 = load i8, ptr %volume, align 4
+  %8 = and i8 %7, 1
+  %conv10.i = zext nneg i8 %8 to i32
   call void @qemu_dbus_display1_audio_in_listener_call_set_volume(ptr noundef %4, i64 noundef %3, i32 noundef %conv10.i, ptr noundef %call8.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %tobool.not.i.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i.i, label %dbus_volume_in_listener.exit, label %if.then.i.i.i

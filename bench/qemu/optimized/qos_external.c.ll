@@ -54,24 +54,23 @@ entry:
   br i1 %tobool.not4, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %type_apply_to_node.exit
-  %tail.05 = phi ptr [ %4, %type_apply_to_node.exit ], [ %type_info, %entry ]
+  %tail.05 = phi ptr [ %3, %type_apply_to_node.exit ], [ %type_info, %entry ]
   %value = getelementptr inbounds i8, ptr %tail.05, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
   %abstract = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %abstract, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
+  %tobool2 = trunc i8 %2 to i1
   tail call void @qos_graph_node_set_availability(ptr noundef %1, i1 noundef zeroext true) #3
-  br i1 %tobool2.not, label %type_apply_to_node.exit, label %if.then.i
+  br i1 %tobool2, label %if.then.i, label %type_apply_to_node.exit
 
 if.then.i:                                        ; preds = %for.body
   tail call void @qos_delete_cmd_line(ptr noundef %1) #3
   br label %type_apply_to_node.exit
 
 type_apply_to_node.exit:                          ; preds = %for.body, %if.then.i
-  %4 = load ptr, ptr %tail.05, align 8
-  %tobool.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %tail.05, align 8
+  %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %type_apply_to_node.exit, %entry

@@ -953,8 +953,7 @@ lpad:                                             ; preds = %invoke.cont15, %inv
 
 if.end:                                           ; preds = %_ZNK6google8protobuf6MapKey4typeEv.exit
   %5 = load i8, ptr %this, align 8
-  %6 = and i8 %5, 1
-  %tobool = icmp ne i8 %6, 0
+  %tobool = trunc i8 %5 to i1
   ret i1 %tobool
 }
 
@@ -3262,8 +3261,7 @@ lpad:                                             ; preds = %invoke.cont15, %inv
 
 if.end:                                           ; preds = %_ZNK6google8protobuf16MapValueConstRef4typeEv.exit
   %6 = load i8, ptr %1, align 1
-  %7 = and i8 %6, 1
-  %tobool = icmp ne i8 %7, 0
+  %tobool = trunc i8 %6 to i1
   ret i1 %tobool
 }
 
@@ -8199,8 +8197,8 @@ sw.bb19:                                          ; preds = %_ZN6google8protobuf
 
 sw.bb22:                                          ; preds = %_ZN6google8protobuf6MapKey7SetTypeENS0_8internal19FieldDescriptorLite7CppTypeE.exit
   %9 = load i8, ptr %other, align 8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %this, align 8
+  %frombool = and i8 %9, 1
+  store i8 %frombool, ptr %this, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb22, %sw.bb19, %sw.bb16, %sw.bb13, %sw.bb10, %sw.bb5, %_ZN6google8protobuf6MapKey7SetTypeENS0_8internal19FieldDescriptorLite7CppTypeE.exit

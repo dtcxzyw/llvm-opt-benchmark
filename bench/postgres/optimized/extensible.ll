@@ -56,9 +56,8 @@ define internal fastcc void @RegisterExtensibleNodeEntry(ptr nocapture noundef %
 20:                                               ; preds = %13
   %21 = call ptr @hash_search(ptr noundef %14, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #5
   %22 = load i8, ptr %5, align 1
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %28, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7

@@ -2135,9 +2135,8 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit63: ; preds = %64, %.noexc62
 73:                                               ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit63
   %74 = getelementptr inbounds i8, ptr %0, i64 48
   %75 = load i8, ptr %74, align 8
-  %76 = and i8 %75, 1
-  %.not = icmp eq i8 %76, 0
-  br i1 %.not, label %77, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit91
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit91, label %77
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %69, align 8

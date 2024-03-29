@@ -164,9 +164,8 @@ entry:
 if.end:                                           ; preds = %entry
   %multi = getelementptr inbounds i8, ptr %call.i, i64 6004
   %0 = load i8, ptr %multi, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @desc_audio, ptr @desc_audio_multi
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @desc_audio_multi, ptr @desc_audio
   %usb_desc = getelementptr inbounds i8, ptr %dev, i64 5640
   store ptr %cond, ptr %usb_desc, align 8
   tail call void @usb_desc_create_serial(ptr noundef %dev) #8
@@ -185,11 +184,10 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx = getelementptr [16 x i8], ptr %vol9, i64 0, i64 %indvars.iv
   store i8 -16, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = load i8, ptr %multi, align 4
-  %3 = and i8 %2, 1
-  %tobool5.not = icmp eq i8 %3, 0
-  %4 = select i1 %tobool5.not, i64 2, i64 8
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %1 = load i8, ptr %multi, align 4
+  %tobool5 = trunc i8 %1 to i1
+  %2 = select i1 %tobool5, i64 8, i64 2
+  %cmp = icmp ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
@@ -197,19 +195,19 @@ for.end:                                          ; preds = %for.body
   %channels1.i = getelementptr inbounds i8, ptr %call.i.i, i64 5984
   store i32 2, ptr %channels1.i, align 8
   %buffer_user.i = getelementptr inbounds i8, ptr %call.i.i, i64 5996
-  %5 = load i32, ptr %buffer_user.i, align 4
-  %tobool.not.i = icmp eq i32 %5, 0
-  %spec.select.i = select i1 %tobool.not.i, i32 6144, i32 %5
-  %6 = getelementptr inbounds i8, ptr %call.i.i, i64 6000
-  store i32 %spec.select.i, ptr %6, align 8
+  %3 = load i32, ptr %buffer_user.i, align 4
+  %tobool.not.i = icmp eq i32 %3, 0
+  %spec.select.i = select i1 %tobool.not.i, i32 6144, i32 %3
+  %4 = getelementptr inbounds i8, ptr %call.i.i, i64 6000
+  store i32 %spec.select.i, ptr %4, align 8
   %vol.i = getelementptr inbounds i8, ptr %call.i.i, i64 5928
   %channels10.i = getelementptr inbounds i8, ptr %call.i.i, i64 5932
   store i32 2, ptr %channels10.i, align 4
   %as.i = getelementptr inbounds i8, ptr %call.i.i, i64 5900
   store <4 x i32> <i32 48000, i32 2, i32 3, i32 0>, ptr %as.i, align 4
   %buf.i = getelementptr inbounds i8, ptr %call.i.i, i64 5952
-  %7 = load ptr, ptr %buf.i, align 8
-  tail call void @g_free(ptr noundef %7) #8
+  %5 = load ptr, ptr %buf.i, align 8
+  tail call void @g_free(ptr noundef %5) #8
   %rem.i.i = urem i32 %spec.select.i, 192
   %sub.i.i = sub nuw i32 %spec.select.i, %rem.i.i
   %conv.i.i = zext i32 %sub.i.i to i64
@@ -221,12 +219,12 @@ for.end:                                          ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prod.i.i, i8 0, i64 16, i1 false)
   %card.i = getelementptr inbounds i8, ptr %call.i.i, i64 5864
   %voice.i = getelementptr inbounds i8, ptr %call.i.i, i64 5920
-  %8 = load ptr, ptr %voice.i, align 8
-  %call27.i = tail call ptr @AUD_open_out(ptr noundef nonnull %card.i, ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %call.i.i, ptr noundef nonnull @output_callback, ptr noundef nonnull %as.i) #8
+  %6 = load ptr, ptr %voice.i, align 8
+  %call27.i = tail call ptr @AUD_open_out(ptr noundef nonnull %card.i, ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %call.i.i, ptr noundef nonnull @output_callback, ptr noundef nonnull %as.i) #8
   store ptr %call27.i, ptr %voice.i, align 8
   tail call void @audio_set_volume_out(ptr noundef %call27.i, ptr noundef nonnull %vol.i) #8
-  %9 = load ptr, ptr %voice.i, align 8
-  tail call void @AUD_set_active_out(ptr noundef %9, i32 noundef 0) #8
+  %7 = load ptr, ptr %voice.i, align 8
+  tail call void @AUD_set_active_out(ptr noundef %7, i32 noundef 0) #8
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -318,17 +316,16 @@ sw.bb:                                            ; preds = %if.end4, %if.end4, 
 sw.bb.i:                                          ; preds = %sw.bb
   %vol.i = getelementptr inbounds i8, ptr %call.i, i64 5928
   %3 = load i8, ptr %vol.i, align 8
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %data, align 1
+  %conv9.i = and i8 %3, 1
+  store i8 %conv9.i, ptr %data, align 1
   br label %if.end16
 
 sw.bb10.i:                                        ; preds = %sw.bb
   %conv11.i = zext i8 %sub.i to i32
   %multi.i = getelementptr inbounds i8, ptr %call.i, i64 6004
-  %5 = load i8, ptr %multi.i, align 4
-  %6 = and i8 %5, 1
-  %tobool12.not.i = icmp eq i8 %6, 0
-  %cond.i = select i1 %tobool12.not.i, i32 2, i32 8
+  %4 = load i8, ptr %multi.i, align 4
+  %tobool12.i = trunc i8 %4 to i1
+  %cond.i = select i1 %tobool12.i, i32 8, i32 2
   %cmp.i = icmp ugt i32 %cond.i, %conv11.i
   br i1 %cmp.i, label %if.then.i, label %if.then10
 
@@ -336,16 +333,16 @@ if.then.i:                                        ; preds = %sw.bb10.i
   %vol18.i = getelementptr inbounds i8, ptr %call.i, i64 5936
   %idxprom.i = zext i8 %sub.i to i64
   %arrayidx19.i = getelementptr [16 x i8], ptr %vol18.i, i64 0, i64 %idxprom.i
-  %7 = load i8, ptr %arrayidx19.i, align 1
-  %conv20.i = zext i8 %7 to i32
+  %5 = load i8, ptr %arrayidx19.i, align 1
+  %conv20.i = zext i8 %5 to i32
   %mul.i = mul nuw nsw i32 %conv20.i, 34816
   %add.i = or disjoint i32 %mul.i, 127
   %div.i = udiv i32 %add.i, 255
   %conv23.i = trunc i32 %div.i to i8
   store i8 %conv23.i, ptr %data, align 1
   %conv22.i = lshr i32 %div.i, 8
-  %8 = trunc i32 %conv22.i to i8
-  %conv27.i = xor i8 %8, -128
+  %6 = trunc i32 %conv22.i to i8
+  %conv27.i = xor i8 %6, -128
   %arrayidx28.i = getelementptr i8, ptr %data, i64 1
   store i8 %conv27.i, ptr %arrayidx28.i, align 1
   br label %if.end16
@@ -353,10 +350,9 @@ if.then.i:                                        ; preds = %sw.bb10.i
 sw.bb29.i:                                        ; preds = %sw.bb
   %conv30.i = zext i8 %sub.i to i32
   %multi31.i = getelementptr inbounds i8, ptr %call.i, i64 6004
-  %9 = load i8, ptr %multi31.i, align 4
-  %10 = and i8 %9, 1
-  %tobool32.not.i = icmp eq i8 %10, 0
-  %cond34.i = select i1 %tobool32.not.i, i32 2, i32 8
+  %7 = load i8, ptr %multi31.i, align 4
+  %tobool32.i = trunc i8 %7 to i1
+  %cond34.i = select i1 %tobool32.i, i32 8, i32 2
   %cmp35.i = icmp ugt i32 %cond34.i, %conv30.i
   br i1 %cmp35.i, label %if.then37.i, label %if.then10
 
@@ -369,10 +365,9 @@ if.then37.i:                                      ; preds = %sw.bb29.i
 sw.bb41.i:                                        ; preds = %sw.bb
   %conv42.i = zext i8 %sub.i to i32
   %multi43.i = getelementptr inbounds i8, ptr %call.i, i64 6004
-  %11 = load i8, ptr %multi43.i, align 4
-  %12 = and i8 %11, 1
-  %tobool44.not.i = icmp eq i8 %12, 0
-  %cond46.i = select i1 %tobool44.not.i, i32 2, i32 8
+  %8 = load i8, ptr %multi43.i, align 4
+  %tobool44.i = trunc i8 %8 to i1
+  %cond46.i = select i1 %tobool44.i, i32 8, i32 2
   %cmp47.i = icmp ugt i32 %cond46.i, %conv42.i
   br i1 %cmp47.i, label %if.then49.i, label %if.then10
 
@@ -385,10 +380,9 @@ if.then49.i:                                      ; preds = %sw.bb41.i
 sw.bb53.i:                                        ; preds = %sw.bb
   %conv54.i = zext i8 %sub.i to i32
   %multi55.i = getelementptr inbounds i8, ptr %call.i, i64 6004
-  %13 = load i8, ptr %multi55.i, align 4
-  %14 = and i8 %13, 1
-  %tobool56.not.i = icmp eq i8 %14, 0
-  %cond58.i = select i1 %tobool56.not.i, i32 2, i32 8
+  %9 = load i8, ptr %multi55.i, align 4
+  %tobool56.i = trunc i8 %9 to i1
+  %cond58.i = select i1 %tobool56.i, i32 8, i32 2
   %cmp59.i = icmp ugt i32 %cond58.i, %conv54.i
   br i1 %cmp59.i, label %if.then61.i, label %if.then10
 
@@ -399,8 +393,8 @@ if.then61.i:                                      ; preds = %sw.bb53.i
   br label %if.end16
 
 if.then10:                                        ; preds = %sw.bb, %sw.bb53.i, %sw.bb41.i, %sw.bb29.i, %sw.bb10.i
-  %15 = load i32, ptr %debug, align 8
-  %tobool12.not = icmp eq i32 %15, 0
+  %10 = load i32, ptr %debug, align 8
+  %tobool12.not = icmp eq i32 %10, 0
   br i1 %tobool12.not, label %if.end36, label %fail.sink.split
 
 if.end16:                                         ; preds = %if.then61.i, %if.then49.i, %if.then37.i, %if.then.i, %sw.bb.i
@@ -412,8 +406,8 @@ if.end16:                                         ; preds = %if.then61.i, %if.th
 sw.bb17:                                          ; preds = %if.end4, %if.end4, %if.end4, %if.end4
   %conv.i31 = trunc i32 %value to i8
   %sub.i34 = add i8 %conv.i31, -1
-  %16 = shl i32 %value, 16
-  %conv1.i33 = and i32 %16, -16777216
+  %11 = shl i32 %value, 16
+  %conv1.i33 = and i32 %11, -16777216
   %conv5.i36 = shl nuw nsw i32 %request, 16
   %shl6.i37 = and i32 %conv5.i36, 16711680
   %or.i38 = or disjoint i32 %conv1.i33, %shl6.i37
@@ -425,38 +419,37 @@ sw.bb17:                                          ; preds = %if.end4, %if.end4, 
   ]
 
 sw.bb.i53:                                        ; preds = %sw.bb17
-  %17 = load i8, ptr %data, align 1
-  %18 = and i8 %17, 1
+  %12 = load i8, ptr %data, align 1
+  %13 = and i8 %12, 1
   %vol.i54 = getelementptr inbounds i8, ptr %call.i, i64 5928
-  store i8 %18, ptr %vol.i54, align 8
+  store i8 %13, ptr %vol.i54, align 8
   br label %if.then44.i
 
 sw.bb10.i41:                                      ; preds = %sw.bb17
   %conv11.i42 = zext i8 %sub.i34 to i32
   %multi.i43 = getelementptr inbounds i8, ptr %call.i, i64 6004
-  %19 = load i8, ptr %multi.i43, align 4
-  %20 = and i8 %19, 1
-  %tobool12.not.i44 = icmp eq i8 %20, 0
-  %cond.i45 = select i1 %tobool12.not.i44, i32 2, i32 8
+  %14 = load i8, ptr %multi.i43, align 4
+  %tobool12.i44 = trunc i8 %14 to i1
+  %cond.i45 = select i1 %tobool12.i44, i32 8, i32 2
   %cmp.i46 = icmp ugt i32 %cond.i45, %conv11.i42
   br i1 %cmp.i46, label %if.then.i47, label %if.then25
 
 if.then.i47:                                      ; preds = %sw.bb10.i41
-  %21 = load i8, ptr %data, align 1
-  %conv17.i = zext i8 %21 to i16
+  %15 = load i8, ptr %data, align 1
+  %conv17.i = zext i8 %15 to i16
   %arrayidx18.i = getelementptr i8, ptr %data, i64 1
-  %22 = load i8, ptr %arrayidx18.i, align 1
-  %conv19.i = zext i8 %22 to i16
+  %16 = load i8, ptr %arrayidx18.i, align 1
+  %conv19.i = zext i8 %16 to i16
   %shl20.i = shl nuw i16 %conv19.i, 8
   %add.i48 = or disjoint i16 %shl20.i, %conv17.i
-  %23 = load i32, ptr %debug, align 8
-  %tobool22.not.i = icmp eq i32 %23, 0
+  %17 = load i32, ptr %debug, align 8
+  %tobool22.not.i = icmp eq i32 %17, 0
   br i1 %tobool22.not.i, label %if.end.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then.i47
-  %24 = load ptr, ptr @stderr, align 8
+  %18 = load ptr, ptr @stderr, align 8
   %conv25.i = zext i16 %add.i48 to i32
-  %call.i49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.59, i32 noundef %conv11.i42, i32 noundef %conv25.i) #10
+  %call.i49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.59, i32 noundef %conv11.i42, i32 noundef %conv25.i) #10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then23.i, %if.then.i47
@@ -466,8 +459,8 @@ if.end.i:                                         ; preds = %if.then23.i, %if.th
   %add30.i = add nuw nsw i32 %mul.i50, 17408
   %div.i51 = udiv i32 %add30.i, 34816
   %cmp33.i = icmp ugt i16 %sub27.i, -30652
-  %25 = trunc i32 %div.i51 to i8
-  %conv37.i = select i1 %cmp33.i, i8 -1, i8 %25
+  %19 = trunc i32 %div.i51 to i8
+  %conv37.i = select i1 %cmp33.i, i8 -1, i8 %19
   %vol40.i = getelementptr inbounds i8, ptr %call.i, i64 5936
   %idxprom.i52 = zext i8 %sub.i34 to i64
   %arrayidx41.i = getelementptr [16 x i8], ptr %vol40.i, i64 0, i64 %idxprom.i52
@@ -475,58 +468,57 @@ if.end.i:                                         ; preds = %if.then23.i, %if.th
   br label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end.i, %sw.bb.i53
-  %26 = load i32, ptr %debug, align 8
-  %tobool46.not.i = icmp eq i32 %26, 0
+  %20 = load i32, ptr %debug, align 8
+  %tobool46.not.i = icmp eq i32 %20, 0
   br i1 %tobool46.not.i, label %usb_audio_set_control.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.then44.i
-  %27 = load ptr, ptr @stderr, align 8
+  %21 = load ptr, ptr @stderr, align 8
   %vol49.i = getelementptr inbounds i8, ptr %call.i, i64 5928
-  %28 = load i8, ptr %vol49.i, align 8
-  %29 = and i8 %28, 1
-  %conv52.i = zext nneg i8 %29 to i32
-  %call53.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.60, i32 noundef %conv52.i) #10
+  %22 = load i8, ptr %vol49.i, align 8
+  %23 = and i8 %22, 1
+  %conv52.i = zext nneg i8 %23 to i32
+  %call53.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.60, i32 noundef %conv52.i) #10
   %multi54.i = getelementptr inbounds i8, ptr %call.i, i64 6004
   %vol62.i = getelementptr inbounds i8, ptr %call.i, i64 5936
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then47.i
   %indvars.iv.i = phi i64 [ 0, %if.then47.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %30 = load ptr, ptr @stderr, align 8
+  %24 = load ptr, ptr @stderr, align 8
   %arrayidx64.i = getelementptr [16 x i8], ptr %vol62.i, i64 0, i64 %indvars.iv.i
-  %31 = load i8, ptr %arrayidx64.i, align 1
-  %conv65.i = zext i8 %31 to i32
-  %32 = trunc i64 %indvars.iv.i to i32
-  %call66.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.61, i32 noundef %32, i32 noundef %conv65.i) #10
+  %25 = load i8, ptr %arrayidx64.i, align 1
+  %conv65.i = zext i8 %25 to i32
+  %26 = trunc i64 %indvars.iv.i to i32
+  %call66.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.61, i32 noundef %26, i32 noundef %conv65.i) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = load i8, ptr %multi54.i, align 4
-  %34 = and i8 %33, 1
-  %tobool55.not.i = icmp eq i8 %34, 0
-  %35 = select i1 %tobool55.not.i, i64 2, i64 8
-  %cmp58.i = icmp ult i64 %indvars.iv.next.i, %35
+  %27 = load i8, ptr %multi54.i, align 4
+  %tobool55.i = trunc i8 %27 to i1
+  %28 = select i1 %tobool55.i, i64 8, i64 2
+  %cmp58.i = icmp ult i64 %indvars.iv.next.i, %28
   br i1 %cmp58.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i
-  %36 = load ptr, ptr @stderr, align 8
-  %fputc.i = tail call i32 @fputc(i32 10, ptr %36)
+  %29 = load ptr, ptr @stderr, align 8
+  %fputc.i = tail call i32 @fputc(i32 10, ptr %29)
   br label %usb_audio_set_control.exit
 
 usb_audio_set_control.exit:                       ; preds = %if.then44.i, %for.end.i
   %voice.i = getelementptr inbounds i8, ptr %call.i, i64 5920
-  %37 = load ptr, ptr %voice.i, align 8
+  %30 = load ptr, ptr %voice.i, align 8
   %vol71.i = getelementptr inbounds i8, ptr %call.i, i64 5928
-  tail call void @audio_set_volume_out(ptr noundef %37, ptr noundef nonnull %vol71.i) #8
+  tail call void @audio_set_volume_out(ptr noundef %30, ptr noundef nonnull %vol71.i) #8
   br label %sw.epilog
 
 if.then25:                                        ; preds = %sw.bb17, %sw.bb10.i41
-  %38 = load i32, ptr %debug, align 8
-  %tobool27.not = icmp eq i32 %38, 0
+  %31 = load i32, ptr %debug, align 8
+  %tobool27.not = icmp eq i32 %31, 0
   br i1 %tobool27.not, label %if.end36, label %fail.sink.split
 
 fail.sink.split:                                  ; preds = %if.then25, %if.then10
   %.str.57.sink = phi ptr [ @.str.56, %if.then10 ], [ @.str.57, %if.then25 ]
-  %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i64 @fwrite(ptr nonnull %.str.57.sink, i64 29, i64 1, ptr %39) #10
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = tail call i64 @fwrite(ptr nonnull %.str.57.sink, i64 29, i64 1, ptr %32) #10
   br label %fail
 
 fail:                                             ; preds = %fail.sink.split, %if.end4
@@ -535,8 +527,8 @@ fail:                                             ; preds = %fail.sink.split, %i
   br i1 %tobool33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %fail
-  %41 = load ptr, ptr @stderr, align 8
-  %call35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.58, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length) #10
+  %34 = load ptr, ptr @stderr, align 8
+  %call35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.58, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length) #10
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then10, %if.then25, %if.then34, %fail

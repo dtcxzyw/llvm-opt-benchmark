@@ -522,12 +522,12 @@ define dso_local void @_ZNK5vcpkg13ParseMessages26exit_if_errors_or_warningsENS_
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %.not14 = icmp eq ptr %8, %10
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not1415 = icmp eq ptr %8, %10
+  br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit
-  %.sroa.011.015 = phi ptr [ %14, %_ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit ], [ %8, %3 ]
-  call void @_ZNK5vcpkg12ParseMessage6formatENS_10StringViewENS_11MessageKindE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.011.015, ptr %1, i64 %2, i32 noundef 0)
+  %.sroa.011.016 = phi ptr [ %14, %_ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit ], [ %8, %3 ]
+  call void @_ZNK5vcpkg12ParseMessage6formatENS_10StringViewENS_11MessageKindE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.011.016, ptr %1, i64 %2, i32 noundef 0)
   %11 = call { ptr, i64 } @_ZNK5vcpkg15LocalizedStringcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
@@ -540,9 +540,9 @@ define dso_local void @_ZNK5vcpkg13ParseMessages26exit_if_errors_or_warningsENS_
 
 _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit: ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  %14 = getelementptr inbounds i8, ptr %.sroa.011.015, i64 104
-  %.not = icmp eq ptr %14, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %14 = getelementptr inbounds i8, ptr %.sroa.011.016, i64 104
+  %.not14 = icmp eq ptr %14, %10
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 15:                                               ; preds = %.noexc, %.lr.ph
   %16 = landingpad { ptr, i32 }
@@ -552,9 +552,8 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 
 ._crit_edge:                                      ; preds = %_ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit, %3
   %17 = load i8, ptr %0, align 8
-  %18 = and i8 %17, 1
-  %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %22, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1191,9 +1190,8 @@ define dso_local void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringERKN
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %_ZN5vcpkg7details15OptionalStorageINS_15LocalizedStringELb1EE7emplaceIJEEERS2_DpOT_.exit, label %33
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %33, label %_ZN5vcpkg7details15OptionalStorageINS_15LocalizedStringELb1EE7emplaceIJEEERS2_DpOT_.exit
 
 _ZN5vcpkg7details15OptionalStorageINS_15LocalizedStringELb1EE7emplaceIJEEERS2_DpOT_.exit: ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3126,9 +3124,8 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i: ; pre
 
 _ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit: ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i, %.lr.ph.i, %5
   %66 = load i8, ptr %4, align 8
-  %67 = and i8 %66, 1
-  %.not.i = icmp eq i8 %67, 0
-  br i1 %.not.i, label %71, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %71
 
 68:                                               ; preds = %_ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit
   %69 = getelementptr inbounds i8, ptr %4, i64 8

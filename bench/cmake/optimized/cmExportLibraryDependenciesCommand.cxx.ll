@@ -521,8 +521,7 @@ define internal void @"_ZNSt17_Function_handlerIFvR16cmLocalGeneratorRK19cmListF
   %.val3 = load ptr, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %.val, i64 32
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not.i.i.i = icmp eq i8 %25, 0
+  %25 = trunc i8 %24 to i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -535,7 +534,7 @@ define internal void @"_ZNSt17_Function_handlerIFvR16cmLocalGeneratorRK19cmListF
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
-  br i1 %.not.i.i.i, label %30, label %.noexc.i.i.i.i
+  br i1 %25, label %.noexc.i.i.i.i, label %30
 
 .noexc.i.i.i.i:                                   ; preds = %3
   %26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #15

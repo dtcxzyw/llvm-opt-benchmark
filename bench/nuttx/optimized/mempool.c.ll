@@ -82,8 +82,8 @@ mempool_add_queue.exit:                           ; preds = %27, %28
 42:                                               ; preds = %33
   %43 = getelementptr inbounds i8, ptr %0, i64 64
   %44 = load ptr, ptr %43, align 8
-  %.not70 = icmp eq ptr %44, null
-  br i1 %.not70, label %75, label %45
+  %.not69 = icmp eq ptr %44, null
+  br i1 %.not69, label %75, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %0, i64 56
@@ -92,23 +92,23 @@ mempool_add_queue.exit:                           ; preds = %27, %28
   br label %75
 
 48:                                               ; preds = %33
-  %.not11.i71 = icmp ugt i64 %3, %34
-  br i1 %.not11.i71, label %mempool_add_queue.exit77, label %.lr.ph.i72
+  %.not11.i70 = icmp ugt i64 %3, %34
+  br i1 %.not11.i70, label %mempool_add_queue.exit76, label %.lr.ph.i71
 
-.lr.ph.i72:                                       ; preds = %48
-  %.pre.i73 = load ptr, ptr %4, align 8
+.lr.ph.i71:                                       ; preds = %48
+  %.pre.i72 = load ptr, ptr %4, align 8
   br label %49
 
-49:                                               ; preds = %56, %.lr.ph.i72
-  %50 = phi ptr [ %.pre.i73, %.lr.ph.i72 ], [ %53, %56 ]
-  %.in.i74 = phi i64 [ %35, %.lr.ph.i72 ], [ %51, %56 ]
-  %51 = add i64 %.in.i74, -1
+49:                                               ; preds = %56, %.lr.ph.i71
+  %50 = phi ptr [ %.pre.i72, %.lr.ph.i71 ], [ %53, %56 ]
+  %.in.i73 = phi i64 [ %35, %.lr.ph.i71 ], [ %51, %56 ]
+  %51 = add i64 %.in.i73, -1
   %52 = mul i64 %51, %3
   %53 = getelementptr inbounds i8, ptr %40, i64 %52
   store ptr %50, ptr %53, align 8
   %54 = load ptr, ptr %4, align 8
-  %.not10.i75 = icmp eq ptr %54, null
-  br i1 %.not10.i75, label %55, label %56
+  %.not10.i74 = icmp eq ptr %54, null
+  br i1 %.not10.i74, label %55, label %56
 
 55:                                               ; preds = %49
   store ptr %53, ptr %5, align 8
@@ -116,22 +116,22 @@ mempool_add_queue.exit:                           ; preds = %27, %28
 
 56:                                               ; preds = %55, %49
   store ptr %53, ptr %4, align 8
-  %.not.i76 = icmp eq i64 %51, 0
-  br i1 %.not.i76, label %mempool_add_queue.exit77, label %49, !llvm.loop !6
+  %.not.i75 = icmp eq i64 %51, 0
+  br i1 %.not.i75, label %mempool_add_queue.exit76, label %49, !llvm.loop !6
 
-mempool_add_queue.exit77:                         ; preds = %56, %48
+mempool_add_queue.exit76:                         ; preds = %56, %48
   %57 = getelementptr inbounds i8, ptr %40, i64 %36
   store ptr null, ptr %57, align 8
   %58 = load ptr, ptr %8, align 8
   %.not68 = icmp eq ptr %58, null
   br i1 %.not68, label %.sink.split, label %59
 
-59:                                               ; preds = %mempool_add_queue.exit77
+59:                                               ; preds = %mempool_add_queue.exit76
   %60 = load ptr, ptr %9, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %mempool_add_queue.exit77, %59
-  %.sink = phi ptr [ %60, %59 ], [ %8, %mempool_add_queue.exit77 ]
+.sink.split:                                      ; preds = %mempool_add_queue.exit76, %59
+  %.sink = phi ptr [ %60, %59 ], [ %8, %mempool_add_queue.exit76 ]
   store ptr %57, ptr %.sink, align 8
   store ptr %57, ptr %9, align 8
   br label %61
@@ -141,9 +141,8 @@ mempool_add_queue.exit77:                         ; preds = %56, %48
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 32
   %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, 1
-  %.not69 = icmp eq i8 %65, 0
-  br i1 %.not69, label %73, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %73
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %0, i64 24
@@ -188,7 +187,7 @@ define noundef ptr @mempool_alloc(ptr noundef %0) local_unnamed_addr #0 {
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %10 = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %mempool_remove_queue.exit52.sink.split
+  br i1 %11, label %12, label %mempool_remove_queue.exit51.sink.split
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @g_current_regs, align 8
@@ -199,7 +198,7 @@ define noundef ptr @mempool_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %mempool_remove_queue.exit50.thread, label %mempool_remove_queue.exit52.sink.split
+  br i1 %17, label %mempool_remove_queue.exit49.thread, label %mempool_remove_queue.exit51.sink.split
 
 18:                                               ; preds = %12
   %19 = load i64, ptr %0, align 8
@@ -226,7 +225,7 @@ up_irq_restore.exit:                              ; preds = %18, %21
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr %30(ptr noundef nonnull %0, i64 noundef %28) #4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %up_irq_restore.exit54, label %33
+  br i1 %32, label %up_irq_restore.exit53, label %33
 
 33:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -259,16 +258,16 @@ up_irq_restore.exit:                              ; preds = %18, %21
 
 43:                                               ; preds = %42, %36
   store ptr %40, ptr %4, align 8
-  %.not.i51 = icmp eq i64 %38, 0
-  br i1 %.not.i51, label %mempool_add_queue.exit, label %36, !llvm.loop !6
+  %.not.i50 = icmp eq i64 %38, 0
+  br i1 %.not.i50, label %mempool_add_queue.exit, label %36, !llvm.loop !6
 
 mempool_add_queue.exit:                           ; preds = %43, %33
   %44 = getelementptr inbounds i8, ptr %31, i64 %27
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 104
   %46 = load ptr, ptr %45, align 8
-  %.not49 = icmp eq ptr %46, null
-  br i1 %.not49, label %47, label %49
+  %.not48 = icmp eq ptr %46, null
+  br i1 %.not48, label %47, label %49
 
 47:                                               ; preds = %mempool_add_queue.exit
   store ptr %44, ptr %45, align 8
@@ -286,49 +285,48 @@ mempool_add_queue.exit:                           ; preds = %43, %33
   store ptr %44, ptr %.sink, align 8
   %53 = load ptr, ptr %4, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %mempool_remove_queue.exit52, label %mempool_remove_queue.exit52.sink.split
+  br i1 %54, label %mempool_remove_queue.exit51, label %mempool_remove_queue.exit51.sink.split
 
 55:                                               ; preds = %up_irq_restore.exit
   %56 = load i8, ptr %6, align 8
-  %57 = and i8 %56, 1
-  %.not48 = icmp eq i8 %57, 0
-  br i1 %.not48, label %up_irq_restore.exit54, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %up_irq_restore.exit53
 
 58:                                               ; preds = %55
   %59 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %7) #4
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %up_irq_restore.exit54, label %8
+  br i1 %60, label %up_irq_restore.exit53, label %8
 
-mempool_remove_queue.exit52.sink.split:           ; preds = %8, %52, %14
-  %.sink94 = phi ptr [ %16, %14 ], [ %53, %52 ], [ %10, %8 ]
-  %.sink93 = phi ptr [ %15, %14 ], [ %4, %52 ], [ %4, %8 ]
+mempool_remove_queue.exit51.sink.split:           ; preds = %8, %52, %14
+  %.sink93 = phi ptr [ %16, %14 ], [ %53, %52 ], [ %10, %8 ]
+  %.sink92 = phi ptr [ %15, %14 ], [ %4, %52 ], [ %4, %8 ]
   %.040.ph = phi i64 [ %9, %14 ], [ %34, %52 ], [ %9, %8 ]
-  %61 = load ptr, ptr %.sink94, align 8
-  store ptr %61, ptr %.sink93, align 8
-  br label %mempool_remove_queue.exit52
+  %61 = load ptr, ptr %.sink93, align 8
+  store ptr %61, ptr %.sink92, align 8
+  br label %mempool_remove_queue.exit51
 
-mempool_remove_queue.exit52:                      ; preds = %mempool_remove_queue.exit52.sink.split, %52
-  %.040 = phi i64 [ %34, %52 ], [ %.040.ph, %mempool_remove_queue.exit52.sink.split ]
-  %.039 = phi ptr [ null, %52 ], [ %.sink94, %mempool_remove_queue.exit52.sink.split ]
+mempool_remove_queue.exit51:                      ; preds = %mempool_remove_queue.exit51.sink.split, %52
+  %.040 = phi i64 [ %34, %52 ], [ %.040.ph, %mempool_remove_queue.exit51.sink.split ]
+  %.039 = phi ptr [ null, %52 ], [ %.sink93, %mempool_remove_queue.exit51.sink.split ]
   %62 = getelementptr inbounds i8, ptr %0, i64 120
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, 1
   store i64 %64, ptr %62, align 8
-  br label %mempool_remove_queue.exit50.thread
+  br label %mempool_remove_queue.exit49.thread
 
-mempool_remove_queue.exit50.thread:               ; preds = %14, %mempool_remove_queue.exit52
-  %.141 = phi i64 [ %.040, %mempool_remove_queue.exit52 ], [ %9, %14 ]
-  %.1 = phi ptr [ %.039, %mempool_remove_queue.exit52 ], [ null, %14 ]
+mempool_remove_queue.exit49.thread:               ; preds = %14, %mempool_remove_queue.exit51
+  %.141 = phi i64 [ %.040, %mempool_remove_queue.exit51 ], [ %9, %14 ]
+  %.1 = phi ptr [ %.039, %mempool_remove_queue.exit51 ], [ null, %14 ]
   %65 = and i64 %.141, 512
-  %.not.i53 = icmp eq i64 %65, 0
-  br i1 %.not.i53, label %up_irq_restore.exit54, label %66
+  %.not.i52 = icmp eq i64 %65, 0
+  br i1 %.not.i52, label %up_irq_restore.exit53, label %66
 
-66:                                               ; preds = %mempool_remove_queue.exit50.thread
+66:                                               ; preds = %mempool_remove_queue.exit49.thread
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
-  br label %up_irq_restore.exit54
+  br label %up_irq_restore.exit53
 
-up_irq_restore.exit54:                            ; preds = %55, %58, %66, %mempool_remove_queue.exit50.thread, %24
-  %.0 = phi ptr [ null, %24 ], [ %.1, %mempool_remove_queue.exit50.thread ], [ %.1, %66 ], [ null, %58 ], [ null, %55 ]
+up_irq_restore.exit53:                            ; preds = %55, %58, %66, %mempool_remove_queue.exit49.thread, %24
+  %.0 = phi ptr [ null, %24 ], [ %.1, %mempool_remove_queue.exit49.thread ], [ %.1, %66 ], [ null, %58 ], [ null, %55 ]
   ret ptr %.0
 }
 
@@ -386,9 +384,9 @@ define void @mempool_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %26, %23, %20
-  %.sink49 = phi i64 [ 96, %20 ], [ 80, %23 ], [ 80, %26 ]
+  %.sink48 = phi i64 [ 96, %20 ], [ 80, %23 ], [ 80, %26 ]
   %.sink.ph = phi ptr [ %21, %20 ], [ %24, %23 ], [ %27, %26 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 %.sink49
+  %29 = getelementptr inbounds i8, ptr %0, i64 %.sink48
   store ptr %1, ptr %29, align 8
   br label %30
 
@@ -406,9 +404,8 @@ define void @mempool_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 up_irq_restore.exit:                              ; preds = %30, %32
   %33 = getelementptr inbounds i8, ptr %0, i64 32
   %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %.not44 = icmp eq i8 %35, 0
-  br i1 %.not44, label %47, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %47
 
 36:                                               ; preds = %up_irq_restore.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -508,9 +505,8 @@ up_irq_restore.exit:                              ; preds = %mempool_queue_lenth
   store i64 %5, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %42, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %42
 
 32:                                               ; preds = %up_irq_restore.exit
   %33 = getelementptr inbounds i8, ptr %0, i64 24
@@ -688,17 +684,17 @@ define noundef i32 @mempool_deinit(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %.lr.ph, %36
   %26 = phi ptr [ %21, %.lr.ph ], [ %37, %36 ]
-  %.243 = phi i64 [ %.1, %.lr.ph ], [ %.3, %36 ]
+  %.242 = phi i64 [ %.1, %.lr.ph ], [ %.3, %36 ]
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %20, align 8
-  %28 = mul i64 %2, %.243
+  %28 = mul i64 %2, %.242
   %29 = sub i64 0, %28
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   %31 = load ptr, ptr %23, align 8
   tail call void %31(ptr noundef nonnull %0, ptr noundef nonnull %30) #4
   %32 = load i64, ptr %24, align 8
-  %.not41 = icmp ult i64 %32, %8
-  br i1 %.not41, label %36, label %33
+  %.not40 = icmp ult i64 %32, %8
+  br i1 %.not40, label %36, label %33
 
 33:                                               ; preds = %25
   %34 = add i64 %32, -8
@@ -706,7 +702,7 @@ define noundef i32 @mempool_deinit(ptr noundef %0) local_unnamed_addr #0 {
   br label %36
 
 36:                                               ; preds = %33, %25
-  %.3 = phi i64 [ %35, %33 ], [ %.243, %25 ]
+  %.3 = phi i64 [ %35, %33 ], [ %.242, %25 ]
   %37 = load ptr, ptr %20, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %._crit_edge, label %25, !llvm.loop !14
@@ -726,9 +722,8 @@ define noundef i32 @mempool_deinit(ptr noundef %0) local_unnamed_addr #0 {
 44:                                               ; preds = %41, %._crit_edge
   %45 = getelementptr inbounds i8, ptr %0, i64 32
   %46 = load i8, ptr %45, align 8
-  %47 = and i8 %46, 1
-  %.not40 = icmp eq i8 %47, 0
-  br i1 %.not40, label %55, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %55
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %0, i64 24

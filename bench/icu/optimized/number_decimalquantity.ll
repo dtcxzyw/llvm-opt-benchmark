@@ -589,14 +589,13 @@ define void @_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv(ptr nocaptu
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes, align 8
   br label %if.end
 
@@ -624,14 +623,13 @@ entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 0, i32 0, i64 2), ptr %this, align 8
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD, align 8
-  invoke void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD, align 8
+  invoke void @uprv_free_75(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -643,10 +641,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #25
   unreachable
 }
 
@@ -684,41 +682,41 @@ if.end.i:                                         ; preds = %entry
   tail call void @_ZN6icu_756number4impl15DecimalQuantity11copyBcdFromERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(66) %other)
   %bogus.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %bogus.i.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %bogus, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %bogus, align 8
   %lReqPos.i.i = getelementptr inbounds i8, ptr %other, i64 36
-  %2 = load i32, ptr %lReqPos.i.i, align 4
-  store i32 %2, ptr %lReqPos, align 4
+  %1 = load i32, ptr %lReqPos.i.i, align 4
+  store i32 %1, ptr %lReqPos, align 4
   %rReqPos.i.i = getelementptr inbounds i8, ptr %other, i64 40
-  %3 = load i32, ptr %rReqPos.i.i, align 8
-  store i32 %3, ptr %rReqPos, align 8
+  %2 = load i32, ptr %rReqPos.i.i, align 8
+  store i32 %2, ptr %rReqPos, align 8
   %scale.i.i = getelementptr inbounds i8, ptr %other, i64 12
-  %4 = load i32, ptr %scale.i.i, align 4
+  %3 = load i32, ptr %scale.i.i, align 4
   %scale5.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %4, ptr %scale5.i.i, align 4
+  store i32 %3, ptr %scale5.i.i, align 4
   %precision.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %5 = load i32, ptr %precision.i.i, align 8
+  %4 = load i32, ptr %precision.i.i, align 8
   %precision6.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %5, ptr %precision6.i.i, align 8
+  store i32 %4, ptr %precision6.i.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %other, i64 20
-  %6 = load i8, ptr %flags.i.i, align 4
+  %5 = load i8, ptr %flags.i.i, align 4
   %flags7.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  store i8 %6, ptr %flags7.i.i, align 4
+  store i8 %5, ptr %flags7.i.i, align 4
   %origDouble.i.i = getelementptr inbounds i8, ptr %other, i64 24
-  %7 = load double, ptr %origDouble.i.i, align 8
+  %6 = load double, ptr %origDouble.i.i, align 8
   %origDouble8.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store double %7, ptr %origDouble8.i.i, align 8
+  store double %6, ptr %origDouble8.i.i, align 8
   %origDelta.i.i = getelementptr inbounds i8, ptr %other, i64 32
-  %8 = load i32, ptr %origDelta.i.i, align 8
+  %7 = load i32, ptr %origDelta.i.i, align 8
   %origDelta9.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 %8, ptr %origDelta9.i.i, align 8
+  store i32 %7, ptr %origDelta9.i.i, align 8
   %isApproximate.i.i = getelementptr inbounds i8, ptr %other, i64 21
-  %9 = load i8, ptr %isApproximate.i.i, align 1
+  %8 = load i8, ptr %isApproximate.i.i, align 1
   %isApproximate10.i.i = getelementptr inbounds i8, ptr %this, i64 21
-  store i8 %9, ptr %isApproximate10.i.i, align 1
+  store i8 %8, ptr %isApproximate10.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %other, i64 44
-  %10 = load i32, ptr %exponent.i.i, align 4
-  store i32 %10, ptr %exponent, align 4
+  %9 = load i32, ptr %exponent.i.i, align 4
+  store i32 %9, ptr %exponent, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i, %entry
@@ -735,45 +733,45 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN6icu_756number4impl15DecimalQuantity11copyBcdFromERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(66) %other)
   %bogus.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %bogus.i, align 8
-  %1 = and i8 %0, 1
   %bogus2.i = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %1, ptr %bogus2.i, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %bogus2.i, align 8
   %lReqPos.i = getelementptr inbounds i8, ptr %other, i64 36
-  %2 = load i32, ptr %lReqPos.i, align 4
+  %1 = load i32, ptr %lReqPos.i, align 4
   %lReqPos3.i = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %2, ptr %lReqPos3.i, align 4
+  store i32 %1, ptr %lReqPos3.i, align 4
   %rReqPos.i = getelementptr inbounds i8, ptr %other, i64 40
-  %3 = load i32, ptr %rReqPos.i, align 8
+  %2 = load i32, ptr %rReqPos.i, align 8
   %rReqPos4.i = getelementptr inbounds i8, ptr %this, i64 40
-  store i32 %3, ptr %rReqPos4.i, align 8
+  store i32 %2, ptr %rReqPos4.i, align 8
   %scale.i = getelementptr inbounds i8, ptr %other, i64 12
-  %4 = load i32, ptr %scale.i, align 4
+  %3 = load i32, ptr %scale.i, align 4
   %scale5.i = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %4, ptr %scale5.i, align 4
+  store i32 %3, ptr %scale5.i, align 4
   %precision.i = getelementptr inbounds i8, ptr %other, i64 16
-  %5 = load i32, ptr %precision.i, align 8
+  %4 = load i32, ptr %precision.i, align 8
   %precision6.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %5, ptr %precision6.i, align 8
+  store i32 %4, ptr %precision6.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %other, i64 20
-  %6 = load i8, ptr %flags.i, align 4
+  %5 = load i8, ptr %flags.i, align 4
   %flags7.i = getelementptr inbounds i8, ptr %this, i64 20
-  store i8 %6, ptr %flags7.i, align 4
+  store i8 %5, ptr %flags7.i, align 4
   %origDouble.i = getelementptr inbounds i8, ptr %other, i64 24
-  %7 = load double, ptr %origDouble.i, align 8
+  %6 = load double, ptr %origDouble.i, align 8
   %origDouble8.i = getelementptr inbounds i8, ptr %this, i64 24
-  store double %7, ptr %origDouble8.i, align 8
+  store double %6, ptr %origDouble8.i, align 8
   %origDelta.i = getelementptr inbounds i8, ptr %other, i64 32
-  %8 = load i32, ptr %origDelta.i, align 8
+  %7 = load i32, ptr %origDelta.i, align 8
   %origDelta9.i = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 %8, ptr %origDelta9.i, align 8
+  store i32 %7, ptr %origDelta9.i, align 8
   %isApproximate.i = getelementptr inbounds i8, ptr %other, i64 21
-  %9 = load i8, ptr %isApproximate.i, align 1
+  %8 = load i8, ptr %isApproximate.i, align 1
   %isApproximate10.i = getelementptr inbounds i8, ptr %this, i64 21
-  store i8 %9, ptr %isApproximate10.i, align 1
+  store i8 %8, ptr %isApproximate10.i, align 1
   %exponent.i = getelementptr inbounds i8, ptr %other, i64 44
-  %10 = load i32, ptr %exponent.i, align 4
+  %9 = load i32, ptr %exponent.i, align 4
   %exponent11.i = getelementptr inbounds i8, ptr %this, i64 44
-  store i32 %10, ptr %exponent11.i, align 4
+  store i32 %9, ptr %exponent11.i, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -809,14 +807,13 @@ entry:
 if.end:                                           ; preds = %entry
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.end
   %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %1)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -839,76 +836,75 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i: ; preds = %.noex
   %exponent.i.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i.i, align 4
   %usingBytes.i = getelementptr inbounds i8, ptr %src, i64 64
-  %3 = load i8, ptr %usingBytes.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %2 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
   store i8 1, ptr %usingBytes.i.i, align 8
   %fBCD.i = getelementptr inbounds i8, ptr %src, i64 48
-  %5 = load ptr, ptr %fBCD.i, align 8
-  store ptr %5, ptr %fBCD5.i.i, align 8
+  %3 = load ptr, ptr %fBCD.i, align 8
+  store ptr %3, ptr %fBCD5.i.i, align 8
   %len.i = getelementptr inbounds i8, ptr %src, i64 56
-  %6 = load i32, ptr %len.i, align 8
+  %4 = load i32, ptr %len.i, align 8
   %len7.i = getelementptr inbounds i8, ptr %this, i64 56
-  store i32 %6, ptr %len7.i, align 8
+  store i32 %4, ptr %len7.i, align 8
   store ptr null, ptr %fBCD.i, align 8
   store i8 0, ptr %usingBytes.i, align 8
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
   %fBCD11.i = getelementptr inbounds i8, ptr %src, i64 48
-  %7 = load i64, ptr %fBCD11.i, align 8
-  store i64 %7, ptr %fBCD5.i.i, align 8
+  %5 = load i64, ptr %fBCD11.i, align 8
+  store i64 %5, ptr %fBCD5.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i, %if.then.i
   %bogus.i = getelementptr inbounds i8, ptr %src, i64 8
-  %8 = load i8, ptr %bogus.i, align 8
-  %9 = and i8 %8, 1
+  %6 = load i8, ptr %bogus.i, align 8
   %bogus2.i = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %9, ptr %bogus2.i, align 8
+  %frombool.i = and i8 %6, 1
+  store i8 %frombool.i, ptr %bogus2.i, align 8
   %lReqPos.i = getelementptr inbounds i8, ptr %src, i64 36
-  %10 = load i32, ptr %lReqPos.i, align 4
+  %7 = load i32, ptr %lReqPos.i, align 4
   %lReqPos3.i = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %10, ptr %lReqPos3.i, align 4
+  store i32 %7, ptr %lReqPos3.i, align 4
   %rReqPos.i = getelementptr inbounds i8, ptr %src, i64 40
-  %11 = load i32, ptr %rReqPos.i, align 8
+  %8 = load i32, ptr %rReqPos.i, align 8
   %rReqPos4.i = getelementptr inbounds i8, ptr %this, i64 40
-  store i32 %11, ptr %rReqPos4.i, align 8
+  store i32 %8, ptr %rReqPos4.i, align 8
   %scale.i = getelementptr inbounds i8, ptr %src, i64 12
-  %12 = load i32, ptr %scale.i, align 4
-  store i32 %12, ptr %scale.i.i, align 4
+  %9 = load i32, ptr %scale.i, align 4
+  store i32 %9, ptr %scale.i.i, align 4
   %precision.i = getelementptr inbounds i8, ptr %src, i64 16
-  %13 = load i32, ptr %precision.i, align 8
-  store i32 %13, ptr %precision.i.i, align 8
+  %10 = load i32, ptr %precision.i, align 8
+  store i32 %10, ptr %precision.i.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %src, i64 20
-  %14 = load i8, ptr %flags.i, align 4
+  %11 = load i8, ptr %flags.i, align 4
   %flags7.i = getelementptr inbounds i8, ptr %this, i64 20
-  store i8 %14, ptr %flags7.i, align 4
+  store i8 %11, ptr %flags7.i, align 4
   %origDouble.i = getelementptr inbounds i8, ptr %src, i64 24
-  %15 = load double, ptr %origDouble.i, align 8
-  store double %15, ptr %origDouble.i.i, align 8
+  %12 = load double, ptr %origDouble.i, align 8
+  store double %12, ptr %origDouble.i.i, align 8
   %origDelta.i = getelementptr inbounds i8, ptr %src, i64 32
-  %16 = load i32, ptr %origDelta.i, align 8
-  store i32 %16, ptr %origDelta.i.i, align 8
+  %13 = load i32, ptr %origDelta.i, align 8
+  store i32 %13, ptr %origDelta.i.i, align 8
   %isApproximate.i = getelementptr inbounds i8, ptr %src, i64 21
-  %17 = load i8, ptr %isApproximate.i, align 1
-  store i8 %17, ptr %isApproximate.i.i, align 1
+  %14 = load i8, ptr %isApproximate.i, align 1
+  store i8 %14, ptr %isApproximate.i.i, align 1
   %exponent.i = getelementptr inbounds i8, ptr %src, i64 44
-  %18 = load i32, ptr %exponent.i, align 4
-  store i32 %18, ptr %exponent.i.i, align 4
+  %15 = load i32, ptr %exponent.i, align 4
+  store i32 %15, ptr %exponent.i.i, align 4
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont
   ret ptr %this
 
 terminate.lpad:                                   ; preds = %if.then.i.i
-  %19 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #25
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #25
   unreachable
 }
 
@@ -917,169 +913,18 @@ define void @_ZN6icu_756number4impl15DecimalQuantity11copyBcdFromERKS2_(ptr noca
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %entry, %if.then.i
-  %3 = phi i8 [ %0, %entry ], [ 0, %if.then.i ]
-  %fBCD5.i = getelementptr inbounds i8, ptr %this, i64 48
-  store i64 0, ptr %fBCD5.i, align 8
-  %scale.i = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 0, ptr %scale.i, align 4
-  %precision.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 0, ptr %precision.i, align 8
-  %isApproximate.i = getelementptr inbounds i8, ptr %this, i64 21
-  store i8 0, ptr %isApproximate.i, align 1
-  %origDouble.i = getelementptr inbounds i8, ptr %this, i64 24
-  store double 0.000000e+00, ptr %origDouble.i, align 8
-  %origDelta.i = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 0, ptr %origDelta.i, align 8
-  %exponent.i = getelementptr inbounds i8, ptr %this, i64 44
-  store i32 0, ptr %exponent.i, align 4
-  %usingBytes = getelementptr inbounds i8, ptr %other, i64 64
-  %4 = load i8, ptr %usingBytes, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
-  %precision = getelementptr inbounds i8, ptr %other, i64 16
-  %6 = load i32, ptr %precision, align 8
-  %cmp.i = icmp eq i32 %6, 0
-  br i1 %cmp.i, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then
-  %7 = and i8 %3, 1
-  %tobool.not.i6 = icmp eq i8 %7, 0
-  %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i32, ptr %len.i, align 8
-  br i1 %tobool.not.i6, label %if.then4.i, label %if.else.i
-
-if.then4.i:                                       ; preds = %if.end.i
-  %conv.i = sext i32 %6 to i64
-  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i) #24
-  store ptr %call.i, ptr %fBCD5.i, align 8
-  store i32 %6, ptr %len.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i, i8 0, i64 %conv.i, i1 false)
-  br label %if.end32.i
-
-if.else.i:                                        ; preds = %if.end.i
-  %cmp12.i = icmp slt i32 %8, %6
-  br i1 %cmp12.i, label %if.then13.i, label %if.end32.i
-
-if.then13.i:                                      ; preds = %if.else.i
-  %mul14.i = shl nsw i32 %6, 1
-  %conv15.i = sext i32 %mul14.i to i64
-  %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i) #24
-  %9 = load ptr, ptr %fBCD5.i, align 8
-  %conv20.i = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %9, i64 %conv20.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 %6, %8
-  %conv22.i = sext i32 %sub.i to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %9)
-  store ptr %call17.i, ptr %fBCD5.i, align 8
-  store i32 %mul14.i, ptr %len.i, align 8
-  br label %if.end32.i
-
-if.end32.i:                                       ; preds = %if.then13.i, %if.else.i, %if.then4.i
-  %10 = phi ptr [ %call17.i, %if.then13.i ], [ null, %if.else.i ], [ %call.i, %if.then4.i ]
-  store i8 1, ptr %usingBytes.i, align 8
-  %.pre = load i32, ptr %precision, align 8
-  %11 = sext i32 %.pre to i64
-  br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
-
-_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %if.then, %if.end32.i
-  %conv = phi i64 [ 0, %if.then ], [ %11, %if.end32.i ]
-  %12 = phi ptr [ null, %if.then ], [ %10, %if.end32.i ]
-  %fBCD2 = getelementptr inbounds i8, ptr %other, i64 48
-  %13 = load ptr, ptr %fBCD2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 %conv, i1 false)
-  br label %if.end
-
-if.else:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
-  %fBCD5 = getelementptr inbounds i8, ptr %other, i64 48
-  %14 = load i64, ptr %fBCD5, align 8
-  store i64 %14, ptr %fBCD5.i, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity14copyFieldsFromERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %other) local_unnamed_addr #11 align 2 {
-entry:
-  %bogus = getelementptr inbounds i8, ptr %other, i64 8
-  %0 = load i8, ptr %bogus, align 8
-  %1 = and i8 %0, 1
-  %bogus2 = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %1, ptr %bogus2, align 8
-  %lReqPos = getelementptr inbounds i8, ptr %other, i64 36
-  %2 = load i32, ptr %lReqPos, align 4
-  %lReqPos3 = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %2, ptr %lReqPos3, align 4
-  %rReqPos = getelementptr inbounds i8, ptr %other, i64 40
-  %3 = load i32, ptr %rReqPos, align 8
-  %rReqPos4 = getelementptr inbounds i8, ptr %this, i64 40
-  store i32 %3, ptr %rReqPos4, align 8
-  %scale = getelementptr inbounds i8, ptr %other, i64 12
-  %4 = load i32, ptr %scale, align 4
-  %scale5 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %4, ptr %scale5, align 4
-  %precision = getelementptr inbounds i8, ptr %other, i64 16
-  %5 = load i32, ptr %precision, align 8
-  %precision6 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %5, ptr %precision6, align 8
-  %flags = getelementptr inbounds i8, ptr %other, i64 20
-  %6 = load i8, ptr %flags, align 4
-  %flags7 = getelementptr inbounds i8, ptr %this, i64 20
-  store i8 %6, ptr %flags7, align 4
-  %origDouble = getelementptr inbounds i8, ptr %other, i64 24
-  %7 = load double, ptr %origDouble, align 8
-  %origDouble8 = getelementptr inbounds i8, ptr %this, i64 24
-  store double %7, ptr %origDouble8, align 8
-  %origDelta = getelementptr inbounds i8, ptr %other, i64 32
-  %8 = load i32, ptr %origDelta, align 8
-  %origDelta9 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 %8, ptr %origDelta9, align 8
-  %isApproximate = getelementptr inbounds i8, ptr %other, i64 21
-  %9 = load i8, ptr %isApproximate, align 1
-  %isApproximate10 = getelementptr inbounds i8, ptr %this, i64 21
-  store i8 %9, ptr %isApproximate10, align 1
-  %exponent = getelementptr inbounds i8, ptr %other, i64 44
-  %10 = load i32, ptr %exponent, align 4
-  %exponent11 = getelementptr inbounds i8, ptr %this, i64 44
-  store i32 %10, ptr %exponent11, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity11moveBcdFromERS2_(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull align 8 dereferenceable(66) %other) local_unnamed_addr #1 align 2 {
-entry:
-  %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
-  store i8 0, ptr %usingBytes.i, align 8
-  br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
-
-_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %entry, %if.then.i
+  %2 = phi i8 [ %0, %entry ], [ 0, %if.then.i ]
   %fBCD5.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %fBCD5.i, align 8
   %scale.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -1096,27 +941,173 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %entry, 
   store i32 0, ptr %exponent.i, align 4
   %usingBytes = getelementptr inbounds i8, ptr %other, i64 64
   %3 = load i8, ptr %usingBytes, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.else
+
+if.then:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
+  %precision = getelementptr inbounds i8, ptr %other, i64 16
+  %4 = load i32, ptr %precision, align 8
+  %cmp.i = icmp eq i32 %4, 0
+  br i1 %cmp.i, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %if.then
+  %tobool.i6 = trunc i8 %2 to i1
+  %len.i = getelementptr inbounds i8, ptr %this, i64 56
+  %5 = load i32, ptr %len.i, align 8
+  br i1 %tobool.i6, label %if.else.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i
+  %conv.i = sext i32 %4 to i64
+  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i) #24
+  store ptr %call.i, ptr %fBCD5.i, align 8
+  store i32 %4, ptr %len.i, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i, i8 0, i64 %conv.i, i1 false)
+  br label %if.end32.i
+
+if.else.i:                                        ; preds = %if.end.i
+  %cmp12.i = icmp slt i32 %5, %4
+  br i1 %cmp12.i, label %if.then13.i, label %if.end32.i
+
+if.then13.i:                                      ; preds = %if.else.i
+  %mul14.i = shl nsw i32 %4, 1
+  %conv15.i = sext i32 %mul14.i to i64
+  %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i) #24
+  %6 = load ptr, ptr %fBCD5.i, align 8
+  %conv20.i = sext i32 %5 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %6, i64 %conv20.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
+  %sub.i = sub nsw i32 %4, %5
+  %conv22.i = sext i32 %sub.i to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
+  tail call void @uprv_free_75(ptr noundef %6)
+  store ptr %call17.i, ptr %fBCD5.i, align 8
+  store i32 %mul14.i, ptr %len.i, align 8
+  br label %if.end32.i
+
+if.end32.i:                                       ; preds = %if.then13.i, %if.else.i, %if.then4.i
+  %7 = phi ptr [ %call17.i, %if.then13.i ], [ null, %if.else.i ], [ %call.i, %if.then4.i ]
+  store i8 1, ptr %usingBytes.i, align 8
+  %.pre = load i32, ptr %precision, align 8
+  %8 = sext i32 %.pre to i64
+  br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
+
+_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %if.then, %if.end32.i
+  %conv = phi i64 [ 0, %if.then ], [ %8, %if.end32.i ]
+  %9 = phi ptr [ null, %if.then ], [ %7, %if.end32.i ]
+  %fBCD2 = getelementptr inbounds i8, ptr %other, i64 48
+  %10 = load ptr, ptr %fBCD2, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %10, i64 %conv, i1 false)
+  br label %if.end
+
+if.else:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
+  %fBCD5 = getelementptr inbounds i8, ptr %other, i64 48
+  %11 = load i64, ptr %fBCD5, align 8
+  store i64 %11, ptr %fBCD5.i, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN6icu_756number4impl15DecimalQuantity14copyFieldsFromERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %other) local_unnamed_addr #11 align 2 {
+entry:
+  %bogus = getelementptr inbounds i8, ptr %other, i64 8
+  %0 = load i8, ptr %bogus, align 8
+  %bogus2 = getelementptr inbounds i8, ptr %this, i64 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %bogus2, align 8
+  %lReqPos = getelementptr inbounds i8, ptr %other, i64 36
+  %1 = load i32, ptr %lReqPos, align 4
+  %lReqPos3 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %1, ptr %lReqPos3, align 4
+  %rReqPos = getelementptr inbounds i8, ptr %other, i64 40
+  %2 = load i32, ptr %rReqPos, align 8
+  %rReqPos4 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 %2, ptr %rReqPos4, align 8
+  %scale = getelementptr inbounds i8, ptr %other, i64 12
+  %3 = load i32, ptr %scale, align 4
+  %scale5 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %3, ptr %scale5, align 4
+  %precision = getelementptr inbounds i8, ptr %other, i64 16
+  %4 = load i32, ptr %precision, align 8
+  %precision6 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %4, ptr %precision6, align 8
+  %flags = getelementptr inbounds i8, ptr %other, i64 20
+  %5 = load i8, ptr %flags, align 4
+  %flags7 = getelementptr inbounds i8, ptr %this, i64 20
+  store i8 %5, ptr %flags7, align 4
+  %origDouble = getelementptr inbounds i8, ptr %other, i64 24
+  %6 = load double, ptr %origDouble, align 8
+  %origDouble8 = getelementptr inbounds i8, ptr %this, i64 24
+  store double %6, ptr %origDouble8, align 8
+  %origDelta = getelementptr inbounds i8, ptr %other, i64 32
+  %7 = load i32, ptr %origDelta, align 8
+  %origDelta9 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %7, ptr %origDelta9, align 8
+  %isApproximate = getelementptr inbounds i8, ptr %other, i64 21
+  %8 = load i8, ptr %isApproximate, align 1
+  %isApproximate10 = getelementptr inbounds i8, ptr %this, i64 21
+  store i8 %8, ptr %isApproximate10, align 1
+  %exponent = getelementptr inbounds i8, ptr %other, i64 44
+  %9 = load i32, ptr %exponent, align 4
+  %exponent11 = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 %9, ptr %exponent11, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_756number4impl15DecimalQuantity11moveBcdFromERS2_(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull align 8 dereferenceable(66) %other) local_unnamed_addr #1 align 2 {
+entry:
+  %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %0 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
+
+if.then.i:                                        ; preds = %entry
+  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
+  store i8 0, ptr %usingBytes.i, align 8
+  br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
+
+_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %entry, %if.then.i
+  %fBCD5.i = getelementptr inbounds i8, ptr %this, i64 48
+  store i64 0, ptr %fBCD5.i, align 8
+  %scale.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %scale.i, align 4
+  %precision.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 0, ptr %precision.i, align 8
+  %isApproximate.i = getelementptr inbounds i8, ptr %this, i64 21
+  store i8 0, ptr %isApproximate.i, align 1
+  %origDouble.i = getelementptr inbounds i8, ptr %this, i64 24
+  store double 0.000000e+00, ptr %origDouble.i, align 8
+  %origDelta.i = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %origDelta.i, align 8
+  %exponent.i = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 0, ptr %exponent.i, align 4
+  %usingBytes = getelementptr inbounds i8, ptr %other, i64 64
+  %2 = load i8, ptr %usingBytes, align 8
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
   store i8 1, ptr %usingBytes.i, align 8
   %fBCD = getelementptr inbounds i8, ptr %other, i64 48
-  %5 = load ptr, ptr %fBCD, align 8
-  store ptr %5, ptr %fBCD5.i, align 8
+  %3 = load ptr, ptr %fBCD, align 8
+  store ptr %3, ptr %fBCD5.i, align 8
   %len = getelementptr inbounds i8, ptr %other, i64 56
-  %6 = load i32, ptr %len, align 8
+  %4 = load i32, ptr %len, align 8
   %len7 = getelementptr inbounds i8, ptr %this, i64 56
-  store i32 %6, ptr %len7, align 8
+  store i32 %4, ptr %len7, align 8
   store ptr null, ptr %fBCD, align 8
   store i8 0, ptr %usingBytes, align 8
   br label %if.end
 
 if.else:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
   %fBCD11 = getelementptr inbounds i8, ptr %other, i64 48
-  %7 = load i64, ptr %fBCD11, align 8
-  store i64 %7, ptr %fBCD5.i, align 8
+  %5 = load i64, ptr %fBCD11, align 8
+  store i64 %5, ptr %fBCD5.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1134,14 +1125,13 @@ entry:
   store i8 0, ptr %flags, align 4
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -1199,14 +1189,13 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i8, ptr %usingBytes.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %if.then3
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %4)
+  %3 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %3)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -1235,34 +1224,33 @@ if.then6:                                         ; preds = %if.end4
   %sub = sub nsw i32 %sub.i, %maxInt
   %add = add nsw i32 %sub, 1
   %usingBytes.i6 = getelementptr inbounds i8, ptr %this, i64 64
-  %5 = load i8, ptr %usingBytes.i6, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i7 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i7, label %if.else.i, label %if.then.i8
+  %4 = load i8, ptr %usingBytes.i6, align 8
+  %tobool.i7 = trunc i8 %4 to i1
+  br i1 %tobool.i7, label %if.then.i9, label %if.else.i
 
-if.then.i8:                                       ; preds = %if.then6
+if.then.i9:                                       ; preds = %if.then6
   %cmp.not.not6.i = icmp sgt i32 %sub, -1
   br i1 %cmp.not.not6.i, label %for.body.lr.ph.i, label %if.then.if.end_crit_edge.i
 
-if.then.if.end_crit_edge.i:                       ; preds = %if.then.i8
+if.then.if.end_crit_edge.i:                       ; preds = %if.then.i9
   %.pre9.i = sub nsw i32 %0, %add
   br label %_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit
 
-for.body.lr.ph.i:                                 ; preds = %if.then.i8
-  %fBCD.i9 = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = sext i32 %0 to i64
+for.body.lr.ph.i:                                 ; preds = %if.then.i9
+  %fBCD.i10 = getelementptr inbounds i8, ptr %this, i64 48
+  %5 = sext i32 %0 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %7, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %indvars.iv.i = phi i64 [ %5, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %8 = load ptr, ptr %fBCD.i9, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next.i
+  %6 = load ptr, ptr %fBCD.i10, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next.i
   store i8 0, ptr %arrayidx.i, align 1
-  %9 = load i32, ptr %precision, align 8
-  %sub3.i = sub nsw i32 %9, %add
-  %10 = sext i32 %sub3.i to i64
-  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %10
+  %7 = load i32, ptr %precision, align 8
+  %sub3.i = sub nsw i32 %7, %add
+  %8 = sext i32 %sub3.i to i64
+  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %8
   br i1 %cmp.not.not.i, label %for.body.i, label %_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.then6
@@ -1272,8 +1260,8 @@ if.else.i:                                        ; preds = %if.then6
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub6.i = xor i64 %notmask.i, -1
   %fBCD7.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i64, ptr %fBCD7.i, align 8
-  %and.i = and i64 %11, %sub6.i
+  %9 = load i64, ptr %fBCD7.i, align 8
+  %and.i = and i64 %9, %sub6.i
   store i64 %and.i, ptr %fBCD7.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi.exit
 
@@ -1304,47 +1292,46 @@ define void @_ZN6icu_756number4impl15DecimalQuantity11popFromLeftEi(ptr nocaptur
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %precision4 = getelementptr inbounds i8, ptr %this, i64 16
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %precision = getelementptr inbounds i8, ptr %this, i64 16
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %cmp.not.not6 = icmp sgt i32 %numDigits, 0
-  %2 = load i32, ptr %precision4, align 8
+  %1 = load i32, ptr %precision, align 8
   br i1 %cmp.not.not6, label %for.body.lr.ph, label %if.then.if.end_crit_edge
 
 if.then.if.end_crit_edge:                         ; preds = %if.then
-  %.pre9 = sub nsw i32 %2, %numDigits
+  %.pre9 = sub nsw i32 %1, %numDigits
   br label %if.end
 
 for.body.lr.ph:                                   ; preds = %if.then
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = sext i32 %2 to i64
+  %2 = sext i32 %1 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %3, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %4 = load ptr, ptr %fBCD, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
+  %3 = load ptr, ptr %fBCD, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   store i8 0, ptr %arrayidx, align 1
-  %5 = load i32, ptr %precision4, align 8
-  %sub3 = sub nsw i32 %5, %numDigits
-  %6 = sext i32 %sub3 to i64
-  %cmp.not.not = icmp sgt i64 %indvars.iv.next, %6
+  %4 = load i32, ptr %precision, align 8
+  %sub3 = sub nsw i32 %4, %numDigits
+  %5 = sext i32 %sub3 to i64
+  %cmp.not.not = icmp sgt i64 %indvars.iv.next, %5
   br i1 %cmp.not.not, label %for.body, label %if.end, !llvm.loop !4
 
 if.else:                                          ; preds = %entry
-  %7 = load i32, ptr %precision4, align 8
-  %sub5 = sub nsw i32 %7, %numDigits
+  %6 = load i32, ptr %precision, align 8
+  %sub5 = sub nsw i32 %6, %numDigits
   %mul = shl nsw i32 %sub5, 2
   %sh_prom = zext nneg i32 %mul to i64
   %notmask = shl nsw i64 -1, %sh_prom
   %sub6 = xor i64 %notmask, -1
   %fBCD7 = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load i64, ptr %fBCD7, align 8
-  %and = and i64 %8, %sub6
+  %7 = load i64, ptr %fBCD7, align 8
+  %and = and i64 %7, %sub6
   store i64 %and, ptr %fBCD7, align 8
   br label %if.end
 
@@ -1360,44 +1347,58 @@ define void @_ZN6icu_756number4impl15DecimalQuantity7compactEv(ptr nocapture nou
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else25, label %for.cond.preheader
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %for.cond.preheader, label %if.else25
 
 for.cond.preheader:                               ; preds = %entry
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %precision, align 8
-  %cmp99 = icmp sgt i32 %2, 0
-  br i1 %cmp99, label %land.rhs.lr.ph, label %for.end.thread
+  %1 = load i32, ptr %precision, align 8
+  %cmp96 = icmp sgt i32 %1, 0
+  br i1 %cmp96, label %land.rhs.lr.ph, label %for.end.thread124
 
 land.rhs.lr.ph:                                   ; preds = %for.cond.preheader
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD, align 8
-  %wide.trip.count = zext nneg i32 %2 to i64
-  br label %land.rhs
+  %2 = load ptr, ptr %fBCD, align 8
+  %3 = zext nneg i32 %1 to i64
+  %wide.trip.count114 = zext nneg i32 %1 to i64
+  %4 = load i8, ptr %2, align 1
+  %cmp2149 = icmp eq i8 %4, 0
+  br i1 %cmp2149, label %for.inc, label %for.end
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
-  %4 = load i8, ptr %arrayidx, align 1
-  %cmp2 = icmp eq i8 %4, 0
-  br i1 %cmp2, label %for.inc, label %for.body.lr.ph.i
+land.rhs:                                         ; preds = %for.inc
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next113
+  %5 = load i8, ptr %arrayidx, align 1
+  %cmp2 = icmp eq i8 %5, 0
+  br i1 %cmp2, label %for.inc, label %land.rhs.for.end_crit_edge, !llvm.loop !6
 
-for.inc:                                          ; preds = %land.rhs
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %land.rhs, !llvm.loop !6
+for.inc:                                          ; preds = %land.rhs.lr.ph, %land.rhs
+  %indvars.iv112150 = phi i64 [ %indvars.iv.next113, %land.rhs ], [ 0, %land.rhs.lr.ph ]
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112150, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count114
+  br i1 %exitcond115.not, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %land.rhs, !llvm.loop !6
 
-for.end.thread:                                   ; preds = %for.cond.preheader
-  %cmp479 = icmp eq i32 %2, 0
-  br i1 %cmp479, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %for.cond6.preheader.i
+land.rhs.for.end_crit_edge:                       ; preds = %land.rhs
+  %cmp = icmp ult i64 %indvars.iv.next113, %3
+  br label %for.end
 
-_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %for.inc, %for.end.thread
+for.end:                                          ; preds = %land.rhs.for.end_crit_edge, %land.rhs.lr.ph
+  %indvars.iv112.lcssa = phi i64 [ %indvars.iv.next113, %land.rhs.for.end_crit_edge ], [ 0, %land.rhs.lr.ph ]
+  %cmp98.lcssa = phi i1 [ %cmp, %land.rhs.for.end_crit_edge ], [ true, %land.rhs.lr.ph ]
+  %6 = trunc i64 %indvars.iv112.lcssa to i32
+  %cmp4 = icmp eq i32 %1, %6
+  br i1 %cmp4, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %for.cond.preheader.i
+
+for.end.thread124:                                ; preds = %for.cond.preheader
+  %cmp4127 = icmp eq i32 %1, 0
+  br i1 %cmp4127, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %for.cond6.preheader.i
+
+_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %for.inc, %for.end.thread124, %for.end
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %5)
+  %7 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %7)
   store i8 0, ptr %usingBytes, align 8
-  store i64 0, ptr %fBCD.i, align 8
+  %fBCD5.i = getelementptr inbounds i8, ptr %this, i64 48
+  store i64 0, ptr %fBCD5.i, align 8
   %scale.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %scale.i, align 4
   store i32 0, ptr %precision, align 8
@@ -1411,116 +1412,117 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %for.inc
   store i32 0, ptr %exponent.i, align 4
   br label %if.end60
 
-for.body.lr.ph.i:                                 ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv to i32
-  %7 = and i64 %indvars.iv, 4294967295
+for.cond.preheader.i:                             ; preds = %for.end
+  br i1 %cmp98.lcssa, label %for.body.lr.ph.i, label %for.cond6.preheader.i
+
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %fBCD.i19 = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = and i64 %indvars.iv112.lcssa, 4294967295
   br label %for.body.i
 
 for.cond6.preheader.loopexit.i:                   ; preds = %for.body.i
-  %8 = trunc i64 %indvars.iv.next.i to i32
+  %9 = trunc i64 %indvars.iv.next.i to i32
   br label %for.cond6.preheader.i
 
-for.cond6.preheader.i:                            ; preds = %for.end.thread, %for.cond6.preheader.loopexit.i
-  %delta.097 = phi i32 [ %6, %for.cond6.preheader.loopexit.i ], [ 0, %for.end.thread ]
-  %9 = phi i32 [ %14, %for.cond6.preheader.loopexit.i ], [ %2, %for.end.thread ]
-  %i.0.lcssa.i = phi i32 [ %8, %for.cond6.preheader.loopexit.i ], [ 0, %for.end.thread ]
-  %cmp814.i = icmp slt i32 %i.0.lcssa.i, %9
+for.cond6.preheader.i:                            ; preds = %for.end.thread124, %for.cond6.preheader.loopexit.i, %for.cond.preheader.i
+  %delta.0.lcssa128132 = phi i32 [ %6, %for.cond.preheader.i ], [ %6, %for.cond6.preheader.loopexit.i ], [ 0, %for.end.thread124 ]
+  %10 = phi i32 [ %1, %for.cond.preheader.i ], [ %15, %for.cond6.preheader.loopexit.i ], [ %1, %for.end.thread124 ]
+  %i.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %9, %for.cond6.preheader.loopexit.i ], [ 0, %for.end.thread124 ]
+  %cmp814.i = icmp slt i32 %i.0.lcssa.i, %10
   br i1 %cmp814.i, label %for.body9.lr.ph.i, label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit
 
 for.body9.lr.ph.i:                                ; preds = %for.cond6.preheader.i
   %fBCD10.i = getelementptr inbounds i8, ptr %this, i64 48
-  %10 = zext nneg i32 %i.0.lcssa.i to i64
+  %11 = zext nneg i32 %i.0.lcssa.i to i64
   br label %for.body9.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %11 = load ptr, ptr %fBCD, align 8
-  %12 = getelementptr i8, ptr %11, i64 %indvars.iv.i
-  %arrayidx.i = getelementptr i8, ptr %12, i64 %7
-  %13 = load i8, ptr %arrayidx.i, align 1
-  store i8 %13, ptr %12, align 1
+  %12 = load ptr, ptr %fBCD.i19, align 8
+  %13 = getelementptr i8, ptr %12, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr i8, ptr %13, i64 %8
+  %14 = load i8, ptr %arrayidx.i, align 1
+  store i8 %14, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %14 = load i32, ptr %precision, align 8
-  %sub.i = sub nsw i32 %14, %6
-  %15 = sext i32 %sub.i to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %15
+  %15 = load i32, ptr %precision, align 8
+  %sub.i = sub nsw i32 %15, %6
+  %16 = sext i32 %sub.i to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %16
   br i1 %cmp.i, label %for.body.i, label %for.cond6.preheader.loopexit.i, !llvm.loop !7
 
 for.body9.i:                                      ; preds = %for.body9.i, %for.body9.lr.ph.i
-  %indvars.iv18.i = phi i64 [ %10, %for.body9.lr.ph.i ], [ %indvars.iv.next19.i, %for.body9.i ]
-  %16 = load ptr, ptr %fBCD10.i, align 8
-  %arrayidx13.i = getelementptr inbounds i8, ptr %16, i64 %indvars.iv18.i
+  %indvars.iv18.i = phi i64 [ %11, %for.body9.lr.ph.i ], [ %indvars.iv.next19.i, %for.body9.i ]
+  %17 = load ptr, ptr %fBCD10.i, align 8
+  %arrayidx13.i = getelementptr inbounds i8, ptr %17, i64 %indvars.iv18.i
   store i8 0, ptr %arrayidx13.i, align 1
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %17 = load i32, ptr %precision, align 8
-  %18 = trunc i64 %indvars.iv.next19.i to i32
-  %cmp8.i = icmp sgt i32 %17, %18
+  %18 = load i32, ptr %precision, align 8
+  %19 = trunc i64 %indvars.iv.next19.i to i32
+  %cmp8.i = icmp sgt i32 %18, %19
   br i1 %cmp8.i, label %for.body9.i, label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit, !llvm.loop !8
 
 _ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %for.body9.i, %for.cond6.preheader.i
-  %19 = phi i32 [ %9, %for.cond6.preheader.i ], [ %17, %for.body9.i ]
-  %scale.i18 = getelementptr inbounds i8, ptr %this, i64 12
-  %20 = load i32, ptr %scale.i18, align 4
-  %add18.i = add nsw i32 %20, %delta.097
-  store i32 %add18.i, ptr %scale.i18, align 4
-  %sub20.i = sub i32 %19, %delta.097
+  %20 = phi i32 [ %10, %for.cond6.preheader.i ], [ %18, %for.body9.i ]
+  %scale.i17 = getelementptr inbounds i8, ptr %this, i64 12
+  %21 = load i32, ptr %scale.i17, align 4
+  %add18.i = add nsw i32 %21, %delta.0.lcssa128132
+  store i32 %add18.i, ptr %scale.i17, align 4
+  %sub20.i = sub i32 %20, %delta.0.lcssa128132
   store i32 %sub20.i, ptr %precision, align 8
   %fBCD10 = getelementptr inbounds i8, ptr %this, i64 48
-  %21 = load ptr, ptr %fBCD10, align 8
-  %22 = zext i32 %sub20.i to i64
-  %23 = ptrtoint ptr %21 to i64
+  %22 = load ptr, ptr %fBCD10, align 8
+  %23 = zext i32 %sub20.i to i64
+  %24 = ptrtoint ptr %22 to i64
   br label %for.cond7
 
 for.cond7:                                        ; preds = %land.rhs9, %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit
-  %indvars.iv112 = phi i64 [ %25, %land.rhs9 ], [ %22, %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit ]
-  %24 = trunc i64 %indvars.iv112 to i32
-  %cmp8 = icmp sgt i32 %24, 0
+  %indvars.iv116 = phi i64 [ %26, %land.rhs9 ], [ %23, %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit ]
+  %25 = trunc i64 %indvars.iv116 to i32
+  %cmp8 = icmp sgt i32 %25, 0
   br i1 %cmp8, label %land.rhs9, label %if.then23.thread
 
 land.rhs9:                                        ; preds = %for.cond7
-  %25 = add nsw i64 %indvars.iv112, -1
-  %arrayidx13 = getelementptr inbounds i8, ptr %21, i64 %25
-  %26 = load i8, ptr %arrayidx13, align 1
-  %cmp15 = icmp eq i8 %26, 0
+  %26 = add nsw i64 %indvars.iv116, -1
+  %arrayidx13 = getelementptr inbounds i8, ptr %22, i64 %26
+  %27 = load i8, ptr %arrayidx13, align 1
+  %cmp15 = icmp eq i8 %27, 0
   br i1 %cmp15, label %for.cond7, label %for.end19, !llvm.loop !9
 
 for.end19:                                        ; preds = %land.rhs9
-  store i32 %24, ptr %precision, align 8
-  %cmp22 = icmp ult i32 %24, 17
+  store i32 %25, ptr %precision, align 8
+  %cmp22 = icmp ult i32 %25, 17
   br i1 %cmp22, label %if.then23, label %if.end60
 
 if.then23:                                        ; preds = %for.end19
-  %27 = load i8, ptr %usingBytes, align 8
-  %28 = and i8 %27, 1
-  %tobool.not.i21 = icmp eq i8 %28, 0
-  br i1 %tobool.not.i21, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, label %if.then.i22
+  %28 = load i8, ptr %usingBytes, align 8
+  %tobool.i21 = trunc i8 %28 to i1
+  br i1 %tobool.i21, label %if.then.i25, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i
 
 if.then23.thread:                                 ; preds = %for.cond7
-  store i32 %24, ptr %precision, align 8
+  store i32 %25, ptr %precision, align 8
   %29 = load i8, ptr %usingBytes, align 8
-  %30 = and i8 %29, 1
-  %tobool.not.i2181 = icmp eq i8 %30, 0
-  br i1 %tobool.not.i2181, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, label %for.end.i
+  %tobool.i2179 = trunc i8 %29 to i1
+  br i1 %tobool.i2179, label %for.end.i, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i
 
-if.then.i22:                                      ; preds = %if.then23
-  %31 = and i64 %indvars.iv112, 31
-  br label %for.body.i27
+if.then.i25:                                      ; preds = %if.then23
+  %30 = and i64 %indvars.iv116, 31
+  br label %for.body.i29
 
-for.body.i27:                                     ; preds = %for.body.i27, %if.then.i22
-  %indvars.iv.i28 = phi i64 [ %31, %if.then.i22 ], [ %indvars.iv.next.i29, %for.body.i27 ]
-  %bcdLong.09.i = phi i64 [ 0, %if.then.i22 ], [ %or.i, %for.body.i27 ]
-  %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i28, -1
-  %shl.i = shl i64 %bcdLong.09.i, 4
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.next.i29
-  %32 = load i8, ptr %arrayidx.i30, align 1
-  %conv.i = sext i8 %32 to i64
+for.body.i29:                                     ; preds = %for.body.i29, %if.then.i25
+  %indvars.iv15.i = phi i64 [ %30, %if.then.i25 ], [ %indvars.iv.next16.i, %for.body.i29 ]
+  %bcdLong.012.i = phi i64 [ 0, %if.then.i25 ], [ %or.i, %for.body.i29 ]
+  %indvars.iv.next16.i = add nsw i64 %indvars.iv15.i, -1
+  %shl.i = shl i64 %bcdLong.012.i, 4
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.next16.i
+  %31 = load i8, ptr %arrayidx.i30, align 1
+  %conv.i = sext i8 %31 to i64
   %or.i = or i64 %shl.i, %conv.i
-  %cmp.i31 = icmp ugt i64 %indvars.iv.i28, 1
-  br i1 %cmp.i31, label %for.body.i27, label %for.end.i, !llvm.loop !10
+  %cmp.i31 = icmp ugt i64 %indvars.iv15.i, 1
+  br i1 %cmp.i31, label %for.body.i29, label %for.end.i, !llvm.loop !10
 
-for.end.i:                                        ; preds = %for.body.i27, %if.then23.thread
-  %bcdLong.0.lcssa.i = phi i64 [ 0, %if.then23.thread ], [ %or.i, %for.body.i27 ]
-  tail call void @uprv_free_75(ptr noundef %21)
+for.end.i:                                        ; preds = %for.body.i29, %if.then23.thread
+  %bcdLong.0.lcssa.i = phi i64 [ 0, %if.then23.thread ], [ %or.i, %for.body.i29 ]
+  tail call void @uprv_free_75(ptr noundef %22)
   store i64 %bcdLong.0.lcssa.i, ptr %fBCD10, align 8
   store i8 0, ptr %usingBytes, align 8
   br label %if.end60
@@ -1532,111 +1534,111 @@ _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i: ; preds = %if.
   store i32 40, ptr %len.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call.i.i.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %usingBytes, align 8
-  %33 = load i32, ptr %precision, align 8
-  %cmp1311.i = icmp sgt i32 %33, 0
-  br i1 %cmp1311.i, label %for.body14.i, label %if.end60
+  %32 = load i32, ptr %precision, align 8
+  %cmp138.i = icmp sgt i32 %32, 0
+  br i1 %cmp138.i, label %for.body14.i, label %if.end60
 
 for.body14.i:                                     ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, %for.body14.i
-  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %for.body14.i ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
-  %bcdLong8.012.i = phi i64 [ %shr.i32, %for.body14.i ], [ %23, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
-  %34 = trunc i64 %bcdLong8.012.i to i8
-  %conv15.i = and i8 %34, 15
-  %35 = load ptr, ptr %fBCD10, align 8
-  %arrayidx19.i = getelementptr inbounds i8, ptr %35, i64 %indvars.iv15.i
+  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i24, %for.body14.i ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
+  %bcdLong8.09.i = phi i64 [ %shr.i23, %for.body14.i ], [ %24, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
+  %33 = trunc i64 %bcdLong8.09.i to i8
+  %conv15.i = and i8 %33, 15
+  %34 = load ptr, ptr %fBCD10, align 8
+  %arrayidx19.i = getelementptr inbounds i8, ptr %34, i64 %indvars.iv.i22
   store i8 %conv15.i, ptr %arrayidx19.i, align 1
-  %shr.i32 = lshr i64 %bcdLong8.012.i, 4
-  %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
-  %36 = load i32, ptr %precision, align 8
-  %37 = sext i32 %36 to i64
-  %cmp13.i = icmp slt i64 %indvars.iv.next16.i, %37
+  %shr.i23 = lshr i64 %bcdLong8.09.i, 4
+  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
+  %35 = load i32, ptr %precision, align 8
+  %36 = sext i32 %35 to i64
+  %cmp13.i = icmp slt i64 %indvars.iv.next.i24, %36
   br i1 %cmp13.i, label %for.body14.i, label %if.end60, !llvm.loop !11
 
 if.else25:                                        ; preds = %entry
   %fBCD26 = getelementptr inbounds i8, ptr %this, i64 48
-  %38 = load i64, ptr %fBCD26, align 8
-  %cmp27 = icmp eq i64 %38, 0
-  br i1 %cmp27, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit44, label %for.cond31.preheader
+  %37 = load i64, ptr %fBCD26, align 8
+  %cmp27 = icmp eq i64 %37, 0
+  br i1 %cmp27, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit43, label %for.cond31.preheader
 
 for.cond31.preheader:                             ; preds = %if.else25
   %precision32 = getelementptr inbounds i8, ptr %this, i64 16
-  %39 = load i32, ptr %precision32, align 8
-  %cmp33102 = icmp sgt i32 %39, 0
-  %wide.trip.count120 = zext i32 %39 to i64
-  br i1 %cmp33102, label %if.else.i52, label %for.end41
+  %38 = load i32, ptr %precision32, align 8
+  %cmp3391 = icmp sgt i32 %38, 0
+  %wide.trip.count = zext i32 %38 to i64
+  br i1 %cmp3391, label %if.else.i46, label %for.end41
 
-_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit44: ; preds = %if.else25
-  %scale.i38 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 0, ptr %scale.i38, align 4
-  %precision.i39 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 0, ptr %precision.i39, align 8
-  %isApproximate.i40 = getelementptr inbounds i8, ptr %this, i64 21
-  store i8 0, ptr %isApproximate.i40, align 1
-  %origDouble.i41 = getelementptr inbounds i8, ptr %this, i64 24
-  store double 0.000000e+00, ptr %origDouble.i41, align 8
-  %origDelta.i42 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 0, ptr %origDelta.i42, align 8
-  %exponent.i43 = getelementptr inbounds i8, ptr %this, i64 44
-  store i32 0, ptr %exponent.i43, align 4
+_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit43: ; preds = %if.else25
+  %scale.i35 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %scale.i35, align 4
+  %precision.i36 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 0, ptr %precision.i36, align 8
+  %isApproximate.i37 = getelementptr inbounds i8, ptr %this, i64 21
+  store i8 0, ptr %isApproximate.i37, align 1
+  %origDouble.i38 = getelementptr inbounds i8, ptr %this, i64 24
+  store double 0.000000e+00, ptr %origDouble.i38, align 8
+  %origDelta.i39 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %origDelta.i39, align 8
+  %exponent.i40 = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 0, ptr %exponent.i40, align 4
   br label %if.end60
 
-if.else.i52:                                      ; preds = %for.cond31.preheader, %for.inc39
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %for.inc39 ], [ 0, %for.cond31.preheader ]
-  %or.cond.i = icmp ugt i64 %indvars.iv116, 15
+if.else.i46:                                      ; preds = %for.cond31.preheader, %for.inc39
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc39 ], [ 0, %for.cond31.preheader ]
+  %or.cond.i = icmp ugt i64 %indvars.iv, 15
   br i1 %or.cond.i, label %for.inc39, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.else.i52
-  %40 = shl nuw nsw i64 %indvars.iv116, 2
-  %41 = shl nuw i64 15, %40
-  %42 = and i64 %41, %38
-  %cmp36 = icmp eq i64 %42, 0
-  br i1 %cmp36, label %for.inc39, label %for.end41.loopexit.split.loop.exit132
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.else.i46
+  %39 = shl nuw nsw i64 %indvars.iv, 2
+  %40 = shl nuw i64 15, %39
+  %41 = and i64 %40, %37
+  %cmp36 = icmp eq i64 %41, 0
+  br i1 %cmp36, label %for.inc39, label %for.end41.loopexit.split.loop.exit140
 
-for.inc39:                                        ; preds = %if.else.i52, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count120
-  br i1 %exitcond121.not, label %for.end41, label %if.else.i52, !llvm.loop !12
+for.inc39:                                        ; preds = %if.else.i46, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.end41, label %if.else.i46, !llvm.loop !12
 
-for.end41.loopexit.split.loop.exit132:            ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-  %43 = trunc i64 %indvars.iv116 to i32
+for.end41.loopexit.split.loop.exit140:            ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
+  %42 = trunc i64 %indvars.iv to i32
   br label %for.end41
 
-for.end41:                                        ; preds = %for.inc39, %for.end41.loopexit.split.loop.exit132, %for.cond31.preheader
-  %delta30.0.lcssa = phi i32 [ 0, %for.cond31.preheader ], [ %43, %for.end41.loopexit.split.loop.exit132 ], [ %39, %for.inc39 ]
+for.end41:                                        ; preds = %for.inc39, %for.end41.loopexit.split.loop.exit140, %for.cond31.preheader
+  %delta30.0.lcssa = phi i32 [ 0, %for.cond31.preheader ], [ %42, %for.end41.loopexit.split.loop.exit140 ], [ %38, %for.inc39 ]
   %mul = shl nsw i32 %delta30.0.lcssa, 2
   %sh_prom = zext nneg i32 %mul to i64
-  %shr = lshr i64 %38, %sh_prom
+  %shr = lshr i64 %37, %sh_prom
   store i64 %shr, ptr %fBCD26, align 8
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %44 = load i32, ptr %scale, align 4
-  %add43 = add nsw i32 %44, %delta30.0.lcssa
+  %43 = load i32, ptr %scale, align 4
+  %add43 = add nsw i32 %43, %delta30.0.lcssa
   store i32 %add43, ptr %scale, align 4
-  %smin = tail call i32 @llvm.smin.i32(i32 %39, i32 0)
+  %smin = tail call i32 @llvm.smin.i32(i32 %38, i32 0)
   br label %for.cond47
 
-for.cond47:                                       ; preds = %if.else.i70, %for.end41
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %if.else.i70 ], [ %wide.trip.count120, %for.end41 ]
-  %45 = trunc i64 %indvars.iv122 to i32
-  %cmp48 = icmp sgt i32 %45, 0
-  br i1 %cmp48, label %if.else.i70, label %for.end57
+for.cond47:                                       ; preds = %if.else.i59, %for.end41
+  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %if.else.i59 ], [ %wide.trip.count, %for.end41 ]
+  %44 = trunc i64 %indvars.iv109 to i32
+  %cmp48 = icmp sgt i32 %44, 0
+  br i1 %cmp48, label %if.else.i59, label %for.end57
 
-if.else.i70:                                      ; preds = %for.cond47
-  %indvars.iv.next123 = add nsw i64 %indvars.iv122, -1
-  %46 = and i64 %indvars.iv.next123, 4294967280
-  %or.cond.i71 = icmp ne i64 %46, 0
-  %mul.i74 = shl i64 %indvars.iv.next123, 2
-  %sh_prom.i75 = and i64 %mul.i74, 4294967292
-  %47 = shl i64 15, %sh_prom.i75
-  %48 = and i64 %47, %shr
-  %cmp5287 = icmp eq i64 %48, 0
-  %cmp52 = select i1 %or.cond.i71, i1 true, i1 %cmp5287
+if.else.i59:                                      ; preds = %for.cond47
+  %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
+  %45 = and i64 %indvars.iv.next110, 4294967280
+  %or.cond.i60 = icmp ne i64 %45, 0
+  %mul.i63 = shl i64 %indvars.iv.next110, 2
+  %sh_prom.i64 = and i64 %mul.i63, 4294967292
+  %46 = shl i64 15, %sh_prom.i64
+  %47 = and i64 %46, %shr
+  %cmp5285 = icmp eq i64 %47, 0
+  %cmp52 = select i1 %or.cond.i60, i1 true, i1 %cmp5285
   br i1 %cmp52, label %for.cond47, label %for.end57, !llvm.loop !13
 
-for.end57:                                        ; preds = %for.cond47, %if.else.i70
-  %leading44.0.in.lcssa = phi i32 [ %smin, %for.cond47 ], [ %45, %if.else.i70 ]
+for.end57:                                        ; preds = %for.cond47, %if.else.i59
+  %leading44.0.in.lcssa = phi i32 [ %smin, %for.cond47 ], [ %44, %if.else.i59 ]
   store i32 %leading44.0.in.lcssa, ptr %precision32, align 8
   br label %if.end60
 
-if.end60:                                         ; preds = %for.body14.i, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, %for.end.i, %for.end19, %for.end57, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit44, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
+if.end60:                                         ; preds = %for.body14.i, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, %for.end.i, %for.end19, %for.end57, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit43, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
   ret void
 }
 
@@ -1664,14 +1666,13 @@ entry:
   call void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %incrementDQ)
   %usingBytes.i.i = getelementptr inbounds i8, ptr %incrementDQ, i64 64
   %0 = load i8, ptr %usingBytes.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
 
 if.then.i.i:                                      ; preds = %entry
   %fBCD.i.i = getelementptr inbounds i8, ptr %incrementDQ, i64 48
-  %2 = load ptr, ptr %fBCD.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -1718,32 +1719,32 @@ if.then7.i:                                       ; preds = %if.end.i, %if.end.t
 invoke.cont:                                      ; preds = %.noexc9
   %precision.i.phi.trans.insert = getelementptr inbounds i8, ptr %incrementDQ, i64 16
   %.pre = load i32, ptr %precision.i.phi.trans.insert, align 8
-  %3 = icmp eq i32 %.pre, 0
+  %2 = icmp eq i32 %.pre, 0
   %conv = sext i16 %magnitude to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dummy.i)
   %precision.i = getelementptr inbounds i8, ptr %incrementDQ, i64 16
-  br i1 %3, label %invoke.cont2, label %if.then.i
+  br i1 %2, label %invoke.cont2, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %4 = load i32, ptr %scale.i.i, align 4
-  %call.i11 = invoke signext i8 @uprv_add32_overflow_75(i32 noundef %4, i32 noundef %conv, ptr noundef nonnull %scale.i.i)
+  %3 = load i32, ptr %scale.i.i, align 4
+  %call.i11 = invoke signext i8 @uprv_add32_overflow_75(i32 noundef %3, i32 noundef %conv, ptr noundef nonnull %scale.i.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
-  %5 = load i32, ptr %origDelta.i.i, align 8
-  %call4.i12 = invoke signext i8 @uprv_add32_overflow_75(i32 noundef %5, i32 noundef %conv, ptr noundef nonnull %origDelta.i.i)
+  %4 = load i32, ptr %origDelta.i.i, align 8
+  %call4.i12 = invoke signext i8 @uprv_add32_overflow_75(i32 noundef %4, i32 noundef %conv, ptr noundef nonnull %origDelta.i.i)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %call.i.noexc
   %tobool.i = icmp ne i8 %call.i11, 0
   %tobool5.i = icmp ne i8 %call4.i12, 0
-  %6 = select i1 %tobool5.i, i1 true, i1 %tobool.i
-  br i1 %6, label %invoke.cont2, label %lor.rhs9.i
+  %5 = select i1 %tobool5.i, i1 true, i1 %tobool.i
+  br i1 %5, label %invoke.cont2, label %lor.rhs9.i
 
 lor.rhs9.i:                                       ; preds = %call4.i.noexc
-  %7 = load i32, ptr %scale.i.i, align 4
-  %8 = load i32, ptr %precision.i, align 8
-  %call12.i13 = invoke signext i8 @uprv_add32_overflow_75(i32 noundef %7, i32 noundef %8, ptr noundef nonnull %dummy.i)
+  %6 = load i32, ptr %scale.i.i, align 4
+  %7 = load i32, ptr %precision.i, align 8
+  %call12.i13 = invoke signext i8 @uprv_add32_overflow_75(i32 noundef %6, i32 noundef %7, ptr noundef nonnull %dummy.i)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont.thread, %call4.i.noexc, %invoke.cont, %lor.rhs9.i
@@ -1756,17 +1757,17 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %9 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %9, 1
+  %8 = load i32, ptr %status, align 4
+  %cmp.i = icmp slt i32 %8, 1
   br i1 %cmp.i, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %lor.rhs9.i, %call.i.noexc, %if.then.i, %.noexc9, %if.then7.i, %if.then.i.i, %invoke.cont2
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %if.end15, %if.end21, %if.end, %invoke.cont4
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756number4impl6DecNumD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %incrementDN) #23
   br label %ehcleanup
@@ -1776,8 +1777,8 @@ if.end:                                           ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad5
 
 invoke.cont10:                                    ; preds = %if.end
-  %12 = load i32, ptr %status, align 4
-  %cmp.i14 = icmp slt i32 %12, 1
+  %11 = load i32, ptr %status, align 4
+  %cmp.i14 = icmp slt i32 %11, 1
   br i1 %cmp.i14, label %if.end15, label %cleanup
 
 if.end15:                                         ; preds = %invoke.cont10
@@ -1785,8 +1786,8 @@ if.end15:                                         ; preds = %invoke.cont10
           to label %invoke.cont16 unwind label %lpad5
 
 invoke.cont16:                                    ; preds = %if.end15
-  %13 = load i32, ptr %status, align 4
-  %cmp.i17 = icmp slt i32 %13, 1
+  %12 = load i32, ptr %status, align 4
+  %cmp.i17 = icmp slt i32 %12, 1
   br i1 %cmp.i17, label %if.end21, label %cleanup
 
 if.end21:                                         ; preds = %invoke.cont16
@@ -1795,20 +1796,20 @@ if.end21:                                         ; preds = %invoke.cont16
 
 cleanup:                                          ; preds = %if.end21, %invoke.cont16, %invoke.cont10, %invoke.cont6
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %incrementDN, i64 12
-  %14 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %14, 0
+  %13 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_756number4impl6DecNumD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %15 = load ptr, ptr %incrementDN, align 8
-  invoke void @uprv_free_75(ptr noundef %15)
+  %14 = load ptr, ptr %incrementDN, align 8
+  invoke void @uprv_free_75(ptr noundef %14)
           to label %_ZN6icu_756number4impl6DecNumD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #25
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #25
   unreachable
 
 _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i
@@ -1816,7 +1817,7 @@ _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %cleanup, %if.then.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %11, %lpad5 ], [ %10, %lpad ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad5 ], [ %9, %lpad ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %incrementDQ) #23
   resume { ptr, i32 } %.pn
 }
@@ -1826,14 +1827,13 @@ define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -1979,7 +1979,7 @@ for.cond.preheader:                               ; preds = %_ZN6icu_7515MaybeSt
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
+  %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body
 
 lpad:                                             ; preds = %for.end
@@ -1989,72 +1989,71 @@ lpad:                                             ; preds = %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
-  %8 = phi i32 [ %6, %for.body.lr.ph ], [ %19, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
+  %8 = phi i32 [ %6, %for.body.lr.ph ], [ %18, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
   %9 = load i8, ptr %usingBytes.i, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.end.i
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.end.i:                                         ; preds = %for.body
-  %11 = load ptr, ptr %fBCD.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %indvars.iv
-  %12 = load i8, ptr %arrayidx.i, align 1
+  %10 = load ptr, ptr %fBCD9.i, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %11 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %for.body
-  %or.cond.i13 = icmp ugt i64 %indvars.iv, 15
-  br i1 %or.cond.i13, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
+  %or.cond.i12 = icmp ugt i64 %indvars.iv, 15
+  br i1 %or.cond.i12, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
-  %13 = load i64, ptr %fBCD.i, align 8
-  %14 = shl nuw nsw i64 %indvars.iv, 2
-  %shr.i = lshr i64 %13, %14
-  %15 = trunc i64 %shr.i to i8
-  %conv.i14 = and i8 %15, 15
+  %12 = load i64, ptr %fBCD9.i, align 8
+  %13 = shl nuw nsw i64 %indvars.iv, 2
+  %shr.i = lshr i64 %12, %13
+  %14 = trunc i64 %shr.i to i8
+  %conv.i13 = and i8 %14, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i = phi i8 [ %12, %if.end.i ], [ %conv.i14, %if.end8.i ], [ 0, %if.else.i ]
-  %16 = trunc i64 %indvars.iv to i32
-  %17 = xor i32 %16, -1
-  %sub10 = add i32 %8, %17
+  %retval.0.i = phi i8 [ %11, %if.end.i ], [ %conv.i13, %if.end8.i ], [ 0, %if.else.i ]
+  %15 = trunc i64 %indvars.iv to i32
+  %16 = xor i32 %15, -1
+  %sub10 = add i32 %8, %16
   %conv = sext i32 %sub10 to i64
-  %18 = load ptr, ptr %ubcd, align 8
-  %arrayidx.i15 = getelementptr inbounds i8, ptr %18, i64 %conv
+  %17 = load ptr, ptr %ubcd, align 8
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %17, i64 %conv
   store i8 %retval.0.i, ptr %arrayidx.i15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %precision, align 8
-  %20 = sext i32 %19 to i64
-  %cmp6 = icmp slt i64 %indvars.iv.next, %20
+  %18 = load i32, ptr %precision, align 8
+  %19 = sext i32 %18 to i64
+  %cmp6 = icmp slt i64 %indvars.iv.next, %19
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %for.cond.preheader
-  %.lcssa = phi i32 [ %6, %for.cond.preheader ], [ %19, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
-  %21 = load ptr, ptr %ubcd, align 8
+  %.lcssa = phi i32 [ %6, %for.cond.preheader ], [ %18, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
+  %20 = load ptr, ptr %ubcd, align 8
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %22 = load i32, ptr %scale, align 4
+  %21 = load i32, ptr %scale, align 4
   %flags.i = getelementptr inbounds i8, ptr %this, i64 20
-  %23 = load i8, ptr %flags.i, align 4
-  %24 = and i8 %23, 1
-  %cmp.i16 = icmp ne i8 %24, 0
-  invoke void @_ZN6icu_756number4impl6DecNum5setToEPKhiibR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %output, ptr noundef %21, i32 noundef %.lcssa, i32 noundef %22, i1 noundef zeroext %cmp.i16, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %22 = load i8, ptr %flags.i, align 4
+  %23 = and i8 %22, 1
+  %cmp.i16 = icmp ne i8 %23, 0
+  invoke void @_ZN6icu_756number4impl6DecNum5setToEPKhiibR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %output, ptr noundef %20, i32 noundef %.lcssa, i32 noundef %21, i1 noundef zeroext %cmp.i16, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %for.end, %_ZN6icu_7515MaybeStackArrayIhLi20EEC2Ei10UErrorCode.exit
-  %25 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr %needToRelease.i.i, align 4
+  %tobool.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %cleanup
-  %26 = load ptr, ptr %ubcd, align 8
-  invoke void @uprv_free_75(ptr noundef %26)
+  %25 = load ptr, ptr %ubcd, align 8
+  invoke void @uprv_free_75(ptr noundef %25)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i18
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #25
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #25
   unreachable
 
 return:                                           ; preds = %if.then.i.i18, %cleanup, %if.then
@@ -2098,14 +2097,13 @@ invoke.cont7:                                     ; preds = %if.end6
 if.end12:                                         ; preds = %invoke.cont7
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load i8, ptr %usingBytes.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.end12
   %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load ptr, ptr %fBCD.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %6)
+  %5 = load ptr, ptr %fBCD.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %5)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -2128,20 +2126,20 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i: ; preds = %.noex
 
 cleanup:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, %invoke.cont7, %invoke.cont
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum, i64 12
-  %7 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %7, 0
+  %6 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i, label %cleanup.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %8 = load ptr, ptr %decnum, align 8
-  invoke void @uprv_free_75(ptr noundef %8)
+  %7 = load ptr, ptr %decnum, align 8
+  invoke void @uprv_free_75(ptr noundef %7)
           to label %cleanup.cont unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #25
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #25
   unreachable
 
 cleanup.cont:                                     ; preds = %if.then.i.i.i, %cleanup, %entry
@@ -2192,14 +2190,13 @@ invoke.cont7:                                     ; preds = %if.end6
 if.end12:                                         ; preds = %invoke.cont7
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load i8, ptr %usingBytes.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.end12
   %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load ptr, ptr %fBCD.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %6)
+  %5 = load ptr, ptr %fBCD.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %5)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -2222,20 +2219,20 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i: ; preds = %.noex
 
 cleanup:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, %invoke.cont7, %invoke.cont
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum, i64 12
-  %7 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %7, 0
+  %6 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i, label %cleanup.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %8 = load ptr, ptr %decnum, align 8
-  invoke void @uprv_free_75(ptr noundef %8)
+  %7 = load ptr, ptr %decnum, align 8
+  invoke void @uprv_free_75(ptr noundef %7)
           to label %cleanup.cont unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #25
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #25
   unreachable
 
 cleanup.cont:                                     ; preds = %if.then.i.i.i, %cleanup, %entry
@@ -2282,14 +2279,13 @@ define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -2349,277 +2345,273 @@ sw.bb:                                            ; preds = %entry
   %0 = load i8, ptr %flags.i, align 4
   %1 = and i8 %0, 1
   %cmp.i.not = icmp eq i8 %1, 0
-  %exponent.i2 = getelementptr inbounds i8, ptr %this, i64 44
-  %2 = load i32, ptr %exponent.i2, align 4
-  %scale.i3 = getelementptr inbounds i8, ptr %this, i64 12
-  %3 = load i32, ptr %scale.i3, align 4
-  %add.i4 = add i32 %3, %2
-  %precision.i5 = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i32, ptr %precision.i5, align 8
-  %add2.i6 = add i32 %4, -1
-  %sub.i7 = add i32 %add2.i6, %add.i4
-  %cmp10.i9 = icmp sgt i32 %sub.i7, -1
+  %exponent.i1 = getelementptr inbounds i8, ptr %this, i64 44
+  %2 = load i32, ptr %exponent.i1, align 4
+  %scale.i2 = getelementptr inbounds i8, ptr %this, i64 12
+  %3 = load i32, ptr %scale.i2, align 4
+  %add.i3 = add i32 %3, %2
+  %precision.i4 = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load i32, ptr %precision.i4, align 8
+  %add2.i5 = add i32 %4, -1
+  %sub.i6 = add i32 %add2.i5, %add.i3
+  %cmp10.i8 = icmp sgt i32 %sub.i6, -1
   br i1 %cmp.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %sw.bb
-  br i1 %cmp10.i9, label %for.body.lr.ph.i, label %cond.end
+  br i1 %cmp10.i8, label %for.body.lr.ph.i, label %cond.end
 
 for.body.lr.ph.i:                                 ; preds = %cond.true
-  %5 = tail call i32 @llvm.umin.i32(i32 %sub.i7, i32 17)
+  %5 = tail call i32 @llvm.umin.i32(i32 %sub.i6, i32 17)
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i8, ptr %usingBytes.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i = icmp eq i8 %7, 0
-  %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load ptr, ptr %fBCD.i.i, align 8
-  %.cast.i = ptrtoint ptr %8 to i64
-  %9 = zext nneg i32 %5 to i64
-  br i1 %tobool.not.i.i, label %for.body.us.i, label %for.body.i
+  %tobool.i.i = trunc i8 %6 to i1
+  %fBCD9.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %7 = load i64, ptr %fBCD9.i.i, align 8
+  %.cast.i = inttoptr i64 %7 to ptr
+  %8 = zext nneg i32 %5 to i64
+  br i1 %tobool.i.i, label %for.body.us.i, label %for.body.i
 
-for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.body.us.i
-  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %for.body.us.i ], [ %9, %for.body.lr.ph.i ]
-  %result.011.us.i = phi i64 [ %add8.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
+for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i
+  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i ], [ %8, %for.body.lr.ph.i ]
+  %result.011.us.i = phi i64 [ %add8.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i ], [ 0, %for.body.lr.ph.i ]
   %mul.us.i = mul i64 %result.011.us.i, 10
-  %10 = trunc i64 %indvars.iv15.i to i32
-  %sub6.us.i = sub i32 %10, %add.i4
-  %or.cond.i.us.i = icmp ugt i32 %sub6.us.i, 15
-  %mul.i.us.i = shl nuw nsw i32 %sub6.us.i, 2
-  %sh_prom.i.us.i = zext nneg i32 %mul.i.us.i to i64
-  %shr.i.us.i = lshr i64 %.cast.i, %sh_prom.i.us.i
-  %conv.i.us.i = and i64 %shr.i.us.i, 15
-  %conv.us.i = select i1 %or.cond.i.us.i, i64 0, i64 %conv.i.us.i
-  %add8.us.i = add i64 %conv.us.i, %mul.us.i
-  %indvars.iv.next16.i = add nsw i64 %indvars.iv15.i, -1
-  %cmp.us.not.i = icmp eq i64 %indvars.iv15.i, 0
-  br i1 %cmp.us.not.i, label %cond.end, label %for.body.us.i, !llvm.loop !15
+  %9 = trunc i64 %indvars.iv15.i to i32
+  %sub6.us.i = sub i32 %9, %add.i3
+  %cmp.i5.us.i = icmp sgt i32 %sub6.us.i, -1
+  %cmp2.not.i.us.i = icmp sgt i32 %4, %sub6.us.i
+  %or.cond6.i.us.i = and i1 %cmp.i5.us.i, %cmp2.not.i.us.i
+  br i1 %or.cond6.i.us.i, label %if.end.i.us.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i
 
-for.body.i:                                       ; preds = %for.body.lr.ph.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i ], [ %9, %for.body.lr.ph.i ]
-  %result.011.i = phi i64 [ %add8.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i ], [ 0, %for.body.lr.ph.i ]
+if.end.i.us.i:                                    ; preds = %for.body.us.i
+  %idxprom.i.us.i = zext nneg i32 %sub6.us.i to i64
+  %arrayidx.i.us.i = getelementptr inbounds i8, ptr %.cast.i, i64 %idxprom.i.us.i
+  %10 = load i8, ptr %arrayidx.i.us.i, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i
+
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i: ; preds = %if.end.i.us.i, %for.body.us.i
+  %retval.0.i.us.i = phi i8 [ %10, %if.end.i.us.i ], [ 0, %for.body.us.i ]
+  %conv.us.i = sext i8 %retval.0.i.us.i to i64
+  %add8.us.i = add i64 %mul.us.i, %conv.us.i
+  %indvars.iv.next16.i = add nsw i64 %indvars.iv15.i, -1
+  %cmp.us.i = icmp sgt i64 %indvars.iv15.i, 0
+  br i1 %cmp.us.i, label %for.body.us.i, label %cond.end, !llvm.loop !15
+
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ %8, %for.body.lr.ph.i ]
+  %result.011.i = phi i64 [ %add8.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
   %mul.i = mul i64 %result.011.i, 10
   %11 = trunc i64 %indvars.iv.i to i32
-  %sub6.i = sub i32 %11, %add.i4
-  %cmp.i5.i = icmp sgt i32 %sub6.i, -1
-  %cmp2.not.i.i = icmp sgt i32 %4, %sub6.i
-  %or.cond6.i.i = and i1 %cmp.i5.i, %cmp2.not.i.i
-  br i1 %or.cond6.i.i, label %if.end.i.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i
-
-if.end.i.i:                                       ; preds = %for.body.i
-  %idxprom.i.i = zext nneg i32 %sub6.i to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i
-  %12 = load i8, ptr %arrayidx.i.i, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i: ; preds = %if.end.i.i, %for.body.i
-  %retval.0.i.i = phi i8 [ %12, %if.end.i.i ], [ 0, %for.body.i ]
-  %conv.i = sext i8 %retval.0.i.i to i64
-  %add8.i = add i64 %mul.i, %conv.i
+  %sub6.i = sub i32 %11, %add.i3
+  %or.cond.i.i = icmp ugt i32 %sub6.i, 15
+  %mul.i.i = shl nuw nsw i32 %sub6.i, 2
+  %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
+  %shr.i.i = lshr i64 %7, %sh_prom.i.i
+  %conv.i.i = and i64 %shr.i.i, 15
+  %conv.i = select i1 %or.cond.i.i, i64 0, i64 %conv.i.i
+  %add8.i = add i64 %conv.i, %mul.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %cmp.i1 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %cmp.i1, label %for.body.i, label %cond.end, !llvm.loop !15
+  %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %cmp.not.i, label %cond.end, label %for.body.i, !llvm.loop !15
 
 cond.false:                                       ; preds = %sw.bb
-  br i1 %cmp10.i9, label %for.body.lr.ph.i15, label %cond.end
+  br i1 %cmp10.i8, label %for.body.lr.ph.i14, label %cond.end
 
-for.body.lr.ph.i15:                               ; preds = %cond.false
-  %13 = tail call i32 @llvm.umin.i32(i32 %sub.i7, i32 17)
-  %usingBytes.i.i16 = getelementptr inbounds i8, ptr %this, i64 64
-  %14 = load i8, ptr %usingBytes.i.i16, align 8
-  %15 = and i8 %14, 1
-  %tobool.not.i.i17 = icmp eq i8 %15, 0
-  %fBCD.i.i18 = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load ptr, ptr %fBCD.i.i18, align 8
-  %.cast.i19 = ptrtoint ptr %16 to i64
-  %17 = zext nneg i32 %13 to i64
-  br i1 %tobool.not.i.i17, label %for.body.us.i37, label %for.body.i20
+for.body.lr.ph.i14:                               ; preds = %cond.false
+  %12 = tail call i32 @llvm.umin.i32(i32 %sub.i6, i32 17)
+  %usingBytes.i.i15 = getelementptr inbounds i8, ptr %this, i64 64
+  %13 = load i8, ptr %usingBytes.i.i15, align 8
+  %tobool.i.i16 = trunc i8 %13 to i1
+  %fBCD9.i.i17 = getelementptr inbounds i8, ptr %this, i64 48
+  %14 = load i64, ptr %fBCD9.i.i17, align 8
+  %.cast.i18 = inttoptr i64 %14 to ptr
+  %15 = zext nneg i32 %12 to i64
+  br i1 %tobool.i.i16, label %for.body.us.i33, label %for.body.i19
 
-for.body.us.i37:                                  ; preds = %for.body.lr.ph.i15, %for.body.us.i37
-  %indvars.iv15.i38 = phi i64 [ %indvars.iv.next16.i49, %for.body.us.i37 ], [ %17, %for.body.lr.ph.i15 ]
-  %result.011.us.i39 = phi i64 [ %add8.us.i48, %for.body.us.i37 ], [ 0, %for.body.lr.ph.i15 ]
-  %mul.us.i40 = mul i64 %result.011.us.i39, 10
-  %18 = trunc i64 %indvars.iv15.i38 to i32
-  %sub6.us.i41 = sub i32 %18, %add.i4
-  %or.cond.i.us.i42 = icmp ugt i32 %sub6.us.i41, 15
-  %mul.i.us.i43 = shl nuw nsw i32 %sub6.us.i41, 2
-  %sh_prom.i.us.i44 = zext nneg i32 %mul.i.us.i43 to i64
-  %shr.i.us.i45 = lshr i64 %.cast.i19, %sh_prom.i.us.i44
-  %conv.i.us.i46 = and i64 %shr.i.us.i45, 15
-  %conv.us.i47 = select i1 %or.cond.i.us.i42, i64 0, i64 %conv.i.us.i46
-  %add8.us.i48 = add i64 %conv.us.i47, %mul.us.i40
-  %indvars.iv.next16.i49 = add nsw i64 %indvars.iv15.i38, -1
-  %cmp.us.not.i50 = icmp eq i64 %indvars.iv15.i38, 0
-  br i1 %cmp.us.not.i50, label %cond.end, label %for.body.us.i37, !llvm.loop !15
+for.body.us.i33:                                  ; preds = %for.body.lr.ph.i14, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41
+  %indvars.iv15.i34 = phi i64 [ %indvars.iv.next16.i45, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41 ], [ %15, %for.body.lr.ph.i14 ]
+  %result.011.us.i35 = phi i64 [ %add8.us.i44, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41 ], [ 0, %for.body.lr.ph.i14 ]
+  %mul.us.i36 = mul i64 %result.011.us.i35, 10
+  %16 = trunc i64 %indvars.iv15.i34 to i32
+  %sub6.us.i37 = sub i32 %16, %add.i3
+  %cmp.i5.us.i38 = icmp sgt i32 %sub6.us.i37, -1
+  %cmp2.not.i.us.i39 = icmp sgt i32 %4, %sub6.us.i37
+  %or.cond6.i.us.i40 = and i1 %cmp.i5.us.i38, %cmp2.not.i.us.i39
+  br i1 %or.cond6.i.us.i40, label %if.end.i.us.i47, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41
 
-for.body.i20:                                     ; preds = %for.body.lr.ph.i15, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28
-  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i32, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28 ], [ %17, %for.body.lr.ph.i15 ]
-  %result.011.i22 = phi i64 [ %add8.i31, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28 ], [ 0, %for.body.lr.ph.i15 ]
-  %mul.i23 = mul i64 %result.011.i22, 10
-  %19 = trunc i64 %indvars.iv.i21 to i32
-  %sub6.i24 = sub i32 %19, %add.i4
-  %cmp.i5.i25 = icmp sgt i32 %sub6.i24, -1
-  %cmp2.not.i.i26 = icmp sgt i32 %4, %sub6.i24
-  %or.cond6.i.i27 = and i1 %cmp.i5.i25, %cmp2.not.i.i26
-  br i1 %or.cond6.i.i27, label %if.end.i.i34, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28
+if.end.i.us.i47:                                  ; preds = %for.body.us.i33
+  %idxprom.i.us.i48 = zext nneg i32 %sub6.us.i37 to i64
+  %arrayidx.i.us.i49 = getelementptr inbounds i8, ptr %.cast.i18, i64 %idxprom.i.us.i48
+  %17 = load i8, ptr %arrayidx.i.us.i49, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41
 
-if.end.i.i34:                                     ; preds = %for.body.i20
-  %idxprom.i.i35 = zext nneg i32 %sub6.i24 to i64
-  %arrayidx.i.i36 = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i35
-  %20 = load i8, ptr %arrayidx.i.i36, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41: ; preds = %if.end.i.us.i47, %for.body.us.i33
+  %retval.0.i.us.i42 = phi i8 [ %17, %if.end.i.us.i47 ], [ 0, %for.body.us.i33 ]
+  %conv.us.i43 = sext i8 %retval.0.i.us.i42 to i64
+  %add8.us.i44 = add i64 %mul.us.i36, %conv.us.i43
+  %indvars.iv.next16.i45 = add nsw i64 %indvars.iv15.i34, -1
+  %cmp.us.i46 = icmp sgt i64 %indvars.iv15.i34, 0
+  br i1 %cmp.us.i46, label %for.body.us.i33, label %cond.end, !llvm.loop !15
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28: ; preds = %if.end.i.i34, %for.body.i20
-  %retval.0.i.i29 = phi i8 [ %20, %if.end.i.i34 ], [ 0, %for.body.i20 ]
-  %conv.i30 = sext i8 %retval.0.i.i29 to i64
-  %add8.i31 = add i64 %mul.i23, %conv.i30
-  %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i21, -1
-  %cmp.i33 = icmp sgt i64 %indvars.iv.i21, 0
-  br i1 %cmp.i33, label %for.body.i20, label %cond.end, !llvm.loop !15
+for.body.i19:                                     ; preds = %for.body.lr.ph.i14, %for.body.i19
+  %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i31, %for.body.i19 ], [ %15, %for.body.lr.ph.i14 ]
+  %result.011.i21 = phi i64 [ %add8.i30, %for.body.i19 ], [ 0, %for.body.lr.ph.i14 ]
+  %mul.i22 = mul i64 %result.011.i21, 10
+  %18 = trunc i64 %indvars.iv.i20 to i32
+  %sub6.i23 = sub i32 %18, %add.i3
+  %or.cond.i.i24 = icmp ugt i32 %sub6.i23, 15
+  %mul.i.i25 = shl nuw nsw i32 %sub6.i23, 2
+  %sh_prom.i.i26 = zext nneg i32 %mul.i.i25 to i64
+  %shr.i.i27 = lshr i64 %14, %sh_prom.i.i26
+  %conv.i.i28 = and i64 %shr.i.i27, 15
+  %conv.i29 = select i1 %or.cond.i.i24, i64 0, i64 %conv.i.i28
+  %add8.i30 = add i64 %conv.i29, %mul.i22
+  %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i20, -1
+  %cmp.not.i32 = icmp eq i64 %indvars.iv.i20, 0
+  br i1 %cmp.not.i32, label %cond.end, label %for.body.i19, !llvm.loop !15
 
-cond.end:                                         ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i, %for.body.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28, %for.body.us.i37, %cond.false, %cond.true
-  %cond = phi i64 [ 0, %cond.true ], [ 0, %cond.false ], [ %add8.us.i48, %for.body.us.i37 ], [ %add8.i31, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i28 ], [ %add8.us.i, %for.body.us.i ], [ %add8.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i ]
+cond.end:                                         ; preds = %for.body.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i, %for.body.i19, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41, %cond.false, %cond.true
+  %cond = phi i64 [ 0, %cond.true ], [ 0, %cond.false ], [ %add8.us.i44, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41 ], [ %add8.i30, %for.body.i19 ], [ %add8.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i ], [ %add8.i, %for.body.i ]
   %conv = sitofp i64 %cond to double
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %exponent.i52 = getelementptr inbounds i8, ptr %this, i64 44
-  %21 = load i32, ptr %exponent.i52, align 4
-  %sub.i53 = xor i32 %21, -1
-  %scale.i54 = getelementptr inbounds i8, ptr %this, i64 12
-  %22 = load i32, ptr %scale.i54, align 4
+  %exponent.i51 = getelementptr inbounds i8, ptr %this, i64 44
+  %19 = load i32, ptr %exponent.i51, align 4
+  %sub.i52 = xor i32 %19, -1
+  %scale.i53 = getelementptr inbounds i8, ptr %this, i64 12
+  %20 = load i32, ptr %scale.i53, align 4
   %rReqPos.i = getelementptr inbounds i8, ptr %this, i64 40
-  %23 = load i32, ptr %rReqPos.i, align 8
-  %.sroa.speculated.i55 = tail call i32 @llvm.smin.i32(i32 %23, i32 %22)
-  %cmp14.not.i = icmp sgt i32 %.sroa.speculated.i55, %sub.i53
-  br i1 %cmp14.not.i, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, label %for.body.lr.ph.i56
+  %21 = load i32, ptr %rReqPos.i, align 8
+  %.sroa.speculated.i54 = tail call i32 @llvm.smin.i32(i32 %21, i32 %20)
+  %cmp14.not.i = icmp sgt i32 %.sroa.speculated.i54, %sub.i52
+  br i1 %cmp14.not.i, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, label %for.body.lr.ph.i55
 
-for.body.lr.ph.i56:                               ; preds = %sw.bb4
-  %usingBytes.i.i57 = getelementptr inbounds i8, ptr %this, i64 64
-  %24 = load i8, ptr %usingBytes.i.i57, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i.i58 = icmp eq i8 %25, 0
+for.body.lr.ph.i55:                               ; preds = %sw.bb4
+  %usingBytes.i.i56 = getelementptr inbounds i8, ptr %this, i64 64
+  %22 = load i8, ptr %usingBytes.i.i56, align 8
+  %tobool.i.i57 = trunc i8 %22 to i1
+  %fBCD9.i.i58 = getelementptr inbounds i8, ptr %this, i64 48
+  %23 = load i64, ptr %fBCD9.i.i58, align 8
   %precision.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load i32, ptr %precision.i.i, align 8
-  %fBCD.i.i59 = getelementptr inbounds i8, ptr %this, i64 48
-  %27 = load ptr, ptr %fBCD.i.i59, align 8
-  %.cast.i60 = ptrtoint ptr %27 to i64
-  br i1 %tobool.not.i.i58, label %for.body.us.i73, label %for.body.i61
+  %24 = load i32, ptr %precision.i.i, align 8
+  %.cast.i59 = inttoptr i64 %23 to ptr
+  br i1 %tobool.i.i57, label %for.body.us.i70, label %for.body.i60
 
-for.body.us.i73:                                  ; preds = %for.body.lr.ph.i56, %for.body.us.i73
-  %magnitude.016.us.i = phi i32 [ %dec.us.i, %for.body.us.i73 ], [ %sub.i53, %for.body.lr.ph.i56 ]
-  %result.015.us.i = phi i64 [ %add.us.i, %for.body.us.i73 ], [ 0, %for.body.lr.ph.i56 ]
-  %mul.us.i74 = mul nuw i64 %result.015.us.i, 10
-  %sub4.us.i = sub nsw i32 %magnitude.016.us.i, %22
-  %or.cond.i.us.i75 = icmp ugt i32 %sub4.us.i, 15
-  %mul.i.us.i76 = shl nuw nsw i32 %sub4.us.i, 2
-  %sh_prom.i.us.i77 = zext nneg i32 %mul.i.us.i76 to i64
-  %shr.i.us.i78 = lshr i64 %.cast.i60, %sh_prom.i.us.i77
-  %conv.i.us.i79 = and i64 %shr.i.us.i78, 15
-  %conv6.us.i = select i1 %or.cond.i.us.i75, i64 0, i64 %conv.i.us.i79
-  %add.us.i = add nuw i64 %conv6.us.i, %mul.us.i74
+for.body.us.i70:                                  ; preds = %for.body.lr.ph.i55, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74
+  %magnitude.016.us.i = phi i32 [ %dec.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74 ], [ %sub.i52, %for.body.lr.ph.i55 ]
+  %result.015.us.i = phi i64 [ %add.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74 ], [ 0, %for.body.lr.ph.i55 ]
+  %mul.us.i71 = mul nuw i64 %result.015.us.i, 10
+  %sub4.us.i = sub nsw i32 %magnitude.016.us.i, %20
+  %cmp.i10.us.i = icmp sgt i32 %sub4.us.i, -1
+  %cmp2.not.i.us.i72 = icmp sgt i32 %24, %sub4.us.i
+  %or.cond6.i.us.i73 = select i1 %cmp.i10.us.i, i1 %cmp2.not.i.us.i72, i1 false
+  br i1 %or.cond6.i.us.i73, label %if.end.i.us.i77, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74
+
+if.end.i.us.i77:                                  ; preds = %for.body.us.i70
+  %idxprom.i.us.i78 = zext nneg i32 %sub4.us.i to i64
+  %arrayidx.i.us.i79 = getelementptr inbounds i8, ptr %.cast.i59, i64 %idxprom.i.us.i78
+  %25 = load i8, ptr %arrayidx.i.us.i79, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74
+
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74: ; preds = %if.end.i.us.i77, %for.body.us.i70
+  %retval.0.i.us.i75 = phi i8 [ %25, %if.end.i.us.i77 ], [ 0, %for.body.us.i70 ]
+  %conv6.us.i = sext i8 %retval.0.i.us.i75 to i64
+  %add.us.i = add i64 %mul.us.i71, %conv6.us.i
   %dec.us.i = add nsw i32 %magnitude.016.us.i, -1
-  %cmp.us.i = icmp sgt i32 %magnitude.016.us.i, %.sroa.speculated.i55
+  %cmp.us.i76 = icmp sgt i32 %magnitude.016.us.i, %.sroa.speculated.i54
   %cmp2.us.i = icmp ult i64 %add.us.i, 1000000000000000001
-  %28 = select i1 %cmp.us.i, i1 %cmp2.us.i, i1 false
-  br i1 %28, label %for.body.us.i73, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, !llvm.loop !16
+  %26 = select i1 %cmp.us.i76, i1 %cmp2.us.i, i1 false
+  br i1 %26, label %for.body.us.i70, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, !llvm.loop !16
 
-for.body.i61:                                     ; preds = %for.body.lr.ph.i56, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65
-  %magnitude.016.i = phi i32 [ %dec.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65 ], [ %sub.i53, %for.body.lr.ph.i56 ]
-  %result.015.i = phi i64 [ %add.i67, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65 ], [ 0, %for.body.lr.ph.i56 ]
-  %mul.i62 = mul nuw i64 %result.015.i, 10
-  %sub4.i = sub nsw i32 %magnitude.016.i, %22
-  %cmp.i10.i = icmp sgt i32 %sub4.i, -1
-  %cmp2.not.i.i63 = icmp sgt i32 %26, %sub4.i
-  %or.cond6.i.i64 = select i1 %cmp.i10.i, i1 %cmp2.not.i.i63, i1 false
-  br i1 %or.cond6.i.i64, label %if.end.i.i70, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65
-
-if.end.i.i70:                                     ; preds = %for.body.i61
-  %idxprom.i.i71 = zext nneg i32 %sub4.i to i64
-  %arrayidx.i.i72 = getelementptr inbounds i8, ptr %27, i64 %idxprom.i.i71
-  %29 = load i8, ptr %arrayidx.i.i72, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65: ; preds = %if.end.i.i70, %for.body.i61
-  %retval.0.i.i66 = phi i8 [ %29, %if.end.i.i70 ], [ 0, %for.body.i61 ]
-  %conv6.i = sext i8 %retval.0.i.i66 to i64
-  %add.i67 = add i64 %mul.i62, %conv6.i
+for.body.i60:                                     ; preds = %for.body.lr.ph.i55, %for.body.i60
+  %magnitude.016.i = phi i32 [ %dec.i, %for.body.i60 ], [ %sub.i52, %for.body.lr.ph.i55 ]
+  %result.015.i = phi i64 [ %add.i67, %for.body.i60 ], [ 0, %for.body.lr.ph.i55 ]
+  %mul.i61 = mul nuw i64 %result.015.i, 10
+  %sub4.i = sub nsw i32 %magnitude.016.i, %20
+  %or.cond.i.i62 = icmp ugt i32 %sub4.i, 15
+  %mul.i.i63 = shl nuw nsw i32 %sub4.i, 2
+  %sh_prom.i.i64 = zext nneg i32 %mul.i.i63 to i64
+  %shr.i.i65 = lshr i64 %23, %sh_prom.i.i64
+  %conv.i.i66 = and i64 %shr.i.i65, 15
+  %conv6.i = select i1 %or.cond.i.i62, i64 0, i64 %conv.i.i66
+  %add.i67 = add nuw i64 %conv6.i, %mul.i61
   %dec.i = add nsw i32 %magnitude.016.i, -1
-  %cmp.i68 = icmp sgt i32 %magnitude.016.i, %.sroa.speculated.i55
+  %cmp.i68 = icmp sgt i32 %magnitude.016.i, %.sroa.speculated.i54
   %cmp2.i = icmp ult i64 %add.i67, 1000000000000000001
-  %30 = select i1 %cmp.i68, i1 %cmp2.i, i1 false
-  br i1 %30, label %for.body.i61, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, !llvm.loop !16
+  %27 = select i1 %cmp.i68, i1 %cmp2.i, i1 false
+  br i1 %27, label %for.body.i60, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, !llvm.loop !16
 
-_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65, %for.body.us.i73, %sw.bb4
-  %result.2.i = phi i64 [ 0, %sw.bb4 ], [ %add.us.i, %for.body.us.i73 ], [ %add.i67, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i65 ]
+_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit: ; preds = %for.body.i60, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74, %sw.bb4
+  %result.2.i = phi i64 [ 0, %sw.bb4 ], [ %add.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74 ], [ %add.i67, %for.body.i60 ]
   %conv6 = uitofp i64 %result.2.i to double
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   %exponent.i80 = getelementptr inbounds i8, ptr %this, i64 44
-  %31 = load i32, ptr %exponent.i80, align 4
-  %sub.i81 = xor i32 %31, -1
+  %28 = load i32, ptr %exponent.i80, align 4
+  %sub.i81 = xor i32 %28, -1
   %scale.i82 = getelementptr inbounds i8, ptr %this, i64 12
-  %32 = load i32, ptr %scale.i82, align 4
-  %cmp14.not.i85 = icmp sgt i32 %32, %sub.i81
+  %29 = load i32, ptr %scale.i82, align 4
+  %cmp14.not.i85 = icmp sgt i32 %29, %sub.i81
   br i1 %cmp14.not.i85, label %return, label %for.body.lr.ph.i86
 
 for.body.lr.ph.i86:                               ; preds = %sw.bb7
   %usingBytes.i.i87 = getelementptr inbounds i8, ptr %this, i64 64
-  %33 = load i8, ptr %usingBytes.i.i87, align 8
-  %34 = and i8 %33, 1
-  %tobool.not.i.i88 = icmp eq i8 %34, 0
-  %precision.i.i89 = getelementptr inbounds i8, ptr %this, i64 16
-  %35 = load i32, ptr %precision.i.i89, align 8
-  %fBCD.i.i90 = getelementptr inbounds i8, ptr %this, i64 48
-  %36 = load ptr, ptr %fBCD.i.i90, align 8
-  %.cast.i91 = ptrtoint ptr %36 to i64
-  br i1 %tobool.not.i.i88, label %for.body.us.i114, label %for.body.i92
+  %30 = load i8, ptr %usingBytes.i.i87, align 8
+  %tobool.i.i88 = trunc i8 %30 to i1
+  %fBCD9.i.i89 = getelementptr inbounds i8, ptr %this, i64 48
+  %31 = load i64, ptr %fBCD9.i.i89, align 8
+  %precision.i.i90 = getelementptr inbounds i8, ptr %this, i64 16
+  %32 = load i32, ptr %precision.i.i90, align 8
+  %.cast.i91 = inttoptr i64 %31 to ptr
+  br i1 %tobool.i.i88, label %for.body.us.i111, label %for.body.i92
 
-for.body.us.i114:                                 ; preds = %for.body.lr.ph.i86, %for.body.us.i114
-  %magnitude.016.us.i115 = phi i32 [ %dec.us.i126, %for.body.us.i114 ], [ %sub.i81, %for.body.lr.ph.i86 ]
-  %result.015.us.i116 = phi i64 [ %add.us.i125, %for.body.us.i114 ], [ 0, %for.body.lr.ph.i86 ]
-  %mul.us.i117 = mul nuw i64 %result.015.us.i116, 10
-  %sub4.us.i118 = sub nsw i32 %magnitude.016.us.i115, %32
-  %or.cond.i.us.i119 = icmp ugt i32 %sub4.us.i118, 15
-  %mul.i.us.i120 = shl nuw nsw i32 %sub4.us.i118, 2
-  %sh_prom.i.us.i121 = zext nneg i32 %mul.i.us.i120 to i64
-  %shr.i.us.i122 = lshr i64 %.cast.i91, %sh_prom.i.us.i121
-  %conv.i.us.i123 = and i64 %shr.i.us.i122, 15
-  %conv6.us.i124 = select i1 %or.cond.i.us.i119, i64 0, i64 %conv.i.us.i123
-  %add.us.i125 = add nuw i64 %conv6.us.i124, %mul.us.i117
-  %dec.us.i126 = add nsw i32 %magnitude.016.us.i115, -1
-  %cmp.us.i127 = icmp sgt i32 %magnitude.016.us.i115, %32
-  %cmp2.us.i128 = icmp ult i64 %add.us.i125, 1000000000000000001
-  %37 = select i1 %cmp.us.i127, i1 %cmp2.us.i128, i1 false
-  br i1 %37, label %for.body.us.i114, label %for.end.i107, !llvm.loop !16
+for.body.us.i111:                                 ; preds = %for.body.lr.ph.i86, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119
+  %magnitude.016.us.i112 = phi i32 [ %dec.us.i123, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119 ], [ %sub.i81, %for.body.lr.ph.i86 ]
+  %result.015.us.i113 = phi i64 [ %add.us.i122, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119 ], [ 0, %for.body.lr.ph.i86 ]
+  %mul.us.i114 = mul nuw i64 %result.015.us.i113, 10
+  %sub4.us.i115 = sub nsw i32 %magnitude.016.us.i112, %29
+  %cmp.i10.us.i116 = icmp sgt i32 %sub4.us.i115, -1
+  %cmp2.not.i.us.i117 = icmp sgt i32 %32, %sub4.us.i115
+  %or.cond6.i.us.i118 = select i1 %cmp.i10.us.i116, i1 %cmp2.not.i.us.i117, i1 false
+  br i1 %or.cond6.i.us.i118, label %if.end.i.us.i126, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119
 
-for.body.i92:                                     ; preds = %for.body.lr.ph.i86, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100
-  %magnitude.016.i93 = phi i32 [ %dec.i104, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100 ], [ %sub.i81, %for.body.lr.ph.i86 ]
-  %result.015.i94 = phi i64 [ %add.i103, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100 ], [ 0, %for.body.lr.ph.i86 ]
+if.end.i.us.i126:                                 ; preds = %for.body.us.i111
+  %idxprom.i.us.i127 = zext nneg i32 %sub4.us.i115 to i64
+  %arrayidx.i.us.i128 = getelementptr inbounds i8, ptr %.cast.i91, i64 %idxprom.i.us.i127
+  %33 = load i8, ptr %arrayidx.i.us.i128, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119
+
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119: ; preds = %if.end.i.us.i126, %for.body.us.i111
+  %retval.0.i.us.i120 = phi i8 [ %33, %if.end.i.us.i126 ], [ 0, %for.body.us.i111 ]
+  %conv6.us.i121 = sext i8 %retval.0.i.us.i120 to i64
+  %add.us.i122 = add i64 %mul.us.i114, %conv6.us.i121
+  %dec.us.i123 = add nsw i32 %magnitude.016.us.i112, -1
+  %cmp.us.i124 = icmp sgt i32 %magnitude.016.us.i112, %29
+  %cmp2.us.i125 = icmp ult i64 %add.us.i122, 1000000000000000001
+  %34 = select i1 %cmp.us.i124, i1 %cmp2.us.i125, i1 false
+  br i1 %34, label %for.body.us.i111, label %for.end.i107, !llvm.loop !16
+
+for.body.i92:                                     ; preds = %for.body.lr.ph.i86, %for.body.i92
+  %magnitude.016.i93 = phi i32 [ %dec.i104, %for.body.i92 ], [ %sub.i81, %for.body.lr.ph.i86 ]
+  %result.015.i94 = phi i64 [ %add.i103, %for.body.i92 ], [ 0, %for.body.lr.ph.i86 ]
   %mul.i95 = mul nuw i64 %result.015.i94, 10
-  %sub4.i96 = sub nsw i32 %magnitude.016.i93, %32
-  %cmp.i10.i97 = icmp sgt i32 %sub4.i96, -1
-  %cmp2.not.i.i98 = icmp sgt i32 %35, %sub4.i96
-  %or.cond6.i.i99 = select i1 %cmp.i10.i97, i1 %cmp2.not.i.i98, i1 false
-  br i1 %or.cond6.i.i99, label %if.end.i.i111, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100
-
-if.end.i.i111:                                    ; preds = %for.body.i92
-  %idxprom.i.i112 = zext nneg i32 %sub4.i96 to i64
-  %arrayidx.i.i113 = getelementptr inbounds i8, ptr %36, i64 %idxprom.i.i112
-  %38 = load i8, ptr %arrayidx.i.i113, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100: ; preds = %if.end.i.i111, %for.body.i92
-  %retval.0.i.i101 = phi i8 [ %38, %if.end.i.i111 ], [ 0, %for.body.i92 ]
-  %conv6.i102 = sext i8 %retval.0.i.i101 to i64
-  %add.i103 = add i64 %mul.i95, %conv6.i102
+  %sub4.i96 = sub nsw i32 %magnitude.016.i93, %29
+  %or.cond.i.i97 = icmp ugt i32 %sub4.i96, 15
+  %mul.i.i98 = shl nuw nsw i32 %sub4.i96, 2
+  %sh_prom.i.i99 = zext nneg i32 %mul.i.i98 to i64
+  %shr.i.i100 = lshr i64 %31, %sh_prom.i.i99
+  %conv.i.i101 = and i64 %shr.i.i100, 15
+  %conv6.i102 = select i1 %or.cond.i.i97, i64 0, i64 %conv.i.i101
+  %add.i103 = add nuw i64 %conv6.i102, %mul.i95
   %dec.i104 = add nsw i32 %magnitude.016.i93, -1
-  %cmp.i105 = icmp sgt i32 %magnitude.016.i93, %32
+  %cmp.i105 = icmp sgt i32 %magnitude.016.i93, %29
   %cmp2.i106 = icmp ult i64 %add.i103, 1000000000000000001
-  %39 = select i1 %cmp.i105, i1 %cmp2.i106, i1 false
-  br i1 %39, label %for.body.i92, label %for.end.i107, !llvm.loop !16
+  %35 = select i1 %cmp.i105, i1 %cmp2.i106, i1 false
+  br i1 %35, label %for.body.i92, label %for.end.i107, !llvm.loop !16
 
-for.end.i107:                                     ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100, %for.body.us.i114
-  %result.0.lcssa.i108 = phi i64 [ %add.us.i125, %for.body.us.i114 ], [ %add.i103, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.i100 ]
+for.end.i107:                                     ; preds = %for.body.i92, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119
+  %result.0.lcssa.i108 = phi i64 [ %add.us.i122, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119 ], [ %add.i103, %for.body.i92 ]
   %cmp9.i109 = icmp eq i64 %result.0.lcssa.i108, 0
   br i1 %cmp9.i109, label %return, label %land.rhs10.i
 
@@ -2636,53 +2628,53 @@ while.body.i:                                     ; preds = %land.rhs10.i
 
 _ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit: ; preds = %while.body.i, %land.rhs10.i
   %result.2.i110.ph = phi i64 [ %result.1.i, %land.rhs10.i ], [ 0, %while.body.i ]
-  %40 = uitofp i64 %result.2.i110.ph to double
+  %36 = uitofp i64 %result.2.i110.ph to double
   br label %return
 
 sw.bb10:                                          ; preds = %entry
   %scale.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  %41 = load i32, ptr %scale.i.i, align 4
+  %37 = load i32, ptr %scale.i.i, align 4
   %rReqPos.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %42 = load i32, ptr %rReqPos.i.i, align 8
-  %..i.i = tail call noundef i32 @llvm.smin.i32(i32 %42, i32 %41)
+  %38 = load i32, ptr %rReqPos.i.i, align 8
+  %..i.i = tail call noundef i32 @llvm.smin.i32(i32 %38, i32 %37)
   %exponent.i130 = getelementptr inbounds i8, ptr %this, i64 44
-  %43 = load i32, ptr %exponent.i130, align 4
-  %44 = add i32 %..i.i, %43
-  %sub2.i = sub i32 0, %44
+  %39 = load i32, ptr %exponent.i130, align 4
+  %40 = add i32 %..i.i, %39
+  %sub2.i = sub i32 0, %40
   %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %sub2.i, i32 0)
   %conv12 = sitofp i32 %cond.i to double
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %scale.i131 = getelementptr inbounds i8, ptr %this, i64 12
-  %45 = load i32, ptr %scale.i131, align 4
+  %41 = load i32, ptr %scale.i131, align 4
   %exponent.i132 = getelementptr inbounds i8, ptr %this, i64 44
-  %46 = load i32, ptr %exponent.i132, align 4
-  %47 = add i32 %45, %46
-  %sub2.i133 = sub i32 0, %47
+  %42 = load i32, ptr %exponent.i132, align 4
+  %43 = add i32 %41, %42
+  %sub2.i133 = sub i32 0, %43
   %cond.i134 = tail call noundef i32 @llvm.smax.i32(i32 %sub2.i133, i32 0)
   %conv15 = sitofp i32 %cond.i134 to double
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   %exponent.i135 = getelementptr inbounds i8, ptr %this, i64 44
-  %48 = load i32, ptr %exponent.i135, align 4
-  %conv18 = sitofp i32 %48 to double
+  %44 = load i32, ptr %exponent.i135, align 4
+  %conv18 = sitofp i32 %44 to double
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   %exponent.i136 = getelementptr inbounds i8, ptr %this, i64 44
-  %49 = load i32, ptr %exponent.i136, align 4
-  %conv21 = sitofp i32 %49 to double
+  %45 = load i32, ptr %exponent.i136, align 4
+  %conv21 = sitofp i32 %45 to double
   br label %return
 
 sw.default:                                       ; preds = %entry
   %call22 = tail call noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66) %this)
-  %50 = tail call noundef double @llvm.fabs.f64(double %call22)
+  %46 = tail call noundef double @llvm.fabs.f64(double %call22)
   br label %return
 
 return:                                           ; preds = %for.end.i107, %sw.bb7, %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit, %sw.default, %sw.bb19, %sw.bb16, %sw.bb13, %sw.bb10, %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, %cond.end
-  %retval.0 = phi double [ %50, %sw.default ], [ %conv21, %sw.bb19 ], [ %conv18, %sw.bb16 ], [ %conv15, %sw.bb13 ], [ %conv12, %sw.bb10 ], [ %conv6, %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit ], [ %conv, %cond.end ], [ 0.000000e+00, %for.end.i107 ], [ 0.000000e+00, %sw.bb7 ], [ %40, %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit ]
+  %retval.0 = phi double [ %46, %sw.default ], [ %conv21, %sw.bb19 ], [ %conv18, %sw.bb16 ], [ %conv15, %sw.bb13 ], [ %conv12, %sw.bb10 ], [ %conv6, %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit ], [ %conv, %cond.end ], [ 0.000000e+00, %for.end.i107 ], [ 0.000000e+00, %sw.bb7 ], [ %36, %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit ]
   ret double %retval.0
 }
 
@@ -2716,62 +2708,61 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i8, ptr %usingBytes.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load ptr, ptr %fBCD.i, align 8
-  %.cast = ptrtoint ptr %5 to i64
-  %6 = zext nneg i32 %upperMagnitude.0 to i64
-  br i1 %tobool.not.i, label %for.body.us, label %for.body
+  %tobool.i = trunc i8 %3 to i1
+  %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load i64, ptr %fBCD9.i, align 8
+  %.cast = inttoptr i64 %4 to ptr
+  %5 = zext nneg i32 %upperMagnitude.0 to i64
+  br i1 %tobool.i, label %for.body.us, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %for.body.us ], [ %6, %for.body.lr.ph ]
-  %result.011.us = phi i64 [ %add8.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
+  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us ], [ %5, %for.body.lr.ph ]
+  %result.011.us = phi i64 [ %add8.us, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us ], [ 0, %for.body.lr.ph ]
   %mul.us = mul i64 %result.011.us, 10
-  %7 = trunc i64 %indvars.iv15 to i32
-  %sub6.us = sub i32 %7, %add
-  %or.cond.i.us = icmp ugt i32 %sub6.us, 15
-  %mul.i.us = shl nuw nsw i32 %sub6.us, 2
-  %sh_prom.i.us = zext nneg i32 %mul.i.us to i64
-  %shr.i.us = lshr i64 %.cast, %sh_prom.i.us
-  %conv.i.us = and i64 %shr.i.us, 15
-  %conv.us = select i1 %or.cond.i.us, i64 0, i64 %conv.i.us
-  %add8.us = add i64 %conv.us, %mul.us
-  %indvars.iv.next16 = add nsw i64 %indvars.iv15, -1
-  %cmp.us.not = icmp eq i64 %indvars.iv15, 0
-  br i1 %cmp.us.not, label %for.end, label %for.body.us, !llvm.loop !15
+  %6 = trunc i64 %indvars.iv15 to i32
+  %sub6.us = sub i32 %6, %add
+  %cmp.i5.us = icmp sgt i32 %sub6.us, -1
+  %cmp2.not.i.us = icmp sgt i32 %2, %sub6.us
+  %or.cond6.i.us = and i1 %cmp.i5.us, %cmp2.not.i.us
+  br i1 %or.cond6.i.us, label %if.end.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ], [ %6, %for.body.lr.ph ]
-  %result.011 = phi i64 [ %add8, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ], [ 0, %for.body.lr.ph ]
+if.end.i.us:                                      ; preds = %for.body.us
+  %idxprom.i.us = zext nneg i32 %sub6.us to i64
+  %arrayidx.i.us = getelementptr inbounds i8, ptr %.cast, i64 %idxprom.i.us
+  %7 = load i8, ptr %arrayidx.i.us, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
+
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us: ; preds = %if.end.i.us, %for.body.us
+  %retval.0.i.us = phi i8 [ %7, %if.end.i.us ], [ 0, %for.body.us ]
+  %conv.us = sext i8 %retval.0.i.us to i64
+  %add8.us = add i64 %mul.us, %conv.us
+  %indvars.iv.next16 = add nsw i64 %indvars.iv15, -1
+  %cmp.us = icmp sgt i64 %indvars.iv15, 0
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !15
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %5, %for.body.lr.ph ]
+  %result.011 = phi i64 [ %add8, %for.body ], [ 0, %for.body.lr.ph ]
   %mul = mul i64 %result.011, 10
   %8 = trunc i64 %indvars.iv to i32
   %sub6 = sub i32 %8, %add
-  %cmp.i5 = icmp sgt i32 %sub6, -1
-  %cmp2.not.i = icmp sgt i32 %2, %sub6
-  %or.cond6.i = and i1 %cmp.i5, %cmp2.not.i
-  br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-
-if.end.i:                                         ; preds = %for.body
-  %idxprom.i = zext nneg i32 %sub6 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i
-  %9 = load i8, ptr %arrayidx.i, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %for.body, %if.end.i
-  %retval.0.i = phi i8 [ %9, %if.end.i ], [ 0, %for.body ]
-  %conv = sext i8 %retval.0.i to i64
-  %add8 = add i64 %mul, %conv
+  %or.cond.i = icmp ugt i32 %sub6, 15
+  %mul.i = shl nuw nsw i32 %sub6, 2
+  %sh_prom.i = zext nneg i32 %mul.i to i64
+  %shr.i = lshr i64 %4, %sh_prom.i
+  %conv.i = and i64 %shr.i, 15
+  %conv = select i1 %or.cond.i, i64 0, i64 %conv.i
+  %add8 = add i64 %conv, %mul
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp = icmp sgt i64 %indvars.iv, 0
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  %cmp.not = icmp eq i64 %indvars.iv, 0
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %for.body.us, %entry
-  %result.0.lcssa = phi i64 [ 0, %entry ], [ %add8.us, %for.body.us ], [ %add8, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
+for.end:                                          ; preds = %for.body, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us, %entry
+  %result.0.lcssa = phi i64 [ 0, %entry ], [ %add8.us, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us ], [ %add8, %for.body ]
   %flags.i = getelementptr inbounds i8, ptr %this, i64 20
-  %10 = load i8, ptr %flags.i, align 4
-  %11 = and i8 %10, 1
-  %cmp.i6.not = icmp eq i8 %11, 0
+  %9 = load i8, ptr %flags.i, align 4
+  %10 = and i8 %9, 1
+  %cmp.i6.not = icmp eq i8 %10, 0
   %sub11 = sub i64 0, %result.0.lcssa
   %retval.0 = select i1 %cmp.i6.not, i64 %result.0.lcssa, i64 %sub11
   ret i64 %retval.0
@@ -2795,61 +2786,60 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i8, ptr %usingBytes.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
+  %tobool.i = trunc i8 %3 to i1
+  %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load i64, ptr %fBCD9.i, align 8
   %precision.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %precision.i, align 8
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load ptr, ptr %fBCD.i, align 8
-  %.cast = ptrtoint ptr %6 to i64
-  br i1 %tobool.not.i, label %for.body.us, label %for.body
+  %.cast = inttoptr i64 %4 to ptr
+  br i1 %tobool.i, label %for.body.us, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %magnitude.016.us = phi i32 [ %dec.us, %for.body.us ], [ %sub, %for.body.lr.ph ]
-  %result.015.us = phi i64 [ %add.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
+  %magnitude.016.us = phi i32 [ %dec.us, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us ], [ %sub, %for.body.lr.ph ]
+  %result.015.us = phi i64 [ %add.us, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us ], [ 0, %for.body.lr.ph ]
   %mul.us = mul nuw i64 %result.015.us, 10
   %sub4.us = sub nsw i32 %magnitude.016.us, %1
-  %or.cond.i.us = icmp ugt i32 %sub4.us, 15
-  %mul.i.us = shl nuw nsw i32 %sub4.us, 2
-  %sh_prom.i.us = zext nneg i32 %mul.i.us to i64
-  %shr.i.us = lshr i64 %.cast, %sh_prom.i.us
-  %conv.i.us = and i64 %shr.i.us, 15
-  %conv6.us = select i1 %or.cond.i.us, i64 0, i64 %conv.i.us
-  %add.us = add nuw i64 %conv6.us, %mul.us
+  %cmp.i10.us = icmp sgt i32 %sub4.us, -1
+  %cmp2.not.i.us = icmp sgt i32 %5, %sub4.us
+  %or.cond6.i.us = select i1 %cmp.i10.us, i1 %cmp2.not.i.us, i1 false
+  br i1 %or.cond6.i.us, label %if.end.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
+
+if.end.i.us:                                      ; preds = %for.body.us
+  %idxprom.i.us = zext nneg i32 %sub4.us to i64
+  %arrayidx.i.us = getelementptr inbounds i8, ptr %.cast, i64 %idxprom.i.us
+  %6 = load i8, ptr %arrayidx.i.us, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
+
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us: ; preds = %if.end.i.us, %for.body.us
+  %retval.0.i.us = phi i8 [ %6, %if.end.i.us ], [ 0, %for.body.us ]
+  %conv6.us = sext i8 %retval.0.i.us to i64
+  %add.us = add i64 %mul.us, %conv6.us
   %dec.us = add nsw i32 %magnitude.016.us, -1
   %cmp.us = icmp sgt i32 %magnitude.016.us, %lowerMagnitude.0
   %cmp2.us = icmp ult i64 %add.us, 1000000000000000001
   %7 = select i1 %cmp.us, i1 %cmp2.us, i1 false
   br i1 %7, label %for.body.us, label %for.end, !llvm.loop !16
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-  %magnitude.016 = phi i32 [ %dec, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ], [ %sub, %for.body.lr.ph ]
-  %result.015 = phi i64 [ %add, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ], [ 0, %for.body.lr.ph ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %magnitude.016 = phi i32 [ %dec, %for.body ], [ %sub, %for.body.lr.ph ]
+  %result.015 = phi i64 [ %add, %for.body ], [ 0, %for.body.lr.ph ]
   %mul = mul nuw i64 %result.015, 10
   %sub4 = sub nsw i32 %magnitude.016, %1
-  %cmp.i10 = icmp sgt i32 %sub4, -1
-  %cmp2.not.i = icmp sgt i32 %5, %sub4
-  %or.cond6.i = select i1 %cmp.i10, i1 %cmp2.not.i, i1 false
-  br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-
-if.end.i:                                         ; preds = %for.body
-  %idxprom.i = zext nneg i32 %sub4 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %idxprom.i
-  %8 = load i8, ptr %arrayidx.i, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %for.body, %if.end.i
-  %retval.0.i = phi i8 [ %8, %if.end.i ], [ 0, %for.body ]
-  %conv6 = sext i8 %retval.0.i to i64
-  %add = add i64 %mul, %conv6
+  %or.cond.i = icmp ugt i32 %sub4, 15
+  %mul.i = shl nuw nsw i32 %sub4, 2
+  %sh_prom.i = zext nneg i32 %mul.i to i64
+  %shr.i = lshr i64 %4, %sh_prom.i
+  %conv.i = and i64 %shr.i, 15
+  %conv6 = select i1 %or.cond.i, i64 0, i64 %conv.i
+  %add = add nuw i64 %conv6, %mul
   %dec = add nsw i32 %magnitude.016, -1
   %cmp = icmp sgt i32 %magnitude.016, %lowerMagnitude.0
   %cmp2 = icmp ult i64 %add, 1000000000000000001
-  %9 = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %9, label %for.body, label %for.end, !llvm.loop !16
+  %8 = select i1 %cmp, i1 %cmp2, i1 false
+  br i1 %8, label %for.body, label %for.end, !llvm.loop !16
 
-for.end:                                          ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %for.body.us
-  %result.0.lcssa = phi i64 [ %add.us, %for.body.us ], [ %add, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
+for.end:                                          ; preds = %for.body, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
+  %result.0.lcssa = phi i64 [ %add.us, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us ], [ %add, %for.body ]
   %cmp9 = icmp eq i64 %result.0.lcssa, 0
   %or.cond.not = select i1 %includeTrailingZeros, i1 true, i1 %cmp9
   br i1 %or.cond.not, label %if.end13, label %land.rhs10
@@ -3081,24 +3071,23 @@ entry:
   %sub = sub nsw i32 %magnitude, %0
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %usingBytes.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.i = icmp sgt i32 %sub, -1
   %precision.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i32, ptr %precision.i, align 8
-  %cmp2.not.i = icmp sgt i32 %3, %sub
+  %2 = load i32, ptr %precision.i, align 8
+  %cmp2.not.i = icmp sgt i32 %2, %sub
   %or.cond6.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD.i, align 8
+  %3 = load ptr, ptr %fBCD.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i
+  %4 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3107,16 +3096,16 @@ if.else.i:                                        ; preds = %entry
 
 if.end8.i:                                        ; preds = %if.else.i
   %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load i64, ptr %fBCD9.i, align 8
+  %5 = load i64, ptr %fBCD9.i, align 8
   %mul.i = shl nuw nsw i32 %sub, 2
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %6, %sh_prom.i
-  %7 = trunc i64 %shr.i to i8
-  %conv.i = and i8 %7, 15
+  %shr.i = lshr i64 %5, %sh_prom.i
+  %6 = trunc i64 %shr.i to i8
+  %conv.i = and i8 %6, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i, %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i = phi i8 [ %5, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
+  %retval.0.i = phi i8 [ %4, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   ret i8 %retval.0.i
 }
 
@@ -3125,24 +3114,23 @@ define noundef signext i8 @_ZNK6icu_756number4impl15DecimalQuantity11getDigitPos
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %cmp = icmp sgt i32 %position, -1
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %precision, align 8
-  %cmp2.not = icmp sgt i32 %2, %position
+  %1 = load i32, ptr %precision, align 8
+  %cmp2.not = icmp sgt i32 %1, %position
   %or.cond6 = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond6, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD, align 8
+  %2 = load ptr, ptr %fBCD, align 8
   %idxprom = zext nneg i32 %position to i64
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
+  %3 = load i8, ptr %arrayidx, align 1
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -3151,16 +3139,16 @@ if.else:                                          ; preds = %entry
 
 if.end8:                                          ; preds = %if.else
   %fBCD9 = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load i64, ptr %fBCD9, align 8
+  %4 = load i64, ptr %fBCD9, align 8
   %mul = shl nuw nsw i32 %position, 2
   %sh_prom = zext nneg i32 %mul to i64
-  %shr = lshr i64 %5, %sh_prom
-  %6 = trunc i64 %shr to i8
-  %conv = and i8 %6, 15
+  %shr = lshr i64 %4, %sh_prom
+  %5 = trunc i64 %shr to i8
+  %conv = and i8 %5, 15
   br label %return
 
 return:                                           ; preds = %if.else, %if.then, %if.end8, %if.end
-  %retval.0 = phi i8 [ %4, %if.end ], [ %conv, %if.end8 ], [ 0, %if.then ], [ 0, %if.else ]
+  %retval.0 = phi i8 [ %3, %if.end ], [ %conv, %if.end8 ], [ 0, %if.then ], [ 0, %if.else ]
   ret i8 %retval.0
 }
 
@@ -3224,14 +3212,13 @@ define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -3366,11 +3353,10 @@ for.cond4.preheader:                              ; preds = %entry
 if.then:                                          ; preds = %entry
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   %len.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %len.i.i, align 8
-  br i1 %tobool.not.i.i, label %if.then4.i.i, label %if.else.i.i
+  %1 = load i32, ptr %len.i.i, align 8
+  br i1 %tobool.i.i, label %if.else.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.then
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @uprv_malloc_75(i64 noundef 40) #24
@@ -3381,20 +3367,20 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit
 
 if.else.i.i:                                      ; preds = %if.then
-  %cmp12.i.i = icmp slt i32 %2, 40
+  %cmp12.i.i = icmp slt i32 %1, 40
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
   %call17.i.i = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_75(i64 noundef 80) #24
   %fBCD18.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD18.i.i, align 8
-  %conv20.i.i = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i, ptr align 1 %3, i64 %conv20.i.i, i1 false)
+  %2 = load ptr, ptr %fBCD18.i.i, align 8
+  %conv20.i.i = sext i32 %1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i, ptr align 1 %2, i64 %conv20.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call17.i.i, i64 %conv20.i.i
-  %sub.i.i = sub nsw i32 40, %2
+  %sub.i.i = sub nsw i32 40, %1
   %conv22.i.i = zext nneg i32 %sub.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv22.i.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %3)
+  tail call void @uprv_free_75(ptr noundef %2)
   store ptr %call17.i.i, ptr %fBCD18.i.i, align 8
   store i32 80, ptr %len.i.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit
@@ -3409,8 +3395,8 @@ for.body:                                         ; preds = %_ZN6icu_756number4i
   %n.addr.017 = phi i64 [ %n, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ], [ %div, %for.body ]
   %rem = srem i64 %n.addr.017, 10
   %conv = trunc i64 %rem to i8
-  %4 = load ptr, ptr %fBCD, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %3 = load ptr, ptr %fBCD, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx, align 1
   %div = sdiv i64 %n.addr.017, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3419,7 +3405,7 @@ for.body:                                         ; preds = %_ZN6icu_756number4i
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %5 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc i64 %indvars.iv.next to i32
   %scale = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %scale, align 4
   br label %if.end
@@ -3450,7 +3436,7 @@ for.end10:                                        ; preds = %for.body6, %for.con
   br label %if.end
 
 if.end:                                           ; preds = %for.end10, %for.end
-  %sub.sink = phi i32 [ %sub, %for.end10 ], [ %5, %for.end ]
+  %sub.sink = phi i32 [ %sub, %for.end10 ], [ %4, %for.end ]
   %precision14 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sub.sink, ptr %precision14, align 8
   ret void
@@ -3609,11 +3595,10 @@ for.body11.lr.ph:                                 ; preds = %for.cond8.preheader
 if.end.i:                                         ; preds = %entry
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i8, ptr %usingBytes.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
+  %tobool.i = trunc i8 %2 to i1
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load i32, ptr %len.i, align 8
-  br i1 %tobool.not.i, label %if.then4.i, label %if.else.i
+  %3 = load i32, ptr %len.i, align 8
+  br i1 %tobool.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %conv.i = zext nneg i32 %1 to i64
@@ -3625,7 +3610,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp12.i = icmp slt i32 %4, %1
+  %cmp12.i = icmp slt i32 %3, %1
   br i1 %cmp12.i, label %if.then13.i, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -3633,22 +3618,22 @@ if.then13.i:                                      ; preds = %if.else.i
   %conv15.i = zext nneg i32 %mul14.i to i64
   %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i) #24
   %fBCD18.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load ptr, ptr %fBCD18.i, align 8
-  %conv20.i = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %5, i64 %conv20.i, i1 false)
+  %4 = load ptr, ptr %fBCD18.i, align 8
+  %conv20.i = sext i32 %3 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %4, i64 %conv20.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 %1, %4
+  %sub.i = sub nsw i32 %1, %3
   %conv22.i = sext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %5)
+  tail call void @uprv_free_75(ptr noundef %4)
   store ptr %call17.i, ptr %fBCD18.i, align 8
   store i32 %mul14.i, ptr %len.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %if.then4.i, %if.else.i, %if.then13.i
   store i8 1, ptr %usingBytes.i, align 8
-  %6 = load i32, ptr %0, align 4
-  %cmp418 = icmp sgt i32 %6, 0
+  %5 = load i32, ptr %0, align 4
+  %cmp418 = icmp sgt i32 %5, 0
   br i1 %cmp418, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
@@ -3659,24 +3644,24 @@ for.body.lr.ph:                                   ; preds = %_ZN6icu_756number4i
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv22 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next23, %for.body ]
   %arrayidx = getelementptr inbounds [1 x i8], ptr %lsu, i64 0, i64 %indvars.iv22
-  %7 = load i8, ptr %arrayidx, align 1
-  %8 = load ptr, ptr %fBCD, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv22
-  store i8 %7, ptr %arrayidx6, align 1
+  %6 = load i8, ptr %arrayidx, align 1
+  %7 = load ptr, ptr %fBCD, align 8
+  %arrayidx6 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv22
+  store i8 %6, ptr %arrayidx6, align 1
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %9 = load i32, ptr %0, align 4
-  %10 = sext i32 %9 to i64
-  %cmp4 = icmp slt i64 %indvars.iv.next23, %10
+  %8 = load i32, ptr %0, align 4
+  %9 = sext i32 %8 to i64
+  %cmp4 = icmp slt i64 %indvars.iv.next23, %9
   br i1 %cmp4, label %for.body, label %if.end, !llvm.loop !20
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
   %indvars.iv = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next, %for.body11 ]
   %result.016 = phi i64 [ 0, %for.body11.lr.ph ], [ %or, %for.body11 ]
   %arrayidx14 = getelementptr inbounds [1 x i8], ptr %lsu12, i64 0, i64 %indvars.iv
-  %11 = load i8, ptr %arrayidx14, align 1
-  %conv = zext i8 %11 to i64
-  %12 = shl nsw i64 %indvars.iv, 2
-  %shl = shl i64 %conv, %12
+  %10 = load i8, ptr %arrayidx14, align 1
+  %conv = zext i8 %10 to i64
+  %11 = shl nsw i64 %indvars.iv, 2
+  %shl = shl i64 %conv, %11
   %or = or i64 %shl, %result.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3690,12 +3675,12 @@ for.end17:                                        ; preds = %for.body11, %for.co
 
 if.end:                                           ; preds = %for.body, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit, %for.end17
   %exponent = getelementptr inbounds i8, ptr %0, i64 4
-  %13 = load i32, ptr %exponent, align 4
+  %12 = load i32, ptr %exponent, align 4
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %13, ptr %scale, align 4
-  %14 = load i32, ptr %0, align 4
+  store i32 %12, ptr %scale, align 4
+  %13 = load i32, ptr %0, align 4
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %14, ptr %precision, align 8
+  store i32 %13, ptr %precision, align 8
   ret void
 }
 
@@ -3704,14 +3689,13 @@ define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -3726,10 +3710,10 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %entry, 
   %exponent.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i, align 4
   %flags = getelementptr inbounds i8, ptr %this, i64 20
-  %3 = bitcast double %n to i64
-  %4 = icmp slt i64 %3, 0
+  %2 = bitcast double %n to i64
+  %3 = icmp slt i64 %2, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %scale.i, i8 0, i64 10, i1 false)
-  br i1 %4, label %if.then, label %if.end
+  br i1 %3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
   store i8 1, ptr %flags, align 4
@@ -3737,24 +3721,24 @@ if.then:                                          ; preds = %_ZN6icu_756number4i
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
-  %5 = phi i8 [ 1, %if.then ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit ]
+  %4 = phi i8 [ 1, %if.then ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit ]
   %n.addr.0 = phi double [ %fneg, %if.then ], [ %n, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit ]
-  %6 = fcmp uno double %n.addr.0, 0.000000e+00
-  br i1 %6, label %if.then7, label %if.else
+  %5 = fcmp uno double %n.addr.0, 0.000000e+00
+  br i1 %5, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
-  %7 = or disjoint i8 %5, 4
-  store i8 %7, ptr %flags, align 4
+  %6 = or disjoint i8 %4, 4
+  store i8 %6, ptr %flags, align 4
   br label %if.end27
 
 if.else:                                          ; preds = %if.end
-  %8 = tail call double @llvm.fabs.f64(double %n.addr.0)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  br i1 %9, label %if.then16, label %if.else22
+  %7 = tail call double @llvm.fabs.f64(double %n.addr.0)
+  %8 = fcmp ueq double %7, 0x7FF0000000000000
+  br i1 %8, label %if.then16, label %if.else22
 
 if.then16:                                        ; preds = %if.else
-  %10 = or disjoint i8 %5, 2
-  store i8 %10, ptr %flags, align 4
+  %9 = or disjoint i8 %4, 2
+  store i8 %9, ptr %flags, align 4
   br label %if.end27
 
 if.else22:                                        ; preds = %if.else
@@ -3814,14 +3798,13 @@ if.then8:                                         ; preds = %if.end, %if.end
   call void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %n, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %buffer.i, i32 noundef 18, ptr noundef nonnull %sign.i, ptr noundef nonnull %length.i, ptr noundef nonnull %point.i)
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i8, ptr %usingBytes.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
 if.then.i.i:                                      ; preds = %if.then8
   %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD.i.i, align 8
-  call void @uprv_free_75(ptr noundef %4)
+  %3 = load ptr, ptr %fBCD.i.i, align 8
+  call void @uprv_free_75(ptr noundef %3)
   store i8 0, ptr %usingBytes.i.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
@@ -3837,9 +3820,9 @@ _ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   store i32 0, ptr %origDelta, align 8
   %exponent.i.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i.i, align 4
-  %5 = load i32, ptr %length.i, align 4
-  %6 = load i32, ptr %point.i, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer.i, i32 noundef %5, i32 noundef %6)
+  %4 = load i32, ptr %length.i, align 4
+  %5 = load i32, ptr %point.i, align 4
+  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer.i, i32 noundef %4, i32 noundef %5)
   %explicitExactDouble.i = getelementptr inbounds i8, ptr %this, i64 65
   store i8 1, ptr %explicitExactDouble.i, align 1
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buffer.i)
@@ -3877,8 +3860,8 @@ for.end:                                          ; preds = %for.body, %for.cond
   %n.addr.0.lcssa = phi double [ %n, %for.cond.preheader ], [ %mul, %for.body ]
   %idxprom = zext nneg i32 %i.0.lcssa to i64
   %arrayidx = getelementptr inbounds [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %idxprom
-  %7 = load double, ptr %arrayidx, align 8
-  %mul17 = fmul double %n.addr.0.lcssa, %7
+  %6 = load double, ptr %arrayidx, align 8
+  %mul17 = fmul double %n.addr.0.lcssa, %6
   br label %if.end29
 
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
@@ -3895,8 +3878,8 @@ for.end24:                                        ; preds = %for.body21, %for.co
   %sub25 = sub nsw i32 0, %i18.0.lcssa
   %idxprom26 = zext nneg i32 %sub25 to i64
   %arrayidx27 = getelementptr inbounds [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %idxprom26
-  %8 = load double, ptr %arrayidx27, align 8
-  %div28 = fdiv double %n.addr.1.lcssa, %8
+  %7 = load double, ptr %arrayidx27, align 8
+  %div28 = fdiv double %n.addr.1.lcssa, %7
   br label %if.end29
 
 if.end29:                                         ; preds = %for.end24, %for.end
@@ -3909,8 +3892,8 @@ if.end29:                                         ; preds = %for.end24, %for.end
 if.then32:                                        ; preds = %if.end29
   tail call void @_ZN6icu_756number4impl15DecimalQuantity10_setToLongEl(ptr noundef nonnull align 8 dereferenceable(66) %this, i64 noundef %conv30)
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %9 = load i32, ptr %scale, align 4
-  %sub33 = sub nsw i32 %9, %conv12
+  %8 = load i32, ptr %scale, align 4
+  %sub33 = sub nsw i32 %8, %conv12
   store i32 %sub33, ptr %scale, align 4
   br label %if.end34
 
@@ -3932,14 +3915,13 @@ entry:
   call void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %buffer, i32 noundef 18, ptr noundef nonnull %sign, ptr noundef nonnull %length, ptr noundef nonnull %point)
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i8, ptr %usingBytes.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD.i, align 8
-  call void @uprv_free_75(ptr noundef %4)
+  %3 = load ptr, ptr %fBCD.i, align 8
+  call void @uprv_free_75(ptr noundef %3)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -3956,11 +3938,11 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %entry, 
   store i32 0, ptr %origDelta, align 8
   %exponent.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i, align 4
-  %5 = load i32, ptr %length, align 4
-  %6 = load i32, ptr %point, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer, i32 noundef %5, i32 noundef %6)
-  %7 = load i32, ptr %scale.i, align 4
-  %add = add nsw i32 %7, %0
+  %4 = load i32, ptr %length, align 4
+  %5 = load i32, ptr %point, align 4
+  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer, i32 noundef %4, i32 noundef %5)
+  %6 = load i32, ptr %scale.i, align 4
+  %add = add nsw i32 %6, %0
   store i32 %add, ptr %scale.i, align 4
   %explicitExactDouble = getelementptr inbounds i8, ptr %this, i64 65
   store i8 1, ptr %explicitExactDouble, align 1
@@ -3990,11 +3972,10 @@ for.body11.preheader:                             ; preds = %for.cond9.preheader
 if.end.i:                                         ; preds = %entry
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %usingBytes.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %len.i, align 8
-  br i1 %tobool.not.i, label %if.then4.i, label %if.else.i
+  %2 = load i32, ptr %len.i, align 8
+  br i1 %tobool.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %conv.i = zext nneg i32 %length to i64
@@ -4006,7 +3987,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %for.body.lr.ph
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp12.i = icmp slt i32 %3, %length
+  %cmp12.i = icmp slt i32 %2, %length
   br i1 %cmp12.i, label %if.then13.i, label %for.body.lr.ph
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -4014,14 +3995,14 @@ if.then13.i:                                      ; preds = %if.else.i
   %conv15.i = zext nneg i32 %mul14.i to i64
   %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i) #24
   %fBCD18.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD18.i, align 8
-  %conv20.i = sext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %4, i64 %conv20.i, i1 false)
+  %3 = load ptr, ptr %fBCD18.i, align 8
+  %conv20.i = sext i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %3, i64 %conv20.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 %length, %3
+  %sub.i = sub nsw i32 %length, %2
   %conv22.i = sext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %4)
+  tail call void @uprv_free_75(ptr noundef %3)
   store ptr %call17.i, ptr %fBCD18.i, align 8
   store i32 %mul14.i, ptr %len.i, align 8
   br label %for.body.lr.ph
@@ -4029,19 +4010,19 @@ if.then13.i:                                      ; preds = %if.else.i
 for.body.lr.ph:                                   ; preds = %if.then13.i, %if.else.i, %if.then4.i
   store i8 1, ptr %usingBytes.i, align 8
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = zext nneg i32 %length to i64
+  %4 = zext nneg i32 %length to i64
   %wide.trip.count28 = zext nneg i32 %length to i64
-  %invariant.gep30 = getelementptr i8, ptr %buffer, i64 %5
+  %invariant.gep30 = getelementptr i8, ptr %buffer, i64 %4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv24 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next25, %for.body ]
-  %6 = xor i64 %indvars.iv24, -1
-  %gep31 = getelementptr i8, ptr %invariant.gep30, i64 %6
-  %7 = load i8, ptr %gep31, align 1
-  %sub4 = add i8 %7, -48
-  %8 = load ptr, ptr %fBCD, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv24
+  %5 = xor i64 %indvars.iv24, -1
+  %gep31 = getelementptr i8, ptr %invariant.gep30, i64 %5
+  %6 = load i8, ptr %gep31, align 1
+  %sub4 = add i8 %6, -48
+  %7 = load ptr, ptr %fBCD, align 8
+  %arrayidx7 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv24
   store i8 %sub4, ptr %arrayidx7, align 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count28
@@ -4050,13 +4031,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body11:                                       ; preds = %for.body11.preheader, %for.body11
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.body11 ]
   %result.017 = phi i64 [ 0, %for.body11.preheader ], [ %or, %for.body11 ]
-  %9 = xor i64 %indvars.iv, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %9
-  %10 = load i8, ptr %gep, align 1
-  %conv16 = sext i8 %10 to i64
+  %8 = xor i64 %indvars.iv, -1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %8
+  %9 = load i8, ptr %gep, align 1
+  %conv16 = sext i8 %9 to i64
   %sub17 = add nsw i64 %conv16, -48
-  %11 = shl nsw i64 %indvars.iv, 2
-  %shl = shl i64 %sub17, %11
+  %10 = shl nsw i64 %indvars.iv, 2
+  %shl = shl i64 %sub17, %10
   %or = or i64 %shl, %result.017
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4083,14 +4064,13 @@ entry:
   %decnum = alloca %"class.icu_75::number::impl::DecNum", align 8
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
 if.then.i:                                        ; preds = %entry
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %fBCD.i, align 8
-  tail call void @uprv_free_75(ptr noundef %2)
+  %1 = load ptr, ptr %fBCD.i, align 8
+  tail call void @uprv_free_75(ptr noundef %1)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
@@ -4115,30 +4095,30 @@ invoke.cont:                                      ; preds = %_ZN6icu_756number4i
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum, i64 12
-  %3 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
+  %2 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_756number4impl6DecNumD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont2
-  %4 = load ptr, ptr %decnum, align 8
-  invoke void @uprv_free_75(ptr noundef %4)
+  %3 = load ptr, ptr %decnum, align 8
+  invoke void @uprv_free_75(ptr noundef %3)
           to label %_ZN6icu_756number4impl6DecNumD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #25
   unreachable
 
 _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %invoke.cont2, %if.then.i.i.i
   ret ptr %this
 
 lpad:                                             ; preds = %invoke.cont, %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756number4impl6DecNumD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %decnum) #23
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 declare void @_ZN6icu_756number4impl6DecNum5setToENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -4378,14 +4358,13 @@ invoke.cont39:                                    ; preds = %invoke.cont37
 invoke.cont40:                                    ; preds = %invoke.cont39
   %usingBytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   %36 = load i8, ptr %usingBytes.i.i, align 8
-  %37 = and i8 %36, 1
-  %tobool.not.i.i = icmp eq i8 %37, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, label %if.then.i.i65
+  %tobool.i.i = trunc i8 %36 to i1
+  br i1 %tobool.i.i, label %if.then.i.i65, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i
 
 if.then.i.i65:                                    ; preds = %invoke.cont40
   %fBCD.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %38 = load ptr, ptr %fBCD.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %38)
+  %37 = load ptr, ptr %fBCD.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %37)
           to label %.noexc unwind label %lpad41
 
 .noexc:                                           ; preds = %if.then.i.i65
@@ -4412,13 +4391,13 @@ invoke.cont42:                                    ; preds = %_ZN6icu_756number4i
 
 invoke.cont45:                                    ; preds = %invoke.cont42
   %fUnion.i.i.i.i67 = getelementptr inbounds i8, ptr %agg.tmp44, i64 8
-  %39 = load i16, ptr %fUnion.i.i.i.i67, align 8
-  %cmp.i.i.i.i68 = icmp slt i16 %39, 0
-  %40 = ashr i16 %39, 5
-  %shr.i.i.i.i69 = sext i16 %40 to i32
+  %38 = load i16, ptr %fUnion.i.i.i.i67, align 8
+  %cmp.i.i.i.i68 = icmp slt i16 %38, 0
+  %39 = ashr i16 %38, 5
+  %shr.i.i.i.i69 = sext i16 %39 to i32
   %fLength.i.i.i70 = getelementptr inbounds i8, ptr %agg.tmp44, i64 12
-  %41 = load i32, ptr %fLength.i.i.i70, align 4
-  %cond.i.i.i71 = select i1 %cmp.i.i.i.i68, i32 %41, i32 %shr.i.i.i.i69
+  %40 = load i32, ptr %fLength.i.i.i70, align 4
+  %cond.i.i.i71 = select i1 %cmp.i.i.i.i68, i32 %40, i32 %shr.i.i.i.i69
   %call.i.i.i75 = invoke noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEiii(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp44, i32 noundef 46, i32 noundef 0, i32 noundef %cond.i.i.i71)
           to label %call.i.i.i.noexc unwind label %lpad46
 
@@ -4428,12 +4407,12 @@ call.i.i.i.noexc:                                 ; preds = %invoke.cont45
   br i1 %cmp.i, label %invoke.cont47, label %if.else.i
 
 if.else.i:                                        ; preds = %call.i.i.i.noexc
-  %42 = load i16, ptr %fUnion.i.i.i.i67, align 8
-  %cmp.i.i.i72 = icmp slt i16 %42, 0
-  %43 = ashr i16 %42, 5
-  %shr.i.i.i73 = sext i16 %43 to i32
-  %44 = load i32, ptr %fLength.i.i.i70, align 4
-  %cond.i.i74 = select i1 %cmp.i.i.i72, i32 %44, i32 %shr.i.i.i73
+  %41 = load i16, ptr %fUnion.i.i.i.i67, align 8
+  %cmp.i.i.i72 = icmp slt i16 %41, 0
+  %42 = ashr i16 %41, 5
+  %shr.i.i.i73 = sext i16 %42 to i32
+  %43 = load i32, ptr %fLength.i.i.i70, align 4
+  %cond.i.i74 = select i1 %cmp.i.i.i72, i32 %43, i32 %shr.i.i.i73
   %sub.i.neg = sub nsw i32 %add.i, %cond.i.i74
   br label %invoke.cont47
 
@@ -4442,24 +4421,24 @@ invoke.cont47:                                    ; preds = %if.else.i, %call.i.
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp44) #23
   %rReqPos.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %retval.0.i.neg, ptr %rReqPos.i, align 8
-  %45 = load i32, ptr %exponent.i.i, align 4
-  %add.i77 = add nsw i32 %45, %cond28
+  %44 = load i32, ptr %exponent.i.i, align 4
+  %add.i77 = add nsw i32 %44, %cond28
   store i32 %add.i77, ptr %exponent.i.i, align 4
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum, i64 12
-  %46 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i78 = icmp eq i8 %46, 0
+  %45 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i78 = icmp eq i8 %45, 0
   br i1 %tobool.not.i.i.i78, label %_ZN6icu_756number4impl6DecNumD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont47
-  %47 = load ptr, ptr %decnum, align 8
-  invoke void @uprv_free_75(ptr noundef %47)
+  %46 = load ptr, ptr %decnum, align 8
+  invoke void @uprv_free_75(ptr noundef %46)
           to label %_ZN6icu_756number4impl6DecNumD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #25
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #25
   unreachable
 
 _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %invoke.cont47, %if.then.i.i.i
@@ -4469,58 +4448,58 @@ _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %invoke.cont47, %if.
   br label %return
 
 lpad:                                             ; preds = %invoke.cont24, %invoke.cont
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup52
 
 lpad30:                                           ; preds = %invoke.cont29
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup51
 
 lpad32:                                           ; preds = %invoke.cont33, %invoke.cont31
-  %52 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup50
 
 lpad36:                                           ; preds = %invoke.cont39, %invoke.cont37
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup49
 
 lpad41:                                           ; preds = %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit.i, %if.then.i.i65, %invoke.cont42
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad46:                                           ; preds = %invoke.cont45
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp44) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad46, %lpad41
-  %.pn15 = phi { ptr, i32 } [ %55, %lpad46 ], [ %54, %lpad41 ]
+  %.pn15 = phi { ptr, i32 } [ %54, %lpad46 ], [ %53, %lpad41 ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %agg.result) #23
   br label %ehcleanup49
 
 ehcleanup49:                                      ; preds = %ehcleanup, %lpad36
-  %.pn15.pn = phi { ptr, i32 } [ %.pn15, %ehcleanup ], [ %53, %lpad36 ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn15, %ehcleanup ], [ %52, %lpad36 ]
   call void @_ZN6icu_756number4impl6DecNumD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %decnum) #23
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %ehcleanup49, %lpad32
-  %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup49 ], [ %52, %lpad32 ]
+  %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup49 ], [ %51, %lpad32 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fracCharStr) #23
   br label %ehcleanup51
 
 ehcleanup51:                                      ; preds = %ehcleanup50, %lpad30
-  %.pn15.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn, %ehcleanup50 ], [ %51, %lpad30 ]
+  %.pn15.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn, %ehcleanup50 ], [ %50, %lpad30 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fractionStr) #23
   br label %ehcleanup52
 
 ehcleanup52:                                      ; preds = %ehcleanup51, %lpad
-  %.pn15.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn.pn, %ehcleanup51 ], [ %50, %lpad ]
+  %.pn15.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn.pn, %ehcleanup51 ], [ %49, %lpad ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %exponentStr) #23
   br label %eh.resume
 
@@ -4541,15 +4520,15 @@ invoke.cont59:                                    ; preds = %invoke.cont57
 invoke.cont62:                                    ; preds = %invoke.cont59
   %len.i79 = getelementptr inbounds i8, ptr %numCharStr, i64 56
   store i32 0, ptr %len.i79, align 8
-  %56 = load ptr, ptr %numCharStr, align 8
-  store i8 0, ptr %56, align 1
+  %55 = load ptr, ptr %numCharStr, align 8
+  store i8 0, ptr %55, align 1
   %call65 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %numCharStr, ptr noundef nonnull align 8 dereferenceable(64) %num, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont67 unwind label %lpad63
 
 invoke.cont67:                                    ; preds = %invoke.cont62
-  %57 = load ptr, ptr %numCharStr, align 8
-  %58 = load i32, ptr %len.i79, align 8
-  %call70 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %agg.result, ptr %57, i32 %58, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %56 = load ptr, ptr %numCharStr, align 8
+  %57 = load i32, ptr %len.i79, align 8
+  %call70 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %agg.result, ptr %56, i32 %57, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont69 unwind label %lpad63
 
 invoke.cont69:                                    ; preds = %invoke.cont67
@@ -4560,24 +4539,24 @@ invoke.cont69:                                    ; preds = %invoke.cont67
   br label %return
 
 lpad56:                                           ; preds = %invoke.cont59, %if.else
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup75
 
 lpad58:                                           ; preds = %invoke.cont57
-  %60 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp55) #23
   br label %ehcleanup75
 
 lpad63:                                           ; preds = %invoke.cont67, %invoke.cont62
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %numCharStr) #23
   br label %ehcleanup75
 
 ehcleanup75:                                      ; preds = %lpad63, %lpad58, %lpad56
-  %.pn = phi { ptr, i32 } [ %61, %lpad63 ], [ %59, %lpad56 ], [ %60, %lpad58 ]
+  %.pn = phi { ptr, i32 } [ %60, %lpad63 ], [ %58, %lpad56 ], [ %59, %lpad58 ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %agg.result) #23
   br label %eh.resume
 
@@ -4681,73 +4660,72 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %.neg11 = sub i32 18, %4
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load i8, ptr %usingBytes.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = load ptr, ptr %fBCD.i.i, align 8
-  %.cast = ptrtoint ptr %7 to i64
+  %tobool.i.i = trunc i8 %5 to i1
+  %fBCD9.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %6 = load i64, ptr %fBCD9.i.i, align 8
+  %.cast = inttoptr i64 %6 to ptr
   %wide.trip.count21 = zext nneg i32 %2 to i64
-  br i1 %tobool.not.i.i, label %for.body.us, label %for.body
+  br i1 %tobool.i.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.cond.us ], [ 0, %for.body.lr.ph ]
-  %8 = trunc i64 %indvars.iv18 to i32
-  %sub.i9.us = sub i32 %.neg11, %8
-  %or.cond.i.i.us = icmp ugt i32 %sub.i9.us, 15
-  %mul.i.i.us = shl nuw nsw i32 %sub.i9.us, 2
-  %sh_prom.i.i.us = zext nneg i32 %mul.i.i.us to i64
-  %shr.i.i.us = lshr i64 %.cast, %sh_prom.i.i.us
-  %9 = trunc i64 %shr.i.i.us to i8
-  %conv.i.i.us = and i8 %9, 15
-  %retval.0.i.i.us = select i1 %or.cond.i.i.us, i8 0, i8 %conv.i.i.us
-  %arrayidx.us = getelementptr inbounds [19 x i8], ptr @_ZZNK6icu_756number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 0, i64 %indvars.iv18
-  %10 = load i8, ptr %arrayidx.us, align 1
-  %or.cond.not = icmp eq i8 %retval.0.i.i.us, %10
-  br i1 %or.cond.not, label %for.cond.us, label %return.loopexit
+  %7 = trunc i64 %indvars.iv18 to i32
+  %sub.i9.us = sub i32 %.neg11, %7
+  %or.cond6.i.i.us = icmp ult i32 %sub.i9.us, %2
+  br i1 %or.cond6.i.i.us, label %if.end.i.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
 
-for.cond.us:                                      ; preds = %for.body.us
+for.cond.us:                                      ; preds = %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !26
 
-for.cond:                                         ; preds = %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit
+if.end.i.i.us:                                    ; preds = %for.body.us
+  %idxprom.i.i.us = zext nneg i32 %sub.i9.us to i64
+  %arrayidx.i.i.us = getelementptr inbounds i8, ptr %.cast, i64 %idxprom.i.i.us
+  %8 = load i8, ptr %arrayidx.i.i.us, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
+
+_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us: ; preds = %if.end.i.i.us, %for.body.us
+  %retval.0.i.i.us = phi i8 [ %8, %if.end.i.i.us ], [ 0, %for.body.us ]
+  %arrayidx.us = getelementptr inbounds [19 x i8], ptr @_ZZNK6icu_756number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 0, i64 %indvars.iv18
+  %9 = load i8, ptr %arrayidx.us, align 1
+  %or.cond.not = icmp eq i8 %retval.0.i.i.us, %9
+  br i1 %or.cond.not, label %for.cond.us, label %return.loopexit
+
+for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.body.lr.ph ]
-  %11 = trunc i64 %indvars.iv to i32
-  %sub.i9 = sub i32 %.neg11, %11
-  %or.cond6.i.i = icmp ult i32 %sub.i9, %2
-  br i1 %or.cond6.i.i, label %if.end.i.i, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit
-
-if.end.i.i:                                       ; preds = %for.body
-  %idxprom.i.i = zext nneg i32 %sub.i9 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i
-  %12 = load i8, ptr %arrayidx.i.i, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit
-
-_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit: ; preds = %for.body, %if.end.i.i
-  %retval.0.i.i = phi i8 [ %12, %if.end.i.i ], [ 0, %for.body ]
+  %10 = trunc i64 %indvars.iv to i32
+  %sub.i9 = sub i32 %.neg11, %10
+  %or.cond.i.i = icmp ugt i32 %sub.i9, 15
+  %mul.i.i = shl nuw nsw i32 %sub.i9, 2
+  %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
+  %shr.i.i = lshr i64 %6, %sh_prom.i.i
+  %11 = trunc i64 %shr.i.i to i8
+  %conv.i.i = and i8 %11, 15
+  %retval.0.i.i = select i1 %or.cond.i.i, i8 0, i8 %conv.i.i
   %arrayidx = getelementptr inbounds [19 x i8], ptr @_ZZNK6icu_756number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 0, i64 %indvars.iv
-  %13 = load i8, ptr %arrayidx, align 1
-  %or.cond29.not = icmp eq i8 %retval.0.i.i, %13
+  %12 = load i8, ptr %arrayidx, align 1
+  %or.cond29.not = icmp eq i8 %retval.0.i.i, %12
   br i1 %or.cond29.not, label %for.cond, label %return.loopexit31
 
 for.end:                                          ; preds = %for.cond, %for.cond.us, %for.cond.preheader
   %flags.i = getelementptr inbounds i8, ptr %this, i64 20
-  %14 = load i8, ptr %flags.i, align 4
-  %15 = and i8 %14, 1
-  %cmp.i10 = icmp ne i8 %15, 0
+  %13 = load i8, ptr %flags.i, align 4
+  %14 = and i8 %13, 1
+  %cmp.i10 = icmp ne i8 %14, 0
   br label %return
 
-return.loopexit:                                  ; preds = %for.body.us
-  %cmp20.us = icmp slt i8 %retval.0.i.i.us, %10
+return.loopexit:                                  ; preds = %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
+  %cmp20.us = icmp slt i8 %retval.0.i.i.us, %9
   br label %return
 
-return.loopexit31:                                ; preds = %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit
-  %cmp20 = icmp slt i8 %retval.0.i.i, %13
+return.loopexit31:                                ; preds = %for.body
+  %cmp20 = icmp slt i8 %retval.0.i.i, %12
   br label %return
 
 return:                                           ; preds = %return.loopexit31, %return.loopexit, %if.end13, %if.end9, %if.end7, %if.end, %entry, %lor.lhs.false, %for.end
@@ -4823,9 +4801,8 @@ if.end8:                                          ; preds = %if.end
   %sub = add nsw i32 %2, -1
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load i8, ptr %usingBytes.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end8
   %cmp.i15 = icmp sgt i32 %2, 0
@@ -4833,10 +4810,10 @@ if.then.i:                                        ; preds = %if.end8
 
 if.end.i:                                         ; preds = %if.then.i
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load ptr, ptr %fBCD.i, align 8
+  %5 = load ptr, ptr %fBCD.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %idxprom.i
-  %7 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i
+  %6 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %if.end8
@@ -4845,16 +4822,16 @@ if.else.i:                                        ; preds = %if.end8
 
 if.end8.i:                                        ; preds = %if.else.i
   %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load i64, ptr %fBCD9.i, align 8
+  %7 = load i64, ptr %fBCD9.i, align 8
   %mul.i = shl nuw nsw i32 %sub, 2
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %8, %sh_prom.i
-  %9 = trunc i64 %shr.i to i8
-  %conv.i = and i8 %9, 15
+  %shr.i = lshr i64 %7, %sh_prom.i
+  %8 = trunc i64 %shr.i to i8
+  %conv.i = and i8 %8, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i, %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i = phi i8 [ %7, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
+  %retval.0.i = phi i8 [ %6, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   %conv = sext i8 %retval.0.i to i32
   %add = add nsw i32 %conv, 48
   %call13 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %add)
@@ -4873,44 +4850,43 @@ if.then15:                                        ; preds = %invoke.cont12
 for.body.lr.ph:                                   ; preds = %if.then15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i16)
   %dec = add nsw i32 %2, -2
-  %fBCD.i28 = getelementptr inbounds i8, ptr %this, i64 48
-  %10 = zext nneg i32 %dec to i64
+  %fBCD9.i24 = getelementptr inbounds i8, ptr %this, i64 48
+  %9 = zext nneg i32 %dec to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ %10, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %11 = load i8, ptr %usingBytes.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i20 = icmp eq i8 %12, 0
-  br i1 %tobool.not.i20, label %if.else.i31, label %if.then.i21
+  %indvars.iv = phi i64 [ %9, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %10 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i20 = trunc i8 %10 to i1
+  br i1 %tobool.i20, label %if.then.i30, label %if.else.i21
 
-if.then.i21:                                      ; preds = %for.body
-  %13 = load i32, ptr %precision, align 8
-  %14 = sext i32 %13 to i64
-  %cmp2.not.i24 = icmp slt i64 %indvars.iv, %14
-  br i1 %cmp2.not.i24, label %if.end.i27, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
+if.then.i30:                                      ; preds = %for.body
+  %11 = load i32, ptr %precision, align 8
+  %12 = sext i32 %11 to i64
+  %cmp2.not.i33 = icmp slt i64 %indvars.iv, %12
+  br i1 %cmp2.not.i33, label %if.end.i35, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
-if.end.i27:                                       ; preds = %if.then.i21
-  %15 = load ptr, ptr %fBCD.i28, align 8
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv
-  %16 = load i8, ptr %arrayidx.i30, align 1
+if.end.i35:                                       ; preds = %if.then.i30
+  %13 = load ptr, ptr %fBCD9.i24, align 8
+  %arrayidx.i38 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv
+  %14 = load i8, ptr %arrayidx.i38, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
-if.else.i31:                                      ; preds = %for.body
-  %or.cond.i32 = icmp ugt i64 %indvars.iv, 15
-  br i1 %or.cond.i32, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39, label %if.end8.i33
+if.else.i21:                                      ; preds = %for.body
+  %or.cond.i22 = icmp ugt i64 %indvars.iv, 15
+  br i1 %or.cond.i22, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39, label %if.end8.i23
 
-if.end8.i33:                                      ; preds = %if.else.i31
-  %17 = load i64, ptr %fBCD.i28, align 8
-  %18 = shl nuw nsw i64 %indvars.iv, 2
-  %shr.i37 = lshr i64 %17, %18
-  %19 = trunc i64 %shr.i37 to i8
-  %conv.i38 = and i8 %19, 15
+if.end8.i23:                                      ; preds = %if.else.i21
+  %15 = load i64, ptr %fBCD9.i24, align 8
+  %16 = shl nuw nsw i64 %indvars.iv, 2
+  %shr.i27 = lshr i64 %15, %16
+  %17 = trunc i64 %shr.i27 to i8
+  %conv.i28 = and i8 %17, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39: ; preds = %if.then.i21, %if.end.i27, %if.else.i31, %if.end8.i33
-  %retval.0.i26 = phi i8 [ %16, %if.end.i27 ], [ %conv.i38, %if.end8.i33 ], [ 0, %if.then.i21 ], [ 0, %if.else.i31 ]
-  %conv21 = sext i8 %retval.0.i26 to i32
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39: ; preds = %if.then.i30, %if.end.i35, %if.else.i21, %if.end8.i23
+  %retval.0.i29 = phi i8 [ %14, %if.end.i35 ], [ %conv.i28, %if.end8.i23 ], [ 0, %if.then.i30 ], [ 0, %if.else.i21 ]
+  %conv21 = sext i8 %retval.0.i29 to i32
   %add22 = add nsw i32 %conv21, 48
   %call24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %add22)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
@@ -4929,11 +4905,11 @@ if.end26:                                         ; preds = %for.inc, %invoke.co
 invoke.cont27:                                    ; preds = %if.end26
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i40)
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %20 = load i32, ptr %scale, align 4
-  %add29 = add nsw i32 %20, %sub
+  %18 = load i32, ptr %scale, align 4
+  %add29 = add nsw i32 %18, %sub
   %exponent = getelementptr inbounds i8, ptr %this, i64 44
-  %21 = load i32, ptr %exponent, align 4
-  %add30 = add nsw i32 %add29, %21
+  %19 = load i32, ptr %exponent, align 4
+  %add30 = add nsw i32 %add29, %19
   %cmp31 = icmp eq i32 %add30, -2147483648
   br i1 %cmp31, label %if.then32, label %if.else
 
@@ -4943,13 +4919,13 @@ if.then32:                                        ; preds = %invoke.cont27
 
 invoke.cont33:                                    ; preds = %if.then32
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %22 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i.i = icmp slt i16 %22, 0
-  %23 = ashr i16 %22, 5
-  %shr.i.i.i = sext i16 %23 to i32
+  %20 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i.i = icmp slt i16 %20, 0
+  %21 = ashr i16 %20, 5
+  %shr.i.i.i = sext i16 %21 to i32
   %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
-  %24 = load i32, ptr %fLength.i.i, align 4
-  %cond.i.i = select i1 %cmp.i.i.i, i32 %24, i32 %shr.i.i.i
+  %22 = load i32, ptr %fLength.i.i, align 4
+  %cond.i.i = select i1 %cmp.i.i.i, i32 %22, i32 %shr.i.i.i
   %call2.i43 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef 0, i32 noundef %cond.i.i)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -4958,7 +4934,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   br label %nrvo.skipdtor
 
 lpad34:                                           ; preds = %invoke.cont33
-  %25 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #23
   br label %ehcleanup
@@ -5001,13 +4977,13 @@ _ZN6icu_7513UnicodeString6appendEDs.exit52:       ; preds = %if.then47
 
 if.end50:                                         ; preds = %if.end45.thread, %_ZN6icu_7513UnicodeString6appendEDs.exit52, %if.end45
   %_scale.058 = phi i32 [ %mul, %if.end45.thread ], [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit52 ], [ %add30, %if.end45 ]
-  %26 = load i16, ptr %fUnion2.i, align 8
-  %cmp.i.i = icmp slt i16 %26, 0
-  %27 = ashr i16 %26, 5
-  %shr.i.i = sext i16 %27 to i32
+  %24 = load i16, ptr %fUnion2.i, align 8
+  %cmp.i.i = icmp slt i16 %24, 0
+  %25 = ashr i16 %24, 5
+  %shr.i.i = sext i16 %25 to i32
   %fLength.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  %28 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %28, i32 %shr.i.i
+  %26 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %26, i32 %shr.i.i
   %cmp5366.not = icmp eq i32 %_scale.058, 0
   br i1 %cmp5366.not, label %nrvo.skipdtor, label %while.body
 
@@ -5029,7 +5005,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont56, %if.
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad34, %lpad5
-  %.pn = phi { ptr, i32 } [ %3, %lpad5 ], [ %25, %lpad34 ], [ %lpad.loopexit59, %lpad.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad5 ], [ %23, %lpad34 ], [ %lpad.loopexit59, %lpad.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #23
   resume { ptr, i32 } %.pn
 }
@@ -5074,76 +5050,75 @@ if.then:                                          ; preds = %entry
   %sub = sub nsw i32 0, %0
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %usingBytes.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %for.cond.preheader.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.then
   %precision.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i32, ptr %precision.i, align 8
-  %cmp12.i = icmp sgt i32 %3, %sub
+  %2 = load i32, ptr %precision.i, align 8
+  %cmp12.i = icmp sgt i32 %2, %sub
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.cond6.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = zext nneg i32 %sub to i64
+  %3 = zext nneg i32 %sub to i64
   br label %for.body.i
 
 for.cond6.preheader.loopexit.i:                   ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc i64 %indvars.iv.next.i to i32
   br label %for.cond6.preheader.i
 
 for.cond6.preheader.i:                            ; preds = %for.cond6.preheader.loopexit.i, %for.cond.preheader.i
-  %6 = phi i32 [ %3, %for.cond.preheader.i ], [ %11, %for.cond6.preheader.loopexit.i ]
-  %i.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %5, %for.cond6.preheader.loopexit.i ]
-  %cmp814.i = icmp slt i32 %i.0.lcssa.i, %6
+  %5 = phi i32 [ %2, %for.cond.preheader.i ], [ %10, %for.cond6.preheader.loopexit.i ]
+  %i.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %4, %for.cond6.preheader.loopexit.i ]
+  %cmp814.i = icmp slt i32 %i.0.lcssa.i, %5
   br i1 %cmp814.i, label %for.body9.lr.ph.i, label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit
 
 for.body9.lr.ph.i:                                ; preds = %for.cond6.preheader.i
   %fBCD10.i = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = zext nneg i32 %i.0.lcssa.i to i64
+  %6 = zext nneg i32 %i.0.lcssa.i to i64
   br label %for.body9.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %8 = load ptr, ptr %fBCD.i, align 8
-  %9 = getelementptr i8, ptr %8, i64 %indvars.iv.i
-  %arrayidx.i = getelementptr i8, ptr %9, i64 %4
-  %10 = load i8, ptr %arrayidx.i, align 1
-  store i8 %10, ptr %9, align 1
+  %7 = load ptr, ptr %fBCD.i, align 8
+  %8 = getelementptr i8, ptr %7, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr i8, ptr %8, i64 %3
+  %9 = load i8, ptr %arrayidx.i, align 1
+  store i8 %9, ptr %8, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = load i32, ptr %precision.i, align 8
-  %sub.i = add nsw i32 %11, %0
-  %12 = sext i32 %sub.i to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %12
+  %10 = load i32, ptr %precision.i, align 8
+  %sub.i = add nsw i32 %10, %0
+  %11 = sext i32 %sub.i to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %11
   br i1 %cmp.i, label %for.body.i, label %for.cond6.preheader.loopexit.i, !llvm.loop !7
 
 for.body9.i:                                      ; preds = %for.body9.i, %for.body9.lr.ph.i
-  %indvars.iv18.i = phi i64 [ %7, %for.body9.lr.ph.i ], [ %indvars.iv.next19.i, %for.body9.i ]
-  %13 = load ptr, ptr %fBCD10.i, align 8
-  %arrayidx13.i = getelementptr inbounds i8, ptr %13, i64 %indvars.iv18.i
+  %indvars.iv18.i = phi i64 [ %6, %for.body9.lr.ph.i ], [ %indvars.iv.next19.i, %for.body9.i ]
+  %12 = load ptr, ptr %fBCD10.i, align 8
+  %arrayidx13.i = getelementptr inbounds i8, ptr %12, i64 %indvars.iv18.i
   store i8 0, ptr %arrayidx13.i, align 1
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %14 = load i32, ptr %precision.i, align 8
-  %15 = trunc i64 %indvars.iv.next19.i to i32
-  %cmp8.i = icmp sgt i32 %14, %15
+  %13 = load i32, ptr %precision.i, align 8
+  %14 = trunc i64 %indvars.iv.next19.i to i32
+  %cmp8.i = icmp sgt i32 %13, %14
   br i1 %cmp8.i, label %for.body9.i, label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit, !llvm.loop !8
 
 if.else.i:                                        ; preds = %if.then
   %mul.i = shl nsw i32 %sub, 2
   %fBCD17.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %fBCD17.i, align 8
+  %15 = load i64, ptr %fBCD17.i, align 8
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %16, %sh_prom.i
+  %shr.i = lshr i64 %15, %sh_prom.i
   store i64 %shr.i, ptr %fBCD17.i, align 8
   %precision19.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %precision19.phi.trans.insert.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit
 
 _ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %for.body9.i, %for.cond6.preheader.i, %if.else.i
-  %17 = phi i32 [ %6, %for.cond6.preheader.i ], [ %.pre.i, %if.else.i ], [ %14, %for.body9.i ]
+  %16 = phi i32 [ %5, %for.cond6.preheader.i ], [ %.pre.i, %if.else.i ], [ %13, %for.body9.i ]
   %precision19.i = getelementptr inbounds i8, ptr %this, i64 16
-  %sub20.i = add nsw i32 %17, %0
+  %sub20.i = add nsw i32 %16, %0
   store i32 %sub20.i, ptr %precision19.i, align 8
   store i32 0, ptr %scale, align 4
   tail call void @_ZN6icu_756number4impl15DecimalQuantity7compactEv(ptr noundef nonnull align 8 dereferenceable(66) %this)
@@ -5158,81 +5133,80 @@ define void @_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi(ptr nocapture
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %for.cond.preheader
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %precision, align 8
-  %cmp12 = icmp sgt i32 %2, %numDigits
+  %1 = load i32, ptr %precision, align 8
+  %cmp12 = icmp sgt i32 %1, %numDigits
   br i1 %cmp12, label %for.body.lr.ph, label %for.cond6.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = sext i32 %numDigits to i64
+  %2 = sext i32 %numDigits to i64
   br label %for.body
 
 for.cond6.preheader.loopexit:                     ; preds = %for.body
-  %4 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc i64 %indvars.iv.next to i32
   br label %for.cond6.preheader
 
 for.cond6.preheader:                              ; preds = %for.cond6.preheader.loopexit, %for.cond.preheader
-  %5 = phi i32 [ %2, %for.cond.preheader ], [ %10, %for.cond6.preheader.loopexit ]
-  %i.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %4, %for.cond6.preheader.loopexit ]
-  %cmp814 = icmp slt i32 %i.0.lcssa, %5
+  %4 = phi i32 [ %1, %for.cond.preheader ], [ %9, %for.cond6.preheader.loopexit ]
+  %i.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %3, %for.cond6.preheader.loopexit ]
+  %cmp814 = icmp slt i32 %i.0.lcssa, %4
   br i1 %cmp814, label %for.body9.lr.ph, label %if.end
 
 for.body9.lr.ph:                                  ; preds = %for.cond6.preheader
   %fBCD10 = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = zext nneg i32 %i.0.lcssa to i64
+  %5 = zext nneg i32 %i.0.lcssa to i64
   br label %for.body9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %7 = load ptr, ptr %fBCD, align 8
-  %8 = getelementptr i8, ptr %7, i64 %indvars.iv
-  %arrayidx = getelementptr i8, ptr %8, i64 %3
-  %9 = load i8, ptr %arrayidx, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
-  store i8 %9, ptr %arrayidx5, align 1
+  %6 = load ptr, ptr %fBCD, align 8
+  %7 = getelementptr i8, ptr %6, i64 %indvars.iv
+  %arrayidx = getelementptr i8, ptr %7, i64 %2
+  %8 = load i8, ptr %arrayidx, align 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv
+  store i8 %8, ptr %arrayidx5, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %precision, align 8
-  %sub = sub nsw i32 %10, %numDigits
-  %11 = sext i32 %sub to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %11
+  %9 = load i32, ptr %precision, align 8
+  %sub = sub nsw i32 %9, %numDigits
+  %10 = sext i32 %sub to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.cond6.preheader.loopexit, !llvm.loop !7
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.body9
-  %indvars.iv18 = phi i64 [ %6, %for.body9.lr.ph ], [ %indvars.iv.next19, %for.body9 ]
-  %12 = load ptr, ptr %fBCD10, align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv18
+  %indvars.iv18 = phi i64 [ %5, %for.body9.lr.ph ], [ %indvars.iv.next19, %for.body9 ]
+  %11 = load ptr, ptr %fBCD10, align 8
+  %arrayidx13 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv18
   store i8 0, ptr %arrayidx13, align 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %13 = load i32, ptr %precision, align 8
-  %14 = trunc i64 %indvars.iv.next19 to i32
-  %cmp8 = icmp sgt i32 %13, %14
+  %12 = load i32, ptr %precision, align 8
+  %13 = trunc i64 %indvars.iv.next19 to i32
+  %cmp8 = icmp sgt i32 %12, %13
   br i1 %cmp8, label %for.body9, label %if.end, !llvm.loop !8
 
 if.else:                                          ; preds = %entry
   %mul = shl nsw i32 %numDigits, 2
   %fBCD17 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i64, ptr %fBCD17, align 8
+  %14 = load i64, ptr %fBCD17, align 8
   %sh_prom = zext nneg i32 %mul to i64
-  %shr = lshr i64 %15, %sh_prom
+  %shr = lshr i64 %14, %sh_prom
   store i64 %shr, ptr %fBCD17, align 8
   %precision19.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load i32, ptr %precision19.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.body9, %for.cond6.preheader, %if.else
-  %16 = phi i32 [ %5, %for.cond6.preheader ], [ %.pre, %if.else ], [ %13, %for.body9 ]
+  %15 = phi i32 [ %4, %for.cond6.preheader ], [ %.pre, %if.else ], [ %12, %for.body9 ]
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %17 = load i32, ptr %scale, align 4
-  %add18 = add nsw i32 %17, %numDigits
+  %16 = load i32, ptr %scale, align 4
+  %add18 = add nsw i32 %16, %numDigits
   store i32 %add18, ptr %scale, align 4
   %precision19 = getelementptr inbounds i8, ptr %this, i64 16
-  %sub20 = sub nsw i32 %16, %numDigits
+  %sub20 = sub nsw i32 %15, %numDigits
   store i32 %sub20, ptr %precision19, align 8
   ret void
 }
@@ -5264,46 +5238,45 @@ entry:
   %retval.0.i = select i1 %or.cond.i, i32 2147483647, i32 %spec.select.i
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %usingBytes.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i119 = icmp sgt i32 %retval.0.i, -1
+  %cmp.i121 = icmp sgt i32 %retval.0.i, -1
   %precision.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i32, ptr %precision.i, align 8
-  %cmp2.not.i = icmp sgt i32 %3, %retval.0.i
-  %or.cond6.i = select i1 %cmp.i119, i1 %cmp2.not.i, i1 false
+  %2 = load i32, ptr %precision.i, align 8
+  %cmp2.not.i = icmp sgt i32 %2, %retval.0.i
+  %or.cond6.i = select i1 %cmp.i121, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD.i, align 8
+  %3 = load ptr, ptr %fBCD.i, align 8
   %idxprom.i = zext nneg i32 %retval.0.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i
+  %4 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %entry
-  %or.cond.i121 = icmp ugt i32 %retval.0.i, 15
-  br i1 %or.cond.i121, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
+  %or.cond.i119 = icmp ugt i32 %retval.0.i, 15
+  br i1 %or.cond.i119, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
   %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load i64, ptr %fBCD9.i, align 8
+  %5 = load i64, ptr %fBCD9.i, align 8
   %mul.i = shl nuw nsw i32 %retval.0.i, 2
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %6, %sh_prom.i
-  %7 = trunc i64 %shr.i to i8
-  %conv.i = and i8 %7, 15
+  %shr.i = lshr i64 %5, %sh_prom.i
+  %6 = trunc i64 %shr.i to i8
+  %conv.i = and i8 %6, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i, %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i120 = phi i8 [ %5, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
+  %retval.0.i120 = phi i8 [ %4, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   %cmp = icmp slt i32 %retval.0.i, 1
   %isApproximate = getelementptr inbounds i8, ptr %this, i64 21
-  %8 = load i8, ptr %isApproximate, align 1
-  %tobool.not = icmp eq i8 %8, 0
+  %7 = load i8, ptr %isApproximate, align 1
+  %tobool.not = icmp eq i8 %7, 0
   %or.cond107 = select i1 %cmp, i1 %tobool.not, i1 false
   br i1 %or.cond107, label %land.lhs.true3, label %if.else
 
@@ -5318,46 +5291,46 @@ switch.early.test:                                ; preds = %land.lhs.true3
 
 if.else:                                          ; preds = %switch.early.test, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i32, ptr %precision, align 8
-  %cmp9 = icmp eq i32 %9, 0
+  %8 = load i32, ptr %precision, align 8
+  %cmp9 = icmp eq i32 %8, 0
   br i1 %cmp9, label %if.end298, label %if.else11
 
 if.else11:                                        ; preds = %if.else
   %sub.i122 = add i32 %retval.0.i, -1
   %cmp4.i124 = icmp eq i32 %retval.0.i, -2147483648
   %spec.select.i125 = select i1 %cmp4.i124, i32 -2147483648, i32 %sub.i122
-  br i1 %tobool.not.i, label %if.else.i138, label %if.then.i128
+  br i1 %tobool.i, label %if.then.i137, label %if.else.i128
 
-if.then.i128:                                     ; preds = %if.else11
-  %cmp.i129 = icmp sgt i32 %spec.select.i125, -1
-  %cmp2.not.i131 = icmp sgt i32 %9, %spec.select.i125
-  %or.cond6.i132 = and i1 %cmp.i129, %cmp2.not.i131
-  br i1 %or.cond6.i132, label %if.end.i134, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
+if.then.i137:                                     ; preds = %if.else11
+  %cmp.i138 = icmp sgt i32 %spec.select.i125, -1
+  %cmp2.not.i140 = icmp sgt i32 %8, %spec.select.i125
+  %or.cond6.i141 = and i1 %cmp.i138, %cmp2.not.i140
+  br i1 %or.cond6.i141, label %if.end.i142, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
 
-if.end.i134:                                      ; preds = %if.then.i128
-  %fBCD.i135 = getelementptr inbounds i8, ptr %this, i64 48
-  %10 = load ptr, ptr %fBCD.i135, align 8
-  %idxprom.i136 = zext nneg i32 %spec.select.i125 to i64
-  %arrayidx.i137 = getelementptr inbounds i8, ptr %10, i64 %idxprom.i136
-  %11 = load i8, ptr %arrayidx.i137, align 1
+if.end.i142:                                      ; preds = %if.then.i137
+  %fBCD.i143 = getelementptr inbounds i8, ptr %this, i64 48
+  %9 = load ptr, ptr %fBCD.i143, align 8
+  %idxprom.i144 = zext nneg i32 %spec.select.i125 to i64
+  %arrayidx.i145 = getelementptr inbounds i8, ptr %9, i64 %idxprom.i144
+  %10 = load i8, ptr %arrayidx.i145, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
 
-if.else.i138:                                     ; preds = %if.else11
-  %or.cond.i139 = icmp ugt i32 %spec.select.i125, 15
-  br i1 %or.cond.i139, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146, label %if.end8.i140
+if.else.i128:                                     ; preds = %if.else11
+  %or.cond.i129 = icmp ugt i32 %spec.select.i125, 15
+  br i1 %or.cond.i129, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146, label %if.end8.i130
 
-if.end8.i140:                                     ; preds = %if.else.i138
-  %fBCD9.i141 = getelementptr inbounds i8, ptr %this, i64 48
-  %12 = load i64, ptr %fBCD9.i141, align 8
-  %mul.i142 = shl nuw nsw i32 %spec.select.i125, 2
-  %sh_prom.i143 = zext nneg i32 %mul.i142 to i64
-  %shr.i144 = lshr i64 %12, %sh_prom.i143
-  %13 = trunc i64 %shr.i144 to i8
-  %conv.i145 = and i8 %13, 15
+if.end8.i130:                                     ; preds = %if.else.i128
+  %fBCD9.i131 = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i64, ptr %fBCD9.i131, align 8
+  %mul.i132 = shl nuw nsw i32 %spec.select.i125, 2
+  %sh_prom.i133 = zext nneg i32 %mul.i132 to i64
+  %shr.i134 = lshr i64 %11, %sh_prom.i133
+  %12 = trunc i64 %shr.i134 to i8
+  %conv.i135 = and i8 %12, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146: ; preds = %if.then.i128, %if.end.i134, %if.else.i138, %if.end8.i140
-  %retval.0.i133 = phi i8 [ %11, %if.end.i134 ], [ %conv.i145, %if.end8.i140 ], [ 0, %if.then.i128 ], [ 0, %if.else.i138 ]
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146: ; preds = %if.then.i137, %if.end.i142, %if.else.i128, %if.end8.i130
+  %retval.0.i136 = phi i8 [ %10, %if.end.i142 ], [ %conv.i135, %if.end8.i130 ], [ 0, %if.then.i137 ], [ 0, %if.else.i128 ]
   br i1 %tobool.not, label %if.then16, label %if.else58
 
 if.then16:                                        ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
@@ -5383,11 +5356,11 @@ if.else32:                                        ; preds = %if.else28
   br label %cond.true
 
 if.else39:                                        ; preds = %switch.early.test108, %switch.early.test108, %if.then16
-  %cmp41 = icmp slt i8 %retval.0.i133, 5
+  %cmp41 = icmp slt i8 %retval.0.i136, 5
   br i1 %cmp41, label %if.end224, label %if.else43
 
 if.else43:                                        ; preds = %if.else39
-  %cmp45.not = icmp eq i8 %retval.0.i133, 5
+  %cmp45.not = icmp eq i8 %retval.0.i136, 5
   br i1 %cmp45.not, label %if.else47, label %if.end224
 
 if.else47:                                        ; preds = %if.else43
@@ -5398,45 +5371,45 @@ if.else47:                                        ; preds = %if.else43
   br i1 %cmp49424, label %for.body.lr.ph, label %if.end224
 
 for.body.lr.ph:                                   ; preds = %if.else47
-  %fBCD.i160 = getelementptr inbounds i8, ptr %this, i64 48
-  %14 = load ptr, ptr %fBCD.i160, align 8
-  %.cast444 = ptrtoint ptr %14 to i64
-  %15 = zext nneg i32 %spec.select to i64
-  br i1 %tobool.not.i, label %for.body.us, label %for.body.preheader
+  %fBCD9.i156 = getelementptr inbounds i8, ptr %this, i64 48
+  %13 = load i64, ptr %fBCD9.i156, align 8
+  %.cast444 = inttoptr i64 %13 to ptr
+  %14 = zext nneg i32 %spec.select to i64
+  br i1 %tobool.i, label %for.body.us.preheader, label %for.body
 
-for.body.preheader:                               ; preds = %for.body.lr.ph
-  %16 = sext i32 %9 to i64
-  br label %for.body
+for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %15 = sext i32 %8 to i64
+  br label %for.body.us
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv470 = phi i64 [ %indvars.iv.next471, %for.inc.us ], [ %15, %for.body.lr.ph ]
-  %or.cond.i164.us = icmp ugt i64 %indvars.iv470, 15
-  br i1 %or.cond.i164.us, label %for.inc.us, label %if.end8.i165.us
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
+  %indvars.iv471 = phi i64 [ %14, %for.body.us.preheader ], [ %indvars.iv.next472, %for.inc.us ]
+  %cmp2.not.i165.us = icmp slt i64 %indvars.iv471, %15
+  br i1 %cmp2.not.i165.us, label %if.end.i167.us, label %for.inc.us
 
-if.end8.i165.us:                                  ; preds = %for.body.us
-  %17 = shl nuw nsw i64 %indvars.iv470, 2
-  %18 = shl nuw i64 15, %17
-  %19 = and i64 %18, %.cast444
-  %cmp52.not.us = icmp eq i64 %19, 0
+if.end.i167.us:                                   ; preds = %for.body.us
+  %arrayidx.i170.us = getelementptr inbounds i8, ptr %.cast444, i64 %indvars.iv471
+  %16 = load i8, ptr %arrayidx.i170.us, align 1
+  %cmp52.not.us = icmp eq i8 %16, 0
   br i1 %cmp52.not.us, label %for.inc.us, label %if.end224
 
-for.inc.us:                                       ; preds = %if.end8.i165.us, %for.body.us
-  %indvars.iv.next471 = add nsw i64 %indvars.iv470, -1
-  %cmp49.us = icmp sgt i64 %indvars.iv470, 0
+for.inc.us:                                       ; preds = %if.end.i167.us, %for.body.us
+  %indvars.iv.next472 = add nsw i64 %indvars.iv471, -1
+  %cmp49.us = icmp sgt i64 %indvars.iv471, 0
   br i1 %cmp49.us, label %for.body.us, label %if.end224, !llvm.loop !30
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %15, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp2.not.i156 = icmp slt i64 %indvars.iv, %16
-  br i1 %cmp2.not.i156, label %if.end.i159, label %for.inc
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %14, %for.body.lr.ph ]
+  %or.cond.i154 = icmp ugt i64 %indvars.iv, 15
+  br i1 %or.cond.i154, label %for.inc, label %if.end8.i155
 
-if.end.i159:                                      ; preds = %for.body
-  %arrayidx.i162 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
-  %20 = load i8, ptr %arrayidx.i162, align 1
-  %cmp52.not = icmp eq i8 %20, 0
+if.end8.i155:                                     ; preds = %for.body
+  %17 = shl nuw nsw i64 %indvars.iv, 2
+  %18 = shl nuw i64 15, %17
+  %19 = and i64 %13, %18
+  %cmp52.not = icmp eq i64 %19, 0
   br i1 %cmp52.not, label %for.inc, label %if.end224
 
-for.inc:                                          ; preds = %for.body, %if.end.i159
+for.inc:                                          ; preds = %for.body, %if.end8.i155
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp49 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp49, label %for.body, label %if.end224, !llvm.loop !30
@@ -5445,9 +5418,9 @@ if.else58:                                        ; preds = %_ZNK6icu_756number4
   %sub.i172 = add i32 %retval.0.i, -2
   %cmp4.i174 = icmp slt i32 %retval.0.i, -2147483646
   %spec.select.i175 = select i1 %cmp4.i174, i32 -2147483648, i32 %sub.i172
-  %sub = add nsw i32 %9, -14
+  %sub = add nsw i32 %8, -14
   %call62 = tail call i32 @uprv_max_75(i32 noundef 0, i32 noundef %sub)
-  switch i8 %retval.0.i133, label %if.else154 [
+  switch i8 %retval.0.i136, label %if.else154 [
     i8 0, label %land.lhs.true65
     i8 4, label %land.lhs.true88
     i8 5, label %land.lhs.true111
@@ -5470,48 +5443,47 @@ if.then73:                                        ; preds = %switch.early.test10
   br i1 %cmp75.not417, label %if.end188, label %for.body76.lr.ph
 
 for.body76.lr.ph:                                 ; preds = %if.then73
-  %21 = load i8, ptr %usingBytes.i, align 8
-  %22 = and i8 %21, 1
-  %tobool.not.i177 = icmp eq i8 %22, 0
-  %23 = load i32, ptr %precision, align 8
-  %fBCD.i185 = getelementptr inbounds i8, ptr %this, i64 48
-  %24 = load ptr, ptr %fBCD.i185, align 8
-  %.cast442 = ptrtoint ptr %24 to i64
-  br i1 %tobool.not.i177, label %for.body76.us, label %for.body76
+  %20 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i177 = trunc i8 %20 to i1
+  %fBCD9.i181 = getelementptr inbounds i8, ptr %this, i64 48
+  %21 = load i64, ptr %fBCD9.i181, align 8
+  %22 = load i32, ptr %precision, align 8
+  %.cast442 = inttoptr i64 %21 to ptr
+  br i1 %tobool.i177, label %for.body76.us, label %for.body76
 
 for.body76.us:                                    ; preds = %for.body76.lr.ph, %for.inc82.us
   %p59.0418.us = phi i32 [ %dec83.us, %for.inc82.us ], [ %spec.select.i175, %for.body76.lr.ph ]
-  %or.cond.i189.us = icmp ugt i32 %p59.0418.us, 15
-  br i1 %or.cond.i189.us, label %for.inc82.us, label %if.end8.i190.us
+  %cmp.i188.us = icmp sgt i32 %p59.0418.us, -1
+  %cmp2.not.i190.us = icmp sgt i32 %22, %p59.0418.us
+  %or.cond6.i191.us = select i1 %cmp.i188.us, i1 %cmp2.not.i190.us, i1 false
+  br i1 %or.cond6.i191.us, label %if.end.i192.us, label %for.inc82.us
 
-if.end8.i190.us:                                  ; preds = %for.body76.us
-  %mul.i192.us = shl nuw nsw i32 %p59.0418.us, 2
-  %sh_prom.i193.us = zext nneg i32 %mul.i192.us to i64
-  %25 = shl nuw i64 15, %sh_prom.i193.us
-  %26 = and i64 %25, %.cast442
-  %cmp79.not.us = icmp eq i64 %26, 0
+if.end.i192.us:                                   ; preds = %for.body76.us
+  %idxprom.i194.us = zext nneg i32 %p59.0418.us to i64
+  %arrayidx.i195.us = getelementptr inbounds i8, ptr %.cast442, i64 %idxprom.i194.us
+  %23 = load i8, ptr %arrayidx.i195.us, align 1
+  %cmp79.not.us = icmp eq i8 %23, 0
   br i1 %cmp79.not.us, label %for.inc82.us, label %if.end188
 
-for.inc82.us:                                     ; preds = %if.end8.i190.us, %for.body76.us
+for.inc82.us:                                     ; preds = %if.end.i192.us, %for.body76.us
   %dec83.us = add nsw i32 %p59.0418.us, -1
   %cmp75.not.us.not = icmp sgt i32 %p59.0418.us, %call62
   br i1 %cmp75.not.us.not, label %for.body76.us, label %if.end188, !llvm.loop !31
 
 for.body76:                                       ; preds = %for.body76.lr.ph, %for.inc82
   %p59.0418 = phi i32 [ %dec83, %for.inc82 ], [ %spec.select.i175, %for.body76.lr.ph ]
-  %cmp.i179 = icmp sgt i32 %p59.0418, -1
-  %cmp2.not.i181 = icmp sgt i32 %23, %p59.0418
-  %or.cond6.i182 = select i1 %cmp.i179, i1 %cmp2.not.i181, i1 false
-  br i1 %or.cond6.i182, label %if.end.i184, label %for.inc82
+  %or.cond.i179 = icmp ugt i32 %p59.0418, 15
+  br i1 %or.cond.i179, label %for.inc82, label %if.end8.i180
 
-if.end.i184:                                      ; preds = %for.body76
-  %idxprom.i186 = zext nneg i32 %p59.0418 to i64
-  %arrayidx.i187 = getelementptr inbounds i8, ptr %24, i64 %idxprom.i186
-  %27 = load i8, ptr %arrayidx.i187, align 1
-  %cmp79.not = icmp eq i8 %27, 0
+if.end8.i180:                                     ; preds = %for.body76
+  %mul.i182 = shl nuw nsw i32 %p59.0418, 2
+  %sh_prom.i183 = zext nneg i32 %mul.i182 to i64
+  %24 = shl nuw i64 15, %sh_prom.i183
+  %25 = and i64 %21, %24
+  %cmp79.not = icmp eq i64 %25, 0
   br i1 %cmp79.not, label %for.inc82, label %if.end188
 
-for.inc82:                                        ; preds = %for.body76, %if.end.i184
+for.inc82:                                        ; preds = %for.body76, %if.end8.i180
   %dec83 = add nsw i32 %p59.0418, -1
   %cmp75.not.not = icmp sgt i32 %p59.0418, %call62
   br i1 %cmp75.not.not, label %for.body76, label %if.end188, !llvm.loop !31
@@ -5530,53 +5502,52 @@ if.then96:                                        ; preds = %switch.early.test11
   br i1 %cmp98.not401, label %if.end188, label %for.body99.lr.ph
 
 for.body99.lr.ph:                                 ; preds = %if.then96
-  %28 = load i8, ptr %usingBytes.i, align 8
-  %29 = and i8 %28, 1
-  %tobool.not.i198 = icmp eq i8 %29, 0
-  %fBCD.i206 = getelementptr inbounds i8, ptr %this, i64 48
-  %30 = load ptr, ptr %fBCD.i206, align 8
-  %.cast440 = ptrtoint ptr %30 to i64
-  br i1 %tobool.not.i198, label %for.body99.us, label %for.body99.preheader
+  %26 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i198 = trunc i8 %26 to i1
+  %fBCD9.i202 = getelementptr inbounds i8, ptr %this, i64 48
+  %27 = load i64, ptr %fBCD9.i202, align 8
+  %.cast440 = inttoptr i64 %27 to ptr
+  br i1 %tobool.i198, label %for.body99.us.preheader, label %for.body99
 
-for.body99.preheader:                             ; preds = %for.body99.lr.ph
-  %31 = load i32, ptr %precision, align 8
-  %cmp2.not.i202 = icmp slt i32 %spec.select.i175, %31
-  br label %for.body99
+for.body99.us.preheader:                          ; preds = %for.body99.lr.ph
+  %28 = load i32, ptr %precision, align 8
+  %cmp2.not.i211.us = icmp slt i32 %spec.select.i175, %28
+  br label %for.body99.us
 
-for.body99.us:                                    ; preds = %for.body99.lr.ph, %for.cond97.us
-  %p59.1402.us = phi i32 [ %dec106.us, %for.cond97.us ], [ %spec.select.i175, %for.body99.lr.ph ]
-  %or.cond.i210.us = icmp ugt i32 %p59.1402.us, 15
-  br i1 %or.cond.i210.us, label %if.end188, label %if.end8.i211.us
+for.body99.us:                                    ; preds = %for.body99.us.preheader, %for.cond97.us
+  %p59.1402.us = phi i32 [ %dec106.us, %for.cond97.us ], [ %spec.select.i175, %for.body99.us.preheader ]
+  %cmp.i209.us = icmp sgt i32 %p59.1402.us, -1
+  %or.cond6.i212.us = select i1 %cmp.i209.us, i1 %cmp2.not.i211.us, i1 false
+  br i1 %or.cond6.i212.us, label %if.end.i213.us, label %if.end188
 
-for.cond97.us:                                    ; preds = %if.end8.i211.us
+for.cond97.us:                                    ; preds = %if.end.i213.us
   %dec106.us = add nsw i32 %p59.1402.us, -1
   %cmp98.not.us.not = icmp sgt i32 %p59.1402.us, %call62
   br i1 %cmp98.not.us.not, label %for.body99.us, label %if.end188, !llvm.loop !32
 
-if.end8.i211.us:                                  ; preds = %for.body99.us
-  %mul.i213.us = shl nuw nsw i32 %p59.1402.us, 2
-  %sh_prom.i214.us = zext nneg i32 %mul.i213.us to i64
-  %shr.i215.us = lshr i64 %.cast440, %sh_prom.i214.us
-  %conv.i216.us441 = and i64 %shr.i215.us, 15
-  %cmp102.not.us = icmp eq i64 %conv.i216.us441, 9
+if.end.i213.us:                                   ; preds = %for.body99.us
+  %idxprom.i215.us = zext nneg i32 %p59.1402.us to i64
+  %arrayidx.i216.us = getelementptr inbounds i8, ptr %.cast440, i64 %idxprom.i215.us
+  %29 = load i8, ptr %arrayidx.i216.us, align 1
+  %cmp102.not.us = icmp eq i8 %29, 9
   br i1 %cmp102.not.us, label %for.cond97.us, label %if.end188
 
-for.cond97:                                       ; preds = %if.end.i205
+for.cond97:                                       ; preds = %if.end8.i201
   %dec106 = add nsw i32 %p59.1402, -1
   %cmp98.not.not = icmp sgt i32 %p59.1402, %call62
   br i1 %cmp98.not.not, label %for.body99, label %if.end188, !llvm.loop !32
 
-for.body99:                                       ; preds = %for.body99.preheader, %for.cond97
-  %p59.1402 = phi i32 [ %dec106, %for.cond97 ], [ %spec.select.i175, %for.body99.preheader ]
-  %cmp.i200 = icmp sgt i32 %p59.1402, -1
-  %or.cond6.i203 = select i1 %cmp.i200, i1 %cmp2.not.i202, i1 false
-  br i1 %or.cond6.i203, label %if.end.i205, label %if.end188
+for.body99:                                       ; preds = %for.body99.lr.ph, %for.cond97
+  %p59.1402 = phi i32 [ %dec106, %for.cond97 ], [ %spec.select.i175, %for.body99.lr.ph ]
+  %or.cond.i200 = icmp ugt i32 %p59.1402, 15
+  br i1 %or.cond.i200, label %if.end188, label %if.end8.i201
 
-if.end.i205:                                      ; preds = %for.body99
-  %idxprom.i207 = zext nneg i32 %p59.1402 to i64
-  %arrayidx.i208 = getelementptr inbounds i8, ptr %30, i64 %idxprom.i207
-  %32 = load i8, ptr %arrayidx.i208, align 1
-  %cmp102.not = icmp eq i8 %32, 9
+if.end8.i201:                                     ; preds = %for.body99
+  %mul.i203 = shl nuw nsw i32 %p59.1402, 2
+  %sh_prom.i204 = zext nneg i32 %mul.i203 to i64
+  %shr.i205 = lshr i64 %27, %sh_prom.i204
+  %conv.i206441 = and i64 %shr.i205, 15
+  %cmp102.not = icmp eq i64 %conv.i206441, 9
   br i1 %cmp102.not, label %for.cond97, label %if.end188
 
 land.lhs.true111:                                 ; preds = %if.else58
@@ -5593,48 +5564,47 @@ if.then119:                                       ; preds = %switch.early.test11
   br i1 %cmp121.not390, label %if.end188, label %for.body122.lr.ph
 
 for.body122.lr.ph:                                ; preds = %if.then119
-  %33 = load i8, ptr %usingBytes.i, align 8
-  %34 = and i8 %33, 1
-  %tobool.not.i219 = icmp eq i8 %34, 0
-  %35 = load i32, ptr %precision, align 8
-  %fBCD.i227 = getelementptr inbounds i8, ptr %this, i64 48
-  %36 = load ptr, ptr %fBCD.i227, align 8
-  %.cast438 = ptrtoint ptr %36 to i64
-  br i1 %tobool.not.i219, label %for.body122.us, label %for.body122
+  %30 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i219 = trunc i8 %30 to i1
+  %fBCD9.i223 = getelementptr inbounds i8, ptr %this, i64 48
+  %31 = load i64, ptr %fBCD9.i223, align 8
+  %32 = load i32, ptr %precision, align 8
+  %.cast438 = inttoptr i64 %31 to ptr
+  br i1 %tobool.i219, label %for.body122.us, label %for.body122
 
 for.body122.us:                                   ; preds = %for.body122.lr.ph, %for.inc128.us
   %p59.2391.us = phi i32 [ %dec129.us, %for.inc128.us ], [ %spec.select.i175, %for.body122.lr.ph ]
-  %or.cond.i231.us = icmp ugt i32 %p59.2391.us, 15
-  br i1 %or.cond.i231.us, label %for.inc128.us, label %if.end8.i232.us
+  %cmp.i230.us = icmp sgt i32 %p59.2391.us, -1
+  %cmp2.not.i232.us = icmp sgt i32 %32, %p59.2391.us
+  %or.cond6.i233.us = select i1 %cmp.i230.us, i1 %cmp2.not.i232.us, i1 false
+  br i1 %or.cond6.i233.us, label %if.end.i234.us, label %for.inc128.us
 
-if.end8.i232.us:                                  ; preds = %for.body122.us
-  %mul.i234.us = shl nuw nsw i32 %p59.2391.us, 2
-  %sh_prom.i235.us = zext nneg i32 %mul.i234.us to i64
-  %37 = shl nuw i64 15, %sh_prom.i235.us
-  %38 = and i64 %37, %.cast438
-  %cmp125.not.us = icmp eq i64 %38, 0
+if.end.i234.us:                                   ; preds = %for.body122.us
+  %idxprom.i236.us = zext nneg i32 %p59.2391.us to i64
+  %arrayidx.i237.us = getelementptr inbounds i8, ptr %.cast438, i64 %idxprom.i236.us
+  %33 = load i8, ptr %arrayidx.i237.us, align 1
+  %cmp125.not.us = icmp eq i8 %33, 0
   br i1 %cmp125.not.us, label %for.inc128.us, label %if.end188
 
-for.inc128.us:                                    ; preds = %if.end8.i232.us, %for.body122.us
+for.inc128.us:                                    ; preds = %if.end.i234.us, %for.body122.us
   %dec129.us = add nsw i32 %p59.2391.us, -1
   %cmp121.not.us.not = icmp sgt i32 %p59.2391.us, %call62
   br i1 %cmp121.not.us.not, label %for.body122.us, label %if.end188, !llvm.loop !33
 
 for.body122:                                      ; preds = %for.body122.lr.ph, %for.inc128
   %p59.2391 = phi i32 [ %dec129, %for.inc128 ], [ %spec.select.i175, %for.body122.lr.ph ]
-  %cmp.i221 = icmp sgt i32 %p59.2391, -1
-  %cmp2.not.i223 = icmp sgt i32 %35, %p59.2391
-  %or.cond6.i224 = select i1 %cmp.i221, i1 %cmp2.not.i223, i1 false
-  br i1 %or.cond6.i224, label %if.end.i226, label %for.inc128
+  %or.cond.i221 = icmp ugt i32 %p59.2391, 15
+  br i1 %or.cond.i221, label %for.inc128, label %if.end8.i222
 
-if.end.i226:                                      ; preds = %for.body122
-  %idxprom.i228 = zext nneg i32 %p59.2391 to i64
-  %arrayidx.i229 = getelementptr inbounds i8, ptr %36, i64 %idxprom.i228
-  %39 = load i8, ptr %arrayidx.i229, align 1
-  %cmp125.not = icmp eq i8 %39, 0
+if.end8.i222:                                     ; preds = %for.body122
+  %mul.i224 = shl nuw nsw i32 %p59.2391, 2
+  %sh_prom.i225 = zext nneg i32 %mul.i224 to i64
+  %34 = shl nuw i64 15, %sh_prom.i225
+  %35 = and i64 %31, %34
+  %cmp125.not = icmp eq i64 %35, 0
   br i1 %cmp125.not, label %for.inc128, label %if.end188
 
-for.inc128:                                       ; preds = %for.body122, %if.end.i226
+for.inc128:                                       ; preds = %for.body122, %if.end8.i222
   %dec129 = add nsw i32 %p59.2391, -1
   %cmp121.not.not = icmp sgt i32 %p59.2391, %call62
   br i1 %cmp121.not.not, label %for.body122, label %if.end188, !llvm.loop !33
@@ -5655,53 +5625,52 @@ if.then142:                                       ; preds = %switch.early.test11
   br i1 %cmp144.not383, label %if.end188, label %for.body145.lr.ph
 
 for.body145.lr.ph:                                ; preds = %if.then142
-  %40 = load i8, ptr %usingBytes.i, align 8
-  %41 = and i8 %40, 1
-  %tobool.not.i240 = icmp eq i8 %41, 0
-  %fBCD.i248 = getelementptr inbounds i8, ptr %this, i64 48
-  %42 = load ptr, ptr %fBCD.i248, align 8
-  %.cast = ptrtoint ptr %42 to i64
-  br i1 %tobool.not.i240, label %for.body145.us, label %for.body145.preheader
+  %36 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i240 = trunc i8 %36 to i1
+  %fBCD9.i244 = getelementptr inbounds i8, ptr %this, i64 48
+  %37 = load i64, ptr %fBCD9.i244, align 8
+  %.cast = inttoptr i64 %37 to ptr
+  br i1 %tobool.i240, label %for.body145.us.preheader, label %for.body145
 
-for.body145.preheader:                            ; preds = %for.body145.lr.ph
-  %43 = load i32, ptr %precision, align 8
-  %cmp2.not.i244 = icmp slt i32 %spec.select.i175, %43
-  br label %for.body145
+for.body145.us.preheader:                         ; preds = %for.body145.lr.ph
+  %38 = load i32, ptr %precision, align 8
+  %cmp2.not.i253.us = icmp slt i32 %spec.select.i175, %38
+  br label %for.body145.us
 
-for.body145.us:                                   ; preds = %for.body145.lr.ph, %for.cond143.us
-  %p59.3384.us = phi i32 [ %dec152.us, %for.cond143.us ], [ %spec.select.i175, %for.body145.lr.ph ]
-  %or.cond.i252.us = icmp ugt i32 %p59.3384.us, 15
-  br i1 %or.cond.i252.us, label %if.end188, label %if.end8.i253.us
+for.body145.us:                                   ; preds = %for.body145.us.preheader, %for.cond143.us
+  %p59.3384.us = phi i32 [ %dec152.us, %for.cond143.us ], [ %spec.select.i175, %for.body145.us.preheader ]
+  %cmp.i251.us = icmp sgt i32 %p59.3384.us, -1
+  %or.cond6.i254.us = select i1 %cmp.i251.us, i1 %cmp2.not.i253.us, i1 false
+  br i1 %or.cond6.i254.us, label %if.end.i255.us, label %if.end188
 
-for.cond143.us:                                   ; preds = %if.end8.i253.us
+for.cond143.us:                                   ; preds = %if.end.i255.us
   %dec152.us = add nsw i32 %p59.3384.us, -1
   %cmp144.not.us.not = icmp sgt i32 %p59.3384.us, %call62
   br i1 %cmp144.not.us.not, label %for.body145.us, label %if.end188, !llvm.loop !34
 
-if.end8.i253.us:                                  ; preds = %for.body145.us
-  %mul.i255.us = shl nuw nsw i32 %p59.3384.us, 2
-  %sh_prom.i256.us = zext nneg i32 %mul.i255.us to i64
-  %shr.i257.us = lshr i64 %.cast, %sh_prom.i256.us
-  %conv.i258.us437 = and i64 %shr.i257.us, 15
-  %cmp148.not.us = icmp eq i64 %conv.i258.us437, 9
+if.end.i255.us:                                   ; preds = %for.body145.us
+  %idxprom.i257.us = zext nneg i32 %p59.3384.us to i64
+  %arrayidx.i258.us = getelementptr inbounds i8, ptr %.cast, i64 %idxprom.i257.us
+  %39 = load i8, ptr %arrayidx.i258.us, align 1
+  %cmp148.not.us = icmp eq i8 %39, 9
   br i1 %cmp148.not.us, label %for.cond143.us, label %if.end188
 
-for.cond143:                                      ; preds = %if.end.i247
+for.cond143:                                      ; preds = %if.end8.i243
   %dec152 = add nsw i32 %p59.3384, -1
   %cmp144.not.not = icmp sgt i32 %p59.3384, %call62
   br i1 %cmp144.not.not, label %for.body145, label %if.end188, !llvm.loop !34
 
-for.body145:                                      ; preds = %for.body145.preheader, %for.cond143
-  %p59.3384 = phi i32 [ %dec152, %for.cond143 ], [ %spec.select.i175, %for.body145.preheader ]
-  %cmp.i242 = icmp sgt i32 %p59.3384, -1
-  %or.cond6.i245 = select i1 %cmp.i242, i1 %cmp2.not.i244, i1 false
-  br i1 %or.cond6.i245, label %if.end.i247, label %if.end188
+for.body145:                                      ; preds = %for.body145.lr.ph, %for.cond143
+  %p59.3384 = phi i32 [ %dec152, %for.cond143 ], [ %spec.select.i175, %for.body145.lr.ph ]
+  %or.cond.i242 = icmp ugt i32 %p59.3384, 15
+  br i1 %or.cond.i242, label %if.end188, label %if.end8.i243
 
-if.end.i247:                                      ; preds = %for.body145
-  %idxprom.i249 = zext nneg i32 %p59.3384 to i64
-  %arrayidx.i250 = getelementptr inbounds i8, ptr %42, i64 %idxprom.i249
-  %44 = load i8, ptr %arrayidx.i250, align 1
-  %cmp148.not = icmp eq i8 %44, 9
+if.end8.i243:                                     ; preds = %for.body145
+  %mul.i245 = shl nuw nsw i32 %p59.3384, 2
+  %sh_prom.i246 = zext nneg i32 %mul.i245 to i64
+  %shr.i247 = lshr i64 %37, %sh_prom.i246
+  %conv.i248437 = and i64 %shr.i247, 15
+  %cmp148.not = icmp eq i64 %conv.i248437, 9
   br i1 %cmp148.not, label %for.cond143, label %if.end188
 
 if.else154:                                       ; preds = %if.else58
@@ -5727,17 +5696,17 @@ if.else170:                                       ; preds = %if.else166
   br label %if.end188
 
 if.else178:                                       ; preds = %switch.early.test112, %switch.early.test112, %switch.early.test109, %switch.early.test109, %switch.early.test113, %switch.early.test113, %if.else154
-  %cmp180 = icmp slt i8 %retval.0.i133, 5
+  %cmp180 = icmp slt i8 %retval.0.i136, 5
   %.115 = select i1 %cmp180, i32 1, i32 3
   br label %if.end188
 
-if.end188:                                        ; preds = %for.cond143, %if.end.i247, %for.body145, %for.cond143.us, %if.end8.i253.us, %for.body145.us, %for.inc128, %if.end.i226, %for.inc128.us, %if.end8.i232.us, %for.cond97, %if.end.i205, %for.body99, %for.cond97.us, %if.end8.i211.us, %for.body99.us, %for.inc82, %if.end.i184, %for.inc82.us, %if.end8.i190.us, %if.then142, %if.then119, %if.then96, %if.then73, %if.else178, %if.else170, %if.else166, %if.then162
-  %cmp198 = phi i1 [ false, %if.then162 ], [ false, %if.else166 ], [ false, %if.else170 ], [ false, %if.else178 ], [ false, %if.then73 ], [ true, %if.then96 ], [ true, %if.then119 ], [ false, %if.then142 ], [ false, %if.end8.i190.us ], [ false, %for.inc82.us ], [ false, %if.end.i184 ], [ false, %for.inc82 ], [ true, %for.cond97.us ], [ false, %if.end8.i211.us ], [ false, %for.body99.us ], [ true, %for.cond97 ], [ false, %if.end.i205 ], [ false, %for.body99 ], [ true, %for.inc128.us ], [ false, %if.end8.i232.us ], [ true, %for.inc128 ], [ false, %if.end.i226 ], [ false, %for.body145.us ], [ false, %if.end8.i253.us ], [ false, %for.cond143.us ], [ false, %for.body145 ], [ false, %if.end.i247 ], [ false, %for.cond143 ]
-  %cmp202.not = phi i1 [ true, %if.then162 ], [ true, %if.else166 ], [ true, %if.else170 ], [ true, %if.else178 ], [ false, %if.then73 ], [ true, %if.then96 ], [ true, %if.then119 ], [ false, %if.then142 ], [ false, %for.inc82.us ], [ true, %if.end8.i190.us ], [ false, %for.inc82 ], [ true, %if.end.i184 ], [ true, %for.body99.us ], [ true, %if.end8.i211.us ], [ true, %for.cond97.us ], [ true, %for.body99 ], [ true, %if.end.i205 ], [ true, %for.cond97 ], [ true, %if.end8.i232.us ], [ true, %for.inc128.us ], [ true, %if.end.i226 ], [ true, %for.inc128 ], [ false, %for.cond143.us ], [ true, %if.end8.i253.us ], [ true, %for.body145.us ], [ false, %for.cond143 ], [ true, %if.end.i247 ], [ true, %for.body145 ]
-  %cmp221 = phi i32 [ 1, %if.then162 ], [ 3, %if.else166 ], [ %.114, %if.else170 ], [ %.115, %if.else178 ], [ 1, %if.then73 ], [ 2, %if.then96 ], [ 2, %if.then119 ], [ 3, %if.then142 ], [ 1, %if.end8.i190.us ], [ 1, %for.inc82.us ], [ 1, %if.end.i184 ], [ 1, %for.inc82 ], [ 2, %for.cond97.us ], [ 1, %if.end8.i211.us ], [ 1, %for.body99.us ], [ 2, %for.cond97 ], [ 1, %if.end.i205 ], [ 1, %for.body99 ], [ 2, %for.inc128.us ], [ 3, %if.end8.i232.us ], [ 2, %for.inc128 ], [ 3, %if.end.i226 ], [ 3, %for.body145.us ], [ 3, %if.end8.i253.us ], [ 3, %for.cond143.us ], [ 3, %for.body145 ], [ 3, %if.end.i247 ], [ 3, %for.cond143 ]
+if.end188:                                        ; preds = %for.cond143, %if.end8.i243, %for.body145, %for.cond143.us, %if.end.i255.us, %for.body145.us, %for.inc128, %if.end8.i222, %for.inc128.us, %if.end.i234.us, %for.cond97, %if.end8.i201, %for.body99, %for.cond97.us, %if.end.i213.us, %for.body99.us, %for.inc82, %if.end8.i180, %for.inc82.us, %if.end.i192.us, %if.then142, %if.then119, %if.then96, %if.then73, %if.else178, %if.else170, %if.else166, %if.then162
+  %cmp198 = phi i1 [ false, %if.then162 ], [ false, %if.else166 ], [ false, %if.else170 ], [ false, %if.else178 ], [ false, %if.then73 ], [ true, %if.then96 ], [ true, %if.then119 ], [ false, %if.then142 ], [ false, %if.end.i192.us ], [ false, %for.inc82.us ], [ false, %if.end8.i180 ], [ false, %for.inc82 ], [ true, %for.cond97.us ], [ false, %if.end.i213.us ], [ false, %for.body99.us ], [ true, %for.cond97 ], [ false, %if.end8.i201 ], [ false, %for.body99 ], [ true, %for.inc128.us ], [ false, %if.end.i234.us ], [ true, %for.inc128 ], [ false, %if.end8.i222 ], [ false, %for.body145.us ], [ false, %if.end.i255.us ], [ false, %for.cond143.us ], [ false, %for.body145 ], [ false, %if.end8.i243 ], [ false, %for.cond143 ]
+  %cmp202.not = phi i1 [ true, %if.then162 ], [ true, %if.else166 ], [ true, %if.else170 ], [ true, %if.else178 ], [ false, %if.then73 ], [ true, %if.then96 ], [ true, %if.then119 ], [ false, %if.then142 ], [ false, %for.inc82.us ], [ true, %if.end.i192.us ], [ false, %for.inc82 ], [ true, %if.end8.i180 ], [ true, %for.body99.us ], [ true, %if.end.i213.us ], [ true, %for.cond97.us ], [ true, %for.body99 ], [ true, %if.end8.i201 ], [ true, %for.cond97 ], [ true, %if.end.i234.us ], [ true, %for.inc128.us ], [ true, %if.end8.i222 ], [ true, %for.inc128 ], [ false, %for.cond143.us ], [ true, %if.end.i255.us ], [ true, %for.body145.us ], [ false, %for.cond143 ], [ true, %if.end8.i243 ], [ true, %for.body145 ]
+  %cmp221 = phi i32 [ 1, %if.then162 ], [ 3, %if.else166 ], [ %.114, %if.else170 ], [ %.115, %if.else178 ], [ 1, %if.then73 ], [ 2, %if.then96 ], [ 2, %if.then119 ], [ 3, %if.then142 ], [ 1, %if.end.i192.us ], [ 1, %for.inc82.us ], [ 1, %if.end8.i180 ], [ 1, %for.inc82 ], [ 2, %for.cond97.us ], [ 1, %if.end.i213.us ], [ 1, %for.body99.us ], [ 2, %for.cond97 ], [ 1, %if.end8.i201 ], [ 1, %for.body99 ], [ 2, %for.inc128.us ], [ 3, %if.end.i234.us ], [ 2, %for.inc128 ], [ 3, %if.end8.i222 ], [ 3, %for.body145.us ], [ 3, %if.end.i255.us ], [ 3, %for.cond143.us ], [ 3, %for.body145 ], [ 3, %if.end8.i243 ], [ 3, %for.cond143 ]
   %switch.i = icmp ugt i32 %roundingMode, 3
-  %45 = load i32, ptr %precision, align 8
-  %sub193 = add nsw i32 %45, -14
+  %40 = load i32, ptr %precision, align 8
+  %sub193 = add nsw i32 %40, -14
   %cmp194 = icmp slt i32 %spec.select.i125, %sub193
   %or.cond14 = and i1 %switch.i, %cmp198
   %or.cond = or i1 %or.cond14, %cmp194
@@ -5752,19 +5721,18 @@ if.then203:                                       ; preds = %if.end188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %point.i)
   %origDelta.i = getelementptr inbounds i8, ptr %this, i64 32
-  %46 = load i32, ptr %origDelta.i, align 8
+  %41 = load i32, ptr %origDelta.i, align 8
   %origDouble.i = getelementptr inbounds i8, ptr %this, i64 24
-  %47 = load double, ptr %origDouble.i, align 8
-  call void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %47, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %buffer.i, i32 noundef 18, ptr noundef nonnull %sign.i, ptr noundef nonnull %length.i, ptr noundef nonnull %point.i)
-  %48 = load i8, ptr %usingBytes.i, align 8
-  %49 = and i8 %48, 1
-  %tobool.not.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit, label %if.then.i.i
+  %42 = load double, ptr %origDouble.i, align 8
+  call void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %buffer.i, i32 noundef 18, ptr noundef nonnull %sign.i, ptr noundef nonnull %length.i, ptr noundef nonnull %point.i)
+  %43 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i.i = trunc i8 %43 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
 if.then.i.i:                                      ; preds = %if.then203
   %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %50 = load ptr, ptr %fBCD.i.i, align 8
-  call void @uprv_free_75(ptr noundef %50)
+  %44 = load ptr, ptr %fBCD.i.i, align 8
+  call void @uprv_free_75(ptr noundef %44)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
@@ -5778,11 +5746,11 @@ _ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   store i32 0, ptr %origDelta.i, align 8
   %exponent.i.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i.i, align 4
-  %51 = load i32, ptr %length.i, align 4
-  %52 = load i32, ptr %point.i, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer.i, i32 noundef %51, i32 noundef %52)
-  %53 = load i32, ptr %scale, align 4
-  %add.i = add nsw i32 %53, %46
+  %45 = load i32, ptr %length.i, align 4
+  %46 = load i32, ptr %point.i, align 4
+  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer.i, i32 noundef %45, i32 noundef %46)
+  %47 = load i32, ptr %scale, align 4
+  %add.i = add nsw i32 %47, %41
   store i32 %add.i, ptr %scale, align 4
   %explicitExactDouble.i = getelementptr inbounds i8, ptr %this, i64 65
   store i8 1, ptr %explicitExactDouble.i, align 1
@@ -5810,14 +5778,14 @@ switch.early.test117:                             ; preds = %land.lhs.true208
     i8 0, label %if.end298
   ]
 
-if.end224:                                        ; preds = %for.inc, %if.end.i159, %for.inc.us, %if.end8.i165.us, %if.else47, %if.end205, %if.else43, %if.else39
-  %section.1 = phi i32 [ 1, %if.else39 ], [ 3, %if.else43 ], [ %cmp221, %if.end205 ], [ 2, %if.else47 ], [ 2, %for.inc.us ], [ 3, %if.end8.i165.us ], [ 2, %for.inc ], [ 3, %if.end.i159 ]
+if.end224:                                        ; preds = %for.inc, %if.end8.i155, %for.inc.us, %if.end.i167.us, %if.else47, %if.end205, %if.else43, %if.else39
+  %section.1 = phi i32 [ 1, %if.else39 ], [ 3, %if.else43 ], [ %cmp221, %if.end205 ], [ 2, %if.else47 ], [ 2, %for.inc.us ], [ 3, %if.end.i167.us ], [ 2, %for.inc ], [ 3, %if.end8.i155 ]
   br i1 %nickel, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %switch.early.test117, %if.else32, %if.end224
   %section.1359 = phi i32 [ %section.1, %if.end224 ], [ %., %if.else32 ], [ %cmp221, %switch.early.test117 ]
-  %54 = add i8 %retval.0.i120, -8
-  %or.cond18 = icmp ult i8 %54, -6
+  %48 = add i8 %retval.0.i120, -8
+  %or.cond18 = icmp ult i8 %48, -6
   br i1 %or.cond18, label %cond.end, label %lor.lhs.false231
 
 lor.lhs.false231:                                 ; preds = %cond.true
@@ -5830,115 +5798,114 @@ lor.rhs:                                          ; preds = %if.else28, %lor.lhs
   %section.1359370375 = phi i32 [ %section.1359, %lor.lhs.false231 ], [ 3, %if.else28 ]
   %cmp237 = icmp eq i8 %retval.0.i120, 7
   %cmp238 = icmp eq i32 %section.1359370375, 3
-  %55 = and i1 %cmp237, %cmp238
+  %49 = and i1 %cmp237, %cmp238
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end224
-  %56 = and i8 %retval.0.i120, 1
-  %cmp240 = icmp eq i8 %56, 0
+  %50 = and i8 %retval.0.i120, 1
+  %cmp240 = icmp eq i8 %50, 0
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then24, %cond.true, %lor.rhs, %lor.lhs.false231, %cond.false
   %section.1358 = phi i32 [ %section.1, %cond.false ], [ %section.1359, %cond.true ], [ %section.1359370375, %lor.rhs ], [ %section.1359, %lor.lhs.false231 ], [ 1, %if.then24 ]
-  %cond = phi i1 [ %cmp240, %cond.false ], [ true, %cond.true ], [ %55, %lor.rhs ], [ true, %lor.lhs.false231 ], [ true, %if.then24 ]
+  %cond = phi i1 [ %cmp240, %cond.false ], [ true, %cond.true ], [ %49, %lor.rhs ], [ true, %lor.lhs.false231 ], [ true, %if.then24 ]
   %flags.i = getelementptr inbounds i8, ptr %this, i64 20
-  %57 = load i8, ptr %flags.i, align 4
-  %58 = and i8 %57, 1
-  %cmp.i264 = icmp ne i8 %58, 0
+  %51 = load i8, ptr %flags.i, align 4
+  %52 = and i8 %51, 1
+  %cmp.i264 = icmp ne i8 %52, 0
   %call244 = tail call noundef zeroext i1 @_ZN6icu_756number4impl13roundingutils20getRoundingDirectionEbbNS2_7SectionE25UNumberFormatRoundingModeR10UErrorCode(i1 noundef zeroext %cond, i1 noundef zeroext %cmp.i264, i32 noundef %section.1358, i32 noundef %roundingMode, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %59 = load i32, ptr %status, align 4
-  %cmp.i265 = icmp slt i32 %59, 1
+  %53 = load i32, ptr %status, align 4
+  %cmp.i265 = icmp slt i32 %53, 1
   br i1 %cmp.i265, label %if.end249, label %if.end298
 
 if.end249:                                        ; preds = %cond.end
-  %60 = load i32, ptr %precision, align 8
-  %cmp251.not = icmp slt i32 %retval.0.i, %60
-  %61 = load i8, ptr %usingBytes.i, align 8
-  %62 = and i8 %61, 1
-  %tobool.not.i276 = icmp eq i8 %62, 0
+  %54 = load i32, ptr %precision, align 8
+  %cmp251.not = icmp slt i32 %retval.0.i, %54
+  %55 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i276 = trunc i8 %55 to i1
   br i1 %cmp251.not, label %if.else254, label %if.then252
 
 if.then252:                                       ; preds = %if.end249
-  br i1 %tobool.not.i276, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %if.then.i269
+  br i1 %tobool.i276, label %if.then.i273, label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
-if.then.i269:                                     ; preds = %if.then252
-  %fBCD.i270 = getelementptr inbounds i8, ptr %this, i64 48
-  %63 = load ptr, ptr %fBCD.i270, align 8
-  tail call void @uprv_free_75(ptr noundef %63)
+if.then.i273:                                     ; preds = %if.then252
+  %fBCD.i274 = getelementptr inbounds i8, ptr %this, i64 48
+  %56 = load ptr, ptr %fBCD.i274, align 8
+  tail call void @uprv_free_75(ptr noundef %56)
   store i8 0, ptr %usingBytes.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit
 
-_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %if.then252, %if.then.i269
+_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %if.then252, %if.then.i273
   %fBCD5.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %fBCD5.i, align 8
   store i32 0, ptr %precision, align 8
   store i8 0, ptr %isApproximate, align 1
-  %origDouble.i273 = getelementptr inbounds i8, ptr %this, i64 24
-  store double 0.000000e+00, ptr %origDouble.i273, align 8
-  %origDelta.i274 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 0, ptr %origDelta.i274, align 8
+  %origDouble.i271 = getelementptr inbounds i8, ptr %this, i64 24
+  store double 0.000000e+00, ptr %origDouble.i271, align 8
+  %origDelta.i272 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %origDelta.i272, align 8
   %exponent.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i, align 4
   store i32 %magnitude, ptr %scale, align 4
   br label %if.end255
 
 if.else254:                                       ; preds = %if.end249
-  br i1 %tobool.not.i276, label %if.else.i284, label %for.body.lr.ph.i
+  br i1 %tobool.i276, label %for.body.lr.ph.i, label %if.else.i277
 
 for.body.lr.ph.i:                                 ; preds = %if.else254
-  %fBCD.i280 = getelementptr inbounds i8, ptr %this, i64 48
-  %64 = sext i32 %retval.0.i to i64
+  %fBCD.i284 = getelementptr inbounds i8, ptr %this, i64 48
+  %57 = sext i32 %retval.0.i to i64
   br label %for.body.i
 
 for.cond6.preheader.i:                            ; preds = %for.body.i
-  %65 = trunc i64 %indvars.iv.next.i to i32
-  %cmp814.i = icmp sgt i32 %70, %65
+  %58 = trunc i64 %indvars.iv.next.i to i32
+  %cmp814.i = icmp sgt i32 %63, %58
   br i1 %cmp814.i, label %for.body9.lr.ph.i, label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit
 
 for.body9.lr.ph.i:                                ; preds = %for.cond6.preheader.i
-  %66 = and i64 %indvars.iv.next.i, 4294967295
+  %59 = and i64 %indvars.iv.next.i, 4294967295
   br label %for.body9.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %67 = load ptr, ptr %fBCD.i280, align 8
-  %68 = getelementptr i8, ptr %67, i64 %indvars.iv.i
-  %arrayidx.i281 = getelementptr i8, ptr %68, i64 %64
-  %69 = load i8, ptr %arrayidx.i281, align 1
-  store i8 %69, ptr %68, align 1
+  %60 = load ptr, ptr %fBCD.i284, align 8
+  %61 = getelementptr i8, ptr %60, i64 %indvars.iv.i
+  %arrayidx.i285 = getelementptr i8, ptr %61, i64 %57
+  %62 = load i8, ptr %arrayidx.i285, align 1
+  store i8 %62, ptr %61, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %70 = load i32, ptr %precision, align 8
-  %sub.i282 = sub nsw i32 %70, %retval.0.i
-  %71 = sext i32 %sub.i282 to i64
-  %cmp.i283 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %cmp.i283, label %for.body.i, label %for.cond6.preheader.i, !llvm.loop !7
+  %63 = load i32, ptr %precision, align 8
+  %sub.i286 = sub nsw i32 %63, %retval.0.i
+  %64 = sext i32 %sub.i286 to i64
+  %cmp.i287 = icmp slt i64 %indvars.iv.next.i, %64
+  br i1 %cmp.i287, label %for.body.i, label %for.cond6.preheader.i, !llvm.loop !7
 
 for.body9.i:                                      ; preds = %for.body9.i, %for.body9.lr.ph.i
-  %indvars.iv18.i = phi i64 [ %66, %for.body9.lr.ph.i ], [ %indvars.iv.next19.i, %for.body9.i ]
-  %72 = load ptr, ptr %fBCD.i280, align 8
-  %arrayidx13.i = getelementptr inbounds i8, ptr %72, i64 %indvars.iv18.i
+  %indvars.iv18.i = phi i64 [ %59, %for.body9.lr.ph.i ], [ %indvars.iv.next19.i, %for.body9.i ]
+  %65 = load ptr, ptr %fBCD.i284, align 8
+  %arrayidx13.i = getelementptr inbounds i8, ptr %65, i64 %indvars.iv18.i
   store i8 0, ptr %arrayidx13.i, align 1
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %73 = load i32, ptr %precision, align 8
-  %74 = trunc i64 %indvars.iv.next19.i to i32
-  %cmp8.i = icmp sgt i32 %73, %74
+  %66 = load i32, ptr %precision, align 8
+  %67 = trunc i64 %indvars.iv.next19.i to i32
+  %cmp8.i = icmp sgt i32 %66, %67
   br i1 %cmp8.i, label %for.body9.i, label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit, !llvm.loop !8
 
-if.else.i284:                                     ; preds = %if.else254
-  %mul.i285 = shl nsw i32 %retval.0.i, 2
+if.else.i277:                                     ; preds = %if.else254
+  %mul.i278 = shl nsw i32 %retval.0.i, 2
   %fBCD17.i = getelementptr inbounds i8, ptr %this, i64 48
-  %75 = load i64, ptr %fBCD17.i, align 8
-  %sh_prom.i286 = zext nneg i32 %mul.i285 to i64
-  %shr.i287 = lshr i64 %75, %sh_prom.i286
-  store i64 %shr.i287, ptr %fBCD17.i, align 8
+  %68 = load i64, ptr %fBCD17.i, align 8
+  %sh_prom.i279 = zext nneg i32 %mul.i278 to i64
+  %shr.i280 = lshr i64 %68, %sh_prom.i279
+  store i64 %shr.i280, ptr %fBCD17.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit
 
-_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %for.body9.i, %for.cond6.preheader.i, %if.else.i284
-  %76 = phi i32 [ %70, %for.cond6.preheader.i ], [ %60, %if.else.i284 ], [ %73, %for.body9.i ]
-  %77 = load i32, ptr %scale, align 4
-  %add18.i = add nsw i32 %77, %retval.0.i
+_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %for.body9.i, %for.cond6.preheader.i, %if.else.i277
+  %69 = phi i32 [ %63, %for.cond6.preheader.i ], [ %54, %if.else.i277 ], [ %66, %for.body9.i ]
+  %70 = load i32, ptr %scale, align 4
+  %add18.i = add nsw i32 %70, %retval.0.i
   store i32 %add18.i, ptr %scale, align 4
-  %sub20.i = sub nsw i32 %76, %retval.0.i
+  %sub20.i = sub nsw i32 %69, %retval.0.i
   store i32 %sub20.i, ptr %precision, align 8
   br label %if.end255
 
@@ -5951,51 +5918,50 @@ if.then257:                                       ; preds = %if.end255
   br i1 %brmerge.not, label %if.then262, label %if.else263
 
 if.then262:                                       ; preds = %if.then257
-  %78 = load i8, ptr %usingBytes.i, align 8
-  %79 = and i8 %78, 1
-  %tobool.not.i289 = icmp eq i8 %79, 0
-  br i1 %tobool.not.i289, label %if.else.i292, label %if.then.i290
+  %71 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i289 = trunc i8 %71 to i1
+  br i1 %tobool.i289, label %if.then.i292, label %if.else.i290
 
-if.then.i290:                                     ; preds = %if.then262
+if.then.i292:                                     ; preds = %if.then262
   %len.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %80 = load i32, ptr %len.i.i, align 8
-  %cmp12.i.not.i = icmp sgt i32 %80, 0
-  br i1 %cmp12.i.not.i, label %if.then.i290.if.end32.i.i_crit_edge, label %if.then13.i.i
+  %72 = load i32, ptr %len.i.i, align 8
+  %cmp12.i.not.i = icmp sgt i32 %72, 0
+  br i1 %cmp12.i.not.i, label %if.then.i292.if.end32.i.i_crit_edge, label %if.then13.i.i
 
-if.then.i290.if.end32.i.i_crit_edge:              ; preds = %if.then.i290
-  %fBCD.i291.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
-  %.pre484 = load ptr, ptr %fBCD.i291.phi.trans.insert, align 8
+if.then.i292.if.end32.i.i_crit_edge:              ; preds = %if.then.i292
+  %fBCD.i293.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
+  %.pre484 = load ptr, ptr %fBCD.i293.phi.trans.insert, align 8
   br label %if.end32.i.i
 
-if.then13.i.i:                                    ; preds = %if.then.i290
+if.then13.i.i:                                    ; preds = %if.then.i292
   %call17.i.i = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_75(i64 noundef 2) #24
   %fBCD18.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %81 = load ptr, ptr %fBCD18.i.i, align 8
-  %conv20.i.i = sext i32 %80 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i, ptr align 1 %81, i64 %conv20.i.i, i1 false)
+  %73 = load ptr, ptr %fBCD18.i.i, align 8
+  %conv20.i.i = sext i32 %72 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i, ptr align 1 %73, i64 %conv20.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call17.i.i, i64 %conv20.i.i
-  %sub.i.i = sub nsw i32 1, %80
+  %sub.i.i = sub nsw i32 1, %72
   %conv22.i.i = zext nneg i32 %sub.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv22.i.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %81)
+  tail call void @uprv_free_75(ptr noundef %73)
   store ptr %call17.i.i, ptr %fBCD18.i.i, align 8
   store i32 2, ptr %len.i.i, align 8
   br label %if.end32.i.i
 
-if.end32.i.i:                                     ; preds = %if.then.i290.if.end32.i.i_crit_edge, %if.then13.i.i
-  %82 = phi ptr [ %.pre484, %if.then.i290.if.end32.i.i_crit_edge ], [ %call17.i.i, %if.then13.i.i ]
+if.end32.i.i:                                     ; preds = %if.then.i292.if.end32.i.i_crit_edge, %if.then13.i.i
+  %74 = phi ptr [ %.pre484, %if.then.i292.if.end32.i.i_crit_edge ], [ %call17.i.i, %if.then13.i.i ]
   store i8 1, ptr %usingBytes.i, align 8
-  store i8 0, ptr %82, align 1
+  store i8 0, ptr %74, align 1
   br label %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
 
-if.else.i292:                                     ; preds = %if.then262
-  %fBCD9.i293 = getelementptr inbounds i8, ptr %this, i64 48
-  %83 = load i64, ptr %fBCD9.i293, align 8
-  %and.i = and i64 %83, -16
-  store i64 %and.i, ptr %fBCD9.i293, align 8
+if.else.i290:                                     ; preds = %if.then262
+  %fBCD9.i291 = getelementptr inbounds i8, ptr %this, i64 48
+  %75 = load i64, ptr %fBCD9.i291, align 8
+  %and.i = and i64 %75, -16
+  store i64 %and.i, ptr %fBCD9.i291, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
 
-_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %if.end32.i.i, %if.else.i292
+_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %if.end32.i.i, %if.else.i290
   tail call void @_ZN6icu_756number4impl15DecimalQuantity7compactEv(ptr noundef nonnull align 8 dereferenceable(66) %this)
   br label %if.end298
 
@@ -6005,8 +5971,8 @@ if.else263:                                       ; preds = %if.then257
 
 if.else269:                                       ; preds = %if.else263
   tail call void @_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia(ptr noundef nonnull align 8 dereferenceable(66) %this, i32 noundef 0, i8 noundef signext 5)
-  %84 = load i32, ptr %precision, align 8
-  %cmp271 = icmp eq i32 %84, 0
+  %76 = load i32, ptr %precision, align 8
+  %cmp271 = icmp eq i32 %76, 0
   br i1 %cmp271, label %if.then272, label %if.end298
 
 if.then272:                                       ; preds = %if.else269
@@ -6031,125 +5997,123 @@ if.then279:                                       ; preds = %if.end277
 
 for.cond283.preheader:                            ; preds = %if.then279.thread, %if.then279
   %.pre482491 = phi i8 [ %.pre482490, %if.then279.thread ], [ %.pre482, %if.then279 ]
-  %85 = and i8 %.pre482491, 1
-  %tobool.not.i295 = icmp eq i8 %85, 0
-  %86 = load i32, ptr %precision, align 8
-  %fBCD.i303 = getelementptr inbounds i8, ptr %this, i64 48
-  %87 = load ptr, ptr %fBCD.i303, align 8
-  %.cast446 = ptrtoint ptr %87 to i64
-  br i1 %tobool.not.i295, label %if.end8.i308.us, label %for.cond283.preheader.split
+  %tobool.i295 = trunc i8 %.pre482491 to i1
+  %fBCD9.i299 = getelementptr inbounds i8, ptr %this, i64 48
+  %77 = load i64, ptr %fBCD9.i299, align 8
+  %78 = load i32, ptr %precision, align 8
+  %.cast446 = inttoptr i64 %77 to ptr
+  br i1 %tobool.i295, label %for.cond283.preheader.split.us, label %if.end8.i298
 
-if.end8.i308.us:                                  ; preds = %for.cond283.preheader, %for.inc288.us
-  %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.inc288.us ], [ 0, %for.cond283.preheader ]
-  %88 = shl nuw nsw i64 %indvars.iv477, 2
-  %shr.i312.us = lshr i64 %.cast446, %88
-  %conv.i313.us447 = and i64 %shr.i312.us, 15
-  %cmp286.us = icmp eq i64 %conv.i313.us447, 9
-  br i1 %cmp286.us, label %for.inc288.us, label %for.end289.loopexit.split.loop.exit
+for.cond283.preheader.split.us:                   ; preds = %for.cond283.preheader
+  %cmp2.not.i308.us433 = icmp sgt i32 %78, 0
+  br i1 %cmp2.not.i308.us433, label %if.end.i310.us.preheader, label %for.end289
 
-for.inc288.us:                                    ; preds = %if.end8.i308.us
-  %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
-  %exitcond481 = icmp eq i64 %indvars.iv.next478, 16
-  br i1 %exitcond481, label %for.end289, label %if.end8.i308.us, !llvm.loop !35
+if.end.i310.us.preheader:                         ; preds = %for.cond283.preheader.split.us
+  %wide.trip.count = zext nneg i32 %78 to i64
+  br label %if.end.i310.us
 
-for.cond283.preheader.split:                      ; preds = %for.cond283.preheader
-  %cmp2.not.i299432 = icmp sgt i32 %86, 0
-  br i1 %cmp2.not.i299432, label %if.end.i302.preheader, label %for.end289
+if.end.i310.us:                                   ; preds = %if.end.i310.us.preheader, %for.inc288.us
+  %indvars.iv478 = phi i64 [ 0, %if.end.i310.us.preheader ], [ %indvars.iv.next479, %for.inc288.us ]
+  %arrayidx.i313.us = getelementptr inbounds i8, ptr %.cast446, i64 %indvars.iv478
+  %79 = load i8, ptr %arrayidx.i313.us, align 1
+  %cmp286.us = icmp eq i8 %79, 9
+  br i1 %cmp286.us, label %for.inc288.us, label %for.end289.loopexit.split.loop.exit515
 
-if.end.i302.preheader:                            ; preds = %for.cond283.preheader.split
-  %wide.trip.count = zext nneg i32 %86 to i64
-  br label %if.end.i302
+for.inc288.us:                                    ; preds = %if.end.i310.us
+  %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
+  %exitcond481.not = icmp eq i64 %indvars.iv.next479, %wide.trip.count
+  br i1 %exitcond481.not, label %for.end289, label %if.end.i310.us, !llvm.loop !35
 
-if.end.i302:                                      ; preds = %if.end.i302.preheader, %for.inc288
-  %indvars.iv474 = phi i64 [ 0, %if.end.i302.preheader ], [ %indvars.iv.next475, %for.inc288 ]
-  %arrayidx.i305 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv474
-  %89 = load i8, ptr %arrayidx.i305, align 1
-  %cmp286 = icmp eq i8 %89, 9
-  br i1 %cmp286, label %for.inc288, label %for.end289.loopexit492.split.loop.exit
+if.end8.i298:                                     ; preds = %for.cond283.preheader, %for.inc288
+  %indvars.iv474 = phi i64 [ %indvars.iv.next475, %for.inc288 ], [ 0, %for.cond283.preheader ]
+  %80 = shl nuw nsw i64 %indvars.iv474, 2
+  %shr.i302 = lshr i64 %77, %80
+  %conv.i303447 = and i64 %shr.i302, 15
+  %cmp286 = icmp eq i64 %conv.i303447, 9
+  br i1 %cmp286, label %for.inc288, label %for.end289.loopexit492.split.loop.exit513
 
-for.inc288:                                       ; preds = %if.end.i302
+for.inc288:                                       ; preds = %if.end8.i298
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next475, %wide.trip.count
-  br i1 %exitcond.not, label %for.end289, label %if.end.i302, !llvm.loop !35
+  %exitcond = icmp eq i64 %indvars.iv.next475, 16
+  br i1 %exitcond, label %for.end289, label %if.end8.i298, !llvm.loop !35
 
-for.end289.loopexit.split.loop.exit:              ; preds = %if.end8.i308.us
-  %90 = trunc i64 %indvars.iv477 to i32
+for.end289.loopexit.split.loop.exit515:           ; preds = %if.end.i310.us
+  %81 = trunc i64 %indvars.iv478 to i32
   br label %for.end289
 
-for.end289.loopexit492.split.loop.exit:           ; preds = %if.end.i302
-  %91 = trunc i64 %indvars.iv474 to i32
+for.end289.loopexit492.split.loop.exit513:        ; preds = %if.end8.i298
+  %82 = trunc i64 %indvars.iv474 to i32
   br label %for.end289
 
-for.end289:                                       ; preds = %for.inc288, %for.inc288.us, %for.end289.loopexit492.split.loop.exit, %for.end289.loopexit.split.loop.exit, %for.cond283.preheader.split
-  %.us-phi431 = phi i32 [ 0, %for.cond283.preheader.split ], [ %90, %for.end289.loopexit.split.loop.exit ], [ %91, %for.end289.loopexit492.split.loop.exit ], [ 16, %for.inc288.us ], [ %86, %for.inc288 ]
+for.end289:                                       ; preds = %for.inc288, %for.inc288.us, %for.end289.loopexit492.split.loop.exit513, %for.end289.loopexit.split.loop.exit515, %for.cond283.preheader.split.us
+  %.us-phi431 = phi i32 [ 0, %for.cond283.preheader.split.us ], [ %81, %for.end289.loopexit.split.loop.exit515 ], [ %82, %for.end289.loopexit492.split.loop.exit513 ], [ %78, %for.inc288.us ], [ 16, %for.inc288 ]
   tail call void @_ZN6icu_756number4impl15DecimalQuantity10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(66) %this, i32 noundef %.us-phi431)
   %.pre = load i8, ptr %usingBytes.i, align 8
   br label %if.end290
 
 if.end290:                                        ; preds = %for.end289, %if.then279
-  %92 = phi i8 [ %.pre, %for.end289 ], [ %.pre482, %if.then279 ]
-  %93 = and i8 %92, 1
-  %tobool.not.i316 = icmp eq i8 %93, 0
-  br i1 %tobool.not.i316, label %if.else.i342, label %if.then.i317
+  %83 = phi i8 [ %.pre, %for.end289 ], [ %.pre482, %if.then279 ]
+  %tobool.i316 = trunc i8 %83 to i1
+  br i1 %tobool.i316, label %if.then.i322, label %if.else.i330
 
-if.then.i317:                                     ; preds = %if.end290
-  %94 = load i32, ptr %precision, align 8
-  %cmp2.not.i319 = icmp sgt i32 %94, 0
-  br i1 %cmp2.not.i319, label %if.end.i321, label %if.then.i330
+if.then.i322:                                     ; preds = %if.end290
+  %84 = load i32, ptr %precision, align 8
+  %cmp2.not.i324 = icmp sgt i32 %84, 0
+  br i1 %cmp2.not.i324, label %if.end.i325, label %if.then.i334
 
-if.end.i321:                                      ; preds = %if.then.i317
-  %fBCD.i322 = getelementptr inbounds i8, ptr %this, i64 48
-  %95 = load ptr, ptr %fBCD.i322, align 8
-  %96 = load i8, ptr %95, align 1
-  %97 = add i8 %96, 1
-  br label %if.then.i330
+if.end.i325:                                      ; preds = %if.then.i322
+  %fBCD.i326 = getelementptr inbounds i8, ptr %this, i64 48
+  %85 = load ptr, ptr %fBCD.i326, align 8
+  %86 = load i8, ptr %85, align 1
+  %87 = add i8 %86, 1
+  br label %if.then.i334
 
-if.then.i330:                                     ; preds = %if.then.i317, %if.end.i321
-  %retval.0.i320.ph = phi i8 [ 1, %if.then.i317 ], [ %97, %if.end.i321 ]
-  %len.i.i331 = getelementptr inbounds i8, ptr %this, i64 56
-  %98 = load i32, ptr %len.i.i331, align 8
-  %cmp12.i.not.i332 = icmp sgt i32 %98, 0
-  br i1 %cmp12.i.not.i332, label %if.then.i330.if.end32.i.i340_crit_edge, label %if.then13.i.i333
+if.then.i334:                                     ; preds = %if.then.i322, %if.end.i325
+  %retval.0.i321.ph = phi i8 [ 1, %if.then.i322 ], [ %87, %if.end.i325 ]
+  %len.i.i335 = getelementptr inbounds i8, ptr %this, i64 56
+  %88 = load i32, ptr %len.i.i335, align 8
+  %cmp12.i.not.i336 = icmp sgt i32 %88, 0
+  br i1 %cmp12.i.not.i336, label %if.then.i334.if.end32.i.i344_crit_edge, label %if.then13.i.i337
 
-if.then.i330.if.end32.i.i340_crit_edge:           ; preds = %if.then.i330
-  %fBCD.i341.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
-  %.pre483 = load ptr, ptr %fBCD.i341.phi.trans.insert, align 8
-  br label %if.end32.i.i340
+if.then.i334.if.end32.i.i344_crit_edge:           ; preds = %if.then.i334
+  %fBCD.i345.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
+  %.pre483 = load ptr, ptr %fBCD.i345.phi.trans.insert, align 8
+  br label %if.end32.i.i344
 
-if.then13.i.i333:                                 ; preds = %if.then.i330
-  %call17.i.i334 = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_75(i64 noundef 2) #24
-  %fBCD18.i.i335 = getelementptr inbounds i8, ptr %this, i64 48
-  %99 = load ptr, ptr %fBCD18.i.i335, align 8
-  %conv20.i.i336 = sext i32 %98 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i334, ptr align 1 %99, i64 %conv20.i.i336, i1 false)
-  %add.ptr.i.i337 = getelementptr inbounds i8, ptr %call17.i.i334, i64 %conv20.i.i336
-  %sub.i.i338 = sub nsw i32 1, %98
-  %conv22.i.i339 = zext nneg i32 %sub.i.i338 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i337, i8 0, i64 %conv22.i.i339, i1 false)
-  tail call void @uprv_free_75(ptr noundef %99)
-  store ptr %call17.i.i334, ptr %fBCD18.i.i335, align 8
-  store i32 2, ptr %len.i.i331, align 8
-  br label %if.end32.i.i340
+if.then13.i.i337:                                 ; preds = %if.then.i334
+  %call17.i.i338 = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_75(i64 noundef 2) #24
+  %fBCD18.i.i339 = getelementptr inbounds i8, ptr %this, i64 48
+  %89 = load ptr, ptr %fBCD18.i.i339, align 8
+  %conv20.i.i340 = sext i32 %88 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i338, ptr align 1 %89, i64 %conv20.i.i340, i1 false)
+  %add.ptr.i.i341 = getelementptr inbounds i8, ptr %call17.i.i338, i64 %conv20.i.i340
+  %sub.i.i342 = sub nsw i32 1, %88
+  %conv22.i.i343 = zext nneg i32 %sub.i.i342 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i341, i8 0, i64 %conv22.i.i343, i1 false)
+  tail call void @uprv_free_75(ptr noundef %89)
+  store ptr %call17.i.i338, ptr %fBCD18.i.i339, align 8
+  store i32 2, ptr %len.i.i335, align 8
+  br label %if.end32.i.i344
 
-if.end32.i.i340:                                  ; preds = %if.then.i330.if.end32.i.i340_crit_edge, %if.then13.i.i333
-  %100 = phi ptr [ %.pre483, %if.then.i330.if.end32.i.i340_crit_edge ], [ %call17.i.i334, %if.then13.i.i333 ]
+if.end32.i.i344:                                  ; preds = %if.then.i334.if.end32.i.i344_crit_edge, %if.then13.i.i337
+  %90 = phi ptr [ %.pre483, %if.then.i334.if.end32.i.i344_crit_edge ], [ %call17.i.i338, %if.then13.i.i337 ]
   store i8 1, ptr %usingBytes.i, align 8
-  store i8 %retval.0.i320.ph, ptr %100, align 1
+  store i8 %retval.0.i321.ph, ptr %90, align 1
   br label %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit346
 
-if.else.i342:                                     ; preds = %if.end290
-  %fBCD9.i325 = getelementptr inbounds i8, ptr %this, i64 48
-  %101 = load i64, ptr %fBCD9.i325, align 8
-  %conv.i326 = and i64 %101, 15
-  %add = add nuw nsw i64 %conv.i326, 1
-  %and.i344 = and i64 %101, -16
-  %or.i = or i64 %add, %and.i344
-  store i64 %or.i, ptr %fBCD9.i325, align 8
+if.else.i330:                                     ; preds = %if.end290
+  %fBCD9.i319 = getelementptr inbounds i8, ptr %this, i64 48
+  %91 = load i64, ptr %fBCD9.i319, align 8
+  %conv.i320 = and i64 %91, 15
+  %add = add nuw nsw i64 %conv.i320, 1
+  %and.i332 = and i64 %91, -16
+  %or.i = or i64 %add, %and.i332
+  store i64 %or.i, ptr %fBCD9.i319, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit346
 
-_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit346: ; preds = %if.end32.i.i340, %if.else.i342
-  %102 = load i32, ptr %precision, align 8
-  %add295 = add nsw i32 %102, 1
+_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit346: ; preds = %if.end32.i.i344, %if.else.i330
+  %92 = load i32, ptr %precision, align 8
+  %add295 = add nsw i32 %92, 1
   store i32 %add295, ptr %precision, align 8
   br label %if.end296
 
@@ -6263,14 +6227,15 @@ sw.epilog48:                                      ; preds = %sw.bb11, %sw.bb7, %
   br label %return
 
 switch.lookup:                                    ; preds = %sw.bb7
-  %switch.masked = icmp eq i32 %switch.tableidx, 0
+  %switch.cast = trunc i32 %switch.tableidx to i3
+  %switch.downshift = lshr i3 1, %switch.cast
+  %switch.masked = trunc i3 %switch.downshift to i1
   br label %return
 
 switch.lookup11:                                  ; preds = %sw.bb11
   %switch.cast13 = trunc i32 %switch.tableidx12 to i3
   %switch.downshift15 = lshr i3 3, %switch.cast13
-  %3 = and i3 %switch.downshift15, 1
-  %switch.masked16 = icmp ne i3 %3, 0
+  %switch.masked16 = trunc i3 %switch.downshift15 to i1
   br label %return
 
 return:                                           ; preds = %switch.lookup11, %switch.lookup, %sw.bb39, %sw.bb32, %sw.bb24, %sw.bb17, %if.end, %entry, %sw.epilog48, %sw.bb44, %sw.bb40, %sw.bb36, %sw.bb35, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb20, %sw.bb5, %sw.bb3, %sw.bb2
@@ -6283,9 +6248,8 @@ define void @_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia(ptr nocaptu
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %add = add nsw i32 %position, 1
@@ -6294,8 +6258,8 @@ if.then:                                          ; preds = %entry
 
 if.else.i:                                        ; preds = %if.then
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %len.i, align 8
-  %cmp12.i.not = icmp sgt i32 %2, %position
+  %1 = load i32, ptr %len.i, align 8
+  %cmp12.i.not = icmp sgt i32 %1, %position
   br i1 %cmp12.i.not, label %if.end32.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -6303,14 +6267,14 @@ if.then13.i:                                      ; preds = %if.else.i
   %conv15.i = sext i32 %mul14.i to i64
   %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i) #24
   %fBCD18.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD18.i, align 8
-  %conv20.i = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %3, i64 %conv20.i, i1 false)
+  %2 = load ptr, ptr %fBCD18.i, align 8
+  %conv20.i = sext i32 %1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %2, i64 %conv20.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 %add, %2
+  %sub.i = sub nsw i32 %add, %1
   %conv22.i = sext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %3)
+  tail call void @uprv_free_75(ptr noundef %2)
   store ptr %call17.i, ptr %fBCD18.i, align 8
   store i32 %mul14.i, ptr %len.i, align 8
   br label %if.end32.i
@@ -6321,9 +6285,9 @@ if.end32.i:                                       ; preds = %if.then13.i, %if.el
 
 _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %if.then, %if.end32.i
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD, align 8
+  %3 = load ptr, ptr %fBCD, align 8
   %idxprom = sext i32 %position to i64
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
   store i8 %value, ptr %arrayidx, align 1
   br label %if.end13
 
@@ -6333,7 +6297,7 @@ if.else:                                          ; preds = %entry
 
 _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i: ; preds = %if.else
   %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load i64, ptr %fBCD9.i, align 8
+  %4 = load i64, ptr %fBCD9.i, align 8
   %len.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %call.i.i.i = tail call noalias dereferenceable_or_null(40) ptr @uprv_malloc_75(i64 noundef 40) #24
   store ptr %call.i.i.i, ptr %fBCD9.i, align 8
@@ -6341,87 +6305,86 @@ _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i: ; preds = %if.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call.i.i.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %usingBytes, align 8
   %precision12.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i32, ptr %precision12.i, align 8
-  %cmp1311.i = icmp sgt i32 %6, 0
-  br i1 %cmp1311.i, label %for.body14.i, label %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread
+  %5 = load i32, ptr %precision12.i, align 8
+  %cmp138.i = icmp sgt i32 %5, 0
+  br i1 %cmp138.i, label %for.body14.i, label %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread
 
 _ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread: ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i
   %add339 = add nuw nsw i32 %position, 1
-  br label %if.else.i19
+  br label %if.else.i24
 
 for.body14.i:                                     ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, %for.body14.i
-  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %for.body14.i ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
-  %bcdLong8.012.i = phi i64 [ %shr.i, %for.body14.i ], [ %5, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
-  %7 = trunc i64 %bcdLong8.012.i to i8
-  %conv15.i14 = and i8 %7, 15
-  %8 = load ptr, ptr %fBCD9.i, align 8
-  %arrayidx19.i = getelementptr inbounds i8, ptr %8, i64 %indvars.iv15.i
-  store i8 %conv15.i14, ptr %arrayidx19.i, align 1
-  %shr.i = lshr i64 %bcdLong8.012.i, 4
-  %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
-  %9 = load i32, ptr %precision12.i, align 8
-  %10 = sext i32 %9 to i64
-  %cmp13.i = icmp slt i64 %indvars.iv.next16.i, %10
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body14.i ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
+  %bcdLong8.09.i = phi i64 [ %shr.i, %for.body14.i ], [ %4, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
+  %6 = trunc i64 %bcdLong8.09.i to i8
+  %conv15.i12 = and i8 %6, 15
+  %7 = load ptr, ptr %fBCD9.i, align 8
+  %arrayidx19.i = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i
+  store i8 %conv15.i12, ptr %arrayidx19.i, align 1
+  %shr.i = lshr i64 %bcdLong8.09.i, 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %8 = load i32, ptr %precision12.i, align 8
+  %9 = sext i32 %8 to i64
+  %cmp13.i = icmp slt i64 %indvars.iv.next.i, %9
   br i1 %cmp13.i, label %for.body14.i, label %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit, !llvm.loop !11
 
 _ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit: ; preds = %for.body14.i
   %.pre = load i8, ptr %usingBytes, align 8
   %.pre36 = load i32, ptr %len.i.i.i, align 8
-  %11 = and i8 %.pre, 1
-  %12 = icmp eq i8 %11, 0
+  %10 = trunc i8 %.pre to i1
   %add3 = add nuw nsw i32 %position, 1
-  br i1 %12, label %if.then4.i31, label %if.else.i19
+  br i1 %10, label %if.else.i24, label %if.then4.i19
 
-if.then4.i31:                                     ; preds = %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit
-  %conv.i32 = zext nneg i32 %add3 to i64
-  %call.i33 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i32) #24
-  store ptr %call.i33, ptr %fBCD9.i, align 8
+if.then4.i19:                                     ; preds = %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit
+  %conv.i20 = zext nneg i32 %add3 to i64
+  %call.i21 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i20) #24
+  store ptr %call.i21, ptr %fBCD9.i, align 8
   store i32 %add3, ptr %len.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i33, i8 0, i64 %conv.i32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i21, i8 0, i64 %conv.i20, i1 false)
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35
 
-if.else.i19:                                      ; preds = %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit
+if.else.i24:                                      ; preds = %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit
   %add340 = phi i32 [ %add339, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread ], [ %add3, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit ]
-  %13 = phi i32 [ 40, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread ], [ %.pre36, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit ]
-  %cmp12.i20.not = icmp sgt i32 %13, %position
-  br i1 %cmp12.i20.not, label %if.else.i19._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge, label %if.then13.i22
+  %11 = phi i32 [ 40, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit.thread ], [ %.pre36, %_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv.exit ]
+  %cmp12.i25.not = icmp sgt i32 %11, %position
+  br i1 %cmp12.i25.not, label %if.else.i24._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge, label %if.then13.i26
 
-if.else.i19._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge: ; preds = %if.else.i19
+if.else.i24._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge: ; preds = %if.else.i24
   %.pre37 = load ptr, ptr %fBCD9.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35
 
-if.then13.i22:                                    ; preds = %if.else.i19
-  %mul14.i23 = shl nuw nsw i32 %add340, 1
-  %conv15.i24 = zext nneg i32 %mul14.i23 to i64
-  %call17.i25 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i24) #24
-  %14 = load ptr, ptr %fBCD9.i, align 8
-  %conv20.i27 = sext i32 %13 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i25, ptr align 1 %14, i64 %conv20.i27, i1 false)
-  %add.ptr.i28 = getelementptr inbounds i8, ptr %call17.i25, i64 %conv20.i27
-  %sub.i29 = sub nsw i32 %add340, %13
-  %conv22.i30 = sext i32 %sub.i29 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i28, i8 0, i64 %conv22.i30, i1 false)
-  tail call void @uprv_free_75(ptr noundef %14)
-  store ptr %call17.i25, ptr %fBCD9.i, align 8
-  store i32 %mul14.i23, ptr %len.i.i.i, align 8
+if.then13.i26:                                    ; preds = %if.else.i24
+  %mul14.i27 = shl nuw nsw i32 %add340, 1
+  %conv15.i28 = zext nneg i32 %mul14.i27 to i64
+  %call17.i29 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i28) #24
+  %12 = load ptr, ptr %fBCD9.i, align 8
+  %conv20.i31 = sext i32 %11 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i29, ptr align 1 %12, i64 %conv20.i31, i1 false)
+  %add.ptr.i32 = getelementptr inbounds i8, ptr %call17.i29, i64 %conv20.i31
+  %sub.i33 = sub nsw i32 %add340, %11
+  %conv22.i34 = sext i32 %sub.i33 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i32, i8 0, i64 %conv22.i34, i1 false)
+  tail call void @uprv_free_75(ptr noundef %12)
+  store ptr %call17.i29, ptr %fBCD9.i, align 8
+  store i32 %mul14.i27, ptr %len.i.i.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35
 
-_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35: ; preds = %if.else.i19._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge, %if.then4.i31, %if.then13.i22
-  %15 = phi ptr [ %.pre37, %if.else.i19._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge ], [ %call.i33, %if.then4.i31 ], [ %call17.i25, %if.then13.i22 ]
+_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35: ; preds = %if.else.i24._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge, %if.then4.i19, %if.then13.i26
+  %13 = phi ptr [ %.pre37, %if.else.i24._ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit35_crit_edge ], [ %call.i21, %if.then4.i19 ], [ %call17.i29, %if.then13.i26 ]
   store i8 1, ptr %usingBytes, align 8
   %idxprom6 = zext nneg i32 %position to i64
-  %arrayidx7 = getelementptr inbounds i8, ptr %15, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds i8, ptr %13, i64 %idxprom6
   store i8 %value, ptr %arrayidx7, align 1
   br label %if.end13
 
 if.else8:                                         ; preds = %if.else
   %mul = shl nsw i32 %position, 2
   %fBCD9 = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %fBCD9, align 8
+  %14 = load i64, ptr %fBCD9, align 8
   %sh_prom = zext i32 %mul to i64
   %shl = shl i64 15, %sh_prom
   %not = xor i64 %shl, -1
-  %and = and i64 %16, %not
+  %and = and i64 %14, %not
   %conv = sext i8 %value to i64
   %shl11 = shl i64 %conv, %sh_prom
   %or = or i64 %and, %shl11
@@ -6456,14 +6419,13 @@ if.then:                                          ; preds = %entry
   call void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %buffer.i, i32 noundef 18, ptr noundef nonnull %sign.i, ptr noundef nonnull %length.i, ptr noundef nonnull %point.i)
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i8, ptr %usingBytes.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
 if.then.i.i:                                      ; preds = %if.then
   %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load ptr, ptr %fBCD.i.i, align 8
-  call void @uprv_free_75(ptr noundef %5)
+  %4 = load ptr, ptr %fBCD.i.i, align 8
+  call void @uprv_free_75(ptr noundef %4)
   store i8 0, ptr %usingBytes.i.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit
 
@@ -6479,11 +6441,11 @@ _ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   store i32 0, ptr %origDelta.i, align 8
   %exponent.i.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %exponent.i.i, align 4
-  %6 = load i32, ptr %length.i, align 4
-  %7 = load i32, ptr %point.i, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer.i, i32 noundef %6, i32 noundef %7)
-  %8 = load i32, ptr %scale.i.i, align 4
-  %add.i = add nsw i32 %8, %1
+  %5 = load i32, ptr %length.i, align 4
+  %6 = load i32, ptr %point.i, align 4
+  call void @_ZN6icu_756number4impl15DecimalQuantity25readDoubleConversionToBcdEPKcii(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull %buffer.i, i32 noundef %5, i32 noundef %6)
+  %7 = load i32, ptr %scale.i.i, align 4
+  %add.i = add nsw i32 %7, %1
   store i32 %add.i, ptr %scale.i.i, align 4
   %explicitExactDouble.i = getelementptr inbounds i8, ptr %this, i64 65
   store i8 1, ptr %explicitExactDouble.i, align 1
@@ -6536,14 +6498,13 @@ if.end15:                                         ; preds = %if.then8, %if.then1
   tail call void @_ZN6icu_756number4impl15DecimalQuantity9shiftLeftEi(ptr noundef nonnull align 8 dereferenceable(66) %this, i32 noundef %add16)
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i8, ptr %usingBytes.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end15
   %len.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %5 = load i32, ptr %len.i.i, align 8
-  %cmp12.i.not.i = icmp sgt i32 %5, 0
+  %4 = load i32, ptr %len.i.i, align 8
+  %cmp12.i.not.i = icmp sgt i32 %4, 0
   br i1 %cmp12.i.not.i, label %if.then.i.if.end32.i.i_crit_edge, label %if.then13.i.i
 
 if.then.i.if.end32.i.i_crit_edge:                 ; preds = %if.then.i
@@ -6554,28 +6515,28 @@ if.then.i.if.end32.i.i_crit_edge:                 ; preds = %if.then.i
 if.then13.i.i:                                    ; preds = %if.then.i
   %call17.i.i = tail call noalias dereferenceable_or_null(2) ptr @uprv_malloc_75(i64 noundef 2) #24
   %fBCD18.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load ptr, ptr %fBCD18.i.i, align 8
-  %conv20.i.i = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i, ptr align 1 %6, i64 %conv20.i.i, i1 false)
+  %5 = load ptr, ptr %fBCD18.i.i, align 8
+  %conv20.i.i = sext i32 %4 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i.i, ptr align 1 %5, i64 %conv20.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call17.i.i, i64 %conv20.i.i
-  %sub.i.i = sub nsw i32 1, %5
+  %sub.i.i = sub nsw i32 1, %4
   %conv22.i.i = zext nneg i32 %sub.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv22.i.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %6)
+  tail call void @uprv_free_75(ptr noundef %5)
   store ptr %call17.i.i, ptr %fBCD18.i.i, align 8
   store i32 2, ptr %len.i.i, align 8
   br label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %if.then.i.if.end32.i.i_crit_edge, %if.then13.i.i
-  %7 = phi ptr [ %.pre, %if.then.i.if.end32.i.i_crit_edge ], [ %call17.i.i, %if.then13.i.i ]
+  %6 = phi ptr [ %.pre, %if.then.i.if.end32.i.i_crit_edge ], [ %call17.i.i, %if.then13.i.i ]
   store i8 1, ptr %usingBytes.i, align 8
-  store i8 %value, ptr %7, align 1
+  store i8 %value, ptr %6, align 1
   br label %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
 
 if.else.i:                                        ; preds = %if.end15
   %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load i64, ptr %fBCD9.i, align 8
-  %and.i = and i64 %8, -16
+  %7 = load i64, ptr %fBCD9.i, align 8
+  %and.i = and i64 %7, -16
   %conv.i = sext i8 %value to i64
   %or.i = or i64 %and.i, %conv.i
   store i64 %or.i, ptr %fBCD9.i, align 8
@@ -6585,12 +6546,12 @@ _ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %if.end3
   br i1 %appendAsInteger, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
-  %9 = load i32, ptr %scale6, align 4
+  %8 = load i32, ptr %scale6, align 4
   br label %if.end22.sink.split
 
 if.end22.sink.split:                              ; preds = %if.then18, %if.then3
   %.sink = phi i32 [ %1, %if.then3 ], [ %add16, %if.then18 ]
-  %add.sink = phi i32 [ %add, %if.then3 ], [ %9, %if.then18 ]
+  %add.sink = phi i32 [ %add, %if.then3 ], [ %8, %if.then18 ]
   %scale.sink = phi ptr [ %scale, %if.then3 ], [ %scale6, %if.then18 ]
   %add4 = add nsw i32 %add.sink, %.sink
   store i32 %add4, ptr %scale.sink, align 4
@@ -6605,43 +6566,42 @@ define void @_ZN6icu_756number4impl15DecimalQuantity9shiftLeftEi(ptr nocapture n
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %precision, align 8
-  %add = add nsw i32 %2, %numDigits
+  %1 = load i32, ptr %precision, align 8
+  %add = add nsw i32 %1, %numDigits
   %cmp = icmp sgt i32 %add, 16
   br i1 %cmp, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, label %if.end
 
 _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i: ; preds = %land.lhs.true
   %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load i64, ptr %fBCD9.i, align 8
+  %2 = load i64, ptr %fBCD9.i, align 8
   %len.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %call.i.i.i = tail call noalias dereferenceable_or_null(40) ptr @uprv_malloc_75(i64 noundef 40) #24
   store ptr %call.i.i.i, ptr %fBCD9.i, align 8
   store i32 40, ptr %len.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call.i.i.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %usingBytes, align 8
-  %4 = load i32, ptr %precision, align 8
-  %cmp1311.i = icmp sgt i32 %4, 0
-  br i1 %cmp1311.i, label %for.body14.i, label %if.then4
+  %3 = load i32, ptr %precision, align 8
+  %cmp138.i = icmp sgt i32 %3, 0
+  br i1 %cmp138.i, label %for.body14.i, label %if.then4
 
 for.body14.i:                                     ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, %for.body14.i
-  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %for.body14.i ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
-  %bcdLong8.012.i = phi i64 [ %shr.i, %for.body14.i ], [ %3, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
-  %5 = trunc i64 %bcdLong8.012.i to i8
-  %conv15.i = and i8 %5, 15
-  %6 = load ptr, ptr %fBCD9.i, align 8
-  %arrayidx19.i = getelementptr inbounds i8, ptr %6, i64 %indvars.iv15.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body14.i ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
+  %bcdLong8.09.i = phi i64 [ %shr.i, %for.body14.i ], [ %2, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i ]
+  %4 = trunc i64 %bcdLong8.09.i to i8
+  %conv15.i = and i8 %4, 15
+  %5 = load ptr, ptr %fBCD9.i, align 8
+  %arrayidx19.i = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.i
   store i8 %conv15.i, ptr %arrayidx19.i, align 1
-  %shr.i = lshr i64 %bcdLong8.012.i, 4
-  %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
-  %7 = load i32, ptr %precision, align 8
-  %8 = sext i32 %7 to i64
-  %cmp13.i = icmp slt i64 %indvars.iv.next16.i, %8
+  %shr.i = lshr i64 %bcdLong8.09.i, 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %6 = load i32, ptr %precision, align 8
+  %7 = sext i32 %6 to i64
+  %cmp13.i = icmp slt i64 %indvars.iv.next.i, %7
   br i1 %cmp13.i, label %for.body14.i, label %if.end.loopexit, !llvm.loop !11
 
 if.end.loopexit:                                  ; preds = %for.body14.i
@@ -6649,76 +6609,75 @@ if.end.loopexit:                                  ; preds = %for.body14.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %land.lhs.true, %entry
-  %9 = phi i8 [ %.pre, %if.end.loopexit ], [ %0, %land.lhs.true ], [ %0, %entry ]
-  %10 = and i8 %9, 1
-  %tobool3.not = icmp eq i8 %10, 0
-  br i1 %tobool3.not, label %if.else, label %if.then4
+  %8 = phi i8 [ %.pre, %if.end.loopexit ], [ %0, %land.lhs.true ], [ %0, %entry ]
+  %tobool3 = trunc i8 %8 to i1
+  br i1 %tobool3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, %if.end
   %precision5 = getelementptr inbounds i8, ptr %this, i64 16
-  %11 = load i32, ptr %precision5, align 8
-  %add6 = add nsw i32 %11, %numDigits
+  %9 = load i32, ptr %precision5, align 8
+  %add6 = add nsw i32 %9, %numDigits
   %cmp.i7 = icmp eq i32 %add6, 0
   br i1 %cmp.i7, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then4
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %12 = load i32, ptr %len.i, align 8
-  %cmp12.i = icmp slt i32 %12, %add6
+  %10 = load i32, ptr %len.i, align 8
+  %cmp12.i = icmp slt i32 %10, %add6
   br i1 %cmp12.i, label %if.then13.i, label %if.end32.i
 
 if.then13.i:                                      ; preds = %if.else.i
   %mul14.i = shl nsw i32 %add6, 1
-  %conv15.i10 = sext i32 %mul14.i to i64
-  %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i10) #24
+  %conv15.i11 = sext i32 %mul14.i to i64
+  %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i11) #24
   %fBCD18.i = getelementptr inbounds i8, ptr %this, i64 48
-  %13 = load ptr, ptr %fBCD18.i, align 8
-  %conv20.i = sext i32 %12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %13, i64 %conv20.i, i1 false)
+  %11 = load ptr, ptr %fBCD18.i, align 8
+  %conv20.i = sext i32 %10 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %11, i64 %conv20.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 %add6, %12
+  %sub.i = sub nsw i32 %add6, %10
   %conv22.i = sext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %13)
+  tail call void @uprv_free_75(ptr noundef %11)
   store ptr %call17.i, ptr %fBCD18.i, align 8
   store i32 %mul14.i, ptr %len.i, align 8
   %.pre12.pre = load i32, ptr %precision5, align 8
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then13.i, %if.else.i
-  %.pre12 = phi i32 [ %.pre12.pre, %if.then13.i ], [ %11, %if.else.i ]
+  %.pre12 = phi i32 [ %.pre12.pre, %if.then13.i ], [ %9, %if.else.i ]
   store i8 1, ptr %usingBytes, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %if.then4, %if.end32.i
-  %14 = phi i32 [ %11, %if.then4 ], [ %.pre12, %if.end32.i ]
+  %12 = phi i32 [ %9, %if.then4 ], [ %.pre12, %if.end32.i ]
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load ptr, ptr %fBCD, align 8
+  %13 = load ptr, ptr %fBCD, align 8
   %idx.ext = sext i32 %numDigits to i64
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %idx.ext
-  %conv = sext i32 %14 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %15, i64 %conv, i1 false)
-  %16 = load ptr, ptr %fBCD, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %idx.ext, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
+  %conv = sext i32 %12 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %13, i64 %conv, i1 false)
+  %14 = load ptr, ptr %fBCD, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %idx.ext, i1 false)
   br label %if.end14
 
 if.else:                                          ; preds = %if.end
   %mul = shl nsw i32 %numDigits, 2
   %fBCD13 = getelementptr inbounds i8, ptr %this, i64 48
-  %17 = load i64, ptr %fBCD13, align 8
+  %15 = load i64, ptr %fBCD13, align 8
   %sh_prom = zext nneg i32 %mul to i64
-  %shl = shl i64 %17, %sh_prom
+  %shl = shl i64 %15, %sh_prom
   store i64 %shl, ptr %fBCD13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %18 = load i32, ptr %scale, align 4
-  %sub = sub nsw i32 %18, %numDigits
+  %16 = load i32, ptr %scale, align 4
+  %sub = sub nsw i32 %16, %numDigits
   store i32 %sub, ptr %scale, align 4
   %precision15 = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load i32, ptr %precision15, align 8
-  %add16 = add nsw i32 %19, %numDigits
+  %17 = load i32, ptr %precision15, align 8
+  %add16 = add nsw i32 %17, %numDigits
   store i32 %add16, ptr %precision15, align 8
   ret void
 }
@@ -6813,7 +6772,7 @@ _ZN6icu_7513UnicodeString6appendEDs.exit17:       ; preds = %if.then23
 
 if.end26:                                         ; preds = %_ZN6icu_7513UnicodeString6appendEDs.exit17, %if.end6
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
+  %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %if.end26
@@ -6828,22 +6787,21 @@ for.body:                                         ; preds = %for.cond
   %9 = add i32 %7, %8
   %sub31 = sub i32 %p.0, %9
   %10 = load i8, ptr %usingBytes.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %cmp.i18 = icmp sgt i32 %sub31, -1
-  %12 = load i32, ptr %precision, align 8
-  %cmp2.not.i = icmp sgt i32 %12, %sub31
+  %11 = load i32, ptr %precision, align 8
+  %cmp2.not.i = icmp sgt i32 %11, %sub31
   %or.cond6.i = select i1 %cmp.i18, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %13 = load ptr, ptr %fBCD.i, align 8
+  %12 = load ptr, ptr %fBCD9.i, align 8
   %idxprom.i = zext nneg i32 %sub31 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i
-  %14 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i
+  %13 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %for.body
@@ -6851,16 +6809,16 @@ if.else.i:                                        ; preds = %for.body
   br i1 %or.cond.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
-  %15 = load i64, ptr %fBCD.i, align 8
+  %14 = load i64, ptr %fBCD9.i, align 8
   %mul.i = shl nuw nsw i32 %sub31, 2
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %15, %sh_prom.i
-  %16 = trunc i64 %shr.i to i8
-  %conv.i = and i8 %16, 15
+  %shr.i = lshr i64 %14, %sh_prom.i
+  %15 = trunc i64 %shr.i to i8
+  %conv.i = and i8 %15, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i, %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i = phi i8 [ %14, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
+  %retval.0.i = phi i8 [ %13, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   %conv = sext i8 %retval.0.i to i32
   %add34 = add nsw i32 %conv, 48
   %call36 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %add34)
@@ -6886,45 +6844,44 @@ if.end41:                                         ; preds = %_ZN6icu_7513Unicode
 
 for.body44:                                       ; preds = %if.end41, %for.inc55
   %p.155 = phi i32 [ %dec56, %for.inc55 ], [ %p.0, %if.end41 ]
-  %17 = load i32, ptr %scale, align 4
-  %18 = load i32, ptr %exponent, align 4
-  %19 = add i32 %17, %18
-  %sub48 = sub i32 %p.155, %19
-  %20 = load i8, ptr %usingBytes.i, align 8
-  %21 = and i8 %20, 1
-  %tobool.not.i23 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i23, label %if.else.i34, label %if.then.i24
+  %16 = load i32, ptr %scale, align 4
+  %17 = load i32, ptr %exponent, align 4
+  %18 = add i32 %16, %17
+  %sub48 = sub i32 %p.155, %18
+  %19 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i23 = trunc i8 %19 to i1
+  br i1 %tobool.i23, label %if.then.i33, label %if.else.i24
 
-if.then.i24:                                      ; preds = %for.body44
-  %cmp.i25 = icmp sgt i32 %sub48, -1
-  %22 = load i32, ptr %precision, align 8
-  %cmp2.not.i27 = icmp sgt i32 %22, %sub48
-  %or.cond6.i28 = select i1 %cmp.i25, i1 %cmp2.not.i27, i1 false
-  br i1 %or.cond6.i28, label %if.end.i30, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42
+if.then.i33:                                      ; preds = %for.body44
+  %cmp.i34 = icmp sgt i32 %sub48, -1
+  %20 = load i32, ptr %precision, align 8
+  %cmp2.not.i36 = icmp sgt i32 %20, %sub48
+  %or.cond6.i37 = select i1 %cmp.i34, i1 %cmp2.not.i36, i1 false
+  br i1 %or.cond6.i37, label %if.end.i38, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42
 
-if.end.i30:                                       ; preds = %if.then.i24
-  %23 = load ptr, ptr %fBCD.i, align 8
-  %idxprom.i32 = zext nneg i32 %sub48 to i64
-  %arrayidx.i33 = getelementptr inbounds i8, ptr %23, i64 %idxprom.i32
-  %24 = load i8, ptr %arrayidx.i33, align 1
+if.end.i38:                                       ; preds = %if.then.i33
+  %21 = load ptr, ptr %fBCD9.i, align 8
+  %idxprom.i40 = zext nneg i32 %sub48 to i64
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %21, i64 %idxprom.i40
+  %22 = load i8, ptr %arrayidx.i41, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42
 
-if.else.i34:                                      ; preds = %for.body44
-  %or.cond.i35 = icmp ugt i32 %sub48, 15
-  br i1 %or.cond.i35, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42, label %if.end8.i36
+if.else.i24:                                      ; preds = %for.body44
+  %or.cond.i25 = icmp ugt i32 %sub48, 15
+  br i1 %or.cond.i25, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42, label %if.end8.i26
 
-if.end8.i36:                                      ; preds = %if.else.i34
-  %25 = load i64, ptr %fBCD.i, align 8
-  %mul.i38 = shl nuw nsw i32 %sub48, 2
-  %sh_prom.i39 = zext nneg i32 %mul.i38 to i64
-  %shr.i40 = lshr i64 %25, %sh_prom.i39
-  %26 = trunc i64 %shr.i40 to i8
-  %conv.i41 = and i8 %26, 15
+if.end8.i26:                                      ; preds = %if.else.i24
+  %23 = load i64, ptr %fBCD9.i, align 8
+  %mul.i28 = shl nuw nsw i32 %sub48, 2
+  %sh_prom.i29 = zext nneg i32 %mul.i28 to i64
+  %shr.i30 = lshr i64 %23, %sh_prom.i29
+  %24 = trunc i64 %shr.i30 to i8
+  %conv.i31 = and i8 %24, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42: ; preds = %if.then.i24, %if.end.i30, %if.else.i34, %if.end8.i36
-  %retval.0.i29 = phi i8 [ %24, %if.end.i30 ], [ %conv.i41, %if.end8.i36 ], [ 0, %if.then.i24 ], [ 0, %if.else.i34 ]
-  %conv51 = sext i8 %retval.0.i29 to i32
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42: ; preds = %if.then.i33, %if.end.i38, %if.else.i24, %if.end8.i26
+  %retval.0.i32 = phi i8 [ %22, %if.end.i38 ], [ %conv.i31, %if.end8.i26 ], [ 0, %if.then.i33 ], [ 0, %if.else.i24 ]
+  %conv51 = sext i8 %retval.0.i32 to i32
   %add52 = add nsw i32 %conv51, 48
   %call54 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %add52)
           to label %for.inc55 unwind label %lpad.loopexit
@@ -7013,7 +6970,7 @@ _ZN6icu_7513UnicodeString6appendEDs.exit14:       ; preds = %if.then14
 
 if.end17:                                         ; preds = %_ZN6icu_7513UnicodeString6appendEDs.exit14, %if.end
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
+  %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %if.end17
@@ -7026,22 +6983,21 @@ for.body:                                         ; preds = %for.cond
   %6 = load i32, ptr %scale, align 4
   %sub20 = sub nsw i32 %p.0, %6
   %7 = load i8, ptr %usingBytes.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %7 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %cmp.i15 = icmp sgt i32 %sub20, -1
-  %9 = load i32, ptr %precision, align 8
-  %cmp2.not.i = icmp sgt i32 %9, %sub20
+  %8 = load i32, ptr %precision, align 8
+  %cmp2.not.i = icmp sgt i32 %8, %sub20
   %or.cond6.i = select i1 %cmp.i15, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %10 = load ptr, ptr %fBCD.i, align 8
+  %9 = load ptr, ptr %fBCD9.i, align 8
   %idxprom.i = zext nneg i32 %sub20 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i
-  %11 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i
+  %10 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %for.body
@@ -7049,16 +7005,16 @@ if.else.i:                                        ; preds = %for.body
   br i1 %or.cond.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
-  %12 = load i64, ptr %fBCD.i, align 8
+  %11 = load i64, ptr %fBCD9.i, align 8
   %mul.i = shl nuw nsw i32 %sub20, 2
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %12, %sh_prom.i
-  %13 = trunc i64 %shr.i to i8
-  %conv.i = and i8 %13, 15
+  %shr.i = lshr i64 %11, %sh_prom.i
+  %12 = trunc i64 %shr.i to i8
+  %conv.i = and i8 %12, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i, %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i = phi i8 [ %11, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
+  %retval.0.i = phi i8 [ %10, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   %conv = sext i8 %retval.0.i to i32
   %add23 = add nsw i32 %conv, 48
   %call25 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %add23)
@@ -7084,43 +7040,42 @@ if.end30:                                         ; preds = %_ZN6icu_7513Unicode
 
 for.body33:                                       ; preds = %if.end30, %for.inc42
   %p.150 = phi i32 [ %dec43, %for.inc42 ], [ %p.0, %if.end30 ]
-  %14 = load i32, ptr %scale, align 4
-  %sub35 = sub nsw i32 %p.150, %14
-  %15 = load i8, ptr %usingBytes.i, align 8
-  %16 = and i8 %15, 1
-  %tobool.not.i20 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i20, label %if.else.i31, label %if.then.i21
+  %13 = load i32, ptr %scale, align 4
+  %sub35 = sub nsw i32 %p.150, %13
+  %14 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i20 = trunc i8 %14 to i1
+  br i1 %tobool.i20, label %if.then.i30, label %if.else.i21
 
-if.then.i21:                                      ; preds = %for.body33
-  %cmp.i22 = icmp sgt i32 %sub35, -1
-  %17 = load i32, ptr %precision, align 8
-  %cmp2.not.i24 = icmp sgt i32 %17, %sub35
-  %or.cond6.i25 = select i1 %cmp.i22, i1 %cmp2.not.i24, i1 false
-  br i1 %or.cond6.i25, label %if.end.i27, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
+if.then.i30:                                      ; preds = %for.body33
+  %cmp.i31 = icmp sgt i32 %sub35, -1
+  %15 = load i32, ptr %precision, align 8
+  %cmp2.not.i33 = icmp sgt i32 %15, %sub35
+  %or.cond6.i34 = select i1 %cmp.i31, i1 %cmp2.not.i33, i1 false
+  br i1 %or.cond6.i34, label %if.end.i35, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
-if.end.i27:                                       ; preds = %if.then.i21
-  %18 = load ptr, ptr %fBCD.i, align 8
-  %idxprom.i29 = zext nneg i32 %sub35 to i64
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %18, i64 %idxprom.i29
-  %19 = load i8, ptr %arrayidx.i30, align 1
+if.end.i35:                                       ; preds = %if.then.i30
+  %16 = load ptr, ptr %fBCD9.i, align 8
+  %idxprom.i37 = zext nneg i32 %sub35 to i64
+  %arrayidx.i38 = getelementptr inbounds i8, ptr %16, i64 %idxprom.i37
+  %17 = load i8, ptr %arrayidx.i38, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
-if.else.i31:                                      ; preds = %for.body33
-  %or.cond.i32 = icmp ugt i32 %sub35, 15
-  br i1 %or.cond.i32, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39, label %if.end8.i33
+if.else.i21:                                      ; preds = %for.body33
+  %or.cond.i22 = icmp ugt i32 %sub35, 15
+  br i1 %or.cond.i22, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39, label %if.end8.i23
 
-if.end8.i33:                                      ; preds = %if.else.i31
-  %20 = load i64, ptr %fBCD.i, align 8
-  %mul.i35 = shl nuw nsw i32 %sub35, 2
-  %sh_prom.i36 = zext nneg i32 %mul.i35 to i64
-  %shr.i37 = lshr i64 %20, %sh_prom.i36
-  %21 = trunc i64 %shr.i37 to i8
-  %conv.i38 = and i8 %21, 15
+if.end8.i23:                                      ; preds = %if.else.i21
+  %18 = load i64, ptr %fBCD9.i, align 8
+  %mul.i25 = shl nuw nsw i32 %sub35, 2
+  %sh_prom.i26 = zext nneg i32 %mul.i25 to i64
+  %shr.i27 = lshr i64 %18, %sh_prom.i26
+  %19 = trunc i64 %shr.i27 to i8
+  %conv.i28 = and i8 %19, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39: ; preds = %if.then.i21, %if.end.i27, %if.else.i31, %if.end8.i33
-  %retval.0.i26 = phi i8 [ %19, %if.end.i27 ], [ %conv.i38, %if.end8.i33 ], [ 0, %if.then.i21 ], [ 0, %if.else.i31 ]
-  %conv38 = sext i8 %retval.0.i26 to i32
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39: ; preds = %if.then.i30, %if.end.i35, %if.else.i21, %if.end8.i23
+  %retval.0.i29 = phi i8 [ %17, %if.end.i35 ], [ %conv.i28, %if.end8.i23 ], [ 0, %if.then.i30 ], [ 0, %if.else.i21 ]
+  %conv38 = sext i8 %retval.0.i29 to i32
   %add39 = add nsw i32 %conv38, 48
   %call41 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %add39)
           to label %for.inc42 unwind label %lpad.loopexit
@@ -7132,8 +7087,8 @@ for.inc42:                                        ; preds = %_ZNK6icu_756number4
 
 for.end44:                                        ; preds = %for.inc42, %if.end30
   %exponent = getelementptr inbounds i8, ptr %this, i64 44
-  %22 = load i32, ptr %exponent, align 4
-  %cmp45.not = icmp eq i32 %22, 0
+  %20 = load i32, ptr %exponent, align 4
+  %cmp45.not = icmp eq i32 %20, 0
   br i1 %cmp45.not, label %nrvo.skipdtor, label %if.then46
 
 if.then46:                                        ; preds = %for.end44
@@ -7144,8 +7099,8 @@ if.then46:                                        ; preds = %for.end44
 
 invoke.cont47:                                    ; preds = %if.then46
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i40)
-  %23 = load i32, ptr %exponent, align 4
-  %call51 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511ICU_Utility12appendNumberERNS_13UnicodeStringEiii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %23, i32 noundef 10, i32 noundef 1)
+  %21 = load i32, ptr %exponent, align 4
+  %call51 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511ICU_Utility12appendNumberERNS_13UnicodeStringEiii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %21, i32 noundef 10, i32 noundef 1)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 nrvo.skipdtor:                                    ; preds = %for.end44, %invoke.cont47
@@ -7168,11 +7123,10 @@ entry:
 if.end:                                           ; preds = %entry
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %len = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %len, align 8
-  br i1 %tobool.not, label %if.then4, label %if.else
+  %1 = load i32, ptr %len, align 8
+  br i1 %tobool, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %conv = sext i32 %capacity to i64
@@ -7184,7 +7138,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end32
 
 if.else:                                          ; preds = %if.end
-  %cmp12 = icmp slt i32 %2, %capacity
+  %cmp12 = icmp slt i32 %1, %capacity
   br i1 %cmp12, label %if.then13, label %if.end32
 
 if.then13:                                        ; preds = %if.else
@@ -7192,14 +7146,14 @@ if.then13:                                        ; preds = %if.else
   %conv15 = sext i32 %mul14 to i64
   %call17 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15) #24
   %fBCD18 = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD18, align 8
-  %conv20 = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17, ptr align 1 %3, i64 %conv20, i1 false)
+  %2 = load ptr, ptr %fBCD18, align 8
+  %conv20 = sext i32 %1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17, ptr align 1 %2, i64 %conv20, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %call17, i64 %conv20
-  %sub = sub nsw i32 %capacity, %2
+  %sub = sub nsw i32 %capacity, %1
   %conv22 = sext i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %conv22, i1 false)
-  tail call void @uprv_free_75(ptr noundef %3)
+  tail call void @uprv_free_75(ptr noundef %2)
   store ptr %call17, ptr %fBCD18, align 8
   store i32 %mul14, ptr %len, align 8
   br label %if.end32
@@ -7217,45 +7171,44 @@ define void @_ZN6icu_756number4impl15DecimalQuantity13switchStorageEv(ptr nocapt
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit
 
 if.then:                                          ; preds = %entry
   %precision = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %precision, align 8
-  %cmp8 = icmp sgt i32 %2, 0
+  %1 = load i32, ptr %precision, align 8
+  %cmp11 = icmp sgt i32 %1, 0
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD, align 8
-  br i1 %cmp8, label %for.body.lr.ph, label %for.end
+  %2 = load ptr, ptr %fBCD, align 8
+  br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %4 = zext nneg i32 %2 to i64
+  %3 = zext nneg i32 %1 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %4, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %bcdLong.09 = phi i64 [ 0, %for.body.lr.ph ], [ %or, %for.body ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %shl = shl i64 %bcdLong.09, 4
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
-  %5 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %5 to i64
+  %indvars.iv15 = phi i64 [ %3, %for.body.lr.ph ], [ %indvars.iv.next16, %for.body ]
+  %bcdLong.012 = phi i64 [ 0, %for.body.lr.ph ], [ %or, %for.body ]
+  %indvars.iv.next16 = add nsw i64 %indvars.iv15, -1
+  %shl = shl i64 %bcdLong.012, 4
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next16
+  %4 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %4 to i64
   %or = or i64 %shl, %conv
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp ugt i64 %indvars.iv15, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.then
   %bcdLong.0.lcssa = phi i64 [ 0, %if.then ], [ %or, %for.body ]
   %fBCD2 = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @uprv_free_75(ptr noundef %3)
+  tail call void @uprv_free_75(ptr noundef %2)
   store i64 %bcdLong.0.lcssa, ptr %fBCD2, align 8
   store i8 0, ptr %usingBytes, align 8
   br label %if.end
 
 _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit: ; preds = %entry
   %fBCD9 = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load i64, ptr %fBCD9, align 8
+  %5 = load i64, ptr %fBCD9, align 8
   %len.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @uprv_malloc_75(i64 noundef 40) #24
   store ptr %call.i.i, ptr %fBCD9, align 8
@@ -7263,23 +7216,23 @@ _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit: ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call.i.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %usingBytes, align 8
   %precision12 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i32, ptr %precision12, align 8
-  %cmp1311 = icmp sgt i32 %7, 0
-  br i1 %cmp1311, label %for.body14, label %if.end
+  %6 = load i32, ptr %precision12, align 8
+  %cmp138 = icmp sgt i32 %6, 0
+  br i1 %cmp138, label %for.body14, label %if.end
 
 for.body14:                                       ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit, %for.body14
-  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %for.body14 ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ]
-  %bcdLong8.012 = phi i64 [ %shr, %for.body14 ], [ %6, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ]
-  %8 = trunc i64 %bcdLong8.012 to i8
-  %conv15 = and i8 %8, 15
-  %9 = load ptr, ptr %fBCD9, align 8
-  %arrayidx19 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body14 ], [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ]
+  %bcdLong8.09 = phi i64 [ %shr, %for.body14 ], [ %5, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ]
+  %7 = trunc i64 %bcdLong8.09 to i8
+  %conv15 = and i8 %7, 15
+  %8 = load ptr, ptr %fBCD9, align 8
+  %arrayidx19 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
   store i8 %conv15, ptr %arrayidx19, align 1
-  %shr = lshr i64 %bcdLong8.012, 4
-  %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
-  %10 = load i32, ptr %precision12, align 8
-  %11 = sext i32 %10 to i64
-  %cmp13 = icmp slt i64 %indvars.iv.next16, %11
+  %shr = lshr i64 %bcdLong8.09, 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %9 = load i32, ptr %precision12, align 8
+  %10 = sext i32 %9 to i64
+  %cmp13 = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp13, label %for.body14, label %if.end, !llvm.loop !11
 
 if.end:                                           ; preds = %for.body14, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit, %for.end
@@ -7297,11 +7250,10 @@ define void @_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv(ptr nocap
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %len.i, align 8
-  br i1 %tobool.not.i, label %if.then4.i, label %if.else.i
+  %1 = load i32, ptr %len.i, align 8
+  br i1 %tobool.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @uprv_malloc_75(i64 noundef 40) #24
@@ -7312,20 +7264,20 @@ if.then4.i:                                       ; preds = %entry
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp12.i = icmp slt i32 %2, 40
+  %cmp12.i = icmp slt i32 %1, 40
   br i1 %cmp12.i, label %if.then13.i, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 if.then13.i:                                      ; preds = %if.else.i
   %call17.i = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_75(i64 noundef 80) #24
   %fBCD18.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD18.i, align 8
-  %conv20.i = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %3, i64 %conv20.i, i1 false)
+  %2 = load ptr, ptr %fBCD18.i, align 8
+  %conv20.i = sext i32 %1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %2, i64 %conv20.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 40, %2
+  %sub.i = sub nsw i32 40, %1
   %conv22.i = zext nneg i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %3)
+  tail call void @uprv_free_75(ptr noundef %2)
   store ptr %call17.i, ptr %fBCD18.i, align 8
   store i32 80, ptr %len.i, align 8
   br label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEi.exit
@@ -7340,161 +7292,160 @@ define noundef ptr @_ZNK6icu_756number4impl15DecimalQuantity11checkHealthEv(ptr 
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %precision41 = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %precision41, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %precision = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load i32, ptr %precision, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp = icmp eq i32 %2, 0
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   %len = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %len, align 8
-  %cmp4 = icmp sgt i32 %2, %3
+  %2 = load i32, ptr %len, align 8
+  %cmp4 = icmp sgt i32 %1, %2
   br i1 %cmp4, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp.i = icmp sgt i32 %2, 0
+  %cmp.i = icmp sgt i32 %1, 0
   br i1 %cmp.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %return
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i
   %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %fBCD.i, align 8
-  %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr i8, ptr %4, i64 %5
-  %arrayidx.i = getelementptr i8, ptr %6, i64 -1
-  %7 = load i8, ptr %arrayidx.i, align 1
-  %cmp8 = icmp eq i8 %7, 0
+  %3 = load ptr, ptr %fBCD.i, align 8
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr i8, ptr %3, i64 %4
+  %arrayidx.i = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx.i, align 1
+  %cmp8 = icmp eq i8 %6, 0
   br i1 %cmp8, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-  %8 = load i8, ptr %4, align 1
-  %cmp13 = icmp eq i8 %8, 0
+  %7 = load i8, ptr %3, align 1
+  %cmp13 = icmp eq i8 %7, 0
   br i1 %cmp13, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49
 
 for.cond:                                         ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %for.cond30.preheader, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49, !llvm.loop !40
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %exitcond239.not = icmp eq i64 %indvars.iv.next236, %4
+  br i1 %exitcond239.not, label %for.cond30.preheader, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49, !llvm.loop !40
 
 for.cond30.preheader:                             ; preds = %for.cond
-  %cmp31218 = icmp slt i32 %2, %3
-  br i1 %cmp31218, label %if.then.i73, label %return
+  %cmp31223 = icmp slt i32 %1, %2
+  br i1 %cmp31223, label %if.then.i82, label %return
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28 ]
-  %arrayidx.i40 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %9 = load i8, ptr %arrayidx.i40, align 1
-  %cmp20 = icmp sgt i8 %9, 9
+  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %for.cond ], [ 0, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28 ]
+  %arrayidx.i48 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv235
+  %8 = load i8, ptr %arrayidx.i48, align 1
+  %cmp20 = icmp sgt i8 %8, 9
   br i1 %cmp20, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49
-  %cmp25 = icmp slt i8 %9, 0
+  %cmp25 = icmp slt i8 %8, 0
   br i1 %cmp25, label %return, label %for.cond
 
-if.then.i73:                                      ; preds = %for.cond30.preheader, %for.inc38
-  %indvars.iv233 = phi i64 [ %indvars.iv.next234, %for.inc38 ], [ %5, %for.cond30.preheader ]
-  %or.cond6.i77 = icmp ult i64 %indvars.iv233, %5
-  br i1 %or.cond6.i77, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91, label %for.inc38
+if.then.i82:                                      ; preds = %for.cond30.preheader, %for.inc38
+  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %for.inc38 ], [ %4, %for.cond30.preheader ]
+  %or.cond6.i86 = icmp ult i64 %indvars.iv240, %4
+  br i1 %or.cond6.i86, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91, label %for.inc38
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91: ; preds = %if.then.i73
-  %arrayidx.i82 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv233
-  %10 = load i8, ptr %arrayidx.i82, align 1
-  %cmp35.not = icmp eq i8 %10, 0
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91: ; preds = %if.then.i82
+  %arrayidx.i90 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv240
+  %9 = load i8, ptr %arrayidx.i90, align 1
+  %cmp35.not = icmp eq i8 %9, 0
   br i1 %cmp35.not, label %for.inc38, label %return
 
-for.inc38:                                        ; preds = %if.then.i73, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %11 = trunc i64 %indvars.iv.next234 to i32
-  %cmp31 = icmp sgt i32 %3, %11
-  br i1 %cmp31, label %if.then.i73, label %return, !llvm.loop !41
+for.inc38:                                        ; preds = %if.then.i82, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91
+  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
+  %10 = trunc i64 %indvars.iv.next241 to i32
+  %cmp31 = icmp sgt i32 %2, %10
+  br i1 %cmp31, label %if.then.i82, label %return, !llvm.loop !41
 
 if.else:                                          ; preds = %entry
-  %cmp42 = icmp ne i32 %2, 0
+  %cmp42 = icmp ne i32 %1, 0
   %fBCD43 = getelementptr inbounds i8, ptr %this, i64 48
-  %12 = load i64, ptr %fBCD43, align 8
-  %cmp44.not = icmp eq i64 %12, 0
+  %11 = load i64, ptr %fBCD43, align 8
+  %cmp44.not = icmp eq i64 %11, 0
   %or.cond = select i1 %cmp42, i1 true, i1 %cmp44.not
   br i1 %or.cond, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.else
-  %cmp48 = icmp sgt i32 %2, 16
+  %cmp48 = icmp sgt i32 %1, 16
   br i1 %cmp48, label %return, label %if.end50
 
 if.end50:                                         ; preds = %if.end46
-  %cmp52.not = icmp eq i32 %2, 0
-  br i1 %cmp52.not, label %if.else.i180.preheader, label %if.else.i104
+  %cmp52.not = icmp eq i32 %1, 0
+  br i1 %cmp52.not, label %if.else.i170.preheader, label %if.else.i94
 
-if.else.i104:                                     ; preds = %if.end50
-  %sub55 = add nsw i32 %2, -1
-  %or.cond.i105 = icmp ugt i32 %sub55, 15
-  br i1 %or.cond.i105, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112
+if.else.i94:                                      ; preds = %if.end50
+  %sub55 = add nsw i32 %1, -1
+  %or.cond.i95 = icmp ugt i32 %sub55, 15
+  br i1 %or.cond.i95, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112: ; preds = %if.else.i104
-  %mul.i108 = shl nuw nsw i32 %sub55, 2
-  %sh_prom.i109 = zext nneg i32 %mul.i108 to i64
-  %13 = shl nuw i64 15, %sh_prom.i109
-  %14 = and i64 %13, %12
-  %cmp58 = icmp eq i64 %14, 0
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112: ; preds = %if.else.i94
+  %mul.i98 = shl nuw nsw i32 %sub55, 2
+  %sh_prom.i99 = zext nneg i32 %mul.i98 to i64
+  %12 = shl nuw i64 15, %sh_prom.i99
+  %13 = and i64 %12, %11
+  %cmp58 = icmp eq i64 %13, 0
   br i1 %cmp58, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112
-  %conv.i124208 = and i64 %12, 15
-  %cmp66 = icmp eq i64 %conv.i124208, 0
-  br i1 %cmp66, label %return, label %if.else.i138.preheader
+  %conv.i118208 = and i64 %11, 15
+  %cmp66 = icmp eq i64 %conv.i118208, 0
+  br i1 %cmp66, label %return, label %if.else.i128.preheader
 
-if.else.i138.preheader:                           ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125
-  %wide.trip.count240 = zext nneg i32 %2 to i64
-  br label %if.else.i138
+if.else.i128.preheader:                           ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125
+  %wide.trip.count = zext nneg i32 %1 to i64
+  br label %if.else.i128
 
 for.cond89.preheader:                             ; preds = %for.inc84
-  %cmp90223.not = icmp eq i32 %2, 16
-  br i1 %cmp90223.not, label %return, label %if.else.i180.preheader
+  %cmp90218.not = icmp eq i32 %1, 16
+  br i1 %cmp90218.not, label %return, label %if.else.i170.preheader
 
-if.else.i180.preheader:                           ; preds = %if.end50, %for.cond89.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 15)
-  br label %if.else.i180
+if.else.i170.preheader:                           ; preds = %if.end50, %for.cond89.preheader
+  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 15)
+  br label %if.else.i170
 
-if.else.i138:                                     ; preds = %if.else.i138.preheader, %for.inc84
-  %indvars.iv236 = phi i64 [ 0, %if.else.i138.preheader ], [ %indvars.iv.next237, %for.inc84 ]
-  %or.cond.i139 = icmp ugt i64 %indvars.iv236, 15
-  br i1 %or.cond.i139, label %for.inc84, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
+if.else.i128:                                     ; preds = %if.else.i128.preheader, %for.inc84
+  %indvars.iv = phi i64 [ 0, %if.else.i128.preheader ], [ %indvars.iv.next, %for.inc84 ]
+  %or.cond.i129 = icmp ugt i64 %indvars.iv, 15
+  br i1 %or.cond.i129, label %for.inc84, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146: ; preds = %if.else.i138
-  %15 = shl nuw nsw i64 %indvars.iv236, 2
-  %shr.i144 = lshr i64 %12, %15
-  %conv.i145210 = and i64 %shr.i144, 14
-  %cmp76 = icmp ugt i64 %conv.i145210, 9
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146: ; preds = %if.else.i128
+  %14 = shl nuw nsw i64 %indvars.iv, 2
+  %shr.i134 = lshr i64 %11, %14
+  %conv.i135210 = and i64 %shr.i134, 14
+  %cmp76 = icmp ugt i64 %conv.i135210, 9
   br i1 %cmp76, label %return, label %for.inc84
 
-for.inc84:                                        ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146, %if.else.i138
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %for.cond89.preheader, label %if.else.i138, !llvm.loop !42
+for.inc84:                                        ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146, %if.else.i128
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.cond89.preheader, label %if.else.i128, !llvm.loop !42
 
-if.else.i180:                                     ; preds = %if.else.i180.preheader, %for.inc97
-  %i87.0224 = phi i32 [ %inc98, %for.inc97 ], [ %2, %if.else.i180.preheader ]
-  %or.cond.i181 = icmp ugt i32 %i87.0224, 15
-  br i1 %or.cond.i181, label %for.inc97, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188
+if.else.i170:                                     ; preds = %if.else.i170.preheader, %for.inc97
+  %i87.0219 = phi i32 [ %inc98, %for.inc97 ], [ %1, %if.else.i170.preheader ]
+  %or.cond.i171 = icmp ugt i32 %i87.0219, 15
+  br i1 %or.cond.i171, label %for.inc97, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188
 
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188: ; preds = %if.else.i180
-  %mul.i184 = shl nuw nsw i32 %i87.0224, 2
-  %sh_prom.i185 = zext nneg i32 %mul.i184 to i64
-  %16 = shl nuw i64 15, %sh_prom.i185
-  %17 = and i64 %16, %12
-  %cmp94.not = icmp eq i64 %17, 0
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188: ; preds = %if.else.i170
+  %mul.i174 = shl nuw nsw i32 %i87.0219, 2
+  %sh_prom.i175 = zext nneg i32 %mul.i174 to i64
+  %15 = shl nuw i64 15, %sh_prom.i175
+  %16 = and i64 %15, %11
+  %cmp94.not = icmp eq i64 %16, 0
   br i1 %cmp94.not, label %for.inc97, label %return
 
-for.inc97:                                        ; preds = %if.else.i180, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188
-  %inc98 = add i32 %i87.0224, 1
-  %exitcond242.not = icmp eq i32 %i87.0224, %smax
-  br i1 %exitcond242.not, label %return, label %if.else.i180, !llvm.loop !43
+for.inc97:                                        ; preds = %if.else.i170, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188
+  %inc98 = add i32 %i87.0219, 1
+  %exitcond234.not = icmp eq i32 %i87.0219, %smax
+  br i1 %exitcond234.not, label %return, label %if.else.i170, !llvm.loop !43
 
-return:                                           ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91, %for.inc38, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188, %for.inc97, %for.cond30.preheader, %for.cond89.preheader, %if.else.i104, %if.then.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112, %if.end46, %if.else, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %if.end, %if.then
-  %retval.0 = phi ptr [ @.str.5, %if.then ], [ @.str.6, %if.end ], [ @.str.7, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ], [ @.str.8, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28 ], [ @.str.12, %if.else ], [ @.str.13, %if.end46 ], [ @.str.14, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112 ], [ @.str.8, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125 ], [ @.str.7, %if.then.i ], [ @.str.14, %if.else.i104 ], [ null, %for.cond89.preheader ], [ null, %for.cond30.preheader ], [ @.str.17, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188 ], [ null, %for.inc97 ], [ @.str.15, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146 ], [ @.str.11, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91 ], [ null, %for.inc38 ], [ @.str.10, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70 ], [ @.str.9, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49 ]
+return:                                           ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188, %for.inc97, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91, %for.inc38, %for.cond89.preheader, %for.cond30.preheader, %if.else.i94, %if.then.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112, %if.end46, %if.else, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %if.end, %if.then
+  %retval.0 = phi ptr [ @.str.5, %if.then ], [ @.str.6, %if.end ], [ @.str.7, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ], [ @.str.8, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28 ], [ @.str.12, %if.else ], [ @.str.13, %if.end46 ], [ @.str.14, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112 ], [ @.str.8, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125 ], [ @.str.7, %if.then.i ], [ @.str.14, %if.else.i94 ], [ null, %for.cond30.preheader ], [ null, %for.cond89.preheader ], [ @.str.11, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91 ], [ null, %for.inc38 ], [ @.str.10, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70 ], [ @.str.9, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49 ], [ @.str.17, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188 ], [ null, %for.inc97 ], [ @.str.15, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146 ]
   ret ptr %retval.0
 }
 
@@ -7576,141 +7527,139 @@ if.else31:                                        ; preds = %if.else
   %..i = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 %0)
   %usingBytes.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load i8, ptr %usingBytes.i.i, align 8
-  %.fr62 = freeze i8 %17
-  %18 = and i8 %.fr62, 1
-  %tobool.not.i.i = icmp eq i8 %18, 0
-  %fBCD.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %19 = load ptr, ptr %fBCD.i.i, align 8
-  %.cast = ptrtoint ptr %19 to i64
+  %.fr = freeze i8 %17
+  %tobool.i.i = trunc i8 %.fr to i1
+  %fBCD9.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %18 = load i64, ptr %fBCD9.i.i, align 8
+  %.cast = inttoptr i64 %18 to ptr
   %usingBytes.i.i17 = getelementptr inbounds i8, ptr %other, i64 64
-  %20 = load i8, ptr %usingBytes.i.i17, align 8
-  %.fr63 = freeze i8 %20
-  %21 = and i8 %.fr63, 1
-  %tobool.not.i.i18 = icmp eq i8 %21, 0
-  %fBCD.i.i26 = getelementptr inbounds i8, ptr %other, i64 48
-  %22 = load ptr, ptr %fBCD.i.i26, align 8
-  %.cast61 = ptrtoint ptr %22 to i64
-  br i1 %tobool.not.i.i, label %if.else31.split.us, label %if.else31.split
+  %19 = load i8, ptr %usingBytes.i.i17, align 8
+  %.fr62 = freeze i8 %19
+  %tobool.i.i18 = trunc i8 %.fr62 to i1
+  %fBCD9.i.i22 = getelementptr inbounds i8, ptr %other, i64 48
+  %20 = load i64, ptr %fBCD9.i.i22, align 8
+  %.cast61 = inttoptr i64 %20 to ptr
+  br i1 %tobool.i.i, label %if.else31.split.us, label %if.else31.split
 
 if.else31.split.us:                               ; preds = %if.else31
-  br i1 %tobool.not.i.i18, label %for.cond.us.us.preheader, label %for.cond.us
+  br i1 %tobool.i.i18, label %for.cond.us.us, label %for.cond.us
 
-for.cond.us.us.preheader:                         ; preds = %if.else31.split.us
-  %shr.i.i.us.us70 = xor i64 %.cast, %.cast61
-  br label %for.cond.us.us
-
-for.cond.us.us:                                   ; preds = %for.cond.us.us.preheader, %for.body.us.us
-  %m.0.in.us.us = phi i32 [ %m.0.us.us, %for.body.us.us ], [ %.add.i, %for.cond.us.us.preheader ]
+for.cond.us.us:                                   ; preds = %if.else31.split.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us
+  %m.0.in.us.us = phi i32 [ %m.0.us.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us ], [ %.add.i, %if.else31.split.us ]
+  %m.0.us.us = add nsw i32 %m.0.in.us.us, -1
   %cmp33.not.not.us.us.not = icmp sle i32 %m.0.in.us.us, %..i
   br i1 %cmp33.not.not.us.us.not, label %return, label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.cond.us.us
-  %m.0.us.us = add nsw i32 %m.0.in.us.us, -1
   %sub.i14.us.us = sub nsw i32 %m.0.us.us, %0
-  %or.cond.i.i.us.us = icmp ugt i32 %sub.i14.us.us, 15
-  %mul.i.i.us.us = shl nuw nsw i32 %sub.i14.us.us, 2
-  %sh_prom.i.i.us.us = zext nneg i32 %mul.i.i.us.us to i64
-  %23 = shl i64 15, %sh_prom.i.i.us.us
-  %24 = and i64 %shr.i.i.us.us70, %23
-  %25 = icmp eq i64 %24, 0
-  %cmp38.not.us.us = select i1 %or.cond.i.i.us.us, i1 true, i1 %25
+  %cmp.i.i.us.us = icmp sgt i32 %sub.i14.us.us, -1
+  %cmp2.not.i.i.us.us = icmp sgt i32 %2, %sub.i14.us.us
+  %or.cond6.i.i.us.us = and i1 %cmp.i.i.us.us, %cmp2.not.i.i.us.us
+  br i1 %or.cond6.i.i.us.us, label %if.end.i.i33.us.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us
+
+if.end.i.i33.us.us:                               ; preds = %for.body.us.us
+  %idxprom.i.i.us.us = zext nneg i32 %sub.i14.us.us to i64
+  %arrayidx.i.i.us.us = getelementptr inbounds i8, ptr %.cast, i64 %idxprom.i.i.us.us
+  %21 = load i8, ptr %arrayidx.i.i.us.us, align 1
+  %idxprom.i.i35.us.us = zext nneg i32 %sub.i14.us.us to i64
+  %arrayidx.i.i36.us.us = getelementptr inbounds i8, ptr %.cast61, i64 %idxprom.i.i35.us.us
+  %22 = load i8, ptr %arrayidx.i.i36.us.us, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us
+
+_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us: ; preds = %for.body.us.us, %if.end.i.i33.us.us
+  %retval.0.i.i.us.us71 = phi i8 [ %21, %if.end.i.i33.us.us ], [ 0, %for.body.us.us ]
+  %retval.0.i.i27.us.us = phi i8 [ %22, %if.end.i.i33.us.us ], [ 0, %for.body.us.us ]
+  %cmp38.not.us.us = icmp eq i8 %retval.0.i.i.us.us71, %retval.0.i.i27.us.us
   br i1 %cmp38.not.us.us, label %for.cond.us.us, label %return, !llvm.loop !44
 
-for.cond.us:                                      ; preds = %if.else31.split.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us
-  %m.0.in.us = phi i32 [ %m.0.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us ], [ %.add.i, %if.else31.split.us ]
+for.cond.us:                                      ; preds = %if.else31.split.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
+  %m.0.in.us = phi i32 [ %m.0.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us ], [ %.add.i, %if.else31.split.us ]
   %m.0.us = add nsw i32 %m.0.in.us, -1
   %cmp33.not.not.us.not = icmp sle i32 %m.0.in.us, %..i
   br i1 %cmp33.not.not.us.not, label %return, label %for.body.us
 
 for.body.us:                                      ; preds = %for.cond.us
   %sub.i14.us = sub nsw i32 %m.0.us, %0
-  %or.cond.i.i.us = icmp ugt i32 %sub.i14.us, 15
-  %mul.i.i.us = shl nuw nsw i32 %sub.i14.us, 2
-  %sh_prom.i.i.us = zext nneg i32 %mul.i.i.us to i64
-  %shr.i.i.us = lshr i64 %.cast, %sh_prom.i.i.us
-  %26 = trunc i64 %shr.i.i.us to i8
-  %conv.i.i.us = and i8 %26, 15
-  %retval.0.i.i.us = select i1 %or.cond.i.i.us, i8 0, i8 %conv.i.i.us
-  %cmp.i.i20.us = icmp sgt i32 %sub.i14.us, -1
-  %cmp2.not.i.i22.us = icmp sgt i32 %2, %sub.i14.us
-  %or.cond6.i.i23.us = and i1 %cmp.i.i20.us, %cmp2.not.i.i22.us
-  br i1 %or.cond6.i.i23.us, label %if.end.i.i25.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us
+  %cmp.i.i.us = icmp sgt i32 %sub.i14.us, -1
+  %cmp2.not.i.i.us = icmp sgt i32 %2, %sub.i14.us
+  %or.cond6.i.i.us = and i1 %cmp.i.i.us, %cmp2.not.i.i.us
+  br i1 %or.cond6.i.i.us, label %if.end.i.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
 
-if.end.i.i25.us:                                  ; preds = %for.body.us
-  %idxprom.i.i27.us = zext nneg i32 %sub.i14.us to i64
-  %arrayidx.i.i28.us = getelementptr inbounds i8, ptr %22, i64 %idxprom.i.i27.us
-  %27 = load i8, ptr %arrayidx.i.i28.us, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us
+if.end.i.i.us:                                    ; preds = %for.body.us
+  %idxprom.i.i.us = zext nneg i32 %sub.i14.us to i64
+  %arrayidx.i.i.us = getelementptr inbounds i8, ptr %.cast, i64 %idxprom.i.i.us
+  %23 = load i8, ptr %arrayidx.i.i.us, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
 
-_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us: ; preds = %if.end.i.i25.us, %for.body.us
-  %retval.0.i.i24.us = phi i8 [ %27, %if.end.i.i25.us ], [ 0, %for.body.us ]
-  %cmp38.not.us = icmp eq i8 %retval.0.i.i.us, %retval.0.i.i24.us
+_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us: ; preds = %if.end.i.i.us, %for.body.us
+  %retval.0.i.i.us = phi i8 [ %23, %if.end.i.i.us ], [ 0, %for.body.us ]
+  %or.cond.i.i20.us = icmp ugt i32 %sub.i14.us, 15
+  %mul.i.i23.us = shl nuw nsw i32 %sub.i14.us, 2
+  %sh_prom.i.i24.us = zext nneg i32 %mul.i.i23.us to i64
+  %shr.i.i25.us = lshr i64 %20, %sh_prom.i.i24.us
+  %24 = trunc i64 %shr.i.i25.us to i8
+  %conv.i.i26.us = and i8 %24, 15
+  %retval.0.i.i27.us = select i1 %or.cond.i.i20.us, i8 0, i8 %conv.i.i26.us
+  %cmp38.not.us = icmp eq i8 %retval.0.i.i.us, %retval.0.i.i27.us
   br i1 %cmp38.not.us, label %for.cond.us, label %return, !llvm.loop !44
 
 if.else31.split:                                  ; preds = %if.else31
-  br i1 %tobool.not.i.i18, label %for.cond.us38, label %for.cond
+  br i1 %tobool.i.i18, label %for.cond.us38, label %for.cond.preheader
 
-for.cond.us38:                                    ; preds = %if.else31.split, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44
-  %m.0.in.us39 = phi i32 [ %m.0.us40, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44 ], [ %.add.i, %if.else31.split ]
+for.cond.preheader:                               ; preds = %if.else31.split
+  %shr.i.i69 = xor i64 %18, %20
+  br label %for.cond
+
+for.cond.us38:                                    ; preds = %if.else31.split, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54
+  %m.0.in.us39 = phi i32 [ %m.0.us40, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54 ], [ %.add.i, %if.else31.split ]
   %m.0.us40 = add nsw i32 %m.0.in.us39, -1
   %cmp33.not.not.us41.not = icmp sle i32 %m.0.in.us39, %..i
   br i1 %cmp33.not.not.us41.not, label %return, label %for.body.us42
 
 for.body.us42:                                    ; preds = %for.cond.us38
   %sub.i14.us43 = sub nsw i32 %m.0.us40, %0
-  %cmp.i.i.us = icmp sgt i32 %sub.i14.us43, -1
-  %cmp2.not.i.i.us = icmp sgt i32 %2, %sub.i14.us43
-  %or.cond6.i.i.us = and i1 %cmp.i.i.us, %cmp2.not.i.i.us
-  br i1 %or.cond6.i.i.us, label %if.end.i.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44
+  %or.cond.i.i.us = icmp ugt i32 %sub.i14.us43, 15
+  %mul.i.i.us = shl nuw nsw i32 %sub.i14.us43, 2
+  %sh_prom.i.i.us = zext nneg i32 %mul.i.i.us to i64
+  %shr.i.i.us = lshr i64 %18, %sh_prom.i.i.us
+  %25 = trunc i64 %shr.i.i.us to i8
+  %conv.i.i.us = and i8 %25, 15
+  %retval.0.i.i.us45 = select i1 %or.cond.i.i.us, i8 0, i8 %conv.i.i.us
+  %cmp.i.i29.us48 = icmp sgt i32 %sub.i14.us43, -1
+  %cmp2.not.i.i31.us49 = icmp sgt i32 %2, %sub.i14.us43
+  %or.cond6.i.i32.us50 = and i1 %cmp.i.i29.us48, %cmp2.not.i.i31.us49
+  br i1 %or.cond6.i.i32.us50, label %if.end.i.i33.us51, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54
 
-if.end.i.i.us:                                    ; preds = %for.body.us42
-  %idxprom.i.i.us = zext nneg i32 %sub.i14.us43 to i64
-  %arrayidx.i.i.us = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i.us
-  %28 = load i8, ptr %arrayidx.i.i.us, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44
+if.end.i.i33.us51:                                ; preds = %for.body.us42
+  %idxprom.i.i35.us52 = zext nneg i32 %sub.i14.us43 to i64
+  %arrayidx.i.i36.us53 = getelementptr inbounds i8, ptr %.cast61, i64 %idxprom.i.i35.us52
+  %26 = load i8, ptr %arrayidx.i.i36.us53, align 1
+  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54
 
-_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44: ; preds = %if.end.i.i.us, %for.body.us42
-  %retval.0.i.i.us45 = phi i8 [ %28, %if.end.i.i.us ], [ 0, %for.body.us42 ]
-  %or.cond.i.i30.us48 = icmp ugt i32 %sub.i14.us43, 15
-  %mul.i.i33.us50 = shl nuw nsw i32 %sub.i14.us43, 2
-  %sh_prom.i.i34.us51 = zext nneg i32 %mul.i.i33.us50 to i64
-  %shr.i.i35.us52 = lshr i64 %.cast61, %sh_prom.i.i34.us51
-  %29 = trunc i64 %shr.i.i35.us52 to i8
-  %conv.i.i36.us53 = and i8 %29, 15
-  %retval.0.i.i24.us55 = select i1 %or.cond.i.i30.us48, i8 0, i8 %conv.i.i36.us53
-  %cmp38.not.us56 = icmp eq i8 %retval.0.i.i.us45, %retval.0.i.i24.us55
+_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54: ; preds = %if.end.i.i33.us51, %for.body.us42
+  %retval.0.i.i27.us55 = phi i8 [ %26, %if.end.i.i33.us51 ], [ 0, %for.body.us42 ]
+  %cmp38.not.us56 = icmp eq i8 %retval.0.i.i.us45, %retval.0.i.i27.us55
   br i1 %cmp38.not.us56, label %for.cond.us38, label %return, !llvm.loop !44
 
-for.cond:                                         ; preds = %if.else31.split, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37
-  %m.0.in = phi i32 [ %m.0, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37 ], [ %.add.i, %if.else31.split ]
-  %m.0 = add nsw i32 %m.0.in, -1
+for.cond:                                         ; preds = %for.cond.preheader, %for.body
+  %m.0.in = phi i32 [ %m.0, %for.body ], [ %.add.i, %for.cond.preheader ]
   %cmp33.not.not.not = icmp sle i32 %m.0.in, %..i
   br i1 %cmp33.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
+  %m.0 = add nsw i32 %m.0.in, -1
   %sub.i14 = sub nsw i32 %m.0, %0
-  %cmp.i.i = icmp sgt i32 %sub.i14, -1
-  %cmp2.not.i.i = icmp sgt i32 %2, %sub.i14
-  %or.cond6.i.i = and i1 %cmp.i.i, %cmp2.not.i.i
-  br i1 %or.cond6.i.i, label %if.end.i.i25, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37
-
-if.end.i.i25:                                     ; preds = %for.body
-  %idxprom.i.i = zext nneg i32 %sub.i14 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i
-  %30 = load i8, ptr %arrayidx.i.i, align 1
-  %idxprom.i.i27 = zext nneg i32 %sub.i14 to i64
-  %arrayidx.i.i28 = getelementptr inbounds i8, ptr %22, i64 %idxprom.i.i27
-  %31 = load i8, ptr %arrayidx.i.i28, align 1
-  br label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37
-
-_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37: ; preds = %for.body, %if.end.i.i25
-  %retval.0.i.i72 = phi i8 [ %30, %if.end.i.i25 ], [ 0, %for.body ]
-  %retval.0.i.i24 = phi i8 [ %31, %if.end.i.i25 ], [ 0, %for.body ]
-  %cmp38.not = icmp eq i8 %retval.0.i.i72, %retval.0.i.i24
+  %or.cond.i.i = icmp ugt i32 %sub.i14, 15
+  %mul.i.i = shl nuw nsw i32 %sub.i14, 2
+  %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
+  %27 = shl i64 15, %sh_prom.i.i
+  %28 = and i64 %shr.i.i69, %27
+  %29 = icmp eq i64 %28, 0
+  %cmp38.not = select i1 %or.cond.i.i, i1 true, i1 %29
   br i1 %cmp38.not, label %for.cond, label %return, !llvm.loop !44
 
-return:                                           ; preds = %for.cond, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37, %for.cond.us38, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44, %for.cond.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us, %for.cond.us.us, %for.body.us.us, %land.lhs.true12, %land.lhs.true9, %land.lhs.true5, %land.lhs.true, %entry, %if.end, %land.rhs, %if.then24
-  %retval.0 = phi i1 [ %16, %if.then24 ], [ false, %land.rhs ], [ true, %if.end ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true9 ], [ false, %land.lhs.true12 ], [ %cmp33.not.not.us.us.not, %for.body.us.us ], [ %cmp33.not.not.us.us.not, %for.cond.us.us ], [ %cmp33.not.not.us.not, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us ], [ %cmp33.not.not.us.not, %for.cond.us ], [ %cmp33.not.not.us41.not, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us44 ], [ %cmp33.not.not.us41.not, %for.cond.us38 ], [ %cmp33.not.not.not, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37 ], [ %cmp33.not.not.not, %for.cond ]
+return:                                           ; preds = %for.cond, %for.body, %for.cond.us38, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54, %for.cond.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us, %for.cond.us.us, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us, %land.lhs.true12, %land.lhs.true9, %land.lhs.true5, %land.lhs.true, %entry, %if.end, %land.rhs, %if.then24
+  %retval.0 = phi i1 [ %16, %if.then24 ], [ false, %land.rhs ], [ true, %if.end ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true9 ], [ false, %land.lhs.true12 ], [ %cmp33.not.not.us.us.not, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us ], [ %cmp33.not.not.us.us.not, %for.cond.us.us ], [ %cmp33.not.not.us.not, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us ], [ %cmp33.not.not.us.not, %for.cond.us ], [ %cmp33.not.not.us41.not, %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54 ], [ %cmp33.not.not.us41.not, %for.cond.us38 ], [ %cmp33.not.not.not, %for.body ], [ %cmp33.not.not.not, %for.cond ]
   ret i1 %retval.0
 }
 
@@ -7777,7 +7726,7 @@ _ZN6icu_7515MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit.for.end_crit_edge: ; pr
 
 for.body.lr.ph:                                   ; preds = %_ZN6icu_7515MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
-  %fBCD.i = getelementptr inbounds i8, ptr %this, i64 48
+  %fBCD9.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body
 
 lpad.body:                                        ; preds = %for.end
@@ -7787,14 +7736,13 @@ lpad.body:                                        ; preds = %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
-  %6 = phi i32 [ %4, %for.body.lr.ph ], [ %16, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
+  %6 = phi i32 [ %4, %for.body.lr.ph ], [ %15, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
   %7 = trunc i64 %indvars.iv to i32
   %8 = xor i32 %7, -1
   %sub5 = add i32 %6, %8
   %9 = load i8, ptr %usingBytes.i, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %cmp.i6 = icmp sgt i32 %sub5, -1
@@ -7803,10 +7751,10 @@ if.then.i:                                        ; preds = %for.body
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %11 = load ptr, ptr %fBCD.i, align 8
+  %10 = load ptr, ptr %fBCD9.i, align 8
   %idxprom.i = zext nneg i32 %sub5 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i
-  %12 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i
+  %11 = load i8, ptr %arrayidx.i, align 1
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %for.body
@@ -7814,70 +7762,69 @@ if.else.i:                                        ; preds = %for.body
   br i1 %or.cond.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
-  %13 = load i64, ptr %fBCD.i, align 8
+  %12 = load i64, ptr %fBCD9.i, align 8
   %mul.i = shl nuw nsw i32 %sub5, 2
   %sh_prom.i = zext nneg i32 %mul.i to i64
-  %shr.i = lshr i64 %13, %sh_prom.i
-  %14 = trunc i64 %shr.i to i8
-  %conv.i = and i8 %14, 15
+  %shr.i = lshr i64 %12, %sh_prom.i
+  %13 = trunc i64 %shr.i to i8
+  %conv.i = and i8 %13, 15
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i, %if.end.i, %if.else.i, %if.end8.i
-  %retval.0.i = phi i8 [ %12, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
+  %retval.0.i = phi i8 [ %11, %if.end.i ], [ %conv.i, %if.end8.i ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   %add7 = add i8 %retval.0.i, 48
-  %15 = load ptr, ptr %digits, align 8
-  %arrayidx.i7 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv
+  %14 = load ptr, ptr %digits, align 8
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   store i8 %add7, ptr %arrayidx.i7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %precision, align 8
-  %17 = sext i32 %16 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %17
+  %15 = load i32, ptr %precision, align 8
+  %16 = sext i32 %15 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %16
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, %_ZN6icu_7515MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit.for.end_crit_edge
-  %conv13.pre-phi = phi i64 [ %.pre, %_ZN6icu_7515MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit.for.end_crit_edge ], [ %17, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
-  %18 = load ptr, ptr %digits, align 8
-  %arrayidx.i8 = getelementptr inbounds i8, ptr %18, i64 %conv13.pre-phi
+  %conv13.pre-phi = phi i64 [ %.pre, %_ZN6icu_7515MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit.for.end_crit_edge ], [ %16, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit ]
+  %17 = load ptr, ptr %digits, align 8
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %17, i64 %conv13.pre-phi
   store i8 0, ptr %arrayidx.i8, align 1
   %lReqPos = getelementptr inbounds i8, ptr %this, i64 36
-  %19 = load i32, ptr %lReqPos, align 4
+  %18 = load i32, ptr %lReqPos, align 4
   %rReqPos = getelementptr inbounds i8, ptr %this, i64 40
-  %20 = load i32, ptr %rReqPos, align 8
+  %19 = load i32, ptr %rReqPos, align 8
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
-  %21 = load i8, ptr %usingBytes, align 8
-  %22 = and i8 %21, 1
-  %tobool16.not = icmp eq i8 %22, 0
-  %cond = select i1 %tobool16.not, ptr @.str.20, ptr @.str.19
+  %20 = load i8, ptr %usingBytes, align 8
+  %tobool16 = trunc i8 %20 to i1
+  %cond = select i1 %tobool16, ptr @.str.19, ptr @.str.20
   %flags.i = getelementptr inbounds i8, ptr %this, i64 20
-  %23 = load i8, ptr %flags.i, align 4
-  %24 = and i8 %23, 1
-  %cmp.i9.not = icmp eq i8 %24, 0
+  %21 = load i8, ptr %flags.i, align 4
+  %22 = and i8 %21, 1
+  %cmp.i9.not = icmp eq i8 %22, 0
   %cond18 = select i1 %cmp.i9.not, ptr @.str.1, ptr @.str.21
-  %25 = load i32, ptr %precision, align 8
-  %cmp20 = icmp eq i32 %25, 0
-  %26 = load ptr, ptr %digits, align 8
-  %spec.select = select i1 %cmp20, ptr @.str.2, ptr %26
+  %23 = load i32, ptr %precision, align 8
+  %cmp20 = icmp eq i32 %23, 0
+  %24 = load ptr, ptr %digits, align 8
+  %spec.select = select i1 %cmp20, ptr @.str.2, ptr %24
   %scale = getelementptr inbounds i8, ptr %this, i64 12
-  %27 = load i32, ptr %scale, align 4
-  %call24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer8, i64 noundef 100, ptr noundef nonnull @.str.18, i32 noundef %19, i32 noundef %20, ptr noundef nonnull %cond, ptr noundef nonnull %cond18, ptr noundef %spec.select, ptr noundef nonnull @.str.22, i32 noundef %27) #23
+  %25 = load i32, ptr %scale, align 4
+  %call24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer8, i64 noundef 100, ptr noundef nonnull @.str.18, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %cond, ptr noundef nonnull %cond18, ptr noundef %spec.select, ptr noundef nonnull @.str.22, i32 noundef %25) #23
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull %buffer8, i32 noundef -1, i32 noundef 0)
           to label %cleanup unwind label %lpad.body
 
 cleanup:                                          ; preds = %for.end
-  %28 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i = icmp eq i8 %28, 0
+  %26 = load i8, ptr %needToRelease.i.i, align 4
+  %tobool.not.i.i = icmp eq i8 %26, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIcLi30EED2Ev.exit, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %cleanup
-  %29 = load ptr, ptr %digits, align 8
-  invoke void @uprv_free_75(ptr noundef %29)
+  %27 = load ptr, ptr %digits, align 8
+  invoke void @uprv_free_75(ptr noundef %27)
           to label %_ZN6icu_7515MaybeStackArrayIcLi30EED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i11
-  %30 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #25
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #25
   unreachable
 
 _ZN6icu_7515MaybeStackArrayIcLi30EED2Ev.exit:     ; preds = %cleanup, %if.then.i.i11

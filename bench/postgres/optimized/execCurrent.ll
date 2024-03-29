@@ -71,13 +71,12 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr nocapture noundef readonl
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not25.i = icmp eq i8 %33, 0
-  br i1 %.not25.i, label %34, label %42
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %42, label %34
 
 34:                                               ; preds = %30
-  %.not26.i = icmp eq i32 %29, 1790
-  br i1 %.not26.i, label %fetch_cursor_param_value.exit, label %35
+  %.not25.i = icmp eq i32 %29, 1790
+  br i1 %.not25.i, label %fetch_cursor_param_value.exit, label %35
 
 35:                                               ; preds = %34
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -174,8 +173,8 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 .preheader:                                       ; preds = %80
   %83 = getelementptr inbounds i8, ptr %74, i64 32
   %84 = load i32, ptr %83, align 8
-  %.not86 = icmp eq i32 %84, 0
-  br i1 %.not86, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not80 = icmp eq i32 %84, 0
+  br i1 %.not80, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %84 to i64
@@ -183,7 +182,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %101 ]
-  %.06085 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %101 ]
+  %.06079 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %101 ]
   %85 = getelementptr ptr, ptr %82, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -202,8 +201,8 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %92
-  %.not81 = icmp eq ptr %.06085, null
-  br i1 %.not81, label %101, label %97
+  %.not75 = icmp eq ptr %.06079, null
+  br i1 %.not75, label %101, label %97
 
 97:                                               ; preds = %96
   %98 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -214,7 +213,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   unreachable
 
 101:                                              ; preds = %96, %92, %.lr.ph, %88
-  %.1 = phi ptr [ %.06085, %.lr.ph ], [ %.06085, %92 ], [ %.06085, %88 ], [ %86, %96 ]
+  %.1 = phi ptr [ %.06079, %.lr.ph ], [ %.06079, %92 ], [ %.06079, %88 ], [ %86, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -234,16 +233,14 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 106:                                              ; preds = %._crit_edge
   %107 = getelementptr inbounds i8, ptr %56, i64 200
   %108 = load i8, ptr %107, align 8
-  %109 = and i8 %108, 1
-  %.not79 = icmp eq i8 %109, 0
-  br i1 %.not79, label %110, label %114
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %114, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %56, i64 201
   %112 = load i8, ptr %111, align 1
-  %113 = and i8 %112, 1
-  %.not80 = icmp eq i8 %113, 0
-  br i1 %.not80, label %118, label %114
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %118
 
 114:                                              ; preds = %110, %106
   %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -256,8 +253,8 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 118:                                              ; preds = %110
   %119 = getelementptr inbounds i8, ptr %.1, i64 42
   %120 = load i16, ptr %119, align 2
-  %.not82 = icmp eq i16 %120, 0
-  br i1 %.not82, label %163, label %121
+  %.not76 = icmp eq i16 %120, 0
+  br i1 %.not76, label %163, label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %.1, i64 38
@@ -283,16 +280,14 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 131:                                              ; preds = %123
   %132 = getelementptr inbounds i8, ptr %56, i64 200
   %133 = load i8, ptr %132, align 8
-  %134 = and i8 %133, 1
-  %.not74 = icmp eq i8 %134, 0
-  br i1 %.not74, label %135, label %139
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %139, label %135
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds i8, ptr %56, i64 201
   %137 = load i8, ptr %136, align 1
-  %138 = and i8 %137, 1
-  %.not75 = icmp eq i8 %138, 0
-  br i1 %.not75, label %143, label %139
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %143
 
 139:                                              ; preds = %135, %131
   %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -312,14 +307,13 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   %148 = getelementptr inbounds i8, ptr %145, i64 4
   %149 = load i16, ptr %148, align 4
   %150 = and i16 %149, 2
-  %.not76 = icmp eq i16 %150, 0
-  br i1 %.not76, label %151, label %163
+  %.not74 = icmp eq i16 %150, 0
+  br i1 %.not74, label %151, label %163
 
 151:                                              ; preds = %147
   %152 = load i8, ptr %6, align 1
-  %153 = and i8 %152, 1
-  %.not77 = icmp eq i8 %153, 0
-  br i1 %.not77, label %154, label %163
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %163, label %154
 
 154:                                              ; preds = %151
   %155 = load i32, ptr %126, align 4

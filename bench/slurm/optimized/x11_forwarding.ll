@@ -347,14 +347,13 @@ define dso_local noundef i32 @setup_x11_forward(ptr noundef %0) local_unnamed_ad
 define internal noundef zeroext i1 @_x11_socket_readable(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 8
-  %.not6 = icmp eq i32 %6, -1
-  br i1 %.not6, label %9, label %7
+  %.not = icmp eq i32 %6, -1
+  br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @close(i32 noundef %6) #6
@@ -365,7 +364,8 @@ define internal noundef zeroext i1 @_x11_socket_readable(ptr nocapture noundef %
   br label %10
 
 10:                                               ; preds = %1, %9
-  ret i1 %.not
+  %.0 = xor i1 %4, true
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

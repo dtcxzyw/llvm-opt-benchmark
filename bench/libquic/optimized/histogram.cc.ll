@@ -3702,18 +3702,18 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp7.not.i = icmp eq ptr %0, %1
-  br i1 %cmp7.not.i, label %cond.false, label %for.body.lr.ph.i
+  %cmp6.not.i = icmp eq ptr %0, %1
+  br i1 %cmp6.not.i, label %cond.false, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %2 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %conv10.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %if.end.i ]
-  %i.09.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end.i ]
-  %has_valid_range.08.i = phi i8 [ 0, %for.body.lr.ph.i ], [ %spec.select.i, %if.end.i ]
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %1, i64 %conv10.i
+  %conv9.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %if.end.i ]
+  %i.08.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end.i ]
+  %has_valid_range.07.i = phi i1 [ false, %for.body.lr.ph.i ], [ %spec.select.i, %if.end.i ]
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %1, i64 %conv9.i
   %3 = load i32, ptr %add.ptr.i.i, align 4
   %cmp3.i = icmp sgt i32 %3, -1
   %cmp4.not.i = icmp slt i32 %3, %2
@@ -3721,17 +3721,15 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %or.cond.i, label %if.end.i, label %cond.false
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp5.not.i = icmp eq i32 %3, 0
-  %spec.select.i = select i1 %cmp5.not.i, i8 %has_valid_range.08.i, i8 1
-  %inc.i = add i32 %i.09.i, 1
+  %cmp5.not.i = icmp ne i32 %3, 0
+  %spec.select.i = select i1 %cmp5.not.i, i1 true, i1 %has_valid_range.07.i
+  %inc.i = add i32 %i.08.i, 1
   %conv.i = zext i32 %inc.i to i64
   %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit, !llvm.loop !38
 
 _ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit: ; preds = %if.end.i
-  %4 = and i8 %spec.select.i, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %cond.false, label %cleanup.done
+  br i1 %spec.select.i, label %cleanup.done, label %cond.false
 
 cond.false:                                       ; preds = %for.body.i, %entry, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1, ptr noundef nonnull @.str, i32 noundef 1057, ptr noundef nonnull @.str.19)
@@ -3762,18 +3760,18 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp7.not = icmp eq ptr %0, %1
-  br i1 %cmp7.not, label %return, label %for.body.lr.ph
+  %cmp6.not = icmp eq ptr %0, %1
+  br i1 %cmp6.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %2 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %conv10 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %if.end ]
-  %i.09 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
-  %has_valid_range.08 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select, %if.end ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv10
+  %conv9 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %if.end ]
+  %i.08 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
+  %has_valid_range.07 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %if.end ]
+  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv9
   %3 = load i32, ptr %add.ptr.i, align 4
   %cmp3 = icmp sgt i32 %3, -1
   %cmp4.not = icmp slt i32 %3, %2
@@ -3781,20 +3779,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
-  %cmp5.not = icmp eq i32 %3, 0
-  %spec.select = select i1 %cmp5.not, i8 %has_valid_range.08, i8 1
-  %inc = add i32 %i.09, 1
+  %cmp5.not = icmp ne i32 %3, 0
+  %spec.select = select i1 %cmp5.not, i1 true, i1 %has_valid_range.07
+  %inc = add i32 %i.08, 1
   %conv = zext i32 %inc to i64
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !38
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !38
 
-for.end.loopexit:                                 ; preds = %if.end
-  %4 = and i8 %spec.select, 1
-  %5 = icmp ne i8 %4, 0
-  br label %return
-
-return:                                           ; preds = %for.body, %entry, %for.end.loopexit
-  %retval.0 = phi i1 [ false, %entry ], [ %5, %for.end.loopexit ], [ false, %for.body ]
+return:                                           ; preds = %for.body, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %spec.select, %if.end ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -3848,18 +3841,18 @@ invoke.cont:                                      ; preds = %if.end.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %cmp7.not.i.i = icmp eq ptr %1, %2
-  br i1 %cmp7.not.i.i, label %cond.false.i, label %for.body.lr.ph.i.i
+  %cmp6.not.i.i = icmp eq ptr %1, %2
+  br i1 %cmp6.not.i.i, label %cond.false.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont
   %3 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.lr.ph.i.i
-  %conv10.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %if.end.i.i ]
-  %i.09.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end.i.i ]
-  %has_valid_range.08.i.i = phi i8 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %conv10.i.i
+  %conv9.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %if.end.i.i ]
+  %i.08.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end.i.i ]
+  %has_valid_range.07.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %conv9.i.i
   %4 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %4, -1
   %cmp4.not.i.i = icmp slt i32 %4, %3
@@ -3867,17 +3860,15 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   br i1 %or.cond.i.i, label %if.end.i.i, label %cond.false.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %cmp5.not.i.i = icmp eq i32 %4, 0
-  %spec.select.i.i = select i1 %cmp5.not.i.i, i8 %has_valid_range.08.i.i, i8 1
-  %inc.i.i = add i32 %i.09.i.i, 1
+  %cmp5.not.i.i = icmp ne i32 %4, 0
+  %spec.select.i.i = select i1 %cmp5.not.i.i, i1 true, i1 %has_valid_range.07.i.i
+  %inc.i.i = add i32 %i.08.i.i, 1
   %conv.i.i = zext i32 %inc.i.i to i64
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i, !llvm.loop !38
 
 _ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i: ; preds = %if.end.i.i
-  %5 = and i8 %spec.select.i.i, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %cond.false.i, label %cleanup.done.i
+  br i1 %spec.select.i.i, label %cleanup.done.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body.i.i, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i, %invoke.cont
   invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i, ptr noundef nonnull @.str, i32 noundef 1057, ptr noundef nonnull @.str.19)
@@ -3908,18 +3899,18 @@ invoke.cont3:                                     ; preds = %cleanup.done.i
   ret ptr %call8.i4
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %cleanup.done.i, %cond.false.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad2
-  %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %6, %lpad ], [ %0, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %5, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   resume { ptr, i32 } %.pn
 }
@@ -4368,18 +4359,18 @@ for.end:                                          ; preds = %for.cond
   %9 = load i32, ptr %flags, align 4
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp7.i)
-  %cmp7.not.i.i = icmp eq ptr %3, %4
-  br i1 %cmp7.not.i.i, label %cond.false.i, label %for.body.lr.ph.i.i
+  %cmp6.not.i.i = icmp eq ptr %3, %4
+  br i1 %cmp6.not.i.i, label %cond.false.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end
   %10 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.lr.ph.i.i
-  %conv10.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %if.end.i.i ]
-  %i.09.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end.i.i ]
-  %has_valid_range.08.i.i = phi i8 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
-  %add.ptr.i.i.i7 = getelementptr inbounds i32, ptr %4, i64 %conv10.i.i
+  %conv9.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %if.end.i.i ]
+  %i.08.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end.i.i ]
+  %has_valid_range.07.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
+  %add.ptr.i.i.i7 = getelementptr inbounds i32, ptr %4, i64 %conv9.i.i
   %11 = load i32, ptr %add.ptr.i.i.i7, align 4
   %cmp3.i.i = icmp sgt i32 %11, -1
   %cmp4.not.i.i = icmp slt i32 %11, %10
@@ -4387,20 +4378,18 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   br i1 %or.cond.i.i, label %if.end.i.i, label %cond.false.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %cmp5.not.i.i = icmp eq i32 %11, 0
-  %spec.select.i.i = select i1 %cmp5.not.i.i, i8 %has_valid_range.08.i.i, i8 1
-  %inc.i.i = add i32 %i.09.i.i, 1
+  %cmp5.not.i.i = icmp ne i32 %11, 0
+  %spec.select.i.i = select i1 %cmp5.not.i.i, i1 true, i1 %has_valid_range.07.i.i
+  %inc.i.i = add i32 %i.08.i.i, 1
   %conv.i.i = zext i32 %inc.i.i to i64
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i, %conv.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i, !llvm.loop !38
 
 _ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i: ; preds = %if.end.i.i
-  %12 = and i8 %spec.select.i.i, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %cond.false.i, label %cleanup.done.i
+  br i1 %spec.select.i.i, label %cleanup.done.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body.i.i, %for.end.thread, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i, %for.end
-  %13 = phi i32 [ %8, %for.end.thread ], [ %9, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i ], [ %9, %for.end ], [ %9, %for.body.i.i ]
+  %12 = phi i32 [ %8, %for.end.thread ], [ %9, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i ], [ %9, %for.end ], [ %9, %for.body.i.i ]
   invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i, ptr noundef nonnull @.str, i32 noundef 1057, ptr noundef nonnull @.str.19)
           to label %.noexc unwind label %lpad7.loopexit.split-lp
 
@@ -4409,13 +4398,13 @@ cond.false.i:                                     ; preds = %for.body.i.i, %for.
   br label %cleanup.done.i
 
 cleanup.done.i:                                   ; preds = %.noexc, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i
-  %14 = phi i32 [ %13, %.noexc ], [ %9, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i ]
+  %13 = phi i32 [ %12, %.noexc ], [ %9, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i ]
   %name_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
   store ptr %histogram_name, ptr %name_.i.i.i, align 8
   %histogram_type_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 16
   store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %histogram_type_.i.i.i, align 8
   %flags_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 32
-  store i32 %14, ptr %flags_.i.i.i, align 8
+  store i32 %13, ptr %flags_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base15CustomHistogram7FactoryE, i64 0, i32 0, i64 2), ptr %ref.tmp7.i, align 8
   %custom_ranges_.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 40
   store ptr %sample_ranges, ptr %custom_ranges_.i.i, align 8
@@ -4425,23 +4414,23 @@ cleanup.done.i:                                   ; preds = %.noexc, %_ZN4base15
 invoke.cont12:                                    ; preds = %cleanup.done.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp7.i)
-  %15 = load i32, ptr %range_checksum, align 4
-  %16 = getelementptr i8, ptr %call8.i8, i64 48
-  %call13.val = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %call13.val, i64 24
-  %call13.val.val = load i32, ptr %17, align 8
-  %cmp.i = icmp eq i32 %call13.val.val, %15
+  %14 = load i32, ptr %range_checksum, align 4
+  %15 = getelementptr i8, ptr %call8.i8, i64 48
+  %call13.val = load ptr, ptr %15, align 8
+  %16 = getelementptr i8, ptr %call13.val, i64 24
+  %call13.val.val = load i32, ptr %16, align 8
+  %cmp.i = icmp eq i32 %call13.val.val, %14
   %call13. = select i1 %cmp.i, ptr %call8.i8, ptr null
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont8, %invoke.cont12
   %retval.0 = phi ptr [ %call13., %invoke.cont12 ], [ null, %invoke.cont8 ]
-  %18 = load ptr, ptr %sample_ranges, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %sample_ranges, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i9, label %cleanup18, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %18) #22
+  call void @_ZdlPv(ptr noundef nonnull %17) #22
   br label %cleanup18
 
 cleanup18:                                        ; preds = %if.then.i.i.i10, %cleanup, %invoke.cont
@@ -4866,7 +4855,7 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull %2)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %descriptions_, align 8
   %arrayidx = getelementptr inbounds %"struct.base::LinearHistogram::DescriptionPair", ptr %7, i64 %indvars.iv.next
   %description = getelementptr inbounds i8, ptr %arrayidx, i64 8

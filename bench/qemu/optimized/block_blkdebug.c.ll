@@ -1395,16 +1395,15 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %remov
   %le_prev14.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %suspended_reqs.i.i, ptr %le_prev14.i.i, align 8
   %19 = load i8, ptr @qtest_allowed, align 1
-  %20 = and i8 %19, 1
-  %tobool.i.not.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i, label %if.then16.i.i, label %process_rule.exit
+  %tobool.i.i.i = trunc i8 %19 to i1
+  br i1 %tobool.i.i.i, label %process_rule.exit, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end.i.i
   %call18.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef %call2.i.i)
   br label %process_rule.exit
 
 process_rule.exit:                                ; preds = %land.lhs.true.i, %if.end.i, %if.end20.i, %sw.bb24.i, %if.end.i.i, %if.then16.i.i
-  %new_state.1 = phi i32 [ %new_state.014, %if.end.i ], [ %new_state.014, %if.then16.i.i ], [ %new_state.014, %if.end.i.i ], [ %12, %sw.bb24.i ], [ %new_state.014, %if.end20.i ], [ %new_state.014, %land.lhs.true.i ]
+  %new_state.1 = phi i32 [ %new_state.014, %if.end.i ], [ %new_state.014, %if.end.i.i ], [ %new_state.014, %if.then16.i.i ], [ %12, %sw.bb24.i ], [ %new_state.014, %if.end20.i ], [ %new_state.014, %land.lhs.true.i ]
   %tobool4.not = icmp eq ptr %5, null
   br i1 %tobool4.not, label %qemu_lockable_auto_unlock.exit, label %land.rhs, !llvm.loop !15
 
@@ -1805,9 +1804,8 @@ if.then.us:                                       ; preds = %for.body.us
   %tag1.us.le = getelementptr inbounds i8, ptr %r.020.us, i64 8
   %1 = load ptr, ptr %r.020.us, align 8
   %2 = load i8, ptr @qtest_allowed, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.us = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.us, label %if.then5.us, label %do.body.us
+  %tobool.i.us = trunc i8 %2 to i1
+  br i1 %tobool.i.us, label %do.body.us, label %if.then5.us
 
 if.then5.us:                                      ; preds = %if.then.us
   %call7.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %0)
@@ -1815,30 +1813,30 @@ if.then5.us:                                      ; preds = %if.then.us
 
 do.body.us:                                       ; preds = %if.then5.us, %if.then.us
   %next.us = getelementptr inbounds i8, ptr %r.020.us, i64 16
-  %4 = load ptr, ptr %next.us, align 8
-  %cmp.not.us = icmp eq ptr %4, null
+  %3 = load ptr, ptr %next.us, align 8
+  %cmp.not.us = icmp eq ptr %3, null
   %le_prev18.us.phi.trans.insert = getelementptr inbounds i8, ptr %r.020.us, i64 24
   %.pre33 = load ptr, ptr %le_prev18.us.phi.trans.insert, align 8
   br i1 %cmp.not.us, label %if.end14.us, label %if.then8.us
 
 if.then8.us:                                      ; preds = %do.body.us
-  %le_prev13.us = getelementptr inbounds i8, ptr %4, i64 24
+  %le_prev13.us = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %.pre33, ptr %le_prev13.us, align 8
   %.pre32 = load ptr, ptr %next.us, align 8
   br label %if.end14.us
 
 if.end14.us:                                      ; preds = %do.body.us, %if.then8.us
-  %5 = phi ptr [ %.pre32, %if.then8.us ], [ null, %do.body.us ]
-  store ptr %5, ptr %.pre33, align 8
+  %4 = phi ptr [ %.pre32, %if.then8.us ], [ null, %do.body.us ]
+  store ptr %4, ptr %.pre33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.us, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %tag1.us.le, align 8
-  tail call void @g_free(ptr noundef %6) #13
+  %5 = load ptr, ptr %tag1.us.le, align 8
+  tail call void @g_free(ptr noundef %5) #13
   tail call void @g_free(ptr noundef nonnull %r.020.us) #13
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.12, i32 noundef 914) #13
   tail call void @qemu_coroutine_enter(ptr noundef %1) #13
-  %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
-  tail call void %8(ptr noundef nonnull %lock, ptr noundef nonnull @.str.12, i32 noundef 916) #13
+  %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %7 = inttoptr i64 %6 to ptr
+  tail call void %7(ptr noundef nonnull %lock, ptr noundef nonnull @.str.12, i32 noundef 916) #13
   %r.018.us = load ptr, ptr %suspended_reqs, align 8
   %tobool.not19.us = icmp eq ptr %r.018.us, null
   br i1 %tobool.not19.us, label %return, label %for.body.us.backedge
@@ -1849,49 +1847,48 @@ retry:                                            ; preds = %entry
 for.body:                                         ; preds = %retry, %for.inc
   %r.020 = phi ptr [ %r.0, %for.inc ], [ %r.018.us21, %retry ]
   %tag1 = getelementptr inbounds i8, ptr %r.020, i64 8
-  %9 = load ptr, ptr %tag1, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %tag) #14
+  %8 = load ptr, ptr %tag1, align 8
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %tag) #14
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %tag1.le = getelementptr inbounds i8, ptr %r.020, i64 8
-  %10 = load ptr, ptr %r.020, align 8
-  %11 = load i8, ptr @qtest_allowed, align 1
-  %12 = and i8 %11, 1
-  %tobool.i.not = icmp eq i8 %12, 0
-  br i1 %tobool.i.not, label %if.then5, label %do.body
+  %9 = load ptr, ptr %r.020, align 8
+  %10 = load i8, ptr @qtest_allowed, align 1
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %do.body, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %9)
+  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %8)
   br label %do.body
 
 do.body:                                          ; preds = %if.then, %if.then5
   %next = getelementptr inbounds i8, ptr %r.020, i64 16
-  %13 = load ptr, ptr %next, align 8
-  %cmp.not = icmp eq ptr %13, null
+  %11 = load ptr, ptr %next, align 8
+  %cmp.not = icmp eq ptr %11, null
   %le_prev18.phi.trans.insert = getelementptr inbounds i8, ptr %r.020, i64 24
   %.pre31 = load ptr, ptr %le_prev18.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end14, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %le_prev13 = getelementptr inbounds i8, ptr %13, i64 24
+  %le_prev13 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %.pre31, ptr %le_prev13, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then8
-  %14 = phi ptr [ %.pre, %if.then8 ], [ null, %do.body ]
-  store ptr %14, ptr %.pre31, align 8
+  %12 = phi ptr [ %.pre, %if.then8 ], [ null, %do.body ]
+  store ptr %12, ptr %.pre31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  %15 = load ptr, ptr %tag1.le, align 8
-  tail call void @g_free(ptr noundef %15) #13
+  %13 = load ptr, ptr %tag1.le, align 8
+  tail call void @g_free(ptr noundef %13) #13
   tail call void @g_free(ptr noundef nonnull %r.020) #13
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.12, i32 noundef 914) #13
-  tail call void @qemu_coroutine_enter(ptr noundef %10) #13
-  %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
-  tail call void %17(ptr noundef nonnull %lock, ptr noundef nonnull @.str.12, i32 noundef 916) #13
+  tail call void @qemu_coroutine_enter(ptr noundef %9) #13
+  %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %15 = inttoptr i64 %14 to ptr
+  tail call void %15(ptr noundef nonnull %lock, ptr noundef nonnull @.str.12, i32 noundef 916) #13
   br label %return
 
 for.inc:                                          ; preds = %for.body

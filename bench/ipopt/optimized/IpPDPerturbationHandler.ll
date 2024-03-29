@@ -1539,11 +1539,10 @@ define noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler17ConsiderNewSystemER
   tail call void @_ZN5Ipopt21PDPerturbationHandler13finalize_testEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
   %8 = getelementptr inbounds i8, ptr %0, i64 208
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
+  %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load double, ptr %11, align 8
-  br i1 %.not, label %20, label %13
+  br i1 %10, label %13, label %20
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1612,10 +1611,9 @@ define noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler17ConsiderNewSystemER
 48:                                               ; preds = %41
   %49 = getelementptr inbounds i8, ptr %0, i64 216
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 1
-  %.not27 = icmp eq i8 %51, 0
+  %51 = trunc i8 %50 to i1
   %52 = getelementptr inbounds i8, ptr %0, i64 136
-  br i1 %.not27, label %53, label %54
+  br i1 %51, label %54, label %53
 
 53:                                               ; preds = %48
   store i32 1, ptr %52, align 8
@@ -1655,19 +1653,19 @@ define noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler17ConsiderNewSystemER
 
 .noexc:                                           ; preds = %59
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %.noexc32 unwind label %77
+          to label %.noexc30 unwind label %77
 
-.noexc32:                                         ; preds = %.noexc
+.noexc30:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.27, i64 0, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %73
 
-73:                                               ; preds = %.noexc32
+73:                                               ; preds = %.noexc30
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   br label %.body
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc32
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc30
   %75 = getelementptr inbounds i8, ptr %71, i64 160
   %76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %79
@@ -1697,9 +1695,8 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
 81:                                               ; preds = %57
   %82 = getelementptr inbounds i8, ptr %0, i64 216
   %83 = load i8, ptr %82, align 8
-  %84 = and i8 %83, 1
-  %.not28 = icmp eq i8 %84, 0
-  br i1 %.not28, label %97, label %85
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %97
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds i8, ptr %0, i64 192
@@ -2502,9 +2499,8 @@ define noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler21PerturbForSingulari
 42:                                               ; preds = %14
   %43 = getelementptr inbounds i8, ptr %0, i64 216
   %44 = load i8, ptr %43, align 8
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %46, label %50
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %50, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %0, i64 104

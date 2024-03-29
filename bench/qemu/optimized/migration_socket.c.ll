@@ -173,17 +173,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call3) #5
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call3) #5
   br label %trace_migration_socket_outgoing_error.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -196,41 +195,40 @@ trace_migration_socket_outgoing_error.exit:       ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %entry
   %hostname = getelementptr inbounds i8, ptr %opaque, i64 8
-  %8 = load ptr, ptr %hostname, align 8
+  %7 = load ptr, ptr %hostname, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i6)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i7 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_MIGRATION_SOCKET_OUTGOING_CONNECTED_DSTATE, align 2
-  %tobool4.i.i8 = icmp ne i16 %10, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i7 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_MIGRATION_SOCKET_OUTGOING_CONNECTED_DSTATE, align 2
+  %tobool4.i.i8 = icmp ne i16 %9, 0
   %or.cond.i.i9 = select i1 %tobool.i.i7, i1 %tobool4.i.i8, i1 false
   br i1 %or.cond.i.i9, label %land.lhs.true5.i.i10, label %trace_migration_socket_outgoing_connected.exit
 
 land.lhs.true5.i.i10:                             ; preds = %if.end
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i11 = and i32 %11, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i11 = and i32 %10, 32768
   %cmp.i.not.i.i12 = icmp eq i32 %and.i.i.i11, 0
   br i1 %cmp.i.not.i.i12, label %trace_migration_socket_outgoing_connected.exit, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %land.lhs.true5.i.i10
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i14 = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i14, label %if.else.i.i19, label %if.then8.i.i15
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i14 = trunc i8 %11 to i1
+  br i1 %tobool7.i.i14, label %if.then8.i.i16, label %if.else.i.i15
 
-if.then8.i.i15:                                   ; preds = %if.then.i.i13
-  %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #5
-  %call10.i.i17 = call i32 @qemu_get_thread_id() #5
-  %14 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
-  %15 = load i64, ptr %tv_usec.i.i18, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i17, i64 noundef %14, i64 noundef %15, ptr noundef %8) #5
+if.then8.i.i16:                                   ; preds = %if.then.i.i13
+  %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #5
+  %call10.i.i18 = call i32 @qemu_get_thread_id() #5
+  %12 = load i64, ptr %_now.i.i6, align 8
+  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
+  %13 = load i64, ptr %tv_usec.i.i19, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i18, i64 noundef %12, i64 noundef %13, ptr noundef %7) #5
   br label %trace_migration_socket_outgoing_connected.exit
 
-if.else.i.i19:                                    ; preds = %if.then.i.i13
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %8) #5
+if.else.i.i15:                                    ; preds = %if.then.i.i13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %7) #5
   br label %trace_migration_socket_outgoing_connected.exit
 
-trace_migration_socket_outgoing_connected.exit:   ; preds = %if.end, %land.lhs.true5.i.i10, %if.then8.i.i15, %if.else.i.i19
+trace_migration_socket_outgoing_connected.exit:   ; preds = %if.end, %land.lhs.true5.i.i10, %if.then8.i.i16, %if.else.i.i15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i6)
   %call4 = call zeroext i1 @migrate_zero_copy_send() #5
   br i1 %call4, label %land.lhs.true, label %out
@@ -244,11 +242,11 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %out
 
 out:                                              ; preds = %trace_migration_socket_outgoing_connected.exit, %land.lhs.true, %if.then6, %trace_migration_socket_outgoing_error.exit
-  %16 = load ptr, ptr %opaque, align 8
+  %14 = load ptr, ptr %opaque, align 8
   %hostname8 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %17 = load ptr, ptr %hostname8, align 8
-  %18 = load ptr, ptr %err, align 8
-  call void @migration_channel_connect(ptr noundef %16, ptr noundef %call.i, ptr noundef %17, ptr noundef %18) #5
+  %15 = load ptr, ptr %hostname8, align 8
+  %16 = load ptr, ptr %err, align 8
+  call void @migration_channel_connect(ptr noundef %14, ptr noundef %call.i, ptr noundef %15, ptr noundef %16) #5
   call void @object_unref(ptr noundef %call.i) #5
   ret void
 }
@@ -376,17 +374,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #5
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #5
   br label %trace_migration_socket_incoming_accepted.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

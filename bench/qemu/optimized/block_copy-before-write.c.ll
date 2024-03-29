@@ -220,29 +220,27 @@ if.end23:                                         ; preds = %if.then16, %if.end1
   %bitmap.0 = phi ptr [ %call19, %if.then16 ], [ null, %if.end11 ]
   %has_on_cbw_error = getelementptr inbounds i8, ptr %2, i64 72
   %7 = load i8, ptr %has_on_cbw_error, align 8
-  %8 = and i8 %7, 1
-  %tobool24.not = icmp eq i8 %8, 0
-  br i1 %tobool24.not, label %cond.end, label %cond.true
+  %tobool24 = trunc i8 %7 to i1
+  br i1 %tobool24, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end23
   %on_cbw_error = getelementptr inbounds i8, ptr %2, i64 76
-  %9 = load i32, ptr %on_cbw_error, align 4
+  %8 = load i32, ptr %on_cbw_error, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end23, %cond.true
-  %cond = phi i32 [ %9, %cond.true ], [ 0, %if.end23 ]
+  %cond = phi i32 [ %8, %cond.true ], [ 0, %if.end23 ]
   %on_cbw_error25 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %cond, ptr %on_cbw_error25, align 8
   %has_cbw_timeout = getelementptr inbounds i8, ptr %2, i64 80
-  %10 = load i8, ptr %has_cbw_timeout, align 8
-  %11 = and i8 %10, 1
-  %tobool26.not = icmp eq i8 %11, 0
-  br i1 %tobool26.not, label %cond.end29, label %cond.true27
+  %9 = load i8, ptr %has_cbw_timeout, align 8
+  %tobool26 = trunc i8 %9 to i1
+  br i1 %tobool26, label %cond.true27, label %cond.end29
 
 cond.true27:                                      ; preds = %cond.end
   %cbw_timeout = getelementptr inbounds i8, ptr %2, i64 84
-  %12 = load i32, ptr %cbw_timeout, align 4
-  %mul = mul i32 %12, 1000000000
+  %10 = load i32, ptr %cbw_timeout, align 4
+  %mul = mul i32 %10, 1000000000
   br label %cond.end29
 
 cond.end29:                                       ; preds = %cond.end, %cond.true27
@@ -250,28 +248,28 @@ cond.end29:                                       ; preds = %cond.end, %cond.tru
   %cbw_timeout_ns = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %cond30, ptr %cbw_timeout_ns, align 4
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
-  %13 = load ptr, ptr %file, align 8
-  %14 = load ptr, ptr %13, align 8
-  %total_sectors = getelementptr inbounds i8, ptr %14, i64 16888
-  %15 = load i64, ptr %total_sectors, align 8
+  %11 = load ptr, ptr %file, align 8
+  %12 = load ptr, ptr %11, align 8
+  %total_sectors = getelementptr inbounds i8, ptr %12, i64 16888
+  %13 = load i64, ptr %total_sectors, align 8
   %total_sectors33 = getelementptr inbounds i8, ptr %bs, i64 16888
-  store i64 %15, ptr %total_sectors33, align 8
-  %16 = load ptr, ptr %13, align 8
-  %supported_write_flags = getelementptr inbounds i8, ptr %16, i64 16588
-  %17 = load i32, ptr %supported_write_flags, align 4
-  %and = and i32 %17, 16
+  store i64 %13, ptr %total_sectors33, align 8
+  %14 = load ptr, ptr %11, align 8
+  %supported_write_flags = getelementptr inbounds i8, ptr %14, i64 16588
+  %15 = load i32, ptr %supported_write_flags, align 4
+  %and = and i32 %15, 16
   %or = or disjoint i32 %and, 64
   %supported_write_flags36 = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags36, align 4
-  %18 = load ptr, ptr %13, align 8
-  %supported_zero_flags = getelementptr inbounds i8, ptr %18, i64 16592
-  %19 = load i32, ptr %supported_zero_flags, align 8
-  %and39 = and i32 %19, 276
+  %16 = load ptr, ptr %11, align 8
+  %supported_zero_flags = getelementptr inbounds i8, ptr %16, i64 16592
+  %17 = load i32, ptr %supported_zero_flags, align 8
+  %and39 = and i32 %17, 276
   %or40 = or disjoint i32 %and39, 64
   %supported_zero_flags41 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or40, ptr %supported_zero_flags41, align 8
-  %20 = load ptr, ptr %target, align 8
-  %call44 = call ptr @block_copy_state_new(ptr noundef nonnull %13, ptr noundef %20, ptr noundef %bitmap.0, ptr noundef %errp) #7
+  %18 = load ptr, ptr %target, align 8
+  %call44 = call ptr @block_copy_state_new(ptr noundef nonnull %11, ptr noundef %18, ptr noundef %bitmap.0, ptr noundef %errp) #7
   store ptr %call44, ptr %0, align 8
   %tobool46.not = icmp eq ptr %call44, null
   br i1 %tobool46.not, label %if.then47, label %if.end48
@@ -299,10 +297,10 @@ if.end56:                                         ; preds = %if.end48
 
 if.end63:                                         ; preds = %if.end56
   call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call59) #7
-  %21 = load ptr, ptr %access_bitmap, align 8
-  %22 = load ptr, ptr %0, align 8
-  %call67 = call ptr @block_copy_dirty_bitmap(ptr noundef %22) #7
-  call void @bdrv_dirty_bitmap_merge_internal(ptr noundef %21, ptr noundef %call67, ptr noundef null, i1 noundef zeroext true) #7
+  %19 = load ptr, ptr %access_bitmap, align 8
+  %20 = load ptr, ptr %0, align 8
+  %call67 = call ptr @block_copy_dirty_bitmap(ptr noundef %20) #7
+  call void @bdrv_dirty_bitmap_merge_internal(ptr noundef %19, ptr noundef %call67, ptr noundef null, i1 noundef zeroext true) #7
   %lock = getelementptr inbounds i8, ptr %0, i64 24
   call void @qemu_co_mutex_init(ptr noundef nonnull %lock) #7
   %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88

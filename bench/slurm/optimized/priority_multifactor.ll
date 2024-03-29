@@ -674,9 +674,8 @@ define internal noalias noundef ptr @_decay_thread(ptr nocapture readnone %0) #0
 
 57:                                               ; preds = %47, %45
   %58 = load i8, ptr @ignore_state_errors, align 1
-  %59 = and i8 %58, 1
-  %.not14.i = icmp eq i8 %59, 0
-  br i1 %.not14.i, label %60, label %61
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %61, label %60
 
 60:                                               ; preds = %57
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.39) #16

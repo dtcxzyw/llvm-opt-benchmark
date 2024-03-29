@@ -651,34 +651,33 @@ entry:
   %0 = load ptr, ptr %smt, align 8
   %produceProofs = getelementptr inbounds i8, ptr %0, i64 113
   %1 = load i8, ptr %produceProofs, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %d_pppg = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %d_pppg, align 8
-  %cmp.i.not.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %d_pppg, align 8
+  %cmp.i.not.i = icmp eq ptr %2, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %d_env = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %d_env, align 8
+  %3 = load ptr, ptr %d_env, align 8
   %call4 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr %call4, ptr %ref.tmp3, align 8
-  call void @_ZSt11make_uniqueIN4cvc58internal3smt24PreprocessProofGeneratorEJRNS1_3EnvEPNS0_7context11UserContextERA30_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(576) %4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(30) @.str)
-  %5 = load ptr, ptr %ref.tmp, align 8
+  call void @_ZSt11make_uniqueIN4cvc58internal3smt24PreprocessProofGeneratorEJRNS1_3EnvEPNS0_7context11UserContextERA30_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(576) %3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(30) @.str)
+  %4 = load ptr, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
-  %6 = load ptr, ptr %d_pppg, align 8
-  store ptr %5, ptr %d_pppg, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %d_pppg, align 8
+  store ptr %4, ptr %d_pppg, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EED2Ev.exit, label %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EEaSEOS6_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EEaSEOS6_.exit: ; preds = %if.then
-  %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
-  %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(576) %6) #17
+  %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(576) %5) #17
   %.pr = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal3smt24PreprocessProofGeneratorEEclEPS3_.exit.i
@@ -686,55 +685,55 @@ _ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_dele
 _ZNKSt14default_deleteIN4cvc58internal3smt24PreprocessProofGeneratorEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EEaSEOS6_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(576) %.pr) #17
+  %7 = load ptr, ptr %vfn.i.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(576) %.pr) #17
   br label %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.then, %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EEaSEOS6_.exit, %_ZNKSt14default_deleteIN4cvc58internal3smt24PreprocessProofGeneratorEEclEPS3_.exit.i
   store ptr null, ptr %ref.tmp, align 8
   %d_propagator = getelementptr inbounds i8, ptr %this, i64 24
   %call7 = call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %9 = load ptr, ptr %d_pppg, align 8
-  %10 = icmp eq ptr %9, null
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 16
-  %spec.select = select i1 %10, ptr null, ptr %add.ptr
+  %8 = load ptr, ptr %d_pppg, align 8
+  %9 = icmp eq ptr %8, null
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 16
+  %spec.select = select i1 %9, ptr null, ptr %add.ptr
   call void @_ZN4cvc58internal6theory8booleans17CircuitPropagator12enableProofsEPNS_7context7ContextEPNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(528) %d_propagator, ptr noundef %call7, ptr noundef %spec.select)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_deleteIS3_EED2Ev.exit, %land.lhs.true, %entry
   %call10 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #20
   %d_env11 = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = load ptr, ptr %d_env11, align 8
+  %10 = load ptr, ptr %d_env11, align 8
   %d_propagator12 = getelementptr inbounds i8, ptr %this, i64 24
-  invoke void @_ZN4cvc58internal13preprocessing24PreprocessingPassContextC1ERNS0_3EnvEPNS0_12TheoryEngineEPNS0_4prop10PropEngineEPNS0_6theory8booleans17CircuitPropagatorE(ptr noundef nonnull align 8 dereferenceable(168) %call10, ptr noundef nonnull align 8 dereferenceable(576) %11, ptr noundef %te, ptr noundef %pe, ptr noundef nonnull %d_propagator12)
+  invoke void @_ZN4cvc58internal13preprocessing24PreprocessingPassContextC1ERNS0_3EnvEPNS0_12TheoryEngineEPNS0_4prop10PropEngineEPNS0_6theory8booleans17CircuitPropagatorE(ptr noundef nonnull align 8 dereferenceable(168) %call10, ptr noundef nonnull align 8 dereferenceable(576) %10, ptr noundef %te, ptr noundef %pe, ptr noundef nonnull %d_propagator12)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   %d_ppContext = getelementptr inbounds i8, ptr %this, i64 600
-  %12 = load ptr, ptr %d_ppContext, align 8
+  %11 = load ptr, ptr %d_ppContext, align 8
   store ptr %call10, ptr %d_ppContext, align 8
-  %tobool.not.i.i = icmp eq ptr %12, null
+  %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN4cvc58internal13preprocessing24PreprocessingPassContextESt14default_deleteIS3_EE5resetEPS3_.exit, label %_ZNKSt14default_deleteIN4cvc58internal13preprocessing24PreprocessingPassContextEEclEPS3_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal13preprocessing24PreprocessingPassContextEEclEPS3_.exit.i.i: ; preds = %invoke.cont
-  %vtable.i.i.i = load ptr, ptr %12, align 8
+  %vtable.i.i.i = load ptr, ptr %11, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %13 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(168) %12) #17
+  %12 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(168) %11) #17
   %.pre = load ptr, ptr %d_ppContext, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal13preprocessing24PreprocessingPassContextESt14default_deleteIS3_EE5resetEPS3_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal13preprocessing24PreprocessingPassContextESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN4cvc58internal13preprocessing24PreprocessingPassContextEEclEPS3_.exit.i.i
-  %14 = phi ptr [ %call10, %invoke.cont ], [ %.pre, %_ZNKSt14default_deleteIN4cvc58internal13preprocessing24PreprocessingPassContextEEclEPS3_.exit.i.i ]
+  %13 = phi ptr [ %call10, %invoke.cont ], [ %.pre, %_ZNKSt14default_deleteIN4cvc58internal13preprocessing24PreprocessingPassContextEEclEPS3_.exit.i.i ]
   %d_processor = getelementptr inbounds i8, ptr %this, i64 608
-  call void @_ZN4cvc58internal3smt17ProcessAssertions10finishInitEPNS0_13preprocessing24PreprocessingPassContextE(ptr noundef nonnull align 8 dereferenceable(100) %d_processor, ptr noundef %14)
+  call void @_ZN4cvc58internal3smt17ProcessAssertions10finishInitEPNS0_13preprocessing24PreprocessingPassContextE(ptr noundef nonnull align 8 dereferenceable(100) %d_processor, ptr noundef %13)
   ret void
 
 lpad:                                             ; preds = %if.end
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call10) #19
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 }
 
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
@@ -819,19 +818,17 @@ if.end:                                           ; preds = %entry
   %d_assertionsProcessed = getelementptr inbounds i8, ptr %this, i64 552
   %d_data.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %2 = load i8, ptr %d_data.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.else, label %land.lhs.true
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
   %call3 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %base = getelementptr inbounds i8, ptr %call3, i64 208
-  %4 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %4, i64 137
-  %5 = load i8, ptr %incrementalSolving, align 1
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.else, label %if.then4
+  %3 = load ptr, ptr %base, align 8
+  %incrementalSolving = getelementptr inbounds i8, ptr %3, i64 137
+  %4 = load i8, ptr %incrementalSolving, align 1
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %land.lhs.true
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipeline26enableStoreSubstsInAssertsEv(ptr noundef nonnull align 8 dereferenceable(164) %ap)
@@ -846,28 +843,27 @@ if.end5:                                          ; preds = %if.else, %if.then4
   %call6 = tail call noundef zeroext i1 @_ZN4cvc58internal3smt17ProcessAssertions5applyERNS0_13preprocessing17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(100) %d_processor, ptr noundef nonnull align 8 dereferenceable(164) %ap)
   %call7 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %base8 = getelementptr inbounds i8, ptr %call7, i64 208
-  %7 = load ptr, ptr %base8, align 8
-  %incrementalSolving9 = getelementptr inbounds i8, ptr %7, i64 137
-  %8 = load i8, ptr %incrementalSolving9, align 1
-  %9 = and i8 %8, 1
-  %tobool10.not = icmp eq i8 %9, 0
-  br i1 %tobool10.not, label %if.end14, label %if.then11
+  %5 = load ptr, ptr %base8, align 8
+  %incrementalSolving9 = getelementptr inbounds i8, ptr %5, i64 137
+  %6 = load i8, ptr %incrementalSolving9, align 1
+  %tobool10 = trunc i8 %6 to i1
+  br i1 %tobool10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.end5
   %d_ppContext = getelementptr inbounds i8, ptr %this, i64 600
-  %10 = load ptr, ptr %d_ppContext, align 8
-  tail call void @_ZN4cvc58internal13preprocessing24PreprocessingPassContext25recordSymbolsInAssertionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(24) %d_nodes.i)
+  %7 = load ptr, ptr %d_ppContext, align 8
+  tail call void @_ZN4cvc58internal13preprocessing24PreprocessingPassContext25recordSymbolsInAssertionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(24) %d_nodes.i)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end5
   %d_pScope.i.i.i = getelementptr inbounds i8, ptr %this, i64 560
-  %11 = load ptr, ptr %d_pScope.i.i.i, align 8
-  %12 = load ptr, ptr %11, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -8
-  %14 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %14, %11
+  %8 = load ptr, ptr %d_pScope.i.i.i, align 8
+  %9 = load ptr, ptr %8, align 8
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -8
+  %11 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %11, %8
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context3CDOIbEaSERKb.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end14
@@ -2538,8 +2534,8 @@ entry:
   %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %d_data2.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %d_data.i, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %d_data.i, align 8
   ret ptr %call.i
 }
 
@@ -2548,9 +2544,9 @@ define linkonce_odr hidden void @_ZN4cvc57context3CDOIbE7restoreEPNS0_10ContextO
 entry:
   %d_data = getelementptr inbounds i8, ptr %pContextObj, i64 40
   %0 = load i8, ptr %d_data, align 8
-  %1 = and i8 %0, 1
   %d_data2 = getelementptr inbounds i8, ptr %this, i64 40
-  store i8 %1, ptr %d_data2, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %d_data2, align 8
   ret void
 }
 

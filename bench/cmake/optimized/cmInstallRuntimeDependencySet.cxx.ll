@@ -402,9 +402,8 @@ _ZNSt4pairIKPK17cmGeneratorTargetSt3setIS2_St4lessIS2_ESaIS2_EEED2Ev.exit: ; pre
 
 _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZNSt4pairIKPK17cmGeneratorTargetSt3setIS2_St4lessIS2_ESaIS2_EEED2Ev.exit
   %27 = getelementptr inbounds i8, ptr %16, i64 40
-  %28 = and i8 %17, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %.loopexit, label %29
+  %28 = trunc i8 %17 to i1
+  br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit
   %30 = call noundef ptr @_ZNK17cmGeneratorTarget18GetGlobalGeneratorEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
@@ -412,8 +411,8 @@ _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZNSt4p
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 8
-  %.not3438 = icmp eq ptr %33, %34
-  br i1 %.not3438, label %.loopexit, label %.lr.ph
+  %.not35 = icmp eq ptr %33, %34
+  br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %35 = getelementptr inbounds i8, ptr %16, i64 56
@@ -423,20 +422,18 @@ _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZNSt4p
   br label %39
 
 39:                                               ; preds = %.lr.ph, %80
-  %.sroa.028.039 = phi ptr [ %33, %.lr.ph ], [ %81, %80 ]
-  %40 = getelementptr inbounds i8, ptr %.sroa.028.039, i64 32
-  %41 = getelementptr inbounds i8, ptr %.sroa.028.039, i64 42
+  %.sroa.028.036 = phi ptr [ %33, %.lr.ph ], [ %81, %80 ]
+  %40 = getelementptr inbounds i8, ptr %.sroa.028.036, i64 32
+  %41 = getelementptr inbounds i8, ptr %.sroa.028.036, i64 42
   %42 = load i8, ptr %41, align 2
-  %43 = and i8 %42, 1
-  %.not35 = icmp eq i8 %43, 0
-  br i1 %.not35, label %44, label %80
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %80, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %.sroa.028.039, i64 40
+  %45 = getelementptr inbounds i8, ptr %.sroa.028.036, i64 40
   %46 = load i8, ptr %45, align 8
-  %47 = and i8 %46, 1
-  %.not36 = icmp eq i8 %47, 0
-  br i1 %.not36, label %80, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %80
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %40, align 8
@@ -524,9 +521,9 @@ _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds = 
   br label %80
 
 80:                                               ; preds = %39, %44, %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertEOS2_.exit
-  %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.028.039) #18
-  %.not34 = icmp eq ptr %81, %34
-  br i1 %.not34, label %.loopexit, label %39
+  %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.028.036) #18
+  %.not = icmp eq ptr %81, %34
+  br i1 %.not, label %.loopexit, label %39
 
 .loopexit:                                        ; preds = %80, %29, %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit
   ret ptr %27

@@ -3190,7 +3190,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %or.cond.us, label %60, label %62
 
 60:                                               ; preds = %40
-  %61 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354.us, ptr noundef nonnull %7)
+  %61 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354.us, ptr noundef nonnull %7), !range !17
   br label %62
 
 62:                                               ; preds = %60, %40
@@ -3209,7 +3209,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %.val41.us = load i32, ptr %67, align 4
   %68 = sext i32 %.val41.us to i64
   %69 = icmp slt i64 %indvars.iv.next61, %68
-  br i1 %69, label %.lr.ph.split.us, label %.critedge, !llvm.loop !17
+  br i1 %69, label %.lr.ph.split.us, label %.critedge, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %115 ]
@@ -3247,7 +3247,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %or.cond, label %91, label %93
 
 91:                                               ; preds = %71
-  %92 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354, ptr noundef nonnull %7)
+  %92 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354, ptr noundef nonnull %7), !range !17
   br label %93
 
 93:                                               ; preds = %91, %71
@@ -3311,7 +3311,7 @@ Abc_Clock.exit47:                                 ; preds = %Abc_Clock.exit, %10
   %.val41 = load i32, ptr %117, align 4
   %118 = sext i32 %.val41 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %.lr.ph.split, label %.critedge, !llvm.loop !17
+  br i1 %119, label %.lr.ph.split, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph.split, %113, %115, %.lr.ph.split.us, %63, %65, %.thread, %14
   %120 = load ptr, ptr %10, align 8
@@ -3426,24 +3426,24 @@ define void @Cec_ManSatSolveSeq_rec(ptr nocapture noundef %0, ptr nocapture noun
   %41 = sext i32 %39 to i64
   %42 = getelementptr inbounds i32, ptr %.val4.i, i64 %41
   %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, 1
-  %45 = ashr i32 %4, 5
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %28, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = and i32 %4, 31
-  %50 = shl nuw i32 1, %49
-  %51 = and i32 %48, %50
-  %52 = icmp eq i32 %51, 0
-  %.not27 = xor i1 %44, %52
-  br i1 %.not27, label %55, label %53
+  %44 = ashr i32 %4, 5
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i32, ptr %28, i64 %45
+  %47 = load i32, ptr %46, align 4
+  %48 = and i32 %4, 31
+  %49 = lshr i32 %47, %48
+  %50 = trunc i32 %49 to i1
+  %51 = icmp ne i32 %43, 1
+  %.not27 = xor i1 %51, %50
+  br i1 %.not27, label %55, label %52
 
-53:                                               ; preds = %.lr.ph._crit_edge
-  %54 = xor i32 %48, %50
-  store i32 %54, ptr %47, align 4
+52:                                               ; preds = %.lr.ph._crit_edge
+  %53 = shl nuw i32 1, %48
+  %54 = xor i32 %47, %53
+  store i32 %54, ptr %46, align 4
   br label %55
 
-55:                                               ; preds = %53, %.lr.ph._crit_edge
+55:                                               ; preds = %52, %.lr.ph._crit_edge
   %56 = getelementptr inbounds i8, ptr %0, i64 112
   %57 = load i32, ptr %56, align 8
   %58 = add nsw i32 %57, 1
@@ -3832,7 +3832,7 @@ Vec_StrPush.exit90:                               ; preds = %.Vec_StrGrow.exit10
   store ptr %166, ptr %167, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i
   %168 = shl nsw i32 %155, 2
@@ -3851,7 +3851,7 @@ Vec_StrPush.exit90:                               ; preds = %.Vec_StrGrow.exit10
   %175 = load i32, ptr %40, align 4
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %indvars.iv.next.i, %176
-  br i1 %177, label %170, label %._crit_edge.i, !llvm.loop !19
+  br i1 %177, label %170, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %170
   %.pre.i92 = load ptr, ptr %14, align 8
@@ -3886,7 +3886,7 @@ Vec_PtrReallocSimInfo.exit:                       ; preds = %._crit_edge.i, %._c
   %187 = load i32, ptr %40, align 4
   %188 = sext i32 %187 to i64
   %189 = icmp slt i64 %indvars.iv.next.i97, %188
-  br i1 %189, label %183, label %Vec_PtrCleanSimInfo.exit.loopexit, !llvm.loop !20
+  br i1 %189, label %183, label %Vec_PtrCleanSimInfo.exit.loopexit, !llvm.loop !21
 
 Vec_PtrCleanSimInfo.exit.loopexit:                ; preds = %183
   %.val72.pre = load ptr, ptr %14, align 8
@@ -3929,7 +3929,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   %.val63 = load i32, ptr %206, align 4
   %207 = sext i32 %.val63 to i64
   %208 = icmp slt i64 %indvars.iv.next, %207
-  br i1 %208, label %41, label %.critedge.loopexit, !llvm.loop !21
+  br i1 %208, label %41, label %.critedge.loopexit, !llvm.loop !22
 
 .critedge.loopexit:                               ; preds = %204, %41
   %.0.lcssa.ph = phi i32 [ %.0107, %41 ], [ %.2, %204 ]
@@ -4269,7 +4269,7 @@ Vec_IntPush.exit35:                               ; preds = %.Vec_IntGrow.exit10
   %.val13 = load i32, ptr %68, align 4
   %132 = sext i32 %.val13 to i64
   %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %101, label %.critedge, !llvm.loop !22
+  br i1 %133, label %101, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %Vec_IntPush.exit35, %Vec_IntPush.exit28, %Vec_IntPush.exit21
   ret void
@@ -4828,7 +4828,7 @@ Vec_StrPush.exit67:                               ; preds = %.Vec_StrGrow.exit10
   %.val46 = load i32, ptr %171, align 4
   %172 = sext i32 %.val46 to i64
   %173 = icmp slt i64 %indvars.iv.next, %172
-  br i1 %173, label %40, label %.critedge, !llvm.loop !23
+  br i1 %173, label %40, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %40, %169, %Vec_StrAlloc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -4923,10 +4923,11 @@ attributes #18 = { nounwind allocsize(0,1) }
 !14 = !{i32 -1, i32 2}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!17 = !{i32 -2147483646, i32 -2147483648}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}

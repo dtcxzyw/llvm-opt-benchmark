@@ -1235,7 +1235,6 @@ if.then:                                          ; preds = %entry
   %_ZL41g_default_client_tcp_user_timeout_enabled.val = load i8, ptr @_ZL41g_default_client_tcp_user_timeout_enabled, align 1
   %_ZL41g_default_server_tcp_user_timeout_enabled.val = load i8, ptr @_ZL41g_default_server_tcp_user_timeout_enabled, align 1
   %enable.0.in = select i1 %is_client, i8 %_ZL41g_default_client_tcp_user_timeout_enabled.val, i8 %_ZL41g_default_server_tcp_user_timeout_enabled.val
-  %enable.0 = and i8 %enable.0.in, 1
   %_ZL36g_default_client_tcp_user_timeout_ms.val = load i32, ptr @_ZL36g_default_client_tcp_user_timeout_ms, align 4
   %_ZL36g_default_server_tcp_user_timeout_ms.val = load i32, ptr @_ZL36g_default_server_tcp_user_timeout_ms, align 4
   %storemerge = select i1 %is_client, i32 %_ZL36g_default_client_tcp_user_timeout_ms.val, i32 %_ZL36g_default_server_tcp_user_timeout_ms.val
@@ -1245,7 +1244,7 @@ if.then:                                          ; preds = %entry
   %cmp6 = icmp sgt i32 %1, 0
   %cmp8 = icmp ne i32 %1, 2147483647
   %frombool9 = zext i1 %cmp8 to i8
-  %enable.1 = select i1 %cmp6, i8 %frombool9, i8 %enable.0
+  %enable.1 = select i1 %cmp6, i8 %frombool9, i8 %enable.0.in
   %keep_alive_timeout_ms = getelementptr inbounds i8, ptr %options, i64 32
   %2 = load i32, ptr %keep_alive_timeout_ms, align 8
   %cmp11 = icmp sgt i32 %2, 0
@@ -1256,8 +1255,8 @@ if.then12:                                        ; preds = %if.then
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.then
-  %tobool14.not = icmp eq i8 %enable.1, 0
-  br i1 %tobool14.not, label %return, label %if.then15
+  %tobool14 = trunc i8 %enable.1 to i1
+  br i1 %tobool14, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.end13
   store i32 4, ptr %len, align 4
@@ -1290,13 +1289,12 @@ if.end24:                                         ; preds = %if.end24.sink.split
 
 if.then27:                                        ; preds = %if.end24
   %5 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %6 = and i8 %5, 1
-  %tobool.i.i.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.i.i.not, label %if.end30, label %if.then29
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.then27
-  %7 = load i32, ptr %timeout, align 4
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 387, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %7)
+  %6 = load i32, ptr %timeout, align 4
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 387, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %6)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %if.then27
@@ -1306,8 +1304,8 @@ if.end30:                                         ; preds = %if.then29, %if.then
 
 if.then33:                                        ; preds = %if.end30
   %call34 = tail call ptr @__errno_location() #17
-  %8 = load i32, ptr %call34, align 4
-  call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %8)
+  %7 = load i32, ptr %call34, align 4
+  call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %7)
   %call35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 392, i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef %call35)
           to label %invoke.cont unwind label %lpad
@@ -1317,7 +1315,7 @@ invoke.cont:                                      ; preds = %if.then33
   br label %return
 
 lpad:                                             ; preds = %if.then33
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1328,8 +1326,8 @@ if.end36:                                         ; preds = %if.end30
 
 if.then39:                                        ; preds = %if.end36
   %call41 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %call41, align 4
-  call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp40, i32 noundef %10)
+  %9 = load i32, ptr %call41, align 4
+  call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp40, i32 noundef %9)
   %call42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #16
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 397, i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef %call42)
           to label %invoke.cont44 unwind label %lpad43
@@ -1339,25 +1337,24 @@ invoke.cont44:                                    ; preds = %if.then39
   br label %return
 
 lpad43:                                           ; preds = %if.then39
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end45:                                         ; preds = %if.end36
-  %12 = load i32, ptr %newval, align 4
-  %13 = load i32, ptr %timeout, align 4
-  %cmp46.not = icmp eq i32 %12, %13
+  %11 = load i32, ptr %newval, align 4
+  %12 = load i32, ptr %timeout, align 4
+  %cmp46.not = icmp eq i32 %11, %12
   br i1 %cmp46.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 402, i32 noundef 1, ptr noundef nonnull @.str.24, i32 noundef %13, i32 noundef %12)
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 402, i32 noundef 1, ptr noundef nonnull @.str.24, i32 noundef %12, i32 noundef %11)
   br label %return
 
 if.else51:                                        ; preds = %entry
-  %14 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %15 = and i8 %14, 1
-  %tobool.i.i.i20.not = icmp eq i8 %15, 0
-  br i1 %tobool.i.i.i20.not, label %return, label %if.then53
+  %13 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i20 = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i20, label %if.then53, label %return
 
 if.then53:                                        ; preds = %if.else51
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 412, i32 noundef 1, ptr noundef nonnull @.str.25)
@@ -1369,7 +1366,7 @@ return:                                           ; preds = %if.end24, %if.end45
 
 eh.resume:                                        ; preds = %lpad43, %lpad
   %ref.tmp40.sink = phi ptr [ %ref.tmp40, %lpad43 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %11, %lpad43 ], [ %9, %lpad ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad43 ], [ %8, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40.sink) #16
   resume { ptr, i32 } %.pn
 }

@@ -57,9 +57,8 @@ define internal void @mca_rcache_gpusm_registration_destructor(ptr nocapture nou
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %10, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = atomicrmw volatile add ptr %4, i32 -1 monotonic, align 4
@@ -93,8 +92,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %7, %10
   tail call void %21(ptr noundef nonnull %16) #6
   %22 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %23 = load ptr, ptr %22, align 8
-  %.not.i5 = icmp eq ptr %23, null
-  br i1 %.not.i5, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8
@@ -175,9 +174,8 @@ define noundef i32 @mca_rcache_gpusm_register(ptr noundef %0, ptr noundef %1, i6
   store ptr null, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = and i8 %17, 1
-  %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %45, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %45
 
 19:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
@@ -329,8 +327,8 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %74 = load i32, ptr %9, align 4
   %75 = getelementptr inbounds i8, ptr %.0.i, i64 184
   %76 = call i32 %73(i32 noundef %74, ptr noundef %1, ptr noundef nonnull %75) #6
-  %.not.i30 = icmp eq i32 %76, 0
-  br i1 %.not.i30, label %77, label %99
+  %.not.i = icmp eq i32 %76, 0
+  br i1 %.not.i, label %77, label %99
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i64 0, i32 11), align 8
@@ -351,24 +349,23 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %87 = getelementptr inbounds i8, ptr %.0.i, i64 384
   store i64 %83, ptr %87, align 8
   %88 = load i8, ptr @opal_accelerator_use_sync_memops, align 1
-  %89 = and i8 %88, 1
-  %.not17.i = icmp eq i8 %89, 0
+  %89 = trunc i8 %88 to i1
   %90 = load i32, ptr %9, align 4
-  br i1 %.not17.i, label %94, label %91
+  br i1 %89, label %91, label %94
 
 91:                                               ; preds = %81
   %92 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i64 0, i32 25), align 8
   %93 = call i32 %92(i32 noundef %90, ptr noundef %1, ptr noundef nonnull %7) #6
-  %.not19.i = icmp eq i32 %93, 0
-  br i1 %.not19.i, label %138, label %99
+  %.not18.i = icmp eq i32 %93, 0
+  br i1 %.not18.i, label %138, label %99
 
 94:                                               ; preds = %81
   %95 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i64 0, i32 3), align 8
   %96 = getelementptr inbounds i8, ptr %.0.i, i64 368
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 %95(i32 noundef %90, ptr noundef %97, ptr noundef null) #6
-  %.not18.i = icmp eq i32 %98, 0
-  br i1 %.not18.i, label %138, label %99
+  %.not17.i = icmp eq i32 %98, 0
+  br i1 %.not17.i, label %138, label %99
 
 99:                                               ; preds = %61, %72, %77, %91, %94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -377,11 +374,10 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %100 = load i8, ptr @opal_uses_threads, align 1
-  %101 = and i8 %100, 1
-  %.not.i32 = icmp eq i8 %101, 0
+  %101 = trunc i8 %100 to i1
   %102 = getelementptr inbounds i8, ptr %0, i64 152
   %103 = load volatile i64, ptr %102, align 8
-  br i1 %.not.i32, label %121, label %104
+  br i1 %101, label %104, label %121
 
 104:                                              ; preds = %99
   %105 = getelementptr inbounds i8, ptr %.0.i, i64 16
@@ -480,11 +476,10 @@ define noundef i32 @mca_rcache_gpusm_find(ptr noundef %0, ptr noundef %1, i64 no
 ; Function Attrs: nofree norecurse nounwind uwtable
 define noundef i32 @mca_rcache_gpusm_deregister(ptr noundef %0, ptr noundef %1) #2 {
   %3 = load i8, ptr @opal_uses_threads, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load volatile i64, ptr %5, align 8
-  br i1 %.not.i, label %24, label %7
+  br i1 %4, label %7, label %24
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 16
@@ -566,21 +561,20 @@ define void @mca_rcache_gpusm_finalize(ptr noundef %0) #0 {
   %.sroa.22.i.i.i = alloca i64, align 8
   %3 = alloca ptr, align 8
   %.sroa.4.i.i = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = getelementptr inbounds i8, ptr %0, i64 160
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds i8, ptr %0, i64 144
   br label %7
 
 7:                                                ; preds = %opal_obj_run_destructors.exit, %1
   %8 = load i8, ptr @opal_uses_threads, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %26, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
-  store volatile ptr %4, ptr %3, align 8
+  store volatile ptr %6, ptr %3, align 8
   %.0..0..0..0..0..0..0..0.10.i.i = load volatile ptr, ptr %3, align 8
   %11 = load volatile i64, ptr %.0..0..0..0..0..0..0..0.10.i.i, align 16
   fence acquire
@@ -591,7 +585,7 @@ define void @mca_rcache_gpusm_finalize(ptr noundef %0) #0 {
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i = load volatile i64, ptr %.sroa.4.i.i, align 8
   %14 = inttoptr i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i to ptr
   %15 = icmp eq ptr %5, %14
-  br i1 %15, label %opal_lifo_pop.exit.thread17, label %.lr.ph.i.i
+  br i1 %15, label %opal_lifo_pop.exit.thread16, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %opal_update_counted_pointer.exit.i.i
   %16 = phi ptr [ %24, %opal_update_counted_pointer.exit.i.i ], [ %14, %10 ]
@@ -601,7 +595,7 @@ define void @mca_rcache_gpusm_finalize(ptr noundef %0) #0 {
   %18 = load volatile ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
-  store volatile ptr %4, ptr %2, align 8
+  store volatile ptr %6, ptr %2, align 8
   %19 = ptrtoint ptr %18 to i64
   store volatile i64 %19, ptr %.sroa.22.i.i.i, align 8
   %20 = add i64 %.sroa.0.018.i.i, 1
@@ -629,25 +623,25 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i = load volatile i64, ptr %.sroa.4.i.i, align 8
   %24 = inttoptr i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i to ptr
   %25 = icmp eq ptr %5, %24
-  br i1 %25, label %opal_lifo_pop.exit.thread17, label %.lr.ph.i.i
+  br i1 %25, label %opal_lifo_pop.exit.thread16, label %.lr.ph.i.i
 
 26:                                               ; preds = %7
-  %27 = load volatile i64, ptr %6, align 8
+  %27 = load volatile i64, ptr %4, align 8
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load volatile ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
-  store volatile i64 %31, ptr %6, align 8
+  store volatile i64 %31, ptr %4, align 8
   %32 = icmp eq ptr %5, %28
-  br i1 %32, label %opal_lifo_pop.exit.thread, label %opal_lifo_pop.exit.thread13
+  br i1 %32, label %opal_lifo_pop.exit.thread, label %opal_lifo_pop.exit.thread12
 
-opal_lifo_pop.exit.thread13:                      ; preds = %26
+opal_lifo_pop.exit.thread12:                      ; preds = %26
   store volatile ptr null, ptr %29, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 32
   store i32 1, ptr %33, align 8
   br label %35
 
-opal_lifo_pop.exit.thread17:                      ; preds = %10, %opal_update_counted_pointer.exit.i.i
+opal_lifo_pop.exit.thread16:                      ; preds = %10, %opal_update_counted_pointer.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   br label %opal_lifo_pop.exit.thread
@@ -662,9 +656,9 @@ opal_lifo_pop.exit:                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   br label %35
 
-35:                                               ; preds = %opal_lifo_pop.exit, %opal_lifo_pop.exit.thread13
-  %.0.i16 = phi ptr [ %28, %opal_lifo_pop.exit.thread13 ], [ %16, %opal_lifo_pop.exit ]
-  %36 = load ptr, ptr %.0.i16, align 8
+35:                                               ; preds = %opal_lifo_pop.exit, %opal_lifo_pop.exit.thread12
+  %.0.i15 = phi ptr [ %28, %opal_lifo_pop.exit.thread12 ], [ %16, %opal_lifo_pop.exit ]
+  %36 = load ptr, ptr %.0.i15, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
@@ -674,34 +668,34 @@ opal_lifo_pop.exit:                               ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %35, %.lr.ph.i
   %40 = phi ptr [ %42, %.lr.ph.i ], [ %39, %35 ]
   %.07.i = phi ptr [ %41, %.lr.ph.i ], [ %38, %35 ]
-  tail call void %40(ptr noundef nonnull %.0.i16) #6
+  tail call void %40(ptr noundef nonnull %.0.i15) #6
   %41 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %42 = load ptr, ptr %41, align 8
-  %.not.i5 = icmp eq ptr %42, null
-  br i1 %.not.i5, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %35
   br label %7, !llvm.loop !8
 
-opal_lifo_pop.exit.thread:                        ; preds = %26, %opal_lifo_pop.exit.thread17
+opal_lifo_pop.exit.thread:                        ; preds = %26, %opal_lifo_pop.exit.thread16
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
-  %.not6.i6 = icmp eq ptr %47, null
-  br i1 %.not6.i6, label %opal_obj_run_destructors.exit10, label %.lr.ph.i7
+  %.not6.i5 = icmp eq ptr %47, null
+  br i1 %.not6.i5, label %opal_obj_run_destructors.exit9, label %.lr.ph.i6
 
-.lr.ph.i7:                                        ; preds = %opal_lifo_pop.exit.thread, %.lr.ph.i7
-  %48 = phi ptr [ %50, %.lr.ph.i7 ], [ %47, %opal_lifo_pop.exit.thread ]
-  %.07.i8 = phi ptr [ %49, %.lr.ph.i7 ], [ %46, %opal_lifo_pop.exit.thread ]
+.lr.ph.i6:                                        ; preds = %opal_lifo_pop.exit.thread, %.lr.ph.i6
+  %48 = phi ptr [ %50, %.lr.ph.i6 ], [ %47, %opal_lifo_pop.exit.thread ]
+  %.07.i7 = phi ptr [ %49, %.lr.ph.i6 ], [ %46, %opal_lifo_pop.exit.thread ]
   tail call void %48(ptr noundef nonnull %43) #6
-  %49 = getelementptr inbounds i8, ptr %.07.i8, i64 8
+  %49 = getelementptr inbounds i8, ptr %.07.i7, i64 8
   %50 = load ptr, ptr %49, align 8
-  %.not.i9 = icmp eq ptr %50, null
-  br i1 %.not.i9, label %opal_obj_run_destructors.exit10, label %.lr.ph.i7, !llvm.loop !4
+  %.not.i8 = icmp eq ptr %50, null
+  br i1 %.not.i8, label %opal_obj_run_destructors.exit9, label %.lr.ph.i6, !llvm.loop !4
 
-opal_obj_run_destructors.exit10:                  ; preds = %.lr.ph.i7, %opal_lifo_pop.exit.thread
+opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_lifo_pop.exit.thread
   tail call void @mca_rcache_base_module_fini(ptr noundef %0) #6
   ret void
 }

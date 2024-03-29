@@ -2931,22 +2931,19 @@ if.then16:                                        ; preds = %if.else
 switch.lookup:                                    ; preds = %if.then
   %switch.cast = trunc i32 %1 to i10
   %switch.downshift = lshr i10 63, %switch.cast
-  %6 = and i10 %switch.downshift, 1
-  %switch.masked = icmp ne i10 %6, 0
+  %switch.masked = trunc i10 %switch.downshift to i1
   br label %return
 
 switch.lookup11:                                  ; preds = %if.then8
   %switch.cast12 = trunc i32 %1 to i10
   %switch.downshift14 = lshr i10 15, %switch.cast12
-  %7 = and i10 %switch.downshift14, 1
-  %switch.masked15 = icmp ne i10 %7, 0
+  %switch.masked15 = trunc i10 %switch.downshift14 to i1
   br label %return
 
 switch.lookup16:                                  ; preds = %if.then16
   %switch.cast17 = trunc i32 %1 to i10
   %switch.downshift19 = lshr i10 51, %switch.cast17
-  %8 = and i10 %switch.downshift19, 1
-  %switch.masked20 = icmp ne i10 %8, 0
+  %switch.masked20 = trunc i10 %switch.downshift19 to i1
   br label %return
 
 return:                                           ; preds = %if.else, %if.then, %if.then8, %if.then16, %switch.lookup16, %switch.lookup11, %switch.lookup

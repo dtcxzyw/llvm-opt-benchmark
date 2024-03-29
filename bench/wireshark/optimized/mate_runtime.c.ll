@@ -1578,15 +1578,15 @@ define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noun
 .preheader:                                       ; preds = %3
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
-  %.not51 = icmp eq i32 %9, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph50
+  %.not50 = icmp eq i32 %9, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph49
 
-.lr.ph50:                                         ; preds = %.preheader
+.lr.ph49:                                         ; preds = %.preheader
   %10 = getelementptr inbounds i8, ptr %2, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph50, %add_avp.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next, %add_avp.exit.thread ]
+11:                                               ; preds = %.lr.ph49, %add_avp.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %add_avp.exit.thread ]
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
@@ -1609,22 +1609,22 @@ define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noun
 28:                                               ; preds = %11
   %29 = load ptr, ptr %5, align 8
   %30 = tail call fastcc ptr @proto_tree_find_node_from_finfo(ptr noundef %29, ptr noundef nonnull %14)
-  %.not4045 = icmp eq ptr %30, null
-  br i1 %.not4045, label %add_avp.exit.thread, label %.lr.ph
+  %.not4044 = icmp eq ptr %30, null
+  br i1 %.not4044, label %add_avp.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %80
-  %.03547 = phi ptr [ %82, %80 ], [ %30, %28 ]
-  %.03646 = phi ptr [ %.1, %80 ], [ %21, %28 ]
-  %31 = getelementptr inbounds i8, ptr %.03547, i64 32
+.lr.ph:                                           ; preds = %28, %add_avp.exit.thread56
+  %.03546 = phi ptr [ %80, %add_avp.exit.thread56 ], [ %30, %28 ]
+  %.03645 = phi ptr [ %.1, %add_avp.exit.thread56 ], [ %21, %28 ]
+  %31 = getelementptr inbounds i8, ptr %.03546, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not41 = icmp eq ptr %32, null
-  br i1 %.not41, label %80, label %33
+  br i1 %.not41, label %add_avp.exit.thread56, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %32, i64 40
   %35 = load ptr, ptr %34, align 8
-  %.not42 = icmp eq ptr %35, %.03646
-  br i1 %.not42, label %80, label %36
+  %.not42 = icmp eq ptr %35, %.03645
+  br i1 %.not42, label %add_avp.exit.thread56, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %32, i64 8
@@ -1641,16 +1641,20 @@ define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noun
 .lr.ph.i:                                         ; preds = %36
   %45 = load ptr, ptr %42, align 8
   %wide.trip.count.i = zext i32 %44 to i64
+  br label %.outer
+
+.outer:                                           ; preds = %.thread, %.lr.ph.i
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i53, %.thread ], [ 0, %.lr.ph.i ]
+  %.02631.i.ph = phi i1 [ false, %.thread ], [ true, %.lr.ph.i ]
   br label %46
 
-46:                                               ; preds = %78, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
-  %.02631.i = phi i8 [ 1, %.lr.ph.i ], [ %.1.i, %78 ]
+46:                                               ; preds = %.outer, %78
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ %indvars.iv.i.ph, %.outer ]
   %47 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %35
-  br i1 %50, label %51, label %78
+  br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds i8, ptr %48, i64 12
@@ -1697,30 +1701,32 @@ define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noun
   tail call void @delete_avp(ptr noundef %58) #10
   br label %add_avp.exit.thread
 
-78:                                               ; preds = %54, %51, %46
-  %.1.i = phi i8 [ %.02631.i, %54 ], [ %.02631.i, %51 ], [ 0, %46 ]
+78:                                               ; preds = %54, %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %add_avp.exit, label %46, !llvm.loop !15
 
-add_avp.exit:                                     ; preds = %78
-  %79 = and i8 %.1.i, 1
-  %.not44 = icmp eq i8 %79, 0
-  br i1 %.not44, label %80, label %add_avp.exit.thread
+.thread:                                          ; preds = %46
+  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i
+  br i1 %exitcond.not.i54, label %add_avp.exit.thread56, label %.outer, !llvm.loop !15
 
-80:                                               ; preds = %.lr.ph, %33, %add_avp.exit
-  %.1 = phi ptr [ %35, %add_avp.exit ], [ %.03646, %33 ], [ %.03646, %.lr.ph ]
-  %81 = getelementptr inbounds i8, ptr %.03547, i64 24
-  %82 = load ptr, ptr %81, align 8
-  %.not40 = icmp eq ptr %82, null
+add_avp.exit:                                     ; preds = %78
+  br i1 %.02631.i.ph, label %add_avp.exit.thread, label %add_avp.exit.thread56
+
+add_avp.exit.thread56:                            ; preds = %.thread, %.lr.ph, %33, %add_avp.exit
+  %.1 = phi ptr [ %35, %add_avp.exit ], [ %.03645, %33 ], [ %.03645, %.lr.ph ], [ %35, %.thread ]
+  %79 = getelementptr inbounds i8, ptr %.03546, i64 24
+  %80 = load ptr, ptr %79, align 8
+  %.not40 = icmp eq ptr %80, null
   br i1 %.not40, label %add_avp.exit.thread, label %.lr.ph, !llvm.loop !16
 
-add_avp.exit.thread:                              ; preds = %80, %add_avp.exit, %36, %28, %72, %77, %11
+add_avp.exit.thread:                              ; preds = %add_avp.exit.thread56, %add_avp.exit, %36, %28, %72, %77, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = load i32, ptr %8, align 8
-  %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next, %84
-  br i1 %85, label %11, label %.loopexit, !llvm.loop !17
+  %81 = load i32, ptr %8, align 8
+  %82 = zext i32 %81 to i64
+  %83 = icmp ult i64 %indvars.iv.next, %82
+  br i1 %83, label %11, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %add_avp.exit.thread, %.preheader, %3
   ret void
@@ -1739,7 +1745,7 @@ define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %.not33 = icmp eq i32 %14, 0
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %15 = load ptr, ptr %12, align 8
@@ -1748,7 +1754,7 @@ define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr n
 
 16:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.02631 = phi i8 [ 1, %.lr.ph ], [ %.1, %49 ]
+  %.02631 = phi i1 [ true, %.lr.ph ], [ %.1, %49 ]
   %17 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -1795,25 +1801,20 @@ define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr n
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @insert_avp(ptr noundef %46, ptr noundef %28) #10
   %.not29 = icmp eq i32 %47, 0
-  br i1 %.not29, label %48, label %._crit_edge
+  br i1 %.not29, label %48, label %.loopexit
 
 48:                                               ; preds = %42
   tail call void @delete_avp(ptr noundef %28) #10
-  br label %._crit_edge
+  br label %.loopexit
 
 49:                                               ; preds = %16, %24, %21
-  %.1 = phi i8 [ %.02631, %24 ], [ %.02631, %21 ], [ 0, %16 ]
+  %.1 = phi i1 [ %.02631, %24 ], [ %.02631, %21 ], [ false, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !15
 
-._crit_edge.loopexit:                             ; preds = %49
-  %50 = and i8 %.1, 1
-  %51 = icmp ne i8 %50, 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit, %42, %48
-  %.027 = phi i1 [ true, %48 ], [ true, %42 ], [ true, %4 ], [ %51, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %49, %4, %42, %48
+  %.027 = phi i1 [ true, %48 ], [ true, %42 ], [ true, %4 ], [ %.1, %49 ]
   ret i1 %.027
 }
 

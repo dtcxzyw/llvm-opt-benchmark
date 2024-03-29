@@ -45,8 +45,7 @@ define dso_local noundef zeroext i1 @_ZNK4base8internal13WeakReference4Flag7IsVa
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 5
   %0 = load i8, ptr %is_valid_, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -144,13 +143,12 @@ entry:
 land.rhs:                                         ; preds = %entry
   %is_valid_.i = getelementptr inbounds i8, ptr %0, i64 5
   %1 = load i8, ptr %is_valid_.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool.i, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ false, %entry ], [ %tobool.i, %land.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

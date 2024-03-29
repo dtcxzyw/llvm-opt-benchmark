@@ -90,9 +90,8 @@ define i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !4
   %43 = getelementptr inbounds i8, ptr %36, i64 162
   %44 = load i8, ptr %43, align 2, !noalias !4
-  %45 = and i8 %44, 1
-  %.not.i = icmp eq i8 %45, 0
-  br i1 %.not.i, label %53, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %53
 
 46:                                               ; preds = %30
   %47 = getelementptr inbounds i8, ptr %38, i64 16
@@ -105,13 +104,12 @@ define i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %53
 
 53:                                               ; preds = %46, %30
-  %.0..0.55.i = phi ptr [ %52, %46 ], [ %38, %30 ]
+  %.0..0.53.i = phi ptr [ %52, %46 ], [ %38, %30 ]
   %.030.i = phi ptr [ %38, %46 ], [ %18, %30 ]
   %54 = getelementptr inbounds i8, ptr %40, i64 162
   %55 = load i8, ptr %54, align 2, !noalias !4
-  %56 = and i8 %55, 1
-  %.not40.i = icmp eq i8 %56, 0
-  br i1 %.not40.i, label %64, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %64
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %42, i64 16
@@ -124,15 +122,15 @@ define i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.0..0.49.i = phi ptr [ %63, %57 ], [ %42, %53 ]
+  %.0..0.47.i = phi ptr [ %63, %57 ], [ %42, %53 ]
   %.0.i = phi ptr [ %42, %57 ], [ %34, %53 ]
-  %65 = getelementptr inbounds i8, ptr %.0..0.55.i, i64 16
+  %65 = getelementptr inbounds i8, ptr %.0..0.53.i, i64 16
   %66 = load ptr, ptr %65, align 8, !noalias !4
   %67 = getelementptr inbounds i8, ptr %66, i64 160
   %68 = load ptr, ptr %67, align 8, !noalias !4
   %69 = getelementptr inbounds i8, ptr %68, i64 52
   %70 = load i32, ptr %69, align 4, !noalias !4
-  %71 = getelementptr inbounds i8, ptr %.0..0.49.i, i64 16
+  %71 = getelementptr inbounds i8, ptr %.0..0.47.i, i64 16
   %72 = load ptr, ptr %71, align 8, !noalias !4
   %73 = getelementptr inbounds i8, ptr %72, i64 160
   %74 = load ptr, ptr %73, align 8, !noalias !4
@@ -162,42 +160,42 @@ raiseLevel.exit.i:                                ; preds = %.lr.ph.i.i
 
 86:                                               ; preds = %64
   %87 = icmp sgt i32 %76, %70
-  br i1 %87, label %.lr.ph.i43.i, label %96
+  br i1 %87, label %.lr.ph.i41.i, label %96
 
-.lr.ph.i43.i:                                     ; preds = %86, %.lr.ph.i43.i
-  %.016.i44.i = phi i32 [ %93, %.lr.ph.i43.i ], [ %76, %86 ]
-  %.012.in15.i45.i = phi ptr [ %92, %.lr.ph.i43.i ], [ %5, %86 ]
-  %.01314.i46.i = phi ptr [ %.012.i47.i, %.lr.ph.i43.i ], [ %.0.i, %86 ]
-  %.012.i47.i = load ptr, ptr %.012.in15.i45.i, align 8, !noalias !4
-  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %.012.i47.i, ptr noundef nonnull %.01314.i46.i, ptr noundef null, ptr noundef %1)
-  %88 = getelementptr inbounds i8, ptr %.012.i47.i, i64 16
+.lr.ph.i41.i:                                     ; preds = %86, %.lr.ph.i41.i
+  %.016.i42.i = phi i32 [ %93, %.lr.ph.i41.i ], [ %76, %86 ]
+  %.012.in15.i43.i = phi ptr [ %92, %.lr.ph.i41.i ], [ %5, %86 ]
+  %.01314.i44.i = phi ptr [ %.012.i45.i, %.lr.ph.i41.i ], [ %.0.i, %86 ]
+  %.012.i45.i = load ptr, ptr %.012.in15.i43.i, align 8, !noalias !4
+  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %.012.i45.i, ptr noundef nonnull %.01314.i44.i, ptr noundef null, ptr noundef %1)
+  %88 = getelementptr inbounds i8, ptr %.012.i45.i, i64 16
   %89 = load ptr, ptr %88, align 8, !noalias !4
   %90 = getelementptr inbounds i8, ptr %89, i64 160
   %91 = load ptr, ptr %90, align 8, !noalias !4
   %92 = getelementptr inbounds i8, ptr %91, i64 56
-  %93 = add nsw i32 %.016.i44.i, -1
+  %93 = add nsw i32 %.016.i42.i, -1
   %94 = icmp sgt i32 %93, %70
-  br i1 %94, label %.lr.ph.i43.i, label %raiseLevel.exit48.i
+  br i1 %94, label %.lr.ph.i41.i, label %raiseLevel.exit46.i
 
-raiseLevel.exit48.i:                              ; preds = %.lr.ph.i43.i
+raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
   %95 = load ptr, ptr %92, align 8, !noalias !4
   br label %96
 
-96:                                               ; preds = %raiseLevel.exit48.i, %86, %raiseLevel.exit.i
-  %.0..promoted59.i = phi ptr [ %.0..0.49.i, %raiseLevel.exit.i ], [ %95, %raiseLevel.exit48.i ], [ %.0..0.49.i, %86 ]
-  %.0..promoted.i = phi ptr [ %85, %raiseLevel.exit.i ], [ %.0..0.55.i, %raiseLevel.exit48.i ], [ %.0..0.55.i, %86 ]
-  %.131.i = phi ptr [ %.012.i.i, %raiseLevel.exit.i ], [ %.030.i, %raiseLevel.exit48.i ], [ %.030.i, %86 ]
-  %.1.i = phi ptr [ %.0.i, %raiseLevel.exit.i ], [ %.012.i47.i, %raiseLevel.exit48.i ], [ %.0.i, %86 ]
-  %.not4161.i = icmp eq ptr %.0..promoted.i, %.0..promoted59.i
-  br i1 %.not4161.i, label %objectList.exit, label %.lr.ph.i
+96:                                               ; preds = %raiseLevel.exit46.i, %86, %raiseLevel.exit.i
+  %.0..promoted57.i = phi ptr [ %.0..0.47.i, %raiseLevel.exit.i ], [ %95, %raiseLevel.exit46.i ], [ %.0..0.47.i, %86 ]
+  %.0..promoted.i = phi ptr [ %85, %raiseLevel.exit.i ], [ %.0..0.53.i, %raiseLevel.exit46.i ], [ %.0..0.53.i, %86 ]
+  %.131.i = phi ptr [ %.012.i.i, %raiseLevel.exit.i ], [ %.030.i, %raiseLevel.exit46.i ], [ %.030.i, %86 ]
+  %.1.i = phi ptr [ %.0.i, %raiseLevel.exit.i ], [ %.012.i45.i, %raiseLevel.exit46.i ], [ %.0.i, %86 ]
+  %.not59.i = icmp eq ptr %.0..promoted.i, %.0..promoted57.i
+  br i1 %.not59.i, label %objectList.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %96, %.lr.ph.i
-  %.263.i = phi ptr [ %98, %.lr.ph.i ], [ %.1.i, %96 ]
-  %.23262.i = phi ptr [ %97, %.lr.ph.i ], [ %.131.i, %96 ]
+  %.261.i = phi ptr [ %98, %.lr.ph.i ], [ %.1.i, %96 ]
+  %.23260.i = phi ptr [ %97, %.lr.ph.i ], [ %.131.i, %96 ]
   %97 = phi ptr [ %104, %.lr.ph.i ], [ %.0..promoted.i, %96 ]
-  %98 = phi ptr [ %110, %.lr.ph.i ], [ %.0..promoted59.i, %96 ]
-  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %97, ptr noundef null, ptr noundef %.23262.i, ptr noundef %1)
-  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %98, ptr noundef %.263.i, ptr noundef null, ptr noundef %1)
+  %98 = phi ptr [ %110, %.lr.ph.i ], [ %.0..promoted57.i, %96 ]
+  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %97, ptr noundef null, ptr noundef %.23260.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %98, ptr noundef %.261.i, ptr noundef null, ptr noundef %1)
   %99 = getelementptr inbounds i8, ptr %97, i64 16
   %100 = load ptr, ptr %99, align 8, !noalias !4
   %101 = getelementptr inbounds i8, ptr %100, i64 160
@@ -210,14 +208,14 @@ raiseLevel.exit48.i:                              ; preds = %.lr.ph.i43.i
   %108 = load ptr, ptr %107, align 8, !noalias !4
   %109 = getelementptr inbounds i8, ptr %108, i64 56
   %110 = load ptr, ptr %109, align 8, !noalias !4
-  %.not41.i = icmp eq ptr %104, %110
-  br i1 %.not41.i, label %objectList.exit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %104, %110
+  br i1 %.not.i, label %objectList.exit, label %.lr.ph.i
 
 objectList.exit:                                  ; preds = %.lr.ph.i, %96
-  %.lcssa60.i = phi ptr [ %.0..promoted59.i, %96 ], [ %104, %.lr.ph.i ]
+  %.lcssa58.i = phi ptr [ %.0..promoted57.i, %96 ], [ %104, %.lr.ph.i ]
   %.232.lcssa.i = phi ptr [ %.131.i, %96 ], [ %97, %.lr.ph.i ]
   %.2.lcssa.i = phi ptr [ %.1.i, %96 ], [ %98, %.lr.ph.i ]
-  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %.lcssa60.i, ptr noundef %.2.lcssa.i, ptr noundef %.232.lcssa.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %.lcssa58.i, ptr noundef %.2.lcssa.i, ptr noundef %.232.lcssa.i, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.val = load ptr, ptr %6, align 8
@@ -364,62 +362,61 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @addGraphObjs(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readnone %3, ptr noundef %4) unnamed_addr #3 {
   %6 = tail call ptr @agfstnode(ptr noundef %1) #14
-  %.not35 = icmp eq ptr %6, null
-  br i1 %.not35, label %.preheader, label %.lr.ph
+  %.not34 = icmp eq ptr %6, null
+  br i1 %.not34, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %23, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 236
   %10 = load i32, ptr %9, align 4
-  %.not2737 = icmp slt i32 %10, 1
-  br i1 %.not2737, label %._crit_edge, label %.lr.ph39
+  %.not2736 = icmp slt i32 %10, 1
+  br i1 %.not2736, label %._crit_edge, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %.preheader
+.lr.ph38:                                         ; preds = %.preheader
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   br label %25
 
 .lr.ph:                                           ; preds = %5, %23
-  %.02536 = phi ptr [ %24, %23 ], [ %6, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.02536, i64 16
+  %.02535 = phi ptr [ %24, %23 ], [ %6, %5 ]
+  %12 = getelementptr inbounds i8, ptr %.02535, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 336
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %15, %1
-  %.not30 = icmp eq ptr %.02536, %2
+  %.not30 = icmp eq ptr %.02535, %2
   %or.cond = or i1 %.not30, %16
-  %.not31 = icmp eq ptr %.02536, %3
-  %or.cond33 = or i1 %.not31, %or.cond
-  br i1 %or.cond33, label %23, label %17
+  %.not31 = icmp eq ptr %.02535, %3
+  %or.cond32 = or i1 %.not31, %or.cond
+  br i1 %or.cond32, label %23, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %13, i64 162
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %.not32 = icmp eq i8 %20, 0
-  br i1 %.not32, label %21, label %23
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %23, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @makeObstacle(ptr noundef nonnull %.02536, ptr noundef %4, i1 noundef zeroext false) #14
+  %22 = tail call ptr @makeObstacle(ptr noundef nonnull %.02535, ptr noundef %4, i1 noundef zeroext false) #14
   tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef %22)
   br label %23
 
 23:                                               ; preds = %.lr.ph, %17, %21
-  %24 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.02536) #14
+  %24 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.02535) #14
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.preheader, label %.lr.ph
 
-25:                                               ; preds = %.lr.ph39, %74
-  %26 = phi ptr [ %8, %.lr.ph39 ], [ %75, %74 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph39 ], [ %indvars.iv.next, %74 ]
+25:                                               ; preds = %.lr.ph38, %74
+  %26 = phi ptr [ %8, %.lr.ph38 ], [ %75, %74 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph38 ], [ %indvars.iv.next, %74 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 240
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %.not28 = icmp eq ptr %30, %2
   %.not29 = icmp eq ptr %30, %3
-  %or.cond34 = or i1 %.not28, %.not29
-  br i1 %or.cond34, label %74, label %31
+  %or.cond33 = or i1 %.not28, %.not29
+  br i1 %or.cond33, label %74, label %31
 
 31:                                               ; preds = %25
   %32 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
@@ -454,9 +451,8 @@ gv_alloc.exit.i:                                  ; preds = %31
 gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit.i
   store ptr %43, ptr %32, align 8
   %48 = load i8, ptr %11, align 4
-  %49 = and i8 %48, 1
-  %.not.i = icmp eq i8 %49, 0
-  br i1 %.not.i, label %55, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %55
 
 50:                                               ; preds = %gv_calloc.exit.i
   %51 = load <2 x float>, ptr %4, align 4

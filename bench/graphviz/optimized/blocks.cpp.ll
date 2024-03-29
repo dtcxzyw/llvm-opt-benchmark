@@ -381,28 +381,27 @@ define void @_ZN6Blocks8dfsVisitEP8VariableRNSt7__cxx114listIS1_SaIS1_EEE(ptr no
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
-  %.not1011 = icmp eq ptr %6, %8
-  br i1 %.not1011, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %6, %8
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
-  %.sroa.07.012 = phi ptr [ %17, %16 ], [ %6, %3 ]
-  %9 = load ptr, ptr %.sroa.07.012, align 8
+  %.sroa.07.011 = phi ptr [ %17, %16 ], [ %6, %3 ]
+  %9 = load ptr, ptr %.sroa.07.011, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %16
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %.lr.ph
   tail call void @_ZN6Blocks8dfsVisitEP8VariableRNSt7__cxx114listIS1_SaIS1_EEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %16
 
 16:                                               ; preds = %.lr.ph, %15
-  %17 = getelementptr inbounds i8, ptr %.sroa.07.012, i64 8
-  %.not10 = icmp eq ptr %17, %8
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+  %17 = getelementptr inbounds i8, ptr %.sroa.07.011, i64 8
+  %.not = icmp eq ptr %17, %8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %3
   %18 = load ptr, ptr %2, align 8
@@ -624,26 +623,25 @@ define void @_ZN6Blocks7cleanupEv(ptr noundef nonnull align 8 dereferenceable(60
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %.not78 = icmp eq ptr %3, %4
-  br i1 %.not78, label %._crit_edge, label %.lr.ph
+  %.not7 = icmp eq ptr %3, %4
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   br label %6
 
 6:                                                ; preds = %.lr.ph, %17
-  %.sroa.04.09 = phi ptr [ %3, %.lr.ph ], [ %12, %17 ]
-  %7 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 32
+  %.sroa.04.08 = phi ptr [ %3, %.lr.ph ], [ %12, %17 ]
+  %7 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 48
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.09) #12
-  br i1 %.not, label %17, label %13
+  %11 = trunc i8 %10 to i1
+  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #12
+  br i1 %11, label %13, label %17
 
 13:                                               ; preds = %6
-  %14 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.04.09, ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %14 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.04.08, ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   tail call void @_ZdlPv(ptr noundef nonnull %14) #14
   %15 = load i64, ptr %5, align 8
   %16 = add i64 %15, -1
@@ -653,8 +651,8 @@ define void @_ZN6Blocks7cleanupEv(ptr noundef nonnull align 8 dereferenceable(60
   br label %17
 
 17:                                               ; preds = %6, %13
-  %.not7 = icmp eq ptr %12, %4
-  br i1 %.not7, label %._crit_edge, label %6, !llvm.loop !12
+  %.not = icmp eq ptr %12, %4
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %17, %1
   ret void

@@ -99,21 +99,20 @@ define hidden void @_ZN4cvc58internal3smt14ContextManager21notifyResetAssertions
 entry:
   %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %d_smt.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
+  %1 = load ptr, ptr %d_smt.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store i8 0, ptr %d_needPostsolve.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %d_pendingPops.i, align 8
-  %cmp.not7.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %d_pendingPops.i, align 8
+  %cmp.not7.i = icmp eq i32 %2, 0
   br i1 %cmp.not7.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
@@ -121,12 +120,12 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %4 = load ptr, ptr %d_smt6.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
+  %3 = load ptr, ptr %d_smt6.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
   %call7.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i)
-  %5 = load i32, ptr %d_pendingPops.i, align 8
-  %dec.i = add i32 %5, -1
+  %4 = load i32, ptr %d_pendingPops.i, align 8
+  %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr %d_pendingPops.i, align 8
   %cmp.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp.not.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.i, !llvm.loop !4
@@ -134,16 +133,16 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 _ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i
   %d_userLevels = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %d_userLevels, align 8
-  %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i3 = icmp eq ptr %6, %7
+  %5 = load ptr, ptr %d_userLevels, align 8
+  %6 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i3 = icmp eq ptr %5, %6
   br i1 %cmp.i.i3, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, %while.body
   tail call void @_ZN4cvc58internal3smt14ContextManager7userPopEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
-  %8 = load ptr, ptr %d_userLevels, align 8
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i = icmp eq ptr %8, %9
+  %7 = load ptr, ptr %d_userLevels, align 8
+  %8 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
@@ -163,21 +162,20 @@ define hidden void @_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv(ptr n
 cond.end:
   %d_needPostsolve = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
   %d_smt = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %d_smt, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
+  %1 = load ptr, ptr %d_smt, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store i8 0, ptr %d_needPostsolve, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
   %d_pendingPops = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %d_pendingPops, align 8
-  %cmp.not7 = icmp eq i32 %3, 0
+  %2 = load i32, ptr %d_pendingPops, align 8
+  %cmp.not7 = icmp eq i32 %2, 0
   br i1 %cmp.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -185,12 +183,12 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %4 = load ptr, ptr %d_smt6, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
+  %3 = load ptr, ptr %d_smt6, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
   %call7 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7)
-  %5 = load i32, ptr %d_pendingPops, align 8
-  %dec = add i32 %5, -1
+  %4 = load i32, ptr %d_pendingPops, align 8
+  %dec = add i32 %4, -1
   store i32 %dec, ptr %d_pendingPops, align 8
   %cmp.not = icmp eq i32 %dec, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
@@ -278,7 +276,13 @@ while.cond.preheader:                             ; preds = %cleanup.done
   %call515 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call526 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call515)
   %cmp537 = icmp ult i32 %8, %call526
-  br i1 %cmp537, label %while.body, label %while.end
+  br i1 %cmp537, label %while.body.lr.ph, label %while.end
+
+while.body.lr.ph:                                 ; preds = %while.cond.preheader
+  %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
+  %d_needPostsolve.i.i = getelementptr inbounds i8, ptr %this, i64 60
+  %d_smt.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  br label %while.body
 
 cond.false28:                                     ; preds = %cleanup.done
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal3smt14ContextManager7userPopEv, ptr noundef nonnull @.str.2, i32 noundef 118)
@@ -307,19 +311,60 @@ lpad32:                                           ; preds = %invoke.cont37, %inv
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #18
   unreachable
 
-while.body:                                       ; preds = %while.cond.preheader, %while.body
-  tail call void @_ZN4cvc58internal3smt14ContextManager11internalPopEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext true)
-  %10 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %10, i64 -4
-  %11 = load i32, ptr %add.ptr.i.i2, align 4
+while.body:                                       ; preds = %while.body.lr.ph, %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit
+  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %base.i = getelementptr inbounds i8, ptr %call5.i, i64 208
+  %10 = load ptr, ptr %base.i, align 8
+  %incrementalSolving.i = getelementptr inbounds i8, ptr %10, i64 137
+  %11 = load i8, ptr %incrementalSolving.i, align 1
+  %tobool.i = trunc i8 %11 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %while.body
+  %12 = load i32, ptr %d_pendingPops.i, align 8
+  %inc.i = add i32 %12, 1
+  store i32 %inc.i, ptr %d_pendingPops.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then.i, %while.body
+  %13 = load i8, ptr %d_needPostsolve.i.i, align 4
+  %tobool.i6.i = trunc i8 %13 to i1
+  br i1 %tobool.i6.i, label %if.then.i10.i, label %if.end.i7.i
+
+if.then.i10.i:                                    ; preds = %if.end.i
+  %14 = load ptr, ptr %d_smt.i.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %14)
+  store i8 0, ptr %d_needPostsolve.i.i, align 4
+  br label %if.end.i7.i
+
+if.end.i7.i:                                      ; preds = %if.then.i10.i, %if.end.i
+  %15 = load i32, ptr %d_pendingPops.i, align 8
+  %cmp.not7.i.i = icmp eq i32 %15, 0
+  br i1 %cmp.not7.i.i, label %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit, label %while.body.i.i
+
+while.body.i.i:                                   ; preds = %if.end.i7.i, %while.body.i.i
+  %16 = load ptr, ptr %d_smt.i.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %16)
+  %call7.i8.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8.i)
+  %17 = load i32, ptr %d_pendingPops.i, align 8
+  %dec.i.i = add i32 %17, -1
+  store i32 %dec.i.i, ptr %d_pendingPops.i, align 8
+  %cmp.not.i9.i = icmp eq i32 %dec.i.i, 0
+  br i1 %cmp.not.i9.i, label %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit, label %while.body.i.i, !llvm.loop !4
+
+_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit: ; preds = %while.body.i.i, %if.end.i7.i
+  %18 = load ptr, ptr %_M_finish.i, align 8
+  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %18, i64 -4
+  %19 = load i32, ptr %add.ptr.i.i2, align 4
   %call51 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call52 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call51)
-  %cmp53 = icmp ult i32 %11, %call52
+  %cmp53 = icmp ult i32 %19, %call52
   br i1 %cmp53, label %while.body, label %while.end, !llvm.loop !7
 
-while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %12 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 -4
+while.end:                                        ; preds = %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit, %while.cond.preheader
+  %20 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %20, i64 -4
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   ret void
 }
@@ -362,56 +407,54 @@ define hidden void @_ZN4cvc58internal3smt14ContextManager12internalPushEv(ptr no
 cond.end:
   %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i6 = icmp eq i8 %1, 0
-  br i1 %tobool.not.i6, label %if.end.i8, label %if.then.i7
+  %tobool.i6 = trunc i8 %0 to i1
+  br i1 %tobool.i6, label %if.then.i10, label %if.end.i7
 
-if.then.i7:                                       ; preds = %cond.end
+if.then.i10:                                      ; preds = %cond.end
   %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %d_smt.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
+  %1 = load ptr, ptr %d_smt.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store i8 0, ptr %d_needPostsolve.i, align 4
-  br label %if.end.i8
+  br label %if.end.i7
 
-if.end.i8:                                        ; preds = %if.then.i7, %cond.end
+if.end.i7:                                        ; preds = %if.then.i10, %cond.end
   %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %d_pendingPops.i, align 8
-  %cmp.not7.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %d_pendingPops.i, align 8
+  %cmp.not7.i = icmp eq i32 %2, 0
   br i1 %cmp.not7.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %if.end.i8
+while.body.lr.ph.i:                               ; preds = %if.end.i7
   %d_smt6.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %4 = load ptr, ptr %d_smt6.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
-  %call7.i9 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i9)
-  %5 = load i32, ptr %d_pendingPops.i, align 8
-  %dec.i = add i32 %5, -1
+  %3 = load ptr, ptr %d_smt6.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
+  %call7.i8 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8)
+  %4 = load i32, ptr %d_pendingPops.i, align 8
+  %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr %d_pendingPops.i, align 8
-  %cmp.not.i10 = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i10, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.i, !llvm.loop !4
+  %cmp.not.i9 = icmp eq i32 %dec.i, 0
+  br i1 %cmp.not.i9, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.i, !llvm.loop !4
 
-_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i8
+_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i7
   %call5 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %base = getelementptr inbounds i8, ptr %call5, i64 208
-  %6 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %6, i64 137
-  %7 = load i8, ptr %incrementalSolving, align 1
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %5 = load ptr, ptr %base, align 8
+  %incrementalSolving = getelementptr inbounds i8, ptr %5, i64 137
+  %6 = load i8, ptr %incrementalSolving, align 1
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
   %d_smt = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %d_smt, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver13notifyPushPreEv(ptr noundef nonnull align 8 dereferenceable(200) %9)
+  %7 = load ptr, ptr %d_smt, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver13notifyPushPreEv(ptr noundef nonnull align 8 dereferenceable(200) %7)
   %call6 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %call6)
-  %10 = load ptr, ptr %d_smt, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver14notifyPushPostEv(ptr noundef nonnull align 8 dereferenceable(200) %10)
+  %8 = load ptr, ptr %d_smt, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver14notifyPushPostEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
@@ -431,14 +474,13 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %base.i, align 8
   %incrementalSolving.i = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
   %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %d_pendingPops.i, align 8
-  %inc.i = add i32 %3, 1
+  %2 = load i32, ptr %d_pendingPops.i, align 8
+  %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %d_pendingPops.i, align 8
   br label %if.end
 
@@ -454,14 +496,13 @@ cond.end:
   %0 = load ptr, ptr %base, align 8
   %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
   %d_pendingPops = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %d_pendingPops, align 8
-  %inc = add i32 %3, 1
+  %2 = load i32, ptr %d_pendingPops, align 8
+  %inc = add i32 %2, 1
   store i32 %inc, ptr %d_pendingPops, align 8
   br label %if.end
 
@@ -470,40 +511,39 @@ if.end:                                           ; preds = %if.then, %cond.end
 
 if.then7:                                         ; preds = %if.end
   %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
-  %4 = load i8, ptr %d_needPostsolve.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.not.i6 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i6, label %if.end.i8, label %if.then.i7
+  %3 = load i8, ptr %d_needPostsolve.i, align 4
+  %tobool.i6 = trunc i8 %3 to i1
+  br i1 %tobool.i6, label %if.then.i10, label %if.end.i7
 
-if.then.i7:                                       ; preds = %if.then7
+if.then.i10:                                      ; preds = %if.then7
   %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %d_smt.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
+  %4 = load ptr, ptr %d_smt.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
   store i8 0, ptr %d_needPostsolve.i, align 4
-  br label %if.end.i8
+  br label %if.end.i7
 
-if.end.i8:                                        ; preds = %if.then.i7, %if.then7
+if.end.i7:                                        ; preds = %if.then.i10, %if.then7
   %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
-  %7 = load i32, ptr %d_pendingPops.i, align 8
-  %cmp.not7.i = icmp eq i32 %7, 0
+  %5 = load i32, ptr %d_pendingPops.i, align 8
+  %cmp.not7.i = icmp eq i32 %5, 0
   br i1 %cmp.not7.i, label %if.end8, label %while.body.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %if.end.i8
+while.body.lr.ph.i:                               ; preds = %if.end.i7
   %d_smt6.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %8 = load ptr, ptr %d_smt6.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
-  %call7.i9 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i9)
-  %9 = load i32, ptr %d_pendingPops.i, align 8
-  %dec.i = add i32 %9, -1
+  %6 = load ptr, ptr %d_smt6.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
+  %call7.i8 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8)
+  %7 = load i32, ptr %d_pendingPops.i, align 8
+  %dec.i = add i32 %7, -1
   store i32 %dec.i, ptr %d_pendingPops.i, align 8
-  %cmp.not.i10 = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i10, label %if.end8, label %while.body.i, !llvm.loop !4
+  %cmp.not.i9 = icmp eq i32 %dec.i, 0
+  br i1 %cmp.not.i9, label %if.end8, label %while.body.i, !llvm.loop !4
 
-if.end8:                                          ; preds = %while.body.i, %if.end.i8, %if.end
+if.end8:                                          ; preds = %while.body.i, %if.end.i7, %if.end
   ret void
 }
 
@@ -524,21 +564,20 @@ define hidden void @_ZN4cvc58internal3smt14ContextManager8shutdownEv(ptr noundef
 entry:
   %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %d_smt.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
+  %1 = load ptr, ptr %d_smt.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store i8 0, ptr %d_needPostsolve.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i32, ptr %d_pendingPops.i, align 8
-  %cmp.not7.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %d_pendingPops.i, align 8
+  %cmp.not7.i = icmp eq i32 %2, 0
   br i1 %cmp.not7.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
@@ -546,44 +585,87 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %4 = load ptr, ptr %d_smt6.i, align 8
-  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
+  %3 = load ptr, ptr %d_smt6.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
   %call7.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i)
-  %5 = load i32, ptr %d_pendingPops.i, align 8
-  %dec.i = add i32 %5, -1
+  %4 = load i32, ptr %d_pendingPops.i, align 8
+  %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr %d_pendingPops.i, align 8
   %cmp.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp.not.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.i, !llvm.loop !4
 
 _ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i
-  %call1 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base2 = getelementptr inbounds i8, ptr %call1, i64 208
-  %6 = load ptr, ptr %base2, align 8
-  %incrementalSolving3 = getelementptr inbounds i8, ptr %6, i64 137
-  %7 = load i8, ptr %incrementalSolving3, align 1
-  %8 = and i8 %7, 1
-  %tobool.not4 = icmp eq i8 %8, 0
-  br i1 %tobool.not4, label %while.end, label %land.rhs
+  %call5 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %base6 = getelementptr inbounds i8, ptr %call5, i64 208
+  %5 = load ptr, ptr %base6, align 8
+  %incrementalSolving7 = getelementptr inbounds i8, ptr %5, i64 137
+  %6 = load i8, ptr %incrementalSolving7, align 1
+  %tobool8 = trunc i8 %6 to i1
+  br i1 %tobool8, label %land.rhs.lr.ph, label %while.end
 
-land.rhs:                                         ; preds = %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, %while.body
+land.rhs.lr.ph:                                   ; preds = %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
+  %d_smt.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  br label %land.rhs
+
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit
   %call2 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call3 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call2)
   %cmp = icmp ugt i32 %call3, 1
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  tail call void @_ZN4cvc58internal3smt14ContextManager11internalPopEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext true)
+  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %base.i = getelementptr inbounds i8, ptr %call5.i, i64 208
+  %7 = load ptr, ptr %base.i, align 8
+  %incrementalSolving.i = getelementptr inbounds i8, ptr %7, i64 137
+  %8 = load i8, ptr %incrementalSolving.i, align 1
+  %tobool.i1 = trunc i8 %8 to i1
+  br i1 %tobool.i1, label %if.then.i3, label %if.end.i2
+
+if.then.i3:                                       ; preds = %while.body
+  %9 = load i32, ptr %d_pendingPops.i, align 8
+  %inc.i = add i32 %9, 1
+  store i32 %inc.i, ptr %d_pendingPops.i, align 8
+  br label %if.end.i2
+
+if.end.i2:                                        ; preds = %if.then.i3, %while.body
+  %10 = load i8, ptr %d_needPostsolve.i, align 4
+  %tobool.i6.i = trunc i8 %10 to i1
+  br i1 %tobool.i6.i, label %if.then.i10.i, label %if.end.i7.i
+
+if.then.i10.i:                                    ; preds = %if.end.i2
+  %11 = load ptr, ptr %d_smt.i.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %11)
+  store i8 0, ptr %d_needPostsolve.i, align 4
+  br label %if.end.i7.i
+
+if.end.i7.i:                                      ; preds = %if.then.i10.i, %if.end.i2
+  %12 = load i32, ptr %d_pendingPops.i, align 8
+  %cmp.not7.i.i = icmp eq i32 %12, 0
+  br i1 %cmp.not7.i.i, label %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit, label %while.body.i.i
+
+while.body.i.i:                                   ; preds = %if.end.i7.i, %while.body.i.i
+  %13 = load ptr, ptr %d_smt.i.i, align 8
+  tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %13)
+  %call7.i8.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8.i)
+  %14 = load i32, ptr %d_pendingPops.i, align 8
+  %dec.i.i = add i32 %14, -1
+  store i32 %dec.i.i, ptr %d_pendingPops.i, align 8
+  %cmp.not.i9.i = icmp eq i32 %dec.i.i, 0
+  br i1 %cmp.not.i9.i, label %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit, label %while.body.i.i, !llvm.loop !4
+
+_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit: ; preds = %while.body.i.i, %if.end.i7.i
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %base = getelementptr inbounds i8, ptr %call, i64 208
-  %9 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %9, i64 137
-  %10 = load i8, ptr %incrementalSolving, align 1
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !8
+  %15 = load ptr, ptr %base, align 8
+  %incrementalSolving = getelementptr inbounds i8, ptr %15, i64 137
+  %16 = load i8, ptr %incrementalSolving, align 1
+  %tobool = trunc i8 %16 to i1
+  br i1 %tobool, label %land.rhs, label %while.end, !llvm.loop !8
 
-while.end:                                        ; preds = %land.rhs, %while.body, %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
+while.end:                                        ; preds = %land.rhs, %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit, %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
   ret void
 }
 

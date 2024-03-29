@@ -368,7 +368,7 @@ _Z18cmHasLiteralPrefixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %.thread
-  %140 = zext nneg i32 %.091 to i64
+  %140 = zext nneg i8 %.094 to i64
   %reass.sub = sub nsw i64 %137, %140
   %141 = getelementptr %"class.std::__cxx11::basic_string", ptr %135, i64 %reass.sub
   %142 = getelementptr i8, ptr %141, i64 -96
@@ -505,7 +505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   br label %257
 
 196:                                              ; preds = %182, %175
-  %197 = icmp ne i8 %.195, 0
+  %197 = trunc i8 %.195 to i1
   %.not112 = xor i1 %197, true
   %brmerge = or i1 %.090, %.not112
   br i1 %brmerge, label %207, label %198
@@ -623,7 +623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %247 = icmp eq i32 %246, 4
   %not..090 = xor i1 %.090, true
   %or.cond = select i1 %not..090, i1 true, i1 %247
-  %brmerge113 = or i1 %197, %or.cond
+  %brmerge113 = or i1 %or.cond, %197
   br i1 %brmerge113, label %248, label %256
 
 248:                                              ; preds = %245, %244, %241

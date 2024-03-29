@@ -108,12 +108,12 @@ if.else:                                          ; preds = %entry
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
-  %tobool.not3 = icmp eq i64 %0, 0
-  br i1 %tobool.not3, label %for.end, label %for.body
+  %tobool.not5 = icmp eq i64 %0, 0
+  br i1 %tobool.not5, label %for.end, label %for.body
 
 for.body:                                         ; preds = %while.end, %for.body
-  %cpu.0.in4 = phi i64 [ %1, %for.body ], [ %0, %while.end ]
-  %cpu.0 = inttoptr i64 %cpu.0.in4 to ptr
+  %cpu.0.in6 = phi i64 [ %1, %for.body ], [ %0, %while.end ]
+  %cpu.0 = inttoptr i64 %cpu.0.in6 to ptr
   %in_ioctl_lock = getelementptr inbounds i8, ptr %cpu.0, i64 692
   tail call void @qemu_lockcnt_lock(ptr noundef nonnull %in_ioctl_lock) #3
   %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
@@ -131,40 +131,45 @@ while.body10:                                     ; preds = %if.then12, %for.end
   %2 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
   %tobool.not5.i = icmp eq i64 %2, 0
-  br i1 %tobool.not5.i, label %accel_has_to_wait.exit, label %for.body.i
+  br i1 %tobool.not5.i, label %accel_has_to_wait.exit, label %for.body.outer.i
 
-for.body.i:                                       ; preds = %while.body10, %while.end6.i
-  %cpu.07.in.i = phi i64 [ %3, %while.end6.i ], [ %2, %while.body10 ]
-  %needs_to_wait.06.i = phi i8 [ %needs_to_wait.1.i, %while.end6.i ], [ 0, %while.body10 ]
+for.body.outer.i:                                 ; preds = %while.body10, %while.end6.thread.i
+  %cpu.07.in.ph.i = phi i64 [ %4, %while.end6.thread.i ], [ %2, %while.body10 ]
+  %needs_to_wait.06.ph.i = phi i1 [ true, %while.end6.thread.i ], [ false, %while.body10 ]
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %while.end6.i, %for.body.outer.i
+  %cpu.07.in.i = phi i64 [ %3, %while.end6.i ], [ %cpu.07.in.ph.i, %for.body.outer.i ]
   %cpu.07.i = inttoptr i64 %cpu.07.in.i to ptr
   %in_ioctl_lock.i = getelementptr inbounds i8, ptr %cpu.07.i, i64 692
   %call.i = tail call i32 @qemu_lockcnt_count(ptr noundef nonnull %in_ioctl_lock.i) #3
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %while.end6.i, label %if.then.i
+  br i1 %tobool1.not.i, label %while.end6.i, label %while.end6.thread.i
 
-if.then.i:                                        ; preds = %for.body.i
-  tail call void @qemu_cpu_kick(ptr noundef nonnull %cpu.07.i) #3
-  br label %while.end6.i
-
-while.end6.i:                                     ; preds = %if.then.i, %for.body.i
-  %needs_to_wait.1.i = phi i8 [ 1, %if.then.i ], [ %needs_to_wait.06.i, %for.body.i ]
+while.end6.i:                                     ; preds = %for.body.i
   %node.i = getelementptr inbounds i8, ptr %cpu.07.i, i64 568
   %3 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   %tobool.not.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
+while.end6.thread.i:                              ; preds = %for.body.i
+  tail call void @qemu_cpu_kick(ptr noundef nonnull %cpu.07.i) #3
+  %node9.i = getelementptr inbounds i8, ptr %cpu.07.i, i64 568
+  %4 = load atomic i64, ptr %node9.i monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
+  %tobool.not10.i = icmp eq i64 %4, 0
+  br i1 %tobool.not10.i, label %if.then12, label %for.body.outer.i, !llvm.loop !11
+
 for.end.i:                                        ; preds = %while.end6.i
-  %4 = and i8 %needs_to_wait.1.i, 1
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %accel_has_to_wait.exit, label %if.then12
+  br i1 %needs_to_wait.06.ph.i, label %if.then12, label %accel_has_to_wait.exit
 
 accel_has_to_wait.exit:                           ; preds = %while.body10, %for.end.i
   %call9.i = tail call i32 @qemu_lockcnt_count(ptr noundef nonnull @accel_in_ioctl_lock) #3
   %tobool10.i.not = icmp eq i32 %call9.i, 0
   br i1 %tobool10.i.not, label %if.else13, label %if.then12
 
-if.then12:                                        ; preds = %for.end.i, %accel_has_to_wait.exit
+if.then12:                                        ; preds = %while.end6.thread.i, %for.end.i, %accel_has_to_wait.exit
   tail call void @qemu_event_wait(ptr noundef nonnull @accel_in_ioctl_event) #3
   br label %while.body10
 

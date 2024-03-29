@@ -86,7 +86,7 @@ define dso_local void @_Z9print_mapRKSt3mapI14eStatementTypebSt4lessIS0_ESaISt4p
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.02.07 = phi ptr [ %16, %.lr.ph ], [ %3, %1 ]
+  %.sroa.02.07 = phi ptr [ %15, %.lr.ph ], [ %3, %1 ]
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
   %6 = getelementptr inbounds i8, ptr %.sroa.02.07, i64 32
   %7 = load i32, ptr %6, align 4
@@ -94,12 +94,11 @@ define dso_local void @_Z9print_mapRKSt3mapI14eStatementTypebSt4lessIS0_ESaISt4p
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.3)
   %10 = getelementptr inbounds i8, ptr %.sroa.02.07, i64 36
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %13 = icmp ne i8 %12, 0
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext %13)
-  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.07) #13
-  %.not = icmp eq ptr %16, %4
+  %12 = trunc i8 %11 to i1
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext %12)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.07) #13
+  %.not = icmp eq ptr %15, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -301,9 +300,9 @@ define dso_local noundef zeroext i1 @_ZN15PartialExpander21init_partial_expander
   store i32 %23, ptr %2, align 4
   %24 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 36
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %27 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander15expands_backup_E, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store i8 %26, ptr %27, align 1
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander15expands_backup_E, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %27 = and i8 %25, 1
+  store i8 %27, ptr %26, align 1
   %28 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i) #13
   %.not.i = icmp eq ptr %28, getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander8expands_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
   br i1 %.not.i, label %_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit, label %.lr.ph.i, !llvm.loop !8
@@ -392,9 +391,9 @@ define dso_local void @_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTy
   store i32 %8, ptr %3, align 4
   %9 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 36
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store i8 %11, ptr %12, align 1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %12 = and i8 %10, 1
+  store i8 %12, ptr %11, align 1
   %13 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08) #13
   %.not = icmp eq ptr %13, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -669,9 +668,9 @@ define dso_local void @_ZN15PartialExpander19restore_init_valuesEv() local_unnam
   store i32 %4, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 36
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store i8 %7, ptr %8, align 1
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %8 = and i8 %6, 1
+  store i8 %8, ptr %7, align 1
   %9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i) #13
   %.not.i = icmp eq ptr %9, getelementptr inbounds (%"class.std::map", ptr @_ZN15PartialExpander15expands_backup_E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
   br i1 %.not.i, label %_ZN15PartialExpander12copy_expandsERSt3mapI14eStatementTypebSt4lessIS1_ESaISt4pairIKS1_bEEERKS8_.exit, label %.lr.ph.i, !llvm.loop !8
@@ -687,9 +686,8 @@ define dso_local noundef zeroext i1 @_ZN15PartialExpander19direct_expand_checkE1
   store i32 %0, ptr %2, align 4
   %3 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -702,35 +700,32 @@ define dso_local noundef zeroext i1 @_ZN15PartialExpander12expand_checkE14eState
   store i32 10, ptr %4, align 4
   %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixEOS0_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %22, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %1
   %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %13 = load i32, ptr %3, align 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %20
+  %12 = load i32, ptr %3, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %19
 
-15:                                               ; preds = %9
-  %.not4 = icmp eq i8 %12, 0
-  br i1 %.not4, label %16, label %.thread
+14:                                               ; preds = %9
+  %15 = trunc i8 %11 to i1
+  br i1 %15, label %.thread, label %16
 
-16:                                               ; preds = %15
+16:                                               ; preds = %14
   store i32 4, ptr %5, align 4
   %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixEOS0_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  br label %20
+  br label %19
 
-20:                                               ; preds = %16, %9
-  %.0 = phi i8 [ %12, %9 ], [ %19, %16 ]
-  %.not6 = icmp eq i8 %.0, 0
-  br i1 %.not6, label %22, label %.thread
+19:                                               ; preds = %16, %9
+  %.0.in = phi i8 [ %11, %9 ], [ %18, %16 ]
+  %20 = trunc i8 %.0.in to i1
+  br i1 %20, label %.thread, label %22
 
-.thread:                                          ; preds = %15, %20
+.thread:                                          ; preds = %14, %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 10, ptr %2, align 4
   %21 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapI14eStatementTypebSt4lessIS0_ESaISt4pairIKS0_bEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15PartialExpander8expands_E, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -738,8 +733,8 @@ define dso_local noundef zeroext i1 @_ZN15PartialExpander12expand_checkE14eState
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %22
 
-22:                                               ; preds = %20, %.thread, %1
-  %.03 = phi i1 [ true, %1 ], [ true, %.thread ], [ false, %20 ]
+22:                                               ; preds = %19, %.thread, %1
+  %.03 = phi i1 [ true, %1 ], [ true, %.thread ], [ false, %19 ]
   ret i1 %.03
 }
 

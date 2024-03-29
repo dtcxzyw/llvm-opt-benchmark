@@ -199,9 +199,10 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %arrayidx22 = getelementptr inbounds i64, ptr %rp.067, i64 %idxprom21
   %10 = load i64, ptr %arrayidx22, align 8
   %add23 = add i64 %add, %10
+  %cmp27 = icmp ne i64 %add, 0
   %cmp33.not = icmp ule i64 %add23, %10
-  %11 = or i64 %add, %carry.066
-  %or30.narrow = icmp ne i64 %11, 0
+  %carry.0.tr = trunc i64 %carry.066 to i1
+  %or30.narrow = or i1 %cmp27, %carry.0.tr
   %narrow = select i1 %cmp33.not, i1 %or30.narrow, i1 false
   %and36 = zext i1 %narrow to i64
   store i64 %add23, ptr %arrayidx22, align 8
@@ -219,14 +220,14 @@ for.end41:                                        ; preds = %for.body16, %for.en
 if.end46:                                         ; preds = %for.end41
   %top47 = getelementptr inbounds i8, ptr %ret, i64 8
   store i32 %0, ptr %top47, align 8
-  %12 = load i32, ptr %neg5, align 8
+  %11 = load i32, ptr %neg5, align 8
   %neg51 = getelementptr inbounds i8, ptr %ret, i64 16
-  store i32 %12, ptr %neg51, align 8
-  %13 = load ptr, ptr %ret, align 8
-  %14 = load ptr, ptr %r, align 8
+  store i32 %11, ptr %neg51, align 8
+  %12 = load ptr, ptr %ret, align 8
+  %13 = load ptr, ptr %r, align 8
   %idxprom54 = sext i32 %0 to i64
-  %arrayidx55 = getelementptr inbounds i64, ptr %14, i64 %idxprom54
-  %call56 = tail call i64 @bn_sub_words(ptr noundef %13, ptr noundef nonnull %arrayidx55, ptr noundef %3, i32 noundef %0) #4
+  %arrayidx55 = getelementptr inbounds i64, ptr %13, i64 %idxprom54
+  %call56 = tail call i64 @bn_sub_words(ptr noundef %12, ptr noundef nonnull %arrayidx55, ptr noundef %3, i32 noundef %0) #4
   %sub57 = sub i64 %carry.0.lcssa, %call56
   br i1 %cmp863, label %for.body61.lr.ph, label %return
 
@@ -238,11 +239,11 @@ for.body61.lr.ph:                                 ; preds = %if.end46
 for.body61:                                       ; preds = %for.body61.lr.ph, %for.body61
   %indvars.iv73 = phi i64 [ 0, %for.body61.lr.ph ], [ %indvars.iv.next74, %for.body61 ]
   %arrayidx63 = getelementptr inbounds i64, ptr %arrayidx55, i64 %indvars.iv73
-  %15 = load i64, ptr %arrayidx63, align 8
-  %and64 = and i64 %15, %sub57
-  %arrayidx66 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv73
-  %16 = load i64, ptr %arrayidx66, align 8
-  %and67 = and i64 %16, %not
+  %14 = load i64, ptr %arrayidx63, align 8
+  %and64 = and i64 %14, %sub57
+  %arrayidx66 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv73
+  %15 = load i64, ptr %arrayidx66, align 8
+  %and67 = and i64 %15, %not
   %or68 = or i64 %and67, %and64
   store i64 %or68, ptr %arrayidx66, align 8
   store i64 0, ptr %arrayidx63, align 8

@@ -799,22 +799,21 @@ if.end327:                                        ; preds = %X509_supported_exte
 switch.hole_check:                                ; preds = %if.end327
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 297, %switch.maskindex
-  %86 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %86, 0
-  br i1 %switch.lobit.not, label %for.inc342, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %for.inc342
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %87 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.ossl_x509v3_cache_extensions, i64 0, i64 %87
+  %86 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.ossl_x509v3_cache_extensions, i64 0, i64 %86
   %switch.load = load i32, ptr %switch.gep, align 4
-  %88 = load i32, ptr %ex_flags4, align 8
-  %or330 = or i32 %88, %switch.load
+  %87 = load i32, ptr %ex_flags4, align 8
+  %or330 = or i32 %87, %switch.load
   store i32 %or330, ptr %ex_flags4, align 8
   br label %for.inc342
 
 for.inc342:                                       ; preds = %switch.hole_check, %if.end327, %switch.lookup, %if.end317
-  %89 = load i32, ptr %i, align 4
-  %inc343 = add nsw i32 %89, 1
+  %88 = load i32, ptr %i, align 4
+  %inc343 = add nsw i32 %88, 1
   store i32 %inc343, ptr %i, align 4
   %call305 = call i32 @X509_get_ext_count(ptr noundef %x) #8
   %cmp306 = icmp slt i32 %inc343, %call305
@@ -822,16 +821,16 @@ for.inc342:                                       ; preds = %switch.hole_check, 
 
 for.end344:                                       ; preds = %for.inc342, %if.end303, %if.then324
   %call345 = call i32 @ossl_x509_init_sig_info(ptr noundef %x) #8
-  %90 = load i32, ptr %ex_flags4, align 8
-  %or347 = or i32 %90, 256
+  %89 = load i32, ptr %ex_flags4, align 8
+  %or347 = or i32 %89, 256
   store i32 %or347, ptr %ex_flags4, align 8
   store atomic i32 1, ptr %ex_cached release, align 8
   %call349 = call i32 @ERR_pop_to_mark() #8
-  %91 = load i32, ptr %ex_flags4, align 8
-  %and351 = and i32 %91, 128
+  %90 = load i32, ptr %ex_flags4, align 8
+  %and351 = and i32 %90, 128
   %cmp352 = icmp eq i32 %and351, 0
-  %92 = load ptr, ptr %lock, align 8
-  %call356 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %92) #8
+  %91 = load ptr, ptr %lock, align 8
+  %call356 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %91) #8
   br i1 %cmp352, label %return, label %if.end357
 
 if.end357:                                        ; preds = %for.end344

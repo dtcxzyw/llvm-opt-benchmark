@@ -54,9 +54,8 @@ define dso_local void @vhost_user_server_inc_in_flight(ptr nocapture noundef %se
 entry:
   %wait_idle = getelementptr inbounds i8, ptr %server, i64 45
   %0 = load i8, ptr %wait_idle, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.else
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_user_server_inc_in_flight) #8
@@ -64,7 +63,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %in_flight = getelementptr inbounds i8, ptr %server, i64 40
-  %2 = atomicrmw add ptr %in_flight, i32 1 seq_cst, align 8
+  %1 = atomicrmw add ptr %in_flight, i32 1 seq_cst, align 8
   ret void
 }
 
@@ -82,14 +81,13 @@ entry:
 if.then:                                          ; preds = %entry
   %wait_idle = getelementptr inbounds i8, ptr %server, i64 45
   %1 = load i8, ptr %wait_idle, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end2, label %if.then1
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.then
   %co_trip = getelementptr inbounds i8, ptr %server, i64 1544
-  %3 = load ptr, ptr %co_trip, align 8
-  tail call void @aio_co_wake(ptr noundef %3) #9
+  %2 = load ptr, ptr %co_trip, align 8
+  tail call void @aio_co_wake(ptr noundef %2) #9
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then, %if.then1, %entry
@@ -290,9 +288,8 @@ if.then4:                                         ; preds = %for.end
   %call = tail call ptr @qemu_coroutine_get_aio_context(ptr noundef nonnull %2) #9
   %quiescing = getelementptr inbounds i8, ptr %server, i64 46
   %3 = load i8, ptr %quiescing, align 2
-  %4 = and i8 %3, 1
-  %tobool6.not = icmp eq i8 %4, 0
-  br i1 %tobool6.not, label %if.end8, label %if.else
+  %tobool6 = trunc i8 %3 to i1
+  br i1 %tobool6, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %if.then4
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_user_server_attach_aio_context) #8
@@ -312,10 +309,9 @@ if.else13:                                        ; preds = %for.end
   %call14 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @vu_client_trip, ptr noundef nonnull %server) #9
   store ptr %call14, ptr %co_trip, align 8
   %in_qio_channel_yield = getelementptr inbounds i8, ptr %server, i64 44
-  %5 = load i8, ptr %in_qio_channel_yield, align 4
-  %6 = and i8 %5, 1
-  %tobool16.not = icmp eq i8 %6, 0
-  br i1 %tobool16.not, label %if.end19, label %if.else18
+  %4 = load i8, ptr %in_qio_channel_yield, align 4
+  %tobool16 = trunc i8 %4 to i1
+  br i1 %tobool16, label %if.else18, label %if.end19
 
 if.else18:                                        ; preds = %if.else13
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 438, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_user_server_attach_aio_context) #8
@@ -340,14 +336,13 @@ entry:
   tail call void %1(ptr noundef %0, i32 noundef 0, ptr noundef %2) #9
   %broken = getelementptr inbounds i8, ptr %0, i64 1408
   %3 = load i8, ptr %broken, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %ioc = getelementptr i8, ptr %0, i64 1464
-  %5 = load ptr, ptr %ioc, align 8
-  %call = tail call i32 @qio_channel_shutdown(ptr noundef %5, i32 noundef 3, ptr noundef null) #9
+  %4 = load ptr, ptr %ioc, align 8
+  %call = tail call i32 @qio_channel_shutdown(ptr noundef %4, i32 noundef 3, ptr noundef null) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -364,9 +359,8 @@ entry:
   %vu_dev1 = getelementptr inbounds i8, ptr %opaque, i64 48
   %broken = getelementptr inbounds i8, ptr %opaque, i64 1456
   %0 = load i8, ptr %broken, align 8
-  %1 = and i8 %0, 1
-  %tobool.not20 = icmp eq i8 %1, 0
-  br i1 %tobool.not20, label %while.body.lr.ph, label %while.end
+  %tobool20 = trunc i8 %0 to i1
+  br i1 %tobool20, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %quiescing = getelementptr inbounds i8, ptr %opaque, i64 46
@@ -374,10 +368,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end5
-  %2 = load i8, ptr %quiescing, align 2
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end, label %if.then
+  %1 = load i8, ptr %quiescing, align 2
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %co_trip = getelementptr inbounds i8, ptr %opaque, i64 1544
@@ -389,20 +382,19 @@ if.end:                                           ; preds = %while.body
   br i1 %call, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %4 = load ptr, ptr %ctx, align 8
-  %tobool3.not = icmp eq ptr %4, null
+  %2 = load ptr, ptr %ctx, align 8
+  %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end5, label %while.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %5 = load i8, ptr %broken, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !10
+  %3 = load i8, ptr %broken, align 8
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end5, %land.lhs.true, %entry
   %in_flight.i = getelementptr inbounds i8, ptr %opaque, i64 40
-  %7 = load atomic i32, ptr %in_flight.i acquire, align 8
-  %cmp.i.not = icmp eq i32 %7, 0
+  %4 = load atomic i32, ptr %in_flight.i acquire, align 8
+  %cmp.i.not = icmp eq i32 %4, 0
   br i1 %cmp.i.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %while.end
@@ -413,8 +405,8 @@ if.then7:                                         ; preds = %while.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %while.end
-  %8 = load atomic i32, ptr %in_flight.i acquire, align 8
-  %cmp.i19.not = icmp eq i32 %8, 0
+  %5 = load atomic i32, ptr %in_flight.i acquire, align 8
+  %cmp.i19.not = icmp eq i32 %5, 0
   br i1 %cmp.i19.not, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %if.end9
@@ -424,8 +416,8 @@ if.else:                                          ; preds = %if.end9
 if.end12:                                         ; preds = %if.end9
   tail call void @vu_deinit(ptr noundef nonnull %vu_dev1) #9
   %vu_fd_watches = getelementptr inbounds i8, ptr %opaque, i64 1528
-  %9 = load ptr, ptr %vu_fd_watches, align 8
-  %cmp = icmp eq ptr %9, null
+  %6 = load ptr, ptr %vu_fd_watches, align 8
+  %cmp = icmp eq ptr %6, null
   br i1 %cmp, label %if.end15, label %if.else14
 
 if.else14:                                        ; preds = %if.end12
@@ -434,22 +426,22 @@ if.else14:                                        ; preds = %if.end12
 
 if.end15:                                         ; preds = %if.end12
   %sioc = getelementptr inbounds i8, ptr %opaque, i64 1520
-  %10 = load ptr, ptr %sioc, align 8
-  tail call void @object_unref(ptr noundef %10) #9
+  %7 = load ptr, ptr %sioc, align 8
+  tail call void @object_unref(ptr noundef %7) #9
   store ptr null, ptr %sioc, align 8
   %ioc = getelementptr inbounds i8, ptr %opaque, i64 1512
-  %11 = load ptr, ptr %ioc, align 8
-  tail call void @object_unref(ptr noundef %11) #9
+  %8 = load ptr, ptr %ioc, align 8
+  tail call void @object_unref(ptr noundef %8) #9
   store ptr null, ptr %ioc, align 8
   %co_trip18 = getelementptr inbounds i8, ptr %opaque, i64 1544
   store ptr null, ptr %co_trip18, align 8
   %restart_listener_bh = getelementptr inbounds i8, ptr %opaque, i64 8
-  %12 = load ptr, ptr %restart_listener_bh, align 8
-  %tobool19.not = icmp eq ptr %12, null
+  %9 = load ptr, ptr %restart_listener_bh, align 8
+  %tobool19.not = icmp eq ptr %9, null
   br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.end15
-  tail call void @qemu_bh_schedule(ptr noundef nonnull %12) #9
+  tail call void @qemu_bh_schedule(ptr noundef nonnull %9) #9
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then20, %if.then
@@ -499,9 +491,8 @@ if.end:                                           ; preds = %for.body, %if.then,
 if.then4:                                         ; preds = %if.end
   %in_qio_channel_yield = getelementptr inbounds i8, ptr %server, i64 44
   %4 = load i8, ptr %in_qio_channel_yield, align 4
-  %5 = and i8 %4, 1
-  %tobool5.not = icmp eq i8 %5, 0
-  br i1 %tobool5.not, label %if.end9, label %if.then6
+  %tobool5 = trunc i8 %4 to i1
+  br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.then4
   tail call void @qio_channel_wake_read(ptr noundef nonnull %3) #9

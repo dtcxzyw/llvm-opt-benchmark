@@ -68,28 +68,27 @@ define dso_local noundef ptr @_ZN17StatementContinue11make_randomER9CGContext(pt
   br i1 %5, label %25, label %.preheader
 
 .preheader:                                       ; preds = %1, %9
-  %.01821 = phi ptr [ %11, %9 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.01821, i64 152
+  %.01820 = phi ptr [ %11, %9 ], [ %3, %1 ]
+  %6 = getelementptr inbounds i8, ptr %.01820, i64 152
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not19 = icmp eq i8 %8, 0
-  br i1 %.not19, label %9, label %.critedge
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.01821, i64 24
+  %10 = getelementptr inbounds i8, ptr %.01820, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !5
 
 .critedge:                                        ; preds = %9, %.preheader
-  %.018.lcssa = phi ptr [ null, %9 ], [ %.01821, %.preheader ]
+  %.018.lcssa = phi ptr [ null, %9 ], [ %.01820, %.preheader ]
   %12 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZN6Effect5clearEv(ptr noundef nonnull align 8 dereferenceable(74) %12)
   %13 = tail call noundef ptr @_Z12get_int_typev()
   %14 = tail call noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK12CVQualifiersbb9eTermType(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %13, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 1)
   %15 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not20 = icmp eq i32 %15, 0
-  br i1 %.not20, label %16, label %25
+  %.not19 = icmp eq i32 %15, 0
+  br i1 %.not19, label %16, label %25
 
 16:                                               ; preds = %.critedge
   %17 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14

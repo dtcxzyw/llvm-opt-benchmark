@@ -86,16 +86,14 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #6
   %26 = load volatile i8, ptr %20, align 8
-  %27 = and i8 %26, 1
-  %.not916 = icmp eq i8 %27, 0
-  br i1 %.not916, label %._crit_edge, label %.lr.ph
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %opal_obj_run_constructors.exit, %.lr.ph
   %28 = call i32 @opal_cond_wait(ptr noundef nonnull %18, ptr noundef nonnull %6) #6
   %29 = load volatile i8, ptr %20, align 8
-  %30 = and i8 %29, 1
-  %.not9 = icmp eq i8 %30, 0
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %opal_obj_run_constructors.exit
   fence acquire
@@ -107,31 +105,31 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
   %34 = getelementptr inbounds i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
-  %.not6.i12 = icmp eq ptr %36, null
-  br i1 %.not6.i12, label %opal_obj_run_destructors.exit, label %.lr.ph.i13
+  %.not6.i11 = icmp eq ptr %36, null
+  br i1 %.not6.i11, label %opal_obj_run_destructors.exit, label %.lr.ph.i12
 
-.lr.ph.i13:                                       ; preds = %._crit_edge, %.lr.ph.i13
-  %37 = phi ptr [ %39, %.lr.ph.i13 ], [ %36, %._crit_edge ]
-  %.07.i14 = phi ptr [ %38, %.lr.ph.i13 ], [ %35, %._crit_edge ]
+.lr.ph.i12:                                       ; preds = %._crit_edge, %.lr.ph.i12
+  %37 = phi ptr [ %39, %.lr.ph.i12 ], [ %36, %._crit_edge ]
+  %.07.i13 = phi ptr [ %38, %.lr.ph.i12 ], [ %35, %._crit_edge ]
   call void %37(ptr noundef nonnull %6) #6
-  %38 = getelementptr inbounds i8, ptr %.07.i14, i64 8
+  %38 = getelementptr inbounds i8, ptr %.07.i13, i64 8
   %39 = load ptr, ptr %38, align 8
-  %.not.i15 = icmp eq ptr %39, null
-  br i1 %.not.i15, label %opal_obj_run_destructors.exit, label %.lr.ph.i13, !llvm.loop !7
+  %.not.i14 = icmp eq ptr %39, null
+  br i1 %.not.i14, label %opal_obj_run_destructors.exit, label %.lr.ph.i12, !llvm.loop !7
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i13, %._crit_edge
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i12, %._crit_edge
   %40 = call i32 @opal_cond_destroy(ptr noundef nonnull %18) #6
   %41 = load ptr, ptr %22, align 8
-  %.not10 = icmp eq ptr %41, null
-  br i1 %.not10, label %43, label %42
+  %.not9 = icmp eq ptr %41, null
+  br i1 %.not9, label %43, label %42
 
 42:                                               ; preds = %opal_obj_run_destructors.exit
   call void @free(ptr noundef nonnull %41) #6
   br label %43
 
 43:                                               ; preds = %opal_obj_run_destructors.exit, %42
-  %.not11 = icmp eq i32 %32, 0
-  br i1 %.not11, label %44, label %62
+  %.not10 = icmp eq i32 %32, 0
+  br i1 %.not10, label %44, label %61
 
 44:                                               ; preds = %43
   %45 = call i32 @PMIx_Info_load(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i16 noundef zeroext 3) #6
@@ -151,18 +149,17 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i13, %._crit
   call void @PMIx_Info_destruct(ptr noundef nonnull %54) #6
   %55 = call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0) #6
   %56 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %57 = and i8 %56, 1
-  %58 = icmp ne i8 %57, 0
-  %59 = icmp eq i32 %53, -25
-  %or.cond = select i1 %58, i1 %59, i1 false
-  br i1 %or.cond, label %62, label %60
+  %57 = trunc i8 %56 to i1
+  %58 = icmp eq i32 %53, -25
+  %or.cond = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond, label %61, label %59
 
-60:                                               ; preds = %44
-  %61 = call i32 @opal_pmix_convert_status(i32 noundef %53) #6
-  br label %62
+59:                                               ; preds = %44
+  %60 = call i32 @opal_pmix_convert_status(i32 noundef %53) #6
+  br label %61
 
-62:                                               ; preds = %60, %44, %43
-  %.07 = phi i32 [ -1, %43 ], [ %61, %60 ], [ 0, %44 ]
+61:                                               ; preds = %59, %44, %43
+  %.07 = phi i32 [ -1, %43 ], [ %60, %59 ], [ 0, %44 ]
   ret i32 %.07
 }
 

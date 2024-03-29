@@ -131,9 +131,9 @@ if.then.i.i:                                      ; preds = %entry
 if.then4.i.i:                                     ; preds = %if.then.i.i
   %legacy_closed_enum_.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %3 = load i8, ptr %legacy_closed_enum_.i.i, align 8
-  %4 = and i8 %3, 1
   %legacy_closed_enum_6.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store i8 %4, ptr %legacy_closed_enum_6.i.i, align 8
+  %frombool.i.i = and i8 %3, 1
+  store i8 %frombool.i.i, ptr %legacy_closed_enum_6.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then4.i.i, %if.then.i.i
@@ -143,23 +143,23 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
   %utf8_validation_.i.i = getelementptr inbounds i8, ptr %from, i64 28
-  %5 = load i32, ptr %utf8_validation_.i.i, align 4
+  %4 = load i32, ptr %utf8_validation_.i.i, align 4
   %utf8_validation_10.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  store i32 %5, ptr %utf8_validation_10.i.i, align 4
+  store i32 %4, ptr %utf8_validation_10.i.i, align 4
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then9.i.i, %if.end.i.i, %entry
   store i32 %2, ptr %arrayinit.cur.i.ptr.i.i, align 8
   %_internal_metadata_15.i.i = getelementptr inbounds i8, ptr %from, i64 8
-  %6 = load i64, ptr %_internal_metadata_15.i.i, align 8
-  %and.i27.i.i = and i64 %6, 1
+  %5 = load i64, ptr %_internal_metadata_15.i.i, align 8
+  %and.i27.i.i = and i64 %5, 1
   %tobool.i28.not.i.i = icmp eq i64 %and.i27.i.i, 0
   br i1 %tobool.i28.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12.i.i
-  %and.i.i.i = and i64 %6, -2
-  %7 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %and.i.i.i = and i64 %5, -2
+  %6 = inttoptr i64 %and.i.i.i to ptr
+  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -167,10 +167,10 @@ invoke.cont:                                      ; preds = %if.end12.i.i, %if.t
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2pb12JavaFeaturesD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -242,9 +242,9 @@ if.then:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.then
   %legacy_closed_enum_ = getelementptr inbounds i8, ptr %from_msg, i64 24
   %2 = load i8, ptr %legacy_closed_enum_, align 8
-  %3 = and i8 %2, 1
   %legacy_closed_enum_6 = getelementptr inbounds i8, ptr %to_msg, i64 24
-  store i8 %3, ptr %legacy_closed_enum_6, align 8
+  %frombool = and i8 %2, 1
+  store i8 %frombool, ptr %legacy_closed_enum_6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
@@ -254,27 +254,27 @@ if.end:                                           ; preds = %if.then4, %if.then
 
 if.then9:                                         ; preds = %if.end
   %utf8_validation_ = getelementptr inbounds i8, ptr %from_msg, i64 28
-  %4 = load i32, ptr %utf8_validation_, align 4
+  %3 = load i32, ptr %utf8_validation_, align 4
   %utf8_validation_10 = getelementptr inbounds i8, ptr %to_msg, i64 28
-  store i32 %4, ptr %utf8_validation_10, align 4
+  store i32 %3, ptr %utf8_validation_10, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end, %if.then9, %entry
-  %5 = getelementptr inbounds i8, ptr %to_msg, i64 16
-  %6 = load i32, ptr %5, align 8
-  %or = or i32 %6, %1
-  store i32 %or, ptr %5, align 8
+  %4 = getelementptr inbounds i8, ptr %to_msg, i64 16
+  %5 = load i32, ptr %4, align 8
+  %or = or i32 %5, %1
+  store i32 %or, ptr %4, align 8
   %_internal_metadata_15 = getelementptr inbounds i8, ptr %from_msg, i64 8
-  %7 = load i64, ptr %_internal_metadata_15, align 8
-  %and.i27 = and i64 %7, 1
+  %6 = load i64, ptr %_internal_metadata_15, align 8
+  %and.i27 = and i64 %6, 1
   %tobool.i28.not = icmp eq i64 %and.i27, 0
   br i1 %tobool.i28.not, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end12
   %_internal_metadata_ = getelementptr inbounds i8, ptr %to_msg, i64 8
-  %and.i = and i64 %7, -2
-  %8 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %and.i = and i64 %6, -2
+  %7 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
@@ -352,11 +352,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.
   %retval.0.i = phi ptr [ %call.i12, %if.then.i11 ], [ %target, %if.then ]
   %legacy_closed_enum_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i8, ptr %legacy_closed_enum_.i, align 8
-  %4 = and i8 %3, 1
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
   store i8 8, ptr %retval.0.i, align 1
+  %conv1.i.i = and i8 %3, 1
   %incdec.ptr2.i.i13 = getelementptr inbounds i8, ptr %retval.0.i, i64 2
-  store i8 %4, ptr %incdec.ptr2.i.i, align 1
+  store i8 %conv1.i.i, ptr %incdec.ptr2.i.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %entry
@@ -366,8 +366,8 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %5 = load ptr, ptr %stream, align 8
-  %cmp.not.i14 = icmp ugt ptr %5, %target.addr.0
+  %4 = load ptr, ptr %stream, align 8
+  %cmp.not.i14 = icmp ugt ptr %4, %target.addr.0
   br i1 %cmp.not.i14, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit17, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.then7
@@ -377,18 +377,18 @@ if.then.i15:                                      ; preds = %if.then7
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit17: ; preds = %if.then7, %if.then.i15
   %retval.0.i16 = phi ptr [ %call.i, %if.then.i15 ], [ %target.addr.0, %if.then7 ]
   %utf8_validation_.i = getelementptr inbounds i8, ptr %this, i64 28
-  %6 = load i32, ptr %utf8_validation_.i, align 4
+  %5 = load i32, ptr %utf8_validation_.i, align 4
   %incdec.ptr2.i.i19 = getelementptr inbounds i8, ptr %retval.0.i16, i64 1
   store i8 16, ptr %retval.0.i16, align 1
-  %conv.i = sext i32 %6 to i64
-  %cmp.i7.i.i = icmp ugt i32 %6, 127
+  %conv.i = sext i32 %5 to i64
+  %cmp.i7.i.i = icmp ugt i32 %5, 127
   br i1 %cmp.i7.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
 
 while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit17, %while.body.i.i.i
   %value.addr.i.09.i.i = phi i64 [ %shr.i.i.i, %while.body.i.i.i ], [ %conv.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit17 ]
   %ptr.addr.i.08.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %incdec.ptr2.i.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit17 ]
-  %7 = trunc i64 %value.addr.i.09.i.i to i8
-  %conv.i.i.i = or i8 %7, -128
+  %6 = trunc i64 %value.addr.i.09.i.i to i8
+  %conv.i.i.i = or i8 %6, -128
   store i8 %conv.i.i.i, ptr %ptr.addr.i.08.i.i, align 1
   %shr.i.i.i = lshr i64 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.08.i.i, i64 1
@@ -406,15 +406,15 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 if.end11:                                         ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, %if.end
   %target.addr.1 = phi ptr [ %incdec.ptr2.i.i.i, %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit ], [ %target.addr.0, %if.end ]
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load i64, ptr %_internal_metadata_, align 8
-  %and.i55 = and i64 %8, 1
+  %7 = load i64, ptr %_internal_metadata_, align 8
+  %and.i55 = and i64 %7, 1
   %tobool.i56.not = icmp eq i64 %and.i55, 0
   br i1 %tobool.i56.not, label %if.end17, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end11
-  %and.i = and i64 %8, -2
-  %9 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds i8, ptr %9, i64 8
+  %and.i = and i64 %7, -2
+  %8 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %8, i64 8
   %call16 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.1, ptr noundef %stream)
   br label %if.end17
 
@@ -510,9 +510,9 @@ if.then.i.i3:                                     ; preds = %_ZN2pb12JavaFeature
 if.then4.i.i:                                     ; preds = %if.then.i.i3
   %legacy_closed_enum_.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %5 = load i8, ptr %legacy_closed_enum_.i.i, align 8
-  %6 = and i8 %5, 1
   %legacy_closed_enum_6.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store i8 %6, ptr %legacy_closed_enum_6.i.i, align 8
+  %frombool.i.i = and i8 %5, 1
+  store i8 %frombool.i.i, ptr %legacy_closed_enum_6.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then4.i.i, %if.then.i.i3
@@ -522,25 +522,25 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
   %utf8_validation_.i.i = getelementptr inbounds i8, ptr %from, i64 28
-  %7 = load i32, ptr %utf8_validation_.i.i, align 4
+  %6 = load i32, ptr %utf8_validation_.i.i, align 4
   %utf8_validation_10.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  store i32 %7, ptr %utf8_validation_10.i.i, align 4
+  store i32 %6, ptr %utf8_validation_10.i.i, align 4
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then9.i.i, %if.end.i.i, %_ZN2pb12JavaFeatures5ClearEv.exit
-  %8 = load i32, ptr %0, align 8
-  %or.i.i = or i32 %8, %4
+  %7 = load i32, ptr %0, align 8
+  %or.i.i = or i32 %7, %4
   store i32 %or.i.i, ptr %0, align 8
   %_internal_metadata_15.i.i = getelementptr inbounds i8, ptr %from, i64 8
-  %9 = load i64, ptr %_internal_metadata_15.i.i, align 8
-  %and.i27.i.i = and i64 %9, 1
+  %8 = load i64, ptr %_internal_metadata_15.i.i, align 8
+  %and.i27.i.i = and i64 %8, 1
   %tobool.i28.not.i.i = icmp eq i64 %and.i27.i.i, 0
   br i1 %tobool.i28.not.i.i, label %return, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12.i.i
-  %and.i.i.i = and i64 %9, -2
-  %10 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %and.i.i.i = and i64 %8, -2
+  %9 = inttoptr i64 %and.i.i.i to ptr
+  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
   br label %return
 

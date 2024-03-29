@@ -292,52 +292,51 @@ define void @_ZN6google8protobuf8internal16GenerateEnumDataEN4absl12lts_20230802
 entry:
   %ref.tmp141 = alloca %"struct.google::protobuf::internal::EytzingerLayoutSorter", align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %values.coerce0, i64 %values.coerce1
-  %cmp.not404 = icmp eq i64 %values.coerce1, 0
-  br i1 %cmp.not404, label %if.end90, label %for.body
+  %cmp.not405 = icmp eq i64 %values.coerce1, 0
+  br i1 %cmp.not405, label %if.end90, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc56
-  %__begin2.0417 = phi ptr [ %incdec.ptr, %for.inc56 ], [ %values.coerce0, %entry ]
-  %fallback_values_too_large.sroa.0.0416 = phi ptr [ %fallback_values_too_large.sroa.0.2, %for.inc56 ], [ null, %entry ]
-  %fallback_values_too_large.sroa.10.0415 = phi ptr [ %fallback_values_too_large.sroa.10.2, %for.inc56 ], [ null, %entry ]
-  %fallback_values_too_large.sroa.18.0414 = phi ptr [ %fallback_values_too_large.sroa.18.2, %for.inc56 ], [ null, %entry ]
-  %fallback_values_after_bitmap.sroa.0.0413 = phi ptr [ %fallback_values_after_bitmap.sroa.0.2, %for.inc56 ], [ null, %entry ]
-  %fallback_values_after_bitmap.sroa.13.0412 = phi ptr [ %fallback_values_after_bitmap.sroa.13.3, %for.inc56 ], [ null, %entry ]
-  %fallback_values_after_bitmap.sroa.25.0411 = phi ptr [ %fallback_values_after_bitmap.sroa.25.2, %for.inc56 ], [ null, %entry ]
-  %sequence_length.0410 = phi i32 [ %sequence_length.1, %for.inc56 ], [ 0, %entry ]
-  %start_sequence.sroa.0.0409 = phi i16 [ %start_sequence.sroa.0.1, %for.inc56 ], [ undef, %entry ]
-  %start_sequence.sroa.5.0408 = phi i8 [ %start_sequence.sroa.5.2, %for.inc56 ], [ 0, %entry ]
-  %bitmap_values.sroa.24.0407 = phi ptr [ %bitmap_values.sroa.24.3, %for.inc56 ], [ null, %entry ]
-  %bitmap_values.sroa.14.0406 = phi ptr [ %bitmap_values.sroa.14.3, %for.inc56 ], [ null, %entry ]
-  %bitmap_values.sroa.0.0405 = phi ptr [ %bitmap_values.sroa.0.3, %for.inc56 ], [ null, %entry ]
-  %0 = load i32, ptr %__begin2.0417, align 4
-  %1 = and i8 %start_sequence.sroa.5.0408, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.then, label %if.end7
+  %__begin2.0418 = phi ptr [ %incdec.ptr, %for.inc56 ], [ %values.coerce0, %entry ]
+  %fallback_values_too_large.sroa.0.0417 = phi ptr [ %fallback_values_too_large.sroa.0.2, %for.inc56 ], [ null, %entry ]
+  %fallback_values_too_large.sroa.10.0416 = phi ptr [ %fallback_values_too_large.sroa.10.2, %for.inc56 ], [ null, %entry ]
+  %fallback_values_too_large.sroa.18.0415 = phi ptr [ %fallback_values_too_large.sroa.18.2, %for.inc56 ], [ null, %entry ]
+  %fallback_values_after_bitmap.sroa.0.0414 = phi ptr [ %fallback_values_after_bitmap.sroa.0.2, %for.inc56 ], [ null, %entry ]
+  %fallback_values_after_bitmap.sroa.13.0413 = phi ptr [ %fallback_values_after_bitmap.sroa.13.3, %for.inc56 ], [ null, %entry ]
+  %fallback_values_after_bitmap.sroa.25.0412 = phi ptr [ %fallback_values_after_bitmap.sroa.25.2, %for.inc56 ], [ null, %entry ]
+  %sequence_length.0411 = phi i32 [ %sequence_length.1, %for.inc56 ], [ 0, %entry ]
+  %start_sequence.sroa.0.0410 = phi i16 [ %start_sequence.sroa.0.1, %for.inc56 ], [ undef, %entry ]
+  %start_sequence.sroa.5.0409 = phi i8 [ %start_sequence.sroa.5.2, %for.inc56 ], [ 0, %entry ]
+  %bitmap_values.sroa.24.0408 = phi ptr [ %bitmap_values.sroa.24.3, %for.inc56 ], [ null, %entry ]
+  %bitmap_values.sroa.14.0407 = phi ptr [ %bitmap_values.sroa.14.3, %for.inc56 ], [ null, %entry ]
+  %bitmap_values.sroa.0.0406 = phi ptr [ %bitmap_values.sroa.0.3, %for.inc56 ], [ null, %entry ]
+  %0 = load i32, ptr %__begin2.0418, align 4
+  %tobool.i.i = trunc i8 %start_sequence.sroa.5.0409 to i1
+  br i1 %tobool.i.i, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %2 = add i32 %0, 32768
-  %cmp4.not = icmp ult i32 %2, 65536
+  %1 = add i32 %0, 32768
+  %cmp4.not = icmp ult i32 %1, 65536
   br i1 %cmp4.not, label %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %cmp.not.i = icmp eq ptr %fallback_values_too_large.sroa.10.0415, %fallback_values_too_large.sroa.18.0414
+  %cmp.not.i = icmp eq ptr %fallback_values_too_large.sroa.10.0416, %fallback_values_too_large.sroa.18.0415
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then5
-  store i32 %0, ptr %fallback_values_too_large.sroa.10.0415, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %fallback_values_too_large.sroa.10.0415, i64 4
+  store i32 %0, ptr %fallback_values_too_large.sroa.10.0416, align 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %fallback_values_too_large.sroa.10.0416, i64 4
   br label %for.inc56
 
 if.else.i:                                        ; preds = %if.then5
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %fallback_values_too_large.sroa.10.0415 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %fallback_values_too_large.sroa.0.0416 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %fallback_values_too_large.sroa.10.0416 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %fallback_values_too_large.sroa.0.0417 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i.invoke:                             ; preds = %if.else.i, %if.else.i65, %if.else.i216
-  %3 = phi ptr [ @.str.1, %if.else.i216 ], [ @.str, %if.else.i65 ], [ @.str, %if.else.i ]
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %3) #19
+if.then.i.i.i.invoke:                             ; preds = %if.else.i, %if.else.i66, %if.else.i217
+  %2 = phi ptr [ @.str.1, %if.else.i217 ], [ @.str, %if.else.i66 ], [ @.str, %if.else.i ]
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %2) #19
           to label %if.then.i.i.i.cont unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -348,8 +347,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %4
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %3
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -366,54 +365,54 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %fallback_values_too_large.sroa.0.0416, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %fallback_values_too_large.sroa.0.0417, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
-  %tobool.not.i.i.i = icmp eq ptr %fallback_values_too_large.sroa.0.0416, null
+  %tobool.not.i.i.i = icmp eq ptr %fallback_values_too_large.sroa.0.0417, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %fallback_values_too_large.sroa.0.0416) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %fallback_values_too_large.sroa.0.0417) #21
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   %add.ptr19.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i, i64 %cond.i.i.i
   br label %for.inc56
 
-lpad.loopexit:                                    ; preds = %cond.true.i.i.i, %cond.true.i.i.i77, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
-  %lpad.loopexit356 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %cond.true.i.i.i, %cond.true.i.i.i78, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
+  %lpad.loopexit357 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup145
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invoke
-  %lpad.loopexit.split-lp357 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp358 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup145
 
 _ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit: ; preds = %if.then
-  %conv.sink.i = trunc i32 %0 to i16
+  %conv.i.i.i.sink.i = trunc i32 %0 to i16
   br label %for.inc56
 
 if.end7:                                          ; preds = %for.body
-  %conv9 = sext i16 %start_sequence.sroa.0.0409 to i32
-  %add = add nsw i32 %sequence_length.0410, %conv9
+  %conv9 = sext i16 %start_sequence.sroa.0.0410 to i32
+  %add = add nsw i32 %sequence_length.0411, %conv9
   %cmp10 = icmp eq i32 %0, %add
-  %cmp11 = icmp ult i32 %sequence_length.0410, 65535
+  %cmp11 = icmp ult i32 %sequence_length.0411, 65535
   %or.cond = and i1 %cmp11, %cmp10
   br i1 %or.cond, label %if.then12, label %invoke.cont14
 
 if.then12:                                        ; preds = %if.end7
-  %inc = add nuw nsw i32 %sequence_length.0410, 1
+  %inc = add nuw nsw i32 %sequence_length.0411, 1
   br label %for.inc56
 
 invoke.cont14:                                    ; preds = %if.end7
   %sub4.i = sub i32 %0, %add
   %conv16 = zext i32 %sub4.i to i64
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %bitmap_values.sroa.14.0406 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %bitmap_values.sroa.0.0405 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %bitmap_values.sroa.14.0407 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %bitmap_values.sroa.0.0406 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %mul = shl i64 %sub.ptr.sub.i, 3
@@ -423,21 +422,21 @@ invoke.cont14:                                    ; preds = %if.end7
 while.end:                                        ; preds = %invoke.cont14
   %rem.i = and i32 %sub4.i, 31
   %shl.i = shl nuw i32 1, %rem.i
-  %5 = lshr i32 %sub4.i, 5
-  %div.i = zext nneg i32 %5 to i64
-  %add.ptr.i.i27 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.0405, i64 %div.i
-  %6 = load i32, ptr %add.ptr.i.i27, align 4
-  %or.i = or i32 %6, %shl.i
-  store i32 %or.i, ptr %add.ptr.i.i27, align 4
+  %4 = lshr i32 %sub4.i, 5
+  %div.i = zext nneg i32 %4 to i64
+  %add.ptr.i.i28 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.0406, i64 %div.i
+  %5 = load i32, ptr %add.ptr.i.i28, align 4
+  %or.i = or i32 %5, %shl.i
+  store i32 %or.i, ptr %add.ptr.i.i28, align 4
   br label %for.inc56
 
 if.end23:                                         ; preds = %invoke.cont14
-  %sub.ptr.lhs.cast.i34 = ptrtoint ptr %fallback_values_after_bitmap.sroa.13.0412 to i64
-  %sub.ptr.rhs.cast.i35 = ptrtoint ptr %fallback_values_after_bitmap.sroa.0.0413 to i64
-  %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
-  %sub.ptr.div.i37 = ashr exact i64 %sub.ptr.sub.i36, 2
+  %sub.ptr.lhs.cast.i35 = ptrtoint ptr %fallback_values_after_bitmap.sroa.13.0413 to i64
+  %sub.ptr.rhs.cast.i36 = ptrtoint ptr %fallback_values_after_bitmap.sroa.0.0414 to i64
+  %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
+  %sub.ptr.div.i38 = ashr exact i64 %sub.ptr.sub.i37, 2
   %add26 = add nsw i64 %sub.ptr.div.i, 1
-  %add27 = add nsw i64 %add26, %sub.ptr.div.i37
+  %add27 = add nsw i64 %add26, %sub.ptr.div.i38
   %add29 = add nuw nsw i64 %conv16, 32
   %div14 = lshr i64 %add29, 5
   %cmp30.not = icmp ule i64 %div14, %add27
@@ -447,55 +446,55 @@ if.end23:                                         ; preds = %invoke.cont14
 
 while.end40:                                      ; preds = %if.end23
   %cmp.i = icmp ult i64 %sub.ptr.div.i, %div14
-  br i1 %cmp.i, label %if.then.i40, label %if.else.i38
+  br i1 %cmp.i, label %if.then.i41, label %if.else.i39
 
-if.then.i40:                                      ; preds = %while.end40
+if.then.i41:                                      ; preds = %while.end40
   %sub.i = sub nsw i64 %div14, %sub.ptr.div.i
-  %sub.ptr.lhs.cast.i211 = ptrtoint ptr %bitmap_values.sroa.24.0407 to i64
-  %sub.ptr.sub.i212 = sub i64 %sub.ptr.lhs.cast.i211, %sub.ptr.lhs.cast.i
-  %sub.ptr.div.i213 = ashr exact i64 %sub.ptr.sub.i212, 2
-  %sub.i215 = xor i64 %sub.ptr.div.i, 2305843009213693951
-  %cmp6.i = icmp ule i64 %sub.ptr.div.i213, %sub.i215
+  %sub.ptr.lhs.cast.i212 = ptrtoint ptr %bitmap_values.sroa.24.0408 to i64
+  %sub.ptr.sub.i213 = sub i64 %sub.ptr.lhs.cast.i212, %sub.ptr.lhs.cast.i
+  %sub.ptr.div.i214 = ashr exact i64 %sub.ptr.sub.i213, 2
+  %sub.i216 = xor i64 %sub.ptr.div.i, 2305843009213693951
+  %cmp6.i = icmp ule i64 %sub.ptr.div.i214, %sub.i216
   tail call void @llvm.assume(i1 %cmp6.i)
-  %cmp8.not.i = icmp ult i64 %sub.ptr.div.i213, %sub.i
-  br i1 %cmp8.not.i, label %if.else.i216, label %if.then.i.i.i.i
+  %cmp8.not.i = icmp ult i64 %sub.ptr.div.i214, %sub.i
+  br i1 %cmp8.not.i, label %if.else.i217, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then.i40
-  store i32 0, ptr %bitmap_values.sroa.14.0406, align 4
-  %incdec.ptr.i.i.i.i = getelementptr i8, ptr %bitmap_values.sroa.14.0406, i64 4
+if.then.i.i.i.i:                                  ; preds = %if.then.i41
+  store i32 0, ptr %bitmap_values.sroa.14.0407, align 4
+  %incdec.ptr.i.i.i.i = getelementptr i8, ptr %bitmap_values.sroa.14.0407, i64 4
   %sub.i.i.i.i = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont41, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  %7 = shl nsw i64 %sub.i, 2
-  %8 = add i64 %7, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i, i8 0, i64 %8, i1 false)
+  %6 = shl nsw i64 %sub.i, 2
+  %7 = add i64 %6, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i, i8 0, i64 %7, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i, i64 %sub.i.i.i.i
   br label %invoke.cont41
 
-if.else.i216:                                     ; preds = %if.then.i40
-  %cmp.i.i217 = icmp ult i64 %sub.i215, %sub.i
-  br i1 %cmp.i.i217, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
+if.else.i217:                                     ; preds = %if.then.i41
+  %cmp.i.i218 = icmp ult i64 %sub.i216, %sub.i
+  br i1 %cmp.i.i218, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i216
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i217
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub.i)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
   %mul.i.i.i.i = shl nuw nsw i64 %add.i.i, 2
-  %call5.i.i.i.i221 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
+  %call5.i.i.i.i222 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
           to label %call5.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i218 = getelementptr inbounds i8, ptr %call5.i.i.i.i221, i64 %sub.ptr.sub.i
-  store i32 0, ptr %add.ptr.i218, align 4
+  %add.ptr.i219 = getelementptr inbounds i8, ptr %call5.i.i.i.i222, i64 %sub.ptr.sub.i
+  store i32 0, ptr %add.ptr.i219, align 4
   %cmp.i.i.i.i.i24.i = icmp eq i64 %sub.i, 1
   br i1 %cmp.i.i.i.i.i24.i, label %try.cont.i, label %if.end.i.i.i.i.i25.i
 
 if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
-  %incdec.ptr.i.i.i22.i = getelementptr i8, ptr %add.ptr.i218, i64 4
-  %9 = shl nuw nsw i64 %sub.i, 2
-  %10 = add nsw i64 %9, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i, i8 0, i64 %10, i1 false)
+  %incdec.ptr.i.i.i22.i = getelementptr i8, ptr %add.ptr.i219, i64 4
+  %8 = shl nuw nsw i64 %sub.i, 2
+  %9 = add nsw i64 %8, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i, i8 0, i64 %9, i1 false)
   br label %try.cont.i
 
 try.cont.i:                                       ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc
@@ -503,128 +502,128 @@ try.cont.i:                                       ; preds = %if.end.i.i.i.i.i25.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i30.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
 
 if.then.i.i.i30.i:                                ; preds = %try.cont.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i221, ptr align 4 %bitmap_values.sroa.0.0405, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i222, ptr align 4 %bitmap_values.sroa.0.0406, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i30.i, %try.cont.i
-  %tobool.not.i31.i = icmp eq ptr %bitmap_values.sroa.0.0405, null
+  %tobool.not.i31.i = icmp eq ptr %bitmap_values.sroa.0.0406, null
   br i1 %tobool.not.i31.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %bitmap_values.sroa.0.0405) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %bitmap_values.sroa.0.0406) #21
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.then.i32.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  %add.ptr37.i = getelementptr inbounds i32, ptr %add.ptr.i218, i64 %sub.i
-  %add.ptr40.i = getelementptr inbounds i32, ptr %call5.i.i.i.i221, i64 %add.i.i
+  %add.ptr37.i = getelementptr inbounds i32, ptr %add.ptr.i219, i64 %sub.i
+  %add.ptr40.i = getelementptr inbounds i32, ptr %call5.i.i.i.i222, i64 %add.i.i
   br label %invoke.cont41
 
-if.else.i38:                                      ; preds = %while.end40
+if.else.i39:                                      ; preds = %while.end40
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %div14
-  %add.ptr.i39 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.0405, i64 %div14
-  %spec.select = select i1 %cmp4.i, ptr %add.ptr.i39, ptr %bitmap_values.sroa.14.0406
+  %add.ptr.i40 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.0406, i64 %div14
+  %spec.select = select i1 %cmp4.i, ptr %add.ptr.i40, ptr %bitmap_values.sroa.14.0407
   br label %invoke.cont41
 
-invoke.cont41:                                    ; preds = %if.else.i38, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i
-  %bitmap_values.sroa.0.2 = phi ptr [ %call5.i.i.i.i221, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %bitmap_values.sroa.0.0405, %if.end.i.i.i.i.i.i ], [ %bitmap_values.sroa.0.0405, %if.then.i.i.i.i ], [ %bitmap_values.sroa.0.0405, %if.else.i38 ]
-  %bitmap_values.sroa.14.2 = phi ptr [ %add.ptr37.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %spec.select, %if.else.i38 ]
-  %bitmap_values.sroa.24.2 = phi ptr [ %add.ptr40.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %bitmap_values.sroa.24.0407, %if.end.i.i.i.i.i.i ], [ %bitmap_values.sroa.24.0407, %if.then.i.i.i.i ], [ %bitmap_values.sroa.24.0407, %if.else.i38 ]
-  %cmp.i43.not402 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.0413, %fallback_values_after_bitmap.sroa.13.0412
-  br i1 %cmp.i43.not402, label %for.end, label %invoke.cont49
+invoke.cont41:                                    ; preds = %if.else.i39, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i
+  %bitmap_values.sroa.0.2 = phi ptr [ %call5.i.i.i.i222, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %bitmap_values.sroa.0.0406, %if.end.i.i.i.i.i.i ], [ %bitmap_values.sroa.0.0406, %if.then.i.i.i.i ], [ %bitmap_values.sroa.0.0406, %if.else.i39 ]
+  %bitmap_values.sroa.14.2 = phi ptr [ %add.ptr37.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %spec.select, %if.else.i39 ]
+  %bitmap_values.sroa.24.2 = phi ptr [ %add.ptr40.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %bitmap_values.sroa.24.0408, %if.end.i.i.i.i.i.i ], [ %bitmap_values.sroa.24.0408, %if.then.i.i.i.i ], [ %bitmap_values.sroa.24.0408, %if.else.i39 ]
+  %cmp.i44.not403 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.0414, %fallback_values_after_bitmap.sroa.13.0413
+  br i1 %cmp.i44.not403, label %for.end, label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %invoke.cont41, %invoke.cont49
-  %__begin4.sroa.0.0403 = phi ptr [ %incdec.ptr.i51, %invoke.cont49 ], [ %fallback_values_after_bitmap.sroa.0.0413, %invoke.cont41 ]
-  %11 = load i32, ptr %__begin4.sroa.0.0403, align 4
-  %sub4.i45 = sub i32 %11, %add
-  %rem.i46 = and i32 %sub4.i45, 31
-  %shl.i47 = shl nuw i32 1, %rem.i46
-  %12 = lshr i32 %sub4.i45, 5
-  %div.i48 = zext nneg i32 %12 to i64
-  %add.ptr.i.i49 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.2, i64 %div.i48
-  %13 = load i32, ptr %add.ptr.i.i49, align 4
-  %or.i50 = or i32 %shl.i47, %13
-  store i32 %or.i50, ptr %add.ptr.i.i49, align 4
-  %incdec.ptr.i51 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0403, i64 4
-  %cmp.i43.not = icmp eq ptr %incdec.ptr.i51, %fallback_values_after_bitmap.sroa.13.0412
-  br i1 %cmp.i43.not, label %for.end, label %invoke.cont49
+  %__begin4.sroa.0.0404 = phi ptr [ %incdec.ptr.i52, %invoke.cont49 ], [ %fallback_values_after_bitmap.sroa.0.0414, %invoke.cont41 ]
+  %10 = load i32, ptr %__begin4.sroa.0.0404, align 4
+  %sub4.i46 = sub i32 %10, %add
+  %rem.i47 = and i32 %sub4.i46, 31
+  %shl.i48 = shl nuw i32 1, %rem.i47
+  %11 = lshr i32 %sub4.i46, 5
+  %div.i49 = zext nneg i32 %11 to i64
+  %add.ptr.i.i50 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.2, i64 %div.i49
+  %12 = load i32, ptr %add.ptr.i.i50, align 4
+  %or.i51 = or i32 %shl.i48, %12
+  store i32 %or.i51, ptr %add.ptr.i.i50, align 4
+  %incdec.ptr.i52 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0404, i64 4
+  %cmp.i44.not = icmp eq ptr %incdec.ptr.i52, %fallback_values_after_bitmap.sroa.13.0413
+  br i1 %cmp.i44.not, label %for.end, label %invoke.cont49
 
 for.end:                                          ; preds = %invoke.cont49, %invoke.cont41
-  %rem.i55 = and i32 %sub4.i, 31
-  %shl.i56 = shl nuw i32 1, %rem.i55
-  %14 = lshr i32 %sub4.i, 5
-  %div.i57 = zext nneg i32 %14 to i64
-  %add.ptr.i.i58 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.2, i64 %div.i57
-  %15 = load i32, ptr %add.ptr.i.i58, align 4
-  %or.i59 = or i32 %15, %shl.i56
-  store i32 %or.i59, ptr %add.ptr.i.i58, align 4
+  %rem.i56 = and i32 %sub4.i, 31
+  %shl.i57 = shl nuw i32 1, %rem.i56
+  %13 = lshr i32 %sub4.i, 5
+  %div.i58 = zext nneg i32 %13 to i64
+  %add.ptr.i.i59 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.2, i64 %div.i58
+  %14 = load i32, ptr %add.ptr.i.i59, align 4
+  %or.i60 = or i32 %14, %shl.i57
+  store i32 %or.i60, ptr %add.ptr.i.i59, align 4
   br label %for.inc56
 
 if.else:                                          ; preds = %if.end23
-  %cmp.not.i62 = icmp eq ptr %fallback_values_after_bitmap.sroa.13.0412, %fallback_values_after_bitmap.sroa.25.0411
-  br i1 %cmp.not.i62, label %if.else.i65, label %if.then.i63
+  %cmp.not.i63 = icmp eq ptr %fallback_values_after_bitmap.sroa.13.0413, %fallback_values_after_bitmap.sroa.25.0412
+  br i1 %cmp.not.i63, label %if.else.i66, label %if.then.i64
 
-if.then.i63:                                      ; preds = %if.else
-  store i32 %0, ptr %fallback_values_after_bitmap.sroa.13.0412, align 4
-  %incdec.ptr.i64 = getelementptr inbounds i8, ptr %fallback_values_after_bitmap.sroa.13.0412, i64 4
+if.then.i64:                                      ; preds = %if.else
+  store i32 %0, ptr %fallback_values_after_bitmap.sroa.13.0413, align 4
+  %incdec.ptr.i65 = getelementptr inbounds i8, ptr %fallback_values_after_bitmap.sroa.13.0413, i64 4
   br label %for.inc56
 
-if.else.i65:                                      ; preds = %if.else
-  %cmp.i.i.i69 = icmp eq i64 %sub.ptr.sub.i36, 9223372036854775804
-  br i1 %cmp.i.i.i69, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70
+if.else.i66:                                      ; preds = %if.else
+  %cmp.i.i.i70 = icmp eq i64 %sub.ptr.sub.i37, 9223372036854775804
+  br i1 %cmp.i.i.i70, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i71
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70: ; preds = %if.else.i65
-  %.sroa.speculated.i.i.i72 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i37, i64 1)
-  %add.i.i.i73 = add nsw i64 %.sroa.speculated.i.i.i72, %sub.ptr.div.i37
-  %cmp7.i.i.i74 = icmp ult i64 %add.i.i.i73, %sub.ptr.div.i37
-  %16 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i73, i64 2305843009213693951)
-  %cond.i.i.i75 = select i1 %cmp7.i.i.i74, i64 2305843009213693951, i64 %16
-  %cmp.not.i.i.i76 = icmp eq i64 %cond.i.i.i75, 0
-  br i1 %cmp.not.i.i.i76, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i79, label %cond.true.i.i.i77
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i71: ; preds = %if.else.i66
+  %.sroa.speculated.i.i.i73 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i38, i64 1)
+  %add.i.i.i74 = add nsw i64 %.sroa.speculated.i.i.i73, %sub.ptr.div.i38
+  %cmp7.i.i.i75 = icmp ult i64 %add.i.i.i74, %sub.ptr.div.i38
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i74, i64 2305843009213693951)
+  %cond.i.i.i76 = select i1 %cmp7.i.i.i75, i64 2305843009213693951, i64 %15
+  %cmp.not.i.i.i77 = icmp eq i64 %cond.i.i.i76, 0
+  br i1 %cmp.not.i.i.i77, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i80, label %cond.true.i.i.i78
 
-cond.true.i.i.i77:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70
-  %mul.i.i.i.i.i78 = shl nuw nsw i64 %cond.i.i.i75, 2
-  %call5.i.i.i.i.i94 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i78) #20
-          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i79 unwind label %lpad.loopexit
+cond.true.i.i.i78:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i71
+  %mul.i.i.i.i.i79 = shl nuw nsw i64 %cond.i.i.i76, 2
+  %call5.i.i.i.i.i95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i79) #20
+          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i80 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i79: ; preds = %cond.true.i.i.i77, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70
-  %cond.i10.i.i80 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70 ], [ %call5.i.i.i.i.i94, %cond.true.i.i.i77 ]
-  %add.ptr.i.i81 = getelementptr inbounds i32, ptr %cond.i10.i.i80, i64 %sub.ptr.div.i37
-  store i32 %0, ptr %add.ptr.i.i81, align 4
-  %cmp.i.i.i.i.i82 = icmp sgt i64 %sub.ptr.sub.i36, 0
-  br i1 %cmp.i.i.i.i.i82, label %if.then.i.i.i.i.i90, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i83
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i80: ; preds = %cond.true.i.i.i78, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i71
+  %cond.i10.i.i81 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i71 ], [ %call5.i.i.i.i.i95, %cond.true.i.i.i78 ]
+  %add.ptr.i.i82 = getelementptr inbounds i32, ptr %cond.i10.i.i81, i64 %sub.ptr.div.i38
+  store i32 %0, ptr %add.ptr.i.i82, align 4
+  %cmp.i.i.i.i.i83 = icmp sgt i64 %sub.ptr.sub.i37, 0
+  br i1 %cmp.i.i.i.i.i83, label %if.then.i.i.i.i.i91, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i84
 
-if.then.i.i.i.i.i90:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i79
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i80, ptr align 4 %fallback_values_after_bitmap.sroa.0.0413, i64 %sub.ptr.sub.i36, i1 false)
-  br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i83
+if.then.i.i.i.i.i91:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i80
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i81, ptr align 4 %fallback_values_after_bitmap.sroa.0.0414, i64 %sub.ptr.sub.i37, i1 false)
+  br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i84
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i83: ; preds = %if.then.i.i.i.i.i90, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i79
-  %add.ptr.i.i.i.i.i84 = getelementptr inbounds i8, ptr %cond.i10.i.i80, i64 %sub.ptr.sub.i36
-  %incdec.ptr.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i84, i64 4
-  %tobool.not.i.i.i86 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.0413, null
-  br i1 %tobool.not.i.i.i86, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88, label %if.then.i18.i.i87
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i84: ; preds = %if.then.i.i.i.i.i91, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i80
+  %add.ptr.i.i.i.i.i85 = getelementptr inbounds i8, ptr %cond.i10.i.i81, i64 %sub.ptr.sub.i37
+  %incdec.ptr.i.i86 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i85, i64 4
+  %tobool.not.i.i.i87 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.0414, null
+  br i1 %tobool.not.i.i.i87, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89, label %if.then.i18.i.i88
 
-if.then.i18.i.i87:                                ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i83
-  tail call void @_ZdlPv(ptr noundef nonnull %fallback_values_after_bitmap.sroa.0.0413) #21
-  br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88
+if.then.i18.i.i88:                                ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i84
+  tail call void @_ZdlPv(ptr noundef nonnull %fallback_values_after_bitmap.sroa.0.0414) #21
+  br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88: ; preds = %if.then.i18.i.i87, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i83
-  %add.ptr19.i.i89 = getelementptr inbounds i32, ptr %cond.i10.i.i80, i64 %cond.i.i.i75
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89: ; preds = %if.then.i18.i.i88, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i84
+  %add.ptr19.i.i90 = getelementptr inbounds i32, ptr %cond.i10.i.i81, i64 %cond.i.i.i76
   br label %for.inc56
 
-for.inc56:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88, %if.then.i63, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i, %for.end, %while.end, %if.then12, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit
-  %bitmap_values.sroa.0.3 = phi ptr [ %bitmap_values.sroa.0.0405, %if.then12 ], [ %bitmap_values.sroa.0.0405, %while.end ], [ %bitmap_values.sroa.0.2, %for.end ], [ %bitmap_values.sroa.0.0405, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %bitmap_values.sroa.0.0405, %if.then.i ], [ %bitmap_values.sroa.0.0405, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %bitmap_values.sroa.0.0405, %if.then.i63 ], [ %bitmap_values.sroa.0.0405, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %bitmap_values.sroa.14.3 = phi ptr [ %bitmap_values.sroa.14.0406, %if.then12 ], [ %bitmap_values.sroa.14.0406, %while.end ], [ %bitmap_values.sroa.14.2, %for.end ], [ %bitmap_values.sroa.14.0406, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %bitmap_values.sroa.14.0406, %if.then.i ], [ %bitmap_values.sroa.14.0406, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %bitmap_values.sroa.14.0406, %if.then.i63 ], [ %bitmap_values.sroa.14.0406, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %bitmap_values.sroa.24.3 = phi ptr [ %bitmap_values.sroa.24.0407, %if.then12 ], [ %bitmap_values.sroa.24.0407, %while.end ], [ %bitmap_values.sroa.24.2, %for.end ], [ %bitmap_values.sroa.24.0407, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %bitmap_values.sroa.24.0407, %if.then.i ], [ %bitmap_values.sroa.24.0407, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %bitmap_values.sroa.24.0407, %if.then.i63 ], [ %bitmap_values.sroa.24.0407, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %start_sequence.sroa.5.2 = phi i8 [ %start_sequence.sroa.5.0408, %if.then12 ], [ %start_sequence.sroa.5.0408, %while.end ], [ %start_sequence.sroa.5.0408, %for.end ], [ 1, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %start_sequence.sroa.5.0408, %if.then.i ], [ %start_sequence.sroa.5.0408, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %start_sequence.sroa.5.0408, %if.then.i63 ], [ %start_sequence.sroa.5.0408, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %start_sequence.sroa.0.1 = phi i16 [ %start_sequence.sroa.0.0409, %if.then12 ], [ %start_sequence.sroa.0.0409, %while.end ], [ %start_sequence.sroa.0.0409, %for.end ], [ %conv.sink.i, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %start_sequence.sroa.0.0409, %if.then.i ], [ %start_sequence.sroa.0.0409, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %start_sequence.sroa.0.0409, %if.then.i63 ], [ %start_sequence.sroa.0.0409, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %sequence_length.1 = phi i32 [ %inc, %if.then12 ], [ %sequence_length.0410, %while.end ], [ %sequence_length.0410, %for.end ], [ 1, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %sequence_length.0410, %if.then.i ], [ %sequence_length.0410, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %sequence_length.0410, %if.then.i63 ], [ %sequence_length.0410, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %fallback_values_after_bitmap.sroa.25.2 = phi ptr [ %fallback_values_after_bitmap.sroa.25.0411, %if.then12 ], [ %fallback_values_after_bitmap.sroa.25.0411, %while.end ], [ %fallback_values_after_bitmap.sroa.25.0411, %for.end ], [ %fallback_values_after_bitmap.sroa.25.0411, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.25.0411, %if.then.i ], [ %fallback_values_after_bitmap.sroa.25.0411, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.25.0411, %if.then.i63 ], [ %add.ptr19.i.i89, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %fallback_values_after_bitmap.sroa.13.3 = phi ptr [ %fallback_values_after_bitmap.sroa.13.0412, %if.then12 ], [ %fallback_values_after_bitmap.sroa.13.0412, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %for.end ], [ %fallback_values_after_bitmap.sroa.13.0412, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.13.0412, %if.then.i ], [ %fallback_values_after_bitmap.sroa.13.0412, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i64, %if.then.i63 ], [ %incdec.ptr.i.i85, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %fallback_values_after_bitmap.sroa.0.2 = phi ptr [ %fallback_values_after_bitmap.sroa.0.0413, %if.then12 ], [ %fallback_values_after_bitmap.sroa.0.0413, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %for.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.0.0413, %if.then.i ], [ %fallback_values_after_bitmap.sroa.0.0413, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.0.0413, %if.then.i63 ], [ %cond.i10.i.i80, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %fallback_values_too_large.sroa.18.2 = phi ptr [ %fallback_values_too_large.sroa.18.0414, %if.then12 ], [ %fallback_values_too_large.sroa.18.0414, %while.end ], [ %fallback_values_too_large.sroa.18.0414, %for.end ], [ %fallback_values_too_large.sroa.18.0414, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_too_large.sroa.18.0414, %if.then.i ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.18.0414, %if.then.i63 ], [ %fallback_values_too_large.sroa.18.0414, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %fallback_values_too_large.sroa.10.2 = phi ptr [ %fallback_values_too_large.sroa.10.0415, %if.then12 ], [ %fallback_values_too_large.sroa.10.0415, %while.end ], [ %fallback_values_too_large.sroa.10.0415, %for.end ], [ %fallback_values_too_large.sroa.10.0415, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.10.0415, %if.then.i63 ], [ %fallback_values_too_large.sroa.10.0415, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %fallback_values_too_large.sroa.0.2 = phi ptr [ %fallback_values_too_large.sroa.0.0416, %if.then12 ], [ %fallback_values_too_large.sroa.0.0416, %while.end ], [ %fallback_values_too_large.sroa.0.0416, %for.end ], [ %fallback_values_too_large.sroa.0.0416, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_too_large.sroa.0.0416, %if.then.i ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.0.0416, %if.then.i63 ], [ %fallback_values_too_large.sroa.0.0416, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0417, i64 4
+for.inc56:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89, %if.then.i64, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i, %for.end, %while.end, %if.then12, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit
+  %bitmap_values.sroa.0.3 = phi ptr [ %bitmap_values.sroa.0.0406, %if.then12 ], [ %bitmap_values.sroa.0.0406, %while.end ], [ %bitmap_values.sroa.0.2, %for.end ], [ %bitmap_values.sroa.0.0406, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %bitmap_values.sroa.0.0406, %if.then.i ], [ %bitmap_values.sroa.0.0406, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %bitmap_values.sroa.0.0406, %if.then.i64 ], [ %bitmap_values.sroa.0.0406, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %bitmap_values.sroa.14.3 = phi ptr [ %bitmap_values.sroa.14.0407, %if.then12 ], [ %bitmap_values.sroa.14.0407, %while.end ], [ %bitmap_values.sroa.14.2, %for.end ], [ %bitmap_values.sroa.14.0407, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %bitmap_values.sroa.14.0407, %if.then.i ], [ %bitmap_values.sroa.14.0407, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %bitmap_values.sroa.14.0407, %if.then.i64 ], [ %bitmap_values.sroa.14.0407, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %bitmap_values.sroa.24.3 = phi ptr [ %bitmap_values.sroa.24.0408, %if.then12 ], [ %bitmap_values.sroa.24.0408, %while.end ], [ %bitmap_values.sroa.24.2, %for.end ], [ %bitmap_values.sroa.24.0408, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %bitmap_values.sroa.24.0408, %if.then.i ], [ %bitmap_values.sroa.24.0408, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %bitmap_values.sroa.24.0408, %if.then.i64 ], [ %bitmap_values.sroa.24.0408, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %start_sequence.sroa.5.2 = phi i8 [ %start_sequence.sroa.5.0409, %if.then12 ], [ %start_sequence.sroa.5.0409, %while.end ], [ %start_sequence.sroa.5.0409, %for.end ], [ 1, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %start_sequence.sroa.5.0409, %if.then.i ], [ %start_sequence.sroa.5.0409, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %start_sequence.sroa.5.0409, %if.then.i64 ], [ %start_sequence.sroa.5.0409, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %start_sequence.sroa.0.1 = phi i16 [ %start_sequence.sroa.0.0410, %if.then12 ], [ %start_sequence.sroa.0.0410, %while.end ], [ %start_sequence.sroa.0.0410, %for.end ], [ %conv.i.i.i.sink.i, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %start_sequence.sroa.0.0410, %if.then.i ], [ %start_sequence.sroa.0.0410, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %start_sequence.sroa.0.0410, %if.then.i64 ], [ %start_sequence.sroa.0.0410, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %sequence_length.1 = phi i32 [ %inc, %if.then12 ], [ %sequence_length.0411, %while.end ], [ %sequence_length.0411, %for.end ], [ 1, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %sequence_length.0411, %if.then.i ], [ %sequence_length.0411, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %sequence_length.0411, %if.then.i64 ], [ %sequence_length.0411, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_after_bitmap.sroa.25.2 = phi ptr [ %fallback_values_after_bitmap.sroa.25.0412, %if.then12 ], [ %fallback_values_after_bitmap.sroa.25.0412, %while.end ], [ %fallback_values_after_bitmap.sroa.25.0412, %for.end ], [ %fallback_values_after_bitmap.sroa.25.0412, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.25.0412, %if.then.i ], [ %fallback_values_after_bitmap.sroa.25.0412, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.25.0412, %if.then.i64 ], [ %add.ptr19.i.i90, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_after_bitmap.sroa.13.3 = phi ptr [ %fallback_values_after_bitmap.sroa.13.0413, %if.then12 ], [ %fallback_values_after_bitmap.sroa.13.0413, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0414, %for.end ], [ %fallback_values_after_bitmap.sroa.13.0413, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.13.0413, %if.then.i ], [ %fallback_values_after_bitmap.sroa.13.0413, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i65, %if.then.i64 ], [ %incdec.ptr.i.i86, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_after_bitmap.sroa.0.2 = phi ptr [ %fallback_values_after_bitmap.sroa.0.0414, %if.then12 ], [ %fallback_values_after_bitmap.sroa.0.0414, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0414, %for.end ], [ %fallback_values_after_bitmap.sroa.0.0414, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.0.0414, %if.then.i ], [ %fallback_values_after_bitmap.sroa.0.0414, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.0.0414, %if.then.i64 ], [ %cond.i10.i.i81, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_too_large.sroa.18.2 = phi ptr [ %fallback_values_too_large.sroa.18.0415, %if.then12 ], [ %fallback_values_too_large.sroa.18.0415, %while.end ], [ %fallback_values_too_large.sroa.18.0415, %for.end ], [ %fallback_values_too_large.sroa.18.0415, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_too_large.sroa.18.0415, %if.then.i ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.18.0415, %if.then.i64 ], [ %fallback_values_too_large.sroa.18.0415, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_too_large.sroa.10.2 = phi ptr [ %fallback_values_too_large.sroa.10.0416, %if.then12 ], [ %fallback_values_too_large.sroa.10.0416, %while.end ], [ %fallback_values_too_large.sroa.10.0416, %for.end ], [ %fallback_values_too_large.sroa.10.0416, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.10.0416, %if.then.i64 ], [ %fallback_values_too_large.sroa.10.0416, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_too_large.sroa.0.2 = phi ptr [ %fallback_values_too_large.sroa.0.0417, %if.then12 ], [ %fallback_values_too_large.sroa.0.0417, %while.end ], [ %fallback_values_too_large.sroa.0.0417, %for.end ], [ %fallback_values_too_large.sroa.0.0417, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_too_large.sroa.0.0417, %if.then.i ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.0.0417, %if.then.i64 ], [ %fallback_values_too_large.sroa.0.0417, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0418, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end57, label %for.body
 
@@ -633,85 +632,85 @@ for.end57:                                        ; preds = %for.inc56
   br i1 %cmp.i.i, label %if.end90, label %if.else61
 
 if.else61:                                        ; preds = %for.end57
-  %cmp.i.i99 = icmp eq ptr %fallback_values_too_large.sroa.0.2, %fallback_values_too_large.sroa.10.2
-  br i1 %cmp.i.i99, label %if.end90, label %if.else65
+  %cmp.i.i100 = icmp eq ptr %fallback_values_too_large.sroa.0.2, %fallback_values_too_large.sroa.10.2
+  br i1 %cmp.i.i100, label %if.end90, label %if.else65
 
 if.else65:                                        ; preds = %if.else61
-  %sub.ptr.lhs.cast.i108 = ptrtoint ptr %fallback_values_too_large.sroa.10.2 to i64
-  %sub.ptr.rhs.cast.i109 = ptrtoint ptr %fallback_values_too_large.sroa.0.2 to i64
-  %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
-  %sub.ptr.div.i111 = ashr exact i64 %sub.ptr.sub.i110, 2
-  %sub.ptr.lhs.cast.i113 = ptrtoint ptr %fallback_values_after_bitmap.sroa.13.3 to i64
-  %sub.ptr.rhs.cast.i114 = ptrtoint ptr %fallback_values_after_bitmap.sroa.0.2 to i64
-  %sub.ptr.sub.i115 = sub i64 %sub.ptr.lhs.cast.i113, %sub.ptr.rhs.cast.i114
-  %sub.ptr.div.i116 = ashr exact i64 %sub.ptr.sub.i115, 2
-  %add68 = add nsw i64 %sub.ptr.div.i111, %sub.ptr.div.i116
-  %cmp.i122.not = icmp eq i64 %add68, 0
-  br i1 %cmp.i122.not, label %while.body.i.i.preheader, label %if.else.i244
+  %sub.ptr.lhs.cast.i109 = ptrtoint ptr %fallback_values_too_large.sroa.10.2 to i64
+  %sub.ptr.rhs.cast.i110 = ptrtoint ptr %fallback_values_too_large.sroa.0.2 to i64
+  %sub.ptr.sub.i111 = sub i64 %sub.ptr.lhs.cast.i109, %sub.ptr.rhs.cast.i110
+  %sub.ptr.div.i112 = ashr exact i64 %sub.ptr.sub.i111, 2
+  %sub.ptr.lhs.cast.i114 = ptrtoint ptr %fallback_values_after_bitmap.sroa.13.3 to i64
+  %sub.ptr.rhs.cast.i115 = ptrtoint ptr %fallback_values_after_bitmap.sroa.0.2 to i64
+  %sub.ptr.sub.i116 = sub i64 %sub.ptr.lhs.cast.i114, %sub.ptr.rhs.cast.i115
+  %sub.ptr.div.i117 = ashr exact i64 %sub.ptr.sub.i116, 2
+  %add68 = add nsw i64 %sub.ptr.div.i112, %sub.ptr.div.i117
+  %cmp.i123.not = icmp eq i64 %add68, 0
+  br i1 %cmp.i123.not, label %while.body.i.i.preheader, label %if.else.i245
 
-if.else.i244:                                     ; preds = %if.else65
-  %cmp.i.i245 = icmp ugt i64 %add68, 2305843009213693951
-  br i1 %cmp.i.i245, label %if.then.i.i260, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
+if.else.i245:                                     ; preds = %if.else65
+  %cmp.i.i246 = icmp ugt i64 %add68, 2305843009213693951
+  br i1 %cmp.i.i246, label %if.then.i.i261, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
-if.then.i.i260:                                   ; preds = %if.else.i244
+if.then.i.i261:                                   ; preds = %if.else.i245
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
-          to label %.noexc261 unwind label %ehcleanup.thread
+          to label %.noexc262 unwind label %ehcleanup.thread
 
-.noexc261:                                        ; preds = %if.then.i.i260
+.noexc262:                                        ; preds = %if.then.i.i261
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i244
-  %mul.i.i.i.i248 = shl nuw nsw i64 %add68, 2
-  %call5.i.i.i.i263 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i248) #20
-          to label %call5.i.i.i.i.noexc262 unwind label %ehcleanup.thread
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i245
+  %mul.i.i.i.i249 = shl nuw nsw i64 %add68, 2
+  %call5.i.i.i.i264 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i249) #20
+          to label %call5.i.i.i.i.noexc263 unwind label %ehcleanup.thread
 
-call5.i.i.i.i.noexc262:                           ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
-  store i32 0, ptr %call5.i.i.i.i263, align 4
-  %cmp.i.i.i.i.i24.i250 = icmp eq i64 %add68, 1
-  br i1 %cmp.i.i.i.i.i24.i250, label %.noexc131, label %if.end.i.i.i.i.i25.i251
+call5.i.i.i.i.noexc263:                           ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
+  store i32 0, ptr %call5.i.i.i.i264, align 4
+  %cmp.i.i.i.i.i24.i251 = icmp eq i64 %add68, 1
+  br i1 %cmp.i.i.i.i.i24.i251, label %.noexc132, label %if.end.i.i.i.i.i25.i252
 
-if.end.i.i.i.i.i25.i251:                          ; preds = %call5.i.i.i.i.noexc262
-  %incdec.ptr.i.i.i22.i252 = getelementptr i8, ptr %call5.i.i.i.i263, i64 4
-  %17 = add nsw i64 %mul.i.i.i.i248, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i252, i8 0, i64 %17, i1 false)
-  br label %.noexc131
+if.end.i.i.i.i.i25.i252:                          ; preds = %call5.i.i.i.i.noexc263
+  %incdec.ptr.i.i.i22.i253 = getelementptr i8, ptr %call5.i.i.i.i264, i64 4
+  %16 = add nsw i64 %mul.i.i.i.i249, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i253, i8 0, i64 %16, i1 false)
+  br label %.noexc132
 
-.noexc131:                                        ; preds = %if.end.i.i.i.i.i25.i251, %call5.i.i.i.i.noexc262
-  %add.ptr37.i257 = getelementptr inbounds i32, ptr %call5.i.i.i.i263, i64 %add68
+.noexc132:                                        ; preds = %if.end.i.i.i.i.i25.i252, %call5.i.i.i.i.noexc263
+  %add.ptr37.i258 = getelementptr inbounds i32, ptr %call5.i.i.i.i264, i64 %add68
   br label %while.body.i.i.preheader
 
-while.body.i.i.preheader:                         ; preds = %if.else65, %.noexc131
-  %fallback_values.sroa.0.1 = phi ptr [ %call5.i.i.i.i263, %.noexc131 ], [ null, %if.else65 ]
-  %fallback_values.sroa.15.1 = phi ptr [ %add.ptr37.i257, %.noexc131 ], [ null, %if.else65 ]
+while.body.i.i.preheader:                         ; preds = %if.else65, %.noexc132
+  %fallback_values.sroa.0.1 = phi ptr [ %call5.i.i.i.i264, %.noexc132 ], [ null, %if.else65 ]
+  %fallback_values.sroa.15.1 = phi ptr [ %add.ptr37.i258, %.noexc132 ], [ null, %if.else65 ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
-  %__result.addr.023.i.i = phi ptr [ %incdec.ptr.i.i134, %while.body.i.i ], [ %fallback_values.sroa.0.1, %while.body.i.i.preheader ]
+  %__result.addr.023.i.i = phi ptr [ %incdec.ptr.i.i135, %while.body.i.i ], [ %fallback_values.sroa.0.1, %while.body.i.i.preheader ]
   %__first1.sroa.0.022.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_too_large.sroa.0.2, %while.body.i.i.preheader ]
   %__first2.sroa.0.021.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_after_bitmap.sroa.0.2, %while.body.i.i.preheader ]
-  %18 = load i32, ptr %__first2.sroa.0.021.i.i, align 4
-  %19 = load i32, ptr %__first1.sroa.0.022.i.i, align 4
-  %cmp.i5.i.i = icmp slt i32 %18, %19
-  %.sink.i.i = tail call i32 @llvm.smin.i32(i32 %18, i32 %19)
+  %17 = load i32, ptr %__first2.sroa.0.021.i.i, align 4
+  %18 = load i32, ptr %__first1.sroa.0.022.i.i, align 4
+  %cmp.i5.i.i = icmp slt i32 %17, %18
+  %.sink.i.i = tail call i32 @llvm.smin.i32(i32 %17, i32 %18)
   %__first2.sroa.0.1.idx.i.i = select i1 %cmp.i5.i.i, i64 4, i64 0
   %__first2.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i, i64 %__first2.sroa.0.1.idx.i.i
   %__first1.sroa.0.1.idx.i.i = select i1 %cmp.i5.i.i, i64 0, i64 4
   %__first1.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i, i64 %__first1.sroa.0.1.idx.i.i
   store i32 %.sink.i.i, ptr %__result.addr.023.i.i, align 4
-  %incdec.ptr.i.i134 = getelementptr inbounds i8, ptr %__result.addr.023.i.i, i64 4
-  %cmp.i.i.i135 = icmp ne ptr %__first1.sroa.0.1.i.i, %fallback_values_too_large.sroa.10.2
+  %incdec.ptr.i.i135 = getelementptr inbounds i8, ptr %__result.addr.023.i.i, i64 4
+  %cmp.i.i.i136 = icmp ne ptr %__first1.sroa.0.1.i.i, %fallback_values_too_large.sroa.10.2
   %cmp.i4.i.i = icmp ne ptr %__first2.sroa.0.1.i.i, %fallback_values_after_bitmap.sroa.13.3
-  %or.cond.i.i = select i1 %cmp.i.i.i135, i1 %cmp.i4.i.i, i1 false
+  %or.cond.i.i = select i1 %cmp.i.i.i136, i1 %cmp.i4.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.1.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i109, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.1.i.i, %fallback_values_too_large.sroa.10.2
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.end.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr.i.i134, ptr nonnull align 4 %__first1.sroa.0.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr.i.i135, ptr nonnull align 4 %__first1.sroa.0.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %while.end.i.i
@@ -720,198 +719,197 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.ex
 
 if.then.i.i.i.i.i11.i.i:                          ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i8.i.i = ptrtoint ptr %__first2.sroa.0.1.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i9.i.i = sub i64 %sub.ptr.lhs.cast.i113, %sub.ptr.rhs.cast.i.i.i.i.i8.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i134, i64 %sub.ptr.sub.i.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i9.i.i = sub i64 %sub.ptr.lhs.cast.i114, %sub.ptr.rhs.cast.i.i.i.i.i8.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i135, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i, ptr nonnull align 4 %__first2.sroa.0.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i9.i.i, i1 false)
   br label %if.end90
 
-ehcleanup.thread:                                 ; preds = %if.then.i.i260, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
-  %20 = landingpad { ptr, i32 }
+ehcleanup.thread:                                 ; preds = %if.then.i.i261, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup145
 
 if.end90:                                         ; preds = %entry, %if.then.i.i.i.i.i11.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i, %if.else61, %for.end57
-  %sequence_length.0.lcssa456 = phi i32 [ %sequence_length.1, %for.end57 ], [ %sequence_length.1, %if.else61 ], [ %sequence_length.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %sequence_length.1, %if.then.i.i.i.i.i11.i.i ], [ 0, %entry ]
-  %start_sequence.sroa.0.0.lcssa455 = phi i16 [ %start_sequence.sroa.0.1, %for.end57 ], [ %start_sequence.sroa.0.1, %if.else61 ], [ %start_sequence.sroa.0.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %start_sequence.sroa.0.1, %if.then.i.i.i.i.i11.i.i ], [ undef, %entry ]
-  %start_sequence.sroa.5.0.lcssa454 = phi i8 [ %start_sequence.sroa.5.2, %for.end57 ], [ %start_sequence.sroa.5.2, %if.else61 ], [ %start_sequence.sroa.5.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %start_sequence.sroa.5.2, %if.then.i.i.i.i.i11.i.i ], [ 0, %entry ]
-  %bitmap_values.sroa.14.0.lcssa453 = phi ptr [ %bitmap_values.sroa.14.3, %for.end57 ], [ %bitmap_values.sroa.14.3, %if.else61 ], [ %bitmap_values.sroa.14.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %bitmap_values.sroa.14.3, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
-  %bitmap_values.sroa.0.0.lcssa451 = phi ptr [ %bitmap_values.sroa.0.3, %for.end57 ], [ %bitmap_values.sroa.0.3, %if.else61 ], [ %bitmap_values.sroa.0.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %bitmap_values.sroa.0.3, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
+  %sequence_length.0.lcssa457 = phi i32 [ %sequence_length.1, %for.end57 ], [ %sequence_length.1, %if.else61 ], [ %sequence_length.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %sequence_length.1, %if.then.i.i.i.i.i11.i.i ], [ 0, %entry ]
+  %start_sequence.sroa.0.0.lcssa456 = phi i16 [ %start_sequence.sroa.0.1, %for.end57 ], [ %start_sequence.sroa.0.1, %if.else61 ], [ %start_sequence.sroa.0.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %start_sequence.sroa.0.1, %if.then.i.i.i.i.i11.i.i ], [ undef, %entry ]
+  %start_sequence.sroa.5.0.lcssa455 = phi i8 [ %start_sequence.sroa.5.2, %for.end57 ], [ %start_sequence.sroa.5.2, %if.else61 ], [ %start_sequence.sroa.5.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %start_sequence.sroa.5.2, %if.then.i.i.i.i.i11.i.i ], [ 0, %entry ]
+  %bitmap_values.sroa.14.0.lcssa454 = phi ptr [ %bitmap_values.sroa.14.3, %for.end57 ], [ %bitmap_values.sroa.14.3, %if.else61 ], [ %bitmap_values.sroa.14.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %bitmap_values.sroa.14.3, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
+  %bitmap_values.sroa.0.0.lcssa452 = phi ptr [ %bitmap_values.sroa.0.3, %for.end57 ], [ %bitmap_values.sroa.0.3, %if.else61 ], [ %bitmap_values.sroa.0.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %bitmap_values.sroa.0.3, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
   %fallback_values_after_bitmap.sroa.0.3 = phi ptr [ %fallback_values_after_bitmap.sroa.13.3, %for.end57 ], [ null, %if.else61 ], [ %fallback_values_after_bitmap.sroa.0.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %fallback_values_after_bitmap.sroa.0.2, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
   %fallback_values.sroa.0.2 = phi ptr [ %fallback_values_too_large.sroa.0.2, %for.end57 ], [ %fallback_values_after_bitmap.sroa.0.2, %if.else61 ], [ %fallback_values.sroa.0.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %fallback_values.sroa.0.1, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
   %fallback_values.sroa.15.2 = phi ptr [ %fallback_values_too_large.sroa.10.2, %for.end57 ], [ %fallback_values_after_bitmap.sroa.13.3, %if.else61 ], [ %fallback_values.sroa.15.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %fallback_values.sroa.15.1, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
   %fallback_values_too_large.sroa.0.3 = phi ptr [ null, %for.end57 ], [ %fallback_values_too_large.sroa.10.2, %if.else61 ], [ %fallback_values_too_large.sroa.0.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i ], [ %fallback_values_too_large.sroa.0.2, %if.then.i.i.i.i.i11.i.i ], [ null, %entry ]
-  %sub.ptr.lhs.cast.i137 = ptrtoint ptr %bitmap_values.sroa.14.0.lcssa453 to i64
-  %sub.ptr.rhs.cast.i138 = ptrtoint ptr %bitmap_values.sroa.0.0.lcssa451 to i64
-  %sub.ptr.sub.i139 = sub i64 %sub.ptr.lhs.cast.i137, %sub.ptr.rhs.cast.i138
-  %sub.ptr.div.i140 = ashr exact i64 %sub.ptr.sub.i139, 2
-  %add92 = add nsw i64 %sub.ptr.div.i140, 2
-  %sub.ptr.lhs.cast.i142 = ptrtoint ptr %fallback_values.sroa.15.2 to i64
-  %sub.ptr.rhs.cast.i143 = ptrtoint ptr %fallback_values.sroa.0.2 to i64
-  %sub.ptr.sub.i144 = sub i64 %sub.ptr.lhs.cast.i142, %sub.ptr.rhs.cast.i143
-  %sub.ptr.div.i145 = ashr exact i64 %sub.ptr.sub.i144, 2
-  %add94 = add nsw i64 %add92, %sub.ptr.div.i145
-  %cmp.i.i146 = icmp ugt i64 %add94, 2305843009213693951
-  br i1 %cmp.i.i146, label %if.then.i.i, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
+  %sub.ptr.lhs.cast.i138 = ptrtoint ptr %bitmap_values.sroa.14.0.lcssa454 to i64
+  %sub.ptr.rhs.cast.i139 = ptrtoint ptr %bitmap_values.sroa.0.0.lcssa452 to i64
+  %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i138, %sub.ptr.rhs.cast.i139
+  %sub.ptr.div.i141 = ashr exact i64 %sub.ptr.sub.i140, 2
+  %add92 = add nsw i64 %sub.ptr.div.i141, 2
+  %sub.ptr.lhs.cast.i143 = ptrtoint ptr %fallback_values.sroa.15.2 to i64
+  %sub.ptr.rhs.cast.i144 = ptrtoint ptr %fallback_values.sroa.0.2 to i64
+  %sub.ptr.sub.i145 = sub i64 %sub.ptr.lhs.cast.i143, %sub.ptr.rhs.cast.i144
+  %sub.ptr.div.i146 = ashr exact i64 %sub.ptr.sub.i145, 2
+  %add94 = add nsw i64 %add92, %sub.ptr.div.i146
+  %cmp.i.i147 = icmp ugt i64 %add94, 2305843009213693951
+  br i1 %cmp.i.i147, label %if.then.i.i, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end90
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
-          to label %.noexc149 unwind label %lpad96
+          to label %.noexc150 unwind label %lpad96
 
-.noexc149:                                        ; preds = %if.then.i.i
+.noexc150:                                        ; preds = %if.then.i.i
   unreachable
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %if.end90
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq i64 %add94, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont97, label %if.then.i.i.i.i.i147
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont97, label %if.then.i.i.i.i.i148
 
-if.then.i.i.i.i.i147:                             ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
+if.then.i.i.i.i.i148:                             ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %add94, 2
-  %call5.i.i.i.i2.i.i150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
+  %call5.i.i.i.i2.i.i151 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad96
 
-call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i147
-  store ptr %call5.i.i.i.i2.i.i150, ptr %agg.result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i150, i64 %add94
+call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i148
+  store ptr %call5.i.i.i.i2.i.i151, ptr %agg.result, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i151, i64 %add94
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  store i32 0, ptr %call5.i.i.i.i2.i.i150, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i150, i64 4
+  store i32 0, ptr %call5.i.i.i.i2.i.i151, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i151, i64 4
   %sub.i.i.i.i.i = add nsw i64 %add94, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont97, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %21 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %21, i1 false)
-  %add.ptr.i.i.i.i.i.i.i148 = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
+  %20 = add nsw i64 %mul.i.i.i.i.i.i, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %20, i1 false)
+  %add.ptr.i.i.i.i.i.i.i149 = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %invoke.cont97
 
 invoke.cont97:                                    ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
-  %22 = phi ptr [ %call5.i.i.i.i2.i.i150, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i150, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i148, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %21 = phi ptr [ %call5.i.i.i.i2.i.i151, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i151, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i149, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %23 = and i8 %start_sequence.sroa.5.0.lcssa454, 1
-  %tobool.i.not.i152 = icmp eq i8 %23, 0
-  %24 = zext i16 %start_sequence.sroa.0.0.lcssa455 to i32
-  %conv109 = select i1 %tobool.i.not.i152, i32 0, i32 %24
-  %shl = shl i32 %sequence_length.0.lcssa456, 16
+  %tobool.i.i153 = trunc i8 %start_sequence.sroa.5.0.lcssa455 to i1
+  %22 = zext i16 %start_sequence.sroa.0.0.lcssa456 to i32
+  %conv109 = select i1 %tobool.i.i153, i32 %22, i32 0
+  %shl = shl i32 %sequence_length.0.lcssa457, 16
   %or = or disjoint i32 %shl, %conv109
-  %incdec.ptr110 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 %or, ptr %22, align 4
-  %call123.tr = trunc i64 %sub.ptr.div.i140 to i32
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 %or, ptr %21, align 4
+  %call123.tr = trunc i64 %sub.ptr.div.i141 to i32
   %conv125 = shl i32 %call123.tr, 5
-  %call126.tr = trunc i64 %sub.ptr.div.i145 to i32
+  %call126.tr = trunc i64 %sub.ptr.div.i146 to i32
   %conv128 = shl i32 %call126.tr, 16
   %or129 = or i32 %conv128, %conv125
-  %incdec.ptr130 = getelementptr inbounds i8, ptr %22, i64 8
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %or129, ptr %incdec.ptr110, align 4
-  %tobool.not.i.i.i.i.i164 = icmp eq ptr %bitmap_values.sroa.14.0.lcssa453, %bitmap_values.sroa.0.0.lcssa451
-  br i1 %tobool.not.i.i.i.i.i164, label %invoke.cont139, label %if.then.i.i.i.i.i165
+  %tobool.not.i.i.i.i.i165 = icmp eq ptr %bitmap_values.sroa.14.0.lcssa454, %bitmap_values.sroa.0.0.lcssa452
+  br i1 %tobool.not.i.i.i.i.i165, label %invoke.cont139, label %if.then.i.i.i.i.i166
 
-if.then.i.i.i.i.i165:                             ; preds = %invoke.cont97
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr130, ptr align 4 %bitmap_values.sroa.0.0.lcssa451, i64 %sub.ptr.sub.i139, i1 false)
+if.then.i.i.i.i.i166:                             ; preds = %invoke.cont97
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr130, ptr align 4 %bitmap_values.sroa.0.0.lcssa452, i64 %sub.ptr.sub.i140, i1 false)
   br label %invoke.cont139
 
-lpad96:                                           ; preds = %if.then.i.i.i.i.i147, %if.then.i.i
-  %25 = landingpad { ptr, i32 }
+lpad96:                                           ; preds = %if.then.i.i.i.i.i148, %if.then.i.i
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %invoke.cont139
-  %26 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %22) #21
+  call void @_ZdlPv(ptr noundef nonnull %21) #21
   br label %ehcleanup
 
-invoke.cont139:                                   ; preds = %if.then.i.i.i.i.i165, %invoke.cont97
-  %add.ptr.i.i.i.i.i166 = getelementptr inbounds i8, ptr %incdec.ptr130, i64 %sub.ptr.sub.i139
+invoke.cont139:                                   ; preds = %if.then.i.i.i.i.i166, %invoke.cont97
+  %add.ptr.i.i.i.i.i167 = getelementptr inbounds i8, ptr %incdec.ptr130, i64 %sub.ptr.sub.i140
   store ptr %fallback_values.sroa.0.2, ptr %ref.tmp141, align 8
-  %len_.i.i174 = getelementptr inbounds i8, ptr %ref.tmp141, i64 8
-  store i64 %sub.ptr.div.i145, ptr %len_.i.i174, align 8
+  %len_.i.i175 = getelementptr inbounds i8, ptr %ref.tmp141, i64 8
+  store i64 %sub.ptr.div.i146, ptr %len_.i.i175, align 8
   %output = getelementptr inbounds i8, ptr %ref.tmp141, i64 16
-  store ptr %add.ptr.i.i.i.i.i166, ptr %output, align 8
-  %27 = getelementptr inbounds i8, ptr %ref.tmp141, i64 24
-  store i64 %sub.ptr.div.i145, ptr %27, align 8
+  store ptr %add.ptr.i.i.i.i.i167, ptr %output, align 8
+  %25 = getelementptr inbounds i8, ptr %ref.tmp141, i64 24
+  store i64 %sub.ptr.div.i146, ptr %25, align 8
   %i = getelementptr inbounds i8, ptr %ref.tmp141, i64 32
   store i64 0, ptr %i, align 8
   invoke void @_ZN6google8protobuf8internal21EytzingerLayoutSorter4SortEm(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp141, i64 noundef 0)
           to label %nrvo.skipdtor unwind label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont139
-  %tobool.not.i.i.i180 = icmp eq ptr %fallback_values.sroa.0.2, null
-  br i1 %tobool.not.i.i.i180, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i181
+  %tobool.not.i.i.i181 = icmp eq ptr %fallback_values.sroa.0.2, null
+  br i1 %tobool.not.i.i.i181, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i182
 
-if.then.i.i.i181:                                 ; preds = %nrvo.skipdtor
+if.then.i.i.i182:                                 ; preds = %nrvo.skipdtor
   call void @_ZdlPv(ptr noundef nonnull %fallback_values.sroa.0.2) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %nrvo.skipdtor, %if.then.i.i.i181
-  %tobool.not.i.i.i182 = icmp eq ptr %bitmap_values.sroa.0.0.lcssa451, null
-  br i1 %tobool.not.i.i.i182, label %_ZNSt6vectorIjSaIjEED2Ev.exit184, label %if.then.i.i.i183
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %nrvo.skipdtor, %if.then.i.i.i182
+  %tobool.not.i.i.i183 = icmp eq ptr %bitmap_values.sroa.0.0.lcssa452, null
+  br i1 %tobool.not.i.i.i183, label %_ZNSt6vectorIjSaIjEED2Ev.exit185, label %if.then.i.i.i184
 
-if.then.i.i.i183:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %bitmap_values.sroa.0.0.lcssa451) #21
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit184
+if.then.i.i.i184:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %bitmap_values.sroa.0.0.lcssa452) #21
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit185
 
-_ZNSt6vectorIjSaIjEED2Ev.exit184:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %if.then.i.i.i183
-  %tobool.not.i.i.i185 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.3, null
-  br i1 %tobool.not.i.i.i185, label %_ZNSt6vectorIiSaIiEED2Ev.exit187, label %if.then.i.i.i186
+_ZNSt6vectorIjSaIjEED2Ev.exit185:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %if.then.i.i.i184
+  %tobool.not.i.i.i186 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.3, null
+  br i1 %tobool.not.i.i.i186, label %_ZNSt6vectorIiSaIiEED2Ev.exit188, label %if.then.i.i.i187
 
-if.then.i.i.i186:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit184
+if.then.i.i.i187:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit185
   call void @_ZdlPv(ptr noundef nonnull %fallback_values_after_bitmap.sroa.0.3) #21
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit187
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit188
 
-_ZNSt6vectorIiSaIiEED2Ev.exit187:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit184, %if.then.i.i.i186
-  %tobool.not.i.i.i188 = icmp eq ptr %fallback_values_too_large.sroa.0.3, null
-  br i1 %tobool.not.i.i.i188, label %_ZNSt6vectorIiSaIiEED2Ev.exit190, label %if.then.i.i.i189
+_ZNSt6vectorIiSaIiEED2Ev.exit188:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit185, %if.then.i.i.i187
+  %tobool.not.i.i.i189 = icmp eq ptr %fallback_values_too_large.sroa.0.3, null
+  br i1 %tobool.not.i.i.i189, label %_ZNSt6vectorIiSaIiEED2Ev.exit191, label %if.then.i.i.i190
 
-if.then.i.i.i189:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit187
+if.then.i.i.i190:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit188
   call void @_ZdlPv(ptr noundef nonnull %fallback_values_too_large.sroa.0.3) #21
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit190
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit191
 
-_ZNSt6vectorIiSaIiEED2Ev.exit190:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit187, %if.then.i.i.i189
+_ZNSt6vectorIiSaIiEED2Ev.exit191:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit188, %if.then.i.i.i190
   ret void
 
 ehcleanup:                                        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %lpad96
-  %.pn = phi { ptr, i32 } [ %26, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %25, %lpad96 ]
-  %tobool.not.i.i.i191 = icmp eq ptr %fallback_values.sroa.0.2, null
-  br i1 %tobool.not.i.i.i191, label %ehcleanup145, label %if.then.i.i.i192
+  %.pn = phi { ptr, i32 } [ %24, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %23, %lpad96 ]
+  %tobool.not.i.i.i192 = icmp eq ptr %fallback_values.sroa.0.2, null
+  br i1 %tobool.not.i.i.i192, label %ehcleanup145, label %if.then.i.i.i193
 
-if.then.i.i.i192:                                 ; preds = %ehcleanup
+if.then.i.i.i193:                                 ; preds = %ehcleanup
   call void @_ZdlPv(ptr noundef nonnull %fallback_values.sroa.0.2) #21
   br label %ehcleanup145
 
-ehcleanup145:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i.i.i192, %ehcleanup, %ehcleanup.thread
-  %bitmap_values.sroa.0.0398 = phi ptr [ %bitmap_values.sroa.0.3, %ehcleanup.thread ], [ %bitmap_values.sroa.0.0.lcssa451, %ehcleanup ], [ %bitmap_values.sroa.0.0.lcssa451, %if.then.i.i.i192 ], [ %bitmap_values.sroa.0.0405, %lpad.loopexit ], [ %bitmap_values.sroa.0.0405, %lpad.loopexit.split-lp ]
-  %fallback_values_after_bitmap.sroa.0.5 = phi ptr [ %fallback_values_after_bitmap.sroa.0.2, %ehcleanup.thread ], [ %fallback_values_after_bitmap.sroa.0.3, %ehcleanup ], [ %fallback_values_after_bitmap.sroa.0.3, %if.then.i.i.i192 ], [ %fallback_values_after_bitmap.sroa.0.0413, %lpad.loopexit ], [ %fallback_values_after_bitmap.sroa.0.0413, %lpad.loopexit.split-lp ]
-  %fallback_values_too_large.sroa.0.5 = phi ptr [ %fallback_values_too_large.sroa.0.2, %ehcleanup.thread ], [ %fallback_values_too_large.sroa.0.3, %ehcleanup ], [ %fallback_values_too_large.sroa.0.3, %if.then.i.i.i192 ], [ %fallback_values_too_large.sroa.0.0416, %lpad.loopexit ], [ %fallback_values_too_large.sroa.0.0416, %lpad.loopexit.split-lp ]
-  %.pn15 = phi { ptr, i32 } [ %20, %ehcleanup.thread ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i192 ], [ %lpad.loopexit356, %lpad.loopexit ], [ %lpad.loopexit.split-lp357, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i194 = icmp eq ptr %bitmap_values.sroa.0.0398, null
-  br i1 %tobool.not.i.i.i194, label %_ZNSt6vectorIjSaIjEED2Ev.exit196, label %if.then.i.i.i195
+ehcleanup145:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i.i.i193, %ehcleanup, %ehcleanup.thread
+  %bitmap_values.sroa.0.0399 = phi ptr [ %bitmap_values.sroa.0.3, %ehcleanup.thread ], [ %bitmap_values.sroa.0.0.lcssa452, %ehcleanup ], [ %bitmap_values.sroa.0.0.lcssa452, %if.then.i.i.i193 ], [ %bitmap_values.sroa.0.0406, %lpad.loopexit ], [ %bitmap_values.sroa.0.0406, %lpad.loopexit.split-lp ]
+  %fallback_values_after_bitmap.sroa.0.5 = phi ptr [ %fallback_values_after_bitmap.sroa.0.2, %ehcleanup.thread ], [ %fallback_values_after_bitmap.sroa.0.3, %ehcleanup ], [ %fallback_values_after_bitmap.sroa.0.3, %if.then.i.i.i193 ], [ %fallback_values_after_bitmap.sroa.0.0414, %lpad.loopexit ], [ %fallback_values_after_bitmap.sroa.0.0414, %lpad.loopexit.split-lp ]
+  %fallback_values_too_large.sroa.0.5 = phi ptr [ %fallback_values_too_large.sroa.0.2, %ehcleanup.thread ], [ %fallback_values_too_large.sroa.0.3, %ehcleanup ], [ %fallback_values_too_large.sroa.0.3, %if.then.i.i.i193 ], [ %fallback_values_too_large.sroa.0.0417, %lpad.loopexit ], [ %fallback_values_too_large.sroa.0.0417, %lpad.loopexit.split-lp ]
+  %.pn15 = phi { ptr, i32 } [ %19, %ehcleanup.thread ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i193 ], [ %lpad.loopexit357, %lpad.loopexit ], [ %lpad.loopexit.split-lp358, %lpad.loopexit.split-lp ]
+  %tobool.not.i.i.i195 = icmp eq ptr %bitmap_values.sroa.0.0399, null
+  br i1 %tobool.not.i.i.i195, label %_ZNSt6vectorIjSaIjEED2Ev.exit197, label %if.then.i.i.i196
 
-if.then.i.i.i195:                                 ; preds = %ehcleanup145
-  call void @_ZdlPv(ptr noundef nonnull %bitmap_values.sroa.0.0398) #21
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit196
+if.then.i.i.i196:                                 ; preds = %ehcleanup145
+  call void @_ZdlPv(ptr noundef nonnull %bitmap_values.sroa.0.0399) #21
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit197
 
-_ZNSt6vectorIjSaIjEED2Ev.exit196:                 ; preds = %ehcleanup145, %if.then.i.i.i195
-  %tobool.not.i.i.i197 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.5, null
-  br i1 %tobool.not.i.i.i197, label %_ZNSt6vectorIiSaIiEED2Ev.exit199, label %if.then.i.i.i198
+_ZNSt6vectorIjSaIjEED2Ev.exit197:                 ; preds = %ehcleanup145, %if.then.i.i.i196
+  %tobool.not.i.i.i198 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.5, null
+  br i1 %tobool.not.i.i.i198, label %_ZNSt6vectorIiSaIiEED2Ev.exit200, label %if.then.i.i.i199
 
-if.then.i.i.i198:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit196
+if.then.i.i.i199:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit197
   call void @_ZdlPv(ptr noundef nonnull %fallback_values_after_bitmap.sroa.0.5) #21
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit199
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit200
 
-_ZNSt6vectorIiSaIiEED2Ev.exit199:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit196, %if.then.i.i.i198
-  %tobool.not.i.i.i200 = icmp eq ptr %fallback_values_too_large.sroa.0.5, null
-  br i1 %tobool.not.i.i.i200, label %_ZNSt6vectorIiSaIiEED2Ev.exit202, label %if.then.i.i.i201
+_ZNSt6vectorIiSaIiEED2Ev.exit200:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit197, %if.then.i.i.i199
+  %tobool.not.i.i.i201 = icmp eq ptr %fallback_values_too_large.sroa.0.5, null
+  br i1 %tobool.not.i.i.i201, label %_ZNSt6vectorIiSaIiEED2Ev.exit203, label %if.then.i.i.i202
 
-if.then.i.i.i201:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit199
+if.then.i.i.i202:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit200
   call void @_ZdlPv(ptr noundef nonnull %fallback_values_too_large.sroa.0.5) #21
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit202
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit203
 
-_ZNSt6vectorIiSaIiEED2Ev.exit202:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit199, %if.then.i.i.i201
+_ZNSt6vectorIiSaIiEED2Ev.exit203:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit200, %if.then.i.i.i202
   resume { ptr, i32 } %.pn15
 }
 

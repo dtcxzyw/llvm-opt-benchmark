@@ -590,34 +590,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %3, i64 %and.i17.i
   %4 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !4
   %shr.i29.i = lshr i64 %4, 48
-  %frombool.i32.i46 = and i64 %4, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65 = getelementptr inbounds i8, ptr %0, i64 848
-  %5 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
+  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %0, i64 856
-  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i71 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %7 = load i64, ptr %arrayidx.i71, align 8
-  %add.i = add i64 %7, %5
-  %cmp31.i.not = icmp ult i64 %add.i, %6
+  %8 = load i64, ptr %arrayidx.i71, align 8
+  %add.i = add i64 %8, %6
+  %cmp31.i.not = icmp ult i64 %add.i, %7
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %0, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %9 = ptrtoint ptr %8 to i64
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %10 = ptrtoint ptr %9 to i64
   %low_bits_full.i128 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %10 = load i16, ptr %low_bits_full.i128, align 2
-  %11 = trunc i64 %9 to i16
-  %cmp.i129.not = icmp eq i16 %10, %11
+  %11 = load i16, ptr %low_bits_full.i128, align 2
+  %12 = trunc i64 %10 to i16
+  %cmp.i129.not = icmp eq i16 %11, %12
   br i1 %cmp.i129.not, label %if.then.i, label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
@@ -628,10 +627,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #15
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -660,34 +659,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %3, i64 %and.i17.i
   %4 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !7
   %shr.i29.i = lshr i64 %4, 48
-  %frombool.i32.i46 = and i64 %4, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65 = getelementptr inbounds i8, ptr %0, i64 848
-  %5 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
+  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %0, i64 856
-  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i71 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %7 = load i64, ptr %arrayidx.i71, align 8
-  %add.i = add i64 %7, %5
-  %cmp31.i.not = icmp ult i64 %add.i, %6
+  %8 = load i64, ptr %arrayidx.i71, align 8
+  %add.i = add i64 %8, %6
+  %cmp31.i.not = icmp ult i64 %add.i, %7
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %0, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %9 = ptrtoint ptr %8 to i64
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %10 = ptrtoint ptr %9 to i64
   %low_bits_full.i128 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %10 = load i16, ptr %low_bits_full.i128, align 2
-  %11 = trunc i64 %9 to i16
-  %cmp.i129.not = icmp eq i16 %10, %11
+  %11 = load i16, ptr %low_bits_full.i128, align 2
+  %12 = trunc i64 %10 to i16
+  %cmp.i129.not = icmp eq i16 %11, %12
   br i1 %cmp.i129.not, label %if.then.i, label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
@@ -698,10 +696,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #15
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -730,34 +728,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %4, i64 %and.i17.i
   %5 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !10
   %shr.i29.i = lshr i64 %5, 48
-  %frombool.i32.i46 = and i64 %5, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65 = getelementptr inbounds i8, ptr %1, i64 848
-  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
+  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %1, i64 856
-  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i71 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %8 = load i64, ptr %arrayidx.i71, align 8
-  %add.i = add i64 %8, %6
-  %cmp31.i.not = icmp ult i64 %add.i, %7
+  %9 = load i64, ptr %arrayidx.i71, align 8
+  %add.i = add i64 %9, %7
+  %cmp31.i.not = icmp ult i64 %add.i, %8
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %1, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %10 = ptrtoint ptr %9 to i64
+  %10 = load ptr, ptr %arrayidx.i, align 8
+  %11 = ptrtoint ptr %10 to i64
   %low_bits_full.i128 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %11 = load i16, ptr %low_bits_full.i128, align 2
-  %12 = trunc i64 %10 to i16
-  %cmp.i129.not = icmp eq i16 %11, %12
+  %12 = load i16, ptr %low_bits_full.i128, align 2
+  %13 = trunc i64 %11 to i16
+  %cmp.i129.not = icmp eq i16 %12, %13
   br i1 %cmp.i129.not, label %if.then.i, label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
@@ -768,10 +765,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #15
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -800,34 +797,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %4, i64 %and.i17.i
   %5 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !13
   %shr.i29.i = lshr i64 %5, 48
-  %frombool.i32.i46 = and i64 %5, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65 = getelementptr inbounds i8, ptr %1, i64 848
-  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
+  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %1, i64 856
-  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i71 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %8 = load i64, ptr %arrayidx.i71, align 8
-  %add.i = add i64 %8, %6
-  %cmp31.i.not = icmp ult i64 %add.i, %7
+  %9 = load i64, ptr %arrayidx.i71, align 8
+  %add.i = add i64 %9, %7
+  %cmp31.i.not = icmp ult i64 %add.i, %8
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %1, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %10 = ptrtoint ptr %9 to i64
+  %10 = load ptr, ptr %arrayidx.i, align 8
+  %11 = ptrtoint ptr %10 to i64
   %low_bits_full.i128 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %11 = load i16, ptr %low_bits_full.i128, align 2
-  %12 = trunc i64 %10 to i16
-  %cmp.i129.not = icmp eq i16 %11, %12
+  %12 = load i16, ptr %low_bits_full.i128, align 2
+  %13 = trunc i64 %11 to i16
+  %cmp.i129.not = icmp eq i16 %12, %13
   br i1 %cmp.i129.not, label %if.then.i, label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
@@ -838,10 +834,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #15
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -870,34 +866,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %4, i64 %and.i17.i
   %5 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !16
   %shr.i29.i = lshr i64 %5, 48
-  %frombool.i32.i46 = and i64 %5, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65 = getelementptr inbounds i8, ptr %1, i64 848
-  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
+  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %1, i64 856
-  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i71 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %8 = load i64, ptr %arrayidx.i71, align 8
-  %add.i = add i64 %8, %6
-  %cmp31.i.not = icmp ult i64 %add.i, %7
+  %9 = load i64, ptr %arrayidx.i71, align 8
+  %add.i = add i64 %9, %7
+  %cmp31.i.not = icmp ult i64 %add.i, %8
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %1, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %10 = ptrtoint ptr %9 to i64
+  %10 = load ptr, ptr %arrayidx.i, align 8
+  %11 = ptrtoint ptr %10 to i64
   %low_bits_full.i128 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %11 = load i16, ptr %low_bits_full.i128, align 2
-  %12 = trunc i64 %10 to i16
-  %cmp.i129.not = icmp eq i16 %11, %12
+  %12 = load i16, ptr %low_bits_full.i128, align 2
+  %13 = trunc i64 %11 to i16
+  %cmp.i129.not = icmp eq i16 %12, %13
   br i1 %cmp.i129.not, label %if.then.i, label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
@@ -908,10 +903,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #15
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -940,34 +935,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %4, i64 %and.i17.i
   %5 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !19
   %shr.i29.i = lshr i64 %5, 48
-  %frombool.i32.i46 = and i64 %5, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65 = getelementptr inbounds i8, ptr %1, i64 848
-  %6 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
+  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %1, i64 856
-  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i71 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %8 = load i64, ptr %arrayidx.i71, align 8
-  %add.i = add i64 %8, %6
-  %cmp31.i.not = icmp ult i64 %add.i, %7
+  %9 = load i64, ptr %arrayidx.i71, align 8
+  %add.i = add i64 %9, %7
+  %cmp31.i.not = icmp ult i64 %add.i, %8
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %1, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %10 = ptrtoint ptr %9 to i64
+  %10 = load ptr, ptr %arrayidx.i, align 8
+  %11 = ptrtoint ptr %10 to i64
   %low_bits_full.i128 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %11 = load i16, ptr %low_bits_full.i128, align 2
-  %12 = trunc i64 %10 to i16
-  %cmp.i129.not = icmp eq i16 %11, %12
+  %12 = load i16, ptr %low_bits_full.i128, align 2
+  %13 = trunc i64 %11 to i16
+  %cmp.i129.not = icmp eq i16 %12, %13
   br i1 %cmp.i129.not, label %if.then.i, label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i65, align 8
@@ -978,10 +972,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #15
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -1010,34 +1004,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %5, i64 %and.i17.i
   %6 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !22
   %shr.i29.i = lshr i64 %6, 48
-  %frombool.i32.i46 = and i64 %6, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66 = getelementptr inbounds i8, ptr %2, i64 848
-  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66, align 8
+  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %2, i64 856
-  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i72 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %9 = load i64, ptr %arrayidx.i72, align 8
-  %add.i = add i64 %9, %7
-  %cmp31.i.not = icmp ult i64 %add.i, %8
+  %10 = load i64, ptr %arrayidx.i72, align 8
+  %add.i = add i64 %10, %8
+  %cmp31.i.not = icmp ult i64 %add.i, %9
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %2, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %11 = ptrtoint ptr %10 to i64
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %12 = ptrtoint ptr %11 to i64
   %low_bits_full.i129 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %12 = load i16, ptr %low_bits_full.i129, align 2
-  %13 = trunc i64 %11 to i16
-  %cmp.i130.not = icmp eq i16 %12, %13
+  %13 = load i16, ptr %low_bits_full.i129, align 2
+  %14 = trunc i64 %12 to i16
+  %cmp.i130.not = icmp eq i16 %13, %14
   br i1 %cmp.i130.not, label %if.then.i, label %if.end.i51
 
 if.end.i51:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66, align 8
@@ -1048,10 +1041,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #15
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i51, %if.then.i
@@ -1080,34 +1073,33 @@ call2.i.noexc:                                    ; preds = %entry
   %arrayidx10.i.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %5, i64 %and.i17.i
   %6 = load atomic i64, ptr %arrayidx10.i.i monotonic, align 8, !noalias !25
   %shr.i29.i = lshr i64 %6, 48
-  %frombool.i32.i46 = and i64 %6, 1
-  %.not = icmp eq i64 %frombool.i32.i46, 0
-  br i1 %.not, label %if.then.i, label %if.end26.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %if.end26.i, label %if.then.i
 
 if.end26.i:                                       ; preds = %call2.i.noexc
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66 = getelementptr inbounds i8, ptr %2, i64 848
-  %7 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66, align 8
+  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds i8, ptr %2, i64 856
-  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
   %arrayidx.i72 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %shr.i29.i
-  %9 = load i64, ptr %arrayidx.i72, align 8
-  %add.i = add i64 %9, %7
-  %cmp31.i.not = icmp ult i64 %add.i, %8
+  %10 = load i64, ptr %arrayidx.i72, align 8
+  %add.i = add i64 %10, %8
+  %cmp31.i.not = icmp ult i64 %add.i, %9
   br i1 %cmp31.i.not, label %_ZL19tcache_get_from_indP5tsd_sjbb.exit, label %if.then.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end26.i
   %bins.i = getelementptr inbounds i8, ptr %2, i64 872
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %shr.i29.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %11 = ptrtoint ptr %10 to i64
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %12 = ptrtoint ptr %11 to i64
   %low_bits_full.i129 = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
-  %12 = load i16, ptr %low_bits_full.i129, align 2
-  %13 = trunc i64 %11 to i16
-  %cmp.i130.not = icmp eq i16 %12, %13
+  %13 = load i16, ptr %low_bits_full.i129, align 2
+  %14 = trunc i64 %12 to i16
+  %cmp.i130.not = icmp eq i16 %13, %14
   br i1 %cmp.i130.not, label %if.then.i, label %if.end.i51
 
 if.end.i51:                                       ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i66, align 8
@@ -1118,10 +1110,10 @@ if.then.i:                                        ; preds = %entry, %_ZL19tcache
           to label %_ZL12je_free_implPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #15
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i51, %if.then.i
@@ -1322,9 +1314,8 @@ declare ptr @malloc_default(i64 noundef) local_unnamed_addr #5
 define internal fastcc noundef ptr @_ZL9handleOOMmb(i64 noundef %size, i1 noundef zeroext %nothrow) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr @opt_experimental_infallible_new, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %while.body, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %while.body
 
 if.then:                                          ; preds = %entry
   %cmp = icmp ugt i64 %size, 1073741823
@@ -1353,16 +1344,16 @@ if.end5:                                          ; preds = %_ZNSt10lock_guardIS
           to label %try.cont unwind label %lpad
 
 lpad:                                             ; preds = %if.end5
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
-  %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9bad_alloc) #17
-  %matches = icmp eq i32 %3, %4
+  %2 = extractvalue { ptr, i32 } %1, 1
+  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9bad_alloc) #17
+  %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %lpad
-  %5 = extractvalue { ptr, i32 } %2, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #17
+  %4 = extractvalue { ptr, i32 } %1, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #17
   tail call void @__cxa_end_catch()
   br label %while.end
 
@@ -1383,7 +1374,7 @@ return:                                           ; preds = %try.cont, %while.en
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 }
 
 declare void @safety_check_fail(ptr noundef, ...) local_unnamed_addr #5

@@ -3860,32 +3860,31 @@ entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 0, i32 0, i64 2), ptr %this, align 8
   %closed_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %fs_ = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %2, i64 52
-  %3 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
-  %4 = load ptr, ptr %fs_, align 8
-  %dir_closes = getelementptr inbounds i8, ptr %4, i64 84
-  %5 = atomicrmw add ptr %dir_closes, i32 1 seq_cst, align 4
+  %1 = load ptr, ptr %fs_, align 8
+  %closes = getelementptr inbounds i8, ptr %1, i64 52
+  %2 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
+  %3 = load ptr, ptr %fs_, align 8
+  %dir_closes = getelementptr inbounds i8, ptr %3, i64 84
+  %4 = atomicrmw add ptr %dir_closes, i32 1 seq_cst, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load ptr, ptr %guard_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %guard_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb18FSDirectoryWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i: ; preds = %if.end
-  %vtable.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   br label %_ZN7rocksdb18FSDirectoryWrapperD2Ev.exit
 
 _ZN7rocksdb18FSDirectoryWrapperD2Ev.exit:         ; preds = %if.end, %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i
@@ -3899,32 +3898,31 @@ entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 0, i32 0, i64 2), ptr %this, align 8
   %closed_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %closed_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %fs_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %fs_.i, align 8
-  %closes.i = getelementptr inbounds i8, ptr %2, i64 52
-  %3 = atomicrmw add ptr %closes.i, i32 1 seq_cst, align 4
-  %4 = load ptr, ptr %fs_.i, align 8
-  %dir_closes.i = getelementptr inbounds i8, ptr %4, i64 84
-  %5 = atomicrmw add ptr %dir_closes.i, i32 1 seq_cst, align 4
+  %1 = load ptr, ptr %fs_.i, align 8
+  %closes.i = getelementptr inbounds i8, ptr %1, i64 52
+  %2 = atomicrmw add ptr %closes.i, i32 1 seq_cst, align 4
+  %3 = load ptr, ptr %fs_.i, align 8
+  %dir_closes.i = getelementptr inbounds i8, ptr %3, i64 84
+  %4 = atomicrmw add ptr %dir_closes.i, i32 1 seq_cst, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load ptr, ptr %guard_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %guard_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i.i: ; preds = %if.end.i
-  %vtable.i.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   br label %_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit
 
 _ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i.i

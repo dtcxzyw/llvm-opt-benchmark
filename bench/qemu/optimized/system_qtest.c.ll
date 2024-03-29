@@ -162,28 +162,22 @@ declare double @g_timer_elapsed(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @qtest_sendf(ptr nocapture readnone %chr, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #18
   %0 = load ptr, ptr @qtest_server_send, align 8
   %1 = load ptr, ptr @qtest_server_send_opaque, align 8
   call void %0(ptr noundef %1, ptr noundef %call) #18
   call void @g_free(ptr noundef %call) #18
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
 
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
-
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @qtest_get_virtual_clock() local_unnamed_addr #4 {
+define dso_local i64 @qtest_get_virtual_clock() local_unnamed_addr #3 {
 entry:
   %0 = load atomic i64, ptr @qtest_clock_counter monotonic, align 8
   ret i64 %0
@@ -206,7 +200,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_server_init(ptr noundef %qtest_chrdev, ptr noundef %qtest_log, ptr noundef %errp) local_unnamed_addr #0 {
@@ -285,7 +279,7 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #2
 declare void @object_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @qtest_server_set_send_handler(ptr noundef %send, ptr noundef %opaque) local_unnamed_addr #6 {
+define dso_local void @qtest_server_set_send_handler(ptr noundef %send, ptr noundef %opaque) local_unnamed_addr #5 {
 entry:
   store ptr %send, ptr @qtest_server_send, align 8
   store ptr %opaque, ptr @qtest_server_send_opaque, align 8
@@ -293,7 +287,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qtest_driver() local_unnamed_addr #7 {
+define dso_local zeroext i1 @qtest_driver() local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @qtest, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -392,14 +386,14 @@ entry:
   %local_err.i = alloca ptr, align 8
   %ns1335.i = alloca i64, align 8
   %0 = load ptr, ptr %inbuf, align 8
-  %call17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 10) #20
-  %cmp.not18 = icmp eq ptr %call17, null
-  br i1 %cmp.not18, label %while.end, label %while.body
+  %call18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 10) #20
+  %cmp.not19 = icmp eq ptr %call18, null
+  br i1 %cmp.not19, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %qtest_process_command.exit
-  %call19 = phi ptr [ %call, %qtest_process_command.exit ], [ %call17, %entry ]
-  %1 = phi ptr [ %269, %qtest_process_command.exit ], [ %0, %entry ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %call19 to i64
+  %call20 = phi ptr [ %call, %qtest_process_command.exit ], [ %call18, %entry ]
+  %1 = phi ptr [ %278, %qtest_process_command.exit ], [ %0, %entry ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %call20 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call3 = call ptr @g_string_new_len(ptr noundef %1, i64 noundef %sub.ptr.sub) #18
@@ -464,15 +458,15 @@ if.then2.i:                                       ; preds = %do.end.i
   %call.i = call double @g_timer_elapsed(ptr noundef %5, ptr noundef null) #18
   %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.10, double noundef %call.i)
   %6 = load ptr, ptr %call6, align 8
-  %tobool5.not554.i = icmp eq ptr %6, null
-  br i1 %tobool5.not554.i, label %for.end.i, label %for.body.i
+  %tobool5.not615.i = icmp eq ptr %6, null
+  br i1 %tobool5.not615.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then2.i, %for.body.i
   %7 = phi ptr [ %9, %for.body.i ], [ %6, %if.then2.i ]
-  %i.0555.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then2.i ]
+  %i.0616.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then2.i ]
   %8 = load ptr, ptr @qtest_log_fp, align 8
   %call8.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %7)
-  %inc.i = add i32 %i.0555.i, 1
+  %inc.i = add i32 %i.0616.i, 1
   %idxprom.i = sext i32 %inc.i to i64
   %arrayidx4.i = getelementptr ptr, ptr %call6, i64 %idxprom.i
   %9 = load ptr, ptr %arrayidx4.i, align 8
@@ -589,11 +583,11 @@ if.end.i470.i:                                    ; preds = %lor.lhs.false.i468.
   %25 = load ptr, ptr @timer, align 8
   %call.i471.i = call double @g_timer_elapsed(ptr noundef %25, ptr noundef null) #18
   %call2.i472.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str, double noundef %call.i471.i)
-  %.pre572.i = load ptr, ptr @irq_intercept_dev, align 8
+  %.pre.i = load ptr, ptr @irq_intercept_dev, align 8
   br label %qtest_send_prefix.exit473.i
 
 qtest_send_prefix.exit473.i:                      ; preds = %if.end.i470.i, %lor.lhs.false.i468.i, %if.then49.i
-  %26 = phi ptr [ %23, %if.then49.i ], [ %23, %lor.lhs.false.i468.i ], [ %.pre572.i, %if.end.i470.i ]
+  %26 = phi ptr [ %23, %if.then49.i ], [ %23, %lor.lhs.false.i468.i ], [ %.pre.i, %if.end.i470.i ]
   %cmp50.not.i = icmp eq ptr %26, %call.i456.i
   %27 = load ptr, ptr @qtest_server_send, align 8
   %28 = load ptr, ptr @qtest_server_send_opaque, align 8
@@ -609,68 +603,63 @@ if.else53.i:                                      ; preds = %qtest_send_prefix.e
 
 if.end55.i:                                       ; preds = %if.end47.i
   %gpios.i = getelementptr inbounds i8, ptr %call.i456.i, i64 96
-  %ngl.0562.i = load ptr, ptr %gpios.i, align 8
-  %tobool57.not563.i = icmp eq ptr %ngl.0562.i, null
-  br i1 %tobool57.not563.i, label %for.end79.i, label %for.body58.lr.ph.i
+  %ngl.0623.i = load ptr, ptr %gpios.i, align 8
+  %tobool57.not624.i = icmp eq ptr %ngl.0623.i, null
+  br i1 %tobool57.not624.i, label %for.end79.i, label %for.body58.lr.ph.i
 
 for.body58.lr.ph.i:                               ; preds = %if.end55.i
   br i1 %cmp34.i, label %for.body58.us.i, label %for.body58.i
 
 for.body58.us.i:                                  ; preds = %for.body58.lr.ph.i, %for.inc78.us.i
-  %ngl.0565.us.i = phi ptr [ %ngl.0.us.i, %for.inc78.us.i ], [ %ngl.0562.i, %for.body58.lr.ph.i ]
-  %interception_succeeded.0564.us.i = phi i8 [ %interception_succeeded.1.us.i, %for.inc78.us.i ], [ 0, %for.body58.lr.ph.i ]
-  %29 = load ptr, ptr %ngl.0565.us.i, align 8
+  %ngl.0626.us.i = phi ptr [ %ngl.0.us.i, %for.inc78.us.i ], [ %ngl.0623.i, %for.body58.lr.ph.i ]
+  %interception_succeeded.0625.us.i = phi i1 [ %interception_succeeded.1.us.i, %for.inc78.us.i ], [ false, %for.body58.lr.ph.i ]
+  %29 = load ptr, ptr %ngl.0626.us.i, align 8
   %30 = load ptr, ptr %arrayidx30.i, align 8
   %call62.us.i = call i32 @g_strcmp0(ptr noundef %29, ptr noundef %30) #18
   %cmp63.us.i = icmp eq i32 %call62.us.i, 0
   br i1 %cmp63.us.i, label %for.cond67.preheader.us.i, label %for.inc78.us.i
 
 for.inc78.us.i:                                   ; preds = %for.body70.us.i, %for.cond67.preheader.us.i, %for.body58.us.i
-  %interception_succeeded.1.us.i = phi i8 [ %interception_succeeded.0564.us.i, %for.body58.us.i ], [ 1, %for.cond67.preheader.us.i ], [ 1, %for.body70.us.i ]
-  %node.us.i = getelementptr inbounds i8, ptr %ngl.0565.us.i, i64 24
+  %interception_succeeded.1.us.i = phi i1 [ %interception_succeeded.0625.us.i, %for.body58.us.i ], [ true, %for.cond67.preheader.us.i ], [ true, %for.body70.us.i ]
+  %node.us.i = getelementptr inbounds i8, ptr %ngl.0626.us.i, i64 24
   %ngl.0.us.i = load ptr, ptr %node.us.i, align 8
   %tobool57.not.us.i = icmp eq ptr %ngl.0.us.i, null
-  br i1 %tobool57.not.us.i, label %for.end79.loopexit.i, label %for.body58.us.i, !llvm.loop !7
+  br i1 %tobool57.not.us.i, label %for.end79.i, label %for.body58.us.i, !llvm.loop !7
 
 for.body70.us.i:                                  ; preds = %for.cond67.preheader.us.i, %for.body70.us.i
-  %i66.0561.us.i = phi i32 [ %inc73.us.i, %for.body70.us.i ], [ 0, %for.cond67.preheader.us.i ]
-  %31 = load ptr, ptr %ngl.0565.us.i, align 8
+  %i66.0622.us.i = phi i32 [ %inc73.us.i, %for.body70.us.i ], [ 0, %for.cond67.preheader.us.i ]
+  %31 = load ptr, ptr %ngl.0626.us.i, align 8
   %call.i474.us.i = call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #21
-  %call1.i.us.i = call ptr @qemu_allocate_irq(ptr noundef nonnull @qtest_irq_handler, ptr noundef %call.i474.us.i, i32 noundef %i66.0561.us.i) #18
-  %call2.i475.us.i = call ptr @qdev_intercept_gpio_out(ptr noundef nonnull %call.i456.i, ptr noundef %call1.i.us.i, ptr noundef %31, i32 noundef %i66.0561.us.i) #18
+  %call1.i.us.i = call ptr @qemu_allocate_irq(ptr noundef nonnull @qtest_irq_handler, ptr noundef %call.i474.us.i, i32 noundef %i66.0622.us.i) #18
+  %call2.i475.us.i = call ptr @qdev_intercept_gpio_out(ptr noundef nonnull %call.i456.i, ptr noundef %call1.i.us.i, ptr noundef %31, i32 noundef %i66.0622.us.i) #18
   store ptr %call2.i475.us.i, ptr %call.i474.us.i, align 8
-  %inc73.us.i = add nuw nsw i32 %i66.0561.us.i, 1
+  %inc73.us.i = add nuw nsw i32 %i66.0622.us.i, 1
   %32 = load i32, ptr %num_out.us.i, align 4
   %cmp68.us.i = icmp slt i32 %inc73.us.i, %32
   br i1 %cmp68.us.i, label %for.body70.us.i, label %for.inc78.us.i, !llvm.loop !8
 
 for.cond67.preheader.us.i:                        ; preds = %for.body58.us.i
-  %num_out.us.i = getelementptr inbounds i8, ptr %ngl.0565.us.i, i64 20
+  %num_out.us.i = getelementptr inbounds i8, ptr %ngl.0626.us.i, i64 20
   %33 = load i32, ptr %num_out.us.i, align 4
-  %cmp68560.us.i = icmp sgt i32 %33, 0
-  br i1 %cmp68560.us.i, label %for.body70.us.i, label %for.inc78.us.i
+  %cmp68621.us.i = icmp sgt i32 %33, 0
+  br i1 %cmp68621.us.i, label %for.body70.us.i, label %for.inc78.us.i
 
 for.body58.i:                                     ; preds = %for.body58.lr.ph.i, %for.body58.i
-  %ngl.0565.i = phi ptr [ %ngl.0.i, %for.body58.i ], [ %ngl.0562.i, %for.body58.lr.ph.i ]
-  %in.i = getelementptr inbounds i8, ptr %ngl.0565.i, i64 8
+  %ngl.0626.i = phi ptr [ %ngl.0.i, %for.body58.i ], [ %ngl.0623.i, %for.body58.lr.ph.i ]
+  %in.i = getelementptr inbounds i8, ptr %ngl.0626.i, i64 8
   %34 = load ptr, ptr %in.i, align 8
-  %num_in.i = getelementptr inbounds i8, ptr %ngl.0565.i, i64 16
+  %num_in.i = getelementptr inbounds i8, ptr %ngl.0626.i, i64 16
   %35 = load i32, ptr %num_in.i, align 8
   call void @qemu_irq_intercept_in(ptr noundef %34, ptr noundef nonnull @qtest_irq_handler, i32 noundef %35) #18
-  %node.i = getelementptr inbounds i8, ptr %ngl.0565.i, i64 24
+  %node.i = getelementptr inbounds i8, ptr %ngl.0626.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool57.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool57.not.i, label %for.end79.i, label %for.body58.i, !llvm.loop !7
 
-for.end79.loopexit.i:                             ; preds = %for.inc78.us.i
-  %36 = and i8 %interception_succeeded.1.us.i, 1
-  %37 = icmp eq i8 %36, 0
-  br label %for.end79.i
-
-for.end79.i:                                      ; preds = %for.body58.i, %for.end79.loopexit.i, %if.end55.i
-  %interception_succeeded.0.lcssa.i = phi i1 [ true, %if.end55.i ], [ %37, %for.end79.loopexit.i ], [ false, %for.body58.i ]
-  %38 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i476.i = icmp eq ptr %38, null
+for.end79.i:                                      ; preds = %for.body58.i, %for.inc78.us.i, %if.end55.i
+  %interception_succeeded.0.lcssa.i = phi i1 [ false, %if.end55.i ], [ %interception_succeeded.1.us.i, %for.inc78.us.i ], [ true, %for.body58.i ]
+  %36 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i476.i = icmp eq ptr %36, null
   br i1 %tobool.not.i476.i, label %qtest_send_prefix.exit482.i, label %lor.lhs.false.i477.i
 
 lor.lhs.false.i477.i:                             ; preds = %for.end79.i
@@ -678,25 +667,25 @@ lor.lhs.false.i477.i:                             ; preds = %for.end79.i
   br i1 %.b1.i478.i, label %if.end.i479.i, label %qtest_send_prefix.exit482.i
 
 if.end.i479.i:                                    ; preds = %lor.lhs.false.i477.i
-  %39 = load ptr, ptr @timer, align 8
-  %call.i480.i = call double @g_timer_elapsed(ptr noundef %39, ptr noundef null) #18
-  %call2.i481.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %38, ptr noundef nonnull @.str, double noundef %call.i480.i)
+  %37 = load ptr, ptr @timer, align 8
+  %call.i480.i = call double @g_timer_elapsed(ptr noundef %37, ptr noundef null) #18
+  %call2.i481.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %36, ptr noundef nonnull @.str, double noundef %call.i480.i)
   br label %qtest_send_prefix.exit482.i
 
 qtest_send_prefix.exit482.i:                      ; preds = %if.end.i479.i, %lor.lhs.false.i477.i, %for.end79.i
-  br i1 %interception_succeeded.0.lcssa.i, label %if.else82.i, label %if.then81.i
+  br i1 %interception_succeeded.0.lcssa.i, label %if.then81.i, label %if.else82.i
 
 if.then81.i:                                      ; preds = %qtest_send_prefix.exit482.i
   store ptr %call.i456.i, ptr @irq_intercept_dev, align 8
-  %40 = load ptr, ptr @qtest_server_send, align 8
-  %41 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %40(ptr noundef %41, ptr noundef nonnull @.str.20) #18
+  %38 = load ptr, ptr @qtest_server_send, align 8
+  %39 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %38(ptr noundef %39, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else82.i:                                      ; preds = %qtest_send_prefix.exit482.i
-  %42 = load ptr, ptr @qtest_server_send, align 8
-  %43 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %42(ptr noundef %43, ptr noundef nonnull @.str.21) #18
+  %40 = load ptr, ptr @qtest_server_send, align 8
+  %41 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %40(ptr noundef %41, ptr noundef nonnull @.str.21) #18
   br label %qtest_process_command.exit
 
 if.else84.i:                                      ; preds = %lor.lhs.false.i
@@ -706,26 +695,26 @@ if.else84.i:                                      ; preds = %lor.lhs.false.i
 
 do.body92.i:                                      ; preds = %if.else84.i
   %arrayidx93.i = getelementptr i8, ptr %call6, i64 8
-  %44 = load ptr, ptr %arrayidx93.i, align 8
-  %tobool94.not.i = icmp eq ptr %44, null
+  %42 = load ptr, ptr %arrayidx93.i, align 8
+  %tobool94.not.i = icmp eq ptr %42, null
   br i1 %tobool94.not.i, label %if.else105.i, label %land.lhs.true95.i
 
 land.lhs.true95.i:                                ; preds = %do.body92.i
   %arrayidx96.i = getelementptr i8, ptr %call6, i64 16
-  %45 = load ptr, ptr %arrayidx96.i, align 8
-  %tobool97.not.i = icmp eq ptr %45, null
+  %43 = load ptr, ptr %arrayidx96.i, align 8
+  %tobool97.not.i = icmp eq ptr %43, null
   br i1 %tobool97.not.i, label %if.else105.i, label %land.lhs.true98.i
 
 land.lhs.true98.i:                                ; preds = %land.lhs.true95.i
   %arrayidx99.i = getelementptr i8, ptr %call6, i64 24
-  %46 = load ptr, ptr %arrayidx99.i, align 8
-  %tobool100.not.i = icmp eq ptr %46, null
+  %44 = load ptr, ptr %arrayidx99.i, align 8
+  %tobool100.not.i = icmp eq ptr %44, null
   br i1 %tobool100.not.i, label %if.else105.i, label %land.lhs.true101.i
 
 land.lhs.true101.i:                               ; preds = %land.lhs.true98.i
   %arrayidx102.i = getelementptr i8, ptr %call6, i64 32
-  %47 = load ptr, ptr %arrayidx102.i, align 8
-  %tobool103.not.i = icmp eq ptr %47, null
+  %45 = load ptr, ptr %arrayidx102.i, align 8
+  %tobool103.not.i = icmp eq ptr %45, null
   br i1 %tobool103.not.i, label %if.else105.i, label %do.end107.i
 
 if.else105.i:                                     ; preds = %land.lhs.true101.i, %land.lhs.true98.i, %land.lhs.true95.i, %do.body92.i
@@ -733,14 +722,14 @@ if.else105.i:                                     ; preds = %land.lhs.true101.i,
   unreachable
 
 do.end107.i:                                      ; preds = %land.lhs.true101.i
-  %call109.i = call ptr @object_resolve_path(ptr noundef nonnull %44, ptr noundef null) #18
+  %call109.i = call ptr @object_resolve_path(ptr noundef nonnull %42, ptr noundef null) #18
   %call.i483.i = call ptr @object_dynamic_cast_assert(ptr noundef %call109.i, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
   %tobool111.not.i = icmp eq ptr %call.i483.i, null
   br i1 %tobool111.not.i, label %if.then112.i, label %if.end113.i
 
 if.then112.i:                                     ; preds = %do.end107.i
-  %48 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i484.i = icmp eq ptr %48, null
+  %46 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i484.i = icmp eq ptr %46, null
   br i1 %tobool.not.i484.i, label %qtest_send_prefix.exit490.i, label %lor.lhs.false.i485.i
 
 lor.lhs.false.i485.i:                             ; preds = %if.then112.i
@@ -748,24 +737,24 @@ lor.lhs.false.i485.i:                             ; preds = %if.then112.i
   br i1 %.b1.i486.i, label %if.end.i487.i, label %qtest_send_prefix.exit490.i
 
 if.end.i487.i:                                    ; preds = %lor.lhs.false.i485.i
-  %49 = load ptr, ptr @timer, align 8
-  %call.i488.i = call double @g_timer_elapsed(ptr noundef %49, ptr noundef null) #18
-  %call2.i489.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %48, ptr noundef nonnull @.str, double noundef %call.i488.i)
+  %47 = load ptr, ptr @timer, align 8
+  %call.i488.i = call double @g_timer_elapsed(ptr noundef %47, ptr noundef null) #18
+  %call2.i489.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %46, ptr noundef nonnull @.str, double noundef %call.i488.i)
   br label %qtest_send_prefix.exit490.i
 
 qtest_send_prefix.exit490.i:                      ; preds = %if.end.i487.i, %lor.lhs.false.i485.i, %if.then112.i
-  %50 = load ptr, ptr @qtest_server_send, align 8
-  %51 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %50(ptr noundef %51, ptr noundef nonnull @.str.17) #18
+  %48 = load ptr, ptr @qtest_server_send, align 8
+  %49 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %48(ptr noundef %49, ptr noundef nonnull @.str.17) #18
   br label %qtest_process_command.exit
 
 if.end113.i:                                      ; preds = %do.end107.i
-  %52 = load ptr, ptr %arrayidx96.i, align 8
-  %call115.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(16) @.str.24) #20
+  %50 = load ptr, ptr %arrayidx96.i, align 8
+  %call115.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(16) @.str.24) #20
   %cmp116.i = icmp eq i32 %call115.i, 0
-  %..i = select i1 %cmp116.i, ptr null, ptr %52
-  %53 = load ptr, ptr %arrayidx99.i, align 8
-  %call123.i = call i32 @qemu_strtoi(ptr noundef %53, ptr noundef null, i32 noundef 0, ptr noundef nonnull %num.i) #18
+  %..i = select i1 %cmp116.i, ptr null, ptr %50
+  %51 = load ptr, ptr %arrayidx99.i, align 8
+  %call123.i = call i32 @qemu_strtoi(ptr noundef %51, ptr noundef null, i32 noundef 0, ptr noundef nonnull %num.i) #18
   %tobool125.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool125.not.i, label %do.end129.i, label %if.else127.i
 
@@ -774,8 +763,8 @@ if.else127.i:                                     ; preds = %if.end113.i
   unreachable
 
 do.end129.i:                                      ; preds = %if.end113.i
-  %54 = load ptr, ptr %arrayidx102.i, align 8
-  %call131.i = call i32 @qemu_strtoi(ptr noundef %54, ptr noundef null, i32 noundef 0, ptr noundef nonnull %level.i) #18
+  %52 = load ptr, ptr %arrayidx102.i, align 8
+  %call131.i = call i32 @qemu_strtoi(ptr noundef %52, ptr noundef null, i32 noundef 0, ptr noundef nonnull %level.i) #18
   %tobool133.not.i = icmp eq i32 %call131.i, 0
   br i1 %tobool133.not.i, label %do.end137.i, label %if.else135.i
 
@@ -784,12 +773,12 @@ if.else135.i:                                     ; preds = %do.end129.i
   unreachable
 
 do.end137.i:                                      ; preds = %do.end129.i
-  %55 = load i32, ptr %num.i, align 4
-  %call138.i = call ptr @qdev_get_gpio_in_named(ptr noundef nonnull %call.i483.i, ptr noundef %..i, i32 noundef %55) #18
-  %56 = load i32, ptr %level.i, align 4
-  call void @qemu_set_irq(ptr noundef %call138.i, i32 noundef %56) #18
-  %57 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i491.i = icmp eq ptr %57, null
+  %53 = load i32, ptr %num.i, align 4
+  %call138.i = call ptr @qdev_get_gpio_in_named(ptr noundef nonnull %call.i483.i, ptr noundef %..i, i32 noundef %53) #18
+  %54 = load i32, ptr %level.i, align 4
+  call void @qemu_set_irq(ptr noundef %call138.i, i32 noundef %54) #18
+  %55 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i491.i = icmp eq ptr %55, null
   br i1 %tobool.not.i491.i, label %qtest_send_prefix.exit497.i, label %lor.lhs.false.i492.i
 
 lor.lhs.false.i492.i:                             ; preds = %do.end137.i
@@ -797,15 +786,15 @@ lor.lhs.false.i492.i:                             ; preds = %do.end137.i
   br i1 %.b1.i493.i, label %if.end.i494.i, label %qtest_send_prefix.exit497.i
 
 if.end.i494.i:                                    ; preds = %lor.lhs.false.i492.i
-  %58 = load ptr, ptr @timer, align 8
-  %call.i495.i = call double @g_timer_elapsed(ptr noundef %58, ptr noundef null) #18
-  %call2.i496.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %57, ptr noundef nonnull @.str, double noundef %call.i495.i)
+  %56 = load ptr, ptr @timer, align 8
+  %call.i495.i = call double @g_timer_elapsed(ptr noundef %56, ptr noundef null) #18
+  %call2.i496.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str, double noundef %call.i495.i)
   br label %qtest_send_prefix.exit497.i
 
 qtest_send_prefix.exit497.i:                      ; preds = %if.end.i494.i, %lor.lhs.false.i492.i, %do.end137.i
-  %59 = load ptr, ptr @qtest_server_send, align 8
-  %60 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %59(ptr noundef %60, ptr noundef nonnull @.str.20) #18
+  %57 = load ptr, ptr @qtest_server_send, align 8
+  %58 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %57(ptr noundef %58, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else139.i:                                     ; preds = %if.else84.i
@@ -825,14 +814,14 @@ lor.lhs.false149.i:                               ; preds = %lor.lhs.false144.i
 
 do.body156.i:                                     ; preds = %lor.lhs.false149.i, %lor.lhs.false144.i, %if.else139.i
   %arrayidx157.i = getelementptr i8, ptr %call6, i64 8
-  %61 = load ptr, ptr %arrayidx157.i, align 8
-  %tobool158.not.i = icmp eq ptr %61, null
+  %59 = load ptr, ptr %arrayidx157.i, align 8
+  %tobool158.not.i = icmp eq ptr %59, null
   br i1 %tobool158.not.i, label %if.else163.i, label %land.lhs.true159.i
 
 land.lhs.true159.i:                               ; preds = %do.body156.i
   %arrayidx160.i = getelementptr i8, ptr %call6, i64 16
-  %62 = load ptr, ptr %arrayidx160.i, align 8
-  %tobool161.not.i = icmp eq ptr %62, null
+  %60 = load ptr, ptr %arrayidx160.i, align 8
+  %tobool161.not.i = icmp eq ptr %60, null
   br i1 %tobool161.not.i, label %if.else163.i, label %do.end165.i
 
 if.else163.i:                                     ; preds = %land.lhs.true159.i, %do.body156.i
@@ -840,7 +829,7 @@ if.else163.i:                                     ; preds = %land.lhs.true159.i,
   unreachable
 
 do.end165.i:                                      ; preds = %land.lhs.true159.i
-  %call167.i = call i32 @qemu_strtoul(ptr noundef nonnull %61, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr.i) #18
+  %call167.i = call i32 @qemu_strtoul(ptr noundef nonnull %59, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr.i) #18
   %cmp169.i = icmp eq i32 %call167.i, 0
   br i1 %cmp169.i, label %do.end174.i, label %if.else172.i
 
@@ -849,8 +838,8 @@ if.else172.i:                                     ; preds = %do.end165.i
   unreachable
 
 do.end174.i:                                      ; preds = %do.end165.i
-  %63 = load ptr, ptr %arrayidx160.i, align 8
-  %call176.i = call i32 @qemu_strtoul(ptr noundef %63, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #18
+  %61 = load ptr, ptr %arrayidx160.i, align 8
+  %call176.i = call i32 @qemu_strtoul(ptr noundef %61, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #18
   %cmp178.i = icmp eq i32 %call176.i, 0
   br i1 %cmp178.i, label %do.body184.i, label %if.else181.i
 
@@ -859,8 +848,8 @@ if.else181.i:                                     ; preds = %do.end174.i
   unreachable
 
 do.body184.i:                                     ; preds = %do.end174.i
-  %64 = load i64, ptr %addr.i, align 8
-  %cmp185.i = icmp ult i64 %64, 65536
+  %62 = load i64, ptr %addr.i, align 8
+  %cmp185.i = icmp ult i64 %62, 65536
   br i1 %cmp185.i, label %do.end190.i, label %if.else188.i
 
 if.else188.i:                                     ; preds = %do.body184.i
@@ -868,39 +857,39 @@ if.else188.i:                                     ; preds = %do.body184.i
   unreachable
 
 do.end190.i:                                      ; preds = %do.body184.i
-  %65 = load ptr, ptr %call6, align 8
-  %arrayidx192.i = getelementptr i8, ptr %65, i64 3
-  %66 = load i8, ptr %arrayidx192.i, align 1
-  switch i8 %66, label %if.end219.i [
+  %63 = load ptr, ptr %call6, align 8
+  %arrayidx192.i = getelementptr i8, ptr %63, i64 3
+  %64 = load i8, ptr %arrayidx192.i, align 1
+  switch i8 %64, label %if.end219.i [
     i8 98, label %if.then196.i
     i8 119, label %if.then205.i
     i8 108, label %if.then214.i
   ]
 
 if.then196.i:                                     ; preds = %do.end190.i
-  %conv197.i = trunc i64 %64 to i32
-  %67 = load i64, ptr %value.i, align 8
-  %conv198.i = trunc i64 %67 to i8
+  %conv197.i = trunc i64 %62 to i32
+  %65 = load i64, ptr %value.i, align 8
+  %conv198.i = trunc i64 %65 to i8
   call void @cpu_outb(i32 noundef %conv197.i, i8 noundef zeroext %conv198.i) #18
   br label %if.end219.i
 
 if.then205.i:                                     ; preds = %do.end190.i
-  %conv206.i = trunc i64 %64 to i32
-  %68 = load i64, ptr %value.i, align 8
-  %conv207.i = trunc i64 %68 to i16
+  %conv206.i = trunc i64 %62 to i32
+  %66 = load i64, ptr %value.i, align 8
+  %conv207.i = trunc i64 %66 to i16
   call void @cpu_outw(i32 noundef %conv206.i, i16 noundef zeroext %conv207.i) #18
   br label %if.end219.i
 
 if.then214.i:                                     ; preds = %do.end190.i
-  %conv215.i = trunc i64 %64 to i32
-  %69 = load i64, ptr %value.i, align 8
-  %conv216.i = trunc i64 %69 to i32
+  %conv215.i = trunc i64 %62 to i32
+  %67 = load i64, ptr %value.i, align 8
+  %conv216.i = trunc i64 %67 to i32
   call void @cpu_outl(i32 noundef %conv215.i, i32 noundef %conv216.i) #18
   br label %if.end219.i
 
 if.end219.i:                                      ; preds = %if.then214.i, %if.then205.i, %if.then196.i, %do.end190.i
-  %70 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i498.i = icmp eq ptr %70, null
+  %68 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i498.i = icmp eq ptr %68, null
   br i1 %tobool.not.i498.i, label %qtest_send_prefix.exit504.i, label %lor.lhs.false.i499.i
 
 lor.lhs.false.i499.i:                             ; preds = %if.end219.i
@@ -908,15 +897,15 @@ lor.lhs.false.i499.i:                             ; preds = %if.end219.i
   br i1 %.b1.i500.i, label %if.end.i501.i, label %qtest_send_prefix.exit504.i
 
 if.end.i501.i:                                    ; preds = %lor.lhs.false.i499.i
-  %71 = load ptr, ptr @timer, align 8
-  %call.i502.i = call double @g_timer_elapsed(ptr noundef %71, ptr noundef null) #18
-  %call2.i503.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %70, ptr noundef nonnull @.str, double noundef %call.i502.i)
+  %69 = load ptr, ptr @timer, align 8
+  %call.i502.i = call double @g_timer_elapsed(ptr noundef %69, ptr noundef null) #18
+  %call2.i503.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %68, ptr noundef nonnull @.str, double noundef %call.i502.i)
   br label %qtest_send_prefix.exit504.i
 
 qtest_send_prefix.exit504.i:                      ; preds = %if.end.i501.i, %lor.lhs.false.i499.i, %if.end219.i
-  %72 = load ptr, ptr @qtest_server_send, align 8
-  %73 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %72(ptr noundef %73, ptr noundef nonnull @.str.20) #18
+  %70 = load ptr, ptr @qtest_server_send, align 8
+  %71 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %70(ptr noundef %71, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else220.i:                                     ; preds = %lor.lhs.false149.i
@@ -936,8 +925,8 @@ lor.lhs.false230.i:                               ; preds = %lor.lhs.false225.i
 
 if.then235.i:                                     ; preds = %lor.lhs.false230.i, %lor.lhs.false225.i, %if.else220.i
   %arrayidx240.i = getelementptr i8, ptr %call6, i64 8
-  %74 = load ptr, ptr %arrayidx240.i, align 8
-  %tobool241.not.i = icmp eq ptr %74, null
+  %72 = load ptr, ptr %arrayidx240.i, align 8
+  %tobool241.not.i = icmp eq ptr %72, null
   br i1 %tobool241.not.i, label %if.else243.i, label %do.end245.i
 
 if.else243.i:                                     ; preds = %if.then235.i
@@ -945,7 +934,7 @@ if.else243.i:                                     ; preds = %if.then235.i
   unreachable
 
 do.end245.i:                                      ; preds = %if.then235.i
-  %call247.i = call i32 @qemu_strtoul(ptr noundef nonnull %74, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr236.i) #18
+  %call247.i = call i32 @qemu_strtoul(ptr noundef nonnull %72, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr236.i) #18
   %cmp249.i = icmp eq i32 %call247.i, 0
   br i1 %cmp249.i, label %do.body255.i, label %if.else252.i
 
@@ -954,8 +943,8 @@ if.else252.i:                                     ; preds = %do.end245.i
   unreachable
 
 do.body255.i:                                     ; preds = %do.end245.i
-  %75 = load i64, ptr %addr236.i, align 8
-  %cmp256.i = icmp ult i64 %75, 65536
+  %73 = load i64, ptr %addr236.i, align 8
+  %cmp256.i = icmp ult i64 %73, 65536
   br i1 %cmp256.i, label %do.end261.i, label %if.else259.i
 
 if.else259.i:                                     ; preds = %do.body255.i
@@ -963,36 +952,36 @@ if.else259.i:                                     ; preds = %do.body255.i
   unreachable
 
 do.end261.i:                                      ; preds = %do.body255.i
-  %76 = load ptr, ptr %call6, align 8
-  %arrayidx263.i = getelementptr i8, ptr %76, i64 2
-  %77 = load i8, ptr %arrayidx263.i, align 1
-  switch i8 %77, label %if.end292.i [
+  %74 = load ptr, ptr %call6, align 8
+  %arrayidx263.i = getelementptr i8, ptr %74, i64 2
+  %75 = load i8, ptr %arrayidx263.i, align 1
+  switch i8 %75, label %if.end292.i [
     i8 98, label %if.then267.i
     i8 119, label %if.then277.i
     i8 108, label %if.then287.i
   ]
 
 if.then267.i:                                     ; preds = %do.end261.i
-  %conv268.i = trunc i64 %75 to i32
+  %conv268.i = trunc i64 %73 to i32
   %call269.i = call zeroext i8 @cpu_inb(i32 noundef %conv268.i) #18
   %conv270.i = zext i8 %call269.i to i32
   br label %if.end292.i
 
 if.then277.i:                                     ; preds = %do.end261.i
-  %conv278.i = trunc i64 %75 to i32
+  %conv278.i = trunc i64 %73 to i32
   %call279.i = call zeroext i16 @cpu_inw(i32 noundef %conv278.i) #18
   %conv280.i = zext i16 %call279.i to i32
   br label %if.end292.i
 
 if.then287.i:                                     ; preds = %do.end261.i
-  %conv288.i = trunc i64 %75 to i32
+  %conv288.i = trunc i64 %73 to i32
   %call289.i = call i32 @cpu_inl(i32 noundef %conv288.i) #18
   br label %if.end292.i
 
 if.end292.i:                                      ; preds = %if.then287.i, %if.then277.i, %if.then267.i, %do.end261.i
   %value237.0.i = phi i32 [ %conv270.i, %if.then267.i ], [ %conv280.i, %if.then277.i ], [ %call289.i, %if.then287.i ], [ -1, %do.end261.i ]
-  %78 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i505.i = icmp eq ptr %78, null
+  %76 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i505.i = icmp eq ptr %76, null
   br i1 %tobool.not.i505.i, label %qtest_send_prefix.exit511.i, label %lor.lhs.false.i506.i
 
 lor.lhs.false.i506.i:                             ; preds = %if.end292.i
@@ -1000,9 +989,9 @@ lor.lhs.false.i506.i:                             ; preds = %if.end292.i
   br i1 %.b1.i507.i, label %if.end.i508.i, label %qtest_send_prefix.exit511.i
 
 if.end.i508.i:                                    ; preds = %lor.lhs.false.i506.i
-  %79 = load ptr, ptr @timer, align 8
-  %call.i509.i = call double @g_timer_elapsed(ptr noundef %79, ptr noundef null) #18
-  %call2.i510.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %78, ptr noundef nonnull @.str, double noundef %call.i509.i)
+  %77 = load ptr, ptr @timer, align 8
+  %call.i509.i = call double @g_timer_elapsed(ptr noundef %77, ptr noundef null) #18
+  %call2.i510.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %76, ptr noundef nonnull @.str, double noundef %call.i509.i)
   br label %qtest_send_prefix.exit511.i
 
 qtest_send_prefix.exit511.i:                      ; preds = %if.end.i508.i, %lor.lhs.false.i506.i, %if.end292.i
@@ -1031,14 +1020,14 @@ lor.lhs.false308.i:                               ; preds = %lor.lhs.false303.i
 
 do.body317.i:                                     ; preds = %lor.lhs.false308.i, %lor.lhs.false303.i, %lor.lhs.false298.i, %if.else293.i
   %arrayidx318.i = getelementptr i8, ptr %call6, i64 8
-  %80 = load ptr, ptr %arrayidx318.i, align 8
-  %tobool319.not.i = icmp eq ptr %80, null
+  %78 = load ptr, ptr %arrayidx318.i, align 8
+  %tobool319.not.i = icmp eq ptr %78, null
   br i1 %tobool319.not.i, label %if.else324.i, label %land.lhs.true320.i
 
 land.lhs.true320.i:                               ; preds = %do.body317.i
   %arrayidx321.i = getelementptr i8, ptr %call6, i64 16
-  %81 = load ptr, ptr %arrayidx321.i, align 8
-  %tobool322.not.i = icmp eq ptr %81, null
+  %79 = load ptr, ptr %arrayidx321.i, align 8
+  %tobool322.not.i = icmp eq ptr %79, null
   br i1 %tobool322.not.i, label %if.else324.i, label %do.end326.i
 
 if.else324.i:                                     ; preds = %land.lhs.true320.i, %do.body317.i
@@ -1046,7 +1035,7 @@ if.else324.i:                                     ; preds = %land.lhs.true320.i,
   unreachable
 
 do.end326.i:                                      ; preds = %land.lhs.true320.i
-  %call328.i = call i32 @qemu_strtou64(ptr noundef nonnull %80, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr314.i) #18
+  %call328.i = call i32 @qemu_strtou64(ptr noundef nonnull %78, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr314.i) #18
   %cmp330.i = icmp eq i32 %call328.i, 0
   br i1 %cmp330.i, label %do.end335.i, label %if.else333.i
 
@@ -1055,8 +1044,8 @@ if.else333.i:                                     ; preds = %do.end326.i
   unreachable
 
 do.end335.i:                                      ; preds = %do.end326.i
-  %82 = load ptr, ptr %arrayidx321.i, align 8
-  %call337.i = call i32 @qemu_strtou64(ptr noundef %82, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value315.i) #18
+  %80 = load ptr, ptr %arrayidx321.i, align 8
+  %call337.i = call i32 @qemu_strtou64(ptr noundef %80, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value315.i) #18
   %cmp339.i = icmp eq i32 %call337.i, 0
   br i1 %cmp339.i, label %do.end344.i, label %if.else342.i
 
@@ -1065,10 +1054,10 @@ if.else342.i:                                     ; preds = %do.end335.i
   unreachable
 
 do.end344.i:                                      ; preds = %do.end335.i
-  %83 = load ptr, ptr %call6, align 8
-  %arrayidx346.i = getelementptr i8, ptr %83, i64 5
-  %84 = load i8, ptr %arrayidx346.i, align 1
-  switch i8 %84, label %if.end531.i [
+  %81 = load ptr, ptr %call6, align 8
+  %arrayidx346.i = getelementptr i8, ptr %81, i64 5
+  %82 = load i8, ptr %arrayidx346.i, align 1
+  switch i8 %82, label %if.end531.i [
     i8 98, label %if.then350.i
     i8 119, label %if.then388.i
     i8 108, label %if.then437.i
@@ -1076,86 +1065,86 @@ do.end344.i:                                      ; preds = %do.end335.i
   ]
 
 if.then350.i:                                     ; preds = %do.end344.i
-  %85 = load i64, ptr %value315.i, align 8
-  %conv351.i = trunc i64 %85 to i8
+  %83 = load i64, ptr %value315.i, align 8
+  %conv351.i = trunc i64 %83 to i8
   store i8 %conv351.i, ptr %data.i, align 1
-  %86 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %87 = inttoptr i64 %86 to ptr
+  %84 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %85 = inttoptr i64 %84 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
-  %as.i = getelementptr inbounds i8, ptr %87, i64 528
-  %88 = load ptr, ptr %as.i, align 16
-  %89 = load i64, ptr %addr314.i, align 8
-  %call381.i = call i32 @address_space_write(ptr noundef %88, i64 noundef %89, i32 1, ptr noundef nonnull %data.i, i64 noundef 1) #18
+  %as.i = getelementptr inbounds i8, ptr %85, i64 528
+  %86 = load ptr, ptr %as.i, align 16
+  %87 = load i64, ptr %addr314.i, align 8
+  %call381.i = call i32 @address_space_write(ptr noundef %86, i64 noundef %87, i32 1, ptr noundef nonnull %data.i, i64 noundef 1) #18
   br label %if.end531.i
 
 if.then388.i:                                     ; preds = %do.end344.i
-  %90 = load i64, ptr %value315.i, align 8
-  %conv390.i = trunc i64 %90 to i16
+  %88 = load i64, ptr %value315.i, align 8
+  %conv390.i = trunc i64 %88 to i16
   store i16 %conv390.i, ptr %data389.i, align 2
   %call.i512.i = call zeroext i1 @target_words_bigendian() #18
   br i1 %call.i512.i, label %if.then.i514.i, label %tswap16s.exit.i
 
 if.then.i514.i:                                   ; preds = %if.then388.i
-  %91 = call i16 @llvm.bswap.i16(i16 %conv390.i)
-  store i16 %91, ptr %data389.i, align 2
+  %89 = call i16 @llvm.bswap.i16(i16 %conv390.i)
+  store i16 %89, ptr %data389.i, align 2
   br label %tswap16s.exit.i
 
 tswap16s.exit.i:                                  ; preds = %if.then.i514.i, %if.then388.i
-  %92 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %93 = inttoptr i64 %92 to ptr
+  %90 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %91 = inttoptr i64 %90 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
-  %as397.i = getelementptr inbounds i8, ptr %93, i64 528
-  %94 = load ptr, ptr %as397.i, align 16
-  %95 = load i64, ptr %addr314.i, align 8
-  %call430.i = call i32 @address_space_write(ptr noundef %94, i64 noundef %95, i32 1, ptr noundef nonnull %data389.i, i64 noundef 2) #18
+  %as397.i = getelementptr inbounds i8, ptr %91, i64 528
+  %92 = load ptr, ptr %as397.i, align 16
+  %93 = load i64, ptr %addr314.i, align 8
+  %call430.i = call i32 @address_space_write(ptr noundef %92, i64 noundef %93, i32 1, ptr noundef nonnull %data389.i, i64 noundef 2) #18
   br label %if.end531.i
 
 if.then437.i:                                     ; preds = %do.end344.i
-  %96 = load i64, ptr %value315.i, align 8
-  %conv439.i = trunc i64 %96 to i32
+  %94 = load i64, ptr %value315.i, align 8
+  %conv439.i = trunc i64 %94 to i32
   store i32 %conv439.i, ptr %data438.i, align 4
   %call.i515.i = call zeroext i1 @target_words_bigendian() #18
   br i1 %call.i515.i, label %if.then.i517.i, label %tswap32s.exit.i
 
 if.then.i517.i:                                   ; preds = %if.then437.i
-  %97 = call i32 @llvm.bswap.i32(i32 %conv439.i)
-  store i32 %97, ptr %data438.i, align 4
+  %95 = call i32 @llvm.bswap.i32(i32 %conv439.i)
+  store i32 %95, ptr %data438.i, align 4
   br label %tswap32s.exit.i
 
 tswap32s.exit.i:                                  ; preds = %if.then.i517.i, %if.then437.i
-  %98 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %99 = inttoptr i64 %98 to ptr
+  %96 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %97 = inttoptr i64 %96 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %as446.i = getelementptr inbounds i8, ptr %99, i64 528
-  %100 = load ptr, ptr %as446.i, align 16
-  %101 = load i64, ptr %addr314.i, align 8
-  %call479.i = call i32 @address_space_write(ptr noundef %100, i64 noundef %101, i32 1, ptr noundef nonnull %data438.i, i64 noundef 4) #18
+  %as446.i = getelementptr inbounds i8, ptr %97, i64 528
+  %98 = load ptr, ptr %as446.i, align 16
+  %99 = load i64, ptr %addr314.i, align 8
+  %call479.i = call i32 @address_space_write(ptr noundef %98, i64 noundef %99, i32 1, ptr noundef nonnull %data438.i, i64 noundef 4) #18
   br label %if.end531.i
 
 if.then486.i:                                     ; preds = %do.end344.i
-  %102 = load i64, ptr %value315.i, align 8
-  store i64 %102, ptr %data487.i, align 8
+  %100 = load i64, ptr %value315.i, align 8
+  store i64 %100, ptr %data487.i, align 8
   %call.i518.i = call zeroext i1 @target_words_bigendian() #18
   br i1 %call.i518.i, label %if.then.i520.i, label %tswap64s.exit.i
 
 if.then.i520.i:                                   ; preds = %if.then486.i
-  %103 = call i64 @llvm.bswap.i64(i64 %102)
-  store i64 %103, ptr %data487.i, align 8
+  %101 = call i64 @llvm.bswap.i64(i64 %100)
+  store i64 %101, ptr %data487.i, align 8
   br label %tswap64s.exit.i
 
 tswap64s.exit.i:                                  ; preds = %if.then.i520.i, %if.then486.i
-  %104 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %105 = inttoptr i64 %104 to ptr
+  %102 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %103 = inttoptr i64 %102 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
-  %as494.i = getelementptr inbounds i8, ptr %105, i64 528
-  %106 = load ptr, ptr %as494.i, align 16
-  %107 = load i64, ptr %addr314.i, align 8
-  %call527.i = call i32 @address_space_write(ptr noundef %106, i64 noundef %107, i32 1, ptr noundef nonnull %data487.i, i64 noundef 8) #18
+  %as494.i = getelementptr inbounds i8, ptr %103, i64 528
+  %104 = load ptr, ptr %as494.i, align 16
+  %105 = load i64, ptr %addr314.i, align 8
+  %call527.i = call i32 @address_space_write(ptr noundef %104, i64 noundef %105, i32 1, ptr noundef nonnull %data487.i, i64 noundef 8) #18
   br label %if.end531.i
 
 if.end531.i:                                      ; preds = %tswap64s.exit.i, %tswap32s.exit.i, %tswap16s.exit.i, %if.then350.i, %do.end344.i
-  %108 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i10 = icmp eq ptr %108, null
+  %106 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i10 = icmp eq ptr %106, null
   br i1 %tobool.not.i10, label %qtest_send_prefix.exit16, label %lor.lhs.false.i11
 
 lor.lhs.false.i11:                                ; preds = %if.end531.i
@@ -1163,15 +1152,15 @@ lor.lhs.false.i11:                                ; preds = %if.end531.i
   br i1 %.b1.i12, label %if.end.i13, label %qtest_send_prefix.exit16
 
 if.end.i13:                                       ; preds = %lor.lhs.false.i11
-  %109 = load ptr, ptr @timer, align 8
-  %call.i14 = call double @g_timer_elapsed(ptr noundef %109, ptr noundef null) #18
-  %call2.i15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %108, ptr noundef nonnull @.str, double noundef %call.i14)
+  %107 = load ptr, ptr @timer, align 8
+  %call.i14 = call double @g_timer_elapsed(ptr noundef %107, ptr noundef null) #18
+  %call2.i15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %106, ptr noundef nonnull @.str, double noundef %call.i14)
   br label %qtest_send_prefix.exit16
 
 qtest_send_prefix.exit16:                         ; preds = %if.end531.i, %lor.lhs.false.i11, %if.end.i13
-  %110 = load ptr, ptr @qtest_server_send, align 8
-  %111 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %110(ptr noundef %111, ptr noundef nonnull @.str.20) #18
+  %108 = load ptr, ptr @qtest_server_send, align 8
+  %109 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %108(ptr noundef %109, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else532.i:                                     ; preds = %lor.lhs.false308.i
@@ -1197,8 +1186,8 @@ lor.lhs.false547.i:                               ; preds = %lor.lhs.false542.i
 if.then552.i:                                     ; preds = %lor.lhs.false547.i, %lor.lhs.false542.i, %lor.lhs.false537.i, %if.else532.i
   store i64 -1, ptr %value554.i, align 8
   %arrayidx557.i = getelementptr i8, ptr %call6, i64 8
-  %112 = load ptr, ptr %arrayidx557.i, align 8
-  %tobool558.not.i = icmp eq ptr %112, null
+  %110 = load ptr, ptr %arrayidx557.i, align 8
+  %tobool558.not.i = icmp eq ptr %110, null
   br i1 %tobool558.not.i, label %if.else560.i, label %do.end562.i
 
 if.else560.i:                                     ; preds = %if.then552.i
@@ -1206,7 +1195,7 @@ if.else560.i:                                     ; preds = %if.then552.i
   unreachable
 
 do.end562.i:                                      ; preds = %if.then552.i
-  %call564.i = call i32 @qemu_strtou64(ptr noundef nonnull %112, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr553.i) #18
+  %call564.i = call i32 @qemu_strtou64(ptr noundef nonnull %110, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr553.i) #18
   %cmp566.i = icmp eq i32 %call564.i, 0
   br i1 %cmp566.i, label %do.end571.i, label %if.else569.i
 
@@ -1215,10 +1204,10 @@ if.else569.i:                                     ; preds = %do.end562.i
   unreachable
 
 do.end571.i:                                      ; preds = %do.end562.i
-  %113 = load ptr, ptr %call6, align 8
-  %arrayidx573.i = getelementptr i8, ptr %113, i64 4
-  %114 = load i8, ptr %arrayidx573.i, align 1
-  switch i8 %114, label %if.end770.i [
+  %111 = load ptr, ptr %call6, align 8
+  %arrayidx573.i = getelementptr i8, ptr %111, i64 4
+  %112 = load i8, ptr %arrayidx573.i, align 1
+  switch i8 %112, label %if.end770.i [
     i8 98, label %while.end583.i
     i8 119, label %while.end632.i
     i8 108, label %while.end682.i
@@ -1226,210 +1215,266 @@ do.end571.i:                                      ; preds = %do.end562.i
   ]
 
 while.end583.i:                                   ; preds = %do.end571.i
-  %115 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %116 = inttoptr i64 %115 to ptr
+  %113 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %114 = inttoptr i64 %113 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
-  %as585.i = getelementptr inbounds i8, ptr %116, i64 528
-  %117 = load ptr, ptr %as585.i, align 16
-  %118 = load i64, ptr %addr553.i, align 8
+  %as585.i = getelementptr inbounds i8, ptr %114, i64 528
+  %115 = load ptr, ptr %as585.i, align 16
+  %116 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i.i = getelementptr inbounds i8, ptr %117, i64 32
-  %119 = load atomic i64, ptr %current_map.i.i monotonic, align 8
-  %120 = inttoptr i64 %119 to ptr
+  %current_map.i.i = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = load atomic i64, ptr %current_map.i.i monotonic, align 8
+  %118 = inttoptr i64 %117 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   store i64 1, ptr %l.i1508.i, align 8
-  %call4.i1522.i = call ptr @flatview_translate(ptr noundef %120, i64 noundef %118, ptr noundef nonnull %addr1.i1509.i, ptr noundef nonnull %l.i1508.i, i1 noundef zeroext false, i32 1) #18
-  %121 = load i64, ptr %l.i1508.i, align 8
-  %cmp.i1523.i = icmp eq i64 %121, 1
+  %call4.i1522.i = call ptr @flatview_translate(ptr noundef %118, i64 noundef %116, ptr noundef nonnull %addr1.i1509.i, ptr noundef nonnull %l.i1508.i, i1 noundef zeroext false, i32 1) #18
+  %119 = load i64, ptr %l.i1508.i, align 8
+  %cmp.i1523.i = icmp eq i64 %119, 1
   br i1 %cmp.i1523.i, label %land.lhs.true.i1527.i, label %if.else.i1524.i
 
 land.lhs.true.i1527.i:                            ; preds = %while.end583.i
-  %call5.i1528.i = call fastcc zeroext i1 @memory_access_is_direct(ptr noundef %call4.i1522.i)
-  br i1 %call5.i1528.i, label %if.then6.i1529.i, label %land.lhs.true.i1527.if.else.i1524_crit_edge.i
+  %120 = getelementptr i8, ptr %call4.i1522.i, i64 41
+  %mr.val.i.i = load i8, ptr %120, align 1
+  %tobool.i.i.i = trunc i8 %mr.val.i.i to i1
+  br i1 %tobool.i.i.i, label %land.lhs.true6.i.i, label %lor.rhs.i.i
 
-land.lhs.true.i1527.if.else.i1524_crit_edge.i:    ; preds = %land.lhs.true.i1527.i
-  %.pre571.i = load i64, ptr %l.i1508.i, align 8
-  br label %if.else.i1524.i
+land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i1527.i
+  %call7.i521.i = call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %call4.i1522.i) #18
+  br i1 %call7.i521.i, label %lor.rhs.i.i, label %if.then6.i1529.i
 
-if.then6.i1529.i:                                 ; preds = %land.lhs.true.i1527.i
+lor.rhs.i.i:                                      ; preds = %land.lhs.true6.i.i, %land.lhs.true.i1527.i
+  %rom_device.i.i.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 45
+  %121 = load i8, ptr %rom_device.i.i.i, align 1
+  %tobool.i7.i.i = trunc i8 %121 to i1
+  br i1 %tobool.i7.i.i, label %memory_access_is_direct.exit.i, label %if.else.i1524.i
+
+memory_access_is_direct.exit.i:                   ; preds = %lor.rhs.i.i
+  %romd_mode.i.i.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 40
+  %122 = load i8, ptr %romd_mode.i.i.i, align 8
+  %tobool1.i.i.i = trunc i8 %122 to i1
+  br i1 %tobool1.i.i.i, label %if.then6.i1529.i, label %if.else.i1524.i
+
+if.then6.i1529.i:                                 ; preds = %memory_access_is_direct.exit.i, %land.lhs.true6.i.i
   %ram_block.i1530.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 56
-  %122 = load ptr, ptr %ram_block.i1530.i, align 8
-  %123 = load i64, ptr %addr1.i1509.i, align 8
-  %call7.i1531.i = call ptr @qemu_map_ram_ptr(ptr noundef %122, i64 noundef %123) #18
-  %124 = load i8, ptr %call7.i1531.i, align 1
-  store i8 %124, ptr %data578.i, align 1
+  %123 = load ptr, ptr %ram_block.i1530.i, align 8
+  %124 = load i64, ptr %addr1.i1509.i, align 8
+  %call7.i1531.i = call ptr @qemu_map_ram_ptr(ptr noundef %123, i64 noundef %124) #18
+  %125 = load i8, ptr %call7.i1531.i, align 1
+  store i8 %125, ptr %data578.i, align 1
   br label %if.end.i1526.i
 
-if.else.i1524.i:                                  ; preds = %land.lhs.true.i1527.if.else.i1524_crit_edge.i, %while.end583.i
-  %125 = phi i64 [ %.pre571.i, %land.lhs.true.i1527.if.else.i1524_crit_edge.i ], [ %121, %while.end583.i ]
+if.else.i1524.i:                                  ; preds = %memory_access_is_direct.exit.i, %lor.rhs.i.i, %while.end583.i
   %126 = load i64, ptr %addr1.i1509.i, align 8
-  %call9.i1525.i = call i32 @flatview_read_continue(ptr noundef %120, i64 noundef %118, i32 1, ptr noundef nonnull %data578.i, i64 noundef 1, i64 noundef %126, i64 noundef %125, ptr noundef %call4.i1522.i) #18
+  %127 = load i64, ptr %l.i1508.i, align 8
+  %call9.i1525.i = call i32 @flatview_read_continue(ptr noundef %118, i64 noundef %116, i32 1, ptr noundef nonnull %data578.i, i64 noundef 1, i64 noundef %126, i64 noundef %127, ptr noundef %call4.i1522.i) #18
   br label %if.end.i1526.i
 
 if.end.i1526.i:                                   ; preds = %if.else.i1524.i, %if.then6.i1529.i
   call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
-  %127 = load i8, ptr %data578.i, align 1
-  %conv619.i = zext i8 %127 to i64
+  %128 = load i8, ptr %data578.i, align 1
+  %conv619.i = zext i8 %128 to i64
   store i64 %conv619.i, ptr %value554.i, align 8
   br label %if.end770.i
 
 while.end632.i:                                   ; preds = %do.end571.i
-  %128 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %129 = inttoptr i64 %128 to ptr
+  %129 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %130 = inttoptr i64 %129 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !15
-  %as634.i = getelementptr inbounds i8, ptr %129, i64 528
-  %130 = load ptr, ptr %as634.i, align 16
-  %131 = load i64, ptr %addr553.i, align 8
+  %as634.i = getelementptr inbounds i8, ptr %130, i64 528
+  %131 = load ptr, ptr %as634.i, align 16
+  %132 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i521.i = getelementptr inbounds i8, ptr %130, i64 32
-  %132 = load atomic i64, ptr %current_map.i521.i monotonic, align 8
-  %133 = inttoptr i64 %132 to ptr
+  %current_map.i522.i = getelementptr inbounds i8, ptr %131, i64 32
+  %133 = load atomic i64, ptr %current_map.i522.i monotonic, align 8
+  %134 = inttoptr i64 %133 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   store i64 2, ptr %l.i1477.i, align 8
-  %call4.i1491.i = call ptr @flatview_translate(ptr noundef %133, i64 noundef %131, ptr noundef nonnull %addr1.i1478.i, ptr noundef nonnull %l.i1477.i, i1 noundef zeroext false, i32 1) #18
-  %134 = load i64, ptr %l.i1477.i, align 8
-  %cmp.i1492.i = icmp eq i64 %134, 2
+  %call4.i1491.i = call ptr @flatview_translate(ptr noundef %134, i64 noundef %132, ptr noundef nonnull %addr1.i1478.i, ptr noundef nonnull %l.i1477.i, i1 noundef zeroext false, i32 1) #18
+  %135 = load i64, ptr %l.i1477.i, align 8
+  %cmp.i1492.i = icmp eq i64 %135, 2
   br i1 %cmp.i1492.i, label %land.lhs.true.i1496.i, label %if.else.i1493.i
 
 land.lhs.true.i1496.i:                            ; preds = %while.end632.i
-  %call5.i1497.i = call fastcc zeroext i1 @memory_access_is_direct(ptr noundef %call4.i1491.i)
-  br i1 %call5.i1497.i, label %if.then6.i1498.i, label %land.lhs.true.i1496.if.else.i1493_crit_edge.i
+  %136 = getelementptr i8, ptr %call4.i1491.i, i64 41
+  %mr.val.i523.i = load i8, ptr %136, align 1
+  %tobool.i.i524.i = trunc i8 %mr.val.i523.i to i1
+  br i1 %tobool.i.i524.i, label %land.lhs.true6.i531.i, label %lor.rhs.i525.i
 
-land.lhs.true.i1496.if.else.i1493_crit_edge.i:    ; preds = %land.lhs.true.i1496.i
-  %.pre570.i = load i64, ptr %l.i1477.i, align 8
-  br label %if.else.i1493.i
+land.lhs.true6.i531.i:                            ; preds = %land.lhs.true.i1496.i
+  %call7.i532.i = call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %call4.i1491.i) #18
+  br i1 %call7.i532.i, label %lor.rhs.i525.i, label %if.then6.i1498.i
 
-if.then6.i1498.i:                                 ; preds = %land.lhs.true.i1496.i
+lor.rhs.i525.i:                                   ; preds = %land.lhs.true6.i531.i, %land.lhs.true.i1496.i
+  %rom_device.i.i526.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 45
+  %137 = load i8, ptr %rom_device.i.i526.i, align 1
+  %tobool.i7.i527.i = trunc i8 %137 to i1
+  br i1 %tobool.i7.i527.i, label %memory_access_is_direct.exit533.i, label %if.else.i1493.i
+
+memory_access_is_direct.exit533.i:                ; preds = %lor.rhs.i525.i
+  %romd_mode.i.i529.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 40
+  %138 = load i8, ptr %romd_mode.i.i529.i, align 8
+  %tobool1.i.i530.i = trunc i8 %138 to i1
+  br i1 %tobool1.i.i530.i, label %if.then6.i1498.i, label %if.else.i1493.i
+
+if.then6.i1498.i:                                 ; preds = %memory_access_is_direct.exit533.i, %land.lhs.true6.i531.i
   %ram_block.i1499.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 56
-  %135 = load ptr, ptr %ram_block.i1499.i, align 8
-  %136 = load i64, ptr %addr1.i1478.i, align 8
-  %call7.i1500.i = call ptr @qemu_map_ram_ptr(ptr noundef %135, i64 noundef %136) #18
-  %137 = load i16, ptr %call7.i1500.i, align 1
-  store i16 %137, ptr %data627.i, align 2
+  %139 = load ptr, ptr %ram_block.i1499.i, align 8
+  %140 = load i64, ptr %addr1.i1478.i, align 8
+  %call7.i1500.i = call ptr @qemu_map_ram_ptr(ptr noundef %139, i64 noundef %140) #18
+  %141 = load i16, ptr %call7.i1500.i, align 1
+  store i16 %141, ptr %data627.i, align 2
   br label %if.end.i1495.i
 
-if.else.i1493.i:                                  ; preds = %land.lhs.true.i1496.if.else.i1493_crit_edge.i, %while.end632.i
-  %138 = phi i64 [ %.pre570.i, %land.lhs.true.i1496.if.else.i1493_crit_edge.i ], [ %134, %while.end632.i ]
-  %139 = load i64, ptr %addr1.i1478.i, align 8
-  %call9.i1494.i = call i32 @flatview_read_continue(ptr noundef %133, i64 noundef %131, i32 1, ptr noundef nonnull %data627.i, i64 noundef 2, i64 noundef %139, i64 noundef %138, ptr noundef %call4.i1491.i) #18
+if.else.i1493.i:                                  ; preds = %memory_access_is_direct.exit533.i, %lor.rhs.i525.i, %while.end632.i
+  %142 = load i64, ptr %addr1.i1478.i, align 8
+  %143 = load i64, ptr %l.i1477.i, align 8
+  %call9.i1494.i = call i32 @flatview_read_continue(ptr noundef %134, i64 noundef %132, i32 1, ptr noundef nonnull %data627.i, i64 noundef 2, i64 noundef %142, i64 noundef %143, ptr noundef %call4.i1491.i) #18
   br label %if.end.i1495.i
 
 if.end.i1495.i:                                   ; preds = %if.else.i1493.i, %if.then6.i1498.i
   call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
-  %140 = load i16, ptr %data627.i, align 2
-  %call.i522.i = call zeroext i1 @target_words_bigendian() #18
-  %141 = call i16 @llvm.bswap.i16(i16 %140)
-  %retval.0.i.i = select i1 %call.i522.i, i16 %141, i16 %140
+  %144 = load i16, ptr %data627.i, align 2
+  %call.i534.i = call zeroext i1 @target_words_bigendian() #18
+  %145 = call i16 @llvm.bswap.i16(i16 %144)
+  %retval.0.i.i = select i1 %call.i534.i, i16 %145, i16 %144
   %conv669.i = zext i16 %retval.0.i.i to i64
   store i64 %conv669.i, ptr %value554.i, align 8
   br label %if.end770.i
 
 while.end682.i:                                   ; preds = %do.end571.i
-  %142 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %143 = inttoptr i64 %142 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
-  %as684.i = getelementptr inbounds i8, ptr %143, i64 528
-  %144 = load ptr, ptr %as684.i, align 16
-  %145 = load i64, ptr %addr553.i, align 8
-  call fastcc void @rcu_read_auto_lock()
-  %current_map.i523.i = getelementptr inbounds i8, ptr %144, i64 32
-  %146 = load atomic i64, ptr %current_map.i523.i monotonic, align 8
+  %146 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %147 = inttoptr i64 %146 to ptr
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
+  %as684.i = getelementptr inbounds i8, ptr %147, i64 528
+  %148 = load ptr, ptr %as684.i, align 16
+  %149 = load i64, ptr %addr553.i, align 8
+  call fastcc void @rcu_read_auto_lock()
+  %current_map.i535.i = getelementptr inbounds i8, ptr %148, i64 32
+  %150 = load atomic i64, ptr %current_map.i535.i monotonic, align 8
+  %151 = inttoptr i64 %150 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   store i64 4, ptr %l.i1446.i, align 8
-  %call4.i1460.i = call ptr @flatview_translate(ptr noundef %147, i64 noundef %145, ptr noundef nonnull %addr1.i1447.i, ptr noundef nonnull %l.i1446.i, i1 noundef zeroext false, i32 1) #18
-  %148 = load i64, ptr %l.i1446.i, align 8
-  %cmp.i1461.i = icmp eq i64 %148, 4
+  %call4.i1460.i = call ptr @flatview_translate(ptr noundef %151, i64 noundef %149, ptr noundef nonnull %addr1.i1447.i, ptr noundef nonnull %l.i1446.i, i1 noundef zeroext false, i32 1) #18
+  %152 = load i64, ptr %l.i1446.i, align 8
+  %cmp.i1461.i = icmp eq i64 %152, 4
   br i1 %cmp.i1461.i, label %land.lhs.true.i1465.i, label %if.else.i1462.i
 
 land.lhs.true.i1465.i:                            ; preds = %while.end682.i
-  %call5.i1466.i = call fastcc zeroext i1 @memory_access_is_direct(ptr noundef %call4.i1460.i)
-  br i1 %call5.i1466.i, label %if.then6.i1467.i, label %land.lhs.true.i1465.if.else.i1462_crit_edge.i
+  %153 = getelementptr i8, ptr %call4.i1460.i, i64 41
+  %mr.val.i536.i = load i8, ptr %153, align 1
+  %tobool.i.i537.i = trunc i8 %mr.val.i536.i to i1
+  br i1 %tobool.i.i537.i, label %land.lhs.true6.i544.i, label %lor.rhs.i538.i
 
-land.lhs.true.i1465.if.else.i1462_crit_edge.i:    ; preds = %land.lhs.true.i1465.i
-  %.pre569.i = load i64, ptr %l.i1446.i, align 8
-  br label %if.else.i1462.i
+land.lhs.true6.i544.i:                            ; preds = %land.lhs.true.i1465.i
+  %call7.i545.i = call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %call4.i1460.i) #18
+  br i1 %call7.i545.i, label %lor.rhs.i538.i, label %if.then6.i1467.i
 
-if.then6.i1467.i:                                 ; preds = %land.lhs.true.i1465.i
+lor.rhs.i538.i:                                   ; preds = %land.lhs.true6.i544.i, %land.lhs.true.i1465.i
+  %rom_device.i.i539.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 45
+  %154 = load i8, ptr %rom_device.i.i539.i, align 1
+  %tobool.i7.i540.i = trunc i8 %154 to i1
+  br i1 %tobool.i7.i540.i, label %memory_access_is_direct.exit546.i, label %if.else.i1462.i
+
+memory_access_is_direct.exit546.i:                ; preds = %lor.rhs.i538.i
+  %romd_mode.i.i542.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 40
+  %155 = load i8, ptr %romd_mode.i.i542.i, align 8
+  %tobool1.i.i543.i = trunc i8 %155 to i1
+  br i1 %tobool1.i.i543.i, label %if.then6.i1467.i, label %if.else.i1462.i
+
+if.then6.i1467.i:                                 ; preds = %memory_access_is_direct.exit546.i, %land.lhs.true6.i544.i
   %ram_block.i1468.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 56
-  %149 = load ptr, ptr %ram_block.i1468.i, align 8
-  %150 = load i64, ptr %addr1.i1447.i, align 8
-  %call7.i1469.i = call ptr @qemu_map_ram_ptr(ptr noundef %149, i64 noundef %150) #18
-  %151 = load i32, ptr %call7.i1469.i, align 1
-  store i32 %151, ptr %data677.i, align 4
+  %156 = load ptr, ptr %ram_block.i1468.i, align 8
+  %157 = load i64, ptr %addr1.i1447.i, align 8
+  %call7.i1469.i = call ptr @qemu_map_ram_ptr(ptr noundef %156, i64 noundef %157) #18
+  %158 = load i32, ptr %call7.i1469.i, align 1
+  store i32 %158, ptr %data677.i, align 4
   br label %if.end.i1464.i
 
-if.else.i1462.i:                                  ; preds = %land.lhs.true.i1465.if.else.i1462_crit_edge.i, %while.end682.i
-  %152 = phi i64 [ %.pre569.i, %land.lhs.true.i1465.if.else.i1462_crit_edge.i ], [ %148, %while.end682.i ]
-  %153 = load i64, ptr %addr1.i1447.i, align 8
-  %call9.i1463.i = call i32 @flatview_read_continue(ptr noundef %147, i64 noundef %145, i32 1, ptr noundef nonnull %data677.i, i64 noundef 4, i64 noundef %153, i64 noundef %152, ptr noundef %call4.i1460.i) #18
+if.else.i1462.i:                                  ; preds = %memory_access_is_direct.exit546.i, %lor.rhs.i538.i, %while.end682.i
+  %159 = load i64, ptr %addr1.i1447.i, align 8
+  %160 = load i64, ptr %l.i1446.i, align 8
+  %call9.i1463.i = call i32 @flatview_read_continue(ptr noundef %151, i64 noundef %149, i32 1, ptr noundef nonnull %data677.i, i64 noundef 4, i64 noundef %159, i64 noundef %160, ptr noundef %call4.i1460.i) #18
   br label %if.end.i1464.i
 
 if.end.i1464.i:                                   ; preds = %if.else.i1462.i, %if.then6.i1467.i
   call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
-  %154 = load i32, ptr %data677.i, align 4
-  %call.i524.i = call zeroext i1 @target_words_bigendian() #18
-  %155 = call i32 @llvm.bswap.i32(i32 %154)
-  %retval.0.i525.i = select i1 %call.i524.i, i32 %155, i32 %154
-  %conv719.i = zext i32 %retval.0.i525.i to i64
+  %161 = load i32, ptr %data677.i, align 4
+  %call.i547.i = call zeroext i1 @target_words_bigendian() #18
+  %162 = call i32 @llvm.bswap.i32(i32 %161)
+  %retval.0.i548.i = select i1 %call.i547.i, i32 %162, i32 %161
+  %conv719.i = zext i32 %retval.0.i548.i to i64
   store i64 %conv719.i, ptr %value554.i, align 8
   br label %if.end770.i
 
 while.end731.i:                                   ; preds = %do.end571.i
-  %156 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %157 = inttoptr i64 %156 to ptr
+  %163 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %164 = inttoptr i64 %163 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %as733.i = getelementptr inbounds i8, ptr %157, i64 528
-  %158 = load ptr, ptr %as733.i, align 16
-  %159 = load i64, ptr %addr553.i, align 8
+  %as733.i = getelementptr inbounds i8, ptr %164, i64 528
+  %165 = load ptr, ptr %as733.i, align 16
+  %166 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i526.i = getelementptr inbounds i8, ptr %158, i64 32
-  %160 = load atomic i64, ptr %current_map.i526.i monotonic, align 8
-  %161 = inttoptr i64 %160 to ptr
+  %current_map.i549.i = getelementptr inbounds i8, ptr %165, i64 32
+  %167 = load atomic i64, ptr %current_map.i549.i monotonic, align 8
+  %168 = inttoptr i64 %167 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   store i64 8, ptr %l.i1415.i, align 8
-  %call4.i1429.i = call ptr @flatview_translate(ptr noundef %161, i64 noundef %159, ptr noundef nonnull %addr1.i1416.i, ptr noundef nonnull %l.i1415.i, i1 noundef zeroext false, i32 1) #18
-  %162 = load i64, ptr %l.i1415.i, align 8
-  %cmp.i1430.i = icmp eq i64 %162, 8
+  %call4.i1429.i = call ptr @flatview_translate(ptr noundef %168, i64 noundef %166, ptr noundef nonnull %addr1.i1416.i, ptr noundef nonnull %l.i1415.i, i1 noundef zeroext false, i32 1) #18
+  %169 = load i64, ptr %l.i1415.i, align 8
+  %cmp.i1430.i = icmp eq i64 %169, 8
   br i1 %cmp.i1430.i, label %land.lhs.true.i1434.i, label %if.else.i1431.i
 
 land.lhs.true.i1434.i:                            ; preds = %while.end731.i
-  %call5.i1435.i = call fastcc zeroext i1 @memory_access_is_direct(ptr noundef %call4.i1429.i)
-  br i1 %call5.i1435.i, label %if.then6.i1436.i, label %land.lhs.true.i1434.if.else.i1431_crit_edge.i
+  %170 = getelementptr i8, ptr %call4.i1429.i, i64 41
+  %mr.val.i550.i = load i8, ptr %170, align 1
+  %tobool.i.i551.i = trunc i8 %mr.val.i550.i to i1
+  br i1 %tobool.i.i551.i, label %land.lhs.true6.i558.i, label %lor.rhs.i552.i
 
-land.lhs.true.i1434.if.else.i1431_crit_edge.i:    ; preds = %land.lhs.true.i1434.i
-  %.pre568.i = load i64, ptr %l.i1415.i, align 8
-  br label %if.else.i1431.i
+land.lhs.true6.i558.i:                            ; preds = %land.lhs.true.i1434.i
+  %call7.i559.i = call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %call4.i1429.i) #18
+  br i1 %call7.i559.i, label %lor.rhs.i552.i, label %if.then6.i1436.i
 
-if.then6.i1436.i:                                 ; preds = %land.lhs.true.i1434.i
+lor.rhs.i552.i:                                   ; preds = %land.lhs.true6.i558.i, %land.lhs.true.i1434.i
+  %rom_device.i.i553.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 45
+  %171 = load i8, ptr %rom_device.i.i553.i, align 1
+  %tobool.i7.i554.i = trunc i8 %171 to i1
+  br i1 %tobool.i7.i554.i, label %memory_access_is_direct.exit560.i, label %if.else.i1431.i
+
+memory_access_is_direct.exit560.i:                ; preds = %lor.rhs.i552.i
+  %romd_mode.i.i556.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 40
+  %172 = load i8, ptr %romd_mode.i.i556.i, align 8
+  %tobool1.i.i557.i = trunc i8 %172 to i1
+  br i1 %tobool1.i.i557.i, label %if.then6.i1436.i, label %if.else.i1431.i
+
+if.then6.i1436.i:                                 ; preds = %memory_access_is_direct.exit560.i, %land.lhs.true6.i558.i
   %ram_block.i1437.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 56
-  %163 = load ptr, ptr %ram_block.i1437.i, align 8
-  %164 = load i64, ptr %addr1.i1416.i, align 8
-  %call7.i1438.i = call ptr @qemu_map_ram_ptr(ptr noundef %163, i64 noundef %164) #18
-  %165 = load i64, ptr %call7.i1438.i, align 1
-  store i64 %165, ptr %value554.i, align 8
+  %173 = load ptr, ptr %ram_block.i1437.i, align 8
+  %174 = load i64, ptr %addr1.i1416.i, align 8
+  %call7.i1438.i = call ptr @qemu_map_ram_ptr(ptr noundef %173, i64 noundef %174) #18
+  %175 = load i64, ptr %call7.i1438.i, align 1
+  store i64 %175, ptr %value554.i, align 8
   br label %if.end.i1433.i
 
-if.else.i1431.i:                                  ; preds = %land.lhs.true.i1434.if.else.i1431_crit_edge.i, %while.end731.i
-  %166 = phi i64 [ %.pre568.i, %land.lhs.true.i1434.if.else.i1431_crit_edge.i ], [ %162, %while.end731.i ]
-  %167 = load i64, ptr %addr1.i1416.i, align 8
-  %call9.i1432.i = call i32 @flatview_read_continue(ptr noundef %161, i64 noundef %159, i32 1, ptr noundef nonnull %value554.i, i64 noundef 8, i64 noundef %167, i64 noundef %166, ptr noundef %call4.i1429.i) #18
+if.else.i1431.i:                                  ; preds = %memory_access_is_direct.exit560.i, %lor.rhs.i552.i, %while.end731.i
+  %176 = load i64, ptr %addr1.i1416.i, align 8
+  %177 = load i64, ptr %l.i1415.i, align 8
+  %call9.i1432.i = call i32 @flatview_read_continue(ptr noundef %168, i64 noundef %166, i32 1, ptr noundef nonnull %value554.i, i64 noundef 8, i64 noundef %176, i64 noundef %177, ptr noundef %call4.i1429.i) #18
   br label %if.end.i1433.i
 
 if.end.i1433.i:                                   ; preds = %if.else.i1431.i, %if.then6.i1436.i
   call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
-  %call.i527.i = call zeroext i1 @target_words_bigendian() #18
-  br i1 %call.i527.i, label %if.then.i529.i, label %if.end770.i
+  %call.i561.i = call zeroext i1 @target_words_bigendian() #18
+  br i1 %call.i561.i, label %if.then.i563.i, label %if.end770.i
 
-if.then.i529.i:                                   ; preds = %if.end.i1433.i
-  %168 = load i64, ptr %value554.i, align 8
-  %169 = call i64 @llvm.bswap.i64(i64 %168)
-  store i64 %169, ptr %value554.i, align 8
+if.then.i563.i:                                   ; preds = %if.end.i1433.i
+  %178 = load i64, ptr %value554.i, align 8
+  %179 = call i64 @llvm.bswap.i64(i64 %178)
+  store i64 %179, ptr %value554.i, align 8
   br label %if.end770.i
 
-if.end770.i:                                      ; preds = %if.then.i529.i, %if.end.i1433.i, %if.end.i1464.i, %if.end.i1495.i, %if.end.i1526.i, %do.end571.i
-  %170 = load ptr, ptr @qtest_log_fp, align 8
-  %tobool.not.i7 = icmp eq ptr %170, null
+if.end770.i:                                      ; preds = %if.then.i563.i, %if.end.i1433.i, %if.end.i1464.i, %if.end.i1495.i, %if.end.i1526.i, %do.end571.i
+  %180 = load ptr, ptr @qtest_log_fp, align 8
+  %tobool.not.i7 = icmp eq ptr %180, null
   br i1 %tobool.not.i7, label %qtest_send_prefix.exit, label %lor.lhs.false.i8
 
 lor.lhs.false.i8:                                 ; preds = %if.end770.i
@@ -1437,14 +1482,14 @@ lor.lhs.false.i8:                                 ; preds = %if.end770.i
   br i1 %.b1.i, label %if.end.i, label %qtest_send_prefix.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i8
-  %171 = load ptr, ptr @timer, align 8
-  %call.i9 = call double @g_timer_elapsed(ptr noundef %171, ptr noundef null) #18
-  %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %170, ptr noundef nonnull @.str, double noundef %call.i9)
+  %181 = load ptr, ptr @timer, align 8
+  %call.i9 = call double @g_timer_elapsed(ptr noundef %181, ptr noundef null) #18
+  %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %180, ptr noundef nonnull @.str, double noundef %call.i9)
   br label %qtest_send_prefix.exit
 
 qtest_send_prefix.exit:                           ; preds = %if.end770.i, %lor.lhs.false.i8, %if.end.i
-  %172 = load i64, ptr %value554.i, align 8
-  call void (ptr, ptr, ...) @qtest_sendf(ptr poison, ptr noundef nonnull @.str.44, i64 noundef %172)
+  %182 = load i64, ptr %value554.i, align 8
+  call void (ptr, ptr, ...) @qtest_sendf(ptr poison, ptr noundef nonnull @.str.44, i64 noundef %182)
   br label %qtest_process_command.exit
 
 if.else771.i:                                     ; preds = %lor.lhs.false547.i
@@ -1454,14 +1499,14 @@ if.else771.i:                                     ; preds = %lor.lhs.false547.i
 
 do.body781.i:                                     ; preds = %if.else771.i
   %arrayidx782.i = getelementptr i8, ptr %call6, i64 8
-  %173 = load ptr, ptr %arrayidx782.i, align 8
-  %tobool783.not.i = icmp eq ptr %173, null
+  %183 = load ptr, ptr %arrayidx782.i, align 8
+  %tobool783.not.i = icmp eq ptr %183, null
   br i1 %tobool783.not.i, label %if.else788.i, label %land.lhs.true784.i
 
 land.lhs.true784.i:                               ; preds = %do.body781.i
   %arrayidx785.i = getelementptr i8, ptr %call6, i64 16
-  %174 = load ptr, ptr %arrayidx785.i, align 8
-  %tobool786.not.i = icmp eq ptr %174, null
+  %184 = load ptr, ptr %arrayidx785.i, align 8
+  %tobool786.not.i = icmp eq ptr %184, null
   br i1 %tobool786.not.i, label %if.else788.i, label %do.end790.i
 
 if.else788.i:                                     ; preds = %land.lhs.true784.i, %do.body781.i
@@ -1469,7 +1514,7 @@ if.else788.i:                                     ; preds = %land.lhs.true784.i,
   unreachable
 
 do.end790.i:                                      ; preds = %land.lhs.true784.i
-  %call792.i = call i32 @qemu_strtou64(ptr noundef nonnull %173, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr777.i) #18
+  %call792.i = call i32 @qemu_strtou64(ptr noundef nonnull %183, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr777.i) #18
   %cmp794.i = icmp eq i32 %call792.i, 0
   br i1 %cmp794.i, label %do.end799.i, label %if.else797.i
 
@@ -1478,8 +1523,8 @@ if.else797.i:                                     ; preds = %do.end790.i
   unreachable
 
 do.end799.i:                                      ; preds = %do.end790.i
-  %175 = load ptr, ptr %arrayidx785.i, align 8
-  %call801.i = call i32 @qemu_strtou64(ptr noundef %175, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len.i) #18
+  %185 = load ptr, ptr %arrayidx785.i, align 8
+  %call801.i = call i32 @qemu_strtou64(ptr noundef %185, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len.i) #18
   %cmp803.i = icmp eq i32 %call801.i, 0
   br i1 %cmp803.i, label %do.body809.i, label %if.else806.i
 
@@ -1488,8 +1533,8 @@ if.else806.i:                                     ; preds = %do.end799.i
   unreachable
 
 do.body809.i:                                     ; preds = %do.end799.i
-  %176 = load i64, ptr %len.i, align 8
-  %tobool810.not.i = icmp eq i64 %176, 0
+  %186 = load i64, ptr %len.i, align 8
+  %tobool810.not.i = icmp eq i64 %186, 0
   br i1 %tobool810.not.i, label %if.else812.i, label %do.end814.i
 
 if.else812.i:                                     ; preds = %do.body809.i
@@ -1497,34 +1542,34 @@ if.else812.i:                                     ; preds = %do.body809.i
   unreachable
 
 do.end814.i:                                      ; preds = %do.body809.i
-  %call815.i = call noalias ptr @g_malloc(i64 noundef %176) #22
-  %177 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %call815.i = call noalias ptr @g_malloc(i64 noundef %186) #22
+  %187 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
-  %178 = load i64, ptr %len.i, align 8
-  %179 = load i64, ptr %addr777.i, align 8
-  %180 = inttoptr i64 %177 to ptr
-  %as822.i = getelementptr inbounds i8, ptr %180, i64 528
-  %181 = load ptr, ptr %as822.i, align 16
-  %call13.i1391.i = call i32 @address_space_read_full(ptr noundef %181, i64 noundef %179, i32 1, ptr noundef %call815.i, i64 noundef %178) #18
-  %182 = load i64, ptr %len.i, align 8
-  %mul.i = shl i64 %182, 1
+  %188 = load i64, ptr %len.i, align 8
+  %189 = load i64, ptr %addr777.i, align 8
+  %190 = inttoptr i64 %187 to ptr
+  %as822.i = getelementptr inbounds i8, ptr %190, i64 528
+  %191 = load ptr, ptr %as822.i, align 16
+  %call13.i1391.i = call i32 @address_space_read_full(ptr noundef %191, i64 noundef %189, i32 1, ptr noundef %call815.i, i64 noundef %188) #18
+  %192 = load i64, ptr %len.i, align 8
+  %mul.i = shl i64 %192, 1
   %add.i = or disjoint i64 %mul.i, 1
   %call856.i = call noalias ptr @g_malloc(i64 noundef %add.i) #22
-  %183 = load i64, ptr %len.i, align 8
-  %cmp858558.not.i = icmp eq i64 %183, 0
-  br i1 %cmp858558.not.i, label %for.end868.i, label %for.body860.i
+  %193 = load i64, ptr %len.i, align 8
+  %cmp858619.not.i = icmp eq i64 %193, 0
+  br i1 %cmp858619.not.i, label %for.end868.i, label %for.body860.i
 
 for.body860.i:                                    ; preds = %do.end814.i, %for.body860.i
-  %i778.0559.i = phi i64 [ %inc867.i, %for.body860.i ], [ 0, %do.end814.i ]
-  %mul861.i = shl i64 %i778.0559.i, 1
+  %i778.0620.i = phi i64 [ %inc867.i, %for.body860.i ], [ 0, %do.end814.i ]
+  %mul861.i = shl i64 %i778.0620.i, 1
   %arrayidx862.i = getelementptr i8, ptr %call856.i, i64 %mul861.i
-  %arrayidx863.i = getelementptr i8, ptr %call815.i, i64 %i778.0559.i
-  %184 = load i8, ptr %arrayidx863.i, align 1
-  %conv864.i = zext i8 %184 to i32
+  %arrayidx863.i = getelementptr i8, ptr %call815.i, i64 %i778.0620.i
+  %194 = load i8, ptr %arrayidx863.i, align 1
+  %conv864.i = zext i8 %194 to i32
   %call865.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %arrayidx862.i, ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %conv864.i) #18
-  %inc867.i = add nuw i64 %i778.0559.i, 1
-  %185 = load i64, ptr %len.i, align 8
-  %cmp858.i = icmp ult i64 %inc867.i, %185
+  %inc867.i = add nuw i64 %i778.0620.i, 1
+  %195 = load i64, ptr %len.i, align 8
+  %cmp858.i = icmp ult i64 %inc867.i, %195
   br i1 %cmp858.i, label %for.body860.i, label %for.end868.i, !llvm.loop !19
 
 for.end868.i:                                     ; preds = %for.body860.i, %do.end814.i
@@ -1541,14 +1586,14 @@ if.else869.i:                                     ; preds = %if.else771.i
 
 do.body879.i:                                     ; preds = %if.else869.i
   %arrayidx880.i = getelementptr i8, ptr %call6, i64 8
-  %186 = load ptr, ptr %arrayidx880.i, align 8
-  %tobool881.not.i = icmp eq ptr %186, null
+  %196 = load ptr, ptr %arrayidx880.i, align 8
+  %tobool881.not.i = icmp eq ptr %196, null
   br i1 %tobool881.not.i, label %if.else886.i, label %land.lhs.true882.i
 
 land.lhs.true882.i:                               ; preds = %do.body879.i
   %arrayidx883.i = getelementptr i8, ptr %call6, i64 16
-  %187 = load ptr, ptr %arrayidx883.i, align 8
-  %tobool884.not.i = icmp eq ptr %187, null
+  %197 = load ptr, ptr %arrayidx883.i, align 8
+  %tobool884.not.i = icmp eq ptr %197, null
   br i1 %tobool884.not.i, label %if.else886.i, label %do.end888.i
 
 if.else886.i:                                     ; preds = %land.lhs.true882.i, %do.body879.i
@@ -1556,7 +1601,7 @@ if.else886.i:                                     ; preds = %land.lhs.true882.i,
   unreachable
 
 do.end888.i:                                      ; preds = %land.lhs.true882.i
-  %call890.i = call i32 @qemu_strtou64(ptr noundef nonnull %186, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr875.i) #18
+  %call890.i = call i32 @qemu_strtou64(ptr noundef nonnull %196, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr875.i) #18
   %cmp892.i = icmp eq i32 %call890.i, 0
   br i1 %cmp892.i, label %do.end897.i, label %if.else895.i
 
@@ -1565,8 +1610,8 @@ if.else895.i:                                     ; preds = %do.end888.i
   unreachable
 
 do.end897.i:                                      ; preds = %do.end888.i
-  %188 = load ptr, ptr %arrayidx883.i, align 8
-  %call899.i = call i32 @qemu_strtou64(ptr noundef %188, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len876.i) #18
+  %198 = load ptr, ptr %arrayidx883.i, align 8
+  %call899.i = call i32 @qemu_strtou64(ptr noundef %198, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len876.i) #18
   %cmp901.i = icmp eq i32 %call899.i, 0
   br i1 %cmp901.i, label %do.end906.i, label %if.else904.i
 
@@ -1575,18 +1620,18 @@ if.else904.i:                                     ; preds = %do.end897.i
   unreachable
 
 do.end906.i:                                      ; preds = %do.end897.i
-  %189 = load i64, ptr %len876.i, align 8
-  %call907.i = call noalias ptr @g_malloc(i64 noundef %189) #22
-  %190 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %199 = load i64, ptr %len876.i, align 8
+  %call907.i = call noalias ptr @g_malloc(i64 noundef %199) #22
+  %200 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !20
-  %191 = load i64, ptr %len876.i, align 8
-  %192 = load i64, ptr %addr875.i, align 8
-  %193 = inttoptr i64 %190 to ptr
-  %as914.i = getelementptr inbounds i8, ptr %193, i64 528
-  %194 = load ptr, ptr %as914.i, align 16
-  %call13.i.i = call i32 @address_space_read_full(ptr noundef %194, i64 noundef %192, i32 1, ptr noundef %call907.i, i64 noundef %191) #18
-  %195 = load i64, ptr %len876.i, align 8
-  %call948.i = call noalias ptr @g_base64_encode(ptr noundef %call907.i, i64 noundef %195) #18
+  %201 = load i64, ptr %len876.i, align 8
+  %202 = load i64, ptr %addr875.i, align 8
+  %203 = inttoptr i64 %200 to ptr
+  %as914.i = getelementptr inbounds i8, ptr %203, i64 528
+  %204 = load ptr, ptr %as914.i, align 16
+  %call13.i.i = call i32 @address_space_read_full(ptr noundef %204, i64 noundef %202, i32 1, ptr noundef %call907.i, i64 noundef %201) #18
+  %205 = load i64, ptr %len876.i, align 8
+  %call948.i = call noalias ptr @g_base64_encode(ptr noundef %call907.i, i64 noundef %205) #18
   call void @qtest_send_prefix(ptr poison)
   call void (ptr, ptr, ...) @qtest_sendf(ptr poison, ptr noundef nonnull @.str.50, ptr noundef %call948.i)
   call void @g_free(ptr noundef %call907.i) #18
@@ -1600,20 +1645,20 @@ if.else949.i:                                     ; preds = %if.else869.i
 
 do.body960.i:                                     ; preds = %if.else949.i
   %arrayidx961.i = getelementptr i8, ptr %call6, i64 8
-  %196 = load ptr, ptr %arrayidx961.i, align 8
-  %tobool962.not.i = icmp eq ptr %196, null
+  %206 = load ptr, ptr %arrayidx961.i, align 8
+  %tobool962.not.i = icmp eq ptr %206, null
   br i1 %tobool962.not.i, label %if.else970.i, label %land.lhs.true963.i
 
 land.lhs.true963.i:                               ; preds = %do.body960.i
   %arrayidx964.i = getelementptr i8, ptr %call6, i64 16
-  %197 = load ptr, ptr %arrayidx964.i, align 8
-  %tobool965.not.i = icmp eq ptr %197, null
+  %207 = load ptr, ptr %arrayidx964.i, align 8
+  %tobool965.not.i = icmp eq ptr %207, null
   br i1 %tobool965.not.i, label %if.else970.i, label %land.lhs.true966.i
 
 land.lhs.true966.i:                               ; preds = %land.lhs.true963.i
   %arrayidx967.i = getelementptr i8, ptr %call6, i64 24
-  %198 = load ptr, ptr %arrayidx967.i, align 8
-  %tobool968.not.i = icmp eq ptr %198, null
+  %208 = load ptr, ptr %arrayidx967.i, align 8
+  %tobool968.not.i = icmp eq ptr %208, null
   br i1 %tobool968.not.i, label %if.else970.i, label %do.end972.i
 
 if.else970.i:                                     ; preds = %land.lhs.true966.i, %land.lhs.true963.i, %do.body960.i
@@ -1621,7 +1666,7 @@ if.else970.i:                                     ; preds = %land.lhs.true966.i,
   unreachable
 
 do.end972.i:                                      ; preds = %land.lhs.true966.i
-  %call974.i = call i32 @qemu_strtou64(ptr noundef nonnull %196, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr955.i) #18
+  %call974.i = call i32 @qemu_strtou64(ptr noundef nonnull %206, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr955.i) #18
   %cmp976.i = icmp eq i32 %call974.i, 0
   br i1 %cmp976.i, label %do.end981.i, label %if.else979.i
 
@@ -1630,8 +1675,8 @@ if.else979.i:                                     ; preds = %do.end972.i
   unreachable
 
 do.end981.i:                                      ; preds = %do.end972.i
-  %199 = load ptr, ptr %arrayidx964.i, align 8
-  %call983.i = call i32 @qemu_strtou64(ptr noundef %199, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len956.i) #18
+  %209 = load ptr, ptr %arrayidx964.i, align 8
+  %call983.i = call i32 @qemu_strtou64(ptr noundef %209, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len956.i) #18
   %cmp985.i = icmp eq i32 %call983.i, 0
   br i1 %cmp985.i, label %do.end990.i, label %if.else988.i
 
@@ -1640,112 +1685,112 @@ if.else988.i:                                     ; preds = %do.end981.i
   unreachable
 
 do.end990.i:                                      ; preds = %do.end981.i
-  %200 = load ptr, ptr %arrayidx967.i, align 8
-  %call992.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %200) #20
+  %210 = load ptr, ptr %arrayidx967.i, align 8
+  %call992.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %210) #20
   %cmp993.i = icmp ult i64 %call992.i, 3
   br i1 %cmp993.i, label %if.then995.i, label %if.end996.i
 
 if.then995.i:                                     ; preds = %do.end990.i
-  %201 = load ptr, ptr @qtest_server_send, align 8
-  %202 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %201(ptr noundef %202, ptr noundef nonnull @.str.53) #18
+  %211 = load ptr, ptr @qtest_server_send, align 8
+  %212 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %211(ptr noundef %212, ptr noundef nonnull @.str.53) #18
   br label %qtest_process_command.exit
 
 if.end996.i:                                      ; preds = %do.end990.i
-  %203 = load i64, ptr %len956.i, align 8
-  %call997.i = call noalias ptr @g_malloc(i64 noundef %203) #22
-  %204 = load i64, ptr %len956.i, align 8
-  %cmp999556.not.i = icmp eq i64 %204, 0
-  br i1 %cmp999556.not.i, label %while.end1032.i, label %for.body1001.i
+  %213 = load i64, ptr %len956.i, align 8
+  %call997.i = call noalias ptr @g_malloc(i64 noundef %213) #22
+  %214 = load i64, ptr %len956.i, align 8
+  %cmp999617.not.i = icmp eq i64 %214, 0
+  br i1 %cmp999617.not.i, label %while.end1032.i, label %for.body1001.i
 
 for.body1001.i:                                   ; preds = %if.end996.i, %for.inc1025.i
-  %i957.0557.i = phi i64 [ %inc1026.i, %for.inc1025.i ], [ 0, %if.end996.i ]
-  %mul1002.i = shl i64 %i957.0557.i, 1
+  %i957.0618.i = phi i64 [ %inc1026.i, %for.inc1025.i ], [ 0, %if.end996.i ]
+  %mul1002.i = shl i64 %i957.0618.i, 1
   %add1003.i = add i64 %mul1002.i, 4
   %cmp1004.not.i = icmp ugt i64 %add1003.i, %call992.i
   br i1 %cmp1004.not.i, label %if.else1022.i, label %if.then1006.i
 
 if.then1006.i:                                    ; preds = %for.body1001.i
-  %205 = load ptr, ptr %arrayidx967.i, align 8
-  %206 = getelementptr i8, ptr %205, i64 %mul1002.i
-  %arrayidx1010.i = getelementptr i8, ptr %206, i64 2
-  %207 = load i8, ptr %arrayidx1010.i, align 1
-  %208 = add i8 %207, -48
-  %or.cond.i.i = icmp ult i8 %208, 10
-  br i1 %or.cond.i.i, label %hex2nib.exit.i, label %if.else.i533.i
+  %215 = load ptr, ptr %arrayidx967.i, align 8
+  %216 = getelementptr i8, ptr %215, i64 %mul1002.i
+  %arrayidx1010.i = getelementptr i8, ptr %216, i64 2
+  %217 = load i8, ptr %arrayidx1010.i, align 1
+  %218 = add i8 %217, -48
+  %or.cond.i.i = icmp ult i8 %218, 10
+  br i1 %or.cond.i.i, label %hex2nib.exit.i, label %if.else.i589.i
 
-if.else.i533.i:                                   ; preds = %if.then1006.i
-  %209 = add i8 %207, -97
-  %or.cond1.i.i = icmp ult i8 %209, 6
+if.else.i589.i:                                   ; preds = %if.then1006.i
+  %219 = add i8 %217, -97
+  %or.cond1.i.i = icmp ult i8 %219, 6
   br i1 %or.cond1.i.i, label %if.then13.i.i, label %if.else16.i.i
 
-if.then13.i.i:                                    ; preds = %if.else.i533.i
-  %add.i.i = add nsw i8 %207, -87
+if.then13.i.i:                                    ; preds = %if.else.i589.i
+  %add.i.i = add nsw i8 %217, -87
   br label %hex2nib.exit.i
 
-if.else16.i.i:                                    ; preds = %if.else.i533.i
-  %210 = add i8 %207, -65
-  %or.cond2.i.i = icmp ult i8 %210, 6
-  %add27.i.i = add i8 %207, -55
+if.else16.i.i:                                    ; preds = %if.else.i589.i
+  %220 = add i8 %217, -65
+  %or.cond2.i.i = icmp ult i8 %220, 6
+  %add27.i.i = add i8 %217, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i8 %add27.i.i, i8 -1
   br label %hex2nib.exit.i
 
 hex2nib.exit.i:                                   ; preds = %if.else16.i.i, %if.then13.i.i, %if.then1006.i
-  %retval.0.i534.i = phi i8 [ %add.i.i, %if.then13.i.i ], [ %spec.select.i.i, %if.else16.i.i ], [ %208, %if.then1006.i ]
-  %conv1012.i = shl i8 %retval.0.i534.i, 4
-  %arrayidx1013.i = getelementptr i8, ptr %call997.i, i64 %i957.0557.i
-  %arrayidx1017.i = getelementptr i8, ptr %206, i64 3
-  %211 = load i8, ptr %arrayidx1017.i, align 1
-  %212 = add i8 %211, -48
-  %or.cond.i537.i = icmp ult i8 %212, 10
-  br i1 %or.cond.i537.i, label %hex2nib.exit549.i, label %if.else.i538.i
+  %retval.0.i590.i = phi i8 [ %add.i.i, %if.then13.i.i ], [ %spec.select.i.i, %if.else16.i.i ], [ %218, %if.then1006.i ]
+  %conv1012.i = shl i8 %retval.0.i590.i, 4
+  %arrayidx1013.i = getelementptr i8, ptr %call997.i, i64 %i957.0618.i
+  %arrayidx1017.i = getelementptr i8, ptr %216, i64 3
+  %221 = load i8, ptr %arrayidx1017.i, align 1
+  %222 = add i8 %221, -48
+  %or.cond.i593.i = icmp ult i8 %222, 10
+  br i1 %or.cond.i593.i, label %hex2nib.exit605.i, label %if.else.i594.i
 
-if.else.i538.i:                                   ; preds = %hex2nib.exit.i
-  %213 = add i8 %211, -97
-  %or.cond1.i539.i = icmp ult i8 %213, 6
-  br i1 %or.cond1.i539.i, label %if.then13.i545.i, label %if.else16.i540.i
+if.else.i594.i:                                   ; preds = %hex2nib.exit.i
+  %223 = add i8 %221, -97
+  %or.cond1.i595.i = icmp ult i8 %223, 6
+  br i1 %or.cond1.i595.i, label %if.then13.i601.i, label %if.else16.i596.i
 
-if.then13.i545.i:                                 ; preds = %if.else.i538.i
-  %add.i546.i = add nsw i8 %211, -87
-  br label %hex2nib.exit549.i
+if.then13.i601.i:                                 ; preds = %if.else.i594.i
+  %add.i602.i = add nsw i8 %221, -87
+  br label %hex2nib.exit605.i
 
-if.else16.i540.i:                                 ; preds = %if.else.i538.i
-  %214 = add i8 %211, -65
-  %or.cond2.i541.i = icmp ult i8 %214, 6
-  %add27.i542.i = add i8 %211, -55
-  %spec.select.i543.i = select i1 %or.cond2.i541.i, i8 %add27.i542.i, i8 -1
-  br label %hex2nib.exit549.i
+if.else16.i596.i:                                 ; preds = %if.else.i594.i
+  %224 = add i8 %221, -65
+  %or.cond2.i597.i = icmp ult i8 %224, 6
+  %add27.i598.i = add i8 %221, -55
+  %spec.select.i599.i = select i1 %or.cond2.i597.i, i8 %add27.i598.i, i8 -1
+  br label %hex2nib.exit605.i
 
-hex2nib.exit549.i:                                ; preds = %if.else16.i540.i, %if.then13.i545.i, %hex2nib.exit.i
-  %retval.0.i544.i = phi i8 [ %add.i546.i, %if.then13.i545.i ], [ %spec.select.i543.i, %if.else16.i540.i ], [ %212, %hex2nib.exit.i ]
-  %conv1021.i = or i8 %retval.0.i544.i, %conv1012.i
+hex2nib.exit605.i:                                ; preds = %if.else16.i596.i, %if.then13.i601.i, %hex2nib.exit.i
+  %retval.0.i600.i = phi i8 [ %add.i602.i, %if.then13.i601.i ], [ %spec.select.i599.i, %if.else16.i596.i ], [ %222, %hex2nib.exit.i ]
+  %conv1021.i = or i8 %retval.0.i600.i, %conv1012.i
   store i8 %conv1021.i, ptr %arrayidx1013.i, align 1
   br label %for.inc1025.i
 
 if.else1022.i:                                    ; preds = %for.body1001.i
-  %arrayidx1023.i = getelementptr i8, ptr %call997.i, i64 %i957.0557.i
+  %arrayidx1023.i = getelementptr i8, ptr %call997.i, i64 %i957.0618.i
   store i8 0, ptr %arrayidx1023.i, align 1
   br label %for.inc1025.i
 
-for.inc1025.i:                                    ; preds = %if.else1022.i, %hex2nib.exit549.i
-  %inc1026.i = add nuw i64 %i957.0557.i, 1
-  %exitcond.not.i = icmp eq i64 %inc1026.i, %204
+for.inc1025.i:                                    ; preds = %if.else1022.i, %hex2nib.exit605.i
+  %inc1026.i = add nuw i64 %i957.0618.i, 1
+  %exitcond.not.i = icmp eq i64 %inc1026.i, %214
   br i1 %exitcond.not.i, label %while.end1032.i, label %for.body1001.i, !llvm.loop !21
 
 while.end1032.i:                                  ; preds = %for.inc1025.i, %if.end996.i
-  %215 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %216 = inttoptr i64 %215 to ptr
+  %225 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %226 = inttoptr i64 %225 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
-  %as1034.i = getelementptr inbounds i8, ptr %216, i64 528
-  %217 = load ptr, ptr %as1034.i, align 16
-  %218 = load i64, ptr %addr955.i, align 8
-  %219 = load i64, ptr %len956.i, align 8
-  %call1067.i = call i32 @address_space_write(ptr noundef %217, i64 noundef %218, i32 1, ptr noundef %call997.i, i64 noundef %219) #18
+  %as1034.i = getelementptr inbounds i8, ptr %226, i64 528
+  %227 = load ptr, ptr %as1034.i, align 16
+  %228 = load i64, ptr %addr955.i, align 8
+  %229 = load i64, ptr %len956.i, align 8
+  %call1067.i = call i32 @address_space_write(ptr noundef %227, i64 noundef %228, i32 1, ptr noundef %call997.i, i64 noundef %229) #18
   call void @g_free(ptr noundef %call997.i) #18
   call void @qtest_send_prefix(ptr poison)
-  %220 = load ptr, ptr @qtest_server_send, align 8
-  %221 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %220(ptr noundef %221, ptr noundef nonnull @.str.20) #18
+  %230 = load ptr, ptr @qtest_server_send, align 8
+  %231 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %230(ptr noundef %231, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else1068.i:                                    ; preds = %if.else949.i
@@ -1755,20 +1800,20 @@ if.else1068.i:                                    ; preds = %if.else949.i
 
 do.body1078.i:                                    ; preds = %if.else1068.i
   %arrayidx1079.i = getelementptr i8, ptr %call6, i64 8
-  %222 = load ptr, ptr %arrayidx1079.i, align 8
-  %tobool1080.not.i = icmp eq ptr %222, null
+  %232 = load ptr, ptr %arrayidx1079.i, align 8
+  %tobool1080.not.i = icmp eq ptr %232, null
   br i1 %tobool1080.not.i, label %if.else1088.i, label %land.lhs.true1081.i
 
 land.lhs.true1081.i:                              ; preds = %do.body1078.i
   %arrayidx1082.i = getelementptr i8, ptr %call6, i64 16
-  %223 = load ptr, ptr %arrayidx1082.i, align 8
-  %tobool1083.not.i = icmp eq ptr %223, null
+  %233 = load ptr, ptr %arrayidx1082.i, align 8
+  %tobool1083.not.i = icmp eq ptr %233, null
   br i1 %tobool1083.not.i, label %if.else1088.i, label %land.lhs.true1084.i
 
 land.lhs.true1084.i:                              ; preds = %land.lhs.true1081.i
   %arrayidx1085.i = getelementptr i8, ptr %call6, i64 24
-  %224 = load ptr, ptr %arrayidx1085.i, align 8
-  %tobool1086.not.i = icmp eq ptr %224, null
+  %234 = load ptr, ptr %arrayidx1085.i, align 8
+  %tobool1086.not.i = icmp eq ptr %234, null
   br i1 %tobool1086.not.i, label %if.else1088.i, label %do.end1090.i
 
 if.else1088.i:                                    ; preds = %land.lhs.true1084.i, %land.lhs.true1081.i, %do.body1078.i
@@ -1776,7 +1821,7 @@ if.else1088.i:                                    ; preds = %land.lhs.true1084.i
   unreachable
 
 do.end1090.i:                                     ; preds = %land.lhs.true1084.i
-  %call1092.i = call i32 @qemu_strtou64(ptr noundef nonnull %222, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr1074.i) #18
+  %call1092.i = call i32 @qemu_strtou64(ptr noundef nonnull %232, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr1074.i) #18
   %cmp1094.i = icmp eq i32 %call1092.i, 0
   br i1 %cmp1094.i, label %do.end1099.i, label %if.else1097.i
 
@@ -1785,8 +1830,8 @@ if.else1097.i:                                    ; preds = %do.end1090.i
   unreachable
 
 do.end1099.i:                                     ; preds = %do.end1090.i
-  %225 = load ptr, ptr %arrayidx1082.i, align 8
-  %call1101.i = call i32 @qemu_strtou64(ptr noundef %225, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len1075.i) #18
+  %235 = load ptr, ptr %arrayidx1082.i, align 8
+  %call1101.i = call i32 @qemu_strtou64(ptr noundef %235, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len1075.i) #18
   %cmp1103.i = icmp eq i32 %call1101.i, 0
   br i1 %cmp1103.i, label %do.end1108.i, label %if.else1106.i
 
@@ -1795,8 +1840,8 @@ if.else1106.i:                                    ; preds = %do.end1099.i
   unreachable
 
 do.end1108.i:                                     ; preds = %do.end1099.i
-  %226 = load ptr, ptr %arrayidx1085.i, align 8
-  %call1110.i = call i32 @qemu_strtoul(ptr noundef %226, ptr noundef null, i32 noundef 0, ptr noundef nonnull %pattern.i) #18
+  %236 = load ptr, ptr %arrayidx1085.i, align 8
+  %call1110.i = call i32 @qemu_strtoul(ptr noundef %236, ptr noundef null, i32 noundef 0, ptr noundef nonnull %pattern.i) #18
   %cmp1112.i = icmp eq i32 %call1110.i, 0
   br i1 %cmp1112.i, label %do.end1117.i, label %if.else1115.i
 
@@ -1805,32 +1850,32 @@ if.else1115.i:                                    ; preds = %do.end1108.i
   unreachable
 
 do.end1117.i:                                     ; preds = %do.end1108.i
-  %227 = load i64, ptr %len1075.i, align 8
-  %tobool1118.not.i = icmp eq i64 %227, 0
+  %237 = load i64, ptr %len1075.i, align 8
+  %tobool1118.not.i = icmp eq i64 %237, 0
   br i1 %tobool1118.not.i, label %if.end1162.i, label %if.then1119.i
 
 if.then1119.i:                                    ; preds = %do.end1117.i
-  %call1120.i = call noalias ptr @g_malloc(i64 noundef %227) #22
-  %228 = load i64, ptr %pattern.i, align 8
-  %229 = trunc i64 %228 to i8
-  %230 = load i64, ptr %len1075.i, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %call1120.i, i8 %229, i64 %230, i1 false)
-  %231 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %232 = inttoptr i64 %231 to ptr
+  %call1120.i = call noalias ptr @g_malloc(i64 noundef %237) #22
+  %238 = load i64, ptr %pattern.i, align 8
+  %239 = trunc i64 %238 to i8
+  %240 = load i64, ptr %len1075.i, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %call1120.i, i8 %239, i64 %240, i1 false)
+  %241 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %242 = inttoptr i64 %241 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !23
-  %as1128.i = getelementptr inbounds i8, ptr %232, i64 528
-  %233 = load ptr, ptr %as1128.i, align 16
-  %234 = load i64, ptr %addr1074.i, align 8
-  %235 = load i64, ptr %len1075.i, align 8
-  %call1161.i = call i32 @address_space_write(ptr noundef %233, i64 noundef %234, i32 1, ptr noundef %call1120.i, i64 noundef %235) #18
+  %as1128.i = getelementptr inbounds i8, ptr %242, i64 528
+  %243 = load ptr, ptr %as1128.i, align 16
+  %244 = load i64, ptr %addr1074.i, align 8
+  %245 = load i64, ptr %len1075.i, align 8
+  %call1161.i = call i32 @address_space_write(ptr noundef %243, i64 noundef %244, i32 1, ptr noundef %call1120.i, i64 noundef %245) #18
   call void @g_free(ptr noundef %call1120.i) #18
   br label %if.end1162.i
 
 if.end1162.i:                                     ; preds = %if.then1119.i, %do.end1117.i
   call void @qtest_send_prefix(ptr poison)
-  %236 = load ptr, ptr @qtest_server_send, align 8
-  %237 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %236(ptr noundef %237, ptr noundef nonnull @.str.20) #18
+  %246 = load ptr, ptr @qtest_server_send, align 8
+  %247 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %246(ptr noundef %247, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else1163.i:                                    ; preds = %if.else1068.i
@@ -1840,20 +1885,20 @@ if.else1163.i:                                    ; preds = %if.else1068.i
 
 do.body1174.i:                                    ; preds = %if.else1163.i
   %arrayidx1175.i = getelementptr i8, ptr %call6, i64 8
-  %238 = load ptr, ptr %arrayidx1175.i, align 8
-  %tobool1176.not.i = icmp eq ptr %238, null
+  %248 = load ptr, ptr %arrayidx1175.i, align 8
+  %tobool1176.not.i = icmp eq ptr %248, null
   br i1 %tobool1176.not.i, label %if.else1184.i, label %land.lhs.true1177.i
 
 land.lhs.true1177.i:                              ; preds = %do.body1174.i
   %arrayidx1178.i = getelementptr i8, ptr %call6, i64 16
-  %239 = load ptr, ptr %arrayidx1178.i, align 8
-  %tobool1179.not.i = icmp eq ptr %239, null
+  %249 = load ptr, ptr %arrayidx1178.i, align 8
+  %tobool1179.not.i = icmp eq ptr %249, null
   br i1 %tobool1179.not.i, label %if.else1184.i, label %land.lhs.true1180.i
 
 land.lhs.true1180.i:                              ; preds = %land.lhs.true1177.i
   %arrayidx1181.i = getelementptr i8, ptr %call6, i64 24
-  %240 = load ptr, ptr %arrayidx1181.i, align 8
-  %tobool1182.not.i = icmp eq ptr %240, null
+  %250 = load ptr, ptr %arrayidx1181.i, align 8
+  %tobool1182.not.i = icmp eq ptr %250, null
   br i1 %tobool1182.not.i, label %if.else1184.i, label %do.end1186.i
 
 if.else1184.i:                                    ; preds = %land.lhs.true1180.i, %land.lhs.true1177.i, %do.body1174.i
@@ -1861,7 +1906,7 @@ if.else1184.i:                                    ; preds = %land.lhs.true1180.i
   unreachable
 
 do.end1186.i:                                     ; preds = %land.lhs.true1180.i
-  %call1188.i = call i32 @qemu_strtou64(ptr noundef nonnull %238, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr1169.i) #18
+  %call1188.i = call i32 @qemu_strtou64(ptr noundef nonnull %248, ptr noundef null, i32 noundef 0, ptr noundef nonnull %addr1169.i) #18
   %cmp1190.i = icmp eq i32 %call1188.i, 0
   br i1 %cmp1190.i, label %do.end1195.i, label %if.else1193.i
 
@@ -1870,8 +1915,8 @@ if.else1193.i:                                    ; preds = %do.end1186.i
   unreachable
 
 do.end1195.i:                                     ; preds = %do.end1186.i
-  %241 = load ptr, ptr %arrayidx1178.i, align 8
-  %call1197.i = call i32 @qemu_strtou64(ptr noundef %241, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len1170.i) #18
+  %251 = load ptr, ptr %arrayidx1178.i, align 8
+  %call1197.i = call i32 @qemu_strtou64(ptr noundef %251, ptr noundef null, i32 noundef 0, ptr noundef nonnull %len1170.i) #18
   %cmp1199.i = icmp eq i32 %call1197.i, 0
   br i1 %cmp1199.i, label %do.end1204.i, label %if.else1202.i
 
@@ -1880,45 +1925,45 @@ if.else1202.i:                                    ; preds = %do.end1195.i
   unreachable
 
 do.end1204.i:                                     ; preds = %do.end1195.i
-  %242 = load ptr, ptr %arrayidx1181.i, align 8
-  %call1206.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %242) #20
+  %252 = load ptr, ptr %arrayidx1181.i, align 8
+  %call1206.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #20
   %cmp1207.i = icmp ult i64 %call1206.i, 3
   br i1 %cmp1207.i, label %if.then1209.i, label %if.end1210.i
 
 if.then1209.i:                                    ; preds = %do.end1204.i
-  %243 = load ptr, ptr @qtest_server_send, align 8
-  %244 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %243(ptr noundef %244, ptr noundef nonnull @.str.53) #18
+  %253 = load ptr, ptr @qtest_server_send, align 8
+  %254 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %253(ptr noundef %254, ptr noundef nonnull @.str.53) #18
   br label %qtest_process_command.exit
 
 if.end1210.i:                                     ; preds = %do.end1204.i
-  %call1212.i = call ptr @g_base64_decode_inplace(ptr noundef %242, ptr noundef nonnull %out_len.i) #18
-  %245 = load i64, ptr %out_len.i, align 8
-  %246 = load i64, ptr %len1170.i, align 8
-  %cmp1213.not.i = icmp eq i64 %245, %246
+  %call1212.i = call ptr @g_base64_decode_inplace(ptr noundef %252, ptr noundef nonnull %out_len.i) #18
+  %255 = load i64, ptr %out_len.i, align 8
+  %256 = load i64, ptr %len1170.i, align 8
+  %cmp1213.not.i = icmp eq i64 %255, %256
   br i1 %cmp1213.not.i, label %while.end1224.i, label %if.then1215.i
 
 if.then1215.i:                                    ; preds = %if.end1210.i
-  call void (ptr, ...) @qtest_log_send(ptr nonnull poison, i64 noundef %246, i64 noundef %245)
-  %247 = load i64, ptr %out_len.i, align 8
-  %248 = load i64, ptr %len1170.i, align 8
-  %cond.i = call i64 @llvm.umin.i64(i64 %247, i64 %248)
+  call void (ptr, ...) @qtest_log_send(ptr nonnull poison, i64 noundef %256, i64 noundef %255)
+  %257 = load i64, ptr %out_len.i, align 8
+  %258 = load i64, ptr %len1170.i, align 8
+  %cond.i = call i64 @llvm.umin.i64(i64 %257, i64 %258)
   store i64 %cond.i, ptr %out_len.i, align 8
   br label %while.end1224.i
 
 while.end1224.i:                                  ; preds = %if.then1215.i, %if.end1210.i
-  %249 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %250 = inttoptr i64 %249 to ptr
+  %259 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %260 = inttoptr i64 %259 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !24
-  %as1226.i = getelementptr inbounds i8, ptr %250, i64 528
-  %251 = load ptr, ptr %as1226.i, align 16
-  %252 = load i64, ptr %addr1169.i, align 8
-  %253 = load i64, ptr %len1170.i, align 8
-  %call1259.i = call i32 @address_space_write(ptr noundef %251, i64 noundef %252, i32 1, ptr noundef %call1212.i, i64 noundef %253) #18
+  %as1226.i = getelementptr inbounds i8, ptr %260, i64 528
+  %261 = load ptr, ptr %as1226.i, align 16
+  %262 = load i64, ptr %addr1169.i, align 8
+  %263 = load i64, ptr %len1170.i, align 8
+  %call1259.i = call i32 @address_space_write(ptr noundef %261, i64 noundef %262, i32 1, ptr noundef %call1212.i, i64 noundef %263) #18
   call void @qtest_send_prefix(ptr poison)
-  %254 = load ptr, ptr @qtest_server_send, align 8
-  %255 = load ptr, ptr @qtest_server_send_opaque, align 8
-  call void %254(ptr noundef %255, ptr noundef nonnull @.str.20) #18
+  %264 = load ptr, ptr @qtest_server_send, align 8
+  %265 = load ptr, ptr @qtest_server_send_opaque, align 8
+  call void %264(ptr noundef %265, ptr noundef nonnull @.str.20) #18
   br label %qtest_process_command.exit
 
 if.else1260.i:                                    ; preds = %if.else1163.i
@@ -1940,10 +1985,9 @@ if.else1268.i:                                    ; preds = %if.then1265.i
   br label %qtest_process_command.exit
 
 if.else1270.i:                                    ; preds = %if.else1260.i
-  %256 = load i8, ptr @qtest_allowed, align 1
-  %257 = and i8 %256, 1
-  %tobool.i.not553.i = icmp eq i8 %257, 0
-  br i1 %tobool.i.not553.i, label %if.else1298.thread.i, label %land.lhs.true1273.i
+  %266 = load i8, ptr @qtest_allowed, align 1
+  %tobool.i.i = trunc i8 %266 to i1
+  br i1 %tobool.i.i, label %land.lhs.true1273.i, label %if.else1298.thread.i
 
 land.lhs.true1273.i:                              ; preds = %if.else1270.i
   %call1275.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(11) @.str.60) #20
@@ -1952,12 +1996,12 @@ land.lhs.true1273.i:                              ; preds = %if.else1270.i
 
 if.then1278.i:                                    ; preds = %land.lhs.true1273.i
   %arrayidx1279.i = getelementptr i8, ptr %call6, i64 8
-  %258 = load ptr, ptr %arrayidx1279.i, align 8
-  %tobool1280.not.i = icmp eq ptr %258, null
+  %267 = load ptr, ptr %arrayidx1279.i, align 8
+  %tobool1280.not.i = icmp eq ptr %267, null
   br i1 %tobool1280.not.i, label %if.else1292.i, label %if.then1281.i
 
 if.then1281.i:                                    ; preds = %if.then1278.i
-  %call1284.i = call i32 @qemu_strtoi64(ptr noundef nonnull %258, ptr noundef null, i32 noundef 0, ptr noundef nonnull %ns.i) #18
+  %call1284.i = call i32 @qemu_strtoi64(ptr noundef nonnull %267, ptr noundef null, i32 noundef 0, ptr noundef nonnull %ns.i) #18
   %cmp1286.i = icmp eq i32 %call1284.i, 0
   br i1 %cmp1286.i, label %if.end1294.i, label %if.else1289.i
 
@@ -1972,8 +2016,8 @@ if.else1292.i:                                    ; preds = %if.then1278.i
 
 if.end1294.i:                                     ; preds = %if.else1292.i, %if.then1281.i
   %call1295.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #18
-  %259 = load i64, ptr %ns.i, align 8
-  %add1296.i = add i64 %259, %call1295.i
+  %268 = load i64, ptr %ns.i, align 8
+  %add1296.i = add i64 %268, %call1295.i
   call fastcc void @qtest_clock_warp(i64 noundef %add1296.i)
   call void @qtest_send_prefix(ptr poison)
   %call1297.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #18
@@ -1986,21 +2030,21 @@ if.else1298.i:                                    ; preds = %land.lhs.true1273.i
   br i1 %cmp1301.i, label %if.then1303.i, label %land.lhs.true1329.i
 
 if.else1298.thread.i:                             ; preds = %if.else1270.i
-  %call1300551.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(12) @.str.62) #20
-  %cmp1301552.i = icmp eq i32 %call1300551.i, 0
-  br i1 %cmp1301552.i, label %if.then1303.i, label %if.else1354.i
+  %call1300613.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(12) @.str.62) #20
+  %cmp1301614.i = icmp eq i32 %call1300613.i, 0
+  br i1 %cmp1301614.i, label %if.then1303.i, label %if.else1354.i
 
 if.then1303.i:                                    ; preds = %if.else1298.thread.i, %if.else1298.i
   store ptr null, ptr %local_err.i, align 8
   %arrayidx1305.i = getelementptr i8, ptr %call6, i64 8
-  %260 = load ptr, ptr %arrayidx1305.i, align 8
-  %tobool1306.not.i = icmp eq ptr %260, null
+  %269 = load ptr, ptr %arrayidx1305.i, align 8
+  %tobool1306.not.i = icmp eq ptr %269, null
   br i1 %tobool1306.not.i, label %if.else1311.i, label %land.lhs.true1307.i
 
 land.lhs.true1307.i:                              ; preds = %if.then1303.i
   %arrayidx1308.i = getelementptr i8, ptr %call6, i64 16
-  %261 = load ptr, ptr %arrayidx1308.i, align 8
-  %tobool1309.not.i = icmp eq ptr %261, null
+  %270 = load ptr, ptr %arrayidx1308.i, align 8
+  %tobool1309.not.i = icmp eq ptr %270, null
   br i1 %tobool1309.not.i, label %if.else1311.i, label %do.end1313.i
 
 if.else1311.i:                                    ; preds = %land.lhs.true1307.i, %if.then1303.i
@@ -2009,9 +2053,9 @@ if.else1311.i:                                    ; preds = %land.lhs.true1307.i
 
 do.end1313.i:                                     ; preds = %land.lhs.true1307.i
   call void @qtest_send_prefix(ptr poison)
-  %262 = load ptr, ptr %arrayidx1305.i, align 8
-  %263 = load ptr, ptr %arrayidx1308.i, align 8
-  %call1316.i = call i32 @module_load(ptr noundef %262, ptr noundef %263, ptr noundef nonnull %local_err.i) #18
+  %271 = load ptr, ptr %arrayidx1305.i, align 8
+  %272 = load ptr, ptr %arrayidx1308.i, align 8
+  %call1316.i = call i32 @module_load(ptr noundef %271, ptr noundef %272, ptr noundef nonnull %local_err.i) #18
   %cmp1317.i = icmp sgt i32 %call1316.i, 0
   br i1 %cmp1317.i, label %if.then1319.i, label %if.else1320.i
 
@@ -2024,8 +2068,8 @@ if.else1320.i:                                    ; preds = %do.end1313.i
   br i1 %cmp1321.i, label %if.then1323.i, label %if.end1324.i
 
 if.then1323.i:                                    ; preds = %if.else1320.i
-  %264 = load ptr, ptr %local_err.i, align 8
-  call void @error_report_err(ptr noundef %264) #18
+  %273 = load ptr, ptr %local_err.i, align 8
+  call void @error_report_err(ptr noundef %273) #18
   br label %if.end1324.i
 
 if.end1324.i:                                     ; preds = %if.then1323.i, %if.else1320.i
@@ -2039,8 +2083,8 @@ land.lhs.true1329.i:                              ; preds = %if.else1298.i
 
 do.body1337.i:                                    ; preds = %land.lhs.true1329.i
   %arrayidx1338.i = getelementptr i8, ptr %call6, i64 8
-  %265 = load ptr, ptr %arrayidx1338.i, align 8
-  %tobool1339.not.i = icmp eq ptr %265, null
+  %274 = load ptr, ptr %arrayidx1338.i, align 8
+  %tobool1339.not.i = icmp eq ptr %274, null
   br i1 %tobool1339.not.i, label %if.else1341.i, label %do.end1343.i
 
 if.else1341.i:                                    ; preds = %do.body1337.i
@@ -2048,7 +2092,7 @@ if.else1341.i:                                    ; preds = %do.body1337.i
   unreachable
 
 do.end1343.i:                                     ; preds = %do.body1337.i
-  %call1345.i = call i32 @qemu_strtoi64(ptr noundef nonnull %265, ptr noundef null, i32 noundef 0, ptr noundef nonnull %ns1335.i) #18
+  %call1345.i = call i32 @qemu_strtoi64(ptr noundef nonnull %274, ptr noundef null, i32 noundef 0, ptr noundef nonnull %ns1335.i) #18
   %cmp1347.i = icmp eq i32 %call1345.i, 0
   br i1 %cmp1347.i, label %do.end1352.i, label %if.else1350.i
 
@@ -2057,26 +2101,26 @@ if.else1350.i:                                    ; preds = %do.end1343.i
   unreachable
 
 do.end1352.i:                                     ; preds = %do.end1343.i
-  %266 = load i64, ptr %ns1335.i, align 8
-  call fastcc void @qtest_clock_warp(i64 noundef %266)
+  %275 = load i64, ptr %ns1335.i, align 8
+  call fastcc void @qtest_clock_warp(i64 noundef %275)
   call void @qtest_send_prefix(ptr poison)
   %call1353.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   call void (ptr, ptr, ...) @qtest_sendf(ptr poison, ptr noundef nonnull @.str.61, i64 noundef %call1353.i)
   br label %qtest_process_command.exit
 
 if.else1354.i:                                    ; preds = %land.lhs.true1329.i, %if.else1298.thread.i
-  %267 = load ptr, ptr @process_command_cb, align 8
-  %tobool1355.not.i = icmp eq ptr %267, null
+  %276 = load ptr, ptr @process_command_cb, align 8
+  %tobool1355.not.i = icmp eq ptr %276, null
   br i1 %tobool1355.not.i, label %if.else1360.i, label %land.lhs.true1356.i
 
 land.lhs.true1356.i:                              ; preds = %if.else1354.i
-  %call1357.i = call zeroext i1 %267(ptr noundef %chr, ptr noundef nonnull %call6) #18
+  %call1357.i = call zeroext i1 %276(ptr noundef %chr, ptr noundef nonnull %call6) #18
   br i1 %call1357.i, label %qtest_process_command.exit, label %if.else1360.i
 
 if.else1360.i:                                    ; preds = %land.lhs.true1356.i, %if.else1354.i
   call void @qtest_send_prefix(ptr poison)
-  %268 = load ptr, ptr %call6, align 8
-  call void (ptr, ptr, ...) @qtest_sendf(ptr poison, ptr noundef nonnull @.str.65, ptr noundef %268)
+  %277 = load ptr, ptr %call6, align 8
+  call void (ptr, ptr, ...) @qtest_sendf(ptr poison, ptr noundef nonnull @.str.65, ptr noundef %277)
   br label %qtest_process_command.exit
 
 qtest_process_command.exit:                       ; preds = %qtest_send_prefix.exit.i, %qtest_send_prefix.exit466.i, %if.then52.i, %if.else53.i, %if.then81.i, %if.else82.i, %qtest_send_prefix.exit490.i, %qtest_send_prefix.exit497.i, %qtest_send_prefix.exit504.i, %qtest_send_prefix.exit511.i, %qtest_send_prefix.exit16, %qtest_send_prefix.exit, %for.end868.i, %do.end906.i, %if.then995.i, %while.end1032.i, %if.end1162.i, %if.then1209.i, %while.end1224.i, %if.then1267.i, %if.else1268.i, %if.end1294.i, %if.then1319.i, %if.end1324.i, %do.end1352.i, %land.lhs.true1356.i, %if.else1360.i
@@ -2121,8 +2165,8 @@ qtest_process_command.exit:                       ; preds = %qtest_send_prefix.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ns1335.i)
   call void @g_strfreev(ptr noundef %call6) #18
   %call7 = call ptr @g_string_free(ptr noundef nonnull %call3, i32 noundef 1) #18
-  %269 = load ptr, ptr %inbuf, align 8
-  %call = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %269, i32 noundef 10) #20
+  %278 = load ptr, ptr %inbuf, align 8
+  %call = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %278, i32 noundef 10) #20
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
 
@@ -2151,7 +2195,7 @@ entry:
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 declare ptr @g_string_new_len(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2164,10 +2208,10 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare ptr @object_resolve_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2237,7 +2281,7 @@ declare i32 @qemu_strtou64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 declare i32 @address_space_write(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
@@ -2245,10 +2289,10 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare noalias ptr @g_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 declare ptr @g_base64_decode_inplace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2268,10 +2312,10 @@ qtest_send_prefix.exit:                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr @timer, align 8
   %call.i = tail call double @g_timer_elapsed(ptr noundef %1, ptr noundef null) #18
   %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %call.i)
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %2 = load ptr, ptr @qtest_log_fp, align 8
   %call = call i32 @vfprintf(ptr noundef %2, ptr noundef nonnull @.str.56, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %qtest_send_prefix.exit
@@ -2289,9 +2333,8 @@ define internal fastcc void @qtest_clock_warp(i64 noundef %dest) unnamed_addr #0
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %0 = load i8, ptr @qtest_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.else, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.2, i32 noundef 343, ptr noundef nonnull @__PRETTY_FUNCTION__.qtest_clock_warp) #19
@@ -2311,12 +2354,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call3 = tail call i64 @qemu_clock_deadline_ns_all(i32 noundef 1, i32 noundef -1) #18
   %sub = sub i64 %dest, %clock.04
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %call3)
-  %2 = load atomic i64, ptr @qtest_clock_counter monotonic, align 8
-  %add = add i64 %2, %cond.i
+  %1 = load atomic i64, ptr @qtest_clock_counter monotonic, align 8
+  %add = add i64 %1, %cond.i
   store atomic i64 %add, ptr @qtest_clock_counter monotonic, align 8
   %call6 = tail call zeroext i1 @qemu_clock_run_timers(i32 noundef 1) #18
-  %3 = load ptr, ptr %arrayidx, align 8
-  %call7 = tail call zeroext i1 @timerlist_run_timers(ptr noundef %3) #18
+  %2 = load ptr, ptr %arrayidx, align 8
+  %call7 = tail call zeroext i1 @timerlist_run_timers(ptr noundef %2) #18
   %call8 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %cmp = icmp slt i64 %call8, %dest
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !26
@@ -2333,20 +2376,20 @@ declare i32 @module_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @error_report_err(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 declare ptr @qemu_allocate_irq(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @qdev_intercept_gpio_out(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #13
+declare i16 @llvm.bswap.i16(i16) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #13
+declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #13
+declare i64 @llvm.bswap.i64(i64) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rcu_read_auto_lock() unnamed_addr #0 {
@@ -2400,9 +2443,8 @@ while.end.i.i.i:                                  ; preds = %if.end.i.i.i
   fence seq_cst
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %1 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i.i, label %glib_autoptr_clear_RCUReadAuto.exit, label %while.end21.i.i.i
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %glib_autoptr_clear_RCUReadAuto.exit
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
@@ -2414,38 +2456,6 @@ glib_autoptr_clear_RCUReadAuto.exit:              ; preds = %entry, %if.end.i.i.
 }
 
 declare ptr @flatview_translate(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32) local_unnamed_addr #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @memory_access_is_direct(ptr noundef %mr) unnamed_addr #0 {
-entry:
-  %0 = getelementptr i8, ptr %mr, i64 41
-  %mr.val = load i8, ptr %0, align 1
-  %1 = and i8 %mr.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %lor.rhs, label %land.lhs.true6
-
-land.lhs.true6:                                   ; preds = %entry
-  %call7 = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %mr) #18
-  br i1 %call7, label %lor.rhs, label %return
-
-lor.rhs:                                          ; preds = %land.lhs.true6, %entry
-  %rom_device.i = getelementptr inbounds i8, ptr %mr, i64 45
-  %2 = load i8, ptr %rom_device.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %lor.rhs
-  %romd_mode.i = getelementptr inbounds i8, ptr %mr, i64 40
-  %4 = load i8, ptr %romd_mode.i, align 8
-  %5 = and i8 %4, 1
-  %tobool1.i = icmp ne i8 %5, 0
-  br label %return
-
-return:                                           ; preds = %land.rhs.i, %lor.rhs, %land.lhs.true6
-  %6 = phi i1 [ true, %land.lhs.true6 ], [ false, %lor.rhs ], [ %tobool1.i, %land.rhs.i ]
-  ret i1 %6
-}
 
 declare ptr @qemu_map_ram_ptr(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2521,9 +2531,8 @@ if.end6:                                          ; preds = %if.then4, %if.end
 if.end7:                                          ; preds = %if.end6, %entry
   %has_machine_link = getelementptr inbounds i8, ptr %call.i, i64 40
   %2 = load i8, ptr %has_machine_link, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not = icmp eq i8 %3, 0
-  br i1 %tobool8.not, label %if.end12, label %if.then9
+  %tobool8 = trunc i8 %2 to i1
+  br i1 %tobool8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end7
   %call10 = tail call ptr @qdev_get_machine() #18
@@ -2736,7 +2745,7 @@ declare zeroext i1 @qemu_chr_fe_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qtest_can_read(ptr nocapture readnone %opaque) #14 {
+define internal noundef i32 @qtest_can_read(ptr nocapture readnone %opaque) #13 {
 entry:
   ret i32 1024
 }
@@ -2848,6 +2857,12 @@ declare ptr @qemu_chr_find(ptr noundef) local_unnamed_addr #2
 
 declare ptr @object_ref(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
@@ -2866,18 +2881,18 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

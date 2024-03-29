@@ -147,9 +147,8 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 
 53:                                               ; preds = %51
   %54 = load i8, ptr %7, align 1
-  %55 = and i8 %54, 1
-  %.not102 = icmp eq i8 %55, 0
-  br i1 %.not102, label %58, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %58
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %0, i64 28
@@ -185,9 +184,8 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   store i8 1, ptr %7, align 1
   %74 = getelementptr inbounds i8, ptr %44, i64 23
   %75 = load i8, ptr %74, align 1
-  %76 = and i8 %75, 1
-  %.not98 = icmp eq i8 %76, 0
-  br i1 %.not98, label %84, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %84
 
 77:                                               ; preds = %69
   %78 = zext i8 %73 to i64
@@ -218,9 +216,8 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 86:                                               ; preds = %85
   %87 = getelementptr inbounds i8, ptr %44, i64 10
   %88 = load i8, ptr %87, align 2
-  %89 = and i8 %88, 1
-  %.not112 = icmp eq i8 %89, 0
-  br i1 %.not112, label %test_indoption.exit, label %90
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %test_indoption.exit
 
 90:                                               ; preds = %86
   %91 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %66, i16 noundef signext 19) #2
@@ -247,9 +244,8 @@ test_indoption.exit:                              ; preds = %86, %90
 102:                                              ; preds = %101
   %103 = getelementptr inbounds i8, ptr %44, i64 10
   %104 = load i8, ptr %103, align 2
-  %105 = and i8 %104, 1
-  %.not111 = icmp eq i8 %105, 0
-  br i1 %.not111, label %test_indoption.exit104, label %106
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %test_indoption.exit100
 
 106:                                              ; preds = %102
   %107 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %66, i16 noundef signext 19) #2
@@ -261,11 +257,11 @@ test_indoption.exit:                              ; preds = %86, %90
   %113 = load i16, ptr %112, align 2
   %114 = trunc i16 %113 to i8
   %115 = and i8 %114, 1
-  br label %test_indoption.exit104
+  br label %test_indoption.exit100
 
-test_indoption.exit104:                           ; preds = %102, %106
-  %storemerge.i103 = phi i8 [ %115, %106 ], [ 0, %102 ]
-  store i8 %storemerge.i103, ptr %6, align 1
+test_indoption.exit100:                           ; preds = %102, %106
+  %storemerge.i99 = phi i8 [ %115, %106 ], [ 0, %102 ]
+  store i8 %storemerge.i99, ptr %6, align 1
   store i8 0, ptr %7, align 1
   br label %178
 
@@ -275,9 +271,8 @@ test_indoption.exit104:                           ; preds = %102, %106
 117:                                              ; preds = %116
   %118 = getelementptr inbounds i8, ptr %44, i64 10
   %119 = load i8, ptr %118, align 2
-  %120 = and i8 %119, 1
-  %.not110 = icmp eq i8 %120, 0
-  br i1 %.not110, label %test_indoption.exit106, label %121
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %test_indoption.exit102
 
 121:                                              ; preds = %117
   %122 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %66, i16 noundef signext 19) #2
@@ -290,11 +285,11 @@ test_indoption.exit104:                           ; preds = %102, %106
   %129 = trunc i16 %128 to i8
   %130 = lshr i8 %129, 1
   %131 = and i8 %130, 1
-  br label %test_indoption.exit106
+  br label %test_indoption.exit102
 
-test_indoption.exit106:                           ; preds = %117, %121
-  %storemerge.i105 = phi i8 [ %131, %121 ], [ 0, %117 ]
-  store i8 %storemerge.i105, ptr %6, align 1
+test_indoption.exit102:                           ; preds = %117, %121
+  %storemerge.i101 = phi i8 [ %131, %121 ], [ 0, %117 ]
+  store i8 %storemerge.i101, ptr %6, align 1
   store i8 0, ptr %7, align 1
   br label %178
 
@@ -304,9 +299,8 @@ test_indoption.exit106:                           ; preds = %117, %121
 133:                                              ; preds = %132
   %134 = getelementptr inbounds i8, ptr %44, i64 10
   %135 = load i8, ptr %134, align 2
-  %136 = and i8 %135, 1
-  %.not109 = icmp eq i8 %136, 0
-  br i1 %.not109, label %test_indoption.exit108, label %137
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %test_indoption.exit104
 
 137:                                              ; preds = %133
   %138 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %66, i16 noundef signext 19) #2
@@ -319,11 +313,11 @@ test_indoption.exit106:                           ; preds = %117, %121
   %145 = and i16 %144, 2
   %146 = icmp eq i16 %145, 0
   %147 = zext i1 %146 to i8
-  br label %test_indoption.exit108
+  br label %test_indoption.exit104
 
-test_indoption.exit108:                           ; preds = %133, %137
-  %storemerge.i107 = phi i8 [ %147, %137 ], [ 0, %133 ]
-  store i8 %storemerge.i107, ptr %6, align 1
+test_indoption.exit104:                           ; preds = %133, %137
+  %storemerge.i103 = phi i8 [ %147, %137 ], [ 0, %133 ]
+  store i8 %storemerge.i103, ptr %6, align 1
   store i8 0, ptr %7, align 1
   br label %178
 
@@ -348,9 +342,8 @@ test_indoption.exit108:                           ; preds = %133, %137
 156:                                              ; preds = %155
   %157 = getelementptr inbounds i8, ptr %44, i64 11
   %158 = load i8, ptr %157, align 1
-  %159 = and i8 %158, 1
-  %.not100 = icmp eq i8 %159, 0
-  br i1 %.not100, label %160, label %178
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %178, label %160
 
 160:                                              ; preds = %156, %155
   store i8 0, ptr %6, align 1
@@ -362,8 +355,8 @@ test_indoption.exit108:                           ; preds = %133, %137
   store i8 0, ptr %6, align 1
   %162 = getelementptr inbounds i8, ptr %44, i64 80
   %163 = load ptr, ptr %162, align 8
-  %.not99 = icmp eq ptr %163, null
-  br i1 %.not99, label %178, label %164
+  %.not98 = icmp eq ptr %163, null
+  br i1 %.not98, label %178, label %164
 
 164:                                              ; preds = %161
   %165 = call ptr @index_open(i32 noundef %3, i32 noundef 1) #2
@@ -395,12 +388,11 @@ test_indoption.exit108:                           ; preds = %133, %137
   store i8 0, ptr %7, align 1
   br label %178
 
-178:                                              ; preds = %84, %173, %174, %168, %169, %161, %164, %156, %160, %132, %test_indoption.exit108, %116, %test_indoption.exit106, %101, %test_indoption.exit104, %85, %test_indoption.exit, %153
+178:                                              ; preds = %84, %173, %174, %168, %169, %161, %164, %156, %160, %132, %test_indoption.exit104, %116, %test_indoption.exit102, %101, %test_indoption.exit100, %85, %test_indoption.exit, %153
   call void @ReleaseSysCache(ptr noundef nonnull %66) #2
   %179 = load i8, ptr %7, align 1
-  %180 = and i8 %179, 1
-  %.not101 = icmp eq i8 %180, 0
-  br i1 %.not101, label %181, label %185
+  %180 = trunc i8 %179 to i1
+  br i1 %180, label %185, label %181
 
 181:                                              ; preds = %178
   %182 = load i8, ptr %6, align 1

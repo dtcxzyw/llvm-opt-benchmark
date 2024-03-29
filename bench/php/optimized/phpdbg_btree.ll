@@ -362,8 +362,8 @@ define hidden noundef i32 @phpdbg_btree_insert_or_update(ptr nocapture noundef %
   br i1 %18, label %.thread, label %46
 
 .thread:                                          ; preds = %9, %17
-  %.177 = phi ptr [ %16, %17 ], [ %.062, %9 ]
-  %.16476 = phi i32 [ -1, %17 ], [ %.063, %9 ]
+  %.176 = phi ptr [ %16, %17 ], [ %.062, %9 ]
+  %.16475 = phi i32 [ -1, %17 ], [ %.063, %9 ]
   %19 = and i32 %3, 1
   %.not70 = icmp eq i32 %19, 0
   br i1 %.not70, label %52, label %20
@@ -371,12 +371,11 @@ define hidden noundef i32 @phpdbg_btree_insert_or_update(ptr nocapture noundef %
 20:                                               ; preds = %.thread
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not71 = icmp eq i8 %23, 0
-  %24 = add nsw i32 %.16476, 2
+  %23 = trunc i8 %22 to i1
+  %24 = add nsw i32 %.16475, 2
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 4
-  br i1 %.not71, label %29, label %27
+  br i1 %23, label %27, label %29
 
 27:                                               ; preds = %20
   %28 = tail call noalias ptr @__zend_malloc(i64 noundef %26) #11
@@ -388,13 +387,13 @@ define hidden noundef i32 @phpdbg_btree_insert_or_update(ptr nocapture noundef %
 
 31:                                               ; preds = %29, %27
   %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
-  store ptr %32, ptr %.177, align 8
-  %33 = zext i32 %.16476 to i64
+  store ptr %32, ptr %.176, align 8
+  %33 = zext i32 %.16475 to i64
   br label %34
 
 34:                                               ; preds = %34, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ %33, %31 ]
-  %.2 = phi ptr [ %41, %34 ], [ %.177, %31 ]
+  %.2 = phi ptr [ %41, %34 ], [ %.176, %31 ]
   %35 = phi ptr [ %42, %34 ], [ %32, %31 ]
   %36 = lshr i64 %1, %indvars.iv
   %37 = and i64 %36, 1
@@ -406,8 +405,8 @@ define hidden noundef i32 @phpdbg_btree_insert_or_update(ptr nocapture noundef %
   %42 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %42, ptr %41, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not73 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not73, label %43, label %34
+  %.not72 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not72, label %43, label %34
 
 43:                                               ; preds = %34
   %44 = load i64, ptr %0, align 8
@@ -444,9 +443,9 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %.05876 = load ptr, ptr %3, align 8
-  %4 = icmp eq ptr %.05876, null
-  br i1 %4, label %.loopexit72, label %.lr.ph.preheader
+  %.05873 = load ptr, ptr %3, align 8
+  %4 = icmp eq ptr %.05873, null
+  br i1 %4, label %.loopexit69, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -455,15 +454,15 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
   br label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %.05881, align 8
-  %.not70 = icmp eq ptr %9, null
-  br i1 %.not70, label %18, label %10
+  %9 = load ptr, ptr %.05878, align 8
+  %.not67 = icmp eq ptr %9, null
+  br i1 %.not67, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.05881, i64 8
+  %11 = getelementptr inbounds i8, ptr %.05878, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not71 = icmp eq ptr %12, null
-  br i1 %.not71, label %18, label %13
+  %.not68 = icmp eq ptr %12, null
+  br i1 %.not68, label %18, label %13
 
 13:                                               ; preds = %10
   %14 = and i64 %indvars.iv.next, 4294967295
@@ -473,23 +472,23 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
   br label %18
 
 18:                                               ; preds = %13, %10, %8
-  %.056 = phi i32 [ %indvars, %13 ], [ %.15778, %10 ], [ %.15778, %8 ]
-  %.054 = phi i32 [ %17, %13 ], [ %.15579, %10 ], [ %.15579, %8 ]
-  %.053 = phi ptr [ %.05881, %13 ], [ %.180, %10 ], [ %.180, %8 ]
+  %.056 = phi i32 [ %indvars, %13 ], [ %.15775, %10 ], [ %.15775, %8 ]
+  %.054 = phi i32 [ %17, %13 ], [ %.15576, %10 ], [ %.15576, %8 ]
+  %.053 = phi ptr [ %.05878, %13 ], [ %.177, %10 ], [ %.177, %8 ]
   %19 = and i64 %indvars.iv.next, 4294967295
   %20 = lshr i64 %1, %19
   %21 = and i64 %20, 1
-  %22 = getelementptr inbounds [2 x ptr], ptr %.05881, i64 0, i64 %21
+  %22 = getelementptr inbounds [2 x ptr], ptr %.05878, i64 0, i64 %21
   %.058 = load ptr, ptr %22, align 8
   %23 = icmp eq ptr %.058, null
-  br i1 %23, label %.loopexit72, label %.lr.ph
+  br i1 %23, label %.loopexit69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %.05881 = phi ptr [ %.05876, %.lr.ph.preheader ], [ %.058, %18 ]
-  %.180 = phi ptr [ null, %.lr.ph.preheader ], [ %.053, %18 ]
-  %.15579 = phi i32 [ undef, %.lr.ph.preheader ], [ %.054, %18 ]
-  %.15778 = phi i32 [ -1, %.lr.ph.preheader ], [ %.056, %18 ]
+  %.05878 = phi ptr [ %.05873, %.lr.ph.preheader ], [ %.058, %18 ]
+  %.177 = phi ptr [ null, %.lr.ph.preheader ], [ %.053, %18 ]
+  %.15576 = phi i32 [ undef, %.lr.ph.preheader ], [ %.054, %18 ]
+  %.15775 = phi i32 [ -1, %.lr.ph.preheader ], [ %.056, %18 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not = icmp eq i64 %indvars.iv, 0
@@ -499,47 +498,45 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
   %25 = load i64, ptr %0, align 8
   %26 = add i64 %25, -1
   store i64 %26, ptr %0, align 8
-  %27 = icmp eq i32 %.15778, -1
+  %27 = icmp eq i32 %.15775, -1
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not69 = icmp eq i8 %31, 0
-  br i1 %.not69, label %33, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void @free(ptr noundef %.05876) #12
-  br label %.loopexit72.sink.split
+  tail call void @free(ptr noundef %.05873) #12
+  br label %.loopexit69.sink.split
 
 33:                                               ; preds = %28
-  tail call void @_efree(ptr noundef nonnull %.05876) #12
-  br label %.loopexit72.sink.split
+  tail call void @_efree(ptr noundef nonnull %.05873) #12
+  br label %.loopexit69.sink.split
 
 34:                                               ; preds = %24
-  %35 = sext i32 %.15579 to i64
-  %36 = getelementptr inbounds [2 x ptr], ptr %.180, i64 0, i64 %35
+  %35 = sext i32 %.15576 to i64
+  %36 = getelementptr inbounds [2 x ptr], ptr %.177, i64 0, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.180, i64 16
+  %38 = getelementptr inbounds i8, ptr %.177, i64 16
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %40, label %65
 
 40:                                               ; preds = %34
-  %.not66 = icmp eq i32 %.15579, 0
-  %41 = zext i1 %.not66 to i64
-  %42 = getelementptr inbounds [2 x ptr], ptr %.180, i64 0, i64 %41
+  %.not65 = icmp eq i32 %.15576, 0
+  %41 = zext i1 %.not65 to i64
+  %42 = getelementptr inbounds [2 x ptr], ptr %.177, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = add nuw nsw i32 %.15778, 1
+  %44 = add nuw nsw i32 %.15775, 1
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %46, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, 1
-  %.not67 = icmp eq i8 %49, 0
+  %49 = trunc i8 %48 to i1
   %50 = load ptr, ptr %42, align 8
-  br i1 %.not67, label %52, label %51
+  br i1 %49, label %51, label %52
 
 51:                                               ; preds = %40
   tail call void @free(ptr noundef %50) #12
@@ -551,55 +548,54 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
 
 53:                                               ; preds = %52, %51
   store ptr %37, ptr %42, align 8
-  %.not6882 = icmp eq i32 %.15778, 0
-  br i1 %.not6882, label %.loopexit72.sink.split, label %.lr.ph86
+  %.not6679 = icmp eq i32 %.15775, 0
+  br i1 %.not6679, label %.loopexit69.sink.split, label %.lr.ph83
 
-.lr.ph86:                                         ; preds = %53
-  %54 = sext i32 %.15778 to i64
-  %55 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.180, i64 %54
+.lr.ph83:                                         ; preds = %53
+  %54 = sext i32 %.15775 to i64
+  %55 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.177, i64 %54
   %invariant.gep = getelementptr i8, ptr %55, i64 16
   br label %56
 
-56:                                               ; preds = %.lr.ph86, %56
-  %indvars.iv91 = phi i64 [ %54, %.lr.ph86 ], [ %indvars.iv.next92, %56 ]
-  %.085 = phi ptr [ %43, %.lr.ph86 ], [ %60, %56 ]
-  %.15984 = phi ptr [ %37, %.lr.ph86 ], [ %gep, %56 ]
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
-  %57 = sub nsw i64 1, %indvars.iv91
+56:                                               ; preds = %.lr.ph83, %56
+  %indvars.iv88 = phi i64 [ %54, %.lr.ph83 ], [ %indvars.iv.next89, %56 ]
+  %.082 = phi ptr [ %43, %.lr.ph83 ], [ %60, %56 ]
+  %.15981 = phi ptr [ %37, %.lr.ph83 ], [ %gep, %56 ]
+  %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
+  %57 = sub nsw i64 1, %indvars.iv88
   %gep = getelementptr %union._phpdbg_btree_branch, ptr %invariant.gep, i64 %57
-  %58 = getelementptr inbounds i8, ptr %.15984, i64 8
+  %58 = getelementptr inbounds i8, ptr %.15981, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.085, i64 16
+  %60 = getelementptr inbounds i8, ptr %.082, i64 16
   %61 = icmp eq ptr %59, %60
   %62 = zext i1 %61 to i64
-  %63 = getelementptr inbounds [2 x ptr], ptr %.15984, i64 0, i64 %62
+  %63 = getelementptr inbounds [2 x ptr], ptr %.15981, i64 0, i64 %62
   store ptr %gep, ptr %63, align 8
-  %64 = and i64 %indvars.iv.next92, 4294967295
-  %.not68 = icmp eq i64 %64, 0
-  br i1 %.not68, label %.loopexit72.sink.split, label %56
+  %64 = and i64 %indvars.iv.next89, 4294967295
+  %.not66 = icmp eq i64 %64, 0
+  br i1 %.not66, label %.loopexit69.sink.split, label %56
 
 65:                                               ; preds = %34
   %66 = getelementptr inbounds i8, ptr %0, i64 16
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not65 = icmp eq i8 %68, 0
-  br i1 %.not65, label %70, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %70
 
 69:                                               ; preds = %65
   tail call void @free(ptr noundef %37) #12
-  br label %.loopexit72.sink.split
+  br label %.loopexit69.sink.split
 
 70:                                               ; preds = %65
   tail call void @_efree(ptr noundef %37) #12
-  br label %.loopexit72.sink.split
+  br label %.loopexit69.sink.split
 
-.loopexit72.sink.split:                           ; preds = %56, %70, %69, %53, %32, %33
+.loopexit69.sink.split:                           ; preds = %56, %70, %69, %53, %32, %33
   %.sink = phi ptr [ %3, %33 ], [ %3, %32 ], [ %36, %53 ], [ %36, %69 ], [ %36, %70 ], [ %36, %56 ]
   store ptr null, ptr %.sink, align 8
-  br label %.loopexit72
+  br label %.loopexit69
 
-.loopexit72:                                      ; preds = %18, %.loopexit72.sink.split, %2
-  %.062 = phi i32 [ -1, %2 ], [ 0, %.loopexit72.sink.split ], [ -1, %18 ]
+.loopexit69:                                      ; preds = %18, %.loopexit69.sink.split, %2
+  %.062 = phi i32 [ -1, %2 ], [ 0, %.loopexit69.sink.split ], [ -1, %18 ]
   ret i32 %.062
 }
 
@@ -659,21 +655,20 @@ define hidden void @phpdbg_btree_clean(ptr nocapture noundef %0) local_unnamed_a
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %11, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  tail call void @phpdbg_btree_clean_recursive(ptr noundef nonnull %3, i64 noundef %6, i1 noundef zeroext %10)
+  %9 = trunc i8 %8 to i1
+  tail call void @phpdbg_btree_clean_recursive(ptr noundef nonnull %3, i64 noundef %6, i1 noundef zeroext %9)
   store ptr null, ptr %2, align 8
   store i64 0, ptr %0, align 8
-  br label %11
+  br label %10
 
-11:                                               ; preds = %4, %1
+10:                                               ; preds = %4, %1
   ret void
 }
 

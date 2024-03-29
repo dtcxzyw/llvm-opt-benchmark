@@ -2039,8 +2039,8 @@ rb_array_const_ptr.exit:                          ; preds = %6, %10
   %.0.i6 = phi ptr [ %9, %6 ], [ %14, %10 ]
   %sext = shl i64 %.0.i9, 32
   %15 = ashr exact i64 %sext, 32
-  %16 = icmp ult i64 %15, 2305843009213693952
-  br i1 %16, label %rbimpl_size_mul_or_raise.exit, label %17
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %rbimpl_size_mul_or_raise.exit
 
 17:                                               ; preds = %rb_array_const_ptr.exit
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %15) #24
@@ -2231,9 +2231,8 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
-  %20 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %20, 0
-  br i1 %switch.lobit.not, label %15, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_RB_TYPE_P, i64 0, i64 %13
@@ -2242,8 +2241,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 RB_SYMBOL_P.exit:                                 ; preds = %7, %15, %17, %switch.lookup
   %.0.i25.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %21 = icmp eq i32 %.0.i25.i, %1
-  ret i1 %21
+  %20 = icmp eq i32 %.0.i25.i, %1
+  ret i1 %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2684,9 +2683,8 @@ define hidden void @Init_builtin_yjit() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal i64 @builtin_inline_class_13(ptr nocapture readnone %0, i64 %1) #14 {
   %3 = load i8, ptr @rb_yjit_enabled_p, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  %5 = select i1 %.not, i64 0, i64 20
+  %4 = trunc i8 %3 to i1
+  %5 = select i1 %4, i64 20, i64 0
   ret i64 %5
 }
 

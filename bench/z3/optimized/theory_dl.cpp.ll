@@ -3950,20 +3950,18 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %inc.us = add i32 %4, 1
   store i32 %inc.us, ptr %m_next21, align 4
   %5 = load i8, ptr %is_new, align 1
-  %6 = and i8 %5, 1
-  %tobool10.not.us = icmp eq i8 %6, 0
-  br i1 %tobool10.not.us, label %while.body.us, label %return, !llvm.loop !19
+  %tobool10.us = trunc i8 %5 to i1
+  br i1 %tobool10.us, label %return, label %while.body.us, !llvm.loop !19
 
 while.cond:                                       ; preds = %while.body
-  %7 = load i8, ptr %is_new, align 1
-  %8 = and i8 %7, 1
-  %tobool10.not = icmp eq i8 %8, 0
-  br i1 %tobool10.not, label %while.body, label %return, !llvm.loop !19
+  %6 = load i8, ptr %is_new, align 1
+  %tobool10 = trunc i8 %6 to i1
+  br i1 %tobool10, label %return, label %while.body, !llvm.loop !19
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %call11 = call noundef ptr @_ZN14simple_factoryIjE8mk_valueERKjP4sortRb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %m_next, ptr noundef nonnull %s, ptr noundef nonnull align 1 dereferenceable(1) %is_new)
-  %9 = load i32, ptr %m_next, align 4
-  %inc = add i32 %9, 1
+  %7 = load i32, ptr %m_next, align 4
+  %inc = add i32 %7, 1
   store i32 %inc, ptr %m_next, align 4
   %cmp14 = icmp ugt i32 %inc, %add
   br i1 %cmp14, label %return, label %while.cond, !llvm.loop !19
@@ -5605,7 +5603,7 @@ entry:
   ret i1 false
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 declare noundef zeroext i1 @_ZNK3smt9theory_bv15get_fixed_valueEP3appR8rational(ptr noundef nonnull align 8 dereferenceable(1048), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -5639,7 +5637,7 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }

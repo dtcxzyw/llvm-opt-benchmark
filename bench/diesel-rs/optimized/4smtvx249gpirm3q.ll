@@ -584,7 +584,7 @@ define hidden noundef zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_
           to label %25 unwind label %23
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$toml_edit..repr..Repr$GT$$GT$17hd26a0874bf10ecf9E.llvm.14079169855711697399.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$toml_edit..internal_string..InternalString$GT$17h818e56e68d8719f8E.exit.i.i.i.i", %7, %1
-  %21 = icmp ne i8 %4, 0
+  %21 = trunc i8 %4 to i1
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @"_ZN4core3ptr43drop_in_place$LT$toml_edit..repr..Decor$GT$17hd5391a0468e25485E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22)
   ret i1 %21

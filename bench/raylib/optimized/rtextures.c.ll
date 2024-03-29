@@ -16835,13 +16835,13 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %11 = icmp eq ptr %10, null
   %.0187.sroa.gep192 = getelementptr inbounds i8, ptr %8, i64 8
   %.0187.sroa.gep193 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %11, label %188, label %12
+  br i1 %11, label %187, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %188, label %16
+  br i1 %15, label %187, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 12
@@ -16857,7 +16857,7 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %26
-  br i1 %or.cond8, label %188, label %27
+  br i1 %or.cond8, label %187, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16877,7 +16877,7 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 36:                                               ; preds = %32
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.64) #49
-  br label %188
+  br label %187
 
 37:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -17032,224 +17032,223 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %.sroa.20.12.vec.insert177 = insertelement <2 x float> %.sroa.20.7, float %.pre-phi, i64 1
   %.sroa.20.8 = select i1 %97, <2 x float> %.sroa.20.12.vec.insert177, <2 x float> %.sroa.20.7
   %98 = icmp ugt i32 %6, -16777217
-  br i1 %98, label %99, label %103
+  br i1 %98, label %99, label %102
 
 99:                                               ; preds = %93
   %100 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
   %101 = icmp ult i32 %100, 5
-  br i1 %101, label %switch.lookup, label %103
+  br i1 %101, label %switch.lookup, label %102
 
 switch.lookup:                                    ; preds = %99
   %switch.cast = trunc i32 %100 to i5
   %switch.downshift = lshr i5 5, %switch.cast
-  %102 = and i5 %switch.downshift, 1
-  %switch.masked = icmp ne i5 %102, 0
-  br label %103
+  %switch.masked = trunc i5 %switch.downshift to i1
+  br label %102
 
-103:                                              ; preds = %switch.lookup, %99, %93
+102:                                              ; preds = %switch.lookup, %99, %93
   %.0189 = phi i1 [ true, %93 ], [ true, %99 ], [ %switch.masked, %switch.lookup ]
-  %104 = load i32, ptr %33, align 4
-  %switch.tableidx = add i32 %104, -1
-  %105 = icmp ult i32 %switch.tableidx, 24
-  br i1 %105, label %switch.lookup279, label %107
+  %103 = load i32, ptr %33, align 4
+  %switch.tableidx = add i32 %103, -1
+  %104 = icmp ult i32 %switch.tableidx, 24
+  br i1 %104, label %switch.lookup279, label %106
 
-switch.lookup279:                                 ; preds = %103
-  %106 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %106
+switch.lookup279:                                 ; preds = %102
+  %105 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %105
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %107
+  br label %106
 
-107:                                              ; preds = %switch.lookup279, %103
-  %.0.i = phi i32 [ 0, %103 ], [ %switch.load, %switch.lookup279 ]
-  %108 = mul nsw i32 %.0.i, %94
-  %109 = sdiv i32 %108, 8
-  %110 = icmp slt i32 %94, 4
-  br i1 %110, label %111, label %GetPixelDataSize.exit
+106:                                              ; preds = %switch.lookup279, %102
+  %.0.i = phi i32 [ 0, %102 ], [ %switch.load, %switch.lookup279 ]
+  %107 = mul nsw i32 %.0.i, %94
+  %108 = sdiv i32 %107, 8
+  %109 = icmp slt i32 %94, 4
+  br i1 %109, label %110, label %GetPixelDataSize.exit
 
-111:                                              ; preds = %107
-  %112 = and i32 %104, -2
-  %or.cond3.i = icmp eq i32 %112, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %113
+110:                                              ; preds = %106
+  %111 = and i32 %103, -2
+  %or.cond3.i = icmp eq i32 %111, 14
+  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %112
 
-113:                                              ; preds = %111
-  %114 = and i32 %104, -8
-  %or.cond5.i = icmp eq i32 %114, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %109
+112:                                              ; preds = %110
+  %113 = and i32 %103, -8
+  %or.cond5.i = icmp eq i32 %113, 16
+  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %108
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %107, %111, %113
-  %.016.i = phi i32 [ %109, %107 ], [ 8, %111 ], [ %spec.select.i, %113 ]
-  %115 = sdiv i32 %.016.i, %94
-  %116 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %switch.tableidx281 = add i32 %116, -1
-  %117 = icmp ult i32 %switch.tableidx281, 24
-  br i1 %117, label %switch.lookup280, label %119
+GetPixelDataSize.exit:                            ; preds = %106, %110, %112
+  %.016.i = phi i32 [ %108, %106 ], [ 8, %110 ], [ %spec.select.i, %112 ]
+  %114 = sdiv i32 %.016.i, %94
+  %115 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %switch.tableidx281 = add i32 %115, -1
+  %116 = icmp ult i32 %switch.tableidx281, 24
+  br i1 %116, label %switch.lookup280, label %118
 
 switch.lookup280:                                 ; preds = %GetPixelDataSize.exit
-  %118 = zext nneg i32 %switch.tableidx281 to i64
-  %switch.gep282 = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %118
+  %117 = zext nneg i32 %switch.tableidx281 to i64
+  %switch.gep282 = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %117
   %switch.load283 = load i32, ptr %switch.gep282, align 4
-  br label %119
+  br label %118
 
-119:                                              ; preds = %switch.lookup280, %GetPixelDataSize.exit
+118:                                              ; preds = %switch.lookup280, %GetPixelDataSize.exit
   %.0.i225 = phi i32 [ 0, %GetPixelDataSize.exit ], [ %switch.load283, %switch.lookup280 ]
-  %120 = mul nsw i32 %.0.i225, %67
-  %121 = sdiv i32 %120, 8
-  %122 = icmp slt i32 %67, 4
-  br i1 %122, label %123, label %GetPixelDataSize.exit230
+  %119 = mul nsw i32 %.0.i225, %67
+  %120 = sdiv i32 %119, 8
+  %121 = icmp slt i32 %67, 4
+  br i1 %121, label %122, label %GetPixelDataSize.exit230
 
-123:                                              ; preds = %119
-  %124 = and i32 %116, -2
-  %or.cond3.i227 = icmp eq i32 %124, 14
-  br i1 %or.cond3.i227, label %GetPixelDataSize.exit230, label %125
+122:                                              ; preds = %118
+  %123 = and i32 %115, -2
+  %or.cond3.i227 = icmp eq i32 %123, 14
+  br i1 %or.cond3.i227, label %GetPixelDataSize.exit230, label %124
 
-125:                                              ; preds = %123
-  %126 = and i32 %116, -8
-  %or.cond5.i228 = icmp eq i32 %126, 16
-  %spec.select.i229 = select i1 %or.cond5.i228, i32 16, i32 %121
+124:                                              ; preds = %122
+  %125 = and i32 %115, -8
+  %or.cond5.i228 = icmp eq i32 %125, 16
+  %spec.select.i229 = select i1 %or.cond5.i228, i32 16, i32 %120
   br label %GetPixelDataSize.exit230
 
-GetPixelDataSize.exit230:                         ; preds = %119, %123, %125
-  %.016.i226 = phi i32 [ %121, %119 ], [ 8, %123 ], [ %spec.select.i229, %125 ]
-  %127 = sdiv i32 %.016.i226, %67
-  %128 = load ptr, ptr %.0187.sroa.phi200, align 8
+GetPixelDataSize.exit230:                         ; preds = %118, %122, %124
+  %.016.i226 = phi i32 [ %120, %118 ], [ 8, %122 ], [ %spec.select.i229, %124 ]
+  %126 = sdiv i32 %.016.i226, %67
+  %127 = load ptr, ptr %.0187.sroa.phi200, align 8
   %.sroa.0101.4.vec.extract130 = extractelement <2 x float> %.sroa.0101.4, i64 1
-  %129 = fptosi float %.sroa.0101.4.vec.extract130 to i32
-  %130 = mul nsw i32 %67, %129
+  %128 = fptosi float %.sroa.0101.4.vec.extract130 to i32
+  %129 = mul nsw i32 %67, %128
   %.sroa.0101.0.vec.extract115 = extractelement <2 x float> %.sroa.0101.4, i64 0
-  %131 = fptosi float %.sroa.0101.0.vec.extract115 to i32
-  %132 = add nsw i32 %130, %131
-  %133 = mul nsw i32 %127, %132
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i8, ptr %128, i64 %134
-  %136 = load ptr, ptr %0, align 8
+  %130 = fptosi float %.sroa.0101.0.vec.extract115 to i32
+  %131 = add nsw i32 %129, %130
+  %132 = mul nsw i32 %126, %131
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %127, i64 %133
+  %135 = load ptr, ptr %0, align 8
   %.sroa.074.4.vec.extract96 = extractelement <2 x float> %.sroa.074.1, i64 1
-  %137 = fptosi float %.sroa.074.4.vec.extract96 to i32
-  %138 = mul nsw i32 %94, %137
+  %136 = fptosi float %.sroa.074.4.vec.extract96 to i32
+  %137 = mul nsw i32 %94, %136
   %.sroa.074.0.vec.extract85 = extractelement <2 x float> %.sroa.074.1, i64 0
-  %139 = fptosi float %.sroa.074.0.vec.extract85 to i32
-  %140 = add nsw i32 %138, %139
-  %141 = mul nsw i32 %115, %140
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr %136, i64 %142
+  %138 = fptosi float %.sroa.074.0.vec.extract85 to i32
+  %139 = add nsw i32 %137, %138
+  %140 = mul nsw i32 %114, %139
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr %135, i64 %141
   %.sroa.20.12.vec.extract179 = extractelement <2 x float> %.sroa.20.8, i64 1
-  %144 = fptosi float %.sroa.20.12.vec.extract179 to i32
-  %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph242, label %._crit_edge
+  %143 = fptosi float %.sroa.20.12.vec.extract179 to i32
+  %144 = icmp sgt i32 %143, 0
+  br i1 %144, label %.lr.ph242, label %._crit_edge
 
 .lr.ph242:                                        ; preds = %GetPixelDataSize.exit230
   %.sroa.20.8.vec.extract154 = extractelement <2 x float> %.sroa.20.8, i64 0
-  %146 = fptosi float %.sroa.20.8.vec.extract154 to i32
-  %.fr256 = freeze i32 %146
-  %147 = mul nsw i32 %127, %.fr256
-  %148 = sext i32 %147 to i64
-  %149 = icmp sgt i32 %.fr256, 0
-  %150 = sext i32 %115 to i64
-  %151 = sext i32 %127 to i64
-  %152 = sext i32 %.016.i226 to i64
-  %153 = sext i32 %.016.i to i64
-  br i1 %149, label %.lr.ph242.split.us, label %.lr.ph242.split
+  %145 = fptosi float %.sroa.20.8.vec.extract154 to i32
+  %.fr256 = freeze i32 %145
+  %146 = mul nsw i32 %126, %.fr256
+  %147 = sext i32 %146 to i64
+  %148 = icmp sgt i32 %.fr256, 0
+  %149 = sext i32 %114 to i64
+  %150 = sext i32 %126 to i64
+  %151 = sext i32 %.016.i226 to i64
+  %152 = sext i32 %.016.i to i64
+  br i1 %148, label %.lr.ph242.split.us, label %.lr.ph242.split
 
 .lr.ph242.split.us:                               ; preds = %.lr.ph242
   br i1 %.0189, label %.lr.ph.us.us, label %.lr.ph242.split.us.split
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph242.split.us, %..loopexit_crit_edge.split.us.us.us
-  %.0184241.us.us = phi i32 [ %165, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph242.split.us ]
-  %.0185238.us.us = phi ptr [ %164, %..loopexit_crit_edge.split.us.us.us ], [ %143, %.lr.ph242.split.us ]
-  %.0186235.us.us = phi ptr [ %163, %..loopexit_crit_edge.split.us.us.us ], [ %135, %.lr.ph242.split.us ]
-  br label %154
+  %.0184241.us.us = phi i32 [ %164, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph242.split.us ]
+  %.0185238.us.us = phi ptr [ %163, %..loopexit_crit_edge.split.us.us.us ], [ %142, %.lr.ph242.split.us ]
+  %.0186235.us.us = phi ptr [ %162, %..loopexit_crit_edge.split.us.us.us ], [ %134, %.lr.ph242.split.us ]
+  br label %153
 
-154:                                              ; preds = %154, %.lr.ph.us.us
-  %.0234.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %162, %154 ]
-  %.0182233.us.us.us = phi ptr [ %.0185238.us.us, %.lr.ph.us.us ], [ %160, %154 ]
-  %.0183232.us.us.us = phi ptr [ %.0186235.us.us, %.lr.ph.us.us ], [ %161, %154 ]
-  %155 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %156 = call i32 @GetPixelColor(ptr noundef %.0183232.us.us.us, i32 noundef %155)
-  %157 = load i32, ptr %33, align 4
-  %158 = call i32 @GetPixelColor(ptr noundef %.0182233.us.us.us, i32 noundef %157)
-  %159 = call i32 @ColorAlphaBlend(i32 %158, i32 %156, i32 %6)
-  call void @SetPixelColor(ptr noundef %.0182233.us.us.us, i32 %159, i32 noundef %157)
-  %160 = getelementptr inbounds i8, ptr %.0182233.us.us.us, i64 %150
-  %161 = getelementptr inbounds i8, ptr %.0183232.us.us.us, i64 %151
-  %162 = add nuw nsw i32 %.0234.us.us.us, 1
-  %exitcond263.not = icmp eq i32 %162, %.fr256
-  br i1 %exitcond263.not, label %..loopexit_crit_edge.split.us.us.us, label %154
+153:                                              ; preds = %153, %.lr.ph.us.us
+  %.0234.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %161, %153 ]
+  %.0182233.us.us.us = phi ptr [ %.0185238.us.us, %.lr.ph.us.us ], [ %159, %153 ]
+  %.0183232.us.us.us = phi ptr [ %.0186235.us.us, %.lr.ph.us.us ], [ %160, %153 ]
+  %154 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %155 = call i32 @GetPixelColor(ptr noundef %.0183232.us.us.us, i32 noundef %154)
+  %156 = load i32, ptr %33, align 4
+  %157 = call i32 @GetPixelColor(ptr noundef %.0182233.us.us.us, i32 noundef %156)
+  %158 = call i32 @ColorAlphaBlend(i32 %157, i32 %155, i32 %6)
+  call void @SetPixelColor(ptr noundef %.0182233.us.us.us, i32 %158, i32 noundef %156)
+  %159 = getelementptr inbounds i8, ptr %.0182233.us.us.us, i64 %149
+  %160 = getelementptr inbounds i8, ptr %.0183232.us.us.us, i64 %150
+  %161 = add nuw nsw i32 %.0234.us.us.us, 1
+  %exitcond263.not = icmp eq i32 %161, %.fr256
+  br i1 %exitcond263.not, label %..loopexit_crit_edge.split.us.us.us, label %153
 
-..loopexit_crit_edge.split.us.us.us:              ; preds = %154
-  %163 = getelementptr inbounds i8, ptr %.0186235.us.us, i64 %152
-  %164 = getelementptr inbounds i8, ptr %.0185238.us.us, i64 %153
-  %165 = add nuw nsw i32 %.0184241.us.us, 1
-  %exitcond264.not = icmp eq i32 %165, %144
+..loopexit_crit_edge.split.us.us.us:              ; preds = %153
+  %162 = getelementptr inbounds i8, ptr %.0186235.us.us, i64 %151
+  %163 = getelementptr inbounds i8, ptr %.0185238.us.us, i64 %152
+  %164 = add nuw nsw i32 %.0184241.us.us, 1
+  %exitcond264.not = icmp eq i32 %164, %143
   br i1 %exitcond264.not, label %._crit_edge, label %.lr.ph.us.us
 
 .lr.ph242.split.us.split:                         ; preds = %.lr.ph242.split.us, %..loopexit_crit_edge.split.us246
-  %.0184241.us = phi i32 [ %172, %..loopexit_crit_edge.split.us246 ], [ 0, %.lr.ph242.split.us ]
-  %.0185238.us = phi ptr [ %171, %..loopexit_crit_edge.split.us246 ], [ %143, %.lr.ph242.split.us ]
-  %.0186235.us = phi ptr [ %170, %..loopexit_crit_edge.split.us246 ], [ %135, %.lr.ph242.split.us ]
-  %166 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %167 = load i32, ptr %33, align 4
-  %168 = icmp eq i32 %166, %167
-  br i1 %168, label %169, label %.lr.ph.us
+  %.0184241.us = phi i32 [ %171, %..loopexit_crit_edge.split.us246 ], [ 0, %.lr.ph242.split.us ]
+  %.0185238.us = phi ptr [ %170, %..loopexit_crit_edge.split.us246 ], [ %142, %.lr.ph242.split.us ]
+  %.0186235.us = phi ptr [ %169, %..loopexit_crit_edge.split.us246 ], [ %134, %.lr.ph242.split.us ]
+  %165 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %166 = load i32, ptr %33, align 4
+  %167 = icmp eq i32 %165, %166
+  br i1 %167, label %168, label %.lr.ph.us
 
-169:                                              ; preds = %.lr.ph242.split.us.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238.us, ptr align 1 %.0186235.us, i64 %148, i1 false)
+168:                                              ; preds = %.lr.ph242.split.us.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238.us, ptr align 1 %.0186235.us, i64 %147, i1 false)
   br label %..loopexit_crit_edge.split.us246
 
-..loopexit_crit_edge.split.us246:                 ; preds = %.lr.ph.us, %169
-  %170 = getelementptr inbounds i8, ptr %.0186235.us, i64 %152
-  %171 = getelementptr inbounds i8, ptr %.0185238.us, i64 %153
-  %172 = add nuw nsw i32 %.0184241.us, 1
-  %exitcond262.not = icmp eq i32 %172, %144
+..loopexit_crit_edge.split.us246:                 ; preds = %.lr.ph.us, %168
+  %169 = getelementptr inbounds i8, ptr %.0186235.us, i64 %151
+  %170 = getelementptr inbounds i8, ptr %.0185238.us, i64 %152
+  %171 = add nuw nsw i32 %.0184241.us, 1
+  %exitcond262.not = icmp eq i32 %171, %143
   br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph242.split.us.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph242.split.us.split, %.lr.ph.us
-  %.0234.us243 = phi i32 [ %178, %.lr.ph.us ], [ 0, %.lr.ph242.split.us.split ]
-  %.0182233.us244 = phi ptr [ %176, %.lr.ph.us ], [ %.0185238.us, %.lr.ph242.split.us.split ]
-  %.0183232.us245 = phi ptr [ %177, %.lr.ph.us ], [ %.0186235.us, %.lr.ph242.split.us.split ]
-  %173 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %174 = call i32 @GetPixelColor(ptr noundef %.0183232.us245, i32 noundef %173)
-  %175 = load i32, ptr %33, align 4
-  call void @SetPixelColor(ptr noundef %.0182233.us244, i32 %174, i32 noundef %175)
-  %176 = getelementptr inbounds i8, ptr %.0182233.us244, i64 %150
-  %177 = getelementptr inbounds i8, ptr %.0183232.us245, i64 %151
-  %178 = add nuw nsw i32 %.0234.us243, 1
-  %exitcond261.not = icmp eq i32 %178, %.fr256
+  %.0234.us243 = phi i32 [ %177, %.lr.ph.us ], [ 0, %.lr.ph242.split.us.split ]
+  %.0182233.us244 = phi ptr [ %175, %.lr.ph.us ], [ %.0185238.us, %.lr.ph242.split.us.split ]
+  %.0183232.us245 = phi ptr [ %176, %.lr.ph.us ], [ %.0186235.us, %.lr.ph242.split.us.split ]
+  %172 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %173 = call i32 @GetPixelColor(ptr noundef %.0183232.us245, i32 noundef %172)
+  %174 = load i32, ptr %33, align 4
+  call void @SetPixelColor(ptr noundef %.0182233.us244, i32 %173, i32 noundef %174)
+  %175 = getelementptr inbounds i8, ptr %.0182233.us244, i64 %149
+  %176 = getelementptr inbounds i8, ptr %.0183232.us245, i64 %150
+  %177 = add nuw nsw i32 %.0234.us243, 1
+  %exitcond261.not = icmp eq i32 %177, %.fr256
   br i1 %exitcond261.not, label %..loopexit_crit_edge.split.us246, label %.lr.ph.us
 
 .lr.ph242.split:                                  ; preds = %.lr.ph242
-  %179 = icmp ne i32 %116, %104
-  %or.cond275.not = or i1 %179, %.0189
+  %178 = icmp ne i32 %115, %103
+  %or.cond275.not = or i1 %178, %.0189
   br i1 %or.cond275.not, label %._crit_edge, label %.lr.ph242.split.split.split
 
 .lr.ph242.split.split.split:                      ; preds = %.lr.ph242.split, %.loopexit
-  %.0184241 = phi i32 [ %186, %.loopexit ], [ 0, %.lr.ph242.split ]
-  %.0185238 = phi ptr [ %185, %.loopexit ], [ %143, %.lr.ph242.split ]
-  %.0186235 = phi ptr [ %184, %.loopexit ], [ %135, %.lr.ph242.split ]
-  %180 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %181 = load i32, ptr %33, align 4
-  %182 = icmp eq i32 %180, %181
-  br i1 %182, label %183, label %.loopexit
+  %.0184241 = phi i32 [ %185, %.loopexit ], [ 0, %.lr.ph242.split ]
+  %.0185238 = phi ptr [ %184, %.loopexit ], [ %142, %.lr.ph242.split ]
+  %.0186235 = phi ptr [ %183, %.loopexit ], [ %134, %.lr.ph242.split ]
+  %179 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %180 = load i32, ptr %33, align 4
+  %181 = icmp eq i32 %179, %180
+  br i1 %181, label %182, label %.loopexit
 
-183:                                              ; preds = %.lr.ph242.split.split.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238, ptr align 1 %.0186235, i64 %148, i1 false)
+182:                                              ; preds = %.lr.ph242.split.split.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238, ptr align 1 %.0186235, i64 %147, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph242.split.split.split, %183
-  %184 = getelementptr inbounds i8, ptr %.0186235, i64 %152
-  %185 = getelementptr inbounds i8, ptr %.0185238, i64 %153
-  %186 = add nuw nsw i32 %.0184241, 1
-  %exitcond.not = icmp eq i32 %186, %144
+.loopexit:                                        ; preds = %.lr.ph242.split.split.split, %182
+  %183 = getelementptr inbounds i8, ptr %.0186235, i64 %151
+  %184 = getelementptr inbounds i8, ptr %.0185238, i64 %152
+  %185 = add nuw nsw i32 %.0184241, 1
+  %exitcond.not = icmp eq i32 %185, %143
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph242.split.split.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %..loopexit_crit_edge.split.us246, %..loopexit_crit_edge.split.us.us.us, %.lr.ph242.split, %GetPixelDataSize.exit230
-  br i1 %.0188, label %187, label %188
+  br i1 %.0188, label %186, label %187
 
-187:                                              ; preds = %._crit_edge
+186:                                              ; preds = %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @free(ptr noundef %.sroa.0.0.copyload) #49
-  br label %188
+  br label %187
 
-188:                                              ; preds = %._crit_edge, %187, %7, %12, %16, %36
+187:                                              ; preds = %._crit_edge, %186, %7, %12, %16, %36
   ret void
 }
 
@@ -28639,7 +28638,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.i.i, %8, %stbi__mul2sizes_valid.exit.thread15.i.i
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %27, align 8
-  br label %.loopexit701.sink.split
+  br label %.loopexit700.sink.split
 
 stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2sizes_valid.exit12.i.i
   %28 = mul nsw i32 %16, %22
@@ -28648,12 +28647,12 @@ stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2size
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %.loopexit701.sink.split, label %32
+  br i1 %.not, label %.loopexit700.sink.split, label %32
 
 32:                                               ; preds = %stbi__malloc_mad3.exit
   %33 = or i32 %15, %4
   %or.cond.not.i.i = icmp sgt i32 %33, -1
-  br i1 %or.cond.not.i.i, label %34, label %.loopexit701.sink.split
+  br i1 %or.cond.not.i.i, label %34, label %.loopexit700.sink.split
 
 34:                                               ; preds = %32
   %35 = icmp eq i32 %4, 0
@@ -28662,13 +28661,13 @@ stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2size
 stbi__mul2sizes_valid.exit.i:                     ; preds = %34
   %36 = udiv i32 2147483647, %4
   %.not23.i = icmp slt i32 %36, %15
-  br i1 %.not23.i, label %.loopexit701.sink.split, label %stbi__mul2sizes_valid.exit.thread15.i
+  br i1 %.not23.i, label %.loopexit700.sink.split, label %stbi__mul2sizes_valid.exit.thread15.i
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_valid.exit.i, %34
   %37 = mul i32 %15, %4
   %38 = or i32 %37, %6
   %or.cond.not.i10.i = icmp sgt i32 %38, -1
-  br i1 %or.cond.not.i10.i, label %39, label %.loopexit701.sink.split
+  br i1 %or.cond.not.i10.i, label %39, label %.loopexit700.sink.split
 
 39:                                               ; preds = %stbi__mul2sizes_valid.exit.thread15.i
   %40 = icmp eq i32 %6, 0
@@ -28679,8 +28678,8 @@ stbi__mul2sizes_valid.exit12.i:                   ; preds = %39
   %.not.i = icmp slt i32 %41, %37
   %42 = mul i32 %37, %6
   %43 = icmp sgt i32 %42, 2147483640
-  %or.cond693 = or i1 %.not.i, %43
-  br i1 %or.cond693, label %.loopexit701.sink.split, label %stbi__mad3sizes_valid.exit._crit_edge
+  %or.cond692 = or i1 %.not.i, %43
+  br i1 %or.cond692, label %.loopexit700.sink.split, label %stbi__mad3sizes_valid.exit._crit_edge
 
 stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2sizes_valid.exit12.i
   %.pre-phi = phi i32 [ %42, %stbi__mul2sizes_valid.exit12.i ], [ 0, %39 ]
@@ -28689,59 +28688,59 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %46 = add nuw nsw i32 %45, 1
   %47 = mul i32 %46, %5
   %48 = icmp ugt i32 %47, %2
-  br i1 %48, label %.loopexit701.sink.split, label %.preheader737
+  br i1 %48, label %.loopexit700.sink.split, label %.preheader736
 
-.preheader737:                                    ; preds = %stbi__mad3sizes_valid.exit._crit_edge
+.preheader736:                                    ; preds = %stbi__mad3sizes_valid.exit._crit_edge
   %49 = icmp slt i32 %6, 8
-  br i1 %20, label %._crit_edge825.thread, label %.lr.ph824
+  br i1 %20, label %._crit_edge824.thread, label %.lr.ph823
 
-.lr.ph824:                                        ; preds = %.preheader737
+.lr.ph823:                                        ; preds = %.preheader736
   %50 = icmp ugt i32 %45, %4
   %51 = sub i32 %11, %45
   %52 = zext i32 %51 to i64
   %53 = zext i32 %13 to i64
   %54 = sub nsw i64 0, %53
   %55 = icmp eq i32 %6, 8
-  %.not614 = icmp eq i32 %15, %3
+  %.not613 = icmp eq i32 %15, %3
   %56 = sext i32 %16 to i64
   %57 = sext i32 %15 to i64
   %58 = sext i32 %3 to i64
-  %or.cond = select i1 %49, i1 true, i1 %.not614
-  %.6562742 = add i32 %4, -1
-  %.not616743 = icmp eq i32 %.6562742, 0
-  %wide.trip.count965 = zext i32 %5 to i64
+  %or.cond = select i1 %49, i1 true, i1 %.not613
+  %.6562741 = add i32 %4, -1
+  %.not615742 = icmp eq i32 %.6562741, 0
+  %wide.trip.count964 = zext i32 %5 to i64
   %59 = load i8, ptr %1, align 1
   %60 = icmp ugt i8 %59, 4
-  br i1 %60, label %.loopexit701.sink.split, label %.lr.ph1050
+  br i1 %60, label %.loopexit700.sink.split, label %.lr.ph1049
 
-.lr.ph1050:                                       ; preds = %.lr.ph824
+.lr.ph1049:                                       ; preds = %.lr.ph823
   %61 = load ptr, ptr %31, align 8
   br label %62
 
-62:                                               ; preds = %.lr.ph1050, %.backedge
-  %63 = phi i8 [ %59, %.lr.ph1050 ], [ %308, %.backedge ]
-  %64 = phi ptr [ %61, %.lr.ph1050 ], [ %307, %.backedge ]
-  %65 = phi i64 [ 0, %.lr.ph1050 ], [ %306, %.backedge ]
-  %.05548211049 = phi i32 [ %17, %.lr.ph1050 ], [ %.1555, %.backedge ]
-  %.05528221048 = phi i32 [ %4, %.lr.ph1050 ], [ %.1553, %.backedge ]
-  %.05228231047 = phi ptr [ %1, %.lr.ph1050 ], [ %.0522823.be, %.backedge ]
-  %indvars.iv9621046 = phi i64 [ 0, %.lr.ph1050 ], [ %indvars.iv962.be, %.backedge ]
-  %66 = getelementptr inbounds i8, ptr %.05228231047, i64 1
+62:                                               ; preds = %.lr.ph1049, %.backedge
+  %63 = phi i8 [ %59, %.lr.ph1049 ], [ %308, %.backedge ]
+  %64 = phi ptr [ %61, %.lr.ph1049 ], [ %307, %.backedge ]
+  %65 = phi i64 [ 0, %.lr.ph1049 ], [ %306, %.backedge ]
+  %.05548201048 = phi i32 [ %17, %.lr.ph1049 ], [ %.1555, %.backedge ]
+  %.05528211047 = phi i32 [ %4, %.lr.ph1049 ], [ %.1553, %.backedge ]
+  %.05228221046 = phi ptr [ %1, %.lr.ph1049 ], [ %.0522822.be, %.backedge ]
+  %indvars.iv9611045 = phi i64 [ 0, %.lr.ph1049 ], [ %indvars.iv961.be, %.backedge ]
+  %66 = getelementptr inbounds i8, ptr %.05228221046, i64 1
   br i1 %49, label %67, label %70
 
 67:                                               ; preds = %62
-  br i1 %50, label %.loopexit701.sink.split, label %68
+  br i1 %50, label %.loopexit700.sink.split, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds i8, ptr %64, i64 %52
   br label %70
 
 70:                                               ; preds = %68, %62
-  %.1555 = phi i32 [ 1, %68 ], [ %.05548211049, %62 ]
-  %.1553 = phi i32 [ %45, %68 ], [ %.05528221048, %62 ]
+  %.1555 = phi i32 [ 1, %68 ], [ %.05548201048, %62 ]
+  %.1553 = phi i32 [ %45, %68 ], [ %.05528211047, %62 ]
   %.0542 = phi ptr [ %69, %68 ], [ %64, %62 ]
   %71 = getelementptr inbounds i8, ptr %.0542, i64 %54
-  %72 = icmp eq i64 %indvars.iv9621046, 0
+  %72 = icmp eq i64 %indvars.iv9611045, 0
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %70
@@ -28786,7 +28785,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %87 = load i8, ptr %86, align 1
   %88 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv
   %89 = load i8, ptr %88, align 1
-  %.narrow650 = add i8 %89, %87
+  %.narrow649 = add i8 %89, %87
   br label %.sink.split
 
 90:                                               ; preds = %.lr.ph
@@ -28795,7 +28794,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %93 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv
   %94 = load i8, ptr %93, align 1
   %95 = lshr i8 %94, 1
-  %.narrow648 = add i8 %95, %92
+  %.narrow647 = add i8 %95, %92
   br label %.sink.split
 
 96:                                               ; preds = %.lr.ph
@@ -28803,7 +28802,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %98 = load i8, ptr %97, align 1
   %99 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv
   %100 = load i8, ptr %99, align 1
-  %.narrow646 = add i8 %100, %98
+  %.narrow645 = add i8 %100, %98
   br label %.sink.split
 
 101:                                              ; preds = %.lr.ph
@@ -28817,7 +28816,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   br label %.sink.split
 
 .sink.split:                                      ; preds = %104, %101, %96, %90, %85, %82, %79
-  %.sink = phi i8 [ %81, %79 ], [ %84, %82 ], [ %.narrow650, %85 ], [ %.narrow648, %90 ], [ %.narrow646, %96 ], [ %103, %101 ], [ %106, %104 ]
+  %.sink = phi i8 [ %81, %79 ], [ %84, %82 ], [ %.narrow649, %85 ], [ %.narrow647, %90 ], [ %.narrow645, %96 ], [ %103, %101 ], [ %106, %104 ]
   %107 = getelementptr inbounds i8, ptr %.0542, i64 %indvars.iv
   store i8 %.sink, ptr %107, align 1
   br label %108
@@ -28831,7 +28830,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   br i1 %55, label %109, label %114
 
 109:                                              ; preds = %._crit_edge
-  br i1 %.not614, label %112, label %110
+  br i1 %.not613, label %112, label %110
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds i8, ptr %.0542, i64 %57
@@ -28846,161 +28845,161 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   br i1 %9, label %115, label %122
 
 115:                                              ; preds = %114
-  %.pre980 = sext i32 %.1555 to i64
-  br i1 %.not614, label %._crit_edge979, label %116
+  %.pre979 = sext i32 %.1555 to i64
+  br i1 %.not613, label %._crit_edge978, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.0542, i64 %.pre980
+  %117 = getelementptr inbounds i8, ptr %.0542, i64 %.pre979
   store i8 -1, ptr %117, align 1
   %118 = add nsw i32 %.1555, 1
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %.0542, i64 %119
   store i8 -1, ptr %120, align 1
-  br label %._crit_edge979
+  br label %._crit_edge978
 
-._crit_edge979:                                   ; preds = %115, %116
-  %121 = getelementptr inbounds i8, ptr %66, i64 %.pre980
+._crit_edge978:                                   ; preds = %115, %116
+  %121 = getelementptr inbounds i8, ptr %66, i64 %.pre979
   br label %124
 
 122:                                              ; preds = %114
-  %123 = getelementptr inbounds i8, ptr %.05228231047, i64 2
+  %123 = getelementptr inbounds i8, ptr %.05228221046, i64 2
   br label %124
 
-124:                                              ; preds = %._crit_edge979, %122, %112
-  %.sink1016 = phi i64 [ %56, %._crit_edge979 ], [ 1, %122 ], [ %58, %112 ]
-  %.1523 = phi ptr [ %121, %._crit_edge979 ], [ %123, %122 ], [ %113, %112 ]
-  %125 = getelementptr inbounds i8, ptr %.0542, i64 %.sink1016
-  %126 = getelementptr inbounds i8, ptr %71, i64 %.sink1016
+124:                                              ; preds = %._crit_edge978, %122, %112
+  %.sink1015 = phi i64 [ %56, %._crit_edge978 ], [ 1, %122 ], [ %58, %112 ]
+  %.1523 = phi ptr [ %121, %._crit_edge978 ], [ %123, %122 ], [ %113, %112 ]
+  %125 = getelementptr inbounds i8, ptr %.0542, i64 %.sink1015
+  %126 = getelementptr inbounds i8, ptr %71, i64 %.sink1015
   br i1 %or.cond, label %127, label %202
 
 127:                                              ; preds = %124
   %128 = add i32 %.1553, -1
   %129 = mul i32 %128, %.1555
-  switch i8 %.0533.in, label %.loopexit711 [
+  switch i8 %.0533.in, label %.loopexit710 [
     i8 0, label %141
-    i8 1, label %.preheader710
-    i8 2, label %.preheader712
-    i8 3, label %.preheader714
-    i8 4, label %.preheader716
-    i8 5, label %.preheader718
-    i8 6, label %.preheader720
+    i8 1, label %.preheader709
+    i8 2, label %.preheader711
+    i8 3, label %.preheader713
+    i8 4, label %.preheader715
+    i8 5, label %.preheader717
+    i8 6, label %.preheader719
   ]
 
-.preheader720:                                    ; preds = %127
+.preheader719:                                    ; preds = %127
   %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %.lr.ph809.preheader, label %.loopexit711
+  br i1 %130, label %.lr.ph808.preheader, label %.loopexit710
 
-.lr.ph809.preheader:                              ; preds = %.preheader720
+.lr.ph808.preheader:                              ; preds = %.preheader719
   %131 = sext i32 %.1555 to i64
-  %wide.trip.count935 = zext nneg i32 %129 to i64
-  br label %.lr.ph809
+  %wide.trip.count934 = zext nneg i32 %129 to i64
+  br label %.lr.ph808
 
-.preheader718:                                    ; preds = %127
+.preheader717:                                    ; preds = %127
   %132 = icmp sgt i32 %129, 0
-  br i1 %132, label %.lr.ph811.preheader, label %.loopexit711
+  br i1 %132, label %.lr.ph810.preheader, label %.loopexit710
 
-.lr.ph811.preheader:                              ; preds = %.preheader718
+.lr.ph810.preheader:                              ; preds = %.preheader717
   %133 = sext i32 %.1555 to i64
-  %wide.trip.count940 = zext nneg i32 %129 to i64
-  br label %.lr.ph811
+  %wide.trip.count939 = zext nneg i32 %129 to i64
+  br label %.lr.ph810
 
-.preheader716:                                    ; preds = %127
+.preheader715:                                    ; preds = %127
   %134 = icmp sgt i32 %129, 0
-  br i1 %134, label %.lr.ph813.preheader, label %.loopexit711
+  br i1 %134, label %.lr.ph812.preheader, label %.loopexit710
 
-.lr.ph813.preheader:                              ; preds = %.preheader716
+.lr.ph812.preheader:                              ; preds = %.preheader715
   %135 = sext i32 %.1555 to i64
-  %wide.trip.count945 = zext nneg i32 %129 to i64
-  br label %.lr.ph813
+  %wide.trip.count944 = zext nneg i32 %129 to i64
+  br label %.lr.ph812
 
-.preheader714:                                    ; preds = %127
+.preheader713:                                    ; preds = %127
   %136 = icmp sgt i32 %129, 0
-  br i1 %136, label %.lr.ph815.preheader, label %.loopexit711
+  br i1 %136, label %.lr.ph814.preheader, label %.loopexit710
 
-.lr.ph815.preheader:                              ; preds = %.preheader714
+.lr.ph814.preheader:                              ; preds = %.preheader713
   %137 = sext i32 %.1555 to i64
-  %wide.trip.count950 = zext nneg i32 %129 to i64
-  br label %.lr.ph815
+  %wide.trip.count949 = zext nneg i32 %129 to i64
+  br label %.lr.ph814
 
-.preheader712:                                    ; preds = %127
+.preheader711:                                    ; preds = %127
   %138 = icmp sgt i32 %129, 0
-  br i1 %138, label %.lr.ph817.preheader, label %.loopexit711
+  br i1 %138, label %.lr.ph816.preheader, label %.loopexit710
 
-.lr.ph817.preheader:                              ; preds = %.preheader712
-  %wide.trip.count955 = zext nneg i32 %129 to i64
-  br label %.lr.ph817
+.lr.ph816.preheader:                              ; preds = %.preheader711
+  %wide.trip.count954 = zext nneg i32 %129 to i64
+  br label %.lr.ph816
 
-.preheader710:                                    ; preds = %127
+.preheader709:                                    ; preds = %127
   %139 = icmp sgt i32 %129, 0
-  br i1 %139, label %.lr.ph819.preheader, label %.loopexit711
+  br i1 %139, label %.lr.ph818.preheader, label %.loopexit710
 
-.lr.ph819.preheader:                              ; preds = %.preheader710
+.lr.ph818.preheader:                              ; preds = %.preheader709
   %140 = sext i32 %.1555 to i64
-  %wide.trip.count960 = zext nneg i32 %129 to i64
-  br label %.lr.ph819
+  %wide.trip.count959 = zext nneg i32 %129 to i64
+  br label %.lr.ph818
 
 141:                                              ; preds = %127
   %142 = sext i32 %129 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr nonnull align 1 %.1523, i64 %142, i1 false)
-  br label %.loopexit711
+  br label %.loopexit710
 
-.lr.ph819:                                        ; preds = %.lr.ph819.preheader, %.lr.ph819
-  %indvars.iv957 = phi i64 [ 0, %.lr.ph819.preheader ], [ %indvars.iv.next958, %.lr.ph819 ]
-  %143 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv957
+.lr.ph818:                                        ; preds = %.lr.ph818.preheader, %.lr.ph818
+  %indvars.iv956 = phi i64 [ 0, %.lr.ph818.preheader ], [ %indvars.iv.next957, %.lr.ph818 ]
+  %143 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv956
   %144 = load i8, ptr %143, align 1
-  %145 = sub nsw i64 %indvars.iv957, %140
+  %145 = sub nsw i64 %indvars.iv956, %140
   %146 = getelementptr inbounds i8, ptr %125, i64 %145
   %147 = load i8, ptr %146, align 1
-  %.narrow644 = add i8 %147, %144
-  %148 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv957
-  store i8 %.narrow644, ptr %148, align 1
-  %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
-  %exitcond961.not = icmp eq i64 %indvars.iv.next958, %wide.trip.count960
-  br i1 %exitcond961.not, label %.loopexit711, label %.lr.ph819
+  %.narrow643 = add i8 %147, %144
+  %148 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv956
+  store i8 %.narrow643, ptr %148, align 1
+  %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
+  %exitcond960.not = icmp eq i64 %indvars.iv.next957, %wide.trip.count959
+  br i1 %exitcond960.not, label %.loopexit710, label %.lr.ph818
 
-.lr.ph817:                                        ; preds = %.lr.ph817.preheader, %.lr.ph817
-  %indvars.iv952 = phi i64 [ 0, %.lr.ph817.preheader ], [ %indvars.iv.next953, %.lr.ph817 ]
-  %149 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv952
+.lr.ph816:                                        ; preds = %.lr.ph816.preheader, %.lr.ph816
+  %indvars.iv951 = phi i64 [ 0, %.lr.ph816.preheader ], [ %indvars.iv.next952, %.lr.ph816 ]
+  %149 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv951
   %150 = load i8, ptr %149, align 1
-  %151 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv952
+  %151 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv951
   %152 = load i8, ptr %151, align 1
-  %.narrow642 = add i8 %152, %150
-  %153 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv952
-  store i8 %.narrow642, ptr %153, align 1
-  %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
-  %exitcond956.not = icmp eq i64 %indvars.iv.next953, %wide.trip.count955
-  br i1 %exitcond956.not, label %.loopexit711, label %.lr.ph817
+  %.narrow641 = add i8 %152, %150
+  %153 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv951
+  store i8 %.narrow641, ptr %153, align 1
+  %indvars.iv.next952 = add nuw nsw i64 %indvars.iv951, 1
+  %exitcond955.not = icmp eq i64 %indvars.iv.next952, %wide.trip.count954
+  br i1 %exitcond955.not, label %.loopexit710, label %.lr.ph816
 
-.lr.ph815:                                        ; preds = %.lr.ph815.preheader, %.lr.ph815
-  %indvars.iv947 = phi i64 [ 0, %.lr.ph815.preheader ], [ %indvars.iv.next948, %.lr.ph815 ]
-  %154 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv947
+.lr.ph814:                                        ; preds = %.lr.ph814.preheader, %.lr.ph814
+  %indvars.iv946 = phi i64 [ 0, %.lr.ph814.preheader ], [ %indvars.iv.next947, %.lr.ph814 ]
+  %154 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv946
   %155 = load i8, ptr %154, align 1
-  %156 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv947
+  %156 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv946
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i16
-  %159 = sub nsw i64 %indvars.iv947, %137
+  %159 = sub nsw i64 %indvars.iv946, %137
   %160 = getelementptr inbounds i8, ptr %125, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i16
   %163 = add nuw nsw i16 %162, %158
   %164 = lshr i16 %163, 1
-  %.tr639 = trunc i16 %164 to i8
-  %.narrow640 = add i8 %155, %.tr639
-  %165 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv947
-  store i8 %.narrow640, ptr %165, align 1
-  %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
-  %exitcond951.not = icmp eq i64 %indvars.iv.next948, %wide.trip.count950
-  br i1 %exitcond951.not, label %.loopexit711, label %.lr.ph815
+  %.tr638 = trunc i16 %164 to i8
+  %.narrow639 = add i8 %155, %.tr638
+  %165 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv946
+  store i8 %.narrow639, ptr %165, align 1
+  %indvars.iv.next947 = add nuw nsw i64 %indvars.iv946, 1
+  %exitcond950.not = icmp eq i64 %indvars.iv.next947, %wide.trip.count949
+  br i1 %exitcond950.not, label %.loopexit710, label %.lr.ph814
 
-.lr.ph813:                                        ; preds = %.lr.ph813.preheader, %.lr.ph813
-  %indvars.iv942 = phi i64 [ 0, %.lr.ph813.preheader ], [ %indvars.iv.next943, %.lr.ph813 ]
-  %166 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv942
+.lr.ph812:                                        ; preds = %.lr.ph812.preheader, %.lr.ph812
+  %indvars.iv941 = phi i64 [ 0, %.lr.ph812.preheader ], [ %indvars.iv.next942, %.lr.ph812 ]
+  %166 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv941
   %167 = load i8, ptr %166, align 1
-  %168 = sub nsw i64 %indvars.iv942, %135
+  %168 = sub nsw i64 %indvars.iv941, %135
   %169 = getelementptr inbounds i8, ptr %125, i64 %168
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
-  %172 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv942
+  %172 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv941
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = getelementptr inbounds i8, ptr %126, i64 %168
@@ -29014,261 +29013,261 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %183 = tail call i32 @llvm.abs.i32(i32 %182, i1 true)
   %184 = sub nsw i32 %179, %177
   %185 = tail call i32 @llvm.abs.i32(i32 %184, i1 true)
-  %.not.i653 = icmp ugt i32 %181, %183
-  %.not20.i654 = icmp ugt i32 %181, %185
-  %or.cond.i655 = select i1 %.not.i653, i1 true, i1 %.not20.i654
+  %.not.i652 = icmp ugt i32 %181, %183
+  %.not20.i653 = icmp ugt i32 %181, %185
+  %or.cond.i654 = select i1 %.not.i652, i1 true, i1 %.not20.i653
   %.not21.i = icmp ugt i32 %183, %185
   %..i = select i1 %.not21.i, i8 %176, i8 %173
-  %.0.i656 = select i1 %or.cond.i655, i8 %..i, i8 %170
-  %.narrow638 = add i8 %.0.i656, %167
-  %186 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv942
-  store i8 %.narrow638, ptr %186, align 1
-  %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
-  %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count945
-  br i1 %exitcond946.not, label %.loopexit711, label %.lr.ph813
+  %.0.i655 = select i1 %or.cond.i654, i8 %..i, i8 %170
+  %.narrow637 = add i8 %.0.i655, %167
+  %186 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv941
+  store i8 %.narrow637, ptr %186, align 1
+  %indvars.iv.next942 = add nuw nsw i64 %indvars.iv941, 1
+  %exitcond945.not = icmp eq i64 %indvars.iv.next942, %wide.trip.count944
+  br i1 %exitcond945.not, label %.loopexit710, label %.lr.ph812
 
-.lr.ph811:                                        ; preds = %.lr.ph811.preheader, %.lr.ph811
-  %indvars.iv937 = phi i64 [ 0, %.lr.ph811.preheader ], [ %indvars.iv.next938, %.lr.ph811 ]
-  %187 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv937
+.lr.ph810:                                        ; preds = %.lr.ph810.preheader, %.lr.ph810
+  %indvars.iv936 = phi i64 [ 0, %.lr.ph810.preheader ], [ %indvars.iv.next937, %.lr.ph810 ]
+  %187 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv936
   %188 = load i8, ptr %187, align 1
-  %189 = sub nsw i64 %indvars.iv937, %133
+  %189 = sub nsw i64 %indvars.iv936, %133
   %190 = getelementptr inbounds i8, ptr %125, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = lshr i8 %191, 1
-  %.narrow636 = add i8 %192, %188
-  %193 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv937
-  store i8 %.narrow636, ptr %193, align 1
-  %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
-  %exitcond941.not = icmp eq i64 %indvars.iv.next938, %wide.trip.count940
-  br i1 %exitcond941.not, label %.loopexit711, label %.lr.ph811
+  %.narrow635 = add i8 %192, %188
+  %193 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv936
+  store i8 %.narrow635, ptr %193, align 1
+  %indvars.iv.next937 = add nuw nsw i64 %indvars.iv936, 1
+  %exitcond940.not = icmp eq i64 %indvars.iv.next937, %wide.trip.count939
+  br i1 %exitcond940.not, label %.loopexit710, label %.lr.ph810
 
-.lr.ph809:                                        ; preds = %.lr.ph809.preheader, %.lr.ph809
-  %indvars.iv932 = phi i64 [ 0, %.lr.ph809.preheader ], [ %indvars.iv.next933, %.lr.ph809 ]
-  %194 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv932
+.lr.ph808:                                        ; preds = %.lr.ph808.preheader, %.lr.ph808
+  %indvars.iv931 = phi i64 [ 0, %.lr.ph808.preheader ], [ %indvars.iv.next932, %.lr.ph808 ]
+  %194 = getelementptr inbounds i8, ptr %.1523, i64 %indvars.iv931
   %195 = load i8, ptr %194, align 1
-  %196 = sub nsw i64 %indvars.iv932, %131
+  %196 = sub nsw i64 %indvars.iv931, %131
   %197 = getelementptr inbounds i8, ptr %125, i64 %196
   %198 = load i8, ptr %197, align 1
-  %.narrow634 = add i8 %198, %195
-  %199 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv932
-  store i8 %.narrow634, ptr %199, align 1
-  %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
-  %exitcond936.not = icmp eq i64 %indvars.iv.next933, %wide.trip.count935
-  br i1 %exitcond936.not, label %.loopexit711, label %.lr.ph809
+  %.narrow633 = add i8 %198, %195
+  %199 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv931
+  store i8 %.narrow633, ptr %199, align 1
+  %indvars.iv.next932 = add nuw nsw i64 %indvars.iv931, 1
+  %exitcond935.not = icmp eq i64 %indvars.iv.next932, %wide.trip.count934
+  br i1 %exitcond935.not, label %.loopexit710, label %.lr.ph808
 
-.loopexit711:                                     ; preds = %.lr.ph809, %.lr.ph811, %.lr.ph813, %.lr.ph815, %.lr.ph817, %.lr.ph819, %.preheader720, %.preheader718, %.preheader716, %.preheader714, %.preheader712, %.preheader710, %141, %127
+.loopexit710:                                     ; preds = %.lr.ph808, %.lr.ph810, %.lr.ph812, %.lr.ph814, %.lr.ph816, %.lr.ph818, %.preheader719, %.preheader717, %.preheader715, %.preheader713, %.preheader711, %.preheader709, %141, %127
   %200 = sext i32 %129 to i64
   %201 = getelementptr inbounds i8, ptr %.1523, i64 %200
-  br label %.loopexit722
+  br label %.loopexit721
 
 202:                                              ; preds = %124
-  switch i8 %.0533.in, label %.loopexit724 [
-    i8 0, label %.preheader723
-    i8 1, label %.preheader725
-    i8 2, label %.preheader727
-    i8 3, label %.preheader729
-    i8 4, label %.preheader731
-    i8 5, label %.preheader733
-    i8 6, label %.preheader735
+  switch i8 %.0533.in, label %.loopexit723 [
+    i8 0, label %.preheader722
+    i8 1, label %.preheader724
+    i8 2, label %.preheader726
+    i8 3, label %.preheader728
+    i8 4, label %.preheader730
+    i8 5, label %.preheader732
+    i8 6, label %.preheader734
   ]
 
-.preheader735:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader709.lr.ph
+.preheader734:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader708.lr.ph
 
-.preheader709.lr.ph:                              ; preds = %.preheader735
+.preheader708.lr.ph:                              ; preds = %.preheader734
   %203 = sext i32 %.1555 to i64
-  %wide.trip.count899 = zext nneg i32 %.1555 to i64
-  br label %.preheader709
-
-.preheader733:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader708.lr.ph
-
-.preheader708.lr.ph:                              ; preds = %.preheader733
-  %204 = sext i32 %.1555 to i64
-  %wide.trip.count904 = zext nneg i32 %.1555 to i64
+  %wide.trip.count898 = zext nneg i32 %.1555 to i64
   br label %.preheader708
 
-.preheader731:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader707.lr.ph
+.preheader732:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader707.lr.ph
 
-.preheader707.lr.ph:                              ; preds = %.preheader731
-  %205 = sext i32 %.1555 to i64
-  %wide.trip.count909 = zext nneg i32 %.1555 to i64
+.preheader707.lr.ph:                              ; preds = %.preheader732
+  %204 = sext i32 %.1555 to i64
+  %wide.trip.count903 = zext nneg i32 %.1555 to i64
   br label %.preheader707
 
-.preheader729:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader706.lr.ph
+.preheader730:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader706.lr.ph
 
-.preheader706.lr.ph:                              ; preds = %.preheader729
-  %206 = sext i32 %.1555 to i64
-  %wide.trip.count914 = zext nneg i32 %.1555 to i64
+.preheader706.lr.ph:                              ; preds = %.preheader730
+  %205 = sext i32 %.1555 to i64
+  %wide.trip.count908 = zext nneg i32 %.1555 to i64
   br label %.preheader706
 
-.preheader727:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader705.lr.ph
+.preheader728:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader705.lr.ph
 
-.preheader705.lr.ph:                              ; preds = %.preheader727
-  %207 = sext i32 %.1555 to i64
-  %wide.trip.count919 = zext nneg i32 %.1555 to i64
+.preheader705.lr.ph:                              ; preds = %.preheader728
+  %206 = sext i32 %.1555 to i64
+  %wide.trip.count913 = zext nneg i32 %.1555 to i64
   br label %.preheader705
 
-.preheader725:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader704.lr.ph
+.preheader726:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader704.lr.ph
 
-.preheader704.lr.ph:                              ; preds = %.preheader725
-  %208 = sext i32 %.1555 to i64
-  %wide.trip.count924 = zext nneg i32 %.1555 to i64
+.preheader704.lr.ph:                              ; preds = %.preheader726
+  %207 = sext i32 %.1555 to i64
+  %wide.trip.count918 = zext nneg i32 %.1555 to i64
   br label %.preheader704
 
-.preheader723:                                    ; preds = %202
-  br i1 %.not616743, label %.loopexit724, label %.preheader703.lr.ph
+.preheader724:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader703.lr.ph
 
-.preheader703.lr.ph:                              ; preds = %.preheader723
-  %209 = sext i32 %.1555 to i64
-  %wide.trip.count929 = zext nneg i32 %.1555 to i64
+.preheader703.lr.ph:                              ; preds = %.preheader724
+  %208 = sext i32 %.1555 to i64
+  %wide.trip.count923 = zext nneg i32 %.1555 to i64
   br label %.preheader703
 
-.preheader703:                                    ; preds = %.preheader703.lr.ph, %._crit_edge797
-  %.0556802 = phi i32 [ %.6562742, %.preheader703.lr.ph ], [ %.0556, %._crit_edge797 ]
-  %.2524801 = phi ptr [ %.1523, %.preheader703.lr.ph ], [ %214, %._crit_edge797 ]
-  %.2544800 = phi ptr [ %125, %.preheader703.lr.ph ], [ %215, %._crit_edge797 ]
-  br i1 %78, label %.lr.ph796, label %._crit_edge797
+.preheader722:                                    ; preds = %202
+  br i1 %.not615742, label %.loopexit723, label %.preheader702.lr.ph
 
-.lr.ph796:                                        ; preds = %.preheader703, %.lr.ph796
-  %indvars.iv926 = phi i64 [ %indvars.iv.next927, %.lr.ph796 ], [ 0, %.preheader703 ]
-  %210 = getelementptr inbounds i8, ptr %.2524801, i64 %indvars.iv926
+.preheader702.lr.ph:                              ; preds = %.preheader722
+  %209 = sext i32 %.1555 to i64
+  %wide.trip.count928 = zext nneg i32 %.1555 to i64
+  br label %.preheader702
+
+.preheader702:                                    ; preds = %.preheader702.lr.ph, %._crit_edge796
+  %.0556801 = phi i32 [ %.6562741, %.preheader702.lr.ph ], [ %.0556, %._crit_edge796 ]
+  %.2524800 = phi ptr [ %.1523, %.preheader702.lr.ph ], [ %214, %._crit_edge796 ]
+  %.2544799 = phi ptr [ %125, %.preheader702.lr.ph ], [ %215, %._crit_edge796 ]
+  br i1 %78, label %.lr.ph795, label %._crit_edge796
+
+.lr.ph795:                                        ; preds = %.preheader702, %.lr.ph795
+  %indvars.iv925 = phi i64 [ %indvars.iv.next926, %.lr.ph795 ], [ 0, %.preheader702 ]
+  %210 = getelementptr inbounds i8, ptr %.2524800, i64 %indvars.iv925
   %211 = load i8, ptr %210, align 1
-  %212 = getelementptr inbounds i8, ptr %.2544800, i64 %indvars.iv926
+  %212 = getelementptr inbounds i8, ptr %.2544799, i64 %indvars.iv925
   store i8 %211, ptr %212, align 1
-  %indvars.iv.next927 = add nuw nsw i64 %indvars.iv926, 1
-  %exitcond930.not = icmp eq i64 %indvars.iv.next927, %wide.trip.count929
-  br i1 %exitcond930.not, label %._crit_edge797, label %.lr.ph796
+  %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
+  %exitcond929.not = icmp eq i64 %indvars.iv.next926, %wide.trip.count928
+  br i1 %exitcond929.not, label %._crit_edge796, label %.lr.ph795
 
-._crit_edge797:                                   ; preds = %.lr.ph796, %.preheader703
-  %213 = getelementptr inbounds i8, ptr %.2544800, i64 %209
+._crit_edge796:                                   ; preds = %.lr.ph795, %.preheader702
+  %213 = getelementptr inbounds i8, ptr %.2544799, i64 %209
   store i8 -1, ptr %213, align 1
-  %214 = getelementptr i8, ptr %.2524801, i64 %209
-  %215 = getelementptr i8, ptr %.2544800, i64 %56
-  %.0556 = add i32 %.0556802, -1
-  %.not632 = icmp eq i32 %.0556, 0
-  br i1 %.not632, label %.loopexit724, label %.preheader703
+  %214 = getelementptr i8, ptr %.2524800, i64 %209
+  %215 = getelementptr i8, ptr %.2544799, i64 %56
+  %.0556 = add i32 %.0556801, -1
+  %.not631 = icmp eq i32 %.0556, 0
+  br i1 %.not631, label %.loopexit723, label %.preheader702
 
-.preheader704:                                    ; preds = %.preheader704.lr.ph, %._crit_edge788
-  %.1557793 = phi i32 [ %.6562742, %.preheader704.lr.ph ], [ %.1557, %._crit_edge788 ]
-  %.3525792 = phi ptr [ %.1523, %.preheader704.lr.ph ], [ %223, %._crit_edge788 ]
-  %.3545791 = phi ptr [ %125, %.preheader704.lr.ph ], [ %224, %._crit_edge788 ]
-  br i1 %78, label %.lr.ph787, label %._crit_edge788
+.preheader703:                                    ; preds = %.preheader703.lr.ph, %._crit_edge787
+  %.1557792 = phi i32 [ %.6562741, %.preheader703.lr.ph ], [ %.1557, %._crit_edge787 ]
+  %.3525791 = phi ptr [ %.1523, %.preheader703.lr.ph ], [ %223, %._crit_edge787 ]
+  %.3545790 = phi ptr [ %125, %.preheader703.lr.ph ], [ %224, %._crit_edge787 ]
+  br i1 %78, label %.lr.ph786, label %._crit_edge787
 
-.lr.ph787:                                        ; preds = %.preheader704, %.lr.ph787
-  %indvars.iv921 = phi i64 [ %indvars.iv.next922, %.lr.ph787 ], [ 0, %.preheader704 ]
-  %216 = getelementptr inbounds i8, ptr %.3525792, i64 %indvars.iv921
+.lr.ph786:                                        ; preds = %.preheader703, %.lr.ph786
+  %indvars.iv920 = phi i64 [ %indvars.iv.next921, %.lr.ph786 ], [ 0, %.preheader703 ]
+  %216 = getelementptr inbounds i8, ptr %.3525791, i64 %indvars.iv920
   %217 = load i8, ptr %216, align 1
-  %218 = sub nsw i64 %indvars.iv921, %56
-  %219 = getelementptr inbounds i8, ptr %.3545791, i64 %218
+  %218 = sub nsw i64 %indvars.iv920, %56
+  %219 = getelementptr inbounds i8, ptr %.3545790, i64 %218
   %220 = load i8, ptr %219, align 1
-  %.narrow631 = add i8 %220, %217
-  %221 = getelementptr inbounds i8, ptr %.3545791, i64 %indvars.iv921
-  store i8 %.narrow631, ptr %221, align 1
-  %indvars.iv.next922 = add nuw nsw i64 %indvars.iv921, 1
-  %exitcond925.not = icmp eq i64 %indvars.iv.next922, %wide.trip.count924
-  br i1 %exitcond925.not, label %._crit_edge788, label %.lr.ph787
+  %.narrow630 = add i8 %220, %217
+  %221 = getelementptr inbounds i8, ptr %.3545790, i64 %indvars.iv920
+  store i8 %.narrow630, ptr %221, align 1
+  %indvars.iv.next921 = add nuw nsw i64 %indvars.iv920, 1
+  %exitcond924.not = icmp eq i64 %indvars.iv.next921, %wide.trip.count923
+  br i1 %exitcond924.not, label %._crit_edge787, label %.lr.ph786
 
-._crit_edge788:                                   ; preds = %.lr.ph787, %.preheader704
-  %222 = getelementptr inbounds i8, ptr %.3545791, i64 %208
+._crit_edge787:                                   ; preds = %.lr.ph786, %.preheader703
+  %222 = getelementptr inbounds i8, ptr %.3545790, i64 %208
   store i8 -1, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %.3525792, i64 %208
-  %224 = getelementptr inbounds i8, ptr %.3545791, i64 %56
-  %.1557 = add i32 %.1557793, -1
-  %.not629 = icmp eq i32 %.1557, 0
-  br i1 %.not629, label %.loopexit724, label %.preheader704
+  %223 = getelementptr inbounds i8, ptr %.3525791, i64 %208
+  %224 = getelementptr inbounds i8, ptr %.3545790, i64 %56
+  %.1557 = add i32 %.1557792, -1
+  %.not628 = icmp eq i32 %.1557, 0
+  br i1 %.not628, label %.loopexit723, label %.preheader703
 
-.preheader705:                                    ; preds = %.preheader705.lr.ph, %._crit_edge778
-  %.2558784 = phi i32 [ %.6562742, %.preheader705.lr.ph ], [ %.2558, %._crit_edge778 ]
-  %.4526783 = phi ptr [ %.1523, %.preheader705.lr.ph ], [ %231, %._crit_edge778 ]
-  %.3537782 = phi ptr [ %126, %.preheader705.lr.ph ], [ %233, %._crit_edge778 ]
-  %.4546781 = phi ptr [ %125, %.preheader705.lr.ph ], [ %232, %._crit_edge778 ]
-  br i1 %78, label %.lr.ph777, label %._crit_edge778
+.preheader704:                                    ; preds = %.preheader704.lr.ph, %._crit_edge777
+  %.2558783 = phi i32 [ %.6562741, %.preheader704.lr.ph ], [ %.2558, %._crit_edge777 ]
+  %.4526782 = phi ptr [ %.1523, %.preheader704.lr.ph ], [ %231, %._crit_edge777 ]
+  %.3537781 = phi ptr [ %126, %.preheader704.lr.ph ], [ %233, %._crit_edge777 ]
+  %.4546780 = phi ptr [ %125, %.preheader704.lr.ph ], [ %232, %._crit_edge777 ]
+  br i1 %78, label %.lr.ph776, label %._crit_edge777
 
-.lr.ph777:                                        ; preds = %.preheader705, %.lr.ph777
-  %indvars.iv916 = phi i64 [ %indvars.iv.next917, %.lr.ph777 ], [ 0, %.preheader705 ]
-  %225 = getelementptr inbounds i8, ptr %.4526783, i64 %indvars.iv916
+.lr.ph776:                                        ; preds = %.preheader704, %.lr.ph776
+  %indvars.iv915 = phi i64 [ %indvars.iv.next916, %.lr.ph776 ], [ 0, %.preheader704 ]
+  %225 = getelementptr inbounds i8, ptr %.4526782, i64 %indvars.iv915
   %226 = load i8, ptr %225, align 1
-  %227 = getelementptr inbounds i8, ptr %.3537782, i64 %indvars.iv916
+  %227 = getelementptr inbounds i8, ptr %.3537781, i64 %indvars.iv915
   %228 = load i8, ptr %227, align 1
-  %.narrow628 = add i8 %228, %226
-  %229 = getelementptr inbounds i8, ptr %.4546781, i64 %indvars.iv916
-  store i8 %.narrow628, ptr %229, align 1
-  %indvars.iv.next917 = add nuw nsw i64 %indvars.iv916, 1
-  %exitcond920.not = icmp eq i64 %indvars.iv.next917, %wide.trip.count919
-  br i1 %exitcond920.not, label %._crit_edge778, label %.lr.ph777
+  %.narrow627 = add i8 %228, %226
+  %229 = getelementptr inbounds i8, ptr %.4546780, i64 %indvars.iv915
+  store i8 %.narrow627, ptr %229, align 1
+  %indvars.iv.next916 = add nuw nsw i64 %indvars.iv915, 1
+  %exitcond919.not = icmp eq i64 %indvars.iv.next916, %wide.trip.count918
+  br i1 %exitcond919.not, label %._crit_edge777, label %.lr.ph776
 
-._crit_edge778:                                   ; preds = %.lr.ph777, %.preheader705
-  %230 = getelementptr inbounds i8, ptr %.4546781, i64 %207
+._crit_edge777:                                   ; preds = %.lr.ph776, %.preheader704
+  %230 = getelementptr inbounds i8, ptr %.4546780, i64 %207
   store i8 -1, ptr %230, align 1
-  %231 = getelementptr inbounds i8, ptr %.4526783, i64 %207
-  %232 = getelementptr inbounds i8, ptr %.4546781, i64 %56
-  %233 = getelementptr inbounds i8, ptr %.3537782, i64 %56
-  %.2558 = add i32 %.2558784, -1
-  %.not626 = icmp eq i32 %.2558, 0
-  br i1 %.not626, label %.loopexit724, label %.preheader705
+  %231 = getelementptr inbounds i8, ptr %.4526782, i64 %207
+  %232 = getelementptr inbounds i8, ptr %.4546780, i64 %56
+  %233 = getelementptr inbounds i8, ptr %.3537781, i64 %56
+  %.2558 = add i32 %.2558783, -1
+  %.not625 = icmp eq i32 %.2558, 0
+  br i1 %.not625, label %.loopexit723, label %.preheader704
 
-.preheader706:                                    ; preds = %.preheader706.lr.ph, %._crit_edge768
-  %.3559774 = phi i32 [ %.6562742, %.preheader706.lr.ph ], [ %.3559, %._crit_edge768 ]
-  %.5527773 = phi ptr [ %.1523, %.preheader706.lr.ph ], [ %247, %._crit_edge768 ]
-  %.4538772 = phi ptr [ %126, %.preheader706.lr.ph ], [ %249, %._crit_edge768 ]
-  %.5547771 = phi ptr [ %125, %.preheader706.lr.ph ], [ %248, %._crit_edge768 ]
-  br i1 %78, label %.lr.ph767, label %._crit_edge768
+.preheader705:                                    ; preds = %.preheader705.lr.ph, %._crit_edge767
+  %.3559773 = phi i32 [ %.6562741, %.preheader705.lr.ph ], [ %.3559, %._crit_edge767 ]
+  %.5527772 = phi ptr [ %.1523, %.preheader705.lr.ph ], [ %247, %._crit_edge767 ]
+  %.4538771 = phi ptr [ %126, %.preheader705.lr.ph ], [ %249, %._crit_edge767 ]
+  %.5547770 = phi ptr [ %125, %.preheader705.lr.ph ], [ %248, %._crit_edge767 ]
+  br i1 %78, label %.lr.ph766, label %._crit_edge767
 
-.lr.ph767:                                        ; preds = %.preheader706, %.lr.ph767
-  %indvars.iv911 = phi i64 [ %indvars.iv.next912, %.lr.ph767 ], [ 0, %.preheader706 ]
-  %234 = getelementptr inbounds i8, ptr %.5527773, i64 %indvars.iv911
+.lr.ph766:                                        ; preds = %.preheader705, %.lr.ph766
+  %indvars.iv910 = phi i64 [ %indvars.iv.next911, %.lr.ph766 ], [ 0, %.preheader705 ]
+  %234 = getelementptr inbounds i8, ptr %.5527772, i64 %indvars.iv910
   %235 = load i8, ptr %234, align 1
-  %236 = getelementptr inbounds i8, ptr %.4538772, i64 %indvars.iv911
+  %236 = getelementptr inbounds i8, ptr %.4538771, i64 %indvars.iv910
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i16
-  %239 = sub nsw i64 %indvars.iv911, %56
-  %240 = getelementptr inbounds i8, ptr %.5547771, i64 %239
+  %239 = sub nsw i64 %indvars.iv910, %56
+  %240 = getelementptr inbounds i8, ptr %.5547770, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i16
   %243 = add nuw nsw i16 %242, %238
   %244 = lshr i16 %243, 1
-  %.tr624 = trunc i16 %244 to i8
-  %.narrow625 = add i8 %235, %.tr624
-  %245 = getelementptr inbounds i8, ptr %.5547771, i64 %indvars.iv911
-  store i8 %.narrow625, ptr %245, align 1
-  %indvars.iv.next912 = add nuw nsw i64 %indvars.iv911, 1
-  %exitcond915.not = icmp eq i64 %indvars.iv.next912, %wide.trip.count914
-  br i1 %exitcond915.not, label %._crit_edge768, label %.lr.ph767
+  %.tr623 = trunc i16 %244 to i8
+  %.narrow624 = add i8 %235, %.tr623
+  %245 = getelementptr inbounds i8, ptr %.5547770, i64 %indvars.iv910
+  store i8 %.narrow624, ptr %245, align 1
+  %indvars.iv.next911 = add nuw nsw i64 %indvars.iv910, 1
+  %exitcond914.not = icmp eq i64 %indvars.iv.next911, %wide.trip.count913
+  br i1 %exitcond914.not, label %._crit_edge767, label %.lr.ph766
 
-._crit_edge768:                                   ; preds = %.lr.ph767, %.preheader706
-  %246 = getelementptr inbounds i8, ptr %.5547771, i64 %206
+._crit_edge767:                                   ; preds = %.lr.ph766, %.preheader705
+  %246 = getelementptr inbounds i8, ptr %.5547770, i64 %206
   store i8 -1, ptr %246, align 1
-  %247 = getelementptr inbounds i8, ptr %.5527773, i64 %206
-  %248 = getelementptr inbounds i8, ptr %.5547771, i64 %56
-  %249 = getelementptr inbounds i8, ptr %.4538772, i64 %56
-  %.3559 = add i32 %.3559774, -1
-  %.not623 = icmp eq i32 %.3559, 0
-  br i1 %.not623, label %.loopexit724, label %.preheader706
+  %247 = getelementptr inbounds i8, ptr %.5527772, i64 %206
+  %248 = getelementptr inbounds i8, ptr %.5547770, i64 %56
+  %249 = getelementptr inbounds i8, ptr %.4538771, i64 %56
+  %.3559 = add i32 %.3559773, -1
+  %.not622 = icmp eq i32 %.3559, 0
+  br i1 %.not622, label %.loopexit723, label %.preheader705
 
-.preheader707:                                    ; preds = %.preheader707.lr.ph, %._crit_edge758
-  %.4560764 = phi i32 [ %.6562742, %.preheader707.lr.ph ], [ %.4560, %._crit_edge758 ]
-  %.6528763 = phi ptr [ %.1523, %.preheader707.lr.ph ], [ %272, %._crit_edge758 ]
-  %.5539762 = phi ptr [ %126, %.preheader707.lr.ph ], [ %274, %._crit_edge758 ]
-  %.6548761 = phi ptr [ %125, %.preheader707.lr.ph ], [ %273, %._crit_edge758 ]
-  br i1 %78, label %.lr.ph757, label %._crit_edge758
+.preheader706:                                    ; preds = %.preheader706.lr.ph, %._crit_edge757
+  %.4560763 = phi i32 [ %.6562741, %.preheader706.lr.ph ], [ %.4560, %._crit_edge757 ]
+  %.6528762 = phi ptr [ %.1523, %.preheader706.lr.ph ], [ %272, %._crit_edge757 ]
+  %.5539761 = phi ptr [ %126, %.preheader706.lr.ph ], [ %274, %._crit_edge757 ]
+  %.6548760 = phi ptr [ %125, %.preheader706.lr.ph ], [ %273, %._crit_edge757 ]
+  br i1 %78, label %.lr.ph756, label %._crit_edge757
 
-.lr.ph757:                                        ; preds = %.preheader707, %.lr.ph757
-  %indvars.iv906 = phi i64 [ %indvars.iv.next907, %.lr.ph757 ], [ 0, %.preheader707 ]
-  %250 = getelementptr inbounds i8, ptr %.6528763, i64 %indvars.iv906
+.lr.ph756:                                        ; preds = %.preheader706, %.lr.ph756
+  %indvars.iv905 = phi i64 [ %indvars.iv.next906, %.lr.ph756 ], [ 0, %.preheader706 ]
+  %250 = getelementptr inbounds i8, ptr %.6528762, i64 %indvars.iv905
   %251 = load i8, ptr %250, align 1
-  %252 = sub nsw i64 %indvars.iv906, %56
-  %253 = getelementptr inbounds i8, ptr %.6548761, i64 %252
+  %252 = sub nsw i64 %indvars.iv905, %56
+  %253 = getelementptr inbounds i8, ptr %.6548760, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
-  %256 = getelementptr inbounds i8, ptr %.5539762, i64 %indvars.iv906
+  %256 = getelementptr inbounds i8, ptr %.5539761, i64 %indvars.iv905
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
-  %259 = getelementptr inbounds i8, ptr %.5539762, i64 %252
+  %259 = getelementptr inbounds i8, ptr %.5539761, i64 %252
   %260 = load i8, ptr %259, align 1
   %261 = zext i8 %260 to i32
   %262 = add nuw nsw i32 %258, %255
@@ -29279,146 +29278,146 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %267 = tail call i32 @llvm.abs.i32(i32 %266, i1 true)
   %268 = sub nsw i32 %263, %261
   %269 = tail call i32 @llvm.abs.i32(i32 %268, i1 true)
-  %.not.i658 = icmp ugt i32 %265, %267
-  %.not20.i659 = icmp ugt i32 %265, %269
-  %or.cond.i660 = select i1 %.not.i658, i1 true, i1 %.not20.i659
-  %.not21.i661 = icmp ugt i32 %267, %269
-  %..i662 = select i1 %.not21.i661, i8 %260, i8 %257
-  %.0.i663 = select i1 %or.cond.i660, i8 %..i662, i8 %254
-  %.narrow622 = add i8 %.0.i663, %251
-  %270 = getelementptr inbounds i8, ptr %.6548761, i64 %indvars.iv906
-  store i8 %.narrow622, ptr %270, align 1
-  %indvars.iv.next907 = add nuw nsw i64 %indvars.iv906, 1
-  %exitcond910.not = icmp eq i64 %indvars.iv.next907, %wide.trip.count909
-  br i1 %exitcond910.not, label %._crit_edge758, label %.lr.ph757
+  %.not.i657 = icmp ugt i32 %265, %267
+  %.not20.i658 = icmp ugt i32 %265, %269
+  %or.cond.i659 = select i1 %.not.i657, i1 true, i1 %.not20.i658
+  %.not21.i660 = icmp ugt i32 %267, %269
+  %..i661 = select i1 %.not21.i660, i8 %260, i8 %257
+  %.0.i662 = select i1 %or.cond.i659, i8 %..i661, i8 %254
+  %.narrow621 = add i8 %.0.i662, %251
+  %270 = getelementptr inbounds i8, ptr %.6548760, i64 %indvars.iv905
+  store i8 %.narrow621, ptr %270, align 1
+  %indvars.iv.next906 = add nuw nsw i64 %indvars.iv905, 1
+  %exitcond909.not = icmp eq i64 %indvars.iv.next906, %wide.trip.count908
+  br i1 %exitcond909.not, label %._crit_edge757, label %.lr.ph756
 
-._crit_edge758:                                   ; preds = %.lr.ph757, %.preheader707
-  %271 = getelementptr inbounds i8, ptr %.6548761, i64 %205
+._crit_edge757:                                   ; preds = %.lr.ph756, %.preheader706
+  %271 = getelementptr inbounds i8, ptr %.6548760, i64 %205
   store i8 -1, ptr %271, align 1
-  %272 = getelementptr inbounds i8, ptr %.6528763, i64 %205
-  %273 = getelementptr inbounds i8, ptr %.6548761, i64 %56
-  %274 = getelementptr inbounds i8, ptr %.5539762, i64 %56
-  %.4560 = add i32 %.4560764, -1
-  %.not620 = icmp eq i32 %.4560, 0
-  br i1 %.not620, label %.loopexit724, label %.preheader707
+  %272 = getelementptr inbounds i8, ptr %.6528762, i64 %205
+  %273 = getelementptr inbounds i8, ptr %.6548760, i64 %56
+  %274 = getelementptr inbounds i8, ptr %.5539761, i64 %56
+  %.4560 = add i32 %.4560763, -1
+  %.not619 = icmp eq i32 %.4560, 0
+  br i1 %.not619, label %.loopexit723, label %.preheader706
 
-.preheader708:                                    ; preds = %.preheader708.lr.ph, %._crit_edge749
-  %.5561754 = phi i32 [ %.6562742, %.preheader708.lr.ph ], [ %.5561, %._crit_edge749 ]
-  %.7529753 = phi ptr [ %.1523, %.preheader708.lr.ph ], [ %283, %._crit_edge749 ]
-  %.7549752 = phi ptr [ %125, %.preheader708.lr.ph ], [ %284, %._crit_edge749 ]
-  br i1 %78, label %.lr.ph748, label %._crit_edge749
+.preheader707:                                    ; preds = %.preheader707.lr.ph, %._crit_edge748
+  %.5561753 = phi i32 [ %.6562741, %.preheader707.lr.ph ], [ %.5561, %._crit_edge748 ]
+  %.7529752 = phi ptr [ %.1523, %.preheader707.lr.ph ], [ %283, %._crit_edge748 ]
+  %.7549751 = phi ptr [ %125, %.preheader707.lr.ph ], [ %284, %._crit_edge748 ]
+  br i1 %78, label %.lr.ph747, label %._crit_edge748
 
-.lr.ph748:                                        ; preds = %.preheader708, %.lr.ph748
-  %indvars.iv901 = phi i64 [ %indvars.iv.next902, %.lr.ph748 ], [ 0, %.preheader708 ]
-  %275 = getelementptr inbounds i8, ptr %.7529753, i64 %indvars.iv901
+.lr.ph747:                                        ; preds = %.preheader707, %.lr.ph747
+  %indvars.iv900 = phi i64 [ %indvars.iv.next901, %.lr.ph747 ], [ 0, %.preheader707 ]
+  %275 = getelementptr inbounds i8, ptr %.7529752, i64 %indvars.iv900
   %276 = load i8, ptr %275, align 1
-  %277 = sub nsw i64 %indvars.iv901, %56
-  %278 = getelementptr inbounds i8, ptr %.7549752, i64 %277
+  %277 = sub nsw i64 %indvars.iv900, %56
+  %278 = getelementptr inbounds i8, ptr %.7549751, i64 %277
   %279 = load i8, ptr %278, align 1
   %280 = lshr i8 %279, 1
-  %.narrow619 = add i8 %280, %276
-  %281 = getelementptr inbounds i8, ptr %.7549752, i64 %indvars.iv901
-  store i8 %.narrow619, ptr %281, align 1
-  %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
-  %exitcond905.not = icmp eq i64 %indvars.iv.next902, %wide.trip.count904
-  br i1 %exitcond905.not, label %._crit_edge749, label %.lr.ph748
+  %.narrow618 = add i8 %280, %276
+  %281 = getelementptr inbounds i8, ptr %.7549751, i64 %indvars.iv900
+  store i8 %.narrow618, ptr %281, align 1
+  %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
+  %exitcond904.not = icmp eq i64 %indvars.iv.next901, %wide.trip.count903
+  br i1 %exitcond904.not, label %._crit_edge748, label %.lr.ph747
 
-._crit_edge749:                                   ; preds = %.lr.ph748, %.preheader708
-  %282 = getelementptr inbounds i8, ptr %.7549752, i64 %204
+._crit_edge748:                                   ; preds = %.lr.ph747, %.preheader707
+  %282 = getelementptr inbounds i8, ptr %.7549751, i64 %204
   store i8 -1, ptr %282, align 1
-  %283 = getelementptr inbounds i8, ptr %.7529753, i64 %204
-  %284 = getelementptr inbounds i8, ptr %.7549752, i64 %56
-  %.5561 = add i32 %.5561754, -1
-  %.not617 = icmp eq i32 %.5561, 0
-  br i1 %.not617, label %.loopexit724, label %.preheader708
+  %283 = getelementptr inbounds i8, ptr %.7529752, i64 %204
+  %284 = getelementptr inbounds i8, ptr %.7549751, i64 %56
+  %.5561 = add i32 %.5561753, -1
+  %.not616 = icmp eq i32 %.5561, 0
+  br i1 %.not616, label %.loopexit723, label %.preheader707
 
-.preheader709:                                    ; preds = %.preheader709.lr.ph, %._crit_edge741
-  %.6562746 = phi i32 [ %.6562742, %.preheader709.lr.ph ], [ %.6562, %._crit_edge741 ]
-  %.8530745 = phi ptr [ %.1523, %.preheader709.lr.ph ], [ %292, %._crit_edge741 ]
-  %.8550744 = phi ptr [ %125, %.preheader709.lr.ph ], [ %293, %._crit_edge741 ]
-  br i1 %78, label %.lr.ph740, label %._crit_edge741
+.preheader708:                                    ; preds = %.preheader708.lr.ph, %._crit_edge740
+  %.6562745 = phi i32 [ %.6562741, %.preheader708.lr.ph ], [ %.6562, %._crit_edge740 ]
+  %.8530744 = phi ptr [ %.1523, %.preheader708.lr.ph ], [ %292, %._crit_edge740 ]
+  %.8550743 = phi ptr [ %125, %.preheader708.lr.ph ], [ %293, %._crit_edge740 ]
+  br i1 %78, label %.lr.ph739, label %._crit_edge740
 
-.lr.ph740:                                        ; preds = %.preheader709, %.lr.ph740
-  %indvars.iv896 = phi i64 [ %indvars.iv.next897, %.lr.ph740 ], [ 0, %.preheader709 ]
-  %285 = getelementptr inbounds i8, ptr %.8530745, i64 %indvars.iv896
+.lr.ph739:                                        ; preds = %.preheader708, %.lr.ph739
+  %indvars.iv895 = phi i64 [ %indvars.iv.next896, %.lr.ph739 ], [ 0, %.preheader708 ]
+  %285 = getelementptr inbounds i8, ptr %.8530744, i64 %indvars.iv895
   %286 = load i8, ptr %285, align 1
-  %287 = sub nsw i64 %indvars.iv896, %56
-  %288 = getelementptr inbounds i8, ptr %.8550744, i64 %287
+  %287 = sub nsw i64 %indvars.iv895, %56
+  %288 = getelementptr inbounds i8, ptr %.8550743, i64 %287
   %289 = load i8, ptr %288, align 1
   %.narrow = add i8 %289, %286
-  %290 = getelementptr inbounds i8, ptr %.8550744, i64 %indvars.iv896
+  %290 = getelementptr inbounds i8, ptr %.8550743, i64 %indvars.iv895
   store i8 %.narrow, ptr %290, align 1
-  %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
-  %exitcond900.not = icmp eq i64 %indvars.iv.next897, %wide.trip.count899
-  br i1 %exitcond900.not, label %._crit_edge741, label %.lr.ph740
+  %indvars.iv.next896 = add nuw nsw i64 %indvars.iv895, 1
+  %exitcond899.not = icmp eq i64 %indvars.iv.next896, %wide.trip.count898
+  br i1 %exitcond899.not, label %._crit_edge740, label %.lr.ph739
 
-._crit_edge741:                                   ; preds = %.lr.ph740, %.preheader709
-  %291 = getelementptr inbounds i8, ptr %.8550744, i64 %203
+._crit_edge740:                                   ; preds = %.lr.ph739, %.preheader708
+  %291 = getelementptr inbounds i8, ptr %.8550743, i64 %203
   store i8 -1, ptr %291, align 1
-  %292 = getelementptr inbounds i8, ptr %.8530745, i64 %203
-  %293 = getelementptr inbounds i8, ptr %.8550744, i64 %56
-  %.6562 = add i32 %.6562746, -1
-  %.not616 = icmp eq i32 %.6562, 0
-  br i1 %.not616, label %.loopexit724, label %.preheader709
+  %292 = getelementptr inbounds i8, ptr %.8530744, i64 %203
+  %293 = getelementptr inbounds i8, ptr %.8550743, i64 %56
+  %.6562 = add i32 %.6562745, -1
+  %.not615 = icmp eq i32 %.6562, 0
+  br i1 %.not615, label %.loopexit723, label %.preheader708
 
-.loopexit724:                                     ; preds = %._crit_edge741, %._crit_edge749, %._crit_edge758, %._crit_edge768, %._crit_edge778, %._crit_edge788, %._crit_edge797, %.preheader735, %.preheader733, %.preheader731, %.preheader729, %.preheader727, %.preheader725, %.preheader723, %202
-  %.9531 = phi ptr [ %.1523, %202 ], [ %.1523, %.preheader723 ], [ %.1523, %.preheader725 ], [ %.1523, %.preheader727 ], [ %.1523, %.preheader729 ], [ %.1523, %.preheader731 ], [ %.1523, %.preheader733 ], [ %.1523, %.preheader735 ], [ %214, %._crit_edge797 ], [ %223, %._crit_edge788 ], [ %231, %._crit_edge778 ], [ %247, %._crit_edge768 ], [ %272, %._crit_edge758 ], [ %283, %._crit_edge749 ], [ %292, %._crit_edge741 ]
-  br i1 %9, label %294, label %.loopexit722
+.loopexit723:                                     ; preds = %._crit_edge740, %._crit_edge748, %._crit_edge757, %._crit_edge767, %._crit_edge777, %._crit_edge787, %._crit_edge796, %.preheader734, %.preheader732, %.preheader730, %.preheader728, %.preheader726, %.preheader724, %.preheader722, %202
+  %.9531 = phi ptr [ %.1523, %202 ], [ %.1523, %.preheader722 ], [ %.1523, %.preheader724 ], [ %.1523, %.preheader726 ], [ %.1523, %.preheader728 ], [ %.1523, %.preheader730 ], [ %.1523, %.preheader732 ], [ %.1523, %.preheader734 ], [ %214, %._crit_edge796 ], [ %223, %._crit_edge787 ], [ %231, %._crit_edge777 ], [ %247, %._crit_edge767 ], [ %272, %._crit_edge757 ], [ %283, %._crit_edge748 ], [ %292, %._crit_edge740 ]
+  br i1 %9, label %294, label %.loopexit721
 
-294:                                              ; preds = %.loopexit724
-  br i1 %35, label %.loopexit722.thread, label %.lr.ph807
+294:                                              ; preds = %.loopexit723
+  br i1 %35, label %.loopexit721.thread, label %.lr.ph806
 
-.lr.ph807:                                        ; preds = %294
+.lr.ph806:                                        ; preds = %294
   %295 = load ptr, ptr %31, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 %65
   %297 = add nsw i32 %.1555, 1
   %298 = sext i32 %297 to i64
   br label %299
 
-299:                                              ; preds = %.lr.ph807, %299
-  %.9551805 = phi ptr [ %296, %.lr.ph807 ], [ %302, %299 ]
-  %.7563804 = phi i32 [ 0, %.lr.ph807 ], [ %301, %299 ]
-  %300 = getelementptr inbounds i8, ptr %.9551805, i64 %298
+299:                                              ; preds = %.lr.ph806, %299
+  %.9551804 = phi ptr [ %296, %.lr.ph806 ], [ %302, %299 ]
+  %.7563803 = phi i32 [ 0, %.lr.ph806 ], [ %301, %299 ]
+  %300 = getelementptr inbounds i8, ptr %.9551804, i64 %298
   store i8 -1, ptr %300, align 1
-  %301 = add nuw i32 %.7563804, 1
-  %302 = getelementptr inbounds i8, ptr %.9551805, i64 %56
-  %exitcond931.not = icmp eq i32 %301, %4
-  br i1 %exitcond931.not, label %.loopexit722, label %299
+  %301 = add nuw i32 %.7563803, 1
+  %302 = getelementptr inbounds i8, ptr %.9551804, i64 %56
+  %exitcond930.not = icmp eq i32 %301, %4
+  br i1 %exitcond930.not, label %.loopexit721, label %299
 
-.loopexit722:                                     ; preds = %299, %.loopexit711, %.loopexit724
-  %.10532 = phi ptr [ %201, %.loopexit711 ], [ %.9531, %.loopexit724 ], [ %.9531, %299 ]
-  %indvars.iv.next963 = add nuw nsw i64 %indvars.iv9621046, 1
-  %exitcond966.not = icmp eq i64 %indvars.iv.next963, %wide.trip.count965
-  br i1 %exitcond966.not, label %._crit_edge825, label %.backedge
+.loopexit721:                                     ; preds = %299, %.loopexit710, %.loopexit723
+  %.10532 = phi ptr [ %201, %.loopexit710 ], [ %.9531, %.loopexit723 ], [ %.9531, %299 ]
+  %indvars.iv.next962 = add nuw nsw i64 %indvars.iv9611045, 1
+  %exitcond965.not = icmp eq i64 %indvars.iv.next962, %wide.trip.count964
+  br i1 %exitcond965.not, label %._crit_edge824, label %.backedge
 
-.backedge:                                        ; preds = %.loopexit722, %.loopexit722.thread
-  %indvars.iv962.be = phi i64 [ %indvars.iv.next963, %.loopexit722 ], [ %indvars.iv.next963983, %.loopexit722.thread ]
-  %.0522823.be = phi ptr [ %.10532, %.loopexit722 ], [ %.9531, %.loopexit722.thread ]
+.backedge:                                        ; preds = %.loopexit721, %.loopexit721.thread
+  %indvars.iv961.be = phi i64 [ %indvars.iv.next962, %.loopexit721 ], [ %indvars.iv.next962982, %.loopexit721.thread ]
+  %.0522822.be = phi ptr [ %.10532, %.loopexit721 ], [ %.9531, %.loopexit721.thread ]
   %303 = load ptr, ptr %31, align 8
-  %304 = trunc i64 %indvars.iv962.be to i32
+  %304 = trunc i64 %indvars.iv961.be to i32
   %305 = mul i32 %13, %304
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds i8, ptr %303, i64 %306
-  %308 = load i8, ptr %.0522823.be, align 1
+  %308 = load i8, ptr %.0522822.be, align 1
   %309 = icmp ugt i8 %308, 4
-  br i1 %309, label %.loopexit701.sink.split, label %62
+  br i1 %309, label %.loopexit700.sink.split, label %62
 
-.loopexit722.thread:                              ; preds = %294
-  %indvars.iv.next963983 = add nuw nsw i64 %indvars.iv9621046, 1
-  %exitcond966.not984 = icmp eq i64 %indvars.iv.next963983, %wide.trip.count965
-  br i1 %exitcond966.not984, label %.thread, label %.backedge
+.loopexit721.thread:                              ; preds = %294
+  %indvars.iv.next962982 = add nuw nsw i64 %indvars.iv9611045, 1
+  %exitcond965.not983 = icmp eq i64 %indvars.iv.next962982, %wide.trip.count964
+  br i1 %exitcond965.not983, label %.thread, label %.backedge
 
-._crit_edge825:                                   ; preds = %.loopexit722
+._crit_edge824:                                   ; preds = %.loopexit721
   %310 = icmp slt i32 %6, 8
-  br i1 %310, label %.preheader700, label %472
+  br i1 %310, label %.preheader699, label %472
 
-._crit_edge825.thread:                            ; preds = %.preheader737
-  br i1 %9, label %.thread, label %.loopexit701
+._crit_edge824.thread:                            ; preds = %.preheader736
+  br i1 %9, label %.thread, label %.loopexit700
 
-.preheader700:                                    ; preds = %._crit_edge825
-  br i1 %20, label %.loopexit701, label %.lr.ph862
+.preheader699:                                    ; preds = %._crit_edge824
+  br i1 %20, label %.loopexit700, label %.lr.ph861
 
-.lr.ph862:                                        ; preds = %.preheader700
+.lr.ph861:                                        ; preds = %.preheader699
   %311 = zext i32 %11 to i64
   %312 = zext nneg i32 %45 to i64
   %313 = sub nsw i64 0, %312
@@ -29428,18 +29427,18 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %317 = icmp sgt i32 %37, 7
   %318 = icmp sgt i32 %37, 3
   %319 = icmp sgt i32 %37, 1
-  %.not613 = icmp eq i32 %15, %3
+  %.not612 = icmp eq i32 %15, %3
   %320 = icmp eq i32 %15, 1
-  %.1855 = add i32 %4, -1
-  %321 = icmp sgt i32 %.1855, -1
-  %322 = zext i32 %.1855 to i64
-  %wide.trip.count977 = zext i32 %5 to i64
+  %.1854 = add i32 %4, -1
+  %321 = icmp sgt i32 %.1854, -1
+  %322 = zext i32 %.1854 to i64
+  %wide.trip.count976 = zext i32 %5 to i64
   br label %323
 
-323:                                              ; preds = %.lr.ph862, %.loopexit
-  %indvars.iv974 = phi i64 [ 0, %.lr.ph862 ], [ %indvars.iv.next975, %.loopexit ]
+323:                                              ; preds = %.lr.ph861, %.loopexit
+  %indvars.iv973 = phi i64 [ 0, %.lr.ph861 ], [ %indvars.iv.next974, %.loopexit ]
   %324 = load ptr, ptr %31, align 8
-  %325 = trunc i64 %indvars.iv974 to i32
+  %325 = trunc i64 %indvars.iv973 to i32
   %326 = mul i32 %13, %325
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds i8, ptr %324, i64 %327
@@ -29453,99 +29452,99 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 
 333:                                              ; preds = %323, %331
   %334 = phi i8 [ %332, %331 ], [ 1, %323 ]
-  switch i32 %6, label %.thread669 [
-    i32 4, label %.preheader697
-    i32 2, label %.preheader698
-    i32 1, label %.preheader699
+  switch i32 %6, label %.thread668 [
+    i32 4, label %.preheader696
+    i32 2, label %.preheader697
+    i32 1, label %.preheader698
   ]
 
-.preheader699:                                    ; preds = %333
-  br i1 %317, label %.lr.ph834, label %._crit_edge835
-
 .preheader698:                                    ; preds = %333
-  br i1 %318, label %.lr.ph842, label %._crit_edge843
+  br i1 %317, label %.lr.ph833, label %._crit_edge834
 
 .preheader697:                                    ; preds = %333
-  br i1 %319, label %.lr.ph850, label %._crit_edge851
+  br i1 %318, label %.lr.ph841, label %._crit_edge842
 
-.lr.ph850:                                        ; preds = %.preheader697, %.lr.ph850
-  %.0517849 = phi ptr [ %344, %.lr.ph850 ], [ %330, %.preheader697 ]
-  %.0519848 = phi ptr [ %342, %.lr.ph850 ], [ %328, %.preheader697 ]
-  %.14847 = phi i32 [ %343, %.lr.ph850 ], [ %37, %.preheader697 ]
-  %335 = load i8, ptr %.0517849, align 1
+.preheader696:                                    ; preds = %333
+  br i1 %319, label %.lr.ph849, label %._crit_edge850
+
+.lr.ph849:                                        ; preds = %.preheader696, %.lr.ph849
+  %.0517848 = phi ptr [ %344, %.lr.ph849 ], [ %330, %.preheader696 ]
+  %.0519847 = phi ptr [ %342, %.lr.ph849 ], [ %328, %.preheader696 ]
+  %.14846 = phi i32 [ %343, %.lr.ph849 ], [ %37, %.preheader696 ]
+  %335 = load i8, ptr %.0517848, align 1
   %336 = lshr i8 %335, 4
   %337 = mul i8 %336, %334
-  %338 = getelementptr inbounds i8, ptr %.0519848, i64 1
-  store i8 %337, ptr %.0519848, align 1
-  %339 = load i8, ptr %.0517849, align 1
+  %338 = getelementptr inbounds i8, ptr %.0519847, i64 1
+  store i8 %337, ptr %.0519847, align 1
+  %339 = load i8, ptr %.0517848, align 1
   %340 = and i8 %339, 15
   %341 = mul i8 %340, %334
-  %342 = getelementptr inbounds i8, ptr %.0519848, i64 2
+  %342 = getelementptr inbounds i8, ptr %.0519847, i64 2
   store i8 %341, ptr %338, align 1
-  %343 = add nsw i32 %.14847, -2
-  %344 = getelementptr inbounds i8, ptr %.0517849, i64 1
-  %345 = icmp ugt i32 %.14847, 3
-  br i1 %345, label %.lr.ph850, label %._crit_edge851
+  %343 = add nsw i32 %.14846, -2
+  %344 = getelementptr inbounds i8, ptr %.0517848, i64 1
+  %345 = icmp ugt i32 %.14846, 3
+  br i1 %345, label %.lr.ph849, label %._crit_edge850
 
-._crit_edge851:                                   ; preds = %.lr.ph850, %.preheader697
-  %.14.lcssa = phi i32 [ %37, %.preheader697 ], [ %343, %.lr.ph850 ]
-  %.0519.lcssa = phi ptr [ %328, %.preheader697 ], [ %342, %.lr.ph850 ]
-  %.0517.lcssa = phi ptr [ %330, %.preheader697 ], [ %344, %.lr.ph850 ]
+._crit_edge850:                                   ; preds = %.lr.ph849, %.preheader696
+  %.14.lcssa = phi i32 [ %37, %.preheader696 ], [ %343, %.lr.ph849 ]
+  %.0519.lcssa = phi ptr [ %328, %.preheader696 ], [ %342, %.lr.ph849 ]
+  %.0517.lcssa = phi ptr [ %330, %.preheader696 ], [ %344, %.lr.ph849 ]
   %346 = icmp eq i32 %.14.lcssa, 1
-  br i1 %346, label %347, label %.thread669
+  br i1 %346, label %347, label %.thread668
 
-347:                                              ; preds = %._crit_edge851
+347:                                              ; preds = %._crit_edge850
   %348 = load i8, ptr %.0517.lcssa, align 1
   %349 = lshr i8 %348, 4
   %350 = mul i8 %349, %334
   store i8 %350, ptr %.0519.lcssa, align 1
-  br label %.thread669
+  br label %.thread668
 
-.lr.ph842:                                        ; preds = %.preheader698, %.lr.ph842
-  %.1518841 = phi ptr [ %370, %.lr.ph842 ], [ %330, %.preheader698 ]
-  %.1520840 = phi ptr [ %368, %.lr.ph842 ], [ %328, %.preheader698 ]
-  %.15839 = phi i32 [ %369, %.lr.ph842 ], [ %37, %.preheader698 ]
-  %351 = load i8, ptr %.1518841, align 1
+.lr.ph841:                                        ; preds = %.preheader697, %.lr.ph841
+  %.1518840 = phi ptr [ %370, %.lr.ph841 ], [ %330, %.preheader697 ]
+  %.1520839 = phi ptr [ %368, %.lr.ph841 ], [ %328, %.preheader697 ]
+  %.15838 = phi i32 [ %369, %.lr.ph841 ], [ %37, %.preheader697 ]
+  %351 = load i8, ptr %.1518840, align 1
   %352 = lshr i8 %351, 6
   %353 = mul i8 %352, %334
-  %354 = getelementptr inbounds i8, ptr %.1520840, i64 1
-  store i8 %353, ptr %.1520840, align 1
-  %355 = load i8, ptr %.1518841, align 1
+  %354 = getelementptr inbounds i8, ptr %.1520839, i64 1
+  store i8 %353, ptr %.1520839, align 1
+  %355 = load i8, ptr %.1518840, align 1
   %356 = lshr i8 %355, 4
   %357 = and i8 %356, 3
   %358 = mul i8 %357, %334
-  %359 = getelementptr inbounds i8, ptr %.1520840, i64 2
+  %359 = getelementptr inbounds i8, ptr %.1520839, i64 2
   store i8 %358, ptr %354, align 1
-  %360 = load i8, ptr %.1518841, align 1
+  %360 = load i8, ptr %.1518840, align 1
   %361 = lshr i8 %360, 2
   %362 = and i8 %361, 3
   %363 = mul i8 %362, %334
-  %364 = getelementptr inbounds i8, ptr %.1520840, i64 3
+  %364 = getelementptr inbounds i8, ptr %.1520839, i64 3
   store i8 %363, ptr %359, align 1
-  %365 = load i8, ptr %.1518841, align 1
+  %365 = load i8, ptr %.1518840, align 1
   %366 = and i8 %365, 3
   %367 = mul i8 %366, %334
-  %368 = getelementptr inbounds i8, ptr %.1520840, i64 4
+  %368 = getelementptr inbounds i8, ptr %.1520839, i64 4
   store i8 %367, ptr %364, align 1
-  %369 = add nsw i32 %.15839, -4
-  %370 = getelementptr inbounds i8, ptr %.1518841, i64 1
-  %371 = icmp ugt i32 %.15839, 7
-  br i1 %371, label %.lr.ph842, label %._crit_edge843
+  %369 = add nsw i32 %.15838, -4
+  %370 = getelementptr inbounds i8, ptr %.1518840, i64 1
+  %371 = icmp ugt i32 %.15838, 7
+  br i1 %371, label %.lr.ph841, label %._crit_edge842
 
-._crit_edge843:                                   ; preds = %.lr.ph842, %.preheader698
-  %.15.lcssa = phi i32 [ %37, %.preheader698 ], [ %369, %.lr.ph842 ]
-  %.1520.lcssa = phi ptr [ %328, %.preheader698 ], [ %368, %.lr.ph842 ]
-  %.1518.lcssa = phi ptr [ %330, %.preheader698 ], [ %370, %.lr.ph842 ]
+._crit_edge842:                                   ; preds = %.lr.ph841, %.preheader697
+  %.15.lcssa = phi i32 [ %37, %.preheader697 ], [ %369, %.lr.ph841 ]
+  %.1520.lcssa = phi ptr [ %328, %.preheader697 ], [ %368, %.lr.ph841 ]
+  %.1518.lcssa = phi ptr [ %330, %.preheader697 ], [ %370, %.lr.ph841 ]
   %372 = icmp sgt i32 %.15.lcssa, 0
-  br i1 %372, label %373, label %.thread669
+  br i1 %372, label %373, label %.thread668
 
-373:                                              ; preds = %._crit_edge843
+373:                                              ; preds = %._crit_edge842
   %374 = load i8, ptr %.1518.lcssa, align 1
   %375 = lshr i8 %374, 6
   %376 = mul i8 %375, %334
   store i8 %376, ptr %.1520.lcssa, align 1
-  %.not691 = icmp eq i32 %.15.lcssa, 1
-  br i1 %.not691, label %.thread669, label %377
+  %.not690 = icmp eq i32 %.15.lcssa, 1
+  br i1 %.not690, label %.thread668, label %377
 
 377:                                              ; preds = %373
   %378 = getelementptr inbounds i8, ptr %.1520.lcssa, i64 1
@@ -29555,7 +29554,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %382 = mul i8 %381, %334
   store i8 %382, ptr %378, align 1
   %383 = icmp eq i32 %.15.lcssa, 3
-  br i1 %383, label %384, label %.thread669
+  br i1 %383, label %384, label %.thread668
 
 384:                                              ; preds = %377
   %385 = getelementptr inbounds i8, ptr %.1520.lcssa, i64 2
@@ -29564,78 +29563,77 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %388 = and i8 %387, 3
   %389 = mul i8 %388, %334
   store i8 %389, ptr %385, align 1
-  br label %.thread669
+  br label %.thread668
 
-.lr.ph834:                                        ; preds = %.preheader699, %.lr.ph834
-  %.2833 = phi ptr [ %414, %.lr.ph834 ], [ %330, %.preheader699 ]
-  %.4832 = phi ptr [ %412, %.lr.ph834 ], [ %328, %.preheader699 ]
-  %.16831 = phi i32 [ %413, %.lr.ph834 ], [ %37, %.preheader699 ]
-  %390 = load i8, ptr %.2833, align 1
+.lr.ph833:                                        ; preds = %.preheader698, %.lr.ph833
+  %.2832 = phi ptr [ %414, %.lr.ph833 ], [ %330, %.preheader698 ]
+  %.4831 = phi ptr [ %412, %.lr.ph833 ], [ %328, %.preheader698 ]
+  %.16830 = phi i32 [ %413, %.lr.ph833 ], [ %37, %.preheader698 ]
+  %390 = load i8, ptr %.2832, align 1
   %isneg598 = icmp slt i8 %390, 0
   %narrow597 = select i1 %isneg598, i8 %334, i8 0
-  %391 = getelementptr inbounds i8, ptr %.4832, i64 1
-  store i8 %narrow597, ptr %.4832, align 1
-  %392 = load i8, ptr %.2833, align 1
+  %391 = getelementptr inbounds i8, ptr %.4831, i64 1
+  store i8 %narrow597, ptr %.4831, align 1
+  %392 = load i8, ptr %.2832, align 1
   %393 = and i8 %392, 64
   %.not600 = icmp eq i8 %393, 0
   %narrow599 = select i1 %.not600, i8 0, i8 %334
-  %394 = getelementptr inbounds i8, ptr %.4832, i64 2
+  %394 = getelementptr inbounds i8, ptr %.4831, i64 2
   store i8 %narrow599, ptr %391, align 1
-  %395 = load i8, ptr %.2833, align 1
+  %395 = load i8, ptr %.2832, align 1
   %396 = and i8 %395, 32
   %.not602 = icmp eq i8 %396, 0
   %narrow601 = select i1 %.not602, i8 0, i8 %334
-  %397 = getelementptr inbounds i8, ptr %.4832, i64 3
+  %397 = getelementptr inbounds i8, ptr %.4831, i64 3
   store i8 %narrow601, ptr %394, align 1
-  %398 = load i8, ptr %.2833, align 1
+  %398 = load i8, ptr %.2832, align 1
   %399 = and i8 %398, 16
   %.not604 = icmp eq i8 %399, 0
   %narrow603 = select i1 %.not604, i8 0, i8 %334
-  %400 = getelementptr inbounds i8, ptr %.4832, i64 4
+  %400 = getelementptr inbounds i8, ptr %.4831, i64 4
   store i8 %narrow603, ptr %397, align 1
-  %401 = load i8, ptr %.2833, align 1
+  %401 = load i8, ptr %.2832, align 1
   %402 = and i8 %401, 8
   %.not606 = icmp eq i8 %402, 0
   %narrow605 = select i1 %.not606, i8 0, i8 %334
-  %403 = getelementptr inbounds i8, ptr %.4832, i64 5
+  %403 = getelementptr inbounds i8, ptr %.4831, i64 5
   store i8 %narrow605, ptr %400, align 1
-  %404 = load i8, ptr %.2833, align 1
+  %404 = load i8, ptr %.2832, align 1
   %405 = and i8 %404, 4
   %.not608 = icmp eq i8 %405, 0
   %narrow607 = select i1 %.not608, i8 0, i8 %334
-  %406 = getelementptr inbounds i8, ptr %.4832, i64 6
+  %406 = getelementptr inbounds i8, ptr %.4831, i64 6
   store i8 %narrow607, ptr %403, align 1
-  %407 = load i8, ptr %.2833, align 1
+  %407 = load i8, ptr %.2832, align 1
   %408 = and i8 %407, 2
   %.not610 = icmp eq i8 %408, 0
   %narrow609 = select i1 %.not610, i8 0, i8 %334
-  %409 = getelementptr inbounds i8, ptr %.4832, i64 7
+  %409 = getelementptr inbounds i8, ptr %.4831, i64 7
   store i8 %narrow609, ptr %406, align 1
-  %410 = load i8, ptr %.2833, align 1
-  %411 = and i8 %410, 1
-  %.not612 = icmp eq i8 %411, 0
-  %narrow611 = select i1 %.not612, i8 0, i8 %334
-  %412 = getelementptr inbounds i8, ptr %.4832, i64 8
+  %410 = load i8, ptr %.2832, align 1
+  %411 = trunc i8 %410 to i1
+  %narrow611 = select i1 %411, i8 %334, i8 0
+  %412 = getelementptr inbounds i8, ptr %.4831, i64 8
   store i8 %narrow611, ptr %409, align 1
-  %413 = add nsw i32 %.16831, -8
-  %414 = getelementptr inbounds i8, ptr %.2833, i64 1
-  %415 = icmp ugt i32 %.16831, 15
-  br i1 %415, label %.lr.ph834, label %._crit_edge835
+  %413 = add nsw i32 %.16830, -8
+  %414 = getelementptr inbounds i8, ptr %.2832, i64 1
+  %415 = icmp ugt i32 %.16830, 15
+  br i1 %415, label %.lr.ph833, label %._crit_edge834
 
-._crit_edge835:                                   ; preds = %.lr.ph834, %.preheader699
-  %.16.lcssa = phi i32 [ %37, %.preheader699 ], [ %413, %.lr.ph834 ]
-  %.4.lcssa = phi ptr [ %328, %.preheader699 ], [ %412, %.lr.ph834 ]
-  %.2.lcssa = phi ptr [ %330, %.preheader699 ], [ %414, %.lr.ph834 ]
+._crit_edge834:                                   ; preds = %.lr.ph833, %.preheader698
+  %.16.lcssa = phi i32 [ %37, %.preheader698 ], [ %413, %.lr.ph833 ]
+  %.4.lcssa = phi ptr [ %328, %.preheader698 ], [ %412, %.lr.ph833 ]
+  %.2.lcssa = phi ptr [ %330, %.preheader698 ], [ %414, %.lr.ph833 ]
   %416 = icmp sgt i32 %.16.lcssa, 0
-  br i1 %416, label %417, label %.thread669
+  br i1 %416, label %417, label %.thread668
 
-417:                                              ; preds = %._crit_edge835
+417:                                              ; preds = %._crit_edge834
   %418 = load i8, ptr %.2.lcssa, align 1
   %isneg = icmp slt i8 %418, 0
   %narrow = select i1 %isneg, i8 %334, i8 0
   store i8 %narrow, ptr %.4.lcssa, align 1
-  %.not688 = icmp eq i32 %.16.lcssa, 1
-  br i1 %.not688, label %.thread669, label %419
+  %.not687 = icmp eq i32 %.16.lcssa, 1
+  br i1 %.not687, label %.thread668, label %419
 
 419:                                              ; preds = %417
   %420 = getelementptr inbounds i8, ptr %.4.lcssa, i64 1
@@ -29645,7 +29643,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %narrow585 = select i1 %.not586, i8 0, i8 %334
   store i8 %narrow585, ptr %420, align 1
   %423 = icmp ugt i32 %.16.lcssa, 2
-  br i1 %423, label %424, label %.thread669
+  br i1 %423, label %424, label %.thread668
 
 424:                                              ; preds = %419
   %425 = getelementptr inbounds i8, ptr %.4.lcssa, i64 2
@@ -29654,8 +29652,8 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %.not588 = icmp eq i8 %427, 0
   %narrow587 = select i1 %.not588, i8 0, i8 %334
   store i8 %narrow587, ptr %425, align 1
-  %.not689 = icmp eq i32 %.16.lcssa, 3
-  br i1 %.not689, label %.thread669, label %428
+  %.not688 = icmp eq i32 %.16.lcssa, 3
+  br i1 %.not688, label %.thread668, label %428
 
 428:                                              ; preds = %424
   %429 = getelementptr inbounds i8, ptr %.4.lcssa, i64 3
@@ -29665,7 +29663,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %narrow589 = select i1 %.not590, i8 0, i8 %334
   store i8 %narrow589, ptr %429, align 1
   %432 = icmp ugt i32 %.16.lcssa, 4
-  br i1 %432, label %433, label %.thread669
+  br i1 %432, label %433, label %.thread668
 
 433:                                              ; preds = %428
   %434 = getelementptr inbounds i8, ptr %.4.lcssa, i64 4
@@ -29674,8 +29672,8 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %.not592 = icmp eq i8 %436, 0
   %narrow591 = select i1 %.not592, i8 0, i8 %334
   store i8 %narrow591, ptr %434, align 1
-  %.not690 = icmp eq i32 %.16.lcssa, 5
-  br i1 %.not690, label %.thread669, label %437
+  %.not689 = icmp eq i32 %.16.lcssa, 5
+  br i1 %.not689, label %.thread668, label %437
 
 437:                                              ; preds = %433
   %438 = getelementptr inbounds i8, ptr %.4.lcssa, i64 5
@@ -29685,7 +29683,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %narrow593 = select i1 %.not594, i8 0, i8 %334
   store i8 %narrow593, ptr %438, align 1
   %441 = icmp eq i32 %.16.lcssa, 7
-  br i1 %441, label %442, label %.thread669
+  br i1 %441, label %442, label %.thread668
 
 442:                                              ; preds = %437
   %443 = getelementptr inbounds i8, ptr %.4.lcssa, i64 6
@@ -29694,43 +29692,43 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %.not596 = icmp eq i8 %445, 0
   %narrow595 = select i1 %.not596, i8 0, i8 %334
   store i8 %narrow595, ptr %443, align 1
-  br label %.thread669
+  br label %.thread668
 
-.thread669:                                       ; preds = %._crit_edge835, %417, %419, %424, %428, %433, %._crit_edge843, %373, %333, %384, %377, %437, %442, %._crit_edge851, %347
-  br i1 %.not613, label %.loopexit, label %446
+.thread668:                                       ; preds = %._crit_edge834, %417, %419, %424, %428, %433, %._crit_edge842, %373, %333, %384, %377, %437, %442, %._crit_edge850, %347
+  br i1 %.not612, label %.loopexit, label %446
 
-446:                                              ; preds = %.thread669
+446:                                              ; preds = %.thread668
   %447 = load ptr, ptr %31, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 %327
-  br i1 %320, label %.preheader, label %.preheader695
+  br i1 %320, label %.preheader, label %.preheader694
 
-.preheader695:                                    ; preds = %446
-  br i1 %321, label %.lr.ph857, label %.loopexit
+.preheader694:                                    ; preds = %446
+  br i1 %321, label %.lr.ph856, label %.loopexit
 
 .preheader:                                       ; preds = %446
-  br i1 %321, label %.lr.ph860, label %.loopexit
+  br i1 %321, label %.lr.ph859, label %.loopexit
 
-.lr.ph860:                                        ; preds = %.preheader, %.lr.ph860
-  %indvars.iv971 = phi i64 [ %indvars.iv.next972, %.lr.ph860 ], [ %322, %.preheader ]
-  %449 = shl nuw nsw i64 %indvars.iv971, 1
+.lr.ph859:                                        ; preds = %.preheader, %.lr.ph859
+  %indvars.iv970 = phi i64 [ %indvars.iv.next971, %.lr.ph859 ], [ %322, %.preheader ]
+  %449 = shl nuw nsw i64 %indvars.iv970, 1
   %450 = or disjoint i64 %449, 1
   %451 = getelementptr inbounds i8, ptr %448, i64 %450
   store i8 -1, ptr %451, align 1
-  %452 = getelementptr inbounds i8, ptr %448, i64 %indvars.iv971
+  %452 = getelementptr inbounds i8, ptr %448, i64 %indvars.iv970
   %453 = load i8, ptr %452, align 1
   %454 = getelementptr inbounds i8, ptr %448, i64 %449
   store i8 %453, ptr %454, align 1
-  %indvars.iv.next972 = add nsw i64 %indvars.iv971, -1
-  %455 = icmp sgt i64 %indvars.iv971, 0
-  br i1 %455, label %.lr.ph860, label %.loopexit
+  %indvars.iv.next971 = add nsw i64 %indvars.iv970, -1
+  %455 = icmp sgt i64 %indvars.iv970, 0
+  br i1 %455, label %.lr.ph859, label %.loopexit
 
-.lr.ph857:                                        ; preds = %.preheader695, %.lr.ph857
-  %indvars.iv968 = phi i64 [ %indvars.iv.next969, %.lr.ph857 ], [ %322, %.preheader695 ]
-  %456 = shl nsw i64 %indvars.iv968, 2
+.lr.ph856:                                        ; preds = %.preheader694, %.lr.ph856
+  %indvars.iv967 = phi i64 [ %indvars.iv.next968, %.lr.ph856 ], [ %322, %.preheader694 ]
+  %456 = shl nsw i64 %indvars.iv967, 2
   %457 = or disjoint i64 %456, 3
   %458 = getelementptr inbounds i8, ptr %448, i64 %457
   store i8 -1, ptr %458, align 1
-  %459 = mul nsw i64 %indvars.iv968, 3
+  %459 = mul nsw i64 %indvars.iv967, 3
   %460 = getelementptr i8, ptr %448, i64 %459
   %461 = getelementptr i8, ptr %460, i64 2
   %462 = load i8, ptr %461, align 1
@@ -29745,50 +29743,50 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %469 = load i8, ptr %460, align 1
   %470 = getelementptr inbounds i8, ptr %448, i64 %456
   store i8 %469, ptr %470, align 1
-  %indvars.iv.next969 = add nsw i64 %indvars.iv968, -1
-  %471 = icmp sgt i64 %indvars.iv968, 0
-  br i1 %471, label %.lr.ph857, label %.loopexit
+  %indvars.iv.next968 = add nsw i64 %indvars.iv967, -1
+  %471 = icmp sgt i64 %indvars.iv967, 0
+  br i1 %471, label %.lr.ph856, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph857, %.lr.ph860, %.preheader695, %.preheader, %.thread669
-  %indvars.iv.next975 = add nuw nsw i64 %indvars.iv974, 1
-  %exitcond978.not = icmp eq i64 %indvars.iv.next975, %wide.trip.count977
-  br i1 %exitcond978.not, label %.loopexit701, label %323
+.loopexit:                                        ; preds = %.lr.ph856, %.lr.ph859, %.preheader694, %.preheader, %.thread668
+  %indvars.iv.next974 = add nuw nsw i64 %indvars.iv973, 1
+  %exitcond977.not = icmp eq i64 %indvars.iv.next974, %wide.trip.count976
+  br i1 %exitcond977.not, label %.loopexit700, label %323
 
-472:                                              ; preds = %._crit_edge825
-  br i1 %9, label %.thread, label %.loopexit701
+472:                                              ; preds = %._crit_edge824
+  br i1 %9, label %.thread, label %.loopexit700
 
-.thread:                                          ; preds = %.loopexit722.thread, %._crit_edge825.thread, %472
+.thread:                                          ; preds = %.loopexit721.thread, %._crit_edge824.thread, %472
   %473 = mul i32 %11, %5
-  %.not865 = icmp eq i32 %473, 0
-  br i1 %.not865, label %.loopexit701, label %.lr.ph830.preheader
+  %.not864 = icmp eq i32 %473, 0
+  br i1 %.not864, label %.loopexit700, label %.lr.ph829.preheader
 
-.lr.ph830.preheader:                              ; preds = %.thread
+.lr.ph829.preheader:                              ; preds = %.thread
   %474 = load ptr, ptr %31, align 8
-  br label %.lr.ph830
+  br label %.lr.ph829
 
-.lr.ph830:                                        ; preds = %.lr.ph830.preheader, %.lr.ph830
-  %.0828 = phi ptr [ %483, %.lr.ph830 ], [ %474, %.lr.ph830.preheader ]
-  %.8564826 = phi i32 [ %482, %.lr.ph830 ], [ 0, %.lr.ph830.preheader ]
-  %475 = load i8, ptr %.0828, align 1
+.lr.ph829:                                        ; preds = %.lr.ph829.preheader, %.lr.ph829
+  %.0827 = phi ptr [ %483, %.lr.ph829 ], [ %474, %.lr.ph829.preheader ]
+  %.8564825 = phi i32 [ %482, %.lr.ph829 ], [ 0, %.lr.ph829.preheader ]
+  %475 = load i8, ptr %.0827, align 1
   %476 = zext i8 %475 to i16
   %477 = shl nuw i16 %476, 8
-  %478 = getelementptr inbounds i8, ptr %.0828, i64 1
+  %478 = getelementptr inbounds i8, ptr %.0827, i64 1
   %479 = load i8, ptr %478, align 1
   %480 = zext i8 %479 to i16
   %481 = or disjoint i16 %477, %480
-  store i16 %481, ptr %.0828, align 2
-  %482 = add nuw i32 %.8564826, 1
-  %483 = getelementptr i8, ptr %.0828, i64 2
-  %exitcond967.not = icmp eq i32 %482, %473
-  br i1 %exitcond967.not, label %.loopexit701, label %.lr.ph830
+  store i16 %481, ptr %.0827, align 2
+  %482 = add nuw i32 %.8564825, 1
+  %483 = getelementptr i8, ptr %.0827, i64 2
+  %exitcond966.not = icmp eq i32 %482, %473
+  br i1 %exitcond966.not, label %.loopexit700, label %.lr.ph829
 
-.loopexit701.sink.split:                          ; preds = %.backedge, %67, %.lr.ph824, %stbi__mad3sizes_valid.exit._crit_edge, %stbi__mul2sizes_valid.exit12.i, %stbi__mul2sizes_valid.exit.i, %32, %stbi__mul2sizes_valid.exit.thread15.i, %stbi__malloc_mad3.exit, %stbi__malloc_mad3.exit.thread
-  %.str.98.sink = phi ptr [ @.str.93, %stbi__malloc_mad3.exit.thread ], [ @.str.93, %stbi__malloc_mad3.exit ], [ @.str.78, %stbi__mul2sizes_valid.exit.thread15.i ], [ @.str.78, %32 ], [ @.str.78, %stbi__mul2sizes_valid.exit.i ], [ @.str.78, %stbi__mul2sizes_valid.exit12.i ], [ @.str.96, %stbi__mad3sizes_valid.exit._crit_edge ], [ @.str.97, %.lr.ph824 ], [ @.str.98, %67 ], [ @.str.97, %.backedge ]
+.loopexit700.sink.split:                          ; preds = %.backedge, %67, %.lr.ph823, %stbi__mad3sizes_valid.exit._crit_edge, %stbi__mul2sizes_valid.exit12.i, %stbi__mul2sizes_valid.exit.i, %32, %stbi__mul2sizes_valid.exit.thread15.i, %stbi__malloc_mad3.exit, %stbi__malloc_mad3.exit.thread
+  %.str.98.sink = phi ptr [ @.str.93, %stbi__malloc_mad3.exit.thread ], [ @.str.93, %stbi__malloc_mad3.exit ], [ @.str.78, %stbi__mul2sizes_valid.exit.thread15.i ], [ @.str.78, %32 ], [ @.str.78, %stbi__mul2sizes_valid.exit.i ], [ @.str.78, %stbi__mul2sizes_valid.exit12.i ], [ @.str.96, %stbi__mad3sizes_valid.exit._crit_edge ], [ @.str.97, %.lr.ph823 ], [ @.str.98, %67 ], [ @.str.97, %.backedge ]
   store ptr %.str.98.sink, ptr @stbi__g_failure_reason, align 8
-  br label %.loopexit701
+  br label %.loopexit700
 
-.loopexit701:                                     ; preds = %.loopexit, %.lr.ph830, %.loopexit701.sink.split, %._crit_edge825.thread, %.thread, %.preheader700, %472
-  %.0516 = phi i32 [ 1, %472 ], [ 1, %.preheader700 ], [ 1, %.thread ], [ 1, %._crit_edge825.thread ], [ 0, %.loopexit701.sink.split ], [ 1, %.lr.ph830 ], [ 1, %.loopexit ]
+.loopexit700:                                     ; preds = %.loopexit, %.lr.ph829, %.loopexit700.sink.split, %._crit_edge824.thread, %.thread, %.preheader699, %472
+  %.0516 = phi i32 [ 1, %472 ], [ 1, %.preheader699 ], [ 1, %.thread ], [ 1, %._crit_edge824.thread ], [ 0, %.loopexit700.sink.split ], [ 1, %.lr.ph829 ], [ 1, %.loopexit ]
   ret i32 %.0516
 }
 
@@ -32540,9 +32538,9 @@ define internal noundef i32 @stbiw__outfile(ptr noundef %0, i32 %1, i32 %2, i32 
   br i1 %or.cond.not, label %15, label %47
 
 15:                                               ; preds = %11
-  call void @llvm.va_start(ptr nonnull %13)
+  call void @llvm.va_start.p0(ptr nonnull %13)
   call fastcc void @stbiw__writefv(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %13)
-  call void @llvm.va_end(ptr nonnull %13)
+  call void @llvm.va_end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %16 = icmp slt i32 %4, 1
@@ -32633,9 +32631,6 @@ stbiw__write_pixels.exit:                         ; preds = %stbiw__write_flush.
   %.0 = phi i32 [ 1, %stbiw__write_pixels.exit ], [ 0, %11 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #39
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @stbiw__writefv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #4 {
@@ -32774,9 +32769,6 @@ define internal fastcc void @stbiw__writefv(ptr nocapture noundef readonly %0, p
 ._crit_edge:                                      ; preds = %77, %15, %3
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #39
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @stbiw__write_pixel(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
@@ -33001,14 +32993,14 @@ define internal void @stbi__stdio_write(ptr nocapture noundef %0, ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal void @stbiw__writef(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call fastcc void @stbiw__writefv(ptr noundef %0, ptr noundef nonnull @.str.120, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #40
+declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #39
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
@@ -33750,7 +33742,7 @@ stbiw__jpg_writeBits.exit218:                     ; preds = %342, %stbiw__jpg_wr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6) unnamed_addr #41 {
+define internal fastcc noundef i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6) unnamed_addr #40 {
   %8 = fsub double %6, %5
   %9 = icmp eq i32 %1, 0
   %10 = icmp eq i32 %4, 0
@@ -33983,7 +33975,7 @@ stbir__double_to_rational.exit:                   ; preds = %.split.us.i, %118
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #42 {
+define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #41 {
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %10, label %30
 
@@ -34214,7 +34206,7 @@ stbir__get_contributors.exit:                     ; preds = %118, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbir__get_conservative_extents(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #42 {
+define internal fastcc void @stbir__get_conservative_extents(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #41 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load float, ptr %5, align 8
@@ -34516,7 +34508,7 @@ thread-pre-split145.thread:                       ; preds = %178, %181, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbir__alloc_internal_mem_and_build_samplers(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #42 {
+define internal fastcc ptr @stbir__alloc_internal_mem_and_build_samplers(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #41 {
   %11 = getelementptr inbounds i8, ptr %1, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %5, 0
@@ -35908,10 +35900,10 @@ stbir__get_split_info.exit:                       ; preds = %671, %656
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #43
+declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.cmp.ss(<4 x float>, <4 x float>, i8 immarg) #43
+declare <4 x float> @llvm.x86.sse.cmp.ss(<4 x float>, <4 x float>, i8 immarg) #42
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef float @stbir__filter_trapezoid(float noundef %0, float noundef %1, ptr nocapture readnone %2) #6 {
@@ -36082,7 +36074,7 @@ define internal noundef float @stbir__support_zeropoint5(float %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef %1) #42 {
+define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef %1) #41 {
   %3 = sdiv i32 %1, 4
   %4 = mul nsw i32 %3, 7
   %5 = sext i32 %4 to i64
@@ -36138,7 +36130,7 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef %1) #42 {
+define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef %1) #41 {
   %3 = sdiv i32 %1, 2
   %4 = mul nsw i32 %3, 3
   %5 = sext i32 %4 to i64
@@ -36215,7 +36207,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__fancy_alpha_unweight_4ch(ptr noundef %0, i32 noundef %1) #42 {
+define internal void @stbir__fancy_alpha_unweight_4ch(ptr noundef %0, i32 noundef %1) #41 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -36292,7 +36284,7 @@ define internal void @stbir__fancy_alpha_unweight_2ch(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__simple_alpha_weight_4ch(ptr noundef %0, i32 noundef %1) #42 {
+define internal void @stbir__simple_alpha_weight_4ch(ptr noundef %0, i32 noundef %1) #41 {
   %3 = sext i32 %1 to i64
   %.idx = shl nsw i64 %3, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -36340,7 +36332,7 @@ define internal void @stbir__simple_alpha_weight_4ch(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__simple_alpha_weight_2ch(ptr noundef %0, i32 noundef %1) #42 {
+define internal void @stbir__simple_alpha_weight_2ch(ptr noundef %0, i32 noundef %1) #41 {
   %3 = sext i32 %1 to i64
   %.idx = shl nsw i64 %3, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -36398,7 +36390,7 @@ define internal void @stbir__simple_alpha_weight_2ch(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__simple_alpha_unweight_4ch(ptr noundef %0, i32 noundef %1) #42 {
+define internal void @stbir__simple_alpha_unweight_4ch(ptr noundef %0, i32 noundef %1) #41 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -36523,7 +36515,7 @@ define internal void @stbir__simple_flip_3ch(ptr noundef %0, i32 noundef %1) #4 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbir__calculate_filters(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #42 {
+define internal fastcc void @stbir__calculate_filters(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #41 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load float, ptr %5, align 8
@@ -37098,7 +37090,7 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge56.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #42 {
+define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #41 {
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, -1
   %10 = getelementptr inbounds i8, ptr %2, i64 24
@@ -37813,7 +37805,7 @@ define internal noundef i32 @stbir__edge_zero_full(i32 %0, i32 %1) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -37870,7 +37862,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -37935,7 +37927,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -38003,7 +37995,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -38069,7 +38061,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38140,7 +38132,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38222,7 +38214,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38303,7 +38295,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38389,7 +38381,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38482,7 +38474,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38585,7 +38577,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38696,7 +38688,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38809,7 +38801,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38896,7 +38888,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -38993,7 +38985,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -39096,7 +39088,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -39202,7 +39194,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -39324,7 +39316,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -39460,7 +39452,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -39606,7 +39598,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -39759,7 +39751,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -39788,7 +39780,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -39824,7 +39816,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -39858,7 +39850,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -39892,7 +39884,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -39933,7 +39925,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -39977,7 +39969,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -40019,7 +40011,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -40060,7 +40052,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -40108,7 +40100,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -40159,7 +40151,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -40208,7 +40200,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -40256,7 +40248,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40295,7 +40287,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40333,7 +40325,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40376,7 +40368,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40417,7 +40409,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40468,7 +40460,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40518,7 +40510,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40573,7 +40565,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40627,7 +40619,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40691,7 +40683,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40754,7 +40746,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40822,7 +40814,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40889,7 +40881,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40927,7 +40919,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -40971,7 +40963,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41018,7 +41010,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41075,7 +41067,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41141,7 +41133,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41215,7 +41207,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41291,7 +41283,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41366,7 +41358,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41450,7 +41442,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41542,7 +41534,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41636,7 +41628,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41729,7 +41721,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41762,7 +41754,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41801,7 +41793,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41843,7 +41835,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41890,7 +41882,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -41946,7 +41938,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42008,7 +42000,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42073,7 +42065,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42143,7 +42135,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42222,7 +42214,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42307,7 +42299,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42395,7 +42387,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42488,7 +42480,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42526,7 +42518,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42574,7 +42566,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42629,7 +42621,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42693,7 +42685,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42770,7 +42762,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42857,7 +42849,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -42951,7 +42943,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -43054,7 +43046,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -43170,7 +43162,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -43296,7 +43288,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -43429,7 +43421,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #42 {
+define internal void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) #41 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %0, i64 %8
@@ -43657,7 +43649,7 @@ define internal void @stbir__decode_float_linear(ptr noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -43977,7 +43969,7 @@ define internal void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44063,7 +44055,7 @@ define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44315,7 +44307,7 @@ define internal void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44401,7 +44393,7 @@ define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44653,7 +44645,7 @@ define internal void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44739,7 +44731,7 @@ define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45104,7 +45096,7 @@ define internal void @stbir__decode_uint8_srgb_AR(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45211,7 +45203,7 @@ define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45414,7 +45406,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45537,7 +45529,7 @@ define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45651,7 +45643,7 @@ define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45758,7 +45750,7 @@ define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45858,7 +45850,7 @@ define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -45966,7 +45958,7 @@ define internal void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46066,7 +46058,7 @@ define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46156,7 +46148,7 @@ define internal void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46240,7 +46232,7 @@ define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46348,7 +46340,7 @@ define internal void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46448,7 +46440,7 @@ define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46538,7 +46530,7 @@ define internal void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46622,7 +46614,7 @@ define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46730,7 +46722,7 @@ define internal void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46830,7 +46822,7 @@ define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -46920,7 +46912,7 @@ define internal void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -47004,7 +46996,7 @@ define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -47137,7 +47129,7 @@ define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -47260,7 +47252,7 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -47375,7 +47367,7 @@ define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -47482,7 +47474,7 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -47863,7 +47855,7 @@ define internal void @stbir__encode_float_linear(ptr noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -48181,7 +48173,7 @@ stbir__float_to_half.exit58:                      ; preds = %177, %182, %185
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -48448,7 +48440,7 @@ stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -48715,7 +48707,7 @@ stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -49037,7 +49029,7 @@ stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_float_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_float_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -49102,7 +49094,7 @@ define internal void @stbir__encode_float_linear_BGRA(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -49371,7 +49363,7 @@ stbir__float_to_half.exit53:                      ; preds = %156, %161, %164
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -49638,7 +49630,7 @@ stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -49960,7 +49952,7 @@ stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_float_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_float_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -50025,7 +50017,7 @@ define internal void @stbir__encode_float_linear_ARGB(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -50294,7 +50286,7 @@ stbir__float_to_half.exit53:                      ; preds = %156, %161, %164
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -50561,7 +50553,7 @@ stbir__linear_to_srgb_uchar.exit250:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -50883,7 +50875,7 @@ stbir__linear_to_srgb_uchar.exit275:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_float_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_float_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -50948,7 +50940,7 @@ define internal void @stbir__encode_float_linear_ABGR(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -51217,7 +51209,7 @@ stbir__float_to_half.exit53:                      ; preds = %156, %161, %164
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -51396,7 +51388,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %95, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -51575,7 +51567,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %95, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -51972,7 +51964,7 @@ stbir__linear_to_srgb_uchar.exit290:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -52058,7 +52050,7 @@ define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -52416,7 +52408,7 @@ stbir__float_to_half.exit70:                      ; preds = %206, %211, %214
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -52523,7 +52515,7 @@ define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -52625,7 +52617,7 @@ define internal void @stbir__encode_uint8_linear(ptr noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -52738,7 +52730,7 @@ define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -52846,7 +52838,7 @@ define internal void @stbir__encode_uint16_linear(ptr noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -52931,7 +52923,7 @@ define internal void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -53013,7 +53005,7 @@ define internal void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -53104,7 +53096,7 @@ define internal void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -53192,7 +53184,7 @@ define internal void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -53277,7 +53269,7 @@ define internal void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -53359,7 +53351,7 @@ define internal void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -53450,7 +53442,7 @@ define internal void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -53538,7 +53530,7 @@ define internal void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -53623,7 +53615,7 @@ define internal void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -53705,7 +53697,7 @@ define internal void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -53796,7 +53788,7 @@ define internal void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -53884,7 +53876,7 @@ define internal void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -54006,7 +53998,7 @@ define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -54121,7 +54113,7 @@ define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -54249,7 +54241,7 @@ define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #42 {
+define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #41 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -54370,22 +54362,22 @@ define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #43
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #43
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #43
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #43
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #43
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #42
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = fcmp oge float %6, 0x3FEFFFFDE0000000
@@ -54484,7 +54476,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -54606,7 +54598,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -54765,7 +54757,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -54959,7 +54951,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -55191,7 +55183,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -55457,7 +55449,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -55762,7 +55754,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -56100,10 +56092,10 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #44
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #43
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = insertelement <4 x float> poison, float %6, i64 0
@@ -56201,7 +56193,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -56335,7 +56327,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -56506,7 +56498,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -56713,7 +56705,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -56957,7 +56949,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -57237,7 +57229,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -57554,7 +57546,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -58091,7 +58083,7 @@ stbir__encode_scanline.exit:                      ; preds = %28, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_1_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_1_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = insertelement <4 x float> poison, float %6, i64 0
@@ -58175,7 +58167,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_2_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_2_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -58288,7 +58280,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_3_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_3_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -58430,7 +58422,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_4_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_4_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -58601,7 +58593,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_5_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_5_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -58801,7 +58793,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_6_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_6_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -59030,7 +59022,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_7_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_7_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -59288,7 +59280,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_8_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_8_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -59575,7 +59567,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = insertelement <4 x float> poison, float %6, i64 0
@@ -59671,7 +59663,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -59808,7 +59800,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -59986,7 +59978,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -60205,7 +60197,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -60465,7 +60457,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -60766,7 +60758,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -61108,7 +61100,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #42 {
+define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #41 {
   %5 = load ptr, ptr %0, align 8
   %6 = load float, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -61490,6 +61482,12 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr nocapture n
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #44
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #44
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #45
 
@@ -61582,12 +61580,12 @@ attributes #35 = { nofree norecurse nosync nounwind memory(readwrite, inaccessib
 attributes #36 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #37 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #40 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #42 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #43 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #44 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #39 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #43 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #44 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #45 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #46 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #47 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -220,26 +220,26 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 37:                                               ; preds = %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit23.i", %34, %32
   %38 = getelementptr inbounds i8, ptr %5, i64 8
   %39 = load i8, ptr %38, align 4, !range !39, !alias.scope !23, !noalias !26, !noundef !4
-  %.not.i = icmp eq i8 %39, 0
-  br i1 %.not.i, label %"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2334c106655261f2E.exit", label %40
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2334c106655261f2E.exit"
 
-40:                                               ; preds = %37
+41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !33
   store ptr @anon.5db5fdef081d362d4ba74ae9ac185c0f.19, ptr %3, align 8, !noalias !33
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %41, align 8, !noalias !33
-  %42 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %42, align 8, !noalias !33
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @anon.5db5fdef081d362d4ba74ae9ac185c0f.0, ptr %43, align 8, !noalias !33
-  %44 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %44, align 8, !noalias !33
-  %45 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hbe0c5c4ec9f1d0a9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %42, align 8, !noalias !33
+  %43 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %43, align 8, !noalias !33
+  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @anon.5db5fdef081d362d4ba74ae9ac185c0f.0, ptr %44, align 8, !noalias !33
+  %45 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %45, align 8, !noalias !33
+  %46 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hbe0c5c4ec9f1d0a9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !33
   br label %"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2334c106655261f2E.exit"
 
-"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2334c106655261f2E.exit": ; preds = %13, %15, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit.i", %18, %32, %34, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit23.i", %37, %40
-  %.0.i = phi i1 [ true, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit.i" ], [ true, %18 ], [ true, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit23.i" ], [ false, %37 ], [ %45, %40 ], [ true, %13 ], [ true, %15 ], [ true, %32 ], [ true, %34 ]
+"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2334c106655261f2E.exit": ; preds = %13, %15, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit.i", %18, %32, %34, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit23.i", %37, %41
+  %.0.i = phi i1 [ true, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit.i" ], [ true, %18 ], [ true, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit23.i" ], [ false, %37 ], [ %46, %41 ], [ true, %13 ], [ true, %15 ], [ true, %32 ], [ true, %34 ]
   ret i1 %.0.i
 }
 

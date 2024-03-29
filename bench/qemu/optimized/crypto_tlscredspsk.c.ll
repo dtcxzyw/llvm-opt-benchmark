@@ -160,17 +160,16 @@ land.lhs.true5.i.i.i:                             ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
-  %6 = load i64, ptr %_now.i.i.i, align 8
+  %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %call.i, ptr noundef nonnull %spec.select.i) #8
+  %6 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call.i, ptr noundef nonnull %spec.select.i) #8
   br label %trace_qcrypto_tls_creds_psk_load.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -180,14 +179,14 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_qcrypto_tls_creds_psk_load.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %endpoint.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %8 = load i32, ptr %endpoint.i, align 8
-  %cmp.i = icmp eq i32 %8, 1
+  %7 = load i32, ptr %endpoint.i, align 8
+  %cmp.i = icmp eq i32 %7, 1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %trace_qcrypto_tls_creds_psk_load.exit.i
   %username4.i = getelementptr inbounds i8, ptr %call.i, i64 80
-  %9 = load ptr, ptr %username4.i, align 8
-  %tobool5.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %username4.i, align 8
+  %tobool5.not.i = icmp eq ptr %8, null
   br i1 %tobool5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
@@ -216,16 +215,16 @@ if.then16.i:                                      ; preds = %if.end13.i
   br label %qcrypto_tls_creds_psk_load.exit
 
 if.end18.i:                                       ; preds = %if.end13.i
-  %10 = load ptr, ptr %dhparams.i, align 8
+  %9 = load ptr, ptr %dhparams.i, align 8
   %dh_params.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  %call21.i = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %call.i, ptr noundef %10, ptr noundef nonnull %dh_params.i, ptr noundef %errp) #8
+  %call21.i = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %call.i, ptr noundef %9, ptr noundef nonnull %dh_params.i, ptr noundef %errp) #8
   %cmp22.i = icmp slt i32 %call21.i, 0
   br i1 %cmp22.i, label %qcrypto_tls_creds_psk_load.exit, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end18.i
-  %11 = load ptr, ptr %data.i, align 8
-  %12 = load ptr, ptr %pskfile.i, align 8
-  %call26.i = call i32 @gnutls_psk_set_server_credentials_file(ptr noundef %11, ptr noundef %12) #8
+  %10 = load ptr, ptr %data.i, align 8
+  %11 = load ptr, ptr %pskfile.i, align 8
+  %call26.i = call i32 @gnutls_psk_set_server_credentials_file(ptr noundef %10, ptr noundef %11) #8
   %cmp27.i = icmp slt i32 %call26.i, 0
   br i1 %cmp27.i, label %if.then28.i, label %if.end30.i
 
@@ -235,9 +234,9 @@ if.then28.i:                                      ; preds = %if.end24.i
   br label %qcrypto_tls_creds_psk_load.exit
 
 if.end30.i:                                       ; preds = %if.end24.i
-  %13 = load ptr, ptr %data.i, align 8
-  %14 = load ptr, ptr %dh_params.i, align 8
-  call void @gnutls_psk_set_server_dh_params(ptr noundef %13, ptr noundef %14) #8
+  %12 = load ptr, ptr %data.i, align 8
+  %13 = load ptr, ptr %dh_params.i, align 8
+  call void @gnutls_psk_set_server_dh_params(ptr noundef %12, ptr noundef %13) #8
   br label %qcrypto_tls_creds_psk_load.exit
 
 if.else.i:                                        ; preds = %trace_qcrypto_tls_creds_psk_load.exit.i
@@ -247,10 +246,10 @@ if.else.i:                                        ; preds = %trace_qcrypto_tls_c
 
 if.end38.i:                                       ; preds = %if.else.i
   %username39.i = getelementptr inbounds i8, ptr %call.i, i64 80
-  %15 = load ptr, ptr %username39.i, align 8
-  %tobool40.not.i = icmp eq ptr %15, null
-  %.str.14..i = select i1 %tobool40.not.i, ptr @.str.14, ptr %15
-  %16 = load ptr, ptr %pskfile.i, align 8
+  %14 = load ptr, ptr %username39.i, align 8
+  %tobool40.not.i = icmp eq ptr %14, null
+  %.str.14..i = select i1 %tobool40.not.i, ptr @.str.14, ptr %14
+  %15 = load ptr, ptr %pskfile.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %gerr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %content.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %clen.i.i)
@@ -258,57 +257,57 @@ if.end38.i:                                       ; preds = %if.else.i
   store ptr null, ptr %gerr.i.i, align 8
   store ptr null, ptr %content.i.i, align 8
   store i64 0, ptr %clen.i.i, align 8
-  %call1.i.i = call i32 @g_file_get_contents(ptr noundef %16, ptr noundef nonnull %content.i.i, ptr noundef nonnull %clen.i.i, ptr noundef nonnull %gerr.i.i) #8
+  %call1.i.i = call i32 @g_file_get_contents(ptr noundef %15, ptr noundef nonnull %content.i.i, ptr noundef nonnull %clen.i.i, ptr noundef nonnull %gerr.i.i) #8
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %lookup_key.exit.thread.i, label %if.end.i.i
 
 lookup_key.exit.thread.i:                         ; preds = %if.end38.i
-  %17 = load ptr, ptr %gerr.i.i, align 8
-  %message.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %message.i.i, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.8, i32 noundef 47, ptr noundef nonnull @__func__.lookup_key, ptr noundef nonnull @.str.18, ptr noundef %16, ptr noundef %18) #8
-  %19 = load ptr, ptr %gerr.i.i, align 8
-  call void @g_error_free(ptr noundef %19) #8
+  %16 = load ptr, ptr %gerr.i.i, align 8
+  %message.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %message.i.i, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.8, i32 noundef 47, ptr noundef nonnull @__func__.lookup_key, ptr noundef nonnull @.str.18, ptr noundef %15, ptr noundef %17) #8
+  %18 = load ptr, ptr %gerr.i.i, align 8
+  call void @g_error_free(ptr noundef %18) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %gerr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %clen.i.i)
   br label %qcrypto_tls_creds_psk_load.exit
 
 if.end.i.i:                                       ; preds = %if.end38.i
-  %20 = load ptr, ptr %content.i.i, align 8
-  %call2.i.i = call ptr @g_strsplit(ptr noundef %20, ptr noundef nonnull @.str.19, i32 noundef -1) #8
-  %21 = load ptr, ptr %call2.i.i, align 8
-  %cmp.not21.i.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %content.i.i, align 8
+  %call2.i.i = call ptr @g_strsplit(ptr noundef %19, ptr noundef nonnull @.str.19, i32 noundef -1) #8
+  %20 = load ptr, ptr %call2.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %20, null
   br i1 %cmp.not21.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %22 = phi ptr [ %27, %for.inc.i.i ], [ %21, %if.end.i.i ]
+  %21 = phi ptr [ %26, %for.inc.i.i ], [ %20, %if.end.i.i ]
   %i.022.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %call4.i.i = call i32 @strncmp(ptr noundef nonnull %22, ptr noundef nonnull %.str.14..i, i64 noundef %call.i.i) #10
+  %call4.i.i = call i32 @strncmp(ptr noundef nonnull %21, ptr noundef nonnull %.str.14..i, i64 noundef %call.i.i) #10
   %cmp5.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %arrayidx7.i.i = getelementptr i8, ptr %22, i64 %call.i.i
-  %23 = load i8, ptr %arrayidx7.i.i, align 1
-  %cmp8.i.i = icmp eq i8 %23, 58
+  %arrayidx7.i.i = getelementptr i8, ptr %21, i64 %call.i.i
+  %22 = load i8, ptr %arrayidx7.i.i, align 1
+  %cmp8.i.i = icmp eq i8 %22, 58
   br i1 %cmp8.i.i, label %if.then10.i.i, label %for.inc.i.i
 
 if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
-  %arrayidx7.i.i.le = getelementptr i8, ptr %22, i64 %call.i.i
+  %arrayidx7.i.i.le = getelementptr i8, ptr %21, i64 %call.i.i
   %arrayidx.le.i.i = getelementptr ptr, ptr %call2.i.i, i64 %i.022.i.i
   %arrayidx12.i.i = getelementptr i8, ptr %arrayidx7.i.i.le, i64 1
   %call13.i.i = call noalias ptr @g_strdup(ptr noundef %arrayidx12.i.i) #8
   store ptr %call13.i.i, ptr %key.i, align 8
-  %24 = load ptr, ptr %arrayidx.le.i.i, align 8
-  %call15.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
-  %25 = xor i64 %call.i.i, -1
-  %sub16.i.i = add i64 %call15.i.i, %25
+  %23 = load ptr, ptr %arrayidx.le.i.i, align 8
+  %call15.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #10
+  %24 = xor i64 %call.i.i, -1
+  %sub16.i.i = add i64 %call15.i.i, %24
   %conv17.i.i = trunc i64 %sub16.i.i to i32
   %size.i.i = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 %conv17.i.i, ptr %size.i.i, align 8
-  %26 = load ptr, ptr %content.i.i, align 8
-  call void @free(ptr noundef %26) #8
+  %25 = load ptr, ptr %content.i.i, align 8
+  call void @free(ptr noundef %25) #8
   call void @g_strfreev(ptr noundef nonnull %call2.i.i) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %gerr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
@@ -321,14 +320,14 @@ if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
   %inc.i.i = add i64 %i.022.i.i, 1
   %arrayidx.i.i = getelementptr ptr, ptr %call2.i.i, i64 %inc.i.i
-  %27 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !5
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.8, i32 noundef 62, ptr noundef nonnull @__func__.lookup_key, ptr noundef nonnull @.str.20, ptr noundef nonnull %.str.14..i, ptr noundef %16) #8
-  %28 = load ptr, ptr %content.i.i, align 8
-  call void @free(ptr noundef %28) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.8, i32 noundef 62, ptr noundef nonnull @__func__.lookup_key, ptr noundef nonnull @.str.20, ptr noundef nonnull %.str.14..i, ptr noundef %15) #8
+  %27 = load ptr, ptr %content.i.i, align 8
+  call void @free(ptr noundef %27) #8
   call void @g_strfreev(ptr noundef nonnull %call2.i.i) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %gerr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
@@ -341,8 +340,8 @@ if.then52.i:                                      ; preds = %if.then10.i.i
   br label %qcrypto_tls_creds_psk_load.exit
 
 if.end54.i:                                       ; preds = %if.then10.i.i
-  %29 = load ptr, ptr %data49.i, align 8
-  %call56.i = call i32 @gnutls_psk_set_client_credentials(ptr noundef %29, ptr noundef nonnull %.str.14..i, ptr noundef nonnull %key.i, i32 noundef 1) #8
+  %28 = load ptr, ptr %data49.i, align 8
+  %call56.i = call i32 @gnutls_psk_set_client_credentials(ptr noundef %28, ptr noundef nonnull %.str.14..i, ptr noundef nonnull %key.i, i32 noundef 1) #8
   %cmp57.i = icmp slt i32 %call56.i, 0
   br i1 %cmp57.i, label %if.then58.i, label %qcrypto_tls_creds_psk_load.exit
 
@@ -352,8 +351,8 @@ if.then58.i:                                      ; preds = %if.end54.i
   br label %qcrypto_tls_creds_psk_load.exit
 
 qcrypto_tls_creds_psk_load.exit:                  ; preds = %if.then6.i, %if.end.i, %lor.lhs.false.i, %if.then16.i, %if.end18.i, %if.then28.i, %if.end30.i, %if.else.i, %lookup_key.exit.thread.i, %for.end.i.i, %if.then52.i, %if.end54.i, %if.then58.i
-  %30 = load ptr, ptr %key.i, align 8
-  call void @g_free(ptr noundef %30) #8
+  %29 = load ptr, ptr %key.i, align 8
+  call void @g_free(ptr noundef %29) #8
   %dhparams.val.i = load ptr, ptr %dhparams.i, align 8
   call void @g_free(ptr noundef %dhparams.val.i) #8
   %pskfile.val.i = load ptr, ptr %pskfile.i, align 8

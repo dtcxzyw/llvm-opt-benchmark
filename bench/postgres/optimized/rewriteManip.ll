@@ -1465,8 +1465,8 @@ define dso_local void @AddQual(ptr nocapture noundef %0, ptr noundef %1) local_u
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %.not14 = icmp eq ptr %10, null
-  br i1 %.not14, label %14, label %11
+  %.not13 = icmp eq ptr %10, null
+  br i1 %.not13, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %10, align 4
@@ -1507,9 +1507,8 @@ define dso_local void @AddQual(ptr nocapture noundef %0, ptr noundef %1) local_u
   store ptr %31, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 47
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not13 = icmp eq i8 %36, 0
-  br i1 %.not13, label %37, label %40
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %40, label %37
 
 37:                                               ; preds = %25
   %38 = tail call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %26, ptr noundef nonnull @checkExprHasSubLink_walker, ptr noundef null, i32 noundef 3) #7
@@ -1769,69 +1768,75 @@ define dso_local ptr @replace_rte_variables(ptr noundef %0, i32 noundef %1, i32 
   %10 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 %2, ptr %10, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %16, label %11
+  br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %0, align 4
   %13 = icmp eq i32 %12, 59
-  br i1 %13, label %14, label %16
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 47
-  br label %.sink.split23
+  %16 = load i8, ptr %15, align 1
+  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %18 = and i8 %16, 1
+  store i8 %18, ptr %17, align 8
+  br label %26
 
-16:                                               ; preds = %11, %6
+19:                                               ; preds = %11, %6
   %.not17 = icmp eq ptr %5, null
-  br i1 %.not17, label %19, label %.sink.split23
+  br i1 %.not17, label %24, label %20
 
-.sink.split23:                                    ; preds = %16, %14
-  %.sink25 = phi ptr [ %15, %14 ], [ %5, %16 ]
-  %17 = load i8, ptr %.sink25, align 1
-  %18 = and i8 %17, 1
-  br label %19
-
-19:                                               ; preds = %.sink.split23, %16
-  %.sink = phi i8 [ 0, %16 ], [ %18, %.sink.split23 ]
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
-  store i8 %.sink, ptr %20, align 8
-  %21 = call ptr @query_or_expression_tree_mutator_impl(ptr noundef %0, ptr noundef nonnull @replace_rte_variables_mutator, ptr noundef nonnull %7, i32 noundef 0) #7
+20:                                               ; preds = %19
+  %21 = load i8, ptr %5, align 1
   %22 = getelementptr inbounds i8, ptr %7, i64 24
-  %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not18 = icmp eq i8 %24, 0
-  br i1 %.not18, label %35, label %25
+  %23 = and i8 %21, 1
+  store i8 %23, ptr %22, align 8
+  br label %26
 
-25:                                               ; preds = %19
-  %.not19 = icmp eq ptr %21, null
-  br i1 %.not19, label %31, label %26
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  store i8 0, ptr %25, align 8
+  br label %26
 
-26:                                               ; preds = %25
-  %27 = load i32, ptr %21, align 4
-  %28 = icmp eq i32 %27, 59
-  br i1 %28, label %29, label %31
+26:                                               ; preds = %20, %24, %14
+  %27 = call ptr @query_or_expression_tree_mutator_impl(ptr noundef %0, ptr noundef nonnull @replace_rte_variables_mutator, ptr noundef nonnull %7, i32 noundef 0) #7
+  %28 = getelementptr inbounds i8, ptr %7, i64 24
+  %29 = load i8, ptr %28, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %41
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %21, i64 47
-  br label %.sink.split
-
-31:                                               ; preds = %26, %25
-  %.not20 = icmp eq ptr %5, null
-  br i1 %.not20, label %32, label %.sink.split
+31:                                               ; preds = %26
+  %.not18 = icmp eq ptr %27, null
+  br i1 %.not18, label %37, label %32
 
 32:                                               ; preds = %31
-  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %33)
-  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #7
+  %33 = load i32, ptr %27, align 4
+  %34 = icmp eq i32 %33, 59
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %27, i64 47
+  br label %.sink.split
+
+37:                                               ; preds = %32, %31
+  %.not19 = icmp eq ptr %5, null
+  br i1 %.not19, label %38, label %.sink.split
+
+38:                                               ; preds = %37
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %39)
+  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #7
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1382, ptr noundef nonnull @__func__.replace_rte_variables) #7
   unreachable
 
-.sink.split:                                      ; preds = %31, %29
-  %.sink22 = phi ptr [ %30, %29 ], [ %5, %31 ]
-  store i8 1, ptr %.sink22, align 1
-  br label %35
+.sink.split:                                      ; preds = %37, %35
+  %.sink = phi ptr [ %36, %35 ], [ %5, %37 ]
+  store i8 1, ptr %.sink, align 1
+  br label %41
 
-35:                                               ; preds = %.sink.split, %19
-  ret ptr %21
+41:                                               ; preds = %.sink.split, %26
+  ret ptr %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1868,9 +1873,8 @@ define dso_local ptr @replace_rte_variables_mutator(ptr noundef %0, ptr noundef 
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
   %21 = getelementptr inbounds i8, ptr %1, i64 24
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %24, label %61
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %61, label %24
 
 24:                                               ; preds = %18
   %25 = tail call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %20, ptr noundef nonnull @checkExprHasSubLink_walker, ptr noundef null, i32 noundef 3) #7
@@ -2142,87 +2146,16 @@ define internal ptr @map_variable_attnos_mutator(ptr noundef %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ReplaceVarsFromTargetList(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = alloca %struct.replace_rte_variables_context, align 8
-  %10 = alloca %struct.ReplaceVarsFromTargetList_context, align 8
-  store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 20
-  store i32 %6, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  store ptr @ReplaceVarsFromTargetList_callback, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 20
-  store i32 %2, ptr %16, align 4
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %22, label %17
-
-17:                                               ; preds = %8
-  %18 = load i32, ptr %0, align 4
-  %19 = icmp eq i32 %18, 59
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 47
-  br label %.sink.split23.i
-
-22:                                               ; preds = %17, %8
-  %.not17.i = icmp eq ptr %7, null
-  br i1 %.not17.i, label %25, label %.sink.split23.i
-
-.sink.split23.i:                                  ; preds = %22, %20
-  %.sink25.i = phi ptr [ %21, %20 ], [ %7, %22 ]
-  %23 = load i8, ptr %.sink25.i, align 1
-  %24 = and i8 %23, 1
-  br label %25
-
-25:                                               ; preds = %.sink.split23.i, %22
-  %.sink.i = phi i8 [ 0, %22 ], [ %24, %.sink.split23.i ]
-  %26 = getelementptr inbounds i8, ptr %9, i64 24
-  store i8 %.sink.i, ptr %26, align 8
-  %27 = call ptr @query_or_expression_tree_mutator_impl(ptr noundef %0, ptr noundef nonnull @replace_rte_variables_mutator, ptr noundef nonnull %9, i32 noundef 0) #7
-  %28 = load i8, ptr %26, align 8
-  %29 = and i8 %28, 1
-  %.not18.i = icmp eq i8 %29, 0
-  br i1 %.not18.i, label %replace_rte_variables.exit, label %30
-
-30:                                               ; preds = %25
-  %.not19.i = icmp eq ptr %27, null
-  br i1 %.not19.i, label %36, label %31
-
-31:                                               ; preds = %30
-  %32 = load i32, ptr %27, align 4
-  %33 = icmp eq i32 %32, 59
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %27, i64 47
-  br label %.sink.split.i
-
-36:                                               ; preds = %31, %30
-  %.not20.i = icmp eq ptr %7, null
-  br i1 %.not20.i, label %37, label %.sink.split.i
-
-37:                                               ; preds = %36
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #7
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1382, ptr noundef nonnull @__func__.replace_rte_variables) #7
-  unreachable
-
-.sink.split.i:                                    ; preds = %36, %34
-  %.sink22.i = phi ptr [ %35, %34 ], [ %7, %36 ]
-  store i8 1, ptr %.sink22.i, align 1
-  br label %replace_rte_variables.exit
-
-replace_rte_variables.exit:                       ; preds = %25, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  ret ptr %27
+  %9 = alloca %struct.ReplaceVarsFromTargetList_context, align 8
+  store ptr %3, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %4, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %5, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 %6, ptr %12, align 4
+  %13 = call ptr @replace_rte_variables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @ReplaceVarsFromTargetList_callback, ptr noundef nonnull %9, ptr noundef %7)
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2283,9 +2216,8 @@ define internal ptr @ReplaceVarsFromTargetList_callback(ptr noundef %0, ptr noun
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %40, i64 42
   %44 = load i8, ptr %43, align 2
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %69, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %69
 
 46:                                               ; preds = %42, %37
   %47 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2330,8 +2262,8 @@ define internal ptr @ReplaceVarsFromTargetList_callback(ptr noundef %0, ptr noun
   %72 = tail call ptr @copyObjectImpl(ptr noundef %71) #7
   %73 = getelementptr inbounds i8, ptr %0, i64 32
   %74 = load i32, ptr %73, align 8
-  %.not40 = icmp eq i32 %74, 0
-  br i1 %.not40, label %78, label %75
+  %.not = icmp eq i32 %74, 0
+  br i1 %.not, label %78, label %75
 
 75:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

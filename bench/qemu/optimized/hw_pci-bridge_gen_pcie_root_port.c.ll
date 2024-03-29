@@ -131,22 +131,20 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %hide_native_hotplug_cap = getelementptr inbounds i8, ptr %call.i15, i64 7166
   %2 = load i8, ptr %hide_native_hotplug_cap, align 2
-  %3 = and i8 %2, 1
-  %tobool4.not = icmp eq i8 %3, 0
-  br i1 %tobool4.not, label %if.end10, label %land.lhs.true
+  %tobool4 = trunc i8 %2 to i1
+  br i1 %tobool4, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
   %io = getelementptr inbounds i8, ptr %call.i16, i64 7200
-  %4 = load i64, ptr %io, align 8
-  %cmp = icmp eq i64 %4, -1
+  %3 = load i64, ptr %io, align 8
+  %cmp = icmp eq i64 %3, -1
   br i1 %cmp, label %land.lhs.true5, label %if.end10
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
   %hotplug = getelementptr inbounds i8, ptr %call.i15, i64 7165
-  %5 = load i8, ptr %hotplug, align 1
-  %6 = and i8 %5, 1
-  %tobool6.not = icmp eq i8 %6, 0
-  br i1 %tobool6.not, label %if.end10, label %if.then7
+  %4 = load i8, ptr %hotplug, align 1
+  %tobool6 = trunc i8 %4 to i1
+  br i1 %tobool6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %land.lhs.true5
   store i64 4096, ptr %io, align 8
@@ -160,28 +158,28 @@ if.end10:                                         ; preds = %if.then7, %land.lhs
 
 if.then14:                                        ; preds = %if.end10
   %exit = getelementptr inbounds i8, ptr %call1.i, i64 184
-  %7 = load ptr, ptr %exit, align 8
-  call void %7(ptr noundef %call.i) #5
+  %5 = load ptr, ptr %exit, align 8
+  call void %5(ptr noundef %call.i) #5
   br label %if.end24
 
 if.end15:                                         ; preds = %if.end10
   %io17 = getelementptr inbounds i8, ptr %call.i16, i64 7200
-  %8 = load i64, ptr %io17, align 8
-  %tobool18.not = icmp eq i64 %8, 0
+  %6 = load i64, ptr %io17, align 8
+  %tobool18.not = icmp eq i64 %6, 0
   br i1 %tobool18.not, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %if.end15
   %wmask = getelementptr inbounds i8, ptr %call.i, i64 184
-  %9 = load ptr, ptr %wmask, align 8
-  %add.ptr = getelementptr i8, ptr %9, i64 4
+  %7 = load ptr, ptr %wmask, align 8
+  %add.ptr = getelementptr i8, ptr %7, i64 4
   %config.val.i = load i16, ptr %add.ptr, align 1
   %and.i = and i16 %config.val.i, -2
   store i16 %and.i, ptr %add.ptr, align 1
-  %10 = load ptr, ptr %wmask, align 8
-  %arrayidx = getelementptr i8, ptr %10, i64 28
+  %8 = load ptr, ptr %wmask, align 8
+  %arrayidx = getelementptr i8, ptr %8, i64 28
   store i8 0, ptr %arrayidx, align 1
-  %11 = load ptr, ptr %wmask, align 8
-  %arrayidx23 = getelementptr i8, ptr %11, i64 29
+  %9 = load ptr, ptr %wmask, align 8
+  %arrayidx23 = getelementptr i8, ptr %9, i64 29
   store i8 0, ptr %arrayidx23, align 1
   br label %if.end24
 
@@ -234,8 +232,7 @@ define internal zeroext i1 @gen_rp_test_migrate_msix(ptr nocapture noundef reado
 entry:
   %migrate_msix = getelementptr inbounds i8, ptr %opaque, i64 7184
   %0 = load i8, ptr %migrate_msix, align 16
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

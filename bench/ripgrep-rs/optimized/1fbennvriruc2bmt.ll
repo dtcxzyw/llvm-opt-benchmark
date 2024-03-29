@@ -3292,11 +3292,11 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %35 = getelementptr inbounds i8, ptr %1, i64 40
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$11read_to_end17h1bee18306e929fa2E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 4 dereferenceable(4) %35, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %36 = load i64, ptr %4, align 8, !range !572, !noundef !4
-  %trunc.not = icmp eq i64 %36, 0
+  %trunc = trunc i64 %36 to i1
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %trunc.not, label %41, label %44
+  br i1 %trunc, label %44, label %41
 
 39:                                               ; preds = %17
   %40 = getelementptr inbounds i8, ptr %0, i64 8

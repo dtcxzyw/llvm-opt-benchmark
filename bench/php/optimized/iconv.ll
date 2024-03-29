@@ -909,9 +909,8 @@ get_internal_encoding.exit:                       ; preds = %28, %30
 37:                                               ; preds = %32, %get_internal_encoding.exit
   %38 = phi ptr [ %24, %32 ], [ %.0.i, %get_internal_encoding.exit ]
   %39 = load i8, ptr %14, align 1
-  %40 = and i8 %39, 1
-  %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %thread-pre-split, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %thread-pre-split
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %11, align 8
@@ -924,11 +923,11 @@ thread-pre-split:                                 ; preds = %37
   %.pr = load i64, ptr %13, align 8
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
-  %.pre137 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre136 = load i64, ptr %.phi.trans.insert, align 8
   br label %45
 
 45:                                               ; preds = %thread-pre-split, %41
-  %46 = phi i64 [ %.pre137, %thread-pre-split ], [ %44, %41 ]
+  %46 = phi i64 [ %.pre136, %thread-pre-split ], [ %44, %41 ]
   %47 = phi ptr [ %.pre, %thread-pre-split ], [ %42, %41 ]
   %48 = phi i64 [ %.pr, %thread-pre-split ], [ %44, %41 ]
   %49 = getelementptr inbounds i8, ptr %47, i64 24
@@ -940,8 +939,8 @@ thread-pre-split:                                 ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %51 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %8, ptr noundef nonnull %49, i64 noundef %46, ptr noundef %38), !range !4
-  %.not.i134 = icmp eq i32 %51, 0
-  br i1 %.not.i134, label %52, label %_php_iconv_substr.exit
+  %.not.i133 = icmp eq i32 %51, 0
+  br i1 %.not.i133, label %52, label %_php_iconv_substr.exit
 
 52:                                               ; preds = %45
   %53 = icmp slt i64 %50, 0
@@ -1167,8 +1166,8 @@ _php_iconv_substr.exit:                           ; preds = %45, %77, %87, %133,
   %144 = getelementptr inbounds [1 x i8], ptr %141, i64 0, i64 %143
   store i8 0, ptr %144, align 1
   %145 = load ptr, ptr %15, align 8
-  %.not130 = icmp eq ptr %145, null
-  br i1 %.not130, label %186, label %146
+  %.not129 = icmp eq ptr %145, null
+  br i1 %.not129, label %186, label %146
 
 146:                                              ; preds = %140
   %147 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1182,8 +1181,8 @@ _php_iconv_substr.exit:                           ; preds = %45, %77, %87, %133,
   %153 = getelementptr inbounds i8, ptr %145, i64 4
   %154 = load i32, ptr %153, align 4
   %155 = and i32 %154, 64
-  %.not131 = icmp eq i32 %155, 0
-  br i1 %.not131, label %156, label %168
+  %.not130 = icmp eq i32 %155, 0
+  br i1 %.not130, label %156, label %168
 
 156:                                              ; preds = %152
   %157 = load i32, ptr %145, align 4
@@ -1223,8 +1222,8 @@ _php_iconv_substr.exit:                           ; preds = %45, %77, %87, %133,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %175, ptr noundef nonnull align 8 dereferenceable(1) %176, i64 %178, i1 false)
   %179 = load i32, ptr %153, align 4
   %180 = and i32 %179, 64
-  %.not132 = icmp eq i32 %180, 0
-  br i1 %.not132, label %181, label %185
+  %.not131 = icmp eq i32 %180, 0
+  br i1 %.not131, label %181, label %185
 
 181:                                              ; preds = %168
   %182 = load i32, ptr %145, align 4
@@ -1246,8 +1245,8 @@ _php_iconv_substr.exit:                           ; preds = %45, %77, %87, %133,
   %188 = getelementptr inbounds i8, ptr %187, i64 4
   %189 = load i32, ptr %188, align 4
   %190 = and i32 %189, 64
-  %.not133 = icmp eq i32 %190, 0
-  %191 = select i1 %.not133, i32 262, i32 6
+  %.not132 = icmp eq i32 %190, 0
+  %191 = select i1 %.not132, i32 262, i32 6
   %192 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %191, ptr %192, align 8
   br label %206
@@ -1259,8 +1258,8 @@ _php_iconv_substr.exit:                           ; preds = %45, %77, %87, %133,
   %195 = getelementptr inbounds i8, ptr %138, i64 4
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, 64
-  %.not129 = icmp eq i32 %197, 0
-  br i1 %.not129, label %198, label %204
+  %.not = icmp eq i32 %197, 0
+  br i1 %.not, label %198, label %204
 
 198:                                              ; preds = %194
   %199 = load i32, ptr %138, align 4
@@ -3180,20 +3179,20 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 22
   %. = select i1 %26, i32 2, i32 1
-  br label %254
+  br label %253
 
-27:                                               ; preds = %.lr.ph406, %234
-  %.0223405 = phi i32 [ 0, %.lr.ph406 ], [ %.1224, %234 ]
-  %.0225404 = phi ptr [ null, %.lr.ph406 ], [ %.3, %234 ]
-  %.0227403 = phi ptr [ null, %.lr.ph406 ], [ %.2229, %234 ]
-  %.0230402 = phi i64 [ 0, %.lr.ph406 ], [ %.1231, %234 ]
-  %.0232401 = phi ptr [ null, %.lr.ph406 ], [ %.1233, %234 ]
-  %.0234400 = phi i32 [ 0, %.lr.ph406 ], [ %.4, %234 ]
-  %.0238399 = phi ptr [ null, %.lr.ph406 ], [ %.1239, %234 ]
-  %.0240398 = phi i32 [ 0, %.lr.ph406 ], [ %.3243, %234 ]
-  %.0244397 = phi i64 [ %2, %.lr.ph406 ], [ %235, %234 ]
-  %.0248396 = phi ptr [ %1, %.lr.ph406 ], [ %236, %234 ]
-  %.0253395 = phi ptr [ inttoptr (i64 -1 to ptr), %.lr.ph406 ], [ %.1254, %234 ]
+27:                                               ; preds = %.lr.ph406, %233
+  %.0223405 = phi i32 [ 0, %.lr.ph406 ], [ %.1224, %233 ]
+  %.0225404 = phi ptr [ null, %.lr.ph406 ], [ %.3, %233 ]
+  %.0227403 = phi ptr [ null, %.lr.ph406 ], [ %.2229, %233 ]
+  %.0230402 = phi i64 [ 0, %.lr.ph406 ], [ %.1231, %233 ]
+  %.0232401 = phi ptr [ null, %.lr.ph406 ], [ %.1233, %233 ]
+  %.0234400 = phi i32 [ 0, %.lr.ph406 ], [ %.4, %233 ]
+  %.0238399 = phi ptr [ null, %.lr.ph406 ], [ %.1239, %233 ]
+  %.0240398 = phi i32 [ 0, %.lr.ph406 ], [ %.3243, %233 ]
+  %.0244397 = phi i64 [ %2, %.lr.ph406 ], [ %234, %233 ]
+  %.0248396 = phi ptr [ %1, %.lr.ph406 ], [ %235, %233 ]
+  %.0253395 = phi ptr [ inttoptr (i64 -1 to ptr), %.lr.ph406 ], [ %.1254, %233 ]
   %.0244397.fr = freeze i64 %.0244397
   %28 = load i8, ptr %.0248396, align 1
   switch i32 %.0240398, label %default.unreachable421 [
@@ -3207,14 +3206,14 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
     i32 8, label %135
     i32 6, label %140
     i32 9, label %150
-    i32 10, label %206
-    i32 11, label %208
-    i32 12, label %228
+    i32 10, label %205
+    i32 11, label %207
+    i32 12, label %227
   ]
 
 29:                                               ; preds = %27
   switch i8 %28, label %33 [
-    i8 13, label %234
+    i8 13, label %233
     i8 10, label %30
     i8 61, label %31
     i8 32, label %32
@@ -3222,13 +3221,13 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   ]
 
 30:                                               ; preds = %29
-  br label %234
+  br label %233
 
 31:                                               ; preds = %29
-  br label %234
+  br label %233
 
 32:                                               ; preds = %29, %29
-  br label %234
+  br label %233
 
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
@@ -3237,7 +3236,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   %.not331 = icmp ne i32 %34, 0
   %or.cond349 = and i1 %.not307, %.not331
-  br i1 %or.cond349, label %.loopexit, label %234
+  br i1 %or.cond349, label %.loopexit, label %233
 
 35:                                               ; preds = %27
   switch i8 %28, label %38 [
@@ -3258,14 +3257,14 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %42 = sub i64 %40, %41
   %43 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %42, ptr noundef %20), !range !4
   %.not329 = icmp eq i32 %43, 0
-  br i1 %.not329, label %234, label %.loopexit
+  br i1 %.not329, label %233, label %.loopexit
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds i8, ptr %.0248396, i64 1
-  br label %234
+  br label %233
 
 46:                                               ; preds = %27
-  switch i8 %28, label %234 [
+  switch i8 %28, label %233 [
     i8 63, label %57
     i8 42, label %47
     i8 13, label %48
@@ -3293,7 +3292,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %.0248396, i64 -1
-  br label %234
+  br label %233
 
 57:                                               ; preds = %46, %47
   %.1241.ph = phi i32 [ 10, %47 ], [ 3, %46 ]
@@ -3317,7 +3316,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %69 = sub i64 %67, %68
   %70 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %69, ptr noundef %20), !range !4
   %.not326 = icmp eq i32 %70, 0
-  br i1 %.not326, label %234, label %.loopexit
+  br i1 %.not326, label %233, label %.loopexit
 
 71:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %17, ptr nonnull align 1 %.0238399, i64 %62, i1 false)
@@ -3333,7 +3332,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 75:                                               ; preds = %73, %71
   %76 = call ptr @iconv_open(ptr noundef %3, ptr noundef nonnull %17) #16
   %77 = icmp eq ptr %76, inttoptr (i64 -1 to ptr)
-  br i1 %77, label %78, label %234
+  br i1 %77, label %78, label %233
 
 78:                                               ; preds = %75
   br i1 %.not307, label %100, label %.preheader
@@ -3382,7 +3381,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %98 = sub i64 %96, %97
   %99 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %98, ptr noundef %20), !range !4
   %.not324 = icmp eq i32 %99, 0
-  br i1 %.not324, label %234, label %.thread363
+  br i1 %.not324, label %233, label %.thread363
 
 100:                                              ; preds = %78
   %101 = tail call ptr @__errno_location() #18
@@ -3393,14 +3392,14 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 
 104:                                              ; preds = %27
   switch i8 %28, label %106 [
-    i8 98, label %234
-    i8 66, label %234
+    i8 98, label %233
+    i8 66, label %233
     i8 113, label %105
     i8 81, label %105
   ]
 
 105:                                              ; preds = %104, %104
-  br label %234
+  br label %233
 
 106:                                              ; preds = %104
   br i1 %.not307, label %.loopexit, label %107
@@ -3412,7 +3411,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %111 = sub i64 %109, %110
   %112 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %111, ptr noundef %20), !range !4
   %.not317 = icmp eq i32 %112, 0
-  br i1 %.not317, label %234, label %.loopexit
+  br i1 %.not317, label %233, label %.loopexit
 
 113:                                              ; preds = %27
   %.not312 = icmp eq i8 %28, 63
@@ -3428,25 +3427,25 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %119 = sub i64 %117, %118
   %120 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %119, ptr noundef %20), !range !4
   %.not314 = icmp eq i32 %120, 0
-  br i1 %.not314, label %234, label %.loopexit
+  br i1 %.not314, label %233, label %.loopexit
 
 121:                                              ; preds = %113
   %122 = getelementptr inbounds i8, ptr %.0248396, i64 1
-  br label %234
+  br label %233
 
 123:                                              ; preds = %27
   %124 = icmp eq i8 %28, 63
-  br i1 %124, label %125, label %234
+  br i1 %124, label %125, label %233
 
 125:                                              ; preds = %123
   %126 = ptrtoint ptr %.0248396 to i64
   %127 = ptrtoint ptr %.0232401 to i64
   %128 = sub i64 %126, %127
-  br label %234
+  br label %233
 
 129:                                              ; preds = %27
   %130 = icmp eq i8 %28, 10
-  br i1 %130, label %234, label %131
+  br i1 %130, label %233, label %131
 
 131:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
@@ -3458,7 +3457,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   store i8 %133, ptr %12, align 1
   %134 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, ptr noundef %20), !range !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  br label %234
+  br label %233
 
 135:                                              ; preds = %27
   switch i8 %28, label %._crit_edge407.thread [
@@ -3468,14 +3467,14 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 
 136:                                              ; preds = %135, %135
   %137 = icmp eq ptr %.0227403, null
-  br i1 %137, label %138, label %234
+  br i1 %137, label %138, label %233
 
 138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   store i8 32, ptr %11, align 1
   %139 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef %20), !range !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  br label %234
+  br label %233
 
 140:                                              ; preds = %27
   %.not295 = icmp eq i8 %28, 61
@@ -3491,11 +3490,11 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %146 = sub i64 %144, %145
   %147 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %146, ptr noundef %20), !range !4
   %.not308 = icmp eq i32 %147, 0
-  br i1 %.not308, label %234, label %.loopexit
+  br i1 %.not308, label %233, label %.loopexit
 
 148:                                              ; preds = %140
   %149 = icmp eq i64 %.0244397.fr, 1
-  br i1 %149, label %.thread357, label %234
+  br i1 %149, label %.thread357, label %233
 
 150:                                              ; preds = %27
   %switch.tableidx = add i8 %28, -9
@@ -3512,285 +3511,284 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %157 = sub i64 %155, %156
   %158 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %157, ptr noundef %20), !range !4
   %.not298 = icmp eq i32 %158, 0
-  br i1 %.not298, label %234, label %.loopexit
+  br i1 %.not298, label %233, label %.loopexit
 
 switch.hole_check:                                ; preds = %150
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 8388627, %switch.maskindex
-  %159 = and i32 %switch.shifted, 1
-  %switch.lobit = icmp ne i32 %159, 0
-  %brmerge = or i1 %switch.lobit, %.not292
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %brmerge = or i1 %.not292, %switch.lobit
   br i1 %brmerge, label %.thread357, label %153
 
 .thread357:                                       ; preds = %switch.hole_check, %148, %152
   %.not296355 = phi i1 [ true, %152 ], [ false, %148 ], [ true, %switch.hole_check ]
   %switch = icmp eq i32 %.0223405, 0
-  br i1 %switch, label %160, label %162
+  br i1 %switch, label %159, label %161
 
-160:                                              ; preds = %.thread357
-  %161 = call ptr @php_base64_decode_ex(ptr noundef %.0232401, i64 noundef %.0230402, i1 noundef zeroext false) #16
-  br label %164
+159:                                              ; preds = %.thread357
+  %160 = call ptr @php_base64_decode_ex(ptr noundef %.0232401, i64 noundef %.0230402, i1 noundef zeroext false) #16
+  br label %163
 
-162:                                              ; preds = %.thread357
-  %163 = call ptr @php_quot_print_decode(ptr noundef %.0232401, i64 noundef %.0230402, i32 noundef 1) #16
-  br label %164
+161:                                              ; preds = %.thread357
+  %162 = call ptr @php_quot_print_decode(ptr noundef %.0232401, i64 noundef %.0230402, i32 noundef 1) #16
+  br label %163
 
-164:                                              ; preds = %162, %160
-  %.0 = phi ptr [ %163, %162 ], [ %161, %160 ]
-  %165 = icmp eq ptr %.0, null
-  br i1 %165, label %166, label %173
+163:                                              ; preds = %161, %159
+  %.0 = phi ptr [ %162, %161 ], [ %160, %159 ]
+  %164 = icmp eq ptr %.0, null
+  br i1 %164, label %165, label %172
 
-166:                                              ; preds = %164
-  br i1 %.not307, label %.loopexit, label %167
+165:                                              ; preds = %163
+  br i1 %.not307, label %.loopexit, label %166
 
-167:                                              ; preds = %166
-  %168 = getelementptr inbounds i8, ptr %.0248396, i64 1
-  %169 = ptrtoint ptr %168 to i64
-  %170 = ptrtoint ptr %.0227403 to i64
-  %171 = sub i64 %169, %170
-  %172 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %171, ptr noundef %20), !range !4
-  %.not305 = icmp eq i32 %172, 0
-  br i1 %.not305, label %234, label %.loopexit
+166:                                              ; preds = %165
+  %167 = getelementptr inbounds i8, ptr %.0248396, i64 1
+  %168 = ptrtoint ptr %167 to i64
+  %169 = ptrtoint ptr %.0227403 to i64
+  %170 = sub i64 %168, %169
+  %171 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %170, ptr noundef %20), !range !4
+  %.not305 = icmp eq i32 %171, 0
+  br i1 %.not305, label %233, label %.loopexit
 
-173:                                              ; preds = %164
-  %174 = getelementptr inbounds i8, ptr %.0, i64 24
-  %175 = getelementptr inbounds i8, ptr %.0, i64 16
-  %176 = load i64, ptr %175, align 8
-  %177 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %174, i64 noundef %176, ptr noundef %.0253395), !range !4
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %181
+172:                                              ; preds = %163
+  %173 = getelementptr inbounds i8, ptr %.0, i64 24
+  %174 = getelementptr inbounds i8, ptr %.0, i64 16
+  %175 = load i64, ptr %174, align 8
+  %176 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %173, i64 noundef %175, ptr noundef %.0253395), !range !4
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %180
 
-179:                                              ; preds = %173
-  %180 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %.0253395), !range !4
-  br label %181
+178:                                              ; preds = %172
+  %179 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %.0253395), !range !4
+  br label %180
 
-181:                                              ; preds = %179, %173
-  %.2236 = phi i32 [ %180, %179 ], [ %177, %173 ]
-  %182 = getelementptr inbounds i8, ptr %.0, i64 4
-  %183 = load i32, ptr %182, align 4
-  %184 = and i32 %183, 64
-  %.not299 = icmp eq i32 %184, 0
-  br i1 %.not299, label %185, label %191
+180:                                              ; preds = %178, %172
+  %.2236 = phi i32 [ %179, %178 ], [ %176, %172 ]
+  %181 = getelementptr inbounds i8, ptr %.0, i64 4
+  %182 = load i32, ptr %181, align 4
+  %183 = and i32 %182, 64
+  %.not299 = icmp eq i32 %183, 0
+  br i1 %.not299, label %184, label %190
 
-185:                                              ; preds = %181
-  %186 = load i32, ptr %.0, align 4
-  %187 = icmp ne i32 %186, 0
-  call void @llvm.assume(i1 %187)
-  %188 = add i32 %186, -1
-  store i32 %188, ptr %.0, align 4
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %191
+184:                                              ; preds = %180
+  %185 = load i32, ptr %.0, align 4
+  %186 = icmp ne i32 %185, 0
+  call void @llvm.assume(i1 %186)
+  %187 = add i32 %185, -1
+  store i32 %187, ptr %.0, align 4
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %189, label %190
 
-190:                                              ; preds = %185
+189:                                              ; preds = %184
   call void @_efree(ptr noundef nonnull %.0) #16
-  br label %191
+  br label %190
 
-191:                                              ; preds = %185, %190, %181
+190:                                              ; preds = %184, %189, %180
   %.not300 = icmp eq i32 %.2236, 0
-  br i1 %.not300, label %198, label %192
+  br i1 %.not300, label %197, label %191
+
+191:                                              ; preds = %190
+  br i1 %.not307, label %.loopexit, label %192
 
 192:                                              ; preds = %191
-  br i1 %.not307, label %.loopexit, label %193
+  %193 = ptrtoint ptr %.0248396 to i64
+  %194 = ptrtoint ptr %.0227403 to i64
+  %195 = sub i64 %193, %194
+  %196 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %195, ptr noundef %20), !range !4
+  %.not302 = icmp eq i32 %196, 0
+  br i1 %.not302, label %197, label %233
 
-193:                                              ; preds = %192
-  %194 = ptrtoint ptr %.0248396 to i64
-  %195 = ptrtoint ptr %.0227403 to i64
-  %196 = sub i64 %194, %195
-  %197 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %196, ptr noundef %20), !range !4
-  %.not302 = icmp eq i32 %197, 0
-  br i1 %.not302, label %198, label %234
+197:                                              ; preds = %192, %190
+  %.1228 = phi ptr [ null, %192 ], [ %.0227403, %190 ]
+  br i1 %.not296355, label %198, label %233
 
-198:                                              ; preds = %193, %191
-  %.1228 = phi ptr [ null, %193 ], [ %.0227403, %191 ]
-  br i1 %.not296355, label %199, label %234
-
-199:                                              ; preds = %198
-  %200 = load i8, ptr %.0248396, align 1
-  switch i8 %200, label %204 [
-    i8 13, label %234
-    i8 10, label %201
-    i8 61, label %202
-    i8 32, label %203
-    i8 9, label %203
+198:                                              ; preds = %197
+  %199 = load i8, ptr %.0248396, align 1
+  switch i8 %199, label %203 [
+    i8 13, label %233
+    i8 10, label %200
+    i8 61, label %201
+    i8 32, label %202
+    i8 9, label %202
   ]
 
-201:                                              ; preds = %199
-  br label %234
+200:                                              ; preds = %198
+  br label %233
 
-202:                                              ; preds = %199
-  br label %234
+201:                                              ; preds = %198
+  br label %233
 
-203:                                              ; preds = %199, %199
-  br label %234
+202:                                              ; preds = %198, %198
+  br label %233
 
-204:                                              ; preds = %199
+203:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  store i8 %200, ptr %10, align 1
-  %205 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %20), !range !4
+  store i8 %199, ptr %10, align 1
+  %204 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %20), !range !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  br label %234
+  br label %233
 
-206:                                              ; preds = %27
-  %207 = icmp eq i8 %28, 63
-  %spec.select347 = select i1 %207, i32 3, i32 10
-  br label %234
+205:                                              ; preds = %27
+  %206 = icmp eq i8 %28, 63
+  %spec.select347 = select i1 %206, i32 3, i32 10
+  br label %233
 
-208:                                              ; preds = %27
-  switch i8 %28, label %219 [
-    i8 13, label %209
-    i8 10, label %210
-    i8 61, label %211
-    i8 32, label %234
-    i8 9, label %234
+207:                                              ; preds = %27
+  switch i8 %28, label %218 [
+    i8 13, label %208
+    i8 10, label %209
+    i8 61, label %210
+    i8 32, label %233
+    i8 9, label %233
   ]
 
-209:                                              ; preds = %208
-  br label %234
+208:                                              ; preds = %207
+  br label %233
 
-210:                                              ; preds = %208
-  br label %234
+209:                                              ; preds = %207
+  br label %233
 
-211:                                              ; preds = %208
-  %212 = icmp ne ptr %.0225404, null
-  %213 = icmp eq ptr %.0227403, null
-  %or.cond = select i1 %212, i1 %213, i1 false
-  br i1 %or.cond, label %214, label %234
+210:                                              ; preds = %207
+  %211 = icmp ne ptr %.0225404, null
+  %212 = icmp eq ptr %.0227403, null
+  %or.cond = select i1 %211, i1 %212, i1 false
+  br i1 %or.cond, label %213, label %233
 
-214:                                              ; preds = %211
-  %215 = ptrtoint ptr %.0248396 to i64
-  %216 = ptrtoint ptr %.0225404 to i64
-  %217 = sub i64 %215, %216
-  %218 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %217, ptr noundef %20), !range !4
-  br label %234
+213:                                              ; preds = %210
+  %214 = ptrtoint ptr %.0248396 to i64
+  %215 = ptrtoint ptr %.0225404 to i64
+  %216 = sub i64 %214, %215
+  %217 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %216, ptr noundef %20), !range !4
+  br label %233
 
-219:                                              ; preds = %208
+218:                                              ; preds = %207
   %.not293 = icmp eq ptr %.0225404, null
-  br i1 %.not293, label %225, label %220
+  br i1 %.not293, label %224, label %219
 
-220:                                              ; preds = %219
-  %221 = ptrtoint ptr %.0248396 to i64
-  %222 = ptrtoint ptr %.0225404 to i64
-  %223 = sub i64 %221, %222
-  %224 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %223, ptr noundef %20), !range !4
+219:                                              ; preds = %218
+  %220 = ptrtoint ptr %.0248396 to i64
+  %221 = ptrtoint ptr %.0225404 to i64
+  %222 = sub i64 %220, %221
+  %223 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %222, ptr noundef %20), !range !4
   %.pre = load i8, ptr %.0248396, align 1
-  br label %225
+  br label %224
 
-225:                                              ; preds = %220, %219
-  %226 = phi i8 [ %.pre, %220 ], [ %28, %219 ]
+224:                                              ; preds = %219, %218
+  %225 = phi i8 [ %.pre, %219 ], [ %28, %218 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  store i8 %226, ptr %9, align 1
-  %227 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %20), !range !4
+  store i8 %225, ptr %9, align 1
+  %226 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %20), !range !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br label %234
+  br label %233
 
-228:                                              ; preds = %27
-  switch i8 %28, label %232 [
-    i8 13, label %234
-    i8 10, label %229
-    i8 32, label %230
-    i8 9, label %230
-    i8 61, label %231
+227:                                              ; preds = %27
+  switch i8 %28, label %231 [
+    i8 13, label %233
+    i8 10, label %228
+    i8 32, label %229
+    i8 9, label %229
+    i8 61, label %230
   ]
 
-229:                                              ; preds = %228
-  br label %234
+228:                                              ; preds = %227
+  br label %233
 
-230:                                              ; preds = %228, %228
-  br label %234
+229:                                              ; preds = %227, %227
+  br label %233
 
-231:                                              ; preds = %228
-  br i1 %.not292, label %234, label %232
+230:                                              ; preds = %227
+  br i1 %.not292, label %233, label %231
 
-232:                                              ; preds = %231, %228
+231:                                              ; preds = %230, %227
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 %28, ptr %8, align 1
-  %233 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20), !range !4
+  %232 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20), !range !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  br label %234
+  br label %233
 
 default.unreachable421:                           ; preds = %27
   unreachable
 
-234:                                              ; preds = %167, %142, %115, %107, %65, %38, %33, %46, %206, %231, %228, %225, %211, %214, %199, %198, %153, %136, %138, %129, %104, %104, %91, %55, %29, %44, %121, %32, %31, %30, %75, %105, %125, %123, %131, %148, %201, %202, %203, %204, %193, %208, %208, %210, %209, %232, %230, %229
-  %.1254 = phi ptr [ %.0253395, %232 ], [ %.0253395, %230 ], [ %.0253395, %229 ], [ %.0253395, %208 ], [ %.0253395, %208 ], [ %.0253395, %210 ], [ %.0253395, %209 ], [ %.0253395, %193 ], [ %.0253395, %204 ], [ %.0253395, %203 ], [ %.0253395, %202 ], [ %.0253395, %201 ], [ %.0253395, %148 ], [ %.0253395, %131 ], [ %.0253395, %125 ], [ %.0253395, %123 ], [ %.0253395, %121 ], [ %.0253395, %105 ], [ %76, %75 ], [ %.0253395, %44 ], [ %.0253395, %32 ], [ %.0253395, %31 ], [ %.0253395, %30 ], [ %.0253395, %29 ], [ %.0253395, %55 ], [ inttoptr (i64 -1 to ptr), %91 ], [ %.0253395, %104 ], [ %.0253395, %104 ], [ %.0253395, %129 ], [ %.0253395, %138 ], [ %.0253395, %136 ], [ %.0253395, %153 ], [ %.0253395, %198 ], [ %.0253395, %199 ], [ %.0253395, %206 ], [ %.0253395, %214 ], [ %.0253395, %211 ], [ %.0253395, %225 ], [ %.0253395, %228 ], [ %.0253395, %231 ], [ %.0253395, %46 ], [ %.0253395, %33 ], [ %.0253395, %38 ], [ %.0253395, %65 ], [ %.0253395, %107 ], [ %.0253395, %115 ], [ %.0253395, %142 ], [ %.0253395, %167 ]
-  %.4252 = phi ptr [ %.0248396, %232 ], [ %.0248396, %230 ], [ %.0248396, %229 ], [ %.0248396, %208 ], [ %.0248396, %208 ], [ %.0248396, %210 ], [ %.0248396, %209 ], [ %.0248396, %193 ], [ %.0248396, %204 ], [ %.0248396, %203 ], [ %.0248396, %202 ], [ %.0248396, %201 ], [ %.0248396, %148 ], [ %.0248396, %131 ], [ %.0248396, %125 ], [ %.0248396, %123 ], [ %.0248396, %121 ], [ %.0248396, %105 ], [ %.0248396, %75 ], [ %.0248396, %44 ], [ %.0248396, %32 ], [ %.0248396, %31 ], [ %.0248396, %30 ], [ %.0248396, %29 ], [ %56, %55 ], [ %.3251, %91 ], [ %.0248396, %104 ], [ %.0248396, %104 ], [ %.0248396, %129 ], [ %.0248396, %138 ], [ %.0248396, %136 ], [ %.0248396, %153 ], [ %.0248396, %198 ], [ %.0248396, %199 ], [ %.0248396, %206 ], [ %.0248396, %214 ], [ %.0248396, %211 ], [ %.0248396, %225 ], [ %.0248396, %228 ], [ %.0248396, %231 ], [ %.0248396, %46 ], [ %.0248396, %33 ], [ %.1249, %38 ], [ %.0248396, %65 ], [ %.0248396, %107 ], [ %.0248396, %115 ], [ %.0248396, %142 ], [ %.0248396, %167 ]
-  %.3247 = phi i64 [ %.0244397.fr, %232 ], [ %.0244397.fr, %230 ], [ %.0244397.fr, %229 ], [ %.0244397.fr, %208 ], [ %.0244397.fr, %208 ], [ %.0244397.fr, %210 ], [ %.0244397.fr, %209 ], [ %.0244397.fr, %193 ], [ %.0244397.fr, %204 ], [ %.0244397.fr, %203 ], [ %.0244397.fr, %202 ], [ %.0244397.fr, %201 ], [ %.0244397.fr, %148 ], [ %.0244397.fr, %131 ], [ %.0244397.fr, %125 ], [ %.0244397.fr, %123 ], [ %.0244397.fr, %121 ], [ %.0244397.fr, %105 ], [ %.0244397.fr, %75 ], [ %.0244397.fr, %44 ], [ %.0244397.fr, %32 ], [ %.0244397.fr, %31 ], [ %.0244397.fr, %30 ], [ %.0244397.fr, %29 ], [ %.0244397.fr, %55 ], [ %.2246, %91 ], [ %.0244397.fr, %104 ], [ %.0244397.fr, %104 ], [ %.0244397.fr, %129 ], [ %.0244397.fr, %138 ], [ %.0244397.fr, %136 ], [ %.0244397.fr, %153 ], [ %.0244397.fr, %198 ], [ %.0244397.fr, %199 ], [ %.0244397.fr, %206 ], [ %.0244397.fr, %214 ], [ %.0244397.fr, %211 ], [ %.0244397.fr, %225 ], [ %.0244397.fr, %228 ], [ %.0244397.fr, %231 ], [ %.0244397.fr, %46 ], [ %.0244397.fr, %33 ], [ %.0244397.fr, %38 ], [ %.0244397.fr, %65 ], [ %.0244397.fr, %107 ], [ %.0244397.fr, %115 ], [ %.0244397.fr, %142 ], [ %.0244397.fr, %167 ]
-  %.3243 = phi i32 [ 12, %232 ], [ 11, %230 ], [ 8, %229 ], [ 11, %208 ], [ 11, %208 ], [ 8, %210 ], [ 7, %209 ], [ 9, %193 ], [ 12, %204 ], [ 11, %203 ], [ 1, %202 ], [ 8, %201 ], [ 9, %148 ], [ 0, %131 ], [ 6, %125 ], [ 5, %123 ], [ 5, %121 ], [ 4, %105 ], [ %.1241.ph, %75 ], [ 2, %44 ], [ 11, %32 ], [ 1, %31 ], [ 8, %30 ], [ 7, %29 ], [ %.348, %55 ], [ 12, %91 ], [ 4, %104 ], [ 4, %104 ], [ 8, %129 ], [ 11, %138 ], [ 11, %136 ], [ 12, %153 ], [ 0, %198 ], [ 7, %199 ], [ %spec.select347, %206 ], [ 1, %214 ], [ 1, %211 ], [ %.348, %225 ], [ 7, %228 ], [ 1, %231 ], [ 2, %46 ], [ %.348, %33 ], [ %.348, %38 ], [ %.348, %65 ], [ %.348, %107 ], [ %.348, %115 ], [ %.348, %142 ], [ %.348, %167 ]
-  %.1239 = phi ptr [ %.0238399, %232 ], [ %.0238399, %230 ], [ %.0238399, %229 ], [ %.0238399, %208 ], [ %.0238399, %208 ], [ %.0238399, %210 ], [ %.0238399, %209 ], [ %.0238399, %193 ], [ %.0238399, %204 ], [ %.0238399, %203 ], [ %.0238399, %202 ], [ %.0238399, %201 ], [ %.0238399, %148 ], [ %.0238399, %131 ], [ %.0238399, %125 ], [ %.0238399, %123 ], [ %.0238399, %121 ], [ %.0238399, %105 ], [ %.0238399, %75 ], [ %45, %44 ], [ %.0238399, %32 ], [ %.0238399, %31 ], [ %.0238399, %30 ], [ %.0238399, %29 ], [ null, %55 ], [ %.0238399, %91 ], [ %.0238399, %104 ], [ %.0238399, %104 ], [ %.0238399, %129 ], [ %.0238399, %138 ], [ %.0238399, %136 ], [ %.0238399, %153 ], [ %.0238399, %198 ], [ %.0238399, %199 ], [ %.0238399, %206 ], [ %.0238399, %214 ], [ %.0238399, %211 ], [ %.0238399, %225 ], [ %.0238399, %228 ], [ %.0238399, %231 ], [ %.0238399, %46 ], [ %.0238399, %33 ], [ %.0238399, %38 ], [ %.0238399, %65 ], [ %.0238399, %107 ], [ %.0238399, %115 ], [ %.0238399, %142 ], [ %.0238399, %167 ]
-  %.4 = phi i32 [ %.0234400, %232 ], [ %.0234400, %230 ], [ %.0234400, %229 ], [ %.0234400, %208 ], [ %.0234400, %208 ], [ %.0234400, %210 ], [ %.0234400, %209 ], [ %197, %193 ], [ 0, %204 ], [ 0, %203 ], [ 0, %202 ], [ 0, %201 ], [ %.0234400, %148 ], [ %.0234400, %131 ], [ %.0234400, %125 ], [ %.0234400, %123 ], [ %.0234400, %121 ], [ %.0234400, %105 ], [ %.0234400, %75 ], [ %.0234400, %44 ], [ %.0234400, %32 ], [ %.0234400, %31 ], [ %.0234400, %30 ], [ %.0234400, %29 ], [ 0, %55 ], [ 0, %91 ], [ %.0234400, %104 ], [ %.0234400, %104 ], [ %.0234400, %129 ], [ %.0234400, %138 ], [ %.0234400, %136 ], [ 0, %153 ], [ 0, %198 ], [ 0, %199 ], [ %.0234400, %206 ], [ %.0234400, %214 ], [ %.0234400, %211 ], [ %.0234400, %225 ], [ %.0234400, %228 ], [ %.0234400, %231 ], [ %.0234400, %46 ], [ 0, %33 ], [ 0, %38 ], [ 0, %65 ], [ 0, %107 ], [ 0, %115 ], [ 0, %142 ], [ 0, %167 ]
-  %.1233 = phi ptr [ %.0232401, %232 ], [ %.0232401, %230 ], [ %.0232401, %229 ], [ %.0232401, %208 ], [ %.0232401, %208 ], [ %.0232401, %210 ], [ %.0232401, %209 ], [ %.0232401, %193 ], [ %.0232401, %204 ], [ %.0232401, %203 ], [ %.0232401, %202 ], [ %.0232401, %201 ], [ %.0232401, %148 ], [ %.0232401, %131 ], [ %.0232401, %125 ], [ %.0232401, %123 ], [ %122, %121 ], [ %.0232401, %105 ], [ %.0232401, %75 ], [ %.0232401, %44 ], [ %.0232401, %32 ], [ %.0232401, %31 ], [ %.0232401, %30 ], [ %.0232401, %29 ], [ %.0232401, %55 ], [ %.0232401, %91 ], [ %.0232401, %104 ], [ %.0232401, %104 ], [ %.0232401, %129 ], [ %.0232401, %138 ], [ %.0232401, %136 ], [ %.0232401, %153 ], [ %.0232401, %198 ], [ %.0232401, %199 ], [ %.0232401, %206 ], [ %.0232401, %214 ], [ %.0232401, %211 ], [ %.0232401, %225 ], [ %.0232401, %228 ], [ %.0232401, %231 ], [ %.0232401, %46 ], [ %.0232401, %33 ], [ %.0232401, %38 ], [ %.0232401, %65 ], [ %.0232401, %107 ], [ %.0232401, %115 ], [ %.0232401, %142 ], [ %.0232401, %167 ]
-  %.1231 = phi i64 [ %.0230402, %232 ], [ %.0230402, %230 ], [ %.0230402, %229 ], [ %.0230402, %208 ], [ %.0230402, %208 ], [ %.0230402, %210 ], [ %.0230402, %209 ], [ %.0230402, %193 ], [ %.0230402, %204 ], [ %.0230402, %203 ], [ %.0230402, %202 ], [ %.0230402, %201 ], [ %.0230402, %148 ], [ %.0230402, %131 ], [ %128, %125 ], [ %.0230402, %123 ], [ %.0230402, %121 ], [ %.0230402, %105 ], [ %.0230402, %75 ], [ %.0230402, %44 ], [ %.0230402, %32 ], [ %.0230402, %31 ], [ %.0230402, %30 ], [ %.0230402, %29 ], [ %.0230402, %55 ], [ %.0230402, %91 ], [ %.0230402, %104 ], [ %.0230402, %104 ], [ %.0230402, %129 ], [ %.0230402, %138 ], [ %.0230402, %136 ], [ %.0230402, %153 ], [ %.0230402, %198 ], [ %.0230402, %199 ], [ %.0230402, %206 ], [ %.0230402, %214 ], [ %.0230402, %211 ], [ %.0230402, %225 ], [ %.0230402, %228 ], [ %.0230402, %231 ], [ %.0230402, %46 ], [ %.0230402, %33 ], [ %.0230402, %38 ], [ %.0230402, %65 ], [ %.0230402, %107 ], [ %.0230402, %115 ], [ %.0230402, %142 ], [ %.0230402, %167 ]
-  %.2229 = phi ptr [ %.0227403, %232 ], [ %.0227403, %230 ], [ %.0227403, %229 ], [ %.0227403, %208 ], [ %.0227403, %208 ], [ %.0227403, %210 ], [ %.0227403, %209 ], [ null, %193 ], [ %.1228, %204 ], [ %.1228, %203 ], [ %.1228, %202 ], [ %.1228, %201 ], [ %.0227403, %148 ], [ %.0227403, %131 ], [ %.0227403, %125 ], [ %.0227403, %123 ], [ %.0227403, %121 ], [ %.0227403, %105 ], [ %.0227403, %75 ], [ %.0227403, %44 ], [ %.0227403, %32 ], [ %.0248396, %31 ], [ %.0227403, %30 ], [ %.0227403, %29 ], [ %.0227403, %55 ], [ %.0227403, %91 ], [ %.0227403, %104 ], [ %.0227403, %104 ], [ %.0227403, %129 ], [ null, %138 ], [ %.0227403, %136 ], [ %.0227403, %153 ], [ %.1228, %198 ], [ %.1228, %199 ], [ %.0227403, %206 ], [ %.0248396, %214 ], [ %.0248396, %211 ], [ null, %225 ], [ %.0227403, %228 ], [ %.0248396, %231 ], [ %.0227403, %46 ], [ null, %33 ], [ null, %38 ], [ null, %65 ], [ null, %107 ], [ null, %115 ], [ null, %142 ], [ null, %167 ]
-  %.3 = phi ptr [ %.0225404, %232 ], [ %.0248396, %230 ], [ %.0225404, %229 ], [ %.0225404, %208 ], [ %.0225404, %208 ], [ %.0225404, %210 ], [ %.0225404, %209 ], [ %.0225404, %193 ], [ %.0225404, %204 ], [ %.0248396, %203 ], [ %.0225404, %202 ], [ %.0225404, %201 ], [ %.0225404, %148 ], [ %.0225404, %131 ], [ %.0225404, %125 ], [ %.0225404, %123 ], [ %.0225404, %121 ], [ %.0225404, %105 ], [ %.0225404, %75 ], [ %.0225404, %44 ], [ %.0248396, %32 ], [ %.0225404, %31 ], [ %.0225404, %30 ], [ %.0225404, %29 ], [ %.0225404, %55 ], [ %.0225404, %91 ], [ %.0225404, %104 ], [ %.0225404, %104 ], [ %.0225404, %129 ], [ null, %138 ], [ null, %136 ], [ %.0225404, %153 ], [ %.0225404, %198 ], [ %.0225404, %199 ], [ %.0225404, %206 ], [ null, %214 ], [ %.0225404, %211 ], [ null, %225 ], [ %.0225404, %228 ], [ %.0225404, %231 ], [ %.0225404, %46 ], [ %.0225404, %33 ], [ %.0225404, %38 ], [ %.0225404, %65 ], [ %.0225404, %107 ], [ %.0225404, %115 ], [ %.0225404, %142 ], [ %.0225404, %167 ]
-  %.1224 = phi i32 [ %.0223405, %232 ], [ %.0223405, %230 ], [ %.0223405, %229 ], [ %.0223405, %208 ], [ %.0223405, %208 ], [ %.0223405, %210 ], [ %.0223405, %209 ], [ %.0223405, %193 ], [ %.0223405, %204 ], [ %.0223405, %203 ], [ %.0223405, %202 ], [ %.0223405, %201 ], [ %.0223405, %148 ], [ %.0223405, %131 ], [ %.0223405, %125 ], [ %.0223405, %123 ], [ %.0223405, %121 ], [ 1, %105 ], [ %.0223405, %75 ], [ %.0223405, %44 ], [ %.0223405, %32 ], [ %.0223405, %31 ], [ %.0223405, %30 ], [ %.0223405, %29 ], [ %.0223405, %55 ], [ %.0223405, %91 ], [ 0, %104 ], [ 0, %104 ], [ %.0223405, %129 ], [ %.0223405, %138 ], [ %.0223405, %136 ], [ %.0223405, %153 ], [ %.0223405, %198 ], [ %.0223405, %199 ], [ %.0223405, %206 ], [ %.0223405, %214 ], [ %.0223405, %211 ], [ %.0223405, %225 ], [ %.0223405, %228 ], [ %.0223405, %231 ], [ %.0223405, %46 ], [ %.0223405, %33 ], [ %.0223405, %38 ], [ %.0223405, %65 ], [ %.0223405, %107 ], [ %.0223405, %115 ], [ %.0223405, %142 ], [ %.0223405, %167 ]
-  %235 = add i64 %.3247, -1
-  %236 = getelementptr inbounds i8, ptr %.4252, i64 1
-  %.not289 = icmp eq i64 %235, 0
+233:                                              ; preds = %166, %142, %115, %107, %65, %38, %33, %46, %205, %230, %227, %224, %210, %213, %198, %197, %153, %136, %138, %129, %104, %104, %91, %55, %29, %44, %121, %32, %31, %30, %75, %105, %125, %123, %131, %148, %200, %201, %202, %203, %192, %207, %207, %209, %208, %231, %229, %228
+  %.1254 = phi ptr [ %.0253395, %231 ], [ %.0253395, %229 ], [ %.0253395, %228 ], [ %.0253395, %207 ], [ %.0253395, %207 ], [ %.0253395, %209 ], [ %.0253395, %208 ], [ %.0253395, %192 ], [ %.0253395, %203 ], [ %.0253395, %202 ], [ %.0253395, %201 ], [ %.0253395, %200 ], [ %.0253395, %148 ], [ %.0253395, %131 ], [ %.0253395, %125 ], [ %.0253395, %123 ], [ %.0253395, %121 ], [ %.0253395, %105 ], [ %76, %75 ], [ %.0253395, %44 ], [ %.0253395, %32 ], [ %.0253395, %31 ], [ %.0253395, %30 ], [ %.0253395, %29 ], [ %.0253395, %55 ], [ inttoptr (i64 -1 to ptr), %91 ], [ %.0253395, %104 ], [ %.0253395, %104 ], [ %.0253395, %129 ], [ %.0253395, %138 ], [ %.0253395, %136 ], [ %.0253395, %153 ], [ %.0253395, %197 ], [ %.0253395, %198 ], [ %.0253395, %205 ], [ %.0253395, %213 ], [ %.0253395, %210 ], [ %.0253395, %224 ], [ %.0253395, %227 ], [ %.0253395, %230 ], [ %.0253395, %46 ], [ %.0253395, %33 ], [ %.0253395, %38 ], [ %.0253395, %65 ], [ %.0253395, %107 ], [ %.0253395, %115 ], [ %.0253395, %142 ], [ %.0253395, %166 ]
+  %.4252 = phi ptr [ %.0248396, %231 ], [ %.0248396, %229 ], [ %.0248396, %228 ], [ %.0248396, %207 ], [ %.0248396, %207 ], [ %.0248396, %209 ], [ %.0248396, %208 ], [ %.0248396, %192 ], [ %.0248396, %203 ], [ %.0248396, %202 ], [ %.0248396, %201 ], [ %.0248396, %200 ], [ %.0248396, %148 ], [ %.0248396, %131 ], [ %.0248396, %125 ], [ %.0248396, %123 ], [ %.0248396, %121 ], [ %.0248396, %105 ], [ %.0248396, %75 ], [ %.0248396, %44 ], [ %.0248396, %32 ], [ %.0248396, %31 ], [ %.0248396, %30 ], [ %.0248396, %29 ], [ %56, %55 ], [ %.3251, %91 ], [ %.0248396, %104 ], [ %.0248396, %104 ], [ %.0248396, %129 ], [ %.0248396, %138 ], [ %.0248396, %136 ], [ %.0248396, %153 ], [ %.0248396, %197 ], [ %.0248396, %198 ], [ %.0248396, %205 ], [ %.0248396, %213 ], [ %.0248396, %210 ], [ %.0248396, %224 ], [ %.0248396, %227 ], [ %.0248396, %230 ], [ %.0248396, %46 ], [ %.0248396, %33 ], [ %.1249, %38 ], [ %.0248396, %65 ], [ %.0248396, %107 ], [ %.0248396, %115 ], [ %.0248396, %142 ], [ %.0248396, %166 ]
+  %.3247 = phi i64 [ %.0244397.fr, %231 ], [ %.0244397.fr, %229 ], [ %.0244397.fr, %228 ], [ %.0244397.fr, %207 ], [ %.0244397.fr, %207 ], [ %.0244397.fr, %209 ], [ %.0244397.fr, %208 ], [ %.0244397.fr, %192 ], [ %.0244397.fr, %203 ], [ %.0244397.fr, %202 ], [ %.0244397.fr, %201 ], [ %.0244397.fr, %200 ], [ %.0244397.fr, %148 ], [ %.0244397.fr, %131 ], [ %.0244397.fr, %125 ], [ %.0244397.fr, %123 ], [ %.0244397.fr, %121 ], [ %.0244397.fr, %105 ], [ %.0244397.fr, %75 ], [ %.0244397.fr, %44 ], [ %.0244397.fr, %32 ], [ %.0244397.fr, %31 ], [ %.0244397.fr, %30 ], [ %.0244397.fr, %29 ], [ %.0244397.fr, %55 ], [ %.2246, %91 ], [ %.0244397.fr, %104 ], [ %.0244397.fr, %104 ], [ %.0244397.fr, %129 ], [ %.0244397.fr, %138 ], [ %.0244397.fr, %136 ], [ %.0244397.fr, %153 ], [ %.0244397.fr, %197 ], [ %.0244397.fr, %198 ], [ %.0244397.fr, %205 ], [ %.0244397.fr, %213 ], [ %.0244397.fr, %210 ], [ %.0244397.fr, %224 ], [ %.0244397.fr, %227 ], [ %.0244397.fr, %230 ], [ %.0244397.fr, %46 ], [ %.0244397.fr, %33 ], [ %.0244397.fr, %38 ], [ %.0244397.fr, %65 ], [ %.0244397.fr, %107 ], [ %.0244397.fr, %115 ], [ %.0244397.fr, %142 ], [ %.0244397.fr, %166 ]
+  %.3243 = phi i32 [ 12, %231 ], [ 11, %229 ], [ 8, %228 ], [ 11, %207 ], [ 11, %207 ], [ 8, %209 ], [ 7, %208 ], [ 9, %192 ], [ 12, %203 ], [ 11, %202 ], [ 1, %201 ], [ 8, %200 ], [ 9, %148 ], [ 0, %131 ], [ 6, %125 ], [ 5, %123 ], [ 5, %121 ], [ 4, %105 ], [ %.1241.ph, %75 ], [ 2, %44 ], [ 11, %32 ], [ 1, %31 ], [ 8, %30 ], [ 7, %29 ], [ %.348, %55 ], [ 12, %91 ], [ 4, %104 ], [ 4, %104 ], [ 8, %129 ], [ 11, %138 ], [ 11, %136 ], [ 12, %153 ], [ 0, %197 ], [ 7, %198 ], [ %spec.select347, %205 ], [ 1, %213 ], [ 1, %210 ], [ %.348, %224 ], [ 7, %227 ], [ 1, %230 ], [ 2, %46 ], [ %.348, %33 ], [ %.348, %38 ], [ %.348, %65 ], [ %.348, %107 ], [ %.348, %115 ], [ %.348, %142 ], [ %.348, %166 ]
+  %.1239 = phi ptr [ %.0238399, %231 ], [ %.0238399, %229 ], [ %.0238399, %228 ], [ %.0238399, %207 ], [ %.0238399, %207 ], [ %.0238399, %209 ], [ %.0238399, %208 ], [ %.0238399, %192 ], [ %.0238399, %203 ], [ %.0238399, %202 ], [ %.0238399, %201 ], [ %.0238399, %200 ], [ %.0238399, %148 ], [ %.0238399, %131 ], [ %.0238399, %125 ], [ %.0238399, %123 ], [ %.0238399, %121 ], [ %.0238399, %105 ], [ %.0238399, %75 ], [ %45, %44 ], [ %.0238399, %32 ], [ %.0238399, %31 ], [ %.0238399, %30 ], [ %.0238399, %29 ], [ null, %55 ], [ %.0238399, %91 ], [ %.0238399, %104 ], [ %.0238399, %104 ], [ %.0238399, %129 ], [ %.0238399, %138 ], [ %.0238399, %136 ], [ %.0238399, %153 ], [ %.0238399, %197 ], [ %.0238399, %198 ], [ %.0238399, %205 ], [ %.0238399, %213 ], [ %.0238399, %210 ], [ %.0238399, %224 ], [ %.0238399, %227 ], [ %.0238399, %230 ], [ %.0238399, %46 ], [ %.0238399, %33 ], [ %.0238399, %38 ], [ %.0238399, %65 ], [ %.0238399, %107 ], [ %.0238399, %115 ], [ %.0238399, %142 ], [ %.0238399, %166 ]
+  %.4 = phi i32 [ %.0234400, %231 ], [ %.0234400, %229 ], [ %.0234400, %228 ], [ %.0234400, %207 ], [ %.0234400, %207 ], [ %.0234400, %209 ], [ %.0234400, %208 ], [ %196, %192 ], [ 0, %203 ], [ 0, %202 ], [ 0, %201 ], [ 0, %200 ], [ %.0234400, %148 ], [ %.0234400, %131 ], [ %.0234400, %125 ], [ %.0234400, %123 ], [ %.0234400, %121 ], [ %.0234400, %105 ], [ %.0234400, %75 ], [ %.0234400, %44 ], [ %.0234400, %32 ], [ %.0234400, %31 ], [ %.0234400, %30 ], [ %.0234400, %29 ], [ 0, %55 ], [ 0, %91 ], [ %.0234400, %104 ], [ %.0234400, %104 ], [ %.0234400, %129 ], [ %.0234400, %138 ], [ %.0234400, %136 ], [ 0, %153 ], [ 0, %197 ], [ 0, %198 ], [ %.0234400, %205 ], [ %.0234400, %213 ], [ %.0234400, %210 ], [ %.0234400, %224 ], [ %.0234400, %227 ], [ %.0234400, %230 ], [ %.0234400, %46 ], [ 0, %33 ], [ 0, %38 ], [ 0, %65 ], [ 0, %107 ], [ 0, %115 ], [ 0, %142 ], [ 0, %166 ]
+  %.1233 = phi ptr [ %.0232401, %231 ], [ %.0232401, %229 ], [ %.0232401, %228 ], [ %.0232401, %207 ], [ %.0232401, %207 ], [ %.0232401, %209 ], [ %.0232401, %208 ], [ %.0232401, %192 ], [ %.0232401, %203 ], [ %.0232401, %202 ], [ %.0232401, %201 ], [ %.0232401, %200 ], [ %.0232401, %148 ], [ %.0232401, %131 ], [ %.0232401, %125 ], [ %.0232401, %123 ], [ %122, %121 ], [ %.0232401, %105 ], [ %.0232401, %75 ], [ %.0232401, %44 ], [ %.0232401, %32 ], [ %.0232401, %31 ], [ %.0232401, %30 ], [ %.0232401, %29 ], [ %.0232401, %55 ], [ %.0232401, %91 ], [ %.0232401, %104 ], [ %.0232401, %104 ], [ %.0232401, %129 ], [ %.0232401, %138 ], [ %.0232401, %136 ], [ %.0232401, %153 ], [ %.0232401, %197 ], [ %.0232401, %198 ], [ %.0232401, %205 ], [ %.0232401, %213 ], [ %.0232401, %210 ], [ %.0232401, %224 ], [ %.0232401, %227 ], [ %.0232401, %230 ], [ %.0232401, %46 ], [ %.0232401, %33 ], [ %.0232401, %38 ], [ %.0232401, %65 ], [ %.0232401, %107 ], [ %.0232401, %115 ], [ %.0232401, %142 ], [ %.0232401, %166 ]
+  %.1231 = phi i64 [ %.0230402, %231 ], [ %.0230402, %229 ], [ %.0230402, %228 ], [ %.0230402, %207 ], [ %.0230402, %207 ], [ %.0230402, %209 ], [ %.0230402, %208 ], [ %.0230402, %192 ], [ %.0230402, %203 ], [ %.0230402, %202 ], [ %.0230402, %201 ], [ %.0230402, %200 ], [ %.0230402, %148 ], [ %.0230402, %131 ], [ %128, %125 ], [ %.0230402, %123 ], [ %.0230402, %121 ], [ %.0230402, %105 ], [ %.0230402, %75 ], [ %.0230402, %44 ], [ %.0230402, %32 ], [ %.0230402, %31 ], [ %.0230402, %30 ], [ %.0230402, %29 ], [ %.0230402, %55 ], [ %.0230402, %91 ], [ %.0230402, %104 ], [ %.0230402, %104 ], [ %.0230402, %129 ], [ %.0230402, %138 ], [ %.0230402, %136 ], [ %.0230402, %153 ], [ %.0230402, %197 ], [ %.0230402, %198 ], [ %.0230402, %205 ], [ %.0230402, %213 ], [ %.0230402, %210 ], [ %.0230402, %224 ], [ %.0230402, %227 ], [ %.0230402, %230 ], [ %.0230402, %46 ], [ %.0230402, %33 ], [ %.0230402, %38 ], [ %.0230402, %65 ], [ %.0230402, %107 ], [ %.0230402, %115 ], [ %.0230402, %142 ], [ %.0230402, %166 ]
+  %.2229 = phi ptr [ %.0227403, %231 ], [ %.0227403, %229 ], [ %.0227403, %228 ], [ %.0227403, %207 ], [ %.0227403, %207 ], [ %.0227403, %209 ], [ %.0227403, %208 ], [ null, %192 ], [ %.1228, %203 ], [ %.1228, %202 ], [ %.1228, %201 ], [ %.1228, %200 ], [ %.0227403, %148 ], [ %.0227403, %131 ], [ %.0227403, %125 ], [ %.0227403, %123 ], [ %.0227403, %121 ], [ %.0227403, %105 ], [ %.0227403, %75 ], [ %.0227403, %44 ], [ %.0227403, %32 ], [ %.0248396, %31 ], [ %.0227403, %30 ], [ %.0227403, %29 ], [ %.0227403, %55 ], [ %.0227403, %91 ], [ %.0227403, %104 ], [ %.0227403, %104 ], [ %.0227403, %129 ], [ null, %138 ], [ %.0227403, %136 ], [ %.0227403, %153 ], [ %.1228, %197 ], [ %.1228, %198 ], [ %.0227403, %205 ], [ %.0248396, %213 ], [ %.0248396, %210 ], [ null, %224 ], [ %.0227403, %227 ], [ %.0248396, %230 ], [ %.0227403, %46 ], [ null, %33 ], [ null, %38 ], [ null, %65 ], [ null, %107 ], [ null, %115 ], [ null, %142 ], [ null, %166 ]
+  %.3 = phi ptr [ %.0225404, %231 ], [ %.0248396, %229 ], [ %.0225404, %228 ], [ %.0225404, %207 ], [ %.0225404, %207 ], [ %.0225404, %209 ], [ %.0225404, %208 ], [ %.0225404, %192 ], [ %.0225404, %203 ], [ %.0248396, %202 ], [ %.0225404, %201 ], [ %.0225404, %200 ], [ %.0225404, %148 ], [ %.0225404, %131 ], [ %.0225404, %125 ], [ %.0225404, %123 ], [ %.0225404, %121 ], [ %.0225404, %105 ], [ %.0225404, %75 ], [ %.0225404, %44 ], [ %.0248396, %32 ], [ %.0225404, %31 ], [ %.0225404, %30 ], [ %.0225404, %29 ], [ %.0225404, %55 ], [ %.0225404, %91 ], [ %.0225404, %104 ], [ %.0225404, %104 ], [ %.0225404, %129 ], [ null, %138 ], [ null, %136 ], [ %.0225404, %153 ], [ %.0225404, %197 ], [ %.0225404, %198 ], [ %.0225404, %205 ], [ null, %213 ], [ %.0225404, %210 ], [ null, %224 ], [ %.0225404, %227 ], [ %.0225404, %230 ], [ %.0225404, %46 ], [ %.0225404, %33 ], [ %.0225404, %38 ], [ %.0225404, %65 ], [ %.0225404, %107 ], [ %.0225404, %115 ], [ %.0225404, %142 ], [ %.0225404, %166 ]
+  %.1224 = phi i32 [ %.0223405, %231 ], [ %.0223405, %229 ], [ %.0223405, %228 ], [ %.0223405, %207 ], [ %.0223405, %207 ], [ %.0223405, %209 ], [ %.0223405, %208 ], [ %.0223405, %192 ], [ %.0223405, %203 ], [ %.0223405, %202 ], [ %.0223405, %201 ], [ %.0223405, %200 ], [ %.0223405, %148 ], [ %.0223405, %131 ], [ %.0223405, %125 ], [ %.0223405, %123 ], [ %.0223405, %121 ], [ 1, %105 ], [ %.0223405, %75 ], [ %.0223405, %44 ], [ %.0223405, %32 ], [ %.0223405, %31 ], [ %.0223405, %30 ], [ %.0223405, %29 ], [ %.0223405, %55 ], [ %.0223405, %91 ], [ 0, %104 ], [ 0, %104 ], [ %.0223405, %129 ], [ %.0223405, %138 ], [ %.0223405, %136 ], [ %.0223405, %153 ], [ %.0223405, %197 ], [ %.0223405, %198 ], [ %.0223405, %205 ], [ %.0223405, %213 ], [ %.0223405, %210 ], [ %.0223405, %224 ], [ %.0223405, %227 ], [ %.0223405, %230 ], [ %.0223405, %46 ], [ %.0223405, %33 ], [ %.0223405, %38 ], [ %.0223405, %65 ], [ %.0223405, %107 ], [ %.0223405, %115 ], [ %.0223405, %142 ], [ %.0223405, %166 ]
+  %234 = add i64 %.3247, -1
+  %235 = getelementptr inbounds i8, ptr %.4252, i64 1
+  %.not289 = icmp eq i64 %234, 0
   br i1 %.not289, label %._crit_edge407, label %27
 
-._crit_edge407:                                   ; preds = %234
-  switch i32 %.3243, label %237 [
+._crit_edge407:                                   ; preds = %233
+  switch i32 %.3243, label %236 [
     i32 0, label %._crit_edge407.thread
     i32 8, label %._crit_edge407.thread
     i32 11, label %._crit_edge407.thread
     i32 12, label %._crit_edge407.thread
   ]
 
-237:                                              ; preds = %._crit_edge407
-  %238 = and i32 %5, 2
-  %.not290 = icmp eq i32 %238, 0
-  br i1 %.not290, label %.loopexit, label %239
+236:                                              ; preds = %._crit_edge407
+  %237 = and i32 %5, 2
+  %.not290 = icmp eq i32 %237, 0
+  br i1 %.not290, label %.loopexit, label %238
 
-239:                                              ; preds = %237
-  %240 = icmp eq i32 %.3243, 1
-  br i1 %240, label %241, label %._crit_edge407.thread
+238:                                              ; preds = %236
+  %239 = icmp eq i32 %.3243, 1
+  br i1 %239, label %240, label %._crit_edge407.thread
 
-241:                                              ; preds = %239
+240:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 61, ptr %7, align 1
-  %242 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %20), !range !4
+  %241 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %20), !range !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %._crit_edge407.thread
 
-._crit_edge407.thread:                            ; preds = %135, %.preheader370, %239, %241, %._crit_edge407, %._crit_edge407, %._crit_edge407, %._crit_edge407
-  %.0248.lcssa448 = phi ptr [ %236, %._crit_edge407 ], [ %236, %._crit_edge407 ], [ %236, %._crit_edge407 ], [ %236, %._crit_edge407 ], [ %236, %241 ], [ %236, %239 ], [ %1, %.preheader370 ], [ %.0248396, %135 ]
-  %.0253.lcssa447 = phi ptr [ %.1254, %._crit_edge407 ], [ %.1254, %._crit_edge407 ], [ %.1254, %._crit_edge407 ], [ %.1254, %._crit_edge407 ], [ %.1254, %241 ], [ %.1254, %239 ], [ inttoptr (i64 -1 to ptr), %.preheader370 ], [ %.0253395, %135 ]
-  %.5 = phi i32 [ %.4, %._crit_edge407 ], [ %.4, %._crit_edge407 ], [ %.4, %._crit_edge407 ], [ %.4, %._crit_edge407 ], [ 0, %241 ], [ 0, %239 ], [ 0, %.preheader370 ], [ %.0234400, %135 ]
-  br i1 %.not, label %244, label %243
+._crit_edge407.thread:                            ; preds = %135, %.preheader370, %238, %240, %._crit_edge407, %._crit_edge407, %._crit_edge407, %._crit_edge407
+  %.0248.lcssa448 = phi ptr [ %235, %._crit_edge407 ], [ %235, %._crit_edge407 ], [ %235, %._crit_edge407 ], [ %235, %._crit_edge407 ], [ %235, %240 ], [ %235, %238 ], [ %1, %.preheader370 ], [ %.0248396, %135 ]
+  %.0253.lcssa447 = phi ptr [ %.1254, %._crit_edge407 ], [ %.1254, %._crit_edge407 ], [ %.1254, %._crit_edge407 ], [ %.1254, %._crit_edge407 ], [ %.1254, %240 ], [ %.1254, %238 ], [ inttoptr (i64 -1 to ptr), %.preheader370 ], [ %.0253395, %135 ]
+  %.5 = phi i32 [ %.4, %._crit_edge407 ], [ %.4, %._crit_edge407 ], [ %.4, %._crit_edge407 ], [ %.4, %._crit_edge407 ], [ 0, %240 ], [ 0, %238 ], [ 0, %.preheader370 ], [ %.0234400, %135 ]
+  br i1 %.not, label %243, label %242
 
-243:                                              ; preds = %._crit_edge407.thread
+242:                                              ; preds = %._crit_edge407.thread
   store ptr %.0248.lcssa448, ptr %4, align 8
-  br label %244
+  br label %243
 
-244:                                              ; preds = %243, %._crit_edge407.thread
-  %245 = load ptr, ptr %0, align 8
-  %.not291 = icmp eq ptr %245, null
-  br i1 %.not291, label %.loopexit, label %246
+243:                                              ; preds = %242, %._crit_edge407.thread
+  %244 = load ptr, ptr %0, align 8
+  %.not291 = icmp eq ptr %244, null
+  br i1 %.not291, label %.loopexit, label %245
 
-246:                                              ; preds = %244
-  %247 = getelementptr inbounds i8, ptr %245, i64 24
-  %248 = getelementptr inbounds i8, ptr %245, i64 16
-  %249 = load i64, ptr %248, align 8
-  %250 = getelementptr inbounds [1 x i8], ptr %247, i64 0, i64 %249
-  store i8 0, ptr %250, align 1
+245:                                              ; preds = %243
+  %246 = getelementptr inbounds i8, ptr %244, i64 24
+  %247 = getelementptr inbounds i8, ptr %244, i64 16
+  %248 = load i64, ptr %247, align 8
+  %249 = getelementptr inbounds [1 x i8], ptr %246, i64 0, i64 %248
+  store i8 0, ptr %249, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %166, %141, %114, %106, %64, %57, %192, %167, %153, %142, %115, %107, %65, %48, %38, %237, %244, %246
-  %.0253388 = phi ptr [ %.0253.lcssa447, %246 ], [ %.0253.lcssa447, %244 ], [ %.1254, %237 ], [ %.0253395, %38 ], [ %.0253395, %48 ], [ %.0253395, %65 ], [ %.0253395, %107 ], [ %.0253395, %115 ], [ %.0253395, %142 ], [ %.0253395, %153 ], [ %.0253395, %167 ], [ %.0253395, %192 ], [ %.0253395, %57 ], [ %.0253395, %64 ], [ %.0253395, %106 ], [ %.0253395, %114 ], [ %.0253395, %141 ], [ %.0253395, %166 ], [ %.0253395, %33 ]
-  %.6 = phi i32 [ %.5, %246 ], [ %.5, %244 ], [ 7, %237 ], [ %34, %33 ], [ 6, %166 ], [ 7, %141 ], [ 7, %114 ], [ 7, %106 ], [ 7, %64 ], [ 7, %57 ], [ %.2236, %192 ], [ %172, %167 ], [ %158, %153 ], [ %147, %142 ], [ %120, %115 ], [ %112, %107 ], [ %70, %65 ], [ %54, %48 ], [ %43, %38 ]
+.loopexit:                                        ; preds = %33, %165, %141, %114, %106, %64, %57, %191, %166, %153, %142, %115, %107, %65, %48, %38, %236, %243, %245
+  %.0253388 = phi ptr [ %.0253.lcssa447, %245 ], [ %.0253.lcssa447, %243 ], [ %.1254, %236 ], [ %.0253395, %38 ], [ %.0253395, %48 ], [ %.0253395, %65 ], [ %.0253395, %107 ], [ %.0253395, %115 ], [ %.0253395, %142 ], [ %.0253395, %153 ], [ %.0253395, %166 ], [ %.0253395, %191 ], [ %.0253395, %57 ], [ %.0253395, %64 ], [ %.0253395, %106 ], [ %.0253395, %114 ], [ %.0253395, %141 ], [ %.0253395, %165 ], [ %.0253395, %33 ]
+  %.6 = phi i32 [ %.5, %245 ], [ %.5, %243 ], [ 7, %236 ], [ %34, %33 ], [ 6, %165 ], [ 7, %141 ], [ 7, %114 ], [ 7, %106 ], [ 7, %64 ], [ 7, %57 ], [ %.2236, %191 ], [ %171, %166 ], [ %158, %153 ], [ %147, %142 ], [ %120, %115 ], [ %112, %107 ], [ %70, %65 ], [ %54, %48 ], [ %43, %38 ]
   %.not334 = icmp eq ptr %.0253388, inttoptr (i64 -1 to ptr)
-  br i1 %.not334, label %.thread363, label %251
+  br i1 %.not334, label %.thread363, label %250
 
-251:                                              ; preds = %.loopexit
-  %252 = call i32 @iconv_close(ptr noundef %.0253388) #16
+250:                                              ; preds = %.loopexit
+  %251 = call i32 @iconv_close(ptr noundef %.0253388) #16
   br label %.thread363
 
-.thread363:                                       ; preds = %91, %.loopexit, %251, %100
-  %.6367 = phi i32 [ %.6, %251 ], [ %.6, %.loopexit ], [ %.341, %100 ], [ %99, %91 ]
-  %253 = call i32 @iconv_close(ptr noundef %20) #16
-  br label %254
+.thread363:                                       ; preds = %91, %.loopexit, %250, %100
+  %.6367 = phi i32 [ %.6, %250 ], [ %.6, %.loopexit ], [ %.341, %100 ], [ %99, %91 ]
+  %252 = call i32 @iconv_close(ptr noundef %20) #16
+  br label %253
 
-254:                                              ; preds = %.thread363.thread, %.thread363
+253:                                              ; preds = %.thread363.thread, %.thread363
   %.6367369 = phi i32 [ %., %.thread363.thread ], [ %.6367, %.thread363 ]
   ret i32 %.6367369
 }

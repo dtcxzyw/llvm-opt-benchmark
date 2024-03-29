@@ -36,9 +36,8 @@ define internal zeroext i1 @tqueueReceiveSlot(ptr noundef %0, ptr nocapture noun
   %8 = zext i32 %7 to i64
   %9 = call i32 @shm_mq_send(ptr noundef %6, i64 noundef %8, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext false) #5
   %10 = load i8, ptr %3, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
   call void @pfree(ptr noundef nonnull %4) #5

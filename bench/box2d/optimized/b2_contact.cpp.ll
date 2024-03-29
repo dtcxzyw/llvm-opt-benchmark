@@ -190,9 +190,8 @@ if.end:                                           ; preds = %if.then, %entry
 if.then6:                                         ; preds = %if.end
   %primary = getelementptr inbounds i8, ptr %arrayidx3, i64 16
   %7 = load i8, ptr %primary, align 8
-  %8 = and i8 %7, 1
-  %tobool11.not = icmp eq i8 %8, 0
-  br i1 %tobool11.not, label %if.else, label %if.then12
+  %tobool11 = trunc i8 %7 to i1
+  br i1 %tobool11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then6
   %call13 = tail call noundef ptr %6(ptr noundef nonnull %fixtureA, i32 noundef %indexA, ptr noundef nonnull %fixtureB, i32 noundef %indexB, ptr noundef %allocator)
@@ -222,63 +221,61 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %m_isSensor.i = getelementptr inbounds i8, ptr %0, i64 66
   %3 = load i8, ptr %m_isSensor.i, align 2
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %land.lhs.true2, label %if.end
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %m_isSensor.i8 = getelementptr inbounds i8, ptr %1, i64 66
-  %5 = load i8, ptr %m_isSensor.i8, align 2
-  %6 = and i8 %5, 1
-  %tobool.i9.not = icmp eq i8 %6, 0
-  br i1 %tobool.i9.not, label %if.then, label %if.end
+  %4 = load i8, ptr %m_isSensor.i8, align 2
+  %tobool.i9 = trunc i8 %4 to i1
+  br i1 %tobool.i9, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
   %m_body.i = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load ptr, ptr %m_body.i, align 8
-  %8 = load i32, ptr %7, align 8
-  %cmp.i = icmp eq i32 %8, 0
+  %5 = load ptr, ptr %m_body.i, align 8
+  %6 = load i32, ptr %5, align 8
+  %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %7, i64 172
-  %10 = or i16 %9, 2
-  store i16 %10, ptr %m_flags.i, align 4
+  %m_flags.i = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = load i16, ptr %m_flags.i, align 4
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %5, i64 172
+  %8 = or i16 %7, 2
+  store i16 %8, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
   %m_body.i10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = load ptr, ptr %m_body.i10, align 8
-  %12 = load i32, ptr %11, align 8
-  %cmp.i11 = icmp eq i32 %12, 0
+  %9 = load ptr, ptr %m_body.i10, align 8
+  %10 = load i32, ptr %9, align 8
+  %cmp.i11 = icmp eq i32 %10, 0
   br i1 %cmp.i11, label %if.end, label %if.end.i12
 
 if.end.i12:                                       ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i13 = getelementptr inbounds i8, ptr %11, i64 4
-  %13 = load i16, ptr %m_flags.i13, align 4
-  %m_sleepTime.i14 = getelementptr inbounds i8, ptr %11, i64 172
-  %14 = or i16 %13, 2
-  store i16 %14, ptr %m_flags.i13, align 4
+  %m_flags.i13 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = load i16, ptr %m_flags.i13, align 4
+  %m_sleepTime.i14 = getelementptr inbounds i8, ptr %9, i64 172
+  %12 = or i16 %11, 2
+  store i16 %12, ptr %m_flags.i13, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i14, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i12, %_ZN6b2Body8SetAwakeEb.exit, %land.lhs.true2, %land.lhs.true, %entry
   %m_shape.i = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = load ptr, ptr %m_shape.i, align 8
-  %m_type.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load i32, ptr %m_type.i.i, align 8
+  %13 = load ptr, ptr %m_shape.i, align 8
+  %m_type.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i32, ptr %m_type.i.i, align 8
   %m_shape.i16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = load ptr, ptr %m_shape.i16, align 8
-  %m_type.i.i17 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load i32, ptr %m_type.i.i17, align 8
-  %idxprom = zext i32 %16 to i64
-  %idxprom10 = zext i32 %18 to i64
+  %15 = load ptr, ptr %m_shape.i16, align 8
+  %m_type.i.i17 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i32, ptr %m_type.i.i17, align 8
+  %idxprom = zext i32 %14 to i64
+  %idxprom10 = zext i32 %16 to i64
   %destroyFcn12 = getelementptr inbounds [4 x [4 x %struct.b2ContactRegister]], ptr @_ZN9b2Contact11s_registersE, i64 0, i64 %idxprom, i64 %idxprom10, i32 1
-  %19 = load ptr, ptr %destroyFcn12, align 8
-  tail call void %19(ptr noundef nonnull %contact, ptr noundef %allocator)
+  %17 = load ptr, ptr %destroyFcn12, align 8
+  tail call void %17(ptr noundef nonnull %contact, ptr noundef %allocator)
   ret void
 }
 
@@ -354,15 +351,14 @@ entry:
   %m_isSensor.i33 = getelementptr inbounds i8, ptr %3, i64 66
   %4 = load i8, ptr %m_isSensor.i33, align 2
   %5 = or i8 %4, %2
-  %6 = and i8 %5, 1
-  %.not46 = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %m_body.i = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %m_body.i, align 8
   %m_body.i35 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load ptr, ptr %m_body.i35, align 8
   %m_xf.i = getelementptr inbounds i8, ptr %7, i64 12
   %m_xf.i36 = getelementptr inbounds i8, ptr %8, i64 12
-  br i1 %.not46, label %if.else, label %if.then
+  br i1 %6, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %m_shape.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -390,17 +386,17 @@ if.else:                                          ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.else
   %pointCount32 = getelementptr inbounds i8, ptr %oldManifold, i64 60
   %15 = load i32, ptr %pointCount32, align 4
-  %cmp3347 = icmp sgt i32 %15, 0
-  %wide.trip.count62 = zext nneg i32 %14 to i64
-  br i1 %cmp3347, label %for.body.us.preheader, label %for.body
+  %cmp3346 = icmp sgt i32 %15, 0
+  %wide.trip.count61 = zext nneg i32 %14 to i64
+  br i1 %cmp3346, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %wide.trip.count57 = zext nneg i32 %15 to i64
+  %wide.trip.count56 = zext nneg i32 %15 to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc46.us
-  %indvars.iv59 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next60, %for.inc46.us ]
-  %add.ptr.us = getelementptr inbounds %struct.b2ManifoldPoint, ptr %m_manifold, i64 %indvars.iv59
+  %indvars.iv58 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next59, %for.inc46.us ]
+  %add.ptr.us = getelementptr inbounds %struct.b2ManifoldPoint, ptr %m_manifold, i64 %indvars.iv58
   %normalImpulse.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
   store <2 x float> zeroinitializer, ptr %normalImpulse.us, align 4
   %id.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 16
@@ -408,13 +404,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br label %for.body34.us
 
 for.cond31.us:                                    ; preds = %for.body34.us
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %for.inc46.us, label %for.body34.us, !llvm.loop !4
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %for.inc46.us, label %for.body34.us, !llvm.loop !4
 
 for.body34.us:                                    ; preds = %for.body.us, %for.cond31.us
-  %indvars.iv54 = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next55, %for.cond31.us ]
-  %add.ptr38.us = getelementptr inbounds %struct.b2ManifoldPoint, ptr %oldManifold, i64 %indvars.iv54
+  %indvars.iv53 = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next54, %for.cond31.us ]
+  %add.ptr38.us = getelementptr inbounds %struct.b2ManifoldPoint, ptr %oldManifold, i64 %indvars.iv53
   %id39.us = getelementptr inbounds i8, ptr %add.ptr38.us, i64 16
   %16 = load i32, ptr %id39.us, align 4
   %cmp40.us = icmp eq i32 %16, %id2.sroa.0.0.copyload.us
@@ -427,16 +423,16 @@ if.then41.us:                                     ; preds = %for.body34.us
   br label %for.inc46.us
 
 for.inc46.us:                                     ; preds = %for.cond31.us, %if.then41.us
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %for.end48, label %for.body.us, !llvm.loop !6
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %for.end48, label %for.body.us, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
   %normalImpulse = getelementptr inbounds %struct.b2ManifoldPoint, ptr %m_manifold, i64 %indvars.iv, i32 1
   store <2 x float> zeroinitializer, ptr %normalImpulse, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
   br i1 %exitcond.not, label %for.end48, label %for.body, !llvm.loop !6
 
 for.end48:                                        ; preds = %for.body, %for.inc46.us, %if.else
@@ -500,7 +496,8 @@ if.end88.sink.split:                              ; preds = %if.end75, %if.end55
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end88.sink.split, %if.end75
-  %or.cond32 = and i1 %.not46, %or.cond
+  %.not = xor i1 %6, true
+  %or.cond32 = and i1 %or.cond, %.not
   br i1 %or.cond32, label %if.then96, label %if.end99
 
 if.then96:                                        ; preds = %if.end88

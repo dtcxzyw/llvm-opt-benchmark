@@ -23,9 +23,8 @@ define i32 @pthread_detach(i32 noundef %0) local_unnamed_addr #0 {
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 10
   %13 = load i8, ptr %12, align 2
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %16, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
   call void @pthread_destroyjoin(ptr noundef %5, ptr noundef nonnull %11) #2
@@ -34,9 +33,8 @@ define i32 @pthread_detach(i32 noundef %0) local_unnamed_addr #0 {
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 9
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not8 = icmp eq i8 %19, 0
-  br i1 %.not8, label %20, label %21
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %21, label %20
 
 20:                                               ; preds = %16
   store i8 1, ptr %17, align 1

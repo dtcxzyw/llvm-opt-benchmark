@@ -4388,16 +4388,14 @@ _ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit143.thread252: ; preds = %_ZN5Ipop
 _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit: ; preds = %59, %66
   %70 = getelementptr inbounds i8, ptr %57, i64 232
   %71 = load i8, ptr %70, align 8
-  %72 = and i8 %71, 1
-  %.not.i = icmp eq i8 %72, 0
-  br i1 %.not.i, label %.noexc, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %.noexc
 
 73:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit
   %74 = getelementptr inbounds i8, ptr %57, i64 233
   %75 = load i8, ptr %74, align 1
-  %76 = and i8 %75, 1
-  %.not1.i = icmp eq i8 %76, 0
-  br i1 %.not1.i, label %.noexc, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %.noexc
 
 77:                                               ; preds = %73
   invoke void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %57)

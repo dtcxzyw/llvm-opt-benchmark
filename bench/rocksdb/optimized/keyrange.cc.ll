@@ -88,21 +88,20 @@ if.else.i:                                        ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %3 = load i8, ptr %m_point_range.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i21 = icmp eq i8 %4, 0
-  br i1 %tobool.not.i21, label %if.else.i25, label %if.then.i22
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i23, label %if.else.i21
 
-if.then.i22:                                      ; preds = %if.else
+if.then.i23:                                      ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_right_key_copy.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
   br label %if.end.i
 
-if.else.i25:                                      ; preds = %if.else
+if.else.i21:                                      ; preds = %if.else
   tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %this)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.else.i25, %if.then.i22
-  %call.i24 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %this..i10)
-  br i1 %call.i24, label %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, label %if.else4.i
+if.end.i:                                         ; preds = %if.else.i21, %if.then.i23
+  %call.i22 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %this..i10)
+  br i1 %call.i22, label %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
   %call6.i = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %this..i10)
@@ -112,21 +111,21 @@ _ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit: ; preds = %if.end.i, %i
   %.sink.i = phi ptr [ null, %if.else4.i ], [ %this..i10, %if.end.i ]
   store ptr %.sink.i, ptr %m_left_key.i, align 8
   store i8 0, ptr %m_point_range.i, align 8
-  %5 = load ptr, ptr %m_right_key.i, align 8
-  %tobool.not.i27 = icmp eq ptr %5, null
-  %retval.0.i29 = select i1 %tobool.not.i27, ptr %m_right_key_copy.i7, ptr %5
+  %4 = load ptr, ptr %m_right_key.i, align 8
+  %tobool.not.i26 = icmp eq ptr %4, null
+  %retval.0.i28 = select i1 %tobool.not.i26, ptr %m_right_key_copy.i7, ptr %4
   tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy.i)
-  %call.i31 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i29)
-  br i1 %call.i31, label %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit, label %if.else.i32
+  %call.i30 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i28)
+  br i1 %call.i30, label %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit, label %if.else.i31
 
-if.else.i32:                                      ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit
-  %call3.i = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %m_right_key_copy.i, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i29)
+if.else.i31:                                      ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit
+  %call3.i = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %m_right_key_copy.i, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i28)
   br label %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit
 
-_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit: ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, %if.else.i32
-  %.sink.i34 = phi ptr [ null, %if.else.i32 ], [ %retval.0.i29, %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit ]
-  %6 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %.sink.i34, ptr %6, align 8
+_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit: ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, %if.else.i31
+  %.sink.i33 = phi ptr [ null, %if.else.i31 ], [ %retval.0.i28, %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit ]
+  %5 = getelementptr inbounds i8, ptr %this, i64 72
+  store ptr %.sink.i33, ptr %5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit
@@ -188,9 +187,8 @@ define void @_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt(ptr noundef nonn
 entry:
   %m_point_range = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %m_point_range, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
@@ -211,8 +209,8 @@ if.else4:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end, %if.else4
   %.sink = phi ptr [ null, %if.else4 ], [ %key, %if.end ]
-  %2 = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %.sink, ptr %2, align 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 64
+  store ptr %.sink, ptr %1, align 8
   store i8 0, ptr %m_point_range, align 8
   ret void
 }
@@ -304,22 +302,21 @@ _ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit:   ; preds = %if.then.i, %if.then
 if.then:                                          ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
   %m_point_range.i = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load i8, ptr %m_point_range.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i10 = icmp eq i8 %11, 0
-  br i1 %tobool.not.i10, label %if.else.i14, label %if.then.i11
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %if.then.i12, label %if.else.i10
 
-if.then.i11:                                      ; preds = %if.then
-  %m_right_key_copy.i12 = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_right_key_copy.i12, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
+if.then.i12:                                      ; preds = %if.then
+  %m_right_key_copy.i13 = getelementptr inbounds i8, ptr %this, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_right_key_copy.i13, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
   br label %if.end.i
 
-if.else.i14:                                      ; preds = %if.then
+if.else.i10:                                      ; preds = %if.then
   tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %this)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.else.i14, %if.then.i11
-  %call.i13 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %this..i)
-  br i1 %call.i13, label %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, label %if.else4.i
+if.end.i:                                         ; preds = %if.else.i10, %if.then.i12
+  %call.i11 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %this..i)
+  br i1 %call.i11, label %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
   %call6.i = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %this..i)
@@ -332,75 +329,75 @@ _ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit: ; preds = %if.end.i, %i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
-  %m_right_key.i15 = getelementptr inbounds i8, ptr %this, i64 72
-  %12 = load ptr, ptr %m_right_key.i15, align 8
-  %tobool.not.i16 = icmp eq ptr %12, null
-  %m_right_key_copy.i17 = getelementptr inbounds i8, ptr %this, i64 32
-  %retval.0.i18 = select i1 %tobool.not.i16, ptr %m_right_key_copy.i17, ptr %12
-  %call.i19 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i)
-  br i1 %call.i19, label %if.then.i37, label %lor.rhs.i20
+  %m_right_key.i14 = getelementptr inbounds i8, ptr %this, i64 72
+  %11 = load ptr, ptr %m_right_key.i14, align 8
+  %tobool.not.i15 = icmp eq ptr %11, null
+  %m_right_key_copy.i16 = getelementptr inbounds i8, ptr %this, i64 32
+  %retval.0.i17 = select i1 %tobool.not.i15, ptr %m_right_key_copy.i16, ptr %11
+  %call.i18 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i)
+  br i1 %call.i18, label %if.then.i36, label %lor.rhs.i19
 
-lor.rhs.i20:                                      ; preds = %if.end
-  %call2.i21 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i18)
-  br i1 %call2.i21, label %if.then.i37, label %if.else.i22
+lor.rhs.i19:                                      ; preds = %if.end
+  %call2.i20 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i17)
+  br i1 %call2.i20, label %if.then.i36, label %if.else.i21
 
-if.then.i37:                                      ; preds = %lor.rhs.i20, %if.end
-  %call3.i38 = tail call noundef i32 @_Z25toku_dbt_infinite_comparePK10__toku_dbtS1_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i18)
-  br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
+if.then.i36:                                      ; preds = %lor.rhs.i19, %if.end
+  %call3.i37 = tail call noundef i32 @_Z25toku_dbt_infinite_comparePK10__toku_dbtS1_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i17)
+  br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit38
 
-if.else.i22:                                      ; preds = %lor.rhs.i20
-  %_memcmp_magic.i23 = getelementptr inbounds i8, ptr %cmp, i64 16
-  %13 = load i8, ptr %_memcmp_magic.i23, align 8
-  %cmp.not.i24 = icmp eq i8 %13, 0
-  br i1 %cmp.not.i24, label %if.else10.i29, label %land.lhs.true.i25
+if.else.i21:                                      ; preds = %lor.rhs.i19
+  %_memcmp_magic.i22 = getelementptr inbounds i8, ptr %cmp, i64 16
+  %12 = load i8, ptr %_memcmp_magic.i22, align 8
+  %cmp.not.i23 = icmp eq i8 %12, 0
+  br i1 %cmp.not.i23, label %if.else10.i28, label %land.lhs.true.i24
 
-land.lhs.true.i25:                                ; preds = %if.else.i22
-  %14 = load ptr, ptr %retval.0.i, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv.i.i26 = sext i8 %15 to i32
-  %conv2.i.i27 = zext i8 %13 to i32
-  %cmp.i.i28 = icmp eq i32 %conv.i.i26, %conv2.i.i27
-  br i1 %cmp.i.i28, label %land.lhs.true5.i33, label %if.else10.i29
+land.lhs.true.i24:                                ; preds = %if.else.i21
+  %13 = load ptr, ptr %retval.0.i, align 8
+  %14 = load i8, ptr %13, align 1
+  %conv.i.i25 = sext i8 %14 to i32
+  %conv2.i.i26 = zext i8 %12 to i32
+  %cmp.i.i27 = icmp eq i32 %conv.i.i25, %conv2.i.i26
+  br i1 %cmp.i.i27, label %land.lhs.true5.i32, label %if.else10.i28
 
-land.lhs.true5.i33:                               ; preds = %land.lhs.true.i25
-  %16 = load ptr, ptr %retval.0.i18, align 8
-  %17 = load i8, ptr %16, align 1
-  %cmp.i12.i34 = icmp eq i8 %17, %15
-  br i1 %cmp.i12.i34, label %if.then8.i35, label %if.else10.i29
+land.lhs.true5.i32:                               ; preds = %land.lhs.true.i24
+  %15 = load ptr, ptr %retval.0.i17, align 8
+  %16 = load i8, ptr %15, align 1
+  %cmp.i12.i33 = icmp eq i8 %16, %14
+  br i1 %cmp.i12.i33, label %if.then8.i34, label %if.else10.i28
 
-if.then8.i35:                                     ; preds = %land.lhs.true5.i33
-  %call9.i36 = tail call noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i18)
-  br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
+if.then8.i34:                                     ; preds = %land.lhs.true5.i32
+  %call9.i35 = tail call noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i17)
+  br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit38
 
-if.else10.i29:                                    ; preds = %land.lhs.true5.i33, %land.lhs.true.i25, %if.else.i22
-  %18 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i30 = getelementptr inbounds i8, ptr %cmp, i64 8
-  %19 = load ptr, ptr %_cmp_arg.i30, align 8
-  %call11.i31 = tail call noundef i32 %18(ptr noundef %19, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i18)
-  br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
+if.else10.i28:                                    ; preds = %land.lhs.true5.i32, %land.lhs.true.i24, %if.else.i21
+  %17 = load ptr, ptr %cmp, align 8
+  %_cmp_arg.i29 = getelementptr inbounds i8, ptr %cmp, i64 8
+  %18 = load ptr, ptr %_cmp_arg.i29, align 8
+  %call11.i30 = tail call noundef i32 %17(ptr noundef %18, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i17)
+  br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit38
 
-_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39: ; preds = %if.then.i37, %if.then8.i35, %if.else10.i29
-  %retval.0.i32 = phi i32 [ %call3.i38, %if.then.i37 ], [ %call9.i36, %if.then8.i35 ], [ %call11.i31, %if.else10.i29 ]
-  %cmp8 = icmp sgt i32 %retval.0.i32, 0
+_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit38: ; preds = %if.then.i36, %if.then8.i34, %if.else10.i28
+  %retval.0.i31 = phi i32 [ %call3.i37, %if.then.i36 ], [ %call9.i35, %if.then8.i34 ], [ %call11.i30, %if.else10.i28 ]
+  %cmp8 = icmp sgt i32 %retval.0.i31, 0
   br i1 %cmp8, label %if.then9, label %if.end10
 
-if.then9:                                         ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
-  tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy.i17)
-  %call.i41 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i)
-  br i1 %call.i41, label %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit, label %if.else.i42
+if.then9:                                         ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit38
+  tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy.i16)
+  %call.i40 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i)
+  br i1 %call.i40, label %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit, label %if.else.i41
 
-if.else.i42:                                      ; preds = %if.then9
-  %call3.i43 = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %m_right_key_copy.i17, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i)
+if.else.i41:                                      ; preds = %if.then9
+  %call3.i42 = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %m_right_key_copy.i16, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i)
   br label %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit
 
-_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit: ; preds = %if.then9, %if.else.i42
-  %.sink.i45 = phi ptr [ null, %if.else.i42 ], [ %retval.0.i, %if.then9 ]
-  store ptr %.sink.i45, ptr %m_right_key.i15, align 8
-  %m_point_range.i46 = getelementptr inbounds i8, ptr %this, i64 80
-  store i8 0, ptr %m_point_range.i46, align 8
+_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit: ; preds = %if.then9, %if.else.i41
+  %.sink.i44 = phi ptr [ null, %if.else.i41 ], [ %retval.0.i, %if.then9 ]
+  store ptr %.sink.i44, ptr %m_right_key.i14, align 8
+  %m_point_range.i45 = getelementptr inbounds i8, ptr %this, i64 80
+  store i8 0, ptr %m_point_range.i45, align 8
   br label %if.end10
 
-if.end10:                                         ; preds = %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
+if.end10:                                         ; preds = %_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit38
   ret void
 }
 

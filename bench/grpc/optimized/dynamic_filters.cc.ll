@@ -371,18 +371,17 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef ptr @_Z23grpc_call_stack_elementP15grpc_call_stackm(ptr noundef nonnull %add.ptr, i64 noundef 0)
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_channel, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.i.not, label %do.end, label %if.then
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
   tail call void @_Z16grpc_call_log_opPKci16gpr_log_severityP17grpc_call_elementP30grpc_transport_stream_op_batch(ptr noundef nonnull @.str, i32 noundef 80, i32 noundef 1, ptr noundef %call, ptr noundef %batch)
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %2 = load ptr, ptr %call, align 8
-  %3 = load ptr, ptr %2, align 8
-  tail call void %3(ptr noundef nonnull %call, ptr noundef %batch)
+  %1 = load ptr, ptr %call, align 8
+  %2 = load ptr, ptr %1, align 8
+  tail call void %2(ptr noundef nonnull %call, ptr noundef %batch)
   ret void
 }
 

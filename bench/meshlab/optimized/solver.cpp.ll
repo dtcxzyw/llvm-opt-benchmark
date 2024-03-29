@@ -1031,37 +1031,36 @@ define noundef i32 @_ZN6Solver8optimizeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 304
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  %12 = load i32, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 164
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  call void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %5, i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(132) %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(1196) %17, i32 noundef 1000)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %18, ptr noundef nonnull align 8 dereferenceable(288) %5, i64 288, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 360
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 344
-  %21 = getelementptr inbounds i8, ptr %0, i64 352
-  store <2 x double> <double 1.000000e+20, double 0.000000e+00>, ptr %20, align 8
-  %22 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %18)
-  %23 = getelementptr inbounds i8, ptr %0, i64 312
-  %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 320
-  %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 328
-  %28 = load i32, ptr %27, align 8
-  %29 = call noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i32 noundef %22, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(1000) %0, double noundef %24, double noundef %26, i32 noundef %28)
-  store double %29, ptr %21, align 8
-  call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %6, ptr noundef nonnull align 8 dereferenceable(288) %18, i1 noundef zeroext true)
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %31, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false)
-  %32 = load i32, ptr %19, align 8
-  ret i32 %32
+  %10 = trunc i8 %9 to i1
+  %11 = load i32, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 164
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8
+  call void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %5, i1 noundef zeroext %10, ptr noundef nonnull align 4 dereferenceable(132) %3, i32 noundef %11, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(1196) %16, i32 noundef 1000)
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(288) %5, i64 288, i1 false)
+  %18 = getelementptr inbounds i8, ptr %0, i64 360
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 344
+  %20 = getelementptr inbounds i8, ptr %0, i64 352
+  store <2 x double> <double 1.000000e+20, double 0.000000e+00>, ptr %19, align 8
+  %21 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %17)
+  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %23 = load double, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 320
+  %25 = load double, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 328
+  %27 = load i32, ptr %26, align 8
+  %28 = call noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i32 noundef %21, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(1000) %0, double noundef %23, double noundef %25, i32 noundef %27)
+  store double %28, ptr %20, align 8
+  call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %6, ptr noundef nonnull align 8 dereferenceable(288) %17, i1 noundef zeroext true)
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %30, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false)
+  %31 = load i32, ptr %18, align 8
+  ret i32 %31
 }
 
 declare void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288), i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(132), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(1196), i32 noundef) unnamed_addr #0
@@ -5501,66 +5500,65 @@ define noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4
   store ptr %1, ptr %0, align 8
   store ptr %2, ptr %18, align 8
   %28 = load i8, ptr %19, align 8
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
-  %31 = load i32, ptr %1, align 8
-  %32 = load i32, ptr %20, align 4
-  %33 = load ptr, ptr %22, align 8
-  call void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %5, i1 noundef zeroext %30, ptr noundef nonnull align 4 dereferenceable(132) %3, i32 noundef %31, i32 noundef %32, ptr noundef nonnull align 4 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(1196) %33, i32 noundef 1000)
+  %29 = trunc i8 %28 to i1
+  %30 = load i32, ptr %1, align 8
+  %31 = load i32, ptr %20, align 4
+  %32 = load ptr, ptr %22, align 8
+  call void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %5, i1 noundef zeroext %29, ptr noundef nonnull align 4 dereferenceable(132) %3, i32 noundef %30, i32 noundef %31, ptr noundef nonnull align 4 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(1196) %32, i32 noundef 1000)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %23, ptr noundef nonnull align 8 dereferenceable(288) %5, i64 288, i1 false)
   store i32 0, ptr %7, align 8
   store <2 x double> <double 1.000000e+20, double 0.000000e+00>, ptr %24, align 8
-  %34 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %23)
-  %35 = load double, ptr %9, align 8
-  %36 = load double, ptr %10, align 8
-  %37 = load i32, ptr %12, align 8
-  %38 = call noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i32 noundef %34, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(1000) %0, double noundef %35, double noundef %36, i32 noundef %37)
-  store double %38, ptr %25, align 8
+  %33 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %23)
+  %34 = load double, ptr %9, align 8
+  %35 = load double, ptr %10, align 8
+  %36 = load i32, ptr %12, align 8
+  %37 = call noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i32 noundef %33, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(1000) %0, double noundef %34, double noundef %35, i32 noundef %36)
+  store double %37, ptr %25, align 8
   call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %6, ptr noundef nonnull align 8 dereferenceable(288) %23, i1 noundef zeroext true)
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %40, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false)
-  %41 = load i32, ptr %7, align 8
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %39, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false)
+  %40 = load i32, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6)
-  %42 = shl nsw i32 %41, 1
-  store i32 %42, ptr %7, align 8
+  %41 = shl nsw i32 %40, 1
+  store i32 %41, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, ptr noundef nonnull align 8 dereferenceable(132) %26, i64 132, i1 false)
-  %43 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %23)
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph, label %._crit_edge
+  %42 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %23)
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %27 ]
   %.01619 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %27 ]
-  %45 = getelementptr inbounds [7 x double], ptr %23, i64 0, i64 %indvars.iv
-  %46 = load double, ptr %45, align 8
-  %47 = call double @llvm.fabs.f64(double %46)
-  %48 = fcmp ogt double %47, %.01619
-  %.1 = select i1 %48, double %47, double %.01619
+  %44 = getelementptr inbounds [7 x double], ptr %23, i64 0, i64 %indvars.iv
+  %45 = load double, ptr %44, align 8
+  %46 = call double @llvm.fabs.f64(double %45)
+  %47 = fcmp ogt double %46, %.01619
+  %.1 = select i1 %47, double %46, double %.01619
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %23)
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !141
+  %48 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %23)
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.016.lcssa = phi double [ 0.000000e+00, %27 ], [ %.1, %.lr.ph ]
-  %52 = fmul double %.016.lcssa, 1.250000e-01
-  %53 = fcmp ogt double %52, 2.000000e+01
-  %storemerge17 = select i1 %53, double 2.000000e+01, double %52
+  %51 = fmul double %.016.lcssa, 1.250000e-01
+  %52 = fcmp ogt double %51, 2.000000e+01
+  %storemerge17 = select i1 %52, double 2.000000e+01, double %51
   store double %storemerge17, ptr %9, align 8
-  %54 = fdiv double %storemerge17, 1.000000e+01
-  store double %54, ptr %10, align 8
-  %55 = load i32, ptr %7, align 8
-  %56 = sitofp i32 %55 to double
-  %57 = fcmp olt double %56, %14
-  %58 = fcmp ogt double %storemerge17, 1.000000e-01
-  %or.cond = select i1 %57, i1 %58, i1 false
+  %53 = fdiv double %storemerge17, 1.000000e+01
+  store double %53, ptr %10, align 8
+  %54 = load i32, ptr %7, align 8
+  %55 = sitofp i32 %54 to double
+  %56 = fcmp olt double %55, %14
+  %57 = fcmp ogt double %storemerge17, 1.000000e-01
+  %or.cond = select i1 %56, i1 %57, i1 false
   br i1 %or.cond, label %27, label %.critedge, !llvm.loop !142
 
 .critedge:                                        ; preds = %._crit_edge, %4
-  %.lcssa = phi i32 [ 0, %4 ], [ %55, %._crit_edge ]
+  %.lcssa = phi i32 [ 0, %4 ], [ %54, %._crit_edge ]
   store <2 x double> %11, ptr %9, align 8
   store i32 %13, ptr %12, align 8
   ret i32 %.lcssa
@@ -5776,87 +5774,86 @@ define noundef i32 @_ZN6Solver6levmarEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8M
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 304
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  %12 = load i32, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 164
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  call void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %5, i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(132) %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(1196) %17, i32 noundef 1000)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %18, ptr noundef nonnull align 8 dereferenceable(288) %5, i64 288, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 360
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 344
-  store <2 x double> <double 1.000000e+20, double 0.000000e+00>, ptr %20, align 8
-  %21 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %18)
-  %22 = zext nneg i32 %21 to i64
-  %23 = icmp slt i32 %21, 0
-  %24 = shl nuw nsw i64 %22, 3
-  %25 = select i1 %23, i64 -1, i64 %24
-  %26 = call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #24
-  %27 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %18)
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.preheader
+  %10 = trunc i8 %9 to i1
+  %11 = load i32, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 164
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8
+  call void @_ZN10ParametersC1EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %5, i1 noundef zeroext %10, ptr noundef nonnull align 4 dereferenceable(132) %3, i32 noundef %11, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(1196) %16, i32 noundef 1000)
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(288) %5, i64 288, i1 false)
+  %18 = getelementptr inbounds i8, ptr %0, i64 360
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 344
+  store <2 x double> <double 1.000000e+20, double 0.000000e+00>, ptr %19, align 8
+  %20 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %17)
+  %21 = zext nneg i32 %20 to i64
+  %22 = icmp slt i32 %20, 0
+  %23 = shl nuw nsw i64 %21, 3
+  %24 = select i1 %22, i64 -1, i64 %23
+  %25 = call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #24
+  %26 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %17)
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %4
-  %29 = getelementptr inbounds i8, ptr %0, i64 880
-  store <2 x double> <double 1.000000e+00, double 1.000000e-08>, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 896
-  store <2 x double> <double 1.000000e-08, double 1.000000e-08>, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 912
-  store double 1.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 968
-  %33 = load double, ptr %32, align 8
-  %34 = fptosi double %33 to i32
-  %switch.tableidx = add i32 %34, -1
-  %35 = icmp ult i32 %switch.tableidx, 6
-  br i1 %35, label %switch.lookup, label %44
+  %28 = getelementptr inbounds i8, ptr %0, i64 880
+  store <2 x double> <double 1.000000e+00, double 1.000000e-08>, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 896
+  store <2 x double> <double 1.000000e-08, double 1.000000e-08>, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 912
+  store double 1.000000e+00, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 968
+  %32 = load double, ptr %31, align 8
+  %33 = fptosi double %32 to i32
+  %switch.tableidx = add i32 %33, -1
+  %34 = icmp ult i32 %switch.tableidx, 6
+  br i1 %34, label %switch.lookup, label %43
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %36 = getelementptr inbounds [7 x double], ptr %18, i64 0, i64 %indvars.iv
-  %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %26, i64 %indvars.iv
-  store double %37, ptr %38, align 8
+  %35 = getelementptr inbounds [7 x double], ptr %17, i64 0, i64 %indvars.iv
+  %36 = load double, ptr %35, align 8
+  %37 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  store double %36, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %18)
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.preheader, !llvm.loop !149
+  %38 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %17)
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %.lr.ph, label %.preheader, !llvm.loop !149
 
 switch.lookup:                                    ; preds = %.preheader
-  %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6Solver6levmarEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE, i64 0, i64 %42
+  %41 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6Solver6levmarEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE, i64 0, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load)
-  br label %44
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load)
+  br label %43
 
-44:                                               ; preds = %.preheader, %switch.lookup
-  %45 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %18)
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph26, label %._crit_edge
+43:                                               ; preds = %.preheader, %switch.lookup
+  %44 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %17)
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph26, label %._crit_edge
 
-.lr.ph26:                                         ; preds = %44, %.lr.ph26
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph26 ], [ 0, %44 ]
-  %47 = getelementptr inbounds double, ptr %26, i64 %indvars.iv28
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds [7 x double], ptr %18, i64 0, i64 %indvars.iv28
-  store double %48, ptr %49, align 8
+.lr.ph26:                                         ; preds = %43, %.lr.ph26
+  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph26 ], [ 0, %43 ]
+  %46 = getelementptr inbounds double, ptr %25, i64 %indvars.iv28
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr inbounds [7 x double], ptr %17, i64 0, i64 %indvars.iv28
+  store double %47, ptr %48, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %50 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %18)
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next29, %51
-  br i1 %52, label %.lr.ph26, label %._crit_edge, !llvm.loop !150
+  %49 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %17)
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next29, %50
+  br i1 %51, label %.lr.ph26, label %._crit_edge, !llvm.loop !150
 
-._crit_edge:                                      ; preds = %.lr.ph26, %44
-  call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %6, ptr noundef nonnull align 8 dereferenceable(288) %18, i1 noundef zeroext true)
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %54, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false)
-  call void @_ZdaPv(ptr noundef nonnull %26) #20
+._crit_edge:                                      ; preds = %.lr.ph26, %43
+  call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %6, ptr noundef nonnull align 8 dereferenceable(288) %17, i1 noundef zeroext true)
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %53, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false)
+  call void @_ZdaPv(ptr noundef nonnull %25) #20
   ret i32 0
 }
 
@@ -6297,9 +6294,8 @@ define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix4
   %180 = call noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPNSt7__cxx114listI17LevmarCorrelationSaIS8_EEEb(ptr noundef nonnull %2, ptr noundef nonnull %47, i1 noundef zeroext false)
   %181 = getelementptr inbounds i8, ptr %0, i64 304
   %182 = load i8, ptr %181, align 8
-  %183 = and i8 %182, 1
-  %.not = icmp eq i8 %183, 0
-  br i1 %.not, label %186, label %184
+  %183 = trunc i8 %182 to i1
+  br i1 %183, label %184, label %186
 
 184:                                              ; preds = %179
   %185 = call noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPNSt7__cxx114listI17LevmarCorrelationSaIS8_EEEb(ptr noundef nonnull %2, ptr noundef nonnull %47, i1 noundef zeroext true)

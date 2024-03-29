@@ -4676,7 +4676,7 @@ if.then:                                          ; preds = %_ZNK6icu_7516Reorde
   br label %if.end49
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
-  %isFirst.035 = phi i8 [ 1, %while.body.lr.ph ], [ %spec.select28, %if.end36 ]
+  %isFirst.035 = phi i1 [ true, %while.body.lr.ph ], [ false, %if.end36 ]
   %firstCC.034 = phi i8 [ 0, %while.body.lr.ph ], [ %spec.select, %if.end36 ]
   %p.033 = phi ptr [ %src, %while.body.lr.ph ], [ %p.1, %if.end36 ]
   %prevCC.032 = phi i8 [ 0, %while.body.lr.ph ], [ %retval.0.i, %if.end36 ]
@@ -4792,10 +4792,7 @@ _ZNK6icu_7515Normalizer2Impl5getCCEt.exit:        ; preds = %if.then.i, %if.then
   br i1 %cmp34, label %while.end, label %if.end36
 
 if.end36:                                         ; preds = %_ZNK6icu_7515Normalizer2Impl5getCCEt.exit
-  %26 = and i8 %isFirst.035, 1
-  %tobool37.not = icmp eq i8 %26, 0
-  %spec.select = select i1 %tobool37.not, i8 %firstCC.034, i8 %retval.0.i
-  %spec.select28 = select i1 %tobool37.not, i8 %isFirst.035, i8 0
+  %spec.select = select i1 %isFirst.035, i8 %retval.0.i, i8 %firstCC.034
   %cmp.not = icmp eq ptr %p.1, %limit
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
 

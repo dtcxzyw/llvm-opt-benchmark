@@ -512,9 +512,8 @@ define dso_local i64 @be_lo_unlink(ptr nocapture noundef readonly %0) local_unna
   %4 = trunc i64 %3 to i32
   tail call void @PreventCommandIfReadOnly(ptr noundef nonnull @.str.9) #9
   %5 = load i8, ptr @lo_compat_privileges, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %14
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @GetUserId() #9
@@ -531,24 +530,24 @@ define dso_local i64 @be_lo_unlink(ptr nocapture noundef readonly %0) local_unna
 
 14:                                               ; preds = %7, %1
   %15 = load ptr, ptr @fscxt, align 8
-  %.not10 = icmp ne ptr %15, null
+  %.not = icmp ne ptr %15, null
   %16 = load i32, ptr @cookies_size, align 4
   %17 = icmp sgt i32 %16, 0
-  %or.cond = select i1 %.not10, i1 %17, i1 false
+  %or.cond = select i1 %.not, i1 %17, i1 false
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %14
-  %.pre15 = load ptr, ptr @cookies, align 8
+  %.pre14 = load ptr, ptr @cookies, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %18 = phi i32 [ %16, %.lr.ph.preheader ], [ %31, %30 ]
-  %19 = phi ptr [ %.pre15, %.lr.ph.preheader ], [ %32, %30 ]
+  %19 = phi ptr [ %.pre14, %.lr.ph.preheader ], [ %32, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %.not11 = icmp eq ptr %21, null
-  br i1 %.not11, label %30, label %22
+  %.not10 = icmp eq ptr %21, null
+  br i1 %.not10, label %30, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = load i32, ptr %21, align 8
@@ -570,11 +569,11 @@ define dso_local i64 @be_lo_unlink(ptr nocapture noundef readonly %0) local_unna
 closeLOfd.exit:                                   ; preds = %25, %28
   tail call void @inv_close(ptr noundef nonnull %21) #9
   %.pre = load ptr, ptr @cookies, align 8
-  %.pre16 = load i32, ptr @cookies_size, align 4
+  %.pre15 = load i32, ptr @cookies_size, align 4
   br label %30
 
 30:                                               ; preds = %.lr.ph, %22, %closeLOfd.exit
-  %31 = phi i32 [ %18, %.lr.ph ], [ %18, %22 ], [ %.pre16, %closeLOfd.exit ]
+  %31 = phi i32 [ %18, %.lr.ph ], [ %18, %22 ], [ %.pre15, %closeLOfd.exit ]
   %32 = phi ptr [ %19, %.lr.ph ], [ %19, %22 ], [ %.pre, %closeLOfd.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %31 to i64
@@ -1253,9 +1252,8 @@ define dso_local noundef i64 @be_lo_put(ptr nocapture noundef readonly %0) local
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   %12 = tail call ptr @inv_open(i32 noundef %4, i32 noundef 131072, ptr noundef %11) #9
   %13 = load i8, ptr @lo_compat_privileges, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %26
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %26, label %15
 
 15:                                               ; preds = %1
   %16 = load i32, ptr %12, align 8
@@ -1263,8 +1261,8 @@ define dso_local noundef i64 @be_lo_put(ptr nocapture noundef readonly %0) local
   %18 = getelementptr inbounds i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %16, i32 noundef %17, i64 noundef 4, ptr noundef %19) #9
-  %.not21 = icmp eq i32 %20, 0
-  br i1 %.not21, label %26, label %21
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %26, label %21
 
 21:                                               ; preds = %15
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1280,7 +1278,7 @@ define dso_local noundef i64 @be_lo_put(ptr nocapture noundef readonly %0) local
   %28 = load i8, ptr %10, align 1
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, 1
-  %.not22 = icmp eq i32 %30, 0
+  %.not21 = icmp eq i32 %30, 0
   %31 = getelementptr inbounds i8, ptr %10, i64 1
   %32 = icmp eq i8 %28, 1
   br i1 %32, label %33, label %41
@@ -1297,7 +1295,7 @@ define dso_local noundef i64 @be_lo_put(ptr nocapture noundef readonly %0) local
   br label %49
 
 41:                                               ; preds = %26
-  br i1 %.not22, label %45, label %42
+  br i1 %.not21, label %45, label %42
 
 42:                                               ; preds = %41
   %43 = lshr i32 %29, 1
@@ -1313,7 +1311,7 @@ define dso_local noundef i64 @be_lo_put(ptr nocapture noundef readonly %0) local
 49:                                               ; preds = %42, %45, %33
   %50 = phi i32 [ %40, %33 ], [ %44, %42 ], [ %48, %45 ]
   %51 = getelementptr inbounds i8, ptr %10, i64 4
-  %52 = select i1 %.not22, ptr %51, ptr %31
+  %52 = select i1 %.not21, ptr %51, ptr %31
   %53 = tail call i32 @inv_write(ptr noundef %12, ptr noundef nonnull %52, i32 noundef %50) #9
   tail call void @inv_close(ptr noundef %12) #9
   ret i64 0

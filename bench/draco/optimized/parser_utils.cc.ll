@@ -370,8 +370,8 @@ define noundef zeroext i1 @_ZN5draco6parser10ParseFloatEPNS_13DecoderBufferEPf(p
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
-  %.not81 = icmp slt i64 %5, %8
-  br i1 %.not81, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit, label %9
+  %.not80 = icmp slt i64 %5, %8
+  br i1 %.not80, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit, label %9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8
@@ -391,88 +391,87 @@ define noundef zeroext i1 @_ZN5draco6parser10ParseFloatEPNS_13DecoderBufferEPf(p
   %.pre-phi = phi i64 [ %8, %9 ], [ %.pre, %13 ]
   %.promoted = phi i64 [ %7, %9 ], [ %8, %13 ]
   %.042 = phi i1 [ false, %9 ], [ %switch.selectcmp4.i, %13 ]
-  %.not8392 = icmp slt i64 %5, %.pre-phi
-  br i1 %.not8392, label %.critedge, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader
+  %.not8291 = icmp slt i64 %5, %.pre-phi
+  br i1 %.not8291, label %.critedge, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader
 
-_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader: ; preds = %14
+_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader: ; preds = %14
   %15 = getelementptr inbounds i8, ptr %10, i64 %.promoted
   %16 = load i8, ptr %15, align 1
   %17 = add i8 %16, -48
-  %or.cond13178 = icmp ult i8 %17, 10
-  br i1 %or.cond13178, label %.lr.ph, label %.critedge
+  %or.cond13176 = icmp ult i8 %17, 10
+  br i1 %or.cond13176, label %.lr.ph, label %.critedge
 
-_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53:     ; preds = %.lr.ph
+_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52:     ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %10, i64 %22
   %19 = load i8, ptr %18, align 1
   %20 = add i8 %19, -48
   %or.cond13 = icmp ult i8 %20, 10
   br i1 %or.cond13, label %.lr.ph, label %.critedge, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53
-  %21 = phi i8 [ %19, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ %16, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
-  %.04494179 = phi double [ %27, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ 0.000000e+00, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
-  %22 = phi i64 [ %28, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ %.pre-phi, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
+.lr.ph:                                           ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52
+  %21 = phi i8 [ %19, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ], [ %16, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ]
+  %.04493177 = phi double [ %27, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ], [ 0.000000e+00, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ]
+  %22 = phi i64 [ %28, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ], [ %.pre-phi, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ]
   %23 = zext nneg i8 %21 to i32
-  %24 = fmul double %.04494179, 1.000000e+01
+  %24 = fmul double %.04493177, 1.000000e+01
   %25 = add nsw i32 %23, -48
   %26 = sitofp i32 %25 to double
   %27 = fadd double %24, %26
   store i64 %22, ptr %6, align 8
   %28 = add i64 %22, 1
-  %.not83 = icmp slt i64 %5, %28
-  br i1 %.not83, label %.critedge7.thread, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53, !llvm.loop !9
+  %.not82 = icmp slt i64 %5, %28
+  br i1 %.not82, label %.critedge7.thread, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52, !llvm.loop !9
 
-.critedge:                                        ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader, %14
-  %29 = phi i64 [ %.promoted, %14 ], [ %.promoted, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %22, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
-  %.046.lcssa = phi i8 [ 0, %14 ], [ 0, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ 1, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
-  %.044.lcssa = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %27, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
-  %.lcssa91 = phi i64 [ %.pre-phi, %14 ], [ %.pre-phi, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %28, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
-  %.26472 = phi i8 [ %12, %14 ], [ %16, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %19, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
-  %30 = icmp eq i8 %.26472, 46
+.critedge:                                        ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader, %14
+  %29 = phi i64 [ %.promoted, %14 ], [ %.promoted, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ], [ %22, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ]
+  %.046.lcssa = phi i1 [ false, %14 ], [ %or.cond13176, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ], [ %or.cond13176, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ]
+  %.044.lcssa = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ], [ %27, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ]
+  %.lcssa90 = phi i64 [ %.pre-phi, %14 ], [ %.pre-phi, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ], [ %28, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ]
+  %.26371 = phi i8 [ %12, %14 ], [ %16, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52.preheader ], [ %19, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52 ]
+  %30 = icmp eq i8 %.26371, 46
   br i1 %30, label %.preheader, label %.critedge7
 
 .preheader:                                       ; preds = %.critedge
-  store i64 %.lcssa91, ptr %6, align 8
-  %31 = add i64 %.lcssa91, 1
-  %.not84102 = icmp slt i64 %5, %31
-  br i1 %.not84102, label %.critedge7, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader
+  store i64 %.lcssa90, ptr %6, align 8
+  %31 = add i64 %.lcssa90, 1
+  %.not83101 = icmp slt i64 %5, %31
+  br i1 %.not83101, label %.critedge7, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader
 
-_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader: ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %10, i64 %.lcssa91
+_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader: ; preds = %.preheader
+  %32 = getelementptr inbounds i8, ptr %10, i64 %.lcssa90
   %33 = load i8, ptr %32, align 1
   %34 = add i8 %33, -48
-  %or.cond16184 = icmp ult i8 %34, 10
-  br i1 %or.cond16184, label %.lr.ph187, label %.critedge7
+  %or.cond16182 = icmp ult i8 %34, 10
+  br i1 %or.cond16182, label %.lr.ph185, label %.critedge7
 
-_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54:     ; preds = %.lr.ph187
+_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53:     ; preds = %.lr.ph185
   %35 = getelementptr inbounds i8, ptr %10, i64 %39
   %36 = load i8, ptr %35, align 1
   %37 = add i8 %36, -48
   %or.cond16 = icmp ult i8 %37, 10
-  br i1 %or.cond16, label %.lr.ph187, label %.critedge7, !llvm.loop !10
+  br i1 %or.cond16, label %.lr.ph185, label %.critedge7, !llvm.loop !10
 
-.lr.ph187:                                        ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54
-  %38 = phi i8 [ %36, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ], [ %33, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ]
-  %.145105186 = phi double [ %44, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ], [ %.044.lcssa, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ]
-  %.043106185 = phi double [ %41, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ], [ 1.000000e+00, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ]
-  %39 = phi i64 [ %45, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ], [ %31, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ]
+.lr.ph185:                                        ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53
+  %38 = phi i8 [ %36, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ %33, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
+  %.145104184 = phi double [ %44, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ %.044.lcssa, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
+  %.043105183 = phi double [ %41, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ 1.000000e+00, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
+  %39 = phi i64 [ %45, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ], [ %31, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ]
   %40 = zext nneg i8 %38 to i32
-  %41 = fmul double %.043106185, 1.000000e-01
+  %41 = fmul double %.043105183, 1.000000e-01
   %42 = add nsw i32 %40, -48
   %43 = sitofp i32 %42 to double
-  %44 = tail call double @llvm.fmuladd.f64(double %43, double %41, double %.145105186)
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double %41, double %.145104184)
   store i64 %39, ptr %6, align 8
   %45 = add i64 %39, 1
-  %.not84 = icmp slt i64 %5, %45
-  br i1 %.not84, label %.critedge7.thread, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54, !llvm.loop !10
+  %.not83 = icmp slt i64 %5, %45
+  br i1 %.not83, label %.critedge7.thread, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53, !llvm.loop !10
 
-.critedge7:                                       ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader, %.preheader, %.critedge
-  %46 = phi i64 [ %29, %.critedge ], [ %.lcssa91, %.preheader ], [ %.lcssa91, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ], [ %39, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ]
-  %.566 = phi i8 [ %.26472, %.critedge ], [ 46, %.preheader ], [ %33, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ], [ %36, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ]
-  %.248 = phi i8 [ %.046.lcssa, %.critedge ], [ %.046.lcssa, %.preheader ], [ %.046.lcssa, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ], [ 1, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ]
-  %.2 = phi double [ %.044.lcssa, %.critedge ], [ %.044.lcssa, %.preheader ], [ %.044.lcssa, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.preheader ], [ %44, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ]
-  %.not52 = icmp eq i8 %.248, 0
-  br i1 %.not52, label %47, label %.critedge7.thread
+.critedge7:                                       ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader, %.preheader, %.critedge
+  %46 = phi i64 [ %29, %.critedge ], [ %.lcssa90, %.preheader ], [ %.lcssa90, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %39, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
+  %.565 = phi i8 [ %.26371, %.critedge ], [ 46, %.preheader ], [ %33, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %36, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
+  %.248 = phi i1 [ %.046.lcssa, %.critedge ], [ %.046.lcssa, %.preheader ], [ %.046.lcssa, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ true, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
+  %.2 = phi double [ %.044.lcssa, %.critedge ], [ %.044.lcssa, %.preheader ], [ %.044.lcssa, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53.preheader ], [ %44, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53 ]
+  br i1 %.248, label %.critedge7.thread, label %47
 
 47:                                               ; preds = %.critedge7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
@@ -498,7 +497,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i.i: ; preds = %57,
   br i1 %.not.i.not.i.i, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i, label %57
 
 _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i: ; preds = %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i.i
-  %.pre16.i = add i64 %52, 1
+  %.pre12.i = add i64 %52, 1
   br label %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.i
 
 57:                                               ; preds = %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i.i
@@ -508,10 +507,10 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser1
   br i1 %.not6.i.i.i, label %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.i, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i.i, !llvm.loop !7
 
 _ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.i: ; preds = %57, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i, %47
-  %.pre-phi.i = phi i64 [ %49, %47 ], [ %.pre16.i, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i ], [ %58, %57 ]
+  %.pre-phi.i = phi i64 [ %49, %47 ], [ %.pre12.i, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i ], [ %58, %57 ]
   %59 = phi i64 [ %.promoted.i.i, %47 ], [ %52, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i ], [ %51, %57 ]
-  %.not6.i15.i = icmp slt i64 %48, %.pre-phi.i
-  br i1 %.not6.i15.i, label %_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i
+  %.not6.i11.i = icmp slt i64 %48, %.pre-phi.i
+  br i1 %.not6.i11.i, label %_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i
 
 _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i: ; preds = %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.i, %.noexc
   %60 = phi i64 [ %71, %.noexc ], [ %.pre-phi.i, %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.i ]
@@ -575,11 +574,11 @@ _ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit
 
-.critedge7.thread:                                ; preds = %.lr.ph, %.lr.ph187, %.critedge7
-  %.2131 = phi double [ %.2, %.critedge7 ], [ %44, %.lr.ph187 ], [ %27, %.lr.ph ]
-  %.566130 = phi i8 [ %.566, %.critedge7 ], [ %38, %.lr.ph187 ], [ %21, %.lr.ph ]
-  %88 = phi i64 [ %46, %.critedge7 ], [ %39, %.lr.ph187 ], [ %22, %.lr.ph ]
-  %89 = and i8 %.566130, -33
+.critedge7.thread:                                ; preds = %.lr.ph, %.lr.ph185, %.critedge7
+  %.2129 = phi double [ %.2, %.critedge7 ], [ %44, %.lr.ph185 ], [ %27, %.lr.ph ]
+  %.565128 = phi i8 [ %.565, %.critedge7 ], [ %38, %.lr.ph185 ], [ %21, %.lr.ph ]
+  %88 = phi i64 [ %46, %.critedge7 ], [ %39, %.lr.ph185 ], [ %22, %.lr.ph ]
+  %89 = and i8 %.565128, -33
   %or.cond10 = icmp eq i8 %89, 69
   br i1 %or.cond10, label %90, label %116
 
@@ -605,13 +604,13 @@ _ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt
   br label %97
 
 97:                                               ; preds = %96, %93
-  %.pre-phi.i55 = phi i64 [ %92, %93 ], [ %.pre.i, %96 ]
-  %.promoted.i.i56 = phi i64 [ %91, %93 ], [ %92, %96 ]
-  %.not19.i.i = icmp slt i64 %5, %.pre-phi.i55
+  %.pre-phi.i54 = phi i64 [ %92, %93 ], [ %.pre.i, %96 ]
+  %.promoted.i.i55 = phi i64 [ %91, %93 ], [ %92, %96 ]
+  %.not19.i.i = icmp slt i64 %5, %.pre-phi.i54
   br i1 %.not19.i.i, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i
 
 _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i: ; preds = %97
-  %98 = getelementptr inbounds i8, ptr %10, i64 %.promoted.i.i56
+  %98 = getelementptr inbounds i8, ptr %10, i64 %.promoted.i.i55
   %99 = load i8, ptr %98, align 1
   %100 = add i8 %99, -48
   %or.cond5.i18.i = icmp ult i8 %100, 10
@@ -627,7 +626,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i:   ; preds = %.lr.ph.i
 .lr.ph.i:                                         ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i
   %104 = phi i8 [ %102, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i ], [ %99, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i ]
   %.01220.i19.i = phi i32 [ %109, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i ], [ 0, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i ]
-  %105 = phi i64 [ %110, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i ], [ %.pre-phi.i55, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i ]
+  %105 = phi i64 [ %110, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i ], [ %.pre-phi.i54, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i ]
   %106 = zext nneg i8 %104 to i32
   %107 = mul i32 %.01220.i19.i, 10
   %108 = add nsw i32 %106, -48
@@ -642,11 +641,11 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i:   ; preds = %.lr.ph.i
   %112 = select i1 %switch.selectcmp4.i.not.i, i32 %111, i32 %109
   %113 = sitofp i32 %112 to double
   %114 = tail call double @pow(double noundef 1.000000e+01, double noundef %113) #15
-  %115 = fmul double %.2131, %114
+  %115 = fmul double %.2129, %114
   br label %116
 
 116:                                              ; preds = %.thread, %.loopexit, %.critedge7.thread
-  %.5 = phi double [ %115, %.loopexit ], [ %.2131, %.critedge7.thread ], [ %.4.ph, %.thread ]
+  %.5 = phi double [ %115, %.loopexit ], [ %.2129, %.critedge7.thread ], [ %.4.ph, %.thread ]
   %117 = fptrunc double %.5 to float
   %118 = fneg float %117
   %119 = select i1 %.042, float %118, float %117
@@ -699,7 +698,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i: ; preds = %14, %
   br i1 %.not.i.not.i, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge, label %14
 
 _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge: ; preds = %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i
-  %.pre16 = add i64 %9, 1
+  %.pre12 = add i64 %9, 1
   br label %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit
 
 14:                                               ; preds = %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i
@@ -709,10 +708,10 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser1
   br i1 %.not6.i.i, label %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i, !llvm.loop !7
 
 _ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit: ; preds = %14, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge, %2
-  %.pre-phi = phi i64 [ %6, %2 ], [ %.pre16, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge ], [ %15, %14 ]
+  %.pre-phi = phi i64 [ %6, %2 ], [ %.pre12, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge ], [ %15, %14 ]
   %16 = phi i64 [ %.promoted.i, %2 ], [ %9, %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge ], [ %8, %14 ]
-  %.not6.i15 = icmp slt i64 %4, %.pre-phi
-  br i1 %.not6.i15, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.thread, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit
+  %.not6.i11 = icmp slt i64 %4, %.pre-phi
+  br i1 %.not6.i11, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.thread, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit
 
 _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit: ; preds = %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit, %24
   %17 = phi i64 [ %28, %24 ], [ %.pre-phi, %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit ]

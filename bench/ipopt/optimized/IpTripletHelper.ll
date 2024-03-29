@@ -4225,9 +4225,8 @@ define void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %9, i64 233
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not50 = icmp eq i8 %13, 0
-  br i1 %.not50, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %9, i64 240
@@ -4263,7 +4262,7 @@ define void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32
 
 30:                                               ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit ]
-  %.03052 = phi ptr [ %2, %.lr.ph ], [ %46, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit ]
+  %.03051 = phi ptr [ %2, %.lr.ph ], [ %46, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit ]
   %31 = load ptr, ptr %28, align 8, !noalias !187
   %32 = getelementptr inbounds %"class.Ipopt::SmartPtr.63", ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !noalias !187
@@ -4286,12 +4285,12 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i: ; preds = %_ZNK5Ipopt14Com
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 12
   %43 = load i32, ptr %42, align 4
-  invoke void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %43, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i, ptr noundef %.03052)
+  invoke void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %43, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i, ptr noundef %.03051)
           to label %44 unwind label %54
 
 44:                                               ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds double, ptr %.03052, i64 %45
+  %46 = getelementptr inbounds double, ptr %.03051, i64 %45
   %47 = load i32, ptr %37, align 8
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %37, align 8
@@ -4511,16 +4510,14 @@ define void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 no
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %8, i64 232
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %18, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %8, i64 233
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not1.i = icmp eq i8 %16, 0
-  br i1 %.not1.i, label %18, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %8)

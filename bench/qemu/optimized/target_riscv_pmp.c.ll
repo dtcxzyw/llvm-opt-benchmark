@@ -195,23 +195,23 @@ if.then5.i:                                       ; preds = %if.else.i
   %cmp.i = icmp eq i64 %mode, 3
   %and6.i = and i32 %privs, 4
   %tobool7.not.i = icmp eq i32 %and6.i, 0
-  %or.cond12.i = and i1 %tobool7.not.i, %cmp.i
-  %storemerge11.i = select i1 %or.cond12.i, i32 3, i32 0
+  %or.cond.i = and i1 %tobool7.not.i, %cmp.i
+  %storemerge10.i = select i1 %or.cond.i, i32 3, i32 0
   br label %pmp_hart_has_privs_default.exit
 
 if.end12.i:                                       ; preds = %if.else.i
   %pmp.i = getelementptr i8, ptr %env, i64 8977
   %3 = load i8, ptr %pmp.i, align 1
-  %4 = and i8 %3, 1
-  %tobool13.not10.i = icmp eq i8 %4, 0
-  %cmp14.i = icmp eq i64 %mode, 3
-  %or.cond.i = or i1 %cmp14.i, %tobool13.not10.i
-  %..i = select i1 %or.cond.i, i32 7, i32 0
+  %tobool13.i = trunc i8 %3 to i1
+  %cmp14.i = icmp ne i64 %mode, 3
+  %or.cond.not.i = and i1 %cmp14.i, %tobool13.i
+  %..i = select i1 %or.cond.not.i, i32 0, i32 7
+  %ret.1.i = xor i1 %or.cond.not.i, true
   br label %pmp_hart_has_privs_default.exit
 
 pmp_hart_has_privs_default.exit:                  ; preds = %if.then, %if.then5.i, %if.end12.i
-  %..sink.i = phi i32 [ %..i, %if.end12.i ], [ %storemerge11.i, %if.then5.i ], [ 0, %if.then ]
-  %retval.0.i = phi i1 [ %or.cond.i, %if.end12.i ], [ %or.cond12.i, %if.then5.i ], [ false, %if.then ]
+  %..sink.i = phi i32 [ %..i, %if.end12.i ], [ %storemerge10.i, %if.then5.i ], [ 0, %if.then ]
+  %retval.0.i = phi i1 [ %ret.1.i, %if.end12.i ], [ %or.cond.i, %if.then5.i ], [ false, %if.then ]
   store i32 %..sink.i, ptr %allowed_privs, align 4
   br label %return
 
@@ -221,14 +221,13 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %mmu = getelementptr i8, ptr %env, i64 8976
-  %5 = load i8, ptr %mmu, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end9, label %if.then5
+  %4 = load i8, ptr %mmu, align 8
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.then3
-  %7 = or i64 %addr, -4096
-  %conv = sub nsw i64 0, %7
+  %5 = or i64 %addr, -4096
+  %conv = sub nsw i64 0, %5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %if.then3, %if.then5
@@ -249,14 +248,14 @@ for.cond:                                         ; preds = %if.end28
 for.body:                                         ; preds = %if.end9, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next, %for.cond ]
   %arrayidx.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr1.i, i64 0, i64 %indvars.iv
-  %8 = load i64, ptr %arrayidx.i, align 16
-  %cmp.not.i = icmp ugt i64 %8, %addr
+  %6 = load i64, ptr %arrayidx.i, align 16
+  %cmp.not.i = icmp ugt i64 %6, %addr
   br i1 %cmp.not.i, label %if.else.i52, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %ea.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %9 = load i64, ptr %ea.i, align 8
-  %cmp6.not.i = icmp ult i64 %9, %addr
+  %7 = load i64, ptr %ea.i, align 8
+  %cmp6.not.i = icmp ult i64 %7, %addr
   br i1 %cmp6.not.i, label %if.else.i52, label %pmp_is_in_range.exit
 
 if.else.i52:                                      ; preds = %land.lhs.true.i, %for.body
@@ -264,13 +263,13 @@ if.else.i52:                                      ; preds = %land.lhs.true.i, %f
 
 pmp_is_in_range.exit:                             ; preds = %land.lhs.true.i, %if.else.i52
   %result.0.i = phi i32 [ 0, %if.else.i52 ], [ 1, %land.lhs.true.i ]
-  %cmp.not.i56 = icmp ugt i64 %8, %sub15
+  %cmp.not.i56 = icmp ugt i64 %6, %sub15
   br i1 %cmp.not.i56, label %if.else.i61, label %land.lhs.true.i57
 
 land.lhs.true.i57:                                ; preds = %pmp_is_in_range.exit
   %ea.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %10 = load i64, ptr %ea.i58, align 8
-  %cmp6.not.i59 = icmp ult i64 %10, %sub15
+  %8 = load i64, ptr %ea.i58, align 8
+  %cmp6.not.i59 = icmp ult i64 %8, %sub15
   br i1 %cmp6.not.i59, label %if.else.i61, label %pmp_is_in_range.exit62
 
 if.else.i61:                                      ; preds = %land.lhs.true.i57, %pmp_is_in_range.exit
@@ -283,8 +282,8 @@ pmp_is_in_range.exit62:                           ; preds = %land.lhs.true.i57, 
   br i1 %cmp19, label %do.body, label %if.end28
 
 do.body:                                          ; preds = %pmp_is_in_range.exit62
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %11, 2048
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %9, 2048
   %cmp.i63.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i63.not, label %do.end, label %if.then26
 
@@ -298,27 +297,27 @@ do.end:                                           ; preds = %do.body, %if.then26
 
 if.end28:                                         ; preds = %pmp_is_in_range.exit62
   %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %indvars.iv, i32 1
-  %12 = load i8, ptr %cfg_reg, align 8
+  %10 = load i8, ptr %cfg_reg, align 8
   %cmp63 = icmp eq i32 %narrow, 2
-  %13 = and i8 %12, 24
-  %cmp66 = icmp ne i8 %13, 0
+  %11 = and i8 %10, 24
+  %cmp66 = icmp ne i8 %11, 0
   %or.cond = select i1 %cmp63, i1 %cmp66, i1 false
   br i1 %or.cond, label %if.then68, label %for.cond
 
 if.then68:                                        ; preds = %if.end28
-  %and.le = lshr i8 %12, 4
+  %and.le = lshr i8 %10, 4
   %shr.le = and i8 %and.le, 8
-  %and58.le = lshr i8 %12, 2
+  %and58.le = lshr i8 %10, 2
   %shr59.le = and i8 %and58.le, 1
-  %trunc = trunc i8 %12 to i3
-  %14 = and i3 %trunc, 3
-  %mask = tail call i3 @llvm.bitreverse.i3(i3 %14)
+  %trunc = trunc i8 %10 to i3
+  %12 = and i3 %trunc, 3
+  %mask = tail call i3 @llvm.bitreverse.i3(i3 %12)
   %or43.le = zext i3 %mask to i8
   %or51.le = or disjoint i8 %shr.le, %or43.le
   %or60.le = or disjoint i8 %or51.le, %shr59.le
   %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
-  %15 = load i64, ptr %mseccfg, align 8
-  %and69 = and i64 %15, 1
+  %13 = load i64, ptr %mseccfg, align 8
+  %and69 = and i64 %13, 1
   %tobool70.not = icmp eq i64 %and69, 0
   br i1 %tobool70.not, label %if.then71, label %if.else85
 
@@ -332,58 +331,58 @@ if.then71.if.then76_crit_edge:                    ; preds = %if.then71
   br label %if.then76
 
 lor.lhs.false:                                    ; preds = %if.then71
-  %16 = load i64, ptr %mseccfg, align 8
-  %17 = and i64 %16, 4
-  %tobool.not.i65 = icmp eq i64 %17, 0
+  %14 = load i64, ptr %mseccfg, align 8
+  %15 = and i64 %14, 4
+  %tobool.not.i65 = icmp eq i64 %15, 0
   br i1 %tobool.not.i65, label %pmp_is_locked.exit, label %if.end109
 
 pmp_is_locked.exit:                               ; preds = %lor.lhs.false
-  %18 = load i8, ptr %cfg_reg, align 8
-  %tobool75.not = icmp sgt i8 %18, -1
+  %16 = load i8, ptr %cfg_reg, align 8
+  %tobool75.not = icmp sgt i8 %16, -1
   br i1 %tobool75.not, label %if.end109, label %if.then76
 
 if.then76:                                        ; preds = %if.then71.if.then76_crit_edge, %pmp_is_locked.exit
-  %19 = phi i8 [ %.pre, %if.then71.if.then76_crit_edge ], [ %18, %pmp_is_locked.exit ]
-  %20 = and i8 %19, 7
-  %and83 = zext nneg i8 %20 to i32
+  %17 = phi i8 [ %.pre, %if.then71.if.then76_crit_edge ], [ %16, %pmp_is_locked.exit ]
+  %18 = and i8 %17, 7
+  %and83 = zext nneg i8 %18 to i32
   br label %if.end109.sink.split
 
 if.else85:                                        ; preds = %if.then68
   %cmp86 = icmp eq i64 %mode, 3
-  br i1 %cmp86, label %switch.lookup, label %switch.lookup102
+  br i1 %cmp86, label %switch.lookup, label %switch.lookup103
 
 switch.lookup:                                    ; preds = %if.else85
-  %21 = zext nneg i8 %or60.le to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs, i64 0, i64 %21
+  %19 = zext nneg i8 %or60.le to i64
+  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs, i64 0, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end109.sink.split
 
-switch.lookup102:                                 ; preds = %if.else85
-  %22 = zext nneg i8 %or60.le to i64
-  %switch.gep103 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %22
-  %switch.load104 = load i32, ptr %switch.gep103, align 4
+switch.lookup103:                                 ; preds = %if.else85
+  %20 = zext nneg i8 %or60.le to i64
+  %switch.gep104 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %20
+  %switch.load105 = load i32, ptr %switch.gep104, align 4
   br label %if.end109.sink.split
 
-if.end109.sink.split:                             ; preds = %switch.lookup102, %switch.lookup, %if.then76
-  %.sink = phi i32 [ %and83, %if.then76 ], [ %switch.load, %switch.lookup ], [ %switch.load104, %switch.lookup102 ]
+if.end109.sink.split:                             ; preds = %switch.lookup103, %switch.lookup, %if.then76
+  %.sink = phi i32 [ %and83, %if.then76 ], [ %switch.load, %switch.lookup ], [ %switch.load105, %switch.lookup103 ]
   store i32 %.sink, ptr %allowed_privs, align 4
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end109.sink.split, %lor.lhs.false, %pmp_is_locked.exit
-  %23 = phi i32 [ 7, %lor.lhs.false ], [ 7, %pmp_is_locked.exit ], [ %.sink, %if.end109.sink.split ]
-  %and110 = and i32 %23, %privs
+  %21 = phi i32 [ 7, %lor.lhs.false ], [ 7, %pmp_is_locked.exit ], [ %.sink, %if.end109.sink.split ]
+  %and110 = and i32 %21, %privs
   %cmp111 = icmp eq i32 %and110, %privs
   br label %return
 
 for.end:                                          ; preds = %for.cond
   %mseccfg.i68 = getelementptr inbounds i8, ptr %env, i64 8344
-  %24 = load i64, ptr %mseccfg.i68, align 8
-  %25 = and i64 %24, 2
-  %tobool.not.i69 = icmp eq i64 %25, 0
-  br i1 %tobool.not.i69, label %if.else.i72, label %pmp_hart_has_privs_default.exit87
+  %22 = load i64, ptr %mseccfg.i68, align 8
+  %23 = and i64 %22, 2
+  %tobool.not.i69 = icmp eq i64 %23, 0
+  br i1 %tobool.not.i69, label %if.else.i72, label %pmp_hart_has_privs_default.exit88
 
 if.else.i72:                                      ; preds = %for.end
-  %and2.i73 = and i64 %24, 1
+  %and2.i73 = and i64 %22, 1
   %tobool4.not.i74 = icmp eq i64 %and2.i73, 0
   br i1 %tobool4.not.i74, label %if.end12.i81, label %if.then5.i75
 
@@ -391,28 +390,28 @@ if.then5.i75:                                     ; preds = %if.else.i72
   %cmp.i76 = icmp eq i64 %mode, 3
   %and6.i77 = and i32 %privs, 4
   %tobool7.not.i78 = icmp eq i32 %and6.i77, 0
-  %or.cond12.i79 = and i1 %tobool7.not.i78, %cmp.i76
-  %storemerge11.i80 = select i1 %or.cond12.i79, i32 3, i32 0
-  br label %pmp_hart_has_privs_default.exit87
+  %or.cond.i79 = and i1 %tobool7.not.i78, %cmp.i76
+  %storemerge10.i80 = select i1 %or.cond.i79, i32 3, i32 0
+  br label %pmp_hart_has_privs_default.exit88
 
 if.end12.i81:                                     ; preds = %if.else.i72
   %pmp.i82 = getelementptr i8, ptr %env, i64 8977
-  %26 = load i8, ptr %pmp.i82, align 1
-  %27 = and i8 %26, 1
-  %tobool13.not10.i83 = icmp eq i8 %27, 0
-  %cmp14.i84 = icmp eq i64 %mode, 3
-  %or.cond.i85 = or i1 %cmp14.i84, %tobool13.not10.i83
-  %..i86 = select i1 %or.cond.i85, i32 7, i32 0
-  br label %pmp_hart_has_privs_default.exit87
+  %24 = load i8, ptr %pmp.i82, align 1
+  %tobool13.i83 = trunc i8 %24 to i1
+  %cmp14.i84 = icmp ne i64 %mode, 3
+  %or.cond.not.i85 = and i1 %cmp14.i84, %tobool13.i83
+  %..i86 = select i1 %or.cond.not.i85, i32 0, i32 7
+  %ret.1.i87 = xor i1 %or.cond.not.i85, true
+  br label %pmp_hart_has_privs_default.exit88
 
-pmp_hart_has_privs_default.exit87:                ; preds = %for.end, %if.then5.i75, %if.end12.i81
-  %..sink.i70 = phi i32 [ %..i86, %if.end12.i81 ], [ %storemerge11.i80, %if.then5.i75 ], [ 0, %for.end ]
-  %retval.0.i71 = phi i1 [ %or.cond.i85, %if.end12.i81 ], [ %or.cond12.i79, %if.then5.i75 ], [ false, %for.end ]
+pmp_hart_has_privs_default.exit88:                ; preds = %for.end, %if.then5.i75, %if.end12.i81
+  %..sink.i70 = phi i32 [ %..i86, %if.end12.i81 ], [ %storemerge10.i80, %if.then5.i75 ], [ 0, %for.end ]
+  %retval.0.i71 = phi i1 [ %ret.1.i87, %if.end12.i81 ], [ %or.cond.i79, %if.then5.i75 ], [ false, %for.end ]
   store i32 %..sink.i70, ptr %allowed_privs, align 4
   br label %return
 
-return:                                           ; preds = %pmp_hart_has_privs_default.exit87, %if.end109, %do.end, %pmp_hart_has_privs_default.exit
-  %retval.0 = phi i1 [ %retval.0.i, %pmp_hart_has_privs_default.exit ], [ false, %do.end ], [ %cmp111, %if.end109 ], [ %retval.0.i71, %pmp_hart_has_privs_default.exit87 ]
+return:                                           ; preds = %pmp_hart_has_privs_default.exit88, %if.end109, %do.end, %pmp_hart_has_privs_default.exit
+  %retval.0 = phi i1 [ %retval.0.i, %pmp_hart_has_privs_default.exit ], [ false, %do.end ], [ %cmp111, %if.end109 ], [ %retval.0.i71, %pmp_hart_has_privs_default.exit88 ]
   ret i1 %retval.0
 }
 
@@ -443,17 +442,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %1, i32 noundef %reg_index, i64 noundef %val) #10
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %1, i32 noundef %reg_index, i64 noundef %val) #10
   br label %trace_pmpcfg_csr_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -468,8 +466,8 @@ trace_pmpcfg_csr_write.exit:                      ; preds = %entry, %land.lhs.tr
 for.body.lr.ph:                                   ; preds = %trace_pmpcfg_csr_write.exit
   %mul1 = shl i32 %reg_index, 2
   %ext_smepmp.i = getelementptr i8, ptr %env, i64 8891
-  %mseccfg.i30.i = getelementptr inbounds i8, ptr %env, i64 8344
-  %pmp_state.i.i = getelementptr inbounds i8, ptr %env, i64 7824
+  %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
+  %pmp_state.i34.i = getelementptr inbounds i8, ptr %env, i64 7824
   %addr.i.i = getelementptr inbounds i8, ptr %env, i64 8080
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
@@ -477,66 +475,64 @@ for.body.lr.ph:                                   ; preds = %trace_pmpcfg_csr_wr
 for.body:                                         ; preds = %for.body.lr.ph, %pmp_write_cfg.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %pmp_write_cfg.exit ]
   %modified.020 = phi i1 [ false, %for.body.lr.ph ], [ %or11, %pmp_write_cfg.exit ]
-  %9 = trunc i64 %indvars.iv to i32
+  %8 = trunc i64 %indvars.iv to i32
   %mul = shl i64 %indvars.iv, 3
   %sh_prom = and i64 %mul, 4294967288
   %shr = lshr i64 %val, %sh_prom
   %conv = trunc i64 %shr to i8
-  %add = add i32 %mul1, %9
+  %add = add i32 %mul1, %8
   %cmp.i = icmp ult i32 %add, 16
   br i1 %cmp.i, label %if.then.i, label %do.body83.i
 
 if.then.i:                                        ; preds = %for.body
-  %10 = load i8, ptr %ext_smepmp.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  %12 = load i64, ptr %mseccfg.i30.i, align 8
-  %13 = and i64 %12, 4
-  br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
+  %9 = load i8, ptr %ext_smepmp.i, align 1
+  %tobool.i = trunc i8 %9 to i1
+  %10 = load i64, ptr %mseccfg.i, align 8
+  %11 = and i64 %10, 4
+  %tobool2.not.i = icmp eq i64 %11, 0
+  br i1 %tobool.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %tobool2.not.i = icmp ne i64 %13, 0
-  %and5.i = and i64 %12, 1
+  %and5.i = and i64 %10, 1
   %tobool7.not.i = icmp eq i64 %and5.i, 0
   br i1 %tobool7.not.i, label %land.lhs.true.i, label %if.then16.i
 
 land.lhs.true.i:                                  ; preds = %if.then1.i
-  br i1 %tobool2.not.i, label %if.else52.i, label %pmp_is_locked.exit.i
+  br i1 %tobool2.not.i, label %pmp_is_locked.exit.i, label %if.else52.i
 
 pmp_is_locked.exit.i:                             ; preds = %land.lhs.true.i
   %idxprom.i.i = zext nneg i32 %add to i64
-  %cfg_reg.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i.i, i64 0, i64 %idxprom.i.i, i32 1
-  %14 = load i8, ptr %cfg_reg.i.i, align 8
-  %.fr.i = freeze i8 %14
-  %tobool9.not.i = icmp sgt i8 %.fr.i, -1
+  %cfg_reg.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom.i.i, i32 1
+  %12 = load i8, ptr %cfg_reg.i.i, align 8
+  %.fr64.i = freeze i8 %12
+  %tobool9.not.i = icmp sgt i8 %.fr64.i, -1
   br i1 %tobool9.not.i, label %if.else52.i, label %do.body.i
 
 if.then16.i:                                      ; preds = %if.then1.i
-  %15 = trunc i64 %shr to i32
+  %13 = trunc i64 %shr to i32
   %cmp18.not.i = icmp slt i8 %conv, 0
-  %and22.i = and i32 %15, 4
-  %cmp23.not.not.i = icmp eq i32 %and22.i, 0
-  %and33.i = and i32 %15, 7
-  %cmp34.not.i = icmp ne i32 %and33.i, 6
-  %16 = select i1 %cmp18.not.i, i1 %cmp23.not.not.i, i1 %cmp34.not.i
-  %narrow63.not.i = or i1 %16, %tobool2.not.i
-  br i1 %narrow63.not.i, label %if.else52.i, label %do.body.i
+  %and22.i = and i32 %13, 4
+  %cmp23.not.not.i = icmp ne i32 %and22.i, 0
+  %and33.i = and i32 %13, 7
+  %cmp34.not.i = icmp eq i32 %and33.i, 6
+  %14 = select i1 %cmp18.not.i, i1 %cmp23.not.not.i, i1 %cmp34.not.i
+  %narrow63.i = and i1 %14, %tobool2.not.i
+  br i1 %narrow63.i, label %do.body.i, label %if.else52.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %tobool.not.i31.i = icmp eq i64 %13, 0
-  br i1 %tobool.not.i31.i, label %pmp_is_locked.exit39.i, label %if.else52.i
+  br i1 %tobool2.not.i, label %pmp_is_locked.exit39.i, label %if.else52.i
 
 pmp_is_locked.exit39.i:                           ; preds = %if.else.i
   %idxprom.i35.i = zext nneg i32 %add to i64
-  %cfg_reg.i36.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i.i, i64 0, i64 %idxprom.i35.i, i32 1
-  %17 = load i8, ptr %cfg_reg.i36.i, align 8
-  %.fr64.i = freeze i8 %17
-  %tobool40.not.i = icmp sgt i8 %.fr64.i, -1
+  %cfg_reg.i36.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom.i35.i, i32 1
+  %15 = load i8, ptr %cfg_reg.i36.i, align 8
+  %.fr.i = freeze i8 %15
+  %tobool40.not.i = icmp sgt i8 %.fr.i, -1
   br i1 %tobool40.not.i, label %if.else52.i, label %do.body.i
 
 do.body.i:                                        ; preds = %pmp_is_locked.exit39.i, %if.then16.i, %pmp_is_locked.exit.i
-  %18 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i = and i32 %18, 2048
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i = and i32 %16, 2048
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i.not.i, label %pmp_write_cfg.exit, label %if.then50.i
 
@@ -546,38 +542,38 @@ if.then50.i:                                      ; preds = %do.body.i
 
 if.else52.i:                                      ; preds = %pmp_is_locked.exit39.i, %if.else.i, %if.then16.i, %pmp_is_locked.exit.i, %land.lhs.true.i
   %idxprom.i = zext nneg i32 %add to i64
-  %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i.i, i64 0, i64 %idxprom.i, i32 1
-  %19 = load i8, ptr %cfg_reg.i, align 8
-  %cmp55.not.i = icmp eq i8 %19, %conv
+  %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom.i, i32 1
+  %17 = load i8, ptr %cfg_reg.i, align 8
+  %cmp55.not.i = icmp eq i8 %17, %conv
   br i1 %cmp55.not.i, label %pmp_write_cfg.exit, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.else52.i
-  %20 = and i8 %conv, 3
-  %or.cond27.i = icmp eq i8 %20, 2
-  %and67.i = and i64 %12, 1
+  %18 = and i8 %conv, 3
+  %or.cond27.i = icmp eq i8 %18, 2
+  %and67.i = and i64 %10, 1
   %tobool69.not.i = icmp eq i64 %and67.i, 0
   %and72.i = and i8 %conv, -4
-  %21 = select i1 %or.cond27.i, i1 %tobool69.not.i, i1 false
-  %val.addr.0.i = select i1 %21, i8 %and72.i, i8 %conv
+  %19 = select i1 %or.cond27.i, i1 %tobool69.not.i, i1 false
+  %val.addr.0.i = select i1 %19, i8 %and72.i, i8 %conv
   store i8 %val.addr.0.i, ptr %cfg_reg.i, align 8
-  %arrayidx.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i.i, i64 0, i64 %idxprom.i
-  %22 = load i64, ptr %arrayidx.i.i, align 16
+  %arrayidx.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom.i
+  %20 = load i64, ptr %arrayidx.i.i, align 16
   %cmp.not.i.i = icmp eq i32 %add, 0
   br i1 %cmp.not.i.i, label %if.end.i43.i, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %if.then57.i
   %sub.i.i = add nsw i32 %add, -1
   %idxprom7.i.i = zext nneg i32 %sub.i.i to i64
-  %arrayidx8.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i.i, i64 0, i64 %idxprom7.i.i
-  %23 = load i64, ptr %arrayidx8.i.i, align 16
-  %24 = shl i64 %23, 2
+  %arrayidx8.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom7.i.i
+  %21 = load i64, ptr %arrayidx8.i.i, align 16
+  %22 = shl i64 %21, 2
   br label %if.end.i43.i
 
 if.end.i43.i:                                     ; preds = %if.then.i.i12, %if.then57.i
-  %prev_addr.0.i.i = phi i64 [ %24, %if.then.i.i12 ], [ 0, %if.then57.i ]
-  %25 = lshr i8 %val.addr.0.i, 3
-  %26 = and i8 %25, 3
-  switch i8 %26, label %default.unreachable [
+  %prev_addr.0.i.i = phi i64 [ %22, %if.then.i.i12 ], [ 0, %if.then57.i ]
+  %23 = lshr i8 %val.addr.0.i, 3
+  %24 = and i8 %23, 3
+  switch i8 %24, label %default.unreachable [
     i8 0, label %pmp_update_rule_addr.exit.i
     i8 1, label %sw.bb10.i.i
     i8 2, label %sw.bb17.i.i
@@ -585,7 +581,7 @@ if.end.i43.i:                                     ; preds = %if.then.i.i12, %if.
   ]
 
 sw.bb10.i.i:                                      ; preds = %if.end.i43.i
-  %shl11.i.i = shl i64 %22, 2
+  %shl11.i.i = shl i64 %20, 2
   %sub12.i.i = add i64 %shl11.i.i, -1
   %cmp13.i.i = icmp ugt i64 %prev_addr.0.i.i, %sub12.i.i
   %spec.select.i44.i = select i1 %cmp13.i.i, i64 0, i64 %prev_addr.0.i.i
@@ -593,12 +589,12 @@ sw.bb10.i.i:                                      ; preds = %if.end.i43.i
   br label %pmp_update_rule_addr.exit.i
 
 sw.bb17.i.i:                                      ; preds = %if.end.i43.i
-  %shl18.i.i = shl i64 %22, 2
+  %shl18.i.i = shl i64 %20, 2
   %sub19.i.i = or disjoint i64 %shl18.i.i, 3
   br label %pmp_update_rule_addr.exit.i
 
 sw.bb20.i.i:                                      ; preds = %if.end.i43.i
-  %shl.i.i.i = shl i64 %22, 2
+  %shl.i.i.i = shl i64 %20, 2
   %add.i.i.i = add i64 %shl.i.i.i, 4
   %and.i.i.i13 = and i64 %add.i.i.i, %shl.i.i.i
   %or.i.i.i = or i64 %shl.i.i.i, %add.i.i.i
@@ -618,8 +614,8 @@ pmp_update_rule_addr.exit.i:                      ; preds = %sw.bb20.i.i, %sw.bb
   br label %pmp_write_cfg.exit
 
 do.body83.i:                                      ; preds = %for.body
-  %27 = load i32, ptr @qemu_loglevel, align 4
-  %and.i45.i = and i32 %27, 2048
+  %25 = load i32, ptr @qemu_loglevel, align 4
+  %and.i45.i = and i32 %25, 2048
   %cmp.i46.not.i = icmp eq i32 %and.i45.i, 0
   br i1 %cmp.i46.not.i, label %pmp_write_cfg.exit, label %if.then91.i
 
@@ -643,21 +639,21 @@ if.then:                                          ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
-  %28 = phi i32 [ 0, %if.then ], [ %31, %for.inc.i ]
+  %26 = phi i32 [ 0, %if.then ], [ %29, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
-  %cfg_reg.i15 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i.i, i64 0, i64 %indvars.iv.i, i32 1
-  %29 = load i8, ptr %cfg_reg.i15, align 8
-  %30 = and i8 %29, 24
-  %cmp2.not.i = icmp eq i8 %30, 0
+  %cfg_reg.i15 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %indvars.iv.i, i32 1
+  %27 = load i8, ptr %cfg_reg.i15, align 8
+  %28 = and i8 %27, 24
+  %cmp2.not.i = icmp eq i8 %28, 0
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then.i16
 
 if.then.i16:                                      ; preds = %for.body.i
-  %inc.i = add i32 %28, 1
+  %inc.i = add i32 %26, 1
   store i32 %inc.i, ptr %num_rules.i, align 16
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i16, %for.body.i
-  %31 = phi i32 [ %28, %for.body.i ], [ %inc.i, %if.then.i16 ]
+  %29 = phi i32 [ %26, %for.body.i ], [ %inc.i, %if.then.i16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %pmp_update_rule_nums.exit, label %for.body.i, !llvm.loop !7
@@ -734,17 +730,16 @@ land.lhs.true5.i.i:                               ; preds = %for.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %3, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %3, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
   br label %trace_pmpcfg_csr_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -778,17 +773,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %0, i32 noundef %addr_index, i64 noundef %val) #10
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %0, i32 noundef %addr_index, i64 noundef %val) #10
   br label %trace_pmpaddr_csr_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -809,16 +803,16 @@ if.then2:                                         ; preds = %if.then
   %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
   %idxprom = zext nneg i32 %add to i64
   %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom, i32 1
-  %8 = load i8, ptr %cfg_reg, align 8
-  %9 = and i8 %8, 24
-  %cmp4 = icmp eq i8 %9, 8
-  %10 = and i8 %8, -104
-  %brmerge.not = icmp eq i8 %10, -120
+  %7 = load i8, ptr %cfg_reg, align 8
+  %8 = and i8 %7, 24
+  %cmp4 = icmp eq i8 %8, 8
+  %9 = and i8 %7, -104
+  %brmerge.not = icmp eq i8 %9, -120
   br i1 %brmerge.not, label %do.body, label %if.end16
 
 do.body:                                          ; preds = %if.then2
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %11, 2048
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %10, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end62, label %if.then14
 
@@ -829,9 +823,9 @@ if.then14:                                        ; preds = %do.body
 if.end16:                                         ; preds = %if.then2, %if.then
   %is_next_cfg_tor.0.shrunk = phi i1 [ %cmp4, %if.then2 ], [ false, %if.then ]
   %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
-  %12 = load i64, ptr %mseccfg.i, align 8
-  %13 = and i64 %12, 4
-  %tobool.not.i = icmp eq i64 %13, 0
+  %11 = load i64, ptr %mseccfg.i, align 8
+  %12 = and i64 %11, 4
+  %tobool.not.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i, label %pmp_is_locked.exit, label %if.end16.if.then19_crit_edge
 
 if.end16.if.then19_crit_edge:                     ; preds = %if.end16
@@ -842,22 +836,22 @@ pmp_is_locked.exit:                               ; preds = %if.end16
   %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
   %idxprom.i = zext nneg i32 %addr_index to i64
   %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i, i64 0, i64 %idxprom.i, i32 1
-  %14 = load i8, ptr %cfg_reg.i, align 8
-  %tobool18.not = icmp sgt i8 %14, -1
+  %13 = load i8, ptr %cfg_reg.i, align 8
+  %tobool18.not = icmp sgt i8 %13, -1
   br i1 %tobool18.not, label %if.then19, label %do.body38
 
 if.then19:                                        ; preds = %if.end16.if.then19_crit_edge, %pmp_is_locked.exit
   %idxprom22.pre-phi = phi i64 [ %.pre, %if.end16.if.then19_crit_edge ], [ %idxprom.i, %pmp_is_locked.exit ]
   %pmp_state20 = getelementptr inbounds i8, ptr %env, i64 7824
   %arrayidx23 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom22.pre-phi
-  %15 = load i64, ptr %arrayidx23, align 16
-  %cmp24.not = icmp eq i64 %15, %val
+  %14 = load i64, ptr %arrayidx23, align 16
+  %cmp24.not = icmp eq i64 %14, %val
   br i1 %cmp24.not, label %if.end62, label %if.then26
 
 if.then26:                                        ; preds = %if.then19
   store i64 %val, ptr %arrayidx23, align 16
   %cfg_reg.i22 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
-  %16 = load i8, ptr %cfg_reg.i22, align 8
+  %15 = load i8, ptr %cfg_reg.i22, align 8
   %cmp.not.i = icmp eq i32 %addr_index, 0
   br i1 %cmp.not.i, label %if.end.i23, label %if.then.i
 
@@ -865,15 +859,15 @@ if.then.i:                                        ; preds = %if.then26
   %sub.i = add nsw i32 %addr_index, -1
   %idxprom7.i = zext nneg i32 %sub.i to i64
   %arrayidx8.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom7.i
-  %17 = load i64, ptr %arrayidx8.i, align 16
-  %18 = shl i64 %17, 2
+  %16 = load i64, ptr %arrayidx8.i, align 16
+  %17 = shl i64 %16, 2
   br label %if.end.i23
 
 if.end.i23:                                       ; preds = %if.then.i, %if.then26
-  %prev_addr.0.i = phi i64 [ %18, %if.then.i ], [ 0, %if.then26 ]
-  %19 = lshr i8 %16, 3
-  %20 = and i8 %19, 3
-  switch i8 %20, label %default.unreachable [
+  %prev_addr.0.i = phi i64 [ %17, %if.then.i ], [ 0, %if.then26 ]
+  %18 = lshr i8 %15, 3
+  %19 = and i8 %18, 3
+  switch i8 %19, label %default.unreachable [
     i8 0, label %pmp_update_rule_addr.exit
     i8 1, label %sw.bb10.i
     i8 2, label %sw.bb17.i
@@ -918,11 +912,11 @@ if.then33:                                        ; preds = %pmp_update_rule_add
   %idxprom.i26 = zext nneg i32 %add to i64
   %arrayidx.i27 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom.i26
   %cfg_reg.i28 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 8
-  %21 = load i8, ptr %cfg_reg.i28, align 8
-  %22 = load i64, ptr %arrayidx.i27, align 16
-  %23 = lshr i8 %21, 3
-  %24 = and i8 %23, 3
-  switch i8 %24, label %default.unreachable [
+  %20 = load i8, ptr %cfg_reg.i28, align 8
+  %21 = load i64, ptr %arrayidx.i27, align 16
+  %22 = lshr i8 %20, 3
+  %23 = and i8 %22, 3
+  switch i8 %23, label %default.unreachable [
     i8 0, label %pmp_update_rule_addr.exit55
     i8 1, label %sw.bb10.i48
     i8 2, label %sw.bb17.i45
@@ -930,21 +924,21 @@ if.then33:                                        ; preds = %pmp_update_rule_add
   ]
 
 sw.bb10.i48:                                      ; preds = %if.then33
-  %25 = shl i64 %val, 2
-  %shl11.i49 = shl i64 %22, 2
+  %24 = shl i64 %val, 2
+  %shl11.i49 = shl i64 %21, 2
   %sub12.i50 = add i64 %shl11.i49, -1
-  %cmp13.i51 = icmp ugt i64 %25, %sub12.i50
-  %spec.select.i52 = select i1 %cmp13.i51, i64 0, i64 %25
+  %cmp13.i51 = icmp ugt i64 %24, %sub12.i50
+  %spec.select.i52 = select i1 %cmp13.i51, i64 0, i64 %24
   %spec.select12.i53 = select i1 %cmp13.i51, i64 0, i64 %sub12.i50
   br label %pmp_update_rule_addr.exit55
 
 sw.bb17.i45:                                      ; preds = %if.then33
-  %shl18.i46 = shl i64 %22, 2
+  %shl18.i46 = shl i64 %21, 2
   %sub19.i47 = or disjoint i64 %shl18.i46, 3
   br label %pmp_update_rule_addr.exit55
 
 sw.bb20.i34:                                      ; preds = %if.then33
-  %shl.i.i35 = shl i64 %22, 2
+  %shl.i.i35 = shl i64 %21, 2
   %add.i.i36 = add i64 %shl.i.i35, 4
   %and.i.i37 = and i64 %add.i.i36, %shl.i.i35
   %or.i.i38 = or i64 %shl.i.i35, %add.i.i36
@@ -966,8 +960,8 @@ if.end35:                                         ; preds = %pmp_update_rule_add
   br label %if.end62
 
 do.body38:                                        ; preds = %pmp_is_locked.exit
-  %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i56 = and i32 %26, 2048
+  %25 = load i32, ptr @qemu_loglevel, align 4
+  %and.i56 = and i32 %25, 2048
   %cmp.i57.not = icmp eq i32 %and.i56, 0
   br i1 %cmp.i57.not, label %if.end62, label %if.then46
 
@@ -976,8 +970,8 @@ if.then46:                                        ; preds = %do.body38
   br label %if.end62
 
 do.body51:                                        ; preds = %trace_pmpaddr_csr_write.exit
-  %27 = load i32, ptr @qemu_loglevel, align 4
-  %and.i58 = and i32 %27, 2048
+  %26 = load i32, ptr @qemu_loglevel, align 4
+  %and.i58 = and i32 %26, 2048
   %cmp.i59.not = icmp eq i32 %and.i58, 0
   br i1 %cmp.i59.not, label %if.end62, label %if.then59
 
@@ -1019,17 +1013,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %1, i32 noundef %addr_index, i64 noundef %0) #10
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %1, i32 noundef %addr_index, i64 noundef %0) #10
   br label %trace_pmpaddr_csr_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1041,8 +1034,8 @@ trace_pmpaddr_csr_read.exit:                      ; preds = %if.then, %land.lhs.
   br label %if.end3
 
 do.body:                                          ; preds = %entry
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %9, 2048
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %8, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end3, label %if.then2
 
@@ -1077,17 +1070,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %0, i64 noundef %val) #10
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %0, i64 noundef %val) #10
   br label %trace_mseccfg_csr_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1097,9 +1089,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_mseccfg_csr_write.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
-  %8 = load i64, ptr %mseccfg, align 8
-  %9 = and i64 %8, 4
-  %tobool.not = icmp eq i64 %9, 0
+  %7 = load i64, ptr %mseccfg, align 8
+  %8 = and i64 %7, 4
+  %tobool.not = icmp eq i64 %8, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.end4
 
 for.cond.preheader:                               ; preds = %trace_mseccfg_csr_write.exit
@@ -1114,8 +1106,8 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
   %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i, i64 0, i64 %indvars.iv, i32 1
-  %10 = load i8, ptr %cfg_reg.i, align 8
-  %tobool1.not = icmp sgt i8 %10, -1
+  %9 = load i8, ptr %cfg_reg.i, align 8
+  %tobool1.not = icmp sgt i8 %9, -1
   br i1 %tobool1.not, label %for.cond, label %if.then2
 
 if.then2:                                         ; preds = %for.body
@@ -1125,15 +1117,14 @@ if.then2:                                         ; preds = %for.body
 if.end4:                                          ; preds = %for.cond, %if.then2, %trace_mseccfg_csr_write.exit
   %val.addr.0 = phi i64 [ %val, %trace_mseccfg_csr_write.exit ], [ %and3, %if.then2 ], [ %val, %for.cond ]
   %ext_smepmp = getelementptr i8, ptr %env, i64 8891
-  %11 = load i8, ptr %ext_smepmp, align 1
-  %12 = and i8 %11, 1
-  %tobool6.not = icmp eq i8 %12, 0
-  br i1 %tobool6.not, label %if.else, label %if.then7
+  %10 = load i8, ptr %ext_smepmp, align 1
+  %tobool6 = trunc i8 %10 to i1
+  br i1 %tobool6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end4
-  %and9 = and i64 %8, 3
+  %and9 = and i64 %7, 3
   %or = or i64 %val.addr.0, %and9
-  %xor = xor i64 %or, %8
+  %xor = xor i64 %or, %7
   %and11 = and i64 %xor, 3
   %tobool12.not = icmp eq i64 %and11, 0
   br i1 %tobool12.not, label %if.end17, label %if.then13
@@ -1177,17 +1168,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %0, i64 noundef %1) #10
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %0, i64 noundef %1) #10
   br label %trace_mseccfg_csr_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1196,8 +1186,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_mseccfg_csr_read.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %9 = load i64, ptr %mseccfg, align 8
-  ret i64 %9
+  %8 = load i64, ptr %mseccfg, align 8
+  ret i64 %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
@@ -1207,14 +1197,13 @@ entry:
   %sub = or i64 %addr, 4095
   %pmp = getelementptr i8, ptr %env, i64 8977
   %0 = load i8, ptr %pmp, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
-  %2 = load i32, ptr %num_rules.i, align 16
-  %tobool2.not = icmp eq i32 %2, 0
+  %1 = load i32, ptr %num_rules.i, align 16
+  %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
@@ -1225,30 +1214,30 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %indvars.iv, i32 1
-  %3 = load i8, ptr %cfg_reg, align 8
-  %4 = and i8 %3, 24
-  %cmp5 = icmp eq i8 %4, 0
+  %2 = load i8, ptr %cfg_reg, align 8
+  %3 = and i8 %2, 24
+  %cmp5 = icmp eq i8 %3, 0
   br i1 %cmp5, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %for.body
   %arrayidx12 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr10, i64 0, i64 %indvars.iv
-  %5 = load i64, ptr %arrayidx12, align 16
+  %4 = load i64, ptr %arrayidx12, align 16
   %ea = getelementptr inbounds i8, ptr %arrayidx12, i64 8
-  %6 = load i64, ptr %ea, align 8
-  %cmp17.not = icmp ugt i64 %5, %and
-  %cmp19.not = icmp ult i64 %6, %sub
+  %5 = load i64, ptr %ea, align 8
+  %cmp17.not = icmp ugt i64 %4, %and
+  %cmp19.not = icmp ult i64 %5, %sub
   %or.cond = select i1 %cmp17.not, i1 true, i1 %cmp19.not
   br i1 %or.cond, label %if.else, label %return
 
 if.else:                                          ; preds = %if.end8
-  %cmp22.not = icmp ult i64 %5, %and
-  %cmp25.not = icmp ugt i64 %5, %sub
+  %cmp22.not = icmp ult i64 %4, %and
+  %cmp25.not = icmp ugt i64 %4, %sub
   %or.cond19 = or i1 %cmp22.not, %cmp25.not
   br i1 %or.cond19, label %lor.lhs.false27, label %return
 
 lor.lhs.false27:                                  ; preds = %if.else
-  %cmp28.not = icmp ult i64 %6, %and
-  %cmp31.not = icmp ugt i64 %6, %sub
+  %cmp28.not = icmp ult i64 %5, %and
+  %cmp31.not = icmp ugt i64 %5, %sub
   %or.cond20 = or i1 %cmp28.not, %cmp31.not
   br i1 %or.cond20, label %for.inc, label %return
 

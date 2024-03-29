@@ -9444,11 +9444,11 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
 .split76.us:                                      ; preds = %12
   %18 = tail call i32 @get_log_level() #12
   %19 = icmp sgt i32 %18, 4
-  br i1 %19, label %20, label %76
+  br i1 %19, label %20, label %75
 
 20:                                               ; preds = %.split76.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 685, ptr noundef nonnull @__func__.stepd_pid_in_container, i32 noundef %.044.ph85, i32 noundef 4) #12
-  br label %76
+  br label %75
 
 .split.us:                                        ; preds = %14, %.lr.ph.split.us
   %.us-phi = phi i64 [ %8, %.lr.ph.split.us ], [ %15, %14 ]
@@ -9480,11 +9480,11 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
 .split93:                                         ; preds = %48
   %32 = tail call i32 @get_log_level() #12
   %33 = icmp sgt i32 %32, 4
-  br i1 %33, label %34, label %76
+  br i1 %33, label %34, label %75
 
 34:                                               ; preds = %.split93
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 686, ptr noundef nonnull @__func__.stepd_pid_in_container, i32 noundef %.046.ph101, i32 noundef 4) #12
-  br label %76
+  br label %75
 
 .split89:                                         ; preds = %50, %.lr.ph87.split.us
   %.us-phi90 = phi i64 [ %44, %.lr.ph87.split.us ], [ %51, %50 ]
@@ -9535,11 +9535,11 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
 
 54:                                               ; preds = %.split107.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.stepd_pid_in_container) #12
-  br label %76
+  br label %75
 
 55:                                               ; preds = %.split113.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.stepd_pid_in_container, i32 noundef 1, i32 noundef 1) #12
-  br label %76
+  br label %75
 
 .lr.ph114:                                        ; preds = %.preheader, %61
   %56 = phi i32 [ %63, %61 ], [ %30, %.preheader ]
@@ -9563,7 +9563,7 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
 .split107.us:                                     ; preds = %61, %.preheader
   %65 = tail call i32 @get_log_level() #12
   %66 = icmp sgt i32 %65, 4
-  br i1 %66, label %54, label %76
+  br i1 %66, label %54, label %75
 
 .split109.us:                                     ; preds = %.lr.ph114
   %67 = tail call i32 @get_log_level() #12
@@ -9573,7 +9573,7 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
 .split113.us:                                     ; preds = %58
   %69 = tail call i32 @get_log_level() #12
   %70 = icmp sgt i32 %69, 4
-  br i1 %70, label %55, label %76
+  br i1 %70, label %55, label %75
 
 71:                                               ; preds = %.split109.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.19) #12
@@ -9581,12 +9581,11 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
 
 72:                                               ; preds = %71, %.split109.us
   %73 = load i8, ptr %6, align 1
-  %74 = and i8 %73, 1
-  %75 = icmp ne i8 %74, 0
-  br label %76
+  %74 = trunc i8 %73 to i1
+  br label %75
 
-76:                                               ; preds = %20, %.split76.us, %34, %.split93, %54, %.split107.us, %55, %.split113.us, %72
-  %.0 = phi i1 [ %75, %72 ], [ false, %.split113.us ], [ false, %55 ], [ false, %.split107.us ], [ false, %54 ], [ false, %.split93 ], [ false, %34 ], [ false, %.split76.us ], [ false, %20 ]
+75:                                               ; preds = %20, %.split76.us, %34, %.split93, %54, %.split107.us, %55, %.split113.us, %72
+  %.0 = phi i1 [ %74, %72 ], [ false, %.split113.us ], [ false, %55 ], [ false, %.split107.us ], [ false, %54 ], [ false, %.split93 ], [ false, %34 ], [ false, %.split76.us ], [ false, %20 ]
   ret i1 %.0
 }
 

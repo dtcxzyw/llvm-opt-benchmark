@@ -99,17 +99,16 @@ land.lhs.true5.i.i.i:                             ; preds = %if.end
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
-  %10 = load i64, ptr %_now.i.i.i, align 8
+  %9 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %call.i.i, i32 noundef %2, i32 noundef %3, i32 noundef %4) #6
+  %10 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %call.i.i, i32 noundef %2, i32 noundef %3, i32 noundef %4) #6
   br label %qio_channel_command_new_pid.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -224,7 +223,7 @@ if.end10:                                         ; preds = %if.then7, %land.lhs
 if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %tv_usec.i.i26.i = getelementptr inbounds i8, ptr %_now.i.i14.i, i64 8
+  %tv_usec.i.i27.i = getelementptr inbounds i8, ptr %_now.i.i14.i, i64 8
   br label %rewait.outer.i
 
 rewait.outer.i:                                   ; preds = %if.end26.i, %if.then14
@@ -249,16 +248,15 @@ land.lhs.true5.i.i.i:                             ; preds = %rewait.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
-  %10 = load i64, ptr %_now.i.i.i, align 8
-  %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %call.i, i32 noundef %4) #6
+  %9 = load i64, ptr %_now.i.i.i, align 8
+  %10 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %call.i, i32 noundef %4) #6
   br label %trace_qio_channel_command_abort.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -267,43 +265,42 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_qio_channel_command_abort.exit.i:           ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %rewait.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
+  %11 = load i32, ptr %pid, align 8
+  %call.i12 = call i32 @waitpid(i32 noundef %11, ptr noundef nonnull %status.i, i32 noundef 1) #6
   %12 = load i32, ptr %pid, align 8
-  %call.i12 = call i32 @waitpid(i32 noundef %12, ptr noundef nonnull %status.i, i32 noundef 1) #6
-  %13 = load i32, ptr %pid, align 8
-  %14 = load i32, ptr %status.i, align 4
+  %13 = load i32, ptr %status.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i14.i)
-  %15 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i15.i = icmp ne i32 %15, 0
-  %16 = load i16, ptr @_TRACE_QIO_CHANNEL_COMMAND_WAIT_DSTATE, align 2
-  %tobool4.i.i16.i = icmp ne i16 %16, 0
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i15.i = icmp ne i32 %14, 0
+  %15 = load i16, ptr @_TRACE_QIO_CHANNEL_COMMAND_WAIT_DSTATE, align 2
+  %tobool4.i.i16.i = icmp ne i16 %15, 0
   %or.cond.i.i17.i = select i1 %tobool.i.i15.i, i1 %tobool4.i.i16.i, i1 false
   br i1 %or.cond.i.i17.i, label %land.lhs.true5.i.i18.i, label %trace_qio_channel_command_wait.exit.i
 
 land.lhs.true5.i.i18.i:                           ; preds = %trace_qio_channel_command_abort.exit.i
-  %17 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i19.i = and i32 %17, 32768
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i19.i = and i32 %16, 32768
   %cmp.i.not.i.i20.i = icmp eq i32 %and.i.i.i19.i, 0
   br i1 %cmp.i.not.i.i20.i, label %trace_qio_channel_command_wait.exit.i, label %if.then.i.i21.i
 
 if.then.i.i21.i:                                  ; preds = %land.lhs.true5.i.i18.i
-  %18 = load i8, ptr @message_with_timestamp, align 1
-  %19 = and i8 %18, 1
-  %tobool7.not.i.i22.i = icmp eq i8 %19, 0
-  br i1 %tobool7.not.i.i22.i, label %if.else.i.i27.i, label %if.then8.i.i23.i
+  %17 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i22.i = trunc i8 %17 to i1
+  br i1 %tobool7.i.i22.i, label %if.then8.i.i24.i, label %if.else.i.i23.i
 
-if.then8.i.i23.i:                                 ; preds = %if.then.i.i21.i
-  %call9.i.i24.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14.i, ptr noundef null) #6
-  %call10.i.i25.i = call i32 @qemu_get_thread_id() #6
-  %20 = load i64, ptr %_now.i.i14.i, align 8
-  %21 = load i64, ptr %tv_usec.i.i26.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i25.i, i64 noundef %20, i64 noundef %21, ptr noundef nonnull %call.i, i32 noundef %13, i32 noundef %call.i12, i32 noundef %14) #6
+if.then8.i.i24.i:                                 ; preds = %if.then.i.i21.i
+  %call9.i.i25.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14.i, ptr noundef null) #6
+  %call10.i.i26.i = call i32 @qemu_get_thread_id() #6
+  %18 = load i64, ptr %_now.i.i14.i, align 8
+  %19 = load i64, ptr %tv_usec.i.i27.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i26.i, i64 noundef %18, i64 noundef %19, ptr noundef nonnull %call.i, i32 noundef %12, i32 noundef %call.i12, i32 noundef %13) #6
   br label %trace_qio_channel_command_wait.exit.i
 
-if.else.i.i27.i:                                  ; preds = %if.then.i.i21.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %call.i, i32 noundef %13, i32 noundef %call.i12, i32 noundef %14) #6
+if.else.i.i23.i:                                  ; preds = %if.then.i.i21.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %call.i, i32 noundef %12, i32 noundef %call.i12, i32 noundef %13) #6
   br label %trace_qio_channel_command_wait.exit.i
 
-trace_qio_channel_command_wait.exit.i:            ; preds = %if.else.i.i27.i, %if.then8.i.i23.i, %land.lhs.true5.i.i18.i, %trace_qio_channel_command_abort.exit.i
+trace_qio_channel_command_wait.exit.i:            ; preds = %if.else.i.i23.i, %if.then8.i.i24.i, %land.lhs.true5.i.i18.i, %trace_qio_channel_command_abort.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i14.i)
   switch i32 %call.i12, label %qio_channel_command_abort.exit [
     i32 -1, label %if.then.i
@@ -312,18 +309,18 @@ trace_qio_channel_command_wait.exit.i:            ; preds = %if.else.i.i27.i, %i
 
 if.then.i:                                        ; preds = %trace_qio_channel_command_wait.exit.i
   %call3.i = tail call ptr @__errno_location() #7
-  %22 = load i32, ptr %call3.i, align 4
-  %cmp4.i = icmp eq i32 %22, 4
+  %20 = load i32, ptr %call3.i, align 4
+  %cmp4.i = icmp eq i32 %20, 4
   br i1 %cmp4.i, label %rewait.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %23 = load i32, ptr %pid, align 8
-  %conv.i = sext i32 %23 to i64
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 119, ptr noundef nonnull @__func__.qio_channel_command_abort, i32 noundef %22, ptr noundef nonnull @.str.7, i64 noundef %conv.i) #6
+  %21 = load i32, ptr %pid, align 8
+  %conv.i = sext i32 %21 to i64
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 119, ptr noundef nonnull @__func__.qio_channel_command_abort, i32 noundef %20, ptr noundef nonnull @.str.7, i64 noundef %conv.i) #6
   br label %qio_channel_command_abort.exit
 
 if.then11.i:                                      ; preds = %trace_qio_channel_command_wait.exit.i
-  %24 = load i32, ptr %pid, align 8
+  %22 = load i32, ptr %pid, align 8
   switch i32 %step.0.ph.i, label %if.else23.i [
     i32 0, label %if.end26.i
     i32 1, label %if.then20.i
@@ -333,21 +330,21 @@ if.then20.i:                                      ; preds = %if.then11.i
   br label %if.end26.i
 
 if.else23.i:                                      ; preds = %if.then11.i
-  %conv25.i = sext i32 %24 to i64
+  %conv25.i = sext i32 %22 to i64
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @__func__.qio_channel_command_abort, ptr noundef nonnull @.str.8, i64 noundef %conv25.i) #6
   br label %qio_channel_command_abort.exit
 
 if.end26.i:                                       ; preds = %if.then20.i, %if.then11.i
   %.sink.i = phi i32 [ 9, %if.then20.i ], [ 15, %if.then11.i ]
-  %call22.i = call i32 @kill(i32 noundef %24, i32 noundef %.sink.i) #6
+  %call22.i = call i32 @kill(i32 noundef %22, i32 noundef %.sink.i) #6
   %inc.i = add nuw nsw i32 %step.0.ph.i, 1
   %call27.i = call i32 @usleep(i32 noundef 10000) #6
   br label %rewait.outer.i
 
 qio_channel_command_abort.exit:                   ; preds = %trace_qio_channel_command_wait.exit.i, %if.else.i, %if.else23.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
-  %25 = load i32, ptr %pid, align 8
-  call void @g_spawn_close_pid(i32 noundef %25) #6
+  %23 = load i32, ptr %pid, align 8
+  call void @g_spawn_close_pid(i32 noundef %23) #6
   br label %if.end17
 
 if.end17:                                         ; preds = %qio_channel_command_abort.exit, %if.end10

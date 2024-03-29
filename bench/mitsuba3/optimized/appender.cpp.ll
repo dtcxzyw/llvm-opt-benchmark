@@ -375,16 +375,14 @@ define void @_ZN7mitsuba14StreamAppender6appendENS_8LogLevelERKNSt3__112basic_st
   %5 = alloca %"class.std::__1::locale", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %38
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 49
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not18 = icmp eq i8 %12, 0
-  br i1 %.not18, label %29, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %29
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -465,31 +463,30 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) %56)
   %57 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
-          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i20 unwind label %62
+          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i18 unwind label %62
 
-_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i20: ; preds = %38
+_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i18: ; preds = %38
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 56
   %60 = load ptr, ptr %59, align 8
   %61 = invoke noundef signext i8 %60(ptr noundef nonnull align 8 dereferenceable(25) %57, i8 noundef signext 10)
-          to label %_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit21 unwind label %62
+          to label %_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit19 unwind label %62
 
-62:                                               ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i20, %38
+62:                                               ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i18, %38
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit21: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i20
+_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit19: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i18
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc(ptr noundef nonnull align 8 dereferenceable(8) %52, i8 noundef signext %61)
   %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
   %66 = load i8, ptr %6, align 8
-  %67 = and i8 %66, 1
-  %.not19 = icmp eq i8 %67, 0
-  br i1 %.not19, label %68, label %72
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %72, label %68
 
-68:                                               ; preds = %_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit21
+68:                                               ; preds = %_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit19
   switch i32 %1, label %72 [
     i32 400, label %69
     i32 300, label %69
@@ -501,7 +498,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.2, i64 noundef 4)
   br label %72
 
-72:                                               ; preds = %68, %69, %_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit21
+72:                                               ; preds = %68, %69, %_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.exit19
   %73 = getelementptr inbounds i8, ptr %0, i64 49
   store i8 0, ptr %73, align 1
   ret void
@@ -511,9 +508,8 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
 define void @_ZN7mitsuba14StreamAppender12log_progressEfRKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_PKv(ptr nocapture noundef nonnull align 8 dereferenceable(50) %0, float %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture readnone %5) unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %27
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %27, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -605,9 +601,8 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
 _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit: ; preds = %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit
   %27 = getelementptr inbounds i8, ptr %1, i64 48
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %.invoke, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %.invoke
 
 30:                                               ; preds = %_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.4, i64 noundef 1)
@@ -692,9 +687,8 @@ define void @_ZN7mitsuba14StreamAppenderD2Ev(ptr noundef nonnull align 8 derefer
   store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTVN7mitsuba14StreamAppenderE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %26, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %26
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -838,9 +832,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %5, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateB8ne190000Ej.exit, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateB8ne190000Ej.exit
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8

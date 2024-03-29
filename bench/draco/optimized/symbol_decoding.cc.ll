@@ -294,8 +294,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
           to label %.preheader unwind label %9
 
 .preheader:                                       ; preds = %18
-  %.not62 = icmp eq i32 %0, 0
-  br i1 %.not62, label %._crit_edge, label %.lr.ph37
+  %.not61 = icmp eq i32 %0, 0
+  br i1 %.not61, label %._crit_edge, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %5, i64 88
@@ -321,8 +321,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   %.02035.us = phi i64 [ %.us-phi.us.in, %._crit_edge.split.us.us ], [ 0, %.lr.ph37 ]
   %33 = icmp ult i32 %32, 16384
   %34 = icmp sgt i32 %indvars.i.i42.us, 0
-  %or.cond59 = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond59, label %.lr.ph.preheader, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us
+  %or.cond58 = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond58, label %.lr.ph.preheader, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph37.split.us
   %35 = zext nneg i32 %indvars.i.i42.us to i64
@@ -330,9 +330,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %36 = phi i32 [ %42, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %indvars.iv.i.i.us53 = phi i64 [ %indvars.iv.next.i.i.us, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+  %indvars.iv.i.i.us52 = phi i64 [ %indvars.iv.next.i.i.us, %.lr.ph ], [ %35, %.lr.ph.preheader ]
   %37 = shl nuw nsw i32 %36, 8
-  %indvars.iv.next.i.i.us = add nsw i64 %indvars.iv.i.i.us53, -1
+  %indvars.iv.next.i.i.us = add nsw i64 %indvars.iv.i.i.us52, -1
   %indvars.i.i.us = trunc i64 %indvars.iv.next.i.i.us to i32
   store i32 %indvars.i.i.us, ptr %20, align 8
   %38 = and i64 %indvars.iv.next.i.i.us, 4294967295
@@ -343,8 +343,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   store i32 %42, ptr %21, align 4
   %43 = icmp ult i32 %42, 16384
   %44 = icmp sgt i32 %indvars.i.i.us, 0
-  %or.cond61 = and i1 %43, %44
-  br i1 %or.cond61, label %.lr.ph, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us, !llvm.loop !4
+  %or.cond60 = and i1 %43, %44
+  br i1 %or.cond60, label %.lr.ph, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us, !llvm.loop !4
 
 _ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us: ; preds = %.lr.ph, %.lr.ph37.split.us
   %indvars.i.i39.us = phi i32 [ %indvars.i.i42.us, %.lr.ph37.split.us ], [ %indvars.i.i.us, %.lr.ph ]
@@ -371,26 +371,25 @@ _ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us: ; preds = %.lr.ph, %
   %.not.i.i.us = icmp eq i32 %.fr, 0
   %sext = shl i64 %.02035.us, 32
   %59 = ashr exact i64 %sext, 32
-  br i1 %.not.i.i.us, label %.lr.ph.split.us.split.us.us, label %.lr.ph.split.us.split.us49
+  br i1 %.not.i.i.us, label %.lr.ph.split.us.split.us.us, label %.lr.ph.split.us.split.us48
 
-.lr.ph.split.us.split.us49:                       ; preds = %.lr.ph.split.us.us, %.loopexit.us.us
+.lr.ph.split.us.split.us48:                       ; preds = %.lr.ph.split.us.us, %.loopexit.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.us.us ], [ %59, %.lr.ph.split.us.us ]
   %.033.us.us43 = phi i32 [ %82, %.loopexit.us.us ], [ 0, %.lr.ph.split.us.us ]
   %60 = load i8, ptr %28, align 8
-  %61 = and i8 %60, 1
-  %.not.i.us.us45 = icmp eq i8 %61, 0
-  br i1 %.not.i.us.us45, label %_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit, label %.preheader.i.i.us.us46
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %.preheader.i.i.us.us45, label %_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit
 
-.preheader.i.i.us.us46:                           ; preds = %.lr.ph.split.us.split.us49
+.preheader.i.i.us.us45:                           ; preds = %.lr.ph.split.us.split.us48
   %62 = load ptr, ptr %29, align 8
   %63 = load ptr, ptr %31, align 8
   %.promoted.i.i23.us.us = load i64, ptr %30, align 8
   br label %64
 
-64:                                               ; preds = %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us, %.preheader.i.i.us.us46
-  %65 = phi i64 [ %.promoted.i.i23.us.us, %.preheader.i.i.us.us46 ], [ %77, %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us ]
-  %.013.i.i.us.us = phi i32 [ 0, %.preheader.i.i.us.us46 ], [ %80, %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us ]
-  %.0912.i.i.us.us = phi i32 [ 0, %.preheader.i.i.us.us46 ], [ %79, %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us ]
+64:                                               ; preds = %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us, %.preheader.i.i.us.us45
+  %65 = phi i64 [ %.promoted.i.i23.us.us, %.preheader.i.i.us.us45 ], [ %77, %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us ]
+  %.013.i.i.us.us = phi i32 [ 0, %.preheader.i.i.us.us45 ], [ %80, %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us ]
+  %.0912.i.i.us.us = phi i32 [ 0, %.preheader.i.i.us.us45 ], [ %79, %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us ]
   %66 = lshr i64 %65, 3
   %67 = getelementptr inbounds i8, ptr %62, i64 %66
   %68 = icmp ult ptr %67, %63
@@ -422,29 +421,28 @@ _ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us: ; preds = %69, %64
   store i32 %79, ptr %81, align 4
   %82 = add nuw nsw i32 %.033.us.us43, 1
   %exitcond.not = icmp eq i32 %82, %1
-  br i1 %exitcond.not, label %._crit_edge.split.us.us, label %.lr.ph.split.us.split.us49, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.split.us.us, label %.lr.ph.split.us.split.us48, !llvm.loop !7
 
 ._crit_edge.split.us.us:                          ; preds = %.loopexit.us.us, %.preheader.i.i.us.us.us
-  %.us-phi.us.in = phi i64 [ %indvars.iv.next73, %.preheader.i.i.us.us.us ], [ %indvars.iv.next, %.loopexit.us.us ]
+  %.us-phi.us.in = phi i64 [ %indvars.iv.next72, %.preheader.i.i.us.us.us ], [ %indvars.iv.next, %.loopexit.us.us ]
   %83 = add i32 %.01936.us, %1
   %84 = icmp ult i32 %83, %0
   br i1 %84, label %.lr.ph37.split.us, label %._crit_edge, !llvm.loop !8
 
 .lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.split.us.us, %.preheader.i.i.us.us.us
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.preheader.i.i.us.us.us ], [ %59, %.lr.ph.split.us.us ]
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader.i.i.us.us.us ], [ %59, %.lr.ph.split.us.us ]
   %.033.us.us.us = phi i32 [ %88, %.preheader.i.i.us.us.us ], [ 0, %.lr.ph.split.us.us ]
   %85 = load i8, ptr %28, align 8
-  %86 = and i8 %85, 1
-  %.not.i.us.us.us = icmp eq i8 %86, 0
-  br i1 %.not.i.us.us.us, label %_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit, label %.preheader.i.i.us.us.us
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %.preheader.i.i.us.us.us, label %_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit
 
 .preheader.i.i.us.us.us:                          ; preds = %.lr.ph.split.us.split.us.us
-  %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
-  %87 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv72
+  %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
+  %87 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv71
   store i32 0, ptr %87, align 4
   %88 = add nuw nsw i32 %.033.us.us.us, 1
-  %exitcond76.not = icmp eq i32 %88, %1
-  br i1 %exitcond76.not, label %._crit_edge.split.us.us, label %.lr.ph.split.us.split.us.us, !llvm.loop !7
+  %exitcond75.not = icmp eq i32 %88, %1
+  br i1 %exitcond75.not, label %._crit_edge.split.us.us, label %.lr.ph.split.us.split.us.us, !llvm.loop !7
 
 .lr.ph37.split:                                   ; preds = %.lr.ph37, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit
   %indvars.i.i42 = phi i32 [ %indvars.i.i39, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit ], [ %.promoted38, %.lr.ph37 ]
@@ -504,8 +502,8 @@ _ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit: ; preds = %92, %96, %.l
   invoke void @_ZN5draco13DecoderBuffer14EndBitDecodingEv(ptr noundef nonnull align 8 dereferenceable(52) %2)
           to label %_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit unwind label %9
 
-_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit: ; preds = %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us, %.lr.ph.split.us.split.us49, %.lr.ph.split.us.split.us.us, %14, %._crit_edge, %13, %8
-  %.018 = phi i1 [ false, %8 ], [ false, %13 ], [ true, %._crit_edge ], [ false, %14 ], [ false, %.lr.ph.split.us.split.us.us ], [ false, %.lr.ph.split.us.split.us49 ], [ false, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us ]
+_ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit: ; preds = %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us, %.lr.ph.split.us.split.us48, %.lr.ph.split.us.split.us.us, %14, %._crit_edge, %13, %8
+  %.018 = phi i1 [ false, %8 ], [ false, %13 ], [ true, %._crit_edge ], [ false, %14 ], [ false, %.lr.ph.split.us.split.us.us ], [ false, %.lr.ph.split.us.split.us48 ], [ false, %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us ]
   %119 = getelementptr inbounds i8, ptr %5, i64 56
   %120 = load ptr, ptr %119, align 8
   %.not.i.i.i.i.i = icmp eq ptr %120, null

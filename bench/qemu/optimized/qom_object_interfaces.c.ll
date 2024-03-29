@@ -641,9 +641,8 @@ if.else:                                          ; preds = %entry
 
 if.end13:                                         ; preds = %if.else
   %2 = load i8, ptr %help, align 1
-  %3 = and i8 %2, 1
-  %tobool14.not = icmp eq i8 %3, 0
-  br i1 %tobool14.not, label %if.end18, label %if.then15
+  %tobool14 = trunc i8 %2 to i1
+  br i1 %tobool14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end13
   %call.i = call ptr @qdict_get_try_str(ptr noundef %call10, ptr noundef nonnull @.str.10) #5
@@ -661,13 +660,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %cmp.not4.i.i, label %user_creatable_print_types.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
-  %l.05.i.i = phi ptr [ %5, %for.body.i.i ], [ %call1.i.i, %if.then.i ]
-  %4 = load ptr, ptr %l.05.i.i, align 8
-  %call2.i.i = call ptr @object_class_get_name(ptr noundef %4) #5
+  %l.05.i.i = phi ptr [ %4, %for.body.i.i ], [ %call1.i.i, %if.then.i ]
+  %3 = load ptr, ptr %l.05.i.i, align 8
+  %call2.i.i = call ptr @object_class_get_name(ptr noundef %3) #5
   %call3.i.i = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.29, ptr noundef %call2.i.i) #5
   %next.i.i = getelementptr inbounds i8, ptr %l.05.i.i, i64 8
-  %5 = load ptr, ptr %next.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %next.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %user_creatable_print_types.exit.i, label %for.body.i.i, !llvm.loop !9
 
 user_creatable_print_types.exit.i:                ; preds = %for.body.i.i, %if.then.i
@@ -680,8 +679,8 @@ user_creatable_print_help_from_qdict.exit:        ; preds = %lor.lhs.false.i, %u
 
 lor.lhs.false.i22:                                ; preds = %user_creatable_print_help_from_qdict.exit
   %refcnt.i = getelementptr inbounds i8, ptr %call10, i64 8
-  %6 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %refcnt.i, align 8
+  %tobool1.not.i = icmp eq i64 %5, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i22
@@ -689,7 +688,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i22
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i22
-  %dec.i = add i64 %6, -1
+  %dec.i = add i64 %5, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then5.i, label %cleanup
@@ -712,8 +711,8 @@ if.end30:                                         ; preds = %if.end18, %if.end8
 
 lor.lhs.false.i23:                                ; preds = %if.end30
   %refcnt.i24 = getelementptr inbounds i8, ptr %obj.0, i64 8
-  %7 = load i64, ptr %refcnt.i24, align 8
-  %tobool1.not.i25 = icmp eq i64 %7, 0
+  %6 = load i64, ptr %refcnt.i24, align 8
+  %tobool1.not.i25 = icmp eq i64 %6, 0
   br i1 %tobool1.not.i25, label %if.else.i30, label %land.lhs.true.i26
 
 if.else.i30:                                      ; preds = %lor.lhs.false.i23
@@ -721,7 +720,7 @@ if.else.i30:                                      ; preds = %lor.lhs.false.i23
   unreachable
 
 land.lhs.true.i26:                                ; preds = %lor.lhs.false.i23
-  %dec.i27 = add i64 %7, -1
+  %dec.i27 = add i64 %6, -1
   store i64 %dec.i27, ptr %refcnt.i24, align 8
   %cmp.i28 = icmp eq i64 %dec.i27, 0
   br i1 %cmp.i28, label %if.then5.i29, label %qobject_unref_impl.exit31
@@ -731,11 +730,11 @@ if.then5.i29:                                     ; preds = %land.lhs.true.i26
   br label %qobject_unref_impl.exit31
 
 qobject_unref_impl.exit31:                        ; preds = %if.end30, %land.lhs.true.i26, %if.then5.i29
-  %8 = load ptr, ptr %options, align 8
+  %7 = load ptr, ptr %options, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then5.i, %land.lhs.true.i, %user_creatable_print_help_from_qdict.exit, %if.else, %if.then5, %qobject_unref_impl.exit31
-  %retval.0 = phi ptr [ %8, %qobject_unref_impl.exit31 ], [ null, %if.then5 ], [ null, %if.else ], [ null, %user_creatable_print_help_from_qdict.exit ], [ null, %land.lhs.true.i ], [ null, %if.then5.i ]
+  %retval.0 = phi ptr [ %7, %qobject_unref_impl.exit31 ], [ null, %if.then5 ], [ null, %if.else ], [ null, %user_creatable_print_help_from_qdict.exit ], [ null, %land.lhs.true.i ], [ null, %if.then5.i ]
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val21 = load ptr, ptr %errp1, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val21, ptr noundef %_auto_errp_prop.val) #5

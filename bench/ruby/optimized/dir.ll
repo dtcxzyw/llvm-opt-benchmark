@@ -5739,9 +5739,8 @@ dir_chdir0.exit:                                  ; preds = %RSTRING_PTR.exit.i
 22:                                               ; preds = %20, %dir_chdir0.exit
   %23 = getelementptr inbounds i8, ptr %2, i64 20
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %29, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %3, align 8

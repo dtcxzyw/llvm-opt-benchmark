@@ -524,16 +524,16 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.else.i, label %for.cond
 
 for.cond:                                         ; preds = %if.end3, %for.inc
-  %json.0 = phi i8 [ %json.1, %for.inc ], [ 0, %if.end3 ]
-  %general.0 = phi i8 [ %general.1, %for.inc ], [ 1, %if.end3 ]
-  %merged.0 = phi i8 [ %merged.1, %for.inc ], [ 1, %if.end3 ]
-  %destroyed.0 = phi i8 [ %destroyed.1, %for.inc ], [ 1, %if.end3 ]
-  %unmerged.0 = phi i8 [ %unmerged.1, %for.inc ], [ 1, %if.end3 ]
-  %bins.0 = phi i8 [ %bins.1, %for.inc ], [ 1, %if.end3 ]
-  %large.0 = phi i8 [ %large.1, %for.inc ], [ 1, %if.end3 ]
-  %mutex.0 = phi i8 [ %mutex.1, %for.inc ], [ 1, %if.end3 ]
-  %extents.0 = phi i8 [ %extents.1, %for.inc ], [ 1, %if.end3 ]
-  %hpa.0 = phi i8 [ %hpa.1, %for.inc ], [ 1, %if.end3 ]
+  %json.0 = phi i1 [ %json.1, %for.inc ], [ false, %if.end3 ]
+  %general.0 = phi i1 [ %general.1, %for.inc ], [ true, %if.end3 ]
+  %merged.0 = phi i1 [ %merged.1, %for.inc ], [ true, %if.end3 ]
+  %destroyed.0 = phi i1 [ %destroyed.1, %for.inc ], [ true, %if.end3 ]
+  %unmerged.0 = phi i1 [ %unmerged.1, %for.inc ], [ true, %if.end3 ]
+  %bins.0 = phi i1 [ %bins.1, %for.inc ], [ true, %if.end3 ]
+  %large.0 = phi i1 [ %large.1, %for.inc ], [ true, %if.end3 ]
+  %mutex.0 = phi i1 [ %mutex.1, %for.inc ], [ true, %if.end3 ]
+  %extents.0 = phi i1 [ %extents.1, %for.inc ], [ true, %if.end3 ]
+  %hpa.0 = phi i1 [ %hpa.1, %for.inc ], [ true, %if.end3 ]
   %i.0 = phi i32 [ %inc, %for.inc ], [ 0, %if.end3 ]
   %idxprom = zext i32 %i.0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %opts, i64 %idxprom
@@ -583,41 +583,21 @@ sw.bb19:                                          ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb11, %sw.bb12, %sw.bb13, %sw.bb14, %sw.bb15, %sw.bb16, %sw.bb17, %sw.bb18, %sw.bb19
-  %json.1 = phi i8 [ %json.0, %sw.bb19 ], [ %json.0, %sw.bb18 ], [ %json.0, %sw.bb17 ], [ %json.0, %sw.bb16 ], [ %json.0, %sw.bb15 ], [ %json.0, %sw.bb14 ], [ %json.0, %sw.bb13 ], [ %json.0, %sw.bb12 ], [ %json.0, %sw.bb11 ], [ 1, %sw.bb ], [ %json.0, %for.cond ]
-  %general.1 = phi i8 [ %general.0, %sw.bb19 ], [ %general.0, %sw.bb18 ], [ %general.0, %sw.bb17 ], [ %general.0, %sw.bb16 ], [ %general.0, %sw.bb15 ], [ %general.0, %sw.bb14 ], [ %general.0, %sw.bb13 ], [ %general.0, %sw.bb12 ], [ 0, %sw.bb11 ], [ %general.0, %sw.bb ], [ %general.0, %for.cond ]
-  %merged.1 = phi i8 [ %merged.0, %sw.bb19 ], [ %merged.0, %sw.bb18 ], [ %merged.0, %sw.bb17 ], [ %merged.0, %sw.bb16 ], [ %merged.0, %sw.bb15 ], [ %merged.0, %sw.bb14 ], [ %merged.0, %sw.bb13 ], [ 0, %sw.bb12 ], [ %merged.0, %sw.bb11 ], [ %merged.0, %sw.bb ], [ %merged.0, %for.cond ]
-  %destroyed.1 = phi i8 [ %destroyed.0, %sw.bb19 ], [ %destroyed.0, %sw.bb18 ], [ %destroyed.0, %sw.bb17 ], [ %destroyed.0, %sw.bb16 ], [ %destroyed.0, %sw.bb15 ], [ %destroyed.0, %sw.bb14 ], [ 0, %sw.bb13 ], [ %destroyed.0, %sw.bb12 ], [ %destroyed.0, %sw.bb11 ], [ %destroyed.0, %sw.bb ], [ %destroyed.0, %for.cond ]
-  %unmerged.1 = phi i8 [ %unmerged.0, %sw.bb19 ], [ %unmerged.0, %sw.bb18 ], [ %unmerged.0, %sw.bb17 ], [ %unmerged.0, %sw.bb16 ], [ %unmerged.0, %sw.bb15 ], [ 0, %sw.bb14 ], [ %unmerged.0, %sw.bb13 ], [ %unmerged.0, %sw.bb12 ], [ %unmerged.0, %sw.bb11 ], [ %unmerged.0, %sw.bb ], [ %unmerged.0, %for.cond ]
-  %bins.1 = phi i8 [ %bins.0, %sw.bb19 ], [ %bins.0, %sw.bb18 ], [ %bins.0, %sw.bb17 ], [ %bins.0, %sw.bb16 ], [ 0, %sw.bb15 ], [ %bins.0, %sw.bb14 ], [ %bins.0, %sw.bb13 ], [ %bins.0, %sw.bb12 ], [ %bins.0, %sw.bb11 ], [ %bins.0, %sw.bb ], [ %bins.0, %for.cond ]
-  %large.1 = phi i8 [ %large.0, %sw.bb19 ], [ %large.0, %sw.bb18 ], [ %large.0, %sw.bb17 ], [ 0, %sw.bb16 ], [ %large.0, %sw.bb15 ], [ %large.0, %sw.bb14 ], [ %large.0, %sw.bb13 ], [ %large.0, %sw.bb12 ], [ %large.0, %sw.bb11 ], [ %large.0, %sw.bb ], [ %large.0, %for.cond ]
-  %mutex.1 = phi i8 [ %mutex.0, %sw.bb19 ], [ %mutex.0, %sw.bb18 ], [ 0, %sw.bb17 ], [ %mutex.0, %sw.bb16 ], [ %mutex.0, %sw.bb15 ], [ %mutex.0, %sw.bb14 ], [ %mutex.0, %sw.bb13 ], [ %mutex.0, %sw.bb12 ], [ %mutex.0, %sw.bb11 ], [ %mutex.0, %sw.bb ], [ %mutex.0, %for.cond ]
-  %extents.1 = phi i8 [ %extents.0, %sw.bb19 ], [ 0, %sw.bb18 ], [ %extents.0, %sw.bb17 ], [ %extents.0, %sw.bb16 ], [ %extents.0, %sw.bb15 ], [ %extents.0, %sw.bb14 ], [ %extents.0, %sw.bb13 ], [ %extents.0, %sw.bb12 ], [ %extents.0, %sw.bb11 ], [ %extents.0, %sw.bb ], [ %extents.0, %for.cond ]
-  %hpa.1 = phi i8 [ 0, %sw.bb19 ], [ %hpa.0, %sw.bb18 ], [ %hpa.0, %sw.bb17 ], [ %hpa.0, %sw.bb16 ], [ %hpa.0, %sw.bb15 ], [ %hpa.0, %sw.bb14 ], [ %hpa.0, %sw.bb13 ], [ %hpa.0, %sw.bb12 ], [ %hpa.0, %sw.bb11 ], [ %hpa.0, %sw.bb ], [ %hpa.0, %for.cond ]
+  %json.1 = phi i1 [ %json.0, %sw.bb19 ], [ %json.0, %sw.bb18 ], [ %json.0, %sw.bb17 ], [ %json.0, %sw.bb16 ], [ %json.0, %sw.bb15 ], [ %json.0, %sw.bb14 ], [ %json.0, %sw.bb13 ], [ %json.0, %sw.bb12 ], [ %json.0, %sw.bb11 ], [ true, %sw.bb ], [ %json.0, %for.cond ]
+  %general.1 = phi i1 [ %general.0, %sw.bb19 ], [ %general.0, %sw.bb18 ], [ %general.0, %sw.bb17 ], [ %general.0, %sw.bb16 ], [ %general.0, %sw.bb15 ], [ %general.0, %sw.bb14 ], [ %general.0, %sw.bb13 ], [ %general.0, %sw.bb12 ], [ false, %sw.bb11 ], [ %general.0, %sw.bb ], [ %general.0, %for.cond ]
+  %merged.1 = phi i1 [ %merged.0, %sw.bb19 ], [ %merged.0, %sw.bb18 ], [ %merged.0, %sw.bb17 ], [ %merged.0, %sw.bb16 ], [ %merged.0, %sw.bb15 ], [ %merged.0, %sw.bb14 ], [ %merged.0, %sw.bb13 ], [ false, %sw.bb12 ], [ %merged.0, %sw.bb11 ], [ %merged.0, %sw.bb ], [ %merged.0, %for.cond ]
+  %destroyed.1 = phi i1 [ %destroyed.0, %sw.bb19 ], [ %destroyed.0, %sw.bb18 ], [ %destroyed.0, %sw.bb17 ], [ %destroyed.0, %sw.bb16 ], [ %destroyed.0, %sw.bb15 ], [ %destroyed.0, %sw.bb14 ], [ false, %sw.bb13 ], [ %destroyed.0, %sw.bb12 ], [ %destroyed.0, %sw.bb11 ], [ %destroyed.0, %sw.bb ], [ %destroyed.0, %for.cond ]
+  %unmerged.1 = phi i1 [ %unmerged.0, %sw.bb19 ], [ %unmerged.0, %sw.bb18 ], [ %unmerged.0, %sw.bb17 ], [ %unmerged.0, %sw.bb16 ], [ %unmerged.0, %sw.bb15 ], [ false, %sw.bb14 ], [ %unmerged.0, %sw.bb13 ], [ %unmerged.0, %sw.bb12 ], [ %unmerged.0, %sw.bb11 ], [ %unmerged.0, %sw.bb ], [ %unmerged.0, %for.cond ]
+  %bins.1 = phi i1 [ %bins.0, %sw.bb19 ], [ %bins.0, %sw.bb18 ], [ %bins.0, %sw.bb17 ], [ %bins.0, %sw.bb16 ], [ false, %sw.bb15 ], [ %bins.0, %sw.bb14 ], [ %bins.0, %sw.bb13 ], [ %bins.0, %sw.bb12 ], [ %bins.0, %sw.bb11 ], [ %bins.0, %sw.bb ], [ %bins.0, %for.cond ]
+  %large.1 = phi i1 [ %large.0, %sw.bb19 ], [ %large.0, %sw.bb18 ], [ %large.0, %sw.bb17 ], [ false, %sw.bb16 ], [ %large.0, %sw.bb15 ], [ %large.0, %sw.bb14 ], [ %large.0, %sw.bb13 ], [ %large.0, %sw.bb12 ], [ %large.0, %sw.bb11 ], [ %large.0, %sw.bb ], [ %large.0, %for.cond ]
+  %mutex.1 = phi i1 [ %mutex.0, %sw.bb19 ], [ %mutex.0, %sw.bb18 ], [ false, %sw.bb17 ], [ %mutex.0, %sw.bb16 ], [ %mutex.0, %sw.bb15 ], [ %mutex.0, %sw.bb14 ], [ %mutex.0, %sw.bb13 ], [ %mutex.0, %sw.bb12 ], [ %mutex.0, %sw.bb11 ], [ %mutex.0, %sw.bb ], [ %mutex.0, %for.cond ]
+  %extents.1 = phi i1 [ %extents.0, %sw.bb19 ], [ false, %sw.bb18 ], [ %extents.0, %sw.bb17 ], [ %extents.0, %sw.bb16 ], [ %extents.0, %sw.bb15 ], [ %extents.0, %sw.bb14 ], [ %extents.0, %sw.bb13 ], [ %extents.0, %sw.bb12 ], [ %extents.0, %sw.bb11 ], [ %extents.0, %sw.bb ], [ %extents.0, %for.cond ]
+  %hpa.1 = phi i1 [ false, %sw.bb19 ], [ %hpa.0, %sw.bb18 ], [ %hpa.0, %sw.bb17 ], [ %hpa.0, %sw.bb16 ], [ %hpa.0, %sw.bb15 ], [ %hpa.0, %sw.bb14 ], [ %hpa.0, %sw.bb13 ], [ %hpa.0, %sw.bb12 ], [ %hpa.0, %sw.bb11 ], [ %hpa.0, %sw.bb ], [ %hpa.0, %for.cond ]
   %inc = add i32 %i.0, 1
   br label %for.cond, !llvm.loop !4
 
 if.end20:                                         ; preds = %for.cond
-  %1 = and i8 %json.0, 1
-  %2 = icmp eq i8 %1, 0
-  %3 = and i8 %general.0, 1
-  %4 = icmp eq i8 %3, 0
-  %5 = and i8 %merged.0, 1
-  %6 = icmp ne i8 %5, 0
-  %7 = and i8 %destroyed.0, 1
-  %8 = icmp ne i8 %7, 0
-  %9 = and i8 %unmerged.0, 1
-  %10 = icmp ne i8 %9, 0
-  %11 = and i8 %bins.0, 1
-  %12 = icmp ne i8 %11, 0
-  %13 = and i8 %large.0, 1
-  %14 = icmp ne i8 %13, 0
-  %15 = and i8 %mutex.0, 1
-  %16 = icmp ne i8 %15, 0
-  %17 = and i8 %extents.0, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = and i8 %hpa.0, 1
-  %20 = icmp ne i8 %19, 0
-  br i1 %2, label %if.else.i, label %do.end.i
+  br i1 %json.0, label %do.end.i, label %if.else.i
 
 do.end.i:                                         ; preds = %if.end20
   store i32 1, ptr %emitter, align 8
@@ -636,77 +616,77 @@ do.end.i:                                         ; preds = %if.end20
   store i8 0, ptr %item_at_depth.i, align 4
   br label %emitter_begin.exit
 
-if.else.i:                                        ; preds = %if.end20, %if.end3
-  %hpa.247.ph = phi i1 [ true, %if.end3 ], [ %20, %if.end20 ]
-  %extents.245.ph = phi i1 [ true, %if.end3 ], [ %18, %if.end20 ]
-  %mutex.243.ph = phi i1 [ true, %if.end3 ], [ %16, %if.end20 ]
-  %large.241.ph = phi i1 [ true, %if.end3 ], [ %14, %if.end20 ]
-  %bins.239.ph = phi i1 [ true, %if.end3 ], [ %12, %if.end20 ]
-  %unmerged.237.ph = phi i1 [ true, %if.end3 ], [ %10, %if.end20 ]
-  %destroyed.235.ph = phi i1 [ true, %if.end3 ], [ %8, %if.end20 ]
-  %merged.233.ph = phi i1 [ true, %if.end3 ], [ %6, %if.end20 ]
-  %general.231.ph = phi i1 [ false, %if.end3 ], [ %4, %if.end20 ]
+if.else.i:                                        ; preds = %if.end3, %if.end20
+  %hpa.238.ph = phi i1 [ %hpa.0, %if.end20 ], [ true, %if.end3 ]
+  %extents.237.ph = phi i1 [ %extents.0, %if.end20 ], [ true, %if.end3 ]
+  %mutex.236.ph = phi i1 [ %mutex.0, %if.end20 ], [ true, %if.end3 ]
+  %large.235.ph = phi i1 [ %large.0, %if.end20 ], [ true, %if.end3 ]
+  %bins.234.ph = phi i1 [ %bins.0, %if.end20 ], [ true, %if.end3 ]
+  %unmerged.233.ph = phi i1 [ %unmerged.0, %if.end20 ], [ true, %if.end3 ]
+  %destroyed.232.ph = phi i1 [ %destroyed.0, %if.end20 ], [ true, %if.end3 ]
+  %merged.231.ph = phi i1 [ %merged.0, %if.end20 ], [ true, %if.end3 ]
+  %general.230.ph = phi i1 [ %general.0, %if.end20 ], [ true, %if.end3 ]
   store i32 2, ptr %emitter, align 8
-  %write_cb1.i59 = getelementptr inbounds i8, ptr %emitter, i64 8
-  store ptr %write_cb, ptr %write_cb1.i59, align 8
-  %cbopaque2.i60 = getelementptr inbounds i8, ptr %emitter, i64 16
-  store ptr %cbopaque, ptr %cbopaque2.i60, align 8
-  %item_at_depth.i61 = getelementptr inbounds i8, ptr %emitter, i64 28
-  store i8 0, ptr %item_at_depth.i61, align 4
-  %emitted_key.i62 = getelementptr inbounds i8, ptr %emitter, i64 29
-  store i8 0, ptr %emitted_key.i62, align 1
-  %nesting_depth.i63 = getelementptr inbounds i8, ptr %emitter, i64 24
-  store i32 0, ptr %nesting_depth.i63, align 8
+  %write_cb1.i49 = getelementptr inbounds i8, ptr %emitter, i64 8
+  store ptr %write_cb, ptr %write_cb1.i49, align 8
+  %cbopaque2.i50 = getelementptr inbounds i8, ptr %emitter, i64 16
+  store ptr %cbopaque, ptr %cbopaque2.i50, align 8
+  %item_at_depth.i51 = getelementptr inbounds i8, ptr %emitter, i64 28
+  store i8 0, ptr %item_at_depth.i51, align 4
+  %emitted_key.i52 = getelementptr inbounds i8, ptr %emitter, i64 29
+  store i8 0, ptr %emitted_key.i52, align 1
+  %nesting_depth.i53 = getelementptr inbounds i8, ptr %emitter, i64 24
+  store i32 0, ptr %nesting_depth.i53, align 8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   br label %emitter_begin.exit
 
 emitter_begin.exit:                               ; preds = %do.end.i, %if.else.i
-  %nesting_depth.i84 = phi ptr [ %nesting_depth.i, %do.end.i ], [ %nesting_depth.i63, %if.else.i ]
-  %item_at_depth.i82 = phi ptr [ %item_at_depth.i, %do.end.i ], [ %item_at_depth.i61, %if.else.i ]
-  %general.23180 = phi i1 [ %4, %do.end.i ], [ %general.231.ph, %if.else.i ]
-  %merged.23378 = phi i1 [ %6, %do.end.i ], [ %merged.233.ph, %if.else.i ]
-  %destroyed.23576 = phi i1 [ %8, %do.end.i ], [ %destroyed.235.ph, %if.else.i ]
-  %unmerged.23774 = phi i1 [ %10, %do.end.i ], [ %unmerged.237.ph, %if.else.i ]
-  %bins.23972 = phi i1 [ %12, %do.end.i ], [ %bins.239.ph, %if.else.i ]
-  %large.24170 = phi i1 [ %14, %do.end.i ], [ %large.241.ph, %if.else.i ]
-  %mutex.24368 = phi i1 [ %16, %do.end.i ], [ %mutex.243.ph, %if.else.i ]
-  %extents.24566 = phi i1 [ %18, %do.end.i ], [ %extents.245.ph, %if.else.i ]
-  %hpa.24764 = phi i1 [ %20, %do.end.i ], [ %hpa.247.ph, %if.else.i ]
+  %nesting_depth.i74 = phi ptr [ %nesting_depth.i, %do.end.i ], [ %nesting_depth.i53, %if.else.i ]
+  %item_at_depth.i72 = phi ptr [ %item_at_depth.i, %do.end.i ], [ %item_at_depth.i51, %if.else.i ]
+  %general.23070 = phi i1 [ %general.0, %do.end.i ], [ %general.230.ph, %if.else.i ]
+  %merged.23168 = phi i1 [ %merged.0, %do.end.i ], [ %merged.231.ph, %if.else.i ]
+  %destroyed.23266 = phi i1 [ %destroyed.0, %do.end.i ], [ %destroyed.232.ph, %if.else.i ]
+  %unmerged.23364 = phi i1 [ %unmerged.0, %do.end.i ], [ %unmerged.233.ph, %if.else.i ]
+  %bins.23462 = phi i1 [ %bins.0, %do.end.i ], [ %bins.234.ph, %if.else.i ]
+  %large.23560 = phi i1 [ %large.0, %do.end.i ], [ %large.235.ph, %if.else.i ]
+  %mutex.23658 = phi i1 [ %mutex.0, %do.end.i ], [ %mutex.236.ph, %if.else.i ]
+  %extents.23756 = phi i1 [ %extents.0, %do.end.i ], [ %extents.237.ph, %if.else.i ]
+  %hpa.23854 = phi i1 [ %hpa.0, %do.end.i ], [ %hpa.238.ph, %if.else.i ]
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.3)
   call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.4)
   call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
-  br i1 %general.23180, label %if.end24, label %if.then23
+  br i1 %general.23070, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %emitter_begin.exit
   call fastcc void @stats_general_print(ptr noundef nonnull %emitter) #15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %emitter_begin.exit
-  call fastcc void @stats_print_helper(ptr noundef nonnull %emitter, i1 noundef zeroext %merged.23378, i1 noundef zeroext %destroyed.23576, i1 noundef zeroext %unmerged.23774, i1 noundef zeroext %bins.23972, i1 noundef zeroext %large.24170, i1 noundef zeroext %mutex.24368, i1 noundef zeroext %extents.24566, i1 noundef zeroext %hpa.24764) #15
+  call fastcc void @stats_print_helper(ptr noundef nonnull %emitter, i1 noundef zeroext %merged.23168, i1 noundef zeroext %destroyed.23266, i1 noundef zeroext %unmerged.23364, i1 noundef zeroext %bins.23462, i1 noundef zeroext %large.23560, i1 noundef zeroext %mutex.23658, i1 noundef zeroext %extents.23756, i1 noundef zeroext %hpa.23854) #15
   %emitter.val.i6 = load i32, ptr %emitter, align 8
   %spec.select.i.i7 = icmp ult i32 %emitter.val.i6, 2
   br i1 %spec.select.i.i7, label %do.end.i8, label %emitter_json_object_end.exit
 
 do.end.i8:                                        ; preds = %if.end24
-  %21 = load i32, ptr %nesting_depth.i84, align 8
-  %dec.i.i = add nsw i32 %21, -1
-  store i32 %dec.i.i, ptr %nesting_depth.i84, align 8
-  store i8 1, ptr %item_at_depth.i82, align 4
+  %1 = load i32, ptr %nesting_depth.i74, align 8
+  %dec.i.i = add nsw i32 %1, -1
+  store i32 %dec.i.i, ptr %nesting_depth.i74, align 8
+  store i8 1, ptr %item_at_depth.i72, align 4
   %cmp.not.i = icmp eq i32 %emitter.val.i6, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %22 = load i32, ptr %nesting_depth.i84, align 8
-  %23 = load i32, ptr %emitter, align 8
-  %cmp.i.i = icmp ne i32 %23, 0
+  %2 = load i32, ptr %nesting_depth.i74, align 8
+  %3 = load i32, ptr %emitter, align 8
+  %cmp.i.i = icmp ne i32 %3, 0
   %indent_str.0.i.i = select i1 %cmp.i.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i = icmp sgt i32 %22, 0
+  %cmp15.i.i = icmp sgt i32 %2, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %if.end.i
 
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
-  %amount.0.i.i = shl nuw nsw i32 %22, %mul.i.i
+  %amount.0.i.i = shl nuw nsw i32 %2, %mul.i.i
   %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
@@ -728,10 +708,10 @@ emitter_json_object_end.exit:                     ; preds = %if.end24, %if.end.i
   br i1 %spec.select.i.i13, label %do.end.i15, label %return
 
 do.end.i15:                                       ; preds = %emitter_json_object_end.exit
-  %24 = load i32, ptr %nesting_depth.i84, align 8
-  %dec.i.i17 = add nsw i32 %24, -1
-  store i32 %dec.i.i17, ptr %nesting_depth.i84, align 8
-  store i8 1, ptr %item_at_depth.i82, align 4
+  %4 = load i32, ptr %nesting_depth.i74, align 8
+  %dec.i.i17 = add nsw i32 %4, -1
+  store i32 %dec.i.i17, ptr %nesting_depth.i74, align 8
+  store i8 1, ptr %item_at_depth.i72, align 4
   %cmp.i = icmp eq i32 %emitter.val.i12, 1
   %cond.i = select i1 %cmp.i, ptr @.str.463, ptr @.str.464
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.7, ptr noundef nonnull %cond.i)
@@ -758,13 +738,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
   %1 = load ptr, ptr %write_cb, align 8
   %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
   %2 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %1, ptr noundef %2, ptr noundef %format, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3203,25 +3183,25 @@ if.then197:                                       ; preds = %for.body188
 do.end200:                                        ; preds = %for.body188
   %69 = load i8, ptr %arrayidx193, align 1
   %70 = and i8 %69, 1
-  %71 = zext nneg i8 %70 to i32
-  %spec.select = add i32 %ninitialized.0212, %71
+  %inc205 = zext nneg i8 %70 to i32
+  %spec.select = add i32 %ninitialized.0212, %inc205
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %72 = load i32, ptr %narenas, align 4
-  %73 = zext i32 %72 to i64
-  %cmp187 = icmp ult i64 %indvars.iv.next218, %73
+  %71 = load i32, ptr %narenas, align 4
+  %72 = zext i32 %71 to i64
+  %cmp187 = icmp ult i64 %indvars.iv.next218, %72
   br i1 %cmp187, label %for.body188, label %for.end209.loopexit, !llvm.loop !10
 
 for.end209.loopexit:                              ; preds = %do.end200
-  %74 = icmp ult i32 %spec.select, 2
+  %73 = icmp ult i32 %spec.select, 2
   br label %for.end209
 
 for.end209:                                       ; preds = %for.end209.loopexit, %for.cond186.preheader
-  %ninitialized.0.lcssa = phi i1 [ true, %for.cond186.preheader ], [ %74, %for.end209.loopexit ]
+  %ninitialized.0.lcssa = phi i1 [ true, %for.cond186.preheader ], [ %73, %for.end209.loopexit ]
   %arrayidx210 = getelementptr inbounds i8, ptr %mib175, i64 8
   store i64 4097, ptr %arrayidx210, align 8
   store i64 1, ptr %sz177, align 8
-  %75 = load i64, ptr %miblen176, align 8
-  %call213 = call i32 @mallctlbymib(ptr noundef nonnull %mib175, i64 noundef %75, ptr noundef nonnull %destroyed_initialized, ptr noundef nonnull %sz177, ptr noundef null, i64 noundef 0) #13
+  %74 = load i64, ptr %miblen176, align 8
+  %call213 = call i32 @mallctlbymib(ptr noundef nonnull %mib175, i64 noundef %74, ptr noundef nonnull %destroyed_initialized, ptr noundef nonnull %sz177, ptr noundef null, i64 noundef 0) #13
   %cmp214.not = icmp eq i32 %call213, 0
   br i1 %cmp214.not, label %do.end219, label %if.then216
 
@@ -3245,11 +3225,10 @@ if.then226:                                       ; preds = %do.end219
   br label %if.end232
 
 if.end232:                                        ; preds = %if.then226, %do.end219
-  %76 = load i8, ptr %destroyed_initialized, align 1
-  %77 = and i8 %76, 1
-  %tobool233.not = icmp ne i8 %77, 0
-  %brmerge74.not = and i1 %tobool233.not, %destroyed
-  br i1 %brmerge74.not, label %if.then238, label %if.end244
+  %75 = load i8, ptr %destroyed_initialized, align 1
+  %tobool233 = trunc i8 %75 to i1
+  %brmerge74.demorgan = and i1 %tobool233, %destroyed
+  br i1 %brmerge74.demorgan, label %if.then238, label %if.end244
 
 if.then238:                                       ; preds = %if.end232
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.252)
@@ -3262,8 +3241,8 @@ if.then238:                                       ; preds = %if.end232
 
 do.end.i145:                                      ; preds = %if.then238
   %nesting_depth.i.i146 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %78 = load i32, ptr %nesting_depth.i.i146, align 8
-  %dec.i.i147 = add nsw i32 %78, -1
+  %76 = load i32, ptr %nesting_depth.i.i146, align 8
+  %dec.i.i147 = add nsw i32 %76, -1
   store i32 %dec.i.i147, ptr %nesting_depth.i.i146, align 8
   %item_at_depth.i.i148 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i148, align 4
@@ -3272,16 +3251,16 @@ do.end.i145:                                      ; preds = %if.then238
 
 if.then1.i150:                                    ; preds = %do.end.i145
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %79 = load i32, ptr %nesting_depth.i.i146, align 8
-  %80 = load i32, ptr %emitter, align 8
-  %cmp.i.i151 = icmp ne i32 %80, 0
+  %77 = load i32, ptr %nesting_depth.i.i146, align 8
+  %78 = load i32, ptr %emitter, align 8
+  %cmp.i.i151 = icmp ne i32 %78, 0
   %indent_str.0.i.i152 = select i1 %cmp.i.i151, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i153 = icmp sgt i32 %79, 0
+  %cmp15.i.i153 = icmp sgt i32 %77, 0
   br i1 %cmp15.i.i153, label %for.body.preheader.i.i155, label %if.end.i154
 
 for.body.preheader.i.i155:                        ; preds = %if.then1.i150
   %mul.i.i156 = zext i1 %cmp.i.i151 to i32
-  %amount.0.i.i157 = shl nuw nsw i32 %79, %mul.i.i156
+  %amount.0.i.i157 = shl nuw nsw i32 %77, %mul.i.i156
   %smax.i.i158 = call i32 @llvm.smax.i32(i32 %amount.0.i.i157, i32 1)
   br label %for.body.i.i159
 
@@ -3297,8 +3276,8 @@ if.end.i154:                                      ; preds = %for.body.i.i159, %i
   br label %if.end244
 
 if.end244:                                        ; preds = %if.end.i154, %if.then238, %if.end232
-  %81 = load i32, ptr %narenas, align 4
-  %cmp248213 = icmp ne i32 %81, 0
+  %79 = load i32, ptr %narenas, align 4
+  %cmp248213 = icmp ne i32 %79, 0
   %or.cond215 = select i1 %unmerged, i1 %cmp248213, i1 false
   br i1 %or.cond215, label %for.body250.lr.ph, label %if.end268
 
@@ -3310,25 +3289,24 @@ for.body250.lr.ph:                                ; preds = %if.end244
 for.body250:                                      ; preds = %for.body250.lr.ph, %for.inc265
   %indvars.iv220 = phi i64 [ 0, %for.body250.lr.ph ], [ %indvars.iv.next221, %for.inc265 ]
   %arrayidx252 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv220
-  %82 = load i8, ptr %arrayidx252, align 1
-  %83 = and i8 %82, 1
-  %tobool253.not = icmp eq i8 %83, 0
-  br i1 %tobool253.not, label %for.inc265, label %if.then254
+  %80 = load i8, ptr %arrayidx252, align 1
+  %tobool253 = trunc i8 %80 to i1
+  br i1 %tobool253, label %if.then254, label %for.inc265
 
 if.then254:                                       ; preds = %for.body250
-  %84 = trunc i64 %indvars.iv220 to i32
-  %call256 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.202, i32 noundef %84) #13
+  %81 = trunc i64 %indvars.iv220 to i32
+  %call256 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.202, i32 noundef %81) #13
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull %arena_ind_str)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.254, ptr noundef nonnull %arena_ind_str)
-  call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %84, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
+  call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %81, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
   %emitter.val.i164 = load i32, ptr %emitter, align 8
   %spec.select.i.i165 = icmp ult i32 %emitter.val.i164, 2
   br i1 %spec.select.i.i165, label %do.end.i166, label %for.inc265
 
 do.end.i166:                                      ; preds = %if.then254
-  %85 = load i32, ptr %nesting_depth.i.i167, align 8
-  %dec.i.i168 = add nsw i32 %85, -1
+  %82 = load i32, ptr %nesting_depth.i.i167, align 8
+  %dec.i.i168 = add nsw i32 %82, -1
   store i32 %dec.i.i168, ptr %nesting_depth.i.i167, align 8
   store i8 1, ptr %item_at_depth.i.i169, align 4
   %cmp.not.i170 = icmp eq i32 %emitter.val.i164, 1
@@ -3336,16 +3314,16 @@ do.end.i166:                                      ; preds = %if.then254
 
 if.then1.i171:                                    ; preds = %do.end.i166
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %86 = load i32, ptr %nesting_depth.i.i167, align 8
-  %87 = load i32, ptr %emitter, align 8
-  %cmp.i.i172 = icmp ne i32 %87, 0
+  %83 = load i32, ptr %nesting_depth.i.i167, align 8
+  %84 = load i32, ptr %emitter, align 8
+  %cmp.i.i172 = icmp ne i32 %84, 0
   %indent_str.0.i.i173 = select i1 %cmp.i.i172, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i174 = icmp sgt i32 %86, 0
+  %cmp15.i.i174 = icmp sgt i32 %83, 0
   br i1 %cmp15.i.i174, label %for.body.preheader.i.i176, label %if.end.i175
 
 for.body.preheader.i.i176:                        ; preds = %if.then1.i171
   %mul.i.i177 = zext i1 %cmp.i.i172 to i32
-  %amount.0.i.i178 = shl nuw nsw i32 %86, %mul.i.i177
+  %amount.0.i.i178 = shl nuw nsw i32 %83, %mul.i.i177
   %smax.i.i179 = call i32 @llvm.smax.i32(i32 %amount.0.i.i178, i32 1)
   br label %for.body.i.i180
 
@@ -3362,9 +3340,9 @@ if.end.i175:                                      ; preds = %for.body.i.i180, %i
 
 for.inc265:                                       ; preds = %if.end.i175, %if.then254, %for.body250
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %88 = load i32, ptr %narenas, align 4
-  %89 = zext i32 %88 to i64
-  %cmp248 = icmp ult i64 %indvars.iv.next221, %89
+  %85 = load i32, ptr %narenas, align 4
+  %86 = zext i32 %85 to i64
+  %cmp248 = icmp ult i64 %indvars.iv.next221, %86
   br i1 %cmp248, label %for.body250, label %if.end268, !llvm.loop !11
 
 if.end268:                                        ; preds = %for.inc265, %if.end244
@@ -3374,8 +3352,8 @@ if.end268:                                        ; preds = %for.inc265, %if.end
 
 do.end.i187:                                      ; preds = %if.end268
   %nesting_depth.i.i188 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %90 = load i32, ptr %nesting_depth.i.i188, align 8
-  %dec.i.i189 = add nsw i32 %90, -1
+  %87 = load i32, ptr %nesting_depth.i.i188, align 8
+  %dec.i.i189 = add nsw i32 %87, -1
   store i32 %dec.i.i189, ptr %nesting_depth.i.i188, align 8
   %item_at_depth.i.i190 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i190, align 4
@@ -3384,16 +3362,16 @@ do.end.i187:                                      ; preds = %if.end268
 
 if.then1.i192:                                    ; preds = %do.end.i187
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %91 = load i32, ptr %nesting_depth.i.i188, align 8
-  %92 = load i32, ptr %emitter, align 8
-  %cmp.i.i193 = icmp ne i32 %92, 0
+  %88 = load i32, ptr %nesting_depth.i.i188, align 8
+  %89 = load i32, ptr %emitter, align 8
+  %cmp.i.i193 = icmp ne i32 %89, 0
   %indent_str.0.i.i194 = select i1 %cmp.i.i193, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i195 = icmp sgt i32 %91, 0
+  %cmp15.i.i195 = icmp sgt i32 %88, 0
   br i1 %cmp15.i.i195, label %for.body.preheader.i.i197, label %if.end.i196
 
 for.body.preheader.i.i197:                        ; preds = %if.then1.i192
   %mul.i.i198 = zext i1 %cmp.i.i193 to i32
-  %amount.0.i.i199 = shl nuw nsw i32 %91, %mul.i.i198
+  %amount.0.i.i199 = shl nuw nsw i32 %88, %mul.i.i198
   %smax.i.i200 = call i32 @llvm.smax.i32(i32 %amount.0.i.i199, i32 1)
   br label %for.body.i.i201
 
@@ -3573,23 +3551,17 @@ declare void @counter_postfork_child(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @emitter_printf(ptr nocapture noundef readonly %emitter, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
   %0 = load ptr, ptr %write_cb, align 8
   %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
   %1 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %0, ptr noundef %1, ptr noundef %format, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare void @malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @emitter_json_key(ptr nocapture noundef %emitter, ptr noundef %json_key) unnamed_addr #0 {
@@ -3601,9 +3573,8 @@ entry:
 if.then:                                          ; preds = %entry
   %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
   store i8 0, ptr %emitted_key.i, align 1
@@ -3611,10 +3582,9 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %2 = load i8, ptr %item_at_depth.i, align 4
-  %3 = and i8 %2, 1
-  %tobool2.not.i = icmp eq i8 %3, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
+  %1 = load i8, ptr %item_at_depth.i, align 4
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.11)
@@ -3622,23 +3592,23 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  %4 = phi i32 [ %.pre, %if.then3.i ], [ %emitter.val, %if.end.i ]
-  %cmp.not.i = icmp eq i32 %4, 1
+  %2 = phi i32 [ %.pre, %if.then3.i ], [ %emitter.val, %if.end.i ]
+  %cmp.not.i = icmp eq i32 %2, 1
   br i1 %cmp.not.i, label %emitter_json_key_prefix.exit.thread, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %5 = load i32, ptr %nesting_depth.i.i, align 8
-  %6 = load i32, ptr %emitter, align 8
-  %cmp.i.i = icmp ne i32 %6, 0
+  %3 = load i32, ptr %nesting_depth.i.i, align 8
+  %4 = load i32, ptr %emitter, align 8
+  %cmp.i.i = icmp ne i32 %4, 0
   %indent_str.0.i.i = select i1 %cmp.i.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i = icmp sgt i32 %5, 0
+  %cmp15.i.i = icmp sgt i32 %3, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %emitter_json_key_prefix.exit
 
 for.body.preheader.i.i:                           ; preds = %if.then5.i
   %mul.i.i = zext i1 %cmp.i.i to i32
-  %amount.0.i.i = shl nuw nsw i32 %5, %mul.i.i
+  %amount.0.i.i = shl nuw nsw i32 %3, %mul.i.i
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
@@ -3654,21 +3624,21 @@ emitter_json_key_prefix.exit.loopexit:            ; preds = %for.body.i.i
   br label %emitter_json_key_prefix.exit
 
 emitter_json_key_prefix.exit:                     ; preds = %emitter_json_key_prefix.exit.loopexit, %if.then.i, %if.then5.i
-  %7 = phi i32 [ %.pre5, %emitter_json_key_prefix.exit.loopexit ], [ %emitter.val, %if.then.i ], [ %6, %if.then5.i ]
-  %.fr = freeze i32 %7
+  %5 = phi i32 [ %.pre5, %emitter_json_key_prefix.exit.loopexit ], [ %emitter.val, %if.then.i ], [ %4, %if.then5.i ]
+  %.fr = freeze i32 %5
   %cmp = icmp eq i32 %.fr, 1
-  br i1 %cmp, label %emitter_json_key_prefix.exit.thread, label %8
+  br i1 %cmp, label %emitter_json_key_prefix.exit.thread, label %6
 
 emitter_json_key_prefix.exit.thread:              ; preds = %if.end4.i, %emitter_json_key_prefix.exit
-  br label %8
+  br label %6
 
-8:                                                ; preds = %emitter_json_key_prefix.exit, %emitter_json_key_prefix.exit.thread
-  %9 = phi ptr [ @.str.8, %emitter_json_key_prefix.exit.thread ], [ @.str.10, %emitter_json_key_prefix.exit ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.9, ptr noundef %json_key, ptr noundef nonnull %9)
+6:                                                ; preds = %emitter_json_key_prefix.exit, %emitter_json_key_prefix.exit.thread
+  %7 = phi ptr [ @.str.8, %emitter_json_key_prefix.exit.thread ], [ @.str.10, %emitter_json_key_prefix.exit ]
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.9, ptr noundef %json_key, ptr noundef nonnull %7)
   store i8 1, ptr %emitted_key.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %8, %entry
+if.end:                                           ; preds = %6, %entry
   ret void
 }
 
@@ -3682,9 +3652,8 @@ entry:
 if.then:                                          ; preds = %entry
   %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
   store i8 0, ptr %emitted_key.i, align 1
@@ -3692,10 +3661,9 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %2 = load i8, ptr %item_at_depth.i, align 4
-  %3 = and i8 %2, 1
-  %tobool2.not.i = icmp eq i8 %3, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
+  %1 = load i8, ptr %item_at_depth.i, align 4
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.11)
@@ -3703,23 +3671,23 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  %4 = phi i32 [ %.pre, %if.then3.i ], [ %emitter.val, %if.end.i ]
-  %cmp.not.i = icmp eq i32 %4, 1
+  %2 = phi i32 [ %.pre, %if.then3.i ], [ %emitter.val, %if.end.i ]
+  %cmp.not.i = icmp eq i32 %2, 1
   br i1 %cmp.not.i, label %emitter_json_key_prefix.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %5 = load i32, ptr %nesting_depth.i.i, align 8
-  %6 = load i32, ptr %emitter, align 8
-  %cmp.i.i = icmp ne i32 %6, 0
+  %3 = load i32, ptr %nesting_depth.i.i, align 8
+  %4 = load i32, ptr %emitter, align 8
+  %cmp.i.i = icmp ne i32 %4, 0
   %indent_str.0.i.i = select i1 %cmp.i.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i = icmp sgt i32 %5, 0
+  %cmp15.i.i = icmp sgt i32 %3, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %emitter_json_key_prefix.exit
 
 for.body.preheader.i.i:                           ; preds = %if.then5.i
   %mul.i.i = zext i1 %cmp.i.i to i32
-  %amount.0.i.i = shl nuw nsw i32 %5, %mul.i.i
+  %amount.0.i.i = shl nuw nsw i32 %3, %mul.i.i
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
@@ -3733,8 +3701,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.6)
   %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %7 = load i32, ptr %nesting_depth.i, align 8
-  %inc.i = add nsw i32 %7, 1
+  %5 = load i32, ptr %nesting_depth.i, align 8
+  %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %nesting_depth.i, align 8
   %item_at_depth.i4 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i4, align 4
@@ -3814,9 +3782,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %emitted_key.i.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   store i8 0, ptr %emitted_key.i.i, align 1
@@ -3824,10 +3791,9 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %2 = load i8, ptr %item_at_depth.i.i, align 4
-  %3 = and i8 %2, 1
-  %tobool2.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
+  %1 = load i8, ptr %item_at_depth.i.i, align 4
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %if.end4.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.11)
@@ -3835,23 +3801,23 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.end.i.i
-  %4 = phi i32 [ %.pre.i, %if.then3.i.i ], [ %emitter.val.i, %if.end.i.i ]
-  %cmp.not.i.i = icmp eq i32 %4, 1
+  %2 = phi i32 [ %.pre.i, %if.then3.i.i ], [ %emitter.val.i, %if.end.i.i ]
+  %cmp.not.i.i = icmp eq i32 %2, 1
   br i1 %cmp.not.i.i, label %emitter_json_key_prefix.exit.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
   %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %5 = load i32, ptr %nesting_depth.i.i.i, align 8
-  %6 = load i32, ptr %emitter, align 8
-  %cmp.i.i.i = icmp ne i32 %6, 0
+  %3 = load i32, ptr %nesting_depth.i.i.i, align 8
+  %4 = load i32, ptr %emitter, align 8
+  %cmp.i.i.i = icmp ne i32 %4, 0
   %indent_str.0.i.i.i = select i1 %cmp.i.i.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i.i = icmp sgt i32 %5, 0
+  %cmp15.i.i.i = icmp sgt i32 %3, 0
   br i1 %cmp15.i.i.i, label %for.body.preheader.i.i.i, label %emitter_json_key_prefix.exit.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then5.i.i
   %mul.i.i.i = zext i1 %cmp.i.i.i to i32
-  %amount.0.i.i.i = shl nuw nsw i32 %5, %mul.i.i.i
+  %amount.0.i.i.i = shl nuw nsw i32 %3, %mul.i.i.i
   %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i.i, i32 1)
   br label %for.body.i.i.i
 
@@ -3865,8 +3831,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 emitter_json_key_prefix.exit.i:                   ; preds = %for.body.i.i.i, %if.then5.i.i, %if.end4.i.i, %if.then.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.213)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %7 = load i32, ptr %nesting_depth.i.i, align 8
-  %inc.i.i = add nsw i32 %7, 1
+  %5 = load i32, ptr %nesting_depth.i.i, align 8
+  %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %nesting_depth.i.i, align 8
   %item_at_depth.i4.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i4.i, align 4
@@ -3890,9 +3856,8 @@ entry:
 if.then:                                          ; preds = %entry
   %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
   store i8 0, ptr %emitted_key.i, align 1
@@ -3900,10 +3865,9 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %2 = load i8, ptr %item_at_depth.i, align 4
-  %3 = and i8 %2, 1
-  %tobool2.not.i = icmp eq i8 %3, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
+  %1 = load i8, ptr %item_at_depth.i, align 4
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.11)
@@ -3911,23 +3875,23 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  %4 = phi i32 [ %.pre, %if.then3.i ], [ %emitter.val, %if.end.i ]
-  %cmp.not.i = icmp eq i32 %4, 1
+  %2 = phi i32 [ %.pre, %if.then3.i ], [ %emitter.val, %if.end.i ]
+  %cmp.not.i = icmp eq i32 %2, 1
   br i1 %cmp.not.i, label %emitter_json_key_prefix.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %5 = load i32, ptr %nesting_depth.i.i, align 8
-  %6 = load i32, ptr %emitter, align 8
-  %cmp.i.i = icmp ne i32 %6, 0
+  %3 = load i32, ptr %nesting_depth.i.i, align 8
+  %4 = load i32, ptr %emitter, align 8
+  %cmp.i.i = icmp ne i32 %4, 0
   %indent_str.0.i.i = select i1 %cmp.i.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i = icmp sgt i32 %5, 0
+  %cmp15.i.i = icmp sgt i32 %3, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %emitter_json_key_prefix.exit
 
 for.body.preheader.i.i:                           ; preds = %if.then5.i
   %mul.i.i = zext i1 %cmp.i.i to i32
-  %amount.0.i.i = shl nuw nsw i32 %5, %mul.i.i
+  %amount.0.i.i = shl nuw nsw i32 %3, %mul.i.i
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
@@ -3986,9 +3950,8 @@ if.else4.i:                                       ; preds = %sw.bb
 
 emitter_gen_fmt.exit:                             ; preds = %if.then.i, %if.then2.i, %if.else4.i
   %0 = load i8, ptr %value, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.199, ptr @.str.198
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.198, ptr @.str.199
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, ptr noundef nonnull %cond)
   br label %sw.epilog
 
@@ -4011,8 +3974,8 @@ if.else4.i41:                                     ; preds = %sw.bb1
   br label %emitter_gen_fmt.exit43
 
 emitter_gen_fmt.exit43:                           ; preds = %if.then.i39, %if.then2.i37, %if.else4.i41
-  %2 = load i32, ptr %value, align 4
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i32 noundef %2)
+  %1 = load i32, ptr %value, align 4
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i32 noundef %1)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -4034,8 +3997,8 @@ if.else4.i48:                                     ; preds = %sw.bb4
   br label %emitter_gen_fmt.exit50
 
 emitter_gen_fmt.exit50:                           ; preds = %if.then.i46, %if.then2.i44, %if.else4.i48
-  %3 = load i64, ptr %value, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %3)
+  %2 = load i64, ptr %value, align 8
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %2)
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
@@ -4057,8 +4020,8 @@ if.else4.i55:                                     ; preds = %sw.bb7
   br label %emitter_gen_fmt.exit57
 
 emitter_gen_fmt.exit57:                           ; preds = %if.then.i53, %if.then2.i51, %if.else4.i55
-  %4 = load i32, ptr %value, align 4
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i32 noundef %4)
+  %3 = load i32, ptr %value, align 4
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i32 noundef %3)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
@@ -4080,8 +4043,8 @@ if.else4.i62:                                     ; preds = %sw.bb10
   br label %emitter_gen_fmt.exit64
 
 emitter_gen_fmt.exit64:                           ; preds = %if.then.i60, %if.then2.i58, %if.else4.i62
-  %5 = load i64, ptr %value, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %5)
+  %4 = load i64, ptr %value, align 8
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %4)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -4103,13 +4066,13 @@ if.else4.i69:                                     ; preds = %sw.bb13
   br label %emitter_gen_fmt.exit71
 
 emitter_gen_fmt.exit71:                           ; preds = %if.then.i67, %if.then2.i65, %if.else4.i69
-  %6 = load i64, ptr %value, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %6)
+  %5 = load i64, ptr %value, align 8
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %5)
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %7 = load ptr, ptr %value, align 8
-  %call18 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.205, ptr noundef %7) #13
+  %6 = load ptr, ptr %value, align 8
+  %call18 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.205, ptr noundef %6) #13
   switch i32 %justify, label %if.else4.i76 [
     i32 2, label %if.then.i74
     i32 0, label %if.then2.i72
@@ -4150,8 +4113,8 @@ if.else4.i83:                                     ; preds = %sw.bb22
   br label %emitter_gen_fmt.exit85
 
 emitter_gen_fmt.exit85:                           ; preds = %if.then.i81, %if.then2.i79, %if.else4.i83
-  %8 = load i32, ptr %value, align 4
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i32 noundef %8)
+  %7 = load i32, ptr %value, align 4
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i32 noundef %7)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
@@ -4173,8 +4136,8 @@ if.else4.i90:                                     ; preds = %sw.bb25
   br label %emitter_gen_fmt.exit92
 
 emitter_gen_fmt.exit92:                           ; preds = %if.then.i88, %if.then2.i86, %if.else4.i90
-  %9 = load i64, ptr %value, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %9)
+  %8 = load i64, ptr %value, align 8
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, i64 noundef %8)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -4196,8 +4159,8 @@ if.else4.i97:                                     ; preds = %sw.bb28
   br label %emitter_gen_fmt.exit99
 
 emitter_gen_fmt.exit99:                           ; preds = %if.then.i95, %if.then2.i93, %if.else4.i97
-  %10 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, ptr noundef %10)
+  %9 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull %fmt, ptr noundef %9)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -4212,10 +4175,10 @@ declare i64 @malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare ptr @tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mutex_stats_init_cols(ptr nocapture noundef %row, ptr noundef %table_name, ptr noundef %name, ptr noundef %col_uint64_t, ptr noundef %col_uint32_t) unnamed_addr #9 {
+define internal fastcc void @mutex_stats_init_cols(ptr nocapture noundef %row, ptr noundef %table_name, ptr noundef %name, ptr noundef %col_uint64_t, ptr noundef %col_uint32_t) unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %name, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4827,7 +4790,7 @@ if.end:                                           ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #7
+declare ptr @llvm.stacksave.p0() #9
 
 ; Function Attrs: cold nounwind uwtable
 define internal fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %i, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) unnamed_addr #4 {
@@ -9603,7 +9566,7 @@ if.end1033:                                       ; preds = %stats_arena_hpa_sha
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #7
+declare void @llvm.stackrestore.p0(ptr) #9
 
 ; Function Attrs: cold nounwind uwtable
 define internal fastcc void @stats_arena_bins_print(ptr nocapture noundef %emitter, i1 noundef zeroext %mutex, i32 noundef %i, i64 noundef %uptime) unnamed_addr #4 {
@@ -14096,6 +14059,12 @@ if.end206:                                        ; preds = %if.then205, %emitte
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
@@ -14118,9 +14087,9 @@ attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #4 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

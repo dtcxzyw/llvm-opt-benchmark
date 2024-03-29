@@ -1499,7 +1499,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator5InfoT12GetJsonArrayE
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %34, label %6
+  br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1516,7 +1516,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator5InfoT12GetJsonArrayE
   br label %17
 
 17:                                               ; preds = %6, %29
-  %.01621 = phi i8 [ 0, %6 ], [ %.1, %29 ]
+  %.01621 = phi i1 [ false, %6 ], [ %.1, %29 ]
   %.01720 = phi i32 [ 0, %6 ], [ %30, %29 ]
   %18 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %.01720)
   %19 = call noundef zeroext i1 @_ZNK4Json5Value8isStringEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
@@ -1551,18 +1551,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit
-  %.1 = phi i8 [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ], [ %.01621, %17 ]
+  %.1 = phi i1 [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ], [ %.01621, %17 ]
   %30 = add nuw i32 %.01720, 1
   %.not = icmp eq i32 %30, %4
-  br i1 %.not, label %31, label %17, !llvm.loop !150
+  br i1 %.not, label %.loopexit, label %17, !llvm.loop !150
 
-31:                                               ; preds = %29
-  %32 = and i8 %.1, 1
-  %33 = icmp ne i8 %32, 0
-  br label %34
-
-34:                                               ; preds = %2, %31
-  %.0 = phi i1 [ %33, %31 ], [ false, %2 ]
+.loopexit:                                        ; preds = %29, %2
+  %.0 = phi i1 [ false, %2 ], [ %.1, %29 ]
   ret i1 %.0
 }
 
@@ -1644,7 +1639,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator5InfoT12GetJsonArrayE
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %30, label %6
+  br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1662,7 +1657,7 @@ define dso_local noundef zeroext i1 @_ZN17cmQtAutoGenerator5InfoT12GetJsonArrayE
   br label %18
 
 18:                                               ; preds = %6, %25
-  %.01621 = phi i8 [ 0, %6 ], [ %.1, %25 ]
+  %.01621 = phi i1 [ false, %6 ], [ %.1, %25 ]
   %.01720 = phi i32 [ 0, %6 ], [ %26, %25 ]
   %19 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %.01720)
   %20 = call noundef zeroext i1 @_ZNK4Json5Value8isStringEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
@@ -1684,18 +1679,13 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %18, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE7emplaceIJS5_EEESt4pairINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEbEDpOT_.exit
-  %.1 = phi i8 [ 1, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE7emplaceIJS5_EEESt4pairINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEbEDpOT_.exit ], [ %.01621, %18 ]
+  %.1 = phi i1 [ true, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE7emplaceIJS5_EEESt4pairINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEbEDpOT_.exit ], [ %.01621, %18 ]
   %26 = add nuw i32 %.01720, 1
   %.not = icmp eq i32 %26, %4
-  br i1 %.not, label %27, label %18, !llvm.loop !153
+  br i1 %.not, label %.loopexit, label %18, !llvm.loop !153
 
-27:                                               ; preds = %25
-  %28 = and i8 %.1, 1
-  %29 = icmp ne i8 %28, 0
-  br label %30
-
-30:                                               ; preds = %2, %27
-  %.0 = phi i1 [ %29, %27 ], [ false, %2 ]
+.loopexit:                                        ; preds = %25, %2
+  %.0 = phi i1 [ false, %2 ], [ %.1, %25 ]
   ret i1 %.0
 }
 
@@ -4352,9 +4342,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

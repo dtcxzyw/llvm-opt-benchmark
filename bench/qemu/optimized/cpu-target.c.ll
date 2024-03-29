@@ -65,9 +65,8 @@ lor.lhs.false:                                    ; preds = %if.end
   %call5 = tail call ptr @qdev_get_vmsd(ptr noundef %call.i7) #16
   %unmigratable = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load i8, ptr %unmigratable, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_exec_realizefn) #17
@@ -115,8 +114,7 @@ define internal zeroext i1 @cpu_get_start_powered_off(ptr nocapture noundef read
 entry:
   %start_powered_off = getelementptr inbounds i8, ptr %obj, i64 204
   %0 = load i8, ptr %start_powered_off, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -242,17 +240,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %enabled) #16
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %1, i32 noundef %enabled) #16
   br label %trace_breakpoint_singlestep.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -273,8 +270,8 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %ap2 = alloca [1 x %struct.__va_list_tag], align 16
   %act = alloca %struct.sigaction, align 8
-  call void @llvm.va_start(ptr nonnull %ap)
-  call void @llvm.va_copy(ptr nonnull %ap2, ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap2, ptr nonnull %ap)
   %0 = load ptr, ptr @stderr, align 8
   %1 = call i64 @fwrite(ptr nonnull @.str.7, i64 13, i64 1, ptr %0) #18
   %2 = load ptr, ptr @stderr, align 8
@@ -300,8 +297,8 @@ if.then8:                                         ; preds = %if.then
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %if.then8, %entry
-  call void @llvm.va_end(ptr nonnull %ap2)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap2)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @replay_finish() #16
   %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
   %call16 = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #16
@@ -313,14 +310,8 @@ if.end13:                                         ; preds = %if.then, %if.then8,
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #6
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 declare void @cpu_dump_state(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -330,16 +321,13 @@ declare ptr @qemu_log_trylock() local_unnamed_addr #1
 
 declare void @qemu_log_unlock(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
-
 declare void @replay_finish() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @sigfillset(ptr noundef) local_unnamed_addr #8
+declare i32 @sigfillset(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind
 declare void @abort() local_unnamed_addr #2
@@ -415,22 +403,22 @@ declare i32 @page_get_flags(i64 noundef) local_unnamed_addr #1
 declare ptr @lock_user(i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @target_words_bigendian() local_unnamed_addr #10 {
+define dso_local noundef zeroext i1 @target_words_bigendian() local_unnamed_addr #9 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @target_name() local_unnamed_addr #10 {
+define dso_local noundef nonnull ptr @target_name() local_unnamed_addr #9 {
 entry:
   ret ptr @.str.9
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @page_size_init() local_unnamed_addr #11 {
+define dso_local void @page_size_init() local_unnamed_addr #10 {
 entry:
   %0 = load i64, ptr @qemu_host_page_size, align 8
   %cmp = icmp eq i64 %0, 0
@@ -465,14 +453,23 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #12
+declare i32 @getpagesize() local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
@@ -495,13 +492,13 @@ attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

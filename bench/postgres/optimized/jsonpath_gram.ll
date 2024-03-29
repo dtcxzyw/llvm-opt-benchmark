@@ -312,10 +312,10 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   store ptr %91, ptr %90, align 8
   %92 = getelementptr i8, ptr %.2357, i64 -16
   %93 = load i8, ptr %92, align 8
-  %94 = and i8 %93, 1
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store i8 %94, ptr %96, align 8
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = and i8 %93, 1
+  store i8 %96, ptr %95, align 8
   br label %makeItemList.exit
 
 97:                                               ; preds = %81

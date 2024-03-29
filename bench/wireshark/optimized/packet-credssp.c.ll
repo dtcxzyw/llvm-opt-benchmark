@@ -267,9 +267,8 @@ define internal noundef i32 @dissect_credssp_heur(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %12
   %19 = load i8, ptr %7, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %55, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %55
 
 21:                                               ; preds = %18
   %22 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %13, ptr noundef null, ptr noundef null) #5
@@ -305,8 +304,8 @@ define internal noundef i32 @dissect_credssp_heur(ptr noundef %0, ptr noundef %1
 42:                                               ; preds = %35
   %43 = load i32, ptr @exported_pdu_tap, align 4
   %44 = call i32 @have_tap_listener(i32 noundef %43) #5
-  %.not41 = icmp eq i32 %44, 0
-  br i1 %.not41, label %53, label %45
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %53, label %45
 
 45:                                               ; preds = %42
   %46 = call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef nonnull @.str.73, i16 noundef zeroext 12) #5

@@ -267,11 +267,10 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %3
 18:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   %19 = load i8, ptr %4, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
+  %20 = trunc i8 %19 to i1
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load i32, ptr %21, align 8
-  %.0 = select i1 %.not, i32 %22, i32 %17
+  %.0 = select i1 %20, i32 %17, i32 %22
   %23 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8QSpinBox16staticMetaObjectE, ptr noundef %1)
   call void @_ZN8QSpinBox8setValueEi(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %.0)
   br label %26
@@ -415,9 +414,8 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeIiLb1EE11deb
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsEi.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN6QDebuglsEi.exit
 
 11:                                               ; preds = %3
   %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 noundef signext 32)

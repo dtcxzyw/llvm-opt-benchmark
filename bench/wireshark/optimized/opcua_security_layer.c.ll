@@ -54,9 +54,8 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden void @parseSequenceHeader(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %3, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %17
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr @hf_opcua_sequence_seqno, align 4

@@ -1083,21 +1083,20 @@ define noundef zeroext i1 @_ZN8facebook5velox5cache8SsdCache10startWriteEv(ptr n
 entry:
   %isShutdown_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load atomic i8, ptr %isShutdown_ seq_cst, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %return
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %writesInProgress_ = getelementptr inbounds i8, ptr %this, i64 64
   %numShards_ = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i32, ptr %numShards_, align 8
-  %3 = atomicrmw add ptr %writesInProgress_, i32 %2 seq_cst, align 4
-  %cmp = icmp eq i32 %3, 0
+  %1 = load i32, ptr %numShards_, align 8
+  %2 = atomicrmw add ptr %writesInProgress_, i32 %1 seq_cst, align 4
+  %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %return, label %seqcst.i14
 
 seqcst.i14:                                       ; preds = %if.end
-  %4 = load i32, ptr %numShards_, align 8
-  %5 = atomicrmw sub ptr %writesInProgress_, i32 %4 seq_cst, align 4
+  %3 = load i32, ptr %numShards_, align 8
+  %4 = atomicrmw sub ptr %writesInProgress_, i32 %3 seq_cst, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %seqcst.i14

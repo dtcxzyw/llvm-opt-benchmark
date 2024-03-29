@@ -368,13 +368,12 @@ sw.default.i:                                     ; preds = %if.end7.i
 switch.hole_check:                                ; preds = %sw.bb27.i
   %switch.maskindex = trunc i32 %9 to i8
   %switch.shifted = lshr i8 71, %switch.maskindex
-  %11 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %11, 0
-  br i1 %switch.lobit.not, label %cryptodev_builtin_get_aes_algo.exit52.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %cryptodev_builtin_get_aes_algo.exit52.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %12 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.cryptodev_builtin_create_session, i64 0, i64 %12
+  %11 = zext nneg i32 %9 to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.cryptodev_builtin_create_session, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog.i
 
@@ -382,11 +381,11 @@ sw.epilog.i:                                      ; preds = %switch.lookup, %sw.
   %mode.0.i = phi i32 [ 3, %sw.bb36.i ], [ 1, %sw.bb35.i ], [ 0, %if.end7.i ], [ 0, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 0, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 1, %sw.bb13.i ], [ 1, %if.then5.i35.i ], [ 3, %if.then2.i43.i ], [ 3, %sw.bb20.i ], [ 3, %if.then5.i41.i ], [ 2, %switch.lookup ]
   %algo.0.i = phi i32 [ 4, %sw.bb36.i ], [ 4, %sw.bb35.i ], [ 4, %if.end7.i ], [ 1, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 2, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 0, %sw.bb13.i ], [ 2, %if.then5.i35.i ], [ 1, %if.then2.i43.i ], [ 0, %sw.bb20.i ], [ 2, %if.then5.i41.i ], [ %switch.load, %switch.lookup ]
   %cipher_key.i = getelementptr inbounds i8, ptr %sess_info, i64 40
-  %13 = load ptr, ptr %cipher_key.i, align 8
+  %12 = load ptr, ptr %cipher_key.i, align 8
   %key_len38.i = getelementptr inbounds i8, ptr %sess_info, i64 12
-  %14 = load i32, ptr %key_len38.i, align 4
-  %conv39.i = zext i32 %14 to i64
-  %call40.i = call ptr @qcrypto_cipher_new(i32 noundef %algo.0.i, i32 noundef %mode.0.i, ptr noundef %13, i64 noundef %conv39.i, ptr noundef nonnull %local_error) #6
+  %13 = load i32, ptr %key_len38.i, align 4
+  %conv39.i = zext i32 %13 to i64
+  %call40.i = call ptr @qcrypto_cipher_new(i32 noundef %algo.0.i, i32 noundef %mode.0.i, ptr noundef %12, i64 noundef %conv39.i, ptr noundef nonnull %local_error) #6
   %tobool.not.i = icmp eq ptr %call40.i, null
   br i1 %tobool.not.i, label %sw.epilog, label %if.end42.i
 
@@ -394,12 +393,12 @@ if.end42.i:                                       ; preds = %sw.epilog.i
   %call43.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store ptr %call40.i, ptr %call43.i, align 8
   %direction.i = getelementptr inbounds i8, ptr %sess_info, i64 33
-  %15 = load i8, ptr %direction.i, align 1
+  %14 = load i8, ptr %direction.i, align 1
   %direction45.i = getelementptr inbounds i8, ptr %call43.i, i64 8
-  store i8 %15, ptr %direction45.i, align 8
-  %16 = load i8, ptr %op_type.i, align 8
+  store i8 %14, ptr %direction45.i, align 8
+  %15 = load i8, ptr %op_type.i, align 8
   %type.i = getelementptr inbounds i8, ptr %call43.i, i64 9
-  store i8 %16, ptr %type.i, align 1
+  store i8 %15, ptr %type.i, align 1
   %idxprom.i = and i64 %i.05.i.i, 2147483647
   %arrayidx.i = getelementptr [256 x ptr], ptr %sessions.i.i, i64 0, i64 %idxprom.i
   store ptr %call43.i, ptr %arrayidx.i, align 8
@@ -408,59 +407,58 @@ if.end42.i:                                       ; preds = %sw.epilog.i
 sw.bb2:                                           ; preds = %entry
   %u3 = getelementptr inbounds i8, ptr %sess_info, i64 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %opts.i)
-  %17 = load i32, ptr %u3, align 8
-  %cond.i = icmp eq i32 %17, 1
+  %16 = load i32, ptr %u3, align 8
+  %cond.i = icmp eq i32 %16, 1
   br i1 %cond.i, label %sw.bb.i10, label %sw.default.i8
 
 sw.bb.i10:                                        ; preds = %sw.bb2
   store i32 0, ptr %opts.i, align 4
   %u.i = getelementptr inbounds i8, ptr %sess_info, i64 32
-  %18 = load i32, ptr %u.i, align 8
+  %17 = load i32, ptr %u.i, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %sess_info, i64 36
-  %19 = load i32, ptr %hash_algo.i, align 4
+  %18 = load i32, ptr %hash_algo.i, align 4
   %u2.i = getelementptr inbounds i8, ptr %opts.i, i64 4
-  switch i32 %18, label %if.end8.i.i [
+  switch i32 %17, label %if.end8.i.i [
     i32 1, label %if.then.i.i
     i32 0, label %sw.epilog.i11
   ]
 
 if.then.i.i:                                      ; preds = %sw.bb.i10
-  %switch.tableidx = add i32 %19, -4
-  %20 = icmp ult i32 %switch.tableidx, 5
-  br i1 %20, label %switch.hole_check35, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i
+  %switch.tableidx = add i32 %18, -4
+  %19 = icmp ult i32 %switch.tableidx, 5
+  br i1 %19, label %switch.hole_check35, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i
 
 cryptodev_builtin_get_rsa_hash_algo.exit.i.i:     ; preds = %switch.hole_check35, %if.then.i.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 183, ptr noundef nonnull @__func__.cryptodev_builtin_get_rsa_hash_algo, ptr noundef nonnull @.str.14, i32 noundef %19) #6
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 183, ptr noundef nonnull @__func__.cryptodev_builtin_get_rsa_hash_algo, ptr noundef nonnull @.str.14, i32 noundef %18) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
 switch.hole_check35:                              ; preds = %if.then.i.i
   %switch.maskindex37 = trunc i32 %switch.tableidx to i8
   %switch.shifted38 = lshr i8 23, %switch.maskindex37
-  %21 = and i8 %switch.shifted38, 1
-  %switch.lobit39.not = icmp eq i8 %21, 0
-  br i1 %switch.lobit39.not, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i, label %switch.lookup36
+  %switch.lobit39 = trunc i8 %switch.shifted38 to i1
+  br i1 %switch.lobit39, label %switch.lookup36, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i
 
 switch.lookup36:                                  ; preds = %switch.hole_check35
-  %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds [5 x i32], ptr @switch.table.cryptodev_builtin_create_session.1, i64 0, i64 %22
+  %20 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep40 = getelementptr inbounds [5 x i32], ptr @switch.table.cryptodev_builtin_create_session.1, i64 0, i64 %20
   %switch.load41 = load i32, ptr %switch.gep40, align 4
   store i32 %switch.load41, ptr %u2.i, align 4
   br label %sw.epilog.i11
 
 if.end8.i.i:                                      ; preds = %sw.bb.i10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 211, ptr noundef nonnull @__func__.cryptodev_builtin_set_rsa_options, ptr noundef nonnull @.str.13, i32 noundef %18) #6
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 211, ptr noundef nonnull @__func__.cryptodev_builtin_set_rsa_options, ptr noundef nonnull @.str.13, i32 noundef %17) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
 sw.default.i8:                                    ; preds = %sw.bb2
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.11, i32 noundef %17) #6
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.11, i32 noundef %16) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
 sw.epilog.i11:                                    ; preds = %switch.lookup36, %sw.bb.i10
   %padding_alg.i.i = getelementptr inbounds i8, ptr %opts.i, i64 8
-  store i32 %18, ptr %padding_alg.i.i, align 4
+  store i32 %17, ptr %padding_alg.i.i, align 4
   %keytype.i = getelementptr inbounds i8, ptr %sess_info, i64 12
-  %23 = load i32, ptr %keytype.i, align 4
-  switch i32 %23, label %sw.default6.i [
+  %21 = load i32, ptr %keytype.i, align 4
+  switch i32 %21, label %sw.default6.i [
     i32 1, label %sw.epilog8.i
     i32 2, label %sw.bb5.i
   ]
@@ -469,7 +467,7 @@ sw.bb5.i:                                         ; preds = %sw.epilog.i11
   br label %sw.epilog8.i
 
 sw.default6.i:                                    ; preds = %sw.epilog.i11
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 344, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.12, i32 noundef %23) #6
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 344, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.12, i32 noundef %21) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
 sw.epilog8.i:                                     ; preds = %sw.bb5.i, %sw.epilog.i11
@@ -480,8 +478,8 @@ sw.epilog8.i:                                     ; preds = %sw.bb5.i, %sw.epilo
 for.body.i.i13:                                   ; preds = %for.inc.i.i17, %sw.epilog8.i
   %i.05.i.i14 = phi i64 [ 0, %sw.epilog8.i ], [ %inc.i.i18, %for.inc.i.i17 ]
   %arrayidx.i.i15 = getelementptr [256 x ptr], ptr %sessions.i.i12, i64 0, i64 %i.05.i.i14
-  %24 = load ptr, ptr %arrayidx.i.i15, align 8
-  %cmp1.i.i16 = icmp eq ptr %24, null
+  %22 = load ptr, ptr %arrayidx.i.i15, align 8
+  %cmp1.i.i16 = icmp eq ptr %22, null
   br i1 %cmp1.i.i16, label %cryptodev_builtin_get_unused_session_index.exit.i20, label %for.inc.i.i17
 
 for.inc.i.i17:                                    ; preds = %for.body.i.i13
@@ -500,11 +498,11 @@ if.then11.i:                                      ; preds = %for.inc.i.i17, %cry
 
 if.end12.i:                                       ; preds = %cryptodev_builtin_get_unused_session_index.exit.i20
   %key.i = getelementptr inbounds i8, ptr %sess_info, i64 24
-  %25 = load ptr, ptr %key.i, align 8
+  %23 = load ptr, ptr %key.i, align 8
   %keylen.i = getelementptr inbounds i8, ptr %sess_info, i64 16
-  %26 = load i32, ptr %keylen.i, align 8
-  %conv.i22 = zext i32 %26 to i64
-  %call13.i = call ptr @qcrypto_akcipher_new(ptr noundef nonnull %opts.i, i32 noundef %type.0.i, ptr noundef %25, i64 noundef %conv.i22, ptr noundef nonnull %local_error) #6
+  %24 = load i32, ptr %keylen.i, align 8
+  %conv.i22 = zext i32 %24 to i64
+  %call13.i = call ptr @qcrypto_akcipher_new(ptr noundef nonnull %opts.i, i32 noundef %type.0.i, ptr noundef %23, i64 noundef %conv.i22, ptr noundef nonnull %local_error) #6
   %tobool.not.i23 = icmp eq ptr %call13.i, null
   br i1 %tobool.not.i23, label %cryptodev_builtin_create_akcipher_session.exit, label %if.end15.i
 
@@ -528,12 +526,12 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %if.end42.i, %sw.epilog.i, %sw.default.i, %cryptodev_builtin_get_aes_algo.exit52.i, %cryptodev_builtin_get_aes_algo.exit46.i, %cryptodev_builtin_get_aes_algo.exit40.i, %cryptodev_builtin_get_aes_algo.exit.i, %if.then6.i, %if.then.i, %cryptodev_builtin_create_akcipher_session.exit
   %ret.0 = phi i32 [ %retval.0.i9, %cryptodev_builtin_create_akcipher_session.exit ], [ -1, %if.then.i ], [ -1, %if.then6.i ], [ -1, %sw.default.i ], [ %conv.i.i, %if.end42.i ], [ -1, %cryptodev_builtin_get_aes_algo.exit.i ], [ -1, %cryptodev_builtin_get_aes_algo.exit40.i ], [ -1, %cryptodev_builtin_get_aes_algo.exit46.i ], [ -1, %cryptodev_builtin_get_aes_algo.exit52.i ], [ -1, %sw.epilog.i ]
-  %27 = load ptr, ptr %local_error, align 8
-  %tobool.not = icmp eq ptr %27, null
+  %25 = load ptr, ptr %local_error, align 8
+  %tobool.not = icmp eq ptr %25, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.epilog
-  call void @error_report_err(ptr noundef nonnull %27) #6
+  call void @error_report_err(ptr noundef nonnull %25) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.epilog

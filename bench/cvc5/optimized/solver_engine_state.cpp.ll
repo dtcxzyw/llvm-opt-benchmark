@@ -170,19 +170,17 @@ define hidden void @_ZN4cvc58internal3smt17SolverEngineState14notifyCheckSatEv(p
 entry:
   %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %base = getelementptr inbounds i8, ptr %call, i64 208
-  %2 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %2, i64 137
-  %3 = load i8, ptr %incrementalSolving, align 1
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  br i1 %tobool2.not, label %if.then, label %if.end
+  %1 = load ptr, ptr %base, align 8
+  %incrementalSolving = getelementptr inbounds i8, ptr %1, i64 137
+  %2 = load i8, ptr %incrementalSolving, align 1
+  %tobool2 = trunc i8 %2 to i1
+  br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #13
@@ -194,10 +192,10 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #13
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   store i8 1, ptr %d_queryMade, align 1
@@ -375,9 +373,8 @@ entry:
   %0 = load ptr, ptr %base, align 8
   %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #13
@@ -389,10 +386,10 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #13
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
   %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
@@ -408,9 +405,8 @@ entry:
   %0 = load ptr, ptr %base, align 8
   %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #13
@@ -422,10 +418,10 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #13
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
   %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
@@ -450,8 +446,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState13isF
 entry:
   %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %d_fullyInited, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -460,8 +455,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState11isQ
 entry:
   %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

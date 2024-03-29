@@ -3752,27 +3752,26 @@ entry:
   %call = tail call i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %src) #19
   %arrayidx = getelementptr inbounds i8, ptr %node_init, i64 %call
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %for.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr inbounds ptr, ptr %node_copies, i64 %call
-  %2 = load ptr, ptr %arrayidx2, align 8
-  %view_src = getelementptr inbounds i8, ptr %2, i64 264
-  %3 = load ptr, ptr %view_src, align 8
-  %cmp.not = icmp eq ptr %3, null
+  %1 = load ptr, ptr %arrayidx2, align 8
+  %view_src = getelementptr inbounds i8, ptr %1, i64 264
+  %2 = load ptr, ptr %view_src, align 8
+  %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %buffer = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %buffer, align 8
-  tail call void @ggml_backend_view_init(ptr noundef %4, ptr noundef nonnull %2)
+  %buffer = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %buffer, align 8
+  tail call void @ggml_backend_view_init(ptr noundef %3, ptr noundef nonnull %1)
   br label %if.end5
 
 if.else:                                          ; preds = %if.end
-  tail call void @ggml_backend_tensor_copy(ptr noundef %src, ptr noundef nonnull %2)
+  tail call void @ggml_backend_tensor_copy(ptr noundef %src, ptr noundef nonnull %1)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.else, %if.then3
@@ -3782,12 +3781,12 @@ if.end5:                                          ; preds = %if.else, %if.then3
 for.body:                                         ; preds = %if.end5, %if.end11
   %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %if.end11 ]
   %arrayidx8 = getelementptr inbounds [10 x ptr], ptr %src7, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %arrayidx8, align 8
-  %cmp9 = icmp eq ptr %5, null
+  %4 = load ptr, ptr %arrayidx8, align 8
+  %cmp9 = icmp eq ptr %4, null
   br i1 %cmp9, label %for.end, label %if.end11
 
 if.end11:                                         ; preds = %for.body
-  tail call fastcc void @graph_init_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %node_copies, ptr noundef %node_init, ptr noundef nonnull %5)
+  tail call fastcc void @graph_init_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %node_copies, ptr noundef %node_init, ptr noundef nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37

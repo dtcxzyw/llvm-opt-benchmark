@@ -3176,9 +3176,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(104) ptr @
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   %9 = getelementptr inbounds i8, ptr %1, i64 80
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 %11, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = and i8 %10, 1
+  store i8 %12, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = getelementptr inbounds i8, ptr %1, i64 88
   %15 = getelementptr inbounds i8, ptr %0, i64 96

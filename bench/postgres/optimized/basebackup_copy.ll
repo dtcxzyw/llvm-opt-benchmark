@@ -205,9 +205,8 @@ define internal void @bbsink_copystream_archive_contents(ptr nocapture noundef %
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @PqCommMethods, align 8
@@ -225,8 +224,8 @@ define internal void @bbsink_copystream_archive_contents(ptr nocapture noundef %
   %20 = add i64 %19, 65536
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   %22 = load i64, ptr %21, align 8
-  %.not17 = icmp ugt i64 %20, %22
-  br i1 %.not17, label %51, label %23
+  %.not = icmp ugt i64 %20, %22
+  br i1 %.not, label %51, label %23
 
 23:                                               ; preds = %17
   %24 = tail call i64 @GetCurrentTimestamp() #7
@@ -342,9 +341,8 @@ define internal void @bbsink_copystream_begin_manifest(ptr nocapture readnone %0
 define internal void @bbsink_copystream_manifest_contents(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %14, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @PqCommMethods, align 8

@@ -110,9 +110,8 @@ if.then6:                                         ; preds = %cond.true.i, %if.el
 if.end10:                                         ; preds = %cond.true.i
   %primitiveValue_.i = getelementptr inbounds i8, ptr %3, i64 20
   %5 = load i8, ptr %primitiveValue_.i, align 4
-  %6 = and i8 %5, 1
-  %tobool.i5.not = icmp eq i8 %6, 0
-  br i1 %tobool.i5.not, label %cond.false, label %cond.end
+  %tobool.i5 = trunc i8 %5 to i1
+  br i1 %tobool.i5, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then, %if.end10
   br label %cond.end
@@ -121,8 +120,8 @@ cond.end:                                         ; preds = %if.end10, %if.then,
   %.sink = phi i32 [ 36, %cond.false ], [ 35, %if.then ], [ 35, %if.end10 ]
   %identifierTable_.i.i7 = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call.i.i8 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i7, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %.sink) #2
-  %7 = ptrtoint ptr %call.i.i8 to i64
-  %or.i.i.i = or i64 %7, -844424930131968
+  %6 = ptrtoint ptr %call.i.i8 to i64
+  %or.i.i.i = or i64 %6, -844424930131968
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then6

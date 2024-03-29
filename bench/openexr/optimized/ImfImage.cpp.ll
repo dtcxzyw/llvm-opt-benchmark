@@ -1346,12 +1346,11 @@ for.body31.us:                                    ; preds = %invoke.cont17.us, %
   %55 = load i32, ptr %ySampling.us, align 8
   %pLinear.us = getelementptr inbounds i8, ptr %i.sroa.0.0139.us, i64 76
   %56 = load i8, ptr %pLinear.us, align 4
-  %57 = and i8 %56, 1
-  %tobool.us = icmp ne i8 %57, 0
+  %tobool.us = trunc i8 %56 to i1
   %vtable46.us = load ptr, ptr %52, align 8
   %vfn47.us = getelementptr inbounds i8, ptr %vtable46.us, i64 32
-  %58 = load ptr, ptr %vfn47.us, align 8
-  invoke void %58(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.us, i32 noundef %53, i32 noundef %54, i32 noundef %55, i1 noundef zeroext %tobool.us)
+  %57 = load ptr, ptr %vfn47.us, align 8
+  invoke void %57(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.us, i32 noundef %53, i32 noundef %54, i32 noundef %55, i1 noundef zeroext %tobool.us)
           to label %for.inc.us unwind label %lpad.loopexit.split.us
 
 for.inc.us:                                       ; preds = %for.body31.us
@@ -1386,8 +1385,8 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont3, %for.
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split.us, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit133.us, %lpad.loopexit.split.us ], [ %lpad.loopexit135.us, %lpad.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp136, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %59 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %60 = call ptr @__cxa_begin_catch(ptr %59) #22
+  %58 = extractvalue { ptr, i32 } %lpad.phi, 0
+  %59 = call ptr @__cxa_begin_catch(ptr %58) #22
   invoke void @_ZN7Imf_3_25Image11clearLevelsEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
           to label %invoke.cont57 unwind label %lpad56
 
@@ -1399,17 +1398,17 @@ for.end54:                                        ; preds = %for.cond7.for.inc52
   %y3.i3.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %max.i8.i = getelementptr inbounds i8, ptr %this, i64 16
   %y3.i.i7.i = getelementptr inbounds i8, ptr %this, i64 12
-  %61 = load i32, ptr %dataWindow, align 4
-  store i32 %61, ptr %_dataWindow.i, align 8
+  %60 = load i32, ptr %dataWindow, align 4
+  store i32 %60, ptr %_dataWindow.i, align 8
   %y.i.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
-  %62 = load i32, ptr %y.i.i, align 4
-  store i32 %62, ptr %y3.i.i7.i, align 4
+  %61 = load i32, ptr %y.i.i, align 4
+  store i32 %61, ptr %y3.i.i7.i, align 4
   %max3.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %63 = load i32, ptr %max3.i, align 4
-  store i32 %63, ptr %max.i8.i, align 8
+  %62 = load i32, ptr %max3.i, align 4
+  store i32 %62, ptr %max.i8.i, align 8
   %y.i2.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
-  %64 = load i32, ptr %y.i2.i, align 4
-  store i32 %64, ptr %y3.i3.i.i, align 4
+  %63 = load i32, ptr %y.i2.i, align 4
+  store i32 %63, ptr %y3.i3.i.i, align 4
   %_levelMode = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %levelMode, ptr %_levelMode, align 8
   %_levelRoundingMode = getelementptr inbounds i8, ptr %this, i64 28
@@ -1417,19 +1416,19 @@ for.end54:                                        ; preds = %for.cond7.for.inc52
   ret void
 
 lpad56:                                           ; preds = %invoke.cont57, %lpad
-  %65 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 eh.resume:                                        ; preds = %lpad56
-  resume { ptr, i32 } %65
+  resume { ptr, i32 } %64
 
 terminate.lpad:                                   ; preds = %lpad56
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #21
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #21
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont57
@@ -1986,8 +1985,7 @@ entry:
   %2 = load i32, ptr %ySampling, align 4
   %pLinear = getelementptr inbounds i8, ptr %channel, i64 12
   %3 = load i8, ptr %pLinear, align 4
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %tobool = trunc i8 %3 to i1
   tail call void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9PixelTypeEiib(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool)
   ret void
 }

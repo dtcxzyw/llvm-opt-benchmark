@@ -81,11 +81,10 @@ define hidden void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolv
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %1, i64 104
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
+  %24 = trunc i8 %23 to i1
   %25 = getelementptr inbounds i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
-  br i1 %.not, label %29, label %27
+  br i1 %24, label %27, label %29
 
 27:                                               ; preds = %21
   invoke void @_ZN5ceres8internal24FloatEigenSparseCholesky6CreateENS0_12OrderingTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, i32 noundef %26)

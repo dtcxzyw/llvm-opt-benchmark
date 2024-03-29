@@ -452,15 +452,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 define void @Z3_append_log(ptr nocapture noundef readonly %str) local_unnamed_addr #3 {
 entry:
   %0 = load atomic i8, ptr @g_z3_log_enabled seq_cst, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
-  %2 = load ptr, ptr @_ZL8g_z3_log, align 8
-  %cmp = icmp ne ptr %2, null
+  %tobool.i.i = trunc i8 %0 to i1
+  %1 = load ptr, ptr @_ZL8g_z3_log, align 8
+  %cmp = icmp ne ptr %1, null
   %or.cond = select i1 %tobool.i.i, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.17)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17)
   %call1.i = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_10ll_escapedE(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr %str)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i8 noundef signext 34)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)

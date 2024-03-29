@@ -96,7 +96,7 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
   %28 = load i32, ptr %27, align 8
   %.not13 = icmp eq i32 %28, %12
   %or.cond = select i1 %.not, i1 %.not13, i1 false
-  br i1 %or.cond, label %31, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit18
+  br i1 %or.cond, label %31, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit17
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds i8, ptr %0, i64 160
@@ -117,8 +117,8 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
           to label %.preheader unwind label %.thread
 
 .preheader:                                       ; preds = %33
-  %.not28 = icmp eq i32 %12, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i32 %12, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %36 = getelementptr inbounds i8, ptr %32, i64 100
@@ -130,10 +130,9 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
 39:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %40 = load i8, ptr %36, align 4
-  %41 = and i8 %40, 1
-  %.not.i = icmp eq i8 %41, 0
+  %41 = trunc i8 %40 to i1
   %42 = trunc i64 %indvars.iv to i32
-  br i1 %.not.i, label %43, label %47
+  br i1 %41, label %47, label %43
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %37, align 8
@@ -160,7 +159,7 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
   %57 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %32) #11
-  br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit22
+  br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21
 
 .thread:                                          ; preds = %33
   %58 = landingpad { ptr, i32 }
@@ -178,8 +177,8 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
 
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr %4, align 8
-  %.not.i16 = icmp eq ptr %63, null
-  br i1 %.not.i16, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit, label %64
+  %.not.i = icmp eq ptr %63, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit, label %64
 
 64:                                               ; preds = %62
   call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %63)
@@ -188,19 +187,19 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
 _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; preds = %62, %64
   store ptr null, ptr %4, align 8
   %65 = load ptr, ptr %3, align 8
-  %.not.i17 = icmp eq ptr %65, null
-  br i1 %.not.i17, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit18, label %66
+  %.not.i16 = icmp eq ptr %65, null
+  br i1 %.not.i16, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit17, label %66
 
 66:                                               ; preds = %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit
   call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %65)
-  br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit18
+  br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit17
 
 67:                                               ; preds = %._crit_edge
   %68 = landingpad { ptr, i32 }
           cleanup
   %69 = load ptr, ptr %4, align 8
-  %.not.i19 = icmp eq ptr %69, null
-  br i1 %.not.i19, label %71, label %70
+  %.not.i18 = icmp eq ptr %69, null
+  br i1 %.not.i18, label %71, label %70
 
 70:                                               ; preds = %67
   call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %69)
@@ -209,21 +208,21 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; p
 71:                                               ; preds = %70, %67
   store ptr null, ptr %4, align 8
   %.pre = load ptr, ptr %3, align 8
-  %.not.i21 = icmp eq ptr %.pre, null
-  br i1 %.not.i21, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit22, label %72
+  %.not.i20 = icmp eq ptr %.pre, null
+  br i1 %.not.i20, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21, label %72
 
 72:                                               ; preds = %.thread, %71
-  %.pn32 = phi { ptr, i32 } [ %58, %.thread ], [ %68, %71 ]
+  %.pn31 = phi { ptr, i32 } [ %58, %.thread ], [ %68, %71 ]
   %73 = phi ptr [ %32, %.thread ], [ %.pre, %71 ]
   call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %73)
-  br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit22
+  br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21
 
-_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit18: ; preds = %66, %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit, %23
+_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit17: ; preds = %66, %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit, %23
   %.0 = phi i1 [ false, %23 ], [ true, %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit ], [ true, %66 ]
   ret i1 %.0
 
-_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit22: ; preds = %72, %71, %56
-  %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %68, %71 ], [ %.pn32, %72 ]
+_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21: ; preds = %72, %71, %56
+  %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %68, %71 ], [ %.pn31, %72 ]
   resume { ptr, i32 } %.pn.pn
 }
 

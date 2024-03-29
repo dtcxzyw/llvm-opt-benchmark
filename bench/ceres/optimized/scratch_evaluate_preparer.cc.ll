@@ -190,9 +190,8 @@ define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer7PrepareEPKNS0_13
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 12
   %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %28, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %24, i64 16

@@ -22,6 +22,7 @@ $_ZNSt5dequeIcSaIcEE17_M_reallocate_mapEmb = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
+@_ZN4YAMLL17s_introFinalStateE = internal unnamed_addr constant [19 x i8] c"\00\00\00\00\01\01\00\00\00\00\01\01\00\00\00\00\00\01\01", align 16
 @_ZN4YAMLL18s_introTransitionsE = internal unnamed_addr constant [18 x [8 x i32]] [[8 x i32] [i32 1, i32 17, i32 17, i32 15, i32 6, i32 7, i32 12, i32 17], [8 x i32] [i32 2, i32 17, i32 17, i32 17, i32 17, i32 17, i32 5, i32 17], [8 x i32] [i32 4, i32 17, i32 17, i32 17, i32 3, i32 17, i32 17, i32 17], [8 x i32] [i32 17, i32 17, i32 17, i32 17, i32 17, i32 4, i32 17, i32 17], [8 x i32] [i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4], [8 x i32] [i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5], [8 x i32] [i32 17, i32 17, i32 17, i32 17, i32 17, i32 5, i32 17, i32 17], [8 x i32] [i32 17, i32 17, i32 17, i32 17, i32 8, i32 17, i32 17, i32 17], [8 x i32] [i32 9, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10], [8 x i32] [i32 11, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10], [8 x i32] [i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10], [8 x i32] [i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11], [8 x i32] [i32 13, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17], [8 x i32] [i32 14, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10], [8 x i32] [i32 11, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10], [8 x i32] [i32 17, i32 16, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17], [8 x i32] [i32 17, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17], [8 x i32] [i32 17, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17, i32 17]], align 16
 @_ZN4YAMLL17s_introUngetCountE = internal unnamed_addr constant [18 x [8 x i8]] [[8 x i8] c"\00\01\01\00\00\00\00\01", [8 x i8] c"\00\02\02\02\02\02\02\02", [8 x i8] c"\03\03\03\03\00\03\03\03", [8 x i8] c"\04\04\04\04\04\00\04\04", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\02\02\02\02\02\00\02\02", [8 x i8] c"\02\02\02\02\00\02\02\02", [8 x i8] c"\00\01\01\01\01\01\01\01", [8 x i8] c"\00\02\02\02\02\02\02\02", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\00\02\02\02\02\02\02\02", [8 x i8] c"\00\03\03\03\03\03\03\03", [8 x i8] c"\04\04\04\04\04\04\04\04", [8 x i8] c"\02\00\02\02\02\02\02\02", [8 x i8] c"\03\03\00\03\03\03\03\03", [8 x i8] c"\01\01\01\01\01\01\01\01"], align 16
 @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes = internal unnamed_addr constant [2 x [4 x i32]] [[4 x i32] [i32 3, i32 2, i32 1, i32 0], [4 x i32] [i32 0, i32 1, i32 2, i32 3]], align 16
@@ -200,19 +201,19 @@ if.end39.loopexit:                                ; preds = %for.inc
 if.end39:                                         ; preds = %if.end39.loopexit, %_ZN4YAML15IntroCharTypeOfEi.exit
   %nIntroUsed.2 = phi i32 [ %inc, %_ZN4YAML15IntroCharTypeOfEi.exit ], [ %6, %if.end39.loopexit ]
   %idxprom = zext i32 %2 to i64
-  %7 = lshr i64 127951, %idxprom
-  %8 = and i64 %7, 1
-  %tobool.not.not = icmp eq i64 %8, 0
-  br i1 %tobool.not.not, label %for.end40, label %for.body, !llvm.loop !6
+  %arrayidx = getelementptr inbounds [19 x i8], ptr @_ZN4YAMLL17s_introFinalStateE, i64 0, i64 %idxprom
+  %7 = load i8, ptr %arrayidx, align 1
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %for.end40, label %for.body, !llvm.loop !6
 
 for.end40:                                        ; preds = %if.end39
   %switch.tableidx = add i32 %2, -4
-  %9 = icmp ult i32 %switch.tableidx, 8
-  br i1 %9, label %switch.lookup, label %sw.epilog
+  %8 = icmp ult i32 %switch.tableidx, 8
+  br i1 %8, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %for.end40
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4YAML6StreamC2ERSi, i64 0, i64 %10
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4YAML6StreamC2ERSi, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 
@@ -222,27 +223,27 @@ sw.epilog:                                        ; preds = %switch.lookup, %for
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %11 = load ptr, ptr %_M_node.i.i.i, align 8
+  %10 = load ptr, ptr %_M_node.i.i.i, align 8
   %_M_node1.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %12 = load ptr, ptr %_M_node1.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %11 = load ptr, ptr %_M_node1.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %tobool.i.i.i = icmp ne ptr %11, null
+  %tobool.i.i.i = icmp ne ptr %10, null
   %conv.neg.i.i.i = sext i1 %tobool.i.i.i to i64
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 9
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_first.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %14 = load ptr, ptr %_M_first.i.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %14 to i64
+  %13 = load ptr, ptr %_M_first.i.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %13 to i64
   %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %15 = load ptr, ptr %_M_last.i.i.i, align 8
-  %16 = load ptr, ptr %_M_start.i.i, align 8
-  %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast8.i.i.i = ptrtoint ptr %16 to i64
+  %14 = load ptr, ptr %_M_last.i.i.i, align 8
+  %15 = load ptr, ptr %_M_start.i.i, align 8
+  %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast8.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub9.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.sub5.i.i.i = add i64 %sub.ptr.sub9.i.i.i, %sub.ptr.lhs.cast7.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub5.i.i.i, %mul.i.i.i

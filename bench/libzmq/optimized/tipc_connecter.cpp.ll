@@ -196,9 +196,8 @@ if.end27:                                         ; preds = %if.end
 switch.hole_check:                                ; preds = %if.then4
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 11283, %switch.maskindex
-  %7 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %7, 0
-  br i1 %switch.lobit.not, label %lor.rhs, label %return
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %return, label %lor.rhs
 
 return:                                           ; preds = %switch.hole_check, %lor.rhs, %if.end27
   %retval.0 = phi i32 [ %6, %if.end27 ], [ -1, %lor.rhs ], [ -1, %switch.hole_check ]

@@ -286,19 +286,19 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph129, label %._crit_edge.loopexit
+  br i1 %13, label %.lr.ph128, label %._crit_edge.loopexit
 
-.lr.ph129:                                        ; preds = %.lr.ph, %.critedge
-  %indvars.iv128 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
+.lr.ph128:                                        ; preds = %.lr.ph, %.critedge
+  %indvars.iv127 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv128
+  %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv127
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 42
-  br i1 %19, label %.critedge75, label %20
+  br i1 %19, label %.critedge74, label %20
 
-20:                                               ; preds = %.lr.ph129
+20:                                               ; preds = %.lr.ph128
   switch i32 %1, label %27 [
     i32 1, label %21
     i32 3, label %23
@@ -309,15 +309,15 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 21:                                               ; preds = %20
   %22 = icmp eq i8 %18, 114
-  br i1 %22, label %.critedge75, label %.critedge
+  br i1 %22, label %.critedge74, label %.critedge
 
 23:                                               ; preds = %20
   %24 = icmp eq i8 %18, 97
-  br i1 %24, label %.critedge75, label %.critedge
+  br i1 %24, label %.critedge74, label %.critedge
 
 25:                                               ; preds = %20
   %26 = icmp eq i8 %18, 119
-  br i1 %26, label %.critedge75, label %.critedge
+  br i1 %26, label %.critedge74, label %.critedge
 
 27:                                               ; preds = %20
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -328,9 +328,9 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 30:                                               ; preds = %20
   %31 = icmp eq i8 %18, 100
-  br i1 %31, label %.critedge75, label %.critedge
+  br i1 %31, label %.critedge74, label %.critedge
 
-.critedge75:                                      ; preds = %25, %23, %21, %.lr.ph129, %30
+.critedge74:                                      ; preds = %25, %23, %21, %.lr.ph128, %30
   %32 = getelementptr inbounds i8, ptr %16, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -338,11 +338,11 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %38, label %36
 
-36:                                               ; preds = %.critedge75
+36:                                               ; preds = %.critedge74
   %37 = sext i32 %35 to i64
   br label %45
 
-38:                                               ; preds = %.critedge75
+38:                                               ; preds = %.critedge74
   %39 = getelementptr inbounds i8, ptr %33, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -356,7 +356,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %47 = getelementptr i8, ptr %33, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit104, label %.preheader.i
+  br i1 %49, label %.loopexit103, label %.preheader.i
 
 .preheader.i:                                     ; preds = %45
   %50 = getelementptr i8, ptr %33, i64 16
@@ -376,25 +376,24 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %57 = getelementptr i32, ptr %47, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4
   %59 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %58) #6
-  br i1 %59, label %.loopexit104, label %53
+  br i1 %59, label %.loopexit103, label %53
 
-.loopexit104:                                     ; preds = %.lr.ph.i, %45
+.loopexit103:                                     ; preds = %.lr.ph.i, %45
   %60 = getelementptr inbounds i8, ptr %16, i64 24
   %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, 1
-  %.not70 = icmp eq i8 %62, 0
-  %. = select i1 %.not70, ptr %4, ptr %3
+  %62 = trunc i8 %61 to i1
+  %. = select i1 %62, ptr %3, ptr %4
   %63 = load ptr, ptr %., align 8
   %64 = tail call ptr @lappend(ptr noundef %63, ptr noundef nonnull %16) #6
   store ptr %64, ptr %., align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %53, %.loopexit104, %.preheader.i, %25, %23, %21, %20, %30
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv128, 1
+.critedge:                                        ; preds = %53, %.loopexit103, %.preheader.i, %25, %23, %21, %20, %30
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv127, 1
   %65 = load i32, ptr %10, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph129, label %._crit_edge.loopexit
+  br i1 %67, label %.lr.ph128, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.critedge, %.lr.ph
   %.pre = load ptr, ptr %4, align 8
@@ -405,38 +404,38 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   tail call void @list_sort(ptr noundef %68, ptr noundef nonnull @row_security_policy_cmp) #6
   %69 = load ptr, ptr @row_security_policy_hook_restrictive, align 8
   %.not64 = icmp eq ptr %69, null
-  br i1 %.not64, label %.thread94, label %70
+  br i1 %.not64, label %.thread93, label %70
 
 70:                                               ; preds = %._crit_edge
   %71 = tail call ptr %69(i32 noundef %1, ptr noundef %0) #6
   tail call void @list_sort(ptr noundef %71, ptr noundef nonnull @row_security_policy_cmp) #6
   %72 = getelementptr inbounds i8, ptr %71, i64 4
   %.not65 = icmp eq ptr %71, null
-  br i1 %.not65, label %.thread94, label %.lr.ph109
+  br i1 %.not65, label %.thread93, label %.lr.ph108
 
-.lr.ph109:                                        ; preds = %70
+.lr.ph108:                                        ; preds = %70
   %73 = getelementptr inbounds i8, ptr %71, i64 16
   %74 = load i32, ptr %72, align 4
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph112, label %.thread94
+  br i1 %75, label %.lr.ph111, label %.thread93
 
-.lr.ph112:                                        ; preds = %.lr.ph109, %check_role_for_policy.exit82
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %check_role_for_policy.exit82 ], [ 0, %.lr.ph109 ]
+.lr.ph111:                                        ; preds = %.lr.ph108, %check_role_for_policy.exit81
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %check_role_for_policy.exit81 ], [ 0, %.lr.ph108 ]
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr %union.ListCell, ptr %76, i64 %indvars.iv120
+  %77 = getelementptr %union.ListCell, ptr %76, i64 %indvars.iv119
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 4
-  %.not.i76 = icmp eq i32 %82, 0
-  br i1 %.not.i76, label %85, label %83
+  %.not.i75 = icmp eq i32 %82, 0
+  br i1 %.not.i75, label %85, label %83
 
-83:                                               ; preds = %.lr.ph112
+83:                                               ; preds = %.lr.ph111
   %84 = sext i32 %82 to i64
   br label %92
 
-85:                                               ; preds = %.lr.ph112
+85:                                               ; preds = %.lr.ph111
   %86 = getelementptr inbounds i8, ptr %80, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
@@ -450,75 +449,75 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %94 = getelementptr i8, ptr %80, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %.loopexit103, label %.preheader.i77
+  br i1 %96, label %.loopexit102, label %.preheader.i76
 
-.preheader.i77:                                   ; preds = %92
+.preheader.i76:                                   ; preds = %92
   %97 = getelementptr i8, ptr %80, i64 16
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.lr.ph.i79, label %check_role_for_policy.exit82
+  br i1 %99, label %.lr.ph.i78, label %check_role_for_policy.exit81
 
-100:                                              ; preds = %.lr.ph.i79
-  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
+100:                                              ; preds = %.lr.ph.i78
+  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %101 = load i32, ptr %97, align 4
   %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next.i81, %102
-  br i1 %103, label %.lr.ph.i79, label %check_role_for_policy.exit82, !llvm.loop !5
+  %103 = icmp slt i64 %indvars.iv.next.i80, %102
+  br i1 %103, label %.lr.ph.i78, label %check_role_for_policy.exit81, !llvm.loop !5
 
-.lr.ph.i79:                                       ; preds = %.preheader.i77, %100
-  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %100 ], [ 0, %.preheader.i77 ]
-  %104 = getelementptr i32, ptr %94, i64 %indvars.iv.i80
+.lr.ph.i78:                                       ; preds = %.preheader.i76, %100
+  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %100 ], [ 0, %.preheader.i76 ]
+  %104 = getelementptr i32, ptr %94, i64 %indvars.iv.i79
   %105 = load i32, ptr %104, align 4
   %106 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %105) #6
-  br i1 %106, label %.loopexit103, label %100
+  br i1 %106, label %.loopexit102, label %100
 
-.loopexit103:                                     ; preds = %.lr.ph.i79, %92
+.loopexit102:                                     ; preds = %.lr.ph.i78, %92
   %107 = load ptr, ptr %4, align 8
   %108 = tail call ptr @lappend(ptr noundef %107, ptr noundef %78) #6
   store ptr %108, ptr %4, align 8
-  br label %check_role_for_policy.exit82
+  br label %check_role_for_policy.exit81
 
-check_role_for_policy.exit82:                     ; preds = %100, %.preheader.i77, %.loopexit103
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+check_role_for_policy.exit81:                     ; preds = %100, %.preheader.i76, %.loopexit102
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %109 = load i32, ptr %72, align 4
   %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next121, %110
-  br i1 %111, label %.lr.ph112, label %.thread94
+  %111 = icmp slt i64 %indvars.iv.next120, %110
+  br i1 %111, label %.lr.ph111, label %.thread93
 
-.thread94:                                        ; preds = %check_role_for_policy.exit82, %70, %.lr.ph109, %._crit_edge
+.thread93:                                        ; preds = %check_role_for_policy.exit81, %70, %.lr.ph108, %._crit_edge
   %112 = load ptr, ptr @row_security_policy_hook_permissive, align 8
   %.not67 = icmp eq ptr %112, null
-  br i1 %.not67, label %.thread99, label %113
+  br i1 %.not67, label %.thread98, label %113
 
-113:                                              ; preds = %.thread94
+113:                                              ; preds = %.thread93
   %114 = tail call ptr %112(i32 noundef %1, ptr noundef %0) #6
   %115 = getelementptr inbounds i8, ptr %114, i64 4
   %.not68 = icmp eq ptr %114, null
-  br i1 %.not68, label %.thread99, label %.lr.ph115
+  br i1 %.not68, label %.thread98, label %.lr.ph114
 
-.lr.ph115:                                        ; preds = %113
+.lr.ph114:                                        ; preds = %113
   %116 = getelementptr inbounds i8, ptr %114, i64 16
   %117 = load i32, ptr %115, align 4
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph118, label %.thread99
+  br i1 %118, label %.lr.ph117, label %.thread98
 
-.lr.ph118:                                        ; preds = %.lr.ph115, %check_role_for_policy.exit89
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %check_role_for_policy.exit89 ], [ 0, %.lr.ph115 ]
+.lr.ph117:                                        ; preds = %.lr.ph114, %check_role_for_policy.exit88
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %check_role_for_policy.exit88 ], [ 0, %.lr.ph114 ]
   %119 = load ptr, ptr %116, align 8
-  %120 = getelementptr %union.ListCell, ptr %119, i64 %indvars.iv123
+  %120 = getelementptr %union.ListCell, ptr %119, i64 %indvars.iv122
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 4
-  %.not.i83 = icmp eq i32 %125, 0
-  br i1 %.not.i83, label %128, label %126
+  %.not.i82 = icmp eq i32 %125, 0
+  br i1 %.not.i82, label %128, label %126
 
-126:                                              ; preds = %.lr.ph118
+126:                                              ; preds = %.lr.ph117
   %127 = sext i32 %125 to i64
   br label %135
 
-128:                                              ; preds = %.lr.ph118
+128:                                              ; preds = %.lr.ph117
   %129 = getelementptr inbounds i8, ptr %123, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
@@ -532,42 +531,42 @@ check_role_for_policy.exit82:                     ; preds = %100, %.preheader.i7
   %137 = getelementptr i8, ptr %123, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %.loopexit, label %.preheader.i84
+  br i1 %139, label %.loopexit, label %.preheader.i83
 
-.preheader.i84:                                   ; preds = %135
+.preheader.i83:                                   ; preds = %135
   %140 = getelementptr i8, ptr %123, i64 16
   %141 = load i32, ptr %140, align 4
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph.i86, label %check_role_for_policy.exit89
+  br i1 %142, label %.lr.ph.i85, label %check_role_for_policy.exit88
 
-143:                                              ; preds = %.lr.ph.i86
-  %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
+143:                                              ; preds = %.lr.ph.i85
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %144 = load i32, ptr %140, align 4
   %145 = sext i32 %144 to i64
-  %146 = icmp slt i64 %indvars.iv.next.i88, %145
-  br i1 %146, label %.lr.ph.i86, label %check_role_for_policy.exit89, !llvm.loop !5
+  %146 = icmp slt i64 %indvars.iv.next.i87, %145
+  br i1 %146, label %.lr.ph.i85, label %check_role_for_policy.exit88, !llvm.loop !5
 
-.lr.ph.i86:                                       ; preds = %.preheader.i84, %143
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %143 ], [ 0, %.preheader.i84 ]
-  %147 = getelementptr i32, ptr %137, i64 %indvars.iv.i87
+.lr.ph.i85:                                       ; preds = %.preheader.i83, %143
+  %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i87, %143 ], [ 0, %.preheader.i83 ]
+  %147 = getelementptr i32, ptr %137, i64 %indvars.iv.i86
   %148 = load i32, ptr %147, align 4
   %149 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %148) #6
   br i1 %149, label %.loopexit, label %143
 
-.loopexit:                                        ; preds = %.lr.ph.i86, %135
+.loopexit:                                        ; preds = %.lr.ph.i85, %135
   %150 = load ptr, ptr %3, align 8
   %151 = tail call ptr @lappend(ptr noundef %150, ptr noundef %121) #6
   store ptr %151, ptr %3, align 8
-  br label %check_role_for_policy.exit89
+  br label %check_role_for_policy.exit88
 
-check_role_for_policy.exit89:                     ; preds = %143, %.preheader.i84, %.loopexit
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+check_role_for_policy.exit88:                     ; preds = %143, %.preheader.i83, %.loopexit
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %152 = load i32, ptr %115, align 4
   %153 = sext i32 %152 to i64
-  %154 = icmp slt i64 %indvars.iv.next124, %153
-  br i1 %154, label %.lr.ph118, label %.thread99
+  %154 = icmp slt i64 %indvars.iv.next123, %153
+  br i1 %154, label %.lr.ph117, label %.thread98
 
-.thread99:                                        ; preds = %check_role_for_policy.exit89, %113, %.lr.ph115, %.thread94
+.thread98:                                        ; preds = %check_role_for_policy.exit88, %113, %.lr.ph114, %.thread93
   ret void
 }
 

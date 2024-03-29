@@ -2906,9 +2906,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_EN
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -3140,9 +3139,8 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %49
 72:                                               ; preds = %._crit_edge
   %73 = getelementptr inbounds i8, ptr %2, i64 56
   %74 = load i8, ptr %73, align 8
-  %75 = and i8 %74, 1
-  %.not4.i = icmp eq i8 %75, 0
-  br i1 %.not4.i, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE10NeedUpdateEv.exit.thread, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE10NeedUpdateEv.exit
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE10NeedUpdateEv.exit.thread
 
 _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE10NeedUpdateEv.exit: ; preds = %._crit_edge, %72
   %76 = load ptr, ptr %10, align 8
@@ -3704,9 +3702,8 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %55
 78:                                               ; preds = %._crit_edge
   %79 = getelementptr inbounds i8, ptr %2, i64 56
   %80 = load i8, ptr %79, align 8
-  %81 = and i8 %80, 1
-  %.not4.i = icmp eq i8 %81, 0
-  br i1 %.not4.i, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit.thread, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit.thread
 
 _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit: ; preds = %._crit_edge, %78
   %82 = load ptr, ptr %5, align 8
@@ -4612,9 +4609,8 @@ declare double @llvm.fabs.f64(double) #13
 define void @_ZNK9FaceGroup13AverageNormalEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Point3") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(192) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %_ZN3vcg6Point3IdE9NormalizeEv.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZN3vcg6Point3IdE9NormalizeEv.exit
 
 6:                                                ; preds = %2
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
@@ -5615,9 +5611,8 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
 define noundef double @_ZNK9FaceGroup6AreaUVEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5633,9 +5628,8 @@ define noundef double @_ZNK9FaceGroup6AreaUVEv(ptr nocapture noundef nonnull ali
 define noundef double @_ZNK9FaceGroup6Area3DEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5651,9 +5645,8 @@ define noundef double @_ZNK9FaceGroup6Area3DEv(ptr nocapture noundef nonnull ali
 define noundef double @_ZNK9FaceGroup8BorderUVEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5669,9 +5662,8 @@ define noundef double @_ZNK9FaceGroup8BorderUVEv(ptr nocapture noundef nonnull a
 define noundef double @_ZNK9FaceGroup8Border3DEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5687,9 +5679,8 @@ define noundef double @_ZNK9FaceGroup8Border3DEv(ptr nocapture noundef nonnull a
 define noundef zeroext i1 @_ZNK9FaceGroup9UVFlippedEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5698,9 +5689,8 @@ define noundef zeroext i1 @_ZNK9FaceGroup9UVFlippedEv(ptr nocapture noundef nonn
 6:                                                ; preds = %5, %1
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  ret i1 %10
+  %9 = trunc i8 %8 to i1
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -5902,9 +5892,8 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit7:       ; preds = %73, %87, %89
 define noundef zeroext i1 @_ZN9FaceGroup9UVFlippedEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5913,9 +5902,8 @@ define noundef zeroext i1 @_ZN9FaceGroup9UVFlippedEv(ptr nocapture noundef nonnu
 6:                                                ; preds = %5, %1
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  ret i1 %10
+  %9 = trunc i8 %8 to i1
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -5954,9 +5942,8 @@ define noundef i64 @_ZNK9FaceGroup6NumAdjEv(ptr nocapture noundef nonnull readon
 define void @_ZNK9FaceGroup12UpdateBorderEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -7192,9 +7179,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupE
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -7587,9 +7573,8 @@ define noundef double @_ZNK9MeshGraph6Area3DEv(ptr nocapture noundef nonnull rea
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %_ZNK9FaceGroup6Area3DEv.exit, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZNK9FaceGroup6Area3DEv.exit
 
 8:                                                ; preds = %.lr.ph
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
@@ -7611,82 +7596,77 @@ _ZNK9FaceGroup6Area3DEv.exit:                     ; preds = %.lr.ph, %8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9MeshGraph14MappedFractionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.014.017 = load ptr, ptr %2, align 8
-  %.not18 = icmp eq ptr %.sroa.014.017, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.sroa.012.015 = load ptr, ptr %2, align 8
+  %.not16 = icmp eq ptr %.sroa.012.015, null
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %27
-  %.sroa.014.021 = phi ptr [ %.sroa.014.0, %27 ], [ %.sroa.014.017, %1 ]
-  %.020 = phi double [ %14, %27 ], [ 0.000000e+00, %1 ]
-  %.01019 = phi double [ %.1, %27 ], [ 0.000000e+00, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.sroa.014.021, i64 16
+.lr.ph:                                           ; preds = %1, %28
+  %.sroa.012.019 = phi ptr [ %.sroa.012.0, %28 ], [ %.sroa.012.015, %1 ]
+  %.018 = phi double [ %13, %28 ], [ 0.000000e+00, %1 ]
+  %.01017 = phi double [ %.1, %28 ], [ 0.000000e+00, %1 ]
+  %3 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %_ZNK9FaceGroup6Area3DEv.exit.thread, label %_ZNK9FaceGroup6Area3DEv.exit
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZNK9FaceGroup6Area3DEv.exit
 
-_ZNK9FaceGroup6Area3DEv.exit.thread:              ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %4, i64 136
-  %9 = load double, ptr %8, align 8
-  br label %_ZNK9FaceGroup6AreaUVEv.exit
-
-_ZNK9FaceGroup6Area3DEv.exit:                     ; preds = %.lr.ph
+8:                                                ; preds = %.lr.ph
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 120
-  %.pre23 = load i8, ptr %.phi.trans.insert, align 8
-  %.pre24 = and i8 %.pre23, 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 136
-  %11 = load double, ptr %10, align 8
-  %.not.i11 = icmp eq i8 %.pre24, 0
-  br i1 %.not.i11, label %_ZNK9FaceGroup6AreaUVEv.exit, label %12
+  %.pre21 = load i8, ptr %.phi.trans.insert, align 8
+  br label %_ZNK9FaceGroup6Area3DEv.exit
 
-12:                                               ; preds = %_ZNK9FaceGroup6Area3DEv.exit
-  tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %.pre)
+_ZNK9FaceGroup6Area3DEv.exit:                     ; preds = %.lr.ph, %8
+  %9 = phi i8 [ %6, %.lr.ph ], [ %.pre21, %8 ]
+  %10 = phi ptr [ %4, %.lr.ph ], [ %.pre, %8 ]
+  %11 = getelementptr inbounds i8, ptr %4, i64 136
+  %12 = load double, ptr %11, align 8
+  %13 = fadd double %.018, %12
+  %14 = trunc i8 %9 to i1
+  br i1 %14, label %15, label %_ZNK9FaceGroup6AreaUVEv.exit
+
+15:                                               ; preds = %_ZNK9FaceGroup6Area3DEv.exit
+  tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %10)
   br label %_ZNK9FaceGroup6AreaUVEv.exit
 
-_ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %_ZNK9FaceGroup6Area3DEv.exit.thread, %_ZNK9FaceGroup6Area3DEv.exit, %12
-  %.pn = phi double [ %9, %_ZNK9FaceGroup6Area3DEv.exit.thread ], [ %11, %_ZNK9FaceGroup6Area3DEv.exit ], [ %11, %12 ]
-  %13 = phi ptr [ %4, %_ZNK9FaceGroup6Area3DEv.exit.thread ], [ %.pre, %_ZNK9FaceGroup6Area3DEv.exit ], [ %.pre, %12 ]
-  %14 = fadd double %.020, %.pn
-  %15 = getelementptr inbounds i8, ptr %13, i64 128
-  %16 = load double, ptr %15, align 8
-  %17 = fcmp ogt double %16, 0.000000e+00
-  br i1 %17, label %18, label %27
+_ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %_ZNK9FaceGroup6Area3DEv.exit, %15
+  %16 = getelementptr inbounds i8, ptr %10, i64 128
+  %17 = load double, ptr %16, align 8
+  %18 = fcmp ogt double %17, 0.000000e+00
+  br i1 %18, label %19, label %28
 
-18:                                               ; preds = %_ZNK9FaceGroup6AreaUVEv.exit
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
-  %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not.i12 = icmp eq i8 %22, 0
-  br i1 %.not.i12, label %_ZNK9FaceGroup6Area3DEv.exit13, label %23
+19:                                               ; preds = %_ZNK9FaceGroup6AreaUVEv.exit
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 120
+  %22 = load i8, ptr %21, align 8
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZNK9FaceGroup6Area3DEv.exit11
 
-23:                                               ; preds = %18
-  tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %19)
-  br label %_ZNK9FaceGroup6Area3DEv.exit13
+24:                                               ; preds = %19
+  tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %20)
+  br label %_ZNK9FaceGroup6Area3DEv.exit11
 
-_ZNK9FaceGroup6Area3DEv.exit13:                   ; preds = %18, %23
-  %24 = getelementptr inbounds i8, ptr %19, i64 136
-  %25 = load double, ptr %24, align 8
-  %26 = fadd double %.01019, %25
-  br label %27
+_ZNK9FaceGroup6Area3DEv.exit11:                   ; preds = %19, %24
+  %25 = getelementptr inbounds i8, ptr %20, i64 136
+  %26 = load double, ptr %25, align 8
+  %27 = fadd double %.01017, %26
+  br label %28
 
-27:                                               ; preds = %_ZNK9FaceGroup6AreaUVEv.exit, %_ZNK9FaceGroup6Area3DEv.exit13
-  %.1 = phi double [ %26, %_ZNK9FaceGroup6Area3DEv.exit13 ], [ %.01019, %_ZNK9FaceGroup6AreaUVEv.exit ]
-  %.sroa.014.0 = load ptr, ptr %.sroa.014.021, align 8
-  %.not = icmp eq ptr %.sroa.014.0, null
+28:                                               ; preds = %_ZNK9FaceGroup6AreaUVEv.exit, %_ZNK9FaceGroup6Area3DEv.exit11
+  %.1 = phi double [ %27, %_ZNK9FaceGroup6Area3DEv.exit11 ], [ %.01017, %_ZNK9FaceGroup6AreaUVEv.exit ]
+  %.sroa.012.0 = load ptr, ptr %.sroa.012.019, align 8
+  %.not = icmp eq ptr %.sroa.012.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %27
-  %28 = fdiv double %.1, %14
+._crit_edge.loopexit:                             ; preds = %28
+  %29 = fdiv double %.1, %13
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %29 = phi double [ 0x7FF8000000000000, %1 ], [ %28, %._crit_edge.loopexit ]
-  ret double %29
+  %30 = phi double [ 0x7FF8000000000000, %1 ], [ %29, %._crit_edge.loopexit ]
+  ret double %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -7703,9 +7683,8 @@ define noundef double @_ZNK9MeshGraph6AreaUVEv(ptr nocapture noundef nonnull rea
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %_ZNK9FaceGroup6AreaUVEv.exit, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZNK9FaceGroup6AreaUVEv.exit
 
 8:                                                ; preds = %.lr.ph
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
@@ -7727,59 +7706,51 @@ _ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %.lr.ph, %8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9MeshGraph12SignedAreaUVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.08.012 = load ptr, ptr %2, align 8
-  %.not13 = icmp eq ptr %.sroa.08.012, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.sroa.07.010 = load ptr, ptr %2, align 8
+  %.not11 = icmp eq ptr %.sroa.07.010, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZNK9FaceGroup6AreaUVEv.exit
-  %.sroa.08.015 = phi ptr [ %.sroa.08.0, %_ZNK9FaceGroup6AreaUVEv.exit ], [ %.sroa.08.012, %1 ]
-  %.014 = phi double [ %21, %_ZNK9FaceGroup6AreaUVEv.exit ], [ 0.000000e+00, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.sroa.08.015, i64 16
+  %.sroa.07.013 = phi ptr [ %.sroa.07.0, %_ZNK9FaceGroup6AreaUVEv.exit ], [ %.sroa.07.010, %1 ]
+  %.012 = phi double [ %19, %_ZNK9FaceGroup6AreaUVEv.exit ], [ 0.000000e+00, %1 ]
+  %3 = getelementptr inbounds i8, ptr %.sroa.07.013, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %_ZN9FaceGroup9UVFlippedEv.exit.thread, label %_ZN9FaceGroup9UVFlippedEv.exit
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZN9FaceGroup9UVFlippedEv.exit
 
-_ZN9FaceGroup9UVFlippedEv.exit.thread:            ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %4, i64 184
-  %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not1119 = icmp eq i8 %10, 0
-  %11 = select i1 %.not1119, double 1.000000e+00, double -1.000000e+00
-  br label %_ZNK9FaceGroup6AreaUVEv.exit
-
-_ZN9FaceGroup9UVFlippedEv.exit:                   ; preds = %.lr.ph
+8:                                                ; preds = %.lr.ph
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 120
-  %.pre16 = load i8, ptr %.phi.trans.insert, align 8
-  %.pre17 = and i8 %.pre16, 1
-  %12 = getelementptr inbounds i8, ptr %4, i64 184
-  %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not11 = icmp eq i8 %14, 0
-  %15 = select i1 %.not11, double 1.000000e+00, double -1.000000e+00
-  %.not.i7 = icmp eq i8 %.pre17, 0
-  br i1 %.not.i7, label %_ZNK9FaceGroup6AreaUVEv.exit, label %16
+  %.pre14 = load i8, ptr %.phi.trans.insert, align 8
+  br label %_ZN9FaceGroup9UVFlippedEv.exit
+
+_ZN9FaceGroup9UVFlippedEv.exit:                   ; preds = %.lr.ph, %8
+  %9 = phi i8 [ %6, %.lr.ph ], [ %.pre14, %8 ]
+  %10 = phi ptr [ %4, %.lr.ph ], [ %.pre, %8 ]
+  %11 = getelementptr inbounds i8, ptr %4, i64 184
+  %12 = load i8, ptr %11, align 8
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, double -1.000000e+00, double 1.000000e+00
+  %15 = trunc i8 %9 to i1
+  br i1 %15, label %16, label %_ZNK9FaceGroup6AreaUVEv.exit
 
 16:                                               ; preds = %_ZN9FaceGroup9UVFlippedEv.exit
-  tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %.pre)
+  tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %10)
   br label %_ZNK9FaceGroup6AreaUVEv.exit
 
-_ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %_ZN9FaceGroup9UVFlippedEv.exit.thread, %_ZN9FaceGroup9UVFlippedEv.exit, %16
-  %17 = phi double [ %11, %_ZN9FaceGroup9UVFlippedEv.exit.thread ], [ %15, %_ZN9FaceGroup9UVFlippedEv.exit ], [ %15, %16 ]
-  %18 = phi ptr [ %4, %_ZN9FaceGroup9UVFlippedEv.exit.thread ], [ %.pre, %_ZN9FaceGroup9UVFlippedEv.exit ], [ %.pre, %16 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 128
-  %20 = load double, ptr %19, align 8
-  %21 = tail call double @llvm.fmuladd.f64(double %17, double %20, double %.014)
-  %.sroa.08.0 = load ptr, ptr %.sroa.08.015, align 8
-  %.not = icmp eq ptr %.sroa.08.0, null
+_ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %_ZN9FaceGroup9UVFlippedEv.exit, %16
+  %17 = getelementptr inbounds i8, ptr %10, i64 128
+  %18 = load double, ptr %17, align 8
+  %19 = tail call double @llvm.fmuladd.f64(double %14, double %18, double %.012)
+  %.sroa.07.0 = load ptr, ptr %.sroa.07.013, align 8
+  %.not = icmp eq ptr %.sroa.07.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK9FaceGroup6AreaUVEv.exit, %1
-  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %21, %_ZNK9FaceGroup6AreaUVEv.exit ]
+  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %19, %_ZNK9FaceGroup6AreaUVEv.exit ]
   ret double %.0.lcssa
 }
 
@@ -7797,9 +7768,8 @@ define noundef double @_ZNK9MeshGraph8BorderUVEv(ptr nocapture noundef nonnull r
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %_ZNK9FaceGroup8BorderUVEv.exit, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZNK9FaceGroup8BorderUVEv.exit
 
 8:                                                ; preds = %.lr.ph
   tail call void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
@@ -11299,9 +11269,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableISt10shared_ptrI9FaceGroupES2_SaIS2_EN
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

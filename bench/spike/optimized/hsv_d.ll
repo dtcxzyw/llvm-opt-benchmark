@@ -149,9 +149,8 @@ define noundef i64 @_Z16fast_rv64i_hsv_dP11processor_t6insn_tm(ptr nocapture nou
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %24, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -177,8 +176,8 @@ define noundef i64 @_Z16fast_rv64i_hsv_dP11processor_t6insn_tm(ptr nocapture nou
   %33 = lshr i64 %32, 9
   %.lobit = and i64 %33, 1
   %34 = xor i64 %.lobit, 1
-  %.not19 = icmp ult i64 %26, %34
-  br i1 %.not19, label %35, label %40
+  %.not = icmp ult i64 %26, %34
+  br i1 %.not, label %35, label %40
 
 35:                                               ; preds = %24
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -216,9 +215,8 @@ define noundef i64 @_Z16fast_rv64i_hsv_dP11processor_t6insn_tm(ptr nocapture nou
 54:                                               ; preds = %40
   %55 = getelementptr inbounds i8, ptr %53, i64 3801
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not21.i = icmp eq i8 %57, 0
-  br i1 %.not21.i, label %_ZN5mmu_t11guest_storeImEEvmT_.exit, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %_ZN5mmu_t11guest_storeImEEvmT_.exit
 
 58:                                               ; preds = %54
   store i8 8, ptr %5, align 8
@@ -305,9 +303,8 @@ define noundef i64 @_Z18logged_rv64i_hsv_dP11processor_t6insn_tm(ptr nocapture n
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %24, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -333,8 +330,8 @@ define noundef i64 @_Z18logged_rv64i_hsv_dP11processor_t6insn_tm(ptr nocapture n
   %33 = lshr i64 %32, 9
   %.lobit = and i64 %33, 1
   %34 = xor i64 %.lobit, 1
-  %.not19 = icmp ult i64 %26, %34
-  br i1 %.not19, label %35, label %40
+  %.not = icmp ult i64 %26, %34
+  br i1 %.not, label %35, label %40
 
 35:                                               ; preds = %24
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -372,9 +369,8 @@ define noundef i64 @_Z18logged_rv64i_hsv_dP11processor_t6insn_tm(ptr nocapture n
 54:                                               ; preds = %40
   %55 = getelementptr inbounds i8, ptr %53, i64 3801
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not21.i = icmp eq i8 %57, 0
-  br i1 %.not21.i, label %_ZN5mmu_t11guest_storeImEEvmT_.exit, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %_ZN5mmu_t11guest_storeImEEvmT_.exit
 
 58:                                               ; preds = %54
   store i8 8, ptr %5, align 8
@@ -453,9 +449,8 @@ define noundef i64 @_Z16fast_rv64e_hsv_dP11processor_t6insn_tm(ptr nocapture nou
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %24, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -481,8 +476,8 @@ define noundef i64 @_Z16fast_rv64e_hsv_dP11processor_t6insn_tm(ptr nocapture nou
   %33 = lshr i64 %32, 9
   %.lobit = and i64 %33, 1
   %34 = xor i64 %.lobit, 1
-  %.not23 = icmp ult i64 %26, %34
-  br i1 %.not23, label %35, label %40
+  %.not = icmp ult i64 %26, %34
+  br i1 %.not, label %35, label %40
 
 35:                                               ; preds = %24
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -552,9 +547,8 @@ define noundef i64 @_Z16fast_rv64e_hsv_dP11processor_t6insn_tm(ptr nocapture nou
 68:                                               ; preds = %63
   %69 = getelementptr inbounds i8, ptr %67, i64 3801
   %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 1
-  %.not21.i = icmp eq i8 %71, 0
-  br i1 %.not21.i, label %_ZN5mmu_t11guest_storeImEEvmT_.exit, label %72
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %_ZN5mmu_t11guest_storeImEEvmT_.exit
 
 72:                                               ; preds = %68
   store i8 8, ptr %5, align 8
@@ -633,9 +627,8 @@ define noundef i64 @_Z18logged_rv64e_hsv_dP11processor_t6insn_tm(ptr nocapture n
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 962
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %24, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -661,8 +654,8 @@ define noundef i64 @_Z18logged_rv64e_hsv_dP11processor_t6insn_tm(ptr nocapture n
   %33 = lshr i64 %32, 9
   %.lobit = and i64 %33, 1
   %34 = xor i64 %.lobit, 1
-  %.not23 = icmp ult i64 %26, %34
-  br i1 %.not23, label %35, label %40
+  %.not = icmp ult i64 %26, %34
+  br i1 %.not, label %35, label %40
 
 35:                                               ; preds = %24
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -732,9 +725,8 @@ define noundef i64 @_Z18logged_rv64e_hsv_dP11processor_t6insn_tm(ptr nocapture n
 68:                                               ; preds = %63
   %69 = getelementptr inbounds i8, ptr %67, i64 3801
   %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 1
-  %.not21.i = icmp eq i8 %71, 0
-  br i1 %.not21.i, label %_ZN5mmu_t11guest_storeImEEvmT_.exit, label %72
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %_ZN5mmu_t11guest_storeImEEvmT_.exit
 
 72:                                               ; preds = %68
   store i8 8, ptr %5, align 8
@@ -776,9 +768,8 @@ _ZN5mmu_t11guest_storeImEEvmT_.exit:              ; preds = %63, %68, %79, %84
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

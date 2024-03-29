@@ -434,8 +434,8 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
     i8 4, label %90
     i8 2, label %90
     i8 1, label %149
-    i8 5, label %297
-    i8 6, label %309
+    i8 5, label %296
+    i8 6, label %308
   ]
 
 14:                                               ; preds = %2, %2
@@ -929,58 +929,57 @@ xact_desc_subxacts.exit.i47:                      ; preds = %277, %xact_desc_sta
   %284 = load i32, ptr %283, align 8
   %285 = getelementptr inbounds i8, ptr %9, i64 52
   %286 = load i8, ptr %285, align 4
-  %287 = and i8 %286, 1
-  %288 = icmp ne i8 %287, 0
-  call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %280, ptr noundef %281, i32 noundef %282, i32 noundef %284, i1 noundef zeroext %288) #10
+  %287 = trunc i8 %286 to i1
+  call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %280, ptr noundef %281, i32 noundef %282, i32 noundef %284, i1 noundef zeroext %287) #10
   %.not.i48 = icmp eq i16 %151, 0
-  br i1 %.not.i48, label %xact_desc_prepare.exit, label %289
+  br i1 %.not.i48, label %xact_desc_prepare.exit, label %288
 
-289:                                              ; preds = %xact_desc_subxacts.exit.i47
-  %290 = zext i16 %151 to i32
-  %291 = load i64, ptr %158, align 8
-  %292 = lshr i64 %291, 32
-  %293 = trunc i64 %292 to i32
-  %294 = trunc i64 %291 to i32
-  %295 = load i64, ptr %161, align 8
-  %296 = call ptr @timestamptz_to_str(i64 noundef %295) #10
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %290, i32 noundef %293, i32 noundef %294, ptr noundef %296) #10
+288:                                              ; preds = %xact_desc_subxacts.exit.i47
+  %289 = zext i16 %151 to i32
+  %290 = load i64, ptr %158, align 8
+  %291 = lshr i64 %290, 32
+  %292 = trunc i64 %291 to i32
+  %293 = trunc i64 %290 to i32
+  %294 = load i64, ptr %161, align 8
+  %295 = call ptr @timestamptz_to_str(i64 noundef %294) #10
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %289, i32 noundef %292, i32 noundef %293, ptr noundef %295) #10
   br label %xact_desc_prepare.exit
 
-xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.exit.i47, %289
+xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.exit.i47, %288
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %3)
   br label %xact_desc_assignment.exit
 
-297:                                              ; preds = %2
-  %298 = load i32, ptr %9, align 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %298) #10
+296:                                              ; preds = %2
+  %297 = load i32, ptr %9, align 4
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %297) #10
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.25) #10
-  %299 = getelementptr inbounds i8, ptr %9, i64 4
-  %300 = load i32, ptr %299, align 4
-  %301 = icmp sgt i32 %300, 0
-  br i1 %301, label %.lr.ph.i, label %xact_desc_assignment.exit
+  %298 = getelementptr inbounds i8, ptr %9, i64 4
+  %299 = load i32, ptr %298, align 4
+  %300 = icmp sgt i32 %299, 0
+  br i1 %300, label %.lr.ph.i, label %xact_desc_assignment.exit
 
-.lr.ph.i:                                         ; preds = %297
-  %302 = getelementptr inbounds i8, ptr %9, i64 8
-  br label %303
+.lr.ph.i:                                         ; preds = %296
+  %301 = getelementptr inbounds i8, ptr %9, i64 8
+  br label %302
 
-303:                                              ; preds = %303, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %303 ]
-  %304 = getelementptr [0 x i32], ptr %302, i64 0, i64 %indvars.iv.i
-  %305 = load i32, ptr %304, align 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %305) #10
+302:                                              ; preds = %302, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %302 ]
+  %303 = getelementptr [0 x i32], ptr %301, i64 0, i64 %indvars.iv.i
+  %304 = load i32, ptr %303, align 4
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %304) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %306 = load i32, ptr %299, align 4
-  %307 = sext i32 %306 to i64
-  %308 = icmp slt i64 %indvars.iv.next.i, %307
-  br i1 %308, label %303, label %xact_desc_assignment.exit, !llvm.loop !9
+  %305 = load i32, ptr %298, align 4
+  %306 = sext i32 %305 to i64
+  %307 = icmp slt i64 %indvars.iv.next.i, %306
+  br i1 %307, label %302, label %xact_desc_assignment.exit, !llvm.loop !9
 
-309:                                              ; preds = %2
-  %310 = load i32, ptr %9, align 4
-  %311 = getelementptr inbounds i8, ptr %9, i64 4
-  tail call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %310, ptr noundef nonnull %311, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
+308:                                              ; preds = %2
+  %309 = load i32, ptr %9, align 4
+  %310 = getelementptr inbounds i8, ptr %9, i64 4
+  tail call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %309, ptr noundef nonnull %310, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
   br label %xact_desc_assignment.exit
 
-xact_desc_assignment.exit:                        ; preds = %303, %297, %2, %xact_desc_abort.exit, %309, %xact_desc_prepare.exit, %xact_desc_commit.exit
+xact_desc_assignment.exit:                        ; preds = %302, %296, %2, %xact_desc_abort.exit, %308, %xact_desc_prepare.exit, %xact_desc_commit.exit
   ret void
 }
 

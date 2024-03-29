@@ -126,11 +126,10 @@ define internal noundef i32 @mca_btl_self_free(ptr nocapture readnone %0, ptr no
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load volatile i64, ptr %7, align 8
-  br i1 %.not.i, label %26, label %9
+  br i1 %6, label %9, label %26
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -292,11 +291,10 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %15
   %50 = getelementptr inbounds i8, ptr %34, i64 144
   %51 = load ptr, ptr %50, align 8
   %52 = load i8, ptr @opal_uses_threads, align 1
-  %53 = and i8 %52, 1
-  %.not.i.i = icmp eq i8 %53, 0
+  %53 = trunc i8 %52 to i1
   %54 = getelementptr inbounds i8, ptr %51, i64 24
   %55 = load volatile i64, ptr %54, align 8
-  br i1 %.not.i.i, label %73, label %56
+  br i1 %53, label %56, label %73
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds i8, ptr %34, i64 16
@@ -443,11 +441,10 @@ define internal noundef i32 @mca_btl_self_send(ptr noundef %0, ptr noundef %1, p
   %29 = getelementptr inbounds i8, ptr %2, i64 144
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i = icmp eq i8 %32, 0
+  %32 = trunc i8 %31 to i1
   %33 = getelementptr inbounds i8, ptr %30, i64 24
   %34 = load volatile i64, ptr %33, align 8
-  br i1 %.not.i.i, label %52, label %35
+  br i1 %32, label %35, label %52
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds i8, ptr %2, i64 16
@@ -647,9 +644,8 @@ define internal fastcc ptr @opal_free_list_get(ptr noundef %0) unnamed_addr #0 {
   %.sroa.4.i.i = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %34, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %34
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)

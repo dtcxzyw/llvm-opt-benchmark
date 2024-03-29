@@ -1169,9 +1169,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   %430 = load i8, ptr %4, align 1
-  %431 = and i8 %430, 1
-  %.not = icmp eq i8 %431, 0
-  br i1 %.not, label %486, label %432
+  %431 = trunc i8 %430 to i1
+  br i1 %431, label %432, label %486
 
 432:                                              ; preds = %429
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
@@ -2143,16 +2142,14 @@ _ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit.thread123: ; preds = %.noexc61.th
 _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit: ; preds = %128, %135
   %139 = getelementptr inbounds i8, ptr %126, i64 232
   %140 = load i8, ptr %139, align 8
-  %141 = and i8 %140, 1
-  %.not.i = icmp eq i8 %141, 0
-  br i1 %.not.i, label %.noexc64, label %142
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %.noexc64
 
 142:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit
   %143 = getelementptr inbounds i8, ptr %126, i64 233
   %144 = load i8, ptr %143, align 1
-  %145 = and i8 %144, 1
-  %.not1.i = icmp eq i8 %145, 0
-  br i1 %.not1.i, label %.noexc64, label %146
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %.noexc64
 
 146:                                              ; preds = %142
   invoke void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %126)

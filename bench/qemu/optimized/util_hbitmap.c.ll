@@ -202,17 +202,16 @@ land.lhs.true5.i.i:                               ; preds = %for.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %13 = load i8, ptr @message_with_timestamp, align 1
-  %14 = and i8 %13, 1
-  %tobool7.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %13 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %15 = load i64, ptr %_now.i.i, align 8
+  %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %16 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %hbi, i64 noundef %pos.1.lcssa, i64 noundef %cur.0.lcssa) #12
+  %15 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %1, ptr noundef nonnull %hbi, i64 noundef %pos.1.lcssa, i64 noundef %cur.0.lcssa) #12
   br label %trace_hbitmap_iter_skip_words.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -669,7 +668,7 @@ entry:
   br i1 %cmp, label %if.end21.split, label %tailrecurse
 
 tailrecurse:                                      ; preds = %entry, %land.lhs.true
-  %hb.tr = phi ptr [ %18, %land.lhs.true ], [ %hb, %entry ]
+  %hb.tr = phi ptr [ %17, %land.lhs.true ], [ %hb, %entry ]
   %granularity = getelementptr inbounds i8, ptr %hb.tr, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
@@ -691,16 +690,15 @@ land.lhs.true5.i.i:                               ; preds = %tailrecurse
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %6 = load i64, ptr %_now.i.i, align 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %hb.tr, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr3) #12
+  %5 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %hb.tr, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr3) #12
   br label %trace_hbitmap_set.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -709,12 +707,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_hbitmap_set.exit:                           ; preds = %tailrecurse, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load i32, ptr %granularity, align 8
-  %sh_prom5 = zext i32 %8 to i64
+  %7 = load i32, ptr %granularity, align 8
+  %sh_prom5 = zext i32 %7 to i64
   %shr9 = lshr i64 %sub, %sh_prom5
   %size = getelementptr inbounds i8, ptr %hb.tr, i64 8
-  %9 = load i64, ptr %size, align 8
-  %cmp10 = icmp ult i64 %shr9, %9
+  %8 = load i64, ptr %size, align 8
+  %cmp10 = icmp ult i64 %shr9, %8
   br i1 %cmp10, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %trace_hbitmap_set.exit
@@ -725,11 +723,11 @@ if.end12:                                         ; preds = %trace_hbitmap_set.e
   %shr6 = lshr i64 %start, %sh_prom5
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb.tr, i64 noundef %shr6, i64 noundef %shr9)
   %count16 = getelementptr inbounds i8, ptr %hb.tr, i64 16
-  %10 = load i64, ptr %count16, align 8
+  %9 = load i64, ptr %count16, align 8
   %.neg = add nuw i64 %shr9, 1
-  %11 = add i64 %shr6, %call
-  %sub15 = sub i64 %.neg, %11
-  %add17 = add i64 %sub15, %10
+  %10 = add i64 %shr6, %call
+  %sub15 = sub i64 %.neg, %10
+  %add17 = add i64 %sub15, %9
   store i64 %add17, ptr %count16, align 8
   %levels26.i = getelementptr inbounds i8, ptr %hb.tr, i64 40
   br label %tailrecurse.i
@@ -748,15 +746,15 @@ tailrecurse.i:                                    ; preds = %hb_set_elem.exit37.
 if.then.i:                                        ; preds = %tailrecurse.i
   %arrayidx.i = getelementptr [7 x ptr], ptr %levels26.i, i64 0, i64 %idxprom.i
   %or.i = or i64 %start.tr.i, 63
-  %12 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx2.i = getelementptr i64, ptr %12, i64 %shr.i
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx2.i = getelementptr i64, ptr %11, i64 %shr.i
   %add.i = add i64 %or.i, 1
   %and6.i.i = and i64 %start.tr.i, 63
   %shl7.neg.i.i = shl nsw i64 -1, %and6.i.i
-  %13 = load i64, ptr %arrayidx2.i, align 8
-  %or.i.i = or i64 %13, %shl7.neg.i.i
+  %12 = load i64, ptr %arrayidx2.i, align 8
+  %or.i.i = or i64 %12, %shl7.neg.i.i
   store i64 %or.i.i, ptr %arrayidx2.i, align 8
-  %cmp8.i.i = icmp ne i64 %13, %or.i.i
+  %cmp8.i.i = icmp ne i64 %12, %or.i.i
   %inc43.i = add nuw nsw i64 %shr.i, 1
   %cmp744.i = icmp eq i64 %inc43.i, %shr1.i
   br i1 %cmp744.i, label %if.end25.i, label %if.end.i
@@ -766,10 +764,10 @@ if.end.i:                                         ; preds = %if.then.i, %if.end.
   %next.046.i = phi i64 [ %add6.i, %if.end.i ], [ %add.i, %if.then.i ]
   %changed.0.in45.i = phi i1 [ %or1828.i, %if.end.i ], [ %cmp8.i.i, %if.then.i ]
   %add6.i = add i64 %next.046.i, 64
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx13.i = getelementptr i64, ptr %14, i64 %inc47.i
-  %15 = load i64, ptr %arrayidx13.i, align 8
-  %cmp14.i = icmp eq i64 %15, 0
+  %13 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx13.i = getelementptr i64, ptr %13, i64 %inc47.i
+  %14 = load i64, ptr %arrayidx13.i, align 8
+  %cmp14.i = icmp eq i64 %14, 0
   %or1828.i = or i1 %changed.0.in45.i, %cmp14.i
   store i64 -1, ptr %arrayidx13.i, align 8
   %inc.i = add i64 %inc47.i, 1
@@ -781,8 +779,8 @@ if.end25.i:                                       ; preds = %if.end.i, %if.then.
   %changed.1.i = phi i1 [ %cmp8.i.i, %if.then.i ], [ false, %tailrecurse.i ], [ %or1828.i, %if.end.i ]
   %i.1.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end.i ]
   %arrayidx28.i = getelementptr [7 x ptr], ptr %levels26.i, i64 0, i64 %idxprom.i
-  %16 = load ptr, ptr %arrayidx28.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %16, i64 %i.1.i
+  %15 = load ptr, ptr %arrayidx28.i, align 8
+  %arrayidx29.i = getelementptr i64, ptr %15, i64 %i.1.i
   %cmp.unshifted.i30.i = xor i64 %start.addr.0.i, %last.tr.i
   %cmp.i31.i = icmp ult i64 %cmp.unshifted.i30.i, 64
   br i1 %cmp.i31.i, label %if.end.i.i, label %if.else.i32.i
@@ -805,10 +803,10 @@ hb_set_elem.exit37.i:                             ; preds = %if.end.i.i
   %and6.i33.i = and i64 %start.addr.0.i, 63
   %shl7.neg.i34.i = shl nsw i64 -1, %and6.i33.i
   %sub.i.i = add i64 %shl7.neg.i34.i, %shl.i.i
-  %17 = load i64, ptr %arrayidx29.i, align 8
-  %or.i35.i = or i64 %17, %sub.i.i
+  %16 = load i64, ptr %arrayidx29.i, align 8
+  %or.i35.i = or i64 %16, %sub.i.i
   store i64 %or.i35.i, ptr %arrayidx29.i, align 8
-  %cmp8.i36.i = icmp ne i64 %17, %or.i35.i
+  %cmp8.i36.i = icmp ne i64 %16, %or.i35.i
   %or3429.i = or i1 %changed.1.i, %cmp8.i36.i
   %cmp37.i = icmp ne i32 %level.tr.i, 0
   %brmerge.not.i = select i1 %cmp37.i, i1 %or3429.i, i1 false
@@ -821,8 +819,8 @@ hb_set_between.exit:                              ; preds = %hb_set_elem.exit37.
 
 land.lhs.true:                                    ; preds = %hb_set_between.exit
   %meta = getelementptr inbounds i8, ptr %hb.tr, i64 32
-  %18 = load ptr, ptr %meta, align 8
-  %tobool.not = icmp eq ptr %18, null
+  %17 = load ptr, ptr %meta, align 8
+  %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %if.end21.split, label %tailrecurse
 
 if.end21.split:                                   ; preds = %hb_set_between.exit, %land.lhs.true, %entry
@@ -984,17 +982,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end10
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr15) #12
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr15) #12
   br label %trace_hbitmap_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1003,12 +1000,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_hbitmap_reset.exit:                         ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i32, ptr %granularity, align 8
-  %sh_prom17 = zext i32 %10 to i64
+  %9 = load i32, ptr %granularity, align 8
+  %sh_prom17 = zext i32 %9 to i64
   %shr21 = lshr i64 %sub, %sh_prom17
   %size = getelementptr inbounds i8, ptr %hb, i64 8
-  %11 = load i64, ptr %size, align 8
-  %cmp22 = icmp ult i64 %shr21, %11
+  %10 = load i64, ptr %size, align 8
+  %cmp22 = icmp ult i64 %shr21, %10
   br i1 %cmp22, label %if.end25, label %if.else24
 
 if.else24:                                        ; preds = %trace_hbitmap_reset.exit
@@ -1019,8 +1016,8 @@ if.end25:                                         ; preds = %trace_hbitmap_reset
   %shr18 = lshr i64 %start, %sh_prom17
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef %shr18, i64 noundef %shr21)
   %count26 = getelementptr inbounds i8, ptr %hb, i64 16
-  %12 = load i64, ptr %count26, align 8
-  %sub27 = sub i64 %12, %call
+  %11 = load i64, ptr %count26, align 8
+  %sub27 = sub i64 %11, %call
   store i64 %sub27, ptr %count26, align 8
   %levels22.i = getelementptr inbounds i8, ptr %hb, i64 40
   br label %tailrecurse.i
@@ -1039,22 +1036,21 @@ tailrecurse.i:                                    ; preds = %if.then34.i, %if.en
 if.then.i:                                        ; preds = %tailrecurse.i
   %arrayidx.i = getelementptr [7 x ptr], ptr %levels22.i, i64 0, i64 %idxprom.i
   %or.i = or i64 %start.tr.i, 63
-  %13 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx2.i = getelementptr i64, ptr %13, i64 %shr.i
+  %12 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx2.i = getelementptr i64, ptr %12, i64 %shr.i
   %add.i = add i64 %or.i, 1
   %and6.i.i = and i64 %start.tr.i, 63
   %shl7.neg.i.i = shl nsw i64 -1, %and6.i.i
-  %14 = load i64, ptr %arrayidx2.i, align 8
-  %cmp8.not.i.i = icmp eq i64 %14, 0
+  %13 = load i64, ptr %arrayidx2.i, align 8
+  %cmp8.not.i.i = icmp eq i64 %13, 0
   %not.i.i = xor i64 %shl7.neg.i.i, -1
-  %and9.i.i = and i64 %14, %not.i.i
+  %and9.i.i = and i64 %13, %not.i.i
   %cmp10.i.i = icmp ne i64 %and9.i.i, 0
   %.not.i = select i1 %cmp8.not.i.i, i1 true, i1 %cmp10.i.i
   store i64 %and9.i.i, ptr %arrayidx2.i, align 8
   %inc.i = zext i1 %.not.i to i64
   %pos.0.i = add nuw nsw i64 %shr.i, %inc.i
   %not..not.i = xor i1 %.not.i, true
-  %changed.0.i = zext i1 %not..not.i to i8
   %inc543.i = add nuw nsw i64 %shr.i, 1
   %cmp644.i = icmp eq i64 %inc543.i, %shr1.i
   br i1 %cmp644.i, label %if.end21.i, label %if.end8.i
@@ -1062,14 +1058,13 @@ if.then.i:                                        ; preds = %tailrecurse.i
 if.end8.i:                                        ; preds = %if.then.i, %if.end8.i
   %inc547.i = phi i64 [ %inc5.i, %if.end8.i ], [ %inc543.i, %if.then.i ]
   %next.046.i = phi i64 [ %add4.i, %if.end8.i ], [ %add.i, %if.then.i ]
-  %changed.145.i = phi i8 [ %18, %if.end8.i ], [ %changed.0.i, %if.then.i ]
+  %changed.145.i = phi i1 [ %16, %if.end8.i ], [ %not..not.i, %if.then.i ]
   %add4.i = add i64 %next.046.i, 64
-  %15 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx12.i = getelementptr i64, ptr %15, i64 %inc547.i
-  %16 = load i64, ptr %arrayidx12.i, align 8
-  %cmp13.i = icmp ne i64 %16, 0
-  %17 = zext i1 %cmp13.i to i8
-  %18 = or i8 %changed.145.i, %17
+  %14 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx12.i = getelementptr i64, ptr %14, i64 %inc547.i
+  %15 = load i64, ptr %arrayidx12.i, align 8
+  %cmp13.i = icmp ne i64 %15, 0
+  %16 = or i1 %changed.145.i, %cmp13.i
   store i64 0, ptr %arrayidx12.i, align 8
   %inc5.i = add i64 %inc547.i, 1
   %cmp6.i = icmp eq i64 %inc5.i, %shr1.i
@@ -1078,11 +1073,11 @@ if.end8.i:                                        ; preds = %if.then.i, %if.end8
 if.end21.i:                                       ; preds = %if.end8.i, %if.then.i, %tailrecurse.i
   %start.addr.0.i = phi i64 [ %add.i, %if.then.i ], [ %start.tr.i, %tailrecurse.i ], [ %add4.i, %if.end8.i ]
   %pos.1.i = phi i64 [ %pos.0.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %pos.0.i, %if.end8.i ]
-  %changed.2.i = phi i8 [ %changed.0.i, %if.then.i ], [ 0, %tailrecurse.i ], [ %18, %if.end8.i ]
+  %changed.2.i = phi i1 [ %not..not.i, %if.then.i ], [ false, %tailrecurse.i ], [ %16, %if.end8.i ]
   %i.1.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end8.i ]
   %arrayidx24.i = getelementptr [7 x ptr], ptr %levels22.i, i64 0, i64 %idxprom.i
-  %19 = load ptr, ptr %arrayidx24.i, align 8
-  %arrayidx25.i = getelementptr i64, ptr %19, i64 %i.1.i
+  %17 = load ptr, ptr %arrayidx24.i, align 8
+  %arrayidx25.i = getelementptr i64, ptr %17, i64 %i.1.i
   %cmp.unshifted.i28.i = xor i64 %start.addr.0.i, %last.tr.i
   %cmp.i29.i = icmp ult i64 %cmp.unshifted.i28.i, 64
   br i1 %cmp.i29.i, label %if.end.i.i, label %if.else.i30.i
@@ -1105,21 +1100,20 @@ hb_reset_elem.exit37.i:                           ; preds = %if.end.i.i
   %and6.i31.i = and i64 %start.addr.0.i, 63
   %shl7.neg.i32.i = shl nsw i64 -1, %and6.i31.i
   %sub.i.i = add i64 %shl7.neg.i32.i, %shl.i.i
-  %20 = load i64, ptr %arrayidx25.i, align 8
-  %cmp8.not.i33.i = icmp ne i64 %20, 0
+  %18 = load i64, ptr %arrayidx25.i, align 8
+  %cmp8.not.i33.i = icmp ne i64 %18, 0
   %not.i34.i = xor i64 %sub.i.i, -1
-  %and9.i35.i = and i64 %20, %not.i34.i
+  %and9.i35.i = and i64 %18, %not.i34.i
   %cmp10.i36.i = icmp eq i64 %and9.i35.i, 0
-  %21 = select i1 %cmp8.not.i33.i, i1 %cmp10.i36.i, i1 false
+  %19 = select i1 %cmp8.not.i33.i, i1 %cmp10.i36.i, i1 false
   store i64 %and9.i35.i, ptr %arrayidx25.i, align 8
-  %22 = icmp ne i8 %changed.2.i, 0
-  %changed.3.i = select i1 %21, i1 true, i1 %22
+  %changed.3.i = select i1 %19, i1 true, i1 %changed.2.i
   %cmp30.i = icmp ne i32 %level.tr.i, 0
   %brmerge.not.i = select i1 %cmp30.i, i1 %changed.3.i, i1 false
   br i1 %brmerge.not.i, label %if.then34.i, label %hb_reset_between.exit
 
 if.then34.i:                                      ; preds = %hb_reset_elem.exit37.i
-  %not..i = xor i1 %21, true
+  %not..i = xor i1 %19, true
   %dec.i = sext i1 %not..i to i64
   %lastpos.0.i = add nsw i64 %shr1.i, %dec.i
   %sub35.i = add nsw i32 %level.tr.i, -1
@@ -1131,12 +1125,12 @@ hb_reset_between.exit:                            ; preds = %hb_reset_elem.exit3
 
 land.lhs.true:                                    ; preds = %hb_reset_between.exit
   %meta = getelementptr inbounds i8, ptr %hb, i64 32
-  %23 = load ptr, ptr %meta, align 8
-  %tobool.not = icmp eq ptr %23, null
+  %20 = load ptr, ptr %meta, align 8
+  %tobool.not = icmp eq ptr %20, null
   br i1 %tobool.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true
-  tail call void @hbitmap_set(ptr noundef nonnull %23, i64 noundef %start, i64 noundef %count)
+  tail call void @hbitmap_set(ptr noundef nonnull %20, i64 noundef %start, i64 noundef %count)
   br label %if.end31
 
 if.end31:                                         ; preds = %entry, %if.then29, %land.lhs.true, %hb_reset_between.exit

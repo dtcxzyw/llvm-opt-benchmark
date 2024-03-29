@@ -100,8 +100,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %strictMode_.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i8, ptr %strictMode_.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i = icmp ne i8 %2, 0
+  %tobool.i.i = trunc i8 %1 to i1
   ret i1 %tobool.i.i
 }
 
@@ -175,8 +174,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %useStaticBuiltin_.i = getelementptr inbounds i8, ptr %0, i64 1172
   %1 = load i8, ptr %useStaticBuiltin_.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 

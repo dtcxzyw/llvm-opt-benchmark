@@ -183,8 +183,8 @@ entry:
   %0 = load ptr, ptr %output, align 8
   call void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32) %array_stream, ptr noundef %0, i32 noundef 2147483647, i32 noundef -1)
   %1 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
-  %2 = and i8 %1, 1
   %cur_.i = getelementptr inbounds i8, ptr %o, i64 64
+  %frombool.i.i = and i8 %1, 1
   %buffer_.i.i = getelementptr inbounds i8, ptr %o, i64 16
   store ptr %buffer_.i.i, ptr %o, align 8
   %buffer_end_.i.i = getelementptr inbounds i8, ptr %o, i64 8
@@ -196,7 +196,7 @@ entry:
   %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %o, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
   %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %o, i64 58
-  store i8 %2, ptr %is_serialization_deterministic_.i.i, align 2
+  store i8 %frombool.i.i, ptr %is_serialization_deterministic_.i.i, align 2
   %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %o, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
@@ -206,65 +206,65 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
   %call.i.i5 = call noundef zeroext i1 @_ZN6google8protobuf2io17ArrayOutputStream4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(32) %array_stream, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
-  %3 = load i32, ptr %size.i.i, align 4
-  %cmp.i.i = icmp sgt i32 %3, 0
-  %4 = select i1 %call.i.i5, i1 %cmp.i.i, i1 false
-  br i1 %4, label %if.then.i.i, label %entry.invoke.cont2_crit_edge
+  %2 = load i32, ptr %size.i.i, align 4
+  %cmp.i.i = icmp sgt i32 %2, 0
+  %3 = select i1 %call.i.i5, i1 %cmp.i.i, i1 false
+  br i1 %3, label %if.then.i.i, label %entry.invoke.cont2_crit_edge
 
 entry.invoke.cont2_crit_edge:                     ; preds = %entry
   %.pre = load ptr, ptr %cur_.i, align 8
   br label %invoke.cont2
 
 if.then.i.i:                                      ; preds = %entry
-  %5 = load ptr, ptr %data.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %3, 16
-  %idx.ext.i.i.i = zext nneg i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i.i
+  %4 = load ptr, ptr %data.i.i, align 8
+  %cmp.i.i.i = icmp ugt i32 %2, 16
+  %idx.ext.i.i.i = zext nneg i32 %2 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %buffer_.i.i, i64 %idx.ext.i.i.i
   %add.ptr4.sink.i.i.i = select i1 %cmp.i.i.i, ptr %add.ptr2.i.i.i, ptr %add.ptr4.i.i.i
-  %data.sink.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %5
-  %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %5, ptr %buffer_.i.i
+  %data.sink.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %4
+  %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %4, ptr %buffer_.i.i
   store ptr %add.ptr4.sink.i.i.i, ptr %o, align 8
   store ptr %data.sink.i.i.i, ptr %buffer_end_.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %cur_.i, align 8
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %entry.invoke.cont2_crit_edge, %if.then.i.i
-  %6 = phi ptr [ %.pre, %entry.invoke.cont2_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
+  %5 = phi ptr [ %.pre, %entry.invoke.cont2_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
   %is_deterministic = getelementptr inbounds i8, ptr %output, i64 8
-  %7 = load i8, ptr %is_deterministic, align 8
-  %8 = and i8 %7, 1
-  store i8 %8, ptr %is_serialization_deterministic_.i.i, align 2
+  %6 = load i8, ptr %is_deterministic, align 8
+  %frombool.i.i6 = and i8 %6, 1
+  store i8 %frombool.i.i6, ptr %is_serialization_deterministic_.i.i, align 2
   %vtable.i = load ptr, ptr %msg, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
-  %9 = load ptr, ptr %vfn.i, align 8
-  %call3.i7 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %6, ptr noundef nonnull %o)
+  %7 = load ptr, ptr %vfn.i, align 8
+  %call3.i8 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %5, ptr noundef nonnull %o)
           to label %invoke.cont3 unwind label %lpad1
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  store ptr %call3.i7, ptr %cur_.i, align 8
-  %call.i10 = invoke noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(60) %o, ptr noundef %call3.i7)
+  store ptr %call3.i8, ptr %cur_.i, align 8
+  %call.i11 = invoke noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(60) %o, ptr noundef %call3.i8)
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %10 = load i64, ptr %start_count_.i, align 8
-  %sub.i = sub nsw i64 %call.i10, %10
-  %11 = load ptr, ptr %output, align 8
+  %8 = load i64, ptr %start_count_.i, align 8
+  %sub.i = sub nsw i64 %call.i11, %8
+  %9 = load ptr, ptr %output, align 8
   %sext = shl i64 %sub.i, 32
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.ext
   store ptr %add.ptr, ptr %output, align 8
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %o) #12
   ret void
 
 lpad1:                                            ; preds = %invoke.cont3, %invoke.cont2
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %o) #12
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %10
 }
 
 declare void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
@@ -393,18 +393,17 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %4 = load atomic i8, ptr @_ZN6google8protobuf8internal28init_protobuf_defaults_stateE acquire, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.i.not.i.i, label %if.then.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit
+  %tobool.i.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %6 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited acquire, align 8
-  %guard.uninitialized.i.i.i = icmp eq i8 %6, 0
+  %5 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited acquire, align 8
+  %guard.uninitialized.i.i.i = icmp eq i8 %5, 0
   br i1 %guard.uninitialized.i.i.i, label %init.check.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit, !prof !4
 
 init.check.i.i.i:                                 ; preds = %if.then.i.i
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #12
-  %tobool.not.i.i.i = icmp eq i32 %7, 0
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #12
+  %tobool.not.i.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
@@ -416,20 +415,20 @@ invoke.cont.i.i.i:                                ; preds = %init.i.i.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit
 
 lpad.i.i.i:                                       ; preds = %init.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #12
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit: ; preds = %invoke.cont.i.i.i, %init.check.i.i.i, %if.then.i.i, %if.else.i, %if.then.i
   %retval.i.0 = phi ptr [ %unknown_fields.i, %if.then.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %if.else.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %if.then.i.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %init.check.i.i.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %invoke.cont.i.i.i ]
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.i.0) #12
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.i.0) #12
   %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
-  %9 = load ptr, ptr %cur_.i.i, align 8
-  %10 = load ptr, ptr %output, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
+  %8 = load ptr, ptr %cur_.i.i, align 8
+  %9 = load ptr, ptr %output, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sext.i = shl i64 %call2.i, 32
   %conv.i.i.i = ashr exact i64 %sext.i, 32
@@ -438,13 +437,13 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112bas
 
 if.then.i.i.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit
   %conv.i = trunc i64 %call2.i to i32
-  %call.i.i.i2 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call.i, i32 noundef %conv.i, ptr noundef %9)
+  %call.i.i.i2 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call.i, i32 noundef %conv.i, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit
   %conv3.i.i.i = and i64 %call2.i, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %call.i, i64 %conv3.i.i.i, i1 false)
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 %conv.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %call.i, i64 %conv3.i.i.i, i1 false)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 %conv.i.i.i
   br label %_ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i

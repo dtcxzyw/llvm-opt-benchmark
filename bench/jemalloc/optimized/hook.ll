@@ -136,9 +136,8 @@ if.end8.i.i:                                      ; preds = %acquire.i47.i.i
 seq_try_load_hooks.exit.i:                        ; preds = %if.end8.i.i, %acquire.i47.i.i, %for.body.i
   %hooks_internal.sroa.3.1.i = phi i8 [ %hooks_internal.sroa.3.0.copyload.i, %if.end8.i.i ], [ %hooks_internal.sroa.3.014.i, %acquire.i47.i.i ], [ %hooks_internal.sroa.3.014.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i.i)
-  %6 = and i8 %hooks_internal.sroa.3.1.i, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %if.then.i5, label %for.cond.i
+  %tobool.i = trunc i8 %hooks_internal.sroa.3.1.i to i1
+  br i1 %tobool.i, label %for.cond.i, label %if.then.i5
 
 if.then.i5:                                       ; preds = %seq_try_load_hooks.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i7.i)
@@ -147,8 +146,8 @@ if.then.i5:                                       ; preds = %seq_try_load_hooks.
   store i8 1, ptr %hooks_internal.sroa.3.0.buf.i7.sroa_idx.i, align 16
   %hooks_internal.sroa.5.0.buf.i7.sroa_idx.i = getelementptr inbounds i8, ptr %buf.i7.i, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.5.0.buf.i7.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.5.i, i64 7, i1 false)
-  %7 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %add.i.i = add i64 %7, 1
+  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %add.i.i = add i64 %6, 1
   store atomic i64 %add.i.i, ptr %arrayidx.i monotonic, align 8
   fence release
   %data.i8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -158,18 +157,18 @@ for.body.i9.i:                                    ; preds = %for.body.i9.i, %if.
   %i.014.i.i = phi i64 [ 0, %if.then.i5 ], [ %inc.i11.i, %for.body.i9.i ]
   %arrayidx2.i.i = getelementptr inbounds [5 x %struct.atomic_zu_t], ptr %data.i8.i, i64 0, i64 %i.014.i.i
   %arrayidx3.i10.i = getelementptr inbounds [5 x i64], ptr %buf.i7.i, i64 0, i64 %i.014.i.i
-  %8 = load i64, ptr %arrayidx3.i10.i, align 8
-  store atomic i64 %8, ptr %arrayidx2.i.i monotonic, align 8
+  %7 = load i64, ptr %arrayidx3.i10.i, align 8
+  store atomic i64 %7, ptr %arrayidx2.i.i monotonic, align 8
   %inc.i11.i = add nuw nsw i64 %i.014.i.i, 1
   %exitcond.not.i12.i = icmp eq i64 %inc.i11.i, 5
   br i1 %exitcond.not.i12.i, label %if.then, label %for.body.i9.i, !llvm.loop !8
 
 if.then:                                          ; preds = %for.body.i9.i
-  %add5.i.i = add i64 %7, 2
+  %add5.i.i = add i64 %6, 2
   store atomic i64 %add5.i.i, ptr %arrayidx.i release, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i7.i)
-  %9 = load atomic i32, ptr @nhooks.0 monotonic, align 4
-  %add.i = add i32 %9, 1
+  %8 = load atomic i32, ptr @nhooks.0 monotonic, align 4
+  %add.i = add i32 %8, 1
   store atomic i32 %add.i, ptr @nhooks.0 monotonic, align 4
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hooks_internal.sroa.5.i)
   tail call void @tsd_global_slow_inc(ptr noundef %tsdn) #6
@@ -302,30 +301,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr @tsd_booted, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.not.i, label %hook_reentrantp.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %hook_reentrantp.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i = getelementptr inbounds i8, ptr %3, i64 824
-  %4 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %4, 0
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i.i = getelementptr inbounds i8, ptr %2, i64 824
+  %3 = load i8, ptr %state.i.i.i, align 8
+  %cmp6.i.not.i = icmp eq i8 %3, 0
   br i1 %cmp6.i.not.i, label %hook_reentrantp.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
   br label %hook_reentrantp.exit
 
 hook_reentrantp.exit:                             ; preds = %if.end, %if.end.i.i, %if.then11.i.i
-  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %3, %if.end.i.i ]
+  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %2, %if.end.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.i.0.i, null
   %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 216
   %retval.0.i = select i1 %cmp.i.i.i, ptr @hook_reentrantp.in_hook_global, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i
-  %5 = load i8, ptr %retval.0.i, align 1
-  %6 = and i8 %5, 1
-  %tobool3.not = icmp eq i8 %6, 0
-  br i1 %tobool3.not, label %if.end5, label %return
+  %4 = load i8, ptr %retval.0.i, align 1
+  %tobool3 = trunc i8 %4 to i1
+  br i1 %tobool3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %hook_reentrantp.exit
   store i8 1, ptr %retval.0.i, align 1
@@ -337,8 +334,8 @@ for.body:                                         ; preds = %if.end5, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %7 = load atomic i64, ptr %arrayidx acquire, align 16
-  %rem.i = and i64 %7, 1
+  %5 = load atomic i64, ptr %arrayidx acquire, align 16
+  %rem.i = and i64 %5, 1
   %cmp.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %seq_try_load_hooks.exit.thread
 
@@ -349,17 +346,17 @@ for.cond.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %i.07.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [5 x %struct.atomic_zu_t], ptr %data.i, i64 0, i64 %i.07.i
-  %8 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %arrayidx3.i = getelementptr inbounds [5 x i64], ptr %buf.i, i64 0, i64 %i.07.i
-  store i64 %8, ptr %arrayidx3.i, align 8
+  store i64 %6, ptr %arrayidx3.i, align 8
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %acquire.i47.i, label %for.body.i, !llvm.loop !7
 
 acquire.i47.i:                                    ; preds = %for.body.i
   fence acquire
-  %9 = load atomic i64, ptr %arrayidx monotonic, align 16
-  %cmp6.not.i = icmp eq i64 %7, %9
+  %7 = load atomic i64, ptr %arrayidx monotonic, align 16
+  %cmp6.not.i = icmp eq i64 %5, %7
   br i1 %cmp6.not.i, label %if.end11, label %seq_try_load_hooks.exit.thread
 
 seq_try_load_hooks.exit.thread:                   ; preds = %for.body, %acquire.i47.i
@@ -371,11 +368,10 @@ if.end11:                                         ; preds = %acquire.i47.i
   %hook.sroa.27.0.copyload = load ptr, ptr %hook.sroa.27.0.buf.i.sroa_idx, align 8
   %hook.sroa.3.0.copyload = load i8, ptr %hook.sroa.3.0.buf.i.sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  %10 = and i8 %hook.sroa.3.0.copyload, 1
-  %tobool12.not = icmp eq i8 %10, 0
-  %cmp15.not = icmp eq ptr %hook.sroa.0.0.copyload, null
-  %or.cond = select i1 %tobool12.not, i1 true, i1 %cmp15.not
-  br i1 %or.cond, label %for.inc, label %if.then17
+  %tobool12 = trunc i8 %hook.sroa.3.0.copyload to i1
+  %cmp15.not = icmp ne ptr %hook.sroa.0.0.copyload, null
+  %or.cond.not = select i1 %tobool12, i1 %cmp15.not, i1 false
+  br i1 %or.cond.not, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %if.end11
   tail call void %hook.sroa.0.0.copyload(ptr noundef %hook.sroa.27.0.copyload, i32 noundef %type, ptr noundef %result, i64 noundef %result_raw, ptr noundef %args_raw) #6
@@ -404,30 +400,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr @tsd_booted, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.not.i, label %hook_reentrantp.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %hook_reentrantp.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i = getelementptr inbounds i8, ptr %3, i64 824
-  %4 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %4, 0
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i.i = getelementptr inbounds i8, ptr %2, i64 824
+  %3 = load i8, ptr %state.i.i.i, align 8
+  %cmp6.i.not.i = icmp eq i8 %3, 0
   br i1 %cmp6.i.not.i, label %hook_reentrantp.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
   br label %hook_reentrantp.exit
 
 hook_reentrantp.exit:                             ; preds = %if.end, %if.end.i.i, %if.then11.i.i
-  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %3, %if.end.i.i ]
+  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %2, %if.end.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.i.0.i, null
   %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 216
   %retval.0.i = select i1 %cmp.i.i.i, ptr @hook_reentrantp.in_hook_global, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i
-  %5 = load i8, ptr %retval.0.i, align 1
-  %6 = and i8 %5, 1
-  %tobool3.not = icmp eq i8 %6, 0
-  br i1 %tobool3.not, label %if.end5, label %return
+  %4 = load i8, ptr %retval.0.i, align 1
+  %tobool3 = trunc i8 %4 to i1
+  br i1 %tobool3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %hook_reentrantp.exit
   store i8 1, ptr %retval.0.i, align 1
@@ -440,8 +434,8 @@ for.body:                                         ; preds = %if.end5, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %7 = load atomic i64, ptr %arrayidx acquire, align 16
-  %rem.i = and i64 %7, 1
+  %5 = load atomic i64, ptr %arrayidx acquire, align 16
+  %rem.i = and i64 %5, 1
   %cmp.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %seq_try_load_hooks.exit.thread
 
@@ -452,17 +446,17 @@ for.cond.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %i.07.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [5 x %struct.atomic_zu_t], ptr %data.i, i64 0, i64 %i.07.i
-  %8 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %arrayidx3.i = getelementptr inbounds [5 x i64], ptr %buf.i, i64 0, i64 %i.07.i
-  store i64 %8, ptr %arrayidx3.i, align 8
+  store i64 %6, ptr %arrayidx3.i, align 8
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %acquire.i47.i, label %for.body.i, !llvm.loop !7
 
 acquire.i47.i:                                    ; preds = %for.body.i
   fence acquire
-  %9 = load atomic i64, ptr %arrayidx monotonic, align 16
-  %cmp6.not.i = icmp eq i64 %7, %9
+  %7 = load atomic i64, ptr %arrayidx monotonic, align 16
+  %cmp6.not.i = icmp eq i64 %5, %7
   br i1 %cmp6.not.i, label %if.end11, label %seq_try_load_hooks.exit.thread
 
 seq_try_load_hooks.exit.thread:                   ; preds = %for.body, %acquire.i47.i
@@ -474,11 +468,10 @@ if.end11:                                         ; preds = %acquire.i47.i
   %hook.sroa.27.0.copyload = load ptr, ptr %hook.sroa.27.0.buf.i.sroa_idx, align 8
   %hook.sroa.3.0.copyload = load i8, ptr %hook.sroa.3.0.buf.i.sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  %10 = and i8 %hook.sroa.3.0.copyload, 1
-  %tobool12.not = icmp eq i8 %10, 0
-  %cmp15.not = icmp eq ptr %hook.sroa.1.0.copyload, null
-  %or.cond = select i1 %tobool12.not, i1 true, i1 %cmp15.not
-  br i1 %or.cond, label %for.inc, label %if.then17
+  %tobool12 = trunc i8 %hook.sroa.3.0.copyload to i1
+  %cmp15.not = icmp ne ptr %hook.sroa.1.0.copyload, null
+  %or.cond.not = select i1 %tobool12, i1 %cmp15.not, i1 false
+  br i1 %or.cond.not, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %if.end11
   tail call void %hook.sroa.1.0.copyload(ptr noundef %hook.sroa.27.0.copyload, i32 noundef %type, ptr noundef %address, ptr noundef %args_raw) #6
@@ -507,30 +500,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr @tsd_booted, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.not.i, label %hook_reentrantp.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %hook_reentrantp.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i = getelementptr inbounds i8, ptr %3, i64 824
-  %4 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %4, 0
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i.i = getelementptr inbounds i8, ptr %2, i64 824
+  %3 = load i8, ptr %state.i.i.i, align 8
+  %cmp6.i.not.i = icmp eq i8 %3, 0
   br i1 %cmp6.i.not.i, label %hook_reentrantp.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
   br label %hook_reentrantp.exit
 
 hook_reentrantp.exit:                             ; preds = %if.end, %if.end.i.i, %if.then11.i.i
-  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %3, %if.end.i.i ]
+  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %2, %if.end.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.i.0.i, null
   %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 216
   %retval.0.i = select i1 %cmp.i.i.i, ptr @hook_reentrantp.in_hook_global, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i
-  %5 = load i8, ptr %retval.0.i, align 1
-  %6 = and i8 %5, 1
-  %tobool3.not = icmp eq i8 %6, 0
-  br i1 %tobool3.not, label %if.end5, label %return
+  %4 = load i8, ptr %retval.0.i, align 1
+  %tobool3 = trunc i8 %4 to i1
+  br i1 %tobool3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %hook_reentrantp.exit
   store i8 1, ptr %retval.0.i, align 1
@@ -543,8 +534,8 @@ for.body:                                         ; preds = %if.end5, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %7 = load atomic i64, ptr %arrayidx acquire, align 16
-  %rem.i = and i64 %7, 1
+  %5 = load atomic i64, ptr %arrayidx acquire, align 16
+  %rem.i = and i64 %5, 1
   %cmp.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %seq_try_load_hooks.exit.thread
 
@@ -555,17 +546,17 @@ for.cond.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %i.07.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [5 x %struct.atomic_zu_t], ptr %data.i, i64 0, i64 %i.07.i
-  %8 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %arrayidx3.i = getelementptr inbounds [5 x i64], ptr %buf.i, i64 0, i64 %i.07.i
-  store i64 %8, ptr %arrayidx3.i, align 8
+  store i64 %6, ptr %arrayidx3.i, align 8
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %acquire.i47.i, label %for.body.i, !llvm.loop !7
 
 acquire.i47.i:                                    ; preds = %for.body.i
   fence acquire
-  %9 = load atomic i64, ptr %arrayidx monotonic, align 16
-  %cmp6.not.i = icmp eq i64 %7, %9
+  %7 = load atomic i64, ptr %arrayidx monotonic, align 16
+  %cmp6.not.i = icmp eq i64 %5, %7
   br i1 %cmp6.not.i, label %if.end11, label %seq_try_load_hooks.exit.thread
 
 seq_try_load_hooks.exit.thread:                   ; preds = %for.body, %acquire.i47.i
@@ -577,11 +568,10 @@ if.end11:                                         ; preds = %acquire.i47.i
   %hook.sroa.2.0.copyload = load ptr, ptr %hook.sroa.2.0.buf.i.sroa_idx, align 8
   %hook.sroa.3.0.copyload = load i8, ptr %hook.sroa.3.0.buf.i.sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  %10 = and i8 %hook.sroa.3.0.copyload, 1
-  %tobool12.not = icmp eq i8 %10, 0
-  %cmp15.not = icmp eq ptr %hook.sroa.1.0.copyload, null
-  %or.cond = select i1 %tobool12.not, i1 true, i1 %cmp15.not
-  br i1 %or.cond, label %for.inc, label %if.then17
+  %tobool12 = trunc i8 %hook.sroa.3.0.copyload to i1
+  %cmp15.not = icmp ne ptr %hook.sroa.1.0.copyload, null
+  %or.cond.not = select i1 %tobool12, i1 %cmp15.not, i1 false
+  br i1 %or.cond.not, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %if.end11
   tail call void %hook.sroa.1.0.copyload(ptr noundef %hook.sroa.2.0.copyload, i32 noundef %type, ptr noundef %address, i64 noundef %old_usize, i64 noundef %new_usize, i64 noundef %result_raw, ptr noundef %args_raw) #6

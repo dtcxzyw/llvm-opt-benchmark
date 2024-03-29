@@ -766,7 +766,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 4) #13
-  br label %.thread244
+  br label %.thread242
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -782,7 +782,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %11
   %18 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %18, label %._crit_edge, label %.thread244
+  br i1 %18, label %._crit_edge, label %.thread242
 
 ._crit_edge:                                      ; preds = %17
   %.pre = load ptr, ptr %3, align 8
@@ -794,7 +794,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 24
   %24 = icmp eq i32 %8, 1
-  br i1 %24, label %.thread257.thread, label %25
+  br i1 %24, label %.thread255.thread, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %0, i64 104
@@ -807,27 +807,27 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
 
 28:                                               ; preds = %25
   store i8 1, ptr %4, align 1
-  br label %.thread216
+  br label %.thread214
 
 29:                                               ; preds = %25
   store i8 0, ptr %4, align 1
-  br label %.thread216
+  br label %.thread214
 
 30:                                               ; preds = %25
   store i8 0, ptr %4, align 1
-  br label %.thread216
+  br label %.thread214
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %32, ptr noundef nonnull %4, i32 noundef 2) #13
-  br i1 %33, label %.thread216, label %.thread244
+  br i1 %33, label %.thread214, label %.thread242
 
-.thread216:                                       ; preds = %28, %30, %29, %31
-  %.2219 = phi i8 [ 0, %31 ], [ 1, %30 ], [ 0, %29 ], [ 0, %28 ]
+.thread214:                                       ; preds = %28, %30, %29, %31
+  %.2217 = phi i1 [ false, %31 ], [ true, %30 ], [ false, %29 ], [ false, %28 ]
   %34 = icmp ult i32 %8, 3
-  br i1 %34, label %.thread257.thread, label %35
+  br i1 %34, label %.thread255.thread, label %35
 
-35:                                               ; preds = %.thread216
+35:                                               ; preds = %.thread214
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = getelementptr inbounds i8, ptr %0, i64 120
   %38 = load i8, ptr %37, align 8
@@ -841,75 +841,75 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
 
 41:                                               ; preds = %35
   %42 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %36, ptr noundef nonnull %5, i32 noundef 3) #13
-  br i1 %42, label %43, label %.thread244
+  br i1 %42, label %43, label %.thread242
 
 43:                                               ; preds = %41, %.critedge
   %.not = icmp eq i32 %8, 4
-  br i1 %.not, label %44, label %.thread257.thread
+  br i1 %.not, label %44, label %.thread255.thread
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %0, i64 128
   %46 = getelementptr inbounds i8, ptr %0, i64 136
   %47 = load i8, ptr %46, align 8
   %48 = icmp eq i8 %47, 4
-  br i1 %48, label %.thread225, label %50
+  br i1 %48, label %.thread223, label %50
 
-.thread225:                                       ; preds = %44
+.thread223:                                       ; preds = %44
   %49 = load i64, ptr %45, align 8
   store i64 %49, ptr %6, align 8
-  br label %.thread257
+  br label %.thread255
 
 50:                                               ; preds = %44
   %51 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 4) #13
   %.fr = freeze i1 %51
-  br i1 %.fr, label %..thread257_crit_edge, label %.thread244
+  br i1 %.fr, label %..thread255_crit_edge, label %.thread242
 
-..thread257_crit_edge:                            ; preds = %50
-  %.pre261 = load i64, ptr %6, align 8
-  br label %.thread257
+..thread255_crit_edge:                            ; preds = %50
+  %.pre259 = load i64, ptr %6, align 8
+  br label %.thread255
 
-.thread244:                                       ; preds = %17, %41, %31, %10, %50
-  %.0256 = phi i32 [ 9, %50 ], [ 9, %17 ], [ 9, %41 ], [ 9, %31 ], [ 1, %10 ]
-  %.0178255 = phi i32 [ 0, %50 ], [ 4, %17 ], [ 0, %41 ], [ 3, %31 ], [ 0, %10 ]
-  %.0179254 = phi ptr [ %45, %50 ], [ %12, %17 ], [ %36, %41 ], [ %32, %31 ], [ null, %10 ]
-  %.0180253 = phi i32 [ 4, %50 ], [ 1, %17 ], [ 3, %41 ], [ 2, %31 ], [ 0, %10 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0256, i32 noundef %.0180253, ptr noundef null, i32 noundef %.0178255, ptr noundef %.0179254) #13
+.thread242:                                       ; preds = %17, %41, %31, %10, %50
+  %.0254 = phi i32 [ 9, %50 ], [ 9, %17 ], [ 9, %41 ], [ 9, %31 ], [ 1, %10 ]
+  %.0178253 = phi i32 [ 0, %50 ], [ 4, %17 ], [ 0, %41 ], [ 3, %31 ], [ 0, %10 ]
+  %.0179252 = phi ptr [ %45, %50 ], [ %12, %17 ], [ %36, %41 ], [ %32, %31 ], [ null, %10 ]
+  %.0180251 = phi i32 [ 4, %50 ], [ 1, %17 ], [ 3, %41 ], [ 2, %31 ], [ 0, %10 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0254, i32 noundef %.0180251, ptr noundef null, i32 noundef %.0178253, ptr noundef %.0179252) #13
   br label %83
 
-.thread257:                                       ; preds = %..thread257_crit_edge, %.thread225
-  %52 = phi i64 [ %49, %.thread225 ], [ %.pre261, %..thread257_crit_edge ]
+.thread255:                                       ; preds = %..thread255_crit_edge, %.thread223
+  %52 = phi i64 [ %49, %.thread223 ], [ %.pre259, %..thread255_crit_edge ]
   %53 = and i64 %52, 4194304
   %.not201 = icmp eq i64 %53, 0
-  br i1 %.not201, label %.thread257.thread, label %.thread258
+  br i1 %.not201, label %.thread255.thread, label %.thread256
 
-.thread257.thread:                                ; preds = %19, %.thread216, %43, %.thread257
-  %.3241265 = phi i8 [ %.2219, %.thread257 ], [ 1, %19 ], [ %.2219, %.thread216 ], [ %.2219, %43 ]
-  %54 = phi i64 [ %52, %.thread257 ], [ 0, %19 ], [ 0, %.thread216 ], [ 0, %43 ]
+.thread255.thread:                                ; preds = %19, %.thread214, %43, %.thread255
+  %.3239263 = phi i1 [ %.2217, %.thread255 ], [ true, %19 ], [ %.2217, %.thread214 ], [ %.2217, %43 ]
+  %54 = phi i64 [ %52, %.thread255 ], [ 0, %19 ], [ 0, %.thread214 ], [ 0, %43 ]
   store i32 0, ptr getelementptr inbounds (%struct._zend_json_globals, ptr @json_globals, i64 0, i32 2), align 4
   %.not202 = icmp eq i64 %22, 0
   br i1 %.not202, label %55, label %60
 
-.thread258:                                       ; preds = %.thread257
-  %.not202259 = icmp eq i64 %22, 0
-  br i1 %.not202259, label %.thread260, label %60
+.thread256:                                       ; preds = %.thread255
+  %.not202257 = icmp eq i64 %22, 0
+  br i1 %.not202257, label %.thread258, label %60
 
-55:                                               ; preds = %.thread257.thread
+55:                                               ; preds = %.thread255.thread
   store i32 4, ptr getelementptr inbounds (%struct._zend_json_globals, ptr @json_globals, i64 0, i32 2), align 4
   br label %58
 
-.thread260:                                       ; preds = %.thread258
+.thread258:                                       ; preds = %.thread256
   %56 = load ptr, ptr @php_json_exception_ce, align 8
   %57 = call ptr @zend_throw_exception(ptr noundef %56, ptr noundef nonnull @.str.56, i64 noundef 4) #13
   br label %58
 
-58:                                               ; preds = %.thread260, %55
+58:                                               ; preds = %.thread258, %55
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %59, align 8
   br label %83
 
-60:                                               ; preds = %.thread258, %.thread257.thread
-  %.3241264 = phi i8 [ %.2219, %.thread258 ], [ %.3241265, %.thread257.thread ]
-  %61 = phi i64 [ %52, %.thread258 ], [ %54, %.thread257.thread ]
+60:                                               ; preds = %.thread256, %.thread255.thread
+  %.3239262 = phi i1 [ %.2217, %.thread256 ], [ %.3239263, %.thread255.thread ]
+  %61 = phi i64 [ %52, %.thread256 ], [ %54, %.thread255.thread ]
   %62 = load i64, ptr %5, align 8
   %63 = icmp slt i64 %62, 1
   br i1 %63, label %64, label %67
@@ -933,14 +933,12 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   br label %83
 
 72:                                               ; preds = %67
-  %.not204 = icmp eq i8 %.3241264, 0
-  br i1 %.not204, label %73, label %80
+  br i1 %.3239262, label %80, label %73
 
 73:                                               ; preds = %72
   %74 = load i8, ptr %4, align 1
-  %75 = and i8 %74, 1
-  %.not205 = icmp eq i8 %75, 0
-  br i1 %.not205, label %78, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
   %77 = or i64 %61, 1
@@ -957,7 +955,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   %82 = call i32 @php_json_decode_ex(ptr noundef %1, ptr noundef nonnull %23, i64 noundef %22, i64 noundef %81, i64 noundef %62), !range !4
   br label %83
 
-83:                                               ; preds = %80, %69, %64, %58, %.thread244
+83:                                               ; preds = %80, %69, %64, %58, %.thread242
   ret void
 }
 

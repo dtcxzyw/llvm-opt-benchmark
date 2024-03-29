@@ -313,30 +313,27 @@ if.end:                                           ; preds = %if.then, %entry
 land.lhs.true:                                    ; preds = %if.end
   %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %1 = load i8, ptr %big_endian, align 16
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %do.end, label %if.then14
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then14, label %do.end
 
 land.lhs.true4:                                   ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %opaque, i64 4385
-  %3 = load i8, ptr %arrayidx6, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not = icmp eq i8 %4, 0
-  br i1 %tobool7.not, label %do.end, label %if.then14
+  %2 = load i8, ptr %arrayidx6, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then14, label %do.end
 
 land.lhs.true10:                                  ; preds = %if.end
   %arrayidx12 = getelementptr i8, ptr %opaque, i64 4386
-  %5 = load i8, ptr %arrayidx12, align 2
-  %6 = and i8 %5, 1
-  %tobool13.not = icmp eq i8 %6, 0
-  br i1 %tobool13.not, label %do.end, label %if.then14
+  %3 = load i8, ptr %arrayidx12, align 2
+  %tobool13 = trunc i8 %3 to i1
+  br i1 %tobool13, label %if.then14, label %do.end
 
 if.then14:                                        ; preds = %land.lhs.true10, %land.lhs.true4, %land.lhs.true
-  %7 = or i8 %ret.0, 1
+  %4 = or i8 %ret.0, 1
   br label %do.end
 
 do.end:                                           ; preds = %land.lhs.true4, %land.lhs.true, %if.end, %if.then14, %land.lhs.true10
-  %ret.1 = phi i8 [ %7, %if.then14 ], [ %ret.0, %land.lhs.true10 ], [ %ret.0, %if.end ], [ %ret.0, %land.lhs.true ], [ %ret.0, %land.lhs.true4 ]
+  %ret.1 = phi i8 [ %4, %if.then14 ], [ %ret.0, %land.lhs.true10 ], [ %ret.0, %if.end ], [ %ret.0, %land.lhs.true ], [ %ret.0, %land.lhs.true4 ]
   %conv17 = zext i8 %ret.1 to i64
   ret i64 %conv17
 }
@@ -396,15 +393,14 @@ sw.epilog:                                        ; preds = %entry, %sw.bb8, %sw
   %ret.0 = phi i64 [ 0, %entry ], [ %conv2, %sw.bb1 ], [ %conv9, %sw.bb8 ]
   %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %2 = load i8, ptr %big_endian, align 16
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %cmp.i = icmp eq i32 %size, 2
   %or.cond.i = and i1 %cmp.i, %tobool
   %conv.i = trunc i64 %ret.0 to i16
-  %4 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
-  %conv1.i = zext i16 %4 to i64
-  %5 = select i1 %or.cond.i, i64 %conv1.i, i64 %ret.0
-  ret i64 %5
+  %3 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
+  %conv1.i = zext i16 %3 to i64
+  %4 = select i1 %or.cond.i, i64 %conv1.i, i64 %ret.0
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -412,13 +408,12 @@ define internal void @tpci200_write_las0(ptr noundef %opaque, i64 noundef %addr,
 entry:
   %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %0 = load i8, ptr %big_endian, align 16
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp.i = icmp eq i32 %size, 2
   %or.cond.i = and i1 %cmp.i, %tobool
   %conv.i = trunc i64 %val to i16
-  %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
-  %conv1.i = zext i16 %2 to i64
+  %1 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
+  %conv1.i = zext i16 %1 to i64
   %val.addr.0 = select i1 %or.cond.i, i64 %conv1.i, i64 %val
   switch i64 %addr, label %sw.epilog [
     i64 12, label %for.cond.preheader
@@ -445,37 +440,37 @@ sw.bb1:                                           ; preds = %entry, %entry, %ent
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %3 = trunc i64 %indvars.iv to i32
-  %call11 = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %3) #6
+  %2 = trunc i64 %indvars.iv to i32
+  %call11 = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %2) #6
   %cmp12.not = icmp eq ptr %call11, null
   br i1 %cmp12.not, label %if.end31, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %4 = shl nuw nsw i64 %indvars.iv, 1
-  %shl = shl nuw nsw i64 1, %4
+  %3 = shl nuw nsw i64 %indvars.iv, 1
+  %shl = shl nuw nsw i64 1, %3
   %and = and i64 %shl, %val.addr.0
   %tobool14.not = icmp eq i64 %and, 0
   br i1 %tobool14.not, label %if.end, label %do.end17
 
 do.end17:                                         ; preds = %if.then
   %irq = getelementptr inbounds i8, ptr %call11, i64 168
-  %5 = load ptr, ptr %irq, align 8
-  %6 = load ptr, ptr %5, align 8
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef 0) #6
+  %4 = load ptr, ptr %irq, align 8
+  %5 = load ptr, ptr %4, align 8
+  tail call void @qemu_set_irq(ptr noundef %5, i32 noundef 0) #6
   br label %if.end
 
 if.end:                                           ; preds = %do.end17, %if.then
-  %shl22 = shl nuw nsw i64 2, %4
+  %shl22 = shl nuw nsw i64 2, %3
   %and23 = and i64 %shl22, %val.addr.0
   %tobool24.not = icmp eq i64 %and23, 0
   br i1 %tobool24.not, label %if.end31, label %do.end27
 
 do.end27:                                         ; preds = %if.end
   %irq28 = getelementptr inbounds i8, ptr %call11, i64 168
-  %7 = load ptr, ptr %irq28, align 8
-  %arrayidx29 = getelementptr i8, ptr %7, i64 8
-  %8 = load ptr, ptr %arrayidx29, align 8
-  tail call void @qemu_set_irq(ptr noundef %8, i32 noundef 0) #6
+  %6 = load ptr, ptr %irq28, align 8
+  %arrayidx29 = getelementptr i8, ptr %6, i64 8
+  %7 = load ptr, ptr %arrayidx29, align 8
+  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 0) #6
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end, %do.end27, %for.body
@@ -485,10 +480,10 @@ if.end31:                                         ; preds = %if.end, %do.end27, 
   br i1 %tobool36.not, label %for.inc, label %do.end39
 
 do.end39:                                         ; preds = %if.end31
-  %9 = load i16, ptr %status, align 8
-  %10 = trunc i64 %shl34 to i16
-  %11 = xor i16 %10, -1
-  %conv45 = and i16 %9, %11
+  %8 = load i16, ptr %status, align 8
+  %9 = trunc i64 %shl34 to i16
+  %10 = xor i16 %9, -1
+  %conv45 = and i16 %8, %10
   store i16 %conv45, ptr %status, align 8
   br label %for.inc
 
@@ -513,8 +508,7 @@ define internal i64 @tpci200_read_las1(ptr noundef %opaque, i64 noundef %addr, i
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 4385
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp.i = icmp eq i32 %size, 1
   %or.cond.i = and i1 %cmp.i, %tobool
   %xor.i = zext i1 %or.cond.i to i64
@@ -527,9 +521,9 @@ entry:
   br i1 %cmp, label %if.end56, label %if.else
 
 if.else:                                          ; preds = %entry
-  %2 = trunc i64 %addr to i32
-  %3 = lshr i32 %2, 6
-  %conv2 = and i32 %3, 3
+  %1 = trunc i64 %addr to i32
+  %2 = lshr i32 %1, 6
+  %conv2 = and i32 %2, 3
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #6
   switch i32 %conv2, label %sw.default [
@@ -539,29 +533,29 @@ if.else:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.else
   %id_read = getelementptr inbounds i8, ptr %call1.i, i64 208
-  %4 = load ptr, ptr %id_read, align 8
-  %tobool7.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %id_read, align 8
+  %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %if.end56, label %if.then8
 
 if.then8:                                         ; preds = %sw.bb
-  %5 = trunc i64 %spec.select to i8
-  %conv6 = and i8 %5, 63
-  %call10 = tail call zeroext i16 %4(ptr noundef nonnull %call, i8 noundef zeroext %conv6) #6
+  %4 = trunc i64 %spec.select to i8
+  %conv6 = and i8 %4, 63
+  %call10 = tail call zeroext i16 %3(ptr noundef nonnull %call, i8 noundef zeroext %conv6) #6
   br label %if.end56
 
 sw.bb12:                                          ; preds = %if.else
-  %6 = trunc i64 %spec.select to i8
-  %conv14 = and i8 %6, 63
-  %7 = and i8 %6, 61
-  %or.cond = icmp eq i8 %7, 0
+  %5 = trunc i64 %spec.select to i8
+  %conv14 = and i8 %5, 63
+  %6 = and i8 %5, 61
+  %or.cond = icmp eq i8 %6, 0
   br i1 %or.cond, label %if.then21, label %if.end41
 
 if.then21:                                        ; preds = %sw.bb12
-  %8 = lshr exact i8 %conv14, 1
-  %div = zext nneg i8 %8 to i32
+  %7 = lshr exact i8 %conv14, 1
+  %div = zext nneg i8 %7 to i32
   %status = getelementptr inbounds i8, ptr %opaque, i64 4392
-  %9 = load i16, ptr %status, align 8
-  %conv23 = zext i16 %9 to i64
+  %8 = load i16, ptr %status, align 8
+  %conv23 = zext i16 %8 to i64
   %mul = shl i32 %conv, 1
   %add = or disjoint i32 %mul, %div
   %sh_prom = zext nneg i32 %add to i64
@@ -577,54 +571,53 @@ land.lhs.true:                                    ; preds = %if.then21
   %ctrl = getelementptr inbounds i8, ptr %opaque, i64 4387
   %idxprom = and i64 %shr, 4294967295
   %arrayidx26 = getelementptr [4 x i8], ptr %ctrl, i64 0, i64 %idxprom
-  %10 = load i8, ptr %arrayidx26, align 1
-  %conv27 = zext i8 %10 to i64
+  %9 = load i8, ptr %arrayidx26, align 1
+  %conv27 = zext i8 %9 to i64
   %and31 = and i64 %shl30, %conv27
   %tobool32.not = icmp eq i64 %and31, 0
   br i1 %tobool32.not, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %land.lhs.true
   %irq = getelementptr inbounds i8, ptr %call, i64 168
-  %11 = load ptr, ptr %irq, align 8
-  %idxprom38 = zext nneg i8 %8 to i64
-  %arrayidx39 = getelementptr ptr, ptr %11, i64 %idxprom38
-  %12 = load ptr, ptr %arrayidx39, align 8
-  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef 0) #6
+  %10 = load ptr, ptr %irq, align 8
+  %idxprom38 = zext nneg i8 %7 to i64
+  %arrayidx39 = getelementptr ptr, ptr %10, i64 %idxprom38
+  %11 = load ptr, ptr %arrayidx39, align 8
+  tail call void @qemu_set_irq(ptr noundef %11, i32 noundef 0) #6
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then21, %land.lhs.true, %if.then37, %sw.bb12
   %int_read = getelementptr inbounds i8, ptr %call1.i, i64 224
-  %13 = load ptr, ptr %int_read, align 8
-  %tobool42.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %int_read, align 8
+  %tobool42.not = icmp eq ptr %12, null
   br i1 %tobool42.not, label %if.end56, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %call45 = tail call zeroext i16 %13(ptr noundef nonnull %call, i8 noundef zeroext %conv14) #6
+  %call45 = tail call zeroext i16 %12(ptr noundef nonnull %call, i8 noundef zeroext %conv14) #6
   br label %if.end56
 
 sw.default:                                       ; preds = %if.else
   %io_read = getelementptr inbounds i8, ptr %call1.i, i64 192
-  %14 = load ptr, ptr %io_read, align 8
-  %tobool50.not = icmp eq ptr %14, null
+  %13 = load ptr, ptr %io_read, align 8
+  %tobool50.not = icmp eq ptr %13, null
   br i1 %tobool50.not, label %if.end56, label %if.then51
 
 if.then51:                                        ; preds = %sw.default
-  %15 = trunc i64 %spec.select to i8
-  %conv49 = and i8 %15, 127
-  %call53 = tail call zeroext i16 %14(ptr noundef nonnull %call, i8 noundef zeroext %conv49) #6
+  %14 = trunc i64 %spec.select to i8
+  %conv49 = and i8 %14, 127
+  %call53 = tail call zeroext i16 %13(ptr noundef nonnull %call, i8 noundef zeroext %conv49) #6
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then8, %sw.bb, %if.then43, %if.end41, %if.then51, %sw.default, %entry
   %ret.0.shrunk = phi i16 [ 0, %entry ], [ 0, %sw.default ], [ %call53, %if.then51 ], [ 0, %if.end41 ], [ %call45, %if.then43 ], [ 0, %sw.bb ], [ %call10, %if.then8 ]
-  %16 = load i8, ptr %arrayidx, align 1
-  %17 = and i8 %16, 1
-  %tobool59 = icmp ne i8 %17, 0
+  %15 = load i8, ptr %arrayidx, align 1
+  %tobool59 = trunc i8 %15 to i1
   %cmp.i27 = icmp eq i32 %size, 2
   %or.cond.i28 = and i1 %cmp.i27, %tobool59
-  %18 = tail call i16 @llvm.bswap.i16(i16 %ret.0.shrunk)
-  %.v = select i1 %or.cond.i28, i16 %18, i16 %ret.0.shrunk
-  %19 = zext i16 %.v to i64
-  ret i64 %19
+  %16 = tail call i16 @llvm.bswap.i16(i16 %ret.0.shrunk)
+  %.v = select i1 %or.cond.i28, i16 %16, i16 %ret.0.shrunk
+  %17 = zext i16 %.v to i64
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -632,8 +625,7 @@ define internal void @tpci200_write_las1(ptr noundef %opaque, i64 noundef %addr,
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 4385
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp.i = icmp eq i32 %size, 1
   %or.cond.i = and i1 %cmp.i, %tobool
   br i1 %or.cond.i, label %adjust_addr.exit.thread, label %adjust_addr.exit
@@ -649,8 +641,8 @@ adjust_addr.exit:                                 ; preds = %entry
 
 if.then.i19:                                      ; preds = %adjust_addr.exit
   %conv.i = trunc i64 %val to i16
-  %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
-  %conv1.i = zext i16 %2 to i64
+  %1 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
+  %conv1.i = zext i16 %1 to i64
   br label %adjust_value.exit
 
 adjust_value.exit:                                ; preds = %adjust_addr.exit.thread, %adjust_addr.exit, %if.then.i19
@@ -664,9 +656,9 @@ adjust_value.exit:                                ; preds = %adjust_addr.exit.th
   br i1 %cmp, label %if.end30, label %if.else
 
 if.else:                                          ; preds = %adjust_value.exit
-  %3 = trunc i64 %addr.addr.030 to i32
-  %4 = lshr i32 %3, 6
-  %conv5 = and i32 %4, 3
+  %2 = trunc i64 %addr.addr.030 to i32
+  %3 = lshr i32 %2, 6
+  %conv5 = and i32 %3, 3
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call6) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #6
   switch i32 %conv5, label %sw.default [
@@ -676,27 +668,27 @@ if.else:                                          ; preds = %adjust_value.exit
 
 sw.bb:                                            ; preds = %if.else
   %id_write = getelementptr inbounds i8, ptr %call1.i, i64 216
-  %5 = load ptr, ptr %id_write, align 8
-  %tobool11.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %id_write, align 8
+  %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.end30, label %if.end30.sink.split
 
 sw.bb15:                                          ; preds = %if.else
   %int_write = getelementptr inbounds i8, ptr %call1.i, i64 232
-  %6 = load ptr, ptr %int_write, align 8
-  %tobool18.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %int_write, align 8
+  %tobool18.not = icmp eq ptr %5, null
   br i1 %tobool18.not, label %if.end30, label %if.end30.sink.split
 
 sw.default:                                       ; preds = %if.else
   %io_write = getelementptr inbounds i8, ptr %call1.i, i64 200
-  %7 = load ptr, ptr %io_write, align 8
-  %tobool25.not = icmp eq ptr %7, null
+  %6 = load ptr, ptr %io_write, align 8
+  %tobool25.not = icmp eq ptr %6, null
   br i1 %tobool25.not, label %if.end30, label %if.end30.sink.split
 
 if.end30.sink.split:                              ; preds = %sw.default, %sw.bb15, %sw.bb
   %.sink32 = phi i8 [ 63, %sw.bb ], [ 63, %sw.bb15 ], [ 127, %sw.default ]
-  %.sink = phi ptr [ %5, %sw.bb ], [ %6, %sw.bb15 ], [ %7, %sw.default ]
-  %8 = trunc i64 %addr.addr.030 to i8
-  %conv10 = and i8 %.sink32, %8
+  %.sink = phi ptr [ %4, %sw.bb ], [ %5, %sw.bb15 ], [ %6, %sw.default ]
+  %7 = trunc i64 %addr.addr.030 to i8
+  %conv10 = and i8 %.sink32, %7
   %conv14 = trunc i64 %val.addr.0 to i16
   tail call void %.sink(ptr noundef nonnull %call6, i8 noundef zeroext %conv10, i16 noundef zeroext %conv14) #6
   br label %if.end30
@@ -712,16 +704,15 @@ define internal i64 @tpci200_read_las2(ptr noundef %opaque, i64 noundef %addr, i
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 4386
   %0 = load i8, ptr %arrayidx, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp.i = icmp eq i32 %size, 1
   %or.cond.i = and i1 %cmp.i, %tobool
   %xor.i = zext i1 %or.cond.i to i64
   %spec.select = xor i64 %xor.i, %addr
   %shr = lshr i64 %addr, 23
   %conv = trunc i64 %shr to i32
-  %2 = trunc i64 %spec.select to i32
-  %conv1 = and i32 %2, 8388607
+  %1 = trunc i64 %spec.select to i32
+  %conv1 = and i32 %1, 8388607
   %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #6
   %cmp = icmp eq ptr %call, null
@@ -731,27 +722,26 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #6
   %mem_read16 = getelementptr inbounds i8, ptr %call1.i, i64 240
-  %3 = load ptr, ptr %mem_read16, align 8
-  %tobool4.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %mem_read16, align 8
+  %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %call7 = tail call zeroext i16 %3(ptr noundef nonnull %call, i32 noundef %conv1) #6
+  %call7 = tail call zeroext i16 %2(ptr noundef nonnull %call, i32 noundef %conv1) #6
   %conv8 = zext i16 %call7 to i64
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then5, %entry
   %ret.0 = phi i64 [ 0, %entry ], [ 0, %if.else ], [ %conv8, %if.then5 ]
-  %4 = load i8, ptr %arrayidx, align 2
-  %5 = and i8 %4, 1
-  %tobool12 = icmp ne i8 %5, 0
+  %3 = load i8, ptr %arrayidx, align 2
+  %tobool12 = trunc i8 %3 to i1
   %cmp.i7 = icmp eq i32 %size, 2
   %or.cond.i8 = and i1 %cmp.i7, %tobool12
   %conv.i = trunc i64 %ret.0 to i16
-  %6 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
-  %conv1.i = zext i16 %6 to i64
-  %7 = select i1 %or.cond.i8, i64 %conv1.i, i64 %ret.0
-  ret i64 %7
+  %4 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
+  %conv1.i = zext i16 %4 to i64
+  %5 = select i1 %or.cond.i8, i64 %conv1.i, i64 %ret.0
+  ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -759,8 +749,7 @@ define internal void @tpci200_write_las2(ptr noundef %opaque, i64 noundef %addr,
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 4386
   %0 = load i8, ptr %arrayidx, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %cmp.i = icmp eq i32 %size, 1
   %or.cond.i = and i1 %cmp.i, %tobool
   br i1 %or.cond.i, label %adjust_addr.exit.thread, label %adjust_addr.exit
@@ -776,8 +765,8 @@ adjust_addr.exit:                                 ; preds = %entry
 
 if.then.i9:                                       ; preds = %adjust_addr.exit
   %conv.i = trunc i64 %val to i16
-  %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
-  %conv1.i = zext i16 %2 to i64
+  %1 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
+  %conv1.i = zext i16 %1 to i64
   br label %adjust_value.exit
 
 adjust_value.exit:                                ; preds = %adjust_addr.exit.thread, %adjust_addr.exit, %if.then.i9
@@ -785,8 +774,8 @@ adjust_value.exit:                                ; preds = %adjust_addr.exit.th
   %val.addr.0 = phi i64 [ %conv1.i, %if.then.i9 ], [ %val, %adjust_addr.exit ], [ %val, %adjust_addr.exit.thread ]
   %shr = lshr i64 %addr.addr.015, 23
   %conv = trunc i64 %shr to i32
-  %3 = trunc i64 %addr.addr.015 to i32
-  %conv4 = and i32 %3, 8388607
+  %2 = trunc i64 %addr.addr.015 to i32
+  %conv4 = and i32 %2, 8388607
   %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call5 = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #6
   %cmp = icmp eq ptr %call5, null
@@ -796,13 +785,13 @@ if.else:                                          ; preds = %adjust_value.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call5) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #6
   %mem_write16 = getelementptr inbounds i8, ptr %call1.i, i64 248
-  %4 = load ptr, ptr %mem_write16, align 8
-  %tobool8.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %mem_write16, align 8
+  %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.else
   %conv11 = trunc i64 %val.addr.0 to i16
-  tail call void %4(ptr noundef nonnull %call5, i32 noundef %conv4, i16 noundef zeroext %conv11) #6
+  tail call void %3(ptr noundef nonnull %call5, i32 noundef %conv4, i16 noundef zeroext %conv11) #6
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then9, %adjust_value.exit

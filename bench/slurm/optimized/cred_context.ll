@@ -280,9 +280,8 @@ define dso_local void @cred_state_init() local_unnamed_addr #0 {
   %4 = load ptr, ptr @conf, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4427
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %40
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %40, label %8
 
 8:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -383,8 +382,8 @@ _restore_cred_state.exit:                         ; preds = %_cred_context_unpac
 
 40:                                               ; preds = %_restore_cred_state.exit, %0
   %41 = load ptr, ptr @cred_job_list, align 8
-  %.not1 = icmp eq ptr %41, null
-  br i1 %.not1, label %42, label %44
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %42, label %44
 
 42:                                               ; preds = %40
   %43 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #12
@@ -393,8 +392,8 @@ _restore_cred_state.exit:                         ; preds = %_cred_context_unpac
 
 44:                                               ; preds = %42, %40
   %45 = load ptr, ptr @cred_state_list, align 8
-  %.not2 = icmp eq ptr %45, null
-  br i1 %.not2, label %46, label %48
+  %.not1 = icmp eq ptr %45, null
+  br i1 %.not1, label %46, label %48
 
 46:                                               ; preds = %44
   %47 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #12

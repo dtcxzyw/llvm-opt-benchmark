@@ -131,9 +131,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   %5 = extractvalue { ptr, i8 } %call7, 1
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.then, label %do.end
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %do.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.3) #17
@@ -143,22 +142,22 @@ invoke.cont8:                                     ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.then, %invoke.cont3, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %factory, align 8
-  %cmp.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %factory, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core12experimental24StdoutAuditLoggerFactoryEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN9grpc_core12experimental24StdoutAuditLoggerFactoryEEclEPS2_.exit.i: ; preds = %lpad2
-  %vtable.i.i = load ptr, ptr %9, align 8
+  %vtable.i.i = load ptr, ptr %8, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %10 = load ptr, ptr %vfn.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
+  %9 = load ptr, ptr %vfn.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %lpad2, %_ZNKSt14default_deleteIN9grpc_core12experimental24StdoutAuditLoggerFactoryEEclEPS2_.exit.i
@@ -166,22 +165,22 @@ _ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14defaul
   br label %ehcleanup
 
 do.end:                                           ; preds = %invoke.cont6
-  %11 = load ptr, ptr %factory, align 8
-  %cmp.not.i3 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %factory, align 8
+  %cmp.not.i3 = icmp eq ptr %10, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN9grpc_core12experimental24StdoutAuditLoggerFactoryEEclEPS2_.exit.i4
 
 _ZNKSt14default_deleteIN9grpc_core12experimental24StdoutAuditLoggerFactoryEEclEPS2_.exit.i4: ; preds = %do.end
-  %vtable.i.i5 = load ptr, ptr %11, align 8
+  %vtable.i.i5 = load ptr, ptr %10, align 8
   %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
-  %12 = load ptr, ptr %vfn.i.i6, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  %11 = load ptr, ptr %vfn.i.i6, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit7: ; preds = %do.end, %_ZNKSt14default_deleteIN9grpc_core12experimental24StdoutAuditLoggerFactoryEEclEPS2_.exit.i4
   ret void
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %_ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactoryESt14default_deleteIS2_EED2Ev.exit ], [ %6, %lpad ]
   call void @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #18
   resume { ptr, i32 } %.pn
 }
@@ -265,8 +264,8 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %cmp.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit
-  %__y.addr.0.lcssa.i.i.i12 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit ], [ %add.ptr.i.i.i, %entry ]
-  %call.i = tail call ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE22_M_emplace_hint_uniqueIJRS3_S6_INS8_24StdoutAuditLoggerFactoryESA_ISM_EEEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
+  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %call.i = tail call ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE22_M_emplace_hint_uniqueIJRS3_S6_INS8_24StdoutAuditLoggerFactoryESA_ISM_EEEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit, %if.then
@@ -333,9 +332,8 @@ invoke.cont:                                      ; preds = %do.end
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %8 = extractvalue { ptr, i8 } %call5, 1
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %if.then7, label %do.end10
+  %tobool = trunc i8 %8 to i1
+  br i1 %tobool, label %do.end10, label %if.then7
 
 if.then7:                                         ; preds = %invoke.cont4
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.5) #17
@@ -345,30 +343,30 @@ invoke.cont8:                                     ; preds = %if.then7
   unreachable
 
 lpad:                                             ; preds = %if.then7, %invoke.cont, %do.end
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 do.end10:                                         ; preds = %invoke.cont4
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %do.end10
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %do.end10
@@ -454,8 +452,8 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %cmp.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit
-  %__y.addr.0.lcssa.i.i.i12 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit ], [ %add.ptr.i.i.i, %entry ]
-  %call.i = tail call ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE22_M_emplace_hint_uniqueIJRS3_SC_EEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
+  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %call.i = tail call ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core12experimental18AuditLoggerFactoryESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE22_M_emplace_hint_uniqueIJRS3_SC_EEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit, %if.then

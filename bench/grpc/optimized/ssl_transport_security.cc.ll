@@ -1181,9 +1181,8 @@ land.lhs.true:                                    ; preds = %if.end
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %skip_server_certificate_verification = getelementptr inbounds i8, ptr %options, i64 64
   %2 = load i8, ptr %skip_server_certificate_verification, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %return, label %if.end5
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.end5, label %return
 
 if.end5:                                          ; preds = %land.lhs.true3, %land.lhs.true, %if.end
   %call = tail call ptr @TLS_method()
@@ -1198,10 +1197,10 @@ if.then8:                                         ; preds = %if.end5
 
 if.end9:                                          ; preds = %if.end5
   %min_tls_version = getelementptr inbounds i8, ptr %options, i64 68
-  %4 = load i32, ptr %min_tls_version, align 4
+  %3 = load i32, ptr %min_tls_version, align 4
   %max_tls_version = getelementptr inbounds i8, ptr %options, i64 72
-  %5 = load i32, ptr %max_tls_version, align 8
-  switch i32 %4, label %sw.default.i [
+  %4 = load i32, ptr %max_tls_version, align 8
+  switch i32 %3, label %sw.default.i [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.bb1.i
   ]
@@ -1216,7 +1215,7 @@ sw.default.i:                                     ; preds = %if.end9
 sw.epilog.i:                                      ; preds = %sw.bb1.i, %if.end9
   %.sink.i = phi i16 [ 772, %sw.bb1.i ], [ 771, %if.end9 ]
   %call2.i = tail call i32 @SSL_CTX_set_min_proto_version(ptr noundef nonnull %call6, i16 noundef zeroext %.sink.i)
-  switch i32 %5, label %sw.default7.i [
+  switch i32 %4, label %sw.default7.i [
     i32 0, label %if.end13
     i32 1, label %sw.bb5.i
   ]
@@ -1247,30 +1246,30 @@ _ZL31tsi_ssl_handshaker_factory_initP26tsi_ssl_handshaker_factory.exit: ; preds 
   %ssl_context16 = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr %call6, ptr %ssl_context16, align 8
   %session_cache = getelementptr inbounds i8, ptr %options, i64 48
-  %6 = load ptr, ptr %session_cache, align 8
-  %cmp17.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %session_cache, align 8
+  %cmp17.not = icmp eq ptr %5, null
   br i1 %cmp17.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %_ZL31tsi_ssl_handshaker_factory_initP26tsi_ssl_handshaker_factory.exit
-  %refs_.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !18
+  %refs_.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !18
   %session_cache20 = getelementptr inbounds i8, ptr %call14, i64 40
-  %8 = load ptr, ptr %session_cache20, align 8
-  store ptr %6, ptr %session_cache20, align 8
-  %cmp.not.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %session_cache20, align 8
+  store ptr %5, ptr %session_cache20, align 8
+  %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then18
-  %refs_.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %9, 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %8, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i.i = load ptr, ptr %8, align 8
+  %vtable.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %10 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(104) %8) #24
+  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(104) %7) #24
   br label %_ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i.i, %if.then18
@@ -1280,30 +1279,30 @@ _ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit: ; preds = %if
 
 if.end23:                                         ; preds = %_ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit, %_ZL31tsi_ssl_handshaker_factory_initP26tsi_ssl_handshaker_factory.exit
   %key_logger = getelementptr inbounds i8, ptr %options, i64 56
-  %11 = load ptr, ptr %key_logger, align 8
-  %cmp24.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %key_logger, align 8
+  %cmp24.not = icmp eq ptr %10, null
   br i1 %cmp24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %refs_.i.i81 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = atomicrmw add ptr %refs_.i.i81, i64 1 monotonic, align 8, !noalias !21
+  %refs_.i.i81 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = atomicrmw add ptr %refs_.i.i81, i64 1 monotonic, align 8, !noalias !21
   %key_logger28 = getelementptr inbounds i8, ptr %call14, i64 48
-  %13 = load ptr, ptr %key_logger28, align 8
-  store ptr %11, ptr %key_logger28, align 8
-  %cmp.not.i.i82 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %key_logger28, align 8
+  store ptr %10, ptr %key_logger28, align 8
+  %cmp.not.i.i82 = icmp eq ptr %12, null
   br i1 %cmp.not.i.i82, label %_ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEED2Ev.exit, label %if.then.i.i83
 
 if.then.i.i83:                                    ; preds = %if.then25
-  %refs_.i.i.i84 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = atomicrmw sub ptr %refs_.i.i.i84, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i85 = icmp eq i64 %14, 1
+  %refs_.i.i.i84 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = atomicrmw sub ptr %refs_.i.i.i84, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i85 = icmp eq i64 %13, 1
   br i1 %cmp.i.i.i.i85, label %if.then.i.i.i86, label %_ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEED2Ev.exit
 
 if.then.i.i.i86:                                  ; preds = %if.then.i.i83
-  %vtable.i.i.i.i87 = load ptr, ptr %13, align 8
+  %vtable.i.i.i.i87 = load ptr, ptr %12, align 8
   %vfn.i.i.i.i88 = getelementptr inbounds i8, ptr %vtable.i.i.i.i87, i64 8
-  %15 = load ptr, ptr %vfn.i.i.i.i88, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(72) %13) #24
+  %14 = load ptr, ptr %vfn.i.i.i.i88, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(72) %12) #24
   br label %_ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEED2Ev.exit: ; preds = %if.then.i.i.i86, %if.then.i.i83, %if.then25
@@ -1311,52 +1310,52 @@ _ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLogge
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEED2Ev.exit, %if.end23
-  %16 = load ptr, ptr %session_cache, align 8
-  %cmp32.not = icmp eq ptr %16, null
+  %15 = load ptr, ptr %session_cache, align 8
+  %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %lor.lhs.false, label %if.then35
 
 lor.lhs.false:                                    ; preds = %if.end30
-  %17 = load ptr, ptr %key_logger, align 8
-  %cmp34.not = icmp eq ptr %17, null
+  %16 = load ptr, ptr %key_logger, align 8
+  %cmp34.not = icmp eq ptr %16, null
   br i1 %cmp34.not, label %do.body, label %if.then35
 
 if.then35:                                        ; preds = %lor.lhs.false, %if.end30
-  %18 = load i32, ptr @_ZL26g_ssl_ctx_ex_factory_index, align 4
-  %call36 = tail call i32 @SSL_CTX_set_ex_data(ptr noundef nonnull %call6, i32 noundef %18, ptr noundef nonnull %call14)
+  %17 = load i32, ptr @_ZL26g_ssl_ctx_ex_factory_index, align 4
+  %call36 = tail call i32 @SSL_CTX_set_ex_data(ptr noundef nonnull %call6, i32 noundef %17, ptr noundef nonnull %call14)
   br label %do.body
 
 do.body:                                          ; preds = %lor.lhs.false, %if.then35
-  %19 = load ptr, ptr %options, align 8
+  %18 = load ptr, ptr %options, align 8
   %cipher_suites = getelementptr inbounds i8, ptr %options, i64 24
-  %20 = load ptr, ptr %cipher_suites, align 8
-  %call38 = tail call fastcc noundef i32 @_ZL20populate_ssl_contextP10ssl_ctx_stPK25tsi_ssl_pem_key_cert_pairPKc(ptr noundef nonnull %call6, ptr noundef %19, ptr noundef %20)
+  %19 = load ptr, ptr %cipher_suites, align 8
+  %call38 = tail call fastcc noundef i32 @_ZL20populate_ssl_contextP10ssl_ctx_stPK25tsi_ssl_pem_key_cert_pairPKc(ptr noundef nonnull %call6, ptr noundef %18, ptr noundef %19)
   %cmp39.not = icmp eq i32 %call38, 0
   br i1 %cmp39.not, label %if.end41, label %if.end.i
 
 if.end41:                                         ; preds = %do.body
   %root_store42 = getelementptr inbounds i8, ptr %options, i64 16
-  %21 = load ptr, ptr %root_store42, align 8
-  %cmp43.not = icmp eq ptr %21, null
+  %20 = load ptr, ptr %root_store42, align 8
+  %cmp43.not = icmp eq ptr %20, null
   br i1 %cmp43.not, label %land.lhs.true52, label %if.end49
 
 if.end49:                                         ; preds = %if.end41
-  %22 = load ptr, ptr %21, align 8
-  %call46 = tail call i32 @X509_STORE_up_ref(ptr noundef %22)
-  %23 = load ptr, ptr %root_store42, align 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void @SSL_CTX_set_cert_store(ptr noundef nonnull %call6, ptr noundef %24)
+  %21 = load ptr, ptr %20, align 8
+  %call46 = tail call i32 @X509_STORE_up_ref(ptr noundef %21)
+  %22 = load ptr, ptr %root_store42, align 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void @SSL_CTX_set_cert_store(ptr noundef nonnull %call6, ptr noundef %23)
   %.pr = load ptr, ptr %root_store42, align 8
   %cmp51 = icmp eq ptr %.pr, null
   br i1 %cmp51, label %land.lhs.true52, label %if.end63
 
 land.lhs.true52:                                  ; preds = %if.end41, %if.end49
-  %25 = load ptr, ptr %pem_root_certs, align 8
-  %cmp54.not = icmp eq ptr %25, null
+  %24 = load ptr, ptr %pem_root_certs, align 8
+  %cmp54.not = icmp eq ptr %24, null
   br i1 %cmp54.not, label %if.end63, label %if.then55
 
 if.then55:                                        ; preds = %land.lhs.true52
-  %call58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #20
-  %call59 = tail call fastcc noundef i32 @_ZL31ssl_ctx_load_verification_certsP10ssl_ctx_stPKcmPP18stack_st_X509_NAME(ptr noundef nonnull %call6, ptr noundef nonnull %25, i64 noundef %call58, ptr noundef null), !range !6
+  %call58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #20
+  %call59 = tail call fastcc noundef i32 @_ZL31ssl_ctx_load_verification_certsP10ssl_ctx_stPKcmPP18stack_st_X509_NAME(ptr noundef nonnull %call6, ptr noundef nonnull %24, i64 noundef %call58, ptr noundef null), !range !6
   %cmp60.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not, label %if.end63, label %if.then61
 
@@ -1366,17 +1365,17 @@ if.then61:                                        ; preds = %if.then55
 
 if.end63:                                         ; preds = %if.then55, %land.lhs.true52, %if.end49
   %num_alpn_protocols = getelementptr inbounds i8, ptr %options, i64 40
-  %26 = load i64, ptr %num_alpn_protocols, align 8
-  %cmp64.not = icmp eq i64 %26, 0
+  %25 = load i64, ptr %num_alpn_protocols, align 8
+  %cmp64.not = icmp eq i64 %25, 0
   br i1 %cmp64.not, label %if.end91, label %if.then65
 
 if.then65:                                        ; preds = %if.end63
   %alpn_protocols = getelementptr inbounds i8, ptr %options, i64 32
-  %27 = load ptr, ptr %alpn_protocols, align 8
-  %conv = trunc i64 %26 to i16
+  %26 = load ptr, ptr %alpn_protocols, align 8
+  %conv = trunc i64 %25 to i16
   %alpn_protocol_list = getelementptr inbounds i8, ptr %call14, i64 24
   %alpn_protocol_list_length = getelementptr inbounds i8, ptr %call14, i64 32
-  %call67 = tail call fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr noundef %27, i16 noundef zeroext %conv, ptr noundef nonnull %alpn_protocol_list, ptr noundef nonnull %alpn_protocol_list_length), !range !6
+  %call67 = tail call fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr noundef %26, i16 noundef zeroext %conv, ptr noundef nonnull %alpn_protocol_list, ptr noundef nonnull %alpn_protocol_list_length), !range !6
   %cmp68.not = icmp eq i32 %call67, 0
   br i1 %cmp68.not, label %do.body72, label %if.then69
 
@@ -1386,8 +1385,8 @@ if.then69:                                        ; preds = %if.then65
   br label %if.end.i
 
 do.body72:                                        ; preds = %if.then65
-  %28 = load i64, ptr %alpn_protocol_list_length, align 8
-  %cmp74 = icmp ugt i64 %28, 4294967294
+  %27 = load i64, ptr %alpn_protocol_list_length, align 8
+  %cmp74 = icmp ugt i64 %27, 4294967294
   br i1 %cmp74, label %if.then76, label %do.end
 
 if.then76:                                        ; preds = %do.body72
@@ -1395,8 +1394,8 @@ if.then76:                                        ; preds = %do.body72
   unreachable
 
 do.end:                                           ; preds = %do.body72
-  %29 = load ptr, ptr %alpn_protocol_list, align 8
-  %call82 = tail call i32 @SSL_CTX_set_alpn_protos(ptr noundef nonnull %call6, ptr noundef %29, i64 noundef %28)
+  %28 = load ptr, ptr %alpn_protocol_list, align 8
+  %call82 = tail call i32 @SSL_CTX_set_alpn_protos(ptr noundef nonnull %call6, ptr noundef %28, i64 noundef %27)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %if.end85, label %if.then84
 
@@ -1415,37 +1414,36 @@ if.end.i:                                         ; preds = %if.then84, %if.then
   br i1 %tobool.not.i, label %return, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %30 = load ptr, ptr %call14, align 8
-  %cmp1.not.i.i = icmp eq ptr %30, null
+  %29 = load ptr, ptr %call14, align 8
+  %cmp1.not.i.i = icmp eq ptr %29, null
   br i1 %cmp1.not.i.i, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then1.i
-  %31 = load ptr, ptr %30, align 8
-  %cmp3.not.i.i = icmp eq ptr %31, null
+  %30 = load ptr, ptr %29, align 8
+  %cmp3.not.i.i = icmp eq ptr %30, null
   br i1 %cmp3.not.i.i, label %return, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call void %31(ptr noundef nonnull %call14)
+  tail call void %30(ptr noundef nonnull %call14)
   br label %return
 
 if.end91:                                         ; preds = %if.end85, %if.end63
   %skip_server_certificate_verification92 = getelementptr inbounds i8, ptr %options, i64 64
-  %32 = load i8, ptr %skip_server_certificate_verification92, align 8
-  %33 = and i8 %32, 1
-  %tobool93.not = icmp eq i8 %33, 0
-  %_ZL23RootCertExtractCallbackiP17x509_store_ctx_st._ZL18NullVerifyCallbackiP17x509_store_ctx_st = select i1 %tobool93.not, ptr @_ZL23RootCertExtractCallbackiP17x509_store_ctx_st, ptr @_ZL18NullVerifyCallbackiP17x509_store_ctx_st
-  tail call void @SSL_CTX_set_verify(ptr noundef nonnull %call6, i32 noundef 1, ptr noundef nonnull %_ZL23RootCertExtractCallbackiP17x509_store_ctx_st._ZL18NullVerifyCallbackiP17x509_store_ctx_st)
+  %31 = load i8, ptr %skip_server_certificate_verification92, align 8
+  %tobool93 = trunc i8 %31 to i1
+  %_ZL18NullVerifyCallbackiP17x509_store_ctx_st._ZL23RootCertExtractCallbackiP17x509_store_ctx_st = select i1 %tobool93, ptr @_ZL18NullVerifyCallbackiP17x509_store_ctx_st, ptr @_ZL23RootCertExtractCallbackiP17x509_store_ctx_st
+  tail call void @SSL_CTX_set_verify(ptr noundef nonnull %call6, i32 noundef 1, ptr noundef nonnull %_ZL18NullVerifyCallbackiP17x509_store_ctx_st._ZL23RootCertExtractCallbackiP17x509_store_ctx_st)
   %crl_provider = getelementptr inbounds i8, ptr %options, i64 88
-  %34 = load ptr, ptr %crl_provider, align 8
-  %cmp.i.i.not = icmp eq ptr %34, null
+  %32 = load ptr, ptr %crl_provider, align 8
+  %cmp.i.i.not = icmp eq ptr %32, null
   br i1 %cmp.i.i.not, label %if.else106, label %if.then97
 
 if.then97:                                        ; preds = %if.end91
+  %33 = load ptr, ptr %ssl_context16, align 8
+  %34 = load i32, ptr @_ZL31g_ssl_ctx_ex_crl_provider_index, align 4
+  %call101 = tail call i32 @SSL_CTX_set_ex_data(ptr noundef %33, i32 noundef %34, ptr noundef nonnull %32)
   %35 = load ptr, ptr %ssl_context16, align 8
-  %36 = load i32, ptr @_ZL31g_ssl_ctx_ex_crl_provider_index, align 4
-  %call101 = tail call i32 @SSL_CTX_set_ex_data(ptr noundef %35, i32 noundef %36, ptr noundef nonnull %34)
-  %37 = load ptr, ptr %ssl_context16, align 8
-  %call103 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %37)
+  %call103 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %35)
   tail call void @X509_STORE_set_get_crl(ptr noundef %call103, ptr noundef nonnull @_ZL18GetCrlFromProviderP17x509_store_ctx_stPP11X509_crl_stP7x509_st)
   tail call void @X509_STORE_set_check_crl(ptr noundef %call103, ptr noundef nonnull @_ZL19CheckCrlPassthroughP17x509_store_ctx_stP11X509_crl_st)
   tail call void @X509_STORE_set_verify_cb(ptr noundef %call103, ptr noundef nonnull @_ZL9verify_cbiP17x509_store_ctx_st)
@@ -1455,20 +1453,20 @@ if.then97:                                        ; preds = %if.end91
 
 if.else106:                                       ; preds = %if.end91
   %crl_directory = getelementptr inbounds i8, ptr %options, i64 80
-  %38 = load ptr, ptr %crl_directory, align 8
-  %cmp107.not = icmp eq ptr %38, null
+  %36 = load ptr, ptr %crl_directory, align 8
+  %cmp107.not = icmp eq ptr %36, null
   br i1 %cmp107.not, label %if.end125, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %if.else106
-  %strcmpload = load i8, ptr %38, align 1
+  %strcmpload = load i8, ptr %36, align 1
   %cmp111.not = icmp eq i8 %strcmpload, 0
   br i1 %cmp111.not, label %if.end125, label %if.then112
 
 if.then112:                                       ; preds = %land.lhs.true108
   %call114 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef nonnull %call6)
   tail call void @X509_STORE_set_verify_cb(ptr noundef %call114, ptr noundef nonnull @_ZL9verify_cbiP17x509_store_ctx_st)
-  %39 = load ptr, ptr %crl_directory, align 8
-  %call116 = tail call i32 @X509_STORE_load_locations(ptr noundef %call114, ptr noundef null, ptr noundef %39)
+  %37 = load ptr, ptr %crl_directory, align 8
+  %call116 = tail call i32 @X509_STORE_load_locations(ptr noundef %call114, ptr noundef null, ptr noundef %37)
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %if.then118, label %if.else119
 
@@ -2827,9 +2825,8 @@ if.then76:                                        ; preds = %if.end74
   %35 = load ptr, ptr %arrayidx78, align 8
   %call81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #20
   %36 = load i8, ptr %send_client_ca_list, align 8
-  %37 = and i8 %36, 1
-  %tobool.not = icmp eq i8 %37, 0
-  %root_names. = select i1 %tobool.not, ptr null, ptr %root_names
+  %tobool = trunc i8 %36 to i1
+  %root_names. = select i1 %tobool, ptr %root_names, ptr null
   %call.i132 = call ptr @SSL_CTX_get_cert_store(ptr noundef %35)
   %call1.i = call i32 @X509_STORE_set_flags(ptr noundef %call.i132, i64 noundef 557056)
   %call2.i133 = call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call.i132, ptr noundef nonnull %33, i64 noundef %call81, ptr noundef %root_names.), !range !6
@@ -2841,22 +2838,21 @@ if.then84:                                        ; preds = %if.then76
   br label %if.end.i135
 
 if.end85:                                         ; preds = %if.then76
-  %38 = load i8, ptr %send_client_ca_list, align 8
-  %39 = and i8 %38, 1
-  %tobool87.not = icmp eq i8 %39, 0
-  br i1 %tobool87.not, label %if.end92, label %if.then88
+  %37 = load i8, ptr %send_client_ca_list, align 8
+  %tobool87 = trunc i8 %37 to i1
+  br i1 %tobool87, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %if.end85
-  %40 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx90 = getelementptr inbounds ptr, ptr %40, i64 %i.0152
-  %41 = load ptr, ptr %arrayidx90, align 8
-  %42 = load ptr, ptr %root_names, align 8
-  call void @SSL_CTX_set_client_CA_list(ptr noundef %41, ptr noundef %42)
+  %38 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx90 = getelementptr inbounds ptr, ptr %38, i64 %i.0152
+  %39 = load ptr, ptr %arrayidx90, align 8
+  %40 = load ptr, ptr %root_names, align 8
+  call void @SSL_CTX_set_client_CA_list(ptr noundef %39, ptr noundef %40)
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end85, %if.then88, %if.end74
-  %43 = load i32, ptr %client_certificate_request, align 8
-  switch i32 %43, label %sw.epilog [
+  %41 = load i32, ptr %client_certificate_request, align 8
+  switch i32 %41, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb95
     i32 2, label %sw.bb98
@@ -2865,55 +2861,55 @@ if.end92:                                         ; preds = %if.end85, %if.then8
   ]
 
 sw.bb:                                            ; preds = %if.end92
-  %44 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx94 = getelementptr inbounds ptr, ptr %44, i64 %i.0152
-  %45 = load ptr, ptr %arrayidx94, align 8
-  call void @SSL_CTX_set_verify(ptr noundef %45, i32 noundef 0, ptr noundef null)
+  %42 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx94 = getelementptr inbounds ptr, ptr %42, i64 %i.0152
+  %43 = load ptr, ptr %arrayidx94, align 8
+  call void @SSL_CTX_set_verify(ptr noundef %43, i32 noundef 0, ptr noundef null)
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %if.end92
-  %46 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx97 = getelementptr inbounds ptr, ptr %46, i64 %i.0152
-  %47 = load ptr, ptr %arrayidx97, align 8
-  call void @SSL_CTX_set_verify(ptr noundef %47, i32 noundef 1, ptr noundef nonnull @_ZL18NullVerifyCallbackiP17x509_store_ctx_st)
+  %44 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx97 = getelementptr inbounds ptr, ptr %44, i64 %i.0152
+  %45 = load ptr, ptr %arrayidx97, align 8
+  call void @SSL_CTX_set_verify(ptr noundef %45, i32 noundef 1, ptr noundef nonnull @_ZL18NullVerifyCallbackiP17x509_store_ctx_st)
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %if.end92
-  %48 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx100 = getelementptr inbounds ptr, ptr %48, i64 %i.0152
-  %49 = load ptr, ptr %arrayidx100, align 8
-  call void @SSL_CTX_set_verify(ptr noundef %49, i32 noundef 1, ptr noundef nonnull @_ZL23RootCertExtractCallbackiP17x509_store_ctx_st)
+  %46 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx100 = getelementptr inbounds ptr, ptr %46, i64 %i.0152
+  %47 = load ptr, ptr %arrayidx100, align 8
+  call void @SSL_CTX_set_verify(ptr noundef %47, i32 noundef 1, ptr noundef nonnull @_ZL23RootCertExtractCallbackiP17x509_store_ctx_st)
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %if.end92
-  %50 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx103 = getelementptr inbounds ptr, ptr %50, i64 %i.0152
-  %51 = load ptr, ptr %arrayidx103, align 8
-  call void @SSL_CTX_set_verify(ptr noundef %51, i32 noundef 3, ptr noundef nonnull @_ZL18NullVerifyCallbackiP17x509_store_ctx_st)
+  %48 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx103 = getelementptr inbounds ptr, ptr %48, i64 %i.0152
+  %49 = load ptr, ptr %arrayidx103, align 8
+  call void @SSL_CTX_set_verify(ptr noundef %49, i32 noundef 3, ptr noundef nonnull @_ZL18NullVerifyCallbackiP17x509_store_ctx_st)
   br label %sw.epilog
 
 sw.bb104:                                         ; preds = %if.end92
-  %52 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx106 = getelementptr inbounds ptr, ptr %52, i64 %i.0152
-  %53 = load ptr, ptr %arrayidx106, align 8
-  call void @SSL_CTX_set_verify(ptr noundef %53, i32 noundef 3, ptr noundef nonnull @_ZL23RootCertExtractCallbackiP17x509_store_ctx_st)
+  %50 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx106 = getelementptr inbounds ptr, ptr %50, i64 %i.0152
+  %51 = load ptr, ptr %arrayidx106, align 8
+  call void @SSL_CTX_set_verify(ptr noundef %51, i32 noundef 3, ptr noundef nonnull @_ZL23RootCertExtractCallbackiP17x509_store_ctx_st)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb104, %sw.bb101, %sw.bb98, %sw.bb95, %sw.bb, %if.end92
-  %54 = load ptr, ptr %crl_provider, align 8
-  %cmp.i.i.not = icmp eq ptr %54, null
+  %52 = load ptr, ptr %crl_provider, align 8
+  %cmp.i.i.not = icmp eq ptr %52, null
   br i1 %cmp.i.i.not, label %if.else, label %if.then108
 
 if.then108:                                       ; preds = %sw.epilog
-  %55 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx110 = getelementptr inbounds ptr, ptr %55, i64 %i.0152
-  %56 = load ptr, ptr %arrayidx110, align 8
-  %57 = load i32, ptr @_ZL31g_ssl_ctx_ex_crl_provider_index, align 4
-  %call113 = call i32 @SSL_CTX_set_ex_data(ptr noundef %56, i32 noundef %57, ptr noundef nonnull %54)
-  %58 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx115 = getelementptr inbounds ptr, ptr %58, i64 %i.0152
-  %59 = load ptr, ptr %arrayidx115, align 8
-  %call116 = call ptr @SSL_CTX_get_cert_store(ptr noundef %59)
+  %53 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx110 = getelementptr inbounds ptr, ptr %53, i64 %i.0152
+  %54 = load ptr, ptr %arrayidx110, align 8
+  %55 = load i32, ptr @_ZL31g_ssl_ctx_ex_crl_provider_index, align 4
+  %call113 = call i32 @SSL_CTX_set_ex_data(ptr noundef %54, i32 noundef %55, ptr noundef nonnull %52)
+  %56 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx115 = getelementptr inbounds ptr, ptr %56, i64 %i.0152
+  %57 = load ptr, ptr %arrayidx115, align 8
+  %call116 = call ptr @SSL_CTX_get_cert_store(ptr noundef %57)
   call void @X509_STORE_set_get_crl(ptr noundef %call116, ptr noundef nonnull @_ZL18GetCrlFromProviderP17x509_store_ctx_stPP11X509_crl_stP7x509_st)
   call void @X509_STORE_set_check_crl(ptr noundef %call116, ptr noundef nonnull @_ZL19CheckCrlPassthroughP17x509_store_ctx_stP11X509_crl_st)
   call void @X509_STORE_set_verify_cb(ptr noundef %call116, ptr noundef nonnull @_ZL9verify_cbiP17x509_store_ctx_st)
@@ -2922,23 +2918,23 @@ if.then108:                                       ; preds = %sw.epilog
   br label %if.end138
 
 if.else:                                          ; preds = %sw.epilog
-  %60 = load ptr, ptr %crl_directory, align 8
-  %cmp119.not = icmp eq ptr %60, null
+  %58 = load ptr, ptr %crl_directory, align 8
+  %cmp119.not = icmp eq ptr %58, null
   br i1 %cmp119.not, label %if.end138, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %strcmpload = load i8, ptr %60, align 1
+  %strcmpload = load i8, ptr %58, align 1
   %cmp122.not = icmp eq i8 %strcmpload, 0
   br i1 %cmp122.not, label %if.end138, label %if.then123
 
 if.then123:                                       ; preds = %land.lhs.true
-  %61 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx126 = getelementptr inbounds ptr, ptr %61, i64 %i.0152
-  %62 = load ptr, ptr %arrayidx126, align 8
-  %call127 = call ptr @SSL_CTX_get_cert_store(ptr noundef %62)
+  %59 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx126 = getelementptr inbounds ptr, ptr %59, i64 %i.0152
+  %60 = load ptr, ptr %arrayidx126, align 8
+  %call127 = call ptr @SSL_CTX_get_cert_store(ptr noundef %60)
   call void @X509_STORE_set_verify_cb(ptr noundef %call127, ptr noundef nonnull @_ZL9verify_cbiP17x509_store_ctx_st)
-  %63 = load ptr, ptr %crl_directory, align 8
-  %call129 = call i32 @X509_STORE_load_locations(ptr noundef %call127, ptr noundef null, ptr noundef %63)
+  %61 = load ptr, ptr %crl_directory, align 8
+  %call129 = call i32 @X509_STORE_load_locations(ptr noundef %call127, ptr noundef null, ptr noundef %61)
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %if.then131, label %if.else132
 
@@ -2952,46 +2948,46 @@ if.else132:                                       ; preds = %if.then123
   br label %if.end138
 
 if.end138:                                        ; preds = %if.else, %land.lhs.true, %if.else132, %if.then131, %if.then108
-  %64 = load ptr, ptr %options, align 8
-  %cert_chain = getelementptr inbounds %struct.tsi_ssl_pem_key_cert_pair, ptr %64, i64 %i.0152, i32 1
-  %65 = load ptr, ptr %cert_chain, align 8
-  %66 = load ptr, ptr %ssl_context_x509_subject_names, align 8
-  %arrayidx142 = getelementptr inbounds %struct.tsi_peer, ptr %66, i64 %i.0152
-  %call143 = call noundef i32 @_Z48tsi_ssl_extract_x509_subject_names_from_pem_certPKcP8tsi_peer(ptr noundef %65, ptr noundef %arrayidx142)
+  %62 = load ptr, ptr %options, align 8
+  %cert_chain = getelementptr inbounds %struct.tsi_ssl_pem_key_cert_pair, ptr %62, i64 %i.0152, i32 1
+  %63 = load ptr, ptr %cert_chain, align 8
+  %64 = load ptr, ptr %ssl_context_x509_subject_names, align 8
+  %arrayidx142 = getelementptr inbounds %struct.tsi_peer, ptr %64, i64 %i.0152
+  %call143 = call noundef i32 @_Z48tsi_ssl_extract_x509_subject_names_from_pem_certPKcP8tsi_peer(ptr noundef %63, ptr noundef %arrayidx142)
   %cmp144.not = icmp eq i32 %call143, 0
   br i1 %cmp144.not, label %if.end146, label %if.end.i135
 
 if.end146:                                        ; preds = %if.end138
+  %65 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx148 = getelementptr inbounds ptr, ptr %65, i64 %i.0152
+  %66 = load ptr, ptr %arrayidx148, align 8
+  %call149 = call i32 @SSL_CTX_set_tlsext_servername_callback(ptr noundef %66, ptr noundef nonnull @_ZL49ssl_server_handshaker_factory_servername_callbackP6ssl_stPiPv)
   %67 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx148 = getelementptr inbounds ptr, ptr %67, i64 %i.0152
-  %68 = load ptr, ptr %arrayidx148, align 8
-  %call149 = call i32 @SSL_CTX_set_tlsext_servername_callback(ptr noundef %68, ptr noundef nonnull @_ZL49ssl_server_handshaker_factory_servername_callbackP6ssl_stPiPv)
+  %arrayidx151 = getelementptr inbounds ptr, ptr %67, i64 %i.0152
+  %68 = load ptr, ptr %arrayidx151, align 8
+  %call152 = call i32 @SSL_CTX_set_tlsext_servername_arg(ptr noundef %68, ptr noundef nonnull %call)
   %69 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx151 = getelementptr inbounds ptr, ptr %69, i64 %i.0152
-  %70 = load ptr, ptr %arrayidx151, align 8
-  %call152 = call i32 @SSL_CTX_set_tlsext_servername_arg(ptr noundef %70, ptr noundef nonnull %call)
+  %arrayidx154 = getelementptr inbounds ptr, ptr %69, i64 %i.0152
+  %70 = load ptr, ptr %arrayidx154, align 8
+  call void @SSL_CTX_set_alpn_select_cb(ptr noundef %70, ptr noundef nonnull @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv, ptr noundef nonnull %call)
   %71 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx154 = getelementptr inbounds ptr, ptr %71, i64 %i.0152
-  %72 = load ptr, ptr %arrayidx154, align 8
-  call void @SSL_CTX_set_alpn_select_cb(ptr noundef %72, ptr noundef nonnull @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv, ptr noundef nonnull %call)
-  %73 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx156 = getelementptr inbounds ptr, ptr %73, i64 %i.0152
-  %74 = load ptr, ptr %arrayidx156, align 8
-  call void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef %74, ptr noundef nonnull @_ZL49server_handshaker_factory_npn_advertised_callbackP6ssl_stPPKhPjPv, ptr noundef nonnull %call)
-  %75 = load ptr, ptr %key_logger, align 8
-  %cmp158.not = icmp eq ptr %75, null
+  %arrayidx156 = getelementptr inbounds ptr, ptr %71, i64 %i.0152
+  %72 = load ptr, ptr %arrayidx156, align 8
+  call void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef %72, ptr noundef nonnull @_ZL49server_handshaker_factory_npn_advertised_callbackP6ssl_stPPKhPjPv, ptr noundef nonnull %call)
+  %73 = load ptr, ptr %key_logger, align 8
+  %cmp158.not = icmp eq ptr %73, null
   br i1 %cmp158.not, label %for.inc, label %if.then159
 
 if.then159:                                       ; preds = %if.end146
-  %76 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx161 = getelementptr inbounds ptr, ptr %76, i64 %i.0152
-  %77 = load ptr, ptr %arrayidx161, align 8
-  %78 = load i32, ptr @_ZL26g_ssl_ctx_ex_factory_index, align 4
-  %call162 = call i32 @SSL_CTX_set_ex_data(ptr noundef %77, i32 noundef %78, ptr noundef nonnull %call)
-  %79 = load ptr, ptr %ssl_contexts, align 8
-  %arrayidx164 = getelementptr inbounds ptr, ptr %79, i64 %i.0152
-  %80 = load ptr, ptr %arrayidx164, align 8
-  call void @SSL_CTX_set_keylog_callback(ptr noundef %80, ptr noundef nonnull @_ZL23ssl_keylogging_callbackI33tsi_ssl_server_handshaker_factoryEvPK6ssl_stPKc)
+  %74 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx161 = getelementptr inbounds ptr, ptr %74, i64 %i.0152
+  %75 = load ptr, ptr %arrayidx161, align 8
+  %76 = load i32, ptr @_ZL26g_ssl_ctx_ex_factory_index, align 4
+  %call162 = call i32 @SSL_CTX_set_ex_data(ptr noundef %75, i32 noundef %76, ptr noundef nonnull %call)
+  %77 = load ptr, ptr %ssl_contexts, align 8
+  %arrayidx164 = getelementptr inbounds ptr, ptr %77, i64 %i.0152
+  %78 = load ptr, ptr %arrayidx164, align 8
+  call void @SSL_CTX_set_keylog_callback(ptr noundef %78, ptr noundef nonnull @_ZL23ssl_keylogging_callbackI33tsi_ssl_server_handshaker_factoryEvPK6ssl_stPKc)
   br label %for.inc
 
 if.end.i135:                                      ; preds = %if.end138, %if.end50, %if.then84, %if.then72, %if.then63, %if.then43
@@ -3001,23 +2997,23 @@ if.end.i135:                                      ; preds = %if.end138, %if.end5
   br i1 %tobool.not.i138, label %return, label %if.then1.i139
 
 if.then1.i139:                                    ; preds = %if.end.i135
-  %81 = load ptr, ptr %call, align 8
-  %cmp1.not.i.i140 = icmp eq ptr %81, null
+  %79 = load ptr, ptr %call, align 8
+  %cmp1.not.i.i140 = icmp eq ptr %79, null
   br i1 %cmp1.not.i.i140, label %return, label %land.lhs.true.i.i141
 
 land.lhs.true.i.i141:                             ; preds = %if.then1.i139
-  %82 = load ptr, ptr %81, align 8
-  %cmp3.not.i.i142 = icmp eq ptr %82, null
+  %80 = load ptr, ptr %79, align 8
+  %cmp3.not.i.i142 = icmp eq ptr %80, null
   br i1 %cmp3.not.i.i142, label %return, label %if.then4.i.i143
 
 if.then4.i.i143:                                  ; preds = %land.lhs.true.i.i141
-  call void %82(ptr noundef nonnull %call)
+  call void %80(ptr noundef nonnull %call)
   br label %return
 
 for.inc:                                          ; preds = %if.then159, %if.end146
   %inc = add nuw i64 %i.0152, 1
-  %83 = load i64, ptr %num_key_cert_pairs, align 8
-  %cmp36 = icmp ult i64 %inc, %83
+  %81 = load i64, ptr %num_key_cert_pairs, align 8
+  %cmp36 = icmp ult i64 %inc, %81
   br i1 %cmp36, label %do.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc, %if.end34
@@ -4054,9 +4050,8 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.end
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.i.not.i, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit, label %if.then.i
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %call1.i = tail call ptr @SSL_state_string_long(ptr noundef %ssl)
@@ -4070,10 +4065,9 @@ _ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit:       ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i6, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12, label %land.lhs.true.i7
 
 land.lhs.true.i7:                                 ; preds = %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i.i.not.i8 = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.i.not.i8, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12, label %if.then.i9
+  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i.i8 = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i.i8, label %if.then.i9, label %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12
 
 if.then.i9:                                       ; preds = %land.lhs.true.i7
   %call1.i10 = tail call ptr @SSL_state_string_long(ptr noundef %ssl)
@@ -4087,10 +4081,9 @@ _ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12:     ; preds = %_ZL18ssl_log_where_
   br i1 %tobool.not.i14, label %return, label %land.lhs.true.i15
 
 land.lhs.true.i15:                                ; preds = %_ZL18ssl_log_where_infoPK6ssl_stiiPKc.exit12
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.i.i.not.i16 = icmp eq i8 %5, 0
-  br i1 %tobool.i.i.i.not.i16, label %return, label %if.then.i17
+  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i.i16 = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i16, label %if.then.i17, label %return
 
 if.then.i17:                                      ; preds = %land.lhs.true.i15
   %call1.i18 = tail call ptr @SSL_state_string_long(ptr noundef %ssl)

@@ -78,8 +78,7 @@ if.end:                                           ; preds = %get_trigger_type.ex
   %idxprom4 = sext i32 %tdata_index to i64
   %arrayidx5 = getelementptr [16 x [3 x i8]], ptr @tdata_mapping, i64 0, i64 %retval.0.i.i, i64 %idxprom4
   %3 = load i8, ptr %arrayidx5, align 1
-  %4 = and i8 %3, 1
-  %tobool6 = icmp ne i8 %4, 0
+  %tobool6 = trunc i8 %3 to i1
   br label %return
 
 return:                                           ; preds = %get_trigger_type.exit, %if.end
@@ -117,7 +116,7 @@ entry:
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val.i = load i32, ptr %0, align 16
   %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
-  %priv8.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %priv.i = getelementptr inbounds i8, ptr %env, i64 5048
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %entry.split, label %do.body.i.i
@@ -137,47 +136,46 @@ for.body.us:                                      ; preds = %entry.split, %for.b
 
 if.end.us:                                        ; preds = %for.body.us
   %3 = load i8, ptr %virt_enabled.i, align 16
-  %4 = and i8 %3, 1
-  %tobool.not.i.us = icmp eq i8 %4, 0
-  %5 = load i64, ptr %priv8.i, align 8
-  br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
-
-if.then.i.us:                                     ; preds = %if.end.us
-  %and.i.us = lshr i64 %1, 26
-  %div15.i.us = and i64 %and.i.us, 1
-  %cmp.i.us = icmp eq i64 %div15.i.us, %5
-  %and2.i.us = lshr i64 %1, 25
-  %div316.i.us = and i64 %and2.i.us, 1
-  %cmp5.i.us = icmp eq i64 %div316.i.us, %5
-  %6 = or i1 %cmp.i.us, %cmp5.i.us
-  br i1 %6, label %for.inc.us, label %if.end5.us
+  %tobool.i.us = trunc i8 %3 to i1
+  %4 = load i64, ptr %priv.i, align 8
+  br i1 %tobool.i.us, label %if.then.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.end.us
   %and6.i.us = lshr i64 %1, 9
   %div712.i.us = and i64 %and6.i.us, 1
-  %cmp9.i.us = icmp eq i64 %div712.i.us, %5
+  %cmp9.i.us = icmp eq i64 %div712.i.us, %4
   br i1 %cmp9.i.us, label %for.inc.us, label %lor.lhs.false.i.us
 
 lor.lhs.false.i.us:                               ; preds = %if.else.i.us
   %and10.i.us = lshr i64 %1, 7
   %div1113.i.us = and i64 %and10.i.us, 1
-  %cmp13.i.us = icmp eq i64 %div1113.i.us, %5
+  %cmp13.i.us = icmp eq i64 %div1113.i.us, %4
   br i1 %cmp13.i.us, label %for.inc.us, label %check_itrigger_priv.exit.us
 
 check_itrigger_priv.exit.us:                      ; preds = %lor.lhs.false.i.us
   %and15.i.us = lshr i64 %1, 6
   %div1614.i.us = and i64 %and15.i.us, 1
-  %cmp18.i.us = icmp eq i64 %div1614.i.us, %5
+  %cmp18.i.us = icmp eq i64 %div1614.i.us, %4
   br i1 %cmp18.i.us, label %for.inc.us, label %if.end5.us
 
-if.end5.us:                                       ; preds = %check_itrigger_priv.exit.us, %if.then.i.us
-  %7 = and i64 %1, 16776192
-  %tobool.not.us = icmp ne i64 %7, 0
+if.then.i.us:                                     ; preds = %if.end.us
+  %and.i.us = lshr i64 %1, 26
+  %div15.i.us = and i64 %and.i.us, 1
+  %cmp.i.us = icmp eq i64 %div15.i.us, %4
+  %and2.i.us = lshr i64 %1, 25
+  %div316.i.us = and i64 %and2.i.us, 1
+  %cmp5.i.us = icmp eq i64 %div316.i.us, %4
+  %5 = or i1 %cmp.i.us, %cmp5.i.us
+  br i1 %5, label %for.inc.us, label %if.end5.us
+
+if.end5.us:                                       ; preds = %if.then.i.us, %check_itrigger_priv.exit.us
+  %6 = and i64 %1, 16776192
+  %tobool.not.us = icmp ne i64 %6, 0
   %cmp.us.not = xor i1 %cmp.us, true
   %brmerge = or i1 %tobool.not.us, %cmp.us.not
   br i1 %brmerge, label %return, label %for.body.us.backedge
 
-for.inc.us:                                       ; preds = %check_itrigger_priv.exit.us, %lor.lhs.false.i.us, %if.else.i.us, %if.then.i.us, %for.body.us
+for.inc.us:                                       ; preds = %if.then.i.us, %check_itrigger_priv.exit.us, %lor.lhs.false.i.us, %if.else.i.us, %for.body.us
   br i1 %cmp.us, label %for.body.us.backedge, label %return
 
 for.body.us.backedge:                             ; preds = %for.inc.us, %if.end5.us
@@ -187,8 +185,8 @@ for.body:                                         ; preds = %entry.split, %for.b
   %cmp = phi i1 [ false, %for.body.backedge ], [ true, %entry.split ]
   %indvars.iv = phi i64 [ 1, %for.body.backedge ], [ 0, %entry.split ]
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
-  %8 = load i64, ptr %arrayidx.i, align 8
-  %shr.i2.i.i.mask = and i64 %8, -1152921504606846976
+  %7 = load i64, ptr %arrayidx.i, align 8
+  %shr.i2.i.i.mask = and i64 %7, -1152921504606846976
   %cmp1.not = icmp eq i64 %shr.i2.i.i.mask, 3458764513820540928
   br i1 %cmp1.not, label %if.end, label %for.inc
 
@@ -197,43 +195,42 @@ do.body.i.i:                                      ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %for.body
-  %9 = load i8, ptr %virt_enabled.i, align 16
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  %11 = load i64, ptr %priv8.i, align 8
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %8 = load i8, ptr %virt_enabled.i, align 16
+  %tobool.i = trunc i8 %8 to i1
+  %9 = load i64, ptr %priv.i, align 8
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %and.i = lshr i64 %8, 26
+  %and.i = lshr i64 %7, 26
   %div15.i = and i64 %and.i, 1
-  %cmp.i = icmp eq i64 %div15.i, %11
-  %and2.i = lshr i64 %8, 25
+  %cmp.i = icmp eq i64 %div15.i, %9
+  %and2.i = lshr i64 %7, 25
   %div316.i = and i64 %and2.i, 1
-  %cmp5.i = icmp eq i64 %div316.i, %11
-  %12 = or i1 %cmp.i, %cmp5.i
-  br i1 %12, label %for.inc, label %if.end5
+  %cmp5.i = icmp eq i64 %div316.i, %9
+  %10 = or i1 %cmp.i, %cmp5.i
+  br i1 %10, label %for.inc, label %if.end5
 
 if.else.i:                                        ; preds = %if.end
-  %and6.i = lshr i64 %8, 9
+  %and6.i = lshr i64 %7, 9
   %div712.i = and i64 %and6.i, 1
-  %cmp9.i = icmp eq i64 %div712.i, %11
+  %cmp9.i = icmp eq i64 %div712.i, %9
   br i1 %cmp9.i, label %for.inc, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
-  %and10.i = lshr i64 %8, 7
+  %and10.i = lshr i64 %7, 7
   %div1113.i = and i64 %and10.i, 1
-  %cmp13.i = icmp eq i64 %div1113.i, %11
+  %cmp13.i = icmp eq i64 %div1113.i, %9
   br i1 %cmp13.i, label %for.inc, label %check_itrigger_priv.exit
 
 check_itrigger_priv.exit:                         ; preds = %lor.lhs.false.i
-  %and15.i = lshr i64 %8, 6
+  %and15.i = lshr i64 %7, 6
   %div1614.i = and i64 %and15.i, 1
-  %cmp18.i = icmp eq i64 %div1614.i, %11
+  %cmp18.i = icmp eq i64 %div1614.i, %9
   br i1 %cmp18.i, label %for.inc, label %if.end5
 
 if.end5:                                          ; preds = %if.then.i, %check_itrigger_priv.exit
-  %13 = and i64 %8, 16776192
-  %tobool.not = icmp ne i64 %13, 0
+  %11 = and i64 %7, 16776192
+  %tobool.not = icmp ne i64 %11, 0
   %cmp.not = xor i1 %cmp, true
   %brmerge23 = or i1 %tobool.not, %cmp.not
   br i1 %brmerge23, label %return, label %for.body.backedge
@@ -255,7 +252,7 @@ entry:
   %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
   %0 = getelementptr i8, ptr %env, i64 5008
   %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
-  %priv8.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %priv.i = getelementptr inbounds i8, ptr %env, i64 5048
   %itrigger_enabled = getelementptr inbounds i8, ptr %env, i64 8464
   br label %for.body
 
@@ -291,50 +288,49 @@ get_trigger_type.exit:                            ; preds = %sw.bb.i.i, %sw.bb3.
 
 if.end:                                           ; preds = %get_trigger_type.exit
   %2 = load i8, ptr %virt_enabled.i, align 16
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %4 = load i64, ptr %priv8.i, align 8
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %2 to i1
+  %3 = load i64, ptr %priv.i, align 8
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
   %and.i = lshr i64 %1, 26
   %div15.i = and i64 %and.i, 1
-  %cmp.i = icmp eq i64 %div15.i, %4
+  %cmp.i = icmp eq i64 %div15.i, %3
   %and2.i = lshr i64 %1, 25
   %div316.i = and i64 %and2.i, 1
-  %cmp5.i = icmp eq i64 %div316.i, %4
-  %5 = select i1 %cmp.i, i1 true, i1 %cmp5.i
-  br i1 %5, label %for.inc, label %if.end5
+  %cmp5.i = icmp eq i64 %div316.i, %3
+  %4 = select i1 %cmp.i, i1 true, i1 %cmp5.i
+  br i1 %4, label %for.inc, label %if.end5
 
 if.else.i:                                        ; preds = %if.end
   %and6.i = lshr i64 %1, 9
   %div712.i = and i64 %and6.i, 1
-  %cmp9.i = icmp eq i64 %div712.i, %4
+  %cmp9.i = icmp eq i64 %div712.i, %3
   br i1 %cmp9.i, label %for.inc, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
   %and10.i = lshr i64 %1, 7
   %div1113.i = and i64 %and10.i, 1
-  %cmp13.i = icmp eq i64 %div1113.i, %4
+  %cmp13.i = icmp eq i64 %div1113.i, %3
   br i1 %cmp13.i, label %for.inc, label %check_itrigger_priv.exit
 
 check_itrigger_priv.exit:                         ; preds = %lor.lhs.false.i
   %and15.i = lshr i64 %1, 6
   %div1614.i = and i64 %and15.i, 1
-  %cmp18.i = icmp eq i64 %div1614.i, %4
+  %cmp18.i = icmp eq i64 %div1614.i, %3
   br i1 %cmp18.i, label %for.inc, label %if.end5
 
 if.end5:                                          ; preds = %if.then.i, %check_itrigger_priv.exit
-  %6 = trunc i64 %1 to i32
-  %7 = lshr i32 %6, 10
-  %conv.i = and i32 %7, 16383
+  %5 = trunc i64 %1 to i32
+  %6 = lshr i32 %5, 10
+  %conv.i = and i32 %6, 16383
   %tobool.not = icmp eq i32 %conv.i, 0
   br i1 %tobool.not, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
   %and.i22 = and i64 %1, -16776193
-  %8 = shl nuw nsw i32 %conv.i, 10
-  %mul.i = zext nneg i32 %8 to i64
+  %7 = shl nuw nsw i32 %conv.i, 10
+  %mul.i = zext nneg i32 %7 to i64
   %or.i = or disjoint i64 %and.i22, %mul.i
   store i64 %or.i, ptr %arrayidx.i, align 8
   %tobool9.not = icmp eq i32 %conv.i, 1
@@ -473,7 +469,7 @@ entry:
   %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
   %1 = getelementptr i8, ptr %env, i64 5008
   %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
-  %priv8.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %priv.i = getelementptr inbounds i8, ptr %env, i64 5048
   %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
   %sub = sub i64 %call, %0
   %conv11 = trunc i64 %sub to i32
@@ -518,37 +514,36 @@ if.end:                                           ; preds = %get_trigger_type.ex
 
 if.end8:                                          ; preds = %if.end
   %5 = load i8, ptr %virt_enabled.i, align 16
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  %7 = load i64, ptr %priv8.i, align 8
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %5 to i1
+  %6 = load i64, ptr %priv.i, align 8
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end8
   %and.i = lshr i64 %2, 26
   %div15.i = and i64 %and.i, 1
-  %cmp.i = icmp eq i64 %div15.i, %7
+  %cmp.i = icmp eq i64 %div15.i, %6
   %and2.i = lshr i64 %2, 25
   %div316.i = and i64 %and2.i, 1
-  %cmp5.i = icmp eq i64 %div316.i, %7
-  %8 = or i1 %cmp.i, %cmp5.i
-  br i1 %8, label %if.then10, label %if.else
+  %cmp5.i = icmp eq i64 %div316.i, %6
+  %7 = or i1 %cmp.i, %cmp5.i
+  br i1 %7, label %if.then10, label %if.else
 
 if.else.i:                                        ; preds = %if.end8
   %and6.i = lshr i64 %2, 9
   %div712.i = and i64 %and6.i, 1
-  %cmp9.i = icmp eq i64 %div712.i, %7
+  %cmp9.i = icmp eq i64 %div712.i, %6
   br i1 %cmp9.i, label %if.then10, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
   %and10.i = lshr i64 %2, 7
   %div1113.i = and i64 %and10.i, 1
-  %cmp13.i = icmp eq i64 %div1113.i, %7
+  %cmp13.i = icmp eq i64 %div1113.i, %6
   br i1 %cmp13.i, label %if.then10, label %check_itrigger_priv.exit
 
 check_itrigger_priv.exit:                         ; preds = %lor.lhs.false.i
   %and15.i = lshr i64 %2, 6
   %div1614.i = and i64 %and15.i, 1
-  %cmp18.i = icmp eq i64 %div1614.i, %7
+  %cmp18.i = icmp eq i64 %div1614.i, %6
   br i1 %cmp18.i, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.else.i, %lor.lhs.false.i, %if.then.i, %check_itrigger_priv.exit
@@ -568,10 +563,10 @@ if.then15:                                        ; preds = %if.then10
 
 if.else:                                          ; preds = %if.then.i, %check_itrigger_priv.exit
   %arrayidx = getelementptr [2 x ptr], ptr %itrigger_timer, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx, align 8
+  %8 = load ptr, ptr %arrayidx, align 8
   %conv18 = zext nneg i32 %conv.i to i64
   %add = add i64 %call, %conv18
-  tail call void @timer_mod(ptr noundef %9, i64 noundef %add) #8
+  tail call void @timer_mod(ptr noundef %8, i64 noundef %add) #8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %if.then15, %if.then10, %if.end, %get_trigger_type.exit
@@ -639,45 +634,44 @@ if.then:                                          ; preds = %extract_trigger_typ
 land.lhs.true.i:                                  ; preds = %if.then
   %virt_enabled.i.i = getelementptr inbounds i8, ptr %env, i64 5056
   %7 = load i8, ptr %virt_enabled.i.i, align 16
-  %8 = and i8 %7, 1
-  %tobool.not.i.i = icmp eq i8 %8, 0
-  %priv8.i.i = getelementptr inbounds i8, ptr %env, i64 5048
-  %9 = load i64, ptr %priv8.i.i, align 8
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %7 to i1
+  %priv.i.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %8 = load i64, ptr %priv.i.i, align 8
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
   %and.i.i = lshr i64 %4, 26
   %div15.i.i = and i64 %and.i.i, 1
-  %cmp.i.i = icmp eq i64 %div15.i.i, %9
+  %cmp.i.i = icmp eq i64 %div15.i.i, %8
   %and2.i.i = lshr i64 %4, 25
   %div316.i.i = and i64 %and2.i.i, 1
-  %cmp5.i.i = icmp eq i64 %div316.i.i, %9
-  %10 = or i1 %cmp.i.i, %cmp5.i.i
-  br i1 %10, label %if.then.i, label %itrigger_get_adjust_count.exit
+  %cmp5.i.i = icmp eq i64 %div316.i.i, %8
+  %9 = or i1 %cmp.i.i, %cmp5.i.i
+  br i1 %9, label %if.then.i, label %itrigger_get_adjust_count.exit
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   %and6.i.i = lshr i64 %4, 9
   %div712.i.i = and i64 %and6.i.i, 1
-  %cmp9.i.i = icmp eq i64 %div712.i.i, %9
+  %cmp9.i.i = icmp eq i64 %div712.i.i, %8
   br i1 %cmp9.i.i, label %if.then.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else.i.i
   %and10.i.i = lshr i64 %4, 7
   %div1113.i.i = and i64 %and10.i.i, 1
-  %cmp13.i.i = icmp eq i64 %div1113.i.i, %9
+  %cmp13.i.i = icmp eq i64 %div1113.i.i, %8
   br i1 %cmp13.i.i, label %if.then.i, label %check_itrigger_priv.exit.i
 
 check_itrigger_priv.exit.i:                       ; preds = %lor.lhs.false.i.i
   %and15.i.i = lshr i64 %4, 6
   %div1614.i.i = and i64 %and15.i.i, 1
-  %cmp18.i.i = icmp eq i64 %div1614.i.i, %9
+  %cmp18.i.i = icmp eq i64 %div1614.i.i, %8
   br i1 %cmp18.i.i, label %if.then.i, label %itrigger_get_adjust_count.exit
 
 if.then.i:                                        ; preds = %check_itrigger_priv.exit.i, %lor.lhs.false.i.i, %if.else.i.i, %if.then.i.i
   %call6.i = tail call i64 @icount_get_raw() #8
   %last_icount.i = getelementptr inbounds i8, ptr %env, i64 8456
-  %11 = load i64, ptr %last_icount.i, align 8
-  %sub.i = sub i64 %call6.i, %11
+  %10 = load i64, ptr %last_icount.i, align 8
+  %sub.i = sub i64 %call6.i, %10
   %conv7.i = trunc i64 %sub.i to i32
   %add.i = add i32 %conv.i.i, %conv7.i
   br label %itrigger_get_adjust_count.exit
@@ -694,17 +688,17 @@ itrigger_get_adjust_count.exit:                   ; preds = %if.then, %if.then.i
 sw.bb11:                                          ; preds = %entry
   %tdata2 = getelementptr inbounds i8, ptr %env, i64 8376
   %trigger_cur12 = getelementptr inbounds i8, ptr %env, i64 8352
-  %12 = load i64, ptr %trigger_cur12, align 16
-  %arrayidx13 = getelementptr [2 x i64], ptr %tdata2, i64 0, i64 %12
-  %13 = load i64, ptr %arrayidx13, align 8
+  %11 = load i64, ptr %trigger_cur12, align 16
+  %arrayidx13 = getelementptr [2 x i64], ptr %tdata2, i64 0, i64 %11
+  %12 = load i64, ptr %arrayidx13, align 8
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
   %tdata3 = getelementptr inbounds i8, ptr %env, i64 8392
   %trigger_cur15 = getelementptr inbounds i8, ptr %env, i64 8352
-  %14 = load i64, ptr %trigger_cur15, align 16
-  %arrayidx16 = getelementptr [2 x i64], ptr %tdata3, i64 0, i64 %14
-  %15 = load i64, ptr %arrayidx16, align 8
+  %13 = load i64, ptr %trigger_cur15, align 16
+  %arrayidx16 = getelementptr [2 x i64], ptr %tdata3, i64 0, i64 %13
+  %14 = load i64, ptr %arrayidx16, align 8
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
@@ -712,7 +706,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %extract_trigger_type.exit, %sw.bb14, %sw.bb11, %itrigger_get_adjust_count.exit
-  %retval.0 = phi i64 [ %15, %sw.bb14 ], [ %13, %sw.bb11 ], [ %or.i, %itrigger_get_adjust_count.exit ], [ %1, %extract_trigger_type.exit ]
+  %retval.0 = phi i64 [ %14, %sw.bb14 ], [ %12, %sw.bb11 ], [ %or.i, %itrigger_get_adjust_count.exit ], [ %1, %extract_trigger_type.exit ]
   ret i64 %retval.0
 }
 
@@ -1780,7 +1774,7 @@ for.cond2.preheader.lr.ph:                        ; preds = %entry
   %env.val.i = load i32, ptr %0, align 16
   %tdata223 = getelementptr inbounds i8, ptr %call.i, i64 18552
   %virt_enabled33 = getelementptr inbounds i8, ptr %call.i, i64 15232
-  %priv37 = getelementptr inbounds i8, ptr %call.i, i64 15224
+  %priv44 = getelementptr inbounds i8, ptr %call.i, i64 15224
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %for.cond2.preheader.lr.ph.split, label %do.body.i.i
@@ -1819,29 +1813,27 @@ land.lhs.true28.us.us:                            ; preds = %sw.bb19.us.us
 
 if.then32.us.us:                                  ; preds = %land.lhs.true28.us.us
   %6 = load i8, ptr %virt_enabled33, align 16
-  %7 = and i8 %6, 1
-  %tobool34.not.us.us = icmp eq i8 %7, 0
-  %8 = load i64, ptr %priv37, align 8
-  %shl45.us.us = shl nuw i64 1, %8
-  br i1 %tobool34.not.us.us, label %if.else.us.us, label %if.then35.us.us
-
-if.then35.us.us:                                  ; preds = %if.then32.us.us
-  %shr36.us.us = lshr i64 %1, 23
-  %and39.us.us = and i64 %shl45.us.us, %shr36.us.us
-  %tobool40.not.us.us = icmp eq i64 %and39.us.us, 0
-  br i1 %tobool40.not.us.us, label %for.inc.us.us, label %return
+  %tobool34.us.us = trunc i8 %6 to i1
+  %7 = load i64, ptr %priv44, align 8
+  %shl38.us.us = shl nuw i64 1, %7
+  br i1 %tobool34.us.us, label %if.then35.us.us, label %if.else.us.us
 
 if.else.us.us:                                    ; preds = %if.then32.us.us
   %shr43.us.us = lshr i64 %1, 3
-  %and46.us.us = and i64 %shl45.us.us, %shr43.us.us
+  %and46.us.us = and i64 %shl38.us.us, %shr43.us.us
   %tobool47.not.us.us = icmp eq i64 %and46.us.us, 0
   br i1 %tobool47.not.us.us, label %for.inc.us.us, label %return
 
+if.then35.us.us:                                  ; preds = %if.then32.us.us
+  %shr36.us.us = lshr i64 %1, 23
+  %and39.us.us = and i64 %shl38.us.us, %shr36.us.us
+  %tobool40.not.us.us = icmp eq i64 %and39.us.us, 0
+  br i1 %tobool40.not.us.us, label %for.inc.us.us, label %return
+
 sw.bb.us.us:                                      ; preds = %for.body3.us.us
-  %9 = load i8, ptr %virt_enabled33, align 16
-  %10 = and i8 %9, 1
-  %tobool6.not.us.us = icmp eq i8 %10, 0
-  br i1 %tobool6.not.us.us, label %if.end.us.us, label %return
+  %8 = load i8, ptr %virt_enabled33, align 16
+  %tobool6.us.us = trunc i8 %8 to i1
+  br i1 %tobool6.us.us, label %return, label %if.end.us.us
 
 if.end.us.us:                                     ; preds = %sw.bb.us.us
   %and.us.us = and i64 %1, 4
@@ -1850,20 +1842,20 @@ if.end.us.us:                                     ; preds = %sw.bb.us.us
 
 land.lhs.true.us.us:                              ; preds = %if.end.us.us
   %arrayidx8.us.us = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv36
-  %11 = load i64, ptr %arrayidx8.us.us, align 8
-  %12 = load i64, ptr %bp.029.us, align 8
-  %cmp11.us.us = icmp eq i64 %12, %11
+  %9 = load i64, ptr %arrayidx8.us.us, align 8
+  %10 = load i64, ptr %bp.029.us, align 8
+  %cmp11.us.us = icmp eq i64 %10, %9
   br i1 %cmp11.us.us, label %if.then13.us.us, label %for.inc.us.us
 
 if.then13.us.us:                                  ; preds = %land.lhs.true.us.us
   %shr.us.us = lshr i64 %1, 3
-  %13 = load i64, ptr %priv37, align 8
-  %shl.us.us = shl nuw i64 1, %13
+  %11 = load i64, ptr %priv44, align 8
+  %shl.us.us = shl nuw i64 1, %11
   %and14.us.us = and i64 %shl.us.us, %shr.us.us
   %tobool15.not.us.us = icmp eq i64 %and14.us.us, 0
   br i1 %tobool15.not.us.us, label %for.inc.us.us, label %return
 
-for.inc.us.us:                                    ; preds = %if.then13.us.us, %land.lhs.true.us.us, %if.end.us.us, %if.else.us.us, %if.then35.us.us, %land.lhs.true28.us.us, %sw.bb19.us.us, %for.body3.us.us
+for.inc.us.us:                                    ; preds = %if.then13.us.us, %land.lhs.true.us.us, %if.end.us.us, %if.then35.us.us, %if.else.us.us, %land.lhs.true28.us.us, %sw.bb19.us.us, %for.body3.us.us
   br i1 %cmp.us.us, label %for.body3.us.us, label %for.inc52.split.us.us, !llvm.loop !10
 
 for.inc52.split.us.us:                            ; preds = %for.inc.us.us
@@ -1880,8 +1872,8 @@ for.body3:                                        ; preds = %for.cond2.preheader
   %cmp = phi i1 [ true, %for.cond2.preheader ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ 1, %for.inc ]
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
-  %14 = load i64, ptr %arrayidx.i, align 8
-  %shr.i2.i.i = lshr i64 %14, 60
+  %12 = load i64, ptr %arrayidx.i, align 8
+  %shr.i2.i.i = lshr i64 %12, 60
   %conv5 = trunc i64 %shr.i2.i.i to i32
   switch i32 %conv5, label %for.inc [
     i32 2, label %sw.bb
@@ -1893,60 +1885,58 @@ do.body.i.i:                                      ; preds = %for.cond2.preheader
   unreachable
 
 sw.bb:                                            ; preds = %for.body3
-  %15 = load i8, ptr %virt_enabled33, align 16
-  %16 = and i8 %15, 1
-  %tobool6.not = icmp eq i8 %16, 0
-  br i1 %tobool6.not, label %if.end, label %return
+  %13 = load i8, ptr %virt_enabled33, align 16
+  %tobool6 = trunc i8 %13 to i1
+  br i1 %tobool6, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %and = and i64 %14, 4
+  %and = and i64 %12, 4
   %tobool9.not = icmp eq i64 %and, 0
   br i1 %tobool9.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %arrayidx8 = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv
-  %17 = load i64, ptr %arrayidx8, align 8
-  %18 = load i64, ptr %bp.029, align 8
-  %cmp11 = icmp eq i64 %18, %17
+  %14 = load i64, ptr %arrayidx8, align 8
+  %15 = load i64, ptr %bp.029, align 8
+  %cmp11 = icmp eq i64 %15, %14
   br i1 %cmp11, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %land.lhs.true
-  %shr = lshr i64 %14, 3
-  %19 = load i64, ptr %priv37, align 8
-  %shl = shl nuw i64 1, %19
+  %shr = lshr i64 %12, 3
+  %16 = load i64, ptr %priv44, align 8
+  %shl = shl nuw i64 1, %16
   %and14 = and i64 %shl, %shr
   %tobool15.not = icmp eq i64 %and14, 0
   br i1 %tobool15.not, label %for.inc, label %return
 
 sw.bb19:                                          ; preds = %for.body3
-  %and26 = and i64 %14, 4
+  %and26 = and i64 %12, 4
   %tobool27.not = icmp eq i64 %and26, 0
   br i1 %tobool27.not, label %for.inc, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %sw.bb19
   %arrayidx25 = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv
-  %20 = load i64, ptr %arrayidx25, align 8
-  %21 = load i64, ptr %bp.029, align 8
-  %cmp30 = icmp eq i64 %21, %20
+  %17 = load i64, ptr %arrayidx25, align 8
+  %18 = load i64, ptr %bp.029, align 8
+  %cmp30 = icmp eq i64 %18, %17
   br i1 %cmp30, label %if.then32, label %for.inc
 
 if.then32:                                        ; preds = %land.lhs.true28
-  %22 = load i8, ptr %virt_enabled33, align 16
-  %23 = and i8 %22, 1
-  %tobool34.not = icmp eq i8 %23, 0
-  %24 = load i64, ptr %priv37, align 8
-  %shl45 = shl nuw i64 1, %24
-  br i1 %tobool34.not, label %if.else, label %if.then35
+  %19 = load i8, ptr %virt_enabled33, align 16
+  %tobool34 = trunc i8 %19 to i1
+  %20 = load i64, ptr %priv44, align 8
+  %shl38 = shl nuw i64 1, %20
+  br i1 %tobool34, label %if.then35, label %if.else
 
 if.then35:                                        ; preds = %if.then32
-  %shr36 = lshr i64 %14, 23
-  %and39 = and i64 %shl45, %shr36
+  %shr36 = lshr i64 %12, 23
+  %and39 = and i64 %shl38, %shr36
   %tobool40.not = icmp eq i64 %and39, 0
   br i1 %tobool40.not, label %for.inc, label %return
 
 if.else:                                          ; preds = %if.then32
-  %shr43 = lshr i64 %14, 3
-  %and46 = and i64 %shl45, %shr43
+  %shr43 = lshr i64 %12, 3
+  %and46 = and i64 %shl38, %shr43
   %tobool47.not = icmp eq i64 %and46, 0
   br i1 %tobool47.not, label %for.inc, label %return
 
@@ -1959,7 +1949,7 @@ for.inc52.split:                                  ; preds = %for.inc
   %tobool.not = icmp eq ptr %bp.0, null
   br i1 %tobool.not, label %return, label %for.cond2.preheader, !llvm.loop !11
 
-return:                                           ; preds = %for.inc52.split, %sw.bb, %if.then13, %if.then35, %if.else, %for.inc52.split.us.us, %if.then35.us.us, %if.else.us.us, %sw.bb.us.us, %if.then13.us.us, %entry
+return:                                           ; preds = %for.inc52.split, %sw.bb, %if.then13, %if.then35, %if.else, %for.inc52.split.us.us, %if.else.us.us, %if.then35.us.us, %sw.bb.us.us, %if.then13.us.us, %entry
   %retval.0 = phi i1 [ false, %entry ], [ true, %if.else.us.us ], [ true, %if.then35.us.us ], [ true, %if.then13.us.us ], [ false, %sw.bb.us.us ], [ false, %for.inc52.split.us.us ], [ true, %if.else ], [ true, %if.then35 ], [ true, %if.then13 ], [ false, %sw.bb ], [ false, %for.inc52.split ]
   ret i1 %retval.0
 }
@@ -1974,7 +1964,7 @@ entry:
   %flags42 = getelementptr inbounds i8, ptr %wp, i64 28
   %tdata229 = getelementptr inbounds i8, ptr %call.i, i64 18552
   %virt_enabled50 = getelementptr inbounds i8, ptr %call.i, i64 15232
-  %priv54 = getelementptr inbounds i8, ptr %call.i, i64 15224
+  %priv61 = getelementptr inbounds i8, ptr %call.i, i64 15224
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %for.body.preheader, label %do.body.i.i
@@ -2004,29 +1994,28 @@ do.body.i.i:                                      ; preds = %entry
 
 sw.bb:                                            ; preds = %for.body
   %2 = load i8, ptr %virt_enabled50, align 16
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %4 = trunc i64 %1 to i32
-  %flags.1 = and i32 %4, 3
-  %5 = load i32, ptr %flags42, align 4
-  %and15 = and i32 %flags.1, %5
+  %3 = trunc i64 %1 to i32
+  %flags.1 = and i32 %3, 3
+  %4 = load i32, ptr %flags42, align 4
+  %and15 = and i32 %flags.1, %4
   %tobool16.not = icmp eq i32 %and15, 0
   br i1 %tobool16.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %arrayidx5 = getelementptr [2 x i64], ptr %tdata229, i64 0, i64 %indvars.iv
-  %6 = load i64, ptr %arrayidx5, align 8
-  %7 = load i64, ptr %wp, align 8
-  %cmp17 = icmp eq i64 %7, %6
+  %5 = load i64, ptr %arrayidx5, align 8
+  %6 = load i64, ptr %wp, align 8
+  %cmp17 = icmp eq i64 %6, %5
   br i1 %cmp17, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %land.lhs.true
   %shr = lshr i64 %1, 3
-  %8 = load i64, ptr %priv54, align 8
-  %shl = shl nuw i64 1, %8
+  %7 = load i64, ptr %priv61, align 8
+  %shl = shl nuw i64 1, %7
   %and20 = and i64 %shl, %shr
   %tobool21.not = icmp ne i64 %and20, 0
   %cmp.not = xor i1 %cmp, true
@@ -2034,41 +2023,40 @@ if.then19:                                        ; preds = %land.lhs.true
   br i1 %brmerge, label %return, label %for.body.backedge
 
 sw.bb25:                                          ; preds = %for.body
-  %9 = trunc i64 %1 to i32
-  %flags.3 = and i32 %9, 3
-  %10 = load i32, ptr %flags42, align 4
-  %and43 = and i32 %flags.3, %10
+  %8 = trunc i64 %1 to i32
+  %flags.3 = and i32 %8, 3
+  %9 = load i32, ptr %flags42, align 4
+  %and43 = and i32 %flags.3, %9
   %tobool44.not = icmp eq i32 %and43, 0
   br i1 %tobool44.not, label %for.inc, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %sw.bb25
   %arrayidx31 = getelementptr [2 x i64], ptr %tdata229, i64 0, i64 %indvars.iv
-  %11 = load i64, ptr %arrayidx31, align 8
-  %12 = load i64, ptr %wp, align 8
-  %cmp47 = icmp eq i64 %12, %11
+  %10 = load i64, ptr %arrayidx31, align 8
+  %11 = load i64, ptr %wp, align 8
+  %cmp47 = icmp eq i64 %11, %10
   br i1 %cmp47, label %if.then49, label %for.inc
 
 if.then49:                                        ; preds = %land.lhs.true45
-  %13 = load i8, ptr %virt_enabled50, align 16
-  %14 = and i8 %13, 1
-  %tobool51.not = icmp eq i8 %14, 0
-  %15 = load i64, ptr %priv54, align 8
-  %shl62 = shl nuw i64 1, %15
-  %cmp.not37 = xor i1 %cmp, true
-  br i1 %tobool51.not, label %if.else, label %if.then52
+  %12 = load i8, ptr %virt_enabled50, align 16
+  %tobool51 = trunc i8 %12 to i1
+  %13 = load i64, ptr %priv61, align 8
+  %shl55 = shl nuw i64 1, %13
+  %cmp.not34 = xor i1 %cmp, true
+  br i1 %tobool51, label %if.then52, label %if.else
 
 if.then52:                                        ; preds = %if.then49
   %shr53 = lshr i64 %1, 23
-  %and56 = and i64 %shl62, %shr53
+  %and56 = and i64 %shl55, %shr53
   %tobool57.not = icmp ne i64 %and56, 0
-  %brmerge35 = or i1 %tobool57.not, %cmp.not37
+  %brmerge35 = or i1 %tobool57.not, %cmp.not34
   br i1 %brmerge35, label %return, label %for.body.backedge
 
 if.else:                                          ; preds = %if.then49
   %shr60 = lshr i64 %1, 3
-  %and63 = and i64 %shl62, %shr60
+  %and63 = and i64 %shl55, %shr60
   %tobool64.not = icmp ne i64 %and63, 0
-  %brmerge38 = or i1 %tobool64.not, %cmp.not37
+  %brmerge38 = or i1 %tobool64.not, %cmp.not34
   br i1 %brmerge38, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end, %land.lhs.true45, %sw.bb25, %for.body

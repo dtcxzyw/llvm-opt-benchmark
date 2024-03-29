@@ -68,13 +68,12 @@ lpad:                                             ; preds = %if.then122.invoke, 
 do.end:                                           ; preds = %if.then4, %invoke.cont
   %wss_trust_system = getelementptr inbounds i8, ptr %options_, i64 1200
   %3 = load i8, ptr %wss_trust_system, align 8
-  %4 = and i8 %3, 1
-  %tobool10.not = icmp eq i8 %4, 0
-  br i1 %tobool10.not, label %if.end15, label %if.then11
+  %tobool10 = trunc i8 %3 to i1
+  br i1 %tobool10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %do.end
-  %5 = load ptr, ptr %_tls_client_cred, align 8
-  %call14 = invoke i32 @gnutls_certificate_set_x509_system_trust(ptr noundef %5)
+  %4 = load ptr, ptr %_tls_client_cred, align 8
+  %call14 = invoke i32 @gnutls_certificate_set_x509_system_trust(ptr noundef %4)
           to label %if.end15 unwind label %lpad
 
 if.end15:                                         ; preds = %if.then11, %do.end
@@ -90,8 +89,8 @@ if.then18:                                        ; preds = %if.end15
   %call22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #11
   %conv = trunc i64 %call22 to i32
   store i32 %conv, ptr %size, align 8
-  %6 = load ptr, ptr %_tls_client_cred, align 8
-  %call25 = invoke i32 @gnutls_certificate_set_x509_trust_mem(ptr noundef %6, ptr noundef nonnull %trust, i32 noundef 1)
+  %5 = load ptr, ptr %_tls_client_cred, align 8
+  %call25 = invoke i32 @gnutls_certificate_set_x509_trust_mem(ptr noundef %5, ptr noundef nonnull %trust, i32 noundef 1)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.then18
@@ -99,16 +98,16 @@ invoke.cont24:                                    ; preds = %if.then18
   br i1 %cmp27, label %if.then30, label %if.end39
 
 if.then30:                                        ; preds = %invoke.cont24
+  %6 = load ptr, ptr @stderr, align 8
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 55) #10
   %7 = load ptr, ptr @stderr, align 8
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 55) #10
-  %8 = load ptr, ptr @stderr, align 8
-  %call34 = call i32 @fflush(ptr noundef %8)
+  %call34 = call i32 @fflush(ptr noundef %7)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
           to label %if.end39 unwind label %lpad
 
 if.end39:                                         ; preds = %invoke.cont24, %if.then30, %if.end15
-  %9 = load ptr, ptr %_tls_client_cred, align 8
-  invoke void @gnutls_certificate_set_verify_function(ptr noundef %9, ptr noundef nonnull @_ZL27verify_certificate_callbackP18gnutls_session_int)
+  %8 = load ptr, ptr %_tls_client_cred, align 8
+  invoke void @gnutls_certificate_set_verify_function(ptr noundef %8, ptr noundef nonnull @_ZL27verify_certificate_callbackP18gnutls_session_int)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %if.end39
@@ -121,10 +120,10 @@ invoke.cont42:                                    ; preds = %invoke.cont41
   br i1 %cmp45.not, label %do.end56, label %if.then48
 
 if.then48:                                        ; preds = %invoke.cont42
+  %9 = load ptr, ptr @stderr, align 8
+  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 62) #10
   %10 = load ptr, ptr @stderr, align 8
-  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 62) #10
-  %11 = load ptr, ptr @stderr, align 8
-  %call52 = call i32 @fflush(ptr noundef %11)
+  %call52 = call i32 @fflush(ptr noundef %10)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
           to label %do.end56 unwind label %lpad
 
@@ -133,14 +132,14 @@ do.end56:                                         ; preds = %if.then48, %invoke.
   br i1 %call57, label %if.end64, label %if.then58
 
 if.then58:                                        ; preds = %do.end56
-  %12 = load ptr, ptr %_tls_session, align 8
+  %11 = load ptr, ptr %_tls_session, align 8
   %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname_) #11
   %call61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname_) #11
-  %call63 = invoke i32 @gnutls_server_name_set(ptr noundef %12, i32 noundef 1, ptr noundef %call60, i64 noundef %call61)
+  %call63 = invoke i32 @gnutls_server_name_set(ptr noundef %11, i32 noundef 1, ptr noundef %call60, i64 noundef %call61)
           to label %if.end64 unwind label %lpad
 
 if.end64:                                         ; preds = %if.then58, %do.end56
-  %13 = load ptr, ptr %_tls_session, align 8
+  %12 = load ptr, ptr %_tls_session, align 8
   %call66 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname_) #11
   br i1 %call66, label %cond.end, label %cond.false
 
@@ -150,13 +149,13 @@ cond.false:                                       ; preds = %if.end64
 
 cond.end:                                         ; preds = %if.end64, %cond.false
   %cond = phi ptr [ %call67, %cond.false ], [ null, %if.end64 ]
-  invoke void @gnutls_session_set_ptr(ptr noundef %13, ptr noundef %cond)
+  invoke void @gnutls_session_set_ptr(ptr noundef %12, ptr noundef %cond)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %cond.end
-  %14 = load ptr, ptr %_tls_session, align 8
-  %15 = load ptr, ptr %_tls_client_cred, align 8
-  %call72 = invoke i32 @gnutls_credentials_set(ptr noundef %14, i32 noundef 1, ptr noundef %15)
+  %13 = load ptr, ptr %_tls_session, align 8
+  %14 = load ptr, ptr %_tls_client_cred, align 8
+  %call72 = invoke i32 @gnutls_credentials_set(ptr noundef %13, i32 noundef 1, ptr noundef %14)
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %invoke.cont68
@@ -164,10 +163,10 @@ invoke.cont71:                                    ; preds = %invoke.cont68
   br i1 %cmp74.not, label %if.end131, label %if.then77
 
 if.then77:                                        ; preds = %invoke.cont71
+  %15 = load ptr, ptr @stderr, align 8
+  %call79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 74) #10
   %16 = load ptr, ptr @stderr, align 8
-  %call79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 74) #10
-  %17 = load ptr, ptr @stderr, align 8
-  %call81 = call i32 @fflush(ptr noundef %17)
+  %call81 = call i32 @fflush(ptr noundef %16)
   br label %if.then122.invoke
 
 do.body86:                                        ; preds = %entry
@@ -175,10 +174,10 @@ do.body86:                                        ; preds = %entry
   br i1 %tobool87.not, label %if.then90, label %do.end98
 
 if.then90:                                        ; preds = %do.body86
+  %17 = load ptr, ptr @stderr, align 8
+  %call92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 76) #10
   %18 = load ptr, ptr @stderr, align 8
-  %call92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 76) #10
-  %19 = load ptr, ptr @stderr, align 8
-  %call94 = tail call i32 @fflush(ptr noundef %19)
+  %call94 = tail call i32 @fflush(ptr noundef %18)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
           to label %do.end98 unwind label %lpad
 
@@ -192,16 +191,16 @@ invoke.cont100:                                   ; preds = %do.end98
   br i1 %cmp103.not, label %do.end114, label %if.then106
 
 if.then106:                                       ; preds = %invoke.cont100
+  %19 = load ptr, ptr @stderr, align 8
+  %call108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 79) #10
   %20 = load ptr, ptr @stderr, align 8
-  %call108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 79) #10
-  %21 = load ptr, ptr @stderr, align 8
-  %call110 = tail call i32 @fflush(ptr noundef %21)
+  %call110 = tail call i32 @fflush(ptr noundef %20)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
           to label %do.end114 unwind label %lpad
 
 do.end114:                                        ; preds = %if.then106, %invoke.cont100
-  %22 = load ptr, ptr %_tls_session99, align 8
-  %call117 = invoke i32 @gnutls_credentials_set(ptr noundef %22, i32 noundef 1, ptr noundef %tls_server_cred_)
+  %21 = load ptr, ptr %_tls_session99, align 8
+  %call117 = invoke i32 @gnutls_credentials_set(ptr noundef %21, i32 noundef 1, ptr noundef %tls_server_cred_)
           to label %invoke.cont116 unwind label %lpad
 
 invoke.cont116:                                   ; preds = %do.end114
@@ -209,10 +208,10 @@ invoke.cont116:                                   ; preds = %do.end114
   br i1 %cmp119.not, label %if.end131, label %if.then122
 
 if.then122:                                       ; preds = %invoke.cont116
+  %22 = load ptr, ptr @stderr, align 8
+  %call124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 83) #10
   %23 = load ptr, ptr @stderr, align 8
-  %call124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 83) #10
-  %24 = load ptr, ptr @stderr, align 8
-  %call126 = tail call i32 @fflush(ptr noundef %24)
+  %call126 = tail call i32 @fflush(ptr noundef %23)
   br label %if.then122.invoke
 
 if.then122.invoke:                                ; preds = %if.then77, %if.then122
@@ -221,13 +220,13 @@ if.then122.invoke:                                ; preds = %if.then77, %if.then
 
 if.end131:                                        ; preds = %if.then122.invoke, %invoke.cont116, %invoke.cont71
   %_tls_session132 = getelementptr inbounds i8, ptr %this, i64 25712
-  %25 = load ptr, ptr %_tls_session132, align 8
-  %call134 = invoke i32 @gnutls_set_default_priority(ptr noundef %25)
+  %24 = load ptr, ptr %_tls_session132, align 8
+  %call134 = invoke i32 @gnutls_set_default_priority(ptr noundef %24)
           to label %invoke.cont133 unwind label %lpad
 
 invoke.cont133:                                   ; preds = %if.end131
-  %26 = load ptr, ptr %_tls_session132, align 8
-  invoke void @gnutls_transport_set_int2(ptr noundef %26, i32 noundef %fd_, i32 noundef %fd_)
+  %25 = load ptr, ptr %_tls_session132, align 8
+  invoke void @gnutls_transport_set_int2(ptr noundef %25, i32 noundef %fd_, i32 noundef %fd_)
           to label %invoke.cont136 unwind label %lpad
 
 invoke.cont136:                                   ; preds = %invoke.cont133
@@ -398,9 +397,8 @@ define void @_ZN3zmq12wss_engine_t9out_eventEv(ptr noundef nonnull align 8 deref
 entry:
   %_established = getelementptr inbounds i8, ptr %this, i64 25696
   %0 = load i8, ptr %_established, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN3zmq20stream_engine_base_t9out_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
@@ -471,9 +469,8 @@ define noundef zeroext i1 @_ZN3zmq12wss_engine_t9handshakeEv(ptr noundef nonnull
 entry:
   %_established = getelementptr inbounds i8, ptr %this, i64 25696
   %0 = load i8, ptr %_established, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end3
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZN3zmq12wss_engine_t12do_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25720) %this)
@@ -586,8 +583,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_hands
 entry:
   %_has_handshake_stage = getelementptr inbounds i8, ptr %this, i64 1688
   %0 = load i8, ptr %_has_handshake_stage, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -624,8 +620,7 @@ define linkonce_odr noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t19has
 entry:
   %_has_handshake_stage.i = getelementptr inbounds i8, ptr %this, i64 1672
   %0 = load i8, ptr %_has_handshake_stage.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 

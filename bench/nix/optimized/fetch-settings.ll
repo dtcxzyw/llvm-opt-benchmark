@@ -3094,9 +3094,9 @@ declare void @_ZN3nix11BaseSettingIbE11appendOrSetEbb(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingIbE6assignERKb(ptr noundef nonnull align 8 dereferenceable(139) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
   %3 = load i8, ptr %1, align 1
-  %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
-  store i8 %4, ptr %5, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = and i8 %3, 1
+  store i8 %5, ptr %4, align 8
   ret void
 }
 
@@ -3105,9 +3105,9 @@ define linkonce_odr void @_ZN3nix11BaseSettingIbE8overrideERKb(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   store i8 1, ptr %3, align 4
   %4 = load i8, ptr %1, align 1
-  %5 = and i8 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
-  store i8 %5, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = and i8 %4, 1
+  store i8 %6, ptr %5, align 8
   ret void
 }
 

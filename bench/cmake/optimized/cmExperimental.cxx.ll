@@ -116,9 +116,8 @@ define dso_local noundef zeroext i1 @_ZN14cmExperimental17HasSupportEnabledERK10
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %5, i64 156
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %18, label %20
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %5, i64 96

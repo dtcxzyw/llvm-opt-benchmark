@@ -161,7 +161,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %retVal.0219 = phi i8 [ 0, %for.body.lr.ph ], [ %retVal.2, %for.inc ]
+  %retVal.0219 = phi i1 [ false, %for.body.lr.ph ], [ %retVal.2, %for.inc ]
   %__begin3.sroa.0.0218 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i203, %for.inc ]
   %2 = load ptr, ptr %d_ee, align 8
   %3 = load ptr, ptr %__begin3.sroa.0.0218, align 8
@@ -432,7 +432,7 @@ if.else.i166:                                     ; preds = %if.else
           to label %if.end unwind label %lpad13
 
 if.end:                                           ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i156, %if.else.i166, %if.then13.i.i145, %if.then.i.i139, %invoke.cont39
-  %retVal.1 = phi i8 [ 1, %invoke.cont39 ], [ 1, %if.then.i.i139 ], [ 1, %if.then13.i.i145 ], [ %retVal.0219, %if.else.i166 ], [ %retVal.0219, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i156 ]
+  %retVal.1 = phi i1 [ true, %invoke.cont39 ], [ true, %if.then.i.i139 ], [ true, %if.then13.i.i145 ], [ %retVal.0219, %if.else.i166 ], [ %retVal.0219, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i156 ]
   %31 = load ptr, ptr %nr, align 8
   %bf.load.i.i170 = load i64, ptr %31, align 8
   %32 = and i64 %bf.load.i.i170, 1152920405095219200
@@ -509,18 +509,13 @@ if.else.i201:                                     ; preds = %if.else43
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i201, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i191, %if.then13.i.i178, %if.then.i.i172, %if.end
-  %retVal.2 = phi i8 [ %retVal.1, %if.end ], [ %retVal.1, %if.then.i.i172 ], [ %retVal.1, %if.then13.i.i178 ], [ %retVal.0219, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i191 ], [ %retVal.0219, %if.else.i201 ]
+  %retVal.2 = phi i1 [ %retVal.1, %if.end ], [ %retVal.1, %if.then.i.i172 ], [ %retVal.1, %if.then13.i.i178 ], [ %retVal.0219, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i191 ], [ %retVal.0219, %if.else.i201 ]
   %incdec.ptr.i203 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0218, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i203, %1
-  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
-for.end.loopexit:                                 ; preds = %for.inc
-  %40 = and i8 %retVal.2, 1
-  %41 = icmp ne i8 %40, 0
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %entry
-  %retVal.0.lcssa = phi i1 [ false, %entry ], [ %41, %for.end.loopexit ]
+for.end:                                          ; preds = %for.inc, %entry
+  %retVal.0.lcssa = phi i1 [ false, %entry ], [ %retVal.2, %for.inc ]
   ret i1 %retVal.0.lcssa
 }
 

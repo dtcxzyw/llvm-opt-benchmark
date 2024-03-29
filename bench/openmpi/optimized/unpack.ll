@@ -4797,8 +4797,8 @@ define i32 @pmix20_bfrop_unpack_darray(ptr noundef %0, ptr noundef %1, ptr nound
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %51
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
+20:                                               ; preds = %.lr.ph, %50
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %21 = getelementptr inbounds %struct.pmix_data_array, ptr %2, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store i32 1, ptr %6, align 4
@@ -4830,12 +4830,12 @@ pmix20_bfrop_unpack_datatype.exit:                ; preds = %pmix_pointer_array_
 33:                                               ; preds = %30
   %34 = load i64, ptr %31, align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %51, label %36
+  br i1 %35, label %50, label %36
 
 36:                                               ; preds = %33
   %37 = load i16, ptr %21, align 8
   %38 = icmp eq i16 %37, 0
-  br i1 %38, label %51, label %39
+  br i1 %38, label %50, label %39
 
 39:                                               ; preds = %36
   %40 = trunc i64 %34 to i32
@@ -4847,35 +4847,34 @@ pmix20_bfrop_unpack_datatype.exit:                ; preds = %pmix_pointer_array_
 switch.hole_check:                                ; preds = %39
   %switch.maskindex = zext nneg i16 %switch.tableidx to i64
   %switch.shifted = lshr i64 3511751278591, %switch.maskindex
-  %42 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %42, 0
-  br i1 %switch.lobit.not, label %pmix20_bfrop_unpack_datatype.exit.thread, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %pmix20_bfrop_unpack_datatype.exit.thread
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %43 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [42 x i64], ptr @switch.table.pmix20_bfrop_unpack_darray, i64 0, i64 %43
+  %42 = sext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [42 x i64], ptr @switch.table.pmix20_bfrop_unpack_darray, i64 0, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %sext = shl i64 %34, 32
-  %44 = ashr exact i64 %sext, 32
-  %45 = mul nsw i64 %switch.load, %44
-  %46 = call noalias ptr @malloc(i64 noundef %45) #13
-  %47 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %46, ptr %47, align 8
-  %48 = icmp eq ptr %46, null
-  br i1 %48, label %pmix20_bfrop_unpack_datatype.exit.thread, label %49
+  %43 = ashr exact i64 %sext, 32
+  %44 = mul nsw i64 %switch.load, %43
+  %45 = call noalias ptr @malloc(i64 noundef %44) #13
+  %46 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %45, ptr %46, align 8
+  %47 = icmp eq ptr %45, null
+  br i1 %47, label %pmix20_bfrop_unpack_datatype.exit.thread, label %48
 
-49:                                               ; preds = %switch.lookup
-  %50 = call i32 @pmix20_bfrop_unpack_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %46, ptr noundef nonnull %6, i16 noundef zeroext %37)
-  %.not46 = icmp eq i32 %50, 0
-  br i1 %.not46, label %51, label %pmix20_bfrop_unpack_datatype.exit.thread
+48:                                               ; preds = %switch.lookup
+  %49 = call i32 @pmix20_bfrop_unpack_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %45, ptr noundef nonnull %6, i16 noundef zeroext %37)
+  %.not46 = icmp eq i32 %49, 0
+  br i1 %.not46, label %50, label %pmix20_bfrop_unpack_datatype.exit.thread
 
-51:                                               ; preds = %49, %33, %36
+50:                                               ; preds = %48, %33, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %pmix20_bfrop_unpack_datatype.exit.thread, label %20, !llvm.loop !49
 
-pmix20_bfrop_unpack_datatype.exit.thread:         ; preds = %pmix20_bfrop_unpack_datatype.exit, %30, %switch.lookup, %49, %51, %pmix_pointer_array_get_item.exit.i, %20, %39, %switch.hole_check, %15
-  %.037 = phi i32 [ 0, %15 ], [ -47, %switch.hole_check ], [ -16, %20 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ 0, %51 ], [ %50, %49 ], [ -32, %switch.lookup ], [ -47, %39 ], [ %32, %30 ], [ %29, %pmix20_bfrop_unpack_datatype.exit ]
+pmix20_bfrop_unpack_datatype.exit.thread:         ; preds = %pmix20_bfrop_unpack_datatype.exit, %30, %switch.lookup, %48, %50, %pmix_pointer_array_get_item.exit.i, %20, %39, %switch.hole_check, %15
+  %.037 = phi i32 [ 0, %15 ], [ -47, %switch.hole_check ], [ -16, %20 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ 0, %50 ], [ %49, %48 ], [ -32, %switch.lookup ], [ -47, %39 ], [ %32, %30 ], [ %29, %pmix20_bfrop_unpack_datatype.exit ]
   ret i32 %.037
 }
 

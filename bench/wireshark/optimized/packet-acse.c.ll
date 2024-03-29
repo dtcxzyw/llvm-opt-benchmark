@@ -816,9 +816,8 @@ declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr 
 define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %20, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 72
@@ -827,8 +826,8 @@ define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 128
   %16 = load ptr, ptr %15, align 8
-  %.not10 = icmp eq ptr %16, null
-  %. = select i1 %.not10, ptr %4, ptr %16
+  %.not = icmp eq ptr %16, null
+  %. = select i1 %.not, ptr %4, ptr %16
   %17 = getelementptr inbounds i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @call_ber_oid_callback(ptr noundef %12, ptr noundef %1, i32 noundef %2, ptr noundef %14, ptr noundef %., ptr noundef %18) #5
@@ -843,9 +842,8 @@ define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef 
 define internal i32 @dissect_acse_T_octet_aligned(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %20, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 72
@@ -854,8 +852,8 @@ define internal i32 @dissect_acse_T_octet_aligned(i1 zeroext %0, ptr noundef %1,
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 128
   %16 = load ptr, ptr %15, align 8
-  %.not10 = icmp eq ptr %16, null
-  %. = select i1 %.not10, ptr %4, ptr %16
+  %.not = icmp eq ptr %16, null
+  %. = select i1 %.not, ptr %4, ptr %16
   %17 = getelementptr inbounds i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @call_ber_oid_callback(ptr noundef %12, ptr noundef %1, i32 noundef %2, ptr noundef %14, ptr noundef %., ptr noundef %18) #5
@@ -1148,9 +1146,8 @@ define internal i32 @dissect_acse_T_other_mechanism_name(i1 noundef zeroext %0, 
 define internal i32 @dissect_acse_T_other_mechanism_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %20, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 72

@@ -151,37 +151,36 @@ if.end22.thread:                                  ; preds = %if.end, %lor.lhs.fa
 if.end22:                                         ; preds = %lor.lhs.false
   %has_in_pport23.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 8
   %.pre = load i8, ptr %has_in_pport23.phi.trans.insert, align 8
-  %8 = and i8 %.pre, 1
-  %tobool24.not = icmp eq i8 %8, 0
-  br i1 %tobool24.not, label %if.end32, label %land.lhs.true25
+  %tobool24 = trunc i8 %.pre to i1
+  br i1 %tobool24, label %land.lhs.true25, label %if.end32
 
 land.lhs.true25:                                  ; preds = %if.end22.thread, %if.end22
-  %9 = load i32, ptr %mask2, align 4
-  %cmp27.not = icmp eq i32 %9, -1
+  %8 = load i32, ptr %mask2, align 4
+  %cmp27.not = icmp eq i32 %8, -1
   br i1 %cmp27.not, label %if.end32, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true25
   store i8 1, ptr %call8, align 8
   %in_pport31 = getelementptr inbounds i8, ptr %call8, i64 4
-  store i32 %9, ptr %in_pport31, align 4
+  store i32 %8, ptr %in_pport31, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then28, %land.lhs.true25, %if.end22
   %eth = getelementptr inbounds i8, ptr %value, i64 36
-  %10 = load i16, ptr %eth, align 4
-  %tobool33.not = icmp eq i16 %10, 0
+  %9 = load i16, ptr %eth, align 4
+  %tobool33.not = icmp eq i16 %9, 0
   br i1 %tobool33.not, label %lor.lhs.false34, label %if.end44.thread
 
 lor.lhs.false34:                                  ; preds = %if.end32
   %eth35 = getelementptr inbounds i8, ptr %value, i64 144
-  %11 = load i16, ptr %eth35, align 4
-  %tobool38.not = icmp eq i16 %11, 0
+  %10 = load i16, ptr %eth35, align 4
+  %tobool38.not = icmp eq i16 %10, 0
   br i1 %tobool38.not, label %if.end44, label %if.end44.thread
 
 if.end44.thread:                                  ; preds = %if.end32, %lor.lhs.false34
   %has_vlan_id = getelementptr inbounds i8, ptr %call6, i64 24
   store i8 1, ptr %has_vlan_id, align 8
-  %call42 = tail call zeroext i16 @ntohs(i16 noundef zeroext %10) #20
+  %call42 = tail call zeroext i16 @ntohs(i16 noundef zeroext %9) #20
   %vlan_id43 = getelementptr inbounds i8, ptr %call6, i64 26
   store i16 %call42, ptr %vlan_id43, align 2
   br label %land.lhs.true48
@@ -189,61 +188,59 @@ if.end44.thread:                                  ; preds = %if.end32, %lor.lhs.
 if.end44:                                         ; preds = %lor.lhs.false34
   %has_vlan_id45.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 24
   %.pre108 = load i8, ptr %has_vlan_id45.phi.trans.insert, align 8
-  %12 = and i8 %.pre108, 1
-  %tobool46.not = icmp eq i8 %12, 0
-  br i1 %tobool46.not, label %if.end60, label %land.lhs.true48
+  %tobool46 = trunc i8 %.pre108 to i1
+  br i1 %tobool46, label %land.lhs.true48, label %if.end60
 
 land.lhs.true48:                                  ; preds = %if.end44.thread, %if.end44
   %eth49 = getelementptr inbounds i8, ptr %value, i64 144
-  %13 = load i16, ptr %eth49, align 4
-  %cmp52.not = icmp eq i16 %13, -1
+  %11 = load i16, ptr %eth49, align 4
+  %cmp52.not = icmp eq i16 %11, -1
   br i1 %cmp52.not, label %if.end60, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true48
   %has_vlan_id55 = getelementptr inbounds i8, ptr %call8, i64 16
   store i8 1, ptr %has_vlan_id55, align 8
-  %call58 = tail call zeroext i16 @ntohs(i16 noundef zeroext %13) #20
+  %call58 = tail call zeroext i16 @ntohs(i16 noundef zeroext %11) #20
   %vlan_id59 = getelementptr inbounds i8, ptr %call8, i64 18
   store i16 %call58, ptr %vlan_id59, align 2
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then54, %land.lhs.true48, %if.end44
   %tunnel_id = getelementptr inbounds i8, ptr %value, i64 28
-  %14 = load i32, ptr %tunnel_id, align 4
-  %tobool61.not = icmp eq i32 %14, 0
+  %12 = load i32, ptr %tunnel_id, align 4
+  %tobool61.not = icmp eq i32 %12, 0
   br i1 %tobool61.not, label %lor.lhs.false62, label %if.end68.thread
 
 lor.lhs.false62:                                  ; preds = %if.end60
   %tunnel_id63 = getelementptr inbounds i8, ptr %value, i64 136
-  %15 = load i32, ptr %tunnel_id63, align 4
-  %tobool64.not = icmp eq i32 %15, 0
+  %13 = load i32, ptr %tunnel_id63, align 4
+  %tobool64.not = icmp eq i32 %13, 0
   br i1 %tobool64.not, label %if.end68, label %if.end68.thread
 
 if.end68.thread:                                  ; preds = %if.end60, %lor.lhs.false62
   %has_tunnel_id = getelementptr inbounds i8, ptr %call6, i64 16
   store i8 1, ptr %has_tunnel_id, align 8
   %tunnel_id67 = getelementptr inbounds i8, ptr %call6, i64 20
-  store i32 %14, ptr %tunnel_id67, align 4
+  store i32 %12, ptr %tunnel_id67, align 4
   br label %land.lhs.true72
 
 if.end68:                                         ; preds = %lor.lhs.false62
   %has_tunnel_id69.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 16
   %.pre109 = load i8, ptr %has_tunnel_id69.phi.trans.insert, align 8
-  %16 = and i8 %.pre109, 1
-  %tobool70.not = icmp eq i8 %16, 0
-  br i1 %tobool70.not, label %if.end80, label %land.lhs.true72
+  %tobool70 = trunc i8 %.pre109 to i1
+  br i1 %tobool70, label %land.lhs.true72, label %if.end80
 
 land.lhs.true72:                                  ; preds = %if.end68.thread, %if.end68
   %tunnel_id73 = getelementptr inbounds i8, ptr %value, i64 136
-  %17 = load i32, ptr %tunnel_id73, align 4
-  %cmp74.not = icmp eq i32 %17, -1
+  %14 = load i32, ptr %tunnel_id73, align 4
+  %cmp74.not = icmp eq i32 %14, -1
   br i1 %cmp74.not, label %if.end80, label %if.then76
 
 if.then76:                                        ; preds = %land.lhs.true72
   %has_tunnel_id77 = getelementptr inbounds i8, ptr %call8, i64 8
   store i8 1, ptr %has_tunnel_id77, align 8
   %tunnel_id79 = getelementptr inbounds i8, ptr %call8, i64 12
-  store i32 %17, ptr %tunnel_id79, align 4
+  store i32 %14, ptr %tunnel_id79, align 4
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then76, %land.lhs.true72, %if.end68
@@ -270,8 +267,8 @@ if.then91:                                        ; preds = %lor.lhs.false84, %i
   br label %if.end97
 
 if.end97:                                         ; preds = %lor.lhs.false84.if.end97_crit_edge, %if.then91
-  %18 = phi ptr [ %.pre110, %lor.lhs.false84.if.end97_crit_edge ], [ %call96, %if.then91 ]
-  %tobool99.not = icmp eq ptr %18, null
+  %15 = phi ptr [ %.pre110, %lor.lhs.false84.if.end97_crit_edge ], [ %call96, %if.then91 ]
+  %tobool99.not = icmp eq ptr %15, null
   br i1 %tobool99.not, label %if.end114, label %land.lhs.true100
 
 land.lhs.true100:                                 ; preds = %if.end97
@@ -310,8 +307,8 @@ if.then127:                                       ; preds = %lor.lhs.false120, %
   br label %if.end133
 
 if.end133:                                        ; preds = %lor.lhs.false120.if.end133_crit_edge, %if.then127
-  %19 = phi ptr [ %.pre111, %lor.lhs.false120.if.end133_crit_edge ], [ %call132, %if.then127 ]
-  %tobool135.not = icmp eq ptr %19, null
+  %16 = phi ptr [ %.pre111, %lor.lhs.false120.if.end133_crit_edge ], [ %call132, %if.then127 ]
+  %tobool135.not = icmp eq ptr %16, null
   br i1 %tobool135.not, label %if.end150, label %land.lhs.true136
 
 land.lhs.true136:                                 ; preds = %if.end133
@@ -328,14 +325,14 @@ if.then143:                                       ; preds = %land.lhs.true136
 
 if.end150:                                        ; preds = %if.then143, %land.lhs.true136, %if.end133
   %type = getelementptr inbounds i8, ptr %value, i64 50
-  %20 = load i16, ptr %type, align 2
-  %tobool152.not = icmp eq i16 %20, 0
+  %17 = load i16, ptr %type, align 2
+  %tobool152.not = icmp eq i16 %17, 0
   br i1 %tobool152.not, label %if.end236, label %if.then153
 
 if.then153:                                       ; preds = %if.end150
   %has_eth_type = getelementptr inbounds i8, ptr %call6, i64 28
   store i8 1, ptr %has_eth_type, align 4
-  %call156 = tail call zeroext i16 @ntohs(i16 noundef zeroext %20) #20
+  %call156 = tail call zeroext i16 @ntohs(i16 noundef zeroext %17) #20
   %eth_type = getelementptr inbounds i8, ptr %call6, i64 30
   store i16 %call156, ptr %eth_type, align 2
   switch i16 %call156, label %if.end236 [
@@ -345,80 +342,78 @@ if.then153:                                       ; preds = %if.end150
 
 sw.bb:                                            ; preds = %if.then153, %if.then153
   %ip = getelementptr inbounds i8, ptr %value, i64 52
-  %21 = load i8, ptr %ip, align 4
-  %tobool162.not = icmp eq i8 %21, 0
+  %18 = load i8, ptr %ip, align 4
+  %tobool162.not = icmp eq i8 %18, 0
   br i1 %tobool162.not, label %lor.lhs.false163, label %if.end171.thread
 
 lor.lhs.false163:                                 ; preds = %sw.bb
   %ip164 = getelementptr inbounds i8, ptr %value, i64 160
-  %22 = load i8, ptr %ip164, align 4
-  %tobool167.not = icmp eq i8 %22, 0
+  %19 = load i8, ptr %ip164, align 4
+  %tobool167.not = icmp eq i8 %19, 0
   br i1 %tobool167.not, label %if.end171, label %if.end171.thread
 
 if.end171.thread:                                 ; preds = %sw.bb, %lor.lhs.false163
   %has_ip_proto = getelementptr inbounds i8, ptr %call6, i64 48
   store i8 1, ptr %has_ip_proto, align 8
   %ip_proto = getelementptr inbounds i8, ptr %call6, i64 49
-  store i8 %21, ptr %ip_proto, align 1
+  store i8 %18, ptr %ip_proto, align 1
   br label %land.lhs.true175
 
 if.end171:                                        ; preds = %lor.lhs.false163
   %has_ip_proto172.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 48
   %.pre112 = load i8, ptr %has_ip_proto172.phi.trans.insert, align 8
-  %23 = and i8 %.pre112, 1
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %if.end186, label %land.lhs.true175
+  %20 = trunc i8 %.pre112 to i1
+  br i1 %20, label %land.lhs.true175, label %if.end186
 
 land.lhs.true175:                                 ; preds = %if.end171.thread, %if.end171
   %ip176 = getelementptr inbounds i8, ptr %value, i64 160
-  %25 = load i8, ptr %ip176, align 4
-  %cmp179.not = icmp eq i8 %25, -1
+  %21 = load i8, ptr %ip176, align 4
+  %cmp179.not = icmp eq i8 %21, -1
   br i1 %cmp179.not, label %if.end186, label %if.then181
 
 if.then181:                                       ; preds = %land.lhs.true175
   %has_ip_proto182 = getelementptr inbounds i8, ptr %call8, i64 40
   store i8 1, ptr %has_ip_proto182, align 8
   %ip_proto185 = getelementptr inbounds i8, ptr %call8, i64 41
-  store i8 %25, ptr %ip_proto185, align 1
+  store i8 %21, ptr %ip_proto185, align 1
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then181, %land.lhs.true175, %if.end171
   %tos = getelementptr inbounds i8, ptr %value, i64 53
-  %26 = load i8, ptr %tos, align 1
-  %tobool189.not = icmp eq i8 %26, 0
+  %22 = load i8, ptr %tos, align 1
+  %tobool189.not = icmp eq i8 %22, 0
   br i1 %tobool189.not, label %lor.lhs.false190, label %if.end198.thread
 
 lor.lhs.false190:                                 ; preds = %if.end186
   %tos192 = getelementptr inbounds i8, ptr %value, i64 161
-  %27 = load i8, ptr %tos192, align 1
-  %tobool194.not = icmp eq i8 %27, 0
+  %23 = load i8, ptr %tos192, align 1
+  %tobool194.not = icmp eq i8 %23, 0
   br i1 %tobool194.not, label %if.end198, label %if.end198.thread
 
 if.end198.thread:                                 ; preds = %if.end186, %lor.lhs.false190
   %has_ip_tos = getelementptr inbounds i8, ptr %call6, i64 50
   store i8 1, ptr %has_ip_tos, align 2
   %ip_tos = getelementptr inbounds i8, ptr %call6, i64 51
-  store i8 %26, ptr %ip_tos, align 1
+  store i8 %22, ptr %ip_tos, align 1
   br label %land.lhs.true202
 
 if.end198:                                        ; preds = %lor.lhs.false190
   %has_ip_tos199.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 50
   %.pre113 = load i8, ptr %has_ip_tos199.phi.trans.insert, align 2
-  %28 = and i8 %.pre113, 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %sw.epilog, label %land.lhs.true202
+  %24 = trunc i8 %.pre113 to i1
+  br i1 %24, label %land.lhs.true202, label %sw.epilog
 
 land.lhs.true202:                                 ; preds = %if.end198.thread, %if.end198
   %tos204 = getelementptr inbounds i8, ptr %value, i64 161
-  %30 = load i8, ptr %tos204, align 1
-  %cmp206.not = icmp eq i8 %30, -1
+  %25 = load i8, ptr %tos204, align 1
+  %cmp206.not = icmp eq i8 %25, -1
   br i1 %cmp206.not, label %sw.epilog, label %if.then208
 
 if.then208:                                       ; preds = %land.lhs.true202
   %has_ip_tos209 = getelementptr inbounds i8, ptr %call8, i64 42
   store i8 1, ptr %has_ip_tos209, align 2
   %ip_tos212 = getelementptr inbounds i8, ptr %call8, i64 43
-  store i8 %30, ptr %ip_tos212, align 1
+  store i8 %25, ptr %ip_tos212, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end198, %land.lhs.true202, %if.then208
@@ -427,21 +422,21 @@ sw.epilog:                                        ; preds = %if.end198, %land.lh
 
 sw.bb218:                                         ; preds = %sw.epilog
   %dst219 = getelementptr inbounds i8, ptr %value, i64 60
-  %31 = load i32, ptr %dst219, align 4
-  %tobool220.not = icmp eq i32 %31, 0
+  %26 = load i32, ptr %dst219, align 4
+  %tobool220.not = icmp eq i32 %26, 0
   br i1 %tobool220.not, label %lor.lhs.false221, label %if.then225
 
 lor.lhs.false221:                                 ; preds = %sw.bb218
   %dst223 = getelementptr inbounds i8, ptr %value, i64 168
-  %32 = load i32, ptr %dst223, align 4
-  %tobool224.not = icmp eq i32 %32, 0
+  %27 = load i32, ptr %dst223, align 4
+  %tobool224.not = icmp eq i32 %27, 0
   br i1 %tobool224.not, label %if.end236, label %if.then225
 
 if.then225:                                       ; preds = %lor.lhs.false221, %sw.bb218
-  %call229 = tail call ptr @inet_ntoa(i32 %31) #18
+  %call229 = tail call ptr @inet_ntoa(i32 %26) #18
   %dst231 = getelementptr inbounds i8, ptr %value, i64 168
-  %33 = load i32, ptr %dst231, align 4
-  %call.i = tail call i32 @ntohl(i32 noundef %33) #20
+  %28 = load i32, ptr %dst231, align 4
+  %call.i = tail call i32 @ntohl(i32 noundef %28) #20
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then225
@@ -465,48 +460,48 @@ of_dpa_mask2prefix.exit:                          ; preds = %for.body.i
 
 if.end236:                                        ; preds = %if.then153, %sw.epilog, %of_dpa_mask2prefix.exit, %lor.lhs.false221, %if.end150
   %action237 = getelementptr inbounds i8, ptr %value, i64 240
-  %34 = load i32, ptr %action237, align 8
-  %tobool238.not = icmp eq i32 %34, 0
+  %29 = load i32, ptr %action237, align 8
+  %tobool238.not = icmp eq i32 %29, 0
   br i1 %tobool238.not, label %if.end243, label %if.then239
 
 if.then239:                                       ; preds = %if.end236
   store i8 1, ptr %call10, align 4
   %goto_tbl242 = getelementptr inbounds i8, ptr %call10, i64 4
-  store i32 %34, ptr %goto_tbl242, align 4
+  store i32 %29, ptr %goto_tbl242, align 4
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then239, %if.end236
   %write = getelementptr inbounds i8, ptr %value, i64 244
-  %35 = load i32, ptr %write, align 4
-  %tobool245.not = icmp eq i32 %35, 0
+  %30 = load i32, ptr %write, align 4
+  %tobool245.not = icmp eq i32 %30, 0
   br i1 %tobool245.not, label %if.end251, label %if.then246
 
 if.then246:                                       ; preds = %if.end243
   %has_group_id = getelementptr inbounds i8, ptr %call10, i64 8
   store i8 1, ptr %has_group_id, align 4
   %group_id250 = getelementptr inbounds i8, ptr %call10, i64 12
-  store i32 %35, ptr %group_id250, align 4
+  store i32 %30, ptr %group_id250, align 4
   br label %if.end251
 
 if.end251:                                        ; preds = %if.then246, %if.end243
   %apply = getelementptr inbounds i8, ptr %value, i64 256
-  %36 = load i16, ptr %apply, align 8
-  %tobool253.not = icmp eq i16 %36, 0
+  %31 = load i16, ptr %apply, align 8
+  %tobool253.not = icmp eq i16 %31, 0
   br i1 %tobool253.not, label %do.body, label %if.then254
 
 if.then254:                                       ; preds = %if.end251
   %has_new_vlan_id = getelementptr inbounds i8, ptr %call10, i64 28
   store i8 1, ptr %has_new_vlan_id, align 4
   %new_vlan_id258 = getelementptr inbounds i8, ptr %call10, i64 30
-  store i16 %36, ptr %new_vlan_id258, align 2
+  store i16 %31, ptr %new_vlan_id258, align 2
   br label %do.body
 
 do.body:                                          ; preds = %if.end251, %if.then254
   %call260 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #19
   %value261 = getelementptr inbounds i8, ptr %call260, i64 8
   store ptr %call, ptr %value261, align 8
-  %37 = load ptr, ptr %user_data, align 8
-  store ptr %37, ptr %call260, align 8
+  %32 = load ptr, ptr %user_data, align 8
+  store ptr %32, ptr %call260, align 8
   store ptr %call260, ptr %user_data, align 8
   br label %do.end
 
@@ -2765,7 +2760,7 @@ if.end44:                                         ; preds = %land.lhs.true, %if.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %dst52, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i54, i64 6, i1 false)
   %15 = load i8, ptr %dst, align 4
   %16 = and i8 %15, 1
-  %cmp62 = icmp ne i8 %16, 0
+  %cmp62 = icmp eq i8 %16, 0
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %dst, ptr noundef nonnull dereferenceable(6) @__const.of_dpa_cmd_add_term_mac.ipv4_mcast, i64 6)
   %cmp73 = icmp eq i32 %bcmp, 0
   br i1 %cmp73, label %land.lhs.true75, label %if.end86
@@ -2790,11 +2785,13 @@ land.lhs.true96:                                  ; preds = %if.end86
 
 if.end107:                                        ; preds = %land.lhs.true96, %if.end86
   %multicast.1 = phi i8 [ %multicast.0, %if.end86 ], [ %spec.select47, %land.lhs.true96 ]
-  %tobool110.not = icmp eq i8 %multicast.1, 0
-  %or.cond = and i1 %cmp62, %tobool110.not
-  br i1 %or.cond, label %return, label %if.end112
+  br i1 %cmp62, label %if.end112, label %land.lhs.true109
 
-if.end112:                                        ; preds = %if.end107
+land.lhs.true109:                                 ; preds = %if.end107
+  %tobool110 = trunc i8 %multicast.1 to i1
+  br i1 %tobool110, label %if.end112, label %return
+
+if.end112:                                        ; preds = %land.lhs.true109, %if.end107
   %17 = load ptr, ptr %arrayidx16, align 8
   %18 = getelementptr i8, ptr %17, i64 8
   %.val51 = load i16, ptr %18, align 2
@@ -2819,19 +2816,23 @@ if.then122:                                       ; preds = %if.end112
   ]
 
 if.end134:                                        ; preds = %if.then122, %if.then122
-  br i1 %cmp62, label %if.end142, label %land.lhs.true137
+  br i1 %cmp62, label %land.lhs.true137, label %if.end142
 
 land.lhs.true137:                                 ; preds = %if.end134
   %cmp139.not = icmp eq i16 %.val, 30
-  %brmerge.not = and i1 %tobool110.not, %cmp139.not
-  br i1 %brmerge.not, label %if.end151, label %return
+  br i1 %cmp139.not, label %if.end142.thread, label %return
 
 if.end142:                                        ; preds = %if.end134
-  %cmp147.not = icmp eq i16 %.val, 40
-  %or.cond56 = or i1 %tobool110.not, %cmp147.not
-  br i1 %or.cond56, label %if.end151, label %return
+  %tobool143 = trunc i8 %multicast.1 to i1
+  %cmp147.not = icmp ne i16 %.val, 40
+  %or.cond.not = and i1 %cmp147.not, %tobool143
+  br i1 %or.cond.not, label %return, label %if.end151
 
-if.end151:                                        ; preds = %land.lhs.true137, %if.end142, %if.end112
+if.end142.thread:                                 ; preds = %land.lhs.true137
+  %tobool14355 = trunc i8 %multicast.1 to i1
+  br i1 %tobool14355, label %return, label %if.end151
+
+if.end151:                                        ; preds = %if.end142.thread, %if.end142, %if.end112
   %arrayidx152 = getelementptr i8, ptr %flow_tlvs, i64 488
   %23 = load ptr, ptr %arrayidx152, align 8
   %tobool153.not = icmp eq ptr %23, null
@@ -2844,8 +2845,8 @@ if.then154:                                       ; preds = %if.end151
   store i8 %.val53, ptr %copy_to_cpu, align 4
   br label %return
 
-return:                                           ; preds = %if.end142, %land.lhs.true137, %if.end151, %if.then154, %if.then122, %if.end107, %land.lhs.true, %if.end, %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false12, %lor.lhs.false15, %lor.lhs.false18
-  %retval.0 = phi i32 [ -22, %lor.lhs.false18 ], [ -22, %lor.lhs.false15 ], [ -22, %lor.lhs.false12 ], [ -22, %lor.lhs.false9 ], [ -22, %lor.lhs.false6 ], [ -22, %lor.lhs.false ], [ -22, %entry ], [ -22, %if.end ], [ -22, %land.lhs.true ], [ -22, %if.end107 ], [ -22, %if.then122 ], [ -22, %land.lhs.true137 ], [ 0, %if.then154 ], [ 0, %if.end151 ], [ -22, %if.end142 ]
+return:                                           ; preds = %if.end142, %if.end142.thread, %if.end151, %if.then154, %land.lhs.true137, %if.then122, %land.lhs.true109, %land.lhs.true, %if.end, %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false12, %lor.lhs.false15, %lor.lhs.false18
+  %retval.0 = phi i32 [ -22, %lor.lhs.false18 ], [ -22, %lor.lhs.false15 ], [ -22, %lor.lhs.false12 ], [ -22, %lor.lhs.false9 ], [ -22, %lor.lhs.false6 ], [ -22, %lor.lhs.false ], [ -22, %entry ], [ -22, %if.end ], [ -22, %land.lhs.true ], [ -22, %land.lhs.true109 ], [ -22, %if.then122 ], [ -22, %land.lhs.true137 ], [ 0, %if.then154 ], [ 0, %if.end151 ], [ -22, %if.end142.thread ], [ -22, %if.end142 ]
   ret i32 %retval.0
 }
 
@@ -2913,12 +2914,12 @@ if.then25:                                        ; preds = %if.end22
   %width29 = getelementptr inbounds i8, ptr %flow, i64 128
   store i32 4, ptr %width29, align 4
   %7 = load i8, ptr %dst, align 4
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
+  %8 = trunc i8 %7 to i1
+  %9 = xor i1 %8, true
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then25, %if.end22
-  %unicast.0 = phi i1 [ %9, %if.then25 ], [ true, %if.end22 ]
+  %unicast.0 = phi i1 [ %9, %if.then25 ], [ false, %if.end22 ]
   %arrayidx37 = getelementptr i8, ptr %flow_tlvs, i64 200
   %10 = load ptr, ptr %arrayidx37, align 8
   %tobool38.not.not = icmp ne ptr %10, null
@@ -2947,7 +2948,7 @@ if.end55:                                         ; preds = %if.else, %if.then49
 
 if.then59:                                        ; preds = %if.end55
   %brmerge = or i1 %tobool24.not.not, %tobool38.not.not
-  %cond = select i1 %unicast.0, i32 2, i32 1
+  %cond = select i1 %unicast.0, i32 1, i32 2
   %spec.select = select i1 %brmerge, i32 3, i32 %cond
   br label %if.end106
 
@@ -2959,7 +2960,7 @@ if.else77:                                        ; preds = %if.end55
 
 if.then80:                                        ; preds = %if.else77
   %brmerge69 = or i1 %tobool24.not.not, %tobool38.not.not
-  %cond88 = select i1 %unicast.0, i32 5, i32 4
+  %cond88 = select i1 %unicast.0, i32 4, i32 5
   %spec.select83 = select i1 %brmerge69, i32 6, i32 %cond88
   br label %if.end106
 

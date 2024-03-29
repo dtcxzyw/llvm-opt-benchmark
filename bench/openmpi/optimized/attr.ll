@@ -909,9 +909,9 @@ define i32 @prte_attr_load(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %
 
 18:                                               ; preds = %17
   %19 = load i8, ptr %1, align 1
-  %20 = and i8 %19, 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
-  store i8 %20, ptr %21, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = and i8 %19, 1
+  store i8 %21, ptr %20, align 8
   br label %126
 
 22:                                               ; preds = %17

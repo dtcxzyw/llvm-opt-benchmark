@@ -447,19 +447,18 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %_terminating = getelementptr inbounds i8, ptr %this, i64 228
   %1 = load i8, ptr %_terminating, align 4
-  %2 = and i8 %1, 1
-  %tobool3.not = icmp eq i8 %2, 0
-  br i1 %tobool3.not, label %if.end, label %if.then
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void @_ZN3zmq8object_t9send_doneEv(ptr noundef nonnull align 8 dereferenceable(20) %this)
   %_poller = getelementptr inbounds i8, ptr %this, i64 216
-  %3 = load ptr, ptr %_poller, align 8
+  %2 = load ptr, ptr %_poller, align 8
   %_mailbox_handle = getelementptr inbounds i8, ptr %this, i64 208
-  %4 = load ptr, ptr %_mailbox_handle, align 8
-  tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %3, ptr noundef %4)
-  %5 = load ptr, ptr %_poller, align 8
-  tail call void @_ZN3zmq7epoll_t4stopEv(ptr noundef nonnull align 8 dereferenceable(224) %5)
+  %3 = load ptr, ptr %_mailbox_handle, align 8
+  tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %2, ptr noundef %3)
+  %4 = load ptr, ptr %_poller, align 8
+  tail call void @_ZN3zmq7epoll_t4stopEv(ptr noundef nonnull align 8 dereferenceable(224) %4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry

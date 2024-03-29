@@ -277,7 +277,6 @@ if.end54:                                         ; preds = %do.body.i.i73, %if.
   %port42 = getelementptr inbounds i8, ptr %new_parsed, i64 32
   %call43 = tail call noundef zeroext i1 @_ZN3url16CanonicalizePortEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEEPS2_(ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(8) %port41, i32 noundef %call39, ptr noundef nonnull %output, ptr noundef nonnull %port42)
   %and4756 = and i1 %spec.select, %call43
-  %frombool49 = zext i1 %and4756 to i8
   %len.i97 = getelementptr inbounds i8, ptr %parsed, i64 44
   %24 = load i32, ptr %len.i97, align 4
   %cmp.i98.not = icmp eq i32 %24, -1
@@ -301,7 +300,6 @@ if.then56:                                        ; preds = %if.end54.thread, %i
   %path59 = getelementptr inbounds i8, ptr %new_parsed, i64 40
   %call60 = tail call noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %path139, ptr noundef %output, ptr noundef nonnull %path59)
   %tobool65 = and i1 %success.1138, %call60
-  %frombool66 = zext i1 %tobool65 to i8
   br label %if.end79
 
 lor.lhs.false69:                                  ; preds = %if.end54.thread
@@ -315,7 +313,7 @@ lor.lhs.false69:                                  ; preds = %if.end54.thread
   br i1 %or.cond149, label %if.then73, label %if.else76
 
 if.then73:                                        ; preds = %if.end54, %lor.lhs.false69
-  %success.1137143 = phi i8 [ 0, %lor.lhs.false69 ], [ %frombool49, %if.end54 ]
+  %success.1137143 = phi i1 [ false, %lor.lhs.false69 ], [ %and4756, %if.end54 ]
   %cur_len_.i103 = getelementptr inbounds i8, ptr %output, i64 20
   %29 = load i32, ptr %cur_len_.i103, align 4
   %path75 = getelementptr inbounds i8, ptr %new_parsed, i64 40
@@ -371,7 +369,7 @@ if.else76:                                        ; preds = %lor.lhs.false69
   br label %if.end79
 
 if.end79:                                         ; preds = %do.body.i.i111, %return.sink.split.i120, %if.else76, %if.then56
-  %success.2 = phi i8 [ %frombool66, %if.then56 ], [ 0, %if.else76 ], [ %success.1137143, %return.sink.split.i120 ], [ %success.1137143, %do.body.i.i111 ]
+  %success.2 = phi i1 [ %tobool65, %if.then56 ], [ false, %if.else76 ], [ %success.1137143, %return.sink.split.i120 ], [ %success.1137143, %do.body.i.i111 ]
   %query80 = getelementptr inbounds i8, ptr %source, i64 48
   %35 = load ptr, ptr %query80, align 8
   %query81 = getelementptr inbounds i8, ptr %parsed, i64 48
@@ -382,9 +380,7 @@ if.end79:                                         ; preds = %do.body.i.i111, %re
   %ref84 = getelementptr inbounds i8, ptr %parsed, i64 56
   %ref85 = getelementptr inbounds i8, ptr %new_parsed, i64 56
   tail call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(8) %ref84, ptr noundef %output, ptr noundef nonnull %ref85)
-  %37 = and i8 %success.2, 1
-  %tobool86 = icmp ne i8 %37, 0
-  ret i1 %tobool86
+  ret i1 %success.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -525,7 +521,6 @@ if.end54.i:                                       ; preds = %do.body.i.i73.i, %r
   %port42.i = getelementptr inbounds i8, ptr %new_parsed, i64 32
   %call43.i = tail call noundef zeroext i1 @_ZN3url16CanonicalizePortEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %port41.i, i32 noundef %call39.i, ptr noundef nonnull %output, ptr noundef nonnull %port42.i)
   %and4756.i = and i1 %spec.select.i, %call43.i
-  %frombool49.i = zext i1 %and4756.i to i8
   %len.i97.i = getelementptr inbounds i8, ptr %parsed, i64 44
   %19 = load i32, ptr %len.i97.i, align 4
   %cmp.i98.not.i = icmp eq i32 %19, -1
@@ -547,7 +542,6 @@ if.then56.i:                                      ; preds = %if.end54.thread.i, 
   %path59.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
   %call60.i = tail call noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path139.i, ptr noundef %output, ptr noundef nonnull %path59.i)
   %tobool65.i = and i1 %success.1138.i, %call60.i
-  %frombool66.i = zext i1 %tobool65.i to i8
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeStandardURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
 
 lor.lhs.false69.i:                                ; preds = %if.end54.thread.i
@@ -561,7 +555,7 @@ lor.lhs.false69.i:                                ; preds = %if.end54.thread.i
   br i1 %or.cond149.i, label %if.then73.i, label %if.else76.i
 
 if.then73.i:                                      ; preds = %lor.lhs.false69.i, %if.end54.i
-  %success.1137143.i = phi i8 [ 0, %lor.lhs.false69.i ], [ %frombool49.i, %if.end54.i ]
+  %success.1137143.i = phi i1 [ false, %lor.lhs.false69.i ], [ %and4756.i, %if.end54.i ]
   %cur_len_.i103.i = getelementptr inbounds i8, ptr %output, i64 20
   %23 = load i32, ptr %cur_len_.i103.i, align 4
   %path75.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
@@ -617,16 +611,14 @@ if.else76.i:                                      ; preds = %lor.lhs.false69.i
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeStandardURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
 
 _ZN3url12_GLOBAL__N_125DoCanonicalizeStandardURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit: ; preds = %do.body.i.i111.i, %if.then56.i, %return.sink.split.i120.i, %if.else76.i
-  %success.2.i = phi i8 [ %frombool66.i, %if.then56.i ], [ 0, %if.else76.i ], [ %success.1137143.i, %return.sink.split.i120.i ], [ %success.1137143.i, %do.body.i.i111.i ]
+  %success.2.i = phi i1 [ %tobool65.i, %if.then56.i ], [ false, %if.else76.i ], [ %success.1137143.i, %return.sink.split.i120.i ], [ %success.1137143.i, %do.body.i.i111.i ]
   %query81.i = getelementptr inbounds i8, ptr %parsed, i64 48
   %query82.i = getelementptr inbounds i8, ptr %new_parsed, i64 48
   tail call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %query81.i, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %query82.i)
   %ref84.i = getelementptr inbounds i8, ptr %parsed, i64 56
   %ref85.i = getelementptr inbounds i8, ptr %new_parsed, i64 56
   tail call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ref84.i, ptr noundef %output, ptr noundef nonnull %ref85.i)
-  %29 = and i8 %success.2.i, 1
-  %tobool86.i = icmp ne i8 %29, 0
-  ret i1 %tobool86.i
+  ret i1 %success.2.i
 }
 
 ; Function Attrs: mustprogress uwtable

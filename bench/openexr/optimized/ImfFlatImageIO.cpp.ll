@@ -754,9 +754,8 @@ lpad7:                                            ; preds = %invoke.cont5
 
 if.end:                                           ; preds = %entry
   %2 = load i8, ptr %multiPart, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end26, label %do.body10
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %do.body10, label %if.end26
 
 do.body10:                                        ; preds = %if.end
   call void @_Z13iex_debugTrapv()
@@ -783,21 +782,20 @@ invoke.cont22:                                    ; preds = %invoke.cont18
           to label %unreachable unwind label %lpad13
 
 lpad13:                                           ; preds = %invoke.cont22, %invoke.cont16, %invoke.cont14, %do.body10
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad21:                                           ; preds = %invoke.cont18
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception20) #11
   br label %eh.resume
 
 if.end26:                                         ; preds = %if.end
-  %6 = load i8, ptr %deep, align 1
-  %7 = and i8 %6, 1
-  %tobool27.not = icmp eq i8 %7, 0
-  br i1 %tobool27.not, label %if.end45, label %do.body29
+  %5 = load i8, ptr %deep, align 1
+  %tobool27 = trunc i8 %5 to i1
+  br i1 %tobool27, label %do.body29, label %if.end45
 
 do.body29:                                        ; preds = %if.end26
   call void @_Z13iex_debugTrapv()
@@ -824,21 +822,20 @@ invoke.cont41:                                    ; preds = %invoke.cont37
           to label %unreachable unwind label %lpad32
 
 lpad32:                                           ; preds = %invoke.cont41, %invoke.cont35, %invoke.cont33, %do.body29
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad40:                                           ; preds = %invoke.cont37
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception39) #11
   br label %eh.resume
 
 if.end45:                                         ; preds = %if.end26
-  %10 = load i8, ptr %tiled, align 1
-  %11 = and i8 %10, 1
-  %tobool46.not = icmp eq i8 %11, 0
-  br i1 %tobool46.not, label %if.else, label %if.then47
+  %8 = load i8, ptr %tiled, align 1
+  %tobool46 = trunc i8 %8 to i1
+  br i1 %tobool46, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %if.end45
   call void @_ZN7Imf_3_218loadFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -853,7 +850,7 @@ if.end48:                                         ; preds = %if.else, %if.then47
 
 eh.resume:                                        ; preds = %lpad32, %lpad40, %lpad13, %lpad21, %lpad, %lpad7
   %_iex_throw_s30.sink = phi ptr [ %_iex_throw_s, %lpad7 ], [ %_iex_throw_s, %lpad ], [ %_iex_throw_s11, %lpad21 ], [ %_iex_throw_s11, %lpad13 ], [ %_iex_throw_s30, %lpad40 ], [ %_iex_throw_s30, %lpad32 ]
-  %.pn11.pn = phi { ptr, i32 } [ %1, %lpad7 ], [ %0, %lpad ], [ %5, %lpad21 ], [ %4, %lpad13 ], [ %9, %lpad40 ], [ %8, %lpad32 ]
+  %.pn11.pn = phi { ptr, i32 } [ %1, %lpad7 ], [ %0, %lpad ], [ %4, %lpad21 ], [ %3, %lpad13 ], [ %7, %lpad40 ], [ %6, %lpad32 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s30.sink) #11
   resume { ptr, i32 } %.pn11.pn
 

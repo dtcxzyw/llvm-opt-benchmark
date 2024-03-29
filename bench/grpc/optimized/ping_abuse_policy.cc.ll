@@ -42,10 +42,9 @@ entry:
   %call6 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 44, ptr nonnull @.str)
   %0 = extractvalue { i64, i8 } %call6, 0
   %1 = extractvalue { i64, i8 } %call6, 1
-  %2 = and i8 %1, 1
-  %tobool.i.not.i = icmp eq i8 %2, 0
+  %tobool.i.i = trunc i8 %1 to i1
   %__u.val.i = load i64, ptr @_ZN9grpc_core12_GLOBAL__N_145g_default_min_recv_ping_interval_without_dataE.0, align 8
-  %retval.sroa.0.0.i = select i1 %tobool.i.not.i, i64 %__u.val.i, i64 %0
+  %retval.sroa.0.0.i = select i1 %tobool.i.i, i64 %0, i64 %__u.val.i
   %.sroa.speculated11 = tail call i64 @llvm.smax.i64(i64 %retval.sroa.0.0.i, i64 0)
   store i64 %.sroa.speculated11, ptr %min_recv_ping_interval_without_data_, align 8
   %ping_strikes_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -53,10 +52,10 @@ entry:
   %max_ping_strikes_ = getelementptr inbounds i8, ptr %this, i64 20
   %call16 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 27, ptr nonnull @.str.1)
   %ref.tmp14.sroa.0.0.extract.trunc = trunc i64 %call16 to i32
-  %3 = and i64 %call16, 4294967296
-  %tobool.i.not.i5 = icmp eq i64 %3, 0
-  %__u.val.i6 = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_126g_default_max_ping_strikesE, align 4
-  %retval.0.i = select i1 %tobool.i.not.i5, i32 %__u.val.i6, i32 %ref.tmp14.sroa.0.0.extract.trunc
+  %2 = and i64 %call16, 4294967296
+  %tobool.i.i5.not = icmp eq i64 %2, 0
+  %__u.val.i7 = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_126g_default_max_ping_strikesE, align 4
+  %retval.0.i = select i1 %tobool.i.i5.not, i32 %__u.val.i7, i32 %ref.tmp14.sroa.0.0.extract.trunc
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %retval.0.i, i32 0)
   store i32 %.sroa.speculated, ptr %max_ping_strikes_, align 4
   ret void
@@ -72,18 +71,17 @@ entry:
   %call = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 27, ptr nonnull @.str.1)
   %ref.tmp2.sroa.0.0.extract.trunc = trunc i64 %call to i32
   %0 = and i64 %call, 4294967296
-  %tobool.i.not.i = icmp eq i64 %0, 0
+  %tobool.i.i.not = icmp eq i64 %0, 0
   %__u.val.i = load i32, ptr @_ZN9grpc_core12_GLOBAL__N_126g_default_max_ping_strikesE, align 4
-  %retval.0.i = select i1 %tobool.i.not.i, i32 %__u.val.i, i32 %ref.tmp2.sroa.0.0.extract.trunc
+  %retval.0.i = select i1 %tobool.i.i.not, i32 %__u.val.i, i32 %ref.tmp2.sroa.0.0.extract.trunc
   %.sroa.speculated11 = tail call i32 @llvm.smax.i32(i32 %retval.0.i, i32 0)
   store i32 %.sroa.speculated11, ptr @_ZN9grpc_core12_GLOBAL__N_126g_default_max_ping_strikesE, align 4
   %call12 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 44, ptr nonnull @.str)
   %1 = extractvalue { i64, i8 } %call12, 0
   %2 = extractvalue { i64, i8 } %call12, 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i5 = icmp eq i8 %3, 0
-  %__u.val.i6 = load i64, ptr @_ZN9grpc_core12_GLOBAL__N_145g_default_min_recv_ping_interval_without_dataE.0, align 8
-  %retval.sroa.0.0.i = select i1 %tobool.i.not.i5, i64 %__u.val.i6, i64 %1
+  %tobool.i.i5 = trunc i8 %2 to i1
+  %__u.val.i7 = load i64, ptr @_ZN9grpc_core12_GLOBAL__N_145g_default_min_recv_ping_interval_without_dataE.0, align 8
+  %retval.sroa.0.0.i = select i1 %tobool.i.i5, i64 %1, i64 %__u.val.i7
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %retval.sroa.0.0.i, i64 0)
   store i64 %.sroa.speculated, ptr @_ZN9grpc_core12_GLOBAL__N_145g_default_min_recv_ping_interval_without_dataE.0, align 8
   ret void

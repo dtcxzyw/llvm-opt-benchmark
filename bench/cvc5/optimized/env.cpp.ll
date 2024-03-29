@@ -1870,8 +1870,7 @@ entry:
   %0 = load ptr, ptr %quantifiers, align 8
   %finiteModelFind = getelementptr inbounds i8, ptr %0, i64 153
   %1 = load i8, ptr %finiteModelFind, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   %call2 = tail call noundef zeroext i1 @_ZN4cvc58internal24isCardinalityClassFiniteENS0_16CardinalityClassEb(i64 noundef %call, i1 noundef zeroext %tobool)
   ret i1 %call2
 }

@@ -55,9 +55,8 @@ define dso_local void @XLogPrefetchShmemInit() local_unnamed_addr #1 {
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 72, ptr noundef nonnull %1) #12
   store ptr %2, ptr @SharedStats, align 8
   %3 = load i8, ptr %1, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %14
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %14, label %5
 
 5:                                                ; preds = %0
   %6 = call i64 @GetCurrentTimestamp() #12
@@ -359,12 +358,12 @@ XLogPrefetcherCompleteFilters.exit:               ; preds = %37, %40, %28
   %56 = getelementptr inbounds i8, ptr %53, i64 28
   %57 = load i32, ptr %56, align 4
   %.promoted.i = load i32, ptr %55, align 8
-  %.not15.i = icmp eq i32 %.promoted.i, %57
-  br i1 %.not15.i, label %.critedge.i, label %.lr.ph.i35
+  %.not14.i = icmp eq i32 %.promoted.i, %57
+  br i1 %.not14.i, label %.critedge.i, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %XLogPrefetcherCompleteFilters.exit
-  %58 = getelementptr inbounds i8, ptr %53, i64 20
-  %59 = getelementptr inbounds i8, ptr %53, i64 24
+  %58 = getelementptr inbounds i8, ptr %53, i64 24
+  %59 = getelementptr inbounds i8, ptr %53, i64 20
   %60 = getelementptr inbounds i8, ptr %53, i64 36
   br label %61
 
@@ -379,20 +378,19 @@ XLogPrefetcherCompleteFilters.exit:               ; preds = %37, %40, %28
 
 68:                                               ; preds = %61
   %69 = load i8, ptr %64, align 8
-  %70 = and i8 %69, 1
-  %.not14.i = icmp eq i8 %70, 0
-  br i1 %.not14.i, label %74, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %74
 
 71:                                               ; preds = %68
-  %72 = load i32, ptr %58, align 4
+  %72 = load i32, ptr %59, align 4
   %73 = add i32 %72, -1
-  store i32 %73, ptr %58, align 4
+  store i32 %73, ptr %59, align 4
   br label %77
 
 74:                                               ; preds = %68
-  %75 = load i32, ptr %59, align 8
+  %75 = load i32, ptr %58, align 8
   %76 = add i32 %75, -1
-  store i32 %76, ptr %59, align 8
+  store i32 %76, ptr %58, align 8
   br label %77
 
 77:                                               ; preds = %74, %71
@@ -495,9 +493,8 @@ lrq_complete_lsn.exit:                            ; preds = %94, %102, %120, %.c
 XLogReaderHasQueuedRecordOrError.exit:            ; preds = %lrq_complete_lsn.exit
   %131 = getelementptr inbounds i8, ptr %128, i64 1312
   %132 = load i8, ptr %131, align 8
-  %133 = and i8 %132, 1
-  %.not43 = icmp eq i8 %133, 0
-  br i1 %.not43, label %134, label %lrq_prefetch.exit
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %lrq_prefetch.exit, label %134
 
 134:                                              ; preds = %XLogReaderHasQueuedRecordOrError.exit
   %135 = load ptr, ptr %52, align 8
@@ -672,12 +669,12 @@ define internal noundef i32 @XLogPrefetcherNextBlock(i64 noundef %0, ptr nocaptu
   %18 = getelementptr inbounds i8, ptr %13, i64 1312
   %19 = getelementptr inbounds i8, ptr %12, i64 128
   %20 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.2.0..sroa_idx.i151 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx.i148 = getelementptr inbounds i8, ptr %8, i64 8
   %21 = getelementptr inbounds i8, ptr %12, i64 32
   %22 = getelementptr inbounds i8, ptr %12, i64 40
   %23 = getelementptr inbounds i8, ptr %12, i64 48
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.2.0..sroa_idx.i156 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx.i152 = getelementptr inbounds i8, ptr %7, i64 8
   %24 = getelementptr inbounds i8, ptr %12, i64 104
   %25 = getelementptr inbounds i8, ptr %12, i64 56
   %26 = getelementptr inbounds i8, ptr %12, i64 120
@@ -698,9 +695,8 @@ define internal noundef i32 @XLogPrefetcherNextBlock(i64 noundef %0, ptr nocaptu
 
 XLogReaderHasQueuedRecordOrError.exit:            ; preds = %32
   %34 = load i8, ptr %18, align 8
-  %35 = and i8 %34, 1
-  %.not170 = icmp eq i8 %35, 0
-  br i1 %.not170, label %.thread, label %XLogReaderHasQueuedRecordOrError.exit.thread
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %XLogReaderHasQueuedRecordOrError.exit.thread, label %.thread
 
 XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %32, %XLogReaderHasQueuedRecordOrError.exit
   %36 = load i64, ptr %19, align 8
@@ -721,8 +717,8 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %32, %XLogReaderHasQ
   %43 = load ptr, ptr %12, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 160
   %45 = load ptr, ptr %44, align 8
-  %.not149 = icmp eq ptr %45, null
-  br i1 %.not149, label %.loopexit, label %46
+  %.not147 = icmp eq ptr %45, null
+  br i1 %.not147, label %.loopexit, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %45, i64 24
@@ -794,11 +790,10 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %32, %XLogReaderHasQ
   %75 = load ptr, ptr %21, align 8
   %76 = call ptr @hash_search(ptr noundef %75, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11) #12
   %77 = load i8, ptr %11, align 1
-  %78 = and i8 %77, 1
-  %.not.i150 = icmp eq i8 %78, 0
+  %78 = trunc i8 %77 to i1
   %79 = getelementptr inbounds i8, ptr %76, i64 16
   store i64 %59, ptr %79, align 8
-  br i1 %.not.i150, label %80, label %88
+  br i1 %78, label %88, label %80
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds i8, ptr %76, i64 24
@@ -885,15 +880,14 @@ XLogPrefetcherAddFilter.exit:                     ; preds = %dlist_push_head.exi
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i64 %.sroa.048.0.copyload, ptr %8, align 8
-  store i32 %.sroa.249.0.copyload, ptr %.sroa.2.0..sroa_idx.i151, align 8
+  store i32 %.sroa.249.0.copyload, ptr %.sroa.2.0..sroa_idx.i148, align 8
   %113 = load ptr, ptr %21, align 8
   %114 = call ptr @hash_search(ptr noundef %113, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #12
   %115 = load i8, ptr %9, align 1
-  %116 = and i8 %115, 1
-  %.not.i152 = icmp eq i8 %116, 0
+  %116 = trunc i8 %115 to i1
   %117 = getelementptr inbounds i8, ptr %114, i64 16
   store i64 %59, ptr %117, align 8
-  br i1 %.not.i152, label %118, label %126
+  br i1 %116, label %126, label %118
 
 118:                                              ; preds = %108
   %119 = getelementptr inbounds i8, ptr %114, i64 24
@@ -901,20 +895,20 @@ XLogPrefetcherAddFilter.exit:                     ; preds = %dlist_push_head.exi
   %120 = getelementptr inbounds i8, ptr %114, i64 32
   %121 = load ptr, ptr %23, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %dlist_push_head.exit.i154
+  br i1 %122, label %123, label %dlist_push_head.exit.i149
 
 123:                                              ; preds = %118
   store ptr %22, ptr %22, align 8
-  br label %dlist_push_head.exit.i154
+  br label %dlist_push_head.exit.i149
 
-dlist_push_head.exit.i154:                        ; preds = %123, %118
+dlist_push_head.exit.i149:                        ; preds = %123, %118
   %124 = phi ptr [ %22, %123 ], [ %121, %118 ]
   %125 = getelementptr inbounds i8, ptr %114, i64 40
   store ptr %124, ptr %125, align 8
   store ptr %22, ptr %120, align 8
   store ptr %120, ptr %124, align 8
   store ptr %120, ptr %23, align 8
-  br label %XLogPrefetcherAddFilter.exit155
+  br label %XLogPrefetcherAddFilter.exit151
 
 126:                                              ; preds = %108
   %127 = getelementptr inbounds i8, ptr %114, i64 32
@@ -927,13 +921,13 @@ dlist_push_head.exit.i154:                        ; preds = %123, %118
   store ptr %132, ptr %129, align 8
   %133 = load ptr, ptr %23, align 8
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %dlist_push_head.exit17.i153
+  br i1 %134, label %135, label %dlist_push_head.exit17.i150
 
 135:                                              ; preds = %126
   store ptr %22, ptr %22, align 8
-  br label %dlist_push_head.exit17.i153
+  br label %dlist_push_head.exit17.i150
 
-dlist_push_head.exit17.i153:                      ; preds = %135, %126
+dlist_push_head.exit17.i150:                      ; preds = %135, %126
   %136 = phi ptr [ %22, %135 ], [ %133, %126 ]
   store ptr %136, ptr %128, align 8
   store ptr %22, ptr %127, align 8
@@ -943,19 +937,19 @@ dlist_push_head.exit17.i153:                      ; preds = %135, %126
   %138 = load i32, ptr %137, align 8
   %..i = call i32 @llvm.umin.i32(i32 %138, i32 %112)
   store i32 %..i, ptr %137, align 8
-  br label %XLogPrefetcherAddFilter.exit155
+  br label %XLogPrefetcherAddFilter.exit151
 
-XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exit.i154, %dlist_push_head.exit17.i153
+XLogPrefetcherAddFilter.exit151:                  ; preds = %dlist_push_head.exit.i149, %dlist_push_head.exit17.i150
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %139
 
-139:                                              ; preds = %100, %61, %67, %68, %XLogPrefetcherAddFilter.exit155, %101, %107, %69, %XLogPrefetcherAddFilter.exit, %57
+139:                                              ; preds = %100, %61, %67, %68, %XLogPrefetcherAddFilter.exit151, %101, %107, %69, %XLogPrefetcherAddFilter.exit, %57
   %140 = getelementptr inbounds i8, ptr %.0131, i64 84
   %141 = load i32, ptr %20, align 8
   %142 = load i32, ptr %140, align 4
-  %.not141235 = icmp sgt i32 %141, %142
-  br i1 %.not141235, label %._crit_edge, label %.lr.ph
+  %.not141228 = icmp sgt i32 %141, %142
+  br i1 %.not141228, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
   %143 = getelementptr inbounds i8, ptr %.0131, i64 88
@@ -968,12 +962,11 @@ XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exi
   %147 = sext i32 %145 to i64
   %148 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %143, i64 0, i64 %147
   %149 = load i8, ptr %148, align 8
-  %150 = and i8 %149, 1
-  %.not143 = icmp eq i8 %150, 0
-  br i1 %.not143, label %.backedge, label %153
+  %150 = trunc i8 %149 to i1
+  br i1 %150, label %153, label %.backedge
 
 .backedge:                                        ; preds = %..backedge_crit_edge, %144
-  %151 = phi i32 [ %.pre286, %..backedge_crit_edge ], [ %146, %144 ]
+  %151 = phi i32 [ %.pre279, %..backedge_crit_edge ], [ %146, %144 ]
   %152 = load i32, ptr %140, align 4
   %.not141 = icmp sgt i32 %151, %152
   br i1 %.not141, label %._crit_edge, label %144, !llvm.loop !9
@@ -983,15 +976,14 @@ XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exi
   store i64 %154, ptr %1, align 8
   %155 = getelementptr inbounds i8, ptr %148, i64 16
   %156 = load i32, ptr %155, align 8
-  %.not144 = icmp eq i32 %156, 0
-  br i1 %.not144, label %157, label %.loopexit
+  %.not143 = icmp eq i32 %156, 0
+  br i1 %.not143, label %157, label %.loopexit
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %148, i64 29
   %159 = load i8, ptr %158, align 1
-  %160 = and i8 %159, 1
-  %.not145 = icmp eq i8 %160, 0
-  br i1 %.not145, label %166, label %161
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %161, label %166
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr @SharedStats, align 8
@@ -1005,8 +997,8 @@ XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exi
   %167 = getelementptr inbounds i8, ptr %148, i64 28
   %168 = load i8, ptr %167, align 4
   %169 = and i8 %168, 64
-  %.not146 = icmp eq i8 %169, 0
-  br i1 %.not146, label %175, label %170
+  %.not144 = icmp eq i8 %169, 0
+  br i1 %.not144, label %175, label %170
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr @SharedStats, align 8
@@ -1025,7 +1017,7 @@ XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exi
   %.sroa.216.0.copyload = load i32, ptr %.sroa.216.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   store i64 %.sroa.015.0.copyload, ptr %7, align 8
-  store i32 %.sroa.216.0.copyload, ptr %.sroa.2.0..sroa_idx.i156, align 8
+  store i32 %.sroa.216.0.copyload, ptr %.sroa.2.0..sroa_idx.i152, align 8
   %179 = load ptr, ptr %23, align 8
   %180 = icmp eq ptr %179, null
   %181 = icmp eq ptr %179, %22
@@ -1035,8 +1027,8 @@ XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exi
 182:                                              ; preds = %175
   %183 = load ptr, ptr %21, align 8
   %184 = call ptr @hash_search(ptr noundef %183, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null) #12
-  %.not.i157 = icmp eq ptr %184, null
-  br i1 %.not.i157, label %188, label %185
+  %.not.i153 = icmp eq ptr %184, null
+  br i1 %.not.i153, label %188, label %185
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds i8, ptr %184, i64 24
@@ -1045,7 +1037,7 @@ XLogPrefetcherAddFilter.exit155:                  ; preds = %dlist_push_head.exi
   br i1 %.not8.i, label %188, label %193
 
 188:                                              ; preds = %185, %182
-  store i32 0, ptr %.sroa.2.0..sroa_idx.i156, align 8
+  store i32 0, ptr %.sroa.2.0..sroa_idx.i152, align 8
   store i32 0, ptr %7, align 8
   %189 = load ptr, ptr %21, align 8
   %190 = call ptr @hash_search(ptr noundef %189, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null) #12
@@ -1135,16 +1127,15 @@ XLogPrefetcherIsFiltered.exit:                    ; preds = %175, %188
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i64 %.sroa.06.0.copyload, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i158 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sroa.27.0.copyload, ptr %.sroa.2.0..sroa_idx.i158, align 8
+  %.sroa.2.0..sroa_idx.i154 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %.sroa.27.0.copyload, ptr %.sroa.2.0..sroa_idx.i154, align 8
   %238 = load ptr, ptr %21, align 8
   %239 = call ptr @hash_search(ptr noundef %238, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #12
   %240 = load i8, ptr %6, align 1
-  %241 = and i8 %240, 1
-  %.not.i159 = icmp eq i8 %241, 0
+  %241 = trunc i8 %240 to i1
   %242 = getelementptr inbounds i8, ptr %239, i64 16
   store i64 %237, ptr %242, align 8
-  br i1 %.not.i159, label %243, label %251
+  br i1 %241, label %251, label %243
 
 243:                                              ; preds = %236
   %244 = getelementptr inbounds i8, ptr %239, i64 24
@@ -1152,20 +1143,20 @@ XLogPrefetcherIsFiltered.exit:                    ; preds = %175, %188
   %245 = getelementptr inbounds i8, ptr %239, i64 32
   %246 = load ptr, ptr %23, align 8
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %248, label %dlist_push_head.exit.i161
+  br i1 %247, label %248, label %dlist_push_head.exit.i155
 
 248:                                              ; preds = %243
   store ptr %22, ptr %22, align 8
-  br label %dlist_push_head.exit.i161
+  br label %dlist_push_head.exit.i155
 
-dlist_push_head.exit.i161:                        ; preds = %248, %243
+dlist_push_head.exit.i155:                        ; preds = %248, %243
   %249 = phi ptr [ %22, %248 ], [ %246, %243 ]
   %250 = getelementptr inbounds i8, ptr %239, i64 40
   store ptr %249, ptr %250, align 8
   store ptr %22, ptr %245, align 8
   store ptr %245, ptr %249, align 8
   store ptr %245, ptr %23, align 8
-  br label %XLogPrefetcherAddFilter.exit162
+  br label %XLogPrefetcherAddFilter.exit157
 
 251:                                              ; preds = %236
   %252 = getelementptr inbounds i8, ptr %239, i64 32
@@ -1178,13 +1169,13 @@ dlist_push_head.exit.i161:                        ; preds = %248, %243
   store ptr %257, ptr %254, align 8
   %258 = load ptr, ptr %23, align 8
   %259 = icmp eq ptr %258, null
-  br i1 %259, label %260, label %dlist_push_head.exit17.i160
+  br i1 %259, label %260, label %dlist_push_head.exit17.i156
 
 260:                                              ; preds = %251
   store ptr %22, ptr %22, align 8
-  br label %dlist_push_head.exit17.i160
+  br label %dlist_push_head.exit17.i156
 
-dlist_push_head.exit17.i160:                      ; preds = %260, %251
+dlist_push_head.exit17.i156:                      ; preds = %260, %251
   %261 = phi ptr [ %22, %260 ], [ %258, %251 ]
   store ptr %261, ptr %253, align 8
   store ptr %22, ptr %252, align 8
@@ -1192,9 +1183,9 @@ dlist_push_head.exit17.i160:                      ; preds = %260, %251
   store ptr %252, ptr %23, align 8
   %262 = getelementptr inbounds i8, ptr %239, i64 24
   store i32 0, ptr %262, align 8
-  br label %XLogPrefetcherAddFilter.exit162
+  br label %XLogPrefetcherAddFilter.exit157
 
-XLogPrefetcherAddFilter.exit162:                  ; preds = %dlist_push_head.exit.i161, %dlist_push_head.exit17.i160
+XLogPrefetcherAddFilter.exit157:                  ; preds = %dlist_push_head.exit.i155, %dlist_push_head.exit17.i156
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %263 = load ptr, ptr @SharedStats, align 8
@@ -1208,8 +1199,8 @@ XLogPrefetcherAddFilter.exit162:                  ; preds = %dlist_push_head.exi
   %268 = load i32, ptr %177, align 4
   %269 = load i32, ptr %155, align 8
   %270 = call i32 @smgrnblocks(ptr noundef %234, i32 noundef %269) #12
-  %.not147 = icmp ult i32 %268, %270
-  br i1 %.not147, label %304, label %271
+  %.not145 = icmp ult i32 %268, %270
+  br i1 %.not145, label %304, label %271
 
 271:                                              ; preds = %267
   %272 = load i32, ptr %177, align 4
@@ -1219,16 +1210,15 @@ XLogPrefetcherAddFilter.exit162:                  ; preds = %dlist_push_head.exi
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 %.sroa.05.0.copyload, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i163 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i163, align 8
+  %.sroa.2.0..sroa_idx.i158 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i158, align 8
   %274 = load ptr, ptr %21, align 8
   %275 = call ptr @hash_search(ptr noundef %274, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #12
   %276 = load i8, ptr %4, align 1
-  %277 = and i8 %276, 1
-  %.not.i164 = icmp eq i8 %277, 0
+  %277 = trunc i8 %276 to i1
   %278 = getelementptr inbounds i8, ptr %275, i64 16
   store i64 %273, ptr %278, align 8
-  br i1 %.not.i164, label %279, label %287
+  br i1 %277, label %287, label %279
 
 279:                                              ; preds = %271
   %280 = getelementptr inbounds i8, ptr %275, i64 24
@@ -1236,20 +1226,20 @@ XLogPrefetcherAddFilter.exit162:                  ; preds = %dlist_push_head.exi
   %281 = getelementptr inbounds i8, ptr %275, i64 32
   %282 = load ptr, ptr %23, align 8
   %283 = icmp eq ptr %282, null
-  br i1 %283, label %284, label %dlist_push_head.exit.i167
+  br i1 %283, label %284, label %dlist_push_head.exit.i159
 
 284:                                              ; preds = %279
   store ptr %22, ptr %22, align 8
-  br label %dlist_push_head.exit.i167
+  br label %dlist_push_head.exit.i159
 
-dlist_push_head.exit.i167:                        ; preds = %284, %279
+dlist_push_head.exit.i159:                        ; preds = %284, %279
   %285 = phi ptr [ %22, %284 ], [ %282, %279 ]
   %286 = getelementptr inbounds i8, ptr %275, i64 40
   store ptr %285, ptr %286, align 8
   store ptr %22, ptr %281, align 8
   store ptr %281, ptr %285, align 8
   store ptr %281, ptr %23, align 8
-  br label %XLogPrefetcherAddFilter.exit168
+  br label %XLogPrefetcherAddFilter.exit162
 
 287:                                              ; preds = %271
   %288 = getelementptr inbounds i8, ptr %275, i64 32
@@ -1262,13 +1252,13 @@ dlist_push_head.exit.i167:                        ; preds = %284, %279
   store ptr %293, ptr %290, align 8
   %294 = load ptr, ptr %23, align 8
   %295 = icmp eq ptr %294, null
-  br i1 %295, label %296, label %dlist_push_head.exit17.i165
+  br i1 %295, label %296, label %dlist_push_head.exit17.i160
 
 296:                                              ; preds = %287
   store ptr %22, ptr %22, align 8
-  br label %dlist_push_head.exit17.i165
+  br label %dlist_push_head.exit17.i160
 
-dlist_push_head.exit17.i165:                      ; preds = %296, %287
+dlist_push_head.exit17.i160:                      ; preds = %296, %287
   %297 = phi ptr [ %22, %296 ], [ %294, %287 ]
   store ptr %297, ptr %289, align 8
   store ptr %22, ptr %288, align 8
@@ -1276,11 +1266,11 @@ dlist_push_head.exit17.i165:                      ; preds = %296, %287
   store ptr %288, ptr %23, align 8
   %298 = getelementptr inbounds i8, ptr %275, i64 24
   %299 = load i32, ptr %298, align 8
-  %..i166 = call i32 @llvm.umin.i32(i32 %299, i32 %272)
-  store i32 %..i166, ptr %298, align 8
-  br label %XLogPrefetcherAddFilter.exit168
+  %..i161 = call i32 @llvm.umin.i32(i32 %299, i32 %272)
+  store i32 %..i161, ptr %298, align 8
+  br label %XLogPrefetcherAddFilter.exit162
 
-XLogPrefetcherAddFilter.exit168:                  ; preds = %dlist_push_head.exit.i167, %dlist_push_head.exit17.i165
+XLogPrefetcherAddFilter.exit162:                  ; preds = %dlist_push_head.exit.i159, %dlist_push_head.exit17.i160
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %300 = load ptr, ptr @SharedStats, align 8
@@ -1295,8 +1285,8 @@ XLogPrefetcherAddFilter.exit168:                  ; preds = %dlist_push_head.exi
   %306 = load i32, ptr %177, align 4
   %307 = call i64 @PrefetchSharedBuffer(ptr noundef %234, i32 noundef %305, i32 noundef %306) #12
   %.sroa.017.0.extract.trunc = trunc i64 %307 to i32
-  %.not171 = icmp eq i32 %.sroa.017.0.extract.trunc, 0
-  br i1 %.not171, label %314, label %308
+  %.not164 = icmp eq i32 %.sroa.017.0.extract.trunc, 0
+  br i1 %.not164, label %314, label %308
 
 308:                                              ; preds = %304
   %309 = load ptr, ptr @SharedStats, align 8
@@ -1310,8 +1300,8 @@ XLogPrefetcherAddFilter.exit168:                  ; preds = %dlist_push_head.exi
 
 314:                                              ; preds = %304
   %315 = and i64 %307, 4294967296
-  %.not148 = icmp eq i64 %315, 0
-  br i1 %.not148, label %322, label %316
+  %.not146 = icmp eq i64 %315, 0
+  br i1 %.not146, label %322, label %316
 
 316:                                              ; preds = %314
   %317 = load ptr, ptr @SharedStats, align 8
@@ -1330,7 +1320,7 @@ XLogPrefetcherAddFilter.exit168:                  ; preds = %dlist_push_head.exi
   br i1 %325, label %326, label %..backedge_crit_edge
 
 ..backedge_crit_edge:                             ; preds = %322
-  %.pre286 = load i32, ptr %20, align 8
+  %.pre279 = load i32, ptr %20, align 8
   br label %.backedge
 
 326:                                              ; preds = %322
@@ -1364,8 +1354,8 @@ XLogPrefetcherAddFilter.exit168:                  ; preds = %dlist_push_head.exi
   store ptr null, ptr %16, align 8
   br label %28
 
-.loopexit:                                        ; preds = %.thread, %338, %XLogReaderHasQueuedRecordOrError.exit.thread, %153, %42, %46, %316, %308, %XLogPrefetcherAddFilter.exit168, %XLogPrefetcherAddFilter.exit162, %217, %193, %170, %161, %55
-  %.0 = phi i32 [ 0, %161 ], [ 0, %170 ], [ 0, %193 ], [ 0, %217 ], [ 0, %XLogPrefetcherAddFilter.exit168 ], [ 0, %308 ], [ 1, %316 ], [ 0, %XLogPrefetcherAddFilter.exit162 ], [ 0, %55 ], [ 2, %46 ], [ 2, %42 ], [ 0, %153 ], [ 2, %XLogReaderHasQueuedRecordOrError.exit.thread ], [ 2, %338 ], [ 2, %.thread ]
+.loopexit:                                        ; preds = %.thread, %338, %XLogReaderHasQueuedRecordOrError.exit.thread, %153, %42, %46, %316, %308, %XLogPrefetcherAddFilter.exit162, %XLogPrefetcherAddFilter.exit157, %217, %193, %170, %161, %55
+  %.0 = phi i32 [ 0, %161 ], [ 0, %170 ], [ 0, %193 ], [ 0, %217 ], [ 0, %XLogPrefetcherAddFilter.exit162 ], [ 0, %308 ], [ 1, %316 ], [ 0, %XLogPrefetcherAddFilter.exit157 ], [ 0, %55 ], [ 2, %46 ], [ 2, %42 ], [ 0, %153 ], [ 2, %XLogReaderHasQueuedRecordOrError.exit.thread ], [ 2, %338 ], [ 2, %.thread ]
   ret i32 %.0
 }
 
@@ -1410,11 +1400,10 @@ define internal fastcc void @XLogPrefetcherAddFilter(ptr noundef %0, i64 %1, i32
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @hash_search(ptr noundef %9, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #12
   %11 = load i8, ptr %7, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %4, ptr %13, align 8
-  br i1 %.not, label %14, label %24
+  br i1 %12, label %24, label %14
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %10, i64 24

@@ -4397,7 +4397,7 @@ define hidden i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
   %1 = alloca %struct.phpdbg_btree_position, align 8
   %2 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 15, i32 5), align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %51, label %4
+  br i1 %3, label %53, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 19), align 8
@@ -4420,25 +4420,25 @@ define hidden i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
   %18 = and i32 %17, 4
   %.not31 = icmp eq i32 %18, 0
   tail call void @llvm.assume(i1 %.not31)
-  %.not3238 = icmp eq i32 %13, 0
-  br i1 %.not3238, label %.loopexit, label %.lr.ph41
+  %.not3237 = icmp eq i32 %13, 0
+  br i1 %.not3237, label %.loopexit, label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %8, %44
-  %.02739 = phi ptr [ %45, %44 ], [ %11, %8 ]
-  %19 = getelementptr inbounds i8, ptr %.02739, i64 8
+.lr.ph40:                                         ; preds = %8, %44
+  %.02738 = phi ptr [ %45, %44 ], [ %11, %8 ]
+  %19 = getelementptr inbounds i8, ptr %.02738, i64 8
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %44, label %22
 
-22:                                               ; preds = %.lr.ph41
-  %23 = getelementptr inbounds i8, ptr %.02739, i64 16
+22:                                               ; preds = %.lr.ph40
+  %23 = getelementptr inbounds i8, ptr %.02738, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = load i64, ptr @phpdbg_pagesize, align 8
   %26 = add i64 %25, %24
   call void @phpdbg_btree_find_between(ptr dead_on_unwind nonnull writable sret(%struct.phpdbg_btree_position) align 8 %1, ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 13), i64 noundef %24, i64 noundef %26) #17
   %27 = call ptr @phpdbg_btree_next(ptr noundef nonnull %1) #17
-  %.not3537 = icmp eq ptr %27, null
-  br i1 %.not3537, label %._crit_edge, label %.lr.ph
+  %.not3436 = icmp eq ptr %27, null
+  br i1 %.not3436, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %28 = phi ptr [ %31, %.lr.ph ], [ %27, %22 ]
@@ -4446,14 +4446,14 @@ define hidden i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
   %30 = load ptr, ptr %29, align 8
   call void @phpdbg_check_watchpoint(ptr noundef %30)
   %31 = call ptr @phpdbg_btree_next(ptr noundef nonnull %1) #17
-  %.not35 = icmp eq ptr %31, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %31, null
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %32 = add i64 %24, -1
   %33 = call ptr @phpdbg_btree_find_closest(ptr noundef nonnull getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 13), i64 noundef %32) #17
-  %.not36 = icmp eq ptr %33, null
-  br i1 %.not36, label %44, label %34
+  %.not35 = icmp eq ptr %33, null
+  br i1 %.not35, label %44, label %34
 
 34:                                               ; preds = %._crit_edge
   %35 = getelementptr inbounds i8, ptr %33, i64 8
@@ -4470,10 +4470,10 @@ define hidden i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
   call void @phpdbg_check_watchpoint(ptr noundef nonnull %36)
   br label %44
 
-44:                                               ; preds = %._crit_edge, %43, %34, %.lr.ph41
-  %45 = getelementptr inbounds i8, ptr %.02739, i64 32
+44:                                               ; preds = %._crit_edge, %43, %34, %.lr.ph40
+  %45 = getelementptr inbounds i8, ptr %.02738, i64 32
   %.not32 = icmp eq ptr %45, %15
-  br i1 %.not32, label %.loopexit, label %.lr.ph41
+  br i1 %.not32, label %.loopexit, label %.lr.ph40
 
 .loopexit:                                        ; preds = %44, %8, %4
   %.028 = phi ptr [ null, %4 ], [ %5, %8 ], [ %5, %44 ]
@@ -4490,13 +4490,14 @@ define hidden i32 @phpdbg_print_changed_zvals() local_unnamed_addr #0 {
 47:                                               ; preds = %46, %.loopexit
   %48 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 21), align 8
   %49 = and i8 %48, 1
-  %sext = add nsw i8 %49, -1
-  %50 = sext i8 %sext to i32
+  %50 = xor i8 %49, 1
+  %51 = zext nneg i8 %50 to i32
+  %52 = sub nsw i32 0, %51
   store i8 0, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 21), align 8
-  br label %51
+  br label %53
 
-51:                                               ; preds = %0, %47
-  %.0 = phi i32 [ %50, %47 ], [ -1, %0 ]
+53:                                               ; preds = %0, %47
+  %.0 = phi i32 [ %52, %47 ], [ -1, %0 ]
   ret i32 %.0
 }
 

@@ -247,17 +247,16 @@ land.lhs.true5.i.i:                               ; preds = %sw.epilog
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %12 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %14 = load i64, ptr %_now.i.i, align 8
+  %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %offset, i64 noundef %r.0) #7
+  %14 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef %offset, i64 noundef %r.0) #7
   br label %trace_goldfish_rtc_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -420,17 +419,16 @@ land.lhs.true5.i.i:                               ; preds = %sw.epilog
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %25 = load i8, ptr @message_with_timestamp, align 1
-  %26 = and i8 %25, 1
-  %tobool7.not.i.i = icmp eq i8 %26, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %25 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %27 = load i64, ptr %_now.i.i, align 8
+  %26 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %28 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %offset, i64 noundef %value) #7
+  %27 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %26, i64 noundef %27, i64 noundef %offset, i64 noundef %value) #7
   br label %trace_goldfish_rtc_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

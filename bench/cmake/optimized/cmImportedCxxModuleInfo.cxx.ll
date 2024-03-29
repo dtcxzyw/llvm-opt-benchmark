@@ -64,9 +64,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK23ImportedCxxModuleLookup11InitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 8
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  ret i1 %4
+  %3 = trunc i8 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

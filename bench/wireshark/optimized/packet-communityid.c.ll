@@ -450,7 +450,7 @@ define internal fastcc noundef i32 @communityid_calc(i8 noundef zeroext %0, i8 n
 
 16:                                               ; preds = %7
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.16) #7
-  br label %95
+  br label %94
 
 17:                                               ; preds = %7
   switch i8 %1, label %18 [
@@ -460,7 +460,7 @@ define internal fastcc noundef i32 @communityid_calc(i8 noundef zeroext %0, i8 n
 
 18:                                               ; preds = %17
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.17) #7
-  br label %95
+  br label %94
 
 19:                                               ; preds = %17, %17
   %20 = icmp ne ptr %2, null
@@ -470,7 +470,7 @@ define internal fastcc noundef i32 @communityid_calc(i8 noundef zeroext %0, i8 n
 
 22:                                               ; preds = %19
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.18) #7
-  br label %95
+  br label %94
 
 23:                                               ; preds = %19
   %24 = icmp ne ptr %4, null
@@ -485,7 +485,7 @@ define internal fastcc noundef i32 @communityid_calc(i8 noundef zeroext %0, i8 n
   store i16 %28, ptr %13, align 2
   switch i8 %0, label %.thread [
     i8 1, label %29
-    i8 58, label %33
+    i8 58, label %32
   ]
 
 29:                                               ; preds = %26
@@ -497,207 +497,206 @@ define internal fastcc noundef i32 @communityid_calc(i8 noundef zeroext %0, i8 n
 switch.hole_check:                                ; preds = %29
   %switch.maskindex = zext nneg i16 %rev87 to i32
   %switch.shifted = lshr i32 517889, %switch.maskindex
-  %31 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %31, 0
-  br i1 %switch.lobit.not, label %.critedge, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %32 = zext nneg i16 %rev87 to i64
-  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %32
+  %31 = zext nneg i16 %rev87 to i64
+  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %31
   %switch.load = load i16, ptr %switch.gep, align 2
-  br label %45
+  br label %44
 
-33:                                               ; preds = %26
+32:                                               ; preds = %26
   %rev = tail call i16 @llvm.bswap.i16(i16 %27)
   %rev84 = tail call i16 @llvm.bswap.i16(i16 %28)
   switch i16 %rev, label %.critedge [
-    i16 128, label %45
-    i16 129, label %34
-    i16 130, label %35
-    i16 131, label %36
-    i16 133, label %37
-    i16 134, label %38
-    i16 135, label %39
-    i16 136, label %40
-    i16 139, label %41
-    i16 140, label %42
-    i16 144, label %43
-    i16 145, label %44
+    i16 128, label %44
+    i16 129, label %33
+    i16 130, label %34
+    i16 131, label %35
+    i16 133, label %36
+    i16 134, label %37
+    i16 135, label %38
+    i16 136, label %39
+    i16 139, label %40
+    i16 140, label %41
+    i16 144, label %42
+    i16 145, label %43
   ]
 
-34:                                               ; preds = %33
+33:                                               ; preds = %32
   store i16 128, ptr %13, align 2
-  br label %45
+  br label %44
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   store i16 131, ptr %13, align 2
-  br label %45
+  br label %44
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   store i16 130, ptr %13, align 2
-  br label %45
+  br label %44
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   store i16 134, ptr %13, align 2
-  br label %45
+  br label %44
 
-38:                                               ; preds = %33
+37:                                               ; preds = %32
   store i16 133, ptr %13, align 2
-  br label %45
+  br label %44
 
-39:                                               ; preds = %33
+38:                                               ; preds = %32
   store i16 136, ptr %13, align 2
-  br label %45
+  br label %44
 
-40:                                               ; preds = %33
+39:                                               ; preds = %32
   store i16 135, ptr %13, align 2
-  br label %45
+  br label %44
 
-41:                                               ; preds = %33
+40:                                               ; preds = %32
   store i16 140, ptr %13, align 2
-  br label %45
+  br label %44
 
-42:                                               ; preds = %33
+41:                                               ; preds = %32
   store i16 139, ptr %13, align 2
-  br label %45
+  br label %44
 
-43:                                               ; preds = %33
+42:                                               ; preds = %32
   store i16 145, ptr %13, align 2
-  br label %45
+  br label %44
 
-44:                                               ; preds = %33
+43:                                               ; preds = %32
   store i16 144, ptr %13, align 2
-  br label %45
+  br label %44
 
-45:                                               ; preds = %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %switch.lookup
-  %.sink = phi i16 [ %switch.load, %switch.lookup ], [ 144, %44 ], [ 145, %43 ], [ 139, %42 ], [ 140, %41 ], [ 135, %40 ], [ 136, %39 ], [ 133, %38 ], [ 134, %37 ], [ 130, %36 ], [ 131, %35 ], [ 128, %34 ], [ 129, %33 ]
+44:                                               ; preds = %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %switch.lookup
+  %.sink = phi i16 [ %switch.load, %switch.lookup ], [ 144, %43 ], [ 145, %42 ], [ 139, %41 ], [ 140, %40 ], [ 135, %39 ], [ 136, %38 ], [ 133, %37 ], [ 134, %36 ], [ 130, %35 ], [ 131, %34 ], [ 128, %33 ], [ 129, %32 ]
   store i16 %27, ptr %12, align 2
   %rev90 = tail call i16 @llvm.bswap.i16(i16 %.sink)
   store i16 %rev90, ptr %13, align 2
   br label %.thread
 
-.thread:                                          ; preds = %45, %26, %23
-  %.0735 = phi ptr [ %12, %45 ], [ %4, %23 ], [ %12, %26 ]
-  %.0744 = phi ptr [ %13, %45 ], [ %5, %23 ], [ %13, %26 ]
-  %46 = zext nneg i8 %1 to i64
-  %47 = tail call i32 @memcmp(ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %46) #8
-  %48 = icmp ne ptr %.0735, null
-  %49 = icmp ne ptr %.0744, null
-  %or.cond.i = and i1 %48, %49
-  br i1 %or.cond.i, label %50, label %communityid_tuple_lt.exit
+.thread:                                          ; preds = %44, %26, %23
+  %.0735 = phi ptr [ %12, %44 ], [ %4, %23 ], [ %12, %26 ]
+  %.0744 = phi ptr [ %13, %44 ], [ %5, %23 ], [ %13, %26 ]
+  %45 = zext nneg i8 %1 to i64
+  %46 = tail call i32 @memcmp(ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %45) #8
+  %47 = icmp ne ptr %.0735, null
+  %48 = icmp ne ptr %.0744, null
+  %or.cond.i = and i1 %47, %48
+  br i1 %or.cond.i, label %49, label %communityid_tuple_lt.exit
 
-50:                                               ; preds = %.thread
-  %51 = load i16, ptr %.0735, align 2
-  %rev.i = call i16 @llvm.bswap.i16(i16 %51)
-  %52 = load i16, ptr %.0744, align 2
-  %rev14.i = call i16 @llvm.bswap.i16(i16 %52)
-  %53 = icmp ult i16 %rev.i, %rev14.i
+49:                                               ; preds = %.thread
+  %50 = load i16, ptr %.0735, align 2
+  %rev.i = call i16 @llvm.bswap.i16(i16 %50)
+  %51 = load i16, ptr %.0744, align 2
+  %rev14.i = call i16 @llvm.bswap.i16(i16 %51)
+  %52 = icmp ult i16 %rev.i, %rev14.i
   br label %communityid_tuple_lt.exit
 
-communityid_tuple_lt.exit:                        ; preds = %.thread, %50
-  %54 = phi i1 [ %53, %50 ], [ true, %.thread ]
-  %55 = icmp slt i32 %47, 0
-  %56 = icmp eq i32 %47, 0
-  %57 = select i1 %56, i1 %54, i1 false
-  %narrow.i = select i1 %55, i1 true, i1 %57
-  br i1 %narrow.i, label %59, label %58
+communityid_tuple_lt.exit:                        ; preds = %.thread, %49
+  %53 = phi i1 [ %52, %49 ], [ true, %.thread ]
+  %54 = icmp slt i32 %46, 0
+  %55 = icmp eq i32 %46, 0
+  %56 = select i1 %55, i1 %53, i1 false
+  %narrow.i = select i1 %54, i1 true, i1 %56
+  br i1 %narrow.i, label %58, label %57
 
-58:                                               ; preds = %communityid_tuple_lt.exit
+57:                                               ; preds = %communityid_tuple_lt.exit
   %spec.select = select i1 %or.cond.i, ptr %.0735, ptr %.0744
   %spec.select96 = select i1 %or.cond.i, ptr %.0744, ptr %.0735
-  br label %59
+  br label %58
 
-.critedge:                                        ; preds = %33, %switch.hole_check, %29
-  %.sink.ph = phi i16 [ %rev84, %33 ], [ %rev88, %switch.hole_check ], [ %rev88, %29 ]
+.critedge:                                        ; preds = %32, %switch.hole_check, %29
+  %.sink.ph = phi i16 [ %rev84, %32 ], [ %rev88, %switch.hole_check ], [ %rev88, %29 ]
   store i16 %27, ptr %12, align 2
   %rev90.c = tail call i16 @llvm.bswap.i16(i16 %.sink.ph)
   store i16 %rev90.c, ptr %13, align 2
-  br label %59
+  br label %58
 
-59:                                               ; preds = %.critedge, %58, %communityid_tuple_lt.exit
-  %.175 = phi ptr [ %.0744, %communityid_tuple_lt.exit ], [ %spec.select, %58 ], [ %13, %.critedge ]
-  %.1 = phi ptr [ %.0735, %communityid_tuple_lt.exit ], [ %spec.select96, %58 ], [ %12, %.critedge ]
-  %.072 = phi ptr [ %3, %communityid_tuple_lt.exit ], [ %2, %58 ], [ %3, %.critedge ]
-  %.071 = phi ptr [ %2, %communityid_tuple_lt.exit ], [ %3, %58 ], [ %2, %.critedge ]
-  %60 = load i16, ptr @cid_cfg.1, align 4
-  %rev93 = call i16 @llvm.bswap.i16(i16 %60)
+58:                                               ; preds = %.critedge, %57, %communityid_tuple_lt.exit
+  %.175 = phi ptr [ %.0744, %communityid_tuple_lt.exit ], [ %spec.select, %57 ], [ %13, %.critedge ]
+  %.1 = phi ptr [ %.0735, %communityid_tuple_lt.exit ], [ %spec.select96, %57 ], [ %12, %.critedge ]
+  %.072 = phi ptr [ %3, %communityid_tuple_lt.exit ], [ %2, %57 ], [ %3, %.critedge ]
+  %.071 = phi ptr [ %2, %communityid_tuple_lt.exit ], [ %3, %57 ], [ %2, %.critedge ]
+  %59 = load i16, ptr @cid_cfg.1, align 4
+  %rev93 = call i16 @llvm.bswap.i16(i16 %59)
   store i16 %rev93, ptr %10, align 2
-  %61 = call i32 @gcry_md_open(ptr noundef nonnull %11, i32 noundef 2, i32 noundef 0) #7
-  %.not94 = icmp eq i32 %61, 0
-  br i1 %.not94, label %62, label %95
+  %60 = call i32 @gcry_md_open(ptr noundef nonnull %11, i32 noundef 2, i32 noundef 0) #7
+  %.not94 = icmp eq i32 %60, 0
+  br i1 %.not94, label %61, label %94
 
-62:                                               ; preds = %59
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %11, align 8
+  call void @gcry_md_write(ptr noundef %62, ptr noundef nonnull %10, i64 noundef 2) #7
   %63 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %63, ptr noundef nonnull %10, i64 noundef 2) #7
-  %64 = load ptr, ptr %11, align 8
-  %65 = zext nneg i8 %1 to i64
-  call void @gcry_md_write(ptr noundef %64, ptr noundef nonnull %.071, i64 noundef %65) #7
+  %64 = zext nneg i8 %1 to i64
+  call void @gcry_md_write(ptr noundef %63, ptr noundef nonnull %.071, i64 noundef %64) #7
+  %65 = load ptr, ptr %11, align 8
+  call void @gcry_md_write(ptr noundef %65, ptr noundef nonnull %.072, i64 noundef %64) #7
   %66 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %66, ptr noundef nonnull %.072, i64 noundef %65) #7
+  call void @gcry_md_write(ptr noundef %66, ptr noundef nonnull %8, i64 noundef 1) #7
   %67 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %67, ptr noundef nonnull %8, i64 noundef 1) #7
-  %68 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %68, ptr noundef nonnull %9, i64 noundef 1) #7
-  %69 = icmp ne ptr %.1, null
-  %70 = icmp ne ptr %.175, null
-  %or.cond10 = and i1 %70, %69
-  br i1 %or.cond10, label %71, label %74
+  call void @gcry_md_write(ptr noundef %67, ptr noundef nonnull %9, i64 noundef 1) #7
+  %68 = icmp ne ptr %.1, null
+  %69 = icmp ne ptr %.175, null
+  %or.cond10 = and i1 %69, %68
+  br i1 %or.cond10, label %70, label %73
 
-71:                                               ; preds = %62
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %11, align 8
+  call void @gcry_md_write(ptr noundef %71, ptr noundef nonnull %.1, i64 noundef 2) #7
   %72 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %72, ptr noundef nonnull %.1, i64 noundef 2) #7
-  %73 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %73, ptr noundef nonnull %.175, i64 noundef 2) #7
-  br label %74
+  call void @gcry_md_write(ptr noundef %72, ptr noundef nonnull %.175, i64 noundef 2) #7
+  br label %73
 
-74:                                               ; preds = %71, %62
-  %75 = call noalias ptr @g_malloc(i64 noundef %15) #9
-  %76 = load ptr, ptr %11, align 8
-  %77 = call ptr @gcry_md_read(ptr noundef %76, i32 noundef 0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %77, i64 %15, i1 false)
-  %78 = load ptr, ptr %11, align 8
-  call void @gcry_md_close(ptr noundef %78) #7
-  %79 = load i32, ptr @cid_cfg.0, align 4
-  %.not95 = icmp eq i32 %79, 0
-  br i1 %.not95, label %86, label %80
+73:                                               ; preds = %70, %61
+  %74 = call noalias ptr @g_malloc(i64 noundef %15) #9
+  %75 = load ptr, ptr %11, align 8
+  %76 = call ptr @gcry_md_read(ptr noundef %75, i32 noundef 0) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %76, i64 %15, i1 false)
+  %77 = load ptr, ptr %11, align 8
+  call void @gcry_md_close(ptr noundef %77) #7
+  %78 = load i32, ptr @cid_cfg.0, align 4
+  %.not95 = icmp eq i32 %78, 0
+  br i1 %.not95, label %85, label %79
 
-80:                                               ; preds = %74
-  %81 = call noalias ptr @g_base64_encode(ptr noundef %75, i64 noundef %15) #7
-  %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #8
-  %83 = add i64 %82, 3
-  %84 = call noalias ptr @g_malloc(i64 noundef %83) #9
-  store ptr %84, ptr %6, align 8
-  %85 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %84, i64 noundef %83, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %81) #7
-  call void @g_free(ptr noundef %81) #7
+79:                                               ; preds = %73
+  %80 = call noalias ptr @g_base64_encode(ptr noundef %74, i64 noundef %15) #7
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #8
+  %82 = add i64 %81, 3
+  %83 = call noalias ptr @g_malloc(i64 noundef %82) #9
+  store ptr %83, ptr %6, align 8
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %83, i64 noundef %82, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %80) #7
+  call void @g_free(ptr noundef %80) #7
   br label %.loopexit
 
-86:                                               ; preds = %74
-  %87 = shl nuw nsw i64 %15, 1
-  %88 = add nuw nsw i64 %87, 3
-  %89 = call noalias ptr @g_malloc(i64 noundef %88) #9
-  store ptr %89, ptr %6, align 8
-  store i16 14897, ptr %89, align 1
+85:                                               ; preds = %73
+  %86 = shl nuw nsw i64 %15, 1
+  %87 = add nuw nsw i64 %86, 3
+  %88 = call noalias ptr @g_malloc(i64 noundef %87) #9
+  store ptr %88, ptr %6, align 8
+  store i16 14897, ptr %88, align 1
   %.not10 = icmp eq i32 %14, 0
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %86, %.lr.ph
-  %.09 = phi i64 [ %94, %.lr.ph ], [ 0, %86 ]
-  %.pn8 = phi ptr [ %.069, %.lr.ph ], [ %89, %86 ]
+.lr.ph:                                           ; preds = %85, %.lr.ph
+  %.09 = phi i64 [ %93, %.lr.ph ], [ 0, %85 ]
+  %.pn8 = phi ptr [ %.069, %.lr.ph ], [ %88, %85 ]
   %.069 = getelementptr i8, ptr %.pn8, i64 2
-  %90 = getelementptr i8, ptr %75, i64 %.09
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.069, i64 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %92) #7
-  %94 = add nuw nsw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %94, %15
+  %89 = getelementptr i8, ptr %74, i64 %.09
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.069, i64 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %91) #7
+  %93 = add nuw nsw i64 %.09, 1
+  %exitcond.not = icmp eq i64 %93, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %86, %80
-  call void @g_free(ptr noundef %75) #7
-  br label %95
+.loopexit:                                        ; preds = %.lr.ph, %85, %79
+  call void @g_free(ptr noundef %74) #7
+  br label %94
 
-95:                                               ; preds = %59, %.loopexit, %22, %18, %16
-  %.070 = phi i32 [ 1, %.loopexit ], [ 0, %22 ], [ 0, %18 ], [ 0, %16 ], [ 0, %59 ]
+94:                                               ; preds = %58, %.loopexit, %22, %18, %16
+  %.070 = phi i32 [ 1, %.loopexit ], [ 0, %22 ], [ 0, %18 ], [ 0, %16 ], [ 0, %58 ]
   ret i32 %.070
 }
 

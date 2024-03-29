@@ -403,18 +403,17 @@ entry:
   %atomic10.sroa.0 = alloca i8, align 1
   store i8 0, ptr %atomic.sroa.0, align 1
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i.i.not = icmp eq i8 %0, 0
-  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
+  %cmp = xor i1 %tobool.i.i.i, true
+  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.1)
   store i8 0, ptr %atomic3.sroa.0, align 1
   %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0. = load atomic volatile i8, ptr %atomic3.sroa.0 monotonic, align 1
-  %1 = and i8 %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0., 1
-  %tobool.i.i.i1.not = icmp eq i8 %1, 0
-  %call9 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i1 = trunc i8 %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0. to i1
+  %cmp7 = xor i1 %tobool.i.i.i1, true
+  %call9 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @.str.1)
   store i8 1, ptr %atomic10.sroa.0, align 1
   %atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0. = load atomic volatile i8, ptr %atomic10.sroa.0 monotonic, align 1
-  %2 = and i8 %atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0., 1
-  %tobool.i.i.i2 = icmp ne i8 %2, 0
+  %tobool.i.i.i2 = trunc i8 %atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0. to i1
   %call16 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @.str.2)
   ret void
 }
@@ -428,14 +427,14 @@ entry:
   %atomic4.sroa.0 = alloca i8, align 1
   store atomic volatile i8 0, ptr %atomic.sroa.0 monotonic, align 1
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i.i.not = icmp eq i8 %0, 0
-  %call3 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
+  %cmp = xor i1 %tobool.i.i.i, true
+  %call3 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @.str.1)
   store atomic volatile i8 0, ptr %atomic4.sroa.0 monotonic, align 1
   %atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0. = load atomic volatile i8, ptr %atomic4.sroa.0 monotonic, align 1
-  %1 = and i8 %atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0., 1
-  %tobool.i.i.i1.not = icmp eq i8 %1, 0
-  %call11 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i1 = trunc i8 %atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0. to i1
+  %cmp9 = xor i1 %tobool.i.i.i1, true
+  %call11 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.1)
   ret void
 }
 
@@ -446,21 +445,18 @@ entry:
   %atomic9 = alloca %"class.eastl::atomic_flag", align 1
   store i8 0, ptr %atomic, align 1
   %0 = atomicrmw volatile xchg ptr %atomic, i8 1 monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.not = icmp eq i8 %1, 0
-  %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.3)
-  %2 = load atomic volatile i8, ptr %atomic monotonic, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.i1 = icmp ne i8 %3, 0
+  %tobool.i.i.i = trunc i8 %0 to i1
+  %cmp = xor i1 %tobool.i.i.i, true
+  %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.3)
+  %1 = load atomic volatile i8, ptr %atomic monotonic, align 1
+  %tobool.i.i.i1 = trunc i8 %1 to i1
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @.str.2)
   store i8 1, ptr %atomic9, align 1
-  %4 = atomicrmw volatile xchg ptr %atomic9, i8 1 monotonic, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.i.i2 = icmp ne i8 %5, 0
+  %2 = atomicrmw volatile xchg ptr %atomic9, i8 1 monotonic, align 1
+  %tobool.i.i.i2 = trunc i8 %2 to i1
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 203, ptr noundef nonnull @.str.4)
-  %6 = load atomic volatile i8, ptr %atomic9 monotonic, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.i.i3 = icmp ne i8 %7, 0
+  %3 = load atomic volatile i8, ptr %atomic9 monotonic, align 1
+  %tobool.i.i.i3 = trunc i8 %3 to i1
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 205, ptr noundef nonnull @.str.2)
   ret void
 }
@@ -472,13 +468,12 @@ entry:
   %atomic3.sroa.0 = alloca i8, align 1
   store i8 0, ptr %atomic.sroa.0, align 1
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i.i.not = icmp eq i8 %0, 0
-  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
+  %cmp = xor i1 %tobool.i.i.i, true
+  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.1)
   store i8 1, ptr %atomic3.sroa.0, align 1
   %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0. = load atomic volatile i8, ptr %atomic3.sroa.0 monotonic, align 1
-  %1 = and i8 %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0., 1
-  %tobool.i.i.i1 = icmp ne i8 %1, 0
+  %tobool.i.i.i1 = trunc i8 %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0. to i1
   %call9 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.2)
   ret void
 }
@@ -1619,24 +1614,23 @@ entry:
   %atomic23.sroa.0 = alloca i8, align 1
   store i8 0, ptr %atomic.sroa.0, align 1
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i.not = icmp eq i8 %0, 0
-  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2000, ptr noundef nonnull @.str.3)
+  %tobool.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
+  %cmp = xor i1 %tobool.i.i, true
+  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2000, ptr noundef nonnull @.str.3)
   store i8 1, ptr %atomic3.sroa.0, align 1
   %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0. = load atomic volatile i8, ptr %atomic3.sroa.0 monotonic, align 1
-  %1 = and i8 %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0., 1
-  %tobool.i.i1 = icmp ne i8 %1, 0
+  %tobool.i.i1 = trunc i8 %atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0. to i1
   %call12 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2008, ptr noundef nonnull @.str.4)
   store i8 0, ptr %atomic13.sroa.0, align 1
   %atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0. = load atomic volatile i8, ptr %atomic13.sroa.0 monotonic, align 1
-  %2 = and i8 %atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0., 1
-  %tobool.i.i2.not = icmp eq i8 %2, 0
-  %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i2.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2016, ptr noundef nonnull @.str.3)
+  %tobool.i.i2 = trunc i8 %atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0. to i1
+  %cmp20 = xor i1 %tobool.i.i2, true
+  %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp20, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2016, ptr noundef nonnull @.str.3)
   store i8 0, ptr %atomic23.sroa.0, align 1
   %atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0. = load atomic volatile i8, ptr %atomic23.sroa.0 monotonic, align 1
-  %3 = and i8 %atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0., 1
-  %tobool.i.i3.not = icmp eq i8 %3, 0
-  %call32 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i3.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2024, ptr noundef nonnull @.str.3)
+  %tobool.i.i3 = trunc i8 %atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0. to i1
+  %cmp30 = xor i1 %tobool.i.i3, true
+  %call32 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp30, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2024, ptr noundef nonnull @.str.3)
   ret void
 }
 
@@ -1648,8 +1642,7 @@ entry:
   store atomic volatile i8 1, ptr %atomic.sroa.0 seq_cst, align 1
   %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2035, ptr noundef nonnull @.str.4)
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i = icmp ne i8 %0, 0
+  %tobool.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
   %call7 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2037, ptr noundef nonnull @.str.24)
   ret void
 }
@@ -1668,8 +1661,7 @@ entry:
   %atomic.sroa.0 = alloca i8, align 1
   store atomic volatile i8 1, ptr %atomic.sroa.0 monotonic, align 1
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i = icmp ne i8 %0, 0
+  %tobool.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
   %call3 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2061, ptr noundef nonnull @.str.24)
   ret void
 }
@@ -1681,21 +1673,19 @@ entry:
   %atomic8.sroa.0 = alloca i8, align 1
   store i8 0, ptr %atomic.sroa.0, align 1
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. = load atomic volatile i8, ptr %atomic.sroa.0 monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0., 1
-  %tobool.i.i.not = icmp eq i8 %0, 0
-  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2070, ptr noundef nonnull @.str.26)
+  %tobool.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0. to i1
+  %cmp = xor i1 %tobool.i.i, true
+  %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2070, ptr noundef nonnull @.str.26)
   %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4 = load atomic volatile i8, ptr %atomic.sroa.0 seq_cst, align 1
-  %1 = and i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4, 1
-  %tobool.i.i.i.not = icmp eq i8 %1, 0
-  %call7 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2072, ptr noundef nonnull @.str.27)
+  %tobool.i.i.i = trunc i8 %atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4 to i1
+  %cmp5 = xor i1 %tobool.i.i.i, true
+  %call7 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2072, ptr noundef nonnull @.str.27)
   store i8 1, ptr %atomic8.sroa.0, align 1
   %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0. = load atomic volatile i8, ptr %atomic8.sroa.0 monotonic, align 1
-  %2 = and i8 %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0., 1
-  %tobool.i.i1 = icmp ne i8 %2, 0
+  %tobool.i.i1 = trunc i8 %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0. to i1
   %call14 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2078, ptr noundef nonnull @.str.24)
   %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.3 = load atomic volatile i8, ptr %atomic8.sroa.0 seq_cst, align 1
-  %3 = and i8 %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.3, 1
-  %tobool.i.i.i2 = icmp ne i8 %3, 0
+  %tobool.i.i.i2 = trunc i8 %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.3 to i1
   %call19 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2080, ptr noundef nonnull @.str.28)
   ret void
 }
@@ -1707,21 +1697,20 @@ entry:
   %atomic9 = alloca %"struct.eastl::atomic", align 1
   store i8 0, ptr %atomic, align 1
   %0 = atomicrmw volatile xchg ptr %atomic, i8 0 monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2091, ptr noundef nonnull @.str.3)
-  %2 = load atomic volatile i8, ptr %atomic monotonic, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i1.not = icmp eq i8 %3, 0
-  %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2093, ptr noundef nonnull @.str.26)
+  %tobool.i.i = trunc i8 %0 to i1
+  %cmp = xor i1 %tobool.i.i, true
+  %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2091, ptr noundef nonnull @.str.3)
+  %1 = load atomic volatile i8, ptr %atomic monotonic, align 1
+  %tobool.i.i1 = trunc i8 %1 to i1
+  %cmp6 = xor i1 %tobool.i.i1, true
+  %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp6, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2093, ptr noundef nonnull @.str.26)
   store i8 0, ptr %atomic9, align 1
-  %4 = atomicrmw volatile xchg ptr %atomic9, i8 1 monotonic, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.i2.not = icmp eq i8 %5, 0
-  %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i2.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2101, ptr noundef nonnull @.str.3)
-  %6 = load atomic volatile i8, ptr %atomic9 monotonic, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.i3 = icmp ne i8 %7, 0
+  %2 = atomicrmw volatile xchg ptr %atomic9, i8 1 monotonic, align 1
+  %tobool.i.i2 = trunc i8 %2 to i1
+  %cmp16 = xor i1 %tobool.i.i2, true
+  %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp16, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2101, ptr noundef nonnull @.str.3)
+  %3 = load atomic volatile i8, ptr %atomic9 monotonic, align 1
+  %tobool.i.i3 = trunc i8 %3 to i1
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2103, ptr noundef nonnull @.str.24)
   ret void
 }
@@ -1741,35 +1730,34 @@ if.then:                                          ; preds = %entry
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2117, ptr noundef nonnull @.str.4)
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2118, ptr noundef nonnull @.str.29)
   %2 = load atomic volatile i8, ptr %atomic monotonic, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not = icmp eq i8 %3, 0
-  %call14 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2119, ptr noundef nonnull @.str.26)
+  %tobool.i.i = trunc i8 %2 to i1
+  %cmp12 = xor i1 %tobool.i.i, true
+  %call14 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp12, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2119, ptr noundef nonnull @.str.26)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   store i8 0, ptr %atomic15, align 1
-  %4 = cmpxchg weak volatile ptr %atomic15, i8 0, i8 1 monotonic monotonic, align 1
-  %5 = extractvalue { i8, i1 } %4, 1
-  br i1 %5, label %if.then22, label %if.end39
+  %3 = cmpxchg weak volatile ptr %atomic15, i8 0, i8 1 monotonic monotonic, align 1
+  %4 = extractvalue { i8, i1 } %3, 1
+  br i1 %4, label %if.then22, label %if.end39
 
 if.then22:                                        ; preds = %if.end
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2131, ptr noundef nonnull @.str.4)
   %call32 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2132, ptr noundef nonnull @.str.29)
-  %6 = load atomic volatile i8, ptr %atomic15 monotonic, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.i5 = icmp ne i8 %7, 0
+  %5 = load atomic volatile i8, ptr %atomic15 monotonic, align 1
+  %tobool.i.i5 = trunc i8 %5 to i1
   %call38 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i5, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2133, ptr noundef nonnull @.str.24)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end, %if.then22
   store i8 0, ptr %atomic40, align 1
-  %8 = cmpxchg weak volatile ptr %atomic40, i8 1, i8 1 monotonic monotonic, align 1
-  %9 = extractvalue { i8, i1 } %8, 1
-  %10 = extractvalue { i8, i1 } %8, 0
-  %cmp48 = xor i1 %9, true
+  %6 = cmpxchg weak volatile ptr %atomic40, i8 1, i8 1 monotonic monotonic, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  %8 = extractvalue { i8, i1 } %6, 0
+  %cmp48 = xor i1 %7, true
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2143, ptr noundef nonnull @.str.3)
-  %11 = and i8 %10, 1
-  %cmp53 = icmp eq i8 %11, 0
+  %9 = and i8 %8, 1
+  %cmp53 = icmp eq i8 %9, 0
   %call55 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp53, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2144, ptr noundef nonnull @.str.29)
   ret void
 }
@@ -1789,29 +1777,28 @@ entry:
   %cmp5 = icmp eq i8 %3, 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2157, ptr noundef nonnull @.str.29)
   %4 = load atomic volatile i8, ptr %atomic monotonic, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.i.not = icmp eq i8 %5, 0
-  %call13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2158, ptr noundef nonnull @.str.26)
+  %tobool.i.i = trunc i8 %4 to i1
+  %cmp11 = xor i1 %tobool.i.i, true
+  %call13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2158, ptr noundef nonnull @.str.26)
   store i8 0, ptr %atomic14, align 1
-  %6 = cmpxchg weak volatile ptr %atomic14, i8 0, i8 1 monotonic monotonic, align 1
-  %7 = extractvalue { i8, i1 } %6, 1
-  %8 = extractvalue { i8, i1 } %6, 0
-  %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2167, ptr noundef nonnull @.str.4)
-  %9 = and i8 %8, 1
-  %cmp27 = icmp eq i8 %9, 0
+  %5 = cmpxchg weak volatile ptr %atomic14, i8 0, i8 1 monotonic monotonic, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  %7 = extractvalue { i8, i1 } %5, 0
+  %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %6, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2167, ptr noundef nonnull @.str.4)
+  %8 = and i8 %7, 1
+  %cmp27 = icmp eq i8 %8, 0
   %call29 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp27, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2168, ptr noundef nonnull @.str.29)
-  %10 = load atomic volatile i8, ptr %atomic14 monotonic, align 1
-  %11 = and i8 %10, 1
-  %tobool.i.i3 = icmp ne i8 %11, 0
+  %9 = load atomic volatile i8, ptr %atomic14 monotonic, align 1
+  %tobool.i.i3 = trunc i8 %9 to i1
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2169, ptr noundef nonnull @.str.24)
   store i8 0, ptr %atomic36, align 1
-  %12 = cmpxchg weak volatile ptr %atomic36, i8 1, i8 1 monotonic monotonic, align 1
-  %13 = extractvalue { i8, i1 } %12, 1
-  %14 = extractvalue { i8, i1 } %12, 0
-  %cmp44 = xor i1 %13, true
+  %10 = cmpxchg weak volatile ptr %atomic36, i8 1, i8 1 monotonic monotonic, align 1
+  %11 = extractvalue { i8, i1 } %10, 1
+  %12 = extractvalue { i8, i1 } %10, 0
+  %cmp44 = xor i1 %11, true
   %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp44, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2178, ptr noundef nonnull @.str.3)
-  %15 = and i8 %14, 1
-  %cmp49 = icmp eq i8 %15, 0
+  %13 = and i8 %12, 1
+  %cmp49 = icmp eq i8 %13, 0
   %call51 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp49, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2179, ptr noundef nonnull @.str.29)
   ret void
 }
@@ -2774,7 +2761,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN19AtomicBoolBasicTest7RunTestEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %atomic.sroa.0.i17 = alloca i8, align 1
+  %atomic.sroa.0.i22 = alloca i8, align 1
   %atomic4.sroa.0.i = alloca i8, align 1
   %atomic14.i = alloca %"struct.eastl::atomic", align 1
   %atomic33.i = alloca %"struct.eastl::atomic", align 1
@@ -2783,9 +2770,9 @@ entry:
   %atomic111.i = alloca %"struct.eastl::atomic", align 1
   %atomic.i = alloca %"struct.eastl::atomic", align 1
   %atomic9.i = alloca %"struct.eastl::atomic", align 1
-  %atomic.sroa.0.i8 = alloca i8, align 1
+  %atomic.sroa.0.i9 = alloca i8, align 1
   %atomic8.sroa.0.i = alloca i8, align 1
-  %atomic.sroa.0.i5 = alloca i8, align 1
+  %atomic.sroa.0.i6 = alloca i8, align 1
   %atomic.sroa.0.i1 = alloca i8, align 1
   %atomic.sroa.0.i = alloca i8, align 1
   %atomic3.sroa.0.i = alloca i8, align 1
@@ -2797,24 +2784,23 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic23.sroa.0.i)
   store i8 0, ptr %atomic.sroa.0.i, align 1
   %atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i = load atomic volatile i8, ptr %atomic.sroa.0.i monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i, 1
-  %tobool.i.i.not.i = icmp eq i8 %0, 0
-  %call2.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2000, ptr noundef nonnull @.str.3)
+  %tobool.i.i.i = trunc i8 %atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i to i1
+  %cmp.i = xor i1 %tobool.i.i.i, true
+  %call2.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2000, ptr noundef nonnull @.str.3)
   store i8 1, ptr %atomic3.sroa.0.i, align 1
   %atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i = load atomic volatile i8, ptr %atomic3.sroa.0.i monotonic, align 1
-  %1 = and i8 %atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i, 1
-  %tobool.i.i1.i = icmp ne i8 %1, 0
+  %tobool.i.i1.i = trunc i8 %atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i to i1
   %call12.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2008, ptr noundef nonnull @.str.4)
   store i8 0, ptr %atomic13.sroa.0.i, align 1
   %atomic13.sroa.0.i.0.atomic13.sroa.0.i.0.atomic13.sroa.0.i.0.atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0..i = load atomic volatile i8, ptr %atomic13.sroa.0.i monotonic, align 1
-  %2 = and i8 %atomic13.sroa.0.i.0.atomic13.sroa.0.i.0.atomic13.sroa.0.i.0.atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0..i, 1
-  %tobool.i.i2.not.i = icmp eq i8 %2, 0
-  %call22.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i2.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2016, ptr noundef nonnull @.str.3)
+  %tobool.i.i2.i = trunc i8 %atomic13.sroa.0.i.0.atomic13.sroa.0.i.0.atomic13.sroa.0.i.0.atomic13.sroa.0.0.atomic13.sroa.0.0.atomic13.sroa.0.0..i to i1
+  %cmp20.i = xor i1 %tobool.i.i2.i, true
+  %call22.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp20.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2016, ptr noundef nonnull @.str.3)
   store i8 0, ptr %atomic23.sroa.0.i, align 1
   %atomic23.sroa.0.i.0.atomic23.sroa.0.i.0.atomic23.sroa.0.i.0.atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0..i = load atomic volatile i8, ptr %atomic23.sroa.0.i monotonic, align 1
-  %3 = and i8 %atomic23.sroa.0.i.0.atomic23.sroa.0.i.0.atomic23.sroa.0.i.0.atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0..i, 1
-  %tobool.i.i3.not.i = icmp eq i8 %3, 0
-  %call32.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i3.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2024, ptr noundef nonnull @.str.3)
+  %tobool.i.i3.i = trunc i8 %atomic23.sroa.0.i.0.atomic23.sroa.0.i.0.atomic23.sroa.0.i.0.atomic23.sroa.0.0.atomic23.sroa.0.0.atomic23.sroa.0.0..i to i1
+  %cmp30.i = xor i1 %tobool.i.i3.i, true
+  %call32.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp30.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2024, ptr noundef nonnull @.str.3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic3.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic13.sroa.0.i)
@@ -2824,158 +2810,153 @@ entry:
   store atomic volatile i8 1, ptr %atomic.sroa.0.i1 seq_cst, align 1
   %call2.i2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2035, ptr noundef nonnull @.str.4)
   %atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i3 = load atomic volatile i8, ptr %atomic.sroa.0.i1 monotonic, align 1
-  %4 = and i8 %atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i3, 1
-  %tobool.i.i.i = icmp ne i8 %4, 0
-  %call7.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2037, ptr noundef nonnull @.str.24)
+  %tobool.i.i.i4 = trunc i8 %atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i3 to i1
+  %call7.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i4, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2037, ptr noundef nonnull @.str.24)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i1)
-  %call2.i4 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2048, ptr noundef nonnull @.str.4)
+  %call2.i5 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2048, ptr noundef nonnull @.str.4)
   %call4.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2050, ptr noundef nonnull @.str.25)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i5)
-  store atomic volatile i8 1, ptr %atomic.sroa.0.i5 monotonic, align 1
-  %atomic.sroa.0.i5.0.atomic.sroa.0.i5.0.atomic.sroa.0.i5.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i6 = load atomic volatile i8, ptr %atomic.sroa.0.i5 monotonic, align 1
-  %5 = and i8 %atomic.sroa.0.i5.0.atomic.sroa.0.i5.0.atomic.sroa.0.i5.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i6, 1
-  %tobool.i.i.i7 = icmp ne i8 %5, 0
-  %call3.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2061, ptr noundef nonnull @.str.24)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i6)
+  store atomic volatile i8 1, ptr %atomic.sroa.0.i6 monotonic, align 1
+  %atomic.sroa.0.i6.0.atomic.sroa.0.i6.0.atomic.sroa.0.i6.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i7 = load atomic volatile i8, ptr %atomic.sroa.0.i6 monotonic, align 1
+  %tobool.i.i.i8 = trunc i8 %atomic.sroa.0.i6.0.atomic.sroa.0.i6.0.atomic.sroa.0.i6.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i7 to i1
+  %call3.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2061, ptr noundef nonnull @.str.24)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i6)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic8.sroa.0.i)
-  store i8 0, ptr %atomic.sroa.0.i8, align 1
-  %atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i9 = load atomic volatile i8, ptr %atomic.sroa.0.i8 monotonic, align 1
-  %6 = and i8 %atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i9, 1
-  %tobool.i.i.not.i10 = icmp eq i8 %6, 0
-  %call2.i11 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not.i10, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2070, ptr noundef nonnull @.str.26)
-  %atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4.i = load atomic volatile i8, ptr %atomic.sroa.0.i8 seq_cst, align 1
-  %7 = and i8 %atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4.i, 1
-  %tobool.i.i.i.not.i = icmp eq i8 %7, 0
-  %call7.i12 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2072, ptr noundef nonnull @.str.27)
+  store i8 0, ptr %atomic.sroa.0.i9, align 1
+  %atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i10 = load atomic volatile i8, ptr %atomic.sroa.0.i9 monotonic, align 1
+  %tobool.i.i.i11 = trunc i8 %atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i10 to i1
+  %cmp.i12 = xor i1 %tobool.i.i.i11, true
+  %call2.i13 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i12, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2070, ptr noundef nonnull @.str.26)
+  %atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4.i = load atomic volatile i8, ptr %atomic.sroa.0.i9 seq_cst, align 1
+  %tobool.i.i.i.i = trunc i8 %atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.i9.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0.4.i to i1
+  %cmp5.i = xor i1 %tobool.i.i.i.i, true
+  %call7.i14 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2072, ptr noundef nonnull @.str.27)
   store i8 1, ptr %atomic8.sroa.0.i, align 1
   %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0..i = load atomic volatile i8, ptr %atomic8.sroa.0.i monotonic, align 1
-  %8 = and i8 %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0..i, 1
-  %tobool.i.i1.i13 = icmp ne i8 %8, 0
-  %call14.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1.i13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2078, ptr noundef nonnull @.str.24)
+  %tobool.i.i1.i15 = trunc i8 %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0..i to i1
+  %call14.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1.i15, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2078, ptr noundef nonnull @.str.24)
   %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.3.i = load atomic volatile i8, ptr %atomic8.sroa.0.i seq_cst, align 1
-  %9 = and i8 %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.3.i, 1
-  %tobool.i.i.i2.i = icmp ne i8 %9, 0
+  %tobool.i.i.i2.i = trunc i8 %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.3.i to i1
   %call19.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2080, ptr noundef nonnull @.str.28)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i8)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic8.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic9.i)
   store i8 0, ptr %atomic.i, align 1
-  %10 = atomicrmw volatile xchg ptr %atomic.i, i8 0 monotonic, align 1
-  %11 = and i8 %10, 1
-  %tobool.i.i.not.i14 = icmp eq i8 %11, 0
-  %call2.i15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.not.i14, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2091, ptr noundef nonnull @.str.3)
-  %12 = load atomic volatile i8, ptr %atomic.i monotonic, align 1
-  %13 = and i8 %12, 1
-  %tobool.i.i1.not.i = icmp eq i8 %13, 0
-  %call8.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i1.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2093, ptr noundef nonnull @.str.26)
+  %0 = atomicrmw volatile xchg ptr %atomic.i, i8 0 monotonic, align 1
+  %tobool.i.i.i16 = trunc i8 %0 to i1
+  %cmp.i17 = xor i1 %tobool.i.i.i16, true
+  %call2.i18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i17, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2091, ptr noundef nonnull @.str.3)
+  %1 = load atomic volatile i8, ptr %atomic.i monotonic, align 1
+  %tobool.i.i1.i19 = trunc i8 %1 to i1
+  %cmp6.i = xor i1 %tobool.i.i1.i19, true
+  %call8.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp6.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2093, ptr noundef nonnull @.str.26)
   store i8 0, ptr %atomic9.i, align 1
-  %14 = atomicrmw volatile xchg ptr %atomic9.i, i8 1 monotonic, align 1
-  %15 = and i8 %14, 1
-  %tobool.i.i2.not.i16 = icmp eq i8 %15, 0
-  %call18.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i2.not.i16, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2101, ptr noundef nonnull @.str.3)
-  %16 = load atomic volatile i8, ptr %atomic9.i monotonic, align 1
-  %17 = and i8 %16, 1
-  %tobool.i.i3.i = icmp ne i8 %17, 0
-  %call24.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i3.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2103, ptr noundef nonnull @.str.24)
+  %2 = atomicrmw volatile xchg ptr %atomic9.i, i8 1 monotonic, align 1
+  %tobool.i.i2.i20 = trunc i8 %2 to i1
+  %cmp16.i = xor i1 %tobool.i.i2.i20, true
+  %call18.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp16.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2101, ptr noundef nonnull @.str.3)
+  %3 = load atomic volatile i8, ptr %atomic9.i monotonic, align 1
+  %tobool.i.i3.i21 = trunc i8 %3 to i1
+  %call24.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i3.i21, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2103, ptr noundef nonnull @.str.24)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic9.i)
   call void @_ZN19AtomicBoolBasicTest23TestCompareExchangeWeakEv(ptr noundef nonnull align 4 dereferenceable(4) %this)
   call void @_ZN19AtomicBoolBasicTest25TestCompareExchangeStrongEv(ptr noundef nonnull align 4 dereferenceable(4) %this)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i17)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i22)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic4.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic14.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic33.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic52.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic72.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic111.i)
-  store i8 0, ptr %atomic.sroa.0.i17, align 1
-  store atomic volatile i8 1, ptr %atomic.sroa.0.i17 seq_cst, align 1
-  store atomic volatile i8 1, ptr %atomic.sroa.0.i17 monotonic, align 1
-  store atomic volatile i8 1, ptr %atomic.sroa.0.i17 release, align 1
-  store atomic volatile i8 1, ptr %atomic.sroa.0.i17 seq_cst, align 1
+  store i8 0, ptr %atomic.sroa.0.i22, align 1
+  store atomic volatile i8 1, ptr %atomic.sroa.0.i22 seq_cst, align 1
+  store atomic volatile i8 1, ptr %atomic.sroa.0.i22 monotonic, align 1
+  store atomic volatile i8 1, ptr %atomic.sroa.0.i22 release, align 1
+  store atomic volatile i8 1, ptr %atomic.sroa.0.i22 seq_cst, align 1
   store i8 0, ptr %atomic4.sroa.0.i, align 1
   %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0..i = load atomic volatile i8, ptr %atomic4.sroa.0.i seq_cst, align 1
   %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0.65.i = load atomic volatile i8, ptr %atomic4.sroa.0.i monotonic, align 1
   %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0.66.i = load atomic volatile i8, ptr %atomic4.sroa.0.i acquire, align 1
   %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0.67.i = load atomic volatile i8, ptr %atomic4.sroa.0.i seq_cst, align 1
   store i8 0, ptr %atomic14.i, align 1
-  %18 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 seq_cst, align 1
-  %19 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 monotonic, align 1
-  %20 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 acquire, align 1
-  %21 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 release, align 1
-  %22 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 acq_rel, align 1
-  %23 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 seq_cst, align 1
+  %4 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 seq_cst, align 1
+  %5 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 monotonic, align 1
+  %6 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 acquire, align 1
+  %7 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 release, align 1
+  %8 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 acq_rel, align 1
+  %9 = atomicrmw volatile xchg ptr %atomic14.i, i8 1 seq_cst, align 1
   store i8 0, ptr %atomic33.i, align 1
-  %24 = cmpxchg weak volatile ptr %atomic33.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %25 = extractvalue { i8, i1 } %24, 0
-  %26 = cmpxchg weak volatile ptr %atomic33.i, i8 %25, i8 1 monotonic monotonic, align 1
-  %27 = extractvalue { i8, i1 } %26, 0
-  %28 = cmpxchg weak volatile ptr %atomic33.i, i8 %27, i8 1 acquire acquire, align 1
-  %29 = extractvalue { i8, i1 } %28, 0
-  %30 = cmpxchg weak volatile ptr %atomic33.i, i8 %29, i8 1 release monotonic, align 1
-  %31 = extractvalue { i8, i1 } %30, 0
-  %32 = cmpxchg weak volatile ptr %atomic33.i, i8 %31, i8 1 acq_rel acquire, align 1
-  %33 = extractvalue { i8, i1 } %32, 0
-  %34 = cmpxchg weak volatile ptr %atomic33.i, i8 %33, i8 1 seq_cst seq_cst, align 1
+  %10 = cmpxchg weak volatile ptr %atomic33.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %11 = extractvalue { i8, i1 } %10, 0
+  %12 = cmpxchg weak volatile ptr %atomic33.i, i8 %11, i8 1 monotonic monotonic, align 1
+  %13 = extractvalue { i8, i1 } %12, 0
+  %14 = cmpxchg weak volatile ptr %atomic33.i, i8 %13, i8 1 acquire acquire, align 1
+  %15 = extractvalue { i8, i1 } %14, 0
+  %16 = cmpxchg weak volatile ptr %atomic33.i, i8 %15, i8 1 release monotonic, align 1
+  %17 = extractvalue { i8, i1 } %16, 0
+  %18 = cmpxchg weak volatile ptr %atomic33.i, i8 %17, i8 1 acq_rel acquire, align 1
+  %19 = extractvalue { i8, i1 } %18, 0
+  %20 = cmpxchg weak volatile ptr %atomic33.i, i8 %19, i8 1 seq_cst seq_cst, align 1
   store i8 0, ptr %atomic52.i, align 1
-  %35 = cmpxchg volatile ptr %atomic52.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %36 = extractvalue { i8, i1 } %35, 0
-  %37 = cmpxchg volatile ptr %atomic52.i, i8 %36, i8 1 monotonic monotonic, align 1
-  %38 = extractvalue { i8, i1 } %37, 0
-  %39 = cmpxchg volatile ptr %atomic52.i, i8 %38, i8 1 acquire acquire, align 1
-  %40 = extractvalue { i8, i1 } %39, 0
-  %41 = cmpxchg volatile ptr %atomic52.i, i8 %40, i8 1 release monotonic, align 1
-  %42 = extractvalue { i8, i1 } %41, 0
-  %43 = cmpxchg volatile ptr %atomic52.i, i8 %42, i8 1 acq_rel acquire, align 1
-  %44 = extractvalue { i8, i1 } %43, 0
-  %45 = cmpxchg volatile ptr %atomic52.i, i8 %44, i8 1 seq_cst seq_cst, align 1
+  %21 = cmpxchg volatile ptr %atomic52.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %22 = extractvalue { i8, i1 } %21, 0
+  %23 = cmpxchg volatile ptr %atomic52.i, i8 %22, i8 1 monotonic monotonic, align 1
+  %24 = extractvalue { i8, i1 } %23, 0
+  %25 = cmpxchg volatile ptr %atomic52.i, i8 %24, i8 1 acquire acquire, align 1
+  %26 = extractvalue { i8, i1 } %25, 0
+  %27 = cmpxchg volatile ptr %atomic52.i, i8 %26, i8 1 release monotonic, align 1
+  %28 = extractvalue { i8, i1 } %27, 0
+  %29 = cmpxchg volatile ptr %atomic52.i, i8 %28, i8 1 acq_rel acquire, align 1
+  %30 = extractvalue { i8, i1 } %29, 0
+  %31 = cmpxchg volatile ptr %atomic52.i, i8 %30, i8 1 seq_cst seq_cst, align 1
   store i8 0, ptr %atomic72.i, align 1
-  %46 = cmpxchg weak volatile ptr %atomic72.i, i8 0, i8 1 monotonic monotonic, align 1
+  %32 = cmpxchg weak volatile ptr %atomic72.i, i8 0, i8 1 monotonic monotonic, align 1
+  %33 = extractvalue { i8, i1 } %32, 0
+  %34 = cmpxchg weak volatile ptr %atomic72.i, i8 %33, i8 1 acquire monotonic, align 1
+  %35 = extractvalue { i8, i1 } %34, 0
+  %36 = cmpxchg weak volatile ptr %atomic72.i, i8 %35, i8 1 acquire acquire, align 1
+  %37 = extractvalue { i8, i1 } %36, 0
+  %38 = cmpxchg weak volatile ptr %atomic72.i, i8 %37, i8 1 release monotonic, align 1
+  %39 = extractvalue { i8, i1 } %38, 0
+  %40 = cmpxchg weak volatile ptr %atomic72.i, i8 %39, i8 1 acq_rel monotonic, align 1
+  %41 = extractvalue { i8, i1 } %40, 0
+  %42 = cmpxchg weak volatile ptr %atomic72.i, i8 %41, i8 1 acq_rel acquire, align 1
+  %43 = extractvalue { i8, i1 } %42, 0
+  %44 = cmpxchg weak volatile ptr %atomic72.i, i8 %43, i8 1 seq_cst monotonic, align 1
+  %45 = extractvalue { i8, i1 } %44, 0
+  %46 = cmpxchg weak volatile ptr %atomic72.i, i8 %45, i8 1 seq_cst acquire, align 1
   %47 = extractvalue { i8, i1 } %46, 0
-  %48 = cmpxchg weak volatile ptr %atomic72.i, i8 %47, i8 1 acquire monotonic, align 1
-  %49 = extractvalue { i8, i1 } %48, 0
-  %50 = cmpxchg weak volatile ptr %atomic72.i, i8 %49, i8 1 acquire acquire, align 1
-  %51 = extractvalue { i8, i1 } %50, 0
-  %52 = cmpxchg weak volatile ptr %atomic72.i, i8 %51, i8 1 release monotonic, align 1
-  %53 = extractvalue { i8, i1 } %52, 0
-  %54 = cmpxchg weak volatile ptr %atomic72.i, i8 %53, i8 1 acq_rel monotonic, align 1
-  %55 = extractvalue { i8, i1 } %54, 0
-  %56 = cmpxchg weak volatile ptr %atomic72.i, i8 %55, i8 1 acq_rel acquire, align 1
-  %57 = extractvalue { i8, i1 } %56, 0
-  %58 = cmpxchg weak volatile ptr %atomic72.i, i8 %57, i8 1 seq_cst monotonic, align 1
-  %59 = extractvalue { i8, i1 } %58, 0
-  %60 = cmpxchg weak volatile ptr %atomic72.i, i8 %59, i8 1 seq_cst acquire, align 1
-  %61 = extractvalue { i8, i1 } %60, 0
-  %62 = cmpxchg weak volatile ptr %atomic72.i, i8 %61, i8 1 seq_cst seq_cst, align 1
+  %48 = cmpxchg weak volatile ptr %atomic72.i, i8 %47, i8 1 seq_cst seq_cst, align 1
   store i8 0, ptr %atomic111.i, align 1
-  %63 = cmpxchg volatile ptr %atomic111.i, i8 0, i8 1 monotonic monotonic, align 1
+  %49 = cmpxchg volatile ptr %atomic111.i, i8 0, i8 1 monotonic monotonic, align 1
+  %50 = extractvalue { i8, i1 } %49, 0
+  %51 = cmpxchg volatile ptr %atomic111.i, i8 %50, i8 1 acquire monotonic, align 1
+  %52 = extractvalue { i8, i1 } %51, 0
+  %53 = cmpxchg volatile ptr %atomic111.i, i8 %52, i8 1 acquire acquire, align 1
+  %54 = extractvalue { i8, i1 } %53, 0
+  %55 = cmpxchg volatile ptr %atomic111.i, i8 %54, i8 1 release monotonic, align 1
+  %56 = extractvalue { i8, i1 } %55, 0
+  %57 = cmpxchg volatile ptr %atomic111.i, i8 %56, i8 1 acq_rel monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 0
+  %59 = cmpxchg volatile ptr %atomic111.i, i8 %58, i8 1 acq_rel acquire, align 1
+  %60 = extractvalue { i8, i1 } %59, 0
+  %61 = cmpxchg volatile ptr %atomic111.i, i8 %60, i8 1 seq_cst monotonic, align 1
+  %62 = extractvalue { i8, i1 } %61, 0
+  %63 = cmpxchg volatile ptr %atomic111.i, i8 %62, i8 1 seq_cst acquire, align 1
   %64 = extractvalue { i8, i1 } %63, 0
-  %65 = cmpxchg volatile ptr %atomic111.i, i8 %64, i8 1 acquire monotonic, align 1
-  %66 = extractvalue { i8, i1 } %65, 0
-  %67 = cmpxchg volatile ptr %atomic111.i, i8 %66, i8 1 acquire acquire, align 1
-  %68 = extractvalue { i8, i1 } %67, 0
-  %69 = cmpxchg volatile ptr %atomic111.i, i8 %68, i8 1 release monotonic, align 1
-  %70 = extractvalue { i8, i1 } %69, 0
-  %71 = cmpxchg volatile ptr %atomic111.i, i8 %70, i8 1 acq_rel monotonic, align 1
-  %72 = extractvalue { i8, i1 } %71, 0
-  %73 = cmpxchg volatile ptr %atomic111.i, i8 %72, i8 1 acq_rel acquire, align 1
-  %74 = extractvalue { i8, i1 } %73, 0
-  %75 = cmpxchg volatile ptr %atomic111.i, i8 %74, i8 1 seq_cst monotonic, align 1
-  %76 = extractvalue { i8, i1 } %75, 0
-  %77 = cmpxchg volatile ptr %atomic111.i, i8 %76, i8 1 seq_cst acquire, align 1
-  %78 = extractvalue { i8, i1 } %77, 0
-  %79 = cmpxchg volatile ptr %atomic111.i, i8 %78, i8 1 seq_cst seq_cst, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i17)
+  %65 = cmpxchg volatile ptr %atomic111.i, i8 %64, i8 1 seq_cst seq_cst, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i22)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic4.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic14.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic33.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic52.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic72.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic111.i)
-  %80 = load i32, ptr %this, align 4
-  ret i32 %80
+  %66 = load i32, ptr %this, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3741,14 +3722,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN19AtomicFlagBasicTest7RunTestEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %atomic.i17 = alloca %"class.eastl::atomic_flag", align 1
+  %atomic.i21 = alloca %"class.eastl::atomic_flag", align 1
   %atomic16.sroa.0.i = alloca i8, align 1
   %atomic20.sroa.0.i = alloca i8, align 1
-  %atomic.sroa.0.i16 = alloca i8, align 1
+  %atomic.sroa.0.i20 = alloca i8, align 1
   %atomic4.i = alloca %"class.eastl::atomic_flag", align 1
   %atomic15.sroa.0.i = alloca i8, align 1
-  %atomic.sroa.0.i8 = alloca i8, align 1
-  %atomic3.sroa.0.i9 = alloca i8, align 1
+  %atomic.sroa.0.i11 = alloca i8, align 1
+  %atomic3.sroa.0.i12 = alloca i8, align 1
   %atomic.i = alloca %"class.eastl::atomic_flag", align 1
   %atomic9.i = alloca %"class.eastl::atomic_flag", align 1
   %atomic.sroa.0.i1 = alloca i8, align 1
@@ -3761,18 +3742,17 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic10.sroa.0.i)
   store i8 0, ptr %atomic.sroa.0.i, align 1
   %atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i = load atomic volatile i8, ptr %atomic.sroa.0.i monotonic, align 1
-  %0 = and i8 %atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i, 1
-  %tobool.i.i.i.not.i = icmp eq i8 %0, 0
-  %call2.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i.i = trunc i8 %atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.i.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i to i1
+  %cmp.i = xor i1 %tobool.i.i.i.i, true
+  %call2.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.1)
   store i8 0, ptr %atomic3.sroa.0.i, align 1
   %atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i = load atomic volatile i8, ptr %atomic3.sroa.0.i monotonic, align 1
-  %1 = and i8 %atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i, 1
-  %tobool.i.i.i1.not.i = icmp eq i8 %1, 0
-  %call9.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.not.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i1.i = trunc i8 %atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.i.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i to i1
+  %cmp7.i = xor i1 %tobool.i.i.i1.i, true
+  %call9.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @.str.1)
   store i8 1, ptr %atomic10.sroa.0.i, align 1
   %atomic10.sroa.0.i.0.atomic10.sroa.0.i.0.atomic10.sroa.0.i.0.atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0..i = load atomic volatile i8, ptr %atomic10.sroa.0.i monotonic, align 1
-  %2 = and i8 %atomic10.sroa.0.i.0.atomic10.sroa.0.i.0.atomic10.sroa.0.i.0.atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0..i, 1
-  %tobool.i.i.i2.i = icmp ne i8 %2, 0
+  %tobool.i.i.i2.i = trunc i8 %atomic10.sroa.0.i.0.atomic10.sroa.0.i.0.atomic10.sroa.0.i.0.atomic10.sroa.0.0.atomic10.sroa.0.0.atomic10.sroa.0.0..i to i1
   %call16.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @.str.2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic3.sroa.0.i)
@@ -3781,85 +3761,81 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic4.sroa.0.i)
   store atomic volatile i8 0, ptr %atomic.sroa.0.i1 monotonic, align 1
   %atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i2 = load atomic volatile i8, ptr %atomic.sroa.0.i1 monotonic, align 1
-  %3 = and i8 %atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i2, 1
-  %tobool.i.i.i.not.i3 = icmp eq i8 %3, 0
-  %call3.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not.i3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i.i3 = trunc i8 %atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.i1.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i2 to i1
+  %cmp.i4 = xor i1 %tobool.i.i.i.i3, true
+  %call3.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i4, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @.str.1)
   store atomic volatile i8 0, ptr %atomic4.sroa.0.i monotonic, align 1
   %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0..i = load atomic volatile i8, ptr %atomic4.sroa.0.i monotonic, align 1
-  %4 = and i8 %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0..i, 1
-  %tobool.i.i.i1.not.i4 = icmp eq i8 %4, 0
-  %call11.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.not.i4, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.1)
+  %tobool.i.i.i1.i5 = trunc i8 %atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.i.0.atomic4.sroa.0.0.atomic4.sroa.0.0.atomic4.sroa.0.0..i to i1
+  %cmp9.i = xor i1 %tobool.i.i.i1.i5, true
+  %call11.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic4.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic9.i)
   store i8 0, ptr %atomic.i, align 1
-  %5 = atomicrmw volatile xchg ptr %atomic.i, i8 1 monotonic, align 1
-  %6 = and i8 %5, 1
-  %tobool.i.i.i.not.i5 = icmp eq i8 %6, 0
-  %call2.i6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not.i5, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.3)
-  %7 = load atomic volatile i8, ptr %atomic.i monotonic, align 1
-  %8 = and i8 %7, 1
-  %tobool.i.i.i1.i = icmp ne i8 %8, 0
-  %call8.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @.str.2)
+  %0 = atomicrmw volatile xchg ptr %atomic.i, i8 1 monotonic, align 1
+  %tobool.i.i.i.i6 = trunc i8 %0 to i1
+  %cmp.i7 = xor i1 %tobool.i.i.i.i6, true
+  %call2.i8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.3)
+  %1 = load atomic volatile i8, ptr %atomic.i monotonic, align 1
+  %tobool.i.i.i1.i9 = trunc i8 %1 to i1
+  %call8.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.i9, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @.str.2)
   store i8 1, ptr %atomic9.i, align 1
-  %9 = atomicrmw volatile xchg ptr %atomic9.i, i8 1 monotonic, align 1
-  %10 = and i8 %9, 1
-  %tobool.i.i.i2.i7 = icmp ne i8 %10, 0
-  %call18.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2.i7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 203, ptr noundef nonnull @.str.4)
-  %11 = load atomic volatile i8, ptr %atomic9.i monotonic, align 1
-  %12 = and i8 %11, 1
-  %tobool.i.i.i3.i = icmp ne i8 %12, 0
+  %2 = atomicrmw volatile xchg ptr %atomic9.i, i8 1 monotonic, align 1
+  %tobool.i.i.i2.i10 = trunc i8 %2 to i1
+  %call18.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i2.i10, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 203, ptr noundef nonnull @.str.4)
+  %3 = load atomic volatile i8, ptr %atomic9.i monotonic, align 1
+  %tobool.i.i.i3.i = trunc i8 %3 to i1
   %call24.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i3.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 205, ptr noundef nonnull @.str.2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic3.sroa.0.i9)
-  store i8 0, ptr %atomic.sroa.0.i8, align 1
-  %atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i10 = load atomic volatile i8, ptr %atomic.sroa.0.i8 monotonic, align 1
-  %13 = and i8 %atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.i8.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i10, 1
-  %tobool.i.i.i.not.i11 = icmp eq i8 %13, 0
-  %call2.i12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i.not.i11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.1)
-  store i8 1, ptr %atomic3.sroa.0.i9, align 1
-  %atomic3.sroa.0.i9.0.atomic3.sroa.0.i9.0.atomic3.sroa.0.i9.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i13 = load atomic volatile i8, ptr %atomic3.sroa.0.i9 monotonic, align 1
-  %14 = and i8 %atomic3.sroa.0.i9.0.atomic3.sroa.0.i9.0.atomic3.sroa.0.i9.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i13, 1
-  %tobool.i.i.i1.i14 = icmp ne i8 %14, 0
-  %call9.i15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.i14, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic3.sroa.0.i9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i16)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i11)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic3.sroa.0.i12)
+  store i8 0, ptr %atomic.sroa.0.i11, align 1
+  %atomic.sroa.0.i11.0.atomic.sroa.0.i11.0.atomic.sroa.0.i11.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i13 = load atomic volatile i8, ptr %atomic.sroa.0.i11 monotonic, align 1
+  %tobool.i.i.i.i14 = trunc i8 %atomic.sroa.0.i11.0.atomic.sroa.0.i11.0.atomic.sroa.0.i11.0.atomic.sroa.0.0.atomic.sroa.0.0.atomic.sroa.0.0..i13 to i1
+  %cmp.i15 = xor i1 %tobool.i.i.i.i14, true
+  %call2.i16 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i15, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.1)
+  store i8 1, ptr %atomic3.sroa.0.i12, align 1
+  %atomic3.sroa.0.i12.0.atomic3.sroa.0.i12.0.atomic3.sroa.0.i12.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i17 = load atomic volatile i8, ptr %atomic3.sroa.0.i12 monotonic, align 1
+  %tobool.i.i.i1.i18 = trunc i8 %atomic3.sroa.0.i12.0.atomic3.sroa.0.i12.0.atomic3.sroa.0.i12.0.atomic3.sroa.0.0.atomic3.sroa.0.0.atomic3.sroa.0.0..i17 to i1
+  %call9.i19 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i.i.i1.i18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.2)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i11)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic3.sroa.0.i12)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.sroa.0.i20)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic4.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic15.sroa.0.i)
-  store i8 0, ptr %atomic.sroa.0.i16, align 1
-  store atomic volatile i8 0, ptr %atomic.sroa.0.i16 seq_cst, align 1
-  store atomic volatile i8 0, ptr %atomic.sroa.0.i16 monotonic, align 1
-  store atomic volatile i8 0, ptr %atomic.sroa.0.i16 release, align 1
-  store atomic volatile i8 0, ptr %atomic.sroa.0.i16 seq_cst, align 1
+  store i8 0, ptr %atomic.sroa.0.i20, align 1
+  store atomic volatile i8 0, ptr %atomic.sroa.0.i20 seq_cst, align 1
+  store atomic volatile i8 0, ptr %atomic.sroa.0.i20 monotonic, align 1
+  store atomic volatile i8 0, ptr %atomic.sroa.0.i20 release, align 1
+  store atomic volatile i8 0, ptr %atomic.sroa.0.i20 seq_cst, align 1
   store i8 0, ptr %atomic4.i, align 1
-  %15 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 seq_cst, align 1
-  %16 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 monotonic, align 1
-  %17 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 acquire, align 1
-  %18 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 release, align 1
-  %19 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 acq_rel, align 1
-  %20 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 seq_cst, align 1
+  %4 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 seq_cst, align 1
+  %5 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 monotonic, align 1
+  %6 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 acquire, align 1
+  %7 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 release, align 1
+  %8 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 acq_rel, align 1
+  %9 = atomicrmw volatile xchg ptr %atomic4.i, i8 1 seq_cst, align 1
   store i8 0, ptr %atomic15.sroa.0.i, align 1
   %atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.0.atomic15.sroa.0.0.atomic15.sroa.0.0..i = load atomic volatile i8, ptr %atomic15.sroa.0.i seq_cst, align 1
   %atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.0.atomic15.sroa.0.0.atomic15.sroa.0.0.10.i = load atomic volatile i8, ptr %atomic15.sroa.0.i monotonic, align 1
   %atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.0.atomic15.sroa.0.0.atomic15.sroa.0.0.11.i = load atomic volatile i8, ptr %atomic15.sroa.0.i acquire, align 1
   %atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.i.0.atomic15.sroa.0.0.atomic15.sroa.0.0.atomic15.sroa.0.0.12.i = load atomic volatile i8, ptr %atomic15.sroa.0.i seq_cst, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i16)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.sroa.0.i20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic4.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic15.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.i17)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic.i21)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic16.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %atomic20.sroa.0.i)
-  store i8 0, ptr %atomic.i17, align 1
-  %21 = atomicrmw volatile xchg ptr %atomic.i17, i8 1 seq_cst, align 1
-  %22 = atomicrmw volatile xchg ptr %atomic.i17, i8 1 monotonic, align 1
-  %23 = atomicrmw volatile xchg ptr %atomic.i17, i8 1 acquire, align 1
-  %24 = atomicrmw volatile xchg ptr %atomic.i17, i8 1 release, align 1
-  %25 = atomicrmw volatile xchg ptr %atomic.i17, i8 1 acq_rel, align 1
-  %26 = atomicrmw volatile xchg ptr %atomic.i17, i8 1 seq_cst, align 1
+  store i8 0, ptr %atomic.i21, align 1
+  %10 = atomicrmw volatile xchg ptr %atomic.i21, i8 1 seq_cst, align 1
+  %11 = atomicrmw volatile xchg ptr %atomic.i21, i8 1 monotonic, align 1
+  %12 = atomicrmw volatile xchg ptr %atomic.i21, i8 1 acquire, align 1
+  %13 = atomicrmw volatile xchg ptr %atomic.i21, i8 1 release, align 1
+  %14 = atomicrmw volatile xchg ptr %atomic.i21, i8 1 acq_rel, align 1
+  %15 = atomicrmw volatile xchg ptr %atomic.i21, i8 1 seq_cst, align 1
   store i8 0, ptr %atomic16.sroa.0.i, align 1
   store atomic volatile i8 0, ptr %atomic16.sroa.0.i seq_cst, align 1
   store atomic volatile i8 0, ptr %atomic16.sroa.0.i monotonic, align 1
@@ -3870,11 +3846,11 @@ entry:
   %atomic20.sroa.0.i.0.atomic20.sroa.0.i.0.atomic20.sroa.0.i.0.atomic20.sroa.0.0.atomic20.sroa.0.0.atomic20.sroa.0.0.10.i = load atomic volatile i8, ptr %atomic20.sroa.0.i monotonic, align 1
   %atomic20.sroa.0.i.0.atomic20.sroa.0.i.0.atomic20.sroa.0.i.0.atomic20.sroa.0.0.atomic20.sroa.0.0.atomic20.sroa.0.0.11.i = load atomic volatile i8, ptr %atomic20.sroa.0.i acquire, align 1
   %atomic20.sroa.0.i.0.atomic20.sroa.0.i.0.atomic20.sroa.0.i.0.atomic20.sroa.0.0.atomic20.sroa.0.0.atomic20.sroa.0.0.12.i = load atomic volatile i8, ptr %atomic20.sroa.0.i seq_cst, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.i17)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic.i21)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic16.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %atomic20.sroa.0.i)
-  %27 = load i32, ptr %this, align 4
-  ret i32 %27
+  %16 = load i32, ptr %this, align 4
+  ret i32 %16
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -7611,9 +7587,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %1, 0
   %asmresult16.i = extractvalue { i64, i64 } %1, 1
   %2 = load i8, ptr %cmpxchgRet.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !13
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !13
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -7623,12 +7598,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
   %coerce2.sroa.0.0.insert.insert = or disjoint i128 %coerce2.sroa.2.0.insert.shift, %coerce2.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce2.sroa.0.0.insert.insert, 0
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2449, ptr noundef nonnull @.str.46)
-  %4 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %5 = extractvalue { i64, i64 } %4, 0
-  %6 = extractvalue { i64, i64 } %4, 1
-  %coerce6.sroa.2.0.insert.ext = zext i64 %6 to i128
+  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %4 = extractvalue { i64, i64 } %3, 0
+  %5 = extractvalue { i64, i64 } %3, 1
+  %coerce6.sroa.2.0.insert.ext = zext i64 %5 to i128
   %coerce6.sroa.2.0.insert.shift = shl nuw i128 %coerce6.sroa.2.0.insert.ext, 64
-  %coerce6.sroa.0.0.insert.ext = zext i64 %5 to i128
+  %coerce6.sroa.0.0.insert.ext = zext i64 %4 to i128
   %coerce6.sroa.0.0.insert.insert = or disjoint i128 %coerce6.sroa.2.0.insert.shift, %coerce6.sroa.0.0.insert.ext
   %cmp7 = icmp eq i128 %coerce6.sroa.0.0.insert.insert, 1
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2453, ptr noundef nonnull @.str.47)
@@ -7639,13 +7614,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
 do.body.i10:                                      ; preds = %do.body.i10, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i11 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i10 ]
   %retVal.sroa.5.0.i12 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i10 ]
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, ptr nonnull elementtype(i8) %cmpxchgRet.i6, i64 %retVal.sroa.0.0.i11, i64 %retVal.sroa.5.0.i12, i64 %retVal.sroa.0.0.i11, i64 %retVal.sroa.5.0.i12, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !12
-  %asmresult.i16 = extractvalue { i64, i64 } %7, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i6, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i18 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i18, label %do.body.i10, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !13
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, ptr nonnull elementtype(i8) %cmpxchgRet.i6, i64 %retVal.sroa.0.0.i11, i64 %retVal.sroa.5.0.i12, i64 %retVal.sroa.0.0.i11, i64 %retVal.sroa.5.0.i12, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !12
+  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i6, align 1
+  %tobool.i18 = trunc i8 %7 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i10, !llvm.loop !13
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i6)
@@ -7655,12 +7629,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
   %coerce15.sroa.0.0.insert.insert = or disjoint i128 %coerce15.sroa.2.0.insert.shift, %coerce15.sroa.0.0.insert.ext
   %cmp16 = icmp eq i128 %coerce15.sroa.0.0.insert.insert, 0
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp16, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2461, ptr noundef nonnull @.str.46)
-  %10 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !11
-  %11 = extractvalue { i64, i64 } %10, 0
-  %12 = extractvalue { i64, i64 } %10, 1
-  %coerce21.sroa.2.0.insert.ext = zext i64 %12 to i128
+  %8 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  %coerce21.sroa.2.0.insert.ext = zext i64 %10 to i128
   %coerce21.sroa.2.0.insert.shift = shl nuw i128 %coerce21.sroa.2.0.insert.ext, 64
-  %coerce21.sroa.0.0.insert.ext = zext i64 %11 to i128
+  %coerce21.sroa.0.0.insert.ext = zext i64 %9 to i128
   %coerce21.sroa.0.0.insert.insert = or disjoint i128 %coerce21.sroa.2.0.insert.shift, %coerce21.sroa.0.0.insert.ext
   %cmp22 = icmp eq i128 %coerce21.sroa.0.0.insert.insert, 0
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp22, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2465, ptr noundef nonnull @.str.46)
@@ -7671,13 +7645,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
 do.body.i24:                                      ; preds = %do.body.i24, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit19
   %retVal.sroa.0.0.i25 = phi i64 [ 5, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i30, %do.body.i24 ]
   %retVal.sroa.5.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i31, %do.body.i24 ]
-  %13 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !12
-  %asmresult.i30 = extractvalue { i64, i64 } %13, 0
-  %asmresult16.i31 = extractvalue { i64, i64 } %13, 1
-  %14 = load i8, ptr %cmpxchgRet.i20, align 1
-  %15 = and i8 %14, 1
-  %tobool.not.i32 = icmp eq i8 %15, 0
-  br i1 %tobool.not.i32, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit33, !llvm.loop !13
+  %11 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !12
+  %asmresult.i30 = extractvalue { i64, i64 } %11, 0
+  %asmresult16.i31 = extractvalue { i64, i64 } %11, 1
+  %12 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i32 = trunc i8 %12 to i1
+  br i1 %tobool.i32, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit33, label %do.body.i24, !llvm.loop !13
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit33: ; preds = %do.body.i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i20)
@@ -7688,9 +7661,9 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
   %cmp32 = icmp eq i128 %coerce31.sroa.0.0.insert.insert, 5
   %call34 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp32, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2473, ptr noundef nonnull @.str.49)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i34)
-  %16 = load i128, ptr %atomic25, align 16
-  %retVal.sroa.0.0.extract.trunc.i35 = trunc i128 %16 to i64
-  %retVal.sroa.5.0.extract.shift.i36 = lshr i128 %16, 64
+  %13 = load i128, ptr %atomic25, align 16
+  %retVal.sroa.0.0.extract.trunc.i35 = trunc i128 %13 to i64
+  %retVal.sroa.5.0.extract.shift.i36 = lshr i128 %13, 64
   %retVal.sroa.5.0.extract.trunc.i37 = trunc i128 %retVal.sroa.5.0.extract.shift.i36 to i64
   br label %do.body.i38
 
@@ -7700,16 +7673,15 @@ do.body.i38:                                      ; preds = %do.body.i38, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i41 = zext i64 %retVal.sroa.0.0.i39 to i128
   %arg.sroa.0.0.insert.insert.i42 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i41, 4
   %computedDesired.sroa.0.0.extract.trunc.i43 = trunc i128 %arg.sroa.0.0.insert.insert.i42 to i64
-  %17 = lshr i128 %arg.sroa.0.0.insert.insert.i42, 64
-  %.tr.i44 = trunc i128 %17 to i64
+  %14 = lshr i128 %arg.sroa.0.0.insert.insert.i42, 64
+  %.tr.i44 = trunc i128 %14 to i64
   %.narrow.i45 = add i64 %retVal.sroa.5.0.i40, %.tr.i44
-  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i34, i64 %computedDesired.sroa.0.0.extract.trunc.i43, i64 %.narrow.i45, i64 %retVal.sroa.0.0.i39, i64 %retVal.sroa.5.0.i40, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !12
-  %asmresult.i46 = extractvalue { i64, i64 } %18, 0
-  %asmresult16.i47 = extractvalue { i64, i64 } %18, 1
-  %19 = load i8, ptr %cmpxchgRet.i34, align 1
-  %20 = and i8 %19, 1
-  %tobool.not.i48 = icmp eq i8 %20, 0
-  br i1 %tobool.not.i48, label %do.body.i38, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit49, !llvm.loop !13
+  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i34, i64 %computedDesired.sroa.0.0.extract.trunc.i43, i64 %.narrow.i45, i64 %retVal.sroa.0.0.i39, i64 %retVal.sroa.5.0.i40, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !12
+  %asmresult.i46 = extractvalue { i64, i64 } %15, 0
+  %asmresult16.i47 = extractvalue { i64, i64 } %15, 1
+  %16 = load i8, ptr %cmpxchgRet.i34, align 1
+  %tobool.i48 = trunc i8 %16 to i1
+  br i1 %tobool.i48, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit49, label %do.body.i38, !llvm.loop !13
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit49: ; preds = %do.body.i38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i34)
@@ -7720,9 +7692,9 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
   %cmp39 = icmp eq i128 %coerce38.sroa.0.0.insert.insert, 5
   %call41 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp39, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2477, ptr noundef nonnull @.str.49)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i50)
-  %21 = load i128, ptr %atomic25, align 16
-  %retVal.sroa.0.0.extract.trunc.i51 = trunc i128 %21 to i64
-  %retVal.sroa.5.0.extract.shift.i52 = lshr i128 %21, 64
+  %17 = load i128, ptr %atomic25, align 16
+  %retVal.sroa.0.0.extract.trunc.i51 = trunc i128 %17 to i64
+  %retVal.sroa.5.0.extract.shift.i52 = lshr i128 %17, 64
   %retVal.sroa.5.0.extract.trunc.i53 = trunc i128 %retVal.sroa.5.0.extract.shift.i52 to i64
   br label %do.body.i54
 
@@ -7732,16 +7704,15 @@ do.body.i54:                                      ; preds = %do.body.i54, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i57 = zext i64 %retVal.sroa.0.0.i55 to i128
   %arg.sroa.0.0.insert.insert.i58 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i57, 1
   %computedDesired.sroa.0.0.extract.trunc.i59 = trunc i128 %arg.sroa.0.0.insert.insert.i58 to i64
-  %22 = lshr i128 %arg.sroa.0.0.insert.insert.i58, 64
-  %.tr.i60 = trunc i128 %22 to i64
+  %18 = lshr i128 %arg.sroa.0.0.insert.insert.i58, 64
+  %.tr.i60 = trunc i128 %18 to i64
   %.narrow.i61 = add i64 %retVal.sroa.5.0.i56, %.tr.i60
-  %23 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i50, i64 %computedDesired.sroa.0.0.extract.trunc.i59, i64 %.narrow.i61, i64 %retVal.sroa.0.0.i55, i64 %retVal.sroa.5.0.i56, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !12
-  %asmresult.i62 = extractvalue { i64, i64 } %23, 0
-  %asmresult16.i63 = extractvalue { i64, i64 } %23, 1
-  %24 = load i8, ptr %cmpxchgRet.i50, align 1
-  %25 = and i8 %24, 1
-  %tobool.not.i64 = icmp eq i8 %25, 0
-  br i1 %tobool.not.i64, label %do.body.i54, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit65, !llvm.loop !13
+  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i50, i64 %computedDesired.sroa.0.0.extract.trunc.i59, i64 %.narrow.i61, i64 %retVal.sroa.0.0.i55, i64 %retVal.sroa.5.0.i56, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !12
+  %asmresult.i62 = extractvalue { i64, i64 } %19, 0
+  %asmresult16.i63 = extractvalue { i64, i64 } %19, 1
+  %20 = load i8, ptr %cmpxchgRet.i50, align 1
+  %tobool.i64 = trunc i8 %20 to i1
+  br i1 %tobool.i64, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit65, label %do.body.i54, !llvm.loop !13
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit65: ; preds = %do.body.i54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i50)
@@ -7751,12 +7722,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_
   %coerce45.sroa.0.0.insert.insert = or disjoint i128 %coerce45.sroa.2.0.insert.shift, %coerce45.sroa.0.0.insert.ext
   %cmp46 = icmp eq i128 %coerce45.sroa.0.0.insert.insert, 9
   %call48 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp46, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2481, ptr noundef nonnull @.str.50)
-  %26 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !11
-  %27 = extractvalue { i64, i64 } %26, 0
-  %28 = extractvalue { i64, i64 } %26, 1
-  %coerce51.sroa.2.0.insert.ext = zext i64 %28 to i128
+  %21 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !11
+  %22 = extractvalue { i64, i64 } %21, 0
+  %23 = extractvalue { i64, i64 } %21, 1
+  %coerce51.sroa.2.0.insert.ext = zext i64 %23 to i128
   %coerce51.sroa.2.0.insert.shift = shl nuw i128 %coerce51.sroa.2.0.insert.ext, 64
-  %coerce51.sroa.0.0.insert.ext = zext i64 %27 to i128
+  %coerce51.sroa.0.0.insert.ext = zext i64 %22 to i128
   %coerce51.sroa.0.0.insert.insert = or disjoint i128 %coerce51.sroa.2.0.insert.shift, %coerce51.sroa.0.0.insert.ext
   %cmp52 = icmp eq i128 %coerce51.sroa.0.0.insert.insert, 10
   %call54 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp52, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2485, ptr noundef nonnull @.str.51)
@@ -7790,15 +7761,14 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %1, 0
   %asmresult16.i = extractvalue { i64, i64 } %1, 1
   %2 = load i8, ptr %cmpxchgRet.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !16
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !16
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   %retVal.sroa.0.0.insert.ext4.i = zext i64 %asmresult.i to i128
   %retVal.sroa.0.0.insert.insert6.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i, 1
-  %4 = lshr i128 %retVal.sroa.0.0.insert.insert6.i, 64
-  %.tr24.i = trunc i128 %4 to i64
+  %3 = lshr i128 %retVal.sroa.0.0.insert.insert6.i, 64
+  %.tr24.i = trunc i128 %3 to i64
   %.narrow25.i = add i64 %asmresult16.i, %.tr24.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
   %coerce2.sroa.2.0.insert.ext = zext i64 %.narrow25.i to i128
@@ -7807,12 +7777,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_
   %coerce2.sroa.0.0.insert.insert = or disjoint i128 %coerce2.sroa.2.0.insert.shift, %coerce2.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce2.sroa.0.0.insert.insert, 1
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2497, ptr noundef nonnull @.str.47)
-  %5 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = extractvalue { i64, i64 } %5, 1
-  %coerce6.sroa.2.0.insert.ext = zext i64 %7 to i128
+  %4 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %5 = extractvalue { i64, i64 } %4, 0
+  %6 = extractvalue { i64, i64 } %4, 1
+  %coerce6.sroa.2.0.insert.ext = zext i64 %6 to i128
   %coerce6.sroa.2.0.insert.shift = shl nuw i128 %coerce6.sroa.2.0.insert.ext, 64
-  %coerce6.sroa.0.0.insert.ext = zext i64 %6 to i128
+  %coerce6.sroa.0.0.insert.ext = zext i64 %5 to i128
   %coerce6.sroa.0.0.insert.insert = or disjoint i128 %coerce6.sroa.2.0.insert.shift, %coerce6.sroa.0.0.insert.ext
   %cmp7 = icmp eq i128 %coerce6.sroa.0.0.insert.insert, 1
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2501, ptr noundef nonnull @.str.47)
@@ -7823,13 +7793,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_
 do.body.i9:                                       ; preds = %do.body.i9, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i15, %do.body.i9 ]
   %retVal.sroa.7.0.i11 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i16, %do.body.i9 ]
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !15
-  %asmresult.i15 = extractvalue { i64, i64 } %8, 0
-  %asmresult16.i16 = extractvalue { i64, i64 } %8, 1
-  %9 = load i8, ptr %cmpxchgRet.i5, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i17 = icmp eq i8 %10, 0
-  br i1 %tobool.not.i17, label %do.body.i9, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit22, !llvm.loop !16
+  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !15
+  %asmresult.i15 = extractvalue { i64, i64 } %7, 0
+  %asmresult16.i16 = extractvalue { i64, i64 } %7, 1
+  %8 = load i8, ptr %cmpxchgRet.i5, align 1
+  %tobool.i17 = trunc i8 %8 to i1
+  br i1 %tobool.i17, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit22, label %do.body.i9, !llvm.loop !16
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit22: ; preds = %do.body.i9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i5)
@@ -7839,12 +7808,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_
   %coerce15.sroa.0.0.insert.insert = or disjoint i128 %coerce15.sroa.2.0.insert.shift, %coerce15.sroa.0.0.insert.ext
   %cmp16 = icmp eq i128 %coerce15.sroa.0.0.insert.insert, 0
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp16, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2509, ptr noundef nonnull @.str.46)
-  %11 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !11
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = extractvalue { i64, i64 } %11, 1
-  %coerce21.sroa.2.0.insert.ext = zext i64 %13 to i128
+  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !11
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %coerce21.sroa.2.0.insert.ext = zext i64 %11 to i128
   %coerce21.sroa.2.0.insert.shift = shl nuw i128 %coerce21.sroa.2.0.insert.ext, 64
-  %coerce21.sroa.0.0.insert.ext = zext i64 %12 to i128
+  %coerce21.sroa.0.0.insert.ext = zext i64 %10 to i128
   %coerce21.sroa.0.0.insert.insert = or disjoint i128 %coerce21.sroa.2.0.insert.shift, %coerce21.sroa.0.0.insert.ext
   %cmp22 = icmp eq i128 %coerce21.sroa.0.0.insert.insert, 0
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp22, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2513, ptr noundef nonnull @.str.46)
@@ -7855,13 +7824,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_
 do.body.i27:                                      ; preds = %do.body.i27, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit22
   %retVal.sroa.0.0.i28 = phi i64 [ 5, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit22 ], [ %asmresult.i33, %do.body.i27 ]
   %retVal.sroa.7.0.i29 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit22 ], [ %asmresult16.i34, %do.body.i27 ]
-  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i23, i64 %retVal.sroa.0.0.i28, i64 %retVal.sroa.7.0.i29, i64 %retVal.sroa.0.0.i28, i64 %retVal.sroa.7.0.i29, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !15
-  %asmresult.i33 = extractvalue { i64, i64 } %14, 0
-  %asmresult16.i34 = extractvalue { i64, i64 } %14, 1
-  %15 = load i8, ptr %cmpxchgRet.i23, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i35 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i35, label %do.body.i27, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit40, !llvm.loop !16
+  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i23, i64 %retVal.sroa.0.0.i28, i64 %retVal.sroa.7.0.i29, i64 %retVal.sroa.0.0.i28, i64 %retVal.sroa.7.0.i29, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !15
+  %asmresult.i33 = extractvalue { i64, i64 } %12, 0
+  %asmresult16.i34 = extractvalue { i64, i64 } %12, 1
+  %13 = load i8, ptr %cmpxchgRet.i23, align 1
+  %tobool.i35 = trunc i8 %13 to i1
+  br i1 %tobool.i35, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit40, label %do.body.i27, !llvm.loop !16
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit40: ; preds = %do.body.i27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i23)
@@ -7872,9 +7840,9 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_
   %cmp32 = icmp eq i128 %coerce31.sroa.0.0.insert.insert, 5
   %call34 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp32, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2521, ptr noundef nonnull @.str.49)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i41)
-  %17 = load i128, ptr %atomic25, align 16
-  %retVal.sroa.0.0.extract.trunc.i42 = trunc i128 %17 to i64
-  %retVal.sroa.7.0.extract.shift.i43 = lshr i128 %17, 64
+  %14 = load i128, ptr %atomic25, align 16
+  %retVal.sroa.0.0.extract.trunc.i42 = trunc i128 %14 to i64
+  %retVal.sroa.7.0.extract.shift.i43 = lshr i128 %14, 64
   %retVal.sroa.7.0.extract.trunc.i44 = trunc i128 %retVal.sroa.7.0.extract.shift.i43 to i64
   br label %do.body.i45
 
@@ -7884,22 +7852,21 @@ do.body.i45:                                      ; preds = %do.body.i45, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i48 = zext i64 %retVal.sroa.0.0.i46 to i128
   %retVal.sroa.0.0.insert.insert.i49 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i48, 4
   %computedDesired.sroa.0.0.extract.trunc.i50 = trunc i128 %retVal.sroa.0.0.insert.insert.i49 to i64
-  %18 = lshr i128 %retVal.sroa.0.0.insert.insert.i49, 64
-  %.tr.i51 = trunc i128 %18 to i64
+  %15 = lshr i128 %retVal.sroa.0.0.insert.insert.i49, 64
+  %.tr.i51 = trunc i128 %15 to i64
   %.narrow.i52 = add i64 %retVal.sroa.7.0.i47, %.tr.i51
-  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i41, i64 %computedDesired.sroa.0.0.extract.trunc.i50, i64 %.narrow.i52, i64 %retVal.sroa.0.0.i46, i64 %retVal.sroa.7.0.i47, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !15
-  %asmresult.i53 = extractvalue { i64, i64 } %19, 0
-  %asmresult16.i54 = extractvalue { i64, i64 } %19, 1
-  %20 = load i8, ptr %cmpxchgRet.i41, align 1
-  %21 = and i8 %20, 1
-  %tobool.not.i55 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i55, label %do.body.i45, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit63, !llvm.loop !16
+  %16 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, ptr nonnull elementtype(i8) %cmpxchgRet.i41, i64 %computedDesired.sroa.0.0.extract.trunc.i50, i64 %.narrow.i52, i64 %retVal.sroa.0.0.i46, i64 %retVal.sroa.7.0.i47, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !15
+  %asmresult.i53 = extractvalue { i64, i64 } %16, 0
+  %asmresult16.i54 = extractvalue { i64, i64 } %16, 1
+  %17 = load i8, ptr %cmpxchgRet.i41, align 1
+  %tobool.i55 = trunc i8 %17 to i1
+  br i1 %tobool.i55, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit63, label %do.body.i45, !llvm.loop !16
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit63: ; preds = %do.body.i45
   %retVal.sroa.0.0.insert.ext4.i56 = zext i64 %asmresult.i53 to i128
   %retVal.sroa.0.0.insert.insert6.i57 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i56, 4
-  %22 = lshr i128 %retVal.sroa.0.0.insert.insert6.i57, 64
-  %.tr24.i59 = trunc i128 %22 to i64
+  %18 = lshr i128 %retVal.sroa.0.0.insert.insert6.i57, 64
+  %.tr24.i59 = trunc i128 %18 to i64
   %.narrow25.i60 = add i64 %asmresult16.i54, %.tr24.i59
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i41)
   %coerce38.sroa.2.0.insert.ext = zext i64 %.narrow25.i60 to i128
@@ -7908,12 +7875,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_
   %coerce38.sroa.0.0.insert.insert = or disjoint i128 %coerce38.sroa.2.0.insert.shift, %coerce38.sroa.0.0.insert.ext
   %cmp39 = icmp eq i128 %coerce38.sroa.0.0.insert.insert, 9
   %call41 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp39, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2525, ptr noundef nonnull @.str.50)
-  %23 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !11
-  %24 = extractvalue { i64, i64 } %23, 0
-  %25 = extractvalue { i64, i64 } %23, 1
-  %coerce44.sroa.2.0.insert.ext = zext i64 %25 to i128
+  %19 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic25, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic25) #7, !srcloc !11
+  %20 = extractvalue { i64, i64 } %19, 0
+  %21 = extractvalue { i64, i64 } %19, 1
+  %coerce44.sroa.2.0.insert.ext = zext i64 %21 to i128
   %coerce44.sroa.2.0.insert.shift = shl nuw i128 %coerce44.sroa.2.0.insert.ext, 64
-  %coerce44.sroa.0.0.insert.ext = zext i64 %24 to i128
+  %coerce44.sroa.0.0.insert.ext = zext i64 %20 to i128
   %coerce44.sroa.0.0.insert.insert = or disjoint i128 %coerce44.sroa.2.0.insert.shift, %coerce44.sroa.0.0.insert.ext
   %cmp45 = icmp eq i128 %coerce44.sroa.0.0.insert.insert, 9
   %call47 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp45, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2529, ptr noundef nonnull @.str.50)
@@ -7947,9 +7914,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %1, 0
   %asmresult16.i = extractvalue { i64, i64 } %1, 1
   %2 = load i8, ptr %cmpxchgRet.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !18
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !18
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -7959,12 +7925,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 1
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2541, ptr noundef nonnull @.str.47)
-  %4 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %5 = extractvalue { i64, i64 } %4, 0
-  %6 = extractvalue { i64, i64 } %4, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %6 to i128
+  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %4 = extractvalue { i64, i64 } %3, 0
+  %5 = extractvalue { i64, i64 } %3, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %5 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2545, ptr noundef nonnull @.str.46)
@@ -7975,13 +7941,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_
 do.body.i9:                                       ; preds = %do.body.i9, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i10 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i15, %do.body.i9 ]
   %retVal.sroa.5.0.i11 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i16, %do.body.i9 ]
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.5.0.i11, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.5.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !17
-  %asmresult.i15 = extractvalue { i64, i64 } %7, 0
-  %asmresult16.i16 = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i5, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i17 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i17, label %do.body.i9, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit18, !llvm.loop !18
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.5.0.i11, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.5.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !17
+  %asmresult.i15 = extractvalue { i64, i64 } %6, 0
+  %asmresult16.i16 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i5, align 1
+  %tobool.i17 = trunc i8 %7 to i1
+  br i1 %tobool.i17, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit18, label %do.body.i9, !llvm.loop !18
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit18: ; preds = %do.body.i9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i5)
@@ -7991,12 +7956,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 1
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2553, ptr noundef nonnull @.str.47)
-  %10 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %11 = extractvalue { i64, i64 } %10, 0
-  %12 = extractvalue { i64, i64 } %10, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %12 to i128
+  %8 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %10 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %11 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2557, ptr noundef nonnull @.str.47)
@@ -8010,16 +7975,15 @@ do.body.i23:                                      ; preds = %do.body.i23, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i26 = zext i64 %retVal.sroa.0.0.i24 to i128
   %retVal.sroa.0.0.insert.insert.i27 = add nsw i128 %retVal.sroa.0.0.insert.ext.i26, -2
   %computedDesired.sroa.0.0.extract.trunc.i28 = trunc i128 %retVal.sroa.0.0.insert.insert.i27 to i64
-  %13 = lshr i128 %retVal.sroa.0.0.insert.insert.i27, 64
-  %.tr.i29 = trunc i128 %13 to i64
+  %11 = lshr i128 %retVal.sroa.0.0.insert.insert.i27, 64
+  %.tr.i29 = trunc i128 %11 to i64
   %.narrow.i30 = add i64 %retVal.sroa.5.0.i25, %.tr.i29
-  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i19, i64 %computedDesired.sroa.0.0.extract.trunc.i28, i64 %.narrow.i30, i64 %retVal.sroa.0.0.i24, i64 %retVal.sroa.5.0.i25, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !17
-  %asmresult.i31 = extractvalue { i64, i64 } %14, 0
-  %asmresult16.i32 = extractvalue { i64, i64 } %14, 1
-  %15 = load i8, ptr %cmpxchgRet.i19, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i33 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i33, label %do.body.i23, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit34, !llvm.loop !18
+  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i19, i64 %computedDesired.sroa.0.0.extract.trunc.i28, i64 %.narrow.i30, i64 %retVal.sroa.0.0.i24, i64 %retVal.sroa.5.0.i25, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !17
+  %asmresult.i31 = extractvalue { i64, i64 } %12, 0
+  %asmresult16.i32 = extractvalue { i64, i64 } %12, 1
+  %13 = load i8, ptr %cmpxchgRet.i19, align 1
+  %tobool.i33 = trunc i8 %13 to i1
+  br i1 %tobool.i33, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit34, label %do.body.i23, !llvm.loop !18
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit34: ; preds = %do.body.i23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i19)
@@ -8030,9 +7994,9 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 5
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2565, ptr noundef nonnull @.str.49)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i35)
-  %17 = load i128, ptr %atomic27, align 16
-  %retVal.sroa.0.0.extract.trunc.i36 = trunc i128 %17 to i64
-  %retVal.sroa.5.0.extract.shift.i37 = lshr i128 %17, 64
+  %14 = load i128, ptr %atomic27, align 16
+  %retVal.sroa.0.0.extract.trunc.i36 = trunc i128 %14 to i64
+  %retVal.sroa.5.0.extract.shift.i37 = lshr i128 %14, 64
   %retVal.sroa.5.0.extract.trunc.i38 = trunc i128 %retVal.sroa.5.0.extract.shift.i37 to i64
   br label %do.body.i39
 
@@ -8042,16 +8006,15 @@ do.body.i39:                                      ; preds = %do.body.i39, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i42 = zext i64 %retVal.sroa.0.0.i40 to i128
   %retVal.sroa.0.0.insert.insert.i43 = add nsw i128 %retVal.sroa.0.0.insert.ext.i42, -1
   %computedDesired.sroa.0.0.extract.trunc.i44 = trunc i128 %retVal.sroa.0.0.insert.insert.i43 to i64
-  %18 = lshr i128 %retVal.sroa.0.0.insert.insert.i43, 64
-  %.tr.i45 = trunc i128 %18 to i64
+  %15 = lshr i128 %retVal.sroa.0.0.insert.insert.i43, 64
+  %.tr.i45 = trunc i128 %15 to i64
   %.narrow.i46 = add i64 %retVal.sroa.5.0.i41, %.tr.i45
-  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i35, i64 %computedDesired.sroa.0.0.extract.trunc.i44, i64 %.narrow.i46, i64 %retVal.sroa.0.0.i40, i64 %retVal.sroa.5.0.i41, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !17
-  %asmresult.i47 = extractvalue { i64, i64 } %19, 0
-  %asmresult16.i48 = extractvalue { i64, i64 } %19, 1
-  %20 = load i8, ptr %cmpxchgRet.i35, align 1
-  %21 = and i8 %20, 1
-  %tobool.not.i49 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i49, label %do.body.i39, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit50, !llvm.loop !18
+  %16 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i35, i64 %computedDesired.sroa.0.0.extract.trunc.i44, i64 %.narrow.i46, i64 %retVal.sroa.0.0.i40, i64 %retVal.sroa.5.0.i41, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !17
+  %asmresult.i47 = extractvalue { i64, i64 } %16, 0
+  %asmresult16.i48 = extractvalue { i64, i64 } %16, 1
+  %17 = load i8, ptr %cmpxchgRet.i35, align 1
+  %tobool.i49 = trunc i8 %17 to i1
+  br i1 %tobool.i49, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit50, label %do.body.i39, !llvm.loop !18
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit50: ; preds = %do.body.i39
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i35)
@@ -8061,12 +8024,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_
   %coerce40.sroa.0.0.insert.insert = or disjoint i128 %coerce40.sroa.2.0.insert.shift, %coerce40.sroa.0.0.insert.ext
   %cmp41 = icmp eq i128 %coerce40.sroa.0.0.insert.insert, 3
   %call43 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp41, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2569, ptr noundef nonnull @.str.52)
-  %22 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = extractvalue { i64, i64 } %22, 1
-  %coerce46.sroa.2.0.insert.ext = zext i64 %24 to i128
+  %18 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %19 = extractvalue { i64, i64 } %18, 0
+  %20 = extractvalue { i64, i64 } %18, 1
+  %coerce46.sroa.2.0.insert.ext = zext i64 %20 to i128
   %coerce46.sroa.2.0.insert.shift = shl nuw i128 %coerce46.sroa.2.0.insert.ext, 64
-  %coerce46.sroa.0.0.insert.ext = zext i64 %23 to i128
+  %coerce46.sroa.0.0.insert.ext = zext i64 %19 to i128
   %coerce46.sroa.0.0.insert.insert = or disjoint i128 %coerce46.sroa.2.0.insert.shift, %coerce46.sroa.0.0.insert.ext
   %cmp47 = icmp eq i128 %coerce46.sroa.0.0.insert.insert, 2
   %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp47, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2573, ptr noundef nonnull @.str.53)
@@ -8100,15 +8063,14 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %1, 0
   %asmresult16.i = extractvalue { i64, i64 } %1, 1
   %2 = load i8, ptr %cmpxchgRet.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !20
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !20
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   %retVal.sroa.0.0.insert.ext4.i = zext i64 %asmresult.i to i128
   %retVal.sroa.0.0.insert.insert6.i = add nsw i128 %retVal.sroa.0.0.insert.ext4.i, -1
-  %4 = lshr i128 %retVal.sroa.0.0.insert.insert6.i, 64
-  %.tr25.i = trunc i128 %4 to i64
+  %3 = lshr i128 %retVal.sroa.0.0.insert.insert6.i, 64
+  %.tr25.i = trunc i128 %3 to i64
   %.narrow26.i = add i64 %asmresult16.i, %.tr25.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
   %coerce3.sroa.2.0.insert.ext = zext i64 %.narrow26.i to i128
@@ -8117,12 +8079,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2585, ptr noundef nonnull @.str.46)
-  %5 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = extractvalue { i64, i64 } %5, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %7 to i128
+  %4 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %5 = extractvalue { i64, i64 } %4, 0
+  %6 = extractvalue { i64, i64 } %4, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %6 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %6 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %5 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2589, ptr noundef nonnull @.str.46)
@@ -8133,13 +8095,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_
 do.body.i9:                                       ; preds = %do.body.i9, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i10 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i15, %do.body.i9 ]
   %retVal.sroa.7.0.i11 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i16, %do.body.i9 ]
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !19
-  %asmresult.i15 = extractvalue { i64, i64 } %8, 0
-  %asmresult16.i16 = extractvalue { i64, i64 } %8, 1
-  %9 = load i8, ptr %cmpxchgRet.i5, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i17 = icmp eq i8 %10, 0
-  br i1 %tobool.not.i17, label %do.body.i9, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit22, !llvm.loop !20
+  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !19
+  %asmresult.i15 = extractvalue { i64, i64 } %7, 0
+  %asmresult16.i16 = extractvalue { i64, i64 } %7, 1
+  %8 = load i8, ptr %cmpxchgRet.i5, align 1
+  %tobool.i17 = trunc i8 %8 to i1
+  br i1 %tobool.i17, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit22, label %do.body.i9, !llvm.loop !20
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit22: ; preds = %do.body.i9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i5)
@@ -8149,12 +8110,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 1
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2597, ptr noundef nonnull @.str.47)
-  %11 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = extractvalue { i64, i64 } %11, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %13 to i128
+  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %11 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %12 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %10 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2601, ptr noundef nonnull @.str.47)
@@ -8168,22 +8129,21 @@ do.body.i27:                                      ; preds = %do.body.i27, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i30 = zext i64 %retVal.sroa.0.0.i28 to i128
   %retVal.sroa.0.0.insert.insert.i31 = add nsw i128 %retVal.sroa.0.0.insert.ext.i30, -2
   %computedDesired.sroa.0.0.extract.trunc.i32 = trunc i128 %retVal.sroa.0.0.insert.insert.i31 to i64
-  %14 = lshr i128 %retVal.sroa.0.0.insert.insert.i31, 64
-  %.tr.i33 = trunc i128 %14 to i64
+  %12 = lshr i128 %retVal.sroa.0.0.insert.insert.i31, 64
+  %.tr.i33 = trunc i128 %12 to i64
   %.narrow.i34 = add i64 %retVal.sroa.7.0.i29, %.tr.i33
-  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i23, i64 %computedDesired.sroa.0.0.extract.trunc.i32, i64 %.narrow.i34, i64 %retVal.sroa.0.0.i28, i64 %retVal.sroa.7.0.i29, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !19
-  %asmresult.i35 = extractvalue { i64, i64 } %15, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %15, 1
-  %16 = load i8, ptr %cmpxchgRet.i23, align 1
-  %17 = and i8 %16, 1
-  %tobool.not.i37 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i37, label %do.body.i27, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit45, !llvm.loop !20
+  %13 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i23, i64 %computedDesired.sroa.0.0.extract.trunc.i32, i64 %.narrow.i34, i64 %retVal.sroa.0.0.i28, i64 %retVal.sroa.7.0.i29, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !19
+  %asmresult.i35 = extractvalue { i64, i64 } %13, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %13, 1
+  %14 = load i8, ptr %cmpxchgRet.i23, align 1
+  %tobool.i37 = trunc i8 %14 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit45, label %do.body.i27, !llvm.loop !20
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit45: ; preds = %do.body.i27
   %retVal.sroa.0.0.insert.ext4.i38 = zext i64 %asmresult.i35 to i128
   %retVal.sroa.0.0.insert.insert6.i39 = add nsw i128 %retVal.sroa.0.0.insert.ext4.i38, -2
-  %18 = lshr i128 %retVal.sroa.0.0.insert.insert6.i39, 64
-  %.tr25.i41 = trunc i128 %18 to i64
+  %15 = lshr i128 %retVal.sroa.0.0.insert.insert6.i39, 64
+  %.tr25.i41 = trunc i128 %15 to i64
   %.narrow26.i42 = add i64 %asmresult16.i36, %.tr25.i41
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i23)
   %coerce33.sroa.2.0.insert.ext = zext i64 %.narrow26.i42 to i128
@@ -8193,9 +8153,9 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 3
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2609, ptr noundef nonnull @.str.52)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i46)
-  %19 = load i128, ptr %atomic27, align 16
-  %retVal.sroa.0.0.extract.trunc.i47 = trunc i128 %19 to i64
-  %retVal.sroa.7.0.extract.shift.i48 = lshr i128 %19, 64
+  %16 = load i128, ptr %atomic27, align 16
+  %retVal.sroa.0.0.extract.trunc.i47 = trunc i128 %16 to i64
+  %retVal.sroa.7.0.extract.shift.i48 = lshr i128 %16, 64
   %retVal.sroa.7.0.extract.trunc.i49 = trunc i128 %retVal.sroa.7.0.extract.shift.i48 to i64
   br label %do.body.i50
 
@@ -8205,22 +8165,21 @@ do.body.i50:                                      ; preds = %do.body.i50, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i53 = zext i64 %retVal.sroa.0.0.i51 to i128
   %retVal.sroa.0.0.insert.insert.i54 = add nsw i128 %retVal.sroa.0.0.insert.ext.i53, -1
   %computedDesired.sroa.0.0.extract.trunc.i55 = trunc i128 %retVal.sroa.0.0.insert.insert.i54 to i64
-  %20 = lshr i128 %retVal.sroa.0.0.insert.insert.i54, 64
-  %.tr.i56 = trunc i128 %20 to i64
+  %17 = lshr i128 %retVal.sroa.0.0.insert.insert.i54, 64
+  %.tr.i56 = trunc i128 %17 to i64
   %.narrow.i57 = add i64 %retVal.sroa.7.0.i52, %.tr.i56
-  %21 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i46, i64 %computedDesired.sroa.0.0.extract.trunc.i55, i64 %.narrow.i57, i64 %retVal.sroa.0.0.i51, i64 %retVal.sroa.7.0.i52, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !19
-  %asmresult.i58 = extractvalue { i64, i64 } %21, 0
-  %asmresult16.i59 = extractvalue { i64, i64 } %21, 1
-  %22 = load i8, ptr %cmpxchgRet.i46, align 1
-  %23 = and i8 %22, 1
-  %tobool.not.i60 = icmp eq i8 %23, 0
-  br i1 %tobool.not.i60, label %do.body.i50, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit68, !llvm.loop !20
+  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i46, i64 %computedDesired.sroa.0.0.extract.trunc.i55, i64 %.narrow.i57, i64 %retVal.sroa.0.0.i51, i64 %retVal.sroa.7.0.i52, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !19
+  %asmresult.i58 = extractvalue { i64, i64 } %18, 0
+  %asmresult16.i59 = extractvalue { i64, i64 } %18, 1
+  %19 = load i8, ptr %cmpxchgRet.i46, align 1
+  %tobool.i60 = trunc i8 %19 to i1
+  br i1 %tobool.i60, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit68, label %do.body.i50, !llvm.loop !20
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit68: ; preds = %do.body.i50
   %retVal.sroa.0.0.insert.ext4.i61 = zext i64 %asmresult.i58 to i128
   %retVal.sroa.0.0.insert.insert6.i62 = add nsw i128 %retVal.sroa.0.0.insert.ext4.i61, -1
-  %24 = lshr i128 %retVal.sroa.0.0.insert.insert6.i62, 64
-  %.tr25.i64 = trunc i128 %24 to i64
+  %20 = lshr i128 %retVal.sroa.0.0.insert.insert6.i62, 64
+  %.tr25.i64 = trunc i128 %20 to i64
   %.narrow26.i65 = add i64 %asmresult16.i59, %.tr25.i64
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i46)
   %coerce40.sroa.2.0.insert.ext = zext i64 %.narrow26.i65 to i128
@@ -8229,12 +8188,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_
   %coerce40.sroa.0.0.insert.insert = or disjoint i128 %coerce40.sroa.2.0.insert.shift, %coerce40.sroa.0.0.insert.ext
   %cmp41 = icmp eq i128 %coerce40.sroa.0.0.insert.insert, 2
   %call43 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp41, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2613, ptr noundef nonnull @.str.53)
-  %25 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %26 = extractvalue { i64, i64 } %25, 0
-  %27 = extractvalue { i64, i64 } %25, 1
-  %coerce46.sroa.2.0.insert.ext = zext i64 %27 to i128
+  %21 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %22 = extractvalue { i64, i64 } %21, 0
+  %23 = extractvalue { i64, i64 } %21, 1
+  %coerce46.sroa.2.0.insert.ext = zext i64 %23 to i128
   %coerce46.sroa.2.0.insert.shift = shl nuw i128 %coerce46.sroa.2.0.insert.ext, 64
-  %coerce46.sroa.0.0.insert.ext = zext i64 %26 to i128
+  %coerce46.sroa.0.0.insert.ext = zext i64 %22 to i128
   %coerce46.sroa.0.0.insert.insert = or disjoint i128 %coerce46.sroa.2.0.insert.shift, %coerce46.sroa.0.0.insert.ext
   %cmp47 = icmp eq i128 %coerce46.sroa.0.0.insert.insert, 2
   %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp47, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2617, ptr noundef nonnull @.str.53)
@@ -8263,9 +8222,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult16.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !22
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !22
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -8275,12 +8233,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2629, ptr noundef nonnull @.str.46)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2633, ptr noundef nonnull @.str.46)
@@ -8291,14 +8249,13 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
 do.body.i9:                                       ; preds = %do.body.i9, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i9 ]
   %retVal.sroa.5.0.i11 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i9 ]
-  %6 = and i64 %retVal.sroa.0.0.i10, 1
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %6, i64 0, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.5.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !21
-  %asmresult.i16 = extractvalue { i64, i64 } %7, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i5, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i18 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i18, label %do.body.i9, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !22
+  %5 = and i64 %retVal.sroa.0.0.i10, 1
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %5, i64 0, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.5.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !21
+  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i5, align 1
+  %tobool.i18 = trunc i8 %7 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i9, !llvm.loop !22
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i5)
@@ -8308,12 +8265,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2641, ptr noundef nonnull @.str.46)
-  %10 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %11 = extractvalue { i64, i64 } %10, 0
-  %12 = extractvalue { i64, i64 } %10, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %12 to i128
+  %8 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %10 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %11 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 0
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2645, ptr noundef nonnull @.str.46)
@@ -8324,14 +8281,13 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
 do.body.i24:                                      ; preds = %do.body.i24, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit19
   %retVal.sroa.0.0.i25 = phi i64 [ 15, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i35, %do.body.i24 ]
   %retVal.sroa.5.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i36, %do.body.i24 ]
-  %13 = and i64 %retVal.sroa.0.0.i25, 1
-  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %13, i64 0, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !21
-  %asmresult.i35 = extractvalue { i64, i64 } %14, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %14, 1
-  %15 = load i8, ptr %cmpxchgRet.i20, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i37 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i37, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit38, !llvm.loop !22
+  %11 = and i64 %retVal.sroa.0.0.i25, 1
+  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %11, i64 0, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !21
+  %asmresult.i35 = extractvalue { i64, i64 } %12, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %12, 1
+  %13 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i37 = trunc i8 %13 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit38, label %do.body.i24, !llvm.loop !22
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit38: ; preds = %do.body.i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i20)
@@ -8341,12 +8297,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
   %coerce33.sroa.0.0.insert.insert = or disjoint i128 %coerce33.sroa.2.0.insert.shift, %coerce33.sroa.0.0.insert.ext
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 15
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2653, ptr noundef nonnull @.str.54)
-  %17 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %18 = extractvalue { i64, i64 } %17, 0
-  %19 = extractvalue { i64, i64 } %17, 1
-  %coerce39.sroa.2.0.insert.ext = zext i64 %19 to i128
+  %14 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %coerce39.sroa.2.0.insert.ext = zext i64 %16 to i128
   %coerce39.sroa.2.0.insert.shift = shl nuw i128 %coerce39.sroa.2.0.insert.ext, 64
-  %coerce39.sroa.0.0.insert.ext = zext i64 %18 to i128
+  %coerce39.sroa.0.0.insert.ext = zext i64 %15 to i128
   %coerce39.sroa.0.0.insert.insert = or disjoint i128 %coerce39.sroa.2.0.insert.shift, %coerce39.sroa.0.0.insert.ext
   %cmp40 = icmp eq i128 %coerce39.sroa.0.0.insert.insert, 1
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2657, ptr noundef nonnull @.str.55)
@@ -8357,14 +8313,13 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
 do.body.i43:                                      ; preds = %do.body.i43, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit38
   %retVal.sroa.0.0.i44 = phi i64 [ 15, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit38 ], [ %asmresult.i54, %do.body.i43 ]
   %retVal.sroa.5.0.i45 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit38 ], [ %asmresult16.i55, %do.body.i43 ]
-  %20 = and i64 %retVal.sroa.0.0.i44, 240
-  %21 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i39, i64 %20, i64 0, i64 %retVal.sroa.0.0.i44, i64 %retVal.sroa.5.0.i45, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !21
-  %asmresult.i54 = extractvalue { i64, i64 } %21, 0
-  %asmresult16.i55 = extractvalue { i64, i64 } %21, 1
-  %22 = load i8, ptr %cmpxchgRet.i39, align 1
-  %23 = and i8 %22, 1
-  %tobool.not.i56 = icmp eq i8 %23, 0
-  br i1 %tobool.not.i56, label %do.body.i43, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit57, !llvm.loop !22
+  %17 = and i64 %retVal.sroa.0.0.i44, 240
+  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i39, i64 %17, i64 0, i64 %retVal.sroa.0.0.i44, i64 %retVal.sroa.5.0.i45, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !21
+  %asmresult.i54 = extractvalue { i64, i64 } %18, 0
+  %asmresult16.i55 = extractvalue { i64, i64 } %18, 1
+  %19 = load i8, ptr %cmpxchgRet.i39, align 1
+  %tobool.i56 = trunc i8 %19 to i1
+  br i1 %tobool.i56, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit57, label %do.body.i43, !llvm.loop !22
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit57: ; preds = %do.body.i43
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i39)
@@ -8374,12 +8329,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
   %coerce49.sroa.0.0.insert.insert = or disjoint i128 %coerce49.sroa.2.0.insert.shift, %coerce49.sroa.0.0.insert.ext
   %cmp50 = icmp eq i128 %coerce49.sroa.0.0.insert.insert, 15
   %call52 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp50, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2665, ptr noundef nonnull @.str.54)
-  %24 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !11
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = extractvalue { i64, i64 } %24, 1
-  %coerce55.sroa.2.0.insert.ext = zext i64 %26 to i128
+  %20 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !11
+  %21 = extractvalue { i64, i64 } %20, 0
+  %22 = extractvalue { i64, i64 } %20, 1
+  %coerce55.sroa.2.0.insert.ext = zext i64 %22 to i128
   %coerce55.sroa.2.0.insert.shift = shl nuw i128 %coerce55.sroa.2.0.insert.ext, 64
-  %coerce55.sroa.0.0.insert.ext = zext i64 %25 to i128
+  %coerce55.sroa.0.0.insert.ext = zext i64 %21 to i128
   %coerce55.sroa.0.0.insert.insert = or disjoint i128 %coerce55.sroa.2.0.insert.shift, %coerce55.sroa.0.0.insert.ext
   %cmp56 = icmp eq i128 %coerce55.sroa.0.0.insert.insert, 0
   %call58 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp56, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2669, ptr noundef nonnull @.str.56)
@@ -8408,19 +8363,18 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult16.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !24
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !24
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2681, ptr noundef nonnull @.str.46)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2685, ptr noundef nonnull @.str.46)
@@ -8431,26 +8385,25 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_
 do.body.i9:                                       ; preds = %do.body.i9, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i9 ]
   %retVal.sroa.7.0.i11 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i9 ]
-  %6 = and i64 %retVal.sroa.0.0.i10, 1
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %6, i64 0, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !23
-  %asmresult.i16 = extractvalue { i64, i64 } %7, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i5, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i18 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i18, label %do.body.i9, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !24
+  %5 = and i64 %retVal.sroa.0.0.i10, 1
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i5, i64 %5, i64 0, i64 %retVal.sroa.0.0.i10, i64 %retVal.sroa.7.0.i11, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !23
+  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i5, align 1
+  %tobool.i18 = trunc i8 %7 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i9, !llvm.loop !24
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i9
   %and17.i = and i64 %asmresult.i16, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i5)
   %cmp18 = icmp eq i64 %and17.i, 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2693, ptr noundef nonnull @.str.46)
-  %10 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %11 = extractvalue { i64, i64 } %10, 0
-  %12 = extractvalue { i64, i64 } %10, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %12 to i128
+  %8 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %10 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %11 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 0
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2697, ptr noundef nonnull @.str.46)
@@ -8461,26 +8414,25 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_
 do.body.i24:                                      ; preds = %do.body.i24, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit19
   %retVal.sroa.0.0.i25 = phi i64 [ 15, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i35, %do.body.i24 ]
   %retVal.sroa.7.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i36, %do.body.i24 ]
-  %13 = and i64 %retVal.sroa.0.0.i25, 1
-  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %13, i64 0, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.7.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !23
-  %asmresult.i35 = extractvalue { i64, i64 } %14, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %14, 1
-  %15 = load i8, ptr %cmpxchgRet.i20, align 1
-  %16 = and i8 %15, 1
-  %tobool.not.i37 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i37, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41, !llvm.loop !24
+  %11 = and i64 %retVal.sroa.0.0.i25, 1
+  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %11, i64 0, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.7.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !23
+  %asmresult.i35 = extractvalue { i64, i64 } %12, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %12, 1
+  %13 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i37 = trunc i8 %13 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41, label %do.body.i24, !llvm.loop !24
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41: ; preds = %do.body.i24
   %and17.i38 = and i64 %asmresult.i35, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i20)
   %cmp34 = icmp ne i64 %and17.i38, 0
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2705, ptr noundef nonnull @.str.57)
-  %17 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %18 = extractvalue { i64, i64 } %17, 0
-  %19 = extractvalue { i64, i64 } %17, 1
-  %coerce39.sroa.2.0.insert.ext = zext i64 %19 to i128
+  %14 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %coerce39.sroa.2.0.insert.ext = zext i64 %16 to i128
   %coerce39.sroa.2.0.insert.shift = shl nuw i128 %coerce39.sroa.2.0.insert.ext, 64
-  %coerce39.sroa.0.0.insert.ext = zext i64 %18 to i128
+  %coerce39.sroa.0.0.insert.ext = zext i64 %15 to i128
   %coerce39.sroa.0.0.insert.insert = or disjoint i128 %coerce39.sroa.2.0.insert.shift, %coerce39.sroa.0.0.insert.ext
   %cmp40 = icmp eq i128 %coerce39.sroa.0.0.insert.insert, 1
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2709, ptr noundef nonnull @.str.57)
@@ -8491,26 +8443,25 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_
 do.body.i46:                                      ; preds = %do.body.i46, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41
   %retVal.sroa.0.0.i47 = phi i64 [ 15, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41 ], [ %asmresult.i57, %do.body.i46 ]
   %retVal.sroa.7.0.i48 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41 ], [ %asmresult16.i58, %do.body.i46 ]
-  %20 = and i64 %retVal.sroa.0.0.i47, 240
-  %21 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i42, i64 %20, i64 0, i64 %retVal.sroa.0.0.i47, i64 %retVal.sroa.7.0.i48, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !23
-  %asmresult.i57 = extractvalue { i64, i64 } %21, 0
-  %asmresult16.i58 = extractvalue { i64, i64 } %21, 1
-  %22 = load i8, ptr %cmpxchgRet.i42, align 1
-  %23 = and i8 %22, 1
-  %tobool.not.i59 = icmp eq i8 %23, 0
-  br i1 %tobool.not.i59, label %do.body.i46, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit63, !llvm.loop !24
+  %17 = and i64 %retVal.sroa.0.0.i47, 240
+  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i42, i64 %17, i64 0, i64 %retVal.sroa.0.0.i47, i64 %retVal.sroa.7.0.i48, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !23
+  %asmresult.i57 = extractvalue { i64, i64 } %18, 0
+  %asmresult16.i58 = extractvalue { i64, i64 } %18, 1
+  %19 = load i8, ptr %cmpxchgRet.i42, align 1
+  %tobool.i59 = trunc i8 %19 to i1
+  br i1 %tobool.i59, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit63, label %do.body.i46, !llvm.loop !24
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit63: ; preds = %do.body.i46
   %and17.i60 = and i64 %asmresult.i57, 240
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i42)
   %cmp50 = icmp eq i64 %and17.i60, 0
   %call52 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp50, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2717, ptr noundef nonnull @.str.56)
-  %24 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !11
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = extractvalue { i64, i64 } %24, 1
-  %coerce55.sroa.2.0.insert.ext = zext i64 %26 to i128
+  %20 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !11
+  %21 = extractvalue { i64, i64 } %20, 0
+  %22 = extractvalue { i64, i64 } %20, 1
+  %coerce55.sroa.2.0.insert.ext = zext i64 %22 to i128
   %coerce55.sroa.2.0.insert.shift = shl nuw i128 %coerce55.sroa.2.0.insert.ext, 64
-  %coerce55.sroa.0.0.insert.ext = zext i64 %25 to i128
+  %coerce55.sroa.0.0.insert.ext = zext i64 %21 to i128
   %coerce55.sroa.0.0.insert.insert = or disjoint i128 %coerce55.sroa.2.0.insert.shift, %coerce55.sroa.0.0.insert.ext
   %cmp56 = icmp eq i128 %coerce55.sroa.0.0.insert.insert, 0
   %call58 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp56, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2721, ptr noundef nonnull @.str.56)
@@ -8538,9 +8489,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult16.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !26
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !26
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -8550,12 +8500,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_r
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2733, ptr noundef nonnull @.str.56)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 1
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2737, ptr noundef nonnull @.str.57)
@@ -8566,13 +8516,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_r
 do.body.i8:                                       ; preds = %do.body.i8, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i9 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i8 ]
   %retVal.sroa.5.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i8 ]
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.5.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.5.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !25
-  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %cmpxchgRet.i4, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i18 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i18, label %do.body.i8, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !26
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.5.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.5.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !25
+  %asmresult.i16 = extractvalue { i64, i64 } %5, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %cmpxchgRet.i4, align 1
+  %tobool.i18 = trunc i8 %6 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i8, !llvm.loop !26
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i4)
@@ -8582,12 +8531,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_r
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 1
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2745, ptr noundef nonnull @.str.57)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2749, ptr noundef nonnull @.str.57)
@@ -8599,13 +8548,12 @@ do.body.i24:                                      ; preds = %do.body.i24, %_ZN5e
   %retVal.sroa.0.0.i25 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i35, %do.body.i24 ]
   %retVal.sroa.5.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i36, %do.body.i24 ]
   %or.i31 = or i64 %retVal.sroa.0.0.i25, 2
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %or.i31, i64 %retVal.sroa.5.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !25
-  %asmresult.i35 = extractvalue { i64, i64 } %12, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %cmpxchgRet.i20, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i37 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i37, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit38, !llvm.loop !26
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %or.i31, i64 %retVal.sroa.5.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !25
+  %asmresult.i35 = extractvalue { i64, i64 } %10, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %10, 1
+  %11 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i37 = trunc i8 %11 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit38, label %do.body.i24, !llvm.loop !26
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit38: ; preds = %do.body.i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i20)
@@ -8615,12 +8563,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_r
   %coerce33.sroa.0.0.insert.insert = or disjoint i128 %coerce33.sroa.2.0.insert.shift, %coerce33.sroa.0.0.insert.ext
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 1
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2757, ptr noundef nonnull @.str.57)
-  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %coerce39.sroa.2.0.insert.ext = zext i64 %17 to i128
+  %12 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %coerce39.sroa.2.0.insert.ext = zext i64 %14 to i128
   %coerce39.sroa.2.0.insert.shift = shl nuw i128 %coerce39.sroa.2.0.insert.ext, 64
-  %coerce39.sroa.0.0.insert.ext = zext i64 %16 to i128
+  %coerce39.sroa.0.0.insert.ext = zext i64 %13 to i128
   %coerce39.sroa.0.0.insert.insert = or disjoint i128 %coerce39.sroa.2.0.insert.shift, %coerce39.sroa.0.0.insert.ext
   %cmp40 = icmp eq i128 %coerce39.sroa.0.0.insert.insert, 3
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2761, ptr noundef nonnull @.str.58)
@@ -8648,9 +8596,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult16.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !28
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !28
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   %or17.i = or i64 %asmresult.i, 1
@@ -8661,12 +8608,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_r
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 1
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2773, ptr noundef nonnull @.str.57)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 1
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2777, ptr noundef nonnull @.str.57)
@@ -8677,13 +8624,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_r
 do.body.i8:                                       ; preds = %do.body.i8, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i9 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i8 ]
   %retVal.sroa.7.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i8 ]
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.7.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.7.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !27
-  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %cmpxchgRet.i4, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i18 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i18, label %do.body.i8, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !28
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.7.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.7.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !27
+  %asmresult.i16 = extractvalue { i64, i64 } %5, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %cmpxchgRet.i4, align 1
+  %tobool.i18 = trunc i8 %6 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i8, !llvm.loop !28
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i4)
@@ -8693,12 +8639,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_r
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 1
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2785, ptr noundef nonnull @.str.57)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2789, ptr noundef nonnull @.str.57)
@@ -8710,13 +8656,12 @@ do.body.i24:                                      ; preds = %do.body.i24, %_ZN5e
   %retVal.sroa.0.0.i25 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i35, %do.body.i24 ]
   %retVal.sroa.7.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i36, %do.body.i24 ]
   %or.i31 = or i64 %retVal.sroa.0.0.i25, 2
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %or.i31, i64 %retVal.sroa.7.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.7.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !27
-  %asmresult.i35 = extractvalue { i64, i64 } %12, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %cmpxchgRet.i20, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i37 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i37, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit41, !llvm.loop !28
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %or.i31, i64 %retVal.sroa.7.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.7.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !27
+  %asmresult.i35 = extractvalue { i64, i64 } %10, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %10, 1
+  %11 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i37 = trunc i8 %11 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit41, label %do.body.i24, !llvm.loop !28
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit41: ; preds = %do.body.i24
   %or17.i38 = or i64 %asmresult.i35, 2
@@ -8727,12 +8672,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_r
   %coerce33.sroa.0.0.insert.insert = or disjoint i128 %coerce33.sroa.2.0.insert.shift, %coerce33.sroa.0.0.insert.ext
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 3
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2797, ptr noundef nonnull @.str.58)
-  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %coerce39.sroa.2.0.insert.ext = zext i64 %17 to i128
+  %12 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %coerce39.sroa.2.0.insert.ext = zext i64 %14 to i128
   %coerce39.sroa.2.0.insert.shift = shl nuw i128 %coerce39.sroa.2.0.insert.ext, 64
-  %coerce39.sroa.0.0.insert.ext = zext i64 %16 to i128
+  %coerce39.sroa.0.0.insert.ext = zext i64 %13 to i128
   %coerce39.sroa.0.0.insert.insert = or disjoint i128 %coerce39.sroa.2.0.insert.shift, %coerce39.sroa.0.0.insert.ext
   %cmp40 = icmp eq i128 %coerce39.sroa.0.0.insert.insert, 3
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2801, ptr noundef nonnull @.str.58)
@@ -8759,9 +8704,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult16.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !30
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !30
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -8771,12 +8715,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2813, ptr noundef nonnull @.str.56)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2817, ptr noundef nonnull @.str.56)
@@ -8788,13 +8732,12 @@ do.body.i8:                                       ; preds = %do.body.i8, %_ZN5ea
   %retVal.sroa.0.0.i9 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i8 ]
   %retVal.sroa.5.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i8 ]
   %xor.i = xor i64 %retVal.sroa.0.0.i9, 1
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %xor.i, i64 %retVal.sroa.5.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.5.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !29
-  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %cmpxchgRet.i4, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i18 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i18, label %do.body.i8, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !30
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %xor.i, i64 %retVal.sroa.5.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.5.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !29
+  %asmresult.i16 = extractvalue { i64, i64 } %5, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %cmpxchgRet.i4, align 1
+  %tobool.i18 = trunc i8 %6 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i8, !llvm.loop !30
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i4)
@@ -8804,12 +8747,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 1
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2825, ptr noundef nonnull @.str.57)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 0
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2829, ptr noundef nonnull @.str.56)
@@ -8821,13 +8764,12 @@ do.body.i24:                                      ; preds = %do.body.i24, %_ZN5e
   %retVal.sroa.0.0.i25 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i35, %do.body.i24 ]
   %retVal.sroa.5.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i36, %do.body.i24 ]
   %xor.i31 = xor i64 %retVal.sroa.0.0.i25, 1
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %xor.i31, i64 %retVal.sroa.5.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !29
-  %asmresult.i35 = extractvalue { i64, i64 } %12, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %cmpxchgRet.i20, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i37 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i37, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit38, !llvm.loop !30
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %xor.i31, i64 %retVal.sroa.5.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.5.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !29
+  %asmresult.i35 = extractvalue { i64, i64 } %10, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %10, 1
+  %11 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i37 = trunc i8 %11 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit38, label %do.body.i24, !llvm.loop !30
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit38: ; preds = %do.body.i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i20)
@@ -8837,12 +8779,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_
   %coerce33.sroa.0.0.insert.insert = or disjoint i128 %coerce33.sroa.2.0.insert.shift, %coerce33.sroa.0.0.insert.ext
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 0
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2837, ptr noundef nonnull @.str.56)
-  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %coerce39.sroa.2.0.insert.ext = zext i64 %17 to i128
+  %12 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %coerce39.sroa.2.0.insert.ext = zext i64 %14 to i128
   %coerce39.sroa.2.0.insert.shift = shl nuw i128 %coerce39.sroa.2.0.insert.ext, 64
-  %coerce39.sroa.0.0.insert.ext = zext i64 %16 to i128
+  %coerce39.sroa.0.0.insert.ext = zext i64 %13 to i128
   %coerce39.sroa.0.0.insert.insert = or disjoint i128 %coerce39.sroa.2.0.insert.shift, %coerce39.sroa.0.0.insert.ext
   %cmp40 = icmp eq i128 %coerce39.sroa.0.0.insert.insert, 1
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2841, ptr noundef nonnull @.str.57)
@@ -8869,9 +8811,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult16.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !32
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !32
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -8881,12 +8822,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2853, ptr noundef nonnull @.str.56)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2857, ptr noundef nonnull @.str.56)
@@ -8898,13 +8839,12 @@ do.body.i8:                                       ; preds = %do.body.i8, %_ZN5ea
   %retVal.sroa.0.0.i9 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i16, %do.body.i8 ]
   %retVal.sroa.7.0.i10 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i17, %do.body.i8 ]
   %xor.i = xor i64 %retVal.sroa.0.0.i9, 1
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %xor.i, i64 %retVal.sroa.7.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.7.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !31
-  %asmresult.i16 = extractvalue { i64, i64 } %6, 0
-  %asmresult16.i17 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %cmpxchgRet.i4, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i18 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i18, label %do.body.i8, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit19, !llvm.loop !32
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i4, i64 %xor.i, i64 %retVal.sroa.7.0.i10, i64 %retVal.sroa.0.0.i9, i64 %retVal.sroa.7.0.i10, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !31
+  %asmresult.i16 = extractvalue { i64, i64 } %5, 0
+  %asmresult16.i17 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %cmpxchgRet.i4, align 1
+  %tobool.i18 = trunc i8 %6 to i1
+  br i1 %tobool.i18, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit19, label %do.body.i8, !llvm.loop !32
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit19: ; preds = %do.body.i8
   %xor17.i = xor i64 %asmresult.i16, 1
@@ -8915,12 +8855,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2865, ptr noundef nonnull @.str.56)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 0
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2869, ptr noundef nonnull @.str.56)
@@ -8932,13 +8872,12 @@ do.body.i24:                                      ; preds = %do.body.i24, %_ZN5e
   %retVal.sroa.0.0.i25 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult.i35, %do.body.i24 ]
   %retVal.sroa.7.0.i26 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit19 ], [ %asmresult16.i36, %do.body.i24 ]
   %xor.i31 = xor i64 %retVal.sroa.0.0.i25, 1
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %xor.i31, i64 %retVal.sroa.7.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.7.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !31
-  %asmresult.i35 = extractvalue { i64, i64 } %12, 0
-  %asmresult16.i36 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %cmpxchgRet.i20, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i37 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i37, label %do.body.i24, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit41, !llvm.loop !32
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, ptr nonnull elementtype(i8) %cmpxchgRet.i20, i64 %xor.i31, i64 %retVal.sroa.7.0.i26, i64 %retVal.sroa.0.0.i25, i64 %retVal.sroa.7.0.i26, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !31
+  %asmresult.i35 = extractvalue { i64, i64 } %10, 0
+  %asmresult16.i36 = extractvalue { i64, i64 } %10, 1
+  %11 = load i8, ptr %cmpxchgRet.i20, align 1
+  %tobool.i37 = trunc i8 %11 to i1
+  br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit41, label %do.body.i24, !llvm.loop !32
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit41: ; preds = %do.body.i24
   %xor17.i38 = xor i64 %asmresult.i35, 1
@@ -8949,12 +8888,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_
   %coerce33.sroa.0.0.insert.insert = or disjoint i128 %coerce33.sroa.2.0.insert.shift, %coerce33.sroa.0.0.insert.ext
   %cmp34 = icmp eq i128 %coerce33.sroa.0.0.insert.insert, 1
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2877, ptr noundef nonnull @.str.57)
-  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %coerce39.sroa.2.0.insert.ext = zext i64 %17 to i128
+  %12 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic27) #7, !srcloc !11
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %coerce39.sroa.2.0.insert.ext = zext i64 %14 to i128
   %coerce39.sroa.2.0.insert.shift = shl nuw i128 %coerce39.sroa.2.0.insert.ext, 64
-  %coerce39.sroa.0.0.insert.ext = zext i64 %16 to i128
+  %coerce39.sroa.0.0.insert.ext = zext i64 %13 to i128
   %coerce39.sroa.0.0.insert.insert = or disjoint i128 %coerce39.sroa.2.0.insert.shift, %coerce39.sroa.0.0.insert.ext
   %cmp40 = icmp eq i128 %coerce39.sroa.0.0.insert.insert, 1
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2881, ptr noundef nonnull @.str.57)
@@ -8995,19 +8934,18 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %asmresult.i.i = extractvalue { i64, i64 } %0, 0
   %asmresult19.i.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %do.body.i.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EEaSEo.exit, !llvm.loop !34
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EEaSEo.exit, label %do.body.i.i, !llvm.loop !34
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EEaSEo.exit: ; preds = %do.body.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i)
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2893, ptr noundef nonnull @.str.49)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce6.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce6.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce6.sroa.2.0.insert.shift = shl nuw i128 %coerce6.sroa.2.0.insert.ext, 64
-  %coerce6.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce6.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce6.sroa.0.0.insert.insert = or disjoint i128 %coerce6.sroa.2.0.insert.shift, %coerce6.sroa.0.0.insert.ext
   %cmp7 = icmp eq i128 %coerce6.sroa.0.0.insert.insert, 5
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2897, ptr noundef nonnull @.str.49)
@@ -9021,22 +8959,21 @@ do.body.i.i12:                                    ; preds = %do.body.i.i12, %_ZN
   %retVal.sroa.0.0.insert.ext.i.i = zext i64 %retVal.sroa.0.0.i.i to i128
   %retVal.sroa.0.0.insert.insert.i.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i.i, 1
   %computedDesired.sroa.0.0.extract.trunc.i.i = trunc i128 %retVal.sroa.0.0.insert.insert.i.i to i64
-  %6 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i, 64
-  %.tr.i.i = trunc i128 %6 to i64
+  %5 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i, 64
+  %.tr.i.i = trunc i128 %5 to i64
   %.narrow.i.i = add i64 %retVal.sroa.7.0.i.i, %.tr.i.i
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, ptr nonnull elementtype(i8) %cmpxchgRet.i.i11, i64 %computedDesired.sroa.0.0.extract.trunc.i.i, i64 %.narrow.i.i, i64 %retVal.sroa.0.0.i.i, i64 %retVal.sroa.7.0.i.i, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !35
-  %asmresult.i.i13 = extractvalue { i64, i64 } %7, 0
-  %asmresult16.i.i = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i.i11, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i.i14 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i14, label %do.body.i.i12, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEppEv.exit, !llvm.loop !36
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, ptr nonnull elementtype(i8) %cmpxchgRet.i.i11, i64 %computedDesired.sroa.0.0.extract.trunc.i.i, i64 %.narrow.i.i, i64 %retVal.sroa.0.0.i.i, i64 %retVal.sroa.7.0.i.i, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !35
+  %asmresult.i.i13 = extractvalue { i64, i64 } %6, 0
+  %asmresult16.i.i = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i.i11, align 1
+  %tobool.i.i14 = trunc i8 %7 to i1
+  br i1 %tobool.i.i14, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEppEv.exit, label %do.body.i.i12, !llvm.loop !36
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEppEv.exit: ; preds = %do.body.i.i12
   %retVal.sroa.0.0.insert.ext4.i.i = zext i64 %asmresult.i.i13 to i128
   %retVal.sroa.0.0.insert.insert6.i.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i.i, 1
-  %10 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i, 64
-  %.tr24.i.i = trunc i128 %10 to i64
+  %8 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i, 64
+  %.tr24.i.i = trunc i128 %8 to i64
   %.narrow25.i.i = add i64 %asmresult16.i.i, %.tr24.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i11)
   %coerce14.sroa.2.0.insert.ext = zext i64 %.narrow25.i.i to i128
@@ -9045,12 +8982,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEppEv.exit: ; preds = %do.body.i
   %coerce14.sroa.0.0.insert.insert = or disjoint i128 %coerce14.sroa.2.0.insert.shift, %coerce14.sroa.0.0.insert.ext
   %cmp15 = icmp eq i128 %coerce14.sroa.0.0.insert.insert, 1
   %call17 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp15, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2905, ptr noundef nonnull @.str.47)
-  %11 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !11
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = extractvalue { i64, i64 } %11, 1
-  %coerce20.sroa.2.0.insert.ext = zext i64 %13 to i128
+  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic10, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic10) #7, !srcloc !11
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %coerce20.sroa.2.0.insert.ext = zext i64 %11 to i128
   %coerce20.sroa.2.0.insert.shift = shl nuw i128 %coerce20.sroa.2.0.insert.ext, 64
-  %coerce20.sroa.0.0.insert.ext = zext i64 %12 to i128
+  %coerce20.sroa.0.0.insert.ext = zext i64 %10 to i128
   %coerce20.sroa.0.0.insert.insert = or disjoint i128 %coerce20.sroa.2.0.insert.shift, %coerce20.sroa.0.0.insert.ext
   %cmp21 = icmp eq i128 %coerce20.sroa.0.0.insert.insert, 1
   %call23 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp21, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2909, ptr noundef nonnull @.str.47)
@@ -9064,16 +9001,15 @@ do.body.i.i17:                                    ; preds = %do.body.i.i17, %_ZN
   %retVal.sroa.0.0.insert.ext.i.i19 = zext i64 %retVal.sroa.0.0.i.i18 to i128
   %arg.sroa.0.0.insert.insert.i.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i.i19, 1
   %computedDesired.sroa.0.0.extract.trunc.i.i20 = trunc i128 %arg.sroa.0.0.insert.insert.i.i to i64
-  %14 = lshr i128 %arg.sroa.0.0.insert.insert.i.i, 64
-  %.tr.i.i21 = trunc i128 %14 to i64
+  %12 = lshr i128 %arg.sroa.0.0.insert.insert.i.i, 64
+  %.tr.i.i21 = trunc i128 %12 to i64
   %.narrow.i.i22 = add i64 %retVal.sroa.5.0.i.i, %.tr.i.i21
-  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic24, ptr nonnull elementtype(i8) %cmpxchgRet.i.i15, i64 %computedDesired.sroa.0.0.extract.trunc.i.i20, i64 %.narrow.i.i22, i64 %retVal.sroa.0.0.i.i18, i64 %retVal.sroa.5.0.i.i, ptr nonnull elementtype(i128) %atomic24) #7, !srcloc !37
-  %asmresult.i.i23 = extractvalue { i64, i64 } %15, 0
-  %asmresult16.i.i24 = extractvalue { i64, i64 } %15, 1
-  %16 = load i8, ptr %cmpxchgRet.i.i15, align 1
-  %17 = and i8 %16, 1
-  %tobool.not.i.i25 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i.i25, label %do.body.i.i17, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEppEi.exit, !llvm.loop !38
+  %13 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic24, ptr nonnull elementtype(i8) %cmpxchgRet.i.i15, i64 %computedDesired.sroa.0.0.extract.trunc.i.i20, i64 %.narrow.i.i22, i64 %retVal.sroa.0.0.i.i18, i64 %retVal.sroa.5.0.i.i, ptr nonnull elementtype(i128) %atomic24) #7, !srcloc !37
+  %asmresult.i.i23 = extractvalue { i64, i64 } %13, 0
+  %asmresult16.i.i24 = extractvalue { i64, i64 } %13, 1
+  %14 = load i8, ptr %cmpxchgRet.i.i15, align 1
+  %tobool.i.i25 = trunc i8 %14 to i1
+  br i1 %tobool.i.i25, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEppEi.exit, label %do.body.i.i17, !llvm.loop !38
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEppEi.exit: ; preds = %do.body.i.i17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i15)
@@ -9083,12 +9019,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEppEi.exit: ; preds = %do.body.i
   %coerce28.sroa.0.0.insert.insert = or disjoint i128 %coerce28.sroa.2.0.insert.shift, %coerce28.sroa.0.0.insert.ext
   %cmp29 = icmp eq i128 %coerce28.sroa.0.0.insert.insert, 0
   %call31 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2917, ptr noundef nonnull @.str.46)
-  %18 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic24, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic24) #7, !srcloc !11
-  %19 = extractvalue { i64, i64 } %18, 0
-  %20 = extractvalue { i64, i64 } %18, 1
-  %coerce34.sroa.2.0.insert.ext = zext i64 %20 to i128
+  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic24, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic24) #7, !srcloc !11
+  %16 = extractvalue { i64, i64 } %15, 0
+  %17 = extractvalue { i64, i64 } %15, 1
+  %coerce34.sroa.2.0.insert.ext = zext i64 %17 to i128
   %coerce34.sroa.2.0.insert.shift = shl nuw i128 %coerce34.sroa.2.0.insert.ext, 64
-  %coerce34.sroa.0.0.insert.ext = zext i64 %19 to i128
+  %coerce34.sroa.0.0.insert.ext = zext i64 %16 to i128
   %coerce34.sroa.0.0.insert.insert = or disjoint i128 %coerce34.sroa.2.0.insert.shift, %coerce34.sroa.0.0.insert.ext
   %cmp35 = icmp eq i128 %coerce34.sroa.0.0.insert.insert, 1
   %call37 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp35, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2921, ptr noundef nonnull @.str.47)
@@ -9102,22 +9038,21 @@ do.body.i.i30:                                    ; preds = %do.body.i.i30, %_ZN
   %retVal.sroa.0.0.insert.ext.i.i33 = zext i64 %retVal.sroa.0.0.i.i31 to i128
   %retVal.sroa.0.0.insert.insert.i.i34 = add nsw i128 %retVal.sroa.0.0.insert.ext.i.i33, -1
   %computedDesired.sroa.0.0.extract.trunc.i.i35 = trunc i128 %retVal.sroa.0.0.insert.insert.i.i34 to i64
-  %21 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i34, 64
-  %.tr.i.i36 = trunc i128 %21 to i64
+  %18 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i34, 64
+  %.tr.i.i36 = trunc i128 %18 to i64
   %.narrow.i.i37 = add i64 %retVal.sroa.7.0.i.i32, %.tr.i.i36
-  %22 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, ptr nonnull elementtype(i8) %cmpxchgRet.i.i26, i64 %computedDesired.sroa.0.0.extract.trunc.i.i35, i64 %.narrow.i.i37, i64 %retVal.sroa.0.0.i.i31, i64 %retVal.sroa.7.0.i.i32, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !39
-  %asmresult.i.i38 = extractvalue { i64, i64 } %22, 0
-  %asmresult16.i.i39 = extractvalue { i64, i64 } %22, 1
-  %23 = load i8, ptr %cmpxchgRet.i.i26, align 1
-  %24 = and i8 %23, 1
-  %tobool.not.i.i40 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i.i40, label %do.body.i.i30, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEv.exit, !llvm.loop !40
+  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, ptr nonnull elementtype(i8) %cmpxchgRet.i.i26, i64 %computedDesired.sroa.0.0.extract.trunc.i.i35, i64 %.narrow.i.i37, i64 %retVal.sroa.0.0.i.i31, i64 %retVal.sroa.7.0.i.i32, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !39
+  %asmresult.i.i38 = extractvalue { i64, i64 } %19, 0
+  %asmresult16.i.i39 = extractvalue { i64, i64 } %19, 1
+  %20 = load i8, ptr %cmpxchgRet.i.i26, align 1
+  %tobool.i.i40 = trunc i8 %20 to i1
+  br i1 %tobool.i.i40, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEv.exit, label %do.body.i.i30, !llvm.loop !40
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEv.exit: ; preds = %do.body.i.i30
   %retVal.sroa.0.0.insert.ext4.i.i41 = zext i64 %asmresult.i.i38 to i128
   %retVal.sroa.0.0.insert.insert6.i.i42 = add nsw i128 %retVal.sroa.0.0.insert.ext4.i.i41, -1
-  %25 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i42, 64
-  %.tr25.i.i = trunc i128 %25 to i64
+  %21 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i42, 64
+  %.tr25.i.i = trunc i128 %21 to i64
   %.narrow26.i.i = add i64 %asmresult16.i.i39, %.tr25.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i26)
   %coerce42.sroa.2.0.insert.ext = zext i64 %.narrow26.i.i to i128
@@ -9126,12 +9061,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEv.exit: ; preds = %do.body.i
   %coerce42.sroa.0.0.insert.insert = or disjoint i128 %coerce42.sroa.2.0.insert.shift, %coerce42.sroa.0.0.insert.ext
   %cmp43 = icmp eq i128 %coerce42.sroa.0.0.insert.insert, 0
   %call45 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp43, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2929, ptr noundef nonnull @.str.46)
-  %26 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !11
-  %27 = extractvalue { i64, i64 } %26, 0
-  %28 = extractvalue { i64, i64 } %26, 1
-  %coerce48.sroa.2.0.insert.ext = zext i64 %28 to i128
+  %22 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !11
+  %23 = extractvalue { i64, i64 } %22, 0
+  %24 = extractvalue { i64, i64 } %22, 1
+  %coerce48.sroa.2.0.insert.ext = zext i64 %24 to i128
   %coerce48.sroa.2.0.insert.shift = shl nuw i128 %coerce48.sroa.2.0.insert.ext, 64
-  %coerce48.sroa.0.0.insert.ext = zext i64 %27 to i128
+  %coerce48.sroa.0.0.insert.ext = zext i64 %23 to i128
   %coerce48.sroa.0.0.insert.insert = or disjoint i128 %coerce48.sroa.2.0.insert.shift, %coerce48.sroa.0.0.insert.ext
   %cmp49 = icmp eq i128 %coerce48.sroa.0.0.insert.insert, 0
   %call51 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp49, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2933, ptr noundef nonnull @.str.46)
@@ -9145,16 +9080,15 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %_ZN
   %retVal.sroa.0.0.insert.ext.i.i53 = zext i64 %retVal.sroa.0.0.i.i51 to i128
   %retVal.sroa.0.0.insert.insert.i.i54 = add nsw i128 %retVal.sroa.0.0.insert.ext.i.i53, -1
   %computedDesired.sroa.0.0.extract.trunc.i.i55 = trunc i128 %retVal.sroa.0.0.insert.insert.i.i54 to i64
-  %29 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i54, 64
-  %.tr.i.i56 = trunc i128 %29 to i64
+  %25 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i54, 64
+  %.tr.i.i56 = trunc i128 %25 to i64
   %.narrow.i.i57 = add i64 %retVal.sroa.5.0.i.i52, %.tr.i.i56
-  %30 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic52, ptr nonnull elementtype(i8) %cmpxchgRet.i.i46, i64 %computedDesired.sroa.0.0.extract.trunc.i.i55, i64 %.narrow.i.i57, i64 %retVal.sroa.0.0.i.i51, i64 %retVal.sroa.5.0.i.i52, ptr nonnull elementtype(i128) %atomic52) #7, !srcloc !41
-  %asmresult.i.i58 = extractvalue { i64, i64 } %30, 0
-  %asmresult16.i.i59 = extractvalue { i64, i64 } %30, 1
-  %31 = load i8, ptr %cmpxchgRet.i.i46, align 1
-  %32 = and i8 %31, 1
-  %tobool.not.i.i60 = icmp eq i8 %32, 0
-  br i1 %tobool.not.i.i60, label %do.body.i.i50, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEi.exit, !llvm.loop !42
+  %26 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic52, ptr nonnull elementtype(i8) %cmpxchgRet.i.i46, i64 %computedDesired.sroa.0.0.extract.trunc.i.i55, i64 %.narrow.i.i57, i64 %retVal.sroa.0.0.i.i51, i64 %retVal.sroa.5.0.i.i52, ptr nonnull elementtype(i128) %atomic52) #7, !srcloc !41
+  %asmresult.i.i58 = extractvalue { i64, i64 } %26, 0
+  %asmresult16.i.i59 = extractvalue { i64, i64 } %26, 1
+  %27 = load i8, ptr %cmpxchgRet.i.i46, align 1
+  %tobool.i.i60 = trunc i8 %27 to i1
+  br i1 %tobool.i.i60, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEi.exit, label %do.body.i.i50, !llvm.loop !42
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEi.exit: ; preds = %do.body.i.i50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i46)
@@ -9164,12 +9098,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEmmEi.exit: ; preds = %do.body.i
   %coerce56.sroa.0.0.insert.insert = or disjoint i128 %coerce56.sroa.2.0.insert.shift, %coerce56.sroa.0.0.insert.ext
   %cmp57 = icmp eq i128 %coerce56.sroa.0.0.insert.insert, 1
   %call59 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp57, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2941, ptr noundef nonnull @.str.47)
-  %33 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic52, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic52) #7, !srcloc !11
-  %34 = extractvalue { i64, i64 } %33, 0
-  %35 = extractvalue { i64, i64 } %33, 1
-  %coerce62.sroa.2.0.insert.ext = zext i64 %35 to i128
+  %28 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic52, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic52) #7, !srcloc !11
+  %29 = extractvalue { i64, i64 } %28, 0
+  %30 = extractvalue { i64, i64 } %28, 1
+  %coerce62.sroa.2.0.insert.ext = zext i64 %30 to i128
   %coerce62.sroa.2.0.insert.shift = shl nuw i128 %coerce62.sroa.2.0.insert.ext, 64
-  %coerce62.sroa.0.0.insert.ext = zext i64 %34 to i128
+  %coerce62.sroa.0.0.insert.ext = zext i64 %29 to i128
   %coerce62.sroa.0.0.insert.insert = or disjoint i128 %coerce62.sroa.2.0.insert.shift, %coerce62.sroa.0.0.insert.ext
   %cmp63 = icmp eq i128 %coerce62.sroa.0.0.insert.insert, 0
   %call65 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp63, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2945, ptr noundef nonnull @.str.46)
@@ -9183,22 +9117,21 @@ do.body.i.i65:                                    ; preds = %do.body.i.i65, %_ZN
   %retVal.sroa.0.0.insert.ext.i.i68 = zext i64 %retVal.sroa.0.0.i.i66 to i128
   %retVal.sroa.0.0.insert.insert.i.i69 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i.i68, 5
   %computedDesired.sroa.0.0.extract.trunc.i.i70 = trunc i128 %retVal.sroa.0.0.insert.insert.i.i69 to i64
-  %36 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i69, 64
-  %.tr.i.i71 = trunc i128 %36 to i64
+  %31 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i69, 64
+  %.tr.i.i71 = trunc i128 %31 to i64
   %.narrow.i.i72 = add i64 %retVal.sroa.7.0.i.i67, %.tr.i.i71
-  %37 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic66, ptr nonnull elementtype(i8) %cmpxchgRet.i.i61, i64 %computedDesired.sroa.0.0.extract.trunc.i.i70, i64 %.narrow.i.i72, i64 %retVal.sroa.0.0.i.i66, i64 %retVal.sroa.7.0.i.i67, ptr nonnull elementtype(i128) %atomic66) #7, !srcloc !35
-  %asmresult.i.i73 = extractvalue { i64, i64 } %37, 0
-  %asmresult16.i.i74 = extractvalue { i64, i64 } %37, 1
-  %38 = load i8, ptr %cmpxchgRet.i.i61, align 1
-  %39 = and i8 %38, 1
-  %tobool.not.i.i75 = icmp eq i8 %39, 0
-  br i1 %tobool.not.i.i75, label %do.body.i.i65, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEpLEo.exit, !llvm.loop !36
+  %32 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic66, ptr nonnull elementtype(i8) %cmpxchgRet.i.i61, i64 %computedDesired.sroa.0.0.extract.trunc.i.i70, i64 %.narrow.i.i72, i64 %retVal.sroa.0.0.i.i66, i64 %retVal.sroa.7.0.i.i67, ptr nonnull elementtype(i128) %atomic66) #7, !srcloc !35
+  %asmresult.i.i73 = extractvalue { i64, i64 } %32, 0
+  %asmresult16.i.i74 = extractvalue { i64, i64 } %32, 1
+  %33 = load i8, ptr %cmpxchgRet.i.i61, align 1
+  %tobool.i.i75 = trunc i8 %33 to i1
+  br i1 %tobool.i.i75, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEpLEo.exit, label %do.body.i.i65, !llvm.loop !36
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEpLEo.exit: ; preds = %do.body.i.i65
   %retVal.sroa.0.0.insert.ext4.i.i76 = zext i64 %asmresult.i.i73 to i128
   %retVal.sroa.0.0.insert.insert6.i.i77 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i.i76, 5
-  %40 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i77, 64
-  %.tr24.i.i79 = trunc i128 %40 to i64
+  %34 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i77, 64
+  %.tr24.i.i79 = trunc i128 %34 to i64
   %.narrow25.i.i80 = add i64 %asmresult16.i.i74, %.tr24.i.i79
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i61)
   %coerce71.sroa.2.0.insert.ext = zext i64 %.narrow25.i.i80 to i128
@@ -9207,12 +9140,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEpLEo.exit: ; preds = %do.body.i
   %coerce71.sroa.0.0.insert.insert = or disjoint i128 %coerce71.sroa.2.0.insert.shift, %coerce71.sroa.0.0.insert.ext
   %cmp72 = icmp eq i128 %coerce71.sroa.0.0.insert.insert, 5
   %call74 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp72, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2953, ptr noundef nonnull @.str.49)
-  %41 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic66, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic66) #7, !srcloc !11
-  %42 = extractvalue { i64, i64 } %41, 0
-  %43 = extractvalue { i64, i64 } %41, 1
-  %coerce77.sroa.2.0.insert.ext = zext i64 %43 to i128
+  %35 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic66, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic66) #7, !srcloc !11
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = extractvalue { i64, i64 } %35, 1
+  %coerce77.sroa.2.0.insert.ext = zext i64 %37 to i128
   %coerce77.sroa.2.0.insert.shift = shl nuw i128 %coerce77.sroa.2.0.insert.ext, 64
-  %coerce77.sroa.0.0.insert.ext = zext i64 %42 to i128
+  %coerce77.sroa.0.0.insert.ext = zext i64 %36 to i128
   %coerce77.sroa.0.0.insert.insert = or disjoint i128 %coerce77.sroa.2.0.insert.shift, %coerce77.sroa.0.0.insert.ext
   %cmp78 = icmp eq i128 %coerce77.sroa.0.0.insert.insert, 5
   %call80 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp78, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2957, ptr noundef nonnull @.str.49)
@@ -9226,22 +9159,21 @@ do.body.i.i87:                                    ; preds = %do.body.i.i87, %_ZN
   %retVal.sroa.0.0.insert.ext.i.i90 = zext i64 %retVal.sroa.0.0.i.i88 to i128
   %retVal.sroa.0.0.insert.insert.i.i91 = add nsw i128 %retVal.sroa.0.0.insert.ext.i.i90, -3
   %computedDesired.sroa.0.0.extract.trunc.i.i92 = trunc i128 %retVal.sroa.0.0.insert.insert.i.i91 to i64
-  %44 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i91, 64
-  %.tr.i.i93 = trunc i128 %44 to i64
+  %38 = lshr i128 %retVal.sroa.0.0.insert.insert.i.i91, 64
+  %.tr.i.i93 = trunc i128 %38 to i64
   %.narrow.i.i94 = add i64 %retVal.sroa.7.0.i.i89, %.tr.i.i93
-  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic81, ptr nonnull elementtype(i8) %cmpxchgRet.i.i83, i64 %computedDesired.sroa.0.0.extract.trunc.i.i92, i64 %.narrow.i.i94, i64 %retVal.sroa.0.0.i.i88, i64 %retVal.sroa.7.0.i.i89, ptr nonnull elementtype(i128) %atomic81) #7, !srcloc !39
-  %asmresult.i.i95 = extractvalue { i64, i64 } %45, 0
-  %asmresult16.i.i96 = extractvalue { i64, i64 } %45, 1
-  %46 = load i8, ptr %cmpxchgRet.i.i83, align 1
-  %47 = and i8 %46, 1
-  %tobool.not.i.i97 = icmp eq i8 %47, 0
-  br i1 %tobool.not.i.i97, label %do.body.i.i87, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmIEo.exit, !llvm.loop !40
+  %39 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic81, ptr nonnull elementtype(i8) %cmpxchgRet.i.i83, i64 %computedDesired.sroa.0.0.extract.trunc.i.i92, i64 %.narrow.i.i94, i64 %retVal.sroa.0.0.i.i88, i64 %retVal.sroa.7.0.i.i89, ptr nonnull elementtype(i128) %atomic81) #7, !srcloc !39
+  %asmresult.i.i95 = extractvalue { i64, i64 } %39, 0
+  %asmresult16.i.i96 = extractvalue { i64, i64 } %39, 1
+  %40 = load i8, ptr %cmpxchgRet.i.i83, align 1
+  %tobool.i.i97 = trunc i8 %40 to i1
+  br i1 %tobool.i.i97, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmIEo.exit, label %do.body.i.i87, !llvm.loop !40
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEmIEo.exit: ; preds = %do.body.i.i87
   %retVal.sroa.0.0.insert.ext4.i.i98 = zext i64 %asmresult.i.i95 to i128
   %retVal.sroa.0.0.insert.insert6.i.i99 = add nsw i128 %retVal.sroa.0.0.insert.ext4.i.i98, -3
-  %48 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i99, 64
-  %.tr25.i.i101 = trunc i128 %48 to i64
+  %41 = lshr i128 %retVal.sroa.0.0.insert.insert6.i.i99, 64
+  %.tr25.i.i101 = trunc i128 %41 to i64
   %.narrow26.i.i102 = add i64 %asmresult16.i.i96, %.tr25.i.i101
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i83)
   %coerce86.sroa.2.0.insert.ext = zext i64 %.narrow26.i.i102 to i128
@@ -9250,12 +9182,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEmIEo.exit: ; preds = %do.body.i
   %coerce86.sroa.0.0.insert.insert = or disjoint i128 %coerce86.sroa.2.0.insert.shift, %coerce86.sroa.0.0.insert.ext
   %cmp87 = icmp eq i128 %coerce86.sroa.0.0.insert.insert, 2
   %call89 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp87, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2965, ptr noundef nonnull @.str.53)
-  %49 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic81, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic81) #7, !srcloc !11
-  %50 = extractvalue { i64, i64 } %49, 0
-  %51 = extractvalue { i64, i64 } %49, 1
-  %coerce92.sroa.2.0.insert.ext = zext i64 %51 to i128
+  %42 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic81, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic81) #7, !srcloc !11
+  %43 = extractvalue { i64, i64 } %42, 0
+  %44 = extractvalue { i64, i64 } %42, 1
+  %coerce92.sroa.2.0.insert.ext = zext i64 %44 to i128
   %coerce92.sroa.2.0.insert.shift = shl nuw i128 %coerce92.sroa.2.0.insert.ext, 64
-  %coerce92.sroa.0.0.insert.ext = zext i64 %50 to i128
+  %coerce92.sroa.0.0.insert.ext = zext i64 %43 to i128
   %coerce92.sroa.0.0.insert.insert = or disjoint i128 %coerce92.sroa.2.0.insert.shift, %coerce92.sroa.0.0.insert.ext
   %cmp93 = icmp eq i128 %coerce92.sroa.0.0.insert.insert, 2
   %call95 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp93, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2969, ptr noundef nonnull @.str.53)
@@ -9267,13 +9199,12 @@ do.body.i.i109:                                   ; preds = %do.body.i.i109, %_Z
   %retVal.sroa.0.0.i.i110 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmIEo.exit ], [ %asmresult.i.i115, %do.body.i.i109 ]
   %retVal.sroa.7.0.i.i111 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEmIEo.exit ], [ %asmresult16.i.i116, %do.body.i.i109 ]
   %or.i.i = or i64 %retVal.sroa.0.0.i.i110, 1
-  %52 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic96, ptr nonnull elementtype(i8) %cmpxchgRet.i.i105, i64 %or.i.i, i64 %retVal.sroa.7.0.i.i111, i64 %retVal.sroa.0.0.i.i110, i64 %retVal.sroa.7.0.i.i111, ptr nonnull elementtype(i128) %atomic96) #7, !srcloc !43
-  %asmresult.i.i115 = extractvalue { i64, i64 } %52, 0
-  %asmresult16.i.i116 = extractvalue { i64, i64 } %52, 1
-  %53 = load i8, ptr %cmpxchgRet.i.i105, align 1
-  %54 = and i8 %53, 1
-  %tobool.not.i.i117 = icmp eq i8 %54, 0
-  br i1 %tobool.not.i.i117, label %do.body.i.i109, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit, !llvm.loop !44
+  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic96, ptr nonnull elementtype(i8) %cmpxchgRet.i.i105, i64 %or.i.i, i64 %retVal.sroa.7.0.i.i111, i64 %retVal.sroa.0.0.i.i110, i64 %retVal.sroa.7.0.i.i111, ptr nonnull elementtype(i128) %atomic96) #7, !srcloc !43
+  %asmresult.i.i115 = extractvalue { i64, i64 } %45, 0
+  %asmresult16.i.i116 = extractvalue { i64, i64 } %45, 1
+  %46 = load i8, ptr %cmpxchgRet.i.i105, align 1
+  %tobool.i.i117 = trunc i8 %46 to i1
+  br i1 %tobool.i.i117, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit, label %do.body.i.i109, !llvm.loop !44
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit: ; preds = %do.body.i.i109
   %or17.i.i = or i64 %asmresult.i.i115, 1
@@ -9284,12 +9215,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit: ; preds = %do.body.i
   %coerce101.sroa.0.0.insert.insert = or disjoint i128 %coerce101.sroa.2.0.insert.shift, %coerce101.sroa.0.0.insert.ext
   %cmp102 = icmp eq i128 %coerce101.sroa.0.0.insert.insert, 1
   %call104 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp102, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2977, ptr noundef nonnull @.str.57)
-  %55 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic96, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic96) #7, !srcloc !11
-  %56 = extractvalue { i64, i64 } %55, 0
-  %57 = extractvalue { i64, i64 } %55, 1
-  %coerce107.sroa.2.0.insert.ext = zext i64 %57 to i128
+  %47 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic96, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic96) #7, !srcloc !11
+  %48 = extractvalue { i64, i64 } %47, 0
+  %49 = extractvalue { i64, i64 } %47, 1
+  %coerce107.sroa.2.0.insert.ext = zext i64 %49 to i128
   %coerce107.sroa.2.0.insert.shift = shl nuw i128 %coerce107.sroa.2.0.insert.ext, 64
-  %coerce107.sroa.0.0.insert.ext = zext i64 %56 to i128
+  %coerce107.sroa.0.0.insert.ext = zext i64 %48 to i128
   %coerce107.sroa.0.0.insert.insert = or disjoint i128 %coerce107.sroa.2.0.insert.shift, %coerce107.sroa.0.0.insert.ext
   %cmp108 = icmp eq i128 %coerce107.sroa.0.0.insert.insert, 1
   %call110 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp108, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2981, ptr noundef nonnull @.str.57)
@@ -9300,26 +9231,25 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit: ; preds = %do.body.i
 do.body.i.i124:                                   ; preds = %do.body.i.i124, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit
   %retVal.sroa.0.0.i.i125 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit ], [ %asmresult.i.i134, %do.body.i.i124 ]
   %retVal.sroa.7.0.i.i126 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEoREo.exit ], [ %asmresult16.i.i135, %do.body.i.i124 ]
-  %58 = and i64 %retVal.sroa.0.0.i.i125, 1
-  %59 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic111, ptr nonnull elementtype(i8) %cmpxchgRet.i.i120, i64 %58, i64 0, i64 %retVal.sroa.0.0.i.i125, i64 %retVal.sroa.7.0.i.i126, ptr nonnull elementtype(i128) %atomic111) #7, !srcloc !45
-  %asmresult.i.i134 = extractvalue { i64, i64 } %59, 0
-  %asmresult16.i.i135 = extractvalue { i64, i64 } %59, 1
-  %60 = load i8, ptr %cmpxchgRet.i.i120, align 1
-  %61 = and i8 %60, 1
-  %tobool.not.i.i136 = icmp eq i8 %61, 0
-  br i1 %tobool.not.i.i136, label %do.body.i.i124, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit, !llvm.loop !46
+  %50 = and i64 %retVal.sroa.0.0.i.i125, 1
+  %51 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic111, ptr nonnull elementtype(i8) %cmpxchgRet.i.i120, i64 %50, i64 0, i64 %retVal.sroa.0.0.i.i125, i64 %retVal.sroa.7.0.i.i126, ptr nonnull elementtype(i128) %atomic111) #7, !srcloc !45
+  %asmresult.i.i134 = extractvalue { i64, i64 } %51, 0
+  %asmresult16.i.i135 = extractvalue { i64, i64 } %51, 1
+  %52 = load i8, ptr %cmpxchgRet.i.i120, align 1
+  %tobool.i.i136 = trunc i8 %52 to i1
+  br i1 %tobool.i.i136, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit, label %do.body.i.i124, !llvm.loop !46
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit: ; preds = %do.body.i.i124
   %and17.i.i = and i64 %asmresult.i.i134, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i120)
   %cmp117 = icmp ne i64 %and17.i.i, 0
   %call119 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp117, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2989, ptr noundef nonnull @.str.57)
-  %62 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic111, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic111) #7, !srcloc !11
-  %63 = extractvalue { i64, i64 } %62, 0
-  %64 = extractvalue { i64, i64 } %62, 1
-  %coerce122.sroa.2.0.insert.ext = zext i64 %64 to i128
+  %53 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic111, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic111) #7, !srcloc !11
+  %54 = extractvalue { i64, i64 } %53, 0
+  %55 = extractvalue { i64, i64 } %53, 1
+  %coerce122.sroa.2.0.insert.ext = zext i64 %55 to i128
   %coerce122.sroa.2.0.insert.shift = shl nuw i128 %coerce122.sroa.2.0.insert.ext, 64
-  %coerce122.sroa.0.0.insert.ext = zext i64 %63 to i128
+  %coerce122.sroa.0.0.insert.ext = zext i64 %54 to i128
   %coerce122.sroa.0.0.insert.insert = or disjoint i128 %coerce122.sroa.2.0.insert.shift, %coerce122.sroa.0.0.insert.ext
   %cmp123 = icmp eq i128 %coerce122.sroa.0.0.insert.insert, 1
   %call125 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp123, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2993, ptr noundef nonnull @.str.57)
@@ -9331,13 +9261,12 @@ do.body.i.i143:                                   ; preds = %do.body.i.i143, %_Z
   %retVal.sroa.0.0.i.i144 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit ], [ %asmresult.i.i153, %do.body.i.i143 ]
   %retVal.sroa.7.0.i.i145 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit ], [ %asmresult16.i.i154, %do.body.i.i143 ]
   %xor.i.i = xor i64 %retVal.sroa.0.0.i.i144, 1
-  %65 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic126, ptr nonnull elementtype(i8) %cmpxchgRet.i.i139, i64 %xor.i.i, i64 %retVal.sroa.7.0.i.i145, i64 %retVal.sroa.0.0.i.i144, i64 %retVal.sroa.7.0.i.i145, ptr nonnull elementtype(i128) %atomic126) #7, !srcloc !47
-  %asmresult.i.i153 = extractvalue { i64, i64 } %65, 0
-  %asmresult16.i.i154 = extractvalue { i64, i64 } %65, 1
-  %66 = load i8, ptr %cmpxchgRet.i.i139, align 1
-  %67 = and i8 %66, 1
-  %tobool.not.i.i155 = icmp eq i8 %67, 0
-  br i1 %tobool.not.i.i155, label %do.body.i.i143, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEeOEo.exit, !llvm.loop !48
+  %56 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic126, ptr nonnull elementtype(i8) %cmpxchgRet.i.i139, i64 %xor.i.i, i64 %retVal.sroa.7.0.i.i145, i64 %retVal.sroa.0.0.i.i144, i64 %retVal.sroa.7.0.i.i145, ptr nonnull elementtype(i128) %atomic126) #7, !srcloc !47
+  %asmresult.i.i153 = extractvalue { i64, i64 } %56, 0
+  %asmresult16.i.i154 = extractvalue { i64, i64 } %56, 1
+  %57 = load i8, ptr %cmpxchgRet.i.i139, align 1
+  %tobool.i.i155 = trunc i8 %57 to i1
+  br i1 %tobool.i.i155, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEeOEo.exit, label %do.body.i.i143, !llvm.loop !48
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEeOEo.exit: ; preds = %do.body.i.i143
   %xor17.i.i = xor i64 %asmresult.i.i153, 1
@@ -9348,12 +9277,12 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EEeOEo.exit: ; preds = %do.body.i
   %coerce131.sroa.0.0.insert.insert = or disjoint i128 %coerce131.sroa.2.0.insert.shift, %coerce131.sroa.0.0.insert.ext
   %cmp132 = icmp eq i128 %coerce131.sroa.0.0.insert.insert, 0
   %call134 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp132, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3001, ptr noundef nonnull @.str.56)
-  %68 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic126, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic126) #7, !srcloc !11
-  %69 = extractvalue { i64, i64 } %68, 0
-  %70 = extractvalue { i64, i64 } %68, 1
-  %coerce137.sroa.2.0.insert.ext = zext i64 %70 to i128
+  %58 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic126, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic126) #7, !srcloc !11
+  %59 = extractvalue { i64, i64 } %58, 0
+  %60 = extractvalue { i64, i64 } %58, 1
+  %coerce137.sroa.2.0.insert.ext = zext i64 %60 to i128
   %coerce137.sroa.2.0.insert.shift = shl nuw i128 %coerce137.sroa.2.0.insert.ext, 64
-  %coerce137.sroa.0.0.insert.ext = zext i64 %69 to i128
+  %coerce137.sroa.0.0.insert.ext = zext i64 %59 to i128
   %coerce137.sroa.0.0.insert.insert = or disjoint i128 %coerce137.sroa.2.0.insert.shift, %coerce137.sroa.0.0.insert.ext
   %cmp138 = icmp eq i128 %coerce137.sroa.0.0.insert.insert, 0
   %call140 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp138, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3005, ptr noundef nonnull @.str.56)
@@ -9378,18 +9307,17 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult19.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !50
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !50
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce4.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce4.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce4.sroa.2.0.insert.shift = shl nuw i128 %coerce4.sroa.2.0.insert.ext, 64
-  %coerce4.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce4.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce4.sroa.0.0.insert.insert = or disjoint i128 %coerce4.sroa.2.0.insert.shift, %coerce4.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce4.sroa.0.0.insert.insert, 0
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3029, ptr noundef nonnull @.str.59)
@@ -9400,22 +9328,21 @@ _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_
 do.body.i5:                                       ; preds = %do.body.i5, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit
   %exchange128.sroa.0.0.i6 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i8, %do.body.i5 ]
   %exchange128.sroa.3.0.i7 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult19.i9, %do.body.i5 ]
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, ptr nonnull elementtype(i8) %cmpxchgRet.i1, i64 1, i64 0, i64 %exchange128.sroa.0.0.i6, i64 %exchange128.sroa.3.0.i7, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !49
-  %asmresult.i8 = extractvalue { i64, i64 } %6, 0
-  %asmresult19.i9 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %cmpxchgRet.i1, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i10 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i10, label %do.body.i5, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit11, !llvm.loop !50
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, ptr nonnull elementtype(i8) %cmpxchgRet.i1, i64 1, i64 0, i64 %exchange128.sroa.0.0.i6, i64 %exchange128.sroa.3.0.i7, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !49
+  %asmresult.i8 = extractvalue { i64, i64 } %5, 0
+  %asmresult19.i9 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %cmpxchgRet.i1, align 1
+  %tobool.i10 = trunc i8 %6 to i1
+  br i1 %tobool.i10, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit11, label %do.body.i5, !llvm.loop !50
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit11: ; preds = %do.body.i5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce12.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce12.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce12.sroa.2.0.insert.shift = shl nuw i128 %coerce12.sroa.2.0.insert.ext, 64
-  %coerce12.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce12.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce12.sroa.0.0.insert.insert = or disjoint i128 %coerce12.sroa.2.0.insert.shift, %coerce12.sroa.0.0.insert.ext
   %cmp13 = icmp eq i128 %coerce12.sroa.0.0.insert.insert, 1
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3037, ptr noundef nonnull @.str.60)
@@ -9504,9 +9431,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult19.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !53
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !53
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -9516,12 +9442,12 @@ _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relax
   %coerce3.sroa.0.0.insert.insert = or disjoint i128 %coerce3.sroa.2.0.insert.shift, %coerce3.sroa.0.0.insert.ext
   %cmp = icmp eq i128 %coerce3.sroa.0.0.insert.insert, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3075, ptr noundef nonnull @.str.46)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce7.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce7.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce7.sroa.2.0.insert.shift = shl nuw i128 %coerce7.sroa.2.0.insert.ext, 64
-  %coerce7.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce7.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce7.sroa.0.0.insert.insert = or disjoint i128 %coerce7.sroa.2.0.insert.shift, %coerce7.sroa.0.0.insert.ext
   %cmp8 = icmp eq i128 %coerce7.sroa.0.0.insert.insert, 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3079, ptr noundef nonnull @.str.46)
@@ -9532,13 +9458,12 @@ _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relax
 do.body.i7:                                       ; preds = %do.body.i7, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i8 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i10, %do.body.i7 ]
   %retVal.sroa.4.0.i9 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult19.i11, %do.body.i7 ]
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i3, i64 1, i64 0, i64 %retVal.sroa.0.0.i8, i64 %retVal.sroa.4.0.i9, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !52
-  %asmresult.i10 = extractvalue { i64, i64 } %6, 0
-  %asmresult19.i11 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %cmpxchgRet.i3, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i12 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i12, label %do.body.i7, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit13, !llvm.loop !53
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, ptr nonnull elementtype(i8) %cmpxchgRet.i3, i64 1, i64 0, i64 %retVal.sroa.0.0.i8, i64 %retVal.sroa.4.0.i9, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !52
+  %asmresult.i10 = extractvalue { i64, i64 } %5, 0
+  %asmresult19.i11 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %cmpxchgRet.i3, align 1
+  %tobool.i12 = trunc i8 %6 to i1
+  br i1 %tobool.i12, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit13, label %do.body.i7, !llvm.loop !53
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit13: ; preds = %do.body.i7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i3)
@@ -9548,12 +9473,12 @@ _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relax
   %coerce17.sroa.0.0.insert.insert = or disjoint i128 %coerce17.sroa.2.0.insert.shift, %coerce17.sroa.0.0.insert.ext
   %cmp18 = icmp eq i128 %coerce17.sroa.0.0.insert.insert, 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3087, ptr noundef nonnull @.str.46)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce23.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic11, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic11) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce23.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
-  %coerce23.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce23.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   %cmp24 = icmp eq i128 %coerce23.sroa.0.0.insert.insert, 1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3091, ptr noundef nonnull @.str.47)
@@ -9571,10 +9496,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i)
   %0 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %retVal.i, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !54
   %1 = load i8, ptr %retVal.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %asmresult21.i = extractvalue { i64, i64 } %0, 1
@@ -9586,12 +9510,12 @@ if.then:                                          ; preds = %entry
   %observed.sroa.0.0.insert.insert = or disjoint i128 %observed.sroa.4.0.insert.shift, %observed.sroa.0.0.insert.ext
   %cmp7 = icmp eq i128 %observed.sroa.0.0.insert.insert, 0
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3107, ptr noundef nonnull @.str.64)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce12.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce12.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce12.sroa.2.0.insert.shift = shl nuw i128 %coerce12.sroa.2.0.insert.ext, 64
-  %coerce12.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce12.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce12.sroa.0.0.insert.insert = or disjoint i128 %coerce12.sroa.2.0.insert.shift, %coerce12.sroa.0.0.insert.ext
   %cmp13 = icmp eq i128 %coerce12.sroa.0.0.insert.insert, 1
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3108, ptr noundef nonnull @.str.60)
@@ -9600,26 +9524,26 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   store i128 0, ptr %atomic16, align 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i2)
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic16, ptr nonnull elementtype(i8) %retVal.i2, i64 1, i64 0, i64 1, i64 0, ptr nonnull elementtype(i128) %atomic16) #7, !srcloc !54
-  %asmresult.i4 = extractvalue { i64, i64 } %6, 0
-  %asmresult21.i5 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %retVal.i2, align 1
-  %8 = and i8 %7, 1
-  %tobool.i6.not = icmp eq i8 %8, 0
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic16, ptr nonnull elementtype(i8) %retVal.i2, i64 1, i64 0, i64 1, i64 0, ptr nonnull elementtype(i128) %atomic16) #7, !srcloc !54
+  %asmresult.i4 = extractvalue { i64, i64 } %5, 0
+  %asmresult21.i5 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %retVal.i2, align 1
+  %tobool.i6 = trunc i8 %6 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i2)
-  %call28 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i6.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3118, ptr noundef nonnull @.str.3)
+  %cmp26 = xor i1 %tobool.i6, true
+  %call28 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp26, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3118, ptr noundef nonnull @.str.3)
   %observed18.sroa.4.0.insert.ext = zext i64 %asmresult21.i5 to i128
   %observed18.sroa.4.0.insert.shift = shl nuw i128 %observed18.sroa.4.0.insert.ext, 64
   %observed18.sroa.0.0.insert.ext = zext i64 %asmresult.i4 to i128
   %observed18.sroa.0.0.insert.insert = or disjoint i128 %observed18.sroa.4.0.insert.shift, %observed18.sroa.0.0.insert.ext
   %cmp29 = icmp eq i128 %observed18.sroa.0.0.insert.insert, 0
   %call31 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3119, ptr noundef nonnull @.str.64)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic16, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic16) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce34.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic16, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic16) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce34.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce34.sroa.2.0.insert.shift = shl nuw i128 %coerce34.sroa.2.0.insert.ext, 64
-  %coerce34.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce34.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce34.sroa.0.0.insert.insert = or disjoint i128 %coerce34.sroa.2.0.insert.shift, %coerce34.sroa.0.0.insert.ext
   %cmp35 = icmp eq i128 %coerce34.sroa.0.0.insert.insert, 0
   %call37 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp35, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3120, ptr noundef nonnull @.str.59)
@@ -9639,8 +9563,7 @@ entry:
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult21.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %retVal.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3133, ptr noundef nonnull @.str.4)
   %observed.sroa.4.0.insert.ext = zext i64 %asmresult21.i to i128
@@ -9649,37 +9572,37 @@ entry:
   %observed.sroa.0.0.insert.insert = or disjoint i128 %observed.sroa.4.0.insert.shift, %observed.sroa.0.0.insert.ext
   %cmp4 = icmp eq i128 %observed.sroa.0.0.insert.insert, 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3134, ptr noundef nonnull @.str.64)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce9.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce9.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce9.sroa.2.0.insert.shift = shl nuw i128 %coerce9.sroa.2.0.insert.ext, 64
-  %coerce9.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce9.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce9.sroa.0.0.insert.insert = or disjoint i128 %coerce9.sroa.2.0.insert.shift, %coerce9.sroa.0.0.insert.ext
   %cmp10 = icmp eq i128 %coerce9.sroa.0.0.insert.insert, 1
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp10, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3135, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic13, align 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1)
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, ptr nonnull elementtype(i8) %retVal.i1, i64 1, i64 0, i64 1, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !55
-  %asmresult.i3 = extractvalue { i64, i64 } %6, 0
-  %asmresult21.i4 = extractvalue { i64, i64 } %6, 1
-  %7 = load i8, ptr %retVal.i1, align 1
-  %8 = and i8 %7, 1
-  %tobool.i5.not = icmp eq i8 %8, 0
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, ptr nonnull elementtype(i8) %retVal.i1, i64 1, i64 0, i64 1, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !55
+  %asmresult.i3 = extractvalue { i64, i64 } %5, 0
+  %asmresult21.i4 = extractvalue { i64, i64 } %5, 1
+  %6 = load i8, ptr %retVal.i1, align 1
+  %tobool.i5 = trunc i8 %6 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1)
-  %call25 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i5.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3144, ptr noundef nonnull @.str.3)
+  %cmp23 = xor i1 %tobool.i5, true
+  %call25 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp23, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3144, ptr noundef nonnull @.str.3)
   %observed15.sroa.4.0.insert.ext = zext i64 %asmresult21.i4 to i128
   %observed15.sroa.4.0.insert.shift = shl nuw i128 %observed15.sroa.4.0.insert.ext, 64
   %observed15.sroa.0.0.insert.ext = zext i64 %asmresult.i3 to i128
   %observed15.sroa.0.0.insert.insert = or disjoint i128 %observed15.sroa.4.0.insert.shift, %observed15.sroa.0.0.insert.ext
   %cmp26 = icmp eq i128 %observed15.sroa.0.0.insert.insert, 0
   %call28 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp26, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3145, ptr noundef nonnull @.str.64)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce31.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce31.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce31.sroa.2.0.insert.shift = shl nuw i128 %coerce31.sroa.2.0.insert.ext, 64
-  %coerce31.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce31.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce31.sroa.0.0.insert.insert = or disjoint i128 %coerce31.sroa.2.0.insert.shift, %coerce31.sroa.0.0.insert.ext
   %cmp32 = icmp eq i128 %coerce31.sroa.0.0.insert.insert, 0
   %call34 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp32, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3146, ptr noundef nonnull @.str.59)
@@ -9689,35 +9612,35 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23AtomicIntegralBasicTestIoE19TestAllMemoryOrdersEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %retVal.i1337 = alloca i8, align 1
-  %retVal.i1332 = alloca i8, align 1
-  %retVal.i1327 = alloca i8, align 1
-  %retVal.i1322 = alloca i8, align 1
-  %retVal.i1317 = alloca i8, align 1
-  %retVal.i1312 = alloca i8, align 1
-  %retVal.i1307 = alloca i8, align 1
-  %retVal.i1302 = alloca i8, align 1
-  %retVal.i1297 = alloca i8, align 1
-  %retVal.i1292 = alloca i8, align 1
-  %retVal.i1287 = alloca i8, align 1
-  %retVal.i1282 = alloca i8, align 1
-  %retVal.i1277 = alloca i8, align 1
-  %retVal.i1272 = alloca i8, align 1
-  %retVal.i1267 = alloca i8, align 1
-  %retVal.i1262 = alloca i8, align 1
-  %retVal.i1257 = alloca i8, align 1
-  %retVal.i1254 = alloca i8, align 1
-  %retVal.i1249 = alloca i8, align 1
-  %retVal.i1244 = alloca i8, align 1
-  %retVal.i1239 = alloca i8, align 1
-  %retVal.i1234 = alloca i8, align 1
-  %retVal.i1229 = alloca i8, align 1
-  %retVal.i1224 = alloca i8, align 1
-  %retVal.i1219 = alloca i8, align 1
-  %retVal.i1214 = alloca i8, align 1
-  %retVal.i1209 = alloca i8, align 1
-  %retVal.i1204 = alloca i8, align 1
-  %retVal.i1199 = alloca i8, align 1
+  %retVal.i1338 = alloca i8, align 1
+  %retVal.i1333 = alloca i8, align 1
+  %retVal.i1328 = alloca i8, align 1
+  %retVal.i1323 = alloca i8, align 1
+  %retVal.i1318 = alloca i8, align 1
+  %retVal.i1313 = alloca i8, align 1
+  %retVal.i1308 = alloca i8, align 1
+  %retVal.i1303 = alloca i8, align 1
+  %retVal.i1298 = alloca i8, align 1
+  %retVal.i1293 = alloca i8, align 1
+  %retVal.i1288 = alloca i8, align 1
+  %retVal.i1283 = alloca i8, align 1
+  %retVal.i1278 = alloca i8, align 1
+  %retVal.i1273 = alloca i8, align 1
+  %retVal.i1268 = alloca i8, align 1
+  %retVal.i1263 = alloca i8, align 1
+  %retVal.i1258 = alloca i8, align 1
+  %retVal.i1255 = alloca i8, align 1
+  %retVal.i1250 = alloca i8, align 1
+  %retVal.i1245 = alloca i8, align 1
+  %retVal.i1240 = alloca i8, align 1
+  %retVal.i1235 = alloca i8, align 1
+  %retVal.i1230 = alloca i8, align 1
+  %retVal.i1225 = alloca i8, align 1
+  %retVal.i1220 = alloca i8, align 1
+  %retVal.i1215 = alloca i8, align 1
+  %retVal.i1210 = alloca i8, align 1
+  %retVal.i1205 = alloca i8, align 1
+  %retVal.i1200 = alloca i8, align 1
   %retVal.i = alloca i8, align 1
   %cmpxchgRet.i1177 = alloca i8, align 1
   %cmpxchgRet.i1156 = alloca i8, align 1
@@ -9817,77 +9740,73 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult19.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit, !llvm.loop !57
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit, label %do.body.i, !llvm.loop !57
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1)
-  %3 = load i128, ptr %atomic, align 16
-  %exchange128.sroa.0.0.extract.trunc.i2 = trunc i128 %3 to i64
-  %exchange128.sroa.3.0.extract.shift.i3 = lshr i128 %3, 64
+  %2 = load i128, ptr %atomic, align 16
+  %exchange128.sroa.0.0.extract.trunc.i2 = trunc i128 %2 to i64
+  %exchange128.sroa.3.0.extract.shift.i3 = lshr i128 %2, 64
   %exchange128.sroa.3.0.extract.trunc.i4 = trunc i128 %exchange128.sroa.3.0.extract.shift.i3 to i64
   br label %do.body.i5
 
 do.body.i5:                                       ; preds = %do.body.i5, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit
   %exchange128.sroa.0.0.i6 = phi i64 [ %exchange128.sroa.0.0.extract.trunc.i2, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit ], [ %asmresult.i8, %do.body.i5 ]
   %exchange128.sroa.3.0.i7 = phi i64 [ %exchange128.sroa.3.0.extract.trunc.i4, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit ], [ %asmresult19.i9, %do.body.i5 ]
-  %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i1, i64 1, i64 0, i64 %exchange128.sroa.0.0.i6, i64 %exchange128.sroa.3.0.i7, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !49
-  %asmresult.i8 = extractvalue { i64, i64 } %4, 0
-  %asmresult19.i9 = extractvalue { i64, i64 } %4, 1
-  %5 = load i8, ptr %cmpxchgRet.i1, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i10 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i10, label %do.body.i5, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !50
+  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i1, i64 1, i64 0, i64 %exchange128.sroa.0.0.i6, i64 %exchange128.sroa.3.0.i7, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !49
+  %asmresult.i8 = extractvalue { i64, i64 } %3, 0
+  %asmresult19.i9 = extractvalue { i64, i64 } %3, 1
+  %4 = load i8, ptr %cmpxchgRet.i1, align 1
+  %tobool.i10 = trunc i8 %4 to i1
+  br i1 %tobool.i10, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i5, !llvm.loop !50
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i11)
-  %7 = load i128, ptr %atomic, align 16
-  %exchange128.sroa.0.0.extract.trunc.i12 = trunc i128 %7 to i64
-  %exchange128.sroa.3.0.extract.shift.i13 = lshr i128 %7, 64
+  %5 = load i128, ptr %atomic, align 16
+  %exchange128.sroa.0.0.extract.trunc.i12 = trunc i128 %5 to i64
+  %exchange128.sroa.3.0.extract.shift.i13 = lshr i128 %5, 64
   %exchange128.sroa.3.0.extract.trunc.i14 = trunc i128 %exchange128.sroa.3.0.extract.shift.i13 to i64
   br label %do.body.i15
 
 do.body.i15:                                      ; preds = %do.body.i15, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit
   %exchange128.sroa.0.0.i16 = phi i64 [ %exchange128.sroa.0.0.extract.trunc.i12, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i18, %do.body.i15 ]
   %exchange128.sroa.3.0.i17 = phi i64 [ %exchange128.sroa.3.0.extract.trunc.i14, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult19.i19, %do.body.i15 ]
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i11, i64 1, i64 0, i64 %exchange128.sroa.0.0.i16, i64 %exchange128.sroa.3.0.i17, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !58
-  %asmresult.i18 = extractvalue { i64, i64 } %8, 0
-  %asmresult19.i19 = extractvalue { i64, i64 } %8, 1
-  %9 = load i8, ptr %cmpxchgRet.i11, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i20 = icmp eq i8 %10, 0
-  br i1 %tobool.not.i20, label %do.body.i15, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_release_sE.exit, !llvm.loop !59
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i11, i64 1, i64 0, i64 %exchange128.sroa.0.0.i16, i64 %exchange128.sroa.3.0.i17, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !58
+  %asmresult.i18 = extractvalue { i64, i64 } %6, 0
+  %asmresult19.i19 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i11, align 1
+  %tobool.i20 = trunc i8 %7 to i1
+  br i1 %tobool.i20, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_release_sE.exit, label %do.body.i15, !llvm.loop !59
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i21)
-  %11 = load i128, ptr %atomic, align 16
-  %exchange128.sroa.0.0.extract.trunc.i22 = trunc i128 %11 to i64
-  %exchange128.sroa.3.0.extract.shift.i23 = lshr i128 %11, 64
+  %8 = load i128, ptr %atomic, align 16
+  %exchange128.sroa.0.0.extract.trunc.i22 = trunc i128 %8 to i64
+  %exchange128.sroa.3.0.extract.shift.i23 = lshr i128 %8, 64
   %exchange128.sroa.3.0.extract.trunc.i24 = trunc i128 %exchange128.sroa.3.0.extract.shift.i23 to i64
   br label %do.body.i25
 
 do.body.i25:                                      ; preds = %do.body.i25, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_release_sE.exit
   %exchange128.sroa.0.0.i26 = phi i64 [ %exchange128.sroa.0.0.extract.trunc.i22, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i28, %do.body.i25 ]
   %exchange128.sroa.3.0.i27 = phi i64 [ %exchange128.sroa.3.0.extract.trunc.i24, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_release_sE.exit ], [ %asmresult19.i29, %do.body.i25 ]
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i21, i64 1, i64 0, i64 %exchange128.sroa.0.0.i26, i64 %exchange128.sroa.3.0.i27, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !33
-  %asmresult.i28 = extractvalue { i64, i64 } %12, 0
-  %asmresult19.i29 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %cmpxchgRet.i21, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i30 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i30, label %do.body.i25, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !34
+  %9 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i21, i64 1, i64 0, i64 %exchange128.sroa.0.0.i26, i64 %exchange128.sroa.3.0.i27, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !33
+  %asmresult.i28 = extractvalue { i64, i64 } %9, 0
+  %asmresult19.i29 = extractvalue { i64, i64 } %9, 1
+  %10 = load i8, ptr %cmpxchgRet.i21, align 1
+  %tobool.i30 = trunc i8 %10 to i1
+  br i1 %tobool.i30, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i25, !llvm.loop !34
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic7, i8 0, i64 16, i1 false)
-  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !9
-  %16 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !11
-  %17 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !60
-  %18 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !51
+  %11 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !9
+  %12 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !11
+  %13 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !60
+  %14 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic7, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic7) #7, !srcloc !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic18, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i31)
   br label %do.body.i32
@@ -9895,113 +9814,107 @@ _ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_
 do.body.i32:                                      ; preds = %do.body.i32, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_sE.exit
   %retVal.sroa.0.0.i = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i33, %do.body.i32 ]
   %retVal.sroa.4.0.i = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult19.i34, %do.body.i32 ]
-  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i31, i64 1, i64 0, i64 %retVal.sroa.0.0.i, i64 %retVal.sroa.4.0.i, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !61
-  %asmresult.i33 = extractvalue { i64, i64 } %19, 0
-  %asmresult19.i34 = extractvalue { i64, i64 } %19, 1
-  %20 = load i8, ptr %cmpxchgRet.i31, align 1
-  %21 = and i8 %20, 1
-  %tobool.not.i35 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i35, label %do.body.i32, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit, !llvm.loop !62
+  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i31, i64 1, i64 0, i64 %retVal.sroa.0.0.i, i64 %retVal.sroa.4.0.i, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !61
+  %asmresult.i33 = extractvalue { i64, i64 } %15, 0
+  %asmresult19.i34 = extractvalue { i64, i64 } %15, 1
+  %16 = load i8, ptr %cmpxchgRet.i31, align 1
+  %tobool.i35 = trunc i8 %16 to i1
+  br i1 %tobool.i35, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit, label %do.body.i32, !llvm.loop !62
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit: ; preds = %do.body.i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i31)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i36)
-  %22 = load i128, ptr %atomic18, align 16
-  %retVal.sroa.0.0.extract.trunc.i37 = trunc i128 %22 to i64
-  %retVal.sroa.4.0.extract.shift.i38 = lshr i128 %22, 64
+  %17 = load i128, ptr %atomic18, align 16
+  %retVal.sroa.0.0.extract.trunc.i37 = trunc i128 %17 to i64
+  %retVal.sroa.4.0.extract.shift.i38 = lshr i128 %17, 64
   %retVal.sroa.4.0.extract.trunc.i39 = trunc i128 %retVal.sroa.4.0.extract.shift.i38 to i64
   br label %do.body.i40
 
 do.body.i40:                                      ; preds = %do.body.i40, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit
   %retVal.sroa.0.0.i41 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i37, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit ], [ %asmresult.i43, %do.body.i40 ]
   %retVal.sroa.4.0.i42 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i39, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit ], [ %asmresult19.i44, %do.body.i40 ]
-  %23 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i36, i64 1, i64 0, i64 %retVal.sroa.0.0.i41, i64 %retVal.sroa.4.0.i42, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !52
-  %asmresult.i43 = extractvalue { i64, i64 } %23, 0
-  %asmresult19.i44 = extractvalue { i64, i64 } %23, 1
-  %24 = load i8, ptr %cmpxchgRet.i36, align 1
-  %25 = and i8 %24, 1
-  %tobool.not.i45 = icmp eq i8 %25, 0
-  br i1 %tobool.not.i45, label %do.body.i40, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !53
+  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i36, i64 1, i64 0, i64 %retVal.sroa.0.0.i41, i64 %retVal.sroa.4.0.i42, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !52
+  %asmresult.i43 = extractvalue { i64, i64 } %18, 0
+  %asmresult19.i44 = extractvalue { i64, i64 } %18, 1
+  %19 = load i8, ptr %cmpxchgRet.i36, align 1
+  %tobool.i45 = trunc i8 %19 to i1
+  br i1 %tobool.i45, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i40, !llvm.loop !53
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i36)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i46)
-  %26 = load i128, ptr %atomic18, align 16
-  %retVal.sroa.0.0.extract.trunc.i47 = trunc i128 %26 to i64
-  %retVal.sroa.4.0.extract.shift.i48 = lshr i128 %26, 64
+  %20 = load i128, ptr %atomic18, align 16
+  %retVal.sroa.0.0.extract.trunc.i47 = trunc i128 %20 to i64
+  %retVal.sroa.4.0.extract.shift.i48 = lshr i128 %20, 64
   %retVal.sroa.4.0.extract.trunc.i49 = trunc i128 %retVal.sroa.4.0.extract.shift.i48 to i64
   br label %do.body.i50
 
 do.body.i50:                                      ; preds = %do.body.i50, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i51 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i47, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i53, %do.body.i50 ]
   %retVal.sroa.4.0.i52 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i49, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult19.i54, %do.body.i50 ]
-  %27 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i46, i64 1, i64 0, i64 %retVal.sroa.0.0.i51, i64 %retVal.sroa.4.0.i52, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !63
-  %asmresult.i53 = extractvalue { i64, i64 } %27, 0
-  %asmresult19.i54 = extractvalue { i64, i64 } %27, 1
-  %28 = load i8, ptr %cmpxchgRet.i46, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i55 = icmp eq i8 %29, 0
-  br i1 %tobool.not.i55, label %do.body.i50, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !64
+  %21 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i46, i64 1, i64 0, i64 %retVal.sroa.0.0.i51, i64 %retVal.sroa.4.0.i52, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !63
+  %asmresult.i53 = extractvalue { i64, i64 } %21, 0
+  %asmresult19.i54 = extractvalue { i64, i64 } %21, 1
+  %22 = load i8, ptr %cmpxchgRet.i46, align 1
+  %tobool.i55 = trunc i8 %22 to i1
+  br i1 %tobool.i55, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acquire_sE.exit, label %do.body.i50, !llvm.loop !64
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i46)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i56)
-  %30 = load i128, ptr %atomic18, align 16
-  %retVal.sroa.0.0.extract.trunc.i57 = trunc i128 %30 to i64
-  %retVal.sroa.4.0.extract.shift.i58 = lshr i128 %30, 64
+  %23 = load i128, ptr %atomic18, align 16
+  %retVal.sroa.0.0.extract.trunc.i57 = trunc i128 %23 to i64
+  %retVal.sroa.4.0.extract.shift.i58 = lshr i128 %23, 64
   %retVal.sroa.4.0.extract.trunc.i59 = trunc i128 %retVal.sroa.4.0.extract.shift.i58 to i64
   br label %do.body.i60
 
 do.body.i60:                                      ; preds = %do.body.i60, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acquire_sE.exit
   %retVal.sroa.0.0.i61 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i57, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i63, %do.body.i60 ]
   %retVal.sroa.4.0.i62 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i59, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult19.i64, %do.body.i60 ]
-  %31 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i56, i64 1, i64 0, i64 %retVal.sroa.0.0.i61, i64 %retVal.sroa.4.0.i62, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !65
-  %asmresult.i63 = extractvalue { i64, i64 } %31, 0
-  %asmresult19.i64 = extractvalue { i64, i64 } %31, 1
-  %32 = load i8, ptr %cmpxchgRet.i56, align 1
-  %33 = and i8 %32, 1
-  %tobool.not.i65 = icmp eq i8 %33, 0
-  br i1 %tobool.not.i65, label %do.body.i60, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_release_sE.exit, !llvm.loop !66
+  %24 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i56, i64 1, i64 0, i64 %retVal.sroa.0.0.i61, i64 %retVal.sroa.4.0.i62, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !65
+  %asmresult.i63 = extractvalue { i64, i64 } %24, 0
+  %asmresult19.i64 = extractvalue { i64, i64 } %24, 1
+  %25 = load i8, ptr %cmpxchgRet.i56, align 1
+  %tobool.i65 = trunc i8 %25 to i1
+  br i1 %tobool.i65, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_release_sE.exit, label %do.body.i60, !llvm.loop !66
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i60
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i56)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i66)
-  %34 = load i128, ptr %atomic18, align 16
-  %retVal.sroa.0.0.extract.trunc.i67 = trunc i128 %34 to i64
-  %retVal.sroa.4.0.extract.shift.i68 = lshr i128 %34, 64
+  %26 = load i128, ptr %atomic18, align 16
+  %retVal.sroa.0.0.extract.trunc.i67 = trunc i128 %26 to i64
+  %retVal.sroa.4.0.extract.shift.i68 = lshr i128 %26, 64
   %retVal.sroa.4.0.extract.trunc.i69 = trunc i128 %retVal.sroa.4.0.extract.shift.i68 to i64
   br label %do.body.i70
 
 do.body.i70:                                      ; preds = %do.body.i70, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_release_sE.exit
   %retVal.sroa.0.0.i71 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i67, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i73, %do.body.i70 ]
   %retVal.sroa.4.0.i72 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i69, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_release_sE.exit ], [ %asmresult19.i74, %do.body.i70 ]
-  %35 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i66, i64 1, i64 0, i64 %retVal.sroa.0.0.i71, i64 %retVal.sroa.4.0.i72, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !67
-  %asmresult.i73 = extractvalue { i64, i64 } %35, 0
-  %asmresult19.i74 = extractvalue { i64, i64 } %35, 1
-  %36 = load i8, ptr %cmpxchgRet.i66, align 1
-  %37 = and i8 %36, 1
-  %tobool.not.i75 = icmp eq i8 %37, 0
-  br i1 %tobool.not.i75, label %do.body.i70, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !68
+  %27 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i66, i64 1, i64 0, i64 %retVal.sroa.0.0.i71, i64 %retVal.sroa.4.0.i72, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !67
+  %asmresult.i73 = extractvalue { i64, i64 } %27, 0
+  %asmresult19.i74 = extractvalue { i64, i64 } %27, 1
+  %28 = load i8, ptr %cmpxchgRet.i66, align 1
+  %tobool.i75 = trunc i8 %28 to i1
+  br i1 %tobool.i75, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i70, !llvm.loop !68
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i70
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i66)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i76)
-  %38 = load i128, ptr %atomic18, align 16
-  %retVal.sroa.0.0.extract.trunc.i77 = trunc i128 %38 to i64
-  %retVal.sroa.4.0.extract.shift.i78 = lshr i128 %38, 64
+  %29 = load i128, ptr %atomic18, align 16
+  %retVal.sroa.0.0.extract.trunc.i77 = trunc i128 %29 to i64
+  %retVal.sroa.4.0.extract.shift.i78 = lshr i128 %29, 64
   %retVal.sroa.4.0.extract.trunc.i79 = trunc i128 %retVal.sroa.4.0.extract.shift.i78 to i64
   br label %do.body.i80
 
 do.body.i80:                                      ; preds = %do.body.i80, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acq_rel_sE.exit
   %retVal.sroa.0.0.i81 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i77, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i83, %do.body.i80 ]
   %retVal.sroa.4.0.i82 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i79, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult19.i84, %do.body.i80 ]
-  %39 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i76, i64 1, i64 0, i64 %retVal.sroa.0.0.i81, i64 %retVal.sroa.4.0.i82, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !69
-  %asmresult.i83 = extractvalue { i64, i64 } %39, 0
-  %asmresult19.i84 = extractvalue { i64, i64 } %39, 1
-  %40 = load i8, ptr %cmpxchgRet.i76, align 1
-  %41 = and i8 %40, 1
-  %tobool.not.i85 = icmp eq i8 %41, 0
-  br i1 %tobool.not.i85, label %do.body.i80, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !70
+  %30 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic18, ptr nonnull elementtype(i8) %cmpxchgRet.i76, i64 1, i64 0, i64 %retVal.sroa.0.0.i81, i64 %retVal.sroa.4.0.i82, ptr nonnull elementtype(i128) %atomic18) #7, !srcloc !69
+  %asmresult.i83 = extractvalue { i64, i64 } %30, 0
+  %asmresult19.i84 = extractvalue { i64, i64 } %30, 1
+  %31 = load i8, ptr %cmpxchgRet.i76, align 1
+  %tobool.i85 = trunc i8 %31 to i1
+  br i1 %tobool.i85, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i80, !llvm.loop !70
 
 _ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i80
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i76)
@@ -10015,23 +9928,22 @@ do.body.i88:                                      ; preds = %do.body.i88, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i = zext i64 %retVal.sroa.0.0.i89 to i128
   %arg.sroa.0.0.insert.insert.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i, 1
   %computedDesired.sroa.0.0.extract.trunc.i = trunc i128 %arg.sroa.0.0.insert.insert.i to i64
-  %42 = lshr i128 %arg.sroa.0.0.insert.insert.i, 64
-  %.tr.i = trunc i128 %42 to i64
+  %32 = lshr i128 %arg.sroa.0.0.insert.insert.i, 64
+  %.tr.i = trunc i128 %32 to i64
   %.narrow.i = add i64 %retVal.sroa.5.0.i, %.tr.i
-  %43 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i86, i64 %computedDesired.sroa.0.0.extract.trunc.i, i64 %.narrow.i, i64 %retVal.sroa.0.0.i89, i64 %retVal.sroa.5.0.i, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !71
-  %asmresult.i90 = extractvalue { i64, i64 } %43, 0
-  %asmresult16.i = extractvalue { i64, i64 } %43, 1
-  %44 = load i8, ptr %cmpxchgRet.i86, align 1
-  %45 = and i8 %44, 1
-  %tobool.not.i91 = icmp eq i8 %45, 0
-  br i1 %tobool.not.i91, label %do.body.i88, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit, !llvm.loop !72
+  %33 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i86, i64 %computedDesired.sroa.0.0.extract.trunc.i, i64 %.narrow.i, i64 %retVal.sroa.0.0.i89, i64 %retVal.sroa.5.0.i, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !71
+  %asmresult.i90 = extractvalue { i64, i64 } %33, 0
+  %asmresult16.i = extractvalue { i64, i64 } %33, 1
+  %34 = load i8, ptr %cmpxchgRet.i86, align 1
+  %tobool.i91 = trunc i8 %34 to i1
+  br i1 %tobool.i91, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit, label %do.body.i88, !llvm.loop !72
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit: ; preds = %do.body.i88
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i86)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i92)
-  %46 = load i128, ptr %atomic43, align 16
-  %retVal.sroa.0.0.extract.trunc.i93 = trunc i128 %46 to i64
-  %retVal.sroa.5.0.extract.shift.i94 = lshr i128 %46, 64
+  %35 = load i128, ptr %atomic43, align 16
+  %retVal.sroa.0.0.extract.trunc.i93 = trunc i128 %35 to i64
+  %retVal.sroa.5.0.extract.shift.i94 = lshr i128 %35, 64
   %retVal.sroa.5.0.extract.trunc.i95 = trunc i128 %retVal.sroa.5.0.extract.shift.i94 to i64
   br label %do.body.i96
 
@@ -10041,23 +9953,22 @@ do.body.i96:                                      ; preds = %do.body.i96, %_ZN5e
   %retVal.sroa.0.0.insert.ext.i99 = zext i64 %retVal.sroa.0.0.i97 to i128
   %arg.sroa.0.0.insert.insert.i100 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i99, 1
   %computedDesired.sroa.0.0.extract.trunc.i101 = trunc i128 %arg.sroa.0.0.insert.insert.i100 to i64
-  %47 = lshr i128 %arg.sroa.0.0.insert.insert.i100, 64
-  %.tr.i102 = trunc i128 %47 to i64
+  %36 = lshr i128 %arg.sroa.0.0.insert.insert.i100, 64
+  %.tr.i102 = trunc i128 %36 to i64
   %.narrow.i103 = add i64 %retVal.sroa.5.0.i98, %.tr.i102
-  %48 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i92, i64 %computedDesired.sroa.0.0.extract.trunc.i101, i64 %.narrow.i103, i64 %retVal.sroa.0.0.i97, i64 %retVal.sroa.5.0.i98, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !12
-  %asmresult.i104 = extractvalue { i64, i64 } %48, 0
-  %asmresult16.i105 = extractvalue { i64, i64 } %48, 1
-  %49 = load i8, ptr %cmpxchgRet.i92, align 1
-  %50 = and i8 %49, 1
-  %tobool.not.i106 = icmp eq i8 %50, 0
-  br i1 %tobool.not.i106, label %do.body.i96, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !13
+  %37 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i92, i64 %computedDesired.sroa.0.0.extract.trunc.i101, i64 %.narrow.i103, i64 %retVal.sroa.0.0.i97, i64 %retVal.sroa.5.0.i98, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !12
+  %asmresult.i104 = extractvalue { i64, i64 } %37, 0
+  %asmresult16.i105 = extractvalue { i64, i64 } %37, 1
+  %38 = load i8, ptr %cmpxchgRet.i92, align 1
+  %tobool.i106 = trunc i8 %38 to i1
+  br i1 %tobool.i106, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i96, !llvm.loop !13
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i96
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i92)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i107)
-  %51 = load i128, ptr %atomic43, align 16
-  %retVal.sroa.0.0.extract.trunc.i108 = trunc i128 %51 to i64
-  %retVal.sroa.5.0.extract.shift.i109 = lshr i128 %51, 64
+  %39 = load i128, ptr %atomic43, align 16
+  %retVal.sroa.0.0.extract.trunc.i108 = trunc i128 %39 to i64
+  %retVal.sroa.5.0.extract.shift.i109 = lshr i128 %39, 64
   %retVal.sroa.5.0.extract.trunc.i110 = trunc i128 %retVal.sroa.5.0.extract.shift.i109 to i64
   br label %do.body.i111
 
@@ -10067,23 +9978,22 @@ do.body.i111:                                     ; preds = %do.body.i111, %_ZN5
   %retVal.sroa.0.0.insert.ext.i114 = zext i64 %retVal.sroa.0.0.i112 to i128
   %arg.sroa.0.0.insert.insert.i115 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i114, 1
   %computedDesired.sroa.0.0.extract.trunc.i116 = trunc i128 %arg.sroa.0.0.insert.insert.i115 to i64
-  %52 = lshr i128 %arg.sroa.0.0.insert.insert.i115, 64
-  %.tr.i117 = trunc i128 %52 to i64
+  %40 = lshr i128 %arg.sroa.0.0.insert.insert.i115, 64
+  %.tr.i117 = trunc i128 %40 to i64
   %.narrow.i118 = add i64 %retVal.sroa.5.0.i113, %.tr.i117
-  %53 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i107, i64 %computedDesired.sroa.0.0.extract.trunc.i116, i64 %.narrow.i118, i64 %retVal.sroa.0.0.i112, i64 %retVal.sroa.5.0.i113, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !73
-  %asmresult.i119 = extractvalue { i64, i64 } %53, 0
-  %asmresult16.i120 = extractvalue { i64, i64 } %53, 1
-  %54 = load i8, ptr %cmpxchgRet.i107, align 1
-  %55 = and i8 %54, 1
-  %tobool.not.i121 = icmp eq i8 %55, 0
-  br i1 %tobool.not.i121, label %do.body.i111, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !74
+  %41 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i107, i64 %computedDesired.sroa.0.0.extract.trunc.i116, i64 %.narrow.i118, i64 %retVal.sroa.0.0.i112, i64 %retVal.sroa.5.0.i113, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !73
+  %asmresult.i119 = extractvalue { i64, i64 } %41, 0
+  %asmresult16.i120 = extractvalue { i64, i64 } %41, 1
+  %42 = load i8, ptr %cmpxchgRet.i107, align 1
+  %tobool.i121 = trunc i8 %42 to i1
+  br i1 %tobool.i121, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_acquire_sE.exit, label %do.body.i111, !llvm.loop !74
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i111
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i107)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i122)
-  %56 = load i128, ptr %atomic43, align 16
-  %retVal.sroa.0.0.extract.trunc.i123 = trunc i128 %56 to i64
-  %retVal.sroa.5.0.extract.shift.i124 = lshr i128 %56, 64
+  %43 = load i128, ptr %atomic43, align 16
+  %retVal.sroa.0.0.extract.trunc.i123 = trunc i128 %43 to i64
+  %retVal.sroa.5.0.extract.shift.i124 = lshr i128 %43, 64
   %retVal.sroa.5.0.extract.trunc.i125 = trunc i128 %retVal.sroa.5.0.extract.shift.i124 to i64
   br label %do.body.i126
 
@@ -10093,23 +10003,22 @@ do.body.i126:                                     ; preds = %do.body.i126, %_ZN5
   %retVal.sroa.0.0.insert.ext.i129 = zext i64 %retVal.sroa.0.0.i127 to i128
   %arg.sroa.0.0.insert.insert.i130 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i129, 1
   %computedDesired.sroa.0.0.extract.trunc.i131 = trunc i128 %arg.sroa.0.0.insert.insert.i130 to i64
-  %57 = lshr i128 %arg.sroa.0.0.insert.insert.i130, 64
-  %.tr.i132 = trunc i128 %57 to i64
+  %44 = lshr i128 %arg.sroa.0.0.insert.insert.i130, 64
+  %.tr.i132 = trunc i128 %44 to i64
   %.narrow.i133 = add i64 %retVal.sroa.5.0.i128, %.tr.i132
-  %58 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i122, i64 %computedDesired.sroa.0.0.extract.trunc.i131, i64 %.narrow.i133, i64 %retVal.sroa.0.0.i127, i64 %retVal.sroa.5.0.i128, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !75
-  %asmresult.i134 = extractvalue { i64, i64 } %58, 0
-  %asmresult16.i135 = extractvalue { i64, i64 } %58, 1
-  %59 = load i8, ptr %cmpxchgRet.i122, align 1
-  %60 = and i8 %59, 1
-  %tobool.not.i136 = icmp eq i8 %60, 0
-  br i1 %tobool.not.i136, label %do.body.i126, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_release_sE.exit, !llvm.loop !76
+  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i122, i64 %computedDesired.sroa.0.0.extract.trunc.i131, i64 %.narrow.i133, i64 %retVal.sroa.0.0.i127, i64 %retVal.sroa.5.0.i128, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !75
+  %asmresult.i134 = extractvalue { i64, i64 } %45, 0
+  %asmresult16.i135 = extractvalue { i64, i64 } %45, 1
+  %46 = load i8, ptr %cmpxchgRet.i122, align 1
+  %tobool.i136 = trunc i8 %46 to i1
+  br i1 %tobool.i136, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_release_sE.exit, label %do.body.i126, !llvm.loop !76
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i126
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i122)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i137)
-  %61 = load i128, ptr %atomic43, align 16
-  %retVal.sroa.0.0.extract.trunc.i138 = trunc i128 %61 to i64
-  %retVal.sroa.5.0.extract.shift.i139 = lshr i128 %61, 64
+  %47 = load i128, ptr %atomic43, align 16
+  %retVal.sroa.0.0.extract.trunc.i138 = trunc i128 %47 to i64
+  %retVal.sroa.5.0.extract.shift.i139 = lshr i128 %47, 64
   %retVal.sroa.5.0.extract.trunc.i140 = trunc i128 %retVal.sroa.5.0.extract.shift.i139 to i64
   br label %do.body.i141
 
@@ -10119,23 +10028,22 @@ do.body.i141:                                     ; preds = %do.body.i141, %_ZN5
   %retVal.sroa.0.0.insert.ext.i144 = zext i64 %retVal.sroa.0.0.i142 to i128
   %arg.sroa.0.0.insert.insert.i145 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i144, 1
   %computedDesired.sroa.0.0.extract.trunc.i146 = trunc i128 %arg.sroa.0.0.insert.insert.i145 to i64
-  %62 = lshr i128 %arg.sroa.0.0.insert.insert.i145, 64
-  %.tr.i147 = trunc i128 %62 to i64
+  %48 = lshr i128 %arg.sroa.0.0.insert.insert.i145, 64
+  %.tr.i147 = trunc i128 %48 to i64
   %.narrow.i148 = add i64 %retVal.sroa.5.0.i143, %.tr.i147
-  %63 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i137, i64 %computedDesired.sroa.0.0.extract.trunc.i146, i64 %.narrow.i148, i64 %retVal.sroa.0.0.i142, i64 %retVal.sroa.5.0.i143, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !77
-  %asmresult.i149 = extractvalue { i64, i64 } %63, 0
-  %asmresult16.i150 = extractvalue { i64, i64 } %63, 1
-  %64 = load i8, ptr %cmpxchgRet.i137, align 1
-  %65 = and i8 %64, 1
-  %tobool.not.i151 = icmp eq i8 %65, 0
-  br i1 %tobool.not.i151, label %do.body.i141, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !78
+  %49 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i137, i64 %computedDesired.sroa.0.0.extract.trunc.i146, i64 %.narrow.i148, i64 %retVal.sroa.0.0.i142, i64 %retVal.sroa.5.0.i143, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !77
+  %asmresult.i149 = extractvalue { i64, i64 } %49, 0
+  %asmresult16.i150 = extractvalue { i64, i64 } %49, 1
+  %50 = load i8, ptr %cmpxchgRet.i137, align 1
+  %tobool.i151 = trunc i8 %50 to i1
+  br i1 %tobool.i151, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i141, !llvm.loop !78
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i141
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i137)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i152)
-  %66 = load i128, ptr %atomic43, align 16
-  %retVal.sroa.0.0.extract.trunc.i153 = trunc i128 %66 to i64
-  %retVal.sroa.5.0.extract.shift.i154 = lshr i128 %66, 64
+  %51 = load i128, ptr %atomic43, align 16
+  %retVal.sroa.0.0.extract.trunc.i153 = trunc i128 %51 to i64
+  %retVal.sroa.5.0.extract.shift.i154 = lshr i128 %51, 64
   %retVal.sroa.5.0.extract.trunc.i155 = trunc i128 %retVal.sroa.5.0.extract.shift.i154 to i64
   br label %do.body.i156
 
@@ -10145,16 +10053,15 @@ do.body.i156:                                     ; preds = %do.body.i156, %_ZN5
   %retVal.sroa.0.0.insert.ext.i159 = zext i64 %retVal.sroa.0.0.i157 to i128
   %arg.sroa.0.0.insert.insert.i160 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i159, 1
   %computedDesired.sroa.0.0.extract.trunc.i161 = trunc i128 %arg.sroa.0.0.insert.insert.i160 to i64
-  %67 = lshr i128 %arg.sroa.0.0.insert.insert.i160, 64
-  %.tr.i162 = trunc i128 %67 to i64
+  %52 = lshr i128 %arg.sroa.0.0.insert.insert.i160, 64
+  %.tr.i162 = trunc i128 %52 to i64
   %.narrow.i163 = add i64 %retVal.sroa.5.0.i158, %.tr.i162
-  %68 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i152, i64 %computedDesired.sroa.0.0.extract.trunc.i161, i64 %.narrow.i163, i64 %retVal.sroa.0.0.i157, i64 %retVal.sroa.5.0.i158, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !37
-  %asmresult.i164 = extractvalue { i64, i64 } %68, 0
-  %asmresult16.i165 = extractvalue { i64, i64 } %68, 1
-  %69 = load i8, ptr %cmpxchgRet.i152, align 1
-  %70 = and i8 %69, 1
-  %tobool.not.i166 = icmp eq i8 %70, 0
-  br i1 %tobool.not.i166, label %do.body.i156, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !38
+  %53 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic43, ptr nonnull elementtype(i8) %cmpxchgRet.i152, i64 %computedDesired.sroa.0.0.extract.trunc.i161, i64 %.narrow.i163, i64 %retVal.sroa.0.0.i157, i64 %retVal.sroa.5.0.i158, ptr nonnull elementtype(i128) %atomic43) #7, !srcloc !37
+  %asmresult.i164 = extractvalue { i64, i64 } %53, 0
+  %asmresult16.i165 = extractvalue { i64, i64 } %53, 1
+  %54 = load i8, ptr %cmpxchgRet.i152, align 1
+  %tobool.i166 = trunc i8 %54 to i1
+  br i1 %tobool.i166, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i156, !llvm.loop !38
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i156
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i152)
@@ -10168,23 +10075,22 @@ do.body.i169:                                     ; preds = %do.body.i169, %_ZN5
   %retVal.sroa.0.0.insert.ext.i171 = zext i64 %retVal.sroa.0.0.i170 to i128
   %retVal.sroa.0.0.insert.insert.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i171, 1
   %computedDesired.sroa.0.0.extract.trunc.i172 = trunc i128 %retVal.sroa.0.0.insert.insert.i to i64
-  %71 = lshr i128 %retVal.sroa.0.0.insert.insert.i, 64
-  %.tr.i173 = trunc i128 %71 to i64
+  %55 = lshr i128 %retVal.sroa.0.0.insert.insert.i, 64
+  %.tr.i173 = trunc i128 %55 to i64
   %.narrow.i174 = add i64 %retVal.sroa.7.0.i, %.tr.i173
-  %72 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i167, i64 %computedDesired.sroa.0.0.extract.trunc.i172, i64 %.narrow.i174, i64 %retVal.sroa.0.0.i170, i64 %retVal.sroa.7.0.i, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !79
-  %asmresult.i175 = extractvalue { i64, i64 } %72, 0
-  %asmresult16.i176 = extractvalue { i64, i64 } %72, 1
-  %73 = load i8, ptr %cmpxchgRet.i167, align 1
-  %74 = and i8 %73, 1
-  %tobool.not.i177 = icmp eq i8 %74, 0
-  br i1 %tobool.not.i177, label %do.body.i169, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit, !llvm.loop !80
+  %56 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i167, i64 %computedDesired.sroa.0.0.extract.trunc.i172, i64 %.narrow.i174, i64 %retVal.sroa.0.0.i170, i64 %retVal.sroa.7.0.i, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !79
+  %asmresult.i175 = extractvalue { i64, i64 } %56, 0
+  %asmresult16.i176 = extractvalue { i64, i64 } %56, 1
+  %57 = load i8, ptr %cmpxchgRet.i167, align 1
+  %tobool.i177 = trunc i8 %57 to i1
+  br i1 %tobool.i177, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit, label %do.body.i169, !llvm.loop !80
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit: ; preds = %do.body.i169
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i167)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i178)
-  %75 = load i128, ptr %atomic68, align 16
-  %retVal.sroa.0.0.extract.trunc.i179 = trunc i128 %75 to i64
-  %retVal.sroa.7.0.extract.shift.i180 = lshr i128 %75, 64
+  %58 = load i128, ptr %atomic68, align 16
+  %retVal.sroa.0.0.extract.trunc.i179 = trunc i128 %58 to i64
+  %retVal.sroa.7.0.extract.shift.i180 = lshr i128 %58, 64
   %retVal.sroa.7.0.extract.trunc.i181 = trunc i128 %retVal.sroa.7.0.extract.shift.i180 to i64
   br label %do.body.i182
 
@@ -10194,23 +10100,22 @@ do.body.i182:                                     ; preds = %do.body.i182, %_ZN5
   %retVal.sroa.0.0.insert.ext.i185 = zext i64 %retVal.sroa.0.0.i183 to i128
   %retVal.sroa.0.0.insert.insert.i186 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i185, 1
   %computedDesired.sroa.0.0.extract.trunc.i187 = trunc i128 %retVal.sroa.0.0.insert.insert.i186 to i64
-  %76 = lshr i128 %retVal.sroa.0.0.insert.insert.i186, 64
-  %.tr.i188 = trunc i128 %76 to i64
+  %59 = lshr i128 %retVal.sroa.0.0.insert.insert.i186, 64
+  %.tr.i188 = trunc i128 %59 to i64
   %.narrow.i189 = add i64 %retVal.sroa.7.0.i184, %.tr.i188
-  %77 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i178, i64 %computedDesired.sroa.0.0.extract.trunc.i187, i64 %.narrow.i189, i64 %retVal.sroa.0.0.i183, i64 %retVal.sroa.7.0.i184, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !15
-  %asmresult.i190 = extractvalue { i64, i64 } %77, 0
-  %asmresult16.i191 = extractvalue { i64, i64 } %77, 1
-  %78 = load i8, ptr %cmpxchgRet.i178, align 1
-  %79 = and i8 %78, 1
-  %tobool.not.i192 = icmp eq i8 %79, 0
-  br i1 %tobool.not.i192, label %do.body.i182, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !16
+  %60 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i178, i64 %computedDesired.sroa.0.0.extract.trunc.i187, i64 %.narrow.i189, i64 %retVal.sroa.0.0.i183, i64 %retVal.sroa.7.0.i184, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !15
+  %asmresult.i190 = extractvalue { i64, i64 } %60, 0
+  %asmresult16.i191 = extractvalue { i64, i64 } %60, 1
+  %61 = load i8, ptr %cmpxchgRet.i178, align 1
+  %tobool.i192 = trunc i8 %61 to i1
+  br i1 %tobool.i192, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i182, !llvm.loop !16
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i182
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i178)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i200)
-  %80 = load i128, ptr %atomic68, align 16
-  %retVal.sroa.0.0.extract.trunc.i201 = trunc i128 %80 to i64
-  %retVal.sroa.7.0.extract.shift.i202 = lshr i128 %80, 64
+  %62 = load i128, ptr %atomic68, align 16
+  %retVal.sroa.0.0.extract.trunc.i201 = trunc i128 %62 to i64
+  %retVal.sroa.7.0.extract.shift.i202 = lshr i128 %62, 64
   %retVal.sroa.7.0.extract.trunc.i203 = trunc i128 %retVal.sroa.7.0.extract.shift.i202 to i64
   br label %do.body.i204
 
@@ -10220,23 +10125,22 @@ do.body.i204:                                     ; preds = %do.body.i204, %_ZN5
   %retVal.sroa.0.0.insert.ext.i207 = zext i64 %retVal.sroa.0.0.i205 to i128
   %retVal.sroa.0.0.insert.insert.i208 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i207, 1
   %computedDesired.sroa.0.0.extract.trunc.i209 = trunc i128 %retVal.sroa.0.0.insert.insert.i208 to i64
-  %81 = lshr i128 %retVal.sroa.0.0.insert.insert.i208, 64
-  %.tr.i210 = trunc i128 %81 to i64
+  %63 = lshr i128 %retVal.sroa.0.0.insert.insert.i208, 64
+  %.tr.i210 = trunc i128 %63 to i64
   %.narrow.i211 = add i64 %retVal.sroa.7.0.i206, %.tr.i210
-  %82 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i200, i64 %computedDesired.sroa.0.0.extract.trunc.i209, i64 %.narrow.i211, i64 %retVal.sroa.0.0.i205, i64 %retVal.sroa.7.0.i206, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !81
-  %asmresult.i212 = extractvalue { i64, i64 } %82, 0
-  %asmresult16.i213 = extractvalue { i64, i64 } %82, 1
-  %83 = load i8, ptr %cmpxchgRet.i200, align 1
-  %84 = and i8 %83, 1
-  %tobool.not.i214 = icmp eq i8 %84, 0
-  br i1 %tobool.not.i214, label %do.body.i204, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !82
+  %64 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i200, i64 %computedDesired.sroa.0.0.extract.trunc.i209, i64 %.narrow.i211, i64 %retVal.sroa.0.0.i205, i64 %retVal.sroa.7.0.i206, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !81
+  %asmresult.i212 = extractvalue { i64, i64 } %64, 0
+  %asmresult16.i213 = extractvalue { i64, i64 } %64, 1
+  %65 = load i8, ptr %cmpxchgRet.i200, align 1
+  %tobool.i214 = trunc i8 %65 to i1
+  br i1 %tobool.i214, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_acquire_sE.exit, label %do.body.i204, !llvm.loop !82
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i204
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i200)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i222)
-  %85 = load i128, ptr %atomic68, align 16
-  %retVal.sroa.0.0.extract.trunc.i223 = trunc i128 %85 to i64
-  %retVal.sroa.7.0.extract.shift.i224 = lshr i128 %85, 64
+  %66 = load i128, ptr %atomic68, align 16
+  %retVal.sroa.0.0.extract.trunc.i223 = trunc i128 %66 to i64
+  %retVal.sroa.7.0.extract.shift.i224 = lshr i128 %66, 64
   %retVal.sroa.7.0.extract.trunc.i225 = trunc i128 %retVal.sroa.7.0.extract.shift.i224 to i64
   br label %do.body.i226
 
@@ -10246,23 +10150,22 @@ do.body.i226:                                     ; preds = %do.body.i226, %_ZN5
   %retVal.sroa.0.0.insert.ext.i229 = zext i64 %retVal.sroa.0.0.i227 to i128
   %retVal.sroa.0.0.insert.insert.i230 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i229, 1
   %computedDesired.sroa.0.0.extract.trunc.i231 = trunc i128 %retVal.sroa.0.0.insert.insert.i230 to i64
-  %86 = lshr i128 %retVal.sroa.0.0.insert.insert.i230, 64
-  %.tr.i232 = trunc i128 %86 to i64
+  %67 = lshr i128 %retVal.sroa.0.0.insert.insert.i230, 64
+  %.tr.i232 = trunc i128 %67 to i64
   %.narrow.i233 = add i64 %retVal.sroa.7.0.i228, %.tr.i232
-  %87 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i222, i64 %computedDesired.sroa.0.0.extract.trunc.i231, i64 %.narrow.i233, i64 %retVal.sroa.0.0.i227, i64 %retVal.sroa.7.0.i228, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !83
-  %asmresult.i234 = extractvalue { i64, i64 } %87, 0
-  %asmresult16.i235 = extractvalue { i64, i64 } %87, 1
-  %88 = load i8, ptr %cmpxchgRet.i222, align 1
-  %89 = and i8 %88, 1
-  %tobool.not.i236 = icmp eq i8 %89, 0
-  br i1 %tobool.not.i236, label %do.body.i226, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_release_sE.exit, !llvm.loop !84
+  %68 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i222, i64 %computedDesired.sroa.0.0.extract.trunc.i231, i64 %.narrow.i233, i64 %retVal.sroa.0.0.i227, i64 %retVal.sroa.7.0.i228, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !83
+  %asmresult.i234 = extractvalue { i64, i64 } %68, 0
+  %asmresult16.i235 = extractvalue { i64, i64 } %68, 1
+  %69 = load i8, ptr %cmpxchgRet.i222, align 1
+  %tobool.i236 = trunc i8 %69 to i1
+  br i1 %tobool.i236, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_release_sE.exit, label %do.body.i226, !llvm.loop !84
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i226
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i222)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i244)
-  %90 = load i128, ptr %atomic68, align 16
-  %retVal.sroa.0.0.extract.trunc.i245 = trunc i128 %90 to i64
-  %retVal.sroa.7.0.extract.shift.i246 = lshr i128 %90, 64
+  %70 = load i128, ptr %atomic68, align 16
+  %retVal.sroa.0.0.extract.trunc.i245 = trunc i128 %70 to i64
+  %retVal.sroa.7.0.extract.shift.i246 = lshr i128 %70, 64
   %retVal.sroa.7.0.extract.trunc.i247 = trunc i128 %retVal.sroa.7.0.extract.shift.i246 to i64
   br label %do.body.i248
 
@@ -10272,23 +10175,22 @@ do.body.i248:                                     ; preds = %do.body.i248, %_ZN5
   %retVal.sroa.0.0.insert.ext.i251 = zext i64 %retVal.sroa.0.0.i249 to i128
   %retVal.sroa.0.0.insert.insert.i252 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i251, 1
   %computedDesired.sroa.0.0.extract.trunc.i253 = trunc i128 %retVal.sroa.0.0.insert.insert.i252 to i64
-  %91 = lshr i128 %retVal.sroa.0.0.insert.insert.i252, 64
-  %.tr.i254 = trunc i128 %91 to i64
+  %71 = lshr i128 %retVal.sroa.0.0.insert.insert.i252, 64
+  %.tr.i254 = trunc i128 %71 to i64
   %.narrow.i255 = add i64 %retVal.sroa.7.0.i250, %.tr.i254
-  %92 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i244, i64 %computedDesired.sroa.0.0.extract.trunc.i253, i64 %.narrow.i255, i64 %retVal.sroa.0.0.i249, i64 %retVal.sroa.7.0.i250, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !85
-  %asmresult.i256 = extractvalue { i64, i64 } %92, 0
-  %asmresult16.i257 = extractvalue { i64, i64 } %92, 1
-  %93 = load i8, ptr %cmpxchgRet.i244, align 1
-  %94 = and i8 %93, 1
-  %tobool.not.i258 = icmp eq i8 %94, 0
-  br i1 %tobool.not.i258, label %do.body.i248, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !86
+  %72 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i244, i64 %computedDesired.sroa.0.0.extract.trunc.i253, i64 %.narrow.i255, i64 %retVal.sroa.0.0.i249, i64 %retVal.sroa.7.0.i250, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !85
+  %asmresult.i256 = extractvalue { i64, i64 } %72, 0
+  %asmresult16.i257 = extractvalue { i64, i64 } %72, 1
+  %73 = load i8, ptr %cmpxchgRet.i244, align 1
+  %tobool.i258 = trunc i8 %73 to i1
+  br i1 %tobool.i258, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i248, !llvm.loop !86
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i248
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i244)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i266)
-  %95 = load i128, ptr %atomic68, align 16
-  %retVal.sroa.0.0.extract.trunc.i267 = trunc i128 %95 to i64
-  %retVal.sroa.7.0.extract.shift.i268 = lshr i128 %95, 64
+  %74 = load i128, ptr %atomic68, align 16
+  %retVal.sroa.0.0.extract.trunc.i267 = trunc i128 %74 to i64
+  %retVal.sroa.7.0.extract.shift.i268 = lshr i128 %74, 64
   %retVal.sroa.7.0.extract.trunc.i269 = trunc i128 %retVal.sroa.7.0.extract.shift.i268 to i64
   br label %do.body.i270
 
@@ -10298,16 +10200,15 @@ do.body.i270:                                     ; preds = %do.body.i270, %_ZN5
   %retVal.sroa.0.0.insert.ext.i273 = zext i64 %retVal.sroa.0.0.i271 to i128
   %retVal.sroa.0.0.insert.insert.i274 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i273, 1
   %computedDesired.sroa.0.0.extract.trunc.i275 = trunc i128 %retVal.sroa.0.0.insert.insert.i274 to i64
-  %96 = lshr i128 %retVal.sroa.0.0.insert.insert.i274, 64
-  %.tr.i276 = trunc i128 %96 to i64
+  %75 = lshr i128 %retVal.sroa.0.0.insert.insert.i274, 64
+  %.tr.i276 = trunc i128 %75 to i64
   %.narrow.i277 = add i64 %retVal.sroa.7.0.i272, %.tr.i276
-  %97 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i266, i64 %computedDesired.sroa.0.0.extract.trunc.i275, i64 %.narrow.i277, i64 %retVal.sroa.0.0.i271, i64 %retVal.sroa.7.0.i272, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !35
-  %asmresult.i278 = extractvalue { i64, i64 } %97, 0
-  %asmresult16.i279 = extractvalue { i64, i64 } %97, 1
-  %98 = load i8, ptr %cmpxchgRet.i266, align 1
-  %99 = and i8 %98, 1
-  %tobool.not.i280 = icmp eq i8 %99, 0
-  br i1 %tobool.not.i280, label %do.body.i270, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !36
+  %76 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic68, ptr nonnull elementtype(i8) %cmpxchgRet.i266, i64 %computedDesired.sroa.0.0.extract.trunc.i275, i64 %.narrow.i277, i64 %retVal.sroa.0.0.i271, i64 %retVal.sroa.7.0.i272, ptr nonnull elementtype(i128) %atomic68) #7, !srcloc !35
+  %asmresult.i278 = extractvalue { i64, i64 } %76, 0
+  %asmresult16.i279 = extractvalue { i64, i64 } %76, 1
+  %77 = load i8, ptr %cmpxchgRet.i266, align 1
+  %tobool.i280 = trunc i8 %77 to i1
+  br i1 %tobool.i280, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i270, !llvm.loop !36
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i270
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i266)
@@ -10321,23 +10222,22 @@ do.body.i292:                                     ; preds = %do.body.i292, %_ZN5
   %retVal.sroa.0.0.insert.ext.i295 = zext i64 %retVal.sroa.0.0.i293 to i128
   %retVal.sroa.0.0.insert.insert.i296 = add nsw i128 %retVal.sroa.0.0.insert.ext.i295, -1
   %computedDesired.sroa.0.0.extract.trunc.i297 = trunc i128 %retVal.sroa.0.0.insert.insert.i296 to i64
-  %100 = lshr i128 %retVal.sroa.0.0.insert.insert.i296, 64
-  %.tr.i298 = trunc i128 %100 to i64
+  %78 = lshr i128 %retVal.sroa.0.0.insert.insert.i296, 64
+  %.tr.i298 = trunc i128 %78 to i64
   %.narrow.i299 = add i64 %retVal.sroa.5.0.i294, %.tr.i298
-  %101 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i288, i64 %computedDesired.sroa.0.0.extract.trunc.i297, i64 %.narrow.i299, i64 %retVal.sroa.0.0.i293, i64 %retVal.sroa.5.0.i294, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !87
-  %asmresult.i300 = extractvalue { i64, i64 } %101, 0
-  %asmresult16.i301 = extractvalue { i64, i64 } %101, 1
-  %102 = load i8, ptr %cmpxchgRet.i288, align 1
-  %103 = and i8 %102, 1
-  %tobool.not.i302 = icmp eq i8 %103, 0
-  br i1 %tobool.not.i302, label %do.body.i292, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit, !llvm.loop !88
+  %79 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i288, i64 %computedDesired.sroa.0.0.extract.trunc.i297, i64 %.narrow.i299, i64 %retVal.sroa.0.0.i293, i64 %retVal.sroa.5.0.i294, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !87
+  %asmresult.i300 = extractvalue { i64, i64 } %79, 0
+  %asmresult16.i301 = extractvalue { i64, i64 } %79, 1
+  %80 = load i8, ptr %cmpxchgRet.i288, align 1
+  %tobool.i302 = trunc i8 %80 to i1
+  br i1 %tobool.i302, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit, label %do.body.i292, !llvm.loop !88
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit: ; preds = %do.body.i292
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i288)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i303)
-  %104 = load i128, ptr %atomic93, align 16
-  %retVal.sroa.0.0.extract.trunc.i304 = trunc i128 %104 to i64
-  %retVal.sroa.5.0.extract.shift.i305 = lshr i128 %104, 64
+  %81 = load i128, ptr %atomic93, align 16
+  %retVal.sroa.0.0.extract.trunc.i304 = trunc i128 %81 to i64
+  %retVal.sroa.5.0.extract.shift.i305 = lshr i128 %81, 64
   %retVal.sroa.5.0.extract.trunc.i306 = trunc i128 %retVal.sroa.5.0.extract.shift.i305 to i64
   br label %do.body.i307
 
@@ -10347,23 +10247,22 @@ do.body.i307:                                     ; preds = %do.body.i307, %_ZN5
   %retVal.sroa.0.0.insert.ext.i310 = zext i64 %retVal.sroa.0.0.i308 to i128
   %retVal.sroa.0.0.insert.insert.i311 = add nsw i128 %retVal.sroa.0.0.insert.ext.i310, -1
   %computedDesired.sroa.0.0.extract.trunc.i312 = trunc i128 %retVal.sroa.0.0.insert.insert.i311 to i64
-  %105 = lshr i128 %retVal.sroa.0.0.insert.insert.i311, 64
-  %.tr.i313 = trunc i128 %105 to i64
+  %82 = lshr i128 %retVal.sroa.0.0.insert.insert.i311, 64
+  %.tr.i313 = trunc i128 %82 to i64
   %.narrow.i314 = add i64 %retVal.sroa.5.0.i309, %.tr.i313
-  %106 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i303, i64 %computedDesired.sroa.0.0.extract.trunc.i312, i64 %.narrow.i314, i64 %retVal.sroa.0.0.i308, i64 %retVal.sroa.5.0.i309, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !17
-  %asmresult.i315 = extractvalue { i64, i64 } %106, 0
-  %asmresult16.i316 = extractvalue { i64, i64 } %106, 1
-  %107 = load i8, ptr %cmpxchgRet.i303, align 1
-  %108 = and i8 %107, 1
-  %tobool.not.i317 = icmp eq i8 %108, 0
-  br i1 %tobool.not.i317, label %do.body.i307, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !18
+  %83 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i303, i64 %computedDesired.sroa.0.0.extract.trunc.i312, i64 %.narrow.i314, i64 %retVal.sroa.0.0.i308, i64 %retVal.sroa.5.0.i309, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !17
+  %asmresult.i315 = extractvalue { i64, i64 } %83, 0
+  %asmresult16.i316 = extractvalue { i64, i64 } %83, 1
+  %84 = load i8, ptr %cmpxchgRet.i303, align 1
+  %tobool.i317 = trunc i8 %84 to i1
+  br i1 %tobool.i317, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i307, !llvm.loop !18
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i307
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i303)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i318)
-  %109 = load i128, ptr %atomic93, align 16
-  %retVal.sroa.0.0.extract.trunc.i319 = trunc i128 %109 to i64
-  %retVal.sroa.5.0.extract.shift.i320 = lshr i128 %109, 64
+  %85 = load i128, ptr %atomic93, align 16
+  %retVal.sroa.0.0.extract.trunc.i319 = trunc i128 %85 to i64
+  %retVal.sroa.5.0.extract.shift.i320 = lshr i128 %85, 64
   %retVal.sroa.5.0.extract.trunc.i321 = trunc i128 %retVal.sroa.5.0.extract.shift.i320 to i64
   br label %do.body.i322
 
@@ -10373,23 +10272,22 @@ do.body.i322:                                     ; preds = %do.body.i322, %_ZN5
   %retVal.sroa.0.0.insert.ext.i325 = zext i64 %retVal.sroa.0.0.i323 to i128
   %retVal.sroa.0.0.insert.insert.i326 = add nsw i128 %retVal.sroa.0.0.insert.ext.i325, -1
   %computedDesired.sroa.0.0.extract.trunc.i327 = trunc i128 %retVal.sroa.0.0.insert.insert.i326 to i64
-  %110 = lshr i128 %retVal.sroa.0.0.insert.insert.i326, 64
-  %.tr.i328 = trunc i128 %110 to i64
+  %86 = lshr i128 %retVal.sroa.0.0.insert.insert.i326, 64
+  %.tr.i328 = trunc i128 %86 to i64
   %.narrow.i329 = add i64 %retVal.sroa.5.0.i324, %.tr.i328
-  %111 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i318, i64 %computedDesired.sroa.0.0.extract.trunc.i327, i64 %.narrow.i329, i64 %retVal.sroa.0.0.i323, i64 %retVal.sroa.5.0.i324, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !89
-  %asmresult.i330 = extractvalue { i64, i64 } %111, 0
-  %asmresult16.i331 = extractvalue { i64, i64 } %111, 1
-  %112 = load i8, ptr %cmpxchgRet.i318, align 1
-  %113 = and i8 %112, 1
-  %tobool.not.i332 = icmp eq i8 %113, 0
-  br i1 %tobool.not.i332, label %do.body.i322, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !90
+  %87 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i318, i64 %computedDesired.sroa.0.0.extract.trunc.i327, i64 %.narrow.i329, i64 %retVal.sroa.0.0.i323, i64 %retVal.sroa.5.0.i324, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !89
+  %asmresult.i330 = extractvalue { i64, i64 } %87, 0
+  %asmresult16.i331 = extractvalue { i64, i64 } %87, 1
+  %88 = load i8, ptr %cmpxchgRet.i318, align 1
+  %tobool.i332 = trunc i8 %88 to i1
+  br i1 %tobool.i332, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_acquire_sE.exit, label %do.body.i322, !llvm.loop !90
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i322
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i318)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i333)
-  %114 = load i128, ptr %atomic93, align 16
-  %retVal.sroa.0.0.extract.trunc.i334 = trunc i128 %114 to i64
-  %retVal.sroa.5.0.extract.shift.i335 = lshr i128 %114, 64
+  %89 = load i128, ptr %atomic93, align 16
+  %retVal.sroa.0.0.extract.trunc.i334 = trunc i128 %89 to i64
+  %retVal.sroa.5.0.extract.shift.i335 = lshr i128 %89, 64
   %retVal.sroa.5.0.extract.trunc.i336 = trunc i128 %retVal.sroa.5.0.extract.shift.i335 to i64
   br label %do.body.i337
 
@@ -10399,23 +10297,22 @@ do.body.i337:                                     ; preds = %do.body.i337, %_ZN5
   %retVal.sroa.0.0.insert.ext.i340 = zext i64 %retVal.sroa.0.0.i338 to i128
   %retVal.sroa.0.0.insert.insert.i341 = add nsw i128 %retVal.sroa.0.0.insert.ext.i340, -1
   %computedDesired.sroa.0.0.extract.trunc.i342 = trunc i128 %retVal.sroa.0.0.insert.insert.i341 to i64
-  %115 = lshr i128 %retVal.sroa.0.0.insert.insert.i341, 64
-  %.tr.i343 = trunc i128 %115 to i64
+  %90 = lshr i128 %retVal.sroa.0.0.insert.insert.i341, 64
+  %.tr.i343 = trunc i128 %90 to i64
   %.narrow.i344 = add i64 %retVal.sroa.5.0.i339, %.tr.i343
-  %116 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i333, i64 %computedDesired.sroa.0.0.extract.trunc.i342, i64 %.narrow.i344, i64 %retVal.sroa.0.0.i338, i64 %retVal.sroa.5.0.i339, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !91
-  %asmresult.i345 = extractvalue { i64, i64 } %116, 0
-  %asmresult16.i346 = extractvalue { i64, i64 } %116, 1
-  %117 = load i8, ptr %cmpxchgRet.i333, align 1
-  %118 = and i8 %117, 1
-  %tobool.not.i347 = icmp eq i8 %118, 0
-  br i1 %tobool.not.i347, label %do.body.i337, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_release_sE.exit, !llvm.loop !92
+  %91 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i333, i64 %computedDesired.sroa.0.0.extract.trunc.i342, i64 %.narrow.i344, i64 %retVal.sroa.0.0.i338, i64 %retVal.sroa.5.0.i339, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !91
+  %asmresult.i345 = extractvalue { i64, i64 } %91, 0
+  %asmresult16.i346 = extractvalue { i64, i64 } %91, 1
+  %92 = load i8, ptr %cmpxchgRet.i333, align 1
+  %tobool.i347 = trunc i8 %92 to i1
+  br i1 %tobool.i347, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_release_sE.exit, label %do.body.i337, !llvm.loop !92
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i337
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i333)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i348)
-  %119 = load i128, ptr %atomic93, align 16
-  %retVal.sroa.0.0.extract.trunc.i349 = trunc i128 %119 to i64
-  %retVal.sroa.5.0.extract.shift.i350 = lshr i128 %119, 64
+  %93 = load i128, ptr %atomic93, align 16
+  %retVal.sroa.0.0.extract.trunc.i349 = trunc i128 %93 to i64
+  %retVal.sroa.5.0.extract.shift.i350 = lshr i128 %93, 64
   %retVal.sroa.5.0.extract.trunc.i351 = trunc i128 %retVal.sroa.5.0.extract.shift.i350 to i64
   br label %do.body.i352
 
@@ -10425,23 +10322,22 @@ do.body.i352:                                     ; preds = %do.body.i352, %_ZN5
   %retVal.sroa.0.0.insert.ext.i355 = zext i64 %retVal.sroa.0.0.i353 to i128
   %retVal.sroa.0.0.insert.insert.i356 = add nsw i128 %retVal.sroa.0.0.insert.ext.i355, -1
   %computedDesired.sroa.0.0.extract.trunc.i357 = trunc i128 %retVal.sroa.0.0.insert.insert.i356 to i64
-  %120 = lshr i128 %retVal.sroa.0.0.insert.insert.i356, 64
-  %.tr.i358 = trunc i128 %120 to i64
+  %94 = lshr i128 %retVal.sroa.0.0.insert.insert.i356, 64
+  %.tr.i358 = trunc i128 %94 to i64
   %.narrow.i359 = add i64 %retVal.sroa.5.0.i354, %.tr.i358
-  %121 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i348, i64 %computedDesired.sroa.0.0.extract.trunc.i357, i64 %.narrow.i359, i64 %retVal.sroa.0.0.i353, i64 %retVal.sroa.5.0.i354, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !93
-  %asmresult.i360 = extractvalue { i64, i64 } %121, 0
-  %asmresult16.i361 = extractvalue { i64, i64 } %121, 1
-  %122 = load i8, ptr %cmpxchgRet.i348, align 1
-  %123 = and i8 %122, 1
-  %tobool.not.i362 = icmp eq i8 %123, 0
-  br i1 %tobool.not.i362, label %do.body.i352, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !94
+  %95 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i348, i64 %computedDesired.sroa.0.0.extract.trunc.i357, i64 %.narrow.i359, i64 %retVal.sroa.0.0.i353, i64 %retVal.sroa.5.0.i354, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !93
+  %asmresult.i360 = extractvalue { i64, i64 } %95, 0
+  %asmresult16.i361 = extractvalue { i64, i64 } %95, 1
+  %96 = load i8, ptr %cmpxchgRet.i348, align 1
+  %tobool.i362 = trunc i8 %96 to i1
+  br i1 %tobool.i362, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i352, !llvm.loop !94
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i352
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i348)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i363)
-  %124 = load i128, ptr %atomic93, align 16
-  %retVal.sroa.0.0.extract.trunc.i364 = trunc i128 %124 to i64
-  %retVal.sroa.5.0.extract.shift.i365 = lshr i128 %124, 64
+  %97 = load i128, ptr %atomic93, align 16
+  %retVal.sroa.0.0.extract.trunc.i364 = trunc i128 %97 to i64
+  %retVal.sroa.5.0.extract.shift.i365 = lshr i128 %97, 64
   %retVal.sroa.5.0.extract.trunc.i366 = trunc i128 %retVal.sroa.5.0.extract.shift.i365 to i64
   br label %do.body.i367
 
@@ -10451,16 +10347,15 @@ do.body.i367:                                     ; preds = %do.body.i367, %_ZN5
   %retVal.sroa.0.0.insert.ext.i370 = zext i64 %retVal.sroa.0.0.i368 to i128
   %retVal.sroa.0.0.insert.insert.i371 = add nsw i128 %retVal.sroa.0.0.insert.ext.i370, -1
   %computedDesired.sroa.0.0.extract.trunc.i372 = trunc i128 %retVal.sroa.0.0.insert.insert.i371 to i64
-  %125 = lshr i128 %retVal.sroa.0.0.insert.insert.i371, 64
-  %.tr.i373 = trunc i128 %125 to i64
+  %98 = lshr i128 %retVal.sroa.0.0.insert.insert.i371, 64
+  %.tr.i373 = trunc i128 %98 to i64
   %.narrow.i374 = add i64 %retVal.sroa.5.0.i369, %.tr.i373
-  %126 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i363, i64 %computedDesired.sroa.0.0.extract.trunc.i372, i64 %.narrow.i374, i64 %retVal.sroa.0.0.i368, i64 %retVal.sroa.5.0.i369, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !41
-  %asmresult.i375 = extractvalue { i64, i64 } %126, 0
-  %asmresult16.i376 = extractvalue { i64, i64 } %126, 1
-  %127 = load i8, ptr %cmpxchgRet.i363, align 1
-  %128 = and i8 %127, 1
-  %tobool.not.i377 = icmp eq i8 %128, 0
-  br i1 %tobool.not.i377, label %do.body.i367, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !42
+  %99 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i363, i64 %computedDesired.sroa.0.0.extract.trunc.i372, i64 %.narrow.i374, i64 %retVal.sroa.0.0.i368, i64 %retVal.sroa.5.0.i369, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !41
+  %asmresult.i375 = extractvalue { i64, i64 } %99, 0
+  %asmresult16.i376 = extractvalue { i64, i64 } %99, 1
+  %100 = load i8, ptr %cmpxchgRet.i363, align 1
+  %tobool.i377 = trunc i8 %100 to i1
+  br i1 %tobool.i377, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i367, !llvm.loop !42
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i367
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i363)
@@ -10474,23 +10369,22 @@ do.body.i382:                                     ; preds = %do.body.i382, %_ZN5
   %retVal.sroa.0.0.insert.ext.i385 = zext i64 %retVal.sroa.0.0.i383 to i128
   %retVal.sroa.0.0.insert.insert.i386 = add nsw i128 %retVal.sroa.0.0.insert.ext.i385, -1
   %computedDesired.sroa.0.0.extract.trunc.i387 = trunc i128 %retVal.sroa.0.0.insert.insert.i386 to i64
-  %129 = lshr i128 %retVal.sroa.0.0.insert.insert.i386, 64
-  %.tr.i388 = trunc i128 %129 to i64
+  %101 = lshr i128 %retVal.sroa.0.0.insert.insert.i386, 64
+  %.tr.i388 = trunc i128 %101 to i64
   %.narrow.i389 = add i64 %retVal.sroa.7.0.i384, %.tr.i388
-  %130 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i378, i64 %computedDesired.sroa.0.0.extract.trunc.i387, i64 %.narrow.i389, i64 %retVal.sroa.0.0.i383, i64 %retVal.sroa.7.0.i384, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !95
-  %asmresult.i390 = extractvalue { i64, i64 } %130, 0
-  %asmresult16.i391 = extractvalue { i64, i64 } %130, 1
-  %131 = load i8, ptr %cmpxchgRet.i378, align 1
-  %132 = and i8 %131, 1
-  %tobool.not.i392 = icmp eq i8 %132, 0
-  br i1 %tobool.not.i392, label %do.body.i382, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit, !llvm.loop !96
+  %102 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i378, i64 %computedDesired.sroa.0.0.extract.trunc.i387, i64 %.narrow.i389, i64 %retVal.sroa.0.0.i383, i64 %retVal.sroa.7.0.i384, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !95
+  %asmresult.i390 = extractvalue { i64, i64 } %102, 0
+  %asmresult16.i391 = extractvalue { i64, i64 } %102, 1
+  %103 = load i8, ptr %cmpxchgRet.i378, align 1
+  %tobool.i392 = trunc i8 %103 to i1
+  br i1 %tobool.i392, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit, label %do.body.i382, !llvm.loop !96
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit: ; preds = %do.body.i382
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i378)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i398)
-  %133 = load i128, ptr %atomic118, align 16
-  %retVal.sroa.0.0.extract.trunc.i399 = trunc i128 %133 to i64
-  %retVal.sroa.7.0.extract.shift.i400 = lshr i128 %133, 64
+  %104 = load i128, ptr %atomic118, align 16
+  %retVal.sroa.0.0.extract.trunc.i399 = trunc i128 %104 to i64
+  %retVal.sroa.7.0.extract.shift.i400 = lshr i128 %104, 64
   %retVal.sroa.7.0.extract.trunc.i401 = trunc i128 %retVal.sroa.7.0.extract.shift.i400 to i64
   br label %do.body.i402
 
@@ -10500,23 +10394,22 @@ do.body.i402:                                     ; preds = %do.body.i402, %_ZN5
   %retVal.sroa.0.0.insert.ext.i405 = zext i64 %retVal.sroa.0.0.i403 to i128
   %retVal.sroa.0.0.insert.insert.i406 = add nsw i128 %retVal.sroa.0.0.insert.ext.i405, -1
   %computedDesired.sroa.0.0.extract.trunc.i407 = trunc i128 %retVal.sroa.0.0.insert.insert.i406 to i64
-  %134 = lshr i128 %retVal.sroa.0.0.insert.insert.i406, 64
-  %.tr.i408 = trunc i128 %134 to i64
+  %105 = lshr i128 %retVal.sroa.0.0.insert.insert.i406, 64
+  %.tr.i408 = trunc i128 %105 to i64
   %.narrow.i409 = add i64 %retVal.sroa.7.0.i404, %.tr.i408
-  %135 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i398, i64 %computedDesired.sroa.0.0.extract.trunc.i407, i64 %.narrow.i409, i64 %retVal.sroa.0.0.i403, i64 %retVal.sroa.7.0.i404, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !19
-  %asmresult.i410 = extractvalue { i64, i64 } %135, 0
-  %asmresult16.i411 = extractvalue { i64, i64 } %135, 1
-  %136 = load i8, ptr %cmpxchgRet.i398, align 1
-  %137 = and i8 %136, 1
-  %tobool.not.i412 = icmp eq i8 %137, 0
-  br i1 %tobool.not.i412, label %do.body.i402, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !20
+  %106 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i398, i64 %computedDesired.sroa.0.0.extract.trunc.i407, i64 %.narrow.i409, i64 %retVal.sroa.0.0.i403, i64 %retVal.sroa.7.0.i404, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !19
+  %asmresult.i410 = extractvalue { i64, i64 } %106, 0
+  %asmresult16.i411 = extractvalue { i64, i64 } %106, 1
+  %107 = load i8, ptr %cmpxchgRet.i398, align 1
+  %tobool.i412 = trunc i8 %107 to i1
+  br i1 %tobool.i412, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i402, !llvm.loop !20
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i402
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i398)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i420)
-  %138 = load i128, ptr %atomic118, align 16
-  %retVal.sroa.0.0.extract.trunc.i421 = trunc i128 %138 to i64
-  %retVal.sroa.7.0.extract.shift.i422 = lshr i128 %138, 64
+  %108 = load i128, ptr %atomic118, align 16
+  %retVal.sroa.0.0.extract.trunc.i421 = trunc i128 %108 to i64
+  %retVal.sroa.7.0.extract.shift.i422 = lshr i128 %108, 64
   %retVal.sroa.7.0.extract.trunc.i423 = trunc i128 %retVal.sroa.7.0.extract.shift.i422 to i64
   br label %do.body.i424
 
@@ -10526,23 +10419,22 @@ do.body.i424:                                     ; preds = %do.body.i424, %_ZN5
   %retVal.sroa.0.0.insert.ext.i427 = zext i64 %retVal.sroa.0.0.i425 to i128
   %retVal.sroa.0.0.insert.insert.i428 = add nsw i128 %retVal.sroa.0.0.insert.ext.i427, -1
   %computedDesired.sroa.0.0.extract.trunc.i429 = trunc i128 %retVal.sroa.0.0.insert.insert.i428 to i64
-  %139 = lshr i128 %retVal.sroa.0.0.insert.insert.i428, 64
-  %.tr.i430 = trunc i128 %139 to i64
+  %109 = lshr i128 %retVal.sroa.0.0.insert.insert.i428, 64
+  %.tr.i430 = trunc i128 %109 to i64
   %.narrow.i431 = add i64 %retVal.sroa.7.0.i426, %.tr.i430
-  %140 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i420, i64 %computedDesired.sroa.0.0.extract.trunc.i429, i64 %.narrow.i431, i64 %retVal.sroa.0.0.i425, i64 %retVal.sroa.7.0.i426, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !97
-  %asmresult.i432 = extractvalue { i64, i64 } %140, 0
-  %asmresult16.i433 = extractvalue { i64, i64 } %140, 1
-  %141 = load i8, ptr %cmpxchgRet.i420, align 1
-  %142 = and i8 %141, 1
-  %tobool.not.i434 = icmp eq i8 %142, 0
-  br i1 %tobool.not.i434, label %do.body.i424, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !98
+  %110 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i420, i64 %computedDesired.sroa.0.0.extract.trunc.i429, i64 %.narrow.i431, i64 %retVal.sroa.0.0.i425, i64 %retVal.sroa.7.0.i426, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !97
+  %asmresult.i432 = extractvalue { i64, i64 } %110, 0
+  %asmresult16.i433 = extractvalue { i64, i64 } %110, 1
+  %111 = load i8, ptr %cmpxchgRet.i420, align 1
+  %tobool.i434 = trunc i8 %111 to i1
+  br i1 %tobool.i434, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_acquire_sE.exit, label %do.body.i424, !llvm.loop !98
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i424
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i420)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i442)
-  %143 = load i128, ptr %atomic118, align 16
-  %retVal.sroa.0.0.extract.trunc.i443 = trunc i128 %143 to i64
-  %retVal.sroa.7.0.extract.shift.i444 = lshr i128 %143, 64
+  %112 = load i128, ptr %atomic118, align 16
+  %retVal.sroa.0.0.extract.trunc.i443 = trunc i128 %112 to i64
+  %retVal.sroa.7.0.extract.shift.i444 = lshr i128 %112, 64
   %retVal.sroa.7.0.extract.trunc.i445 = trunc i128 %retVal.sroa.7.0.extract.shift.i444 to i64
   br label %do.body.i446
 
@@ -10552,23 +10444,22 @@ do.body.i446:                                     ; preds = %do.body.i446, %_ZN5
   %retVal.sroa.0.0.insert.ext.i449 = zext i64 %retVal.sroa.0.0.i447 to i128
   %retVal.sroa.0.0.insert.insert.i450 = add nsw i128 %retVal.sroa.0.0.insert.ext.i449, -1
   %computedDesired.sroa.0.0.extract.trunc.i451 = trunc i128 %retVal.sroa.0.0.insert.insert.i450 to i64
-  %144 = lshr i128 %retVal.sroa.0.0.insert.insert.i450, 64
-  %.tr.i452 = trunc i128 %144 to i64
+  %113 = lshr i128 %retVal.sroa.0.0.insert.insert.i450, 64
+  %.tr.i452 = trunc i128 %113 to i64
   %.narrow.i453 = add i64 %retVal.sroa.7.0.i448, %.tr.i452
-  %145 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i442, i64 %computedDesired.sroa.0.0.extract.trunc.i451, i64 %.narrow.i453, i64 %retVal.sroa.0.0.i447, i64 %retVal.sroa.7.0.i448, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !99
-  %asmresult.i454 = extractvalue { i64, i64 } %145, 0
-  %asmresult16.i455 = extractvalue { i64, i64 } %145, 1
-  %146 = load i8, ptr %cmpxchgRet.i442, align 1
-  %147 = and i8 %146, 1
-  %tobool.not.i456 = icmp eq i8 %147, 0
-  br i1 %tobool.not.i456, label %do.body.i446, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_release_sE.exit, !llvm.loop !100
+  %114 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i442, i64 %computedDesired.sroa.0.0.extract.trunc.i451, i64 %.narrow.i453, i64 %retVal.sroa.0.0.i447, i64 %retVal.sroa.7.0.i448, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !99
+  %asmresult.i454 = extractvalue { i64, i64 } %114, 0
+  %asmresult16.i455 = extractvalue { i64, i64 } %114, 1
+  %115 = load i8, ptr %cmpxchgRet.i442, align 1
+  %tobool.i456 = trunc i8 %115 to i1
+  br i1 %tobool.i456, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_release_sE.exit, label %do.body.i446, !llvm.loop !100
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i446
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i442)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i464)
-  %148 = load i128, ptr %atomic118, align 16
-  %retVal.sroa.0.0.extract.trunc.i465 = trunc i128 %148 to i64
-  %retVal.sroa.7.0.extract.shift.i466 = lshr i128 %148, 64
+  %116 = load i128, ptr %atomic118, align 16
+  %retVal.sroa.0.0.extract.trunc.i465 = trunc i128 %116 to i64
+  %retVal.sroa.7.0.extract.shift.i466 = lshr i128 %116, 64
   %retVal.sroa.7.0.extract.trunc.i467 = trunc i128 %retVal.sroa.7.0.extract.shift.i466 to i64
   br label %do.body.i468
 
@@ -10578,23 +10469,22 @@ do.body.i468:                                     ; preds = %do.body.i468, %_ZN5
   %retVal.sroa.0.0.insert.ext.i471 = zext i64 %retVal.sroa.0.0.i469 to i128
   %retVal.sroa.0.0.insert.insert.i472 = add nsw i128 %retVal.sroa.0.0.insert.ext.i471, -1
   %computedDesired.sroa.0.0.extract.trunc.i473 = trunc i128 %retVal.sroa.0.0.insert.insert.i472 to i64
-  %149 = lshr i128 %retVal.sroa.0.0.insert.insert.i472, 64
-  %.tr.i474 = trunc i128 %149 to i64
+  %117 = lshr i128 %retVal.sroa.0.0.insert.insert.i472, 64
+  %.tr.i474 = trunc i128 %117 to i64
   %.narrow.i475 = add i64 %retVal.sroa.7.0.i470, %.tr.i474
-  %150 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i464, i64 %computedDesired.sroa.0.0.extract.trunc.i473, i64 %.narrow.i475, i64 %retVal.sroa.0.0.i469, i64 %retVal.sroa.7.0.i470, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !101
-  %asmresult.i476 = extractvalue { i64, i64 } %150, 0
-  %asmresult16.i477 = extractvalue { i64, i64 } %150, 1
-  %151 = load i8, ptr %cmpxchgRet.i464, align 1
-  %152 = and i8 %151, 1
-  %tobool.not.i478 = icmp eq i8 %152, 0
-  br i1 %tobool.not.i478, label %do.body.i468, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !102
+  %118 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i464, i64 %computedDesired.sroa.0.0.extract.trunc.i473, i64 %.narrow.i475, i64 %retVal.sroa.0.0.i469, i64 %retVal.sroa.7.0.i470, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !101
+  %asmresult.i476 = extractvalue { i64, i64 } %118, 0
+  %asmresult16.i477 = extractvalue { i64, i64 } %118, 1
+  %119 = load i8, ptr %cmpxchgRet.i464, align 1
+  %tobool.i478 = trunc i8 %119 to i1
+  br i1 %tobool.i478, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i468, !llvm.loop !102
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i468
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i464)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i486)
-  %153 = load i128, ptr %atomic118, align 16
-  %retVal.sroa.0.0.extract.trunc.i487 = trunc i128 %153 to i64
-  %retVal.sroa.7.0.extract.shift.i488 = lshr i128 %153, 64
+  %120 = load i128, ptr %atomic118, align 16
+  %retVal.sroa.0.0.extract.trunc.i487 = trunc i128 %120 to i64
+  %retVal.sroa.7.0.extract.shift.i488 = lshr i128 %120, 64
   %retVal.sroa.7.0.extract.trunc.i489 = trunc i128 %retVal.sroa.7.0.extract.shift.i488 to i64
   br label %do.body.i490
 
@@ -10604,16 +10494,15 @@ do.body.i490:                                     ; preds = %do.body.i490, %_ZN5
   %retVal.sroa.0.0.insert.ext.i493 = zext i64 %retVal.sroa.0.0.i491 to i128
   %retVal.sroa.0.0.insert.insert.i494 = add nsw i128 %retVal.sroa.0.0.insert.ext.i493, -1
   %computedDesired.sroa.0.0.extract.trunc.i495 = trunc i128 %retVal.sroa.0.0.insert.insert.i494 to i64
-  %154 = lshr i128 %retVal.sroa.0.0.insert.insert.i494, 64
-  %.tr.i496 = trunc i128 %154 to i64
+  %121 = lshr i128 %retVal.sroa.0.0.insert.insert.i494, 64
+  %.tr.i496 = trunc i128 %121 to i64
   %.narrow.i497 = add i64 %retVal.sroa.7.0.i492, %.tr.i496
-  %155 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i486, i64 %computedDesired.sroa.0.0.extract.trunc.i495, i64 %.narrow.i497, i64 %retVal.sroa.0.0.i491, i64 %retVal.sroa.7.0.i492, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !39
-  %asmresult.i498 = extractvalue { i64, i64 } %155, 0
-  %asmresult16.i499 = extractvalue { i64, i64 } %155, 1
-  %156 = load i8, ptr %cmpxchgRet.i486, align 1
-  %157 = and i8 %156, 1
-  %tobool.not.i500 = icmp eq i8 %157, 0
-  br i1 %tobool.not.i500, label %do.body.i490, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !40
+  %122 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic118, ptr nonnull elementtype(i8) %cmpxchgRet.i486, i64 %computedDesired.sroa.0.0.extract.trunc.i495, i64 %.narrow.i497, i64 %retVal.sroa.0.0.i491, i64 %retVal.sroa.7.0.i492, ptr nonnull elementtype(i128) %atomic118) #7, !srcloc !39
+  %asmresult.i498 = extractvalue { i64, i64 } %122, 0
+  %asmresult16.i499 = extractvalue { i64, i64 } %122, 1
+  %123 = load i8, ptr %cmpxchgRet.i486, align 1
+  %tobool.i500 = trunc i8 %123 to i1
+  br i1 %tobool.i500, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i490, !llvm.loop !40
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i490
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i486)
@@ -10624,119 +10513,113 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_
 do.body.i512:                                     ; preds = %do.body.i512, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_seq_cst_sE.exit
   %retVal.sroa.0.0.i513 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i518, %do.body.i512 ]
   %retVal.sroa.5.0.i514 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult16.i519, %do.body.i512 ]
-  %158 = and i64 %retVal.sroa.0.0.i513, 1
-  %159 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i508, i64 %158, i64 0, i64 %retVal.sroa.0.0.i513, i64 %retVal.sroa.5.0.i514, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !103
-  %asmresult.i518 = extractvalue { i64, i64 } %159, 0
-  %asmresult16.i519 = extractvalue { i64, i64 } %159, 1
-  %160 = load i8, ptr %cmpxchgRet.i508, align 1
-  %161 = and i8 %160, 1
-  %tobool.not.i520 = icmp eq i8 %161, 0
-  br i1 %tobool.not.i520, label %do.body.i512, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit, !llvm.loop !104
+  %124 = and i64 %retVal.sroa.0.0.i513, 1
+  %125 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i508, i64 %124, i64 0, i64 %retVal.sroa.0.0.i513, i64 %retVal.sroa.5.0.i514, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !103
+  %asmresult.i518 = extractvalue { i64, i64 } %125, 0
+  %asmresult16.i519 = extractvalue { i64, i64 } %125, 1
+  %126 = load i8, ptr %cmpxchgRet.i508, align 1
+  %tobool.i520 = trunc i8 %126 to i1
+  br i1 %tobool.i520, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit, label %do.body.i512, !llvm.loop !104
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit: ; preds = %do.body.i512
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i508)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i521)
-  %162 = load i128, ptr %atomic143, align 16
-  %retVal.sroa.0.0.extract.trunc.i522 = trunc i128 %162 to i64
-  %retVal.sroa.5.0.extract.shift.i523 = lshr i128 %162, 64
+  %127 = load i128, ptr %atomic143, align 16
+  %retVal.sroa.0.0.extract.trunc.i522 = trunc i128 %127 to i64
+  %retVal.sroa.5.0.extract.shift.i523 = lshr i128 %127, 64
   %retVal.sroa.5.0.extract.trunc.i524 = trunc i128 %retVal.sroa.5.0.extract.shift.i523 to i64
   br label %do.body.i525
 
 do.body.i525:                                     ; preds = %do.body.i525, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit
   %retVal.sroa.0.0.i526 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i522, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit ], [ %asmresult.i536, %do.body.i525 ]
   %retVal.sroa.5.0.i527 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i524, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit ], [ %asmresult16.i537, %do.body.i525 ]
-  %163 = and i64 %retVal.sroa.0.0.i526, 1
-  %164 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i521, i64 %163, i64 0, i64 %retVal.sroa.0.0.i526, i64 %retVal.sroa.5.0.i527, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !21
-  %asmresult.i536 = extractvalue { i64, i64 } %164, 0
-  %asmresult16.i537 = extractvalue { i64, i64 } %164, 1
-  %165 = load i8, ptr %cmpxchgRet.i521, align 1
-  %166 = and i8 %165, 1
-  %tobool.not.i538 = icmp eq i8 %166, 0
-  br i1 %tobool.not.i538, label %do.body.i525, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !22
+  %128 = and i64 %retVal.sroa.0.0.i526, 1
+  %129 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i521, i64 %128, i64 0, i64 %retVal.sroa.0.0.i526, i64 %retVal.sroa.5.0.i527, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !21
+  %asmresult.i536 = extractvalue { i64, i64 } %129, 0
+  %asmresult16.i537 = extractvalue { i64, i64 } %129, 1
+  %130 = load i8, ptr %cmpxchgRet.i521, align 1
+  %tobool.i538 = trunc i8 %130 to i1
+  br i1 %tobool.i538, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i525, !llvm.loop !22
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i525
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i521)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i539)
-  %167 = load i128, ptr %atomic143, align 16
-  %retVal.sroa.0.0.extract.trunc.i540 = trunc i128 %167 to i64
-  %retVal.sroa.5.0.extract.shift.i541 = lshr i128 %167, 64
+  %131 = load i128, ptr %atomic143, align 16
+  %retVal.sroa.0.0.extract.trunc.i540 = trunc i128 %131 to i64
+  %retVal.sroa.5.0.extract.shift.i541 = lshr i128 %131, 64
   %retVal.sroa.5.0.extract.trunc.i542 = trunc i128 %retVal.sroa.5.0.extract.shift.i541 to i64
   br label %do.body.i543
 
 do.body.i543:                                     ; preds = %do.body.i543, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i544 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i540, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i554, %do.body.i543 ]
   %retVal.sroa.5.0.i545 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i542, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i555, %do.body.i543 ]
-  %168 = and i64 %retVal.sroa.0.0.i544, 1
-  %169 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i539, i64 %168, i64 0, i64 %retVal.sroa.0.0.i544, i64 %retVal.sroa.5.0.i545, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !105
-  %asmresult.i554 = extractvalue { i64, i64 } %169, 0
-  %asmresult16.i555 = extractvalue { i64, i64 } %169, 1
-  %170 = load i8, ptr %cmpxchgRet.i539, align 1
-  %171 = and i8 %170, 1
-  %tobool.not.i556 = icmp eq i8 %171, 0
-  br i1 %tobool.not.i556, label %do.body.i543, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !106
+  %132 = and i64 %retVal.sroa.0.0.i544, 1
+  %133 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i539, i64 %132, i64 0, i64 %retVal.sroa.0.0.i544, i64 %retVal.sroa.5.0.i545, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !105
+  %asmresult.i554 = extractvalue { i64, i64 } %133, 0
+  %asmresult16.i555 = extractvalue { i64, i64 } %133, 1
+  %134 = load i8, ptr %cmpxchgRet.i539, align 1
+  %tobool.i556 = trunc i8 %134 to i1
+  br i1 %tobool.i556, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acquire_sE.exit, label %do.body.i543, !llvm.loop !106
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i543
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i539)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i557)
-  %172 = load i128, ptr %atomic143, align 16
-  %retVal.sroa.0.0.extract.trunc.i558 = trunc i128 %172 to i64
-  %retVal.sroa.5.0.extract.shift.i559 = lshr i128 %172, 64
+  %135 = load i128, ptr %atomic143, align 16
+  %retVal.sroa.0.0.extract.trunc.i558 = trunc i128 %135 to i64
+  %retVal.sroa.5.0.extract.shift.i559 = lshr i128 %135, 64
   %retVal.sroa.5.0.extract.trunc.i560 = trunc i128 %retVal.sroa.5.0.extract.shift.i559 to i64
   br label %do.body.i561
 
 do.body.i561:                                     ; preds = %do.body.i561, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acquire_sE.exit
   %retVal.sroa.0.0.i562 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i558, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i572, %do.body.i561 ]
   %retVal.sroa.5.0.i563 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i560, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult16.i573, %do.body.i561 ]
-  %173 = and i64 %retVal.sroa.0.0.i562, 1
-  %174 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i557, i64 %173, i64 0, i64 %retVal.sroa.0.0.i562, i64 %retVal.sroa.5.0.i563, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !107
-  %asmresult.i572 = extractvalue { i64, i64 } %174, 0
-  %asmresult16.i573 = extractvalue { i64, i64 } %174, 1
-  %175 = load i8, ptr %cmpxchgRet.i557, align 1
-  %176 = and i8 %175, 1
-  %tobool.not.i574 = icmp eq i8 %176, 0
-  br i1 %tobool.not.i574, label %do.body.i561, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_release_sE.exit, !llvm.loop !108
+  %136 = and i64 %retVal.sroa.0.0.i562, 1
+  %137 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i557, i64 %136, i64 0, i64 %retVal.sroa.0.0.i562, i64 %retVal.sroa.5.0.i563, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !107
+  %asmresult.i572 = extractvalue { i64, i64 } %137, 0
+  %asmresult16.i573 = extractvalue { i64, i64 } %137, 1
+  %138 = load i8, ptr %cmpxchgRet.i557, align 1
+  %tobool.i574 = trunc i8 %138 to i1
+  br i1 %tobool.i574, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_release_sE.exit, label %do.body.i561, !llvm.loop !108
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i561
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i557)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i575)
-  %177 = load i128, ptr %atomic143, align 16
-  %retVal.sroa.0.0.extract.trunc.i576 = trunc i128 %177 to i64
-  %retVal.sroa.5.0.extract.shift.i577 = lshr i128 %177, 64
+  %139 = load i128, ptr %atomic143, align 16
+  %retVal.sroa.0.0.extract.trunc.i576 = trunc i128 %139 to i64
+  %retVal.sroa.5.0.extract.shift.i577 = lshr i128 %139, 64
   %retVal.sroa.5.0.extract.trunc.i578 = trunc i128 %retVal.sroa.5.0.extract.shift.i577 to i64
   br label %do.body.i579
 
 do.body.i579:                                     ; preds = %do.body.i579, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_release_sE.exit
   %retVal.sroa.0.0.i580 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i576, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i590, %do.body.i579 ]
   %retVal.sroa.5.0.i581 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i578, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_release_sE.exit ], [ %asmresult16.i591, %do.body.i579 ]
-  %178 = and i64 %retVal.sroa.0.0.i580, 1
-  %179 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i575, i64 %178, i64 0, i64 %retVal.sroa.0.0.i580, i64 %retVal.sroa.5.0.i581, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !109
-  %asmresult.i590 = extractvalue { i64, i64 } %179, 0
-  %asmresult16.i591 = extractvalue { i64, i64 } %179, 1
-  %180 = load i8, ptr %cmpxchgRet.i575, align 1
-  %181 = and i8 %180, 1
-  %tobool.not.i592 = icmp eq i8 %181, 0
-  br i1 %tobool.not.i592, label %do.body.i579, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !110
+  %140 = and i64 %retVal.sroa.0.0.i580, 1
+  %141 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i575, i64 %140, i64 0, i64 %retVal.sroa.0.0.i580, i64 %retVal.sroa.5.0.i581, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !109
+  %asmresult.i590 = extractvalue { i64, i64 } %141, 0
+  %asmresult16.i591 = extractvalue { i64, i64 } %141, 1
+  %142 = load i8, ptr %cmpxchgRet.i575, align 1
+  %tobool.i592 = trunc i8 %142 to i1
+  br i1 %tobool.i592, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i579, !llvm.loop !110
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i579
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i575)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i593)
-  %182 = load i128, ptr %atomic143, align 16
-  %retVal.sroa.0.0.extract.trunc.i594 = trunc i128 %182 to i64
-  %retVal.sroa.5.0.extract.shift.i595 = lshr i128 %182, 64
+  %143 = load i128, ptr %atomic143, align 16
+  %retVal.sroa.0.0.extract.trunc.i594 = trunc i128 %143 to i64
+  %retVal.sroa.5.0.extract.shift.i595 = lshr i128 %143, 64
   %retVal.sroa.5.0.extract.trunc.i596 = trunc i128 %retVal.sroa.5.0.extract.shift.i595 to i64
   br label %do.body.i597
 
 do.body.i597:                                     ; preds = %do.body.i597, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acq_rel_sE.exit
   %retVal.sroa.0.0.i598 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i594, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i608, %do.body.i597 ]
   %retVal.sroa.5.0.i599 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i596, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult16.i609, %do.body.i597 ]
-  %183 = and i64 %retVal.sroa.0.0.i598, 1
-  %184 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i593, i64 %183, i64 0, i64 %retVal.sroa.0.0.i598, i64 %retVal.sroa.5.0.i599, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !111
-  %asmresult.i608 = extractvalue { i64, i64 } %184, 0
-  %asmresult16.i609 = extractvalue { i64, i64 } %184, 1
-  %185 = load i8, ptr %cmpxchgRet.i593, align 1
-  %186 = and i8 %185, 1
-  %tobool.not.i610 = icmp eq i8 %186, 0
-  br i1 %tobool.not.i610, label %do.body.i597, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !112
+  %144 = and i64 %retVal.sroa.0.0.i598, 1
+  %145 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic143, ptr nonnull elementtype(i8) %cmpxchgRet.i593, i64 %144, i64 0, i64 %retVal.sroa.0.0.i598, i64 %retVal.sroa.5.0.i599, ptr nonnull elementtype(i128) %atomic143) #7, !srcloc !111
+  %asmresult.i608 = extractvalue { i64, i64 } %145, 0
+  %asmresult16.i609 = extractvalue { i64, i64 } %145, 1
+  %146 = load i8, ptr %cmpxchgRet.i593, align 1
+  %tobool.i610 = trunc i8 %146 to i1
+  br i1 %tobool.i610, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i597, !llvm.loop !112
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i597
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i593)
@@ -10747,119 +10630,113 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_
 do.body.i615:                                     ; preds = %do.body.i615, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_seq_cst_sE.exit
   %retVal.sroa.0.0.i616 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i624, %do.body.i615 ]
   %retVal.sroa.7.0.i617 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult16.i625, %do.body.i615 ]
-  %187 = and i64 %retVal.sroa.0.0.i616, 1
-  %188 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i611, i64 %187, i64 0, i64 %retVal.sroa.0.0.i616, i64 %retVal.sroa.7.0.i617, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !113
-  %asmresult.i624 = extractvalue { i64, i64 } %188, 0
-  %asmresult16.i625 = extractvalue { i64, i64 } %188, 1
-  %189 = load i8, ptr %cmpxchgRet.i611, align 1
-  %190 = and i8 %189, 1
-  %tobool.not.i626 = icmp eq i8 %190, 0
-  br i1 %tobool.not.i626, label %do.body.i615, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit, !llvm.loop !114
+  %147 = and i64 %retVal.sroa.0.0.i616, 1
+  %148 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i611, i64 %147, i64 0, i64 %retVal.sroa.0.0.i616, i64 %retVal.sroa.7.0.i617, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !113
+  %asmresult.i624 = extractvalue { i64, i64 } %148, 0
+  %asmresult16.i625 = extractvalue { i64, i64 } %148, 1
+  %149 = load i8, ptr %cmpxchgRet.i611, align 1
+  %tobool.i626 = trunc i8 %149 to i1
+  br i1 %tobool.i626, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit, label %do.body.i615, !llvm.loop !114
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit: ; preds = %do.body.i615
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i611)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i629)
-  %191 = load i128, ptr %atomic168, align 16
-  %retVal.sroa.0.0.extract.trunc.i630 = trunc i128 %191 to i64
-  %retVal.sroa.7.0.extract.shift.i631 = lshr i128 %191, 64
+  %150 = load i128, ptr %atomic168, align 16
+  %retVal.sroa.0.0.extract.trunc.i630 = trunc i128 %150 to i64
+  %retVal.sroa.7.0.extract.shift.i631 = lshr i128 %150, 64
   %retVal.sroa.7.0.extract.trunc.i632 = trunc i128 %retVal.sroa.7.0.extract.shift.i631 to i64
   br label %do.body.i633
 
 do.body.i633:                                     ; preds = %do.body.i633, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit
   %retVal.sroa.0.0.i634 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i630, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit ], [ %asmresult.i644, %do.body.i633 ]
   %retVal.sroa.7.0.i635 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i632, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit ], [ %asmresult16.i645, %do.body.i633 ]
-  %192 = and i64 %retVal.sroa.0.0.i634, 1
-  %193 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i629, i64 %192, i64 0, i64 %retVal.sroa.0.0.i634, i64 %retVal.sroa.7.0.i635, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !23
-  %asmresult.i644 = extractvalue { i64, i64 } %193, 0
-  %asmresult16.i645 = extractvalue { i64, i64 } %193, 1
-  %194 = load i8, ptr %cmpxchgRet.i629, align 1
-  %195 = and i8 %194, 1
-  %tobool.not.i646 = icmp eq i8 %195, 0
-  br i1 %tobool.not.i646, label %do.body.i633, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !24
+  %151 = and i64 %retVal.sroa.0.0.i634, 1
+  %152 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i629, i64 %151, i64 0, i64 %retVal.sroa.0.0.i634, i64 %retVal.sroa.7.0.i635, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !23
+  %asmresult.i644 = extractvalue { i64, i64 } %152, 0
+  %asmresult16.i645 = extractvalue { i64, i64 } %152, 1
+  %153 = load i8, ptr %cmpxchgRet.i629, align 1
+  %tobool.i646 = trunc i8 %153 to i1
+  br i1 %tobool.i646, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i633, !llvm.loop !24
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i633
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i629)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i650)
-  %196 = load i128, ptr %atomic168, align 16
-  %retVal.sroa.0.0.extract.trunc.i651 = trunc i128 %196 to i64
-  %retVal.sroa.7.0.extract.shift.i652 = lshr i128 %196, 64
+  %154 = load i128, ptr %atomic168, align 16
+  %retVal.sroa.0.0.extract.trunc.i651 = trunc i128 %154 to i64
+  %retVal.sroa.7.0.extract.shift.i652 = lshr i128 %154, 64
   %retVal.sroa.7.0.extract.trunc.i653 = trunc i128 %retVal.sroa.7.0.extract.shift.i652 to i64
   br label %do.body.i654
 
 do.body.i654:                                     ; preds = %do.body.i654, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.0.0.i655 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i651, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i665, %do.body.i654 ]
   %retVal.sroa.7.0.i656 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i653, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i666, %do.body.i654 ]
-  %197 = and i64 %retVal.sroa.0.0.i655, 1
-  %198 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i650, i64 %197, i64 0, i64 %retVal.sroa.0.0.i655, i64 %retVal.sroa.7.0.i656, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !115
-  %asmresult.i665 = extractvalue { i64, i64 } %198, 0
-  %asmresult16.i666 = extractvalue { i64, i64 } %198, 1
-  %199 = load i8, ptr %cmpxchgRet.i650, align 1
-  %200 = and i8 %199, 1
-  %tobool.not.i667 = icmp eq i8 %200, 0
-  br i1 %tobool.not.i667, label %do.body.i654, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !116
+  %155 = and i64 %retVal.sroa.0.0.i655, 1
+  %156 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i650, i64 %155, i64 0, i64 %retVal.sroa.0.0.i655, i64 %retVal.sroa.7.0.i656, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !115
+  %asmresult.i665 = extractvalue { i64, i64 } %156, 0
+  %asmresult16.i666 = extractvalue { i64, i64 } %156, 1
+  %157 = load i8, ptr %cmpxchgRet.i650, align 1
+  %tobool.i667 = trunc i8 %157 to i1
+  br i1 %tobool.i667, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acquire_sE.exit, label %do.body.i654, !llvm.loop !116
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i654
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i650)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i671)
-  %201 = load i128, ptr %atomic168, align 16
-  %retVal.sroa.0.0.extract.trunc.i672 = trunc i128 %201 to i64
-  %retVal.sroa.7.0.extract.shift.i673 = lshr i128 %201, 64
+  %158 = load i128, ptr %atomic168, align 16
+  %retVal.sroa.0.0.extract.trunc.i672 = trunc i128 %158 to i64
+  %retVal.sroa.7.0.extract.shift.i673 = lshr i128 %158, 64
   %retVal.sroa.7.0.extract.trunc.i674 = trunc i128 %retVal.sroa.7.0.extract.shift.i673 to i64
   br label %do.body.i675
 
 do.body.i675:                                     ; preds = %do.body.i675, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acquire_sE.exit
   %retVal.sroa.0.0.i676 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i672, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i686, %do.body.i675 ]
   %retVal.sroa.7.0.i677 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i674, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult16.i687, %do.body.i675 ]
-  %202 = and i64 %retVal.sroa.0.0.i676, 1
-  %203 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i671, i64 %202, i64 0, i64 %retVal.sroa.0.0.i676, i64 %retVal.sroa.7.0.i677, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !117
-  %asmresult.i686 = extractvalue { i64, i64 } %203, 0
-  %asmresult16.i687 = extractvalue { i64, i64 } %203, 1
-  %204 = load i8, ptr %cmpxchgRet.i671, align 1
-  %205 = and i8 %204, 1
-  %tobool.not.i688 = icmp eq i8 %205, 0
-  br i1 %tobool.not.i688, label %do.body.i675, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_release_sE.exit, !llvm.loop !118
+  %159 = and i64 %retVal.sroa.0.0.i676, 1
+  %160 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i671, i64 %159, i64 0, i64 %retVal.sroa.0.0.i676, i64 %retVal.sroa.7.0.i677, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !117
+  %asmresult.i686 = extractvalue { i64, i64 } %160, 0
+  %asmresult16.i687 = extractvalue { i64, i64 } %160, 1
+  %161 = load i8, ptr %cmpxchgRet.i671, align 1
+  %tobool.i688 = trunc i8 %161 to i1
+  br i1 %tobool.i688, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_release_sE.exit, label %do.body.i675, !llvm.loop !118
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i675
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i671)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i692)
-  %206 = load i128, ptr %atomic168, align 16
-  %retVal.sroa.0.0.extract.trunc.i693 = trunc i128 %206 to i64
-  %retVal.sroa.7.0.extract.shift.i694 = lshr i128 %206, 64
+  %162 = load i128, ptr %atomic168, align 16
+  %retVal.sroa.0.0.extract.trunc.i693 = trunc i128 %162 to i64
+  %retVal.sroa.7.0.extract.shift.i694 = lshr i128 %162, 64
   %retVal.sroa.7.0.extract.trunc.i695 = trunc i128 %retVal.sroa.7.0.extract.shift.i694 to i64
   br label %do.body.i696
 
 do.body.i696:                                     ; preds = %do.body.i696, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_release_sE.exit
   %retVal.sroa.0.0.i697 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i693, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i707, %do.body.i696 ]
   %retVal.sroa.7.0.i698 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i695, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_release_sE.exit ], [ %asmresult16.i708, %do.body.i696 ]
-  %207 = and i64 %retVal.sroa.0.0.i697, 1
-  %208 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i692, i64 %207, i64 0, i64 %retVal.sroa.0.0.i697, i64 %retVal.sroa.7.0.i698, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !119
-  %asmresult.i707 = extractvalue { i64, i64 } %208, 0
-  %asmresult16.i708 = extractvalue { i64, i64 } %208, 1
-  %209 = load i8, ptr %cmpxchgRet.i692, align 1
-  %210 = and i8 %209, 1
-  %tobool.not.i709 = icmp eq i8 %210, 0
-  br i1 %tobool.not.i709, label %do.body.i696, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !120
+  %163 = and i64 %retVal.sroa.0.0.i697, 1
+  %164 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i692, i64 %163, i64 0, i64 %retVal.sroa.0.0.i697, i64 %retVal.sroa.7.0.i698, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !119
+  %asmresult.i707 = extractvalue { i64, i64 } %164, 0
+  %asmresult16.i708 = extractvalue { i64, i64 } %164, 1
+  %165 = load i8, ptr %cmpxchgRet.i692, align 1
+  %tobool.i709 = trunc i8 %165 to i1
+  br i1 %tobool.i709, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i696, !llvm.loop !120
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i696
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i692)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i713)
-  %211 = load i128, ptr %atomic168, align 16
-  %retVal.sroa.0.0.extract.trunc.i714 = trunc i128 %211 to i64
-  %retVal.sroa.7.0.extract.shift.i715 = lshr i128 %211, 64
+  %166 = load i128, ptr %atomic168, align 16
+  %retVal.sroa.0.0.extract.trunc.i714 = trunc i128 %166 to i64
+  %retVal.sroa.7.0.extract.shift.i715 = lshr i128 %166, 64
   %retVal.sroa.7.0.extract.trunc.i716 = trunc i128 %retVal.sroa.7.0.extract.shift.i715 to i64
   br label %do.body.i717
 
 do.body.i717:                                     ; preds = %do.body.i717, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acq_rel_sE.exit
   %retVal.sroa.0.0.i718 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i714, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i728, %do.body.i717 ]
   %retVal.sroa.7.0.i719 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i716, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult16.i729, %do.body.i717 ]
-  %212 = and i64 %retVal.sroa.0.0.i718, 1
-  %213 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i713, i64 %212, i64 0, i64 %retVal.sroa.0.0.i718, i64 %retVal.sroa.7.0.i719, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !45
-  %asmresult.i728 = extractvalue { i64, i64 } %213, 0
-  %asmresult16.i729 = extractvalue { i64, i64 } %213, 1
-  %214 = load i8, ptr %cmpxchgRet.i713, align 1
-  %215 = and i8 %214, 1
-  %tobool.not.i730 = icmp eq i8 %215, 0
-  br i1 %tobool.not.i730, label %do.body.i717, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !46
+  %167 = and i64 %retVal.sroa.0.0.i718, 1
+  %168 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic168, ptr nonnull elementtype(i8) %cmpxchgRet.i713, i64 %167, i64 0, i64 %retVal.sroa.0.0.i718, i64 %retVal.sroa.7.0.i719, ptr nonnull elementtype(i128) %atomic168) #7, !srcloc !45
+  %asmresult.i728 = extractvalue { i64, i64 } %168, 0
+  %asmresult16.i729 = extractvalue { i64, i64 } %168, 1
+  %169 = load i8, ptr %cmpxchgRet.i713, align 1
+  %tobool.i730 = trunc i8 %169 to i1
+  br i1 %tobool.i730, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i717, !llvm.loop !46
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i717
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i713)
@@ -10871,20 +10748,19 @@ do.body.i738:                                     ; preds = %do.body.i738, %_ZN5
   %retVal.sroa.0.0.i739 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i748, %do.body.i738 ]
   %retVal.sroa.5.0.i740 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult16.i749, %do.body.i738 ]
   %or.i = or i64 %retVal.sroa.0.0.i739, 1
-  %216 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i734, i64 %or.i, i64 %retVal.sroa.5.0.i740, i64 %retVal.sroa.0.0.i739, i64 %retVal.sroa.5.0.i740, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !121
-  %asmresult.i748 = extractvalue { i64, i64 } %216, 0
-  %asmresult16.i749 = extractvalue { i64, i64 } %216, 1
-  %217 = load i8, ptr %cmpxchgRet.i734, align 1
-  %218 = and i8 %217, 1
-  %tobool.not.i750 = icmp eq i8 %218, 0
-  br i1 %tobool.not.i750, label %do.body.i738, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit, !llvm.loop !122
+  %170 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i734, i64 %or.i, i64 %retVal.sroa.5.0.i740, i64 %retVal.sroa.0.0.i739, i64 %retVal.sroa.5.0.i740, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !121
+  %asmresult.i748 = extractvalue { i64, i64 } %170, 0
+  %asmresult16.i749 = extractvalue { i64, i64 } %170, 1
+  %171 = load i8, ptr %cmpxchgRet.i734, align 1
+  %tobool.i750 = trunc i8 %171 to i1
+  br i1 %tobool.i750, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit, label %do.body.i738, !llvm.loop !122
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit: ; preds = %do.body.i738
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i734)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i751)
-  %219 = load i128, ptr %atomic193, align 16
-  %retVal.sroa.0.0.extract.trunc.i752 = trunc i128 %219 to i64
-  %retVal.sroa.5.0.extract.shift.i753 = lshr i128 %219, 64
+  %172 = load i128, ptr %atomic193, align 16
+  %retVal.sroa.0.0.extract.trunc.i752 = trunc i128 %172 to i64
+  %retVal.sroa.5.0.extract.shift.i753 = lshr i128 %172, 64
   %retVal.sroa.5.0.extract.trunc.i754 = trunc i128 %retVal.sroa.5.0.extract.shift.i753 to i64
   br label %do.body.i755
 
@@ -10892,20 +10768,19 @@ do.body.i755:                                     ; preds = %do.body.i755, %_ZN5
   %retVal.sroa.0.0.i756 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i752, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit ], [ %asmresult.i766, %do.body.i755 ]
   %retVal.sroa.5.0.i757 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i754, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit ], [ %asmresult16.i767, %do.body.i755 ]
   %or.i762 = or i64 %retVal.sroa.0.0.i756, 1
-  %220 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i751, i64 %or.i762, i64 %retVal.sroa.5.0.i757, i64 %retVal.sroa.0.0.i756, i64 %retVal.sroa.5.0.i757, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !25
-  %asmresult.i766 = extractvalue { i64, i64 } %220, 0
-  %asmresult16.i767 = extractvalue { i64, i64 } %220, 1
-  %221 = load i8, ptr %cmpxchgRet.i751, align 1
-  %222 = and i8 %221, 1
-  %tobool.not.i768 = icmp eq i8 %222, 0
-  br i1 %tobool.not.i768, label %do.body.i755, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !26
+  %173 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i751, i64 %or.i762, i64 %retVal.sroa.5.0.i757, i64 %retVal.sroa.0.0.i756, i64 %retVal.sroa.5.0.i757, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !25
+  %asmresult.i766 = extractvalue { i64, i64 } %173, 0
+  %asmresult16.i767 = extractvalue { i64, i64 } %173, 1
+  %174 = load i8, ptr %cmpxchgRet.i751, align 1
+  %tobool.i768 = trunc i8 %174 to i1
+  br i1 %tobool.i768, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i755, !llvm.loop !26
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i755
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i751)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i769)
-  %223 = load i128, ptr %atomic193, align 16
-  %retVal.sroa.0.0.extract.trunc.i770 = trunc i128 %223 to i64
-  %retVal.sroa.5.0.extract.shift.i771 = lshr i128 %223, 64
+  %175 = load i128, ptr %atomic193, align 16
+  %retVal.sroa.0.0.extract.trunc.i770 = trunc i128 %175 to i64
+  %retVal.sroa.5.0.extract.shift.i771 = lshr i128 %175, 64
   %retVal.sroa.5.0.extract.trunc.i772 = trunc i128 %retVal.sroa.5.0.extract.shift.i771 to i64
   br label %do.body.i773
 
@@ -10913,20 +10788,19 @@ do.body.i773:                                     ; preds = %do.body.i773, %_ZN5
   %retVal.sroa.0.0.i774 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i770, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i784, %do.body.i773 ]
   %retVal.sroa.5.0.i775 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i772, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i785, %do.body.i773 ]
   %or.i780 = or i64 %retVal.sroa.0.0.i774, 1
-  %224 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i769, i64 %or.i780, i64 %retVal.sroa.5.0.i775, i64 %retVal.sroa.0.0.i774, i64 %retVal.sroa.5.0.i775, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !123
-  %asmresult.i784 = extractvalue { i64, i64 } %224, 0
-  %asmresult16.i785 = extractvalue { i64, i64 } %224, 1
-  %225 = load i8, ptr %cmpxchgRet.i769, align 1
-  %226 = and i8 %225, 1
-  %tobool.not.i786 = icmp eq i8 %226, 0
-  br i1 %tobool.not.i786, label %do.body.i773, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !124
+  %176 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i769, i64 %or.i780, i64 %retVal.sroa.5.0.i775, i64 %retVal.sroa.0.0.i774, i64 %retVal.sroa.5.0.i775, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !123
+  %asmresult.i784 = extractvalue { i64, i64 } %176, 0
+  %asmresult16.i785 = extractvalue { i64, i64 } %176, 1
+  %177 = load i8, ptr %cmpxchgRet.i769, align 1
+  %tobool.i786 = trunc i8 %177 to i1
+  br i1 %tobool.i786, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acquire_sE.exit, label %do.body.i773, !llvm.loop !124
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i773
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i769)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i787)
-  %227 = load i128, ptr %atomic193, align 16
-  %retVal.sroa.0.0.extract.trunc.i788 = trunc i128 %227 to i64
-  %retVal.sroa.5.0.extract.shift.i789 = lshr i128 %227, 64
+  %178 = load i128, ptr %atomic193, align 16
+  %retVal.sroa.0.0.extract.trunc.i788 = trunc i128 %178 to i64
+  %retVal.sroa.5.0.extract.shift.i789 = lshr i128 %178, 64
   %retVal.sroa.5.0.extract.trunc.i790 = trunc i128 %retVal.sroa.5.0.extract.shift.i789 to i64
   br label %do.body.i791
 
@@ -10934,20 +10808,19 @@ do.body.i791:                                     ; preds = %do.body.i791, %_ZN5
   %retVal.sroa.0.0.i792 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i788, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i802, %do.body.i791 ]
   %retVal.sroa.5.0.i793 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i790, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult16.i803, %do.body.i791 ]
   %or.i798 = or i64 %retVal.sroa.0.0.i792, 1
-  %228 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i787, i64 %or.i798, i64 %retVal.sroa.5.0.i793, i64 %retVal.sroa.0.0.i792, i64 %retVal.sroa.5.0.i793, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !125
-  %asmresult.i802 = extractvalue { i64, i64 } %228, 0
-  %asmresult16.i803 = extractvalue { i64, i64 } %228, 1
-  %229 = load i8, ptr %cmpxchgRet.i787, align 1
-  %230 = and i8 %229, 1
-  %tobool.not.i804 = icmp eq i8 %230, 0
-  br i1 %tobool.not.i804, label %do.body.i791, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_release_sE.exit, !llvm.loop !126
+  %179 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i787, i64 %or.i798, i64 %retVal.sroa.5.0.i793, i64 %retVal.sroa.0.0.i792, i64 %retVal.sroa.5.0.i793, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !125
+  %asmresult.i802 = extractvalue { i64, i64 } %179, 0
+  %asmresult16.i803 = extractvalue { i64, i64 } %179, 1
+  %180 = load i8, ptr %cmpxchgRet.i787, align 1
+  %tobool.i804 = trunc i8 %180 to i1
+  br i1 %tobool.i804, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_release_sE.exit, label %do.body.i791, !llvm.loop !126
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i791
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i787)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i805)
-  %231 = load i128, ptr %atomic193, align 16
-  %retVal.sroa.0.0.extract.trunc.i806 = trunc i128 %231 to i64
-  %retVal.sroa.5.0.extract.shift.i807 = lshr i128 %231, 64
+  %181 = load i128, ptr %atomic193, align 16
+  %retVal.sroa.0.0.extract.trunc.i806 = trunc i128 %181 to i64
+  %retVal.sroa.5.0.extract.shift.i807 = lshr i128 %181, 64
   %retVal.sroa.5.0.extract.trunc.i808 = trunc i128 %retVal.sroa.5.0.extract.shift.i807 to i64
   br label %do.body.i809
 
@@ -10955,20 +10828,19 @@ do.body.i809:                                     ; preds = %do.body.i809, %_ZN5
   %retVal.sroa.0.0.i810 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i806, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i820, %do.body.i809 ]
   %retVal.sroa.5.0.i811 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i808, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_release_sE.exit ], [ %asmresult16.i821, %do.body.i809 ]
   %or.i816 = or i64 %retVal.sroa.0.0.i810, 1
-  %232 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i805, i64 %or.i816, i64 %retVal.sroa.5.0.i811, i64 %retVal.sroa.0.0.i810, i64 %retVal.sroa.5.0.i811, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !127
-  %asmresult.i820 = extractvalue { i64, i64 } %232, 0
-  %asmresult16.i821 = extractvalue { i64, i64 } %232, 1
-  %233 = load i8, ptr %cmpxchgRet.i805, align 1
-  %234 = and i8 %233, 1
-  %tobool.not.i822 = icmp eq i8 %234, 0
-  br i1 %tobool.not.i822, label %do.body.i809, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !128
+  %182 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i805, i64 %or.i816, i64 %retVal.sroa.5.0.i811, i64 %retVal.sroa.0.0.i810, i64 %retVal.sroa.5.0.i811, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !127
+  %asmresult.i820 = extractvalue { i64, i64 } %182, 0
+  %asmresult16.i821 = extractvalue { i64, i64 } %182, 1
+  %183 = load i8, ptr %cmpxchgRet.i805, align 1
+  %tobool.i822 = trunc i8 %183 to i1
+  br i1 %tobool.i822, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i809, !llvm.loop !128
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i809
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i805)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i823)
-  %235 = load i128, ptr %atomic193, align 16
-  %retVal.sroa.0.0.extract.trunc.i824 = trunc i128 %235 to i64
-  %retVal.sroa.5.0.extract.shift.i825 = lshr i128 %235, 64
+  %184 = load i128, ptr %atomic193, align 16
+  %retVal.sroa.0.0.extract.trunc.i824 = trunc i128 %184 to i64
+  %retVal.sroa.5.0.extract.shift.i825 = lshr i128 %184, 64
   %retVal.sroa.5.0.extract.trunc.i826 = trunc i128 %retVal.sroa.5.0.extract.shift.i825 to i64
   br label %do.body.i827
 
@@ -10976,13 +10848,12 @@ do.body.i827:                                     ; preds = %do.body.i827, %_ZN5
   %retVal.sroa.0.0.i828 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i824, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i838, %do.body.i827 ]
   %retVal.sroa.5.0.i829 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i826, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult16.i839, %do.body.i827 ]
   %or.i834 = or i64 %retVal.sroa.0.0.i828, 1
-  %236 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i823, i64 %or.i834, i64 %retVal.sroa.5.0.i829, i64 %retVal.sroa.0.0.i828, i64 %retVal.sroa.5.0.i829, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !129
-  %asmresult.i838 = extractvalue { i64, i64 } %236, 0
-  %asmresult16.i839 = extractvalue { i64, i64 } %236, 1
-  %237 = load i8, ptr %cmpxchgRet.i823, align 1
-  %238 = and i8 %237, 1
-  %tobool.not.i840 = icmp eq i8 %238, 0
-  br i1 %tobool.not.i840, label %do.body.i827, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !130
+  %185 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic193, ptr nonnull elementtype(i8) %cmpxchgRet.i823, i64 %or.i834, i64 %retVal.sroa.5.0.i829, i64 %retVal.sroa.0.0.i828, i64 %retVal.sroa.5.0.i829, ptr nonnull elementtype(i128) %atomic193) #7, !srcloc !129
+  %asmresult.i838 = extractvalue { i64, i64 } %185, 0
+  %asmresult16.i839 = extractvalue { i64, i64 } %185, 1
+  %186 = load i8, ptr %cmpxchgRet.i823, align 1
+  %tobool.i840 = trunc i8 %186 to i1
+  br i1 %tobool.i840, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i827, !llvm.loop !130
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i827
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i823)
@@ -10994,20 +10865,19 @@ do.body.i845:                                     ; preds = %do.body.i845, %_ZN5
   %retVal.sroa.0.0.i846 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i856, %do.body.i845 ]
   %retVal.sroa.7.0.i847 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult16.i857, %do.body.i845 ]
   %or.i852 = or i64 %retVal.sroa.0.0.i846, 1
-  %239 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i841, i64 %or.i852, i64 %retVal.sroa.7.0.i847, i64 %retVal.sroa.0.0.i846, i64 %retVal.sroa.7.0.i847, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !131
-  %asmresult.i856 = extractvalue { i64, i64 } %239, 0
-  %asmresult16.i857 = extractvalue { i64, i64 } %239, 1
-  %240 = load i8, ptr %cmpxchgRet.i841, align 1
-  %241 = and i8 %240, 1
-  %tobool.not.i858 = icmp eq i8 %241, 0
-  br i1 %tobool.not.i858, label %do.body.i845, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit, !llvm.loop !132
+  %187 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i841, i64 %or.i852, i64 %retVal.sroa.7.0.i847, i64 %retVal.sroa.0.0.i846, i64 %retVal.sroa.7.0.i847, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !131
+  %asmresult.i856 = extractvalue { i64, i64 } %187, 0
+  %asmresult16.i857 = extractvalue { i64, i64 } %187, 1
+  %188 = load i8, ptr %cmpxchgRet.i841, align 1
+  %tobool.i858 = trunc i8 %188 to i1
+  br i1 %tobool.i858, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit, label %do.body.i845, !llvm.loop !132
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit: ; preds = %do.body.i845
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i841)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i861)
-  %242 = load i128, ptr %atomic218, align 16
-  %retVal.sroa.0.0.extract.trunc.i862 = trunc i128 %242 to i64
-  %retVal.sroa.7.0.extract.shift.i863 = lshr i128 %242, 64
+  %189 = load i128, ptr %atomic218, align 16
+  %retVal.sroa.0.0.extract.trunc.i862 = trunc i128 %189 to i64
+  %retVal.sroa.7.0.extract.shift.i863 = lshr i128 %189, 64
   %retVal.sroa.7.0.extract.trunc.i864 = trunc i128 %retVal.sroa.7.0.extract.shift.i863 to i64
   br label %do.body.i865
 
@@ -11015,20 +10885,19 @@ do.body.i865:                                     ; preds = %do.body.i865, %_ZN5
   %retVal.sroa.0.0.i866 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i862, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit ], [ %asmresult.i876, %do.body.i865 ]
   %retVal.sroa.7.0.i867 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i864, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit ], [ %asmresult16.i877, %do.body.i865 ]
   %or.i872 = or i64 %retVal.sroa.0.0.i866, 1
-  %243 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i861, i64 %or.i872, i64 %retVal.sroa.7.0.i867, i64 %retVal.sroa.0.0.i866, i64 %retVal.sroa.7.0.i867, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !27
-  %asmresult.i876 = extractvalue { i64, i64 } %243, 0
-  %asmresult16.i877 = extractvalue { i64, i64 } %243, 1
-  %244 = load i8, ptr %cmpxchgRet.i861, align 1
-  %245 = and i8 %244, 1
-  %tobool.not.i878 = icmp eq i8 %245, 0
-  br i1 %tobool.not.i878, label %do.body.i865, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !28
+  %190 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i861, i64 %or.i872, i64 %retVal.sroa.7.0.i867, i64 %retVal.sroa.0.0.i866, i64 %retVal.sroa.7.0.i867, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !27
+  %asmresult.i876 = extractvalue { i64, i64 } %190, 0
+  %asmresult16.i877 = extractvalue { i64, i64 } %190, 1
+  %191 = load i8, ptr %cmpxchgRet.i861, align 1
+  %tobool.i878 = trunc i8 %191 to i1
+  br i1 %tobool.i878, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i865, !llvm.loop !28
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i865
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i861)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i882)
-  %246 = load i128, ptr %atomic218, align 16
-  %retVal.sroa.0.0.extract.trunc.i883 = trunc i128 %246 to i64
-  %retVal.sroa.7.0.extract.shift.i884 = lshr i128 %246, 64
+  %192 = load i128, ptr %atomic218, align 16
+  %retVal.sroa.0.0.extract.trunc.i883 = trunc i128 %192 to i64
+  %retVal.sroa.7.0.extract.shift.i884 = lshr i128 %192, 64
   %retVal.sroa.7.0.extract.trunc.i885 = trunc i128 %retVal.sroa.7.0.extract.shift.i884 to i64
   br label %do.body.i886
 
@@ -11036,20 +10905,19 @@ do.body.i886:                                     ; preds = %do.body.i886, %_ZN5
   %retVal.sroa.0.0.i887 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i883, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i897, %do.body.i886 ]
   %retVal.sroa.7.0.i888 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i885, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i898, %do.body.i886 ]
   %or.i893 = or i64 %retVal.sroa.0.0.i887, 1
-  %247 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i882, i64 %or.i893, i64 %retVal.sroa.7.0.i888, i64 %retVal.sroa.0.0.i887, i64 %retVal.sroa.7.0.i888, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !133
-  %asmresult.i897 = extractvalue { i64, i64 } %247, 0
-  %asmresult16.i898 = extractvalue { i64, i64 } %247, 1
-  %248 = load i8, ptr %cmpxchgRet.i882, align 1
-  %249 = and i8 %248, 1
-  %tobool.not.i899 = icmp eq i8 %249, 0
-  br i1 %tobool.not.i899, label %do.body.i886, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !134
+  %193 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i882, i64 %or.i893, i64 %retVal.sroa.7.0.i888, i64 %retVal.sroa.0.0.i887, i64 %retVal.sroa.7.0.i888, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !133
+  %asmresult.i897 = extractvalue { i64, i64 } %193, 0
+  %asmresult16.i898 = extractvalue { i64, i64 } %193, 1
+  %194 = load i8, ptr %cmpxchgRet.i882, align 1
+  %tobool.i899 = trunc i8 %194 to i1
+  br i1 %tobool.i899, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acquire_sE.exit, label %do.body.i886, !llvm.loop !134
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i886
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i882)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i903)
-  %250 = load i128, ptr %atomic218, align 16
-  %retVal.sroa.0.0.extract.trunc.i904 = trunc i128 %250 to i64
-  %retVal.sroa.7.0.extract.shift.i905 = lshr i128 %250, 64
+  %195 = load i128, ptr %atomic218, align 16
+  %retVal.sroa.0.0.extract.trunc.i904 = trunc i128 %195 to i64
+  %retVal.sroa.7.0.extract.shift.i905 = lshr i128 %195, 64
   %retVal.sroa.7.0.extract.trunc.i906 = trunc i128 %retVal.sroa.7.0.extract.shift.i905 to i64
   br label %do.body.i907
 
@@ -11057,20 +10925,19 @@ do.body.i907:                                     ; preds = %do.body.i907, %_ZN5
   %retVal.sroa.0.0.i908 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i904, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i918, %do.body.i907 ]
   %retVal.sroa.7.0.i909 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i906, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult16.i919, %do.body.i907 ]
   %or.i914 = or i64 %retVal.sroa.0.0.i908, 1
-  %251 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i903, i64 %or.i914, i64 %retVal.sroa.7.0.i909, i64 %retVal.sroa.0.0.i908, i64 %retVal.sroa.7.0.i909, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !135
-  %asmresult.i918 = extractvalue { i64, i64 } %251, 0
-  %asmresult16.i919 = extractvalue { i64, i64 } %251, 1
-  %252 = load i8, ptr %cmpxchgRet.i903, align 1
-  %253 = and i8 %252, 1
-  %tobool.not.i920 = icmp eq i8 %253, 0
-  br i1 %tobool.not.i920, label %do.body.i907, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_release_sE.exit, !llvm.loop !136
+  %196 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i903, i64 %or.i914, i64 %retVal.sroa.7.0.i909, i64 %retVal.sroa.0.0.i908, i64 %retVal.sroa.7.0.i909, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !135
+  %asmresult.i918 = extractvalue { i64, i64 } %196, 0
+  %asmresult16.i919 = extractvalue { i64, i64 } %196, 1
+  %197 = load i8, ptr %cmpxchgRet.i903, align 1
+  %tobool.i920 = trunc i8 %197 to i1
+  br i1 %tobool.i920, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_release_sE.exit, label %do.body.i907, !llvm.loop !136
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i907
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i903)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i924)
-  %254 = load i128, ptr %atomic218, align 16
-  %retVal.sroa.0.0.extract.trunc.i925 = trunc i128 %254 to i64
-  %retVal.sroa.7.0.extract.shift.i926 = lshr i128 %254, 64
+  %198 = load i128, ptr %atomic218, align 16
+  %retVal.sroa.0.0.extract.trunc.i925 = trunc i128 %198 to i64
+  %retVal.sroa.7.0.extract.shift.i926 = lshr i128 %198, 64
   %retVal.sroa.7.0.extract.trunc.i927 = trunc i128 %retVal.sroa.7.0.extract.shift.i926 to i64
   br label %do.body.i928
 
@@ -11078,20 +10945,19 @@ do.body.i928:                                     ; preds = %do.body.i928, %_ZN5
   %retVal.sroa.0.0.i929 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i925, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i939, %do.body.i928 ]
   %retVal.sroa.7.0.i930 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i927, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_release_sE.exit ], [ %asmresult16.i940, %do.body.i928 ]
   %or.i935 = or i64 %retVal.sroa.0.0.i929, 1
-  %255 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i924, i64 %or.i935, i64 %retVal.sroa.7.0.i930, i64 %retVal.sroa.0.0.i929, i64 %retVal.sroa.7.0.i930, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !137
-  %asmresult.i939 = extractvalue { i64, i64 } %255, 0
-  %asmresult16.i940 = extractvalue { i64, i64 } %255, 1
-  %256 = load i8, ptr %cmpxchgRet.i924, align 1
-  %257 = and i8 %256, 1
-  %tobool.not.i941 = icmp eq i8 %257, 0
-  br i1 %tobool.not.i941, label %do.body.i928, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !138
+  %199 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i924, i64 %or.i935, i64 %retVal.sroa.7.0.i930, i64 %retVal.sroa.0.0.i929, i64 %retVal.sroa.7.0.i930, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !137
+  %asmresult.i939 = extractvalue { i64, i64 } %199, 0
+  %asmresult16.i940 = extractvalue { i64, i64 } %199, 1
+  %200 = load i8, ptr %cmpxchgRet.i924, align 1
+  %tobool.i941 = trunc i8 %200 to i1
+  br i1 %tobool.i941, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i928, !llvm.loop !138
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i928
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i924)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i945)
-  %258 = load i128, ptr %atomic218, align 16
-  %retVal.sroa.0.0.extract.trunc.i946 = trunc i128 %258 to i64
-  %retVal.sroa.7.0.extract.shift.i947 = lshr i128 %258, 64
+  %201 = load i128, ptr %atomic218, align 16
+  %retVal.sroa.0.0.extract.trunc.i946 = trunc i128 %201 to i64
+  %retVal.sroa.7.0.extract.shift.i947 = lshr i128 %201, 64
   %retVal.sroa.7.0.extract.trunc.i948 = trunc i128 %retVal.sroa.7.0.extract.shift.i947 to i64
   br label %do.body.i949
 
@@ -11099,13 +10965,12 @@ do.body.i949:                                     ; preds = %do.body.i949, %_ZN5
   %retVal.sroa.0.0.i950 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i946, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i960, %do.body.i949 ]
   %retVal.sroa.7.0.i951 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i948, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult16.i961, %do.body.i949 ]
   %or.i956 = or i64 %retVal.sroa.0.0.i950, 1
-  %259 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i945, i64 %or.i956, i64 %retVal.sroa.7.0.i951, i64 %retVal.sroa.0.0.i950, i64 %retVal.sroa.7.0.i951, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !43
-  %asmresult.i960 = extractvalue { i64, i64 } %259, 0
-  %asmresult16.i961 = extractvalue { i64, i64 } %259, 1
-  %260 = load i8, ptr %cmpxchgRet.i945, align 1
-  %261 = and i8 %260, 1
-  %tobool.not.i962 = icmp eq i8 %261, 0
-  br i1 %tobool.not.i962, label %do.body.i949, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !44
+  %202 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic218, ptr nonnull elementtype(i8) %cmpxchgRet.i945, i64 %or.i956, i64 %retVal.sroa.7.0.i951, i64 %retVal.sroa.0.0.i950, i64 %retVal.sroa.7.0.i951, ptr nonnull elementtype(i128) %atomic218) #7, !srcloc !43
+  %asmresult.i960 = extractvalue { i64, i64 } %202, 0
+  %asmresult16.i961 = extractvalue { i64, i64 } %202, 1
+  %203 = load i8, ptr %cmpxchgRet.i945, align 1
+  %tobool.i962 = trunc i8 %203 to i1
+  br i1 %tobool.i962, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i949, !llvm.loop !44
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i949
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i945)
@@ -11117,20 +10982,19 @@ do.body.i970:                                     ; preds = %do.body.i970, %_ZN5
   %retVal.sroa.0.0.i971 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i980, %do.body.i970 ]
   %retVal.sroa.5.0.i972 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult16.i981, %do.body.i970 ]
   %xor.i = xor i64 %retVal.sroa.0.0.i971, 1
-  %262 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i966, i64 %xor.i, i64 %retVal.sroa.5.0.i972, i64 %retVal.sroa.0.0.i971, i64 %retVal.sroa.5.0.i972, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !139
-  %asmresult.i980 = extractvalue { i64, i64 } %262, 0
-  %asmresult16.i981 = extractvalue { i64, i64 } %262, 1
-  %263 = load i8, ptr %cmpxchgRet.i966, align 1
-  %264 = and i8 %263, 1
-  %tobool.not.i982 = icmp eq i8 %264, 0
-  br i1 %tobool.not.i982, label %do.body.i970, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit, !llvm.loop !140
+  %204 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i966, i64 %xor.i, i64 %retVal.sroa.5.0.i972, i64 %retVal.sroa.0.0.i971, i64 %retVal.sroa.5.0.i972, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !139
+  %asmresult.i980 = extractvalue { i64, i64 } %204, 0
+  %asmresult16.i981 = extractvalue { i64, i64 } %204, 1
+  %205 = load i8, ptr %cmpxchgRet.i966, align 1
+  %tobool.i982 = trunc i8 %205 to i1
+  br i1 %tobool.i982, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit, label %do.body.i970, !llvm.loop !140
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit: ; preds = %do.body.i970
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i966)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i983)
-  %265 = load i128, ptr %atomic243, align 16
-  %retVal.sroa.0.0.extract.trunc.i984 = trunc i128 %265 to i64
-  %retVal.sroa.5.0.extract.shift.i985 = lshr i128 %265, 64
+  %206 = load i128, ptr %atomic243, align 16
+  %retVal.sroa.0.0.extract.trunc.i984 = trunc i128 %206 to i64
+  %retVal.sroa.5.0.extract.shift.i985 = lshr i128 %206, 64
   %retVal.sroa.5.0.extract.trunc.i986 = trunc i128 %retVal.sroa.5.0.extract.shift.i985 to i64
   br label %do.body.i987
 
@@ -11138,20 +11002,19 @@ do.body.i987:                                     ; preds = %do.body.i987, %_ZN5
   %retVal.sroa.0.0.i988 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i984, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit ], [ %asmresult.i998, %do.body.i987 ]
   %retVal.sroa.5.0.i989 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i986, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit ], [ %asmresult16.i999, %do.body.i987 ]
   %xor.i994 = xor i64 %retVal.sroa.0.0.i988, 1
-  %266 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i983, i64 %xor.i994, i64 %retVal.sroa.5.0.i989, i64 %retVal.sroa.0.0.i988, i64 %retVal.sroa.5.0.i989, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !29
-  %asmresult.i998 = extractvalue { i64, i64 } %266, 0
-  %asmresult16.i999 = extractvalue { i64, i64 } %266, 1
-  %267 = load i8, ptr %cmpxchgRet.i983, align 1
-  %268 = and i8 %267, 1
-  %tobool.not.i1000 = icmp eq i8 %268, 0
-  br i1 %tobool.not.i1000, label %do.body.i987, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !30
+  %207 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i983, i64 %xor.i994, i64 %retVal.sroa.5.0.i989, i64 %retVal.sroa.0.0.i988, i64 %retVal.sroa.5.0.i989, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !29
+  %asmresult.i998 = extractvalue { i64, i64 } %207, 0
+  %asmresult16.i999 = extractvalue { i64, i64 } %207, 1
+  %208 = load i8, ptr %cmpxchgRet.i983, align 1
+  %tobool.i1000 = trunc i8 %208 to i1
+  br i1 %tobool.i1000, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i987, !llvm.loop !30
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i987
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i983)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1001)
-  %269 = load i128, ptr %atomic243, align 16
-  %retVal.sroa.0.0.extract.trunc.i1002 = trunc i128 %269 to i64
-  %retVal.sroa.5.0.extract.shift.i1003 = lshr i128 %269, 64
+  %209 = load i128, ptr %atomic243, align 16
+  %retVal.sroa.0.0.extract.trunc.i1002 = trunc i128 %209 to i64
+  %retVal.sroa.5.0.extract.shift.i1003 = lshr i128 %209, 64
   %retVal.sroa.5.0.extract.trunc.i1004 = trunc i128 %retVal.sroa.5.0.extract.shift.i1003 to i64
   br label %do.body.i1005
 
@@ -11159,20 +11022,19 @@ do.body.i1005:                                    ; preds = %do.body.i1005, %_ZN
   %retVal.sroa.0.0.i1006 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1002, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i1016, %do.body.i1005 ]
   %retVal.sroa.5.0.i1007 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i1004, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i1017, %do.body.i1005 ]
   %xor.i1012 = xor i64 %retVal.sroa.0.0.i1006, 1
-  %270 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1001, i64 %xor.i1012, i64 %retVal.sroa.5.0.i1007, i64 %retVal.sroa.0.0.i1006, i64 %retVal.sroa.5.0.i1007, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !141
-  %asmresult.i1016 = extractvalue { i64, i64 } %270, 0
-  %asmresult16.i1017 = extractvalue { i64, i64 } %270, 1
-  %271 = load i8, ptr %cmpxchgRet.i1001, align 1
-  %272 = and i8 %271, 1
-  %tobool.not.i1018 = icmp eq i8 %272, 0
-  br i1 %tobool.not.i1018, label %do.body.i1005, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !142
+  %210 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1001, i64 %xor.i1012, i64 %retVal.sroa.5.0.i1007, i64 %retVal.sroa.0.0.i1006, i64 %retVal.sroa.5.0.i1007, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !141
+  %asmresult.i1016 = extractvalue { i64, i64 } %210, 0
+  %asmresult16.i1017 = extractvalue { i64, i64 } %210, 1
+  %211 = load i8, ptr %cmpxchgRet.i1001, align 1
+  %tobool.i1018 = trunc i8 %211 to i1
+  br i1 %tobool.i1018, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acquire_sE.exit, label %do.body.i1005, !llvm.loop !142
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i1005
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1001)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1019)
-  %273 = load i128, ptr %atomic243, align 16
-  %retVal.sroa.0.0.extract.trunc.i1020 = trunc i128 %273 to i64
-  %retVal.sroa.5.0.extract.shift.i1021 = lshr i128 %273, 64
+  %212 = load i128, ptr %atomic243, align 16
+  %retVal.sroa.0.0.extract.trunc.i1020 = trunc i128 %212 to i64
+  %retVal.sroa.5.0.extract.shift.i1021 = lshr i128 %212, 64
   %retVal.sroa.5.0.extract.trunc.i1022 = trunc i128 %retVal.sroa.5.0.extract.shift.i1021 to i64
   br label %do.body.i1023
 
@@ -11180,20 +11042,19 @@ do.body.i1023:                                    ; preds = %do.body.i1023, %_ZN
   %retVal.sroa.0.0.i1024 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1020, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i1034, %do.body.i1023 ]
   %retVal.sroa.5.0.i1025 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i1022, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult16.i1035, %do.body.i1023 ]
   %xor.i1030 = xor i64 %retVal.sroa.0.0.i1024, 1
-  %274 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1019, i64 %xor.i1030, i64 %retVal.sroa.5.0.i1025, i64 %retVal.sroa.0.0.i1024, i64 %retVal.sroa.5.0.i1025, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !143
-  %asmresult.i1034 = extractvalue { i64, i64 } %274, 0
-  %asmresult16.i1035 = extractvalue { i64, i64 } %274, 1
-  %275 = load i8, ptr %cmpxchgRet.i1019, align 1
-  %276 = and i8 %275, 1
-  %tobool.not.i1036 = icmp eq i8 %276, 0
-  br i1 %tobool.not.i1036, label %do.body.i1023, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_release_sE.exit, !llvm.loop !144
+  %213 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1019, i64 %xor.i1030, i64 %retVal.sroa.5.0.i1025, i64 %retVal.sroa.0.0.i1024, i64 %retVal.sroa.5.0.i1025, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !143
+  %asmresult.i1034 = extractvalue { i64, i64 } %213, 0
+  %asmresult16.i1035 = extractvalue { i64, i64 } %213, 1
+  %214 = load i8, ptr %cmpxchgRet.i1019, align 1
+  %tobool.i1036 = trunc i8 %214 to i1
+  br i1 %tobool.i1036, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_release_sE.exit, label %do.body.i1023, !llvm.loop !144
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i1023
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1019)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1037)
-  %277 = load i128, ptr %atomic243, align 16
-  %retVal.sroa.0.0.extract.trunc.i1038 = trunc i128 %277 to i64
-  %retVal.sroa.5.0.extract.shift.i1039 = lshr i128 %277, 64
+  %215 = load i128, ptr %atomic243, align 16
+  %retVal.sroa.0.0.extract.trunc.i1038 = trunc i128 %215 to i64
+  %retVal.sroa.5.0.extract.shift.i1039 = lshr i128 %215, 64
   %retVal.sroa.5.0.extract.trunc.i1040 = trunc i128 %retVal.sroa.5.0.extract.shift.i1039 to i64
   br label %do.body.i1041
 
@@ -11201,20 +11062,19 @@ do.body.i1041:                                    ; preds = %do.body.i1041, %_ZN
   %retVal.sroa.0.0.i1042 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1038, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i1052, %do.body.i1041 ]
   %retVal.sroa.5.0.i1043 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i1040, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_release_sE.exit ], [ %asmresult16.i1053, %do.body.i1041 ]
   %xor.i1048 = xor i64 %retVal.sroa.0.0.i1042, 1
-  %278 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1037, i64 %xor.i1048, i64 %retVal.sroa.5.0.i1043, i64 %retVal.sroa.0.0.i1042, i64 %retVal.sroa.5.0.i1043, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !145
-  %asmresult.i1052 = extractvalue { i64, i64 } %278, 0
-  %asmresult16.i1053 = extractvalue { i64, i64 } %278, 1
-  %279 = load i8, ptr %cmpxchgRet.i1037, align 1
-  %280 = and i8 %279, 1
-  %tobool.not.i1054 = icmp eq i8 %280, 0
-  br i1 %tobool.not.i1054, label %do.body.i1041, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !146
+  %216 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1037, i64 %xor.i1048, i64 %retVal.sroa.5.0.i1043, i64 %retVal.sroa.0.0.i1042, i64 %retVal.sroa.5.0.i1043, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !145
+  %asmresult.i1052 = extractvalue { i64, i64 } %216, 0
+  %asmresult16.i1053 = extractvalue { i64, i64 } %216, 1
+  %217 = load i8, ptr %cmpxchgRet.i1037, align 1
+  %tobool.i1054 = trunc i8 %217 to i1
+  br i1 %tobool.i1054, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i1041, !llvm.loop !146
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i1041
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1037)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1055)
-  %281 = load i128, ptr %atomic243, align 16
-  %retVal.sroa.0.0.extract.trunc.i1056 = trunc i128 %281 to i64
-  %retVal.sroa.5.0.extract.shift.i1057 = lshr i128 %281, 64
+  %218 = load i128, ptr %atomic243, align 16
+  %retVal.sroa.0.0.extract.trunc.i1056 = trunc i128 %218 to i64
+  %retVal.sroa.5.0.extract.shift.i1057 = lshr i128 %218, 64
   %retVal.sroa.5.0.extract.trunc.i1058 = trunc i128 %retVal.sroa.5.0.extract.shift.i1057 to i64
   br label %do.body.i1059
 
@@ -11222,13 +11082,12 @@ do.body.i1059:                                    ; preds = %do.body.i1059, %_ZN
   %retVal.sroa.0.0.i1060 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1056, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i1070, %do.body.i1059 ]
   %retVal.sroa.5.0.i1061 = phi i64 [ %retVal.sroa.5.0.extract.trunc.i1058, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult16.i1071, %do.body.i1059 ]
   %xor.i1066 = xor i64 %retVal.sroa.0.0.i1060, 1
-  %282 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1055, i64 %xor.i1066, i64 %retVal.sroa.5.0.i1061, i64 %retVal.sroa.0.0.i1060, i64 %retVal.sroa.5.0.i1061, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !147
-  %asmresult.i1070 = extractvalue { i64, i64 } %282, 0
-  %asmresult16.i1071 = extractvalue { i64, i64 } %282, 1
-  %283 = load i8, ptr %cmpxchgRet.i1055, align 1
-  %284 = and i8 %283, 1
-  %tobool.not.i1072 = icmp eq i8 %284, 0
-  br i1 %tobool.not.i1072, label %do.body.i1059, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !148
+  %219 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic243, ptr nonnull elementtype(i8) %cmpxchgRet.i1055, i64 %xor.i1066, i64 %retVal.sroa.5.0.i1061, i64 %retVal.sroa.0.0.i1060, i64 %retVal.sroa.5.0.i1061, ptr nonnull elementtype(i128) %atomic243) #7, !srcloc !147
+  %asmresult.i1070 = extractvalue { i64, i64 } %219, 0
+  %asmresult16.i1071 = extractvalue { i64, i64 } %219, 1
+  %220 = load i8, ptr %cmpxchgRet.i1055, align 1
+  %tobool.i1072 = trunc i8 %220 to i1
+  br i1 %tobool.i1072, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i1059, !llvm.loop !148
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i1059
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1055)
@@ -11240,20 +11099,19 @@ do.body.i1077:                                    ; preds = %do.body.i1077, %_ZN
   %retVal.sroa.0.0.i1078 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i1088, %do.body.i1077 ]
   %retVal.sroa.7.0.i1079 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_seq_cst_sE.exit ], [ %asmresult16.i1089, %do.body.i1077 ]
   %xor.i1084 = xor i64 %retVal.sroa.0.0.i1078, 1
-  %285 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1073, i64 %xor.i1084, i64 %retVal.sroa.7.0.i1079, i64 %retVal.sroa.0.0.i1078, i64 %retVal.sroa.7.0.i1079, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !149
-  %asmresult.i1088 = extractvalue { i64, i64 } %285, 0
-  %asmresult16.i1089 = extractvalue { i64, i64 } %285, 1
-  %286 = load i8, ptr %cmpxchgRet.i1073, align 1
-  %287 = and i8 %286, 1
-  %tobool.not.i1090 = icmp eq i8 %287, 0
-  br i1 %tobool.not.i1090, label %do.body.i1077, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit, !llvm.loop !150
+  %221 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1073, i64 %xor.i1084, i64 %retVal.sroa.7.0.i1079, i64 %retVal.sroa.0.0.i1078, i64 %retVal.sroa.7.0.i1079, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !149
+  %asmresult.i1088 = extractvalue { i64, i64 } %221, 0
+  %asmresult16.i1089 = extractvalue { i64, i64 } %221, 1
+  %222 = load i8, ptr %cmpxchgRet.i1073, align 1
+  %tobool.i1090 = trunc i8 %222 to i1
+  br i1 %tobool.i1090, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit, label %do.body.i1077, !llvm.loop !150
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit: ; preds = %do.body.i1077
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1073)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1093)
-  %288 = load i128, ptr %atomic268, align 16
-  %retVal.sroa.0.0.extract.trunc.i1094 = trunc i128 %288 to i64
-  %retVal.sroa.7.0.extract.shift.i1095 = lshr i128 %288, 64
+  %223 = load i128, ptr %atomic268, align 16
+  %retVal.sroa.0.0.extract.trunc.i1094 = trunc i128 %223 to i64
+  %retVal.sroa.7.0.extract.shift.i1095 = lshr i128 %223, 64
   %retVal.sroa.7.0.extract.trunc.i1096 = trunc i128 %retVal.sroa.7.0.extract.shift.i1095 to i64
   br label %do.body.i1097
 
@@ -11261,20 +11119,19 @@ do.body.i1097:                                    ; preds = %do.body.i1097, %_ZN
   %retVal.sroa.0.0.i1098 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1094, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit ], [ %asmresult.i1108, %do.body.i1097 ]
   %retVal.sroa.7.0.i1099 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i1096, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit ], [ %asmresult16.i1109, %do.body.i1097 ]
   %xor.i1104 = xor i64 %retVal.sroa.0.0.i1098, 1
-  %289 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1093, i64 %xor.i1104, i64 %retVal.sroa.7.0.i1099, i64 %retVal.sroa.0.0.i1098, i64 %retVal.sroa.7.0.i1099, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !31
-  %asmresult.i1108 = extractvalue { i64, i64 } %289, 0
-  %asmresult16.i1109 = extractvalue { i64, i64 } %289, 1
-  %290 = load i8, ptr %cmpxchgRet.i1093, align 1
-  %291 = and i8 %290, 1
-  %tobool.not.i1110 = icmp eq i8 %291, 0
-  br i1 %tobool.not.i1110, label %do.body.i1097, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !32
+  %224 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1093, i64 %xor.i1104, i64 %retVal.sroa.7.0.i1099, i64 %retVal.sroa.0.0.i1098, i64 %retVal.sroa.7.0.i1099, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !31
+  %asmresult.i1108 = extractvalue { i64, i64 } %224, 0
+  %asmresult16.i1109 = extractvalue { i64, i64 } %224, 1
+  %225 = load i8, ptr %cmpxchgRet.i1093, align 1
+  %tobool.i1110 = trunc i8 %225 to i1
+  br i1 %tobool.i1110, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i1097, !llvm.loop !32
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i1097
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1093)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1114)
-  %292 = load i128, ptr %atomic268, align 16
-  %retVal.sroa.0.0.extract.trunc.i1115 = trunc i128 %292 to i64
-  %retVal.sroa.7.0.extract.shift.i1116 = lshr i128 %292, 64
+  %226 = load i128, ptr %atomic268, align 16
+  %retVal.sroa.0.0.extract.trunc.i1115 = trunc i128 %226 to i64
+  %retVal.sroa.7.0.extract.shift.i1116 = lshr i128 %226, 64
   %retVal.sroa.7.0.extract.trunc.i1117 = trunc i128 %retVal.sroa.7.0.extract.shift.i1116 to i64
   br label %do.body.i1118
 
@@ -11282,20 +11139,19 @@ do.body.i1118:                                    ; preds = %do.body.i1118, %_ZN
   %retVal.sroa.0.0.i1119 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1115, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i1129, %do.body.i1118 ]
   %retVal.sroa.7.0.i1120 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i1117, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i1130, %do.body.i1118 ]
   %xor.i1125 = xor i64 %retVal.sroa.0.0.i1119, 1
-  %293 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1114, i64 %xor.i1125, i64 %retVal.sroa.7.0.i1120, i64 %retVal.sroa.0.0.i1119, i64 %retVal.sroa.7.0.i1120, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !151
-  %asmresult.i1129 = extractvalue { i64, i64 } %293, 0
-  %asmresult16.i1130 = extractvalue { i64, i64 } %293, 1
-  %294 = load i8, ptr %cmpxchgRet.i1114, align 1
-  %295 = and i8 %294, 1
-  %tobool.not.i1131 = icmp eq i8 %295, 0
-  br i1 %tobool.not.i1131, label %do.body.i1118, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acquire_sE.exit, !llvm.loop !152
+  %227 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1114, i64 %xor.i1125, i64 %retVal.sroa.7.0.i1120, i64 %retVal.sroa.0.0.i1119, i64 %retVal.sroa.7.0.i1120, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !151
+  %asmresult.i1129 = extractvalue { i64, i64 } %227, 0
+  %asmresult16.i1130 = extractvalue { i64, i64 } %227, 1
+  %228 = load i8, ptr %cmpxchgRet.i1114, align 1
+  %tobool.i1131 = trunc i8 %228 to i1
+  br i1 %tobool.i1131, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acquire_sE.exit, label %do.body.i1118, !llvm.loop !152
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i1118
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1114)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1135)
-  %296 = load i128, ptr %atomic268, align 16
-  %retVal.sroa.0.0.extract.trunc.i1136 = trunc i128 %296 to i64
-  %retVal.sroa.7.0.extract.shift.i1137 = lshr i128 %296, 64
+  %229 = load i128, ptr %atomic268, align 16
+  %retVal.sroa.0.0.extract.trunc.i1136 = trunc i128 %229 to i64
+  %retVal.sroa.7.0.extract.shift.i1137 = lshr i128 %229, 64
   %retVal.sroa.7.0.extract.trunc.i1138 = trunc i128 %retVal.sroa.7.0.extract.shift.i1137 to i64
   br label %do.body.i1139
 
@@ -11303,20 +11159,19 @@ do.body.i1139:                                    ; preds = %do.body.i1139, %_ZN
   %retVal.sroa.0.0.i1140 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1136, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult.i1150, %do.body.i1139 ]
   %retVal.sroa.7.0.i1141 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i1138, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acquire_sE.exit ], [ %asmresult16.i1151, %do.body.i1139 ]
   %xor.i1146 = xor i64 %retVal.sroa.0.0.i1140, 1
-  %297 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1135, i64 %xor.i1146, i64 %retVal.sroa.7.0.i1141, i64 %retVal.sroa.0.0.i1140, i64 %retVal.sroa.7.0.i1141, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !153
-  %asmresult.i1150 = extractvalue { i64, i64 } %297, 0
-  %asmresult16.i1151 = extractvalue { i64, i64 } %297, 1
-  %298 = load i8, ptr %cmpxchgRet.i1135, align 1
-  %299 = and i8 %298, 1
-  %tobool.not.i1152 = icmp eq i8 %299, 0
-  br i1 %tobool.not.i1152, label %do.body.i1139, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_release_sE.exit, !llvm.loop !154
+  %230 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1135, i64 %xor.i1146, i64 %retVal.sroa.7.0.i1141, i64 %retVal.sroa.0.0.i1140, i64 %retVal.sroa.7.0.i1141, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !153
+  %asmresult.i1150 = extractvalue { i64, i64 } %230, 0
+  %asmresult16.i1151 = extractvalue { i64, i64 } %230, 1
+  %231 = load i8, ptr %cmpxchgRet.i1135, align 1
+  %tobool.i1152 = trunc i8 %231 to i1
+  br i1 %tobool.i1152, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_release_sE.exit, label %do.body.i1139, !llvm.loop !154
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_release_sE.exit: ; preds = %do.body.i1139
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1135)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1156)
-  %300 = load i128, ptr %atomic268, align 16
-  %retVal.sroa.0.0.extract.trunc.i1157 = trunc i128 %300 to i64
-  %retVal.sroa.7.0.extract.shift.i1158 = lshr i128 %300, 64
+  %232 = load i128, ptr %atomic268, align 16
+  %retVal.sroa.0.0.extract.trunc.i1157 = trunc i128 %232 to i64
+  %retVal.sroa.7.0.extract.shift.i1158 = lshr i128 %232, 64
   %retVal.sroa.7.0.extract.trunc.i1159 = trunc i128 %retVal.sroa.7.0.extract.shift.i1158 to i64
   br label %do.body.i1160
 
@@ -11324,20 +11179,19 @@ do.body.i1160:                                    ; preds = %do.body.i1160, %_ZN
   %retVal.sroa.0.0.i1161 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1157, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_release_sE.exit ], [ %asmresult.i1171, %do.body.i1160 ]
   %retVal.sroa.7.0.i1162 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i1159, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_release_sE.exit ], [ %asmresult16.i1172, %do.body.i1160 ]
   %xor.i1167 = xor i64 %retVal.sroa.0.0.i1161, 1
-  %301 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1156, i64 %xor.i1167, i64 %retVal.sroa.7.0.i1162, i64 %retVal.sroa.0.0.i1161, i64 %retVal.sroa.7.0.i1162, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !155
-  %asmresult.i1171 = extractvalue { i64, i64 } %301, 0
-  %asmresult16.i1172 = extractvalue { i64, i64 } %301, 1
-  %302 = load i8, ptr %cmpxchgRet.i1156, align 1
-  %303 = and i8 %302, 1
-  %tobool.not.i1173 = icmp eq i8 %303, 0
-  br i1 %tobool.not.i1173, label %do.body.i1160, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acq_rel_sE.exit, !llvm.loop !156
+  %233 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1156, i64 %xor.i1167, i64 %retVal.sroa.7.0.i1162, i64 %retVal.sroa.0.0.i1161, i64 %retVal.sroa.7.0.i1162, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !155
+  %asmresult.i1171 = extractvalue { i64, i64 } %233, 0
+  %asmresult16.i1172 = extractvalue { i64, i64 } %233, 1
+  %234 = load i8, ptr %cmpxchgRet.i1156, align 1
+  %tobool.i1173 = trunc i8 %234 to i1
+  br i1 %tobool.i1173, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acq_rel_sE.exit, label %do.body.i1160, !llvm.loop !156
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i1160
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1156)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1177)
-  %304 = load i128, ptr %atomic268, align 16
-  %retVal.sroa.0.0.extract.trunc.i1178 = trunc i128 %304 to i64
-  %retVal.sroa.7.0.extract.shift.i1179 = lshr i128 %304, 64
+  %235 = load i128, ptr %atomic268, align 16
+  %retVal.sroa.0.0.extract.trunc.i1178 = trunc i128 %235 to i64
+  %retVal.sroa.7.0.extract.shift.i1179 = lshr i128 %235, 64
   %retVal.sroa.7.0.extract.trunc.i1180 = trunc i128 %retVal.sroa.7.0.extract.shift.i1179 to i64
   br label %do.body.i1181
 
@@ -11345,191 +11199,190 @@ do.body.i1181:                                    ; preds = %do.body.i1181, %_ZN
   %retVal.sroa.0.0.i1182 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i1178, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i1192, %do.body.i1181 ]
   %retVal.sroa.7.0.i1183 = phi i64 [ %retVal.sroa.7.0.extract.trunc.i1180, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_acq_rel_sE.exit ], [ %asmresult16.i1193, %do.body.i1181 ]
   %xor.i1188 = xor i64 %retVal.sroa.0.0.i1182, 1
-  %305 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1177, i64 %xor.i1188, i64 %retVal.sroa.7.0.i1183, i64 %retVal.sroa.0.0.i1182, i64 %retVal.sroa.7.0.i1183, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !47
-  %asmresult.i1192 = extractvalue { i64, i64 } %305, 0
-  %asmresult16.i1193 = extractvalue { i64, i64 } %305, 1
-  %306 = load i8, ptr %cmpxchgRet.i1177, align 1
-  %307 = and i8 %306, 1
-  %tobool.not.i1194 = icmp eq i8 %307, 0
-  br i1 %tobool.not.i1194, label %do.body.i1181, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_seq_cst_sE.exit, !llvm.loop !48
+  %236 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic268, ptr nonnull elementtype(i8) %cmpxchgRet.i1177, i64 %xor.i1188, i64 %retVal.sroa.7.0.i1183, i64 %retVal.sroa.0.0.i1182, i64 %retVal.sroa.7.0.i1183, ptr nonnull elementtype(i128) %atomic268) #7, !srcloc !47
+  %asmresult.i1192 = extractvalue { i64, i64 } %236, 0
+  %asmresult16.i1193 = extractvalue { i64, i64 } %236, 1
+  %237 = load i8, ptr %cmpxchgRet.i1177, align 1
+  %tobool.i1194 = trunc i8 %237 to i1
+  br i1 %tobool.i1194, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_seq_cst_sE.exit, label %do.body.i1181, !llvm.loop !48
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i1181
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1177)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic293, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i)
-  %308 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !157
-  %asmresult.i1198 = extractvalue { i64, i64 } %308, 0
-  %asmresult21.i = extractvalue { i64, i64 } %308, 1
+  %238 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !157
+  %asmresult.i1198 = extractvalue { i64, i64 } %238, 0
+  %asmresult21.i = extractvalue { i64, i64 } %238, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1199)
-  %309 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1199, i64 1, i64 0, i64 %asmresult.i1198, i64 %asmresult21.i, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !54
-  %asmresult.i1201 = extractvalue { i64, i64 } %309, 0
-  %asmresult21.i1202 = extractvalue { i64, i64 } %309, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1199)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1204)
-  %310 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1204, i64 1, i64 0, i64 %asmresult.i1201, i64 %asmresult21.i1202, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !158
-  %asmresult.i1206 = extractvalue { i64, i64 } %310, 0
-  %asmresult21.i1207 = extractvalue { i64, i64 } %310, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1204)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1209)
-  %311 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1209, i64 1, i64 0, i64 %asmresult.i1206, i64 %asmresult21.i1207, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !159
-  %asmresult.i1211 = extractvalue { i64, i64 } %311, 0
-  %asmresult21.i1212 = extractvalue { i64, i64 } %311, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1209)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1214)
-  %312 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1214, i64 1, i64 0, i64 %asmresult.i1211, i64 %asmresult21.i1212, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !160
-  %asmresult.i1216 = extractvalue { i64, i64 } %312, 0
-  %asmresult21.i1217 = extractvalue { i64, i64 } %312, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1214)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1219)
-  %313 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1219, i64 1, i64 0, i64 %asmresult.i1216, i64 %asmresult21.i1217, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !161
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1219)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1200)
+  %239 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1200, i64 1, i64 0, i64 %asmresult.i1198, i64 %asmresult21.i, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !54
+  %asmresult.i1202 = extractvalue { i64, i64 } %239, 0
+  %asmresult21.i1203 = extractvalue { i64, i64 } %239, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1200)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1205)
+  %240 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1205, i64 1, i64 0, i64 %asmresult.i1202, i64 %asmresult21.i1203, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !158
+  %asmresult.i1207 = extractvalue { i64, i64 } %240, 0
+  %asmresult21.i1208 = extractvalue { i64, i64 } %240, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1205)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1210)
+  %241 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1210, i64 1, i64 0, i64 %asmresult.i1207, i64 %asmresult21.i1208, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !159
+  %asmresult.i1212 = extractvalue { i64, i64 } %241, 0
+  %asmresult21.i1213 = extractvalue { i64, i64 } %241, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1210)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1215)
+  %242 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1215, i64 1, i64 0, i64 %asmresult.i1212, i64 %asmresult21.i1213, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !160
+  %asmresult.i1217 = extractvalue { i64, i64 } %242, 0
+  %asmresult21.i1218 = extractvalue { i64, i64 } %242, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1215)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1220)
+  %243 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic293, ptr nonnull elementtype(i8) %retVal.i1220, i64 1, i64 0, i64 %asmresult.i1217, i64 %asmresult21.i1218, ptr nonnull elementtype(i128) %atomic293) #7, !srcloc !161
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1220)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic317, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1224)
-  %314 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1224, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !10
-  %asmresult.i1226 = extractvalue { i64, i64 } %314, 0
-  %asmresult21.i1227 = extractvalue { i64, i64 } %314, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1224)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1229)
-  %315 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1229, i64 1, i64 0, i64 %asmresult.i1226, i64 %asmresult21.i1227, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !55
-  %asmresult.i1231 = extractvalue { i64, i64 } %315, 0
-  %asmresult21.i1232 = extractvalue { i64, i64 } %315, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1229)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1234)
-  %316 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1234, i64 1, i64 0, i64 %asmresult.i1231, i64 %asmresult21.i1232, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !162
-  %asmresult.i1236 = extractvalue { i64, i64 } %316, 0
-  %asmresult21.i1237 = extractvalue { i64, i64 } %316, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1234)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1239)
-  %317 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1239, i64 1, i64 0, i64 %asmresult.i1236, i64 %asmresult21.i1237, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !163
-  %asmresult.i1241 = extractvalue { i64, i64 } %317, 0
-  %asmresult21.i1242 = extractvalue { i64, i64 } %317, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1239)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1244)
-  %318 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1244, i64 1, i64 0, i64 %asmresult.i1241, i64 %asmresult21.i1242, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !164
-  %asmresult.i1246 = extractvalue { i64, i64 } %318, 0
-  %asmresult21.i1247 = extractvalue { i64, i64 } %318, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1244)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1249)
-  %319 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1249, i64 1, i64 0, i64 %asmresult.i1246, i64 %asmresult21.i1247, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !165
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1249)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1225)
+  %244 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1225, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !10
+  %asmresult.i1227 = extractvalue { i64, i64 } %244, 0
+  %asmresult21.i1228 = extractvalue { i64, i64 } %244, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1225)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1230)
+  %245 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1230, i64 1, i64 0, i64 %asmresult.i1227, i64 %asmresult21.i1228, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !55
+  %asmresult.i1232 = extractvalue { i64, i64 } %245, 0
+  %asmresult21.i1233 = extractvalue { i64, i64 } %245, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1230)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1235)
+  %246 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1235, i64 1, i64 0, i64 %asmresult.i1232, i64 %asmresult21.i1233, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !162
+  %asmresult.i1237 = extractvalue { i64, i64 } %246, 0
+  %asmresult21.i1238 = extractvalue { i64, i64 } %246, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1235)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1240)
+  %247 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1240, i64 1, i64 0, i64 %asmresult.i1237, i64 %asmresult21.i1238, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !163
+  %asmresult.i1242 = extractvalue { i64, i64 } %247, 0
+  %asmresult21.i1243 = extractvalue { i64, i64 } %247, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1240)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1245)
+  %248 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1245, i64 1, i64 0, i64 %asmresult.i1242, i64 %asmresult21.i1243, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !164
+  %asmresult.i1247 = extractvalue { i64, i64 } %248, 0
+  %asmresult21.i1248 = extractvalue { i64, i64 } %248, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1245)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1250)
+  %249 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic317, ptr nonnull elementtype(i8) %retVal.i1250, i64 1, i64 0, i64 %asmresult.i1247, i64 %asmresult21.i1248, ptr nonnull elementtype(i128) %atomic317) #7, !srcloc !165
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1250)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic343, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1254)
-  %320 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1254, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !166
-  %asmresult.i1255 = extractvalue { i64, i64 } %320, 0
-  %asmresult22.i = extractvalue { i64, i64 } %320, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1254)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1257)
-  %321 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1257, i64 1, i64 0, i64 %asmresult.i1255, i64 %asmresult22.i, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !167
-  %asmresult.i1259 = extractvalue { i64, i64 } %321, 0
-  %asmresult22.i1260 = extractvalue { i64, i64 } %321, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1257)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1262)
-  %322 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1262, i64 1, i64 0, i64 %asmresult.i1259, i64 %asmresult22.i1260, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !168
-  %asmresult.i1264 = extractvalue { i64, i64 } %322, 0
-  %asmresult22.i1265 = extractvalue { i64, i64 } %322, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1262)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1267)
-  %323 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1267, i64 1, i64 0, i64 %asmresult.i1264, i64 %asmresult22.i1265, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !169
-  %asmresult.i1269 = extractvalue { i64, i64 } %323, 0
-  %asmresult22.i1270 = extractvalue { i64, i64 } %323, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1267)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1272)
-  %324 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1272, i64 1, i64 0, i64 %asmresult.i1269, i64 %asmresult22.i1270, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !170
-  %asmresult.i1274 = extractvalue { i64, i64 } %324, 0
-  %asmresult22.i1275 = extractvalue { i64, i64 } %324, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1272)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1277)
-  %325 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1277, i64 1, i64 0, i64 %asmresult.i1274, i64 %asmresult22.i1275, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !171
-  %asmresult.i1279 = extractvalue { i64, i64 } %325, 0
-  %asmresult22.i1280 = extractvalue { i64, i64 } %325, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1277)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1282)
-  %326 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1282, i64 1, i64 0, i64 %asmresult.i1279, i64 %asmresult22.i1280, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !172
-  %asmresult.i1284 = extractvalue { i64, i64 } %326, 0
-  %asmresult22.i1285 = extractvalue { i64, i64 } %326, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1282)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1287)
-  %327 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1287, i64 1, i64 0, i64 %asmresult.i1284, i64 %asmresult22.i1285, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !173
-  %asmresult.i1289 = extractvalue { i64, i64 } %327, 0
-  %asmresult22.i1290 = extractvalue { i64, i64 } %327, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1287)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1292)
-  %328 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1292, i64 1, i64 0, i64 %asmresult.i1289, i64 %asmresult22.i1290, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !174
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1292)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1255)
+  %250 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1255, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !166
+  %asmresult.i1256 = extractvalue { i64, i64 } %250, 0
+  %asmresult22.i = extractvalue { i64, i64 } %250, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1255)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1258)
+  %251 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1258, i64 1, i64 0, i64 %asmresult.i1256, i64 %asmresult22.i, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !167
+  %asmresult.i1260 = extractvalue { i64, i64 } %251, 0
+  %asmresult22.i1261 = extractvalue { i64, i64 } %251, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1258)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1263)
+  %252 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1263, i64 1, i64 0, i64 %asmresult.i1260, i64 %asmresult22.i1261, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !168
+  %asmresult.i1265 = extractvalue { i64, i64 } %252, 0
+  %asmresult22.i1266 = extractvalue { i64, i64 } %252, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1263)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1268)
+  %253 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1268, i64 1, i64 0, i64 %asmresult.i1265, i64 %asmresult22.i1266, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !169
+  %asmresult.i1270 = extractvalue { i64, i64 } %253, 0
+  %asmresult22.i1271 = extractvalue { i64, i64 } %253, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1268)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1273)
+  %254 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1273, i64 1, i64 0, i64 %asmresult.i1270, i64 %asmresult22.i1271, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !170
+  %asmresult.i1275 = extractvalue { i64, i64 } %254, 0
+  %asmresult22.i1276 = extractvalue { i64, i64 } %254, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1273)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1278)
+  %255 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1278, i64 1, i64 0, i64 %asmresult.i1275, i64 %asmresult22.i1276, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !171
+  %asmresult.i1280 = extractvalue { i64, i64 } %255, 0
+  %asmresult22.i1281 = extractvalue { i64, i64 } %255, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1278)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1283)
+  %256 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1283, i64 1, i64 0, i64 %asmresult.i1280, i64 %asmresult22.i1281, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !172
+  %asmresult.i1285 = extractvalue { i64, i64 } %256, 0
+  %asmresult22.i1286 = extractvalue { i64, i64 } %256, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1283)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1288)
+  %257 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1288, i64 1, i64 0, i64 %asmresult.i1285, i64 %asmresult22.i1286, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !173
+  %asmresult.i1290 = extractvalue { i64, i64 } %257, 0
+  %asmresult22.i1291 = extractvalue { i64, i64 } %257, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1288)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1293)
+  %258 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic343, ptr nonnull elementtype(i8) %retVal.i1293, i64 1, i64 0, i64 %asmresult.i1290, i64 %asmresult22.i1291, ptr nonnull elementtype(i128) %atomic343) #7, !srcloc !174
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1293)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic391, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1297)
-  %329 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1297, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !175
-  %asmresult.i1299 = extractvalue { i64, i64 } %329, 0
-  %asmresult22.i1300 = extractvalue { i64, i64 } %329, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1297)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1302)
-  %330 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1302, i64 1, i64 0, i64 %asmresult.i1299, i64 %asmresult22.i1300, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !176
-  %asmresult.i1304 = extractvalue { i64, i64 } %330, 0
-  %asmresult22.i1305 = extractvalue { i64, i64 } %330, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1302)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1307)
-  %331 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1307, i64 1, i64 0, i64 %asmresult.i1304, i64 %asmresult22.i1305, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !177
-  %asmresult.i1309 = extractvalue { i64, i64 } %331, 0
-  %asmresult22.i1310 = extractvalue { i64, i64 } %331, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1307)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1312)
-  %332 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1312, i64 1, i64 0, i64 %asmresult.i1309, i64 %asmresult22.i1310, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !178
-  %asmresult.i1314 = extractvalue { i64, i64 } %332, 0
-  %asmresult22.i1315 = extractvalue { i64, i64 } %332, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1312)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1317)
-  %333 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1317, i64 1, i64 0, i64 %asmresult.i1314, i64 %asmresult22.i1315, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !179
-  %asmresult.i1319 = extractvalue { i64, i64 } %333, 0
-  %asmresult22.i1320 = extractvalue { i64, i64 } %333, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1317)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1322)
-  %334 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1322, i64 1, i64 0, i64 %asmresult.i1319, i64 %asmresult22.i1320, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !180
-  %asmresult.i1324 = extractvalue { i64, i64 } %334, 0
-  %asmresult22.i1325 = extractvalue { i64, i64 } %334, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1322)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1327)
-  %335 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1327, i64 1, i64 0, i64 %asmresult.i1324, i64 %asmresult22.i1325, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !181
-  %asmresult.i1329 = extractvalue { i64, i64 } %335, 0
-  %asmresult22.i1330 = extractvalue { i64, i64 } %335, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1327)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1332)
-  %336 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1332, i64 1, i64 0, i64 %asmresult.i1329, i64 %asmresult22.i1330, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !182
-  %asmresult.i1334 = extractvalue { i64, i64 } %336, 0
-  %asmresult22.i1335 = extractvalue { i64, i64 } %336, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1332)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1337)
-  %337 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1337, i64 1, i64 0, i64 %asmresult.i1334, i64 %asmresult22.i1335, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !183
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1337)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1298)
+  %259 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1298, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !175
+  %asmresult.i1300 = extractvalue { i64, i64 } %259, 0
+  %asmresult22.i1301 = extractvalue { i64, i64 } %259, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1298)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1303)
+  %260 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1303, i64 1, i64 0, i64 %asmresult.i1300, i64 %asmresult22.i1301, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !176
+  %asmresult.i1305 = extractvalue { i64, i64 } %260, 0
+  %asmresult22.i1306 = extractvalue { i64, i64 } %260, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1303)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1308)
+  %261 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1308, i64 1, i64 0, i64 %asmresult.i1305, i64 %asmresult22.i1306, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !177
+  %asmresult.i1310 = extractvalue { i64, i64 } %261, 0
+  %asmresult22.i1311 = extractvalue { i64, i64 } %261, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1308)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1313)
+  %262 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1313, i64 1, i64 0, i64 %asmresult.i1310, i64 %asmresult22.i1311, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !178
+  %asmresult.i1315 = extractvalue { i64, i64 } %262, 0
+  %asmresult22.i1316 = extractvalue { i64, i64 } %262, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1313)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1318)
+  %263 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1318, i64 1, i64 0, i64 %asmresult.i1315, i64 %asmresult22.i1316, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !179
+  %asmresult.i1320 = extractvalue { i64, i64 } %263, 0
+  %asmresult22.i1321 = extractvalue { i64, i64 } %263, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1318)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1323)
+  %264 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1323, i64 1, i64 0, i64 %asmresult.i1320, i64 %asmresult22.i1321, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !180
+  %asmresult.i1325 = extractvalue { i64, i64 } %264, 0
+  %asmresult22.i1326 = extractvalue { i64, i64 } %264, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1323)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1328)
+  %265 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1328, i64 1, i64 0, i64 %asmresult.i1325, i64 %asmresult22.i1326, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !181
+  %asmresult.i1330 = extractvalue { i64, i64 } %265, 0
+  %asmresult22.i1331 = extractvalue { i64, i64 } %265, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1328)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1333)
+  %266 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1333, i64 1, i64 0, i64 %asmresult.i1330, i64 %asmresult22.i1331, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !182
+  %asmresult.i1335 = extractvalue { i64, i64 } %266, 0
+  %asmresult22.i1336 = extractvalue { i64, i64 } %266, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1333)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i1338)
+  %267 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %retVal.i1338, i64 1, i64 0, i64 %asmresult.i1335, i64 %asmresult22.i1336, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !183
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i1338)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmpxchgRet.i412 = alloca i8, align 1
-  %cmpxchgRet.i407 = alloca i8, align 1
-  %cmpxchgRet.i397 = alloca i8, align 1
-  %cmpxchgRet.i391 = alloca i8, align 1
-  %cmpxchgRet.i369 = alloca i8, align 1
-  %cmpxchgRet.i349 = alloca i8, align 1
-  %cmpxchgRet.i334 = alloca i8, align 1
-  %cmpxchgRet.i320 = alloca i8, align 1
-  %cmpxchgRet.i298 = alloca i8, align 1
-  %cmpxchgRet.i281 = alloca i8, align 1
-  %cmpxchgRet.i266 = alloca i8, align 1
-  %cmpxchgRet.i253 = alloca i8, align 1
-  %cmpxchgRet.i239 = alloca i8, align 1
-  %cmpxchgRet.i225 = alloca i8, align 1
-  %cmpxchgRet.i211 = alloca i8, align 1
-  %cmpxchgRet.i197 = alloca i8, align 1
-  %cmpxchgRet.i176 = alloca i8, align 1
-  %cmpxchgRet.i156 = alloca i8, align 1
-  %cmpxchgRet.i138 = alloca i8, align 1
-  %cmpxchgRet.i121 = alloca i8, align 1
-  %cmpxchgRet.i100 = alloca i8, align 1
-  %cmpxchgRet.i87 = alloca i8, align 1
-  %cmpxchgRet.i69 = alloca i8, align 1
+  %cmpxchgRet.i413 = alloca i8, align 1
+  %cmpxchgRet.i408 = alloca i8, align 1
+  %cmpxchgRet.i398 = alloca i8, align 1
+  %cmpxchgRet.i392 = alloca i8, align 1
+  %cmpxchgRet.i370 = alloca i8, align 1
+  %cmpxchgRet.i350 = alloca i8, align 1
+  %cmpxchgRet.i335 = alloca i8, align 1
+  %cmpxchgRet.i321 = alloca i8, align 1
+  %cmpxchgRet.i299 = alloca i8, align 1
+  %cmpxchgRet.i282 = alloca i8, align 1
+  %cmpxchgRet.i267 = alloca i8, align 1
+  %cmpxchgRet.i254 = alloca i8, align 1
+  %cmpxchgRet.i240 = alloca i8, align 1
+  %cmpxchgRet.i226 = alloca i8, align 1
+  %cmpxchgRet.i212 = alloca i8, align 1
+  %cmpxchgRet.i198 = alloca i8, align 1
+  %cmpxchgRet.i177 = alloca i8, align 1
+  %cmpxchgRet.i157 = alloca i8, align 1
+  %cmpxchgRet.i139 = alloca i8, align 1
+  %cmpxchgRet.i122 = alloca i8, align 1
+  %cmpxchgRet.i101 = alloca i8, align 1
+  %cmpxchgRet.i88 = alloca i8, align 1
+  %cmpxchgRet.i70 = alloca i8, align 1
   %cmpxchgRet.i = alloca i8, align 1
   %retVal.i63 = alloca i8, align 1
   %retVal.i58 = alloca i8, align 1
@@ -11571,10 +11424,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i)
   %0 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %retVal.i, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !157
   %1 = load i8, ptr %retVal.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %asmresult21.i = extractvalue { i64, i64 } %0, 1
@@ -11586,12 +11438,12 @@ if.then:                                          ; preds = %entry
   %expected.sroa.0.0.insert.insert = or disjoint i128 %expected.sroa.4.0.insert.shift, %expected.sroa.0.0.insert.ext
   %cmp4 = icmp eq i128 %expected.sroa.0.0.insert.insert, 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3492, ptr noundef nonnull @.str.65)
-  %3 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %coerce8.sroa.2.0.insert.ext = zext i64 %5 to i128
+  %2 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %coerce8.sroa.2.0.insert.ext = zext i64 %4 to i128
   %coerce8.sroa.2.0.insert.shift = shl nuw i128 %coerce8.sroa.2.0.insert.ext, 64
-  %coerce8.sroa.0.0.insert.ext = zext i64 %4 to i128
+  %coerce8.sroa.0.0.insert.ext = zext i64 %3 to i128
   %coerce8.sroa.0.0.insert.insert = or disjoint i128 %coerce8.sroa.2.0.insert.shift, %coerce8.sroa.0.0.insert.ext
   %cmp9 = icmp eq i128 %coerce8.sroa.0.0.insert.insert, 1
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3493, ptr noundef nonnull @.str.60)
@@ -11600,16 +11452,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   store i128 0, ptr %atomic12, align 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i55)
-  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, ptr nonnull elementtype(i8) %retVal.i55, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !166
-  %7 = load i8, ptr %retVal.i55, align 1
-  %8 = and i8 %7, 1
-  %tobool.i57.not = icmp eq i8 %8, 0
+  %5 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, ptr nonnull elementtype(i8) %retVal.i55, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !166
+  %6 = load i8, ptr %retVal.i55, align 1
+  %tobool.i57 = trunc i8 %6 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i55)
-  br i1 %tobool.i57.not, label %if.end36, label %if.then21
+  br i1 %tobool.i57, label %if.then21, label %if.end36
 
 if.then21:                                        ; preds = %if.end
-  %asmresult22.i = extractvalue { i64, i64 } %6, 1
-  %asmresult.i56 = extractvalue { i64, i64 } %6, 0
+  %asmresult22.i = extractvalue { i64, i64 } %5, 1
+  %asmresult.i56 = extractvalue { i64, i64 } %5, 0
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3505, ptr noundef nonnull @.str.4)
   %expected13.sroa.4.0.insert.ext = zext i64 %asmresult22.i to i128
   %expected13.sroa.4.0.insert.shift = shl nuw i128 %expected13.sroa.4.0.insert.ext, 64
@@ -11617,12 +11468,12 @@ if.then21:                                        ; preds = %if.end
   %expected13.sroa.0.0.insert.insert = or disjoint i128 %expected13.sroa.4.0.insert.shift, %expected13.sroa.0.0.insert.ext
   %cmp27 = icmp eq i128 %expected13.sroa.0.0.insert.insert, 0
   %call29 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp27, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3507, ptr noundef nonnull @.str.65)
-  %9 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !11
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %coerce32.sroa.2.0.insert.ext = zext i64 %11 to i128
+  %7 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !11
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %coerce32.sroa.2.0.insert.ext = zext i64 %9 to i128
   %coerce32.sroa.2.0.insert.shift = shl nuw i128 %coerce32.sroa.2.0.insert.ext, 64
-  %coerce32.sroa.0.0.insert.ext = zext i64 %10 to i128
+  %coerce32.sroa.0.0.insert.ext = zext i64 %8 to i128
   %coerce32.sroa.0.0.insert.insert = or disjoint i128 %coerce32.sroa.2.0.insert.shift, %coerce32.sroa.0.0.insert.ext
   %cmp33 = icmp eq i128 %coerce32.sroa.0.0.insert.insert, 1
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp33, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3508, ptr noundef nonnull @.str.60)
@@ -11631,12 +11482,11 @@ if.then21:                                        ; preds = %if.end
 if.end36:                                         ; preds = %if.then21, %if.end
   store i128 0, ptr %atomic37, align 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i58)
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic37, ptr nonnull elementtype(i8) %retVal.i58, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic37) #7, !srcloc !10
-  %asmresult.i60 = extractvalue { i64, i64 } %12, 0
-  %asmresult21.i61 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %retVal.i58, align 1
-  %14 = and i8 %13, 1
-  %tobool.i62 = icmp ne i8 %14, 0
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic37, ptr nonnull elementtype(i8) %retVal.i58, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic37) #7, !srcloc !10
+  %asmresult.i60 = extractvalue { i64, i64 } %10, 0
+  %asmresult21.i61 = extractvalue { i64, i64 } %10, 1
+  %11 = load i8, ptr %retVal.i58, align 1
+  %tobool.i62 = trunc i8 %11 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i58)
   %call47 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i62, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3518, ptr noundef nonnull @.str.4)
   %expected38.sroa.4.0.insert.ext = zext i64 %asmresult21.i61 to i128
@@ -11645,23 +11495,22 @@ if.end36:                                         ; preds = %if.then21, %if.end
   %expected38.sroa.0.0.insert.insert = or disjoint i128 %expected38.sroa.4.0.insert.shift, %expected38.sroa.0.0.insert.ext
   %cmp48 = icmp eq i128 %expected38.sroa.0.0.insert.insert, 0
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3520, ptr noundef nonnull @.str.65)
-  %15 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic37, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic37) #7, !srcloc !11
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %coerce53.sroa.2.0.insert.ext = zext i64 %17 to i128
+  %12 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic37, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic37) #7, !srcloc !11
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %coerce53.sroa.2.0.insert.ext = zext i64 %14 to i128
   %coerce53.sroa.2.0.insert.shift = shl nuw i128 %coerce53.sroa.2.0.insert.ext, 64
-  %coerce53.sroa.0.0.insert.ext = zext i64 %16 to i128
+  %coerce53.sroa.0.0.insert.ext = zext i64 %13 to i128
   %coerce53.sroa.0.0.insert.insert = or disjoint i128 %coerce53.sroa.2.0.insert.shift, %coerce53.sroa.0.0.insert.ext
   %cmp54 = icmp eq i128 %coerce53.sroa.0.0.insert.insert, 1
   %call56 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp54, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3521, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic57, align 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i63)
-  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic57, ptr nonnull elementtype(i8) %retVal.i63, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic57) #7, !srcloc !175
-  %asmresult.i65 = extractvalue { i64, i64 } %18, 0
-  %asmresult22.i66 = extractvalue { i64, i64 } %18, 1
-  %19 = load i8, ptr %retVal.i63, align 1
-  %20 = and i8 %19, 1
-  %tobool.i67 = icmp ne i8 %20, 0
+  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic57, ptr nonnull elementtype(i8) %retVal.i63, i64 1, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic57) #7, !srcloc !175
+  %asmresult.i65 = extractvalue { i64, i64 } %15, 0
+  %asmresult22.i66 = extractvalue { i64, i64 } %15, 1
+  %16 = load i8, ptr %retVal.i63, align 1
+  %tobool.i67 = trunc i8 %16 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i63)
   %call69 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i67, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3530, ptr noundef nonnull @.str.4)
   %expected58.sroa.4.0.insert.ext = zext i64 %asmresult22.i66 to i128
@@ -11670,12 +11519,12 @@ if.end36:                                         ; preds = %if.then21, %if.end
   %expected58.sroa.0.0.insert.insert = or disjoint i128 %expected58.sroa.4.0.insert.shift, %expected58.sroa.0.0.insert.ext
   %cmp70 = icmp eq i128 %expected58.sroa.0.0.insert.insert, 0
   %call72 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp70, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3532, ptr noundef nonnull @.str.65)
-  %21 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic57, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic57) #7, !srcloc !11
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = extractvalue { i64, i64 } %21, 1
-  %coerce75.sroa.2.0.insert.ext = zext i64 %23 to i128
+  %17 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic57, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic57) #7, !srcloc !11
+  %18 = extractvalue { i64, i64 } %17, 0
+  %19 = extractvalue { i64, i64 } %17, 1
+  %coerce75.sroa.2.0.insert.ext = zext i64 %19 to i128
   %coerce75.sroa.2.0.insert.shift = shl nuw i128 %coerce75.sroa.2.0.insert.ext, 64
-  %coerce75.sroa.0.0.insert.ext = zext i64 %22 to i128
+  %coerce75.sroa.0.0.insert.ext = zext i64 %18 to i128
   %coerce75.sroa.0.0.insert.insert = or disjoint i128 %coerce75.sroa.2.0.insert.shift, %coerce75.sroa.0.0.insert.ext
   %cmp76 = icmp eq i128 %coerce75.sroa.0.0.insert.insert, 1
   %call78 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp76, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3533, ptr noundef nonnull @.str.60)
@@ -11687,13 +11536,12 @@ do.body.i:                                        ; preds = %do.body.i, %if.end3
   %retVal.sroa.0.0.i = phi i64 [ 0, %if.end36 ], [ %asmresult.i68, %do.body.i ]
   %retVal.sroa.5.0.i = phi i64 [ 0, %if.end36 ], [ %asmresult16.i, %do.body.i ]
   %xor.i = xor i64 %retVal.sroa.0.0.i, 1
-  %24 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic79, ptr nonnull elementtype(i8) %cmpxchgRet.i, i64 %xor.i, i64 %retVal.sroa.5.0.i, i64 %retVal.sroa.0.0.i, i64 %retVal.sroa.5.0.i, ptr nonnull elementtype(i128) %atomic79) #7, !srcloc !139
-  %asmresult.i68 = extractvalue { i64, i64 } %24, 0
-  %asmresult16.i = extractvalue { i64, i64 } %24, 1
-  %25 = load i8, ptr %cmpxchgRet.i, align 1
-  %26 = and i8 %25, 1
-  %tobool.not.i = icmp eq i8 %26, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit, !llvm.loop !140
+  %20 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic79, ptr nonnull elementtype(i8) %cmpxchgRet.i, i64 %xor.i, i64 %retVal.sroa.5.0.i, i64 %retVal.sroa.0.0.i, i64 %retVal.sroa.5.0.i, ptr nonnull elementtype(i128) %atomic79) #7, !srcloc !139
+  %asmresult.i68 = extractvalue { i64, i64 } %20, 0
+  %asmresult16.i = extractvalue { i64, i64 } %20, 1
+  %21 = load i8, ptr %cmpxchgRet.i, align 1
+  %tobool.i69 = trunc i8 %21 to i1
+  br i1 %tobool.i69, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit, label %do.body.i, !llvm.loop !140
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
@@ -11703,845 +11551,822 @@ _ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit: ; preds = %d
   %coerce83.sroa.0.0.insert.insert = or disjoint i128 %coerce83.sroa.2.0.insert.shift, %coerce83.sroa.0.0.insert.ext
   %cmp84 = icmp eq i128 %coerce83.sroa.0.0.insert.insert, 0
   %call86 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp84, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3541, ptr noundef nonnull @.str.56)
-  %27 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic79, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic79) #7, !srcloc !11
-  %28 = extractvalue { i64, i64 } %27, 0
-  %29 = extractvalue { i64, i64 } %27, 1
-  %coerce89.sroa.2.0.insert.ext = zext i64 %29 to i128
+  %22 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic79, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic79) #7, !srcloc !11
+  %23 = extractvalue { i64, i64 } %22, 0
+  %24 = extractvalue { i64, i64 } %22, 1
+  %coerce89.sroa.2.0.insert.ext = zext i64 %24 to i128
   %coerce89.sroa.2.0.insert.shift = shl nuw i128 %coerce89.sroa.2.0.insert.ext, 64
-  %coerce89.sroa.0.0.insert.ext = zext i64 %28 to i128
+  %coerce89.sroa.0.0.insert.ext = zext i64 %23 to i128
   %coerce89.sroa.0.0.insert.insert = or disjoint i128 %coerce89.sroa.2.0.insert.shift, %coerce89.sroa.0.0.insert.ext
   %cmp90 = icmp eq i128 %coerce89.sroa.0.0.insert.insert, 1
   %call92 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp90, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3542, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic93, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i69)
-  br label %do.body.i73
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i70)
+  br label %do.body.i74
 
-do.body.i73:                                      ; preds = %do.body.i73, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit
-  %retVal.sroa.0.0.i74 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit ], [ %asmresult.i84, %do.body.i73 ]
-  %retVal.sroa.5.0.i75 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit ], [ %asmresult16.i85, %do.body.i73 ]
-  %xor.i80 = xor i64 %retVal.sroa.0.0.i74, 1
-  %30 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i69, i64 %xor.i80, i64 %retVal.sroa.5.0.i75, i64 %retVal.sroa.0.0.i74, i64 %retVal.sroa.5.0.i75, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !29
-  %asmresult.i84 = extractvalue { i64, i64 } %30, 0
-  %asmresult16.i85 = extractvalue { i64, i64 } %30, 1
-  %31 = load i8, ptr %cmpxchgRet.i69, align 1
-  %32 = and i8 %31, 1
-  %tobool.not.i86 = icmp eq i8 %32, 0
-  br i1 %tobool.not.i86, label %do.body.i73, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !30
+do.body.i74:                                      ; preds = %do.body.i74, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit
+  %retVal.sroa.0.0.i75 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit ], [ %asmresult.i85, %do.body.i74 ]
+  %retVal.sroa.5.0.i76 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEo.exit ], [ %asmresult16.i86, %do.body.i74 ]
+  %xor.i81 = xor i64 %retVal.sroa.0.0.i75, 1
+  %25 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, ptr nonnull elementtype(i8) %cmpxchgRet.i70, i64 %xor.i81, i64 %retVal.sroa.5.0.i76, i64 %retVal.sroa.0.0.i75, i64 %retVal.sroa.5.0.i76, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !29
+  %asmresult.i85 = extractvalue { i64, i64 } %25, 0
+  %asmresult16.i86 = extractvalue { i64, i64 } %25, 1
+  %26 = load i8, ptr %cmpxchgRet.i70, align 1
+  %tobool.i87 = trunc i8 %26 to i1
+  br i1 %tobool.i87, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i74, !llvm.loop !30
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i69)
-  %coerce98.sroa.2.0.insert.ext = zext i64 %asmresult16.i85 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i74
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i70)
+  %coerce98.sroa.2.0.insert.ext = zext i64 %asmresult16.i86 to i128
   %coerce98.sroa.2.0.insert.shift = shl nuw i128 %coerce98.sroa.2.0.insert.ext, 64
-  %coerce98.sroa.0.0.insert.ext = zext i64 %asmresult.i84 to i128
+  %coerce98.sroa.0.0.insert.ext = zext i64 %asmresult.i85 to i128
   %coerce98.sroa.0.0.insert.insert = or disjoint i128 %coerce98.sroa.2.0.insert.shift, %coerce98.sroa.0.0.insert.ext
   %cmp99 = icmp eq i128 %coerce98.sroa.0.0.insert.insert, 0
   %call101 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp99, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3550, ptr noundef nonnull @.str.56)
-  %33 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !11
-  %34 = extractvalue { i64, i64 } %33, 0
-  %35 = extractvalue { i64, i64 } %33, 1
-  %coerce104.sroa.2.0.insert.ext = zext i64 %35 to i128
+  %27 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic93, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic93) #7, !srcloc !11
+  %28 = extractvalue { i64, i64 } %27, 0
+  %29 = extractvalue { i64, i64 } %27, 1
+  %coerce104.sroa.2.0.insert.ext = zext i64 %29 to i128
   %coerce104.sroa.2.0.insert.shift = shl nuw i128 %coerce104.sroa.2.0.insert.ext, 64
-  %coerce104.sroa.0.0.insert.ext = zext i64 %34 to i128
+  %coerce104.sroa.0.0.insert.ext = zext i64 %28 to i128
   %coerce104.sroa.0.0.insert.insert = or disjoint i128 %coerce104.sroa.2.0.insert.shift, %coerce104.sroa.0.0.insert.ext
   %cmp105 = icmp eq i128 %coerce104.sroa.0.0.insert.insert, 1
   %call107 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp105, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3551, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic108, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i87)
-  br label %do.body.i89
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i88)
+  br label %do.body.i90
 
-do.body.i89:                                      ; preds = %do.body.i89, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i90 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i97, %do.body.i89 ]
-  %retVal.sroa.7.0.i = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i98, %do.body.i89 ]
-  %xor.i93 = xor i64 %retVal.sroa.0.0.i90, 1
-  %36 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic108, ptr nonnull elementtype(i8) %cmpxchgRet.i87, i64 %xor.i93, i64 %retVal.sroa.7.0.i, i64 %retVal.sroa.0.0.i90, i64 %retVal.sroa.7.0.i, ptr nonnull elementtype(i128) %atomic108) #7, !srcloc !149
-  %asmresult.i97 = extractvalue { i64, i64 } %36, 0
-  %asmresult16.i98 = extractvalue { i64, i64 } %36, 1
-  %37 = load i8, ptr %cmpxchgRet.i87, align 1
-  %38 = and i8 %37, 1
-  %tobool.not.i99 = icmp eq i8 %38, 0
-  br i1 %tobool.not.i99, label %do.body.i89, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit, !llvm.loop !150
+do.body.i90:                                      ; preds = %do.body.i90, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i91 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i98, %do.body.i90 ]
+  %retVal.sroa.7.0.i = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_xorEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i99, %do.body.i90 ]
+  %xor.i94 = xor i64 %retVal.sroa.0.0.i91, 1
+  %30 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic108, ptr nonnull elementtype(i8) %cmpxchgRet.i88, i64 %xor.i94, i64 %retVal.sroa.7.0.i, i64 %retVal.sroa.0.0.i91, i64 %retVal.sroa.7.0.i, ptr nonnull elementtype(i128) %atomic108) #7, !srcloc !149
+  %asmresult.i98 = extractvalue { i64, i64 } %30, 0
+  %asmresult16.i99 = extractvalue { i64, i64 } %30, 1
+  %31 = load i8, ptr %cmpxchgRet.i88, align 1
+  %tobool.i100 = trunc i8 %31 to i1
+  br i1 %tobool.i100, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit, label %do.body.i90, !llvm.loop !150
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit: ; preds = %do.body.i89
-  %xor17.i = xor i64 %asmresult.i97, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i87)
-  %coerce112.sroa.2.0.insert.ext = zext i64 %asmresult16.i98 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit: ; preds = %do.body.i90
+  %xor17.i = xor i64 %asmresult.i98, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i88)
+  %coerce112.sroa.2.0.insert.ext = zext i64 %asmresult16.i99 to i128
   %coerce112.sroa.2.0.insert.shift = shl nuw i128 %coerce112.sroa.2.0.insert.ext, 64
   %coerce112.sroa.0.0.insert.ext = zext i64 %xor17.i to i128
   %coerce112.sroa.0.0.insert.insert = or disjoint i128 %coerce112.sroa.2.0.insert.shift, %coerce112.sroa.0.0.insert.ext
   %cmp113 = icmp eq i128 %coerce112.sroa.0.0.insert.insert, 1
   %call115 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp113, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3559, ptr noundef nonnull @.str.57)
-  %39 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic108, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic108) #7, !srcloc !11
-  %40 = extractvalue { i64, i64 } %39, 0
-  %41 = extractvalue { i64, i64 } %39, 1
-  %coerce118.sroa.2.0.insert.ext = zext i64 %41 to i128
+  %32 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic108, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic108) #7, !srcloc !11
+  %33 = extractvalue { i64, i64 } %32, 0
+  %34 = extractvalue { i64, i64 } %32, 1
+  %coerce118.sroa.2.0.insert.ext = zext i64 %34 to i128
   %coerce118.sroa.2.0.insert.shift = shl nuw i128 %coerce118.sroa.2.0.insert.ext, 64
-  %coerce118.sroa.0.0.insert.ext = zext i64 %40 to i128
+  %coerce118.sroa.0.0.insert.ext = zext i64 %33 to i128
   %coerce118.sroa.0.0.insert.insert = or disjoint i128 %coerce118.sroa.2.0.insert.shift, %coerce118.sroa.0.0.insert.ext
   %cmp119 = icmp eq i128 %coerce118.sroa.0.0.insert.insert, 1
   %call121 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp119, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3560, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic122, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i100)
-  br label %do.body.i104
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i101)
+  br label %do.body.i105
 
-do.body.i104:                                     ; preds = %do.body.i104, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit
-  %retVal.sroa.0.0.i105 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit ], [ %asmresult.i115, %do.body.i104 ]
-  %retVal.sroa.7.0.i106 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit ], [ %asmresult16.i116, %do.body.i104 ]
-  %xor.i111 = xor i64 %retVal.sroa.0.0.i105, 1
-  %42 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic122, ptr nonnull elementtype(i8) %cmpxchgRet.i100, i64 %xor.i111, i64 %retVal.sroa.7.0.i106, i64 %retVal.sroa.0.0.i105, i64 %retVal.sroa.7.0.i106, ptr nonnull elementtype(i128) %atomic122) #7, !srcloc !31
-  %asmresult.i115 = extractvalue { i64, i64 } %42, 0
-  %asmresult16.i116 = extractvalue { i64, i64 } %42, 1
-  %43 = load i8, ptr %cmpxchgRet.i100, align 1
-  %44 = and i8 %43, 1
-  %tobool.not.i117 = icmp eq i8 %44, 0
-  br i1 %tobool.not.i117, label %do.body.i104, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !32
+do.body.i105:                                     ; preds = %do.body.i105, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit
+  %retVal.sroa.0.0.i106 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit ], [ %asmresult.i116, %do.body.i105 ]
+  %retVal.sroa.7.0.i107 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEo.exit ], [ %asmresult16.i117, %do.body.i105 ]
+  %xor.i112 = xor i64 %retVal.sroa.0.0.i106, 1
+  %35 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic122, ptr nonnull elementtype(i8) %cmpxchgRet.i101, i64 %xor.i112, i64 %retVal.sroa.7.0.i107, i64 %retVal.sroa.0.0.i106, i64 %retVal.sroa.7.0.i107, ptr nonnull elementtype(i128) %atomic122) #7, !srcloc !31
+  %asmresult.i116 = extractvalue { i64, i64 } %35, 0
+  %asmresult16.i117 = extractvalue { i64, i64 } %35, 1
+  %36 = load i8, ptr %cmpxchgRet.i101, align 1
+  %tobool.i118 = trunc i8 %36 to i1
+  br i1 %tobool.i118, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i105, !llvm.loop !32
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i104
-  %xor17.i118 = xor i64 %asmresult.i115, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i100)
-  %coerce127.sroa.2.0.insert.ext = zext i64 %asmresult16.i116 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i105
+  %xor17.i119 = xor i64 %asmresult.i116, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i101)
+  %coerce127.sroa.2.0.insert.ext = zext i64 %asmresult16.i117 to i128
   %coerce127.sroa.2.0.insert.shift = shl nuw i128 %coerce127.sroa.2.0.insert.ext, 64
-  %coerce127.sroa.0.0.insert.ext = zext i64 %xor17.i118 to i128
+  %coerce127.sroa.0.0.insert.ext = zext i64 %xor17.i119 to i128
   %coerce127.sroa.0.0.insert.insert = or disjoint i128 %coerce127.sroa.2.0.insert.shift, %coerce127.sroa.0.0.insert.ext
   %cmp128 = icmp eq i128 %coerce127.sroa.0.0.insert.insert, 1
   %call130 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp128, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3568, ptr noundef nonnull @.str.57)
-  %45 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic122, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic122) #7, !srcloc !11
-  %46 = extractvalue { i64, i64 } %45, 0
-  %47 = extractvalue { i64, i64 } %45, 1
-  %coerce133.sroa.2.0.insert.ext = zext i64 %47 to i128
+  %37 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic122, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic122) #7, !srcloc !11
+  %38 = extractvalue { i64, i64 } %37, 0
+  %39 = extractvalue { i64, i64 } %37, 1
+  %coerce133.sroa.2.0.insert.ext = zext i64 %39 to i128
   %coerce133.sroa.2.0.insert.shift = shl nuw i128 %coerce133.sroa.2.0.insert.ext, 64
-  %coerce133.sroa.0.0.insert.ext = zext i64 %46 to i128
+  %coerce133.sroa.0.0.insert.ext = zext i64 %38 to i128
   %coerce133.sroa.0.0.insert.insert = or disjoint i128 %coerce133.sroa.2.0.insert.shift, %coerce133.sroa.0.0.insert.ext
   %cmp134 = icmp eq i128 %coerce133.sroa.0.0.insert.insert, 1
   %call136 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp134, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3569, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic137, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i121)
-  br label %do.body.i125
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i122)
+  br label %do.body.i126
 
-do.body.i125:                                     ; preds = %do.body.i125, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i126 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i135, %do.body.i125 ]
-  %retVal.sroa.5.0.i127 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i136, %do.body.i125 ]
-  %or.i = or i64 %retVal.sroa.0.0.i126, 1
-  %48 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic137, ptr nonnull elementtype(i8) %cmpxchgRet.i121, i64 %or.i, i64 %retVal.sroa.5.0.i127, i64 %retVal.sroa.0.0.i126, i64 %retVal.sroa.5.0.i127, ptr nonnull elementtype(i128) %atomic137) #7, !srcloc !121
-  %asmresult.i135 = extractvalue { i64, i64 } %48, 0
-  %asmresult16.i136 = extractvalue { i64, i64 } %48, 1
-  %49 = load i8, ptr %cmpxchgRet.i121, align 1
-  %50 = and i8 %49, 1
-  %tobool.not.i137 = icmp eq i8 %50, 0
-  br i1 %tobool.not.i137, label %do.body.i125, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit, !llvm.loop !122
+do.body.i126:                                     ; preds = %do.body.i126, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i127 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i136, %do.body.i126 ]
+  %retVal.sroa.5.0.i128 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9xor_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i137, %do.body.i126 ]
+  %or.i = or i64 %retVal.sroa.0.0.i127, 1
+  %40 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic137, ptr nonnull elementtype(i8) %cmpxchgRet.i122, i64 %or.i, i64 %retVal.sroa.5.0.i128, i64 %retVal.sroa.0.0.i127, i64 %retVal.sroa.5.0.i128, ptr nonnull elementtype(i128) %atomic137) #7, !srcloc !121
+  %asmresult.i136 = extractvalue { i64, i64 } %40, 0
+  %asmresult16.i137 = extractvalue { i64, i64 } %40, 1
+  %41 = load i8, ptr %cmpxchgRet.i122, align 1
+  %tobool.i138 = trunc i8 %41 to i1
+  br i1 %tobool.i138, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit, label %do.body.i126, !llvm.loop !122
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit: ; preds = %do.body.i125
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i121)
-  %coerce141.sroa.2.0.insert.ext = zext i64 %asmresult16.i136 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit: ; preds = %do.body.i126
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i122)
+  %coerce141.sroa.2.0.insert.ext = zext i64 %asmresult16.i137 to i128
   %coerce141.sroa.2.0.insert.shift = shl nuw i128 %coerce141.sroa.2.0.insert.ext, 64
-  %coerce141.sroa.0.0.insert.ext = zext i64 %asmresult.i135 to i128
+  %coerce141.sroa.0.0.insert.ext = zext i64 %asmresult.i136 to i128
   %coerce141.sroa.0.0.insert.insert = or disjoint i128 %coerce141.sroa.2.0.insert.shift, %coerce141.sroa.0.0.insert.ext
   %cmp142 = icmp eq i128 %coerce141.sroa.0.0.insert.insert, 0
   %call144 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp142, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3577, ptr noundef nonnull @.str.56)
-  %51 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic137, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic137) #7, !srcloc !11
-  %52 = extractvalue { i64, i64 } %51, 0
-  %53 = extractvalue { i64, i64 } %51, 1
-  %coerce147.sroa.2.0.insert.ext = zext i64 %53 to i128
+  %42 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic137, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic137) #7, !srcloc !11
+  %43 = extractvalue { i64, i64 } %42, 0
+  %44 = extractvalue { i64, i64 } %42, 1
+  %coerce147.sroa.2.0.insert.ext = zext i64 %44 to i128
   %coerce147.sroa.2.0.insert.shift = shl nuw i128 %coerce147.sroa.2.0.insert.ext, 64
-  %coerce147.sroa.0.0.insert.ext = zext i64 %52 to i128
+  %coerce147.sroa.0.0.insert.ext = zext i64 %43 to i128
   %coerce147.sroa.0.0.insert.insert = or disjoint i128 %coerce147.sroa.2.0.insert.shift, %coerce147.sroa.0.0.insert.ext
   %cmp148 = icmp eq i128 %coerce147.sroa.0.0.insert.insert, 1
   %call150 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp148, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3578, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic151, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i138)
-  br label %do.body.i142
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i139)
+  br label %do.body.i143
 
-do.body.i142:                                     ; preds = %do.body.i142, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit
-  %retVal.sroa.0.0.i143 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit ], [ %asmresult.i153, %do.body.i142 ]
-  %retVal.sroa.5.0.i144 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit ], [ %asmresult16.i154, %do.body.i142 ]
-  %or.i149 = or i64 %retVal.sroa.0.0.i143, 1
-  %54 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic151, ptr nonnull elementtype(i8) %cmpxchgRet.i138, i64 %or.i149, i64 %retVal.sroa.5.0.i144, i64 %retVal.sroa.0.0.i143, i64 %retVal.sroa.5.0.i144, ptr nonnull elementtype(i128) %atomic151) #7, !srcloc !25
-  %asmresult.i153 = extractvalue { i64, i64 } %54, 0
-  %asmresult16.i154 = extractvalue { i64, i64 } %54, 1
-  %55 = load i8, ptr %cmpxchgRet.i138, align 1
-  %56 = and i8 %55, 1
-  %tobool.not.i155 = icmp eq i8 %56, 0
-  br i1 %tobool.not.i155, label %do.body.i142, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !26
+do.body.i143:                                     ; preds = %do.body.i143, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit
+  %retVal.sroa.0.0.i144 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit ], [ %asmresult.i154, %do.body.i143 ]
+  %retVal.sroa.5.0.i145 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEo.exit ], [ %asmresult16.i155, %do.body.i143 ]
+  %or.i150 = or i64 %retVal.sroa.0.0.i144, 1
+  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic151, ptr nonnull elementtype(i8) %cmpxchgRet.i139, i64 %or.i150, i64 %retVal.sroa.5.0.i145, i64 %retVal.sroa.0.0.i144, i64 %retVal.sroa.5.0.i145, ptr nonnull elementtype(i128) %atomic151) #7, !srcloc !25
+  %asmresult.i154 = extractvalue { i64, i64 } %45, 0
+  %asmresult16.i155 = extractvalue { i64, i64 } %45, 1
+  %46 = load i8, ptr %cmpxchgRet.i139, align 1
+  %tobool.i156 = trunc i8 %46 to i1
+  br i1 %tobool.i156, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i143, !llvm.loop !26
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i142
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i138)
-  %coerce156.sroa.2.0.insert.ext = zext i64 %asmresult16.i154 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i143
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i139)
+  %coerce156.sroa.2.0.insert.ext = zext i64 %asmresult16.i155 to i128
   %coerce156.sroa.2.0.insert.shift = shl nuw i128 %coerce156.sroa.2.0.insert.ext, 64
-  %coerce156.sroa.0.0.insert.ext = zext i64 %asmresult.i153 to i128
+  %coerce156.sroa.0.0.insert.ext = zext i64 %asmresult.i154 to i128
   %coerce156.sroa.0.0.insert.insert = or disjoint i128 %coerce156.sroa.2.0.insert.shift, %coerce156.sroa.0.0.insert.ext
   %cmp157 = icmp eq i128 %coerce156.sroa.0.0.insert.insert, 0
   %call159 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp157, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3586, ptr noundef nonnull @.str.56)
-  %57 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic151, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic151) #7, !srcloc !11
-  %58 = extractvalue { i64, i64 } %57, 0
-  %59 = extractvalue { i64, i64 } %57, 1
-  %coerce162.sroa.2.0.insert.ext = zext i64 %59 to i128
+  %47 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic151, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic151) #7, !srcloc !11
+  %48 = extractvalue { i64, i64 } %47, 0
+  %49 = extractvalue { i64, i64 } %47, 1
+  %coerce162.sroa.2.0.insert.ext = zext i64 %49 to i128
   %coerce162.sroa.2.0.insert.shift = shl nuw i128 %coerce162.sroa.2.0.insert.ext, 64
-  %coerce162.sroa.0.0.insert.ext = zext i64 %58 to i128
+  %coerce162.sroa.0.0.insert.ext = zext i64 %48 to i128
   %coerce162.sroa.0.0.insert.insert = or disjoint i128 %coerce162.sroa.2.0.insert.shift, %coerce162.sroa.0.0.insert.ext
   %cmp163 = icmp eq i128 %coerce162.sroa.0.0.insert.insert, 1
   %call165 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp163, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3587, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic166, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i156)
-  br label %do.body.i160
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i157)
+  br label %do.body.i161
 
-do.body.i160:                                     ; preds = %do.body.i160, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i161 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i171, %do.body.i160 ]
-  %retVal.sroa.7.0.i162 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i172, %do.body.i160 ]
-  %or.i167 = or i64 %retVal.sroa.0.0.i161, 1
-  %60 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic166, ptr nonnull elementtype(i8) %cmpxchgRet.i156, i64 %or.i167, i64 %retVal.sroa.7.0.i162, i64 %retVal.sroa.0.0.i161, i64 %retVal.sroa.7.0.i162, ptr nonnull elementtype(i128) %atomic166) #7, !srcloc !131
-  %asmresult.i171 = extractvalue { i64, i64 } %60, 0
-  %asmresult16.i172 = extractvalue { i64, i64 } %60, 1
-  %61 = load i8, ptr %cmpxchgRet.i156, align 1
-  %62 = and i8 %61, 1
-  %tobool.not.i173 = icmp eq i8 %62, 0
-  br i1 %tobool.not.i173, label %do.body.i160, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit, !llvm.loop !132
+do.body.i161:                                     ; preds = %do.body.i161, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i162 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i172, %do.body.i161 ]
+  %retVal.sroa.7.0.i163 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8fetch_orEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i173, %do.body.i161 ]
+  %or.i168 = or i64 %retVal.sroa.0.0.i162, 1
+  %50 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic166, ptr nonnull elementtype(i8) %cmpxchgRet.i157, i64 %or.i168, i64 %retVal.sroa.7.0.i163, i64 %retVal.sroa.0.0.i162, i64 %retVal.sroa.7.0.i163, ptr nonnull elementtype(i128) %atomic166) #7, !srcloc !131
+  %asmresult.i172 = extractvalue { i64, i64 } %50, 0
+  %asmresult16.i173 = extractvalue { i64, i64 } %50, 1
+  %51 = load i8, ptr %cmpxchgRet.i157, align 1
+  %tobool.i174 = trunc i8 %51 to i1
+  br i1 %tobool.i174, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit, label %do.body.i161, !llvm.loop !132
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit: ; preds = %do.body.i160
-  %or17.i = or i64 %asmresult.i171, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i156)
-  %coerce170.sroa.2.0.insert.ext = zext i64 %asmresult16.i172 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit: ; preds = %do.body.i161
+  %or17.i = or i64 %asmresult.i172, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i157)
+  %coerce170.sroa.2.0.insert.ext = zext i64 %asmresult16.i173 to i128
   %coerce170.sroa.2.0.insert.shift = shl nuw i128 %coerce170.sroa.2.0.insert.ext, 64
   %coerce170.sroa.0.0.insert.ext = zext i64 %or17.i to i128
   %coerce170.sroa.0.0.insert.insert = or disjoint i128 %coerce170.sroa.2.0.insert.shift, %coerce170.sroa.0.0.insert.ext
   %cmp171 = icmp eq i128 %coerce170.sroa.0.0.insert.insert, 1
   %call173 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp171, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3595, ptr noundef nonnull @.str.57)
-  %63 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic166, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic166) #7, !srcloc !11
-  %64 = extractvalue { i64, i64 } %63, 0
-  %65 = extractvalue { i64, i64 } %63, 1
-  %coerce176.sroa.2.0.insert.ext = zext i64 %65 to i128
+  %52 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic166, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic166) #7, !srcloc !11
+  %53 = extractvalue { i64, i64 } %52, 0
+  %54 = extractvalue { i64, i64 } %52, 1
+  %coerce176.sroa.2.0.insert.ext = zext i64 %54 to i128
   %coerce176.sroa.2.0.insert.shift = shl nuw i128 %coerce176.sroa.2.0.insert.ext, 64
-  %coerce176.sroa.0.0.insert.ext = zext i64 %64 to i128
+  %coerce176.sroa.0.0.insert.ext = zext i64 %53 to i128
   %coerce176.sroa.0.0.insert.insert = or disjoint i128 %coerce176.sroa.2.0.insert.shift, %coerce176.sroa.0.0.insert.ext
   %cmp177 = icmp eq i128 %coerce176.sroa.0.0.insert.insert, 1
   %call179 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp177, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3596, ptr noundef nonnull @.str.66)
   store i128 0, ptr %atomic180, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i176)
-  br label %do.body.i180
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i177)
+  br label %do.body.i181
 
-do.body.i180:                                     ; preds = %do.body.i180, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit
-  %retVal.sroa.0.0.i181 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit ], [ %asmresult.i191, %do.body.i180 ]
-  %retVal.sroa.7.0.i182 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit ], [ %asmresult16.i192, %do.body.i180 ]
-  %or.i187 = or i64 %retVal.sroa.0.0.i181, 1
-  %66 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic180, ptr nonnull elementtype(i8) %cmpxchgRet.i176, i64 %or.i187, i64 %retVal.sroa.7.0.i182, i64 %retVal.sroa.0.0.i181, i64 %retVal.sroa.7.0.i182, ptr nonnull elementtype(i128) %atomic180) #7, !srcloc !27
-  %asmresult.i191 = extractvalue { i64, i64 } %66, 0
-  %asmresult16.i192 = extractvalue { i64, i64 } %66, 1
-  %67 = load i8, ptr %cmpxchgRet.i176, align 1
-  %68 = and i8 %67, 1
-  %tobool.not.i193 = icmp eq i8 %68, 0
-  br i1 %tobool.not.i193, label %do.body.i180, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !28
+do.body.i181:                                     ; preds = %do.body.i181, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit
+  %retVal.sroa.0.0.i182 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit ], [ %asmresult.i192, %do.body.i181 ]
+  %retVal.sroa.7.0.i183 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEo.exit ], [ %asmresult16.i193, %do.body.i181 ]
+  %or.i188 = or i64 %retVal.sroa.0.0.i182, 1
+  %55 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic180, ptr nonnull elementtype(i8) %cmpxchgRet.i177, i64 %or.i188, i64 %retVal.sroa.7.0.i183, i64 %retVal.sroa.0.0.i182, i64 %retVal.sroa.7.0.i183, ptr nonnull elementtype(i128) %atomic180) #7, !srcloc !27
+  %asmresult.i192 = extractvalue { i64, i64 } %55, 0
+  %asmresult16.i193 = extractvalue { i64, i64 } %55, 1
+  %56 = load i8, ptr %cmpxchgRet.i177, align 1
+  %tobool.i194 = trunc i8 %56 to i1
+  br i1 %tobool.i194, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i181, !llvm.loop !28
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i180
-  %or17.i194 = or i64 %asmresult.i191, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i176)
-  %coerce185.sroa.2.0.insert.ext = zext i64 %asmresult16.i192 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i181
+  %or17.i195 = or i64 %asmresult.i192, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i177)
+  %coerce185.sroa.2.0.insert.ext = zext i64 %asmresult16.i193 to i128
   %coerce185.sroa.2.0.insert.shift = shl nuw i128 %coerce185.sroa.2.0.insert.ext, 64
-  %coerce185.sroa.0.0.insert.ext = zext i64 %or17.i194 to i128
+  %coerce185.sroa.0.0.insert.ext = zext i64 %or17.i195 to i128
   %coerce185.sroa.0.0.insert.insert = or disjoint i128 %coerce185.sroa.2.0.insert.shift, %coerce185.sroa.0.0.insert.ext
   %cmp186 = icmp eq i128 %coerce185.sroa.0.0.insert.insert, 1
   %call188 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp186, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3604, ptr noundef nonnull @.str.57)
-  %69 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic180, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic180) #7, !srcloc !11
-  %70 = extractvalue { i64, i64 } %69, 0
-  %71 = extractvalue { i64, i64 } %69, 1
-  %coerce191.sroa.2.0.insert.ext = zext i64 %71 to i128
+  %57 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic180, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic180) #7, !srcloc !11
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
+  %coerce191.sroa.2.0.insert.ext = zext i64 %59 to i128
   %coerce191.sroa.2.0.insert.shift = shl nuw i128 %coerce191.sroa.2.0.insert.ext, 64
-  %coerce191.sroa.0.0.insert.ext = zext i64 %70 to i128
+  %coerce191.sroa.0.0.insert.ext = zext i64 %58 to i128
   %coerce191.sroa.0.0.insert.insert = or disjoint i128 %coerce191.sroa.2.0.insert.shift, %coerce191.sroa.0.0.insert.ext
   %cmp192 = icmp eq i128 %coerce191.sroa.0.0.insert.insert, 1
   %call194 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp192, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3605, ptr noundef nonnull @.str.66)
   store i128 1, ptr %atomic195, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i197)
-  br label %do.body.i201
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i198)
+  br label %do.body.i202
 
-do.body.i201:                                     ; preds = %do.body.i201, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i202 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i208, %do.body.i201 ]
-  %retVal.sroa.5.0.i203 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i209, %do.body.i201 ]
-  %72 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic195, ptr nonnull elementtype(i8) %cmpxchgRet.i197, i64 0, i64 0, i64 %retVal.sroa.0.0.i202, i64 %retVal.sroa.5.0.i203, ptr nonnull elementtype(i128) %atomic195) #7, !srcloc !103
-  %asmresult.i208 = extractvalue { i64, i64 } %72, 0
-  %asmresult16.i209 = extractvalue { i64, i64 } %72, 1
-  %73 = load i8, ptr %cmpxchgRet.i197, align 1
-  %74 = and i8 %73, 1
-  %tobool.not.i210 = icmp eq i8 %74, 0
-  br i1 %tobool.not.i210, label %do.body.i201, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit, !llvm.loop !104
+do.body.i202:                                     ; preds = %do.body.i202, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i203 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i209, %do.body.i202 ]
+  %retVal.sroa.5.0.i204 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE8or_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i210, %do.body.i202 ]
+  %60 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic195, ptr nonnull elementtype(i8) %cmpxchgRet.i198, i64 0, i64 0, i64 %retVal.sroa.0.0.i203, i64 %retVal.sroa.5.0.i204, ptr nonnull elementtype(i128) %atomic195) #7, !srcloc !103
+  %asmresult.i209 = extractvalue { i64, i64 } %60, 0
+  %asmresult16.i210 = extractvalue { i64, i64 } %60, 1
+  %61 = load i8, ptr %cmpxchgRet.i198, align 1
+  %tobool.i211 = trunc i8 %61 to i1
+  br i1 %tobool.i211, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit, label %do.body.i202, !llvm.loop !104
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit: ; preds = %do.body.i201
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i197)
-  %coerce200.sroa.2.0.insert.ext = zext i64 %asmresult16.i209 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit: ; preds = %do.body.i202
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i198)
+  %coerce200.sroa.2.0.insert.ext = zext i64 %asmresult16.i210 to i128
   %coerce200.sroa.2.0.insert.shift = shl nuw i128 %coerce200.sroa.2.0.insert.ext, 64
-  %coerce200.sroa.0.0.insert.ext = zext i64 %asmresult.i208 to i128
+  %coerce200.sroa.0.0.insert.ext = zext i64 %asmresult.i209 to i128
   %coerce200.sroa.0.0.insert.insert = or disjoint i128 %coerce200.sroa.2.0.insert.shift, %coerce200.sroa.0.0.insert.ext
   %cmp201 = icmp eq i128 %coerce200.sroa.0.0.insert.insert, 1
   %call203 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp201, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3613, ptr noundef nonnull @.str.57)
-  %75 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic195, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic195) #7, !srcloc !11
-  %76 = extractvalue { i64, i64 } %75, 0
-  %77 = extractvalue { i64, i64 } %75, 1
-  %coerce206.sroa.2.0.insert.ext = zext i64 %77 to i128
+  %62 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic195, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic195) #7, !srcloc !11
+  %63 = extractvalue { i64, i64 } %62, 0
+  %64 = extractvalue { i64, i64 } %62, 1
+  %coerce206.sroa.2.0.insert.ext = zext i64 %64 to i128
   %coerce206.sroa.2.0.insert.shift = shl nuw i128 %coerce206.sroa.2.0.insert.ext, 64
-  %coerce206.sroa.0.0.insert.ext = zext i64 %76 to i128
+  %coerce206.sroa.0.0.insert.ext = zext i64 %63 to i128
   %coerce206.sroa.0.0.insert.insert = or disjoint i128 %coerce206.sroa.2.0.insert.shift, %coerce206.sroa.0.0.insert.ext
   %cmp207 = icmp eq i128 %coerce206.sroa.0.0.insert.insert, 0
   %call209 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp207, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3614, ptr noundef nonnull @.str.67)
   store i128 1, ptr %atomic210, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i211)
-  br label %do.body.i215
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i212)
+  br label %do.body.i216
 
-do.body.i215:                                     ; preds = %do.body.i215, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit
-  %retVal.sroa.0.0.i216 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit ], [ %asmresult.i222, %do.body.i215 ]
-  %retVal.sroa.5.0.i217 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit ], [ %asmresult16.i223, %do.body.i215 ]
-  %78 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic210, ptr nonnull elementtype(i8) %cmpxchgRet.i211, i64 0, i64 0, i64 %retVal.sroa.0.0.i216, i64 %retVal.sroa.5.0.i217, ptr nonnull elementtype(i128) %atomic210) #7, !srcloc !21
-  %asmresult.i222 = extractvalue { i64, i64 } %78, 0
-  %asmresult16.i223 = extractvalue { i64, i64 } %78, 1
-  %79 = load i8, ptr %cmpxchgRet.i211, align 1
-  %80 = and i8 %79, 1
-  %tobool.not.i224 = icmp eq i8 %80, 0
-  br i1 %tobool.not.i224, label %do.body.i215, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !22
+do.body.i216:                                     ; preds = %do.body.i216, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit
+  %retVal.sroa.0.0.i217 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit ], [ %asmresult.i223, %do.body.i216 ]
+  %retVal.sroa.5.0.i218 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEo.exit ], [ %asmresult16.i224, %do.body.i216 ]
+  %65 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic210, ptr nonnull elementtype(i8) %cmpxchgRet.i212, i64 0, i64 0, i64 %retVal.sroa.0.0.i217, i64 %retVal.sroa.5.0.i218, ptr nonnull elementtype(i128) %atomic210) #7, !srcloc !21
+  %asmresult.i223 = extractvalue { i64, i64 } %65, 0
+  %asmresult16.i224 = extractvalue { i64, i64 } %65, 1
+  %66 = load i8, ptr %cmpxchgRet.i212, align 1
+  %tobool.i225 = trunc i8 %66 to i1
+  br i1 %tobool.i225, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i216, !llvm.loop !22
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i215
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i211)
-  %coerce216.sroa.2.0.insert.ext = zext i64 %asmresult16.i223 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i216
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i212)
+  %coerce216.sroa.2.0.insert.ext = zext i64 %asmresult16.i224 to i128
   %coerce216.sroa.2.0.insert.shift = shl nuw i128 %coerce216.sroa.2.0.insert.ext, 64
-  %coerce216.sroa.0.0.insert.ext = zext i64 %asmresult.i222 to i128
+  %coerce216.sroa.0.0.insert.ext = zext i64 %asmresult.i223 to i128
   %coerce216.sroa.0.0.insert.insert = or disjoint i128 %coerce216.sroa.2.0.insert.shift, %coerce216.sroa.0.0.insert.ext
   %cmp217 = icmp eq i128 %coerce216.sroa.0.0.insert.insert, 1
   %call219 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp217, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3622, ptr noundef nonnull @.str.57)
-  %81 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic210, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic210) #7, !srcloc !11
-  %82 = extractvalue { i64, i64 } %81, 0
-  %83 = extractvalue { i64, i64 } %81, 1
-  %coerce222.sroa.2.0.insert.ext = zext i64 %83 to i128
+  %67 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic210, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic210) #7, !srcloc !11
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = extractvalue { i64, i64 } %67, 1
+  %coerce222.sroa.2.0.insert.ext = zext i64 %69 to i128
   %coerce222.sroa.2.0.insert.shift = shl nuw i128 %coerce222.sroa.2.0.insert.ext, 64
-  %coerce222.sroa.0.0.insert.ext = zext i64 %82 to i128
+  %coerce222.sroa.0.0.insert.ext = zext i64 %68 to i128
   %coerce222.sroa.0.0.insert.insert = or disjoint i128 %coerce222.sroa.2.0.insert.shift, %coerce222.sroa.0.0.insert.ext
   %cmp223 = icmp eq i128 %coerce222.sroa.0.0.insert.insert, 0
   %call225 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp223, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3623, ptr noundef nonnull @.str.67)
   store i128 1, ptr %atomic226, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i225)
-  br label %do.body.i229
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i226)
+  br label %do.body.i230
 
-do.body.i229:                                     ; preds = %do.body.i229, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i230 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i236, %do.body.i229 ]
-  %retVal.sroa.7.0.i231 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i237, %do.body.i229 ]
-  %84 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic226, ptr nonnull elementtype(i8) %cmpxchgRet.i225, i64 0, i64 0, i64 %retVal.sroa.0.0.i230, i64 %retVal.sroa.7.0.i231, ptr nonnull elementtype(i128) %atomic226) #7, !srcloc !113
-  %asmresult.i236 = extractvalue { i64, i64 } %84, 0
-  %asmresult16.i237 = extractvalue { i64, i64 } %84, 1
-  %85 = load i8, ptr %cmpxchgRet.i225, align 1
-  %86 = and i8 %85, 1
-  %tobool.not.i238 = icmp eq i8 %86, 0
-  br i1 %tobool.not.i238, label %do.body.i229, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit, !llvm.loop !114
+do.body.i230:                                     ; preds = %do.body.i230, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i231 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i237, %do.body.i230 ]
+  %retVal.sroa.7.0.i232 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_andEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i238, %do.body.i230 ]
+  %70 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic226, ptr nonnull elementtype(i8) %cmpxchgRet.i226, i64 0, i64 0, i64 %retVal.sroa.0.0.i231, i64 %retVal.sroa.7.0.i232, ptr nonnull elementtype(i128) %atomic226) #7, !srcloc !113
+  %asmresult.i237 = extractvalue { i64, i64 } %70, 0
+  %asmresult16.i238 = extractvalue { i64, i64 } %70, 1
+  %71 = load i8, ptr %cmpxchgRet.i226, align 1
+  %tobool.i239 = trunc i8 %71 to i1
+  br i1 %tobool.i239, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit, label %do.body.i230, !llvm.loop !114
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit: ; preds = %do.body.i229
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i225)
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit: ; preds = %do.body.i230
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i226)
   %call234 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3631, ptr noundef nonnull @.str.56)
-  %87 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic226, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic226) #7, !srcloc !11
-  %88 = extractvalue { i64, i64 } %87, 0
-  %89 = extractvalue { i64, i64 } %87, 1
-  %coerce237.sroa.2.0.insert.ext = zext i64 %89 to i128
+  %72 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic226, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic226) #7, !srcloc !11
+  %73 = extractvalue { i64, i64 } %72, 0
+  %74 = extractvalue { i64, i64 } %72, 1
+  %coerce237.sroa.2.0.insert.ext = zext i64 %74 to i128
   %coerce237.sroa.2.0.insert.shift = shl nuw i128 %coerce237.sroa.2.0.insert.ext, 64
-  %coerce237.sroa.0.0.insert.ext = zext i64 %88 to i128
+  %coerce237.sroa.0.0.insert.ext = zext i64 %73 to i128
   %coerce237.sroa.0.0.insert.insert = or disjoint i128 %coerce237.sroa.2.0.insert.shift, %coerce237.sroa.0.0.insert.ext
   %cmp238 = icmp eq i128 %coerce237.sroa.0.0.insert.insert, 0
   %call240 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp238, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3632, ptr noundef nonnull @.str.67)
   store i128 1, ptr %atomic241, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i239)
-  br label %do.body.i243
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i240)
+  br label %do.body.i244
 
-do.body.i243:                                     ; preds = %do.body.i243, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit
-  %retVal.sroa.0.0.i244 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit ], [ %asmresult.i250, %do.body.i243 ]
-  %retVal.sroa.7.0.i245 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit ], [ %asmresult16.i251, %do.body.i243 ]
-  %90 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic241, ptr nonnull elementtype(i8) %cmpxchgRet.i239, i64 0, i64 0, i64 %retVal.sroa.0.0.i244, i64 %retVal.sroa.7.0.i245, ptr nonnull elementtype(i128) %atomic241) #7, !srcloc !23
-  %asmresult.i250 = extractvalue { i64, i64 } %90, 0
-  %asmresult16.i251 = extractvalue { i64, i64 } %90, 1
-  %91 = load i8, ptr %cmpxchgRet.i239, align 1
-  %92 = and i8 %91, 1
-  %tobool.not.i252 = icmp eq i8 %92, 0
-  br i1 %tobool.not.i252, label %do.body.i243, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !24
+do.body.i244:                                     ; preds = %do.body.i244, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit
+  %retVal.sroa.0.0.i245 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit ], [ %asmresult.i251, %do.body.i244 ]
+  %retVal.sroa.7.0.i246 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEo.exit ], [ %asmresult16.i252, %do.body.i244 ]
+  %75 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic241, ptr nonnull elementtype(i8) %cmpxchgRet.i240, i64 0, i64 0, i64 %retVal.sroa.0.0.i245, i64 %retVal.sroa.7.0.i246, ptr nonnull elementtype(i128) %atomic241) #7, !srcloc !23
+  %asmresult.i251 = extractvalue { i64, i64 } %75, 0
+  %asmresult16.i252 = extractvalue { i64, i64 } %75, 1
+  %76 = load i8, ptr %cmpxchgRet.i240, align 1
+  %tobool.i253 = trunc i8 %76 to i1
+  br i1 %tobool.i253, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i244, !llvm.loop !24
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i243
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i239)
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i244
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i240)
   %call250 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3640, ptr noundef nonnull @.str.56)
-  %93 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic241, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic241) #7, !srcloc !11
-  %94 = extractvalue { i64, i64 } %93, 0
-  %95 = extractvalue { i64, i64 } %93, 1
-  %coerce253.sroa.2.0.insert.ext = zext i64 %95 to i128
+  %77 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic241, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic241) #7, !srcloc !11
+  %78 = extractvalue { i64, i64 } %77, 0
+  %79 = extractvalue { i64, i64 } %77, 1
+  %coerce253.sroa.2.0.insert.ext = zext i64 %79 to i128
   %coerce253.sroa.2.0.insert.shift = shl nuw i128 %coerce253.sroa.2.0.insert.ext, 64
-  %coerce253.sroa.0.0.insert.ext = zext i64 %94 to i128
+  %coerce253.sroa.0.0.insert.ext = zext i64 %78 to i128
   %coerce253.sroa.0.0.insert.insert = or disjoint i128 %coerce253.sroa.2.0.insert.shift, %coerce253.sroa.0.0.insert.ext
   %cmp254 = icmp eq i128 %coerce253.sroa.0.0.insert.insert, 0
   %call256 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp254, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3641, ptr noundef nonnull @.str.67)
   store i128 1, ptr %atomic257, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i253)
-  br label %do.body.i257
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i254)
+  br label %do.body.i258
 
-do.body.i257:                                     ; preds = %do.body.i257, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i258 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i263, %do.body.i257 ]
-  %retVal.sroa.5.0.i259 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i264, %do.body.i257 ]
-  %retVal.sroa.0.0.insert.ext.i260 = zext i64 %retVal.sroa.0.0.i258 to i128
-  %retVal.sroa.0.0.insert.insert.i261 = add nsw i128 %retVal.sroa.0.0.insert.ext.i260, -1
-  %computedDesired.sroa.0.0.extract.trunc.i262 = trunc i128 %retVal.sroa.0.0.insert.insert.i261 to i64
-  %96 = lshr i128 %retVal.sroa.0.0.insert.insert.i261, 64
-  %.tr.i = trunc i128 %96 to i64
-  %.narrow.i = add i64 %retVal.sroa.5.0.i259, %.tr.i
-  %97 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic257, ptr nonnull elementtype(i8) %cmpxchgRet.i253, i64 %computedDesired.sroa.0.0.extract.trunc.i262, i64 %.narrow.i, i64 %retVal.sroa.0.0.i258, i64 %retVal.sroa.5.0.i259, ptr nonnull elementtype(i128) %atomic257) #7, !srcloc !87
-  %asmresult.i263 = extractvalue { i64, i64 } %97, 0
-  %asmresult16.i264 = extractvalue { i64, i64 } %97, 1
-  %98 = load i8, ptr %cmpxchgRet.i253, align 1
-  %99 = and i8 %98, 1
-  %tobool.not.i265 = icmp eq i8 %99, 0
-  br i1 %tobool.not.i265, label %do.body.i257, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit, !llvm.loop !88
+do.body.i258:                                     ; preds = %do.body.i258, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i259 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i264, %do.body.i258 ]
+  %retVal.sroa.5.0.i260 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i265, %do.body.i258 ]
+  %retVal.sroa.0.0.insert.ext.i261 = zext i64 %retVal.sroa.0.0.i259 to i128
+  %retVal.sroa.0.0.insert.insert.i262 = add nsw i128 %retVal.sroa.0.0.insert.ext.i261, -1
+  %computedDesired.sroa.0.0.extract.trunc.i263 = trunc i128 %retVal.sroa.0.0.insert.insert.i262 to i64
+  %80 = lshr i128 %retVal.sroa.0.0.insert.insert.i262, 64
+  %.tr.i = trunc i128 %80 to i64
+  %.narrow.i = add i64 %retVal.sroa.5.0.i260, %.tr.i
+  %81 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic257, ptr nonnull elementtype(i8) %cmpxchgRet.i254, i64 %computedDesired.sroa.0.0.extract.trunc.i263, i64 %.narrow.i, i64 %retVal.sroa.0.0.i259, i64 %retVal.sroa.5.0.i260, ptr nonnull elementtype(i128) %atomic257) #7, !srcloc !87
+  %asmresult.i264 = extractvalue { i64, i64 } %81, 0
+  %asmresult16.i265 = extractvalue { i64, i64 } %81, 1
+  %82 = load i8, ptr %cmpxchgRet.i254, align 1
+  %tobool.i266 = trunc i8 %82 to i1
+  br i1 %tobool.i266, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit, label %do.body.i258, !llvm.loop !88
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit: ; preds = %do.body.i257
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i253)
-  %coerce262.sroa.2.0.insert.ext = zext i64 %asmresult16.i264 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit: ; preds = %do.body.i258
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i254)
+  %coerce262.sroa.2.0.insert.ext = zext i64 %asmresult16.i265 to i128
   %coerce262.sroa.2.0.insert.shift = shl nuw i128 %coerce262.sroa.2.0.insert.ext, 64
-  %coerce262.sroa.0.0.insert.ext = zext i64 %asmresult.i263 to i128
+  %coerce262.sroa.0.0.insert.ext = zext i64 %asmresult.i264 to i128
   %coerce262.sroa.0.0.insert.insert = or disjoint i128 %coerce262.sroa.2.0.insert.shift, %coerce262.sroa.0.0.insert.ext
   %cmp263 = icmp eq i128 %coerce262.sroa.0.0.insert.insert, 1
   %call265 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp263, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3649, ptr noundef nonnull @.str.47)
-  %100 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic257, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic257) #7, !srcloc !11
-  %101 = extractvalue { i64, i64 } %100, 0
-  %102 = extractvalue { i64, i64 } %100, 1
-  %coerce268.sroa.2.0.insert.ext = zext i64 %102 to i128
+  %83 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic257, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic257) #7, !srcloc !11
+  %84 = extractvalue { i64, i64 } %83, 0
+  %85 = extractvalue { i64, i64 } %83, 1
+  %coerce268.sroa.2.0.insert.ext = zext i64 %85 to i128
   %coerce268.sroa.2.0.insert.shift = shl nuw i128 %coerce268.sroa.2.0.insert.ext, 64
-  %coerce268.sroa.0.0.insert.ext = zext i64 %101 to i128
+  %coerce268.sroa.0.0.insert.ext = zext i64 %84 to i128
   %coerce268.sroa.0.0.insert.insert = or disjoint i128 %coerce268.sroa.2.0.insert.shift, %coerce268.sroa.0.0.insert.ext
   %cmp269 = icmp eq i128 %coerce268.sroa.0.0.insert.insert, 0
   %call271 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp269, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3650, ptr noundef nonnull @.str.59)
   store i128 1, ptr %atomic272, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i266)
-  br label %do.body.i270
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i267)
+  br label %do.body.i271
 
-do.body.i270:                                     ; preds = %do.body.i270, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit
-  %retVal.sroa.0.0.i271 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit ], [ %asmresult.i278, %do.body.i270 ]
-  %retVal.sroa.5.0.i272 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit ], [ %asmresult16.i279, %do.body.i270 ]
-  %retVal.sroa.0.0.insert.ext.i273 = zext i64 %retVal.sroa.0.0.i271 to i128
-  %retVal.sroa.0.0.insert.insert.i274 = add nsw i128 %retVal.sroa.0.0.insert.ext.i273, -1
-  %computedDesired.sroa.0.0.extract.trunc.i275 = trunc i128 %retVal.sroa.0.0.insert.insert.i274 to i64
-  %103 = lshr i128 %retVal.sroa.0.0.insert.insert.i274, 64
-  %.tr.i276 = trunc i128 %103 to i64
-  %.narrow.i277 = add i64 %retVal.sroa.5.0.i272, %.tr.i276
-  %104 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic272, ptr nonnull elementtype(i8) %cmpxchgRet.i266, i64 %computedDesired.sroa.0.0.extract.trunc.i275, i64 %.narrow.i277, i64 %retVal.sroa.0.0.i271, i64 %retVal.sroa.5.0.i272, ptr nonnull elementtype(i128) %atomic272) #7, !srcloc !17
-  %asmresult.i278 = extractvalue { i64, i64 } %104, 0
-  %asmresult16.i279 = extractvalue { i64, i64 } %104, 1
-  %105 = load i8, ptr %cmpxchgRet.i266, align 1
-  %106 = and i8 %105, 1
-  %tobool.not.i280 = icmp eq i8 %106, 0
-  br i1 %tobool.not.i280, label %do.body.i270, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !18
+do.body.i271:                                     ; preds = %do.body.i271, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit
+  %retVal.sroa.0.0.i272 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit ], [ %asmresult.i279, %do.body.i271 ]
+  %retVal.sroa.5.0.i273 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEo.exit ], [ %asmresult16.i280, %do.body.i271 ]
+  %retVal.sroa.0.0.insert.ext.i274 = zext i64 %retVal.sroa.0.0.i272 to i128
+  %retVal.sroa.0.0.insert.insert.i275 = add nsw i128 %retVal.sroa.0.0.insert.ext.i274, -1
+  %computedDesired.sroa.0.0.extract.trunc.i276 = trunc i128 %retVal.sroa.0.0.insert.insert.i275 to i64
+  %86 = lshr i128 %retVal.sroa.0.0.insert.insert.i275, 64
+  %.tr.i277 = trunc i128 %86 to i64
+  %.narrow.i278 = add i64 %retVal.sroa.5.0.i273, %.tr.i277
+  %87 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic272, ptr nonnull elementtype(i8) %cmpxchgRet.i267, i64 %computedDesired.sroa.0.0.extract.trunc.i276, i64 %.narrow.i278, i64 %retVal.sroa.0.0.i272, i64 %retVal.sroa.5.0.i273, ptr nonnull elementtype(i128) %atomic272) #7, !srcloc !17
+  %asmresult.i279 = extractvalue { i64, i64 } %87, 0
+  %asmresult16.i280 = extractvalue { i64, i64 } %87, 1
+  %88 = load i8, ptr %cmpxchgRet.i267, align 1
+  %tobool.i281 = trunc i8 %88 to i1
+  br i1 %tobool.i281, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i271, !llvm.loop !18
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i270
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i266)
-  %coerce278.sroa.2.0.insert.ext = zext i64 %asmresult16.i279 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i271
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i267)
+  %coerce278.sroa.2.0.insert.ext = zext i64 %asmresult16.i280 to i128
   %coerce278.sroa.2.0.insert.shift = shl nuw i128 %coerce278.sroa.2.0.insert.ext, 64
-  %coerce278.sroa.0.0.insert.ext = zext i64 %asmresult.i278 to i128
+  %coerce278.sroa.0.0.insert.ext = zext i64 %asmresult.i279 to i128
   %coerce278.sroa.0.0.insert.insert = or disjoint i128 %coerce278.sroa.2.0.insert.shift, %coerce278.sroa.0.0.insert.ext
   %cmp279 = icmp eq i128 %coerce278.sroa.0.0.insert.insert, 1
   %call281 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp279, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3658, ptr noundef nonnull @.str.47)
-  %107 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic272, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic272) #7, !srcloc !11
-  %108 = extractvalue { i64, i64 } %107, 0
-  %109 = extractvalue { i64, i64 } %107, 1
-  %coerce284.sroa.2.0.insert.ext = zext i64 %109 to i128
+  %89 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic272, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic272) #7, !srcloc !11
+  %90 = extractvalue { i64, i64 } %89, 0
+  %91 = extractvalue { i64, i64 } %89, 1
+  %coerce284.sroa.2.0.insert.ext = zext i64 %91 to i128
   %coerce284.sroa.2.0.insert.shift = shl nuw i128 %coerce284.sroa.2.0.insert.ext, 64
-  %coerce284.sroa.0.0.insert.ext = zext i64 %108 to i128
+  %coerce284.sroa.0.0.insert.ext = zext i64 %90 to i128
   %coerce284.sroa.0.0.insert.insert = or disjoint i128 %coerce284.sroa.2.0.insert.shift, %coerce284.sroa.0.0.insert.ext
   %cmp285 = icmp eq i128 %coerce284.sroa.0.0.insert.insert, 0
   %call287 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp285, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3659, ptr noundef nonnull @.str.59)
   store i128 1, ptr %atomic288, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i281)
-  br label %do.body.i285
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i282)
+  br label %do.body.i286
 
-do.body.i285:                                     ; preds = %do.body.i285, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i286 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i293, %do.body.i285 ]
-  %retVal.sroa.7.0.i287 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i294, %do.body.i285 ]
-  %retVal.sroa.0.0.insert.ext.i288 = zext i64 %retVal.sroa.0.0.i286 to i128
-  %retVal.sroa.0.0.insert.insert.i289 = add nsw i128 %retVal.sroa.0.0.insert.ext.i288, -1
-  %computedDesired.sroa.0.0.extract.trunc.i290 = trunc i128 %retVal.sroa.0.0.insert.insert.i289 to i64
-  %110 = lshr i128 %retVal.sroa.0.0.insert.insert.i289, 64
-  %.tr.i291 = trunc i128 %110 to i64
-  %.narrow.i292 = add i64 %retVal.sroa.7.0.i287, %.tr.i291
-  %111 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic288, ptr nonnull elementtype(i8) %cmpxchgRet.i281, i64 %computedDesired.sroa.0.0.extract.trunc.i290, i64 %.narrow.i292, i64 %retVal.sroa.0.0.i286, i64 %retVal.sroa.7.0.i287, ptr nonnull elementtype(i128) %atomic288) #7, !srcloc !95
-  %asmresult.i293 = extractvalue { i64, i64 } %111, 0
-  %asmresult16.i294 = extractvalue { i64, i64 } %111, 1
-  %112 = load i8, ptr %cmpxchgRet.i281, align 1
-  %113 = and i8 %112, 1
-  %tobool.not.i295 = icmp eq i8 %113, 0
-  br i1 %tobool.not.i295, label %do.body.i285, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit, !llvm.loop !96
+do.body.i286:                                     ; preds = %do.body.i286, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i287 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i294, %do.body.i286 ]
+  %retVal.sroa.7.0.i288 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_subEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i295, %do.body.i286 ]
+  %retVal.sroa.0.0.insert.ext.i289 = zext i64 %retVal.sroa.0.0.i287 to i128
+  %retVal.sroa.0.0.insert.insert.i290 = add nsw i128 %retVal.sroa.0.0.insert.ext.i289, -1
+  %computedDesired.sroa.0.0.extract.trunc.i291 = trunc i128 %retVal.sroa.0.0.insert.insert.i290 to i64
+  %92 = lshr i128 %retVal.sroa.0.0.insert.insert.i290, 64
+  %.tr.i292 = trunc i128 %92 to i64
+  %.narrow.i293 = add i64 %retVal.sroa.7.0.i288, %.tr.i292
+  %93 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic288, ptr nonnull elementtype(i8) %cmpxchgRet.i282, i64 %computedDesired.sroa.0.0.extract.trunc.i291, i64 %.narrow.i293, i64 %retVal.sroa.0.0.i287, i64 %retVal.sroa.7.0.i288, ptr nonnull elementtype(i128) %atomic288) #7, !srcloc !95
+  %asmresult.i294 = extractvalue { i64, i64 } %93, 0
+  %asmresult16.i295 = extractvalue { i64, i64 } %93, 1
+  %94 = load i8, ptr %cmpxchgRet.i282, align 1
+  %tobool.i296 = trunc i8 %94 to i1
+  br i1 %tobool.i296, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit, label %do.body.i286, !llvm.loop !96
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit: ; preds = %do.body.i285
-  %retVal.sroa.0.0.insert.ext4.i = zext i64 %asmresult.i293 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit: ; preds = %do.body.i286
+  %retVal.sroa.0.0.insert.ext4.i = zext i64 %asmresult.i294 to i128
   %retVal.sroa.0.0.insert.insert6.i = add nsw i128 %retVal.sroa.0.0.insert.ext4.i, -1
-  %114 = lshr i128 %retVal.sroa.0.0.insert.insert6.i, 64
-  %.tr25.i = trunc i128 %114 to i64
-  %.narrow26.i = add i64 %asmresult16.i294, %.tr25.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i281)
+  %95 = lshr i128 %retVal.sroa.0.0.insert.insert6.i, 64
+  %.tr25.i = trunc i128 %95 to i64
+  %.narrow26.i = add i64 %asmresult16.i295, %.tr25.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i282)
   %coerce293.sroa.2.0.insert.ext = zext i64 %.narrow26.i to i128
   %coerce293.sroa.2.0.insert.shift = shl nuw i128 %coerce293.sroa.2.0.insert.ext, 64
   %coerce293.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i, 18446744073709551615
   %coerce293.sroa.0.0.insert.insert = or disjoint i128 %coerce293.sroa.2.0.insert.shift, %coerce293.sroa.0.0.insert.ext
   %cmp294 = icmp eq i128 %coerce293.sroa.0.0.insert.insert, 0
   %call296 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp294, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3667, ptr noundef nonnull @.str.46)
-  %115 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic288, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic288) #7, !srcloc !11
-  %116 = extractvalue { i64, i64 } %115, 0
-  %117 = extractvalue { i64, i64 } %115, 1
-  %coerce299.sroa.2.0.insert.ext = zext i64 %117 to i128
+  %96 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic288, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic288) #7, !srcloc !11
+  %97 = extractvalue { i64, i64 } %96, 0
+  %98 = extractvalue { i64, i64 } %96, 1
+  %coerce299.sroa.2.0.insert.ext = zext i64 %98 to i128
   %coerce299.sroa.2.0.insert.shift = shl nuw i128 %coerce299.sroa.2.0.insert.ext, 64
-  %coerce299.sroa.0.0.insert.ext = zext i64 %116 to i128
+  %coerce299.sroa.0.0.insert.ext = zext i64 %97 to i128
   %coerce299.sroa.0.0.insert.insert = or disjoint i128 %coerce299.sroa.2.0.insert.shift, %coerce299.sroa.0.0.insert.ext
   %cmp300 = icmp eq i128 %coerce299.sroa.0.0.insert.insert, 0
   %call302 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp300, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3668, ptr noundef nonnull @.str.59)
   store i128 1, ptr %atomic303, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i298)
-  br label %do.body.i302
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i299)
+  br label %do.body.i303
 
-do.body.i302:                                     ; preds = %do.body.i302, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit
-  %retVal.sroa.0.0.i303 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit ], [ %asmresult.i310, %do.body.i302 ]
-  %retVal.sroa.7.0.i304 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit ], [ %asmresult16.i311, %do.body.i302 ]
-  %retVal.sroa.0.0.insert.ext.i305 = zext i64 %retVal.sroa.0.0.i303 to i128
-  %retVal.sroa.0.0.insert.insert.i306 = add nsw i128 %retVal.sroa.0.0.insert.ext.i305, -1
-  %computedDesired.sroa.0.0.extract.trunc.i307 = trunc i128 %retVal.sroa.0.0.insert.insert.i306 to i64
-  %118 = lshr i128 %retVal.sroa.0.0.insert.insert.i306, 64
-  %.tr.i308 = trunc i128 %118 to i64
-  %.narrow.i309 = add i64 %retVal.sroa.7.0.i304, %.tr.i308
-  %119 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic303, ptr nonnull elementtype(i8) %cmpxchgRet.i298, i64 %computedDesired.sroa.0.0.extract.trunc.i307, i64 %.narrow.i309, i64 %retVal.sroa.0.0.i303, i64 %retVal.sroa.7.0.i304, ptr nonnull elementtype(i128) %atomic303) #7, !srcloc !19
-  %asmresult.i310 = extractvalue { i64, i64 } %119, 0
-  %asmresult16.i311 = extractvalue { i64, i64 } %119, 1
-  %120 = load i8, ptr %cmpxchgRet.i298, align 1
-  %121 = and i8 %120, 1
-  %tobool.not.i312 = icmp eq i8 %121, 0
-  br i1 %tobool.not.i312, label %do.body.i302, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !20
+do.body.i303:                                     ; preds = %do.body.i303, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit
+  %retVal.sroa.0.0.i304 = phi i64 [ 1, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit ], [ %asmresult.i311, %do.body.i303 ]
+  %retVal.sroa.7.0.i305 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEo.exit ], [ %asmresult16.i312, %do.body.i303 ]
+  %retVal.sroa.0.0.insert.ext.i306 = zext i64 %retVal.sroa.0.0.i304 to i128
+  %retVal.sroa.0.0.insert.insert.i307 = add nsw i128 %retVal.sroa.0.0.insert.ext.i306, -1
+  %computedDesired.sroa.0.0.extract.trunc.i308 = trunc i128 %retVal.sroa.0.0.insert.insert.i307 to i64
+  %99 = lshr i128 %retVal.sroa.0.0.insert.insert.i307, 64
+  %.tr.i309 = trunc i128 %99 to i64
+  %.narrow.i310 = add i64 %retVal.sroa.7.0.i305, %.tr.i309
+  %100 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic303, ptr nonnull elementtype(i8) %cmpxchgRet.i299, i64 %computedDesired.sroa.0.0.extract.trunc.i308, i64 %.narrow.i310, i64 %retVal.sroa.0.0.i304, i64 %retVal.sroa.7.0.i305, ptr nonnull elementtype(i128) %atomic303) #7, !srcloc !19
+  %asmresult.i311 = extractvalue { i64, i64 } %100, 0
+  %asmresult16.i312 = extractvalue { i64, i64 } %100, 1
+  %101 = load i8, ptr %cmpxchgRet.i299, align 1
+  %tobool.i313 = trunc i8 %101 to i1
+  br i1 %tobool.i313, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i303, !llvm.loop !20
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i302
-  %retVal.sroa.0.0.insert.ext4.i313 = zext i64 %asmresult.i310 to i128
-  %retVal.sroa.0.0.insert.insert6.i314 = add nsw i128 %retVal.sroa.0.0.insert.ext4.i313, -1
-  %122 = lshr i128 %retVal.sroa.0.0.insert.insert6.i314, 64
-  %.tr25.i316 = trunc i128 %122 to i64
-  %.narrow26.i317 = add i64 %asmresult16.i311, %.tr25.i316
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i298)
-  %coerce309.sroa.2.0.insert.ext = zext i64 %.narrow26.i317 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i303
+  %retVal.sroa.0.0.insert.ext4.i314 = zext i64 %asmresult.i311 to i128
+  %retVal.sroa.0.0.insert.insert6.i315 = add nsw i128 %retVal.sroa.0.0.insert.ext4.i314, -1
+  %102 = lshr i128 %retVal.sroa.0.0.insert.insert6.i315, 64
+  %.tr25.i317 = trunc i128 %102 to i64
+  %.narrow26.i318 = add i64 %asmresult16.i312, %.tr25.i317
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i299)
+  %coerce309.sroa.2.0.insert.ext = zext i64 %.narrow26.i318 to i128
   %coerce309.sroa.2.0.insert.shift = shl nuw i128 %coerce309.sroa.2.0.insert.ext, 64
-  %coerce309.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i314, 18446744073709551615
+  %coerce309.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i315, 18446744073709551615
   %coerce309.sroa.0.0.insert.insert = or disjoint i128 %coerce309.sroa.2.0.insert.shift, %coerce309.sroa.0.0.insert.ext
   %cmp310 = icmp eq i128 %coerce309.sroa.0.0.insert.insert, 0
   %call312 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp310, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3676, ptr noundef nonnull @.str.46)
-  %123 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic303, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic303) #7, !srcloc !11
-  %124 = extractvalue { i64, i64 } %123, 0
-  %125 = extractvalue { i64, i64 } %123, 1
-  %coerce315.sroa.2.0.insert.ext = zext i64 %125 to i128
+  %103 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic303, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic303) #7, !srcloc !11
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = extractvalue { i64, i64 } %103, 1
+  %coerce315.sroa.2.0.insert.ext = zext i64 %105 to i128
   %coerce315.sroa.2.0.insert.shift = shl nuw i128 %coerce315.sroa.2.0.insert.ext, 64
-  %coerce315.sroa.0.0.insert.ext = zext i64 %124 to i128
+  %coerce315.sroa.0.0.insert.ext = zext i64 %104 to i128
   %coerce315.sroa.0.0.insert.insert = or disjoint i128 %coerce315.sroa.2.0.insert.shift, %coerce315.sroa.0.0.insert.ext
   %cmp316 = icmp eq i128 %coerce315.sroa.0.0.insert.insert, 0
   %call318 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp316, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3677, ptr noundef nonnull @.str.59)
   store i128 0, ptr %atomic319, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i320)
-  br label %do.body.i324
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i321)
+  br label %do.body.i325
 
-do.body.i324:                                     ; preds = %do.body.i324, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i325 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i331, %do.body.i324 ]
-  %retVal.sroa.5.0.i326 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i332, %do.body.i324 ]
-  %retVal.sroa.0.0.insert.ext.i327 = zext i64 %retVal.sroa.0.0.i325 to i128
-  %arg.sroa.0.0.insert.insert.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i327, 1
-  %computedDesired.sroa.0.0.extract.trunc.i328 = trunc i128 %arg.sroa.0.0.insert.insert.i to i64
-  %126 = lshr i128 %arg.sroa.0.0.insert.insert.i, 64
-  %.tr.i329 = trunc i128 %126 to i64
-  %.narrow.i330 = add i64 %retVal.sroa.5.0.i326, %.tr.i329
-  %127 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic319, ptr nonnull elementtype(i8) %cmpxchgRet.i320, i64 %computedDesired.sroa.0.0.extract.trunc.i328, i64 %.narrow.i330, i64 %retVal.sroa.0.0.i325, i64 %retVal.sroa.5.0.i326, ptr nonnull elementtype(i128) %atomic319) #7, !srcloc !71
-  %asmresult.i331 = extractvalue { i64, i64 } %127, 0
-  %asmresult16.i332 = extractvalue { i64, i64 } %127, 1
-  %128 = load i8, ptr %cmpxchgRet.i320, align 1
-  %129 = and i8 %128, 1
-  %tobool.not.i333 = icmp eq i8 %129, 0
-  br i1 %tobool.not.i333, label %do.body.i324, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit, !llvm.loop !72
+do.body.i325:                                     ; preds = %do.body.i325, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i326 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i332, %do.body.i325 ]
+  %retVal.sroa.5.0.i327 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9sub_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i333, %do.body.i325 ]
+  %retVal.sroa.0.0.insert.ext.i328 = zext i64 %retVal.sroa.0.0.i326 to i128
+  %arg.sroa.0.0.insert.insert.i = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i328, 1
+  %computedDesired.sroa.0.0.extract.trunc.i329 = trunc i128 %arg.sroa.0.0.insert.insert.i to i64
+  %106 = lshr i128 %arg.sroa.0.0.insert.insert.i, 64
+  %.tr.i330 = trunc i128 %106 to i64
+  %.narrow.i331 = add i64 %retVal.sroa.5.0.i327, %.tr.i330
+  %107 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic319, ptr nonnull elementtype(i8) %cmpxchgRet.i321, i64 %computedDesired.sroa.0.0.extract.trunc.i329, i64 %.narrow.i331, i64 %retVal.sroa.0.0.i326, i64 %retVal.sroa.5.0.i327, ptr nonnull elementtype(i128) %atomic319) #7, !srcloc !71
+  %asmresult.i332 = extractvalue { i64, i64 } %107, 0
+  %asmresult16.i333 = extractvalue { i64, i64 } %107, 1
+  %108 = load i8, ptr %cmpxchgRet.i321, align 1
+  %tobool.i334 = trunc i8 %108 to i1
+  br i1 %tobool.i334, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit, label %do.body.i325, !llvm.loop !72
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit: ; preds = %do.body.i324
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i320)
-  %coerce323.sroa.2.0.insert.ext = zext i64 %asmresult16.i332 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit: ; preds = %do.body.i325
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i321)
+  %coerce323.sroa.2.0.insert.ext = zext i64 %asmresult16.i333 to i128
   %coerce323.sroa.2.0.insert.shift = shl nuw i128 %coerce323.sroa.2.0.insert.ext, 64
-  %coerce323.sroa.0.0.insert.ext = zext i64 %asmresult.i331 to i128
+  %coerce323.sroa.0.0.insert.ext = zext i64 %asmresult.i332 to i128
   %coerce323.sroa.0.0.insert.insert = or disjoint i128 %coerce323.sroa.2.0.insert.shift, %coerce323.sroa.0.0.insert.ext
   %cmp324 = icmp eq i128 %coerce323.sroa.0.0.insert.insert, 0
   %call326 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp324, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3685, ptr noundef nonnull @.str.46)
-  %130 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic319, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic319) #7, !srcloc !11
-  %131 = extractvalue { i64, i64 } %130, 0
-  %132 = extractvalue { i64, i64 } %130, 1
-  %coerce329.sroa.2.0.insert.ext = zext i64 %132 to i128
+  %109 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic319, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic319) #7, !srcloc !11
+  %110 = extractvalue { i64, i64 } %109, 0
+  %111 = extractvalue { i64, i64 } %109, 1
+  %coerce329.sroa.2.0.insert.ext = zext i64 %111 to i128
   %coerce329.sroa.2.0.insert.shift = shl nuw i128 %coerce329.sroa.2.0.insert.ext, 64
-  %coerce329.sroa.0.0.insert.ext = zext i64 %131 to i128
+  %coerce329.sroa.0.0.insert.ext = zext i64 %110 to i128
   %coerce329.sroa.0.0.insert.insert = or disjoint i128 %coerce329.sroa.2.0.insert.shift, %coerce329.sroa.0.0.insert.ext
   %cmp330 = icmp eq i128 %coerce329.sroa.0.0.insert.insert, 1
   %call332 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp330, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3686, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic333, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i334)
-  br label %do.body.i338
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i335)
+  br label %do.body.i339
 
-do.body.i338:                                     ; preds = %do.body.i338, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit
-  %retVal.sroa.0.0.i339 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit ], [ %asmresult.i346, %do.body.i338 ]
-  %retVal.sroa.5.0.i340 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit ], [ %asmresult16.i347, %do.body.i338 ]
-  %retVal.sroa.0.0.insert.ext.i341 = zext i64 %retVal.sroa.0.0.i339 to i128
-  %arg.sroa.0.0.insert.insert.i342 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i341, 1
-  %computedDesired.sroa.0.0.extract.trunc.i343 = trunc i128 %arg.sroa.0.0.insert.insert.i342 to i64
-  %133 = lshr i128 %arg.sroa.0.0.insert.insert.i342, 64
-  %.tr.i344 = trunc i128 %133 to i64
-  %.narrow.i345 = add i64 %retVal.sroa.5.0.i340, %.tr.i344
-  %134 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic333, ptr nonnull elementtype(i8) %cmpxchgRet.i334, i64 %computedDesired.sroa.0.0.extract.trunc.i343, i64 %.narrow.i345, i64 %retVal.sroa.0.0.i339, i64 %retVal.sroa.5.0.i340, ptr nonnull elementtype(i128) %atomic333) #7, !srcloc !12
-  %asmresult.i346 = extractvalue { i64, i64 } %134, 0
-  %asmresult16.i347 = extractvalue { i64, i64 } %134, 1
-  %135 = load i8, ptr %cmpxchgRet.i334, align 1
-  %136 = and i8 %135, 1
-  %tobool.not.i348 = icmp eq i8 %136, 0
-  br i1 %tobool.not.i348, label %do.body.i338, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !13
+do.body.i339:                                     ; preds = %do.body.i339, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit
+  %retVal.sroa.0.0.i340 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit ], [ %asmresult.i347, %do.body.i339 ]
+  %retVal.sroa.5.0.i341 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEo.exit ], [ %asmresult16.i348, %do.body.i339 ]
+  %retVal.sroa.0.0.insert.ext.i342 = zext i64 %retVal.sroa.0.0.i340 to i128
+  %arg.sroa.0.0.insert.insert.i343 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i342, 1
+  %computedDesired.sroa.0.0.extract.trunc.i344 = trunc i128 %arg.sroa.0.0.insert.insert.i343 to i64
+  %112 = lshr i128 %arg.sroa.0.0.insert.insert.i343, 64
+  %.tr.i345 = trunc i128 %112 to i64
+  %.narrow.i346 = add i64 %retVal.sroa.5.0.i341, %.tr.i345
+  %113 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic333, ptr nonnull elementtype(i8) %cmpxchgRet.i335, i64 %computedDesired.sroa.0.0.extract.trunc.i344, i64 %.narrow.i346, i64 %retVal.sroa.0.0.i340, i64 %retVal.sroa.5.0.i341, ptr nonnull elementtype(i128) %atomic333) #7, !srcloc !12
+  %asmresult.i347 = extractvalue { i64, i64 } %113, 0
+  %asmresult16.i348 = extractvalue { i64, i64 } %113, 1
+  %114 = load i8, ptr %cmpxchgRet.i335, align 1
+  %tobool.i349 = trunc i8 %114 to i1
+  br i1 %tobool.i349, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i339, !llvm.loop !13
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i338
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i334)
-  %coerce338.sroa.2.0.insert.ext = zext i64 %asmresult16.i347 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i339
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i335)
+  %coerce338.sroa.2.0.insert.ext = zext i64 %asmresult16.i348 to i128
   %coerce338.sroa.2.0.insert.shift = shl nuw i128 %coerce338.sroa.2.0.insert.ext, 64
-  %coerce338.sroa.0.0.insert.ext = zext i64 %asmresult.i346 to i128
+  %coerce338.sroa.0.0.insert.ext = zext i64 %asmresult.i347 to i128
   %coerce338.sroa.0.0.insert.insert = or disjoint i128 %coerce338.sroa.2.0.insert.shift, %coerce338.sroa.0.0.insert.ext
   %cmp339 = icmp eq i128 %coerce338.sroa.0.0.insert.insert, 0
   %call341 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp339, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3694, ptr noundef nonnull @.str.46)
-  %137 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic333, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic333) #7, !srcloc !11
-  %138 = extractvalue { i64, i64 } %137, 0
-  %139 = extractvalue { i64, i64 } %137, 1
-  %coerce344.sroa.2.0.insert.ext = zext i64 %139 to i128
+  %115 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic333, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic333) #7, !srcloc !11
+  %116 = extractvalue { i64, i64 } %115, 0
+  %117 = extractvalue { i64, i64 } %115, 1
+  %coerce344.sroa.2.0.insert.ext = zext i64 %117 to i128
   %coerce344.sroa.2.0.insert.shift = shl nuw i128 %coerce344.sroa.2.0.insert.ext, 64
-  %coerce344.sroa.0.0.insert.ext = zext i64 %138 to i128
+  %coerce344.sroa.0.0.insert.ext = zext i64 %116 to i128
   %coerce344.sroa.0.0.insert.insert = or disjoint i128 %coerce344.sroa.2.0.insert.shift, %coerce344.sroa.0.0.insert.ext
   %cmp345 = icmp eq i128 %coerce344.sroa.0.0.insert.insert, 1
   %call347 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp345, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3695, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic348, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i349)
-  br label %do.body.i353
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i350)
+  br label %do.body.i354
 
-do.body.i353:                                     ; preds = %do.body.i353, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i354 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i361, %do.body.i353 ]
-  %retVal.sroa.7.0.i355 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i362, %do.body.i353 ]
-  %retVal.sroa.0.0.insert.ext.i356 = zext i64 %retVal.sroa.0.0.i354 to i128
-  %retVal.sroa.0.0.insert.insert.i357 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i356, 1
-  %computedDesired.sroa.0.0.extract.trunc.i358 = trunc i128 %retVal.sroa.0.0.insert.insert.i357 to i64
-  %140 = lshr i128 %retVal.sroa.0.0.insert.insert.i357, 64
-  %.tr.i359 = trunc i128 %140 to i64
-  %.narrow.i360 = add i64 %retVal.sroa.7.0.i355, %.tr.i359
-  %141 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic348, ptr nonnull elementtype(i8) %cmpxchgRet.i349, i64 %computedDesired.sroa.0.0.extract.trunc.i358, i64 %.narrow.i360, i64 %retVal.sroa.0.0.i354, i64 %retVal.sroa.7.0.i355, ptr nonnull elementtype(i128) %atomic348) #7, !srcloc !79
-  %asmresult.i361 = extractvalue { i64, i64 } %141, 0
-  %asmresult16.i362 = extractvalue { i64, i64 } %141, 1
-  %142 = load i8, ptr %cmpxchgRet.i349, align 1
-  %143 = and i8 %142, 1
-  %tobool.not.i363 = icmp eq i8 %143, 0
-  br i1 %tobool.not.i363, label %do.body.i353, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit, !llvm.loop !80
+do.body.i354:                                     ; preds = %do.body.i354, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i355 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i362, %do.body.i354 ]
+  %retVal.sroa.7.0.i356 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9fetch_addEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult16.i363, %do.body.i354 ]
+  %retVal.sroa.0.0.insert.ext.i357 = zext i64 %retVal.sroa.0.0.i355 to i128
+  %retVal.sroa.0.0.insert.insert.i358 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i357, 1
+  %computedDesired.sroa.0.0.extract.trunc.i359 = trunc i128 %retVal.sroa.0.0.insert.insert.i358 to i64
+  %118 = lshr i128 %retVal.sroa.0.0.insert.insert.i358, 64
+  %.tr.i360 = trunc i128 %118 to i64
+  %.narrow.i361 = add i64 %retVal.sroa.7.0.i356, %.tr.i360
+  %119 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic348, ptr nonnull elementtype(i8) %cmpxchgRet.i350, i64 %computedDesired.sroa.0.0.extract.trunc.i359, i64 %.narrow.i361, i64 %retVal.sroa.0.0.i355, i64 %retVal.sroa.7.0.i356, ptr nonnull elementtype(i128) %atomic348) #7, !srcloc !79
+  %asmresult.i362 = extractvalue { i64, i64 } %119, 0
+  %asmresult16.i363 = extractvalue { i64, i64 } %119, 1
+  %120 = load i8, ptr %cmpxchgRet.i350, align 1
+  %tobool.i364 = trunc i8 %120 to i1
+  br i1 %tobool.i364, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit, label %do.body.i354, !llvm.loop !80
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit: ; preds = %do.body.i353
-  %retVal.sroa.0.0.insert.ext4.i364 = zext i64 %asmresult.i361 to i128
-  %retVal.sroa.0.0.insert.insert6.i365 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i364, 1
-  %144 = lshr i128 %retVal.sroa.0.0.insert.insert6.i365, 64
-  %.tr24.i = trunc i128 %144 to i64
-  %.narrow25.i = add i64 %asmresult16.i362, %.tr24.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i349)
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit: ; preds = %do.body.i354
+  %retVal.sroa.0.0.insert.ext4.i365 = zext i64 %asmresult.i362 to i128
+  %retVal.sroa.0.0.insert.insert6.i366 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i365, 1
+  %121 = lshr i128 %retVal.sroa.0.0.insert.insert6.i366, 64
+  %.tr24.i = trunc i128 %121 to i64
+  %.narrow25.i = add i64 %asmresult16.i363, %.tr24.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i350)
   %coerce352.sroa.2.0.insert.ext = zext i64 %.narrow25.i to i128
   %coerce352.sroa.2.0.insert.shift = shl nuw i128 %coerce352.sroa.2.0.insert.ext, 64
-  %coerce352.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i365, 18446744073709551615
+  %coerce352.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i366, 18446744073709551615
   %coerce352.sroa.0.0.insert.insert = or disjoint i128 %coerce352.sroa.2.0.insert.shift, %coerce352.sroa.0.0.insert.ext
   %cmp353 = icmp eq i128 %coerce352.sroa.0.0.insert.insert, 1
   %call355 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp353, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3703, ptr noundef nonnull @.str.47)
-  %145 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic348, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic348) #7, !srcloc !11
-  %146 = extractvalue { i64, i64 } %145, 0
-  %147 = extractvalue { i64, i64 } %145, 1
-  %coerce358.sroa.2.0.insert.ext = zext i64 %147 to i128
+  %122 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic348, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic348) #7, !srcloc !11
+  %123 = extractvalue { i64, i64 } %122, 0
+  %124 = extractvalue { i64, i64 } %122, 1
+  %coerce358.sroa.2.0.insert.ext = zext i64 %124 to i128
   %coerce358.sroa.2.0.insert.shift = shl nuw i128 %coerce358.sroa.2.0.insert.ext, 64
-  %coerce358.sroa.0.0.insert.ext = zext i64 %146 to i128
+  %coerce358.sroa.0.0.insert.ext = zext i64 %123 to i128
   %coerce358.sroa.0.0.insert.insert = or disjoint i128 %coerce358.sroa.2.0.insert.shift, %coerce358.sroa.0.0.insert.ext
   %cmp359 = icmp eq i128 %coerce358.sroa.0.0.insert.insert, 1
   %call361 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp359, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3704, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic362, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i369)
-  br label %do.body.i373
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i370)
+  br label %do.body.i374
 
-do.body.i373:                                     ; preds = %do.body.i373, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit
-  %retVal.sroa.0.0.i374 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit ], [ %asmresult.i381, %do.body.i373 ]
-  %retVal.sroa.7.0.i375 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit ], [ %asmresult16.i382, %do.body.i373 ]
-  %retVal.sroa.0.0.insert.ext.i376 = zext i64 %retVal.sroa.0.0.i374 to i128
-  %retVal.sroa.0.0.insert.insert.i377 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i376, 1
-  %computedDesired.sroa.0.0.extract.trunc.i378 = trunc i128 %retVal.sroa.0.0.insert.insert.i377 to i64
-  %148 = lshr i128 %retVal.sroa.0.0.insert.insert.i377, 64
-  %.tr.i379 = trunc i128 %148 to i64
-  %.narrow.i380 = add i64 %retVal.sroa.7.0.i375, %.tr.i379
-  %149 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic362, ptr nonnull elementtype(i8) %cmpxchgRet.i369, i64 %computedDesired.sroa.0.0.extract.trunc.i378, i64 %.narrow.i380, i64 %retVal.sroa.0.0.i374, i64 %retVal.sroa.7.0.i375, ptr nonnull elementtype(i128) %atomic362) #7, !srcloc !15
-  %asmresult.i381 = extractvalue { i64, i64 } %149, 0
-  %asmresult16.i382 = extractvalue { i64, i64 } %149, 1
-  %150 = load i8, ptr %cmpxchgRet.i369, align 1
-  %151 = and i8 %150, 1
-  %tobool.not.i383 = icmp eq i8 %151, 0
-  br i1 %tobool.not.i383, label %do.body.i373, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !16
+do.body.i374:                                     ; preds = %do.body.i374, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit
+  %retVal.sroa.0.0.i375 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit ], [ %asmresult.i382, %do.body.i374 ]
+  %retVal.sroa.7.0.i376 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEo.exit ], [ %asmresult16.i383, %do.body.i374 ]
+  %retVal.sroa.0.0.insert.ext.i377 = zext i64 %retVal.sroa.0.0.i375 to i128
+  %retVal.sroa.0.0.insert.insert.i378 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext.i377, 1
+  %computedDesired.sroa.0.0.extract.trunc.i379 = trunc i128 %retVal.sroa.0.0.insert.insert.i378 to i64
+  %125 = lshr i128 %retVal.sroa.0.0.insert.insert.i378, 64
+  %.tr.i380 = trunc i128 %125 to i64
+  %.narrow.i381 = add i64 %retVal.sroa.7.0.i376, %.tr.i380
+  %126 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic362, ptr nonnull elementtype(i8) %cmpxchgRet.i370, i64 %computedDesired.sroa.0.0.extract.trunc.i379, i64 %.narrow.i381, i64 %retVal.sroa.0.0.i375, i64 %retVal.sroa.7.0.i376, ptr nonnull elementtype(i128) %atomic362) #7, !srcloc !15
+  %asmresult.i382 = extractvalue { i64, i64 } %126, 0
+  %asmresult16.i383 = extractvalue { i64, i64 } %126, 1
+  %127 = load i8, ptr %cmpxchgRet.i370, align 1
+  %tobool.i384 = trunc i8 %127 to i1
+  br i1 %tobool.i384, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i374, !llvm.loop !16
 
-_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i373
-  %retVal.sroa.0.0.insert.ext4.i384 = zext i64 %asmresult.i381 to i128
-  %retVal.sroa.0.0.insert.insert6.i385 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i384, 1
-  %152 = lshr i128 %retVal.sroa.0.0.insert.insert6.i385, 64
-  %.tr24.i387 = trunc i128 %152 to i64
-  %.narrow25.i388 = add i64 %asmresult16.i382, %.tr24.i387
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i369)
-  %coerce367.sroa.2.0.insert.ext = zext i64 %.narrow25.i388 to i128
+_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i374
+  %retVal.sroa.0.0.insert.ext4.i385 = zext i64 %asmresult.i382 to i128
+  %retVal.sroa.0.0.insert.insert6.i386 = add nuw nsw i128 %retVal.sroa.0.0.insert.ext4.i385, 1
+  %128 = lshr i128 %retVal.sroa.0.0.insert.insert6.i386, 64
+  %.tr24.i388 = trunc i128 %128 to i64
+  %.narrow25.i389 = add i64 %asmresult16.i383, %.tr24.i388
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i370)
+  %coerce367.sroa.2.0.insert.ext = zext i64 %.narrow25.i389 to i128
   %coerce367.sroa.2.0.insert.shift = shl nuw i128 %coerce367.sroa.2.0.insert.ext, 64
-  %coerce367.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i385, 18446744073709551615
+  %coerce367.sroa.0.0.insert.ext = and i128 %retVal.sroa.0.0.insert.insert6.i386, 18446744073709551615
   %coerce367.sroa.0.0.insert.insert = or disjoint i128 %coerce367.sroa.2.0.insert.shift, %coerce367.sroa.0.0.insert.ext
   %cmp368 = icmp eq i128 %coerce367.sroa.0.0.insert.insert, 1
   %call370 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp368, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3712, ptr noundef nonnull @.str.47)
-  %153 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic362, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic362) #7, !srcloc !11
-  %154 = extractvalue { i64, i64 } %153, 0
-  %155 = extractvalue { i64, i64 } %153, 1
-  %coerce373.sroa.2.0.insert.ext = zext i64 %155 to i128
+  %129 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic362, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic362) #7, !srcloc !11
+  %130 = extractvalue { i64, i64 } %129, 0
+  %131 = extractvalue { i64, i64 } %129, 1
+  %coerce373.sroa.2.0.insert.ext = zext i64 %131 to i128
   %coerce373.sroa.2.0.insert.shift = shl nuw i128 %coerce373.sroa.2.0.insert.ext, 64
-  %coerce373.sroa.0.0.insert.ext = zext i64 %154 to i128
+  %coerce373.sroa.0.0.insert.ext = zext i64 %130 to i128
   %coerce373.sroa.0.0.insert.insert = or disjoint i128 %coerce373.sroa.2.0.insert.shift, %coerce373.sroa.0.0.insert.ext
   %cmp374 = icmp eq i128 %coerce373.sroa.0.0.insert.insert, 1
   %call376 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp374, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3713, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic377, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i391)
-  br label %do.body.i393
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i392)
+  br label %do.body.i394
 
-do.body.i393:                                     ; preds = %do.body.i393, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit
-  %retVal.sroa.0.0.i394 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i395, %do.body.i393 ]
-  %retVal.sroa.4.0.i = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult19.i, %do.body.i393 ]
-  %156 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic377, ptr nonnull elementtype(i8) %cmpxchgRet.i391, i64 1, i64 0, i64 %retVal.sroa.0.0.i394, i64 %retVal.sroa.4.0.i, ptr nonnull elementtype(i128) %atomic377) #7, !srcloc !61
-  %asmresult.i395 = extractvalue { i64, i64 } %156, 0
-  %asmresult19.i = extractvalue { i64, i64 } %156, 1
-  %157 = load i8, ptr %cmpxchgRet.i391, align 1
-  %158 = and i8 %157, 1
-  %tobool.not.i396 = icmp eq i8 %158, 0
-  br i1 %tobool.not.i396, label %do.body.i393, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit, !llvm.loop !62
+do.body.i394:                                     ; preds = %do.body.i394, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit
+  %retVal.sroa.0.0.i395 = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i396, %do.body.i394 ]
+  %retVal.sroa.4.0.i = phi i64 [ 0, %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9add_fetchEoNS0_22memory_order_relaxed_sE.exit ], [ %asmresult19.i, %do.body.i394 ]
+  %132 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic377, ptr nonnull elementtype(i8) %cmpxchgRet.i392, i64 1, i64 0, i64 %retVal.sroa.0.0.i395, i64 %retVal.sroa.4.0.i, ptr nonnull elementtype(i128) %atomic377) #7, !srcloc !61
+  %asmresult.i396 = extractvalue { i64, i64 } %132, 0
+  %asmresult19.i = extractvalue { i64, i64 } %132, 1
+  %133 = load i8, ptr %cmpxchgRet.i392, align 1
+  %tobool.i397 = trunc i8 %133 to i1
+  br i1 %tobool.i397, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit, label %do.body.i394, !llvm.loop !62
 
-_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit: ; preds = %do.body.i393
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i391)
+_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit: ; preds = %do.body.i394
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i392)
   %coerce381.sroa.2.0.insert.ext = zext i64 %asmresult19.i to i128
   %coerce381.sroa.2.0.insert.shift = shl nuw i128 %coerce381.sroa.2.0.insert.ext, 64
-  %coerce381.sroa.0.0.insert.ext = zext i64 %asmresult.i395 to i128
+  %coerce381.sroa.0.0.insert.ext = zext i64 %asmresult.i396 to i128
   %coerce381.sroa.0.0.insert.insert = or disjoint i128 %coerce381.sroa.2.0.insert.shift, %coerce381.sroa.0.0.insert.ext
   %cmp382 = icmp eq i128 %coerce381.sroa.0.0.insert.insert, 0
   %call384 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp382, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3721, ptr noundef nonnull @.str.46)
-  %159 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic377, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic377) #7, !srcloc !11
-  %160 = extractvalue { i64, i64 } %159, 0
-  %161 = extractvalue { i64, i64 } %159, 1
-  %coerce387.sroa.2.0.insert.ext = zext i64 %161 to i128
+  %134 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic377, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic377) #7, !srcloc !11
+  %135 = extractvalue { i64, i64 } %134, 0
+  %136 = extractvalue { i64, i64 } %134, 1
+  %coerce387.sroa.2.0.insert.ext = zext i64 %136 to i128
   %coerce387.sroa.2.0.insert.shift = shl nuw i128 %coerce387.sroa.2.0.insert.ext, 64
-  %coerce387.sroa.0.0.insert.ext = zext i64 %160 to i128
+  %coerce387.sroa.0.0.insert.ext = zext i64 %135 to i128
   %coerce387.sroa.0.0.insert.insert = or disjoint i128 %coerce387.sroa.2.0.insert.shift, %coerce387.sroa.0.0.insert.ext
   %cmp388 = icmp eq i128 %coerce387.sroa.0.0.insert.insert, 1
   %call390 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp388, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3722, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic391, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i397)
-  br label %do.body.i401
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i398)
+  br label %do.body.i402
 
-do.body.i401:                                     ; preds = %do.body.i401, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit
-  %retVal.sroa.0.0.i402 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit ], [ %asmresult.i404, %do.body.i401 ]
-  %retVal.sroa.4.0.i403 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit ], [ %asmresult19.i405, %do.body.i401 ]
-  %162 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %cmpxchgRet.i397, i64 1, i64 0, i64 %retVal.sroa.0.0.i402, i64 %retVal.sroa.4.0.i403, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !52
-  %asmresult.i404 = extractvalue { i64, i64 } %162, 0
-  %asmresult19.i405 = extractvalue { i64, i64 } %162, 1
-  %163 = load i8, ptr %cmpxchgRet.i397, align 1
-  %164 = and i8 %163, 1
-  %tobool.not.i406 = icmp eq i8 %164, 0
-  br i1 %tobool.not.i406, label %do.body.i401, label %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit, !llvm.loop !53
+do.body.i402:                                     ; preds = %do.body.i402, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit
+  %retVal.sroa.0.0.i403 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit ], [ %asmresult.i405, %do.body.i402 ]
+  %retVal.sroa.4.0.i404 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE8exchangeEo.exit ], [ %asmresult19.i406, %do.body.i402 ]
+  %137 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, ptr nonnull elementtype(i8) %cmpxchgRet.i398, i64 1, i64 0, i64 %retVal.sroa.0.0.i403, i64 %retVal.sroa.4.0.i404, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !52
+  %asmresult.i405 = extractvalue { i64, i64 } %137, 0
+  %asmresult19.i406 = extractvalue { i64, i64 } %137, 1
+  %138 = load i8, ptr %cmpxchgRet.i398, align 1
+  %tobool.i407 = trunc i8 %138 to i1
+  br i1 %tobool.i407, label %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit, label %do.body.i402, !llvm.loop !53
 
-_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit: ; preds = %do.body.i401
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i397)
-  %coerce396.sroa.2.0.insert.ext = zext i64 %asmresult19.i405 to i128
+_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit: ; preds = %do.body.i402
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i398)
+  %coerce396.sroa.2.0.insert.ext = zext i64 %asmresult19.i406 to i128
   %coerce396.sroa.2.0.insert.shift = shl nuw i128 %coerce396.sroa.2.0.insert.ext, 64
-  %coerce396.sroa.0.0.insert.ext = zext i64 %asmresult.i404 to i128
+  %coerce396.sroa.0.0.insert.ext = zext i64 %asmresult.i405 to i128
   %coerce396.sroa.0.0.insert.insert = or disjoint i128 %coerce396.sroa.2.0.insert.shift, %coerce396.sroa.0.0.insert.ext
   %cmp397 = icmp eq i128 %coerce396.sroa.0.0.insert.insert, 0
   %call399 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp397, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3730, ptr noundef nonnull @.str.46)
-  %165 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !11
-  %166 = extractvalue { i64, i64 } %165, 0
-  %167 = extractvalue { i64, i64 } %165, 1
-  %coerce402.sroa.2.0.insert.ext = zext i64 %167 to i128
+  %139 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic391, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic391) #7, !srcloc !11
+  %140 = extractvalue { i64, i64 } %139, 0
+  %141 = extractvalue { i64, i64 } %139, 1
+  %coerce402.sroa.2.0.insert.ext = zext i64 %141 to i128
   %coerce402.sroa.2.0.insert.shift = shl nuw i128 %coerce402.sroa.2.0.insert.ext, 64
-  %coerce402.sroa.0.0.insert.ext = zext i64 %166 to i128
+  %coerce402.sroa.0.0.insert.ext = zext i64 %140 to i128
   %coerce402.sroa.0.0.insert.insert = or disjoint i128 %coerce402.sroa.2.0.insert.shift, %coerce402.sroa.0.0.insert.ext
   %cmp403 = icmp eq i128 %coerce402.sroa.0.0.insert.insert, 1
   %call405 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp403, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3731, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic406, align 16
-  %168 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic406, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic406) #7, !srcloc !9
-  %169 = extractvalue { i64, i64 } %168, 0
-  %170 = extractvalue { i64, i64 } %168, 1
-  %coerce409.sroa.2.0.insert.ext = zext i64 %170 to i128
+  %142 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic406, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic406) #7, !srcloc !9
+  %143 = extractvalue { i64, i64 } %142, 0
+  %144 = extractvalue { i64, i64 } %142, 1
+  %coerce409.sroa.2.0.insert.ext = zext i64 %144 to i128
   %coerce409.sroa.2.0.insert.shift = shl nuw i128 %coerce409.sroa.2.0.insert.ext, 64
-  %coerce409.sroa.0.0.insert.ext = zext i64 %169 to i128
+  %coerce409.sroa.0.0.insert.ext = zext i64 %143 to i128
   %coerce409.sroa.0.0.insert.insert = or disjoint i128 %coerce409.sroa.2.0.insert.shift, %coerce409.sroa.0.0.insert.ext
   %cmp410 = icmp eq i128 %coerce409.sroa.0.0.insert.insert, 0
   %call412 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp410, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3739, ptr noundef nonnull @.str.46)
   store i128 0, ptr %atomic413, align 16
-  %171 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic413, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic413) #7, !srcloc !11
-  %172 = extractvalue { i64, i64 } %171, 0
-  %173 = extractvalue { i64, i64 } %171, 1
-  %coerce417.sroa.2.0.insert.ext = zext i64 %173 to i128
+  %145 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic413, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic413) #7, !srcloc !11
+  %146 = extractvalue { i64, i64 } %145, 0
+  %147 = extractvalue { i64, i64 } %145, 1
+  %coerce417.sroa.2.0.insert.ext = zext i64 %147 to i128
   %coerce417.sroa.2.0.insert.shift = shl nuw i128 %coerce417.sroa.2.0.insert.ext, 64
-  %coerce417.sroa.0.0.insert.ext = zext i64 %172 to i128
+  %coerce417.sroa.0.0.insert.ext = zext i64 %146 to i128
   %coerce417.sroa.0.0.insert.insert = or disjoint i128 %coerce417.sroa.2.0.insert.shift, %coerce417.sroa.0.0.insert.ext
   %cmp418 = icmp eq i128 %coerce417.sroa.0.0.insert.insert, 0
   %call420 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp418, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3747, ptr noundef nonnull @.str.46)
   store i128 0, ptr %atomic421, align 16
-  %174 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic421, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic421) #7, !srcloc !9
-  %175 = extractvalue { i64, i64 } %174, 0
-  %176 = extractvalue { i64, i64 } %174, 1
-  %coerce425.sroa.2.0.insert.ext = zext i64 %176 to i128
+  %148 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic421, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic421) #7, !srcloc !9
+  %149 = extractvalue { i64, i64 } %148, 0
+  %150 = extractvalue { i64, i64 } %148, 1
+  %coerce425.sroa.2.0.insert.ext = zext i64 %150 to i128
   %coerce425.sroa.2.0.insert.shift = shl nuw i128 %coerce425.sroa.2.0.insert.ext, 64
-  %coerce425.sroa.0.0.insert.ext = zext i64 %175 to i128
+  %coerce425.sroa.0.0.insert.ext = zext i64 %149 to i128
   %coerce425.sroa.0.0.insert.insert = or disjoint i128 %coerce425.sroa.2.0.insert.shift, %coerce425.sroa.0.0.insert.ext
   %cmp426 = icmp eq i128 %coerce425.sroa.0.0.insert.insert, 0
   %call428 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp426, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3755, ptr noundef nonnull @.str.46)
   store i128 0, ptr %atomic429, align 16
-  %177 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic429, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic429) #7, !srcloc !11
-  %178 = extractvalue { i64, i64 } %177, 0
-  %179 = extractvalue { i64, i64 } %177, 1
-  %coerce434.sroa.2.0.insert.ext = zext i64 %179 to i128
+  %151 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic429, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic429) #7, !srcloc !11
+  %152 = extractvalue { i64, i64 } %151, 0
+  %153 = extractvalue { i64, i64 } %151, 1
+  %coerce434.sroa.2.0.insert.ext = zext i64 %153 to i128
   %coerce434.sroa.2.0.insert.shift = shl nuw i128 %coerce434.sroa.2.0.insert.ext, 64
-  %coerce434.sroa.0.0.insert.ext = zext i64 %178 to i128
+  %coerce434.sroa.0.0.insert.ext = zext i64 %152 to i128
   %coerce434.sroa.0.0.insert.insert = or disjoint i128 %coerce434.sroa.2.0.insert.shift, %coerce434.sroa.0.0.insert.ext
   %cmp435 = icmp eq i128 %coerce434.sroa.0.0.insert.insert, 0
   %call437 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp435, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3763, ptr noundef nonnull @.str.46)
   store i128 0, ptr %atomic438, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i407)
-  br label %do.body.i408
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i408)
+  br label %do.body.i409
 
-do.body.i408:                                     ; preds = %do.body.i408, %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit
-  %exchange128.sroa.0.0.i = phi i64 [ 0, %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit ], [ %asmresult.i409, %do.body.i408 ]
-  %exchange128.sroa.3.0.i = phi i64 [ 0, %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit ], [ %asmresult19.i410, %do.body.i408 ]
-  %180 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic438, ptr nonnull elementtype(i8) %cmpxchgRet.i407, i64 1, i64 0, i64 %exchange128.sroa.0.0.i, i64 %exchange128.sroa.3.0.i, ptr nonnull elementtype(i128) %atomic438) #7, !srcloc !56
-  %asmresult.i409 = extractvalue { i64, i64 } %180, 0
-  %asmresult19.i410 = extractvalue { i64, i64 } %180, 1
-  %181 = load i8, ptr %cmpxchgRet.i407, align 1
-  %182 = and i8 %181, 1
-  %tobool.not.i411 = icmp eq i8 %182, 0
-  br i1 %tobool.not.i411, label %do.body.i408, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit, !llvm.loop !57
+do.body.i409:                                     ; preds = %do.body.i409, %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit
+  %exchange128.sroa.0.0.i = phi i64 [ 0, %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit ], [ %asmresult.i410, %do.body.i409 ]
+  %exchange128.sroa.3.0.i = phi i64 [ 0, %_ZN5eastl25atomic_load_cond_explicitIoZN23AtomicIntegralBasicTestIoE20TestAtomicStandaloneEvEUloE0_NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit ], [ %asmresult19.i411, %do.body.i409 ]
+  %154 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic438, ptr nonnull elementtype(i8) %cmpxchgRet.i408, i64 1, i64 0, i64 %exchange128.sroa.0.0.i, i64 %exchange128.sroa.3.0.i, ptr nonnull elementtype(i128) %atomic438) #7, !srcloc !56
+  %asmresult.i410 = extractvalue { i64, i64 } %154, 0
+  %asmresult19.i411 = extractvalue { i64, i64 } %154, 1
+  %155 = load i8, ptr %cmpxchgRet.i408, align 1
+  %tobool.i412 = trunc i8 %155 to i1
+  br i1 %tobool.i412, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit, label %do.body.i409, !llvm.loop !57
 
-_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit: ; preds = %do.body.i408
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i407)
-  %183 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic438, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic438) #7, !srcloc !11
-  %184 = extractvalue { i64, i64 } %183, 0
-  %185 = extractvalue { i64, i64 } %183, 1
-  %coerce442.sroa.2.0.insert.ext = zext i64 %185 to i128
+_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit: ; preds = %do.body.i409
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i408)
+  %156 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic438, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic438) #7, !srcloc !11
+  %157 = extractvalue { i64, i64 } %156, 0
+  %158 = extractvalue { i64, i64 } %156, 1
+  %coerce442.sroa.2.0.insert.ext = zext i64 %158 to i128
   %coerce442.sroa.2.0.insert.shift = shl nuw i128 %coerce442.sroa.2.0.insert.ext, 64
-  %coerce442.sroa.0.0.insert.ext = zext i64 %184 to i128
+  %coerce442.sroa.0.0.insert.ext = zext i64 %157 to i128
   %coerce442.sroa.0.0.insert.insert = or disjoint i128 %coerce442.sroa.2.0.insert.shift, %coerce442.sroa.0.0.insert.ext
   %cmp443 = icmp eq i128 %coerce442.sroa.0.0.insert.insert, 1
   %call445 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp443, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3771, ptr noundef nonnull @.str.60)
   store i128 0, ptr %atomic446, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i412)
-  br label %do.body.i416
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i413)
+  br label %do.body.i417
 
-do.body.i416:                                     ; preds = %do.body.i416, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit
-  %exchange128.sroa.0.0.i417 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit ], [ %asmresult.i419, %do.body.i416 ]
-  %exchange128.sroa.3.0.i418 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit ], [ %asmresult19.i420, %do.body.i416 ]
-  %186 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic446, ptr nonnull elementtype(i8) %cmpxchgRet.i412, i64 1, i64 0, i64 %exchange128.sroa.0.0.i417, i64 %exchange128.sroa.3.0.i418, ptr nonnull elementtype(i128) %atomic446) #7, !srcloc !49
-  %asmresult.i419 = extractvalue { i64, i64 } %186, 0
-  %asmresult19.i420 = extractvalue { i64, i64 } %186, 1
-  %187 = load i8, ptr %cmpxchgRet.i412, align 1
-  %188 = and i8 %187, 1
-  %tobool.not.i421 = icmp eq i8 %188, 0
-  br i1 %tobool.not.i421, label %do.body.i416, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit, !llvm.loop !50
+do.body.i417:                                     ; preds = %do.body.i417, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit
+  %exchange128.sroa.0.0.i418 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit ], [ %asmresult.i420, %do.body.i417 ]
+  %exchange128.sroa.3.0.i419 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEo.exit ], [ %asmresult19.i421, %do.body.i417 ]
+  %159 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic446, ptr nonnull elementtype(i8) %cmpxchgRet.i413, i64 1, i64 0, i64 %exchange128.sroa.0.0.i418, i64 %exchange128.sroa.3.0.i419, ptr nonnull elementtype(i128) %atomic446) #7, !srcloc !49
+  %asmresult.i420 = extractvalue { i64, i64 } %159, 0
+  %asmresult19.i421 = extractvalue { i64, i64 } %159, 1
+  %160 = load i8, ptr %cmpxchgRet.i413, align 1
+  %tobool.i422 = trunc i8 %160 to i1
+  br i1 %tobool.i422, label %_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit, label %do.body.i417, !llvm.loop !50
 
-_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i416
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i412)
-  %189 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic446, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic446) #7, !srcloc !11
-  %190 = extractvalue { i64, i64 } %189, 0
-  %191 = extractvalue { i64, i64 } %189, 1
-  %coerce451.sroa.2.0.insert.ext = zext i64 %191 to i128
+_ZN5eastl8internal17atomic_base_widthIoLj16EE5storeEoNS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i417
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i413)
+  %161 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic446, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic446) #7, !srcloc !11
+  %162 = extractvalue { i64, i64 } %161, 0
+  %163 = extractvalue { i64, i64 } %161, 1
+  %coerce451.sroa.2.0.insert.ext = zext i64 %163 to i128
   %coerce451.sroa.2.0.insert.shift = shl nuw i128 %coerce451.sroa.2.0.insert.ext, 64
-  %coerce451.sroa.0.0.insert.ext = zext i64 %190 to i128
+  %coerce451.sroa.0.0.insert.ext = zext i64 %162 to i128
   %coerce451.sroa.0.0.insert.insert = or disjoint i128 %coerce451.sroa.2.0.insert.shift, %coerce451.sroa.0.0.insert.ext
   %cmp452 = icmp eq i128 %coerce451.sroa.0.0.insert.insert, 1
   %call454 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp452, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3779, ptr noundef nonnull @.str.60)
@@ -13595,20 +13420,19 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %asmresult.i.i = extractvalue { i64, i64 } %0, 0
   %asmresult18.i.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %do.body.i.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit, !llvm.loop !184
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit, label %do.body.i.i, !llvm.loop !184
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit: ; preds = %do.body.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i)
-  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %or.cond = icmp eq i64 %4, 25769803781
-  %6 = and i64 %5, 4294967295
-  %cmp8.i = icmp eq i64 %6, 0
+  %2 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %or.cond = icmp eq i64 %3, 25769803781
+  %5 = and i64 %4, 4294967295
+  %cmp8.i = icmp eq i64 %5, 0
   %or.cond40 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp eq i64 %5, 0
+  %cmp10.i = icmp eq i64 %4, 0
   %spec.select = select i1 %or.cond40, i1 %cmp10.i, i1 false
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1619, ptr noundef nonnull @.str.18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic6, i8 0, i64 16, i1 false)
@@ -13618,24 +13442,23 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit: ; pr
 do.body.i.i17:                                    ; preds = %do.body.i.i17, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit
   %exchange128.sroa.0.0.i.i18 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit ], [ %asmresult.i.i20, %do.body.i.i17 ]
   %exchange128.sroa.3.0.i.i19 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit ], [ %asmresult18.i.i21, %do.body.i.i17 ]
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, ptr nonnull elementtype(i8) %cmpxchgRet.i.i13, i64 0, i64 0, i64 %exchange128.sroa.0.0.i.i18, i64 %exchange128.sroa.3.0.i.i19, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !33
-  %asmresult.i.i20 = extractvalue { i64, i64 } %7, 0
-  %asmresult18.i.i21 = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i.i13, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i.i22 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i22, label %do.body.i.i17, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit25, !llvm.loop !184
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, ptr nonnull elementtype(i8) %cmpxchgRet.i.i13, i64 0, i64 0, i64 %exchange128.sroa.0.0.i.i18, i64 %exchange128.sroa.3.0.i.i19, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !33
+  %asmresult.i.i20 = extractvalue { i64, i64 } %6, 0
+  %asmresult18.i.i21 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i.i13, align 1
+  %tobool.i.i22 = trunc i8 %7 to i1
+  br i1 %tobool.i.i22, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit25, label %do.body.i.i17, !llvm.loop !184
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit25: ; preds = %do.body.i.i17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i13)
-  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !11
-  %11 = extractvalue { i64, i64 } %10, 0
-  %12 = extractvalue { i64, i64 } %10, 1
-  %or.cond41 = icmp eq i64 %11, 0
-  %13 = and i64 %12, 4294967295
-  %cmp8.i34 = icmp eq i64 %13, 0
+  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  %or.cond41 = icmp eq i64 %9, 0
+  %11 = and i64 %10, 4294967295
+  %cmp8.i34 = icmp eq i64 %11, 0
   %or.cond42 = select i1 %or.cond41, i1 %cmp8.i34, i1 false
-  %cmp10.i38 = icmp eq i64 %12, 0
+  %cmp10.i38 = icmp eq i64 %10, 0
   %spec.select43 = select i1 %or.cond42, i1 %cmp10.i38, i1 false
   %call16 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select43, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1628, ptr noundef nonnull @.str.18)
   ret void
@@ -13659,20 +13482,19 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult18.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit, !llvm.loop !185
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !185
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
-  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %or.cond = icmp eq i64 %4, 25769803781
-  %6 = and i64 %5, 4294967295
-  %cmp8.i = icmp eq i64 %6, 0
+  %2 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = extractvalue { i64, i64 } %2, 1
+  %or.cond = icmp eq i64 %3, 25769803781
+  %5 = and i64 %4, 4294967295
+  %cmp8.i = icmp eq i64 %5, 0
   %or.cond35 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp eq i64 %5, 0
+  %cmp10.i = icmp eq i64 %4, 0
   %spec.select = select i1 %or.cond35, i1 %cmp10.i, i1 false
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1655, ptr noundef nonnull @.str.17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic6, i8 0, i64 16, i1 false)
@@ -13682,24 +13504,23 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22m
 do.body.i14:                                      ; preds = %do.body.i14, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit
   %exchange128.sroa.0.0.i15 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i17, %do.body.i14 ]
   %exchange128.sroa.3.0.i16 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult18.i18, %do.body.i14 ]
-  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, ptr nonnull elementtype(i8) %cmpxchgRet.i10, i64 25769803781, i64 0, i64 %exchange128.sroa.0.0.i15, i64 %exchange128.sroa.3.0.i16, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !49
-  %asmresult.i17 = extractvalue { i64, i64 } %7, 0
-  %asmresult18.i18 = extractvalue { i64, i64 } %7, 1
-  %8 = load i8, ptr %cmpxchgRet.i10, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i19 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i19, label %do.body.i14, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit20, !llvm.loop !185
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, ptr nonnull elementtype(i8) %cmpxchgRet.i10, i64 25769803781, i64 0, i64 %exchange128.sroa.0.0.i15, i64 %exchange128.sroa.3.0.i16, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !49
+  %asmresult.i17 = extractvalue { i64, i64 } %6, 0
+  %asmresult18.i18 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i10, align 1
+  %tobool.i19 = trunc i8 %7 to i1
+  br i1 %tobool.i19, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit20, label %do.body.i14, !llvm.loop !185
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit20: ; preds = %do.body.i14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i10)
-  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !11
-  %11 = extractvalue { i64, i64 } %10, 0
-  %12 = extractvalue { i64, i64 } %10, 1
-  %or.cond36 = icmp eq i64 %11, 25769803781
-  %13 = and i64 %12, 4294967295
-  %cmp8.i29 = icmp eq i64 %13, 0
+  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic6, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic6) #7, !srcloc !11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  %or.cond36 = icmp eq i64 %9, 25769803781
+  %11 = and i64 %10, 4294967295
+  %cmp8.i29 = icmp eq i64 %11, 0
   %or.cond37 = select i1 %or.cond36, i1 %cmp8.i29, i1 false
-  %cmp10.i33 = icmp eq i64 %12, 0
+  %cmp10.i33 = icmp eq i64 %10, 0
   %spec.select38 = select i1 %or.cond37, i1 %cmp10.i33, i1 false
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select38, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1666, ptr noundef nonnull @.str.17)
   ret void
@@ -13775,15 +13596,14 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult18.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit, !llvm.loop !186
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit, label %do.body.i, !llvm.loop !186
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
   %or.cond = icmp eq i64 %asmresult.i, 0
-  %3 = and i64 %asmresult18.i, 4294967295
-  %cmp8.i = icmp eq i64 %3, 0
+  %2 = and i64 %asmresult18.i, 4294967295
+  %cmp8.i = icmp eq i64 %2, 0
   %or.cond55 = select i1 %or.cond, i1 %cmp8.i, i1 false
   %cmp10.i = icmp eq i64 %asmresult18.i, 0
   %spec.select = select i1 %or.cond55, i1 %cmp10.i, i1 false
@@ -13795,31 +13615,30 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_
 do.body.i20:                                      ; preds = %do.body.i20, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.4.0.i21 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult18.i24, %do.body.i20 ]
   %retVal.sroa.0.0.i22 = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i23, %do.body.i20 ]
-  %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic5, ptr nonnull elementtype(i8) %cmpxchgRet.i16, i64 4294967296, i64 0, i64 %retVal.sroa.0.0.i22, i64 %retVal.sroa.4.0.i21, ptr nonnull elementtype(i128) %atomic5) #7, !srcloc !52
-  %asmresult.i23 = extractvalue { i64, i64 } %4, 0
-  %asmresult18.i24 = extractvalue { i64, i64 } %4, 1
-  %5 = load i8, ptr %cmpxchgRet.i16, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i25 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i25, label %do.body.i20, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit26, !llvm.loop !186
+  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic5, ptr nonnull elementtype(i8) %cmpxchgRet.i16, i64 4294967296, i64 0, i64 %retVal.sroa.0.0.i22, i64 %retVal.sroa.4.0.i21, ptr nonnull elementtype(i128) %atomic5) #7, !srcloc !52
+  %asmresult.i23 = extractvalue { i64, i64 } %3, 0
+  %asmresult18.i24 = extractvalue { i64, i64 } %3, 1
+  %4 = load i8, ptr %cmpxchgRet.i16, align 1
+  %tobool.i25 = trunc i8 %4 to i1
+  br i1 %tobool.i25, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit26, label %do.body.i20, !llvm.loop !186
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit26: ; preds = %do.body.i20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i16)
   %or.cond56 = icmp eq i64 %asmresult.i23, 0
-  %7 = and i64 %asmresult18.i24, 4294967295
-  %cmp8.i35 = icmp eq i64 %7, 0
+  %5 = and i64 %asmresult18.i24, 4294967295
+  %cmp8.i35 = icmp eq i64 %5, 0
   %or.cond57 = select i1 %or.cond56, i1 %cmp8.i35, i1 false
   %cmp10.i39 = icmp eq i64 %asmresult18.i24, 0
   %spec.select60 = select i1 %or.cond57, i1 %cmp10.i39, i1 false
   %call13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select60, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1711, ptr noundef nonnull @.str.17)
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic5, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic5) #7, !srcloc !11
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = extractvalue { i64, i64 } %8, 1
-  %or.cond58 = icmp eq i64 %9, 4294967296
-  %11 = and i64 %10, 4294967295
-  %cmp8.i49 = icmp eq i64 %11, 0
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic5, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic5) #7, !srcloc !11
+  %7 = extractvalue { i64, i64 } %6, 0
+  %8 = extractvalue { i64, i64 } %6, 1
+  %or.cond58 = icmp eq i64 %7, 4294967296
+  %9 = and i64 %8, 4294967295
+  %cmp8.i49 = icmp eq i64 %9, 0
   %or.cond59 = select i1 %or.cond58, i1 %cmp8.i49, i1 false
-  %cmp10.i53 = icmp eq i64 %10, 0
+  %cmp10.i53 = icmp eq i64 %8, 0
   %spec.select61 = select i1 %or.cond59, i1 %cmp10.i53, i1 false
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select61, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1712, ptr noundef nonnull @.str.70)
   ret void
@@ -13838,30 +13657,29 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i)
   %0 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %retVal.i, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !54
   %1 = load i8, ptr %retVal.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %asmresult20.i = extractvalue { i64, i64 } %0, 1
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1728, ptr noundef nonnull @.str.4)
   %or.cond = icmp eq i64 %asmresult.i, 0
-  %3 = and i64 %asmresult20.i, 4294967295
-  %cmp8.i = icmp eq i64 %3, 0
+  %2 = and i64 %asmresult20.i, 4294967295
+  %cmp8.i = icmp eq i64 %2, 0
   %or.cond109 = select i1 %or.cond, i1 %cmp8.i, i1 false
   %cmp10.i = icmp ult i64 %asmresult20.i, 4294967296
   %spec.select = select i1 %or.cond109, i1 %cmp10.i, i1 false
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1729, ptr noundef nonnull @.str.71)
-  %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %5 = extractvalue { i64, i64 } %4, 0
-  %6 = extractvalue { i64, i64 } %4, 1
-  %or.cond110 = icmp eq i64 %5, 0
-  %7 = and i64 %6, 4294967295
-  %cmp8.i20 = icmp eq i64 %7, 0
+  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %4 = extractvalue { i64, i64 } %3, 0
+  %5 = extractvalue { i64, i64 } %3, 1
+  %or.cond110 = icmp eq i64 %4, 0
+  %6 = and i64 %5, 4294967295
+  %cmp8.i20 = icmp eq i64 %6, 0
   %or.cond111 = select i1 %or.cond110, i1 %cmp8.i20, i1 false
-  %cmp10.i24 = icmp eq i64 %6, 0
+  %cmp10.i24 = icmp eq i64 %5, 0
   %spec.select119 = select i1 %or.cond111, i1 %cmp10.i24, i1 false
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select119, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1730, ptr noundef nonnull @.str.18)
   br label %if.end
@@ -13869,32 +13687,31 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i32)
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, ptr nonnull elementtype(i8) %retVal.i32, i64 4294967296, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !54
-  %9 = load i8, ptr %retVal.i32, align 1
-  %10 = and i8 %9, 1
-  %tobool.i36.not = icmp eq i8 %10, 0
+  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, ptr nonnull elementtype(i8) %retVal.i32, i64 4294967296, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !54
+  %8 = load i8, ptr %retVal.i32, align 1
+  %tobool.i36 = trunc i8 %8 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i32)
-  br i1 %tobool.i36.not, label %if.end37, label %if.then22
+  br i1 %tobool.i36, label %if.then22, label %if.end37
 
 if.then22:                                        ; preds = %if.end
-  %asmresult20.i35 = extractvalue { i64, i64 } %8, 1
-  %asmresult.i34 = extractvalue { i64, i64 } %8, 0
+  %asmresult20.i35 = extractvalue { i64, i64 } %7, 1
+  %asmresult.i34 = extractvalue { i64, i64 } %7, 0
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1744, ptr noundef nonnull @.str.4)
   %or.cond112 = icmp eq i64 %asmresult.i34, 0
-  %11 = and i64 %asmresult20.i35, 4294967295
-  %cmp8.i51 = icmp eq i64 %11, 0
+  %9 = and i64 %asmresult20.i35, 4294967295
+  %cmp8.i51 = icmp eq i64 %9, 0
   %or.cond113 = select i1 %or.cond112, i1 %cmp8.i51, i1 false
   %cmp10.i55 = icmp ult i64 %asmresult20.i35, 4294967296
   %spec.select118 = select i1 %or.cond113, i1 %cmp10.i55, i1 false
   %call30 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select118, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1745, ptr noundef nonnull @.str.72)
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !11
-  %13 = extractvalue { i64, i64 } %12, 0
-  %14 = extractvalue { i64, i64 } %12, 1
-  %or.cond114 = icmp eq i64 %13, 4294967296
-  %15 = and i64 %14, 4294967295
-  %cmp8.i65 = icmp eq i64 %15, 0
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic13, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic13) #7, !srcloc !11
+  %11 = extractvalue { i64, i64 } %10, 0
+  %12 = extractvalue { i64, i64 } %10, 1
+  %or.cond114 = icmp eq i64 %11, 4294967296
+  %13 = and i64 %12, 4294967295
+  %cmp8.i65 = icmp eq i64 %13, 0
   %or.cond115 = select i1 %or.cond114, i1 %cmp8.i65, i1 false
-  %cmp10.i69 = icmp eq i64 %14, 0
+  %cmp10.i69 = icmp eq i64 %12, 0
   %spec.select120 = select i1 %or.cond115, i1 %cmp10.i69, i1 false
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select120, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1746, ptr noundef nonnull @.str.18)
   br label %if.end37
@@ -13902,17 +13719,17 @@ if.then22:                                        ; preds = %if.end
 if.end37:                                         ; preds = %if.then22, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic38, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i77)
-  %16 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, ptr nonnull elementtype(i8) %retVal.i77, i64 4294967296, i64 0, i64 4294967296, i64 0, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !54
-  %asmresult.i79 = extractvalue { i64, i64 } %16, 0
-  %asmresult20.i80 = extractvalue { i64, i64 } %16, 1
-  %17 = load i8, ptr %retVal.i77, align 1
-  %18 = and i8 %17, 1
-  %tobool.i81.not = icmp eq i8 %18, 0
+  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, ptr nonnull elementtype(i8) %retVal.i77, i64 4294967296, i64 0, i64 4294967296, i64 0, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !54
+  %asmresult.i79 = extractvalue { i64, i64 } %14, 0
+  %asmresult20.i80 = extractvalue { i64, i64 } %14, 1
+  %15 = load i8, ptr %retVal.i77, align 1
+  %tobool.i81 = trunc i8 %15 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i77)
-  %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i81.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1758, ptr noundef nonnull @.str.3)
+  %cmp48 = xor i1 %tobool.i81, true
+  %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1758, ptr noundef nonnull @.str.3)
   %or.cond116 = icmp eq i64 %asmresult.i79, 0
-  %19 = and i64 %asmresult20.i80, 4294967295
-  %cmp8.i93 = icmp eq i64 %19, 0
+  %16 = and i64 %asmresult20.i80, 4294967295
+  %cmp8.i93 = icmp eq i64 %16, 0
   %or.cond117 = select i1 %or.cond116, i1 %cmp8.i93, i1 false
   %cmp10.i97 = icmp eq i64 %asmresult20.i80, 0
   %spec.select121 = select i1 %or.cond117, i1 %cmp10.i97, i1 false
@@ -13935,67 +13752,65 @@ entry:
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult20.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %retVal.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1774, ptr noundef nonnull @.str.4)
   %or.cond = icmp eq i64 %asmresult.i, 0
-  %3 = and i64 %asmresult20.i, 4294967295
-  %cmp8.i = icmp eq i64 %3, 0
+  %2 = and i64 %asmresult20.i, 4294967295
+  %cmp8.i = icmp eq i64 %2, 0
   %or.cond107 = select i1 %or.cond, i1 %cmp8.i, i1 false
   %cmp10.i = icmp eq i64 %asmresult20.i, 0
   %spec.select = select i1 %or.cond107, i1 %cmp10.i, i1 false
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1775, ptr noundef nonnull @.str.71)
-  %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
-  %5 = extractvalue { i64, i64 } %4, 0
-  %6 = extractvalue { i64, i64 } %4, 1
-  %or.cond108 = icmp eq i64 %5, 0
-  %7 = and i64 %6, 4294967295
-  %cmp8.i18 = icmp eq i64 %7, 0
+  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
+  %4 = extractvalue { i64, i64 } %3, 0
+  %5 = extractvalue { i64, i64 } %3, 1
+  %or.cond108 = icmp eq i64 %4, 0
+  %6 = and i64 %5, 4294967295
+  %cmp8.i18 = icmp eq i64 %6, 0
   %or.cond109 = select i1 %or.cond108, i1 %cmp8.i18, i1 false
-  %cmp10.i22 = icmp eq i64 %6, 0
+  %cmp10.i22 = icmp eq i64 %5, 0
   %spec.select118 = select i1 %or.cond109, i1 %cmp10.i22, i1 false
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select118, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1776, ptr noundef nonnull @.str.18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i30)
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, ptr nonnull elementtype(i8) %retVal.i30, i64 4294967296, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !55
-  %asmresult.i32 = extractvalue { i64, i64 } %8, 0
-  %asmresult20.i33 = extractvalue { i64, i64 } %8, 1
-  %9 = load i8, ptr %retVal.i30, align 1
-  %10 = and i8 %9, 1
-  %tobool.i34 = icmp ne i8 %10, 0
+  %7 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, ptr nonnull elementtype(i8) %retVal.i30, i64 4294967296, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !55
+  %asmresult.i32 = extractvalue { i64, i64 } %7, 0
+  %asmresult20.i33 = extractvalue { i64, i64 } %7, 1
+  %8 = load i8, ptr %retVal.i30, align 1
+  %tobool.i34 = trunc i8 %8 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i30)
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1788, ptr noundef nonnull @.str.4)
   %or.cond110 = icmp eq i64 %asmresult.i32, 0
-  %11 = and i64 %asmresult20.i33, 4294967295
-  %cmp8.i49 = icmp eq i64 %11, 0
+  %9 = and i64 %asmresult20.i33, 4294967295
+  %cmp8.i49 = icmp eq i64 %9, 0
   %or.cond111 = select i1 %or.cond110, i1 %cmp8.i49, i1 false
   %cmp10.i53 = icmp eq i64 %asmresult20.i33, 0
   %spec.select116 = select i1 %or.cond111, i1 %cmp10.i53, i1 false
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select116, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1789, ptr noundef nonnull @.str.72)
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !11
-  %13 = extractvalue { i64, i64 } %12, 0
-  %14 = extractvalue { i64, i64 } %12, 1
-  %or.cond112 = icmp eq i64 %13, 4294967296
-  %15 = and i64 %14, 4294967295
-  %cmp8.i63 = icmp eq i64 %15, 0
+  %10 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !11
+  %11 = extractvalue { i64, i64 } %10, 0
+  %12 = extractvalue { i64, i64 } %10, 1
+  %or.cond112 = icmp eq i64 %11, 4294967296
+  %13 = and i64 %12, 4294967295
+  %cmp8.i63 = icmp eq i64 %13, 0
   %or.cond113 = select i1 %or.cond112, i1 %cmp8.i63, i1 false
-  %cmp10.i67 = icmp eq i64 %14, 0
+  %cmp10.i67 = icmp eq i64 %12, 0
   %spec.select119 = select i1 %or.cond113, i1 %cmp10.i67, i1 false
   %call33 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select119, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1790, ptr noundef nonnull @.str.18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic34, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i75)
-  %16 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic34, ptr nonnull elementtype(i8) %retVal.i75, i64 4294967296, i64 0, i64 4294967296, i64 0, ptr nonnull elementtype(i128) %atomic34) #7, !srcloc !55
-  %asmresult.i77 = extractvalue { i64, i64 } %16, 0
-  %asmresult20.i78 = extractvalue { i64, i64 } %16, 1
-  %17 = load i8, ptr %retVal.i75, align 1
-  %18 = and i8 %17, 1
-  %tobool.i79.not = icmp eq i8 %18, 0
+  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic34, ptr nonnull elementtype(i8) %retVal.i75, i64 4294967296, i64 0, i64 4294967296, i64 0, ptr nonnull elementtype(i128) %atomic34) #7, !srcloc !55
+  %asmresult.i77 = extractvalue { i64, i64 } %14, 0
+  %asmresult20.i78 = extractvalue { i64, i64 } %14, 1
+  %15 = load i8, ptr %retVal.i75, align 1
+  %tobool.i79 = trunc i8 %15 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i75)
-  %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i79.not, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1801, ptr noundef nonnull @.str.3)
+  %cmp44 = xor i1 %tobool.i79, true
+  %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp44, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1801, ptr noundef nonnull @.str.3)
   %or.cond114 = icmp eq i64 %asmresult.i77, 0
-  %19 = and i64 %asmresult20.i78, 4294967295
-  %cmp8.i91 = icmp eq i64 %19, 0
+  %16 = and i64 %asmresult20.i78, 4294967295
+  %cmp8.i91 = icmp eq i64 %16, 0
   %or.cond115 = select i1 %or.cond114, i1 %cmp8.i91, i1 false
   %cmp10.i95 = icmp eq i64 %asmresult20.i78, 0
   %spec.select117 = select i1 %or.cond115, i1 %cmp10.i95, i1 false
@@ -14006,35 +13821,35 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23AtomicUserTypeBasicTestI17AtomicUserType128E19TestAllMemoryOrdersEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %retVal.i345 = alloca i8, align 1
-  %retVal.i337 = alloca i8, align 1
-  %retVal.i329 = alloca i8, align 1
-  %retVal.i321 = alloca i8, align 1
-  %retVal.i313 = alloca i8, align 1
-  %retVal.i305 = alloca i8, align 1
-  %retVal.i297 = alloca i8, align 1
-  %retVal.i289 = alloca i8, align 1
-  %retVal.i281 = alloca i8, align 1
-  %retVal.i270 = alloca i8, align 1
-  %retVal.i262 = alloca i8, align 1
-  %retVal.i254 = alloca i8, align 1
-  %retVal.i246 = alloca i8, align 1
-  %retVal.i238 = alloca i8, align 1
-  %retVal.i230 = alloca i8, align 1
-  %retVal.i222 = alloca i8, align 1
-  %retVal.i214 = alloca i8, align 1
-  %retVal.i208 = alloca i8, align 1
-  %retVal.i197 = alloca i8, align 1
-  %retVal.i189 = alloca i8, align 1
-  %retVal.i181 = alloca i8, align 1
-  %retVal.i173 = alloca i8, align 1
-  %retVal.i165 = alloca i8, align 1
-  %retVal.i157 = alloca i8, align 1
-  %retVal.i146 = alloca i8, align 1
-  %retVal.i138 = alloca i8, align 1
-  %retVal.i130 = alloca i8, align 1
-  %retVal.i122 = alloca i8, align 1
-  %retVal.i114 = alloca i8, align 1
+  %retVal.i346 = alloca i8, align 1
+  %retVal.i338 = alloca i8, align 1
+  %retVal.i330 = alloca i8, align 1
+  %retVal.i322 = alloca i8, align 1
+  %retVal.i314 = alloca i8, align 1
+  %retVal.i306 = alloca i8, align 1
+  %retVal.i298 = alloca i8, align 1
+  %retVal.i290 = alloca i8, align 1
+  %retVal.i282 = alloca i8, align 1
+  %retVal.i271 = alloca i8, align 1
+  %retVal.i263 = alloca i8, align 1
+  %retVal.i255 = alloca i8, align 1
+  %retVal.i247 = alloca i8, align 1
+  %retVal.i239 = alloca i8, align 1
+  %retVal.i231 = alloca i8, align 1
+  %retVal.i223 = alloca i8, align 1
+  %retVal.i215 = alloca i8, align 1
+  %retVal.i209 = alloca i8, align 1
+  %retVal.i198 = alloca i8, align 1
+  %retVal.i190 = alloca i8, align 1
+  %retVal.i182 = alloca i8, align 1
+  %retVal.i174 = alloca i8, align 1
+  %retVal.i166 = alloca i8, align 1
+  %retVal.i158 = alloca i8, align 1
+  %retVal.i147 = alloca i8, align 1
+  %retVal.i139 = alloca i8, align 1
+  %retVal.i131 = alloca i8, align 1
+  %retVal.i123 = alloca i8, align 1
+  %retVal.i115 = alloca i8, align 1
   %retVal.i = alloca i8, align 1
   %cmpxchgRet.i94 = alloca i8, align 1
   %cmpxchgRet.i81 = alloca i8, align 1
@@ -14064,77 +13879,73 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %asmresult.i = extractvalue { i64, i64 } %0, 0
   %asmresult18.i = extractvalue { i64, i64 } %0, 1
   %1 = load i8, ptr %cmpxchgRet.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %do.body.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_.exit, !llvm.loop !187
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_.exit, label %do.body.i, !llvm.loop !187
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1)
-  %3 = load i128, ptr %atomic, align 16
-  %exchange128.sroa.0.0.extract.trunc.i2 = trunc i128 %3 to i64
-  %exchange128.sroa.3.0.extract.shift.i3 = lshr i128 %3, 64
+  %2 = load i128, ptr %atomic, align 16
+  %exchange128.sroa.0.0.extract.trunc.i2 = trunc i128 %2 to i64
+  %exchange128.sroa.3.0.extract.shift.i3 = lshr i128 %2, 64
   %exchange128.sroa.3.0.extract.trunc.i4 = trunc i128 %exchange128.sroa.3.0.extract.shift.i3 to i64
   br label %do.body.i5
 
 do.body.i5:                                       ; preds = %do.body.i5, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_.exit
   %exchange128.sroa.0.0.i6 = phi i64 [ %exchange128.sroa.0.0.extract.trunc.i2, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_.exit ], [ %asmresult.i8, %do.body.i5 ]
   %exchange128.sroa.3.0.i7 = phi i64 [ %exchange128.sroa.3.0.extract.trunc.i4, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_.exit ], [ %asmresult18.i9, %do.body.i5 ]
-  %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i1, i64 4294967296, i64 0, i64 %exchange128.sroa.0.0.i6, i64 %exchange128.sroa.3.0.i7, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !49
-  %asmresult.i8 = extractvalue { i64, i64 } %4, 0
-  %asmresult18.i9 = extractvalue { i64, i64 } %4, 1
-  %5 = load i8, ptr %cmpxchgRet.i1, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i10 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i10, label %do.body.i5, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit, !llvm.loop !185
+  %3 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i1, i64 4294967296, i64 0, i64 %exchange128.sroa.0.0.i6, i64 %exchange128.sroa.3.0.i7, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !49
+  %asmresult.i8 = extractvalue { i64, i64 } %3, 0
+  %asmresult18.i9 = extractvalue { i64, i64 } %3, 1
+  %4 = load i8, ptr %cmpxchgRet.i1, align 1
+  %tobool.i10 = trunc i8 %4 to i1
+  br i1 %tobool.i10, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit, label %do.body.i5, !llvm.loop !185
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i11)
-  %7 = load i128, ptr %atomic, align 16
-  %exchange128.sroa.0.0.extract.trunc.i12 = trunc i128 %7 to i64
-  %exchange128.sroa.3.0.extract.shift.i13 = lshr i128 %7, 64
+  %5 = load i128, ptr %atomic, align 16
+  %exchange128.sroa.0.0.extract.trunc.i12 = trunc i128 %5 to i64
+  %exchange128.sroa.3.0.extract.shift.i13 = lshr i128 %5, 64
   %exchange128.sroa.3.0.extract.trunc.i14 = trunc i128 %exchange128.sroa.3.0.extract.shift.i13 to i64
   br label %do.body.i15
 
 do.body.i15:                                      ; preds = %do.body.i15, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit
   %exchange128.sroa.0.0.i16 = phi i64 [ %exchange128.sroa.0.0.extract.trunc.i12, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i18, %do.body.i15 ]
   %exchange128.sroa.3.0.i17 = phi i64 [ %exchange128.sroa.3.0.extract.trunc.i14, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult18.i19, %do.body.i15 ]
-  %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i11, i64 4294967296, i64 0, i64 %exchange128.sroa.0.0.i16, i64 %exchange128.sroa.3.0.i17, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !58
-  %asmresult.i18 = extractvalue { i64, i64 } %8, 0
-  %asmresult18.i19 = extractvalue { i64, i64 } %8, 1
-  %9 = load i8, ptr %cmpxchgRet.i11, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i20 = icmp eq i8 %10, 0
-  br i1 %tobool.not.i20, label %do.body.i15, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_release_sE.exit, !llvm.loop !188
+  %6 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i11, i64 4294967296, i64 0, i64 %exchange128.sroa.0.0.i16, i64 %exchange128.sroa.3.0.i17, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !58
+  %asmresult.i18 = extractvalue { i64, i64 } %6, 0
+  %asmresult18.i19 = extractvalue { i64, i64 } %6, 1
+  %7 = load i8, ptr %cmpxchgRet.i11, align 1
+  %tobool.i20 = trunc i8 %7 to i1
+  br i1 %tobool.i20, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_release_sE.exit, label %do.body.i15, !llvm.loop !188
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_release_sE.exit: ; preds = %do.body.i15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i21)
-  %11 = load i128, ptr %atomic, align 16
-  %exchange128.sroa.0.0.extract.trunc.i22 = trunc i128 %11 to i64
-  %exchange128.sroa.3.0.extract.shift.i23 = lshr i128 %11, 64
+  %8 = load i128, ptr %atomic, align 16
+  %exchange128.sroa.0.0.extract.trunc.i22 = trunc i128 %8 to i64
+  %exchange128.sroa.3.0.extract.shift.i23 = lshr i128 %8, 64
   %exchange128.sroa.3.0.extract.trunc.i24 = trunc i128 %exchange128.sroa.3.0.extract.shift.i23 to i64
   br label %do.body.i25
 
 do.body.i25:                                      ; preds = %do.body.i25, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_release_sE.exit
   %exchange128.sroa.0.0.i26 = phi i64 [ %exchange128.sroa.0.0.extract.trunc.i22, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_release_sE.exit ], [ %asmresult.i28, %do.body.i25 ]
   %exchange128.sroa.3.0.i27 = phi i64 [ %exchange128.sroa.3.0.extract.trunc.i24, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_release_sE.exit ], [ %asmresult18.i29, %do.body.i25 ]
-  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i21, i64 4294967296, i64 0, i64 %exchange128.sroa.0.0.i26, i64 %exchange128.sroa.3.0.i27, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !33
-  %asmresult.i28 = extractvalue { i64, i64 } %12, 0
-  %asmresult18.i29 = extractvalue { i64, i64 } %12, 1
-  %13 = load i8, ptr %cmpxchgRet.i21, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i30 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i30, label %do.body.i25, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_seq_cst_sE.exit, !llvm.loop !184
+  %9 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, ptr nonnull elementtype(i8) %cmpxchgRet.i21, i64 4294967296, i64 0, i64 %exchange128.sroa.0.0.i26, i64 %exchange128.sroa.3.0.i27, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !33
+  %asmresult.i28 = extractvalue { i64, i64 } %9, 0
+  %asmresult18.i29 = extractvalue { i64, i64 } %9, 1
+  %10 = load i8, ptr %cmpxchgRet.i21, align 1
+  %tobool.i30 = trunc i8 %10 to i1
+  br i1 %tobool.i30, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_seq_cst_sE.exit, label %do.body.i25, !llvm.loop !184
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic8, i8 0, i64 16, i1 false)
-  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !9
-  %16 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !11
-  %17 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !60
-  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !51
+  %11 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !9
+  %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !11
+  %13 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !60
+  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic8, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic8) #7, !srcloc !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic17, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i34)
   br label %do.body.i35
@@ -14142,262 +13953,256 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22m
 do.body.i35:                                      ; preds = %do.body.i35, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_seq_cst_sE.exit
   %retVal.sroa.4.0.i = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_seq_cst_sE.exit ], [ %asmresult18.i37, %do.body.i35 ]
   %retVal.sroa.0.0.i = phi i64 [ 0, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22memory_order_seq_cst_sE.exit ], [ %asmresult.i36, %do.body.i35 ]
-  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i34, i64 4294967296, i64 0, i64 %retVal.sroa.0.0.i, i64 %retVal.sroa.4.0.i, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !61
-  %asmresult.i36 = extractvalue { i64, i64 } %19, 0
-  %asmresult18.i37 = extractvalue { i64, i64 } %19, 1
-  %20 = load i8, ptr %cmpxchgRet.i34, align 1
-  %21 = and i8 %20, 1
-  %tobool.not.i38 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i38, label %do.body.i35, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_.exit, !llvm.loop !189
+  %15 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i34, i64 4294967296, i64 0, i64 %retVal.sroa.0.0.i, i64 %retVal.sroa.4.0.i, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !61
+  %asmresult.i36 = extractvalue { i64, i64 } %15, 0
+  %asmresult18.i37 = extractvalue { i64, i64 } %15, 1
+  %16 = load i8, ptr %cmpxchgRet.i34, align 1
+  %tobool.i38 = trunc i8 %16 to i1
+  br i1 %tobool.i38, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_.exit, label %do.body.i35, !llvm.loop !189
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_.exit: ; preds = %do.body.i35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i34)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i42)
-  %22 = load i128, ptr %atomic17, align 16
-  %retVal.sroa.0.0.extract.trunc.i43 = trunc i128 %22 to i64
-  %retVal.sroa.4.0.extract.shift.i44 = lshr i128 %22, 64
+  %17 = load i128, ptr %atomic17, align 16
+  %retVal.sroa.0.0.extract.trunc.i43 = trunc i128 %17 to i64
+  %retVal.sroa.4.0.extract.shift.i44 = lshr i128 %17, 64
   %retVal.sroa.4.0.extract.trunc.i45 = trunc i128 %retVal.sroa.4.0.extract.shift.i44 to i64
   br label %do.body.i46
 
 do.body.i46:                                      ; preds = %do.body.i46, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_.exit
   %retVal.sroa.4.0.i47 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i45, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_.exit ], [ %asmresult18.i50, %do.body.i46 ]
   %retVal.sroa.0.0.i48 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i43, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_.exit ], [ %asmresult.i49, %do.body.i46 ]
-  %23 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i42, i64 0, i64 0, i64 %retVal.sroa.0.0.i48, i64 %retVal.sroa.4.0.i47, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !52
-  %asmresult.i49 = extractvalue { i64, i64 } %23, 0
-  %asmresult18.i50 = extractvalue { i64, i64 } %23, 1
-  %24 = load i8, ptr %cmpxchgRet.i42, align 1
-  %25 = and i8 %24, 1
-  %tobool.not.i51 = icmp eq i8 %25, 0
-  br i1 %tobool.not.i51, label %do.body.i46, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit, !llvm.loop !186
+  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i42, i64 0, i64 0, i64 %retVal.sroa.0.0.i48, i64 %retVal.sroa.4.0.i47, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !52
+  %asmresult.i49 = extractvalue { i64, i64 } %18, 0
+  %asmresult18.i50 = extractvalue { i64, i64 } %18, 1
+  %19 = load i8, ptr %cmpxchgRet.i42, align 1
+  %tobool.i51 = trunc i8 %19 to i1
+  br i1 %tobool.i51, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit, label %do.body.i46, !llvm.loop !186
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit: ; preds = %do.body.i46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i42)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i55)
-  %26 = load i128, ptr %atomic17, align 16
-  %retVal.sroa.0.0.extract.trunc.i56 = trunc i128 %26 to i64
-  %retVal.sroa.4.0.extract.shift.i57 = lshr i128 %26, 64
+  %20 = load i128, ptr %atomic17, align 16
+  %retVal.sroa.0.0.extract.trunc.i56 = trunc i128 %20 to i64
+  %retVal.sroa.4.0.extract.shift.i57 = lshr i128 %20, 64
   %retVal.sroa.4.0.extract.trunc.i58 = trunc i128 %retVal.sroa.4.0.extract.shift.i57 to i64
   br label %do.body.i59
 
 do.body.i59:                                      ; preds = %do.body.i59, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit
   %retVal.sroa.4.0.i60 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i58, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult18.i63, %do.body.i59 ]
   %retVal.sroa.0.0.i61 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i56, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_relaxed_sE.exit ], [ %asmresult.i62, %do.body.i59 ]
-  %27 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i55, i64 0, i64 0, i64 %retVal.sroa.0.0.i61, i64 %retVal.sroa.4.0.i60, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !63
-  %asmresult.i62 = extractvalue { i64, i64 } %27, 0
-  %asmresult18.i63 = extractvalue { i64, i64 } %27, 1
-  %28 = load i8, ptr %cmpxchgRet.i55, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i64 = icmp eq i8 %29, 0
-  br i1 %tobool.not.i64, label %do.body.i59, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acquire_sE.exit, !llvm.loop !190
+  %21 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i55, i64 0, i64 0, i64 %retVal.sroa.0.0.i61, i64 %retVal.sroa.4.0.i60, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !63
+  %asmresult.i62 = extractvalue { i64, i64 } %21, 0
+  %asmresult18.i63 = extractvalue { i64, i64 } %21, 1
+  %22 = load i8, ptr %cmpxchgRet.i55, align 1
+  %tobool.i64 = trunc i8 %22 to i1
+  br i1 %tobool.i64, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acquire_sE.exit, label %do.body.i59, !llvm.loop !190
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acquire_sE.exit: ; preds = %do.body.i59
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i55)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i68)
-  %30 = load i128, ptr %atomic17, align 16
-  %retVal.sroa.0.0.extract.trunc.i69 = trunc i128 %30 to i64
-  %retVal.sroa.4.0.extract.shift.i70 = lshr i128 %30, 64
+  %23 = load i128, ptr %atomic17, align 16
+  %retVal.sroa.0.0.extract.trunc.i69 = trunc i128 %23 to i64
+  %retVal.sroa.4.0.extract.shift.i70 = lshr i128 %23, 64
   %retVal.sroa.4.0.extract.trunc.i71 = trunc i128 %retVal.sroa.4.0.extract.shift.i70 to i64
   br label %do.body.i72
 
 do.body.i72:                                      ; preds = %do.body.i72, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acquire_sE.exit
   %retVal.sroa.4.0.i73 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i71, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acquire_sE.exit ], [ %asmresult18.i76, %do.body.i72 ]
   %retVal.sroa.0.0.i74 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i69, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acquire_sE.exit ], [ %asmresult.i75, %do.body.i72 ]
-  %31 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i68, i64 0, i64 0, i64 %retVal.sroa.0.0.i74, i64 %retVal.sroa.4.0.i73, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !65
-  %asmresult.i75 = extractvalue { i64, i64 } %31, 0
-  %asmresult18.i76 = extractvalue { i64, i64 } %31, 1
-  %32 = load i8, ptr %cmpxchgRet.i68, align 1
-  %33 = and i8 %32, 1
-  %tobool.not.i77 = icmp eq i8 %33, 0
-  br i1 %tobool.not.i77, label %do.body.i72, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_release_sE.exit, !llvm.loop !191
+  %24 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i68, i64 0, i64 0, i64 %retVal.sroa.0.0.i74, i64 %retVal.sroa.4.0.i73, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !65
+  %asmresult.i75 = extractvalue { i64, i64 } %24, 0
+  %asmresult18.i76 = extractvalue { i64, i64 } %24, 1
+  %25 = load i8, ptr %cmpxchgRet.i68, align 1
+  %tobool.i77 = trunc i8 %25 to i1
+  br i1 %tobool.i77, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_release_sE.exit, label %do.body.i72, !llvm.loop !191
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_release_sE.exit: ; preds = %do.body.i72
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i68)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i81)
-  %34 = load i128, ptr %atomic17, align 16
-  %retVal.sroa.0.0.extract.trunc.i82 = trunc i128 %34 to i64
-  %retVal.sroa.4.0.extract.shift.i83 = lshr i128 %34, 64
+  %26 = load i128, ptr %atomic17, align 16
+  %retVal.sroa.0.0.extract.trunc.i82 = trunc i128 %26 to i64
+  %retVal.sroa.4.0.extract.shift.i83 = lshr i128 %26, 64
   %retVal.sroa.4.0.extract.trunc.i84 = trunc i128 %retVal.sroa.4.0.extract.shift.i83 to i64
   br label %do.body.i85
 
 do.body.i85:                                      ; preds = %do.body.i85, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_release_sE.exit
   %retVal.sroa.4.0.i86 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i84, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_release_sE.exit ], [ %asmresult18.i89, %do.body.i85 ]
   %retVal.sroa.0.0.i87 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i82, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_release_sE.exit ], [ %asmresult.i88, %do.body.i85 ]
-  %35 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i81, i64 0, i64 0, i64 %retVal.sroa.0.0.i87, i64 %retVal.sroa.4.0.i86, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !67
-  %asmresult.i88 = extractvalue { i64, i64 } %35, 0
-  %asmresult18.i89 = extractvalue { i64, i64 } %35, 1
-  %36 = load i8, ptr %cmpxchgRet.i81, align 1
-  %37 = and i8 %36, 1
-  %tobool.not.i90 = icmp eq i8 %37, 0
-  br i1 %tobool.not.i90, label %do.body.i85, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acq_rel_sE.exit, !llvm.loop !192
+  %27 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i81, i64 0, i64 0, i64 %retVal.sroa.0.0.i87, i64 %retVal.sroa.4.0.i86, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !67
+  %asmresult.i88 = extractvalue { i64, i64 } %27, 0
+  %asmresult18.i89 = extractvalue { i64, i64 } %27, 1
+  %28 = load i8, ptr %cmpxchgRet.i81, align 1
+  %tobool.i90 = trunc i8 %28 to i1
+  br i1 %tobool.i90, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acq_rel_sE.exit, label %do.body.i85, !llvm.loop !192
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acq_rel_sE.exit: ; preds = %do.body.i85
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i81)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i94)
-  %38 = load i128, ptr %atomic17, align 16
-  %retVal.sroa.0.0.extract.trunc.i95 = trunc i128 %38 to i64
-  %retVal.sroa.4.0.extract.shift.i96 = lshr i128 %38, 64
+  %29 = load i128, ptr %atomic17, align 16
+  %retVal.sroa.0.0.extract.trunc.i95 = trunc i128 %29 to i64
+  %retVal.sroa.4.0.extract.shift.i96 = lshr i128 %29, 64
   %retVal.sroa.4.0.extract.trunc.i97 = trunc i128 %retVal.sroa.4.0.extract.shift.i96 to i64
   br label %do.body.i98
 
 do.body.i98:                                      ; preds = %do.body.i98, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acq_rel_sE.exit
   %retVal.sroa.4.0.i99 = phi i64 [ %retVal.sroa.4.0.extract.trunc.i97, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acq_rel_sE.exit ], [ %asmresult18.i102, %do.body.i98 ]
   %retVal.sroa.0.0.i100 = phi i64 [ %retVal.sroa.0.0.extract.trunc.i95, %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_acq_rel_sE.exit ], [ %asmresult.i101, %do.body.i98 ]
-  %39 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i94, i64 0, i64 0, i64 %retVal.sroa.0.0.i100, i64 %retVal.sroa.4.0.i99, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !69
-  %asmresult.i101 = extractvalue { i64, i64 } %39, 0
-  %asmresult18.i102 = extractvalue { i64, i64 } %39, 1
-  %40 = load i8, ptr %cmpxchgRet.i94, align 1
-  %41 = and i8 %40, 1
-  %tobool.not.i103 = icmp eq i8 %41, 0
-  br i1 %tobool.not.i103, label %do.body.i98, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_seq_cst_sE.exit, !llvm.loop !193
+  %30 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic17, ptr nonnull elementtype(i8) %cmpxchgRet.i94, i64 0, i64 0, i64 %retVal.sroa.0.0.i100, i64 %retVal.sroa.4.0.i99, ptr nonnull elementtype(i128) %atomic17) #7, !srcloc !69
+  %asmresult.i101 = extractvalue { i64, i64 } %30, 0
+  %asmresult18.i102 = extractvalue { i64, i64 } %30, 1
+  %31 = load i8, ptr %cmpxchgRet.i94, align 1
+  %tobool.i103 = trunc i8 %31 to i1
+  br i1 %tobool.i103, label %_ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_seq_cst_sE.exit, label %do.body.i98, !llvm.loop !193
 
 _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_22memory_order_seq_cst_sE.exit: ; preds = %do.body.i98
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i94)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic41, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i)
-  %42 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !157
-  %asmresult.i110 = extractvalue { i64, i64 } %42, 0
-  %asmresult20.i = extractvalue { i64, i64 } %42, 1
+  %32 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !157
+  %asmresult.i110 = extractvalue { i64, i64 } %32, 0
+  %asmresult20.i = extractvalue { i64, i64 } %32, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i114)
-  %43 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i114, i64 0, i64 0, i64 %asmresult.i110, i64 %asmresult20.i, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !54
-  %asmresult.i116 = extractvalue { i64, i64 } %43, 0
-  %asmresult20.i117 = extractvalue { i64, i64 } %43, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i114)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i122)
-  %44 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i122, i64 0, i64 0, i64 %asmresult.i116, i64 %asmresult20.i117, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !158
-  %asmresult.i124 = extractvalue { i64, i64 } %44, 0
-  %asmresult20.i125 = extractvalue { i64, i64 } %44, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i122)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i130)
-  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i130, i64 0, i64 0, i64 %asmresult.i124, i64 %asmresult20.i125, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !159
-  %asmresult.i132 = extractvalue { i64, i64 } %45, 0
-  %asmresult20.i133 = extractvalue { i64, i64 } %45, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i130)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i138)
-  %46 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i138, i64 0, i64 0, i64 %asmresult.i132, i64 %asmresult20.i133, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !160
-  %asmresult.i140 = extractvalue { i64, i64 } %46, 0
-  %asmresult20.i141 = extractvalue { i64, i64 } %46, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i138)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i146)
-  %47 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i146, i64 0, i64 0, i64 %asmresult.i140, i64 %asmresult20.i141, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !161
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i146)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i115)
+  %33 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i115, i64 0, i64 0, i64 %asmresult.i110, i64 %asmresult20.i, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !54
+  %asmresult.i117 = extractvalue { i64, i64 } %33, 0
+  %asmresult20.i118 = extractvalue { i64, i64 } %33, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i115)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i123)
+  %34 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i123, i64 0, i64 0, i64 %asmresult.i117, i64 %asmresult20.i118, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !158
+  %asmresult.i125 = extractvalue { i64, i64 } %34, 0
+  %asmresult20.i126 = extractvalue { i64, i64 } %34, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i123)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i131)
+  %35 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i131, i64 0, i64 0, i64 %asmresult.i125, i64 %asmresult20.i126, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !159
+  %asmresult.i133 = extractvalue { i64, i64 } %35, 0
+  %asmresult20.i134 = extractvalue { i64, i64 } %35, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i131)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i139)
+  %36 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i139, i64 0, i64 0, i64 %asmresult.i133, i64 %asmresult20.i134, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !160
+  %asmresult.i141 = extractvalue { i64, i64 } %36, 0
+  %asmresult20.i142 = extractvalue { i64, i64 } %36, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i139)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i147)
+  %37 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic41, ptr nonnull elementtype(i8) %retVal.i147, i64 0, i64 0, i64 %asmresult.i141, i64 %asmresult20.i142, ptr nonnull elementtype(i128) %atomic41) #7, !srcloc !161
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i147)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic65, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i157)
-  %48 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i157, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !10
-  %asmresult.i159 = extractvalue { i64, i64 } %48, 0
-  %asmresult20.i160 = extractvalue { i64, i64 } %48, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i157)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i165)
-  %49 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i165, i64 0, i64 0, i64 %asmresult.i159, i64 %asmresult20.i160, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !55
-  %asmresult.i167 = extractvalue { i64, i64 } %49, 0
-  %asmresult20.i168 = extractvalue { i64, i64 } %49, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i165)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i173)
-  %50 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i173, i64 0, i64 0, i64 %asmresult.i167, i64 %asmresult20.i168, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !162
-  %asmresult.i175 = extractvalue { i64, i64 } %50, 0
-  %asmresult20.i176 = extractvalue { i64, i64 } %50, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i173)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i181)
-  %51 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i181, i64 0, i64 0, i64 %asmresult.i175, i64 %asmresult20.i176, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !163
-  %asmresult.i183 = extractvalue { i64, i64 } %51, 0
-  %asmresult20.i184 = extractvalue { i64, i64 } %51, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i181)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i189)
-  %52 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i189, i64 0, i64 0, i64 %asmresult.i183, i64 %asmresult20.i184, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !164
-  %asmresult.i191 = extractvalue { i64, i64 } %52, 0
-  %asmresult20.i192 = extractvalue { i64, i64 } %52, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i189)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i197)
-  %53 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i197, i64 0, i64 0, i64 %asmresult.i191, i64 %asmresult20.i192, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !165
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i197)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i158)
+  %38 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i158, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !10
+  %asmresult.i160 = extractvalue { i64, i64 } %38, 0
+  %asmresult20.i161 = extractvalue { i64, i64 } %38, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i158)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i166)
+  %39 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i166, i64 0, i64 0, i64 %asmresult.i160, i64 %asmresult20.i161, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !55
+  %asmresult.i168 = extractvalue { i64, i64 } %39, 0
+  %asmresult20.i169 = extractvalue { i64, i64 } %39, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i166)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i174)
+  %40 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i174, i64 0, i64 0, i64 %asmresult.i168, i64 %asmresult20.i169, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !162
+  %asmresult.i176 = extractvalue { i64, i64 } %40, 0
+  %asmresult20.i177 = extractvalue { i64, i64 } %40, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i174)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i182)
+  %41 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i182, i64 0, i64 0, i64 %asmresult.i176, i64 %asmresult20.i177, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !163
+  %asmresult.i184 = extractvalue { i64, i64 } %41, 0
+  %asmresult20.i185 = extractvalue { i64, i64 } %41, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i182)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i190)
+  %42 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i190, i64 0, i64 0, i64 %asmresult.i184, i64 %asmresult20.i185, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !164
+  %asmresult.i192 = extractvalue { i64, i64 } %42, 0
+  %asmresult20.i193 = extractvalue { i64, i64 } %42, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i190)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i198)
+  %43 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic65, ptr nonnull elementtype(i8) %retVal.i198, i64 0, i64 0, i64 %asmresult.i192, i64 %asmresult20.i193, ptr nonnull elementtype(i128) %atomic65) #7, !srcloc !165
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i198)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic91, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i208)
-  %54 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i208, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !166
-  %asmresult.i209 = extractvalue { i64, i64 } %54, 0
-  %asmresult21.i = extractvalue { i64, i64 } %54, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i208)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i214)
-  %55 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i214, i64 0, i64 0, i64 %asmresult.i209, i64 %asmresult21.i, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !167
-  %asmresult.i216 = extractvalue { i64, i64 } %55, 0
-  %asmresult21.i217 = extractvalue { i64, i64 } %55, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i214)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i222)
-  %56 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i222, i64 0, i64 0, i64 %asmresult.i216, i64 %asmresult21.i217, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !168
-  %asmresult.i224 = extractvalue { i64, i64 } %56, 0
-  %asmresult21.i225 = extractvalue { i64, i64 } %56, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i222)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i230)
-  %57 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i230, i64 0, i64 0, i64 %asmresult.i224, i64 %asmresult21.i225, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !169
-  %asmresult.i232 = extractvalue { i64, i64 } %57, 0
-  %asmresult21.i233 = extractvalue { i64, i64 } %57, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i230)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i238)
-  %58 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i238, i64 0, i64 0, i64 %asmresult.i232, i64 %asmresult21.i233, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !170
-  %asmresult.i240 = extractvalue { i64, i64 } %58, 0
-  %asmresult21.i241 = extractvalue { i64, i64 } %58, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i238)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i246)
-  %59 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i246, i64 0, i64 0, i64 %asmresult.i240, i64 %asmresult21.i241, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !171
-  %asmresult.i248 = extractvalue { i64, i64 } %59, 0
-  %asmresult21.i249 = extractvalue { i64, i64 } %59, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i246)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i254)
-  %60 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i254, i64 0, i64 0, i64 %asmresult.i248, i64 %asmresult21.i249, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !172
-  %asmresult.i256 = extractvalue { i64, i64 } %60, 0
-  %asmresult21.i257 = extractvalue { i64, i64 } %60, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i254)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i262)
-  %61 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i262, i64 0, i64 0, i64 %asmresult.i256, i64 %asmresult21.i257, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !173
-  %asmresult.i264 = extractvalue { i64, i64 } %61, 0
-  %asmresult21.i265 = extractvalue { i64, i64 } %61, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i262)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i270)
-  %62 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i270, i64 0, i64 0, i64 %asmresult.i264, i64 %asmresult21.i265, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !174
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i270)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i209)
+  %44 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i209, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !166
+  %asmresult.i210 = extractvalue { i64, i64 } %44, 0
+  %asmresult21.i = extractvalue { i64, i64 } %44, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i209)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i215)
+  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i215, i64 0, i64 0, i64 %asmresult.i210, i64 %asmresult21.i, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !167
+  %asmresult.i217 = extractvalue { i64, i64 } %45, 0
+  %asmresult21.i218 = extractvalue { i64, i64 } %45, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i215)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i223)
+  %46 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i223, i64 0, i64 0, i64 %asmresult.i217, i64 %asmresult21.i218, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !168
+  %asmresult.i225 = extractvalue { i64, i64 } %46, 0
+  %asmresult21.i226 = extractvalue { i64, i64 } %46, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i223)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i231)
+  %47 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i231, i64 0, i64 0, i64 %asmresult.i225, i64 %asmresult21.i226, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !169
+  %asmresult.i233 = extractvalue { i64, i64 } %47, 0
+  %asmresult21.i234 = extractvalue { i64, i64 } %47, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i231)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i239)
+  %48 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i239, i64 0, i64 0, i64 %asmresult.i233, i64 %asmresult21.i234, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !170
+  %asmresult.i241 = extractvalue { i64, i64 } %48, 0
+  %asmresult21.i242 = extractvalue { i64, i64 } %48, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i239)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i247)
+  %49 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i247, i64 0, i64 0, i64 %asmresult.i241, i64 %asmresult21.i242, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !171
+  %asmresult.i249 = extractvalue { i64, i64 } %49, 0
+  %asmresult21.i250 = extractvalue { i64, i64 } %49, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i247)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i255)
+  %50 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i255, i64 0, i64 0, i64 %asmresult.i249, i64 %asmresult21.i250, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !172
+  %asmresult.i257 = extractvalue { i64, i64 } %50, 0
+  %asmresult21.i258 = extractvalue { i64, i64 } %50, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i255)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i263)
+  %51 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i263, i64 0, i64 0, i64 %asmresult.i257, i64 %asmresult21.i258, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !173
+  %asmresult.i265 = extractvalue { i64, i64 } %51, 0
+  %asmresult21.i266 = extractvalue { i64, i64 } %51, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i263)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i271)
+  %52 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic91, ptr nonnull elementtype(i8) %retVal.i271, i64 0, i64 0, i64 %asmresult.i265, i64 %asmresult21.i266, ptr nonnull elementtype(i128) %atomic91) #7, !srcloc !174
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i271)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic139, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i281)
-  %63 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i281, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !175
-  %asmresult.i283 = extractvalue { i64, i64 } %63, 0
-  %asmresult21.i284 = extractvalue { i64, i64 } %63, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i281)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i289)
-  %64 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i289, i64 0, i64 0, i64 %asmresult.i283, i64 %asmresult21.i284, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !176
-  %asmresult.i291 = extractvalue { i64, i64 } %64, 0
-  %asmresult21.i292 = extractvalue { i64, i64 } %64, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i289)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i297)
-  %65 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i297, i64 0, i64 0, i64 %asmresult.i291, i64 %asmresult21.i292, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !177
-  %asmresult.i299 = extractvalue { i64, i64 } %65, 0
-  %asmresult21.i300 = extractvalue { i64, i64 } %65, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i297)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i305)
-  %66 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i305, i64 0, i64 0, i64 %asmresult.i299, i64 %asmresult21.i300, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !178
-  %asmresult.i307 = extractvalue { i64, i64 } %66, 0
-  %asmresult21.i308 = extractvalue { i64, i64 } %66, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i305)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i313)
-  %67 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i313, i64 0, i64 0, i64 %asmresult.i307, i64 %asmresult21.i308, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !179
-  %asmresult.i315 = extractvalue { i64, i64 } %67, 0
-  %asmresult21.i316 = extractvalue { i64, i64 } %67, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i313)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i321)
-  %68 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i321, i64 0, i64 0, i64 %asmresult.i315, i64 %asmresult21.i316, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !180
-  %asmresult.i323 = extractvalue { i64, i64 } %68, 0
-  %asmresult21.i324 = extractvalue { i64, i64 } %68, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i321)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i329)
-  %69 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i329, i64 0, i64 0, i64 %asmresult.i323, i64 %asmresult21.i324, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !181
-  %asmresult.i331 = extractvalue { i64, i64 } %69, 0
-  %asmresult21.i332 = extractvalue { i64, i64 } %69, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i329)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i337)
-  %70 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i337, i64 0, i64 0, i64 %asmresult.i331, i64 %asmresult21.i332, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !182
-  %asmresult.i339 = extractvalue { i64, i64 } %70, 0
-  %asmresult21.i340 = extractvalue { i64, i64 } %70, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i337)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i345)
-  %71 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i345, i64 0, i64 0, i64 %asmresult.i339, i64 %asmresult21.i340, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !183
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i345)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i282)
+  %53 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i282, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !175
+  %asmresult.i284 = extractvalue { i64, i64 } %53, 0
+  %asmresult21.i285 = extractvalue { i64, i64 } %53, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i282)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i290)
+  %54 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i290, i64 0, i64 0, i64 %asmresult.i284, i64 %asmresult21.i285, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !176
+  %asmresult.i292 = extractvalue { i64, i64 } %54, 0
+  %asmresult21.i293 = extractvalue { i64, i64 } %54, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i290)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i298)
+  %55 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i298, i64 0, i64 0, i64 %asmresult.i292, i64 %asmresult21.i293, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !177
+  %asmresult.i300 = extractvalue { i64, i64 } %55, 0
+  %asmresult21.i301 = extractvalue { i64, i64 } %55, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i298)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i306)
+  %56 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i306, i64 0, i64 0, i64 %asmresult.i300, i64 %asmresult21.i301, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !178
+  %asmresult.i308 = extractvalue { i64, i64 } %56, 0
+  %asmresult21.i309 = extractvalue { i64, i64 } %56, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i306)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i314)
+  %57 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i314, i64 0, i64 0, i64 %asmresult.i308, i64 %asmresult21.i309, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !179
+  %asmresult.i316 = extractvalue { i64, i64 } %57, 0
+  %asmresult21.i317 = extractvalue { i64, i64 } %57, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i314)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i322)
+  %58 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i322, i64 0, i64 0, i64 %asmresult.i316, i64 %asmresult21.i317, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !180
+  %asmresult.i324 = extractvalue { i64, i64 } %58, 0
+  %asmresult21.i325 = extractvalue { i64, i64 } %58, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i322)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i330)
+  %59 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i330, i64 0, i64 0, i64 %asmresult.i324, i64 %asmresult21.i325, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !181
+  %asmresult.i332 = extractvalue { i64, i64 } %59, 0
+  %asmresult21.i333 = extractvalue { i64, i64 } %59, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i330)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i338)
+  %60 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i338, i64 0, i64 0, i64 %asmresult.i332, i64 %asmresult21.i333, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !182
+  %asmresult.i340 = extractvalue { i64, i64 } %60, 0
+  %asmresult21.i341 = extractvalue { i64, i64 } %60, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i338)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i346)
+  %61 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic139, ptr nonnull elementtype(i8) %retVal.i346, i64 0, i64 0, i64 %asmresult.i340, i64 %asmresult21.i341, ptr nonnull elementtype(i128) %atomic139) #7, !srcloc !183
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i346)
   ret void
 }
 

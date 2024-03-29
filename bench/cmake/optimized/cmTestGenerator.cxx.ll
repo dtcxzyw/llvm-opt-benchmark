@@ -174,10 +174,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store ptr %1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 113
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
-  %23 = xor i8 %21, 1
-  store i8 %23, ptr %22, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = and i8 %20, 1
+  %23 = xor i8 %22, 1
+  store i8 %23, ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 112
@@ -412,9 +412,8 @@ declare void @_ZN17cmScriptGenerator21GenerateScriptConfigsERSo23cmScriptGenerat
 define dso_local void @_ZN15cmTestGenerator21GenerateScriptActionsERSo23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(129) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %8, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
   tail call void @_ZN17cmScriptGenerator21GenerateScriptActionsERSo23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2)
@@ -3475,16 +3474,14 @@ _ZNK6cmTest7GetNameB5cxx11Ev.exit24:              ; preds = %53
 define dso_local noundef zeroext i1 @_ZNK15cmTestGenerator19NeedsScriptNoConfigEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(129) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %22, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %22
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not1 = icmp eq i8 %8, 0
-  br i1 %.not1, label %22, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 40

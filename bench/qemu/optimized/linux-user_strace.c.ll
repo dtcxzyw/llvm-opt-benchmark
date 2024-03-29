@@ -6681,13 +6681,12 @@ print_socket_domain.exit:                         ; preds = %sw.bb.i, %sw.bb1.i,
 switch.hole_check:                                ; preds = %print_socket_domain.exit
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 543, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %sw.epilog.i, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.print_socket, i64 0, i64 %3
+  %2 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.print_socket, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %switch.load) #9
   br label %sw.epilog.i

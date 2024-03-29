@@ -510,9 +510,9 @@ while.cond.preheader.i.i:                         ; preds = %invoke.cont24
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.end17.i.i, %while.cond.preheader.i.i
-  %20 = phi i32 [ %23, %if.end17.i.i ], [ %lineNumber.promoted.i.i, %while.cond.preheader.i.i ]
+  %20 = phi i32 [ %22, %if.end17.i.i ], [ %lineNumber.promoted.i.i, %while.cond.preheader.i.i ]
   %in.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.end17.i.i ], [ %16, %while.cond.preheader.i.i ]
-  %bHad.0.i.i = phi i8 [ %bHad.1.i.i, %if.end17.i.i ], [ 0, %while.cond.preheader.i.i ]
+  %bHad.0.i.i = phi i1 [ %bHad.1.i.i, %if.end17.i.i ], [ false, %while.cond.preheader.i.i ]
   %21 = load i8, ptr %in.addr.0.i.i, align 1
   switch i8 %21, label %while.end.i.i [
     i8 13, label %if.then5.i.i
@@ -522,9 +522,7 @@ while.cond.i.i:                                   ; preds = %if.end17.i.i, %whil
   ]
 
 if.then5.i.i:                                     ; preds = %while.cond.i.i, %while.cond.i.i
-  %22 = and i8 %bHad.0.i.i, 1
-  %tobool6.not.i.i = icmp eq i8 %22, 0
-  br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end17.i.i
+  br i1 %bHad.0.i.i, label %if.end17.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %inc.i.i20 = add i32 %20, 1
@@ -532,8 +530,8 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then7.i.i, %if.then5.i.i, %while.cond.i.i, %while.cond.i.i
-  %23 = phi i32 [ %20, %if.then5.i.i ], [ %inc.i.i20, %if.then7.i.i ], [ %20, %while.cond.i.i ], [ %20, %while.cond.i.i ]
-  %bHad.1.i.i = phi i8 [ %bHad.0.i.i, %if.then5.i.i ], [ 1, %if.then7.i.i ], [ 0, %while.cond.i.i ], [ 0, %while.cond.i.i ]
+  %22 = phi i32 [ %20, %if.then5.i.i ], [ %inc.i.i20, %if.then7.i.i ], [ %20, %while.cond.i.i ], [ %20, %while.cond.i.i ]
+  %bHad.1.i.i = phi i1 [ true, %if.then5.i.i ], [ true, %if.then7.i.i ], [ false, %while.cond.i.i ], [ false, %while.cond.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.0.i.i, i64 1
   %cmp19.i.i = icmp eq ptr %incdec.ptr.i.i, %17
   br i1 %cmp19.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !11
@@ -547,18 +545,18 @@ return:                                           ; preds = %while.end.i.i, %inv
   ret void
 
 lpad:                                             ; preds = %while.end
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad23:                                           ; preds = %invoke.cont
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad
-  %.pn = phi { ptr, i32 } [ %25, %lpad23 ], [ %24, %lpad ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad23 ], [ %23, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #19
   resume { ptr, i32 } %.pn
 }

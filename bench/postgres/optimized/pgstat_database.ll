@@ -45,9 +45,8 @@ declare void @pgstat_unlock_entry(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_recovery_conflict(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @pgstat_track_counts, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %16, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %16
 
 4:                                                ; preds = %1
   %5 = load i32, ptr @MyDatabaseId, align 4
@@ -83,9 +82,8 @@ define dso_local ptr @pgstat_prep_database_pending(i32 noundef %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_deadlock() local_unnamed_addr #0 {
   %1 = load i8, ptr @pgstat_track_counts, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %11, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %11
 
 3:                                                ; preds = %0
   %4 = load i32, ptr @MyDatabaseId, align 4
@@ -105,9 +103,8 @@ define dso_local void @pgstat_report_deadlock() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_checksum_failures_in_db(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @pgstat_track_counts, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %15, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %2
   %6 = tail call ptr @pgstat_get_entry_ref_locked(i32 noundef 1, i32 noundef %0, i32 noundef 0, i1 noundef zeroext false) #5
@@ -131,9 +128,8 @@ define dso_local void @pgstat_report_checksum_failures_in_db(i32 noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_checksum_failure() local_unnamed_addr #0 {
   %1 = load i8, ptr @pgstat_track_counts, align 1
-  %2 = and i8 %1, 1
-  %.not.i = icmp eq i8 %2, 0
-  br i1 %.not.i, label %pgstat_report_checksum_failures_in_db.exit, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %pgstat_report_checksum_failures_in_db.exit
 
 3:                                                ; preds = %0
   %4 = load i32, ptr @MyDatabaseId, align 4
@@ -157,9 +153,8 @@ pgstat_report_checksum_failures_in_db.exit:       ; preds = %0, %3
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_tempfile(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @pgstat_track_counts, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %13, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %13
 
 4:                                                ; preds = %1
   %5 = load i32, ptr @MyDatabaseId, align 4

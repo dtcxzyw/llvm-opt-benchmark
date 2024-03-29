@@ -44,9 +44,8 @@ define noundef i32 @opal_threads_pthreads_yield_init(ptr noundef %0) local_unnam
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @opal_uses_threads, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %8
   %14 = atomicrmw volatile add ptr %10, i32 -1 monotonic, align 4
@@ -79,8 +78,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %13, %16
   call void %26(ptr noundef nonnull %9) #5
   %27 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %28 = load ptr, ptr %27, align 8
-  %.not.i3 = icmp eq ptr %28, null
-  br i1 %.not.i3, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8

@@ -766,27 +766,25 @@ if.then:                                          ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %optional = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i8, ptr %optional, align 8
-  %4 = and i8 %3, 1
-  %tobool7 = icmp ne i8 %4, 0
-  %5 = load i32, ptr %prop_len, align 4
-  %cmp8 = icmp eq i32 %5, -1
+  %tobool7 = trunc i8 %3 to i1
+  %4 = load i32, ptr %prop_len, align 4
+  %cmp8 = icmp eq i32 %4, -1
   %or.cond = select i1 %tobool7, i1 %cmp8, i1 false
-  %6 = load ptr, ptr %err, align 8
+  %5 = load ptr, ptr %err, align 8
   br i1 %or.cond, label %if.then9, label %if.else10
 
 if.then9:                                         ; preds = %if.else
-  call void @error_free(ptr noundef %6) #10
+  call void @error_free(ptr noundef %5) #10
   br label %if.end
 
 if.else10:                                        ; preds = %if.else
-  call void @error_report_err(ptr noundef %6) #10
+  call void @error_report_err(ptr noundef %5) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.else10, %if.then9
-  %7 = load i8, ptr %optional, align 8
-  %8 = and i8 %7, 1
-  %tobool14.not = icmp eq i8 %8, 0
-  br i1 %tobool14.not, label %if.then15, label %if.end16
+  %6 = load i8, ptr %optional, align 8
+  %tobool14 = trunc i8 %6 to i1
+  br i1 %tobool14, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end
   call void @exit(i32 noundef 1) #9

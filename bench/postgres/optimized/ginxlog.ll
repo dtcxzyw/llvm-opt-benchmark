@@ -336,9 +336,8 @@ BufferGetPage.exit.i22.i:                         ; preds = %169, %163
 189:                                              ; preds = %176, %BufferGetPage.exit.i22.i
   %190 = getelementptr inbounds i8, ptr %129, i64 2
   %191 = load i8, ptr %190, align 2
-  %192 = and i8 %191, 1
-  %.not17.i.i = icmp eq i8 %192, 0
-  br i1 %.not17.i.i, label %194, label %193
+  %192 = trunc i8 %191 to i1
+  br i1 %192, label %193, label %194
 
 193:                                              ; preds = %189
   call void @PageIndexTupleDelete(ptr noundef %.0.i.i.i23.i, i16 noundef zeroext %175) #6

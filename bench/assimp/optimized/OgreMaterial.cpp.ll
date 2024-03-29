@@ -3722,9 +3722,8 @@ invoke.cont30:                                    ; preds = %if.then29
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   %13 = load i8, ptr %m_detectTextureTypeFromFilename, align 8
-  %14 = and i8 %13, 1
-  %tobool.not = icmp eq i8 %14, 0
-  br i1 %tobool.not, label %if.else108, label %if.then34
+  %tobool = trunc i8 %13 to i1
+  br i1 %tobool, label %if.then34, label %if.else108
 
 if.then34:                                        ; preds = %invoke.cont32
   %call35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %textureRef, i8 noundef signext 46, i64 noundef -1) #18
@@ -3787,13 +3786,13 @@ if.then65:                                        ; preds = %lor.lhs.false62, %l
   br label %if.end105
 
 lpad43:                                           ; preds = %invoke.cont42
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #18
   br label %ehcleanup
 
 lpad45:                                           ; preds = %invoke.cont46, %invoke.cont44
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %identifier) #18
   br label %ehcleanup
@@ -3943,8 +3942,8 @@ land.rhs.i101:                                    ; preds = %if.else131
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit108: ; preds = %land.rhs.i101
   %bcmp.i107 = call i32 @bcmp(ptr %call2.i102, ptr %call3.i103, i64 %call4.i104)
-  %17 = icmp eq i32 %bcmp.i107, 0
-  br i1 %17, label %if.then133, label %if.else136
+  %16 = icmp eq i32 %bcmp.i107, 0
+  br i1 %16, label %if.then133, label %if.else136
 
 if.then133:                                       ; preds = %land.rhs.i101, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit108
   %call135 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %ss, ptr noundef nonnull align 4 dereferenceable(4) %uvCoord)
@@ -3994,14 +3993,14 @@ if.end153:                                        ; preds = %if.end147
           to label %invoke.cont154 unwind label %lpad21.loopexit.split-lp
 
 invoke.cont154:                                   ; preds = %if.end153
-  %18 = load i32, ptr %call155, align 4
-  store i32 %18, ptr %textureTypeIndex, align 4
+  %17 = load i32, ptr %call155, align 4
+  store i32 %17, ptr %textureTypeIndex, align 4
   %call158 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapI13aiTextureTypejSt4lessIS0_ESaISt4pairIKS0_jEEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %m_textures, ptr noundef nonnull align 4 dereferenceable(4) %textureType)
           to label %invoke.cont157 unwind label %lpad21.loopexit.split-lp
 
 invoke.cont157:                                   ; preds = %invoke.cont154
-  %19 = load i32, ptr %call158, align 4
-  %inc = add i32 %19, 1
+  %18 = load i32, ptr %call158, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr %call158, align 4
   %call160 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %invoke.cont159 unwind label %lpad21.loopexit.split-lp
@@ -4023,15 +4022,15 @@ invoke.cont161:                                   ; preds = %invoke.cont159
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call8.i, i64 %conv10.i, i1 false)
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv10.i
   store i8 0, ptr %arrayidx.i, align 1
-  %20 = load i32, ptr %textureType, align 4
-  %21 = load i32, ptr %textureTypeIndex, align 4
-  %call164 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %material, ptr noundef nonnull %assimpTextureRef, ptr noundef nonnull @.str.25, i32 noundef %20, i32 noundef %21)
+  %19 = load i32, ptr %textureType, align 4
+  %20 = load i32, ptr %textureTypeIndex, align 4
+  %call164 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %material, ptr noundef nonnull %assimpTextureRef, ptr noundef nonnull @.str.25, i32 noundef %19, i32 noundef %20)
           to label %invoke.cont163 unwind label %lpad21.loopexit.split-lp
 
 invoke.cont163:                                   ; preds = %invoke.cont161
-  %22 = load i32, ptr %textureType, align 4
-  %23 = load i32, ptr %textureTypeIndex, align 4
-  %call.i121122 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %material, ptr noundef nonnull %uvCoord, i32 noundef 4, ptr noundef nonnull @.str.85, i32 noundef %22, i32 noundef %23, i32 noundef 4)
+  %21 = load i32, ptr %textureType, align 4
+  %22 = load i32, ptr %textureTypeIndex, align 4
+  %call.i121122 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %material, ptr noundef nonnull %uvCoord, i32 noundef 4, ptr noundef nonnull @.str.85, i32 noundef %21, i32 noundef %22, i32 noundef 4)
           to label %cleanup unwind label %lpad21.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont163, %invoke.cont150, %invoke.cont144
@@ -4043,7 +4042,7 @@ cleanup:                                          ; preds = %invoke.cont163, %in
   br label %cleanup173
 
 ehcleanup:                                        ; preds = %lpad21.loopexit.loopexit, %lpad21.loopexit.loopexit.split-lp, %lpad21.loopexit.split-lp, %lpad.i51, %lpad45, %lpad43
-  %.pn = phi { ptr, i32 } [ %16, %lpad45 ], [ %15, %lpad43 ], [ %8, %lpad.i51 ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp ], [ %lpad.loopexit141, %lpad21.loopexit.loopexit ], [ %lpad.loopexit.split-lp142, %lpad21.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad45 ], [ %14, %lpad43 ], [ %8, %lpad.i51 ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp ], [ %lpad.loopexit141, %lpad21.loopexit.loopexit ], [ %lpad.loopexit.split-lp142, %lpad21.loopexit.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %textureRef) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %partColorOp) #18
   br label %ehcleanup170

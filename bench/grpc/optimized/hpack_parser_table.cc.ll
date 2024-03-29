@@ -1434,23 +1434,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.i.not, label %if.end3, label %if.then2
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 103, i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %max_bytes)
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %3 = load i32, ptr %this, align 8
-  %cmp44 = icmp ugt i32 %3, %max_bytes
+  %2 = load i32, ptr %this, align 8
+  %cmp44 = icmp ugt i32 %2, %max_bytes
   br i1 %cmp44, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end3, %while.body
   tail call void @_ZN9grpc_core10HPackTable8EvictOneEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %4 = load i32, ptr %this, align 8
-  %cmp4 = icmp ugt i32 %4, %max_bytes
+  %3 = load i32, ptr %this, align 8
+  %cmp4 = icmp ugt i32 %3, %max_bytes
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.body, %if.end3
@@ -1479,23 +1478,22 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.i.not, label %if.end6, label %if.then5
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end4
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 115, i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %bytes)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end4
-  %4 = load i32, ptr %this, align 8
-  %cmp77 = icmp ugt i32 %4, %bytes
+  %3 = load i32, ptr %this, align 8
+  %cmp77 = icmp ugt i32 %3, %bytes
   br i1 %cmp77, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end6, %while.body
   tail call void @_ZN9grpc_core10HPackTable8EvictOneEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %5 = load i32, ptr %this, align 8
-  %cmp7 = icmp ugt i32 %5, %bytes
+  %4 = load i32, ptr %this, align 8
+  %cmp7 = icmp ugt i32 %4, %bytes
   br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %if.end6
@@ -3177,16 +3175,15 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !91
   %will_keep_past_request_lifetime_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else.i, label %if.then.i
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !94
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp14.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16.i.i), !noalias !94
-  %2 = load ptr, ptr %agg.tmp, align 8, !noalias !97
-  %magicptr.i.i = ptrtoint ptr %2 to i64
+  %1 = load ptr, ptr %agg.tmp, align 8, !noalias !97
+  %magicptr.i.i = ptrtoint ptr %1 to i64
   switch i64 %magicptr.i.i, label %if.end9.i.i [
     i64 0, label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i
     i64 1, label %if.then7.i.i
@@ -3197,8 +3194,8 @@ if.then7.i.i:                                     ; preds = %if.then.i
           to label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i unwind label %lpad
 
 if.end9.i.i:                                      ; preds = %if.then.i
-  %3 = load atomic i64, ptr %2 monotonic, align 8, !noalias !97
-  %cmp.i.i.i = icmp eq i64 %3, 1
+  %2 = load atomic i64, ptr %1 monotonic, align 8, !noalias !97
+  %cmp.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i, label %if.then13.i.i, label %if.end15.i.i
 
 if.then13.i.i:                                    ; preds = %if.end9.i.i
@@ -3221,8 +3218,8 @@ _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i:  ; preds = %if.end15.i.i, %if.t
 if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1.i), !noalias !94
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i.i)
-  %4 = load ptr, ptr %agg.tmp, align 8, !noalias !103
-  %magicptr.i2.i = ptrtoint ptr %4 to i64
+  %3 = load ptr, ptr %agg.tmp, align 8, !noalias !103
+  %magicptr.i2.i = ptrtoint ptr %3 to i64
   switch i64 %magicptr.i2.i, label %if.end9.i5.i [
     i64 0, label %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i
     i64 1, label %if.then7.i3.i
@@ -3245,36 +3242,36 @@ _ZN9grpc_core5Slice9TakeOwnedEv.exit.i:           ; preds = %if.then7.i3.i, %if.
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i
-  %5 = load ptr, ptr %agg.tmp, align 8
-  %cmp.i.i = icmp ugt ptr %5, inttoptr (i64 1 to ptr)
+  %4 = load ptr, ptr %agg.tmp, align 8
+  %cmp.i.i = icmp ugt ptr %4, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i3, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i3:                                     ; preds = %invoke.cont
-  %6 = atomicrmw sub ptr %5, i64 1 acq_rel, align 8
-  %cmp.i.i.i4 = icmp eq i64 %6, 1
+  %5 = atomicrmw sub ptr %4, i64 1 acq_rel, align 8
+  %cmp.i.i.i4 = icmp eq i64 %5, 1
   br i1 %cmp.i.i.i4, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i3
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
+  invoke void %6(ptr noundef nonnull %4)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #24
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #24
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont, %if.then.i.i3, %if.then.i.i.i
   ret void
 
 lpad:                                             ; preds = %if.then7.i3.i, %if.end15.i.i, %if.then7.i.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: nofree nounwind
@@ -3788,8 +3785,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !154
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3798,45 +3794,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_18HttpMethodMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_18HttpMethodMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -3852,7 +3848,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_18HttpMethodMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_18HttpMethodMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -4457,8 +4453,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !190
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4467,45 +4462,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19ContentTypeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19ContentTypeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -4521,7 +4516,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19ContentTypeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19ContentTypeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -4661,8 +4656,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !202
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4671,45 +4665,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_10TeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_10TeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -4725,7 +4719,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_10TeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_10TeMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -4865,8 +4859,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !214
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4875,45 +4868,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_20GrpcEncodingMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_20GrpcEncodingMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -4929,7 +4922,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_20GrpcEncodingMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_20GrpcEncodingMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -5063,8 +5056,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !226
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5073,45 +5065,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcInternalEncodingRequestEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcInternalEncodingRequestEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -5127,7 +5119,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcInternalEncodingRequestEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcInternalEncodingRequestEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -5698,8 +5690,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !259
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5708,45 +5699,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19GrpcTimeoutMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19GrpcTimeoutMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -5762,7 +5753,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19GrpcTimeoutMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_19GrpcTimeoutMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -6082,8 +6073,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !283
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6092,45 +6082,45 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcRetryPushbackMsMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcRetryPushbackMsMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -6146,7 +6136,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcRetryPushbackMsMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchEC2INS_27GrpcRetryPushbackMsMetadataEEET_NSt9enable_ifIXsr15metadata_detail16HasSimpleMementoIS5_EE5valueENS5_11MementoTypeEE4typeEj.exit: ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit, %init.check.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
-  %conv = trunc i64 %8 to i32
+  %conv = trunc i64 %7 to i32
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
@@ -7756,8 +7746,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !394
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8, !noalias !391
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8, !noalias !391
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7766,34 +7755,34 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %agg.tmp.i, align 8, !noalias !391
-  %cmp.i.i.i = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
+  %1 = load ptr, ptr %agg.tmp.i, align 8, !noalias !391
+  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_17LbCostBinMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %2 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_17LbCostBinMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_17LbCostBinMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #24
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #24
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i ], [ %12, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i ], [ %11, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
   br label %common.resume
@@ -7801,15 +7790,15 @@ lpad.i:                                           ; preds = %entry
 _ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_17LbCostBinMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load i64, ptr %transport_size_, align 8
-  %conv = trunc i64 %8 to i32
-  %9 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %9, 0
+  %7 = load i64, ptr %transport_size_, align 8
+  %conv = trunc i64 %7 to i32
+  %8 = load atomic i8, ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEv.exit.i, !prof !53
 
 init.check.i.i:                                   ; preds = %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_17LbCostBinMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable) #22
-  %tobool.not.i.i = icmp eq i32 %10, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable) #22
+  %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEv.exit.i, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %init.check.i.i
@@ -7832,8 +7821,8 @@ _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_1
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEv.exit.i
-  %11 = load double, ptr %agg.tmp2, align 8
-  store double %11, ptr %call2.i1, align 8
+  %10 = load double, ptr %agg.tmp2, align 8
+  store double %10, ptr %call2.i1, align 8
   %name.i.i = getelementptr inbounds i8, ptr %call2.i1, i64 8
   %name3.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i) #22
@@ -7843,7 +7832,7 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core14Pars
   ret void
 
 lpad:                                             ; preds = %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEv.exit.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   %name.i2 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i2) #22
@@ -8575,15 +8564,14 @@ entry:
   call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp2, ptr noundef %key.coerce1, i64 noundef %key.coerce0)
   %will_keep_past_request_lifetime_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16.i)
-  %2 = load ptr, ptr %this, align 8, !noalias !438
-  %magicptr.i = ptrtoint ptr %2 to i64
+  %1 = load ptr, ptr %this, align 8, !noalias !438
+  %magicptr.i = ptrtoint ptr %1 to i64
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %if.then.i
     i64 1, label %if.then7.i
@@ -8602,8 +8590,8 @@ if.then7.i:                                       ; preds = %cond.true
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 if.end9.i:                                        ; preds = %cond.true
-  %3 = load atomic i64, ptr %2 monotonic, align 8, !noalias !438
-  %cmp.i.i = icmp eq i64 %3, 1
+  %2 = load atomic i64, ptr %1 monotonic, align 8, !noalias !438
+  %cmp.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i, label %if.then13.i, label %if.end15.i
 
 if.then13.i:                                      ; preds = %if.end9.i
@@ -8631,31 +8619,31 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit, %cond.false
   %transport_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load i64, ptr %transport_size_, align 8
-  %conv = trunc i64 %4 to i32
-  %5 = load ptr, ptr %agg.tmp2, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %3 = load i64, ptr %transport_size_, align 8
+  %conv = trunc i64 %3 to i32
+  %4 = load ptr, ptr %agg.tmp2, align 8
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   %data.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
-  %6 = load i64, ptr %data.i.i.i, align 8
-  %conv.i.i.i = and i64 %6, 255
-  %cond.i2.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %6
+  %5 = load i64, ptr %data.i.i.i, align 8
+  %conv.i.i.i = and i64 %5, 255
+  %cond.i2.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %5
   %cmp.not.i.i.i = icmp ult i64 %cond.i2.i.i, 4
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %cond.end
   %bytes5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 9
   %bytes.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
-  %7 = load ptr, ptr %bytes.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %bytes5.i.i.i, ptr %7
-  %8 = getelementptr i8, ptr %cond.i.i.i, i64 %cond.i2.i.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %8, i64 -4
+  %6 = load ptr, ptr %bytes.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %bytes5.i.i.i, ptr %6
+  %7 = getelementptr i8, ptr %cond.i.i.i, i64 %cond.i2.i.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %7, i64 -4
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.76, i64 4)
   %cmp9.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  %9 = zext i1 %cmp9.i.i.i to i64
+  %8 = zext i1 %cmp9.i.i.i to i64
   br label %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %land.rhs.i.i.i, %cond.end
-  %idxprom.i.i = phi i64 [ 0, %cond.end ], [ %9, %land.rhs.i.i.i ]
+  %idxprom.i.i = phi i64 [ 0, %cond.end ], [ %8, %land.rhs.i.i.i ]
   %arrayidx.i.i = getelementptr inbounds [2 x %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable"], ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 0, i64 %idxprom.i.i
   store ptr %arrayidx.i.i, ptr %agg.result, align 8
   %transport_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
@@ -8672,18 +8660,18 @@ invoke.cont8:                                     ; preds = %_ZN9grpc_core14Pars
   ret void
 
 lpad:                                             ; preds = %if.end15.i, %if.then7.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad7:                                            ; preds = %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad7 ]
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #22
   resume { ptr, i32 } %.pn
 }

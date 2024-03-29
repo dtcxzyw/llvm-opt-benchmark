@@ -3894,14 +3894,14 @@ define internal fastcc i64 @gen_method_name(i64 noundef %0, i64 noundef %1) unna
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %0, 0
   %7 = or i1 %6, %5
-  br i1 %7, label %.critedge95, label %8
+  br i1 %7, label %.critedge93, label %8
 
 8:                                                ; preds = %2
   %9 = inttoptr i64 %0 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 30
   %switch = icmp eq i64 %11, 2
-  br i1 %switch, label %12, label %.critedge95
+  br i1 %switch, label %12, label %.critedge93
 
 12:                                               ; preds = %8
   %13 = and i64 %10, 4096
@@ -3915,42 +3915,40 @@ define internal fastcc i64 @gen_method_name(i64 noundef %0, i64 noundef %1) unna
   %18 = icmp ne i64 %17, 0
   %19 = icmp eq i64 %16, 0
   %20 = or i1 %19, %18
-  br i1 %20, label %.critedge95, label %21
+  br i1 %20, label %.critedge93, label %21
 
 21:                                               ; preds = %14
   %22 = inttoptr i64 %16 to ptr
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 30
-  %switch104 = icmp eq i64 %24, 2
-  br i1 %switch104, label %25, label %.critedge95
+  %switch106 = icmp eq i64 %24, 2
+  br i1 %switch106, label %25, label %.critedge93
 
 25:                                               ; preds = %21
   %26 = call i64 @rb_mod_name0(i64 noundef %16, ptr noundef nonnull %3) #4
   %27 = load i8, ptr %3, align 1
-  %28 = and i8 %27, 1
-  %.not92 = icmp eq i8 %28, 0
-  %29 = icmp eq i64 %26, 4
-  %or.cond = select i1 %.not92, i1 true, i1 %29
-  br i1 %or.cond, label %.critedge95, label %30
+  %28 = trunc i8 %27 to i1
+  %29 = icmp ne i64 %26, 4
+  %or.cond.not = select i1 %28, i1 %29, i1 false
+  br i1 %or.cond.not, label %30, label %.critedge93
 
 30:                                               ; preds = %25
   %31 = call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.20, i64 noundef %26, i64 noundef %1) #4
-  br label %.critedge95
+  br label %.critedge93
 
 32:                                               ; preds = %12
   %33 = call i64 @rb_mod_name0(i64 noundef %0, ptr noundef nonnull %3) #4
   %34 = load i8, ptr %3, align 1
-  %35 = and i8 %34, 1
-  %.not91 = icmp eq i8 %35, 0
-  %36 = icmp eq i64 %33, 4
-  %or.cond102 = select i1 %.not91, i1 true, i1 %36
-  br i1 %or.cond102, label %.critedge95, label %37
+  %35 = trunc i8 %34 to i1
+  %36 = icmp ne i64 %33, 4
+  %or.cond102.not = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond102.not, label %37, label %.critedge93
 
 37:                                               ; preds = %32
   %38 = call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.21, i64 noundef %33, i64 noundef %1) #4
-  br label %.critedge95
+  br label %.critedge93
 
-.critedge95:                                      ; preds = %21, %8, %14, %2, %32, %25, %37, %30
+.critedge93:                                      ; preds = %21, %8, %14, %2, %32, %25, %37, %30
   %.087 = phi i64 [ %31, %30 ], [ %38, %37 ], [ %1, %25 ], [ %1, %32 ], [ %1, %2 ], [ %1, %14 ], [ %1, %8 ], [ %1, %21 ]
   ret i64 %.087
 }

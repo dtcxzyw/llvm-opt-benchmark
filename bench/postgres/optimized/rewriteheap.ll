@@ -247,15 +247,14 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %27 = getelementptr inbounds i8, ptr %0, i64 36
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %logical_end_heap_rewrite.exit, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %logical_end_heap_rewrite.exit
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 96
   %32 = load i32, ptr %31, align 8
-  %.not7.i = icmp eq i32 %32, 0
-  br i1 %.not7.i, label %34, label %33
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %34, label %33
 
 33:                                               ; preds = %30
   call fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef nonnull %0)
@@ -266,16 +265,16 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
   %36 = load ptr, ptr %35, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %36) #13
   %37 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
-  %.not810.i = icmp eq ptr %37, null
-  br i1 %.not810.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i
+  %.not79.i = icmp eq ptr %37, null
+  br i1 %.not79.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %49
   %38 = phi ptr [ %51, %49 ], [ %37, %34 ]
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @FileSync(i32 noundef %40, i32 noundef 167772193) #13
-  %.not9.i = icmp eq i32 %41, 0
-  br i1 %.not9.i, label %49, label %42
+  %.not8.i = icmp eq i32 %41, 0
+  br i1 %.not8.i, label %49, label %42
 
 42:                                               ; preds = %.lr.ph.i
   %43 = call i32 @data_sync_elevel(i32 noundef 21) #13
@@ -293,8 +292,8 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
   %50 = load i32, ptr %39, align 4
   call void @FileClose(i32 noundef %50) #13
   %51 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
-  %.not8.i = icmp eq ptr %51, null
-  br i1 %.not8.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i, !llvm.loop !7
+  %.not7.i = icmp eq ptr %51, null
+  br i1 %.not7.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i, !llvm.loop !7
 
 logical_end_heap_rewrite.exit:                    ; preds = %49, %24, %34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -639,9 +638,8 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 4 dereferenceable(6) %111, i64 6, i1 false)
   %112 = load i32, ptr %101, align 8
   %113 = load i8, ptr %102, align 4
-  %114 = and i8 %113, 1
-  %.not.i = icmp eq i8 %114, 0
-  br i1 %.not.i, label %logical_rewrite_heap_tuple.exit, label %115
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %logical_rewrite_heap_tuple.exit
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds i8, ptr %.0, i64 16
@@ -659,8 +657,8 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
 124:                                              ; preds = %122, %115
   %125 = phi i32 [ %123, %122 ], [ 2, %115 ]
   %126 = and i16 %119, 6272
-  %or.cond36.i = icmp eq i16 %126, 4096
-  br i1 %or.cond36.i, label %127, label %129
+  %or.cond35.i = icmp eq i16 %126, 4096
+  br i1 %or.cond35.i, label %127, label %129
 
 127:                                              ; preds = %124
   %128 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %117) #13
@@ -692,19 +690,19 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   %142 = load i16, ptr %141, align 4
   %143 = zext i16 %142 to i32
   %144 = and i32 %143, 128
-  %.not35.i = icmp ne i32 %144, 0
+  %.not34.i = icmp ne i32 %144, 0
   %145 = and i32 %143, 4176
   %146 = icmp eq i32 %145, 64
-  %or.cond38.i = or i1 %.not35.i, %146
-  br i1 %or.cond38.i, label %149, label %147
+  %or.cond37.i = or i1 %.not34.i, %146
+  br i1 %or.cond37.i, label %149, label %147
 
 147:                                              ; preds = %139
   %148 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %133, i32 noundef %112) #13
-  %not.42.i = xor i1 %148, true
+  %not.41.i = xor i1 %148, true
   br label %149
 
 149:                                              ; preds = %147, %139, %137
-  %.0.i = phi i1 [ false, %139 ], [ false, %137 ], [ %not.42.i, %147 ]
+  %.0.i = phi i1 [ false, %139 ], [ false, %137 ], [ %not.41.i, %147 ]
   %brmerge.i = or i1 %.029.i, %.0.i
   br i1 %brmerge.i, label %150, label %logical_rewrite_heap_tuple.exit
 
@@ -723,8 +721,8 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
 
 154:                                              ; preds = %153, %150
   %155 = icmp ne i32 %125, %133
-  %or.cond40.not.i = select i1 %.0.i, i1 %155, i1 false
-  br i1 %or.cond40.not.i, label %156, label %logical_rewrite_heap_tuple.exit
+  %or.cond39.not.i = select i1 %.0.i, i1 %155, i1 false
+  br i1 %or.cond39.not.i, label %156, label %logical_rewrite_heap_tuple.exit
 
 156:                                              ; preds = %154
   call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %133, ptr noundef nonnull %5)
@@ -1256,10 +1254,10 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %15 = load ptr, ptr %14, align 8
   call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %15) #13
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
-  %.not58 = icmp eq ptr %16, null
-  br i1 %.not58, label %.loopexit, label %.lr.ph60
+  %.not57 = icmp eq ptr %16, null
+  br i1 %.not57, label %.loopexit, label %.lr.ph59
 
-.lr.ph60:                                         ; preds = %13
+.lr.ph59:                                         ; preds = %13
   %17 = getelementptr inbounds i8, ptr %4, i64 24
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1269,8 +1267,8 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   br label %24
 
-24:                                               ; preds = %.lr.ph60, %.backedge
-  %25 = phi ptr [ %16, %.lr.ph60 ], [ %72, %.backedge ]
+24:                                               ; preds = %.lr.ph59, %.backedge
+  %25 = phi ptr [ %16, %.lr.ph59 ], [ %72, %.backedge ]
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = getelementptr i8, ptr %25, i64 32
   %.val = load i32, ptr %27, align 8
@@ -1283,10 +1281,9 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 113
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not48 = icmp eq i8 %35, 0
+  %35 = trunc i8 %34 to i1
   %36 = load i32, ptr @MyDatabaseId, align 4
-  %.041 = select i1 %.not48, i32 %36, i32 0
+  %.041 = select i1 %35, i32 0, i32 %36
   store i32 %.val, ptr %17, align 8
   %37 = getelementptr inbounds i8, ptr %30, i64 72
   %38 = load i32, ptr %37, align 8
@@ -1304,24 +1301,24 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %45 = call ptr @palloc(i64 noundef %44) #13
   %46 = getelementptr inbounds i8, ptr %25, i64 24
   %47 = load ptr, ptr %46, align 8
-  %.not49 = icmp eq ptr %47, null
-  %.not505564 = icmp eq ptr %47, %26
-  %.not5055 = select i1 %.not49, i1 true, i1 %.not505564
-  br i1 %.not5055, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp eq ptr %47, null
+  %.not495463 = icmp eq ptr %47, %26
+  %.not4954 = select i1 %.not48, i1 true, i1 %.not495463
+  br i1 %.not4954, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
-  %.sroa.0.057 = phi ptr [ %.sroa.6.0, %.lr.ph ], [ %47, %29 ]
-  %.056 = phi ptr [ %49, %.lr.ph ], [ %45, %29 ]
-  %.sroa.6.0.in = getelementptr inbounds i8, ptr %.sroa.0.057, i64 8
+  %.sroa.0.056 = phi ptr [ %.sroa.6.0, %.lr.ph ], [ %47, %29 ]
+  %.055 = phi ptr [ %49, %.lr.ph ], [ %45, %29 ]
+  %.sroa.6.0.in = getelementptr inbounds i8, ptr %.sroa.0.056, i64 8
   %.sroa.6.0 = load ptr, ptr %.sroa.6.0.in, align 8
-  %48 = getelementptr i8, ptr %.sroa.0.057, i64 -40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.056, ptr noundef nonnull align 8 dereferenceable(36) %48, i64 36, i1 false)
-  %49 = getelementptr i8, ptr %.056, i64 36
+  %48 = getelementptr i8, ptr %.sroa.0.056, i64 -40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.055, ptr noundef nonnull align 8 dereferenceable(36) %48, i64 36, i1 false)
+  %49 = getelementptr i8, ptr %.055, i64 36
   %50 = load ptr, ptr %.sroa.6.0.in, align 8
-  %51 = load ptr, ptr %.sroa.0.057, align 8
+  %51 = load ptr, ptr %.sroa.0.056, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %50, ptr %52, align 8
-  %53 = load ptr, ptr %.sroa.0.057, align 8
+  %53 = load ptr, ptr %.sroa.0.056, align 8
   store ptr %53, ptr %50, align 8
   %54 = load i32, ptr %27, align 8
   %55 = add i32 %54, -1
@@ -1330,8 +1327,8 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %56 = load i32, ptr %5, align 8
   %57 = add i32 %56, -1
   store i32 %57, ptr %5, align 8
-  %.not50 = icmp eq ptr %.sroa.6.0, %26
-  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  %.not49 = icmp eq ptr %.sroa.6.0, %26
+  br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %58 = getelementptr inbounds i8, ptr %25, i64 4
@@ -1343,8 +1340,8 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %61 = call i64 @FileWriteV(i32 noundef %59, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %60, i32 noundef 167772195) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %62 = trunc i64 %61 to i32
-  %.not51 = icmp eq i32 %43, %62
-  br i1 %.not51, label %68, label %63
+  %.not50 = icmp eq i32 %43, %62
+  br i1 %.not50, label %68, label %63
 
 63:                                               ; preds = %._crit_edge
   %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1404,9 +1401,8 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #13
   %13 = load i8, ptr %5, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %43
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %43, label %15
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %0, align 8
@@ -1414,10 +1410,9 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 113
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not19 = icmp eq i8 %21, 0
+  %21 = trunc i8 %20 to i1
   %22 = load i32, ptr @MyDatabaseId, align 4
-  %.0 = select i1 %.not19, i32 %22, i32 0
+  %.0 = select i1 %21, i32 0, i32 %22
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 32

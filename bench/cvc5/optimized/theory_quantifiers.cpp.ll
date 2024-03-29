@@ -351,9 +351,8 @@ invoke.cont45:                                    ; preds = %_ZNSt10unique_ptrIN
   %5 = load ptr, ptr %quantifiers, align 8
   %macrosQuant = getelementptr inbounds i8, ptr %5, i64 277
   %6 = load i8, ptr %macrosQuant, align 1
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont45
   %call49 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
@@ -364,72 +363,72 @@ invoke.cont48:                                    ; preds = %if.then
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %invoke.cont48
-  %8 = load ptr, ptr %d_qmacros, align 8
+  %7 = load ptr, ptr %d_qmacros, align 8
   store ptr %call49, ptr %d_qmacros, align 8
-  %tobool.not.i.i19 = icmp eq ptr %8, null
+  %tobool.not.i.i19 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i19, label %if.end, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17QuantifiersMacrosEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17QuantifiersMacrosEEclEPS4_.exit.i.i: ; preds = %invoke.cont52
-  %vtable.i.i.i20 = load ptr, ptr %8, align 8
+  %vtable.i.i.i20 = load ptr, ptr %7, align 8
   %vfn.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i20, i64 8
-  %9 = load ptr, ptr %vfn.i.i.i21, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  %8 = load ptr, ptr %vfn.i.i.i21, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad4
-  %.pn = phi { ptr, i32 } [ %11, %lpad4 ], [ %10, %lpad ], [ %0, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad4 ], [ %9, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   br label %eh.resume
 
 lpad6:                                            ; preds = %invoke.cont8, %invoke.cont7, %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup62
 
 lpad14:                                           ; preds = %invoke.cont15, %invoke.cont12
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup62
 
 lpad19:                                           ; preds = %invoke.cont18
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup59
 
 lpad23:                                           ; preds = %invoke.cont20
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
 
 lpad28:                                           ; preds = %invoke.cont24
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup57
 
 lpad31:                                           ; preds = %if.then, %_ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EE5resetEPS3_.exit, %invoke.cont29
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup54
 
 lpad38:                                           ; preds = %invoke.cont32
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call33) #19
   br label %ehcleanup54
 
 lpad51:                                           ; preds = %invoke.cont48
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call49) #19
   br label %ehcleanup54
@@ -438,29 +437,29 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 ehcleanup54:                                      ; preds = %lpad51, %lpad38, %lpad31
-  %.pn9 = phi { ptr, i32 } [ %19, %lpad51 ], [ %17, %lpad31 ], [ %18, %lpad38 ]
-  %20 = load ptr, ptr %d_qmacros, align 8
-  %cmp.not.i = icmp eq ptr %20, null
+  %.pn9 = phi { ptr, i32 } [ %18, %lpad51 ], [ %16, %lpad31 ], [ %17, %lpad38 ]
+  %19 = load ptr, ptr %d_qmacros, align 8
+  %cmp.not.i = icmp eq ptr %19, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17QuantifiersMacrosESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17QuantifiersMacrosEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17QuantifiersMacrosEEclEPS4_.exit.i: ; preds = %ehcleanup54
-  %vtable.i.i = load ptr, ptr %20, align 8
+  %vtable.i.i = load ptr, ptr %19, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %21 = load ptr, ptr %vfn.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
+  %20 = load ptr, ptr %vfn.i.i, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17QuantifiersMacrosESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17QuantifiersMacrosESt14default_deleteIS4_EED2Ev.exit: ; preds = %ehcleanup54, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17QuantifiersMacrosEEclEPS4_.exit.i
   store ptr null, ptr %d_qmacros, align 8
-  %22 = load ptr, ptr %d_qengine, align 8
-  %cmp.not.i22 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %d_qengine, align 8
+  %cmp.not.i22 = icmp eq ptr %21, null
   br i1 %cmp.not.i22, label %_ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory17QuantifiersEngineEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory17QuantifiersEngineEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17QuantifiersMacrosESt14default_deleteIS4_EED2Ev.exit
-  %vtable.i.i23 = load ptr, ptr %22, align 8
+  %vtable.i.i23 = load ptr, ptr %21, align 8
   %vfn.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i23, i64 8
-  %23 = load ptr, ptr %vfn.i.i24, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(356) %22) #17
+  %22 = load ptr, ptr %vfn.i.i24, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(356) %21) #17
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17QuantifiersMacrosESt14default_deleteIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory17QuantifiersEngineEEclEPS3_.exit.i
@@ -469,22 +468,22 @@ _ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS
   br label %ehcleanup57
 
 ehcleanup57:                                      ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EED2Ev.exit, %lpad28
-  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EED2Ev.exit ], [ %16, %lpad28 ]
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt10unique_ptrIN4cvc58internal6theory17QuantifiersEngineESt14default_deleteIS3_EED2Ev.exit ], [ %15, %lpad28 ]
   call void @_ZN4cvc58internal6theory11quantifiers12TermRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %d_treg) #17
   br label %ehcleanup58
 
 ehcleanup58:                                      ; preds = %ehcleanup57, %lpad23
-  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %ehcleanup57 ], [ %15, %lpad23 ]
+  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %ehcleanup57 ], [ %14, %lpad23 ]
   call void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %d_qreg) #17
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup58, %lpad19
-  %.pn9.pn.pn.pn = phi { ptr, i32 } [ %.pn9.pn.pn, %ehcleanup58 ], [ %14, %lpad19 ]
+  %.pn9.pn.pn.pn = phi { ptr, i32 } [ %.pn9.pn.pn, %ehcleanup58 ], [ %13, %lpad19 ]
   call void @_ZN4cvc58internal6theory11quantifiers16QuantifiersStateD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %d_qstate) #17
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup59, %lpad14, %lpad6
-  %.pn9.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %lpad6 ], [ %.pn9.pn.pn.pn, %ehcleanup59 ], [ %13, %lpad14 ]
+  %.pn9.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %lpad6 ], [ %.pn9.pn.pn.pn, %ehcleanup59 ], [ %12, %lpad14 ]
   call void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) #17
   br label %eh.resume
 
@@ -1683,7 +1682,7 @@ ehcleanup45:                                      ; preds = %ehcleanup43, %lpad3
   br label %eh.resume
 
 cleanup:                                          ; preds = %if.then13.i.i158, %if.then.i.i152, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149, %invoke.cont6, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58
-  %cleanup.dest.slot.0 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ true, %invoke.cont6 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149 ], [ false, %if.then.i.i152 ], [ false, %if.then13.i.i158 ]
+  %switch = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ true, %invoke.cont6 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149 ], [ false, %if.then.i.i152 ], [ false, %if.then13.i.i158 ]
   %52 = load ptr, ptr %eq, align 8
   %bf.load.i.i161 = load i64, ptr %52, align 8
   %53 = and i64 %bf.load.i.i161, 1152920405095219200
@@ -1711,7 +1710,7 @@ terminate.lpad.i170:                              ; preds = %if.then13.i.i169
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit171: ; preds = %cleanup, %if.then.i.i163, %if.then13.i.i169
-  br i1 %cleanup.dest.slot.0, label %if.end49, label %return
+  br i1 %switch, label %if.end49, label %return
 
 if.end49:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit171, %entry
   br label %return
@@ -3482,8 +3481,8 @@ entry:
   %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %d_data2.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %d_data.i, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %d_data.i, align 8
   ret ptr %call.i
 }
 
@@ -3492,9 +3491,9 @@ define linkonce_odr hidden void @_ZN4cvc57context3CDOIbE7restoreEPNS0_10ContextO
 entry:
   %d_data = getelementptr inbounds i8, ptr %pContextObj, i64 40
   %0 = load i8, ptr %d_data, align 8
-  %1 = and i8 %0, 1
   %d_data2 = getelementptr inbounds i8, ptr %this, i64 40
-  store i8 %1, ptr %d_data2, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %d_data2, align 8
   ret void
 }
 

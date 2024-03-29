@@ -231,9 +231,8 @@ define i32 @opal_register_util_params() local_unnamed_addr #0 {
 
 67:                                               ; preds = %60
   %68 = load i8, ptr @opal_leave_pinned_pipeline, align 1
-  %69 = and i8 %68, 1
-  %.not50 = icmp eq i8 %69, 0
-  br i1 %.not50, label %73, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %73
 
 70:                                               ; preds = %67
   store i8 0, ptr @opal_leave_pinned_pipeline, align 1
@@ -260,15 +259,15 @@ define i32 @opal_register_util_params() local_unnamed_addr #0 {
   store ptr @.str.41, ptr @mca_base_env_list_sep, align 8
   %82 = call i32 @mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @mca_base_env_list_sep) #6
   %83 = load ptr, ptr @mca_base_env_list, align 8
-  %.not51 = icmp eq ptr %83, null
-  br i1 %.not51, label %91, label %84
+  %.not50 = icmp eq ptr %83, null
+  br i1 %.not50, label %91, label %84
 
 84:                                               ; preds = %80
   store ptr null, ptr %3, align 8
   %85 = call i32 @mca_base_var_env_name(ptr noundef nonnull @.str.44, ptr noundef nonnull %3) #6
   %86 = load ptr, ptr %3, align 8
-  %.not52 = icmp eq ptr %86, null
-  br i1 %.not52, label %91, label %87
+  %.not51 = icmp eq ptr %86, null
+  br i1 %.not51, label %91, label %87
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr @mca_base_env_list, align 8

@@ -68,9 +68,8 @@ define i32 @mca_pml_monitoring_start(i64 noundef %0, ptr noundef %1) local_unnam
 37:                                               ; preds = %27
   %38 = getelementptr inbounds i8, ptr %31, i64 8
   %39 = load i8, ptr @opal_uses_threads, align 1
-  %40 = and i8 %39, 1
-  %.not.i.i.i.i = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i, label %43, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
   %42 = atomicrmw volatile add ptr %38, i32 1 monotonic, align 4

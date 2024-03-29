@@ -253,9 +253,9 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEE5trainElPKf(ptr n
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 25
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %12, ptr %13, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 1
   ret void
 }
 
@@ -895,9 +895,9 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEE5trainElPK
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 25
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %12, ptr %13, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 1
   ret void
 }
 
@@ -2749,9 +2749,8 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEED2Ev(ptr noundef 
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_5IndexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2857,18 +2856,18 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2EPS1_(pt
 26:                                               ; preds = %2
   %27 = getelementptr inbounds i8, ptr %1, i64 25
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %29, ptr %30, align 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 25
+  %30 = and i8 %28, 1
+  store i8 %30, ptr %29, align 1
   %31 = getelementptr inbounds i8, ptr %1, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %1, i64 24
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %36, ptr %37, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = and i8 %35, 1
+  store i8 %37, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3081,9 +3080,8 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEED2Ev(ptr n
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3253,9 +3251,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Se
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -3687,9 +3684,8 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit: ; pre
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_5IndexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %25, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4103,9 +4099,8 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit: ; pre
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %25, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 32

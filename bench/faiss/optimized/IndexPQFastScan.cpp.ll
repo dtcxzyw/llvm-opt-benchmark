@@ -106,9 +106,8 @@ define linkonce_odr void @_ZN5faiss15IndexPQFastScanD0Ev(ptr noundef nonnull ali
 define void @_ZN5faiss15IndexPQFastScan5trainElPKf(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 25
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %9
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 136
@@ -331,9 +330,9 @@ define void @_ZN5faiss15IndexPQFastScanC2ERKNS_7IndexPQEi(ptr noundef nonnull al
   store i64 %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 25
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %27, ptr %28, align 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 25
+  %28 = and i8 %26, 1
+  store i8 %28, ptr %27, align 1
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 128

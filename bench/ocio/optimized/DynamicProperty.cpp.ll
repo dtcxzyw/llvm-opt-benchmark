@@ -962,7 +962,7 @@ return:                                           ; preds = %entry, %if.then8
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
@@ -974,21 +974,21 @@ entry:
 if.end:                                           ; preds = %entry
   %m_isDynamic = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %m_isDynamic, align 4
-  %1 = and i8 %0, 1
   %m_isDynamic2 = getelementptr inbounds i8, ptr %rhs, i64 12
-  %2 = load i8, ptr %m_isDynamic2, align 4
+  %1 = load i8, ptr %m_isDynamic2, align 4
+  %2 = xor i8 %1, %0
   %3 = and i8 %2, 1
-  %cmp5 = icmp eq i8 %1, %3
+  %cmp5 = icmp eq i8 %3, 0
   br i1 %cmp5, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %tobool.not = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %m_type = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %m_type, align 8
   %m_type6 = getelementptr inbounds i8, ptr %rhs, i64 8
   %5 = load i32, ptr %m_type6, align 8
   %cmp7 = icmp ne i32 %4, %5
-  %brmerge = or i1 %tobool.not, %cmp7
+  %brmerge = or i1 %cmp7, %tobool
   br i1 %brmerge, label %return, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true
@@ -1129,7 +1129,7 @@ entry:
   %call5 = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %m_isDynamic.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %m_isDynamic.i, align 4
-  %3 = and i8 %2, 1
+  %frombool = and i8 %2, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   store ptr null, ptr %agg.result, align 8, !alias.scope !16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1143,10 +1143,10 @@ entry:
   %m_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store i32 %call, ptr %m_type.i.i.i.i.i.i.i.i.i, align 8, !noalias !16
   %m_isDynamic.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
-  store i8 %3, ptr %m_isDynamic.i.i.i.i.i.i.i.i.i, align 4, !noalias !16
-  %4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
+  store i8 %frombool, ptr %m_isDynamic.i.i.i.i.i.i.i.i.i, align 4, !noalias !16
+  %3 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i64 0, i32 1, i64 2), ptr %4, align 8, !noalias !16
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i64 0, i32 1, i64 2), ptr %3, align 8, !noalias !16
   %m_value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   store double %call5, ptr %m_value.i.i.i.i.i.i.i.i, align 8, !noalias !16
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
@@ -1213,7 +1213,7 @@ entry:
   %m_preRenderValues = getelementptr inbounds i8, ptr %this, i64 304
   %m_isDynamic.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %m_isDynamic.i, align 4
-  %1 = and i8 %0, 1
+  %frombool = and i8 %0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   store ptr null, ptr %agg.result, align 8, !alias.scope !19
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1227,13 +1227,13 @@ entry:
   %m_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store i32 3, ptr %m_type.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %m_isDynamic.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
-  store i8 %1, ptr %m_isDynamic.i.i.i.i.i.i.i.i.i, align 4, !noalias !19
-  %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
+  store i8 %frombool, ptr %m_isDynamic.i.i.i.i.i.i.i.i.i, align 4, !noalias !19
+  %1 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !19
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i64 0, i32 1, i64 2), ptr %2, align 8, !noalias !19
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i64 0, i32 1, i64 2), ptr %1, align 8, !noalias !19
   %m_style.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
-  %3 = load <2 x i32>, ptr %m_style, align 8, !noalias !19
-  store <2 x i32> %3, ptr %m_style.i.i.i.i.i.i.i.i, align 8, !noalias !19
+  %2 = load <2 x i32>, ptr %m_style, align 8, !noalias !19
+  store <2 x i32> %2, ptr %m_style.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %m_value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %m_value.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(272) %m_value, i64 272, i1 false), !noalias !19
   %m_preRenderValues.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 320
@@ -2106,8 +2106,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGrad
 entry:
   %m_knotsCoefs = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_knotsCoefs, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -2276,7 +2275,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr %0(ptr noundef nonnull align 8 dereferenceable(144) %this)
   %m_isDynamic.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
-  %2 = and i8 %1, 1
+  %tobool.i = trunc i8 %1 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   store ptr null, ptr %agg.result, align 8, !alias.scope !23
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22, !noalias !23
@@ -2286,16 +2285,15 @@ entry:
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !23
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !23
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  %tobool.i.i.i.i.i.i.i = icmp ne i8 %2, 0
-  invoke void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEEb(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i1 noundef zeroext %tobool.i.i.i.i.i.i.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEEb(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i1 noundef zeroext %tobool.i)
           to label %_ZSt11make_sharedIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !23
 
 common.resume:                                    ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %6, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %4, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #23, !noalias !23
   br label %common.resume
@@ -2306,9 +2304,9 @@ _ZSt11make_sharedIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEJRK
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !23
   %m_knotsCoefs = getelementptr inbounds i8, ptr %this, i64 40
   %m_knotsCoefs4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
-  %4 = load i8, ptr %m_knotsCoefs, align 8
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %m_knotsCoefs4, align 8
+  %3 = load i8, ptr %m_knotsCoefs, align 8
+  %frombool.i = and i8 %3, 1
+  store i8 %frombool.i, ptr %m_knotsCoefs4, align 8
   %m_knotsOffsetsArray.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   %m_knotsOffsetsArray3.i = getelementptr inbounds i8, ptr %this, i64 48
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_knotsOffsetsArray.i, ptr noundef nonnull align 8 dereferenceable(24) %m_knotsOffsetsArray3.i)
@@ -2333,7 +2331,7 @@ call7.i.noexc:                                    ; preds = %call5.i.noexc
           to label %nrvo.skipdtor unwind label %lpad
 
 lpad:                                             ; preds = %call7.i.noexc, %call5.i.noexc, %call.i.noexc, %_ZSt11make_sharedIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #20
   br label %common.resume
@@ -2470,7 +2468,7 @@ entry:
   %m_preRenderValues = getelementptr inbounds i8, ptr %this, i64 272
   %m_isDynamic.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %m_isDynamic.i, align 4
-  %1 = and i8 %0, 1
+  %frombool = and i8 %0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   store ptr null, ptr %agg.result, align 8, !alias.scope !26
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2484,10 +2482,10 @@ entry:
   %m_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store i32 5, ptr %m_type.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
   %m_isDynamic.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
-  store i8 %1, ptr %m_isDynamic.i.i.i.i.i.i.i.i.i, align 4, !noalias !26
-  %2 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
+  store i8 %frombool, ptr %m_isDynamic.i.i.i.i.i.i.i.i.i, align 4, !noalias !26
+  %1 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !26
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i64 0, i32 1, i64 2), ptr %2, align 8, !noalias !26
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i64 0, i32 1, i64 2), ptr %1, align 8, !noalias !26
   %m_value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %m_value.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(248) %m_value, i64 248, i1 false), !noalias !26
   %m_preRenderValues.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 288
@@ -3511,7 +3509,7 @@ attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(read) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

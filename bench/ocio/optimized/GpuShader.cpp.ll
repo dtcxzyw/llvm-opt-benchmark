@@ -756,8 +756,7 @@ entry:
   %0 = load ptr, ptr %m_implGeneric.i, align 8
   %m_allowTexture1D.i = getelementptr inbounds i8, ptr %0, i64 84
   %1 = load i8, ptr %m_allowTexture1D.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 

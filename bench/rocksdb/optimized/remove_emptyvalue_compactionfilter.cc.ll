@@ -357,16 +357,15 @@ sw.bb:                                            ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb
   %2 = load i8, ptr %value_changed, align 1
-  %3 = shl i8 %2, 1
-  %4 = and i8 %3, 2
-  %cond = zext nneg i8 %4 to i32
+  %tobool2 = trunc i8 %2 to i1
+  %cond = select i1 %tobool2, i32 2, i32 0
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %vtable5 = load ptr, ptr %this, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 160
-  %5 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %level, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %existing_value)
+  %3 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %level, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %existing_value)
   %cond10 = zext i1 %call7 to i32
   br label %return
 

@@ -36,19 +36,19 @@ define hidden noalias ptr @dfilter_macro_apply(ptr noundef %0, ptr noundef %1) l
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias ptr @dfilter_macro_apply_recurse(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp ugt i32 %1, 31
-  %.not210 = icmp eq ptr %2, null
+  %.not209 = icmp eq ptr %2, null
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  br i1 %.not210, label %common.ret573, label %6
+  br i1 %.not209, label %common.ret572, label %6
 
 6:                                                ; preds = %5
   %7 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #6
   store ptr %7, ptr %2, align 8
-  br label %common.ret573
+  br label %common.ret572
 
 8:                                                ; preds = %3
-  br i1 %.not210, label %10, label %9
+  br i1 %.not209, label %10, label %9
 
 9:                                                ; preds = %8
   store ptr null, ptr %2, align 8
@@ -64,7 +64,7 @@ define internal fastcc noalias ptr @dfilter_macro_apply_recurse(ptr noundef %0, 
 g_string_append_c_inline.exit:                    ; preds = %g_string_append_c_inline.exit.backedge, %10
   %.0177 = phi i8 [ 0, %10 ], [ %.0177.be, %g_string_append_c_inline.exit.backedge ]
   %.0175 = phi ptr [ %0, %10 ], [ %.0175.be, %g_string_append_c_inline.exit.backedge ]
-  %.0173 = phi i8 [ 0, %10 ], [ %.0173.be, %g_string_append_c_inline.exit.backedge ]
+  %.0173 = phi i1 [ false, %10 ], [ %.0173.be, %g_string_append_c_inline.exit.backedge ]
   %.0168 = phi ptr [ null, %10 ], [ %.0168.be, %g_string_append_c_inline.exit.backedge ]
   %.0165 = phi ptr [ null, %10 ], [ %.0165.be, %g_string_append_c_inline.exit.backedge ]
   %.0163 = phi ptr [ null, %10 ], [ %.0163.be, %g_string_append_c_inline.exit.backedge ]
@@ -81,7 +81,7 @@ g_string_append_c_inline.exit:                    ; preds = %g_string_append_c_i
 
 17:                                               ; preds = %g_string_append_c_inline.exit
   switch i8 %16, label %18 [
-    i8 0, label %g_string_append_c_inline.exit211
+    i8 0, label %g_string_append_c_inline.exit210
     i8 36, label %g_string_append_c_inline.exit.backedge
   ]
 
@@ -167,11 +167,11 @@ start_is_field_reference.exit.thread:             ; preds = %38, %35, %32, %star
   %59 = load i64, ptr %13, align 8
   %60 = getelementptr i8, ptr %58, i64 %59
   store i8 0, ptr %60, align 1
-  br label %g_string_append_c_inline.exit211
+  br label %g_string_append_c_inline.exit210
 
 61:                                               ; preds = %50
   %62 = tail call ptr @g_string_insert_c(ptr noundef nonnull %11, i64 noundef -1, i8 noundef signext 36) #6
-  br label %g_string_append_c_inline.exit211
+  br label %g_string_append_c_inline.exit210
 
 63:                                               ; preds = %31
   %64 = zext i8 %16 to i64
@@ -226,20 +226,20 @@ start_is_field_reference.exit.thread:             ; preds = %38, %35, %32, %star
   %97 = load i64, ptr %13, align 8
   %98 = getelementptr i8, ptr %96, i64 %97
   store i8 0, ptr %98, align 1
-  br label %g_string_append_c_inline.exit213
+  br label %g_string_append_c_inline.exit212
 
 99:                                               ; preds = %88
   %100 = tail call ptr @g_string_insert_c(ptr noundef nonnull %11, i64 noundef -1, i8 noundef signext 36) #6
-  br label %g_string_append_c_inline.exit213
+  br label %g_string_append_c_inline.exit212
 
-g_string_append_c_inline.exit213:                 ; preds = %93, %99
+g_string_append_c_inline.exit212:                 ; preds = %93, %99
   %101 = load i64, ptr %13, align 8
   %102 = add i64 %101, 1
   %103 = load i64, ptr %14, align 8
   %104 = icmp ult i64 %102, %103
   br i1 %104, label %105, label %111
 
-105:                                              ; preds = %g_string_append_c_inline.exit213
+105:                                              ; preds = %g_string_append_c_inline.exit212
   %106 = load ptr, ptr %11, align 8
   store i64 %102, ptr %13, align 8
   %107 = getelementptr i8, ptr %106, i64 %101
@@ -250,7 +250,7 @@ g_string_append_c_inline.exit213:                 ; preds = %93, %99
   store i8 0, ptr %110, align 1
   br label %g_string_append_c_inline.exit.backedge
 
-111:                                              ; preds = %g_string_append_c_inline.exit213
+111:                                              ; preds = %g_string_append_c_inline.exit212
   %112 = tail call ptr @g_string_insert_c(ptr noundef nonnull %11, i64 noundef -1, i8 noundef signext %16) #6
   br label %g_string_append_c_inline.exit.backedge
 
@@ -305,7 +305,7 @@ g_string_append_c_inline.exit213:                 ; preds = %93, %99
   %140 = load ptr, ptr %.0168, align 8
   %141 = tail call fastcc ptr @dfilter_macro_resolve(ptr noundef %139, ptr noundef %140, ptr noundef %2)
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %.thread237, label %143
+  br i1 %142, label %.thread236, label %143
 
 143:                                              ; preds = %138
   %144 = tail call ptr @g_string_append(ptr noundef %11, ptr noundef nonnull %141) #6
@@ -321,25 +321,25 @@ g_string_append_c_inline.exit213:                 ; preds = %93, %99
 148:                                              ; preds = %146, %143
   %149 = getelementptr inbounds i8, ptr %.0168, i64 8
   %150 = load i32, ptr %149, align 8
-  %.not200299 = icmp eq i32 %150, 0
-  br i1 %.not200299, label %._crit_edge302, label %.lr.ph301
+  %.not200298 = icmp eq i32 %150, 0
+  br i1 %.not200298, label %._crit_edge301, label %.lr.ph300
 
-.lr.ph301:                                        ; preds = %148, %.lr.ph301
+.lr.ph300:                                        ; preds = %148, %.lr.ph300
   %151 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %151) #6
   %152 = load i32, ptr %149, align 8
   %.not200 = icmp eq i32 %152, 0
-  br i1 %.not200, label %._crit_edge302, label %.lr.ph301, !llvm.loop !4
+  br i1 %.not200, label %._crit_edge301, label %.lr.ph300, !llvm.loop !4
 
-._crit_edge302:                                   ; preds = %.lr.ph301, %148
+._crit_edge301:                                   ; preds = %.lr.ph300, %148
   %153 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
   br label %g_string_append_c_inline.exit.backedge
 
 154:                                              ; preds = %137
-  br i1 %.not210, label %323, label %.sink.split
+  br i1 %.not209, label %323, label %.sink.split
 
 155:                                              ; preds = %137
-  br i1 %.not210, label %323, label %.sink.split
+  br i1 %.not209, label %323, label %.sink.split
 
 156:                                              ; preds = %g_string_append_c_inline.exit
   %157 = zext i8 %16 to i64
@@ -397,13 +397,13 @@ g_string_append_c_inline.exit213:                 ; preds = %93, %99
   %188 = load i64, ptr %13, align 8
   %189 = getelementptr i8, ptr %187, i64 %188
   store i8 0, ptr %189, align 1
-  br label %g_string_append_c_inline.exit217
+  br label %g_string_append_c_inline.exit216
 
 190:                                              ; preds = %179
   %191 = tail call ptr @g_string_insert_c(ptr noundef nonnull %11, i64 noundef -1, i8 noundef signext 36) #6
-  br label %g_string_append_c_inline.exit217
+  br label %g_string_append_c_inline.exit216
 
-g_string_append_c_inline.exit217:                 ; preds = %184, %190
+g_string_append_c_inline.exit216:                 ; preds = %184, %190
   %192 = load ptr, ptr %.0163, align 8
   %193 = tail call ptr @g_string_append(ptr noundef nonnull %11, ptr noundef %192) #6
   %194 = load i64, ptr %13, align 8
@@ -412,7 +412,7 @@ g_string_append_c_inline.exit217:                 ; preds = %184, %190
   %197 = icmp ult i64 %195, %196
   br i1 %197, label %198, label %204
 
-198:                                              ; preds = %g_string_append_c_inline.exit217
+198:                                              ; preds = %g_string_append_c_inline.exit216
   %199 = load ptr, ptr %11, align 8
   store i64 %195, ptr %13, align 8
   %200 = getelementptr i8, ptr %199, i64 %194
@@ -421,45 +421,45 @@ g_string_append_c_inline.exit217:                 ; preds = %184, %190
   %202 = load i64, ptr %13, align 8
   %203 = getelementptr i8, ptr %201, i64 %202
   store i8 0, ptr %203, align 1
-  br label %g_string_append_c_inline.exit218
+  br label %g_string_append_c_inline.exit217
 
-204:                                              ; preds = %g_string_append_c_inline.exit217
+204:                                              ; preds = %g_string_append_c_inline.exit216
   %205 = tail call ptr @g_string_insert_c(ptr noundef nonnull %11, i64 noundef -1, i8 noundef signext %16) #6
-  br label %g_string_append_c_inline.exit218
+  br label %g_string_append_c_inline.exit217
 
-g_string_append_c_inline.exit218:                 ; preds = %198, %204
+g_string_append_c_inline.exit217:                 ; preds = %198, %204
   %206 = tail call ptr @g_string_free(ptr noundef nonnull %.0163, i32 noundef 1) #6
   %.not196 = icmp eq ptr %.0165, null
   br i1 %.not196, label %209, label %207
 
-207:                                              ; preds = %g_string_append_c_inline.exit218
+207:                                              ; preds = %g_string_append_c_inline.exit217
   %208 = tail call ptr @g_string_free(ptr noundef nonnull %.0165, i32 noundef 1) #6
   br label %209
 
-209:                                              ; preds = %207, %g_string_append_c_inline.exit218
+209:                                              ; preds = %207, %g_string_append_c_inline.exit217
   %.not197 = icmp eq ptr %.0168, null
-  br i1 %.not197, label %215, label %.preheader243
+  br i1 %.not197, label %215, label %.preheader242
 
-.preheader243:                                    ; preds = %209
+.preheader242:                                    ; preds = %209
   %210 = getelementptr inbounds i8, ptr %.0168, i64 8
   %211 = load i32, ptr %210, align 8
-  %.not198296 = icmp eq i32 %211, 0
-  br i1 %.not198296, label %._crit_edge298, label %.lr.ph297
+  %.not198295 = icmp eq i32 %211, 0
+  br i1 %.not198295, label %._crit_edge297, label %.lr.ph296
 
-.lr.ph297:                                        ; preds = %.preheader243, %.lr.ph297
+.lr.ph296:                                        ; preds = %.preheader242, %.lr.ph296
   %212 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %212) #6
   %213 = load i32, ptr %210, align 8
   %.not198 = icmp eq i32 %213, 0
-  br i1 %.not198, label %._crit_edge298, label %.lr.ph297, !llvm.loop !6
+  br i1 %.not198, label %._crit_edge297, label %.lr.ph296, !llvm.loop !6
 
-._crit_edge298:                                   ; preds = %.lr.ph297, %.preheader243
+._crit_edge297:                                   ; preds = %.lr.ph296, %.preheader242
   %214 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
   br label %215
 
-215:                                              ; preds = %._crit_edge298, %209
+215:                                              ; preds = %._crit_edge297, %209
   %216 = icmp eq i8 %16, 0
-  br i1 %216, label %.thread234, label %g_string_append_c_inline.exit.backedge
+  br i1 %216, label %.thread233, label %g_string_append_c_inline.exit.backedge
 
 217:                                              ; preds = %g_string_append_c_inline.exit
   switch i8 %16, label %288 [
@@ -472,7 +472,7 @@ g_string_append_c_inline.exit218:                 ; preds = %198, %204
   ]
 
 218:                                              ; preds = %217
-  br i1 %.not210, label %323, label %.sink.split
+  br i1 %.not209, label %323, label %.sink.split
 
 219:                                              ; preds = %217, %217
   %220 = getelementptr inbounds i8, ptr %.0165, i64 8
@@ -481,7 +481,7 @@ g_string_append_c_inline.exit218:                 ; preds = %198, %204
   br i1 %222, label %223, label %224
 
 223:                                              ; preds = %219
-  br i1 %.not210, label %323, label %.sink.split
+  br i1 %.not209, label %323, label %.sink.split
 
 224:                                              ; preds = %219
   %225 = tail call ptr @g_string_free(ptr noundef nonnull %.0165, i32 noundef 0) #6
@@ -520,7 +520,7 @@ g_string_append_c_inline.exit218:                 ; preds = %198, %204
   br label %g_string_append_c_inline.exit.backedge
 
 245:                                              ; preds = %227
-  br i1 %.not210, label %323, label %.sink.split
+  br i1 %.not209, label %323, label %.sink.split
 
 246:                                              ; preds = %217, %217
   switch i8 %.0177, label %248 [
@@ -536,8 +536,8 @@ g_string_append_c_inline.exit218:                 ; preds = %198, %204
   unreachable
 
 close_char.exit:                                  ; preds = %246, %247
-  %.0.i220 = phi i8 [ 125, %247 ], [ 41, %246 ]
-  %.not191 = icmp eq i8 %16, %.0.i220
+  %.0.i219 = phi i8 [ 125, %247 ], [ 41, %246 ]
+  %.not191 = icmp eq i8 %16, %.0.i219
   %249 = getelementptr inbounds i8, ptr %.0165, i64 8
   %250 = load i64, ptr %249, align 8
   br i1 %.not191, label %264, label %251
@@ -575,7 +575,7 @@ close_char.exit:                                  ; preds = %246, %247
   br i1 %.not192, label %272, label %269
 
 269:                                              ; preds = %266
-  br i1 %.not210, label %323, label %.sink.split
+  br i1 %.not209, label %323, label %.sink.split
 
 270:                                              ; preds = %264
   %271 = tail call ptr @g_string_free(ptr noundef nonnull %.0165, i32 noundef 0) #6
@@ -589,7 +589,7 @@ close_char.exit:                                  ; preds = %246, %247
   %274 = load ptr, ptr %.0168, align 8
   %275 = tail call fastcc ptr @dfilter_macro_resolve(ptr noundef %273, ptr noundef %274, ptr noundef %2)
   %276 = icmp eq ptr %275, null
-  br i1 %276, label %.thread237, label %277
+  br i1 %276, label %.thread236, label %277
 
 277:                                              ; preds = %272
   %278 = tail call ptr @g_string_append(ptr noundef %11, ptr noundef nonnull %275) #6
@@ -605,8 +605,8 @@ close_char.exit:                                  ; preds = %246, %247
 282:                                              ; preds = %280, %277
   %283 = getelementptr inbounds i8, ptr %.0168, i64 8
   %284 = load i32, ptr %283, align 8
-  %.not194295 = icmp eq i32 %284, 0
-  br i1 %.not194295, label %._crit_edge, label %.lr.ph
+  %.not194294 = icmp eq i32 %284, 0
+  br i1 %.not194294, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %282, %.lr.ph
   %285 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
@@ -643,25 +643,25 @@ close_char.exit:                                  ; preds = %246, %247
   %302 = tail call ptr @g_string_insert_c(ptr noundef nonnull %.0165, i64 noundef -1, i8 noundef signext %16) #6
   br label %g_string_append_c_inline.exit.backedge
 
-g_string_append_c_inline.exit.backedge:           ; preds = %301, %295, %262, %256, %243, %237, %176, %170, %133, %127, %111, %105, %86, %80, %29, %23, %215, %178, %178, %135, %17, %224, %._crit_edge, %._crit_edge302, %45, %start_is_field_reference.exit.thread, %g_string_append_c_inline.exit
-  %.0177.be = phi i8 [ %.0177, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ %.0177, %224 ], [ 0, %._crit_edge302 ], [ %.0177, %45 ], [ 123, %start_is_field_reference.exit.thread ], [ %.0177, %17 ], [ %.0177, %135 ], [ %16, %178 ], [ %16, %178 ], [ 0, %215 ], [ %.0177, %23 ], [ %.0177, %29 ], [ %.0177, %80 ], [ %.0177, %86 ], [ %.0177, %105 ], [ %.0177, %111 ], [ %.0177, %127 ], [ %.0177, %133 ], [ %.0177, %170 ], [ %.0177, %176 ], [ %.0177, %237 ], [ %.0177, %243 ], [ %.0177, %256 ], [ %.0177, %262 ], [ %.0177, %295 ], [ %.0177, %301 ]
-  %.0175.be = phi ptr [ %15, %g_string_append_c_inline.exit ], [ %15, %._crit_edge ], [ %15, %224 ], [ %15, %._crit_edge302 ], [ %15, %45 ], [ %15, %start_is_field_reference.exit.thread ], [ %15, %17 ], [ %15, %135 ], [ %15, %178 ], [ %15, %178 ], [ %15, %215 ], [ %15, %23 ], [ %15, %29 ], [ %15, %80 ], [ %15, %86 ], [ %15, %105 ], [ %15, %111 ], [ %15, %127 ], [ %15, %133 ], [ %15, %170 ], [ %15, %176 ], [ %230, %237 ], [ %230, %243 ], [ %15, %256 ], [ %15, %262 ], [ %15, %295 ], [ %15, %301 ]
-  %.0173.be = phi i8 [ %.0173, %g_string_append_c_inline.exit ], [ 1, %._crit_edge ], [ %.0173, %224 ], [ 1, %._crit_edge302 ], [ %.0173, %45 ], [ %.0173, %start_is_field_reference.exit.thread ], [ %.0173, %17 ], [ %.0173, %135 ], [ %.0173, %178 ], [ %.0173, %178 ], [ %.0173, %215 ], [ %.0173, %23 ], [ %.0173, %29 ], [ %.0173, %80 ], [ %.0173, %86 ], [ %.0173, %105 ], [ %.0173, %111 ], [ %.0173, %127 ], [ %.0173, %133 ], [ %.0173, %170 ], [ %.0173, %176 ], [ %.0173, %237 ], [ %.0173, %243 ], [ %.0173, %256 ], [ %.0173, %262 ], [ %.0173, %295 ], [ %.0173, %301 ]
-  %.0168.be = phi ptr [ %.0168, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0168, %224 ], [ null, %._crit_edge302 ], [ %.0168, %45 ], [ %47, %start_is_field_reference.exit.thread ], [ %.0168, %17 ], [ %.0168, %135 ], [ %.0168, %178 ], [ %.0168, %178 ], [ null, %215 ], [ %.0168, %23 ], [ %.0168, %29 ], [ %71, %80 ], [ %71, %86 ], [ %.0168, %105 ], [ %.0168, %111 ], [ %.0168, %127 ], [ %.0168, %133 ], [ %.0168, %170 ], [ %.0168, %176 ], [ %.0168, %237 ], [ %.0168, %243 ], [ %.0168, %256 ], [ %.0168, %262 ], [ %.0168, %295 ], [ %.0168, %301 ]
-  %.0165.be = phi ptr [ %.0165, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %226, %224 ], [ null, %._crit_edge302 ], [ %.0165, %45 ], [ %48, %start_is_field_reference.exit.thread ], [ %.0165, %17 ], [ %.0165, %135 ], [ %.0165, %178 ], [ %.0165, %178 ], [ null, %215 ], [ %.0165, %23 ], [ %.0165, %29 ], [ %72, %80 ], [ %72, %86 ], [ %.0165, %105 ], [ %.0165, %111 ], [ %.0165, %127 ], [ %.0165, %133 ], [ %.0165, %170 ], [ %.0165, %176 ], [ %.0165, %237 ], [ %.0165, %243 ], [ %.0165, %256 ], [ %.0165, %262 ], [ %.0165, %295 ], [ %.0165, %301 ]
-  %.0163.be = phi ptr [ %.0163, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0163, %224 ], [ null, %._crit_edge302 ], [ %.0163, %45 ], [ %49, %start_is_field_reference.exit.thread ], [ %.0163, %17 ], [ %.0163, %135 ], [ %.0163, %178 ], [ %.0163, %178 ], [ null, %215 ], [ %.0163, %23 ], [ %.0163, %29 ], [ %73, %80 ], [ %73, %86 ], [ %.0163, %105 ], [ %.0163, %111 ], [ %.0163, %127 ], [ %.0163, %133 ], [ %.0163, %170 ], [ %.0163, %176 ], [ %.0163, %237 ], [ %.0163, %243 ], [ %.0163, %256 ], [ %.0163, %262 ], [ %.0163, %295 ], [ %.0163, %301 ]
-  %.0162.be = phi i32 [ %.0162, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ 4, %224 ], [ 0, %._crit_edge302 ], [ 0, %45 ], [ 2, %start_is_field_reference.exit.thread ], [ 1, %17 ], [ 4, %135 ], [ 4, %178 ], [ 4, %178 ], [ 0, %215 ], [ 0, %23 ], [ 0, %29 ], [ 3, %80 ], [ 3, %86 ], [ 0, %105 ], [ 0, %111 ], [ 2, %127 ], [ 2, %133 ], [ 3, %170 ], [ 3, %176 ], [ 4, %237 ], [ 4, %243 ], [ 4, %256 ], [ 4, %262 ], [ 4, %295 ], [ 4, %301 ]
+g_string_append_c_inline.exit.backedge:           ; preds = %301, %295, %262, %256, %243, %237, %176, %170, %133, %127, %111, %105, %86, %80, %29, %23, %215, %178, %178, %135, %17, %224, %._crit_edge, %._crit_edge301, %45, %start_is_field_reference.exit.thread, %g_string_append_c_inline.exit
+  %.0177.be = phi i8 [ %.0177, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ %.0177, %224 ], [ 0, %._crit_edge301 ], [ %.0177, %45 ], [ 123, %start_is_field_reference.exit.thread ], [ %.0177, %17 ], [ %.0177, %135 ], [ %16, %178 ], [ %16, %178 ], [ 0, %215 ], [ %.0177, %23 ], [ %.0177, %29 ], [ %.0177, %80 ], [ %.0177, %86 ], [ %.0177, %105 ], [ %.0177, %111 ], [ %.0177, %127 ], [ %.0177, %133 ], [ %.0177, %170 ], [ %.0177, %176 ], [ %.0177, %237 ], [ %.0177, %243 ], [ %.0177, %256 ], [ %.0177, %262 ], [ %.0177, %295 ], [ %.0177, %301 ]
+  %.0175.be = phi ptr [ %15, %g_string_append_c_inline.exit ], [ %15, %._crit_edge ], [ %15, %224 ], [ %15, %._crit_edge301 ], [ %15, %45 ], [ %15, %start_is_field_reference.exit.thread ], [ %15, %17 ], [ %15, %135 ], [ %15, %178 ], [ %15, %178 ], [ %15, %215 ], [ %15, %23 ], [ %15, %29 ], [ %15, %80 ], [ %15, %86 ], [ %15, %105 ], [ %15, %111 ], [ %15, %127 ], [ %15, %133 ], [ %15, %170 ], [ %15, %176 ], [ %230, %237 ], [ %230, %243 ], [ %15, %256 ], [ %15, %262 ], [ %15, %295 ], [ %15, %301 ]
+  %.0173.be = phi i1 [ %.0173, %g_string_append_c_inline.exit ], [ true, %._crit_edge ], [ %.0173, %224 ], [ true, %._crit_edge301 ], [ %.0173, %45 ], [ %.0173, %start_is_field_reference.exit.thread ], [ %.0173, %17 ], [ %.0173, %135 ], [ %.0173, %178 ], [ %.0173, %178 ], [ %.0173, %215 ], [ %.0173, %23 ], [ %.0173, %29 ], [ %.0173, %80 ], [ %.0173, %86 ], [ %.0173, %105 ], [ %.0173, %111 ], [ %.0173, %127 ], [ %.0173, %133 ], [ %.0173, %170 ], [ %.0173, %176 ], [ %.0173, %237 ], [ %.0173, %243 ], [ %.0173, %256 ], [ %.0173, %262 ], [ %.0173, %295 ], [ %.0173, %301 ]
+  %.0168.be = phi ptr [ %.0168, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0168, %224 ], [ null, %._crit_edge301 ], [ %.0168, %45 ], [ %47, %start_is_field_reference.exit.thread ], [ %.0168, %17 ], [ %.0168, %135 ], [ %.0168, %178 ], [ %.0168, %178 ], [ null, %215 ], [ %.0168, %23 ], [ %.0168, %29 ], [ %71, %80 ], [ %71, %86 ], [ %.0168, %105 ], [ %.0168, %111 ], [ %.0168, %127 ], [ %.0168, %133 ], [ %.0168, %170 ], [ %.0168, %176 ], [ %.0168, %237 ], [ %.0168, %243 ], [ %.0168, %256 ], [ %.0168, %262 ], [ %.0168, %295 ], [ %.0168, %301 ]
+  %.0165.be = phi ptr [ %.0165, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %226, %224 ], [ null, %._crit_edge301 ], [ %.0165, %45 ], [ %48, %start_is_field_reference.exit.thread ], [ %.0165, %17 ], [ %.0165, %135 ], [ %.0165, %178 ], [ %.0165, %178 ], [ null, %215 ], [ %.0165, %23 ], [ %.0165, %29 ], [ %72, %80 ], [ %72, %86 ], [ %.0165, %105 ], [ %.0165, %111 ], [ %.0165, %127 ], [ %.0165, %133 ], [ %.0165, %170 ], [ %.0165, %176 ], [ %.0165, %237 ], [ %.0165, %243 ], [ %.0165, %256 ], [ %.0165, %262 ], [ %.0165, %295 ], [ %.0165, %301 ]
+  %.0163.be = phi ptr [ %.0163, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0163, %224 ], [ null, %._crit_edge301 ], [ %.0163, %45 ], [ %49, %start_is_field_reference.exit.thread ], [ %.0163, %17 ], [ %.0163, %135 ], [ %.0163, %178 ], [ %.0163, %178 ], [ null, %215 ], [ %.0163, %23 ], [ %.0163, %29 ], [ %73, %80 ], [ %73, %86 ], [ %.0163, %105 ], [ %.0163, %111 ], [ %.0163, %127 ], [ %.0163, %133 ], [ %.0163, %170 ], [ %.0163, %176 ], [ %.0163, %237 ], [ %.0163, %243 ], [ %.0163, %256 ], [ %.0163, %262 ], [ %.0163, %295 ], [ %.0163, %301 ]
+  %.0162.be = phi i32 [ %.0162, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ 4, %224 ], [ 0, %._crit_edge301 ], [ 0, %45 ], [ 2, %start_is_field_reference.exit.thread ], [ 1, %17 ], [ 4, %135 ], [ 4, %178 ], [ 4, %178 ], [ 0, %215 ], [ 0, %23 ], [ 0, %29 ], [ 3, %80 ], [ 3, %86 ], [ 0, %105 ], [ 0, %111 ], [ 2, %127 ], [ 2, %133 ], [ 3, %170 ], [ 3, %176 ], [ 4, %237 ], [ 4, %243 ], [ 4, %256 ], [ 4, %262 ], [ 4, %295 ], [ 4, %301 ]
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit211:                 ; preds = %17, %61, %55
+g_string_append_c_inline.exit210:                 ; preds = %17, %61, %55
   %.not205 = icmp eq ptr %.0163, null
   br i1 %.not205, label %305, label %303
 
-303:                                              ; preds = %g_string_append_c_inline.exit211
+303:                                              ; preds = %g_string_append_c_inline.exit210
   %304 = tail call ptr @g_string_free(ptr noundef nonnull %.0163, i32 noundef 1) #6
   br label %305
 
-305:                                              ; preds = %303, %g_string_append_c_inline.exit211
+305:                                              ; preds = %303, %g_string_append_c_inline.exit210
   %.not206 = icmp eq ptr %.0165, null
   br i1 %.not206, label %308, label %306
 
@@ -671,44 +671,43 @@ g_string_append_c_inline.exit211:                 ; preds = %17, %61, %55
 
 308:                                              ; preds = %306, %305
   %.not207 = icmp eq ptr %.0168, null
-  br i1 %.not207, label %.thread234, label %.preheader
+  br i1 %.not207, label %.thread233, label %.preheader
 
 .preheader:                                       ; preds = %308
   %309 = getelementptr inbounds i8, ptr %.0168, i64 8
   %310 = load i32, ptr %309, align 8
-  %.not208306 = icmp eq i32 %310, 0
-  br i1 %.not208306, label %._crit_edge308, label %.lr.ph307
+  %.not208305 = icmp eq i32 %310, 0
+  br i1 %.not208305, label %._crit_edge307, label %.lr.ph306
 
-.lr.ph307:                                        ; preds = %.preheader, %.lr.ph307
+.lr.ph306:                                        ; preds = %.preheader, %.lr.ph306
   %311 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %311) #6
   %312 = load i32, ptr %309, align 8
   %.not208 = icmp eq i32 %312, 0
-  br i1 %.not208, label %._crit_edge308, label %.lr.ph307, !llvm.loop !8
+  br i1 %.not208, label %._crit_edge307, label %.lr.ph306, !llvm.loop !8
 
-._crit_edge308:                                   ; preds = %.lr.ph307, %.preheader
+._crit_edge307:                                   ; preds = %.lr.ph306, %.preheader
   %313 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
-  br label %.thread234
+  br label %.thread233
 
-.thread234:                                       ; preds = %215, %._crit_edge308, %308
-  %.not209 = icmp eq i8 %.0173, 0
+.thread233:                                       ; preds = %215, %._crit_edge307, %308
   %314 = load ptr, ptr %11, align 8
-  br i1 %.not209, label %319, label %315
+  br i1 %.0173, label %315, label %319
 
-common.ret573:                                    ; preds = %5, %6, %340, %319, %315
-  %common.ret573.op = phi ptr [ %317, %315 ], [ null, %340 ], [ %320, %319 ], [ null, %6 ], [ null, %5 ]
-  ret ptr %common.ret573.op
+common.ret572:                                    ; preds = %5, %6, %340, %319, %315
+  %common.ret572.op = phi ptr [ %317, %315 ], [ null, %340 ], [ %320, %319 ], [ null, %6 ], [ null, %5 ]
+  ret ptr %common.ret572.op
 
-315:                                              ; preds = %.thread234
+315:                                              ; preds = %.thread233
   %316 = add nuw nsw i32 %1, 1
   %317 = tail call fastcc ptr @dfilter_macro_apply_recurse(ptr noundef %314, i32 noundef %316, ptr noundef %2)
   %318 = tail call ptr @g_string_free(ptr noundef nonnull %11, i32 noundef 1) #6
-  br label %common.ret573
+  br label %common.ret572
 
-319:                                              ; preds = %.thread234
+319:                                              ; preds = %.thread233
   %320 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %314) #6
   %321 = tail call ptr @g_string_free(ptr noundef nonnull %11, i32 noundef 1) #6
-  br label %common.ret573
+  br label %common.ret572
 
 .sink.split:                                      ; preds = %269, %245, %223, %218, %155, %154
   %.str.6.sink = phi ptr [ @.str.6, %154 ], [ @.str.7, %155 ], [ @.str.6, %218 ], [ @.str.8, %223 ], [ @.str.6, %245 ], [ @.str.8, %269 ]
@@ -718,45 +717,45 @@ common.ret573:                                    ; preds = %5, %6, %340, %319, 
 
 323:                                              ; preds = %.sink.split, %154, %155, %218, %223, %245, %269
   %.not201 = icmp eq ptr %.0163, null
-  br i1 %.not201, label %325, label %.thread237
+  br i1 %.not201, label %325, label %.thread236
 
-.thread237:                                       ; preds = %272, %138, %323
-  %.4240 = phi ptr [ %.0165, %323 ], [ %.1166, %272 ], [ %.0165, %138 ]
+.thread236:                                       ; preds = %272, %138, %323
+  %.4239 = phi ptr [ %.0165, %323 ], [ %.1166, %272 ], [ %.0165, %138 ]
   %324 = tail call ptr @g_string_free(ptr noundef nonnull %.0163, i32 noundef 1) #6
   br label %325
 
-325:                                              ; preds = %.thread237, %323
-  %.4241 = phi ptr [ %.4240, %.thread237 ], [ %.0165, %323 ]
-  %.not202 = icmp eq ptr %.4241, null
+325:                                              ; preds = %.thread236, %323
+  %.4240 = phi ptr [ %.4239, %.thread236 ], [ %.0165, %323 ]
+  %.not202 = icmp eq ptr %.4240, null
   br i1 %.not202, label %328, label %326
 
 326:                                              ; preds = %325
-  %327 = tail call ptr @g_string_free(ptr noundef nonnull %.4241, i32 noundef 1) #6
+  %327 = tail call ptr @g_string_free(ptr noundef nonnull %.4240, i32 noundef 1) #6
   br label %328
 
 328:                                              ; preds = %326, %325
   %.not203 = icmp eq ptr %.0168, null
-  br i1 %.not203, label %334, label %.preheader242
+  br i1 %.not203, label %334, label %.preheader241
 
-.preheader242:                                    ; preds = %328
+.preheader241:                                    ; preds = %328
   %329 = getelementptr inbounds i8, ptr %.0168, i64 8
   %330 = load i32, ptr %329, align 8
-  %.not204303 = icmp eq i32 %330, 0
-  br i1 %.not204303, label %._crit_edge305, label %.lr.ph304
+  %.not204302 = icmp eq i32 %330, 0
+  br i1 %.not204302, label %._crit_edge304, label %.lr.ph303
 
-.lr.ph304:                                        ; preds = %.preheader242, %.lr.ph304
+.lr.ph303:                                        ; preds = %.preheader241, %.lr.ph303
   %331 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %331) #6
   %332 = load i32, ptr %329, align 8
   %.not204 = icmp eq i32 %332, 0
-  br i1 %.not204, label %._crit_edge305, label %.lr.ph304, !llvm.loop !9
+  br i1 %.not204, label %._crit_edge304, label %.lr.ph303, !llvm.loop !9
 
-._crit_edge305:                                   ; preds = %.lr.ph304, %.preheader242
+._crit_edge304:                                   ; preds = %.lr.ph303, %.preheader241
   %333 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
   br label %334
 
-334:                                              ; preds = %._crit_edge305, %328
-  br i1 %.not210, label %340, label %335
+334:                                              ; preds = %._crit_edge304, %328
+  br i1 %.not209, label %340, label %335
 
 335:                                              ; preds = %334
   %336 = load ptr, ptr %2, align 8
@@ -770,7 +769,7 @@ common.ret573:                                    ; preds = %5, %6, %340, %319, 
 
 340:                                              ; preds = %335, %338, %334
   %341 = tail call ptr @g_string_free(ptr noundef %11, i32 noundef 1) #6
-  br label %common.ret573
+  br label %common.ret572
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1143,13 +1142,12 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not37 = icmp eq i8 %9, 0
-  br i1 %.not37, label %10, label %13
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %13, label %10
 
 10:                                               ; preds = %6, %3
-  %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %41, label %11
+  %.not37 = icmp eq ptr %2, null
+  br i1 %.not37, label %41, label %11
 
 11:                                               ; preds = %10
   %12 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %0) #6
@@ -1157,63 +1155,63 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
   br label %41
 
 13:                                               ; preds = %6
-  %.not39 = icmp eq ptr %1, null
-  br i1 %.not39, label %.loopexit45, label %.preheader44
+  %.not38 = icmp eq ptr %1, null
+  br i1 %.not38, label %.loopexit44, label %.preheader43
 
-.preheader44:                                     ; preds = %13, %.preheader44
-  %.031 = phi i32 [ %17, %.preheader44 ], [ 0, %13 ]
+.preheader43:                                     ; preds = %13, %.preheader43
+  %.031 = phi i32 [ %17, %.preheader43 ], [ 0, %13 ]
   %14 = sext i32 %.031 to i64
   %15 = getelementptr ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %.not40 = icmp eq ptr %16, null
+  %.not39 = icmp eq ptr %16, null
   %17 = add i32 %.031, 1
-  br i1 %.not40, label %.loopexit45, label %.preheader44, !llvm.loop !14
+  br i1 %.not39, label %.loopexit44, label %.preheader43, !llvm.loop !14
 
-.loopexit45:                                      ; preds = %.preheader44, %13
-  %.1 = phi i32 [ 0, %13 ], [ %.031, %.preheader44 ]
+.loopexit44:                                      ; preds = %.preheader43, %13
+  %.1 = phi i32 [ 0, %13 ], [ %.031, %.preheader43 ]
   %18 = getelementptr inbounds i8, ptr %5, i64 40
   %19 = load i32, ptr %18, align 8
-  %.not41 = icmp eq i32 %.1, %19
-  br i1 %.not41, label %23, label %20
+  %.not40 = icmp eq i32 %.1, %19
+  br i1 %.not40, label %23, label %20
 
-20:                                               ; preds = %.loopexit45
-  %.not43 = icmp eq ptr %2, null
-  br i1 %.not43, label %41, label %21
+20:                                               ; preds = %.loopexit44
+  %.not42 = icmp eq ptr %2, null
+  br i1 %.not42, label %41, label %21
 
 21:                                               ; preds = %20
   %22 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %19, i32 noundef %.1) #6
   store ptr %22, ptr %2, align 8
   br label %41
 
-23:                                               ; preds = %.loopexit45
+23:                                               ; preds = %.loopexit44
   %24 = getelementptr inbounds i8, ptr %5, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @g_string_new(ptr noundef %28) #6
-  br i1 %.not39, label %.loopexit, label %.preheader
+  br i1 %.not38, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %23
-  %.02946 = getelementptr i8, ptr %27, i64 8
-  %30 = load ptr, ptr %.02946, align 8
-  %.not4247 = icmp eq ptr %30, null
-  br i1 %.not4247, label %.loopexit, label %.lr.ph
+  %.02945 = getelementptr i8, ptr %27, i64 8
+  %30 = load ptr, ptr %.02945, align 8
+  %.not4146 = icmp eq ptr %30, null
+  br i1 %.not4146, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %31 = phi ptr [ %37, %.lr.ph ], [ %30, %.preheader ]
-  %.02949 = phi ptr [ %.029, %.lr.ph ], [ %.02946, %.preheader ]
-  %.03048 = phi ptr [ %32, %.lr.ph ], [ %25, %.preheader ]
-  %32 = getelementptr i8, ptr %.03048, i64 4
-  %33 = load i32, ptr %.03048, align 4
+  %.02948 = phi ptr [ %.029, %.lr.ph ], [ %.02945, %.preheader ]
+  %.03047 = phi ptr [ %32, %.lr.ph ], [ %25, %.preheader ]
+  %32 = getelementptr i8, ptr %.03047, i64 4
+  %33 = load i32, ptr %.03047, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr ptr, ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef %36, ptr noundef nonnull %31) #6
-  %.029 = getelementptr i8, ptr %.02949, i64 8
+  %.029 = getelementptr i8, ptr %.02948, i64 8
   %37 = load ptr, ptr %.029, align 8
-  %.not42 = icmp eq ptr %37, null
-  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  %.not41 = icmp eq ptr %37, null
+  br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %23
   %38 = load ptr, ptr %29, align 8

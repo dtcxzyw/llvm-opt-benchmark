@@ -670,37 +670,36 @@ define noundef i32 @_ZN3zmq9mailbox_t4recvEPNS_9command_tEi(ptr noundef nonnull 
 entry:
   %_active = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %_active, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end4, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %_queue.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_queue.i.i, align 8
+  %1 = load ptr, ptr %_queue.i.i, align 8
   %_begin_pos.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load i32, ptr %_begin_pos.i.i.i, align 8
-  %idxprom.i.i.i = sext i32 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %2, i64 0, i64 %idxprom.i.i.i
+  %2 = load i32, ptr %_begin_pos.i.i.i, align 8
+  %idxprom.i.i.i = sext i32 %2 to i64
+  %arrayidx.i.i.i = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %1, i64 0, i64 %idxprom.i.i.i
   %_r.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load ptr, ptr %_r.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %arrayidx.i.i.i, %4
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_r.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %arrayidx.i.i.i, %3
+  %tobool.not.i.i = icmp eq ptr %3, null
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i, label %if.end.i
 
 _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i: ; preds = %if.then
   %_c.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %5 = ptrtoint ptr %arrayidx.i.i.i to i64
-  %6 = cmpxchg ptr %_c.i.i, i64 %5, i64 0 acq_rel acquire, align 8
-  %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = inttoptr i64 %8 to ptr
-  %cmp_.addr.0.i.i.i = select i1 %7, ptr %arrayidx.i.i.i, ptr %9
+  %4 = ptrtoint ptr %arrayidx.i.i.i to i64
+  %5 = cmpxchg ptr %_c.i.i, i64 %4, i64 0 acq_rel acquire, align 8
+  %6 = extractvalue { i64, i1 } %5, 1
+  %7 = extractvalue { i64, i1 } %5, 0
+  %8 = inttoptr i64 %7 to ptr
+  %cmp_.addr.0.i.i.i = select i1 %6, ptr %arrayidx.i.i.i, ptr %8
   store ptr %cmp_.addr.0.i.i.i, ptr %_r.i.i, align 8
-  %10 = load ptr, ptr %_queue.i.i, align 8
-  %11 = load i32, ptr %_begin_pos.i.i.i, align 8
-  %idxprom.i7.i.i = sext i32 %11 to i64
-  %arrayidx.i8.i.i = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %10, i64 0, i64 %idxprom.i7.i.i
+  %9 = load ptr, ptr %_queue.i.i, align 8
+  %10 = load i32, ptr %_begin_pos.i.i.i, align 8
+  %idxprom.i7.i.i = sext i32 %10 to i64
+  %arrayidx.i8.i.i = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %9, i64 0, i64 %idxprom.i7.i.i
   %cmp10.i.i = icmp ne ptr %arrayidx.i8.i.i, %cmp_.addr.0.i.i.i
   %tobool12.not.i.i = icmp ne ptr %cmp_.addr.0.i.i.i, null
   %or.cond2.not.i.i = and i1 %tobool12.not.i.i, %cmp10.i.i
@@ -708,27 +707,27 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i: ; preds = %if.then
 
 if.end.i:                                         ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i, %if.then
   %idxprom.i.pre-phi.i = phi i64 [ %idxprom.i.i.i, %if.then ], [ %idxprom.i7.i.i, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
-  %12 = phi ptr [ %2, %if.then ], [ %10, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
-  %arrayidx.i.i = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %12, i64 0, i64 %idxprom.i.pre-phi.i
+  %11 = phi ptr [ %1, %if.then ], [ %9, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
+  %arrayidx.i.i = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %11, i64 0, i64 %idxprom.i.pre-phi.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %cmd_, ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i.i, i64 64, i1 false)
-  %13 = load i32, ptr %_begin_pos.i.i.i, align 8
-  %inc.i.i = add nsw i32 %13, 1
+  %12 = load i32, ptr %_begin_pos.i.i.i, align 8
+  %inc.i.i = add nsw i32 %12, 1
   store i32 %inc.i.i, ptr %_begin_pos.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %inc.i.i, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %14 = load ptr, ptr %_queue.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %14, i64 1032
-  %15 = load ptr, ptr %next.i.i, align 8
-  store ptr %15, ptr %_queue.i.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %15, i64 1024
+  %13 = load ptr, ptr %_queue.i.i, align 8
+  %next.i.i = getelementptr inbounds i8, ptr %13, i64 1032
+  %14 = load ptr, ptr %next.i.i, align 8
+  store ptr %14, ptr %_queue.i.i, align 8
+  %prev.i.i = getelementptr inbounds i8, ptr %14, i64 1024
   store ptr null, ptr %prev.i.i, align 64
   store i32 0, ptr %_begin_pos.i.i.i, align 8
   %_spare_chunk.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = atomicrmw xchg ptr %_spare_chunk.i.i, i64 %16 acq_rel, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %17 to ptr
+  %15 = ptrtoint ptr %13 to i64
+  %16 = atomicrmw xchg ptr %_spare_chunk.i.i, i64 %15 acq_rel, align 8
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %16 to ptr
   tail call void @free(ptr noundef %atomic-temp.i.0.i.i.i.i) #12
   br label %return
 
@@ -744,18 +743,18 @@ if.end4:                                          ; preds = %if.end, %entry
 
 do.body:                                          ; preds = %if.end4
   %call7 = tail call ptr @__errno_location() #15
-  %18 = load i32, ptr %call7, align 4
-  switch i32 %18, label %if.then11 [
+  %17 = load i32, ptr %call7, align 4
+  switch i32 %17, label %if.then11 [
     i32 11, label %return
     i32 4, label %return
   ]
 
 if.then11:                                        ; preds = %do.body
-  %call13 = tail call ptr @strerror(i32 noundef %18) #12
+  %call13 = tail call ptr @strerror(i32 noundef %17) #12
+  %18 = load ptr, ptr @stderr, align 8
+  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %call13, ptr noundef nonnull @.str.2, i32 noundef 56) #11
   %19 = load ptr, ptr @stderr, align 8
-  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef %call13, ptr noundef nonnull @.str.2, i32 noundef 56) #11
-  %20 = load ptr, ptr @stderr, align 8
-  %call15 = tail call i32 @fflush(ptr noundef %20)
+  %call15 = tail call i32 @fflush(ptr noundef %19)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call13)
   br label %return
 
@@ -766,47 +765,47 @@ if.end17:                                         ; preds = %if.end4
 
 do.body22:                                        ; preds = %if.end17
   %call23 = tail call ptr @__errno_location() #15
-  %21 = load i32, ptr %call23, align 4
-  %cmp24.not = icmp eq i32 %21, 11
+  %20 = load i32, ptr %call23, align 4
+  %cmp24.not = icmp eq i32 %20, 11
   br i1 %cmp24.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %do.body22
-  %call29 = tail call ptr @strerror(i32 noundef %21) #12
+  %call29 = tail call ptr @strerror(i32 noundef %20) #12
+  %21 = load ptr, ptr @stderr, align 8
+  %call30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.3, ptr noundef %call29, ptr noundef nonnull @.str.2, i32 noundef 63) #11
   %22 = load ptr, ptr @stderr, align 8
-  %call30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %call29, ptr noundef nonnull @.str.2, i32 noundef 63) #11
-  %23 = load ptr, ptr @stderr, align 8
-  %call31 = tail call i32 @fflush(ptr noundef %23)
+  %call31 = tail call i32 @fflush(ptr noundef %22)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call29)
   br label %return
 
 if.end34:                                         ; preds = %if.end17
   store i8 1, ptr %_active, align 8
   %_queue.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
-  %24 = load ptr, ptr %_queue.i.i5, align 8
+  %23 = load ptr, ptr %_queue.i.i5, align 8
   %_begin_pos.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 24
-  %25 = load i32, ptr %_begin_pos.i.i.i6, align 8
-  %idxprom.i.i.i7 = sext i32 %25 to i64
-  %arrayidx.i.i.i8 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %24, i64 0, i64 %idxprom.i.i.i7
+  %24 = load i32, ptr %_begin_pos.i.i.i6, align 8
+  %idxprom.i.i.i7 = sext i32 %24 to i64
+  %arrayidx.i.i.i8 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %23, i64 0, i64 %idxprom.i.i.i7
   %_r.i.i9 = getelementptr inbounds i8, ptr %this, i64 80
-  %26 = load ptr, ptr %_r.i.i9, align 8
-  %cmp.not.i.i10 = icmp eq ptr %arrayidx.i.i.i8, %26
-  %tobool.not.i.i11 = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_r.i.i9, align 8
+  %cmp.not.i.i10 = icmp eq ptr %arrayidx.i.i.i8, %25
+  %tobool.not.i.i11 = icmp eq ptr %25, null
   %or.cond.i.i12 = or i1 %tobool.not.i.i11, %cmp.not.i.i10
   br i1 %or.cond.i.i12, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24, label %if.end.i13
 
 _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24: ; preds = %if.end34
   %_c.i.i25 = getelementptr inbounds i8, ptr %this, i64 96
-  %27 = ptrtoint ptr %arrayidx.i.i.i8 to i64
-  %28 = cmpxchg ptr %_c.i.i25, i64 %27, i64 0 acq_rel acquire, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  %30 = extractvalue { i64, i1 } %28, 0
-  %31 = inttoptr i64 %30 to ptr
-  %cmp_.addr.0.i.i.i26 = select i1 %29, ptr %arrayidx.i.i.i8, ptr %31
+  %26 = ptrtoint ptr %arrayidx.i.i.i8 to i64
+  %27 = cmpxchg ptr %_c.i.i25, i64 %26, i64 0 acq_rel acquire, align 8
+  %28 = extractvalue { i64, i1 } %27, 1
+  %29 = extractvalue { i64, i1 } %27, 0
+  %30 = inttoptr i64 %29 to ptr
+  %cmp_.addr.0.i.i.i26 = select i1 %28, ptr %arrayidx.i.i.i8, ptr %30
   store ptr %cmp_.addr.0.i.i.i26, ptr %_r.i.i9, align 8
-  %32 = load ptr, ptr %_queue.i.i5, align 8
-  %33 = load i32, ptr %_begin_pos.i.i.i6, align 8
-  %idxprom.i7.i.i27 = sext i32 %33 to i64
-  %arrayidx.i8.i.i28 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %32, i64 0, i64 %idxprom.i7.i.i27
+  %31 = load ptr, ptr %_queue.i.i5, align 8
+  %32 = load i32, ptr %_begin_pos.i.i.i6, align 8
+  %idxprom.i7.i.i27 = sext i32 %32 to i64
+  %arrayidx.i8.i.i28 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %31, i64 0, i64 %idxprom.i7.i.i27
   %cmp10.i.i29 = icmp ne ptr %arrayidx.i8.i.i28, %cmp_.addr.0.i.i.i26
   %tobool12.not.i.i30 = icmp ne ptr %cmp_.addr.0.i.i.i26, null
   %or.cond2.not.i.i31 = and i1 %tobool12.not.i.i30, %cmp10.i.i29
@@ -814,35 +813,35 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24: ; preds = %if.end34
 
 if.end.i13:                                       ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24, %if.end34
   %idxprom.i.pre-phi.i14 = phi i64 [ %idxprom.i.i.i7, %if.end34 ], [ %idxprom.i7.i.i27, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24 ]
-  %34 = phi ptr [ %24, %if.end34 ], [ %32, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24 ]
-  %arrayidx.i.i15 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %34, i64 0, i64 %idxprom.i.pre-phi.i14
+  %33 = phi ptr [ %23, %if.end34 ], [ %31, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24 ]
+  %arrayidx.i.i15 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %33, i64 0, i64 %idxprom.i.pre-phi.i14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %cmd_, ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i.i15, i64 64, i1 false)
-  %35 = load i32, ptr %_begin_pos.i.i.i6, align 8
-  %inc.i.i16 = add nsw i32 %35, 1
+  %34 = load i32, ptr %_begin_pos.i.i.i6, align 8
+  %inc.i.i16 = add nsw i32 %34, 1
   store i32 %inc.i.i16, ptr %_begin_pos.i.i.i6, align 8
   %cmp.i.i17 = icmp eq i32 %inc.i.i16, 16
   br i1 %cmp.i.i17, label %if.then.i.i19, label %return
 
 if.then.i.i19:                                    ; preds = %if.end.i13
-  %36 = load ptr, ptr %_queue.i.i5, align 8
-  %next.i.i20 = getelementptr inbounds i8, ptr %36, i64 1032
-  %37 = load ptr, ptr %next.i.i20, align 8
-  store ptr %37, ptr %_queue.i.i5, align 8
-  %prev.i.i21 = getelementptr inbounds i8, ptr %37, i64 1024
+  %35 = load ptr, ptr %_queue.i.i5, align 8
+  %next.i.i20 = getelementptr inbounds i8, ptr %35, i64 1032
+  %36 = load ptr, ptr %next.i.i20, align 8
+  store ptr %36, ptr %_queue.i.i5, align 8
+  %prev.i.i21 = getelementptr inbounds i8, ptr %36, i64 1024
   store ptr null, ptr %prev.i.i21, align 64
   store i32 0, ptr %_begin_pos.i.i.i6, align 8
   %_spare_chunk.i.i22 = getelementptr inbounds i8, ptr %this, i64 64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = atomicrmw xchg ptr %_spare_chunk.i.i22, i64 %38 acq_rel, align 8
-  %atomic-temp.i.0.i.i.i.i23 = inttoptr i64 %39 to ptr
+  %37 = ptrtoint ptr %35 to i64
+  %38 = atomicrmw xchg ptr %_spare_chunk.i.i22, i64 %37 acq_rel, align 8
+  %atomic-temp.i.0.i.i.i.i23 = inttoptr i64 %38 to ptr
   tail call void @free(ptr noundef %atomic-temp.i.0.i.i.i.i23) #12
   br label %return
 
 if.then41:                                        ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i24
+  %39 = load ptr, ptr @stderr, align 8
+  %call42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 72) #11
   %40 = load ptr, ptr @stderr, align 8
-  %call42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 72) #11
-  %41 = load ptr, ptr @stderr, align 8
-  %call43 = tail call i32 @fflush(ptr noundef %41)
+  %call43 = tail call i32 @fflush(ptr noundef %40)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
   br label %return
 

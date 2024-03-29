@@ -99,9 +99,8 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds i8, ptr %41, i64 100
   %46 = load i8, ptr %45, align 4
-  %47 = and i8 %46, 1
-  %.not43.i = icmp eq i8 %47, 0
-  br i1 %.not43.i, label %53, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %53
 
 48:                                               ; preds = %44, %35
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -217,7 +216,7 @@ fetch_fp_info.exit:                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %106 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #12
   %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %108, label %.loopexit.i53
+  br i1 %107, label %108, label %.loopexit.i51
 
 108:                                              ; preds = %102
   %109 = shl nuw i32 %106, 1
@@ -234,9 +233,9 @@ fetch_fp_info.exit:                               ; preds = %53
   store i16 %114, ptr %115, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i53, label %112, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.loopexit.i51, label %112, !llvm.loop !5
 
-.loopexit.i53:                                    ; preds = %112, %102
+.loopexit.i51:                                    ; preds = %112, %102
   %.066.i = phi ptr [ null, %102 ], [ %111, %112 ]
   %116 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #12
   %117 = getelementptr inbounds i8, ptr %13, i64 20
@@ -247,7 +246,7 @@ fetch_fp_info.exit:                               ; preds = %53
   %or.cond.i = or i1 %121, %120
   br i1 %or.cond.i, label %122, label %128
 
-122:                                              ; preds = %.loopexit.i53
+122:                                              ; preds = %.loopexit.i51
   %123 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %123)
   %124 = call i32 @errcode(i32 noundef 16908800) #12
@@ -257,12 +256,12 @@ fetch_fp_info.exit:                               ; preds = %53
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 354, ptr noundef nonnull @__func__.parse_fcall_arguments) #12
   unreachable
 
-128:                                              ; preds = %.loopexit.i53
+128:                                              ; preds = %.loopexit.i51
   %129 = trunc i32 %116 to i16
   store i16 %129, ptr %105, align 2
   %130 = icmp slt i32 %106, 2
-  %.not.i54 = icmp eq i32 %106, %116
-  %or.cond78.i = or i1 %130, %.not.i54
+  %.not.i52 = icmp eq i32 %106, %116
+  %or.cond78.i = or i1 %130, %.not.i52
   br i1 %or.cond78.i, label %135, label %131
 
 131:                                              ; preds = %128
@@ -414,16 +413,15 @@ parse_fcall_arguments.exit:                       ; preds = %191, %135
   call void @pq_getmsgend(ptr noundef %0) #12
   %194 = getelementptr inbounds i8, ptr %13, i64 22
   %195 = load i8, ptr %194, align 2
-  %196 = and i8 %195, 1
-  %.not50 = icmp ne i8 %196, 0
+  %196 = trunc i8 %195 to i1
   %197 = icmp sgt i16 %129, 0
-  %or.cond = and i1 %.not50, %197
+  %or.cond = and i1 %197, %196
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %parse_fcall_arguments.exit
-  %sext72 = and i32 %116, 32767
+  %sext69 = and i32 %116, 32767
   %198 = getelementptr inbounds i8, ptr %12, i64 32
-  %wide.trip.count = zext nneg i32 %sext72 to i64
+  %wide.trip.count = zext nneg i32 %sext69 to i64
   br label %200
 
 199:                                              ; preds = %200
@@ -435,9 +433,8 @@ parse_fcall_arguments.exit:                       ; preds = %191, %135
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %199 ]
   %201 = getelementptr [0 x %struct.NullableDatum], ptr %198, i64 0, i64 %indvars.iv, i32 1
   %202 = load i8, ptr %201, align 8
-  %203 = and i8 %202, 1
-  %.not51 = icmp eq i8 %203, 0
-  br i1 %.not51, label %199, label %207
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %207, label %199
 
 .critedge:                                        ; preds = %199, %parse_fcall_arguments.exit
   %204 = load ptr, ptr %12, align 8
@@ -452,8 +449,8 @@ parse_fcall_arguments.exit:                       ; preds = %191, %135
 208:                                              ; preds = %.critedge, %207
   %.044 = phi i64 [ %206, %.critedge ], [ 0, %207 ]
   %209 = load volatile i32, ptr @InterruptPending, align 4
-  %.not52 = icmp eq i32 %209, 0
-  br i1 %.not52, label %211, label %210
+  %.not50 = icmp eq i32 %209, 0
+  br i1 %.not50, label %211, label %210
 
 210:                                              ; preds = %208
   call void @ProcessInterrupts() #12
@@ -461,8 +458,7 @@ parse_fcall_arguments.exit:                       ; preds = %191, %135
 
 211:                                              ; preds = %208, %210
   %212 = load i8, ptr %104, align 4
-  %213 = and i8 %212, 1
-  %.not55 = icmp eq i8 %213, 0
+  %213 = trunc i8 %212 to i1
   %214 = load i32, ptr %66, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -470,7 +466,7 @@ parse_fcall_arguments.exit:                       ; preds = %191, %135
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 86) #12
-  br i1 %.not55, label %222, label %215
+  br i1 %213, label %215, label %222
 
 215:                                              ; preds = %211
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #12

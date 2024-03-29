@@ -85,9 +85,8 @@ entry:
 
 while.cond.preheader:                             ; preds = %entry
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not4 = icmp eq i8 %1, 0
-  br i1 %tobool.not4, label %while.body.lr.ph, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+  %tobool4 = trunc i8 %0 to i1
+  br i1 %tobool4, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %stats_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -104,8 +103,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #10
   call void @_ZN6hermes2vm12ProcessStats6sampleENSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %stats_, i64 %call) #10
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #10
-  %2 = load i64, ptr %interval_, align 8
-  %add.i.i.i = add nsw i64 %2, %call.i
+  %1 = load i64, ptr %interval_, align 8
+  %add.i.i.i = add nsw i64 %1, %call.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i)
   %div.i.i.i.i.i.i = sdiv i64 %add.i.i.i, 1000000000
   %mul.i.i.i.neg.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i, -1000000000
@@ -115,10 +114,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call2.i.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull %exitMonitor_, ptr noundef nonnull %mExit_, i32 noundef 1, ptr noundef nonnull %__ts.i.i.i) #10
   %call14.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i)
-  %3 = load i8, ptr %this, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %while.body, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, !llvm.loop !4
+  %2 = load i8, ptr %this, align 8
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %while.body, !llvm.loop !4
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %while.body, %while.cond.preheader
   %call1.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mExit_) #10

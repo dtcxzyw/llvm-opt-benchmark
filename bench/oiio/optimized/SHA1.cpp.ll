@@ -69,13 +69,12 @@ define void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr nocapture noundef nonn
 entry:
   %m_final = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.end, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %2 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__FUNCTION__._ZN18OpenImageIO_v2_6_04SHA16appendEPKvm, ptr noundef nonnull @.str.3) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__FUNCTION__._ZN18OpenImageIO_v2_6_04SHA16appendEPKvm, ptr noundef nonnull @.str.3) #19
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
@@ -85,22 +84,22 @@ cond.end:                                         ; preds = %entry, %cond.false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
-  %3 = load ptr, ptr %this, align 8
+  %2 = load ptr, ptr %this, align 8
   %conv = trunc i64 %size to i32
-  %m_count.i = getelementptr inbounds i8, ptr %3, i64 20
-  %4 = load i32, ptr %m_count.i, align 4
-  %shr.i = lshr i32 %4, 3
+  %m_count.i = getelementptr inbounds i8, ptr %2, i64 20
+  %3 = load i32, ptr %m_count.i, align 4
+  %shr.i = lshr i32 %3, 3
   %and.i = and i32 %shr.i, 63
   %shl.i = shl i32 %conv, 3
-  %add.i = add i32 %4, %shl.i
+  %add.i = add i32 %3, %shl.i
   store i32 %add.i, ptr %m_count.i, align 4
   %cmp.i = icmp ult i32 %add.i, %shl.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = load i32, ptr %arrayidx6.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = load i32, ptr %arrayidx6.i, align 4
   %inc.i = zext i1 %cmp.i to i32
   %shr7.i = lshr i32 %conv, 29
-  %6 = add i32 %5, %shr7.i
-  %add10.i = add i32 %6, %inc.i
+  %5 = add i32 %4, %shr7.i
+  %add10.i = add i32 %5, %inc.i
   store i32 %add10.i, ptr %arrayidx6.i, align 4
   %add11.i = add i32 %and.i, %conv
   %cmp12.i = icmp ugt i32 %add11.i, 63
@@ -108,12 +107,12 @@ if.then:                                          ; preds = %cond.end
 
 if.then13.i:                                      ; preds = %if.then
   %sub.i = sub nuw nsw i32 64, %and.i
-  %m_buffer.i = getelementptr inbounds i8, ptr %3, i64 32
+  %m_buffer.i = getelementptr inbounds i8, ptr %2, i64 32
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx14.i = getelementptr inbounds [64 x i8], ptr %m_buffer.i, i64 0, i64 %idxprom.i
   %conv.i = zext nneg i32 %sub.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %conv.i, i1 false)
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull %3, ptr noundef nonnull %m_buffer.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull %m_buffer.i)
   %add1718.i = xor i32 %and.i, 127
   %cmp1819.i = icmp ult i32 %add1718.i, %conv
   br i1 %cmp1819.i, label %for.body.i, label %if.end24.i
@@ -122,25 +121,25 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %i.020.i = phi i32 [ %add23.i, %for.body.i ], [ %sub.i, %if.then13.i ]
   %idxprom21.i = zext i32 %i.020.i to i64
   %arrayidx22.i = getelementptr inbounds i8, ptr %data, i64 %idxprom21.i
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull %3, ptr noundef nonnull %arrayidx22.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
   %add17.i = add i32 %i.020.i, 127
   %cmp18.i = icmp ult i32 %add17.i, %conv
   br i1 %cmp18.i, label %for.body.i, label %if.end24.i, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.then
-  %7 = zext nneg i32 %and.i to i64
+  %6 = zext nneg i32 %and.i to i64
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %for.body.i, %if.else.i, %if.then13.i
-  %j.0.i = phi i64 [ %7, %if.else.i ], [ 0, %if.then13.i ], [ 0, %for.body.i ]
+  %j.0.i = phi i64 [ %6, %if.else.i ], [ 0, %if.then13.i ], [ 0, %for.body.i ]
   %i.1.i = phi i32 [ 0, %if.else.i ], [ %sub.i, %if.then13.i ], [ %add23.i, %for.body.i ]
   %cmp26.not.i = icmp eq i32 %i.1.i, %conv
   br i1 %cmp26.not.i, label %if.end, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   %sub25.i = sub i32 %conv, %i.1.i
-  %m_buffer28.i = getelementptr inbounds i8, ptr %3, i64 32
+  %m_buffer28.i = getelementptr inbounds i8, ptr %2, i64 32
   %arrayidx30.i = getelementptr inbounds [64 x i8], ptr %m_buffer28.i, i64 0, i64 %j.0.i
   %idxprom31.i = zext i32 %i.1.i to i64
   %arrayidx32.i = getelementptr inbounds i8, ptr %data, i64 %idxprom31.i
@@ -244,19 +243,18 @@ define void @_ZN18OpenImageIO_v2_6_04SHA17gethashERNS0_4HashE(ptr nocapture noun
 entry:
   %m_final = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %this, align 8
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA15FinalEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
+  %1 = load ptr, ptr %this, align 8
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA15FinalEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store i8 1, ptr %m_final, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = load ptr, ptr %this, align 8
-  %m_digest.i = getelementptr inbounds i8, ptr %3, i64 96
+  %2 = load ptr, ptr %this, align 8
+  %m_digest.i = getelementptr inbounds i8, ptr %2, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %h, ptr noundef nonnull align 8 dereferenceable(20) %m_digest.i, i64 20, i1 false)
   ret void
 }
@@ -419,21 +417,20 @@ entry:
   %tszOut.i = alloca [84 x i8], align 16
   %m_final = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %this, align 8
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA15FinalEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
+  %1 = load ptr, ptr %this, align 8
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA15FinalEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store i8 1, ptr %m_final, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  %3 = load ptr, ptr %this, align 8
+  %2 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %tszOut.i)
-  %call.i = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull %tszOut.i, i32 noundef 2)
+  %call.i = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %tszOut.i, i32 noundef 2)
   br i1 %call.i, label %if.then.i, label %nrvo.skipdtor
 
 if.then.i:                                        ; preds = %if.end
@@ -441,10 +438,10 @@ if.then.i:                                        ; preds = %if.end
           to label %nrvo.skipdtor unwind label %lpad
 
 lpad:                                             ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 nrvo.skipdtor:                                    ; preds = %if.end, %if.then.i
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %tszOut.i)

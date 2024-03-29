@@ -1863,9 +1863,8 @@ define linkonce_odr void @_ZN3nix23MemoryInputAccessorImplD1Ev(ptr noundef nonnu
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i
 
 8:                                                ; preds = %1
   store i8 0, ptr %5, align 8
@@ -1892,8 +1891,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i, %1
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i2.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i2.i.i.i, label %_ZN3nix23MemoryInputAccessorImplD2Ev.exit, label %17
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN3nix23MemoryInputAccessorImplD2Ev.exit, label %17
 
 17:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %16, i64 12

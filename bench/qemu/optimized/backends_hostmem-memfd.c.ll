@@ -106,34 +106,31 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %hugetlb = getelementptr inbounds i8, ptr %call.i, i64 384
   %1 = load i8, ptr %hugetlb, align 16
-  %2 = and i8 %1, 1
-  %tobool2 = icmp ne i8 %2, 0
+  %tobool2 = trunc i8 %1 to i1
   %hugetlbsize = getelementptr inbounds i8, ptr %call.i, i64 392
-  %3 = load i64, ptr %hugetlbsize, align 8
+  %2 = load i64, ptr %hugetlbsize, align 8
   %seal = getelementptr inbounds i8, ptr %call.i, i64 400
-  %4 = load i8, ptr %seal, align 16
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  %cond = select i1 %tobool3.not, i32 0, i32 7
-  %call4 = tail call i32 @qemu_memfd_create(ptr noundef nonnull @.str, i64 noundef %0, i1 noundef zeroext %tobool2, i64 noundef %3, i32 noundef %cond, ptr noundef %errp) #2
+  %3 = load i8, ptr %seal, align 16
+  %tobool3 = trunc i8 %3 to i1
+  %cond = select i1 %tobool3, i32 7, i32 0
+  %call4 = tail call i32 @qemu_memfd_create(ptr noundef nonnull @.str, i64 noundef %0, i1 noundef zeroext %tobool2, i64 noundef %2, i32 noundef %cond, ptr noundef %errp) #2
   %cmp = icmp eq i32 %call4, -1
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @host_memory_backend_get_name(ptr noundef nonnull %backend) #2
   %share = getelementptr inbounds i8, ptr %backend, i64 53
-  %6 = load i8, ptr %share, align 1
-  %7 = shl i8 %6, 1
-  %8 = and i8 %7, 2
+  %4 = load i8, ptr %share, align 1
+  %tobool8 = trunc i8 %4 to i1
+  %cond9 = select i1 %tobool8, i32 2, i32 0
   %reserve = getelementptr inbounds i8, ptr %backend, i64 54
-  %9 = load i8, ptr %reserve, align 2
-  %10 = xor i8 %9, -1
-  %11 = shl i8 %10, 7
-  %or16 = or disjoint i8 %8, %11
-  %or = zext i8 %or16 to i32
+  %5 = load i8, ptr %reserve, align 2
+  %tobool10 = trunc i8 %5 to i1
+  %cond11 = select i1 %tobool10, i32 0, i32 128
+  %or = or disjoint i32 %cond11, %cond9
   %mr = getelementptr inbounds i8, ptr %backend, i64 112
-  %12 = load i64, ptr %size, align 8
-  tail call void @memory_region_init_ram_from_fd(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call7, i64 noundef %12, i32 noundef %or, i32 noundef %call4, i64 noundef 0, ptr noundef %errp) #2
+  %6 = load i64, ptr %size, align 8
+  tail call void @memory_region_init_ram_from_fd(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call7, i64 noundef %6, i32 noundef %or, i32 noundef %call4, i64 noundef 0, ptr noundef %errp) #2
   tail call void @g_free(ptr noundef %call7) #2
   br label %return
 
@@ -149,8 +146,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 23, ptr noundef nonnull @__func__.MEMORY_BACKEND_MEMFD) #2
   %hugetlb = getelementptr inbounds i8, ptr %call.i, i64 384
   %0 = load i8, ptr %hugetlb, align 16
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -223,8 +219,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 23, ptr noundef nonnull @__func__.MEMORY_BACKEND_MEMFD) #2
   %seal = getelementptr inbounds i8, ptr %call.i, i64 400
   %0 = load i8, ptr %seal, align 16
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

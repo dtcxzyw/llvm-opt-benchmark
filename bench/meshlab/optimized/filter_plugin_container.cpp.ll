@@ -1529,18 +1529,18 @@ define void @_ZN21FilterPluginContainer25FilterPluginRangeIterator5beginEv(ptr d
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
+  %7 = trunc i8 %6 to i1
+  %8 = and i8 %6, 1
   store ptr %3, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = ptrtoint ptr %4 to i64
   store i64 %10, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %7, ptr %11, align 8
+  store i8 %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not5.i = icmp eq ptr %13, %4
-  %brmerge.i = or i1 %8, %.not5.i
+  %brmerge.i = or i1 %.not5.i, %7
   br i1 %brmerge.i, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit, label %14
 
 14:                                               ; preds = %2
@@ -1551,15 +1551,14 @@ define void @_ZN21FilterPluginContainer25FilterPluginRangeIterator5beginEv(ptr d
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %.preheader.i.i, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %14, %25
   %23 = phi ptr [ %24, %25 ], [ %4, %14 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %.not2.i.i = icmp eq ptr %24, %13
-  br i1 %.not2.i.i, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, label %25
+  %.not.i.i = icmp eq ptr %24, %13
+  br i1 %.not.i.i, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, label %25
 
 25:                                               ; preds = %.preheader.i.i
   %26 = load ptr, ptr %24, align 8
@@ -1569,9 +1568,8 @@ define void @_ZN21FilterPluginContainer25FilterPluginRangeIterator5beginEv(ptr d
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not3.i.i = icmp eq i8 %33, 0
-  br i1 %.not3.i.i, label %.preheader.i.i, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, !llvm.loop !16
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %_ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, label %.preheader.i.i, !llvm.loop !16
 
 _ZN19ConstPluginIteratorI12FilterPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit: ; preds = %25, %.preheader.i.i
   %.lcssa = phi ptr [ %24, %25 ], [ %13, %.preheader.i.i ]

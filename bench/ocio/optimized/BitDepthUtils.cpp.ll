@@ -88,13 +88,12 @@ ehcleanup:                                        ; preds = %lpad14, %lpad7
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -41, %switch.maskindex
-  %4 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %4, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x double], ptr @switch.table._ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDepthE, i64 0, i64 %5
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x double], ptr @switch.table._ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDepthE, i64 0, i64 %4
   %switch.load = load double, ptr %switch.gep, align 8
   ret double %switch.load
 
@@ -223,15 +222,13 @@ ehcleanup:                                        ; preds = %lpad14, %lpad7
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -41, %switch.maskindex
-  %4 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %4, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = trunc i32 %switch.tableidx to i8
   %switch.downshift = lshr i8 -64, %switch.cast
-  %5 = and i8 %switch.downshift, 1
-  %switch.masked = icmp ne i8 %5, 0
+  %switch.masked = trunc i8 %switch.downshift to i1
   ret i1 %switch.masked
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
@@ -304,13 +301,12 @@ ehcleanup:                                        ; preds = %lpad14, %lpad7
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -41, %switch.maskindex
-  %4 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %4, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE, i64 0, i64 %5
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 

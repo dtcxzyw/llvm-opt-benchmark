@@ -1037,9 +1037,8 @@ define hidden void @zim_SplDoublyLinkedList_offsetSet(ptr nocapture noundef read
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -72
   %17 = load i8, ptr %4, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %41, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %41
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %16, align 8
@@ -1093,8 +1092,8 @@ spl_ptr_llist_push.exit:                          ; preds = %19, %32
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
-  %.not18 = icmp slt i64 %42, %48
-  br i1 %.not18, label %53, label %49
+  %.not = icmp slt i64 %42, %48
+  br i1 %.not, label %53, label %49
 
 49:                                               ; preds = %44, %41
   %50 = load ptr, ptr @spl_ce_OutOfRangeException, align 8
@@ -1135,8 +1134,8 @@ spl_ptr_llist_push.exit:                          ; preds = %19, %32
 
 spl_ptr_llist_offset.exit:                        ; preds = %62, %53
   %.1.lcssa.i = phi ptr [ %.111.i, %53 ], [ %.1.i, %62 ]
-  %.not19 = icmp eq ptr %.1.lcssa.i, null
-  br i1 %.not19, label %77, label %66
+  %.not18 = icmp eq ptr %.1.lcssa.i, null
+  br i1 %.not18, label %77, label %66
 
 66:                                               ; preds = %spl_ptr_llist_offset.exit
   %67 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 16
@@ -1149,8 +1148,8 @@ spl_ptr_llist_offset.exit:                        ; preds = %62, %53
   %72 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 24
   store i32 %71, ptr %72, align 8
   %73 = and i32 %71, 65280
-  %.not20 = icmp eq i32 %73, 0
-  br i1 %.not20, label %82, label %74
+  %.not19 = icmp eq i32 %73, 0
+  br i1 %.not19, label %82, label %74
 
 74:                                               ; preds = %66
   %75 = load i32, ptr %69, align 4

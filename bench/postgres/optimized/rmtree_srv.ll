@@ -22,12 +22,12 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
-  br i1 %7, label %8, label %68
+  br i1 %7, label %8, label %66
 
 8:                                                ; preds = %6
   %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %0) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.rmtree) #5
-  br label %68
+  br label %66
 
 10:                                               ; preds = %2
   %11 = tail call ptr @palloc(i64 noundef 64) #5
@@ -42,7 +42,7 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
   %.031.ph63 = phi ptr [ %.2, %.outer ], [ %11, %10 ]
   %.032.ph62 = phi i64 [ %.234, %.outer ], [ 8, %10 ]
   %.035.ph61 = phi i64 [ %.136, %.outer ], [ 0, %10 ]
-  %.037.ph60 = phi i8 [ %.138, %.outer ], [ 1, %10 ]
+  %.037.ph60 = phi i1 [ %.138, %.outer ], [ true, %10 ]
   br label %15
 
 15:                                               ; preds = %.lr.ph, %23
@@ -110,7 +110,7 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
   br label %.outer
 
 .outer:                                           ; preds = %44, %42, %38, %40, %25, %34
-  %.138 = phi i8 [ %.037.ph60, %40 ], [ %.037.ph60, %38 ], [ %.037.ph60, %34 ], [ %.037.ph60, %25 ], [ 0, %42 ], [ 0, %44 ]
+  %.138 = phi i1 [ %.037.ph60, %40 ], [ %.037.ph60, %38 ], [ %.037.ph60, %34 ], [ %.037.ph60, %25 ], [ false, %42 ], [ false, %44 ]
   %.136 = phi i64 [ %.035.ph61, %40 ], [ %.035.ph61, %38 ], [ %36, %34 ], [ %.035.ph61, %25 ], [ %.035.ph61, %42 ], [ %.035.ph61, %44 ]
   %.234 = phi i64 [ %.032.ph62, %40 ], [ %.032.ph62, %38 ], [ %.133, %34 ], [ %.032.ph62, %25 ], [ %.032.ph62, %42 ], [ %.032.ph62, %44 ]
   %.2 = phi ptr [ %.031.ph63, %40 ], [ %.031.ph63, %38 ], [ %.1, %34 ], [ %.031.ph63, %25 ], [ %.031.ph63, %42 ], [ %.031.ph63, %44 ]
@@ -120,7 +120,7 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
   br i1 %.not51, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge:                                ; preds = %.outer, %23, %10
-  %.037.ph.lcssa = phi i8 [ 1, %10 ], [ %.037.ph60, %23 ], [ %.138, %.outer ]
+  %.037.ph.lcssa = phi i1 [ true, %10 ], [ %.037.ph60, %23 ], [ %.138, %.outer ]
   %.035.ph.lcssa = phi i64 [ 0, %10 ], [ %.035.ph61, %23 ], [ %.136, %.outer ]
   %.031.ph.lcssa = phi ptr [ %11, %10 ], [ %.031.ph63, %23 ], [ %.2, %.outer ]
   %47 = load i32, ptr %12, align 4
@@ -137,18 +137,18 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
   br label %52
 
 52:                                               ; preds = %50, %48, %.outer._crit_edge
-  %.239 = phi i8 [ %.037.ph.lcssa, %.outer._crit_edge ], [ 0, %48 ], [ 0, %50 ]
+  %.239 = phi i1 [ %.037.ph.lcssa, %.outer._crit_edge ], [ false, %48 ], [ false, %50 ]
   %53 = call i32 @FreeDir(ptr noundef nonnull %4) #5
   %.not74 = icmp eq i64 %.035.ph.lcssa, 0
   br i1 %.not74, label %._crit_edge72, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %52, %.lr.ph71
   %.069 = phi i64 [ %58, %.lr.ph71 ], [ 0, %52 ]
-  %.368 = phi i8 [ %spec.select, %.lr.ph71 ], [ %.239, %52 ]
+  %.368 = phi i1 [ %spec.select, %.lr.ph71 ], [ %.239, %52 ]
   %54 = getelementptr ptr, ptr %.031.ph.lcssa, i64 %.069
   %55 = load ptr, ptr %54, align 8
   %56 = call zeroext i1 @rmtree(ptr noundef %55, i1 noundef zeroext true)
-  %spec.select = select i1 %56, i8 %.368, i8 0
+  %spec.select = select i1 %56, i1 %.368, i1 false
   %57 = load ptr, ptr %54, align 8
   call void @pfree(ptr noundef %57) #5
   %58 = add nuw i64 %.069, 1
@@ -156,7 +156,7 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
   br i1 %exitcond.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !7
 
 ._crit_edge72:                                    ; preds = %.lr.ph71, %52
-  %.3.lcssa = phi i8 [ %.239, %52 ], [ %spec.select, %.lr.ph71 ]
+  %.3.lcssa = phi i1 [ %.239, %52 ], [ %spec.select, %.lr.ph71 ]
   br i1 %1, label %59, label %65
 
 59:                                               ; preds = %._crit_edge72
@@ -174,14 +174,12 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
   br label %65
 
 65:                                               ; preds = %63, %61, %59, %._crit_edge72
-  %.5 = phi i8 [ %.3.lcssa, %59 ], [ %.3.lcssa, %._crit_edge72 ], [ 0, %61 ], [ 0, %63 ]
+  %.5 = phi i1 [ %.3.lcssa, %59 ], [ %.3.lcssa, %._crit_edge72 ], [ false, %61 ], [ false, %63 ]
   call void @pfree(ptr noundef %.031.ph.lcssa) #5
-  %66 = and i8 %.5, 1
-  %67 = icmp ne i8 %66, 0
-  br label %68
+  br label %66
 
-68:                                               ; preds = %8, %6, %65
-  %.040 = phi i1 [ %67, %65 ], [ false, %6 ], [ false, %8 ]
+66:                                               ; preds = %8, %6, %65
+  %.040 = phi i1 [ %.5, %65 ], [ false, %6 ], [ false, %8 ]
   ret i1 %.040
 }
 

@@ -187,13 +187,12 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
   %conv = sitofp i32 %n to double
@@ -232,13 +231,12 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
   %call = tail call noundef double @_ZNK11mpq_managerILb0EE10get_doubleERK3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %value)
@@ -477,13 +475,12 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
   store i32 0, ptr %sig, align 8
@@ -504,8 +501,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %switch.lookup
-  %3 = load i32, ptr %significand, align 8
-  store i32 %3, ptr %sig, align 8
+  %2 = load i32, ptr %significand, align 8
+  store i32 %2, ptr %sig, align 8
   store i8 0, ptr %m_kind.i.i, align 4
   br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i
 
@@ -522,8 +519,8 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i6.i, label %if.then.i.i8.i, label %if.else.i.i7.i
 
 if.then.i.i8.i:                                   ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i
-  %4 = load i32, ptr %m_den3.i, align 8
-  store i32 %4, ptr %m_den.i, align 8
+  %3 = load i32, ptr %m_den3.i, align 8
+  store i32 %3, ptr %m_den.i, align 8
   %bf.load.i.i10.i = load i8, ptr %m_kind.i1.i, align 4
   %bf.clear.i.i11.i = and i8 %bf.load.i.i10.i, -2
   store i8 %bf.clear.i.i11.i, ptr %m_kind.i1.i, align 4
@@ -535,10 +532,10 @@ if.else.i.i7.i:                                   ; preds = %_ZN11mpq_managerILb
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %if.then.i.i8.i, %if.else.i.i7.i
   %m_mpz_manager = getelementptr inbounds i8, ptr %this, i64 728
-  %5 = load ptr, ptr %m_mpz_manager, align 8
-  %call = call noundef i64 @_ZNK11mpz_managerILb0EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %exponent)
-  %6 = load i32, ptr %significand, align 8
-  %cmp.i.i.i = icmp eq i32 %6, 0
+  %4 = load ptr, ptr %m_mpz_manager, align 8
+  %call = call noundef i64 @_ZNK11mpz_managerILb0EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %exponent)
+  %5 = load i32, ptr %significand, align 8
+  %cmp.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i.i.i, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit
@@ -569,10 +566,10 @@ while.cond:                                       ; preds = %while.cond.preheade
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i1.i, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i, 0
-  %7 = load i32, ptr %m_den.i, align 8
-  %cmp.i.i.i.i14 = icmp eq i32 %7, 1
-  %8 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i14, i1 false
-  br i1 %8, label %if.then.i, label %if.else.i
+  %6 = load i32, ptr %m_den.i, align 8
+  %cmp.i.i.i.i14 = icmp eq i32 %6, 1
+  %7 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i14, i1 false
+  br i1 %7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.cond
   %bf.load.i.i.i.i16 = load i8, ptr %m_kind.i.i, align 4
@@ -581,8 +578,8 @@ if.then.i:                                        ; preds = %while.cond
   br i1 %cmp.i.i.i11.i, label %if.then.i.i.i19, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
 
 if.then.i.i.i19:                                  ; preds = %if.then.i
-  %9 = load i32, ptr %sig, align 8
-  %cmp.i.i.i20 = icmp slt i32 %9, 1
+  %8 = load i32, ptr %sig, align 8
+  %cmp.i.i.i20 = icmp slt i32 %8, 1
   br i1 %cmp.i.i.i20, label %while.body, label %while.end
 
 if.else.i:                                        ; preds = %while.cond
@@ -608,10 +605,10 @@ while.body:                                       ; preds = %if.then.i.i.i19, %i
   %bf.load.i.i.i.i.i32 = load i8, ptr %m_kind.i1.i, align 4
   %bf.clear.i.i.i.i.i33 = and i8 %bf.load.i.i.i.i.i32, 1
   %cmp.i.i.i.i.i34 = icmp eq i8 %bf.clear.i.i.i.i.i33, 0
-  %10 = load i32, ptr %m_den.i, align 8
-  %cmp.i.i.i.i35 = icmp eq i32 %10, 1
-  %11 = select i1 %cmp.i.i.i.i.i34, i1 %cmp.i.i.i.i35, i1 false
-  br i1 %11, label %if.then.i38, label %if.else.i36
+  %9 = load i32, ptr %m_den.i, align 8
+  %cmp.i.i.i.i35 = icmp eq i32 %9, 1
+  %10 = select i1 %cmp.i.i.i.i.i34, i1 %cmp.i.i.i.i35, i1 false
+  br i1 %10, label %if.then.i38, label %if.else.i36
 
 if.then.i38:                                      ; preds = %while.body
   call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %sig, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %sig)
@@ -631,16 +628,16 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit:    ; preds = %if.then.i38, %if.el
 
 while.end:                                        ; preds = %if.then.i.i.i19, %if.else.i, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
   %call9 = call noundef double @_ZNK11mpq_managerILb0EE10get_doubleERK3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %sig)
-  %12 = bitcast double %call9 to i64
-  %and = and i64 %12, -9218868437227405313
+  %11 = bitcast double %call9 to i64
+  %and = and i64 %11, -9218868437227405313
   %add = shl i64 %exp.0, 52
   %shl = add i64 %add, 4607182418800017408
   %or = or i64 %and, %shl
-  %13 = bitcast i64 %or to double
+  %12 = bitcast i64 %or to double
   br label %if.end
 
 if.end:                                           ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit, %while.end
-  %storemerge = phi double [ %13, %while.end ], [ 0.000000e+00, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit ]
+  %storemerge = phi double [ %12, %while.end ], [ 0.000000e+00, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit ]
   store double %storemerge, ptr %o, align 8
   ret void
 }
@@ -766,18 +763,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %4 = load double, ptr %y, align 8
-  %add = fadd double %3, %4
+  %2 = load double, ptr %x, align 8
+  %3 = load double, ptr %y, align 8
+  %add = fadd double %2, %3
   store double %add, ptr %o, align 8
   ret void
 }
@@ -796,18 +792,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %4 = load double, ptr %y, align 8
-  %sub = fsub double %3, %4
+  %2 = load double, ptr %x, align 8
+  %3 = load double, ptr %y, align 8
+  %sub = fsub double %2, %3
   store double %sub, ptr %o, align 8
   ret void
 }
@@ -826,18 +821,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %4 = load double, ptr %y, align 8
-  %mul = fmul double %3, %4
+  %2 = load double, ptr %x, align 8
+  %3 = load double, ptr %y, align 8
+  %mul = fmul double %2, %3
   store double %mul, ptr %o, align 8
   ret void
 }
@@ -856,18 +850,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %4 = load double, ptr %y, align 8
-  %div = fdiv double %3, %4
+  %2 = load double, ptr %x, align 8
+  %3 = load double, ptr %y, align 8
+  %div = fdiv double %2, %3
   store double %div, ptr %o, align 8
   ret void
 }
@@ -886,20 +879,19 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %4 = load double, ptr %y, align 8
-  %5 = load double, ptr %z, align 8
-  %6 = tail call double @llvm.fma.f64(double %3, double %4, double %5)
-  store double %6, ptr %o, align 8
+  %2 = load double, ptr %x, align 8
+  %3 = load double, ptr %y, align 8
+  %4 = load double, ptr %z, align 8
+  %5 = tail call double @llvm.fma.f64(double %2, double %3, double %4)
+  store double %5, ptr %o, align 8
   ret void
 }
 
@@ -920,17 +912,16 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %call = tail call double @sqrt(double noundef %3) #19
+  %2 = load double, ptr %x, align 8
+  %call = tail call double @sqrt(double noundef %2) #19
   store double %call, ptr %o, align 8
   ret void
 }
@@ -952,18 +943,17 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %sw.default.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %rm to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %2
+  %1 = zext nneg i32 %rm to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN11hwf_manager17round_to_integralE17mpf_rounding_modeRK3hwfRS1_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %call7.i = tail call i32 @fesetround(i32 noundef %switch.load) #19
-  %3 = load double, ptr %x, align 8
-  %4 = tail call double @llvm.nearbyint.f64(double %3)
-  store double %4, ptr %o, align 8
+  %2 = load double, ptr %x, align 8
+  %3 = tail call double @llvm.nearbyint.f64(double %2)
+  store double %3, ptr %o, align 8
   ret void
 }
 

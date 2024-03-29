@@ -58,9 +58,8 @@ define hidden void @_ZN5ceres8internal21BlockEvaluatePreparer7PrepareEPKNS0_13Re
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 12
   %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %.not.i = icmp eq i8 %34, 0
-  br i1 %.not.i, label %35, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds i8, ptr %31, i64 16

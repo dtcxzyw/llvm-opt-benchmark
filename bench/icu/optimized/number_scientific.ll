@@ -753,7 +753,7 @@ return:                                           ; preds = %entry, %if.end
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -815,9 +815,8 @@ if.then11:                                        ; preds = %if.end9
   %fSettings = getelementptr inbounds i8, ptr %this, i64 16
   %fRequireMinInt = getelementptr inbounds i8, ptr %this, i64 17
   %5 = load i8, ptr %fRequireMinInt, align 1
-  %6 = and i8 %5, 1
-  %tobool12.not = icmp eq i8 %6, 0
-  br i1 %tobool12.not, label %if.else, label %land.lhs.true
+  %tobool12 = trunc i8 %5 to i1
+  br i1 %tobool12, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then11
   %rounder = getelementptr inbounds i8, ptr %micros, i64 104
@@ -825,10 +824,10 @@ land.lhs.true:                                    ; preds = %if.then11
   br i1 %call13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %land.lhs.true
-  %7 = load i8, ptr %fSettings, align 8
-  %conv = sext i8 %7 to i32
-  %8 = load i32, ptr %status, align 4
-  tail call void @_ZN6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %rounder, ptr noundef nonnull align 8 dereferenceable(66) %quantity, i32 noundef %conv, i32 noundef %8)
+  %6 = load i8, ptr %fSettings, align 8
+  %conv = sext i8 %6 to i32
+  %7 = load i32, ptr %status, align 4
+  tail call void @_ZN6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %rounder, ptr noundef nonnull align 8 dereferenceable(66) %quantity, i32 noundef %conv, i32 noundef %7)
   br label %if.end22
 
 if.else:                                          ; preds = %land.lhs.true, %if.then11
@@ -884,9 +883,8 @@ entry:
   %conv = sext i8 %0 to i32
   %fRequireMinInt = getelementptr inbounds i8, ptr %this, i64 17
   %1 = load i8, ptr %fRequireMinInt, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.end7
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %entry
   %cmp = icmp slt i8 %0, 2
@@ -904,8 +902,8 @@ if.else4:                                         ; preds = %if.else
 
 if.end7:                                          ; preds = %if.else, %entry, %if.else4
   %digitsShown.0 = phi i32 [ %add6, %if.else4 ], [ %conv, %entry ], [ 1, %if.else ]
-  %3 = xor i32 %magnitude, -1
-  %sub8 = add i32 %digitsShown.0, %3
+  %2 = xor i32 %magnitude, -1
+  %sub8 = add i32 %digitsShown.0, %2
   ret i32 %sub8
 }
 
@@ -917,9 +915,8 @@ entry:
   %conv.i = sext i8 %0 to i32
   %fRequireMinInt.i = getelementptr inbounds i8, ptr %this, i64 9
   %1 = load i8, ptr %fRequireMinInt.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_756number4impl17ScientificHandler13getMultiplierEi.exit
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %_ZNK6icu_756number4impl17ScientificHandler13getMultiplierEi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %cmp.i = icmp slt i8 %0, 2
@@ -937,8 +934,8 @@ if.else4.i:                                       ; preds = %if.else.i
 
 _ZNK6icu_756number4impl17ScientificHandler13getMultiplierEi.exit: ; preds = %entry, %if.else.i, %if.else4.i
   %digitsShown.0.i = phi i32 [ %add6.i, %if.else4.i ], [ %conv.i, %entry ], [ 1, %if.else.i ]
-  %3 = xor i32 %magnitude, -1
-  %sub8.i = add i32 %digitsShown.0.i, %3
+  %2 = xor i32 %magnitude, -1
+  %sub8.i = add i32 %digitsShown.0.i, %2
   ret i32 %sub8.i
 }
 
@@ -1019,7 +1016,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

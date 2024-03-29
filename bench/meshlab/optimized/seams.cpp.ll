@@ -3441,9 +3441,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIP10MeshVertexS1_SaIS1_ENSt8__detail9_
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -6715,9 +6714,8 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %49
 72:                                               ; preds = %._crit_edge
   %73 = getelementptr inbounds i8, ptr %2, i64 56
   %74 = load i8, ptr %73, align 8
-  %75 = and i8 %74, 1
-  %.not4.i = icmp eq i8 %75, 0
-  br i1 %.not4.i, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE10NeedUpdateEv.exit.thread, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE10NeedUpdateEv.exit
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE10NeedUpdateEv.exit.thread
 
 _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE10NeedUpdateEv.exit: ; preds = %._crit_edge, %72
   %76 = load ptr, ptr %10, align 8
@@ -7299,9 +7297,8 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %56
 79:                                               ; preds = %._crit_edge
   %80 = getelementptr inbounds i8, ptr %2, i64 56
   %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, 1
-  %.not4.i = icmp eq i8 %82, 0
-  br i1 %.not4.i, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP8SeamEdgeE10NeedUpdateEv.exit.thread, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP8SeamEdgeE10NeedUpdateEv.exit
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP8SeamEdgeE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP8SeamEdgeE10NeedUpdateEv.exit.thread
 
 _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP8SeamEdgeE10NeedUpdateEv.exit: ; preds = %._crit_edge, %79
   %83 = load ptr, ptr %10, align 8

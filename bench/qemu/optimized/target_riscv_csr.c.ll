@@ -66,27 +66,26 @@ entry:
   %1 = load i32, ptr %min_priv_ver.i, align 8
   %ext_zicsr.i = getelementptr i8, ptr %env, i64 5162
   %2 = load i8, ptr %ext_zicsr.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %if.end.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %predicate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %4 = load ptr, ptr %predicate.i, align 8
-  %tobool5.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %predicate.i, align 8
+  %tobool5.not.i = icmp eq ptr %3, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %priv_ver.i = getelementptr inbounds i8, ptr %env, i64 4984
-  %5 = load i64, ptr %priv_ver.i, align 8
+  %4 = load i64, ptr %priv_ver.i, align 8
   %conv8.i = sext i32 %1 to i64
-  %cmp9.i = icmp ult i64 %5, %conv8.i
+  %cmp9.i = icmp ult i64 %4, %conv8.i
   %brmerge.not.i = and i1 %cmp.i, %tobool
   %or.cond.i = or i1 %brmerge.not.i, %cmp9.i
   br i1 %or.cond.i, label %return, label %riscv_csrrw_check.exit
 
 riscv_csrrw_check.exit:                           ; preds = %if.end7.i
-  %call22.i = tail call i32 %4(ptr noundef nonnull %env, i32 noundef %csrno) #11
+  %call22.i = tail call i32 %3(ptr noundef nonnull %env, i32 noundef %csrno) #11
   %cmp.not = icmp eq i32 %call22.i, -1
   br i1 %cmp.not, label %if.end, label %return
 
@@ -94,46 +93,46 @@ if.end:                                           ; preds = %riscv_csrrw_check.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i)
   store i64 0, ptr %old_value.i, align 8
   %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %6 = load ptr, ptr %op.i, align 16
-  %tobool.not.i6 = icmp eq ptr %6, null
-  br i1 %tobool.not.i6, label %if.end.i8, label %if.then.i
+  %5 = load ptr, ptr %op.i, align 16
+  %tobool.not.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i, label %if.end.i7, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call i32 %6(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef %ret_value, i64 noundef %new_value, i64 noundef %write_mask) #11
+  %call.i = tail call i32 %5(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef %ret_value, i64 noundef %new_value, i64 noundef %write_mask) #11
   br label %riscv_csrrw_do64.exit
 
-if.end.i8:                                        ; preds = %if.end
+if.end.i7:                                        ; preds = %if.end
   %tobool4.not.i = icmp eq ptr %ret_value, null
   br i1 %tobool4.not.i, label %if.end17.i, label %if.then5.i
 
-if.then5.i:                                       ; preds = %if.end.i8
+if.then5.i:                                       ; preds = %if.end.i7
   %read.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %7 = load ptr, ptr %read.i, align 16
-  %tobool8.not.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %read.i, align 16
+  %tobool8.not.i = icmp eq ptr %6, null
   br i1 %tobool8.not.i, label %riscv_csrrw_do64.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then5.i
-  %call14.i = call i32 %7(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i) #11
+  %call14.i = call i32 %6(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i) #11
   %cmp.not.i = icmp eq i32 %call14.i, -1
   br i1 %cmp.not.i, label %if.end17.i, label %riscv_csrrw_do64.exit
 
-if.end17.i:                                       ; preds = %if.end10.i, %if.end.i8
+if.end17.i:                                       ; preds = %if.end10.i, %if.end.i7
   %tobool18.not.i = icmp eq i64 %write_mask, 0
   br i1 %tobool18.not.i, label %if.end33.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
   %write.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %8 = load ptr, ptr %write.i, align 8
-  %tobool23.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %write.i, align 8
+  %tobool23.not.i = icmp eq ptr %7, null
   br i1 %tobool23.not.i, label %if.end33.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then19.i
-  %9 = load i64, ptr %old_value.i, align 8
+  %8 = load i64, ptr %old_value.i, align 8
   %not.i = xor i64 %write_mask, -1
-  %and.i = and i64 %9, %not.i
+  %and.i = and i64 %8, %not.i
   %and20.i = and i64 %write_mask, %new_value
   %or.i = or disjoint i64 %and.i, %and20.i
-  %call28.i = call i32 %8(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %or.i) #11
+  %call28.i = call i32 %7(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %or.i) #11
   %cmp29.not.i = icmp ne i32 %call28.i, -1
   %brmerge.i = or i1 %tobool4.not.i, %cmp29.not.i
   br i1 %brmerge.i, label %riscv_csrrw_do64.exit, label %if.then35.i
@@ -142,24 +141,24 @@ if.end33.i:                                       ; preds = %if.then19.i, %if.en
   br i1 %tobool4.not.i, label %riscv_csrrw_do64.exit, label %if.then35.i
 
 if.then35.i:                                      ; preds = %if.end33.i, %if.then24.i
-  %10 = load i64, ptr %old_value.i, align 8
-  store i64 %10, ptr %ret_value, align 8
+  %9 = load i64, ptr %old_value.i, align 8
+  store i64 %9, ptr %ret_value, align 8
   br label %riscv_csrrw_do64.exit
 
 riscv_csrrw_do64.exit:                            ; preds = %if.then.i, %if.then5.i, %if.end10.i, %if.then24.i, %if.end33.i, %if.then35.i
-  %retval.0.i7 = phi i32 [ %call.i, %if.then.i ], [ 2, %if.then5.i ], [ %call14.i, %if.end10.i ], [ %call28.i, %if.then24.i ], [ -1, %if.then35.i ], [ -1, %if.end33.i ]
+  %retval.0.i6 = phi i32 [ %call.i, %if.then.i ], [ 2, %if.then5.i ], [ %call14.i, %if.end10.i ], [ %call28.i, %if.then24.i ], [ -1, %if.then35.i ], [ -1, %if.end33.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i)
   br label %return
 
 return:                                           ; preds = %if.end7.i, %if.end.i, %entry, %riscv_csrrw_check.exit, %riscv_csrrw_do64.exit
-  %retval.0 = phi i32 [ %retval.0.i7, %riscv_csrrw_do64.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
+  %retval.0 = phi i32 [ %retval.0.i6, %riscv_csrrw_do64.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @riscv_csrrw_i128(ptr noundef %env, i32 noundef %csrno, ptr noundef writeonly %ret_value, i64 noundef %new_value.coerce0, i64 noundef %new_value.coerce1, i128 noundef %write_mask) local_unnamed_addr #2 {
 entry:
-  %old_value.i19 = alloca i64, align 8
+  %old_value.i18 = alloca i64, align 8
   %old_value.i = alloca i128, align 16
   %old_value = alloca i64, align 8
   %coerce.sroa.0.0.extract.trunc = trunc i128 %write_mask to i64
@@ -172,39 +171,38 @@ entry:
   %1 = load i32, ptr %min_priv_ver.i, align 8
   %ext_zicsr.i = getelementptr i8, ptr %env, i64 5162
   %2 = load i8, ptr %ext_zicsr.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %if.end.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %predicate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %4 = load ptr, ptr %predicate.i, align 8
-  %tobool5.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %predicate.i, align 8
+  %tobool5.not.i = icmp eq ptr %3, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %priv_ver.i = getelementptr inbounds i8, ptr %env, i64 4984
-  %5 = load i64, ptr %priv_ver.i, align 8
+  %4 = load i64, ptr %priv_ver.i, align 8
   %conv8.i = sext i32 %1 to i64
-  %cmp9.i = icmp ult i64 %5, %conv8.i
+  %cmp9.i = icmp ult i64 %4, %conv8.i
   %brmerge.not.i = and i1 %cmp.i14, %cmp.i
   %or.cond.i = or i1 %brmerge.not.i, %cmp9.i
   br i1 %or.cond.i, label %return, label %riscv_csrrw_check.exit
 
 riscv_csrrw_check.exit:                           ; preds = %if.end7.i
-  %call22.i = tail call i32 %4(ptr noundef nonnull %env, i32 noundef %csrno) #11
+  %call22.i = tail call i32 %3(ptr noundef nonnull %env, i32 noundef %csrno) #11
   %cmp.not = icmp eq i32 %call22.i, -1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %riscv_csrrw_check.exit
   %read128 = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 5
-  %6 = load ptr, ptr %read128, align 8
-  %tobool.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %read128, align 8
+  %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %old_value.i)
-  %call.i = call i32 %6(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i) #11
+  %call.i = call i32 %5(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i) #11
   %cmp.not.i = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i, label %if.end.i17, label %riscv_csrrw_do128.exit
 
@@ -213,9 +211,9 @@ if.end.i17:                                       ; preds = %if.then3
   br i1 %cmp.i.not.i, label %if.end45.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i17
-  %7 = load i128, ptr %old_value.i, align 16
+  %6 = load i128, ptr %old_value.i, align 16
   %not.i.i = xor i128 %write_mask, -1
-  %and.i.i = and i128 %7, %not.i.i
+  %and.i.i = and i128 %6, %not.i.i
   %a.sroa.2.0.insert.ext.i34.i = zext i64 %new_value.coerce1 to i128
   %a.sroa.2.0.insert.shift.i35.i = shl nuw i128 %a.sroa.2.0.insert.ext.i34.i, 64
   %retval.sroa.0.0.extract.trunc.i43.i = and i64 %coerce.sroa.0.0.extract.trunc, %new_value.coerce0
@@ -225,25 +223,25 @@ if.then3.i:                                       ; preds = %if.end.i17
   %or.i.i = or i128 %b.sroa.0.0.insert.insert.i55.i, %and.i.i
   %retval.sroa.0.0.extract.trunc.i56.i = trunc i128 %or.i.i to i64
   %write128.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %8 = load ptr, ptr %write128.i, align 16
-  %tobool.not.i18 = icmp eq ptr %8, null
-  br i1 %tobool.not.i18, label %if.else.i, label %if.then21.i
+  %7 = load ptr, ptr %write128.i, align 16
+  %tobool.not.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i, label %if.else.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then3.i
   %retval.sroa.2.0.extract.shift.i57.i = lshr i128 %or.i.i, 64
   %retval.sroa.2.0.extract.trunc.i58.i = trunc i128 %retval.sroa.2.0.extract.shift.i57.i to i64
-  %call26.i = call i32 %8(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %retval.sroa.0.0.extract.trunc.i56.i, i64 noundef %retval.sroa.2.0.extract.trunc.i58.i) #11
+  %call26.i = call i32 %7(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %retval.sroa.0.0.extract.trunc.i56.i, i64 noundef %retval.sroa.2.0.extract.trunc.i58.i) #11
   %cmp27.not.i = icmp eq i32 %call26.i, -1
   br i1 %cmp27.not.i, label %if.end45.i, label %riscv_csrrw_do128.exit
 
 if.else.i:                                        ; preds = %if.then3.i
   %write.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %9 = load ptr, ptr %write.i, align 8
-  %tobool32.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %write.i, align 8
+  %tobool32.not.i = icmp eq ptr %8, null
   br i1 %tobool32.not.i, label %if.end45.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.else.i
-  %call39.i = call i32 %9(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %retval.sroa.0.0.extract.trunc.i56.i) #11
+  %call39.i = call i32 %8(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %retval.sroa.0.0.extract.trunc.i56.i) #11
   %cmp40.not.i = icmp eq i32 %call39.i, -1
   br i1 %cmp40.not.i, label %if.end45.i, label %riscv_csrrw_do128.exit
 
@@ -252,8 +250,8 @@ if.end45.i:                                       ; preds = %if.then33.i, %if.el
   br i1 %tobool46.not.i, label %riscv_csrrw_do128.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end45.i
-  %10 = load i128, ptr %old_value.i, align 16
-  store i128 %10, ptr %ret_value, align 16
+  %9 = load i128, ptr %old_value.i, align 16
+  store i128 %9, ptr %ret_value, align 16
   br label %riscv_csrrw_do128.exit
 
 riscv_csrrw_do128.exit:                           ; preds = %if.then3, %if.then21.i, %if.then33.i, %if.end45.i, %if.then47.i
@@ -262,74 +260,74 @@ riscv_csrrw_do128.exit:                           ; preds = %if.then3, %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i19)
-  store i64 0, ptr %old_value.i19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i18)
+  store i64 0, ptr %old_value.i18, align 8
   %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %11 = load ptr, ptr %op.i, align 16
-  %tobool.not.i22 = icmp eq ptr %11, null
-  br i1 %tobool.not.i22, label %if.end.i25, label %if.then.i
+  %10 = load ptr, ptr %op.i, align 16
+  %tobool.not.i21 = icmp eq ptr %10, null
+  br i1 %tobool.not.i21, label %if.end.i24, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %call.i23 = call i32 %11(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value, i64 noundef %new_value.coerce0, i64 noundef %coerce.sroa.0.0.extract.trunc) #11
+  %call.i22 = call i32 %10(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value, i64 noundef %new_value.coerce0, i64 noundef %coerce.sroa.0.0.extract.trunc) #11
   br label %riscv_csrrw_do64.exit
 
-if.end.i25:                                       ; preds = %if.end6
+if.end.i24:                                       ; preds = %if.end6
   %read.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %12 = load ptr, ptr %read.i, align 16
-  %tobool8.not.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %read.i, align 16
+  %tobool8.not.i = icmp eq ptr %11, null
   br i1 %tobool8.not.i, label %riscv_csrrw_do64.exit.thread, label %if.end10.i
 
-if.end10.i:                                       ; preds = %if.end.i25
-  %call14.i = call i32 %12(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i19) #11
-  %cmp.not.i26 = icmp eq i32 %call14.i, -1
-  br i1 %cmp.not.i26, label %if.end17.i, label %riscv_csrrw_do64.exit.thread
+if.end10.i:                                       ; preds = %if.end.i24
+  %call14.i = call i32 %11(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i18) #11
+  %cmp.not.i25 = icmp eq i32 %call14.i, -1
+  br i1 %cmp.not.i25, label %if.end17.i, label %riscv_csrrw_do64.exit.thread
 
 if.end17.i:                                       ; preds = %if.end10.i
   %tobool18.not.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc, 0
   br i1 %tobool18.not.i, label %if.then35.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %write.i27 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %13 = load ptr, ptr %write.i27, align 8
-  %tobool23.not.i = icmp eq ptr %13, null
+  %write.i26 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %12 = load ptr, ptr %write.i26, align 8
+  %tobool23.not.i = icmp eq ptr %12, null
   br i1 %tobool23.not.i, label %if.then35.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then19.i
-  %14 = load i64, ptr %old_value.i19, align 8
+  %13 = load i64, ptr %old_value.i18, align 8
   %not.i = xor i64 %coerce.sroa.0.0.extract.trunc, -1
-  %and.i = and i64 %14, %not.i
+  %and.i = and i64 %13, %not.i
   %and20.i = and i64 %coerce.sroa.0.0.extract.trunc, %new_value.coerce0
   %or.i = or disjoint i64 %and.i, %and20.i
-  %call28.i = call i32 %13(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %or.i) #11
+  %call28.i = call i32 %12(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %or.i) #11
   %cmp29.not.i.not = icmp eq i32 %call28.i, -1
   br i1 %cmp29.not.i.not, label %if.then35.i, label %riscv_csrrw_do64.exit.thread
 
 if.then35.i:                                      ; preds = %if.end17.i, %if.then19.i, %if.then24.i
-  %15 = load i64, ptr %old_value.i19, align 8
-  store i64 %15, ptr %old_value, align 8
+  %14 = load i64, ptr %old_value.i18, align 8
+  store i64 %14, ptr %old_value, align 8
   br label %riscv_csrrw_do64.exit
 
-riscv_csrrw_do64.exit.thread:                     ; preds = %if.end.i25, %if.end10.i, %if.then24.i
-  %retval.0.i24.ph = phi i32 [ %call28.i, %if.then24.i ], [ %call14.i, %if.end10.i ], [ 2, %if.end.i25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i19)
+riscv_csrrw_do64.exit.thread:                     ; preds = %if.end.i24, %if.end10.i, %if.then24.i
+  %retval.0.i23.ph = phi i32 [ %call28.i, %if.then24.i ], [ %call14.i, %if.end10.i ], [ 2, %if.end.i24 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i18)
   br label %return
 
 riscv_csrrw_do64.exit:                            ; preds = %if.then.i, %if.then35.i
-  %retval.0.i24 = phi i32 [ %call.i23, %if.then.i ], [ -1, %if.then35.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i19)
-  %cmp12 = icmp eq i32 %retval.0.i24, -1
+  %retval.0.i23 = phi i32 [ %call.i22, %if.then.i ], [ -1, %if.then35.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i18)
+  %cmp12 = icmp eq i32 %retval.0.i23, -1
   %tobool13 = icmp ne ptr %ret_value, null
   %or.cond = and i1 %tobool13, %cmp12
   br i1 %or.cond, label %if.then14, label %return
 
 if.then14:                                        ; preds = %riscv_csrrw_do64.exit
-  %16 = load i64, ptr %old_value, align 8
-  %coerce16.sroa.0.0.insert.ext = zext i64 %16 to i128
+  %15 = load i64, ptr %old_value, align 8
+  %coerce16.sroa.0.0.insert.ext = zext i64 %15 to i128
   store i128 %coerce16.sroa.0.0.insert.ext, ptr %ret_value, align 16
   br label %return
 
 return:                                           ; preds = %if.end7.i, %if.end.i, %entry, %riscv_csrrw_do64.exit.thread, %riscv_csrrw_do64.exit, %if.then14, %riscv_csrrw_check.exit, %riscv_csrrw_do128.exit
-  %retval.0 = phi i32 [ %retval.0.i16, %riscv_csrrw_do128.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ -1, %if.then14 ], [ %retval.0.i24, %riscv_csrrw_do64.exit ], [ %retval.0.i24.ph, %riscv_csrrw_do64.exit.thread ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
+  %retval.0 = phi i32 [ %retval.0.i16, %riscv_csrrw_do128.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ -1, %if.then14 ], [ %retval.0.i23, %riscv_csrrw_do64.exit ], [ %retval.0.i23.ph, %riscv_csrrw_do64.exit.thread ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
   ret i32 %retval.0
 }
 
@@ -409,9 +407,8 @@ define internal i32 @vs(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %ext_zve32f = getelementptr i8, ptr %env, i64 5184
   %0 = load i8, ptr %ext_zve32f, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i32 2, i32 -1
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i32 -1, i32 2
   ret i32 %.
 }
 
@@ -504,9 +501,8 @@ define internal i32 @seed(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %ext_zkr = getelementptr i8, ptr %env, i64 5155
   %0 = load i8, ptr %ext_zkr, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i32 2, i32 -1
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i32 -1, i32 2
   ret i32 %.
 }
 
@@ -561,9 +557,8 @@ define internal i32 @zcmt(ptr nocapture noundef readonly %env, i32 %csrno) #6 {
 entry:
   %ext_zcmt = getelementptr i8, ptr %env, i64 5149
   %0 = load i8, ptr %ext_zcmt, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %. = select i1 %tobool.not, i32 2, i32 -1
+  %tobool = trunc i8 %0 to i1
+  %. = select i1 %tobool, i32 -1, i32 2
   ret i32 %.
 }
 

@@ -276,9 +276,8 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %10, %_ZN5mmu_t21is_
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not61 = icmp eq i8 %52, 0
-  br i1 %.not61, label %67, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %67
 
 53:                                               ; preds = %49
   store i8 8, ptr %6, align 8
@@ -340,9 +339,8 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %10, %_ZN5mmu_t21is_
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %82, i64 3801
   %85 = load i8, ptr %84, align 1
-  %86 = and i8 %85, 1
-  %.not62 = icmp eq i8 %86, 0
-  br i1 %.not62, label %.critedge2, label %87
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %.critedge2
 
 87:                                               ; preds = %83
   store i8 8, ptr %8, align 8
@@ -354,8 +352,8 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %10, %_ZN5mmu_t21is_
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %82, i64 3768
   %93 = load ptr, ptr %92, align 8
-  %.not.i.i38 = icmp eq ptr %91, %93
-  br i1 %.not.i.i38, label %99, label %94
+  %.not.i.i42 = icmp eq ptr %91, %93
+  br i1 %.not.i.i42, label %99, label %94
 
 94:                                               ; preds = %87
   store i8 8, ptr %91, align 1
@@ -815,9 +813,8 @@ define noundef i64 @_Z16logged_rv64e_fsqP11processor_t6insn_tm(ptr nocapture nou
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1000,9 +997,8 @@ define linkonce_odr void @_ZN29trap_store_address_misalignedD2Ev(ptr noundef non
 define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

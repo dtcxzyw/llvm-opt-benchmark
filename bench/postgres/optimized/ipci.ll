@@ -20,9 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @RequestAddinShmemSpace(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @process_shmem_requests_in_progress, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %7
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #4
@@ -273,9 +272,8 @@ define dso_local void @CreateSharedMemoryAndSemaphores() local_unnamed_addr #0 {
   call void @InitLocks() #5
   call void @InitPredicateLocks() #5
   %10 = load i8, ptr @IsUnderPostmaster, align 1
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %12, label %CreateOrAttachShmemStructs.exit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %CreateOrAttachShmemStructs.exit, label %12
 
 12:                                               ; preds = %7
   call void @InitProcGlobal() #5

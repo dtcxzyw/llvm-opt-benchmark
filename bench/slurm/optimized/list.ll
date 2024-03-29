@@ -1476,7 +1476,7 @@ define i32 @list_for_each_max(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   br i1 %.not37, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %16, %23
-  %.028.us = phi i8 [ %spec.select41, %23 ], [ 0, %16 ]
+  %.028.us = phi i1 [ %spec.select40, %23 ], [ false, %16 ]
   %.027.us = phi i32 [ %24, %23 ], [ 0, %16 ]
   %.pn.us = phi ptr [ %.0.us, %23 ], [ %0, %16 ]
   %.0.in.us = getelementptr inbounds i8, ptr %.pn.us, i64 8
@@ -1500,7 +1500,7 @@ define i32 @list_for_each_max(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   %25 = load ptr, ptr %.0.us, align 8
   %26 = tail call i32 %2(ptr noundef %25, ptr noundef %3) #9
   %27 = icmp slt i32 %26, 0
-  %spec.select41 = select i1 %27, i8 1, i8 %.028.us
+  %spec.select40 = select i1 %27, i1 true, i1 %.028.us
   br label %.split.us, !llvm.loop !18
 
 .split:                                           ; preds = %16, %34
@@ -1530,11 +1530,11 @@ define i32 @list_for_each_max(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   br i1 %38, label %.critedge, label %.split, !llvm.loop !18
 
 .critedge:                                        ; preds = %34, %33, %30, %19, %22
-  %.us-phi = phi i8 [ %.028.us, %22 ], [ %.028.us, %19 ], [ 1, %34 ], [ 0, %30 ], [ 0, %33 ]
-  %.us-phi40 = phi i32 [ %.027.us, %22 ], [ %.027.us, %19 ], [ %35, %34 ], [ %.027, %30 ], [ %.027, %33 ]
+  %.us-phi = phi i1 [ %.028.us, %22 ], [ %.028.us, %19 ], [ true, %34 ], [ false, %30 ], [ false, %33 ]
+  %.us-phi39 = phi i32 [ %.027.us, %22 ], [ %.027.us, %19 ], [ %35, %34 ], [ %.027, %30 ], [ %.027, %33 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   %40 = load i32, ptr %39, align 8
-  %41 = sub nsw i32 %40, %.us-phi40
+  %41 = sub nsw i32 %40, %.us-phi39
   store i32 %41, ptr %1, align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 48
   %43 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %42) #9
@@ -1548,10 +1548,8 @@ define i32 @list_for_each_max(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   unreachable
 
 46:                                               ; preds = %.critedge
-  %47 = and i8 %.us-phi, 1
-  %.not39 = icmp eq i8 %47, 0
-  %48 = sub nsw i32 0, %.us-phi40
-  %spec.select = select i1 %.not39, i32 %.us-phi40, i32 %48
+  %47 = sub nsw i32 0, %.us-phi39
+  %spec.select = select i1 %.us-phi, i32 %47, i32 %.us-phi39
   ret i32 %spec.select
 }
 

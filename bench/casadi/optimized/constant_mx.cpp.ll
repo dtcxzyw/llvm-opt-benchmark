@@ -2692,9 +2692,8 @@ define void @_ZNK6casadi10ConstantDM14serialize_typeERNS_17SerializingStreamE(pt
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc7, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc7
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -2763,9 +2762,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %14 = getelementptr inbounds i8, ptr %1, i64 72
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %.noexc7, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %.noexc7
 
 17:                                               ; preds = %13
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -3021,9 +3019,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackISt6vecto
   %17 = alloca %"class.std::vector.11", align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %83, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %83
 
 21:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
@@ -3325,9 +3322,8 @@ define void @_ZNK6casadi10ZeroByZero14serialize_typeERNS_17SerializingStreamE(pt
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc7, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc7
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -3707,9 +3703,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackIcEEvRKNS
   %16 = alloca %"class.std::vector.11", align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %82, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %82
 
 20:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
@@ -4057,9 +4052,8 @@ define void @_ZNK6casadi12ConstantFile14serialize_typeERNS_17SerializingStreamE(
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc7, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc7
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -4120,9 +4114,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = getelementptr inbounds i8, ptr %1, i64 72
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %.noexc13, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %.noexc13
 
 14:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -4156,19 +4149,18 @@ _ZN6casadi17SerializingStream4packINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; preds = %.noexc16
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   %19 = load i8, ptr %11, align 8
-  %20 = and i8 %19, 1
-  %.not.i20 = icmp eq i8 %20, 0
-  br i1 %.not.i20, label %.noexc21, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %.noexc20
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %.noexc20 unwind label %.loopexit.split-lp
+
+.noexc20:                                         ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19
+  invoke void @_ZN6casadi17SerializingStream8decorateEc(ptr noundef nonnull align 8 dereferenceable(73) %1, i8 noundef signext 86)
           to label %.noexc21 unwind label %.loopexit.split-lp
 
-.noexc21:                                         ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19
-  invoke void @_ZN6casadi17SerializingStream8decorateEc(ptr noundef nonnull align 8 dereferenceable(73) %1, i8 noundef signext 86)
-          to label %.noexc22 unwind label %.loopexit.split-lp
-
-.noexc22:                                         ; preds = %.noexc21
+.noexc21:                                         ; preds = %.noexc20
   %22 = getelementptr inbounds i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %18, align 8
@@ -4177,26 +4169,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; 
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   invoke void @_ZN6casadi17SerializingStream4packEx(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %28)
-          to label %.noexc23 unwind label %.loopexit.split-lp
+          to label %.noexc22 unwind label %.loopexit.split-lp
 
-.noexc23:                                         ; preds = %.noexc22
+.noexc22:                                         ; preds = %.noexc21
   %29 = load ptr, ptr %18, align 8
   %30 = load ptr, ptr %22, align 8
   %.not9.i.i = icmp eq ptr %29, %30
   br i1 %.not9.i.i, label %_ZN6casadi17SerializingStream4packISt6vectorIdSaIdEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.noexc23, %.noexc24
-  %.sroa.06.010.i.i = phi ptr [ %32, %.noexc24 ], [ %29, %.noexc23 ]
+.lr.ph.i.i:                                       ; preds = %.noexc22, %.noexc23
+  %.sroa.06.010.i.i = phi ptr [ %32, %.noexc23 ], [ %29, %.noexc22 ]
   %31 = load double, ptr %.sroa.06.010.i.i, align 8
   invoke void @_ZN6casadi17SerializingStream4packEd(ptr noundef nonnull align 8 dereferenceable(73) %1, double noundef %31)
-          to label %.noexc24 unwind label %.loopexit
+          to label %.noexc23 unwind label %.loopexit
 
-.noexc24:                                         ; preds = %.lr.ph.i.i
+.noexc23:                                         ; preds = %.lr.ph.i.i
   %32 = getelementptr inbounds i8, ptr %.sroa.06.010.i.i, i64 8
   %.not.i.i = icmp eq ptr %32, %30
   br i1 %.not.i.i, label %_ZN6casadi17SerializingStream4packISt6vectorIdSaIdEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %.lr.ph.i.i
 
-_ZN6casadi17SerializingStream4packISt6vectorIdSaIdEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %.noexc24, %.noexc23
+_ZN6casadi17SerializingStream4packISt6vectorIdSaIdEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %.noexc23, %.noexc22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
   ret void
@@ -4222,7 +4214,7 @@ _ZN6casadi17SerializingStream4packISt6vectorIdSaIdEEEEvRKNSt7__cxx1112basic_stri
           cleanup
   br label %39
 
-.loopexit.split-lp:                               ; preds = %21, %.noexc21, %.noexc22
+.loopexit.split-lp:                               ; preds = %21, %.noexc20, %.noexc21
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %39
@@ -4363,9 +4355,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINSt7__cx
   %16 = alloca %"class.std::vector.11", align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %82, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %82
 
 20:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
@@ -7259,9 +7250,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILi0E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc8, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc8
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -10147,9 +10137,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILi1E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc8, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc8
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -11815,9 +11804,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILin1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc8, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc8
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -13531,9 +13519,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_12RuntimeConstIxEEE14se
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc8, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc8
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -15056,9 +15043,8 @@ define linkonce_odr hidden void @_ZNK6casadi12RuntimeConstIxE14serialize_typeERN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc6, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc6
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -15557,9 +15543,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_12RuntimeConstIdEEE14se
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc8, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc8
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -17098,9 +17083,8 @@ define linkonce_odr hidden void @_ZNK6casadi12RuntimeConstIdE14serialize_typeERN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.noexc6, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.noexc6
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -17171,9 +17155,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackIdEEvRKNS
   %16 = alloca %"class.std::vector.11", align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %82, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %82
 
 20:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
@@ -17412,9 +17395,8 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackIxEEvRKNS
   %16 = alloca %"class.std::vector.11", align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %82, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %82
 
 20:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25

@@ -139,17 +139,16 @@ land.lhs.true5.i.i.i:                             ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #5
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #5
-  %6 = load i64, ptr %_now.i.i.i, align 8
+  %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %call.i, ptr noundef nonnull %spec.select.i) #5
+  %6 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call.i, ptr noundef nonnull %spec.select.i) #5
   br label %trace_qcrypto_tls_creds_anon_load.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -159,8 +158,8 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_qcrypto_tls_creds_anon_load.exit.i:         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %endpoint.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %8 = load i32, ptr %endpoint.i, align 8
-  %cmp.i = icmp eq i32 %8, 1
+  %7 = load i32, ptr %endpoint.i, align 8
+  %cmp.i = icmp eq i32 %7, 1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %trace_qcrypto_tls_creds_anon_load.exit.i
@@ -180,16 +179,16 @@ if.then9.i:                                       ; preds = %if.end.i
   br label %qcrypto_tls_creds_anon_load.exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  %9 = load ptr, ptr %dhparams.i, align 8
+  %8 = load ptr, ptr %dhparams.i, align 8
   %dh_params.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  %call14.i = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %call.i, ptr noundef %9, ptr noundef nonnull %dh_params.i, ptr noundef %errp) #5
+  %call14.i = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %call.i, ptr noundef %8, ptr noundef nonnull %dh_params.i, ptr noundef %errp) #5
   %cmp15.i = icmp slt i32 %call14.i, 0
   br i1 %cmp15.i, label %qcrypto_tls_creds_anon_load.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end11.i
-  %10 = load ptr, ptr %data.i, align 8
-  %11 = load ptr, ptr %dh_params.i, align 8
-  call void @gnutls_anon_set_server_dh_params(ptr noundef %10, ptr noundef %11) #5
+  %9 = load ptr, ptr %data.i, align 8
+  %10 = load ptr, ptr %dh_params.i, align 8
+  call void @gnutls_anon_set_server_dh_params(ptr noundef %9, ptr noundef %10) #5
   br label %qcrypto_tls_creds_anon_load.exit
 
 if.else.i:                                        ; preds = %trace_qcrypto_tls_creds_anon_load.exit.i

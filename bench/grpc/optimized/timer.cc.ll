@@ -818,44 +818,43 @@ entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i)
   %pending = getelementptr inbounds i8, ptr %timer, i64 16
   %3 = load i8, ptr %pending, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp ne i8 %4, 0
-  br i1 %tobool.not, label %if.then, label %cleanup
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %pending, align 8
   %heap_index = getelementptr inbounds i8, ptr %timer, i64 8
-  %5 = load i64, ptr %heap_index, align 8
-  %cmp = icmp eq i64 %5, -1
+  %4 = load i64, ptr %heap_index, align 8
+  %cmp = icmp eq i64 %4, -1
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
   %prev.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %6 = load ptr, ptr %prev.i, align 8
+  %5 = load ptr, ptr %prev.i, align 8
   %next.i = getelementptr inbounds i8, ptr %timer, i64 24
+  %6 = load ptr, ptr %next.i, align 8
+  %prev1.i = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %5, ptr %prev1.i, align 8
   %7 = load ptr, ptr %next.i, align 8
-  %prev1.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %6, ptr %prev1.i, align 8
-  %8 = load ptr, ptr %next.i, align 8
-  %next4.i = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %8, ptr %next4.i, align 8
+  %next4.i = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %7, ptr %next4.i, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %if.else
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #19
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 if.else:                                          ; preds = %if.then
   %heap = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
@@ -867,14 +866,14 @@ cleanup:                                          ; preds = %entry, %if.then4, %
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit8 unwind label %terminate.lpad.i7
 
 terminate.lpad.i7:                                ; preds = %cleanup
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit8:       ; preds = %cleanup
-  ret i1 %tobool.not
+  ret i1 %tobool
 }
 
 declare void @_ZN17grpc_event_engine12experimental9TimerHeap6RemoveEPNS0_5TimerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0

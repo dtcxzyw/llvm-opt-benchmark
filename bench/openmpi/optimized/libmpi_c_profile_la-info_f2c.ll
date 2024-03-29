@@ -41,34 +41,29 @@ define ptr @PMPI_Info_f2c(i32 noundef %0) #0 {
 
 6:                                                ; preds = %3
   %7 = load i8, ptr @opal_uses_threads, align 1
-  %8 = and i8 %7, 1
-  %.not9.i = icmp eq i8 %8, 0
-  br i1 %.not9.i, label %.thread.i, label %13
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %11
 
-.thread.i:                                        ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
-  %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  br label %opal_pointer_array_get_item.exit
-
-13:                                               ; preds = %6
-  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 1, i32 1)) #2
+9:                                                ; preds = %6
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 1, i32 1)) #2
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre1.i = and i8 %.pre.i, 1
-  %15 = icmp eq i8 %.pre1.i, 0
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
-  %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  br i1 %15, label %opal_pointer_array_get_item.exit, label %20
+  br label %11
 
-20:                                               ; preds = %13
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 1, i32 1)) #2
+11:                                               ; preds = %9, %6
+  %12 = phi i8 [ %7, %6 ], [ %.pre.i, %9 ]
+  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
+  %14 = zext nneg i32 %0 to i64
+  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = trunc i8 %12 to i1
+  br i1 %17, label %18, label %opal_pointer_array_get_item.exit
+
+18:                                               ; preds = %11
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 1, i32 1)) #2
   br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %20, %13, %.thread.i, %3, %1, %2
-  %.0 = phi ptr [ @ompi_mpi_info_env, %2 ], [ @ompi_mpi_info_null, %1 ], [ null, %3 ], [ %19, %13 ], [ %19, %20 ], [ %12, %.thread.i ]
+opal_pointer_array_get_item.exit:                 ; preds = %18, %11, %3, %1, %2
+  %.0 = phi ptr [ @ompi_mpi_info_env, %2 ], [ @ompi_mpi_info_null, %1 ], [ null, %3 ], [ %16, %11 ], [ %16, %18 ]
   ret ptr %.0
 }
 

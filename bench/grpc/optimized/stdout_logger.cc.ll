@@ -142,9 +142,8 @@ entry:
   store ptr %retval.sroa.2.0.copyload.i14, ptr %4, align 8
   %authorized_.i = getelementptr inbounds i8, ptr %context, i64 64
   %5 = load i8, ptr %authorized_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.i.not = icmp eq i8 %6, 0
-  %cond = select i1 %tobool.i.not, ptr @.str.1, ptr @.str
+  %tobool.i = trunc i8 %5 to i1
+  %cond = select i1 %tobool.i, ptr @.str, ptr @.str.1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp2, ptr %ref.tmp.i, align 8
   %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -178,10 +177,10 @@ invoke.cont17:                                    ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 declare void @_ZN4absl12lts_2023080210FormatTimeB5cxx11ENS0_4TimeE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, i32) local_unnamed_addr #0

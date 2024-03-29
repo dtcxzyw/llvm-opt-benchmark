@@ -57,9 +57,9 @@ define noalias noundef ptr @wscbor_error_new(ptr noundef %0, ptr noundef %1, ptr
 
 6:                                                ; preds = %3
   %7 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef nonnull @.str) #8
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @wmem_strbuf_append_vprintf(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %4) #8
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %8 = call ptr @wmem_strbuf_finalize(ptr noundef %7) #8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
@@ -73,13 +73,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare void @wmem_strbuf_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
@@ -443,7 +437,7 @@ wscbor_get_length.exit125._crit_edge:             ; preds = %wscbor_get_length.e
 }
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 
@@ -557,7 +551,7 @@ define i32 @wscbor_has_errors(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wscbor_is_indefinite_break(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @wscbor_is_indefinite_break(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
@@ -760,7 +754,7 @@ declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @wscbor_expert_items(ptr noundef writeonly %0) local_unnamed_addr #5 {
+define noundef nonnull ptr @wscbor_expert_items(ptr noundef writeonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -1283,79 +1277,78 @@ define ptr @proto_tree_add_cbor_bitmask(ptr noundef %0, i32 noundef %1, i32 noun
 14:                                               ; preds = %switch.hole_check, %8
   %15 = load ptr, ptr @stderr, align 8
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.14, i32 noundef %12) #10
-  br label %45
+  br label %44
 
 switch.hole_check:                                ; preds = %8
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
-  %17 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %17, 0
-  br i1 %switch.lobit.not, label %14, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %14
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.proto_tree_add_cbor_bitmask, i64 0, i64 %18
+  %17 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.proto_tree_add_cbor_bitmask, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 408
-  %20 = load ptr, ptr %19, align 8
-  %21 = zext nneg i32 %switch.load to i64
-  %22 = tail call noalias ptr @wmem_alloc0(ptr noundef %20, i64 noundef %21) #8
+  %18 = getelementptr inbounds i8, ptr %4, i64 408
+  %19 = load ptr, ptr %18, align 8
+  %20 = zext nneg i32 %switch.load to i64
+  %21 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef %20) #8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.preheader, label %23
+  br i1 %.not, label %.preheader, label %22
 
-23:                                               ; preds = %switch.lookup
-  %24 = load i64, ptr %7, align 8
+22:                                               ; preds = %switch.lookup
+  %23 = load i64, ptr %7, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %switch.lookup, %23
-  %.03133.ph = phi i64 [ %24, %23 ], [ 0, %switch.lookup ]
-  br label %25
+.preheader:                                       ; preds = %switch.lookup, %22
+  %.03133.ph = phi i64 [ %23, %22 ], [ 0, %switch.lookup ]
+  br label %24
 
-25:                                               ; preds = %.preheader, %25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ %21, %.preheader ]
-  %.03133 = phi i64 [ %28, %25 ], [ %.03133.ph, %.preheader ]
+24:                                               ; preds = %.preheader, %24
+  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ %20, %.preheader ]
+  %.03133 = phi i64 [ %27, %24 ], [ %.03133.ph, %.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %26 = trunc i64 %.03133 to i8
-  %27 = getelementptr i8, ptr %22, i64 %indvars.iv.next
-  store i8 %26, ptr %27, align 1
-  %28 = lshr i64 %.03133, 8
-  %29 = icmp ugt i64 %indvars.iv, 1
-  br i1 %29, label %25, label %30, !llvm.loop !10
+  %25 = trunc i64 %.03133 to i8
+  %26 = getelementptr i8, ptr %21, i64 %indvars.iv.next
+  store i8 %25, ptr %26, align 1
+  %27 = lshr i64 %.03133, 8
+  %28 = icmp ugt i64 %indvars.iv, 1
+  br i1 %28, label %24, label %29, !llvm.loop !10
 
-30:                                               ; preds = %25
-  %31 = tail call ptr @tvb_new_child_real_data(ptr noundef %5, ptr noundef nonnull %22, i32 noundef %switch.load, i32 noundef %switch.load) #8
-  br i1 %.not, label %34, label %32
+29:                                               ; preds = %24
+  %30 = tail call ptr @tvb_new_child_real_data(ptr noundef %5, ptr noundef nonnull %21, i32 noundef %switch.load, i32 noundef %switch.load) #8
+  br i1 %.not, label %33, label %31
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %7, align 8
-  br label %34
+31:                                               ; preds = %29
+  %32 = load i64, ptr %7, align 8
+  br label %33
 
-34:                                               ; preds = %30, %32
-  %35 = phi i64 [ %33, %32 ], [ 0, %30 ]
-  %36 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %0, ptr noundef %31, i32 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %35) #8
+33:                                               ; preds = %29, %31
+  %34 = phi i64 [ %32, %31 ], [ 0, %29 ]
+  %35 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %0, ptr noundef %30, i32 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %34) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %4, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
-  %39 = load ptr, ptr %38, align 8
-  call void @wmem_list_foreach(ptr noundef %39, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %9) #8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  call void @wmem_list_foreach(ptr noundef %42, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %9) #8
-  %43 = load ptr, ptr %38, align 8
-  %44 = call i32 @wmem_list_count(ptr noundef %43) #8
+  %36 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = load ptr, ptr %37, align 8
+  call void @wmem_list_foreach(ptr noundef %38, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %9) #8
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  call void @wmem_list_foreach(ptr noundef %41, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %9) #8
+  %42 = load ptr, ptr %37, align 8
+  %43 = call i32 @wmem_list_count(ptr noundef %42) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %34, %14
-  %.0 = phi ptr [ null, %14 ], [ %36, %34 ]
+44:                                               ; preds = %33, %14
+  %.0 = phi ptr [ null, %14 ], [ %35, %33 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1554,6 +1547,12 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
@@ -1562,11 +1561,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }

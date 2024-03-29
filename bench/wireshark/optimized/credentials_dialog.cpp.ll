@@ -1154,11 +1154,10 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %9, %13
 16:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %17 = load i8, ptr %5, align 1
-  %18 = and i8 %17, 1
-  %.not11 = icmp eq i8 %18, 0
-  %19 = icmp slt i32 %15, 1
-  %or.cond = or i1 %19, %.not11
-  br i1 %or.cond, label %20, label %23
+  %18 = trunc i8 %17 to i1
+  %19 = icmp sgt i32 %15, 0
+  %or.cond.not = and i1 %19, %18
+  br i1 %or.cond.not, label %23, label %20
 
 20:                                               ; preds = %16
   call void @_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -1321,9 +1320,8 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeIiLb1EE11deb
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsEi.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN6QDebuglsEi.exit
 
 11:                                               ; preds = %3
   %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 noundef signext 32)

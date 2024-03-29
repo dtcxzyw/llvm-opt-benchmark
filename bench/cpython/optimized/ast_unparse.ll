@@ -2788,13 +2788,13 @@ cond.false12:                                     ; preds = %cond.end8
 cond.end15:                                       ; preds = %cond.end8, %cond.false12
   %cond16 = phi i64 [ %5, %cond.false12 ], [ 0, %cond.end8 ]
   %add = add i64 %cond9, %cond
-  %cmp17137 = icmp sgt i64 %add, 0
-  br i1 %cmp17137, label %do.body18, label %for.end
+  %cmp17136 = icmp sgt i64 %add, 0
+  br i1 %cmp17136, label %do.body18, label %for.end
 
 do.body18:                                        ; preds = %cond.end15, %for.inc
-  %tobool85.not139 = phi i1 [ true, %for.inc ], [ false, %cond.end15 ]
-  %i.0138 = phi i64 [ %add63, %for.inc ], [ 0, %cond.end15 ]
-  br i1 %tobool85.not139, label %land.lhs.true, label %do.end
+  %first.0138 = phi i1 [ false, %for.inc ], [ true, %cond.end15 ]
+  %i.0137 = phi i64 [ %add63, %for.inc ], [ 0, %cond.end15 ]
+  br i1 %first.0138, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body18
   %call.i = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
@@ -2802,13 +2802,13 @@ land.lhs.true:                                    ; preds = %do.body18
   br i1 %cmp19, label %return, label %do.end
 
 do.end:                                           ; preds = %do.body18, %land.lhs.true
-  %cmp21 = icmp slt i64 %i.0138, %cond
+  %cmp21 = icmp slt i64 %i.0137, %cond
   br i1 %cmp21, label %do.body23, label %do.body30
 
 do.body23:                                        ; preds = %do.end
   %6 = load ptr, ptr %args, align 8
   %typed_elements = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0138
+  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0137
   %7 = load ptr, ptr %arrayidx, align 8
   %8 = load ptr, ptr %7, align 8
   %call.i70 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %8) #4
@@ -2835,7 +2835,7 @@ do.body7.i:                                       ; preds = %do.body.i
 do.body30:                                        ; preds = %do.end
   %11 = load ptr, ptr %args2, align 8
   %typed_elements32 = getelementptr inbounds i8, ptr %11, i64 16
-  %sub = sub i64 %i.0138, %cond
+  %sub = sub i64 %i.0137, %cond
   %arrayidx33 = getelementptr [1 x ptr], ptr %typed_elements32, i64 0, i64 %sub
   %12 = load ptr, ptr %arrayidx33, align 8
   %13 = load ptr, ptr %12, align 8
@@ -2861,7 +2861,7 @@ do.body7.i79:                                     ; preds = %do.body.i76
   br i1 %cmp10.i81, label %return, label %if.end39
 
 if.end39:                                         ; preds = %do.body7.i79, %if.end.i73, %do.body7.i, %if.end.i
-  %sub41 = sub nsw i64 %i.0138, %add
+  %sub41 = sub nsw i64 %i.0137, %add
   %add42 = add i64 %sub41, %cond16
   %cmp43 = icmp sgt i64 %add42, -1
   br i1 %cmp43, label %do.body45, label %if.end60
@@ -2881,7 +2881,7 @@ do.body51:                                        ; preds = %do.body45
   br i1 %cmp56, label %return, label %if.end60
 
 if.end60:                                         ; preds = %do.body51, %if.end39
-  %add63 = add nuw nsw i64 %i.0138, 1
+  %add63 = add nuw nsw i64 %i.0137, 1
   %cmp64 = icmp eq i64 %add63, %cond
   br i1 %cmp64, label %do.body66, label %for.inc
 
@@ -2913,7 +2913,8 @@ cond.false76:                                     ; preds = %lor.lhs.false
   br i1 %21, label %if.end110, label %do.body84
 
 do.body84:                                        ; preds = %cond.false76, %for.end
-  br i1 %cmp17137, label %land.lhs.true86, label %do.end91
+  %tobool85 = trunc i8 %first.0.lcssa to i1
+  br i1 %tobool85, label %do.end91, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %do.body84
   %call.i87 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
@@ -2977,14 +2978,14 @@ cond.false121:                                    ; preds = %cond.end117
 
 cond.end124:                                      ; preds = %cond.end117, %cond.false121
   %cond125 = phi i64 [ %29, %cond.false121 ], [ 0, %cond.end117 ]
-  %30 = icmp ne i8 %first.1, 0
-  %cmp127141 = icmp sgt i64 %cond118, 0
-  br i1 %cmp127141, label %do.body130, label %for.end173
+  %30 = trunc i8 %first.1 to i1
+  %cmp127139 = icmp sgt i64 %cond118, 0
+  br i1 %cmp127139, label %do.body130, label %for.end173
 
 do.body130:                                       ; preds = %cond.end124, %for.inc171
-  %first.2143 = phi i1 [ false, %for.inc171 ], [ %30, %cond.end124 ]
-  %i.1142 = phi i64 [ %inc172, %for.inc171 ], [ 0, %cond.end124 ]
-  br i1 %first.2143, label %do.end137, label %land.lhs.true132
+  %first.2141 = phi i1 [ false, %for.inc171 ], [ %30, %cond.end124 ]
+  %i.1140 = phi i64 [ %inc172, %for.inc171 ], [ 0, %cond.end124 ]
+  br i1 %first.2141, label %do.end137, label %land.lhs.true132
 
 land.lhs.true132:                                 ; preds = %do.body130
   %call.i103 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
@@ -2994,7 +2995,7 @@ land.lhs.true132:                                 ; preds = %do.body130
 do.end137:                                        ; preds = %do.body130, %land.lhs.true132
   %31 = load ptr, ptr %kwonlyargs111, align 8
   %typed_elements141 = getelementptr inbounds i8, ptr %31, i64 16
-  %arrayidx142 = getelementptr [1 x ptr], ptr %typed_elements141, i64 0, i64 %i.1142
+  %arrayidx142 = getelementptr [1 x ptr], ptr %typed_elements141, i64 0, i64 %i.1140
   %32 = load ptr, ptr %arrayidx142, align 8
   %33 = load ptr, ptr %32, align 8
   %call.i104 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %33) #4
@@ -3019,7 +3020,7 @@ do.body7.i112:                                    ; preds = %do.body.i109
   br i1 %cmp10.i114, label %return, label %do.end147
 
 do.end147:                                        ; preds = %do.body7.i112, %if.end.i106
-  %sub148 = sub nsw i64 %i.1142, %cond118
+  %sub148 = sub nsw i64 %i.1140, %cond118
   %add149 = add i64 %sub148, %cond125
   %cmp150 = icmp sgt i64 %add149, -1
   br i1 %cmp150, label %if.then151, label %for.inc171
@@ -3043,9 +3044,9 @@ do.body163:                                       ; preds = %do.body157
   br i1 %cmp165, label %return, label %for.inc171
 
 for.inc171:                                       ; preds = %do.end147, %do.body163, %if.then151
-  %inc172 = add nuw nsw i64 %i.1142, 1
-  %exitcond146.not = icmp eq i64 %inc172, %cond118
-  br i1 %exitcond146.not, label %for.end173.thread, label %do.body130, !llvm.loop !19
+  %inc172 = add nuw nsw i64 %i.1140, 1
+  %exitcond144.not = icmp eq i64 %inc172, %cond118
+  br i1 %exitcond144.not, label %for.end173.thread, label %do.body130, !llvm.loop !19
 
 for.end173:                                       ; preds = %cond.end124
   %kwarg = getelementptr inbounds i8, ptr %args, i64 40
@@ -3054,55 +3055,55 @@ for.end173:                                       ; preds = %cond.end124
   br i1 %tobool174.not, label %return, label %do.body177
 
 for.end173.thread:                                ; preds = %for.inc171
-  %kwarg148 = getelementptr inbounds i8, ptr %args, i64 40
-  %39 = load ptr, ptr %kwarg148, align 8
-  %tobool174.not149 = icmp eq ptr %39, null
-  br i1 %tobool174.not149, label %return, label %land.lhs.true179
+  %kwarg146 = getelementptr inbounds i8, ptr %args, i64 40
+  %39 = load ptr, ptr %kwarg146, align 8
+  %tobool174.not147 = icmp eq ptr %39, null
+  br i1 %tobool174.not147, label %return, label %land.lhs.true179
 
 do.body177:                                       ; preds = %for.end173
   br i1 %30, label %do.end184, label %land.lhs.true179
 
 land.lhs.true179:                                 ; preds = %for.end173.thread, %do.body177
-  %kwarg151154 = phi ptr [ %kwarg, %do.body177 ], [ %kwarg148, %for.end173.thread ]
+  %kwarg149152 = phi ptr [ %kwarg, %do.body177 ], [ %kwarg146, %for.end173.thread ]
   %call.i119 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
   %cmp181 = icmp eq i32 %call.i119, -1
   br i1 %cmp181, label %return, label %do.end184
 
 do.end184:                                        ; preds = %do.body177, %land.lhs.true179
-  %kwarg151155 = phi ptr [ %kwarg, %do.body177 ], [ %kwarg151154, %land.lhs.true179 ]
+  %kwarg149153 = phi ptr [ %kwarg, %do.body177 ], [ %kwarg149152, %land.lhs.true179 ]
   %call.i120 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.33, i64 noundef -1) #4
   %cmp188 = icmp eq i32 %call.i120, -1
   br i1 %cmp188, label %return, label %do.body192
 
 do.body192:                                       ; preds = %do.end184
-  %40 = load ptr, ptr %kwarg151155, align 8
+  %40 = load ptr, ptr %kwarg149153, align 8
   %41 = load ptr, ptr %40, align 8
-  %call.i157 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %41) #4
-  %cmp.i158 = icmp eq i32 %call.i157, -1
-  br i1 %cmp.i158, label %append_ast_arg.exit.thread, label %if.end.i159
+  %call.i155 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %41) #4
+  %cmp.i156 = icmp eq i32 %call.i155, -1
+  br i1 %cmp.i156, label %append_ast_arg.exit.thread, label %if.end.i157
 
-if.end.i159:                                      ; preds = %do.body192
-  %annotation.i160 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load ptr, ptr %annotation.i160, align 8
-  %tobool.not.i161 = icmp eq ptr %42, null
-  br i1 %tobool.not.i161, label %return, label %do.body.i162
+if.end.i157:                                      ; preds = %do.body192
+  %annotation.i158 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = load ptr, ptr %annotation.i158, align 8
+  %tobool.not.i159 = icmp eq ptr %42, null
+  br i1 %tobool.not.i159, label %return, label %do.body.i160
 
-do.body.i162:                                     ; preds = %if.end.i159
+do.body.i160:                                     ; preds = %if.end.i157
   %call.i.i = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
-  %cmp4.i163 = icmp eq i32 %call.i.i, -1
-  br i1 %cmp4.i163, label %append_ast_arg.exit.thread, label %do.body7.i164
+  %cmp4.i161 = icmp eq i32 %call.i.i, -1
+  br i1 %cmp4.i161, label %append_ast_arg.exit.thread, label %do.body7.i162
 
-do.body7.i164:                                    ; preds = %do.body.i162
-  %43 = load ptr, ptr %annotation.i160, align 8
-  %call9.i165 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %43, i32 noundef 1)
-  %cmp10.i166 = icmp eq i32 %call9.i165, -1
-  br i1 %cmp10.i166, label %append_ast_arg.exit.thread, label %return
+do.body7.i162:                                    ; preds = %do.body.i160
+  %43 = load ptr, ptr %annotation.i158, align 8
+  %call9.i163 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %43, i32 noundef 1)
+  %cmp10.i164 = icmp eq i32 %call9.i163, -1
+  br i1 %cmp10.i164, label %append_ast_arg.exit.thread, label %return
 
-append_ast_arg.exit.thread:                       ; preds = %do.body192, %do.body.i162, %do.body7.i164
+append_ast_arg.exit.thread:                       ; preds = %do.body192, %do.body.i160, %do.body7.i162
   br label %return
 
-return:                                           ; preds = %do.body7.i79, %do.body.i76, %do.body30, %do.body7.i, %do.body.i, %do.body23, %do.body66, %do.body51, %do.body45, %land.lhs.true, %do.body7.i112, %do.body.i109, %do.end137, %do.body163, %do.body157, %land.lhs.true132, %for.end173, %for.end173.thread, %if.end.i159, %do.body7.i164, %append_ast_arg.exit.thread, %do.body7.i97, %do.body.i94, %do.body102, %do.end184, %land.lhs.true179, %do.end91, %land.lhs.true86
-  %retval.0 = phi i32 [ -1, %land.lhs.true86 ], [ -1, %do.end91 ], [ -1, %land.lhs.true179 ], [ -1, %do.end184 ], [ -1, %do.body102 ], [ -1, %do.body.i94 ], [ -1, %do.body7.i97 ], [ -1, %append_ast_arg.exit.thread ], [ 0, %do.body7.i164 ], [ 0, %if.end.i159 ], [ 0, %for.end173.thread ], [ 0, %for.end173 ], [ -1, %land.lhs.true132 ], [ -1, %do.body157 ], [ -1, %do.body163 ], [ -1, %do.end137 ], [ -1, %do.body.i109 ], [ -1, %do.body7.i112 ], [ -1, %land.lhs.true ], [ -1, %do.body45 ], [ -1, %do.body51 ], [ -1, %do.body66 ], [ -1, %do.body23 ], [ -1, %do.body.i ], [ -1, %do.body7.i ], [ -1, %do.body30 ], [ -1, %do.body.i76 ], [ -1, %do.body7.i79 ]
+return:                                           ; preds = %do.body7.i79, %do.body.i76, %do.body30, %do.body7.i, %do.body.i, %do.body23, %do.body66, %do.body51, %do.body45, %land.lhs.true, %do.body7.i112, %do.body.i109, %do.end137, %do.body163, %do.body157, %land.lhs.true132, %for.end173, %for.end173.thread, %if.end.i157, %do.body7.i162, %append_ast_arg.exit.thread, %do.body7.i97, %do.body.i94, %do.body102, %do.end184, %land.lhs.true179, %do.end91, %land.lhs.true86
+  %retval.0 = phi i32 [ -1, %land.lhs.true86 ], [ -1, %do.end91 ], [ -1, %land.lhs.true179 ], [ -1, %do.end184 ], [ -1, %do.body102 ], [ -1, %do.body.i94 ], [ -1, %do.body7.i97 ], [ -1, %append_ast_arg.exit.thread ], [ 0, %do.body7.i162 ], [ 0, %if.end.i157 ], [ 0, %for.end173.thread ], [ 0, %for.end173 ], [ -1, %land.lhs.true132 ], [ -1, %do.body157 ], [ -1, %do.body163 ], [ -1, %do.end137 ], [ -1, %do.body.i109 ], [ -1, %do.body7.i112 ], [ -1, %land.lhs.true ], [ -1, %do.body45 ], [ -1, %do.body51 ], [ -1, %do.body66 ], [ -1, %do.body23 ], [ -1, %do.body.i ], [ -1, %do.body7.i ], [ -1, %do.body30 ], [ -1, %do.body.i76 ], [ -1, %do.body7.i79 ]
   ret i32 %retval.0
 }
 

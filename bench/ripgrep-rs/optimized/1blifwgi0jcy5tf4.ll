@@ -479,52 +479,51 @@ define void @_ZN12grep_printer4util20trim_line_terminator17hd23889c6be8a46c9E(pt
   %22 = add i64 %14, %21
   %23 = getelementptr inbounds [0 x i8], ptr %20, i64 0, i64 %22
   %.val4.i = load i8, ptr %23, align 1, !alias.scope !60, !noundef !7
-  %trunc.not.i.i = icmp eq i8 %9, 0
-  %.0.i.i = select i1 %trunc.not.i.i, i8 %11, i8 10
+  %trunc.i.i = trunc i8 %9 to i1
+  %.0.i.i = select i1 %trunc.i.i, i8 10, i8 %11
   %24 = icmp eq i8 %.0.i.i, %.val4.i
   br i1 %24, label %25, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit.thread"
 
 25:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit"
   %26 = add i64 %14, -1
-  %27 = icmp ne i8 %9, 0
-  %28 = icmp ne i64 %26, 0
-  %or.cond = and i1 %27, %28
-  br i1 %or.cond, label %29, label %.thread
+  %27 = icmp ne i64 %26, 0
+  %or.cond = and i1 %27, %trunc.i.i
+  br i1 %or.cond, label %28, label %.thread
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4cfb0ca7a0793490E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit", %_ZN12grep_matcher5Match8with_end17hfe8b286eb39d7d7aE.exit
   ret void
 
-29:                                               ; preds = %25
-  %30 = add i64 %14, -2
-  %.not20 = icmp ult i64 %30, %2
-  br i1 %.not20, label %39, label %.thread
+28:                                               ; preds = %25
+  %29 = add i64 %14, -2
+  %.not20 = icmp ult i64 %29, %2
+  br i1 %.not20, label %38, label %.thread
 
-.thread:                                          ; preds = %39, %29, %25
-  %.011 = phi i64 [ %26, %25 ], [ %26, %29 ], [ %spec.select, %39 ]
+.thread:                                          ; preds = %38, %28, %25
+  %.011 = phi i64 [ %26, %25 ], [ %26, %28 ], [ %spec.select, %38 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %.011, ptr %7, align 8, !noalias !63
   %.not.i = icmp ugt i64 %12, %.011
-  br i1 %.not.i, label %31, label %_ZN12grep_matcher5Match8with_end17hfe8b286eb39d7d7aE.exit
+  br i1 %.not.i, label %30, label %_ZN12grep_matcher5Match8with_end17hfe8b286eb39d7d7aE.exit
 
-31:                                               ; preds = %.thread
+30:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !63
   store ptr %3, ptr %5, align 8, !noalias !63
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %32, align 8, !noalias !63
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %7, ptr %33, align 8, !noalias !63
-  %34 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %34, align 8, !noalias !63
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %31, align 8, !noalias !63
+  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %7, ptr %32, align 8, !noalias !63
+  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %33, align 8, !noalias !63
   store ptr @anon.165eac1b1a06cb4fac5c4b8cbd89d710.2, ptr %6, align 8, !alias.scope !66, !noalias !69
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 2, ptr %35, align 8, !alias.scope !66, !noalias !69
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !66, !noalias !69
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %5, ptr %37, align 8, !alias.scope !66, !noalias !69
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 2, ptr %38, align 8, !alias.scope !66, !noalias !69
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 2, ptr %34, align 8, !alias.scope !66, !noalias !69
+  %35 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !66, !noalias !69
+  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %5, ptr %36, align 8, !alias.scope !66, !noalias !69
+  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 2, ptr %37, align 8, !alias.scope !66, !noalias !69
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.165eac1b1a06cb4fac5c4b8cbd89d710.5) #14
   unreachable
 
@@ -533,11 +532,11 @@ _ZN12grep_matcher5Match8with_end17hfe8b286eb39d7d7aE.exit: ; preds = %.thread
   store i64 %.011, ptr %13, align 8
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit.thread"
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %1, i64 %30
-  %41 = load i8, ptr %40, align 1, !noundef !7
-  %42 = icmp eq i8 %41, 13
-  %spec.select = select i1 %42, i64 %30, i64 %26
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds i8, ptr %1, i64 %29
+  %40 = load i8, ptr %39, align 1, !noundef !7
+  %41 = icmp eq i8 %40, 13
+  %spec.select = select i1 %41, i64 %29, i64 %26
   br label %.thread
 }
 

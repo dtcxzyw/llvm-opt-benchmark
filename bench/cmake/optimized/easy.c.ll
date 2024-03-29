@@ -302,8 +302,11 @@ sigpipe_ignore.exit.i:                            ; preds = %41, %33
 44:                                               ; preds = %.thread.i.i, %sigpipe_ignore.exit.i
   store i32 0, ptr %2, align 4
   %45 = call i32 @curl_multi_poll(ptr noundef nonnull %.025.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
-  %.not19.i.i = icmp eq i32 %45, 0
-  br i1 %.not19.i.i, label %46, label %easy_transfer.exit.loopexit.i
+  %.fr.i = freeze i32 %45
+  switch i32 %.fr.i, label %.loopexit [
+    i32 0, label %46
+    i32 3, label %.loopexit.loopexit
+  ]
 
 46:                                               ; preds = %44
   %47 = call i32 @curl_multi_perform(ptr noundef nonnull %.025.i, ptr noundef nonnull %2) #12
@@ -316,39 +319,39 @@ sigpipe_ignore.exit.i:                            ; preds = %41, %33
 51:                                               ; preds = %46
   %52 = call ptr @curl_multi_info_read(ptr noundef nonnull %.025.i, ptr noundef nonnull %3) #12
   %.not20.i.i = icmp eq ptr %52, null
-  br i1 %.not20.i.i, label %.thread.i.i, label %53
+  br i1 %.not20.i.i, label %.thread.i.i, label %.thread.i
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %52, i64 16
-  %55 = load i32, ptr %54, align 8
-  br label %easy_transfer.exit.i
+.thread.i:                                        ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load i32, ptr %53, align 8
+  br label %.loopexit
 
 .thread.i.i:                                      ; preds = %51, %46
-  %.not18.i.i = icmp eq i32 %47, 0
-  br i1 %.not18.i.i, label %44, label %easy_transfer.exit.loopexit.i, !llvm.loop !5
+  br i1 %48, label %easy_transfer.exit.thread.i, label %44, !llvm.loop !5
 
-easy_transfer.exit.loopexit.i:                    ; preds = %.thread.i.i, %44
-  %.1152331.i.ph.i = phi i32 [ %45, %44 ], [ %47, %.thread.i.i ]
-  %56 = icmp eq i32 %.1152331.i.ph.i, 3
-  %57 = select i1 %56, i32 27, i32 43
-  br label %easy_transfer.exit.i
+easy_transfer.exit.thread.i:                      ; preds = %.thread.i.i
+  %55 = icmp eq i32 %47, 3
+  %56 = select i1 %55, i32 27, i32 43
+  br label %.loopexit
 
-easy_transfer.exit.i:                             ; preds = %easy_transfer.exit.loopexit.i, %53
-  %.not1833.i.i = phi i32 [ %55, %53 ], [ %57, %easy_transfer.exit.loopexit.i ]
+.loopexit.loopexit:                               ; preds = %44
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %44, %.loopexit.loopexit, %easy_transfer.exit.thread.i, %.thread.i
+  %57 = phi i32 [ %54, %.thread.i ], [ %56, %easy_transfer.exit.thread.i ], [ 27, %.loopexit.loopexit ], [ 43, %44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %58 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.025.i, ptr noundef nonnull %0) #12
   %59 = load i8, ptr %36, align 8
-  %60 = and i8 %59, 1
-  %.not.i37.i = icmp eq i8 %60, 0
-  br i1 %.not.i37.i, label %61, label %easy_perform.exit
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %easy_perform.exit, label %61
 
-61:                                               ; preds = %easy_transfer.exit.i
+61:                                               ; preds = %.loopexit
   %62 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #12
   br label %easy_perform.exit
 
-easy_perform.exit:                                ; preds = %1, %13, %17, %20, %30, %easy_transfer.exit.i, %61
-  %.0.i = phi i32 [ 2, %13 ], [ 43, %1 ], [ 27, %17 ], [ 93, %20 ], [ %..i, %30 ], [ %.not1833.i.i, %easy_transfer.exit.i ], [ %.not1833.i.i, %61 ]
+easy_perform.exit:                                ; preds = %1, %13, %17, %20, %30, %.loopexit, %61
+  %.0.i = phi i32 [ 2, %13 ], [ 43, %1 ], [ 27, %17 ], [ 93, %20 ], [ %..i, %30 ], [ %57, %.loopexit ], [ %57, %61 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -391,9 +394,8 @@ sigpipe_ignore.exit:                              ; preds = %8, %16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
   %19 = call i32 @Curl_close(ptr noundef nonnull %3) #12
   %20 = load i8, ptr %11, align 8
-  %21 = and i8 %20, 1
-  %.not.i1 = icmp eq i8 %21, 0
-  br i1 %.not.i1, label %22, label %sigpipe_restore.exit
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %sigpipe_restore.exit, label %22
 
 22:                                               ; preds = %sigpipe_ignore.exit
   %23 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %4, ptr noundef null) #12
@@ -408,7 +410,7 @@ declare i32 @Curl_close(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @curl_easy_getinfo(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load i32, ptr %3, align 16
   %5 = icmp ult i32 %4, 41
   br i1 %5, label %6, label %12
@@ -433,17 +435,11 @@ define dso_local i32 @curl_easy_getinfo(ptr noundef %0, i32 noundef %1, ...) loc
   %17 = phi ptr [ %10, %6 ], [ %14, %12 ]
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, i32, ...) @Curl_getinfo(ptr noundef %0, i32 noundef %1, ptr noundef %18) #12
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %19
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare i32 @Curl_getinfo(ptr noundef, i32 noundef, ...) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 {
@@ -771,7 +767,7 @@ define dso_local void @curl_easy_reset(ptr noundef %0) local_unnamed_addr #5 {
 declare void @Curl_free_request_state(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare i32 @Curl_init_userdefined(ptr noundef) local_unnamed_addr #6
 
@@ -1037,9 +1033,8 @@ sigpipe_ignore.exit:                              ; preds = %19, %27
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
   %30 = call i32 @Curl_write(ptr noundef nonnull %0, i32 noundef %13, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6) #12
   %31 = load i8, ptr %22, align 8
-  %32 = and i8 %31, 1
-  %.not.i18 = icmp eq i8 %32, 0
-  br i1 %.not.i18, label %33, label %sigpipe_restore.exit
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %sigpipe_restore.exit, label %33
 
 33:                                               ; preds = %sigpipe_ignore.exit
   %34 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %8, ptr noundef null) #12
@@ -1143,10 +1138,10 @@ declare i32 @curl_multi_perform(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @curl_multi_info_read(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 declare void @Curl_mime_initpart(ptr noundef) local_unnamed_addr #6
 
@@ -1213,6 +1208,12 @@ declare i32 @Curl_conn_keep_alive(ptr noundef, ptr noundef, i32 noundef) local_u
 
 declare void @Curl_detach_connection(ptr noundef) local_unnamed_addr #6
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
@@ -1226,10 +1227,10 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 

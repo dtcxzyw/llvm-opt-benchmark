@@ -283,8 +283,8 @@ for.end:                                          ; preds = %do.body.i29, %if.en
 
 if.then31:                                        ; preds = %for.end
   %6 = load i8, ptr %locColorsSpec, align 1
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %colorsSpecified, align 1
+  %frombool = and i8 %6, 1
+  store i8 %frombool, ptr %colorsSpecified, align 1
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then31, %for.end
@@ -864,8 +864,8 @@ for.end27:                                        ; preds = %do.body.i, %do.body
 
 if.then28:                                        ; preds = %for.end27
   %14 = load i8, ptr %locColorsSpec, align 1
-  %15 = and i8 %14, 1
-  store i8 %15, ptr %colorsSpecified, align 1
+  %frombool = and i8 %14, 1
+  store i8 %frombool, ptr %colorsSpecified, align 1
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then28, %for.end27
@@ -1546,38 +1546,37 @@ _ZN7msdfgenL9isColoredERKNS_5ShapeE.exit:         ; preds = %for.inc19.i, %for.b
   %cmp.i12.i = phi i1 [ false, %if.end ], [ true, %for.body15.i ], [ false, %for.inc19.i ]
   %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
   %8 = load i8, ptr %inverseYAxis, align 8
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %if.end4, label %if.then2
+  %tobool = trunc i8 %8 to i1
+  br i1 %tobool, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %_ZN7msdfgenL9isColoredERKNS_5ShapeE.exit
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 10, i64 1, ptr %output)
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 10, i64 1, ptr %output)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %_ZN7msdfgenL9isColoredERKNS_5ShapeE.exit
-  %11 = load ptr, ptr %shape, align 8
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not64 = icmp eq ptr %11, %12
+  %10 = load ptr, ptr %shape, align 8
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not64 = icmp eq ptr %10, %11
   br i1 %cmp.i.not64, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end4, %if.end89
-  %contour.sroa.0.065 = phi ptr [ %incdec.ptr.i52, %if.end89 ], [ %11, %if.end4 ]
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %output)
-  %14 = load ptr, ptr %contour.sroa.0.065, align 8
+  %contour.sroa.0.065 = phi ptr [ %incdec.ptr.i52, %if.end89 ], [ %10, %if.end4 ]
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %output)
+  %13 = load ptr, ptr %contour.sroa.0.065, align 8
   %_M_finish.i.i44 = getelementptr inbounds i8, ptr %contour.sroa.0.065, i64 8
-  %15 = load ptr, ptr %_M_finish.i.i44, align 8
-  %cmp.i.i = icmp eq ptr %14, %15
+  %14 = load ptr, ptr %_M_finish.i.i44, align 8
+  %cmp.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i, label %if.end89, label %for.body25
 
 for.body25:                                       ; preds = %for.body, %for.inc
-  %edge.sroa.0.063 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %14, %for.body ]
+  %edge.sroa.0.063 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %13, %for.body ]
   br i1 %cmp.i12.i, label %if.then27, label %if.end33
 
 if.then27:                                        ; preds = %for.body25
   %call29 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.063)
   %color = getelementptr inbounds i8, ptr %call29, i64 8
-  %16 = load i32, ptr %color, align 8
-  switch i32 %16, label %if.end33 [
+  %15 = load i32, ptr %color, align 8
+  switch i32 %15, label %if.end33 [
     i32 3, label %sw.bb
     i32 5, label %sw.bb30
     i32 6, label %sw.bb31
@@ -1602,13 +1601,13 @@ if.end33:                                         ; preds = %sw.bb, %sw.bb30, %s
   %call35 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.063)
   %vtable = load ptr, ptr %call35, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %17 = load ptr, ptr %vfn, align 8
-  %call36 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(12) %call35)
+  %16 = load ptr, ptr %vfn, align 8
+  %call36 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(12) %call35)
   %call38 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.063)
   %vtable39 = load ptr, ptr %call38, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 24
-  %18 = load ptr, ptr %vfn40, align 8
-  %call41 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(12) %call38)
+  %17 = load ptr, ptr %vfn40, align 8
+  %call41 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(12) %call38)
   switch i32 %call41, label %for.inc [
     i32 1, label %sw.bb42
     i32 2, label %sw.bb50
@@ -1621,7 +1620,7 @@ sw.bb42:                                          ; preds = %if.end33
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call36, i64 8
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %output, ptr noundef nonnull @.str.15, double noundef %agg.tmp.sroa.0.0.copyload, double noundef %agg.tmp.sroa.2.0.copyload)
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %output)
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %output)
   br i1 %tobool72.not, label %for.inc, label %if.then47
 
 if.then47:                                        ; preds = %sw.bb42
@@ -1634,7 +1633,7 @@ sw.bb50:                                          ; preds = %if.end33
   %agg.tmp52.sroa.2.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %call36, i64 8
   %agg.tmp52.sroa.2.0.copyload = load double, ptr %agg.tmp52.sroa.2.0.arrayidx53.sroa_idx, align 8
   %call.i47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %output, ptr noundef nonnull @.str.15, double noundef %agg.tmp52.sroa.0.0.copyload, double noundef %agg.tmp52.sroa.2.0.copyload)
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %output)
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %output)
   br i1 %tobool72.not, label %if.end60, label %if.then57
 
 if.then57:                                        ; preds = %sw.bb50
@@ -1648,7 +1647,7 @@ if.end60:                                         ; preds = %if.then57, %sw.bb50
   %agg.tmp62.sroa.2.0.arrayidx63.sroa_idx = getelementptr inbounds i8, ptr %call36, i64 24
   %agg.tmp62.sroa.2.0.copyload = load double, ptr %agg.tmp62.sroa.2.0.arrayidx63.sroa_idx, align 8
   %call.i48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %output, ptr noundef nonnull @.str.15, double noundef %agg.tmp62.sroa.0.0.copyload, double noundef %agg.tmp62.sroa.2.0.copyload)
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %output)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %output)
   br label %for.inc
 
 sw.bb66:                                          ; preds = %if.end33
@@ -1657,7 +1656,7 @@ sw.bb66:                                          ; preds = %if.end33
   %agg.tmp68.sroa.2.0.arrayidx69.sroa_idx = getelementptr inbounds i8, ptr %call36, i64 8
   %agg.tmp68.sroa.2.0.copyload = load double, ptr %agg.tmp68.sroa.2.0.arrayidx69.sroa_idx, align 8
   %call.i49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %output, ptr noundef nonnull @.str.15, double noundef %agg.tmp68.sroa.0.0.copyload, double noundef %agg.tmp68.sroa.2.0.copyload)
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %output)
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %output)
   br i1 %tobool72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %sw.bb66
@@ -1671,30 +1670,30 @@ if.end76:                                         ; preds = %if.then73, %sw.bb66
   %agg.tmp78.sroa.2.0.arrayidx79.sroa_idx = getelementptr inbounds i8, ptr %call36, i64 24
   %agg.tmp78.sroa.2.0.copyload = load double, ptr %agg.tmp78.sroa.2.0.arrayidx79.sroa_idx, align 8
   %call.i50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %output, ptr noundef nonnull @.str.15, double noundef %agg.tmp78.sroa.0.0.copyload, double noundef %agg.tmp78.sroa.2.0.copyload)
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %output)
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %output)
   %arrayidx83 = getelementptr inbounds i8, ptr %call36, i64 32
   %agg.tmp82.sroa.0.0.copyload = load double, ptr %arrayidx83, align 8
   %agg.tmp82.sroa.2.0.arrayidx83.sroa_idx = getelementptr inbounds i8, ptr %call36, i64 40
   %agg.tmp82.sroa.2.0.copyload = load double, ptr %agg.tmp82.sroa.2.0.arrayidx83.sroa_idx, align 8
   %call.i51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %output, ptr noundef nonnull @.str.15, double noundef %agg.tmp82.sroa.0.0.copyload, double noundef %agg.tmp82.sroa.2.0.copyload)
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %output)
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %output)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end33, %if.end60, %if.end76, %if.then47, %sw.bb42
   %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.063, i64 8
-  %25 = load ptr, ptr %_M_finish.i.i44, align 8
-  %cmp.i46.not = icmp eq ptr %incdec.ptr.i, %25
+  %24 = load ptr, ptr %_M_finish.i.i44, align 8
+  %cmp.i46.not = icmp eq ptr %incdec.ptr.i, %24
   br i1 %cmp.i46.not, label %for.end, label %for.body25, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %output)
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %output)
   br label %if.end89
 
 if.end89:                                         ; preds = %for.end, %for.body
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %output)
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %output)
   %incdec.ptr.i52 = getelementptr inbounds i8, ptr %contour.sroa.0.065, i64 24
-  %28 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i52, %28
+  %27 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i52, %27
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !16
 
 return:                                           ; preds = %if.end89, %if.end4, %entry

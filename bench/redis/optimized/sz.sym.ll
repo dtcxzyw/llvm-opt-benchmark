@@ -147,21 +147,20 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %arrayidx.i = getelementptr inbounds [235 x %struct.sc_s], ptr %sc2.i, i64 0, i64 %indvars.iv.i
   %psz.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %0 = load i8, ptr %psz.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
   %lg_base.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %2 = load i32, ptr %lg_base.i, align 4
-  %sh_prom.i = zext nneg i32 %2 to i64
+  %1 = load i32, ptr %lg_base.i, align 4
+  %sh_prom.i = zext nneg i32 %1 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %ndelta.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  %3 = load i32, ptr %ndelta.i, align 4
-  %conv3.i = sext i32 %3 to i64
+  %2 = load i32, ptr %ndelta.i, align 4
+  %conv3.i = sext i32 %2 to i64
   %lg_delta.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %4 = load i32, ptr %lg_delta.i, align 4
-  %sh_prom4.i = zext nneg i32 %4 to i64
+  %3 = load i32, ptr %lg_delta.i, align 4
+  %sh_prom4.i = zext nneg i32 %3 to i64
   %shl5.i = shl i64 %conv3.i, %sh_prom4.i
   %add.i = add i64 %shl5.i, %shl.i
   %idxprom6.i = sext i32 %pind.012.i to i64
@@ -178,8 +177,8 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 
 for.body13.i:                                     ; preds = %for.body13.i, %for.body13.lr.ph.i
   %i9.014.i = phi i32 [ %pind.1.i, %for.body13.lr.ph.i ], [ %inc18.i, %for.body13.i ]
-  %5 = load i64, ptr %large_maxclass.i, align 8
-  %add14.i = add i64 %5, 4096
+  %4 = load i64, ptr %large_maxclass.i, align 8
+  %add14.i = add i64 %4, 4096
   store i64 %add14.i, ptr %arrayidx16.i, align 8
   %inc18.i = add i32 %i9.014.i, 1
   %exitcond16.not.i = icmp eq i32 %inc18.i, 200
@@ -192,15 +191,15 @@ for.body.i4:                                      ; preds = %for.body.i4.prehead
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i17, %for.body.i4 ], [ 0, %for.body.i4.preheader ]
   %arrayidx.i6 = getelementptr inbounds [235 x %struct.sc_s], ptr %sc2.i, i64 0, i64 %indvars.iv.i5
   %lg_base.i7 = getelementptr inbounds i8, ptr %arrayidx.i6, i64 4
-  %6 = load i32, ptr %lg_base.i7, align 4
-  %sh_prom.i8 = zext nneg i32 %6 to i64
+  %5 = load i32, ptr %lg_base.i7, align 4
+  %sh_prom.i8 = zext nneg i32 %5 to i64
   %shl.i9 = shl nuw i64 1, %sh_prom.i8
   %ndelta.i10 = getelementptr inbounds i8, ptr %arrayidx.i6, i64 12
-  %7 = load i32, ptr %ndelta.i10, align 4
-  %conv3.i11 = sext i32 %7 to i64
+  %6 = load i32, ptr %ndelta.i10, align 4
+  %conv3.i11 = sext i32 %6 to i64
   %lg_delta.i12 = getelementptr inbounds i8, ptr %arrayidx.i6, i64 8
-  %8 = load i32, ptr %lg_delta.i12, align 4
-  %sh_prom4.i13 = zext nneg i32 %8 to i64
+  %7 = load i32, ptr %lg_delta.i12, align 4
+  %sh_prom4.i13 = zext nneg i32 %7 to i64
   %shl5.i14 = shl i64 %conv3.i11, %sh_prom4.i13
   %add.i15 = add i64 %shl5.i14, %shl.i9
   %arrayidx7.i16 = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %indvars.iv.i5
@@ -214,15 +213,15 @@ for.body.i19:                                     ; preds = %for.body.i4, %for.i
   %dst_ind.014.i = phi i64 [ %dst_ind.1.lcssa.i, %for.inc19.i ], [ 0, %for.body.i4 ]
   %arrayidx.i21 = getelementptr inbounds [235 x %struct.sc_s], ptr %sc2.i, i64 0, i64 %indvars.iv.i20
   %lg_base.i22 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 4
-  %9 = load i32, ptr %lg_base.i22, align 4
-  %sh_prom.i23 = zext nneg i32 %9 to i64
+  %8 = load i32, ptr %lg_base.i22, align 4
+  %sh_prom.i23 = zext nneg i32 %8 to i64
   %shl.i24 = shl nuw i64 1, %sh_prom.i23
   %ndelta.i25 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 12
-  %10 = load i32, ptr %ndelta.i25, align 4
-  %conv5.i = sext i32 %10 to i64
+  %9 = load i32, ptr %ndelta.i25, align 4
+  %conv5.i = sext i32 %9 to i64
   %lg_delta.i26 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 8
-  %11 = load i32, ptr %lg_delta.i26, align 4
-  %sh_prom6.i = zext nneg i32 %11 to i64
+  %10 = load i32, ptr %lg_delta.i26, align 4
+  %sh_prom6.i = zext nneg i32 %10 to i64
   %shl7.i = shl i64 %conv5.i, %sh_prom6.i
   %add.i27 = add nuw i64 %shl.i24, 7
   %sub.i = add i64 %add.i27, %shl7.i
@@ -233,22 +232,22 @@ for.body.i19:                                     ; preds = %for.body.i4, %for.i
 for.body16.lr.ph.i:                               ; preds = %for.body.i19
   %conv17.i = trunc i64 %indvars.iv.i20 to i8
   %scevgep.i = getelementptr i8, ptr @sz_size2index_tab, i64 %dst_ind.014.i
-  %12 = tail call i64 @llvm.usub.sat.i64(i64 512, i64 %dst_ind.014.i)
-  %13 = sub nsw i64 %shr.i, %dst_ind.014.i
-  %umin.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %13)
-  %14 = add nuw nsw i64 %umin.i, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %conv17.i, i64 %14, i1 false)
-  %15 = add nuw nsw i64 %dst_ind.014.i, 1
-  %16 = add nuw nsw i64 %15, %umin.i
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 512, i64 %dst_ind.014.i)
+  %12 = sub nsw i64 %shr.i, %dst_ind.014.i
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
+  %13 = add nuw nsw i64 %umin.i, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %conv17.i, i64 %13, i1 false)
+  %14 = add nuw nsw i64 %dst_ind.014.i, 1
+  %15 = add nuw nsw i64 %14, %umin.i
   br label %for.inc19.i
 
 for.inc19.i:                                      ; preds = %for.body16.lr.ph.i, %for.body.i19
-  %dst_ind.1.lcssa.i = phi i64 [ %dst_ind.014.i, %for.body.i19 ], [ %16, %for.body16.lr.ph.i ]
+  %dst_ind.1.lcssa.i = phi i64 [ %dst_ind.014.i, %for.body.i19 ], [ %15, %for.body16.lr.ph.i ]
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i20, 1
   %cmp.i = icmp ult i64 %indvars.iv.i20, 234
   %cmp2.i = icmp ult i64 %dst_ind.1.lcssa.i, 513
-  %17 = and i1 %cmp.i, %cmp2.i
-  br i1 %17, label %for.body.i19, label %sz_boot_size2index_tab.exit, !llvm.loop !10
+  %16 = and i1 %cmp.i, %cmp2.i
+  br i1 %16, label %for.body.i19, label %sz_boot_size2index_tab.exit, !llvm.loop !10
 
 sz_boot_size2index_tab.exit:                      ; preds = %for.inc19.i
   ret void

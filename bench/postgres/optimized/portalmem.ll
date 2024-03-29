@@ -95,19 +95,19 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 define dso_local ptr @PortalGetPrimaryStmt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph23, label %.thread
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph22, label %.thread
 
-.lr.ph23:                                         ; preds = %.lr.ph
-  %8 = load ptr, ptr %4, align 8
-  %wide.trip.count = zext nneg i32 %6 to i64
+.lr.ph22:                                         ; preds = %.lr.ph
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %wide.trip.count = zext nneg i32 %5 to i64
   br label %10
 
 9:                                                ; preds = %10
@@ -115,15 +115,14 @@ define dso_local ptr @PortalGetPrimaryStmt(ptr nocapture noundef readonly %0) lo
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %10
 
-10:                                               ; preds = %.lr.ph23, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next, %9 ]
+10:                                               ; preds = %.lr.ph22, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next, %9 ]
   %11 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 18
   %14 = load i8, ptr %13, align 2
-  %15 = and i8 %14, 1
-  %.not12 = icmp eq i8 %15, 0
-  br i1 %.not12, label %9, label %.thread
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.thread, label %9
 
 .thread:                                          ; preds = %10, %9, %.lr.ph, %1
   %.0 = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ null, %9 ], [ %12, %10 ]
@@ -215,9 +214,8 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   %44 = load ptr, ptr @PortalHashTable, align 8
   %45 = call ptr @hash_search(ptr noundef %44, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #7
   %46 = load i8, ptr %4, align 1
-  %47 = and i8 %46, 1
-  %.not29 = icmp eq i8 %47, 0
-  br i1 %.not29, label %51, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %51
 
 48:                                               ; preds = %GetPortalByName.exit.thread
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -232,8 +230,8 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   store ptr %45, ptr %23, align 8
   %53 = load ptr, ptr %26, align 8
   %54 = load i8, ptr %45, align 1
-  %.not30 = icmp eq i8 %54, 0
-  %spec.select = select i1 %.not30, ptr @.str.8, ptr %45
+  %.not29 = icmp eq i8 %54, 0
+  %spec.select = select i1 %.not29, ptr @.str.8, ptr %45
   call void @MemoryContextSetIdentifier(ptr noundef %53, ptr noundef nonnull %spec.select) #7
   ret ptr %23
 }
@@ -253,9 +251,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %11, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -284,8 +281,8 @@ define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_u
 20:                                               ; preds = %11
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %.not39 = icmp eq ptr %22, null
-  br i1 %.not39, label %24, label %23
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %20
   tail call void %22(ptr noundef nonnull %0) #7
@@ -323,14 +320,14 @@ define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_u
 PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 192
   %39 = load ptr, ptr %38, align 8
-  %.not40 = icmp eq ptr %39, null
-  br i1 %.not40, label %45, label %40
+  %.not39 = icmp eq ptr %39, null
+  br i1 %.not39, label %45, label %40
 
 40:                                               ; preds = %PortalReleaseCachedPlan.exit
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
-  %.not41 = icmp eq ptr %42, null
-  br i1 %.not41, label %44, label %43
+  %.not40 = icmp eq ptr %42, null
+  br i1 %.not40, label %44, label %43
 
 43:                                               ; preds = %40
   tail call void @UnregisterSnapshotFromOwner(ptr noundef nonnull %39, ptr noundef nonnull %42) #7
@@ -343,8 +340,8 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
 45:                                               ; preds = %44, %PortalReleaseCachedPlan.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
-  %.not42 = icmp eq ptr %47, null
-  br i1 %.not42, label %55, label %48
+  %.not41 = icmp eq ptr %47, null
+  br i1 %.not41, label %55, label %48
 
 48:                                               ; preds = %45
   %.pre = load i32, ptr %12, align 4
@@ -367,8 +364,8 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
   store ptr null, ptr %46, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 176
   %57 = load ptr, ptr %56, align 8
-  %.not43 = icmp eq ptr %57, null
-  br i1 %.not43, label %62, label %58
+  %.not42 = icmp eq ptr %57, null
+  br i1 %.not42, label %62, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %0, i64 184
@@ -383,8 +380,8 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
 62:                                               ; preds = %58, %55
   %63 = getelementptr inbounds i8, ptr %0, i64 184
   %64 = load ptr, ptr %63, align 8
-  %.not44 = icmp eq ptr %64, null
-  br i1 %.not44, label %66, label %65
+  %.not43 = icmp eq ptr %64, null
+  br i1 %.not43, label %66, label %65
 
 65:                                               ; preds = %62
   tail call void @MemoryContextDelete(ptr noundef nonnull %64) #7
@@ -489,9 +486,8 @@ declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 n
 define dso_local void @PinPortal(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -509,9 +505,8 @@ define dso_local void @PinPortal(ptr nocapture noundef %0) local_unnamed_addr #0
 define dso_local void @UnpinPortal(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %8
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -647,160 +642,158 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   %3 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %3) #7
   %4 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
-  %.not3638 = icmp eq ptr %4, null
-  br i1 %.not3638, label %.outer._crit_edge, label %.lr.ph
+  %.not3436 = icmp eq ptr %4, null
+  br i1 %.not3436, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.outer
-  %5 = phi ptr [ %71, %.outer ], [ %4, %1 ]
-  %6 = phi i1 [ true, %.outer ], [ false, %1 ]
-  br label %7
+  %5 = phi ptr [ %70, %.outer ], [ %4, %1 ]
+  %.0.ph37 = phi i1 [ true, %.outer ], [ false, %1 ]
+  br label %6
 
-7:                                                ; preds = %.lr.ph, %.backedge
-  %8 = phi ptr [ %5, %.lr.ph ], [ %36, %.backedge ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
-  %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not22 = icmp eq i8 %13, 0
-  br i1 %.not22, label %21, label %14
+6:                                                ; preds = %.lr.ph, %.backedge
+  %7 = phi ptr [ %5, %.lr.ph ], [ %35, %.backedge ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %20
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %10, i64 137
-  %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not23 = icmp eq i8 %17, 0
-  br i1 %.not23, label %18, label %21
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds i8, ptr %9, i64 137
+  %15 = load i8, ptr %14, align 1
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %14
-  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %19)
-  %20 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #7
+17:                                               ; preds = %13
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %18)
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #7
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 696, ptr noundef nonnull @__func__.PreCommit_Portals) #7
   unreachable
 
-21:                                               ; preds = %14, %7
-  %22 = getelementptr inbounds i8, ptr %10, i64 132
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 3
-  br i1 %24, label %25, label %37
+20:                                               ; preds = %13, %6
+  %21 = getelementptr inbounds i8, ptr %9, i64 132
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %22, 3
+  br i1 %23, label %24, label %36
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %10, i64 192
-  %27 = load ptr, ptr %26, align 8
-  %.not26 = icmp eq ptr %27, null
-  br i1 %.not26, label %33, label %28
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %9, i64 192
+  %26 = load ptr, ptr %25, align 8
+  %.not24 = icmp eq ptr %26, null
+  br i1 %.not24, label %32, label %27
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %10, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not27 = icmp eq ptr %30, null
-  br i1 %.not27, label %32, label %31
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %9, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not25 = icmp eq ptr %29, null
+  br i1 %.not25, label %31, label %30
 
-31:                                               ; preds = %28
-  call void @UnregisterSnapshotFromOwner(ptr noundef nonnull %27, ptr noundef nonnull %30) #7
+30:                                               ; preds = %27
+  call void @UnregisterSnapshotFromOwner(ptr noundef nonnull %26, ptr noundef nonnull %29) #7
+  br label %31
+
+31:                                               ; preds = %30, %27
+  store ptr null, ptr %25, align 8
   br label %32
 
-32:                                               ; preds = %31, %28
-  store ptr null, ptr %26, align 8
-  br label %33
-
-33:                                               ; preds = %32, %25
-  %34 = getelementptr inbounds i8, ptr %10, i64 24
+32:                                               ; preds = %31, %24
+  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr null, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %9, i64 168
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 168
-  store ptr null, ptr %35, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %33, %._crit_edge
-  %36 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.outer._crit_edge, label %7, !llvm.loop !7
+.backedge:                                        ; preds = %32, %._crit_edge
+  %35 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !7
 
-37:                                               ; preds = %21
-  %38 = getelementptr inbounds i8, ptr %10, i64 124
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 32
-  %.not24 = icmp eq i32 %40, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 40
+36:                                               ; preds = %20
+  %37 = getelementptr inbounds i8, ptr %9, i64 124
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 32
+  %.not22 = icmp eq i32 %39, 0
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not24, label %._crit_edge, label %41
+  br i1 %.not22, label %._crit_edge, label %40
 
-41:                                               ; preds = %37
-  %.not25 = icmp ne i32 %.pre, 0
-  %42 = icmp eq i32 %23, 2
-  %or.cond = and i1 %42, %.not25
-  br i1 %or.cond, label %43, label %._crit_edge
+40:                                               ; preds = %36
+  %.not23 = icmp ne i32 %.pre, 0
+  %41 = icmp eq i32 %22, 2
+  %or.cond = and i1 %41, %.not23
+  br i1 %or.cond, label %42, label %._crit_edge
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %10, i64 40
-  br i1 %0, label %45, label %49
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %9, i64 40
+  br i1 %0, label %44, label %48
 
-45:                                               ; preds = %43
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %46)
-  %47 = call i32 @errcode(i32 noundef 1088) #7
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #7
+44:                                               ; preds = %42
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %45)
+  %46 = call i32 @errcode(i32 noundef 1088) #7
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #7
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 739, ptr noundef nonnull @__func__.PreCommit_Portals) #7
   unreachable
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %10, i64 124
-  %51 = load ptr, ptr @TopPortalContext, align 8
-  %52 = call ptr @AllocSetContextCreateInternal(ptr noundef %51, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
-  %53 = getelementptr inbounds i8, ptr %10, i64 184
-  store ptr %52, ptr %53, align 8
-  %54 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %52, ptr @CurrentMemoryContext, align 8
-  %55 = load i32, ptr %50, align 4
-  %56 = and i32 %55, 2
-  %57 = icmp ne i32 %56, 0
-  %58 = load i32, ptr @work_mem, align 4
-  %59 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %57, i1 noundef zeroext true, i32 noundef %58) #7
-  %60 = getelementptr inbounds i8, ptr %10, i64 176
-  store ptr %59, ptr %60, align 8
-  store ptr %54, ptr @CurrentMemoryContext, align 8
-  call void @PersistHoldablePortal(ptr noundef nonnull %10) #7
-  %61 = getelementptr inbounds i8, ptr %10, i64 96
-  %62 = load ptr, ptr %61, align 8
-  %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %HoldPortal.exit, label %63
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds i8, ptr %9, i64 124
+  %50 = load ptr, ptr @TopPortalContext, align 8
+  %51 = call ptr @AllocSetContextCreateInternal(ptr noundef %50, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
+  %52 = getelementptr inbounds i8, ptr %9, i64 184
+  store ptr %51, ptr %52, align 8
+  %53 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %51, ptr @CurrentMemoryContext, align 8
+  %54 = load i32, ptr %49, align 4
+  %55 = and i32 %54, 2
+  %56 = icmp ne i32 %55, 0
+  %57 = load i32, ptr @work_mem, align 4
+  %58 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %56, i1 noundef zeroext true, i32 noundef %57) #7
+  %59 = getelementptr inbounds i8, ptr %9, i64 176
+  store ptr %58, ptr %59, align 8
+  store ptr %53, ptr @CurrentMemoryContext, align 8
+  call void @PersistHoldablePortal(ptr noundef nonnull %9) #7
+  %60 = getelementptr inbounds i8, ptr %9, i64 96
+  %61 = load ptr, ptr %60, align 8
+  %.not.i.i = icmp eq ptr %61, null
+  br i1 %.not.i.i, label %HoldPortal.exit, label %62
 
-63:                                               ; preds = %49
-  call void @ReleaseCachedPlan(ptr noundef nonnull %62, ptr noundef null) #7
-  %64 = getelementptr inbounds i8, ptr %10, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
+62:                                               ; preds = %48
+  call void @ReleaseCachedPlan(ptr noundef nonnull %61, ptr noundef null) #7
+  %63 = getelementptr inbounds i8, ptr %9, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   br label %HoldPortal.exit
 
-HoldPortal.exit:                                  ; preds = %49, %63
-  %65 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr null, ptr %65, align 8
-  store i32 0, ptr %44, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 44
-  store i32 0, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %10, i64 48
-  store i32 0, ptr %67, align 8
+HoldPortal.exit:                                  ; preds = %48, %62
+  %64 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr null, ptr %64, align 8
+  store i32 0, ptr %43, align 8
+  %65 = getelementptr inbounds i8, ptr %9, i64 44
+  store i32 0, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %9, i64 48
+  store i32 0, ptr %66, align 8
   br label %.outer
 
-._crit_edge:                                      ; preds = %37, %41
-  %68 = icmp eq i32 %.pre, 0
-  br i1 %68, label %.backedge, label %69
+._crit_edge:                                      ; preds = %36, %40
+  %67 = icmp eq i32 %.pre, 0
+  br i1 %67, label %.backedge, label %68
 
-69:                                               ; preds = %._crit_edge
-  call void @PortalDrop(ptr noundef nonnull %10, i1 noundef zeroext true)
+68:                                               ; preds = %._crit_edge
+  call void @PortalDrop(ptr noundef nonnull %9, i1 noundef zeroext true)
   br label %.outer
 
-.outer:                                           ; preds = %69, %HoldPortal.exit
+.outer:                                           ; preds = %68, %HoldPortal.exit
   call void @hash_seq_term(ptr noundef nonnull %2) #7
-  %70 = load ptr, ptr @PortalHashTable, align 8
-  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %70) #7
-  %71 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
-  %.not36 = icmp eq ptr %71, null
-  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
+  %69 = load ptr, ptr @PortalHashTable, align 8
+  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %69) #7
+  %70 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
+  %.not34 = icmp eq ptr %70, null
+  br i1 %.not34, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %1
-  %.0.ph.lcssa34 = phi i1 [ false, %1 ], [ %6, %.backedge ], [ true, %.outer ]
-  ret i1 %.0.ph.lcssa34
+  %.0.ph.lcssa32 = phi i1 [ false, %1 ], [ %.0.ph37, %.backedge ], [ true, %.outer ]
+  ret i1 %.0.ph.lcssa32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -809,8 +802,8 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #7
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
-  %.not23 = icmp eq ptr %3, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq ptr %3, null
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %4 = phi ptr [ %41, %.backedge ], [ %3, %0 ]
@@ -823,9 +816,8 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr @shmem_exit_inprogress, align 1
-  %12 = and i8 %11, 1
-  %.not16 = icmp eq i8 %12, 0
-  br i1 %.not16, label %MarkPortalFailed.exit, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %MarkPortalFailed.exit
 
 13:                                               ; preds = %10
   store i32 5, ptr %7, align 4
@@ -848,57 +840,56 @@ MarkPortalFailed.exit:                            ; preds = %16, %13, %10, %.lr.
 20:                                               ; preds = %MarkPortalFailed.exit
   %21 = getelementptr inbounds i8, ptr %6, i64 137
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not17 = icmp eq i8 %23, 0
-  br i1 %.not17, label %24, label %.backedge
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %.backedge, label %24
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %7, align 4
   %26 = icmp eq i32 %25, 2
-  br i1 %26, label %27, label %MarkPortalFailed.exit21
+  br i1 %26, label %27, label %MarkPortalFailed.exit19
 
 27:                                               ; preds = %24
   store i32 5, ptr %7, align 4
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
-  %.not.i20 = icmp eq ptr %29, null
-  br i1 %.not.i20, label %MarkPortalFailed.exit21.thread, label %MarkPortalFailed.exit21.thread.sink.split
+  %.not.i18 = icmp eq ptr %29, null
+  br i1 %.not.i18, label %MarkPortalFailed.exit19.thread, label %MarkPortalFailed.exit19.thread.sink.split
 
-MarkPortalFailed.exit21:                          ; preds = %24
+MarkPortalFailed.exit19:                          ; preds = %24
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not18 = icmp eq ptr %.pre, null
-  br i1 %.not18, label %MarkPortalFailed.exit21.thread, label %30
+  %.not16 = icmp eq ptr %.pre, null
+  br i1 %.not16, label %MarkPortalFailed.exit19.thread, label %30
 
-30:                                               ; preds = %MarkPortalFailed.exit21
+30:                                               ; preds = %MarkPortalFailed.exit19
   %31 = getelementptr inbounds i8, ptr %6, i64 32
-  br label %MarkPortalFailed.exit21.thread.sink.split
+  br label %MarkPortalFailed.exit19.thread.sink.split
 
-MarkPortalFailed.exit21.thread.sink.split:        ; preds = %27, %30
-  %.sink25 = phi ptr [ %.pre, %30 ], [ %29, %27 ]
+MarkPortalFailed.exit19.thread.sink.split:        ; preds = %27, %30
+  %.sink23 = phi ptr [ %.pre, %30 ], [ %29, %27 ]
   %.sink = phi ptr [ %31, %30 ], [ %28, %27 ]
-  call void %.sink25(ptr noundef nonnull %6) #7
+  call void %.sink23(ptr noundef nonnull %6) #7
   store ptr null, ptr %.sink, align 8
-  br label %MarkPortalFailed.exit21.thread
+  br label %MarkPortalFailed.exit19.thread
 
-MarkPortalFailed.exit21.thread:                   ; preds = %MarkPortalFailed.exit21.thread.sink.split, %27, %MarkPortalFailed.exit21
+MarkPortalFailed.exit19.thread:                   ; preds = %MarkPortalFailed.exit19.thread.sink.split, %27, %MarkPortalFailed.exit19
   %32 = getelementptr inbounds i8, ptr %6, i64 96
   %33 = load ptr, ptr %32, align 8
-  %.not.i22 = icmp eq ptr %33, null
-  br i1 %.not.i22, label %PortalReleaseCachedPlan.exit, label %34
+  %.not.i20 = icmp eq ptr %33, null
+  br i1 %.not.i20, label %PortalReleaseCachedPlan.exit, label %34
 
-34:                                               ; preds = %MarkPortalFailed.exit21.thread
+34:                                               ; preds = %MarkPortalFailed.exit19.thread
   call void @ReleaseCachedPlan(ptr noundef nonnull %33, ptr noundef null) #7
   %35 = getelementptr inbounds i8, ptr %6, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
-PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit21.thread, %34
+PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit19.thread, %34
   %36 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr null, ptr %36, align 8
   %37 = load i32, ptr %7, align 4
-  %.not19 = icmp eq i32 %37, 3
-  br i1 %.not19, label %.backedge, label %38
+  %.not17 = icmp eq i32 %37, 3
+  br i1 %.not17, label %.backedge, label %38
 
 38:                                               ; preds = %PortalReleaseCachedPlan.exit
   %39 = getelementptr inbounds i8, ptr %6, i64 16
@@ -923,8 +914,8 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #7
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
-  %.not13 = icmp eq ptr %3, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %3, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %4 = phi ptr [ %18, %.backedge ], [ %3, %0 ]
@@ -944,9 +935,8 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %6, i64 137
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not10 = icmp eq i8 %17, 0
-  br i1 %.not10, label %19, label %.backedge
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.backedge, label %19
 
 .backedge:                                        ; preds = %10, %14, %33, %.lr.ph
   %18 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
@@ -956,9 +946,8 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %6, i64 136
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not11 = icmp eq i8 %22, 0
-  br i1 %.not11, label %24, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
   store i8 0, ptr %20, align 8
@@ -967,8 +956,8 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
 24:                                               ; preds = %23, %19
   %25 = getelementptr inbounds i8, ptr %6, i64 32
   %26 = load ptr, ptr %25, align 8
-  %.not12 = icmp eq ptr %26, null
-  br i1 %.not12, label %33, label %27
+  %.not10 = icmp eq ptr %26, null
+  br i1 %.not10, label %33, label %27
 
 27:                                               ; preds = %24
   %28 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
@@ -998,8 +987,8 @@ define dso_local void @PortalErrorCleanup() local_unnamed_addr #0 {
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #7
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
-  %.not5 = icmp eq ptr %3, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph
+  %.not4 = icmp eq ptr %3, null
+  br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %12
   %4 = phi ptr [ %13, %12 ], [ %3, %0 ]
@@ -1007,9 +996,8 @@ define dso_local void @PortalErrorCleanup() local_unnamed_addr #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 137
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not4 = icmp eq i8 %9, 0
-  br i1 %.not4, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %6, i64 136
@@ -1204,8 +1192,8 @@ define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #
   %3 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %3) #7
   %4 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
-  %.not11 = icmp eq ptr %4, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %4, null
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.backedge
   %5 = phi ptr [ %25, %.backedge ], [ %4, %1 ]
@@ -1219,9 +1207,8 @@ define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %7, i64 136
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not9 = icmp eq i8 %13, 0
-  br i1 %.not9, label %15, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
   store i8 0, ptr %11, align 8
@@ -1230,8 +1217,8 @@ define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #
 15:                                               ; preds = %14, %10
   %16 = getelementptr inbounds i8, ptr %7, i64 32
   %17 = load ptr, ptr %16, align 8
-  %.not10 = icmp eq ptr %17, null
-  br i1 %.not10, label %24, label %18
+  %.not9 = icmp eq ptr %17, null
+  br i1 %.not9, label %24, label %18
 
 18:                                               ; preds = %15
   %19 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
@@ -1271,8 +1258,8 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %7) #7
   %8 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
-  %.not14 = icmp eq ptr %8, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %8, null
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1291,9 +1278,8 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 6, i1 false)
   %20 = getelementptr inbounds i8, ptr %19, i64 224
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not12 = icmp eq i8 %22, 0
-  br i1 %.not12, label %.backedge, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %.backedge
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %19, align 8
@@ -1315,8 +1301,8 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %36 = zext nneg i32 %35 to i64
   store i64 %36, ptr %11, align 8
   %37 = lshr i32 %32, 1
-  %.lobit13 = and i32 %37, 1
-  %38 = zext nneg i32 %.lobit13 to i64
+  %.lobit12 = and i32 %37, 1
+  %38 = zext nneg i32 %.lobit12 to i64
   store i64 %38, ptr %12, align 16
   %39 = getelementptr inbounds i8, ptr %19, i64 216
   %40 = load i64, ptr %39, align 8
@@ -1374,8 +1360,8 @@ define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #7
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
-  %.not11 = icmp eq ptr %3, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %3, null
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %47
   %4 = phi ptr [ %48, %47 ], [ %3, %0 ]
@@ -1383,22 +1369,20 @@ define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 136
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not7 = icmp eq i8 %9, 0
-  br i1 %.not7, label %47, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %47
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %6, i64 137
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not8 = icmp eq i8 %13, 0
-  br i1 %.not8, label %14, label %47
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %47, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %6, i64 120
   %16 = load i32, ptr %15, align 8
-  %.not9 = icmp eq i32 %16, 0
-  br i1 %.not9, label %21, label %17
+  %.not7 = icmp eq i32 %16, 0
+  br i1 %.not7, label %21, label %17
 
 17:                                               ; preds = %14
   %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -1411,8 +1395,8 @@ define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %6, i64 132
   %23 = load i32, ptr %22, align 4
-  %.not10 = icmp eq i32 %23, 2
-  br i1 %.not10, label %27, label %24
+  %.not8 = icmp eq i32 %23, 2
+  br i1 %.not8, label %27, label %24
 
 24:                                               ; preds = %21
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8

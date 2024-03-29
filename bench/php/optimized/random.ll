@@ -681,9 +681,8 @@ define noundef nonnull ptr @php_random_default_algo() local_unnamed_addr #6 {
 define ptr @php_random_default_status() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %2 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %5
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
   tail call void @php_random_mt19937_seed_default(ptr noundef %1) #13
@@ -837,9 +836,8 @@ define zeroext i1 @php_random_hex2bin_le(ptr nocapture noundef readonly %0, ptr 
 define double @php_combined_lcg() local_unnamed_addr #0 {
   %1 = load ptr, ptr @random_globals, align 8
   %2 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 1), align 8
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %5
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
   tail call void @php_random_combinedlcg_seed_default(ptr noundef %1) #13
@@ -861,9 +859,8 @@ declare void @php_random_combinedlcg_seed_default(ptr noundef) local_unnamed_add
 define void @php_mt_srand(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %php_random_default_status.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %php_random_default_status.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
@@ -882,9 +879,8 @@ define i32 @php_mt_rand() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %php_random_default_status.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %php_random_default_status.exit, label %5
 
 5:                                                ; preds = %0
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
@@ -903,9 +899,8 @@ define i64 @php_mt_rand_range(i64 noundef %0, i64 noundef %1) local_unnamed_addr
   %3 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 2), align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %5 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %7, label %php_random_default_status.exit
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %php_random_default_status.exit, label %7
 
 7:                                                ; preds = %2
   tail call void @php_random_mt19937_seed_default(ptr noundef %4) #13
@@ -921,9 +916,8 @@ php_random_default_status.exit:                   ; preds = %2, %7
 define i64 @php_mt_rand_common(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %4 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %php_random_default_status.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %php_random_default_status.exit, label %6
 
 6:                                                ; preds = %2
   tail call void @php_random_mt19937_seed_default(ptr noundef %3) #13
@@ -936,13 +930,12 @@ php_random_default_status.exit:                   ; preds = %2, %6
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 0
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
-  %12 = and i8 %7, 1
-  %.not.i.i = icmp eq i8 %12, 0
+  %12 = trunc i8 %7 to i1
   br i1 %10, label %13, label %17
 
 13:                                               ; preds = %php_random_default_status.exit
   %14 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 2), align 8
-  br i1 %.not.i.i, label %15, label %php_mt_rand_range.exit
+  br i1 %12, label %php_mt_rand_range.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @php_random_mt19937_seed_default(ptr noundef %11) #13
@@ -955,14 +948,14 @@ php_mt_rand_range.exit:                           ; preds = %13, %15
 
 17:                                               ; preds = %php_random_default_status.exit
   %18 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
-  br i1 %.not.i.i, label %19, label %php_random_default_status.exit9
+  br i1 %12, label %php_random_default_status.exit8, label %19
 
 19:                                               ; preds = %17
   tail call void @php_random_mt19937_seed_default(ptr noundef %11) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  br label %php_random_default_status.exit9
+  br label %php_random_default_status.exit8
 
-php_random_default_status.exit9:                  ; preds = %17, %19
+php_random_default_status.exit8:                  ; preds = %17, %19
   %20 = tail call { i64, i64 } %18(ptr noundef %11) #13
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = lshr i64 %21, 1
@@ -977,8 +970,8 @@ php_random_default_status.exit9:                  ; preds = %17, %19
   %31 = add i64 %30, %0
   br label %32
 
-32:                                               ; preds = %php_random_default_status.exit9, %php_mt_rand_range.exit
-  %.0 = phi i64 [ %16, %php_mt_rand_range.exit ], [ %31, %php_random_default_status.exit9 ]
+32:                                               ; preds = %php_random_default_status.exit8, %php_mt_rand_range.exit
+  %.0 = phi i64 [ %16, %php_mt_rand_range.exit ], [ %31, %php_random_default_status.exit8 ]
   ret i64 %.0
 }
 
@@ -986,9 +979,8 @@ php_random_default_status.exit9:                  ; preds = %17, %19
 define void @php_srand(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %5, label %php_mt_srand.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %php_mt_srand.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
@@ -1006,9 +998,8 @@ define i64 @php_rand() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %5, label %php_mt_rand.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %php_mt_rand.exit, label %5
 
 5:                                                ; preds = %0
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
@@ -1036,9 +1027,8 @@ define hidden void @zif_lcg_value(ptr nocapture noundef readonly %0, ptr nocaptu
 6:                                                ; preds = %2
   %7 = load ptr, ptr @random_globals, align 8
   %8 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 1), align 8
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %10, label %php_combined_lcg.exit
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %php_combined_lcg.exit, label %10
 
 10:                                               ; preds = %6
   tail call void @php_random_combinedlcg_seed_default(ptr noundef %7) #13
@@ -1076,96 +1066,95 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 2) #13
-  br label %.thread130
+  br label %.thread129
 
 10:                                               ; preds = %2
   %11 = icmp eq i32 %7, 0
-  br i1 %11, label %.thread141.thread, label %12
+  br i1 %11, label %.thread140.thread.thread, label %13
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
-  %15 = load i8, ptr %14, align 8
-  switch i8 %15, label %18 [
-    i8 4, label %16
+.thread140.thread.thread:                         ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %5, i64 2500
+  store i8 0, ptr %12, align 4
+  br label %34
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = load i8, ptr %15, align 8
+  switch i8 %16, label %19 [
+    i8 4, label %17
     i8 1, label %.thread
   ]
 
-16:                                               ; preds = %12
-  %17 = load i64, ptr %13, align 8
+17:                                               ; preds = %13
+  %18 = load i64, ptr %14, align 8
   br label %.thread
 
-.thread:                                          ; preds = %16, %12
-  %storemerge = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %.1 = phi i8 [ 0, %16 ], [ %15, %12 ]
+.thread:                                          ; preds = %17, %13
+  %storemerge = phi i64 [ %18, %17 ], [ 0, %13 ]
+  %.1 = phi i1 [ false, %17 ], [ true, %13 ]
   store i64 %storemerge, ptr %3, align 8
-  br label %20
+  br label %21
 
-18:                                               ; preds = %12
-  %19 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %19, label %20, label %.thread130
+19:                                               ; preds = %13
+  %20 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef 1) #13
+  br i1 %20, label %21, label %.thread129
 
-20:                                               ; preds = %.thread, %18
-  %.2110 = phi i8 [ %.1, %.thread ], [ 0, %18 ]
+21:                                               ; preds = %.thread, %19
+  %.2109 = phi i1 [ %.1, %.thread ], [ false, %19 ]
   %.not = icmp eq i32 %7, 2
-  br i1 %.not, label %21, label %.thread141.thread
+  br i1 %.not, label %22, label %.thread140.thread
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
-  %24 = load i8, ptr %23, align 8
-  %25 = icmp eq i8 %24, 4
-  br i1 %25, label %.thread116, label %27
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = load i8, ptr %24, align 8
+  %26 = icmp eq i8 %25, 4
+  br i1 %26, label %.thread115, label %28
 
-.thread116:                                       ; preds = %21
-  %26 = load i64, ptr %22, align 8
-  store i64 %26, ptr %4, align 8
-  br label %.thread141
+.thread115:                                       ; preds = %22
+  %27 = load i64, ptr %23, align 8
+  store i64 %27, ptr %4, align 8
+  br label %.thread140
 
-27:                                               ; preds = %21
-  %28 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %22, ptr noundef nonnull %4, i32 noundef 2) #13
-  %.fr = freeze i1 %28
-  br i1 %.fr, label %..thread141thread-pre-split_crit_edge, label %.thread130
+28:                                               ; preds = %22
+  %29 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %23, ptr noundef nonnull %4, i32 noundef 2) #13
+  %.fr = freeze i1 %29
+  br i1 %.fr, label %..thread140thread-pre-split_crit_edge, label %.thread129
 
-..thread141thread-pre-split_crit_edge:            ; preds = %27
+..thread140thread-pre-split_crit_edge:            ; preds = %28
   %.pr.pre = load i64, ptr %4, align 8
-  br label %.thread141
+  br label %.thread140
 
-.thread130:                                       ; preds = %18, %9, %27
-  %.0140 = phi i32 [ 9, %27 ], [ 9, %18 ], [ 1, %9 ]
-  %.097139 = phi i32 [ 0, %27 ], [ 1, %18 ], [ 0, %9 ]
-  %.098138 = phi ptr [ %22, %27 ], [ %13, %18 ], [ null, %9 ]
-  %.099137 = phi i32 [ 2, %27 ], [ 1, %18 ], [ 0, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0140, i32 noundef %.099137, ptr noundef null, i32 noundef %.097139, ptr noundef %.098138) #13
+.thread129:                                       ; preds = %19, %9, %28
+  %.0139 = phi i32 [ 9, %28 ], [ 9, %19 ], [ 1, %9 ]
+  %.097138 = phi i32 [ 0, %28 ], [ 1, %19 ], [ 0, %9 ]
+  %.098137 = phi ptr [ %23, %28 ], [ %14, %19 ], [ null, %9 ]
+  %.099136 = phi i32 [ 2, %28 ], [ 1, %19 ], [ 0, %9 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0139, i32 noundef %.099136, ptr noundef null, i32 noundef %.097138, ptr noundef %.098137) #13
   br label %39
 
-.thread141:                                       ; preds = %..thread141thread-pre-split_crit_edge, %.thread116
-  %29 = phi i64 [ %26, %.thread116 ], [ %.pr.pre, %..thread141thread-pre-split_crit_edge ]
-  %cond = icmp eq i64 %29, 1
-  br i1 %cond, label %30, label %.thread141.thread
+.thread140:                                       ; preds = %..thread140thread-pre-split_crit_edge, %.thread115
+  %30 = phi i64 [ %27, %.thread115 ], [ %.pr.pre, %..thread140thread-pre-split_crit_edge ]
+  %cond = icmp eq i64 %30, 1
+  br i1 %cond, label %32, label %.thread140.thread
 
-30:                                               ; preds = %.thread141
+.thread140.thread:                                ; preds = %21, %.thread140
   %31 = getelementptr inbounds i8, ptr %5, i64 2500
-  store i8 1, ptr %31, align 4
+  store i8 0, ptr %31, align 4
+  br i1 %.2109, label %34, label %35
+
+32:                                               ; preds = %.thread140
+  %33 = getelementptr inbounds i8, ptr %5, i64 2500
+  store i8 1, ptr %33, align 4
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.1) #13
-  br label %33
+  br i1 %.2109, label %34, label %35
 
-.thread141.thread:                                ; preds = %20, %10, %.thread141
-  %.3127146 = phi i8 [ %.2110, %.thread141 ], [ %.2110, %20 ], [ 1, %10 ]
-  %32 = getelementptr inbounds i8, ptr %5, i64 2500
-  store i8 0, ptr %32, align 4
-  br label %33
-
-33:                                               ; preds = %.thread141.thread, %30
-  %.3127145 = phi i8 [ %.3127146, %.thread141.thread ], [ %.2110, %30 ]
-  %.not106 = icmp eq i8 %.3127145, 0
-  br i1 %.not106, label %35, label %34
-
-34:                                               ; preds = %33
+34:                                               ; preds = %.thread140.thread.thread, %.thread140.thread, %32
   call void @php_random_mt19937_seed_default(ptr noundef nonnull %5) #13
   br label %38
 
-35:                                               ; preds = %33
+35:                                               ; preds = %.thread140.thread, %32
   %36 = load i64, ptr %3, align 8
   %37 = trunc i64 %36 to i32
   call void @php_random_mt19937_seed32(ptr noundef nonnull %5, i32 noundef %37) #13
@@ -1175,7 +1164,7 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
   br label %39
 
-39:                                               ; preds = %38, %.thread130
+39:                                               ; preds = %38, %.thread129
   ret void
 }
 
@@ -1203,9 +1192,8 @@ define hidden void @zif_mt_rand(ptr noundef %0, ptr nocapture noundef writeonly 
   %8 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
   %9 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %10 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %11 = and i8 %10, 1
-  %.not.i.i = icmp eq i8 %11, 0
-  br i1 %.not.i.i, label %12, label %php_mt_rand.exit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %php_mt_rand.exit, label %12
 
 12:                                               ; preds = %7
   tail call void @php_random_mt19937_seed_default(ptr noundef %9) #13
@@ -1228,7 +1216,7 @@ php_mt_rand.exit:                                 ; preds = %7, %12
 
 20:                                               ; preds = %2, %18
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #13
-  br label %.thread120
+  br label %.thread119
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1244,75 +1232,73 @@ php_mt_rand.exit:                                 ; preds = %7, %12
 
 27:                                               ; preds = %21
   %28 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %22, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %28, label %29, label %.thread120
+  br i1 %28, label %29, label %.thread119
 
 29:                                               ; preds = %27, %.critedge
   %30 = getelementptr inbounds i8, ptr %0, i64 96
   %31 = getelementptr inbounds i8, ptr %0, i64 104
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 4
-  br i1 %33, label %.thread116, label %35
+  br i1 %33, label %.thread115, label %35
 
-.thread116:                                       ; preds = %29
+.thread115:                                       ; preds = %29
   %34 = load i64, ptr %30, align 8
   store i64 %34, ptr %4, align 8
-  br label %.thread134
+  br label %.thread133
 
 35:                                               ; preds = %29
   %36 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %30, ptr noundef nonnull %4, i32 noundef 2) #13
   %.fr = freeze i1 %36
-  br i1 %.fr, label %..thread134_crit_edge, label %.thread120
+  br i1 %.fr, label %..thread133_crit_edge, label %.thread119
 
-..thread134_crit_edge:                            ; preds = %35
+..thread133_crit_edge:                            ; preds = %35
   %.pre = load i64, ptr %4, align 8
-  br label %.thread134
+  br label %.thread133
 
-.thread120:                                       ; preds = %27, %20, %35
-  %.0100127 = phi i32 [ 9, %35 ], [ 9, %27 ], [ 1, %20 ]
-  %.0102126 = phi i32 [ 2, %35 ], [ 1, %27 ], [ 0, %20 ]
-  %.0104125 = phi ptr [ %30, %35 ], [ %22, %27 ], [ null, %20 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0100127, i32 noundef %.0102126, ptr noundef null, i32 noundef 0, ptr noundef %.0104125) #13
+.thread119:                                       ; preds = %27, %20, %35
+  %.0100126 = phi i32 [ 9, %35 ], [ 9, %27 ], [ 1, %20 ]
+  %.0102125 = phi i32 [ 2, %35 ], [ 1, %27 ], [ 0, %20 ]
+  %.0104124 = phi ptr [ %30, %35 ], [ %22, %27 ], [ null, %20 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0100126, i32 noundef %.0102125, ptr noundef null, i32 noundef 0, ptr noundef %.0104124) #13
   br label %74
 
-.thread134:                                       ; preds = %..thread134_crit_edge, %.thread116
-  %37 = phi i64 [ %.pre, %..thread134_crit_edge ], [ %34, %.thread116 ]
+.thread133:                                       ; preds = %..thread133_crit_edge, %.thread115
+  %37 = phi i64 [ %.pre, %..thread133_crit_edge ], [ %34, %.thread115 ]
   %38 = load i64, ptr %3, align 8
   %39 = icmp slt i64 %37, %38
   br i1 %39, label %40, label %43
 
-40:                                               ; preds = %.thread134
+40:                                               ; preds = %.thread133
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #13
   %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %74
 
-43:                                               ; preds = %.thread134
+43:                                               ; preds = %.thread133
   %44 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %45 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %46 = and i8 %45, 1
-  %.not.i.i111 = icmp eq i8 %46, 0
-  br i1 %.not.i.i111, label %47, label %php_random_default_status.exit.i
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %php_random_default_status.exit.i, label %47
 
 47:                                               ; preds = %43
   call void @php_random_mt19937_seed_default(ptr noundef %44) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %.pre135 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
+  %.pre134 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   br label %php_random_default_status.exit.i
 
 php_random_default_status.exit.i:                 ; preds = %47, %43
-  %48 = phi ptr [ %44, %43 ], [ %.pre135, %47 ]
+  %48 = phi ptr [ %44, %43 ], [ %.pre134, %47 ]
   %49 = phi i8 [ %45, %43 ], [ 1, %47 ]
   %50 = getelementptr inbounds i8, ptr %44, i64 2500
   %51 = load i8, ptr %50, align 4
   %52 = icmp eq i8 %51, 0
-  %53 = and i8 %49, 1
-  %.not.i.i.i = icmp eq i8 %53, 0
+  %53 = trunc i8 %49 to i1
   br i1 %52, label %54, label %58
 
 54:                                               ; preds = %php_random_default_status.exit.i
   %55 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 2), align 8
-  br i1 %.not.i.i.i, label %56, label %php_mt_rand_range.exit.i
+  br i1 %53, label %php_mt_rand_range.exit.i, label %56
 
 56:                                               ; preds = %54
   call void @php_random_mt19937_seed_default(ptr noundef %48) #13
@@ -1325,14 +1311,14 @@ php_mt_rand_range.exit.i:                         ; preds = %56, %54
 
 58:                                               ; preds = %php_random_default_status.exit.i
   %59 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
-  br i1 %.not.i.i.i, label %60, label %php_random_default_status.exit9.i
+  br i1 %53, label %php_random_default_status.exit8.i, label %60
 
 60:                                               ; preds = %58
   call void @php_random_mt19937_seed_default(ptr noundef %48) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  br label %php_random_default_status.exit9.i
+  br label %php_random_default_status.exit8.i
 
-php_random_default_status.exit9.i:                ; preds = %60, %58
+php_random_default_status.exit8.i:                ; preds = %60, %58
   %61 = call { i64, i64 } %59(ptr noundef %48) #13
   %62 = extractvalue { i64, i64 } %61, 0
   %63 = lshr i64 %62, 1
@@ -1347,14 +1333,14 @@ php_random_default_status.exit9.i:                ; preds = %60, %58
   %72 = add i64 %38, %71
   br label %php_mt_rand_common.exit
 
-php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.exit.i, %php_random_default_status.exit9.i
-  %.0.i = phi i64 [ %57, %php_mt_rand_range.exit.i ], [ %72, %php_random_default_status.exit9.i ]
+php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.exit.i, %php_random_default_status.exit8.i
+  %.0.i = phi i64 [ %57, %php_mt_rand_range.exit.i ], [ %72, %php_random_default_status.exit8.i ]
   store i64 %.0.i, ptr %1, align 8
   %73 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %73, align 8
   br label %74
 
-74:                                               ; preds = %php_mt_rand_common.exit, %40, %.thread120, %php_mt_rand.exit
+74:                                               ; preds = %php_mt_rand_common.exit, %40, %.thread119, %php_mt_rand.exit
   ret void
 }
 
@@ -1396,9 +1382,8 @@ define hidden void @zif_rand(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %8 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
   %9 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %10 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %11 = and i8 %10, 1
-  %.not.i.i = icmp eq i8 %11, 0
-  br i1 %.not.i.i, label %12, label %php_mt_rand.exit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %php_mt_rand.exit, label %12
 
 12:                                               ; preds = %7
   tail call void @php_random_mt19937_seed_default(ptr noundef %9) #13
@@ -1421,7 +1406,7 @@ php_mt_rand.exit:                                 ; preds = %7, %12
 
 20:                                               ; preds = %2, %18
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #13
-  br label %.thread131
+  br label %.thread128
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1437,68 +1422,66 @@ php_mt_rand.exit:                                 ; preds = %7, %12
 
 27:                                               ; preds = %21
   %28 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %22, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %28, label %29, label %.thread131
+  br i1 %28, label %29, label %.thread128
 
 29:                                               ; preds = %27, %.critedge
   %30 = getelementptr inbounds i8, ptr %0, i64 96
   %31 = getelementptr inbounds i8, ptr %0, i64 104
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 4
-  br i1 %33, label %.thread127, label %35
+  br i1 %33, label %.thread124, label %35
 
-.thread127:                                       ; preds = %29
+.thread124:                                       ; preds = %29
   %34 = load i64, ptr %30, align 8
   store i64 %34, ptr %4, align 8
-  br label %.thread145
+  br label %.thread142
 
 35:                                               ; preds = %29
   %36 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %30, ptr noundef nonnull %4, i32 noundef 2) #13
   %.fr = freeze i1 %36
-  br i1 %.fr, label %..thread145_crit_edge, label %.thread131
+  br i1 %.fr, label %..thread142_crit_edge, label %.thread128
 
-..thread145_crit_edge:                            ; preds = %35
+..thread142_crit_edge:                            ; preds = %35
   %.pre = load i64, ptr %4, align 8
-  br label %.thread145
+  br label %.thread142
 
-.thread131:                                       ; preds = %27, %20, %35
-  %.0104138 = phi i32 [ 9, %35 ], [ 9, %27 ], [ 1, %20 ]
-  %.0105137 = phi i32 [ 2, %35 ], [ 1, %27 ], [ 0, %20 ]
-  %.0107136 = phi ptr [ %30, %35 ], [ %22, %27 ], [ null, %20 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0104138, i32 noundef %.0105137, ptr noundef null, i32 noundef 0, ptr noundef %.0107136) #13
+.thread128:                                       ; preds = %27, %20, %35
+  %.0104135 = phi i32 [ 9, %35 ], [ 9, %27 ], [ 1, %20 ]
+  %.0105134 = phi i32 [ 2, %35 ], [ 1, %27 ], [ 0, %20 ]
+  %.0107133 = phi ptr [ %30, %35 ], [ %22, %27 ], [ null, %20 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0104135, i32 noundef %.0105134, ptr noundef null, i32 noundef 0, ptr noundef %.0107133) #13
   br label %99
 
-.thread145:                                       ; preds = %..thread145_crit_edge, %.thread127
-  %37 = phi i64 [ %.pre, %..thread145_crit_edge ], [ %34, %.thread127 ]
+.thread142:                                       ; preds = %..thread142_crit_edge, %.thread124
+  %37 = phi i64 [ %.pre, %..thread142_crit_edge ], [ %34, %.thread124 ]
   %38 = load i64, ptr %3, align 8
   %39 = icmp slt i64 %37, %38
   %40 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %41 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %42 = and i8 %41, 1
-  %.not.i.i115 = icmp eq i8 %42, 0
+  %42 = trunc i8 %41 to i1
   br i1 %39, label %43, label %71
 
-43:                                               ; preds = %.thread145
-  br i1 %.not.i.i115, label %44, label %php_random_default_status.exit.i
+43:                                               ; preds = %.thread142
+  br i1 %42, label %php_random_default_status.exit.i, label %44
 
 44:                                               ; preds = %43
   call void @php_random_mt19937_seed_default(ptr noundef %40) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %.pre147 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
+  %.pre144 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   br label %php_random_default_status.exit.i
 
 php_random_default_status.exit.i:                 ; preds = %44, %43
-  %45 = phi ptr [ %40, %43 ], [ %.pre147, %44 ]
+  %45 = phi ptr [ %40, %43 ], [ %.pre144, %44 ]
   %46 = phi i8 [ %41, %43 ], [ 1, %44 ]
   %47 = getelementptr inbounds i8, ptr %40, i64 2500
   %48 = load i8, ptr %47, align 4
   %49 = icmp eq i8 %48, 0
-  %50 = and i8 %46, 1
-  %.not.i.i.i = icmp eq i8 %50, 0
+  %50 = trunc i8 %46 to i1
   br i1 %49, label %51, label %55
 
 51:                                               ; preds = %php_random_default_status.exit.i
   %52 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 2), align 8
-  br i1 %.not.i.i.i, label %53, label %php_mt_rand_range.exit.i
+  br i1 %50, label %php_mt_rand_range.exit.i, label %53
 
 53:                                               ; preds = %51
   call void @php_random_mt19937_seed_default(ptr noundef %45) #13
@@ -1511,14 +1494,14 @@ php_mt_rand_range.exit.i:                         ; preds = %53, %51
 
 55:                                               ; preds = %php_random_default_status.exit.i
   %56 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
-  br i1 %.not.i.i.i, label %57, label %php_random_default_status.exit9.i
+  br i1 %50, label %php_random_default_status.exit8.i, label %57
 
 57:                                               ; preds = %55
   call void @php_random_mt19937_seed_default(ptr noundef %45) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  br label %php_random_default_status.exit9.i
+  br label %php_random_default_status.exit8.i
 
-php_random_default_status.exit9.i:                ; preds = %57, %55
+php_random_default_status.exit8.i:                ; preds = %57, %55
   %58 = call { i64, i64 } %56(ptr noundef %45) #13
   %59 = extractvalue { i64, i64 } %58, 0
   %60 = lshr i64 %59, 1
@@ -1533,55 +1516,54 @@ php_random_default_status.exit9.i:                ; preds = %57, %55
   %69 = add i64 %37, %68
   br label %php_mt_rand_common.exit
 
-php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.exit.i, %php_random_default_status.exit9.i
-  %.0.i = phi i64 [ %54, %php_mt_rand_range.exit.i ], [ %69, %php_random_default_status.exit9.i ]
+php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.exit.i, %php_random_default_status.exit8.i
+  %.0.i = phi i64 [ %54, %php_mt_rand_range.exit.i ], [ %69, %php_random_default_status.exit8.i ]
   store i64 %.0.i, ptr %1, align 8
   %70 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %70, align 8
   br label %99
 
-71:                                               ; preds = %.thread145
-  br i1 %.not.i.i115, label %72, label %php_random_default_status.exit.i117
+71:                                               ; preds = %.thread142
+  br i1 %42, label %php_random_default_status.exit.i115, label %72
 
 72:                                               ; preds = %71
   call void @php_random_mt19937_seed_default(ptr noundef %40) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  %.pre146 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
-  br label %php_random_default_status.exit.i117
+  %.pre143 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
+  br label %php_random_default_status.exit.i115
 
-php_random_default_status.exit.i117:              ; preds = %72, %71
-  %73 = phi ptr [ %40, %71 ], [ %.pre146, %72 ]
+php_random_default_status.exit.i115:              ; preds = %72, %71
+  %73 = phi ptr [ %40, %71 ], [ %.pre143, %72 ]
   %74 = phi i8 [ %41, %71 ], [ 1, %72 ]
   %75 = getelementptr inbounds i8, ptr %40, i64 2500
   %76 = load i8, ptr %75, align 4
   %77 = icmp eq i8 %76, 0
-  %78 = and i8 %74, 1
-  %.not.i.i.i118 = icmp eq i8 %78, 0
+  %78 = trunc i8 %74 to i1
   br i1 %77, label %79, label %83
 
-79:                                               ; preds = %php_random_default_status.exit.i117
+79:                                               ; preds = %php_random_default_status.exit.i115
   %80 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 2), align 8
-  br i1 %.not.i.i.i118, label %81, label %php_mt_rand_range.exit.i121
+  br i1 %78, label %php_mt_rand_range.exit.i118, label %81
 
 81:                                               ; preds = %79
   call void @php_random_mt19937_seed_default(ptr noundef %73) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  br label %php_mt_rand_range.exit.i121
+  br label %php_mt_rand_range.exit.i118
 
-php_mt_rand_range.exit.i121:                      ; preds = %81, %79
+php_mt_rand_range.exit.i118:                      ; preds = %81, %79
   %82 = call i64 %80(ptr noundef %73, i64 noundef %38, i64 noundef %37) #13
-  br label %php_mt_rand_common.exit122
+  br label %php_mt_rand_common.exit119
 
-83:                                               ; preds = %php_random_default_status.exit.i117
+83:                                               ; preds = %php_random_default_status.exit.i115
   %84 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
-  br i1 %.not.i.i.i118, label %85, label %php_random_default_status.exit9.i119
+  br i1 %78, label %php_random_default_status.exit8.i116, label %85
 
 85:                                               ; preds = %83
   call void @php_random_mt19937_seed_default(ptr noundef %73) #13
   store i8 1, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
-  br label %php_random_default_status.exit9.i119
+  br label %php_random_default_status.exit8.i116
 
-php_random_default_status.exit9.i119:             ; preds = %85, %83
+php_random_default_status.exit8.i116:             ; preds = %85, %83
   %86 = call { i64, i64 } %84(ptr noundef %73) #13
   %87 = extractvalue { i64, i64 } %86, 0
   %88 = lshr i64 %87, 1
@@ -1594,16 +1576,16 @@ php_random_default_status.exit9.i119:             ; preds = %85, %83
   %95 = fmul double %92, %94
   %96 = fptoui double %95 to i64
   %97 = add i64 %38, %96
-  br label %php_mt_rand_common.exit122
+  br label %php_mt_rand_common.exit119
 
-php_mt_rand_common.exit122:                       ; preds = %php_mt_rand_range.exit.i121, %php_random_default_status.exit9.i119
-  %.0.i120 = phi i64 [ %82, %php_mt_rand_range.exit.i121 ], [ %97, %php_random_default_status.exit9.i119 ]
-  store i64 %.0.i120, ptr %1, align 8
+php_mt_rand_common.exit119:                       ; preds = %php_mt_rand_range.exit.i118, %php_random_default_status.exit8.i116
+  %.0.i117 = phi i64 [ %82, %php_mt_rand_range.exit.i118 ], [ %97, %php_random_default_status.exit8.i116 ]
+  store i64 %.0.i117, ptr %1, align 8
   %98 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %98, align 8
   br label %99
 
-99:                                               ; preds = %php_mt_rand_common.exit122, %php_mt_rand_common.exit, %.thread131, %php_mt_rand.exit
+99:                                               ; preds = %php_mt_rand_common.exit119, %php_mt_rand_common.exit, %.thread128, %php_mt_rand.exit
   ret void
 }
 
@@ -2271,9 +2253,8 @@ define internal noundef nonnull ptr @php_random_randomizer_new(ptr noundef %0) #
 define internal void @randomizer_free_obj(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 -16

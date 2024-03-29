@@ -12251,11 +12251,11 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   %6 = getelementptr inbounds i8, ptr %0, i64 109
   %7 = getelementptr inbounds i8, ptr %0, i64 110
   %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %exitcond51.not56 = icmp eq i32 %1, 0
-  br i1 %exitcond51.not56, label %.split, label %.outer.split.preheader
+  %exitcond48.not53 = icmp eq i32 %1, 0
+  br i1 %exitcond48.not53, label %.split, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %3, %.outer
-  %.031.ph57 = phi i32 [ %80, %.outer ], [ 0, %3 ]
+  %.031.ph54 = phi i32 [ %80, %.outer ], [ 0, %3 ]
   %.pn = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %.pn, i64 304
   %10 = getelementptr inbounds i8, ptr %.pn, i64 312
@@ -12281,21 +12281,21 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   %23 = getelementptr inbounds i8, ptr %21, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
-  %.not35 = icmp eq i32 %25, 0
-  br i1 %.not35, label %26, label %.outer.split, !llvm.loop !53
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %26, label %.outer.split, !llvm.loop !53
 
 26:                                               ; preds = %20
-  %27 = sext i32 %.031.ph57 to i64
+  %27 = sext i32 %.031.ph54 to i64
   %28 = getelementptr inbounds %struct.Triangle, ptr %2, i64 %27
   %29 = getelementptr inbounds i8, ptr %21, i64 8
   %30 = ptrtoint ptr %21 to i64
   br label %31
 
 31:                                               ; preds = %26, %79
-  %indvars.iv47 = phi i64 [ 0, %26 ], [ %indvars.iv.next48, %79 ]
-  %32 = getelementptr inbounds [3 x ptr], ptr %29, i64 0, i64 %indvars.iv47
+  %indvars.iv44 = phi i64 [ 0, %26 ], [ %indvars.iv.next45, %79 ]
+  %32 = getelementptr inbounds [3 x ptr], ptr %29, i64 0, i64 %indvars.iv44
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds [3 x %struct.Vertex], ptr %28, i64 0, i64 %indvars.iv47
+  %34 = getelementptr inbounds [3 x %struct.Vertex], ptr %28, i64 0, i64 %indvars.iv44
   %35 = getelementptr inbounds i8, ptr %33, i64 8
   br label %36
 
@@ -12311,9 +12311,8 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
 
 40:                                               ; preds = %36
   %41 = load i8, ptr %6, align 1
-  %42 = and i8 %41, 1
-  %.not = icmp eq i8 %42, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %40
   %43 = getelementptr inbounds i8, ptr %33, i64 40
@@ -12321,26 +12320,24 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   br label %45
 
 45:                                               ; preds = %.preheader, %45
-  %indvars.iv43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next44, %45 ]
-  %46 = getelementptr inbounds [4 x i8], ptr %43, i64 0, i64 %indvars.iv43
+  %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %45 ]
+  %46 = getelementptr inbounds [4 x i8], ptr %43, i64 0, i64 %indvars.iv40
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 0, i64 %indvars.iv43
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 0, i64 %indvars.iv40
   store i8 %47, ptr %48, align 1
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 4
-  br i1 %exitcond46.not, label %.loopexit, label %45, !llvm.loop !55
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 4
+  br i1 %exitcond43.not, label %.loopexit, label %45, !llvm.loop !55
 
 .loopexit:                                        ; preds = %45, %40
   %49 = load i8, ptr %7, align 2
-  %50 = and i8 %49, 1
-  %.not33 = icmp eq i8 %50, 0
-  br i1 %.not33, label %79, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %79
 
 51:                                               ; preds = %.loopexit
   %52 = load i8, ptr %8, align 8
-  %53 = and i8 %52, 1
-  %.not34 = icmp eq i8 %53, 0
-  br i1 %.not34, label %64, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %64
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %21, align 8
@@ -12351,7 +12348,7 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   %60 = sdiv exact i64 %59, 48
   %61 = load ptr, ptr %56, align 8
   %62 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %61, i64 %60
-  %63 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %62, i64 0, i64 %indvars.iv47
+  %63 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %62, i64 0, i64 %indvars.iv44
   br label %75
 
 64:                                               ; preds = %51
@@ -12376,18 +12373,18 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   br label %79
 
 79:                                               ; preds = %.loopexit, %75
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
-  br i1 %exitcond50.not, label %.outer, label %31, !llvm.loop !56
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
+  br i1 %exitcond47.not, label %.outer, label %31, !llvm.loop !56
 
 .outer:                                           ; preds = %79
-  %80 = add i32 %.031.ph57, 1
-  %exitcond51.not = icmp eq i32 %80, %1
-  br i1 %exitcond51.not, label %.split, label %.outer.split.preheader, !llvm.loop !53
+  %80 = add i32 %.031.ph54, 1
+  %exitcond48.not = icmp eq i32 %80, %1
+  br i1 %exitcond48.not, label %.split, label %.outer.split.preheader, !llvm.loop !53
 
 .split:                                           ; preds = %.outer, %.outer.split, %3
-  %.031.ph41 = phi i32 [ %1, %3 ], [ %.031.ph57, %.outer.split ], [ %1, %.outer ]
-  ret i32 %.031.ph41
+  %.031.ph38 = phi i32 [ %1, %3 ], [ %.031.ph54, %.outer.split ], [ %1, %.outer ]
+  ret i32 %.031.ph38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12399,27 +12396,24 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE11getVerticesEjP5Splat(pt
 define linkonce_odr noundef zeroext i1 @_ZN10MeshLoader9hasColorsEv(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN10MeshLoader10hasNormalsEv(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 109
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN10MeshLoader11hasTexturesEv(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 110
   %3 = load i8, ptr %2, align 2
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

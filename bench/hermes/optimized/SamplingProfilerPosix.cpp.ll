@@ -131,9 +131,8 @@ entry:
 if.end:                                           ; preds = %entry
   %isSigHandlerRegistered_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i8, ptr %isSigHandlerRegistered_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %return
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %actions.i.i)
@@ -174,9 +173,8 @@ entry:
 if.end:                                           ; preds = %entry
   %isSigHandlerRegistered_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i8, ptr %isSigHandlerRegistered_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %return, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %actions.i.i)

@@ -2096,37 +2096,37 @@ _ZN5QListIP13QGraphicsItemED2Ev.exit:             ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !36
   %13 = getelementptr ptr, ptr %10, i64 %12
   %.idx.mask = and i64 %12, 2305843009213693951
-  %.not4345 = icmp eq i64 %.idx.mask, 0
-  br i1 %.not4345, label %._crit_edge, label %.lr.ph
+  %.not4244 = icmp eq i64 %.idx.mask, 0
+  br i1 %.not4244, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5QListIP13QGraphicsItemED2Ev.exit
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread42.us
-  %.sroa.7.046.us = phi ptr [ %18, %.thread42.us ], [ %10, %.lr.ph ]
-  %14 = load ptr, ptr %.sroa.7.046.us, align 8
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread41.us
+  %.sroa.7.045.us = phi ptr [ %18, %.thread41.us ], [ %10, %.lr.ph ]
+  %14 = load ptr, ptr %.sroa.7.045.us, align 8
   %15 = invoke noundef zeroext i1 @_ZNK13QGraphicsItem10isSelectedEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %16 unwind label %.split.us
 
 16:                                               ; preds = %.lr.ph.split.us
-  br i1 %15, label %17, label %.thread42.us
+  br i1 %15, label %17, label %.thread41.us
 
 17:                                               ; preds = %16
   invoke void @_ZN13QGraphicsItem11setSelectedEb(ptr noundef nonnull align 8 dereferenceable(16) %14, i1 noundef zeroext false)
-          to label %.thread42.us unwind label %.split.us
+          to label %.thread41.us unwind label %.split.us
 
-.thread42.us:                                     ; preds = %17, %16
-  %18 = getelementptr i8, ptr %.sroa.7.046.us, i64 8
-  %.not43.us = icmp eq ptr %18, %13
-  br i1 %.not43.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !39
+.thread41.us:                                     ; preds = %17, %16
+  %18 = getelementptr i8, ptr %.sroa.7.045.us, i64 8
+  %.not42.us = icmp eq ptr %18, %13
+  br i1 %.not42.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !39
 
 .split.us:                                        ; preds = %17, %.lr.ph.split.us
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %45
 
-._crit_edge:                                      ; preds = %.thread42, %.thread42.us, %_ZN5QListIP13QGraphicsItemED2Ev.exit
+._crit_edge:                                      ; preds = %.thread41, %.thread41.us, %_ZN5QListIP13QGraphicsItemED2Ev.exit
   %.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i, label %_ZN14QSignalBlockerD2Ev.exit, label %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i
 
@@ -2146,16 +2146,16 @@ _ZN14QSignalBlockerD2Ev.exit:                     ; preds = %21, %_ZN17QArrayDat
 23:                                               ; preds = %7, %2
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN14QSignalBlockerD2Ev.exit31
+  br label %_ZN14QSignalBlockerD2Ev.exit30
 
 .split:                                           ; preds = %35, %41, %30, %29, %.lr.ph.split
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %45
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.thread42
-  %.sroa.7.046 = phi ptr [ %44, %.thread42 ], [ %10, %.lr.ph ]
-  %26 = load ptr, ptr %.sroa.7.046, align 8
+.lr.ph.split:                                     ; preds = %.lr.ph, %.thread41
+  %.sroa.7.045 = phi ptr [ %44, %.thread41 ], [ %10, %.lr.ph ]
+  %26 = load ptr, ptr %.sroa.7.045, align 8
   %27 = invoke noundef zeroext i1 @_ZNK13QGraphicsItem10isSelectedEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %28 unwind label %.split
 
@@ -2177,7 +2177,7 @@ _ZN14QSignalBlockerD2Ev.exit:                     ; preds = %21, %_ZN17QArrayDat
 33:                                               ; preds = %31
   %34 = icmp eq ptr %32, %1
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  br i1 %34, label %35, label %.thread42
+  br i1 %34, label %35, label %.thread41
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %26, align 8
@@ -2188,11 +2188,11 @@ _ZN14QSignalBlockerD2Ev.exit:                     ; preds = %21, %_ZN17QArrayDat
 
 40:                                               ; preds = %35
   %.not = icmp eq i32 %39, 5
-  br i1 %.not, label %41, label %.thread42
+  br i1 %.not, label %41, label %.thread41
 
 41:                                               ; preds = %40
   invoke void @_ZN13QGraphicsItem11setSelectedEb(ptr noundef nonnull align 8 dereferenceable(16) %26, i1 noundef zeroext true)
-          to label %.thread42 unwind label %.split
+          to label %.thread41 unwind label %.split
 
 42:                                               ; preds = %31
   %43 = landingpad { ptr, i32 }
@@ -2200,26 +2200,26 @@ _ZN14QSignalBlockerD2Ev.exit:                     ; preds = %21, %_ZN17QArrayDat
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %45
 
-.thread42:                                        ; preds = %33, %41, %40
-  %44 = getelementptr i8, ptr %.sroa.7.046, i64 8
-  %.not43 = icmp eq ptr %44, %13
-  br i1 %.not43, label %._crit_edge, label %.lr.ph.split, !llvm.loop !39
+.thread41:                                        ; preds = %33, %41, %40
+  %44 = getelementptr i8, ptr %.sroa.7.045, i64 8
+  %.not42 = icmp eq ptr %44, %13
+  br i1 %.not42, label %._crit_edge, label %.lr.ph.split, !llvm.loop !39
 
 45:                                               ; preds = %.split, %.split.us, %42
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %25, %.split ], [ %19, %.split.us ]
   %.not.i.i.i.i25 = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i25, label %_ZN14QSignalBlockerD2Ev.exit31, label %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26
+  br i1 %.not.i.i.i.i25, label %_ZN14QSignalBlockerD2Ev.exit30, label %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26
 
 _ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26: ; preds = %45
   %46 = atomicrmw sub ptr %8, i32 1 seq_cst, align 4
   %.not.i.i.i27 = icmp eq i32 %46, 1
-  br i1 %.not.i.i.i27, label %47, label %_ZN14QSignalBlockerD2Ev.exit31
+  br i1 %.not.i.i.i27, label %47, label %_ZN14QSignalBlockerD2Ev.exit30
 
 47:                                               ; preds = %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 8) #17
-  br label %_ZN14QSignalBlockerD2Ev.exit31
+  br label %_ZN14QSignalBlockerD2Ev.exit30
 
-_ZN14QSignalBlockerD2Ev.exit31:                   ; preds = %23, %45, %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26, %47
+_ZN14QSignalBlockerD2Ev.exit30:                   ; preds = %23, %45, %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26, %47
   %.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %45 ], [ %.pn, %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i26 ], [ %.pn, %47 ]
   %48 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext %5) #17
   resume { ptr, i32 } %.pn.pn
@@ -7567,19 +7567,19 @@ _ZN9QtPrivate15FunctionPointerIM13PacketDiagramFvRK5QFontEE4callINS_4ListIJS4_EE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM13PacketDiagramFvbENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
-  switch i32 %0, label %34 [
+  switch i32 %0, label %33 [
     i32 0, label %6
     i32 1, label %9
-    i32 2, label %26
+    i32 2, label %25
   ]
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %34, label %8
+  br i1 %7, label %33, label %8
 
 8:                                                ; preds = %6
   tail call void @_ZdlPv(ptr noundef nonnull %1) #18
-  br label %34
+  br label %33
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -7607,29 +7607,28 @@ _ZN9QtPrivate15FunctionPointerIM13PacketDiagramFvbEE4callINS_4ListIJbEEEvEEvS3_P
   %21 = getelementptr i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(76) %11, i1 noundef zeroext %25)
-  br label %34
+  %24 = trunc i8 %23 to i1
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(76) %11, i1 noundef zeroext %24)
+  br label %33
 
-26:                                               ; preds = %5
+25:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
   %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %.unpack9 = load i64, ptr %27, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %.unpack9 = load i64, ptr %26, align 8
   %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
-  %28 = icmp eq i64 %.unpack, %.unpack9
-  %29 = icmp eq i64 %.unpack, 0
-  %30 = icmp eq i64 %.unpack8, %.unpack11
-  %31 = or i1 %29, %30
-  %32 = and i1 %28, %31
-  %33 = zext i1 %32 to i8
-  store i8 %33, ptr %4, align 1
-  br label %34
+  %27 = icmp eq i64 %.unpack, %.unpack9
+  %28 = icmp eq i64 %.unpack, 0
+  %29 = icmp eq i64 %.unpack8, %.unpack11
+  %30 = or i1 %28, %29
+  %31 = and i1 %27, %30
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %4, align 1
+  br label %33
 
-34:                                               ; preds = %6, %8, %26, %_ZN9QtPrivate15FunctionPointerIM13PacketDiagramFvbEE4callINS_4ListIJbEEEvEEvS3_PS1_PPv.exit, %5
+33:                                               ; preds = %6, %8, %25, %_ZN9QtPrivate15FunctionPointerIM13PacketDiagramFvbEE4callINS_4ListIJbEEEvEEvS3_PS1_PPv.exit, %5
   ret void
 }
 

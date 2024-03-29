@@ -102,11 +102,10 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   %48 = inttoptr i64 %47 to ptr
   %49 = call i64 @SysCacheGetAttr(i32 noundef 43, ptr noundef nonnull %15, i16 noundef signext 8, ptr noundef nonnull %2) #6
   %50 = load i8, ptr %2, align 1
-  %51 = and i8 %50, 1
-  %.not143.i = icmp eq i8 %51, 0
-  br i1 %.not143.i, label %52, label %._crit_edge166.i
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %._crit_edge165.i, label %52
 
-._crit_edge166.i:                                 ; preds = %43
+._crit_edge165.i:                                 ; preds = %43
   %.pre.i = load ptr, ptr @CurrentMemoryContext, align 8
   br label %60
 
@@ -124,8 +123,8 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   store ptr %58, ptr %59, align 8
   br label %60
 
-60:                                               ; preds = %52, %._crit_edge166.i
-  %61 = phi ptr [ %.pre.i, %._crit_edge166.i ], [ %57, %52 ]
+60:                                               ; preds = %52, %._crit_edge165.i
+  %61 = phi ptr [ %.pre.i, %._crit_edge165.i ], [ %57, %52 ]
   store ptr %22, ptr @CurrentMemoryContext, align 8
   %62 = load i16, ptr %38, align 4
   %63 = sext i16 %62 to i64
@@ -224,7 +223,7 @@ list_head.exit.i:                                 ; preds = %124, %60
 
 133:                                              ; preds = %225, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %225 ]
-  %.0134157.i = phi ptr [ %127, %.lr.ph.i ], [ %.1.i, %225 ]
+  %.0134156.i = phi ptr [ %127, %.lr.ph.i ], [ %.1.i, %225 ]
   %134 = load ptr, ptr %66, align 8
   %135 = getelementptr i16, ptr %134, i64 %indvars.iv.i
   %136 = load i16, ptr %135, align 2
@@ -232,8 +231,8 @@ list_head.exit.i:                                 ; preds = %124, %60
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
   %140 = call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %139) #6
-  %.not144.i = icmp eq ptr %140, null
-  br i1 %.not144.i, label %141, label %146
+  %.not143.i = icmp eq ptr %140, null
+  br i1 %.not143.i, label %141, label %146
 
 141:                                              ; preds = %133
   %142 = getelementptr [0 x i32], ptr %130, i64 0, i64 %indvars.iv.i
@@ -263,8 +262,8 @@ list_head.exit.i:                                 ; preds = %124, %60
   store i32 %158, ptr %160, align 4
   %161 = load i32, ptr %153, align 4
   %162 = call i32 @get_opfamily_proc(i32 noundef %161, i32 noundef %158, i32 noundef %158, i16 noundef signext %117) #6
-  %.not145.i = icmp eq i32 %162, 0
-  br i1 %.not145.i, label %163, label %175
+  %.not144.i = icmp eq i32 %162, 0
+  br i1 %.not144.i, label %163, label %175
 
 163:                                              ; preds = %146
   %164 = getelementptr inbounds i8, ptr %152, i64 84
@@ -291,8 +290,8 @@ list_head.exit.i:                                 ; preds = %124, %60
   %180 = load ptr, ptr %86, align 8
   %181 = getelementptr i32, ptr %180, i64 %indvars.iv.i
   store i32 %179, ptr %181, align 4
-  %.not146.i = icmp eq i16 %136, 0
-  br i1 %.not146.i, label %200, label %182
+  %.not145.i = icmp eq i16 %136, 0
+  br i1 %.not145.i, label %200, label %182
 
 182:                                              ; preds = %175
   %183 = sext i16 %136 to i64
@@ -318,7 +317,7 @@ list_head.exit.i:                                 ; preds = %124, %60
   br label %225
 
 200:                                              ; preds = %175
-  %201 = icmp eq ptr %.0134157.i, null
+  %201 = icmp eq ptr %.0134156.i, null
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %200
@@ -329,17 +328,17 @@ list_head.exit.i:                                 ; preds = %124, %60
   unreachable
 
 205:                                              ; preds = %200
-  %206 = load ptr, ptr %.0134157.i, align 8
+  %206 = load ptr, ptr %.0134156.i, align 8
   %207 = call i32 @exprType(ptr noundef %206) #6
   %208 = load ptr, ptr %91, align 8
   %209 = getelementptr i32, ptr %208, i64 %indvars.iv.i
   store i32 %207, ptr %209, align 4
-  %210 = load ptr, ptr %.0134157.i, align 8
+  %210 = load ptr, ptr %.0134156.i, align 8
   %211 = call i32 @exprTypmod(ptr noundef %210) #6
   %212 = load ptr, ptr %96, align 8
   %213 = getelementptr i32, ptr %212, i64 %indvars.iv.i
   store i32 %211, ptr %213, align 4
-  %214 = load ptr, ptr %.0134157.i, align 8
+  %214 = load ptr, ptr %.0134156.i, align 8
   %215 = call i32 @exprCollation(ptr noundef %214) #6
   %216 = load ptr, ptr %114, align 8
   %217 = getelementptr i32, ptr %216, i64 %indvars.iv.i
@@ -348,16 +347,16 @@ list_head.exit.i:                                 ; preds = %124, %60
   %219 = getelementptr i8, ptr %218, i64 4
   %.val.i = load i32, ptr %219, align 4
   %220 = getelementptr i8, ptr %218, i64 16
-  %.val147.i = load ptr, ptr %220, align 8
-  %221 = getelementptr i8, ptr %.0134157.i, i64 8
+  %.val146.i = load ptr, ptr %220, align 8
+  %221 = getelementptr i8, ptr %.0134156.i, i64 8
   %222 = sext i32 %.val.i to i64
-  %223 = getelementptr %union.ListCell, ptr %.val147.i, i64 %222
+  %223 = getelementptr %union.ListCell, ptr %.val146.i, i64 %222
   %224 = icmp ult ptr %221, %223
   %..i.i = select i1 %224, ptr %221, ptr null
   br label %225
 
 225:                                              ; preds = %205, %182
-  %.1.i = phi ptr [ %.0134157.i, %182 ], [ %..i.i, %205 ]
+  %.1.i = phi ptr [ %.0134156.i, %182 ], [ %..i.i, %205 ]
   %226 = load ptr, ptr %91, align 8
   %227 = getelementptr i32, ptr %226, i64 %indvars.iv.i
   %228 = load i32, ptr %227, align 4
@@ -396,9 +395,8 @@ define dso_local ptr @RelationGetPartitionQual(ptr noundef %0) local_unnamed_add
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 127
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %9, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = tail call fastcc ptr @generate_partition_qual(ptr noundef nonnull %0)
@@ -415,9 +413,8 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
   tail call void @check_stack_depth() #6
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %10, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 192
@@ -433,8 +430,8 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
   %15 = load i32, ptr %11, align 8
   %16 = zext i32 %15 to i64
   %17 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %16) #6
-  %.not36 = icmp eq ptr %17, null
-  br i1 %.not36, label %18, label %22
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %18, label %22
 
 18:                                               ; preds = %10
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -447,9 +444,8 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
 22:                                               ; preds = %10
   %23 = call i64 @SysCacheGetAttr(i32 noundef 55, ptr noundef nonnull %17, i16 noundef signext 33, ptr noundef nonnull %2) #6
   %24 = load i8, ptr %2, align 1
-  %25 = and i8 %24, 1
-  %.not37 = icmp eq i8 %25, 0
-  br i1 %.not37, label %26, label %31
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
   %27 = inttoptr i64 %23 to ptr
@@ -465,9 +461,8 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 127
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not38 = icmp eq i8 %36, 0
-  br i1 %.not38, label %40, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
 37:                                               ; preds = %31
   %38 = call fastcc ptr @generate_partition_qual(ptr noundef nonnull %14)
@@ -477,8 +472,8 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
 40:                                               ; preds = %31, %37
   %.033 = phi ptr [ %39, %37 ], [ %.032, %31 ]
   %41 = call ptr @map_partition_varattnos(ptr noundef %.033, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %14) #6
-  %.not39 = icmp eq ptr %41, null
-  br i1 %.not39, label %53, label %42
+  %.not36 = icmp eq ptr %41, null
+  br i1 %.not36, label %53, label %42
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr @CacheMemoryContext, align 8

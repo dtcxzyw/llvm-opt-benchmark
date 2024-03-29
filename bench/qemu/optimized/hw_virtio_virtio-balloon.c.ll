@@ -232,20 +232,19 @@ while.end.i:                                      ; preds = %sw.bb
 sw.bb5:                                           ; preds = %if.end4
   %vm_running = getelementptr inbounds i8, ptr %call.i, i64 434
   %5 = load i8, ptr %vm_running, align 2
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %sw.bb8, label %if.then6
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then6, label %sw.bb8
 
 if.then6:                                         ; preds = %sw.bb5
   %call.i.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
-  %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %7 = inttoptr i64 %6 to ptr
   %free_page_lock.i9 = getelementptr i8, ptr %n, i64 -112
-  tail call void %8(ptr noundef nonnull %free_page_lock.i9, ptr noundef nonnull @.str.10, i32 noundef 587) #13
+  tail call void %7(ptr noundef nonnull %free_page_lock.i9, ptr noundef nonnull @.str.10, i32 noundef 587) #13
   %free_page_hint_cmd_id.i = getelementptr i8, ptr %n, i64 -236
-  %9 = load i32, ptr %free_page_hint_cmd_id.i, align 4
-  %cmp.i = icmp eq i32 %9, -1
-  %inc.i = add nuw i32 %9, 1
+  %8 = load i32, ptr %free_page_hint_cmd_id.i, align 4
+  %cmp.i = icmp eq i32 %8, -1
+  %inc.i = add nuw i32 %8, 1
   %storemerge.i = select i1 %cmp.i, i32 -2147483648, i32 %inc.i
   store i32 %storemerge.i, ptr %free_page_hint_cmd_id.i, align 4
   %free_page_hint_status.i10 = getelementptr i8, ptr %n, i64 -248
@@ -257,15 +256,15 @@ if.then6:                                         ; preds = %sw.bb5
 sw.bb8:                                           ; preds = %sw.bb5, %if.end4
   %call.i.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
   %free_page_hint_status.i12 = getelementptr i8, ptr %n, i64 -248
-  %10 = load i32, ptr %free_page_hint_status.i12, align 8
-  %cmp.not.i13 = icmp eq i32 %10, 3
+  %9 = load i32, ptr %free_page_hint_status.i12, align 8
+  %cmp.not.i13 = icmp eq i32 %9, 3
   br i1 %cmp.not.i13, label %return, label %while.end.i14
 
 while.end.i14:                                    ; preds = %sw.bb8
-  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
+  %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %11 = inttoptr i64 %10 to ptr
   %free_page_lock.i15 = getelementptr i8, ptr %n, i64 -112
-  tail call void %12(ptr noundef nonnull %free_page_lock.i15, ptr noundef nonnull @.str.10, i32 noundef 628) #13
+  tail call void %11(ptr noundef nonnull %free_page_lock.i15, ptr noundef nonnull @.str.10, i32 noundef 628) #13
   store i32 3, ptr %free_page_hint_status.i12, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %free_page_lock.i15, ptr noundef nonnull @.str.10, i32 noundef 630) #13
   tail call void @virtio_notify_config(ptr noundef %call.i.i11) #13
@@ -548,11 +547,10 @@ entry:
   %1 = getelementptr i8, ptr %call.i28, i64 852
   %call1.val27 = load i8, ptr %1, align 4
   %conv.i = zext i32 %call1.val to i64
-  %2 = and i8 %call1.val27, 1
-  %tobool.not.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %call1.val27 to i1
   %and.i.i = and i64 %conv.i, 16
   %tobool.i.i = icmp ne i64 %and.i.i, 0
-  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %tobool.i.i
+  %or.cond.i = select i1 %tobool.i, i1 true, i1 %tobool.i.i
   %and.i3.i = and i64 %conv.i, 8
   %tobool.i4.not.i = icmp eq i64 %and.i3.i, 0
   %..i = select i1 %tobool.i4.not.i, i64 8, i64 12
@@ -568,15 +566,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %0, align 8
-  %4 = and i32 %3, 8
-  %tobool.i.not = icmp eq i32 %4, 0
-  br i1 %tobool.i.not, label %if.end7, label %land.lhs.true
+  %2 = load i32, ptr %0, align 8
+  %3 = and i32 %2, 8
+  %tobool.i29.not = icmp eq i32 %3, 0
+  br i1 %tobool.i29.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %iothread = getelementptr inbounds i8, ptr %call.i28, i64 680
-  %5 = load ptr, ptr %iothread, align 8
-  %tobool.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %iothread, align 8
+  %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -594,10 +592,10 @@ if.end7:                                          ; preds = %land.lhs.true, %if.
   %call10 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 128, ptr noundef nonnull @virtio_balloon_receive_stats) #13
   %svq = getelementptr inbounds i8, ptr %call.i28, i64 536
   store ptr %call10, ptr %svq, align 8
-  %6 = load i32, ptr %0, align 8
-  %7 = and i32 %6, 8
-  %tobool.i30.not = icmp eq i32 %7, 0
-  br i1 %tobool.i30.not, label %if.end21, label %if.then14
+  %5 = load i32, ptr %0, align 8
+  %6 = and i32 %5, 8
+  %tobool.i31.not = icmp eq i32 %6, 0
+  br i1 %tobool.i31.not, label %if.end21, label %if.then14
 
 if.then14:                                        ; preds = %if.end7
   %call15 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 1024, ptr noundef nonnull @virtio_balloon_handle_free_page_vq) #13
@@ -606,10 +604,10 @@ if.then14:                                        ; preds = %if.end7
   %free_page_hint_notify = getelementptr inbounds i8, ptr %call.i28, i64 808
   tail call void @precopy_add_notifier(ptr noundef nonnull %free_page_hint_notify) #13
   %iothread16 = getelementptr inbounds i8, ptr %call.i28, i64 680
+  %7 = load ptr, ptr %iothread16, align 8
+  %call17 = tail call ptr @object_ref(ptr noundef %7) #13
   %8 = load ptr, ptr %iothread16, align 8
-  %call17 = tail call ptr @object_ref(ptr noundef %8) #13
-  %9 = load ptr, ptr %iothread16, align 8
-  %call19 = tail call ptr @iothread_get_aio_context(ptr noundef %9) #13
+  %call19 = tail call ptr @iothread_get_aio_context(ptr noundef %8) #13
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %dev, i64 152
   %call20 = tail call ptr @aio_bh_new_full(ptr noundef %call19, ptr noundef nonnull @virtio_ballloon_get_free_page_hints, ptr noundef nonnull %call.i28, ptr noundef nonnull @.str.38, ptr noundef nonnull %mem_reentrancy_guard) #13
   %free_page_bh = getelementptr inbounds i8, ptr %call.i28, i64 688
@@ -618,10 +616,10 @@ if.then14:                                        ; preds = %if.end7
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then14, %if.end7
-  %10 = phi i32 [ %.pre, %if.then14 ], [ %6, %if.end7 ]
-  %11 = and i32 %10, 32
-  %tobool.i32.not = icmp eq i32 %11, 0
-  br i1 %tobool.i32.not, label %if.end27, label %if.then25
+  %9 = phi i32 [ %.pre, %if.then14 ], [ %5, %if.end7 ]
+  %10 = and i32 %9, 32
+  %tobool.i33.not = icmp eq i32 %10, 0
+  br i1 %tobool.i33.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.end21
   %call26 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 32, ptr noundef nonnull @virtio_balloon_handle_report) #13
@@ -834,17 +832,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end18
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %10 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %0, i32 noundef %1) #13
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %0, i32 noundef %1) #13
   br label %trace_virtio_balloon_get_config.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -853,16 +850,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_balloon_get_config.exit:             ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %12 = getelementptr i8, ptr %call.i, i64 848
-  %call.val = load i32, ptr %12, align 8
-  %13 = getelementptr i8, ptr %call.i, i64 852
-  %call.val10 = load i8, ptr %13, align 4
+  %11 = getelementptr i8, ptr %call.i, i64 848
+  %call.val = load i32, ptr %11, align 8
+  %12 = getelementptr i8, ptr %call.i, i64 852
+  %call.val10 = load i8, ptr %12, align 4
   %conv.i = zext i32 %call.val to i64
-  %14 = and i8 %call.val10, 1
-  %tobool.not.i = icmp ne i8 %14, 0
+  %tobool.i = trunc i8 %call.val10 to i1
   %and.i.i = and i64 %conv.i, 16
   %tobool.i.i11 = icmp ne i64 %and.i.i, 0
-  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %tobool.i.i11
+  %or.cond.i = select i1 %tobool.i, i1 true, i1 %tobool.i.i11
   %and.i3.i = and i64 %conv.i, 8
   %tobool.i4.not.i = icmp eq i64 %and.i3.i, 0
   %..i = select i1 %tobool.i4.not.i, i64 8, i64 12
@@ -901,16 +897,15 @@ get_current_ram_size.exit:                        ; preds = %entry, %if.then.i
   %5 = getelementptr i8, ptr %call.i, i64 852
   %call.val10 = load i8, ptr %5, align 4
   %conv.i = zext i32 %call.val to i64
-  %6 = and i8 %call.val10, 1
-  %tobool.not.i12 = icmp ne i8 %6, 0
+  %tobool.i = trunc i8 %call.val10 to i1
   %and.i.i = and i64 %conv.i, 16
   %tobool.i.i = icmp ne i64 %and.i.i, 0
-  %or.cond.i = select i1 %tobool.not.i12, i1 true, i1 %tobool.i.i
+  %or.cond.i = select i1 %tobool.i, i1 true, i1 %tobool.i.i
   %and.i3.i = and i64 %conv.i, 8
   %tobool.i4.not.i = icmp eq i64 %and.i3.i, 0
   %..i = select i1 %tobool.i4.not.i, i64 8, i64 12
-  %retval.0.i13 = select i1 %or.cond.i, i64 16, i64 %..i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %config, ptr noundef nonnull align 1 dereferenceable(1) %config_data, i64 %retval.0.i13, i1 false)
+  %retval.0.i12 = select i1 %or.cond.i, i64 16, i64 %..i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %config, ptr noundef nonnull align 1 dereferenceable(1) %config_data, i64 %retval.0.i12, i1 false)
   %config.4.config.4.config.4.config.4.actual3.sroa_idx = getelementptr inbounds i8, ptr %config, i64 4
   %config.4.config.4.config.4.config.4. = load i32, ptr %config.4.config.4.config.4.config.4.actual3.sroa_idx, align 4
   store i32 %config.4.config.4.config.4.config.4., ptr %actual, align 8
@@ -927,9 +922,9 @@ if.then:                                          ; preds = %get_current_ram_siz
 if.end:                                           ; preds = %if.then, %get_current_ram_size.exit
   %poison_val = getelementptr inbounds i8, ptr %call.i, i64 856
   store i32 0, ptr %poison_val, align 8
-  %call.i.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
-  %7 = getelementptr i8, ptr %call.i.i14, i64 184
-  %call.val.i = load i64, ptr %7, align 8
+  %call.i.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
+  %6 = getelementptr i8, ptr %call.i.i13, i64 184
+  %call.val.i = load i64, ptr %6, align 8
   %and.i.i.i = and i64 %call.val.i, 16
   %tobool.i.i.i.not = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.i.i.i.not, label %if.end13, label %if.then9
@@ -941,38 +936,37 @@ if.then9:                                         ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %if.end
-  %8 = load i32, ptr %actual, align 8
+  %7 = load i32, ptr %actual, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i15 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_VIRTIO_BALLOON_SET_CONFIG_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %10, 0
-  %or.cond.i.i = select i1 %tobool.i.i15, i1 %tobool4.i.i, i1 false
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i14 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_VIRTIO_BALLOON_SET_CONFIG_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %9, 0
+  %or.cond.i.i = select i1 %tobool.i.i14, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_virtio_balloon_set_config.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end13
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i16 = and i32 %11, 32768
-  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i16, 0
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i15 = and i32 %10, 32768
+  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i15, 0
   br i1 %cmp.i.not.i.i, label %trace_virtio_balloon_set_config.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %11 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %14 = load i64, ptr %_now.i.i, align 8
+  %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %8, i32 noundef %0) #13
+  %13 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %7, i32 noundef %0) #13
   br label %trace_virtio_balloon_set_config.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %8, i32 noundef %0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %7, i32 noundef %0) #13
   br label %trace_virtio_balloon_set_config.exit
 
 trace_virtio_balloon_set_config.exit:             ; preds = %if.end13, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1004,51 +998,48 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %1 = load i8, ptr %vm_running, align 2
-  %2 = and i8 %1, 1
-  %tobool1.not = icmp eq i8 %2, 0
-  %3 = and i8 %status, 4
-  %tobool3.not = icmp eq i8 %3, 0
-  %or.cond = or i1 %tobool3.not, %tobool1.not
-  br i1 %or.cond, label %if.end, label %land.lhs.true4
+  %tobool1 = trunc i8 %1 to i1
+  %2 = and i8 %status, 4
+  %tobool3.not = icmp ne i8 %2, 0
+  %or.cond.not = and i1 %tobool3.not, %tobool1
+  br i1 %or.cond.not, label %land.lhs.true4, label %if.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %svq = getelementptr inbounds i8, ptr %call.i, i64 536
-  %4 = load ptr, ptr %svq, align 8
-  %call5 = tail call zeroext i1 @virtqueue_rewind(ptr noundef %4, i32 noundef 1) #13
+  %3 = load ptr, ptr %svq, align 8
+  %call5 = tail call zeroext i1 @virtqueue_rewind(ptr noundef %3, i32 noundef 1) #13
   br i1 %call5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true4
-  %5 = load ptr, ptr %svq, align 8
-  tail call void @virtio_balloon_receive_stats(ptr noundef nonnull %vdev, ptr noundef %5)
+  %4 = load ptr, ptr %svq, align 8
+  tail call void @virtio_balloon_receive_stats(ptr noundef nonnull %vdev, ptr noundef %4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true4, %land.lhs.true, %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
-  %6 = getelementptr i8, ptr %call.i.i, i64 184
-  %call.val.i = load i64, ptr %6, align 8
+  %5 = getelementptr i8, ptr %call.i.i, i64 184
+  %call.val.i = load i64, ptr %5, align 8
   %and.i.i.i = and i64 %call.val.i, 8
   %tobool.i.i.i.not = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.i.i.i.not, label %if.end35, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %vm_running10 = getelementptr inbounds i8, ptr %vdev, i64 434
-  %7 = load i8, ptr %vm_running10, align 2
-  %8 = and i8 %7, 1
-  %tobool11.not = icmp eq i8 %8, 0
-  br i1 %tobool11.not, label %if.end19, label %land.lhs.true13
+  %6 = load i8, ptr %vm_running10, align 2
+  %tobool11 = trunc i8 %6 to i1
+  br i1 %tobool11, label %land.lhs.true13, label %if.end19
 
 land.lhs.true13:                                  ; preds = %if.then9
   %block_iothread = getelementptr inbounds i8, ptr %call.i, i64 800
-  %9 = load i8, ptr %block_iothread, align 8
-  %10 = and i8 %9, 1
-  %tobool14.not = icmp eq i8 %10, 0
-  br i1 %tobool14.not, label %if.end19, label %while.end
+  %7 = load i8, ptr %block_iothread, align 8
+  %tobool14 = trunc i8 %7 to i1
+  br i1 %tobool14, label %while.end, label %if.end19
 
 while.end:                                        ; preds = %land.lhs.true13
-  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
+  %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %9 = inttoptr i64 %8 to ptr
   %free_page_lock = getelementptr inbounds i8, ptr %call.i, i64 696
-  tail call void %12(ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 962) #13
+  tail call void %9(ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 962) #13
   store i8 0, ptr %block_iothread, align 8
   %free_page_cond = getelementptr inbounds i8, ptr %call.i, i64 744
   tail call void @qemu_cond_signal(ptr noundef nonnull %free_page_cond) #13
@@ -1057,16 +1048,15 @@ while.end:                                        ; preds = %land.lhs.true13
   br label %if.end19
 
 if.end19:                                         ; preds = %while.end, %land.lhs.true13, %if.then9
-  %13 = phi i8 [ %.pre, %while.end ], [ %7, %land.lhs.true13 ], [ %7, %if.then9 ]
-  %14 = and i8 %13, 1
-  %tobool21.not = icmp eq i8 %14, 0
-  br i1 %tobool21.not, label %while.end28, label %if.end35
+  %10 = phi i8 [ %.pre, %while.end ], [ %6, %land.lhs.true13 ], [ %6, %if.then9 ]
+  %tobool21 = trunc i8 %10 to i1
+  br i1 %tobool21, label %if.end35, label %while.end28
 
 while.end28:                                      ; preds = %if.end19
-  %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %16 = inttoptr i64 %15 to ptr
+  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %12 = inttoptr i64 %11 to ptr
   %free_page_lock31 = getelementptr inbounds i8, ptr %call.i, i64 696
-  tail call void %16(ptr noundef nonnull %free_page_lock31, ptr noundef nonnull @.str.10, i32 noundef 970) #13
+  tail call void %12(ptr noundef nonnull %free_page_lock31, ptr noundef nonnull @.str.10, i32 noundef 970) #13
   %block_iothread32 = getelementptr inbounds i8, ptr %call.i, i64 800
   store i8 1, ptr %block_iothread32, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %free_page_lock31, ptr noundef nonnull @.str.10, i32 noundef 972) #13
@@ -1129,17 +1119,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end.split
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef 0, i32 noundef %3) #13
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef 0, i32 noundef %3) #13
   br label %trace_virtio_balloon_to_target.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1157,41 +1146,40 @@ if.then3:                                         ; preds = %get_current_ram_siz
   %num_pages = getelementptr inbounds i8, ptr %call.i, i64 564
   store i32 %conv, ptr %num_pages, align 4
   tail call void @virtio_notify_config(ptr noundef %call.i10) #13
-  %11 = load i32, ptr %num_pages, align 4
+  %10 = load i32, ptr %num_pages, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i12)
-  %12 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i13 = icmp ne i32 %12, 0
-  %13 = load i16, ptr @_TRACE_VIRTIO_BALLOON_TO_TARGET_DSTATE, align 2
-  %tobool4.i.i14 = icmp ne i16 %13, 0
+  %11 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i13 = icmp ne i32 %11, 0
+  %12 = load i16, ptr @_TRACE_VIRTIO_BALLOON_TO_TARGET_DSTATE, align 2
+  %tobool4.i.i14 = icmp ne i16 %12, 0
   %or.cond.i.i15 = select i1 %tobool.i.i13, i1 %tobool4.i.i14, i1 false
   br i1 %or.cond.i.i15, label %land.lhs.true5.i.i16, label %trace_virtio_balloon_to_target.exit26
 
 land.lhs.true5.i.i16:                             ; preds = %if.then3
-  %14 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i17 = and i32 %14, 32768
+  %13 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i17 = and i32 %13, 32768
   %cmp.i.not.i.i18 = icmp eq i32 %and.i.i.i17, 0
   br i1 %cmp.i.not.i.i18, label %trace_virtio_balloon_to_target.exit26, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %land.lhs.true5.i.i16
-  %15 = load i8, ptr @message_with_timestamp, align 1
-  %16 = and i8 %15, 1
-  %tobool7.not.i.i20 = icmp eq i8 %16, 0
-  br i1 %tobool7.not.i.i20, label %if.else.i.i25, label %if.then8.i.i21
+  %14 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i20 = trunc i8 %14 to i1
+  br i1 %tobool7.i.i20, label %if.then8.i.i22, label %if.else.i.i21
 
-if.then8.i.i21:                                   ; preds = %if.then.i.i19
-  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #13
-  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #13
-  %17 = load i64, ptr %_now.i.i12, align 8
-  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
-  %18 = load i64, ptr %tv_usec.i.i24, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i23, i64 noundef %17, i64 noundef %18, i64 noundef %spec.select, i32 noundef %11) #13
+if.then8.i.i22:                                   ; preds = %if.then.i.i19
+  %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #13
+  %call10.i.i24 = tail call i32 @qemu_get_thread_id() #13
+  %15 = load i64, ptr %_now.i.i12, align 8
+  %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
+  %16 = load i64, ptr %tv_usec.i.i25, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i24, i64 noundef %15, i64 noundef %16, i64 noundef %spec.select, i32 noundef %10) #13
   br label %trace_virtio_balloon_to_target.exit26
 
-if.else.i.i25:                                    ; preds = %if.then.i.i19
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i64 noundef %spec.select, i32 noundef %11) #13
+if.else.i.i21:                                    ; preds = %if.then.i.i19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i64 noundef %spec.select, i32 noundef %10) #13
   br label %trace_virtio_balloon_to_target.exit26
 
-trace_virtio_balloon_to_target.exit26:            ; preds = %if.then3, %land.lhs.true5.i.i16, %if.then8.i.i21, %if.else.i.i25
+trace_virtio_balloon_to_target.exit26:            ; preds = %if.then3, %land.lhs.true5.i.i16, %if.then8.i.i22, %if.else.i.i21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i12)
   br label %if.end4
 
@@ -1235,10 +1223,10 @@ declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_balloon_handle_output(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
-  %rb_offset.i70 = alloca i64, align 8
+  %rb_offset.i71 = alloca i64, align 8
   %rb_offset.i = alloca i64, align 8
-  %_now.i.i48 = alloca %struct.timeval, align 8
-  %_now.i.i33 = alloca %struct.timeval, align 8
+  %_now.i.i49 = alloca %struct.timeval, align 8
+  %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %pfn = alloca i32, align 4
   %tmp = alloca %struct.MemoryRegionSection, align 16
@@ -1250,9 +1238,9 @@ entry:
 while.cond.preheader.lr.ph:                       ; preds = %entry
   %section.sroa.1.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
   %section.sroa.1013.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 32
-  %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
+  %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %tv_usec.i.i60 = getelementptr inbounds i8, ptr %_now.i.i48, i64 8
+  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
   %ivq = getelementptr inbounds i8, ptr %call.i, i64 520
   %dvq = getelementptr inbounds i8, ptr %call.i, i64 528
   br label %while.cond.preheader
@@ -1330,16 +1318,15 @@ land.lhs.true5.i.i:                               ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = call i32 @qemu_get_thread_id() #13
-  %10 = load i64, ptr %_now.i.i, align 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %shl) #13
+  %9 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %shl) #13
   br label %trace_virtio_balloon_bad_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1350,113 +1337,107 @@ trace_virtio_balloon_bad_addr.exit:               ; preds = %if.then6, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %trace_virtio_balloon_bad_addr.exit, %trace_virtio_balloon_bad_addr.exit47
+while.cond.backedge:                              ; preds = %trace_virtio_balloon_bad_addr.exit, %trace_virtio_balloon_bad_addr.exit48
   br label %while.cond, !llvm.loop !7
 
 if.end7:                                          ; preds = %while.body
-  %12 = getelementptr i8, ptr %section.sroa.1.0.copyload, i64 41
-  %section.sroa.1.0.copyload.val = load i8, ptr %12, align 1
-  %13 = and i8 %section.sroa.1.0.copyload.val, 1
-  %tobool.i29.not = icmp eq i8 %13, 0
-  br i1 %tobool.i29.not, label %if.then17, label %memory_region_is_rom.exit
+  %11 = getelementptr i8, ptr %section.sroa.1.0.copyload, i64 41
+  %section.sroa.1.0.copyload.val = load i8, ptr %11, align 1
+  %tobool.i29 = trunc i8 %section.sroa.1.0.copyload.val to i1
+  br i1 %tobool.i29, label %memory_region_is_rom.exit, label %if.then17
 
 memory_region_is_rom.exit:                        ; preds = %if.end7
   %readonly.i = getelementptr inbounds i8, ptr %section.sroa.1.0.copyload, i64 43
-  %14 = load i8, ptr %readonly.i, align 1
-  %15 = and i8 %14, 1
-  %tobool1.i.not = icmp eq i8 %15, 0
-  br i1 %tobool1.i.not, label %lor.lhs.false13, label %if.then17
+  %12 = load i8, ptr %readonly.i, align 1
+  %tobool1.i = trunc i8 %12 to i1
+  br i1 %tobool1.i, label %if.then17, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %memory_region_is_rom.exit
   %rom_device.i = getelementptr inbounds i8, ptr %section.sroa.1.0.copyload, i64 45
-  %16 = load i8, ptr %rom_device.i, align 1
-  %17 = and i8 %16, 1
-  %tobool.not.i30 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i30, label %if.end19, label %memory_region_is_romd.exit
+  %13 = load i8, ptr %rom_device.i, align 1
+  %tobool.i31 = trunc i8 %13 to i1
+  br i1 %tobool.i31, label %memory_region_is_romd.exit, label %if.end19
 
 memory_region_is_romd.exit:                       ; preds = %lor.lhs.false13
   %romd_mode.i = getelementptr inbounds i8, ptr %section.sroa.1.0.copyload, i64 40
-  %18 = load i8, ptr %romd_mode.i, align 8
-  %19 = and i8 %18, 1
-  %tobool1.i32.not = icmp eq i8 %19, 0
-  br i1 %tobool1.i32.not, label %if.end19, label %if.then17
+  %14 = load i8, ptr %romd_mode.i, align 8
+  %tobool1.i33 = trunc i8 %14 to i1
+  br i1 %tobool1.i33, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %memory_region_is_romd.exit, %memory_region_is_rom.exit, %if.end7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i33)
-  %20 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i34 = icmp ne i32 %20, 0
-  %21 = load i16, ptr @_TRACE_VIRTIO_BALLOON_BAD_ADDR_DSTATE, align 2
-  %tobool4.i.i35 = icmp ne i16 %21, 0
-  %or.cond.i.i36 = select i1 %tobool.i.i34, i1 %tobool4.i.i35, i1 false
-  br i1 %or.cond.i.i36, label %land.lhs.true5.i.i37, label %trace_virtio_balloon_bad_addr.exit47
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i35 = icmp ne i32 %15, 0
+  %16 = load i16, ptr @_TRACE_VIRTIO_BALLOON_BAD_ADDR_DSTATE, align 2
+  %tobool4.i.i36 = icmp ne i16 %16, 0
+  %or.cond.i.i37 = select i1 %tobool.i.i35, i1 %tobool4.i.i36, i1 false
+  br i1 %or.cond.i.i37, label %land.lhs.true5.i.i38, label %trace_virtio_balloon_bad_addr.exit48
 
-land.lhs.true5.i.i37:                             ; preds = %if.then17
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i38 = and i32 %22, 32768
-  %cmp.i.not.i.i39 = icmp eq i32 %and.i.i.i38, 0
-  br i1 %cmp.i.not.i.i39, label %trace_virtio_balloon_bad_addr.exit47, label %if.then.i.i40
+land.lhs.true5.i.i38:                             ; preds = %if.then17
+  %17 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i39 = and i32 %17, 32768
+  %cmp.i.not.i.i40 = icmp eq i32 %and.i.i.i39, 0
+  br i1 %cmp.i.not.i.i40, label %trace_virtio_balloon_bad_addr.exit48, label %if.then.i.i41
 
-if.then.i.i40:                                    ; preds = %land.lhs.true5.i.i37
-  %23 = load i8, ptr @message_with_timestamp, align 1
-  %24 = and i8 %23, 1
-  %tobool7.not.i.i41 = icmp eq i8 %24, 0
-  br i1 %tobool7.not.i.i41, label %if.else.i.i46, label %if.then8.i.i42
+if.then.i.i41:                                    ; preds = %land.lhs.true5.i.i38
+  %18 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i42 = trunc i8 %18 to i1
+  br i1 %tobool7.i.i42, label %if.then8.i.i44, label %if.else.i.i43
 
-if.then8.i.i42:                                   ; preds = %if.then.i.i40
-  %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #13
-  %call10.i.i44 = call i32 @qemu_get_thread_id() #13
-  %25 = load i64, ptr %_now.i.i33, align 8
-  %26 = load i64, ptr %tv_usec.i.i45, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i44, i64 noundef %25, i64 noundef %26, i64 noundef %shl) #13
-  br label %trace_virtio_balloon_bad_addr.exit47
+if.then8.i.i44:                                   ; preds = %if.then.i.i41
+  %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #13
+  %call10.i.i46 = call i32 @qemu_get_thread_id() #13
+  %19 = load i64, ptr %_now.i.i34, align 8
+  %20 = load i64, ptr %tv_usec.i.i47, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i46, i64 noundef %19, i64 noundef %20, i64 noundef %shl) #13
+  br label %trace_virtio_balloon_bad_addr.exit48
 
-if.else.i.i46:                                    ; preds = %if.then.i.i40
+if.else.i.i43:                                    ; preds = %if.then.i.i41
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i64 noundef %shl) #13
-  br label %trace_virtio_balloon_bad_addr.exit47
+  br label %trace_virtio_balloon_bad_addr.exit48
 
-trace_virtio_balloon_bad_addr.exit47:             ; preds = %if.then17, %land.lhs.true5.i.i37, %if.then8.i.i42, %if.else.i.i46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i33)
+trace_virtio_balloon_bad_addr.exit48:             ; preds = %if.then17, %land.lhs.true5.i.i38, %if.then8.i.i44, %if.else.i.i43
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i34)
   call void @memory_region_unref(ptr noundef nonnull %section.sroa.1.0.copyload) #13
   br label %while.cond.backedge
 
 if.end19:                                         ; preds = %lor.lhs.false13, %memory_region_is_romd.exit
   %call21 = call ptr @memory_region_name(ptr noundef nonnull %section.sroa.1.0.copyload) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i48)
-  %27 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i49 = icmp ne i32 %27, 0
-  %28 = load i16, ptr @_TRACE_VIRTIO_BALLOON_HANDLE_OUTPUT_DSTATE, align 2
-  %tobool4.i.i50 = icmp ne i16 %28, 0
-  %or.cond.i.i51 = select i1 %tobool.i.i49, i1 %tobool4.i.i50, i1 false
-  br i1 %or.cond.i.i51, label %land.lhs.true5.i.i52, label %trace_virtio_balloon_handle_output.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i49)
+  %21 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i50 = icmp ne i32 %21, 0
+  %22 = load i16, ptr @_TRACE_VIRTIO_BALLOON_HANDLE_OUTPUT_DSTATE, align 2
+  %tobool4.i.i51 = icmp ne i16 %22, 0
+  %or.cond.i.i52 = select i1 %tobool.i.i50, i1 %tobool4.i.i51, i1 false
+  br i1 %or.cond.i.i52, label %land.lhs.true5.i.i53, label %trace_virtio_balloon_handle_output.exit
 
-land.lhs.true5.i.i52:                             ; preds = %if.end19
-  %29 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i53 = and i32 %29, 32768
-  %cmp.i.not.i.i54 = icmp eq i32 %and.i.i.i53, 0
-  br i1 %cmp.i.not.i.i54, label %trace_virtio_balloon_handle_output.exit, label %if.then.i.i55
+land.lhs.true5.i.i53:                             ; preds = %if.end19
+  %23 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i54 = and i32 %23, 32768
+  %cmp.i.not.i.i55 = icmp eq i32 %and.i.i.i54, 0
+  br i1 %cmp.i.not.i.i55, label %trace_virtio_balloon_handle_output.exit, label %if.then.i.i56
 
-if.then.i.i55:                                    ; preds = %land.lhs.true5.i.i52
-  %30 = load i8, ptr @message_with_timestamp, align 1
-  %31 = and i8 %30, 1
-  %tobool7.not.i.i56 = icmp eq i8 %31, 0
-  br i1 %tobool7.not.i.i56, label %if.else.i.i61, label %if.then8.i.i57
+if.then.i.i56:                                    ; preds = %land.lhs.true5.i.i53
+  %24 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i57 = trunc i8 %24 to i1
+  br i1 %tobool7.i.i57, label %if.then8.i.i59, label %if.else.i.i58
 
-if.then8.i.i57:                                   ; preds = %if.then.i.i55
-  %call9.i.i58 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48, ptr noundef null) #13
-  %call10.i.i59 = call i32 @qemu_get_thread_id() #13
-  %32 = load i64, ptr %_now.i.i48, align 8
-  %33 = load i64, ptr %tv_usec.i.i60, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i59, i64 noundef %32, i64 noundef %33, ptr noundef %call21, i64 noundef %shl) #13
+if.then8.i.i59:                                   ; preds = %if.then.i.i56
+  %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #13
+  %call10.i.i61 = call i32 @qemu_get_thread_id() #13
+  %25 = load i64, ptr %_now.i.i49, align 8
+  %26 = load i64, ptr %tv_usec.i.i62, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i61, i64 noundef %25, i64 noundef %26, ptr noundef %call21, i64 noundef %shl) #13
   br label %trace_virtio_balloon_handle_output.exit
 
-if.else.i.i61:                                    ; preds = %if.then.i.i55
+if.else.i.i58:                                    ; preds = %if.then.i.i56
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef %call21, i64 noundef %shl) #13
   br label %trace_virtio_balloon_handle_output.exit
 
-trace_virtio_balloon_handle_output.exit:          ; preds = %if.end19, %land.lhs.true5.i.i52, %if.then8.i.i57, %if.else.i.i61
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i48)
-  %call.i62 = call zeroext i1 @ram_block_discard_is_disabled() #13
-  br i1 %call.i62, label %if.end36, label %lor.lhs.false.i
+trace_virtio_balloon_handle_output.exit:          ; preds = %if.end19, %land.lhs.true5.i.i53, %if.then8.i.i59, %if.else.i.i58
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
+  %call.i63 = call zeroext i1 @ram_block_discard_is_disabled() #13
+  br i1 %call.i63, label %if.end36, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %trace_virtio_balloon_handle_output.exit
   %call1.i = call zeroext i1 @migration_in_incoming_postcopy() #13
@@ -1467,35 +1448,35 @@ virtio_balloon_inhibited.exit:                    ; preds = %lor.lhs.false.i
   br i1 %call2.i, label %if.end36, label %if.then23
 
 if.then23:                                        ; preds = %virtio_balloon_inhibited.exit
-  %34 = load ptr, ptr %ivq, align 8
-  %cmp24 = icmp eq ptr %34, %vq
+  %27 = load ptr, ptr %ivq, align 8
+  %cmp24 = icmp eq ptr %27, %vq
   br i1 %cmp24, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %if.then23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rb_offset.i)
-  %call.i63 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
-  %add.ptr.i64 = getelementptr i8, ptr %call.i63, i64 %section.sroa.1013.0.copyload
-  %call1.i65 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i64, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i) #13
-  %call2.i66 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i65) #13
-  %cmp.i = icmp eq i64 %call2.i66, 4096
-  br i1 %cmp.i, label %if.then.i69, label %if.end.i
+  %call.i64 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
+  %add.ptr.i65 = getelementptr i8, ptr %call.i64, i64 %section.sroa.1013.0.copyload
+  %call1.i66 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i65, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i) #13
+  %call2.i67 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i66) #13
+  %cmp.i = icmp eq i64 %call2.i67, 4096
+  br i1 %cmp.i, label %if.then.i70, label %if.end.i
 
-if.then.i69:                                      ; preds = %if.then26
-  %35 = load i64, ptr %rb_offset.i, align 8
-  %call3.i = call i32 @ram_block_discard_range(ptr noundef %call1.i65, i64 noundef %35, i64 noundef 4096) #13
+if.then.i70:                                      ; preds = %if.then26
+  %28 = load i64, ptr %rb_offset.i, align 8
+  %call3.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %28, i64 noundef 4096) #13
   br label %balloon_inflate_page.exit
 
 if.end.i:                                         ; preds = %if.then26
   %call4.i = call zeroext i1 (ptr, ptr, ...) @warn_report_once_cond(ptr noundef nonnull @balloon_inflate_page.print_once_, ptr noundef nonnull @.str.47) #13
-  %36 = load i64, ptr %rb_offset.i, align 8
-  %.fr.i = freeze i64 %36
-  %37 = urem i64 %.fr.i, %call2.i66
-  %mul.i = sub nuw i64 %.fr.i, %37
-  %div521.i = lshr i64 %call2.i66, 12
+  %29 = load i64, ptr %rb_offset.i, align 8
+  %.fr.i = freeze i64 %29
+  %30 = urem i64 %.fr.i, %call2.i67
+  %mul.i = sub nuw i64 %.fr.i, %30
+  %div521.i = lshr i64 %call2.i67, 12
   %call6.i = call i64 @memory_region_get_ram_addr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
   %add.i = add i64 %call6.i, %section.sroa.1013.0.copyload
-  %38 = load i64, ptr %rb_offset.i, align 8
-  %sub.neg.i = sub i64 %mul.i, %38
+  %31 = load i64, ptr %rb_offset.i, align 8
+  %sub.neg.i = sub i64 %mul.i, %31
   %sub7.i = add i64 %add.i, %sub.neg.i
   %tobool8.not.i = icmp eq ptr %pbp.sroa.3.1.ph, null
   br i1 %tobool8.not.i, label %if.then14.i, label %land.lhs.true.i
@@ -1517,8 +1498,8 @@ if.then14.i:                                      ; preds = %virtio_balloon_pbp_
   %sext.i = shl i64 %div521.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
   %sub.i.i.i.i = add nsw i64 %conv15.i, 63
-  %39 = lshr i64 %sub.i.i.i.i, 3
-  %mul.i.i.i.i = and i64 %39, 2305843009213693944
+  %32 = lshr i64 %sub.i.i.i.i, 3
+  %mul.i.i.i.i = and i64 %32, 2305843009213693944
   %call.i.i.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i.i.i) #16
   %cmp.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %virtio_balloon_pbp_alloc.exit.i
@@ -1535,22 +1516,22 @@ if.end16.i:                                       ; preds = %virtio_balloon_pbp_
   %pbp.sroa.0.2 = phi i64 [ %sub7.i, %virtio_balloon_pbp_alloc.exit.i ], [ %pbp.sroa.0.1.ph, %land.lhs.true.if.end16_crit_edge.i ]
   %pbp.sroa.3.2 = phi ptr [ %call.i.i.i.i, %virtio_balloon_pbp_alloc.exit.i ], [ %pbp.sroa.3.1.ph, %land.lhs.true.if.end16_crit_edge.i ]
   %conv21.pre-phi.i = phi i64 [ %conv15.i, %virtio_balloon_pbp_alloc.exit.i ], [ %.pre3.i, %land.lhs.true.if.end16_crit_edge.i ]
-  %40 = phi i64 [ %.pre.i, %virtio_balloon_pbp_alloc.exit.i ], [ %38, %land.lhs.true.if.end16_crit_edge.i ]
-  %sub17.i = sub i64 %40, %mul.i
+  %33 = phi i64 [ %.pre.i, %virtio_balloon_pbp_alloc.exit.i ], [ %31, %land.lhs.true.if.end16_crit_edge.i ]
+  %sub17.i = sub i64 %33, %mul.i
   %div1822.i = lshr i64 %sub17.i, 12
   %rem.i.i = and i64 %div1822.i, 63
   %shl.i.i = shl nuw i64 1, %rem.i.i
   %div2.i.i = lshr i64 %sub17.i, 18
   %add.ptr.i.i = getelementptr i64, ptr %pbp.sroa.3.2, i64 %div2.i.i
-  %41 = load i64, ptr %add.ptr.i.i, align 8
-  %or.i.i = or i64 %shl.i.i, %41
+  %34 = load i64, ptr %add.ptr.i.i, align 8
+  %or.i.i = or i64 %shl.i.i, %34
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
   %cmp.i25.i = icmp ult i64 %conv21.pre-phi.i, 65
-  br i1 %cmp.i25.i, label %if.then.i.i68, label %if.else.i.i67
+  br i1 %cmp.i25.i, label %if.then.i.i69, label %if.else.i.i68
 
-if.then.i.i68:                                    ; preds = %if.end16.i
-  %42 = load i64, ptr %pbp.sroa.3.2, align 8
-  %not.i.i = xor i64 %42, -1
+if.then.i.i69:                                    ; preds = %if.end16.i
+  %35 = load i64, ptr %pbp.sroa.3.2, align 8
+  %not.i.i = xor i64 %35, -1
   %sub.i.i = sub nsw i64 0, %div521.i
   %and.i.i = and i64 %sub.i.i, 63
   %shr.i.i = lshr i64 -1, %and.i.i
@@ -1559,54 +1540,54 @@ if.then.i.i68:                                    ; preds = %if.end16.i
   %lnot.ext.i.i = zext i1 %tobool.not.i26.i to i32
   br label %bitmap_full.exit.i
 
-if.else.i.i67:                                    ; preds = %if.end16.i
+if.else.i.i68:                                    ; preds = %if.end16.i
   %call.i.i = call i32 @slow_bitmap_full(ptr noundef nonnull %pbp.sroa.3.2, i64 noundef %conv21.pre-phi.i) #13
   br label %bitmap_full.exit.i
 
-bitmap_full.exit.i:                               ; preds = %if.else.i.i67, %if.then.i.i68
-  %retval.0.i.i = phi i32 [ %lnot.ext.i.i, %if.then.i.i68 ], [ %call.i.i, %if.else.i.i67 ]
+bitmap_full.exit.i:                               ; preds = %if.else.i.i68, %if.then.i.i69
+  %retval.0.i.i = phi i32 [ %lnot.ext.i.i, %if.then.i.i69 ], [ %call.i.i, %if.else.i.i68 ]
   %tobool23.not.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %tobool23.not.i, label %balloon_inflate_page.exit, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %bitmap_full.exit.i
-  %call25.i = call i32 @ram_block_discard_range(ptr noundef %call1.i65, i64 noundef %mul.i, i64 noundef %call2.i66) #13
+  %call25.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %mul.i, i64 noundef %call2.i67) #13
   call void @g_free(ptr noundef nonnull %pbp.sroa.3.2) #13
   br label %balloon_inflate_page.exit
 
-balloon_inflate_page.exit:                        ; preds = %if.then.i69, %bitmap_full.exit.i, %if.end.i29.i
-  %pbp.sroa.0.3 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i69 ], [ %pbp.sroa.0.2, %bitmap_full.exit.i ], [ %pbp.sroa.0.2, %if.end.i29.i ]
-  %pbp.sroa.3.3 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i69 ], [ %pbp.sroa.3.2, %bitmap_full.exit.i ], [ null, %if.end.i29.i ]
+balloon_inflate_page.exit:                        ; preds = %if.then.i70, %bitmap_full.exit.i, %if.end.i29.i
+  %pbp.sroa.0.3 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i70 ], [ %pbp.sroa.0.2, %bitmap_full.exit.i ], [ %pbp.sroa.0.2, %if.end.i29.i ]
+  %pbp.sroa.3.3 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i70 ], [ %pbp.sroa.3.2, %bitmap_full.exit.i ], [ null, %if.end.i29.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i)
   br label %if.end36
 
 if.else:                                          ; preds = %if.then23
-  %43 = load ptr, ptr %dvq, align 8
-  %cmp28 = icmp eq ptr %43, %vq
+  %36 = load ptr, ptr %dvq, align 8
+  %cmp28 = icmp eq ptr %36, %vq
   br i1 %cmp28, label %if.then30, label %do.body
 
 if.then30:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rb_offset.i70)
-  %call.i71 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
-  %add.ptr.i72 = getelementptr i8, ptr %call.i71, i64 %section.sroa.1013.0.copyload
-  %call1.i73 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i72, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i70) #13
-  %call2.i74 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i73) #13
-  %44 = ptrtoint ptr %add.ptr.i72 to i64
-  %not.i = sub i64 0, %call2.i74
-  %and.i = and i64 %44, %not.i
-  %45 = inttoptr i64 %and.i to ptr
-  %call3.i75 = call i32 @qemu_madvise(ptr noundef %45, i64 noundef %call2.i74, i32 noundef 3) #13
-  %cmp.not.i76 = icmp eq i32 %call3.i75, 0
-  br i1 %cmp.not.i76, label %balloon_deflate_page.exit, label %if.then.i77
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rb_offset.i71)
+  %call.i72 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
+  %add.ptr.i73 = getelementptr i8, ptr %call.i72, i64 %section.sroa.1013.0.copyload
+  %call1.i74 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i73, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i71) #13
+  %call2.i75 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i74) #13
+  %37 = ptrtoint ptr %add.ptr.i73 to i64
+  %not.i = sub i64 0, %call2.i75
+  %and.i = and i64 %37, %not.i
+  %38 = inttoptr i64 %and.i to ptr
+  %call3.i76 = call i32 @qemu_madvise(ptr noundef %38, i64 noundef %call2.i75, i32 noundef 3) #13
+  %cmp.not.i77 = icmp eq i32 %call3.i76, 0
+  br i1 %cmp.not.i77, label %balloon_deflate_page.exit, label %if.then.i78
 
-if.then.i77:                                      ; preds = %if.then30
-  %call4.i78 = tail call ptr @__errno_location() #17
-  %46 = load i32, ptr %call4.i78, align 4
-  %call5.i = call ptr @strerror(i32 noundef %46) #13
+if.then.i78:                                      ; preds = %if.then30
+  %call4.i79 = tail call ptr @__errno_location() #17
+  %39 = load i32, ptr %call4.i79, align 4
+  %call5.i = call ptr @strerror(i32 noundef %39) #13
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.48, ptr noundef %call5.i) #13
   br label %balloon_deflate_page.exit
 
-balloon_deflate_page.exit:                        ; preds = %if.then30, %if.then.i77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i70)
+balloon_deflate_page.exit:                        ; preds = %if.then30, %if.then.i78
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i71)
   br label %if.end36
 
 do.body:                                          ; preds = %if.else
@@ -1623,8 +1604,8 @@ while.end:                                        ; preds = %iov_to_buf.exit
   call void @virtqueue_push(ptr noundef %vq, ptr noundef nonnull %call192, i32 noundef 0) #13
   call void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) #13
   call void @g_free(ptr noundef nonnull %call192) #13
-  %tobool.not.i81 = icmp eq ptr %pbp.sroa.3.1.ph, null
-  br i1 %tobool.not.i81, label %virtio_balloon_pbp_free.exit, label %if.end.i82
+  %tobool.not.i = icmp eq ptr %pbp.sroa.3.1.ph, null
+  br i1 %tobool.not.i, label %virtio_balloon_pbp_free.exit, label %if.end.i82
 
 if.end.i82:                                       ; preds = %while.end
   call void @g_free(ptr noundef nonnull %pbp.sroa.3.1.ph) #13
@@ -1783,18 +1764,16 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
   %3 = load ptr, ptr %free_page_vq, align 8
   %4 = load i8, ptr %block_iothread.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not29.i = icmp eq i8 %5, 0
-  br i1 %tobool.not29.i, label %while.end3.i, label %while.end.i
+  %tobool29.i = trunc i8 %4 to i1
+  br i1 %tobool29.i, label %while.end.i, label %while.end3.i
 
 while.end.i:                                      ; preds = %do.body, %while.end.i
-  %6 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %7 = inttoptr i64 %6 to ptr
-  call void %7(ptr noundef nonnull %free_page_cond.i, ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 509) #13
-  %8 = load i8, ptr %block_iothread.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i = icmp eq i8 %9, 0
-  br i1 %tobool.not.i, label %while.end3.i, label %while.end.i, !llvm.loop !9
+  %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %6 = inttoptr i64 %5 to ptr
+  call void %6(ptr noundef nonnull %free_page_cond.i, ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 509) #13
+  %7 = load i8, ptr %block_iothread.i, align 8
+  %tobool.i = trunc i8 %7 to i1
+  br i1 %tobool.i, label %while.end.i, label %while.end3.i, !llvm.loop !9
 
 while.end3.i:                                     ; preds = %while.end.i, %do.body
   %call4.i = call ptr @virtqueue_pop(ptr noundef %3, i64 noundef 56) #13
@@ -1803,26 +1782,26 @@ while.end3.i:                                     ; preds = %while.end.i, %do.bo
 
 if.end.i:                                         ; preds = %while.end3.i
   %out_num.i = getelementptr inbounds i8, ptr %call4.i, i64 12
-  %10 = load i32, ptr %out_num.i, align 4
-  %tobool6.not.i = icmp eq i32 %10, 0
+  %8 = load i32, ptr %out_num.i, align 4
+  %tobool6.not.i = icmp eq i32 %8, 0
   br i1 %tobool6.not.i, label %if.end27.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %if.end.i
   %out_sg.i = getelementptr inbounds i8, ptr %call4.i, i64 48
-  %11 = load ptr, ptr %out_sg.i, align 8
-  %iov_len.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load i64, ptr %iov_len.i.i, align 8
-  %cmp5.not.i.i = icmp ult i64 %12, 4
+  %9 = load ptr, ptr %out_sg.i, align 8
+  %iov_len.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load i64, ptr %iov_len.i.i, align 8
+  %cmp5.not.i.i = icmp ult i64 %10, 4
   br i1 %cmp5.not.i.i, label %iov_to_buf.exit.i, label %iov_to_buf.exit.thread.i
 
 iov_to_buf.exit.thread.i:                         ; preds = %land.lhs.true1.i.i
-  %13 = load ptr, ptr %11, align 8
-  %14 = load i32, ptr %13, align 1
-  store i32 %14, ptr %id.i, align 4
+  %11 = load ptr, ptr %9, align 8
+  %12 = load i32, ptr %11, align 1
+  store i32 %12, ptr %id.i, align 4
   br label %if.end13.i
 
 iov_to_buf.exit.i:                                ; preds = %land.lhs.true1.i.i
-  %call.i25.i = call i64 @iov_to_buf_full(ptr noundef nonnull %11, i32 noundef %10, i64 noundef 0, ptr noundef nonnull %id.i, i64 noundef 4) #13
+  %call.i25.i = call i64 @iov_to_buf_full(ptr noundef nonnull %9, i32 noundef %8, i64 noundef 0, ptr noundef nonnull %id.i, i64 noundef 4) #13
   %cmp.not.i = icmp eq i64 %call.i25.i, 4
   br i1 %cmp.not.i, label %if.end13.i, label %if.then12.i
 
@@ -1834,16 +1813,16 @@ if.then12.i:                                      ; preds = %iov_to_buf.exit.i
   br label %lor.rhs
 
 if.end13.i:                                       ; preds = %iov_to_buf.exit.i, %iov_to_buf.exit.thread.i
-  %15 = load i32, ptr %free_page_hint_status.i, align 8
-  switch i32 %15, label %if.end27.i [
+  %13 = load i32, ptr %free_page_hint_status.i, align 8
+  switch i32 %13, label %if.end27.i [
     i32 1, label %land.lhs.true.i
     i32 2, label %if.end27.sink.split.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end13.i
-  %16 = load i32, ptr %id.i, align 4
-  %17 = load i32, ptr %free_page_hint_cmd_id.i, align 4
-  %cmp16.i = icmp eq i32 %16, %17
+  %14 = load i32, ptr %id.i, align 4
+  %15 = load i32, ptr %free_page_hint_cmd_id.i, align 4
+  %cmp16.i = icmp eq i32 %14, %15
   br i1 %cmp16.i, label %if.end27.sink.split.i, label %if.end27.i
 
 if.end27.sink.split.i:                            ; preds = %land.lhs.true.i, %if.end13.i
@@ -1853,13 +1832,13 @@ if.end27.sink.split.i:                            ; preds = %land.lhs.true.i, %i
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %land.lhs.true.i, %if.end13.i, %if.end.i
   %in_num.i = getelementptr inbounds i8, ptr %call4.i, i64 16
-  %18 = load i32, ptr %in_num.i, align 8
-  %tobool28.not.i = icmp eq i32 %18, 0
+  %16 = load i32, ptr %in_num.i, align 8
+  %tobool28.not.i = icmp eq i32 %16, 0
   br i1 %tobool28.not.i, label %out.i, label %land.lhs.true29.i
 
 land.lhs.true29.i:                                ; preds = %if.end27.i
-  %19 = load i32, ptr %free_page_hint_status.i, align 8
-  %cmp31.i = icmp eq i32 %19, 2
+  %17 = load i32, ptr %free_page_hint_status.i, align 8
+  %cmp31.i = icmp eq i32 %17, 2
   br i1 %cmp31.i, label %for.body.lr.ph.i, label %out.i
 
 for.body.lr.ph.i:                                 ; preds = %land.lhs.true29.i
@@ -1868,16 +1847,16 @@ for.body.lr.ph.i:                                 ; preds = %land.lhs.true29.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %i.031.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %20 = load ptr, ptr %in_sg.i, align 8
+  %18 = load ptr, ptr %in_sg.i, align 8
   %idxprom.i = sext i32 %i.031.i to i64
-  %arrayidx.i = getelementptr %struct.iovec, ptr %20, i64 %idxprom.i
-  %21 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr %struct.iovec, ptr %18, i64 %idxprom.i
+  %19 = load ptr, ptr %arrayidx.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %22 = load i64, ptr %iov_len.i, align 8
-  call void @qemu_guest_free_page_hint(ptr noundef %21, i64 noundef %22) #13
+  %20 = load i64, ptr %iov_len.i, align 8
+  call void @qemu_guest_free_page_hint(ptr noundef %19, i64 noundef %20) #13
   %inc.i = add nuw i32 %i.031.i, 1
-  %23 = load i32, ptr %in_num.i, align 8
-  %cmp35.i = icmp ult i32 %inc.i, %23
+  %21 = load i32, ptr %in_num.i, align 8
+  %cmp35.i = icmp ult i32 %inc.i, %21
   br i1 %cmp35.i, label %for.body.i, label %out.i, !llvm.loop !10
 
 out.i:                                            ; preds = %for.body.i, %land.lhs.true29.i, %if.end27.i
@@ -1895,8 +1874,8 @@ lor.rhs.critedge:                                 ; preds = %while.end3.i
 lor.rhs:                                          ; preds = %if.then12.i, %lor.rhs.critedge
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 564) #13
   call void @virtio_notify(ptr noundef %call.i, ptr noundef %0) #13
-  %24 = load i32, ptr %free_page_hint_status.i, align 8
-  %cmp = icmp eq i32 %24, 2
+  %22 = load i32, ptr %free_page_hint_status.i, align 8
+  %cmp = icmp eq i32 %22, 2
   br i1 %cmp, label %do.body.backedge, label %do.end4
 
 do.body.backedge:                                 ; preds = %lor.rhs, %out.i
@@ -1982,16 +1961,15 @@ land.lhs.true5.i.i:                               ; preds = %if.then9
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %10 = load i8, ptr @message_with_timestamp, align 1
-  %11 = and i8 %10, 1
-  %tobool7.not.i.i = icmp eq i8 %11, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %10 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = call i32 @qemu_get_thread_id() #13
-  %12 = load i64, ptr %_now.i.i, align 8
-  %13 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i64 noundef %6) #13
+  %11 = load i64, ptr %_now.i.i, align 8
+  %12 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i64 noundef %6) #13
   br label %trace_virtio_balloon_bad_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -2003,30 +1981,30 @@ trace_virtio_balloon_bad_addr.exit:               ; preds = %if.then9, %land.lhs
   br label %for.inc
 
 if.end12:                                         ; preds = %for.body
-  %14 = load i64, ptr %ram_offset, align 8
-  %or = or i64 %14, %4
+  %13 = load i64, ptr %ram_offset, align 8
+  %or = or i64 %13, %4
   %call13 = call i64 @qemu_ram_pagesize(ptr noundef nonnull %call7) #13
   %rem = urem i64 %or, %call13
   %cmp14 = icmp eq i64 %rem, 0
   br i1 %cmp14, label %lor.lhs.false15, label %for.inc
 
 lor.lhs.false15:                                  ; preds = %if.end12
-  %15 = load i64, ptr %ram_offset, align 8
-  %add = add i64 %15, %4
+  %14 = load i64, ptr %ram_offset, align 8
+  %add = add i64 %14, %4
   %call16 = call i64 @qemu_ram_get_used_length(ptr noundef nonnull %call7) #13
   %cmp17 = icmp ugt i64 %add, %call16
   br i1 %cmp17, label %for.inc, label %if.end19
 
 if.end19:                                         ; preds = %lor.lhs.false15
-  %16 = load i64, ptr %ram_offset, align 8
-  %call20 = call i32 @ram_block_discard_range(ptr noundef nonnull %call7, i64 noundef %16, i64 noundef %4) #13
+  %15 = load i64, ptr %ram_offset, align 8
+  %call20 = call i32 @ram_block_discard_range(ptr noundef nonnull %call7, i64 noundef %15, i64 noundef %4) #13
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12, %lor.lhs.false15, %if.end19, %trace_virtio_balloon_bad_addr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr %in_num, align 8
-  %18 = zext i32 %17 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %18
+  %16 = load i32, ptr %in_num, align 8
+  %17 = zext i32 %16 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %skip_element, !llvm.loop !12
 
 skip_element:                                     ; preds = %for.inc, %for.cond.preheader, %while.body, %lor.lhs.false.i, %virtio_balloon_inhibited.exit, %lor.lhs.false

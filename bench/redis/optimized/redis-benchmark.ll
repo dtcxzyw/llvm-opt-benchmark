@@ -19482,9 +19482,10 @@ if.end3:                                          ; preds = %if.end
   %appendonly = getelementptr inbounds i8, ptr %call, i64 8
   br label %for.body
 
-for.body:                                         ; preds = %for.inc, %if.end3
-  %trunc.not = phi i1 [ true, %if.end3 ], [ false, %for.inc ]
-  %reply.050 = phi ptr [ null, %if.end3 ], [ %0, %for.inc ]
+for.body:                                         ; preds = %if.end3, %if.end24
+  %cmp6 = phi i1 [ true, %if.end3 ], [ false, %if.end24 ]
+  %i.051 = phi i1 [ false, %if.end3 ], [ true, %if.end24 ]
+  %reply.050 = phi ptr [ null, %if.end3 ], [ %0, %if.end24 ]
   %call7 = call i32 @redisGetReply(ptr noundef nonnull %call1, ptr noundef nonnull %r) #22
   %tobool8.not = icmp eq ptr %reply.050, null
   br i1 %tobool8.not, label %if.end10, label %if.then9
@@ -19520,22 +19521,19 @@ if.end24:                                         ; preds = %lor.lhs.false21
   %5 = load ptr, ptr %str, align 8
   %tobool25.not = icmp eq ptr %5, null
   %spec.store.select = select i1 %tobool25.not, ptr @.str.16420, ptr %5
-  %call28 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #22
-  br i1 %trunc.not, label %for.inc, label %for.end
-
-for.inc:                                          ; preds = %if.end24
-  store ptr %call28, ptr %call, align 8
-  br label %for.body, !llvm.loop !25
+  %call30 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #22
+  %appendonly.call = select i1 %i.051, ptr %appendonly, ptr %call
+  store ptr %call30, ptr %appendonly.call, align 8
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %if.end24
-  store ptr %call28, ptr %appendonly, align 8
   call void @freeReplyObject(ptr noundef nonnull %0) #22
   call void @redisFree(ptr noundef nonnull %call1) #22
   br label %return
 
 fail:                                             ; preds = %if.end10
-  %tobool31.not74 = icmp ne ptr %0, null
-  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not74, i1 false
+  %tobool31.not73 = icmp ne ptr %0, null
+  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not73, i1 false
   br i1 %tobool31.not.not, label %fail.land.lhs.truethread-pre-split_crit_edge, label %if.end49.critedge
 
 fail.land.lhs.truethread-pre-split_crit_edge:     ; preds = %fail

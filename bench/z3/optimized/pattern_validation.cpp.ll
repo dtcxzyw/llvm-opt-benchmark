@@ -131,15 +131,13 @@ lpad.i:                                           ; preds = %if.end
 _Z13for_each_exprI26pattern_validation_functorEvRT_P4expr.exit: ; preds = %invoke.cont.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %visited.i)
   %5 = load i8, ptr %m_result.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %return, label %if.end3
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.end3, label %return
 
 if.end3:                                          ; preds = %_Z13for_each_exprI26pattern_validation_functorEvRT_P4expr.exit
-  %7 = load i8, ptr %m_found_a_var.i, align 1
-  %8 = and i8 %7, 1
-  %tobool4.not = icmp eq i8 %8, 0
-  br i1 %tobool4.not, label %if.then5, label %return
+  %6 = load i8, ptr %m_found_a_var.i, align 1
+  %tobool4 = trunc i8 %6 to i1
+  br i1 %tobool4, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
   call void (ptr, ...) @_Z11warning_msgPKcz(ptr noundef nonnull @.str.1, i32 noundef %line, i32 noundef %pos)

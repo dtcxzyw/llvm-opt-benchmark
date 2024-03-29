@@ -538,8 +538,7 @@ entry:
   %1 = load ptr, ptr %data_.i, align 8
   %manipulated.i = getelementptr inbounds i8, ptr %1, i64 288
   %2 = load i8, ptr %v, align 1
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %manipulated.i, i1 noundef zeroext %tobool)
           to label %invoke.cont5 unwind label %lpad
 
@@ -548,10 +547,10 @@ invoke.cont5:                                     ; preds = %entry
   ret ptr %this
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %view) #23
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
@@ -878,28 +877,27 @@ entry:
   store i64 14998, ptr %len_.i.i, align 8
   %prefix_.i = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i8, ptr %prefix_.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %cond.end, label %cond.true
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %severity_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load i32, ptr %severity_.i, align 8
+  %2 = load i32, ptr %severity_.i, align 8
   %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 48
   %retval.sroa.0.0.copyload.i = load i64, ptr %timestamp_.i, align 8
   %retval.sroa.2.0.timestamp_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 56
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.timestamp_.sroa_idx.i, align 8
   %tid_.i = getelementptr inbounds i8, ptr %this, i64 60
-  %4 = load i32, ptr %tid_.i, align 4
+  %3 = load i32, ptr %tid_.i, align 4
   %base_filename_.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload.i5 = load i64, ptr %base_filename_.i, align 8
   %retval.sroa.2.0.base_filename_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.2.0.copyload.i6 = load ptr, ptr %retval.sroa.2.0.base_filename_.sroa_idx.i, align 8
   %line_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load i32, ptr %line_.i, align 8
+  %4 = load i32, ptr %line_.i, align 8
   %call18 = tail call noundef zeroext i1 @_ZN4absl12log_internal24ThreadIsLoggingToLogSinkEv()
   %cond = zext i1 %call18 to i32
-  %call19 = call noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE(i32 noundef %3, i64 %retval.sroa.0.0.copyload.i, i32 %retval.sroa.2.0.copyload.i, i32 noundef %4, i64 %retval.sroa.0.0.copyload.i5, ptr %retval.sroa.2.0.copyload.i6, i32 noundef %5, i32 noundef %cond, ptr noundef nonnull align 8 dereferenceable(16) %string_remaining)
+  %call19 = call noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE(i32 noundef %2, i64 %retval.sroa.0.0.copyload.i, i32 %retval.sroa.2.0.copyload.i, i32 noundef %3, i64 %retval.sroa.0.0.copyload.i5, ptr %retval.sroa.2.0.copyload.i6, i32 noundef %4, i32 noundef %cond, ptr noundef nonnull align 8 dereferenceable(16) %string_remaining)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -909,29 +907,29 @@ cond.end:                                         ; preds = %entry, %cond.true
   %data_.i = getelementptr inbounds i8, ptr %field, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   %call2222 = call noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull align 8 dereferenceable(40) %field, ptr noundef nonnull %encoded_data)
-  %6 = load i64, ptr %field, align 8
-  %cond123 = icmp eq i64 %6, 7
+  %5 = load i64, ptr %field, align 8
+  %cond123 = icmp eq i64 %5, 7
   %or.cond24 = select i1 %call2222, i1 %cond123, i1 false
   br i1 %or.cond24, label %sw.bb.lr.ph, label %while.end
 
 sw.bb.lr.ph:                                      ; preds = %cond.end
   %type_.i = getelementptr inbounds i8, ptr %field, i64 8
   %retval.sroa.2.0.data_.sroa_idx.i = getelementptr inbounds i8, ptr %field, i64 32
-  %7 = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %6 = getelementptr inbounds i8, ptr %buf.i, i64 8
   %data_.i.i = getelementptr inbounds i8, ptr %field.i, i64 24
   %type_.i.i = getelementptr inbounds i8, ptr %field.i, i64 8
   %retval.sroa.2.0.data_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %field.i, i64 32
   br label %sw.bb
 
 sw.bb:                                            ; preds = %sw.bb.lr.ph, %while.cond.backedge
-  %8 = load i64, ptr %type_.i, align 8
-  %cmp.not = icmp eq i64 %8, 2
+  %7 = load i64, ptr %type_.i, align 8
+  %cmp.not = icmp eq i64 %7, 2
   br i1 %cmp.not, label %if.end, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %sw.bb, %_ZN4absl12log_internal12_GLOBAL__N_110PrintValueERNS_4SpanIcEENS2_IKcEE.exit
   %call22 = call noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull align 8 dereferenceable(40) %field, ptr noundef nonnull %encoded_data)
-  %9 = load i64, ptr %field, align 8
-  %cond1 = icmp eq i64 %9, 7
+  %8 = load i64, ptr %field, align 8
+  %cond1 = icmp eq i64 %8, 7
   %or.cond = select i1 %call22, i1 %cond1, i1 false
   br i1 %or.cond, label %sw.bb, label %while.end, !llvm.loop !7
 
@@ -941,9 +939,9 @@ if.end:                                           ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %field.i)
   store ptr %retval.sroa.0.0.copyload.i10, ptr %buf.i, align 8
-  store i64 %retval.sroa.2.0.copyload.i11, ptr %7, align 8
-  %10 = load i64, ptr %len_.i.i, align 8
-  %cmp.i = icmp ult i64 %10, 2
+  store i64 %retval.sroa.2.0.copyload.i11, ptr %6, align 8
+  %9 = load i64, ptr %len_.i.i, align 8
+  %cmp.i = icmp ult i64 %9, 2
   br i1 %cmp.i, label %_ZN4absl12log_internal12_GLOBAL__N_110PrintValueERNS_4SpanIcEENS2_IKcEE.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
@@ -952,29 +950,29 @@ if.end.i:                                         ; preds = %if.end
   br i1 %call18.i, label %while.body.i, label %_ZN4absl12log_internal12_GLOBAL__N_110PrintValueERNS_4SpanIcEENS2_IKcEE.exit
 
 while.body.i:                                     ; preds = %if.end.i, %sw.epilog.i
-  %11 = load i64, ptr %field.i, align 8
-  switch i64 %11, label %sw.epilog.i [
+  %10 = load i64, ptr %field.i, align 8
+  switch i64 %10, label %sw.epilog.i [
     i64 1, label %sw.bb.i
     i64 6, label %sw.bb.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i, %while.body.i
-  %12 = load i64, ptr %type_.i.i, align 8
-  %cmp4.i = icmp eq i64 %12, 2
+  %11 = load i64, ptr %type_.i.i, align 8
+  %cmp4.i = icmp eq i64 %11, 2
   br i1 %cmp4.i, label %if.then5.i, label %sw.epilog.i
 
 if.then5.i:                                       ; preds = %sw.bb.i
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %data_.i.i, align 8
   %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i.i.i, align 8
-  %13 = load i64, ptr %len_.i.i, align 8
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %13, i64 %retval.sroa.2.0.copyload.i.i.i)
+  %12 = load i64, ptr %len_.i.i, align 8
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %12, i64 %retval.sroa.2.0.copyload.i.i.i)
+  %13 = load ptr, ptr %string_remaining, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %retval.sroa.0.0.copyload.i.i.i, i64 %spec.select.i.i, i1 false)
   %14 = load ptr, ptr %string_remaining, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %retval.sroa.0.0.copyload.i.i.i, i64 %spec.select.i.i, i1 false)
-  %15 = load ptr, ptr %string_remaining, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 %spec.select.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %spec.select.i.i
   store ptr %add.ptr.i.i.i, ptr %string_remaining, align 8
-  %16 = load i64, ptr %len_.i.i, align 8
-  %sub.i.i.i = sub i64 %16, %spec.select.i.i
+  %15 = load i64, ptr %len_.i.i, align 8
+  %sub.i.i.i = sub i64 %15, %spec.select.i.i
   store i64 %sub.i.i.i, ptr %len_.i.i, align 8
   %retval.sroa.2.0.copyload.i.i5.i = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i.i.i, align 8
   %cmp10.i = icmp ult i64 %spec.select.i.i, %retval.sroa.2.0.copyload.i.i5.i
@@ -995,8 +993,8 @@ _ZN4absl12log_internal12_GLOBAL__N_110PrintValueERNS_4SpanIcEENS2_IKcEE.exit: ; 
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %cond.end, %_ZN4absl12log_internal12_GLOBAL__N_110PrintValueERNS_4SpanIcEENS2_IKcEE.exit.thread
-  %17 = load ptr, ptr %string_remaining, align 8
-  %sub.ptr.lhs.cast33 = ptrtoint ptr %17 to i64
+  %16 = load ptr, ptr %string_remaining, align 8
+  %sub.ptr.lhs.cast33 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast34 = ptrtoint ptr %string_buf to i64
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
   %inc = add i64 %sub.ptr.sub35, 1
@@ -1265,9 +1263,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %data_, align 8
   %is_perror = getelementptr inbounds i8, ptr %2, i64 138
   %3 = load i8, ptr %is_perror, align 2
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end22, label %if.then8
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then8, label %if.end22
 
 if.then8:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i)
@@ -1278,65 +1275,65 @@ if.then8:                                         ; preds = %if.end
   br i1 %call.i.i1.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then8
-  %5 = extractvalue { ptr, i64 } %call4.i.i, 1
-  %6 = extractvalue { ptr, i64 } %call4.i.i, 0
-  call void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %6, i64 %5, ptr noundef nonnull %encoded_remaining_copy.i.i)
-  %7 = load ptr, ptr %data_, align 8
-  %encoded_remaining9.i.i = getelementptr inbounds i8, ptr %7, i64 15560
+  %4 = extractvalue { ptr, i64 } %call4.i.i, 1
+  %5 = extractvalue { ptr, i64 } %call4.i.i, 0
+  call void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %5, i64 %4, ptr noundef nonnull %encoded_remaining_copy.i.i)
+  %6 = load ptr, ptr %data_, align 8
+  %encoded_remaining9.i.i = getelementptr inbounds i8, ptr %6, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining9.i.i, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i, i64 16, i1 false)
   br label %_ZN4absl12log_internal10LogMessagelsILi3EEERS1_RAT__Kc.exit
 
 if.else.i.i:                                      ; preds = %if.then8
-  %8 = load ptr, ptr %data_, align 8
-  %len_.i.i.i = getelementptr inbounds i8, ptr %8, i64 15568
+  %7 = load ptr, ptr %data_, align 8
+  %len_.i.i.i = getelementptr inbounds i8, ptr %7, i64 15568
   store i64 0, ptr %len_.i.i.i, align 8
   br label %_ZN4absl12log_internal10LogMessagelsILi3EEERS1_RAT__Kc.exit
 
 _ZN4absl12log_internal10LogMessagelsILi3EEERS1_RAT__Kc.exit: ; preds = %if.then.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i)
-  %9 = load i32, ptr %this, align 8
-  call void @_ZN4absl13base_internal8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %9)
+  %8 = load i32, ptr %this, align 8
+  call void @_ZN4absl13base_internal8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %8)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
-  %10 = extractvalue { i64, ptr } %call.i, 0
+  %9 = extractvalue { i64, ptr } %call.i, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i1)
-  %11 = load ptr, ptr %data_, align 8
-  %encoded_remaining.i.i3 = getelementptr inbounds i8, ptr %11, i64 15560
+  %10 = load ptr, ptr %data_, align 8
+  %encoded_remaining.i.i3 = getelementptr inbounds i8, ptr %10, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i1, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining.i.i3, i64 16, i1 false)
-  %add.i.i4 = add i64 %10, 20
+  %add.i.i4 = add i64 %9, 20
   %call4.i.i511 = invoke { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef 7, i64 noundef %add.i.i4, ptr noundef nonnull %encoded_remaining_copy.i.i1)
           to label %call4.i.i5.noexc unwind label %lpad
 
 call4.i.i5.noexc:                                 ; preds = %_ZN4absl12log_internal10LogMessagelsILi3EEERS1_RAT__Kc.exit
-  %12 = extractvalue { i64, ptr } %call.i, 1
-  %call.i.i.i612 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 1, ptr %12, i64 %10, ptr noundef nonnull %encoded_remaining_copy.i.i1)
+  %11 = extractvalue { i64, ptr } %call.i, 1
+  %call.i.i.i612 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 1, ptr %11, i64 %9, ptr noundef nonnull %encoded_remaining_copy.i.i1)
           to label %call.i.i.i6.noexc unwind label %lpad
 
 call.i.i.i6.noexc:                                ; preds = %call4.i.i5.noexc
   br i1 %call.i.i.i612, label %if.then.i.i9, label %if.else.i.i7
 
 if.then.i.i9:                                     ; preds = %call.i.i.i6.noexc
-  %13 = extractvalue { ptr, i64 } %call4.i.i511, 1
-  %14 = extractvalue { ptr, i64 } %call4.i.i511, 0
-  invoke void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %14, i64 %13, ptr noundef nonnull %encoded_remaining_copy.i.i1)
+  %12 = extractvalue { ptr, i64 } %call4.i.i511, 1
+  %13 = extractvalue { ptr, i64 } %call4.i.i511, 0
+  invoke void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %13, i64 %12, ptr noundef nonnull %encoded_remaining_copy.i.i1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i9
-  %15 = load ptr, ptr %data_, align 8
-  %encoded_remaining9.i.i10 = getelementptr inbounds i8, ptr %15, i64 15560
+  %14 = load ptr, ptr %data_, align 8
+  %encoded_remaining9.i.i10 = getelementptr inbounds i8, ptr %14, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining9.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i1, i64 16, i1 false)
   br label %invoke.cont
 
 if.else.i.i7:                                     ; preds = %call.i.i.i6.noexc
-  %16 = load ptr, ptr %data_, align 8
-  %len_.i.i.i8 = getelementptr inbounds i8, ptr %16, i64 15568
+  %15 = load ptr, ptr %data_, align 8
+  %len_.i.i.i8 = getelementptr inbounds i8, ptr %15, i64 15568
   store i64 0, ptr %len_.i.i.i8, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i7, %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i13)
-  %17 = load ptr, ptr %data_, align 8
-  %encoded_remaining.i.i16 = getelementptr inbounds i8, ptr %17, i64 15560
+  %16 = load ptr, ptr %data_, align 8
+  %encoded_remaining.i.i16 = getelementptr inbounds i8, ptr %16, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining.i.i16, i64 16, i1 false)
   %call4.i.i1824 = invoke { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef 7, i64 noundef 22, ptr noundef nonnull %encoded_remaining_copy.i.i13)
           to label %call4.i.i18.noexc unwind label %lpad
@@ -1349,40 +1346,40 @@ call.i.i1.i19.noexc:                              ; preds = %call4.i.i18.noexc
   br i1 %call.i.i1.i1925, label %if.then.i.i22, label %if.else.i.i20
 
 if.then.i.i22:                                    ; preds = %call.i.i1.i19.noexc
-  %18 = extractvalue { ptr, i64 } %call4.i.i1824, 1
-  %19 = extractvalue { ptr, i64 } %call4.i.i1824, 0
-  invoke void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %19, i64 %18, ptr noundef nonnull %encoded_remaining_copy.i.i13)
+  %17 = extractvalue { ptr, i64 } %call4.i.i1824, 1
+  %18 = extractvalue { ptr, i64 } %call4.i.i1824, 0
+  invoke void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %18, i64 %17, ptr noundef nonnull %encoded_remaining_copy.i.i13)
           to label %.noexc26 unwind label %lpad
 
 .noexc26:                                         ; preds = %if.then.i.i22
-  %20 = load ptr, ptr %data_, align 8
-  %encoded_remaining9.i.i23 = getelementptr inbounds i8, ptr %20, i64 15560
+  %19 = load ptr, ptr %data_, align 8
+  %encoded_remaining9.i.i23 = getelementptr inbounds i8, ptr %19, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining9.i.i23, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i13, i64 16, i1 false)
   br label %invoke.cont13
 
 if.else.i.i20:                                    ; preds = %call.i.i1.i19.noexc
-  %21 = load ptr, ptr %data_, align 8
-  %len_.i.i.i21 = getelementptr inbounds i8, ptr %21, i64 15568
+  %20 = load ptr, ptr %data_, align 8
+  %len_.i.i.i21 = getelementptr inbounds i8, ptr %20, i64 15568
   store i64 0, ptr %len_.i.i.i21, align 8
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %if.else.i.i20, %.noexc26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i13)
-  %22 = load i32, ptr %this, align 8
+  %21 = load i32, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i.i)
-  %23 = load ptr, ptr %data_, align 8
-  invoke void @_ZN4absl12log_internal10LogMessage11OstreamViewC2ERNS1_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i.i, ptr noundef nonnull align 8 dereferenceable(30576) %23)
+  %22 = load ptr, ptr %data_, align 8
+  invoke void @_ZN4absl12log_internal10LogMessage11OstreamViewC2ERNS1_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i.i, ptr noundef nonnull align 8 dereferenceable(30576) %22)
           to label %.noexc29 unwind label %lpad
 
 .noexc29:                                         ; preds = %invoke.cont13
   %data_.i.i.i = getelementptr inbounds i8, ptr %view.i.i, i64 64
-  %24 = load ptr, ptr %data_.i.i.i, align 8
-  %manipulated.i.i.i = getelementptr inbounds i8, ptr %24, i64 288
-  %call6.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %manipulated.i.i.i, i32 noundef %22)
+  %23 = load ptr, ptr %data_.i.i.i, align 8
+  %manipulated.i.i.i = getelementptr inbounds i8, ptr %23, i64 288
+  %call6.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %manipulated.i.i.i, i32 noundef %21)
           to label %invoke.cont18 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc29
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i.i) #23
   br label %lpad.body
@@ -1391,8 +1388,8 @@ invoke.cont18:                                    ; preds = %.noexc29
   call void @_ZN4absl12log_internal10LogMessage11OstreamViewD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i.i) #23
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %view.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %encoded_remaining_copy.i.i30)
-  %26 = load ptr, ptr %data_, align 8
-  %encoded_remaining.i.i33 = getelementptr inbounds i8, ptr %26, i64 15560
+  %25 = load ptr, ptr %data_, align 8
+  %encoded_remaining.i.i33 = getelementptr inbounds i8, ptr %25, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining.i.i33, i64 16, i1 false)
   %call4.i.i3541 = invoke { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef 7, i64 noundef 21, ptr noundef nonnull %encoded_remaining_copy.i.i30)
           to label %call4.i.i35.noexc unwind label %lpad
@@ -1405,20 +1402,20 @@ call.i.i1.i36.noexc:                              ; preds = %call4.i.i35.noexc
   br i1 %call.i.i1.i3642, label %if.then.i.i39, label %if.else.i.i37
 
 if.then.i.i39:                                    ; preds = %call.i.i1.i36.noexc
-  %27 = extractvalue { ptr, i64 } %call4.i.i3541, 1
-  %28 = extractvalue { ptr, i64 } %call4.i.i3541, 0
-  invoke void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %28, i64 %27, ptr noundef nonnull %encoded_remaining_copy.i.i30)
+  %26 = extractvalue { ptr, i64 } %call4.i.i3541, 1
+  %27 = extractvalue { ptr, i64 } %call4.i.i3541, 0
+  invoke void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %27, i64 %26, ptr noundef nonnull %encoded_remaining_copy.i.i30)
           to label %.noexc43 unwind label %lpad
 
 .noexc43:                                         ; preds = %if.then.i.i39
-  %29 = load ptr, ptr %data_, align 8
-  %encoded_remaining9.i.i40 = getelementptr inbounds i8, ptr %29, i64 15560
+  %28 = load ptr, ptr %data_, align 8
+  %encoded_remaining9.i.i40 = getelementptr inbounds i8, ptr %28, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining9.i.i40, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i30, i64 16, i1 false)
   br label %invoke.cont20
 
 if.else.i.i37:                                    ; preds = %call.i.i1.i36.noexc
-  %30 = load ptr, ptr %data_, align 8
-  %len_.i.i.i38 = getelementptr inbounds i8, ptr %30, i64 15568
+  %29 = load ptr, ptr %data_, align 8
+  %len_.i.i.i38 = getelementptr inbounds i8, ptr %29, i64 15568
   store i64 0, ptr %len_.i.i.i38, align 8
   br label %invoke.cont20
 
@@ -1429,20 +1426,20 @@ invoke.cont20:                                    ; preds = %if.else.i.i37, %.no
   br label %if.end22
 
 lpad:                                             ; preds = %if.then.i.i39, %call4.i.i35.noexc, %invoke.cont18, %invoke.cont13, %if.then.i.i22, %call4.i.i18.noexc, %invoke.cont, %if.then.i.i9, %call4.i.i5.noexc, %_ZN4absl12log_internal10LogMessagelsILi3EEERS1_RAT__Kc.exit
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %31, %lpad ], [ %25, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %30, %lpad ], [ %24, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   resume { ptr, i32 } %eh.lpad-body
 
 if.end22:                                         ; preds = %invoke.cont20, %if.end
-  %32 = phi ptr [ %.pre, %invoke.cont20 ], [ %2, %if.end ]
-  %severity_.i44 = getelementptr inbounds i8, ptr %32, i64 40
-  %33 = load i32, ptr %severity_.i44, align 8
-  %cmp = icmp eq i32 %33, 3
+  %31 = phi ptr [ %.pre, %invoke.cont20 ], [ %2, %if.end ]
+  %severity_.i44 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = load i32, ptr %severity_.i44, align 8
+  %cmp = icmp eq i32 %32, 3
   br i1 %cmp, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %if.end22
@@ -1450,29 +1447,29 @@ land.lhs.true:                                    ; preds = %if.end22
   br i1 %call27, label %if.then28, label %if.end34
 
 if.then28:                                        ; preds = %land.lhs.true
-  %34 = cmpxchg ptr @_ZZN4absl12log_internal10LogMessage5FlushEvE10seen_fatal, i8 0, i8 1 monotonic monotonic, align 1
-  %35 = extractvalue { i8, i1 } %34, 1
-  br i1 %35, label %if.then30, label %if.end34
+  %33 = cmpxchg ptr @_ZZN4absl12log_internal10LogMessage5FlushEvE10seen_fatal, i8 0, i8 1 monotonic monotonic, align 1
+  %34 = extractvalue { i8, i1 } %33, 1
+  br i1 %34, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.then28
-  %36 = load ptr, ptr %data_, align 8
-  %first_fatal = getelementptr inbounds i8, ptr %36, i64 136
+  %35 = load ptr, ptr %data_, align 8
+  %first_fatal = getelementptr inbounds i8, ptr %35, i64 136
   store i8 1, ptr %first_fatal, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then28, %if.then30, %land.lhs.true, %if.end22
+  %36 = load ptr, ptr %data_, align 8
+  call void @_ZN4absl12log_internal10LogMessage14LogMessageData25FinalizeEncodingAndFormatEv(ptr noundef nonnull align 8 dereferenceable(30576) %36)
   %37 = load ptr, ptr %data_, align 8
-  call void @_ZN4absl12log_internal10LogMessage14LogMessageData25FinalizeEncodingAndFormatEv(ptr noundef nonnull align 8 dereferenceable(30576) %37)
-  %38 = load ptr, ptr %data_, align 8
-  %encoded_buf = getelementptr inbounds i8, ptr %38, i64 560
-  %encoded_remaining = getelementptr inbounds i8, ptr %38, i64 15560
-  %39 = load ptr, ptr %encoded_remaining, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %39 to i64
+  %encoded_buf = getelementptr inbounds i8, ptr %37, i64 560
+  %encoded_remaining = getelementptr inbounds i8, ptr %37, i64 15560
+  %38 = load ptr, ptr %encoded_remaining, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %encoded_buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %encoding_ = getelementptr inbounds i8, ptr %38, i64 88
+  %encoding_ = getelementptr inbounds i8, ptr %37, i64 88
   store i64 %sub.ptr.sub, ptr %encoding_, align 8
-  %ref.tmp37.sroa.2.0.encoding_.sroa_idx = getelementptr inbounds i8, ptr %38, i64 96
+  %ref.tmp37.sroa.2.0.encoding_.sroa_idx = getelementptr inbounds i8, ptr %37, i64 96
   store ptr %encoded_buf, ptr %ref.tmp37.sroa.2.0.encoding_.sroa_idx, align 8
   call void @_ZN4absl12log_internal10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %return
@@ -1597,29 +1594,29 @@ entry:
   store i32 %2, ptr %line_12, align 8
   %prefix_ = getelementptr inbounds i8, ptr %entry1, i64 36
   %4 = load i8, ptr %prefix_, align 4
-  %5 = and i8 %4, 1
-  %6 = load ptr, ptr %data_, align 8
-  %prefix_16 = getelementptr inbounds i8, ptr %6, i64 36
-  store i8 %5, ptr %prefix_16, align 4
+  %5 = load ptr, ptr %data_, align 8
+  %prefix_16 = getelementptr inbounds i8, ptr %5, i64 36
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %prefix_16, align 4
   %severity_ = getelementptr inbounds i8, ptr %entry1, i64 40
-  %7 = load i32, ptr %severity_, align 8
-  %8 = load ptr, ptr %data_, align 8
-  %severity_20 = getelementptr inbounds i8, ptr %8, i64 40
-  store i32 %7, ptr %severity_20, align 8
+  %6 = load i32, ptr %severity_, align 8
+  %7 = load ptr, ptr %data_, align 8
+  %severity_20 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 %6, ptr %severity_20, align 8
   %verbose_level_ = getelementptr inbounds i8, ptr %entry1, i64 44
-  %9 = load i32, ptr %verbose_level_, align 4
-  %10 = load ptr, ptr %data_, align 8
-  %verbose_level_24 = getelementptr inbounds i8, ptr %10, i64 44
-  store i32 %9, ptr %verbose_level_24, align 4
+  %8 = load i32, ptr %verbose_level_, align 4
+  %9 = load ptr, ptr %data_, align 8
+  %verbose_level_24 = getelementptr inbounds i8, ptr %9, i64 44
+  store i32 %8, ptr %verbose_level_24, align 4
   %timestamp_ = getelementptr inbounds i8, ptr %entry1, i64 48
-  %11 = load ptr, ptr %data_, align 8
-  %timestamp_28 = getelementptr inbounds i8, ptr %11, i64 48
+  %10 = load ptr, ptr %data_, align 8
+  %timestamp_28 = getelementptr inbounds i8, ptr %10, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %timestamp_28, ptr noundef nonnull align 8 dereferenceable(12) %timestamp_, i64 12, i1 false)
   %tid_ = getelementptr inbounds i8, ptr %entry1, i64 60
-  %12 = load i32, ptr %tid_, align 4
-  %13 = load ptr, ptr %data_, align 8
-  %tid_32 = getelementptr inbounds i8, ptr %13, i64 60
-  store i32 %12, ptr %tid_32, align 4
+  %11 = load i32, ptr %tid_, align 4
+  %12 = load ptr, ptr %data_, align 8
+  %tid_32 = getelementptr inbounds i8, ptr %12, i64 60
+  store i32 %11, ptr %tid_32, align 4
   ret ptr %this
 }
 
@@ -2058,13 +2055,12 @@ if.end:                                           ; preds = %entry, %if.then, %_
   %shr.i.i.i = lshr i64 %3, 1
   %extra_sinks_only = getelementptr inbounds i8, ptr %2, i64 280
   %5 = load i8, ptr %extra_sinks_only, align 8
-  %6 = and i8 %5, 1
-  %tobool = icmp ne i8 %6, 0
+  %tobool = trunc i8 %5 to i1
   tail call void @_ZN4absl12log_internal10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr %cond.i.i.i.i, i64 %shr.i.i.i, i1 noundef zeroext %tobool)
-  %7 = load ptr, ptr %data_.i, align 8
-  %severity_.i.i2 = getelementptr inbounds i8, ptr %7, i64 40
-  %8 = load i32, ptr %severity_.i.i2, align 8
-  %cmp.i3 = icmp eq i32 %8, 3
+  %6 = load ptr, ptr %data_.i, align 8
+  %severity_.i.i2 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = load i32, ptr %severity_.i.i2, align 8
+  %cmp.i3 = icmp eq i32 %7, 3
   br i1 %cmp.i3, label %_ZNK4absl12log_internal10LogMessage7IsFatalEv.exit6, label %if.end11
 
 _ZNK4absl12log_internal10LogMessage7IsFatalEv.exit6: ; preds = %if.end
@@ -2073,12 +2069,11 @@ _ZNK4absl12log_internal10LogMessage7IsFatalEv.exit6: ; preds = %if.end
 
 if.then10:                                        ; preds = %_ZNK4absl12log_internal10LogMessage7IsFatalEv.exit6
   tail call void @_ZN4absl12log_internal13FlushLogSinksEv()
-  %9 = load ptr, ptr %data_.i, align 8
-  %fail_quietly.i = getelementptr inbounds i8, ptr %9, i64 137
-  %10 = load i8, ptr %fail_quietly.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %8 = load ptr, ptr %data_.i, align 8
+  %fail_quietly.i = getelementptr inbounds i8, ptr %8, i64 137
+  %9 = load i8, ptr %fail_quietly.i, align 1
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
   tail call void @_ZN4absl12log_internal10LogMessage11FailQuietlyEv() #29
@@ -2300,9 +2295,8 @@ entry:
   %0 = load ptr, ptr %data_, align 8
   %first_fatal = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load i8, ptr %first_fatal, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @AbslInternalOnFatalLogMessage(ptr noundef nonnull align 8 dereferenceable(136) %0)
@@ -2310,34 +2304,32 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %fail_quietly = getelementptr inbounds i8, ptr %3, i64 137
-  %4 = load i8, ptr %fail_quietly, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not = icmp eq i8 %5, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end28
+  %2 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
+  %fail_quietly = getelementptr inbounds i8, ptr %2, i64 137
+  %3 = load i8, ptr %fail_quietly, align 1
+  %tobool7 = trunc i8 %3 to i1
+  br i1 %tobool7, label %if.end28, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %extra_sinks = getelementptr inbounds i8, ptr %3, i64 144
-  %6 = load i64, ptr %extra_sinks, align 8
-  %and.i.i.i.i.i = and i64 %6, 1
+  %extra_sinks = getelementptr inbounds i8, ptr %2, i64 144
+  %4 = load i64, ptr %extra_sinks, align 8
+  %and.i.i.i.i.i = and i64 %4, 1
   %tobool.i.not.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
-  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 152
-  %7 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %cond.i.i.i.i = select i1 %tobool.i.not.i.i.i.i, ptr %data_.i.i.i.i.i, ptr %7
-  %shr.i.i.i = lshr i64 %6, 1
-  %extra_sinks_only = getelementptr inbounds i8, ptr %3, i64 280
-  %8 = load i8, ptr %extra_sinks_only, align 8
-  %9 = and i8 %8, 1
-  %tobool17 = icmp ne i8 %9, 0
-  tail call void @_ZN4absl12log_internal10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr %cond.i.i.i.i, i64 %shr.i.i.i, i1 noundef zeroext %tobool17)
-  %10 = load ptr, ptr %data_, align 8
-  %stacktrace_ = getelementptr inbounds i8, ptr %10, i64 104
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 152
+  %5 = load ptr, ptr %data_.i.i.i.i.i, align 8
+  %cond.i.i.i.i = select i1 %tobool.i.not.i.i.i.i, ptr %data_.i.i.i.i.i, ptr %5
+  %shr.i.i.i = lshr i64 %4, 1
+  %extra_sinks_only = getelementptr inbounds i8, ptr %2, i64 280
+  %6 = load i8, ptr %extra_sinks_only, align 8
+  %tobool17 = trunc i8 %6 to i1
+  tail call void @_ZN4absl12log_internal10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr %cond.i.i.i.i, i64 %shr.i.i.i, i1 noundef zeroext %tobool17)
+  %7 = load ptr, ptr %data_, align 8
+  %stacktrace_ = getelementptr inbounds i8, ptr %7, i64 104
   %call21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace_, ptr noundef nonnull @.str.6)
   %call22 = tail call noundef i32 @_ZN4absl12log_internal24MaxFramesInLogStackTraceEv()
   %call23 = tail call noundef zeroext i1 @_ZN4absl12log_internal28ShouldSymbolizeLogStackTraceEv()
-  %11 = load ptr, ptr %data_, align 8
-  %stacktrace_27 = getelementptr inbounds i8, ptr %11, i64 104
+  %8 = load ptr, ptr %data_, align 8
+  %stacktrace_27 = getelementptr inbounds i8, ptr %8, i64 104
   tail call void @_ZN4absl18debugging_internal14DumpStackTraceEiibPFvPKcPvES3_(i32 noundef 0, i32 noundef %call22, i1 noundef zeroext %call23, ptr noundef nonnull @_ZN4absl12log_internal12_GLOBAL__N_113WriteToStringEPKcPv, ptr noundef nonnull %stacktrace_27)
   br label %if.end28
 
@@ -2370,9 +2362,8 @@ entry:
   %0 = load ptr, ptr %data_, align 8
   %fail_quietly = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %fail_quietly, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN4absl12log_internal10LogMessage11FailQuietlyEv() #29

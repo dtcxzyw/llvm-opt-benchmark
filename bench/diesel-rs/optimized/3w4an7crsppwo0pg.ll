@@ -51,14 +51,14 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %21 = load ptr, ptr %16, align 8, !alias.scope !19, !noalias !22, !nonnull !10, !align !11, !noundef !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %22 = ptrtoint ptr %14 to i64
-  %.sroa.430.0.extract.trunc = trunc i64 %22 to i8
-  %.sroa.430.1.extract.shift = lshr i64 %22, 8
-  %.sroa.430.1.extract.trunc = trunc i64 %.sroa.430.1.extract.shift to i56
+  %.sroa.429.0.extract.trunc = trunc i64 %22 to i8
+  %.sroa.429.1.extract.shift = lshr i64 %22, 8
+  %.sroa.429.1.extract.trunc = trunc i64 %.sroa.429.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sroa.430.0.extract.trunc, ptr %.sroa.220.0..sroa_idx, align 8
+  store i8 %.sroa.429.0.extract.trunc, ptr %.sroa.220.0..sroa_idx, align 8
   %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
-  store i56 %.sroa.430.1.extract.trunc, ptr %.sroa.321.0..sroa_idx, align 1
+  store i56 %.sroa.429.1.extract.trunc, ptr %.sroa.321.0..sroa_idx, align 1
   %.sroa.321.sroa.2.0..sroa.321.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %21, ptr %.sroa.321.sroa.2.0..sroa.321.0..sroa_idx.sroa_idx, align 8
   %23 = load i32, ptr %8, align 8, !range !26, !alias.scope !27, !noundef !10
@@ -90,13 +90,13 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %29 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h38c21d06c2fead08E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #11
-  br i1 %trunc.not.not, label %56, label %.thread
+  br i1 %trunc, label %.thread, label %56
 
 30:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5)
-  %trunc.not.not = icmp eq i8 %18, 0
-  br i1 %trunc.not.not, label %32, label %31
+  %trunc = trunc i8 %18 to i1
+  br i1 %trunc, label %31, label %32
 
 31:                                               ; preds = %30
   %.sroa.07.0.copyload = load i32, ptr %6, align 8
@@ -137,7 +137,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   store i64 %45, ptr %34, align 8, !alias.scope !34, !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   store i64 -9223372036854775798, ptr %0, align 8
-  br i1 %trunc.not.not, label %46, label %"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17ha47d65836d325a57E.exit"
+  br i1 %trunc, label %"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17ha47d65836d325a57E.exit", label %46
 
 "_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17ha47d65836d325a57E.exit": ; preds = %52, %49, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h7e3930b10e658642E.exit.sink.split.i", %46, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -175,7 +175,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   ret void
 
 56:                                               ; preds = %.body.thread, %.body
-  %eh.lpad-body52 = phi { ptr, i32 } [ %28, %.body.thread ], [ %29, %.body ]
+  %eh.lpad-body51 = phi { ptr, i32 } [ %28, %.body.thread ], [ %29, %.body ]
   call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17ha47d65836d325a57E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #11
   br label %.thread
 
@@ -186,8 +186,8 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   unreachable
 
 .thread:                                          ; preds = %56, %.body, %59
-  %.pn36 = phi { ptr, i32 } [ %60, %59 ], [ %29, %.body ], [ %eh.lpad-body52, %56 ]
-  resume { ptr, i32 } %.pn36
+  %.pn35 = phi { ptr, i32 } [ %60, %59 ], [ %29, %.body ], [ %eh.lpad-body51, %56 ]
+  resume { ptr, i32 } %.pn35
 
 59:                                               ; preds = %4
   %60 = landingpad { ptr, i32 }

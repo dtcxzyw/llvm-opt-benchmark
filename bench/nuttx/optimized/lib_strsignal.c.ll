@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree nounwind uwtable
 define noundef nonnull ptr @strsignal(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 64
-  br i1 %2, label %3, label %14
+  br i1 %2, label %3, label %13
 
 3:                                                ; preds = %1
   %switch.tableidx = add nsw i32 %0, -1
@@ -55,25 +55,24 @@ define noundef nonnull ptr @strsignal(i32 noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %5
   %8 = add nsw i32 %0, -32
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @strsignal.sigstr, i64 noundef 32, ptr noundef nonnull @.str.30, i32 noundef %8) #2
-  br label %14
+  br label %13
 
 10:                                               ; preds = %5
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @strsignal.sigstr, i64 noundef 32, ptr noundef nonnull @.str.31, i32 noundef %0) #2
-  br label %14
+  br label %13
 
 switch.hole_check:                                ; preds = %3
   %switch.shifted = lshr i32 1610579967, %switch.tableidx
-  %12 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %12, 0
-  br i1 %switch.lobit.not, label %5, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table.strsignal, i64 0, i64 %13
+  %12 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table.strsignal, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %14
+  br label %13
 
-14:                                               ; preds = %switch.lookup, %10, %7, %1
+13:                                               ; preds = %switch.lookup, %10, %7, %1
   %.0 = phi ptr [ @.str, %1 ], [ @strsignal.sigstr, %7 ], [ @strsignal.sigstr, %10 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }

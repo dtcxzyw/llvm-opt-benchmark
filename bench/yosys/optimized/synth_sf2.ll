@@ -617,9 +617,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 -120
   %168 = load i8, ptr %167, align 8
-  %169 = and i8 %168, 1
-  %.not = icmp eq i8 %169, 0
-  br i1 %.not, label %170, label %174
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %174, label %170
 
 170:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull @.str.44) #19
@@ -871,9 +870,8 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   %147 = getelementptr inbounds i8, ptr %0, i64 105
   %148 = load i8, ptr %147, align 1
-  %149 = and i8 %148, 1
-  %.not = icmp eq i8 %149, 0
-  br i1 %.not, label %150, label %153
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %153, label %150
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds i8, ptr %0, i64 184
@@ -907,7 +905,7 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
 160:                                              ; preds = %158, %156
   %.pn = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
-  br label %576
+  br label %579
 
 161:                                              ; preds = %144
   %162 = landingpad { ptr, i32 }
@@ -924,21 +922,20 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
 165:                                              ; preds = %163, %161
   %.pn63 = phi { ptr, i32 } [ %164, %163 ], [ %162, %161 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  br label %576
+  br label %579
 
 166:                                              ; preds = %153
   %167 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  br label %576
+  br label %579
 
 168:                                              ; preds = %155, %143
   %169 = getelementptr inbounds i8, ptr %0, i64 312
   %170 = load i8, ptr %169, align 8
-  %171 = and i8 %170, 1
-  %.not65.not = icmp eq i8 %171, 0
-  br i1 %.not65.not, label %.critedge168.thread, label %172
+  %171 = trunc i8 %170 to i1
+  br i1 %171, label %172, label %.critedge153.thread
 
 172:                                              ; preds = %168
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #17
@@ -952,16 +949,16 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
 
 174:                                              ; preds = %173
   %175 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %10, ptr noundef nonnull %12)
-          to label %.critedge168 unwind label %189
+          to label %.critedge153 unwind label %189
 
-.critedge168:                                     ; preds = %174
+.critedge153:                                     ; preds = %174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #17
-  br i1 %175, label %176, label %.critedge168.thread
+  br i1 %175, label %176, label %.critedge153.thread
 
-176:                                              ; preds = %.critedge168
+176:                                              ; preds = %.critedge153
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %177 unwind label %193
@@ -1014,7 +1011,7 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #17
-  br label %.critedge168.thread
+  br label %.critedge153.thread
 
 185:                                              ; preds = %172
   %186 = landingpad { ptr, i32 }
@@ -1033,15 +1030,15 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %191
 
 191:                                              ; preds = %187, %189
-  %.pn66 = phi { ptr, i32 } [ %190, %189 ], [ %188, %187 ]
+  %.pn65 = phi { ptr, i32 } [ %190, %189 ], [ %188, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   br label %192
 
 192:                                              ; preds = %185, %191
-  %.pn66.pn = phi { ptr, i32 } [ %.pn66, %191 ], [ %186, %185 ]
+  %.pn65.pn = phi { ptr, i32 } [ %.pn65, %191 ], [ %186, %185 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #17
-  br label %576
+  br label %579
 
 193:                                              ; preds = %176
   %194 = landingpad { ptr, i32 }
@@ -1056,9 +1053,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %197
 
 197:                                              ; preds = %195, %193
-  %.pn69 = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ]
+  %.pn68 = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
-  br label %576
+  br label %579
 
 198:                                              ; preds = %178
   %199 = landingpad { ptr, i32 }
@@ -1073,9 +1070,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %202
 
 202:                                              ; preds = %200, %198
-  %.pn71 = phi { ptr, i32 } [ %201, %200 ], [ %199, %198 ]
+  %.pn70 = phi { ptr, i32 } [ %201, %200 ], [ %199, %198 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #17
-  br label %576
+  br label %579
 
 203:                                              ; preds = %180
   %204 = landingpad { ptr, i32 }
@@ -1090,9 +1087,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %207
 
 207:                                              ; preds = %205, %203
-  %.pn73 = phi { ptr, i32 } [ %206, %205 ], [ %204, %203 ]
+  %.pn72 = phi { ptr, i32 } [ %206, %205 ], [ %204, %203 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #17
-  br label %576
+  br label %579
 
 208:                                              ; preds = %182
   %209 = landingpad { ptr, i32 }
@@ -1107,16 +1104,16 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %212
 
 212:                                              ; preds = %210, %208
-  %.pn75 = phi { ptr, i32 } [ %211, %210 ], [ %209, %208 ]
+  %.pn74 = phi { ptr, i32 } [ %211, %210 ], [ %209, %208 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #17
-  br label %576
+  br label %579
 
-.critedge168.thread:                              ; preds = %168, %184, %.critedge168
+.critedge153.thread:                              ; preds = %168, %184, %.critedge153
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %27)
           to label %213 unwind label %228
 
-213:                                              ; preds = %.critedge168.thread
+213:                                              ; preds = %.critedge153.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
   %214 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %26, ptr noundef nonnull %28)
           to label %215 unwind label %230
@@ -1130,16 +1127,14 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
 216:                                              ; preds = %215
   %217 = getelementptr inbounds i8, ptr %0, i64 316
   %218 = load i8, ptr %217, align 4
-  %219 = and i8 %218, 1
-  %.not79 = icmp eq i8 %219, 0
-  br i1 %.not79, label %220, label %224
+  %219 = trunc i8 %218 to i1
+  br i1 %219, label %224, label %220
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds i8, ptr %0, i64 105
   %222 = load i8, ptr %221, align 1
-  %223 = and i8 %222, 1
-  %.not80 = icmp eq i8 %223, 0
-  br i1 %.not80, label %241, label %224
+  %223 = trunc i8 %222 to i1
+  br i1 %223, label %224, label %241
 
 224:                                              ; preds = %220, %216
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #17
@@ -1162,7 +1157,7 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #17
   br label %241
 
-228:                                              ; preds = %.critedge168.thread
+228:                                              ; preds = %.critedge153.thread
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %232
@@ -1175,9 +1170,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %232
 
 232:                                              ; preds = %230, %228
-  %.pn77 = phi { ptr, i32 } [ %231, %230 ], [ %229, %228 ]
+  %.pn76 = phi { ptr, i32 } [ %231, %230 ], [ %229, %228 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #17
-  br label %576
+  br label %579
 
 233:                                              ; preds = %224
   %234 = landingpad { ptr, i32 }
@@ -1196,15 +1191,15 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %239
 
 239:                                              ; preds = %237, %235
-  %.pn81 = phi { ptr, i32 } [ %238, %237 ], [ %236, %235 ]
+  %.pn78 = phi { ptr, i32 } [ %238, %237 ], [ %236, %235 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   br label %240
 
 240:                                              ; preds = %239, %233
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %239 ], [ %234, %233 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %239 ], [ %234, %233 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #17
-  br label %576
+  br label %579
 
 241:                                              ; preds = %227, %220
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #17
@@ -1235,9 +1230,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %248
 
 248:                                              ; preds = %246, %244
-  %.pn84 = phi { ptr, i32 } [ %247, %246 ], [ %245, %244 ]
+  %.pn81 = phi { ptr, i32 } [ %247, %246 ], [ %245, %244 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #17
-  br label %576
+  br label %579
 
 249:                                              ; preds = %243, %215
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #17
@@ -1323,16 +1318,14 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #17
   %264 = getelementptr inbounds i8, ptr %0, i64 313
   %265 = load i8, ptr %264, align 1
-  %266 = and i8 %265, 1
-  %.not98 = icmp eq i8 %266, 0
-  br i1 %.not98, label %267, label %271
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %271, label %267
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds i8, ptr %0, i64 105
   %269 = load i8, ptr %268, align 1
-  %270 = and i8 %269, 1
-  %.not99 = icmp eq i8 %270, 0
-  br i1 %.not99, label %313, label %271
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %271, label %313
 
 271:                                              ; preds = %267, %263
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #17
@@ -1368,9 +1361,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %279
 
 279:                                              ; preds = %277, %275
-  %.pn86 = phi { ptr, i32 } [ %278, %277 ], [ %276, %275 ]
+  %.pn83 = phi { ptr, i32 } [ %278, %277 ], [ %276, %275 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #17
-  br label %576
+  br label %579
 
 280:                                              ; preds = %253
   %281 = landingpad { ptr, i32 }
@@ -1385,9 +1378,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %284
 
 284:                                              ; preds = %282, %280
-  %.pn88 = phi { ptr, i32 } [ %283, %282 ], [ %281, %280 ]
+  %.pn85 = phi { ptr, i32 } [ %283, %282 ], [ %281, %280 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #17
-  br label %576
+  br label %579
 
 285:                                              ; preds = %255
   %286 = landingpad { ptr, i32 }
@@ -1402,9 +1395,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %289
 
 289:                                              ; preds = %287, %285
-  %.pn90 = phi { ptr, i32 } [ %288, %287 ], [ %286, %285 ]
+  %.pn87 = phi { ptr, i32 } [ %288, %287 ], [ %286, %285 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #17
-  br label %576
+  br label %579
 
 290:                                              ; preds = %257
   %291 = landingpad { ptr, i32 }
@@ -1419,9 +1412,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %294
 
 294:                                              ; preds = %292, %290
-  %.pn92 = phi { ptr, i32 } [ %293, %292 ], [ %291, %290 ]
+  %.pn89 = phi { ptr, i32 } [ %293, %292 ], [ %291, %290 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #17
-  br label %576
+  br label %579
 
 295:                                              ; preds = %259
   %296 = landingpad { ptr, i32 }
@@ -1436,9 +1429,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %299
 
 299:                                              ; preds = %297, %295
-  %.pn94 = phi { ptr, i32 } [ %298, %297 ], [ %296, %295 ]
+  %.pn91 = phi { ptr, i32 } [ %298, %297 ], [ %296, %295 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #17
-  br label %576
+  br label %579
 
 300:                                              ; preds = %261
   %301 = landingpad { ptr, i32 }
@@ -1453,9 +1446,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %304
 
 304:                                              ; preds = %302, %300
-  %.pn96 = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ]
+  %.pn93 = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #17
-  br label %576
+  br label %579
 
 305:                                              ; preds = %271
   %306 = landingpad { ptr, i32 }
@@ -1474,15 +1467,15 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %311
 
 311:                                              ; preds = %309, %307
-  %.pn100 = phi { ptr, i32 } [ %310, %309 ], [ %308, %307 ]
+  %.pn95 = phi { ptr, i32 } [ %310, %309 ], [ %308, %307 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #17
   br label %312
 
 312:                                              ; preds = %311, %305
-  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %311 ], [ %306, %305 ]
+  %.pn95.pn = phi { ptr, i32 } [ %.pn95, %311 ], [ %306, %305 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #17
-  br label %576
+  br label %579
 
 313:                                              ; preds = %267, %274, %252
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #17
@@ -1568,9 +1561,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %330
 
 330:                                              ; preds = %328, %326
-  %.pn103 = phi { ptr, i32 } [ %329, %328 ], [ %327, %326 ]
+  %.pn98 = phi { ptr, i32 } [ %329, %328 ], [ %327, %326 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #17
-  br label %576
+  br label %579
 
 331:                                              ; preds = %317
   %332 = landingpad { ptr, i32 }
@@ -1585,9 +1578,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %335
 
 335:                                              ; preds = %333, %331
-  %.pn105 = phi { ptr, i32 } [ %334, %333 ], [ %332, %331 ]
+  %.pn100 = phi { ptr, i32 } [ %334, %333 ], [ %332, %331 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #17
-  br label %576
+  br label %579
 
 336:                                              ; preds = %319
   %337 = landingpad { ptr, i32 }
@@ -1602,9 +1595,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %340
 
 340:                                              ; preds = %338, %336
-  %.pn107 = phi { ptr, i32 } [ %339, %338 ], [ %337, %336 ]
+  %.pn102 = phi { ptr, i32 } [ %339, %338 ], [ %337, %336 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #17
-  br label %576
+  br label %579
 
 341:                                              ; preds = %321
   %342 = landingpad { ptr, i32 }
@@ -1619,9 +1612,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %345
 
 345:                                              ; preds = %343, %341
-  %.pn109 = phi { ptr, i32 } [ %344, %343 ], [ %342, %341 ]
+  %.pn104 = phi { ptr, i32 } [ %344, %343 ], [ %342, %341 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #17
-  br label %576
+  br label %579
 
 346:                                              ; preds = %323
   %347 = landingpad { ptr, i32 }
@@ -1636,9 +1629,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %350
 
 350:                                              ; preds = %348, %346
-  %.pn111 = phi { ptr, i32 } [ %349, %348 ], [ %347, %346 ]
+  %.pn106 = phi { ptr, i32 } [ %349, %348 ], [ %347, %346 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #17
-  br label %576
+  br label %579
 
 351:                                              ; preds = %325, %316
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #17
@@ -1698,9 +1691,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %364
 
 364:                                              ; preds = %362, %360
-  %.pn113 = phi { ptr, i32 } [ %363, %362 ], [ %361, %360 ]
+  %.pn108 = phi { ptr, i32 } [ %363, %362 ], [ %361, %360 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #17
-  br label %576
+  br label %579
 
 365:                                              ; preds = %355
   %366 = landingpad { ptr, i32 }
@@ -1715,9 +1708,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %369
 
 369:                                              ; preds = %367, %365
-  %.pn115 = phi { ptr, i32 } [ %368, %367 ], [ %366, %365 ]
+  %.pn110 = phi { ptr, i32 } [ %368, %367 ], [ %366, %365 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #17
-  br label %576
+  br label %579
 
 370:                                              ; preds = %357
   %371 = landingpad { ptr, i32 }
@@ -1732,9 +1725,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %374
 
 374:                                              ; preds = %372, %370
-  %.pn117 = phi { ptr, i32 } [ %373, %372 ], [ %371, %370 ]
+  %.pn112 = phi { ptr, i32 } [ %373, %372 ], [ %371, %370 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #17
-  br label %576
+  br label %579
 
 375:                                              ; preds = %359, %354
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #17
@@ -1794,9 +1787,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %388
 
 388:                                              ; preds = %386, %384
-  %.pn119 = phi { ptr, i32 } [ %387, %386 ], [ %385, %384 ]
+  %.pn114 = phi { ptr, i32 } [ %387, %386 ], [ %385, %384 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #17
-  br label %576
+  br label %579
 
 389:                                              ; preds = %379
   %390 = landingpad { ptr, i32 }
@@ -1811,9 +1804,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %393
 
 393:                                              ; preds = %391, %389
-  %.pn121 = phi { ptr, i32 } [ %392, %391 ], [ %390, %389 ]
+  %.pn116 = phi { ptr, i32 } [ %392, %391 ], [ %390, %389 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #17
-  br label %576
+  br label %579
 
 394:                                              ; preds = %381
   %395 = landingpad { ptr, i32 }
@@ -1828,9 +1821,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %398
 
 398:                                              ; preds = %396, %394
-  %.pn123 = phi { ptr, i32 } [ %397, %396 ], [ %395, %394 ]
+  %.pn118 = phi { ptr, i32 } [ %397, %396 ], [ %395, %394 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #17
-  br label %576
+  br label %579
 
 399:                                              ; preds = %383, %378
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #17
@@ -1851,16 +1844,14 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
 403:                                              ; preds = %402
   %404 = getelementptr inbounds i8, ptr %0, i64 105
   %405 = load i8, ptr %404, align 1
-  %406 = and i8 %405, 1
-  %.not127 = icmp eq i8 %406, 0
-  br i1 %.not127, label %407, label %411
+  %406 = trunc i8 %405 to i1
+  br i1 %406, label %411, label %407
 
 407:                                              ; preds = %403
   %408 = getelementptr inbounds i8, ptr %0, i64 314
   %409 = load i8, ptr %408, align 2
-  %410 = and i8 %409, 1
-  %.not128 = icmp eq i8 %410, 0
-  br i1 %.not128, label %460, label %428
+  %410 = trunc i8 %409 to i1
+  br i1 %410, label %428, label %460
 
 411:                                              ; preds = %403
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #17
@@ -1894,9 +1885,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %419
 
 419:                                              ; preds = %417, %415
-  %.pn125 = phi { ptr, i32 } [ %418, %417 ], [ %416, %415 ]
+  %.pn120 = phi { ptr, i32 } [ %418, %417 ], [ %416, %415 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #17
-  br label %576
+  br label %579
 
 420:                                              ; preds = %411
   %421 = landingpad { ptr, i32 }
@@ -1915,22 +1906,21 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %426
 
 426:                                              ; preds = %424, %422
-  %.pn135 = phi { ptr, i32 } [ %425, %424 ], [ %423, %422 ]
+  %.pn126 = phi { ptr, i32 } [ %425, %424 ], [ %423, %422 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #17
   br label %427
 
 427:                                              ; preds = %426, %420
-  %.pn135.pn = phi { ptr, i32 } [ %.pn135, %426 ], [ %421, %420 ]
+  %.pn126.pn = phi { ptr, i32 } [ %.pn126, %426 ], [ %421, %420 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #17
-  br label %576
+  br label %579
 
 428:                                              ; preds = %407
   %429 = getelementptr inbounds i8, ptr %0, i64 315
   %430 = load i8, ptr %429, align 1
-  %431 = and i8 %430, 1
-  %.not130 = icmp eq i8 %431, 0
-  br i1 %.not130, label %440, label %432
+  %431 = trunc i8 %430 to i1
+  br i1 %431, label %432, label %440
 
 432:                                              ; preds = %428
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #17
@@ -1959,9 +1949,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %439
 
 439:                                              ; preds = %437, %435
-  %.pn133 = phi { ptr, i32 } [ %438, %437 ], [ %436, %435 ]
+  %.pn124 = phi { ptr, i32 } [ %438, %437 ], [ %436, %435 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #17
-  br label %576
+  br label %579
 
 440:                                              ; preds = %428
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #17
@@ -1990,14 +1980,14 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %447
 
 447:                                              ; preds = %445, %443
-  %.pn131 = phi { ptr, i32 } [ %446, %445 ], [ %444, %443 ]
+  %.pn122 = phi { ptr, i32 } [ %446, %445 ], [ %444, %443 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #17
-  br label %576
+  br label %579
 
 448:                                              ; preds = %434, %442, %414
-  %.sink176 = phi ptr [ %98, %434 ], [ %101, %442 ], [ %94, %414 ]
+  %.sink161 = phi ptr [ %98, %434 ], [ %101, %442 ], [ %94, %414 ]
   %.sink = phi ptr [ %99, %434 ], [ %102, %442 ], [ %95, %414 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink176) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink161) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull @.str.82, ptr noundef nonnull align 1 dereferenceable(1) %105)
@@ -2036,15 +2026,15 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %458
 
 458:                                              ; preds = %456, %454
-  %.pn138 = phi { ptr, i32 } [ %457, %456 ], [ %455, %454 ]
+  %.pn129 = phi { ptr, i32 } [ %457, %456 ], [ %455, %454 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #17
   br label %459
 
 459:                                              ; preds = %458, %452
-  %.pn138.pn = phi { ptr, i32 } [ %.pn138, %458 ], [ %453, %452 ]
+  %.pn129.pn = phi { ptr, i32 } [ %.pn129, %458 ], [ %453, %452 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #17
-  br label %576
+  br label %579
 
 460:                                              ; preds = %451, %407
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #17
@@ -2075,9 +2065,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %467
 
 467:                                              ; preds = %465, %463
-  %.pn141 = phi { ptr, i32 } [ %466, %465 ], [ %464, %463 ]
+  %.pn132 = phi { ptr, i32 } [ %466, %465 ], [ %464, %463 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #17
-  br label %576
+  br label %579
 
 468:                                              ; preds = %462, %402
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #17
@@ -2163,9 +2153,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %485
 
 485:                                              ; preds = %483, %481
-  %.pn143 = phi { ptr, i32 } [ %484, %483 ], [ %482, %481 ]
+  %.pn134 = phi { ptr, i32 } [ %484, %483 ], [ %482, %481 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #17
-  br label %576
+  br label %579
 
 486:                                              ; preds = %472
   %487 = landingpad { ptr, i32 }
@@ -2180,9 +2170,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %490
 
 490:                                              ; preds = %488, %486
-  %.pn145 = phi { ptr, i32 } [ %489, %488 ], [ %487, %486 ]
+  %.pn136 = phi { ptr, i32 } [ %489, %488 ], [ %487, %486 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #17
-  br label %576
+  br label %579
 
 491:                                              ; preds = %474
   %492 = landingpad { ptr, i32 }
@@ -2197,9 +2187,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %495
 
 495:                                              ; preds = %493, %491
-  %.pn147 = phi { ptr, i32 } [ %494, %493 ], [ %492, %491 ]
+  %.pn138 = phi { ptr, i32 } [ %494, %493 ], [ %492, %491 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #17
-  br label %576
+  br label %579
 
 496:                                              ; preds = %476
   %497 = landingpad { ptr, i32 }
@@ -2214,9 +2204,9 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %500
 
 500:                                              ; preds = %498, %496
-  %.pn149 = phi { ptr, i32 } [ %499, %498 ], [ %497, %496 ]
+  %.pn140 = phi { ptr, i32 } [ %499, %498 ], [ %497, %496 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #17
-  br label %576
+  br label %579
 
 501:                                              ; preds = %478
   %502 = landingpad { ptr, i32 }
@@ -2231,229 +2221,229 @@ define internal void @_ZN12_GLOBAL__N_112SynthSf2Pass6scriptEv(ptr noundef nonnu
   br label %505
 
 505:                                              ; preds = %503, %501
-  %.pn151 = phi { ptr, i32 } [ %504, %503 ], [ %502, %501 ]
+  %.pn142 = phi { ptr, i32 } [ %504, %503 ], [ %502, %501 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #17
-  br label %576
+  br label %579
 
 506:                                              ; preds = %480, %471
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull @.str.90, ptr noundef nonnull align 1 dereferenceable(1) %127)
-          to label %507 unwind label %522
+          to label %507 unwind label %523
 
 507:                                              ; preds = %506
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #17
   %508 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %126, ptr noundef nonnull %128)
-          to label %509 unwind label %524
+          to label %509 unwind label %525
 
 509:                                              ; preds = %507
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #17
-  br i1 %508, label %510, label %529
+  br i1 %508, label %510, label %530
 
 510:                                              ; preds = %509
   %511 = getelementptr inbounds i8, ptr %0, i64 216
   %512 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %511) #17
   %513 = getelementptr inbounds i8, ptr %0, i64 105
   %514 = load i8, ptr %513, align 1
-  %515 = and i8 %514, 1
-  %.not155 = icmp eq i8 %515, 0
-  %or.cond = select i1 %512, i1 %.not155, i1 false
-  br i1 %or.cond, label %529, label %._crit_edge
+  br i1 %512, label %515, label %._crit_edge
 
-._crit_edge:                                      ; preds = %510
-  %516 = and i8 %514, 1
-  %.not156 = icmp eq i8 %516, 0
-  br i1 %.not156, label %517, label %519
+515:                                              ; preds = %510
+  %516 = trunc i8 %514 to i1
+  br i1 %516, label %._crit_edge, label %530
 
-517:                                              ; preds = %._crit_edge
-  %518 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %511) #17
-  br label %519
+._crit_edge:                                      ; preds = %510, %515
+  %517 = trunc i8 %514 to i1
+  br i1 %517, label %520, label %518
 
-519:                                              ; preds = %._crit_edge, %517
-  %520 = phi ptr [ %518, %517 ], [ @.str.92, %._crit_edge ]
-  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %129, ptr noundef nonnull @.str.91, ptr noundef %520)
+518:                                              ; preds = %._crit_edge
+  %519 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %511) #17
+  br label %520
+
+520:                                              ; preds = %._crit_edge, %518
+  %521 = phi ptr [ %519, %518 ], [ @.str.92, %._crit_edge ]
+  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %129, ptr noundef nonnull @.str.91, ptr noundef %521)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #17
   invoke void @_ZN5Yosys10ScriptPass3runENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %129, ptr noundef nonnull %130)
-          to label %521 unwind label %527
+          to label %522 unwind label %528
 
-521:                                              ; preds = %519
+522:                                              ; preds = %520
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #17
-  br label %529
+  br label %530
 
-522:                                              ; preds = %506
-  %523 = landingpad { ptr, i32 }
+523:                                              ; preds = %506
+  %524 = landingpad { ptr, i32 }
           cleanup
-  br label %526
+  br label %527
 
-524:                                              ; preds = %507
-  %525 = landingpad { ptr, i32 }
+525:                                              ; preds = %507
+  %526 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #17
-  br label %526
+  br label %527
 
-526:                                              ; preds = %524, %522
-  %.pn153 = phi { ptr, i32 } [ %525, %524 ], [ %523, %522 ]
+527:                                              ; preds = %525, %523
+  %.pn144 = phi { ptr, i32 } [ %526, %525 ], [ %524, %523 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #17
-  br label %576
+  br label %579
 
-527:                                              ; preds = %519
-  %528 = landingpad { ptr, i32 }
+528:                                              ; preds = %520
+  %529 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #17
-  br label %576
+  br label %579
 
-529:                                              ; preds = %510, %521, %509
+530:                                              ; preds = %515, %522, %509
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull @.str.93, ptr noundef nonnull align 1 dereferenceable(1) %132)
-          to label %530 unwind label %545
+          to label %531 unwind label %547
 
-530:                                              ; preds = %529
+531:                                              ; preds = %530
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #17
-  %531 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %131, ptr noundef nonnull %133)
-          to label %532 unwind label %547
+  %532 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %131, ptr noundef nonnull %133)
+          to label %533 unwind label %549
 
-532:                                              ; preds = %530
+533:                                              ; preds = %531
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %131) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #17
-  br i1 %531, label %533, label %552
+  br i1 %532, label %534, label %554
 
-533:                                              ; preds = %532
-  %534 = getelementptr inbounds i8, ptr %0, i64 248
-  %535 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %534) #17
-  %536 = getelementptr inbounds i8, ptr %0, i64 105
-  %537 = load i8, ptr %536, align 1
-  %538 = and i8 %537, 1
-  %.not159 = icmp eq i8 %538, 0
-  %or.cond177 = select i1 %535, i1 %.not159, i1 false
-  br i1 %or.cond177, label %552, label %._crit_edge170
+534:                                              ; preds = %533
+  %535 = getelementptr inbounds i8, ptr %0, i64 248
+  %536 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %535) #17
+  %537 = getelementptr inbounds i8, ptr %0, i64 105
+  %538 = load i8, ptr %537, align 1
+  br i1 %536, label %539, label %._crit_edge155
 
-._crit_edge170:                                   ; preds = %533
-  %539 = and i8 %537, 1
-  %.not160 = icmp eq i8 %539, 0
-  br i1 %.not160, label %540, label %542
+539:                                              ; preds = %534
+  %540 = trunc i8 %538 to i1
+  br i1 %540, label %._crit_edge155, label %554
 
-540:                                              ; preds = %._crit_edge170
-  %541 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %534) #17
-  br label %542
+._crit_edge155:                                   ; preds = %534, %539
+  %541 = trunc i8 %538 to i1
+  br i1 %541, label %544, label %542
 
-542:                                              ; preds = %._crit_edge170, %540
-  %543 = phi ptr [ %541, %540 ], [ @.str.92, %._crit_edge170 ]
-  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %134, ptr noundef nonnull @.str.94, ptr noundef %543)
+542:                                              ; preds = %._crit_edge155
+  %543 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %535) #17
+  br label %544
+
+544:                                              ; preds = %._crit_edge155, %542
+  %545 = phi ptr [ %543, %542 ], [ @.str.92, %._crit_edge155 ]
+  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %134, ptr noundef nonnull @.str.94, ptr noundef %545)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #17
   invoke void @_ZN5Yosys10ScriptPass3runENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %134, ptr noundef nonnull %135)
-          to label %544 unwind label %550
+          to label %546 unwind label %552
 
-544:                                              ; preds = %542
+546:                                              ; preds = %544
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %134) #17
-  br label %552
-
-545:                                              ; preds = %529
-  %546 = landingpad { ptr, i32 }
-          cleanup
-  br label %549
+  br label %554
 
 547:                                              ; preds = %530
   %548 = landingpad { ptr, i32 }
           cleanup
+  br label %551
+
+549:                                              ; preds = %531
+  %550 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %131) #17
-  br label %549
+  br label %551
 
-549:                                              ; preds = %547, %545
-  %.pn157 = phi { ptr, i32 } [ %548, %547 ], [ %546, %545 ]
+551:                                              ; preds = %549, %547
+  %.pn146 = phi { ptr, i32 } [ %550, %549 ], [ %548, %547 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #17
-  br label %576
+  br label %579
 
-550:                                              ; preds = %542
-  %551 = landingpad { ptr, i32 }
+552:                                              ; preds = %544
+  %553 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %134) #17
-  br label %576
+  br label %579
 
-552:                                              ; preds = %533, %544, %532
+554:                                              ; preds = %539, %546, %533
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull @.str.95, ptr noundef nonnull align 1 dereferenceable(1) %137)
-          to label %553 unwind label %568
+          to label %555 unwind label %571
 
-553:                                              ; preds = %552
+555:                                              ; preds = %554
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #17
-  %554 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %136, ptr noundef nonnull %138)
-          to label %555 unwind label %570
+  %556 = invoke noundef zeroext i1 @_ZN5Yosys10ScriptPass11check_labelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %136, ptr noundef nonnull %138)
+          to label %557 unwind label %573
 
-555:                                              ; preds = %553
+557:                                              ; preds = %555
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #17
-  br i1 %554, label %556, label %575
+  br i1 %556, label %558, label %578
 
-556:                                              ; preds = %555
-  %557 = getelementptr inbounds i8, ptr %0, i64 280
-  %558 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %557) #17
-  %559 = getelementptr inbounds i8, ptr %0, i64 105
-  %560 = load i8, ptr %559, align 1
-  %561 = and i8 %560, 1
-  %.not163 = icmp eq i8 %561, 0
-  %or.cond178 = select i1 %558, i1 %.not163, i1 false
-  br i1 %or.cond178, label %575, label %._crit_edge173
+558:                                              ; preds = %557
+  %559 = getelementptr inbounds i8, ptr %0, i64 280
+  %560 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %559) #17
+  %561 = getelementptr inbounds i8, ptr %0, i64 105
+  %562 = load i8, ptr %561, align 1
+  br i1 %560, label %563, label %._crit_edge158
 
-._crit_edge173:                                   ; preds = %556
-  %562 = and i8 %560, 1
-  %.not164 = icmp eq i8 %562, 0
-  br i1 %.not164, label %563, label %565
+563:                                              ; preds = %558
+  %564 = trunc i8 %562 to i1
+  br i1 %564, label %._crit_edge158, label %578
 
-563:                                              ; preds = %._crit_edge173
-  %564 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %557) #17
-  br label %565
+._crit_edge158:                                   ; preds = %558, %563
+  %565 = trunc i8 %562 to i1
+  br i1 %565, label %568, label %566
 
-565:                                              ; preds = %._crit_edge173, %563
-  %566 = phi ptr [ %564, %563 ], [ @.str.92, %._crit_edge173 ]
-  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %139, ptr noundef nonnull @.str.96, ptr noundef %566)
+566:                                              ; preds = %._crit_edge158
+  %567 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %559) #17
+  br label %568
+
+568:                                              ; preds = %._crit_edge158, %566
+  %569 = phi ptr [ %567, %566 ], [ @.str.92, %._crit_edge158 ]
+  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %139, ptr noundef nonnull @.str.96, ptr noundef %569)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #17
   invoke void @_ZN5Yosys10ScriptPass3runENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %139, ptr noundef nonnull %140)
-          to label %567 unwind label %573
+          to label %570 unwind label %576
 
-567:                                              ; preds = %565
+570:                                              ; preds = %568
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #17
+  br label %578
+
+571:                                              ; preds = %554
+  %572 = landingpad { ptr, i32 }
+          cleanup
   br label %575
 
-568:                                              ; preds = %552
-  %569 = landingpad { ptr, i32 }
-          cleanup
-  br label %572
-
-570:                                              ; preds = %553
-  %571 = landingpad { ptr, i32 }
+573:                                              ; preds = %555
+  %574 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #17
-  br label %572
+  br label %575
 
-572:                                              ; preds = %570, %568
-  %.pn161 = phi { ptr, i32 } [ %571, %570 ], [ %569, %568 ]
+575:                                              ; preds = %573, %571
+  %.pn148 = phi { ptr, i32 } [ %574, %573 ], [ %572, %571 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #17
-  br label %576
+  br label %579
 
-573:                                              ; preds = %565
-  %574 = landingpad { ptr, i32 }
+576:                                              ; preds = %568
+  %577 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #17
-  br label %576
+  br label %579
 
-575:                                              ; preds = %556, %567, %555
+578:                                              ; preds = %563, %570, %557
   ret void
 
-576:                                              ; preds = %192, %573, %572, %550, %549, %527, %526, %505, %500, %495, %490, %485, %467, %459, %447, %439, %427, %419, %398, %393, %388, %374, %369, %364, %350, %345, %340, %335, %330, %312, %304, %299, %294, %289, %284, %279, %248, %240, %232, %212, %207, %202, %197, %166, %165, %160
-  %.pn165 = phi { ptr, i32 } [ %574, %573 ], [ %.pn161, %572 ], [ %551, %550 ], [ %.pn157, %549 ], [ %528, %527 ], [ %.pn153, %526 ], [ %.pn151, %505 ], [ %.pn149, %500 ], [ %.pn147, %495 ], [ %.pn145, %490 ], [ %.pn143, %485 ], [ %.pn141, %467 ], [ %.pn138.pn, %459 ], [ %.pn135.pn, %427 ], [ %.pn133, %439 ], [ %.pn131, %447 ], [ %.pn125, %419 ], [ %.pn123, %398 ], [ %.pn121, %393 ], [ %.pn119, %388 ], [ %.pn117, %374 ], [ %.pn115, %369 ], [ %.pn113, %364 ], [ %.pn111, %350 ], [ %.pn109, %345 ], [ %.pn107, %340 ], [ %.pn105, %335 ], [ %.pn103, %330 ], [ %.pn100.pn, %312 ], [ %.pn96, %304 ], [ %.pn94, %299 ], [ %.pn92, %294 ], [ %.pn90, %289 ], [ %.pn88, %284 ], [ %.pn86, %279 ], [ %.pn84, %248 ], [ %.pn81.pn, %240 ], [ %.pn77, %232 ], [ %.pn75, %212 ], [ %.pn73, %207 ], [ %.pn71, %202 ], [ %.pn69, %197 ], [ %.pn66.pn, %192 ], [ %167, %166 ], [ %.pn63, %165 ], [ %.pn, %160 ]
-  resume { ptr, i32 } %.pn165
+579:                                              ; preds = %192, %576, %575, %552, %551, %528, %527, %505, %500, %495, %490, %485, %467, %459, %447, %439, %427, %419, %398, %393, %388, %374, %369, %364, %350, %345, %340, %335, %330, %312, %304, %299, %294, %289, %284, %279, %248, %240, %232, %212, %207, %202, %197, %166, %165, %160
+  %.pn150 = phi { ptr, i32 } [ %577, %576 ], [ %.pn148, %575 ], [ %553, %552 ], [ %.pn146, %551 ], [ %529, %528 ], [ %.pn144, %527 ], [ %.pn142, %505 ], [ %.pn140, %500 ], [ %.pn138, %495 ], [ %.pn136, %490 ], [ %.pn134, %485 ], [ %.pn132, %467 ], [ %.pn129.pn, %459 ], [ %.pn126.pn, %427 ], [ %.pn124, %439 ], [ %.pn122, %447 ], [ %.pn120, %419 ], [ %.pn118, %398 ], [ %.pn116, %393 ], [ %.pn114, %388 ], [ %.pn112, %374 ], [ %.pn110, %369 ], [ %.pn108, %364 ], [ %.pn106, %350 ], [ %.pn104, %345 ], [ %.pn102, %340 ], [ %.pn100, %335 ], [ %.pn98, %330 ], [ %.pn95.pn, %312 ], [ %.pn93, %304 ], [ %.pn91, %299 ], [ %.pn89, %294 ], [ %.pn87, %289 ], [ %.pn85, %284 ], [ %.pn83, %279 ], [ %.pn81, %248 ], [ %.pn78.pn, %240 ], [ %.pn76, %232 ], [ %.pn74, %212 ], [ %.pn72, %207 ], [ %.pn70, %202 ], [ %.pn68, %197 ], [ %.pn65.pn, %192 ], [ %167, %166 ], [ %.pn63, %165 ], [ %.pn, %160 ]
+  resume { ptr, i32 } %.pn150
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -2743,14 +2733,14 @@ define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noali
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   invoke void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef %1, ptr noundef nonnull %3)
           to label %5 unwind label %7
 
 5:                                                ; preds = %2
   %6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 
 7:                                                ; preds = %2
@@ -2766,9 +2756,6 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca [128 x i8], align 16
@@ -2776,9 +2763,9 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca ptr, align 8
   store i8 0, ptr %4, align 16
-  call void @llvm.va_copy(ptr nonnull %5, ptr %2)
+  call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
   %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef %1, ptr noundef nonnull %5) #17
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = icmp slt i32 %8, 128
   br i1 %9, label %10, label %14
 
@@ -2832,23 +2819,17 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_synth_sf2.cc() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_synth_sf2.cc() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2917,6 +2898,15 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #14
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
@@ -2937,10 +2927,10 @@ attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind }

@@ -6576,25 +6576,24 @@ declare void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef no
 define linkonce_odr i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %counter_ = getelementptr inbounds i8, ptr %this, i64 24
   %bits_remaining_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i64, ptr %bits_remaining_.i, align 8
-  %tobool.not.i = icmp eq i64 %2, 0
+  %1 = load i64, ptr %bits_remaining_.i, align 8
+  %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   %offset_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load i64, ptr %offset_.i, align 8
-  %cmp.i = icmp eq i64 %3, 0
+  %2 = load i64, ptr %offset_.i, align 8
+  %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cmp5.i = icmp slt i64 %2, 64
+  %cmp5.i = icmp slt i64 %1, 64
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.then3.i
@@ -6603,13 +6602,13 @@ if.then6.i:                                       ; preds = %if.then3.i
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit
 
 if.end7.i:                                        ; preds = %if.then3.i
-  %4 = load ptr, ptr %counter_, align 8
-  %ret.0.copyload.i.i.i = load i64, ptr %4, align 1
+  %3 = load ptr, ptr %counter_, align 8
+  %ret.0.copyload.i.i.i = load i64, ptr %3, align 1
   br label %if.end23.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %sub.i = sub nsw i64 128, %3
-  %cmp12.i = icmp slt i64 %2, %sub.i
+  %sub.i = sub nsw i64 128, %2
+  %cmp12.i = icmp slt i64 %1, %sub.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end15.i
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -6618,22 +6617,22 @@ if.then13.i:                                      ; preds = %if.else.i
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit
 
 if.end15.i:                                       ; preds = %if.else.i
-  %5 = load ptr, ptr %counter_, align 8
-  %ret.0.copyload.i.i5.i = load i64, ptr %5, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
+  %4 = load ptr, ptr %counter_, align 8
+  %ret.0.copyload.i.i5.i = load i64, ptr %4, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   %ret.0.copyload.i.i6.i = load i64, ptr %add.ptr.i, align 1
-  %retval.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i6.i, i64 %ret.0.copyload.i.i5.i, i64 %3)
+  %retval.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i6.i, i64 %ret.0.copyload.i.i5.i, i64 %2)
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end15.i, %if.end7.i
   %retval.0.i.sink.i = phi i64 [ %retval.0.i.i, %if.end15.i ], [ %ret.0.copyload.i.i.i, %if.end7.i ]
-  %6 = phi ptr [ %5, %if.end15.i ], [ %4, %if.end7.i ]
-  %7 = tail call noundef i64 @llvm.ctpop.i64(i64 %retval.0.i.sink.i), !range !125
-  %add.ptr25.i = getelementptr inbounds i8, ptr %6, i64 8
+  %5 = phi ptr [ %4, %if.end15.i ], [ %3, %if.end7.i ]
+  %6 = tail call noundef i64 @llvm.ctpop.i64(i64 %retval.0.i.sink.i), !range !125
+  %add.ptr25.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %add.ptr25.i, ptr %counter_, align 8
-  %sub27.i = add nsw i64 %2, -64
+  %sub27.i = add nsw i64 %1, -64
   store i64 %sub27.i, ptr %bits_remaining_.i, align 8
-  %conv.i = trunc i64 %7 to i32
+  %conv.i = trunc i64 %6 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit: ; preds = %if.then, %if.then6.i, %if.then13.i, %if.end23.i
@@ -6643,22 +6642,22 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit: ; preds = %if.then, %if.the
   %retval.sroa.4.0.extract.trunc = trunc i32 %retval.sroa.5.0.i to i16
   %conv = sext i16 %retval.sroa.0.0.extract.trunc to i64
   %position_ = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load i64, ptr %position_, align 8
-  %add = add nsw i64 %8, %conv
+  %7 = load i64, ptr %position_, align 8
+  %add = add nsw i64 %7, %conv
   store i64 %add, ptr %position_, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
   %length_ = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i64, ptr %length_, align 8
+  %8 = load i64, ptr %length_, align 8
   %position_2 = getelementptr inbounds i8, ptr %this, i64 8
-  %10 = load i64, ptr %position_2, align 8
-  %sub = sub nsw i64 %9, %10
+  %9 = load i64, ptr %position_2, align 8
+  %sub = sub nsw i64 %8, %9
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub, i64 32767)
   %conv4 = trunc i64 %.sroa.speculated to i16
   %sext = shl i64 %.sroa.speculated, 48
   %conv5 = ashr exact i64 %sext, 48
-  %add7 = add nsw i64 %conv5, %10
+  %add7 = add nsw i64 %conv5, %9
   store i64 %add7, ptr %position_2, align 8
   br label %return
 
@@ -6806,8 +6805,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status5St
 
 if.end:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit
   %18 = load i8, ptr %result, align 1
-  %19 = and i8 %18, 1
-  %tobool = icmp ne i8 %19, 0
+  %tobool = trunc i8 %18 to i1
   ret i1 %tobool
 }
 

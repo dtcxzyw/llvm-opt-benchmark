@@ -1117,8 +1117,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %10 = getelementptr inbounds i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %9, ptr noundef nonnull @.str.25, ptr noundef %11) #11
-  %.not90 = icmp ne i32 %12, 0
-  %spec.select = sext i1 %.not90 to i32
+  %.not88 = icmp ne i32 %12, 0
+  %spec.select = sext i1 %.not88 to i32
   %.off = add nsw i32 %1, -2
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %13, label %.thread
@@ -1127,8 +1127,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %14 = getelementptr inbounds i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %9, ptr noundef nonnull @.str.26, ptr noundef %15) #11
-  %.not91 = icmp eq i32 %16, 0
-  %spec.select92 = select i1 %.not91, i32 %spec.select, i32 -1
+  %.not89 = icmp eq i32 %16, 0
+  %spec.select90 = select i1 %.not89, i32 %spec.select, i32 -1
   br label %.thread
 
 17:                                               ; preds = %5
@@ -1138,32 +1138,32 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %2, i64 88
   %21 = load i64, ptr %20, align 8
-  %.not85 = icmp eq i64 %21, -2
-  br i1 %.not85, label %.thread101, label %22
+  %.not83 = icmp eq i64 %21, -2
+  br i1 %.not83, label %.thread99, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 3), ptr noundef nonnull @.str.27, i64 noundef %21) #11
-  br label %.thread101
+  br label %.thread99
 
 24:                                               ; preds = %17
   %25 = add i32 %1, -3
   %or.cond11 = icmp ult i32 %25, 2
   switch i32 %1, label %31 [
-    i32 8, label %.thread101
-    i32 4, label %.thread101
+    i32 8, label %.thread99
+    i32 4, label %.thread99
   ]
 
-.thread101:                                       ; preds = %19, %22, %24, %24
-  %or.cond11105 = phi i1 [ %or.cond11, %24 ], [ %or.cond11, %24 ], [ true, %22 ], [ true, %19 ]
-  %.1104 = phi i32 [ 0, %24 ], [ 0, %24 ], [ %23, %22 ], [ 0, %19 ]
+.thread99:                                        ; preds = %19, %22, %24, %24
+  %or.cond11103 = phi i1 [ %or.cond11, %24 ], [ %or.cond11, %24 ], [ true, %22 ], [ true, %19 ]
+  %.1102 = phi i32 [ 0, %24 ], [ 0, %24 ], [ %23, %22 ], [ 0, %19 ]
   %26 = zext nneg i32 %1 to i64
   %27 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 %26
   %28 = getelementptr inbounds i8, ptr %2, i64 64
   %29 = load i64, ptr %28, align 8
   %30 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %27, ptr noundef nonnull @.str.28, i64 noundef %29) #11
-  %.not86 = icmp eq i32 %30, 0
-  %spec.select93 = select i1 %.not86, i32 %.1104, i32 -1
-  br i1 %or.cond11105, label %32, label %.thread
+  %.not84 = icmp eq i32 %30, 0
+  %spec.select91 = select i1 %.not84, i32 %.1102, i32 -1
+  br i1 %or.cond11103, label %32, label %.thread
 
 31:                                               ; preds = %24
   br i1 %or.cond11, label %._crit_edge, label %.thread
@@ -1172,24 +1172,24 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %.pre = zext nneg i32 %1 to i64
   br label %32
 
-32:                                               ; preds = %._crit_edge, %.thread101
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %26, %.thread101 ]
-  %.2107 = phi i32 [ 0, %._crit_edge ], [ %spec.select93, %.thread101 ]
+32:                                               ; preds = %._crit_edge, %.thread99
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %26, %.thread99 ]
+  %.2105 = phi i32 [ 0, %._crit_edge ], [ %spec.select91, %.thread99 ]
   %33 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 %.pre-phi
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %33, ptr noundef nonnull @.str.29, i64 noundef %35) #11
-  %.not87 = icmp eq i32 %36, 0
-  %spec.select94 = select i1 %.not87, i32 %.2107, i32 -1
+  %.not85 = icmp eq i32 %36, 0
+  %spec.select92 = select i1 %.not85, i32 %.2105, i32 -1
   %37 = getelementptr inbounds i8, ptr %2, i64 80
   %38 = load i64, ptr %37, align 8
-  %.not88 = icmp eq i64 %38, -2
-  br i1 %.not88, label %.thread, label %39
+  %.not86 = icmp eq i64 %38, -2
+  br i1 %.not86, label %.thread, label %39
 
 39:                                               ; preds = %32
   %40 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %33, ptr noundef nonnull @.str.30, i64 noundef %38) #11
-  %.not89 = icmp eq i32 %40, 0
-  %spec.select95 = select i1 %.not89, i32 %spec.select94, i32 -1
+  %.not87 = icmp eq i32 %40, 0
+  %spec.select93 = select i1 %.not87, i32 %spec.select92, i32 -1
   br label %.thread
 
 41:                                               ; preds = %5
@@ -1203,22 +1203,21 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %2, i64 48
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not80 = icmp eq i8 %48, 0
+  %48 = trunc i8 %47 to i1
   %49 = zext nneg i32 %1 to i64
   %50 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 3, i64 %49
-  br i1 %.not80, label %53, label %51
+  br i1 %48, label %51, label %53
 
 51:                                               ; preds = %45
   %52 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %50, ptr noundef nonnull @.str.31, ptr noundef %43) #11
-  %.not82 = icmp ne i32 %52, 0
-  %spec.select96 = sext i1 %.not82 to i32
+  %.not81 = icmp ne i32 %52, 0
+  %spec.select94 = sext i1 %.not81 to i32
   br label %.thread
 
 53:                                               ; preds = %45
   %54 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %50, ptr noundef nonnull @.str.32, ptr noundef %43) #11
-  %.not81 = icmp ne i32 %54, 0
-  %spec.select97 = sext i1 %.not81 to i32
+  %.not80 = icmp ne i32 %54, 0
+  %spec.select95 = sext i1 %.not80 to i32
   br label %.thread
 
 55:                                               ; preds = %41
@@ -1229,8 +1228,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %58 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @g_task_list, i64 0, i64 3), align 8
   %59 = getelementptr inbounds i8, ptr %2, i64 8
   %60 = tail call ptr @list_find_first(ptr noundef %58, ptr noundef nonnull @_find_task_cg_info, ptr noundef nonnull %59) #11
-  %.not83 = icmp eq ptr %60, null
-  br i1 %.not83, label %61, label %65
+  %.not82 = icmp eq ptr %60, null
+  br i1 %.not82, label %61, label %65
 
 61:                                               ; preds = %57
   %62 = load i32, ptr %59, align 8
@@ -1241,9 +1240,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
 65:                                               ; preds = %57
   %66 = getelementptr inbounds i8, ptr %2, i64 48
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not84 = icmp eq i8 %68, 0
-  br i1 %.not84, label %71, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
   %70 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %60, ptr noundef nonnull @.str.31, ptr noundef %43) #11
@@ -1257,8 +1255,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %74 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
   br label %.thread
 
-.thread:                                          ; preds = %51, %53, %6, %.thread101, %39, %13, %7, %55, %71, %69, %31, %32, %5, %73, %61
-  %.5 = phi i32 [ -1, %73 ], [ %70, %69 ], [ %72, %71 ], [ -1, %61 ], [ 0, %55 ], [ %spec.select94, %32 ], [ 0, %31 ], [ %spec.select, %7 ], [ %0, %5 ], [ %spec.select92, %13 ], [ %spec.select95, %39 ], [ %spec.select93, %.thread101 ], [ 0, %6 ], [ %spec.select97, %53 ], [ %spec.select96, %51 ]
+.thread:                                          ; preds = %51, %53, %6, %.thread99, %39, %13, %7, %55, %71, %69, %31, %32, %5, %73, %61
+  %.5 = phi i32 [ -1, %73 ], [ %70, %69 ], [ %72, %71 ], [ -1, %61 ], [ 0, %55 ], [ %spec.select92, %32 ], [ 0, %31 ], [ %spec.select, %7 ], [ %0, %5 ], [ %spec.select90, %13 ], [ %spec.select93, %39 ], [ %spec.select91, %.thread99 ], [ 0, %6 ], [ %spec.select95, %53 ], [ %spec.select94, %51 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   br label %75
 

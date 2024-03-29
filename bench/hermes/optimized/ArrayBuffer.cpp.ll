@@ -362,19 +362,17 @@ if.end72:                                         ; preds = %_ZN6hermes2vm15Hand
   %20 = inttoptr i64 %and.i.i.i.i.i31 to ptr
   %attached_.i = getelementptr inbounds i8, ptr %20, i64 37
   %21 = load i8, ptr %attached_.i, align 1
-  %22 = and i8 %21, 1
-  %tobool.i32.not = icmp eq i8 %22, 0
-  br i1 %tobool.i32.not, label %if.then77, label %lor.lhs.false
+  %tobool.i32 = trunc i8 %21 to i1
+  br i1 %tobool.i32, label %lor.lhs.false, label %if.then77
 
 lor.lhs.false:                                    ; preds = %if.end72
   %agg.tmp.sroa.0.0.copyload.i.i33 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i34 = and i64 %agg.tmp.sroa.0.0.copyload.i.i33, 281474976710655
-  %23 = inttoptr i64 %and.i.i.i.i.i34 to ptr
-  %attached_.i35 = getelementptr inbounds i8, ptr %23, i64 37
-  %24 = load i8, ptr %attached_.i35, align 1
-  %25 = and i8 %24, 1
-  %tobool.i36.not = icmp eq i8 %25, 0
-  br i1 %tobool.i36.not, label %if.then77, label %if.end80
+  %22 = inttoptr i64 %and.i.i.i.i.i34 to ptr
+  %attached_.i35 = getelementptr inbounds i8, ptr %22, i64 37
+  %23 = load i8, ptr %attached_.i35, align 1
+  %tobool.i36 = trunc i8 %23 to i1
+  br i1 %tobool.i36, label %if.end80, label %if.then77
 
 if.then77:                                        ; preds = %lor.lhs.false, %if.end72
   %rightKind_.i3.i38 = getelementptr inbounds i8, ptr %ref.tmp78, i64 24
@@ -384,13 +382,13 @@ if.then77:                                        ; preds = %lor.lhs.false, %if.
   %rightSize_.i5.i40 = getelementptr inbounds i8, ptr %ref.tmp78, i64 40
   store i64 0, ptr %rightSize_.i5.i40, align 8
   store ptr @.str.4, ptr %ref.tmp78, align 8
-  %26 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
-  store i32 3, ptr %26, align 8
+  %24 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
+  store i32 3, ptr %24, align 8
   %call79 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp78) #3
   br label %return
 
 if.end80:                                         ; preds = %lor.lhs.false
-  tail call void @_ZN6hermes2vm13JSArrayBuffer18copyDataBlockBytesERNS0_7RuntimeEPS1_jS4_jj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %23, i32 noundef 0, ptr noundef nonnull %20, i32 noundef %conv52, i32 noundef %conv53) #3
+  tail call void @_ZN6hermes2vm13JSArrayBuffer18copyDataBlockBytesERNS0_7RuntimeEPS1_jS4_jj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull %20, i32 noundef %conv52, i32 noundef %conv53) #3
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %return
 

@@ -2926,22 +2926,21 @@ define zeroext i16 @pmix12_v1_to_v2_datatype(i32 noundef %0) local_unnamed_addr 
 
 3:                                                ; preds = %switch.hole_check, %1
   %4 = trunc i32 %0 to i16
-  br label %7
+  br label %6
 
 switch.hole_check:                                ; preds = %1
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4093, %switch.maskindex
-  %5 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %5, 0
-  br i1 %switch.lobit.not, label %3, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i16], ptr @switch.table.pmix12_bfrop_get_data_type, i64 0, i64 %6
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i16], ptr @switch.table.pmix12_bfrop_get_data_type, i64 0, i64 %5
   %switch.load = load i16, ptr %switch.gep, align 2
-  br label %7
+  br label %6
 
-7:                                                ; preds = %switch.lookup, %3
+6:                                                ; preds = %switch.lookup, %3
   %.0 = phi i16 [ %4, %3 ], [ %switch.load, %switch.lookup ]
   ret i16 %.0
 }
@@ -2958,7 +2957,7 @@ define i32 @pmix12_bfrop_get_data_type(ptr noundef %0, ptr noundef %1, ptr nocap
 
 9:                                                ; preds = %3
   %10 = icmp eq i32 %6, 0
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %9
   %switch.tableidx = add i32 %7, -20
@@ -2972,13 +2971,12 @@ define i32 @pmix12_bfrop_get_data_type(ptr noundef %0, ptr noundef %1, ptr nocap
 switch.hole_check:                                ; preds = %11
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4093, %switch.maskindex
-  %15 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %15, 0
-  br i1 %switch.lobit.not, label %13, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %13
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i16], ptr @switch.table.pmix12_bfrop_get_data_type, i64 0, i64 %16
+  %15 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i16], ptr @switch.table.pmix12_bfrop_get_data_type, i64 0, i64 %15
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.sink.split
 
@@ -2986,9 +2984,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0.i.sink = phi i16 [ 0, %3 ], [ %14, %13 ], [ %switch.load, %switch.lookup ]
   %.0.ph = phi i32 [ -16, %3 ], [ 0, %13 ], [ 0, %switch.lookup ]
   store i16 %.0.i.sink, ptr %2, align 2
-  br label %17
+  br label %16
 
-17:                                               ; preds = %.sink.split, %9
+16:                                               ; preds = %.sink.split, %9
   %.0 = phi i32 [ %6, %9 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

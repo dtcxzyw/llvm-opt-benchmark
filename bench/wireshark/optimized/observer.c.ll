@@ -240,58 +240,57 @@ observer_to_wtap_encap.exit:                      ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %87
   %switch.maskindex = zext nneg i8 %89 to i16
   %switch.shifted = lshr i16 771, %switch.maskindex
-  %93 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %93, 0
-  br i1 %switch.lobit.not, label %observer_to_wtap_encap.exit, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %observer_to_wtap_encap.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %94 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.observer_open, i64 0, i64 %94
+  %93 = zext nneg i8 %89 to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.observer_open, i64 0, i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
-  %95 = zext nneg i8 %89 to i64
-  %switch.gep144 = getelementptr inbounds [10 x i8], ptr @switch.table.observer_open.1, i64 0, i64 %95
+  %94 = zext nneg i8 %89 to i64
+  %switch.gep144 = getelementptr inbounds [10 x i8], ptr @switch.table.observer_open.1, i64 0, i64 %94
   %switch.load145 = load i8, ptr %switch.gep144, align 1
-  %96 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %switch.load, ptr %96, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %switch.load, ptr %95, align 8
   store i64 0, ptr %25, align 8
-  %97 = getelementptr inbounds i8, ptr %25, i64 8
-  store i8 %switch.load145, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @observer_read, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @observer_seek_read, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 128
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 148
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
-  store i32 9, ptr %102, align 4
-  %103 = load i32, ptr @observer_file_type_subtype, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %103, ptr %104, align 4
-  %105 = load ptr, ptr %0, align 8
-  %106 = zext nneg i32 %20 to i64
-  %107 = call i64 @file_seek(ptr noundef %105, i64 noundef %106, i32 noundef 0, ptr noundef %1) #13
-  %108 = icmp eq i64 %107, -1
-  br i1 %108, label %.loopexit, label %109
+  %96 = getelementptr inbounds i8, ptr %25, i64 8
+  store i8 %switch.load145, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @observer_read, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @observer_seek_read, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 128
+  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 148
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
+  store i32 9, ptr %101, align 4
+  %102 = load i32, ptr @observer_file_type_subtype, align 4
+  %103 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %102, ptr %103, align 4
+  %104 = load ptr, ptr %0, align 8
+  %105 = zext nneg i32 %20 to i64
+  %106 = call i64 @file_seek(ptr noundef %104, i64 noundef %105, i32 noundef 0, ptr noundef %1) #13
+  %107 = icmp eq i64 %106, -1
+  br i1 %107, label %.loopexit, label %108
 
-109:                                              ; preds = %switch.lookup
-  %110 = call fastcc ptr @init_gmt_to_localtime_offset()
-  %.not96 = icmp eq ptr %110, null
-  br i1 %.not96, label %113, label %111
+108:                                              ; preds = %switch.lookup
+  %109 = call fastcc ptr @init_gmt_to_localtime_offset()
+  %.not96 = icmp eq ptr %109, null
+  br i1 %.not96, label %112, label %110
 
-111:                                              ; preds = %109
+110:                                              ; preds = %108
   store i32 -21, ptr %1, align 4
-  %112 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %110) #13
-  store ptr %112, ptr %2, align 8
+  %111 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %109) #13
+  store ptr %111, ptr %2, align 8
   br label %.loopexit
 
-113:                                              ; preds = %109
+112:                                              ; preds = %108
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %63, %57, %36, %switch.lookup, %78, %81, %71, %11, %9, %113, %111, %observer_to_wtap_encap.exit, %85, %55, %51, %43, %34, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %34 ], [ -1, %43 ], [ -1, %51 ], [ -1, %55 ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %111 ], [ 1, %113 ], [ %., %9 ], [ 0, %11 ], [ -1, %71 ], [ -1, %81 ], [ -1, %78 ], [ -1, %switch.lookup ], [ -1, %36 ], [ -1, %57 ], [ -1, %63 ]
+.loopexit:                                        ; preds = %63, %57, %36, %switch.lookup, %78, %81, %71, %11, %9, %112, %110, %observer_to_wtap_encap.exit, %85, %55, %51, %43, %34, %22
+  %.0 = phi i32 [ -1, %22 ], [ -1, %34 ], [ -1, %43 ], [ -1, %51 ], [ -1, %55 ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %110 ], [ 1, %112 ], [ %., %9 ], [ 0, %11 ], [ -1, %71 ], [ -1, %81 ], [ -1, %78 ], [ -1, %switch.lookup ], [ -1, %36 ], [ -1, %57 ], [ -1, %63 ]
   ret i32 %.0
 }
 

@@ -190,13 +190,13 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph42
-  %lpad.loopexit30 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph39
+  %lpad.loopexit29 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %12, %19
-  %lpad.loopexit.split-lp31 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp30 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -217,17 +217,17 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
 21:                                               ; preds = %19, %16, %14
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 58, i64 noundef 0) #35
-  %.not2240 = icmp eq i64 %23, -1
-  br i1 %.not2240, label %.thread, label %.lr.ph42
+  %.not2137 = icmp eq i64 %23, -1
+  br i1 %.not2137, label %._crit_edge, label %.lr.ph39
 
-.lr.ph42:                                         ; preds = %21, %35
+.lr.ph39:                                         ; preds = %21, %35
   %24 = phi i64 [ %37, %35 ], [ %23, %21 ]
-  %.0163341 = phi i64 [ %36, %35 ], [ 0, %21 ]
-  %25 = sub i64 %24, %.0163341
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.0163341, i64 noundef %25)
+  %.0163238 = phi i64 [ %36, %35 ], [ 0, %21 ]
+  %25 = sub i64 %24, %.0163238
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.0163238, i64 noundef %25)
           to label %26 unwind label %.loopexit.split-lp.loopexit
 
-26:                                               ; preds = %.lr.ph42
+26:                                               ; preds = %.lr.ph39
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %27, %28
@@ -254,33 +254,33 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   %36 = add nuw i64 %24, 1
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 58, i64 noundef %36) #35
-  %.not22 = icmp eq i64 %37, -1
-  br i1 %.not22, label %.thread, label %.lr.ph42, !llvm.loop !5
+  %.not21 = icmp eq i64 %37, -1
+  br i1 %.not21, label %._crit_edge, label %.lr.ph39, !llvm.loop !5
 
-.thread:                                          ; preds = %35, %21
+._crit_edge:                                      ; preds = %35, %21
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %10
   %40 = load ptr, ptr %5, align 8
-  %.not2935 = icmp eq ptr %39, %40
-  br i1 %.not2935, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph
+  %.not2834 = icmp eq ptr %39, %40
+  br i1 %.not2834, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread, %41
-  %.sroa.026.036 = phi ptr [ %42, %41 ], [ %39, %.thread ]
-  invoke void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026.036)
+.lr.ph:                                           ; preds = %._crit_edge, %41
+  %.sroa.025.035 = phi ptr [ %42, %41 ], [ %39, %._crit_edge ]
+  invoke void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.035)
           to label %41 unwind label %.loopexit
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %.sroa.026.036, i64 32
+  %42 = getelementptr inbounds i8, ptr %.sroa.025.035, i64 32
   %43 = load ptr, ptr %5, align 8
-  %.not29 = icmp eq ptr %42, %43
-  br i1 %.not29, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph, !llvm.loop !7
+  %.not28 = icmp eq ptr %42, %43
+  br i1 %.not28, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph, !llvm.loop !7
 
-_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %41, %.thread, %2
+_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %41, %._crit_edge, %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit29, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp30, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   resume { ptr, i32 } %.pn
 }
@@ -346,9 +346,8 @@ define dso_local void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx11
   br label %10
 
 10:                                               ; preds = %6, %8
-  %11 = and i8 %.0, 1
-  %.not50 = icmp eq i8 %11, 0
-  br i1 %.not50, label %12, label %20
+  %11 = trunc i8 %.0 to i1
+  br i1 %11, label %20, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %.042, i64 1
@@ -370,9 +369,8 @@ define dso_local void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx11
   br label %6, !llvm.loop !8
 
 23:                                               ; preds = %6
-  %24 = and i8 %.0, 1
-  %.not48 = icmp eq i8 %24, 0
-  br i1 %.not48, label %26, label %25
+  %24 = trunc i8 %.0 to i1
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23
   tail call void @_ZN5cmsys11SystemTools13ReplaceStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4)
@@ -427,8 +425,8 @@ _ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %48 = tail call ptr @getpwnam(ptr noundef nonnull %47)
   %49 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %42)
   store i8 %44, ptr %49, align 1
-  %.not49 = icmp eq ptr %48, null
-  br i1 %.not49, label %54, label %50
+  %.not48 = icmp eq ptr %48, null
+  br i1 %.not48, label %54, label %50
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds i8, ptr %48, i64 32

@@ -79,11 +79,11 @@ define noundef i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %17, ptr %3, align 8
   %18 = call ptr @strtok_r(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #8
   store ptr %18, ptr %4, align 8
-  %.not2734 = icmp eq ptr %18, null
-  br i1 %.not2734, label %.loopexit33, label %.lr.ph
+  %.not2733 = icmp eq ptr %18, null
+  br i1 %.not2733, label %.loopexit32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %.not30 = icmp eq ptr %0, null
+  %.not29 = icmp eq ptr %0, null
   br label %19
 
 19:                                               ; preds = %.lr.ph, %57
@@ -130,10 +130,10 @@ define noundef i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %49 = load ptr, ptr %4, align 8
   %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.prep_g_init, ptr noundef nonnull @.str, ptr noundef %49) #8
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  br label %.loopexit33
+  br label %.loopexit32
 
 51:                                               ; preds = %33
-  br i1 %.not30, label %57, label %52
+  br i1 %.not29, label %57, label %52
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr @ops, align 8
@@ -150,53 +150,52 @@ define noundef i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %60 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #8
   store ptr %60, ptr %4, align 8
   %.not27 = icmp eq ptr %60, null
-  br i1 %.not27, label %.loopexit33, label %19, !llvm.loop !6
+  br i1 %.not27, label %.loopexit32, label %19, !llvm.loop !6
 
-.loopexit33:                                      ; preds = %57, %15, %48
+.loopexit32:                                      ; preds = %57, %15, %48
   %.0 = phi i32 [ -1, %48 ], [ 0, %15 ], [ 0, %57 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   %61 = load i32, ptr @g_context_cnt, align 4
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit33, %._crit_edge
-  %63 = phi i32 [ %76, %._crit_edge ], [ %61, %.loopexit33 ]
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge ], [ 0, %.loopexit33 ]
+.preheader:                                       ; preds = %.loopexit32, %._crit_edge
+  %63 = phi i32 [ %76, %._crit_edge ], [ %61, %.loopexit32 ]
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge ], [ 0, %.loopexit32 ]
   %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph36, label %._crit_edge
+  br i1 %64, label %.lr.ph35, label %._crit_edge
 
-.lr.ph36:                                         ; preds = %.preheader
-  %65 = getelementptr inbounds [5 x i8], ptr @prep_is_required, i64 0, i64 %indvars.iv42
-  %66 = trunc i64 %indvars.iv42 to i32
+.lr.ph35:                                         ; preds = %.preheader
+  %65 = getelementptr inbounds [5 x i8], ptr @prep_is_required, i64 0, i64 %indvars.iv43
+  %66 = trunc i64 %indvars.iv43 to i32
   br label %67
 
-67:                                               ; preds = %67, %.lr.ph36
-  %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph36 ]
+67:                                               ; preds = %67, %.lr.ph35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph35 ]
   %68 = load ptr, ptr @ops, align 8
   %69 = getelementptr inbounds %struct.prep_ops_t, ptr %68, i64 %indvars.iv, i32 5
   %70 = load ptr, ptr %69, align 8
   call void %70(i32 noundef %66, ptr noundef nonnull %65) #8
   %71 = load i8, ptr %65, align 1
-  %72 = and i8 %71, 1
-  %.not29 = icmp eq i8 %72, 0
+  %72 = trunc i8 %71 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr @g_context_cnt, align 4
   %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next, %74
-  %or.cond = select i1 %.not29, i1 %75, i1 false
-  br i1 %or.cond, label %67, label %._crit_edge, !llvm.loop !8
+  %75 = icmp sge i64 %indvars.iv.next, %74
+  %or.cond.not = select i1 %72, i1 true, i1 %75
+  br i1 %or.cond.not, label %._crit_edge, label %67, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %67, %.preheader
   %76 = phi i32 [ %63, %.preheader ], [ %73, %67 ]
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, 5
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next44, 5
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %._crit_edge, %.loopexit33, %8, %13, %11
-  %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit33 ], [ %.0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.loopexit32, %8, %13, %11
+  %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
   %77 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not31 = icmp eq i32 %77, 0
-  br i1 %.not31, label %80, label %78
+  %.not30 = icmp eq i32 %77, 0
+  br i1 %.not30, label %80, label %78
 
 78:                                               ; preds = %.loopexit
   %79 = tail call ptr @__errno_location() #9
@@ -205,8 +204,8 @@ define noundef i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 80:                                               ; preds = %.loopexit
-  %.not32 = icmp eq i32 %.1, 0
-  br i1 %.not32, label %83, label %81
+  %.not31 = icmp eq i32 %.1, 0
+  br i1 %.not31, label %83, label %81
 
 81:                                               ; preds = %80
   %82 = call i32 @prep_g_fini()
@@ -480,9 +479,8 @@ define void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %6) #8
   %19 = load i8, ptr %6, align 1
-  %20 = and i8 %19, 1
-  %.not13 = icmp eq i8 %20, 0
-  br i1 %.not13, label %24, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %14
   %22 = load i32, ptr %11, align 8
@@ -552,9 +550,8 @@ define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %6) #8
   %19 = load i8, ptr %6, align 1
-  %20 = and i8 %19, 1
-  %.not16 = icmp eq i8 %20, 0
-  br i1 %.not16, label %24, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %14
   %22 = load i32, ptr %11, align 4
@@ -626,9 +623,8 @@ define zeroext i1 @prep_g_required(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 12:                                               ; preds = %5
-  %13 = and i8 %8, 1
-  %14 = icmp ne i8 %13, 0
-  ret i1 %14
+  %13 = trunc i8 %8 to i1
+  ret i1 %13
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

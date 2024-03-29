@@ -204,9 +204,8 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %15
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %3
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.proc_req) #11
@@ -215,8 +214,8 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 15:                                               ; preds = %3
   %16 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %17 = and i64 %16, 67108864
-  %.not264 = icmp eq i64 %17, 0
-  br i1 %.not264, label %44, label %18
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %44, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %1, i64 16
@@ -226,10 +225,10 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
-  %.not265 = icmp eq ptr %25, null
+  %.not264 = icmp eq ptr %25, null
   %26 = tail call i32 @get_log_level() #10
   %27 = icmp sgt i32 %26, 2
-  br i1 %.not265, label %37, label %28
+  br i1 %.not264, label %37, label %28
 
 28:                                               ; preds = %18
   br i1 %27, label %29, label %44
@@ -347,116 +346,116 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 
 51:                                               ; preds = %44
   %52 = getelementptr i8, ptr %1, i64 8
-  %.val272 = load ptr, ptr %52, align 8
-  %53 = tail call fastcc i32 @_add_accounts(ptr noundef nonnull %0, ptr %.val272, ptr noundef %2)
+  %.val271 = load ptr, ptr %52, align 8
+  %53 = tail call fastcc i32 @_add_accounts(ptr noundef nonnull %0, ptr %.val271, ptr noundef %2)
   br label %317
 
 54:                                               ; preds = %44
   %55 = getelementptr i8, ptr %1, i64 8
-  %.val273 = load ptr, ptr %55, align 8
-  %56 = tail call fastcc i32 @_add_accounts_cond(ptr noundef nonnull %0, ptr %.val273, ptr noundef %2)
+  %.val272 = load ptr, ptr %55, align 8
+  %56 = tail call fastcc i32 @_add_accounts_cond(ptr noundef nonnull %0, ptr %.val272, ptr noundef %2)
   br label %317
 
 57:                                               ; preds = %44
   %58 = getelementptr i8, ptr %1, i64 8
-  %.val274 = load ptr, ptr %58, align 8
-  %59 = tail call fastcc i32 @_add_account_coords(ptr noundef nonnull %0, ptr %.val274, ptr noundef %2)
+  %.val273 = load ptr, ptr %58, align 8
+  %59 = tail call fastcc i32 @_add_account_coords(ptr noundef nonnull %0, ptr %.val273, ptr noundef %2)
   br label %317
 
 60:                                               ; preds = %44
   %61 = getelementptr i8, ptr %1, i64 8
-  %.val275 = load ptr, ptr %61, align 8
-  %62 = tail call fastcc i32 @_add_tres(ptr noundef nonnull %0, ptr %.val275, ptr noundef %2)
+  %.val274 = load ptr, ptr %61, align 8
+  %62 = tail call fastcc i32 @_add_tres(ptr noundef nonnull %0, ptr %.val274, ptr noundef %2)
   br label %317
 
 63:                                               ; preds = %44
   %64 = getelementptr i8, ptr %1, i64 8
-  %.val276 = load ptr, ptr %64, align 8
-  %65 = tail call fastcc i32 @_add_assocs(ptr noundef nonnull %0, ptr %.val276, ptr noundef %2)
+  %.val275 = load ptr, ptr %64, align 8
+  %65 = tail call fastcc i32 @_add_assocs(ptr noundef nonnull %0, ptr %.val275, ptr noundef %2)
   br label %317
 
 66:                                               ; preds = %44
   %67 = getelementptr i8, ptr %1, i64 8
-  %.val277 = load ptr, ptr %67, align 8
-  %68 = tail call fastcc i32 @_add_clusters(ptr noundef nonnull %0, ptr %.val277, ptr noundef %2)
+  %.val276 = load ptr, ptr %67, align 8
+  %68 = tail call fastcc i32 @_add_clusters(ptr noundef nonnull %0, ptr %.val276, ptr noundef %2)
   br label %317
 
 69:                                               ; preds = %44
   %70 = getelementptr i8, ptr %1, i64 8
-  %.val278 = load ptr, ptr %70, align 8
-  %71 = tail call fastcc i32 @_add_federations(ptr noundef nonnull %0, ptr %.val278, ptr noundef %2)
+  %.val277 = load ptr, ptr %70, align 8
+  %71 = tail call fastcc i32 @_add_federations(ptr noundef nonnull %0, ptr %.val277, ptr noundef %2)
   br label %317
 
 72:                                               ; preds = %44
   %73 = getelementptr i8, ptr %1, i64 8
-  %.val279 = load ptr, ptr %73, align 8
-  %74 = tail call fastcc i32 @_add_qos(ptr noundef nonnull %0, ptr %.val279, ptr noundef %2)
+  %.val278 = load ptr, ptr %73, align 8
+  %74 = tail call fastcc i32 @_add_qos(ptr noundef nonnull %0, ptr %.val278, ptr noundef %2)
   br label %317
 
 75:                                               ; preds = %44
   %76 = getelementptr i8, ptr %1, i64 8
-  %.val280 = load ptr, ptr %76, align 8
-  %77 = tail call fastcc i32 @_add_res(ptr noundef nonnull %0, ptr %.val280, ptr noundef %2)
+  %.val279 = load ptr, ptr %76, align 8
+  %77 = tail call fastcc i32 @_add_res(ptr noundef nonnull %0, ptr %.val279, ptr noundef %2)
   br label %317
 
 78:                                               ; preds = %44
   %79 = getelementptr i8, ptr %1, i64 8
-  %.val281 = load ptr, ptr %79, align 8
-  %80 = tail call fastcc i32 @_add_users(ptr noundef nonnull %0, ptr %.val281, ptr noundef %2)
+  %.val280 = load ptr, ptr %79, align 8
+  %80 = tail call fastcc i32 @_add_users(ptr noundef nonnull %0, ptr %.val280, ptr noundef %2)
   br label %317
 
 81:                                               ; preds = %44
   %82 = getelementptr i8, ptr %1, i64 8
-  %.val282 = load ptr, ptr %82, align 8
-  %83 = tail call fastcc i32 @_add_users_cond(ptr noundef nonnull %0, ptr %.val282, ptr noundef %2)
+  %.val281 = load ptr, ptr %82, align 8
+  %83 = tail call fastcc i32 @_add_users_cond(ptr noundef nonnull %0, ptr %.val281, ptr noundef %2)
   br label %317
 
 84:                                               ; preds = %44
   %85 = getelementptr i8, ptr %1, i64 8
-  %.val283 = load ptr, ptr %85, align 8
-  %86 = tail call fastcc i32 @_add_wckeys(ptr noundef nonnull %0, ptr %.val283, ptr noundef %2)
+  %.val282 = load ptr, ptr %85, align 8
+  %86 = tail call fastcc i32 @_add_wckeys(ptr noundef nonnull %0, ptr %.val282, ptr noundef %2)
   br label %317
 
 87:                                               ; preds = %44
   %88 = getelementptr i8, ptr %1, i64 8
-  %.val284 = load ptr, ptr %88, align 8
-  %89 = tail call fastcc i32 @_add_reservation(ptr noundef nonnull %0, ptr %.val284, ptr noundef %2)
+  %.val283 = load ptr, ptr %88, align 8
+  %89 = tail call fastcc i32 @_add_reservation(ptr noundef nonnull %0, ptr %.val283, ptr noundef %2)
   br label %317
 
 90:                                               ; preds = %44
   %91 = getelementptr i8, ptr %1, i64 8
-  %.val285 = load ptr, ptr %91, align 8
-  %92 = tail call fastcc i32 @_archive_dump(ptr noundef nonnull %0, ptr %.val285, ptr noundef %2)
+  %.val284 = load ptr, ptr %91, align 8
+  %92 = tail call fastcc i32 @_archive_dump(ptr noundef nonnull %0, ptr %.val284, ptr noundef %2)
   br label %317
 
 93:                                               ; preds = %44
   %94 = getelementptr i8, ptr %1, i64 8
-  %.val286 = load ptr, ptr %94, align 8
-  %95 = tail call fastcc i32 @_archive_load(ptr noundef nonnull %0, ptr %.val286, ptr noundef %2)
+  %.val285 = load ptr, ptr %94, align 8
+  %95 = tail call fastcc i32 @_archive_load(ptr noundef nonnull %0, ptr %.val285, ptr noundef %2)
   br label %317
 
 96:                                               ; preds = %44
   %97 = getelementptr i8, ptr %1, i64 8
-  %.val287 = load ptr, ptr %97, align 8
-  %98 = tail call fastcc i32 @_cluster_tres(ptr noundef nonnull %0, ptr %.val287, ptr noundef %2)
+  %.val286 = load ptr, ptr %97, align 8
+  %98 = tail call fastcc i32 @_cluster_tres(ptr noundef nonnull %0, ptr %.val286, ptr noundef %2)
   br label %317
 
 99:                                               ; preds = %44
   %100 = getelementptr i8, ptr %1, i64 8
-  %.val288 = load ptr, ptr %100, align 8
-  %101 = tail call fastcc i32 @_get_accounts(ptr noundef nonnull %0, ptr %.val288, ptr noundef %2)
+  %.val287 = load ptr, ptr %100, align 8
+  %101 = tail call fastcc i32 @_get_accounts(ptr noundef nonnull %0, ptr %.val287, ptr noundef %2)
   br label %317
 
 102:                                              ; preds = %44
   %103 = getelementptr i8, ptr %1, i64 8
-  %.val289 = load ptr, ptr %103, align 8
-  %104 = tail call fastcc i32 @_get_tres(ptr noundef nonnull %0, ptr %.val289, ptr noundef %2)
+  %.val288 = load ptr, ptr %103, align 8
+  %104 = tail call fastcc i32 @_get_tres(ptr noundef nonnull %0, ptr %.val288, ptr noundef %2)
   br label %317
 
 105:                                              ; preds = %44
   %106 = getelementptr i8, ptr %1, i64 8
-  %.val290 = load ptr, ptr %106, align 8
-  %107 = tail call fastcc i32 @_get_assocs(ptr noundef nonnull %0, ptr %.val290, ptr noundef %2)
+  %.val289 = load ptr, ptr %106, align 8
+  %107 = tail call fastcc i32 @_get_assocs(ptr noundef nonnull %0, ptr %.val289, ptr noundef %2)
   br label %317
 
 108:                                              ; preds = %44, %44, %44
@@ -552,183 +551,183 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 
 160:                                              ; preds = %44
   %161 = getelementptr i8, ptr %1, i64 8
-  %.val291 = load ptr, ptr %161, align 8
-  %162 = tail call fastcc i32 @_get_clusters(ptr noundef nonnull %0, ptr %.val291, ptr noundef %2)
+  %.val290 = load ptr, ptr %161, align 8
+  %162 = tail call fastcc i32 @_get_clusters(ptr noundef nonnull %0, ptr %.val290, ptr noundef %2)
   br label %317
 
 163:                                              ; preds = %44
   %164 = getelementptr i8, ptr %1, i64 8
-  %.val292 = load ptr, ptr %164, align 8
-  %165 = tail call fastcc i32 @_get_federations(ptr noundef nonnull %0, ptr %.val292, ptr noundef %2)
+  %.val291 = load ptr, ptr %164, align 8
+  %165 = tail call fastcc i32 @_get_federations(ptr noundef nonnull %0, ptr %.val291, ptr noundef %2)
   br label %317
 
 166:                                              ; preds = %44
   %167 = getelementptr i8, ptr %1, i64 8
-  %.val293 = load ptr, ptr %167, align 8
-  %168 = tail call fastcc i32 @_get_config(ptr noundef nonnull %0, ptr %.val293, ptr noundef %2)
+  %.val292 = load ptr, ptr %167, align 8
+  %168 = tail call fastcc i32 @_get_config(ptr noundef nonnull %0, ptr %.val292, ptr noundef %2)
   br label %317
 
 169:                                              ; preds = %44
   %170 = getelementptr i8, ptr %1, i64 8
-  %.val294 = load ptr, ptr %170, align 8
-  %171 = tail call fastcc i32 @_get_events(ptr noundef nonnull %0, ptr %.val294, ptr noundef %2)
+  %.val293 = load ptr, ptr %170, align 8
+  %171 = tail call fastcc i32 @_get_events(ptr noundef nonnull %0, ptr %.val293, ptr noundef %2)
   br label %317
 
 172:                                              ; preds = %44
   %173 = getelementptr i8, ptr %1, i64 8
-  %.val295 = load ptr, ptr %173, align 8
-  %174 = tail call fastcc i32 @_get_instances(ptr noundef nonnull %0, ptr %.val295, ptr noundef %2)
+  %.val294 = load ptr, ptr %173, align 8
+  %174 = tail call fastcc i32 @_get_instances(ptr noundef nonnull %0, ptr %.val294, ptr noundef %2)
   br label %317
 
 175:                                              ; preds = %44
   %176 = getelementptr i8, ptr %1, i64 8
-  %.val296 = load ptr, ptr %176, align 8
-  %.val296.val = load ptr, ptr %.val296, align 8
-  %177 = tail call fastcc i32 @_get_jobs_cond(ptr noundef nonnull %0, ptr %.val296.val, ptr noundef %2)
+  %.val295 = load ptr, ptr %176, align 8
+  %.val295.val = load ptr, ptr %.val295, align 8
+  %177 = tail call fastcc i32 @_get_jobs_cond(ptr noundef nonnull %0, ptr %.val295.val, ptr noundef %2)
   br label %317
 
 178:                                              ; preds = %44
   %179 = getelementptr i8, ptr %1, i64 8
-  %.val297 = load ptr, ptr %179, align 8
-  %180 = tail call fastcc i32 @_get_probs(ptr noundef nonnull %0, ptr %.val297, ptr noundef %2)
+  %.val296 = load ptr, ptr %179, align 8
+  %180 = tail call fastcc i32 @_get_probs(ptr noundef nonnull %0, ptr %.val296, ptr noundef %2)
   br label %317
 
 181:                                              ; preds = %44
   %182 = getelementptr i8, ptr %1, i64 8
-  %.val298 = load ptr, ptr %182, align 8
-  %183 = tail call fastcc i32 @_get_qos(ptr noundef nonnull %0, ptr %.val298, ptr noundef %2)
+  %.val297 = load ptr, ptr %182, align 8
+  %183 = tail call fastcc i32 @_get_qos(ptr noundef nonnull %0, ptr %.val297, ptr noundef %2)
   br label %317
 
 184:                                              ; preds = %44
   %185 = getelementptr i8, ptr %1, i64 8
-  %.val299 = load ptr, ptr %185, align 8
-  %186 = tail call fastcc i32 @_get_res(ptr noundef nonnull %0, ptr %.val299, ptr noundef %2)
+  %.val298 = load ptr, ptr %185, align 8
+  %186 = tail call fastcc i32 @_get_res(ptr noundef nonnull %0, ptr %.val298, ptr noundef %2)
   br label %317
 
 187:                                              ; preds = %44
   %188 = getelementptr i8, ptr %1, i64 8
-  %.val300 = load ptr, ptr %188, align 8
-  %189 = tail call fastcc i32 @_get_txn(ptr noundef nonnull %0, ptr %.val300, ptr noundef %2)
+  %.val299 = load ptr, ptr %188, align 8
+  %189 = tail call fastcc i32 @_get_txn(ptr noundef nonnull %0, ptr %.val299, ptr noundef %2)
   br label %317
 
 190:                                              ; preds = %44
   %191 = getelementptr i8, ptr %1, i64 8
-  %.val301 = load ptr, ptr %191, align 8
-  %192 = tail call fastcc i32 @_get_wckeys(ptr noundef nonnull %0, ptr %.val301, ptr noundef %2)
+  %.val300 = load ptr, ptr %191, align 8
+  %192 = tail call fastcc i32 @_get_wckeys(ptr noundef nonnull %0, ptr %.val300, ptr noundef %2)
   br label %317
 
 193:                                              ; preds = %44
   %194 = getelementptr i8, ptr %1, i64 8
-  %.val302 = load ptr, ptr %194, align 8
-  %195 = tail call fastcc i32 @_get_reservations(ptr noundef nonnull %0, ptr %.val302, ptr noundef %2)
+  %.val301 = load ptr, ptr %194, align 8
+  %195 = tail call fastcc i32 @_get_reservations(ptr noundef nonnull %0, ptr %.val301, ptr noundef %2)
   br label %317
 
 196:                                              ; preds = %44
   %197 = getelementptr i8, ptr %1, i64 8
-  %.val303 = load ptr, ptr %197, align 8
-  %198 = tail call fastcc i32 @_get_users(ptr noundef nonnull %0, ptr %.val303, ptr noundef %2)
+  %.val302 = load ptr, ptr %197, align 8
+  %198 = tail call fastcc i32 @_get_users(ptr noundef nonnull %0, ptr %.val302, ptr noundef %2)
   br label %317
 
 199:                                              ; preds = %44
   %200 = getelementptr i8, ptr %1, i64 8
-  %.val304 = load ptr, ptr %200, align 8
-  %201 = tail call fastcc i32 @_flush_jobs(ptr noundef nonnull %0, ptr %.val304, ptr noundef %2)
+  %.val303 = load ptr, ptr %200, align 8
+  %201 = tail call fastcc i32 @_flush_jobs(ptr noundef nonnull %0, ptr %.val303, ptr noundef %2)
   br label %317
 
 202:                                              ; preds = %44
   %203 = getelementptr i8, ptr %1, i64 8
-  %.val305 = load ptr, ptr %203, align 8
-  %204 = tail call fastcc i32 @_fini_conn(ptr noundef nonnull %0, ptr %.val305, ptr noundef %2)
+  %.val304 = load ptr, ptr %203, align 8
+  %204 = tail call fastcc i32 @_fini_conn(ptr noundef nonnull %0, ptr %.val304, ptr noundef %2)
   br label %317
 
 205:                                              ; preds = %44
   %206 = getelementptr i8, ptr %1, i64 8
-  %.val306 = load ptr, ptr %206, align 8
-  tail call fastcc void @_job_complete(ptr noundef nonnull %0, ptr %.val306, ptr noundef %2)
+  %.val305 = load ptr, ptr %206, align 8
+  tail call fastcc void @_job_complete(ptr noundef nonnull %0, ptr %.val305, ptr noundef %2)
   br label %.thread
 
 207:                                              ; preds = %44
   %208 = getelementptr i8, ptr %1, i64 8
-  %.val307 = load ptr, ptr %208, align 8
-  %209 = tail call fastcc i32 @_job_start(ptr noundef nonnull %0, ptr %.val307, ptr noundef %2)
+  %.val306 = load ptr, ptr %208, align 8
+  %209 = tail call fastcc i32 @_job_start(ptr noundef nonnull %0, ptr %.val306, ptr noundef %2)
   br label %317
 
 210:                                              ; preds = %44
   %211 = getelementptr i8, ptr %1, i64 8
-  %.val308 = load ptr, ptr %211, align 8
-  %212 = tail call fastcc i32 @_job_heavy(ptr noundef nonnull %0, ptr %.val308, ptr noundef %2)
+  %.val307 = load ptr, ptr %211, align 8
+  %212 = tail call fastcc i32 @_job_heavy(ptr noundef nonnull %0, ptr %.val307, ptr noundef %2)
   br label %317
 
 213:                                              ; preds = %44
   %214 = getelementptr i8, ptr %1, i64 8
-  %.val309 = load ptr, ptr %214, align 8
-  tail call fastcc void @_job_suspend(ptr noundef nonnull %0, ptr %.val309, ptr noundef %2)
+  %.val308 = load ptr, ptr %214, align 8
+  tail call fastcc void @_job_suspend(ptr noundef nonnull %0, ptr %.val308, ptr noundef %2)
   br label %.thread
 
 215:                                              ; preds = %44
   %216 = getelementptr i8, ptr %1, i64 8
-  %.val310 = load ptr, ptr %216, align 8
-  %217 = tail call fastcc i32 @_modify_accounts(ptr noundef nonnull %0, ptr %.val310, ptr noundef %2)
+  %.val309 = load ptr, ptr %216, align 8
+  %217 = tail call fastcc i32 @_modify_accounts(ptr noundef nonnull %0, ptr %.val309, ptr noundef %2)
   br label %317
 
 218:                                              ; preds = %44
   %219 = getelementptr i8, ptr %1, i64 8
-  %.val311 = load ptr, ptr %219, align 8
-  %220 = tail call fastcc i32 @_modify_assocs(ptr noundef nonnull %0, ptr %.val311, ptr noundef %2)
+  %.val310 = load ptr, ptr %219, align 8
+  %220 = tail call fastcc i32 @_modify_assocs(ptr noundef nonnull %0, ptr %.val310, ptr noundef %2)
   br label %317
 
 221:                                              ; preds = %44
   %222 = getelementptr i8, ptr %1, i64 8
-  %.val312 = load ptr, ptr %222, align 8
-  %223 = tail call fastcc i32 @_modify_clusters(ptr noundef nonnull %0, ptr %.val312, ptr noundef %2)
+  %.val311 = load ptr, ptr %222, align 8
+  %223 = tail call fastcc i32 @_modify_clusters(ptr noundef nonnull %0, ptr %.val311, ptr noundef %2)
   br label %317
 
 224:                                              ; preds = %44
   %225 = getelementptr i8, ptr %1, i64 8
-  %.val313 = load ptr, ptr %225, align 8
-  %226 = tail call fastcc i32 @_modify_federations(ptr noundef nonnull %0, ptr %.val313, ptr noundef %2)
+  %.val312 = load ptr, ptr %225, align 8
+  %226 = tail call fastcc i32 @_modify_federations(ptr noundef nonnull %0, ptr %.val312, ptr noundef %2)
   br label %317
 
 227:                                              ; preds = %44
   %228 = getelementptr i8, ptr %1, i64 8
-  %.val314 = load ptr, ptr %228, align 8
-  %229 = tail call fastcc i32 @_modify_job(ptr noundef nonnull %0, ptr %.val314, ptr noundef %2)
+  %.val313 = load ptr, ptr %228, align 8
+  %229 = tail call fastcc i32 @_modify_job(ptr noundef nonnull %0, ptr %.val313, ptr noundef %2)
   br label %317
 
 230:                                              ; preds = %44
   %231 = getelementptr i8, ptr %1, i64 8
-  %.val315 = load ptr, ptr %231, align 8
-  %232 = tail call fastcc i32 @_modify_qos(ptr noundef nonnull %0, ptr %.val315, ptr noundef %2)
+  %.val314 = load ptr, ptr %231, align 8
+  %232 = tail call fastcc i32 @_modify_qos(ptr noundef nonnull %0, ptr %.val314, ptr noundef %2)
   br label %317
 
 233:                                              ; preds = %44
   %234 = getelementptr i8, ptr %1, i64 8
-  %.val316 = load ptr, ptr %234, align 8
-  %235 = tail call fastcc i32 @_modify_res(ptr noundef nonnull %0, ptr %.val316, ptr noundef %2)
+  %.val315 = load ptr, ptr %234, align 8
+  %235 = tail call fastcc i32 @_modify_res(ptr noundef nonnull %0, ptr %.val315, ptr noundef %2)
   br label %317
 
 236:                                              ; preds = %44
   %237 = getelementptr i8, ptr %1, i64 8
-  %.val317 = load ptr, ptr %237, align 8
-  %238 = tail call fastcc i32 @_modify_users(ptr noundef nonnull %0, ptr %.val317, ptr noundef %2)
+  %.val316 = load ptr, ptr %237, align 8
+  %238 = tail call fastcc i32 @_modify_users(ptr noundef nonnull %0, ptr %.val316, ptr noundef %2)
   br label %317
 
 239:                                              ; preds = %44
   %240 = getelementptr i8, ptr %1, i64 8
-  %.val318 = load ptr, ptr %240, align 8
-  %241 = tail call fastcc i32 @_modify_wckeys(ptr noundef nonnull %0, ptr %.val318, ptr noundef %2)
+  %.val317 = load ptr, ptr %240, align 8
+  %241 = tail call fastcc i32 @_modify_wckeys(ptr noundef nonnull %0, ptr %.val317, ptr noundef %2)
   br label %317
 
 242:                                              ; preds = %44
   %243 = getelementptr i8, ptr %1, i64 8
-  %.val319 = load ptr, ptr %243, align 8
-  %244 = tail call fastcc i32 @_modify_reservation(ptr noundef nonnull %0, ptr %.val319, ptr noundef %2)
+  %.val318 = load ptr, ptr %243, align 8
+  %244 = tail call fastcc i32 @_modify_reservation(ptr noundef nonnull %0, ptr %.val318, ptr noundef %2)
   br label %317
 
 245:                                              ; preds = %44
   %246 = getelementptr i8, ptr %1, i64 8
-  %.val320 = load ptr, ptr %246, align 8
-  tail call fastcc void @_node_state(ptr noundef nonnull %0, ptr %.val320, ptr noundef %2)
+  %.val319 = load ptr, ptr %246, align 8
+  tail call fastcc void @_node_state(ptr noundef nonnull %0, ptr %.val319, ptr noundef %2)
   br label %.thread
 
 247:                                              ; preds = %44
@@ -737,8 +736,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 
 249:                                              ; preds = %44
   %250 = getelementptr i8, ptr %1, i64 8
-  %.val321 = load ptr, ptr %250, align 8
-  %251 = tail call fastcc i32 @_register_ctld(ptr noundef nonnull %0, ptr %.val321, ptr noundef %2)
+  %.val320 = load ptr, ptr %250, align 8
+  %251 = tail call fastcc i32 @_register_ctld(ptr noundef nonnull %0, ptr %.val320, ptr noundef %2)
   %252 = load ptr, ptr %0, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 64
   %254 = load i16, ptr %253, align 8
@@ -748,74 +747,74 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 
 256:                                              ; preds = %44
   %257 = getelementptr i8, ptr %1, i64 8
-  %.val322 = load ptr, ptr %257, align 8
-  %258 = tail call fastcc i32 @_remove_accounts(ptr noundef nonnull %0, ptr %.val322, ptr noundef %2)
+  %.val321 = load ptr, ptr %257, align 8
+  %258 = tail call fastcc i32 @_remove_accounts(ptr noundef nonnull %0, ptr %.val321, ptr noundef %2)
   br label %317
 
 259:                                              ; preds = %44
   %260 = getelementptr i8, ptr %1, i64 8
-  %.val323 = load ptr, ptr %260, align 8
-  %261 = tail call fastcc i32 @_remove_account_coords(ptr noundef nonnull %0, ptr %.val323, ptr noundef %2)
+  %.val322 = load ptr, ptr %260, align 8
+  %261 = tail call fastcc i32 @_remove_account_coords(ptr noundef nonnull %0, ptr %.val322, ptr noundef %2)
   br label %317
 
 262:                                              ; preds = %44
   %263 = getelementptr i8, ptr %1, i64 8
-  %.val324 = load ptr, ptr %263, align 8
-  %264 = tail call fastcc i32 @_remove_assocs(ptr noundef nonnull %0, ptr %.val324, ptr noundef %2)
+  %.val323 = load ptr, ptr %263, align 8
+  %264 = tail call fastcc i32 @_remove_assocs(ptr noundef nonnull %0, ptr %.val323, ptr noundef %2)
   br label %317
 
 265:                                              ; preds = %44
   %266 = getelementptr i8, ptr %1, i64 8
-  %.val325 = load ptr, ptr %266, align 8
-  %267 = tail call fastcc i32 @_remove_clusters(ptr noundef nonnull %0, ptr %.val325, ptr noundef %2)
+  %.val324 = load ptr, ptr %266, align 8
+  %267 = tail call fastcc i32 @_remove_clusters(ptr noundef nonnull %0, ptr %.val324, ptr noundef %2)
   br label %317
 
 268:                                              ; preds = %44
   %269 = getelementptr i8, ptr %1, i64 8
-  %.val326 = load ptr, ptr %269, align 8
-  %270 = tail call fastcc i32 @_remove_federations(ptr noundef nonnull %0, ptr %.val326, ptr noundef %2)
+  %.val325 = load ptr, ptr %269, align 8
+  %270 = tail call fastcc i32 @_remove_federations(ptr noundef nonnull %0, ptr %.val325, ptr noundef %2)
   br label %317
 
 271:                                              ; preds = %44
   %272 = getelementptr i8, ptr %1, i64 8
-  %.val327 = load ptr, ptr %272, align 8
-  %273 = tail call fastcc i32 @_remove_qos(ptr noundef nonnull %0, ptr %.val327, ptr noundef %2)
+  %.val326 = load ptr, ptr %272, align 8
+  %273 = tail call fastcc i32 @_remove_qos(ptr noundef nonnull %0, ptr %.val326, ptr noundef %2)
   br label %317
 
 274:                                              ; preds = %44
   %275 = getelementptr i8, ptr %1, i64 8
-  %.val328 = load ptr, ptr %275, align 8
-  %276 = tail call fastcc i32 @_remove_res(ptr noundef nonnull %0, ptr %.val328, ptr noundef %2)
+  %.val327 = load ptr, ptr %275, align 8
+  %276 = tail call fastcc i32 @_remove_res(ptr noundef nonnull %0, ptr %.val327, ptr noundef %2)
   br label %317
 
 277:                                              ; preds = %44
   %278 = getelementptr i8, ptr %1, i64 8
-  %.val329 = load ptr, ptr %278, align 8
-  %279 = tail call fastcc i32 @_remove_users(ptr noundef nonnull %0, ptr %.val329, ptr noundef %2)
+  %.val328 = load ptr, ptr %278, align 8
+  %279 = tail call fastcc i32 @_remove_users(ptr noundef nonnull %0, ptr %.val328, ptr noundef %2)
   br label %317
 
 280:                                              ; preds = %44
   %281 = getelementptr i8, ptr %1, i64 8
-  %.val330 = load ptr, ptr %281, align 8
-  %282 = tail call fastcc i32 @_remove_wckeys(ptr noundef nonnull %0, ptr %.val330, ptr noundef %2)
+  %.val329 = load ptr, ptr %281, align 8
+  %282 = tail call fastcc i32 @_remove_wckeys(ptr noundef nonnull %0, ptr %.val329, ptr noundef %2)
   br label %317
 
 283:                                              ; preds = %44
   %284 = getelementptr i8, ptr %1, i64 8
-  %.val331 = load ptr, ptr %284, align 8
-  %285 = tail call fastcc i32 @_remove_reservation(ptr noundef nonnull %0, ptr %.val331, ptr noundef %2)
+  %.val330 = load ptr, ptr %284, align 8
+  %285 = tail call fastcc i32 @_remove_reservation(ptr noundef nonnull %0, ptr %.val330, ptr noundef %2)
   br label %317
 
 286:                                              ; preds = %44
   %287 = getelementptr i8, ptr %1, i64 8
-  %.val332 = load ptr, ptr %287, align 8
-  %288 = tail call fastcc i32 @_roll_usage(ptr noundef nonnull %0, ptr %.val332, ptr noundef %2)
+  %.val331 = load ptr, ptr %287, align 8
+  %288 = tail call fastcc i32 @_roll_usage(ptr noundef nonnull %0, ptr %.val331, ptr noundef %2)
   br label %317
 
 289:                                              ; preds = %44
   %290 = getelementptr i8, ptr %1, i64 8
-  %.val333 = load ptr, ptr %290, align 8
-  %291 = tail call fastcc i32 @_send_mult_job_start(ptr noundef nonnull %0, ptr %.val333, ptr noundef %2)
+  %.val332 = load ptr, ptr %290, align 8
+  %291 = tail call fastcc i32 @_send_mult_job_start(ptr noundef nonnull %0, ptr %.val332, ptr noundef %2)
   br label %317
 
 292:                                              ; preds = %44
@@ -824,20 +823,20 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 
 294:                                              ; preds = %44
   %295 = getelementptr i8, ptr %1, i64 8
-  %.val334 = load ptr, ptr %295, align 8
-  %296 = tail call fastcc i32 @_step_complete(ptr noundef nonnull %0, ptr %.val334, ptr noundef %2)
+  %.val333 = load ptr, ptr %295, align 8
+  %296 = tail call fastcc i32 @_step_complete(ptr noundef nonnull %0, ptr %.val333, ptr noundef %2)
   br label %317
 
 297:                                              ; preds = %44
   %298 = getelementptr i8, ptr %1, i64 8
-  %.val335 = load ptr, ptr %298, align 8
-  %299 = tail call fastcc i32 @_step_start(ptr noundef nonnull %0, ptr %.val335, ptr noundef %2)
+  %.val334 = load ptr, ptr %298, align 8
+  %299 = tail call fastcc i32 @_step_start(ptr noundef nonnull %0, ptr %.val334, ptr noundef %2)
   br label %317
 
 300:                                              ; preds = %44
   %301 = getelementptr i8, ptr %1, i64 8
-  %.val336 = load ptr, ptr %301, align 8
-  %302 = tail call fastcc i32 @_fix_runaway_jobs(ptr noundef nonnull %0, ptr %.val336, ptr noundef %2)
+  %.val335 = load ptr, ptr %301, align 8
+  %302 = tail call fastcc i32 @_fix_runaway_jobs(ptr noundef nonnull %0, ptr %.val335, ptr noundef %2)
   br label %317
 
 303:                                              ; preds = %44
@@ -879,19 +878,19 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   br label %341
 
 .thread:                                          ; preds = %205, %213, %245, %292, %309, %317
-  %.0339 = phi i32 [ %.0, %317 ], [ 0, %205 ], [ 0, %213 ], [ 0, %245 ], [ %293, %292 ], [ 22, %309 ]
+  %.0338 = phi i32 [ %.0, %317 ], [ 0, %205 ], [ 0, %213 ], [ 0, %245 ], [ %293, %292 ], [ 22, %309 ]
   %327 = load ptr, ptr %0, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 88
   %329 = load i16, ptr %328, align 8
-  %.not266 = icmp eq i16 %329, 0
-  br i1 %.not266, label %341, label %330
+  %.not265 = icmp eq i16 %329, 0
+  br i1 %.not265, label %341, label %330
 
 330:                                              ; preds = %.thread
   %331 = load ptr, ptr @slurmdbd_conf, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 16
   %333 = load i16, ptr %332, align 8
-  %.not267 = icmp eq i16 %333, 0
-  br i1 %.not267, label %337, label %334
+  %.not266 = icmp eq i16 %333, 0
+  br i1 %.not266, label %337, label %334
 
 334:                                              ; preds = %330
   %335 = load i16, ptr %45, align 8
@@ -905,7 +904,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   br label %341
 
 341:                                              ; preds = %.thread, %334, %337, %319
-  %.0338 = phi i32 [ %.0339, %.thread ], [ %.0339, %334 ], [ %.0339, %337 ], [ 2002, %319 ]
+  %.0337 = phi i32 [ %.0338, %.thread ], [ %.0338, %334 ], [ %.0338, %337 ], [ 2002, %319 ]
   %342 = load ptr, ptr %0, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 64
   %344 = load i16, ptr %343, align 8
@@ -914,8 +913,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %346 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #10
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8) #10
   %347 = call i32 @pthread_mutex_lock(ptr noundef nonnull @rpc_mutex) #10
-  %.not268 = icmp eq i32 %347, 0
-  br i1 %.not268, label %350, label %348
+  %.not267 = icmp eq i32 %347, 0
+  br i1 %.not267, label %350, label %348
 
 348:                                              ; preds = %341
   %349 = tail call ptr @__errno_location() #12
@@ -926,8 +925,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 350:                                              ; preds = %341
   %351 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i64 0, i32 2), align 8
   %352 = call ptr @list_find_first(ptr noundef %351, ptr noundef nonnull @_find_rpc_obj_in_list, ptr noundef nonnull %45) #10
-  %.not269 = icmp eq ptr %352, null
-  br i1 %.not269, label %353, label %359
+  %.not268 = icmp eq ptr %352, null
+  br i1 %.not268, label %353, label %359
 
 353:                                              ; preds = %350
   %354 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 3745, ptr noundef nonnull @__func__.proc_req) #10
@@ -953,8 +952,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %367 = load ptr, ptr %0, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 8
   %369 = call ptr @list_find_first(ptr noundef %366, ptr noundef nonnull @_find_rpc_obj_in_list, ptr noundef nonnull %368) #10
-  %.not270 = icmp eq ptr %369, null
-  br i1 %.not270, label %370, label %377
+  %.not269 = icmp eq ptr %369, null
+  br i1 %.not269, label %370, label %377
 
 370:                                              ; preds = %359
   %371 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 3755, ptr noundef nonnull @__func__.proc_req) #10
@@ -978,8 +977,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   %383 = add i64 %382, %380
   store i64 %383, ptr %381, align 8
   %384 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @rpc_mutex) #10
-  %.not271 = icmp eq i32 %384, 0
-  br i1 %.not271, label %387, label %385
+  %.not270 = icmp eq i32 %384, 0
+  br i1 %.not270, label %387, label %385
 
 385:                                              ; preds = %377
   %386 = tail call ptr @__errno_location() #12
@@ -988,7 +987,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   unreachable
 
 387:                                              ; preds = %377
-  ret i32 %.0338
+  ret i32 %.0337
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

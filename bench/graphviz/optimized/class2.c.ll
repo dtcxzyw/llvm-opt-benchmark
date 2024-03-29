@@ -249,8 +249,8 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 236
   %9 = load i32, ptr %8, align 4
-  %.not244 = icmp slt i32 %9, 1
-  br i1 %.not244, label %._crit_edge, label %.lr.ph
+  %.not242 = icmp slt i32 %9, 1
+  br i1 %.not242, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %1 ]
@@ -270,22 +270,22 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %19 = tail call ptr @agfstnode(ptr noundef nonnull %0) #9
-  %.not213251 = icmp eq ptr %19, null
-  br i1 %.not213251, label %._crit_edge255, label %.lr.ph254
+  %.not213249 = icmp eq ptr %19, null
+  br i1 %.not213249, label %._crit_edge253, label %.lr.ph252
 
-.lr.ph254:                                        ; preds = %._crit_edge, %._crit_edge250
-  %.0202252 = phi ptr [ %48, %._crit_edge250 ], [ %19, %._crit_edge ]
-  %20 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0202252) #9
-  %.not235246 = icmp eq ptr %20, null
-  br i1 %.not235246, label %._crit_edge250, label %.lr.ph249
+.lr.ph252:                                        ; preds = %._crit_edge, %._crit_edge248
+  %.0202250 = phi ptr [ %48, %._crit_edge248 ], [ %19, %._crit_edge ]
+  %20 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0202250) #9
+  %.not233244 = icmp eq ptr %20, null
+  br i1 %.not233244, label %._crit_edge248, label %.lr.ph247
 
-.lr.ph249:                                        ; preds = %.lr.ph254, %46
-  %.0199247 = phi ptr [ %47, %46 ], [ %20, %.lr.ph254 ]
-  %21 = load i32, ptr %.0199247, align 8
+.lr.ph247:                                        ; preds = %.lr.ph252, %46
+  %.0199245 = phi ptr [ %47, %46 ], [ %20, %.lr.ph252 ]
+  %21 = load i32, ptr %.0199245, align 8
   %22 = and i32 %21, 3
   %23 = icmp eq i32 %22, 2
-  %.idx236 = select i1 %23, i64 0, i64 -64
-  %24 = getelementptr inbounds i8, ptr %.0199247, i64 %.idx236
+  %.idx234 = select i1 %23, i64 0, i64 -64
+  %24 = getelementptr inbounds i8, ptr %.0199245, i64 %.idx234
   %25 = getelementptr inbounds i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
@@ -295,18 +295,18 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   %31 = icmp slt i8 %30, 3
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %.lr.ph249
+32:                                               ; preds = %.lr.ph247
   %33 = add nsw i8 %30, 1
   store i8 %33, ptr %29, align 2
-  %.pre = load i32, ptr %.0199247, align 8
-  %.pre279 = and i32 %.pre, 3
+  %.pre = load i32, ptr %.0199245, align 8
+  %.pre277 = and i32 %.pre, 3
   br label %34
 
-34:                                               ; preds = %32, %.lr.ph249
-  %.pre-phi280 = phi i32 [ %.pre279, %32 ], [ %22, %.lr.ph249 ]
-  %35 = icmp eq i32 %.pre-phi280, 3
-  %.idx237 = select i1 %35, i64 0, i64 64
-  %36 = getelementptr inbounds i8, ptr %.0199247, i64 %.idx237
+34:                                               ; preds = %32, %.lr.ph247
+  %.pre-phi278 = phi i32 [ %.pre277, %32 ], [ %22, %.lr.ph247 ]
+  %35 = icmp eq i32 %.pre-phi278, 3
+  %.idx235 = select i1 %35, i64 0, i64 64
+  %36 = getelementptr inbounds i8, ptr %.0199245, i64 %.idx235
   %37 = getelementptr inbounds i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 16
@@ -322,36 +322,36 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   br label %46
 
 46:                                               ; preds = %34, %44
-  %47 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0199247) #9
-  %.not235 = icmp eq ptr %47, null
-  br i1 %.not235, label %._crit_edge250, label %.lr.ph249
+  %47 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0199245) #9
+  %.not233 = icmp eq ptr %47, null
+  br i1 %.not233, label %._crit_edge248, label %.lr.ph247
 
-._crit_edge250:                                   ; preds = %46, %.lr.ph254
-  %48 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0202252) #9
+._crit_edge248:                                   ; preds = %46, %.lr.ph252
+  %48 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0202250) #9
   %.not213 = icmp eq ptr %48, null
-  br i1 %.not213, label %._crit_edge255, label %.lr.ph254
+  br i1 %.not213, label %._crit_edge253, label %.lr.ph252
 
-._crit_edge255:                                   ; preds = %._crit_edge250, %._crit_edge
+._crit_edge253:                                   ; preds = %._crit_edge248, %._crit_edge
   %49 = tail call ptr @agfstnode(ptr noundef %0) #9
-  %.not214267 = icmp eq ptr %49, null
-  br i1 %.not214267, label %._crit_edge271, label %.lr.ph270
+  %.not214265 = icmp eq ptr %49, null
+  br i1 %.not214265, label %._crit_edge269, label %.lr.ph268
 
-.lr.ph270:                                        ; preds = %._crit_edge255, %._crit_edge266
-  %.1203268 = phi ptr [ %460, %._crit_edge266 ], [ %49, %._crit_edge255 ]
-  %50 = getelementptr inbounds i8, ptr %.1203268, i64 16
+.lr.ph268:                                        ; preds = %._crit_edge253, %._crit_edge264
+  %.1203266 = phi ptr [ %460, %._crit_edge264 ], [ %49, %._crit_edge253 ]
+  %50 = getelementptr inbounds i8, ptr %.1203266, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 336
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %63
 
-55:                                               ; preds = %.lr.ph270
-  %56 = tail call ptr @UF_find(ptr noundef nonnull %.1203268) #9
-  %57 = icmp eq ptr %.1203268, %56
+55:                                               ; preds = %.lr.ph268
+  %56 = tail call ptr @UF_find(ptr noundef nonnull %.1203266) #9
+  %57 = icmp eq ptr %.1203266, %56
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %55
-  tail call void @fast_node(ptr noundef %0, ptr noundef nonnull %.1203268) #9
+  tail call void @fast_node(ptr noundef %0, ptr noundef nonnull %.1203266) #9
   %59 = load ptr, ptr %2, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 336
   %61 = load i64, ptr %60, align 8
@@ -359,27 +359,27 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   store i64 %62, ptr %60, align 8
   br label %63
 
-63:                                               ; preds = %58, %55, %.lr.ph270
-  %64 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.1203268) #9
-  %.not216261 = icmp eq ptr %64, null
-  br i1 %.not216261, label %._crit_edge266, label %.lr.ph265
+63:                                               ; preds = %58, %55, %.lr.ph268
+  %64 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.1203266) #9
+  %.not216259 = icmp eq ptr %64, null
+  br i1 %.not216259, label %._crit_edge264, label %.lr.ph263
 
-.lr.ph265:                                        ; preds = %63, %interclrep.exit
-  %.0198263 = phi ptr [ %.1, %interclrep.exit ], [ null, %63 ]
-  %.1200262 = phi ptr [ %459, %interclrep.exit ], [ %64, %63 ]
-  %65 = getelementptr inbounds i8, ptr %.1200262, i64 16
+.lr.ph263:                                        ; preds = %63, %interclrep.exit
+  %.0198261 = phi ptr [ %.1, %interclrep.exit ], [ null, %63 ]
+  %.1200260 = phi ptr [ %459, %interclrep.exit ], [ %64, %63 ]
+  %65 = getelementptr inbounds i8, ptr %.1200260, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 232
   %68 = load ptr, ptr %67, align 8
   %.not217 = icmp eq ptr %68, null
   br i1 %.not217, label %69, label %interclrep.exit
 
-69:                                               ; preds = %.lr.ph265
-  %70 = load i32, ptr %.1200262, align 8
+69:                                               ; preds = %.lr.ph263
+  %70 = load i32, ptr %.1200260, align 8
   %71 = and i32 %70, 3
   %72 = icmp eq i32 %71, 3
   %.idx.i = select i1 %72, i64 0, i64 64
-  %73 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx.i
+  %73 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx.i
   %74 = getelementptr inbounds i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
@@ -392,7 +392,7 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
 is_cluster_edge.exit:                             ; preds = %69
   %81 = icmp eq i32 %71, 2
   %.idx6.i = select i1 %81, i64 0, i64 -64
-  %82 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx6.i
+  %82 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx6.i
   %83 = getelementptr inbounds i8, ptr %82, i64 56
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 16
@@ -403,15 +403,15 @@ is_cluster_edge.exit:                             ; preds = %69
   br i1 %89, label %is_cluster_edge.exit.thread, label %297
 
 is_cluster_edge.exit.thread:                      ; preds = %69, %is_cluster_edge.exit
-  %.not242 = icmp eq ptr %.0198263, null
-  br i1 %.not242, label %mergeable.exit.thread, label %90
+  %.not240 = icmp eq ptr %.0198261, null
+  br i1 %.not240, label %mergeable.exit.thread, label %90
 
 90:                                               ; preds = %is_cluster_edge.exit.thread
-  %91 = load i32, ptr %.0198263, align 8
+  %91 = load i32, ptr %.0198261, align 8
   %92 = and i32 %91, 3
   %93 = icmp eq i32 %92, 3
-  %.idx.i238 = select i1 %93, i64 0, i64 64
-  %94 = getelementptr inbounds i8, ptr %.0198263, i64 %.idx.i238
+  %.idx.i236 = select i1 %93, i64 0, i64 64
+  %94 = getelementptr inbounds i8, ptr %.0198261, i64 %.idx.i236
   %95 = getelementptr inbounds i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, %75
@@ -420,19 +420,19 @@ is_cluster_edge.exit.thread:                      ; preds = %69, %is_cluster_edg
 98:                                               ; preds = %90
   %99 = icmp eq i32 %92, 2
   %.idx21.i = select i1 %99, i64 0, i64 -64
-  %100 = getelementptr inbounds i8, ptr %.0198263, i64 %.idx21.i
+  %100 = getelementptr inbounds i8, ptr %.0198261, i64 %.idx21.i
   %101 = getelementptr inbounds i8, ptr %100, i64 56
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq i32 %71, 2
   %.idx22.i = select i1 %103, i64 0, i64 -64
-  %104 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx22.i
+  %104 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx22.i
   %105 = getelementptr inbounds i8, ptr %104, i64 56
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %102, %106
   br i1 %107, label %108, label %mergeable.exit.thread
 
 108:                                              ; preds = %98
-  %109 = getelementptr inbounds i8, ptr %.0198263, i64 16
+  %109 = getelementptr inbounds i8, ptr %.0198261, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 120
   %112 = load ptr, ptr %111, align 8
@@ -442,25 +442,25 @@ is_cluster_edge.exit.thread:                      ; preds = %69, %is_cluster_edg
   br i1 %115, label %mergeable.exit, label %mergeable.exit.thread
 
 mergeable.exit:                                   ; preds = %108
-  %116 = tail call i32 @ports_eq(ptr noundef nonnull %.0198263, ptr noundef nonnull %.1200262) #9
-  %.not243 = icmp eq i32 %116, 0
-  br i1 %.not243, label %mergeable.exit.mergeable.exit.thread_crit_edge, label %117
+  %116 = tail call i32 @ports_eq(ptr noundef nonnull %.0198261, ptr noundef nonnull %.1200260) #9
+  %.not241 = icmp eq i32 %116, 0
+  br i1 %.not241, label %mergeable.exit.mergeable.exit.thread_crit_edge, label %117
 
 mergeable.exit.mergeable.exit.thread_crit_edge:   ; preds = %mergeable.exit
-  %.pre275 = load i32, ptr %.1200262, align 8
-  %.pre276 = and i32 %.pre275, 3
+  %.pre273 = load i32, ptr %.1200260, align 8
+  %.pre274 = and i32 %.pre273, 3
   br label %mergeable.exit.thread
 
 117:                                              ; preds = %mergeable.exit
   %118 = load ptr, ptr %109, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 232
   %120 = load ptr, ptr %119, align 8
-  %.not232 = icmp eq ptr %120, null
-  %121 = load i32, ptr %.1200262, align 8
+  %.not230 = icmp eq ptr %120, null
+  %121 = load i32, ptr %.1200260, align 8
   %122 = and i32 %121, 3
   %123 = icmp eq i32 %122, 3
-  %.idx233 = select i1 %123, i64 0, i64 64
-  %124 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx233
+  %.idx231 = select i1 %123, i64 0, i64 64
+  %124 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx231
   %125 = getelementptr inbounds i8, ptr %124, i64 56
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 16
@@ -468,15 +468,15 @@ mergeable.exit.mergeable.exit.thread_crit_edge:   ; preds = %mergeable.exit
   %129 = getelementptr inbounds i8, ptr %128, i64 360
   %130 = load i32, ptr %129, align 8
   %131 = icmp eq i32 %122, 2
-  %.idx234 = select i1 %131, i64 0, i64 -64
-  %132 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx234
+  %.idx232 = select i1 %131, i64 0, i64 -64
+  %132 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx232
   %133 = getelementptr inbounds i8, ptr %132, i64 56
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 360
   %138 = load i32, ptr %137, align 8
-  br i1 %.not232, label %191, label %139
+  br i1 %.not230, label %191, label %139
 
 139:                                              ; preds = %117
   %..i = tail call i32 @llvm.smax.i32(i32 %130, i32 %138)
@@ -548,7 +548,7 @@ mergeable.exit.mergeable.exit.thread_crit_edge:   ; preds = %mergeable.exit
   br i1 %.not.i, label %merge_chain.exit, label %.split.i
 
 merge_chain.exit:                                 ; preds = %.split.i, %169
-  tail call void @other_edge(ptr noundef nonnull %.1200262) #9
+  tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
 191:                                              ; preds = %117
@@ -556,15 +556,15 @@ merge_chain.exit:                                 ; preds = %.split.i, %169
   br i1 %192, label %193, label %interclrep.exit
 
 193:                                              ; preds = %191
-  tail call void @merge_oneway(ptr noundef nonnull %.1200262, ptr noundef nonnull %.0198263) #9
-  tail call void @other_edge(ptr noundef nonnull %.1200262) #9
+  tail call void @merge_oneway(ptr noundef nonnull %.1200260, ptr noundef nonnull %.0198261) #9
+  tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
 mergeable.exit.thread:                            ; preds = %mergeable.exit.mergeable.exit.thread_crit_edge, %is_cluster_edge.exit.thread, %90, %98, %108
-  %.pre-phi = phi i32 [ %.pre276, %mergeable.exit.mergeable.exit.thread_crit_edge ], [ %71, %is_cluster_edge.exit.thread ], [ %71, %90 ], [ %71, %98 ], [ %71, %108 ]
+  %.pre-phi = phi i32 [ %.pre274, %mergeable.exit.mergeable.exit.thread_crit_edge ], [ %71, %is_cluster_edge.exit.thread ], [ %71, %90 ], [ %71, %98 ], [ %71, %108 ]
   %194 = icmp eq i32 %.pre-phi, 3
-  %.idx.i240 = select i1 %194, i64 0, i64 64
-  %195 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx.i240
+  %.idx.i238 = select i1 %194, i64 0, i64 64
+  %195 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx.i238
   %196 = getelementptr inbounds i8, ptr %195, i64 56
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 16
@@ -576,7 +576,7 @@ mergeable.exit.thread:                            ; preds = %mergeable.exit.merg
 
 202:                                              ; preds = %mergeable.exit.thread
   %203 = tail call ptr @UF_find(ptr noundef nonnull %197) #9
-  %.pre.i = load i32, ptr %.1200262, align 8
+  %.pre.i = load i32, ptr %.1200260, align 8
   %.pre49.i = and i32 %.pre.i, 3
   br label %leader_of.exit.i
 
@@ -599,7 +599,7 @@ leader_of.exit.i:                                 ; preds = %204, %202
   %.0.i.i = phi ptr [ %203, %202 ], [ %215, %204 ]
   %216 = icmp eq i32 %.pre-phi.i, 2
   %.idx37.i = select i1 %216, i64 0, i64 -64
-  %217 = getelementptr inbounds i8, ptr %.1200262, i64 %.idx37.i
+  %217 = getelementptr inbounds i8, ptr %.1200260, i64 %.idx37.i
   %218 = getelementptr inbounds i8, ptr %217, i64 56
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 16
@@ -648,8 +648,8 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 336
   %254 = load ptr, ptr %253, align 8
-  %.not.i241 = icmp eq ptr %250, %254
-  br i1 %.not.i241, label %interclrep.exit, label %255
+  %.not.i239 = icmp eq ptr %250, %254
+  br i1 %.not.i239, label %interclrep.exit, label %255
 
 255:                                              ; preds = %leader_of.exit44.i
   %256 = tail call ptr @find_fast_edge(ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i) #9
@@ -657,7 +657,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %.not38.i, label %258, label %257
 
 257:                                              ; preds = %255
-  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200262, ptr noundef nonnull %256, i1 noundef zeroext true)
+  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200260, ptr noundef nonnull %256, i1 noundef zeroext true)
   br label %interclrep.exit
 
 258:                                              ; preds = %255
@@ -671,7 +671,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %265, label %interclrep.exit, label %266
 
 266:                                              ; preds = %258
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1200262)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1200260)
   %267 = load ptr, ptr %65, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 232
   %.03445.i = load ptr, ptr %268, align 8
@@ -717,15 +717,15 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %.not39.i, label %interclrep.exit, label %.lr.ph.i
 
 297:                                              ; preds = %is_cluster_edge.exit
-  %.not218 = icmp eq ptr %.0198263, null
+  %.not218 = icmp eq ptr %.0198261, null
   br i1 %.not218, label %341, label %298
 
 298:                                              ; preds = %297
-  %299 = load i32, ptr %.0198263, align 8
+  %299 = load i32, ptr %.0198261, align 8
   %300 = and i32 %299, 3
   %301 = icmp eq i32 %300, 3
   %.idx219 = select i1 %301, i64 0, i64 64
-  %302 = getelementptr inbounds i8, ptr %.0198263, i64 %.idx219
+  %302 = getelementptr inbounds i8, ptr %.0198261, i64 %.idx219
   %303 = getelementptr inbounds i8, ptr %302, i64 56
   %304 = load ptr, ptr %303, align 8
   %305 = icmp eq ptr %75, %304
@@ -734,7 +734,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
 306:                                              ; preds = %298
   %307 = icmp eq i32 %300, 2
   %.idx221 = select i1 %307, i64 0, i64 -64
-  %308 = getelementptr inbounds i8, ptr %.0198263, i64 %.idx221
+  %308 = getelementptr inbounds i8, ptr %.0198261, i64 %.idx221
   %309 = getelementptr inbounds i8, ptr %308, i64 56
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %84, %310
@@ -749,8 +749,8 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %317, label %318, label %319
 
 318:                                              ; preds = %312
-  tail call void @merge_oneway(ptr noundef nonnull %.1200262, ptr noundef nonnull %.0198263) #9
-  tail call void @other_edge(ptr noundef nonnull %.1200262) #9
+  tail call void @merge_oneway(ptr noundef nonnull %.1200260, ptr noundef nonnull %.0198261) #9
+  tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
 319:                                              ; preds = %312
@@ -760,7 +760,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %322, label %323, label %341
 
 323:                                              ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %.0198263, i64 16
+  %324 = getelementptr inbounds i8, ptr %.0198261, i64 16
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 120
   %327 = load ptr, ptr %326, align 8
@@ -768,20 +768,19 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %328, label %329, label %341
 
 329:                                              ; preds = %323
-  %330 = tail call i32 @ports_eq(ptr noundef nonnull %.1200262, ptr noundef nonnull %.0198263) #9
+  %330 = tail call i32 @ports_eq(ptr noundef nonnull %.1200260, ptr noundef nonnull %.0198261) #9
   %.not222 = icmp eq i32 %330, 0
-  br i1 %.not222, label %._crit_edge273, label %331
+  br i1 %.not222, label %._crit_edge271, label %331
 
-._crit_edge273:                                   ; preds = %329
-  %.pre274 = load i32, ptr %.1200262, align 8
-  %.pre277 = and i32 %.pre274, 3
+._crit_edge271:                                   ; preds = %329
+  %.pre272 = load i32, ptr %.1200260, align 8
+  %.pre275 = and i32 %.pre272, 3
   br label %341
 
 331:                                              ; preds = %329
   %332 = load i8, ptr @Concentrate, align 1
-  %333 = and i8 %332, 1
-  %.not231 = icmp eq i8 %333, 0
-  br i1 %.not231, label %337, label %334
+  %333 = trunc i8 %332 to i1
+  br i1 %333, label %334, label %337
 
 334:                                              ; preds = %331
   %335 = load ptr, ptr %65, align 8
@@ -793,42 +792,42 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %338 = load ptr, ptr %324, align 8
   %339 = getelementptr inbounds i8, ptr %338, i64 232
   %340 = load ptr, ptr %339, align 8
-  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200262, ptr noundef %340, i1 noundef zeroext true)
-  tail call void @other_edge(ptr noundef nonnull %.1200262) #9
+  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200260, ptr noundef %340, i1 noundef zeroext true)
+  tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
-341:                                              ; preds = %._crit_edge273, %319, %323, %306, %298, %297
-  %.pre-phi278 = phi i32 [ %.pre277, %._crit_edge273 ], [ %71, %319 ], [ %71, %323 ], [ %71, %306 ], [ %71, %298 ], [ %71, %297 ]
-  %342 = icmp eq i32 %.pre-phi278, 3
-  %343 = getelementptr inbounds i8, ptr %.1200262, i64 64
-  %344 = select i1 %342, ptr %.1200262, ptr %343
+341:                                              ; preds = %._crit_edge271, %319, %323, %306, %298, %297
+  %.pre-phi276 = phi i32 [ %.pre275, %._crit_edge271 ], [ %71, %319 ], [ %71, %323 ], [ %71, %306 ], [ %71, %298 ], [ %71, %297 ]
+  %342 = icmp eq i32 %.pre-phi276, 3
+  %343 = getelementptr inbounds i8, ptr %.1200260, i64 64
+  %344 = select i1 %342, ptr %.1200260, ptr %343
   %345 = getelementptr inbounds i8, ptr %344, i64 56
   %346 = load ptr, ptr %345, align 8
-  %347 = icmp eq i32 %.pre-phi278, 2
-  %348 = getelementptr inbounds i8, ptr %.1200262, i64 -64
-  %349 = select i1 %347, ptr %.1200262, ptr %348
+  %347 = icmp eq i32 %.pre-phi276, 2
+  %348 = getelementptr inbounds i8, ptr %.1200260, i64 -64
+  %349 = select i1 %347, ptr %.1200260, ptr %348
   %350 = getelementptr inbounds i8, ptr %349, i64 56
   %351 = load ptr, ptr %350, align 8
   %352 = icmp eq ptr %346, %351
   br i1 %352, label %353, label %354
 
 353:                                              ; preds = %341
-  tail call void @other_edge(ptr noundef nonnull %.1200262) #9
+  tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
 354:                                              ; preds = %341
   %355 = tail call ptr @UF_find(ptr noundef %346) #9
-  %356 = load i32, ptr %.1200262, align 8
+  %356 = load i32, ptr %.1200260, align 8
   %357 = and i32 %356, 3
   %358 = icmp eq i32 %357, 2
-  %359 = select i1 %358, ptr %.1200262, ptr %348
+  %359 = select i1 %358, ptr %.1200260, ptr %348
   %360 = getelementptr inbounds i8, ptr %359, i64 56
   %361 = load ptr, ptr %360, align 8
   %362 = tail call ptr @UF_find(ptr noundef %361) #9
-  %363 = load i32, ptr %.1200262, align 8
+  %363 = load i32, ptr %.1200260, align 8
   %364 = and i32 %363, 3
   %365 = icmp eq i32 %364, 3
-  %366 = select i1 %365, ptr %.1200262, ptr %343
+  %366 = select i1 %365, ptr %.1200260, ptr %343
   %367 = getelementptr inbounds i8, ptr %366, i64 56
   %368 = load ptr, ptr %367, align 8
   %.not223 = icmp eq ptr %368, %355
@@ -836,7 +835,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
 
 369:                                              ; preds = %354
   %370 = icmp eq i32 %364, 2
-  %371 = select i1 %370, ptr %.1200262, ptr %348
+  %371 = select i1 %370, ptr %.1200260, ptr %348
   %372 = getelementptr inbounds i8, ptr %371, i64 56
   %373 = load ptr, ptr %372, align 8
   %.not224 = icmp eq ptr %373, %362
@@ -855,7 +854,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %383, label %384, label %385
 
 384:                                              ; preds = %374
-  tail call void @flat_edge(ptr noundef %0, ptr noundef nonnull %.1200262) #9
+  tail call void @flat_edge(ptr noundef %0, ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
 385:                                              ; preds = %374
@@ -863,42 +862,42 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %386, label %387, label %388
 
 387:                                              ; preds = %385
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %355, ptr noundef nonnull %362, ptr noundef nonnull %.1200262)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %355, ptr noundef nonnull %362, ptr noundef nonnull %.1200260)
   br label %interclrep.exit
 
 388:                                              ; preds = %385
   %389 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %362) #9
-  %.not225256 = icmp eq ptr %389, null
-  br i1 %.not225256, label %.critedge, label %.lr.ph260
+  %.not225254 = icmp eq ptr %389, null
+  br i1 %.not225254, label %.critedge, label %.lr.ph258
 
-.lr.ph260:                                        ; preds = %388, %447
-  %.0257 = phi ptr [ %448, %447 ], [ %389, %388 ]
-  %390 = load i32, ptr %.0257, align 8
+.lr.ph258:                                        ; preds = %388, %447
+  %.0255 = phi ptr [ %448, %447 ], [ %389, %388 ]
+  %390 = load i32, ptr %.0255, align 8
   %391 = and i32 %390, 3
   %392 = icmp eq i32 %391, 2
   %.idx226 = select i1 %392, i64 0, i64 -64
-  %393 = getelementptr inbounds i8, ptr %.0257, i64 %.idx226
+  %393 = getelementptr inbounds i8, ptr %.0255, i64 %.idx226
   %394 = getelementptr inbounds i8, ptr %393, i64 56
   %395 = load ptr, ptr %394, align 8
-  %396 = load i32, ptr %.1200262, align 8
+  %396 = load i32, ptr %.1200260, align 8
   %397 = and i32 %396, 3
   %398 = icmp eq i32 %397, 3
-  %399 = select i1 %398, ptr %.1200262, ptr %343
+  %399 = select i1 %398, ptr %.1200260, ptr %343
   %400 = getelementptr inbounds i8, ptr %399, i64 56
   %401 = load ptr, ptr %400, align 8
   %.not227 = icmp eq ptr %395, %401
   br i1 %.not227, label %402, label %447
 
-402:                                              ; preds = %.lr.ph260
+402:                                              ; preds = %.lr.ph258
   %403 = icmp eq i32 %397, 2
-  %404 = select i1 %403, ptr %.1200262, ptr %348
+  %404 = select i1 %403, ptr %.1200260, ptr %348
   %405 = getelementptr inbounds i8, ptr %404, i64 56
   %406 = load ptr, ptr %405, align 8
   %407 = icmp eq ptr %395, %406
   br i1 %407, label %447, label %408
 
 408:                                              ; preds = %402
-  %409 = getelementptr inbounds i8, ptr %.0257, i64 16
+  %409 = getelementptr inbounds i8, ptr %.0255, i64 16
   %410 = load ptr, ptr %409, align 8
   %411 = getelementptr inbounds i8, ptr %410, i64 152
   %412 = load i8, ptr %411, align 8
@@ -914,10 +913,10 @@ leader_of.exit44.i:                               ; preds = %226, %224
 418:                                              ; preds = %414
   %419 = icmp eq i32 %391, 3
   %.idx228 = select i1 %419, i64 0, i64 64
-  %420 = getelementptr inbounds i8, ptr %.0257, i64 %.idx228
+  %420 = getelementptr inbounds i8, ptr %.0255, i64 %.idx228
   %421 = getelementptr inbounds i8, ptr %420, i64 56
   %422 = load ptr, ptr %421, align 8
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %422, ptr noundef %395, ptr noundef nonnull %.0257)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %422, ptr noundef %395, ptr noundef nonnull %.0255)
   br label %423
 
 423:                                              ; preds = %418, %414
@@ -935,15 +934,14 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %432, label %433, label %447
 
 433:                                              ; preds = %428
-  %434 = tail call i32 @ports_eq(ptr noundef nonnull %.1200262, ptr noundef nonnull %.0257) #9
+  %434 = tail call i32 @ports_eq(ptr noundef nonnull %.1200260, ptr noundef nonnull %.0255) #9
   %.not229 = icmp eq i32 %434, 0
   br i1 %.not229, label %447, label %435
 
 435:                                              ; preds = %433
   %436 = load i8, ptr @Concentrate, align 1
-  %437 = and i8 %436, 1
-  %.not230 = icmp eq i8 %437, 0
-  br i1 %.not230, label %443, label %438
+  %437 = trunc i8 %436 to i1
+  br i1 %437, label %438, label %443
 
 438:                                              ; preds = %435
   %439 = load ptr, ptr %65, align 8
@@ -955,49 +953,49 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br label %interclrep.exit
 
 443:                                              ; preds = %435
-  tail call void @other_edge(ptr noundef nonnull %.1200262) #9
+  tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   %444 = load ptr, ptr %409, align 8
   %445 = getelementptr inbounds i8, ptr %444, i64 232
   %446 = load ptr, ptr %445, align 8
-  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200262, ptr noundef %446, i1 noundef zeroext true)
+  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200260, ptr noundef %446, i1 noundef zeroext true)
   br label %interclrep.exit
 
-447:                                              ; preds = %423, %428, %433, %.lr.ph260, %402, %408
-  %448 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0257) #9
+447:                                              ; preds = %423, %428, %433, %.lr.ph258, %402, %408
+  %448 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0255) #9
   %.not225 = icmp eq ptr %448, null
-  br i1 %.not225, label %.critedge, label %.lr.ph260
+  br i1 %.not225, label %.critedge, label %.lr.ph258
 
 .critedge:                                        ; preds = %447, %388
-  %449 = load i32, ptr %.1200262, align 8
+  %449 = load i32, ptr %.1200260, align 8
   %450 = and i32 %449, 3
   %451 = icmp eq i32 %450, 2
-  %452 = select i1 %451, ptr %.1200262, ptr %348
+  %452 = select i1 %451, ptr %.1200260, ptr %348
   %453 = getelementptr inbounds i8, ptr %452, i64 56
   %454 = load ptr, ptr %453, align 8
   %455 = icmp eq i32 %450, 3
-  %456 = select i1 %455, ptr %.1200262, ptr %343
+  %456 = select i1 %455, ptr %.1200260, ptr %343
   %457 = getelementptr inbounds i8, ptr %456, i64 56
   %458 = load ptr, ptr %457, align 8
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %454, ptr noundef %458, ptr noundef nonnull %.1200262)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %454, ptr noundef %458, ptr noundef nonnull %.1200260)
   br label %interclrep.exit
 
-interclrep.exit:                                  ; preds = %283, %.lr.ph.i, %443, %438, %266, %258, %257, %leader_of.exit44.i, %.lr.ph265, %354, %369, %334, %337, %merge_chain.exit, %193, %191, %.critedge, %387, %384, %353, %318
-  %.1 = phi ptr [ %.0198263, %merge_chain.exit ], [ %.0198263, %193 ], [ %.0198263, %191 ], [ %.0198263, %318 ], [ %.0198263, %334 ], [ %.0198263, %337 ], [ %.1200262, %353 ], [ %.0198263, %354 ], [ %.0198263, %369 ], [ %.1200262, %384 ], [ %.1200262, %387 ], [ %.1200262, %.critedge ], [ %.1200262, %.lr.ph265 ], [ %.1200262, %leader_of.exit44.i ], [ %.1200262, %257 ], [ %.1200262, %258 ], [ %.1200262, %266 ], [ %.0198263, %438 ], [ %.0198263, %443 ], [ %.1200262, %.lr.ph.i ], [ %.1200262, %283 ]
-  %459 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.1200262) #9
+interclrep.exit:                                  ; preds = %283, %.lr.ph.i, %443, %438, %266, %258, %257, %leader_of.exit44.i, %.lr.ph263, %354, %369, %334, %337, %merge_chain.exit, %193, %191, %.critedge, %387, %384, %353, %318
+  %.1 = phi ptr [ %.0198261, %merge_chain.exit ], [ %.0198261, %193 ], [ %.0198261, %191 ], [ %.0198261, %318 ], [ %.0198261, %334 ], [ %.0198261, %337 ], [ %.1200260, %353 ], [ %.0198261, %354 ], [ %.0198261, %369 ], [ %.1200260, %384 ], [ %.1200260, %387 ], [ %.1200260, %.critedge ], [ %.1200260, %.lr.ph263 ], [ %.1200260, %leader_of.exit44.i ], [ %.1200260, %257 ], [ %.1200260, %258 ], [ %.1200260, %266 ], [ %.0198261, %438 ], [ %.0198261, %443 ], [ %.1200260, %.lr.ph.i ], [ %.1200260, %283 ]
+  %459 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.1200260) #9
   %.not216 = icmp eq ptr %459, null
-  br i1 %.not216, label %._crit_edge266, label %.lr.ph265
+  br i1 %.not216, label %._crit_edge264, label %.lr.ph263
 
-._crit_edge266:                                   ; preds = %interclrep.exit, %63
-  %460 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1203268) #9
+._crit_edge264:                                   ; preds = %interclrep.exit, %63
+  %460 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1203266) #9
   %.not214 = icmp eq ptr %460, null
-  br i1 %.not214, label %._crit_edge271, label %.lr.ph270
+  br i1 %.not214, label %._crit_edge269, label %.lr.ph268
 
-._crit_edge271:                                   ; preds = %._crit_edge266, %._crit_edge255
+._crit_edge269:                                   ; preds = %._crit_edge264, %._crit_edge253
   %461 = tail call ptr @dot_root(ptr noundef %0) #9
   %.not215 = icmp eq ptr %461, %0
   br i1 %.not215, label %478, label %462
 
-462:                                              ; preds = %._crit_edge271
+462:                                              ; preds = %._crit_edge269
   %463 = load ptr, ptr %2, align 8
   %464 = getelementptr inbounds i8, ptr %463, i64 304
   %465 = load ptr, ptr %464, align 8
@@ -1024,7 +1022,7 @@ gv_alloc.exit:                                    ; preds = %462
   store ptr %475, ptr %477, align 8
   br label %478
 
-478:                                              ; preds = %gv_alloc.exit, %._crit_edge271
+478:                                              ; preds = %gv_alloc.exit, %._crit_edge269
   ret void
 }
 

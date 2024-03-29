@@ -222,41 +222,41 @@ lpad.i:                                           ; preds = %entry
 _ZN7rocksdb7OptionsC2Ev.exit:                     ; preds = %entry
   %create_if_missing = getelementptr inbounds i8, ptr %leveldb_options, i64 8
   %2 = load i8, ptr %create_if_missing, align 8
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %agg.result, align 8
+  %frombool = and i8 %2, 1
+  store i8 %frombool, ptr %agg.result, align 8
   %error_if_exists = getelementptr inbounds i8, ptr %leveldb_options, i64 9
-  %4 = load i8, ptr %error_if_exists, align 1
-  %5 = and i8 %4, 1
+  %3 = load i8, ptr %error_if_exists, align 1
   %error_if_exists3 = getelementptr inbounds i8, ptr %agg.result, i64 2
-  store i8 %5, ptr %error_if_exists3, align 2
+  %frombool4 = and i8 %3, 1
+  store i8 %frombool4, ptr %error_if_exists3, align 2
   %paranoid_checks = getelementptr inbounds i8, ptr %leveldb_options, i64 10
-  %6 = load i8, ptr %paranoid_checks, align 2
-  %7 = and i8 %6, 1
+  %4 = load i8, ptr %paranoid_checks, align 2
   %paranoid_checks6 = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %7, ptr %paranoid_checks6, align 1
+  %frombool7 = and i8 %4, 1
+  store i8 %frombool7, ptr %paranoid_checks6, align 1
   %env = getelementptr inbounds i8, ptr %leveldb_options, i64 16
-  %8 = load ptr, ptr %env, align 8
+  %5 = load ptr, ptr %env, align 8
   %env8 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %8, ptr %env8, align 8
+  store ptr %5, ptr %env8, align 8
   %info_log = getelementptr inbounds i8, ptr %agg.result, i64 48
   %info_log9 = getelementptr inbounds i8, ptr %leveldb_options, i64 24
-  %9 = load ptr, ptr %info_log9, align 8
-  invoke void @_ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_EENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS7_(ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef %9)
+  %6 = load ptr, ptr %info_log9, align 8
+  invoke void @_ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_EENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS7_(ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN7rocksdb7OptionsC2Ev.exit
   %write_buffer_size = getelementptr inbounds i8, ptr %leveldb_options, i64 32
-  %10 = load i64, ptr %write_buffer_size, align 8
+  %7 = load i64, ptr %write_buffer_size, align 8
   %write_buffer_size10 = getelementptr inbounds i8, ptr %agg.result, i64 1256
-  store i64 %10, ptr %write_buffer_size10, align 8
+  store i64 %7, ptr %write_buffer_size10, align 8
   %max_open_files = getelementptr inbounds i8, ptr %leveldb_options, i64 40
-  %11 = load i32, ptr %max_open_files, align 8
+  %8 = load i32, ptr %max_open_files, align 8
   %max_open_files11 = getelementptr inbounds i8, ptr %agg.result, i64 68
-  store i32 %11, ptr %max_open_files11, align 4
+  store i32 %8, ptr %max_open_files11, align 4
   %compression = getelementptr inbounds i8, ptr %leveldb_options, i64 68
-  %12 = load i8, ptr %compression, align 4
+  %9 = load i8, ptr %compression, align 4
   %compression13 = getelementptr inbounds i8, ptr %agg.result, i64 1264
-  store i8 %12, ptr %compression13, align 8
+  store i8 %9, ptr %compression13, align 8
   %cache_index_and_filter_blocks_with_high_priority.i = getelementptr inbounds i8, ptr %table_options, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %table_options, i8 0, i64 17, i1 false)
   store i8 1, ptr %cache_index_and_filter_blocks_with_high_priority.i, align 1
@@ -286,14 +286,14 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb7Options
   store i64 4096, ptr %metadata_block_size.i, align 8
   %cache_usage_options.i = getelementptr inbounds i8, ptr %table_options, i64 120
   store i32 2, ptr %cache_usage_options.i, align 8
-  %13 = getelementptr inbounds i8, ptr %table_options, i64 136
-  store i32 0, ptr %13, align 8
+  %10 = getelementptr inbounds i8, ptr %table_options, i64 136
+  store i32 0, ptr %10, align 8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %table_options, i64 144
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %table_options, i64 152
-  store ptr %13, ptr %_M_left.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_left.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %table_options, i64 160
-  store ptr %13, ptr %_M_right.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %table_options, i64 168
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
   %partition_filters.i = getelementptr inbounds i8, ptr %table_options, i64 176
@@ -329,20 +329,20 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb7Options
   %num_file_reads_for_auto_readahead.i = getelementptr inbounds i8, ptr %table_options, i64 240
   store i64 2, ptr %num_file_reads_for_auto_readahead.i, align 8
   %block_cache14 = getelementptr inbounds i8, ptr %leveldb_options, i64 48
-  %14 = load ptr, ptr %block_cache14, align 8
-  invoke void @_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_EENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS7_(ptr noundef nonnull align 8 dereferenceable(16) %block_cache.i, ptr noundef %14)
+  %11 = load ptr, ptr %block_cache14, align 8
+  invoke void @_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_EENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS7_(ptr noundef nonnull align 8 dereferenceable(16) %block_cache.i, ptr noundef %11)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont
   %block_size = getelementptr inbounds i8, ptr %leveldb_options, i64 56
-  %15 = load i64, ptr %block_size, align 8
-  store i64 %15, ptr %block_size.i, align 8
+  %12 = load i64, ptr %block_size, align 8
+  store i64 %12, ptr %block_size.i, align 8
   %block_restart_interval = getelementptr inbounds i8, ptr %leveldb_options, i64 64
-  %16 = load i32, ptr %block_restart_interval, align 8
-  store i32 %16, ptr %block_restart_interval.i, align 4
+  %13 = load i32, ptr %block_restart_interval, align 8
+  store i32 %13, ptr %block_restart_interval.i, align 4
   %filter_policy19 = getelementptr inbounds i8, ptr %leveldb_options, i64 72
-  %17 = load ptr, ptr %filter_policy19, align 8
-  invoke void @_ZNSt12__shared_ptrIKN7rocksdb12FilterPolicyELN9__gnu_cxx12_Lock_policyE2EE5resetIS2_EENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %filter_policy.i, ptr noundef %17)
+  %14 = load ptr, ptr %filter_policy19, align 8
+  invoke void @_ZNSt12__shared_ptrIKN7rocksdb12FilterPolicyELN9__gnu_cxx12_Lock_policyE2EE5resetIS2_EENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %filter_policy.i, ptr noundef %14)
           to label %invoke.cont20 unwind label %lpad15
 
 invoke.cont20:                                    ; preds = %invoke.cont16
@@ -359,18 +359,18 @@ invoke.cont23:                                    ; preds = %invoke.cont22
   ret void
 
 lpad:                                             ; preds = %_ZN7rocksdb7OptionsC2Ev.exit
-  %18 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad15:                                           ; preds = %invoke.cont22, %invoke.cont20, %invoke.cont16, %invoke.cont
-  %19 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7rocksdb22BlockBasedTableOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %table_options) #8
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
-  %.pn = phi { ptr, i32 } [ %19, %lpad15 ], [ %18, %lpad ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad15 ], [ %15, %lpad ]
   call void @_ZN7rocksdb19ColumnFamilyOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(820) %0) #8
   call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %agg.result) #8
   br label %common.resume

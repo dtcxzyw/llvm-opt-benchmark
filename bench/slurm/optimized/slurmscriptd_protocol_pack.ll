@@ -31,14 +31,14 @@ define dso_local noundef i32 @slurmscriptd_pack_msg(ptr nocapture noundef readon
   tail call void @packmem(ptr noundef %3, i32 noundef %.0, ptr noundef %1) #5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  switch i32 %10, label %101 [
-    i32 11001, label %103
+  switch i32 %10, label %98 [
+    i32 11001, label %100
     i32 11002, label %11
     i32 11003, label %14
     i32 11004, label %61
-    i32 11005, label %90
-    i32 11006, label %93
-    i32 11007, label %103
+    i32 11005, label %88
+    i32 11006, label %91
+    i32 11007, label %100
   ]
 
 11:                                               ; preds = %8
@@ -46,7 +46,7 @@ define dso_local noundef i32 @slurmscriptd_pack_msg(ptr nocapture noundef readon
   %13 = load ptr, ptr %12, align 8
   %.val = load i32, ptr %13, align 4
   tail call void @pack32(i32 noundef %.val, ptr noundef %1) #5
-  br label %103
+  br label %100
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -131,7 +131,7 @@ define dso_local noundef i32 @slurmscriptd_pack_msg(ptr nocapture noundef readon
 _pack_run_script.exit:                            ; preds = %54, %57
   %.0.i = phi i32 [ %60, %57 ], [ 0, %54 ]
   tail call void @packmem(ptr noundef %56, i32 noundef %.0.i, ptr noundef %1) #5
-  br label %103
+  br label %100
 
 61:                                               ; preds = %8
   %62 = getelementptr inbounds i8, ptr %0, i64 8
@@ -171,44 +171,41 @@ _pack_script_complete.exit:                       ; preds = %71, %74
   tail call void @pack32(i32 noundef %79, ptr noundef %1) #5
   %80 = getelementptr inbounds i8, ptr %63, i64 28
   %81 = load i8, ptr %80, align 4
-  %82 = and i8 %81, 1
-  %83 = icmp ne i8 %82, 0
-  tail call void @packbool(i1 noundef zeroext %83, ptr noundef %1) #5
-  %84 = getelementptr inbounds i8, ptr %63, i64 32
-  %85 = load i32, ptr %84, align 8
-  tail call void @pack32(i32 noundef %85, ptr noundef %1) #5
-  %86 = getelementptr inbounds i8, ptr %63, i64 36
-  %87 = load i8, ptr %86, align 4
-  %88 = and i8 %87, 1
-  %89 = icmp ne i8 %88, 0
-  tail call void @packbool(i1 noundef zeroext %89, ptr noundef %1) #5
-  br label %103
+  %82 = trunc i8 %81 to i1
+  tail call void @packbool(i1 noundef zeroext %82, ptr noundef %1) #5
+  %83 = getelementptr inbounds i8, ptr %63, i64 32
+  %84 = load i32, ptr %83, align 8
+  tail call void @pack32(i32 noundef %84, ptr noundef %1) #5
+  %85 = getelementptr inbounds i8, ptr %63, i64 36
+  %86 = load i8, ptr %85, align 4
+  %87 = trunc i8 %86 to i1
+  tail call void @packbool(i1 noundef zeroext %87, ptr noundef %1) #5
+  br label %100
 
-90:                                               ; preds = %8
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %.val19 = load i64, ptr %92, align 8
+88:                                               ; preds = %8
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %.val19 = load i64, ptr %90, align 8
   tail call void @pack64(i64 noundef %.val19, ptr noundef %1) #5
-  br label %103
+  br label %100
 
-93:                                               ; preds = %8
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i32, ptr %95, align 4
-  tail call void @pack32(i32 noundef %96, ptr noundef %1) #5
-  %97 = getelementptr inbounds i8, ptr %95, i64 4
-  %98 = load i8, ptr %97, align 4
-  %99 = and i8 %98, 1
-  %100 = icmp ne i8 %99, 0
-  tail call void @packbool(i1 noundef zeroext %100, ptr noundef %1) #5
-  br label %103
+91:                                               ; preds = %8
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i32, ptr %93, align 4
+  tail call void @pack32(i32 noundef %94, ptr noundef %1) #5
+  %95 = getelementptr inbounds i8, ptr %93, i64 4
+  %96 = load i8, ptr %95, align 4
+  %97 = trunc i8 %96 to i1
+  tail call void @packbool(i1 noundef zeroext %97, ptr noundef %1) #5
+  br label %100
 
-101:                                              ; preds = %8
-  %102 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, i32 noundef %10) #5
-  br label %103
+98:                                               ; preds = %8
+  %99 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, i32 noundef %10) #5
+  br label %100
 
-103:                                              ; preds = %8, %8, %101, %93, %90, %_pack_script_complete.exit, %_pack_run_script.exit, %11
-  %.017 = phi i32 [ -1, %101 ], [ 0, %93 ], [ 0, %90 ], [ 0, %_pack_script_complete.exit ], [ 0, %_pack_run_script.exit ], [ 0, %11 ], [ 0, %8 ], [ 0, %8 ]
+100:                                              ; preds = %8, %8, %98, %91, %88, %_pack_script_complete.exit, %_pack_run_script.exit, %11
+  %.017 = phi i32 [ -1, %98 ], [ 0, %91 ], [ 0, %88 ], [ 0, %_pack_script_complete.exit ], [ 0, %_pack_run_script.exit ], [ 0, %11 ], [ 0, %8 ], [ 0, %8 ]
   ret i32 %.017
 }
 

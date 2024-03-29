@@ -1667,6 +1667,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17user_sort_factory15get_fresh_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %s) unnamed_addr #8 align 2 {
 entry:
+  %is_new.i = alloca i8, align 1
   %m_finite.i = getelementptr inbounds i8, ptr %this, i64 88
   %m_hash.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 12
   %0 = load i32, ptr %m_hash.i.i.i.i.i.i, align 4
@@ -1731,11 +1732,69 @@ for.inc36.i.i.i:                                  ; preds = %if.then22.i.i.i, %f
   br i1 %cmp19.not.i.i.i, label %if.end, label %for.body20.i.i.i, !llvm.loop !6
 
 if.end:                                           ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i
-  %call2 = tail call noundef ptr @_ZN14simple_factoryIjE15get_fresh_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %s)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_new.i)
+  %call.i = tail call noundef ptr @_ZN14simple_factoryIjE13get_value_setEP4sort(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %s)
+  store i8 0, ptr %is_new.i, align 1
+  %m_info.i.i = getelementptr inbounds i8, ptr %s, i64 24
+  %7 = load ptr, ptr %m_info.i.i, align 8
+  %tobool.not.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i, label %while.body.lr.ph.thread.i, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.end
+  %m_num_elements.i.i = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load i32, ptr %m_num_elements.i.i, align 8
+  %cmp.i.i = icmp eq i32 %8, 0
+  br i1 %cmp.i.i, label %while.body.lr.ph.i, label %while.body.lr.ph.thread.i
+
+while.body.lr.ph.thread.i:                        ; preds = %land.lhs.true.i, %if.end
+  %m_next19.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  br label %while.body.us.preheader.i
+
+while.body.lr.ph.i:                               ; preds = %land.lhs.true.i
+  %m_size.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = load i64, ptr %m_size.i.i, align 8
+  %.fr.i = freeze i64 %9
+  %cmp.i = icmp ult i64 %.fr.i, 4294967295
+  %conv.i = trunc i64 %.fr.i to i32
+  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 0
+  %m_next.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %10 = load i32, ptr %m_next.i, align 8
+  %add.i = add i32 %spec.select.i, %10
+  br i1 %cmp.i, label %while.body.i, label %while.body.us.preheader.i
+
+while.body.us.preheader.i:                        ; preds = %while.body.lr.ph.i, %while.body.lr.ph.thread.i
+  %m_next21.i = phi ptr [ %m_next19.i, %while.body.lr.ph.thread.i ], [ %m_next.i, %while.body.lr.ph.i ]
+  br label %while.body.us.i
+
+while.body.us.i:                                  ; preds = %while.body.us.i, %while.body.us.preheader.i
+  %call11.us.i = call noundef ptr @_ZN14simple_factoryIjE8mk_valueERKjP4sortRb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %m_next21.i, ptr noundef nonnull %s, ptr noundef nonnull align 1 dereferenceable(1) %is_new.i)
+  %11 = load i32, ptr %m_next21.i, align 4
+  %inc.us.i = add i32 %11, 1
+  store i32 %inc.us.i, ptr %m_next21.i, align 4
+  %12 = load i8, ptr %is_new.i, align 1
+  %tobool10.us.i = trunc i8 %12 to i1
+  br i1 %tobool10.us.i, label %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit, label %while.body.us.i, !llvm.loop !10
+
+while.cond.i:                                     ; preds = %while.body.i
+  %13 = load i8, ptr %is_new.i, align 1
+  %tobool10.i = trunc i8 %13 to i1
+  br i1 %tobool10.i, label %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit, label %while.body.i, !llvm.loop !10
+
+while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.cond.i
+  %call11.i = call noundef ptr @_ZN14simple_factoryIjE8mk_valueERKjP4sortRb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %m_next.i, ptr noundef nonnull %s, ptr noundef nonnull align 1 dereferenceable(1) %is_new.i)
+  %14 = load i32, ptr %m_next.i, align 4
+  %inc.i = add i32 %14, 1
+  store i32 %inc.i, ptr %m_next.i, align 4
+  %cmp14.i = icmp ugt i32 %inc.i, %add.i
+  br i1 %cmp14.i, label %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit, label %while.cond.i, !llvm.loop !10
+
+_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit: ; preds = %while.cond.i, %while.body.i, %while.body.us.i
+  %retval.0.i = phi ptr [ %call11.us.i, %while.body.us.i ], [ null, %while.body.i ], [ %call11.i, %while.cond.i ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_new.i)
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i, %if.then22.i.i.i, %if.end
-  %retval.0 = phi ptr [ %call2, %if.end ], [ null, %if.then22.i.i.i ], [ null, %if.then.i.i.i ]
+return:                                           ; preds = %if.then.i.i.i, %if.then22.i.i.i, %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit
+  %retval.0 = phi ptr [ %retval.0.i, %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit ], [ null, %if.then22.i.i.i ], [ null, %if.then.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -1782,20 +1841,18 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %inc.us = add i32 %4, 1
   store i32 %inc.us, ptr %m_next21, align 4
   %5 = load i8, ptr %is_new, align 1
-  %6 = and i8 %5, 1
-  %tobool10.not.us = icmp eq i8 %6, 0
-  br i1 %tobool10.not.us, label %while.body.us, label %return, !llvm.loop !10
+  %tobool10.us = trunc i8 %5 to i1
+  br i1 %tobool10.us, label %return, label %while.body.us, !llvm.loop !10
 
 while.cond:                                       ; preds = %while.body
-  %7 = load i8, ptr %is_new, align 1
-  %8 = and i8 %7, 1
-  %tobool10.not = icmp eq i8 %8, 0
-  br i1 %tobool10.not, label %while.body, label %return, !llvm.loop !10
+  %6 = load i8, ptr %is_new, align 1
+  %tobool10 = trunc i8 %6 to i1
+  br i1 %tobool10, label %return, label %while.body, !llvm.loop !10
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %call11 = call noundef ptr @_ZN14simple_factoryIjE8mk_valueERKjP4sortRb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %m_next, ptr noundef nonnull %s, ptr noundef nonnull align 1 dereferenceable(1) %is_new)
-  %9 = load i32, ptr %m_next, align 4
-  %inc = add i32 %9, 1
+  %7 = load i32, ptr %m_next, align 4
+  %inc = add i32 %7, 1
   store i32 %inc, ptr %m_next, align 4
   %cmp14 = icmp ugt i32 %inc, %add
   br i1 %cmp14, label %return, label %while.cond, !llvm.loop !10

@@ -205,152 +205,151 @@ sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %u, align 8
   %down = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i8, ptr %down, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  %4 = load i32, ptr %1, align 4
-  %idxprom2 = zext i32 %4 to i64
-  %arrayidx3 = getelementptr [10 x i32], ptr @legacy_mouse_event.bmap, i64 0, i64 %idxprom2
-  %5 = load i32, ptr %arrayidx3, align 4
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %2 to i1
+  %3 = load i32, ptr %1, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr [10 x i32], ptr @legacy_mouse_event.bmap, i64 0, i64 %idxprom
+  %4 = load i32, ptr %arrayidx, align 4
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
   %buttons = getelementptr inbounds i8, ptr %dev, i64 72
-  %6 = load i32, ptr %buttons, align 8
-  %or = or i32 %6, %5
+  %5 = load i32, ptr %buttons, align 8
+  %or = or i32 %5, %4
   store i32 %or, ptr %buttons, align 8
   br label %if.end
 
 if.else:                                          ; preds = %sw.bb
-  %not = xor i32 %5, -1
+  %not = xor i32 %4, -1
   %buttons4 = getelementptr inbounds i8, ptr %dev, i64 72
-  %7 = load i32, ptr %buttons4, align 8
-  %and = and i32 %7, %not
+  %6 = load i32, ptr %buttons4, align 8
+  %and = and i32 %6, %not
   store i32 %and, ptr %buttons4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = phi i32 [ %and, %if.else ], [ %or, %if.then ]
-  %9 = load i8, ptr %down, align 4
-  %10 = and i8 %9, 1
-  %tobool6.not = icmp eq i8 %10, 0
-  br i1 %tobool6.not, label %sw.epilog, label %land.lhs.true
+  %7 = phi i32 [ %and, %if.else ], [ %or, %if.then ]
+  %8 = load i8, ptr %down, align 4
+  %tobool6 = trunc i8 %8 to i1
+  br i1 %tobool6, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.end
-  %11 = load i32, ptr %1, align 4
-  %cmp = icmp eq i32 %11, 3
-  br i1 %cmp, label %if.end13, label %land.lhs.true16
+  %9 = load i32, ptr %1, align 4
+  %cmp = icmp eq i32 %9, 3
+  br i1 %cmp, label %if.then8, label %if.end13
 
-if.end13:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %dev, align 8
+if.then8:                                         ; preds = %land.lhs.true
+  %10 = load ptr, ptr %dev, align 8
   %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %dev, i64 8
-  %13 = load ptr, ptr %qemu_put_mouse_event_opaque, align 8
+  %11 = load ptr, ptr %qemu_put_mouse_event_opaque, align 8
   %axis = getelementptr inbounds i8, ptr %dev, i64 64
-  %14 = load i32, ptr %axis, align 8
+  %12 = load i32, ptr %axis, align 8
   %arrayidx11 = getelementptr i8, ptr %dev, i64 68
-  %15 = load i32, ptr %arrayidx11, align 4
-  tail call void %12(ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef -1, i32 noundef %8) #6
+  %13 = load i32, ptr %arrayidx11, align 4
+  tail call void %10(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef -1, i32 noundef %7) #6
   %.pre = load i8, ptr %down, align 4
-  %.pre42 = and i8 %.pre, 1
-  %16 = icmp eq i8 %.pre42, 0
-  br i1 %16, label %sw.epilog, label %land.lhs.true16thread-pre-split
+  br label %if.end13
 
-land.lhs.true16thread-pre-split:                  ; preds = %if.end13
-  %.pr = load i32, ptr %1, align 4
-  br label %land.lhs.true16
+if.end13:                                         ; preds = %if.then8, %land.lhs.true, %if.end
+  %14 = phi i8 [ %.pre, %if.then8 ], [ %8, %land.lhs.true ], [ %8, %if.end ]
+  %tobool15 = trunc i8 %14 to i1
+  br i1 %tobool15, label %land.lhs.true16, label %if.end27
 
-land.lhs.true16:                                  ; preds = %land.lhs.true, %land.lhs.true16thread-pre-split
-  %17 = phi i32 [ %.pr, %land.lhs.true16thread-pre-split ], [ %11, %land.lhs.true ]
-  %cmp18 = icmp eq i32 %17, 4
-  br i1 %cmp18, label %if.end27, label %land.lhs.true30
+land.lhs.true16:                                  ; preds = %if.end13
+  %15 = load i32, ptr %1, align 4
+  %cmp18 = icmp eq i32 %15, 4
+  br i1 %cmp18, label %if.then19, label %if.end27
 
-if.end27:                                         ; preds = %land.lhs.true16
-  %18 = load ptr, ptr %dev, align 8
+if.then19:                                        ; preds = %land.lhs.true16
+  %16 = load ptr, ptr %dev, align 8
   %qemu_put_mouse_event_opaque21 = getelementptr inbounds i8, ptr %dev, i64 8
-  %19 = load ptr, ptr %qemu_put_mouse_event_opaque21, align 8
+  %17 = load ptr, ptr %qemu_put_mouse_event_opaque21, align 8
   %axis22 = getelementptr inbounds i8, ptr %dev, i64 64
-  %20 = load i32, ptr %axis22, align 8
+  %18 = load i32, ptr %axis22, align 8
   %arrayidx25 = getelementptr i8, ptr %dev, i64 68
-  %21 = load i32, ptr %arrayidx25, align 4
+  %19 = load i32, ptr %arrayidx25, align 4
   %buttons26 = getelementptr inbounds i8, ptr %dev, i64 72
-  %22 = load i32, ptr %buttons26, align 8
-  tail call void %18(ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef 1, i32 noundef %22) #6
+  %20 = load i32, ptr %buttons26, align 8
+  tail call void %16(ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef %20) #6
   %.pre40 = load i8, ptr %down, align 4
-  %.pre43 = and i8 %.pre40, 1
-  %23 = icmp eq i8 %.pre43, 0
-  br i1 %23, label %sw.epilog, label %land.lhs.true30
+  br label %if.end27
 
-land.lhs.true30:                                  ; preds = %land.lhs.true16, %if.end27
-  %24 = load i32, ptr %1, align 4
-  %cmp32 = icmp eq i32 %24, 8
-  br i1 %cmp32, label %if.end41, label %land.lhs.true44
+if.end27:                                         ; preds = %if.then19, %land.lhs.true16, %if.end13
+  %21 = phi i8 [ %.pre40, %if.then19 ], [ %14, %land.lhs.true16 ], [ %14, %if.end13 ]
+  %tobool29 = trunc i8 %21 to i1
+  br i1 %tobool29, label %land.lhs.true30, label %if.end41
 
-if.end41:                                         ; preds = %land.lhs.true30
-  %25 = load ptr, ptr %dev, align 8
+land.lhs.true30:                                  ; preds = %if.end27
+  %22 = load i32, ptr %1, align 4
+  %cmp32 = icmp eq i32 %22, 8
+  br i1 %cmp32, label %if.then33, label %if.end41
+
+if.then33:                                        ; preds = %land.lhs.true30
+  %23 = load ptr, ptr %dev, align 8
   %qemu_put_mouse_event_opaque35 = getelementptr inbounds i8, ptr %dev, i64 8
-  %26 = load ptr, ptr %qemu_put_mouse_event_opaque35, align 8
+  %24 = load ptr, ptr %qemu_put_mouse_event_opaque35, align 8
   %axis36 = getelementptr inbounds i8, ptr %dev, i64 64
-  %27 = load i32, ptr %axis36, align 8
+  %25 = load i32, ptr %axis36, align 8
   %arrayidx39 = getelementptr i8, ptr %dev, i64 68
-  %28 = load i32, ptr %arrayidx39, align 4
+  %26 = load i32, ptr %arrayidx39, align 4
   %buttons40 = getelementptr inbounds i8, ptr %dev, i64 72
-  %29 = load i32, ptr %buttons40, align 8
-  tail call void %25(ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef -2, i32 noundef %29) #6
+  %27 = load i32, ptr %buttons40, align 8
+  tail call void %23(ptr noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef -2, i32 noundef %27) #6
   %.pre41 = load i8, ptr %down, align 4
-  %.pre45 = and i8 %.pre41, 1
-  %30 = icmp eq i8 %.pre45, 0
-  br i1 %30, label %sw.epilog, label %land.lhs.true44thread-pre-split
+  br label %if.end41
 
-land.lhs.true44thread-pre-split:                  ; preds = %if.end41
-  %.pr56 = load i32, ptr %1, align 4
-  br label %land.lhs.true44
+if.end41:                                         ; preds = %if.then33, %land.lhs.true30, %if.end27
+  %28 = phi i8 [ %.pre41, %if.then33 ], [ %21, %land.lhs.true30 ], [ %21, %if.end27 ]
+  %tobool43 = trunc i8 %28 to i1
+  br i1 %tobool43, label %land.lhs.true44, label %sw.epilog
 
-land.lhs.true44:                                  ; preds = %land.lhs.true30, %land.lhs.true44thread-pre-split
-  %31 = phi i32 [ %.pr56, %land.lhs.true44thread-pre-split ], [ %24, %land.lhs.true30 ]
-  %cmp46 = icmp eq i32 %31, 7
+land.lhs.true44:                                  ; preds = %if.end41
+  %29 = load i32, ptr %1, align 4
+  %cmp46 = icmp eq i32 %29, 7
   br i1 %cmp46, label %if.then47, label %sw.epilog
 
 if.then47:                                        ; preds = %land.lhs.true44
-  %32 = load ptr, ptr %dev, align 8
+  %30 = load ptr, ptr %dev, align 8
   %qemu_put_mouse_event_opaque49 = getelementptr inbounds i8, ptr %dev, i64 8
-  %33 = load ptr, ptr %qemu_put_mouse_event_opaque49, align 8
+  %31 = load ptr, ptr %qemu_put_mouse_event_opaque49, align 8
   %axis50 = getelementptr inbounds i8, ptr %dev, i64 64
-  %34 = load i32, ptr %axis50, align 8
+  %32 = load i32, ptr %axis50, align 8
   %arrayidx53 = getelementptr i8, ptr %dev, i64 68
-  %35 = load i32, ptr %arrayidx53, align 4
+  %33 = load i32, ptr %arrayidx53, align 4
   %buttons54 = getelementptr inbounds i8, ptr %dev, i64 72
-  %36 = load i32, ptr %buttons54, align 8
-  tail call void %32(ptr noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef 2, i32 noundef %36) #6
+  %34 = load i32, ptr %buttons54, align 8
+  tail call void %30(ptr noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef 2, i32 noundef %34) #6
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %entry
   %u57 = getelementptr inbounds i8, ptr %evt, i64 8
-  %37 = load ptr, ptr %u57, align 8
-  %value = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load i64, ptr %value, align 8
-  %conv = trunc i64 %38 to i32
+  %35 = load ptr, ptr %u57, align 8
+  %value = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i64, ptr %value, align 8
+  %conv = trunc i64 %36 to i32
   %axis59 = getelementptr inbounds i8, ptr %dev, i64 64
-  %39 = load i32, ptr %37, align 8
-  %idxprom61 = zext i32 %39 to i64
+  %37 = load i32, ptr %35, align 8
+  %idxprom61 = zext i32 %37 to i64
   %arrayidx62 = getelementptr [2 x i32], ptr %axis59, i64 0, i64 %idxprom61
   store i32 %conv, ptr %arrayidx62, align 4
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %entry
   %u64 = getelementptr inbounds i8, ptr %evt, i64 8
-  %40 = load ptr, ptr %u64, align 8
-  %value66 = getelementptr inbounds i8, ptr %40, i64 8
-  %41 = load i64, ptr %value66, align 8
+  %38 = load ptr, ptr %u64, align 8
+  %value66 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = load i64, ptr %value66, align 8
   %axis67 = getelementptr inbounds i8, ptr %dev, i64 64
-  %42 = load i32, ptr %40, align 8
-  %idxprom69 = zext i32 %42 to i64
+  %40 = load i32, ptr %38, align 8
+  %idxprom69 = zext i32 %40 to i64
   %arrayidx70 = getelementptr [2 x i32], ptr %axis67, i64 0, i64 %idxprom69
-  %43 = load i32, ptr %arrayidx70, align 4
-  %44 = trunc i64 %41 to i32
-  %conv72 = add i32 %43, %44
+  %41 = load i32, ptr %arrayidx70, align 4
+  %42 = trunc i64 %39 to i32
+  %conv72 = add i32 %41, %42
   store i32 %conv72, ptr %arrayidx70, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end, %if.end13, %if.end27, %entry, %if.end41, %land.lhs.true44, %if.then47, %sw.bb63, %sw.bb56
+sw.epilog:                                        ; preds = %entry, %if.end41, %land.lhs.true44, %if.then47, %sw.bb63, %sw.bb56
   ret void
 }
 
@@ -502,8 +501,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %0, align 8
   %down = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %down, align 8
-  %4 = and i8 %3, 1
-  %tobool4 = icmp ne i8 %4, 0
+  %tobool4 = trunc i8 %3 to i1
   %call = call i32 @qemu_input_key_value_to_scancode(ptr noundef %2, i1 noundef zeroext %tobool4, ptr noundef nonnull %scancodes) #6
   %cmp7 = icmp sgt i32 %call, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
@@ -515,11 +513,11 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %5 = load ptr, ptr %dev, align 8
-  %6 = load ptr, ptr %opaque, align 8
+  %4 = load ptr, ptr %dev, align 8
+  %5 = load ptr, ptr %opaque, align 8
   %arrayidx = getelementptr [3 x i32], ptr %scancodes, i64 0, i64 %indvars.iv
-  %7 = load i32, ptr %arrayidx, align 4
-  call void %5(ptr noundef %6, i32 noundef %7) #6
+  %6 = load i32, ptr %arrayidx, align 4
+  call void %4(ptr noundef %5, i32 noundef %6) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10

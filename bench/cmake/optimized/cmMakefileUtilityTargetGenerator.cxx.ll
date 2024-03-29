@@ -429,9 +429,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 127:                                              ; preds = %122, %103
   %128 = getelementptr inbounds i8, ptr %0, i64 248
   %129 = load i8, ptr %128, align 8
-  %130 = and i8 %129, 1
-  %.not = icmp eq i8 %130, 0
-  br i1 %.not, label %131, label %156
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %156, label %131
 
 131:                                              ; preds = %127
   %132 = load ptr, ptr %17, align 8

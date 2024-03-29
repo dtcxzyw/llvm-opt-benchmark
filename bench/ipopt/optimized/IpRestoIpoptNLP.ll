@@ -7336,9 +7336,8 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit:                    ; preds = %.noexc31, %._crit_e
   %76 = tail call double @pow(double noundef %2, double noundef %75) #17
   %77 = getelementptr inbounds i8, ptr %0, i64 280
   %78 = load i8, ptr %77, align 8
-  %79 = and i8 %78, 1
-  %.not = icmp eq i8 %79, 0
-  br i1 %.not, label %97, label %80
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %97
 
 80:                                               ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
   %81 = getelementptr inbounds i8, ptr %0, i64 24

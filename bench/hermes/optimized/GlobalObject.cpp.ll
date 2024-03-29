@@ -2078,47 +2078,46 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS
   store i64 %or.i.i.i.i445, ptr %weakSetPrototype, align 8
   %hasMicrotaskQueue_.i = getelementptr inbounds i8, ptr %runtime, i64 9093
   %53 = load i8, ptr %hasMicrotaskQueue_.i, align 1
-  %54 = and i8 %53, 1
-  %tobool.i.not = icmp eq i8 %54, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %53 to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS0_10CallResultIS6_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEE.exit
   %call799 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %55 = ptrtoint ptr %call799 to i64
-  %or.i.i.i.i447 = or i64 %55, -281474976710656
+  %54 = ptrtoint ptr %call799 to i64
+  %or.i.i.i.i447 = or i64 %54, -281474976710656
   %weakRefPrototype = getelementptr inbounds i8, ptr %runtime, i64 520
   store i64 %or.i.i.i.i447, ptr %weakRefPrototype, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS0_10CallResultIS6_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEE.exit
   %call813 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %56 = ptrtoint ptr %call813 to i64
-  %or.i.i.i.i449 = or i64 %56, -281474976710656
+  %55 = ptrtoint ptr %call813 to i64
+  %or.i.i.i.i449 = or i64 %55, -281474976710656
   %arrayIteratorPrototype = getelementptr inbounds i8, ptr %runtime, i64 592
   store i64 %or.i.i.i.i449, ptr %arrayIteratorPrototype, align 8
   %call827 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %57 = ptrtoint ptr %call827 to i64
-  %or.i.i.i.i451 = or i64 %57, -281474976710656
+  %56 = ptrtoint ptr %call827 to i64
+  %or.i.i.i.i451 = or i64 %56, -281474976710656
   %stringIteratorPrototype = getelementptr inbounds i8, ptr %runtime, i64 616
   store i64 %or.i.i.i.i451, ptr %stringIteratorPrototype, align 8
   %call841 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %58 = ptrtoint ptr %call841 to i64
-  %or.i.i.i.i453 = or i64 %58, -281474976710656
+  %57 = ptrtoint ptr %call841 to i64
+  %or.i.i.i.i453 = or i64 %57, -281474976710656
   %regExpStringIteratorPrototype = getelementptr inbounds i8, ptr %runtime, i64 624
   store i64 %or.i.i.i.i453, ptr %regExpStringIteratorPrototype, align 8
   %call855 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %59 = ptrtoint ptr %call855 to i64
-  %or.i.i.i.i455 = or i64 %59, -281474976710656
+  %58 = ptrtoint ptr %call855 to i64
+  %or.i.i.i.i455 = or i64 %58, -281474976710656
   %generatorPrototype = getelementptr inbounds i8, ptr %runtime, i64 632
   store i64 %or.i.i.i.i455, ptr %generatorPrototype, align 8
   %call869 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype) #10
-  %60 = ptrtoint ptr %call869 to i64
-  %or.i.i.i.i457 = or i64 %60, -281474976710656
+  %59 = ptrtoint ptr %call869 to i64
+  %or.i.i.i.i457 = or i64 %59, -281474976710656
   %generatorFunctionPrototype = getelementptr inbounds i8, ptr %runtime, i64 640
   store i64 %or.i.i.i.i457, ptr %generatorFunctionPrototype, align 8
   %call883 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype) #10
-  %61 = ptrtoint ptr %call883 to i64
-  %or.i.i.i.i459 = or i64 %61, -281474976710656
+  %60 = ptrtoint ptr %call883 to i64
+  %or.i.i.i.i459 = or i64 %60, -281474976710656
   %asyncFunctionPrototype = getelementptr inbounds i8, ptr %runtime, i64 608
   store i64 %or.i.i.i.i459, ptr %asyncFunctionPrototype, align 8
   %call888 = call ptr @_ZN6hermes2vm23createObjectConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2206,10 +2205,9 @@ if.end:                                           ; preds = %if.then, %_ZN6herme
   store i64 -1688849860263936, ptr %regExpLastRegExp, align 8
   %call1011 = call ptr @_ZN6hermes2vm22createArrayConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %hasArrayBuffer_.i = getelementptr inbounds i8, ptr %runtime, i64 9092
-  %62 = load i8, ptr %hasArrayBuffer_.i, align 4
-  %63 = and i8 %62, 1
-  %tobool.i525.not = icmp eq i8 %63, 0
-  br i1 %tobool.i525.not, label %if.end1121, label %if.then1016
+  %61 = load i8, ptr %hasArrayBuffer_.i, align 4
+  %tobool.i525 = trunc i8 %61 to i1
+  br i1 %tobool.i525, label %if.then1016, label %if.end1121
 
 if.then1016:                                      ; preds = %if.end
   %call1017 = call ptr @_ZN6hermes2vm28createArrayBufferConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2302,10 +2300,9 @@ if.end1121:                                       ; preds = %if.end, %if.then101
   %call1126 = call ptr @_ZN6hermes2vm20createMapConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %call1130 = call ptr @_ZN6hermes2vm24createWeakMapConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %call1134 = call ptr @_ZN6hermes2vm24createWeakSetConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %64 = load i8, ptr %hasMicrotaskQueue_.i, align 1
-  %65 = and i8 %64, 1
-  %tobool.i611.not = icmp eq i8 %65, 0
-  br i1 %tobool.i611.not, label %if.end1144, label %if.then1139
+  %62 = load i8, ptr %hasMicrotaskQueue_.i, align 1
+  %tobool.i611 = trunc i8 %62 to i1
+  br i1 %tobool.i611, label %if.then1139, label %if.end1144
 
 if.then1139:                                      ; preds = %if.end1121
   %call1140 = call ptr @_ZN6hermes2vm24createWeakRefConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2321,10 +2318,9 @@ if.end1144:                                       ; preds = %if.then1139, %if.en
   %call1153 = call ptr @_ZN6hermes2vm30createAsyncFunctionConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   call void @_ZN6hermes2vm26populateGeneratorPrototypeERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %hasES6Proxy_.i = getelementptr inbounds i8, ptr %runtime, i64 9089
-  %66 = load i8, ptr %hasES6Proxy_.i, align 1
-  %67 = and i8 %66, 1
-  %tobool.i612.not = icmp eq i8 %67, 0
-  br i1 %tobool.i612.not, label %if.end1163, label %if.then1158
+  %63 = load i8, ptr %hasES6Proxy_.i, align 1
+  %tobool.i612 = trunc i8 %63 to i1
+  br i1 %tobool.i612, label %if.then1158, label %if.end1163
 
 if.then1158:                                      ; preds = %if.end1144
   %call1159 = call ptr @_ZN6hermes2vm22createProxyConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2355,10 +2351,9 @@ if.then.i623:                                     ; preds = %_ZN6hermes2vm7Runti
   unreachable
 
 _ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit624: ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit618
-  %68 = load i8, ptr %hasES6Proxy_.i, align 1
-  %69 = and i8 %68, 1
-  %tobool.i626.not = icmp eq i8 %69, 0
-  br i1 %tobool.i626.not, label %if.end1238, label %if.then1213
+  %64 = load i8, ptr %hasES6Proxy_.i, align 1
+  %tobool.i626 = trunc i8 %64 to i1
+  br i1 %tobool.i626, label %if.then1213, label %if.end1238
 
 if.then1213:                                      ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit624
   %call1216 = call ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2551,10 +2546,9 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6deta
   %retval.sroa.0.0.copyload.i785 = load i64, ptr %call1387, align 8
   %requireFunction = getelementptr inbounds i8, ptr %runtime, i64 664
   store i64 %retval.sroa.0.0.copyload.i785, ptr %requireFunction, align 8
-  %70 = load i8, ptr %jsLibFlags, align 1
-  %71 = and i8 %70, 1
-  %tobool.not = icmp eq i8 %71, 0
-  br i1 %tobool.not, label %if.end1402, label %if.then1393
+  %65 = load i8, ptr %jsLibFlags, align 1
+  %tobool = trunc i8 %65 to i1
+  br i1 %tobool, label %if.then1393, label %if.end1402
 
 if.then1393:                                      ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit784
   store ptr %inlineStorage_.i, ptr %next_.i, align 8

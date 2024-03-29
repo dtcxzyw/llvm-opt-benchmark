@@ -126,37 +126,35 @@ define noundef i32 @prte_dt_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pmix_output_open(ptr noundef null) #13
   store i32 %1, ptr @prte_debug_output, align 4
   %2 = load i8, ptr @prte_debug_flag, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = load i32, ptr @prte_debug_verbosity, align 4
-  %6 = icmp sgt i32 %5, 0
-  %or.cond = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond, label %13, label %7
+  %3 = trunc i8 %2 to i1
+  %4 = load i32, ptr @prte_debug_verbosity, align 4
+  %5 = icmp sgt i32 %4, 0
+  %or.cond = select i1 %3, i1 true, i1 %5
+  br i1 %or.cond, label %12, label %6
 
-7:                                                ; preds = %0
-  %8 = load i8, ptr @prte_debug_daemons_flag, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %14, label %10
+6:                                                ; preds = %0
+  %7 = load i8, ptr @prte_debug_daemons_flag, align 1
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %13
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
-  %12 = and i8 %11, 6
-  %or.cond4 = icmp eq i8 %12, 0
-  br i1 %or.cond4, label %14, label %.thread
+9:                                                ; preds = %6
+  %10 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
+  %11 = and i8 %10, 6
+  %or.cond3 = icmp eq i8 %11, 0
+  br i1 %or.cond3, label %13, label %.thread
 
-13:                                               ; preds = %0
-  br i1 %6, label %.sink.split, label %.thread
+12:                                               ; preds = %0
+  br i1 %5, label %.sink.split, label %.thread
 
-.thread:                                          ; preds = %10, %13
+.thread:                                          ; preds = %9, %12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %.thread
-  %.sink = phi i32 [ 1, %.thread ], [ %5, %13 ]
+.sink.split:                                      ; preds = %12, %.thread
+  %.sink = phi i32 [ 1, %.thread ], [ %4, %12 ]
   tail call void @pmix_output_set_verbosity(i32 noundef %1, i32 noundef %.sink) #13
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.sink.split, %10, %7
+13:                                               ; preds = %.sink.split, %9, %6
   ret i32 0
 }
 

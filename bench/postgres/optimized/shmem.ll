@@ -234,9 +234,8 @@ define dso_local void @InitShmemIndex() local_unnamed_addr #1 {
   %9 = call i64 @hash_get_shared_size(ptr noundef nonnull %2, i32 noundef 2588) #9
   %10 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef %9, ptr noundef nonnull %1)
   %11 = load i8, ptr %1, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  %spec.select.i = select i1 %.not.i, i32 2588, i32 6684
+  %12 = trunc i8 %11 to i1
+  %spec.select.i = select i1 %12, i32 6684, i32 2588
   %13 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %10, ptr %13, align 8
   %14 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 64, ptr noundef nonnull %2, i32 noundef %spec.select.i) #9
@@ -259,10 +258,9 @@ define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef 
   %12 = tail call i64 @hash_get_shared_size(ptr noundef %3, i32 noundef %11) #9
   %13 = call ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %12, ptr noundef nonnull %6)
   %14 = load i8, ptr %6, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
+  %15 = trunc i8 %14 to i1
   %16 = or i32 %4, 6660
-  %spec.select = select i1 %.not, i32 %11, i32 %16
+  %spec.select = select i1 %15, i32 %16, i32 %11
   %17 = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %13, ptr %17, align 8
   %18 = call ptr @hash_create(ptr noundef %0, i64 noundef %1, ptr noundef %3, i32 noundef %spec.select) #9
@@ -283,9 +281,8 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 8:                                                ; preds = %3
   %9 = load ptr, ptr @ShmemSegHdr, align 8
   %10 = load i8, ptr @IsUnderPostmaster, align 1
-  %11 = and i8 %10, 1
-  %.not34 = icmp eq i8 %11, 0
-  br i1 %.not34, label %15, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %9, i64 32
@@ -306,8 +303,8 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 19:                                               ; preds = %3
   %20 = tail call ptr @hash_search(ptr noundef nonnull %7, ptr noundef %0, i32 noundef 3, ptr noundef %2) #9
-  %.not35 = icmp eq ptr %20, null
-  br i1 %.not35, label %21, label %27
+  %.not34 = icmp eq ptr %20, null
+  br i1 %.not34, label %21, label %27
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @MainLWLockArray, align 8
@@ -322,15 +319,14 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 27:                                               ; preds = %19
   %28 = load i8, ptr %2, align 1
-  %29 = and i8 %28, 1
-  %.not36 = icmp eq i8 %29, 0
-  br i1 %.not36, label %42, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %42
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %20, i64 56
   %32 = load i64, ptr %31, align 8
-  %.not37 = icmp eq i64 %32, %1
-  br i1 %.not37, label %39, label %33
+  %.not35 = icmp eq i64 %32, %1
+  br i1 %.not35, label %39, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @MainLWLockArray, align 8

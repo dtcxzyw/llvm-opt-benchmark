@@ -53,15 +53,14 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %17, i64 32
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not13 = icmp eq i8 %29, 0
-  br i1 %.not13, label %36, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
-  %.not15 = icmp eq ptr %32, null
-  br i1 %.not15, label %128, label %33
+  %.not14 = icmp eq ptr %32, null
+  br i1 %.not14, label %128, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %3, i64 24
@@ -203,8 +202,8 @@ tsquerysel.exit:                                  ; preds = %40, %103, %109
   %.0 = phi double [ %.0.i, %tsquerysel.exit ], [ 5.000000e-03, %36 ]
   %116 = getelementptr inbounds i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
-  %.not14 = icmp eq ptr %117, null
-  br i1 %.not14, label %121, label %118
+  %.not13 = icmp eq ptr %117, null
+  br i1 %.not13, label %121, label %118
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i8, ptr %3, i64 24
@@ -264,15 +263,14 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   store i32 %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 2
   %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
+  %19 = trunc i8 %18 to i1
   %20 = icmp eq ptr %2, null
-  br i1 %.not, label %91, label %21
+  br i1 %19, label %21, label %91
 
 21:                                               ; preds = %9
   %22 = icmp slt i32 %3, 100
   %or.cond = or i1 %20, %22
-  br i1 %or.cond, label %.thread117, label %.preheader
+  br i1 %or.cond, label %.thread116, label %.preheader
 
 .preheader:                                       ; preds = %21
   %23 = zext nneg i32 %15 to i64
@@ -281,9 +279,9 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %.preheader, %63
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %63 ]
-  %.094122 = phi double [ 0.000000e+00, %.preheader ], [ %.195, %63 ]
-  %.096121 = phi i32 [ 0, %.preheader ], [ %.197, %63 ]
-  %.099119 = phi double [ 0.000000e+00, %.preheader ], [ %69, %63 ]
+  %.094121 = phi double [ 0.000000e+00, %.preheader ], [ %.195, %63 ]
+  %.096120 = phi i32 [ 0, %.preheader ], [ %.197, %63 ]
+  %.099118 = phi double [ 0.000000e+00, %.preheader ], [ %69, %63 ]
   %25 = getelementptr %struct.TextFreq, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 1
@@ -297,16 +295,16 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %33 = icmp eq i8 %32, 1
   %34 = and i8 %32, -2
   %35 = icmp eq i8 %34, 2
-  %or.cond114 = or i1 %33, %35
+  %or.cond113 = or i1 %33, %35
   %36 = icmp eq i8 %32, 18
   %37 = select i1 %36, i32 16, i32 0
-  %38 = select i1 %or.cond114, i32 8, i32 %37
+  %38 = select i1 %or.cond113, i32 8, i32 %37
   br label %48
 
 39:                                               ; preds = %24
   %40 = and i32 %28, 1
-  %.not110 = icmp eq i32 %40, 0
-  br i1 %.not110, label %44, label %41
+  %.not109 = icmp eq i32 %40, 0
+  br i1 %.not109, label %44, label %41
 
 41:                                               ; preds = %39
   %42 = lshr i32 %28, 1
@@ -321,13 +319,13 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 
 48:                                               ; preds = %41, %44, %30
   %49 = phi i32 [ %38, %30 ], [ %43, %41 ], [ %47, %44 ]
-  %.not111 = icmp slt i32 %49, %15
-  br i1 %.not111, label %63, label %50
+  %.not110 = icmp slt i32 %49, %15
+  br i1 %.not110, label %63, label %50
 
 50:                                               ; preds = %48
   %51 = and i8 %27, 1
-  %.not112 = icmp eq i8 %51, 0
-  %.v = select i1 %.not112, i64 4, i64 1
+  %.not111 = icmp eq i8 %51, 0
+  %.v = select i1 %.not111, i64 4, i64 1
   %52 = getelementptr inbounds i8, ptr %26, i64 %.v
   %53 = tail call i32 @strncmp(ptr noundef %14, ptr noundef nonnull %52, i64 noundef %23) #10
   %54 = icmp eq i32 %53, 0
@@ -337,21 +335,21 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %56 = getelementptr inbounds i8, ptr %25, i64 8
   %57 = load float, ptr %56, align 8
   %58 = fpext float %57 to double
-  %59 = fneg double %.094122
+  %59 = fneg double %.094121
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %58, double %58)
-  %61 = fadd double %.094122, %60
-  %62 = add i32 %.096121, 1
+  %61 = fadd double %.094121, %60
+  %62 = add i32 %.096120, 1
   br label %63
 
 63:                                               ; preds = %55, %50, %48
-  %.197 = phi i32 [ %62, %55 ], [ %.096121, %50 ], [ %.096121, %48 ]
-  %.195 = phi double [ %61, %55 ], [ %.094122, %50 ], [ %.094122, %48 ]
+  %.197 = phi i32 [ %62, %55 ], [ %.096120, %50 ], [ %.096120, %48 ]
+  %.195 = phi double [ %61, %55 ], [ %.094121, %50 ], [ %.094121, %48 ]
   %64 = getelementptr inbounds i8, ptr %25, i64 8
   %65 = load float, ptr %64, align 8
   %66 = fpext float %65 to double
-  %67 = fneg double %.099119
+  %67 = fneg double %.099118
   %68 = tail call double @llvm.fmuladd.f64(double %67, double %66, double %66)
-  %69 = fadd double %.099119, %68
+  %69 = fadd double %.099118, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %70, label %24, !llvm.loop !7
@@ -395,13 +393,13 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br label %135
 
 91:                                               ; preds = %9
-  br i1 %20, label %.thread117, label %92
+  br i1 %20, label %.thread116, label %92
 
 92:                                               ; preds = %91
   %93 = sext i32 %3 to i64
   %94 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %93, i64 noundef 16, ptr noundef nonnull @compare_lexeme_textfreq) #9
-  %.not109 = icmp eq ptr %94, null
-  br i1 %.not109, label %99, label %95
+  %.not = icmp eq ptr %94, null
+  br i1 %.not, label %99, label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %94, i64 8
@@ -413,7 +411,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %100 = fmul float %4, 5.000000e-01
   %101 = fpext float %100 to double
   %102 = fcmp ogt double %101, 5.000000e-03
-  br i1 %102, label %.thread117, label %135
+  br i1 %102, label %.thread116, label %135
 
 103:                                              ; preds = %5
   %104 = getelementptr inbounds i8, ptr %0, i64 1
@@ -467,16 +465,16 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 135:                                              ; preds = %99, %95, %80, %119, %110, %106
   %.093 = phi double [ %., %80 ], [ %98, %95 ], [ %101, %99 ], [ %129, %119 ], [ %118, %110 ], [ %109, %106 ]
   %136 = fcmp olt double %.093, 0.000000e+00
-  br i1 %136, label %.thread117, label %137
+  br i1 %136, label %.thread116, label %137
 
 137:                                              ; preds = %135
   %138 = fcmp ogt double %.093, 1.000000e+00
-  br i1 %138, label %139, label %.thread117
+  br i1 %138, label %139, label %.thread116
 
 139:                                              ; preds = %137
-  br label %.thread117
+  br label %.thread116
 
-.thread117:                                       ; preds = %99, %137, %139, %135, %91, %21
+.thread116:                                       ; preds = %99, %137, %139, %135, %91, %21
   %.0 = phi double [ 2.000000e-02, %21 ], [ 5.000000e-03, %91 ], [ 1.000000e+00, %139 ], [ %.093, %137 ], [ 0.000000e+00, %135 ], [ 5.000000e-03, %99 ]
   ret double %.0
 }

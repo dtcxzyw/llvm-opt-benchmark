@@ -21,9 +21,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN17CompatibleChecker16compatible_checkEPK8VariablePK10Expression(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i8, ptr @_ZN17CompatibleChecker17compatible_check_E, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
@@ -40,9 +39,8 @@ define dso_local noundef zeroext i1 @_ZN17CompatibleChecker16compatible_checkEPK
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN17CompatibleChecker16compatible_checkEPK10ExpressionS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i8, ptr @_ZN17CompatibleChecker17compatible_check_E, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %15, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8

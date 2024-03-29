@@ -33,11 +33,11 @@ define dso_local noundef ptr @ExecInitAppend(ptr noundef %0, ptr noundef %1, i32
   %.not100 = icmp eq ptr %13, null
   %14 = getelementptr inbounds i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8
-  %.not.i105 = icmp eq ptr %15, null
+  %.not.i102 = icmp eq ptr %15, null
   br i1 %.not100, label %34, label %16
 
 16:                                               ; preds = %3
-  br i1 %.not.i105, label %list_length.exit, label %17
+  br i1 %.not.i102, label %list_length.exit, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %15, i64 4
@@ -53,11 +53,10 @@ list_length.exit:                                 ; preds = %16, %17
   %24 = call i32 @bms_num_members(ptr noundef %23) #5
   %25 = getelementptr inbounds i8, ptr %21, i64 25
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not101 = icmp eq i8 %27, 0
-  %28 = icmp sgt i32 %24, 0
-  %or.cond = select i1 %.not101, i1 %28, i1 false
-  br i1 %or.cond, label %29, label %44
+  %27 = trunc i8 %26 to i1
+  %28 = icmp slt i32 %24, 1
+  %or.cond.not = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond.not, label %44, label %29
 
 29:                                               ; preds = %list_length.exit
   %30 = add nsw i32 %24, -1
@@ -69,14 +68,14 @@ list_length.exit:                                 ; preds = %16, %17
   br label %44
 
 34:                                               ; preds = %3
-  br i1 %.not.i105, label %list_length.exit106, label %35
+  br i1 %.not.i102, label %list_length.exit103, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %15, i64 4
   %37 = load i32, ptr %36, align 4
-  br label %list_length.exit106
+  br label %list_length.exit103
 
-list_length.exit106:                              ; preds = %34, %35
+list_length.exit103:                              ; preds = %34, %35
   %38 = phi i32 [ %37, %35 ], [ 0, %34 ]
   %39 = add i32 %38, -1
   %40 = tail call ptr @bms_add_range(ptr noundef null, i32 noundef 0, i32 noundef %39) #5
@@ -89,8 +88,8 @@ list_length.exit106:                              ; preds = %34, %35
   store ptr null, ptr %43, align 8
   br label %44
 
-44:                                               ; preds = %list_length.exit, %29, %list_length.exit106
-  %.089 = phi i32 [ %24, %29 ], [ %24, %list_length.exit ], [ %38, %list_length.exit106 ]
+44:                                               ; preds = %list_length.exit, %29, %list_length.exit103
+  %.089 = phi i32 [ %24, %29 ], [ %24, %list_length.exit ], [ %38, %list_length.exit103 ]
   call void @ExecInitResultTupleSlotTL(ptr noundef nonnull %5, ptr noundef nonnull @TTSOpsVirtual) #5
   %45 = getelementptr inbounds i8, ptr %5, i64 199
   store i8 1, ptr %45, align 1
@@ -112,10 +111,10 @@ list_length.exit106:                              ; preds = %34, %35
 
 56:                                               ; preds = %.lr.ph, %72
   %57 = phi i32 [ %51, %.lr.ph ], [ %80, %72 ]
-  %.0110 = phi ptr [ null, %.lr.ph ], [ %.1, %72 ]
-  %.090109 = phi i32 [ 0, %.lr.ph ], [ %.191, %72 ]
-  %.092108 = phi i32 [ 0, %.lr.ph ], [ %76, %72 ]
-  %.095107 = phi i32 [ %.089, %.lr.ph ], [ %.196, %72 ]
+  %.0107 = phi ptr [ null, %.lr.ph ], [ %.1, %72 ]
+  %.090106 = phi i32 [ 0, %.lr.ph ], [ %.191, %72 ]
+  %.092105 = phi i32 [ 0, %.lr.ph ], [ %76, %72 ]
+  %.095104 = phi i32 [ %.089, %.lr.ph ], [ %.196, %72 ]
   %58 = load ptr, ptr %53, align 8
   %59 = getelementptr i8, ptr %58, i64 16
   %.val = load ptr, ptr %59, align 8
@@ -124,9 +123,8 @@ list_length.exit106:                              ; preds = %34, %35
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 38
   %64 = load i8, ptr %63, align 2
-  %65 = and i8 %64, 1
-  %.not102 = icmp eq i8 %65, 0
-  br i1 %.not102, label %72, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %72
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %54, align 8
@@ -134,20 +132,20 @@ list_length.exit106:                              ; preds = %34, %35
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = call ptr @bms_add_member(ptr noundef %.0110, i32 noundef %.092108) #5
-  %71 = add i32 %.090109, 1
+  %70 = call ptr @bms_add_member(ptr noundef %.0107, i32 noundef %.092105) #5
+  %71 = add i32 %.090106, 1
   br label %72
 
 72:                                               ; preds = %69, %66, %56
-  %.191 = phi i32 [ %71, %69 ], [ %.090109, %66 ], [ %.090109, %56 ]
-  %.1 = phi ptr [ %70, %69 ], [ %.0110, %66 ], [ %.0110, %56 ]
+  %.191 = phi i32 [ %71, %69 ], [ %.090106, %66 ], [ %.090106, %56 ]
+  %.1 = phi ptr [ %70, %69 ], [ %.0107, %66 ], [ %.0107, %56 ]
   %73 = load i32, ptr %55, align 4
-  %.not103.not = icmp slt i32 %57, %73
-  %74 = call i32 @llvm.smin.i32(i32 %.092108, i32 %.095107)
-  %.196 = select i1 %.not103.not, i32 %.095107, i32 %74
+  %.not.not = icmp slt i32 %57, %73
+  %74 = call i32 @llvm.smin.i32(i32 %.092105, i32 %.095104)
+  %.196 = select i1 %.not.not, i32 %.095104, i32 %74
   %75 = call ptr @ExecInitNode(ptr noundef nonnull %62, ptr noundef %1, i32 noundef %2) #5
-  %76 = add i32 %.092108, 1
-  %77 = sext i32 %.092108 to i64
+  %76 = add i32 %.092105, 1
+  %77 = sext i32 %.092105 to i64
   %78 = getelementptr ptr, ptr %49, i64 %77
   store ptr %75, ptr %78, align 8
   %79 = load ptr, ptr %4, align 8
@@ -186,10 +184,10 @@ list_length.exit106:                              ; preds = %34, %35
   store ptr %94, ptr %87, align 8
   %95 = call i32 @bms_next_member(ptr noundef %.0.lcssa, i32 noundef -1) #5
   %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %.lr.ph114, label %._crit_edge115
+  br i1 %96, label %.lr.ph111, label %._crit_edge112
 
-.lr.ph114:                                        ; preds = %93, %.lr.ph114
-  %97 = phi i32 [ %109, %.lr.ph114 ], [ %95, %93 ]
+.lr.ph111:                                        ; preds = %93, %.lr.ph111
+  %97 = phi i32 [ %109, %.lr.ph111 ], [ %95, %93 ]
   %98 = call ptr @palloc(i64 noundef 32) #5
   store ptr %5, ptr %98, align 8
   %99 = zext nneg i32 %97 to i64
@@ -210,20 +208,19 @@ list_length.exit106:                              ; preds = %34, %35
   store ptr %98, ptr %108, align 8
   %109 = call i32 @bms_next_member(ptr noundef %.0.lcssa, i32 noundef %97) #5
   %110 = icmp sgt i32 %109, -1
-  br i1 %110, label %.lr.ph114, label %._crit_edge115, !llvm.loop !7
+  br i1 %110, label %.lr.ph111, label %._crit_edge112, !llvm.loop !7
 
-._crit_edge115:                                   ; preds = %.lr.ph114, %93
+._crit_edge112:                                   ; preds = %.lr.ph111, %93
   %111 = zext nneg i32 %.090.lcssa to i64
   %112 = shl nuw nsw i64 %111, 3
   %113 = call ptr @palloc0(i64 noundef %112) #5
   store ptr %113, ptr %88, align 8
   %114 = getelementptr inbounds i8, ptr %5, i64 320
   %115 = load i8, ptr %114, align 8
-  %116 = and i8 %115, 1
-  %.not = icmp eq i8 %116, 0
-  br i1 %.not, label %classify_matching_subplans.exit, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %classify_matching_subplans.exit
 
-117:                                              ; preds = %._crit_edge115
+117:                                              ; preds = %._crit_edge112
   %118 = getelementptr inbounds i8, ptr %5, i64 328
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
@@ -253,7 +250,7 @@ list_length.exit106:                              ; preds = %34, %35
   store ptr %129, ptr %91, align 8
   br label %classify_matching_subplans.exit
 
-classify_matching_subplans.exit:                  ; preds = %126, %125, %121, %._crit_edge115, %._crit_edge
+classify_matching_subplans.exit:                  ; preds = %126, %125, %121, %._crit_edge112, %._crit_edge
   %132 = getelementptr inbounds i8, ptr %5, i64 136
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %5, i64 344
@@ -265,9 +262,8 @@ classify_matching_subplans.exit:                  ; preds = %126, %125, %121, %.
 define internal ptr @ExecAppend(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %83
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %83, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 208
@@ -294,9 +290,8 @@ define internal ptr @ExecAppend(ptr noundef %0) #0 {
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 320
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %24, label %classify_matching_subplans.exit.i
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %classify_matching_subplans.exit.i, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 312
@@ -411,8 +406,8 @@ ExecAppendAsyncBegin.exit:                        ; preds = %59, %.preheader.i, 
 
 92:                                               ; preds = %.backedge, %83
   %93 = load volatile i32, ptr @InterruptPending, align 4
-  %.not25 = icmp eq i32 %93, 0
-  br i1 %.not25, label %95, label %94
+  %.not = icmp eq i32 %93, 0
+  br i1 %.not, label %95, label %94
 
 94:                                               ; preds = %92
   tail call void @ProcessInterrupts() #5
@@ -420,11 +415,10 @@ ExecAppendAsyncBegin.exit:                        ; preds = %59, %.preheader.i, 
 
 95:                                               ; preds = %92, %94
   %96 = load i8, ptr %84, align 4
-  %97 = and i8 %96, 1
-  %.not26 = icmp eq i8 %97, 0
+  %97 = trunc i8 %96 to i1
   %.pre = load ptr, ptr %85, align 8
   %98 = icmp eq ptr %.pre, null
-  br i1 %.not26, label %99, label %100
+  br i1 %97, label %100, label %99
 
 99:                                               ; preds = %95
   br i1 %98, label %ExecAppendAsyncGetNext.exit, label %.thread
@@ -477,12 +471,16 @@ ExecAppendAsyncRequest.exit.thread.i:             ; preds = %._crit_edge.i.i, %.
 ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequest.exit.i.preheader, %150
   %121 = load i32, ptr %88, align 8
   %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %123, label %split.i
+  br i1 %122, label %123, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %ExecAppendAsyncRequest.exit.i
+  %.pre.i = load i8, ptr %84, align 4
+  br label %split.i
 
 123:                                              ; preds = %ExecAppendAsyncRequest.exit.i
   %124 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i28 = icmp eq i32 %124, 0
-  br i1 %.not.i28, label %126, label %125
+  %.not.i = icmp eq i32 %124, 0
+  br i1 %.not.i, label %126, label %125
 
 125:                                              ; preds = %123
   tail call void @ProcessInterrupts() #5
@@ -497,16 +495,16 @@ ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequ
 129:                                              ; preds = %126
   %130 = load i32, ptr %86, align 8
   %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %ExecAppendAsyncRequest.exit19.i, label %132
+  br i1 %131, label %ExecAppendAsyncRequest.exit17.i, label %132
 
 132:                                              ; preds = %129
   store ptr null, ptr %85, align 8
   %133 = tail call i32 @bms_next_member(ptr noundef nonnull %127, i32 noundef -1) #5
   %134 = icmp sgt i32 %133, -1
-  br i1 %134, label %.lr.ph.i18.i, label %._crit_edge.i14.i
+  br i1 %134, label %.lr.ph.i16.i, label %._crit_edge.i12.i
 
-.lr.ph.i18.i:                                     ; preds = %132, %.lr.ph.i18.i
-  %135 = phi i32 [ %140, %.lr.ph.i18.i ], [ %133, %132 ]
+.lr.ph.i16.i:                                     ; preds = %132, %.lr.ph.i16.i
+  %135 = phi i32 [ %140, %.lr.ph.i16.i ], [ %133, %132 ]
   %136 = load ptr, ptr %87, align 8
   %137 = zext nneg i32 %135 to i64
   %138 = getelementptr ptr, ptr %136, i64 %137
@@ -514,17 +512,17 @@ ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequ
   tail call void @ExecAsyncRequest(ptr noundef %139) #5
   %140 = tail call i32 @bms_next_member(ptr noundef nonnull %127, i32 noundef %135) #5
   %141 = icmp sgt i32 %140, -1
-  br i1 %141, label %.lr.ph.i18.i, label %._crit_edge.i14.i, !llvm.loop !9
+  br i1 %141, label %.lr.ph.i16.i, label %._crit_edge.i12.i, !llvm.loop !9
 
-._crit_edge.i14.i:                                ; preds = %.lr.ph.i18.i, %132
+._crit_edge.i12.i:                                ; preds = %.lr.ph.i16.i, %132
   tail call void @bms_free(ptr noundef nonnull %127) #5
   %142 = load i32, ptr %86, align 8
   %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %ExecAppendAsyncRequest.exit19.i, label %150
+  br i1 %143, label %ExecAppendAsyncRequest.exit17.i, label %150
 
-ExecAppendAsyncRequest.exit19.i:                  ; preds = %._crit_edge.i14.i, %129
-  %.sink28.i17.i = phi i32 [ %130, %129 ], [ %142, %._crit_edge.i14.i ]
-  %144 = add nsw i32 %.sink28.i17.i, -1
+ExecAppendAsyncRequest.exit17.i:                  ; preds = %._crit_edge.i12.i, %129
+  %.sink28.i15.i = phi i32 [ %130, %129 ], [ %142, %._crit_edge.i12.i ]
+  %144 = add nsw i32 %.sink28.i15.i, -1
   store i32 %144, ptr %86, align 8
   %145 = getelementptr inbounds i8, ptr %0, i64 248
   %146 = load ptr, ptr %145, align 8
@@ -533,91 +531,89 @@ ExecAppendAsyncRequest.exit19.i:                  ; preds = %._crit_edge.i14.i, 
   %149 = load ptr, ptr %148, align 8
   br label %.loopexit
 
-150:                                              ; preds = %._crit_edge.i14.i, %126
+150:                                              ; preds = %._crit_edge.i12.i, %126
   %151 = load i8, ptr %84, align 4
-  %152 = and i8 %151, 1
-  %.not12.i = icmp eq i8 %152, 0
-  br i1 %.not12.i, label %ExecAppendAsyncGetNext.exit, label %ExecAppendAsyncRequest.exit.i, !llvm.loop !10
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %ExecAppendAsyncRequest.exit.i, label %split.i, !llvm.loop !10
 
-split.i:                                          ; preds = %ExecAppendAsyncRequest.exit.i
-  %.pre.i = load i8, ptr %84, align 4
-  %.pre22.i = and i8 %.pre.i, 1
-  %153 = icmp eq i8 %.pre22.i, 0
-  br i1 %153, label %ExecAppendAsyncGetNext.exit, label %154
+split.i:                                          ; preds = %150, %._crit_edge.i
+  %153 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %151, %150 ]
+  %154 = trunc i8 %153 to i1
+  br i1 %154, label %155, label %ExecAppendAsyncGetNext.exit
 
-154:                                              ; preds = %split.i
-  %155 = getelementptr inbounds i8, ptr %0, i64 120
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 24
-  %160 = load ptr, ptr %159, align 8
-  tail call void %160(ptr noundef %156) #5
+155:                                              ; preds = %split.i
+  %156 = getelementptr inbounds i8, ptr %0, i64 120
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %161 = load ptr, ptr %160, align 8
+  tail call void %161(ptr noundef %157) #5
   br label %.loopexit
 
-ExecAppendAsyncGetNext.exit:                      ; preds = %150, %split.i, %99
-  %161 = load ptr, ptr %89, align 8
-  %162 = load i32, ptr %90, align 4
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr ptr, ptr %161, i64 %163
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 104
-  %167 = load ptr, ptr %166, align 8
-  %.not.i29 = icmp eq ptr %167, null
-  br i1 %.not.i29, label %ExecProcNode.exit, label %168
+ExecAppendAsyncGetNext.exit:                      ; preds = %split.i, %99
+  %162 = load ptr, ptr %89, align 8
+  %163 = load i32, ptr %90, align 4
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr ptr, ptr %162, i64 %164
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 104
+  %168 = load ptr, ptr %167, align 8
+  %.not.i26 = icmp eq ptr %168, null
+  br i1 %.not.i26, label %ExecProcNode.exit, label %169
 
-168:                                              ; preds = %ExecAppendAsyncGetNext.exit
-  tail call void @ExecReScan(ptr noundef nonnull %165) #5
+169:                                              ; preds = %ExecAppendAsyncGetNext.exit
+  tail call void @ExecReScan(ptr noundef nonnull %166) #5
   br label %ExecProcNode.exit
 
-ExecProcNode.exit:                                ; preds = %ExecAppendAsyncGetNext.exit, %168
-  %169 = getelementptr inbounds i8, ptr %165, i64 24
-  %170 = load ptr, ptr %169, align 8
-  %171 = tail call ptr %170(ptr noundef nonnull %165) #5
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %177, label %173
+ExecProcNode.exit:                                ; preds = %ExecAppendAsyncGetNext.exit, %169
+  %170 = getelementptr inbounds i8, ptr %166, i64 24
+  %171 = load ptr, ptr %170, align 8
+  %172 = tail call ptr %171(ptr noundef nonnull %166) #5
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %178, label %174
 
-173:                                              ; preds = %ExecProcNode.exit
-  %174 = getelementptr inbounds i8, ptr %171, i64 4
-  %175 = load i16, ptr %174, align 4
-  %176 = and i16 %175, 2
-  %.not27 = icmp eq i16 %176, 0
-  br i1 %.not27, label %.loopexit, label %177
+174:                                              ; preds = %ExecProcNode.exit
+  %175 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = load i16, ptr %175, align 4
+  %177 = and i16 %176, 2
+  %.not25 = icmp eq i16 %177, 0
+  br i1 %.not25, label %.loopexit, label %178
 
-177:                                              ; preds = %173, %ExecProcNode.exit
-  %178 = load i32, ptr %88, align 8
-  %179 = icmp sgt i32 %178, 0
-  br i1 %179, label %180, label %181
+178:                                              ; preds = %174, %ExecProcNode.exit
+  %179 = load i32, ptr %88, align 8
+  %180 = icmp sgt i32 %179, 0
+  br i1 %180, label %181, label %182
 
-180:                                              ; preds = %177
+181:                                              ; preds = %178
   tail call fastcc void @ExecAppendAsyncEventWait(ptr noundef nonnull %0)
-  br label %181
+  br label %182
 
-181:                                              ; preds = %180, %177
-  %182 = load ptr, ptr %91, align 8
-  %183 = tail call zeroext i1 %182(ptr noundef nonnull %0) #5
-  br i1 %183, label %.backedge, label %184
+182:                                              ; preds = %181, %178
+  %183 = load ptr, ptr %91, align 8
+  %184 = tail call zeroext i1 %183(ptr noundef nonnull %0) #5
+  br i1 %184, label %.backedge, label %185
 
-184:                                              ; preds = %181
-  %185 = load i32, ptr %88, align 8
-  %186 = icmp eq i32 %185, 0
-  br i1 %186, label %187, label %.backedge
+185:                                              ; preds = %182
+  %186 = load i32, ptr %88, align 8
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %.backedge
 
-.backedge:                                        ; preds = %184, %181
+.backedge:                                        ; preds = %185, %182
   br label %92
 
-187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %0, i64 120
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 24
-  %193 = load ptr, ptr %192, align 8
-  tail call void %193(ptr noundef %189) #5
+188:                                              ; preds = %185
+  %189 = getelementptr inbounds i8, ptr %0, i64 120
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 24
+  %194 = load ptr, ptr %193, align 8
+  tail call void %194(ptr noundef %190) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %173, %ExecAppendAsyncRequest.exit.thread.i, %ExecAppendAsyncRequest.exit19.i, %154, %187, %75, %9
-  %.0 = phi ptr [ %189, %187 ], [ %11, %9 ], [ %77, %75 ], [ %156, %154 ], [ %120, %ExecAppendAsyncRequest.exit.thread.i ], [ %149, %ExecAppendAsyncRequest.exit19.i ], [ %171, %173 ]
+.loopexit:                                        ; preds = %174, %ExecAppendAsyncRequest.exit.thread.i, %ExecAppendAsyncRequest.exit17.i, %155, %188, %75, %9
+  %.0 = phi ptr [ %190, %188 ], [ %11, %9 ], [ %77, %75 ], [ %157, %155 ], [ %120, %ExecAppendAsyncRequest.exit.thread.i ], [ %149, %ExecAppendAsyncRequest.exit17.i ], [ %172, %174 ]
   ret ptr %.0
 }
 
@@ -644,9 +640,8 @@ define internal noundef zeroext i1 @choose_next_subplan_locally(ptr nocapture no
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   %3 = getelementptr inbounds i8, ptr %0, i64 260
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %42
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %42, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 4
@@ -662,9 +657,8 @@ define internal noundef zeroext i1 @choose_next_subplan_locally(ptr nocapture no
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 320
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not21 = icmp eq i8 %16, 0
-  br i1 %.not21, label %17, label %22
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 312
@@ -957,9 +951,8 @@ define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr nocapture
   store i32 %15, ptr %5, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 320
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not27 = icmp eq i8 %18, 0
-  br i1 %.not27, label %19, label %mark_invalid_subplans_as_finished.exit
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %mark_invalid_subplans_as_finished.exit, label %19
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 312
@@ -1002,9 +995,8 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
   %40 = sext i32 %.pr to i64
   %41 = getelementptr [0 x i8], ptr %39, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %.not2834 = icmp eq i8 %43, 0
-  br i1 %.not2834, label %._crit_edge, label %.lr.ph
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %mark_invalid_subplans_as_finished.exit, %48
   %44 = phi i32 [ %49, %48 ], [ %.pr, %mark_invalid_subplans_as_finished.exit ]
@@ -1023,29 +1015,28 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
   %50 = sext i32 %49 to i64
   %51 = getelementptr [0 x i8], ptr %39, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %.not28 = icmp eq i8 %53, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %48, %mark_invalid_subplans_as_finished.exit
-  %.lcssa32 = phi i32 [ %.pr, %mark_invalid_subplans_as_finished.exit ], [ %49, %48 ]
-  %.lcssa = phi i64 [ %40, %mark_invalid_subplans_as_finished.exit ], [ %50, %48 ]
+  %.lcssa30 = phi i32 [ %.pr, %mark_invalid_subplans_as_finished.exit ], [ %49, %48 ]
+  %.lcssa28 = phi i64 [ %40, %mark_invalid_subplans_as_finished.exit ], [ %50, %48 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 288
   %55 = load i32, ptr %54, align 8
-  %56 = icmp slt i32 %.lcssa32, %55
+  %56 = icmp slt i32 %.lcssa30, %55
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %._crit_edge
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 20
-  %60 = getelementptr [0 x i8], ptr %59, i64 0, i64 %.lcssa
+  %60 = getelementptr [0 x i8], ptr %59, i64 0, i64 %.lcssa28
   store i8 1, ptr %60, align 1
   br label %61
 
 61:                                               ; preds = %._crit_edge, %57, %46
-  %.not2830 = phi i1 [ false, %46 ], [ true, %57 ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ false, %46 ], [ true, %57 ], [ true, %._crit_edge ]
   tail call void @LWLockRelease(ptr noundef nonnull %3) #5
-  ret i1 %.not2830
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1102,9 +1093,8 @@ define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr nocapture
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 320
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not60 = icmp eq i8 %15, 0
-  br i1 %.not60, label %16, label %mark_invalid_subplans_as_finished.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %mark_invalid_subplans_as_finished.exit, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 312
@@ -1161,9 +1151,8 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
   %46 = sext i32 %45 to i64
   %47 = getelementptr [0 x i8], ptr %41, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not61 = icmp eq i8 %49, 0
-  br i1 %.not61, label %69, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %69
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %42, align 8
@@ -1244,9 +1233,8 @@ define dso_local void @ExecAsyncAppendResponse(ptr nocapture noundef readonly %0
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 21
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %31, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %31
 
 8:                                                ; preds = %1
   %9 = icmp eq ptr %4, null
@@ -1256,8 +1244,8 @@ define dso_local void @ExecAsyncAppendResponse(ptr nocapture noundef readonly %0
   %11 = getelementptr inbounds i8, ptr %4, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = and i16 %12, 2
-  %.not12 = icmp eq i16 %13, 0
-  br i1 %.not12, label %18, label %14
+  %.not = icmp eq i16 %13, 0
+  br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %10, %8
   %15 = getelementptr inbounds i8, ptr %2, i64 264
@@ -1299,100 +1287,98 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr nocapture noundef %0) 
   %6 = getelementptr inbounds i8, ptr %0, i64 260
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
-  %sext = sub nsw i8 0, %8
-  %9 = sext i8 %sext to i64
-  %10 = load ptr, ptr @CurrentResourceOwner, align 8
-  %11 = tail call ptr @CreateWaitEventSet(ptr noundef %10, i32 noundef %5) #5
-  %12 = getelementptr inbounds i8, ptr %0, i64 280
-  store ptr %11, ptr %12, align 8
-  %13 = tail call i32 @AddWaitEventToSet(ptr noundef %11, i32 noundef 32, i32 noundef -1, ptr noundef null, ptr noundef null) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 224
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @bms_next_member(ptr noundef %15, i32 noundef -1) #5
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  %9 = zext nneg i8 %8 to i64
+  %10 = sub nsw i64 0, %9
+  %11 = load ptr, ptr @CurrentResourceOwner, align 8
+  %12 = tail call ptr @CreateWaitEventSet(ptr noundef %11, i32 noundef %5) #5
+  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  store ptr %12, ptr %13, align 8
+  %14 = tail call i32 @AddWaitEventToSet(ptr noundef %12, i32 noundef 32, i32 noundef -1, ptr noundef null, ptr noundef null) #5
+  %15 = getelementptr inbounds i8, ptr %0, i64 224
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @bms_next_member(ptr noundef %16, i32 noundef -1) #5
+  %18 = icmp sgt i32 %17, -1
+  br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %19
+  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  br label %20
 
-19:                                               ; preds = %.lr.ph, %29
-  %20 = phi i32 [ %16, %.lr.ph ], [ %31, %29 ]
-  %21 = load ptr, ptr %18, align 8
-  %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
-  %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %.not32 = icmp eq i8 %27, 0
-  br i1 %.not32, label %29, label %28
+20:                                               ; preds = %.lr.ph, %30
+  %21 = phi i32 [ %17, %.lr.ph ], [ %32, %30 ]
+  %22 = load ptr, ptr %19, align 8
+  %23 = zext nneg i32 %21 to i64
+  %24 = getelementptr ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 20
+  %27 = load i8, ptr %26, align 4
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %19
-  tail call void @ExecAsyncConfigureWait(ptr noundef nonnull %24) #5
-  br label %29
+29:                                               ; preds = %20
+  tail call void @ExecAsyncConfigureWait(ptr noundef nonnull %25) #5
+  br label %30
 
-29:                                               ; preds = %28, %19
-  %30 = load ptr, ptr %14, align 8
-  %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %20) #5
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !17
+30:                                               ; preds = %29, %20
+  %31 = load ptr, ptr %15, align 8
+  %32 = tail call i32 @bms_next_member(ptr noundef %31, i32 noundef %21) #5
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %20, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %29, %1
-  %33 = load ptr, ptr %12, align 8
-  %34 = tail call i32 @GetNumRegisteredWaitEvents(ptr noundef %33) #5
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %36, label %38
+._crit_edge:                                      ; preds = %30, %1
+  %34 = load ptr, ptr %13, align 8
+  %35 = tail call i32 @GetNumRegisteredWaitEvents(ptr noundef %34) #5
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %._crit_edge
-  %37 = load ptr, ptr %12, align 8
-  tail call void @FreeWaitEventSet(ptr noundef %37) #5
-  store ptr null, ptr %12, align 8
+37:                                               ; preds = %._crit_edge
+  %38 = load ptr, ptr %13, align 8
+  tail call void @FreeWaitEventSet(ptr noundef %38) #5
+  store ptr null, ptr %13, align 8
   br label %.loopexit
 
-38:                                               ; preds = %._crit_edge
+39:                                               ; preds = %._crit_edge
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %5, i32 16)
-  %39 = load ptr, ptr %12, align 8
-  %40 = call i32 @WaitEventSetWait(ptr noundef %39, i64 noundef %9, ptr noundef nonnull %2, i32 noundef %spec.store.select, i32 noundef 134217728) #5
-  %41 = load ptr, ptr %12, align 8
-  call void @FreeWaitEventSet(ptr noundef %41) #5
-  store ptr null, ptr %12, align 8
-  %42 = icmp sgt i32 %40, 0
-  br i1 %42, label %.lr.ph34.preheader, label %.loopexit
+  %40 = load ptr, ptr %13, align 8
+  %41 = call i32 @WaitEventSetWait(ptr noundef %40, i64 noundef %10, ptr noundef nonnull %2, i32 noundef %spec.store.select, i32 noundef 134217728) #5
+  %42 = load ptr, ptr %13, align 8
+  call void @FreeWaitEventSet(ptr noundef %42) #5
+  store ptr null, ptr %13, align 8
+  %43 = icmp sgt i32 %41, 0
+  br i1 %43, label %.lr.ph32.preheader, label %.loopexit
 
-.lr.ph34.preheader:                               ; preds = %38
-  %wide.trip.count = zext nneg i32 %40 to i64
-  br label %.lr.ph34
+.lr.ph32.preheader:                               ; preds = %39
+  %wide.trip.count = zext nneg i32 %41 to i64
+  br label %.lr.ph32
 
-.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %54
-  %indvars.iv = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next, %54 ]
-  %43 = getelementptr [16 x %struct.WaitEvent], ptr %2, i64 0, i64 %indvars.iv
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = and i32 %45, 2
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %54, label %47
+.lr.ph32:                                         ; preds = %.lr.ph32.preheader, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next, %55 ]
+  %44 = getelementptr [16 x %struct.WaitEvent], ptr %2, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %46 = load i32, ptr %45, align 4
+  %47 = and i32 %46, 2
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %55, label %48
 
-47:                                               ; preds = %.lr.ph34
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 20
-  %51 = load i8, ptr %50, align 4
-  %52 = and i8 %51, 1
-  %.not31 = icmp eq i8 %52, 0
-  br i1 %.not31, label %54, label %53
+48:                                               ; preds = %.lr.ph32
+  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 20
+  %52 = load i8, ptr %51, align 4
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %47
-  store i8 0, ptr %50, align 4
-  call void @ExecAsyncNotify(ptr noundef nonnull %49) #5
-  br label %54
+54:                                               ; preds = %48
+  store i8 0, ptr %51, align 4
+  call void @ExecAsyncNotify(ptr noundef nonnull %50) #5
+  br label %55
 
-54:                                               ; preds = %.lr.ph34, %53, %47
+55:                                               ; preds = %.lr.ph32, %54, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph34, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph32, !llvm.loop !18
 
-.loopexit:                                        ; preds = %54, %38, %36
+.loopexit:                                        ; preds = %55, %39, %37
   ret void
 }
 

@@ -997,43 +997,42 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %valid_ = getelementptr inbounds i8, ptr %this, i64 146
   %0 = load i8, ptr %valid_, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %hostNoBrackets_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %hostNoBrackets_.i, align 8
+  %1 = load ptr, ptr %hostNoBrackets_.i, align 8
   %e_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load ptr, ptr %e_.i.i, align 8
-  %cmp.i.i = icmp eq ptr %2, %3
+  %2 = load ptr, ptr %e_.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then.i, label %_ZN8proxygen8ParseURL13stripBracketsEv.exit
 
 if.then.i:                                        ; preds = %if.end
   %host_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %host_.i, align 8
+  %3 = load ptr, ptr %host_.i, align 8
   %e_.i1.i = getelementptr inbounds i8, ptr %this, i64 72
-  %5 = load ptr, ptr %e_.i1.i, align 8
-  %cmp.i2.i = icmp eq ptr %4, %5
+  %4 = load ptr, ptr %e_.i1.i, align 8
+  %cmp.i2.i = icmp eq ptr %3, %4
   br i1 %cmp.i2.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %6 = load i8, ptr %4, align 1
-  %cmp.i = icmp eq i8 %6, 91
+  %5 = load i8, ptr %3, align 1
+  %cmp.i = icmp eq i8 %5, 91
   br i1 %cmp.i, label %invoke.cont9.i, label %if.else.i
 
 invoke.cont9.i:                                   ; preds = %land.lhs.true.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -1
-  %7 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1
-  %cmp12.i = icmp eq i8 %7, 93
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -1
+  %6 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1
+  %cmp12.i = icmp eq i8 %6, 93
   br i1 %cmp12.i, label %invoke.cont18.i, label %if.else.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont9.i
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.i = add i64 %sub.ptr.sub.i.i, -2
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 1
   %sub.i.i = add i64 %sub.ptr.sub.i.i, -1
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.i)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %.sroa.speculated.i.i
@@ -1048,8 +1047,8 @@ if.else.i:                                        ; preds = %invoke.cont9.i, %la
   br label %_ZN8proxygen8ParseURL13stripBracketsEv.exit
 
 _ZN8proxygen8ParseURL13stripBracketsEv.exit:      ; preds = %if.end, %invoke.cont18.i, %if.else.i
-  %retval.sroa.2.0.copyload.i.i = phi ptr [ %3, %if.end ], [ %add.ptr.i.i.i, %invoke.cont18.i ], [ %retval.sroa.2.0.copyload.i.i.pre, %if.else.i ]
-  %retval.sroa.0.0.copyload.i.i = phi ptr [ %2, %if.end ], [ %add.ptr.i.i, %invoke.cont18.i ], [ %retval.sroa.0.0.copyload.i.i.pre, %if.else.i ]
+  %retval.sroa.2.0.copyload.i.i = phi ptr [ %2, %if.end ], [ %add.ptr.i.i.i, %invoke.cont18.i ], [ %retval.sroa.2.0.copyload.i.i.pre, %if.else.i ]
+  %retval.sroa.0.0.copyload.i.i = phi ptr [ %1, %if.end ], [ %add.ptr.i.i, %invoke.cont18.i ], [ %retval.sroa.0.0.copyload.i.i.pre, %if.else.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i, %retval.sroa.2.0.copyload.i.i
   %.pre = ptrtoint ptr %retval.sroa.2.0.copyload.i.i to i64
   %.pre7 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
@@ -1064,21 +1063,21 @@ if.end.i.i:                                       ; preds = %_ZN8proxygen8ParseU
 cond.false.i.i:                                   ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %call3.i.i to i64
   %sub.ptr.sub.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i3, %.pre7
-  %8 = icmp eq i64 %sub.ptr.sub.i.i4, -1
+  %7 = icmp eq i64 %sub.ptr.sub.i.i4, -1
   br label %_ZNK5folly5RangeIPKcE4findEc.exit
 
 _ZNK5folly5RangeIPKcE4findEc.exit:                ; preds = %_ZN8proxygen8ParseURL13stripBracketsEv.exit, %if.end.i.i, %cond.false.i.i
-  %retval.0.i.i = phi i1 [ true, %if.end.i.i ], [ %8, %cond.false.i.i ], [ true, %_ZN8proxygen8ParseURL13stripBracketsEv.exit ]
+  %retval.0.i.i = phi i1 [ true, %if.end.i.i ], [ %7, %cond.false.i.i ], [ true, %_ZN8proxygen8ParseURL13stripBracketsEv.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !37
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #19, !noalias !40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %retval.sroa.0.0.copyload.i.i, i64 noundef %.pre8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %_ZNK5folly5RangeIPKcE4findEc.exit
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #19
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %_ZNK5folly5RangeIPKcE4findEc.exit
   %cond = select i1 %retval.0.i.i, i32 2, i32 10

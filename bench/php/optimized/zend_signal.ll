@@ -319,9 +319,8 @@ define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) getelementptr inbounds (%struct._zend_signal_globals_t, ptr @zend_signal_globals, i64 0, i32 6), ptr noundef nonnull align 16 dereferenceable(1040) @global_orig_handlers, i64 1040, i1 false)
   %2 = load i8, ptr getelementptr inbounds (%struct._zend_signal_globals_t, ptr @zend_signal_globals, i64 0, i32 5), align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 136
@@ -380,14 +379,13 @@ zend_signal_register.exit:                        ; preds = %6, %11, %16
 define hidden void @zend_signal_deactivate() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
   %2 = load i8, ptr getelementptr inbounds (%struct._zend_signal_globals_t, ptr @zend_signal_globals, i64 0, i32 4), align 8
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %.loopexit, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %.loopexit
 
 4:                                                ; preds = %0
   %5 = load i32, ptr @zend_signal_globals, align 8
-  %.not10 = icmp eq i32 %5, 0
-  br i1 %.not10, label %.preheader, label %6
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %.preheader, label %6
 
 6:                                                ; preds = %4
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %5) #9
@@ -397,8 +395,8 @@ define hidden void @zend_signal_deactivate() local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %.preheader, %15
-  %.011 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds [7 x i32], ptr @zend_sigs, i64 0, i64 %.011
+  %.010 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
+  %8 = getelementptr inbounds [7 x i32], ptr @zend_sigs, i64 0, i64 %.010
   %9 = load i32, ptr %8, align 4
   %10 = call i32 @sigaction(i32 noundef %9, ptr noundef null, ptr noundef nonnull %1) #9
   %11 = load ptr, ptr %1, align 8
@@ -412,7 +410,7 @@ define hidden void @zend_signal_deactivate() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %7, %14
-  %16 = add nuw nsw i64 %.011, 1
+  %16 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %16, 7
   br i1 %exitcond.not, label %.loopexit, label %7
 

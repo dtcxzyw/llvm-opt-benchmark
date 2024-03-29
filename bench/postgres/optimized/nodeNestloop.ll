@@ -59,9 +59,8 @@ define dso_local noundef ptr @ExecInitNestLoop(ptr noundef %0, ptr noundef %1, i
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 108
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %34, label %38
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %38, label %34
 
 34:                                               ; preds = %3
   %35 = load i32, ptr %24, align 8
@@ -158,9 +157,8 @@ define internal noundef ptr @ExecNestLoop(ptr nocapture noundef %0) #0 {
 
 .backedge:                                        ; preds = %.backedge.backedge, %9
   %42 = load i8, ptr %24, align 8
-  %43 = and i8 %42, 1
-  %.not75 = icmp eq i8 %43, 0
-  br i1 %.not75, label %94, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %94
 
 44:                                               ; preds = %.backedge
   %45 = load ptr, ptr %25, align 8
@@ -181,8 +179,8 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %51 = getelementptr inbounds i8, ptr %48, i64 4
   %52 = load i16, ptr %51, align 4
   %53 = and i16 %52, 2
-  %.not76 = icmp eq i16 %53, 0
-  br i1 %.not76, label %54, label %.loopexit
+  %.not75 = icmp eq i16 %53, 0
+  br i1 %.not75, label %54, label %.loopexit
 
 54:                                               ; preds = %50
   store ptr %48, ptr %27, align 8
@@ -190,8 +188,8 @@ ExecProcNode.exit:                                ; preds = %44, %46
   store i8 0, ptr %28, align 1
   %55 = load ptr, ptr %29, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 4
-  %.not77 = icmp eq ptr %55, null
-  br i1 %.not77, label %._crit_edge, label %.lr.ph
+  %.not76 = icmp eq ptr %55, null
+  br i1 %.not76, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %57 = getelementptr inbounds i8, ptr %55, i64 16
@@ -200,9 +198,9 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %60 = getelementptr inbounds i8, ptr %48, i64 24
   %61 = load i32, ptr %56, align 4
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph100, label %._crit_edge
+  br i1 %62, label %.lr.ph97, label %._crit_edge
 
-.lr.ph100:                                        ; preds = %.lr.ph, %slot_getattr.exit
+.lr.ph97:                                         ; preds = %.lr.ph, %slot_getattr.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %slot_getattr.exit ], [ 0, %.lr.ph ]
   %63 = load ptr, ptr %57, align 8
   %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv
@@ -222,11 +220,11 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %78 = icmp slt i16 %77, %74
   br i1 %78, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
-slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph100
+slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph97
   call void @slot_getsomeattrs_int(ptr noundef nonnull %48, i32 noundef %75) #5
   br label %slot_getattr.exit
 
-slot_getattr.exit:                                ; preds = %.lr.ph100, %slot_getsomeattrs.exit.i
+slot_getattr.exit:                                ; preds = %.lr.ph97, %slot_getsomeattrs.exit.i
   %79 = load ptr, ptr %59, align 8
   %80 = add nsw i32 %75, -1
   %81 = sext i32 %80 to i64
@@ -246,7 +244,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph100, %slot_ge
   %91 = load i32, ptr %56, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %.lr.ph100, label %._crit_edge
+  br i1 %93, label %.lr.ph97, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %slot_getattr.exit, %.lr.ph, %54
   call void @ExecReScan(ptr noundef %19) #5
@@ -254,33 +252,32 @@ slot_getattr.exit:                                ; preds = %.lr.ph100, %slot_ge
 
 94:                                               ; preds = %._crit_edge, %.backedge
   %95 = load ptr, ptr %31, align 8
-  %.not.i85 = icmp eq ptr %95, null
-  br i1 %.not.i85, label %ExecProcNode.exit86, label %96
+  %.not.i82 = icmp eq ptr %95, null
+  br i1 %.not.i82, label %ExecProcNode.exit83, label %96
 
 96:                                               ; preds = %94
   call void @ExecReScan(ptr noundef nonnull %19) #5
-  br label %ExecProcNode.exit86
+  br label %ExecProcNode.exit83
 
-ExecProcNode.exit86:                              ; preds = %94, %96
+ExecProcNode.exit83:                              ; preds = %94, %96
   %97 = load ptr, ptr %32, align 8
   %98 = call ptr %97(ptr noundef nonnull %19) #5
   store ptr %98, ptr %33, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %104, label %100
 
-100:                                              ; preds = %ExecProcNode.exit86
+100:                                              ; preds = %ExecProcNode.exit83
   %101 = getelementptr inbounds i8, ptr %98, i64 4
   %102 = load i16, ptr %101, align 4
   %103 = and i16 %102, 2
-  %.not79 = icmp eq i16 %103, 0
-  br i1 %.not79, label %147, label %104
+  %.not78 = icmp eq i16 %103, 0
+  br i1 %.not78, label %147, label %104
 
-104:                                              ; preds = %100, %ExecProcNode.exit86
+104:                                              ; preds = %100, %ExecProcNode.exit83
   store i8 1, ptr %24, align 8
   %105 = load i8, ptr %28, align 1
-  %106 = and i8 %105, 1
-  %.not83 = icmp eq i8 %106, 0
-  br i1 %.not83, label %107, label %.backedge.backedge
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %.backedge.backedge, label %107
 
 .backedge.backedge:                               ; preds = %104, %143, %141, %107, %155, %201
   br label %.backedge
@@ -305,9 +302,9 @@ ExecQual.exit:                                    ; preds = %109
   %113 = load ptr, ptr %40, align 8
   %114 = call i64 %113(ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef nonnull %6) #5
   store ptr %112, ptr @CurrentMemoryContext, align 8
-  %.not96 = icmp eq i64 %114, 0
+  %.not93 = icmp eq i64 %114, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br i1 %.not96, label %141, label %115
+  br i1 %.not93, label %141, label %115
 
 115:                                              ; preds = %ExecQual.exit, %109
   %116 = getelementptr inbounds i8, ptr %0, i64 136
@@ -346,8 +343,8 @@ ExecQual.exit:                                    ; preds = %109
 
 141:                                              ; preds = %ExecQual.exit
   %142 = load ptr, ptr %36, align 8
-  %.not84 = icmp eq ptr %142, null
-  br i1 %.not84, label %.backedge.backedge, label %143
+  %.not81 = icmp eq ptr %142, null
+  br i1 %.not81, label %.backedge.backedge, label %143
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds i8, ptr %142, i64 240
@@ -358,24 +355,24 @@ ExecQual.exit:                                    ; preds = %109
 
 147:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  br i1 %34, label %ExecQual.exit88.thread, label %ExecQual.exit88
+  br i1 %34, label %ExecQual.exit85.thread, label %ExecQual.exit85
 
-ExecQual.exit88.thread:                           ; preds = %147
+ExecQual.exit85.thread:                           ; preds = %147
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %152
 
-ExecQual.exit88:                                  ; preds = %147
+ExecQual.exit85:                                  ; preds = %147
   %148 = load ptr, ptr %22, align 8
   %149 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %148, ptr @CurrentMemoryContext, align 8
   %150 = load ptr, ptr %35, align 8
   %151 = call i64 %150(ptr noundef nonnull %13, ptr noundef nonnull %21, ptr noundef nonnull %4) #5
   store ptr %149, ptr @CurrentMemoryContext, align 8
-  %.not94 = icmp eq i64 %151, 0
+  %.not91 = icmp eq i64 %151, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br i1 %.not94, label %195, label %152
+  br i1 %.not91, label %195, label %152
 
-152:                                              ; preds = %ExecQual.exit88.thread, %ExecQual.exit88
+152:                                              ; preds = %ExecQual.exit85.thread, %ExecQual.exit85
   store i8 1, ptr %28, align 1
   %153 = load i32, ptr %37, align 8
   %154 = icmp eq i32 %153, 5
@@ -387,18 +384,17 @@ ExecQual.exit88:                                  ; preds = %147
 
 156:                                              ; preds = %152
   %157 = load i8, ptr %38, align 4
-  %158 = and i8 %157, 1
-  %.not81 = icmp eq i8 %158, 0
-  br i1 %.not81, label %160, label %159
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %160
 
 159:                                              ; preds = %156
   store i8 1, ptr %24, align 8
   br label %160
 
 160:                                              ; preds = %159, %156
-  br i1 %39, label %165, label %ExecQual.exit90
+  br i1 %39, label %165, label %ExecQual.exit87
 
-ExecQual.exit90:                                  ; preds = %160
+ExecQual.exit87:                                  ; preds = %160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %161 = load ptr, ptr %22, align 8
   %162 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -406,11 +402,11 @@ ExecQual.exit90:                                  ; preds = %160
   %163 = load ptr, ptr %40, align 8
   %164 = call i64 %163(ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef nonnull %3) #5
   store ptr %162, ptr @CurrentMemoryContext, align 8
-  %.not95 = icmp eq i64 %164, 0
+  %.not92 = icmp eq i64 %164, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not95, label %191, label %165
+  br i1 %.not92, label %191, label %165
 
-165:                                              ; preds = %ExecQual.exit90, %160
+165:                                              ; preds = %ExecQual.exit87, %160
   %166 = getelementptr inbounds i8, ptr %0, i64 136
   %167 = load ptr, ptr %166, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -445,19 +441,19 @@ ExecQual.exit90:                                  ; preds = %160
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %.loopexit
 
-191:                                              ; preds = %ExecQual.exit90
+191:                                              ; preds = %ExecQual.exit87
   %192 = load ptr, ptr %36, align 8
-  %.not82 = icmp eq ptr %192, null
-  br i1 %.not82, label %201, label %193
+  %.not80 = icmp eq ptr %192, null
+  br i1 %.not80, label %201, label %193
 
 193:                                              ; preds = %191
   %194 = getelementptr inbounds i8, ptr %192, i64 240
   br label %.sink.split
 
-195:                                              ; preds = %ExecQual.exit88
+195:                                              ; preds = %ExecQual.exit85
   %196 = load ptr, ptr %36, align 8
-  %.not80 = icmp eq ptr %196, null
-  br i1 %.not80, label %201, label %197
+  %.not79 = icmp eq ptr %196, null
+  br i1 %.not79, label %201, label %197
 
 197:                                              ; preds = %195
   %198 = getelementptr inbounds i8, ptr %196, i64 232

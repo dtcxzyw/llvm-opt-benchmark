@@ -123,9 +123,8 @@ if.end.i:                                         ; preds = %usb_desc_msos_prop_
   %count.0.i = phi i8 [ 1, %usb_desc_msos_prop_str.exit.i ], [ 0, %sw.bb2 ]
   %SelectiveSuspendEnabled.i = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i8, ptr %SelectiveSuspendEnabled.i, align 8
-  %14 = and i8 %13, 1
-  %tobool4.not.i = icmp eq i8 %14, 0
-  br i1 %tobool4.not.i, label %usb_desc_msos_prop.exit, label %if.then5.i
+  %tobool4.i = trunc i8 %13 to i1
+  br i1 %tobool4.i, label %if.then5.i, label %usb_desc_msos_prop.exit
 
 if.then5.i:                                       ; preds = %if.end.i
   %idx.ext6.i = sext i32 %length.0.i to i64
@@ -142,18 +141,18 @@ if.then5.i:                                       ; preds = %if.end.i
 for.body.i.i23.i:                                 ; preds = %for.body.i.i23.i, %if.then5.i
   %indvars.iv.i.i24.i = phi i64 [ 0, %if.then5.i ], [ %indvars.iv.next.i.i34.i, %for.body.i.i23.i ]
   %arrayidx.i.i25.i = getelementptr i32, ptr @.str.2, i64 %indvars.iv.i.i24.i
-  %15 = load i32, ptr %arrayidx.i.i25.i, align 4
-  %conv1.i15.i.i26.i = trunc i32 %15 to i8
+  %14 = load i32, ptr %arrayidx.i.i25.i, align 4
+  %conv1.i15.i.i26.i = trunc i32 %14 to i8
   %sext.i.i27.i = shl i64 %indvars.iv.i.i24.i, 33
   %idxprom10.i.i28.i = ashr exact i64 %sext.i.i27.i, 32
   %arrayidx11.i.i29.i = getelementptr [0 x i8], ptr %bPropertyName.i.i22.i, i64 0, i64 %idxprom10.i.i28.i
   store i8 %conv1.i15.i.i26.i, ptr %arrayidx11.i.i29.i, align 1
-  %16 = lshr i32 %15, 8
-  %conv1.i16.i.i30.i = trunc i32 %16 to i8
+  %15 = lshr i32 %14, 8
+  %conv1.i16.i.i30.i = trunc i32 %15 to i8
   %indvars.iv.tr.i.i31.i = trunc i64 %indvars.iv.i.i24.i to i32
-  %17 = shl i32 %indvars.iv.tr.i.i31.i, 1
-  %18 = or disjoint i32 %17, 1
-  %idxprom19.i.i32.i = sext i32 %18 to i64
+  %16 = shl i32 %indvars.iv.tr.i.i31.i, 1
+  %17 = or disjoint i32 %16, 1
+  %idxprom19.i.i32.i = sext i32 %17 to i64
   %arrayidx20.i.i33.i = getelementptr [0 x i8], ptr %bPropertyName.i.i22.i, i64 0, i64 %idxprom19.i.i32.i
   store i8 %conv1.i16.i.i30.i, ptr %arrayidx20.i.i33.i, align 1
   %indvars.iv.next.i.i34.i = add nuw nsw i64 %indvars.iv.i.i24.i, 1

@@ -1898,7 +1898,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %success.031 = phi i8 [ 1, %for.body.lr.ph ], [ %22, %for.cond ]
+  %success.031 = phi i1 [ true, %for.body.lr.ph ], [ %22, %for.cond ]
   %__begin1.sroa.0.030 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.030, align 8
   %agg.tmp13.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.030, i64 8
@@ -2018,7 +2018,7 @@ invoke.cont14.thread:                             ; preds = %call2.i.noexc, %cal
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont14.thread, %21
-  %22 = phi i8 [ %success.031, %21 ], [ 0, %invoke.cont14.thread ]
+  %22 = phi i1 [ %success.031, %21 ], [ false, %invoke.cont14.thread ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.030, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
@@ -2062,18 +2062,16 @@ if.then.i.i.i:                                    ; preds = %lpad6
 
 for.end.loopexit:                                 ; preds = %for.cond
   %.pre32 = load ptr, ptr %pairs, align 8
-  %26 = and i8 %22, 1
-  %27 = icmp ne i8 %26, 0
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %28 = phi ptr [ %6, %for.cond.preheader ], [ %.pre32, %for.end.loopexit ]
-  %success.0.lcssa = phi i1 [ true, %for.cond.preheader ], [ %27, %for.end.loopexit ]
-  %tobool.not.i.i.i22 = icmp eq ptr %28, null
+  %26 = phi ptr [ %6, %for.cond.preheader ], [ %.pre32, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %for.cond.preheader ], [ %22, %for.end.loopexit ]
+  %tobool.not.i.i.i22 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i22, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit24, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %for.end
-  call void @_ZdlPv(ptr noundef nonnull %28) #14
+  call void @_ZdlPv(ptr noundef nonnull %26) #14
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit24
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit24: ; preds = %for.end, %if.then.i.i.i23

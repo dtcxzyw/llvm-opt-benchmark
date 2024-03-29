@@ -56,7 +56,7 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
 
 ._crit_edge:                                      ; preds = %13
   %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 8
-  %.pre29 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
   br label %41
 
 17:                                               ; preds = %13
@@ -71,9 +71,8 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
 22:                                               ; preds = %17
   %23 = call i64 @SysCacheGetAttr(i32 noundef 7, ptr noundef nonnull %21, i16 noundef signext 24, ptr noundef nonnull %5) #6
   %24 = load i8, ptr %5, align 1
-  %25 = and i8 %24, 1
-  %.not28 = icmp eq i8 %25, 0
-  br i1 %.not28, label %26, label %36
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %36, label %26
 
 26:                                               ; preds = %22
   %27 = call ptr @attribute_reloptions(i64 noundef %23, i1 noundef zeroext false) #6
@@ -102,7 +101,7 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
   br label %41
 
 41:                                               ; preds = %._crit_edge, %37
-  %42 = phi ptr [ %.pre29, %._crit_edge ], [ %.1, %37 ]
+  %42 = phi ptr [ %.pre28, %._crit_edge ], [ %.1, %37 ]
   %.021 = phi ptr [ %16, %._crit_edge ], [ %39, %37 ]
   %43 = icmp eq ptr %42, null
   br i1 %43, label %54, label %44

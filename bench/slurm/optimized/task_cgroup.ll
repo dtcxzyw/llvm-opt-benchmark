@@ -30,9 +30,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @init() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %7, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %7
 
 3:                                                ; preds = %0
   %4 = tail call zeroext i1 @cgroup_g_has_feature(i32 noundef 0) #3
@@ -48,9 +47,8 @@ define i32 @init() local_unnamed_addr #0 {
 
 9:                                                ; preds = %7
   %10 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
-  %11 = and i8 %10, 1
-  %.not17 = icmp eq i8 %11, 0
-  br i1 %.not17, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
   store i1 true, ptr @use_cpuset, align 1
@@ -59,20 +57,18 @@ define i32 @init() local_unnamed_addr #0 {
 13:                                               ; preds = %12, %9
   %14 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 165), align 8
   %15 = and i16 %14, 16
-  %.not18 = icmp eq i16 %15, 0
-  br i1 %.not18, label %23, label %16
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %13
   %17 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
-  %18 = and i8 %17, 1
-  %.not19 = icmp eq i8 %18, 0
-  br i1 %.not19, label %19, label %22
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
   %20 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
-  %21 = and i8 %20, 1
-  %.not20 = icmp eq i8 %21, 0
-  br i1 %.not20, label %23, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19, %16
   store i1 true, ptr @use_memory, align 1
@@ -80,22 +76,21 @@ define i32 @init() local_unnamed_addr #0 {
 
 23:                                               ; preds = %22, %19, %13
   %24 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
-  %25 = and i8 %24, 1
-  %.not21 = icmp eq i8 %25, 0
-  br i1 %.not21, label %27, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
   store i1 true, ptr @use_devices, align 1
   br label %27
 
 27:                                               ; preds = %26, %23
-  %.b22 = load i1, ptr @use_cpuset, align 1
-  br i1 %.b22, label %28, label %37
+  %.b17 = load i1, ptr @use_cpuset, align 1
+  br i1 %.b17, label %28, label %37
 
 28:                                               ; preds = %27
   %29 = tail call i32 @task_cgroup_cpuset_init() #3
-  %.not23 = icmp eq i32 %29, 0
-  br i1 %.not23, label %33, label %30
+  %.not18 = icmp eq i32 %29, 0
+  br i1 %.not18, label %33, label %30
 
 30:                                               ; preds = %28
   %31 = tail call ptr @slurm_strerror(i32 noundef %29) #3
@@ -112,13 +107,13 @@ define i32 @init() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %36, %33, %27
-  %.b1524 = load i1, ptr @use_memory, align 1
-  br i1 %.b1524, label %38, label %47
+  %.b1519 = load i1, ptr @use_memory, align 1
+  br i1 %.b1519, label %38, label %47
 
 38:                                               ; preds = %37
   %39 = tail call i32 @task_cgroup_memory_init() #3
-  %.not25 = icmp eq i32 %39, 0
-  br i1 %.not25, label %43, label %40
+  %.not20 = icmp eq i32 %39, 0
+  br i1 %.not20, label %43, label %40
 
 40:                                               ; preds = %38
   %41 = tail call ptr @slurm_strerror(i32 noundef %39) #3
@@ -135,13 +130,13 @@ define i32 @init() local_unnamed_addr #0 {
   br label %47
 
 47:                                               ; preds = %46, %43, %37
-  %.b1626 = load i1, ptr @use_devices, align 1
-  br i1 %.b1626, label %48, label %57
+  %.b1621 = load i1, ptr @use_devices, align 1
+  br i1 %.b1621, label %48, label %57
 
 48:                                               ; preds = %47
   %49 = tail call i32 @task_cgroup_devices_init() #3
-  %.not27 = icmp eq i32 %49, 0
-  br i1 %.not27, label %53, label %50
+  %.not22 = icmp eq i32 %49, 0
+  br i1 %.not22, label %53, label %50
 
 50:                                               ; preds = %48
   %51 = tail call ptr @slurm_strerror(i32 noundef %49) #3

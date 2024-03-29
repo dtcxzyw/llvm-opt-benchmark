@@ -28,9 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Comm_disconnect(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %._crit_edge, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.pre = load ptr, ptr %0, align 8
@@ -78,13 +77,13 @@ ompi_comm_invalid.exit.thread:                    ; preds = %9, %ompi_comm_inval
   %24 = getelementptr inbounds i8, ptr %18, i64 224
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 8
-  %.not13 = icmp eq i32 %26, 0
-  br i1 %.not13, label %31, label %27
+  %.not12 = icmp eq i32 %26, 0
+  br i1 %.not12, label %31, label %27
 
 27:                                               ; preds = %23
   %28 = tail call i32 @ompi_dpm_disconnect(ptr noundef %18) #2
-  %.not14 = icmp eq i32 %28, 0
-  br i1 %.not14, label %39, label %29
+  %.not13 = icmp eq i32 %28, 0
+  br i1 %.not13, label %39, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 5, ptr noundef nonnull @FUNC_NAME) #2

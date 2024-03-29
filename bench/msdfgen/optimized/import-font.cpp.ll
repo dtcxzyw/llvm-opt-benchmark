@@ -453,13 +453,12 @@ define dso_local void @_ZN7msdfgen11destroyFontEPNS_10FontHandleE(ptr noundef %f
 entry:
   %ownership = getelementptr inbounds i8, ptr %font, i64 8
   %0 = load i8, ptr %ownership, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %delete.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %delete.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %font, align 8
-  %call = tail call i32 @FT_Done_Face(ptr noundef %2)
+  %1 = load ptr, ptr %font, align 8
+  %call = tail call i32 @FT_Done_Face(ptr noundef %1)
   br label %delete.end
 
 delete.end:                                       ; preds = %if.then, %entry

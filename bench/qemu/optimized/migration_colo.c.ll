@@ -666,17 +666,16 @@ land.lhs.true5.i.i.i:                             ; preds = %if.end16.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
-  %11 = load i64, ptr %_now.i.i.i, align 8
+  %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
+  %11 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
   br label %trace_colo_vm_state_change.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -685,13 +684,13 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_colo_vm_state_change.exit.i:                ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %13 = load ptr, ptr %colo_delay_timer, align 8
+  %12 = load ptr, ptr %colo_delay_timer, align 8
   %call.i22.i = call i64 @qemu_clock_get_ns(i32 noundef 2) #6
   %div.i.i = sdiv i64 %call.i22.i, 1000000
   %call18.i = call i32 @migrate_checkpoint_delay() #6
   %conv.i = zext i32 %call18.i to i64
   %add.i = add nsw i64 %div.i.i, %conv.i
-  call void @timer_mod(ptr noundef %13, i64 noundef %add.i) #6
+  call void @timer_mod(ptr noundef %12, i64 noundef %add.i) #6
   %state.i = getelementptr inbounds i8, ptr %s, i64 776
   %usage.i.i = getelementptr inbounds i8, ptr %call11.i, i64 104
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
@@ -699,8 +698,8 @@ trace_colo_vm_state_change.exit.i:                ; preds = %if.else.i.i.i, %if.
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %colo_do_checkpoint_transaction.exit.i, %trace_colo_vm_state_change.exit.i
-  %14 = load i32, ptr %state.i, align 8
-  %cmp19.i = icmp eq i32 %14, 10
+  %13 = load i32, ptr %state.i, align 8
+  %cmp19.i = icmp eq i32 %13, 10
   br i1 %cmp19.i, label %while.body.i, label %out.i
 
 while.body.i:                                     ; preds = %while.cond.i
@@ -714,30 +713,30 @@ if.then24.i:                                      ; preds = %while.body.i
 
 if.end25.i:                                       ; preds = %while.body.i
   call void @qemu_event_wait(ptr noundef nonnull %colo_checkpoint_event) #6
-  %15 = load i32, ptr %state.i, align 8
-  %cmp27.not.i = icmp eq i32 %15, 10
+  %14 = load i32, ptr %state.i, align 8
+  %cmp27.not.i = icmp eq i32 %14, 10
   br i1 %cmp27.not.i, label %if.end30.i, label %out.i
 
 if.end30.i:                                       ; preds = %if.end25.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i23.i)
   store ptr null, ptr %local_err.i23.i, align 8
-  %16 = load ptr, ptr %to_dst_file.i, align 8
-  call fastcc void @colo_send_message(ptr noundef %16, i32 noundef 1, ptr noundef nonnull %local_err.i23.i)
-  %17 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool.not.i24.i = icmp eq ptr %17, null
+  %15 = load ptr, ptr %to_dst_file.i, align 8
+  call fastcc void @colo_send_message(ptr noundef %15, i32 noundef 1, ptr noundef nonnull %local_err.i23.i)
+  %16 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool.not.i24.i = icmp eq ptr %16, null
   br i1 %tobool.not.i24.i, label %if.end.i25.i, label %if.then55.i.i
 
 if.end.i25.i:                                     ; preds = %if.end30.i
-  %18 = load ptr, ptr %rp_state.i, align 8
+  %17 = load ptr, ptr %rp_state.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i)
   store ptr null, ptr %local_err.i.i.i, align 8
-  %call.i.i26.i = call fastcc i32 @colo_receive_message(ptr noundef %18, ptr noundef nonnull %local_err.i.i.i)
-  %19 = load ptr, ptr %local_err.i.i.i, align 8
-  %tobool.not.i.i27.i = icmp eq ptr %19, null
+  %call.i.i26.i = call fastcc i32 @colo_receive_message(ptr noundef %17, ptr noundef nonnull %local_err.i.i.i)
+  %18 = load ptr, ptr %local_err.i.i.i, align 8
+  %tobool.not.i.i27.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i27.i, label %if.end.i.i.i, label %if.then.i.i28.i
 
 if.then.i.i28.i:                                  ; preds = %if.end.i25.i
-  call void @error_propagate(ptr noundef nonnull %local_err.i23.i, ptr noundef nonnull %19) #6
+  call void @error_propagate(ptr noundef nonnull %local_err.i23.i, ptr noundef nonnull %18) #6
   br label %colo_receive_check_message.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i25.i
@@ -750,8 +749,8 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 colo_receive_check_message.exit.i.i:              ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i28.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i.i)
-  %20 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %19, null
   br i1 %tobool1.not.i.i, label %if.end3.i.i, label %if.then55.i.i
 
 if.end3.i.i:                                      ; preds = %colo_receive_check_message.exit.i.i
@@ -771,31 +770,30 @@ if.end7.i.i:                                      ; preds = %if.end3.i.i
   %call8.i.i = call i32 @vm_stop_force_state(i32 noundef 15) #6
   call void @qemu_mutex_unlock_iothread() #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %21 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i = icmp ne i32 %21, 0
-  %22 = load i16, ptr @_TRACE_COLO_VM_STATE_CHANGE_DSTATE, align 2
-  %tobool4.i.i.i.i = icmp ne i16 %22, 0
+  %20 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i = icmp ne i32 %20, 0
+  %21 = load i16, ptr @_TRACE_COLO_VM_STATE_CHANGE_DSTATE, align 2
+  %tobool4.i.i.i.i = icmp ne i16 %21, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %trace_colo_vm_state_change.exit.i.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %if.end7.i.i
-  %23 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i = and i32 %23, 32768
+  %22 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i = and i32 %22, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %trace_colo_vm_state_change.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
-  %24 = load i8, ptr @message_with_timestamp, align 1
-  %25 = and i8 %24, 1
-  %tobool7.not.i.i.i.i = icmp eq i8 %25, 0
-  br i1 %tobool7.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then8.i.i.i.i
+  %23 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i = trunc i8 %23 to i1
+  br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #6
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #6
-  %26 = load i64, ptr %_now.i.i.i.i, align 8
-  %27 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i.i, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #6
+  %24 = load i64, ptr %_now.i.i.i.i, align 8
+  %25 = load i64, ptr %tv_usec.i.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i.i, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #6
   br label %trace_colo_vm_state_change.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -811,8 +809,8 @@ trace_colo_vm_state_change.exit.i.i:              ; preds = %if.else.i.i.i.i, %i
 if.end12.i.i:                                     ; preds = %trace_colo_vm_state_change.exit.i.i
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 438) #6
   call void @replication_do_checkpoint_all(ptr noundef nonnull %local_err.i23.i) #6
-  %28 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool13.not.i.i = icmp eq ptr %28, null
+  %26 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool13.not.i.i = icmp eq ptr %26, null
   br i1 %tobool13.not.i.i, label %if.end15.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end12.i.i
@@ -820,10 +818,10 @@ if.then14.i.i:                                    ; preds = %if.end12.i.i
   br label %out.i.i
 
 if.end15.i.i:                                     ; preds = %if.end12.i.i
-  %29 = load ptr, ptr %to_dst_file.i, align 8
-  call fastcc void @colo_send_message(ptr noundef %29, i32 noundef 3, ptr noundef nonnull %local_err.i23.i)
-  %30 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool17.not.i.i = icmp eq ptr %30, null
+  %27 = load ptr, ptr %to_dst_file.i, align 8
+  call fastcc void @colo_send_message(ptr noundef %27, i32 noundef 3, ptr noundef nonnull %local_err.i23.i)
+  %28 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool17.not.i.i = icmp eq ptr %28, null
   br i1 %tobool17.not.i.i, label %if.end19.i.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.end15.i.i
@@ -845,45 +843,45 @@ if.then25.i.i:                                    ; preds = %if.end23.i.i
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then25.i.i, %if.end23.i.i
-  %31 = load ptr, ptr %to_dst_file.i, align 8
-  call void @qemu_savevm_live_state(ptr noundef %31) #6
+  %29 = load ptr, ptr %to_dst_file.i, align 8
+  call void @qemu_savevm_live_state(ptr noundef %29) #6
   %call28.i.i = call i32 @qemu_fflush(ptr noundef %call13.i) #6
-  %32 = load ptr, ptr %to_dst_file.i, align 8
-  %33 = load i64, ptr %usage.i.i, align 8
-  call fastcc void @colo_send_message_value(ptr noundef %32, i64 noundef %33, ptr noundef nonnull %local_err.i23.i)
-  %34 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool31.not.i.i = icmp eq ptr %34, null
+  %30 = load ptr, ptr %to_dst_file.i, align 8
+  %31 = load i64, ptr %usage.i.i, align 8
+  call fastcc void @colo_send_message_value(ptr noundef %30, i64 noundef %31, ptr noundef nonnull %local_err.i23.i)
+  %32 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool31.not.i.i = icmp eq ptr %32, null
   br i1 %tobool31.not.i.i, label %if.end33.i.i, label %if.then55.i.i
 
 if.end33.i.i:                                     ; preds = %if.end26.i.i
-  %35 = load ptr, ptr %to_dst_file.i, align 8
-  %36 = load ptr, ptr %data.i.i, align 8
-  %37 = load i64, ptr %usage.i.i, align 8
-  call void @qemu_put_buffer(ptr noundef %35, ptr noundef %36, i64 noundef %37) #6
-  %38 = load ptr, ptr %to_dst_file.i, align 8
-  %call37.i.i = call i32 @qemu_fflush(ptr noundef %38) #6
+  %33 = load ptr, ptr %to_dst_file.i, align 8
+  %34 = load ptr, ptr %data.i.i, align 8
+  %35 = load i64, ptr %usage.i.i, align 8
+  call void @qemu_put_buffer(ptr noundef %33, ptr noundef %34, i64 noundef %35) #6
+  %36 = load ptr, ptr %to_dst_file.i, align 8
+  %call37.i.i = call i32 @qemu_fflush(ptr noundef %36) #6
   %cmp38.i.i = icmp slt i32 %call37.i.i, 0
   br i1 %cmp38.i.i, label %out.i.i, label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end33.i.i
-  %39 = load ptr, ptr %rp_state.i, align 8
-  call fastcc void @colo_receive_check_message(ptr noundef %39, i32 noundef 5, ptr noundef nonnull %local_err.i23.i)
-  %40 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool43.not.i.i = icmp eq ptr %40, null
+  %37 = load ptr, ptr %rp_state.i, align 8
+  call fastcc void @colo_receive_check_message(ptr noundef %37, i32 noundef 5, ptr noundef nonnull %local_err.i23.i)
+  %38 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool43.not.i.i = icmp eq ptr %38, null
   br i1 %tobool43.not.i.i, label %if.end45.i.i, label %if.then55.i.i
 
 if.end45.i.i:                                     ; preds = %if.end40.i.i
   call void @qemu_event_reset(ptr noundef nonnull %colo_checkpoint_event) #6
   call void @colo_notify_compares_event(ptr noundef null, i32 noundef 1, ptr noundef nonnull %local_err.i23.i) #6
-  %41 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool46.not.i.i = icmp eq ptr %41, null
+  %39 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool46.not.i.i = icmp eq ptr %39, null
   br i1 %tobool46.not.i.i, label %if.end48.i.i, label %if.then55.i.i
 
 if.end48.i.i:                                     ; preds = %if.end45.i.i
-  %42 = load ptr, ptr %rp_state.i, align 8
-  call fastcc void @colo_receive_check_message(ptr noundef %42, i32 noundef 6, ptr noundef nonnull %local_err.i23.i)
-  %43 = load ptr, ptr %local_err.i23.i, align 8
-  %tobool51.not.i.i = icmp eq ptr %43, null
+  %40 = load ptr, ptr %rp_state.i, align 8
+  call fastcc void @colo_receive_check_message(ptr noundef %40, i32 noundef 6, ptr noundef nonnull %local_err.i23.i)
+  %41 = load ptr, ptr %local_err.i23.i, align 8
+  %tobool51.not.i.i = icmp eq ptr %41, null
   br i1 %tobool51.not.i.i, label %if.end53.i.i, label %if.then55.i.i
 
 if.end53.i.i:                                     ; preds = %if.end48.i.i
@@ -901,8 +899,8 @@ out.i.i:                                          ; preds = %if.end53.i.i, %if.e
 
 if.then55.i.i:                                    ; preds = %out.i.i, %if.end48.i.i, %if.end45.i.i, %if.end40.i.i, %if.end26.i.i, %colo_receive_check_message.exit.i.i, %if.end30.i
   %ret.021.i.i = phi i32 [ %ret.0.ph.i.i, %out.i.i ], [ %call37.i.i, %if.end48.i.i ], [ %call37.i.i, %if.end45.i.i ], [ %call37.i.i, %if.end40.i.i ], [ %call20.i.i, %if.end26.i.i ], [ -1, %colo_receive_check_message.exit.i.i ], [ -1, %if.end30.i ]
-  %44 = phi ptr [ %.pr.i.i, %out.i.i ], [ %43, %if.end48.i.i ], [ %41, %if.end45.i.i ], [ %40, %if.end40.i.i ], [ %34, %if.end26.i.i ], [ %20, %colo_receive_check_message.exit.i.i ], [ %17, %if.end30.i ]
-  call void @error_report_err(ptr noundef nonnull %44) #6
+  %42 = phi ptr [ %.pr.i.i, %out.i.i ], [ %41, %if.end48.i.i ], [ %39, %if.end45.i.i ], [ %38, %if.end40.i.i ], [ %32, %if.end26.i.i ], [ %19, %colo_receive_check_message.exit.i.i ], [ %16, %if.end30.i ]
+  call void @error_report_err(ptr noundef nonnull %42) #6
   br label %colo_do_checkpoint_transaction.exit.i
 
 colo_do_checkpoint_transaction.exit.i:            ; preds = %if.then55.i.i, %out.i.i
@@ -919,8 +917,8 @@ out.i:                                            ; preds = %colo_do_checkpoint_
 
 if.then37.i:                                      ; preds = %out.i, %colo_receive_check_message.exit.i
   %fb.037.i = phi ptr [ %fb.0.ph.i, %out.i ], [ null, %colo_receive_check_message.exit.i ]
-  %45 = phi ptr [ %.pr.i, %out.i ], [ %4, %colo_receive_check_message.exit.i ]
-  call void @error_report_err(ptr noundef nonnull %45) #6
+  %43 = phi ptr [ %.pr.i, %out.i ], [ %4, %colo_receive_check_message.exit.i ]
+  call void @error_report_err(ptr noundef nonnull %43) #6
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then37.i, %out.i
@@ -940,23 +938,23 @@ if.end42.i:                                       ; preds = %if.then40.i, %if.en
   call void @qemu_sem_wait(ptr noundef nonnull %colo_exit_sem) #6
   call void @qemu_sem_destroy(ptr noundef nonnull %colo_exit_sem) #6
   call void @colo_compare_unregister_notifier(ptr noundef nonnull @packets_compare_notifier) #6
-  %46 = load ptr, ptr %colo_delay_timer, align 8
-  %tobool.not.i30.i = icmp eq ptr %46, null
+  %44 = load ptr, ptr %colo_delay_timer, align 8
+  %tobool.not.i30.i = icmp eq ptr %44, null
   br i1 %tobool.not.i30.i, label %timer_free.exit.i, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %if.end42.i
-  call void @timer_del(ptr noundef nonnull %46) #6
-  call void @g_free(ptr noundef nonnull %46) #6
+  call void @timer_del(ptr noundef nonnull %44) #6
+  call void @g_free(ptr noundef nonnull %44) #6
   br label %timer_free.exit.i
 
 timer_free.exit.i:                                ; preds = %if.then.i31.i, %if.end42.i
   call void @qemu_event_destroy(ptr noundef nonnull %colo_checkpoint_event) #6
-  %47 = load ptr, ptr %rp_state.i, align 8
-  %tobool49.not.i = icmp eq ptr %47, null
+  %45 = load ptr, ptr %rp_state.i, align 8
+  %tobool49.not.i = icmp eq ptr %45, null
   br i1 %tobool49.not.i, label %colo_process_checkpoint.exit, label %if.then50.i
 
 if.then50.i:                                      ; preds = %timer_free.exit.i
-  %call53.i = call i32 @qemu_fclose(ptr noundef nonnull %47) #6
+  %call53.i = call i32 @qemu_fclose(ptr noundef nonnull %45) #6
   store ptr null, ptr %rp_state.i, align 8
   br label %colo_process_checkpoint.exit
 
@@ -1168,17 +1166,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end11
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = call i32 @qemu_get_thread_id() #6
-  %10 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
   br label %trace_colo_vm_state_change.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1187,10 +1184,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_colo_vm_state_change.exit:                  ; preds = %if.end11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %12 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %12, i32 noundef 0, ptr noundef nonnull %local_err)
-  %13 = load ptr, ptr %local_err, align 8
-  %tobool13.not = icmp eq ptr %13, null
+  %11 = load ptr, ptr %to_src_file, align 8
+  call fastcc void @colo_send_message(ptr noundef %11, i32 noundef 0, ptr noundef nonnull %local_err)
+  %12 = load ptr, ptr %local_err, align 8
+  %tobool13.not = icmp eq ptr %12, null
   br i1 %tobool13.not, label %while.cond.preheader, label %out
 
 while.cond.preheader:                             ; preds = %trace_colo_vm_state_change.exit
@@ -1201,21 +1198,21 @@ while.cond.preheader:                             ; preds = %trace_colo_vm_state
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end25
-  %14 = load i32, ptr %state, align 8
-  %cmp17 = icmp eq i32 %14, 10
+  %13 = load i32, ptr %state, align 8
+  %cmp17 = icmp eq i32 %13, 10
   br i1 %cmp17, label %while.body, label %out
 
 while.body:                                       ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
-  %15 = load ptr, ptr %opaque, align 8
-  %call.i15 = call fastcc i32 @colo_receive_message(ptr noundef %15, ptr noundef nonnull %local_err.i)
-  %16 = load ptr, ptr %local_err.i, align 8
-  %tobool.not.i = icmp eq ptr %16, null
+  %14 = load ptr, ptr %opaque, align 8
+  %call.i15 = call fastcc i32 @colo_receive_message(ptr noundef %14, ptr noundef nonnull %local_err.i)
+  %15 = load ptr, ptr %local_err.i, align 8
+  %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %16) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %15) #6
   br label %colo_wait_handle_message.exit
 
 if.end.i:                                         ; preds = %while.body
@@ -1229,31 +1226,30 @@ sw.bb.i:                                          ; preds = %if.end.i
   %call.i.i16 = call i32 @vm_stop_force_state(i32 noundef 15) #6
   call void @qemu_mutex_unlock_iothread() #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %17 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i = icmp ne i32 %17, 0
-  %18 = load i16, ptr @_TRACE_COLO_VM_STATE_CHANGE_DSTATE, align 2
-  %tobool4.i.i.i.i = icmp ne i16 %18, 0
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i = icmp ne i32 %16, 0
+  %17 = load i16, ptr @_TRACE_COLO_VM_STATE_CHANGE_DSTATE, align 2
+  %tobool4.i.i.i.i = icmp ne i16 %17, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %trace_colo_vm_state_change.exit.i.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %sw.bb.i
-  %19 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i = and i32 %19, 32768
+  %18 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i = and i32 %18, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %trace_colo_vm_state_change.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
-  %20 = load i8, ptr @message_with_timestamp, align 1
-  %21 = and i8 %20, 1
-  %tobool7.not.i.i.i.i = icmp eq i8 %21, 0
-  br i1 %tobool7.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then8.i.i.i.i
+  %19 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i = trunc i8 %19 to i1
+  br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #6
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #6
-  %22 = load i64, ptr %_now.i.i.i.i, align 8
-  %23 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i.i, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #6
+  %20 = load i64, ptr %_now.i.i.i.i, align 8
+  %21 = load i64, ptr %tv_usec.i.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i.i, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #6
   br label %trace_colo_vm_state_change.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -1262,27 +1258,27 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 
 trace_colo_vm_state_change.exit.i.i:              ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %24 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %24, i32 noundef 2, ptr noundef nonnull %local_err.i.i)
-  %25 = load ptr, ptr %local_err.i.i, align 8
-  %tobool.not.i.i17 = icmp eq ptr %25, null
+  %22 = load ptr, ptr %to_src_file, align 8
+  call fastcc void @colo_send_message(ptr noundef %22, i32 noundef 2, ptr noundef nonnull %local_err.i.i)
+  %23 = load ptr, ptr %local_err.i.i, align 8
+  %tobool.not.i.i17 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i17, label %if.end.i.i, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %trace_colo_vm_state_change.exit.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %25) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %23) #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end.i.i:                                       ; preds = %trace_colo_vm_state_change.exit.i.i
-  %26 = load ptr, ptr %opaque, align 8
+  %24 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i)
   store ptr null, ptr %local_err.i.i.i, align 8
-  %call.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %26, ptr noundef nonnull %local_err.i.i.i)
-  %27 = load ptr, ptr %local_err.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %27, null
+  %call.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %24, ptr noundef nonnull %local_err.i.i.i)
+  %25 = load ptr, ptr %local_err.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err.i.i, ptr noundef nonnull %27) #6
+  call void @error_propagate(ptr noundef nonnull %local_err.i.i, ptr noundef nonnull %25) #6
   br label %colo_receive_check_message.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
@@ -1295,19 +1291,19 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 colo_receive_check_message.exit.i.i:              ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i.i)
-  %28 = load ptr, ptr %local_err.i.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %28, null
+  %26 = load ptr, ptr %local_err.i.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %26, null
   br i1 %tobool1.not.i.i, label %if.end3.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %colo_receive_check_message.exit.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %28) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %26) #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end3.i.i:                                      ; preds = %colo_receive_check_message.exit.i.i
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 680) #6
   call void @cpu_synchronize_all_states() #6
-  %29 = load ptr, ptr %opaque, align 8
-  %call5.i.i = call i32 @qemu_loadvm_state_main(ptr noundef %29, ptr noundef nonnull %opaque) #6
+  %27 = load ptr, ptr %opaque, align 8
+  %call5.i.i = call i32 @qemu_loadvm_state_main(ptr noundef %27, ptr noundef nonnull %opaque) #6
   call void @qemu_mutex_unlock_iothread() #6
   %cmp.i.i19 = icmp slt i32 %call5.i.i, 0
   br i1 %cmp.i.i19, label %if.then6.i.i, label %if.end7.i.i
@@ -1317,18 +1313,18 @@ if.then6.i.i:                                     ; preds = %if.end3.i.i
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end7.i.i:                                      ; preds = %if.end3.i.i
-  %30 = load ptr, ptr %opaque, align 8
+  %28 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i38.i.i)
   store ptr null, ptr %local_err.i38.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i.i)
   store ptr null, ptr %local_err.i.i.i.i, align 8
-  %call.i.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %30, ptr noundef nonnull %local_err.i.i.i.i)
-  %31 = load ptr, ptr %local_err.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %31, null
+  %call.i.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %28, ptr noundef nonnull %local_err.i.i.i.i)
+  %29 = load ptr, ptr %local_err.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i39.i.i
 
 if.then.i.i39.i.i:                                ; preds = %if.end7.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err.i38.i.i, ptr noundef nonnull %31) #6
+  call void @error_propagate(ptr noundef nonnull %local_err.i38.i.i, ptr noundef nonnull %29) #6
   br label %colo_receive_check_message.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end7.i.i
@@ -1341,17 +1337,17 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 
 colo_receive_check_message.exit.i.i.i:            ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i39.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i.i.i)
-  %32 = load ptr, ptr %local_err.i38.i.i, align 8
-  %tobool.not.i40.i.i = icmp eq ptr %32, null
+  %30 = load ptr, ptr %local_err.i38.i.i, align 8
+  %tobool.not.i40.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i40.i.i, label %if.end.i42.i.i, label %if.then.i41.i.i
 
 if.then.i41.i.i:                                  ; preds = %colo_receive_check_message.exit.i.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err.i.i, ptr noundef nonnull %32) #6
+  call void @error_propagate(ptr noundef nonnull %local_err.i.i, ptr noundef nonnull %30) #6
   br label %colo_receive_message_value.exit.i.i
 
 if.end.i42.i.i:                                   ; preds = %colo_receive_check_message.exit.i.i.i
-  %call.i43.i.i = call i64 @qemu_get_be64(ptr noundef %30) #6
-  %call1.i.i.i = call i32 @qemu_file_get_error(ptr noundef %30) #6
+  %call.i43.i.i = call i64 @qemu_get_be64(ptr noundef %28) #6
+  %call1.i.i.i = call i32 @qemu_file_get_error(ptr noundef %28) #6
   %cmp.i.i.i = icmp slt i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %colo_receive_message_value.exit.i.i
 
@@ -1364,17 +1360,17 @@ if.then2.i.i.i:                                   ; preds = %if.end.i42.i.i
 colo_receive_message_value.exit.i.i:              ; preds = %if.then2.i.i.i, %if.end.i42.i.i, %if.then.i41.i.i
   %retval.0.i.i.i = phi i64 [ 0, %if.then.i41.i.i ], [ %call.i43.i.i, %if.then2.i.i.i ], [ %call.i43.i.i, %if.end.i42.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i38.i.i)
-  %33 = load ptr, ptr %local_err.i.i, align 8
-  %tobool10.not.i.i = icmp eq ptr %33, null
+  %31 = load ptr, ptr %local_err.i.i, align 8
+  %tobool10.not.i.i = icmp eq ptr %31, null
   br i1 %tobool10.not.i.i, label %if.end12.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %colo_receive_message_value.exit.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %33) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %31) #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end12.i.i:                                     ; preds = %colo_receive_message_value.exit.i.i
-  %34 = load i64, ptr %capacity.i.i, align 8
-  %cmp13.i.i = icmp ugt i64 %retval.0.i.i.i, %34
+  %32 = load i64, ptr %capacity.i.i, align 8
+  %cmp13.i.i = icmp ugt i64 %retval.0.i.i.i, %32
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.end12.if.end19_crit_edge.i.i
 
 if.end12.if.end19_crit_edge.i.i:                  ; preds = %if.end12.i.i
@@ -1383,15 +1379,15 @@ if.end12.if.end19_crit_edge.i.i:                  ; preds = %if.end12.i.i
 
 if.then14.i.i:                                    ; preds = %if.end12.i.i
   store i64 %retval.0.i.i.i, ptr %capacity.i.i, align 8
-  %35 = load ptr, ptr %data21.phi.trans.insert.i.i, align 8
-  %call17.i.i = call ptr @g_realloc(ptr noundef %35, i64 noundef %retval.0.i.i.i) #6
+  %33 = load ptr, ptr %data21.phi.trans.insert.i.i, align 8
+  %call17.i.i = call ptr @g_realloc(ptr noundef %33, i64 noundef %retval.0.i.i.i) #6
   store ptr %call17.i.i, ptr %data21.phi.trans.insert.i.i, align 8
   br label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.then14.i.i, %if.end12.if.end19_crit_edge.i.i
-  %36 = phi ptr [ %.pre.i.i, %if.end12.if.end19_crit_edge.i.i ], [ %call17.i.i, %if.then14.i.i ]
-  %37 = load ptr, ptr %opaque, align 8
-  %call22.i.i = call i64 @qemu_get_buffer(ptr noundef %37, ptr noundef %36, i64 noundef %retval.0.i.i.i) #6
+  %34 = phi ptr [ %.pre.i.i, %if.end12.if.end19_crit_edge.i.i ], [ %call17.i.i, %if.then14.i.i ]
+  %35 = load ptr, ptr %opaque, align 8
+  %call22.i.i = call i64 @qemu_get_buffer(ptr noundef %35, ptr noundef %34, i64 noundef %retval.0.i.i.i) #6
   %cmp23.not.i.i = icmp eq i64 %call22.i.i, %retval.0.i.i.i
   br i1 %cmp23.not.i.i, label %if.end25.i.i, label %if.then24.i.i
 
@@ -1403,14 +1399,14 @@ if.end25.i.i:                                     ; preds = %if.end19.i.i
   store i64 %retval.0.i.i.i, ptr %usage.i.i, align 8
   %call.i44.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call6, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
   %call27.i.i = call i64 @qio_channel_io_seek(ptr noundef %call.i44.i.i, i64 noundef 0, i32 noundef 0, ptr noundef null) #6
-  %38 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %38, i32 noundef 5, ptr noundef nonnull %local_err.i.i)
-  %39 = load ptr, ptr %local_err.i.i, align 8
-  %tobool29.not.i.i = icmp eq ptr %39, null
+  %36 = load ptr, ptr %to_src_file, align 8
+  call fastcc void @colo_send_message(ptr noundef %36, i32 noundef 5, ptr noundef nonnull %local_err.i.i)
+  %37 = load ptr, ptr %local_err.i.i, align 8
+  %tobool29.not.i.i = icmp eq ptr %37, null
   br i1 %tobool29.not.i.i, label %if.end31.i.i, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %if.end25.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %39) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %37) #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end31.i.i:                                     ; preds = %if.end25.i.i
@@ -1429,36 +1425,36 @@ if.then34.i.i:                                    ; preds = %if.end31.i.i
 
 if.end35.i.i:                                     ; preds = %if.end31.i.i
   call void @replication_get_error_all(ptr noundef nonnull %local_err.i.i) #6
-  %40 = load ptr, ptr %local_err.i.i, align 8
-  %tobool36.not.i.i = icmp eq ptr %40, null
+  %38 = load ptr, ptr %local_err.i.i, align 8
+  %tobool36.not.i.i = icmp eq ptr %38, null
   br i1 %tobool36.not.i.i, label %if.end38.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %if.end35.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %40) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %38) #6
   store i1 false, ptr @vmstate_loading, align 1
   call void @qemu_mutex_unlock_iothread() #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end38.i.i:                                     ; preds = %if.end35.i.i
   call void @replication_do_checkpoint_all(ptr noundef nonnull %local_err.i.i) #6
-  %41 = load ptr, ptr %local_err.i.i, align 8
-  %tobool39.not.i.i = icmp eq ptr %41, null
+  %39 = load ptr, ptr %local_err.i.i, align 8
+  %tobool39.not.i.i = icmp eq ptr %39, null
   br i1 %tobool39.not.i.i, label %if.end41.i.i, label %if.then40.i.i
 
 if.then40.i.i:                                    ; preds = %if.end38.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %41) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %39) #6
   store i1 false, ptr @vmstate_loading, align 1
   call void @qemu_mutex_unlock_iothread() #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 if.end41.i.i:                                     ; preds = %if.end38.i.i
   call void @colo_notify_filters_event(i32 noundef 1, ptr noundef nonnull %local_err.i.i) #6
-  %42 = load ptr, ptr %local_err.i.i, align 8
-  %tobool42.not.i.i = icmp eq ptr %42, null
+  %40 = load ptr, ptr %local_err.i.i, align 8
+  %tobool42.not.i.i = icmp eq ptr %40, null
   br i1 %tobool42.not.i.i, label %if.end44.i.i, label %if.then43.i.i
 
 if.then43.i.i:                                    ; preds = %if.end41.i.i
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %42) #6
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef nonnull %40) #6
   store i1 false, ptr @vmstate_loading, align 1
   call void @qemu_mutex_unlock_iothread() #6
   br label %colo_incoming_process_checkpoint.exit.i
@@ -1473,10 +1469,10 @@ if.end44.i.i:                                     ; preds = %if.end41.i.i
   br i1 %cmp46.i.i, label %colo_incoming_process_checkpoint.exit.i, label %if.end48.i.i
 
 if.end48.i.i:                                     ; preds = %if.end44.i.i
-  %43 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %43, i32 noundef 6, ptr noundef nonnull %local_err.i.i)
-  %44 = load ptr, ptr %local_err.i.i, align 8
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef %44) #6
+  %41 = load ptr, ptr %to_src_file, align 8
+  call fastcc void @colo_send_message(ptr noundef %41, i32 noundef 6, ptr noundef nonnull %local_err.i.i)
+  %42 = load ptr, ptr %local_err.i.i, align 8
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef %42) #6
   br label %colo_incoming_process_checkpoint.exit.i
 
 colo_incoming_process_checkpoint.exit.i:          ; preds = %if.end48.i.i, %if.end44.i.i, %if.then43.i.i, %if.then40.i.i, %if.then37.i.i, %if.then34.i.i, %if.then30.i.i, %if.then24.i.i, %if.then11.i.i, %if.then6.i.i, %if.then2.i.i, %if.then.i.i18
@@ -1489,12 +1485,12 @@ sw.default.i:                                     ; preds = %if.end.i
 
 colo_wait_handle_message.exit:                    ; preds = %if.then.i, %colo_incoming_process_checkpoint.exit.i, %sw.default.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %45 = load ptr, ptr %local_err, align 8
-  %tobool18.not = icmp eq ptr %45, null
+  %43 = load ptr, ptr %local_err, align 8
+  %tobool18.not = icmp eq ptr %43, null
   br i1 %tobool18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %colo_wait_handle_message.exit
-  call void @error_report_err(ptr noundef nonnull %45) #6
+  call void @error_report_err(ptr noundef nonnull %43) #6
   br label %out
 
 if.end20:                                         ; preds = %colo_wait_handle_message.exit
@@ -1647,17 +1643,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #6
   %call10.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %old, ptr noundef %new) #6
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %old, ptr noundef %new) #6
   br label %_nocheck__trace_colo_vm_state_change.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1723,17 +1718,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end4
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call5) #6
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call5) #6
   br label %trace_colo_receive_message.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1795,17 +1789,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end3
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call4) #6
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call4) #6
   br label %trace_colo_send_message.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

@@ -164,16 +164,15 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %2 = load i8, ptr %is_rekey_, align 8, !noalias !4
-  %3 = and i8 %2, 1
-  %tobool.i = icmp ne i8 %3, 0
+  %tobool.i = trunc i8 %2 to i1
   invoke void @_ZN9grpc_core7GsecKeyC1EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 dereferenceable(136) %call.i, ptr %0, i64 %sub.ptr.sub.i.i.i, i1 noundef zeroext %tobool.i)
           to label %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit unwind label %lpad.i, !noalias !4
 
 lpad.i:                                           ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #17, !noalias !4
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8
@@ -292,20 +291,19 @@ _ZNSt6vectorIhSaIhEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIhSaIhE
 
 if.end:                                           ; preds = %invoke.cont.i.i, %if.then7.i, %if.else.i, %if.then.i, %entry
   %9 = load i8, ptr %is_rekey_, align 8
-  %10 = and i8 %9, 1
-  %tobool16.not = icmp eq i8 %10, 0
-  %spec.select = select i1 %tobool16.not, i64 %key.coerce1, i64 32
+  %tobool16 = trunc i8 %9 to i1
+  %spec.select = select i1 %tobool16, i64 32, i64 %key.coerce1
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %key_, i64 noundef %spec.select)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.end
-  %11 = load ptr, ptr %key_, align 8
+  %10 = load ptr, ptr %key_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
-  %12 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
+  %11 = load ptr, ptr %_M_finish.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %key.coerce0, i64 %sub.ptr.sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %key.coerce0, i64 %sub.ptr.sub.i, i1 false)
   ret void
 }
 
@@ -425,8 +423,7 @@ define noundef zeroext i1 @_ZN9grpc_core7GsecKey7IsRekeyEv(ptr nocapture noundef
 entry:
   %is_rekey_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_rekey_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

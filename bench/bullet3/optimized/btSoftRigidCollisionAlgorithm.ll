@@ -60,30 +60,29 @@ entry:
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str)
   %m_isSwapped = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %m_isSwapped, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %body1Wrap.body0Wrap = select i1 %tobool.not, ptr %body1Wrap, ptr %body0Wrap
-  %body0Wrap.body1Wrap = select i1 %tobool.not, ptr %body0Wrap, ptr %body1Wrap
-  %cond.in = getelementptr inbounds i8, ptr %body0Wrap.body1Wrap, i64 16
+  %tobool = trunc i8 %0 to i1
+  %body0Wrap.body1Wrap = select i1 %tobool, ptr %body0Wrap, ptr %body1Wrap
+  %body1Wrap.body0Wrap = select i1 %tobool, ptr %body1Wrap, ptr %body0Wrap
+  %cond.in = getelementptr inbounds i8, ptr %body1Wrap.body0Wrap, i64 16
   %cond = load ptr, ptr %cond.in, align 8
-  %m_collisionObject.i8 = getelementptr inbounds i8, ptr %body1Wrap.body0Wrap, i64 16
-  %2 = load ptr, ptr %m_collisionObject.i8, align 8
+  %m_collisionObject.i8 = getelementptr inbounds i8, ptr %body0Wrap.body1Wrap, i64 16
+  %1 = load ptr, ptr %m_collisionObject.i8, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %cond, i64 380
-  %3 = load i32, ptr %m_size.i.i, align 4
-  %cmp5.i = icmp sgt i32 %3, 0
+  %2 = load i32, ptr %m_size.i.i, align 4
+  %cmp5.i = icmp sgt i32 %2, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %if.then
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %cond, i64 392
-  %4 = load ptr, ptr %m_data.i, align 8
-  %wide.trip.count.i = zext nneg i32 %3 to i64
+  %3 = load ptr, ptr %m_data.i, align 8
+  %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
-  %5 = load ptr, ptr %arrayidx.i, align 8
-  %cmp3.i = icmp eq ptr %5, %2
+  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %4 = load ptr, ptr %arrayidx.i, align 8
+  %cmp3.i = icmp eq ptr %4, %1
   br i1 %cmp3.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -92,24 +91,24 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %for.body.i
-  %6 = trunc i64 %indvars.iv.i to i32
-  %cmp = icmp eq i32 %3, %6
+  %5 = trunc i64 %indvars.iv.i to i32
+  %cmp = icmp eq i32 %2, %5
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.inc.i, %entry, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
   %m_softBodySolver.i = getelementptr inbounds i8, ptr %cond, i64 408
-  %7 = load ptr, ptr %m_softBodySolver.i, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_softBodySolver.i, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
-  %8 = load ptr, ptr %vfn, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull %cond, ptr noundef nonnull %body1Wrap.body0Wrap)
+  %7 = load ptr, ptr %vfn, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %cond, ptr noundef nonnull %body0Wrap.body1Wrap)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #7
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %if.then, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #7

@@ -120,29 +120,28 @@ define dso_local i32 @event_notifier_set(ptr nocapture noundef readonly %e) loca
 entry:
   %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %do.body.preheader
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %entry
   %wfd = getelementptr inbounds i8, ptr %e, i64 4
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  %2 = load i32, ptr %wfd, align 4
-  %call = tail call i64 @write(i32 noundef %2, ptr noundef nonnull @event_notifier_set.value, i64 noundef 8) #8
+  %1 = load i32, ptr %wfd, align 4
+  %call = tail call i64 @write(i32 noundef %1, ptr noundef nonnull @event_notifier_set.value, i64 noundef 8) #8
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #9
-  %3 = load i32, ptr %call1, align 4
-  %cmp2 = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call1, align 4
+  %cmp2 = icmp eq i32 %2, 4
   br i1 %cmp2, label %do.body, label %land.lhs.true, !llvm.loop !5
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %cmp5.not = icmp eq i32 %3, 11
-  %sub = sub i32 0, %3
+  %cmp5.not = icmp eq i32 %2, 11
+  %sub = sub i32 0, %2
   %spec.select = select i1 %cmp5.not, i32 0, i32 %sub
   br label %return
 
@@ -158,26 +157,25 @@ define dso_local void @event_notifier_cleanup(ptr nocapture noundef %e) local_un
 entry:
   %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %e, align 4
+  %1 = load i32, ptr %e, align 4
   %wfd = getelementptr inbounds i8, ptr %e, i64 4
-  %3 = load i32, ptr %wfd, align 4
-  %cmp.not = icmp eq i32 %2, %3
+  %2 = load i32, ptr %wfd, align 4
+  %cmp.not = icmp eq i32 %1, %2
   br i1 %cmp.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call = tail call i32 @close(i32 noundef %2) #8
+  %call = tail call i32 @close(i32 noundef %1) #8
   %.pre = load i32, ptr %wfd, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end
-  %4 = phi i32 [ %.pre, %if.then1 ], [ %2, %if.end ]
+  %3 = phi i32 [ %.pre, %if.then1 ], [ %1, %if.end ]
   store i32 -1, ptr %e, align 4
-  %call6 = tail call i32 @close(i32 noundef %4) #8
+  %call6 = tail call i32 @close(i32 noundef %3) #8
   store i32 -1, ptr %wfd, align 4
   store i8 0, ptr %initialized, align 4
   br label %return
@@ -210,14 +208,13 @@ entry:
   %buffer = alloca [512 x i8], align 16
   %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %do.body
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.body, label %return
 
 do.body:                                          ; preds = %entry, %do.body.backedge
   %value.0 = phi i32 [ %or, %do.body.backedge ], [ 0, %entry ]
-  %2 = load i32, ptr %e, align 4
-  %call = call i64 @read(i32 noundef %2, ptr noundef nonnull %buffer, i64 noundef 512) #8
+  %1 = load i32, ptr %e, align 4
+  %call = call i64 @read(i32 noundef %1, ptr noundef nonnull %buffer, i64 noundef 512) #8
   %cmp = icmp sgt i64 %call, 0
   %conv = zext i1 %cmp to i32
   %or = or i32 %value.0, %conv
@@ -228,8 +225,8 @@ do.body:                                          ; preds = %entry, %do.body.bac
 
 land.lhs.true:                                    ; preds = %do.body
   %call3 = tail call ptr @__errno_location() #9
-  %3 = load i32, ptr %call3, align 4
-  %cmp4 = icmp eq i32 %3, 4
+  %2 = load i32, ptr %call3, align 4
+  %cmp4 = icmp eq i32 %2, 4
   br i1 %cmp4, label %do.body.backedge, label %return
 
 do.body.backedge:                                 ; preds = %land.lhs.true, %do.body

@@ -1878,7 +1878,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_true(ptr nocapture nounde
 26:                                               ; preds = %24
   %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0) #36
   %28 = icmp eq i32 %27, 0
-  %.20 = zext i1 %28 to i32
+  %.19 = zext i1 %28 to i32
   br label %42
 
 29:                                               ; preds = %24
@@ -1905,7 +1905,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_true(ptr nocapture nounde
   br label %42
 
 42:                                               ; preds = %35, %38, %29, %32, %26, %22, %8, %1, %3, %41
-  %.015 = phi i32 [ 2, %41 ], [ 0, %1 ], [ %., %3 ], [ 0, %8 ], [ 0, %22 ], [ %.20, %26 ], [ 0, %32 ], [ 0, %29 ], [ 1, %38 ], [ 1, %35 ]
+  %.015 = phi i32 [ 2, %41 ], [ 0, %1 ], [ %., %3 ], [ 0, %8 ], [ 0, %22 ], [ %.19, %26 ], [ 0, %32 ], [ 0, %29 ], [ 1, %38 ], [ 1, %35 ]
   ret i32 %.015
 }
 
@@ -1997,9 +1997,9 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %0, ptr 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %7, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = and i8 %6, 1
+  store i8 %8, ptr %7, align 8
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
 9:                                                ; preds = %2

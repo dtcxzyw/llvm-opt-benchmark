@@ -1125,9 +1125,8 @@ if.end5:                                          ; preds = %if.end
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.104, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #13
   %internal = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i8, ptr %internal, align 8
-  %1 = and i8 %0, 1
-  %tobool7.not = icmp eq i8 %1, 0
-  br i1 %tobool7.not, label %return, label %if.then8
+  %tobool7 = trunc i8 %0 to i1
+  br i1 %tobool7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end5
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 527, ptr noundef nonnull @__func__.char_get_class, ptr noundef nonnull @.str.106, ptr noundef %driver) #13
@@ -1659,16 +1658,14 @@ land.lhs.true.i:                                  ; preds = %cond.end.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %has_logappend.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %has_logappend.i, align 8
-  %3 = and i8 %2, 1
-  %tobool3.not.i = icmp eq i8 %3, 0
-  br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
+  %tobool3.i = trunc i8 %2 to i1
+  br i1 %tobool3.i, label %land.lhs.true4.i, label %if.else.i
 
 land.lhs.true4.i:                                 ; preds = %if.then.i
   %logappend.i = getelementptr inbounds i8, ptr %0, i64 9
-  %4 = load i8, ptr %logappend.i, align 1
-  %5 = and i8 %4, 1
-  %tobool5.not.i = icmp eq i8 %5, 0
-  br i1 %tobool5.not.i, label %if.else.i, label %if.end.i
+  %3 = load i8, ptr %logappend.i, align 1
+  %tobool5.i = trunc i8 %3 to i1
+  br i1 %tobool5.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true4.i, %if.then.i
   br label %if.end.i
@@ -1683,28 +1680,28 @@ if.end.i:                                         ; preds = %if.else.i, %land.lh
 
 if.end13.i:                                       ; preds = %if.end.i, %land.lhs.true.i, %cond.end.i, %if.end4
   %open.i = getelementptr inbounds i8, ptr %call1.i.i, i64 112
-  %6 = load ptr, ptr %open.i, align 8
-  %tobool14.not.i = icmp eq ptr %6, null
+  %4 = load ptr, ptr %open.i, align 8
+  %tobool14.not.i = icmp eq ptr %4, null
   br i1 %tobool14.not.i, label %qemu_char_open.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  call void %6(ptr noundef nonnull %call.i, ptr noundef %backend, ptr noundef nonnull %be_opened, ptr noundef nonnull %local_err) #13
+  call void %4(ptr noundef nonnull %call.i, ptr noundef %backend, ptr noundef nonnull %be_opened, ptr noundef nonnull %local_err) #13
   br label %qemu_char_open.exit
 
 qemu_char_open.exit:                              ; preds = %if.end.i, %if.end13.i, %if.then15.i
-  %7 = load ptr, ptr %local_err, align 8
-  %tobool12.not = icmp eq ptr %7, null
+  %5 = load ptr, ptr %local_err, align 8
+  %tobool12.not = icmp eq ptr %5, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %qemu_char_open.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %7) #13
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %5) #13
   call void @object_unref(ptr noundef %call5) #13
   br label %return
 
 if.end14:                                         ; preds = %qemu_char_open.exit
   %filename = getelementptr inbounds i8, ptr %call.i, i64 104
-  %8 = load ptr, ptr %filename, align 8
-  %tobool15.not = icmp eq ptr %8, null
+  %6 = load ptr, ptr %filename, align 8
+  %tobool15.not = icmp eq ptr %6, null
   br i1 %tobool15.not, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.end14
@@ -1714,10 +1711,9 @@ if.then16:                                        ; preds = %if.end14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %if.end14
-  %9 = load i8, ptr %be_opened, align 1
-  %10 = and i8 %9, 1
-  %tobool20.not = icmp eq i8 %10, 0
-  br i1 %tobool20.not, label %return, label %if.then21
+  %7 = load i8, ptr %be_opened, align 1
+  %tobool20 = trunc i8 %7 to i1
+  br i1 %tobool20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end19
   %be_open2.i = getelementptr inbounds i8, ptr %call.i, i64 116
@@ -1725,8 +1721,8 @@ if.then21:                                        ; preds = %if.end19
   %call.i.i12 = call ptr @object_get_class(ptr noundef nonnull %call.i) #13
   %call1.i.i13 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i12, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.104, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #13
   %chr_be_event.i = getelementptr inbounds i8, ptr %call1.i.i13, i64 224
-  %11 = load ptr, ptr %chr_be_event.i, align 8
-  call void %11(ptr noundef nonnull %call.i, i32 noundef 1) #13
+  %8 = load ptr, ptr %chr_be_event.i, align 8
+  call void %8(ptr noundef nonnull %call.i, i32 noundef 1) #13
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then21, %if.then13
@@ -1896,37 +1892,35 @@ if.end15:                                         ; preds = %if.end12
 if.end21:                                         ; preds = %if.end15
   %supports_yank = getelementptr inbounds i8, ptr %call1.i47, i64 97
   %5 = load i8, ptr %supports_yank, align 1
-  %6 = and i8 %5, 1
-  %tobool22.not = icmp eq i8 %6, 0
-  br i1 %tobool22.not, label %land.end, label %land.rhs
+  %tobool22 = trunc i8 %5 to i1
+  br i1 %tobool22, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end21
   %supports_yank23 = getelementptr inbounds i8, ptr %call18, i64 97
-  %7 = load i8, ptr %supports_yank23, align 1
-  %8 = and i8 %7, 1
-  %tobool24 = icmp ne i8 %8, 0
+  %6 = load i8, ptr %supports_yank23, align 1
+  %tobool24 = trunc i8 %6 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end21
-  %9 = phi i1 [ false, %if.end21 ], [ %tobool24, %land.rhs ]
-  %frombool = zext i1 %9 to i8
+  %7 = phi i1 [ false, %if.end21 ], [ %tobool24, %land.rhs ]
+  %frombool = zext i1 %7 to i8
   %call25 = tail call ptr @object_class_get_name(ptr noundef nonnull %call18) #13
   %gcontext = getelementptr inbounds i8, ptr %call.i2.i, i64 136
-  %10 = load ptr, ptr %gcontext, align 8
-  %call27 = tail call fastcc ptr @chardev_new(ptr noundef %id, ptr noundef %call25, ptr noundef nonnull %backend, ptr noundef %10, i1 noundef zeroext %9, ptr noundef %errp)
+  %8 = load ptr, ptr %gcontext, align 8
+  %call27 = tail call fastcc ptr @chardev_new(ptr noundef %id, ptr noundef %call25, ptr noundef nonnull %backend, ptr noundef %8, i1 noundef zeroext %7, ptr noundef %errp)
   %tobool28.not = icmp eq ptr %call27, null
   br i1 %tobool28.not, label %return, label %if.end30
 
 if.end30:                                         ; preds = %land.end
   %be_open = getelementptr inbounds i8, ptr %call.i2.i, i64 116
-  %11 = load i32, ptr %be_open, align 4
-  %tobool31.not = icmp eq i32 %11, 0
+  %9 = load i32, ptr %be_open, align 4
+  %tobool31.not = icmp eq i32 %9, 0
   br i1 %tobool31.not, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end30
   %be_open32 = getelementptr inbounds i8, ptr %call27, i64 116
-  %12 = load i32, ptr %be_open32, align 4
-  %tobool33.not = icmp eq i32 %12, 0
+  %10 = load i32, ptr %be_open32, align 4
+  %tobool33.not = icmp eq i32 %10, 0
   br i1 %tobool33.not, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %land.lhs.true
@@ -1937,17 +1931,17 @@ if.end35:                                         ; preds = %if.then34, %land.lh
   %closed_sent.0 = phi i1 [ false, %land.lhs.true ], [ true, %if.then34 ], [ false, %if.end30 ]
   store ptr null, ptr %be8, align 8
   %call37 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %2, ptr noundef nonnull %call27, ptr noundef nonnull @error_abort) #13
-  %13 = load ptr, ptr %chr_be_change, align 8
+  %11 = load ptr, ptr %chr_be_change, align 8
   %opaque = getelementptr inbounds i8, ptr %2, i64 40
-  %14 = load ptr, ptr %opaque, align 8
-  %call39 = tail call i32 %13(ptr noundef %14) #13
+  %12 = load ptr, ptr %opaque, align 8
+  %call39 = tail call i32 %11(ptr noundef %12) #13
   %cmp = icmp slt i32 %call39, 0
   br i1 %cmp, label %if.then40, label %if.end46
 
 if.then40:                                        ; preds = %if.end35
   %label = getelementptr inbounds i8, ptr %call27, i64 96
-  %15 = load ptr, ptr %label, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1108, ptr noundef nonnull @__func__.qmp_chardev_change, ptr noundef nonnull @.str.97, ptr noundef %15) #13
+  %13 = load ptr, ptr %label, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1108, ptr noundef nonnull @__func__.qmp_chardev_change, ptr noundef nonnull @.str.97, ptr noundef %13) #13
   %be41 = getelementptr inbounds i8, ptr %call27, i64 88
   store ptr null, ptr %be41, align 8
   %call42 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %2, ptr noundef nonnull %call.i2.i, ptr noundef nonnull @error_abort) #13
@@ -1970,8 +1964,8 @@ if.end46:                                         ; preds = %if.end35
   %call.i48 = tail call ptr @object_get_root() #13
   %call1.i49 = tail call ptr @container_get(ptr noundef %call.i48, ptr noundef nonnull @.str) #13
   %label52 = getelementptr inbounds i8, ptr %call27, i64 96
-  %16 = load ptr, ptr %label52, align 8
-  %call53 = tail call ptr @object_property_add_child(ptr noundef %call1.i49, ptr noundef %16, ptr noundef nonnull %call27) #13
+  %14 = load ptr, ptr %label52, align 8
+  %call53 = tail call ptr @object_property_add_child(ptr noundef %call1.i49, ptr noundef %14, ptr noundef nonnull %call27) #13
   tail call void @object_unref(ptr noundef nonnull %call27) #13
   %call54 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #17
   %call55 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call27, ptr noundef nonnull @.str.91) #13
@@ -1980,8 +1974,8 @@ if.end46:                                         ; preds = %if.end35
 
 if.then57:                                        ; preds = %if.end46
   %filename = getelementptr inbounds i8, ptr %call27, i64 104
-  %17 = load ptr, ptr %filename, align 8
-  %add.ptr = getelementptr i8, ptr %17, i64 4
+  %15 = load ptr, ptr %filename, align 8
+  %add.ptr = getelementptr i8, ptr %15, i64 4
   %call58 = tail call noalias ptr @g_strdup(ptr noundef %add.ptr) #13
   store ptr %call58, ptr %call54, align 8
   br label %return
@@ -2229,17 +2223,16 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.104, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #13
   %internal = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i8, ptr %internal, align 8
-  %1 = and i8 %0, 1
-  %tobool3.not = icmp eq i8 %1, 0
-  br i1 %tobool3.not, label %if.end5, label %return
+  %tobool3 = trunc i8 %0 to i1
+  br i1 %tobool3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %2 = load ptr, ptr %opaque, align 8
+  %1 = load ptr, ptr %opaque, align 8
   %call6 = tail call ptr @object_class_get_name(ptr noundef %klass) #13
   %add.ptr = getelementptr i8, ptr %call6, i64 8
   %opaque7 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %3 = load ptr, ptr %opaque7, align 8
-  tail call void %2(ptr noundef %add.ptr, ptr noundef %3) #13
+  %2 = load ptr, ptr %opaque7, align 8
+  tail call void %1(ptr noundef %add.ptr, ptr noundef %2) #13
   br label %return
 
 return:                                           ; preds = %if.end, %if.end5

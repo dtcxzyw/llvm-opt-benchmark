@@ -676,9 +676,8 @@ cleanup.cont:                                     ; preds = %if.then.i.i, %if.en
   tail call void @uv_mutex_unlock(ptr noundef nonnull %list_mutex_) #15
   %has_running_thread_ = getelementptr inbounds i8, ptr %this, i64 160
   %4 = load i8, ptr %has_running_thread_, align 8
-  %5 = and i8 %4, 1
-  %tobool4.not = icmp eq i8 %5, 0
-  br i1 %tobool4.not, label %if.then5, label %if.end8
+  %tobool4 = trunc i8 %4 to i1
+  br i1 %tobool4, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %cleanup.cont
   store i8 0, ptr %has_pending_signal_, align 8
@@ -688,8 +687,8 @@ if.end8:                                          ; preds = %cleanup.cont
   %sem_ = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @uv_sem_post(ptr noundef nonnull %sem_) #15
   %thread_ = getelementptr inbounds i8, ptr %this, i64 120
-  %6 = load i64, ptr %thread_, align 8
-  %call = tail call i32 @pthread_join(i64 noundef %6, ptr noundef null) #15
+  %5 = load i64, ptr %thread_, align 8
+  %call = tail call i32 @pthread_join(i64 noundef %5, ptr noundef null) #15
   %cmp9.not = icmp eq i32 %call, 0
   br i1 %cmp9.not, label %do.end16, label %do.body13
 
@@ -701,14 +700,13 @@ do.body13:                                        ; preds = %if.end8
 do.end16:                                         ; preds = %if.end8
   store i8 0, ptr %has_running_thread_, align 8
   tail call void @_ZN4node21RegisterSignalHandlerEiPFviP9siginfo_tPvEb(i32 noundef 2, ptr noundef nonnull @_ZN4node10SignalExitEiP9siginfo_tPv, i1 noundef zeroext true) #15
-  %7 = load i8, ptr %has_pending_signal_, align 8
+  %6 = load i8, ptr %has_pending_signal_, align 8
   store i8 0, ptr %has_pending_signal_, align 8
   br label %cleanup23
 
 cleanup23:                                        ; preds = %cleanup, %do.end16, %if.then5
-  %retval.1.in.in = phi i8 [ %7, %do.end16 ], [ %0, %if.then5 ], [ %0, %cleanup ]
-  %retval.1.in = and i8 %retval.1.in.in, 1
-  %retval.1 = icmp ne i8 %retval.1.in, 0
+  %retval.1.in = phi i8 [ %6, %do.end16 ], [ %0, %if.then5 ], [ %0, %cleanup ]
+  %retval.1 = trunc i8 %retval.1.in to i1
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #15
   ret i1 %retval.1
 }
@@ -1075,33 +1073,32 @@ define dso_local void @_ZN4node19TraceSigintWatchdog15HandleInterruptEv(ptr noun
 entry:
   %interrupting = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i8, ptr %interrupting, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %interrupting, align 8
   %signal_flag_ = getelementptr inbounds i8, ptr %this, i64 232
-  %2 = load i32, ptr %signal_flag_, align 8
-  %cmp = icmp eq i32 %2, 0
+  %1 = load i32, ptr %signal_flag_, align 8
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %5 = load ptr, ptr @stderr, align 8
-  tail call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %5, ptr noundef nonnull @.str.22) #19
-  %6 = load i32, ptr %signal_flag_, align 8
-  %cmp6 = icmp eq i32 %6, 2
+  %2 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds i8, ptr %2, i64 176
+  %3 = load ptr, ptr %env_.i.i, align 8
+  %4 = load ptr, ptr @stderr, align 8
+  tail call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.22) #19
+  %5 = load i32, ptr %signal_flag_, align 8
+  %cmp6 = icmp eq i32 %5, 2
   br i1 %cmp6, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %if.end4
-  %isolate_.i = getelementptr inbounds i8, ptr %4, i64 88
-  %7 = load ptr, ptr %isolate_.i, align 8
-  %call10 = tail call ptr @_ZN2v810StackTrace17CurrentStackTraceEPNS_7IsolateEiNS0_17StackTraceOptionsE(ptr noundef %7, i32 noundef 10, i32 noundef 127) #15
-  tail call void @_ZN4node15PrintStackTraceEPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noundef %7, ptr %call10, i32 noundef 0) #15
+  %isolate_.i = getelementptr inbounds i8, ptr %3, i64 88
+  %6 = load ptr, ptr %isolate_.i, align 8
+  %call10 = tail call ptr @_ZN2v810StackTrace17CurrentStackTraceEPNS_7IsolateEiNS0_17StackTraceOptionsE(ptr noundef %6, i32 noundef 10, i32 noundef 127) #15
+  tail call void @_ZN4node15PrintStackTraceEPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noundef %6, ptr %call10, i32 noundef 0) #15
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then7, %if.end4
@@ -1145,11 +1142,10 @@ do.body:                                          ; preds = %_ZN4node20SigintWat
   tail call void @uv_sem_wait(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 8)) #15
   tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 3)) #15
   %0 = load i8, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 10), align 1
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
-  %2 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1), align 8
-  %cmp.i.i.i = icmp ne ptr %2, %3
+  %tobool.i = trunc i8 %0 to i1
+  %1 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1), align 8
+  %cmp.i.i.i = icmp ne ptr %1, %2
   %brmerge.i = select i1 %cmp.i.i.i, i1 true, i1 %tobool.i
   br i1 %brmerge.i, label %for.cond.i.preheader, label %if.then.i
 
@@ -1161,18 +1157,18 @@ for.cond.i.preheader:                             ; preds = %if.then.i, %do.body
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
-  %it.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i ], [ %3, %for.cond.i.preheader ]
-  %4 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8, !noalias !7
-  %cmp.i.i.i.not.i = icmp eq ptr %it.sroa.0.0.i, %4
+  %it.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i ], [ %2, %for.cond.i.preheader ]
+  %3 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8, !noalias !7
+  %cmp.i.i.i.not.i = icmp eq ptr %it.sroa.0.0.i, %3
   br i1 %cmp.i.i.i.not.i, label %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0.i, i64 -8
-  %5 = load ptr, ptr %incdec.ptr.i.i.i, align 8
-  %vtable.i = load ptr, ptr %5, align 8
+  %4 = load ptr, ptr %incdec.ptr.i.i.i, align 8
+  %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %6 = load ptr, ptr %vfn.i, align 8
-  %call4.i = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %5 = load ptr, ptr %vfn.i, align 8
+  %call4.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   %cmp.i = icmp eq i32 %call4.i, 1
   br i1 %cmp.i, label %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit, label %for.cond.i, !llvm.loop !10
 
@@ -1191,11 +1187,10 @@ define dso_local noundef zeroext i1 @_ZN4node20SigintWatchdogHelper26InformWatch
 entry:
   tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 3)) #15
   %0 = load i8, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 10), align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
-  %2 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1), align 8
-  %cmp.i.i = icmp ne ptr %2, %3
+  %tobool = trunc i8 %0 to i1
+  %1 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8
+  %2 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1), align 8
+  %cmp.i.i = icmp ne ptr %1, %2
   %brmerge = select i1 %cmp.i.i, i1 true, i1 %tobool
   br i1 %brmerge, label %for.cond.preheader, label %if.then
 
@@ -1207,18 +1202,18 @@ for.cond.preheader:                               ; preds = %entry, %if.then
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
-  %it.sroa.0.0 = phi ptr [ %incdec.ptr.i.i, %for.body ], [ %3, %for.cond.preheader ]
-  %4 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8, !noalias !12
-  %cmp.i.i.i.not = icmp eq ptr %it.sroa.0.0, %4
+  %it.sroa.0.0 = phi ptr [ %incdec.ptr.i.i, %for.body ], [ %2, %for.cond.preheader ]
+  %3 = load ptr, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 0, i32 4), align 8, !noalias !12
+  %cmp.i.i.i.not = icmp eq ptr %it.sroa.0.0, %3
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 -8
-  %5 = load ptr, ptr %incdec.ptr.i.i, align 8
-  %vtable = load ptr, ptr %5, align 8
+  %4 = load ptr, ptr %incdec.ptr.i.i, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %6 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %5 = load ptr, ptr %vfn, align 8
+  %call4 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   %cmp = icmp eq i32 %call4, 1
   br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !10
 
@@ -1258,8 +1253,7 @@ entry:
   tail call void @uv_mutex_lock(ptr noundef nonnull %list_mutex_) #15
   %has_pending_signal_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i8, ptr %has_pending_signal_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   tail call void @uv_mutex_unlock(ptr noundef nonnull %list_mutex_) #15
   ret i1 %tobool
 }
@@ -1451,24 +1445,22 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
-  %6 = load i8, ptr %is_detached.i, align 1
-  %.fr6 = freeze i8 %6
-  %7 = and i8 %.fr6, 1
-  %tobool6.i.not = icmp eq i8 %7, 0
-  br i1 %tobool6.i.not, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %5 = load i8, ptr %is_detached.i, align 1
+  %.fr = freeze i8 %5
+  %tobool6.i = trunc i8 %.fr to i1
+  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %8 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
-  ret i8 %8
+  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+  ret i8 %6
 }
 
 declare noundef zeroext i1 @_ZNK4node9AsyncWrap18IsDoneInitializingEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
@@ -1840,8 +1832,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %is_root_node_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %is_root_node_, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

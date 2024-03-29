@@ -622,10 +622,9 @@ define hidden void @zim_Phar_running(ptr nocapture noundef readonly %0, ptr noca
   %30 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %30) #19
   %31 = load i8, ptr %7, align 1
-  %32 = and i8 %31, 1
-  %.not138 = icmp eq i8 %32, 0
+  %32 = trunc i8 %31 to i1
   %33 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %.not138, label %46, label %34
+  br i1 %32, label %34, label %46
 
 34:                                               ; preds = %29
   %35 = load i64, ptr %5, align 8
@@ -4851,9 +4850,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
 
 38:                                               ; preds = %31
   %39 = load i8, ptr %7, align 1
-  %40 = and i8 %39, 1
-  %.not22 = icmp eq i8 %40, 0
-  br i1 %.not22, label %41, label %.thread
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %.thread, label %41
 
 .thread:                                          ; preds = %38
   store i64 0, ptr %5, align 8
@@ -4875,8 +4873,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
   %44 = getelementptr inbounds i8, ptr %43, i64 324
   %45 = load i16, ptr %44, align 4
   %46 = and i16 %45, 64
-  %.not23 = icmp eq i16 %46, 0
-  br i1 %.not23, label %48, label %47
+  %.not22 = icmp eq i16 %46, 0
+  br i1 %.not22, label %48, label %47
 
 47:                                               ; preds = %42
   store i64 2, ptr %5, align 8
@@ -4884,8 +4882,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
 
 48:                                               ; preds = %42
   %49 = and i16 %45, 32
-  %.not24 = icmp eq i16 %49, 0
-  br i1 %.not24, label %51, label %50
+  %.not23 = icmp eq i16 %49, 0
+  br i1 %.not23, label %51, label %50
 
 50:                                               ; preds = %48
   store i64 3, ptr %5, align 8
@@ -4906,9 +4904,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
 57:                                               ; preds = %41, %41, %41, %47, %51, %50
   %58 = phi i64 [ %.pr, %41 ], [ %.pr, %41 ], [ %.pr, %41 ], [ 2, %47 ], [ 1, %51 ], [ 3, %50 ]
   %59 = load i8, ptr %8, align 1
-  %60 = and i8 %59, 1
-  %.not25 = icmp eq i8 %60, 0
-  br i1 %.not25, label %61, label %.sink.split
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %.sink.split, label %61
 
 61:                                               ; preds = %57
   %62 = load i64, ptr %6, align 8
@@ -4933,8 +4930,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
 
 70:                                               ; preds = %63
   %71 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 9), align 8
-  %.not27 = icmp eq i32 %71, 0
-  br i1 %.not27, label %72, label %100
+  %.not25 = icmp eq i32 %71, 0
+  br i1 %.not25, label %72, label %100
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
@@ -4958,8 +4955,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
 
 84:                                               ; preds = %77
   %85 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 10), align 4
-  %.not26 = icmp eq i32 %85, 0
-  br i1 %.not26, label %86, label %100
+  %.not24 = icmp eq i32 %85, 0
+  br i1 %.not24, label %86, label %100
 
 86:                                               ; preds = %84
   %87 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
@@ -5002,8 +4999,8 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
   %113 = and i16 %112, -129
   %114 = or disjoint i16 %113, %104
   store i16 %114, ptr %111, align 4
-  %.not28 = icmp eq ptr %109, null
-  br i1 %.not28, label %117, label %115
+  %.not26 = icmp eq ptr %109, null
+  br i1 %.not26, label %117, label %115
 
 115:                                              ; preds = %100
   store ptr %109, ptr %1, align 8
@@ -5955,9 +5952,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
 
 31:                                               ; preds = %16
   %32 = load i8, ptr %7, align 1
-  %33 = and i8 %32, 1
-  %.not21 = icmp eq i8 %33, 0
-  br i1 %.not21, label %34, label %.thread
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %.thread, label %34
 
 .thread:                                          ; preds = %31
   store i64 0, ptr %5, align 8
@@ -5979,8 +5975,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
   %37 = getelementptr inbounds i8, ptr %36, i64 324
   %38 = load i16, ptr %37, align 4
   %39 = and i16 %38, 64
-  %.not22 = icmp eq i16 %39, 0
-  br i1 %.not22, label %41, label %40
+  %.not21 = icmp eq i16 %39, 0
+  br i1 %.not21, label %41, label %40
 
 40:                                               ; preds = %35
   store i64 2, ptr %5, align 8
@@ -5988,8 +5984,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
 
 41:                                               ; preds = %35
   %42 = and i16 %38, 32
-  %.not23 = icmp eq i16 %42, 0
-  br i1 %.not23, label %44, label %43
+  %.not22 = icmp eq i16 %42, 0
+  br i1 %.not22, label %44, label %43
 
 43:                                               ; preds = %41
   store i64 3, ptr %5, align 8
@@ -6022,9 +6018,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
 59:                                               ; preds = %34, %34, %40, %43
   %60 = phi i64 [ %.pr, %34 ], [ %.pr, %34 ], [ 2, %40 ], [ 3, %43 ]
   %61 = load i8, ptr %8, align 1
-  %62 = and i8 %61, 1
-  %.not24 = icmp eq i8 %62, 0
-  br i1 %.not24, label %63, label %.sink.split
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %.sink.split, label %63
 
 63:                                               ; preds = %59
   %64 = load i64, ptr %6, align 8
@@ -6049,8 +6044,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
 
 72:                                               ; preds = %65
   %73 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 9), align 8
-  %.not26 = icmp eq i32 %73, 0
-  br i1 %.not26, label %74, label %102
+  %.not24 = icmp eq i32 %73, 0
+  br i1 %.not24, label %74, label %102
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
@@ -6074,8 +6069,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
 
 86:                                               ; preds = %79
   %87 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 10), align 4
-  %.not25 = icmp eq i32 %87, 0
-  br i1 %.not25, label %88, label %102
+  %.not23 = icmp eq i32 %87, 0
+  br i1 %.not23, label %88, label %102
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
@@ -6118,8 +6113,8 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
   %115 = and i16 %114, -129
   %116 = or disjoint i16 %115, %106
   store i16 %116, ptr %113, align 4
-  %.not27 = icmp eq ptr %111, null
-  br i1 %.not27, label %119, label %117
+  %.not25 = icmp eq ptr %111, null
+  br i1 %.not25, label %119, label %117
 
 117:                                              ; preds = %102
   store ptr %111, ptr %1, align 8
@@ -10732,7 +10727,7 @@ thread-pre-split:                                 ; preds = %19
   %.0192273 = phi ptr [ %14, %19 ], [ %14, %23 ], [ %33, %41 ], [ null, %12 ], [ %48, %47 ]
   %.0193272 = phi i32 [ 1, %19 ], [ 1, %23 ], [ 2, %41 ], [ 0, %12 ], [ 3, %47 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0190275, i32 noundef %.0193272, ptr noundef null, i32 noundef %.0191274, ptr noundef %.0192273) #19
-  br label %194
+  br label %192
 
 .thread279:                                       ; preds = %47, %.thread246, %28, %.thread291
   %.2290 = phi ptr [ %.1249, %.thread291 ], [ %.1249, %.thread246 ], [ null, %28 ], [ %.1249, %47 ]
@@ -10753,7 +10748,7 @@ thread-pre-split:                                 ; preds = %19
   %61 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
-  br label %194
+  br label %192
 
 63:                                               ; preds = %.thread279
   %64 = load ptr, ptr %57, align 8
@@ -10769,7 +10764,7 @@ thread-pre-split:                                 ; preds = %19
   %71 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %72 = icmp ne ptr %71, null
   call void @llvm.assume(i1 %72)
-  br label %194
+  br label %192
 
 73:                                               ; preds = %63
   %74 = call i32 @_php_stream_free(ptr noundef nonnull %65, i32 noundef 3) #19
@@ -10782,7 +10777,7 @@ thread-pre-split:                                 ; preds = %19
   %79 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %80 = icmp ne ptr %79, null
   call void @llvm.assume(i1 %80)
-  br label %194
+  br label %192
 
 81:                                               ; preds = %73
   %82 = icmp ugt i64 %29, 4095
@@ -10796,7 +10791,7 @@ thread-pre-split:                                 ; preds = %19
   %87 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %88 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %88)
-  br label %194
+  br label %192
 
 89:                                               ; preds = %81
   %90 = call i32 @_php_stream_stat_path(ptr noundef nonnull %30, i32 noundef 0, ptr noundef nonnull %4, ptr noundef null) #19
@@ -10814,7 +10809,7 @@ thread-pre-split:                                 ; preds = %19
   %97 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %98 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %98)
-  br label %194
+  br label %192
 
 99:                                               ; preds = %89
   %100 = getelementptr inbounds i8, ptr %4, i64 24
@@ -10829,11 +10824,11 @@ thread-pre-split:                                 ; preds = %19
   %106 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %107 = icmp ne ptr %106, null
   call void @llvm.assume(i1 %107)
-  br label %194
+  br label %192
 
 108:                                              ; preds = %99, %92
   %.not231 = icmp eq ptr %.2290, null
-  br i1 %.not231, label %167, label %109
+  br i1 %.not231, label %166, label %109
 
 109:                                              ; preds = %108
   %110 = getelementptr inbounds i8, ptr %.2290, i64 28
@@ -10844,7 +10839,7 @@ thread-pre-split:                                 ; preds = %19
 113:                                              ; preds = %109
   %114 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %114, align 8
-  br label %194
+  br label %192
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds i8, ptr %.2290, i64 24
@@ -10864,13 +10859,13 @@ thread-pre-split:                                 ; preds = %19
   %125 = load ptr, ptr %124, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %163
-  %.0297 = phi ptr [ %164, %163 ], [ %125, %.lr.ph.preheader ]
-  %.0185296 = phi i32 [ %165, %163 ], [ %117, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %162
+  %.0297 = phi ptr [ %163, %162 ], [ %125, %.lr.ph.preheader ]
+  %.0185296 = phi i32 [ %164, %162 ], [ %117, %.lr.ph.preheader ]
   %126 = getelementptr inbounds i8, ptr %.0297, i64 8
   %127 = load i8, ptr %126, align 8
   switch i8 %127, label %131 [
-    i8 0, label %163
+    i8 0, label %162
     i8 10, label %128
   ]
 
@@ -10893,97 +10888,95 @@ thread-pre-split:                                 ; preds = %19
   %136 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %137 = icmp ne ptr %136, null
   call void @llvm.assume(i1 %137)
-  br label %194
+  br label %192
 
 138:                                              ; preds = %131
   %139 = load ptr, ptr %56, align 8
   %140 = load ptr, ptr %.0194, align 8
   %141 = load i8, ptr %6, align 1
-  %142 = and i8 %141, 1
-  %143 = icmp ne i8 %142, 0
-  %144 = call fastcc i32 @extract_helper(ptr noundef %139, ptr noundef %140, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %143, ptr noundef nonnull %7)
-  switch i32 %144, label %163 [
-    i32 -1, label %145
-    i32 0, label %154
+  %142 = trunc i8 %141 to i1
+  %143 = call fastcc i32 @extract_helper(ptr noundef %139, ptr noundef %140, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %142, ptr noundef nonnull %7)
+  switch i32 %143, label %162 [
+    i32 -1, label %144
+    i32 0, label %153
   ]
 
-145:                                              ; preds = %138
-  %146 = load ptr, ptr @phar_ce_PharException, align 8
-  %147 = load ptr, ptr %56, align 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %7, align 8
-  %150 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %146, i64 noundef 0, ptr noundef nonnull @.str.164, ptr noundef %148, ptr noundef %149) #19
-  %151 = load ptr, ptr %7, align 8
-  call void @_efree(ptr noundef %151) #19
-  %152 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %153 = icmp ne ptr %152, null
-  call void @llvm.assume(i1 %153)
-  br label %194
+144:                                              ; preds = %138
+  %145 = load ptr, ptr @phar_ce_PharException, align 8
+  %146 = load ptr, ptr %56, align 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %7, align 8
+  %149 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %145, i64 noundef 0, ptr noundef nonnull @.str.164, ptr noundef %147, ptr noundef %148) #19
+  %150 = load ptr, ptr %7, align 8
+  call void @_efree(ptr noundef %150) #19
+  %151 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %152 = icmp ne ptr %151, null
+  call void @llvm.assume(i1 %152)
+  br label %192
 
-154:                                              ; preds = %138
-  %155 = load ptr, ptr @phar_ce_PharException, align 8
-  %156 = load ptr, ptr %.0194, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 24
-  %158 = load ptr, ptr %56, align 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %155, i64 noundef 0, ptr noundef nonnull @.str.165, ptr noundef nonnull %157, ptr noundef %159) #19
-  %161 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %162 = icmp ne ptr %161, null
-  call void @llvm.assume(i1 %162)
-  br label %194
+153:                                              ; preds = %138
+  %154 = load ptr, ptr @phar_ce_PharException, align 8
+  %155 = load ptr, ptr %.0194, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 24
+  %157 = load ptr, ptr %56, align 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %154, i64 noundef 0, ptr noundef nonnull @.str.165, ptr noundef nonnull %156, ptr noundef %158) #19
+  %160 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %161 = icmp ne ptr %160, null
+  call void @llvm.assume(i1 %161)
+  br label %192
 
-163:                                              ; preds = %.lr.ph, %138
-  %164 = getelementptr inbounds i8, ptr %.0297, i64 %123
-  %165 = add i32 %.0185296, -1
-  %.not232 = icmp eq i32 %165, 0
+162:                                              ; preds = %.lr.ph, %138
+  %163 = getelementptr inbounds i8, ptr %.0297, i64 %123
+  %164 = add i32 %.0185296, -1
+  %.not232 = icmp eq i32 %164, 0
   br i1 %.not232, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %163, %115
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %166, align 8
-  br label %194
+._crit_edge:                                      ; preds = %162, %115
+  %165 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %165, align 8
+  br label %192
 
-167:                                              ; preds = %108
-  %168 = load ptr, ptr %56, align 8
-  %169 = load ptr, ptr %5, align 8
-  %170 = load i8, ptr %6, align 1
-  %171 = and i8 %170, 1
-  %172 = icmp ne i8 %171, 0
-  %173 = call fastcc i32 @extract_helper(ptr noundef %168, ptr noundef %169, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %172, ptr noundef nonnull %7)
-  %174 = icmp eq i32 %173, -1
-  br i1 %174, label %175, label %182
+166:                                              ; preds = %108
+  %167 = load ptr, ptr %56, align 8
+  %168 = load ptr, ptr %5, align 8
+  %169 = load i8, ptr %6, align 1
+  %170 = trunc i8 %169 to i1
+  %171 = call fastcc i32 @extract_helper(ptr noundef %167, ptr noundef %168, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %170, ptr noundef nonnull %7)
+  %172 = icmp eq i32 %171, -1
+  br i1 %172, label %173, label %180
 
-175:                                              ; preds = %167
-  %176 = load ptr, ptr @phar_ce_PharException, align 8
-  %177 = load ptr, ptr %56, align 8
-  %178 = load ptr, ptr %177, align 8
+173:                                              ; preds = %166
+  %174 = load ptr, ptr @phar_ce_PharException, align 8
+  %175 = load ptr, ptr %56, align 8
+  %176 = load ptr, ptr %175, align 8
+  %177 = load ptr, ptr %7, align 8
+  %178 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %174, i64 noundef 0, ptr noundef nonnull @.str.164, ptr noundef %176, ptr noundef %177) #19
   %179 = load ptr, ptr %7, align 8
-  %180 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %176, i64 noundef 0, ptr noundef nonnull @.str.164, ptr noundef %178, ptr noundef %179) #19
-  %181 = load ptr, ptr %7, align 8
-  call void @_efree(ptr noundef %181) #19
-  br label %194
+  call void @_efree(ptr noundef %179) #19
+  br label %192
 
-182:                                              ; preds = %167
-  %183 = icmp eq i32 %173, 0
-  %184 = load ptr, ptr %5, align 8
-  %185 = icmp ne ptr %184, null
-  %or.cond = select i1 %183, i1 %185, i1 false
-  br i1 %or.cond, label %186, label %192
+180:                                              ; preds = %166
+  %181 = icmp eq i32 %171, 0
+  %182 = load ptr, ptr %5, align 8
+  %183 = icmp ne ptr %182, null
+  %or.cond = select i1 %181, i1 %183, i1 false
+  br i1 %or.cond, label %184, label %190
 
-186:                                              ; preds = %182
-  %187 = load ptr, ptr @phar_ce_PharException, align 8
-  %188 = getelementptr inbounds i8, ptr %184, i64 24
-  %189 = load ptr, ptr %56, align 8
-  %190 = load ptr, ptr %189, align 8
-  %191 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %187, i64 noundef 0, ptr noundef nonnull @.str.165, ptr noundef nonnull %188, ptr noundef %190) #19
-  br label %194
+184:                                              ; preds = %180
+  %185 = load ptr, ptr @phar_ce_PharException, align 8
+  %186 = getelementptr inbounds i8, ptr %182, i64 24
+  %187 = load ptr, ptr %56, align 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %185, i64 noundef 0, ptr noundef nonnull @.str.165, ptr noundef nonnull %186, ptr noundef %188) #19
+  br label %192
 
-192:                                              ; preds = %182
-  %193 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %193, align 8
-  br label %194
+190:                                              ; preds = %180
+  %191 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %191, align 8
+  br label %192
 
-194:                                              ; preds = %186, %192, %175, %._crit_edge, %154, %145, %133, %113, %103, %94, %83, %76, %66, %58, %.thread263
+192:                                              ; preds = %184, %190, %173, %._crit_edge, %153, %144, %133, %113, %103, %94, %83, %76, %66, %58, %.thread263
   ret void
 }
 
@@ -11426,16 +11419,15 @@ define hidden void @zim_PharFileInfo_isCompressed(ptr nocapture noundef readonly
 
 27:                                               ; preds = %12
   %28 = load i8, ptr %4, align 1
-  %29 = and i8 %28, 1
-  %.not13 = icmp eq i8 %29, 0
-  br i1 %.not13, label %36, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 61440
-  %.not17 = icmp eq i32 %33, 0
-  %34 = select i1 %.not17, i32 2, i32 3
+  %.not16 = icmp eq i32 %33, 0
+  %34 = select i1 %.not16, i32 2, i32 3
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %34, ptr %35, align 8
   br label %61
@@ -11452,8 +11444,8 @@ define hidden void @zim_PharFileInfo_isCompressed(ptr nocapture noundef readonly
   %39 = getelementptr inbounds i8, ptr %21, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 61440
-  %.not16 = icmp eq i32 %41, 0
-  %42 = select i1 %.not16, i32 2, i32 3
+  %.not15 = icmp eq i32 %41, 0
+  %42 = select i1 %.not15, i32 2, i32 3
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %42, ptr %43, align 8
   br label %61
@@ -11462,8 +11454,8 @@ define hidden void @zim_PharFileInfo_isCompressed(ptr nocapture noundef readonly
   %45 = getelementptr inbounds i8, ptr %21, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 4096
-  %.not15 = icmp eq i32 %47, 0
-  %48 = select i1 %.not15, i32 2, i32 3
+  %.not14 = icmp eq i32 %47, 0
+  %48 = select i1 %.not14, i32 2, i32 3
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %48, ptr %49, align 8
   br label %61
@@ -11472,8 +11464,8 @@ define hidden void @zim_PharFileInfo_isCompressed(ptr nocapture noundef readonly
   %51 = getelementptr inbounds i8, ptr %21, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 8192
-  %.not14 = icmp eq i32 %53, 0
-  %54 = select i1 %.not14, i32 2, i32 3
+  %.not13 = icmp eq i32 %53, 0
+  %54 = select i1 %.not13, i32 2, i32 3
   %55 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %54, ptr %55, align 8
   br label %61

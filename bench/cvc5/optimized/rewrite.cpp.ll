@@ -172,15 +172,14 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont5, %if.then.i.i, %if.then13.i.i
   %8 = load i8, ptr %d_conflict.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.i.not = icmp eq i8 %9, 0
-  br i1 %tobool.i.not, label %for.cond, label %return
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %return, label %for.cond
 
 lpad4:                                            ; preds = %for.body
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #9
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.cond, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 1, %for.cond ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]

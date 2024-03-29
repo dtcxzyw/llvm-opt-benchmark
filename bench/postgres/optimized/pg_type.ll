@@ -94,14 +94,13 @@ define dso_local { i64, i32 } @TypeShellMake(ptr noundef %0, i32 noundef %1, i32
   %33 = getelementptr inbounds i8, ptr %5, i64 31
   store i8 1, ptr %33, align 1
   %34 = load i8, ptr @IsBinaryUpgrade, align 1
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %43, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %3
   %37 = load i32, ptr @binary_upgrade_next_pg_type_oid, align 4
-  %.not22 = icmp eq i32 %37, 0
-  br i1 %.not22, label %38, label %42
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %38, label %42
 
 38:                                               ; preds = %36
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -135,8 +134,8 @@ define dso_local { i64, i32 } @TypeShellMake(ptr noundef %0, i32 noundef %1, i32
 
 51:                                               ; preds = %45, %50
   %52 = load ptr, ptr @object_access_hook, align 8
-  %.not23 = icmp eq ptr %52, null
-  br i1 %.not23, label %54, label %53
+  %.not22 = icmp eq ptr %52, null
+  br i1 %.not22, label %54, label %53
 
 53:                                               ; preds = %51
   call void @RunObjectPostCreateHook(i32 noundef 1247, i32 noundef %.020, i32 noundef 0, i1 noundef zeroext false) #6
@@ -191,9 +190,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
   %23 = load ptr, ptr %22, align 8
   %24 = call fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef 30, ptr noundef %23, ptr noundef nonnull %10)
   %25 = load i8, ptr %10, align 1
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %27, label %31
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %31, label %27
 
 27:                                               ; preds = %21
   %28 = inttoptr i64 %24 to ptr
@@ -211,9 +209,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
   %35 = load ptr, ptr %34, align 8
   %36 = call fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %35, ptr noundef nonnull %10)
   %37 = load i8, ptr %10, align 1
-  %38 = and i8 %37, 1
-  %.not72 = icmp eq i8 %38, 0
-  br i1 %.not72, label %39, label %42
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %42, label %39
 
 39:                                               ; preds = %33
   %40 = inttoptr i64 %36 to ptr
@@ -278,8 +275,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 .thread:                                          ; preds = %53, %49, %58, %66
   %67 = getelementptr inbounds i8, ptr %18, i64 100
   %68 = load i32, ptr %67, align 4
-  %.not73 = icmp eq i32 %68, 0
-  br i1 %.not73, label %72, label %69
+  %.not = icmp eq i32 %68, 0
+  br i1 %.not, label %72, label %69
 
 69:                                               ; preds = %.thread
   store i32 1255, ptr %12, align 4
@@ -293,8 +290,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 72:                                               ; preds = %69, %.thread
   %73 = getelementptr inbounds i8, ptr %18, i64 104
   %74 = load i32, ptr %73, align 4
-  %.not74 = icmp eq i32 %74, 0
-  br i1 %.not74, label %78, label %75
+  %.not72 = icmp eq i32 %74, 0
+  br i1 %.not72, label %78, label %75
 
 75:                                               ; preds = %72
   store i32 1255, ptr %12, align 4
@@ -308,8 +305,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 78:                                               ; preds = %75, %72
   %79 = getelementptr inbounds i8, ptr %18, i64 108
   %80 = load i32, ptr %79, align 4
-  %.not75 = icmp eq i32 %80, 0
-  br i1 %.not75, label %84, label %81
+  %.not73 = icmp eq i32 %80, 0
+  br i1 %.not73, label %84, label %81
 
 81:                                               ; preds = %78
   store i32 1255, ptr %12, align 4
@@ -323,8 +320,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 84:                                               ; preds = %81, %78
   %85 = getelementptr inbounds i8, ptr %18, i64 112
   %86 = load i32, ptr %85, align 4
-  %.not76 = icmp eq i32 %86, 0
-  br i1 %.not76, label %90, label %87
+  %.not74 = icmp eq i32 %86, 0
+  br i1 %.not74, label %90, label %87
 
 87:                                               ; preds = %84
   store i32 1255, ptr %12, align 4
@@ -338,8 +335,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 90:                                               ; preds = %87, %84
   %91 = getelementptr inbounds i8, ptr %18, i64 116
   %92 = load i32, ptr %91, align 4
-  %.not77 = icmp eq i32 %92, 0
-  br i1 %.not77, label %96, label %93
+  %.not75 = icmp eq i32 %92, 0
+  br i1 %.not75, label %96, label %93
 
 93:                                               ; preds = %90
   store i32 1255, ptr %12, align 4
@@ -353,8 +350,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 96:                                               ; preds = %93, %90
   %97 = getelementptr inbounds i8, ptr %18, i64 120
   %98 = load i32, ptr %97, align 4
-  %.not78 = icmp eq i32 %98, 0
-  br i1 %.not78, label %102, label %99
+  %.not76 = icmp eq i32 %98, 0
+  br i1 %.not76, label %102, label %99
 
 99:                                               ; preds = %96
   store i32 1255, ptr %12, align 4
@@ -368,8 +365,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 102:                                              ; preds = %99, %96
   %103 = getelementptr inbounds i8, ptr %18, i64 124
   %104 = load i32, ptr %103, align 4
-  %.not79 = icmp eq i32 %104, 0
-  br i1 %.not79, label %108, label %105
+  %.not77 = icmp eq i32 %104, 0
+  br i1 %.not77, label %108, label %105
 
 105:                                              ; preds = %102
   store i32 1255, ptr %12, align 4
@@ -383,8 +380,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 108:                                              ; preds = %105, %102
   %109 = getelementptr inbounds i8, ptr %18, i64 88
   %110 = load i32, ptr %109, align 4
-  %.not80 = icmp eq i32 %110, 0
-  br i1 %.not80, label %114, label %111
+  %.not78 = icmp eq i32 %110, 0
+  br i1 %.not78, label %114, label %111
 
 111:                                              ; preds = %108
   store i32 1255, ptr %12, align 4
@@ -398,8 +395,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 114:                                              ; preds = %111, %108
   %115 = getelementptr inbounds i8, ptr %18, i64 132
   %116 = load i32, ptr %115, align 4
-  %.not81 = icmp eq i32 %116, 0
-  br i1 %.not81, label %120, label %117
+  %.not79 = icmp eq i32 %116, 0
+  br i1 %.not79, label %120, label %117
 
 117:                                              ; preds = %114
   store i32 1247, ptr %12, align 4
@@ -430,8 +427,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 126:                                              ; preds = %120, %120, %123
   call void @record_object_address_dependencies(ptr noundef nonnull %11, ptr noundef %48, i32 noundef 110) #6
   call void @free_object_addresses(ptr noundef %48) #6
-  %.not84 = icmp eq ptr %.0, null
-  br i1 %.not84, label %128, label %127
+  %.not82 = icmp eq ptr %.0, null
+  br i1 %.not82, label %128, label %127
 
 127:                                              ; preds = %126
   call void @recordDependencyOnExpr(ptr noundef nonnull %11, ptr noundef nonnull %.0, ptr noundef null, i32 noundef 110) #6
@@ -440,8 +437,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 128:                                              ; preds = %127, %126
   %129 = getelementptr inbounds i8, ptr %18, i64 84
   %130 = load i32, ptr %129, align 4
-  %.not85 = icmp eq i32 %130, 0
-  br i1 %.not85, label %136, label %131
+  %.not83 = icmp eq i32 %130, 0
+  br i1 %.not83, label %136, label %131
 
 131:                                              ; preds = %128
   store i32 1259, ptr %12, align 4
@@ -449,8 +446,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
   store i32 %130, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 0, ptr %133, align 4
-  %.not86 = icmp eq i8 %4, 99
-  br i1 %.not86, label %135, label %134
+  %.not84 = icmp eq i8 %4, 99
+  br i1 %.not84, label %135, label %134
 
 134:                                              ; preds = %131
   call void @recordDependencyOn(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 105) #6
@@ -463,8 +460,8 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 136:                                              ; preds = %134, %135, %128
   %137 = getelementptr inbounds i8, ptr %18, i64 92
   %138 = load i32, ptr %137, align 4
-  %.not87 = icmp eq i32 %138, 0
-  br i1 %.not87, label %143, label %139
+  %.not85 = icmp eq i32 %138, 0
+  br i1 %.not85, label %143, label %139
 
 139:                                              ; preds = %136
   store i32 1247, ptr %12, align 4
@@ -578,14 +575,14 @@ define dso_local { i64, i32 } @TypeCreate(i32 noundef %0, ptr noundef %1, i32 no
   unreachable
 
 74:                                               ; preds = %44
-  %.not173 = icmp eq i16 %6, -1
+  %.not171 = icmp eq i16 %6, -1
   %75 = sext i8 %26 to i32
-  br i1 %.not173, label %switch.early.test, label %80
+  br i1 %.not171, label %switch.early.test, label %80
 
 switch.early.test:                                ; preds = %74
   switch i8 %26, label %76 [
-    i8 105, label %.thread166
-    i8 100, label %.thread166
+    i8 105, label %.thread164
+    i8 100, label %.thread164
   ]
 
 76:                                               ; preds = %switch.early.test
@@ -614,7 +611,7 @@ switch.early.test:                                ; preds = %74
   %88 = icmp ne i8 %27, 112
   %89 = icmp ne i16 %6, -1
   %or.cond17 = and i1 %89, %88
-  br i1 %or.cond17, label %90, label %.thread166
+  br i1 %or.cond17, label %90, label %.thread164
 
 90:                                               ; preds = %87
   %91 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -624,19 +621,19 @@ switch.early.test:                                ; preds = %74
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 326, ptr noundef nonnull @__func__.TypeCreate) #6
   unreachable
 
-.thread166:                                       ; preds = %switch.early.test, %switch.early.test, %87
+.thread164:                                       ; preds = %switch.early.test, %switch.early.test, %87
   %94 = icmp eq i8 %7, 109
   %or.cond20 = or i1 %94, %20
   br i1 %or.cond20, label %99, label %95
 
-95:                                               ; preds = %.thread166
+95:                                               ; preds = %.thread164
   %96 = icmp ne i32 %3, 0
   %97 = icmp ne i8 %4, 99
   %98 = and i1 %96, %97
   br label %99
 
-99:                                               ; preds = %95, %.thread166
-  %100 = phi i1 [ true, %.thread166 ], [ %98, %95 ]
+99:                                               ; preds = %95, %.thread164
+  %100 = phi i1 [ true, %.thread164 ], [ %98, %95 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, i8 1, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %35, i8 0, i64 256, i1 false)
@@ -756,12 +753,12 @@ switch.early.test:                                ; preds = %74
   br label %169
 
 169:                                              ; preds = %167, %163
-  br i1 %100, label %.thread168, label %170
+  br i1 %100, label %.thread166, label %170
 
 170:                                              ; preds = %169
   %171 = call ptr @get_user_default_acl(i32 noundef 49, i32 noundef %5, i32 noundef %2) #6
   %.not156 = icmp eq ptr %171, null
-  br i1 %.not156, label %.thread168, label %172
+  br i1 %.not156, label %.thread166, label %172
 
 172:                                              ; preds = %170
   %173 = ptrtoint ptr %171 to i64
@@ -769,13 +766,13 @@ switch.early.test:                                ; preds = %74
   store i64 %173, ptr %174, align 8
   br label %176
 
-.thread168:                                       ; preds = %169, %170
+.thread166:                                       ; preds = %169, %170
   %175 = getelementptr inbounds i8, ptr %33, i64 31
   store i8 1, ptr %175, align 1
   br label %176
 
-176:                                              ; preds = %.thread168, %172
-  %.0134171 = phi ptr [ null, %.thread168 ], [ %171, %172 ]
+176:                                              ; preds = %.thread166, %172
+  %.0134169 = phi ptr [ null, %.thread166 ], [ %171, %172 ]
   %177 = call ptr @table_open(i32 noundef 1247, i32 noundef 3) #6
   %178 = ptrtoint ptr %1 to i64
   %179 = call ptr @SearchSysCacheCopy(i32 noundef 79, i64 noundef %178, i64 noundef %103, i64 noundef 0, i64 noundef 0) #6
@@ -791,9 +788,8 @@ switch.early.test:                                ; preds = %74
   %186 = getelementptr i8, ptr %182, i64 %185
   %187 = getelementptr inbounds i8, ptr %186, i64 82
   %188 = load i8, ptr %187, align 2
-  %189 = and i8 %188, 1
-  %.not161 = icmp eq i8 %189, 0
-  br i1 %.not161, label %194, label %190
+  %189 = trunc i8 %188 to i1
+  br i1 %189, label %190, label %194
 
 190:                                              ; preds = %180
   %191 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -806,16 +802,16 @@ switch.early.test:                                ; preds = %74
 194:                                              ; preds = %180
   %195 = getelementptr inbounds i8, ptr %186, i64 72
   %196 = load i32, ptr %195, align 4
-  %.not162 = icmp eq i32 %196, %5
-  br i1 %.not162, label %198, label %197
+  %.not160 = icmp eq i32 %196, %5
+  br i1 %.not160, label %198, label %197
 
 197:                                              ; preds = %194
   call void @aclcheck_error(i32 noundef 2, i32 noundef 49, ptr noundef %1) #6
   br label %198
 
 198:                                              ; preds = %197, %194
-  %.not163 = icmp eq i32 %0, 0
-  br i1 %.not163, label %202, label %199
+  %.not161 = icmp eq i32 %0, 0
+  br i1 %.not161, label %202, label %199
 
 199:                                              ; preds = %198
   %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -840,14 +836,13 @@ switch.early.test:                                ; preds = %74
 
 209:                                              ; preds = %208
   %210 = load i8, ptr @IsBinaryUpgrade, align 1
-  %211 = and i8 %210, 1
-  %.not159 = icmp eq i8 %211, 0
-  br i1 %.not159, label %219, label %212
+  %211 = trunc i8 %210 to i1
+  br i1 %211, label %212, label %219
 
 212:                                              ; preds = %209
   %213 = load i32, ptr @binary_upgrade_next_pg_type_oid, align 4
-  %.not160 = icmp eq i32 %213, 0
-  br i1 %.not160, label %214, label %218
+  %.not159 = icmp eq i32 %213, 0
+  br i1 %.not159, label %214, label %218
 
 214:                                              ; preds = %212
   %215 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -891,13 +886,13 @@ switch.early.test:                                ; preds = %74
 
 232:                                              ; preds = %229, %230
   %233 = phi ptr [ %231, %230 ], [ null, %229 ]
-  call void @GenerateTypeDependencies(ptr noundef %.0136, ptr noundef nonnull %177, ptr noundef %233, ptr noundef %.0134171, i8 noundef signext %4, i1 noundef zeroext %20, i1 noundef zeroext %100, i1 noundef zeroext true, i1 noundef zeroext %.not157)
+  call void @GenerateTypeDependencies(ptr noundef %.0136, ptr noundef nonnull %177, ptr noundef %233, ptr noundef %.0134169, i8 noundef signext %4, i1 noundef zeroext %20, i1 noundef zeroext %100, i1 noundef zeroext true, i1 noundef zeroext %.not157)
   br label %234
 
 234:                                              ; preds = %226, %232
   %235 = load ptr, ptr @object_access_hook, align 8
-  %.not164 = icmp eq ptr %235, null
-  br i1 %.not164, label %237, label %236
+  %.not162 = icmp eq ptr %235, null
+  br i1 %.not162, label %237, label %236
 
 236:                                              ; preds = %234
   call void @RunObjectPostCreateHook(i32 noundef 1247, i32 noundef %.1, i32 noundef 0, i1 noundef zeroext false) #6
@@ -972,11 +967,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = getelementptr i8, ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %23, i64 86
   %35 = load i8, ptr %34, align 2
-  %36 = and i8 %35, 1
-  %.not20.i = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %23, i64 72
   %38 = load i16, ptr %37, align 4
-  br i1 %.not20.i, label %55, label %39
+  br i1 %36, label %39, label %55
 
 39:                                               ; preds = %27
   switch i16 %38, label %51 [

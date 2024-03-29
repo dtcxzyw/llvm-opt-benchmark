@@ -1050,7 +1050,7 @@ for.body.i.preheader:                             ; preds = %while.body.i.i.i, %
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %broken.016.i = phi i8 [ %broken.2.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
+  %broken.016.i = phi i1 [ %broken.2.i, %for.inc.i ], [ false, %for.body.i.preheader ]
   %existing_components.015.i = phi i32 [ %existing_components.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
   %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -1195,21 +1195,19 @@ if.end14.fold.split.i:                            ; preds = %_ZN3url12_GLOBAL__N
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end14.fold.split.i, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i
-  %broken.1.i = phi i8 [ %broken.016.i, %if.end14.fold.split.i ], [ 1, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i ]
+  %broken.1.i = phi i1 [ %broken.016.i, %if.end14.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i ]
   %inc.i = add nsw i32 %existing_components.015.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end14.i, %for.body.i
   %existing_components.1.i = phi i32 [ %existing_components.015.i, %for.body.i ], [ %inc.i, %if.end14.i ]
-  %broken.2.i = phi i8 [ %broken.016.i, %for.body.i ], [ %broken.1.i, %if.end14.i ]
+  %broken.2.i = phi i1 [ %broken.016.i, %for.body.i ], [ %broken.1.i, %if.end14.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
 
 for.end.i:                                        ; preds = %for.inc.i
-  %23 = and i8 %broken.2.i, 1
-  %tobool.not.i = icmp eq i8 %23, 0
-  br i1 %tobool.not.i, label %for.cond19.preheader.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
+  br i1 %broken.2.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %for.end.i
   %sub.i = add i32 %existing_components.1.i, -1
@@ -1219,7 +1217,7 @@ for.cond19.preheader.i:                           ; preds = %for.end.i
 for.end35.thread.i:                               ; preds = %for.cond19.preheader.i
   %idxprom3738.i = sext i32 %sub.i to i64
   %arrayidx3839.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom3738.i
-  %24 = load i32, ptr %arrayidx3839.i, align 4
+  %23 = load i32, ptr %arrayidx3839.i, align 4
   br label %for.body43.preheader.i
 
 for.body21.preheader.i:                           ; preds = %for.cond19.preheader.i
@@ -1229,12 +1227,12 @@ for.body21.preheader.i:                           ; preds = %for.cond19.preheade
 for.body21.i:                                     ; preds = %if.end27.i, %for.body21.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body21.preheader.i ], [ %indvars.iv.next32.i, %if.end27.i ]
   %arrayidx23.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %indvars.iv31.i
-  %25 = load i32, ptr %arrayidx23.i, align 4
-  %cmp25.i = icmp ugt i32 %25, 255
+  %24 = load i32, ptr %arrayidx23.i, align 4
+  %cmp25.i = icmp ugt i32 %24, 255
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body21.i
-  %conv30.i = trunc i32 %25 to i8
+  %conv30.i = trunc i32 %24 to i8
   %arrayidx32.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv31.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -1244,28 +1242,28 @@ if.end27.i:                                       ; preds = %for.body21.i
 for.end35.i:                                      ; preds = %if.end27.i
   %idxprom37.i = sext i32 %sub.i to i64
   %arrayidx38.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom37.i
-  %26 = load i32, ptr %arrayidx38.i, align 4
+  %25 = load i32, ptr %arrayidx38.i, align 4
   %cmp42.not20.i = icmp sgt i32 %existing_components.1.i, 4
   br i1 %cmp42.not20.i, label %for.end48.i, label %for.body43.preheader.i
 
 for.body43.preheader.i:                           ; preds = %for.end35.i, %for.end35.thread.i
-  %27 = phi i32 [ %24, %for.end35.thread.i ], [ %26, %for.end35.i ]
-  %28 = sext i32 %existing_components.1.i to i64
+  %26 = phi i32 [ %23, %for.end35.thread.i ], [ %25, %for.end35.i ]
+  %27 = sext i32 %existing_components.1.i to i64
   br label %for.body43.i
 
 for.body43.i:                                     ; preds = %for.body43.i, %for.body43.preheader.i
   %indvars.iv35.i = phi i64 [ 3, %for.body43.preheader.i ], [ %indvars.iv.next36.i, %for.body43.i ]
-  %last_value.021.i = phi i32 [ %27, %for.body43.preheader.i ], [ %shr.i, %for.body43.i ]
+  %last_value.021.i = phi i32 [ %26, %for.body43.preheader.i ], [ %shr.i, %for.body43.i ]
   %conv44.i = trunc i32 %last_value.021.i to i8
   %arrayidx46.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv35.i
   store i8 %conv44.i, ptr %arrayidx46.i, align 1
   %shr.i = lshr i32 %last_value.021.i, 8
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, -1
-  %cmp42.not.i = icmp slt i64 %indvars.iv35.i, %28
+  %cmp42.not.i = icmp slt i64 %indvars.iv35.i, %27
   br i1 %cmp42.not.i, label %for.end48.i, label %for.body43.i, !llvm.loop !22
 
 for.end48.i:                                      ; preds = %for.body43.i, %for.end35.i
-  %last_value.0.lcssa.i = phi i32 [ %26, %for.end35.i ], [ %shr.i, %for.body43.i ]
+  %last_value.0.lcssa.i = phi i32 [ %25, %for.end35.i ], [ %shr.i, %for.body43.i ]
   %cmp49.not.i = icmp eq i32 %last_value.0.lcssa.i, 0
   br i1 %cmp49.not.i, label %if.end51.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
@@ -1404,7 +1402,7 @@ for.body.i.preheader:                             ; preds = %while.body.i.i.i, %
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %broken.016.i = phi i8 [ %broken.2.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
+  %broken.016.i = phi i1 [ %broken.2.i, %for.inc.i ], [ false, %for.body.i.preheader ]
   %existing_components.015.i = phi i32 [ %existing_components.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
   %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -1551,21 +1549,19 @@ if.end14.fold.split.i:                            ; preds = %_ZN3url12_GLOBAL__N
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end14.fold.split.i, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i
-  %broken.1.i = phi i8 [ %broken.016.i, %if.end14.fold.split.i ], [ 1, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i ]
+  %broken.1.i = phi i1 [ %broken.016.i, %if.end14.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i ]
   %inc.i = add nsw i32 %existing_components.015.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end14.i, %for.body.i
   %existing_components.1.i = phi i32 [ %existing_components.015.i, %for.body.i ], [ %inc.i, %if.end14.i ]
-  %broken.2.i = phi i8 [ %broken.016.i, %for.body.i ], [ %broken.1.i, %if.end14.i ]
+  %broken.2.i = phi i1 [ %broken.016.i, %for.body.i ], [ %broken.1.i, %if.end14.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !25
 
 for.end.i:                                        ; preds = %for.inc.i
-  %23 = and i8 %broken.2.i, 1
-  %tobool.not.i = icmp eq i8 %23, 0
-  br i1 %tobool.not.i, label %for.cond19.preheader.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
+  br i1 %broken.2.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %for.end.i
   %sub.i = add i32 %existing_components.1.i, -1
@@ -1575,7 +1571,7 @@ for.cond19.preheader.i:                           ; preds = %for.end.i
 for.end35.thread.i:                               ; preds = %for.cond19.preheader.i
   %idxprom3738.i = sext i32 %sub.i to i64
   %arrayidx3839.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom3738.i
-  %24 = load i32, ptr %arrayidx3839.i, align 4
+  %23 = load i32, ptr %arrayidx3839.i, align 4
   br label %for.body43.preheader.i
 
 for.body21.preheader.i:                           ; preds = %for.cond19.preheader.i
@@ -1585,12 +1581,12 @@ for.body21.preheader.i:                           ; preds = %for.cond19.preheade
 for.body21.i:                                     ; preds = %if.end27.i, %for.body21.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body21.preheader.i ], [ %indvars.iv.next32.i, %if.end27.i ]
   %arrayidx23.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %indvars.iv31.i
-  %25 = load i32, ptr %arrayidx23.i, align 4
-  %cmp25.i = icmp ugt i32 %25, 255
+  %24 = load i32, ptr %arrayidx23.i, align 4
+  %cmp25.i = icmp ugt i32 %24, 255
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body21.i
-  %conv30.i = trunc i32 %25 to i8
+  %conv30.i = trunc i32 %24 to i8
   %arrayidx32.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv31.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -1600,28 +1596,28 @@ if.end27.i:                                       ; preds = %for.body21.i
 for.end35.i:                                      ; preds = %if.end27.i
   %idxprom37.i = sext i32 %sub.i to i64
   %arrayidx38.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom37.i
-  %26 = load i32, ptr %arrayidx38.i, align 4
+  %25 = load i32, ptr %arrayidx38.i, align 4
   %cmp42.not20.i = icmp sgt i32 %existing_components.1.i, 4
   br i1 %cmp42.not20.i, label %for.end48.i, label %for.body43.preheader.i
 
 for.body43.preheader.i:                           ; preds = %for.end35.i, %for.end35.thread.i
-  %27 = phi i32 [ %24, %for.end35.thread.i ], [ %26, %for.end35.i ]
-  %28 = sext i32 %existing_components.1.i to i64
+  %26 = phi i32 [ %23, %for.end35.thread.i ], [ %25, %for.end35.i ]
+  %27 = sext i32 %existing_components.1.i to i64
   br label %for.body43.i
 
 for.body43.i:                                     ; preds = %for.body43.i, %for.body43.preheader.i
   %indvars.iv35.i = phi i64 [ 3, %for.body43.preheader.i ], [ %indvars.iv.next36.i, %for.body43.i ]
-  %last_value.021.i = phi i32 [ %27, %for.body43.preheader.i ], [ %shr.i, %for.body43.i ]
+  %last_value.021.i = phi i32 [ %26, %for.body43.preheader.i ], [ %shr.i, %for.body43.i ]
   %conv44.i = trunc i32 %last_value.021.i to i8
   %arrayidx46.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv35.i
   store i8 %conv44.i, ptr %arrayidx46.i, align 1
   %shr.i = lshr i32 %last_value.021.i, 8
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, -1
-  %cmp42.not.i = icmp slt i64 %indvars.iv35.i, %28
+  %cmp42.not.i = icmp slt i64 %indvars.iv35.i, %27
   br i1 %cmp42.not.i, label %for.end48.i, label %for.body43.i, !llvm.loop !27
 
 for.end48.i:                                      ; preds = %for.body43.i, %for.end35.i
-  %last_value.0.lcssa.i = phi i32 [ %26, %for.end35.i ], [ %shr.i, %for.body43.i ]
+  %last_value.0.lcssa.i = phi i32 [ %25, %for.end35.i ], [ %shr.i, %for.body43.i ]
   %cmp49.not.i = icmp eq i32 %last_value.0.lcssa.i, 0
   br i1 %cmp49.not.i, label %if.end51.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 

@@ -9043,9 +9043,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 104
@@ -9065,7 +9064,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -9115,8 +9114,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9182,9 +9181,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 44:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %45 = load i8, ptr %13, align 1
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %51, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %51
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %14, align 8
@@ -9293,8 +9291,8 @@ declare noundef i64 @_ZNK5faiss19InvertedListScanner13iterate_codesEPNS_21Invert
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9354,9 +9352,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 39:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %40 = load i8, ptr %12, align 1
-  %41 = and i8 %40, 1
-  %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %46, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %13, align 8
@@ -9446,9 +9443,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 104
@@ -9468,7 +9464,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -9518,8 +9514,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9587,9 +9583,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 46:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %47 = load i8, ptr %13, align 1
-  %48 = and i8 %47, 1
-  %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %53, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
   %50 = load i64, ptr %14, align 8
@@ -9695,8 +9690,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9758,9 +9753,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 41:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %42 = load i8, ptr %12, align 1
-  %43 = and i8 %42, 1
-  %.not = icmp eq i8 %43, 0
-  br i1 %.not, label %48, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %48
 
 44:                                               ; preds = %41
   %45 = load i64, ptr %13, align 8
@@ -9845,9 +9839,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 104
@@ -9867,7 +9860,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -9917,8 +9910,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -9976,23 +9969,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 37:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %38 = load i8, ptr %12, align 1
-  %39 = and i8 %38, 1
-  %.not.us = icmp eq i8 %39, 0
-  br i1 %.not.us, label %44, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %43, label %40
 
 40:                                               ; preds = %37
-  %41 = load i64, ptr %13, align 8
-  %42 = shl i64 %41, 32
-  %43 = or i64 %42, %.01821.us
+  %41 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %42 = load i64, ptr %41, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
-  %46 = load i64, ptr %45, align 8
+43:                                               ; preds = %37
+  %44 = load i64, ptr %13, align 8
+  %45 = shl i64 %44, 32
+  %46 = or i64 %45, %.01821.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %44, %40
-  %47 = phi i64 [ %43, %40 ], [ %46, %44 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %40
+  %47 = phi i64 [ %46, %43 ], [ %42, %40 ]
   store float %.sroa.5.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %47, ptr %5, align 8
   %48 = add i64 %.01723.us, 1
@@ -10003,8 +9995,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %44, %40
   %50 = add nuw i64 %.01821.us, 1
   %51 = load i64, ptr %17, align 8
   %52 = getelementptr inbounds i8, ptr %.024.us, i64 %51
-  %exitcond28.not = icmp eq i64 %50, %1
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !81
+  %exitcond27.not = icmp eq i64 %50, %1
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !81
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %121
   %.024 = phi ptr [ %124, %121 ], [ %2, %.lr.ph ]
@@ -10048,9 +10040,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 72:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %73 = load i8, ptr %12, align 1
-  %74 = and i8 %73, 1
-  %.not = icmp eq i8 %74, 0
-  br i1 %.not, label %79, label %75
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %79
 
 75:                                               ; preds = %72
   %76 = load i64, ptr %13, align 8
@@ -10157,8 +10148,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %111, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -10210,9 +10201,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 33:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %34 = load i8, ptr %11, align 1
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %40, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
   %37 = load i64, ptr %12, align 8
@@ -10298,9 +10288,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 104
@@ -10320,7 +10309,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -10376,8 +10365,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10449,9 +10438,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 51:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %52 = load i8, ptr %13, align 1
-  %53 = and i8 %52, 1
-  %.not = icmp eq i8 %53, 0
-  br i1 %.not, label %58, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %58
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %14, align 8
@@ -10558,8 +10546,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10625,9 +10613,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 46:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %47 = load i8, ptr %12, align 1
-  %48 = and i8 %47, 1
-  %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %53, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
   %50 = load i64, ptr %13, align 8
@@ -10713,9 +10700,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 104
@@ -10735,7 +10721,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -10791,8 +10777,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10866,9 +10852,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 53:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %54 = load i8, ptr %13, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %14, align 8
@@ -10974,8 +10959,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11043,9 +11028,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 48:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %49 = load i8, ptr %12, align 1
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %13, align 8
@@ -11130,9 +11114,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 104
@@ -11152,7 +11135,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -11208,8 +11191,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -11273,9 +11256,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 45:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %46 = load i8, ptr %12, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %52, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %13, align 8
@@ -11382,8 +11364,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -11441,9 +11423,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 40:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %41 = load i8, ptr %11, align 1
-  %42 = and i8 %41, 1
-  %.not = icmp eq i8 %42, 0
-  br i1 %.not, label %47, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
   %44 = load i64, ptr %12, align 8
@@ -11529,9 +11510,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -11551,7 +11531,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -11605,8 +11585,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11676,9 +11656,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 48:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %49 = load i8, ptr %13, align 1
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %14, align 8
@@ -11785,8 +11764,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11850,9 +11829,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 43:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %44 = load i8, ptr %12, align 1
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %50, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
   %47 = load i64, ptr %13, align 8
@@ -11938,9 +11916,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -11960,7 +11937,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -12014,8 +11991,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -12087,9 +12064,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 50:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %51 = load i8, ptr %13, align 1
-  %52 = and i8 %51, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %57, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
   %54 = load i64, ptr %14, align 8
@@ -12195,8 +12171,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -12262,9 +12238,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 45:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %46 = load i8, ptr %12, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %52, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %13, align 8
@@ -12349,9 +12324,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -12371,7 +12345,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -12425,8 +12399,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -12488,23 +12462,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 41:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %42 = load i8, ptr %12, align 1
-  %43 = and i8 %42, 1
-  %.not.us = icmp eq i8 %43, 0
-  br i1 %.not.us, label %48, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %47, label %44
 
 44:                                               ; preds = %41
-  %45 = load i64, ptr %13, align 8
-  %46 = shl i64 %45, 32
-  %47 = or i64 %46, %.01821.us
+  %45 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %46 = load i64, ptr %45, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
-  %50 = load i64, ptr %49, align 8
+47:                                               ; preds = %41
+  %48 = load i64, ptr %13, align 8
+  %49 = shl i64 %48, 32
+  %50 = or i64 %49, %.01821.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %48, %44
-  %51 = phi i64 [ %47, %44 ], [ %50, %48 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %47, %44
+  %51 = phi i64 [ %50, %47 ], [ %46, %44 ]
   store float %.sroa.5.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %51, ptr %5, align 8
   %52 = add i64 %.01723.us, 1
@@ -12515,8 +12488,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %48, %44
   %54 = add nuw i64 %.01821.us, 1
   %55 = load i64, ptr %17, align 8
   %56 = getelementptr inbounds i8, ptr %.024.us, i64 %55
-  %exitcond28.not = icmp eq i64 %54, %1
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
+  %exitcond27.not = icmp eq i64 %54, %1
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %129
   %.024 = phi ptr [ %132, %129 ], [ %2, %.lr.ph ]
@@ -12564,9 +12537,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 80:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %81 = load i8, ptr %12, align 1
-  %82 = and i8 %81, 1
-  %.not = icmp eq i8 %82, 0
-  br i1 %.not, label %87, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
   %84 = load i64, ptr %13, align 8
@@ -12673,8 +12645,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %119, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -12730,9 +12702,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 37:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %38 = load i8, ptr %11, align 1
-  %39 = and i8 %38, 1
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %44, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
   %41 = load i64, ptr %12, align 8
@@ -12818,9 +12789,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -12840,7 +12810,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -12902,8 +12872,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -12981,9 +12951,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 56:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %57 = load i8, ptr %13, align 1
-  %58 = and i8 %57, 1
-  %.not = icmp eq i8 %58, 0
-  br i1 %.not, label %63, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %63
 
 59:                                               ; preds = %56
   %60 = load i64, ptr %14, align 8
@@ -13090,8 +13059,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13163,9 +13132,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 51:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %52 = load i8, ptr %12, align 1
-  %53 = and i8 %52, 1
-  %.not = icmp eq i8 %53, 0
-  br i1 %.not, label %58, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %58
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %13, align 8
@@ -13251,9 +13219,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -13273,7 +13240,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -13335,8 +13302,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13416,9 +13383,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 58:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %59 = load i8, ptr %13, align 1
-  %60 = and i8 %59, 1
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %65, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %65
 
 61:                                               ; preds = %58
   %62 = load i64, ptr %14, align 8
@@ -13524,8 +13490,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13599,9 +13565,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 53:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %54 = load i8, ptr %12, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %13, align 8
@@ -13686,9 +13651,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -13708,7 +13672,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -13770,8 +13734,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -13841,9 +13805,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 50:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %51 = load i8, ptr %12, align 1
-  %52 = and i8 %51, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %57, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
   %54 = load i64, ptr %13, align 8
@@ -13950,8 +13913,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -14015,9 +13978,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 45:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %46 = load i8, ptr %11, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %52, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %12, align 8
@@ -14103,9 +14065,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -14125,7 +14086,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -14227,8 +14188,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14346,9 +14307,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 77:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %78 = load i8, ptr %13, align 1
-  %79 = and i8 %78, 1
-  %.not = icmp eq i8 %79, 0
-  br i1 %.not, label %84, label %80
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
   %81 = load i64, ptr %14, align 8
@@ -14455,8 +14415,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14568,9 +14528,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 72:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %73 = load i8, ptr %12, align 1
-  %74 = and i8 %73, 1
-  %.not = icmp eq i8 %74, 0
-  br i1 %.not, label %79, label %75
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %79
 
 75:                                               ; preds = %72
   %76 = load i64, ptr %13, align 8
@@ -14656,9 +14615,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -14678,7 +14636,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -14780,8 +14738,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not29 = icmp eq i64 %1, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14901,9 +14859,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 79:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %80 = load i8, ptr %13, align 1
-  %81 = and i8 %80, 1
-  %.not = icmp eq i8 %81, 0
-  br i1 %.not, label %86, label %82
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %86
 
 82:                                               ; preds = %79
   %83 = load i64, ptr %14, align 8
@@ -15009,8 +14966,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15124,9 +15081,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 74:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %75 = load i8, ptr %12, align 1
-  %76 = and i8 %75, 1
-  %.not = icmp eq i8 %76, 0
-  br i1 %.not, label %81, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %13, align 8
@@ -15211,9 +15167,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -15233,7 +15188,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -15335,8 +15290,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not26 = icmp eq i64 %1, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -15446,9 +15401,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 71:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %72 = load i8, ptr %12, align 1
-  %73 = and i8 %72, 1
-  %.not = icmp eq i8 %73, 0
-  br i1 %.not, label %78, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %78
 
 74:                                               ; preds = %71
   %75 = load i64, ptr %13, align 8
@@ -15555,8 +15509,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -15660,9 +15614,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 66:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %67 = load i8, ptr %11, align 1
-  %68 = and i8 %67, 1
-  %.not = icmp eq i8 %68, 0
-  br i1 %.not, label %73, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %73
 
 69:                                               ; preds = %66
   %70 = load i64, ptr %12, align 8
@@ -15748,9 +15701,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -15770,7 +15722,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -15830,8 +15782,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15907,9 +15859,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 51:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %52 = load i8, ptr %11, align 1
-  %53 = and i8 %52, 1
-  %.not = icmp eq i8 %53, 0
-  br i1 %.not, label %58, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %58
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %12, align 8
@@ -16016,8 +15967,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -16087,9 +16038,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 46:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %47 = load i8, ptr %10, align 1
-  %48 = and i8 %47, 1
-  %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %53, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
   %50 = load i64, ptr %11, align 8
@@ -16175,9 +16125,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -16197,7 +16146,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -16257,8 +16206,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -16336,9 +16285,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 53:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %54 = load i8, ptr %11, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %12, align 8
@@ -16444,8 +16392,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -16517,9 +16465,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 48:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %49 = load i8, ptr %10, align 1
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %11, align 8
@@ -16604,9 +16551,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -16626,7 +16572,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -16686,8 +16632,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -16755,9 +16701,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 45:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %46 = load i8, ptr %10, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %52, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %11, align 8
@@ -16864,8 +16809,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMaxIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -16927,9 +16872,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 40:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %41 = load i8, ptr %9, align 1
-  %42 = and i8 %41, 1
-  %.not = icmp eq i8 %42, 0
-  br i1 %.not, label %47, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
   %44 = load i64, ptr %10, align 8
@@ -17035,9 +16979,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %33, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %33
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -17102,7 +17045,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   %49 = icmp slt i64 %indvars.iv.next.i4, %48
   br i1 %49, label %40, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit, !llvm.loop !56
 
-_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit: ; preds = %23, %40, %33, %8
+_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit: ; preds = %40, %23, %33, %8
   ret void
 }
 
@@ -17146,8 +17089,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not29 = icmp eq i64 %1, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17210,23 +17153,22 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %37 = load i8, ptr %11, align 1
-  %38 = and i8 %37, 1
-  %.not.us = icmp eq i8 %38, 0
-  br i1 %.not.us, label %43, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = load i64, ptr %12, align 8
-  %41 = shl i64 %40, 32
-  %42 = or i64 %41, %.01924.us
+  %40 = getelementptr inbounds i64, ptr %3, i64 %.01924.us
+  %41 = load i64, ptr %40, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds i64, ptr %3, i64 %.01924.us
-  %45 = load i64, ptr %44, align 8
+42:                                               ; preds = %36
+  %43 = load i64, ptr %12, align 8
+  %44 = shl i64 %43, 32
+  %45 = or i64 %44, %.01924.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
-  %46 = phi i64 [ %42, %39 ], [ %45, %43 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %42, %39
+  %46 = phi i64 [ %45, %42 ], [ %41, %39 ]
   store float %.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %46, ptr %5, align 8
   %47 = add i64 %.01826.us, 1
@@ -17237,8 +17179,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
   %49 = add nuw i64 %.01924.us, 1
   %50 = load i64, ptr %16, align 8
   %51 = getelementptr inbounds i8, ptr %.027.us, i64 %50
-  %exitcond32.not = icmp eq i64 %49, %1
-  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !113
+  %exitcond31.not = icmp eq i64 %49, %1
+  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !113
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %120
   %.027 = phi ptr [ %123, %120 ], [ %2, %.lr.ph ]
@@ -17288,9 +17230,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 71:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %72 = load i8, ptr %11, align 1
-  %73 = and i8 %72, 1
-  %.not = icmp eq i8 %73, 0
-  br i1 %.not, label %78, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %78
 
 74:                                               ; preds = %71
   %75 = load i64, ptr %12, align 8
@@ -17397,8 +17338,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %110, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17455,9 +17396,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 32:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %33 = load i8, ptr %10, align 1
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %39, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %11, align 8
@@ -17587,9 +17527,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %33, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %33
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -17654,7 +17593,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   %49 = icmp slt i64 %indvars.iv.next.i4, %48
   br i1 %49, label %40, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit, !llvm.loop !56
 
-_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit: ; preds = %23, %40, %33, %8
+_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit: ; preds = %40, %23, %33, %8
   ret void
 }
 
@@ -17698,8 +17637,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not30 = icmp eq i64 %1, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17764,22 +17703,21 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 38:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %39 = load i8, ptr %11, align 1
-  %40 = and i8 %39, 1
-  %.not.us = icmp eq i8 %40, 0
-  br i1 %.not.us, label %45, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %43, label %41
 
 41:                                               ; preds = %38
-  %42 = load i64, ptr %12, align 8
-  %43 = shl i64 %42, 32
-  %44 = or i64 %43, %.02025.us
+  %42 = load i64, ptr %18, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-45:                                               ; preds = %38
-  %46 = load i64, ptr %18, align 8
+43:                                               ; preds = %38
+  %44 = load i64, ptr %12, align 8
+  %45 = shl i64 %44, 32
+  %46 = or i64 %45, %.02025.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %41
-  %47 = phi i64 [ %44, %41 ], [ %46, %45 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %41
+  %47 = phi i64 [ %46, %43 ], [ %42, %41 ]
   store float %.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %47, ptr %5, align 8
   %48 = add i64 %.01927.us, 1
@@ -17790,8 +17728,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %41
   %50 = add nuw i64 %.02025.us, 1
   %51 = load i64, ptr %16, align 8
   %52 = getelementptr inbounds i8, ptr %.028.us, i64 %51
-  %exitcond33.not = icmp eq i64 %50, %1
-  br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !115
+  %exitcond32.not = icmp eq i64 %50, %1
+  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !115
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %122
   %.028 = phi ptr [ %125, %122 ], [ %2, %.lr.ph ]
@@ -17843,9 +17781,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 74:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %75 = load i8, ptr %11, align 1
-  %76 = and i8 %75, 1
-  %.not = icmp eq i8 %76, 0
-  br i1 %.not, label %81, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %12, align 8
@@ -17951,8 +17888,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %112, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -18011,9 +17948,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 34:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %35 = load i8, ptr %10, align 1
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %41, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %11, align 8
@@ -18142,9 +18078,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %33, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %33
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -18209,7 +18144,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   %49 = icmp slt i64 %indvars.iv.next.i4, %48
   br i1 %49, label %40, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit, !llvm.loop !56
 
-_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit: ; preds = %23, %40, %33, %8
+_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit: ; preds = %40, %23, %33, %8
   ret void
 }
 
@@ -18253,8 +18188,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -18309,23 +18244,22 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 30:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %31 = load i8, ptr %10, align 1
-  %32 = and i8 %31, 1
-  %.not.us = icmp eq i8 %32, 0
-  br i1 %.not.us, label %37, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load i64, ptr %11, align 8
-  %35 = shl i64 %34, 32
-  %36 = or i64 %35, %.01823.us
+  %34 = getelementptr inbounds i64, ptr %3, i64 %.01823.us
+  %35 = load i64, ptr %34, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds i64, ptr %3, i64 %.01823.us
-  %39 = load i64, ptr %38, align 8
+36:                                               ; preds = %30
+  %37 = load i64, ptr %11, align 8
+  %38 = shl i64 %37, 32
+  %39 = or i64 %38, %.01823.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %37, %33
-  %40 = phi i64 [ %36, %33 ], [ %39, %37 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %36, %33
+  %40 = phi i64 [ %39, %36 ], [ %35, %33 ]
   store float %.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %40, ptr %5, align 8
   %41 = add i64 %.01725.us, 1
@@ -18336,8 +18270,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %37, %33
   %43 = add nuw i64 %.01823.us, 1
   %44 = load i64, ptr %15, align 8
   %45 = getelementptr inbounds i8, ptr %.026.us, i64 %44
-  %exitcond30.not = icmp eq i64 %43, %1
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !117
+  %exitcond29.not = icmp eq i64 %43, %1
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !117
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %109
   %.026 = phi ptr [ %112, %109 ], [ %2, %.lr.ph ]
@@ -18380,9 +18314,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 60:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %61 = load i8, ptr %10, align 1
-  %62 = and i8 %61, 1
-  %.not = icmp eq i8 %62, 0
-  br i1 %.not, label %67, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %67
 
 63:                                               ; preds = %60
   %64 = load i64, ptr %11, align 8
@@ -18489,8 +18422,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %99, %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -18539,9 +18472,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 
 26:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %27 = load i8, ptr %9, align 1
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %33, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %33
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %10, align 8
@@ -18651,9 +18583,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -18673,7 +18604,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -18716,8 +18647,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -18776,23 +18707,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 34:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %35 = load i8, ptr %11, align 1
-  %36 = and i8 %35, 1
-  %.not.us = icmp eq i8 %36, 0
-  br i1 %.not.us, label %41, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
-  %38 = load i64, ptr %12, align 8
-  %39 = shl i64 %38, 32
-  %40 = or i64 %39, %.01922.us
+  %38 = getelementptr inbounds i64, ptr %3, i64 %.01922.us
+  %39 = load i64, ptr %38, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds i64, ptr %3, i64 %.01922.us
-  %43 = load i64, ptr %42, align 8
+40:                                               ; preds = %34
+  %41 = load i64, ptr %12, align 8
+  %42 = shl i64 %41, 32
+  %43 = or i64 %42, %.01922.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %41, %37
-  %44 = phi i64 [ %40, %37 ], [ %43, %41 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %40, %37
+  %44 = phi i64 [ %43, %40 ], [ %39, %37 ]
   store float %.sroa.5.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %44, ptr %5, align 8
   %45 = add i64 %.01824.us, 1
@@ -18803,8 +18733,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %41, %37
   %47 = add nuw i64 %.01922.us, 1
   %48 = load i64, ptr %16, align 8
   %49 = getelementptr inbounds i8, ptr %.025.us, i64 %48
-  %exitcond30.not = icmp eq i64 %47, %1
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !119
+  %exitcond29.not = icmp eq i64 %47, %1
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !119
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %116
   %.025 = phi ptr [ %119, %116 ], [ %2, %.lr.ph ]
@@ -18850,9 +18780,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 67:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %68 = load i8, ptr %11, align 1
-  %69 = and i8 %68, 1
-  %.not = icmp eq i8 %69, 0
-  br i1 %.not, label %74, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
   %71 = load i64, ptr %12, align 8
@@ -18959,8 +18888,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %106, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19013,9 +18942,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 30:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %31 = load i8, ptr %10, align 1
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %37, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
   %34 = load i64, ptr %11, align 8
@@ -19101,9 +19029,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -19123,7 +19050,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -19166,8 +19093,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19228,22 +19155,21 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %37 = load i8, ptr %11, align 1
-  %38 = and i8 %37, 1
-  %.not.us = icmp eq i8 %38, 0
-  br i1 %.not.us, label %43, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %41, label %39
 
 39:                                               ; preds = %36
-  %40 = load i64, ptr %12, align 8
-  %41 = shl i64 %40, 32
-  %42 = or i64 %41, %.02023.us
+  %40 = load i64, ptr %18, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-43:                                               ; preds = %36
-  %44 = load i64, ptr %18, align 8
+41:                                               ; preds = %36
+  %42 = load i64, ptr %12, align 8
+  %43 = shl i64 %42, 32
+  %44 = or i64 %43, %.02023.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
-  %45 = phi i64 [ %42, %39 ], [ %44, %43 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %41, %39
+  %45 = phi i64 [ %44, %41 ], [ %40, %39 ]
   store float %.sroa.5.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %45, ptr %5, align 8
   %46 = add i64 %.01925.us, 1
@@ -19254,8 +19180,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
   %48 = add nuw i64 %.02023.us, 1
   %49 = load i64, ptr %16, align 8
   %50 = getelementptr inbounds i8, ptr %.026.us, i64 %49
-  %exitcond31.not = icmp eq i64 %48, %1
-  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !121
+  %exitcond30.not = icmp eq i64 %48, %1
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !121
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %118
   %.026 = phi ptr [ %121, %118 ], [ %2, %.lr.ph ]
@@ -19303,9 +19229,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 70:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %71 = load i8, ptr %11, align 1
-  %72 = and i8 %71, 1
-  %.not = icmp eq i8 %72, 0
-  br i1 %.not, label %77, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %77
 
 73:                                               ; preds = %70
   %74 = load i64, ptr %12, align 8
@@ -19411,8 +19336,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %108, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19467,9 +19392,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 32:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %33 = load i8, ptr %10, align 1
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %39, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %11, align 8
@@ -19554,9 +19478,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %18, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -19576,7 +19499,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   br label %20
 
 20:                                               ; preds = %18, %8
-  %.sink.in = phi ptr [ %19, %18 ], [ %13, %8 ]
+  %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
@@ -19619,8 +19542,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -19671,23 +19594,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 28:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
   %29 = load i8, ptr %10, align 1
-  %30 = and i8 %29, 1
-  %.not.us = icmp eq i8 %30, 0
-  br i1 %.not.us, label %35, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = load i64, ptr %11, align 8
-  %33 = shl i64 %32, 32
-  %34 = or i64 %33, %.01821.us
+  %32 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %33 = load i64, ptr %32, align 8
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
-  %37 = load i64, ptr %36, align 8
+34:                                               ; preds = %28
+  %35 = load i64, ptr %11, align 8
+  %36 = shl i64 %35, 32
+  %37 = or i64 %36, %.01821.us
   br label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %35, %31
-  %38 = phi i64 [ %34, %31 ], [ %37, %35 ]
+_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %34, %31
+  %38 = phi i64 [ %37, %34 ], [ %33, %31 ]
   store float %.sroa.5.0.lcssa.i.i.us, ptr %4, align 4
   store i64 %38, ptr %5, align 8
   %39 = add i64 %.01723.us, 1
@@ -19698,8 +19620,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %35, %31
   %41 = add nuw i64 %.01821.us, 1
   %42 = load i64, ptr %15, align 8
   %43 = getelementptr inbounds i8, ptr %.024.us, i64 %42
-  %exitcond28.not = icmp eq i64 %41, %1
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !123
+  %exitcond27.not = icmp eq i64 %41, %1
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !123
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %105
   %.024 = phi ptr [ %108, %105 ], [ %2, %.lr.ph ]
@@ -19738,9 +19660,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 56:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %57 = load i8, ptr %10, align 1
-  %58 = and i8 %57, 1
-  %.not = icmp eq i8 %58, 0
-  br i1 %.not, label %63, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %63
 
 59:                                               ; preds = %56
   %60 = load i64, ptr %11, align 8
@@ -19847,8 +19768,8 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %95, %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -19893,9 +19814,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 24:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
   %25 = load i8, ptr %9, align 1
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %31, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %10, align 8
@@ -19970,9 +19890,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
@@ -20023,8 +19942,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20092,9 +20011,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 46:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %47 = load i8, ptr %14, align 1
-  %48 = and i8 %47, 1
-  %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %53, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
   %50 = load i64, ptr %15, align 8
@@ -20201,8 +20119,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20264,9 +20182,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 41:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %42 = load i8, ptr %13, align 1
-  %43 = and i8 %42, 1
-  %.not = icmp eq i8 %43, 0
-  br i1 %.not, label %48, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %48
 
 44:                                               ; preds = %41
   %45 = load i64, ptr %14, align 8
@@ -20319,9 +20236,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
@@ -20372,8 +20288,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20443,9 +20359,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 48:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %49 = load i8, ptr %14, align 1
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %15, align 8
@@ -20551,8 +20466,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20616,9 +20531,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 43:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %44 = load i8, ptr %13, align 1
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %50, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
   %47 = load i64, ptr %14, align 8
@@ -20670,9 +20584,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
@@ -20723,8 +20636,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 100
@@ -20784,23 +20697,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 39:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
   %40 = load i8, ptr %13, align 1
-  %41 = and i8 %40, 1
-  %.not.us = icmp eq i8 %41, 0
-  br i1 %.not.us, label %46, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = load i64, ptr %14, align 8
-  %44 = shl i64 %43, 32
-  %45 = or i64 %44, %.01821.us
+  %43 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %44 = load i64, ptr %43, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
-  %48 = load i64, ptr %47, align 8
+45:                                               ; preds = %39
+  %46 = load i64, ptr %14, align 8
+  %47 = shl i64 %46, 32
+  %48 = or i64 %47, %.01821.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %46, %42
-  %49 = phi i64 [ %45, %42 ], [ %48, %46 ]
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %42
+  %49 = phi i64 [ %48, %45 ], [ %44, %42 ]
   store float %36, ptr %4, align 4
   store i64 %49, ptr %5, align 8
   %50 = add i64 %.01723.us, 1
@@ -20811,8 +20723,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %46, %42
   %52 = add nuw i64 %.01821.us, 1
   %53 = load i64, ptr %18, align 8
   %54 = getelementptr inbounds i8, ptr %.024.us, i64 %53
-  %exitcond28.not = icmp eq i64 %52, %1
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !130
+  %exitcond27.not = icmp eq i64 %52, %1
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !130
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %124
   %.024 = phi ptr [ %127, %124 ], [ %2, %.lr.ph ]
@@ -20857,9 +20769,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 75:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %76 = load i8, ptr %13, align 1
-  %77 = and i8 %76, 1
-  %.not = icmp eq i8 %77, 0
-  br i1 %.not, label %82, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %82
 
 78:                                               ; preds = %75
   %79 = load i64, ptr %14, align 8
@@ -20966,8 +20877,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %114, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 100
@@ -21021,9 +20932,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 35:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %36 = load i8, ptr %12, align 1
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %42, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %42
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %13, align 8
@@ -21076,9 +20986,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
@@ -21135,8 +21044,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21210,9 +21119,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 53:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %54 = load i8, ptr %14, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %15, align 8
@@ -21319,8 +21227,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21388,9 +21296,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 48:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %49 = load i8, ptr %13, align 1
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %14, align 8
@@ -21443,9 +21350,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
@@ -21502,8 +21408,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21579,9 +21485,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 55:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %56 = load i8, ptr %14, align 1
-  %57 = and i8 %56, 1
-  %.not = icmp eq i8 %57, 0
-  br i1 %.not, label %62, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = load i64, ptr %15, align 8
@@ -21687,8 +21592,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21758,9 +21663,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 50:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %51 = load i8, ptr %13, align 1
-  %52 = and i8 %51, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %57, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
   %54 = load i64, ptr %14, align 8
@@ -21812,9 +21716,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
@@ -21871,8 +21774,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 100
@@ -21938,9 +21841,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 47:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %48 = load i8, ptr %13, align 1
-  %49 = and i8 %48, 1
-  %.not = icmp eq i8 %49, 0
-  br i1 %.not, label %54, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = load i64, ptr %14, align 8
@@ -22047,8 +21949,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 100
@@ -22108,9 +22010,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 42:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %43 = load i8, ptr %12, align 1
-  %44 = and i8 %43, 1
-  %.not = icmp eq i8 %44, 0
-  br i1 %.not, label %49, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
   %46 = load i64, ptr %13, align 8
@@ -22163,9 +22064,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -22220,8 +22120,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22293,9 +22193,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 50:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %51 = load i8, ptr %14, align 1
-  %52 = and i8 %51, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %57, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
   %54 = load i64, ptr %15, align 8
@@ -22402,8 +22301,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22469,9 +22368,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 45:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %46 = load i8, ptr %13, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %52, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %14, align 8
@@ -22524,9 +22422,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -22581,8 +22478,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22656,9 +22553,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 52:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %53 = load i8, ptr %14, align 1
-  %54 = and i8 %53, 1
-  %.not = icmp eq i8 %54, 0
-  br i1 %.not, label %59, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %59
 
 55:                                               ; preds = %52
   %56 = load i64, ptr %15, align 8
@@ -22764,8 +22660,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22833,9 +22729,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 47:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %48 = load i8, ptr %13, align 1
-  %49 = and i8 %48, 1
-  %.not = icmp eq i8 %49, 0
-  br i1 %.not, label %54, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = load i64, ptr %14, align 8
@@ -22887,9 +22782,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -22944,8 +22838,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 108
@@ -22960,166 +22854,241 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
   %18 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %19
+  br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
-19:                                               ; preds = %.lr.ph, %94
-  %.024 = phi ptr [ %2, %.lr.ph ], [ %97, %94 ]
-  %.01723 = phi i64 [ 0, %.lr.ph ], [ %.1, %94 ]
-  %.01821 = phi i64 [ 0, %.lr.ph ], [ %95, %94 ]
-  %20 = load float, ptr %8, align 4
-  %21 = load i64, ptr %9, align 8
-  %.not.i.i = icmp eq i64 %21, 0
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %55
+  %.024.us = phi ptr [ %58, %55 ], [ %2, %.lr.ph ]
+  %.01723.us = phi i64 [ %.1.us, %55 ], [ 0, %.lr.ph ]
+  %.01821.us = phi i64 [ %56, %55 ], [ 0, %.lr.ph ]
+  %19 = load float, ptr %8, align 4
+  %20 = load i64, ptr %9, align 8
+  %.not.i.i.us = icmp eq i64 %20, 0
+  br i1 %.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, label %.lr.ph.i.i.us
+
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.split.us
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  br label %24
+
+24:                                               ; preds = %24, %.lr.ph.i.i.us
+  %.021.i.i.us = phi i64 [ 0, %.lr.ph.i.i.us ], [ %39, %24 ]
+  %.sroa.5.020.i.i.us = phi float [ 0.000000e+00, %.lr.ph.i.i.us ], [ %38, %24 ]
+  %.sroa.2.019.i.i.us = phi ptr [ %21, %.lr.ph.i.i.us ], [ %36, %24 ]
+  %sext.i.i.us = shl i64 %.021.i.i.us, 32
+  %25 = ashr exact i64 %sext.i.i.us, 32
+  %26 = getelementptr inbounds i8, ptr %.024.us, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = uitofp i8 %27 to float
+  %29 = fadd float %28, 5.000000e-01
+  %30 = fdiv float %29, 2.550000e+02
+  %31 = getelementptr inbounds float, ptr %22, i64 %25
+  %32 = load float, ptr %31, align 4
+  %33 = getelementptr inbounds float, ptr %23, i64 %25
+  %34 = load float, ptr %33, align 4
+  %35 = tail call noundef float @llvm.fmuladd.f32(float %30, float %34, float %32)
+  %36 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i.us, i64 4
+  %37 = load float, ptr %.sroa.2.019.i.i.us, align 4
+  %38 = tail call float @llvm.fmuladd.f32(float %37, float %35, float %.sroa.5.020.i.i.us)
+  %39 = add nuw i64 %.021.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i64 %39, %20
+  br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, label %24, !llvm.loop !65
+
+_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %24, %.lr.ph.split.us
+  %.sroa.5.0.lcssa.i.i.us = phi float [ 0.000000e+00, %.lr.ph.split.us ], [ %38, %24 ]
+  %40 = fadd float %19, %.sroa.5.0.lcssa.i.i.us
+  %41 = load float, ptr %4, align 4
+  %42 = fcmp ogt float %40, %41
+  br i1 %42, label %43, label %55
+
+43:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
+  %44 = load i8, ptr %13, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %49, label %46
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %48 = load i64, ptr %47, align 8
+  br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
+
+49:                                               ; preds = %43
+  %50 = load i64, ptr %14, align 8
+  %51 = shl i64 %50, 32
+  %52 = or i64 %51, %.01821.us
+  br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
+
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %49, %46
+  %53 = phi i64 [ %52, %49 ], [ %48, %46 ]
+  store float %40, ptr %4, align 4
+  store i64 %53, ptr %5, align 8
+  %54 = add i64 %.01723.us, 1
+  br label %55
+
+55:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
+  %.1.us = phi i64 [ %54, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01723.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
+  %56 = add nuw i64 %.01821.us, 1
+  %57 = load i64, ptr %18, align 8
+  %58 = getelementptr inbounds i8, ptr %.024.us, i64 %57
+  %exitcond27.not = icmp eq i64 %56, %1
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !142
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %132
+  %.024 = phi ptr [ %135, %132 ], [ %2, %.lr.ph ]
+  %.01723 = phi i64 [ %.1, %132 ], [ 0, %.lr.ph ]
+  %.01821 = phi i64 [ %133, %132 ], [ 0, %.lr.ph ]
+  %59 = load float, ptr %8, align 4
+  %60 = load i64, ptr %9, align 8
+  %.not.i.i = icmp eq i64 %60, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %19
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %11, align 8
-  %24 = load ptr, ptr %12, align 8
-  br label %25
+.lr.ph.i.i:                                       ; preds = %.lr.ph.split
+  %61 = load ptr, ptr %10, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %12, align 8
+  br label %64
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %.021.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %40, %25 ]
-  %.sroa.5.020.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %39, %25 ]
-  %.sroa.2.019.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %37, %25 ]
+64:                                               ; preds = %64, %.lr.ph.i.i
+  %.021.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %79, %64 ]
+  %.sroa.5.020.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %78, %64 ]
+  %.sroa.2.019.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %76, %64 ]
   %sext.i.i = shl i64 %.021.i.i, 32
-  %26 = ashr exact i64 %sext.i.i, 32
-  %27 = getelementptr inbounds i8, ptr %.024, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = uitofp i8 %28 to float
-  %30 = fadd float %29, 5.000000e-01
-  %31 = fdiv float %30, 2.550000e+02
-  %32 = getelementptr inbounds float, ptr %23, i64 %26
-  %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds float, ptr %24, i64 %26
-  %35 = load float, ptr %34, align 4
-  %36 = tail call noundef float @llvm.fmuladd.f32(float %31, float %35, float %33)
-  %37 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
-  %38 = load float, ptr %.sroa.2.019.i.i, align 4
-  %39 = tail call float @llvm.fmuladd.f32(float %38, float %36, float %.sroa.5.020.i.i)
-  %40 = add nuw i64 %.021.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %40, %21
-  br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %25, !llvm.loop !65
+  %65 = ashr exact i64 %sext.i.i, 32
+  %66 = getelementptr inbounds i8, ptr %.024, i64 %65
+  %67 = load i8, ptr %66, align 1
+  %68 = uitofp i8 %67 to float
+  %69 = fadd float %68, 5.000000e-01
+  %70 = fdiv float %69, 2.550000e+02
+  %71 = getelementptr inbounds float, ptr %62, i64 %65
+  %72 = load float, ptr %71, align 4
+  %73 = getelementptr inbounds float, ptr %63, i64 %65
+  %74 = load float, ptr %73, align 4
+  %75 = tail call noundef float @llvm.fmuladd.f32(float %70, float %74, float %72)
+  %76 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %77 = load float, ptr %.sroa.2.019.i.i, align 4
+  %78 = tail call float @llvm.fmuladd.f32(float %77, float %75, float %.sroa.5.020.i.i)
+  %79 = add nuw i64 %.021.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %79, %60
+  br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %64, !llvm.loop !65
 
-_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %25, %19
-  %.sroa.5.0.lcssa.i.i = phi float [ 0.000000e+00, %19 ], [ %39, %25 ]
-  %41 = fadd float %20, %.sroa.5.0.lcssa.i.i
-  %42 = load float, ptr %4, align 4
-  %43 = fcmp ogt float %41, %42
-  br i1 %43, label %44, label %94
+_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %64, %.lr.ph.split
+  %.sroa.5.0.lcssa.i.i = phi float [ 0.000000e+00, %.lr.ph.split ], [ %78, %64 ]
+  %80 = fadd float %59, %.sroa.5.0.lcssa.i.i
+  %81 = load float, ptr %4, align 4
+  %82 = fcmp ogt float %80, %81
+  br i1 %82, label %83, label %132
 
-44:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
-  %45 = load i8, ptr %13, align 1
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %51, label %47
+83:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
+  %84 = load i8, ptr %13, align 1
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %90
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %14, align 8
-  %49 = shl i64 %48, 32
-  %50 = or i64 %49, %.01821
-  br label %54
+86:                                               ; preds = %83
+  %87 = load i64, ptr %14, align 8
+  %88 = shl i64 %87, 32
+  %89 = or i64 %88, %.01821
+  br label %.lr.ph.preheader.i.i
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds i64, ptr %3, i64 %.01821
-  %53 = load i64, ptr %52, align 8
-  br label %54
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %92 = load i64, ptr %91, align 8
+  br label %.lr.ph.preheader.i.i
 
-54:                                               ; preds = %51, %47
-  %55 = phi i64 [ %50, %47 ], [ %53, %51 ]
-  br i1 %17, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %.lr.ph.i.i20
+.lr.ph.preheader.i.i:                             ; preds = %90, %86
+  %93 = phi i64 [ %89, %86 ], [ %92, %90 ]
+  br label %.lr.ph.i.i20
 
-.lr.ph.i.i20:                                     ; preds = %54, %84
-  %56 = phi i64 [ %89, %84 ], [ 3, %54 ]
-  %57 = phi i64 [ %88, %84 ], [ 2, %54 ]
-  %.056.i.i = phi i64 [ %.1.i.i, %84 ], [ 1, %54 ]
-  %58 = icmp eq i64 %57, %6
-  br i1 %58, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i, label %59
+.lr.ph.i.i20:                                     ; preds = %122, %.lr.ph.preheader.i.i
+  %94 = phi i64 [ %127, %122 ], [ 3, %.lr.ph.preheader.i.i ]
+  %95 = phi i64 [ %126, %122 ], [ 2, %.lr.ph.preheader.i.i ]
+  %.056.i.i = phi i64 [ %.1.i.i, %122 ], [ 1, %.lr.ph.preheader.i.i ]
+  %96 = icmp eq i64 %95, %6
+  br i1 %96, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i, label %97
 
 .lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i: ; preds = %.lr.ph.i.i20
   %.pre.i.i = load float, ptr %.phi.trans.insert.i.i, align 4
   br label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
 
-59:                                               ; preds = %.lr.ph.i.i20
-  %60 = getelementptr inbounds float, ptr %15, i64 %57
-  %61 = load float, ptr %60, align 4
-  %62 = getelementptr inbounds float, ptr %15, i64 %56
-  %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i64, ptr %16, i64 %56
-  %65 = load i64, ptr %64, align 8
-  %66 = fcmp olt float %61, %63
-  br i1 %66, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
+97:                                               ; preds = %.lr.ph.i.i20
+  %98 = getelementptr inbounds float, ptr %15, i64 %95
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds float, ptr %15, i64 %94
+  %101 = load float, ptr %100, align 4
+  %102 = getelementptr inbounds i64, ptr %16, i64 %94
+  %103 = load i64, ptr %102, align 8
+  %104 = fcmp olt float %99, %101
+  br i1 %104, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
 
-_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i:            ; preds = %59
-  %67 = getelementptr inbounds i64, ptr %16, i64 %57
-  %68 = load i64, ptr %67, align 8
-  %69 = fcmp oeq float %61, %63
-  %70 = icmp slt i64 %68, %65
-  %71 = and i1 %69, %70
-  br i1 %71, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %79
+_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i:            ; preds = %97
+  %105 = getelementptr inbounds i64, ptr %16, i64 %95
+  %106 = load i64, ptr %105, align 8
+  %107 = fcmp oeq float %99, %101
+  %108 = icmp slt i64 %106, %103
+  %109 = and i1 %107, %108
+  br i1 %109, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %117
 
-_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i:     ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i, %59, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i
-  %72 = phi float [ %.pre.i.i, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i ], [ %61, %59 ], [ %61, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i ]
-  %73 = fcmp ogt float %72, %41
-  br i1 %73, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
+_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i:     ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i, %97, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i
+  %110 = phi float [ %.pre.i.i, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i ], [ %99, %97 ], [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i ]
+  %111 = fcmp ogt float %110, %80
+  br i1 %111, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
-  %74 = getelementptr inbounds i64, ptr %16, i64 %57
-  %75 = load i64, ptr %74, align 8
-  %76 = fcmp oeq float %72, %41
-  %77 = icmp sgt i64 %75, %55
-  %78 = and i1 %76, %77
-  br i1 %78, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %84
+  %112 = getelementptr inbounds i64, ptr %16, i64 %95
+  %113 = load i64, ptr %112, align 8
+  %114 = fcmp oeq float %110, %80
+  %115 = icmp sgt i64 %113, %93
+  %116 = and i1 %114, %115
+  br i1 %116, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %122
 
-79:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
-  %80 = fcmp ogt float %63, %41
-  br i1 %80, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i
+117:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
+  %118 = fcmp ogt float %101, %80
+  br i1 %118, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i
 
-_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %79
-  %81 = fcmp oeq float %63, %41
-  %82 = icmp sgt i64 %65, %55
-  %83 = and i1 %81, %82
-  br i1 %83, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %84
+_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %117
+  %119 = fcmp oeq float %101, %80
+  %120 = icmp sgt i64 %103, %93
+  %121 = and i1 %119, %120
+  br i1 %121, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %122
 
-84:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink.i.i = phi float [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
-  %.sink63.i.i = phi ptr [ %74, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
-  %.1.i.i = phi i64 [ %57, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %56, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
-  %85 = getelementptr inbounds float, ptr %15, i64 %.056.i.i
-  store float %.sink.i.i, ptr %85, align 4
-  %86 = load i64, ptr %.sink63.i.i, align 8
-  %87 = getelementptr inbounds i64, ptr %16, i64 %.056.i.i
-  store i64 %86, ptr %87, align 8
-  %88 = shl i64 %.1.i.i, 1
-  %89 = or disjoint i64 %88, 1
-  %90 = icmp ugt i64 %88, %6
-  br i1 %90, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %.lr.ph.i.i20, !llvm.loop !125
+122:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
+  %.sink.i.i = phi float [ %110, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink63.i.i = phi ptr [ %112, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.1.i.i = phi i64 [ %95, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %123 = getelementptr inbounds float, ptr %15, i64 %.056.i.i
+  store float %.sink.i.i, ptr %123, align 4
+  %124 = load i64, ptr %.sink63.i.i, align 8
+  %125 = getelementptr inbounds i64, ptr %16, i64 %.056.i.i
+  store i64 %124, ptr %125, align 8
+  %126 = shl i64 %.1.i.i, 1
+  %127 = or disjoint i64 %126, 1
+  %128 = icmp ugt i64 %126, %6
+  br i1 %128, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %.lr.ph.i.i20, !llvm.loop !125
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i, %79, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %84, %54
-  %.0.lcssa.i.i = phi i64 [ 1, %54 ], [ %.056.i.i, %79 ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %.1.i.i, %84 ]
-  %91 = getelementptr inbounds float, ptr %15, i64 %.0.lcssa.i.i
-  store float %41, ptr %91, align 4
-  %92 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i
-  store i64 %55, ptr %92, align 8
-  %93 = add i64 %.01723, 1
-  br label %94
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %122, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %117, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
+  %.0.lcssa.i.i.ph = phi i64 [ %.056.i.i, %117 ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %.1.i.i, %122 ]
+  %129 = getelementptr inbounds float, ptr %15, i64 %.0.lcssa.i.i.ph
+  store float %80, ptr %129, align 4
+  %130 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i.ph
+  store i64 %93, ptr %130, align 8
+  %131 = add i64 %.01723, 1
+  br label %132
 
-94:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit
-  %.1 = phi i64 [ %93, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %95 = add nuw i64 %.01821, 1
-  %96 = load i64, ptr %18, align 8
-  %97 = getelementptr inbounds i8, ptr %.024, i64 %96
-  %exitcond.not = icmp eq i64 %95, %1
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !142
+132:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit
+  %.1 = phi i64 [ %131, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %133 = add nuw i64 %.01821, 1
+  %134 = load i64, ptr %18, align 8
+  %135 = getelementptr inbounds i8, ptr %.024, i64 %134
+  %exitcond.not = icmp eq i64 %133, %1
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !142
 
-._crit_edge:                                      ; preds = %94, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1, %94 ]
+._crit_edge:                                      ; preds = %132, %55, %7
+  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %55 ], [ %.1, %132 ]
   ret i64 %.017.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 108
@@ -23177,9 +23146,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 39:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %40 = load i8, ptr %12, align 1
-  %41 = and i8 %40, 1
-  %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %46, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %13, align 8
@@ -23232,9 +23200,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -23297,8 +23264,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -23378,9 +23345,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 58:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %59 = load i8, ptr %14, align 1
-  %60 = and i8 %59, 1
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %65, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %65
 
 61:                                               ; preds = %58
   %62 = load i64, ptr %15, align 8
@@ -23487,8 +23453,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -23562,9 +23528,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 53:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %54 = load i8, ptr %13, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %14, align 8
@@ -23617,9 +23582,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -23682,8 +23646,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -23765,9 +23729,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 60:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %61 = load i8, ptr %14, align 1
-  %62 = and i8 %61, 1
-  %.not = icmp eq i8 %62, 0
-  br i1 %.not, label %67, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %67
 
 63:                                               ; preds = %60
   %64 = load i64, ptr %15, align 8
@@ -23873,8 +23836,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -23950,9 +23913,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 55:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %56 = load i8, ptr %13, align 1
-  %57 = and i8 %56, 1
-  %.not = icmp eq i8 %57, 0
-  br i1 %.not, label %62, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = load i64, ptr %14, align 8
@@ -24004,9 +23966,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -24069,8 +24030,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 108
@@ -24142,9 +24103,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 52:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %53 = load i8, ptr %13, align 1
-  %54 = and i8 %53, 1
-  %.not = icmp eq i8 %54, 0
-  br i1 %.not, label %59, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %59
 
 55:                                               ; preds = %52
   %56 = load i64, ptr %14, align 8
@@ -24251,8 +24211,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 108
@@ -24318,9 +24278,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 47:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %48 = load i8, ptr %12, align 1
-  %49 = and i8 %48, 1
-  %.not = icmp eq i8 %49, 0
-  br i1 %.not, label %54, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = load i64, ptr %13, align 8
@@ -24373,9 +24332,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -24478,8 +24436,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -24599,9 +24557,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 79:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %80 = load i8, ptr %14, align 1
-  %81 = and i8 %80, 1
-  %.not = icmp eq i8 %81, 0
-  br i1 %.not, label %86, label %82
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %86
 
 82:                                               ; preds = %79
   %83 = load i64, ptr %15, align 8
@@ -24708,8 +24665,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -24823,9 +24780,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 74:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %75 = load i8, ptr %13, align 1
-  %76 = and i8 %75, 1
-  %.not = icmp eq i8 %76, 0
-  br i1 %.not, label %81, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %14, align 8
@@ -24878,9 +24834,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -24983,8 +24938,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not29 = icmp eq i64 %1, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -25106,9 +25061,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 81:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %82 = load i8, ptr %14, align 1
-  %83 = and i8 %82, 1
-  %.not = icmp eq i8 %83, 0
-  br i1 %.not, label %88, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %88
 
 84:                                               ; preds = %81
   %85 = load i64, ptr %15, align 8
@@ -25214,8 +25168,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -25331,9 +25285,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 76:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %77 = load i8, ptr %13, align 1
-  %78 = and i8 %77, 1
-  %.not = icmp eq i8 %78, 0
-  br i1 %.not, label %83, label %79
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %83
 
 79:                                               ; preds = %76
   %80 = load i64, ptr %14, align 8
@@ -25385,9 +25338,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -25490,8 +25442,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not26 = icmp eq i64 %1, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 108
@@ -25603,9 +25555,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 73:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %74 = load i8, ptr %13, align 1
-  %75 = and i8 %74, 1
-  %.not = icmp eq i8 %75, 0
-  br i1 %.not, label %80, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %80
 
 76:                                               ; preds = %73
   %77 = load i64, ptr %14, align 8
@@ -25712,8 +25663,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 108
@@ -25819,9 +25770,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 68:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %69 = load i8, ptr %12, align 1
-  %70 = and i8 %69, 1
-  %.not = icmp eq i8 %70, 0
-  br i1 %.not, label %75, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %75
 
 71:                                               ; preds = %68
   %72 = load i64, ptr %13, align 8
@@ -25874,9 +25824,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
@@ -25937,8 +25886,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -26016,9 +25965,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 53:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %54 = load i8, ptr %12, align 1
-  %55 = and i8 %54, 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %60, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %13, align 8
@@ -26125,8 +26073,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -26198,9 +26146,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 48:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %49 = load i8, ptr %11, align 1
-  %50 = and i8 %49, 1
-  %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %12, align 8
@@ -26253,9 +26200,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
@@ -26316,8 +26262,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -26397,9 +26343,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 55:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %56 = load i8, ptr %12, align 1
-  %57 = and i8 %56, 1
-  %.not = icmp eq i8 %57, 0
-  br i1 %.not, label %62, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = load i64, ptr %13, align 8
@@ -26505,8 +26450,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -26580,9 +26525,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 50:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %51 = load i8, ptr %11, align 1
-  %52 = and i8 %51, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %57, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
   %54 = load i64, ptr %12, align 8
@@ -26634,9 +26578,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
@@ -26697,8 +26640,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 92
@@ -26768,9 +26711,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 47:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %48 = load i8, ptr %11, align 1
-  %49 = and i8 %48, 1
-  %.not = icmp eq i8 %49, 0
-  br i1 %.not, label %54, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = load i64, ptr %12, align 8
@@ -26877,8 +26819,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 92
@@ -26942,9 +26884,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 42:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %43 = load i8, ptr %10, align 1
-  %44 = and i8 %43, 1
-  %.not = icmp eq i8 %44, 0
-  br i1 %.not, label %49, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
   %46 = load i64, ptr %11, align 8
@@ -27020,9 +26961,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComp
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -27070,8 +27010,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27136,23 +27076,22 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 38:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
   %39 = load i8, ptr %12, align 1
-  %40 = and i8 %39, 1
-  %.not.us = icmp eq i8 %40, 0
-  br i1 %.not.us, label %45, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = load i64, ptr %13, align 8
-  %43 = shl i64 %42, 32
-  %44 = or i64 %43, %.01923.us
+  %42 = getelementptr inbounds i64, ptr %3, i64 %.01923.us
+  %43 = load i64, ptr %42, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds i64, ptr %3, i64 %.01923.us
-  %47 = load i64, ptr %46, align 8
+44:                                               ; preds = %38
+  %45 = load i64, ptr %13, align 8
+  %46 = shl i64 %45, 32
+  %47 = or i64 %46, %.01923.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %41
-  %48 = phi i64 [ %44, %41 ], [ %47, %45 ]
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %44, %41
+  %48 = phi i64 [ %47, %44 ], [ %43, %41 ]
   store float %35, ptr %4, align 4
   store i64 %48, ptr %5, align 8
   %49 = add i64 %.01825.us, 1
@@ -27163,8 +27102,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %41
   %51 = add nuw i64 %.01923.us, 1
   %52 = load i64, ptr %17, align 8
   %53 = getelementptr inbounds i8, ptr %.026.us, i64 %52
-  %exitcond31.not = icmp eq i64 %51, %1
-  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !162
+  %exitcond30.not = icmp eq i64 %51, %1
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !162
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %123
   %.026 = phi ptr [ %126, %123 ], [ %2, %.lr.ph ]
@@ -27215,9 +27154,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 74:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %75 = load i8, ptr %12, align 1
-  %76 = and i8 %75, 1
-  %.not = icmp eq i8 %76, 0
-  br i1 %.not, label %81, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %13, align 8
@@ -27324,8 +27262,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %113, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27384,9 +27322,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 34:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %35 = load i8, ptr %11, align 1
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %41, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %12, align 8
@@ -27488,9 +27425,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComp
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -27538,8 +27474,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not29 = icmp eq i64 %1, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27606,22 +27542,21 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 40:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
   %41 = load i8, ptr %12, align 1
-  %42 = and i8 %41, 1
-  %.not.us = icmp eq i8 %42, 0
-  br i1 %.not.us, label %47, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %45, label %43
 
 43:                                               ; preds = %40
-  %44 = load i64, ptr %13, align 8
-  %45 = shl i64 %44, 32
-  %46 = or i64 %45, %.02024.us
+  %44 = load i64, ptr %19, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-47:                                               ; preds = %40
-  %48 = load i64, ptr %19, align 8
+45:                                               ; preds = %40
+  %46 = load i64, ptr %13, align 8
+  %47 = shl i64 %46, 32
+  %48 = or i64 %47, %.02024.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %47, %43
-  %49 = phi i64 [ %46, %43 ], [ %48, %47 ]
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %43
+  %49 = phi i64 [ %48, %45 ], [ %44, %43 ]
   store float %37, ptr %4, align 4
   store i64 %49, ptr %5, align 8
   %50 = add i64 %.01926.us, 1
@@ -27632,8 +27567,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %47, %43
   %52 = add nuw i64 %.02024.us, 1
   %53 = load i64, ptr %17, align 8
   %54 = getelementptr inbounds i8, ptr %.027.us, i64 %53
-  %exitcond32.not = icmp eq i64 %52, %1
-  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !164
+  %exitcond31.not = icmp eq i64 %52, %1
+  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !164
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %125
   %.027 = phi ptr [ %128, %125 ], [ %2, %.lr.ph ]
@@ -27686,9 +27621,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 77:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %78 = load i8, ptr %12, align 1
-  %79 = and i8 %78, 1
-  %.not = icmp eq i8 %79, 0
-  br i1 %.not, label %84, label %80
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
   %81 = load i64, ptr %13, align 8
@@ -27794,8 +27728,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %115, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27856,9 +27790,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %37 = load i8, ptr %11, align 1
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %43, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
   %40 = load i64, ptr %12, align 8
@@ -27959,9 +27892,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComp
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
@@ -28009,8 +27941,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not26 = icmp eq i64 %1, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 108
@@ -28067,23 +27999,22 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 32:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
   %33 = load i8, ptr %11, align 1
-  %34 = and i8 %33, 1
-  %.not.us = icmp eq i8 %34, 0
-  br i1 %.not.us, label %39, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %38, label %35
 
 35:                                               ; preds = %32
-  %36 = load i64, ptr %12, align 8
-  %37 = shl i64 %36, 32
-  %38 = or i64 %37, %.01822.us
+  %36 = getelementptr inbounds i64, ptr %3, i64 %.01822.us
+  %37 = load i64, ptr %36, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds i64, ptr %3, i64 %.01822.us
-  %41 = load i64, ptr %40, align 8
+38:                                               ; preds = %32
+  %39 = load i64, ptr %12, align 8
+  %40 = shl i64 %39, 32
+  %41 = or i64 %40, %.01822.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %39, %35
-  %42 = phi i64 [ %38, %35 ], [ %41, %39 ]
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %38, %35
+  %42 = phi i64 [ %41, %38 ], [ %37, %35 ]
   store float %29, ptr %4, align 4
   store i64 %42, ptr %5, align 8
   %43 = add i64 %.01724.us, 1
@@ -28094,8 +28025,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %39, %35
   %45 = add nuw i64 %.01822.us, 1
   %46 = load i64, ptr %16, align 8
   %47 = getelementptr inbounds i8, ptr %.025.us, i64 %46
-  %exitcond29.not = icmp eq i64 %45, %1
-  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !166
+  %exitcond28.not = icmp eq i64 %45, %1
+  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !166
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %112
   %.025 = phi ptr [ %115, %112 ], [ %2, %.lr.ph ]
@@ -28139,9 +28070,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 63:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %64 = load i8, ptr %11, align 1
-  %65 = and i8 %64, 1
-  %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %70, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %70
 
 66:                                               ; preds = %63
   %67 = load i64, ptr %12, align 8
@@ -28248,8 +28178,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %102, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 108
@@ -28300,9 +28230,8 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 
 28:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %29 = load i8, ptr %10, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %35, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
   %32 = load i64, ptr %11, align 8
@@ -28381,9 +28310,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
@@ -28427,8 +28355,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -28489,23 +28417,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
   %37 = load i8, ptr %12, align 1
-  %38 = and i8 %37, 1
-  %.not.us = icmp eq i8 %38, 0
-  br i1 %.not.us, label %43, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = load i64, ptr %13, align 8
-  %41 = shl i64 %40, 32
-  %42 = or i64 %41, %.01922.us
+  %40 = getelementptr inbounds i64, ptr %3, i64 %.01922.us
+  %41 = load i64, ptr %40, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds i64, ptr %3, i64 %.01922.us
-  %45 = load i64, ptr %44, align 8
+42:                                               ; preds = %36
+  %43 = load i64, ptr %13, align 8
+  %44 = shl i64 %43, 32
+  %45 = or i64 %44, %.01922.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
-  %46 = phi i64 [ %42, %39 ], [ %45, %43 ]
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %42, %39
+  %46 = phi i64 [ %45, %42 ], [ %41, %39 ]
   store float %33, ptr %4, align 4
   store i64 %46, ptr %5, align 8
   %47 = add i64 %.01824.us, 1
@@ -28516,8 +28443,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
   %49 = add nuw i64 %.01922.us, 1
   %50 = load i64, ptr %17, align 8
   %51 = getelementptr inbounds i8, ptr %.025.us, i64 %50
-  %exitcond30.not = icmp eq i64 %49, %1
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !168
+  %exitcond29.not = icmp eq i64 %49, %1
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !168
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %119
   %.025 = phi ptr [ %122, %119 ], [ %2, %.lr.ph ]
@@ -28564,9 +28491,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 70:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %71 = load i8, ptr %12, align 1
-  %72 = and i8 %71, 1
-  %.not = icmp eq i8 %72, 0
-  br i1 %.not, label %77, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %77
 
 73:                                               ; preds = %70
   %74 = load i64, ptr %13, align 8
@@ -28673,8 +28599,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %109, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -28729,9 +28655,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 32:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %33 = load i8, ptr %11, align 1
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %39, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %12, align 8
@@ -28784,9 +28709,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
@@ -28830,8 +28754,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
-  %.not28 = icmp eq i64 %1, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -28845,165 +28769,239 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %18
+  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
-18:                                               ; preds = %.lr.ph, %88
-  %.026 = phi ptr [ %2, %.lr.ph ], [ %91, %88 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.1, %88 ]
-  %.02023 = phi i64 [ 0, %.lr.ph ], [ %89, %88 ]
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i64, ptr %3, i64 %.02023
-  %21 = load i64, ptr %20, align 8
-  %22 = load ptr, ptr %19, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %21)
-  br i1 %24, label %25, label %88
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %49
+  %.026.us = phi ptr [ %52, %49 ], [ %2, %.lr.ph ]
+  %.01925.us = phi i64 [ %.1.us, %49 ], [ 0, %.lr.ph ]
+  %.02023.us = phi i64 [ %50, %49 ], [ 0, %.lr.ph ]
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds i64, ptr %3, i64 %.02023.us
+  %20 = load i64, ptr %19, align 8
+  %21 = load ptr, ptr %18, align 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %20)
+  br i1 %23, label %24, label %49
 
-25:                                               ; preds = %18
-  %26 = load float, ptr %9, align 4
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = load float, ptr %9, align 4
+  %.val.i.us = load i64, ptr %10, align 8
+  %.not.i.i.us = icmp eq i64 %.val.i.us, 0
+  br i1 %.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, label %.lr.ph.i.preheader.i.us
+
+.lr.ph.i.preheader.i.us:                          ; preds = %24
+  %26 = load ptr, ptr %11, align 8
+  br label %.lr.ph.i.i.us
+
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.i.preheader.i.us
+  %.04.i.i.us = phi i64 [ %34, %.lr.ph.i.i.us ], [ 0, %.lr.ph.i.preheader.i.us ]
+  %.sroa.5.03.i.i.us = phi float [ %33, %.lr.ph.i.i.us ], [ 0.000000e+00, %.lr.ph.i.preheader.i.us ]
+  %.sroa.2.02.i.i.us = phi ptr [ %31, %.lr.ph.i.i.us ], [ %26, %.lr.ph.i.preheader.i.us ]
+  %sext.i.i.us = shl i64 %.04.i.i.us, 32
+  %27 = ashr exact i64 %sext.i.i.us, 32
+  %28 = getelementptr inbounds i8, ptr %.026.us, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %30 = uitofp i8 %29 to float
+  %31 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %32 = load float, ptr %.sroa.2.02.i.i.us, align 4
+  %33 = tail call float @llvm.fmuladd.f32(float %32, float %30, float %.sroa.5.03.i.i.us)
+  %34 = add nuw i64 %.04.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i64 %34, %.val.i.us
+  br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, label %.lr.ph.i.i.us, !llvm.loop !75
+
+_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %.lr.ph.i.i.us, %24
+  %.sroa.5.0.lcssa.i.i.us = phi float [ 0.000000e+00, %24 ], [ %33, %.lr.ph.i.i.us ]
+  %35 = fadd float %25, %.sroa.5.0.lcssa.i.i.us
+  %36 = load float, ptr %4, align 4
+  %37 = fcmp ogt float %35, %36
+  br i1 %37, label %38, label %49
+
+38:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
+  %39 = load i8, ptr %12, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %43, label %41
+
+41:                                               ; preds = %38
+  %42 = load i64, ptr %19, align 8
+  br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
+
+43:                                               ; preds = %38
+  %44 = load i64, ptr %13, align 8
+  %45 = shl i64 %44, 32
+  %46 = or i64 %45, %.02023.us
+  br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
+
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %41
+  %47 = phi i64 [ %46, %43 ], [ %42, %41 ]
+  store float %35, ptr %4, align 4
+  store i64 %47, ptr %5, align 8
+  %48 = add i64 %.01925.us, 1
+  br label %49
+
+49:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, %.lr.ph.split.us
+  %.1.us = phi i64 [ %48, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01925.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01925.us, %.lr.ph.split.us ]
+  %50 = add nuw i64 %.02023.us, 1
+  %51 = load i64, ptr %17, align 8
+  %52 = getelementptr inbounds i8, ptr %.026.us, i64 %51
+  %exitcond30.not = icmp eq i64 %50, %1
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !170
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %121
+  %.026 = phi ptr [ %124, %121 ], [ %2, %.lr.ph ]
+  %.01925 = phi i64 [ %.1, %121 ], [ 0, %.lr.ph ]
+  %.02023 = phi i64 [ %122, %121 ], [ 0, %.lr.ph ]
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %55 = load i64, ptr %54, align 8
+  %56 = load ptr, ptr %53, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %55)
+  br i1 %58, label %59, label %121
+
+59:                                               ; preds = %.lr.ph.split
+  %60 = load float, ptr %9, align 4
   %.val.i = load i64, ptr %10, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %25
-  %27 = load ptr, ptr %11, align 8
+.lr.ph.i.preheader.i:                             ; preds = %59
+  %61 = load ptr, ptr %11, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.04.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.sroa.5.03.i.i = phi float [ %34, %.lr.ph.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
-  %.sroa.2.02.i.i = phi ptr [ %32, %.lr.ph.i.i ], [ %27, %.lr.ph.i.preheader.i ]
+  %.04.i.i = phi i64 [ %69, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.sroa.5.03.i.i = phi float [ %68, %.lr.ph.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
+  %.sroa.2.02.i.i = phi ptr [ %66, %.lr.ph.i.i ], [ %61, %.lr.ph.i.preheader.i ]
   %sext.i.i = shl i64 %.04.i.i, 32
-  %28 = ashr exact i64 %sext.i.i, 32
-  %29 = getelementptr inbounds i8, ptr %.026, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = uitofp i8 %30 to float
-  %32 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
-  %33 = load float, ptr %.sroa.2.02.i.i, align 4
-  %34 = tail call float @llvm.fmuladd.f32(float %33, float %31, float %.sroa.5.03.i.i)
-  %35 = add nuw i64 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %35, %.val.i
+  %62 = ashr exact i64 %sext.i.i, 32
+  %63 = getelementptr inbounds i8, ptr %.026, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = uitofp i8 %64 to float
+  %66 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %67 = load float, ptr %.sroa.2.02.i.i, align 4
+  %68 = tail call float @llvm.fmuladd.f32(float %67, float %65, float %.sroa.5.03.i.i)
+  %69 = add nuw i64 %.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %69, %.val.i
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i, !llvm.loop !75
 
-_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %.lr.ph.i.i, %25
-  %.sroa.5.0.lcssa.i.i = phi float [ 0.000000e+00, %25 ], [ %34, %.lr.ph.i.i ]
-  %36 = fadd float %26, %.sroa.5.0.lcssa.i.i
-  %37 = load float, ptr %4, align 4
-  %38 = fcmp ogt float %36, %37
-  br i1 %38, label %39, label %88
+_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %.lr.ph.i.i, %59
+  %.sroa.5.0.lcssa.i.i = phi float [ 0.000000e+00, %59 ], [ %68, %.lr.ph.i.i ]
+  %70 = fadd float %60, %.sroa.5.0.lcssa.i.i
+  %71 = load float, ptr %4, align 4
+  %72 = fcmp ogt float %70, %71
+  br i1 %72, label %73, label %121
 
-39:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
-  %40 = load i8, ptr %12, align 1
-  %41 = and i8 %40, 1
-  %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %46, label %42
+73:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
+  %74 = load i8, ptr %12, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %80
 
-42:                                               ; preds = %39
-  %43 = load i64, ptr %13, align 8
-  %44 = shl i64 %43, 32
-  %45 = or i64 %44, %.02023
-  br label %48
+76:                                               ; preds = %73
+  %77 = load i64, ptr %13, align 8
+  %78 = shl i64 %77, 32
+  %79 = or i64 %78, %.02023
+  br label %.lr.ph.preheader.i.i
 
-46:                                               ; preds = %39
-  %47 = load i64, ptr %20, align 8
-  br label %48
+80:                                               ; preds = %73
+  %81 = load i64, ptr %54, align 8
+  br label %.lr.ph.preheader.i.i
 
-48:                                               ; preds = %46, %42
-  %49 = phi i64 [ %45, %42 ], [ %47, %46 ]
-  br i1 %16, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %.lr.ph.i.i22
+.lr.ph.preheader.i.i:                             ; preds = %80, %76
+  %82 = phi i64 [ %79, %76 ], [ %81, %80 ]
+  br label %.lr.ph.i.i22
 
-.lr.ph.i.i22:                                     ; preds = %48, %78
-  %50 = phi i64 [ %83, %78 ], [ 3, %48 ]
-  %51 = phi i64 [ %82, %78 ], [ 2, %48 ]
-  %.056.i.i = phi i64 [ %.1.i.i, %78 ], [ 1, %48 ]
-  %52 = icmp eq i64 %51, %6
-  br i1 %52, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i, label %53
+.lr.ph.i.i22:                                     ; preds = %111, %.lr.ph.preheader.i.i
+  %83 = phi i64 [ %116, %111 ], [ 3, %.lr.ph.preheader.i.i ]
+  %84 = phi i64 [ %115, %111 ], [ 2, %.lr.ph.preheader.i.i ]
+  %.056.i.i = phi i64 [ %.1.i.i, %111 ], [ 1, %.lr.ph.preheader.i.i ]
+  %85 = icmp eq i64 %84, %6
+  br i1 %85, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i, label %86
 
 .lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i: ; preds = %.lr.ph.i.i22
   %.pre.i.i = load float, ptr %.phi.trans.insert.i.i, align 4
   br label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
 
-53:                                               ; preds = %.lr.ph.i.i22
-  %54 = getelementptr inbounds float, ptr %14, i64 %51
-  %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds float, ptr %14, i64 %50
-  %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds i64, ptr %15, i64 %50
-  %59 = load i64, ptr %58, align 8
-  %60 = fcmp olt float %55, %57
-  br i1 %60, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
+86:                                               ; preds = %.lr.ph.i.i22
+  %87 = getelementptr inbounds float, ptr %14, i64 %84
+  %88 = load float, ptr %87, align 4
+  %89 = getelementptr inbounds float, ptr %14, i64 %83
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds i64, ptr %15, i64 %83
+  %92 = load i64, ptr %91, align 8
+  %93 = fcmp olt float %88, %90
+  br i1 %93, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
 
-_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i:            ; preds = %53
-  %61 = getelementptr inbounds i64, ptr %15, i64 %51
-  %62 = load i64, ptr %61, align 8
-  %63 = fcmp oeq float %55, %57
-  %64 = icmp slt i64 %62, %59
-  %65 = and i1 %63, %64
-  br i1 %65, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %73
+_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i:            ; preds = %86
+  %94 = getelementptr inbounds i64, ptr %15, i64 %84
+  %95 = load i64, ptr %94, align 8
+  %96 = fcmp oeq float %88, %90
+  %97 = icmp slt i64 %95, %92
+  %98 = and i1 %96, %97
+  br i1 %98, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, label %106
 
-_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i:     ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i, %53, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i
-  %66 = phi float [ %.pre.i.i, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i ], [ %55, %53 ], [ %55, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i ]
-  %67 = fcmp ogt float %66, %36
-  br i1 %67, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
+_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i:     ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i, %86, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i
+  %99 = phi float [ %.pre.i.i, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i ], [ %88, %86 ], [ %88, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i ]
+  %100 = fcmp ogt float %99, %70
+  br i1 %100, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
-  %68 = getelementptr inbounds i64, ptr %15, i64 %51
-  %69 = load i64, ptr %68, align 8
-  %70 = fcmp oeq float %66, %36
-  %71 = icmp sgt i64 %69, %49
-  %72 = and i1 %70, %71
-  br i1 %72, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %78
+  %101 = getelementptr inbounds i64, ptr %15, i64 %84
+  %102 = load i64, ptr %101, align 8
+  %103 = fcmp oeq float %99, %70
+  %104 = icmp sgt i64 %102, %82
+  %105 = and i1 %103, %104
+  br i1 %105, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %111
 
-73:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
-  %74 = fcmp ogt float %57, %36
-  br i1 %74, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i
+106:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
+  %107 = fcmp ogt float %90, %70
+  br i1 %107, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i
 
-_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %73
-  %75 = fcmp oeq float %57, %36
-  %76 = icmp sgt i64 %59, %49
-  %77 = and i1 %75, %76
-  br i1 %77, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %78
+_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %106
+  %108 = fcmp oeq float %90, %70
+  %109 = icmp sgt i64 %92, %82
+  %110 = and i1 %108, %109
+  br i1 %110, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %111
 
-78:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink.i.i = phi float [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %57, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
-  %.sink63.i.i = phi ptr [ %68, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %58, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
-  %.1.i.i = phi i64 [ %51, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %50, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
-  %79 = getelementptr inbounds float, ptr %14, i64 %.056.i.i
-  store float %.sink.i.i, ptr %79, align 4
-  %80 = load i64, ptr %.sink63.i.i, align 8
-  %81 = getelementptr inbounds i64, ptr %15, i64 %.056.i.i
-  store i64 %80, ptr %81, align 8
-  %82 = shl i64 %.1.i.i, 1
-  %83 = or disjoint i64 %82, 1
-  %84 = icmp ugt i64 %82, %6
-  br i1 %84, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %.lr.ph.i.i22, !llvm.loop !125
+111:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
+  %.sink.i.i = phi float [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %90, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink63.i.i = phi ptr [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.1.i.i = phi i64 [ %84, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %83, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %112 = getelementptr inbounds float, ptr %14, i64 %.056.i.i
+  store float %.sink.i.i, ptr %112, align 4
+  %113 = load i64, ptr %.sink63.i.i, align 8
+  %114 = getelementptr inbounds i64, ptr %15, i64 %.056.i.i
+  store i64 %113, ptr %114, align 8
+  %115 = shl i64 %.1.i.i, 1
+  %116 = or disjoint i64 %115, 1
+  %117 = icmp ugt i64 %115, %6
+  br i1 %117, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %.lr.ph.i.i22, !llvm.loop !125
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i, %73, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %78, %48
-  %.0.lcssa.i.i = phi i64 [ 1, %48 ], [ %.056.i.i, %73 ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %.1.i.i, %78 ]
-  %85 = getelementptr inbounds float, ptr %14, i64 %.0.lcssa.i.i
-  store float %36, ptr %85, align 4
-  %86 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i
-  store i64 %49, ptr %86, align 8
-  %87 = add i64 %.01925, 1
-  br label %88
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %111, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
+  %.0.lcssa.i.i.ph = phi i64 [ %.056.i.i, %106 ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ], [ %.056.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %.1.i.i, %111 ]
+  %118 = getelementptr inbounds float, ptr %14, i64 %.0.lcssa.i.i.ph
+  store float %70, ptr %118, align 4
+  %119 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i.ph
+  store i64 %82, ptr %119, align 8
+  %120 = add i64 %.01925, 1
+  br label %121
 
-88:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %18
-  %.1 = phi i64 [ %87, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %18 ]
-  %89 = add nuw i64 %.02023, 1
-  %90 = load i64, ptr %17, align 8
-  %91 = getelementptr inbounds i8, ptr %.026, i64 %90
-  %exitcond.not = icmp eq i64 %89, %1
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !170
+121:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph.split
+  %.1 = phi i64 [ %120, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %.lr.ph.split ]
+  %122 = add nuw i64 %.02023, 1
+  %123 = load i64, ptr %17, align 8
+  %124 = getelementptr inbounds i8, ptr %.026, i64 %123
+  %exitcond.not = icmp eq i64 %122, %1
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !170
 
-._crit_edge:                                      ; preds = %88, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %88 ]
+._crit_edge:                                      ; preds = %121, %49, %7
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %49 ], [ %.1, %121 ]
   ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not21 = icmp eq i64 %1, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -29060,9 +29058,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 34:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %35 = load i8, ptr %11, align 1
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %41, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %12, align 8
@@ -29114,9 +29111,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, float 0.000000e+00, float %2
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, float %2, float 0.000000e+00
   %9 = getelementptr inbounds i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
@@ -29160,8 +29156,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
-  %.not25 = icmp eq i64 %1, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 92
@@ -29214,23 +29210,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 30:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
   %31 = load i8, ptr %11, align 1
-  %32 = and i8 %31, 1
-  %.not.us = icmp eq i8 %32, 0
-  br i1 %.not.us, label %37, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load i64, ptr %12, align 8
-  %35 = shl i64 %34, 32
-  %36 = or i64 %35, %.01821.us
+  %34 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %35 = load i64, ptr %34, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
-  %39 = load i64, ptr %38, align 8
+36:                                               ; preds = %30
+  %37 = load i64, ptr %12, align 8
+  %38 = shl i64 %37, 32
+  %39 = or i64 %38, %.01821.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
-_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %37, %33
-  %40 = phi i64 [ %36, %33 ], [ %39, %37 ]
+_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %36, %33
+  %40 = phi i64 [ %39, %36 ], [ %35, %33 ]
   store float %27, ptr %4, align 4
   store i64 %40, ptr %5, align 8
   %41 = add i64 %.01723.us, 1
@@ -29241,8 +29236,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %37, %33
   %43 = add nuw i64 %.01821.us, 1
   %44 = load i64, ptr %16, align 8
   %45 = getelementptr inbounds i8, ptr %.024.us, i64 %44
-  %exitcond28.not = icmp eq i64 %43, %1
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !172
+  %exitcond27.not = icmp eq i64 %43, %1
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !172
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.024 = phi ptr [ %111, %108 ], [ %2, %.lr.ph ]
@@ -29282,9 +29277,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 59:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %60 = load i8, ptr %11, align 1
-  %61 = and i8 %60, 1
-  %.not = icmp eq i8 %61, 0
-  br i1 %.not, label %66, label %62
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %66
 
 62:                                               ; preds = %59
   %63 = load i64, ptr %12, align 8
@@ -29391,8 +29385,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %98, %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16scan_codes_rangeEmPKhPKlfRNS_16RangeQueryResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  %.not18 = icmp eq i64 %1, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %0, i64 92
@@ -29439,9 +29433,8 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 26:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
   %27 = load i8, ptr %10, align 1
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %33, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %33
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %11, align 8

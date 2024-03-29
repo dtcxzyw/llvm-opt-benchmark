@@ -552,9 +552,8 @@ if.end39:                                         ; preds = %_ZNK6hermes2vm15Dic
 land.rhs.i.i:                                     ; preds = %if.end39
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %25 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %26 = and i8 %25, 1
-  %tobool.not.i.i = icmp eq i8 %26, 0
-  br i1 %tobool.not.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %25 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %add.ptr, align 4
@@ -564,22 +563,22 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 _ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %if.end39, %land.rhs.i.i, %if.then.i.i
   store i32 %id.coerce, ptr %add.ptr, align 4
   %numDescriptors_55 = getelementptr inbounds i8, ptr %self.0, i64 12
-  %27 = atomicrmw add ptr %numDescriptors_55, i32 1 acq_rel, align 4
+  %26 = atomicrmw add ptr %numDescriptors_55, i32 1 acq_rel, align 4
   %second59 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
   %second59.sink = phi ptr [ %second59, %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit ], [ %second7, %if.then ]
   %.sink.ph = phi i8 [ 1, %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit ], [ 0, %if.then ]
-  %hasVal.i.i.i86 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 1, ptr %hasVal.i.i.i86, align 8
+  %hasVal.i.i.i87 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store i8 1, ptr %hasVal.i.i.i87, align 8
   store ptr %second59.sink, ptr %agg.result, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end26
-  %.sink109 = phi i64 [ 16, %if.end26 ], [ 8, %return.sink.split ]
+  %.sink110 = phi i64 [ 16, %if.end26 ], [ 8, %return.sink.split ]
   %.sink = phi i8 [ 0, %if.end26 ], [ %.sink.ph, %return.sink.split ]
-  %ref.tmp57.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 %.sink109
+  %ref.tmp57.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 %.sink110
   store i8 %.sink, ptr %ref.tmp57.sroa.2.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -614,9 +613,8 @@ entry:
 land.rhs.i.i:                                     ; preds = %entry
   %ogMarkingBarriers_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
   %4 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %add.ptr4, align 4
@@ -626,17 +624,17 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 _ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %entry, %land.rhs.i.i, %if.then.i.i
   store i32 536870910, ptr %add.ptr4, align 4
   %deletedListHead_ = getelementptr inbounds i8, ptr %self, i64 20
-  %6 = load i32, ptr %deletedListHead_, align 4
+  %5 = load i32, ptr %deletedListHead_, align 4
   %second.i = getelementptr inbounds i8, ptr %add.ptr4, i64 4
-  store i32 %6, ptr %second.i, align 4
+  store i32 %5, ptr %second.i, align 4
   store i32 %sub.i, ptr %deletedListHead_, align 4
   %deletedListSize_ = getelementptr inbounds i8, ptr %self, i64 24
-  %7 = load i32, ptr %deletedListSize_, align 4
-  %inc = add i32 %7, 1
+  %6 = load i32, ptr %deletedListSize_, align 4
+  %inc = add i32 %6, 1
   store i32 %inc, ptr %deletedListSize_, align 4
   %numProperties_ = getelementptr inbounds i8, ptr %self, i64 16
-  %8 = load i32, ptr %numProperties_, align 4
-  %dec = add i32 %8, -1
+  %7 = load i32, ptr %numProperties_, align 4
+  %dec = add i32 %7, -1
   store i32 %dec, ptr %numProperties_, align 4
   ret void
 }

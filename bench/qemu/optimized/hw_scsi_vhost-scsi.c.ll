@@ -198,9 +198,8 @@ if.then20:                                        ; preds = %if.end18
 if.end21:                                         ; preds = %if.end18
   %migratable = getelementptr inbounds i8, ptr %call.i32, i64 1344
   %5 = load i8, ptr %migratable, align 8
-  %6 = and i8 %5, 1
-  %tobool22.not = icmp eq i8 %6, 0
-  br i1 %tobool22.not, label %if.then23, label %if.end29
+  %tobool22 = trunc i8 %5 to i1
+  br i1 %tobool22, label %if.end29, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
   %migration_blocker = getelementptr inbounds i8, ptr %call.i32, i64 664
@@ -210,8 +209,8 @@ if.then23:                                        ; preds = %if.end21
   br i1 %cmp26, label %free_virtio, label %if.end29
 
 if.end29:                                         ; preds = %if.then23, %if.end21
-  %7 = load i32, ptr %conf, align 8
-  %add = add i32 %7, 2
+  %6 = load i32, ptr %conf, align 8
+  %add = add i32 %6, 2
   %dev31 = getelementptr inbounds i8, ptr %call.i32, i64 672
   %nvqs = getelementptr inbounds i8, ptr %call.i32, i64 1112
   store i32 %add, ptr %nvqs, align 8
@@ -224,17 +223,16 @@ if.end29:                                         ; preds = %if.then23, %if.end2
   %backend_features = getelementptr inbounds i8, ptr %call.i32, i64 1144
   store i64 0, ptr %backend_features, align 8
   %conv40 = sext i32 %vhostfd.0 to i64
-  %8 = inttoptr i64 %conv40 to ptr
-  %call41 = call i32 @vhost_dev_init(ptr noundef nonnull %dev31, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef %errp) #10
+  %7 = inttoptr i64 %conv40 to ptr
+  %call41 = call i32 @vhost_dev_init(ptr noundef nonnull %dev31, ptr noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %errp) #10
   %cmp42 = icmp slt i32 %call41, 0
   br i1 %cmp42, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end29
   call void @g_free(ptr noundef %call34) #10
-  %9 = load i8, ptr %migratable, align 8
-  %10 = and i8 %9, 1
-  %tobool48.not = icmp eq i8 %10, 0
-  br i1 %tobool48.not, label %if.then49, label %free_virtio
+  %8 = load i8, ptr %migratable, align 8
+  %tobool48 = trunc i8 %8 to i1
+  br i1 %tobool48, label %free_virtio, label %if.then49
 
 if.end45:                                         ; preds = %if.end29
   %channel = getelementptr inbounds i8, ptr %call.i32, i64 1324
@@ -242,9 +240,9 @@ if.end45:                                         ; preds = %if.end29
   %lun = getelementptr inbounds i8, ptr %call.i32, i64 1332
   store i32 0, ptr %lun, align 4
   %boot_tpgt = getelementptr inbounds i8, ptr %call.i, i64 616
-  %11 = load i32, ptr %boot_tpgt, align 8
+  %9 = load i32, ptr %boot_tpgt, align 8
   %target = getelementptr inbounds i8, ptr %call.i32, i64 1328
-  store i32 %11, ptr %target, align 8
+  store i32 %9, ptr %target, align 8
   br label %return
 
 if.then49:                                        ; preds = %if.then44
@@ -279,9 +277,8 @@ entry:
   %0 = load ptr, ptr %vqs3, align 8
   %migratable = getelementptr inbounds i8, ptr %call.i6, i64 1344
   %1 = load i8, ptr %migratable, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %migration_blocker = getelementptr inbounds i8, ptr %call.i6, i64 664
@@ -312,17 +309,15 @@ entry:
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running, align 2
-  %1 = and i8 %0, 1
-  %tobool2.not = icmp ne i8 %1, 0
-  %2 = and i8 %val, 4
-  %3 = icmp ne i8 %2, 0
-  %4 = getelementptr i8, ptr %call.i6, i64 1176
-  %dev.val = load i8, ptr %4, align 8
-  %5 = and i8 %dev.val, 1
-  %tobool.i = icmp ne i8 %5, 0
-  %tobool5 = and i1 %3, %tobool2.not
-  %6 = xor i1 %tobool.i, %tobool5
-  br i1 %6, label %if.end9, label %if.end18
+  %tobool2 = trunc i8 %0 to i1
+  %1 = and i8 %val, 4
+  %2 = icmp ne i8 %1, 0
+  %3 = getelementptr i8, ptr %call.i6, i64 1176
+  %dev.val = load i8, ptr %3, align 8
+  %tobool.i = trunc i8 %dev.val to i1
+  %tobool5 = and i1 %2, %tobool2
+  %4 = xor i1 %tobool5, %tobool.i
+  br i1 %4, label %if.end9, label %if.end18
 
 if.end9:                                          ; preds = %entry
   br i1 %tobool5, label %if.then11, label %if.else
@@ -333,21 +328,21 @@ if.then11:                                        ; preds = %if.end9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
   %dev.i = getelementptr inbounds i8, ptr %call.i.i, i64 672
   %vhost_ops1.i = getelementptr inbounds i8, ptr %call.i.i, i64 1200
-  %7 = load ptr, ptr %vhost_ops1.i, align 8
+  %5 = load ptr, ptr %vhost_ops1.i, align 8
   store ptr null, ptr %local_err.i, align 8
-  %vhost_scsi_get_abi_version.i = getelementptr inbounds i8, ptr %7, i64 72
-  %8 = load ptr, ptr %vhost_scsi_get_abi_version.i, align 8
-  %call3.i = call i32 %8(ptr noundef nonnull %dev.i, ptr noundef nonnull %abi_version.i) #10
+  %vhost_scsi_get_abi_version.i = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = load ptr, ptr %vhost_scsi_get_abi_version.i, align 8
+  %call3.i = call i32 %6(ptr noundef nonnull %dev.i, ptr noundef nonnull %abi_version.i) #10
   %cmp.i = icmp slt i32 %call3.i, 0
   br i1 %cmp.i, label %vhost_scsi_start.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then11
-  %9 = load i32, ptr %abi_version.i, align 4
-  %cmp5.i = icmp sgt i32 %9, 1
+  %7 = load i32, ptr %abi_version.i, align 4
+  %cmp5.i = icmp sgt i32 %7, 1
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %9, i32 noundef 1) #10
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %7, i32 noundef 1) #10
   br label %vhost_scsi_start.exit.thread
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -356,8 +351,8 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %10 = load ptr, ptr %local_err.i, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %10, ptr noundef nonnull @.str.35) #10
+  %8 = load ptr, ptr %local_err.i, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %8, ptr noundef nonnull @.str.35) #10
   br label %vhost_scsi_start.exit.thread
 
 if.end11.i:                                       ; preds = %if.end7.i
@@ -366,15 +361,15 @@ if.end11.i:                                       ; preds = %if.end7.i
   %call.i3.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
   %dev.i.i = getelementptr inbounds i8, ptr %call.i3.i.i, i64 672
   %vhost_ops2.i.i = getelementptr inbounds i8, ptr %call.i3.i.i, i64 1200
-  %11 = load ptr, ptr %vhost_ops2.i.i, align 8
+  %9 = load ptr, ptr %vhost_ops2.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(232) %backend.i.i, i8 0, i64 232, i1 false)
   %vhost_wwpn.i.i = getelementptr inbounds i8, ptr %backend.i.i, i64 4
   %wwpn.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 552
-  %12 = load ptr, ptr %wwpn.i.i, align 8
-  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i, i32 noundef 224, ptr noundef %12) #10
-  %vhost_scsi_set_endpoint.i.i = getelementptr inbounds i8, ptr %11, i64 56
-  %13 = load ptr, ptr %vhost_scsi_set_endpoint.i.i, align 8
-  %call4.i.i = call i32 %13(ptr noundef nonnull %dev.i.i, ptr noundef nonnull %backend.i.i) #10
+  %10 = load ptr, ptr %wwpn.i.i, align 8
+  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i, i32 noundef 224, ptr noundef %10) #10
+  %vhost_scsi_set_endpoint.i.i = getelementptr inbounds i8, ptr %9, i64 56
+  %11 = load ptr, ptr %vhost_scsi_set_endpoint.i.i, align 8
+  %call4.i.i = call i32 %11(ptr noundef nonnull %dev.i.i, ptr noundef nonnull %backend.i.i) #10
   %cmp.i.i = icmp slt i32 %call4.i.i, 0
   br i1 %cmp.i.i, label %vhost_scsi_set_endpoint.exit.i, label %vhost_scsi_set_endpoint.exit.thread.i
 
@@ -384,15 +379,15 @@ vhost_scsi_set_endpoint.exit.thread.i:            ; preds = %if.end11.i
 
 vhost_scsi_set_endpoint.exit.i:                   ; preds = %if.end11.i
   %call5.i.i = tail call ptr @__errno_location() #11
-  %14 = load i32, ptr %call5.i.i, align 4
-  %sub.i.i = sub i32 0, %14
+  %12 = load i32, ptr %call5.i.i, align 4
+  %sub.i.i = sub i32 0, %12
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %backend.i.i)
   %cmp13.i = icmp slt i32 %sub.i.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %vhost_scsi_start.exit.thread21
 
 if.then14.i:                                      ; preds = %vhost_scsi_set_endpoint.exit.i
-  %15 = load ptr, ptr %local_err.i, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %15, ptr noundef nonnull @.str.36) #10
+  %13 = load ptr, ptr %local_err.i, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %13, ptr noundef nonnull @.str.36) #10
   call void @vhost_scsi_common_stop(ptr noundef nonnull %call.i.i) #10
   br label %vhost_scsi_start.exit.thread
 
@@ -409,8 +404,8 @@ vhost_scsi_start.exit.thread21:                   ; preds = %vhost_scsi_set_endp
 
 vhost_scsi_start.exit:                            ; preds = %if.then11
   %call4.i = tail call ptr @__errno_location() #11
-  %16 = load i32, ptr %call4.i, align 4
-  %sub.i = sub i32 0, %16
+  %14 = load i32, ptr %call4.i, align 4
+  %sub.i = sub i32 0, %14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %abi_version.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   %cmp13 = icmp slt i32 %sub.i, 0
@@ -431,15 +426,15 @@ if.else:                                          ; preds = %if.end9
   %call.i3.i.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
   %dev.i.i11 = getelementptr inbounds i8, ptr %call.i3.i.i10, i64 672
   %vhost_ops2.i.i12 = getelementptr inbounds i8, ptr %call.i3.i.i10, i64 1200
-  %17 = load ptr, ptr %vhost_ops2.i.i12, align 8
+  %15 = load ptr, ptr %vhost_ops2.i.i12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(232) %backend.i.i7, i8 0, i64 232, i1 false)
   %vhost_wwpn.i.i13 = getelementptr inbounds i8, ptr %backend.i.i7, i64 4
   %wwpn.i.i14 = getelementptr inbounds i8, ptr %call.i.i.i9, i64 552
-  %18 = load ptr, ptr %wwpn.i.i14, align 8
-  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i13, i32 noundef 224, ptr noundef %18) #10
-  %vhost_scsi_clear_endpoint.i.i = getelementptr inbounds i8, ptr %17, i64 64
-  %19 = load ptr, ptr %vhost_scsi_clear_endpoint.i.i, align 8
-  %call4.i.i15 = call i32 %19(ptr noundef nonnull %dev.i.i11, ptr noundef nonnull %backend.i.i7) #10
+  %16 = load ptr, ptr %wwpn.i.i14, align 8
+  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i13, i32 noundef 224, ptr noundef %16) #10
+  %vhost_scsi_clear_endpoint.i.i = getelementptr inbounds i8, ptr %15, i64 64
+  %17 = load ptr, ptr %vhost_scsi_clear_endpoint.i.i, align 8
+  %call4.i.i15 = call i32 %17(ptr noundef nonnull %dev.i.i11, ptr noundef nonnull %backend.i.i7) #10
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %backend.i.i7)
   call void @vhost_scsi_common_stop(ptr noundef %call.i.i8) #10
   br label %if.end18
@@ -466,9 +461,8 @@ define internal noundef i32 @vhost_scsi_pre_save(ptr nocapture noundef readonly 
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 1176
   %dev.val = load i8, ptr %0, align 8
-  %1 = and i8 %dev.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %dev.val to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_scsi_pre_save) #13

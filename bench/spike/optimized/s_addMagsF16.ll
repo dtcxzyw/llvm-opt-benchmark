@@ -17,7 +17,7 @@ define i16 @softfloat_addMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %9 = and i8 %8, 31
   %10 = and i64 %1, 1023
   %.not = icmp eq i8 %5, %9
-  br i1 %.not, label %11, label %29
+  br i1 %.not, label %11, label %28
 
 11:                                               ; preds = %2
   switch i8 %5, label %16 [
@@ -27,203 +27,198 @@ define i16 @softfloat_addMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
 
 12:                                               ; preds = %11
   %13 = add i64 %10, %0
-  br label %111
+  br label %108
 
 14:                                               ; preds = %11
   %15 = or i64 %10, %6
   %.not105 = icmp eq i64 %15, 0
-  br i1 %.not105, label %111, label %84
+  br i1 %.not105, label %108, label %82
 
 16:                                               ; preds = %11
-  %17 = lshr i64 %0, 15
-  %18 = trunc i64 %17 to i8
-  %19 = and i8 %18, 1
-  %20 = or disjoint i64 %6, 2048
-  %21 = add nuw nsw i64 %20, %10
-  %22 = and i64 %21, 1
-  %23 = icmp eq i64 %22, 0
-  %24 = icmp ult i8 %5, 30
-  %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %25, label %27
+  %17 = or disjoint i64 %6, 2048
+  %18 = add nuw nsw i64 %17, %10
+  %19 = and i64 %18, 1
+  %20 = icmp eq i64 %19, 0
+  %21 = icmp ult i8 %5, 30
+  %or.cond = and i1 %21, %20
+  br i1 %or.cond, label %22, label %25
+
+22:                                               ; preds = %16
+  %23 = lshr exact i64 %18, 1
+  %24 = and i64 %0, 8355840
+  br label %102
 
 25:                                               ; preds = %16
-  %26 = lshr exact i64 %21, 1
-  br label %104
+  %26 = shl nuw nsw i64 %18, 3
+  %27 = and i64 %0, 32768
+  br label %78
 
-27:                                               ; preds = %16
-  %28 = shl nuw nsw i64 %21, 3
-  br label %80
+28:                                               ; preds = %2
+  %29 = sub nsw i8 %5, %9
+  %30 = and i64 %0, 32768
+  %31 = icmp slt i8 %29, 0
+  br i1 %31, label %32, label %48
 
-29:                                               ; preds = %2
-  %30 = sub nsw i8 %5, %9
-  %31 = and i64 %0, 32768
-  %.lobit = lshr exact i64 %31, 15
-  %32 = trunc i64 %.lobit to i8
-  %33 = icmp slt i8 %30, 0
-  br i1 %33, label %34, label %50
+32:                                               ; preds = %28
+  %33 = icmp eq i8 %9, 31
+  br i1 %33, label %34, label %37
 
-34:                                               ; preds = %29
-  %35 = icmp eq i8 %9, 31
-  br i1 %35, label %36, label %39
+34:                                               ; preds = %32
+  %.not115 = icmp eq i64 %10, 0
+  br i1 %.not115, label %35, label %82
 
-36:                                               ; preds = %34
-  %.not116 = icmp eq i64 %10, 0
-  br i1 %.not116, label %37, label %84
+35:                                               ; preds = %34
+  %36 = or disjoint i64 %30, 31744
+  br label %108
 
-37:                                               ; preds = %36
-  %38 = or disjoint i64 %31, 31744
-  br label %111
+37:                                               ; preds = %32
+  %38 = icmp ult i8 %29, -12
+  br i1 %38, label %39, label %45
 
-39:                                               ; preds = %34
-  %40 = icmp ult i8 %30, -12
-  br i1 %40, label %41, label %47
+39:                                               ; preds = %37
+  %40 = and i64 %1, 31744
+  %41 = or disjoint i64 %40, %30
+  %42 = or disjoint i64 %41, %10
+  %43 = and i64 %3, 31
+  %44 = or i64 %43, %6
+  %.not112 = icmp eq i64 %44, 0
+  br i1 %.not112, label %108, label %84
 
-41:                                               ; preds = %39
-  %42 = and i64 %1, 31744
-  %43 = or disjoint i64 %42, %31
-  %44 = or disjoint i64 %43, %10
-  %45 = and i64 %3, 31
-  %46 = or i64 %45, %6
-  %.not113 = icmp eq i64 %46, 0
-  br i1 %.not113, label %111, label %86
-
-47:                                               ; preds = %39
+45:                                               ; preds = %37
   %.not109 = icmp eq i8 %5, 0
-  %48 = select i1 %.not109, i64 %6, i64 1024
-  %49 = add nuw nsw i64 %48, %6
-  %narrow = add nsw i8 %30, 19
-  br label %62
+  %46 = select i1 %.not109, i64 %6, i64 1024
+  %47 = add nuw nsw i64 %46, %6
+  %narrow = add nsw i8 %29, 19
+  br label %60
 
-50:                                               ; preds = %29
-  %51 = icmp eq i8 %5, 31
-  br i1 %51, label %52, label %53
+48:                                               ; preds = %28
+  %49 = icmp eq i8 %5, 31
+  br i1 %49, label %50, label %51
 
-52:                                               ; preds = %50
+50:                                               ; preds = %48
   %.not108 = icmp eq i64 %6, 0
-  br i1 %.not108, label %111, label %84
+  br i1 %.not108, label %108, label %82
 
-53:                                               ; preds = %50
-  %54 = icmp ugt i8 %30, 12
-  br i1 %54, label %55, label %58
+51:                                               ; preds = %48
+  %52 = icmp ugt i8 %29, 12
+  br i1 %52, label %53, label %56
 
-55:                                               ; preds = %53
-  %56 = and i64 %7, 31
-  %57 = or i64 %56, %10
-  %.not107 = icmp eq i64 %57, 0
-  br i1 %.not107, label %111, label %86
+53:                                               ; preds = %51
+  %54 = and i64 %7, 31
+  %55 = or i64 %54, %10
+  %.not107 = icmp eq i64 %55, 0
+  br i1 %.not107, label %108, label %84
 
-58:                                               ; preds = %53
+56:                                               ; preds = %51
   %.not106 = icmp eq i8 %9, 0
-  %59 = select i1 %.not106, i64 %10, i64 1024
-  %60 = add nuw nsw i64 %59, %10
-  %61 = sub nuw nsw i8 19, %30
-  br label %62
+  %57 = select i1 %.not106, i64 %10, i64 1024
+  %58 = add nuw nsw i64 %57, %10
+  %59 = sub nuw nsw i8 19, %29
+  br label %60
 
-62:                                               ; preds = %58, %47
-  %.091 = phi i8 [ %9, %47 ], [ %5, %58 ]
-  %.088.in = phi i64 [ %10, %47 ], [ %6, %58 ]
-  %.087 = phi i64 [ %49, %47 ], [ %60, %58 ]
-  %.086 = phi i8 [ %narrow, %47 ], [ %61, %58 ]
+60:                                               ; preds = %56, %45
+  %.091 = phi i8 [ %9, %45 ], [ %5, %56 ]
+  %.088.in = phi i64 [ %10, %45 ], [ %6, %56 ]
+  %.087 = phi i64 [ %47, %45 ], [ %58, %56 ]
+  %.086 = phi i8 [ %narrow, %45 ], [ %59, %56 ]
   %.088 = shl nuw nsw i64 %.088.in, 19
-  %63 = or disjoint i64 %.088, 536870912
-  %64 = zext nneg i8 %.086 to i64
-  %65 = shl nuw nsw i64 %.087, %64
-  %66 = add nuw nsw i64 %63, %65
-  %67 = icmp ult i64 %66, 1073741824
-  %68 = sext i1 %67 to i8
-  %.192 = add nsw i8 %.091, %68
-  %69 = zext i1 %67 to i64
-  %.085 = shl nuw nsw i64 %66, %69
-  %70 = lshr i64 %.085, 16
-  %71 = and i64 %.085, 65535
-  %.not110 = icmp eq i64 %71, 0
-  br i1 %.not110, label %74, label %72
+  %61 = or disjoint i64 %.088, 536870912
+  %62 = zext nneg i8 %.086 to i64
+  %63 = shl nuw nsw i64 %.087, %62
+  %64 = add nuw nsw i64 %61, %63
+  %65 = icmp ult i64 %64, 1073741824
+  %66 = sext i1 %65 to i8
+  %.192 = add nsw i8 %.091, %66
+  %67 = zext i1 %65 to i64
+  %.085 = shl nuw nsw i64 %64, %67
+  %68 = lshr i64 %.085, 16
+  %69 = and i64 %.085, 65535
+  %.not110 = icmp eq i64 %69, 0
+  br i1 %.not110, label %72, label %70
 
-72:                                               ; preds = %62
-  %73 = or i64 %70, 1
-  br label %80
+70:                                               ; preds = %60
+  %71 = or i64 %68, 1
+  br label %78
 
-74:                                               ; preds = %62
-  %75 = and i64 %.085, 983040
-  %76 = icmp eq i64 %75, 0
-  %77 = icmp slt i8 %.192, 30
-  %or.cond5 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond5, label %78, label %80
+72:                                               ; preds = %60
+  %73 = and i64 %.085, 983040
+  %74 = icmp eq i64 %73, 0
+  %75 = icmp slt i8 %.192, 30
+  %or.cond5 = select i1 %74, i1 %75, i1 false
+  br i1 %or.cond5, label %76, label %78
 
-78:                                               ; preds = %74
-  %79 = lshr exact i64 %.085, 20
-  br label %104
+76:                                               ; preds = %72
+  %77 = lshr exact i64 %.085, 20
+  br label %102
 
-80:                                               ; preds = %72, %74, %27
-  %.094 = phi i8 [ %32, %72 ], [ %32, %74 ], [ %19, %27 ]
-  %.293 = phi i8 [ %.192, %72 ], [ %.192, %74 ], [ %5, %27 ]
-  %.089 = phi i64 [ %73, %72 ], [ %70, %74 ], [ %28, %27 ]
-  %81 = icmp ne i8 %.094, 0
-  %82 = sext i8 %.293 to i64
-  %83 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %81, i64 noundef %82, i64 noundef %.089) #2
-  br label %113
+78:                                               ; preds = %70, %72, %25
+  %.094.in.in = phi i64 [ %30, %70 ], [ %30, %72 ], [ %27, %25 ]
+  %.293 = phi i8 [ %.192, %70 ], [ %.192, %72 ], [ %5, %25 ]
+  %.089 = phi i64 [ %71, %70 ], [ %68, %72 ], [ %26, %25 ]
+  %79 = icmp ne i64 %.094.in.in, 0
+  %80 = sext i8 %.293 to i64
+  %81 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %79, i64 noundef %80, i64 noundef %.089) #2
+  br label %110
 
-84:                                               ; preds = %52, %36, %14
-  %85 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %0, i64 noundef %1) #2
-  br label %111
+82:                                               ; preds = %50, %34, %14
+  %83 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %0, i64 noundef %1) #2
+  br label %108
 
-86:                                               ; preds = %55, %41
-  %.0 = phi i64 [ %44, %41 ], [ %0, %55 ]
-  %87 = load i8, ptr @softfloat_roundingMode, align 1
-  %.not114 = icmp eq i8 %87, 0
-  br i1 %.not114, label %101, label %88
+84:                                               ; preds = %53, %39
+  %.0 = phi i64 [ %42, %39 ], [ %0, %53 ]
+  %85 = load i8, ptr @softfloat_roundingMode, align 1
+  %.not113 = icmp eq i8 %85, 0
+  br i1 %.not113, label %99, label %86
 
-88:                                               ; preds = %86
-  %89 = sext i8 %87 to i32
-  %90 = and i64 %.0, 32768
-  %.not115 = icmp eq i64 %90, 0
-  %91 = select i1 %.not115, i32 3, i32 2
-  %92 = icmp eq i32 %91, %89
-  br i1 %92, label %93, label %98
+86:                                               ; preds = %84
+  %87 = sext i8 %85 to i32
+  %88 = and i64 %.0, 32768
+  %.not114 = icmp eq i64 %88, 0
+  %89 = select i1 %.not114, i32 3, i32 2
+  %90 = icmp eq i32 %89, %87
+  br i1 %90, label %91, label %96
 
-93:                                               ; preds = %88
-  %94 = add i64 %.0, 1
-  %95 = and i64 %94, 32767
-  %96 = icmp eq i64 %95, 31744
-  br i1 %96, label %97, label %101
+91:                                               ; preds = %86
+  %92 = add i64 %.0, 1
+  %93 = and i64 %92, 32767
+  %94 = icmp eq i64 %93, 31744
+  br i1 %94, label %95, label %99
 
-97:                                               ; preds = %93
+95:                                               ; preds = %91
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 5) #2
-  br label %101
+  br label %99
 
-98:                                               ; preds = %88
-  %99 = icmp eq i8 %87, 5
-  %100 = zext i1 %99 to i64
-  %spec.select = or i64 %.0, %100
-  br label %101
+96:                                               ; preds = %86
+  %97 = icmp eq i8 %85, 5
+  %98 = zext i1 %97 to i64
+  %spec.select = or i64 %.0, %98
+  br label %99
 
-101:                                              ; preds = %98, %97, %93, %86
-  %.1 = phi i64 [ %94, %97 ], [ %94, %93 ], [ %.0, %86 ], [ %spec.select, %98 ]
-  %102 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %103 = or i8 %102, 1
-  store i8 %103, ptr @softfloat_exceptionFlags, align 1
-  br label %111
+99:                                               ; preds = %96, %95, %91, %84
+  %.1 = phi i64 [ %92, %95 ], [ %92, %91 ], [ %.0, %84 ], [ %spec.select, %96 ]
+  %100 = load i8, ptr @softfloat_exceptionFlags, align 1
+  %101 = or i8 %100, 1
+  store i8 %101, ptr @softfloat_exceptionFlags, align 1
+  br label %108
 
-104:                                              ; preds = %78, %25
-  %.195 = phi i8 [ %32, %78 ], [ %19, %25 ]
-  %.3 = phi i8 [ %.192, %78 ], [ %5, %25 ]
-  %.190 = phi i64 [ %79, %78 ], [ %26, %25 ]
-  %.not111 = icmp eq i8 %.195, 0
-  %105 = select i1 %.not111, i64 0, i64 32768
-  %106 = sext i8 %.3 to i64
-  %107 = shl nsw i64 %106, 10
-  %108 = and i64 %107, 67107840
-  %109 = add nuw nsw i64 %.190, %105
-  %110 = add nuw nsw i64 %109, %108
-  br label %111
+102:                                              ; preds = %76, %22
+  %.195 = phi i64 [ %30, %76 ], [ %24, %22 ]
+  %.3 = phi i8 [ %.192, %76 ], [ %5, %22 ]
+  %.190 = phi i64 [ %77, %76 ], [ %23, %22 ]
+  %103 = sext i8 %.3 to i64
+  %104 = shl nsw i64 %103, 10
+  %105 = and i64 %104, 67107840
+  %106 = add nuw nsw i64 %.190, %.195
+  %107 = add nuw nsw i64 %106, %105
+  br label %108
 
-111:                                              ; preds = %14, %55, %52, %41, %104, %101, %84, %37, %12
-  %.2 = phi i64 [ %85, %84 ], [ %38, %37 ], [ %.1, %101 ], [ %44, %41 ], [ %110, %104 ], [ %0, %52 ], [ %0, %55 ], [ %13, %12 ], [ %0, %14 ]
-  %112 = trunc i64 %.2 to i16
-  br label %113
+108:                                              ; preds = %14, %53, %50, %39, %102, %99, %82, %35, %12
+  %.2 = phi i64 [ %83, %82 ], [ %36, %35 ], [ %.1, %99 ], [ %42, %39 ], [ %107, %102 ], [ %0, %50 ], [ %0, %53 ], [ %13, %12 ], [ %0, %14 ]
+  %109 = trunc i64 %.2 to i16
+  br label %110
 
-113:                                              ; preds = %111, %80
-  %.sroa.084.0 = phi i16 [ %112, %111 ], [ %83, %80 ]
+110:                                              ; preds = %108, %78
+  %.sroa.084.0 = phi i16 [ %109, %108 ], [ %81, %78 ]
   ret i16 %.sroa.084.0
 }
 

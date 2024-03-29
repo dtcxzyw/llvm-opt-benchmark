@@ -14,9 +14,8 @@ entry:
 
 do.end2:                                          ; preds = %entry
   %0 = load i8, ptr %commit, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.then3
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end2
   store i8 1, ptr %zero, align 1
@@ -32,20 +31,18 @@ declare ptr @pages_map(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 define hidden zeroext i1 @extent_dalloc_mmap(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @opt_retain, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @pages_unmap(ptr noundef %addr, i64 noundef %size) #2
   %.pre = load i8, ptr @opt_retain, align 1
-  %.pre1 = and i8 %.pre, 1
-  %2 = icmp ne i8 %.pre1, 0
+  %.pre1 = trunc i8 %.pre to i1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %.pre-phi = phi i1 [ %2, %if.then ], [ true, %entry ]
-  ret i1 %.pre-phi
+  %tobool1.pre-phi = phi i1 [ %.pre1, %if.then ], [ true, %entry ]
+  ret i1 %tobool1.pre-phi
 }
 
 declare void @pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #1

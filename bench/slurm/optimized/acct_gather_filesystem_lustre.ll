@@ -541,7 +541,7 @@ define internal fastcc noundef i32 @_read_lustre_counters(i1 noundef zeroext %0)
   %7 = alloca i64, align 8
   %8 = load ptr, ptr @_llite_path.llite_path, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %.preheader.i, label %_llite_path.exit.thread35
+  br i1 %.not.i, label %.preheader.i, label %_llite_path.exit.thread33
 
 .preheader.i:                                     ; preds = %1
   store ptr @.str.12, ptr @_llite_path.llite_path, align 8
@@ -576,34 +576,34 @@ _llite_path.exit:                                 ; preds = %9
   %20 = tail call i32 @closedir(ptr noundef nonnull %11)
   %21 = load ptr, ptr @_llite_path.llite_path, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %_llite_path.exit.thread, label %_llite_path.exit.thread35
+  br i1 %.not, label %_llite_path.exit.thread, label %_llite_path.exit.thread33
 
 _llite_path.exit.thread:                          ; preds = %17, %_llite_path.exit
-  br i1 %0, label %97, label %22
+  br i1 %0, label %96, label %22
 
 22:                                               ; preds = %_llite_path.exit.thread
   %23 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__._read_lustre_counters) #11
-  br label %97
+  br label %96
 
-_llite_path.exit.thread35:                        ; preds = %1, %_llite_path.exit
-  %.0.i38 = phi ptr [ %21, %_llite_path.exit ], [ %8, %1 ]
-  %24 = tail call ptr @opendir(ptr noundef nonnull %.0.i38)
+_llite_path.exit.thread33:                        ; preds = %1, %_llite_path.exit
+  %.0.i36 = phi ptr [ %21, %_llite_path.exit ], [ %8, %1 ]
+  %24 = tail call ptr @opendir(ptr noundef nonnull %.0.i36)
   %.not23 = icmp eq ptr %24, null
   br i1 %.not23, label %26, label %.preheader
 
-.preheader:                                       ; preds = %_llite_path.exit.thread35
+.preheader:                                       ; preds = %_llite_path.exit.thread33
   %25 = tail call ptr @readdir(ptr noundef nonnull %24) #11
-  %.not2444 = icmp eq ptr %25, null
-  br i1 %.not2444, label %._crit_edge46, label %.lr.ph45
+  %.not2442 = icmp eq ptr %25, null
+  br i1 %.not2442, label %._crit_edge44, label %.lr.ph43
 
-26:                                               ; preds = %_llite_path.exit.thread35
-  br i1 %0, label %97, label %27
+26:                                               ; preds = %_llite_path.exit.thread33
+  br i1 %0, label %96, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull %.0.i38) #11
-  br label %97
+  %28 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull %.0.i36) #11
+  br label %96
 
-.lr.ph45:                                         ; preds = %.preheader, %.backedge
+.lr.ph43:                                         ; preds = %.preheader, %.backedge
   %29 = phi ptr [ %34, %.backedge ], [ %25, %.preheader ]
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
@@ -615,18 +615,18 @@ _llite_path.exit.thread35:                        ; preds = %1, %_llite_path.exi
   %.not25 = icmp eq i32 %31, 0
   br i1 %.not25, label %.backedge, label %32
 
-32:                                               ; preds = %.lr.ph45
+32:                                               ; preds = %.lr.ph43
   %33 = call i32 @slurm_xstrcmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.25) #11
   %.not26 = icmp eq i32 %33, 0
   br i1 %.not26, label %.backedge, label %35
 
-.backedge:                                        ; preds = %88, %91, %.lr.ph45, %32, %43
+.backedge:                                        ; preds = %87, %90, %.lr.ph43, %32, %43
   %34 = call ptr @readdir(ptr noundef nonnull %24) #11
   %.not24 = icmp eq ptr %34, null
-  br i1 %.not24, label %._crit_edge46, label %.lr.ph45, !llvm.loop !9
+  br i1 %.not24, label %._crit_edge44, label %.lr.ph43, !llvm.loop !9
 
 35:                                               ; preds = %32
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i38, ptr noundef nonnull %30) #11
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i36, ptr noundef nonnull %30) #11
   %36 = call i32 @slurm_get_log_level() #11
   %37 = icmp sgt i32 %36, 6
   br i1 %37, label %38, label %40
@@ -651,113 +651,109 @@ _llite_path.exit.thread35:                        ; preds = %1, %_llite_path.exi
 46:                                               ; preds = %40
   call void @slurm_xfree(ptr noundef nonnull %3) #11
   %47 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %42)
-  %.not2840 = icmp eq ptr %47, null
-  br i1 %.not2840, label %._crit_edge, label %.lr.ph
+  %.not2838 = icmp eq ptr %47, null
+  br i1 %.not2838, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %46, %68
-  %.042 = phi i8 [ %.1, %68 ], [ 0, %46 ]
-  %.01741 = phi i8 [ %.118, %68 ], [ 0, %46 ]
-  %48 = and i8 %.01741, 1
-  %.not29 = icmp eq i8 %48, 0
-  %49 = and i8 %.042, 1
-  %.not30 = icmp eq i8 %49, 0
-  %or.cond = select i1 %.not29, i1 true, i1 %.not30
-  br i1 %or.cond, label %50, label %._crit_edge
+.lr.ph:                                           ; preds = %46, %67
+  %.040 = phi i1 [ %.1, %67 ], [ false, %46 ]
+  %.01739 = phi i1 [ %.118, %67 ], [ false, %46 ]
+  %48 = select i1 %.01739, i1 %.040, i1 false
+  br i1 %48, label %._crit_edge, label %49
 
-50:                                               ; preds = %.lr.ph
-  %51 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.29) #14
-  %.not31 = icmp eq ptr %51, null
-  br i1 %.not31, label %59, label %52
+49:                                               ; preds = %.lr.ph
+  %50 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.29) #14
+  %.not29 = icmp eq ptr %50, null
+  br i1 %.not29, label %58, label %51
 
-52:                                               ; preds = %50
-  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  %54 = call i32 @slurm_get_log_level() #11
-  %55 = icmp sgt i32 %54, 6
-  br i1 %55, label %56, label %59
+51:                                               ; preds = %49
+  %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %53 = call i32 @slurm_get_log_level() #11
+  %54 = icmp sgt i32 %53, 6
+  br i1 %54, label %55, label %58
 
-56:                                               ; preds = %52
-  %57 = load i64, ptr %5, align 8
-  %58 = load i64, ptr %4, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %57, i64 noundef %58) #11
-  br label %59
+55:                                               ; preds = %51
+  %56 = load i64, ptr %5, align 8
+  %57 = load i64, ptr %4, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %56, i64 noundef %57) #11
+  br label %58
 
-59:                                               ; preds = %52, %56, %50
-  %.1 = phi i8 [ %.042, %50 ], [ 1, %56 ], [ 1, %52 ]
-  %60 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.32) #14
-  %.not32 = icmp eq ptr %60, null
-  br i1 %.not32, label %68, label %61
+58:                                               ; preds = %51, %55, %49
+  %.1 = phi i1 [ %.040, %49 ], [ true, %55 ], [ true, %51 ]
+  %59 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.32) #14
+  %.not30 = icmp eq ptr %59, null
+  br i1 %.not30, label %67, label %60
 
-61:                                               ; preds = %59
-  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %63 = call i32 @slurm_get_log_level() #11
-  %64 = icmp sgt i32 %63, 6
-  br i1 %64, label %65, label %68
+60:                                               ; preds = %58
+  %61 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %62 = call i32 @slurm_get_log_level() #11
+  %63 = icmp sgt i32 %62, 6
+  br i1 %63, label %64, label %67
 
-65:                                               ; preds = %61
-  %66 = load i64, ptr %7, align 8
-  %67 = load i64, ptr %6, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %66, i64 noundef %67) #11
-  br label %68
+64:                                               ; preds = %60
+  %65 = load i64, ptr %7, align 8
+  %66 = load i64, ptr %6, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %65, i64 noundef %66) #11
+  br label %67
 
-68:                                               ; preds = %61, %65, %59
-  %.118 = phi i8 [ %.01741, %59 ], [ 1, %65 ], [ 1, %61 ]
-  %69 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %42)
-  %.not28 = icmp eq ptr %69, null
+67:                                               ; preds = %60, %64, %58
+  %.118 = phi i1 [ %.01739, %58 ], [ true, %64 ], [ true, %60 ]
+  %68 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %42)
+  %.not28 = icmp eq ptr %68, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %68, %.lr.ph, %46
-  %70 = call i32 @fclose(ptr noundef nonnull %42)
-  %71 = load i64, ptr %5, align 8
-  %72 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
-  %73 = add i64 %72, %71
-  store i64 %73, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
-  %74 = load i64, ptr %7, align 8
-  %75 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
-  %76 = add i64 %75, %74
-  store i64 %76, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
-  %77 = load i64, ptr %4, align 8
-  %78 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
-  %79 = add i64 %78, %77
-  store i64 %79, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
-  %80 = load i64, ptr %6, align 8
-  %81 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
-  %82 = add i64 %81, %80
-  store i64 %82, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
-  %83 = call i32 @slurm_get_log_level() #11
-  %84 = icmp sgt i32 %83, 6
-  br i1 %84, label %85, label %88
+._crit_edge:                                      ; preds = %67, %.lr.ph, %46
+  %69 = call i32 @fclose(ptr noundef nonnull %42)
+  %70 = load i64, ptr %5, align 8
+  %71 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
+  %72 = add i64 %71, %70
+  store i64 %72, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
+  %73 = load i64, ptr %7, align 8
+  %74 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
+  %75 = add i64 %74, %73
+  store i64 %75, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
+  %76 = load i64, ptr %4, align 8
+  %77 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
+  %78 = add i64 %77, %76
+  store i64 %78, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
+  %79 = load i64, ptr %6, align 8
+  %80 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
+  %81 = add i64 %80, %79
+  store i64 %81, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
+  %82 = call i32 @slurm_get_log_level() #11
+  %83 = icmp sgt i32 %82, 6
+  br i1 %83, label %84, label %87
 
-85:                                               ; preds = %._crit_edge
-  %86 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
-  %87 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.34, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %86, i64 noundef %87) #11
-  br label %88
+84:                                               ; preds = %._crit_edge
+  %85 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 3), align 8
+  %86 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 4), align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.34, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %85, i64 noundef %86) #11
+  br label %87
 
-88:                                               ; preds = %85, %._crit_edge
-  %89 = call i32 @slurm_get_log_level() #11
-  %90 = icmp sgt i32 %89, 6
-  br i1 %90, label %91, label %.backedge
+87:                                               ; preds = %84, %._crit_edge
+  %88 = call i32 @slurm_get_log_level() #11
+  %89 = icmp sgt i32 %88, 6
+  br i1 %89, label %90, label %.backedge
 
-91:                                               ; preds = %88
-  %92 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
-  %93 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.35, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %92, i64 noundef %93) #11
+90:                                               ; preds = %87
+  %91 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 1), align 8
+  %92 = load i64, ptr getelementptr inbounds (%struct.lustre_stats_t, ptr @lstats, i64 0, i32 2), align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.35, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef nonnull @__func__._read_lustre_counters, i64 noundef %91, i64 noundef %92) #11
   br label %.backedge
 
-._crit_edge46:                                    ; preds = %.backedge, %.preheader
-  %94 = call i32 @closedir(ptr noundef nonnull %24)
-  %95 = call i64 @time(ptr noundef null) #11
-  store i64 %95, ptr @lstats, align 8
+._crit_edge44:                                    ; preds = %.backedge, %.preheader
+  %93 = call i32 @closedir(ptr noundef nonnull %24)
+  %94 = call i64 @time(ptr noundef null) #11
+  store i64 %94, ptr @lstats, align 8
   %.b = load i1, ptr @_read_lustre_counters.first, align 1
-  br i1 %.b, label %97, label %96
+  br i1 %.b, label %96, label %95
 
-96:                                               ; preds = %._crit_edge46
+95:                                               ; preds = %._crit_edge44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @lstats_prev, ptr noundef nonnull align 8 dereferenceable(40) @lstats, i64 40, i1 false)
   store i1 true, ptr @_read_lustre_counters.first, align 1
-  br label %97
+  br label %96
 
-97:                                               ; preds = %._crit_edge46, %96, %26, %27, %_llite_path.exit.thread, %22
-  %.019 = phi i32 [ -1, %22 ], [ -1, %_llite_path.exit.thread ], [ -1, %27 ], [ -1, %26 ], [ 0, %96 ], [ 0, %._crit_edge46 ]
+96:                                               ; preds = %._crit_edge44, %95, %26, %27, %_llite_path.exit.thread, %22
+  %.019 = phi i32 [ -1, %22 ], [ -1, %_llite_path.exit.thread ], [ -1, %27 ], [ -1, %26 ], [ 0, %95 ], [ 0, %._crit_edge44 ]
   ret i32 %.019
 }
 

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @target_page = dso_local local_unnamed_addr global %struct.TargetPageBits zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @set_preferred_target_page_bits_common(i32 noundef %bits) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @set_preferred_target_page_bits_common(i32 noundef %bits) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 1), align 4
   %cmp = icmp eq i32 %0, 0
@@ -18,9 +18,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i8, ptr @target_page, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   store i32 %bits, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i64 0, i32 1), align 4

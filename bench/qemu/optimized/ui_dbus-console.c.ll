@@ -428,17 +428,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end29
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %14 = load i8, ptr @message_with_timestamp, align 1
-  %15 = and i8 %14, 1
-  %tobool7.not.i.i = icmp eq i8 %15, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %14 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = call i32 @qemu_get_thread_id() #9
-  %16 = load i64, ptr %_now.i.i, align 8
+  %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %17 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %call) #9
+  %16 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %call) #9
   br label %trace_dbus_registered_listener.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -589,17 +588,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %arg_keycode) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %arg_keycode) #9
   br label %trace_dbus_kbd_press.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -609,11 +607,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_kbd_press.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %kbd = getelementptr inbounds i8, ptr %ddc, i64 112
-  %7 = load ptr, ptr %kbd, align 8
-  tail call void @qkbd_state_key_event(ptr noundef %7, i32 noundef %call, i1 noundef zeroext true) #9
+  %6 = load ptr, ptr %kbd, align 8
+  tail call void @qkbd_state_key_event(ptr noundef %6, i32 noundef %call, i1 noundef zeroext true) #9
   %iface_kbd = getelementptr inbounds i8, ptr %ddc, i64 104
-  %8 = load ptr, ptr %iface_kbd, align 8
-  tail call void @qemu_dbus_display1_keyboard_complete_press(ptr noundef %8, ptr noundef %invocation) #9
+  %7 = load ptr, ptr %iface_kbd, align 8
+  tail call void @qemu_dbus_display1_keyboard_complete_press(ptr noundef %7, ptr noundef %invocation) #9
   ret i32 1
 }
 
@@ -638,17 +636,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %arg_keycode) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %arg_keycode) #9
   br label %trace_dbus_kbd_release.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -658,11 +655,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_kbd_release.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %kbd = getelementptr inbounds i8, ptr %ddc, i64 112
-  %7 = load ptr, ptr %kbd, align 8
-  tail call void @qkbd_state_key_event(ptr noundef %7, i32 noundef %call, i1 noundef zeroext false) #9
+  %6 = load ptr, ptr %kbd, align 8
+  tail call void @qkbd_state_key_event(ptr noundef %6, i32 noundef %call, i1 noundef zeroext false) #9
   %iface_kbd = getelementptr inbounds i8, ptr %ddc, i64 104
-  %8 = load ptr, ptr %iface_kbd, align 8
-  tail call void @qemu_dbus_display1_keyboard_complete_release(ptr noundef %8, ptr noundef %invocation) #9
+  %7 = load ptr, ptr %iface_kbd, align 8
+  tail call void @qemu_dbus_display1_keyboard_complete_release(ptr noundef %7, ptr noundef %invocation) #9
   ret i32 1
 }
 
@@ -688,17 +685,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %x, i32 noundef %y) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %x, i32 noundef %y) #9
   br label %trace_dbus_mouse_set_pos.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -708,8 +704,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_mouse_set_pos.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %con = getelementptr inbounds i8, ptr %ddc, i64 56
-  %7 = load ptr, ptr %con, align 8
-  %call = tail call zeroext i1 @qemu_input_is_absolute(ptr noundef %7) #9
+  %6 = load ptr, ptr %con, align 8
+  %call = tail call zeroext i1 @qemu_input_is_absolute(ptr noundef %6) #9
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_dbus_mouse_set_pos.exit
@@ -718,10 +714,10 @@ if.then:                                          ; preds = %trace_dbus_mouse_se
   br label %return
 
 if.end:                                           ; preds = %trace_dbus_mouse_set_pos.exit
+  %7 = load ptr, ptr %con, align 8
+  %call4 = tail call i32 @qemu_console_get_width(ptr noundef %7, i32 noundef 0) #9
   %8 = load ptr, ptr %con, align 8
-  %call4 = tail call i32 @qemu_console_get_width(ptr noundef %8, i32 noundef 0) #9
-  %9 = load ptr, ptr %con, align 8
-  %call7 = tail call i32 @qemu_console_get_height(ptr noundef %9, i32 noundef 0) #9
+  %call7 = tail call i32 @qemu_console_get_height(ptr noundef %8, i32 noundef 0) #9
   %cmp.not = icmp ugt i32 %call4, %x
   %cmp8.not = icmp ugt i32 %call7, %y
   %or.cond = select i1 %cmp.not, i1 %cmp8.not, i1 false
@@ -733,14 +729,14 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end
+  %9 = load ptr, ptr %con, align 8
+  tail call void @qemu_input_queue_abs(ptr noundef %9, i32 noundef 0, i32 noundef %x, i32 noundef 0, i32 noundef %call4) #9
   %10 = load ptr, ptr %con, align 8
-  tail call void @qemu_input_queue_abs(ptr noundef %10, i32 noundef 0, i32 noundef %x, i32 noundef 0, i32 noundef %call4) #9
-  %11 = load ptr, ptr %con, align 8
-  tail call void @qemu_input_queue_abs(ptr noundef %11, i32 noundef 1, i32 noundef %y, i32 noundef 0, i32 noundef %call7) #9
+  tail call void @qemu_input_queue_abs(ptr noundef %10, i32 noundef 1, i32 noundef %y, i32 noundef 0, i32 noundef %call7) #9
   tail call void @qemu_input_event_sync() #9
   %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
-  %12 = load ptr, ptr %iface_mouse, align 8
-  tail call void @qemu_dbus_display1_mouse_complete_set_abs_position(ptr noundef %12, ptr noundef %invocation) #9
+  %11 = load ptr, ptr %iface_mouse, align 8
+  tail call void @qemu_dbus_display1_mouse_complete_set_abs_position(ptr noundef %11, ptr noundef %invocation) #9
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then9, %if.then
@@ -767,17 +763,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %dx, i32 noundef %dy) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %dx, i32 noundef %dy) #9
   br label %trace_dbus_mouse_rel_motion.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -787,8 +782,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_mouse_rel_motion.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %con = getelementptr inbounds i8, ptr %ddc, i64 56
-  %7 = load ptr, ptr %con, align 8
-  %call = tail call zeroext i1 @qemu_input_is_absolute(ptr noundef %7) #9
+  %6 = load ptr, ptr %con, align 8
+  %call = tail call zeroext i1 @qemu_input_is_absolute(ptr noundef %6) #9
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_dbus_mouse_rel_motion.exit
@@ -797,14 +792,14 @@ if.then:                                          ; preds = %trace_dbus_mouse_re
   br label %return
 
 if.end:                                           ; preds = %trace_dbus_mouse_rel_motion.exit
+  %7 = load ptr, ptr %con, align 8
+  tail call void @qemu_input_queue_rel(ptr noundef %7, i32 noundef 0, i32 noundef %dx) #9
   %8 = load ptr, ptr %con, align 8
-  tail call void @qemu_input_queue_rel(ptr noundef %8, i32 noundef 0, i32 noundef %dx) #9
-  %9 = load ptr, ptr %con, align 8
-  tail call void @qemu_input_queue_rel(ptr noundef %9, i32 noundef 1, i32 noundef %dy) #9
+  tail call void @qemu_input_queue_rel(ptr noundef %8, i32 noundef 1, i32 noundef %dy) #9
   tail call void @qemu_input_event_sync() #9
   %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
-  %10 = load ptr, ptr %iface_mouse, align 8
-  tail call void @qemu_dbus_display1_mouse_complete_rel_motion(ptr noundef %10, ptr noundef %invocation) #9
+  %9 = load ptr, ptr %iface_mouse, align 8
+  tail call void @qemu_dbus_display1_mouse_complete_rel_motion(ptr noundef %9, ptr noundef %invocation) #9
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -831,17 +826,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %button) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %button) #9
   br label %trace_dbus_mouse_press.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -851,12 +845,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_mouse_press.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %con = getelementptr inbounds i8, ptr %ddc, i64 56
-  %7 = load ptr, ptr %con, align 8
-  tail call void @qemu_input_queue_btn(ptr noundef %7, i32 noundef %button, i1 noundef zeroext true) #9
+  %6 = load ptr, ptr %con, align 8
+  tail call void @qemu_input_queue_btn(ptr noundef %6, i32 noundef %button, i1 noundef zeroext true) #9
   tail call void @qemu_input_event_sync() #9
   %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
-  %8 = load ptr, ptr %iface_mouse, align 8
-  tail call void @qemu_dbus_display1_mouse_complete_press(ptr noundef %8, ptr noundef %invocation) #9
+  %7 = load ptr, ptr %iface_mouse, align 8
+  tail call void @qemu_dbus_display1_mouse_complete_press(ptr noundef %7, ptr noundef %invocation) #9
   ret i32 1
 }
 
@@ -880,17 +874,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %button) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %button) #9
   br label %trace_dbus_mouse_release.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -900,12 +893,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_mouse_release.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %con = getelementptr inbounds i8, ptr %ddc, i64 56
-  %7 = load ptr, ptr %con, align 8
-  tail call void @qemu_input_queue_btn(ptr noundef %7, i32 noundef %button, i1 noundef zeroext false) #9
+  %6 = load ptr, ptr %con, align 8
+  tail call void @qemu_input_queue_btn(ptr noundef %6, i32 noundef %button, i1 noundef zeroext false) #9
   tail call void @qemu_input_event_sync() #9
   %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
-  %8 = load ptr, ptr %iface_mouse, align 8
-  tail call void @qemu_dbus_display1_mouse_complete_release(ptr noundef %8, ptr noundef %invocation) #9
+  %7 = load ptr, ptr %iface_mouse, align 8
+  tail call void @qemu_dbus_display1_mouse_complete_release(ptr noundef %7, ptr noundef %invocation) #9
   ret i32 1
 }
 
@@ -936,17 +929,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %kind, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %kind, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2) #9
   br label %trace_dbus_touch_send_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -965,29 +957,29 @@ if.then:                                          ; preds = %trace_dbus_touch_se
 
 if.end:                                           ; preds = %trace_dbus_touch_send_event.exit
   %con = getelementptr inbounds i8, ptr %ddc, i64 56
+  %6 = load ptr, ptr %con, align 8
+  %call12 = tail call i32 @qemu_console_get_width(ptr noundef %6, i32 noundef 0) #9
   %7 = load ptr, ptr %con, align 8
-  %call12 = tail call i32 @qemu_console_get_width(ptr noundef %7, i32 noundef 0) #9
+  %call15 = tail call i32 @qemu_console_get_height(ptr noundef %7, i32 noundef 0) #9
   %8 = load ptr, ptr %con, align 8
-  %call15 = tail call i32 @qemu_console_get_height(ptr noundef %8, i32 noundef 0) #9
-  %9 = load ptr, ptr %con, align 8
-  call void @console_handle_touch_event(ptr noundef %9, ptr noundef nonnull @touch_slots, i64 noundef %num_slot, i32 noundef %call12, i32 noundef %call15, double noundef %x, double noundef %y, i32 noundef %kind, ptr noundef nonnull %error) #9
-  %10 = load ptr, ptr %error, align 8
-  %cmp18.not = icmp eq ptr %10, null
+  call void @console_handle_touch_event(ptr noundef %8, ptr noundef nonnull @touch_slots, i64 noundef %num_slot, i32 noundef %call12, i32 noundef %call15, double noundef %x, double noundef %y, i32 noundef %kind, ptr noundef nonnull %error) #9
+  %9 = load ptr, ptr %error, align 8
+  %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end
   %call21 = call i32 @dbus_display_error_quark() #9
-  %11 = load ptr, ptr %error, align 8
-  %call22 = call ptr @error_get_pretty(ptr noundef %11) #9
+  %10 = load ptr, ptr %error, align 8
+  %call22 = call ptr @error_get_pretty(ptr noundef %10) #9
   call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call21, i32 noundef 1, ptr noundef %call22, ptr noundef null) #9
-  %12 = load ptr, ptr %error, align 8
-  call void @error_free(ptr noundef %12) #9
+  %11 = load ptr, ptr %error, align 8
+  call void @error_free(ptr noundef %11) #9
   br label %return
 
 if.else:                                          ; preds = %if.end
   %iface_touch = getelementptr inbounds i8, ptr %ddc, i64 128
-  %13 = load ptr, ptr %iface_touch, align 8
-  call void @qemu_dbus_display1_multi_touch_complete_send_event(ptr noundef %13, ptr noundef %invocation) #9
+  %12 = load ptr, ptr %iface_touch, align 8
+  call void @qemu_dbus_display1_multi_touch_complete_send_event(ptr noundef %12, ptr noundef %invocation) #9
   br label %return
 
 return:                                           ; preds = %if.then20, %if.else, %if.then
@@ -1248,17 +1240,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call1) #9
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call1) #9
   br label %trace_dbus_listener_vanished.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1268,11 +1259,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_dbus_listener_vanished.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %listeners = getelementptr inbounds i8, ptr %call, i64 88
-  %7 = load ptr, ptr %listeners, align 8
-  %call2 = tail call i32 @g_hash_table_remove(ptr noundef %7, ptr noundef %call1) #9
+  %6 = load ptr, ptr %listeners, align 8
+  %call2 = tail call i32 @g_hash_table_remove(ptr noundef %6, ptr noundef %call1) #9
   %kbd = getelementptr inbounds i8, ptr %call, i64 112
-  %8 = load ptr, ptr %kbd, align 8
-  tail call void @qkbd_state_lift_all_keys(ptr noundef %8) #9
+  %7 = load ptr, ptr %kbd, align 8
+  tail call void @qkbd_state_lift_all_keys(ptr noundef %7) #9
   ret void
 }
 

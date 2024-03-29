@@ -20,9 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @PMPI_Get_elements_x(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %22, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %22
 
 7:                                                ; preds = %3
   %8 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -53,8 +52,8 @@ define i32 @PMPI_Get_elements_x(ptr noundef readonly %0, ptr noundef %1, ptr nou
   br i1 %or.cond, label %22, label %.thread
 
 .thread:                                          ; preds = %18, %15, %12
-  %.03444 = phi i32 [ 3, %18 ], [ 3, %15 ], [ 13, %12 ]
-  %21 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.03444, ptr noundef nonnull @FUNC_NAME) #2
+  %.03443 = phi i32 [ 3, %18 ], [ 3, %15 ], [ 13, %12 ]
+  %21 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.03443, ptr noundef nonnull @FUNC_NAME) #2
   br label %32
 
 22:                                               ; preds = %18, %3
@@ -80,7 +79,7 @@ define i32 @PMPI_Get_elements_x(ptr noundef readonly %0, ptr noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %30, %26, %.thread
-  %.0 = phi i32 [ %.03444, %.thread ], [ 0, %26 ], [ %31, %30 ]
+  %.0 = phi i32 [ %.03443, %.thread ], [ 0, %26 ], [ %31, %30 ]
   ret i32 %.0
 }
 

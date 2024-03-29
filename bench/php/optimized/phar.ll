@@ -310,9 +310,9 @@ define hidden noundef i32 @phar_ini_modify_handler(ptr nocapture noundef readonl
 21:                                               ; preds = %6
   %22 = icmp eq i64 %10, 13
   %.0.in = select i1 %22, i8 %.val, i8 %.val8
-  %23 = and i8 %.0.in, 1
-  %.not = icmp eq i8 %23, 0
-  %brmerge = select i1 %.not, i1 true, i1 %11
+  %23 = trunc i8 %.0.in to i1
+  %.not7 = xor i1 %23, true
+  %brmerge = select i1 %.not7, i1 true, i1 %11
   br i1 %brmerge, label %24, label %38
 
 24:                                               ; preds = %21, %19, %20
@@ -326,8 +326,8 @@ define hidden noundef i32 @phar_ini_modify_handler(ptr nocapture noundef readonl
 30:                                               ; preds = %24
   store i32 %29, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 5), align 4
   %31 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 14), align 4
-  %.not7 = icmp eq i32 %31, 0
-  br i1 %.not7, label %38, label %32
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %38, label %32
 
 32:                                               ; preds = %30
   %33 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 1, i32 1), align 8
@@ -358,8 +358,8 @@ define internal noundef i32 @phar_set_writeable_bit(ptr nocapture noundef readon
   %4 = getelementptr inbounds i8, ptr %3, i64 324
   %5 = load i16, ptr %4, align 4
   %6 = and i16 %5, 128
-  %.not4 = icmp eq i16 %6, 0
-  br i1 %.not4, label %7, label %15
+  %.not = icmp eq i16 %6, 0
+  br i1 %.not, label %7, label %15
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %1, align 1

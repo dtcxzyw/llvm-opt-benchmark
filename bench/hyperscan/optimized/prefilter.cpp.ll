@@ -708,34 +708,33 @@ _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i10: ; preds = %lpad13
 for.end:                                          ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit
   %hasBothBranches = getelementptr inbounds i8, ptr %c, i64 136
   %11 = load i8, ptr %hasBothBranches, align 8
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then16, label %if.end21
+  %tobool = trunc i8 %11 to i1
+  br i1 %tobool, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %for.end
   %vtable17 = load ptr, ptr %call, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 120
-  %13 = load ptr, ptr %vfn18, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(88) %call)
+  %12 = load ptr, ptr %vfn18, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(88) %call)
   %vtable19 = load ptr, ptr %call, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 128
-  %14 = load ptr, ptr %vfn20, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(88) %call)
+  %13 = load ptr, ptr %vfn20, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(88) %call)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %for.end
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %15 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %14 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp.not.i14 = icmp eq ptr %call.i, %call
   br i1 %cmp.not.i14, label %return, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end21
   %vtable2.i = load ptr, ptr %call, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 8
-  %16 = load ptr, ptr %vfn3.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(88) %call) #16
+  %15 = load ptr, ptr %vfn3.i, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(88) %call) #16
   br label %return
 
 return:                                           ; preds = %delete.notnull.i, %if.end21, %invoke.cont
@@ -855,16 +854,14 @@ entry:
   %0 = load ptr, ptr %mode, align 8
   %ucp = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i8, ptr %ucp, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %utf8 = getelementptr inbounds i8, ptr %0, i64 5
-  %3 = load i8, ptr %utf8, align 1
-  %4 = and i8 %3, 1
-  %tobool3.not = icmp eq i8 %4, 0
-  br i1 %tobool3.not, label %if.then, label %if.end
+  %2 = load i8, ptr %utf8, align 1
+  %tobool3 = trunc i8 %2 to i1
+  br i1 %tobool3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
@@ -872,10 +869,10 @@ if.then:                                          ; preds = %land.lhs.true
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #17
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %prefilter.i = getelementptr inbounds i8, ptr %c, i64 26

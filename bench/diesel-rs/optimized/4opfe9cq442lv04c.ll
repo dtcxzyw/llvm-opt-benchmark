@@ -166,11 +166,11 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @_ZN12darling_core3ast4data10NestedMeta15parse_meta_list17haf477775bf655d13E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %49 = load i64, ptr %12, align 8, !range !31, !noundef !5
-  %trunc.not = icmp eq i64 %49, 0
+  %trunc = trunc i64 %49 to i1
   %50 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br i1 %trunc.not, label %62, label %59
+  br i1 %trunc, label %59, label %62
 
 51:                                               ; preds = %2
   call void @"_ZN72_$LT$proc_macro2..Ident$u20$as$u20$darling_core..from_meta..FromMeta$GT$9from_expr17hdc5b0b4f90a13dafE"(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)

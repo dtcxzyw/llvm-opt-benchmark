@@ -2452,9 +2452,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal14ParameterBloc
 .critedge:                                        ; preds = %2
   %19 = getelementptr inbounds i8, ptr %0, i64 12
   %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %22, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %22
 
 22:                                               ; preds = %.critedge
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6557,14 +6556,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7Options4InitERKNS_
   store double %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 352
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 %29, ptr %30, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = and i8 %28, 1
+  store i8 %30, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 96
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 81
-  store i8 %33, ptr %34, align 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 81
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 1
   %35 = getelementptr inbounds i8, ptr %1, i64 100
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %0, i64 84
@@ -6605,9 +6604,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7Options4InitERKNS_
   store i32 %63, ptr %64, align 4
   %65 = getelementptr inbounds i8, ptr %1, i64 20
   %66 = load i8, ptr %65, align 4
-  %67 = and i8 %66, 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 %67, ptr %68, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 184
+  %68 = and i8 %66, 1
+  store i8 %68, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 188
@@ -10816,9 +10815,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

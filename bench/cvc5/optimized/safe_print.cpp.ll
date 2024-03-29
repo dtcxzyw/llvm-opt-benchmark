@@ -309,9 +309,8 @@ entry:
 define void @_ZN4cvc58internal10safe_printIbEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %b) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %b, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call.i = tail call i64 @write(i32 noundef %fd, ptr noundef nonnull @.str.3, i64 noundef 4)

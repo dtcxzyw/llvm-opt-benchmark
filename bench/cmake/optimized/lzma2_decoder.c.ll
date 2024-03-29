@@ -179,9 +179,8 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 34:                                               ; preds = %30
   %35 = load i8, ptr %17, align 1
-  %36 = and i8 %35, 1
-  %.not91 = icmp eq i8 %36, 0
-  br i1 %.not91, label %37, label %.loopexit
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %34, %33
   %38 = phi i8 [ %35, %34 ], [ 1, %33 ]
@@ -203,9 +202,8 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 45:                                               ; preds = %40
   %46 = load i8, ptr %18, align 8
-  %47 = and i8 %46, 1
-  %.not92 = icmp eq i8 %47, 0
-  br i1 %.not92, label %48, label %.loopexit
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %45
   store i32 6, ptr %14, align 4
@@ -230,9 +228,8 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 56:                                               ; preds = %44, %48, %50, %55
   %57 = phi i8 [ %38, %44 ], [ %38, %48 ], [ %.pre, %50 ], [ %38, %55 ]
-  %58 = and i8 %57, 1
-  %.not93 = icmp eq i8 %58, 0
-  br i1 %.not93, label %.backedge, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %.backedge
 
 .backedge:                                        ; preds = %56, %126, %112, %99, %85, %79, %69, %61
   br label %19, !llvm.loop !5

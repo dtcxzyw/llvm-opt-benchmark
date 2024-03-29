@@ -24,9 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @PMPI_Get_library_version(ptr noundef writeonly %0, ptr noundef writeonly %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %12, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %0, null

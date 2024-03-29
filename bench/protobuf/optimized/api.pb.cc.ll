@@ -1830,50 +1830,50 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit49: ; preds = %if.then.i.i45, %
 if.end15:                                         ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit49, %if.end10
   %request_streaming_.i = getelementptr inbounds i8, ptr %from_msg, i64 64
   %33 = load i8, ptr %request_streaming_.i, align 8
-  %34 = and i8 %33, 1
-  %tobool.i.not = icmp eq i8 %34, 0
-  br i1 %tobool.i.not, label %if.end19, label %if.then17
+  %tobool.i = trunc i8 %33 to i1
+  br i1 %tobool.i, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end15
   %request_streaming_18 = getelementptr inbounds i8, ptr %to_msg, i64 64
-  store i8 %34, ptr %request_streaming_18, align 8
+  %frombool = and i8 %33, 1
+  store i8 %frombool, ptr %request_streaming_18, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %if.end15
   %response_streaming_.i = getelementptr inbounds i8, ptr %from_msg, i64 65
-  %35 = load i8, ptr %response_streaming_.i, align 1
-  %36 = and i8 %35, 1
-  %tobool.i50.not = icmp eq i8 %36, 0
-  br i1 %tobool.i50.not, label %if.end27, label %if.then23
+  %34 = load i8, ptr %response_streaming_.i, align 1
+  %tobool.i50 = trunc i8 %34 to i1
+  br i1 %tobool.i50, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end19
   %response_streaming_25 = getelementptr inbounds i8, ptr %to_msg, i64 65
-  store i8 %36, ptr %response_streaming_25, align 1
+  %frombool26 = and i8 %34, 1
+  store i8 %frombool26, ptr %response_streaming_25, align 1
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then23, %if.end19
   %syntax_.i = getelementptr inbounds i8, ptr %from_msg, i64 68
-  %37 = load i32, ptr %syntax_.i, align 4
-  %cmp29.not = icmp eq i32 %37, 0
+  %35 = load i32, ptr %syntax_.i, align 4
+  %cmp29.not = icmp eq i32 %35, 0
   br i1 %cmp29.not, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
   %syntax_31 = getelementptr inbounds i8, ptr %to_msg, i64 68
-  store i32 %37, ptr %syntax_31, align 4
+  store i32 %35, ptr %syntax_31, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then30, %if.end27
   %_internal_metadata_33 = getelementptr inbounds i8, ptr %from_msg, i64 8
-  %38 = load i64, ptr %_internal_metadata_33, align 8
-  %and.i55 = and i64 %38, 1
+  %36 = load i64, ptr %_internal_metadata_33, align 8
+  %and.i55 = and i64 %36, 1
   %tobool.i56.not = icmp eq i64 %and.i55, 0
   br i1 %tobool.i56.not, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.end32
   %_internal_metadata_ = getelementptr inbounds i8, ptr %to_msg, i64 8
-  %and.i = and i64 %38, -2
-  %39 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds i8, ptr %39, i64 8
+  %and.i = and i64 %36, -2
+  %37 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %37, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
@@ -2052,28 +2052,27 @@ if.end18:                                         ; preds = %if.end.i45, %if.the
   %target.addr.1 = phi ptr [ %target.addr.0, %if.end ], [ %call6.i53, %if.then.i52 ], [ %add.ptr.i50, %if.end.i45 ]
   %request_streaming_.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load i8, ptr %request_streaming_.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.i.not = icmp eq i8 %15, 0
-  br i1 %tobool.i.not, label %if.end25, label %if.then21
+  %tobool.i = trunc i8 %14 to i1
+  br i1 %tobool.i, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end18
-  %16 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %16, %target.addr.1
+  %15 = load ptr, ptr %stream, align 8
+  %cmp.not.i = icmp ugt ptr %15, %target.addr.1
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.then21
   %call.i56 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %stream, ptr noundef %target.addr.1)
   %.pre = load i8, ptr %request_streaming_.i, align 8
-  %.pre110 = and i8 %.pre, 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.then21, %if.then.i55
-  %.pre-phi111 = phi i8 [ 1, %if.then21 ], [ %.pre110, %if.then.i55 ]
-  %retval.0.i57 = phi ptr [ %target.addr.1, %if.then21 ], [ %call.i56, %if.then.i55 ]
+  %16 = phi i8 [ %.pre, %if.then.i55 ], [ %14, %if.then21 ]
+  %retval.0.i57 = phi ptr [ %call.i56, %if.then.i55 ], [ %target.addr.1, %if.then21 ]
   %incdec.ptr2.i.i60 = getelementptr inbounds i8, ptr %retval.0.i57, i64 1
   store i8 24, ptr %retval.0.i57, align 1
+  %conv1.i.i = and i8 %16, 1
   %incdec.ptr2.i.i61 = getelementptr inbounds i8, ptr %retval.0.i57, i64 2
-  store i8 %.pre-phi111, ptr %incdec.ptr2.i.i60, align 1
+  store i8 %conv1.i.i, ptr %incdec.ptr2.i.i60, align 1
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %if.end18
@@ -2127,28 +2126,27 @@ if.end36:                                         ; preds = %if.end.i72, %if.the
   %target.addr.3 = phi ptr [ %target.addr.2, %if.end25 ], [ %call6.i81, %if.then.i80 ], [ %add.ptr.i78, %if.end.i72 ]
   %response_streaming_.i = getelementptr inbounds i8, ptr %this, i64 65
   %24 = load i8, ptr %response_streaming_.i, align 1
-  %25 = and i8 %24, 1
-  %tobool.i83.not = icmp eq i8 %25, 0
-  br i1 %tobool.i83.not, label %if.end44, label %if.then40
+  %tobool.i83 = trunc i8 %24 to i1
+  br i1 %tobool.i83, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.end36
-  %26 = load ptr, ptr %stream, align 8
-  %cmp.not.i84 = icmp ugt ptr %26, %target.addr.3
+  %25 = load ptr, ptr %stream, align 8
+  %cmp.not.i84 = icmp ugt ptr %25, %target.addr.3
   br i1 %cmp.not.i84, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88, label %if.then.i85
 
 if.then.i85:                                      ; preds = %if.then40
   %call.i86 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %stream, ptr noundef %target.addr.3)
   %.pre108 = load i8, ptr %response_streaming_.i, align 1
-  %.pre109 = and i8 %.pre108, 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88: ; preds = %if.then40, %if.then.i85
-  %.pre-phi = phi i8 [ 1, %if.then40 ], [ %.pre109, %if.then.i85 ]
-  %retval.0.i87 = phi ptr [ %target.addr.3, %if.then40 ], [ %call.i86, %if.then.i85 ]
+  %26 = phi i8 [ %.pre108, %if.then.i85 ], [ %24, %if.then40 ]
+  %retval.0.i87 = phi ptr [ %call.i86, %if.then.i85 ], [ %target.addr.3, %if.then40 ]
   %incdec.ptr2.i.i92 = getelementptr inbounds i8, ptr %retval.0.i87, i64 1
   store i8 40, ptr %retval.0.i87, align 1
+  %conv1.i.i93 = and i8 %26, 1
   %incdec.ptr2.i.i94 = getelementptr inbounds i8, ptr %retval.0.i87, i64 2
-  store i8 %.pre-phi, ptr %incdec.ptr2.i.i92, align 1
+  store i8 %conv1.i.i93, ptr %incdec.ptr2.i.i92, align 1
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88, %if.end36
@@ -2377,26 +2375,24 @@ if.end32:                                         ; preds = %if.then27, %if.end2
   %total_size.3 = phi i64 [ %total_size.2, %if.end24 ], [ %add31, %if.then27 ]
   %request_streaming_.i = getelementptr inbounds i8, ptr %this, i64 64
   %28 = load i8, ptr %request_streaming_.i, align 8
-  %29 = shl i8 %28, 1
-  %30 = and i8 %29, 2
-  %31 = zext nneg i8 %30 to i64
-  %spec.select = add i64 %total_size.3, %31
+  %tobool.i = trunc i8 %28 to i1
+  %add36 = add i64 %total_size.3, 2
+  %spec.select = select i1 %tobool.i, i64 %add36, i64 %total_size.3
   %response_streaming_.i = getelementptr inbounds i8, ptr %this, i64 65
-  %32 = load i8, ptr %response_streaming_.i, align 1
-  %33 = shl i8 %32, 1
-  %34 = and i8 %33, 2
-  %35 = zext nneg i8 %34 to i64
-  %total_size.5 = add i64 %spec.select, %35
+  %29 = load i8, ptr %response_streaming_.i, align 1
+  %tobool.i51 = trunc i8 %29 to i1
+  %add42 = add i64 %spec.select, 2
+  %total_size.5 = select i1 %tobool.i51, i64 %add42, i64 %spec.select
   %syntax_.i = getelementptr inbounds i8, ptr %this, i64 68
-  %36 = load i32, ptr %syntax_.i, align 4
-  %cmp45.not = icmp eq i32 %36, 0
+  %30 = load i32, ptr %syntax_.i, align 4
+  %cmp45.not = icmp eq i32 %30, 0
   br i1 %cmp45.not, label %if.end51, label %if.then46
 
 if.then46:                                        ; preds = %if.end32
-  %37 = or i32 %36, 1
-  %or.i.i.i53 = sext i32 %37 to i64
-  %38 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i53, i1 true), !range !11
-  %sub.i.i.i54 = xor i64 %38, 63
+  %31 = or i32 %30, 1
+  %or.i.i.i53 = sext i32 %31 to i64
+  %32 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i53, i1 true), !range !11
+  %sub.i.i.i54 = xor i64 %32, 63
   %mul.i.i.i55 = mul nuw nsw i64 %sub.i.i.i54, 9
   %add.i.i.i56 = add nuw nsw i64 %mul.i.i.i55, 73
   %div1.i.i.i57 = lshr i64 %add.i.i.i56, 6

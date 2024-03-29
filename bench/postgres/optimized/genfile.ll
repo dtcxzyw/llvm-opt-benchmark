@@ -627,108 +627,104 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 30
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 3
-  br i1 %13, label %14, label %31
+  br i1 %13, label %14, label %30
 
 14:                                               ; preds = %1
   %15 = getelementptr i8, ptr %0, i64 56
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %18, label %23
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = icmp ne i64 %20, 0
-  %22 = zext i1 %21 to i8
-  br label %23
+  br label %22
 
-23:                                               ; preds = %18, %14
-  %.020 = phi i8 [ 0, %14 ], [ %22, %18 ]
-  %24 = getelementptr i8, ptr %0, i64 72
-  %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not22 = icmp eq i8 %26, 0
-  br i1 %.not22, label %27, label %31
+22:                                               ; preds = %18, %14
+  %.020 = phi i1 [ false, %14 ], [ %21, %18 ]
+  %23 = getelementptr i8, ptr %0, i64 72
+  %24 = load i8, ptr %23, align 8
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %30, label %26
 
-27:                                               ; preds = %23
-  %28 = getelementptr i8, ptr %0, i64 64
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp ne i64 %29, 0
-  br label %31
+26:                                               ; preds = %22
+  %27 = getelementptr i8, ptr %0, i64 64
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp ne i64 %28, 0
+  br label %30
 
-31:                                               ; preds = %23, %27, %1
-  %.021 = phi i1 [ false, %23 ], [ %30, %27 ], [ false, %1 ]
-  %.1 = phi i8 [ %.020, %23 ], [ %.020, %27 ], [ 0, %1 ]
+30:                                               ; preds = %22, %26, %1
+  %.021 = phi i1 [ false, %22 ], [ %29, %26 ], [ false, %1 ]
+  %.1 = phi i1 [ %.020, %22 ], [ %.020, %26 ], [ false, %1 ]
   tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 1) #9
-  %32 = tail call ptr @AllocateDir(ptr noundef %10) #9
-  %.not23 = icmp ne ptr %32, null
-  %.not24 = icmp eq i8 %.1, 0
-  %or.cond = select i1 %.not23, i1 true, i1 %.not24
-  br i1 %or.cond, label %37, label %33
+  %31 = tail call ptr @AllocateDir(ptr noundef %10) #9
+  %.not = icmp eq ptr %31, null
+  %brmerge.not = select i1 %.not, i1 %.1, i1 false
+  br i1 %brmerge.not, label %32, label %36
 
-33:                                               ; preds = %31
-  %34 = tail call ptr @__errno_location() #11
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %62, label %37
+32:                                               ; preds = %30
+  %33 = tail call ptr @__errno_location() #11
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 2
+  br i1 %35, label %61, label %36
 
-37:                                               ; preds = %33, %31
-  %38 = tail call ptr @ReadDir(ptr noundef %32, ptr noundef %10) #9
-  %.not2526 = icmp eq ptr %38, null
-  br i1 %.not2526, label %._crit_edge, label %.lr.ph
+36:                                               ; preds = %30, %32
+  %37 = tail call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
+  %.not2223 = icmp eq ptr %37, null
+  br i1 %.not2223, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %5, i64 40
-  %40 = getelementptr inbounds i8, ptr %5, i64 48
+.lr.ph:                                           ; preds = %36
+  %38 = getelementptr inbounds i8, ptr %5, i64 40
+  %39 = getelementptr inbounds i8, ptr %5, i64 48
   br i1 %.021, label %.backedge.us, label %.lr.ph.split
 
 .backedge.us:                                     ; preds = %.lr.ph, %.backedge.us
-  %41 = phi ptr [ %47, %.backedge.us ], [ %38, %.lr.ph ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 19
-  %43 = call ptr @cstring_to_text(ptr noundef nonnull %42) #9
-  %44 = ptrtoint ptr %43 to i64
-  store i64 %44, ptr %2, align 8
+  %40 = phi ptr [ %46, %.backedge.us ], [ %37, %.lr.ph ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 19
+  %42 = call ptr @cstring_to_text(ptr noundef nonnull %41) #9
+  %43 = ptrtoint ptr %42 to i64
+  store i64 %43, ptr %2, align 8
   store i8 0, ptr %3, align 1
+  %44 = load ptr, ptr %38, align 8
   %45 = load ptr, ptr %39, align 8
-  %46 = load ptr, ptr %40, align 8
-  call void @tuplestore_putvalues(ptr noundef %45, ptr noundef %46, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  %47 = call ptr @ReadDir(ptr noundef %32, ptr noundef %10) #9
-  %.not25.us = icmp eq ptr %47, null
-  br i1 %.not25.us, label %._crit_edge, label %.backedge.us, !llvm.loop !5
+  call void @tuplestore_putvalues(ptr noundef %44, ptr noundef %45, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %46 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
+  %.not22.us = icmp eq ptr %46, null
+  br i1 %.not22.us, label %._crit_edge, label %.backedge.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %48 = phi ptr [ %55, %.backedge ], [ %38, %.lr.ph ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 19
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(2) @.str.12) #12
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.backedge, label %52
+  %47 = phi ptr [ %54, %.backedge ], [ %37, %.lr.ph ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 19
+  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(2) @.str.12) #12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.backedge, label %51
 
-52:                                               ; preds = %.lr.ph.split
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(3) @.str.13) #12
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.backedge, label %56
+51:                                               ; preds = %.lr.ph.split
+  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(3) @.str.13) #12
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %.backedge, label %55
 
-.backedge:                                        ; preds = %.lr.ph.split, %52, %56
-  %55 = call ptr @ReadDir(ptr noundef %32, ptr noundef %10) #9
-  %.not25 = icmp eq ptr %55, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
+.backedge:                                        ; preds = %.lr.ph.split, %51, %55
+  %54 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
+  %.not22 = icmp eq ptr %54, null
+  br i1 %.not22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
-56:                                               ; preds = %52
-  %57 = call ptr @cstring_to_text(ptr noundef nonnull %49) #9
-  %58 = ptrtoint ptr %57 to i64
-  store i64 %58, ptr %2, align 8
+55:                                               ; preds = %51
+  %56 = call ptr @cstring_to_text(ptr noundef nonnull %48) #9
+  %57 = ptrtoint ptr %56 to i64
+  store i64 %57, ptr %2, align 8
   store i8 0, ptr %3, align 1
+  %58 = load ptr, ptr %38, align 8
   %59 = load ptr, ptr %39, align 8
-  %60 = load ptr, ptr %40, align 8
-  call void @tuplestore_putvalues(ptr noundef %59, ptr noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  call void @tuplestore_putvalues(ptr noundef %58, ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   br label %.backedge
 
-._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %37
-  %61 = call i32 @FreeDir(ptr noundef %32) #9
-  br label %62
+._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %36
+  %60 = call i32 @FreeDir(ptr noundef %31) #9
+  br label %61
 
-62:                                               ; preds = %33, %._crit_edge
+61:                                               ; preds = %32, %._crit_edge
   ret i64 0
 }
 

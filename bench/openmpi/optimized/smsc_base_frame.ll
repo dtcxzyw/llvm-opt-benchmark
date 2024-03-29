@@ -28,16 +28,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_smsc_base_select() local_unnamed_addr #0 {
   %1 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.019.in24 = getelementptr inbounds i8, ptr %1, i64 16
-  %.01925 = load volatile ptr, ptr %.019.in24, align 8
-  %.not26 = icmp eq ptr %1, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.019.in23 = getelementptr inbounds i8, ptr %1, i64 16
+  %.01924 = load volatile ptr, ptr %.019.in23, align 8
+  %.not25 = icmp eq ptr %1, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %57
-  %.01929 = phi ptr [ %.019, %57 ], [ %.01925, %0 ]
-  %.019.in28 = phi ptr [ %.019.in, %57 ], [ %.019.in24, %0 ]
-  %.027 = phi ptr [ %.01929, %57 ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.027, i64 40
+  %.01928 = phi ptr [ %.019, %57 ], [ %.01924, %0 ]
+  %.019.in27 = phi ptr [ %.019.in, %57 ], [ %.019.in23, %0 ]
+  %.026 = phi ptr [ %.01928, %57 ], [ %1, %0 ]
+  %2 = getelementptr inbounds i8, ptr %.026, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 11), align 4
   %5 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %4) #4
@@ -68,24 +68,23 @@ define noundef i32 @mca_smsc_base_select() local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %15, %16
-  %20 = load volatile ptr, ptr %.019.in28, align 8
-  %21 = getelementptr inbounds i8, ptr %.027, i64 24
+  %20 = load volatile ptr, ptr %.019.in27, align 8
+  %21 = getelementptr inbounds i8, ptr %.026, i64 24
   %22 = load volatile ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   store volatile ptr %20, ptr %23, align 8
   %24 = load volatile ptr, ptr %21, align 8
-  %25 = load volatile ptr, ptr %.019.in28, align 8
+  %25 = load volatile ptr, ptr %.019.in27, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   store volatile ptr %24, ptr %26, align 8
   %27 = load volatile i64, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 2), align 8
   %28 = add i64 %27, -1
   store volatile i64 %28, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 2), align 8
   %29 = load volatile ptr, ptr %21, align 8
-  %30 = getelementptr inbounds i8, ptr %.027, i64 8
+  %30 = getelementptr inbounds i8, ptr %.026, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %36, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %36
 
 33:                                               ; preds = %19
   %34 = atomicrmw volatile add ptr %30, i32 -1 monotonic, align 4
@@ -105,7 +104,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %33, %36
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %42 = load ptr, ptr %.027, align 8
+  %42 = load ptr, ptr %.026, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
@@ -115,14 +114,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %33, %36
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %46 = phi ptr [ %48, %.lr.ph.i ], [ %45, %41 ]
   %.07.i = phi ptr [ %47, %.lr.ph.i ], [ %44, %41 ]
-  tail call void %46(ptr noundef nonnull %.027) #4
+  tail call void %46(ptr noundef nonnull %.026) #4
   %47 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %48 = load ptr, ptr %47, align 8
-  %.not.i23 = icmp eq ptr %48, null
-  br i1 %.not.i23, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
-  tail call void @free(ptr noundef %.027) #4
+  tail call void @free(ptr noundef %.026) #4
   br label %49
 
 49:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -142,9 +141,9 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
   br label %57
 
 57:                                               ; preds = %52, %51, %49
-  %.019.in = getelementptr inbounds i8, ptr %.01929, i64 16
+  %.019.in = getelementptr inbounds i8, ptr %.01928, i64 16
   %.019 = load volatile ptr, ptr %.019.in, align 8
-  %.not = icmp eq ptr %.01929, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 1)
+  %.not = icmp eq ptr %.01928, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i64 0, i32 12, i32 1)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %0

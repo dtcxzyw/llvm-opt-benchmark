@@ -158,13 +158,13 @@ if.then:                                          ; preds = %entry
 "_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit": ; preds = %entry
   %in_gc_finalizer = getelementptr inbounds i8, ptr %this, i64 188
   %2 = load i8, ptr %in_gc_finalizer, align 4
-  %3 = and i8 %2, 1
+  %frombool = and i8 %2, 1
   store i8 1, ptr %in_gc_finalizer, align 4
   %vtable3 = load ptr, ptr %finalizer, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
-  %4 = load ptr, ptr %vfn4, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %finalizer) #24
-  store i8 %3, ptr %in_gc_finalizer, align 4
+  %3 = load ptr, ptr %vfn4, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(24) %finalizer) #24
+  store i8 %frombool, ptr %in_gc_finalizer, align 4
   br label %if.end
 
 if.end:                                           ; preds = %"_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit", %if.then
@@ -1140,41 +1140,41 @@ _ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds = %_Z
 
 _ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
   %call5.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #24
-  %9 = zext i1 %call5.i to i8
-  store i8 %9, ptr %can_be_weak_, align 8
-  %10 = load i32, ptr %refcount_.i, align 8
-  %cmp = icmp eq i32 %10, 0
+  %frombool = zext i1 %call5.i to i8
+  store i8 %frombool, ptr %can_be_weak_, align 8
+  %9 = load i32, ptr %refcount_.i, align 8
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 _ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread: ; preds = %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
   store i8 1, ptr %can_be_weak_, align 8
-  %11 = load i32, ptr %refcount_.i, align 8
-  %cmp8 = icmp eq i32 %11, 0
+  %10 = load i32, ptr %refcount_.i, align 8
+  %cmp8 = icmp eq i32 %10, 0
   br i1 %cmp8, label %if.then.thread, label %if.end
 
 if.then.thread:                                   ; preds = %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread
-  %12 = load ptr, ptr %persistent_, align 8
+  %11 = load ptr, ptr %persistent_, align 8
   br label %if.then.i
 
 if.then:                                          ; preds = %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit
-  %13 = load ptr, ptr %persistent_, align 8
+  %12 = load ptr, ptr %persistent_, align 8
   br i1 %call5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then.thread, %if.then
-  %14 = phi ptr [ %12, %if.then.thread ], [ %13, %if.then ]
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %14, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  %13 = phi ptr [ %11, %if.then.thread ], [ %12, %if.then ]
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %13, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i5 = icmp eq ptr %13, null
+  %cmp.i.i5 = icmp eq ptr %12, null
   br i1 %cmp.i.i5, label %if.end, label %if.end.i.i6
 
 if.end.i.i6:                                      ; preds = %if.else.i
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %persistent_, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread, %if.end.i.i6, %if.else.i, %if.then.i, %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit
+if.end:                                           ; preds = %if.end.i.i6, %if.else.i, %if.then.i, %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread, %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit
   ret void
 }
 
@@ -1197,9 +1197,8 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %can_be_weak_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i8, ptr %can_be_weak_, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %return, label %if.then3
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then3, label %return
 
 if.then3:                                         ; preds = %land.lhs.true
   %call2.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %0) #24
@@ -1233,9 +1232,8 @@ _ZN6v8impl7RefBase5UnrefEv.exit:                  ; preds = %if.end
 if.then5:                                         ; preds = %_ZN6v8impl7RefBase5UnrefEv.exit
   %can_be_weak_.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i8, ptr %can_be_weak_.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %if.end.i.i, label %if.then.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i.i
 
 if.then.i:                                        ; preds = %if.then5
   tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %0, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
@@ -1256,23 +1254,22 @@ define dso_local void @_ZN6v8impl9Reference7SetWeakEv(ptr noundef nonnull align 
 entry:
   %can_be_weak_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %can_be_weak_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %persistent_2 = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %persistent_2, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
+  %1 = load ptr, ptr %persistent_, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %2, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %1, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %2, null
+  %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %2) #24
-  store ptr null, ptr %persistent_2, align 8
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #24
+  store ptr null, ptr %persistent_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.else, %if.then
@@ -1484,13 +1481,13 @@ if.then.i:                                        ; preds = %_ZN2v814PersistentB
 "_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit.i": ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %2, i64 188
   %5 = load i8, ptr %in_gc_finalizer.i, align 4
-  %6 = and i8 %5, 1
+  %frombool.i = and i8 %5, 1
   store i8 1, ptr %in_gc_finalizer.i, align 4
   %vtable3.i = load ptr, ptr %add.ptr, align 8
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
-  %7 = load ptr, ptr %vfn4.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #24
-  store i8 %6, ptr %in_gc_finalizer.i, align 4
+  %6 = load ptr, ptr %vfn4.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #24
+  store i8 %frombool.i, ptr %in_gc_finalizer.i, align 4
   br label %_ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit
 
 _ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit: ; preds = %if.then.i, %"_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit.i"
@@ -1572,9 +1569,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -1582,8 +1578,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -1597,13 +1593,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i27 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i27, align 4
@@ -1617,8 +1613,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -1647,8 +1643,8 @@ if.then24:                                        ; preds = %do.body22
   br label %cleanup98
 
 do.end28:                                         ; preds = %do.body22
-  %7 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %6) #24
   store ptr null, ptr %fn, align 8
   %call30 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %cb, ptr noundef %callback_data, ptr noundef nonnull %fn)
   %cmp31.not = icmp eq i32 %call30, 0
@@ -1661,14 +1657,14 @@ do.end35:                                         ; preds = %do.end28
   br i1 %cmp42.not, label %if.end85, label %if.then43
 
 if.then43:                                        ; preds = %do.end35
-  %8 = add i64 %length, 1
-  %or.cond = icmp ult i64 %8, 2147483649
+  %7 = add i64 %length, 1
+  %or.cond = icmp ult i64 %7, 2147483649
   br i1 %or.cond, label %do.end59, label %cleanup.sink.split
 
 do.end59:                                         ; preds = %if.then43
-  %9 = load ptr, ptr %isolate.i, align 8
+  %8 = load ptr, ptr %isolate.i, align 8
   %conv = trunc i64 %length to i32
-  %call61 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
+  %call61 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
   %cmp.i.i = icmp eq ptr %call61, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -1702,17 +1698,17 @@ cleanup98:                                        ; preds = %cleanup, %if.then24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup98
-  %10 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
-  %isolate.i47 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load ptr, ptr %isolate.i47, align 8
+  %9 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %12 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -1721,8 +1717,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %13 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
+  %12 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -1839,9 +1835,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -1849,8 +1844,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -1864,13 +1859,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i70 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i70, align 4
@@ -1884,8 +1879,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -1929,30 +1924,30 @@ if.then33:                                        ; preds = %do.end28
   br label %cleanup299
 
 if.end38:                                         ; preds = %do.end28
-  %7 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %6) #24
   store ptr null, ptr %tpl, align 8
   %call43 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %constructor, ptr noundef %callback_data, ptr noundef nonnull %tpl, ptr null)
   %cmp44.not = icmp eq i32 %call43, 0
   br i1 %cmp44.not, label %do.end48, label %cleanup298
 
 do.end48:                                         ; preds = %if.end38
-  %8 = add i64 %length, -2147483648
-  %or.cond = icmp ult i64 %8, -2147483649
+  %7 = add i64 %length, -2147483648
+  %or.cond = icmp ult i64 %7, -2147483649
   %cmp59.not = icmp eq ptr %utf8name, null
   %or.cond106 = or i1 %or.cond, %cmp59.not
   br i1 %or.cond106, label %cleanup298.sink.split, label %do.end64
 
 do.end64:                                         ; preds = %do.end48
-  %9 = load ptr, ptr %isolate.i, align 8
+  %8 = load ptr, ptr %isolate.i, align 8
   %conv = trunc i64 %length to i32
-  %call66 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
+  %call66 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
   %cmp.i.i = icmp eq ptr %call66, null
   br i1 %cmp.i.i, label %cleanup298.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end64
-  %10 = load ptr, ptr %tpl, align 8
-  call void @_ZN2v816FunctionTemplate12SetClassNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr nonnull %call66) #24
+  %9 = load ptr, ptr %tpl, align 8
+  call void @_ZN2v816FunctionTemplate12SetClassNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr nonnull %call66) #24
   br i1 %cmp29, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %for.inc
@@ -1960,8 +1955,8 @@ for.body:                                         ; preds = %_ZN2v810MaybeLocalI
   %i.099 = phi i64 [ %inc231, %for.inc ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
   %add.ptr = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099
   %attributes = getelementptr inbounds i8, ptr %add.ptr, i64 48
-  %11 = load i32, ptr %attributes, align 8
-  %and = and i32 %11, 1024
+  %10 = load i32, ptr %attributes, align 8
+  %and = and i32 %10, 1024
   %cmp90.not = icmp eq i32 %and, 0
   br i1 %cmp90.not, label %if.end92, label %if.then91
 
@@ -1978,14 +1973,14 @@ if.end92:                                         ; preds = %for.body
 do.end100:                                        ; preds = %if.end92
   %call102 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr noundef nonnull %add.ptr), !range !5
   %getter = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %12 = load ptr, ptr %getter, align 8
-  %cmp103.not = icmp eq ptr %12, null
+  %11 = load ptr, ptr %getter, align 8
+  %cmp103.not = icmp eq ptr %11, null
   br i1 %cmp103.not, label %lor.lhs.false104, label %do.body110
 
 lor.lhs.false104:                                 ; preds = %do.end100
   %setter = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %13 = load ptr, ptr %setter, align 8
-  %cmp105.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %setter, align 8
+  %cmp105.not = icmp eq ptr %12, null
   br i1 %cmp105.not, label %if.else, label %if.end123.thread
 
 if.end123.thread:                                 ; preds = %lor.lhs.false104
@@ -1997,8 +1992,8 @@ do.body110:                                       ; preds = %do.end100
   store ptr null, ptr %getter_tpl, align 8
   store ptr null, ptr %setter_tpl, align 8
   %data = getelementptr inbounds i8, ptr %add.ptr, i64 56
-  %14 = load ptr, ptr %data, align 8
-  %call117 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %12, ptr noundef %14, ptr noundef nonnull %getter_tpl, ptr null)
+  %13 = load ptr, ptr %data, align 8
+  %call117 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %11, ptr noundef %13, ptr noundef nonnull %getter_tpl, ptr null)
   %cmp118.not = icmp eq i32 %call117, 0
   br i1 %cmp118.not, label %if.end123, label %cleanup298
 
@@ -2009,10 +2004,10 @@ if.end123:                                        ; preds = %do.body110
   br i1 %cmp125.not, label %if.end141, label %do.body127
 
 do.body127:                                       ; preds = %if.end123.thread, %if.end123
-  %15 = phi ptr [ %13, %if.end123.thread ], [ %.pre, %if.end123 ]
+  %14 = phi ptr [ %12, %if.end123.thread ], [ %.pre, %if.end123 ]
   %data130 = getelementptr inbounds i8, ptr %add.ptr, i64 56
-  %16 = load ptr, ptr %data130, align 8
-  %call135 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %setter_tpl, ptr null)
+  %15 = load ptr, ptr %data130, align 8
+  %call135 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %14, ptr noundef %15, ptr noundef nonnull %setter_tpl, ptr null)
   %cmp136.not = icmp eq i32 %call135, 0
   br i1 %cmp136.not, label %do.body127.if.end141_crit_edge, label %cleanup298
 
@@ -2022,7 +2017,7 @@ do.body127.if.end141_crit_edge:                   ; preds = %do.body127
 
 if.end141:                                        ; preds = %do.body127.if.end141_crit_edge, %if.end123
   %agg.tmp151.sroa.0.0.copyload = phi ptr [ %agg.tmp151.sroa.0.0.copyload.pre, %do.body127.if.end141_crit_edge ], [ null, %if.end123 ]
-  %call144 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
+  %call144 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   %agg.tmp149.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
   %agg.tmp150.sroa.0.0.copyload = load ptr, ptr %getter_tpl, align 8
   call void @_ZN2v88Template19SetAccessorPropertyENS_5LocalINS_4NameEEENS1_INS_16FunctionTemplateEEES5_NS_17PropertyAttributeENS_13AccessControlE(ptr noundef nonnull align 1 dereferenceable(1) %call144, ptr %agg.tmp149.sroa.0.0.copyload, ptr %agg.tmp150.sroa.0.0.copyload, ptr %agg.tmp151.sroa.0.0.copyload, i32 noundef %call102, i32 noundef 0) #24
@@ -2030,21 +2025,21 @@ if.end141:                                        ; preds = %do.body127.if.end14
 
 if.else:                                          ; preds = %lor.lhs.false104
   %method = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %17 = load ptr, ptr %method, align 8
-  %cmp161.not = icmp eq ptr %17, null
+  %16 = load ptr, ptr %method, align 8
+  %cmp161.not = icmp eq ptr %16, null
   br i1 %cmp161.not, label %if.else204, label %if.then162
 
 if.then162:                                       ; preds = %if.else
   store ptr null, ptr %t, align 8
   %data166 = getelementptr inbounds i8, ptr %add.ptr, i64 56
-  %18 = load ptr, ptr %data166, align 8
-  %call172 = call ptr @_ZN2v89Signature3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %7, ptr nonnull %10) #24
-  %call179 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %t, ptr %call172)
+  %17 = load ptr, ptr %data166, align 8
+  %call172 = call ptr @_ZN2v89Signature3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %6, ptr nonnull %9) #24
+  %call179 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %16, ptr noundef %17, ptr noundef nonnull %t, ptr %call172)
   %cmp180.not = icmp eq i32 %call179, 0
   br i1 %cmp180.not, label %do.end184, label %cleanup298
 
 do.end184:                                        ; preds = %if.then162
-  %call187 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
+  %call187 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   %agg.tmp192.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
   %agg.tmp194.sroa.0.0.copyload = load ptr, ptr %t, align 8
   call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call187, ptr %agg.tmp192.sroa.0.0.copyload, ptr %agg.tmp194.sroa.0.0.copyload, i32 noundef %call102) #24
@@ -2052,10 +2047,10 @@ do.end184:                                        ; preds = %if.then162
 
 if.else204:                                       ; preds = %if.else
   %value205 = getelementptr inbounds i8, ptr %add.ptr, i64 40
-  %19 = load ptr, ptr %value205, align 8
-  %call212 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
+  %18 = load ptr, ptr %value205, align 8
+  %call212 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   %agg.tmp217.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
-  call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call212, ptr %agg.tmp217.sroa.0.0.copyload, ptr %19, i32 noundef %call102) #24
+  call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call212, ptr %agg.tmp217.sroa.0.0.copyload, ptr %18, i32 noundef %call102) #24
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end141, %if.else204, %do.end184, %if.then91
@@ -2068,7 +2063,7 @@ for.end:                                          ; preds = %for.inc, %_ZN2v810M
   %static_property_count.0.lcssa = phi i64 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %static_property_count.1, %for.inc ]
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call245 = call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call245 = call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i370 = icmp eq ptr %call245, null
   br i1 %cmp.i.i370, label %if.then.i365, label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
@@ -2091,8 +2086,8 @@ for.body273:                                      ; preds = %if.then269, %for.in
   %i270.0102 = phi i64 [ %inc282, %for.inc281 ], [ 0, %if.then269 ]
   %add.ptr275 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i270.0102
   %attributes276 = getelementptr inbounds i8, ptr %add.ptr275, i64 48
-  %20 = load i32, ptr %attributes276, align 8
-  %and277 = and i32 %20, 1024
+  %19 = load i32, ptr %attributes276, align 8
+  %and277 = and i32 %19, 1024
   %cmp278.not = icmp eq i32 %and277, 0
   br i1 %cmp278.not, label %for.inc281, label %if.then279
 
@@ -2106,22 +2101,22 @@ for.inc281:                                       ; preds = %for.body273, %if.th
   br i1 %exitcond103.not, label %do.body284, label %for.body273, !llvm.loop !8
 
 do.body284:                                       ; preds = %for.inc281, %if.then269
-  %21 = load ptr, ptr %result, align 8
+  %20 = load ptr, ptr %result, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %static_descriptors, i64 8
-  %22 = load ptr, ptr %_M_finish.i, align 8
-  %23 = load ptr, ptr %static_descriptors, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
+  %21 = load ptr, ptr %_M_finish.i, align 8
+  %22 = load ptr, ptr %static_descriptors, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
-  %call288 = call i32 @napi_define_properties(ptr noundef nonnull %env, ptr noundef %21, i64 noundef %sub.ptr.div.i, ptr noundef %23)
+  %call288 = call i32 @napi_define_properties(ptr noundef nonnull %env, ptr noundef %20, i64 noundef %sub.ptr.div.i, ptr noundef %22)
   %cmp289.not = icmp eq i32 %call288, 0
-  %24 = load ptr, ptr %static_descriptors, align 8
-  %tobool.not.i.i.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %static_descriptors, align 8
+  %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.body284
-  call void @_ZdlPv(ptr noundef nonnull %24) #26
+  call void @_ZdlPv(ptr noundef nonnull %23) #26
   br label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit: ; preds = %do.body284, %if.then.i.i.i
@@ -2152,17 +2147,17 @@ cleanup299:                                       ; preds = %cleanup298, %if.the
   br i1 %call.i, label %if.then.i94, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i94:                                      ; preds = %cleanup299
-  %25 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %25, i64 24
-  %isolate.i96 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load ptr, ptr %isolate.i96, align 8
+  %24 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %24, i64 24
+  %isolate.i96 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load ptr, ptr %isolate.i96, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %27 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i94
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %27) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %26) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -2171,8 +2166,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %28 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %26, i64 noundef %28) #24
+  %27 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %25, i64 noundef %27) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2491,9 +2486,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i70 = trunc i8 %1 to i1
+  br i1 %tobool.i70, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -2501,8 +2495,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -2516,28 +2510,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i70 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i70, align 4
-  %engine_error_code3.i71 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i71, align 8
-  %engine_reserved5.i72 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i72, align 8
+  %error_code1.i71 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i71, align 4
+  %engine_error_code3.i72 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i72, align 8
+  %engine_reserved5.i73 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i73, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp16 = icmp eq i64 %property_count, 0
@@ -2546,12 +2540,12 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %do.end14
-  %error_code1.i73 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 1, ptr %error_code1.i73, align 4
-  %engine_error_code3.i74 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i74, align 8
-  %engine_reserved5.i75 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i75, align 8
+  %error_code1.i74 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 1, ptr %error_code1.i74, align 4
+  %engine_error_code3.i75 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i75, align 8
+  %engine_reserved5.i76 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i76, align 8
   br label %cleanup274
 
 if.end24:                                         ; preds = %do.end14
@@ -2561,12 +2555,12 @@ if.end24:                                         ; preds = %do.end14
   br i1 %cmp30.not, label %if.then31, label %do.end35
 
 if.then31:                                        ; preds = %if.end24
-  %error_code1.i76 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 1, ptr %error_code1.i76, align 4
-  %engine_error_code3.i77 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i77, align 8
-  %engine_reserved5.i78 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i78, align 8
+  %error_code1.i77 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 1, ptr %error_code1.i77, align 4
+  %engine_error_code3.i78 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i78, align 8
+  %engine_reserved5.i79 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i79, align 8
   br label %cleanup274
 
 do.end35:                                         ; preds = %if.end24
@@ -2578,24 +2572,24 @@ for.cond.preheader:                               ; preds = %do.end35
   br i1 %cmp16, label %for.end, label %for.body
 
 if.then51:                                        ; preds = %do.end35
-  %error_code1.i79 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 2, ptr %error_code1.i79, align 4
-  %engine_error_code3.i80 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i80, align 8
-  %engine_reserved5.i81 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i81, align 8
+  %error_code1.i80 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 2, ptr %error_code1.i80, align 4
+  %engine_error_code3.i81 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i81, align 8
+  %engine_reserved5.i82 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i82, align 8
   br label %cleanup274
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.0106 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106
-  %7 = load ptr, ptr %arrayidx, align 8
-  %cmp.not.i = icmp eq ptr %7, null
+  %i.0107 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %arrayidx = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0107
+  %6 = load ptr, ptr %arrayidx, align 8
+  %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end6.i
 
 do.end6.i:                                        ; preds = %for.body
-  %8 = load ptr, ptr %isolate.i, align 8
-  %call8.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %7, i32 noundef 1, i32 noundef -1) #24
+  %7 = load ptr, ptr %isolate.i, align 8
+  %call8.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call8.i, null
   br i1 %cmp.i.i.i, label %if.then14.i, label %do.end70
 
@@ -2610,8 +2604,8 @@ if.then14.i:                                      ; preds = %do.end6.i
 
 if.else.i:                                        ; preds = %for.body
   %name.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %9 = load ptr, ptr %name.i, align 8
-  %call32.i = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
+  %8 = load ptr, ptr %name.i, align 8
+  %call32.i = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
   br i1 %call32.i, label %do.end70, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.else.i
@@ -2624,16 +2618,16 @@ if.then33.i:                                      ; preds = %if.else.i
   br label %cleanup274
 
 do.end70:                                         ; preds = %if.else.i, %do.end6.i
-  %property_name.sroa.0.0.ph = phi ptr [ %9, %if.else.i ], [ %call8.i, %do.end6.i ]
+  %property_name.sroa.0.0.ph = phi ptr [ %8, %if.else.i ], [ %call8.i, %do.end6.i ]
   %getter = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %10 = load ptr, ptr %getter, align 8
-  %cmp71.not = icmp eq ptr %10, null
+  %9 = load ptr, ptr %getter, align 8
+  %cmp71.not = icmp eq ptr %9, null
   br i1 %cmp71.not, label %lor.lhs.false, label %do.body77
 
 lor.lhs.false:                                    ; preds = %do.end70
   %setter = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %11 = load ptr, ptr %setter, align 8
-  %cmp72.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %setter, align 8
+  %cmp72.not = icmp eq ptr %10, null
   br i1 %cmp72.not, label %if.else, label %if.end86.thread
 
 if.end86.thread:                                  ; preds = %lor.lhs.false
@@ -2645,8 +2639,8 @@ do.body77:                                        ; preds = %do.end70
   store ptr null, ptr %local_getter, align 8
   store ptr null, ptr %local_setter, align 8
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  %12 = load ptr, ptr %data, align 8
-  %call80 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %10, ptr noundef %12, ptr noundef nonnull %local_getter)
+  %11 = load ptr, ptr %data, align 8
+  %call80 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %local_getter)
   %cmp81.not = icmp eq i32 %call80, 0
   br i1 %cmp81.not, label %if.end86, label %cleanup274
 
@@ -2657,10 +2651,10 @@ if.end86:                                         ; preds = %do.body77
   br i1 %cmp88.not, label %if.end100, label %do.body90
 
 do.body90:                                        ; preds = %if.end86.thread, %if.end86
-  %13 = phi ptr [ %11, %if.end86.thread ], [ %.pre, %if.end86 ]
+  %12 = phi ptr [ %10, %if.end86.thread ], [ %.pre, %if.end86 ]
   %data93 = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  %14 = load ptr, ptr %data93, align 8
-  %call94 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %13, ptr noundef %14, ptr noundef nonnull %local_setter)
+  %13 = load ptr, ptr %data93, align 8
+  %call94 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %12, ptr noundef %13, ptr noundef nonnull %local_setter)
   %cmp95.not = icmp eq i32 %call94, 0
   br i1 %cmp95.not, label %do.body90.if.end100_crit_edge, label %cleanup274
 
@@ -2673,100 +2667,104 @@ if.end100:                                        ; preds = %do.body90.if.end100
   %agg.tmp102.sroa.0.0.copyload = load ptr, ptr %local_getter, align 8
   call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, ptr %agg.tmp102.sroa.0.0.copyload, ptr %agg.tmp107.sroa.0.0.copyload) #24
   %attributes = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  %15 = load i32, ptr %attributes, align 8
-  %and = and i32 %15, 2
+  %14 = load i32, ptr %attributes, align 8
+  %and = and i32 %14, 2
   %cmp117 = icmp ne i32 %and, 0
   call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp117) #24
-  %16 = load i32, ptr %attributes, align 8
-  %and119 = and i32 %16, 4
+  %15 = load i32, ptr %attributes, align 8
+  %and119 = and i32 %15, 4
   %cmp120 = icmp ne i32 %and119, 0
   call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp120) #24
   %call130 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #24
-  %17 = and i16 %call130, 257
-  %cond.i331 = icmp eq i16 %17, 257
+  %tobool.i328 = trunc i16 %call130 to i1
+  %16 = and i16 %call130, 256
+  %tobool2.i334 = icmp ne i16 %16, 0
+  %cond.i331 = and i1 %tobool2.i334, %tobool.i328
   br i1 %cond.i331, label %for.inc.sink.split, label %cleanup
 
 cleanup:                                          ; preds = %if.end100
   %call135 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond136 = select i1 %call135, i32 10, i32 1
-  %error_code1.i83 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond136, ptr %error_code1.i83, align 4
-  %engine_error_code3.i84 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i84, align 8
-  %engine_reserved5.i85 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i85, align 8
+  %error_code1.i84 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond136, ptr %error_code1.i84, align 4
+  %engine_error_code3.i85 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i85, align 8
+  %engine_reserved5.i86 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i86, align 8
   call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #24
   br label %cleanup274
 
 if.else:                                          ; preds = %lor.lhs.false
   %method = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %18 = load ptr, ptr %method, align 8
-  %cmp141.not = icmp eq ptr %18, null
+  %17 = load ptr, ptr %method, align 8
+  %cmp141.not = icmp eq ptr %17, null
   br i1 %cmp141.not, label %if.else197, label %if.then142
 
 if.then142:                                       ; preds = %if.else
   store ptr null, ptr %method143, align 8
   %data147 = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  %19 = load ptr, ptr %data147, align 8
-  %call148 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %18, ptr noundef %19, ptr noundef nonnull %method143)
+  %18 = load ptr, ptr %data147, align 8
+  %call148 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %method143)
   %cmp149.not = icmp eq i32 %call148, 0
   br i1 %cmp149.not, label %do.end153, label %cleanup274
 
 do.end153:                                        ; preds = %if.then142
   %agg.tmp156.sroa.0.0.copyload = load ptr, ptr %method143, align 8
   %attributes160 = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  %20 = load i32, ptr %attributes160, align 8
-  %and161 = and i32 %20, 1
+  %19 = load i32, ptr %attributes160, align 8
+  %and161 = and i32 %19, 1
   %cmp162 = icmp ne i32 %and161, 0
   call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, ptr %agg.tmp156.sroa.0.0.copyload, i1 noundef zeroext %cmp162) #24
-  %21 = load i32, ptr %attributes160, align 8
-  %and167 = and i32 %21, 2
+  %20 = load i32, ptr %attributes160, align 8
+  %and167 = and i32 %20, 2
   %cmp168 = icmp ne i32 %and167, 0
   call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp168) #24
-  %22 = load i32, ptr %attributes160, align 8
-  %and170 = and i32 %22, 4
+  %21 = load i32, ptr %attributes160, align 8
+  %and170 = and i32 %21, 4
   %cmp171 = icmp ne i32 %and170, 0
   call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp171) #24
   %call182 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #24
-  %23 = and i16 %call182, 257
-  %cond.i320 = icmp eq i16 %23, 257
+  %tobool.i317 = trunc i16 %call182 to i1
+  %22 = and i16 %call182, 256
+  %tobool2.i323 = icmp ne i16 %22, 0
+  %cond.i320 = and i1 %tobool2.i323, %tobool.i317
   br i1 %cond.i320, label %for.inc.sink.split, label %cleanup194
 
 cleanup194:                                       ; preds = %do.end153
   %call188 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond189 = select i1 %call188, i32 10, i32 9
-  %error_code1.i86 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond189, ptr %error_code1.i86, align 4
-  %engine_error_code3.i87 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i87, align 8
-  %engine_reserved5.i88 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i88, align 8
+  %error_code1.i87 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond189, ptr %error_code1.i87, align 4
+  %engine_error_code3.i88 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i88, align 8
+  %engine_reserved5.i89 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i89, align 8
   call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #24
   br label %cleanup274
 
 if.else197:                                       ; preds = %if.else
   %value198 = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  %24 = load ptr, ptr %value198, align 8
+  %23 = load ptr, ptr %value198, align 8
   %attributes206 = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  %25 = load i32, ptr %attributes206, align 8
-  %26 = and i32 %25, 7
-  %or.cond68.not = icmp eq i32 %26, 7
+  %24 = load i32, ptr %attributes206, align 8
+  %25 = and i32 %24, 7
+  %or.cond68.not = icmp eq i32 %25, 7
   br i1 %or.cond68.not, label %if.then215, label %if.else231
 
 if.then215:                                       ; preds = %if.else197
-  %call230 = call i16 @_ZN2v86Object18CreateDataPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr %24) #24
+  %call230 = call i16 @_ZN2v86Object18CreateDataPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr %23) #24
   br label %do.body258
 
 if.else231:                                       ; preds = %if.else197
-  %and209 = and i32 %25, 1
+  %and209 = and i32 %24, 1
   %cmp236 = icmp ne i32 %and209, 0
-  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, ptr %24, i1 noundef zeroext %cmp236) #24
-  %27 = load i32, ptr %attributes206, align 8
-  %and241 = and i32 %27, 2
+  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, ptr %23, i1 noundef zeroext %cmp236) #24
+  %26 = load i32, ptr %attributes206, align 8
+  %and241 = and i32 %26, 2
   %cmp242 = icmp ne i32 %and241, 0
   call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, i1 noundef zeroext %cmp242) #24
-  %28 = load i32, ptr %attributes206, align 8
-  %and244 = and i32 %28, 4
+  %27 = load i32, ptr %attributes206, align 8
+  %and244 = and i32 %27, 4
   %cmp245 = icmp ne i32 %and244, 0
   call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, i1 noundef zeroext %cmp245) #24
   %call256 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor232) #24
@@ -2775,19 +2773,21 @@ if.else231:                                       ; preds = %if.else197
 
 do.body258:                                       ; preds = %if.then215, %if.else231
   %define_maybe203.sroa.0.0.in = phi i16 [ %call230, %if.then215 ], [ %call256, %if.else231 ]
-  %29 = and i16 %define_maybe203.sroa.0.0.in, 257
-  %cond.i = icmp eq i16 %29, 257
+  %tobool.i = trunc i16 %define_maybe203.sroa.0.0.in to i1
+  %28 = and i16 %define_maybe203.sroa.0.0.in, 256
+  %tobool2.i = icmp ne i16 %28, 0
+  %cond.i = and i1 %tobool2.i, %tobool.i
   br i1 %cond.i, label %for.inc, label %if.then262
 
 if.then262:                                       ; preds = %do.body258
   %call263 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond264 = select i1 %call263, i32 10, i32 1
-  %error_code1.i89 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond264, ptr %error_code1.i89, align 4
-  %engine_error_code3.i90 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i90, align 8
-  %engine_reserved5.i91 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i91, align 8
+  %error_code1.i90 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond264, ptr %error_code1.i90, align 4
+  %engine_error_code3.i91 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i91, align 8
+  %engine_reserved5.i92 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i92, align 8
   br label %cleanup274
 
 for.inc.sink.split:                               ; preds = %do.end153, %if.end100
@@ -2796,7 +2796,7 @@ for.inc.sink.split:                               ; preds = %do.end153, %if.end1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %do.body258
-  %inc = add nuw i64 %i.0106, 1
+  %inc = add nuw i64 %i.0107, 1
   %exitcond.not = icmp eq i64 %inc, %property_count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -2805,41 +2805,41 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %call271, label %cond.false, label %cleanup274
 
 cond.false:                                       ; preds = %for.end
-  %error_code1.i92 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 10, ptr %error_code1.i92, align 4
-  %engine_error_code3.i93 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i93, align 8
-  %engine_reserved5.i94 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i94, align 8
+  %error_code1.i93 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 10, ptr %error_code1.i93, align 4
+  %engine_error_code3.i94 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i94, align 8
+  %engine_reserved5.i95 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i95, align 8
   br label %cleanup274
 
 cleanup274:                                       ; preds = %if.then142, %do.body90, %do.body77, %cleanup194, %cleanup, %if.then33.i, %if.then14.i, %cond.false, %for.end, %if.then262, %if.then51, %if.then31, %if.then20
   %retval.4 = phi i32 [ 2, %if.then51 ], [ %cond136, %cleanup ], [ %cond189, %cleanup194 ], [ %cond264, %if.then262 ], [ 1, %if.then31 ], [ 1, %if.then20 ], [ 10, %cond.false ], [ 0, %for.end ], [ 9, %if.then14.i ], [ 4, %if.then33.i ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i95, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i96, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i95:                                      ; preds = %cleanup274
-  %30 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %30, i64 24
-  %isolate.i97 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %isolate.i97, align 8
+if.then.i96:                                      ; preds = %cleanup274
+  %29 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %29, i64 24
+  %isolate.i98 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %isolate.i98, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %32 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i98 = icmp eq ptr %32, null
-  br i1 %cmp.i.i.i98, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
+  %31 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i99 = icmp eq ptr %31, null
+  br i1 %cmp.i.i.i99, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i95
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %32) #24
+if.end.i.i.i:                                     ; preds = %if.then.i96
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %31) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i95
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i96
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %33 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %31, i64 noundef %33) #24
+  %32 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %30, i64 noundef %32) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2875,9 +2875,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -2885,8 +2884,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -2900,13 +2899,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i31 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i31, align 4
@@ -2920,8 +2919,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -2990,17 +2989,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i55, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i55:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i57 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i57, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i57 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i57, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i55
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3009,8 +3008,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3043,9 +3042,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i21 = trunc i8 %1 to i1
+  br i1 %tobool.i21, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3053,8 +3051,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3068,28 +3066,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i21 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i21, align 4
-  %engine_error_code3.i22 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i22, align 8
-  %engine_reserved5.i23 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i23, align 8
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i22, align 4
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i23, align 8
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i24, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3110,8 +3108,10 @@ do.end39:                                         ; preds = %do.end28
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
   %call88 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key, ptr nonnull %value) #24
-  %7 = and i16 %call88, 257
-  %cond.i.not = icmp eq i16 %7, 257
+  %tobool.i = trunc i16 %call88 to i1
+  %6 = and i16 %call88, 256
+  %tobool2.i = icmp ne i16 %6, 0
+  %cond.i.not = and i1 %tobool2.i, %tobool.i
   %call99 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end98, label %if.then92
 
@@ -3124,41 +3124,41 @@ do.end98:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end98, %do.end39, %do.end28, %do.end14, %if.then92
   %.sink = phi i32 [ %cond94, %if.then92 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 10, %do.end98 ]
-  %error_code1.i39 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i39, align 4
-  %engine_error_code3.i40 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i40, align 8
-  %engine_reserved5.i41 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i41, align 8
+  %error_code1.i40 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i40, align 4
+  %engine_error_code3.i41 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i41, align 8
+  %engine_reserved5.i42 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i42, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end98
   %retval.0 = phi i32 [ 0, %do.end98 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i42, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i42:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i44 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i44, align 8
+if.then.i43:                                      ; preds = %cleanup
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i45 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i45, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i42
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+if.end.i.i.i:                                     ; preds = %if.then.i43
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i42
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i43
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3189,9 +3189,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3199,8 +3198,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3214,13 +3213,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i22, align 4
@@ -3234,8 +3233,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -3256,9 +3255,8 @@ do.end39:                                         ; preds = %do.end28
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
   %call80 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
-  %7 = and i16 %call80, 1
-  %tobool.i112.not = icmp eq i16 %7, 0
-  br i1 %tobool.i112.not, label %if.then83, label %cond.true.i
+  %tobool.i112 = trunc i16 %call80 to i1
+  br i1 %tobool.i112, label %cond.true.i, label %if.then83
 
 if.then83:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -3266,10 +3264,10 @@ if.then83:                                        ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup.sink.split
 
 cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %8 = lshr i16 %call80, 8
-  %9 = trunc i16 %8 to i8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %result, align 1
+  %6 = lshr i16 %call80, 8
+  %7 = trunc i16 %6 to i8
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %result, align 1
   %call92 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call92, label %cleanup.sink.split, label %cleanup
 
@@ -3289,17 +3287,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i45 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i45, align 8
+  %9 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i45 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %isolate.i45, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i43
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3308,8 +3306,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %12 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3340,9 +3338,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3350,8 +3347,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3365,13 +3362,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i22, align 4
@@ -3385,8 +3382,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3436,17 +3433,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i45 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i45, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i45 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i45, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i43
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3455,8 +3452,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3487,9 +3484,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3497,8 +3493,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3512,13 +3508,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i21 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i21, align 4
@@ -3532,8 +3528,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3552,9 +3548,8 @@ do.end36:                                         ; preds = %do.end21
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end36
   %call73 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
-  %7 = and i16 %call73, 1
-  %tobool.i108.not = icmp eq i16 %7, 0
-  br i1 %tobool.i108.not, label %if.then76, label %do.end82
+  %tobool.i108 = trunc i16 %call73 to i1
+  br i1 %tobool.i108, label %do.end82, label %if.then76
 
 if.then76:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -3566,10 +3561,10 @@ do.end82:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp83.not, label %if.end87, label %if.then84
 
 if.then84:                                        ; preds = %do.end82
-  %8 = lshr i16 %call73, 8
-  %9 = trunc i16 %8 to i8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %result, align 1
+  %6 = lshr i16 %call73, 8
+  %7 = trunc i16 %6 to i8
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %result, align 1
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then84, %do.end82
@@ -3592,17 +3587,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i41 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i41, align 8
+  %9 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i41 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %isolate.i41, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i39
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3611,8 +3606,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %12 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3643,9 +3638,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3653,8 +3647,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3668,13 +3662,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i23, align 4
@@ -3688,8 +3682,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3714,9 +3708,8 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
 
 do.end78:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call92 = call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
-  %7 = and i16 %call92, 1
-  %tobool.i127.not = icmp eq i16 %7, 0
-  br i1 %tobool.i127.not, label %if.then95, label %cond.true.i
+  %tobool.i127 = trunc i16 %call92 to i1
+  br i1 %tobool.i127, label %cond.true.i, label %if.then95
 
 if.then95:                                        ; preds = %do.end78
   %call96 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -3724,10 +3717,10 @@ if.then95:                                        ; preds = %do.end78
   br label %cleanup.sink.split
 
 cond.true.i:                                      ; preds = %do.end78
-  %8 = lshr i16 %call92, 8
-  %9 = trunc i16 %8 to i8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %result, align 1
+  %6 = lshr i16 %call92, 8
+  %7 = trunc i16 %6 to i8
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %result, align 1
   %call104 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call104, label %cleanup.sink.split, label %cleanup
 
@@ -3747,17 +3740,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i47, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i47:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i49 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i49, align 8
+  %9 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i49 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %isolate.i49, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i47
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3766,8 +3759,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %12 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3800,9 +3793,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i24 = trunc i8 %1 to i1
+  br i1 %tobool.i24, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3810,8 +3802,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3825,28 +3817,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i26, align 8
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i25, align 4
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i26, align 8
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -3868,15 +3860,17 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
   br i1 %cmp65.not, label %cleanup.sink.split, label %do.end70
 
 do.end70:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call71, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end70
   %call115 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71, ptr nonnull %value) #24
-  %8 = and i16 %call115, 257
-  %cond.i.not = icmp eq i16 %8, 257
+  %tobool.i = trunc i16 %call115 to i1
+  %7 = and i16 %call115, 256
+  %tobool2.i = icmp ne i16 %7, 0
+  %cond.i.not = and i1 %tobool2.i, %tobool.i
   %call126 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end125, label %if.then119
 
@@ -3889,41 +3883,41 @@ do.end125:                                        ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end125, %do.end70, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then119
   %.sink = phi i32 [ %cond121, %if.then119 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end70 ], [ 10, %do.end125 ]
-  %error_code1.i45 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i45, align 4
-  %engine_error_code3.i46 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i46, align 8
-  %engine_reserved5.i47 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i47, align 8
+  %error_code1.i46 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i46, align 4
+  %engine_error_code3.i47 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i47, align 8
+  %engine_reserved5.i48 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i48, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end125
   %retval.0 = phi i32 [ 0, %do.end125 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i48, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i48:                                      ; preds = %cleanup
-  %9 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
-  %isolate.i50 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load ptr, ptr %isolate.i50, align 8
+if.then.i49:                                      ; preds = %cleanup
+  %8 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i51 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %isolate.i51, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %11 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i48
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+if.end.i.i.i:                                     ; preds = %if.then.i49
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i48
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i49
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %12 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
+  %11 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3952,9 +3946,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -3962,8 +3955,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -3977,13 +3970,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
@@ -3997,8 +3990,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4020,16 +4013,15 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
   br i1 %cmp65.not, label %cleanup.sink.split, label %do.end70
 
 do.end70:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call71, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end70
   %call107 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71) #24
-  %8 = and i16 %call107, 1
-  %tobool.i156.not = icmp eq i16 %8, 0
-  br i1 %tobool.i156.not, label %if.then110, label %cond.true.i
+  %tobool.i156 = trunc i16 %call107 to i1
+  br i1 %tobool.i156, label %cond.true.i, label %if.then110
 
 if.then110:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %call111 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -4037,10 +4029,10 @@ if.then110:                                       ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup.sink.split
 
 cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %9 = lshr i16 %call107, 8
-  %10 = trunc i16 %9 to i8
-  %11 = and i8 %10, 1
-  store i8 %11, ptr %result, align 1
+  %7 = lshr i16 %call107, 8
+  %8 = trunc i16 %7 to i8
+  %9 = and i8 %8, 1
+  store i8 %9, ptr %result, align 1
   %call119 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call119, label %cleanup.sink.split, label %cleanup
 
@@ -4060,17 +4052,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
-  %12 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %12, i64 24
-  %isolate.i51 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %isolate.i51, align 8
+  %10 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i51 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %isolate.i51, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %14 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %14, null
+  %12 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i49
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4079,8 +4071,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %15 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #24
+  %13 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4109,9 +4101,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -4119,8 +4110,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -4134,13 +4125,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
@@ -4154,8 +4145,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4168,8 +4159,8 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp30.not, label %cleanup.sink.split, label %do.end35
 
 do.end35:                                         ; preds = %do.end21
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call36 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call36 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call36, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -4213,17 +4204,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i51 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i51, align 8
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i51 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i51, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i49
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4232,8 +4223,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4262,9 +4253,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i19 = trunc i8 %1 to i1
+  br i1 %tobool.i19, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -4272,8 +4262,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -4287,28 +4277,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i21, align 8
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i20, align 4
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i21, align 8
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -4327,8 +4317,10 @@ do.end32:                                         ; preds = %do.end21
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
   %call73 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index, ptr nonnull %value) #24
-  %7 = and i16 %call73, 257
-  %cond.i.not = icmp eq i16 %7, 257
+  %tobool.i = trunc i16 %call73 to i1
+  %6 = and i16 %call73, 256
+  %tobool2.i = icmp ne i16 %6, 0
+  %cond.i.not = and i1 %tobool2.i, %tobool.i
   %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end83, label %if.then77
 
@@ -4341,41 +4333,41 @@ do.end83:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end83, %do.end32, %do.end21, %do.end14, %if.then77
   %.sink = phi i32 [ %cond79, %if.then77 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %do.end83 ]
-  %error_code1.i34 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i34, align 4
-  %engine_error_code3.i35 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i35, align 8
-  %engine_reserved5.i36 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i36, align 8
+  %error_code1.i35 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i35, align 4
+  %engine_error_code3.i36 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i36, align 8
+  %engine_reserved5.i37 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i37, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end83
   %retval.0 = phi i32 [ 0, %do.end83 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i37, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i37:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i39 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i39, align 8
+if.then.i38:                                      ; preds = %cleanup
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i37
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+if.end.i.i.i:                                     ; preds = %if.then.i38
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i37
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i38
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4406,9 +4398,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -4416,8 +4407,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -4431,13 +4422,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -4451,8 +4442,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4471,9 +4462,8 @@ do.end32:                                         ; preds = %do.end21
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
   %call65 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #24
-  %7 = and i16 %call65, 1
-  %tobool.i97.not = icmp eq i16 %7, 0
-  br i1 %tobool.i97.not, label %if.then68, label %cond.true.i
+  %tobool.i97 = trunc i16 %call65 to i1
+  br i1 %tobool.i97, label %cond.true.i, label %if.then68
 
 if.then68:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -4481,10 +4471,10 @@ if.then68:                                        ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup.sink.split
 
 cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %8 = lshr i16 %call65, 8
-  %9 = trunc i16 %8 to i8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %result, align 1
+  %6 = lshr i16 %call65, 8
+  %7 = trunc i16 %6 to i8
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %result, align 1
   %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call77, label %cleanup.sink.split, label %cleanup
 
@@ -4504,17 +4494,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i40 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i40, align 8
+  %9 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4523,8 +4513,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %12 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4555,9 +4545,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -4565,8 +4554,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -4580,13 +4569,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -4600,8 +4589,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4649,17 +4638,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i40, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4668,8 +4657,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4700,9 +4689,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -4710,8 +4698,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -4725,13 +4713,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
@@ -4745,8 +4733,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -4761,9 +4749,8 @@ do.end25:                                         ; preds = %do.end14
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
   %call58 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #24
-  %7 = and i16 %call58, 1
-  %tobool.i93.not = icmp eq i16 %7, 0
-  br i1 %tobool.i93.not, label %if.then61, label %do.end67
+  %tobool.i93 = trunc i16 %call58 to i1
+  br i1 %tobool.i93, label %do.end67, label %if.then61
 
 if.then61:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call62 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -4775,10 +4762,10 @@ do.end67:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp68.not, label %if.end72, label %if.then69
 
 if.then69:                                        ; preds = %do.end67
-  %8 = lshr i16 %call58, 8
-  %9 = trunc i16 %8 to i8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %result, align 1
+  %6 = lshr i16 %call58, 8
+  %7 = trunc i16 %6 to i8
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %result, align 1
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then69, %do.end67
@@ -4801,17 +4788,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i34, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i34:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i36 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i36, align 8
+  %9 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i36 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %isolate.i36, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i34
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4820,8 +4807,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %12 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4867,9 +4854,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i17 = trunc i8 %1 to i1
+  br i1 %tobool.i17, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -4877,8 +4863,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -4892,28 +4878,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i19, align 8
+  %error_code1.i18 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i18, align 4
+  %engine_error_code3.i19 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i19, align 8
+  %engine_reserved5.i20 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i20, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -4928,8 +4914,10 @@ do.end25:                                         ; preds = %do.end14
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
   %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 0) #24
-  %7 = and i16 %call58, 257
-  %cond.i.not = icmp eq i16 %7, 257
+  %tobool.i = trunc i16 %call58 to i1
+  %6 = and i16 %call58, 256
+  %tobool2.i = icmp ne i16 %6, 0
+  %cond.i.not = and i1 %tobool2.i, %tobool.i
   %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end68, label %if.then62
 
@@ -4942,41 +4930,41 @@ do.end68:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end68, %do.end25, %do.end14, %if.then62
   %.sink = phi i32 [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %do.end68 ]
-  %error_code1.i29 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i29, align 4
-  %engine_error_code3.i30 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i30, align 8
-  %engine_reserved5.i31 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i31, align 8
+  %error_code1.i30 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i30, align 4
+  %engine_error_code3.i31 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i31, align 8
+  %engine_reserved5.i32 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i32, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
   %retval.0 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i32:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i34 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i34, align 8
+if.then.i33:                                      ; preds = %cleanup
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i35 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i35, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i32
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+if.end.i.i.i:                                     ; preds = %if.then.i33
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i32
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i33
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5007,9 +4995,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i17 = trunc i8 %1 to i1
+  br i1 %tobool.i17, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5017,8 +5004,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -5032,28 +5019,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i19, align 8
+  %error_code1.i18 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i18, align 4
+  %engine_error_code3.i19 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i19, align 8
+  %engine_reserved5.i20 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i20, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -5068,8 +5055,10 @@ do.end25:                                         ; preds = %do.end14
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
   %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 1) #24
-  %7 = and i16 %call58, 257
-  %cond.i.not = icmp eq i16 %7, 257
+  %tobool.i = trunc i16 %call58 to i1
+  %6 = and i16 %call58, 256
+  %tobool2.i = icmp ne i16 %6, 0
+  %cond.i.not = and i1 %tobool2.i, %tobool.i
   %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end68, label %if.then62
 
@@ -5082,41 +5071,41 @@ do.end68:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end68, %do.end25, %do.end14, %if.then62
   %.sink = phi i32 [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %do.end68 ]
-  %error_code1.i29 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i29, align 4
-  %engine_error_code3.i30 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i30, align 8
-  %engine_reserved5.i31 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i31, align 8
+  %error_code1.i30 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i30, align 4
+  %engine_error_code3.i31 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i31, align 8
+  %engine_reserved5.i32 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i32, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
   %retval.0 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i32:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i34 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i34, align 8
+if.then.i33:                                      ; preds = %cleanup
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i35 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i35, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i32
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+if.end.i.i.i:                                     ; preds = %if.then.i33
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i32
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i33
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5144,9 +5133,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5209,9 +5197,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5219,8 +5206,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -5234,13 +5221,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
@@ -5254,8 +5241,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -5289,17 +5276,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i33 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i33, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5308,8 +5295,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5340,9 +5327,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5350,8 +5336,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -5365,13 +5351,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i17, align 4
@@ -5385,8 +5371,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %lhs, null
@@ -5419,17 +5405,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i32:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i34 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i34, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i34 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i34, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i32
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5438,8 +5424,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5470,9 +5456,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5480,8 +5465,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -5495,13 +5480,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i18 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i18, align 4
@@ -5515,8 +5500,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -5553,17 +5538,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i33:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i35 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i35, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i35 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i35, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i33
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5572,8 +5557,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5603,9 +5588,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5626,8 +5610,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %3) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %2) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -5655,9 +5639,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5678,8 +5661,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef 0) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %2, i32 noundef 0) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -5707,9 +5690,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5730,9 +5712,9 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
+  %2 = load ptr, ptr %isolate, align 8
   %conv = trunc i64 %length to i32
-  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %conv) #24
+  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %2, i32 noundef %conv) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -5758,9 +5740,8 @@ do.end.i:                                         ; preds = %entry
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5795,8 +5776,8 @@ if.then14.i:                                      ; preds = %do.body12.i
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
-  %3 = add i64 %length, 1
-  %or.cond.i = icmp ult i64 %3, 2147483649
+  %2 = add i64 %length, 1
+  %or.cond.i = icmp ult i64 %2, 2147483649
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
@@ -5810,9 +5791,9 @@ if.then21.i:                                      ; preds = %do.body18.i
 
 do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds i8, ptr %env, i64 8
-  %4 = load ptr, ptr %isolate26.i, align 8
+  %3 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
-  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
+  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
@@ -5851,9 +5832,8 @@ do.end.i:                                         ; preds = %entry
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5888,8 +5868,8 @@ if.then14.i:                                      ; preds = %do.body12.i
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
-  %3 = add i64 %length, 1
-  %or.cond.i = icmp ult i64 %3, 2147483649
+  %2 = add i64 %length, 1
+  %or.cond.i = icmp ult i64 %2, 2147483649
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
@@ -5903,9 +5883,9 @@ if.then21.i:                                      ; preds = %do.body18.i
 
 do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds i8, ptr %env, i64 8
-  %4 = load ptr, ptr %isolate26.i, align 8
+  %3 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
-  %call.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
+  %call.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
@@ -5944,9 +5924,8 @@ do.end.i:                                         ; preds = %entry
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -5981,8 +5960,8 @@ if.then14.i:                                      ; preds = %do.body12.i
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
-  %3 = add i64 %length, 1
-  %or.cond.i = icmp ult i64 %3, 2147483649
+  %2 = add i64 %length, 1
+  %or.cond.i = icmp ult i64 %2, 2147483649
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
@@ -5996,9 +5975,9 @@ if.then21.i:                                      ; preds = %do.body18.i
 
 do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds i8, ptr %env, i64 8
-  %4 = load ptr, ptr %isolate26.i, align 8
+  %3 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
-  %call.i.i = tail call ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
+  %call.i.i = tail call ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
@@ -6037,9 +6016,8 @@ do.end.i:                                         ; preds = %entry
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6074,8 +6052,8 @@ if.then14.i:                                      ; preds = %do.body12.i
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
-  %3 = add i64 %length, 1
-  %or.cond.i = icmp ult i64 %3, 2147483649
+  %2 = add i64 %length, 1
+  %or.cond.i = icmp ult i64 %2, 2147483649
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
@@ -6092,10 +6070,9 @@ do.end25.i:                                       ; preds = %do.body18.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end25.i
   %in_gc_finalizer.i.i.i = getelementptr inbounds i8, ptr %env, i64 188
-  %4 = load i8, ptr %in_gc_finalizer.i.i.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %do.end25.i.i, label %if.then.i.i.i
+  %3 = load i8, ptr %in_gc_finalizer.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %do.end25.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6103,7 +6080,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i, %do.end25.i
   %isolate26.i.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate26.i.i, align 8
+  %4 = load ptr, ptr %isolate26.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %length, -1
   br i1 %cmp.i16.i.i, label %if.then.i17.i.i, label %if.end.i.i.i
 
@@ -6112,7 +6089,7 @@ if.then.i17.i.i:                                  ; preds = %do.end25.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i17.i.i, %do.end25.i.i
-  %7 = phi i64 [ %call.i.i.i.i.i, %if.then.i17.i.i ], [ %length, %do.end25.i.i ]
+  %5 = phi i64 [ %call.i.i.i.i.i, %if.then.i17.i.i ], [ %length, %do.end25.i.i ]
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %cached_data_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 8
   store ptr null, ptr %cached_data_.i.i.i.i.i, align 8
@@ -6124,7 +6101,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i17.i.i, %d
   store ptr %str, ptr %finalize_data_.i.i.i.i.i.i, align 8
   %finalize_hint_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 48
   store ptr %finalize_hint, ptr %finalize_hint_.i.i.i.i.i.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 56
+  %6 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 56
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 64
   %cmp.i.i.i.i.i = icmp eq ptr %finalize_callback, null
   %cond.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 56
@@ -6132,27 +6109,27 @@ if.end.i.i.i:                                     ; preds = %if.then.i17.i.i, %d
   %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 72
   store ptr %cond.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i, align 8
   %next_.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  %9 = load ptr, ptr %next_.i4.i.i.i.i.i, align 8
-  store ptr %9, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %9, null
+  %7 = load ptr, ptr %next_.i4.i.i.i.i.i, align 8
+  store ptr %7, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  %prev_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %8, ptr %prev_5.i.i.i.i.i.i, align 8
+  %prev_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %6, ptr %prev_5.i.i.i.i.i.i, align 8
   br label %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i"
 
 "_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i
-  %10 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 16
-  store ptr %8, ptr %next_.i4.i.i.i.i.i, align 8
+  %8 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 16
+  store ptr %6, ptr %next_.i4.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, i32 0, i64 2), ptr %call2.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, i32 1, i64 2), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, i32 2, i64 2), ptr %6, align 8
   %string_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 88
-  store i64 %7, ptr %length_.i.i.i.i, align 8
-  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #24
+  store i64 %5, ptr %length_.i.i.i.i, align 8
+  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef %4, ptr noundef nonnull %call2.i.i.i) #24
   %cmp.i.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp.i.i.i.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
 
@@ -6196,9 +6173,8 @@ do.end.i:                                         ; preds = %entry
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6233,8 +6209,8 @@ if.then14.i:                                      ; preds = %do.body12.i
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
-  %3 = add i64 %length, 1
-  %or.cond.i = icmp ult i64 %3, 2147483649
+  %2 = add i64 %length, 1
+  %or.cond.i = icmp ult i64 %2, 2147483649
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
@@ -6251,10 +6227,9 @@ do.end25.i:                                       ; preds = %do.body18.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end25.i
   %in_gc_finalizer.i.i.i = getelementptr inbounds i8, ptr %env, i64 188
-  %4 = load i8, ptr %in_gc_finalizer.i.i.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %do.end25.i.i, label %if.then.i.i.i
+  %3 = load i8, ptr %in_gc_finalizer.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %do.end25.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6262,20 +6237,20 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i, %do.end25.i
   %isolate26.i.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate26.i.i, align 8
+  %4 = load ptr, ptr %isolate26.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %length, -1
   br i1 %cmp.i16.i.i, label %while.cond.i.i.i.i.i, label %if.end.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %do.end25.i.i, %while.cond.i.i.i.i.i
   %__i.0.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %while.cond.i.i.i.i.i ], [ 0, %do.end25.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %str, i64 %__i.0.i.i.i.i.i
-  %7 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %cmp.i.i.i.i.i.i = icmp eq i16 %7, 0
+  %5 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
+  %cmp.i.i.i.i.i.i = icmp eq i16 %5, 0
   %inc.i.i.i.i.i = add i64 %__i.0.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !10
 
 if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.i, %do.end25.i.i
-  %8 = phi i64 [ %length, %do.end25.i.i ], [ %__i.0.i.i.i.i.i, %while.cond.i.i.i.i.i ]
+  %6 = phi i64 [ %length, %do.end25.i.i ], [ %__i.0.i.i.i.i.i, %while.cond.i.i.i.i.i ]
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %cached_data_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 8
   store ptr null, ptr %cached_data_.i.i.i.i.i, align 8
@@ -6287,7 +6262,7 @@ if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.
   store ptr %str, ptr %finalize_data_.i.i.i.i.i.i, align 8
   %finalize_hint_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 48
   store ptr %finalize_hint, ptr %finalize_hint_.i.i.i.i.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 56
+  %7 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 56
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 64
   %cmp.i.i.i.i.i = icmp eq ptr %finalize_callback, null
   %cond.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 56
@@ -6295,27 +6270,27 @@ if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.
   %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 72
   store ptr %cond.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i, align 8
   %next_.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  %10 = load ptr, ptr %next_.i4.i.i.i.i.i, align 8
-  store ptr %10, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %next_.i4.i.i.i.i.i, align 8
+  store ptr %8, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  %prev_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %9, ptr %prev_5.i.i.i.i.i.i, align 8
+  %prev_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %7, ptr %prev_5.i.i.i.i.i.i, align 8
   br label %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i"
 
 "_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i
-  %11 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 16
-  store ptr %9, ptr %next_.i4.i.i.i.i.i, align 8
+  %9 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 16
+  store ptr %7, ptr %next_.i4.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, i32 0, i64 2), ptr %call2.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, i32 1, i64 2), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, i32 1, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, i32 2, i64 2), ptr %7, align 8
   %string_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 88
-  store i64 %8, ptr %length_.i.i.i.i, align 8
-  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #24
+  store i64 %6, ptr %length_.i.i.i.i, align 8
+  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef %4, ptr noundef nonnull %call2.i.i.i) #24
   %cmp.i.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp.i.i.i.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
 
@@ -6359,9 +6334,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6382,8 +6356,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %value) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %2, double noundef %value) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6411,9 +6385,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6434,8 +6407,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %value) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %2, i32 noundef %value) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6463,9 +6436,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6486,8 +6458,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %3, i32 noundef %value) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %2, i32 noundef %value) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6515,9 +6487,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6538,9 +6509,9 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
+  %2 = load ptr, ptr %isolate, align 8
   %conv = sitofp i64 %value to double
-  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %conv) #24
+  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %2, double noundef %conv) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6566,9 +6537,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6589,8 +6559,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef %3, i64 noundef %value) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef %2, i64 noundef %value) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6618,9 +6588,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6641,8 +6610,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86BigInt15NewFromUnsignedEPNS_7IsolateEm(ptr noundef %3, i64 noundef %value) #24
+  %2 = load ptr, ptr %isolate, align 8
+  %call9 = tail call ptr @_ZN2v86BigInt15NewFromUnsignedEPNS_7IsolateEm(ptr noundef %2, i64 noundef %value) #24
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6671,9 +6640,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6681,8 +6649,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -6696,13 +6664,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -6716,8 +6684,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp ne ptr %words, null
@@ -6761,17 +6729,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i40, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -6780,8 +6748,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -6811,9 +6779,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6834,10 +6801,10 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate8 = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate8, align 8
-  %4 = ptrtoint ptr %3 to i64
+  %2 = load ptr, ptr %isolate8, align 8
+  %3 = ptrtoint ptr %2 to i64
   %storemerge.v.v = select i1 %value, i64 632, i64 640
-  %storemerge.v = add i64 %storemerge.v.v, %4
+  %storemerge.v = add i64 %storemerge.v.v, %3
   %storemerge = inttoptr i64 %storemerge.v to ptr
   store ptr %storemerge, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
@@ -6864,9 +6831,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6887,28 +6853,28 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate8 = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate8, align 8
+  %2 = load ptr, ptr %isolate8, align 8
   %cmp9 = icmp eq ptr %description, null
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %do.end7
-  %call15 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %3, ptr null) #24
+  %call15 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %2, ptr null) #24
   br label %if.end58
 
 if.else:                                          ; preds = %do.end7
-  %4 = load i64, ptr %description, align 8
-  %and.i = and i64 %4, 3
+  %3 = load i64, ptr %description, align 8
+  %and.i = and i64 %3, 3
   %cmp.i77 = icmp eq i64 %and.i, 1
   br i1 %cmp.i77, label %if.end.i, label %if.then33
 
 if.end.i:                                         ; preds = %if.else
-  %sub.i88 = add nsw i64 %4, -1
-  %5 = inttoptr i64 %sub.i88 to ptr
-  %6 = load i64, ptr %5, align 8
-  %sub.i = add i64 %6, 11
-  %7 = inttoptr i64 %sub.i to ptr
-  %8 = load i16, ptr %7, align 2
-  %cmp.i = icmp ult i16 %8, 128
+  %sub.i88 = add nsw i64 %3, -1
+  %4 = inttoptr i64 %sub.i88 to ptr
+  %5 = load i64, ptr %4, align 8
+  %sub.i = add i64 %5, 11
+  %6 = inttoptr i64 %sub.i to ptr
+  %7 = load i16, ptr %6, align 2
+  %cmp.i = icmp ult i16 %7, 128
   br i1 %cmp.i, label %do.end36, label %if.then33
 
 if.then33:                                        ; preds = %if.else, %if.end.i
@@ -6921,7 +6887,7 @@ if.then33:                                        ; preds = %if.else, %if.end.i
   br label %return
 
 do.end36:                                         ; preds = %if.end.i
-  %call47 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %3, ptr nonnull %description) #24
+  %call47 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %2, ptr nonnull %description) #24
   br label %if.end58
 
 if.end58:                                         ; preds = %do.end36, %if.then10
@@ -6953,9 +6919,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -6994,8 +6959,8 @@ if.then8.i.i:                                     ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.body12.i.i:                                    ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i.i
-  %3 = add i64 %length, 1
-  %or.cond.i.i = icmp ult i64 %3, 2147483649
+  %2 = add i64 %length, 1
+  %or.cond.i.i = icmp ult i64 %2, 2147483649
   br i1 %or.cond.i.i, label %do.end25.i.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %do.body12.i.i
@@ -7009,9 +6974,9 @@ if.then21.i.i:                                    ; preds = %do.body12.i.i
 
 do.end25.i.i:                                     ; preds = %do.body12.i.i
   %isolate26.i.i = getelementptr inbounds i8, ptr %env, i64 8
-  %4 = load ptr, ptr %isolate26.i.i, align 8
+  %3 = load ptr, ptr %isolate26.i.i, align 8
   %conv.i.i.i = trunc i64 %length to i32
-  %call.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %utf8description, i32 noundef 0, i32 noundef %conv.i.i.i) #24
+  %call.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %utf8description, i32 noundef 0, i32 noundef %conv.i.i.i) #24
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i, label %if.then33.i.i, label %do.end13
 
@@ -7027,8 +6992,8 @@ if.then33.i.i:                                    ; preds = %do.end25.i.i
 do.end13:                                         ; preds = %do.end25.i.i
   %last_error.i.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
-  %5 = load ptr, ptr %isolate26.i.i, align 8
-  %call26 = tail call ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %5, ptr nonnull %call.i.i.i) #24
+  %4 = load ptr, ptr %isolate26.i.i, align 8
+  %call26 = tail call ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %4, ptr nonnull %call.i.i.i) #24
   store ptr %call26, ptr %result, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   br label %return
@@ -7055,9 +7020,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7090,19 +7054,19 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %3 = load i64, ptr %msg, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %msg, align 8
+  %and.i = and i64 %2, 3
   %cmp.i60 = icmp eq i64 %and.i, 1
   br i1 %cmp.i60, label %if.end.i, label %if.then20
 
 if.end.i:                                         ; preds = %do.end13
-  %sub.i71 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i71 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i71 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i71 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
@@ -7122,32 +7086,34 @@ do.end23:                                         ; preds = %if.end.i
 if.then16.i:                                      ; preds = %do.end23
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load i64, ptr %code, align 8
-  %and.i.i = and i64 %8, 3
+  %7 = load i64, ptr %code, align 8
+  %and.i.i = and i64 %7, 3
   %cmp.i156.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i156.i, label %if.end.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end.i.i:                                       ; preds = %if.then16.i
-  %sub.i167.i = add nsw i64 %8, -1
-  %9 = inttoptr i64 %sub.i167.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %sub.i.i = add i64 %10, 11
-  %11 = inttoptr i64 %sub.i.i to ptr
-  %12 = load i16, ptr %11, align 2
-  %cmp.i.i = icmp ult i16 %12, 128
+  %sub.i167.i = add nsw i64 %7, -1
+  %8 = inttoptr i64 %sub.i167.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %sub.i.i = add i64 %9, 11
+  %10 = inttoptr i64 %sub.i.i to ptr
+  %11 = load i16, ptr %10, align 2
+  %cmp.i.i = icmp ult i16 %11, 128
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
-  %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %12 = load ptr, ptr %isolate61.i, align 8
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %14 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %14, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %13 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %13, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7188,9 +7154,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7223,19 +7188,19 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %3 = load i64, ptr %msg, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %msg, align 8
+  %and.i = and i64 %2, 3
   %cmp.i60 = icmp eq i64 %and.i, 1
   br i1 %cmp.i60, label %if.end.i, label %if.then20
 
 if.end.i:                                         ; preds = %do.end13
-  %sub.i71 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i71 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i71 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i71 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
@@ -7255,32 +7220,34 @@ do.end23:                                         ; preds = %if.end.i
 if.then16.i:                                      ; preds = %do.end23
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load i64, ptr %code, align 8
-  %and.i.i = and i64 %8, 3
+  %7 = load i64, ptr %code, align 8
+  %and.i.i = and i64 %7, 3
   %cmp.i156.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i156.i, label %if.end.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end.i.i:                                       ; preds = %if.then16.i
-  %sub.i167.i = add nsw i64 %8, -1
-  %9 = inttoptr i64 %sub.i167.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %sub.i.i = add i64 %10, 11
-  %11 = inttoptr i64 %sub.i.i to ptr
-  %12 = load i16, ptr %11, align 2
-  %cmp.i.i = icmp ult i16 %12, 128
+  %sub.i167.i = add nsw i64 %7, -1
+  %8 = inttoptr i64 %sub.i167.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %sub.i.i = add i64 %9, 11
+  %10 = inttoptr i64 %sub.i.i to ptr
+  %11 = load i16, ptr %10, align 2
+  %cmp.i.i = icmp ult i16 %11, 128
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
-  %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %12 = load ptr, ptr %isolate61.i, align 8
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %14 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %14, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %13 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %13, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7321,9 +7288,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7356,19 +7322,19 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %3 = load i64, ptr %msg, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %msg, align 8
+  %and.i = and i64 %2, 3
   %cmp.i60 = icmp eq i64 %and.i, 1
   br i1 %cmp.i60, label %if.end.i, label %if.then20
 
 if.end.i:                                         ; preds = %do.end13
-  %sub.i71 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i71 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i71 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i71 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
@@ -7388,32 +7354,34 @@ do.end23:                                         ; preds = %if.end.i
 if.then16.i:                                      ; preds = %do.end23
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load i64, ptr %code, align 8
-  %and.i.i = and i64 %8, 3
+  %7 = load i64, ptr %code, align 8
+  %and.i.i = and i64 %7, 3
   %cmp.i156.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i156.i, label %if.end.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end.i.i:                                       ; preds = %if.then16.i
-  %sub.i167.i = add nsw i64 %8, -1
-  %9 = inttoptr i64 %sub.i167.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %sub.i.i = add i64 %10, 11
-  %11 = inttoptr i64 %sub.i.i to ptr
-  %12 = load i16, ptr %11, align 2
-  %cmp.i.i = icmp ult i16 %12, 128
+  %sub.i167.i = add nsw i64 %7, -1
+  %8 = inttoptr i64 %sub.i167.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %sub.i.i = add i64 %9, 11
+  %10 = inttoptr i64 %sub.i.i to ptr
+  %11 = load i16, ptr %10, align 2
+  %cmp.i.i = icmp ult i16 %11, 128
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
-  %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %12 = load ptr, ptr %isolate61.i, align 8
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %14 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %14, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %13 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %13, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7454,9 +7422,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7489,19 +7456,19 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %3 = load i64, ptr %msg, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %msg, align 8
+  %and.i = and i64 %2, 3
   %cmp.i60 = icmp eq i64 %and.i, 1
   br i1 %cmp.i60, label %if.end.i, label %if.then20
 
 if.end.i:                                         ; preds = %do.end13
-  %sub.i71 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i71 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i71 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i71 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
@@ -7521,32 +7488,34 @@ do.end23:                                         ; preds = %if.end.i
 if.then16.i:                                      ; preds = %do.end23
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load i64, ptr %code, align 8
-  %and.i.i = and i64 %8, 3
+  %7 = load i64, ptr %code, align 8
+  %and.i.i = and i64 %7, 3
   %cmp.i156.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i156.i, label %if.end.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end.i.i:                                       ; preds = %if.then16.i
-  %sub.i167.i = add nsw i64 %8, -1
-  %9 = inttoptr i64 %sub.i167.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %sub.i.i = add i64 %10, 11
-  %11 = inttoptr i64 %sub.i.i to ptr
-  %12 = load i16, ptr %11, align 2
-  %cmp.i.i = icmp ult i16 %12, 128
+  %sub.i167.i = add nsw i64 %7, -1
+  %8 = inttoptr i64 %sub.i167.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %sub.i.i = add i64 %9, 11
+  %10 = inttoptr i64 %sub.i.i to ptr
+  %11 = load i16, ptr %10, align 2
+  %cmp.i.i = icmp ult i16 %11, 128
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
-  %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %12 = load ptr, ptr %isolate61.i, align 8
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %14 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %14, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %13 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %13, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7587,9 +7556,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7630,19 +7598,19 @@ if.else:                                          ; preds = %do.end13
   br i1 %call21, label %if.end66, label %if.else23
 
 if.else23:                                        ; preds = %if.else
-  %3 = load i64, ptr %value, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %value, align 8
+  %and.i = and i64 %2, 3
   %cmp.i106 = icmp eq i64 %and.i, 1
   br i1 %cmp.i106, label %if.end.i, label %if.else27
 
 if.end.i:                                         ; preds = %if.else23
-  %sub.i117 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i117 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i117 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i117 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %if.end66, label %if.else27
 
 if.else27:                                        ; preds = %if.else23, %if.end.i
@@ -7662,26 +7630,26 @@ if.else39:                                        ; preds = %if.else35
   br i1 %call41, label %if.end66, label %if.else43
 
 if.else43:                                        ; preds = %if.else39
-  %8 = load i64, ptr %value, align 8
-  %and.i.i = and i64 %8, 3
+  %7 = load i64, ptr %value, align 8
+  %and.i.i = and i64 %7, 3
   %cmp.i.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i, label %if.end.i124, label %if.else47
 
 if.end.i124:                                      ; preds = %if.else43
-  %sub.i18.i = add nsw i64 %8, -1
-  %9 = inttoptr i64 %sub.i18.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %sub.i.i = add i64 %10, 11
-  %11 = inttoptr i64 %sub.i.i to ptr
-  %12 = load i16, ptr %11, align 2
-  %cmp.i125.not = icmp eq i16 %12, 131
+  %sub.i18.i = add nsw i64 %7, -1
+  %8 = inttoptr i64 %sub.i18.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %sub.i.i = add i64 %9, 11
+  %10 = inttoptr i64 %sub.i.i to ptr
+  %11 = load i16, ptr %10, align 2
+  %cmp.i125.not = icmp eq i16 %11, 131
   br i1 %cmp.i125.not, label %if.end5.i, label %if.else47
 
 if.end5.i:                                        ; preds = %if.end.i124
-  %sub.i.i137 = add i64 %8, 39
-  %13 = inttoptr i64 %sub.i.i137 to ptr
-  %14 = load i64, ptr %13, align 8
-  %shr.i.mask = and i64 %14, -4294967296
+  %sub.i.i137 = add i64 %7, 39
+  %12 = inttoptr i64 %sub.i.i137 to ptr
+  %13 = load i64, ptr %12, align 8
+  %shr.i.mask = and i64 %13, -4294967296
   %cmp7.i = icmp eq i64 %shr.i.mask, 21474836480
   br i1 %cmp7.i, label %if.end66, label %if.else47
 
@@ -7690,26 +7658,26 @@ if.else47:                                        ; preds = %if.else43, %if.end.
   br i1 %call49, label %if.end66, label %if.else51
 
 if.else51:                                        ; preds = %if.else47
-  %15 = load i64, ptr %value, align 8
-  %and.i.i156 = and i64 %15, 3
+  %14 = load i64, ptr %value, align 8
+  %and.i.i156 = and i64 %14, 3
   %cmp.i.i157 = icmp eq i64 %and.i.i156, 1
   br i1 %cmp.i.i157, label %if.end.i159, label %if.else55
 
 if.end.i159:                                      ; preds = %if.else51
-  %sub.i18.i162 = add nsw i64 %15, -1
-  %16 = inttoptr i64 %sub.i18.i162 to ptr
-  %17 = load i64, ptr %16, align 8
-  %sub.i.i165 = add i64 %17, 11
-  %18 = inttoptr i64 %sub.i.i165 to ptr
-  %19 = load i16, ptr %18, align 2
-  %cmp.i167.not = icmp eq i16 %19, 131
+  %sub.i18.i162 = add nsw i64 %14, -1
+  %15 = inttoptr i64 %sub.i18.i162 to ptr
+  %16 = load i64, ptr %15, align 8
+  %sub.i.i165 = add i64 %16, 11
+  %17 = inttoptr i64 %sub.i.i165 to ptr
+  %18 = load i16, ptr %17, align 2
+  %cmp.i167.not = icmp eq i16 %18, 131
   br i1 %cmp.i167.not, label %if.end5.i168, label %if.else55
 
 if.end5.i168:                                     ; preds = %if.end.i159
-  %sub.i.i.i = add i64 %15, 39
-  %20 = inttoptr i64 %sub.i.i.i to ptr
-  %21 = load i64, ptr %20, align 8
-  %shr.i.i.mask = and i64 %21, -4294967296
+  %sub.i.i.i = add i64 %14, 39
+  %19 = inttoptr i64 %sub.i.i.i to ptr
+  %20 = load i64, ptr %19, align 8
+  %shr.i.i.mask = and i64 %20, -4294967296
   %cmp7.i169 = icmp eq i64 %shr.i.i.mask, 12884901888
   br i1 %cmp7.i169, label %if.end66, label %if.else55
 
@@ -7763,9 +7731,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7786,11 +7753,11 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %add1.i = add i64 %4, 608
-  %5 = inttoptr i64 %add1.i to ptr
-  store ptr %5, ptr %result, align 8
+  %2 = load ptr, ptr %isolate, align 8
+  %3 = ptrtoint ptr %2 to i64
+  %add1.i = add i64 %3, 608
+  %4 = inttoptr i64 %add1.i to ptr
+  store ptr %4, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -7815,9 +7782,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7838,11 +7804,11 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %add1.i = add i64 %4, 624
-  %5 = inttoptr i64 %add1.i to ptr
-  store ptr %5, ptr %result, align 8
+  %2 = load ptr, ptr %isolate, align 8
+  %3 = ptrtoint ptr %2 to i64
+  %add1.i = add i64 %3, 624
+  %4 = inttoptr i64 %add1.i to ptr
+  store ptr %4, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -7950,9 +7916,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -7986,8 +7951,8 @@ if.then10:                                        ; preds = %do.body8
 
 do.end13:                                         ; preds = %do.body8
   %vtable = load ptr, ptr %cbinfo, align 8
-  %3 = load ptr, ptr %vtable, align 8
-  %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo) #24
+  %2 = load ptr, ptr %vtable, align 8
+  %call14 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo) #24
   store ptr %call14, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -8014,9 +7979,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8024,8 +7988,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -8039,13 +8003,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i23, align 4
@@ -8059,8 +8023,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %recv, null
@@ -8153,17 +8117,17 @@ cleanup:                                          ; preds = %if.end98, %if.then8
   br i1 %call.i, label %if.then.i42, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i42:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i44 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i44, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i44 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i44, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i42
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8172,8 +8136,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8203,9 +8167,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8256,9 +8219,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8266,8 +8228,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -8281,13 +8243,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i14, align 4
@@ -8301,8 +8263,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %error, null
@@ -8318,8 +8280,8 @@ if.then18:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end21:                                         ; preds = %do.end14
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call29 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr nonnull %error) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call29 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr nonnull %error) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
@@ -8329,17 +8291,17 @@ cleanup:                                          ; preds = %do.end21, %if.then1
   br i1 %call.i, label %if.then.i21, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i21:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i23 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i23, align 8
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i23 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i23, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i21
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8348,8 +8310,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8380,9 +8342,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8390,8 +8351,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -8405,13 +8366,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
@@ -8425,11 +8386,11 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %7 = load ptr, ptr %isolate.i, align 8
+  %6 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
@@ -8443,7 +8404,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -8464,21 +8425,23 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %7 = load ptr, ptr %isolate.i, align 8
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
-  %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %8 = load ptr, ptr %isolate.i, align 8
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %10 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %10, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %9 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %9, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8491,7 +8454,7 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
@@ -8501,17 +8464,17 @@ cleanup:                                          ; preds = %_ZL14set_error_code
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i33, align 8
+  %10 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i34 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8520,8 +8483,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %13 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8550,9 +8513,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8560,8 +8522,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -8575,13 +8537,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
@@ -8595,11 +8557,11 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %7 = load ptr, ptr %isolate.i, align 8
+  %6 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
@@ -8613,7 +8575,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -8634,21 +8596,23 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %7 = load ptr, ptr %isolate.i, align 8
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
-  %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %8 = load ptr, ptr %isolate.i, align 8
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %10 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %10, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %9 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %9, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8661,7 +8625,7 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
@@ -8671,17 +8635,17 @@ cleanup:                                          ; preds = %_ZL14set_error_code
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i33, align 8
+  %10 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i34 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8690,8 +8654,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %13 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8720,9 +8684,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8730,8 +8693,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -8745,13 +8708,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
@@ -8765,11 +8728,11 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %7 = load ptr, ptr %isolate.i, align 8
+  %6 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
@@ -8783,7 +8746,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -8804,21 +8767,23 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %7 = load ptr, ptr %isolate.i, align 8
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
-  %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %8 = load ptr, ptr %isolate.i, align 8
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %10 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %10, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %9 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %9, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8831,7 +8796,7 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
@@ -8841,17 +8806,17 @@ cleanup:                                          ; preds = %_ZL14set_error_code
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i33, align 8
+  %10 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i34 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8860,8 +8825,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %13 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8890,9 +8855,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -8900,8 +8864,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -8915,13 +8879,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
@@ -8935,11 +8899,11 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %7 = load ptr, ptr %isolate.i, align 8
+  %6 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
@@ -8953,7 +8917,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -8974,21 +8938,23 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %7 = load ptr, ptr %isolate.i, align 8
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
-  %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %8 = load ptr, ptr %isolate.i, align 8
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %10 = and i16 %call100.i, 257
-  %cond.i.not.i = icmp eq i16 %10, 257
+  %tobool.i.i = trunc i16 %call100.i to i1
+  %9 = and i16 %call100.i, 256
+  %tobool2.i.i = icmp ne i16 %9, 0
+  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -9001,7 +8967,7 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
@@ -9011,17 +8977,17 @@ cleanup:                                          ; preds = %_ZL14set_error_code
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
-  %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
-  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %isolate.i33, align 8
+  %10 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %13 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i34 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -9030,8 +8996,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %13 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -9059,9 +9025,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9123,9 +9088,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9199,11 +9163,10 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i12
+  %tobool.i12 = trunc i8 %1 to i1
+  br i1 %tobool.i12, label %if.then.i13, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i12:                                      ; preds = %land.lhs.true.i
+if.then.i13:                                      ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
   unreachable
 
@@ -9225,12 +9188,12 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i15, align 8
+  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 1, ptr %error_code1.i14, align 4
+  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i15, align 8
+  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i16, align 8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
@@ -9246,21 +9209,20 @@ do.body26:                                        ; preds = %do.end13
   br i1 %call28, label %do.end32, label %if.then29
 
 if.then29:                                        ; preds = %do.body26
-  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 6, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i18, align 8
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 6, ptr %error_code1.i17, align 4
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i18, align 8
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
 do.end32:                                         ; preds = %do.body26
   %call38 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
   %ref.tmp33.sroa.29.0.extract.shift = lshr i64 %call38, 32
   %ref.tmp33.sroa.29.0.extract.trunc = trunc i64 %ref.tmp33.sroa.29.0.extract.shift to i32
-  %3 = and i64 %call38, 1
-  %tobool.i.not = icmp eq i64 %3, 0
-  br i1 %tobool.i.not, label %if.then.i, label %if.end40
+  %tobool.i = trunc i64 %call38 to i1
+  br i1 %tobool.i, label %if.end40, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end32
   tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -9299,11 +9261,10 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i12
+  %tobool.i12 = trunc i8 %1 to i1
+  br i1 %tobool.i12, label %if.then.i13, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i12:                                      ; preds = %land.lhs.true.i
+if.then.i13:                                      ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
   unreachable
 
@@ -9325,12 +9286,12 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i15, align 8
+  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 1, ptr %error_code1.i14, align 4
+  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i15, align 8
+  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i16, align 8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
@@ -9346,21 +9307,20 @@ do.body26:                                        ; preds = %do.end13
   br i1 %call28, label %do.end32, label %if.then29
 
 if.then29:                                        ; preds = %do.body26
-  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 6, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i18, align 8
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 6, ptr %error_code1.i17, align 4
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i18, align 8
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
 do.end32:                                         ; preds = %do.body26
   %call38 = tail call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
   %ref.tmp33.sroa.29.0.extract.shift = lshr i64 %call38, 32
   %ref.tmp33.sroa.29.0.extract.trunc = trunc i64 %ref.tmp33.sroa.29.0.extract.shift to i32
-  %3 = and i64 %call38, 1
-  %tobool.i.not = icmp eq i64 %3, 0
-  br i1 %tobool.i.not, label %if.then.i, label %if.end40
+  %tobool.i = trunc i64 %call38 to i1
+  br i1 %tobool.i, label %if.end40, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end32
   tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -9399,11 +9359,10 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i13
+  %tobool.i13 = trunc i8 %1 to i1
+  br i1 %tobool.i13, label %if.then.i14, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i13:                                      ; preds = %land.lhs.true.i
+if.then.i14:                                      ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
   unreachable
 
@@ -9425,12 +9384,12 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 1, ptr %error_code1.i14, align 4
-  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i15, align 8
-  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i16, align 8
+  %error_code1.i15 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 1, ptr %error_code1.i15, align 4
+  %engine_error_code3.i16 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i16, align 8
+  %engine_reserved5.i17 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i17, align 8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
@@ -9450,37 +9409,36 @@ do.body28:                                        ; preds = %do.end13
   br i1 %call30, label %do.end34, label %if.then31
 
 if.then31:                                        ; preds = %do.body28
-  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 6, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i19, align 8
+  %error_code1.i18 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 6, ptr %error_code1.i18, align 4
+  %engine_error_code3.i19 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i19, align 8
+  %engine_reserved5.i20 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i20, align 8
   br label %return
 
 do.end34:                                         ; preds = %do.body28
   %call41 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
-  %3 = tail call double @llvm.fabs.f64(double %call41)
-  %4 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %4, label %if.end51, label %if.then43
+  %2 = tail call double @llvm.fabs.f64(double %call41)
+  %3 = fcmp ueq double %2, 0x7FF0000000000000
+  br i1 %3, label %if.end51, label %if.then43
 
 if.then43:                                        ; preds = %do.end34
   %call49 = tail call { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
-  %5 = extractvalue { i8, i64 } %call49, 0
-  %6 = extractvalue { i8, i64 } %call49, 1
-  %7 = and i8 %5, 1
-  %tobool.i.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.not, label %if.then.i, label %if.end51
+  %4 = extractvalue { i8, i64 } %call49, 0
+  %5 = extractvalue { i8, i64 } %call49, 1
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.end51, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then43
   tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
   br label %if.end51
 
 if.end51:                                         ; preds = %do.end34, %if.then43, %if.then.i
-  %storemerge = phi i64 [ %6, %if.then.i ], [ %6, %if.then43 ], [ 0, %do.end34 ]
+  %storemerge = phi i64 [ %5, %if.then.i ], [ %5, %if.then43 ], [ 0, %do.end34 ]
   store i64 %storemerge, ptr %result, align 8
-  %last_error.i20 = getelementptr inbounds i8, ptr %env, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i20, i8 0, i64 24, i1 false)
+  %last_error.i21 = getelementptr inbounds i8, ptr %env, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i21, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end51, %if.then31, %if.then19, %if.then10, %if.then5
@@ -9505,9 +9463,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9594,9 +9551,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9684,9 +9640,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9732,8 +9687,8 @@ if.then20:                                        ; preds = %do.end13
   br label %return
 
 do.end23:                                         ; preds = %do.end13
-  %3 = load i64, ptr %word_count, align 8
-  %conv = trunc i64 %3 to i32
+  %2 = load i64, ptr %word_count, align 8
+  %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %word_count_int, align 4
   %cmp28 = icmp eq ptr %sign_bit, null
   %cmp29 = icmp eq ptr %words, null
@@ -9774,8 +9729,8 @@ do.end44:                                         ; preds = %do.body39
   br label %if.end46
 
 if.end46:                                         ; preds = %do.end44, %if.then30
-  %4 = phi i32 [ %.pre, %do.end44 ], [ %call32, %if.then30 ]
-  %conv47 = sext i32 %4 to i64
+  %3 = phi i32 [ %.pre, %do.end44 ], [ %call32, %if.then30 ]
+  %conv47 = sext i32 %3 to i64
   store i64 %conv47, ptr %word_count, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -9805,9 +9760,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9882,9 +9836,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -9904,19 +9857,19 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %3 = load i64, ptr %value, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %value, align 8
+  %and.i = and i64 %2, 3
   %cmp.i72 = icmp eq i64 %and.i, 1
   br i1 %cmp.i72, label %if.end.i, label %if.then14
 
 if.end.i:                                         ; preds = %do.end7
-  %sub.i83 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i83 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i83 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i83 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7, %if.end.i
@@ -9956,10 +9909,10 @@ if.else:                                          ; preds = %do.end17
 
 if.then32:                                        ; preds = %if.else
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %8 = load ptr, ptr %isolate, align 8
-  %9 = trunc i64 %bufsize to i32
-  %conv39 = add i32 %9, -1
-  %call40 = tail call noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
+  %7 = load ptr, ptr %isolate, align 8
+  %8 = trunc i64 %bufsize to i32
+  %conv39 = add i32 %8, -1
+  %call40 = tail call noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
   %idxprom = sext i32 %call40 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
@@ -10004,9 +9957,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10026,19 +9978,19 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %3 = load i64, ptr %value, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %value, align 8
+  %and.i = and i64 %2, 3
   %cmp.i73 = icmp eq i64 %and.i, 1
   br i1 %cmp.i73, label %if.end.i, label %if.then14
 
 if.end.i:                                         ; preds = %do.end7
-  %sub.i84 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i84 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i84 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i84 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7, %if.end.i
@@ -10069,8 +10021,8 @@ if.then21:                                        ; preds = %do.body19
 
 do.end24:                                         ; preds = %do.body19
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %8 = load ptr, ptr %isolate, align 8
-  %call30 = tail call noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8) #24
+  %7 = load ptr, ptr %isolate, align 8
+  %call30 = tail call noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7) #24
   %conv = sext i32 %call30 to i64
   br label %if.end51.sink.split
 
@@ -10080,10 +10032,10 @@ if.else:                                          ; preds = %do.end17
 
 if.then32:                                        ; preds = %if.else
   %isolate39 = getelementptr inbounds i8, ptr %env, i64 8
-  %9 = load ptr, ptr %isolate39, align 8
-  %10 = trunc i64 %bufsize to i32
-  %conv40 = add i32 %10, -1
-  %call41 = tail call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %9, ptr noundef nonnull %buf, i32 noundef %conv40, ptr noundef null, i32 noundef 10) #24
+  %8 = load ptr, ptr %isolate39, align 8
+  %9 = trunc i64 %bufsize to i32
+  %conv40 = add i32 %9, -1
+  %call41 = tail call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef %conv40, ptr noundef null, i32 noundef 10) #24
   %idxprom = sext i32 %call41 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
@@ -10128,9 +10080,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10150,19 +10101,19 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %3 = load i64, ptr %value, align 8
-  %and.i = and i64 %3, 3
+  %2 = load i64, ptr %value, align 8
+  %and.i = and i64 %2, 3
   %cmp.i72 = icmp eq i64 %and.i, 1
   br i1 %cmp.i72, label %if.end.i, label %if.then14
 
 if.end.i:                                         ; preds = %do.end7
-  %sub.i83 = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i83 to ptr
-  %5 = load i64, ptr %4, align 8
-  %sub.i = add i64 %5, 11
-  %6 = inttoptr i64 %sub.i to ptr
-  %7 = load i16, ptr %6, align 2
-  %cmp.i = icmp ult i16 %7, 128
+  %sub.i83 = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i83 to ptr
+  %4 = load i64, ptr %3, align 8
+  %sub.i = add i64 %4, 11
+  %5 = inttoptr i64 %sub.i to ptr
+  %6 = load i16, ptr %5, align 2
+  %cmp.i = icmp ult i16 %6, 128
   br i1 %cmp.i, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7, %if.end.i
@@ -10202,10 +10153,10 @@ if.else:                                          ; preds = %do.end17
 
 if.then32:                                        ; preds = %if.else
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %8 = load ptr, ptr %isolate, align 8
-  %9 = trunc i64 %bufsize to i32
-  %conv39 = add i32 %9, -1
-  %call40 = tail call noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
+  %7 = load ptr, ptr %isolate, align 8
+  %8 = trunc i64 %bufsize to i32
+  %conv39 = add i32 %8, -1
+  %call40 = tail call noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
   %idxprom = sext i32 %call40 to i64
   %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
@@ -10249,9 +10200,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10259,8 +10209,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -10274,13 +10224,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
@@ -10294,8 +10244,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10304,8 +10254,8 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call34 = call ptr @_ZNK2v85Value9ToBooleanEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call34 = call ptr @_ZNK2v85Value9ToBooleanEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %6) #24
   store ptr %call34, ptr %result, align 8
   %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call46, label %cleanup.sink.split, label %cleanup
@@ -10326,17 +10276,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i28:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i30 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i30, align 8
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i30 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i30, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i28
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10345,8 +10295,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10377,9 +10327,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10387,8 +10336,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -10402,13 +10351,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -10422,8 +10371,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10459,17 +10408,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i37 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i37, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i37 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i37, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i35
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10478,8 +10427,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10510,9 +10459,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10520,8 +10468,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -10535,13 +10483,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -10555,8 +10503,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10592,17 +10540,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i37 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i37, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i37 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i37, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i35
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10611,8 +10559,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10641,9 +10589,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10651,8 +10598,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -10666,13 +10613,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -10686,8 +10633,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10723,17 +10670,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i37 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i37, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i37 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i37, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i35
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10742,8 +10689,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10775,9 +10722,8 @@ do.end.i:                                         ; preds = %entry
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i28.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i28.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i28.i:                                    ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -10785,8 +10731,8 @@ if.then.i28.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
   %last_exception.i = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %do.body8.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
@@ -10800,13 +10746,13 @@ if.then4.i:                                       ; preds = %_ZN10napi_env__13Ch
 
 do.body8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
   %vtable.i = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable.i, align 8
-  %call9.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable.i, align 8
+  %call9.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9.i, label %do.end14.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.body8.i
-  %5 = load i32, ptr %module_api_version.i.i, align 8
-  %cmp11.i = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i.i, align 8
+  %cmp11.i = icmp eq i32 %4, 2147483647
   %cond.i = select i1 %cmp11.i, i32 23, i32 10
   %error_code1.i29.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond.i, ptr %error_code1.i29.i, align 4
@@ -10820,8 +10766,8 @@ do.end14.i:                                       ; preds = %do.body8.i
   %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   %isolate.i.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, ptr noundef %5) #24
   %_env.i.i = getelementptr inbounds i8, ptr %try_catch.i, i64 48
   store ptr %env, ptr %_env.i.i, align 8
   %cmp17.not.i = icmp eq ptr %js_object, null
@@ -10839,37 +10785,36 @@ do.end36.i:                                       ; preds = %do.end21.i
   %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i.i) #24
   %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
   call void @llvm.assume(i1 %cmp.i.i.i)
-  %7 = load i64, ptr %retval.sroa.0.0.copyload.i.i.i, align 8
-  %sub.i.i.i.i.i = add i64 %7, 47
-  %8 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %9 = load i64, ptr %8, align 8
-  %sub.i.i30.i.i.i = add i64 %9, 327
-  %10 = inttoptr i64 %sub.i.i30.i.i.i to ptr
-  %11 = load i64, ptr %10, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %13, %12
+  %6 = load i64, ptr %retval.sroa.0.0.copyload.i.i.i, align 8
+  %sub.i.i.i.i.i = add i64 %6, 47
+  %7 = inttoptr i64 %sub.i.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %sub.i.i30.i.i.i = add i64 %8, 327
+  %9 = inttoptr i64 %sub.i.i30.i.i.i to ptr
+  %10 = load i64, ptr %9, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
+  %cmp12.not.i.i.i = icmp eq ptr %12, %11
   call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i18.i.i = add i64 %9, 271
-  %14 = inttoptr i64 %sub.i.i18.i.i to ptr
-  %15 = load i64, ptr %14, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %16, i64 96
-  %17 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %napi_wrapper_.i.i.i = getelementptr inbounds i8, ptr %17, i64 128
-  %18 = load ptr, ptr %napi_wrapper_.i.i.i, align 8
-  %call59.i = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %18) #24
-  %19 = and i16 %call59.i, 1
-  %tobool.i183.not.i = icmp eq i16 %19, 0
-  br i1 %tobool.i183.not.i, label %if.then.i179.i, label %_ZNO2v85MaybeIbE8FromJustEv.exit180.i
+  %sub.i.i18.i.i = add i64 %8, 271
+  %13 = inttoptr i64 %sub.i.i18.i.i to ptr
+  %14 = load i64, ptr %13, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = load ptr, ptr %isolate_data_.i.i.i, align 8
+  %napi_wrapper_.i.i.i = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = load ptr, ptr %napi_wrapper_.i.i.i, align 8
+  %call59.i = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %17) #24
+  %tobool.i183.i = trunc i16 %call59.i to i1
+  br i1 %tobool.i183.i, label %_ZNO2v85MaybeIbE8FromJustEv.exit180.i, label %if.then.i179.i
 
 if.then.i179.i:                                   ; preds = %do.end36.i
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit180.i
 
 _ZNO2v85MaybeIbE8FromJustEv.exit180.i:            ; preds = %if.then.i179.i, %do.end36.i
-  %20 = and i16 %call59.i, 256
-  %tobool.i178.not.i = icmp eq i16 %20, 0
+  %18 = and i16 %call59.i, 256
+  %tobool.i178.not.i = icmp eq i16 %18, 0
   br i1 %tobool.i178.not.i, label %do.end66.i, label %cleanup.sink.split.i
 
 do.end66.i:                                       ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit180.i
@@ -10894,23 +10839,22 @@ do.body97.i:                                      ; preds = %if.else.i, %do.end7
   %reference.0.i = phi ptr [ %call84.i, %do.end75.i ], [ %call95.i, %if.else.i ]
   %call106.i = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr nonnull %retval.sroa.0.0.copyload.i.i.i)
   %isolate_data_.i.i44.i = getelementptr inbounds i8, ptr %call106.i, i64 96
-  %21 = load ptr, ptr %isolate_data_.i.i44.i, align 8
-  %napi_wrapper_.i.i45.i = getelementptr inbounds i8, ptr %21, i64 128
-  %22 = load ptr, ptr %napi_wrapper_.i.i45.i, align 8
-  %23 = load ptr, ptr %isolate.i.i, align 8
-  %call113.i = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %23, ptr noundef nonnull %reference.0.i) #24
-  %call129.i = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %22, ptr %call113.i) #24
-  %24 = and i16 %call129.i, 1
-  %tobool.i186.not.i = icmp eq i16 %24, 0
-  br i1 %tobool.i186.not.i, label %if.then.i.i, label %_ZNO2v85MaybeIbE8FromJustEv.exit.i
+  %19 = load ptr, ptr %isolate_data_.i.i44.i, align 8
+  %napi_wrapper_.i.i45.i = getelementptr inbounds i8, ptr %19, i64 128
+  %20 = load ptr, ptr %napi_wrapper_.i.i45.i, align 8
+  %21 = load ptr, ptr %isolate.i.i, align 8
+  %call113.i = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %21, ptr noundef nonnull %reference.0.i) #24
+  %call129.i = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %20, ptr %call113.i) #24
+  %tobool.i186.i = trunc i16 %call129.i to i1
+  br i1 %tobool.i186.i, label %_ZNO2v85MaybeIbE8FromJustEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body97.i
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit.i
 
 _ZNO2v85MaybeIbE8FromJustEv.exit.i:               ; preds = %if.then.i.i, %do.body97.i
-  %25 = and i16 %call129.i, 256
-  %tobool.i.not.i = icmp eq i16 %25, 0
+  %22 = and i16 %call129.i, 256
+  %tobool.i.not.i = icmp eq i16 %22, 0
   br i1 %tobool.i.not.i, label %do.body135.i, label %do.end140.i
 
 do.body135.i:                                     ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit.i
@@ -10938,17 +10882,17 @@ cleanup.i:                                        ; preds = %cleanup.sink.split.
   br i1 %call.i.i, label %if.then.i50.i, label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
 if.then.i50.i:                                    ; preds = %cleanup.i
-  %26 = load ptr, ptr %_env.i.i, align 8
-  %last_exception.i.i = getelementptr inbounds i8, ptr %26, i64 24
-  %isolate.i52.i = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %isolate.i52.i, align 8
+  %23 = load ptr, ptr %_env.i.i, align 8
+  %last_exception.i.i = getelementptr inbounds i8, ptr %23, i64 24
+  %isolate.i52.i = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load ptr, ptr %isolate.i52.i, align 8
   %call3.i.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
-  %28 = load ptr, ptr %last_exception.i.i, align 8
-  %cmp.i.i.i53.i = icmp eq ptr %28, null
+  %25 = load ptr, ptr %last_exception.i.i, align 8
+  %cmp.i.i.i53.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i53.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i50.i
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %28) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %25) #24
   store ptr null, ptr %last_exception.i.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i
 
@@ -10957,8 +10901,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i: ; preds = %if.end.i.i.i.i
   br i1 %cmp.i9.i.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit.i, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i
-  %29 = load i64, ptr %call3.i.i, align 8
-  %call2.i.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %27, i64 noundef %29) #24
+  %26 = load i64, ptr %call3.i.i, align 8
+  %call2.i.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %26) #24
   store ptr %call2.i.i.i, ptr %last_exception.i.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
@@ -10995,9 +10939,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i24
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i24, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i24:                                      ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -11005,8 +10948,8 @@ if.then.i24:                                      ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -11020,13 +10963,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
@@ -11040,8 +10983,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %js_object, null
@@ -11062,10 +11005,10 @@ if.end31:                                         ; preds = %do.end21
 do.end46:                                         ; preds = %if.end31
   %call57 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %call57, i64 96
-  %7 = load ptr, ptr %isolate_data_.i.i, align 8
-  %napi_wrapper_.i.i = getelementptr inbounds i8, ptr %7, i64 128
-  %8 = load ptr, ptr %napi_wrapper_.i.i, align 8
-  %call68 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #24
+  %6 = load ptr, ptr %isolate_data_.i.i, align 8
+  %napi_wrapper_.i.i = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = load ptr, ptr %napi_wrapper_.i.i, align 8
+  %call68 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %7) #24
   %cmp.i.i.i = icmp eq ptr %call68, null
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
@@ -11083,8 +11026,8 @@ do.end84:                                         ; preds = %_ZN2v810MaybeLocalI
 
 if.then92:                                        ; preds = %do.end84
   %finalize_data_.i = getelementptr inbounds i8, ptr %call91, i64 24
-  %9 = load ptr, ptr %finalize_data_.i, align 8
-  store ptr %9, ptr %result, align 8
+  %8 = load ptr, ptr %finalize_data_.i, align 8
+  store ptr %8, ptr %result, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then92, %do.end84
@@ -11094,21 +11037,20 @@ if.end94:                                         ; preds = %if.then92, %do.end8
 do.body97:                                        ; preds = %if.end94
   %call106 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)
   %isolate_data_.i.i40 = getelementptr inbounds i8, ptr %call106, i64 96
-  %10 = load ptr, ptr %isolate_data_.i.i40, align 8
-  %napi_wrapper_.i.i41 = getelementptr inbounds i8, ptr %10, i64 128
-  %11 = load ptr, ptr %napi_wrapper_.i.i41, align 8
-  %call117 = call i16 @_ZN2v86Object13DeletePrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %11) #24
-  %12 = and i16 %call117, 1
-  %tobool.i175.not = icmp eq i16 %12, 0
-  br i1 %tobool.i175.not, label %if.then.i172, label %_ZNO2v85MaybeIbE8FromJustEv.exit
+  %9 = load ptr, ptr %isolate_data_.i.i40, align 8
+  %napi_wrapper_.i.i41 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = load ptr, ptr %napi_wrapper_.i.i41, align 8
+  %call117 = call i16 @_ZN2v86Object13DeletePrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %10) #24
+  %tobool.i175 = trunc i16 %call117 to i1
+  br i1 %tobool.i175, label %_ZNO2v85MaybeIbE8FromJustEv.exit, label %if.then.i172
 
 if.then.i172:                                     ; preds = %do.body97
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit
 
 _ZNO2v85MaybeIbE8FromJustEv.exit:                 ; preds = %if.then.i172, %do.body97
-  %13 = and i16 %call117, 256
-  %tobool.i.not = icmp eq i16 %13, 0
+  %11 = and i16 %call117, 256
+  %tobool.i.not = icmp eq i16 %11, 0
   br i1 %tobool.i.not, label %do.body122, label %do.end127
 
 do.body122:                                       ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit
@@ -11118,8 +11060,8 @@ do.body122:                                       ; preds = %_ZNO2v85MaybeIbE8Fr
 
 do.end127:                                        ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit
   %ownership_.i = getelementptr inbounds i8, ptr %call91, i64 68
-  %14 = load i32, ptr %ownership_.i, align 4
-  %cmp129 = icmp eq i32 %14, 1
+  %12 = load i32, ptr %ownership_.i, align 4
+  %cmp129 = icmp eq i32 %12, 1
   br i1 %cmp129, label %if.then130, label %delete.notnull
 
 if.then130:                                       ; preds = %do.end127
@@ -11130,8 +11072,8 @@ if.then130:                                       ; preds = %do.end127
 delete.notnull:                                   ; preds = %do.end127
   %vtable131 = load ptr, ptr %call91, align 8
   %vfn132 = getelementptr inbounds i8, ptr %vtable131, i64 8
-  %15 = load ptr, ptr %vfn132, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(81) %call91) #24
+  %13 = load ptr, ptr %vfn132, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(81) %call91) #24
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then130, %delete.notnull, %if.end94
@@ -11154,17 +11096,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
-  %16 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %16, i64 24
-  %isolate.i47 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load ptr, ptr %isolate.i47, align 8
+  %14 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %14, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %18 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i48 = icmp eq ptr %18, null
+  %16 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i48 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i48, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %18) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %16) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11173,8 +11115,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %19 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %17, i64 noundef %19) #24
+  %17 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %15, i64 noundef %17) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11215,9 +11157,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -11225,8 +11166,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -11240,13 +11181,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i17, align 4
@@ -11260,8 +11201,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -11277,8 +11218,8 @@ if.then18:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end21:                                         ; preds = %do.end14
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call23 = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %7, ptr noundef %data) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call23 = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %6, ptr noundef %data) #24
   %tobool.not = icmp eq ptr %finalize_cb, null
   br i1 %tobool.not, label %if.end35, label %if.then29
 
@@ -11313,17 +11254,17 @@ cleanup:                                          ; preds = %if.end35, %if.then1
   br i1 %call.i24, label %if.then.i25, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i25:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i27 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i27, align 8
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i27 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i27, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i25
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11332,8 +11273,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11364,9 +11305,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i27 = trunc i8 %1 to i1
+  br i1 %tobool.i27, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -11374,8 +11314,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -11389,28 +11329,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i27 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i27, align 4
-  %engine_error_code3.i28 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i28, align 8
-  %engine_reserved5.i29 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i29, align 8
+  %error_code1.i28 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i28, align 4
+  %engine_error_code3.i29 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i29, align 8
+  %engine_reserved5.i30 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i30, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -11446,31 +11386,30 @@ do.end65:                                         ; preds = %_ZN2v810MaybeLocalI
   %cmp.i.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i.i, null
   call void @llvm.assume(i1 %cmp.i.i.i)
   %call5.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #24
-  %cmp.i.i39 = icmp ugt i32 %call5.i.i, 39
-  call void @llvm.assume(i1 %cmp.i.i39)
-  %7 = load i64, ptr %retval.sroa.0.0.copyload.i.i, align 8
-  %sub.i.i.i.i = add i64 %7, 47
-  %8 = inttoptr i64 %sub.i.i.i.i to ptr
-  %9 = load i64, ptr %8, align 8
-  %sub.i.i30.i.i = add i64 %9, 327
-  %10 = inttoptr i64 %sub.i.i30.i.i to ptr
-  %11 = load i64, ptr %10, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i = icmp eq ptr %13, %12
+  %cmp.i.i40 = icmp ugt i32 %call5.i.i, 39
+  call void @llvm.assume(i1 %cmp.i.i40)
+  %6 = load i64, ptr %retval.sroa.0.0.copyload.i.i, align 8
+  %sub.i.i.i.i = add i64 %6, 47
+  %7 = inttoptr i64 %sub.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %sub.i.i30.i.i = add i64 %8, 327
+  %9 = inttoptr i64 %sub.i.i30.i.i to ptr
+  %10 = load i64, ptr %9, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
+  %cmp12.not.i.i = icmp eq ptr %12, %11
   call void @llvm.assume(i1 %cmp12.not.i.i)
-  %sub.i.i18.i = add i64 %9, 271
-  %14 = inttoptr i64 %sub.i.i18.i to ptr
-  %15 = load i64, ptr %14, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %isolate_data_.i.i = getelementptr inbounds i8, ptr %16, i64 96
-  %17 = load ptr, ptr %isolate_data_.i.i, align 8
-  %napi_type_tag_.i.i = getelementptr inbounds i8, ptr %17, i64 120
-  %18 = load ptr, ptr %napi_type_tag_.i.i, align 8
-  %call84 = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18) #24
-  %19 = and i16 %call84, 1
-  %tobool.i185.not = icmp eq i16 %19, 0
-  br i1 %tobool.i185.not, label %if.then87, label %_ZNKR2v85MaybeIbE8FromJustEv.exit217
+  %sub.i.i18.i = add i64 %8, 271
+  %13 = inttoptr i64 %sub.i.i18.i to ptr
+  %14 = load i64, ptr %13, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = load ptr, ptr %isolate_data_.i.i, align 8
+  %napi_type_tag_.i.i = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = load ptr, ptr %napi_type_tag_.i.i, align 8
+  %call84 = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %17) #24
+  %tobool.i185 = trunc i16 %call84 to i1
+  br i1 %tobool.i185, label %_ZNKR2v85MaybeIbE8FromJustEv.exit217, label %if.then87
 
 if.then87:                                        ; preds = %do.end65
   %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -11478,8 +11417,8 @@ if.then87:                                        ; preds = %do.end65
   br label %cleanup.sink.split
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit217:             ; preds = %do.end65
-  %20 = and i16 %call84, 256
-  %tobool.i215.not = icmp eq i16 %20, 0
+  %18 = and i16 %call84, 256
+  %tobool.i215.not = icmp eq i16 %18, 0
   br i1 %tobool.i215.not, label %do.end102, label %if.then96
 
 if.then96:                                        ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit217
@@ -11498,10 +11437,9 @@ if.then114:                                       ; preds = %do.end102
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit: ; preds = %do.end102
-  %call142 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18, ptr nonnull %call107) #24
-  %21 = and i16 %call142, 1
-  %tobool.i.not = icmp eq i16 %21, 0
-  br i1 %tobool.i.not, label %if.then145, label %_ZNKR2v85MaybeIbE8FromJustEv.exit
+  %call142 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %17, ptr nonnull %call107) #24
+  %tobool.i = trunc i16 %call142 to i1
+  br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %if.then145
 
 if.then145:                                       ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
   %call146 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -11509,8 +11447,8 @@ if.then145:                                       ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup.sink.split
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
-  %22 = and i16 %call142, 256
-  %tobool.i207.not = icmp eq i16 %22, 0
+  %19 = and i16 %call142, 256
+  %tobool.i207.not = icmp eq i16 %19, 0
   %call155 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %tobool.i207.not, label %if.then154, label %do.end160
 
@@ -11523,41 +11461,41 @@ do.end160:                                        ; preds = %_ZNKR2v85MaybeIbE8F
 
 cleanup.sink.split:                               ; preds = %do.end160, %if.then22, %if.then43, %if.then59, %if.then87, %if.then96, %if.then114, %if.then145, %if.then154
   %.sink = phi i32 [ %cond156, %if.then154 ], [ %cond147, %if.then145 ], [ %cond116, %if.then114 ], [ %cond98, %if.then96 ], [ %cond89, %if.then87 ], [ %cond61, %if.then59 ], [ %cond45, %if.then43 ], [ %cond24, %if.then22 ], [ 10, %do.end160 ]
-  %error_code1.i55 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i55, align 4
-  %engine_error_code3.i56 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i56, align 8
-  %engine_reserved5.i57 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i57, align 8
+  %error_code1.i56 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i56, align 4
+  %engine_error_code3.i57 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i57, align 8
+  %engine_reserved5.i58 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i58, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end160
   %retval.0 = phi i32 [ 0, %do.end160 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i59, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i60, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i59:                                      ; preds = %cleanup
-  %23 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %23, i64 24
-  %isolate.i61 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load ptr, ptr %isolate.i61, align 8
+if.then.i60:                                      ; preds = %cleanup
+  %20 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %20, i64 24
+  %isolate.i62 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %isolate.i62, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %25 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i62 = icmp eq ptr %25, null
-  br i1 %cmp.i.i.i62, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
+  %22 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i63 = icmp eq ptr %22, null
+  br i1 %cmp.i.i.i63, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i59
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %25) #24
+if.end.i.i.i:                                     ; preds = %if.then.i60
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %22) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i59
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i60
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %26 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %26) #24
+  %23 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %21, i64 noundef %23) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11629,9 +11567,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -11639,8 +11576,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -11654,13 +11591,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i30 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i30, align 4
@@ -11674,8 +11611,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -11697,10 +11634,10 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end27
 do.end74:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call82 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %call82, i64 96
-  %7 = load ptr, ptr %isolate_data_.i.i, align 8
-  %napi_type_tag_.i.i = getelementptr inbounds i8, ptr %7, i64 120
-  %8 = load ptr, ptr %napi_type_tag_.i.i, align 8
-  %call93 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #24
+  %6 = load ptr, ptr %isolate_data_.i.i, align 8
+  %napi_type_tag_.i.i = getelementptr inbounds i8, ptr %6, i64 120
+  %7 = load ptr, ptr %napi_type_tag_.i.i, align 8
+  %call93 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr %retval.sroa.0.0.copyload.i.i, ptr %7) #24
   %cmp.i.i176 = icmp eq ptr %call93, null
   br i1 %cmp.i.i176, label %cleanup.sink.split.sink.split, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
@@ -11712,61 +11649,61 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %do.end74
 if.then113:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   store i32 2, ptr %size, align 4
   call void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1) %call93, ptr noundef nonnull %sign, ptr noundef nonnull %size, ptr noundef nonnull %tag) #24
-  %9 = load i32, ptr %sign, align 4
-  %cmp120 = icmp eq i32 %9, 0
+  %8 = load i32, ptr %sign, align 4
+  %cmp120 = icmp eq i32 %8, 0
   br i1 %cmp120, label %if.then121, label %if.end152
 
 if.then121:                                       ; preds = %if.then113
-  %10 = load i32, ptr %size, align 4
-  switch i32 %10, label %if.end152 [
+  %9 = load i32, ptr %size, align 4
+  switch i32 %9, label %if.end152 [
     i32 2, label %if.then123
     i32 1, label %if.then129
     i32 0, label %if.then140
   ]
 
 if.then123:                                       ; preds = %if.then121
-  %11 = load i64, ptr %tag, align 8
-  %12 = load i64, ptr %type_tag, align 8
-  %cmp125 = icmp eq i64 %11, %12
+  %10 = load i64, ptr %tag, align 8
+  %11 = load i64, ptr %type_tag, align 8
+  %cmp125 = icmp eq i64 %10, %11
   br i1 %cmp125, label %land.rhs, label %if.end152.sink.split
 
 land.rhs:                                         ; preds = %if.then123
   %upper = getelementptr inbounds i8, ptr %tag, i64 8
-  %13 = load i64, ptr %upper, align 8
+  %12 = load i64, ptr %upper, align 8
   %upper126 = getelementptr inbounds i8, ptr %type_tag, i64 8
-  %14 = load i64, ptr %upper126, align 8
+  %13 = load i64, ptr %upper126, align 8
   br label %if.end152.sink.split.sink.split
 
 if.then129:                                       ; preds = %if.then121
-  %15 = load i64, ptr %tag, align 8
-  %16 = load i64, ptr %type_tag, align 8
-  %cmp132 = icmp eq i64 %15, %16
+  %14 = load i64, ptr %tag, align 8
+  %15 = load i64, ptr %type_tag, align 8
+  %cmp132 = icmp eq i64 %14, %15
   br i1 %cmp132, label %land.rhs133, label %if.end152.sink.split
 
 land.rhs133:                                      ; preds = %if.then129
   %upper134 = getelementptr inbounds i8, ptr %type_tag, i64 8
-  %17 = load i64, ptr %upper134, align 8
+  %16 = load i64, ptr %upper134, align 8
   br label %if.end152.sink.split.sink.split
 
 if.then140:                                       ; preds = %if.then121
-  %18 = load i64, ptr %type_tag, align 8
-  %cmp142 = icmp eq i64 %18, 0
+  %17 = load i64, ptr %type_tag, align 8
+  %cmp142 = icmp eq i64 %17, 0
   br i1 %cmp142, label %land.rhs143, label %if.end152.sink.split
 
 land.rhs143:                                      ; preds = %if.then140
   %upper144 = getelementptr inbounds i8, ptr %type_tag, i64 8
-  %19 = load i64, ptr %upper144, align 8
+  %18 = load i64, ptr %upper144, align 8
   br label %if.end152.sink.split.sink.split
 
 if.end152.sink.split.sink.split:                  ; preds = %land.rhs, %land.rhs133, %land.rhs143
-  %.sink55 = phi i64 [ 0, %land.rhs143 ], [ 0, %land.rhs133 ], [ %14, %land.rhs ]
-  %.sink54 = phi i64 [ %19, %land.rhs143 ], [ %17, %land.rhs133 ], [ %13, %land.rhs ]
+  %.sink55 = phi i64 [ 0, %land.rhs143 ], [ 0, %land.rhs133 ], [ %13, %land.rhs ]
+  %.sink54 = phi i64 [ %18, %land.rhs143 ], [ %16, %land.rhs133 ], [ %12, %land.rhs ]
   %cmp145 = icmp eq i64 %.sink54, %.sink55
-  %20 = zext i1 %cmp145 to i8
+  %19 = zext i1 %cmp145 to i8
   br label %if.end152.sink.split
 
 if.end152.sink.split:                             ; preds = %if.end152.sink.split.sink.split, %if.then140, %if.then129, %if.then123
-  %frombool137.sink = phi i8 [ 0, %if.then123 ], [ 0, %if.then129 ], [ 0, %if.then140 ], [ %20, %if.end152.sink.split.sink.split ]
+  %frombool137.sink = phi i8 [ 0, %if.then123 ], [ 0, %if.then129 ], [ 0, %if.then140 ], [ %19, %if.end152.sink.split.sink.split ]
   store i8 %frombool137.sink, ptr %result, align 1
   br label %if.end152
 
@@ -11796,17 +11733,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i51, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i51:                                      ; preds = %cleanup
-  %21 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %21, i64 24
-  %isolate.i53 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %isolate.i53, align 8
+  %20 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %20, i64 24
+  %isolate.i53 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %isolate.i53, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %23 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i51
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %23) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %22) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11815,8 +11752,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %24 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %22, i64 noundef %24) #24
+  %23 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %21, i64 noundef %23) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11846,9 +11783,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -11927,9 +11863,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12028,9 +11963,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12052,8 +11986,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 delete.notnull:                                   ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %ref, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(81) %ref) #24
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(81) %ref) #24
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -12078,9 +12012,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12101,27 +12034,26 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %persistent_.i = getelementptr inbounds i8, ptr %ref, i64 72
-  %3 = load ptr, ptr %persistent_.i, align 8
-  %cmp.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %persistent_.i, align 8
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %_ZN6v8impl9Reference3RefEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end7
   %refcount_.i.i = getelementptr inbounds i8, ptr %ref, i64 64
-  %4 = load i32, ptr %refcount_.i.i, align 8
-  %inc.i.i = add i32 %4, 1
+  %3 = load i32, ptr %refcount_.i.i, align 8
+  %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %refcount_.i.i, align 8
-  %cmp.i6 = icmp eq i32 %4, 0
+  %cmp.i6 = icmp eq i32 %3, 0
   br i1 %cmp.i6, label %land.lhs.true.i7, label %_ZN6v8impl9Reference3RefEv.exit
 
 land.lhs.true.i7:                                 ; preds = %if.end.i
   %can_be_weak_.i = getelementptr inbounds i8, ptr %ref, i64 80
-  %5 = load i8, ptr %can_be_weak_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i8 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i8, label %_ZN6v8impl9Reference3RefEv.exit, label %if.then3.i
+  %4 = load i8, ptr %can_be_weak_.i, align 8
+  %tobool.i8 = trunc i8 %4 to i1
+  br i1 %tobool.i8, label %if.then3.i, label %_ZN6v8impl9Reference3RefEv.exit
 
 if.then3.i:                                       ; preds = %land.lhs.true.i7
-  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %3) #24
+  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %2) #24
   br label %_ZN6v8impl9Reference3RefEv.exit
 
 _ZN6v8impl9Reference3RefEv.exit:                  ; preds = %do.end7, %if.end.i, %land.lhs.true.i7, %if.then3.i
@@ -12158,9 +12090,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12181,8 +12112,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %refcount_.i = getelementptr inbounds i8, ptr %ref, i64 64
-  %3 = load i32, ptr %refcount_.i, align 8
-  %cmp9 = icmp eq i32 %3, 0
+  %2 = load i32, ptr %refcount_.i, align 8
+  %cmp9 = icmp eq i32 %2, 0
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %do.end7
@@ -12196,29 +12127,28 @@ if.then10:                                        ; preds = %do.end7
 
 if.end12:                                         ; preds = %do.end7
   %persistent_.i = getelementptr inbounds i8, ptr %ref, i64 72
-  %4 = load ptr, ptr %persistent_.i, align 8
-  %cmp.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %persistent_.i, align 8
+  %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %_ZN6v8impl9Reference5UnrefEv.exit, label %_ZN6v8impl7RefBase5UnrefEv.exit.i
 
 _ZN6v8impl7RefBase5UnrefEv.exit.i:                ; preds = %if.end12
-  %dec.i.i = add i32 %3, -1
+  %dec.i.i = add i32 %2, -1
   store i32 %dec.i.i, ptr %refcount_.i, align 8
-  %cmp.i11 = icmp eq i32 %3, 1
+  %cmp.i11 = icmp eq i32 %2, 1
   br i1 %cmp.i11, label %if.then5.i, label %_ZN6v8impl9Reference5UnrefEv.exit
 
 if.then5.i:                                       ; preds = %_ZN6v8impl7RefBase5UnrefEv.exit.i
   %can_be_weak_.i.i = getelementptr inbounds i8, ptr %ref, i64 80
-  %5 = load i8, ptr %can_be_weak_.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i.i, label %if.then.i.i
+  %4 = load i8, ptr %can_be_weak_.i.i, align 8
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.then.i.i:                                      ; preds = %if.then5.i
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %4, ptr noundef nonnull %ref, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %3, ptr noundef nonnull %ref, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %_ZN6v8impl9Reference5UnrefEv.exit
 
 if.end.i.i.i:                                     ; preds = %if.then5.i
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %4) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %3) #24
   store ptr null, ptr %persistent_.i, align 8
   br label %_ZN6v8impl9Reference5UnrefEv.exit
 
@@ -12256,9 +12186,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12292,17 +12221,17 @@ if.then10:                                        ; preds = %do.body8
 
 do.end13:                                         ; preds = %do.body8
   %persistent_.i = getelementptr inbounds i8, ptr %ref, i64 72
-  %3 = load ptr, ptr %persistent_.i, align 8
-  %cmp.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %persistent_.i, align 8
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %_ZN6v8impl9Reference3GetEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.end13
   %env_.i = getelementptr inbounds i8, ptr %ref, i64 8
-  %4 = load ptr, ptr %env_.i, align 8
-  %isolate.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %isolate.i, align 8
-  %6 = load i64, ptr %3, align 8
-  %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %5, i64 noundef %6) #24
+  %3 = load ptr, ptr %env_.i, align 8
+  %isolate.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %isolate.i, align 8
+  %5 = load i64, ptr %2, align 8
+  %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %4, i64 noundef %5) #24
   br label %_ZN6v8impl9Reference3GetEv.exit
 
 _ZN6v8impl9Reference3GetEv.exit:                  ; preds = %do.end13, %if.end.i.i
@@ -12332,9 +12261,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12356,12 +12284,12 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %call8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  tail call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef %3) #24
+  %2 = load ptr, ptr %isolate, align 8
+  tail call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef %2) #24
   store ptr %call8, ptr %result, align 8
   %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
-  %4 = load i32, ptr %open_handle_scopes, align 8
-  %inc = add nsw i32 %4, 1
+  %3 = load i32, ptr %open_handle_scopes, align 8
+  %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %open_handle_scopes, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -12387,9 +12315,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12410,12 +12337,12 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
-  %3 = load i32, ptr %open_handle_scopes, align 8
-  %cmp8 = icmp eq i32 %3, 0
+  %2 = load i32, ptr %open_handle_scopes, align 8
+  %cmp8 = icmp eq i32 %2, 0
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %do.end7
-  %dec = add nsw i32 %3, -1
+  %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %open_handle_scopes, align 8
   tail call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   tail call void @_ZdlPv(ptr noundef nonnull %scope) #26
@@ -12443,9 +12370,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12467,14 +12393,14 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %3 = load ptr, ptr %isolate, align 8
-  tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %3) #24
+  %2 = load ptr, ptr %isolate, align 8
+  tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %2) #24
   %escape_called_.i = getelementptr inbounds i8, ptr %call8, i64 32
   store i8 0, ptr %escape_called_.i, align 8
   store ptr %call8, ptr %result, align 8
   %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
-  %4 = load i32, ptr %open_handle_scopes, align 8
-  %inc = add nsw i32 %4, 1
+  %3 = load i32, ptr %open_handle_scopes, align 8
+  %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %open_handle_scopes, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -12500,9 +12426,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12523,15 +12448,15 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
-  %3 = load i32, ptr %open_handle_scopes, align 8
-  %cmp8 = icmp eq i32 %3, 0
+  %2 = load i32, ptr %open_handle_scopes, align 8
+  %cmp8 = icmp eq i32 %2, 0
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %do.end7
   tail call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   tail call void @_ZdlPv(ptr noundef nonnull %scope) #26
-  %4 = load i32, ptr %open_handle_scopes, align 8
-  %dec = add nsw i32 %4, -1
+  %3 = load i32, ptr %open_handle_scopes, align 8
+  %dec = add nsw i32 %3, -1
   store i32 %dec, ptr %open_handle_scopes, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -12557,9 +12482,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12605,14 +12529,13 @@ if.then16:                                        ; preds = %do.body14
   br label %return
 
 do.end19:                                         ; preds = %do.body14
-  %3 = getelementptr i8, ptr %scope, i64 32
-  %call20.val = load i8, ptr %3, align 8
-  %4 = and i8 %call20.val, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %if.then22, label %if.end39
+  %2 = getelementptr i8, ptr %scope, i64 32
+  %call20.val = load i8, ptr %2, align 8
+  %tobool.i17 = trunc i8 %call20.val to i1
+  br i1 %tobool.i17, label %if.end39, label %if.then22
 
 if.then22:                                        ; preds = %do.end19
-  store i8 1, ptr %3, align 8
+  store i8 1, ptr %2, align 8
   %call4.i.i = tail call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %escapee) #24
   store ptr %call4.i.i, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
@@ -12620,12 +12543,12 @@ if.then22:                                        ; preds = %do.end19
   br label %return
 
 if.end39:                                         ; preds = %do.end19
-  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 12, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i19, align 8
+  %error_code1.i18 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 12, ptr %error_code1.i18, align 4
+  %engine_error_code3.i19 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i19, align 8
+  %engine_reserved5.i20 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i20, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end39, %if.then22, %if.then16, %if.then10, %if.then5
@@ -12649,9 +12572,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12659,8 +12581,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -12674,13 +12596,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i24, align 4
@@ -12694,8 +12616,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %constructor, null
@@ -12742,17 +12664,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i47 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i47, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -12761,8 +12683,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -12793,9 +12715,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i25 = trunc i8 %1 to i1
+  br i1 %tobool.i25, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12803,8 +12724,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -12818,28 +12739,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i27, align 8
+  %error_code1.i26 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i26, align 4
+  %engine_error_code3.i27 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i27, align 8
+  %engine_reserved5.i28 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i28, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %object, null
@@ -12869,55 +12790,54 @@ if.then69:                                        ; preds = %_ZN2v810MaybeLocalI
 
 if.end72:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call86 = call i16 @_ZN2v85Value10InstanceOfENS_5LocalINS_7ContextEEENS1_INS_6ObjectEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call48) #24
-  %7 = and i16 %call86, 1
-  %tobool.i.not = icmp eq i16 %7, 0
-  br i1 %tobool.i.not, label %cleanup.sink.split, label %_ZNKR2v85MaybeIbE8FromJustEv.exit
+  %tobool.i = trunc i16 %call86 to i1
+  br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %cleanup.sink.split
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.end72
-  %8 = lshr i16 %call86, 8
-  %9 = trunc i16 %8 to i8
-  %frombool = and i8 %9, 1
+  %6 = lshr i16 %call86, 8
+  %7 = trunc i16 %6 to i8
+  %frombool = and i8 %7, 1
   store i8 %frombool, ptr %result, align 1
   %call95 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call95, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.end72, %do.end39, %do.end28, %do.end14, %if.then69
   %.sink = phi i32 [ 5, %if.then69 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 9, %if.end72 ], [ 10, %_ZNKR2v85MaybeIbE8FromJustEv.exit ]
-  %error_code1.i46 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i46, align 4
-  %engine_error_code3.i47 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i47, align 8
-  %engine_reserved5.i48 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i48, align 8
+  %error_code1.i47 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i47, align 4
+  %engine_error_code3.i48 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i48, align 8
+  %engine_reserved5.i49 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i49, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZNKR2v85MaybeIbE8FromJustEv.exit
   %retval.0 = phi i32 [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
+  br i1 %call.i, label %if.then.i50, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i49:                                      ; preds = %cleanup
-  %10 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
-  %isolate.i51 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load ptr, ptr %isolate.i51, align 8
+if.then.i50:                                      ; preds = %cleanup
+  %8 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i52 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %isolate.i52, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %12 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %12, null
+  %10 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i49
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
+if.end.i.i.i:                                     ; preds = %if.then.i50
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i49
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i50
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %13 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
+  %11 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -12947,9 +12867,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -12970,8 +12889,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp ne ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp ne ptr %2, null
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
@@ -12998,9 +12917,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13021,8 +12939,8 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i26 = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i26 = icmp eq ptr %2, null
   br i1 %cmp.i26, label %do.end.i, label %if.end.i39
 
 do.end.i:                                         ; preds = %do.end7
@@ -13030,10 +12948,9 @@ do.end.i:                                         ; preds = %do.end7
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
-  %4 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %napi_get_undefined.exit, label %if.then.i.i
+  %3 = load i8, ptr %in_gc_finalizer.i.i, align 4
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %napi_get_undefined.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13041,27 +12958,27 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 napi_get_undefined.exit:                          ; preds = %land.lhs.true.i.i, %do.end.i
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %add1.i.i = add i64 %7, 608
-  %8 = inttoptr i64 %add1.i.i to ptr
-  store ptr %8, ptr %result, align 8
+  %4 = load ptr, ptr %isolate.i, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %add1.i.i = add i64 %5, 608
+  %6 = inttoptr i64 %add1.i.i to ptr
+  store ptr %6, ptr %result, align 8
   %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %return
 
 if.end.i39:                                       ; preds = %do.end7
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
-  %9 = load ptr, ptr %isolate, align 8
-  %10 = load i64, ptr %3, align 8
-  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %10) #24
+  %7 = load ptr, ptr %isolate, align 8
+  %8 = load i64, ptr %2, align 8
+  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
   store ptr %call.i, ptr %result, align 8
-  %11 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %11, null
+  %9 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i39
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception, align 8
   br label %if.end20
 
@@ -13090,9 +13007,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13155,9 +13071,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13165,8 +13080,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -13180,13 +13095,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i15 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i15, align 4
@@ -13200,16 +13115,16 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %7 = load ptr, ptr %isolate.i, align 8
-  %call23 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %7, i64 noundef %byte_length) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %call23 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %6, i64 noundef %byte_length) #24
   %cmp26.not = icmp eq ptr %data, null
   br i1 %cmp26.not, label %if.end30, label %if.then27
 
@@ -13239,17 +13154,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i24, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i24:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
-  %isolate.i26 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %isolate.i26, align 8
+  %7 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i26 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %isolate.i26, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %10 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i24
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -13258,8 +13173,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %10 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -13298,9 +13213,8 @@ do.end.i:                                         ; preds = %do.end
 land.lhs.true.i.i:                                ; preds = %do.end.i
   %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %2 = load i8, ptr %in_gc_finalizer.i.i, align 4
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13368,9 +13282,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13522,9 +13435,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13601,9 +13513,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13666,9 +13577,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -13676,8 +13586,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -13691,13 +13601,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i115 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i115, align 4
@@ -13711,8 +13621,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
@@ -13995,17 +13905,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i190, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i190:                                     ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i192 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i192, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i192 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i192, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i190
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14014,8 +13924,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14094,9 +14004,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14104,8 +14013,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -14119,13 +14028,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
@@ -14139,8 +14048,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
@@ -14184,17 +14093,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i40, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14203,8 +14112,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14234,9 +14143,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14298,9 +14206,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14432,9 +14339,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14442,8 +14348,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -14457,13 +14363,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i24, align 4
@@ -14477,8 +14383,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %deferred, null
@@ -14495,9 +14401,9 @@ do.end28:                                         ; preds = %do.end14
 
 _ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   %call51 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-  %7 = load ptr, ptr %isolate.i, align 8
-  %8 = load i64, ptr %call35, align 8
-  %call2.i91 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
+  %6 = load ptr, ptr %isolate.i, align 8
+  %7 = load i64, ptr %call35, align 8
+  %call2.i91 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %6, i64 noundef %7) #24
   store ptr %call2.i91, ptr %call51, align 8
   store ptr %call51, ptr %deferred, align 8
   %call56 = call ptr @_ZN2v87Promise8Resolver10GetPromiseEv(ptr noundef nonnull align 1 dereferenceable(1) %call35) #24
@@ -14521,17 +14427,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
-  %9 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
-  %isolate.i41 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load ptr, ptr %isolate.i41, align 8
+  %8 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i41 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %isolate.i41, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %11 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i39
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14540,8 +14446,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %12 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
+  %11 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14581,9 +14487,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i24 = trunc i8 %1 to i1
+  br i1 %tobool.i24, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14591,8 +14496,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i78 = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i78 = icmp eq ptr %2, null
   br i1 %cmp.i78, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -14606,28 +14511,28 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %cond, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i26, align 8
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %cond, ptr %error_code1.i25, align 4
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i26, align 8
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -14636,14 +14541,14 @@ do.end14:                                         ; preds = %do.body8
 do.end21:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %7 = load ptr, ptr %deferred, align 8
-  %cmp.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %deferred, align 8
+  %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %_ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end21
-  %8 = load ptr, ptr %isolate.i, align 8
-  %9 = load i64, ptr %7, align 8
-  %call.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %9) #24
+  %7 = load ptr, ptr %isolate.i, align 8
+  %8 = load i64, ptr %6, align 8
+  %call.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
   br label %_ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %do.end21, %if.end.i
@@ -14660,18 +14565,20 @@ cond.false:                                       ; preds = %_ZN2v89LocalBaseINS
 
 delete.notnull:                                   ; preds = %cond.true, %cond.false
   %success.sroa.0.0.in = phi i16 [ %call46, %cond.true ], [ %call60, %cond.false ]
-  %10 = load ptr, ptr %deferred, align 8
-  %cmp.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %deferred, align 8
+  %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit:               ; preds = %delete.notnull, %if.end.i.i
   call void @_ZdlPv(ptr noundef nonnull %deferred) #26
-  %11 = and i16 %success.sroa.0.0.in, 257
-  %cond.i.not = icmp eq i16 %11, 257
+  %tobool.i = trunc i16 %success.sroa.0.0.in to i1
+  %10 = and i16 %success.sroa.0.0.in, 256
+  %tobool2.i = icmp ne i16 %10, 0
+  %cond.i.not = and i1 %tobool2.i, %tobool.i
   br i1 %cond.i.not, label %do.end67, label %cleanup.sink.split
 
 do.end67:                                         ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit
@@ -14680,41 +14587,41 @@ do.end67:                                         ; preds = %_ZN2v86GlobalINS_5V
 
 cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86GlobalINS_5ValueEED2Ev.exit, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 9, %_ZN2v86GlobalINS_5ValueEED2Ev.exit ], [ 10, %do.end67 ]
-  %error_code1.i33 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 %.sink, ptr %error_code1.i33, align 4
-  %engine_error_code3.i34 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i34, align 8
-  %engine_reserved5.i35 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i35, align 8
+  %error_code1.i34 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 %.sink, ptr %error_code1.i34, align 4
+  %engine_error_code3.i35 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i35, align 8
+  %engine_reserved5.i36 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i36, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end67
   %retval.0 = phi i32 [ 0, %do.end67 ], [ %.sink, %cleanup.sink.split ]
-  %call.i36 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  br i1 %call.i36, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
+  %call.i37 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  br i1 %call.i37, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
-if.then.i38:                                      ; preds = %cleanup
-  %12 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %12, i64 24
-  %isolate.i40 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %isolate.i40, align 8
+if.then.i39:                                      ; preds = %cleanup
+  %11 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i41 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %isolate.i41, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %14 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #24
+if.end.i.i.i:                                     ; preds = %if.then.i39
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
-_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i38
+_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i39
   %cmp.i9.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %15 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #24
+  %14 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14749,9 +14656,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14814,9 +14720,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -14824,8 +14729,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -14839,13 +14744,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
@@ -14859,8 +14764,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -14894,17 +14799,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i28:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i30 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i30, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i30 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i30, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i28
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14913,8 +14818,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14944,9 +14849,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -15009,9 +14913,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -15019,8 +14922,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -15034,13 +14937,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
@@ -15054,8 +14957,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -15089,17 +14992,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
-  %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
-  %isolate.i33 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %isolate.i33, align 8
+  %6 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %9 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -15108,8 +15011,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %9 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %9) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -15140,9 +15043,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -15150,8 +15052,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
   %last_exception = getelementptr inbounds i8, ptr %env, i64 24
-  %3 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
@@ -15165,13 +15067,13 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
-  %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %3 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
-  %5 = load i32, ptr %module_api_version.i, align 8
-  %cmp11 = icmp eq i32 %5, 2147483647
+  %4 = load i32, ptr %module_api_version.i, align 8
+  %cmp11 = icmp eq i32 %4, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
   %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i23, align 4
@@ -15185,8 +15087,8 @@ do.end14:                                         ; preds = %do.body8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
-  %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  %5 = load ptr, ptr %isolate.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %script, null
@@ -15195,19 +15097,19 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %7 = load i64, ptr %script, align 8
-  %and.i = and i64 %7, 3
+  %6 = load i64, ptr %script, align 8
+  %and.i = and i64 %6, 3
   %cmp.i135 = icmp eq i64 %and.i, 1
   br i1 %cmp.i135, label %if.end.i, label %cleanup.sink.split
 
 if.end.i:                                         ; preds = %do.end28
-  %sub.i146 = add nsw i64 %7, -1
-  %8 = inttoptr i64 %sub.i146 to ptr
-  %9 = load i64, ptr %8, align 8
-  %sub.i = add i64 %9, 11
-  %10 = inttoptr i64 %sub.i to ptr
-  %11 = load i16, ptr %10, align 2
-  %cmp.i134 = icmp ult i16 %11, 128
+  %sub.i146 = add nsw i64 %6, -1
+  %7 = inttoptr i64 %sub.i146 to ptr
+  %8 = load i64, ptr %7, align 8
+  %sub.i = add i64 %8, 11
+  %9 = inttoptr i64 %sub.i to ptr
+  %10 = load i16, ptr %9, align 2
+  %cmp.i134 = icmp ult i16 %10, 128
   br i1 %cmp.i134, label %if.end36, label %cleanup.sink.split
 
 if.end36:                                         ; preds = %if.end.i
@@ -15243,17 +15145,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
-  %12 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %12, i64 24
-  %isolate.i47 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %isolate.i47, align 8
+  %11 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %14 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -15262,8 +15164,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %15 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #24
+  %14 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -15300,9 +15202,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -15592,11 +15493,10 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i8
+  %tobool.i8 = trunc i8 %1 to i1
+  br i1 %tobool.i8, label %if.then.i9, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i8:                                       ; preds = %land.lhs.true.i
+if.then.i9:                                       ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
   unreachable
 
@@ -15618,12 +15518,12 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
-  %error_code1.i9 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 19, ptr %error_code1.i9, align 4
-  %engine_error_code3.i10 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i10, align 8
-  %engine_reserved5.i11 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i11, align 8
+  %error_code1.i10 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 19, ptr %error_code1.i10, align 4
+  %engine_error_code3.i11 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i11, align 8
+  %engine_reserved5.i12 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i12, align 8
   br label %return
 
 do.end17:                                         ; preds = %do.end7
@@ -15631,19 +15531,18 @@ do.end17:                                         ; preds = %do.end7
   br i1 %call24, label %do.end28, label %if.then25
 
 if.then25:                                        ; preds = %do.end17
-  %error_code1.i12 = getelementptr inbounds i8, ptr %env, i64 156
-  store i32 20, ptr %error_code1.i12, align 4
-  %engine_error_code3.i13 = getelementptr inbounds i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i13, align 8
-  %engine_reserved5.i14 = getelementptr inbounds i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i14, align 8
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
+  store i32 20, ptr %error_code1.i13, align 4
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i14, align 8
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
 do.end28:                                         ; preds = %do.end17
   %call33 = tail call i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer, ptr null) #24
-  %3 = and i16 %call33, 1
-  %tobool.i.not = icmp eq i16 %3, 0
-  br i1 %tobool.i.not, label %if.then.i, label %_ZNK2v85MaybeIbE5CheckEv.exit
+  %tobool.i = trunc i16 %call33 to i1
+  br i1 %tobool.i, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end28
   tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -15678,9 +15577,8 @@ do.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
@@ -15718,11 +15616,11 @@ do.end13:                                         ; preds = %do.body8
 
 land.rhs:                                         ; preds = %do.end13
   %call24 = tail call noundef zeroext i1 @_ZNK2v811ArrayBuffer11WasDetachedEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
-  %3 = zext i1 %call24 to i8
+  %2 = zext i1 %call24 to i8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %do.end13
-  %frombool = phi i8 [ 0, %do.end13 ], [ %3, %land.rhs ]
+  %frombool = phi i8 [ 0, %do.end13 ], [ %2, %land.rhs ]
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -15999,8 +15897,8 @@ if.end.i.i.i:                                     ; preds = %_ZZN6v8impl12_GLOBA
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
 
 _ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i: ; preds = %do.end18.i.i
-  %cmp.not.i = icmp eq ptr %call.i3.i.i, null
-  br i1 %cmp.not.i, label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit, label %if.then.i
+  %cmp.i = icmp eq ptr %call.i3.i.i, null
+  br i1 %cmp.i, label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i
   %vtable.i = load ptr, ptr %cbwrapper, align 8

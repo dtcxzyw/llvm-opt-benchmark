@@ -1298,9 +1298,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 128
   %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, 1
-  %.not51.i.i = icmp eq i8 %82, 0
-  br i1 %.not51.i.i, label %89, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %89
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds i8, ptr %74, i64 16
@@ -1324,8 +1323,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %93, ptr noundef nonnull @.str.24, i32 noundef %95) #10
   %96 = getelementptr inbounds i8, ptr %66, i64 24
   %97 = load i32, ptr %96, align 8
-  %.not72.i.i = icmp eq i32 %97, 0
-  br i1 %.not72.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not71.i.i = icmp eq i32 %97, 0
+  br i1 %.not71.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %89
   %98 = getelementptr inbounds i8, ptr %66, i64 32
@@ -1334,18 +1333,18 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
 
 100:                                              ; preds = %162, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %162 ]
-  %.14858.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %.249.i.i, %162 ]
+  %.14857.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %.249.i.i, %162 ]
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv.i.i
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 @slurm_xstrcmp(ptr noundef %103, ptr noundef nonnull @.str.25) #10
-  %.not52.i.i = icmp eq i32 %104, 0
-  br i1 %.not52.i.i, label %105, label %113
+  %.not51.i.i = icmp eq i32 %104, 0
+  br i1 %.not51.i.i, label %105, label %113
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %6, align 8
-  %107 = add nsw i32 %.14858.i.i, 1
-  %108 = sext i32 %.14858.i.i to i64
+  %107 = add nsw i32 %.14857.i.i, 1
+  %108 = sext i32 %.14857.i.i to i64
   %109 = getelementptr inbounds ptr, ptr %106, i64 %108
   %110 = load ptr, ptr %99, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv.i.i
@@ -1358,8 +1357,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv.i.i
   %116 = load ptr, ptr %115, align 8
   %117 = call i32 @slurm_xstrcmp(ptr noundef %116, ptr noundef nonnull @.str.26) #10
-  %.not53.i.i = icmp eq i32 %117, 0
-  br i1 %.not53.i.i, label %118, label %120
+  %.not52.i.i = icmp eq i32 %117, 0
+  br i1 %.not52.i.i, label %118, label %120
 
 118:                                              ; preds = %113
   %119 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.27) #10
@@ -1370,13 +1369,13 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv.i.i
   %123 = load ptr, ptr %122, align 8
   %124 = call i32 @slurm_xstrcmp(ptr noundef %123, ptr noundef nonnull @.str.28) #10
-  %.not54.i.i = icmp eq i32 %124, 0
-  br i1 %.not54.i.i, label %125, label %133
+  %.not53.i.i = icmp eq i32 %124, 0
+  br i1 %.not53.i.i, label %125, label %133
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %6, align 8
-  %127 = add nsw i32 %.14858.i.i, 1
-  %128 = sext i32 %.14858.i.i to i64
+  %127 = add nsw i32 %.14857.i.i, 1
+  %128 = sext i32 %.14857.i.i to i64
   %129 = getelementptr inbounds ptr, ptr %126, i64 %128
   %130 = load ptr, ptr %99, align 8
   %131 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv.i.i
@@ -1389,8 +1388,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %135 = getelementptr inbounds ptr, ptr %134, i64 %indvars.iv.i.i
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @slurm_xstrcmp(ptr noundef %136, ptr noundef nonnull @.str.30) #10
-  %.not55.i.i = icmp eq i32 %137, 0
-  br i1 %.not55.i.i, label %138, label %143
+  %.not54.i.i = icmp eq i32 %137, 0
+  br i1 %.not54.i.i, label %138, label %143
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %99, align 8
@@ -1404,8 +1403,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %145 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 @slurm_xstrcmp(ptr noundef %146, ptr noundef nonnull @.str.32) #10
-  %.not56.i.i = icmp eq i32 %147, 0
-  br i1 %.not56.i.i, label %148, label %150
+  %.not55.i.i = icmp eq i32 %147, 0
+  br i1 %.not55.i.i, label %148, label %150
 
 148:                                              ; preds = %143
   %149 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.33) #10
@@ -1416,8 +1415,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %152 = getelementptr inbounds ptr, ptr %151, i64 %indvars.iv.i.i
   %153 = load ptr, ptr %152, align 8
   %154 = call i32 @slurm_xstrcmp(ptr noundef %153, ptr noundef nonnull @.str.34) #10
-  %.not57.i.i = icmp eq i32 %154, 0
-  br i1 %.not57.i.i, label %155, label %157
+  %.not56.i.i = icmp eq i32 %154, 0
+  br i1 %.not56.i.i, label %155, label %157
 
 155:                                              ; preds = %150
   %156 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35) #10
@@ -1431,7 +1430,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   br label %162
 
 162:                                              ; preds = %157, %155, %148, %138, %125, %118, %105
-  %.249.i.i = phi i32 [ %.14858.i.i, %157 ], [ %.14858.i.i, %155 ], [ %.14858.i.i, %148 ], [ %.14858.i.i, %138 ], [ %127, %125 ], [ %.14858.i.i, %118 ], [ %107, %105 ]
+  %.249.i.i = phi i32 [ %.14857.i.i, %157 ], [ %.14857.i.i, %155 ], [ %.14857.i.i, %148 ], [ %.14857.i.i, %138 ], [ %127, %125 ], [ %.14857.i.i, %118 ], [ %107, %105 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %163 = load i32, ptr %96, align 8
   %164 = zext i32 %163 to i64
@@ -1445,40 +1444,40 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %168 = sext i32 %.148.lcssa.i.i to i64
   %169 = getelementptr inbounds ptr, ptr %167, i64 %168
   store ptr %166, ptr %169, align 8
-  %.360.i.i = add i32 %.148.lcssa.i.i, 1
+  %.359.i.i = add i32 %.148.lcssa.i.i, 1
   %170 = load i32, ptr %67, align 4
-  %.not73.i.i = icmp eq i32 %170, 0
-  br i1 %.not73.i.i, label %._crit_edge65.i.i, label %.lr.ph64.i.i
+  %.not72.i.i = icmp eq i32 %170, 0
+  br i1 %.not72.i.i, label %._crit_edge64.i.i, label %.lr.ph63.i.i
 
-.lr.ph64.i.i:                                     ; preds = %._crit_edge.i.i
+.lr.ph63.i.i:                                     ; preds = %._crit_edge.i.i
   %171 = getelementptr inbounds i8, ptr %66, i64 16
-  %172 = sext i32 %.360.i.i to i64
+  %172 = sext i32 %.359.i.i to i64
   br label %173
 
-173:                                              ; preds = %173, %.lr.ph64.i.i
-  %indvars.iv79.i.i = phi i64 [ 0, %.lr.ph64.i.i ], [ %indvars.iv.next80.i.i, %173 ]
-  %indvars.iv77.i.i = phi i64 [ %172, %.lr.ph64.i.i ], [ %indvars.iv.next78.i.i, %173 ]
+173:                                              ; preds = %173, %.lr.ph63.i.i
+  %indvars.iv78.i.i = phi i64 [ 0, %.lr.ph63.i.i ], [ %indvars.iv.next79.i.i, %173 ]
+  %indvars.iv76.i.i = phi i64 [ %172, %.lr.ph63.i.i ], [ %indvars.iv.next77.i.i, %173 ]
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv79.i.i
+  %175 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv78.i.i
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv77.i.i
+  %178 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv76.i.i
   store ptr %176, ptr %178, align 8
-  %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
-  %indvars.iv.next78.i.i = add nsw i64 %indvars.iv77.i.i, 1
+  %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
+  %indvars.iv.next77.i.i = add nsw i64 %indvars.iv76.i.i, 1
   %179 = load i32, ptr %67, align 4
   %180 = zext i32 %179 to i64
-  %181 = icmp ult i64 %indvars.iv.next80.i.i, %180
-  br i1 %181, label %173, label %._crit_edge65.loopexit.i.i, !llvm.loop !27
+  %181 = icmp ult i64 %indvars.iv.next79.i.i, %180
+  br i1 %181, label %173, label %._crit_edge64.loopexit.i.i, !llvm.loop !27
 
-._crit_edge65.loopexit.i.i:                       ; preds = %173
-  %182 = trunc i64 %indvars.iv77.i.i to i32
-  %183 = trunc i64 %indvars.iv.next78.i.i to i32
-  br label %._crit_edge65.i.i
+._crit_edge64.loopexit.i.i:                       ; preds = %173
+  %182 = trunc i64 %indvars.iv76.i.i to i32
+  %183 = trunc i64 %indvars.iv.next77.i.i to i32
+  br label %._crit_edge64.i.i
 
-._crit_edge65.i.i:                                ; preds = %._crit_edge65.loopexit.i.i, %._crit_edge.i.i
-  %.3.in.lcssa.i.i = phi i32 [ %.148.lcssa.i.i, %._crit_edge.i.i ], [ %182, %._crit_edge65.loopexit.i.i ]
-  %.3.lcssa.i.i = phi i32 [ %.360.i.i, %._crit_edge.i.i ], [ %183, %._crit_edge65.loopexit.i.i ]
+._crit_edge64.i.i:                                ; preds = %._crit_edge64.loopexit.i.i, %._crit_edge.i.i
+  %.3.in.lcssa.i.i = phi i32 [ %.148.lcssa.i.i, %._crit_edge.i.i ], [ %182, %._crit_edge64.loopexit.i.i ]
+  %.3.lcssa.i.i = phi i32 [ %.359.i.i, %._crit_edge.i.i ], [ %183, %._crit_edge64.loopexit.i.i ]
   %184 = load ptr, ptr %6, align 8
   %185 = sext i32 %.3.lcssa.i.i to i64
   %186 = getelementptr inbounds ptr, ptr %184, i64 %185
@@ -1487,37 +1486,37 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %188 = icmp sgt i32 %187, 6
   br i1 %188, label %189, label %190
 
-189:                                              ; preds = %._crit_edge65.i.i
+189:                                              ; preds = %._crit_edge64.i.i
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.37, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_single) #10
   br label %190
 
-190:                                              ; preds = %189, %._crit_edge65.i.i
+190:                                              ; preds = %189, %._crit_edge64.i.i
   %191 = icmp sgt i32 %.3.in.lcssa.i.i, -2
-  br i1 %191, label %.lr.ph70.preheader.i.i, label %_exec_srun_single.exit.i
+  br i1 %191, label %.lr.ph69.preheader.i.i, label %_exec_srun_single.exit.i
 
-.lr.ph70.preheader.i.i:                           ; preds = %190
+.lr.ph69.preheader.i.i:                           ; preds = %190
   %192 = add i32 %.3.in.lcssa.i.i, 2
   %wide.trip.count.i.i = zext i32 %192 to i64
-  br label %.lr.ph70.i.i
+  br label %.lr.ph69.i.i
 
-.lr.ph70.i.i:                                     ; preds = %200, %.lr.ph70.preheader.i.i
-  %indvars.iv84.i.i = phi i64 [ 0, %.lr.ph70.preheader.i.i ], [ %indvars.iv.next85.i.i, %200 ]
+.lr.ph69.i.i:                                     ; preds = %200, %.lr.ph69.preheader.i.i
+  %indvars.iv83.i.i = phi i64 [ 0, %.lr.ph69.preheader.i.i ], [ %indvars.iv.next84.i.i, %200 ]
   %193 = call i32 @slurm_get_log_level() #10
   %194 = icmp sgt i32 %193, 6
   br i1 %194, label %195, label %200
 
-195:                                              ; preds = %.lr.ph70.i.i
+195:                                              ; preds = %.lr.ph69.i.i
   %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds ptr, ptr %196, i64 %indvars.iv84.i.i
+  %197 = getelementptr inbounds ptr, ptr %196, i64 %indvars.iv83.i.i
   %198 = load ptr, ptr %197, align 8
-  %199 = trunc i64 %indvars.iv84.i.i to i32
+  %199 = trunc i64 %indvars.iv83.i.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_single, i32 noundef %199, ptr noundef %198) #10
   br label %200
 
-200:                                              ; preds = %195, %.lr.ph70.i.i
-  %indvars.iv.next85.i.i = add nuw nsw i64 %indvars.iv84.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next85.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph70.i.i, !llvm.loop !28
+200:                                              ; preds = %195, %.lr.ph69.i.i
+  %indvars.iv.next84.i.i = add nuw nsw i64 %indvars.iv83.i.i, 1
+  %exitcond.i.i = icmp eq i64 %indvars.iv.next84.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !28
 
 _exec_srun_single.exit.i:                         ; preds = %200, %190
   %201 = load ptr, ptr %6, align 8
@@ -1551,10 +1550,10 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 
 .preheader.i.i:                                   ; preds = %209
   %214 = load i32, ptr %55, align 8
-  %.not85.i.i = icmp eq i32 %214, 0
-  br i1 %.not85.i.i, label %._crit_edge68.i.i, label %.lr.ph67.i.i
+  %.not84.i.i = icmp eq i32 %214, 0
+  br i1 %.not84.i.i, label %._crit_edge67.i.i, label %.lr.ph66.i.i
 
-.lr.ph67.i.i:                                     ; preds = %.preheader.i.i
+.lr.ph66.i.i:                                     ; preds = %.preheader.i.i
   %215 = getelementptr inbounds i8, ptr %0, i64 40
   br label %218
 
@@ -1562,16 +1561,16 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %217 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.43, ptr noundef nonnull %4) #10
   br label %_exec_srun_multiple.exit.i
 
-218:                                              ; preds = %._crit_edge.i27.i, %.lr.ph67.i.i
-  %indvars.iv93.i.i = phi i64 [ 0, %.lr.ph67.i.i ], [ %indvars.iv.next94.i.i, %._crit_edge.i27.i ]
-  %.04766.i.i = phi i32 [ 0, %.lr.ph67.i.i ], [ %248, %._crit_edge.i27.i ]
+218:                                              ; preds = %._crit_edge.i27.i, %.lr.ph66.i.i
+  %indvars.iv92.i.i = phi i64 [ 0, %.lr.ph66.i.i ], [ %indvars.iv.next93.i.i, %._crit_edge.i27.i ]
+  %.04765.i.i = phi i32 [ 0, %.lr.ph66.i.i ], [ %248, %._crit_edge.i27.i ]
   %219 = load ptr, ptr %215, align 8
-  %220 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv93.i.i
+  %220 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv92.i.i
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 24
   %223 = load i32, ptr %222, align 8
-  %.not59.i.i = icmp eq i32 %223, 0
-  br i1 %.not59.i.i, label %226, label %224
+  %.not58.i.i = icmp eq i32 %223, 0
+  br i1 %.not58.i.i, label %226, label %224
 
 224:                                              ; preds = %218
   %225 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.44) #10
@@ -1585,21 +1584,21 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 
 230:                                              ; preds = %226
   %231 = load ptr, ptr %221, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %.04766.i.i, ptr noundef %231) #10
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %.04765.i.i, ptr noundef %231) #10
   br label %236
 
 232:                                              ; preds = %226
-  %233 = add i32 %.04766.i.i, -1
+  %233 = add i32 %.04765.i.i, -1
   %234 = add i32 %233, %228
   %235 = load ptr, ptr %221, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.04766.i.i, i32 noundef %234, ptr noundef %235) #10
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.04765.i.i, i32 noundef %234, ptr noundef %235) #10
   br label %236
 
 236:                                              ; preds = %232, %230
   %237 = getelementptr inbounds i8, ptr %221, i64 12
   %238 = load i32, ptr %237, align 4
-  %.not86.i.i = icmp eq i32 %238, 0
-  br i1 %.not86.i.i, label %._crit_edge.i27.i, label %.lr.ph.i24.i
+  %.not85.i.i = icmp eq i32 %238, 0
+  br i1 %.not85.i.i, label %._crit_edge.i27.i, label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %236
   %239 = getelementptr inbounds i8, ptr %221, i64 16
@@ -1620,92 +1619,92 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 ._crit_edge.i27.i:                                ; preds = %240, %236
   call void @slurm_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.48) #10
   %247 = load i32, ptr %227, align 8
-  %248 = add i32 %247, %.04766.i.i
-  %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
+  %248 = add i32 %247, %.04765.i.i
+  %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %249 = load i32, ptr %55, align 8
   %250 = zext i32 %249 to i64
-  %251 = icmp ult i64 %indvars.iv.next94.i.i, %250
-  br i1 %251, label %218, label %._crit_edge68.i.i, !llvm.loop !30
+  %251 = icmp ult i64 %indvars.iv.next93.i.i, %250
+  br i1 %251, label %218, label %._crit_edge67.i.i, !llvm.loop !30
 
-._crit_edge68.i.i:                                ; preds = %._crit_edge.i27.i, %.preheader.i.i
+._crit_edge67.i.i:                                ; preds = %._crit_edge.i27.i, %.preheader.i.i
   %.047.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %248, %._crit_edge.i27.i ]
   %252 = load ptr, ptr %3, align 8
   %.not.i28.i = icmp eq ptr %252, null
   br i1 %.not.i28.i, label %285, label %253
 
-253:                                              ; preds = %._crit_edge68.i.i
+253:                                              ; preds = %._crit_edge67.i.i
   %254 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #11
   %255 = trunc i64 %254 to i32
   %256 = icmp sgt i32 %255, 0
-  br i1 %256, label %.lr.ph69.split.us.i.i, label %.outer._crit_edge.i.i
+  br i1 %256, label %.lr.ph68.split.us.i.i, label %.outer._crit_edge.i.i
 
-.lr.ph69.split.us.i.i:                            ; preds = %253, %.lr.ph69.split.us.i.i.backedge
-  %.045.ph83.i.i = phi ptr [ %275, %.lr.ph69.split.us.i.i.backedge ], [ %252, %253 ]
-  %.046.ph81.i.i = phi i32 [ %276, %.lr.ph69.split.us.i.i.backedge ], [ %255, %253 ]
-  %257 = zext nneg i32 %.046.ph81.i.i to i64
-  %258 = call i64 @write(i32 noundef %212, ptr noundef %.045.ph83.i.i, i64 noundef %257) #10
+.lr.ph68.split.us.i.i:                            ; preds = %253, %.lr.ph68.split.us.i.i.backedge
+  %.045.ph82.i.i = phi ptr [ %275, %.lr.ph68.split.us.i.i.backedge ], [ %252, %253 ]
+  %.046.ph80.i.i = phi i32 [ %276, %.lr.ph68.split.us.i.i.backedge ], [ %255, %253 ]
+  %257 = zext nneg i32 %.046.ph80.i.i to i64
+  %258 = call i64 @write(i32 noundef %212, ptr noundef %.045.ph82.i.i, i64 noundef %257) #10
   %259 = trunc i64 %258 to i32
   %260 = icmp slt i32 %259, 0
-  br i1 %260, label %.lr.ph78.i.i, label %.split.us.i.i
+  br i1 %260, label %.lr.ph77.i.i, label %.split.us.i.i
 
-.lr.ph78.i.i:                                     ; preds = %.lr.ph69.split.us.i.i
+.lr.ph77.i.i:                                     ; preds = %.lr.ph68.split.us.i.i
   %261 = tail call ptr @__errno_location() #12
   br label %262
 
-262:                                              ; preds = %264, %.lr.ph78.i.i
+262:                                              ; preds = %264, %.lr.ph77.i.i
   %263 = load i32, ptr %261, align 4
-  switch i32 %263, label %.split73.us.i.i [
+  switch i32 %263, label %.split72.us.i.i [
     i32 11, label %264
     i32 4, label %264
   ]
 
 264:                                              ; preds = %262, %262
-  %265 = call i64 @write(i32 noundef %212, ptr noundef %.045.ph83.i.i, i64 noundef %257) #10
+  %265 = call i64 @write(i32 noundef %212, ptr noundef %.045.ph82.i.i, i64 noundef %257) #10
   %266 = trunc i64 %265 to i32
   %267 = icmp slt i32 %266, 0
   br i1 %267, label %262, label %.split.us.i.i
 
-.split73.us.i.i:                                  ; preds = %262
+.split72.us.i.i:                                  ; preds = %262
   %268 = call i32 @slurm_get_log_level() #10
   %269 = icmp sgt i32 %268, 4
   br i1 %269, label %270, label %322
 
-270:                                              ; preds = %.split73.us.i.i
+270:                                              ; preds = %.split72.us.i.i
   %271 = load ptr, ptr %3, align 8
   %272 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %271) #11
   %273 = trunc i64 %272 to i32
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.49, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_multiple, ptr noundef nonnull @.str, i32 noundef 569, ptr noundef nonnull @__func__._exec_srun_multiple, i32 noundef %.046.ph81.i.i, i32 noundef %273) #10
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.49, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_multiple, ptr noundef nonnull @.str, i32 noundef 569, ptr noundef nonnull @__func__._exec_srun_multiple, i32 noundef %.046.ph80.i.i, i32 noundef %273) #10
   br label %322
 
-.split.us.i.i:                                    ; preds = %264, %.lr.ph69.split.us.i.i
-  %.us-phi.i.i = phi i64 [ %258, %.lr.ph69.split.us.i.i ], [ %265, %264 ]
-  %.us-phi71.i.i = phi i32 [ %259, %.lr.ph69.split.us.i.i ], [ %266, %264 ]
+.split.us.i.i:                                    ; preds = %264, %.lr.ph68.split.us.i.i
+  %.us-phi.i.i = phi i64 [ %258, %.lr.ph68.split.us.i.i ], [ %265, %264 ]
+  %.us-phi70.i.i = phi i32 [ %259, %.lr.ph68.split.us.i.i ], [ %266, %264 ]
   %274 = and i64 %.us-phi.i.i, 2147483647
-  %275 = getelementptr inbounds i8, ptr %.045.ph83.i.i, i64 %274
-  %276 = sub nsw i32 %.046.ph81.i.i, %.us-phi71.i.i
+  %275 = getelementptr inbounds i8, ptr %.045.ph82.i.i, i64 %274
+  %276 = sub nsw i32 %.046.ph80.i.i, %.us-phi70.i.i
   %277 = icmp sgt i32 %276, 0
   br i1 %277, label %278, label %.outer._crit_edge.i.i
 
 278:                                              ; preds = %.split.us.i.i
   %279 = call i32 @slurm_get_log_level() #10
   %280 = icmp sgt i32 %279, 6
-  br i1 %280, label %281, label %.lr.ph69.split.us.i.i.backedge
+  br i1 %280, label %281, label %.lr.ph68.split.us.i.i.backedge
 
 281:                                              ; preds = %278
   %282 = load ptr, ptr %3, align 8
   %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #11
   %284 = trunc i64 %283 to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.50, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_multiple, ptr noundef nonnull @.str, i32 noundef 569, ptr noundef nonnull @__func__._exec_srun_multiple, i32 noundef %276, i32 noundef %284) #10
-  br label %.lr.ph69.split.us.i.i.backedge
+  br label %.lr.ph68.split.us.i.i.backedge
 
-.lr.ph69.split.us.i.i.backedge:                   ; preds = %281, %278
-  br label %.lr.ph69.split.us.i.i, !llvm.loop !31
+.lr.ph68.split.us.i.i.backedge:                   ; preds = %281, %278
+  br label %.lr.ph68.split.us.i.i, !llvm.loop !31
 
 .outer._crit_edge.i.i:                            ; preds = %.split.us.i.i, %253
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   br label %285
 
-285:                                              ; preds = %.outer._crit_edge.i.i, %._crit_edge68.i.i
+285:                                              ; preds = %.outer._crit_edge.i.i, %._crit_edge67.i.i
   %286 = call i32 @close(i32 noundef %212) #10
   %287 = call ptr @slurm_xrecalloc(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 575, ptr noundef nonnull @__func__._exec_srun_multiple) #10
   %288 = load ptr, ptr %2, align 8
@@ -1716,17 +1715,16 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %291 = getelementptr inbounds i8, ptr %289, i64 16
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %291, ptr noundef nonnull @.str.24, i32 noundef %.047.lcssa.i.i) #10
   %292 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 15), align 8
-  %.not57.i29.i = icmp eq ptr %292, null
-  br i1 %.not57.i29.i, label %306, label %293
+  %.not57.i.i = icmp eq ptr %292, null
+  br i1 %.not57.i.i, label %306, label %293
 
 293:                                              ; preds = %285
   %294 = getelementptr inbounds i8, ptr %292, i64 24
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 128
   %297 = load i8, ptr %296, align 8
-  %298 = and i8 %297, 1
-  %.not58.i.i = icmp eq i8 %298, 0
-  br i1 %.not58.i.i, label %306, label %299
+  %298 = trunc i8 %297 to i1
+  br i1 %298, label %299, label %306
 
 299:                                              ; preds = %293
   %300 = load ptr, ptr %2, align 8
@@ -1766,7 +1764,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %321 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.40) #10
   br label %_exec_srun_multiple.exit.i
 
-322:                                              ; preds = %270, %.split73.us.i.i
+322:                                              ; preds = %270, %.split72.us.i.i
   %323 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.52) #10
   br label %_exec_srun_multiple.exit.i
 

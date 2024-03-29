@@ -62,9 +62,8 @@ define void @_ZN19GLExtensionsManager4initEv() local_unnamed_addr #0 align 2 {
 define noundef zeroext i1 @_ZN19GLExtensionsManager34initializeGLextensions_notThrowingEv() local_unnamed_addr #1 align 2 {
   %1 = alloca %class.QMessageLogger, align 8
   %2 = load i8, ptr @_ZN19GLExtensionsManager15glewInitializedE, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %12
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %12, label %4
 
 4:                                                ; preds = %0
   store i8 1, ptr @glewExperimental, align 1
@@ -90,9 +89,8 @@ define noundef zeroext i1 @_ZN19GLExtensionsManager34initializeGLextensions_notT
 
 12:                                               ; preds = %7, %8, %0
   %13 = phi i8 [ 1, %7 ], [ %.pre, %8 ], [ %2, %0 ]
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
-  ret i1 %15
+  %14 = trunc i8 %13 to i1
+  ret i1 %14
 }
 
 declare i32 @glewInit() local_unnamed_addr #2
@@ -108,9 +106,8 @@ define void @_ZN19GLExtensionsManager22initializeGLextensionsEv() local_unnamed_
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = load i8, ptr @_ZN19GLExtensionsManager15glewInitializedE, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %27
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %27, label %6
 
 6:                                                ; preds = %0
   store i8 1, ptr @glewExperimental, align 1

@@ -359,7 +359,7 @@ while.body.lr.ph.i:                               ; preds = %if.end24
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %5 = phi i32 [ %0, %while.body.lr.ph.i ], [ %rem.i.i, %while.body.i ]
-  %primed.017.i = phi i8 [ 0, %while.body.lr.ph.i ], [ %spec.select.i, %while.body.i ]
+  %primed.017.i = phi i1 [ false, %while.body.lr.ph.i ], [ %spec.select.i, %while.body.i ]
   %6 = load ptr, ptr %r.i.i.i, align 8
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
   %7 = load ptr, ptr %info1.i.i.i, align 8
@@ -406,18 +406,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i.i = add i32 %21, 1
   store i32 %inc.i.i, ptr %credits.i.i, align 8
   %cmp.i.i = icmp eq i32 %21, 0
-  %spec.select.i = select i1 %cmp.i.i, i8 1, i8 %primed.017.i
+  %spec.select.i = select i1 %cmp.i.i, i1 true, i1 %primed.017.i
   %22 = load i32, ptr %head2, align 4
   %cmp.not.i = icmp eq i32 %22, %rem.i.i
-  br i1 %cmp.not.i, label %if.end5.loopexit.i, label %while.body.i, !llvm.loop !9
+  br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !9
 
-if.end5.loopexit.i:                               ; preds = %while.body.i
-  %23 = and i8 %spec.select.i, 1
-  %24 = icmp ne i8 %23, 0
-  br label %return
-
-return:                                           ; preds = %land.lhs.true, %lor.lhs.false10, %if.end, %if.end5.loopexit.i, %if.end24, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end24 ], [ %24, %if.end5.loopexit.i ], [ false, %if.end ], [ false, %lor.lhs.false10 ], [ false, %land.lhs.true ]
+return:                                           ; preds = %while.body.i, %land.lhs.true, %lor.lhs.false10, %if.end, %if.end24, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end24 ], [ false, %if.end ], [ false, %lor.lhs.false10 ], [ false, %land.lhs.true ], [ %spec.select.i, %while.body.i ]
   ret i1 %retval.0
 }
 

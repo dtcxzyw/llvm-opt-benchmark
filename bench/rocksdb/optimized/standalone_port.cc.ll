@@ -139,9 +139,8 @@ define void @_ZN12LTM_STATUS_S4initEv(ptr noundef nonnull align 8 dereferenceabl
 entry:
   %m_initialized = getelementptr inbounds i8, ptr %this, i64 1216
   %0 = load i8, ptr %m_initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.body, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
   store ptr @.str, ptr %this, align 8

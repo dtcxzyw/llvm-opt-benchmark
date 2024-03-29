@@ -765,20 +765,20 @@ entry:
   %_readsNothing = getelementptr inbounds i8, ptr %this, i64 48
   %_readsNothing2 = getelementptr inbounds i8, ptr %other, i64 48
   %1 = load i8, ptr %_readsNothing2, align 8
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %_readsNothing, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %_readsNothing, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %other, i64 24
-  %3 = load ptr, ptr %_M_left.i.i, align 8
+  %2 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %other, i64 8
-  %cmp.i.not10 = icmp eq ptr %3, %add.ptr.i.i
+  %cmp.i.not10 = icmp eq ptr %2, %add.ptr.i.i
   br i1 %cmp.i.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.sroa.0.011 = phi ptr [ %call.i, %for.inc ], [ %3, %entry ]
+  %i.sroa.0.011 = phi ptr [ %call.i, %for.inc ], [ %2, %entry ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %i.sroa.0.011, i64 32
   %second = getelementptr inbounds i8, ptr %i.sroa.0.011, i64 288
-  %4 = load ptr, ptr %second, align 8
-  invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %3 = load ptr, ptr %second, align 8
+  invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %for.body
@@ -1303,8 +1303,8 @@ _ZNSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEC2EOSA
   %_readsNothing = getelementptr inbounds i8, ptr %this, i64 48
   %_readsNothing3 = getelementptr inbounds i8, ptr %other, i64 48
   %7 = load i8, ptr %_readsNothing3, align 8
-  %8 = and i8 %7, 1
-  store i8 %8, ptr %_readsNothing, align 8
+  %frombool = and i8 %7, 1
+  store i8 %frombool, ptr %_readsNothing, align 8
   invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
           to label %invoke.cont unwind label %lpad
 
@@ -1312,10 +1312,10 @@ invoke.cont:                                      ; preds = %_ZNSt3mapIN7Imf_3_2
   ret void
 
 lpad:                                             ; preds = %_ZNSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEC2EOSA_.exit
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #24
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1543,9 +1543,9 @@ for.end26:                                        ; preds = %for.body19, %_ZNSt3
   tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
   %_readsNothing = getelementptr inbounds i8, ptr %other, i64 48
   %8 = load i8, ptr %_readsNothing, align 8
-  %9 = and i8 %8, 1
   %_readsNothing27 = getelementptr inbounds i8, ptr %this, i64 48
-  store i8 %9, ptr %_readsNothing27, align 8
+  %frombool = and i8 %8, 1
+  store i8 %frombool, ptr %_readsNothing27, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.end26, %entry
@@ -1662,9 +1662,9 @@ _ZSt4swapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEvRSt3m
   tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
   %_readsNothing = getelementptr inbounds i8, ptr %other, i64 48
   %20 = load i8, ptr %_readsNothing, align 8
-  %21 = and i8 %20, 1
   %_readsNothing3 = getelementptr inbounds i8, ptr %this, i64 48
-  store i8 %21, ptr %_readsNothing3, align 8
+  %frombool = and i8 %20, 1
+  store i8 %frombool, ptr %_readsNothing3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt4swapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEvRSt3mapIT_T0_T1_T2_ESG_.exit, %entry
@@ -1811,7 +1811,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -5518,8 +5518,7 @@ define noundef zeroext i1 @_ZN7Imf_3_26Header12readsNothingEv(ptr nocapture noun
 entry:
   %_readsNothing = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_readsNothing, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -7249,7 +7248,7 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -262,8 +262,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !48, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %5 = load i64, ptr %4, align 8, !range !52, !alias.scope !49, !noalias !53, !noundef !4
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.19e3573ae9a6e51adf6fc2b24b1599c9.27, i64 noundef 4), !noalias !49
@@ -288,8 +288,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !56, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %5 = load i8, ptr %4, align 1, !range !60, !alias.scope !57, !noalias !61, !noundef !4
-  %trunc.not.i = icmp eq i8 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i8 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.19e3573ae9a6e51adf6fc2b24b1599c9.27, i64 noundef 4), !noalias !57

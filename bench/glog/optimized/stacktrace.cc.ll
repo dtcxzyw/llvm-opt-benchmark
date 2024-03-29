@@ -25,9 +25,8 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
   %6 = alloca %struct.ucontext_t, align 8
   %7 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN6google24glog_internal_namespace_L12g_tl_enteredE)
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %35
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %35, label %10
 
 10:                                               ; preds = %3
   store i8 1, ptr %7, align 1

@@ -48,18 +48,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %is_recording_, align 1
-  %1 = and i8 %0, 1
-  %tobool6.not = icmp eq i8 %1, 0
-  %start_time_ = getelementptr inbounds i8, ptr %this, i64 32
-  br i1 %tobool6.not, label %if.then7, label %if.end9
+  %tobool6 = trunc i8 %0 to i1
+  %start_time_12 = getelementptr inbounds i8, ptr %this, i64 32
+  br i1 %tobool6, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  store i64 %estimate_time.coerce, ptr %start_time_, align 8
+  store i64 %estimate_time.coerce, ptr %start_time_12, align 8
   store i8 1, ptr %is_recording_, align 1
   br label %if.end31
 
 if.end9:                                          ; preds = %if.end
-  %agg.tmp11.sroa.0.0.copyload = load i64, ptr %start_time_, align 8
+  %agg.tmp11.sroa.0.0.copyload = load i64, ptr %start_time_12, align 8
   %sub.i = sub nsw i64 %estimate_time.coerce, %agg.tmp11.sroa.0.0.copyload
   %agg.tmp16.sroa.2.0.srtt.sroa_idx = getelementptr inbounds i8, ptr %srtt, i64 8
   %agg.tmp16.sroa.2.0.copyload = load i64, ptr %agg.tmp16.sroa.2.0.srtt.sroa_idx, align 8

@@ -133,8 +133,8 @@ define zeroext i1 @ws_log_msg_is_active(ptr noundef %0, i32 noundef %1) local_un
   %3 = icmp ult i32 %1, 6
   %4 = load i32, ptr @fatal_log_level, align 4
   %.not = icmp ugt i32 %4, %1
-  %or.cond22 = select i1 %3, i1 %.not, i1 false
-  br i1 %or.cond22, label %5, label %level_filter_matches.exit
+  %or.cond20 = select i1 %3, i1 %.not, i1 false
+  br i1 %or.cond20, label %5, label %level_filter_matches.exit
 
 5:                                                ; preds = %2
   %6 = icmp eq ptr %0, null
@@ -171,9 +171,8 @@ filter_contains.exit:                             ; preds = %.lr.ph.i
   %21 = load ptr, ptr @fatal_filter, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not20 = icmp eq i8 %24, 0
-  br i1 %.not20, label %thread-pre-split, label %level_filter_matches.exit
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %level_filter_matches.exit, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %15, %12, %filter_contains.exit
   %.pr = load i8, ptr %0, align 1
@@ -187,19 +186,19 @@ thread-pre-split:                                 ; preds = %15, %12, %filter_co
 28:                                               ; preds = %25
   %29 = load ptr, ptr @noisy_filter, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit52, label %31
+  br i1 %30, label %.loopexit49, label %31
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %29, align 8
   %33 = load ptr, ptr %32, align 8
   %.not14.i.i = icmp eq ptr %33, null
-  br i1 %.not14.i.i, label %.loopexit52, label %.lr.ph.i.i
+  br i1 %.not14.i.i, label %.loopexit49, label %.lr.ph.i.i
 
 34:                                               ; preds = %.lr.ph.i.i
   %35 = getelementptr i8, ptr %.015.i.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i, label %.loopexit52, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit49, label %.lr.ph.i.i, !llvm.loop !4
 
 .lr.ph.i.i:                                       ; preds = %31, %34
   %37 = phi ptr [ %36, %34 ], [ %33, %31 ]
@@ -211,26 +210,25 @@ thread-pre-split:                                 ; preds = %15, %12, %filter_co
 filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds i8, ptr %29, i64 8
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not.i23 = icmp eq i8 %42, 0
+  %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds i8, ptr %29, i64 12
   %44 = load i32, ptr %43, align 4
-  br i1 %.not.i23, label %47, label %45
+  br i1 %42, label %45, label %47
 
 45:                                               ; preds = %filter_contains.exit.i
   %46 = icmp ule i32 %44, %1
   br label %level_filter_matches.exit
 
 47:                                               ; preds = %filter_contains.exit.i
-  %.not18.i = icmp ult i32 %44, %1
-  br i1 %.not18.i, label %.loopexit52, label %level_filter_matches.exit
+  %.not.i21 = icmp ult i32 %44, %1
+  br i1 %.not.i21, label %.loopexit49, label %level_filter_matches.exit
 
-.loopexit52:                                      ; preds = %34, %28, %47, %31
+.loopexit49:                                      ; preds = %34, %28, %47, %31
   %48 = load ptr, ptr @debug_filter, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.critedge, label %50
 
-50:                                               ; preds = %.loopexit52
+50:                                               ; preds = %.loopexit49
   %51 = load i8, ptr %0, align 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %.critedge, label %53
@@ -238,46 +236,45 @@ filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
 53:                                               ; preds = %50
   %54 = load ptr, ptr %48, align 8
   %55 = load ptr, ptr %54, align 8
-  %.not14.i.i24 = icmp eq ptr %55, null
-  br i1 %.not14.i.i24, label %.critedge, label %.lr.ph.i.i25
+  %.not14.i.i22 = icmp eq ptr %55, null
+  br i1 %.not14.i.i22, label %.critedge, label %.lr.ph.i.i23
 
-56:                                               ; preds = %.lr.ph.i.i25
-  %57 = getelementptr i8, ptr %.015.i.i26, i64 8
+56:                                               ; preds = %.lr.ph.i.i23
+  %57 = getelementptr i8, ptr %.015.i.i24, i64 8
   %58 = load ptr, ptr %57, align 8
-  %.not.i.i27 = icmp eq ptr %58, null
-  br i1 %.not.i.i27, label %.critedge, label %.lr.ph.i.i25, !llvm.loop !4
+  %.not.i.i25 = icmp eq ptr %58, null
+  br i1 %.not.i.i25, label %.critedge, label %.lr.ph.i.i23, !llvm.loop !4
 
-.lr.ph.i.i25:                                     ; preds = %53, %56
+.lr.ph.i.i23:                                     ; preds = %53, %56
   %59 = phi ptr [ %58, %56 ], [ %55, %53 ]
-  %.015.i.i26 = phi ptr [ %57, %56 ], [ %54, %53 ]
+  %.015.i.i24 = phi ptr [ %57, %56 ], [ %54, %53 ]
   %60 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %59, ptr noundef nonnull %0) #19
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %filter_contains.exit.i29, label %56
+  br i1 %61, label %filter_contains.exit.i27, label %56
 
-filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
+filter_contains.exit.i27:                         ; preds = %.lr.ph.i.i23
   %62 = getelementptr inbounds i8, ptr %48, i64 8
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %.not.i30 = icmp eq i8 %64, 0
+  %64 = trunc i8 %63 to i1
   %65 = getelementptr inbounds i8, ptr %48, i64 12
   %66 = load i32, ptr %65, align 4
-  br i1 %.not.i30, label %69, label %67
+  br i1 %64, label %67, label %69
 
-67:                                               ; preds = %filter_contains.exit.i29
+67:                                               ; preds = %filter_contains.exit.i27
   %68 = icmp ule i32 %66, %1
   br label %level_filter_matches.exit
 
-69:                                               ; preds = %filter_contains.exit.i29
-  %.not18.i33 = icmp uge i32 %66, %1
+69:                                               ; preds = %filter_contains.exit.i27
+  %.not.i28 = icmp uge i32 %66, %1
   %70 = load i32, ptr @current_log_level, align 4
   %71 = icmp ugt i32 %70, %1
-  %or.cond51 = select i1 %.not18.i33, i1 true, i1 %71
-  br i1 %or.cond51, label %level_filter_matches.exit, label %72
+  %or.cond48 = select i1 %.not.i28, i1 true, i1 %71
+  br i1 %or.cond48, label %level_filter_matches.exit, label %72
 
-.critedge:                                        ; preds = %56, %53, %.loopexit52, %50, %5, %25
+.critedge:                                        ; preds = %56, %53, %.loopexit49, %50, %5, %25
   %.old = load i32, ptr @current_log_level, align 4
-  %.old50 = icmp ugt i32 %.old, %1
-  br i1 %.old50, label %level_filter_matches.exit, label %72
+  %.old47 = icmp ugt i32 %.old, %1
+  br i1 %.old47, label %level_filter_matches.exit, label %72
 
 72:                                               ; preds = %69, %.critedge
   %73 = load ptr, ptr @domain_filter, align 8
@@ -293,28 +290,27 @@ filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
 78:                                               ; preds = %75
   %79 = load ptr, ptr %73, align 8
   %80 = load ptr, ptr %79, align 8
-  %.not14.i35 = icmp eq ptr %80, null
-  br i1 %.not14.i35, label %.loopexit, label %.lr.ph.i36
+  %.not14.i32 = icmp eq ptr %80, null
+  br i1 %.not14.i32, label %.loopexit, label %.lr.ph.i33
 
-81:                                               ; preds = %.lr.ph.i36
-  %82 = getelementptr i8, ptr %.015.i37, i64 8
+81:                                               ; preds = %.lr.ph.i33
+  %82 = getelementptr i8, ptr %.015.i34, i64 8
   %83 = load ptr, ptr %82, align 8
-  %.not.i38 = icmp eq ptr %83, null
-  br i1 %.not.i38, label %.loopexit.loopexit, label %.lr.ph.i36, !llvm.loop !4
+  %.not.i35 = icmp eq ptr %83, null
+  br i1 %.not.i35, label %.loopexit.loopexit, label %.lr.ph.i33, !llvm.loop !4
 
-.lr.ph.i36:                                       ; preds = %78, %81
+.lr.ph.i33:                                       ; preds = %78, %81
   %84 = phi ptr [ %83, %81 ], [ %80, %78 ]
-  %.015.i37 = phi ptr [ %82, %81 ], [ %79, %78 ]
+  %.015.i34 = phi ptr [ %82, %81 ], [ %79, %78 ]
   %85 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %84, ptr noundef nonnull %0) #19
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %filter_contains.exit40, label %81
+  br i1 %86, label %filter_contains.exit37, label %81
 
-filter_contains.exit40:                           ; preds = %.lr.ph.i36
+filter_contains.exit37:                           ; preds = %.lr.ph.i33
   %87 = load ptr, ptr @domain_filter, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i8, ptr %88, align 8
-  %90 = and i8 %89, 1
-  %91 = icmp ne i8 %90, 0
+  %90 = trunc i8 %89 to i1
   br label %level_filter_matches.exit
 
 .loopexit.loopexit:                               ; preds = %81
@@ -322,15 +318,15 @@ filter_contains.exit40:                           ; preds = %.lr.ph.i36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %78
-  %92 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %73, %78 ]
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
-  %94 = load i8, ptr %93, align 8
-  %95 = and i8 %94, 1
-  %.not21 = icmp eq i8 %95, 0
+  %91 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %73, %78 ]
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = load i8, ptr %92, align 8
+  %94 = trunc i8 %93 to i1
+  %95 = xor i1 %94, true
   br label %level_filter_matches.exit
 
-level_filter_matches.exit:                        ; preds = %67, %69, %45, %47, %72, %75, %.critedge, %filter_contains.exit, %2, %.loopexit, %filter_contains.exit40
-  %.0 = phi i1 [ %91, %filter_contains.exit40 ], [ %.not21, %.loopexit ], [ true, %2 ], [ true, %filter_contains.exit ], [ false, %.critedge ], [ true, %72 ], [ true, %75 ], [ %46, %45 ], [ false, %47 ], [ %68, %67 ], [ false, %69 ]
+level_filter_matches.exit:                        ; preds = %67, %69, %45, %47, %72, %75, %.critedge, %filter_contains.exit, %2, %.loopexit, %filter_contains.exit37
+  %.0 = phi i1 [ %90, %filter_contains.exit37 ], [ %95, %.loopexit ], [ true, %2 ], [ true, %filter_contains.exit ], [ false, %.critedge ], [ true, %72 ], [ true, %75 ], [ %46, %45 ], [ false, %47 ], [ %68, %67 ], [ false, %69 ]
   ret i1 %.0
 }
 
@@ -1208,7 +1204,7 @@ ws_log_set_level.exit:                            ; preds = %.thread.thread, %16
 ; Function Attrs: nounwind uwtable
 define internal void @print_err(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %5
 
@@ -1222,7 +1218,7 @@ define internal void @print_err(ptr noundef readonly %0, i32 noundef %1, ptr nou
   br label %9
 
 9:                                                ; preds = %6, %5
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.not6 = icmp eq i32 %1, -1
   br i1 %.not6, label %11, label %10
 
@@ -2008,8 +2004,8 @@ define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, 
   %14 = load ptr, ptr @fatal_filter, align 8
   %.not = icmp eq ptr %14, null
   %15 = icmp eq ptr %0, null
-  %or.cond66 = or i1 %15, %.not
-  br i1 %or.cond66, label %filter_contains.exit.thread, label %16
+  %or.cond62 = or i1 %15, %.not
+  br i1 %or.cond62, label %filter_contains.exit.thread, label %16
 
 16:                                               ; preds = %13
   %17 = load i8, ptr %0, align 1
@@ -2039,30 +2035,29 @@ filter_contains.exit:                             ; preds = %.lr.ph.i
   %28 = load ptr, ptr @fatal_filter, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not45 = icmp eq i8 %31, 0
-  br i1 %.not45, label %filter_contains.exit.thread, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %filter_contains.exit.thread
 
 32:                                               ; preds = %filter_contains.exit
   br label %filter_contains.exit.thread
 
 filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %13, %32, %filter_contains.exit
   %.042 = phi i1 [ true, %32 ], [ false, %filter_contains.exit ], [ false, %13 ], [ true, %8 ], [ false, %16 ], [ false, %19 ], [ false, %22 ]
-  %.not47 = phi i1 [ false, %32 ], [ true, %filter_contains.exit ], [ true, %13 ], [ false, %8 ], [ true, %16 ], [ true, %19 ], [ true, %22 ]
+  %.not46 = phi i1 [ false, %32 ], [ true, %filter_contains.exit ], [ true, %13 ], [ false, %8 ], [ true, %16 ], [ true, %19 ], [ true, %22 ]
   %.0 = phi ptr [ @.str.65, %32 ], [ null, %filter_contains.exit ], [ null, %13 ], [ @.str.64, %8 ], [ null, %16 ], [ null, %19 ], [ null, %22 ]
   %33 = load ptr, ptr @custom_log, align 8
-  %.not46 = icmp eq ptr %33, null
-  br i1 %.not46, label %44, label %34
+  %.not45 = icmp eq ptr %33, null
+  br i1 %.not45, label %44, label %34
 
 34:                                               ; preds = %filter_contains.exit.thread
-  call void @llvm.va_copy(ptr nonnull %9, ptr %7)
+  call void @llvm.va_copy.p0(ptr nonnull %9, ptr %7)
   %35 = getelementptr inbounds i8, ptr %5, i64 56
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 64
   %38 = load i64, ptr %37, align 8
   call fastcc void @log_write_do_work(ptr noundef nonnull %33, i1 noundef zeroext false, ptr noundef %5, i64 noundef %36, i64 noundef %38, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef nonnull %9)
-  call void @llvm.va_end(ptr nonnull %9)
-  br i1 %.not47, label %44, label %39
+  call void @llvm.va_end.p0(ptr nonnull %9)
+  br i1 %.not46, label %44, label %39
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr @custom_log, align 8
@@ -2073,8 +2068,8 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 
 44:                                               ; preds = %34, %39, %filter_contains.exit.thread
   %45 = load ptr, ptr @registered_log_writer, align 8
-  %.not48 = icmp eq ptr %45, null
-  br i1 %.not48, label %48, label %46
+  %.not47 = icmp eq ptr %45, null
+  br i1 %.not47, label %48, label %46
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr @registered_log_writer_data, align 8
@@ -2087,12 +2082,11 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 
 50:                                               ; preds = %48
   %51 = load i8, ptr @stdout_logging_enabled, align 1
-  %52 = and i8 %51, 1
-  %.not.i50 = icmp eq i8 %52, 0
-  %.0.i60 = load ptr, ptr @stdout, align 8
-  %.0.i65 = load ptr, ptr @stderr, align 8
-  %.0.i63 = select i1 %.not.i50, ptr %.0.i65, ptr %.0.i60
-  %spec.select = select i1 %.not.i50, ptr @stderr_color_enabled, ptr @stdout_color_enabled
+  %52 = trunc i8 %51 to i1
+  %.0.i56 = load ptr, ptr @stdout, align 8
+  %.0.i61 = load ptr, ptr @stderr, align 8
+  %.0.i59 = select i1 %52, ptr %.0.i56, ptr %.0.i61
+  %spec.select = select i1 %52, ptr @stdout_color_enabled, ptr @stderr_color_enabled
   br label %console_color_enabled.exit
 
 console_file.exit:                                ; preds = %48
@@ -2100,39 +2094,37 @@ console_file.exit:                                ; preds = %48
   br label %console_color_enabled.exit
 
 console_color_enabled.exit:                       ; preds = %50, %console_file.exit
-  %.0.i61 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i63, %50 ]
-  %.0.in.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %50 ]
-  %.0.in.in.i = load i8, ptr %.0.in.in.in.i, align 1
-  %.0.in.i51 = and i8 %.0.in.in.i, 1
-  %.0.i52 = icmp ne i8 %.0.in.i51, 0
+  %.0.i58 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i59, %50 ]
+  %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %50 ]
+  %.0.in.i49 = load i8, ptr %.0.in.in.i, align 1
+  %.0.i50 = trunc i8 %.0.in.i49 to i1
   %53 = getelementptr inbounds i8, ptr %5, i64 56
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 64
   %56 = load i64, ptr %55, align 8
-  call fastcc void @log_write_do_work(ptr noundef %.0.i61, i1 noundef zeroext %.0.i52, ptr noundef %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
-  br i1 %.not47, label %65, label %57
+  call fastcc void @log_write_do_work(ptr noundef %.0.i58, i1 noundef zeroext %.0.i50, ptr noundef %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  br i1 %.not46, label %65, label %57
 
 57:                                               ; preds = %console_color_enabled.exit
   br i1 %49, label %58, label %61
 
 58:                                               ; preds = %57
   %59 = load i8, ptr @stdout_logging_enabled, align 1
-  %60 = and i8 %59, 1
-  %.not.i56 = icmp eq i8 %60, 0
-  br i1 %.not.i56, label %61, label %console_file.exit57
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %console_file.exit53, label %61
 
 61:                                               ; preds = %58, %57
-  br label %console_file.exit57
+  br label %console_file.exit53
 
-console_file.exit57:                              ; preds = %58, %61
-  %.0.in.i54 = phi ptr [ @stderr, %61 ], [ @stdout, %58 ]
-  %.0.i55 = load ptr, ptr %.0.in.i54, align 8
+console_file.exit53:                              ; preds = %58, %61
+  %.0.in.i51 = phi ptr [ @stderr, %61 ], [ @stdout, %58 ]
+  %.0.i52 = load ptr, ptr %.0.in.i51, align 8
   %62 = load i64, ptr %55, align 8
   %63 = load ptr, ptr @registered_progname, align 8
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0.i55, ptr noundef nonnull @.str.66, ptr noundef %63, i64 noundef %62, ptr noundef %.0) #19
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0.i52, ptr noundef nonnull @.str.66, ptr noundef %63, i64 noundef %62, ptr noundef %.0) #19
   br label %65
 
-65:                                               ; preds = %console_color_enabled.exit, %console_file.exit57, %46
+65:                                               ; preds = %console_color_enabled.exit, %console_file.exit53, %46
   br i1 %.042, label %66, label %67
 
 66:                                               ; preds = %65
@@ -2213,20 +2205,14 @@ define void @ws_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_u
   %21 = getelementptr inbounds i8, ptr %5, i64 64
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6)
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br label %msg_is_active.exit
 
 msg_is_active.exit:                               ; preds = %3, %14
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
 
 ; Function Attrs: nounwind uwtable
 define void @ws_log_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #1 {
@@ -2260,9 +2246,9 @@ define void @ws_log_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 nou
   %24 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %5, ptr noundef nonnull %9)
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   br label %msg_is_active.exit
 
 msg_is_active.exit:                               ; preds = %6, %17
@@ -2270,13 +2256,13 @@ msg_is_active.exit:                               ; preds = %6, %17
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @ws_log_fatal_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #12 {
+define void @ws_log_fatal_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #11 {
   %7 = alloca %struct.ws_log_manifest_t, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call fastcc void @fill_manifest(ptr noundef nonnull %7)
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %8)
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   call void @abort() #24
   unreachable
 }
@@ -2309,7 +2295,7 @@ get_timestamp.exit:                               ; preds = %1, %5
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #13
+declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @ws_log_write_always_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #1 {
@@ -2339,9 +2325,9 @@ fill_manifest.exit:                               ; preds = %6, %12
   %21 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %5, ptr noundef nonnull %9)
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2678,12 +2664,11 @@ define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %8
   %11 = load i8, ptr @stdout_logging_enabled, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  %.0.i15 = load ptr, ptr @stdout, align 8
-  %.0.i20 = load ptr, ptr @stderr, align 8
-  %.0.i18 = select i1 %.not.i, ptr %.0.i20, ptr %.0.i15
-  %spec.select = select i1 %.not.i, ptr @stderr_color_enabled, ptr @stdout_color_enabled
+  %12 = trunc i8 %11 to i1
+  %.0.i14 = load ptr, ptr @stdout, align 8
+  %.0.i19 = load ptr, ptr @stderr, align 8
+  %.0.i17 = select i1 %12, ptr %.0.i14, ptr %.0.i19
+  %spec.select = select i1 %12, ptr @stdout_color_enabled, ptr @stderr_color_enabled
   br label %console_color_enabled.exit
 
 console_file.exit:                                ; preds = %8
@@ -2691,11 +2676,10 @@ console_file.exit:                                ; preds = %8
   br label %console_color_enabled.exit
 
 console_color_enabled.exit:                       ; preds = %10, %console_file.exit
-  %.0.i16 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i18, %10 ]
-  %.0.in.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %10 ]
-  %.0.in.in.i = load i8, ptr %.0.in.in.in.i, align 1
-  %.0.in.i11 = and i8 %.0.in.in.i, 1
-  %.0.i12 = icmp ne i8 %.0.in.i11, 0
+  %.0.i16 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i17, %10 ]
+  %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %10 ]
+  %.0.in.i11 = load i8, ptr %.0.in.in.i, align 1
+  %.0.i12 = trunc i8 %.0.in.i11 to i1
   %13 = getelementptr inbounds i8, ptr %5, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 64
@@ -2744,17 +2728,14 @@ declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #13
+declare void @exit(i32 noundef) local_unnamed_addr #12
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 declare ptr @g_strsplit_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 declare ptr @ws_localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #9
 
@@ -2770,7 +2751,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #10
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @g_utf8_get_char(ptr noundef) local_unnamed_addr #15
+declare i32 @g_utf8_get_char(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @g_unichar_isprint(i32 noundef) local_unnamed_addr #6
@@ -2790,7 +2771,7 @@ declare void @wmem_strbuf_destroy(ptr noundef) local_unnamed_addr #9
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @g_utf8_get_char_validated(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @g_utf8_get_char_validated(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 declare void @wmem_strbuf_append_hex(ptr noundef, i8 noundef zeroext) local_unnamed_addr #9
 
@@ -2799,6 +2780,15 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
@@ -2826,11 +2816,11 @@ attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

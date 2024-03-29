@@ -81,8 +81,8 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   %22 = getelementptr inbounds i8, ptr %0, i64 64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
+23:                                               ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %24 = getelementptr [0 x %struct.ParamExternData], ptr %21, i64 0, i64 %indvars.iv
   %25 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %25, null
@@ -103,37 +103,35 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.022, i64 16, i1 false)
   %33 = getelementptr inbounds i8, ptr %24, i64 8
   %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %.not28 = icmp eq i8 %35, 0
-  br i1 %.not28, label %36, label %47
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %46, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %24, i64 12
   %38 = load i32, ptr %37, align 4
-  %.not29 = icmp eq i32 %38, 0
-  br i1 %.not29, label %47, label %39
+  %.not28 = icmp eq i32 %38, 0
+  br i1 %.not28, label %46, label %39
 
 39:                                               ; preds = %36
   call void @get_typlenbyval(i32 noundef %38, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %40 = load i64, ptr %24, align 8
   %41 = load i8, ptr %4, align 1
-  %42 = and i8 %41, 1
-  %43 = icmp ne i8 %42, 0
-  %44 = load i16, ptr %3, align 2
-  %45 = sext i16 %44 to i32
-  %46 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext %43, i32 noundef %45) #6
-  store i64 %46, ptr %24, align 8
-  br label %47
+  %42 = trunc i8 %41 to i1
+  %43 = load i16, ptr %3, align 2
+  %44 = sext i16 %43 to i32
+  %45 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext %42, i32 noundef %44) #6
+  store i64 %45, ptr %24, align 8
+  br label %46
 
-47:                                               ; preds = %32, %36, %39
+46:                                               ; preds = %32, %36, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %7, align 8
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %23, label %.loopexit, !llvm.loop !5
+  %47 = load i32, ptr %7, align 8
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %23, label %.loopexit, !llvm.loop !5
 
-.loopexit:                                        ; preds = %47, %10, %1, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %14, %10 ], [ %14, %47 ]
+.loopexit:                                        ; preds = %46, %10, %1, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %14, %10 ], [ %14, %46 ]
   ret ptr %.0
 }
 
@@ -164,7 +162,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.02229 = phi i64 [ 4, %.lr.ph ], [ %38, %26 ]
+  %.02229 = phi i64 [ 4, %.lr.ph ], [ %36, %26 ]
   %12 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -205,21 +203,19 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %29 = load i64, ptr %.021, align 8
   %30 = getelementptr inbounds i8, ptr %.021, i64 8
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %32, 0
-  %34 = and i8 %28, 1
-  %35 = icmp ne i8 %34, 0
-  %36 = sext i16 %27 to i32
-  %37 = call i64 @datumEstimateSpace(i64 noundef %29, i1 noundef zeroext %33, i1 noundef zeroext %35, i32 noundef %36) #6
-  %38 = call i64 @add_size(i64 noundef %23, i64 noundef %37) #6
+  %32 = trunc i8 %31 to i1
+  %33 = trunc i8 %28 to i1
+  %34 = sext i16 %27 to i32
+  %35 = call i64 @datumEstimateSpace(i64 noundef %29, i1 noundef zeroext %32, i1 noundef zeroext %33, i32 noundef %34) #6
+  %36 = call i64 @add_size(i64 noundef %23, i64 noundef %35) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load i32, ptr %7, align 8
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %11, label %.loopexit, !llvm.loop !7
+  %37 = load i32, ptr %7, align 8
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %11, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %26, %1, %6
-  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %38, %26 ]
+  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %26 ]
   ret i64 %.0
 }
 
@@ -311,12 +307,10 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   %40 = load i64, ptr %.025, align 8
   %41 = getelementptr inbounds i8, ptr %.025, i64 8
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %44 = icmp ne i8 %43, 0
-  %45 = and i8 %39, 1
-  %46 = icmp ne i8 %45, 0
-  %47 = sext i16 %38 to i32
-  call void @datumSerialize(i64 noundef %40, i1 noundef zeroext %44, i1 noundef zeroext %46, i32 noundef %47, ptr noundef nonnull %1) #6
+  %43 = trunc i8 %42 to i1
+  %44 = trunc i8 %39 to i1
+  %45 = sext i16 %38 to i32
+  call void @datumSerialize(i64 noundef %40, i1 noundef zeroext %43, i1 noundef zeroext %44, i32 noundef %45, ptr noundef nonnull %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !8
@@ -409,28 +403,27 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not27 = icmp eq ptr %1, null
+  br i1 %.not27, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %32 ], [ 0, %.lr.ph ]
-  %18 = getelementptr [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv34
-  %.not30.us = icmp eq i64 %indvars.iv34, 0
-  %19 = select i1 %.not30.us, ptr @.str.3, ptr @.str.2
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %20 = trunc i64 %indvars.iv.next35 to i32
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %32 ], [ 0, %.lr.ph ]
+  %18 = getelementptr [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv33
+  %.not29.us = icmp eq i64 %indvars.iv33, 0
+  %19 = select i1 %.not29.us, ptr @.str.3, ptr @.str.2
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %20 = trunc i64 %indvars.iv.next34 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %19, i32 noundef %20) #6
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not26.us = icmp eq i8 %23, 0
-  br i1 %.not26.us, label %24, label %31
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %31, label %24
 
 24:                                               ; preds = %.lr.ph.split.us
   %25 = getelementptr inbounds i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
-  %.not27.us = icmp eq i32 %26, 0
-  br i1 %.not27.us, label %31, label %27
+  %.not26.us = icmp eq i32 %26, 0
+  br i1 %.not26.us, label %31, label %27
 
 27:                                               ; preds = %24
   call void @getTypeOutputInfo(i32 noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
@@ -447,28 +440,27 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
 32:                                               ; preds = %31, %27
   %33 = load i32, ptr %14, align 8
   %34 = sext i32 %33 to i64
-  %35 = icmp slt i64 %indvars.iv.next35, %34
+  %35 = icmp slt i64 %indvars.iv.next34, %34
   br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
   %36 = getelementptr [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv
-  %.not30 = icmp eq i64 %indvars.iv, 0
-  %37 = select i1 %.not30, ptr @.str.3, ptr @.str.2
+  %.not29 = icmp eq i64 %indvars.iv, 0
+  %37 = select i1 %.not29, ptr @.str.3, ptr @.str.2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = trunc i64 %indvars.iv.next to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #6
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %.not26 = icmp eq i8 %41, 0
-  br i1 %.not26, label %42, label %45
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %.lr.ph.split
   %43 = getelementptr inbounds i8, ptr %36, i64 12
   %44 = load i32, ptr %43, align 4
-  %.not27 = icmp eq i32 %44, 0
-  br i1 %.not27, label %45, label %46
+  %.not26 = icmp eq i32 %44, 0
+  br i1 %.not26, label %45, label %46
 
 45:                                               ; preds = %42, %.lr.ph.split
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #6
@@ -477,8 +469,8 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
 46:                                               ; preds = %42
   %47 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
-  %.not29 = icmp eq ptr %48, null
-  br i1 %.not29, label %50, label %49
+  %.not28 = icmp eq ptr %48, null
+  br i1 %.not28, label %50, label %49
 
 49:                                               ; preds = %46
   call void @appendStringInfoStringQuoted(ptr noundef nonnull %4, ptr noundef nonnull %48, i32 noundef %2) #6

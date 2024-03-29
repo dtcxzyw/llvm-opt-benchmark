@@ -177,8 +177,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   %call.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
-  %13 = and i8 %12, 1
-  %tobool = icmp ne i8 %13, 0
+  %tobool = trunc i8 %12 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3620)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4222)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4423)
@@ -191,8 +190,8 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   store ptr %11, ptr %agg.tmp42.sroa.2.0.agg.tmp4222.sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3620, i8 0, i64 16, i1 false)
   store i64 7, ptr %agg.tmp3.i, align 8
-  %14 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %14, align 8
+  %13 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
+  store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %13, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3620, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4222, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4423)
           to label %invoke.cont45 unwind label %lpad37
 
@@ -206,19 +205,19 @@ invoke.cont45:                                    ; preds = %invoke.cont29
   unreachable
 
 lpad:                                             ; preds = %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
   br label %eh.resume
 
 lpad37:                                           ; preds = %invoke.cont29
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #8
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad37, %lpad
-  %.pn = phi { ptr, i32 } [ %16, %lpad37 ], [ %15, %lpad ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad37 ], [ %14, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -421,8 +420,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %call.i.i19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
-  %13 = and i8 %12, 1
-  %tobool = icmp ne i8 %13, 0
+  %tobool = trunc i8 %12 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3423)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3725)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3926)
@@ -437,8 +435,8 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %agg.tmp34.sroa.2.0.agg.tmp3423.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3423, i64 8
   store ptr %s, ptr %agg.tmp34.sroa.2.0.agg.tmp3423.sroa_idx, align 8
   store i64 7, ptr %agg.tmp3.i, align 8
-  %14 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %14, align 8
+  %13 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
+  store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %13, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3423, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3725, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3926)
           to label %invoke.cont41 unwind label %lpad40
 
@@ -452,19 +450,19 @@ invoke.cont41:                                    ; preds = %invoke.cont27
   unreachable
 
 lpad:                                             ; preds = %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
   br label %eh.resume
 
 lpad40:                                           ; preds = %invoke.cont27
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #8
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad40, %lpad
-  %.pn = phi { ptr, i32 } [ %16, %lpad40 ], [ %15, %lpad ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad40 ], [ %14, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -566,8 +564,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %call.i.i17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %14 = load i8, ptr %isRetriable, align 8
-  %15 = and i8 %14, 1
-  %tobool = icmp ne i8 %15, 0
+  %tobool = trunc i8 %14 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3421)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3823)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4024)
@@ -582,8 +579,8 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %agg.tmp34.sroa.2.0.agg.tmp3421.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3421, i64 8
   store ptr %12, ptr %agg.tmp34.sroa.2.0.agg.tmp3421.sroa_idx, align 8
   store i64 7, ptr %agg.tmp3.i, align 8
-  %16 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %16, align 8
+  %15 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
+  store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %15, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3421, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3823, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4024)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -597,19 +594,19 @@ invoke.cont42:                                    ; preds = %invoke.cont27
   unreachable
 
 lpad:                                             ; preds = %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
   br label %eh.resume
 
 lpad41:                                           ; preds = %invoke.cont27
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #8
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad41, %lpad
-  %.pn = phi { ptr, i32 } [ %18, %lpad41 ], [ %17, %lpad ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad41 ], [ %16, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -643,8 +640,7 @@ entry:
   %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
-  %7 = and i8 %6, 1
-  %tobool = icmp ne i8 %7, 0
+  %tobool = trunc i8 %6 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp113)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp415)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp516)
@@ -657,8 +653,8 @@ entry:
   store ptr %5, ptr %agg.tmp4.sroa.2.0.agg.tmp415.sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp113, i8 0, i64 16, i1 false)
   store i64 4, ptr %agg.tmp3.i, align 8
-  %8 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
+  store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %7, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
           to label %invoke.cont6 unwind label %lpad
 
@@ -672,10 +668,10 @@ invoke.cont6:                                     ; preds = %entry
   unreachable
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #8
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -786,8 +782,7 @@ entry:
   %call.i.i11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
-  %7 = and i8 %6, 1
-  %tobool = icmp ne i8 %7, 0
+  %tobool = trunc i8 %6 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp115)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp317)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp418)
@@ -802,8 +797,8 @@ entry:
   %agg.tmp1.sroa.2.0.agg.tmp115.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp115, i64 8
   store ptr %s, ptr %agg.tmp1.sroa.2.0.agg.tmp115.sroa_idx, align 8
   store i64 4, ptr %agg.tmp3.i, align 8
-  %8 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
+  store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %7, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp115, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp317, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp418)
           to label %invoke.cont unwind label %lpad
 
@@ -817,10 +812,10 @@ invoke.cont:                                      ; preds = %entry
   unreachable
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #8
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
@@ -851,8 +846,7 @@ entry:
   %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %8 = load i8, ptr %isRetriable, align 8
-  %9 = and i8 %8, 1
-  %tobool = icmp ne i8 %9, 0
+  %tobool = trunc i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp113)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp415)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp516)
@@ -867,8 +861,8 @@ entry:
   %agg.tmp1.sroa.2.0.agg.tmp113.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113, i64 8
   store ptr %6, ptr %agg.tmp1.sroa.2.0.agg.tmp113.sroa_idx, align 8
   store i64 4, ptr %agg.tmp3.i, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %10, align 8
+  %9 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
+  store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %9, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
           to label %invoke.cont unwind label %lpad
 
@@ -882,10 +876,10 @@ invoke.cont:                                      ; preds = %entry
   unreachable
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #8
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

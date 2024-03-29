@@ -164,9 +164,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 42:                                               ; preds = %40
   %43 = load i8, ptr %18, align 1
-  %44 = and i8 %43, 1
-  %.not161 = icmp eq i8 %44, 0
-  %spec.select = select i1 %.not161, i32 9, i32 7
+  %44 = trunc i8 %43 to i1
+  %spec.select = select i1 %44, i32 7, i32 9
   br label %stream_decoder_reset.exit
 
 45:                                               ; preds = %40
@@ -175,41 +174,38 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   store i32 %46, ptr %20, align 8
   store i32 1, ptr %0, align 8
   %47 = load i8, ptr %21, align 8
-  %48 = and i8 %47, 1
-  %.not152 = icmp ne i8 %48, 0
+  %48 = trunc i8 %47 to i1
   %49 = icmp eq i32 %46, 0
-  %or.cond = select i1 %.not152, i1 %49, i1 false
+  %or.cond = select i1 %48, i1 %49, i1 false
   br i1 %or.cond, label %stream_decoder_reset.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load i8, ptr %22, align 1
-  %52 = and i8 %51, 1
-  %.not153 = icmp eq i8 %52, 0
-  br i1 %.not153, label %55, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
   %54 = call zeroext i8 @lzma_check_is_supported(i32 noundef %46) #10
-  %.not154 = icmp eq i8 %54, 0
-  br i1 %.not154, label %stream_decoder_reset.exit, label %55
+  %.not151 = icmp eq i8 %54, 0
+  br i1 %.not151, label %stream_decoder_reset.exit, label %55
 
 55:                                               ; preds = %53, %50
   %56 = load i8, ptr %23, align 2
-  %57 = and i8 %56, 1
-  %.not155 = icmp eq i8 %57, 0
-  br i1 %.not155, label %58, label %stream_decoder_reset.exit
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %stream_decoder_reset.exit, label %58
 
 58:                                               ; preds = %55, %34
   %59 = load i64, ptr %3, align 8
-  %.not156 = icmp ult i64 %59, %4
-  br i1 %.not156, label %60, label %stream_decoder_reset.exit
+  %.not152 = icmp ult i64 %59, %4
+  br i1 %.not152, label %60, label %stream_decoder_reset.exit
 
 60:                                               ; preds = %58
   %61 = load i64, ptr %14, align 8
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %._crit_edge175
+  br i1 %62, label %63, label %._crit_edge170
 
-._crit_edge175:                                   ; preds = %60
-  %.pre176 = load i32, ptr %24, align 4
+._crit_edge170:                                   ; preds = %60
+  %.pre171 = load i32, ptr %24, align 4
   br label %72
 
 63:                                               ; preds = %60
@@ -229,8 +225,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   store i32 %71, ptr %24, align 4
   br label %72
 
-72:                                               ; preds = %._crit_edge175, %68
-  %73 = phi i32 [ %.pre176, %._crit_edge175 ], [ %71, %68 ]
+72:                                               ; preds = %._crit_edge170, %68
+  %73 = phi i32 [ %.pre171, %._crit_edge170 ], [ %71, %68 ]
   %74 = zext i32 %73 to i64
   %75 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %74) #9
   %76 = load i64, ptr %14, align 8
@@ -244,8 +240,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   store i32 1, ptr %25, align 8
   store ptr %10, ptr %26, align 8
   %81 = call i32 @lzma_block_header_decode(ptr noundef nonnull %25, ptr noundef %1, ptr noundef nonnull %13) #9
-  %.not157 = icmp eq i32 %81, 0
-  br i1 %.not157, label %82, label %stream_decoder_reset.exit
+  %.not153 = icmp eq i32 %81, 0
+  br i1 %.not153, label %82, label %stream_decoder_reset.exit
 
 82:                                               ; preds = %80
   %83 = load i8, ptr %27, align 1
@@ -270,18 +266,18 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   br label %93
 
 93:                                               ; preds = %92, %93
-  %.0127169 = phi i64 [ 0, %92 ], [ %96, %93 ]
-  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127169, i32 1
+  %.0127164 = phi i64 [ 0, %92 ], [ %96, %93 ]
+  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127164, i32 1
   %95 = load ptr, ptr %94, align 8
   call void @lzma_free(ptr noundef %95, ptr noundef %1) #9
-  %96 = add nuw nsw i64 %.0127169, 1
-  %exitcond174.not = icmp eq i64 %96, 4
-  br i1 %exitcond174.not, label %97, label %93, !llvm.loop !5
+  %96 = add nuw nsw i64 %.0127164, 1
+  %exitcond169.not = icmp eq i64 %96, 4
+  br i1 %exitcond169.not, label %97, label %93, !llvm.loop !5
 
 97:                                               ; preds = %93
   store ptr null, ptr %26, align 8
-  %.not158 = icmp eq i32 %.0126, 0
-  br i1 %.not158, label %98, label %stream_decoder_reset.exit
+  %.not154 = icmp eq i32 %.0126, 0
+  br i1 %.not154, label %98, label %stream_decoder_reset.exit
 
 98:                                               ; preds = %97
   store i32 2, ptr %0, align 8
@@ -291,16 +287,16 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   %100 = load ptr, ptr %32, align 8
   %101 = load ptr, ptr %31, align 8
   %102 = call i32 %100(ptr noundef %101, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8) #9
-  %.not159 = icmp eq i32 %102, 1
-  br i1 %.not159, label %103, label %stream_decoder_reset.exit
+  %.not155 = icmp eq i32 %102, 1
+  br i1 %.not155, label %103, label %stream_decoder_reset.exit
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %12, align 8
   %105 = call i64 @lzma_block_unpadded_size(ptr noundef nonnull %25) #11
   %106 = load i64, ptr %33, align 8
   %107 = call i32 @lzma_index_hash_append(ptr noundef %104, i64 noundef %105, i64 noundef %106) #9
-  %.not160 = icmp eq i32 %107, 0
-  br i1 %.not160, label %108, label %stream_decoder_reset.exit
+  %.not156 = icmp eq i32 %107, 0
+  br i1 %.not156, label %108, label %stream_decoder_reset.exit
 
 108:                                              ; preds = %103
   store i32 1, ptr %0, align 8
@@ -352,9 +348,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 130:                                              ; preds = %128
   %131 = load i8, ptr %17, align 4
-  %132 = and i8 %131, 1
-  %.not145 = icmp eq i8 %132, 0
-  br i1 %.not145, label %stream_decoder_reset.exit, label %133
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %stream_decoder_reset.exit
 
 133:                                              ; preds = %130
   store i32 5, ptr %0, align 8
@@ -362,12 +357,12 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 134:                                              ; preds = %133, %34
   %.promoted = load i64, ptr %3, align 8
-  %.not146167 = icmp ult i64 %.promoted, %4
-  br i1 %.not146167, label %.lr.ph, label %._crit_edge
+  %.not145162 = icmp ult i64 %.promoted, %4
+  br i1 %.not145162, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %134, %142
-  %.not150 = icmp eq i32 %8, 3
-  br i1 %.not150, label %135, label %stream_decoder_reset.exit
+  %.not149 = icmp eq i32 %8, 3
+  br i1 %.not149, label %135, label %stream_decoder_reset.exit
 
 135:                                              ; preds = %._crit_edge
   %136 = load i64, ptr %14, align 8
@@ -379,8 +374,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   %139 = phi i64 [ %143, %142 ], [ %.promoted, %134 ]
   %140 = getelementptr inbounds i8, ptr %2, i64 %139
   %141 = load i8, ptr %140, align 1
-  %.not147 = icmp eq i8 %141, 0
-  br i1 %.not147, label %142, label %147
+  %.not146 = icmp eq i8 %141, 0
+  br i1 %.not146, label %142, label %147
 
 142:                                              ; preds = %.lr.ph
   %143 = add i64 %139, 1
@@ -394,8 +389,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 147:                                              ; preds = %.lr.ph
   %148 = load i64, ptr %14, align 8
-  %.not148 = icmp eq i64 %148, 0
-  br i1 %.not148, label %151, label %149
+  %.not147 = icmp eq i64 %148, 0
+  br i1 %.not147, label %151, label %149
 
 149:                                              ; preds = %147
   %150 = add nuw i64 %139, 1

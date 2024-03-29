@@ -29,8 +29,8 @@ define i32 @mca_coll_monitoring_neighbor_alltoallw(ptr noundef %0, ptr noundef %
 
 25:                                               ; preds = %.lr.ph, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %148 ]
-  %.080 = phi i32 [ 0, %.lr.ph ], [ %.2, %148 ]
-  %.04477 = phi i64 [ 0, %.lr.ph ], [ %.4, %148 ]
+  %.079 = phi i32 [ 0, %.lr.ph ], [ %.2, %148 ]
+  %.04476 = phi i64 [ 0, %.lr.ph ], [ %.4, %148 ]
   store i32 -2, ptr %13, align 4
   store i32 -2, ptr %14, align 4
   %26 = load ptr, ptr %22, align 8
@@ -58,7 +58,7 @@ define i32 @mca_coll_monitoring_neighbor_alltoallw(ptr noundef %0, ptr noundef %
   br i1 %.not48, label %.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = sext i32 %.080 to i64
+  %40 = sext i32 %.079 to i64
   %41 = getelementptr inbounds ptr, ptr %3, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 24
@@ -93,9 +93,8 @@ define i32 @mca_coll_monitoring_neighbor_alltoallw(ptr noundef %0, ptr noundef %
 64:                                               ; preds = %54
   %65 = getelementptr inbounds i8, ptr %58, i64 8
   %66 = load i8, ptr @opal_uses_threads, align 1
-  %67 = and i8 %66, 1
-  %.not.i.i.i.i = icmp eq i8 %67, 0
-  br i1 %.not.i.i.i.i, label %70, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %70
 
 68:                                               ; preds = %64
   %69 = atomicrmw volatile add ptr %65, i32 1 monotonic, align 4
@@ -145,17 +144,17 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %81
   %88 = sext i32 %45 to i64
   %89 = mul i64 %.val, %88
   call void @mca_common_monitoring_record_coll(i32 noundef %87, i64 noundef %89) #3
-  %90 = add i64 %89, %.04477
+  %90 = add i64 %89, %.04476
   br label %91
 
 91:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %85
-  %.145 = phi i64 [ %90, %85 ], [ %.04477, %mca_common_monitoring_get_world_rank.exit ]
-  %92 = add nsw i32 %.080, 1
+  %.145 = phi i64 [ %90, %85 ], [ %.04476, %mca_common_monitoring_get_world_rank.exit ]
+  %92 = add nsw i32 %.079, 1
   br label %.thread
 
 .thread:                                          ; preds = %32, %30, %91, %36
-  %.246 = phi i64 [ %.04477, %36 ], [ %.145, %91 ], [ %.04477, %30 ], [ %.04477, %32 ]
-  %.1 = phi i32 [ %.080, %36 ], [ %92, %91 ], [ %.080, %30 ], [ %.080, %32 ]
+  %.246 = phi i64 [ %.04476, %36 ], [ %.145, %91 ], [ %.04476, %30 ], [ %.04476, %32 ]
+  %.1 = phi i32 [ %.079, %36 ], [ %92, %91 ], [ %.079, %30 ], [ %.079, %32 ]
   %93 = load i32, ptr %14, align 4
   %.not49 = icmp eq i32 %93, -2
   br i1 %.not49, label %148, label %94
@@ -196,9 +195,8 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %81
 119:                                              ; preds = %109
   %120 = getelementptr inbounds i8, ptr %113, i64 8
   %121 = load i8, ptr @opal_uses_threads, align 1
-  %122 = and i8 %121, 1
-  %.not.i.i.i.i60 = icmp eq i8 %122, 0
-  br i1 %.not.i.i.i.i60, label %125, label %123
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %123, label %125
 
 123:                                              ; preds = %119
   %124 = atomicrmw volatile add ptr %120, i32 1 monotonic, align 4
@@ -235,9 +233,9 @@ ompi_group_get_proc_ptr.exit.i53:                 ; preds = %125, %123, %109, %9
   %137 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
   %138 = call i32 @opal_hash_table_get_value_uint64(ptr noundef %137, i64 noundef %.sroa.05.0.i58, ptr noundef nonnull %11) #3
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %mca_common_monitoring_get_world_rank.exit61
+  br i1 %139, label %140, label %mca_common_monitoring_get_world_rank.exit60
 
-mca_common_monitoring_get_world_rank.exit61:      ; preds = %136
+mca_common_monitoring_get_world_rank.exit60:      ; preds = %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %146
 
@@ -251,14 +249,14 @@ mca_common_monitoring_get_world_rank.exit61:      ; preds = %136
   %145 = add i64 %144, %.246
   br label %146
 
-146:                                              ; preds = %mca_common_monitoring_get_world_rank.exit61, %140
-  %.3 = phi i64 [ %145, %140 ], [ %.246, %mca_common_monitoring_get_world_rank.exit61 ]
+146:                                              ; preds = %mca_common_monitoring_get_world_rank.exit60, %140
+  %.3 = phi i64 [ %145, %140 ], [ %.246, %mca_common_monitoring_get_world_rank.exit60 ]
   %147 = add nsw i32 %.1, 1
   br label %148
 
 148:                                              ; preds = %.thread, %146, %32
-  %.4 = phi i64 [ %.246, %.thread ], [ %.3, %146 ], [ %.04477, %32 ]
-  %.2 = phi i32 [ %.1, %.thread ], [ %147, %146 ], [ %.080, %32 ]
+  %.4 = phi i64 [ %.246, %.thread ], [ %.3, %146 ], [ %.04476, %32 ]
+  %.2 = phi i32 [ %.1, %.thread ], [ %147, %146 ], [ %.079, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %149 = load i32, ptr %19, align 8
   %150 = sext i32 %149 to i64
@@ -307,8 +305,8 @@ define i32 @mca_coll_monitoring_ineighbor_alltoallw(ptr noundef %0, ptr noundef 
 
 26:                                               ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
-  %.081 = phi i32 [ 0, %.lr.ph ], [ %.2, %149 ]
-  %.04578 = phi i64 [ 0, %.lr.ph ], [ %.4, %149 ]
+  %.080 = phi i32 [ 0, %.lr.ph ], [ %.2, %149 ]
+  %.04577 = phi i64 [ 0, %.lr.ph ], [ %.4, %149 ]
   store i32 -2, ptr %14, align 4
   store i32 -2, ptr %15, align 4
   %27 = load ptr, ptr %23, align 8
@@ -336,7 +334,7 @@ define i32 @mca_coll_monitoring_ineighbor_alltoallw(ptr noundef %0, ptr noundef 
   br i1 %.not49, label %.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = sext i32 %.081 to i64
+  %41 = sext i32 %.080 to i64
   %42 = getelementptr inbounds ptr, ptr %3, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 24
@@ -371,9 +369,8 @@ define i32 @mca_coll_monitoring_ineighbor_alltoallw(ptr noundef %0, ptr noundef 
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %59, i64 8
   %67 = load i8, ptr @opal_uses_threads, align 1
-  %68 = and i8 %67, 1
-  %.not.i.i.i.i = icmp eq i8 %68, 0
-  br i1 %.not.i.i.i.i, label %71, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
   %70 = atomicrmw volatile add ptr %66, i32 1 monotonic, align 4
@@ -423,17 +420,17 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %82
   %89 = sext i32 %46 to i64
   %90 = mul i64 %.val51, %89
   call void @mca_common_monitoring_record_coll(i32 noundef %88, i64 noundef %90) #3
-  %91 = add i64 %90, %.04578
+  %91 = add i64 %90, %.04577
   br label %92
 
 92:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %86
-  %.146 = phi i64 [ %91, %86 ], [ %.04578, %mca_common_monitoring_get_world_rank.exit ]
-  %93 = add nsw i32 %.081, 1
+  %.146 = phi i64 [ %91, %86 ], [ %.04577, %mca_common_monitoring_get_world_rank.exit ]
+  %93 = add nsw i32 %.080, 1
   br label %.thread
 
 .thread:                                          ; preds = %33, %31, %92, %37
-  %.247 = phi i64 [ %.04578, %37 ], [ %.146, %92 ], [ %.04578, %31 ], [ %.04578, %33 ]
-  %.1 = phi i32 [ %.081, %37 ], [ %93, %92 ], [ %.081, %31 ], [ %.081, %33 ]
+  %.247 = phi i64 [ %.04577, %37 ], [ %.146, %92 ], [ %.04577, %31 ], [ %.04577, %33 ]
+  %.1 = phi i32 [ %.080, %37 ], [ %93, %92 ], [ %.080, %31 ], [ %.080, %33 ]
   %94 = load i32, ptr %15, align 4
   %.not50 = icmp eq i32 %94, -2
   br i1 %.not50, label %149, label %95
@@ -474,9 +471,8 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %82
 120:                                              ; preds = %110
   %121 = getelementptr inbounds i8, ptr %114, i64 8
   %122 = load i8, ptr @opal_uses_threads, align 1
-  %123 = and i8 %122, 1
-  %.not.i.i.i.i61 = icmp eq i8 %123, 0
-  br i1 %.not.i.i.i.i61, label %126, label %124
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %126
 
 124:                                              ; preds = %120
   %125 = atomicrmw volatile add ptr %121, i32 1 monotonic, align 4
@@ -513,9 +509,9 @@ ompi_group_get_proc_ptr.exit.i54:                 ; preds = %126, %124, %110, %9
   %138 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
   %139 = call i32 @opal_hash_table_get_value_uint64(ptr noundef %138, i64 noundef %.sroa.05.0.i59, ptr noundef nonnull %12) #3
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %mca_common_monitoring_get_world_rank.exit62
+  br i1 %140, label %141, label %mca_common_monitoring_get_world_rank.exit61
 
-mca_common_monitoring_get_world_rank.exit62:      ; preds = %137
+mca_common_monitoring_get_world_rank.exit61:      ; preds = %137
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %147
 
@@ -529,14 +525,14 @@ mca_common_monitoring_get_world_rank.exit62:      ; preds = %137
   %146 = add i64 %145, %.247
   br label %147
 
-147:                                              ; preds = %mca_common_monitoring_get_world_rank.exit62, %141
-  %.3 = phi i64 [ %146, %141 ], [ %.247, %mca_common_monitoring_get_world_rank.exit62 ]
+147:                                              ; preds = %mca_common_monitoring_get_world_rank.exit61, %141
+  %.3 = phi i64 [ %146, %141 ], [ %.247, %mca_common_monitoring_get_world_rank.exit61 ]
   %148 = add nsw i32 %.1, 1
   br label %149
 
 149:                                              ; preds = %.thread, %147, %33
-  %.4 = phi i64 [ %.247, %.thread ], [ %.3, %147 ], [ %.04578, %33 ]
-  %.2 = phi i32 [ %.1, %.thread ], [ %148, %147 ], [ %.081, %33 ]
+  %.4 = phi i64 [ %.247, %.thread ], [ %.3, %147 ], [ %.04577, %33 ]
+  %.2 = phi i32 [ %.1, %.thread ], [ %148, %147 ], [ %.080, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %150 = load i32, ptr %20, align 8
   %151 = sext i32 %150 to i64

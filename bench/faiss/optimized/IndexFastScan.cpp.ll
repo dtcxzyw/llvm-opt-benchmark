@@ -367,9 +367,8 @@ define void @_ZN5faiss13IndexFastScan3addElPKf(ptr noundef nonnull align 8 deref
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 25
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %25
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %25, label %9
 
 9:                                                ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
@@ -420,23 +419,22 @@ define void @_ZN5faiss13IndexFastScan3addElPKf(ptr noundef nonnull align 8 deref
   br label %29
 
 29:                                               ; preds = %.preheader, %35
-  %.02044 = phi i64 [ 0, %.preheader ], [ %30, %35 ]
-  %30 = add nuw nsw i64 %.02044, 65536
+  %.02043 = phi i64 [ 0, %.preheader ], [ %30, %35 ]
+  %30 = add nuw nsw i64 %.02043, 65536
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %30, i64 %1)
   %31 = load i8, ptr %27, align 8
-  %32 = and i8 %31, 1
-  %.not26 = icmp eq i8 %32, 0
-  br i1 %.not26, label %35, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %.sroa.speculated, i64 noundef %1)
   br label %35
 
 35:                                               ; preds = %33, %29
-  %36 = sub nsw i64 %.sroa.speculated, %.02044
+  %36 = sub nsw i64 %.sroa.speculated, %.02043
   %37 = load i32, ptr %28, align 8
   %38 = sext i32 %37 to i64
-  %39 = mul nsw i64 %.02044, %38
+  %39 = mul nsw i64 %.02043, %38
   %40 = getelementptr inbounds float, ptr %2, i64 %39
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 24
@@ -526,9 +524,9 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i: ; preds = %45
   %87 = sub nsw i64 %78, %81
   call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %87, i1 false)
   %.pre = load i64, ptr %64, align 8
-  %.pre45 = load i32, ptr %66, align 4
-  %.pre46 = load i64, ptr %75, align 8
-  %.pre47 = sext i32 %.pre45 to i64
+  %.pre44 = load i32, ptr %66, align 4
+  %.pre45 = load i64, ptr %75, align 8
+  %.pre46 = sext i32 %.pre44 to i64
   br label %90
 
 88:                                               ; preds = %90, %83, %59
@@ -538,8 +536,8 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i: ; preds = %45
   br label %100
 
 90:                                               ; preds = %84, %63
-  %.pre-phi = phi i64 [ %.pre47, %84 ], [ %68, %63 ]
-  %91 = phi i64 [ %.pre46, %84 ], [ %76, %63 ]
+  %.pre-phi = phi i64 [ %.pre46, %84 ], [ %68, %63 ]
+  %91 = phi i64 [ %.pre45, %84 ], [ %76, %63 ]
   %92 = phi i64 [ %.pre, %84 ], [ %65, %63 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8
@@ -4599,9 +4597,8 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19SingleResultHandlerIN
   %12 = alloca [32 x i16], align 32
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.loopexit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -4685,16 +4682,16 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust
   br label %45
 
 45:                                               ; preds = %45, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit
-  %indvars.iv.i.i.i14 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i15, %45 ]
-  %46 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i14
+  %indvars.iv.i.i.i13 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i14, %45 ]
+  %46 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i13
   store i16 %44, ptr %46, align 2
-  %indvars.iv.next.i.i.i15 = add nuw nsw i64 %indvars.iv.i.i.i14, 1
-  %exitcond.not.i.i.i16 = icmp eq i64 %indvars.iv.next.i.i.i15, 16
-  br i1 %exitcond.not.i.i.i16, label %_ZN5faiss12simd16uint16C2Et.exit.i17, label %45, !llvm.loop !32
+  %indvars.iv.next.i.i.i14 = add nuw nsw i64 %indvars.iv.i.i.i13, 1
+  %exitcond.not.i.i.i15 = icmp eq i64 %indvars.iv.next.i.i.i14, 16
+  br i1 %exitcond.not.i.i.i15, label %_ZN5faiss12simd16uint16C2Et.exit.i16, label %45, !llvm.loop !32
 
-_ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %45, %_ZN5faiss12simd16uint16C2Et.exit.i17
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %45 ]
-  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %45 ]
+_ZN5faiss12simd16uint16C2Et.exit.i16:             ; preds = %45, %_ZN5faiss12simd16uint16C2Et.exit.i16
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i16 ], [ 0, %45 ]
+  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i16 ], [ 0, %45 ]
   %47 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i
   %48 = load i16, ptr %47, align 2
   %49 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
@@ -4712,9 +4709,9 @@ _ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %45, %_ZN5faiss12sim
   %.2.i.i = or i32 %58, %57
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i17, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i16, !llvm.loop !56
 
-_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i17
+_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i16
   %59 = xor i32 %.2.i.i, -1
   %60 = icmp eq i32 %.2.i.i, -1
   br i1 %60, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, label %61
@@ -4731,8 +4728,8 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %69, label %70, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
 
 70:                                               ; preds = %61
-  %.not.i18 = icmp ult i64 %65, %68
-  br i1 %.not.i18, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
+  %.not.i17 = icmp ult i64 %65, %68
+  br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
   %72 = sub i64 %68, %65
@@ -4753,8 +4750,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not12 = icmp eq i32 %.0.i, 0
-  br i1 %.not12, label %.loopexit, label %76
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %.loopexit, label %76
 
 76:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -4764,10 +4761,10 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %79
 
 79:                                               ; preds = %76, %95
-  %.026 = phi i32 [ %.0.i, %76 ], [ %81, %95 ]
-  %80 = tail call i32 @llvm.cttz.i32(i32 %.026, i1 true), !range !57
+  %.025 = phi i32 [ %.0.i, %76 ], [ %81, %95 ]
+  %80 = tail call i32 @llvm.cttz.i32(i32 %.025, i1 true), !range !57
   %.neg = shl nsw i32 -1, %80
-  %81 = add i32 %.neg, %.026
+  %81 = add i32 %.neg, %.025
   %82 = zext nneg i32 %80 to i64
   %83 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
@@ -4788,8 +4785,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %95
 
 95:                                               ; preds = %89, %79
-  %.not13 = icmp eq i32 %81, 0
-  br i1 %.not13, label %.loopexit, label %79, !llvm.loop !58
+  %.not12 = icmp eq i32 %81, 0
+  br i1 %.not12, label %.loopexit, label %79, !llvm.loop !58
 
 .loopexit:                                        ; preds = %95, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
@@ -4919,9 +4916,8 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxI
   %12 = alloca [32 x i16], align 32
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.loopexit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -5010,16 +5006,16 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust
   br label %50
 
 50:                                               ; preds = %50, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit
-  %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i24, %50 ]
-  %51 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i23
+  %indvars.iv.i.i.i22 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i23, %50 ]
+  %51 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i22
   store i16 %49, ptr %51, align 2
-  %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
-  %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 16
-  br i1 %exitcond.not.i.i.i25, label %_ZN5faiss12simd16uint16C2Et.exit.i26, label %50, !llvm.loop !32
+  %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
+  %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i.i23, 16
+  br i1 %exitcond.not.i.i.i24, label %_ZN5faiss12simd16uint16C2Et.exit.i25, label %50, !llvm.loop !32
 
-_ZN5faiss12simd16uint16C2Et.exit.i26:             ; preds = %50, %_ZN5faiss12simd16uint16C2Et.exit.i26
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i26 ], [ 0, %50 ]
-  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i26 ], [ 0, %50 ]
+_ZN5faiss12simd16uint16C2Et.exit.i25:             ; preds = %50, %_ZN5faiss12simd16uint16C2Et.exit.i25
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i25 ], [ 0, %50 ]
+  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i25 ], [ 0, %50 ]
   %52 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i
   %53 = load i16, ptr %52, align 2
   %54 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
@@ -5037,9 +5033,9 @@ _ZN5faiss12simd16uint16C2Et.exit.i26:             ; preds = %50, %_ZN5faiss12sim
   %.2.i.i = or i32 %63, %62
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i26, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i25, !llvm.loop !56
 
-_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i26
+_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i25
   %64 = getelementptr inbounds i32, ptr %48, i64 %45
   %65 = xor i32 %.2.i.i, -1
   %66 = icmp eq i32 %.2.i.i, -1
@@ -5057,8 +5053,8 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %75, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
 
 76:                                               ; preds = %67
-  %.not.i27 = icmp ult i64 %71, %74
-  br i1 %.not.i27, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
+  %.not.i26 = icmp ult i64 %71, %74
+  br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
   %78 = sub i64 %74, %71
@@ -5079,8 +5075,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not21 = icmp eq i32 %.0.i, 0
-  br i1 %.not21, label %.loopexit, label %82
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %.loopexit, label %82
 
 82:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -5091,10 +5087,10 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %86
 
 86:                                               ; preds = %82, %161
-  %.037 = phi i32 [ %.0.i, %82 ], [ %88, %161 ]
-  %87 = tail call i32 @llvm.cttz.i32(i32 %.037, i1 true), !range !57
+  %.036 = phi i32 [ %.0.i, %82 ], [ %88, %161 ]
+  %87 = tail call i32 @llvm.cttz.i32(i32 %.036, i1 true), !range !57
   %.neg = shl nsw i32 -1, %87
-  %88 = add i32 %.neg, %.037
+  %88 = add i32 %.neg, %.036
   %89 = zext nneg i32 %87 to i64
   %90 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %89
   %91 = load i16, ptr %90, align 2
@@ -5196,44 +5192,44 @@ _ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %143 = load i64, ptr %43, align 8
   %144 = trunc i64 %97 to i32
   %145 = icmp ugt i64 %143, 1
-  br i1 %145, label %.lr.ph.i29, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
+  br i1 %145, label %.lr.ph.i28, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
-.lr.ph.i29:                                       ; preds = %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31
-  %.025.i = phi i64 [ %146, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31 ], [ %143, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit ]
+.lr.ph.i28:                                       ; preds = %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30
+  %.025.i = phi i64 [ %146, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30 ], [ %143, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %146 = lshr i64 %.025.i, 1
   %147 = getelementptr inbounds i16, ptr %84, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds i32, ptr %85, i64 %146
   %150 = icmp ult i16 %148, %91
-  br i1 %150, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30
+  br i1 %150, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29
 
-_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30:            ; preds = %.lr.ph.i29
+_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29:            ; preds = %.lr.ph.i28
   %151 = load i32, ptr %149, align 4
   %152 = icmp eq i16 %148, %91
   %153 = icmp slt i32 %151, %144
   %154 = and i1 %152, %153
-  br i1 %154, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
+  br i1 %154, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
-_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31:     ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30, %.lr.ph.i29
+_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30:     ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29, %.lr.ph.i28
   %155 = getelementptr inbounds i16, ptr %84, i64 %.025.i
   store i16 %148, ptr %155, align 2
   %156 = load i32, ptr %149, align 4
   %157 = getelementptr inbounds i32, ptr %85, i64 %.025.i
   store i32 %156, ptr %157, align 4
   %158 = icmp ugt i64 %.025.i, 3
-  br i1 %158, label %.lr.ph.i29, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !83
+  br i1 %158, label %.lr.ph.i28, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !83
 
-_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit
-  %.0.lcssa.i28 = phi i64 [ %143, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit ], [ %146, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31 ], [ %.025.i, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30 ]
-  %159 = getelementptr inbounds i16, ptr %84, i64 %.0.lcssa.i28
+_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit
+  %.0.lcssa.i27 = phi i64 [ %143, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit ], [ %146, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30 ], [ %.025.i, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29 ]
+  %159 = getelementptr inbounds i16, ptr %84, i64 %.0.lcssa.i27
   store i16 %91, ptr %159, align 2
-  %160 = getelementptr inbounds i32, ptr %85, i64 %.0.lcssa.i28
+  %160 = getelementptr inbounds i32, ptr %85, i64 %.0.lcssa.i27
   store i32 %144, ptr %160, align 4
   br label %161
 
 161:                                              ; preds = %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, %86
-  %.not22 = icmp eq i32 %88, 0
-  br i1 %.not22, label %.loopexit, label %86, !llvm.loop !84
+  %.not21 = icmp eq i32 %88, 0
+  br i1 %.not21, label %.loopexit, label %86, !llvm.loop !84
 
 .loopexit:                                        ; preds = %161, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
@@ -5647,9 +5643,8 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4
   %12 = alloca [32 x i16], align 32
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.loopexit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -5734,16 +5729,16 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust
   br label %46
 
 46:                                               ; preds = %46, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit
-  %indvars.iv.i.i.i15 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i16, %46 ]
-  %47 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i15
+  %indvars.iv.i.i.i14 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i15, %46 ]
+  %47 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i14
   store i16 %45, ptr %47, align 2
-  %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i15, 1
-  %exitcond.not.i.i.i17 = icmp eq i64 %indvars.iv.next.i.i.i16, 16
-  br i1 %exitcond.not.i.i.i17, label %_ZN5faiss12simd16uint16C2Et.exit.i18, label %46, !llvm.loop !32
+  %indvars.iv.next.i.i.i15 = add nuw nsw i64 %indvars.iv.i.i.i14, 1
+  %exitcond.not.i.i.i16 = icmp eq i64 %indvars.iv.next.i.i.i15, 16
+  br i1 %exitcond.not.i.i.i16, label %_ZN5faiss12simd16uint16C2Et.exit.i17, label %46, !llvm.loop !32
 
-_ZN5faiss12simd16uint16C2Et.exit.i18:             ; preds = %46, %_ZN5faiss12simd16uint16C2Et.exit.i18
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i18 ], [ 0, %46 ]
-  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i18 ], [ 0, %46 ]
+_ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %46, %_ZN5faiss12simd16uint16C2Et.exit.i17
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %46 ]
+  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %46 ]
   %48 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
@@ -5761,9 +5756,9 @@ _ZN5faiss12simd16uint16C2Et.exit.i18:             ; preds = %46, %_ZN5faiss12sim
   %.2.i.i = or i32 %59, %58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i18, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i17, !llvm.loop !56
 
-_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i18
+_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i17
   %60 = xor i32 %.2.i.i, -1
   %61 = icmp eq i32 %.2.i.i, -1
   br i1 %61, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, label %62
@@ -5780,8 +5775,8 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %70, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
 
 71:                                               ; preds = %62
-  %.not.i19 = icmp ult i64 %66, %69
-  br i1 %.not.i19, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
+  %.not.i18 = icmp ult i64 %66, %69
+  br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
   %73 = sub i64 %69, %66
@@ -5802,8 +5797,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not13 = icmp eq i32 %.0.i, 0
-  br i1 %.not13, label %.loopexit, label %77
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %.loopexit, label %77
 
 77:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -5817,10 +5812,10 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %84
 
 84:                                               ; preds = %77, %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit
-  %.024 = phi i32 [ %.0.i, %77 ], [ %86, %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit ]
-  %85 = tail call i32 @llvm.cttz.i32(i32 %.024, i1 true), !range !57
+  %.023 = phi i32 [ %.0.i, %77 ], [ %86, %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit ]
+  %85 = tail call i32 @llvm.cttz.i32(i32 %.023, i1 true), !range !57
   %.neg = shl nsw i32 -1, %85
-  %86 = add i32 %.neg, %.024
+  %86 = add i32 %.neg, %.023
   %87 = zext nneg i32 %85 to i64
   %88 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %87
   %89 = load i16, ptr %88, align 2
@@ -5864,8 +5859,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit
 
 _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit: ; preds = %84, %107
-  %.not14 = icmp eq i32 %86, 0
-  br i1 %.not14, label %.loopexit, label %84, !llvm.loop !113
+  %.not13 = icmp eq i32 %86, 0
+  br i1 %.not13, label %.loopexit, label %84, !llvm.loop !113
 
 .loopexit:                                        ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
@@ -9343,9 +9338,8 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19SingleResultHandlerIN
   %12 = alloca [32 x i16], align 32
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.loopexit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -9429,16 +9423,16 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust
   br label %45
 
 45:                                               ; preds = %45, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit
-  %indvars.iv.i.i.i14 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i15, %45 ]
-  %46 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i14
+  %indvars.iv.i.i.i13 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i14, %45 ]
+  %46 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i13
   store i16 %44, ptr %46, align 2
-  %indvars.iv.next.i.i.i15 = add nuw nsw i64 %indvars.iv.i.i.i14, 1
-  %exitcond.not.i.i.i16 = icmp eq i64 %indvars.iv.next.i.i.i15, 16
-  br i1 %exitcond.not.i.i.i16, label %_ZN5faiss12simd16uint16C2Et.exit.i17, label %45, !llvm.loop !32
+  %indvars.iv.next.i.i.i14 = add nuw nsw i64 %indvars.iv.i.i.i13, 1
+  %exitcond.not.i.i.i15 = icmp eq i64 %indvars.iv.next.i.i.i14, 16
+  br i1 %exitcond.not.i.i.i15, label %_ZN5faiss12simd16uint16C2Et.exit.i16, label %45, !llvm.loop !32
 
-_ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %45, %_ZN5faiss12simd16uint16C2Et.exit.i17
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %45 ]
-  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %45 ]
+_ZN5faiss12simd16uint16C2Et.exit.i16:             ; preds = %45, %_ZN5faiss12simd16uint16C2Et.exit.i16
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i16 ], [ 0, %45 ]
+  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i16 ], [ 0, %45 ]
   %47 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i
   %48 = load i16, ptr %47, align 2
   %49 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
@@ -9456,9 +9450,9 @@ _ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %45, %_ZN5faiss12sim
   %.2.i.i = or i32 %58, %57
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i17, !llvm.loop !180
+  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i16, !llvm.loop !180
 
-_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i17
+_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i16
   %59 = xor i32 %.2.i.i, -1
   %60 = icmp eq i32 %.2.i.i, -1
   br i1 %60, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, label %61
@@ -9475,8 +9469,8 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %69, label %70, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
 
 70:                                               ; preds = %61
-  %.not.i18 = icmp ult i64 %65, %68
-  br i1 %.not.i18, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
+  %.not.i17 = icmp ult i64 %65, %68
+  br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
   %72 = sub i64 %68, %65
@@ -9497,8 +9491,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not12 = icmp eq i32 %.0.i, 0
-  br i1 %.not12, label %.loopexit, label %76
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %.loopexit, label %76
 
 76:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -9508,10 +9502,10 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %79
 
 79:                                               ; preds = %76, %95
-  %.026 = phi i32 [ %.0.i, %76 ], [ %81, %95 ]
-  %80 = tail call i32 @llvm.cttz.i32(i32 %.026, i1 true), !range !57
+  %.025 = phi i32 [ %.0.i, %76 ], [ %81, %95 ]
+  %80 = tail call i32 @llvm.cttz.i32(i32 %.025, i1 true), !range !57
   %.neg = shl nsw i32 -1, %80
-  %81 = add i32 %.neg, %.026
+  %81 = add i32 %.neg, %.025
   %82 = zext nneg i32 %80 to i64
   %83 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
@@ -9532,8 +9526,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %95
 
 95:                                               ; preds = %89, %79
-  %.not13 = icmp eq i32 %81, 0
-  br i1 %.not13, label %.loopexit, label %79, !llvm.loop !181
+  %.not12 = icmp eq i32 %81, 0
+  br i1 %.not12, label %.loopexit, label %79, !llvm.loop !181
 
 .loopexit:                                        ; preds = %95, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
@@ -9647,9 +9641,8 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinI
   %12 = alloca [32 x i16], align 32
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.loopexit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -9738,16 +9731,16 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust
   br label %50
 
 50:                                               ; preds = %50, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit
-  %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i24, %50 ]
-  %51 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i23
+  %indvars.iv.i.i.i22 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i23, %50 ]
+  %51 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i22
   store i16 %49, ptr %51, align 2
-  %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
-  %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 16
-  br i1 %exitcond.not.i.i.i25, label %_ZN5faiss12simd16uint16C2Et.exit.i26, label %50, !llvm.loop !32
+  %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
+  %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i.i23, 16
+  br i1 %exitcond.not.i.i.i24, label %_ZN5faiss12simd16uint16C2Et.exit.i25, label %50, !llvm.loop !32
 
-_ZN5faiss12simd16uint16C2Et.exit.i26:             ; preds = %50, %_ZN5faiss12simd16uint16C2Et.exit.i26
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i26 ], [ 0, %50 ]
-  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i26 ], [ 0, %50 ]
+_ZN5faiss12simd16uint16C2Et.exit.i25:             ; preds = %50, %_ZN5faiss12simd16uint16C2Et.exit.i25
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i25 ], [ 0, %50 ]
+  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i25 ], [ 0, %50 ]
   %52 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i
   %53 = load i16, ptr %52, align 2
   %54 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
@@ -9765,9 +9758,9 @@ _ZN5faiss12simd16uint16C2Et.exit.i26:             ; preds = %50, %_ZN5faiss12sim
   %.2.i.i = or i32 %63, %62
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i26, !llvm.loop !180
+  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i25, !llvm.loop !180
 
-_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i26
+_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i25
   %64 = getelementptr inbounds i32, ptr %48, i64 %45
   %65 = xor i32 %.2.i.i, -1
   %66 = icmp eq i32 %.2.i.i, -1
@@ -9785,8 +9778,8 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %75, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
 
 76:                                               ; preds = %67
-  %.not.i27 = icmp ult i64 %71, %74
-  br i1 %.not.i27, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
+  %.not.i26 = icmp ult i64 %71, %74
+  br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
   %78 = sub i64 %74, %71
@@ -9807,8 +9800,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not21 = icmp eq i32 %.0.i, 0
-  br i1 %.not21, label %.loopexit, label %82
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %.loopexit, label %82
 
 82:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -9819,10 +9812,10 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %86
 
 86:                                               ; preds = %82, %161
-  %.037 = phi i32 [ %.0.i, %82 ], [ %88, %161 ]
-  %87 = tail call i32 @llvm.cttz.i32(i32 %.037, i1 true), !range !57
+  %.036 = phi i32 [ %.0.i, %82 ], [ %88, %161 ]
+  %87 = tail call i32 @llvm.cttz.i32(i32 %.036, i1 true), !range !57
   %.neg = shl nsw i32 -1, %87
-  %88 = add i32 %.neg, %.037
+  %88 = add i32 %.neg, %.036
   %89 = zext nneg i32 %87 to i64
   %90 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %89
   %91 = load i16, ptr %90, align 2
@@ -9924,44 +9917,44 @@ _ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %143 = load i64, ptr %43, align 8
   %144 = trunc i64 %97 to i32
   %145 = icmp ugt i64 %143, 1
-  br i1 %145, label %.lr.ph.i29, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
+  br i1 %145, label %.lr.ph.i28, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
-.lr.ph.i29:                                       ; preds = %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31
-  %.025.i = phi i64 [ %146, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31 ], [ %143, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit ]
+.lr.ph.i28:                                       ; preds = %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30
+  %.025.i = phi i64 [ %146, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30 ], [ %143, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %146 = lshr i64 %.025.i, 1
   %147 = getelementptr inbounds i16, ptr %84, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds i32, ptr %85, i64 %146
   %150 = icmp ugt i16 %148, %91
-  br i1 %150, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i30
+  br i1 %150, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29
 
-_ZN5faiss4CMinItiE4cmp2Ettii.exit.i30:            ; preds = %.lr.ph.i29
+_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29:            ; preds = %.lr.ph.i28
   %151 = load i32, ptr %149, align 4
   %152 = icmp eq i16 %148, %91
   %153 = icmp sgt i32 %151, %144
   %154 = and i1 %152, %153
-  br i1 %154, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
+  br i1 %154, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
-_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31:     ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i30, %.lr.ph.i29
+_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30:     ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29, %.lr.ph.i28
   %155 = getelementptr inbounds i16, ptr %84, i64 %.025.i
   store i16 %148, ptr %155, align 2
   %156 = load i32, ptr %149, align 4
   %157 = getelementptr inbounds i32, ptr %85, i64 %.025.i
   store i32 %156, ptr %157, align 4
   %158 = icmp ugt i64 %.025.i, 3
-  br i1 %158, label %.lr.ph.i29, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !206
+  br i1 %158, label %.lr.ph.i28, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !206
 
-_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i30, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit
-  %.0.lcssa.i28 = phi i64 [ %143, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit ], [ %146, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31 ], [ %.025.i, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i30 ]
-  %159 = getelementptr inbounds i16, ptr %84, i64 %.0.lcssa.i28
+_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit
+  %.0.lcssa.i27 = phi i64 [ %143, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit ], [ %146, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30 ], [ %.025.i, %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29 ]
+  %159 = getelementptr inbounds i16, ptr %84, i64 %.0.lcssa.i27
   store i16 %91, ptr %159, align 2
-  %160 = getelementptr inbounds i32, ptr %85, i64 %.0.lcssa.i28
+  %160 = getelementptr inbounds i32, ptr %85, i64 %.0.lcssa.i27
   store i32 %144, ptr %160, align 4
   br label %161
 
 161:                                              ; preds = %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, %86
-  %.not22 = icmp eq i32 %88, 0
-  br i1 %.not22, label %.loopexit, label %86, !llvm.loop !207
+  %.not21 = icmp eq i32 %88, 0
+  br i1 %.not21, label %.loopexit, label %86, !llvm.loop !207
 
 .loopexit:                                        ; preds = %161, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
@@ -10290,9 +10283,8 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4
   %12 = alloca [32 x i16], align 32
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.loopexit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -10377,16 +10369,16 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust
   br label %46
 
 46:                                               ; preds = %46, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit
-  %indvars.iv.i.i.i15 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i16, %46 ]
-  %47 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i15
+  %indvars.iv.i.i.i14 = phi i64 [ 0, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE18adjust_with_originERmRNS_12simd16uint16ES7_.exit ], [ %indvars.iv.next.i.i.i15, %46 ]
+  %47 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i14
   store i16 %45, ptr %47, align 2
-  %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i15, 1
-  %exitcond.not.i.i.i17 = icmp eq i64 %indvars.iv.next.i.i.i16, 16
-  br i1 %exitcond.not.i.i.i17, label %_ZN5faiss12simd16uint16C2Et.exit.i18, label %46, !llvm.loop !32
+  %indvars.iv.next.i.i.i15 = add nuw nsw i64 %indvars.iv.i.i.i14, 1
+  %exitcond.not.i.i.i16 = icmp eq i64 %indvars.iv.next.i.i.i15, 16
+  br i1 %exitcond.not.i.i.i16, label %_ZN5faiss12simd16uint16C2Et.exit.i17, label %46, !llvm.loop !32
 
-_ZN5faiss12simd16uint16C2Et.exit.i18:             ; preds = %46, %_ZN5faiss12simd16uint16C2Et.exit.i18
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i18 ], [ 0, %46 ]
-  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i18 ], [ 0, %46 ]
+_ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %46, %_ZN5faiss12simd16uint16C2Et.exit.i17
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %46 ]
+  %.01416.i.i = phi i32 [ %.2.i.i, %_ZN5faiss12simd16uint16C2Et.exit.i17 ], [ 0, %46 ]
   %48 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
@@ -10404,9 +10396,9 @@ _ZN5faiss12simd16uint16C2Et.exit.i18:             ; preds = %46, %_ZN5faiss12sim
   %.2.i.i = or i32 %59, %58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i18, !llvm.loop !180
+  br i1 %exitcond.not.i.i, label %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i, label %_ZN5faiss12simd16uint16C2Et.exit.i17, !llvm.loop !180
 
-_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i18
+_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd16uint16C2Et.exit.i17
   %60 = xor i32 %.2.i.i, -1
   %61 = icmp eq i32 %.2.i.i, -1
   br i1 %61, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, label %62
@@ -10423,8 +10415,8 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %70, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
 
 71:                                               ; preds = %62
-  %.not.i19 = icmp ult i64 %66, %69
-  br i1 %.not.i19, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
+  %.not.i18 = icmp ult i64 %66, %69
+  br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
   %73 = sub i64 %69, %66
@@ -10445,8 +10437,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not13 = icmp eq i32 %.0.i, 0
-  br i1 %.not13, label %.loopexit, label %77
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %.loopexit, label %77
 
 77:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -10460,10 +10452,10 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %84
 
 84:                                               ; preds = %77, %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit
-  %.024 = phi i32 [ %.0.i, %77 ], [ %86, %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit ]
-  %85 = tail call i32 @llvm.cttz.i32(i32 %.024, i1 true), !range !57
+  %.023 = phi i32 [ %.0.i, %77 ], [ %86, %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit ]
+  %85 = tail call i32 @llvm.cttz.i32(i32 %.023, i1 true), !range !57
   %.neg = shl nsw i32 -1, %85
-  %86 = add i32 %.neg, %.024
+  %86 = add i32 %.neg, %.023
   %87 = zext nneg i32 %85 to i64
   %88 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %87
   %89 = load i16, ptr %88, align 2
@@ -10507,8 +10499,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit
 
 _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit: ; preds = %84, %107
-  %.not14 = icmp eq i32 %86, 0
-  br i1 %.not14, label %.loopexit, label %84, !llvm.loop !235
+  %.not13 = icmp eq i32 %86, 0
+  br i1 %.not13, label %.loopexit, label %84, !llvm.loop !235
 
 .loopexit:                                        ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void

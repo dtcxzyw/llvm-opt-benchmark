@@ -98,123 +98,122 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %enable_extra_copy = getelementptr inbounds i8, ptr %rp, i64 320
   %0 = load i8, ptr %enable_extra_copy, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end5, label %if.then4
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %protected_slice.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %error_details.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp104.i)
   %length.i = getelementptr inbounds i8, ptr %unprotected_slices, i64 32
-  %2 = load i64, ptr %length.i, align 8
+  %1 = load i64, ptr %length.i, align 8
   %header_length.i = getelementptr inbounds i8, ptr %rp, i64 288
-  %3 = load i64, ptr %header_length.i, align 8
-  %add.i = add i64 %3, %2
+  %2 = load i64, ptr %header_length.i, align 8
+  %add.i = add i64 %2, %1
   %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 296
-  %4 = load i64, ptr %tag_length.i, align 8
-  %add2.i = add i64 %add.i, %4
+  %3 = load i64, ptr %tag_length.i, align 8
+  %add2.i = add i64 %add.i, %3
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %protected_slice.i, i64 noundef %add2.i)
   %bytes.i = getelementptr inbounds i8, ptr %protected_slice.i, i64 16
   %bytes5.i = getelementptr inbounds i8, ptr %protected_slice.i, i64 9
   %count.i = getelementptr inbounds i8, ptr %unprotected_slices, i64 16
-  %5 = load i64, ptr %count.i, align 8
-  %cmp38.not.i = icmp eq i64 %5, 0
+  %4 = load i64, ptr %count.i, align 8
+  %cmp38.not.i = icmp eq i64 %4, 0
   br i1 %cmp38.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then4
-  %6 = load ptr, ptr %protected_slice.i, align 8
-  %tobool.not.i = icmp eq ptr %6, null
-  %7 = load ptr, ptr %bytes.i, align 8
-  %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %7
-  %8 = load i64, ptr %header_length.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %8
+  %5 = load ptr, ptr %protected_slice.i, align 8
+  %tobool.not.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %bytes.i, align 8
+  %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %6
+  %7 = load i64, ptr %header_length.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %7
   %slices.i = getelementptr inbounds i8, ptr %unprotected_slices, i64 8
   %.pre.i = load ptr, ptr %slices.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %cond.end53.i, %for.body.lr.ph.i
-  %9 = phi ptr [ %.pre.i, %for.body.lr.ph.i ], [ %14, %cond.end53.i ]
+  %8 = phi ptr [ %.pre.i, %for.body.lr.ph.i ], [ %13, %cond.end53.i ]
   %data.040.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %add.ptr55.i, %cond.end53.i ]
   %i.039.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end53.i ]
-  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %9, i64 %i.039.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %tobool8.not.i = icmp eq ptr %10, null
+  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %8, i64 %i.039.i
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %tobool8.not.i = icmp eq ptr %9, null
   br i1 %tobool8.not.i, label %cond.false31.i, label %cond.true26.i
 
 cond.true26.i:                                    ; preds = %for.body.i
   %bytes13.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %11 = load ptr, ptr %bytes13.i, align 8
+  %10 = load ptr, ptr %bytes13.i, align 8
   %data29.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %12 = load i64, ptr %data29.i, align 8
+  %11 = load i64, ptr %data29.i, align 8
   br label %cond.end36.i
 
 cond.false31.i:                                   ; preds = %for.body.i
   %bytes18.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
   %data34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %13 = load i8, ptr %data34.i, align 8
-  %conv.i = zext i8 %13 to i64
+  %12 = load i8, ptr %data34.i, align 8
+  %conv.i = zext i8 %12 to i64
   br label %cond.end36.i
 
 cond.end36.i:                                     ; preds = %cond.false31.i, %cond.true26.i
-  %cond2136.i = phi ptr [ %11, %cond.true26.i ], [ %bytes18.i, %cond.false31.i ]
-  %cond37.i = phi i64 [ %12, %cond.true26.i ], [ %conv.i, %cond.false31.i ]
+  %cond2136.i = phi ptr [ %10, %cond.true26.i ], [ %bytes18.i, %cond.false31.i ]
+  %cond37.i = phi i64 [ %11, %cond.true26.i ], [ %conv.i, %cond.false31.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.040.i, ptr align 1 %cond2136.i, i64 %cond37.i, i1 false)
-  %14 = load ptr, ptr %slices.i, align 8
-  %arrayidx39.i = getelementptr inbounds %struct.grpc_slice, ptr %14, i64 %i.039.i
-  %15 = load ptr, ptr %arrayidx39.i, align 8
-  %tobool41.not.i = icmp eq ptr %15, null
+  %13 = load ptr, ptr %slices.i, align 8
+  %arrayidx39.i = getelementptr inbounds %struct.grpc_slice, ptr %13, i64 %i.039.i
+  %14 = load ptr, ptr %arrayidx39.i, align 8
+  %tobool41.not.i = icmp eq ptr %14, null
   %data50.i = getelementptr inbounds i8, ptr %arrayidx39.i, i64 8
   br i1 %tobool41.not.i, label %cond.false47.i, label %cond.true42.i
 
 cond.true42.i:                                    ; preds = %cond.end36.i
-  %16 = load i64, ptr %data50.i, align 8
+  %15 = load i64, ptr %data50.i, align 8
   br label %cond.end53.i
 
 cond.false47.i:                                   ; preds = %cond.end36.i
-  %17 = load i8, ptr %data50.i, align 8
-  %conv52.i = zext i8 %17 to i64
+  %16 = load i8, ptr %data50.i, align 8
+  %conv52.i = zext i8 %16 to i64
   br label %cond.end53.i
 
 cond.end53.i:                                     ; preds = %cond.false47.i, %cond.true42.i
-  %cond54.i = phi i64 [ %16, %cond.true42.i ], [ %conv52.i, %cond.false47.i ]
+  %cond54.i = phi i64 [ %15, %cond.true42.i ], [ %conv52.i, %cond.false47.i ]
   %add.ptr55.i = getelementptr inbounds i8, ptr %data.040.i, i64 %cond54.i
   %inc.i = add nuw i64 %i.039.i, 1
-  %18 = load i64, ptr %count.i, align 8
-  %cmp.i = icmp ult i64 %inc.i, %18
+  %17 = load i64, ptr %count.i, align 8
+  %cmp.i = icmp ult i64 %inc.i, %17
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %cond.end53.i, %if.then4
   store ptr null, ptr %error_details.i, align 8
-  %19 = load ptr, ptr %protected_slice.i, align 8
-  %tobool57.not.i = icmp eq ptr %19, null
-  %20 = load ptr, ptr %bytes.i, align 8
-  %cond66.i = select i1 %tobool57.not.i, ptr %bytes5.i, ptr %20
-  %21 = load i64, ptr %header_length.i, align 8
-  %add.ptr81.i = getelementptr inbounds i8, ptr %cond66.i, i64 %21
-  %add.ptr82.i = getelementptr inbounds i8, ptr %add.ptr81.i, i64 %2
-  %22 = load i64, ptr %tag_length.i, align 8
+  %18 = load ptr, ptr %protected_slice.i, align 8
+  %tobool57.not.i = icmp eq ptr %18, null
+  %19 = load ptr, ptr %bytes.i, align 8
+  %cond66.i = select i1 %tobool57.not.i, ptr %bytes5.i, ptr %19
+  %20 = load i64, ptr %header_length.i, align 8
+  %add.ptr81.i = getelementptr inbounds i8, ptr %cond66.i, i64 %20
+  %add.ptr82.i = getelementptr inbounds i8, ptr %add.ptr81.i, i64 %1
+  %21 = load i64, ptr %tag_length.i, align 8
   %iovec_buf.i = getelementptr inbounds i8, ptr %rp, i64 304
+  %22 = load ptr, ptr %iovec_buf.i, align 8
+  store ptr %add.ptr81.i, ptr %22, align 8
   %23 = load ptr, ptr %iovec_buf.i, align 8
-  store ptr %add.ptr81.i, ptr %23, align 8
-  %24 = load ptr, ptr %iovec_buf.i, align 8
-  %iov_len102.i = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 %2, ptr %iov_len102.i, align 8
+  %iov_len102.i = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %1, ptr %iov_len102.i, align 8
   %iovec_rp.i = getelementptr inbounds i8, ptr %rp, i64 8
-  %25 = load ptr, ptr %iovec_rp.i, align 8
-  %26 = load ptr, ptr %iovec_buf.i, align 8
+  %24 = load ptr, ptr %iovec_rp.i, align 8
+  %25 = load ptr, ptr %iovec_buf.i, align 8
   store ptr %add.ptr82.i, ptr %agg.tmp104.i, align 8
   %tag_iovec.sroa.2.0.agg.tmp104.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp104.i, i64 8
-  store i64 %22, ptr %tag_iovec.sroa.2.0.agg.tmp104.sroa_idx.i, align 8
-  %call.i = call noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef %25, ptr noundef %26, i64 noundef 1, ptr %cond66.i, i64 %21, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp104.i, ptr noundef nonnull %error_details.i)
+  store i64 %21, ptr %tag_iovec.sroa.2.0.agg.tmp104.sroa_idx.i, align 8
+  %call.i = call noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef %24, ptr noundef %25, i64 noundef 1, ptr %cond66.i, i64 %20, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp104.i, ptr noundef nonnull %error_details.i)
   %cmp105.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp105.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
+  %26 = load ptr, ptr %error_details.i, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %26)
   %27 = load ptr, ptr %error_details.i, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %27)
-  %28 = load ptr, ptr %error_details.i, align 8
-  call void @gpr_free(ptr noundef %28)
+  call void @gpr_free(ptr noundef %27)
   br label %_ZL43alts_grpc_integrity_only_extra_copy_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_.exit
 
 if.end.i:                                         ; preds = %for.end.i
@@ -231,51 +230,51 @@ _ZL43alts_grpc_integrity_only_extra_copy_protectP25alts_grpc_record_protocolP17g
 
 if.end5:                                          ; preds = %if.end
   %header_length = getelementptr inbounds i8, ptr %rp, i64 288
-  %29 = load i64, ptr %header_length, align 8
-  call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %header_slice, i64 noundef %29)
+  %28 = load i64, ptr %header_length, align 8
+  call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %header_slice, i64 noundef %28)
   %tag_length = getelementptr inbounds i8, ptr %rp, i64 296
-  %30 = load i64, ptr %tag_length, align 8
-  call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %tag_slice, i64 noundef %30)
+  %29 = load i64, ptr %tag_length, align 8
+  call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %tag_slice, i64 noundef %29)
   store ptr null, ptr %error_details, align 8
-  %31 = load ptr, ptr %header_slice, align 8
-  %tobool6.not = icmp eq ptr %31, null
+  %30 = load ptr, ptr %header_slice, align 8
+  %tobool6.not = icmp eq ptr %30, null
   %data = getelementptr inbounds i8, ptr %header_slice, i64 8
   %bytes = getelementptr inbounds i8, ptr %header_slice, i64 16
-  %32 = load ptr, ptr %bytes, align 8
+  %31 = load ptr, ptr %bytes, align 8
   %bytes8 = getelementptr inbounds i8, ptr %header_slice, i64 9
-  %cond = select i1 %tobool6.not, ptr %bytes8, ptr %32
-  %33 = load i64, ptr %data, align 8
-  %conv = and i64 %33, 255
-  %cond17 = select i1 %tobool6.not, i64 %conv, i64 %33
-  %34 = load ptr, ptr %tag_slice, align 8
-  %tobool20.not = icmp eq ptr %34, null
+  %cond = select i1 %tobool6.not, ptr %bytes8, ptr %31
+  %32 = load i64, ptr %data, align 8
+  %conv = and i64 %32, 255
+  %cond17 = select i1 %tobool6.not, i64 %conv, i64 %32
+  %33 = load ptr, ptr %tag_slice, align 8
+  %tobool20.not = icmp eq ptr %33, null
   %data22 = getelementptr inbounds i8, ptr %tag_slice, i64 8
   %bytes23 = getelementptr inbounds i8, ptr %tag_slice, i64 16
-  %35 = load ptr, ptr %bytes23, align 8
+  %34 = load ptr, ptr %bytes23, align 8
   %bytes26 = getelementptr inbounds i8, ptr %tag_slice, i64 9
-  %cond29 = select i1 %tobool20.not, ptr %bytes26, ptr %35
-  %36 = load i64, ptr %data22, align 8
-  %conv39 = and i64 %36, 255
-  %cond41 = select i1 %tobool20.not, i64 %conv39, i64 %36
+  %cond29 = select i1 %tobool20.not, ptr %bytes26, ptr %34
+  %35 = load i64, ptr %data22, align 8
+  %conv39 = and i64 %35, 255
+  %cond41 = select i1 %tobool20.not, i64 %conv39, i64 %35
   call void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef nonnull %rp, ptr noundef nonnull %unprotected_slices)
   %iovec_rp = getelementptr inbounds i8, ptr %rp, i64 8
-  %37 = load ptr, ptr %iovec_rp, align 8
+  %36 = load ptr, ptr %iovec_rp, align 8
   %iovec_buf = getelementptr inbounds i8, ptr %rp, i64 304
-  %38 = load ptr, ptr %iovec_buf, align 8
+  %37 = load ptr, ptr %iovec_buf, align 8
   %count = getelementptr inbounds i8, ptr %unprotected_slices, i64 16
-  %39 = load i64, ptr %count, align 8
+  %38 = load i64, ptr %count, align 8
   store ptr %cond29, ptr %agg.tmp42, align 8
   %tag_iovec.sroa.2.0.agg.tmp42.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
   store i64 %cond41, ptr %tag_iovec.sroa.2.0.agg.tmp42.sroa_idx, align 8
-  %call43 = call noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef %37, ptr noundef %38, i64 noundef %39, ptr %cond, i64 %cond17, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp42, ptr noundef nonnull %error_details)
+  %call43 = call noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef %36, ptr noundef %37, i64 noundef %38, ptr %cond, i64 %cond17, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp42, ptr noundef nonnull %error_details)
   %cmp44.not = icmp eq i32 %call43, 0
   br i1 %cmp44.not, label %if.end46, label %if.then45
 
 if.then45:                                        ; preds = %if.end5
+  %39 = load ptr, ptr %error_details, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 111, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %39)
   %40 = load ptr, ptr %error_details, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 111, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %40)
-  %41 = load ptr, ptr %error_details, align 8
-  call void @gpr_free(ptr noundef %41)
+  call void @gpr_free(ptr noundef %40)
   br label %return
 
 if.end46:                                         ; preds = %if.end5

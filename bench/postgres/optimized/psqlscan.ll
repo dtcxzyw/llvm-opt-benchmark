@@ -148,16 +148,16 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr ptr, ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
-  %.pre2406 = load ptr, ptr %22, align 8
-  %.pre2407 = load i64, ptr %50, align 8
-  %.phi.trans.insert2408 = getelementptr ptr, ptr %.pre2406, i64 %.pre2407
-  %.pre2409 = load ptr, ptr %.phi.trans.insert2408, align 8
+  %.pre2325 = load ptr, ptr %22, align 8
+  %.pre2326 = load i64, ptr %50, align 8
+  %.phi.trans.insert2327 = getelementptr ptr, ptr %.pre2325, i64 %.pre2326
+  %.pre2328 = load ptr, ptr %.phi.trans.insert2327, align 8
   br label %53
 
 53:                                               ; preds = %psql_yyensure_buffer_stack.exit, %24
-  %54 = phi ptr [ %.pre2409, %psql_yyensure_buffer_stack.exit ], [ %28, %24 ]
-  %55 = phi i64 [ %.pre2407, %psql_yyensure_buffer_stack.exit ], [ %26, %24 ]
-  %56 = phi ptr [ %.pre2406, %psql_yyensure_buffer_stack.exit ], [ %23, %24 ]
+  %54 = phi ptr [ %.pre2328, %psql_yyensure_buffer_stack.exit ], [ %28, %24 ]
+  %55 = phi i64 [ %.pre2326, %psql_yyensure_buffer_stack.exit ], [ %26, %24 ]
+  %56 = phi ptr [ %.pre2325, %psql_yyensure_buffer_stack.exit ], [ %23, %24 ]
   %57 = getelementptr ptr, ptr %56, i64 %55
   %58 = getelementptr inbounds i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
@@ -225,17 +225,17 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %110 = load i8, ptr %80, align 8
   store i8 %110, ptr %109, align 1
   %111 = load i32, ptr %78, align 4
-  br label %.backedge1574
+  br label %.backedge1493
 
-.backedge1574:                                    ; preds = %.backedge1574.backedge, %psqlscan_emit.exit
-  %.0706 = phi ptr [ %109, %psqlscan_emit.exit ], [ %.0706.be, %.backedge1574.backedge ]
-  %.0703 = phi ptr [ %109, %psqlscan_emit.exit ], [ %.0703.be, %.backedge1574.backedge ]
-  %.0702 = phi i32 [ %111, %psqlscan_emit.exit ], [ %.0702.be, %.backedge1574.backedge ]
+.backedge1493:                                    ; preds = %.backedge1493.backedge, %psqlscan_emit.exit
+  %.0706 = phi ptr [ %109, %psqlscan_emit.exit ], [ %.0706.be, %.backedge1493.backedge ]
+  %.0703 = phi ptr [ %109, %psqlscan_emit.exit ], [ %.0703.be, %.backedge1493.backedge ]
+  %.0702 = phi i32 [ %111, %psqlscan_emit.exit ], [ %.0702.be, %.backedge1493.backedge ]
   br label %112
 
-112:                                              ; preds = %112, %.backedge1574
-  %.1704 = phi ptr [ %.0703, %.backedge1574 ], [ %123, %112 ]
-  %.1 = phi i32 [ %.0702, %.backedge1574 ], [ %121, %112 ]
+112:                                              ; preds = %112, %.backedge1493
+  %.1704 = phi ptr [ %.0703, %.backedge1493 ], [ %123, %112 ]
+  %.1 = phi i32 [ %.0702, %.backedge1493 ], [ %121, %112 ]
   %113 = sext i32 %.1 to i64
   %114 = load i8, ptr %.1704, align 1
   %115 = zext i8 %114 to i64
@@ -378,17 +378,16 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
 
 136:                                              ; preds = %135
   %137 = load i64, ptr %108, align 8
-  %.not744 = icmp eq i64 %137, 0
-  br i1 %.not744, label %psqlscan_emit.exit.backedge, label %138
+  %.not743 = icmp eq i64 %137, 0
+  br i1 %.not743, label %psqlscan_emit.exit.backedge, label %138
 
 138:                                              ; preds = %136
   %139 = load ptr, ptr %81, align 8
   %140 = load i32, ptr %82, align 8
   %141 = load ptr, ptr %72, align 8
   %142 = load i8, ptr %94, align 4
-  %143 = and i8 %142, 1
-  %.not.i746 = icmp eq i8 %143, 0
-  br i1 %.not.i746, label %146, label %144
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %146
 
 144:                                              ; preds = %138
   %145 = sext i32 %140 to i64
@@ -445,9 +444,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %166 = load i32, ptr %82, align 8
   %167 = load ptr, ptr %72, align 8
   %168 = load i8, ptr %94, align 4
-  %169 = and i8 %168, 1
-  %.not.i747 = icmp eq i8 %169, 0
-  br i1 %.not.i747, label %172, label %170
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %170, label %172
 
 170:                                              ; preds = %161
   %171 = sext i32 %166 to i64
@@ -462,30 +460,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %177 = sub i64 %175, %176
   %178 = getelementptr i8, ptr %173, i64 %177
   %179 = icmp sgt i32 %166, 0
-  br i1 %179, label %.lr.ph.preheader.i748, label %psqlscan_emit.exit.backedge
+  br i1 %179, label %.lr.ph.preheader.i745, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i748:                            ; preds = %172
-  %wide.trip.count.i749 = zext nneg i32 %166 to i64
-  br label %.lr.ph.i750
+.lr.ph.preheader.i745:                            ; preds = %172
+  %wide.trip.count.i746 = zext nneg i32 %166 to i64
+  br label %.lr.ph.i747
 
-.lr.ph.i750:                                      ; preds = %186, %.lr.ph.preheader.i748
-  %indvars.iv.i751 = phi i64 [ 0, %.lr.ph.preheader.i748 ], [ %indvars.iv.next.i753, %186 ]
-  %180 = getelementptr i8, ptr %165, i64 %indvars.iv.i751
+.lr.ph.i747:                                      ; preds = %186, %.lr.ph.preheader.i745
+  %indvars.iv.i748 = phi i64 [ 0, %.lr.ph.preheader.i745 ], [ %indvars.iv.next.i750, %186 ]
+  %180 = getelementptr i8, ptr %165, i64 %indvars.iv.i748
   %181 = load i8, ptr %180, align 1
   %182 = icmp eq i8 %181, -1
   br i1 %182, label %183, label %186
 
-183:                                              ; preds = %.lr.ph.i750
-  %184 = getelementptr i8, ptr %178, i64 %indvars.iv.i751
+183:                                              ; preds = %.lr.ph.i747
+  %184 = getelementptr i8, ptr %178, i64 %indvars.iv.i748
   %185 = load i8, ptr %184, align 1
   br label %186
 
-186:                                              ; preds = %183, %.lr.ph.i750
-  %.0.i752 = phi i8 [ %185, %183 ], [ %181, %.lr.ph.i750 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %167, i8 noundef signext %.0.i752) #27
-  %indvars.iv.next.i753 = add nuw nsw i64 %indvars.iv.i751, 1
-  %exitcond.not.i754 = icmp eq i64 %indvars.iv.next.i753, %wide.trip.count.i749
-  br i1 %exitcond.not.i754, label %psqlscan_emit.exit.backedge, label %.lr.ph.i750, !llvm.loop !7
+186:                                              ; preds = %183, %.lr.ph.i747
+  %.0.i749 = phi i8 [ %185, %183 ], [ %181, %.lr.ph.i747 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %167, i8 noundef signext %.0.i749) #27
+  %indvars.iv.next.i750 = add nuw nsw i64 %indvars.iv.i748, 1
+  %exitcond.not.i751 = icmp eq i64 %indvars.iv.next.i750, %wide.trip.count.i746
+  br i1 %exitcond.not.i751, label %psqlscan_emit.exit.backedge, label %.lr.ph.i747, !llvm.loop !7
 
 187:                                              ; preds = %135
   %188 = load i32, ptr %107, align 4
@@ -505,9 +503,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %194 = load i32, ptr %82, align 8
   %195 = load ptr, ptr %72, align 8
   %196 = load i8, ptr %94, align 4
-  %197 = and i8 %196, 1
-  %.not.i756 = icmp eq i8 %197, 0
-  br i1 %.not.i756, label %200, label %198
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %198, label %200
 
 198:                                              ; preds = %187
   %199 = sext i32 %194 to i64
@@ -522,30 +519,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %205 = sub i64 %203, %204
   %206 = getelementptr i8, ptr %201, i64 %205
   %207 = icmp sgt i32 %194, 0
-  br i1 %207, label %.lr.ph.preheader.i757, label %psqlscan_emit.exit.backedge
+  br i1 %207, label %.lr.ph.preheader.i753, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i757:                            ; preds = %200
-  %wide.trip.count.i758 = zext nneg i32 %194 to i64
-  br label %.lr.ph.i759
+.lr.ph.preheader.i753:                            ; preds = %200
+  %wide.trip.count.i754 = zext nneg i32 %194 to i64
+  br label %.lr.ph.i755
 
-.lr.ph.i759:                                      ; preds = %214, %.lr.ph.preheader.i757
-  %indvars.iv.i760 = phi i64 [ 0, %.lr.ph.preheader.i757 ], [ %indvars.iv.next.i762, %214 ]
-  %208 = getelementptr i8, ptr %193, i64 %indvars.iv.i760
+.lr.ph.i755:                                      ; preds = %214, %.lr.ph.preheader.i753
+  %indvars.iv.i756 = phi i64 [ 0, %.lr.ph.preheader.i753 ], [ %indvars.iv.next.i758, %214 ]
+  %208 = getelementptr i8, ptr %193, i64 %indvars.iv.i756
   %209 = load i8, ptr %208, align 1
   %210 = icmp eq i8 %209, -1
   br i1 %210, label %211, label %214
 
-211:                                              ; preds = %.lr.ph.i759
-  %212 = getelementptr i8, ptr %206, i64 %indvars.iv.i760
+211:                                              ; preds = %.lr.ph.i755
+  %212 = getelementptr i8, ptr %206, i64 %indvars.iv.i756
   %213 = load i8, ptr %212, align 1
   br label %214
 
-214:                                              ; preds = %211, %.lr.ph.i759
-  %.0.i761 = phi i8 [ %213, %211 ], [ %209, %.lr.ph.i759 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %195, i8 noundef signext %.0.i761) #27
-  %indvars.iv.next.i762 = add nuw nsw i64 %indvars.iv.i760, 1
-  %exitcond.not.i763 = icmp eq i64 %indvars.iv.next.i762, %wide.trip.count.i758
-  br i1 %exitcond.not.i763, label %psqlscan_emit.exit.backedge, label %.lr.ph.i759, !llvm.loop !7
+214:                                              ; preds = %211, %.lr.ph.i755
+  %.0.i757 = phi i8 [ %213, %211 ], [ %209, %.lr.ph.i755 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %195, i8 noundef signext %.0.i757) #27
+  %indvars.iv.next.i758 = add nuw nsw i64 %indvars.iv.i756, 1
+  %exitcond.not.i759 = icmp eq i64 %indvars.iv.next.i758, %wide.trip.count.i754
+  br i1 %exitcond.not.i759, label %psqlscan_emit.exit.backedge, label %.lr.ph.i755, !llvm.loop !7
 
 215:                                              ; preds = %135
   %216 = load i32, ptr %107, align 4
@@ -566,9 +563,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %223 = load i32, ptr %82, align 8
   %224 = load ptr, ptr %72, align 8
   %225 = load i8, ptr %94, align 4
-  %226 = and i8 %225, 1
-  %.not.i765 = icmp eq i8 %226, 0
-  br i1 %.not.i765, label %229, label %227
+  %226 = trunc i8 %225 to i1
+  br i1 %226, label %227, label %229
 
 227:                                              ; preds = %221
   %228 = sext i32 %223 to i64
@@ -583,39 +579,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %234 = sub i64 %232, %233
   %235 = getelementptr i8, ptr %230, i64 %234
   %236 = icmp sgt i32 %223, 0
-  br i1 %236, label %.lr.ph.preheader.i766, label %psqlscan_emit.exit.backedge
+  br i1 %236, label %.lr.ph.preheader.i761, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i766:                            ; preds = %229
-  %wide.trip.count.i767 = zext nneg i32 %223 to i64
-  br label %.lr.ph.i768
+.lr.ph.preheader.i761:                            ; preds = %229
+  %wide.trip.count.i762 = zext nneg i32 %223 to i64
+  br label %.lr.ph.i763
 
-.lr.ph.i768:                                      ; preds = %243, %.lr.ph.preheader.i766
-  %indvars.iv.i769 = phi i64 [ 0, %.lr.ph.preheader.i766 ], [ %indvars.iv.next.i771, %243 ]
-  %237 = getelementptr i8, ptr %222, i64 %indvars.iv.i769
+.lr.ph.i763:                                      ; preds = %243, %.lr.ph.preheader.i761
+  %indvars.iv.i764 = phi i64 [ 0, %.lr.ph.preheader.i761 ], [ %indvars.iv.next.i766, %243 ]
+  %237 = getelementptr i8, ptr %222, i64 %indvars.iv.i764
   %238 = load i8, ptr %237, align 1
   %239 = icmp eq i8 %238, -1
   br i1 %239, label %240, label %243
 
-240:                                              ; preds = %.lr.ph.i768
-  %241 = getelementptr i8, ptr %235, i64 %indvars.iv.i769
+240:                                              ; preds = %.lr.ph.i763
+  %241 = getelementptr i8, ptr %235, i64 %indvars.iv.i764
   %242 = load i8, ptr %241, align 1
   br label %243
 
-243:                                              ; preds = %240, %.lr.ph.i768
-  %.0.i770 = phi i8 [ %242, %240 ], [ %238, %.lr.ph.i768 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %224, i8 noundef signext %.0.i770) #27
-  %indvars.iv.next.i771 = add nuw nsw i64 %indvars.iv.i769, 1
-  %exitcond.not.i772 = icmp eq i64 %indvars.iv.next.i771, %wide.trip.count.i767
-  br i1 %exitcond.not.i772, label %psqlscan_emit.exit.backedge, label %.lr.ph.i768, !llvm.loop !7
+243:                                              ; preds = %240, %.lr.ph.i763
+  %.0.i765 = phi i8 [ %242, %240 ], [ %238, %.lr.ph.i763 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %224, i8 noundef signext %.0.i765) #27
+  %indvars.iv.next.i766 = add nuw nsw i64 %indvars.iv.i764, 1
+  %exitcond.not.i767 = icmp eq i64 %indvars.iv.next.i766, %wide.trip.count.i762
+  br i1 %exitcond.not.i767, label %psqlscan_emit.exit.backedge, label %.lr.ph.i763, !llvm.loop !7
 
 244:                                              ; preds = %135
   %245 = load ptr, ptr %81, align 8
   %246 = load i32, ptr %82, align 8
   %247 = load ptr, ptr %72, align 8
   %248 = load i8, ptr %94, align 4
-  %249 = and i8 %248, 1
-  %.not.i774 = icmp eq i8 %249, 0
-  br i1 %.not.i774, label %252, label %250
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %250, label %252
 
 250:                                              ; preds = %244
   %251 = sext i32 %246 to i64
@@ -630,39 +625,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %257 = sub i64 %255, %256
   %258 = getelementptr i8, ptr %253, i64 %257
   %259 = icmp sgt i32 %246, 0
-  br i1 %259, label %.lr.ph.preheader.i775, label %psqlscan_emit.exit.backedge
+  br i1 %259, label %.lr.ph.preheader.i769, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i775:                            ; preds = %252
-  %wide.trip.count.i776 = zext nneg i32 %246 to i64
-  br label %.lr.ph.i777
+.lr.ph.preheader.i769:                            ; preds = %252
+  %wide.trip.count.i770 = zext nneg i32 %246 to i64
+  br label %.lr.ph.i771
 
-.lr.ph.i777:                                      ; preds = %266, %.lr.ph.preheader.i775
-  %indvars.iv.i778 = phi i64 [ 0, %.lr.ph.preheader.i775 ], [ %indvars.iv.next.i780, %266 ]
-  %260 = getelementptr i8, ptr %245, i64 %indvars.iv.i778
+.lr.ph.i771:                                      ; preds = %266, %.lr.ph.preheader.i769
+  %indvars.iv.i772 = phi i64 [ 0, %.lr.ph.preheader.i769 ], [ %indvars.iv.next.i774, %266 ]
+  %260 = getelementptr i8, ptr %245, i64 %indvars.iv.i772
   %261 = load i8, ptr %260, align 1
   %262 = icmp eq i8 %261, -1
   br i1 %262, label %263, label %266
 
-263:                                              ; preds = %.lr.ph.i777
-  %264 = getelementptr i8, ptr %258, i64 %indvars.iv.i778
+263:                                              ; preds = %.lr.ph.i771
+  %264 = getelementptr i8, ptr %258, i64 %indvars.iv.i772
   %265 = load i8, ptr %264, align 1
   br label %266
 
-266:                                              ; preds = %263, %.lr.ph.i777
-  %.0.i779 = phi i8 [ %265, %263 ], [ %261, %.lr.ph.i777 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %247, i8 noundef signext %.0.i779) #27
-  %indvars.iv.next.i780 = add nuw nsw i64 %indvars.iv.i778, 1
-  %exitcond.not.i781 = icmp eq i64 %indvars.iv.next.i780, %wide.trip.count.i776
-  br i1 %exitcond.not.i781, label %psqlscan_emit.exit.backedge, label %.lr.ph.i777, !llvm.loop !7
+266:                                              ; preds = %263, %.lr.ph.i771
+  %.0.i773 = phi i8 [ %265, %263 ], [ %261, %.lr.ph.i771 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %247, i8 noundef signext %.0.i773) #27
+  %indvars.iv.next.i774 = add nuw nsw i64 %indvars.iv.i772, 1
+  %exitcond.not.i775 = icmp eq i64 %indvars.iv.next.i774, %wide.trip.count.i770
+  br i1 %exitcond.not.i775, label %psqlscan_emit.exit.backedge, label %.lr.ph.i771, !llvm.loop !7
 
 267:                                              ; preds = %135
   %268 = load ptr, ptr %81, align 8
   %269 = load i32, ptr %82, align 8
   %270 = load ptr, ptr %72, align 8
   %271 = load i8, ptr %94, align 4
-  %272 = and i8 %271, 1
-  %.not.i783 = icmp eq i8 %272, 0
-  br i1 %.not.i783, label %275, label %273
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %273, label %275
 
 273:                                              ; preds = %267
   %274 = sext i32 %269 to i64
@@ -677,39 +671,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %280 = sub i64 %278, %279
   %281 = getelementptr i8, ptr %276, i64 %280
   %282 = icmp sgt i32 %269, 0
-  br i1 %282, label %.lr.ph.preheader.i784, label %psqlscan_emit.exit.backedge
+  br i1 %282, label %.lr.ph.preheader.i777, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i784:                            ; preds = %275
-  %wide.trip.count.i785 = zext nneg i32 %269 to i64
-  br label %.lr.ph.i786
+.lr.ph.preheader.i777:                            ; preds = %275
+  %wide.trip.count.i778 = zext nneg i32 %269 to i64
+  br label %.lr.ph.i779
 
-.lr.ph.i786:                                      ; preds = %289, %.lr.ph.preheader.i784
-  %indvars.iv.i787 = phi i64 [ 0, %.lr.ph.preheader.i784 ], [ %indvars.iv.next.i789, %289 ]
-  %283 = getelementptr i8, ptr %268, i64 %indvars.iv.i787
+.lr.ph.i779:                                      ; preds = %289, %.lr.ph.preheader.i777
+  %indvars.iv.i780 = phi i64 [ 0, %.lr.ph.preheader.i777 ], [ %indvars.iv.next.i782, %289 ]
+  %283 = getelementptr i8, ptr %268, i64 %indvars.iv.i780
   %284 = load i8, ptr %283, align 1
   %285 = icmp eq i8 %284, -1
   br i1 %285, label %286, label %289
 
-286:                                              ; preds = %.lr.ph.i786
-  %287 = getelementptr i8, ptr %281, i64 %indvars.iv.i787
+286:                                              ; preds = %.lr.ph.i779
+  %287 = getelementptr i8, ptr %281, i64 %indvars.iv.i780
   %288 = load i8, ptr %287, align 1
   br label %289
 
-289:                                              ; preds = %286, %.lr.ph.i786
-  %.0.i788 = phi i8 [ %288, %286 ], [ %284, %.lr.ph.i786 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %270, i8 noundef signext %.0.i788) #27
-  %indvars.iv.next.i789 = add nuw nsw i64 %indvars.iv.i787, 1
-  %exitcond.not.i790 = icmp eq i64 %indvars.iv.next.i789, %wide.trip.count.i785
-  br i1 %exitcond.not.i790, label %psqlscan_emit.exit.backedge, label %.lr.ph.i786, !llvm.loop !7
+289:                                              ; preds = %286, %.lr.ph.i779
+  %.0.i781 = phi i8 [ %288, %286 ], [ %284, %.lr.ph.i779 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %270, i8 noundef signext %.0.i781) #27
+  %indvars.iv.next.i782 = add nuw nsw i64 %indvars.iv.i780, 1
+  %exitcond.not.i783 = icmp eq i64 %indvars.iv.next.i782, %wide.trip.count.i778
+  br i1 %exitcond.not.i783, label %psqlscan_emit.exit.backedge, label %.lr.ph.i779, !llvm.loop !7
 
 290:                                              ; preds = %135
   %291 = load ptr, ptr %81, align 8
   %292 = load i32, ptr %82, align 8
   %293 = load ptr, ptr %72, align 8
   %294 = load i8, ptr %94, align 4
-  %295 = and i8 %294, 1
-  %.not.i792 = icmp eq i8 %295, 0
-  br i1 %.not.i792, label %298, label %296
+  %295 = trunc i8 %294 to i1
+  br i1 %295, label %296, label %298
 
 296:                                              ; preds = %290
   %297 = sext i32 %292 to i64
@@ -724,30 +717,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %303 = sub i64 %301, %302
   %304 = getelementptr i8, ptr %299, i64 %303
   %305 = icmp sgt i32 %292, 0
-  br i1 %305, label %.lr.ph.preheader.i793, label %psqlscan_emit.exit.backedge
+  br i1 %305, label %.lr.ph.preheader.i785, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i793:                            ; preds = %298
-  %wide.trip.count.i794 = zext nneg i32 %292 to i64
-  br label %.lr.ph.i795
+.lr.ph.preheader.i785:                            ; preds = %298
+  %wide.trip.count.i786 = zext nneg i32 %292 to i64
+  br label %.lr.ph.i787
 
-.lr.ph.i795:                                      ; preds = %312, %.lr.ph.preheader.i793
-  %indvars.iv.i796 = phi i64 [ 0, %.lr.ph.preheader.i793 ], [ %indvars.iv.next.i798, %312 ]
-  %306 = getelementptr i8, ptr %291, i64 %indvars.iv.i796
+.lr.ph.i787:                                      ; preds = %312, %.lr.ph.preheader.i785
+  %indvars.iv.i788 = phi i64 [ 0, %.lr.ph.preheader.i785 ], [ %indvars.iv.next.i790, %312 ]
+  %306 = getelementptr i8, ptr %291, i64 %indvars.iv.i788
   %307 = load i8, ptr %306, align 1
   %308 = icmp eq i8 %307, -1
   br i1 %308, label %309, label %312
 
-309:                                              ; preds = %.lr.ph.i795
-  %310 = getelementptr i8, ptr %304, i64 %indvars.iv.i796
+309:                                              ; preds = %.lr.ph.i787
+  %310 = getelementptr i8, ptr %304, i64 %indvars.iv.i788
   %311 = load i8, ptr %310, align 1
   br label %312
 
-312:                                              ; preds = %309, %.lr.ph.i795
-  %.0.i797 = phi i8 [ %311, %309 ], [ %307, %.lr.ph.i795 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %293, i8 noundef signext %.0.i797) #27
-  %indvars.iv.next.i798 = add nuw nsw i64 %indvars.iv.i796, 1
-  %exitcond.not.i799 = icmp eq i64 %indvars.iv.next.i798, %wide.trip.count.i794
-  br i1 %exitcond.not.i799, label %psqlscan_emit.exit.backedge, label %.lr.ph.i795, !llvm.loop !7
+312:                                              ; preds = %309, %.lr.ph.i787
+  %.0.i789 = phi i8 [ %311, %309 ], [ %307, %.lr.ph.i787 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %293, i8 noundef signext %.0.i789) #27
+  %indvars.iv.next.i790 = add nuw nsw i64 %indvars.iv.i788, 1
+  %exitcond.not.i791 = icmp eq i64 %indvars.iv.next.i790, %wide.trip.count.i786
+  br i1 %exitcond.not.i791, label %psqlscan_emit.exit.backedge, label %.lr.ph.i787, !llvm.loop !7
 
 313:                                              ; preds = %135
   store i32 3, ptr %78, align 4
@@ -755,9 +748,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %315 = load i32, ptr %82, align 8
   %316 = load ptr, ptr %72, align 8
   %317 = load i8, ptr %94, align 4
-  %318 = and i8 %317, 1
-  %.not.i801 = icmp eq i8 %318, 0
-  br i1 %.not.i801, label %321, label %319
+  %318 = trunc i8 %317 to i1
+  br i1 %318, label %319, label %321
 
 319:                                              ; preds = %313
   %320 = sext i32 %315 to i64
@@ -772,39 +764,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %326 = sub i64 %324, %325
   %327 = getelementptr i8, ptr %322, i64 %326
   %328 = icmp sgt i32 %315, 0
-  br i1 %328, label %.lr.ph.preheader.i802, label %psqlscan_emit.exit.backedge
+  br i1 %328, label %.lr.ph.preheader.i793, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i802:                            ; preds = %321
-  %wide.trip.count.i803 = zext nneg i32 %315 to i64
-  br label %.lr.ph.i804
+.lr.ph.preheader.i793:                            ; preds = %321
+  %wide.trip.count.i794 = zext nneg i32 %315 to i64
+  br label %.lr.ph.i795
 
-.lr.ph.i804:                                      ; preds = %335, %.lr.ph.preheader.i802
-  %indvars.iv.i805 = phi i64 [ 0, %.lr.ph.preheader.i802 ], [ %indvars.iv.next.i807, %335 ]
-  %329 = getelementptr i8, ptr %314, i64 %indvars.iv.i805
+.lr.ph.i795:                                      ; preds = %335, %.lr.ph.preheader.i793
+  %indvars.iv.i796 = phi i64 [ 0, %.lr.ph.preheader.i793 ], [ %indvars.iv.next.i798, %335 ]
+  %329 = getelementptr i8, ptr %314, i64 %indvars.iv.i796
   %330 = load i8, ptr %329, align 1
   %331 = icmp eq i8 %330, -1
   br i1 %331, label %332, label %335
 
-332:                                              ; preds = %.lr.ph.i804
-  %333 = getelementptr i8, ptr %327, i64 %indvars.iv.i805
+332:                                              ; preds = %.lr.ph.i795
+  %333 = getelementptr i8, ptr %327, i64 %indvars.iv.i796
   %334 = load i8, ptr %333, align 1
   br label %335
 
-335:                                              ; preds = %332, %.lr.ph.i804
-  %.0.i806 = phi i8 [ %334, %332 ], [ %330, %.lr.ph.i804 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %316, i8 noundef signext %.0.i806) #27
-  %indvars.iv.next.i807 = add nuw nsw i64 %indvars.iv.i805, 1
-  %exitcond.not.i808 = icmp eq i64 %indvars.iv.next.i807, %wide.trip.count.i803
-  br i1 %exitcond.not.i808, label %psqlscan_emit.exit.backedge, label %.lr.ph.i804, !llvm.loop !7
+335:                                              ; preds = %332, %.lr.ph.i795
+  %.0.i797 = phi i8 [ %334, %332 ], [ %330, %.lr.ph.i795 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %316, i8 noundef signext %.0.i797) #27
+  %indvars.iv.next.i798 = add nuw nsw i64 %indvars.iv.i796, 1
+  %exitcond.not.i799 = icmp eq i64 %indvars.iv.next.i798, %wide.trip.count.i794
+  br i1 %exitcond.not.i799, label %psqlscan_emit.exit.backedge, label %.lr.ph.i795, !llvm.loop !7
 
 336:                                              ; preds = %135, %135
   %337 = load ptr, ptr %81, align 8
   %338 = load i32, ptr %82, align 8
   %339 = load ptr, ptr %72, align 8
   %340 = load i8, ptr %94, align 4
-  %341 = and i8 %340, 1
-  %.not.i810 = icmp eq i8 %341, 0
-  br i1 %.not.i810, label %344, label %342
+  %341 = trunc i8 %340 to i1
+  br i1 %341, label %342, label %344
 
 342:                                              ; preds = %336
   %343 = sext i32 %338 to i64
@@ -819,30 +810,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %349 = sub i64 %347, %348
   %350 = getelementptr i8, ptr %345, i64 %349
   %351 = icmp sgt i32 %338, 0
-  br i1 %351, label %.lr.ph.preheader.i811, label %psqlscan_emit.exit.backedge
+  br i1 %351, label %.lr.ph.preheader.i801, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i811:                            ; preds = %344
-  %wide.trip.count.i812 = zext nneg i32 %338 to i64
-  br label %.lr.ph.i813
+.lr.ph.preheader.i801:                            ; preds = %344
+  %wide.trip.count.i802 = zext nneg i32 %338 to i64
+  br label %.lr.ph.i803
 
-.lr.ph.i813:                                      ; preds = %358, %.lr.ph.preheader.i811
-  %indvars.iv.i814 = phi i64 [ 0, %.lr.ph.preheader.i811 ], [ %indvars.iv.next.i816, %358 ]
-  %352 = getelementptr i8, ptr %337, i64 %indvars.iv.i814
+.lr.ph.i803:                                      ; preds = %358, %.lr.ph.preheader.i801
+  %indvars.iv.i804 = phi i64 [ 0, %.lr.ph.preheader.i801 ], [ %indvars.iv.next.i806, %358 ]
+  %352 = getelementptr i8, ptr %337, i64 %indvars.iv.i804
   %353 = load i8, ptr %352, align 1
   %354 = icmp eq i8 %353, -1
   br i1 %354, label %355, label %358
 
-355:                                              ; preds = %.lr.ph.i813
-  %356 = getelementptr i8, ptr %350, i64 %indvars.iv.i814
+355:                                              ; preds = %.lr.ph.i803
+  %356 = getelementptr i8, ptr %350, i64 %indvars.iv.i804
   %357 = load i8, ptr %356, align 1
   br label %358
 
-358:                                              ; preds = %355, %.lr.ph.i813
-  %.0.i815 = phi i8 [ %357, %355 ], [ %353, %.lr.ph.i813 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %339, i8 noundef signext %.0.i815) #27
-  %indvars.iv.next.i816 = add nuw nsw i64 %indvars.iv.i814, 1
-  %exitcond.not.i817 = icmp eq i64 %indvars.iv.next.i816, %wide.trip.count.i812
-  br i1 %exitcond.not.i817, label %psqlscan_emit.exit.backedge, label %.lr.ph.i813, !llvm.loop !7
+358:                                              ; preds = %355, %.lr.ph.i803
+  %.0.i805 = phi i8 [ %357, %355 ], [ %353, %.lr.ph.i803 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %339, i8 noundef signext %.0.i805) #27
+  %indvars.iv.next.i806 = add nuw nsw i64 %indvars.iv.i804, 1
+  %exitcond.not.i807 = icmp eq i64 %indvars.iv.next.i806, %wide.trip.count.i802
+  br i1 %exitcond.not.i807, label %psqlscan_emit.exit.backedge, label %.lr.ph.i803, !llvm.loop !7
 
 359:                                              ; preds = %135
   store i32 9, ptr %78, align 4
@@ -850,9 +841,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %361 = load i32, ptr %82, align 8
   %362 = load ptr, ptr %72, align 8
   %363 = load i8, ptr %94, align 4
-  %364 = and i8 %363, 1
-  %.not.i819 = icmp eq i8 %364, 0
-  br i1 %.not.i819, label %367, label %365
+  %364 = trunc i8 %363 to i1
+  br i1 %364, label %365, label %367
 
 365:                                              ; preds = %359
   %366 = sext i32 %361 to i64
@@ -867,30 +857,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %372 = sub i64 %370, %371
   %373 = getelementptr i8, ptr %368, i64 %372
   %374 = icmp sgt i32 %361, 0
-  br i1 %374, label %.lr.ph.preheader.i820, label %psqlscan_emit.exit.backedge
+  br i1 %374, label %.lr.ph.preheader.i809, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i820:                            ; preds = %367
-  %wide.trip.count.i821 = zext nneg i32 %361 to i64
-  br label %.lr.ph.i822
+.lr.ph.preheader.i809:                            ; preds = %367
+  %wide.trip.count.i810 = zext nneg i32 %361 to i64
+  br label %.lr.ph.i811
 
-.lr.ph.i822:                                      ; preds = %381, %.lr.ph.preheader.i820
-  %indvars.iv.i823 = phi i64 [ 0, %.lr.ph.preheader.i820 ], [ %indvars.iv.next.i825, %381 ]
-  %375 = getelementptr i8, ptr %360, i64 %indvars.iv.i823
+.lr.ph.i811:                                      ; preds = %381, %.lr.ph.preheader.i809
+  %indvars.iv.i812 = phi i64 [ 0, %.lr.ph.preheader.i809 ], [ %indvars.iv.next.i814, %381 ]
+  %375 = getelementptr i8, ptr %360, i64 %indvars.iv.i812
   %376 = load i8, ptr %375, align 1
   %377 = icmp eq i8 %376, -1
   br i1 %377, label %378, label %381
 
-378:                                              ; preds = %.lr.ph.i822
-  %379 = getelementptr i8, ptr %373, i64 %indvars.iv.i823
+378:                                              ; preds = %.lr.ph.i811
+  %379 = getelementptr i8, ptr %373, i64 %indvars.iv.i812
   %380 = load i8, ptr %379, align 1
   br label %381
 
-381:                                              ; preds = %378, %.lr.ph.i822
-  %.0.i824 = phi i8 [ %380, %378 ], [ %376, %.lr.ph.i822 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %362, i8 noundef signext %.0.i824) #27
-  %indvars.iv.next.i825 = add nuw nsw i64 %indvars.iv.i823, 1
-  %exitcond.not.i826 = icmp eq i64 %indvars.iv.next.i825, %wide.trip.count.i821
-  br i1 %exitcond.not.i826, label %psqlscan_emit.exit.backedge, label %.lr.ph.i822, !llvm.loop !7
+381:                                              ; preds = %378, %.lr.ph.i811
+  %.0.i813 = phi i8 [ %380, %378 ], [ %376, %.lr.ph.i811 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %362, i8 noundef signext %.0.i813) #27
+  %indvars.iv.next.i814 = add nuw nsw i64 %indvars.iv.i812, 1
+  %exitcond.not.i815 = icmp eq i64 %indvars.iv.next.i814, %wide.trip.count.i810
+  br i1 %exitcond.not.i815, label %psqlscan_emit.exit.backedge, label %.lr.ph.i811, !llvm.loop !7
 
 382:                                              ; preds = %135
   %383 = load i8, ptr %80, align 8
@@ -907,9 +897,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %387 = load i32, ptr %82, align 8
   %388 = load ptr, ptr %72, align 8
   %389 = load i8, ptr %94, align 4
-  %390 = and i8 %389, 1
-  %.not.i828 = icmp eq i8 %390, 0
-  br i1 %.not.i828, label %393, label %391
+  %390 = trunc i8 %389 to i1
+  br i1 %390, label %391, label %393
 
 391:                                              ; preds = %382
   %392 = sext i32 %387 to i64
@@ -924,44 +913,42 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %398 = sub i64 %396, %397
   %399 = getelementptr i8, ptr %394, i64 %398
   %400 = icmp sgt i32 %387, 0
-  br i1 %400, label %.lr.ph.preheader.i829, label %psqlscan_emit.exit.backedge
+  br i1 %400, label %.lr.ph.preheader.i817, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i829:                            ; preds = %393
-  %wide.trip.count.i830 = zext nneg i32 %387 to i64
-  br label %.lr.ph.i831
+.lr.ph.preheader.i817:                            ; preds = %393
+  %wide.trip.count.i818 = zext nneg i32 %387 to i64
+  br label %.lr.ph.i819
 
-.lr.ph.i831:                                      ; preds = %407, %.lr.ph.preheader.i829
-  %indvars.iv.i832 = phi i64 [ 0, %.lr.ph.preheader.i829 ], [ %indvars.iv.next.i834, %407 ]
-  %401 = getelementptr i8, ptr %386, i64 %indvars.iv.i832
+.lr.ph.i819:                                      ; preds = %407, %.lr.ph.preheader.i817
+  %indvars.iv.i820 = phi i64 [ 0, %.lr.ph.preheader.i817 ], [ %indvars.iv.next.i822, %407 ]
+  %401 = getelementptr i8, ptr %386, i64 %indvars.iv.i820
   %402 = load i8, ptr %401, align 1
   %403 = icmp eq i8 %402, -1
   br i1 %403, label %404, label %407
 
-404:                                              ; preds = %.lr.ph.i831
-  %405 = getelementptr i8, ptr %399, i64 %indvars.iv.i832
+404:                                              ; preds = %.lr.ph.i819
+  %405 = getelementptr i8, ptr %399, i64 %indvars.iv.i820
   %406 = load i8, ptr %405, align 1
   br label %407
 
-407:                                              ; preds = %404, %.lr.ph.i831
-  %.0.i833 = phi i8 [ %406, %404 ], [ %402, %.lr.ph.i831 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %388, i8 noundef signext %.0.i833) #27
-  %indvars.iv.next.i834 = add nuw nsw i64 %indvars.iv.i832, 1
-  %exitcond.not.i835 = icmp eq i64 %indvars.iv.next.i834, %wide.trip.count.i830
-  br i1 %exitcond.not.i835, label %psqlscan_emit.exit.backedge, label %.lr.ph.i831, !llvm.loop !7
+407:                                              ; preds = %404, %.lr.ph.i819
+  %.0.i821 = phi i8 [ %406, %404 ], [ %402, %.lr.ph.i819 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %388, i8 noundef signext %.0.i821) #27
+  %indvars.iv.next.i822 = add nuw nsw i64 %indvars.iv.i820, 1
+  %exitcond.not.i823 = icmp eq i64 %indvars.iv.next.i822, %wide.trip.count.i818
+  br i1 %exitcond.not.i823, label %psqlscan_emit.exit.backedge, label %.lr.ph.i819, !llvm.loop !7
 
 408:                                              ; preds = %135
   %409 = load i8, ptr %106, align 1
-  %410 = and i8 %409, 1
-  %.not743 = icmp eq i8 %410, 0
-  %. = select i1 %.not743, i32 15, i32 11
+  %410 = trunc i8 %409 to i1
+  %. = select i1 %410, i32 11, i32 15
   store i32 %., ptr %78, align 4
   %411 = load ptr, ptr %81, align 8
   %412 = load i32, ptr %82, align 8
   %413 = load ptr, ptr %72, align 8
   %414 = load i8, ptr %94, align 4
-  %415 = and i8 %414, 1
-  %.not.i837 = icmp eq i8 %415, 0
-  br i1 %.not.i837, label %418, label %416
+  %415 = trunc i8 %414 to i1
+  br i1 %415, label %416, label %418
 
 416:                                              ; preds = %408
   %417 = sext i32 %412 to i64
@@ -976,30 +963,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %423 = sub i64 %421, %422
   %424 = getelementptr i8, ptr %419, i64 %423
   %425 = icmp sgt i32 %412, 0
-  br i1 %425, label %.lr.ph.preheader.i838, label %psqlscan_emit.exit.backedge
+  br i1 %425, label %.lr.ph.preheader.i825, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i838:                            ; preds = %418
-  %wide.trip.count.i839 = zext nneg i32 %412 to i64
-  br label %.lr.ph.i840
+.lr.ph.preheader.i825:                            ; preds = %418
+  %wide.trip.count.i826 = zext nneg i32 %412 to i64
+  br label %.lr.ph.i827
 
-.lr.ph.i840:                                      ; preds = %432, %.lr.ph.preheader.i838
-  %indvars.iv.i841 = phi i64 [ 0, %.lr.ph.preheader.i838 ], [ %indvars.iv.next.i843, %432 ]
-  %426 = getelementptr i8, ptr %411, i64 %indvars.iv.i841
+.lr.ph.i827:                                      ; preds = %432, %.lr.ph.preheader.i825
+  %indvars.iv.i828 = phi i64 [ 0, %.lr.ph.preheader.i825 ], [ %indvars.iv.next.i830, %432 ]
+  %426 = getelementptr i8, ptr %411, i64 %indvars.iv.i828
   %427 = load i8, ptr %426, align 1
   %428 = icmp eq i8 %427, -1
   br i1 %428, label %429, label %432
 
-429:                                              ; preds = %.lr.ph.i840
-  %430 = getelementptr i8, ptr %424, i64 %indvars.iv.i841
+429:                                              ; preds = %.lr.ph.i827
+  %430 = getelementptr i8, ptr %424, i64 %indvars.iv.i828
   %431 = load i8, ptr %430, align 1
   br label %432
 
-432:                                              ; preds = %429, %.lr.ph.i840
-  %.0.i842 = phi i8 [ %431, %429 ], [ %427, %.lr.ph.i840 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %413, i8 noundef signext %.0.i842) #27
-  %indvars.iv.next.i843 = add nuw nsw i64 %indvars.iv.i841, 1
-  %exitcond.not.i844 = icmp eq i64 %indvars.iv.next.i843, %wide.trip.count.i839
-  br i1 %exitcond.not.i844, label %psqlscan_emit.exit.backedge, label %.lr.ph.i840, !llvm.loop !7
+432:                                              ; preds = %429, %.lr.ph.i827
+  %.0.i829 = phi i8 [ %431, %429 ], [ %427, %.lr.ph.i827 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %413, i8 noundef signext %.0.i829) #27
+  %indvars.iv.next.i830 = add nuw nsw i64 %indvars.iv.i828, 1
+  %exitcond.not.i831 = icmp eq i64 %indvars.iv.next.i830, %wide.trip.count.i826
+  br i1 %exitcond.not.i831, label %psqlscan_emit.exit.backedge, label %.lr.ph.i827, !llvm.loop !7
 
 433:                                              ; preds = %135
   store i32 15, ptr %78, align 4
@@ -1007,9 +994,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %435 = load i32, ptr %82, align 8
   %436 = load ptr, ptr %72, align 8
   %437 = load i8, ptr %94, align 4
-  %438 = and i8 %437, 1
-  %.not.i846 = icmp eq i8 %438, 0
-  br i1 %.not.i846, label %441, label %439
+  %438 = trunc i8 %437 to i1
+  br i1 %438, label %439, label %441
 
 439:                                              ; preds = %433
   %440 = sext i32 %435 to i64
@@ -1024,30 +1010,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %446 = sub i64 %444, %445
   %447 = getelementptr i8, ptr %442, i64 %446
   %448 = icmp sgt i32 %435, 0
-  br i1 %448, label %.lr.ph.preheader.i847, label %psqlscan_emit.exit.backedge
+  br i1 %448, label %.lr.ph.preheader.i833, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i847:                            ; preds = %441
-  %wide.trip.count.i848 = zext nneg i32 %435 to i64
-  br label %.lr.ph.i849
+.lr.ph.preheader.i833:                            ; preds = %441
+  %wide.trip.count.i834 = zext nneg i32 %435 to i64
+  br label %.lr.ph.i835
 
-.lr.ph.i849:                                      ; preds = %455, %.lr.ph.preheader.i847
-  %indvars.iv.i850 = phi i64 [ 0, %.lr.ph.preheader.i847 ], [ %indvars.iv.next.i852, %455 ]
-  %449 = getelementptr i8, ptr %434, i64 %indvars.iv.i850
+.lr.ph.i835:                                      ; preds = %455, %.lr.ph.preheader.i833
+  %indvars.iv.i836 = phi i64 [ 0, %.lr.ph.preheader.i833 ], [ %indvars.iv.next.i838, %455 ]
+  %449 = getelementptr i8, ptr %434, i64 %indvars.iv.i836
   %450 = load i8, ptr %449, align 1
   %451 = icmp eq i8 %450, -1
   br i1 %451, label %452, label %455
 
-452:                                              ; preds = %.lr.ph.i849
-  %453 = getelementptr i8, ptr %447, i64 %indvars.iv.i850
+452:                                              ; preds = %.lr.ph.i835
+  %453 = getelementptr i8, ptr %447, i64 %indvars.iv.i836
   %454 = load i8, ptr %453, align 1
   br label %455
 
-455:                                              ; preds = %452, %.lr.ph.i849
-  %.0.i851 = phi i8 [ %454, %452 ], [ %450, %.lr.ph.i849 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %436, i8 noundef signext %.0.i851) #27
-  %indvars.iv.next.i852 = add nuw nsw i64 %indvars.iv.i850, 1
-  %exitcond.not.i853 = icmp eq i64 %indvars.iv.next.i852, %wide.trip.count.i848
-  br i1 %exitcond.not.i853, label %psqlscan_emit.exit.backedge, label %.lr.ph.i849, !llvm.loop !7
+455:                                              ; preds = %452, %.lr.ph.i835
+  %.0.i837 = phi i8 [ %454, %452 ], [ %450, %.lr.ph.i835 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %436, i8 noundef signext %.0.i837) #27
+  %indvars.iv.next.i838 = add nuw nsw i64 %indvars.iv.i836, 1
+  %exitcond.not.i839 = icmp eq i64 %indvars.iv.next.i838, %wide.trip.count.i834
+  br i1 %exitcond.not.i839, label %psqlscan_emit.exit.backedge, label %.lr.ph.i835, !llvm.loop !7
 
 456:                                              ; preds = %135
   store i32 21, ptr %78, align 4
@@ -1055,9 +1041,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %458 = load i32, ptr %82, align 8
   %459 = load ptr, ptr %72, align 8
   %460 = load i8, ptr %94, align 4
-  %461 = and i8 %460, 1
-  %.not.i855 = icmp eq i8 %461, 0
-  br i1 %.not.i855, label %464, label %462
+  %461 = trunc i8 %460 to i1
+  br i1 %461, label %462, label %464
 
 462:                                              ; preds = %456
   %463 = sext i32 %458 to i64
@@ -1072,30 +1057,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %469 = sub i64 %467, %468
   %470 = getelementptr i8, ptr %465, i64 %469
   %471 = icmp sgt i32 %458, 0
-  br i1 %471, label %.lr.ph.preheader.i856, label %psqlscan_emit.exit.backedge
+  br i1 %471, label %.lr.ph.preheader.i841, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i856:                            ; preds = %464
-  %wide.trip.count.i857 = zext nneg i32 %458 to i64
-  br label %.lr.ph.i858
+.lr.ph.preheader.i841:                            ; preds = %464
+  %wide.trip.count.i842 = zext nneg i32 %458 to i64
+  br label %.lr.ph.i843
 
-.lr.ph.i858:                                      ; preds = %478, %.lr.ph.preheader.i856
-  %indvars.iv.i859 = phi i64 [ 0, %.lr.ph.preheader.i856 ], [ %indvars.iv.next.i861, %478 ]
-  %472 = getelementptr i8, ptr %457, i64 %indvars.iv.i859
+.lr.ph.i843:                                      ; preds = %478, %.lr.ph.preheader.i841
+  %indvars.iv.i844 = phi i64 [ 0, %.lr.ph.preheader.i841 ], [ %indvars.iv.next.i846, %478 ]
+  %472 = getelementptr i8, ptr %457, i64 %indvars.iv.i844
   %473 = load i8, ptr %472, align 1
   %474 = icmp eq i8 %473, -1
   br i1 %474, label %475, label %478
 
-475:                                              ; preds = %.lr.ph.i858
-  %476 = getelementptr i8, ptr %470, i64 %indvars.iv.i859
+475:                                              ; preds = %.lr.ph.i843
+  %476 = getelementptr i8, ptr %470, i64 %indvars.iv.i844
   %477 = load i8, ptr %476, align 1
   br label %478
 
-478:                                              ; preds = %475, %.lr.ph.i858
-  %.0.i860 = phi i8 [ %477, %475 ], [ %473, %.lr.ph.i858 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %459, i8 noundef signext %.0.i860) #27
-  %indvars.iv.next.i861 = add nuw nsw i64 %indvars.iv.i859, 1
-  %exitcond.not.i862 = icmp eq i64 %indvars.iv.next.i861, %wide.trip.count.i857
-  br i1 %exitcond.not.i862, label %psqlscan_emit.exit.backedge, label %.lr.ph.i858, !llvm.loop !7
+478:                                              ; preds = %475, %.lr.ph.i843
+  %.0.i845 = phi i8 [ %477, %475 ], [ %473, %.lr.ph.i843 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %459, i8 noundef signext %.0.i845) #27
+  %indvars.iv.next.i846 = add nuw nsw i64 %indvars.iv.i844, 1
+  %exitcond.not.i847 = icmp eq i64 %indvars.iv.next.i846, %wide.trip.count.i842
+  br i1 %exitcond.not.i847, label %psqlscan_emit.exit.backedge, label %.lr.ph.i843, !llvm.loop !7
 
 479:                                              ; preds = %135
   %480 = load i32, ptr %78, align 4
@@ -1107,9 +1092,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %484 = load i32, ptr %82, align 8
   %485 = load ptr, ptr %72, align 8
   %486 = load i8, ptr %94, align 4
-  %487 = and i8 %486, 1
-  %.not.i864 = icmp eq i8 %487, 0
-  br i1 %.not.i864, label %490, label %488
+  %487 = trunc i8 %486 to i1
+  br i1 %487, label %488, label %490
 
 488:                                              ; preds = %479
   %489 = sext i32 %484 to i64
@@ -1124,30 +1108,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %495 = sub i64 %493, %494
   %496 = getelementptr i8, ptr %491, i64 %495
   %497 = icmp sgt i32 %484, 0
-  br i1 %497, label %.lr.ph.preheader.i865, label %psqlscan_emit.exit.backedge
+  br i1 %497, label %.lr.ph.preheader.i849, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i865:                            ; preds = %490
-  %wide.trip.count.i866 = zext nneg i32 %484 to i64
-  br label %.lr.ph.i867
+.lr.ph.preheader.i849:                            ; preds = %490
+  %wide.trip.count.i850 = zext nneg i32 %484 to i64
+  br label %.lr.ph.i851
 
-.lr.ph.i867:                                      ; preds = %504, %.lr.ph.preheader.i865
-  %indvars.iv.i868 = phi i64 [ 0, %.lr.ph.preheader.i865 ], [ %indvars.iv.next.i870, %504 ]
-  %498 = getelementptr i8, ptr %483, i64 %indvars.iv.i868
+.lr.ph.i851:                                      ; preds = %504, %.lr.ph.preheader.i849
+  %indvars.iv.i852 = phi i64 [ 0, %.lr.ph.preheader.i849 ], [ %indvars.iv.next.i854, %504 ]
+  %498 = getelementptr i8, ptr %483, i64 %indvars.iv.i852
   %499 = load i8, ptr %498, align 1
   %500 = icmp eq i8 %499, -1
   br i1 %500, label %501, label %504
 
-501:                                              ; preds = %.lr.ph.i867
-  %502 = getelementptr i8, ptr %496, i64 %indvars.iv.i868
+501:                                              ; preds = %.lr.ph.i851
+  %502 = getelementptr i8, ptr %496, i64 %indvars.iv.i852
   %503 = load i8, ptr %502, align 1
   br label %504
 
-504:                                              ; preds = %501, %.lr.ph.i867
-  %.0.i869 = phi i8 [ %503, %501 ], [ %499, %.lr.ph.i867 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %485, i8 noundef signext %.0.i869) #27
-  %indvars.iv.next.i870 = add nuw nsw i64 %indvars.iv.i868, 1
-  %exitcond.not.i871 = icmp eq i64 %indvars.iv.next.i870, %wide.trip.count.i866
-  br i1 %exitcond.not.i871, label %psqlscan_emit.exit.backedge, label %.lr.ph.i867, !llvm.loop !7
+504:                                              ; preds = %501, %.lr.ph.i851
+  %.0.i853 = phi i8 [ %503, %501 ], [ %499, %.lr.ph.i851 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %485, i8 noundef signext %.0.i853) #27
+  %indvars.iv.next.i854 = add nuw nsw i64 %indvars.iv.i852, 1
+  %exitcond.not.i855 = icmp eq i64 %indvars.iv.next.i854, %wide.trip.count.i850
+  br i1 %exitcond.not.i855, label %psqlscan_emit.exit.backedge, label %.lr.ph.i851, !llvm.loop !7
 
 505:                                              ; preds = %135
   %506 = load i32, ptr %105, align 4
@@ -1158,9 +1142,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %510 = load i32, ptr %82, align 8
   %511 = load ptr, ptr %72, align 8
   %512 = load i8, ptr %94, align 4
-  %513 = and i8 %512, 1
-  %.not.i873 = icmp eq i8 %513, 0
-  br i1 %.not.i873, label %516, label %514
+  %513 = trunc i8 %512 to i1
+  br i1 %513, label %514, label %516
 
 514:                                              ; preds = %505
   %515 = sext i32 %510 to i64
@@ -1175,30 +1158,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %521 = sub i64 %519, %520
   %522 = getelementptr i8, ptr %517, i64 %521
   %523 = icmp sgt i32 %510, 0
-  br i1 %523, label %.lr.ph.preheader.i874, label %psqlscan_emit.exit.backedge
+  br i1 %523, label %.lr.ph.preheader.i857, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i874:                            ; preds = %516
-  %wide.trip.count.i875 = zext nneg i32 %510 to i64
-  br label %.lr.ph.i876
+.lr.ph.preheader.i857:                            ; preds = %516
+  %wide.trip.count.i858 = zext nneg i32 %510 to i64
+  br label %.lr.ph.i859
 
-.lr.ph.i876:                                      ; preds = %530, %.lr.ph.preheader.i874
-  %indvars.iv.i877 = phi i64 [ 0, %.lr.ph.preheader.i874 ], [ %indvars.iv.next.i879, %530 ]
-  %524 = getelementptr i8, ptr %509, i64 %indvars.iv.i877
+.lr.ph.i859:                                      ; preds = %530, %.lr.ph.preheader.i857
+  %indvars.iv.i860 = phi i64 [ 0, %.lr.ph.preheader.i857 ], [ %indvars.iv.next.i862, %530 ]
+  %524 = getelementptr i8, ptr %509, i64 %indvars.iv.i860
   %525 = load i8, ptr %524, align 1
   %526 = icmp eq i8 %525, -1
   br i1 %526, label %527, label %530
 
-527:                                              ; preds = %.lr.ph.i876
-  %528 = getelementptr i8, ptr %522, i64 %indvars.iv.i877
+527:                                              ; preds = %.lr.ph.i859
+  %528 = getelementptr i8, ptr %522, i64 %indvars.iv.i860
   %529 = load i8, ptr %528, align 1
   br label %530
 
-530:                                              ; preds = %527, %.lr.ph.i876
-  %.0.i878 = phi i8 [ %529, %527 ], [ %525, %.lr.ph.i876 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %511, i8 noundef signext %.0.i878) #27
-  %indvars.iv.next.i879 = add nuw nsw i64 %indvars.iv.i877, 1
-  %exitcond.not.i880 = icmp eq i64 %indvars.iv.next.i879, %wide.trip.count.i875
-  br i1 %exitcond.not.i880, label %psqlscan_emit.exit.backedge, label %.lr.ph.i876, !llvm.loop !7
+530:                                              ; preds = %527, %.lr.ph.i859
+  %.0.i861 = phi i8 [ %529, %527 ], [ %525, %.lr.ph.i859 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %511, i8 noundef signext %.0.i861) #27
+  %indvars.iv.next.i862 = add nuw nsw i64 %indvars.iv.i860, 1
+  %exitcond.not.i863 = icmp eq i64 %indvars.iv.next.i862, %wide.trip.count.i858
+  br i1 %exitcond.not.i863, label %psqlscan_emit.exit.backedge, label %.lr.ph.i859, !llvm.loop !7
 
 531:                                              ; preds = %135, %135
   %532 = load i8, ptr %80, align 8
@@ -1218,9 +1201,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %536 = load i32, ptr %82, align 8
   %537 = load ptr, ptr %72, align 8
   %538 = load i8, ptr %94, align 4
-  %539 = and i8 %538, 1
-  %.not.i882 = icmp eq i8 %539, 0
-  br i1 %.not.i882, label %542, label %540
+  %539 = trunc i8 %538 to i1
+  br i1 %539, label %540, label %542
 
 540:                                              ; preds = %534
   %541 = sext i32 %536 to i64
@@ -1235,39 +1217,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %547 = sub i64 %545, %546
   %548 = getelementptr i8, ptr %543, i64 %547
   %549 = icmp sgt i32 %536, 0
-  br i1 %549, label %.lr.ph.preheader.i883, label %psqlscan_emit.exit.backedge
+  br i1 %549, label %.lr.ph.preheader.i865, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i883:                            ; preds = %542
-  %wide.trip.count.i884 = zext nneg i32 %536 to i64
-  br label %.lr.ph.i885
+.lr.ph.preheader.i865:                            ; preds = %542
+  %wide.trip.count.i866 = zext nneg i32 %536 to i64
+  br label %.lr.ph.i867
 
-.lr.ph.i885:                                      ; preds = %556, %.lr.ph.preheader.i883
-  %indvars.iv.i886 = phi i64 [ 0, %.lr.ph.preheader.i883 ], [ %indvars.iv.next.i888, %556 ]
-  %550 = getelementptr i8, ptr %535, i64 %indvars.iv.i886
+.lr.ph.i867:                                      ; preds = %556, %.lr.ph.preheader.i865
+  %indvars.iv.i868 = phi i64 [ 0, %.lr.ph.preheader.i865 ], [ %indvars.iv.next.i870, %556 ]
+  %550 = getelementptr i8, ptr %535, i64 %indvars.iv.i868
   %551 = load i8, ptr %550, align 1
   %552 = icmp eq i8 %551, -1
   br i1 %552, label %553, label %556
 
-553:                                              ; preds = %.lr.ph.i885
-  %554 = getelementptr i8, ptr %548, i64 %indvars.iv.i886
+553:                                              ; preds = %.lr.ph.i867
+  %554 = getelementptr i8, ptr %548, i64 %indvars.iv.i868
   %555 = load i8, ptr %554, align 1
   br label %556
 
-556:                                              ; preds = %553, %.lr.ph.i885
-  %.0.i887 = phi i8 [ %555, %553 ], [ %551, %.lr.ph.i885 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %537, i8 noundef signext %.0.i887) #27
-  %indvars.iv.next.i888 = add nuw nsw i64 %indvars.iv.i886, 1
-  %exitcond.not.i889 = icmp eq i64 %indvars.iv.next.i888, %wide.trip.count.i884
-  br i1 %exitcond.not.i889, label %psqlscan_emit.exit.backedge, label %.lr.ph.i885, !llvm.loop !7
+556:                                              ; preds = %553, %.lr.ph.i867
+  %.0.i869 = phi i8 [ %555, %553 ], [ %551, %.lr.ph.i867 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %537, i8 noundef signext %.0.i869) #27
+  %indvars.iv.next.i870 = add nuw nsw i64 %indvars.iv.i868, 1
+  %exitcond.not.i871 = icmp eq i64 %indvars.iv.next.i870, %wide.trip.count.i866
+  br i1 %exitcond.not.i871, label %psqlscan_emit.exit.backedge, label %.lr.ph.i867, !llvm.loop !7
 
 557:                                              ; preds = %135
   %558 = load ptr, ptr %81, align 8
   %559 = load i32, ptr %82, align 8
   %560 = load ptr, ptr %72, align 8
   %561 = load i8, ptr %94, align 4
-  %562 = and i8 %561, 1
-  %.not.i891 = icmp eq i8 %562, 0
-  br i1 %.not.i891, label %565, label %563
+  %562 = trunc i8 %561 to i1
+  br i1 %562, label %563, label %565
 
 563:                                              ; preds = %557
   %564 = sext i32 %559 to i64
@@ -1282,39 +1263,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %570 = sub i64 %568, %569
   %571 = getelementptr i8, ptr %566, i64 %570
   %572 = icmp sgt i32 %559, 0
-  br i1 %572, label %.lr.ph.preheader.i892, label %psqlscan_emit.exit.backedge
+  br i1 %572, label %.lr.ph.preheader.i873, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i892:                            ; preds = %565
-  %wide.trip.count.i893 = zext nneg i32 %559 to i64
-  br label %.lr.ph.i894
+.lr.ph.preheader.i873:                            ; preds = %565
+  %wide.trip.count.i874 = zext nneg i32 %559 to i64
+  br label %.lr.ph.i875
 
-.lr.ph.i894:                                      ; preds = %579, %.lr.ph.preheader.i892
-  %indvars.iv.i895 = phi i64 [ 0, %.lr.ph.preheader.i892 ], [ %indvars.iv.next.i897, %579 ]
-  %573 = getelementptr i8, ptr %558, i64 %indvars.iv.i895
+.lr.ph.i875:                                      ; preds = %579, %.lr.ph.preheader.i873
+  %indvars.iv.i876 = phi i64 [ 0, %.lr.ph.preheader.i873 ], [ %indvars.iv.next.i878, %579 ]
+  %573 = getelementptr i8, ptr %558, i64 %indvars.iv.i876
   %574 = load i8, ptr %573, align 1
   %575 = icmp eq i8 %574, -1
   br i1 %575, label %576, label %579
 
-576:                                              ; preds = %.lr.ph.i894
-  %577 = getelementptr i8, ptr %571, i64 %indvars.iv.i895
+576:                                              ; preds = %.lr.ph.i875
+  %577 = getelementptr i8, ptr %571, i64 %indvars.iv.i876
   %578 = load i8, ptr %577, align 1
   br label %579
 
-579:                                              ; preds = %576, %.lr.ph.i894
-  %.0.i896 = phi i8 [ %578, %576 ], [ %574, %.lr.ph.i894 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %560, i8 noundef signext %.0.i896) #27
-  %indvars.iv.next.i897 = add nuw nsw i64 %indvars.iv.i895, 1
-  %exitcond.not.i898 = icmp eq i64 %indvars.iv.next.i897, %wide.trip.count.i893
-  br i1 %exitcond.not.i898, label %psqlscan_emit.exit.backedge, label %.lr.ph.i894, !llvm.loop !7
+579:                                              ; preds = %576, %.lr.ph.i875
+  %.0.i877 = phi i8 [ %578, %576 ], [ %574, %.lr.ph.i875 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %560, i8 noundef signext %.0.i877) #27
+  %indvars.iv.next.i878 = add nuw nsw i64 %indvars.iv.i876, 1
+  %exitcond.not.i879 = icmp eq i64 %indvars.iv.next.i878, %wide.trip.count.i874
+  br i1 %exitcond.not.i879, label %psqlscan_emit.exit.backedge, label %.lr.ph.i875, !llvm.loop !7
 
 580:                                              ; preds = %135
   %581 = load ptr, ptr %81, align 8
   %582 = load i32, ptr %82, align 8
   %583 = load ptr, ptr %72, align 8
   %584 = load i8, ptr %94, align 4
-  %585 = and i8 %584, 1
-  %.not.i900 = icmp eq i8 %585, 0
-  br i1 %.not.i900, label %588, label %586
+  %585 = trunc i8 %584 to i1
+  br i1 %585, label %586, label %588
 
 586:                                              ; preds = %580
   %587 = sext i32 %582 to i64
@@ -1329,39 +1309,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %593 = sub i64 %591, %592
   %594 = getelementptr i8, ptr %589, i64 %593
   %595 = icmp sgt i32 %582, 0
-  br i1 %595, label %.lr.ph.preheader.i901, label %psqlscan_emit.exit.backedge
+  br i1 %595, label %.lr.ph.preheader.i881, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i901:                            ; preds = %588
-  %wide.trip.count.i902 = zext nneg i32 %582 to i64
-  br label %.lr.ph.i903
+.lr.ph.preheader.i881:                            ; preds = %588
+  %wide.trip.count.i882 = zext nneg i32 %582 to i64
+  br label %.lr.ph.i883
 
-.lr.ph.i903:                                      ; preds = %602, %.lr.ph.preheader.i901
-  %indvars.iv.i904 = phi i64 [ 0, %.lr.ph.preheader.i901 ], [ %indvars.iv.next.i906, %602 ]
-  %596 = getelementptr i8, ptr %581, i64 %indvars.iv.i904
+.lr.ph.i883:                                      ; preds = %602, %.lr.ph.preheader.i881
+  %indvars.iv.i884 = phi i64 [ 0, %.lr.ph.preheader.i881 ], [ %indvars.iv.next.i886, %602 ]
+  %596 = getelementptr i8, ptr %581, i64 %indvars.iv.i884
   %597 = load i8, ptr %596, align 1
   %598 = icmp eq i8 %597, -1
   br i1 %598, label %599, label %602
 
-599:                                              ; preds = %.lr.ph.i903
-  %600 = getelementptr i8, ptr %594, i64 %indvars.iv.i904
+599:                                              ; preds = %.lr.ph.i883
+  %600 = getelementptr i8, ptr %594, i64 %indvars.iv.i884
   %601 = load i8, ptr %600, align 1
   br label %602
 
-602:                                              ; preds = %599, %.lr.ph.i903
-  %.0.i905 = phi i8 [ %601, %599 ], [ %597, %.lr.ph.i903 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %583, i8 noundef signext %.0.i905) #27
-  %indvars.iv.next.i906 = add nuw nsw i64 %indvars.iv.i904, 1
-  %exitcond.not.i907 = icmp eq i64 %indvars.iv.next.i906, %wide.trip.count.i902
-  br i1 %exitcond.not.i907, label %psqlscan_emit.exit.backedge, label %.lr.ph.i903, !llvm.loop !7
+602:                                              ; preds = %599, %.lr.ph.i883
+  %.0.i885 = phi i8 [ %601, %599 ], [ %597, %.lr.ph.i883 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %583, i8 noundef signext %.0.i885) #27
+  %indvars.iv.next.i886 = add nuw nsw i64 %indvars.iv.i884, 1
+  %exitcond.not.i887 = icmp eq i64 %indvars.iv.next.i886, %wide.trip.count.i882
+  br i1 %exitcond.not.i887, label %psqlscan_emit.exit.backedge, label %.lr.ph.i883, !llvm.loop !7
 
 603:                                              ; preds = %135
   %604 = load ptr, ptr %81, align 8
   %605 = load i32, ptr %82, align 8
   %606 = load ptr, ptr %72, align 8
   %607 = load i8, ptr %94, align 4
-  %608 = and i8 %607, 1
-  %.not.i909 = icmp eq i8 %608, 0
-  br i1 %.not.i909, label %611, label %609
+  %608 = trunc i8 %607 to i1
+  br i1 %608, label %609, label %611
 
 609:                                              ; preds = %603
   %610 = sext i32 %605 to i64
@@ -1376,39 +1355,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %616 = sub i64 %614, %615
   %617 = getelementptr i8, ptr %612, i64 %616
   %618 = icmp sgt i32 %605, 0
-  br i1 %618, label %.lr.ph.preheader.i910, label %psqlscan_emit.exit.backedge
+  br i1 %618, label %.lr.ph.preheader.i889, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i910:                            ; preds = %611
-  %wide.trip.count.i911 = zext nneg i32 %605 to i64
-  br label %.lr.ph.i912
+.lr.ph.preheader.i889:                            ; preds = %611
+  %wide.trip.count.i890 = zext nneg i32 %605 to i64
+  br label %.lr.ph.i891
 
-.lr.ph.i912:                                      ; preds = %625, %.lr.ph.preheader.i910
-  %indvars.iv.i913 = phi i64 [ 0, %.lr.ph.preheader.i910 ], [ %indvars.iv.next.i915, %625 ]
-  %619 = getelementptr i8, ptr %604, i64 %indvars.iv.i913
+.lr.ph.i891:                                      ; preds = %625, %.lr.ph.preheader.i889
+  %indvars.iv.i892 = phi i64 [ 0, %.lr.ph.preheader.i889 ], [ %indvars.iv.next.i894, %625 ]
+  %619 = getelementptr i8, ptr %604, i64 %indvars.iv.i892
   %620 = load i8, ptr %619, align 1
   %621 = icmp eq i8 %620, -1
   br i1 %621, label %622, label %625
 
-622:                                              ; preds = %.lr.ph.i912
-  %623 = getelementptr i8, ptr %617, i64 %indvars.iv.i913
+622:                                              ; preds = %.lr.ph.i891
+  %623 = getelementptr i8, ptr %617, i64 %indvars.iv.i892
   %624 = load i8, ptr %623, align 1
   br label %625
 
-625:                                              ; preds = %622, %.lr.ph.i912
-  %.0.i914 = phi i8 [ %624, %622 ], [ %620, %.lr.ph.i912 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %606, i8 noundef signext %.0.i914) #27
-  %indvars.iv.next.i915 = add nuw nsw i64 %indvars.iv.i913, 1
-  %exitcond.not.i916 = icmp eq i64 %indvars.iv.next.i915, %wide.trip.count.i911
-  br i1 %exitcond.not.i916, label %psqlscan_emit.exit.backedge, label %.lr.ph.i912, !llvm.loop !7
+625:                                              ; preds = %622, %.lr.ph.i891
+  %.0.i893 = phi i8 [ %624, %622 ], [ %620, %.lr.ph.i891 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %606, i8 noundef signext %.0.i893) #27
+  %indvars.iv.next.i894 = add nuw nsw i64 %indvars.iv.i892, 1
+  %exitcond.not.i895 = icmp eq i64 %indvars.iv.next.i894, %wide.trip.count.i890
+  br i1 %exitcond.not.i895, label %psqlscan_emit.exit.backedge, label %.lr.ph.i891, !llvm.loop !7
 
 626:                                              ; preds = %135
   %627 = load ptr, ptr %81, align 8
   %628 = load i32, ptr %82, align 8
   %629 = load ptr, ptr %72, align 8
   %630 = load i8, ptr %94, align 4
-  %631 = and i8 %630, 1
-  %.not.i918 = icmp eq i8 %631, 0
-  br i1 %.not.i918, label %634, label %632
+  %631 = trunc i8 %630 to i1
+  br i1 %631, label %632, label %634
 
 632:                                              ; preds = %626
   %633 = sext i32 %628 to i64
@@ -1423,39 +1401,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %639 = sub i64 %637, %638
   %640 = getelementptr i8, ptr %635, i64 %639
   %641 = icmp sgt i32 %628, 0
-  br i1 %641, label %.lr.ph.preheader.i919, label %psqlscan_emit.exit.backedge
+  br i1 %641, label %.lr.ph.preheader.i897, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i919:                            ; preds = %634
-  %wide.trip.count.i920 = zext nneg i32 %628 to i64
-  br label %.lr.ph.i921
+.lr.ph.preheader.i897:                            ; preds = %634
+  %wide.trip.count.i898 = zext nneg i32 %628 to i64
+  br label %.lr.ph.i899
 
-.lr.ph.i921:                                      ; preds = %648, %.lr.ph.preheader.i919
-  %indvars.iv.i922 = phi i64 [ 0, %.lr.ph.preheader.i919 ], [ %indvars.iv.next.i924, %648 ]
-  %642 = getelementptr i8, ptr %627, i64 %indvars.iv.i922
+.lr.ph.i899:                                      ; preds = %648, %.lr.ph.preheader.i897
+  %indvars.iv.i900 = phi i64 [ 0, %.lr.ph.preheader.i897 ], [ %indvars.iv.next.i902, %648 ]
+  %642 = getelementptr i8, ptr %627, i64 %indvars.iv.i900
   %643 = load i8, ptr %642, align 1
   %644 = icmp eq i8 %643, -1
   br i1 %644, label %645, label %648
 
-645:                                              ; preds = %.lr.ph.i921
-  %646 = getelementptr i8, ptr %640, i64 %indvars.iv.i922
+645:                                              ; preds = %.lr.ph.i899
+  %646 = getelementptr i8, ptr %640, i64 %indvars.iv.i900
   %647 = load i8, ptr %646, align 1
   br label %648
 
-648:                                              ; preds = %645, %.lr.ph.i921
-  %.0.i923 = phi i8 [ %647, %645 ], [ %643, %.lr.ph.i921 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %629, i8 noundef signext %.0.i923) #27
-  %indvars.iv.next.i924 = add nuw nsw i64 %indvars.iv.i922, 1
-  %exitcond.not.i925 = icmp eq i64 %indvars.iv.next.i924, %wide.trip.count.i920
-  br i1 %exitcond.not.i925, label %psqlscan_emit.exit.backedge, label %.lr.ph.i921, !llvm.loop !7
+648:                                              ; preds = %645, %.lr.ph.i899
+  %.0.i901 = phi i8 [ %647, %645 ], [ %643, %.lr.ph.i899 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %629, i8 noundef signext %.0.i901) #27
+  %indvars.iv.next.i902 = add nuw nsw i64 %indvars.iv.i900, 1
+  %exitcond.not.i903 = icmp eq i64 %indvars.iv.next.i902, %wide.trip.count.i898
+  br i1 %exitcond.not.i903, label %psqlscan_emit.exit.backedge, label %.lr.ph.i899, !llvm.loop !7
 
 649:                                              ; preds = %135
   %650 = load ptr, ptr %81, align 8
   %651 = load i32, ptr %82, align 8
   %652 = load ptr, ptr %72, align 8
   %653 = load i8, ptr %94, align 4
-  %654 = and i8 %653, 1
-  %.not.i927 = icmp eq i8 %654, 0
-  br i1 %.not.i927, label %657, label %655
+  %654 = trunc i8 %653 to i1
+  br i1 %654, label %655, label %657
 
 655:                                              ; preds = %649
   %656 = sext i32 %651 to i64
@@ -1470,39 +1447,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %662 = sub i64 %660, %661
   %663 = getelementptr i8, ptr %658, i64 %662
   %664 = icmp sgt i32 %651, 0
-  br i1 %664, label %.lr.ph.preheader.i928, label %psqlscan_emit.exit.backedge
+  br i1 %664, label %.lr.ph.preheader.i905, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i928:                            ; preds = %657
-  %wide.trip.count.i929 = zext nneg i32 %651 to i64
-  br label %.lr.ph.i930
+.lr.ph.preheader.i905:                            ; preds = %657
+  %wide.trip.count.i906 = zext nneg i32 %651 to i64
+  br label %.lr.ph.i907
 
-.lr.ph.i930:                                      ; preds = %671, %.lr.ph.preheader.i928
-  %indvars.iv.i931 = phi i64 [ 0, %.lr.ph.preheader.i928 ], [ %indvars.iv.next.i933, %671 ]
-  %665 = getelementptr i8, ptr %650, i64 %indvars.iv.i931
+.lr.ph.i907:                                      ; preds = %671, %.lr.ph.preheader.i905
+  %indvars.iv.i908 = phi i64 [ 0, %.lr.ph.preheader.i905 ], [ %indvars.iv.next.i910, %671 ]
+  %665 = getelementptr i8, ptr %650, i64 %indvars.iv.i908
   %666 = load i8, ptr %665, align 1
   %667 = icmp eq i8 %666, -1
   br i1 %667, label %668, label %671
 
-668:                                              ; preds = %.lr.ph.i930
-  %669 = getelementptr i8, ptr %663, i64 %indvars.iv.i931
+668:                                              ; preds = %.lr.ph.i907
+  %669 = getelementptr i8, ptr %663, i64 %indvars.iv.i908
   %670 = load i8, ptr %669, align 1
   br label %671
 
-671:                                              ; preds = %668, %.lr.ph.i930
-  %.0.i932 = phi i8 [ %670, %668 ], [ %666, %.lr.ph.i930 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %652, i8 noundef signext %.0.i932) #27
-  %indvars.iv.next.i933 = add nuw nsw i64 %indvars.iv.i931, 1
-  %exitcond.not.i934 = icmp eq i64 %indvars.iv.next.i933, %wide.trip.count.i929
-  br i1 %exitcond.not.i934, label %psqlscan_emit.exit.backedge, label %.lr.ph.i930, !llvm.loop !7
+671:                                              ; preds = %668, %.lr.ph.i907
+  %.0.i909 = phi i8 [ %670, %668 ], [ %666, %.lr.ph.i907 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %652, i8 noundef signext %.0.i909) #27
+  %indvars.iv.next.i910 = add nuw nsw i64 %indvars.iv.i908, 1
+  %exitcond.not.i911 = icmp eq i64 %indvars.iv.next.i910, %wide.trip.count.i906
+  br i1 %exitcond.not.i911, label %psqlscan_emit.exit.backedge, label %.lr.ph.i907, !llvm.loop !7
 
 672:                                              ; preds = %135
   %673 = load ptr, ptr %81, align 8
   %674 = load i32, ptr %82, align 8
   %675 = load ptr, ptr %72, align 8
   %676 = load i8, ptr %94, align 4
-  %677 = and i8 %676, 1
-  %.not.i936 = icmp eq i8 %677, 0
-  br i1 %.not.i936, label %680, label %678
+  %677 = trunc i8 %676 to i1
+  br i1 %677, label %678, label %680
 
 678:                                              ; preds = %672
   %679 = sext i32 %674 to i64
@@ -1517,39 +1493,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %685 = sub i64 %683, %684
   %686 = getelementptr i8, ptr %681, i64 %685
   %687 = icmp sgt i32 %674, 0
-  br i1 %687, label %.lr.ph.preheader.i937, label %psqlscan_emit.exit.backedge
+  br i1 %687, label %.lr.ph.preheader.i913, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i937:                            ; preds = %680
-  %wide.trip.count.i938 = zext nneg i32 %674 to i64
-  br label %.lr.ph.i939
+.lr.ph.preheader.i913:                            ; preds = %680
+  %wide.trip.count.i914 = zext nneg i32 %674 to i64
+  br label %.lr.ph.i915
 
-.lr.ph.i939:                                      ; preds = %694, %.lr.ph.preheader.i937
-  %indvars.iv.i940 = phi i64 [ 0, %.lr.ph.preheader.i937 ], [ %indvars.iv.next.i942, %694 ]
-  %688 = getelementptr i8, ptr %673, i64 %indvars.iv.i940
+.lr.ph.i915:                                      ; preds = %694, %.lr.ph.preheader.i913
+  %indvars.iv.i916 = phi i64 [ 0, %.lr.ph.preheader.i913 ], [ %indvars.iv.next.i918, %694 ]
+  %688 = getelementptr i8, ptr %673, i64 %indvars.iv.i916
   %689 = load i8, ptr %688, align 1
   %690 = icmp eq i8 %689, -1
   br i1 %690, label %691, label %694
 
-691:                                              ; preds = %.lr.ph.i939
-  %692 = getelementptr i8, ptr %686, i64 %indvars.iv.i940
+691:                                              ; preds = %.lr.ph.i915
+  %692 = getelementptr i8, ptr %686, i64 %indvars.iv.i916
   %693 = load i8, ptr %692, align 1
   br label %694
 
-694:                                              ; preds = %691, %.lr.ph.i939
-  %.0.i941 = phi i8 [ %693, %691 ], [ %689, %.lr.ph.i939 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %675, i8 noundef signext %.0.i941) #27
-  %indvars.iv.next.i942 = add nuw nsw i64 %indvars.iv.i940, 1
-  %exitcond.not.i943 = icmp eq i64 %indvars.iv.next.i942, %wide.trip.count.i938
-  br i1 %exitcond.not.i943, label %psqlscan_emit.exit.backedge, label %.lr.ph.i939, !llvm.loop !7
+694:                                              ; preds = %691, %.lr.ph.i915
+  %.0.i917 = phi i8 [ %693, %691 ], [ %689, %.lr.ph.i915 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %675, i8 noundef signext %.0.i917) #27
+  %indvars.iv.next.i918 = add nuw nsw i64 %indvars.iv.i916, 1
+  %exitcond.not.i919 = icmp eq i64 %indvars.iv.next.i918, %wide.trip.count.i914
+  br i1 %exitcond.not.i919, label %psqlscan_emit.exit.backedge, label %.lr.ph.i915, !llvm.loop !7
 
 695:                                              ; preds = %135
   %696 = load ptr, ptr %81, align 8
   %697 = load i32, ptr %82, align 8
   %698 = load ptr, ptr %72, align 8
   %699 = load i8, ptr %94, align 4
-  %700 = and i8 %699, 1
-  %.not.i945 = icmp eq i8 %700, 0
-  br i1 %.not.i945, label %703, label %701
+  %700 = trunc i8 %699 to i1
+  br i1 %700, label %701, label %703
 
 701:                                              ; preds = %695
   %702 = sext i32 %697 to i64
@@ -1564,39 +1539,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %708 = sub i64 %706, %707
   %709 = getelementptr i8, ptr %704, i64 %708
   %710 = icmp sgt i32 %697, 0
-  br i1 %710, label %.lr.ph.preheader.i946, label %psqlscan_emit.exit.backedge
+  br i1 %710, label %.lr.ph.preheader.i921, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i946:                            ; preds = %703
-  %wide.trip.count.i947 = zext nneg i32 %697 to i64
-  br label %.lr.ph.i948
+.lr.ph.preheader.i921:                            ; preds = %703
+  %wide.trip.count.i922 = zext nneg i32 %697 to i64
+  br label %.lr.ph.i923
 
-.lr.ph.i948:                                      ; preds = %717, %.lr.ph.preheader.i946
-  %indvars.iv.i949 = phi i64 [ 0, %.lr.ph.preheader.i946 ], [ %indvars.iv.next.i951, %717 ]
-  %711 = getelementptr i8, ptr %696, i64 %indvars.iv.i949
+.lr.ph.i923:                                      ; preds = %717, %.lr.ph.preheader.i921
+  %indvars.iv.i924 = phi i64 [ 0, %.lr.ph.preheader.i921 ], [ %indvars.iv.next.i926, %717 ]
+  %711 = getelementptr i8, ptr %696, i64 %indvars.iv.i924
   %712 = load i8, ptr %711, align 1
   %713 = icmp eq i8 %712, -1
   br i1 %713, label %714, label %717
 
-714:                                              ; preds = %.lr.ph.i948
-  %715 = getelementptr i8, ptr %709, i64 %indvars.iv.i949
+714:                                              ; preds = %.lr.ph.i923
+  %715 = getelementptr i8, ptr %709, i64 %indvars.iv.i924
   %716 = load i8, ptr %715, align 1
   br label %717
 
-717:                                              ; preds = %714, %.lr.ph.i948
-  %.0.i950 = phi i8 [ %716, %714 ], [ %712, %.lr.ph.i948 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %698, i8 noundef signext %.0.i950) #27
-  %indvars.iv.next.i951 = add nuw nsw i64 %indvars.iv.i949, 1
-  %exitcond.not.i952 = icmp eq i64 %indvars.iv.next.i951, %wide.trip.count.i947
-  br i1 %exitcond.not.i952, label %psqlscan_emit.exit.backedge, label %.lr.ph.i948, !llvm.loop !7
+717:                                              ; preds = %714, %.lr.ph.i923
+  %.0.i925 = phi i8 [ %716, %714 ], [ %712, %.lr.ph.i923 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %698, i8 noundef signext %.0.i925) #27
+  %indvars.iv.next.i926 = add nuw nsw i64 %indvars.iv.i924, 1
+  %exitcond.not.i927 = icmp eq i64 %indvars.iv.next.i926, %wide.trip.count.i922
+  br i1 %exitcond.not.i927, label %psqlscan_emit.exit.backedge, label %.lr.ph.i923, !llvm.loop !7
 
 718:                                              ; preds = %135
   %719 = load ptr, ptr %81, align 8
   %720 = load i32, ptr %82, align 8
   %721 = load ptr, ptr %72, align 8
   %722 = load i8, ptr %94, align 4
-  %723 = and i8 %722, 1
-  %.not.i954 = icmp eq i8 %723, 0
-  br i1 %.not.i954, label %726, label %724
+  %723 = trunc i8 %722 to i1
+  br i1 %723, label %724, label %726
 
 724:                                              ; preds = %718
   %725 = sext i32 %720 to i64
@@ -1611,30 +1585,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %731 = sub i64 %729, %730
   %732 = getelementptr i8, ptr %727, i64 %731
   %733 = icmp sgt i32 %720, 0
-  br i1 %733, label %.lr.ph.preheader.i955, label %psqlscan_emit.exit.backedge
+  br i1 %733, label %.lr.ph.preheader.i929, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i955:                            ; preds = %726
-  %wide.trip.count.i956 = zext nneg i32 %720 to i64
-  br label %.lr.ph.i957
+.lr.ph.preheader.i929:                            ; preds = %726
+  %wide.trip.count.i930 = zext nneg i32 %720 to i64
+  br label %.lr.ph.i931
 
-.lr.ph.i957:                                      ; preds = %740, %.lr.ph.preheader.i955
-  %indvars.iv.i958 = phi i64 [ 0, %.lr.ph.preheader.i955 ], [ %indvars.iv.next.i960, %740 ]
-  %734 = getelementptr i8, ptr %719, i64 %indvars.iv.i958
+.lr.ph.i931:                                      ; preds = %740, %.lr.ph.preheader.i929
+  %indvars.iv.i932 = phi i64 [ 0, %.lr.ph.preheader.i929 ], [ %indvars.iv.next.i934, %740 ]
+  %734 = getelementptr i8, ptr %719, i64 %indvars.iv.i932
   %735 = load i8, ptr %734, align 1
   %736 = icmp eq i8 %735, -1
   br i1 %736, label %737, label %740
 
-737:                                              ; preds = %.lr.ph.i957
-  %738 = getelementptr i8, ptr %732, i64 %indvars.iv.i958
+737:                                              ; preds = %.lr.ph.i931
+  %738 = getelementptr i8, ptr %732, i64 %indvars.iv.i932
   %739 = load i8, ptr %738, align 1
   br label %740
 
-740:                                              ; preds = %737, %.lr.ph.i957
-  %.0.i959 = phi i8 [ %739, %737 ], [ %735, %.lr.ph.i957 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %721, i8 noundef signext %.0.i959) #27
-  %indvars.iv.next.i960 = add nuw nsw i64 %indvars.iv.i958, 1
-  %exitcond.not.i961 = icmp eq i64 %indvars.iv.next.i960, %wide.trip.count.i956
-  br i1 %exitcond.not.i961, label %psqlscan_emit.exit.backedge, label %.lr.ph.i957, !llvm.loop !7
+740:                                              ; preds = %737, %.lr.ph.i931
+  %.0.i933 = phi i8 [ %739, %737 ], [ %735, %.lr.ph.i931 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %721, i8 noundef signext %.0.i933) #27
+  %indvars.iv.next.i934 = add nuw nsw i64 %indvars.iv.i932, 1
+  %exitcond.not.i935 = icmp eq i64 %indvars.iv.next.i934, %wide.trip.count.i930
+  br i1 %exitcond.not.i935, label %psqlscan_emit.exit.backedge, label %.lr.ph.i931, !llvm.loop !7
 
 741:                                              ; preds = %135
   %742 = load ptr, ptr %81, align 8
@@ -1645,9 +1619,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %745 = load i32, ptr %82, align 8
   %746 = load ptr, ptr %72, align 8
   %747 = load i8, ptr %94, align 4
-  %748 = and i8 %747, 1
-  %.not.i963 = icmp eq i8 %748, 0
-  br i1 %.not.i963, label %751, label %749
+  %748 = trunc i8 %747 to i1
+  br i1 %748, label %749, label %751
 
 749:                                              ; preds = %741
   %750 = sext i32 %745 to i64
@@ -1662,30 +1635,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %756 = sub i64 %754, %755
   %757 = getelementptr i8, ptr %752, i64 %756
   %758 = icmp sgt i32 %745, 0
-  br i1 %758, label %.lr.ph.preheader.i964, label %psqlscan_emit.exit.backedge
+  br i1 %758, label %.lr.ph.preheader.i937, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i964:                            ; preds = %751
-  %wide.trip.count.i965 = zext nneg i32 %745 to i64
-  br label %.lr.ph.i966
+.lr.ph.preheader.i937:                            ; preds = %751
+  %wide.trip.count.i938 = zext nneg i32 %745 to i64
+  br label %.lr.ph.i939
 
-.lr.ph.i966:                                      ; preds = %765, %.lr.ph.preheader.i964
-  %indvars.iv.i967 = phi i64 [ 0, %.lr.ph.preheader.i964 ], [ %indvars.iv.next.i969, %765 ]
-  %759 = getelementptr i8, ptr %744, i64 %indvars.iv.i967
+.lr.ph.i939:                                      ; preds = %765, %.lr.ph.preheader.i937
+  %indvars.iv.i940 = phi i64 [ 0, %.lr.ph.preheader.i937 ], [ %indvars.iv.next.i942, %765 ]
+  %759 = getelementptr i8, ptr %744, i64 %indvars.iv.i940
   %760 = load i8, ptr %759, align 1
   %761 = icmp eq i8 %760, -1
   br i1 %761, label %762, label %765
 
-762:                                              ; preds = %.lr.ph.i966
-  %763 = getelementptr i8, ptr %757, i64 %indvars.iv.i967
+762:                                              ; preds = %.lr.ph.i939
+  %763 = getelementptr i8, ptr %757, i64 %indvars.iv.i940
   %764 = load i8, ptr %763, align 1
   br label %765
 
-765:                                              ; preds = %762, %.lr.ph.i966
-  %.0.i968 = phi i8 [ %764, %762 ], [ %760, %.lr.ph.i966 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %746, i8 noundef signext %.0.i968) #27
-  %indvars.iv.next.i969 = add nuw nsw i64 %indvars.iv.i967, 1
-  %exitcond.not.i970 = icmp eq i64 %indvars.iv.next.i969, %wide.trip.count.i965
-  br i1 %exitcond.not.i970, label %psqlscan_emit.exit.backedge, label %.lr.ph.i966, !llvm.loop !7
+765:                                              ; preds = %762, %.lr.ph.i939
+  %.0.i941 = phi i8 [ %764, %762 ], [ %760, %.lr.ph.i939 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %746, i8 noundef signext %.0.i941) #27
+  %indvars.iv.next.i942 = add nuw nsw i64 %indvars.iv.i940, 1
+  %exitcond.not.i943 = icmp eq i64 %indvars.iv.next.i942, %wide.trip.count.i938
+  br i1 %exitcond.not.i943, label %psqlscan_emit.exit.backedge, label %.lr.ph.i939, !llvm.loop !7
 
 766:                                              ; preds = %135
   %767 = load i8, ptr %80, align 8
@@ -1702,9 +1675,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %771 = load i32, ptr %82, align 8
   %772 = load ptr, ptr %72, align 8
   %773 = load i8, ptr %94, align 4
-  %774 = and i8 %773, 1
-  %.not.i972 = icmp eq i8 %774, 0
-  br i1 %.not.i972, label %777, label %775
+  %774 = trunc i8 %773 to i1
+  br i1 %774, label %775, label %777
 
 775:                                              ; preds = %766
   %776 = sext i32 %771 to i64
@@ -1719,30 +1691,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %782 = sub i64 %780, %781
   %783 = getelementptr i8, ptr %778, i64 %782
   %784 = icmp sgt i32 %771, 0
-  br i1 %784, label %.lr.ph.preheader.i973, label %psqlscan_emit.exit.backedge
+  br i1 %784, label %.lr.ph.preheader.i945, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i973:                            ; preds = %777
-  %wide.trip.count.i974 = zext nneg i32 %771 to i64
-  br label %.lr.ph.i975
+.lr.ph.preheader.i945:                            ; preds = %777
+  %wide.trip.count.i946 = zext nneg i32 %771 to i64
+  br label %.lr.ph.i947
 
-.lr.ph.i975:                                      ; preds = %791, %.lr.ph.preheader.i973
-  %indvars.iv.i976 = phi i64 [ 0, %.lr.ph.preheader.i973 ], [ %indvars.iv.next.i978, %791 ]
-  %785 = getelementptr i8, ptr %770, i64 %indvars.iv.i976
+.lr.ph.i947:                                      ; preds = %791, %.lr.ph.preheader.i945
+  %indvars.iv.i948 = phi i64 [ 0, %.lr.ph.preheader.i945 ], [ %indvars.iv.next.i950, %791 ]
+  %785 = getelementptr i8, ptr %770, i64 %indvars.iv.i948
   %786 = load i8, ptr %785, align 1
   %787 = icmp eq i8 %786, -1
   br i1 %787, label %788, label %791
 
-788:                                              ; preds = %.lr.ph.i975
-  %789 = getelementptr i8, ptr %783, i64 %indvars.iv.i976
+788:                                              ; preds = %.lr.ph.i947
+  %789 = getelementptr i8, ptr %783, i64 %indvars.iv.i948
   %790 = load i8, ptr %789, align 1
   br label %791
 
-791:                                              ; preds = %788, %.lr.ph.i975
-  %.0.i977 = phi i8 [ %790, %788 ], [ %786, %.lr.ph.i975 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %772, i8 noundef signext %.0.i977) #27
-  %indvars.iv.next.i978 = add nuw nsw i64 %indvars.iv.i976, 1
-  %exitcond.not.i979 = icmp eq i64 %indvars.iv.next.i978, %wide.trip.count.i974
-  br i1 %exitcond.not.i979, label %psqlscan_emit.exit.backedge, label %.lr.ph.i975, !llvm.loop !7
+791:                                              ; preds = %788, %.lr.ph.i947
+  %.0.i949 = phi i8 [ %790, %788 ], [ %786, %.lr.ph.i947 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %772, i8 noundef signext %.0.i949) #27
+  %indvars.iv.next.i950 = add nuw nsw i64 %indvars.iv.i948, 1
+  %exitcond.not.i951 = icmp eq i64 %indvars.iv.next.i950, %wide.trip.count.i946
+  br i1 %exitcond.not.i951, label %psqlscan_emit.exit.backedge, label %.lr.ph.i947, !llvm.loop !7
 
 792:                                              ; preds = %135
   %793 = load ptr, ptr %81, align 8
@@ -1778,9 +1750,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %807 = load i32, ptr %82, align 8
   %808 = load ptr, ptr %72, align 8
   %809 = load i8, ptr %94, align 4
-  %810 = and i8 %809, 1
-  %.not.i981 = icmp eq i8 %810, 0
-  br i1 %.not.i981, label %813, label %811
+  %810 = trunc i8 %809 to i1
+  br i1 %810, label %811, label %813
 
 811:                                              ; preds = %805
   %812 = sext i32 %807 to i64
@@ -1795,39 +1766,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %818 = sub i64 %816, %817
   %819 = getelementptr i8, ptr %814, i64 %818
   %820 = icmp sgt i32 %807, 0
-  br i1 %820, label %.lr.ph.preheader.i982, label %psqlscan_emit.exit.backedge
+  br i1 %820, label %.lr.ph.preheader.i953, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i982:                            ; preds = %813
-  %wide.trip.count.i983 = zext nneg i32 %807 to i64
-  br label %.lr.ph.i984
+.lr.ph.preheader.i953:                            ; preds = %813
+  %wide.trip.count.i954 = zext nneg i32 %807 to i64
+  br label %.lr.ph.i955
 
-.lr.ph.i984:                                      ; preds = %827, %.lr.ph.preheader.i982
-  %indvars.iv.i985 = phi i64 [ 0, %.lr.ph.preheader.i982 ], [ %indvars.iv.next.i987, %827 ]
-  %821 = getelementptr i8, ptr %806, i64 %indvars.iv.i985
+.lr.ph.i955:                                      ; preds = %827, %.lr.ph.preheader.i953
+  %indvars.iv.i956 = phi i64 [ 0, %.lr.ph.preheader.i953 ], [ %indvars.iv.next.i958, %827 ]
+  %821 = getelementptr i8, ptr %806, i64 %indvars.iv.i956
   %822 = load i8, ptr %821, align 1
   %823 = icmp eq i8 %822, -1
   br i1 %823, label %824, label %827
 
-824:                                              ; preds = %.lr.ph.i984
-  %825 = getelementptr i8, ptr %819, i64 %indvars.iv.i985
+824:                                              ; preds = %.lr.ph.i955
+  %825 = getelementptr i8, ptr %819, i64 %indvars.iv.i956
   %826 = load i8, ptr %825, align 1
   br label %827
 
-827:                                              ; preds = %824, %.lr.ph.i984
-  %.0.i986 = phi i8 [ %826, %824 ], [ %822, %.lr.ph.i984 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %808, i8 noundef signext %.0.i986) #27
-  %indvars.iv.next.i987 = add nuw nsw i64 %indvars.iv.i985, 1
-  %exitcond.not.i988 = icmp eq i64 %indvars.iv.next.i987, %wide.trip.count.i983
-  br i1 %exitcond.not.i988, label %psqlscan_emit.exit.backedge, label %.lr.ph.i984, !llvm.loop !7
+827:                                              ; preds = %824, %.lr.ph.i955
+  %.0.i957 = phi i8 [ %826, %824 ], [ %822, %.lr.ph.i955 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %808, i8 noundef signext %.0.i957) #27
+  %indvars.iv.next.i958 = add nuw nsw i64 %indvars.iv.i956, 1
+  %exitcond.not.i959 = icmp eq i64 %indvars.iv.next.i958, %wide.trip.count.i954
+  br i1 %exitcond.not.i959, label %psqlscan_emit.exit.backedge, label %.lr.ph.i955, !llvm.loop !7
 
 828:                                              ; preds = %135
   %829 = load ptr, ptr %81, align 8
   %830 = load i32, ptr %82, align 8
   %831 = load ptr, ptr %72, align 8
   %832 = load i8, ptr %94, align 4
-  %833 = and i8 %832, 1
-  %.not.i990 = icmp eq i8 %833, 0
-  br i1 %.not.i990, label %836, label %834
+  %833 = trunc i8 %832 to i1
+  br i1 %833, label %834, label %836
 
 834:                                              ; preds = %828
   %835 = sext i32 %830 to i64
@@ -1842,39 +1812,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %841 = sub i64 %839, %840
   %842 = getelementptr i8, ptr %837, i64 %841
   %843 = icmp sgt i32 %830, 0
-  br i1 %843, label %.lr.ph.preheader.i991, label %psqlscan_emit.exit.backedge
+  br i1 %843, label %.lr.ph.preheader.i961, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i991:                            ; preds = %836
-  %wide.trip.count.i992 = zext nneg i32 %830 to i64
-  br label %.lr.ph.i993
+.lr.ph.preheader.i961:                            ; preds = %836
+  %wide.trip.count.i962 = zext nneg i32 %830 to i64
+  br label %.lr.ph.i963
 
-.lr.ph.i993:                                      ; preds = %850, %.lr.ph.preheader.i991
-  %indvars.iv.i994 = phi i64 [ 0, %.lr.ph.preheader.i991 ], [ %indvars.iv.next.i996, %850 ]
-  %844 = getelementptr i8, ptr %829, i64 %indvars.iv.i994
+.lr.ph.i963:                                      ; preds = %850, %.lr.ph.preheader.i961
+  %indvars.iv.i964 = phi i64 [ 0, %.lr.ph.preheader.i961 ], [ %indvars.iv.next.i966, %850 ]
+  %844 = getelementptr i8, ptr %829, i64 %indvars.iv.i964
   %845 = load i8, ptr %844, align 1
   %846 = icmp eq i8 %845, -1
   br i1 %846, label %847, label %850
 
-847:                                              ; preds = %.lr.ph.i993
-  %848 = getelementptr i8, ptr %842, i64 %indvars.iv.i994
+847:                                              ; preds = %.lr.ph.i963
+  %848 = getelementptr i8, ptr %842, i64 %indvars.iv.i964
   %849 = load i8, ptr %848, align 1
   br label %850
 
-850:                                              ; preds = %847, %.lr.ph.i993
-  %.0.i995 = phi i8 [ %849, %847 ], [ %845, %.lr.ph.i993 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %831, i8 noundef signext %.0.i995) #27
-  %indvars.iv.next.i996 = add nuw nsw i64 %indvars.iv.i994, 1
-  %exitcond.not.i997 = icmp eq i64 %indvars.iv.next.i996, %wide.trip.count.i992
-  br i1 %exitcond.not.i997, label %psqlscan_emit.exit.backedge, label %.lr.ph.i993, !llvm.loop !7
+850:                                              ; preds = %847, %.lr.ph.i963
+  %.0.i965 = phi i8 [ %849, %847 ], [ %845, %.lr.ph.i963 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %831, i8 noundef signext %.0.i965) #27
+  %indvars.iv.next.i966 = add nuw nsw i64 %indvars.iv.i964, 1
+  %exitcond.not.i967 = icmp eq i64 %indvars.iv.next.i966, %wide.trip.count.i962
+  br i1 %exitcond.not.i967, label %psqlscan_emit.exit.backedge, label %.lr.ph.i963, !llvm.loop !7
 
 851:                                              ; preds = %135
   %852 = load ptr, ptr %81, align 8
   %853 = load i32, ptr %82, align 8
   %854 = load ptr, ptr %72, align 8
   %855 = load i8, ptr %94, align 4
-  %856 = and i8 %855, 1
-  %.not.i999 = icmp eq i8 %856, 0
-  br i1 %.not.i999, label %859, label %857
+  %856 = trunc i8 %855 to i1
+  br i1 %856, label %857, label %859
 
 857:                                              ; preds = %851
   %858 = sext i32 %853 to i64
@@ -1889,39 +1858,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %864 = sub i64 %862, %863
   %865 = getelementptr i8, ptr %860, i64 %864
   %866 = icmp sgt i32 %853, 0
-  br i1 %866, label %.lr.ph.preheader.i1000, label %psqlscan_emit.exit.backedge
+  br i1 %866, label %.lr.ph.preheader.i969, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1000:                           ; preds = %859
-  %wide.trip.count.i1001 = zext nneg i32 %853 to i64
-  br label %.lr.ph.i1002
+.lr.ph.preheader.i969:                            ; preds = %859
+  %wide.trip.count.i970 = zext nneg i32 %853 to i64
+  br label %.lr.ph.i971
 
-.lr.ph.i1002:                                     ; preds = %873, %.lr.ph.preheader.i1000
-  %indvars.iv.i1003 = phi i64 [ 0, %.lr.ph.preheader.i1000 ], [ %indvars.iv.next.i1005, %873 ]
-  %867 = getelementptr i8, ptr %852, i64 %indvars.iv.i1003
+.lr.ph.i971:                                      ; preds = %873, %.lr.ph.preheader.i969
+  %indvars.iv.i972 = phi i64 [ 0, %.lr.ph.preheader.i969 ], [ %indvars.iv.next.i974, %873 ]
+  %867 = getelementptr i8, ptr %852, i64 %indvars.iv.i972
   %868 = load i8, ptr %867, align 1
   %869 = icmp eq i8 %868, -1
   br i1 %869, label %870, label %873
 
-870:                                              ; preds = %.lr.ph.i1002
-  %871 = getelementptr i8, ptr %865, i64 %indvars.iv.i1003
+870:                                              ; preds = %.lr.ph.i971
+  %871 = getelementptr i8, ptr %865, i64 %indvars.iv.i972
   %872 = load i8, ptr %871, align 1
   br label %873
 
-873:                                              ; preds = %870, %.lr.ph.i1002
-  %.0.i1004 = phi i8 [ %872, %870 ], [ %868, %.lr.ph.i1002 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %854, i8 noundef signext %.0.i1004) #27
-  %indvars.iv.next.i1005 = add nuw nsw i64 %indvars.iv.i1003, 1
-  %exitcond.not.i1006 = icmp eq i64 %indvars.iv.next.i1005, %wide.trip.count.i1001
-  br i1 %exitcond.not.i1006, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1002, !llvm.loop !7
+873:                                              ; preds = %870, %.lr.ph.i971
+  %.0.i973 = phi i8 [ %872, %870 ], [ %868, %.lr.ph.i971 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %854, i8 noundef signext %.0.i973) #27
+  %indvars.iv.next.i974 = add nuw nsw i64 %indvars.iv.i972, 1
+  %exitcond.not.i975 = icmp eq i64 %indvars.iv.next.i974, %wide.trip.count.i970
+  br i1 %exitcond.not.i975, label %psqlscan_emit.exit.backedge, label %.lr.ph.i971, !llvm.loop !7
 
 874:                                              ; preds = %135
   %875 = load ptr, ptr %81, align 8
   %876 = load i32, ptr %82, align 8
   %877 = load ptr, ptr %72, align 8
   %878 = load i8, ptr %94, align 4
-  %879 = and i8 %878, 1
-  %.not.i1008 = icmp eq i8 %879, 0
-  br i1 %.not.i1008, label %882, label %880
+  %879 = trunc i8 %878 to i1
+  br i1 %879, label %880, label %882
 
 880:                                              ; preds = %874
   %881 = sext i32 %876 to i64
@@ -1936,30 +1904,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %887 = sub i64 %885, %886
   %888 = getelementptr i8, ptr %883, i64 %887
   %889 = icmp sgt i32 %876, 0
-  br i1 %889, label %.lr.ph.preheader.i1009, label %psqlscan_emit.exit.backedge
+  br i1 %889, label %.lr.ph.preheader.i977, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1009:                           ; preds = %882
-  %wide.trip.count.i1010 = zext nneg i32 %876 to i64
-  br label %.lr.ph.i1011
+.lr.ph.preheader.i977:                            ; preds = %882
+  %wide.trip.count.i978 = zext nneg i32 %876 to i64
+  br label %.lr.ph.i979
 
-.lr.ph.i1011:                                     ; preds = %896, %.lr.ph.preheader.i1009
-  %indvars.iv.i1012 = phi i64 [ 0, %.lr.ph.preheader.i1009 ], [ %indvars.iv.next.i1014, %896 ]
-  %890 = getelementptr i8, ptr %875, i64 %indvars.iv.i1012
+.lr.ph.i979:                                      ; preds = %896, %.lr.ph.preheader.i977
+  %indvars.iv.i980 = phi i64 [ 0, %.lr.ph.preheader.i977 ], [ %indvars.iv.next.i982, %896 ]
+  %890 = getelementptr i8, ptr %875, i64 %indvars.iv.i980
   %891 = load i8, ptr %890, align 1
   %892 = icmp eq i8 %891, -1
   br i1 %892, label %893, label %896
 
-893:                                              ; preds = %.lr.ph.i1011
-  %894 = getelementptr i8, ptr %888, i64 %indvars.iv.i1012
+893:                                              ; preds = %.lr.ph.i979
+  %894 = getelementptr i8, ptr %888, i64 %indvars.iv.i980
   %895 = load i8, ptr %894, align 1
   br label %896
 
-896:                                              ; preds = %893, %.lr.ph.i1011
-  %.0.i1013 = phi i8 [ %895, %893 ], [ %891, %.lr.ph.i1011 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %877, i8 noundef signext %.0.i1013) #27
-  %indvars.iv.next.i1014 = add nuw nsw i64 %indvars.iv.i1012, 1
-  %exitcond.not.i1015 = icmp eq i64 %indvars.iv.next.i1014, %wide.trip.count.i1010
-  br i1 %exitcond.not.i1015, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1011, !llvm.loop !7
+896:                                              ; preds = %893, %.lr.ph.i979
+  %.0.i981 = phi i8 [ %895, %893 ], [ %891, %.lr.ph.i979 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %877, i8 noundef signext %.0.i981) #27
+  %indvars.iv.next.i982 = add nuw nsw i64 %indvars.iv.i980, 1
+  %exitcond.not.i983 = icmp eq i64 %indvars.iv.next.i982, %wide.trip.count.i978
+  br i1 %exitcond.not.i983, label %psqlscan_emit.exit.backedge, label %.lr.ph.i979, !llvm.loop !7
 
 897:                                              ; preds = %135
   store i32 7, ptr %78, align 4
@@ -1967,9 +1935,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %899 = load i32, ptr %82, align 8
   %900 = load ptr, ptr %72, align 8
   %901 = load i8, ptr %94, align 4
-  %902 = and i8 %901, 1
-  %.not.i1017 = icmp eq i8 %902, 0
-  br i1 %.not.i1017, label %905, label %903
+  %902 = trunc i8 %901 to i1
+  br i1 %902, label %903, label %905
 
 903:                                              ; preds = %897
   %904 = sext i32 %899 to i64
@@ -1984,30 +1951,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %910 = sub i64 %908, %909
   %911 = getelementptr i8, ptr %906, i64 %910
   %912 = icmp sgt i32 %899, 0
-  br i1 %912, label %.lr.ph.preheader.i1018, label %psqlscan_emit.exit.backedge
+  br i1 %912, label %.lr.ph.preheader.i985, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1018:                           ; preds = %905
-  %wide.trip.count.i1019 = zext nneg i32 %899 to i64
-  br label %.lr.ph.i1020
+.lr.ph.preheader.i985:                            ; preds = %905
+  %wide.trip.count.i986 = zext nneg i32 %899 to i64
+  br label %.lr.ph.i987
 
-.lr.ph.i1020:                                     ; preds = %919, %.lr.ph.preheader.i1018
-  %indvars.iv.i1021 = phi i64 [ 0, %.lr.ph.preheader.i1018 ], [ %indvars.iv.next.i1023, %919 ]
-  %913 = getelementptr i8, ptr %898, i64 %indvars.iv.i1021
+.lr.ph.i987:                                      ; preds = %919, %.lr.ph.preheader.i985
+  %indvars.iv.i988 = phi i64 [ 0, %.lr.ph.preheader.i985 ], [ %indvars.iv.next.i990, %919 ]
+  %913 = getelementptr i8, ptr %898, i64 %indvars.iv.i988
   %914 = load i8, ptr %913, align 1
   %915 = icmp eq i8 %914, -1
   br i1 %915, label %916, label %919
 
-916:                                              ; preds = %.lr.ph.i1020
-  %917 = getelementptr i8, ptr %911, i64 %indvars.iv.i1021
+916:                                              ; preds = %.lr.ph.i987
+  %917 = getelementptr i8, ptr %911, i64 %indvars.iv.i988
   %918 = load i8, ptr %917, align 1
   br label %919
 
-919:                                              ; preds = %916, %.lr.ph.i1020
-  %.0.i1022 = phi i8 [ %918, %916 ], [ %914, %.lr.ph.i1020 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %900, i8 noundef signext %.0.i1022) #27
-  %indvars.iv.next.i1023 = add nuw nsw i64 %indvars.iv.i1021, 1
-  %exitcond.not.i1024 = icmp eq i64 %indvars.iv.next.i1023, %wide.trip.count.i1019
-  br i1 %exitcond.not.i1024, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1020, !llvm.loop !7
+919:                                              ; preds = %916, %.lr.ph.i987
+  %.0.i989 = phi i8 [ %918, %916 ], [ %914, %.lr.ph.i987 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %900, i8 noundef signext %.0.i989) #27
+  %indvars.iv.next.i990 = add nuw nsw i64 %indvars.iv.i988, 1
+  %exitcond.not.i991 = icmp eq i64 %indvars.iv.next.i990, %wide.trip.count.i986
+  br i1 %exitcond.not.i991, label %psqlscan_emit.exit.backedge, label %.lr.ph.i987, !llvm.loop !7
 
 920:                                              ; preds = %135
   store i32 19, ptr %78, align 4
@@ -2015,9 +1982,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %922 = load i32, ptr %82, align 8
   %923 = load ptr, ptr %72, align 8
   %924 = load i8, ptr %94, align 4
-  %925 = and i8 %924, 1
-  %.not.i1026 = icmp eq i8 %925, 0
-  br i1 %.not.i1026, label %928, label %926
+  %925 = trunc i8 %924 to i1
+  br i1 %925, label %926, label %928
 
 926:                                              ; preds = %920
   %927 = sext i32 %922 to i64
@@ -2032,30 +1998,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %933 = sub i64 %931, %932
   %934 = getelementptr i8, ptr %929, i64 %933
   %935 = icmp sgt i32 %922, 0
-  br i1 %935, label %.lr.ph.preheader.i1027, label %psqlscan_emit.exit.backedge
+  br i1 %935, label %.lr.ph.preheader.i993, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1027:                           ; preds = %928
-  %wide.trip.count.i1028 = zext nneg i32 %922 to i64
-  br label %.lr.ph.i1029
+.lr.ph.preheader.i993:                            ; preds = %928
+  %wide.trip.count.i994 = zext nneg i32 %922 to i64
+  br label %.lr.ph.i995
 
-.lr.ph.i1029:                                     ; preds = %942, %.lr.ph.preheader.i1027
-  %indvars.iv.i1030 = phi i64 [ 0, %.lr.ph.preheader.i1027 ], [ %indvars.iv.next.i1032, %942 ]
-  %936 = getelementptr i8, ptr %921, i64 %indvars.iv.i1030
+.lr.ph.i995:                                      ; preds = %942, %.lr.ph.preheader.i993
+  %indvars.iv.i996 = phi i64 [ 0, %.lr.ph.preheader.i993 ], [ %indvars.iv.next.i998, %942 ]
+  %936 = getelementptr i8, ptr %921, i64 %indvars.iv.i996
   %937 = load i8, ptr %936, align 1
   %938 = icmp eq i8 %937, -1
   br i1 %938, label %939, label %942
 
-939:                                              ; preds = %.lr.ph.i1029
-  %940 = getelementptr i8, ptr %934, i64 %indvars.iv.i1030
+939:                                              ; preds = %.lr.ph.i995
+  %940 = getelementptr i8, ptr %934, i64 %indvars.iv.i996
   %941 = load i8, ptr %940, align 1
   br label %942
 
-942:                                              ; preds = %939, %.lr.ph.i1029
-  %.0.i1031 = phi i8 [ %941, %939 ], [ %937, %.lr.ph.i1029 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %923, i8 noundef signext %.0.i1031) #27
-  %indvars.iv.next.i1032 = add nuw nsw i64 %indvars.iv.i1030, 1
-  %exitcond.not.i1033 = icmp eq i64 %indvars.iv.next.i1032, %wide.trip.count.i1028
-  br i1 %exitcond.not.i1033, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1029, !llvm.loop !7
+942:                                              ; preds = %939, %.lr.ph.i995
+  %.0.i997 = phi i8 [ %941, %939 ], [ %937, %.lr.ph.i995 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %923, i8 noundef signext %.0.i997) #27
+  %indvars.iv.next.i998 = add nuw nsw i64 %indvars.iv.i996, 1
+  %exitcond.not.i999 = icmp eq i64 %indvars.iv.next.i998, %wide.trip.count.i994
+  br i1 %exitcond.not.i999, label %psqlscan_emit.exit.backedge, label %.lr.ph.i995, !llvm.loop !7
 
 943:                                              ; preds = %135
   store i32 1, ptr %78, align 4
@@ -2063,9 +2029,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %945 = load i32, ptr %82, align 8
   %946 = load ptr, ptr %72, align 8
   %947 = load i8, ptr %94, align 4
-  %948 = and i8 %947, 1
-  %.not.i1035 = icmp eq i8 %948, 0
-  br i1 %.not.i1035, label %951, label %949
+  %948 = trunc i8 %947 to i1
+  br i1 %948, label %949, label %951
 
 949:                                              ; preds = %943
   %950 = sext i32 %945 to i64
@@ -2080,30 +2045,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %956 = sub i64 %954, %955
   %957 = getelementptr i8, ptr %952, i64 %956
   %958 = icmp sgt i32 %945, 0
-  br i1 %958, label %.lr.ph.preheader.i1036, label %psqlscan_emit.exit.backedge
+  br i1 %958, label %.lr.ph.preheader.i1001, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1036:                           ; preds = %951
-  %wide.trip.count.i1037 = zext nneg i32 %945 to i64
-  br label %.lr.ph.i1038
+.lr.ph.preheader.i1001:                           ; preds = %951
+  %wide.trip.count.i1002 = zext nneg i32 %945 to i64
+  br label %.lr.ph.i1003
 
-.lr.ph.i1038:                                     ; preds = %965, %.lr.ph.preheader.i1036
-  %indvars.iv.i1039 = phi i64 [ 0, %.lr.ph.preheader.i1036 ], [ %indvars.iv.next.i1041, %965 ]
-  %959 = getelementptr i8, ptr %944, i64 %indvars.iv.i1039
+.lr.ph.i1003:                                     ; preds = %965, %.lr.ph.preheader.i1001
+  %indvars.iv.i1004 = phi i64 [ 0, %.lr.ph.preheader.i1001 ], [ %indvars.iv.next.i1006, %965 ]
+  %959 = getelementptr i8, ptr %944, i64 %indvars.iv.i1004
   %960 = load i8, ptr %959, align 1
   %961 = icmp eq i8 %960, -1
   br i1 %961, label %962, label %965
 
-962:                                              ; preds = %.lr.ph.i1038
-  %963 = getelementptr i8, ptr %957, i64 %indvars.iv.i1039
+962:                                              ; preds = %.lr.ph.i1003
+  %963 = getelementptr i8, ptr %957, i64 %indvars.iv.i1004
   %964 = load i8, ptr %963, align 1
   br label %965
 
-965:                                              ; preds = %962, %.lr.ph.i1038
-  %.0.i1040 = phi i8 [ %964, %962 ], [ %960, %.lr.ph.i1038 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %946, i8 noundef signext %.0.i1040) #27
-  %indvars.iv.next.i1041 = add nuw nsw i64 %indvars.iv.i1039, 1
-  %exitcond.not.i1042 = icmp eq i64 %indvars.iv.next.i1041, %wide.trip.count.i1037
-  br i1 %exitcond.not.i1042, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1038, !llvm.loop !7
+965:                                              ; preds = %962, %.lr.ph.i1003
+  %.0.i1005 = phi i8 [ %964, %962 ], [ %960, %.lr.ph.i1003 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %946, i8 noundef signext %.0.i1005) #27
+  %indvars.iv.next.i1006 = add nuw nsw i64 %indvars.iv.i1004, 1
+  %exitcond.not.i1007 = icmp eq i64 %indvars.iv.next.i1006, %wide.trip.count.i1002
+  br i1 %exitcond.not.i1007, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1003, !llvm.loop !7
 
 966:                                              ; preds = %135
   store i32 1, ptr %78, align 4
@@ -2111,9 +2076,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %968 = load i32, ptr %82, align 8
   %969 = load ptr, ptr %72, align 8
   %970 = load i8, ptr %94, align 4
-  %971 = and i8 %970, 1
-  %.not.i1044 = icmp eq i8 %971, 0
-  br i1 %.not.i1044, label %974, label %972
+  %971 = trunc i8 %970 to i1
+  br i1 %971, label %972, label %974
 
 972:                                              ; preds = %966
   %973 = sext i32 %968 to i64
@@ -2128,39 +2092,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %979 = sub i64 %977, %978
   %980 = getelementptr i8, ptr %975, i64 %979
   %981 = icmp sgt i32 %968, 0
-  br i1 %981, label %.lr.ph.preheader.i1045, label %psqlscan_emit.exit.backedge
+  br i1 %981, label %.lr.ph.preheader.i1009, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1045:                           ; preds = %974
-  %wide.trip.count.i1046 = zext nneg i32 %968 to i64
-  br label %.lr.ph.i1047
+.lr.ph.preheader.i1009:                           ; preds = %974
+  %wide.trip.count.i1010 = zext nneg i32 %968 to i64
+  br label %.lr.ph.i1011
 
-.lr.ph.i1047:                                     ; preds = %988, %.lr.ph.preheader.i1045
-  %indvars.iv.i1048 = phi i64 [ 0, %.lr.ph.preheader.i1045 ], [ %indvars.iv.next.i1050, %988 ]
-  %982 = getelementptr i8, ptr %967, i64 %indvars.iv.i1048
+.lr.ph.i1011:                                     ; preds = %988, %.lr.ph.preheader.i1009
+  %indvars.iv.i1012 = phi i64 [ 0, %.lr.ph.preheader.i1009 ], [ %indvars.iv.next.i1014, %988 ]
+  %982 = getelementptr i8, ptr %967, i64 %indvars.iv.i1012
   %983 = load i8, ptr %982, align 1
   %984 = icmp eq i8 %983, -1
   br i1 %984, label %985, label %988
 
-985:                                              ; preds = %.lr.ph.i1047
-  %986 = getelementptr i8, ptr %980, i64 %indvars.iv.i1048
+985:                                              ; preds = %.lr.ph.i1011
+  %986 = getelementptr i8, ptr %980, i64 %indvars.iv.i1012
   %987 = load i8, ptr %986, align 1
   br label %988
 
-988:                                              ; preds = %985, %.lr.ph.i1047
-  %.0.i1049 = phi i8 [ %987, %985 ], [ %983, %.lr.ph.i1047 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %969, i8 noundef signext %.0.i1049) #27
-  %indvars.iv.next.i1050 = add nuw nsw i64 %indvars.iv.i1048, 1
-  %exitcond.not.i1051 = icmp eq i64 %indvars.iv.next.i1050, %wide.trip.count.i1046
-  br i1 %exitcond.not.i1051, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1047, !llvm.loop !7
+988:                                              ; preds = %985, %.lr.ph.i1011
+  %.0.i1013 = phi i8 [ %987, %985 ], [ %983, %.lr.ph.i1011 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %969, i8 noundef signext %.0.i1013) #27
+  %indvars.iv.next.i1014 = add nuw nsw i64 %indvars.iv.i1012, 1
+  %exitcond.not.i1015 = icmp eq i64 %indvars.iv.next.i1014, %wide.trip.count.i1010
+  br i1 %exitcond.not.i1015, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1011, !llvm.loop !7
 
 989:                                              ; preds = %135
   %990 = load ptr, ptr %81, align 8
   %991 = load i32, ptr %82, align 8
   %992 = load ptr, ptr %72, align 8
   %993 = load i8, ptr %94, align 4
-  %994 = and i8 %993, 1
-  %.not.i1053 = icmp eq i8 %994, 0
-  br i1 %.not.i1053, label %997, label %995
+  %994 = trunc i8 %993 to i1
+  br i1 %994, label %995, label %997
 
 995:                                              ; preds = %989
   %996 = sext i32 %991 to i64
@@ -2175,39 +2138,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1002 = sub i64 %1000, %1001
   %1003 = getelementptr i8, ptr %998, i64 %1002
   %1004 = icmp sgt i32 %991, 0
-  br i1 %1004, label %.lr.ph.preheader.i1054, label %psqlscan_emit.exit.backedge
+  br i1 %1004, label %.lr.ph.preheader.i1017, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1054:                           ; preds = %997
-  %wide.trip.count.i1055 = zext nneg i32 %991 to i64
-  br label %.lr.ph.i1056
+.lr.ph.preheader.i1017:                           ; preds = %997
+  %wide.trip.count.i1018 = zext nneg i32 %991 to i64
+  br label %.lr.ph.i1019
 
-.lr.ph.i1056:                                     ; preds = %1011, %.lr.ph.preheader.i1054
-  %indvars.iv.i1057 = phi i64 [ 0, %.lr.ph.preheader.i1054 ], [ %indvars.iv.next.i1059, %1011 ]
-  %1005 = getelementptr i8, ptr %990, i64 %indvars.iv.i1057
+.lr.ph.i1019:                                     ; preds = %1011, %.lr.ph.preheader.i1017
+  %indvars.iv.i1020 = phi i64 [ 0, %.lr.ph.preheader.i1017 ], [ %indvars.iv.next.i1022, %1011 ]
+  %1005 = getelementptr i8, ptr %990, i64 %indvars.iv.i1020
   %1006 = load i8, ptr %1005, align 1
   %1007 = icmp eq i8 %1006, -1
   br i1 %1007, label %1008, label %1011
 
-1008:                                             ; preds = %.lr.ph.i1056
-  %1009 = getelementptr i8, ptr %1003, i64 %indvars.iv.i1057
+1008:                                             ; preds = %.lr.ph.i1019
+  %1009 = getelementptr i8, ptr %1003, i64 %indvars.iv.i1020
   %1010 = load i8, ptr %1009, align 1
   br label %1011
 
-1011:                                             ; preds = %1008, %.lr.ph.i1056
-  %.0.i1058 = phi i8 [ %1010, %1008 ], [ %1006, %.lr.ph.i1056 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %992, i8 noundef signext %.0.i1058) #27
-  %indvars.iv.next.i1059 = add nuw nsw i64 %indvars.iv.i1057, 1
-  %exitcond.not.i1060 = icmp eq i64 %indvars.iv.next.i1059, %wide.trip.count.i1055
-  br i1 %exitcond.not.i1060, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1056, !llvm.loop !7
+1011:                                             ; preds = %1008, %.lr.ph.i1019
+  %.0.i1021 = phi i8 [ %1010, %1008 ], [ %1006, %.lr.ph.i1019 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %992, i8 noundef signext %.0.i1021) #27
+  %indvars.iv.next.i1022 = add nuw nsw i64 %indvars.iv.i1020, 1
+  %exitcond.not.i1023 = icmp eq i64 %indvars.iv.next.i1022, %wide.trip.count.i1018
+  br i1 %exitcond.not.i1023, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1019, !llvm.loop !7
 
 1012:                                             ; preds = %135
   %1013 = load ptr, ptr %81, align 8
   %1014 = load i32, ptr %82, align 8
   %1015 = load ptr, ptr %72, align 8
   %1016 = load i8, ptr %94, align 4
-  %1017 = and i8 %1016, 1
-  %.not.i1062 = icmp eq i8 %1017, 0
-  br i1 %.not.i1062, label %1020, label %1018
+  %1017 = trunc i8 %1016 to i1
+  br i1 %1017, label %1018, label %1020
 
 1018:                                             ; preds = %1012
   %1019 = sext i32 %1014 to i64
@@ -2222,30 +2184,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1025 = sub i64 %1023, %1024
   %1026 = getelementptr i8, ptr %1021, i64 %1025
   %1027 = icmp sgt i32 %1014, 0
-  br i1 %1027, label %.lr.ph.preheader.i1063, label %psqlscan_emit.exit.backedge
+  br i1 %1027, label %.lr.ph.preheader.i1025, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1063:                           ; preds = %1020
-  %wide.trip.count.i1064 = zext nneg i32 %1014 to i64
-  br label %.lr.ph.i1065
+.lr.ph.preheader.i1025:                           ; preds = %1020
+  %wide.trip.count.i1026 = zext nneg i32 %1014 to i64
+  br label %.lr.ph.i1027
 
-.lr.ph.i1065:                                     ; preds = %1034, %.lr.ph.preheader.i1063
-  %indvars.iv.i1066 = phi i64 [ 0, %.lr.ph.preheader.i1063 ], [ %indvars.iv.next.i1068, %1034 ]
-  %1028 = getelementptr i8, ptr %1013, i64 %indvars.iv.i1066
+.lr.ph.i1027:                                     ; preds = %1034, %.lr.ph.preheader.i1025
+  %indvars.iv.i1028 = phi i64 [ 0, %.lr.ph.preheader.i1025 ], [ %indvars.iv.next.i1030, %1034 ]
+  %1028 = getelementptr i8, ptr %1013, i64 %indvars.iv.i1028
   %1029 = load i8, ptr %1028, align 1
   %1030 = icmp eq i8 %1029, -1
   br i1 %1030, label %1031, label %1034
 
-1031:                                             ; preds = %.lr.ph.i1065
-  %1032 = getelementptr i8, ptr %1026, i64 %indvars.iv.i1066
+1031:                                             ; preds = %.lr.ph.i1027
+  %1032 = getelementptr i8, ptr %1026, i64 %indvars.iv.i1028
   %1033 = load i8, ptr %1032, align 1
   br label %1034
 
-1034:                                             ; preds = %1031, %.lr.ph.i1065
-  %.0.i1067 = phi i8 [ %1033, %1031 ], [ %1029, %.lr.ph.i1065 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1015, i8 noundef signext %.0.i1067) #27
-  %indvars.iv.next.i1068 = add nuw nsw i64 %indvars.iv.i1066, 1
-  %exitcond.not.i1069 = icmp eq i64 %indvars.iv.next.i1068, %wide.trip.count.i1064
-  br i1 %exitcond.not.i1069, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1065, !llvm.loop !7
+1034:                                             ; preds = %1031, %.lr.ph.i1027
+  %.0.i1029 = phi i8 [ %1033, %1031 ], [ %1029, %.lr.ph.i1027 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1015, i8 noundef signext %.0.i1029) #27
+  %indvars.iv.next.i1030 = add nuw nsw i64 %indvars.iv.i1028, 1
+  %exitcond.not.i1031 = icmp eq i64 %indvars.iv.next.i1030, %wide.trip.count.i1026
+  br i1 %exitcond.not.i1031, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1027, !llvm.loop !7
 
 1035:                                             ; preds = %135
   %1036 = load i8, ptr %80, align 8
@@ -2262,9 +2224,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1040 = load i32, ptr %82, align 8
   %1041 = load ptr, ptr %72, align 8
   %1042 = load i8, ptr %94, align 4
-  %1043 = and i8 %1042, 1
-  %.not.i1071 = icmp eq i8 %1043, 0
-  br i1 %.not.i1071, label %1046, label %1044
+  %1043 = trunc i8 %1042 to i1
+  br i1 %1043, label %1044, label %1046
 
 1044:                                             ; preds = %1035
   %1045 = sext i32 %1040 to i64
@@ -2279,39 +2240,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1051 = sub i64 %1049, %1050
   %1052 = getelementptr i8, ptr %1047, i64 %1051
   %1053 = icmp sgt i32 %1040, 0
-  br i1 %1053, label %.lr.ph.preheader.i1072, label %psqlscan_emit.exit.backedge
+  br i1 %1053, label %.lr.ph.preheader.i1033, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1072:                           ; preds = %1046
-  %wide.trip.count.i1073 = zext nneg i32 %1040 to i64
-  br label %.lr.ph.i1074
+.lr.ph.preheader.i1033:                           ; preds = %1046
+  %wide.trip.count.i1034 = zext nneg i32 %1040 to i64
+  br label %.lr.ph.i1035
 
-.lr.ph.i1074:                                     ; preds = %1060, %.lr.ph.preheader.i1072
-  %indvars.iv.i1075 = phi i64 [ 0, %.lr.ph.preheader.i1072 ], [ %indvars.iv.next.i1077, %1060 ]
-  %1054 = getelementptr i8, ptr %1039, i64 %indvars.iv.i1075
+.lr.ph.i1035:                                     ; preds = %1060, %.lr.ph.preheader.i1033
+  %indvars.iv.i1036 = phi i64 [ 0, %.lr.ph.preheader.i1033 ], [ %indvars.iv.next.i1038, %1060 ]
+  %1054 = getelementptr i8, ptr %1039, i64 %indvars.iv.i1036
   %1055 = load i8, ptr %1054, align 1
   %1056 = icmp eq i8 %1055, -1
   br i1 %1056, label %1057, label %1060
 
-1057:                                             ; preds = %.lr.ph.i1074
-  %1058 = getelementptr i8, ptr %1052, i64 %indvars.iv.i1075
+1057:                                             ; preds = %.lr.ph.i1035
+  %1058 = getelementptr i8, ptr %1052, i64 %indvars.iv.i1036
   %1059 = load i8, ptr %1058, align 1
   br label %1060
 
-1060:                                             ; preds = %1057, %.lr.ph.i1074
-  %.0.i1076 = phi i8 [ %1059, %1057 ], [ %1055, %.lr.ph.i1074 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1041, i8 noundef signext %.0.i1076) #27
-  %indvars.iv.next.i1077 = add nuw nsw i64 %indvars.iv.i1075, 1
-  %exitcond.not.i1078 = icmp eq i64 %indvars.iv.next.i1077, %wide.trip.count.i1073
-  br i1 %exitcond.not.i1078, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1074, !llvm.loop !7
+1060:                                             ; preds = %1057, %.lr.ph.i1035
+  %.0.i1037 = phi i8 [ %1059, %1057 ], [ %1055, %.lr.ph.i1035 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1041, i8 noundef signext %.0.i1037) #27
+  %indvars.iv.next.i1038 = add nuw nsw i64 %indvars.iv.i1036, 1
+  %exitcond.not.i1039 = icmp eq i64 %indvars.iv.next.i1038, %wide.trip.count.i1034
+  br i1 %exitcond.not.i1039, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1035, !llvm.loop !7
 
 1061:                                             ; preds = %135
   %1062 = load ptr, ptr %81, align 8
   %1063 = load i32, ptr %82, align 8
   %1064 = load ptr, ptr %72, align 8
   %1065 = load i8, ptr %94, align 4
-  %1066 = and i8 %1065, 1
-  %.not.i1080 = icmp eq i8 %1066, 0
-  br i1 %.not.i1080, label %1069, label %1067
+  %1066 = trunc i8 %1065 to i1
+  br i1 %1066, label %1067, label %1069
 
 1067:                                             ; preds = %1061
   %1068 = sext i32 %1063 to i64
@@ -2326,39 +2286,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1074 = sub i64 %1072, %1073
   %1075 = getelementptr i8, ptr %1070, i64 %1074
   %1076 = icmp sgt i32 %1063, 0
-  br i1 %1076, label %.lr.ph.preheader.i1081, label %psqlscan_emit.exit.backedge
+  br i1 %1076, label %.lr.ph.preheader.i1041, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1081:                           ; preds = %1069
-  %wide.trip.count.i1082 = zext nneg i32 %1063 to i64
-  br label %.lr.ph.i1083
+.lr.ph.preheader.i1041:                           ; preds = %1069
+  %wide.trip.count.i1042 = zext nneg i32 %1063 to i64
+  br label %.lr.ph.i1043
 
-.lr.ph.i1083:                                     ; preds = %1083, %.lr.ph.preheader.i1081
-  %indvars.iv.i1084 = phi i64 [ 0, %.lr.ph.preheader.i1081 ], [ %indvars.iv.next.i1086, %1083 ]
-  %1077 = getelementptr i8, ptr %1062, i64 %indvars.iv.i1084
+.lr.ph.i1043:                                     ; preds = %1083, %.lr.ph.preheader.i1041
+  %indvars.iv.i1044 = phi i64 [ 0, %.lr.ph.preheader.i1041 ], [ %indvars.iv.next.i1046, %1083 ]
+  %1077 = getelementptr i8, ptr %1062, i64 %indvars.iv.i1044
   %1078 = load i8, ptr %1077, align 1
   %1079 = icmp eq i8 %1078, -1
   br i1 %1079, label %1080, label %1083
 
-1080:                                             ; preds = %.lr.ph.i1083
-  %1081 = getelementptr i8, ptr %1075, i64 %indvars.iv.i1084
+1080:                                             ; preds = %.lr.ph.i1043
+  %1081 = getelementptr i8, ptr %1075, i64 %indvars.iv.i1044
   %1082 = load i8, ptr %1081, align 1
   br label %1083
 
-1083:                                             ; preds = %1080, %.lr.ph.i1083
-  %.0.i1085 = phi i8 [ %1082, %1080 ], [ %1078, %.lr.ph.i1083 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1064, i8 noundef signext %.0.i1085) #27
-  %indvars.iv.next.i1086 = add nuw nsw i64 %indvars.iv.i1084, 1
-  %exitcond.not.i1087 = icmp eq i64 %indvars.iv.next.i1086, %wide.trip.count.i1082
-  br i1 %exitcond.not.i1087, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1083, !llvm.loop !7
+1083:                                             ; preds = %1080, %.lr.ph.i1043
+  %.0.i1045 = phi i8 [ %1082, %1080 ], [ %1078, %.lr.ph.i1043 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1064, i8 noundef signext %.0.i1045) #27
+  %indvars.iv.next.i1046 = add nuw nsw i64 %indvars.iv.i1044, 1
+  %exitcond.not.i1047 = icmp eq i64 %indvars.iv.next.i1046, %wide.trip.count.i1042
+  br i1 %exitcond.not.i1047, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1043, !llvm.loop !7
 
 1084:                                             ; preds = %135
   %1085 = load ptr, ptr %81, align 8
   %1086 = load i32, ptr %82, align 8
   %1087 = load ptr, ptr %72, align 8
   %1088 = load i8, ptr %94, align 4
-  %1089 = and i8 %1088, 1
-  %.not.i1089 = icmp eq i8 %1089, 0
-  br i1 %.not.i1089, label %1092, label %1090
+  %1089 = trunc i8 %1088 to i1
+  br i1 %1089, label %1090, label %1092
 
 1090:                                             ; preds = %1084
   %1091 = sext i32 %1086 to i64
@@ -2373,39 +2332,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1097 = sub i64 %1095, %1096
   %1098 = getelementptr i8, ptr %1093, i64 %1097
   %1099 = icmp sgt i32 %1086, 0
-  br i1 %1099, label %.lr.ph.preheader.i1090, label %psqlscan_emit.exit.backedge
+  br i1 %1099, label %.lr.ph.preheader.i1049, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1090:                           ; preds = %1092
-  %wide.trip.count.i1091 = zext nneg i32 %1086 to i64
-  br label %.lr.ph.i1092
+.lr.ph.preheader.i1049:                           ; preds = %1092
+  %wide.trip.count.i1050 = zext nneg i32 %1086 to i64
+  br label %.lr.ph.i1051
 
-.lr.ph.i1092:                                     ; preds = %1106, %.lr.ph.preheader.i1090
-  %indvars.iv.i1093 = phi i64 [ 0, %.lr.ph.preheader.i1090 ], [ %indvars.iv.next.i1095, %1106 ]
-  %1100 = getelementptr i8, ptr %1085, i64 %indvars.iv.i1093
+.lr.ph.i1051:                                     ; preds = %1106, %.lr.ph.preheader.i1049
+  %indvars.iv.i1052 = phi i64 [ 0, %.lr.ph.preheader.i1049 ], [ %indvars.iv.next.i1054, %1106 ]
+  %1100 = getelementptr i8, ptr %1085, i64 %indvars.iv.i1052
   %1101 = load i8, ptr %1100, align 1
   %1102 = icmp eq i8 %1101, -1
   br i1 %1102, label %1103, label %1106
 
-1103:                                             ; preds = %.lr.ph.i1092
-  %1104 = getelementptr i8, ptr %1098, i64 %indvars.iv.i1093
+1103:                                             ; preds = %.lr.ph.i1051
+  %1104 = getelementptr i8, ptr %1098, i64 %indvars.iv.i1052
   %1105 = load i8, ptr %1104, align 1
   br label %1106
 
-1106:                                             ; preds = %1103, %.lr.ph.i1092
-  %.0.i1094 = phi i8 [ %1105, %1103 ], [ %1101, %.lr.ph.i1092 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1087, i8 noundef signext %.0.i1094) #27
-  %indvars.iv.next.i1095 = add nuw nsw i64 %indvars.iv.i1093, 1
-  %exitcond.not.i1096 = icmp eq i64 %indvars.iv.next.i1095, %wide.trip.count.i1091
-  br i1 %exitcond.not.i1096, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1092, !llvm.loop !7
+1106:                                             ; preds = %1103, %.lr.ph.i1051
+  %.0.i1053 = phi i8 [ %1105, %1103 ], [ %1101, %.lr.ph.i1051 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1087, i8 noundef signext %.0.i1053) #27
+  %indvars.iv.next.i1054 = add nuw nsw i64 %indvars.iv.i1052, 1
+  %exitcond.not.i1055 = icmp eq i64 %indvars.iv.next.i1054, %wide.trip.count.i1050
+  br i1 %exitcond.not.i1055, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1051, !llvm.loop !7
 
 1107:                                             ; preds = %135
   %1108 = load ptr, ptr %81, align 8
   %1109 = load i32, ptr %82, align 8
   %1110 = load ptr, ptr %72, align 8
   %1111 = load i8, ptr %94, align 4
-  %1112 = and i8 %1111, 1
-  %.not.i1098 = icmp eq i8 %1112, 0
-  br i1 %.not.i1098, label %1115, label %1113
+  %1112 = trunc i8 %1111 to i1
+  br i1 %1112, label %1113, label %1115
 
 1113:                                             ; preds = %1107
   %1114 = sext i32 %1109 to i64
@@ -2420,39 +2378,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1120 = sub i64 %1118, %1119
   %1121 = getelementptr i8, ptr %1116, i64 %1120
   %1122 = icmp sgt i32 %1109, 0
-  br i1 %1122, label %.lr.ph.preheader.i1099, label %psqlscan_emit.exit.backedge
+  br i1 %1122, label %.lr.ph.preheader.i1057, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1099:                           ; preds = %1115
-  %wide.trip.count.i1100 = zext nneg i32 %1109 to i64
-  br label %.lr.ph.i1101
+.lr.ph.preheader.i1057:                           ; preds = %1115
+  %wide.trip.count.i1058 = zext nneg i32 %1109 to i64
+  br label %.lr.ph.i1059
 
-.lr.ph.i1101:                                     ; preds = %1129, %.lr.ph.preheader.i1099
-  %indvars.iv.i1102 = phi i64 [ 0, %.lr.ph.preheader.i1099 ], [ %indvars.iv.next.i1104, %1129 ]
-  %1123 = getelementptr i8, ptr %1108, i64 %indvars.iv.i1102
+.lr.ph.i1059:                                     ; preds = %1129, %.lr.ph.preheader.i1057
+  %indvars.iv.i1060 = phi i64 [ 0, %.lr.ph.preheader.i1057 ], [ %indvars.iv.next.i1062, %1129 ]
+  %1123 = getelementptr i8, ptr %1108, i64 %indvars.iv.i1060
   %1124 = load i8, ptr %1123, align 1
   %1125 = icmp eq i8 %1124, -1
   br i1 %1125, label %1126, label %1129
 
-1126:                                             ; preds = %.lr.ph.i1101
-  %1127 = getelementptr i8, ptr %1121, i64 %indvars.iv.i1102
+1126:                                             ; preds = %.lr.ph.i1059
+  %1127 = getelementptr i8, ptr %1121, i64 %indvars.iv.i1060
   %1128 = load i8, ptr %1127, align 1
   br label %1129
 
-1129:                                             ; preds = %1126, %.lr.ph.i1101
-  %.0.i1103 = phi i8 [ %1128, %1126 ], [ %1124, %.lr.ph.i1101 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1110, i8 noundef signext %.0.i1103) #27
-  %indvars.iv.next.i1104 = add nuw nsw i64 %indvars.iv.i1102, 1
-  %exitcond.not.i1105 = icmp eq i64 %indvars.iv.next.i1104, %wide.trip.count.i1100
-  br i1 %exitcond.not.i1105, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1101, !llvm.loop !7
+1129:                                             ; preds = %1126, %.lr.ph.i1059
+  %.0.i1061 = phi i8 [ %1128, %1126 ], [ %1124, %.lr.ph.i1059 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1110, i8 noundef signext %.0.i1061) #27
+  %indvars.iv.next.i1062 = add nuw nsw i64 %indvars.iv.i1060, 1
+  %exitcond.not.i1063 = icmp eq i64 %indvars.iv.next.i1062, %wide.trip.count.i1058
+  br i1 %exitcond.not.i1063, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1059, !llvm.loop !7
 
 1130:                                             ; preds = %135
   %1131 = load ptr, ptr %81, align 8
   %1132 = load i32, ptr %82, align 8
   %1133 = load ptr, ptr %72, align 8
   %1134 = load i8, ptr %94, align 4
-  %1135 = and i8 %1134, 1
-  %.not.i1107 = icmp eq i8 %1135, 0
-  br i1 %.not.i1107, label %1138, label %1136
+  %1135 = trunc i8 %1134 to i1
+  br i1 %1135, label %1136, label %1138
 
 1136:                                             ; preds = %1130
   %1137 = sext i32 %1132 to i64
@@ -2467,39 +2424,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1143 = sub i64 %1141, %1142
   %1144 = getelementptr i8, ptr %1139, i64 %1143
   %1145 = icmp sgt i32 %1132, 0
-  br i1 %1145, label %.lr.ph.preheader.i1108, label %psqlscan_emit.exit.backedge
+  br i1 %1145, label %.lr.ph.preheader.i1065, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1108:                           ; preds = %1138
-  %wide.trip.count.i1109 = zext nneg i32 %1132 to i64
-  br label %.lr.ph.i1110
+.lr.ph.preheader.i1065:                           ; preds = %1138
+  %wide.trip.count.i1066 = zext nneg i32 %1132 to i64
+  br label %.lr.ph.i1067
 
-.lr.ph.i1110:                                     ; preds = %1152, %.lr.ph.preheader.i1108
-  %indvars.iv.i1111 = phi i64 [ 0, %.lr.ph.preheader.i1108 ], [ %indvars.iv.next.i1113, %1152 ]
-  %1146 = getelementptr i8, ptr %1131, i64 %indvars.iv.i1111
+.lr.ph.i1067:                                     ; preds = %1152, %.lr.ph.preheader.i1065
+  %indvars.iv.i1068 = phi i64 [ 0, %.lr.ph.preheader.i1065 ], [ %indvars.iv.next.i1070, %1152 ]
+  %1146 = getelementptr i8, ptr %1131, i64 %indvars.iv.i1068
   %1147 = load i8, ptr %1146, align 1
   %1148 = icmp eq i8 %1147, -1
   br i1 %1148, label %1149, label %1152
 
-1149:                                             ; preds = %.lr.ph.i1110
-  %1150 = getelementptr i8, ptr %1144, i64 %indvars.iv.i1111
+1149:                                             ; preds = %.lr.ph.i1067
+  %1150 = getelementptr i8, ptr %1144, i64 %indvars.iv.i1068
   %1151 = load i8, ptr %1150, align 1
   br label %1152
 
-1152:                                             ; preds = %1149, %.lr.ph.i1110
-  %.0.i1112 = phi i8 [ %1151, %1149 ], [ %1147, %.lr.ph.i1110 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1133, i8 noundef signext %.0.i1112) #27
-  %indvars.iv.next.i1113 = add nuw nsw i64 %indvars.iv.i1111, 1
-  %exitcond.not.i1114 = icmp eq i64 %indvars.iv.next.i1113, %wide.trip.count.i1109
-  br i1 %exitcond.not.i1114, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1110, !llvm.loop !7
+1152:                                             ; preds = %1149, %.lr.ph.i1067
+  %.0.i1069 = phi i8 [ %1151, %1149 ], [ %1147, %.lr.ph.i1067 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1133, i8 noundef signext %.0.i1069) #27
+  %indvars.iv.next.i1070 = add nuw nsw i64 %indvars.iv.i1068, 1
+  %exitcond.not.i1071 = icmp eq i64 %indvars.iv.next.i1070, %wide.trip.count.i1066
+  br i1 %exitcond.not.i1071, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1067, !llvm.loop !7
 
 1153:                                             ; preds = %135
   %1154 = load ptr, ptr %81, align 8
   %1155 = load i32, ptr %82, align 8
   %1156 = load ptr, ptr %72, align 8
   %1157 = load i8, ptr %94, align 4
-  %1158 = and i8 %1157, 1
-  %.not.i1116 = icmp eq i8 %1158, 0
-  br i1 %.not.i1116, label %1161, label %1159
+  %1158 = trunc i8 %1157 to i1
+  br i1 %1158, label %1159, label %1161
 
 1159:                                             ; preds = %1153
   %1160 = sext i32 %1155 to i64
@@ -2514,39 +2470,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1166 = sub i64 %1164, %1165
   %1167 = getelementptr i8, ptr %1162, i64 %1166
   %1168 = icmp sgt i32 %1155, 0
-  br i1 %1168, label %.lr.ph.preheader.i1117, label %psqlscan_emit.exit.backedge
+  br i1 %1168, label %.lr.ph.preheader.i1073, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1117:                           ; preds = %1161
-  %wide.trip.count.i1118 = zext nneg i32 %1155 to i64
-  br label %.lr.ph.i1119
+.lr.ph.preheader.i1073:                           ; preds = %1161
+  %wide.trip.count.i1074 = zext nneg i32 %1155 to i64
+  br label %.lr.ph.i1075
 
-.lr.ph.i1119:                                     ; preds = %1175, %.lr.ph.preheader.i1117
-  %indvars.iv.i1120 = phi i64 [ 0, %.lr.ph.preheader.i1117 ], [ %indvars.iv.next.i1122, %1175 ]
-  %1169 = getelementptr i8, ptr %1154, i64 %indvars.iv.i1120
+.lr.ph.i1075:                                     ; preds = %1175, %.lr.ph.preheader.i1073
+  %indvars.iv.i1076 = phi i64 [ 0, %.lr.ph.preheader.i1073 ], [ %indvars.iv.next.i1078, %1175 ]
+  %1169 = getelementptr i8, ptr %1154, i64 %indvars.iv.i1076
   %1170 = load i8, ptr %1169, align 1
   %1171 = icmp eq i8 %1170, -1
   br i1 %1171, label %1172, label %1175
 
-1172:                                             ; preds = %.lr.ph.i1119
-  %1173 = getelementptr i8, ptr %1167, i64 %indvars.iv.i1120
+1172:                                             ; preds = %.lr.ph.i1075
+  %1173 = getelementptr i8, ptr %1167, i64 %indvars.iv.i1076
   %1174 = load i8, ptr %1173, align 1
   br label %1175
 
-1175:                                             ; preds = %1172, %.lr.ph.i1119
-  %.0.i1121 = phi i8 [ %1174, %1172 ], [ %1170, %.lr.ph.i1119 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1156, i8 noundef signext %.0.i1121) #27
-  %indvars.iv.next.i1122 = add nuw nsw i64 %indvars.iv.i1120, 1
-  %exitcond.not.i1123 = icmp eq i64 %indvars.iv.next.i1122, %wide.trip.count.i1118
-  br i1 %exitcond.not.i1123, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1119, !llvm.loop !7
+1175:                                             ; preds = %1172, %.lr.ph.i1075
+  %.0.i1077 = phi i8 [ %1174, %1172 ], [ %1170, %.lr.ph.i1075 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1156, i8 noundef signext %.0.i1077) #27
+  %indvars.iv.next.i1078 = add nuw nsw i64 %indvars.iv.i1076, 1
+  %exitcond.not.i1079 = icmp eq i64 %indvars.iv.next.i1078, %wide.trip.count.i1074
+  br i1 %exitcond.not.i1079, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1075, !llvm.loop !7
 
 1176:                                             ; preds = %135
   %1177 = load ptr, ptr %81, align 8
   %1178 = load i32, ptr %82, align 8
   %1179 = load ptr, ptr %72, align 8
   %1180 = load i8, ptr %94, align 4
-  %1181 = and i8 %1180, 1
-  %.not.i1125 = icmp eq i8 %1181, 0
-  br i1 %.not.i1125, label %1184, label %1182
+  %1181 = trunc i8 %1180 to i1
+  br i1 %1181, label %1182, label %1184
 
 1182:                                             ; preds = %1176
   %1183 = sext i32 %1178 to i64
@@ -2561,39 +2516,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1189 = sub i64 %1187, %1188
   %1190 = getelementptr i8, ptr %1185, i64 %1189
   %1191 = icmp sgt i32 %1178, 0
-  br i1 %1191, label %.lr.ph.preheader.i1126, label %psqlscan_emit.exit.backedge
+  br i1 %1191, label %.lr.ph.preheader.i1081, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1126:                           ; preds = %1184
-  %wide.trip.count.i1127 = zext nneg i32 %1178 to i64
-  br label %.lr.ph.i1128
+.lr.ph.preheader.i1081:                           ; preds = %1184
+  %wide.trip.count.i1082 = zext nneg i32 %1178 to i64
+  br label %.lr.ph.i1083
 
-.lr.ph.i1128:                                     ; preds = %1198, %.lr.ph.preheader.i1126
-  %indvars.iv.i1129 = phi i64 [ 0, %.lr.ph.preheader.i1126 ], [ %indvars.iv.next.i1131, %1198 ]
-  %1192 = getelementptr i8, ptr %1177, i64 %indvars.iv.i1129
+.lr.ph.i1083:                                     ; preds = %1198, %.lr.ph.preheader.i1081
+  %indvars.iv.i1084 = phi i64 [ 0, %.lr.ph.preheader.i1081 ], [ %indvars.iv.next.i1086, %1198 ]
+  %1192 = getelementptr i8, ptr %1177, i64 %indvars.iv.i1084
   %1193 = load i8, ptr %1192, align 1
   %1194 = icmp eq i8 %1193, -1
   br i1 %1194, label %1195, label %1198
 
-1195:                                             ; preds = %.lr.ph.i1128
-  %1196 = getelementptr i8, ptr %1190, i64 %indvars.iv.i1129
+1195:                                             ; preds = %.lr.ph.i1083
+  %1196 = getelementptr i8, ptr %1190, i64 %indvars.iv.i1084
   %1197 = load i8, ptr %1196, align 1
   br label %1198
 
-1198:                                             ; preds = %1195, %.lr.ph.i1128
-  %.0.i1130 = phi i8 [ %1197, %1195 ], [ %1193, %.lr.ph.i1128 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1179, i8 noundef signext %.0.i1130) #27
-  %indvars.iv.next.i1131 = add nuw nsw i64 %indvars.iv.i1129, 1
-  %exitcond.not.i1132 = icmp eq i64 %indvars.iv.next.i1131, %wide.trip.count.i1127
-  br i1 %exitcond.not.i1132, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1128, !llvm.loop !7
+1198:                                             ; preds = %1195, %.lr.ph.i1083
+  %.0.i1085 = phi i8 [ %1197, %1195 ], [ %1193, %.lr.ph.i1083 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1179, i8 noundef signext %.0.i1085) #27
+  %indvars.iv.next.i1086 = add nuw nsw i64 %indvars.iv.i1084, 1
+  %exitcond.not.i1087 = icmp eq i64 %indvars.iv.next.i1086, %wide.trip.count.i1082
+  br i1 %exitcond.not.i1087, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1083, !llvm.loop !7
 
 1199:                                             ; preds = %135
   %1200 = load ptr, ptr %81, align 8
   %1201 = load i32, ptr %82, align 8
   %1202 = load ptr, ptr %72, align 8
   %1203 = load i8, ptr %94, align 4
-  %1204 = and i8 %1203, 1
-  %.not.i1134 = icmp eq i8 %1204, 0
-  br i1 %.not.i1134, label %1207, label %1205
+  %1204 = trunc i8 %1203 to i1
+  br i1 %1204, label %1205, label %1207
 
 1205:                                             ; preds = %1199
   %1206 = sext i32 %1201 to i64
@@ -2608,39 +2562,38 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1212 = sub i64 %1210, %1211
   %1213 = getelementptr i8, ptr %1208, i64 %1212
   %1214 = icmp sgt i32 %1201, 0
-  br i1 %1214, label %.lr.ph.preheader.i1135, label %psqlscan_emit.exit.backedge
+  br i1 %1214, label %.lr.ph.preheader.i1089, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1135:                           ; preds = %1207
-  %wide.trip.count.i1136 = zext nneg i32 %1201 to i64
-  br label %.lr.ph.i1137
+.lr.ph.preheader.i1089:                           ; preds = %1207
+  %wide.trip.count.i1090 = zext nneg i32 %1201 to i64
+  br label %.lr.ph.i1091
 
-.lr.ph.i1137:                                     ; preds = %1221, %.lr.ph.preheader.i1135
-  %indvars.iv.i1138 = phi i64 [ 0, %.lr.ph.preheader.i1135 ], [ %indvars.iv.next.i1140, %1221 ]
-  %1215 = getelementptr i8, ptr %1200, i64 %indvars.iv.i1138
+.lr.ph.i1091:                                     ; preds = %1221, %.lr.ph.preheader.i1089
+  %indvars.iv.i1092 = phi i64 [ 0, %.lr.ph.preheader.i1089 ], [ %indvars.iv.next.i1094, %1221 ]
+  %1215 = getelementptr i8, ptr %1200, i64 %indvars.iv.i1092
   %1216 = load i8, ptr %1215, align 1
   %1217 = icmp eq i8 %1216, -1
   br i1 %1217, label %1218, label %1221
 
-1218:                                             ; preds = %.lr.ph.i1137
-  %1219 = getelementptr i8, ptr %1213, i64 %indvars.iv.i1138
+1218:                                             ; preds = %.lr.ph.i1091
+  %1219 = getelementptr i8, ptr %1213, i64 %indvars.iv.i1092
   %1220 = load i8, ptr %1219, align 1
   br label %1221
 
-1221:                                             ; preds = %1218, %.lr.ph.i1137
-  %.0.i1139 = phi i8 [ %1220, %1218 ], [ %1216, %.lr.ph.i1137 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1202, i8 noundef signext %.0.i1139) #27
-  %indvars.iv.next.i1140 = add nuw nsw i64 %indvars.iv.i1138, 1
-  %exitcond.not.i1141 = icmp eq i64 %indvars.iv.next.i1140, %wide.trip.count.i1136
-  br i1 %exitcond.not.i1141, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1137, !llvm.loop !7
+1221:                                             ; preds = %1218, %.lr.ph.i1091
+  %.0.i1093 = phi i8 [ %1220, %1218 ], [ %1216, %.lr.ph.i1091 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1202, i8 noundef signext %.0.i1093) #27
+  %indvars.iv.next.i1094 = add nuw nsw i64 %indvars.iv.i1092, 1
+  %exitcond.not.i1095 = icmp eq i64 %indvars.iv.next.i1094, %wide.trip.count.i1090
+  br i1 %exitcond.not.i1095, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1091, !llvm.loop !7
 
 1222:                                             ; preds = %135
   %1223 = load ptr, ptr %81, align 8
   %1224 = load i32, ptr %82, align 8
   %1225 = load ptr, ptr %72, align 8
   %1226 = load i8, ptr %94, align 4
-  %1227 = and i8 %1226, 1
-  %.not.i1143 = icmp eq i8 %1227, 0
-  br i1 %.not.i1143, label %1230, label %1228
+  %1227 = trunc i8 %1226 to i1
+  br i1 %1227, label %1228, label %1230
 
 1228:                                             ; preds = %1222
   %1229 = sext i32 %1224 to i64
@@ -2655,30 +2608,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1235 = sub i64 %1233, %1234
   %1236 = getelementptr i8, ptr %1231, i64 %1235
   %1237 = icmp sgt i32 %1224, 0
-  br i1 %1237, label %.lr.ph.preheader.i1144, label %psqlscan_emit.exit.backedge
+  br i1 %1237, label %.lr.ph.preheader.i1097, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1144:                           ; preds = %1230
-  %wide.trip.count.i1145 = zext nneg i32 %1224 to i64
-  br label %.lr.ph.i1146
+.lr.ph.preheader.i1097:                           ; preds = %1230
+  %wide.trip.count.i1098 = zext nneg i32 %1224 to i64
+  br label %.lr.ph.i1099
 
-.lr.ph.i1146:                                     ; preds = %1244, %.lr.ph.preheader.i1144
-  %indvars.iv.i1147 = phi i64 [ 0, %.lr.ph.preheader.i1144 ], [ %indvars.iv.next.i1149, %1244 ]
-  %1238 = getelementptr i8, ptr %1223, i64 %indvars.iv.i1147
+.lr.ph.i1099:                                     ; preds = %1244, %.lr.ph.preheader.i1097
+  %indvars.iv.i1100 = phi i64 [ 0, %.lr.ph.preheader.i1097 ], [ %indvars.iv.next.i1102, %1244 ]
+  %1238 = getelementptr i8, ptr %1223, i64 %indvars.iv.i1100
   %1239 = load i8, ptr %1238, align 1
   %1240 = icmp eq i8 %1239, -1
   br i1 %1240, label %1241, label %1244
 
-1241:                                             ; preds = %.lr.ph.i1146
-  %1242 = getelementptr i8, ptr %1236, i64 %indvars.iv.i1147
+1241:                                             ; preds = %.lr.ph.i1099
+  %1242 = getelementptr i8, ptr %1236, i64 %indvars.iv.i1100
   %1243 = load i8, ptr %1242, align 1
   br label %1244
 
-1244:                                             ; preds = %1241, %.lr.ph.i1146
-  %.0.i1148 = phi i8 [ %1243, %1241 ], [ %1239, %.lr.ph.i1146 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1225, i8 noundef signext %.0.i1148) #27
-  %indvars.iv.next.i1149 = add nuw nsw i64 %indvars.iv.i1147, 1
-  %exitcond.not.i1150 = icmp eq i64 %indvars.iv.next.i1149, %wide.trip.count.i1145
-  br i1 %exitcond.not.i1150, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1146, !llvm.loop !7
+1244:                                             ; preds = %1241, %.lr.ph.i1099
+  %.0.i1101 = phi i8 [ %1243, %1241 ], [ %1239, %.lr.ph.i1099 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1225, i8 noundef signext %.0.i1101) #27
+  %indvars.iv.next.i1102 = add nuw nsw i64 %indvars.iv.i1100, 1
+  %exitcond.not.i1103 = icmp eq i64 %indvars.iv.next.i1102, %wide.trip.count.i1098
+  br i1 %exitcond.not.i1103, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1099, !llvm.loop !7
 
 1245:                                             ; preds = %135
   %1246 = load i32, ptr %100, align 8
@@ -2688,9 +2641,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1249 = load i32, ptr %82, align 8
   %1250 = load ptr, ptr %72, align 8
   %1251 = load i8, ptr %94, align 4
-  %1252 = and i8 %1251, 1
-  %.not.i1152 = icmp eq i8 %1252, 0
-  br i1 %.not.i1152, label %1255, label %1253
+  %1252 = trunc i8 %1251 to i1
+  br i1 %1252, label %1253, label %1255
 
 1253:                                             ; preds = %1245
   %1254 = sext i32 %1249 to i64
@@ -2705,30 +2657,30 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1260 = sub i64 %1258, %1259
   %1261 = getelementptr i8, ptr %1256, i64 %1260
   %1262 = icmp sgt i32 %1249, 0
-  br i1 %1262, label %.lr.ph.preheader.i1153, label %psqlscan_emit.exit.backedge
+  br i1 %1262, label %.lr.ph.preheader.i1105, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1153:                           ; preds = %1255
-  %wide.trip.count.i1154 = zext nneg i32 %1249 to i64
-  br label %.lr.ph.i1155
+.lr.ph.preheader.i1105:                           ; preds = %1255
+  %wide.trip.count.i1106 = zext nneg i32 %1249 to i64
+  br label %.lr.ph.i1107
 
-.lr.ph.i1155:                                     ; preds = %1269, %.lr.ph.preheader.i1153
-  %indvars.iv.i1156 = phi i64 [ 0, %.lr.ph.preheader.i1153 ], [ %indvars.iv.next.i1158, %1269 ]
-  %1263 = getelementptr i8, ptr %1248, i64 %indvars.iv.i1156
+.lr.ph.i1107:                                     ; preds = %1269, %.lr.ph.preheader.i1105
+  %indvars.iv.i1108 = phi i64 [ 0, %.lr.ph.preheader.i1105 ], [ %indvars.iv.next.i1110, %1269 ]
+  %1263 = getelementptr i8, ptr %1248, i64 %indvars.iv.i1108
   %1264 = load i8, ptr %1263, align 1
   %1265 = icmp eq i8 %1264, -1
   br i1 %1265, label %1266, label %1269
 
-1266:                                             ; preds = %.lr.ph.i1155
-  %1267 = getelementptr i8, ptr %1261, i64 %indvars.iv.i1156
+1266:                                             ; preds = %.lr.ph.i1107
+  %1267 = getelementptr i8, ptr %1261, i64 %indvars.iv.i1108
   %1268 = load i8, ptr %1267, align 1
   br label %1269
 
-1269:                                             ; preds = %1266, %.lr.ph.i1155
-  %.0.i1157 = phi i8 [ %1268, %1266 ], [ %1264, %.lr.ph.i1155 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1250, i8 noundef signext %.0.i1157) #27
-  %indvars.iv.next.i1158 = add nuw nsw i64 %indvars.iv.i1156, 1
-  %exitcond.not.i1159 = icmp eq i64 %indvars.iv.next.i1158, %wide.trip.count.i1154
-  br i1 %exitcond.not.i1159, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1155, !llvm.loop !7
+1269:                                             ; preds = %1266, %.lr.ph.i1107
+  %.0.i1109 = phi i8 [ %1268, %1266 ], [ %1264, %.lr.ph.i1107 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1250, i8 noundef signext %.0.i1109) #27
+  %indvars.iv.next.i1110 = add nuw nsw i64 %indvars.iv.i1108, 1
+  %exitcond.not.i1111 = icmp eq i64 %indvars.iv.next.i1110, %wide.trip.count.i1106
+  br i1 %exitcond.not.i1111, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1107, !llvm.loop !7
 
 1270:                                             ; preds = %135
   %1271 = load i32, ptr %100, align 8
@@ -2745,9 +2697,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1277 = load i32, ptr %82, align 8
   %1278 = load ptr, ptr %72, align 8
   %1279 = load i8, ptr %94, align 4
-  %1280 = and i8 %1279, 1
-  %.not.i1161 = icmp eq i8 %1280, 0
-  br i1 %.not.i1161, label %1283, label %1281
+  %1280 = trunc i8 %1279 to i1
+  br i1 %1280, label %1281, label %1283
 
 1281:                                             ; preds = %1275
   %1282 = sext i32 %1277 to i64
@@ -2762,44 +2713,43 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1288 = sub i64 %1286, %1287
   %1289 = getelementptr i8, ptr %1284, i64 %1288
   %1290 = icmp sgt i32 %1277, 0
-  br i1 %1290, label %.lr.ph.preheader.i1162, label %psqlscan_emit.exit.backedge
+  br i1 %1290, label %.lr.ph.preheader.i1113, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1162:                           ; preds = %1283
-  %wide.trip.count.i1163 = zext nneg i32 %1277 to i64
-  br label %.lr.ph.i1164
+.lr.ph.preheader.i1113:                           ; preds = %1283
+  %wide.trip.count.i1114 = zext nneg i32 %1277 to i64
+  br label %.lr.ph.i1115
 
-.lr.ph.i1164:                                     ; preds = %1297, %.lr.ph.preheader.i1162
-  %indvars.iv.i1165 = phi i64 [ 0, %.lr.ph.preheader.i1162 ], [ %indvars.iv.next.i1167, %1297 ]
-  %1291 = getelementptr i8, ptr %1276, i64 %indvars.iv.i1165
+.lr.ph.i1115:                                     ; preds = %1297, %.lr.ph.preheader.i1113
+  %indvars.iv.i1116 = phi i64 [ 0, %.lr.ph.preheader.i1113 ], [ %indvars.iv.next.i1118, %1297 ]
+  %1291 = getelementptr i8, ptr %1276, i64 %indvars.iv.i1116
   %1292 = load i8, ptr %1291, align 1
   %1293 = icmp eq i8 %1292, -1
   br i1 %1293, label %1294, label %1297
 
-1294:                                             ; preds = %.lr.ph.i1164
-  %1295 = getelementptr i8, ptr %1289, i64 %indvars.iv.i1165
+1294:                                             ; preds = %.lr.ph.i1115
+  %1295 = getelementptr i8, ptr %1289, i64 %indvars.iv.i1116
   %1296 = load i8, ptr %1295, align 1
   br label %1297
 
-1297:                                             ; preds = %1294, %.lr.ph.i1164
-  %.0.i1166 = phi i8 [ %1296, %1294 ], [ %1292, %.lr.ph.i1164 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1278, i8 noundef signext %.0.i1166) #27
-  %indvars.iv.next.i1167 = add nuw nsw i64 %indvars.iv.i1165, 1
-  %exitcond.not.i1168 = icmp eq i64 %indvars.iv.next.i1167, %wide.trip.count.i1163
-  br i1 %exitcond.not.i1168, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1164, !llvm.loop !7
+1297:                                             ; preds = %1294, %.lr.ph.i1115
+  %.0.i1117 = phi i8 [ %1296, %1294 ], [ %1292, %.lr.ph.i1115 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1278, i8 noundef signext %.0.i1117) #27
+  %indvars.iv.next.i1118 = add nuw nsw i64 %indvars.iv.i1116, 1
+  %exitcond.not.i1119 = icmp eq i64 %indvars.iv.next.i1118, %wide.trip.count.i1114
+  br i1 %exitcond.not.i1119, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1115, !llvm.loop !7
 
 1298:                                             ; preds = %135
   %1299 = load ptr, ptr %81, align 8
   %1300 = load i32, ptr %82, align 8
   %1301 = load ptr, ptr %72, align 8
   %1302 = load i8, ptr %94, align 4
-  %1303 = and i8 %1302, 1
-  %.not.i1170 = icmp eq i8 %1303, 0
-  br i1 %.not.i1170, label %1306, label %1304
+  %1303 = trunc i8 %1302 to i1
+  br i1 %1303, label %1304, label %1306
 
 1304:                                             ; preds = %1298
   %1305 = sext i32 %1300 to i64
   tail call void @appendBinaryPQExpBuffer(ptr noundef %1301, ptr noundef %1299, i64 noundef %1305) #27
-  br label %psqlscan_emit.exit1178
+  br label %psqlscan_emit.exit1128
 
 1306:                                             ; preds = %1298
   %1307 = load ptr, ptr %93, align 8
@@ -2809,37 +2759,37 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %1311 = sub i64 %1309, %1310
   %1312 = getelementptr i8, ptr %1307, i64 %1311
   %1313 = icmp sgt i32 %1300, 0
-  br i1 %1313, label %.lr.ph.preheader.i1171, label %psqlscan_emit.exit1178
+  br i1 %1313, label %.lr.ph.preheader.i1121, label %psqlscan_emit.exit1128
 
-.lr.ph.preheader.i1171:                           ; preds = %1306
-  %wide.trip.count.i1172 = zext nneg i32 %1300 to i64
-  br label %.lr.ph.i1173
+.lr.ph.preheader.i1121:                           ; preds = %1306
+  %wide.trip.count.i1122 = zext nneg i32 %1300 to i64
+  br label %.lr.ph.i1123
 
-.lr.ph.i1173:                                     ; preds = %1320, %.lr.ph.preheader.i1171
-  %indvars.iv.i1174 = phi i64 [ 0, %.lr.ph.preheader.i1171 ], [ %indvars.iv.next.i1176, %1320 ]
-  %1314 = getelementptr i8, ptr %1299, i64 %indvars.iv.i1174
+.lr.ph.i1123:                                     ; preds = %1320, %.lr.ph.preheader.i1121
+  %indvars.iv.i1124 = phi i64 [ 0, %.lr.ph.preheader.i1121 ], [ %indvars.iv.next.i1126, %1320 ]
+  %1314 = getelementptr i8, ptr %1299, i64 %indvars.iv.i1124
   %1315 = load i8, ptr %1314, align 1
   %1316 = icmp eq i8 %1315, -1
   br i1 %1316, label %1317, label %1320
 
-1317:                                             ; preds = %.lr.ph.i1173
-  %1318 = getelementptr i8, ptr %1312, i64 %indvars.iv.i1174
+1317:                                             ; preds = %.lr.ph.i1123
+  %1318 = getelementptr i8, ptr %1312, i64 %indvars.iv.i1124
   %1319 = load i8, ptr %1318, align 1
   br label %1320
 
-1320:                                             ; preds = %1317, %.lr.ph.i1173
-  %.0.i1175 = phi i8 [ %1319, %1317 ], [ %1315, %.lr.ph.i1173 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1301, i8 noundef signext %.0.i1175) #27
-  %indvars.iv.next.i1176 = add nuw nsw i64 %indvars.iv.i1174, 1
-  %exitcond.not.i1177 = icmp eq i64 %indvars.iv.next.i1176, %wide.trip.count.i1172
-  br i1 %exitcond.not.i1177, label %psqlscan_emit.exit1178, label %.lr.ph.i1173, !llvm.loop !7
+1320:                                             ; preds = %1317, %.lr.ph.i1123
+  %.0.i1125 = phi i8 [ %1319, %1317 ], [ %1315, %.lr.ph.i1123 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1301, i8 noundef signext %.0.i1125) #27
+  %indvars.iv.next.i1126 = add nuw nsw i64 %indvars.iv.i1124, 1
+  %exitcond.not.i1127 = icmp eq i64 %indvars.iv.next.i1126, %wide.trip.count.i1122
+  br i1 %exitcond.not.i1127, label %psqlscan_emit.exit1128, label %.lr.ph.i1123, !llvm.loop !7
 
-psqlscan_emit.exit1178:                           ; preds = %1320, %1304, %1306
+psqlscan_emit.exit1128:                           ; preds = %1320, %1304, %1306
   %1321 = load i32, ptr %100, align 8
   %1322 = icmp eq i32 %1321, 0
   br i1 %1322, label %1323, label %psqlscan_emit.exit.backedge
 
-1323:                                             ; preds = %psqlscan_emit.exit1178
+1323:                                             ; preds = %psqlscan_emit.exit1128
   %1324 = load i32, ptr %101, align 8
   %1325 = icmp eq i32 %1324, 0
   br i1 %1325, label %1326, label %psqlscan_emit.exit.backedge
@@ -2857,20 +2807,19 @@ psqlscan_emit.exit1178:                           ; preds = %1320, %1304, %1306
   %1332 = getelementptr i8, ptr %1331, i64 1
   %1333 = load ptr, ptr %72, align 8
   %1334 = load i8, ptr %94, align 4
-  %1335 = and i8 %1334, 1
-  %.not.i1179 = icmp eq i8 %1335, 0
-  br i1 %.not.i1179, label %.lr.ph.i1181, label %1336
+  %1335 = trunc i8 %1334 to i1
+  br i1 %1335, label %1336, label %.lr.ph.i1130
 
 1336:                                             ; preds = %1330
   tail call void @appendBinaryPQExpBuffer(ptr noundef %1333, ptr noundef %1332, i64 noundef 1) #27
-  br label %psqlscan_emit.exit1186
+  br label %psqlscan_emit.exit1135
 
-.lr.ph.i1181:                                     ; preds = %1330
+.lr.ph.i1130:                                     ; preds = %1330
   %1337 = load i8, ptr %1332, align 1
   %1338 = icmp eq i8 %1337, -1
-  br i1 %1338, label %1339, label %psqlscan_emit.exit1186.loopexit
+  br i1 %1338, label %1339, label %psqlscan_emit.exit1135.loopexit
 
-1339:                                             ; preds = %.lr.ph.i1181
+1339:                                             ; preds = %.lr.ph.i1130
   %1340 = load ptr, ptr %93, align 8
   %1341 = ptrtoint ptr %1332 to i64
   %1342 = load ptr, ptr %89, align 8
@@ -2878,21 +2827,21 @@ psqlscan_emit.exit1178:                           ; preds = %1320, %1304, %1306
   %1344 = sub i64 %1341, %1343
   %1345 = getelementptr i8, ptr %1340, i64 %1344
   %1346 = load i8, ptr %1345, align 1
-  br label %psqlscan_emit.exit1186.loopexit
+  br label %psqlscan_emit.exit1135.loopexit
 
-psqlscan_emit.exit1186.loopexit:                  ; preds = %1339, %.lr.ph.i1181
-  %.0.i1183 = phi i8 [ %1346, %1339 ], [ %1337, %.lr.ph.i1181 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1333, i8 noundef signext %.0.i1183) #27
-  br label %psqlscan_emit.exit1186
+psqlscan_emit.exit1135.loopexit:                  ; preds = %1339, %.lr.ph.i1130
+  %.0.i1132 = phi i8 [ %1346, %1339 ], [ %1337, %.lr.ph.i1130 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1333, i8 noundef signext %.0.i1132) #27
+  br label %psqlscan_emit.exit1135
 
-psqlscan_emit.exit1186:                           ; preds = %psqlscan_emit.exit1186.loopexit, %1336
+psqlscan_emit.exit1135:                           ; preds = %psqlscan_emit.exit1135.loopexit, %1336
   %1347 = load ptr, ptr %81, align 8
   %1348 = getelementptr i8, ptr %1347, i64 1
   %1349 = load i8, ptr %1348, align 1
   %1350 = icmp eq i8 %1349, 59
   br i1 %1350, label %1351, label %psqlscan_emit.exit.backedge
 
-1351:                                             ; preds = %psqlscan_emit.exit1186
+1351:                                             ; preds = %psqlscan_emit.exit1135
   store i32 0, ptr %95, align 8
   br label %psqlscan_emit.exit.backedge
 
@@ -2911,9 +2860,8 @@ psqlscan_emit.exit1186:                           ; preds = %psqlscan_emit.exit1
   %1361 = sext i32 %1359 to i64
   %1362 = tail call ptr @pg_malloc(i64 noundef %1361) #27
   %1363 = load i8, ptr %94, align 4
-  %1364 = and i8 %1363, 1
-  %.not.i1187 = icmp eq i8 %1364, 0
-  br i1 %.not.i1187, label %1367, label %1365
+  %1364 = trunc i8 %1363 to i1
+  br i1 %1364, label %1365, label %1367
 
 1365:                                             ; preds = %1356
   %1366 = sext i32 %1360 to i64
@@ -2928,31 +2876,31 @@ psqlscan_emit.exit1186:                           ; preds = %psqlscan_emit.exit1
   %1372 = sub i64 %1370, %1371
   %1373 = getelementptr i8, ptr %1368, i64 %1372
   %1374 = icmp sgt i32 %1360, 0
-  br i1 %1374, label %.lr.ph.preheader.i1188, label %psqlscan_extract_substring.exit
+  br i1 %1374, label %.lr.ph.preheader.i1136, label %psqlscan_extract_substring.exit
 
-.lr.ph.preheader.i1188:                           ; preds = %1367
-  %wide.trip.count.i1189 = zext nneg i32 %1360 to i64
-  br label %.lr.ph.i1190
+.lr.ph.preheader.i1136:                           ; preds = %1367
+  %wide.trip.count.i1137 = zext nneg i32 %1360 to i64
+  br label %.lr.ph.i1138
 
-.lr.ph.i1190:                                     ; preds = %1381, %.lr.ph.preheader.i1188
-  %indvars.iv.i1191 = phi i64 [ 0, %.lr.ph.preheader.i1188 ], [ %indvars.iv.next.i1193, %1381 ]
-  %1375 = getelementptr i8, ptr %1358, i64 %indvars.iv.i1191
+.lr.ph.i1138:                                     ; preds = %1381, %.lr.ph.preheader.i1136
+  %indvars.iv.i1139 = phi i64 [ 0, %.lr.ph.preheader.i1136 ], [ %indvars.iv.next.i1141, %1381 ]
+  %1375 = getelementptr i8, ptr %1358, i64 %indvars.iv.i1139
   %1376 = load i8, ptr %1375, align 1
   %1377 = icmp eq i8 %1376, -1
   br i1 %1377, label %1378, label %1381
 
-1378:                                             ; preds = %.lr.ph.i1190
-  %1379 = getelementptr i8, ptr %1373, i64 %indvars.iv.i1191
+1378:                                             ; preds = %.lr.ph.i1138
+  %1379 = getelementptr i8, ptr %1373, i64 %indvars.iv.i1139
   %1380 = load i8, ptr %1379, align 1
   br label %1381
 
-1381:                                             ; preds = %1378, %.lr.ph.i1190
-  %.0.i1192 = phi i8 [ %1380, %1378 ], [ %1376, %.lr.ph.i1190 ]
-  %1382 = getelementptr i8, ptr %1362, i64 %indvars.iv.i1191
-  store i8 %.0.i1192, ptr %1382, align 1
-  %indvars.iv.next.i1193 = add nuw nsw i64 %indvars.iv.i1191, 1
-  %exitcond.not.i1194 = icmp eq i64 %indvars.iv.next.i1193, %wide.trip.count.i1189
-  br i1 %exitcond.not.i1194, label %psqlscan_extract_substring.exit, label %.lr.ph.i1190, !llvm.loop !8
+1381:                                             ; preds = %1378, %.lr.ph.i1138
+  %.0.i1140 = phi i8 [ %1380, %1378 ], [ %1376, %.lr.ph.i1138 ]
+  %1382 = getelementptr i8, ptr %1362, i64 %indvars.iv.i1139
+  store i8 %.0.i1140, ptr %1382, align 1
+  %indvars.iv.next.i1141 = add nuw nsw i64 %indvars.iv.i1139, 1
+  %exitcond.not.i1142 = icmp eq i64 %indvars.iv.next.i1141, %wide.trip.count.i1137
+  br i1 %exitcond.not.i1142, label %psqlscan_extract_substring.exit, label %.lr.ph.i1138, !llvm.loop !8
 
 psqlscan_extract_substring.exit:                  ; preds = %1381, %1365, %1367
   %1383 = sext i32 %1360 to i64
@@ -2961,40 +2909,40 @@ psqlscan_extract_substring.exit:                  ; preds = %1381, %1365, %1367
   %1385 = load ptr, ptr %102, align 8
   %1386 = load ptr, ptr %1385, align 8
   %.not741 = icmp eq ptr %1386, null
-  br i1 %.not741, label %.thread1488, label %1387
+  br i1 %.not741, label %.thread1407, label %1387
 
 1387:                                             ; preds = %psqlscan_extract_substring.exit
   %1388 = load ptr, ptr %103, align 8
   %1389 = tail call ptr %1386(ptr noundef nonnull %1362, i32 noundef 0, ptr noundef %1388) #27
   %.not742 = icmp eq ptr %1389, null
-  br i1 %.not742, label %.thread1488, label %1390
+  br i1 %.not742, label %.thread1407, label %1390
 
 1390:                                             ; preds = %1387
   %.010.i = load ptr, ptr %88, align 8
   %.not11.not.i = icmp eq ptr %.010.i, null
-  br i1 %.not11.not.i, label %.thread1492, label %.lr.ph.i1195
+  br i1 %.not11.not.i, label %.thread1411, label %.lr.ph.i1143
 
-.thread1492:                                      ; preds = %1390
+.thread1411:                                      ; preds = %1390
   %1391 = tail call ptr @pg_malloc(i64 noundef 40) #27
   br label %1423
 
-.lr.ph.i1195:                                     ; preds = %1390, %1397
-  %.012.i = phi ptr [ %.0.i1196, %1397 ], [ %.010.i, %1390 ]
+.lr.ph.i1143:                                     ; preds = %1390, %1397
+  %.012.i = phi ptr [ %.0.i1144, %1397 ], [ %.010.i, %1390 ]
   %1392 = getelementptr inbounds i8, ptr %.012.i, i64 24
   %1393 = load ptr, ptr %1392, align 8
   %.not9.i = icmp eq ptr %1393, null
   br i1 %.not9.i, label %1397, label %1394
 
-1394:                                             ; preds = %.lr.ph.i1195
+1394:                                             ; preds = %.lr.ph.i1143
   %1395 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1393, ptr noundef nonnull dereferenceable(1) %1362) #28
   %1396 = icmp eq i32 %1395, 0
   br i1 %1396, label %psqlscan_var_is_current_source.exit, label %1397
 
-1397:                                             ; preds = %1394, %.lr.ph.i1195
+1397:                                             ; preds = %1394, %.lr.ph.i1143
   %1398 = getelementptr inbounds i8, ptr %.012.i, i64 32
-  %.0.i1196 = load ptr, ptr %1398, align 8
-  %.not.not.i = icmp eq ptr %.0.i1196, null
-  br i1 %.not.not.i, label %1421, label %.lr.ph.i1195, !llvm.loop !9
+  %.0.i1144 = load ptr, ptr %1398, align 8
+  %.not.not.i = icmp eq ptr %.0.i1144, null
+  br i1 %.not.not.i, label %1421, label %.lr.ph.i1143, !llvm.loop !9
 
 psqlscan_var_is_current_source.exit:              ; preds = %1394
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %1362) #27
@@ -3002,14 +2950,13 @@ psqlscan_var_is_current_source.exit:              ; preds = %1394
   %1400 = load i32, ptr %82, align 8
   %1401 = load ptr, ptr %72, align 8
   %1402 = load i8, ptr %94, align 4
-  %1403 = and i8 %1402, 1
-  %.not.i1197 = icmp eq i8 %1403, 0
-  br i1 %.not.i1197, label %1406, label %1404
+  %1403 = trunc i8 %1402 to i1
+  br i1 %1403, label %1404, label %1406
 
 1404:                                             ; preds = %psqlscan_var_is_current_source.exit
   %1405 = sext i32 %1400 to i64
   tail call void @appendBinaryPQExpBuffer(ptr noundef %1401, ptr noundef %1399, i64 noundef %1405) #27
-  br label %psqlscan_emit.exit1205
+  br label %psqlscan_emit.exit1152
 
 1406:                                             ; preds = %psqlscan_var_is_current_source.exit
   %1407 = load ptr, ptr %93, align 8
@@ -3019,38 +2966,38 @@ psqlscan_var_is_current_source.exit:              ; preds = %1394
   %1411 = sub i64 %1409, %1410
   %1412 = getelementptr i8, ptr %1407, i64 %1411
   %1413 = icmp sgt i32 %1400, 0
-  br i1 %1413, label %.lr.ph.preheader.i1198, label %psqlscan_emit.exit1205
+  br i1 %1413, label %.lr.ph.preheader.i1145, label %psqlscan_emit.exit1152
 
-.lr.ph.preheader.i1198:                           ; preds = %1406
-  %wide.trip.count.i1199 = zext nneg i32 %1400 to i64
-  br label %.lr.ph.i1200
+.lr.ph.preheader.i1145:                           ; preds = %1406
+  %wide.trip.count.i1146 = zext nneg i32 %1400 to i64
+  br label %.lr.ph.i1147
 
-.lr.ph.i1200:                                     ; preds = %1420, %.lr.ph.preheader.i1198
-  %indvars.iv.i1201 = phi i64 [ 0, %.lr.ph.preheader.i1198 ], [ %indvars.iv.next.i1203, %1420 ]
-  %1414 = getelementptr i8, ptr %1399, i64 %indvars.iv.i1201
+.lr.ph.i1147:                                     ; preds = %1420, %.lr.ph.preheader.i1145
+  %indvars.iv.i1148 = phi i64 [ 0, %.lr.ph.preheader.i1145 ], [ %indvars.iv.next.i1150, %1420 ]
+  %1414 = getelementptr i8, ptr %1399, i64 %indvars.iv.i1148
   %1415 = load i8, ptr %1414, align 1
   %1416 = icmp eq i8 %1415, -1
   br i1 %1416, label %1417, label %1420
 
-1417:                                             ; preds = %.lr.ph.i1200
-  %1418 = getelementptr i8, ptr %1412, i64 %indvars.iv.i1201
+1417:                                             ; preds = %.lr.ph.i1147
+  %1418 = getelementptr i8, ptr %1412, i64 %indvars.iv.i1148
   %1419 = load i8, ptr %1418, align 1
   br label %1420
 
-1420:                                             ; preds = %1417, %.lr.ph.i1200
-  %.0.i1202 = phi i8 [ %1419, %1417 ], [ %1415, %.lr.ph.i1200 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1401, i8 noundef signext %.0.i1202) #27
-  %indvars.iv.next.i1203 = add nuw nsw i64 %indvars.iv.i1201, 1
-  %exitcond.not.i1204 = icmp eq i64 %indvars.iv.next.i1203, %wide.trip.count.i1199
-  br i1 %exitcond.not.i1204, label %psqlscan_emit.exit1205, label %.lr.ph.i1200, !llvm.loop !7
+1420:                                             ; preds = %1417, %.lr.ph.i1147
+  %.0.i1149 = phi i8 [ %1419, %1417 ], [ %1415, %.lr.ph.i1147 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1401, i8 noundef signext %.0.i1149) #27
+  %indvars.iv.next.i1150 = add nuw nsw i64 %indvars.iv.i1148, 1
+  %exitcond.not.i1151 = icmp eq i64 %indvars.iv.next.i1150, %wide.trip.count.i1146
+  br i1 %exitcond.not.i1151, label %psqlscan_emit.exit1152, label %.lr.ph.i1147, !llvm.loop !7
 
 1421:                                             ; preds = %1397
   %1422 = tail call ptr @pg_malloc(i64 noundef 40) #27
-  %.not.i1206 = icmp eq ptr %1362, null
-  br i1 %.not.i1206, label %1426, label %1423
+  %.not.i1153 = icmp eq ptr %1362, null
+  br i1 %.not.i1153, label %1426, label %1423
 
-1423:                                             ; preds = %.thread1492, %1421
-  %1424 = phi ptr [ %1391, %.thread1492 ], [ %1422, %1421 ]
+1423:                                             ; preds = %.thread1411, %1421
+  %1424 = phi ptr [ %1391, %.thread1411 ], [ %1422, %1421 ]
   %1425 = tail call ptr @pg_strdup(ptr noundef nonnull %1362) #27
   br label %1426
 
@@ -3067,45 +3014,43 @@ psqlscan_var_is_current_source.exit:              ; preds = %1394
   %1434 = load ptr, ptr %1432, align 8
   store ptr %1434, ptr %89, align 8
   %1435 = load i8, ptr %94, align 4
-  %1436 = and i8 %1435, 1
-  %.not22.i = icmp eq i8 %1436, 0
-  br i1 %.not22.i, label %1437, label %psqlscan_push_new_buffer.exit
+  %1436 = trunc i8 %1435 to i1
+  br i1 %1436, label %psqlscan_push_new_buffer.exit, label %1437
 
 1437:                                             ; preds = %1426
   %1438 = tail call ptr @pg_strdup(ptr noundef nonnull %1389) #27
   br label %psqlscan_push_new_buffer.exit
 
 psqlscan_push_new_buffer.exit:                    ; preds = %1426, %1437
-  %.sink23.i = phi ptr [ %1438, %1437 ], [ null, %1426 ]
+  %.sink22.i = phi ptr [ %1438, %1437 ], [ null, %1426 ]
   %.sink.i = phi ptr [ %1438, %1437 ], [ %1434, %1426 ]
   %1439 = getelementptr inbounds i8, ptr %1427, i64 16
-  store ptr %.sink23.i, ptr %1439, align 8
+  store ptr %.sink22.i, ptr %1439, align 8
   store ptr %.sink.i, ptr %93, align 8
   %1440 = load ptr, ptr %88, align 8
   %1441 = getelementptr inbounds i8, ptr %1427, i64 32
   store ptr %1440, ptr %1441, align 8
   store ptr %1427, ptr %88, align 8
-  br label %psqlscan_emit.exit1205
+  br label %psqlscan_emit.exit1152
 
-psqlscan_emit.exit1205:                           ; preds = %1420, %1406, %1404, %psqlscan_push_new_buffer.exit
+psqlscan_emit.exit1152:                           ; preds = %1420, %1406, %1404, %psqlscan_push_new_buffer.exit
   tail call void @free(ptr noundef %1389) #27
-  br label %psqlscan_emit.exit1215
+  br label %psqlscan_emit.exit1161
 
-.thread1488:                                      ; preds = %psqlscan_extract_substring.exit, %1387
+.thread1407:                                      ; preds = %psqlscan_extract_substring.exit, %1387
   %1442 = load ptr, ptr %81, align 8
   %1443 = load i32, ptr %82, align 8
   %1444 = load ptr, ptr %72, align 8
   %1445 = load i8, ptr %94, align 4
-  %1446 = and i8 %1445, 1
-  %.not.i1207 = icmp eq i8 %1446, 0
-  br i1 %.not.i1207, label %1449, label %1447
+  %1446 = trunc i8 %1445 to i1
+  br i1 %1446, label %1447, label %1449
 
-1447:                                             ; preds = %.thread1488
+1447:                                             ; preds = %.thread1407
   %1448 = sext i32 %1443 to i64
   tail call void @appendBinaryPQExpBuffer(ptr noundef %1444, ptr noundef %1442, i64 noundef %1448) #27
-  br label %psqlscan_emit.exit1215
+  br label %psqlscan_emit.exit1161
 
-1449:                                             ; preds = %.thread1488
+1449:                                             ; preds = %.thread1407
   %1450 = load ptr, ptr %93, align 8
   %1451 = load ptr, ptr %89, align 8
   %1452 = ptrtoint ptr %1442 to i64
@@ -3113,32 +3058,32 @@ psqlscan_emit.exit1205:                           ; preds = %1420, %1406, %1404,
   %1454 = sub i64 %1452, %1453
   %1455 = getelementptr i8, ptr %1450, i64 %1454
   %1456 = icmp sgt i32 %1443, 0
-  br i1 %1456, label %.lr.ph.preheader.i1208, label %psqlscan_emit.exit1215
+  br i1 %1456, label %.lr.ph.preheader.i1154, label %psqlscan_emit.exit1161
 
-.lr.ph.preheader.i1208:                           ; preds = %1449
-  %wide.trip.count.i1209 = zext nneg i32 %1443 to i64
-  br label %.lr.ph.i1210
+.lr.ph.preheader.i1154:                           ; preds = %1449
+  %wide.trip.count.i1155 = zext nneg i32 %1443 to i64
+  br label %.lr.ph.i1156
 
-.lr.ph.i1210:                                     ; preds = %1463, %.lr.ph.preheader.i1208
-  %indvars.iv.i1211 = phi i64 [ 0, %.lr.ph.preheader.i1208 ], [ %indvars.iv.next.i1213, %1463 ]
-  %1457 = getelementptr i8, ptr %1442, i64 %indvars.iv.i1211
+.lr.ph.i1156:                                     ; preds = %1463, %.lr.ph.preheader.i1154
+  %indvars.iv.i1157 = phi i64 [ 0, %.lr.ph.preheader.i1154 ], [ %indvars.iv.next.i1159, %1463 ]
+  %1457 = getelementptr i8, ptr %1442, i64 %indvars.iv.i1157
   %1458 = load i8, ptr %1457, align 1
   %1459 = icmp eq i8 %1458, -1
   br i1 %1459, label %1460, label %1463
 
-1460:                                             ; preds = %.lr.ph.i1210
-  %1461 = getelementptr i8, ptr %1455, i64 %indvars.iv.i1211
+1460:                                             ; preds = %.lr.ph.i1156
+  %1461 = getelementptr i8, ptr %1455, i64 %indvars.iv.i1157
   %1462 = load i8, ptr %1461, align 1
   br label %1463
 
-1463:                                             ; preds = %1460, %.lr.ph.i1210
-  %.0.i1212 = phi i8 [ %1462, %1460 ], [ %1458, %.lr.ph.i1210 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1444, i8 noundef signext %.0.i1212) #27
-  %indvars.iv.next.i1213 = add nuw nsw i64 %indvars.iv.i1211, 1
-  %exitcond.not.i1214 = icmp eq i64 %indvars.iv.next.i1213, %wide.trip.count.i1209
-  br i1 %exitcond.not.i1214, label %psqlscan_emit.exit1215, label %.lr.ph.i1210, !llvm.loop !7
+1463:                                             ; preds = %1460, %.lr.ph.i1156
+  %.0.i1158 = phi i8 [ %1462, %1460 ], [ %1458, %.lr.ph.i1156 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1444, i8 noundef signext %.0.i1158) #27
+  %indvars.iv.next.i1159 = add nuw nsw i64 %indvars.iv.i1157, 1
+  %exitcond.not.i1160 = icmp eq i64 %indvars.iv.next.i1159, %wide.trip.count.i1155
+  br i1 %exitcond.not.i1160, label %psqlscan_emit.exit1161, label %.lr.ph.i1156, !llvm.loop !7
 
-psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447, %psqlscan_emit.exit1205
+psqlscan_emit.exit1161:                           ; preds = %1463, %1449, %1447, %psqlscan_emit.exit1152
   tail call void @free(ptr noundef %1362) #27
   br label %psqlscan_emit.exit.backedge
 
@@ -3175,9 +3120,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1478 = load i32, ptr %82, align 8
   %1479 = load ptr, ptr %72, align 8
   %1480 = load i8, ptr %94, align 4
-  %1481 = and i8 %1480, 1
-  %.not.i1216 = icmp eq i8 %1481, 0
-  br i1 %.not.i1216, label %1484, label %1482
+  %1481 = trunc i8 %1480 to i1
+  br i1 %1481, label %1482, label %1484
 
 1482:                                             ; preds = %1473
   %1483 = sext i32 %1478 to i64
@@ -3192,30 +3136,30 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1489 = sub i64 %1487, %1488
   %1490 = getelementptr i8, ptr %1485, i64 %1489
   %1491 = icmp sgt i32 %1478, 0
-  br i1 %1491, label %.lr.ph.preheader.i1217, label %psqlscan_emit.exit.backedge
+  br i1 %1491, label %.lr.ph.preheader.i1162, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1217:                           ; preds = %1484
-  %wide.trip.count.i1218 = zext nneg i32 %1478 to i64
-  br label %.lr.ph.i1219
+.lr.ph.preheader.i1162:                           ; preds = %1484
+  %wide.trip.count.i1163 = zext nneg i32 %1478 to i64
+  br label %.lr.ph.i1164
 
-.lr.ph.i1219:                                     ; preds = %1498, %.lr.ph.preheader.i1217
-  %indvars.iv.i1220 = phi i64 [ 0, %.lr.ph.preheader.i1217 ], [ %indvars.iv.next.i1222, %1498 ]
-  %1492 = getelementptr i8, ptr %1477, i64 %indvars.iv.i1220
+.lr.ph.i1164:                                     ; preds = %1498, %.lr.ph.preheader.i1162
+  %indvars.iv.i1165 = phi i64 [ 0, %.lr.ph.preheader.i1162 ], [ %indvars.iv.next.i1167, %1498 ]
+  %1492 = getelementptr i8, ptr %1477, i64 %indvars.iv.i1165
   %1493 = load i8, ptr %1492, align 1
   %1494 = icmp eq i8 %1493, -1
   br i1 %1494, label %1495, label %1498
 
-1495:                                             ; preds = %.lr.ph.i1219
-  %1496 = getelementptr i8, ptr %1490, i64 %indvars.iv.i1220
+1495:                                             ; preds = %.lr.ph.i1164
+  %1496 = getelementptr i8, ptr %1490, i64 %indvars.iv.i1165
   %1497 = load i8, ptr %1496, align 1
   br label %1498
 
-1498:                                             ; preds = %1495, %.lr.ph.i1219
-  %.0.i1221 = phi i8 [ %1497, %1495 ], [ %1493, %.lr.ph.i1219 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1479, i8 noundef signext %.0.i1221) #27
-  %indvars.iv.next.i1222 = add nuw nsw i64 %indvars.iv.i1220, 1
-  %exitcond.not.i1223 = icmp eq i64 %indvars.iv.next.i1222, %wide.trip.count.i1218
-  br i1 %exitcond.not.i1223, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1219, !llvm.loop !7
+1498:                                             ; preds = %1495, %.lr.ph.i1164
+  %.0.i1166 = phi i8 [ %1497, %1495 ], [ %1493, %.lr.ph.i1164 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1479, i8 noundef signext %.0.i1166) #27
+  %indvars.iv.next.i1167 = add nuw nsw i64 %indvars.iv.i1165, 1
+  %exitcond.not.i1168 = icmp eq i64 %indvars.iv.next.i1167, %wide.trip.count.i1163
+  br i1 %exitcond.not.i1168, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1164, !llvm.loop !7
 
 1499:                                             ; preds = %135
   %1500 = load i8, ptr %80, align 8
@@ -3232,9 +3176,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1504 = load i32, ptr %82, align 8
   %1505 = load ptr, ptr %72, align 8
   %1506 = load i8, ptr %94, align 4
-  %1507 = and i8 %1506, 1
-  %.not.i1225 = icmp eq i8 %1507, 0
-  br i1 %.not.i1225, label %1510, label %1508
+  %1507 = trunc i8 %1506 to i1
+  br i1 %1507, label %1508, label %1510
 
 1508:                                             ; preds = %1499
   %1509 = sext i32 %1504 to i64
@@ -3249,30 +3192,30 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1515 = sub i64 %1513, %1514
   %1516 = getelementptr i8, ptr %1511, i64 %1515
   %1517 = icmp sgt i32 %1504, 0
-  br i1 %1517, label %.lr.ph.preheader.i1226, label %psqlscan_emit.exit.backedge
+  br i1 %1517, label %.lr.ph.preheader.i1170, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1226:                           ; preds = %1510
-  %wide.trip.count.i1227 = zext nneg i32 %1504 to i64
-  br label %.lr.ph.i1228
+.lr.ph.preheader.i1170:                           ; preds = %1510
+  %wide.trip.count.i1171 = zext nneg i32 %1504 to i64
+  br label %.lr.ph.i1172
 
-.lr.ph.i1228:                                     ; preds = %1524, %.lr.ph.preheader.i1226
-  %indvars.iv.i1229 = phi i64 [ 0, %.lr.ph.preheader.i1226 ], [ %indvars.iv.next.i1231, %1524 ]
-  %1518 = getelementptr i8, ptr %1503, i64 %indvars.iv.i1229
+.lr.ph.i1172:                                     ; preds = %1524, %.lr.ph.preheader.i1170
+  %indvars.iv.i1173 = phi i64 [ 0, %.lr.ph.preheader.i1170 ], [ %indvars.iv.next.i1175, %1524 ]
+  %1518 = getelementptr i8, ptr %1503, i64 %indvars.iv.i1173
   %1519 = load i8, ptr %1518, align 1
   %1520 = icmp eq i8 %1519, -1
   br i1 %1520, label %1521, label %1524
 
-1521:                                             ; preds = %.lr.ph.i1228
-  %1522 = getelementptr i8, ptr %1516, i64 %indvars.iv.i1229
+1521:                                             ; preds = %.lr.ph.i1172
+  %1522 = getelementptr i8, ptr %1516, i64 %indvars.iv.i1173
   %1523 = load i8, ptr %1522, align 1
   br label %1524
 
-1524:                                             ; preds = %1521, %.lr.ph.i1228
-  %.0.i1230 = phi i8 [ %1523, %1521 ], [ %1519, %.lr.ph.i1228 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1505, i8 noundef signext %.0.i1230) #27
-  %indvars.iv.next.i1231 = add nuw nsw i64 %indvars.iv.i1229, 1
-  %exitcond.not.i1232 = icmp eq i64 %indvars.iv.next.i1231, %wide.trip.count.i1227
-  br i1 %exitcond.not.i1232, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1228, !llvm.loop !7
+1524:                                             ; preds = %1521, %.lr.ph.i1172
+  %.0.i1174 = phi i8 [ %1523, %1521 ], [ %1519, %.lr.ph.i1172 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1505, i8 noundef signext %.0.i1174) #27
+  %indvars.iv.next.i1175 = add nuw nsw i64 %indvars.iv.i1173, 1
+  %exitcond.not.i1176 = icmp eq i64 %indvars.iv.next.i1175, %wide.trip.count.i1171
+  br i1 %exitcond.not.i1176, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1172, !llvm.loop !7
 
 1525:                                             ; preds = %135
   %1526 = load i8, ptr %80, align 8
@@ -3289,9 +3232,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1530 = load i32, ptr %82, align 8
   %1531 = load ptr, ptr %72, align 8
   %1532 = load i8, ptr %94, align 4
-  %1533 = and i8 %1532, 1
-  %.not.i1234 = icmp eq i8 %1533, 0
-  br i1 %.not.i1234, label %1536, label %1534
+  %1533 = trunc i8 %1532 to i1
+  br i1 %1533, label %1534, label %1536
 
 1534:                                             ; preds = %1525
   %1535 = sext i32 %1530 to i64
@@ -3306,30 +3248,30 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1541 = sub i64 %1539, %1540
   %1542 = getelementptr i8, ptr %1537, i64 %1541
   %1543 = icmp sgt i32 %1530, 0
-  br i1 %1543, label %.lr.ph.preheader.i1235, label %psqlscan_emit.exit.backedge
+  br i1 %1543, label %.lr.ph.preheader.i1178, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1235:                           ; preds = %1536
-  %wide.trip.count.i1236 = zext nneg i32 %1530 to i64
-  br label %.lr.ph.i1237
+.lr.ph.preheader.i1178:                           ; preds = %1536
+  %wide.trip.count.i1179 = zext nneg i32 %1530 to i64
+  br label %.lr.ph.i1180
 
-.lr.ph.i1237:                                     ; preds = %1550, %.lr.ph.preheader.i1235
-  %indvars.iv.i1238 = phi i64 [ 0, %.lr.ph.preheader.i1235 ], [ %indvars.iv.next.i1240, %1550 ]
-  %1544 = getelementptr i8, ptr %1529, i64 %indvars.iv.i1238
+.lr.ph.i1180:                                     ; preds = %1550, %.lr.ph.preheader.i1178
+  %indvars.iv.i1181 = phi i64 [ 0, %.lr.ph.preheader.i1178 ], [ %indvars.iv.next.i1183, %1550 ]
+  %1544 = getelementptr i8, ptr %1529, i64 %indvars.iv.i1181
   %1545 = load i8, ptr %1544, align 1
   %1546 = icmp eq i8 %1545, -1
   br i1 %1546, label %1547, label %1550
 
-1547:                                             ; preds = %.lr.ph.i1237
-  %1548 = getelementptr i8, ptr %1542, i64 %indvars.iv.i1238
+1547:                                             ; preds = %.lr.ph.i1180
+  %1548 = getelementptr i8, ptr %1542, i64 %indvars.iv.i1181
   %1549 = load i8, ptr %1548, align 1
   br label %1550
 
-1550:                                             ; preds = %1547, %.lr.ph.i1237
-  %.0.i1239 = phi i8 [ %1549, %1547 ], [ %1545, %.lr.ph.i1237 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1531, i8 noundef signext %.0.i1239) #27
-  %indvars.iv.next.i1240 = add nuw nsw i64 %indvars.iv.i1238, 1
-  %exitcond.not.i1241 = icmp eq i64 %indvars.iv.next.i1240, %wide.trip.count.i1236
-  br i1 %exitcond.not.i1241, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1237, !llvm.loop !7
+1550:                                             ; preds = %1547, %.lr.ph.i1180
+  %.0.i1182 = phi i8 [ %1549, %1547 ], [ %1545, %.lr.ph.i1180 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1531, i8 noundef signext %.0.i1182) #27
+  %indvars.iv.next.i1183 = add nuw nsw i64 %indvars.iv.i1181, 1
+  %exitcond.not.i1184 = icmp eq i64 %indvars.iv.next.i1183, %wide.trip.count.i1179
+  br i1 %exitcond.not.i1184, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1180, !llvm.loop !7
 
 1551:                                             ; preds = %135
   %1552 = load i8, ptr %80, align 8
@@ -3346,9 +3288,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1556 = load i32, ptr %82, align 8
   %1557 = load ptr, ptr %72, align 8
   %1558 = load i8, ptr %94, align 4
-  %1559 = and i8 %1558, 1
-  %.not.i1243 = icmp eq i8 %1559, 0
-  br i1 %.not.i1243, label %1562, label %1560
+  %1559 = trunc i8 %1558 to i1
+  br i1 %1559, label %1560, label %1562
 
 1560:                                             ; preds = %1551
   %1561 = sext i32 %1556 to i64
@@ -3363,39 +3304,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1567 = sub i64 %1565, %1566
   %1568 = getelementptr i8, ptr %1563, i64 %1567
   %1569 = icmp sgt i32 %1556, 0
-  br i1 %1569, label %.lr.ph.preheader.i1244, label %psqlscan_emit.exit.backedge
+  br i1 %1569, label %.lr.ph.preheader.i1186, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1244:                           ; preds = %1562
-  %wide.trip.count.i1245 = zext nneg i32 %1556 to i64
-  br label %.lr.ph.i1246
+.lr.ph.preheader.i1186:                           ; preds = %1562
+  %wide.trip.count.i1187 = zext nneg i32 %1556 to i64
+  br label %.lr.ph.i1188
 
-.lr.ph.i1246:                                     ; preds = %1576, %.lr.ph.preheader.i1244
-  %indvars.iv.i1247 = phi i64 [ 0, %.lr.ph.preheader.i1244 ], [ %indvars.iv.next.i1249, %1576 ]
-  %1570 = getelementptr i8, ptr %1555, i64 %indvars.iv.i1247
+.lr.ph.i1188:                                     ; preds = %1576, %.lr.ph.preheader.i1186
+  %indvars.iv.i1189 = phi i64 [ 0, %.lr.ph.preheader.i1186 ], [ %indvars.iv.next.i1191, %1576 ]
+  %1570 = getelementptr i8, ptr %1555, i64 %indvars.iv.i1189
   %1571 = load i8, ptr %1570, align 1
   %1572 = icmp eq i8 %1571, -1
   br i1 %1572, label %1573, label %1576
 
-1573:                                             ; preds = %.lr.ph.i1246
-  %1574 = getelementptr i8, ptr %1568, i64 %indvars.iv.i1247
+1573:                                             ; preds = %.lr.ph.i1188
+  %1574 = getelementptr i8, ptr %1568, i64 %indvars.iv.i1189
   %1575 = load i8, ptr %1574, align 1
   br label %1576
 
-1576:                                             ; preds = %1573, %.lr.ph.i1246
-  %.0.i1248 = phi i8 [ %1575, %1573 ], [ %1571, %.lr.ph.i1246 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1557, i8 noundef signext %.0.i1248) #27
-  %indvars.iv.next.i1249 = add nuw nsw i64 %indvars.iv.i1247, 1
-  %exitcond.not.i1250 = icmp eq i64 %indvars.iv.next.i1249, %wide.trip.count.i1245
-  br i1 %exitcond.not.i1250, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1246, !llvm.loop !7
+1576:                                             ; preds = %1573, %.lr.ph.i1188
+  %.0.i1190 = phi i8 [ %1575, %1573 ], [ %1571, %.lr.ph.i1188 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1557, i8 noundef signext %.0.i1190) #27
+  %indvars.iv.next.i1191 = add nuw nsw i64 %indvars.iv.i1189, 1
+  %exitcond.not.i1192 = icmp eq i64 %indvars.iv.next.i1191, %wide.trip.count.i1187
+  br i1 %exitcond.not.i1192, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1188, !llvm.loop !7
 
 1577:                                             ; preds = %135
   %1578 = load ptr, ptr %81, align 8
   %1579 = load i32, ptr %82, align 8
   %1580 = load ptr, ptr %72, align 8
   %1581 = load i8, ptr %94, align 4
-  %1582 = and i8 %1581, 1
-  %.not.i1252 = icmp eq i8 %1582, 0
-  br i1 %.not.i1252, label %1585, label %1583
+  %1582 = trunc i8 %1581 to i1
+  br i1 %1582, label %1583, label %1585
 
 1583:                                             ; preds = %1577
   %1584 = sext i32 %1579 to i64
@@ -3410,41 +3350,41 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1590 = sub i64 %1588, %1589
   %1591 = getelementptr i8, ptr %1586, i64 %1590
   %1592 = icmp sgt i32 %1579, 0
-  br i1 %1592, label %.lr.ph.preheader.i1253, label %psqlscan_emit.exit.backedge
+  br i1 %1592, label %.lr.ph.preheader.i1194, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1253:                           ; preds = %1585
-  %wide.trip.count.i1254 = zext nneg i32 %1579 to i64
-  br label %.lr.ph.i1255
+.lr.ph.preheader.i1194:                           ; preds = %1585
+  %wide.trip.count.i1195 = zext nneg i32 %1579 to i64
+  br label %.lr.ph.i1196
 
-.lr.ph.i1255:                                     ; preds = %1599, %.lr.ph.preheader.i1253
-  %indvars.iv.i1256 = phi i64 [ 0, %.lr.ph.preheader.i1253 ], [ %indvars.iv.next.i1258, %1599 ]
-  %1593 = getelementptr i8, ptr %1578, i64 %indvars.iv.i1256
+.lr.ph.i1196:                                     ; preds = %1599, %.lr.ph.preheader.i1194
+  %indvars.iv.i1197 = phi i64 [ 0, %.lr.ph.preheader.i1194 ], [ %indvars.iv.next.i1199, %1599 ]
+  %1593 = getelementptr i8, ptr %1578, i64 %indvars.iv.i1197
   %1594 = load i8, ptr %1593, align 1
   %1595 = icmp eq i8 %1594, -1
   br i1 %1595, label %1596, label %1599
 
-1596:                                             ; preds = %.lr.ph.i1255
-  %1597 = getelementptr i8, ptr %1591, i64 %indvars.iv.i1256
+1596:                                             ; preds = %.lr.ph.i1196
+  %1597 = getelementptr i8, ptr %1591, i64 %indvars.iv.i1197
   %1598 = load i8, ptr %1597, align 1
   br label %1599
 
-1599:                                             ; preds = %1596, %.lr.ph.i1255
-  %.0.i1257 = phi i8 [ %1598, %1596 ], [ %1594, %.lr.ph.i1255 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1580, i8 noundef signext %.0.i1257) #27
-  %indvars.iv.next.i1258 = add nuw nsw i64 %indvars.iv.i1256, 1
-  %exitcond.not.i1259 = icmp eq i64 %indvars.iv.next.i1258, %wide.trip.count.i1254
-  br i1 %exitcond.not.i1259, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1255, !llvm.loop !7
+1599:                                             ; preds = %1596, %.lr.ph.i1196
+  %.0.i1198 = phi i8 [ %1598, %1596 ], [ %1594, %.lr.ph.i1196 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1580, i8 noundef signext %.0.i1198) #27
+  %indvars.iv.next.i1199 = add nuw nsw i64 %indvars.iv.i1197, 1
+  %exitcond.not.i1200 = icmp eq i64 %indvars.iv.next.i1199, %wide.trip.count.i1195
+  br i1 %exitcond.not.i1200, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1196, !llvm.loop !7
 
 1600:                                             ; preds = %135
   %1601 = load i32, ptr %82, align 8
   %1602 = load ptr, ptr %81, align 8
   %1603 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1602, ptr noundef nonnull dereferenceable(1) @.str.1) #28
   %1604 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1602, ptr noundef nonnull dereferenceable(1) @.str.2) #28
-  %.not1498 = icmp eq ptr %1603, null
+  %.not1417 = icmp eq ptr %1603, null
   %1605 = icmp ne ptr %1604, null
   %1606 = icmp ugt ptr %1603, %1604
   %1607 = and i1 %1605, %1606
-  %1608 = select i1 %.not1498, i1 true, i1 %1607
+  %1608 = select i1 %.not1417, i1 true, i1 %1607
   %.0711 = select i1 %1608, ptr %1604, ptr %1603
   %.not740 = icmp eq ptr %.0711, null
   %1609 = ptrtoint ptr %.0711 to i64
@@ -3472,8 +3412,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
 
 .critedge30.preheader:                            ; preds = %1623
   %invariant.gep = getelementptr i8, ptr %1602, i64 -2
-  %.not2020 = icmp eq i32 %.0712, 2
-  br i1 %.not2020, label %.critedge, label %.lr.ph2017
+  %.not1939 = icmp eq i32 %.0712, 2
+  br i1 %.not1939, label %.critedge, label %.lr.ph1936
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %1623
   %indvars.iv = phi i64 [ %1620, %.lr.ph.preheader ], [ %indvars.iv.next, %1623 ]
@@ -3498,23 +3438,23 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1625 = icmp sgt i32 %1624, 0
   br i1 %1625, label %.lr.ph, label %.critedge30.preheader, !llvm.loop !10
 
-.lr.ph2017:                                       ; preds = %.critedge30.preheader, %.critedge30.backedge
-  %indvars.iv2403 = phi i64 [ %indvars.iv.next2404, %.critedge30.backedge ], [ %1615, %.critedge30.preheader ]
-  %indvars.iv.next2404 = add nsw i64 %indvars.iv2403, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv2403
+.lr.ph1936:                                       ; preds = %.critedge30.preheader, %.critedge30.backedge
+  %indvars.iv2322 = phi i64 [ %indvars.iv.next2323, %.critedge30.backedge ], [ %1615, %.critedge30.preheader ]
+  %indvars.iv.next2323 = add nsw i64 %indvars.iv2322, -1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv2322
   %1626 = load i8, ptr %gep, align 1
   switch i8 %1626, label %.critedge.loopexit.split.loop.exit [
     i8 43, label %.critedge30.backedge
     i8 45, label %.critedge30.backedge
   ]
 
-.critedge30.backedge:                             ; preds = %.lr.ph2017, %.lr.ph2017
-  %1627 = trunc i64 %indvars.iv2403 to i32
+.critedge30.backedge:                             ; preds = %.lr.ph1936, %.lr.ph1936
+  %1627 = trunc i64 %indvars.iv2322 to i32
   %1628 = icmp sgt i32 %1627, 3
-  br i1 %1628, label %.lr.ph2017, label %.critedge
+  br i1 %1628, label %.lr.ph1936, label %.critedge
 
-.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph2017
-  %indvars.le = trunc i64 %indvars.iv.next2404 to i32
+.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph1936
+  %indvars.le = trunc i64 %indvars.iv.next2323 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit, %.critedge30.preheader, %1614, %1600
@@ -3534,18 +3474,17 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   store i8 %1634, ptr %80, align 8
   store i8 0, ptr %1633, align 1
   store ptr %1633, ptr %79, align 8
-  %.pre2418 = load ptr, ptr %81, align 8
-  %.pre2419 = load i32, ptr %82, align 8
+  %.pre2337 = load ptr, ptr %81, align 8
+  %.pre2338 = load i32, ptr %82, align 8
   br label %1635
 
 1635:                                             ; preds = %1630, %.critedge
-  %1636 = phi i32 [ %.pre2419, %1630 ], [ %1601, %.critedge ]
-  %1637 = phi ptr [ %.pre2418, %1630 ], [ %1602, %.critedge ]
+  %1636 = phi i32 [ %.pre2338, %1630 ], [ %1601, %.critedge ]
+  %1637 = phi ptr [ %.pre2337, %1630 ], [ %1602, %.critedge ]
   %1638 = load ptr, ptr %72, align 8
   %1639 = load i8, ptr %94, align 4
-  %1640 = and i8 %1639, 1
-  %.not.i1261 = icmp eq i8 %1640, 0
-  br i1 %.not.i1261, label %1643, label %1641
+  %1640 = trunc i8 %1639 to i1
+  br i1 %1640, label %1641, label %1643
 
 1641:                                             ; preds = %1635
   %1642 = sext i32 %1636 to i64
@@ -3560,39 +3499,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1648 = sub i64 %1646, %1647
   %1649 = getelementptr i8, ptr %1644, i64 %1648
   %1650 = icmp sgt i32 %1636, 0
-  br i1 %1650, label %.lr.ph.preheader.i1262, label %psqlscan_emit.exit.backedge
+  br i1 %1650, label %.lr.ph.preheader.i1202, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1262:                           ; preds = %1643
-  %wide.trip.count.i1263 = zext nneg i32 %1636 to i64
-  br label %.lr.ph.i1264
+.lr.ph.preheader.i1202:                           ; preds = %1643
+  %wide.trip.count.i1203 = zext nneg i32 %1636 to i64
+  br label %.lr.ph.i1204
 
-.lr.ph.i1264:                                     ; preds = %1657, %.lr.ph.preheader.i1262
-  %indvars.iv.i1265 = phi i64 [ 0, %.lr.ph.preheader.i1262 ], [ %indvars.iv.next.i1267, %1657 ]
-  %1651 = getelementptr i8, ptr %1637, i64 %indvars.iv.i1265
+.lr.ph.i1204:                                     ; preds = %1657, %.lr.ph.preheader.i1202
+  %indvars.iv.i1205 = phi i64 [ 0, %.lr.ph.preheader.i1202 ], [ %indvars.iv.next.i1207, %1657 ]
+  %1651 = getelementptr i8, ptr %1637, i64 %indvars.iv.i1205
   %1652 = load i8, ptr %1651, align 1
   %1653 = icmp eq i8 %1652, -1
   br i1 %1653, label %1654, label %1657
 
-1654:                                             ; preds = %.lr.ph.i1264
-  %1655 = getelementptr i8, ptr %1649, i64 %indvars.iv.i1265
+1654:                                             ; preds = %.lr.ph.i1204
+  %1655 = getelementptr i8, ptr %1649, i64 %indvars.iv.i1205
   %1656 = load i8, ptr %1655, align 1
   br label %1657
 
-1657:                                             ; preds = %1654, %.lr.ph.i1264
-  %.0.i1266 = phi i8 [ %1656, %1654 ], [ %1652, %.lr.ph.i1264 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1638, i8 noundef signext %.0.i1266) #27
-  %indvars.iv.next.i1267 = add nuw nsw i64 %indvars.iv.i1265, 1
-  %exitcond.not.i1268 = icmp eq i64 %indvars.iv.next.i1267, %wide.trip.count.i1263
-  br i1 %exitcond.not.i1268, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1264, !llvm.loop !7
+1657:                                             ; preds = %1654, %.lr.ph.i1204
+  %.0.i1206 = phi i8 [ %1656, %1654 ], [ %1652, %.lr.ph.i1204 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1638, i8 noundef signext %.0.i1206) #27
+  %indvars.iv.next.i1207 = add nuw nsw i64 %indvars.iv.i1205, 1
+  %exitcond.not.i1208 = icmp eq i64 %indvars.iv.next.i1207, %wide.trip.count.i1203
+  br i1 %exitcond.not.i1208, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1204, !llvm.loop !7
 
 1658:                                             ; preds = %135
   %1659 = load ptr, ptr %81, align 8
   %1660 = load i32, ptr %82, align 8
   %1661 = load ptr, ptr %72, align 8
   %1662 = load i8, ptr %94, align 4
-  %1663 = and i8 %1662, 1
-  %.not.i1270 = icmp eq i8 %1663, 0
-  br i1 %.not.i1270, label %1666, label %1664
+  %1663 = trunc i8 %1662 to i1
+  br i1 %1663, label %1664, label %1666
 
 1664:                                             ; preds = %1658
   %1665 = sext i32 %1660 to i64
@@ -3607,39 +3545,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1671 = sub i64 %1669, %1670
   %1672 = getelementptr i8, ptr %1667, i64 %1671
   %1673 = icmp sgt i32 %1660, 0
-  br i1 %1673, label %.lr.ph.preheader.i1271, label %psqlscan_emit.exit.backedge
+  br i1 %1673, label %.lr.ph.preheader.i1210, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1271:                           ; preds = %1666
-  %wide.trip.count.i1272 = zext nneg i32 %1660 to i64
-  br label %.lr.ph.i1273
+.lr.ph.preheader.i1210:                           ; preds = %1666
+  %wide.trip.count.i1211 = zext nneg i32 %1660 to i64
+  br label %.lr.ph.i1212
 
-.lr.ph.i1273:                                     ; preds = %1680, %.lr.ph.preheader.i1271
-  %indvars.iv.i1274 = phi i64 [ 0, %.lr.ph.preheader.i1271 ], [ %indvars.iv.next.i1276, %1680 ]
-  %1674 = getelementptr i8, ptr %1659, i64 %indvars.iv.i1274
+.lr.ph.i1212:                                     ; preds = %1680, %.lr.ph.preheader.i1210
+  %indvars.iv.i1213 = phi i64 [ 0, %.lr.ph.preheader.i1210 ], [ %indvars.iv.next.i1215, %1680 ]
+  %1674 = getelementptr i8, ptr %1659, i64 %indvars.iv.i1213
   %1675 = load i8, ptr %1674, align 1
   %1676 = icmp eq i8 %1675, -1
   br i1 %1676, label %1677, label %1680
 
-1677:                                             ; preds = %.lr.ph.i1273
-  %1678 = getelementptr i8, ptr %1672, i64 %indvars.iv.i1274
+1677:                                             ; preds = %.lr.ph.i1212
+  %1678 = getelementptr i8, ptr %1672, i64 %indvars.iv.i1213
   %1679 = load i8, ptr %1678, align 1
   br label %1680
 
-1680:                                             ; preds = %1677, %.lr.ph.i1273
-  %.0.i1275 = phi i8 [ %1679, %1677 ], [ %1675, %.lr.ph.i1273 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1661, i8 noundef signext %.0.i1275) #27
-  %indvars.iv.next.i1276 = add nuw nsw i64 %indvars.iv.i1274, 1
-  %exitcond.not.i1277 = icmp eq i64 %indvars.iv.next.i1276, %wide.trip.count.i1272
-  br i1 %exitcond.not.i1277, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1273, !llvm.loop !7
+1680:                                             ; preds = %1677, %.lr.ph.i1212
+  %.0.i1214 = phi i8 [ %1679, %1677 ], [ %1675, %.lr.ph.i1212 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1661, i8 noundef signext %.0.i1214) #27
+  %indvars.iv.next.i1215 = add nuw nsw i64 %indvars.iv.i1213, 1
+  %exitcond.not.i1216 = icmp eq i64 %indvars.iv.next.i1215, %wide.trip.count.i1211
+  br i1 %exitcond.not.i1216, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1212, !llvm.loop !7
 
 1681:                                             ; preds = %135
   %1682 = load ptr, ptr %81, align 8
   %1683 = load i32, ptr %82, align 8
   %1684 = load ptr, ptr %72, align 8
   %1685 = load i8, ptr %94, align 4
-  %1686 = and i8 %1685, 1
-  %.not.i1279 = icmp eq i8 %1686, 0
-  br i1 %.not.i1279, label %1689, label %1687
+  %1686 = trunc i8 %1685 to i1
+  br i1 %1686, label %1687, label %1689
 
 1687:                                             ; preds = %1681
   %1688 = sext i32 %1683 to i64
@@ -3654,39 +3591,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1694 = sub i64 %1692, %1693
   %1695 = getelementptr i8, ptr %1690, i64 %1694
   %1696 = icmp sgt i32 %1683, 0
-  br i1 %1696, label %.lr.ph.preheader.i1280, label %psqlscan_emit.exit.backedge
+  br i1 %1696, label %.lr.ph.preheader.i1218, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1280:                           ; preds = %1689
-  %wide.trip.count.i1281 = zext nneg i32 %1683 to i64
-  br label %.lr.ph.i1282
+.lr.ph.preheader.i1218:                           ; preds = %1689
+  %wide.trip.count.i1219 = zext nneg i32 %1683 to i64
+  br label %.lr.ph.i1220
 
-.lr.ph.i1282:                                     ; preds = %1703, %.lr.ph.preheader.i1280
-  %indvars.iv.i1283 = phi i64 [ 0, %.lr.ph.preheader.i1280 ], [ %indvars.iv.next.i1285, %1703 ]
-  %1697 = getelementptr i8, ptr %1682, i64 %indvars.iv.i1283
+.lr.ph.i1220:                                     ; preds = %1703, %.lr.ph.preheader.i1218
+  %indvars.iv.i1221 = phi i64 [ 0, %.lr.ph.preheader.i1218 ], [ %indvars.iv.next.i1223, %1703 ]
+  %1697 = getelementptr i8, ptr %1682, i64 %indvars.iv.i1221
   %1698 = load i8, ptr %1697, align 1
   %1699 = icmp eq i8 %1698, -1
   br i1 %1699, label %1700, label %1703
 
-1700:                                             ; preds = %.lr.ph.i1282
-  %1701 = getelementptr i8, ptr %1695, i64 %indvars.iv.i1283
+1700:                                             ; preds = %.lr.ph.i1220
+  %1701 = getelementptr i8, ptr %1695, i64 %indvars.iv.i1221
   %1702 = load i8, ptr %1701, align 1
   br label %1703
 
-1703:                                             ; preds = %1700, %.lr.ph.i1282
-  %.0.i1284 = phi i8 [ %1702, %1700 ], [ %1698, %.lr.ph.i1282 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1684, i8 noundef signext %.0.i1284) #27
-  %indvars.iv.next.i1285 = add nuw nsw i64 %indvars.iv.i1283, 1
-  %exitcond.not.i1286 = icmp eq i64 %indvars.iv.next.i1285, %wide.trip.count.i1281
-  br i1 %exitcond.not.i1286, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1282, !llvm.loop !7
+1703:                                             ; preds = %1700, %.lr.ph.i1220
+  %.0.i1222 = phi i8 [ %1702, %1700 ], [ %1698, %.lr.ph.i1220 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1684, i8 noundef signext %.0.i1222) #27
+  %indvars.iv.next.i1223 = add nuw nsw i64 %indvars.iv.i1221, 1
+  %exitcond.not.i1224 = icmp eq i64 %indvars.iv.next.i1223, %wide.trip.count.i1219
+  br i1 %exitcond.not.i1224, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1220, !llvm.loop !7
 
 1704:                                             ; preds = %135
   %1705 = load ptr, ptr %81, align 8
   %1706 = load i32, ptr %82, align 8
   %1707 = load ptr, ptr %72, align 8
   %1708 = load i8, ptr %94, align 4
-  %1709 = and i8 %1708, 1
-  %.not.i1288 = icmp eq i8 %1709, 0
-  br i1 %.not.i1288, label %1712, label %1710
+  %1709 = trunc i8 %1708 to i1
+  br i1 %1709, label %1710, label %1712
 
 1710:                                             ; preds = %1704
   %1711 = sext i32 %1706 to i64
@@ -3701,39 +3637,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1717 = sub i64 %1715, %1716
   %1718 = getelementptr i8, ptr %1713, i64 %1717
   %1719 = icmp sgt i32 %1706, 0
-  br i1 %1719, label %.lr.ph.preheader.i1289, label %psqlscan_emit.exit.backedge
+  br i1 %1719, label %.lr.ph.preheader.i1226, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1289:                           ; preds = %1712
-  %wide.trip.count.i1290 = zext nneg i32 %1706 to i64
-  br label %.lr.ph.i1291
+.lr.ph.preheader.i1226:                           ; preds = %1712
+  %wide.trip.count.i1227 = zext nneg i32 %1706 to i64
+  br label %.lr.ph.i1228
 
-.lr.ph.i1291:                                     ; preds = %1726, %.lr.ph.preheader.i1289
-  %indvars.iv.i1292 = phi i64 [ 0, %.lr.ph.preheader.i1289 ], [ %indvars.iv.next.i1294, %1726 ]
-  %1720 = getelementptr i8, ptr %1705, i64 %indvars.iv.i1292
+.lr.ph.i1228:                                     ; preds = %1726, %.lr.ph.preheader.i1226
+  %indvars.iv.i1229 = phi i64 [ 0, %.lr.ph.preheader.i1226 ], [ %indvars.iv.next.i1231, %1726 ]
+  %1720 = getelementptr i8, ptr %1705, i64 %indvars.iv.i1229
   %1721 = load i8, ptr %1720, align 1
   %1722 = icmp eq i8 %1721, -1
   br i1 %1722, label %1723, label %1726
 
-1723:                                             ; preds = %.lr.ph.i1291
-  %1724 = getelementptr i8, ptr %1718, i64 %indvars.iv.i1292
+1723:                                             ; preds = %.lr.ph.i1228
+  %1724 = getelementptr i8, ptr %1718, i64 %indvars.iv.i1229
   %1725 = load i8, ptr %1724, align 1
   br label %1726
 
-1726:                                             ; preds = %1723, %.lr.ph.i1291
-  %.0.i1293 = phi i8 [ %1725, %1723 ], [ %1721, %.lr.ph.i1291 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1707, i8 noundef signext %.0.i1293) #27
-  %indvars.iv.next.i1294 = add nuw nsw i64 %indvars.iv.i1292, 1
-  %exitcond.not.i1295 = icmp eq i64 %indvars.iv.next.i1294, %wide.trip.count.i1290
-  br i1 %exitcond.not.i1295, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1291, !llvm.loop !7
+1726:                                             ; preds = %1723, %.lr.ph.i1228
+  %.0.i1230 = phi i8 [ %1725, %1723 ], [ %1721, %.lr.ph.i1228 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1707, i8 noundef signext %.0.i1230) #27
+  %indvars.iv.next.i1231 = add nuw nsw i64 %indvars.iv.i1229, 1
+  %exitcond.not.i1232 = icmp eq i64 %indvars.iv.next.i1231, %wide.trip.count.i1227
+  br i1 %exitcond.not.i1232, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1228, !llvm.loop !7
 
 1727:                                             ; preds = %135
   %1728 = load ptr, ptr %81, align 8
   %1729 = load i32, ptr %82, align 8
   %1730 = load ptr, ptr %72, align 8
   %1731 = load i8, ptr %94, align 4
-  %1732 = and i8 %1731, 1
-  %.not.i1297 = icmp eq i8 %1732, 0
-  br i1 %.not.i1297, label %1735, label %1733
+  %1732 = trunc i8 %1731 to i1
+  br i1 %1732, label %1733, label %1735
 
 1733:                                             ; preds = %1727
   %1734 = sext i32 %1729 to i64
@@ -3748,39 +3683,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1740 = sub i64 %1738, %1739
   %1741 = getelementptr i8, ptr %1736, i64 %1740
   %1742 = icmp sgt i32 %1729, 0
-  br i1 %1742, label %.lr.ph.preheader.i1298, label %psqlscan_emit.exit.backedge
+  br i1 %1742, label %.lr.ph.preheader.i1234, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1298:                           ; preds = %1735
-  %wide.trip.count.i1299 = zext nneg i32 %1729 to i64
-  br label %.lr.ph.i1300
+.lr.ph.preheader.i1234:                           ; preds = %1735
+  %wide.trip.count.i1235 = zext nneg i32 %1729 to i64
+  br label %.lr.ph.i1236
 
-.lr.ph.i1300:                                     ; preds = %1749, %.lr.ph.preheader.i1298
-  %indvars.iv.i1301 = phi i64 [ 0, %.lr.ph.preheader.i1298 ], [ %indvars.iv.next.i1303, %1749 ]
-  %1743 = getelementptr i8, ptr %1728, i64 %indvars.iv.i1301
+.lr.ph.i1236:                                     ; preds = %1749, %.lr.ph.preheader.i1234
+  %indvars.iv.i1237 = phi i64 [ 0, %.lr.ph.preheader.i1234 ], [ %indvars.iv.next.i1239, %1749 ]
+  %1743 = getelementptr i8, ptr %1728, i64 %indvars.iv.i1237
   %1744 = load i8, ptr %1743, align 1
   %1745 = icmp eq i8 %1744, -1
   br i1 %1745, label %1746, label %1749
 
-1746:                                             ; preds = %.lr.ph.i1300
-  %1747 = getelementptr i8, ptr %1741, i64 %indvars.iv.i1301
+1746:                                             ; preds = %.lr.ph.i1236
+  %1747 = getelementptr i8, ptr %1741, i64 %indvars.iv.i1237
   %1748 = load i8, ptr %1747, align 1
   br label %1749
 
-1749:                                             ; preds = %1746, %.lr.ph.i1300
-  %.0.i1302 = phi i8 [ %1748, %1746 ], [ %1744, %.lr.ph.i1300 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1730, i8 noundef signext %.0.i1302) #27
-  %indvars.iv.next.i1303 = add nuw nsw i64 %indvars.iv.i1301, 1
-  %exitcond.not.i1304 = icmp eq i64 %indvars.iv.next.i1303, %wide.trip.count.i1299
-  br i1 %exitcond.not.i1304, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1300, !llvm.loop !7
+1749:                                             ; preds = %1746, %.lr.ph.i1236
+  %.0.i1238 = phi i8 [ %1748, %1746 ], [ %1744, %.lr.ph.i1236 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1730, i8 noundef signext %.0.i1238) #27
+  %indvars.iv.next.i1239 = add nuw nsw i64 %indvars.iv.i1237, 1
+  %exitcond.not.i1240 = icmp eq i64 %indvars.iv.next.i1239, %wide.trip.count.i1235
+  br i1 %exitcond.not.i1240, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1236, !llvm.loop !7
 
 1750:                                             ; preds = %135
   %1751 = load ptr, ptr %81, align 8
   %1752 = load i32, ptr %82, align 8
   %1753 = load ptr, ptr %72, align 8
   %1754 = load i8, ptr %94, align 4
-  %1755 = and i8 %1754, 1
-  %.not.i1306 = icmp eq i8 %1755, 0
-  br i1 %.not.i1306, label %1758, label %1756
+  %1755 = trunc i8 %1754 to i1
+  br i1 %1755, label %1756, label %1758
 
 1756:                                             ; preds = %1750
   %1757 = sext i32 %1752 to i64
@@ -3795,39 +3729,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1763 = sub i64 %1761, %1762
   %1764 = getelementptr i8, ptr %1759, i64 %1763
   %1765 = icmp sgt i32 %1752, 0
-  br i1 %1765, label %.lr.ph.preheader.i1307, label %psqlscan_emit.exit.backedge
+  br i1 %1765, label %.lr.ph.preheader.i1242, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1307:                           ; preds = %1758
-  %wide.trip.count.i1308 = zext nneg i32 %1752 to i64
-  br label %.lr.ph.i1309
+.lr.ph.preheader.i1242:                           ; preds = %1758
+  %wide.trip.count.i1243 = zext nneg i32 %1752 to i64
+  br label %.lr.ph.i1244
 
-.lr.ph.i1309:                                     ; preds = %1772, %.lr.ph.preheader.i1307
-  %indvars.iv.i1310 = phi i64 [ 0, %.lr.ph.preheader.i1307 ], [ %indvars.iv.next.i1312, %1772 ]
-  %1766 = getelementptr i8, ptr %1751, i64 %indvars.iv.i1310
+.lr.ph.i1244:                                     ; preds = %1772, %.lr.ph.preheader.i1242
+  %indvars.iv.i1245 = phi i64 [ 0, %.lr.ph.preheader.i1242 ], [ %indvars.iv.next.i1247, %1772 ]
+  %1766 = getelementptr i8, ptr %1751, i64 %indvars.iv.i1245
   %1767 = load i8, ptr %1766, align 1
   %1768 = icmp eq i8 %1767, -1
   br i1 %1768, label %1769, label %1772
 
-1769:                                             ; preds = %.lr.ph.i1309
-  %1770 = getelementptr i8, ptr %1764, i64 %indvars.iv.i1310
+1769:                                             ; preds = %.lr.ph.i1244
+  %1770 = getelementptr i8, ptr %1764, i64 %indvars.iv.i1245
   %1771 = load i8, ptr %1770, align 1
   br label %1772
 
-1772:                                             ; preds = %1769, %.lr.ph.i1309
-  %.0.i1311 = phi i8 [ %1771, %1769 ], [ %1767, %.lr.ph.i1309 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1753, i8 noundef signext %.0.i1311) #27
-  %indvars.iv.next.i1312 = add nuw nsw i64 %indvars.iv.i1310, 1
-  %exitcond.not.i1313 = icmp eq i64 %indvars.iv.next.i1312, %wide.trip.count.i1308
-  br i1 %exitcond.not.i1313, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1309, !llvm.loop !7
+1772:                                             ; preds = %1769, %.lr.ph.i1244
+  %.0.i1246 = phi i8 [ %1771, %1769 ], [ %1767, %.lr.ph.i1244 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1753, i8 noundef signext %.0.i1246) #27
+  %indvars.iv.next.i1247 = add nuw nsw i64 %indvars.iv.i1245, 1
+  %exitcond.not.i1248 = icmp eq i64 %indvars.iv.next.i1247, %wide.trip.count.i1243
+  br i1 %exitcond.not.i1248, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1244, !llvm.loop !7
 
 1773:                                             ; preds = %135
   %1774 = load ptr, ptr %81, align 8
   %1775 = load i32, ptr %82, align 8
   %1776 = load ptr, ptr %72, align 8
   %1777 = load i8, ptr %94, align 4
-  %1778 = and i8 %1777, 1
-  %.not.i1315 = icmp eq i8 %1778, 0
-  br i1 %.not.i1315, label %1781, label %1779
+  %1778 = trunc i8 %1777 to i1
+  br i1 %1778, label %1779, label %1781
 
 1779:                                             ; preds = %1773
   %1780 = sext i32 %1775 to i64
@@ -3842,39 +3775,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1786 = sub i64 %1784, %1785
   %1787 = getelementptr i8, ptr %1782, i64 %1786
   %1788 = icmp sgt i32 %1775, 0
-  br i1 %1788, label %.lr.ph.preheader.i1316, label %psqlscan_emit.exit.backedge
+  br i1 %1788, label %.lr.ph.preheader.i1250, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1316:                           ; preds = %1781
-  %wide.trip.count.i1317 = zext nneg i32 %1775 to i64
-  br label %.lr.ph.i1318
+.lr.ph.preheader.i1250:                           ; preds = %1781
+  %wide.trip.count.i1251 = zext nneg i32 %1775 to i64
+  br label %.lr.ph.i1252
 
-.lr.ph.i1318:                                     ; preds = %1795, %.lr.ph.preheader.i1316
-  %indvars.iv.i1319 = phi i64 [ 0, %.lr.ph.preheader.i1316 ], [ %indvars.iv.next.i1321, %1795 ]
-  %1789 = getelementptr i8, ptr %1774, i64 %indvars.iv.i1319
+.lr.ph.i1252:                                     ; preds = %1795, %.lr.ph.preheader.i1250
+  %indvars.iv.i1253 = phi i64 [ 0, %.lr.ph.preheader.i1250 ], [ %indvars.iv.next.i1255, %1795 ]
+  %1789 = getelementptr i8, ptr %1774, i64 %indvars.iv.i1253
   %1790 = load i8, ptr %1789, align 1
   %1791 = icmp eq i8 %1790, -1
   br i1 %1791, label %1792, label %1795
 
-1792:                                             ; preds = %.lr.ph.i1318
-  %1793 = getelementptr i8, ptr %1787, i64 %indvars.iv.i1319
+1792:                                             ; preds = %.lr.ph.i1252
+  %1793 = getelementptr i8, ptr %1787, i64 %indvars.iv.i1253
   %1794 = load i8, ptr %1793, align 1
   br label %1795
 
-1795:                                             ; preds = %1792, %.lr.ph.i1318
-  %.0.i1320 = phi i8 [ %1794, %1792 ], [ %1790, %.lr.ph.i1318 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1776, i8 noundef signext %.0.i1320) #27
-  %indvars.iv.next.i1321 = add nuw nsw i64 %indvars.iv.i1319, 1
-  %exitcond.not.i1322 = icmp eq i64 %indvars.iv.next.i1321, %wide.trip.count.i1317
-  br i1 %exitcond.not.i1322, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1318, !llvm.loop !7
+1795:                                             ; preds = %1792, %.lr.ph.i1252
+  %.0.i1254 = phi i8 [ %1794, %1792 ], [ %1790, %.lr.ph.i1252 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1776, i8 noundef signext %.0.i1254) #27
+  %indvars.iv.next.i1255 = add nuw nsw i64 %indvars.iv.i1253, 1
+  %exitcond.not.i1256 = icmp eq i64 %indvars.iv.next.i1255, %wide.trip.count.i1251
+  br i1 %exitcond.not.i1256, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1252, !llvm.loop !7
 
 1796:                                             ; preds = %135
   %1797 = load ptr, ptr %81, align 8
   %1798 = load i32, ptr %82, align 8
   %1799 = load ptr, ptr %72, align 8
   %1800 = load i8, ptr %94, align 4
-  %1801 = and i8 %1800, 1
-  %.not.i1324 = icmp eq i8 %1801, 0
-  br i1 %.not.i1324, label %1804, label %1802
+  %1801 = trunc i8 %1800 to i1
+  br i1 %1801, label %1802, label %1804
 
 1802:                                             ; preds = %1796
   %1803 = sext i32 %1798 to i64
@@ -3889,39 +3821,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1809 = sub i64 %1807, %1808
   %1810 = getelementptr i8, ptr %1805, i64 %1809
   %1811 = icmp sgt i32 %1798, 0
-  br i1 %1811, label %.lr.ph.preheader.i1325, label %psqlscan_emit.exit.backedge
+  br i1 %1811, label %.lr.ph.preheader.i1258, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1325:                           ; preds = %1804
-  %wide.trip.count.i1326 = zext nneg i32 %1798 to i64
-  br label %.lr.ph.i1327
+.lr.ph.preheader.i1258:                           ; preds = %1804
+  %wide.trip.count.i1259 = zext nneg i32 %1798 to i64
+  br label %.lr.ph.i1260
 
-.lr.ph.i1327:                                     ; preds = %1818, %.lr.ph.preheader.i1325
-  %indvars.iv.i1328 = phi i64 [ 0, %.lr.ph.preheader.i1325 ], [ %indvars.iv.next.i1330, %1818 ]
-  %1812 = getelementptr i8, ptr %1797, i64 %indvars.iv.i1328
+.lr.ph.i1260:                                     ; preds = %1818, %.lr.ph.preheader.i1258
+  %indvars.iv.i1261 = phi i64 [ 0, %.lr.ph.preheader.i1258 ], [ %indvars.iv.next.i1263, %1818 ]
+  %1812 = getelementptr i8, ptr %1797, i64 %indvars.iv.i1261
   %1813 = load i8, ptr %1812, align 1
   %1814 = icmp eq i8 %1813, -1
   br i1 %1814, label %1815, label %1818
 
-1815:                                             ; preds = %.lr.ph.i1327
-  %1816 = getelementptr i8, ptr %1810, i64 %indvars.iv.i1328
+1815:                                             ; preds = %.lr.ph.i1260
+  %1816 = getelementptr i8, ptr %1810, i64 %indvars.iv.i1261
   %1817 = load i8, ptr %1816, align 1
   br label %1818
 
-1818:                                             ; preds = %1815, %.lr.ph.i1327
-  %.0.i1329 = phi i8 [ %1817, %1815 ], [ %1813, %.lr.ph.i1327 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1799, i8 noundef signext %.0.i1329) #27
-  %indvars.iv.next.i1330 = add nuw nsw i64 %indvars.iv.i1328, 1
-  %exitcond.not.i1331 = icmp eq i64 %indvars.iv.next.i1330, %wide.trip.count.i1326
-  br i1 %exitcond.not.i1331, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1327, !llvm.loop !7
+1818:                                             ; preds = %1815, %.lr.ph.i1260
+  %.0.i1262 = phi i8 [ %1817, %1815 ], [ %1813, %.lr.ph.i1260 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1799, i8 noundef signext %.0.i1262) #27
+  %indvars.iv.next.i1263 = add nuw nsw i64 %indvars.iv.i1261, 1
+  %exitcond.not.i1264 = icmp eq i64 %indvars.iv.next.i1263, %wide.trip.count.i1259
+  br i1 %exitcond.not.i1264, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1260, !llvm.loop !7
 
 1819:                                             ; preds = %135
   %1820 = load ptr, ptr %81, align 8
   %1821 = load i32, ptr %82, align 8
   %1822 = load ptr, ptr %72, align 8
   %1823 = load i8, ptr %94, align 4
-  %1824 = and i8 %1823, 1
-  %.not.i1333 = icmp eq i8 %1824, 0
-  br i1 %.not.i1333, label %1827, label %1825
+  %1824 = trunc i8 %1823 to i1
+  br i1 %1824, label %1825, label %1827
 
 1825:                                             ; preds = %1819
   %1826 = sext i32 %1821 to i64
@@ -3936,39 +3867,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1832 = sub i64 %1830, %1831
   %1833 = getelementptr i8, ptr %1828, i64 %1832
   %1834 = icmp sgt i32 %1821, 0
-  br i1 %1834, label %.lr.ph.preheader.i1334, label %psqlscan_emit.exit.backedge
+  br i1 %1834, label %.lr.ph.preheader.i1266, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1334:                           ; preds = %1827
-  %wide.trip.count.i1335 = zext nneg i32 %1821 to i64
-  br label %.lr.ph.i1336
+.lr.ph.preheader.i1266:                           ; preds = %1827
+  %wide.trip.count.i1267 = zext nneg i32 %1821 to i64
+  br label %.lr.ph.i1268
 
-.lr.ph.i1336:                                     ; preds = %1841, %.lr.ph.preheader.i1334
-  %indvars.iv.i1337 = phi i64 [ 0, %.lr.ph.preheader.i1334 ], [ %indvars.iv.next.i1339, %1841 ]
-  %1835 = getelementptr i8, ptr %1820, i64 %indvars.iv.i1337
+.lr.ph.i1268:                                     ; preds = %1841, %.lr.ph.preheader.i1266
+  %indvars.iv.i1269 = phi i64 [ 0, %.lr.ph.preheader.i1266 ], [ %indvars.iv.next.i1271, %1841 ]
+  %1835 = getelementptr i8, ptr %1820, i64 %indvars.iv.i1269
   %1836 = load i8, ptr %1835, align 1
   %1837 = icmp eq i8 %1836, -1
   br i1 %1837, label %1838, label %1841
 
-1838:                                             ; preds = %.lr.ph.i1336
-  %1839 = getelementptr i8, ptr %1833, i64 %indvars.iv.i1337
+1838:                                             ; preds = %.lr.ph.i1268
+  %1839 = getelementptr i8, ptr %1833, i64 %indvars.iv.i1269
   %1840 = load i8, ptr %1839, align 1
   br label %1841
 
-1841:                                             ; preds = %1838, %.lr.ph.i1336
-  %.0.i1338 = phi i8 [ %1840, %1838 ], [ %1836, %.lr.ph.i1336 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1822, i8 noundef signext %.0.i1338) #27
-  %indvars.iv.next.i1339 = add nuw nsw i64 %indvars.iv.i1337, 1
-  %exitcond.not.i1340 = icmp eq i64 %indvars.iv.next.i1339, %wide.trip.count.i1335
-  br i1 %exitcond.not.i1340, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1336, !llvm.loop !7
+1841:                                             ; preds = %1838, %.lr.ph.i1268
+  %.0.i1270 = phi i8 [ %1840, %1838 ], [ %1836, %.lr.ph.i1268 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1822, i8 noundef signext %.0.i1270) #27
+  %indvars.iv.next.i1271 = add nuw nsw i64 %indvars.iv.i1269, 1
+  %exitcond.not.i1272 = icmp eq i64 %indvars.iv.next.i1271, %wide.trip.count.i1267
+  br i1 %exitcond.not.i1272, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1268, !llvm.loop !7
 
 1842:                                             ; preds = %135
   %1843 = load ptr, ptr %81, align 8
   %1844 = load i32, ptr %82, align 8
   %1845 = load ptr, ptr %72, align 8
   %1846 = load i8, ptr %94, align 4
-  %1847 = and i8 %1846, 1
-  %.not.i1342 = icmp eq i8 %1847, 0
-  br i1 %.not.i1342, label %1850, label %1848
+  %1847 = trunc i8 %1846 to i1
+  br i1 %1847, label %1848, label %1850
 
 1848:                                             ; preds = %1842
   %1849 = sext i32 %1844 to i64
@@ -3983,39 +3913,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1855 = sub i64 %1853, %1854
   %1856 = getelementptr i8, ptr %1851, i64 %1855
   %1857 = icmp sgt i32 %1844, 0
-  br i1 %1857, label %.lr.ph.preheader.i1343, label %psqlscan_emit.exit.backedge
+  br i1 %1857, label %.lr.ph.preheader.i1274, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1343:                           ; preds = %1850
-  %wide.trip.count.i1344 = zext nneg i32 %1844 to i64
-  br label %.lr.ph.i1345
+.lr.ph.preheader.i1274:                           ; preds = %1850
+  %wide.trip.count.i1275 = zext nneg i32 %1844 to i64
+  br label %.lr.ph.i1276
 
-.lr.ph.i1345:                                     ; preds = %1864, %.lr.ph.preheader.i1343
-  %indvars.iv.i1346 = phi i64 [ 0, %.lr.ph.preheader.i1343 ], [ %indvars.iv.next.i1348, %1864 ]
-  %1858 = getelementptr i8, ptr %1843, i64 %indvars.iv.i1346
+.lr.ph.i1276:                                     ; preds = %1864, %.lr.ph.preheader.i1274
+  %indvars.iv.i1277 = phi i64 [ 0, %.lr.ph.preheader.i1274 ], [ %indvars.iv.next.i1279, %1864 ]
+  %1858 = getelementptr i8, ptr %1843, i64 %indvars.iv.i1277
   %1859 = load i8, ptr %1858, align 1
   %1860 = icmp eq i8 %1859, -1
   br i1 %1860, label %1861, label %1864
 
-1861:                                             ; preds = %.lr.ph.i1345
-  %1862 = getelementptr i8, ptr %1856, i64 %indvars.iv.i1346
+1861:                                             ; preds = %.lr.ph.i1276
+  %1862 = getelementptr i8, ptr %1856, i64 %indvars.iv.i1277
   %1863 = load i8, ptr %1862, align 1
   br label %1864
 
-1864:                                             ; preds = %1861, %.lr.ph.i1345
-  %.0.i1347 = phi i8 [ %1863, %1861 ], [ %1859, %.lr.ph.i1345 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1845, i8 noundef signext %.0.i1347) #27
-  %indvars.iv.next.i1348 = add nuw nsw i64 %indvars.iv.i1346, 1
-  %exitcond.not.i1349 = icmp eq i64 %indvars.iv.next.i1348, %wide.trip.count.i1344
-  br i1 %exitcond.not.i1349, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1345, !llvm.loop !7
+1864:                                             ; preds = %1861, %.lr.ph.i1276
+  %.0.i1278 = phi i8 [ %1863, %1861 ], [ %1859, %.lr.ph.i1276 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1845, i8 noundef signext %.0.i1278) #27
+  %indvars.iv.next.i1279 = add nuw nsw i64 %indvars.iv.i1277, 1
+  %exitcond.not.i1280 = icmp eq i64 %indvars.iv.next.i1279, %wide.trip.count.i1275
+  br i1 %exitcond.not.i1280, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1276, !llvm.loop !7
 
 1865:                                             ; preds = %135
   %1866 = load ptr, ptr %81, align 8
   %1867 = load i32, ptr %82, align 8
   %1868 = load ptr, ptr %72, align 8
   %1869 = load i8, ptr %94, align 4
-  %1870 = and i8 %1869, 1
-  %.not.i1351 = icmp eq i8 %1870, 0
-  br i1 %.not.i1351, label %1873, label %1871
+  %1870 = trunc i8 %1869 to i1
+  br i1 %1870, label %1871, label %1873
 
 1871:                                             ; preds = %1865
   %1872 = sext i32 %1867 to i64
@@ -4030,30 +3959,30 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1878 = sub i64 %1876, %1877
   %1879 = getelementptr i8, ptr %1874, i64 %1878
   %1880 = icmp sgt i32 %1867, 0
-  br i1 %1880, label %.lr.ph.preheader.i1352, label %psqlscan_emit.exit.backedge
+  br i1 %1880, label %.lr.ph.preheader.i1282, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1352:                           ; preds = %1873
-  %wide.trip.count.i1353 = zext nneg i32 %1867 to i64
-  br label %.lr.ph.i1354
+.lr.ph.preheader.i1282:                           ; preds = %1873
+  %wide.trip.count.i1283 = zext nneg i32 %1867 to i64
+  br label %.lr.ph.i1284
 
-.lr.ph.i1354:                                     ; preds = %1887, %.lr.ph.preheader.i1352
-  %indvars.iv.i1355 = phi i64 [ 0, %.lr.ph.preheader.i1352 ], [ %indvars.iv.next.i1357, %1887 ]
-  %1881 = getelementptr i8, ptr %1866, i64 %indvars.iv.i1355
+.lr.ph.i1284:                                     ; preds = %1887, %.lr.ph.preheader.i1282
+  %indvars.iv.i1285 = phi i64 [ 0, %.lr.ph.preheader.i1282 ], [ %indvars.iv.next.i1287, %1887 ]
+  %1881 = getelementptr i8, ptr %1866, i64 %indvars.iv.i1285
   %1882 = load i8, ptr %1881, align 1
   %1883 = icmp eq i8 %1882, -1
   br i1 %1883, label %1884, label %1887
 
-1884:                                             ; preds = %.lr.ph.i1354
-  %1885 = getelementptr i8, ptr %1879, i64 %indvars.iv.i1355
+1884:                                             ; preds = %.lr.ph.i1284
+  %1885 = getelementptr i8, ptr %1879, i64 %indvars.iv.i1285
   %1886 = load i8, ptr %1885, align 1
   br label %1887
 
-1887:                                             ; preds = %1884, %.lr.ph.i1354
-  %.0.i1356 = phi i8 [ %1886, %1884 ], [ %1882, %.lr.ph.i1354 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1868, i8 noundef signext %.0.i1356) #27
-  %indvars.iv.next.i1357 = add nuw nsw i64 %indvars.iv.i1355, 1
-  %exitcond.not.i1358 = icmp eq i64 %indvars.iv.next.i1357, %wide.trip.count.i1353
-  br i1 %exitcond.not.i1358, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1354, !llvm.loop !7
+1887:                                             ; preds = %1884, %.lr.ph.i1284
+  %.0.i1286 = phi i8 [ %1886, %1884 ], [ %1882, %.lr.ph.i1284 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1868, i8 noundef signext %.0.i1286) #27
+  %indvars.iv.next.i1287 = add nuw nsw i64 %indvars.iv.i1285, 1
+  %exitcond.not.i1288 = icmp eq i64 %indvars.iv.next.i1287, %wide.trip.count.i1283
+  br i1 %exitcond.not.i1288, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1284, !llvm.loop !7
 
 1888:                                             ; preds = %135
   %1889 = load i32, ptr %82, align 8
@@ -4073,9 +4002,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1896 = load i32, ptr %82, align 8
   %1897 = load ptr, ptr %72, align 8
   %1898 = load i8, ptr %94, align 4
-  %1899 = and i8 %1898, 1
-  %.not.i1360 = icmp eq i8 %1899, 0
-  br i1 %.not.i1360, label %1902, label %1900
+  %1899 = trunc i8 %1898 to i1
+  br i1 %1899, label %1900, label %1902
 
 1900:                                             ; preds = %1888
   %1901 = sext i32 %1896 to i64
@@ -4090,39 +4018,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1907 = sub i64 %1905, %1906
   %1908 = getelementptr i8, ptr %1903, i64 %1907
   %1909 = icmp sgt i32 %1896, 0
-  br i1 %1909, label %.lr.ph.preheader.i1361, label %psqlscan_emit.exit.backedge
+  br i1 %1909, label %.lr.ph.preheader.i1290, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1361:                           ; preds = %1902
-  %wide.trip.count.i1362 = zext nneg i32 %1896 to i64
-  br label %.lr.ph.i1363
+.lr.ph.preheader.i1290:                           ; preds = %1902
+  %wide.trip.count.i1291 = zext nneg i32 %1896 to i64
+  br label %.lr.ph.i1292
 
-.lr.ph.i1363:                                     ; preds = %1916, %.lr.ph.preheader.i1361
-  %indvars.iv.i1364 = phi i64 [ 0, %.lr.ph.preheader.i1361 ], [ %indvars.iv.next.i1366, %1916 ]
-  %1910 = getelementptr i8, ptr %1895, i64 %indvars.iv.i1364
+.lr.ph.i1292:                                     ; preds = %1916, %.lr.ph.preheader.i1290
+  %indvars.iv.i1293 = phi i64 [ 0, %.lr.ph.preheader.i1290 ], [ %indvars.iv.next.i1295, %1916 ]
+  %1910 = getelementptr i8, ptr %1895, i64 %indvars.iv.i1293
   %1911 = load i8, ptr %1910, align 1
   %1912 = icmp eq i8 %1911, -1
   br i1 %1912, label %1913, label %1916
 
-1913:                                             ; preds = %.lr.ph.i1363
-  %1914 = getelementptr i8, ptr %1908, i64 %indvars.iv.i1364
+1913:                                             ; preds = %.lr.ph.i1292
+  %1914 = getelementptr i8, ptr %1908, i64 %indvars.iv.i1293
   %1915 = load i8, ptr %1914, align 1
   br label %1916
 
-1916:                                             ; preds = %1913, %.lr.ph.i1363
-  %.0.i1365 = phi i8 [ %1915, %1913 ], [ %1911, %.lr.ph.i1363 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1897, i8 noundef signext %.0.i1365) #27
-  %indvars.iv.next.i1366 = add nuw nsw i64 %indvars.iv.i1364, 1
-  %exitcond.not.i1367 = icmp eq i64 %indvars.iv.next.i1366, %wide.trip.count.i1362
-  br i1 %exitcond.not.i1367, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1363, !llvm.loop !7
+1916:                                             ; preds = %1913, %.lr.ph.i1292
+  %.0.i1294 = phi i8 [ %1915, %1913 ], [ %1911, %.lr.ph.i1292 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1897, i8 noundef signext %.0.i1294) #27
+  %indvars.iv.next.i1295 = add nuw nsw i64 %indvars.iv.i1293, 1
+  %exitcond.not.i1296 = icmp eq i64 %indvars.iv.next.i1295, %wide.trip.count.i1291
+  br i1 %exitcond.not.i1296, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1292, !llvm.loop !7
 
 1917:                                             ; preds = %135
   %1918 = load ptr, ptr %81, align 8
   %1919 = load i32, ptr %82, align 8
   %1920 = load ptr, ptr %72, align 8
   %1921 = load i8, ptr %94, align 4
-  %1922 = and i8 %1921, 1
-  %.not.i1369 = icmp eq i8 %1922, 0
-  br i1 %.not.i1369, label %1925, label %1923
+  %1922 = trunc i8 %1921 to i1
+  br i1 %1922, label %1923, label %1925
 
 1923:                                             ; preds = %1917
   %1924 = sext i32 %1919 to i64
@@ -4137,39 +4064,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1930 = sub i64 %1928, %1929
   %1931 = getelementptr i8, ptr %1926, i64 %1930
   %1932 = icmp sgt i32 %1919, 0
-  br i1 %1932, label %.lr.ph.preheader.i1370, label %psqlscan_emit.exit.backedge
+  br i1 %1932, label %.lr.ph.preheader.i1298, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1370:                           ; preds = %1925
-  %wide.trip.count.i1371 = zext nneg i32 %1919 to i64
-  br label %.lr.ph.i1372
+.lr.ph.preheader.i1298:                           ; preds = %1925
+  %wide.trip.count.i1299 = zext nneg i32 %1919 to i64
+  br label %.lr.ph.i1300
 
-.lr.ph.i1372:                                     ; preds = %1939, %.lr.ph.preheader.i1370
-  %indvars.iv.i1373 = phi i64 [ 0, %.lr.ph.preheader.i1370 ], [ %indvars.iv.next.i1375, %1939 ]
-  %1933 = getelementptr i8, ptr %1918, i64 %indvars.iv.i1373
+.lr.ph.i1300:                                     ; preds = %1939, %.lr.ph.preheader.i1298
+  %indvars.iv.i1301 = phi i64 [ 0, %.lr.ph.preheader.i1298 ], [ %indvars.iv.next.i1303, %1939 ]
+  %1933 = getelementptr i8, ptr %1918, i64 %indvars.iv.i1301
   %1934 = load i8, ptr %1933, align 1
   %1935 = icmp eq i8 %1934, -1
   br i1 %1935, label %1936, label %1939
 
-1936:                                             ; preds = %.lr.ph.i1372
-  %1937 = getelementptr i8, ptr %1931, i64 %indvars.iv.i1373
+1936:                                             ; preds = %.lr.ph.i1300
+  %1937 = getelementptr i8, ptr %1931, i64 %indvars.iv.i1301
   %1938 = load i8, ptr %1937, align 1
   br label %1939
 
-1939:                                             ; preds = %1936, %.lr.ph.i1372
-  %.0.i1374 = phi i8 [ %1938, %1936 ], [ %1934, %.lr.ph.i1372 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1920, i8 noundef signext %.0.i1374) #27
-  %indvars.iv.next.i1375 = add nuw nsw i64 %indvars.iv.i1373, 1
-  %exitcond.not.i1376 = icmp eq i64 %indvars.iv.next.i1375, %wide.trip.count.i1371
-  br i1 %exitcond.not.i1376, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1372, !llvm.loop !7
+1939:                                             ; preds = %1936, %.lr.ph.i1300
+  %.0.i1302 = phi i8 [ %1938, %1936 ], [ %1934, %.lr.ph.i1300 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1920, i8 noundef signext %.0.i1302) #27
+  %indvars.iv.next.i1303 = add nuw nsw i64 %indvars.iv.i1301, 1
+  %exitcond.not.i1304 = icmp eq i64 %indvars.iv.next.i1303, %wide.trip.count.i1299
+  br i1 %exitcond.not.i1304, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1300, !llvm.loop !7
 
 1940:                                             ; preds = %135
   %1941 = load ptr, ptr %81, align 8
   %1942 = load i32, ptr %82, align 8
   %1943 = load ptr, ptr %72, align 8
   %1944 = load i8, ptr %94, align 4
-  %1945 = and i8 %1944, 1
-  %.not.i1378 = icmp eq i8 %1945, 0
-  br i1 %.not.i1378, label %1948, label %1946
+  %1945 = trunc i8 %1944 to i1
+  br i1 %1945, label %1946, label %1948
 
 1946:                                             ; preds = %1940
   %1947 = sext i32 %1942 to i64
@@ -4184,39 +4110,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1953 = sub i64 %1951, %1952
   %1954 = getelementptr i8, ptr %1949, i64 %1953
   %1955 = icmp sgt i32 %1942, 0
-  br i1 %1955, label %.lr.ph.preheader.i1379, label %psqlscan_emit.exit.backedge
+  br i1 %1955, label %.lr.ph.preheader.i1306, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1379:                           ; preds = %1948
-  %wide.trip.count.i1380 = zext nneg i32 %1942 to i64
-  br label %.lr.ph.i1381
+.lr.ph.preheader.i1306:                           ; preds = %1948
+  %wide.trip.count.i1307 = zext nneg i32 %1942 to i64
+  br label %.lr.ph.i1308
 
-.lr.ph.i1381:                                     ; preds = %1962, %.lr.ph.preheader.i1379
-  %indvars.iv.i1382 = phi i64 [ 0, %.lr.ph.preheader.i1379 ], [ %indvars.iv.next.i1384, %1962 ]
-  %1956 = getelementptr i8, ptr %1941, i64 %indvars.iv.i1382
+.lr.ph.i1308:                                     ; preds = %1962, %.lr.ph.preheader.i1306
+  %indvars.iv.i1309 = phi i64 [ 0, %.lr.ph.preheader.i1306 ], [ %indvars.iv.next.i1311, %1962 ]
+  %1956 = getelementptr i8, ptr %1941, i64 %indvars.iv.i1309
   %1957 = load i8, ptr %1956, align 1
   %1958 = icmp eq i8 %1957, -1
   br i1 %1958, label %1959, label %1962
 
-1959:                                             ; preds = %.lr.ph.i1381
-  %1960 = getelementptr i8, ptr %1954, i64 %indvars.iv.i1382
+1959:                                             ; preds = %.lr.ph.i1308
+  %1960 = getelementptr i8, ptr %1954, i64 %indvars.iv.i1309
   %1961 = load i8, ptr %1960, align 1
   br label %1962
 
-1962:                                             ; preds = %1959, %.lr.ph.i1381
-  %.0.i1383 = phi i8 [ %1961, %1959 ], [ %1957, %.lr.ph.i1381 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1943, i8 noundef signext %.0.i1383) #27
-  %indvars.iv.next.i1384 = add nuw nsw i64 %indvars.iv.i1382, 1
-  %exitcond.not.i1385 = icmp eq i64 %indvars.iv.next.i1384, %wide.trip.count.i1380
-  br i1 %exitcond.not.i1385, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1381, !llvm.loop !7
+1962:                                             ; preds = %1959, %.lr.ph.i1308
+  %.0.i1310 = phi i8 [ %1961, %1959 ], [ %1957, %.lr.ph.i1308 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1943, i8 noundef signext %.0.i1310) #27
+  %indvars.iv.next.i1311 = add nuw nsw i64 %indvars.iv.i1309, 1
+  %exitcond.not.i1312 = icmp eq i64 %indvars.iv.next.i1311, %wide.trip.count.i1307
+  br i1 %exitcond.not.i1312, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1308, !llvm.loop !7
 
 1963:                                             ; preds = %135
   %1964 = load ptr, ptr %81, align 8
   %1965 = load i32, ptr %82, align 8
   %1966 = load ptr, ptr %72, align 8
   %1967 = load i8, ptr %94, align 4
-  %1968 = and i8 %1967, 1
-  %.not.i1387 = icmp eq i8 %1968, 0
-  br i1 %.not.i1387, label %1971, label %1969
+  %1968 = trunc i8 %1967 to i1
+  br i1 %1968, label %1969, label %1971
 
 1969:                                             ; preds = %1963
   %1970 = sext i32 %1965 to i64
@@ -4231,39 +4156,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1976 = sub i64 %1974, %1975
   %1977 = getelementptr i8, ptr %1972, i64 %1976
   %1978 = icmp sgt i32 %1965, 0
-  br i1 %1978, label %.lr.ph.preheader.i1388, label %psqlscan_emit.exit.backedge
+  br i1 %1978, label %.lr.ph.preheader.i1314, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1388:                           ; preds = %1971
-  %wide.trip.count.i1389 = zext nneg i32 %1965 to i64
-  br label %.lr.ph.i1390
+.lr.ph.preheader.i1314:                           ; preds = %1971
+  %wide.trip.count.i1315 = zext nneg i32 %1965 to i64
+  br label %.lr.ph.i1316
 
-.lr.ph.i1390:                                     ; preds = %1985, %.lr.ph.preheader.i1388
-  %indvars.iv.i1391 = phi i64 [ 0, %.lr.ph.preheader.i1388 ], [ %indvars.iv.next.i1393, %1985 ]
-  %1979 = getelementptr i8, ptr %1964, i64 %indvars.iv.i1391
+.lr.ph.i1316:                                     ; preds = %1985, %.lr.ph.preheader.i1314
+  %indvars.iv.i1317 = phi i64 [ 0, %.lr.ph.preheader.i1314 ], [ %indvars.iv.next.i1319, %1985 ]
+  %1979 = getelementptr i8, ptr %1964, i64 %indvars.iv.i1317
   %1980 = load i8, ptr %1979, align 1
   %1981 = icmp eq i8 %1980, -1
   br i1 %1981, label %1982, label %1985
 
-1982:                                             ; preds = %.lr.ph.i1390
-  %1983 = getelementptr i8, ptr %1977, i64 %indvars.iv.i1391
+1982:                                             ; preds = %.lr.ph.i1316
+  %1983 = getelementptr i8, ptr %1977, i64 %indvars.iv.i1317
   %1984 = load i8, ptr %1983, align 1
   br label %1985
 
-1985:                                             ; preds = %1982, %.lr.ph.i1390
-  %.0.i1392 = phi i8 [ %1984, %1982 ], [ %1980, %.lr.ph.i1390 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1966, i8 noundef signext %.0.i1392) #27
-  %indvars.iv.next.i1393 = add nuw nsw i64 %indvars.iv.i1391, 1
-  %exitcond.not.i1394 = icmp eq i64 %indvars.iv.next.i1393, %wide.trip.count.i1389
-  br i1 %exitcond.not.i1394, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1390, !llvm.loop !7
+1985:                                             ; preds = %1982, %.lr.ph.i1316
+  %.0.i1318 = phi i8 [ %1984, %1982 ], [ %1980, %.lr.ph.i1316 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1966, i8 noundef signext %.0.i1318) #27
+  %indvars.iv.next.i1319 = add nuw nsw i64 %indvars.iv.i1317, 1
+  %exitcond.not.i1320 = icmp eq i64 %indvars.iv.next.i1319, %wide.trip.count.i1315
+  br i1 %exitcond.not.i1320, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1316, !llvm.loop !7
 
 1986:                                             ; preds = %135
   %1987 = load ptr, ptr %81, align 8
   %1988 = load i32, ptr %82, align 8
   %1989 = load ptr, ptr %72, align 8
   %1990 = load i8, ptr %94, align 4
-  %1991 = and i8 %1990, 1
-  %.not.i1396 = icmp eq i8 %1991, 0
-  br i1 %.not.i1396, label %1994, label %1992
+  %1991 = trunc i8 %1990 to i1
+  br i1 %1991, label %1992, label %1994
 
 1992:                                             ; preds = %1986
   %1993 = sext i32 %1988 to i64
@@ -4278,39 +4202,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %1999 = sub i64 %1997, %1998
   %2000 = getelementptr i8, ptr %1995, i64 %1999
   %2001 = icmp sgt i32 %1988, 0
-  br i1 %2001, label %.lr.ph.preheader.i1397, label %psqlscan_emit.exit.backedge
+  br i1 %2001, label %.lr.ph.preheader.i1322, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1397:                           ; preds = %1994
-  %wide.trip.count.i1398 = zext nneg i32 %1988 to i64
-  br label %.lr.ph.i1399
+.lr.ph.preheader.i1322:                           ; preds = %1994
+  %wide.trip.count.i1323 = zext nneg i32 %1988 to i64
+  br label %.lr.ph.i1324
 
-.lr.ph.i1399:                                     ; preds = %2008, %.lr.ph.preheader.i1397
-  %indvars.iv.i1400 = phi i64 [ 0, %.lr.ph.preheader.i1397 ], [ %indvars.iv.next.i1402, %2008 ]
-  %2002 = getelementptr i8, ptr %1987, i64 %indvars.iv.i1400
+.lr.ph.i1324:                                     ; preds = %2008, %.lr.ph.preheader.i1322
+  %indvars.iv.i1325 = phi i64 [ 0, %.lr.ph.preheader.i1322 ], [ %indvars.iv.next.i1327, %2008 ]
+  %2002 = getelementptr i8, ptr %1987, i64 %indvars.iv.i1325
   %2003 = load i8, ptr %2002, align 1
   %2004 = icmp eq i8 %2003, -1
   br i1 %2004, label %2005, label %2008
 
-2005:                                             ; preds = %.lr.ph.i1399
-  %2006 = getelementptr i8, ptr %2000, i64 %indvars.iv.i1400
+2005:                                             ; preds = %.lr.ph.i1324
+  %2006 = getelementptr i8, ptr %2000, i64 %indvars.iv.i1325
   %2007 = load i8, ptr %2006, align 1
   br label %2008
 
-2008:                                             ; preds = %2005, %.lr.ph.i1399
-  %.0.i1401 = phi i8 [ %2007, %2005 ], [ %2003, %.lr.ph.i1399 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %1989, i8 noundef signext %.0.i1401) #27
-  %indvars.iv.next.i1402 = add nuw nsw i64 %indvars.iv.i1400, 1
-  %exitcond.not.i1403 = icmp eq i64 %indvars.iv.next.i1402, %wide.trip.count.i1398
-  br i1 %exitcond.not.i1403, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1399, !llvm.loop !7
+2008:                                             ; preds = %2005, %.lr.ph.i1324
+  %.0.i1326 = phi i8 [ %2007, %2005 ], [ %2003, %.lr.ph.i1324 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %1989, i8 noundef signext %.0.i1326) #27
+  %indvars.iv.next.i1327 = add nuw nsw i64 %indvars.iv.i1325, 1
+  %exitcond.not.i1328 = icmp eq i64 %indvars.iv.next.i1327, %wide.trip.count.i1323
+  br i1 %exitcond.not.i1328, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1324, !llvm.loop !7
 
 2009:                                             ; preds = %135
   %2010 = load ptr, ptr %81, align 8
   %2011 = load i32, ptr %82, align 8
   %2012 = load ptr, ptr %72, align 8
   %2013 = load i8, ptr %94, align 4
-  %2014 = and i8 %2013, 1
-  %.not.i1405 = icmp eq i8 %2014, 0
-  br i1 %.not.i1405, label %2017, label %2015
+  %2014 = trunc i8 %2013 to i1
+  br i1 %2014, label %2015, label %2017
 
 2015:                                             ; preds = %2009
   %2016 = sext i32 %2011 to i64
@@ -4325,39 +4248,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2022 = sub i64 %2020, %2021
   %2023 = getelementptr i8, ptr %2018, i64 %2022
   %2024 = icmp sgt i32 %2011, 0
-  br i1 %2024, label %.lr.ph.preheader.i1406, label %psqlscan_emit.exit.backedge
+  br i1 %2024, label %.lr.ph.preheader.i1330, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1406:                           ; preds = %2017
-  %wide.trip.count.i1407 = zext nneg i32 %2011 to i64
-  br label %.lr.ph.i1408
+.lr.ph.preheader.i1330:                           ; preds = %2017
+  %wide.trip.count.i1331 = zext nneg i32 %2011 to i64
+  br label %.lr.ph.i1332
 
-.lr.ph.i1408:                                     ; preds = %2031, %.lr.ph.preheader.i1406
-  %indvars.iv.i1409 = phi i64 [ 0, %.lr.ph.preheader.i1406 ], [ %indvars.iv.next.i1411, %2031 ]
-  %2025 = getelementptr i8, ptr %2010, i64 %indvars.iv.i1409
+.lr.ph.i1332:                                     ; preds = %2031, %.lr.ph.preheader.i1330
+  %indvars.iv.i1333 = phi i64 [ 0, %.lr.ph.preheader.i1330 ], [ %indvars.iv.next.i1335, %2031 ]
+  %2025 = getelementptr i8, ptr %2010, i64 %indvars.iv.i1333
   %2026 = load i8, ptr %2025, align 1
   %2027 = icmp eq i8 %2026, -1
   br i1 %2027, label %2028, label %2031
 
-2028:                                             ; preds = %.lr.ph.i1408
-  %2029 = getelementptr i8, ptr %2023, i64 %indvars.iv.i1409
+2028:                                             ; preds = %.lr.ph.i1332
+  %2029 = getelementptr i8, ptr %2023, i64 %indvars.iv.i1333
   %2030 = load i8, ptr %2029, align 1
   br label %2031
 
-2031:                                             ; preds = %2028, %.lr.ph.i1408
-  %.0.i1410 = phi i8 [ %2030, %2028 ], [ %2026, %.lr.ph.i1408 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %2012, i8 noundef signext %.0.i1410) #27
-  %indvars.iv.next.i1411 = add nuw nsw i64 %indvars.iv.i1409, 1
-  %exitcond.not.i1412 = icmp eq i64 %indvars.iv.next.i1411, %wide.trip.count.i1407
-  br i1 %exitcond.not.i1412, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1408, !llvm.loop !7
+2031:                                             ; preds = %2028, %.lr.ph.i1332
+  %.0.i1334 = phi i8 [ %2030, %2028 ], [ %2026, %.lr.ph.i1332 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %2012, i8 noundef signext %.0.i1334) #27
+  %indvars.iv.next.i1335 = add nuw nsw i64 %indvars.iv.i1333, 1
+  %exitcond.not.i1336 = icmp eq i64 %indvars.iv.next.i1335, %wide.trip.count.i1331
+  br i1 %exitcond.not.i1336, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1332, !llvm.loop !7
 
 2032:                                             ; preds = %135
   %2033 = load ptr, ptr %81, align 8
   %2034 = load i32, ptr %82, align 8
   %2035 = load ptr, ptr %72, align 8
   %2036 = load i8, ptr %94, align 4
-  %2037 = and i8 %2036, 1
-  %.not.i1414 = icmp eq i8 %2037, 0
-  br i1 %.not.i1414, label %2040, label %2038
+  %2037 = trunc i8 %2036 to i1
+  br i1 %2037, label %2038, label %2040
 
 2038:                                             ; preds = %2032
   %2039 = sext i32 %2034 to i64
@@ -4372,39 +4294,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2045 = sub i64 %2043, %2044
   %2046 = getelementptr i8, ptr %2041, i64 %2045
   %2047 = icmp sgt i32 %2034, 0
-  br i1 %2047, label %.lr.ph.preheader.i1415, label %psqlscan_emit.exit.backedge
+  br i1 %2047, label %.lr.ph.preheader.i1338, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1415:                           ; preds = %2040
-  %wide.trip.count.i1416 = zext nneg i32 %2034 to i64
-  br label %.lr.ph.i1417
+.lr.ph.preheader.i1338:                           ; preds = %2040
+  %wide.trip.count.i1339 = zext nneg i32 %2034 to i64
+  br label %.lr.ph.i1340
 
-.lr.ph.i1417:                                     ; preds = %2054, %.lr.ph.preheader.i1415
-  %indvars.iv.i1418 = phi i64 [ 0, %.lr.ph.preheader.i1415 ], [ %indvars.iv.next.i1420, %2054 ]
-  %2048 = getelementptr i8, ptr %2033, i64 %indvars.iv.i1418
+.lr.ph.i1340:                                     ; preds = %2054, %.lr.ph.preheader.i1338
+  %indvars.iv.i1341 = phi i64 [ 0, %.lr.ph.preheader.i1338 ], [ %indvars.iv.next.i1343, %2054 ]
+  %2048 = getelementptr i8, ptr %2033, i64 %indvars.iv.i1341
   %2049 = load i8, ptr %2048, align 1
   %2050 = icmp eq i8 %2049, -1
   br i1 %2050, label %2051, label %2054
 
-2051:                                             ; preds = %.lr.ph.i1417
-  %2052 = getelementptr i8, ptr %2046, i64 %indvars.iv.i1418
+2051:                                             ; preds = %.lr.ph.i1340
+  %2052 = getelementptr i8, ptr %2046, i64 %indvars.iv.i1341
   %2053 = load i8, ptr %2052, align 1
   br label %2054
 
-2054:                                             ; preds = %2051, %.lr.ph.i1417
-  %.0.i1419 = phi i8 [ %2053, %2051 ], [ %2049, %.lr.ph.i1417 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %2035, i8 noundef signext %.0.i1419) #27
-  %indvars.iv.next.i1420 = add nuw nsw i64 %indvars.iv.i1418, 1
-  %exitcond.not.i1421 = icmp eq i64 %indvars.iv.next.i1420, %wide.trip.count.i1416
-  br i1 %exitcond.not.i1421, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1417, !llvm.loop !7
+2054:                                             ; preds = %2051, %.lr.ph.i1340
+  %.0.i1342 = phi i8 [ %2053, %2051 ], [ %2049, %.lr.ph.i1340 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %2035, i8 noundef signext %.0.i1342) #27
+  %indvars.iv.next.i1343 = add nuw nsw i64 %indvars.iv.i1341, 1
+  %exitcond.not.i1344 = icmp eq i64 %indvars.iv.next.i1343, %wide.trip.count.i1339
+  br i1 %exitcond.not.i1344, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1340, !llvm.loop !7
 
 2055:                                             ; preds = %135
   %2056 = load ptr, ptr %81, align 8
   %2057 = load i32, ptr %82, align 8
   %2058 = load ptr, ptr %72, align 8
   %2059 = load i8, ptr %94, align 4
-  %2060 = and i8 %2059, 1
-  %.not.i1423 = icmp eq i8 %2060, 0
-  br i1 %.not.i1423, label %2063, label %2061
+  %2060 = trunc i8 %2059 to i1
+  br i1 %2060, label %2061, label %2063
 
 2061:                                             ; preds = %2055
   %2062 = sext i32 %2057 to i64
@@ -4419,39 +4340,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2068 = sub i64 %2066, %2067
   %2069 = getelementptr i8, ptr %2064, i64 %2068
   %2070 = icmp sgt i32 %2057, 0
-  br i1 %2070, label %.lr.ph.preheader.i1424, label %psqlscan_emit.exit.backedge
+  br i1 %2070, label %.lr.ph.preheader.i1346, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1424:                           ; preds = %2063
-  %wide.trip.count.i1425 = zext nneg i32 %2057 to i64
-  br label %.lr.ph.i1426
+.lr.ph.preheader.i1346:                           ; preds = %2063
+  %wide.trip.count.i1347 = zext nneg i32 %2057 to i64
+  br label %.lr.ph.i1348
 
-.lr.ph.i1426:                                     ; preds = %2077, %.lr.ph.preheader.i1424
-  %indvars.iv.i1427 = phi i64 [ 0, %.lr.ph.preheader.i1424 ], [ %indvars.iv.next.i1429, %2077 ]
-  %2071 = getelementptr i8, ptr %2056, i64 %indvars.iv.i1427
+.lr.ph.i1348:                                     ; preds = %2077, %.lr.ph.preheader.i1346
+  %indvars.iv.i1349 = phi i64 [ 0, %.lr.ph.preheader.i1346 ], [ %indvars.iv.next.i1351, %2077 ]
+  %2071 = getelementptr i8, ptr %2056, i64 %indvars.iv.i1349
   %2072 = load i8, ptr %2071, align 1
   %2073 = icmp eq i8 %2072, -1
   br i1 %2073, label %2074, label %2077
 
-2074:                                             ; preds = %.lr.ph.i1426
-  %2075 = getelementptr i8, ptr %2069, i64 %indvars.iv.i1427
+2074:                                             ; preds = %.lr.ph.i1348
+  %2075 = getelementptr i8, ptr %2069, i64 %indvars.iv.i1349
   %2076 = load i8, ptr %2075, align 1
   br label %2077
 
-2077:                                             ; preds = %2074, %.lr.ph.i1426
-  %.0.i1428 = phi i8 [ %2076, %2074 ], [ %2072, %.lr.ph.i1426 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %2058, i8 noundef signext %.0.i1428) #27
-  %indvars.iv.next.i1429 = add nuw nsw i64 %indvars.iv.i1427, 1
-  %exitcond.not.i1430 = icmp eq i64 %indvars.iv.next.i1429, %wide.trip.count.i1425
-  br i1 %exitcond.not.i1430, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1426, !llvm.loop !7
+2077:                                             ; preds = %2074, %.lr.ph.i1348
+  %.0.i1350 = phi i8 [ %2076, %2074 ], [ %2072, %.lr.ph.i1348 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %2058, i8 noundef signext %.0.i1350) #27
+  %indvars.iv.next.i1351 = add nuw nsw i64 %indvars.iv.i1349, 1
+  %exitcond.not.i1352 = icmp eq i64 %indvars.iv.next.i1351, %wide.trip.count.i1347
+  br i1 %exitcond.not.i1352, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1348, !llvm.loop !7
 
 2078:                                             ; preds = %135
   %2079 = load ptr, ptr %81, align 8
   %2080 = load i32, ptr %82, align 8
   %2081 = load ptr, ptr %72, align 8
   %2082 = load i8, ptr %94, align 4
-  %2083 = and i8 %2082, 1
-  %.not.i1432 = icmp eq i8 %2083, 0
-  br i1 %.not.i1432, label %2086, label %2084
+  %2083 = trunc i8 %2082 to i1
+  br i1 %2083, label %2084, label %2086
 
 2084:                                             ; preds = %2078
   %2085 = sext i32 %2080 to i64
@@ -4466,30 +4386,30 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2091 = sub i64 %2089, %2090
   %2092 = getelementptr i8, ptr %2087, i64 %2091
   %2093 = icmp sgt i32 %2080, 0
-  br i1 %2093, label %.lr.ph.preheader.i1433, label %psqlscan_emit.exit.backedge
+  br i1 %2093, label %.lr.ph.preheader.i1354, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1433:                           ; preds = %2086
-  %wide.trip.count.i1434 = zext nneg i32 %2080 to i64
-  br label %.lr.ph.i1435
+.lr.ph.preheader.i1354:                           ; preds = %2086
+  %wide.trip.count.i1355 = zext nneg i32 %2080 to i64
+  br label %.lr.ph.i1356
 
-.lr.ph.i1435:                                     ; preds = %2100, %.lr.ph.preheader.i1433
-  %indvars.iv.i1436 = phi i64 [ 0, %.lr.ph.preheader.i1433 ], [ %indvars.iv.next.i1438, %2100 ]
-  %2094 = getelementptr i8, ptr %2079, i64 %indvars.iv.i1436
+.lr.ph.i1356:                                     ; preds = %2100, %.lr.ph.preheader.i1354
+  %indvars.iv.i1357 = phi i64 [ 0, %.lr.ph.preheader.i1354 ], [ %indvars.iv.next.i1359, %2100 ]
+  %2094 = getelementptr i8, ptr %2079, i64 %indvars.iv.i1357
   %2095 = load i8, ptr %2094, align 1
   %2096 = icmp eq i8 %2095, -1
   br i1 %2096, label %2097, label %2100
 
-2097:                                             ; preds = %.lr.ph.i1435
-  %2098 = getelementptr i8, ptr %2092, i64 %indvars.iv.i1436
+2097:                                             ; preds = %.lr.ph.i1356
+  %2098 = getelementptr i8, ptr %2092, i64 %indvars.iv.i1357
   %2099 = load i8, ptr %2098, align 1
   br label %2100
 
-2100:                                             ; preds = %2097, %.lr.ph.i1435
-  %.0.i1437 = phi i8 [ %2099, %2097 ], [ %2095, %.lr.ph.i1435 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %2081, i8 noundef signext %.0.i1437) #27
-  %indvars.iv.next.i1438 = add nuw nsw i64 %indvars.iv.i1436, 1
-  %exitcond.not.i1439 = icmp eq i64 %indvars.iv.next.i1438, %wide.trip.count.i1434
-  br i1 %exitcond.not.i1439, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1435, !llvm.loop !7
+2100:                                             ; preds = %2097, %.lr.ph.i1356
+  %.0.i1358 = phi i8 [ %2099, %2097 ], [ %2095, %.lr.ph.i1356 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %2081, i8 noundef signext %.0.i1358) #27
+  %indvars.iv.next.i1359 = add nuw nsw i64 %indvars.iv.i1357, 1
+  %exitcond.not.i1360 = icmp eq i64 %indvars.iv.next.i1359, %wide.trip.count.i1355
+  br i1 %exitcond.not.i1360, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1356, !llvm.loop !7
 
 2101:                                             ; preds = %135
   %2102 = load i32, ptr %95, align 8
@@ -4629,9 +4549,8 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2177 = load i32, ptr %82, align 8
   %2178 = load ptr, ptr %72, align 8
   %2179 = load i8, ptr %94, align 4
-  %2180 = and i8 %2179, 1
-  %.not.i1441 = icmp eq i8 %2180, 0
-  br i1 %.not.i1441, label %2183, label %2181
+  %2180 = trunc i8 %2179 to i1
+  br i1 %2180, label %2181, label %2183
 
 2181:                                             ; preds = %2175
   %2182 = sext i32 %2177 to i64
@@ -4646,39 +4565,38 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2188 = sub i64 %2186, %2187
   %2189 = getelementptr i8, ptr %2184, i64 %2188
   %2190 = icmp sgt i32 %2177, 0
-  br i1 %2190, label %.lr.ph.preheader.i1442, label %psqlscan_emit.exit.backedge
+  br i1 %2190, label %.lr.ph.preheader.i1362, label %psqlscan_emit.exit.backedge
 
-.lr.ph.preheader.i1442:                           ; preds = %2183
-  %wide.trip.count.i1443 = zext nneg i32 %2177 to i64
-  br label %.lr.ph.i1444
+.lr.ph.preheader.i1362:                           ; preds = %2183
+  %wide.trip.count.i1363 = zext nneg i32 %2177 to i64
+  br label %.lr.ph.i1364
 
-.lr.ph.i1444:                                     ; preds = %2197, %.lr.ph.preheader.i1442
-  %indvars.iv.i1445 = phi i64 [ 0, %.lr.ph.preheader.i1442 ], [ %indvars.iv.next.i1447, %2197 ]
-  %2191 = getelementptr i8, ptr %2176, i64 %indvars.iv.i1445
+.lr.ph.i1364:                                     ; preds = %2197, %.lr.ph.preheader.i1362
+  %indvars.iv.i1365 = phi i64 [ 0, %.lr.ph.preheader.i1362 ], [ %indvars.iv.next.i1367, %2197 ]
+  %2191 = getelementptr i8, ptr %2176, i64 %indvars.iv.i1365
   %2192 = load i8, ptr %2191, align 1
   %2193 = icmp eq i8 %2192, -1
   br i1 %2193, label %2194, label %2197
 
-2194:                                             ; preds = %.lr.ph.i1444
-  %2195 = getelementptr i8, ptr %2189, i64 %indvars.iv.i1445
+2194:                                             ; preds = %.lr.ph.i1364
+  %2195 = getelementptr i8, ptr %2189, i64 %indvars.iv.i1365
   %2196 = load i8, ptr %2195, align 1
   br label %2197
 
-2197:                                             ; preds = %2194, %.lr.ph.i1444
-  %.0.i1446 = phi i8 [ %2196, %2194 ], [ %2192, %.lr.ph.i1444 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %2178, i8 noundef signext %.0.i1446) #27
-  %indvars.iv.next.i1447 = add nuw nsw i64 %indvars.iv.i1445, 1
-  %exitcond.not.i1448 = icmp eq i64 %indvars.iv.next.i1447, %wide.trip.count.i1443
-  br i1 %exitcond.not.i1448, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1444, !llvm.loop !7
+2197:                                             ; preds = %2194, %.lr.ph.i1364
+  %.0.i1366 = phi i8 [ %2196, %2194 ], [ %2192, %.lr.ph.i1364 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %2178, i8 noundef signext %.0.i1366) #27
+  %indvars.iv.next.i1367 = add nuw nsw i64 %indvars.iv.i1365, 1
+  %exitcond.not.i1368 = icmp eq i64 %indvars.iv.next.i1367, %wide.trip.count.i1363
+  br i1 %exitcond.not.i1368, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1364, !llvm.loop !7
 
 2198:                                             ; preds = %135
   %2199 = load ptr, ptr %81, align 8
   %2200 = load i32, ptr %82, align 8
   %2201 = load ptr, ptr %72, align 8
   %2202 = load i8, ptr %94, align 4
-  %2203 = and i8 %2202, 1
-  %.not.i1450 = icmp eq i8 %2203, 0
-  br i1 %.not.i1450, label %2206, label %2204
+  %2203 = trunc i8 %2202 to i1
+  br i1 %2203, label %2204, label %2206
 
 2204:                                             ; preds = %2198
   %2205 = sext i32 %2200 to i64
@@ -4693,33 +4611,33 @@ psqlscan_emit.exit1215:                           ; preds = %1463, %1449, %1447,
   %2211 = sub i64 %2209, %2210
   %2212 = getelementptr i8, ptr %2207, i64 %2211
   %2213 = icmp sgt i32 %2200, 0
-  br i1 %2213, label %.lr.ph.preheader.i1451, label %psqlscan_emit.exit.backedge
+  br i1 %2213, label %.lr.ph.preheader.i1370, label %psqlscan_emit.exit.backedge
 
-psqlscan_emit.exit.backedge:                      ; preds = %2220, %2197, %2100, %2077, %2054, %2031, %2008, %1985, %1962, %1939, %1916, %1887, %1864, %1841, %1818, %1795, %1772, %1749, %1726, %1703, %1680, %1657, %1599, %1576, %1550, %1524, %1498, %1297, %1269, %1244, %1221, %1198, %1175, %1152, %1129, %1106, %1083, %1060, %1034, %1011, %988, %965, %942, %919, %896, %873, %850, %827, %791, %765, %740, %717, %694, %671, %648, %625, %602, %579, %556, %530, %504, %478, %455, %432, %407, %381, %358, %335, %312, %289, %266, %243, %214, %186, %160, %2206, %2204, %2183, %2181, %2086, %2084, %2063, %2061, %2040, %2038, %2017, %2015, %1994, %1992, %1971, %1969, %1948, %1946, %1925, %1923, %1902, %1900, %1873, %1871, %1850, %1848, %1827, %1825, %1804, %1802, %1781, %1779, %1758, %1756, %1735, %1733, %1712, %1710, %1689, %1687, %1666, %1664, %1643, %1641, %1585, %1583, %1562, %1560, %1536, %1534, %1510, %1508, %1484, %1482, %1283, %1281, %1255, %1253, %1230, %1228, %1207, %1205, %1184, %1182, %1161, %1159, %1138, %1136, %1115, %1113, %1092, %1090, %1069, %1067, %1046, %1044, %1020, %1018, %997, %995, %974, %972, %951, %949, %928, %926, %905, %903, %882, %880, %859, %857, %836, %834, %813, %811, %777, %775, %751, %749, %726, %724, %703, %701, %680, %678, %657, %655, %634, %632, %611, %609, %588, %586, %565, %563, %542, %540, %516, %514, %490, %488, %464, %462, %441, %439, %418, %416, %393, %391, %367, %365, %344, %342, %321, %319, %298, %296, %275, %273, %252, %250, %229, %227, %200, %198, %172, %170, %146, %144, %psqlscan_emit.exit1186, %1351, %psqlscan_emit.exit1178, %1323, %136, %psqlscan_select_top_buffer.exit, %1470, %1467, %1464, %psqlscan_emit.exit1215, %531
+psqlscan_emit.exit.backedge:                      ; preds = %2220, %2197, %2100, %2077, %2054, %2031, %2008, %1985, %1962, %1939, %1916, %1887, %1864, %1841, %1818, %1795, %1772, %1749, %1726, %1703, %1680, %1657, %1599, %1576, %1550, %1524, %1498, %1297, %1269, %1244, %1221, %1198, %1175, %1152, %1129, %1106, %1083, %1060, %1034, %1011, %988, %965, %942, %919, %896, %873, %850, %827, %791, %765, %740, %717, %694, %671, %648, %625, %602, %579, %556, %530, %504, %478, %455, %432, %407, %381, %358, %335, %312, %289, %266, %243, %214, %186, %160, %2206, %2204, %2183, %2181, %2086, %2084, %2063, %2061, %2040, %2038, %2017, %2015, %1994, %1992, %1971, %1969, %1948, %1946, %1925, %1923, %1902, %1900, %1873, %1871, %1850, %1848, %1827, %1825, %1804, %1802, %1781, %1779, %1758, %1756, %1735, %1733, %1712, %1710, %1689, %1687, %1666, %1664, %1643, %1641, %1585, %1583, %1562, %1560, %1536, %1534, %1510, %1508, %1484, %1482, %1283, %1281, %1255, %1253, %1230, %1228, %1207, %1205, %1184, %1182, %1161, %1159, %1138, %1136, %1115, %1113, %1092, %1090, %1069, %1067, %1046, %1044, %1020, %1018, %997, %995, %974, %972, %951, %949, %928, %926, %905, %903, %882, %880, %859, %857, %836, %834, %813, %811, %777, %775, %751, %749, %726, %724, %703, %701, %680, %678, %657, %655, %634, %632, %611, %609, %588, %586, %565, %563, %542, %540, %516, %514, %490, %488, %464, %462, %441, %439, %418, %416, %393, %391, %367, %365, %344, %342, %321, %319, %298, %296, %275, %273, %252, %250, %229, %227, %200, %198, %172, %170, %146, %144, %psqlscan_emit.exit1135, %1351, %psqlscan_emit.exit1128, %1323, %136, %psqlscan_select_top_buffer.exit, %1470, %1467, %1464, %psqlscan_emit.exit1161, %531
   br label %psqlscan_emit.exit
 
-.lr.ph.preheader.i1451:                           ; preds = %2206
-  %wide.trip.count.i1452 = zext nneg i32 %2200 to i64
-  br label %.lr.ph.i1453
+.lr.ph.preheader.i1370:                           ; preds = %2206
+  %wide.trip.count.i1371 = zext nneg i32 %2200 to i64
+  br label %.lr.ph.i1372
 
-.lr.ph.i1453:                                     ; preds = %2220, %.lr.ph.preheader.i1451
-  %indvars.iv.i1454 = phi i64 [ 0, %.lr.ph.preheader.i1451 ], [ %indvars.iv.next.i1456, %2220 ]
-  %2214 = getelementptr i8, ptr %2199, i64 %indvars.iv.i1454
+.lr.ph.i1372:                                     ; preds = %2220, %.lr.ph.preheader.i1370
+  %indvars.iv.i1373 = phi i64 [ 0, %.lr.ph.preheader.i1370 ], [ %indvars.iv.next.i1375, %2220 ]
+  %2214 = getelementptr i8, ptr %2199, i64 %indvars.iv.i1373
   %2215 = load i8, ptr %2214, align 1
   %2216 = icmp eq i8 %2215, -1
   br i1 %2216, label %2217, label %2220
 
-2217:                                             ; preds = %.lr.ph.i1453
-  %2218 = getelementptr i8, ptr %2212, i64 %indvars.iv.i1454
+2217:                                             ; preds = %.lr.ph.i1372
+  %2218 = getelementptr i8, ptr %2212, i64 %indvars.iv.i1373
   %2219 = load i8, ptr %2218, align 1
   br label %2220
 
-2220:                                             ; preds = %2217, %.lr.ph.i1453
-  %.0.i1455 = phi i8 [ %2219, %2217 ], [ %2215, %.lr.ph.i1453 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %2201, i8 noundef signext %.0.i1455) #27
-  %indvars.iv.next.i1456 = add nuw nsw i64 %indvars.iv.i1454, 1
-  %exitcond.not.i1457 = icmp eq i64 %indvars.iv.next.i1456, %wide.trip.count.i1452
-  br i1 %exitcond.not.i1457, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1453, !llvm.loop !7
+2220:                                             ; preds = %2217, %.lr.ph.i1372
+  %.0.i1374 = phi i8 [ %2219, %2217 ], [ %2215, %.lr.ph.i1372 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %2201, i8 noundef signext %.0.i1374) #27
+  %indvars.iv.next.i1375 = add nuw nsw i64 %indvars.iv.i1373, 1
+  %exitcond.not.i1376 = icmp eq i64 %indvars.iv.next.i1375, %wide.trip.count.i1371
+  br i1 %exitcond.not.i1376, label %psqlscan_emit.exit.backedge, label %.lr.ph.i1372, !llvm.loop !7
 
 2221:                                             ; preds = %135, %135, %135, %135, %135, %135, %135, %135, %135, %135, %135
   %2222 = load ptr, ptr %88, align 8
@@ -4736,9 +4654,9 @@ psqlscan_emit.exit.backedge:                      ; preds = %2220, %2197, %2100,
 2228:                                             ; preds = %2221
   tail call void @psqlscan_pop_buffer_stack(ptr noundef nonnull %71)
   %2229 = load ptr, ptr %88, align 8
-  %.not.i1459 = icmp eq ptr %2229, null
+  %.not.i1378 = icmp eq ptr %2229, null
   %2230 = load ptr, ptr %71, align 8
-  br i1 %.not.i1459, label %2237, label %2231
+  br i1 %.not.i1378, label %2237, label %2231
 
 2231:                                             ; preds = %2228
   %2232 = load ptr, ptr %2229, align 8
@@ -4761,8 +4679,8 @@ psqlscan_emit.exit.backedge:                      ; preds = %2220, %2197, %2100,
   br label %psqlscan_select_top_buffer.exit
 
 psqlscan_select_top_buffer.exit:                  ; preds = %2231, %2237
-  %.sink.i1460 = phi ptr [ %2240, %2237 ], [ %spec.select.i, %2231 ]
-  store ptr %.sink.i1460, ptr %93, align 8
+  %.sink.i1379 = phi ptr [ %2240, %2237 ], [ %spec.select.i, %2231 ]
+  store ptr %.sink.i1379, ptr %93, align 8
   br label %psqlscan_emit.exit.backedge
 
 2241:                                             ; preds = %135
@@ -4795,16 +4713,16 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2231, %2237
   %2260 = load ptr, ptr %2259, align 8
   %2261 = getelementptr inbounds i8, ptr %2260, i64 56
   store i32 1, ptr %2261, align 8
-  %.pre2410 = load ptr, ptr %83, align 8
-  %.pre2411 = load i64, ptr %84, align 8
-  %.phi.trans.insert2412 = getelementptr ptr, ptr %.pre2410, i64 %.pre2411
-  %.pre2413 = load ptr, ptr %.phi.trans.insert2412, align 8
+  %.pre2329 = load ptr, ptr %83, align 8
+  %.pre2330 = load i64, ptr %84, align 8
+  %.phi.trans.insert2331 = getelementptr ptr, ptr %.pre2329, i64 %.pre2330
+  %.pre2332 = load ptr, ptr %.phi.trans.insert2331, align 8
   br label %2262
 
 2262:                                             ; preds = %2252, %2242
-  %2263 = phi ptr [ %.pre2413, %2252 ], [ %2248, %2242 ]
-  %2264 = phi i64 [ %.pre2411, %2252 ], [ %2246, %2242 ]
-  %2265 = phi ptr [ %.pre2410, %2252 ], [ %2245, %2242 ]
+  %2263 = phi ptr [ %.pre2332, %2252 ], [ %2248, %2242 ]
+  %2264 = phi i64 [ %.pre2330, %2252 ], [ %2246, %2242 ]
+  %2265 = phi ptr [ %.pre2329, %2252 ], [ %2245, %2242 ]
   %2266 = load ptr, ptr %79, align 8
   %2267 = getelementptr inbounds i8, ptr %2263, i64 8
   %2268 = load ptr, ptr %2267, align 8
@@ -4825,31 +4743,31 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2231, %2237
   store ptr %2278, ptr %79, align 8
   %2279 = load i32, ptr %78, align 4
   %2280 = icmp ult ptr %2276, %2278
-  br i1 %2280, label %.lr.ph.i1461, label %yy_get_previous_state.exit
+  br i1 %2280, label %.lr.ph.i1380, label %yy_get_previous_state.exit
 
-.lr.ph.i1461:                                     ; preds = %2272, %2288
+.lr.ph.i1380:                                     ; preds = %2272, %2288
   %.011.i = phi i32 [ %2292, %2288 ], [ %2279, %2272 ]
   %.0910.i = phi ptr [ %2293, %2288 ], [ %2276, %2272 ]
   %2281 = sext i32 %.011.i to i64
   %2282 = load i8, ptr %.0910.i, align 1
-  %.not.i1462 = icmp eq i8 %2282, 0
-  br i1 %.not.i1462, label %2288, label %2283
+  %.not.i1381 = icmp eq i8 %2282, 0
+  br i1 %.not.i1381, label %2288, label %2283
 
-2283:                                             ; preds = %.lr.ph.i1461
+2283:                                             ; preds = %.lr.ph.i1380
   %2284 = zext i8 %2282 to i64
   %2285 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %2284
   %2286 = load i8, ptr %2285, align 1
   %2287 = zext i8 %2286 to i64
   br label %2288
 
-2288:                                             ; preds = %2283, %.lr.ph.i1461
-  %2289 = phi i64 [ %2287, %2283 ], [ 1, %.lr.ph.i1461 ]
+2288:                                             ; preds = %2283, %.lr.ph.i1380
+  %2289 = phi i64 [ %2287, %2283 ], [ 1, %.lr.ph.i1380 ]
   %2290 = getelementptr [209 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2281, i64 %2289
   %2291 = load i16, ptr %2290, align 2
   %2292 = sext i16 %2291 to i32
   %2293 = getelementptr i8, ptr %.0910.i, i64 1
-  %exitcond.not.i1463 = icmp eq ptr %2293, %2278
-  br i1 %exitcond.not.i1463, label %yy_get_previous_state.exit, label %.lr.ph.i1461, !llvm.loop !11
+  %exitcond.not.i1382 = icmp eq ptr %2293, %2278
+  br i1 %exitcond.not.i1382, label %yy_get_previous_state.exit, label %.lr.ph.i1380, !llvm.loop !11
 
 yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %.0.lcssa.i = phi i32 [ %2279, %2272 ], [ %2292, %2288 ]
@@ -4863,7 +4781,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2298 = zext nneg i16 %2296 to i32
   %2299 = getelementptr i8, ptr %2278, i64 1
   store ptr %2299, ptr %79, align 8
-  br label %.backedge1574.backedge
+  br label %.backedge1493.backedge
 
 2300:                                             ; preds = %2262
   %2301 = load ptr, ptr %81, align 8
@@ -4888,28 +4806,28 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
 2313:                                             ; preds = %2307
   %2314 = sub i64 %2311, %2312
   %2315 = icmp eq i64 %2314, 1
-  br i1 %2315, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread1496
+  br i1 %2315, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread1415
 
 2316:                                             ; preds = %2307
   %2317 = xor i64 %2312, -1
   %2318 = add i64 %2317, %2311
   %2319 = trunc i64 %2318 to i32
   %2320 = icmp sgt i32 %2319, 0
-  br i1 %2320, label %.lr.ph.i1470, label %._crit_edge.i
+  br i1 %2320, label %.lr.ph.i1389, label %._crit_edge.i
 
-.lr.ph.i1470:                                     ; preds = %2316, %.lr.ph.i1470
-  %.0131163.i = phi ptr [ %2323, %.lr.ph.i1470 ], [ %2268, %2316 ]
-  %.0132162.i = phi ptr [ %2321, %.lr.ph.i1470 ], [ %2301, %2316 ]
-  %.0133161.i = phi i32 [ %2324, %.lr.ph.i1470 ], [ 0, %2316 ]
+.lr.ph.i1389:                                     ; preds = %2316, %.lr.ph.i1389
+  %.0131163.i = phi ptr [ %2323, %.lr.ph.i1389 ], [ %2268, %2316 ]
+  %.0132162.i = phi ptr [ %2321, %.lr.ph.i1389 ], [ %2301, %2316 ]
+  %.0133161.i = phi i32 [ %2324, %.lr.ph.i1389 ], [ 0, %2316 ]
   %2321 = getelementptr i8, ptr %.0132162.i, i64 1
   %2322 = load i8, ptr %.0132162.i, align 1
   %2323 = getelementptr i8, ptr %.0131163.i, i64 1
   store i8 %2322, ptr %.0131163.i, align 1
   %2324 = add nuw nsw i32 %.0133161.i, 1
-  %exitcond.not.i1471 = icmp eq i32 %2324, %2319
-  br i1 %exitcond.not.i1471, label %._crit_edge.loopexit.i, label %.lr.ph.i1470, !llvm.loop !12
+  %exitcond.not.i1390 = icmp eq i32 %2324, %2319
+  br i1 %exitcond.not.i1390, label %._crit_edge.loopexit.i, label %.lr.ph.i1389, !llvm.loop !12
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i1470
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i1389
   %.pre.i = load ptr, ptr %83, align 8
   %.pre180.i = load i64, ptr %84, align 8
   %.phi.trans.insert.i = getelementptr ptr, ptr %.pre.i, i64 %.pre180.i
@@ -5006,17 +4924,17 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2366 = tail call i32 @llvm.umin.i32(i32 %.0134.lcssa.i, i32 8192)
   %2367 = getelementptr inbounds i8, ptr %2365, i64 36
   %2368 = load i32, ptr %2367, align 4
-  %.not.i1464 = icmp eq i32 %2368, 0
-  br i1 %.not.i1464, label %2399, label %.preheader.i
+  %.not.i1383 = icmp eq i32 %2368, 0
+  br i1 %.not.i1383, label %2399, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge169.i
   %sext146.i = shl i64 %2318, 32
   %2369 = ashr exact i64 %sext146.i, 32
-  %wide.trip.count.i1465 = zext nneg i32 %2366 to i64
+  %wide.trip.count.i1384 = zext nneg i32 %2366 to i64
   br label %2370
 
 2370:                                             ; preds = %2373, %.preheader.i
-  %indvars.iv.i1466 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i1469, %2373 ]
+  %indvars.iv.i1385 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i1388, %2373 ]
   %2371 = load ptr, ptr %86, align 8
   %2372 = tail call i32 @getc(ptr noundef %2371)
   switch i32 %2372, label %2373 [
@@ -5033,14 +4951,14 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2379 = getelementptr inbounds i8, ptr %2378, i64 8
   %2380 = load ptr, ptr %2379, align 8
   %2381 = getelementptr i8, ptr %2380, i64 %2369
-  %2382 = getelementptr i8, ptr %2381, i64 %indvars.iv.i1466
+  %2382 = getelementptr i8, ptr %2381, i64 %indvars.iv.i1385
   store i8 %2374, ptr %2382, align 1
-  %indvars.iv.next.i1469 = add nuw nsw i64 %indvars.iv.i1466, 1
-  %exitcond179.not.i = icmp eq i64 %indvars.iv.next.i1469, %wide.trip.count.i1465
+  %indvars.iv.next.i1388 = add nuw nsw i64 %indvars.iv.i1385, 1
+  %exitcond179.not.i = icmp eq i64 %indvars.iv.next.i1388, %wide.trip.count.i1384
   br i1 %exitcond179.not.i, label %.critedge.i, label %2370, !llvm.loop !14
 
 .critedge.split.loop.exit.i:                      ; preds = %2370, %2370
-  %2383 = trunc i64 %indvars.iv.i1466 to i32
+  %2383 = trunc i64 %indvars.iv.i1385 to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %2373, %.critedge.split.loop.exit.i
@@ -5141,10 +5059,10 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
 
 2436:                                             ; preds = %.critedge2.i, %2331
   %.sink197.i = phi ptr [ %2435, %.critedge2.i ], [ %2332, %2331 ]
-  %.sink.i1467 = phi i32 [ %2432, %.critedge2.i ], [ 0, %2331 ]
+  %.sink.i1386 = phi i32 [ %2432, %.critedge2.i ], [ 0, %2331 ]
   %2437 = load ptr, ptr %.sink197.i, align 8
   %2438 = getelementptr inbounds i8, ptr %2437, i64 28
-  store i32 %.sink.i1467, ptr %2438, align 4
+  store i32 %.sink.i1386, ptr %2438, align 4
   %2439 = load i32, ptr %85, align 4
   %2440 = icmp eq i32 %2439, 0
   br i1 %2440, label %2441, label %2451
@@ -5246,20 +5164,20 @@ yy_get_next_buffer.exit:                          ; preds = %2451, %2480
   %2505 = getelementptr inbounds i8, ptr %2504, i64 8
   %2506 = load ptr, ptr %2505, align 8
   store ptr %2506, ptr %81, align 8
-  switch i32 %.0135.i, label %default.unreachable2421 [
+  switch i32 %.0135.i, label %default.unreachable2340 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %2513
-    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1496_crit_edge
+    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge
   ]
 
-yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1496_crit_edge: ; preds = %yy_get_next_buffer.exit
+yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge: ; preds = %yy_get_next_buffer.exit
   %2507 = getelementptr ptr, ptr %2501, i64 %2502
-  %.pre2414 = load ptr, ptr %2507, align 8
-  %.phi.trans.insert2415 = getelementptr inbounds i8, ptr %.pre2414, i64 8
-  %.pre2416 = load ptr, ptr %.phi.trans.insert2415, align 8
-  %.pre2417 = load i32, ptr %85, align 4
-  %.pre2420 = sext i32 %.pre2417 to i64
-  br label %yy_get_next_buffer.exit.thread1496
+  %.pre2333 = load ptr, ptr %2507, align 8
+  %.phi.trans.insert2334 = getelementptr inbounds i8, ptr %.pre2333, i64 8
+  %.pre2335 = load ptr, ptr %.phi.trans.insert2334, align 8
+  %.pre2336 = load i32, ptr %85, align 4
+  %.pre2339 = sext i32 %.pre2336 to i64
+  br label %yy_get_next_buffer.exit.thread1415
 
 yy_get_next_buffer.exit.thread:                   ; preds = %2313, %yy_get_next_buffer.exit
   %2508 = phi ptr [ %2301, %2313 ], [ %2506, %yy_get_next_buffer.exit ]
@@ -5275,89 +5193,89 @@ yy_get_next_buffer.exit.thread:                   ; preds = %2313, %yy_get_next_
   %2514 = ptrtoint ptr %2243 to i64
   %2515 = xor i64 %2514, -1
   %2516 = add i64 %2515, %130
-  %sext2019 = shl i64 %2516, 32
-  %2517 = ashr exact i64 %sext2019, 32
+  %sext1938 = shl i64 %2516, 32
+  %2517 = ashr exact i64 %sext1938, 32
   %2518 = getelementptr i8, ptr %2506, i64 %2517
   store ptr %2518, ptr %79, align 8
   %2519 = load i32, ptr %78, align 4
   %2520 = icmp ult ptr %2506, %2518
-  br i1 %2520, label %.lr.ph.i1474, label %.backedge1574.backedge
+  br i1 %2520, label %.lr.ph.i1393, label %.backedge1493.backedge
 
-.backedge1574.backedge:                           ; preds = %2528, %2513, %2297
+.backedge1493.backedge:                           ; preds = %2528, %2513, %2297
   %.0706.be = phi ptr [ %2276, %2297 ], [ %2506, %2513 ], [ %2506, %2528 ]
   %.0703.be = phi ptr [ %2299, %2297 ], [ %2518, %2513 ], [ %2518, %2528 ]
   %.0702.be = phi i32 [ %2298, %2297 ], [ %2519, %2513 ], [ %2532, %2528 ]
-  br label %.backedge1574
+  br label %.backedge1493
 
-.lr.ph.i1474:                                     ; preds = %2513, %2528
-  %.011.i1475 = phi i32 [ %2532, %2528 ], [ %2519, %2513 ]
-  %.0910.i1476 = phi ptr [ %2533, %2528 ], [ %2506, %2513 ]
-  %2521 = sext i32 %.011.i1475 to i64
-  %2522 = load i8, ptr %.0910.i1476, align 1
-  %.not.i1477 = icmp eq i8 %2522, 0
-  br i1 %.not.i1477, label %2528, label %2523
+.lr.ph.i1393:                                     ; preds = %2513, %2528
+  %.011.i1394 = phi i32 [ %2532, %2528 ], [ %2519, %2513 ]
+  %.0910.i1395 = phi ptr [ %2533, %2528 ], [ %2506, %2513 ]
+  %2521 = sext i32 %.011.i1394 to i64
+  %2522 = load i8, ptr %.0910.i1395, align 1
+  %.not.i1396 = icmp eq i8 %2522, 0
+  br i1 %.not.i1396, label %2528, label %2523
 
-2523:                                             ; preds = %.lr.ph.i1474
+2523:                                             ; preds = %.lr.ph.i1393
   %2524 = zext i8 %2522 to i64
   %2525 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %2524
   %2526 = load i8, ptr %2525, align 1
   %2527 = zext i8 %2526 to i64
   br label %2528
 
-2528:                                             ; preds = %2523, %.lr.ph.i1474
-  %2529 = phi i64 [ %2527, %2523 ], [ 1, %.lr.ph.i1474 ]
+2528:                                             ; preds = %2523, %.lr.ph.i1393
+  %2529 = phi i64 [ %2527, %2523 ], [ 1, %.lr.ph.i1393 ]
   %2530 = getelementptr [209 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2521, i64 %2529
   %2531 = load i16, ptr %2530, align 2
   %2532 = sext i16 %2531 to i32
-  %2533 = getelementptr i8, ptr %.0910.i1476, i64 1
-  %exitcond.not.i1478 = icmp eq ptr %2533, %2518
-  br i1 %exitcond.not.i1478, label %.backedge1574.backedge, label %.lr.ph.i1474, !llvm.loop !11
+  %2533 = getelementptr i8, ptr %.0910.i1395, i64 1
+  %exitcond.not.i1397 = icmp eq ptr %2533, %2518
+  br i1 %exitcond.not.i1397, label %.backedge1493.backedge, label %.lr.ph.i1393, !llvm.loop !11
 
-yy_get_next_buffer.exit.thread1496:               ; preds = %2313, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1496_crit_edge
-  %.pre-phi = phi i64 [ %.pre2420, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1496_crit_edge ], [ %2270, %2313 ]
-  %2534 = phi ptr [ %2506, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1496_crit_edge ], [ %2301, %2313 ]
-  %2535 = phi ptr [ %.pre2416, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1496_crit_edge ], [ %2268, %2313 ]
+yy_get_next_buffer.exit.thread1415:               ; preds = %2313, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge
+  %.pre-phi = phi i64 [ %.pre2339, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge ], [ %2270, %2313 ]
+  %2534 = phi ptr [ %2506, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge ], [ %2301, %2313 ]
+  %2535 = phi ptr [ %.pre2335, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge ], [ %2268, %2313 ]
   %2536 = getelementptr i8, ptr %2535, i64 %.pre-phi
   store ptr %2536, ptr %79, align 8
   %2537 = load i32, ptr %78, align 4
   %2538 = icmp ult ptr %2534, %2536
-  br i1 %2538, label %.lr.ph.i1482, label %.backedge.backedge
+  br i1 %2538, label %.lr.ph.i1401, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %2546, %yy_get_next_buffer.exit.thread1496, %yy_get_previous_state.exit
-  %.1707.be = phi ptr [ %2276, %yy_get_previous_state.exit ], [ %2534, %yy_get_next_buffer.exit.thread1496 ], [ %2534, %2546 ]
-  %.2705.be = phi ptr [ %2278, %yy_get_previous_state.exit ], [ %2536, %yy_get_next_buffer.exit.thread1496 ], [ %2536, %2546 ]
-  %.2.be = phi i32 [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %2537, %yy_get_next_buffer.exit.thread1496 ], [ %2550, %2546 ]
+.backedge.backedge:                               ; preds = %2546, %yy_get_next_buffer.exit.thread1415, %yy_get_previous_state.exit
+  %.1707.be = phi ptr [ %2276, %yy_get_previous_state.exit ], [ %2534, %yy_get_next_buffer.exit.thread1415 ], [ %2534, %2546 ]
+  %.2705.be = phi ptr [ %2278, %yy_get_previous_state.exit ], [ %2536, %yy_get_next_buffer.exit.thread1415 ], [ %2536, %2546 ]
+  %.2.be = phi i32 [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %2537, %yy_get_next_buffer.exit.thread1415 ], [ %2550, %2546 ]
   br label %.backedge
 
-.lr.ph.i1482:                                     ; preds = %yy_get_next_buffer.exit.thread1496, %2546
-  %.011.i1483 = phi i32 [ %2550, %2546 ], [ %2537, %yy_get_next_buffer.exit.thread1496 ]
-  %.0910.i1484 = phi ptr [ %2551, %2546 ], [ %2534, %yy_get_next_buffer.exit.thread1496 ]
-  %2539 = sext i32 %.011.i1483 to i64
-  %2540 = load i8, ptr %.0910.i1484, align 1
-  %.not.i1485 = icmp eq i8 %2540, 0
-  br i1 %.not.i1485, label %2546, label %2541
+.lr.ph.i1401:                                     ; preds = %yy_get_next_buffer.exit.thread1415, %2546
+  %.011.i1402 = phi i32 [ %2550, %2546 ], [ %2537, %yy_get_next_buffer.exit.thread1415 ]
+  %.0910.i1403 = phi ptr [ %2551, %2546 ], [ %2534, %yy_get_next_buffer.exit.thread1415 ]
+  %2539 = sext i32 %.011.i1402 to i64
+  %2540 = load i8, ptr %.0910.i1403, align 1
+  %.not.i1404 = icmp eq i8 %2540, 0
+  br i1 %.not.i1404, label %2546, label %2541
 
-2541:                                             ; preds = %.lr.ph.i1482
+2541:                                             ; preds = %.lr.ph.i1401
   %2542 = zext i8 %2540 to i64
   %2543 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %2542
   %2544 = load i8, ptr %2543, align 1
   %2545 = zext i8 %2544 to i64
   br label %2546
 
-2546:                                             ; preds = %2541, %.lr.ph.i1482
-  %2547 = phi i64 [ %2545, %2541 ], [ 1, %.lr.ph.i1482 ]
+2546:                                             ; preds = %2541, %.lr.ph.i1401
+  %2547 = phi i64 [ %2545, %2541 ], [ 1, %.lr.ph.i1401 ]
   %2548 = getelementptr [209 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2539, i64 %2547
   %2549 = load i16, ptr %2548, align 2
   %2550 = sext i16 %2549 to i32
-  %2551 = getelementptr i8, ptr %.0910.i1484, i64 1
-  %exitcond.not.i1486 = icmp eq ptr %2551, %2536
-  br i1 %exitcond.not.i1486, label %.backedge.backedge, label %.lr.ph.i1482, !llvm.loop !11
+  %2551 = getelementptr i8, ptr %.0910.i1403, i64 1
+  %exitcond.not.i1405 = icmp eq ptr %2551, %2536
+  br i1 %exitcond.not.i1405, label %.backedge.backedge, label %.lr.ph.i1401, !llvm.loop !11
 
 2552:                                             ; preds = %135
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
   unreachable
 
-default.unreachable2421:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable2340:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 2553:                                             ; preds = %2224, %1352, %1326
@@ -5485,9 +5403,8 @@ define dso_local void @psqlscan_emit(ptr nocapture noundef readonly %0, ptr noun
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %11, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
   %10 = sext i32 %2 to i64
@@ -5548,9 +5465,8 @@ define dso_local ptr @psqlscan_extract_substring(ptr nocapture noundef readonly 
   %6 = tail call ptr @pg_malloc(i64 noundef %5) #27
   %7 = getelementptr inbounds i8, ptr %0, i64 52
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
   %11 = sext i32 %2 to i64
@@ -5656,19 +5572,18 @@ define dso_local void @psqlscan_push_new_buffer(ptr nocapture noundef %0, ptr no
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 52
   %17 = load i8, ptr %16, align 4
-  %18 = and i8 %17, 1
-  %.not22 = icmp eq i8 %18, 0
-  br i1 %.not22, label %19, label %21
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %7
   %20 = tail call ptr @pg_strdup(ptr noundef %1) #27
   br label %21
 
 21:                                               ; preds = %7, %19
-  %.sink23 = phi ptr [ %20, %19 ], [ null, %7 ]
+  %.sink22 = phi ptr [ %20, %19 ], [ null, %7 ]
   %.sink = phi ptr [ %20, %19 ], [ %14, %7 ]
   %22 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.sink23, ptr %22, align 8
+  store ptr %.sink22, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5688,9 +5603,8 @@ define dso_local void @psqlscan_escape_variable(ptr nocapture noundef readonly %
   %9 = tail call ptr @pg_malloc(i64 noundef %8) #27
   %10 = getelementptr inbounds i8, ptr %0, i64 52
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %15, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4
   %14 = sext i32 %6 to i64
@@ -5766,9 +5680,8 @@ psqlscan_extract_substring.exit:                  ; preds = %31, %13, %15
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %10, align 4
-  %49 = and i8 %48, 1
-  %.not.i17 = icmp eq i8 %49, 0
-  br i1 %.not.i17, label %52, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45
   %51 = sext i32 %2 to i64
@@ -5785,30 +5698,30 @@ psqlscan_extract_substring.exit:                  ; preds = %31, %13, %15
   %59 = sub i64 %57, %58
   %60 = getelementptr i8, ptr %54, i64 %59
   %61 = icmp sgt i32 %2, 0
-  br i1 %61, label %.lr.ph.preheader.i18, label %psqlscan_emit.exit
+  br i1 %61, label %.lr.ph.preheader.i17, label %psqlscan_emit.exit
 
-.lr.ph.preheader.i18:                             ; preds = %52
-  %wide.trip.count.i19 = zext nneg i32 %2 to i64
-  br label %.lr.ph.i20
+.lr.ph.preheader.i17:                             ; preds = %52
+  %wide.trip.count.i18 = zext nneg i32 %2 to i64
+  br label %.lr.ph.i19
 
-.lr.ph.i20:                                       ; preds = %68, %.lr.ph.preheader.i18
-  %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.preheader.i18 ], [ %indvars.iv.next.i23, %68 ]
-  %62 = getelementptr i8, ptr %1, i64 %indvars.iv.i21
+.lr.ph.i19:                                       ; preds = %68, %.lr.ph.preheader.i17
+  %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.preheader.i17 ], [ %indvars.iv.next.i22, %68 ]
+  %62 = getelementptr i8, ptr %1, i64 %indvars.iv.i20
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, -1
   br i1 %64, label %65, label %68
 
-65:                                               ; preds = %.lr.ph.i20
-  %66 = getelementptr i8, ptr %60, i64 %indvars.iv.i21
+65:                                               ; preds = %.lr.ph.i19
+  %66 = getelementptr i8, ptr %60, i64 %indvars.iv.i20
   %67 = load i8, ptr %66, align 1
   br label %68
 
-68:                                               ; preds = %65, %.lr.ph.i20
-  %.0.i22 = phi i8 [ %67, %65 ], [ %63, %.lr.ph.i20 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %47, i8 noundef signext %.0.i22) #27
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i19
-  br i1 %exitcond.not.i24, label %psqlscan_emit.exit, label %.lr.ph.i20, !llvm.loop !7
+68:                                               ; preds = %65, %.lr.ph.i19
+  %.0.i21 = phi i8 [ %67, %65 ], [ %63, %.lr.ph.i19 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %47, i8 noundef signext %.0.i21) #27
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i18
+  br i1 %exitcond.not.i23, label %psqlscan_emit.exit, label %.lr.ph.i19, !llvm.loop !7
 
 psqlscan_emit.exit:                               ; preds = %68, %52, %50, %42
   ret void
@@ -5823,9 +5736,8 @@ define dso_local void @psqlscan_test_variable(ptr nocapture noundef readonly %0,
   %8 = tail call ptr @pg_malloc(i64 noundef %7) #27
   %9 = getelementptr inbounds i8, ptr %0, i64 52
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %14, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
   %13 = sext i32 %5 to i64
@@ -5894,9 +5806,8 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr %9, align 4
-  %45 = and i8 %44, 1
-  %.not.i13 = icmp eq i8 %45, 0
-  br i1 %.not.i13, label %47, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %47
 
 46:                                               ; preds = %41
   tail call void @appendBinaryPQExpBuffer(ptr noundef %43, ptr noundef nonnull @.str.21, i64 noundef 4) #27
@@ -5910,42 +5821,41 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 ptrtoint (ptr @.str.21 to i64), %52
   %54 = getelementptr i8, ptr %49, i64 %53
-  br label %.lr.ph.i15
+  br label %.lr.ph.i14
 
-.lr.ph.i15:                                       ; preds = %61, %47
-  %indvars.iv.i16 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i18, %61 ]
-  %55 = getelementptr i8, ptr @.str.21, i64 %indvars.iv.i16
+.lr.ph.i14:                                       ; preds = %61, %47
+  %indvars.iv.i15 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i17, %61 ]
+  %55 = getelementptr i8, ptr @.str.21, i64 %indvars.iv.i15
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, -1
   br i1 %57, label %58, label %61
 
-58:                                               ; preds = %.lr.ph.i15
-  %59 = getelementptr i8, ptr %54, i64 %indvars.iv.i16
+58:                                               ; preds = %.lr.ph.i14
+  %59 = getelementptr i8, ptr %54, i64 %indvars.iv.i15
   %60 = load i8, ptr %59, align 1
   br label %61
 
-61:                                               ; preds = %58, %.lr.ph.i15
-  %.0.i17 = phi i8 [ %60, %58 ], [ %56, %.lr.ph.i15 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %43, i8 noundef signext %.0.i17) #27
-  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
-  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 4
-  br i1 %exitcond.not.i19, label %psqlscan_emit.exit, label %.lr.ph.i15, !llvm.loop !7
+61:                                               ; preds = %58, %.lr.ph.i14
+  %.0.i16 = phi i8 [ %60, %58 ], [ %56, %.lr.ph.i14 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %43, i8 noundef signext %.0.i16) #27
+  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
+  %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
+  br i1 %exitcond.not.i18, label %psqlscan_emit.exit, label %.lr.ph.i14, !llvm.loop !7
 
 psqlscan_emit.exit:                               ; preds = %61, %46
   tail call void @free(ptr noundef %40) #27
-  br label %psqlscan_emit.exit27
+  br label %psqlscan_emit.exit25
 
 62:                                               ; preds = %.thread, %37
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load i8, ptr %9, align 4
-  %66 = and i8 %65, 1
-  %.not.i20 = icmp eq i8 %66, 0
-  br i1 %.not.i20, label %68, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %68
 
 67:                                               ; preds = %62
   tail call void @appendBinaryPQExpBuffer(ptr noundef %64, ptr noundef nonnull @.str.22, i64 noundef 5) #27
-  br label %psqlscan_emit.exit27
+  br label %psqlscan_emit.exit25
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5955,28 +5865,28 @@ psqlscan_emit.exit:                               ; preds = %61, %46
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 ptrtoint (ptr @.str.22 to i64), %73
   %75 = getelementptr i8, ptr %70, i64 %74
-  br label %.lr.ph.i22
+  br label %.lr.ph.i20
 
-.lr.ph.i22:                                       ; preds = %82, %68
-  %indvars.iv.i23 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i25, %82 ]
-  %76 = getelementptr i8, ptr @.str.22, i64 %indvars.iv.i23
+.lr.ph.i20:                                       ; preds = %82, %68
+  %indvars.iv.i21 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i23, %82 ]
+  %76 = getelementptr i8, ptr @.str.22, i64 %indvars.iv.i21
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, -1
   br i1 %78, label %79, label %82
 
-79:                                               ; preds = %.lr.ph.i22
-  %80 = getelementptr i8, ptr %75, i64 %indvars.iv.i23
+79:                                               ; preds = %.lr.ph.i20
+  %80 = getelementptr i8, ptr %75, i64 %indvars.iv.i21
   %81 = load i8, ptr %80, align 1
   br label %82
 
-82:                                               ; preds = %79, %.lr.ph.i22
-  %.0.i24 = phi i8 [ %81, %79 ], [ %77, %.lr.ph.i22 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %64, i8 noundef signext %.0.i24) #27
-  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
-  %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 5
-  br i1 %exitcond.not.i26, label %psqlscan_emit.exit27, label %.lr.ph.i22, !llvm.loop !7
+82:                                               ; preds = %79, %.lr.ph.i20
+  %.0.i22 = phi i8 [ %81, %79 ], [ %77, %.lr.ph.i20 ]
+  tail call void @appendPQExpBufferChar(ptr noundef %64, i8 noundef signext %.0.i22) #27
+  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 5
+  br i1 %exitcond.not.i24, label %psqlscan_emit.exit25, label %.lr.ph.i20, !llvm.loop !7
 
-psqlscan_emit.exit27:                             ; preds = %82, %67, %psqlscan_emit.exit
+psqlscan_emit.exit25:                             ; preds = %82, %67, %psqlscan_emit.exit
   ret void
 }
 
@@ -7632,9 +7542,8 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef read
   store i8 0, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %0, i64 52
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %.preheader, label %19
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %19, label %.preheader
 
 .preheader:                                       ; preds = %4
   %16 = icmp sgt i32 %2, 0

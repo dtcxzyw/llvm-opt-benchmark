@@ -3185,10 +3185,9 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %3 = load i8, ptr %t, align 1
-  %4 = shl i8 %3, 1
-  %5 = and i8 %4, 2
-  %6 = zext nneg i8 %5 to i64
-  %total.0 = add i64 %total.0.lcssa.i, %6
+  %tobool = trunc i8 %3 to i1
+  %add5 = add i64 %total.0.lcssa.i, 2
+  %total.0 = select i1 %tobool, i64 %add5, i64 %total.0.lcssa.i
   ret i64 %total.0
 }
 
@@ -3196,38 +3195,37 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
 define dso_local void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf9BoolValueEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %t, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit19
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit19, label %if.end
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit19: ; preds = %entry
   store i8 8, ptr %data, align 1
-  %2 = load i8, ptr %t, align 1
-  %3 = and i8 %2, 1
+  %1 = load i8, ptr %t, align 1
+  %conv1.i = and i8 %1, 1
   %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 1
-  store i8 %3, ptr %arrayidx3.i, align 1
+  store i8 %conv1.i, ptr %arrayidx3.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit19, %entry
-  %pos.0 = phi i64 [ 0, %entry ], [ 2, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit19 ]
-  %4 = load ptr, ptr %unknown_fields, align 8
+  %pos.0 = phi i64 [ 2, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit19 ], [ 0, %entry ]
+  %2 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
-  %5 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i7.i = icmp eq ptr %4, %5
+  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i7.i = icmp eq ptr %2, %3
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %pos.1 = phi i64 [ %add.i, %for.body.i ], [ %pos.0, %if.end ]
-  %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %4, %if.end ]
+  %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %2, %if.end ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.1
-  %6 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
+  %4 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
   %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
-  %7 = load i64, ptr %len.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %6, i64 %7, i1 false)
-  %8 = load i64, ptr %len.i, align 8
-  %add.i = add i64 %8, %pos.1
+  %5 = load i64, ptr %len.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %4, i64 %5, i1 false)
+  %6 = load i64, ptr %len.i, align 8
+  %add.i = add i64 %6, %pos.1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
-  %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %5
+  %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %if.end

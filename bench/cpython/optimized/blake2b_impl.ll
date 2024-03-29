@@ -194,7 +194,7 @@ PyBlake2_blake2b_init_param.exit:                 ; preds = %for.body.i
   %outlen.i = getelementptr inbounds i8, ptr %S, i64 356
   store i8 %conv, ptr %outlen.i, align 1
   %6 = icmp ugt i64 %keylen, 127
-  %7 = sub i64 128, %keylen
+  %7 = sub nuw nsw i64 128, %keylen
   %8 = select i1 %6, i64 0, i64 %7
   %9 = getelementptr i8, ptr %block, i64 %keylen
   call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %8, i1 false)
@@ -2890,15 +2890,14 @@ if.end.i:                                         ; preds = %entry
   store i8 0, ptr %use_mutex.i.i, align 2
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 438
   %2 = load i8, ptr %use_mutex.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %if.end3.i, label %if.then2.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 439
-  %4 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %5 = extractvalue { i8, i1 } %4, 1
-  br i1 %5, label %if.end3.i, label %if.then.i.i
+  %3 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %4 = extractvalue { i8, i1 } %3, 1
+  br i1 %4, label %if.end3.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
@@ -2911,16 +2910,15 @@ if.end3.i:                                        ; preds = %if.then.i.i, %if.th
   %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %state5.i = getelementptr inbounds i8, ptr %self, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(358) %state.i, ptr noundef nonnull align 8 dereferenceable(358) %state5.i, i64 358, i1 false)
-  %6 = load i8, ptr %use_mutex.i, align 2
-  %7 = and i8 %6, 1
-  %tobool7.not.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i, label %_blake2_blake2b_copy_impl.exit, label %if.then8.i
+  %5 = load i8, ptr %use_mutex.i, align 2
+  %tobool7.i = trunc i8 %5 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %_blake2_blake2b_copy_impl.exit
 
 if.then8.i:                                       ; preds = %if.end3.i
   %mutex9.i = getelementptr inbounds i8, ptr %self, i64 439
-  %8 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %9 = extractvalue { i8, i1 } %8, 1
-  br i1 %9, label %_blake2_blake2b_copy_impl.exit, label %if.then.i9.i
+  %6 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  br i1 %7, label %_blake2_blake2b_copy_impl.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then8.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex9.i) #9
@@ -2939,15 +2937,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 358, ptr nonnull %state_cpy.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 438
   %0 = load i8, ptr %use_mutex.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 439
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
@@ -2957,27 +2954,26 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %state.i = getelementptr inbounds i8, ptr %self, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(358) %state_cpy.i, ptr noundef nonnull align 8 dereferenceable(358) %state.i, i64 358, i1 false)
   %param.i = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load i8, ptr %param.i, align 8
-  %conv.i = zext i8 %4 to i64
+  %3 = load i8, ptr %param.i, align 8
+  %conv.i = zext i8 %3 to i64
   %call.i = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i), !range !9
-  %5 = load i8, ptr %use_mutex.i, align 2
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_blake2_blake2b_digest_impl.exit, label %if.then3.i
+  %4 = load i8, ptr %use_mutex.i, align 2
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_blake2_blake2b_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 439
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %_blake2_blake2b_digest_impl.exit, label %if.then.i7.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %_blake2_blake2b_digest_impl.exit, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %if.then3.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
   br label %_blake2_blake2b_digest_impl.exit
 
 _blake2_blake2b_digest_impl.exit:                 ; preds = %if.end.i, %if.then3.i, %if.then.i7.i
-  %9 = load i8, ptr %param.i, align 8
-  %conv9.i = zext i8 %9 to i64
+  %7 = load i8, ptr %param.i, align 8
+  %conv9.i = zext i8 %7 to i64
   %call10.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv9.i) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 358, ptr nonnull %state_cpy.i)
@@ -2993,15 +2989,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 358, ptr nonnull %state_cpy.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 438
   %0 = load i8, ptr %use_mutex.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 439
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
@@ -3011,27 +3006,26 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %state.i = getelementptr inbounds i8, ptr %self, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(358) %state_cpy.i, ptr noundef nonnull align 8 dereferenceable(358) %state.i, i64 358, i1 false)
   %param.i = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load i8, ptr %param.i, align 8
-  %conv.i = zext i8 %4 to i64
+  %3 = load i8, ptr %param.i, align 8
+  %conv.i = zext i8 %3 to i64
   %call.i = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i), !range !9
-  %5 = load i8, ptr %use_mutex.i, align 2
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_blake2_blake2b_hexdigest_impl.exit, label %if.then3.i
+  %4 = load i8, ptr %use_mutex.i, align 2
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_blake2_blake2b_hexdigest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 439
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %_blake2_blake2b_hexdigest_impl.exit, label %if.then.i7.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %_blake2_blake2b_hexdigest_impl.exit, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %if.then3.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
   br label %_blake2_blake2b_hexdigest_impl.exit
 
 _blake2_blake2b_hexdigest_impl.exit:              ; preds = %if.end.i, %if.then3.i, %if.then.i7.i
-  %9 = load i8, ptr %param.i, align 8
-  %conv9.i = zext i8 %9 to i64
+  %7 = load i8, ptr %param.i, align 8
+  %conv9.i = zext i8 %7 to i64
   %call10.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv9.i) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 358, ptr nonnull %state_cpy.i)
@@ -3085,29 +3079,27 @@ if.then10:                                        ; preds = %if.end8
 do.end:                                           ; preds = %if.end8
   %use_mutex = getelementptr inbounds i8, ptr %self, i64 438
   %7 = load i8, ptr %use_mutex, align 2
-  %8 = and i8 %7, 1
-  %tobool12.not9 = icmp eq i8 %8, 0
+  %tobool12 = trunc i8 %7 to i1
   %len = getelementptr inbounds i8, ptr %buf, i64 16
-  %9 = load i64, ptr %len, align 8
-  %cmp13 = icmp sgt i64 %9, 2047
-  %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
-  br i1 %or.cond, label %if.end16.thread, label %if.end16
+  %8 = load i64, ptr %len, align 8
+  %cmp13 = icmp slt i64 %8, 2048
+  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
+  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %do.end
   store i8 1, ptr %use_mutex, align 2
   br label %if.then19
 
 if.end16:                                         ; preds = %do.end
-  %10 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %10, 0
-  br i1 %tobool18.not, label %if.else, label %if.then19
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #9
   %mutex = getelementptr inbounds i8, ptr %self, i64 439
-  %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
+  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
   call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #9
@@ -3115,12 +3107,12 @@ if.then.i:                                        ; preds = %if.then19
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
   %state = getelementptr inbounds i8, ptr %self, i64 80
-  %13 = load i64, ptr %len, align 8
-  %cmp.not27.i = icmp eq i64 %13, 0
+  %11 = load i64, ptr %len, align 8
+  %cmp.not27.i = icmp eq i64 %11, 0
   br i1 %cmp.not27.i, label %PyBlake2_blake2b_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
-  %14 = load ptr, ptr %buf, align 8
+  %12 = load ptr, ptr %buf, align 8
   %buflen.i = getelementptr inbounds i8, ptr %self, i64 432
   %buf19.i = getelementptr inbounds i8, ptr %self, i64 176
   %t.i.i = getelementptr inbounds i8, ptr %self, i64 144
@@ -3130,118 +3122,118 @@ while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
-  %15 = phi i32 [ %.pre.i, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i ]
-  %in.addr.029.i = phi ptr [ %14, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i ]
-  %inlen.addr.028.i = phi i64 [ %13, %while.body.lr.ph.i ], [ %sub18.i, %if.end.i ]
-  %sub.i = sub i32 256, %15
-  %conv.i10 = zext i32 %sub.i to i64
-  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %conv.i10
-  %idx.ext.i = zext i32 %15 to i64
+  %13 = phi i32 [ %.pre.i, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i ]
+  %in.addr.029.i = phi ptr [ %12, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i ]
+  %inlen.addr.028.i = phi i64 [ %11, %while.body.lr.ph.i ], [ %sub18.i, %if.end.i ]
+  %sub.i = sub i32 256, %13
+  %conv.i9 = zext i32 %sub.i to i64
+  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %conv.i9
+  %idx.ext.i = zext i32 %13 to i64
   %add.ptr.i = getelementptr i8, ptr %buf19.i, i64 %idx.ext.i
   br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
   %conv23.i = trunc i64 %inlen.addr.028.i to i32
-  %16 = load i32, ptr %buflen.i, align 1
-  %add25.i = add i32 %16, %conv23.i
+  %14 = load i32, ptr %buflen.i, align 1
+  %add25.i = add i32 %14, %conv23.i
   store i32 %add25.i, ptr %buflen.i, align 1
   br label %PyBlake2_blake2b_update.exit
 
 if.end.i:                                         ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %conv.i10, i1 false)
-  %17 = load i32, ptr %buflen.i, align 1
-  %add.i = add i32 %17, %sub.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %conv.i9, i1 false)
+  %15 = load i32, ptr %buflen.i, align 1
+  %add.i = add i32 %15, %sub.i
   store i32 %add.i, ptr %buflen.i, align 1
-  %18 = load i64, ptr %t.i.i, align 1
-  %add.i.i = add i64 %18, 128
+  %16 = load i64, ptr %t.i.i, align 1
+  %add.i.i = add i64 %16, 128
   store i64 %add.i.i, ptr %t.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %18, -129
+  %cmp.i.i = icmp ugt i64 %16, -129
   %conv3.i.i = zext i1 %cmp.i.i to i64
-  %19 = load i64, ptr %arrayidx5.i.i, align 1
-  %add6.i.i = add i64 %19, %conv3.i.i
+  %17 = load i64, ptr %arrayidx5.i.i, align 1
+  %add6.i.i = add i64 %17, %conv3.i.i
   store i64 %add6.i.i, ptr %arrayidx5.i.i, align 1
   call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %state, ptr noundef nonnull %buf19.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12.i, i64 128, i1 false)
-  %20 = load i32, ptr %buflen.i, align 1
-  %sub14.i = add i32 %20, -128
-  %sub18.i = sub i64 %inlen.addr.028.i, %conv.i10
+  %18 = load i32, ptr %buflen.i, align 1
+  %sub14.i = add i32 %18, -128
+  %sub18.i = sub i64 %inlen.addr.028.i, %conv.i9
   store i32 %sub14.i, ptr %buflen.i, align 1
-  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %conv.i10
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %conv.i9
   %cmp.not.i = icmp eq i64 %sub18.i, 0
   br i1 %cmp.not.i, label %PyBlake2_blake2b_update.exit, label %while.body.i, !llvm.loop !6
 
 PyBlake2_blake2b_update.exit:                     ; preds = %if.end.i, %PyMutex_Lock.exit, %if.end.thread.i
-  %21 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %22 = extractvalue { i8, i1 } %21, 1
-  br i1 %22, label %PyMutex_Unlock.exit, label %if.then.i11
+  %19 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
+  %20 = extractvalue { i8, i1 } %19, 1
+  br i1 %20, label %PyMutex_Unlock.exit, label %if.then.i10
 
-if.then.i11:                                      ; preds = %PyBlake2_blake2b_update.exit
+if.then.i10:                                      ; preds = %PyBlake2_blake2b_update.exit
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #9
   br label %PyMutex_Unlock.exit
 
-PyMutex_Unlock.exit:                              ; preds = %PyBlake2_blake2b_update.exit, %if.then.i11
+PyMutex_Unlock.exit:                              ; preds = %PyBlake2_blake2b_update.exit, %if.then.i10
   call void @PyEval_RestoreThread(ptr noundef %call20) #9
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16
   %state25 = getelementptr inbounds i8, ptr %self, i64 80
-  %cmp.not27.i13 = icmp eq i64 %9, 0
-  br i1 %cmp.not27.i13, label %if.end29, label %while.body.lr.ph.i14
+  %cmp.not27.i12 = icmp eq i64 %8, 0
+  br i1 %cmp.not27.i12, label %if.end29, label %while.body.lr.ph.i13
 
-while.body.lr.ph.i14:                             ; preds = %if.else
-  %23 = load ptr, ptr %buf, align 8
-  %buflen.i15 = getelementptr inbounds i8, ptr %self, i64 432
-  %buf19.i16 = getelementptr inbounds i8, ptr %self, i64 176
-  %t.i.i17 = getelementptr inbounds i8, ptr %self, i64 144
-  %arrayidx5.i.i18 = getelementptr i8, ptr %self, i64 152
-  %add.ptr12.i19 = getelementptr i8, ptr %self, i64 304
-  %.pre.i20 = load i32, ptr %buflen.i15, align 1
-  br label %while.body.i21
+while.body.lr.ph.i13:                             ; preds = %if.else
+  %21 = load ptr, ptr %buf, align 8
+  %buflen.i14 = getelementptr inbounds i8, ptr %self, i64 432
+  %buf19.i15 = getelementptr inbounds i8, ptr %self, i64 176
+  %t.i.i16 = getelementptr inbounds i8, ptr %self, i64 144
+  %arrayidx5.i.i17 = getelementptr i8, ptr %self, i64 152
+  %add.ptr12.i18 = getelementptr i8, ptr %self, i64 304
+  %.pre.i19 = load i32, ptr %buflen.i14, align 1
+  br label %while.body.i20
 
-while.body.i21:                                   ; preds = %if.end.i32, %while.body.lr.ph.i14
-  %24 = phi i32 [ %.pre.i20, %while.body.lr.ph.i14 ], [ %sub14.i41, %if.end.i32 ]
-  %in.addr.029.i22 = phi ptr [ %23, %while.body.lr.ph.i14 ], [ %in.addr.1.i43, %if.end.i32 ]
-  %inlen.addr.028.i23 = phi i64 [ %9, %while.body.lr.ph.i14 ], [ %sub18.i42, %if.end.i32 ]
-  %sub.i24 = sub i32 256, %24
-  %conv.i25 = zext i32 %sub.i24 to i64
-  %cmp1.i26 = icmp ugt i64 %inlen.addr.028.i23, %conv.i25
-  %idx.ext.i33 = zext i32 %24 to i64
-  %add.ptr.i34 = getelementptr i8, ptr %buf19.i16, i64 %idx.ext.i33
-  br i1 %cmp1.i26, label %if.end.i32, label %if.end.thread.i27
+while.body.i20:                                   ; preds = %if.end.i31, %while.body.lr.ph.i13
+  %22 = phi i32 [ %.pre.i19, %while.body.lr.ph.i13 ], [ %sub14.i40, %if.end.i31 ]
+  %in.addr.029.i21 = phi ptr [ %21, %while.body.lr.ph.i13 ], [ %in.addr.1.i42, %if.end.i31 ]
+  %inlen.addr.028.i22 = phi i64 [ %8, %while.body.lr.ph.i13 ], [ %sub18.i41, %if.end.i31 ]
+  %sub.i23 = sub i32 256, %22
+  %conv.i24 = zext i32 %sub.i23 to i64
+  %cmp1.i25 = icmp ugt i64 %inlen.addr.028.i22, %conv.i24
+  %idx.ext.i32 = zext i32 %22 to i64
+  %add.ptr.i33 = getelementptr i8, ptr %buf19.i15, i64 %idx.ext.i32
+  br i1 %cmp1.i25, label %if.end.i31, label %if.end.thread.i26
 
-if.end.thread.i27:                                ; preds = %while.body.i21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i34, ptr align 1 %in.addr.029.i22, i64 %inlen.addr.028.i23, i1 false)
-  %conv23.i30 = trunc i64 %inlen.addr.028.i23 to i32
-  %25 = load i32, ptr %buflen.i15, align 1
-  %add25.i31 = add i32 %25, %conv23.i30
-  store i32 %add25.i31, ptr %buflen.i15, align 1
+if.end.thread.i26:                                ; preds = %while.body.i20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i33, ptr align 1 %in.addr.029.i21, i64 %inlen.addr.028.i22, i1 false)
+  %conv23.i29 = trunc i64 %inlen.addr.028.i22 to i32
+  %23 = load i32, ptr %buflen.i14, align 1
+  %add25.i30 = add i32 %23, %conv23.i29
+  store i32 %add25.i30, ptr %buflen.i14, align 1
   br label %if.end29
 
-if.end.i32:                                       ; preds = %while.body.i21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i34, ptr align 1 %in.addr.029.i22, i64 %conv.i25, i1 false)
-  %26 = load i32, ptr %buflen.i15, align 1
-  %add.i35 = add i32 %26, %sub.i24
-  store i32 %add.i35, ptr %buflen.i15, align 1
-  %27 = load i64, ptr %t.i.i17, align 1
-  %add.i.i36 = add i64 %27, 128
-  store i64 %add.i.i36, ptr %t.i.i17, align 1
-  %cmp.i.i37 = icmp ugt i64 %27, -129
-  %conv3.i.i38 = zext i1 %cmp.i.i37 to i64
-  %28 = load i64, ptr %arrayidx5.i.i18, align 1
-  %add6.i.i39 = add i64 %28, %conv3.i.i38
-  store i64 %add6.i.i39, ptr %arrayidx5.i.i18, align 1
-  call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %state25, ptr noundef nonnull %buf19.i16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19.i16, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12.i19, i64 128, i1 false)
-  %29 = load i32, ptr %buflen.i15, align 1
-  %sub14.i41 = add i32 %29, -128
-  %sub18.i42 = sub i64 %inlen.addr.028.i23, %conv.i25
-  store i32 %sub14.i41, ptr %buflen.i15, align 1
-  %in.addr.1.i43 = getelementptr i8, ptr %in.addr.029.i22, i64 %conv.i25
-  %cmp.not.i44 = icmp eq i64 %sub18.i42, 0
-  br i1 %cmp.not.i44, label %if.end29, label %while.body.i21, !llvm.loop !6
+if.end.i31:                                       ; preds = %while.body.i20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i33, ptr align 1 %in.addr.029.i21, i64 %conv.i24, i1 false)
+  %24 = load i32, ptr %buflen.i14, align 1
+  %add.i34 = add i32 %24, %sub.i23
+  store i32 %add.i34, ptr %buflen.i14, align 1
+  %25 = load i64, ptr %t.i.i16, align 1
+  %add.i.i35 = add i64 %25, 128
+  store i64 %add.i.i35, ptr %t.i.i16, align 1
+  %cmp.i.i36 = icmp ugt i64 %25, -129
+  %conv3.i.i37 = zext i1 %cmp.i.i36 to i64
+  %26 = load i64, ptr %arrayidx5.i.i17, align 1
+  %add6.i.i38 = add i64 %26, %conv3.i.i37
+  store i64 %add6.i.i38, ptr %arrayidx5.i.i17, align 1
+  call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %state25, ptr noundef nonnull %buf19.i15)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19.i15, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12.i18, i64 128, i1 false)
+  %27 = load i32, ptr %buflen.i14, align 1
+  %sub14.i40 = add i32 %27, -128
+  %sub18.i41 = sub i64 %inlen.addr.028.i22, %conv.i24
+  store i32 %sub14.i40, ptr %buflen.i14, align 1
+  %in.addr.1.i42 = getelementptr i8, ptr %in.addr.029.i21, i64 %conv.i24
+  %cmp.not.i43 = icmp eq i64 %sub18.i41, 0
+  br i1 %cmp.not.i43, label %if.end29, label %while.body.i20, !llvm.loop !6
 
-if.end29:                                         ; preds = %if.end.i32, %if.end.thread.i27, %if.else, %PyMutex_Unlock.exit
+if.end29:                                         ; preds = %if.end.i31, %if.end.thread.i26, %if.else, %PyMutex_Unlock.exit
   call void @PyBuffer_Release(ptr noundef nonnull %buf) #9
   br label %return
 

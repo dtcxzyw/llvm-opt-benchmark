@@ -184,9 +184,8 @@ define void @circbuf_reset(ptr nocapture noundef writeonly %0) local_unnamed_add
 define void @circbuf_uninit(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %7
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8

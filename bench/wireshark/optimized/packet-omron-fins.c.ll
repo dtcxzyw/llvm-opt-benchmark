@@ -1472,77 +1472,76 @@ define internal i32 @dissect_omron_fins_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #2
   %7 = icmp ult i32 %6, 7
-  br i1 %7, label %switch.hole_check, label %43
+  br i1 %7, label %switch.hole_check, label %42
 
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc i32 %6 to i8
   %switch.shifted = lshr i8 79, %switch.maskindex
-  %8 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %8, 0
-  br i1 %switch.lobit.not, label %43, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %42
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 0, i64 %9
+  %8 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.901) #2
-  %12 = load ptr, ptr %10, align 8
-  %13 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @tcp_command_cv, ptr noundef nonnull @.str.903) #2
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.902, ptr noundef %13) #2
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.901) #2
+  %11 = load ptr, ptr %9, align 8
+  %12 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @tcp_command_cv, ptr noundef nonnull @.str.903) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.902, ptr noundef %12) #2
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %37, label %14
+  br i1 %.not, label %36, label %13
 
-14:                                               ; preds = %switch.lookup
-  %15 = load i32, ptr @proto_omron_fins, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  store ptr %16, ptr %5, align 8
-  %17 = load i32, ptr @ett_omron, align 4
-  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #2
-  %19 = load i32, ptr @ett_omron_tcp_header, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %switch.load, i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull @.str.904) #2
-  %21 = load i32, ptr @hf_omron_tcp_magic, align 4
-  %22 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
-  %23 = load i32, ptr @hf_omron_tcp_length, align 4
-  %24 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
-  %25 = load i32, ptr @hf_omron_tcp_command, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #2
-  %27 = load i32, ptr @hf_omron_tcp_error_code, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #2
-  switch i32 %6, label %37 [
-    i32 0, label %29
-    i32 1, label %32
+13:                                               ; preds = %switch.lookup
+  %14 = load i32, ptr @proto_omron_fins, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  store ptr %15, ptr %5, align 8
+  %16 = load i32, ptr @ett_omron, align 4
+  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #2
+  %18 = load i32, ptr @ett_omron_tcp_header, align 4
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef %switch.load, i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.904) #2
+  %20 = load i32, ptr @hf_omron_tcp_magic, align 4
+  %21 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
+  %22 = load i32, ptr @hf_omron_tcp_length, align 4
+  %23 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
+  %24 = load i32, ptr @hf_omron_tcp_command, align 4
+  %25 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #2
+  %26 = load i32, ptr @hf_omron_tcp_error_code, align 4
+  %27 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %26, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #2
+  switch i32 %6, label %36 [
+    i32 0, label %28
+    i32 1, label %31
   ]
 
-29:                                               ; preds = %14
-  %30 = load i32, ptr @hf_omron_tcp_client_node_address, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %30, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
+28:                                               ; preds = %13
+  %29 = load i32, ptr @hf_omron_tcp_client_node_address, align 4
+  %30 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %29, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
   br label %.thread
 
-32:                                               ; preds = %14
-  %33 = load i32, ptr @hf_omron_tcp_client_node_address, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %33, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
-  %35 = load i32, ptr @hf_omron_tcp_server_node_address, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %35, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #2
+31:                                               ; preds = %13
+  %32 = load i32, ptr @hf_omron_tcp_client_node_address, align 4
+  %33 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %32, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
+  %34 = load i32, ptr @hf_omron_tcp_server_node_address, align 4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %34, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #2
   br label %.thread
 
-37:                                               ; preds = %14, %switch.lookup
-  %.034 = phi ptr [ null, %switch.lookup ], [ %18, %14 ]
-  %38 = icmp eq i32 %6, 2
-  br i1 %38, label %39, label %.thread
+36:                                               ; preds = %13, %switch.lookup
+  %.034 = phi ptr [ null, %switch.lookup ], [ %17, %13 ]
+  %37 = icmp eq i32 %6, 2
+  br i1 %37, label %38, label %.thread
 
-39:                                               ; preds = %37
-  %40 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %switch.load) #2
-  %41 = call fastcc i32 @dissect_omron_fins_common(ptr noundef %40, ptr noundef nonnull %1, ptr noundef %.034)
+38:                                               ; preds = %36
+  %39 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %switch.load) #2
+  %40 = call fastcc i32 @dissect_omron_fins_common(ptr noundef %39, ptr noundef nonnull %1, ptr noundef %.034)
   br label %.thread
 
-.thread:                                          ; preds = %32, %29, %39, %37
-  %42 = call i32 @tvb_reported_length(ptr noundef %0) #2
-  br label %43
+.thread:                                          ; preds = %31, %28, %38, %36
+  %41 = call i32 @tvb_reported_length(ptr noundef %0) #2
+  br label %42
 
-43:                                               ; preds = %switch.hole_check, %4, %.thread
-  %.0 = phi i32 [ %42, %.thread ], [ 0, %4 ], [ 0, %switch.hole_check ]
+42:                                               ; preds = %switch.hole_check, %4, %.thread
+  %.0 = phi i32 [ %41, %.thread ], [ 0, %4 ], [ 0, %switch.hole_check ]
   ret i32 %.0
 }
 

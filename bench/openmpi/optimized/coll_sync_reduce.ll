@@ -14,9 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_coll_sync_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %7, i64 1712
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %18, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %7, i64 768

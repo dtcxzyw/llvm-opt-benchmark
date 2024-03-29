@@ -188,21 +188,20 @@ define void @_ZN4VPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(84) 
   %2 = alloca %"class.std::__cxx11::list", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN6Blocks10totalOrderB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::list") align 8 %2, ptr noundef nonnull align 8 dereferenceable(60) %3)
-  %.sroa.014.018 = load ptr, ptr %2, align 8
-  %.not1719 = icmp eq ptr %.sroa.014.018, %2
-  br i1 %.not1719, label %._crit_edge, label %.lr.ph
+  %.sroa.014.017 = load ptr, ptr %2, align 8
+  %.not18 = icmp eq ptr %.sroa.014.017, %2
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %15
-  %.sroa.014.020 = phi ptr [ %.sroa.014.0, %15 ], [ %.sroa.014.018, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.014.020, i64 16
+  %.sroa.014.019 = phi ptr [ %.sroa.014.0, %15 ], [ %.sroa.014.017, %1 ]
+  %4 = getelementptr inbounds i8, ptr %.sroa.014.019, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %15
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %.lr.ph
   invoke void @_ZN6Blocks9mergeLeftEP5Block(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef nonnull %7)
@@ -235,9 +234,9 @@ _ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %12
   resume { ptr, i32 } %lpad.phi
 
 15:                                               ; preds = %.lr.ph, %11
-  %.sroa.014.0 = load ptr, ptr %.sroa.014.020, align 8
-  %.not17 = icmp eq ptr %.sroa.014.0, %2
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.sroa.014.0 = load ptr, ptr %.sroa.014.019, align 8
+  %.not = icmp eq ptr %.sroa.014.0, %2
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %15, %1
   invoke void @_ZN6Blocks7cleanupEv(ptr noundef nonnull align 8 dereferenceable(60) %3)
@@ -246,10 +245,10 @@ _ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %12
 .preheader:                                       ; preds = %._crit_edge
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = load i32, ptr %16, align 8
-  %.not24 = icmp eq i32 %17, 0
-  br i1 %.not24, label %._crit_edge23, label %.lr.ph22
+  %.not23 = icmp eq i32 %17, 0
+  br i1 %.not23, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph22:                                         ; preds = %.preheader
+.lr.ph21:                                         ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
   %wide.trip.count = zext i32 %17 to i64
@@ -258,10 +257,10 @@ _ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %12
 20:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge23, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge22, label %21, !llvm.loop !6
 
-21:                                               ; preds = %.lr.ph22, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next, %20 ]
+21:                                               ; preds = %.lr.ph21, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %20 ]
   %22 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -294,19 +293,19 @@ _ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %12
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTIPKc, ptr null) #20
           to label %50 unwind label %.loopexit.split-lp
 
-._crit_edge23:                                    ; preds = %20, %.preheader
+._crit_edge22:                                    ; preds = %20, %.preheader
   %48 = load ptr, ptr %2, align 8
   %.not8.i.i.i9 = icmp eq ptr %48, %2
   br i1 %.not8.i.i.i9, label %_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit13, label %.lr.ph.i.i.i10
 
-.lr.ph.i.i.i10:                                   ; preds = %._crit_edge23, %.lr.ph.i.i.i10
-  %.09.i.i.i11 = phi ptr [ %49, %.lr.ph.i.i.i10 ], [ %48, %._crit_edge23 ]
+.lr.ph.i.i.i10:                                   ; preds = %._crit_edge22, %.lr.ph.i.i.i10
+  %.09.i.i.i11 = phi ptr [ %49, %.lr.ph.i.i.i10 ], [ %48, %._crit_edge22 ]
   %49 = load ptr, ptr %.09.i.i.i11, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i11) #18
   %.not.i.i.i12 = icmp eq ptr %49, %2
   br i1 %.not.i.i.i12, label %_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit13, label %.lr.ph.i.i.i10, !llvm.loop !4
 
-_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit13: ; preds = %.lr.ph.i.i.i10, %._crit_edge23
+_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit13: ; preds = %.lr.ph.i.i.i10, %._crit_edge22
   ret void
 
 50:                                               ; preds = %46

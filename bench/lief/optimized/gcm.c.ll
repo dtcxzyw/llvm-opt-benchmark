@@ -162,27 +162,26 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %100
 
 100:                                              ; preds = %100, %99
-  %.04656.i = phi i32 [ 4, %99 ], [ %109, %100 ]
-  %.04855.i = phi i64 [ %55, %99 ], [ %105, %100 ]
-  %.04954.i = phi i64 [ %93, %99 ], [ %102, %100 ]
-  %101 = and i64 %.04954.i, 1
-  %.not53.i = icmp eq i64 %101, 0
-  %102 = call i64 @llvm.fshl.i64(i64 %.04855.i, i64 %.04954.i, i64 63)
-  %103 = lshr i64 %.04855.i, 1
-  %104 = select i1 %.not53.i, i64 0, i64 -2233785415175766016
+  %.04655.i = phi i32 [ 4, %99 ], [ %109, %100 ]
+  %.04854.i = phi i64 [ %55, %99 ], [ %105, %100 ]
+  %.04953.i = phi i64 [ %93, %99 ], [ %102, %100 ]
+  %101 = trunc i64 %.04953.i to i1
+  %102 = call i64 @llvm.fshl.i64(i64 %.04854.i, i64 %.04953.i, i64 63)
+  %103 = lshr i64 %.04854.i, 1
+  %104 = select i1 %101, i64 -2233785415175766016, i64 0
   %105 = xor i64 %104, %103
-  %106 = zext nneg i32 %.04656.i to i64
+  %106 = zext nneg i32 %.04655.i to i64
   %107 = getelementptr inbounds [16 x i64], ptr %94, i64 0, i64 %106
   store i64 %102, ptr %107, align 8
   %108 = getelementptr inbounds [16 x i64], ptr %96, i64 0, i64 %106
   store i64 %105, ptr %108, align 8
-  %109 = lshr i32 %.04656.i, 1
-  %.not52.i = icmp ult i32 %.04656.i, 2
+  %109 = lshr i32 %.04655.i, 1
+  %.not52.i = icmp ult i32 %.04655.i, 2
   br i1 %.not52.i, label %.lr.ph.preheader.i, label %100, !llvm.loop !4
 
 .lr.ph.preheader.i:                               ; preds = %100, %._crit_edge.i
-  %.158.i = phi i32 [ %123, %._crit_edge.i ], [ 2, %100 ]
-  %110 = zext i32 %.158.i to i64
+  %.157.i = phi i32 [ %123, %._crit_edge.i ], [ 2, %100 ]
+  %110 = zext i32 %.157.i to i64
   %111 = getelementptr inbounds i64, ptr %94, i64 %110
   %112 = getelementptr inbounds i64, ptr %96, i64 %110
   %113 = load i64, ptr %112, align 8
@@ -206,8 +205,8 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %123 = shl nuw nsw i32 %.158.i, 1
-  %124 = icmp ult i32 %.158.i, 5
+  %123 = shl nuw nsw i32 %.157.i, 1
+  %124 = icmp ult i32 %.157.i, 5
   br i1 %124, label %.lr.ph.preheader.i, label %gcm_gen_table.exit, !llvm.loop !7
 
 gcm_gen_table.exit:                               ; preds = %._crit_edge.i, %16, %18

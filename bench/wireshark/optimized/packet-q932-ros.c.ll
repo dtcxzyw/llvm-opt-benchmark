@@ -274,7 +274,7 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  switch i32 %14, label %.thread59 [
+  switch i32 %14, label %.thread58 [
     i32 0, label %15
     i32 1, label %22
   ]
@@ -283,7 +283,7 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.thread59, label %18
+  br i1 %.not, label %.thread58, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %12, i64 88
@@ -295,7 +295,7 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %23 = getelementptr inbounds i8, ptr %12, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not53 = icmp eq ptr %24, null
-  br i1 %.not53, label %.thread59, label %25
+  br i1 %.not53, label %.thread58, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %12, i64 96
@@ -306,18 +306,18 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
 29:                                               ; preds = %25, %18
   %.048 = phi ptr [ %21, %18 ], [ %28, %25 ]
   %.not54 = icmp eq ptr %.048, null
-  br i1 %.not54, label %.thread59, label %30
+  br i1 %.not54, label %.thread58, label %30
 
 30:                                               ; preds = %29
   %31 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %.048) #4
   %32 = tail call ptr @find_protocol_by_id(i32 noundef %31) #4
   %33 = tail call i32 @proto_is_protocol_enabled(ptr noundef %32) #4
   %.not55 = icmp eq i32 %33, 0
-  br i1 %.not55, label %.thread59, label %53
+  br i1 %.not55, label %.thread58, label %53
 
-.thread59:                                        ; preds = %6, %15, %22, %30, %29
-  %.not5465 = phi i1 [ false, %30 ], [ true, %29 ], [ true, %22 ], [ true, %15 ], [ true, %6 ]
-  %.04863 = phi ptr [ %.048, %30 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %6 ]
+.thread58:                                        ; preds = %6, %15, %22, %30, %29
+  %.not5464 = phi i1 [ false, %30 ], [ true, %29 ], [ true, %22 ], [ true, %15 ], [ true, %6 ]
+  %.04862 = phi ptr [ %.048, %30 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %6 ]
   %34 = load ptr, ptr %9, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 84
   %36 = load i32, ptr %35, align 4
@@ -326,7 +326,7 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
     i32 1, label %45
   ]
 
-37:                                               ; preds = %.thread59
+37:                                               ; preds = %.thread58
   %38 = getelementptr inbounds i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 408
@@ -336,7 +336,7 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %41, ptr noundef nonnull @.str.80, i32 noundef %43) #4
   br label %59
 
-45:                                               ; preds = %.thread59
+45:                                               ; preds = %.thread58
   %46 = getelementptr inbounds i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 408
@@ -354,10 +354,10 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %58 = tail call noalias ptr @wmem_strdup(ptr noundef %57, ptr noundef nonnull @.str.82) #4
   br label %59
 
-59:                                               ; preds = %.thread59, %37, %45, %53
-  %.not5464 = phi i1 [ false, %53 ], [ %.not5465, %37 ], [ %.not5465, %45 ], [ %.not5465, %.thread59 ]
-  %.04862 = phi ptr [ %.048, %53 ], [ %.04863, %37 ], [ %.04863, %45 ], [ %.04863, %.thread59 ]
-  %.0 = phi ptr [ %58, %53 ], [ %44, %37 ], [ %52, %45 ], [ @.str.79, %.thread59 ]
+59:                                               ; preds = %.thread58, %37, %45, %53
+  %.not5463 = phi i1 [ false, %53 ], [ %.not5464, %37 ], [ %.not5464, %45 ], [ %.not5464, %.thread58 ]
+  %.04861 = phi ptr [ %.048, %53 ], [ %.04862, %37 ], [ %.04862, %45 ], [ %.04862, %.thread58 ]
+  %.0 = phi ptr [ %58, %53 ], [ %44, %37 ], [ %52, %45 ], [ @.str.79, %.thread58 ]
   %60 = load ptr, ptr %9, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 56
   %62 = load i32, ptr %61, align 8
@@ -378,9 +378,8 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %71 = phi ptr [ %.pre, %64 ], [ %60, %59 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 60
   %73 = load i8, ptr %72, align 4
-  %74 = and i8 %73, 1
-  %.not56 = icmp eq i8 %74, 0
-  br i1 %.not56, label %80, label %75
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %80
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %3, i64 16
@@ -388,15 +387,15 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   tail call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef %.0) #4
-  %.pre66 = load ptr, ptr %9, align 8
+  %.pre65 = load ptr, ptr %9, align 8
   br label %80
 
 80:                                               ; preds = %75, %70
-  %81 = phi ptr [ %.pre66, %75 ], [ %71, %70 ]
+  %81 = phi ptr [ %.pre65, %75 ], [ %71, %70 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8
-  %.not57 = icmp eq ptr %83, null
-  br i1 %.not57, label %88, label %84
+  %.not56 = icmp eq ptr %83, null
+  br i1 %.not56, label %88, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %81, i64 72
@@ -406,8 +405,8 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
 
 88:                                               ; preds = %84, %80
   %89 = load ptr, ptr @arg_next_tvb, align 8
-  %.not58 = icmp eq ptr %89, null
-  br i1 %.not58, label %90, label %97
+  %.not57 = icmp eq ptr %89, null
+  br i1 %.not57, label %90, label %97
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds i8, ptr %3, i64 4
@@ -422,12 +421,12 @@ define internal i32 @dissect_q932_ros_Invoke(i1 noundef zeroext %0, ptr noundef 
 97:                                               ; preds = %90, %88
   %98 = phi ptr [ %96, %90 ], [ %89, %88 ]
   %99 = load ptr, ptr @data_handle, align 8
-  %100 = select i1 %.not5464, ptr %99, ptr %.04862
+  %100 = select i1 %.not5463, ptr %99, ptr %.04861
   %101 = getelementptr inbounds i8, ptr %3, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %9, align 8
   %104 = tail call i32 @call_dissector_with_data(ptr noundef %100, ptr noundef %98, ptr noundef %102, ptr noundef %4, ptr noundef %103) #4
-  br i1 %.not5464, label %105, label %108
+  br i1 %.not5463, label %105, label %108
 
 105:                                              ; preds = %97
   %106 = load ptr, ptr %101, align 8
@@ -453,7 +452,7 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 84
   %16 = load i32, ptr %15, align 4
-  switch i32 %16, label %.thread62 [
+  switch i32 %16, label %.thread61 [
     i32 0, label %17
     i32 1, label %24
   ]
@@ -462,7 +461,7 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %18 = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread62, label %20
+  br i1 %.not, label %.thread61, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %14, i64 88
@@ -474,7 +473,7 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %25 = getelementptr inbounds i8, ptr %14, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not55 = icmp eq ptr %26, null
-  br i1 %.not55, label %.thread62, label %27
+  br i1 %.not55, label %.thread61, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %14, i64 96
@@ -485,18 +484,18 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
 31:                                               ; preds = %27, %20
   %.050 = phi ptr [ %23, %20 ], [ %30, %27 ]
   %.not56 = icmp eq ptr %.050, null
-  br i1 %.not56, label %.thread62, label %32
+  br i1 %.not56, label %.thread61, label %32
 
 32:                                               ; preds = %31
   %33 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %.050) #4
   %34 = tail call ptr @find_protocol_by_id(i32 noundef %33) #4
   %35 = tail call i32 @proto_is_protocol_enabled(ptr noundef %34) #4
   %.not57 = icmp eq i32 %35, 0
-  br i1 %.not57, label %.thread62, label %55
+  br i1 %.not57, label %.thread61, label %55
 
-.thread62:                                        ; preds = %6, %17, %24, %32, %31
-  %.not5668 = phi i1 [ false, %32 ], [ true, %31 ], [ true, %24 ], [ true, %17 ], [ true, %6 ]
-  %.05066 = phi ptr [ %.050, %32 ], [ null, %31 ], [ null, %24 ], [ null, %17 ], [ null, %6 ]
+.thread61:                                        ; preds = %6, %17, %24, %32, %31
+  %.not5667 = phi i1 [ false, %32 ], [ true, %31 ], [ true, %24 ], [ true, %17 ], [ true, %6 ]
+  %.05065 = phi ptr [ %.050, %32 ], [ null, %31 ], [ null, %24 ], [ null, %17 ], [ null, %6 ]
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 84
   %38 = load i32, ptr %37, align 4
@@ -505,7 +504,7 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
     i32 1, label %47
   ]
 
-39:                                               ; preds = %.thread62
+39:                                               ; preds = %.thread61
   %40 = getelementptr inbounds i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 408
@@ -515,7 +514,7 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %46 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %43, ptr noundef nonnull @.str.85, i32 noundef %45) #4
   br label %61
 
-47:                                               ; preds = %.thread62
+47:                                               ; preds = %.thread61
   %48 = getelementptr inbounds i8, ptr %3, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 408
@@ -533,10 +532,10 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %60 = tail call noalias ptr @wmem_strdup(ptr noundef %59, ptr noundef nonnull @.str.87) #4
   br label %61
 
-61:                                               ; preds = %.thread62, %39, %47, %55
-  %.not5667 = phi i1 [ false, %55 ], [ %.not5668, %39 ], [ %.not5668, %47 ], [ %.not5668, %.thread62 ]
-  %.05065 = phi ptr [ %.050, %55 ], [ %.05066, %39 ], [ %.05066, %47 ], [ %.05066, %.thread62 ]
-  %.0 = phi ptr [ %60, %55 ], [ %46, %39 ], [ %54, %47 ], [ @.str.79, %.thread62 ]
+61:                                               ; preds = %.thread61, %39, %47, %55
+  %.not5666 = phi i1 [ false, %55 ], [ %.not5667, %39 ], [ %.not5667, %47 ], [ %.not5667, %.thread61 ]
+  %.05064 = phi ptr [ %.050, %55 ], [ %.05065, %39 ], [ %.05065, %47 ], [ %.05065, %.thread61 ]
+  %.0 = phi ptr [ %60, %55 ], [ %46, %39 ], [ %54, %47 ], [ @.str.79, %.thread61 ]
   %62 = load ptr, ptr %7, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 56
   %64 = load i32, ptr %63, align 8
@@ -557,9 +556,8 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %73 = phi ptr [ %.pre, %66 ], [ %62, %61 ]
   %74 = getelementptr inbounds i8, ptr %73, i64 60
   %75 = load i8, ptr %74, align 4
-  %76 = and i8 %75, 1
-  %.not58 = icmp eq i8 %76, 0
-  br i1 %.not58, label %82, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %82
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds i8, ptr %3, i64 16
@@ -567,34 +565,34 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   tail call void @col_append_str(ptr noundef %81, i32 noundef 25, ptr noundef %.0) #4
-  %.pre69 = load ptr, ptr %7, align 8
+  %.pre68 = load ptr, ptr %7, align 8
   br label %82
 
 82:                                               ; preds = %77, %72
-  %83 = phi ptr [ %.pre69, %77 ], [ %73, %72 ]
+  %83 = phi ptr [ %.pre68, %77 ], [ %73, %72 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 64
   %85 = load ptr, ptr %84, align 8
-  %.not59 = icmp eq ptr %85, null
-  br i1 %.not59, label %90, label %86
+  %.not58 = icmp eq ptr %85, null
+  br i1 %.not58, label %90, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds i8, ptr %83, i64 72
   %88 = load i64, ptr %87, align 8
   %89 = tail call i64 @g_strlcat(ptr noundef nonnull %85, ptr noundef %.0, i64 noundef %88) #4
-  %.pre70 = load ptr, ptr %7, align 8
+  %.pre69 = load ptr, ptr %7, align 8
   br label %90
 
 90:                                               ; preds = %86, %82
-  %91 = phi ptr [ %.pre70, %86 ], [ %83, %82 ]
+  %91 = phi ptr [ %.pre69, %86 ], [ %83, %82 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 84
   %93 = load i32, ptr %92, align 4
-  %.not60 = icmp eq i32 %93, -1
-  br i1 %.not60, label %114, label %94
+  %.not59 = icmp eq i32 %93, -1
+  br i1 %.not59, label %114, label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr @res_next_tvb, align 8
-  %.not61 = icmp eq ptr %95, null
-  br i1 %.not61, label %96, label %103
+  %.not60 = icmp eq ptr %95, null
+  br i1 %.not60, label %96, label %103
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds i8, ptr %3, i64 4
@@ -604,18 +602,18 @@ define internal i32 @dissect_q932_ros_ReturnResult(i1 noundef zeroext %0, ptr no
   %101 = select i1 %99, i32 %100, i32 %11
   %102 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %101, i32 noundef 0, i32 noundef 0) #4
   store ptr %102, ptr @res_next_tvb, align 8
-  %.pre71 = load ptr, ptr %7, align 8
+  %.pre70 = load ptr, ptr %7, align 8
   br label %103
 
 103:                                              ; preds = %96, %94
-  %104 = phi ptr [ %.pre71, %96 ], [ %91, %94 ]
+  %104 = phi ptr [ %.pre70, %96 ], [ %91, %94 ]
   %105 = phi ptr [ %102, %96 ], [ %95, %94 ]
   %106 = load ptr, ptr @data_handle, align 8
-  %107 = select i1 %.not5667, ptr %106, ptr %.05065
+  %107 = select i1 %.not5666, ptr %106, ptr %.05064
   %108 = getelementptr inbounds i8, ptr %3, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i32 @call_dissector_with_data(ptr noundef %107, ptr noundef %105, ptr noundef %109, ptr noundef %4, ptr noundef %104) #4
-  br i1 %.not5667, label %111, label %114
+  br i1 %.not5666, label %111, label %114
 
 111:                                              ; preds = %103
   %112 = load ptr, ptr %108, align 8
@@ -638,7 +636,7 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  switch i32 %14, label %.thread59 [
+  switch i32 %14, label %.thread58 [
     i32 0, label %15
     i32 1, label %22
   ]
@@ -647,7 +645,7 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %16 = getelementptr inbounds i8, ptr %12, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.thread59, label %18
+  br i1 %.not, label %.thread58, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %12, i64 88
@@ -659,7 +657,7 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %23 = getelementptr inbounds i8, ptr %12, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not53 = icmp eq ptr %24, null
-  br i1 %.not53, label %.thread59, label %25
+  br i1 %.not53, label %.thread58, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %12, i64 96
@@ -670,18 +668,18 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
 29:                                               ; preds = %25, %18
   %.048 = phi ptr [ %21, %18 ], [ %28, %25 ]
   %.not54 = icmp eq ptr %.048, null
-  br i1 %.not54, label %.thread59, label %30
+  br i1 %.not54, label %.thread58, label %30
 
 30:                                               ; preds = %29
   %31 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %.048) #4
   %32 = tail call ptr @find_protocol_by_id(i32 noundef %31) #4
   %33 = tail call i32 @proto_is_protocol_enabled(ptr noundef %32) #4
   %.not55 = icmp eq i32 %33, 0
-  br i1 %.not55, label %.thread59, label %53
+  br i1 %.not55, label %.thread58, label %53
 
-.thread59:                                        ; preds = %6, %15, %22, %30, %29
-  %.not5465 = phi i1 [ false, %30 ], [ true, %29 ], [ true, %22 ], [ true, %15 ], [ true, %6 ]
-  %.04863 = phi ptr [ %.048, %30 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %6 ]
+.thread58:                                        ; preds = %6, %15, %22, %30, %29
+  %.not5464 = phi i1 [ false, %30 ], [ true, %29 ], [ true, %22 ], [ true, %15 ], [ true, %6 ]
+  %.04862 = phi ptr [ %.048, %30 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %6 ]
   %34 = load ptr, ptr %9, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 84
   %36 = load i32, ptr %35, align 4
@@ -690,7 +688,7 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
     i32 1, label %45
   ]
 
-37:                                               ; preds = %.thread59
+37:                                               ; preds = %.thread58
   %38 = getelementptr inbounds i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 408
@@ -700,7 +698,7 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %41, ptr noundef nonnull @.str.88, i32 noundef %43) #4
   br label %59
 
-45:                                               ; preds = %.thread59
+45:                                               ; preds = %.thread58
   %46 = getelementptr inbounds i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 408
@@ -718,10 +716,10 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %58 = tail call noalias ptr @wmem_strdup(ptr noundef %57, ptr noundef nonnull @.str.90) #4
   br label %59
 
-59:                                               ; preds = %.thread59, %37, %45, %53
-  %.not5464 = phi i1 [ false, %53 ], [ %.not5465, %37 ], [ %.not5465, %45 ], [ %.not5465, %.thread59 ]
-  %.04862 = phi ptr [ %.048, %53 ], [ %.04863, %37 ], [ %.04863, %45 ], [ %.04863, %.thread59 ]
-  %.0 = phi ptr [ %58, %53 ], [ %44, %37 ], [ %52, %45 ], [ @.str.79, %.thread59 ]
+59:                                               ; preds = %.thread58, %37, %45, %53
+  %.not5463 = phi i1 [ false, %53 ], [ %.not5464, %37 ], [ %.not5464, %45 ], [ %.not5464, %.thread58 ]
+  %.04861 = phi ptr [ %.048, %53 ], [ %.04862, %37 ], [ %.04862, %45 ], [ %.04862, %.thread58 ]
+  %.0 = phi ptr [ %58, %53 ], [ %44, %37 ], [ %52, %45 ], [ @.str.79, %.thread58 ]
   %60 = load ptr, ptr %9, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 56
   %62 = load i32, ptr %61, align 8
@@ -742,9 +740,8 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %71 = phi ptr [ %.pre, %64 ], [ %60, %59 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 60
   %73 = load i8, ptr %72, align 4
-  %74 = and i8 %73, 1
-  %.not56 = icmp eq i8 %74, 0
-  br i1 %.not56, label %80, label %75
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %80
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %3, i64 16
@@ -752,15 +749,15 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   tail call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef %.0) #4
-  %.pre66 = load ptr, ptr %9, align 8
+  %.pre65 = load ptr, ptr %9, align 8
   br label %80
 
 80:                                               ; preds = %75, %70
-  %81 = phi ptr [ %.pre66, %75 ], [ %71, %70 ]
+  %81 = phi ptr [ %.pre65, %75 ], [ %71, %70 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8
-  %.not57 = icmp eq ptr %83, null
-  br i1 %.not57, label %88, label %84
+  %.not56 = icmp eq ptr %83, null
+  br i1 %.not56, label %88, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %81, i64 72
@@ -770,8 +767,8 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
 
 88:                                               ; preds = %84, %80
   %89 = load ptr, ptr @err_next_tvb, align 8
-  %.not58 = icmp eq ptr %89, null
-  br i1 %.not58, label %90, label %97
+  %.not57 = icmp eq ptr %89, null
+  br i1 %.not57, label %90, label %97
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds i8, ptr %3, i64 4
@@ -786,12 +783,12 @@ define internal i32 @dissect_q932_ros_ReturnError(i1 noundef zeroext %0, ptr nou
 97:                                               ; preds = %90, %88
   %98 = phi ptr [ %96, %90 ], [ %89, %88 ]
   %99 = load ptr, ptr @data_handle, align 8
-  %100 = select i1 %.not5464, ptr %99, ptr %.04862
+  %100 = select i1 %.not5463, ptr %99, ptr %.04861
   %101 = getelementptr inbounds i8, ptr %3, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %9, align 8
   %104 = tail call i32 @call_dissector_with_data(ptr noundef %100, ptr noundef %98, ptr noundef %102, ptr noundef %4, ptr noundef %103) #4
-  br i1 %.not5464, label %105, label %108
+  br i1 %.not5463, label %105, label %108
 
 105:                                              ; preds = %97
   %106 = load ptr, ptr %101, align 8
@@ -833,24 +830,23 @@ define internal i32 @dissect_q932_ros_Reject(i1 noundef zeroext %0, ptr noundef 
   %26 = phi ptr [ %.pre, %19 ], [ %15, %6 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 60
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %34, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %34
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %9, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @col_append_str(ptr noundef %33, i32 noundef 25, ptr noundef %13) #4
-  %.pre19 = load ptr, ptr %14, align 8
+  %.pre18 = load ptr, ptr %14, align 8
   br label %34
 
 34:                                               ; preds = %30, %25
-  %35 = phi ptr [ %.pre19, %30 ], [ %26, %25 ]
+  %35 = phi ptr [ %.pre18, %30 ], [ %26, %25 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
-  %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %42, label %38
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %42, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %35, i64 72

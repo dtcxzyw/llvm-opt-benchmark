@@ -90,9 +90,8 @@ lor.lhs.false:                                    ; preds = %"_ZSt11upper_boundI
   %seg.sroa.1.0.copyload = load i32, ptr %seg.sroa.1.0.cond-lvalue.i.sroa_idx, align 4
   %seg.sroa.44.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 -4
   %seg.sroa.44.0.copyload = load i8, ptr %seg.sroa.44.0.cond-lvalue.i.sroa_idx, align 4
-  %5 = and i8 %seg.sroa.44.0.copyload, 1
-  %tobool.i2.not = icmp eq i8 %5, 0
-  br i1 %tobool.i2.not, label %return, label %if.end
+  %tobool.i2 = trunc i8 %seg.sroa.44.0.copyload to i1
+  br i1 %tobool.i2, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   %seg.sroa.3.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 -16
@@ -101,15 +100,15 @@ if.end:                                           ; preds = %lor.lhs.false
   %seg.sroa.2.0.copyload = load i32, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx, align 4
   %add = add i32 %seg.sroa.2.0.copyload, 1
   %add15 = add i32 %seg.sroa.3.0.copyload, 1
-  %6 = zext i32 %add to i64
-  %7 = shl nuw i64 %6, 32
-  %8 = zext i32 %add15 to i64
+  %5 = zext i32 %add to i64
+  %6 = shl nuw i64 %5, 32
+  %7 = zext i32 %add15 to i64
   br label %return
 
 return:                                           ; preds = %if.end8.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i", %if.end.i, %entry, %lor.lhs.false.i, %lor.lhs.false, %if.end
   %seg.sroa.1.011 = phi i32 [ %seg.sroa.1.0.copyload, %if.end ], [ %seg.sroa.1.0.copyload, %lor.lhs.false ], [ undef, %lor.lhs.false.i ], [ undef, %entry ], [ undef, %if.end.i ], [ undef, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ undef, %if.end8.i ]
-  %retval.sroa.2.0 = phi i64 [ %7, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
-  %retval.sroa.3.0 = phi i64 [ %8, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
+  %retval.sroa.2.0 = phi i64 [ %6, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
+  %retval.sroa.3.0 = phi i64 [ %7, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
   %retval.sroa.5.0 = phi i64 [ 4294967296, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %seg.sroa.1.011 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0, %retval.sroa.0.0.insert.ext
@@ -269,9 +268,8 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 lor.lhs.false.i:                                  ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i"
   %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -4
   %seg.sroa.44.0.copyload.i = load i8, ptr %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i, align 4
-  %5 = and i8 %seg.sroa.44.0.copyload.i, 1
-  %tobool.i2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.i2.not.i, label %if.then, label %if.end
+  %tobool.i2.i = trunc i8 %seg.sroa.44.0.copyload.i to i1
+  br i1 %tobool.i2.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i.i, %entry, %if.end.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i", %if.end8.i.i
   %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
@@ -284,20 +282,20 @@ if.end:                                           ; preds = %lor.lhs.false.i
   %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -20
   %sources_.i = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i = zext i32 %seg.sroa.1.0.copyload.i to i64
-  %6 = load ptr, ptr %sources_.i, align 8, !noalias !12
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %6, i64 %conv.i
+  %5 = load ptr, ptr %sources_.i, align 8, !noalias !12
+  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv.i
   %line4 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %7 = load <2 x i32>, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i, align 4
-  %8 = add <2 x i32> %7, <i32 1, i32 1>
+  %6 = load <2 x i32>, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i, align 4
+  %7 = add <2 x i32> %6, <i32 1, i32 1>
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #6
-  store <2 x i32> %8, ptr %line4, align 8
+  store <2 x i32> %7, ptr %line4, align 8
   %hasVal.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
   %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %9 = load i64, ptr %line4, align 8
-  store i64 %9, ptr %line.i.i.i, align 8
+  %8 = load i64, ptr %line4, align 8
+  store i64 %8, ptr %line.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
   br label %return
 

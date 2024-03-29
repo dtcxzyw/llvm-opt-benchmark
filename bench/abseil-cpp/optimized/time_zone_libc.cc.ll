@@ -94,9 +94,8 @@ if.end11:
   store i64 %retval.sroa.0.0.copyload.i.i1.i, ptr %t, align 8
   %local_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %local_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end11
   %call.i = call noundef ptr @localtime_r(ptr noundef nonnull %t, ptr noundef nonnull %tm) #12
@@ -129,49 +128,48 @@ cond.end24:                                       ; preds = %if.then15, %cond.fa
 
 if.end26:                                         ; preds = %cond.end
   %tm_year = getelementptr inbounds i8, ptr %cond, i64 20
-  %2 = load i32, ptr %tm_year, align 4
-  %conv = sext i32 %2 to i64
+  %1 = load i32, ptr %tm_year, align 4
+  %conv = sext i32 %1 to i64
   %add = add nsw i64 %conv, 1900
   %tm_mon = getelementptr inbounds i8, ptr %cond, i64 16
-  %3 = load i32, ptr %tm_mon, align 8
-  %add28 = add nsw i32 %3, 1
+  %2 = load i32, ptr %tm_mon, align 8
+  %add28 = add nsw i32 %2, 1
   %conv29 = sext i32 %add28 to i64
   %tm_mday = getelementptr inbounds i8, ptr %cond, i64 12
-  %4 = load i32, ptr %tm_mday, align 4
-  %conv30 = sext i32 %4 to i64
+  %3 = load i32, ptr %tm_mday, align 4
+  %conv30 = sext i32 %3 to i64
   %tm_hour = getelementptr inbounds i8, ptr %cond, i64 8
-  %5 = load i32, ptr %tm_hour, align 8
-  %conv31 = sext i32 %5 to i64
+  %4 = load i32, ptr %tm_hour, align 8
+  %conv31 = sext i32 %4 to i64
   %tm_min = getelementptr inbounds i8, ptr %cond, i64 4
-  %6 = load i32, ptr %tm_min, align 4
-  %conv32 = sext i32 %6 to i64
-  %7 = load i32, ptr %cond, align 8
-  %conv33 = sext i32 %7 to i64
+  %5 = load i32, ptr %tm_min, align 4
+  %conv32 = sext i32 %5 to i64
+  %6 = load i32, ptr %cond, align 8
+  %conv33 = sext i32 %6 to i64
   %call.i17 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %add, i64 noundef %conv29, i64 noundef %conv30, i64 noundef %conv31, i64 noundef %conv32, i64 noundef %conv33) #12
-  %8 = extractvalue { i64, i64 } %call.i17, 0
-  %9 = extractvalue { i64, i64 } %call.i17, 1
-  store i64 %8, ptr %agg.result, align 8
-  store i64 %9, ptr %m.i.i.i, align 8
-  %10 = getelementptr i8, ptr %cond, i64 40
-  %cond.val = load i64, ptr %10, align 8
+  %7 = extractvalue { i64, i64 } %call.i17, 0
+  %8 = extractvalue { i64, i64 } %call.i17, 1
+  store i64 %7, ptr %agg.result, align 8
+  store i64 %8, ptr %m.i.i.i, align 8
+  %9 = getelementptr i8, ptr %cond, i64 40
+  %cond.val = load i64, ptr %9, align 8
   %conv36 = trunc i64 %cond.val to i32
   store i32 %conv36, ptr %offset, align 8
-  %11 = load i8, ptr %local_, align 8
-  %12 = and i8 %11, 1
-  %tobool39.not = icmp eq i8 %12, 0
-  br i1 %tobool39.not, label %cond.end43, label %cond.true40
+  %10 = load i8, ptr %local_, align 8
+  %tobool39 = trunc i8 %10 to i1
+  br i1 %tobool39, label %cond.true40, label %cond.end43
 
 cond.true40:                                      ; preds = %if.end26
-  %13 = getelementptr i8, ptr %cond, i64 48
-  %cond.val14 = load ptr, ptr %13, align 8
+  %11 = getelementptr i8, ptr %cond, i64 48
+  %cond.val14 = load ptr, ptr %11, align 8
   br label %cond.end43
 
 cond.end43:                                       ; preds = %if.end26, %cond.true40
   %cond44 = phi ptr [ %cond.val14, %cond.true40 ], [ @.str.1, %if.end26 ]
   store ptr %cond44, ptr %abbr, align 8
   %tm_isdst = getelementptr inbounds i8, ptr %cond, i64 32
-  %14 = load i32, ptr %tm_isdst, align 8
-  %cmp46 = icmp sgt i32 %14, 0
+  %12 = load i32, ptr %tm_isdst, align 8
+  %cmp46 = icmp sgt i32 %12, 0
   %frombool = zext i1 %cmp46 to i8
   store i8 %frombool, ptr %is_dst, align 4
   br label %return
@@ -192,183 +190,182 @@ entry:
   %tm1 = alloca %struct.tm, align 8
   %local_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %local_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs acquire, align 8
-  %guard.uninitialized = icmp eq i8 %2, 0
+  %1 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs acquire, align 8
+  %guard.uninitialized = icmp eq i8 %1, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
 
 init.check:                                       ; preds = %if.then
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #12
-  %tobool2.not = icmp eq i32 %3, 0
+  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #12
+  %tobool2.not = icmp eq i32 %2, 0
   br i1 %tobool2.not, label %init.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.check
   %call5 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 1970, i64 257, i64 noundef -9223372036854775808) #12
-  %4 = extractvalue { i64, i64 } %call5, 0
-  store i64 %4, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
-  %5 = extractvalue { i64, i64 } %call5, 1
-  store i64 %5, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 1), align 8
+  %3 = extractvalue { i64, i64 } %call5, 0
+  store i64 %3, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
+  %4 = extractvalue { i64, i64 } %call5, 1
+  store i64 %4, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 1), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #12
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %if.then
-  %6 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs acquire, align 8
-  %guard.uninitialized6 = icmp eq i8 %6, 0
+  %5 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs acquire, align 8
+  %guard.uninitialized6 = icmp eq i8 %5, 0
   br i1 %guard.uninitialized6, label %init.check7, label %init.end19, !prof !5
 
 init.check7:                                      ; preds = %init.end
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #12
-  %tobool8.not = icmp eq i32 %7, 0
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #12
+  %tobool8.not = icmp eq i32 %6, 0
   br i1 %tobool8.not, label %init.end19, label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %init.check7
   %call18 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 1970, i64 257, i64 noundef 9223372036854775807) #12
-  %8 = extractvalue { i64, i64 } %call18, 0
-  store i64 %8, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
-  %9 = extractvalue { i64, i64 } %call18, 1
-  store i64 %9, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 1), align 8
+  %7 = extractvalue { i64, i64 } %call18, 0
+  store i64 %7, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
+  %8 = extractvalue { i64, i64 } %call18, 1
+  store i64 %8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 1), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #12
   br label %init.end19
 
 init.end19:                                       ; preds = %invoke.cont16, %init.check7, %init.end
-  %10 = load i64, ptr %cs, align 8
-  %11 = load i64, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
-  %cmp.i = icmp slt i64 %10, %11
+  %9 = load i64, ptr %cs, align 8
+  %10 = load i64, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
+  %cmp.i = icmp slt i64 %9, %10
   br i1 %cmp.i, label %cond.end36, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %init.end19
-  %cmp4.i = icmp eq i64 %10, %11
+  %cmp4.i = icmp eq i64 %9, %10
   br i1 %cmp4.i, label %land.rhs.i, label %cond.false
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
   %m.i.i27 = getelementptr inbounds i8, ptr %cs, i64 8
-  %12 = load i8, ptr %m.i.i27, align 8
-  %13 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 1), align 8
-  %cmp7.i = icmp slt i8 %12, %13
+  %11 = load i8, ptr %m.i.i27, align 8
+  %12 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 1), align 8
+  %cmp7.i = icmp slt i8 %11, %12
   br i1 %cmp7.i, label %cond.end36, label %lor.rhs8.i
 
 lor.rhs8.i:                                       ; preds = %land.rhs.i
-  %cmp11.i = icmp eq i8 %12, %13
+  %cmp11.i = icmp eq i8 %11, %12
   br i1 %cmp11.i, label %land.rhs12.i, label %cond.false
 
 land.rhs12.i:                                     ; preds = %lor.rhs8.i
   %d.i.i28 = getelementptr inbounds i8, ptr %cs, i64 9
-  %14 = load i8, ptr %d.i.i28, align 1
-  %15 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 2), align 1
-  %cmp15.i = icmp slt i8 %14, %15
+  %13 = load i8, ptr %d.i.i28, align 1
+  %14 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 2), align 1
+  %cmp15.i = icmp slt i8 %13, %14
   br i1 %cmp15.i, label %cond.end36, label %lor.rhs16.i
 
 lor.rhs16.i:                                      ; preds = %land.rhs12.i
-  %cmp19.i = icmp eq i8 %14, %15
+  %cmp19.i = icmp eq i8 %13, %14
   br i1 %cmp19.i, label %land.rhs20.i, label %cond.false
 
 land.rhs20.i:                                     ; preds = %lor.rhs16.i
   %hh.i.i29 = getelementptr inbounds i8, ptr %cs, i64 10
-  %16 = load i8, ptr %hh.i.i29, align 2
-  %17 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 3), align 2
-  %cmp23.i = icmp slt i8 %16, %17
+  %15 = load i8, ptr %hh.i.i29, align 2
+  %16 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 3), align 2
+  %cmp23.i = icmp slt i8 %15, %16
   br i1 %cmp23.i, label %cond.end36, label %lor.rhs24.i
 
 lor.rhs24.i:                                      ; preds = %land.rhs20.i
-  %cmp27.i = icmp eq i8 %16, %17
+  %cmp27.i = icmp eq i8 %15, %16
   br i1 %cmp27.i, label %land.rhs28.i, label %cond.false
 
 land.rhs28.i:                                     ; preds = %lor.rhs24.i
   %mm.i.i30 = getelementptr inbounds i8, ptr %cs, i64 11
-  %18 = load i8, ptr %mm.i.i30, align 1
-  %19 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 4), align 1
-  %cmp31.i = icmp slt i8 %18, %19
+  %17 = load i8, ptr %mm.i.i30, align 1
+  %18 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 4), align 1
+  %cmp31.i = icmp slt i8 %17, %18
   br i1 %cmp31.i, label %cond.end36, label %lor.rhs32.i
 
 lor.rhs32.i:                                      ; preds = %land.rhs28.i
-  %cmp35.i = icmp eq i8 %18, %19
+  %cmp35.i = icmp eq i8 %17, %18
   br i1 %cmp35.i, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %cond.false
 
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i
   %ss.i.i31 = getelementptr inbounds i8, ptr %cs, i64 12
-  %20 = load i8, ptr %ss.i.i31, align 4
-  %21 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 5), align 4
-  %cmp39.i = icmp slt i8 %20, %21
+  %19 = load i8, ptr %ss.i.i31, align 4
+  %20 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i64 0, i32 0, i32 5), align 4
+  %cmp39.i = icmp slt i8 %19, %20
   br i1 %cmp39.i, label %cond.end36, label %cond.false
 
 cond.false:                                       ; preds = %lor.rhs32.i, %lor.rhs24.i, %lor.rhs16.i, %lor.rhs8.i, %lor.rhs.i, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
-  %22 = load i64, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
-  %cmp.i.i = icmp slt i64 %22, %10
+  %21 = load i64, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
+  %cmp.i.i = icmp slt i64 %21, %9
   br i1 %cmp.i.i, label %cond.end36, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %cond.false
-  %cmp4.i.i = icmp eq i64 %22, %10
+  %cmp4.i.i = icmp eq i64 %21, %9
   br i1 %cmp4.i.i, label %land.rhs.i.i, label %cond.false29
 
 land.rhs.i.i:                                     ; preds = %lor.rhs.i.i
-  %23 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 1), align 8
+  %22 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 1), align 8
   %m.i21.i.i = getelementptr inbounds i8, ptr %cs, i64 8
-  %24 = load i8, ptr %m.i21.i.i, align 8
-  %cmp7.i.i = icmp slt i8 %23, %24
+  %23 = load i8, ptr %m.i21.i.i, align 8
+  %cmp7.i.i = icmp slt i8 %22, %23
   br i1 %cmp7.i.i, label %cond.end36, label %lor.rhs8.i.i
 
 lor.rhs8.i.i:                                     ; preds = %land.rhs.i.i
-  %cmp11.i.i = icmp eq i8 %23, %24
+  %cmp11.i.i = icmp eq i8 %22, %23
   br i1 %cmp11.i.i, label %land.rhs12.i.i, label %cond.false29
 
 land.rhs12.i.i:                                   ; preds = %lor.rhs8.i.i
-  %25 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 2), align 1
+  %24 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 2), align 1
   %d.i28.i.i = getelementptr inbounds i8, ptr %cs, i64 9
-  %26 = load i8, ptr %d.i28.i.i, align 1
-  %cmp15.i.i = icmp slt i8 %25, %26
+  %25 = load i8, ptr %d.i28.i.i, align 1
+  %cmp15.i.i = icmp slt i8 %24, %25
   br i1 %cmp15.i.i, label %cond.end36, label %lor.rhs16.i.i
 
 lor.rhs16.i.i:                                    ; preds = %land.rhs12.i.i
-  %cmp19.i.i = icmp eq i8 %25, %26
+  %cmp19.i.i = icmp eq i8 %24, %25
   br i1 %cmp19.i.i, label %land.rhs20.i.i, label %cond.false29
 
 land.rhs20.i.i:                                   ; preds = %lor.rhs16.i.i
-  %27 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 3), align 2
+  %26 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 3), align 2
   %hh.i35.i.i = getelementptr inbounds i8, ptr %cs, i64 10
-  %28 = load i8, ptr %hh.i35.i.i, align 2
-  %cmp23.i.i = icmp slt i8 %27, %28
+  %27 = load i8, ptr %hh.i35.i.i, align 2
+  %cmp23.i.i = icmp slt i8 %26, %27
   br i1 %cmp23.i.i, label %cond.end36, label %lor.rhs24.i.i
 
 lor.rhs24.i.i:                                    ; preds = %land.rhs20.i.i
-  %cmp27.i.i = icmp eq i8 %27, %28
+  %cmp27.i.i = icmp eq i8 %26, %27
   br i1 %cmp27.i.i, label %land.rhs28.i.i, label %cond.false29
 
 land.rhs28.i.i:                                   ; preds = %lor.rhs24.i.i
-  %29 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 4), align 1
+  %28 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 4), align 1
   %mm.i42.i.i = getelementptr inbounds i8, ptr %cs, i64 11
-  %30 = load i8, ptr %mm.i42.i.i, align 1
-  %cmp31.i.i = icmp slt i8 %29, %30
+  %29 = load i8, ptr %mm.i42.i.i, align 1
+  %cmp31.i.i = icmp slt i8 %28, %29
   br i1 %cmp31.i.i, label %cond.end36, label %lor.rhs32.i.i
 
 lor.rhs32.i.i:                                    ; preds = %land.rhs28.i.i
-  %cmp35.i.i = icmp eq i8 %29, %30
+  %cmp35.i.i = icmp eq i8 %28, %29
   br i1 %cmp35.i.i, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %cond.false29
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i.i
-  %31 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 5), align 4
+  %30 = load i8, ptr getelementptr inbounds (%"class.absl::time_internal::cctz::detail::civil_time", ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i64 0, i32 0, i32 5), align 4
   %ss.i49.i.i = getelementptr inbounds i8, ptr %cs, i64 12
-  %32 = load i8, ptr %ss.i49.i.i, align 4
-  %cmp39.i.i = icmp slt i8 %31, %32
+  %31 = load i8, ptr %ss.i49.i.i, align 4
+  %cmp39.i.i = icmp slt i8 %30, %31
   br i1 %cmp39.i.i, label %cond.end36, label %cond.false29
 
 cond.false29:                                     ; preds = %lor.rhs32.i.i, %lor.rhs24.i.i, %lor.rhs16.i.i, %lor.rhs8.i.i, %lor.rhs.i.i, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
   %agg.tmp30.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %cs, i64 8
   %agg.tmp30.sroa.2.0.copyload = load i64, ptr %agg.tmp30.sroa.2.0..sroa_idx, align 8
-  %33 = trunc i64 %agg.tmp30.sroa.2.0.copyload to i32
+  %32 = trunc i64 %agg.tmp30.sroa.2.0.copyload to i32
   %f1.sroa.2.8.extract.trunc.i.i.i.i.i = trunc i64 %agg.tmp30.sroa.2.0.copyload to i8
   %f1.sroa.4.8.extract.shift.i.i.i.i.i = lshr i64 %agg.tmp30.sroa.2.0.copyload, 8
   %f1.sroa.4.8.extract.trunc.i.i.i.i.i = trunc i64 %f1.sroa.4.8.extract.shift.i.i.i.i.i to i8
-  %call.i.i.i.i.i = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %10, i8 noundef signext %f1.sroa.2.8.extract.trunc.i.i.i.i.i, i8 noundef signext %f1.sroa.4.8.extract.trunc.i.i.i.i.i, i64 noundef 1970, i8 noundef signext 1, i8 noundef signext 1) #12
-  %34 = shl i32 %33, 8
-  %conv.i.i.i.i = ashr i32 %34, 24
+  %call.i.i.i.i.i = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %9, i8 noundef signext %f1.sroa.2.8.extract.trunc.i.i.i.i.i, i8 noundef signext %f1.sroa.4.8.extract.trunc.i.i.i.i.i, i64 noundef 1970, i8 noundef signext 1, i8 noundef signext 1) #12
+  %33 = shl i32 %32, 8
+  %conv.i.i.i.i = ashr i32 %33, 24
   %conv5.i.i.i.i = sext i32 %conv.i.i.i.i to i64
   %.pn.i.i.i.i = mul i64 %call.i.i.i.i.i, 24
   %cond.i.i.i.i.i = add i64 %.pn.i.i.i.i, %conv5.i.i.i.i
-  %conv.i.i.i = ashr i32 %33, 24
+  %conv.i.i.i = ashr i32 %32, 24
   %conv5.i.i.i = sext i32 %conv.i.i.i to i64
   %.pn.i.i.i = mul i64 %cond.i.i.i.i.i, 60
   %cond.i.i.i.i = add i64 %.pn.i.i.i, %conv5.i.i.i
@@ -391,12 +388,12 @@ cond.end36:                                       ; preds = %land.rhs28.i.i, %la
   br label %return
 
 if.end:                                           ; preds = %entry
-  %35 = load i64, ptr %cs, align 8
-  %cmp = icmp slt i64 %35, 0
+  %34 = load i64, ptr %cs, align 8
+  %cmp = icmp slt i64 %34, 0
   br i1 %cmp, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end
-  %cmp41 = icmp ult i64 %35, -2147481748
+  %cmp41 = icmp ult i64 %34, -2147481748
   br i1 %cmp41, label %if.then42, label %if.end66
 
 if.then42:                                        ; preds = %if.then38
@@ -410,7 +407,7 @@ if.then42:                                        ; preds = %if.then38
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp55 = icmp ugt i64 %35, 2147485547
+  %cmp55 = icmp ugt i64 %34, 2147485547
   br i1 %cmp55, label %if.then56, label %if.end66
 
 if.then56:                                        ; preds = %if.else
@@ -433,17 +430,17 @@ land.lhs.true:                                    ; preds = %if.end66
 
 if.then69:                                        ; preds = %land.lhs.true
   %tm_isdst = getelementptr inbounds i8, ptr %tm0, i64 32
-  %36 = load i32, ptr %tm_isdst, align 8
+  %35 = load i32, ptr %tm_isdst, align 8
   %tm_isdst70 = getelementptr inbounds i8, ptr %tm1, i64 32
-  %37 = load i32, ptr %tm_isdst70, align 8
-  %cmp71 = icmp eq i32 %36, %37
-  %38 = load i64, ptr %t0, align 8
+  %36 = load i32, ptr %tm_isdst70, align 8
+  %cmp71 = icmp eq i32 %35, %36
+  %37 = load i64, ptr %t0, align 8
   br i1 %cmp71, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %if.then69
-  %tobool75.not = icmp eq i32 %36, 0
-  %39 = load i64, ptr %t1, align 8
-  %cond = select i1 %tobool75.not, i64 %38, i64 %39
+  %tobool75.not = icmp eq i32 %35, 0
+  %38 = load i64, ptr %t1, align 8
+  %cond = select i1 %tobool75.not, i64 %37, i64 %38
   store i32 0, ptr %agg.result, align 8
   %pre83 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %cond, ptr %pre83, align 8
@@ -454,56 +451,56 @@ if.then72:                                        ; preds = %if.then69
   br label %return
 
 if.end86:                                         ; preds = %if.then69
-  %40 = getelementptr inbounds i8, ptr %tm0, i64 40
-  %tm0.val = load i64, ptr %40, align 8
-  %41 = load i64, ptr %t1, align 8
-  %cmp88 = icmp slt i64 %38, %41
+  %39 = getelementptr inbounds i8, ptr %tm0, i64 40
+  %tm0.val = load i64, ptr %39, align 8
+  %40 = load i64, ptr %t1, align 8
+  %cmp88 = icmp slt i64 %37, %40
   br i1 %cmp88, label %if.then89, label %if.end91
 
 if.then89:                                        ; preds = %if.end86
-  store i64 %41, ptr %t0, align 8
-  store i64 %38, ptr %t1, align 8
-  %42 = getelementptr inbounds i8, ptr %tm1, i64 40
-  %tm1.val = load i64, ptr %42, align 8
+  store i64 %40, ptr %t0, align 8
+  store i64 %37, ptr %t1, align 8
+  %41 = getelementptr inbounds i8, ptr %tm1, i64 40
+  %tm1.val = load i64, ptr %41, align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then89, %if.end86
-  %43 = phi i64 [ %41, %if.then89 ], [ %38, %if.end86 ]
-  %44 = phi i64 [ %38, %if.then89 ], [ %41, %if.end86 ]
+  %42 = phi i64 [ %40, %if.then89 ], [ %37, %if.end86 ]
+  %43 = phi i64 [ %37, %if.then89 ], [ %40, %if.end86 ]
   %offset.0 = phi i64 [ %tm1.val, %if.then89 ], [ %tm0.val, %if.end86 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mid.i)
-  %add10.i = add nsw i64 %44, 1
-  %cmp.not11.i = icmp eq i64 %add10.i, %43
+  %add10.i = add nsw i64 %43, 1
+  %cmp.not11.i = icmp eq i64 %add10.i, %42
   br i1 %cmp.not11.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end91, %if.end18.i
-  %45 = phi i64 [ %50, %if.end18.i ], [ %44, %if.end91 ]
-  %hi.addr.012.i = phi i64 [ %hi.addr.1.i, %if.end18.i ], [ %43, %if.end91 ]
-  %sub.i = sub nsw i64 %hi.addr.012.i, %45
+  %44 = phi i64 [ %49, %if.end18.i ], [ %43, %if.end91 ]
+  %hi.addr.012.i = phi i64 [ %hi.addr.1.i, %if.end18.i ], [ %42, %if.end91 ]
+  %sub.i = sub nsw i64 %hi.addr.012.i, %44
   %div.i = sdiv i64 %sub.i, 2
-  %add1.i = add nsw i64 %div.i, %45
+  %add1.i = add nsw i64 %div.i, %44
   store i64 %add1.i, ptr %mid.i, align 8
   %call.i.i = call noundef ptr @localtime_r(ptr noundef nonnull %mid.i, ptr noundef nonnull %tm.i) #12
   %cmp2.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i, label %while.cond7.preheader.i, label %if.then.i
 
 while.cond7.preheader.i:                          ; preds = %while.body.i
-  %inc13.i = add nsw i64 %45, 1
+  %inc13.i = add nsw i64 %44, 1
   store i64 %inc13.i, ptr %lo.addr.i, align 8
   %cmp8.not14.i = icmp eq i64 %inc13.i, %hi.addr.012.i
   br i1 %cmp8.not14.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body9.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %46 = getelementptr i8, ptr %call.i.i, i64 40
-  %call.val.i = load i64, ptr %46, align 8
+  %45 = getelementptr i8, ptr %call.i.i, i64 40
+  %call.val.i = load i64, ptr %45, align 8
   %cmp4.i37 = icmp eq i64 %call.val.i, %offset.0
-  %47 = load i64, ptr %mid.i, align 8
+  %46 = load i64, ptr %mid.i, align 8
   br i1 %cmp4.i37, label %if.end18.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  store i64 %47, ptr %lo.addr.i, align 8
+  store i64 %46, ptr %lo.addr.i, align 8
   br label %if.end18.i
 
 while.body9.i:                                    ; preds = %while.cond7.preheader.i, %if.end17.i
@@ -512,8 +509,8 @@ while.body9.i:                                    ; preds = %while.cond7.prehead
   br i1 %cmp11.not.i, label %if.end17.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %while.body9.i
-  %48 = getelementptr i8, ptr %call.i8.i, i64 40
-  %call10.val.i = load i64, ptr %48, align 8
+  %47 = getelementptr i8, ptr %call.i8.i, i64 40
+  %call10.val.i = load i64, ptr %47, align 8
   %cmp14.i = icmp eq i64 %call10.val.i, %offset.0
   br i1 %cmp14.i, label %if.then12.while.end.loopexit_crit_edge.i, label %if.end17.i
 
@@ -522,98 +519,98 @@ if.then12.while.end.loopexit_crit_edge.i:         ; preds = %if.then12.i
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
 
 if.end17.i:                                       ; preds = %if.then12.i, %while.body9.i
-  %49 = load i64, ptr %lo.addr.i, align 8
-  %inc.i = add nsw i64 %49, 1
+  %48 = load i64, ptr %lo.addr.i, align 8
+  %inc.i = add nsw i64 %48, 1
   store i64 %inc.i, ptr %lo.addr.i, align 8
   %cmp8.not.i = icmp eq i64 %inc.i, %hi.addr.012.i
   br i1 %cmp8.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body9.i, !llvm.loop !6
 
 if.end18.i:                                       ; preds = %if.else.i, %if.then.i
-  %50 = phi i64 [ %47, %if.else.i ], [ %45, %if.then.i ]
-  %hi.addr.1.i = phi i64 [ %hi.addr.012.i, %if.else.i ], [ %47, %if.then.i ]
-  %add.i = add nsw i64 %50, 1
+  %49 = phi i64 [ %46, %if.else.i ], [ %44, %if.then.i ]
+  %hi.addr.1.i = phi i64 [ %hi.addr.012.i, %if.else.i ], [ %46, %if.then.i ]
+  %add.i = add nsw i64 %49, 1
   %cmp.not.i = icmp eq i64 %add.i, %hi.addr.1.i
   br i1 %cmp.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body.i, !llvm.loop !8
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit: ; preds = %if.end18.i, %if.end17.i, %if.end91, %while.cond7.preheader.i, %if.then12.while.end.loopexit_crit_edge.i
-  %retval.0.i = phi i64 [ %43, %if.end91 ], [ %hi.addr.012.i, %while.cond7.preheader.i ], [ %.pre.pre.i, %if.then12.while.end.loopexit_crit_edge.i ], [ %hi.addr.012.i, %if.end17.i ], [ %hi.addr.1.i, %if.end18.i ]
+  %retval.0.i = phi i64 [ %42, %if.end91 ], [ %hi.addr.012.i, %while.cond7.preheader.i ], [ %.pre.pre.i, %if.then12.while.end.loopexit_crit_edge.i ], [ %hi.addr.012.i, %if.end17.i ], [ %hi.addr.1.i, %if.end18.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mid.i)
-  %tobool98.not = icmp eq i32 %36, 0
+  %tobool98.not = icmp eq i32 %35, 0
   %pre122 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %trans123 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %post124 = getelementptr inbounds i8, ptr %agg.result, i64 24
   br i1 %tobool98.not, label %if.end112, label %if.then99
 
 if.then99:                                        ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
-  %51 = load i64, ptr %t0, align 8
-  %52 = load i64, ptr %t1, align 8
+  %50 = load i64, ptr %t0, align 8
+  %51 = load i64, ptr %t1, align 8
   store i32 1, ptr %agg.result, align 8
-  store i64 %51, ptr %pre122, align 8
+  store i64 %50, ptr %pre122, align 8
   store i64 %retval.0.i, ptr %trans123, align 8
-  store i64 %52, ptr %post124, align 8
+  store i64 %51, ptr %post124, align 8
   br label %return
 
 if.end112:                                        ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
-  %53 = load i64, ptr %t1, align 8
-  %54 = load i64, ptr %t0, align 8
+  %52 = load i64, ptr %t1, align 8
+  %53 = load i64, ptr %t0, align 8
   store i32 2, ptr %agg.result, align 8
-  store i64 %53, ptr %pre122, align 8
+  store i64 %52, ptr %pre122, align 8
   store i64 %retval.0.i, ptr %trans123, align 8
-  store i64 %54, ptr %post124, align 8
+  store i64 %53, ptr %post124, align 8
   br label %return
 
 if.end125:                                        ; preds = %land.lhs.true, %if.end66
-  %55 = load i64, ptr %cs, align 8
-  %cmp.i43 = icmp slt i64 %55, 1970
+  %54 = load i64, ptr %cs, align 8
+  %cmp.i43 = icmp slt i64 %54, 1970
   br i1 %cmp.i43, label %cond.end137, label %lor.rhs.i44
 
 lor.rhs.i44:                                      ; preds = %if.end125
-  %cmp4.i45 = icmp eq i64 %55, 1970
+  %cmp4.i45 = icmp eq i64 %54, 1970
   br i1 %cmp4.i45, label %land.rhs.i46, label %cond.false133
 
 land.rhs.i46:                                     ; preds = %lor.rhs.i44
   %m.i.i47 = getelementptr inbounds i8, ptr %cs, i64 8
-  %56 = load i8, ptr %m.i.i47, align 8
-  %cmp7.i48 = icmp slt i8 %56, 1
+  %55 = load i8, ptr %m.i.i47, align 8
+  %cmp7.i48 = icmp slt i8 %55, 1
   br i1 %cmp7.i48, label %cond.end137, label %lor.rhs8.i49
 
 lor.rhs8.i49:                                     ; preds = %land.rhs.i46
-  %cmp11.i50 = icmp eq i8 %56, 1
+  %cmp11.i50 = icmp eq i8 %55, 1
   br i1 %cmp11.i50, label %land.rhs12.i51, label %cond.false133
 
 land.rhs12.i51:                                   ; preds = %lor.rhs8.i49
   %d.i.i52 = getelementptr inbounds i8, ptr %cs, i64 9
-  %57 = load i8, ptr %d.i.i52, align 1
-  %cmp15.i53 = icmp slt i8 %57, 1
+  %56 = load i8, ptr %d.i.i52, align 1
+  %cmp15.i53 = icmp slt i8 %56, 1
   br i1 %cmp15.i53, label %cond.end137, label %lor.rhs16.i54
 
 lor.rhs16.i54:                                    ; preds = %land.rhs12.i51
-  %cmp19.i55 = icmp eq i8 %57, 1
+  %cmp19.i55 = icmp eq i8 %56, 1
   br i1 %cmp19.i55, label %land.rhs20.i56, label %cond.false133
 
 land.rhs20.i56:                                   ; preds = %lor.rhs16.i54
   %hh.i.i57 = getelementptr inbounds i8, ptr %cs, i64 10
-  %58 = load i8, ptr %hh.i.i57, align 2
-  %cmp23.i58 = icmp slt i8 %58, 0
+  %57 = load i8, ptr %hh.i.i57, align 2
+  %cmp23.i58 = icmp slt i8 %57, 0
   br i1 %cmp23.i58, label %cond.end137, label %lor.rhs24.i59
 
 lor.rhs24.i59:                                    ; preds = %land.rhs20.i56
-  %cmp27.i60 = icmp eq i8 %58, 0
+  %cmp27.i60 = icmp eq i8 %57, 0
   br i1 %cmp27.i60, label %land.rhs28.i61, label %cond.false133
 
 land.rhs28.i61:                                   ; preds = %lor.rhs24.i59
   %mm.i.i62 = getelementptr inbounds i8, ptr %cs, i64 11
-  %59 = load i8, ptr %mm.i.i62, align 1
-  %cmp31.i63 = icmp slt i8 %59, 0
+  %58 = load i8, ptr %mm.i.i62, align 1
+  %cmp31.i63 = icmp slt i8 %58, 0
   br i1 %cmp31.i63, label %cond.end137, label %lor.rhs32.i64
 
 lor.rhs32.i64:                                    ; preds = %land.rhs28.i61
-  %cmp35.i65 = icmp eq i8 %59, 0
+  %cmp35.i65 = icmp eq i8 %58, 0
   %ss.i.i67 = getelementptr inbounds i8, ptr %cs, i64 12
-  %60 = load i8, ptr %ss.i.i67, align 4
-  %cmp39.i68 = icmp slt i8 %60, 0
+  %59 = load i8, ptr %ss.i.i67, align 4
+  %cmp39.i68 = icmp slt i8 %59, 0
   %or.cond = select i1 %cmp35.i65, i1 %cmp39.i68, i1 false
   br i1 %or.cond, label %cond.end137, label %cond.false133
 
@@ -785,9 +782,8 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %local_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %local_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.1, ptr @.str.2
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.2, ptr @.str.1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
@@ -797,13 +793,13 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %call.i.i = select i1 %tobool.not, i64 3, i64 9
+  %call.i.i = select i1 %tobool, i64 9, i64 3
   %add.ptr.i = getelementptr inbounds i8, ptr %cond, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %cond, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #12
   br label %lpad.body
@@ -813,12 +809,12 @@ invoke.cont:                                      ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   resume { ptr, i32 } %eh.lpad-body
 }

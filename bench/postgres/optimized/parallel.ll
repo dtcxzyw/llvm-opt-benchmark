@@ -255,9 +255,8 @@ ShutdownWorkersHard.exit:                         ; preds = %HasEveryWorkerTermi
 ; Function Attrs: nounwind uwtable
 define dso_local void @set_archive_cancel_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %set_cancel_handler.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %set_cancel_handler.exit, label %5
 
 5:                                                ; preds = %2
   store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
@@ -322,9 +321,8 @@ define dso_local noundef ptr @ParallelBackupStart(ptr noundef %0) local_unnamed_
   store ptr %18, ptr %8, align 8
   store ptr %4, ptr @shutdown_info, align 8
   %19 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
-  %20 = and i8 %19, 1
-  %.not.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i, label %21, label %set_cancel_handler.exit.i
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %set_cancel_handler.exit.i, label %21
 
 21:                                               ; preds = %11
   store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
@@ -357,7 +355,7 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   br label %33
 
 33:                                               ; preds = %.lr.ph, %72
-  %indvars.iv69 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next70, %72 ]
+  %indvars.iv68 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next69, %72 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %34 = load ptr, ptr %8, align 8
   %35 = getelementptr %struct.ParallelSlot, ptr %34, i64 %indvars.iv
@@ -403,27 +401,27 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   %59 = call i32 @close(i32 noundef %58) #18
   %60 = and i64 %indvars.iv, 4294967295
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %._crit_edge58, label %.lr.ph57.preheader
+  br i1 %.not, label %._crit_edge57, label %.lr.ph56.preheader
 
-.lr.ph57.preheader:                               ; preds = %53
-  %wide.trip.count = zext nneg i32 %indvars.iv69 to i64
-  br label %.lr.ph57
+.lr.ph56.preheader:                               ; preds = %53
+  %wide.trip.count = zext nneg i32 %indvars.iv68 to i64
+  br label %.lr.ph56
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next67, %.lr.ph57 ]
+.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next66, %.lr.ph56 ]
   %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr %struct.ParallelSlot, ptr %61, i64 %indvars.iv66, i32 4
+  %62 = getelementptr %struct.ParallelSlot, ptr %61, i64 %indvars.iv65, i32 4
   %63 = load i32, ptr %62, align 8
   %64 = call i32 @close(i32 noundef %63) #18
   %65 = load ptr, ptr %8, align 8
-  %66 = getelementptr %struct.ParallelSlot, ptr %65, i64 %indvars.iv66, i32 5
+  %66 = getelementptr %struct.ParallelSlot, ptr %65, i64 %indvars.iv65, i32 5
   %67 = load i32, ptr %66, align 4
   %68 = call i32 @close(i32 noundef %67) #18
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !12
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !12
 
-._crit_edge58:                                    ; preds = %.lr.ph57, %53
+._crit_edge57:                                    ; preds = %.lr.ph56, %53
   call fastcc void @RunWorker(ptr noundef %0, ptr noundef %35)
   call void @exit(i32 noundef 0) #19
   unreachable
@@ -449,7 +447,7 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   %78 = load i32, ptr %4, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  %indvars.iv.next70 = add nuw nsw i32 %indvars.iv69, 1
+  %indvars.iv.next69 = add nuw nsw i32 %indvars.iv68, 1
   br i1 %80, label %33, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %72, %set_archive_cancel_info.exit
@@ -457,42 +455,41 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   %82 = getelementptr inbounds i8, ptr %0, i64 440
   %83 = load ptr, ptr %82, align 8
   %84 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
-  %85 = and i8 %84, 1
-  %.not.i.i43 = icmp eq i8 %85, 0
-  br i1 %.not.i.i43, label %86, label %set_cancel_handler.exit.i44
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %set_cancel_handler.exit.i43, label %86
 
 86:                                               ; preds = %._crit_edge
   store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
   %87 = call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
   %88 = call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
   %89 = call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
-  br label %set_cancel_handler.exit.i44
+  br label %set_cancel_handler.exit.i43
 
-set_cancel_handler.exit.i44:                      ; preds = %86, %._crit_edge
+set_cancel_handler.exit.i43:                      ; preds = %86, %._crit_edge
   %90 = load volatile ptr, ptr %25, align 8
   store volatile ptr null, ptr %25, align 8
-  %.not.i45 = icmp eq ptr %90, null
-  br i1 %.not.i45, label %92, label %91
+  %.not.i44 = icmp eq ptr %90, null
+  br i1 %.not.i44, label %92, label %91
 
-91:                                               ; preds = %set_cancel_handler.exit.i44
+91:                                               ; preds = %set_cancel_handler.exit.i43
   call void @PQfreeCancel(ptr noundef nonnull %90) #18
   br label %92
 
-92:                                               ; preds = %91, %set_cancel_handler.exit.i44
+92:                                               ; preds = %91, %set_cancel_handler.exit.i43
   %.not9.i = icmp eq ptr %83, null
-  br i1 %.not9.i, label %set_archive_cancel_info.exit46, label %93
+  br i1 %.not9.i, label %set_archive_cancel_info.exit45, label %93
 
 93:                                               ; preds = %92
   %94 = call ptr @PQgetCancel(ptr noundef nonnull %83) #18
   store volatile ptr %94, ptr %25, align 8
-  br label %set_archive_cancel_info.exit46
+  br label %set_archive_cancel_info.exit45
 
-set_archive_cancel_info.exit46:                   ; preds = %92, %93
+set_archive_cancel_info.exit45:                   ; preds = %92, %93
   store volatile ptr %0, ptr @signal_info, align 8
   store volatile ptr %4, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
   br label %95
 
-95:                                               ; preds = %1, %set_archive_cancel_info.exit46
+95:                                               ; preds = %1, %set_archive_cancel_info.exit45
   ret ptr %4
 }
 
@@ -1331,8 +1328,8 @@ define internal void @sigTermHandler(i32 %0) #9 {
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr %struct.ParallelSlot, ptr %12, i64 %indvars.iv, i32 8
   %14 = load i32, ptr %13, align 8
-  %.not16 = icmp eq i32 %14, 0
-  br i1 %.not16, label %17, label %15
+  %.not15 = icmp eq i32 %14, 0
+  br i1 %.not15, label %17, label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = tail call i32 @kill(i32 noundef %14, i32 noundef 15) #18
@@ -1367,14 +1364,13 @@ define internal void @sigTermHandler(i32 %0) #9 {
 
 32:                                               ; preds = %27, %23, %.loopexit
   %33 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 3), align 1
-  %34 = and i8 %33, 1
-  %.not14 = icmp eq i8 %34, 0
-  br i1 %.not14, label %35, label %49
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %49, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @progname, align 8
-  %.not15 = icmp eq ptr %36, null
-  br i1 %.not15, label %45, label %37
+  %.not14 = icmp eq ptr %36, null
+  br i1 %.not14, label %45, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8

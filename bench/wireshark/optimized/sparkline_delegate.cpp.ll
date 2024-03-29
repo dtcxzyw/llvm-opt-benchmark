@@ -1609,9 +1609,8 @@ define linkonce_odr void @_ZN9QtPrivate24printSequentialContainerI5QListIiEEE6QD
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsEc.exit, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %_ZN6QDebuglsEc.exit
 
 16:                                               ; preds = %.noexc
   %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 noundef signext 32)
@@ -1631,21 +1630,20 @@ _ZN6QDebuglsEc.exit:                              ; preds = %.noexc, %16
   %24 = load i32, ptr %19, align 4
   %25 = load ptr, ptr %1, align 8
   %26 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEi(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %24)
-          to label %.noexc8 unwind label %.loopexit.split-lp
+          to label %.noexc7 unwind label %.loopexit.split-lp
 
-.noexc8:                                          ; preds = %23
+.noexc7:                                          ; preds = %23
   %27 = load ptr, ptr %1, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 48
   %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 1
-  %.not.i.i7 = icmp eq i8 %30, 0
-  br i1 %.not.i.i7, label %_ZN6QDebuglsEi.exit, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %_ZN6QDebuglsEi.exit
 
-31:                                               ; preds = %.noexc8
+31:                                               ; preds = %.noexc7
   %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 noundef signext 32)
           to label %_ZN6QDebuglsEi.exit unwind label %.loopexit.split-lp
 
-_ZN6QDebuglsEi.exit:                              ; preds = %.noexc8, %31
+_ZN6QDebuglsEi.exit:                              ; preds = %.noexc7, %31
   %33 = getelementptr i8, ptr %19, i64 4
   br label %35
 
@@ -1666,60 +1664,58 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc8, %31
 
 35:                                               ; preds = %_ZN6QDebuglsEi.exit, %_ZN6QDebuglsEc.exit
   %.sroa.0.0 = phi ptr [ %33, %_ZN6QDebuglsEi.exit ], [ %19, %_ZN6QDebuglsEc.exit ]
-  %.not2324 = icmp eq ptr %.sroa.0.0, %22
-  br i1 %.not2324, label %._crit_edge, label %.lr.ph
+  %.not2021 = icmp eq ptr %.sroa.0.0, %22
+  br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %35, %_ZN6QDebuglsEi.exit13
-  %.sroa.0.125 = phi ptr [ %47, %_ZN6QDebuglsEi.exit13 ], [ %.sroa.0.0, %35 ]
+.lr.ph:                                           ; preds = %35, %_ZN6QDebuglsEi.exit11
+  %.sroa.0.122 = phi ptr [ %47, %_ZN6QDebuglsEi.exit11 ], [ %.sroa.0.0, %35 ]
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
           to label %37 unwind label %.loopexit
 
 37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr %.sroa.0.125, align 4
+  %38 = load i32, ptr %.sroa.0.122, align 4
   %39 = load ptr, ptr %36, align 8
   %40 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEi(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %38)
-          to label %.noexc11 unwind label %.loopexit
+          to label %.noexc9 unwind label %.loopexit
 
-.noexc11:                                         ; preds = %37
+.noexc9:                                          ; preds = %37
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 48
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not.i.i10 = icmp eq i8 %44, 0
-  br i1 %.not.i.i10, label %_ZN6QDebuglsEi.exit13, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %_ZN6QDebuglsEi.exit11
 
-45:                                               ; preds = %.noexc11
+45:                                               ; preds = %.noexc9
   %46 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 noundef signext 32)
-          to label %_ZN6QDebuglsEi.exit13 unwind label %.loopexit
+          to label %_ZN6QDebuglsEi.exit11 unwind label %.loopexit
 
-_ZN6QDebuglsEi.exit13:                            ; preds = %.noexc11, %45
-  %47 = getelementptr i8, ptr %.sroa.0.125, i64 4
-  %.not23 = icmp eq ptr %47, %22
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+_ZN6QDebuglsEi.exit11:                            ; preds = %.noexc9, %45
+  %47 = getelementptr i8, ptr %.sroa.0.122, i64 4
+  %.not20 = icmp eq ptr %47, %22
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %_ZN6QDebuglsEi.exit13, %35
+._crit_edge:                                      ; preds = %_ZN6QDebuglsEi.exit11, %35
   %48 = load ptr, ptr %1, align 8
   %49 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 noundef signext 41)
-          to label %.noexc15 unwind label %.loopexit.split-lp
+          to label %.noexc12 unwind label %.loopexit.split-lp
 
-.noexc15:                                         ; preds = %._crit_edge
+.noexc12:                                         ; preds = %._crit_edge
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 48
   %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not.i.i14 = icmp eq i8 %53, 0
-  br i1 %.not.i.i14, label %_ZN6QDebuglsEc.exit17, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %_ZN6QDebuglsEc.exit14
 
-54:                                               ; preds = %.noexc15
+54:                                               ; preds = %.noexc12
   %55 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 noundef signext 32)
-          to label %._ZN6QDebuglsEc.exit17_crit_edge unwind label %.loopexit.split-lp
+          to label %._ZN6QDebuglsEc.exit14_crit_edge unwind label %.loopexit.split-lp
 
-._ZN6QDebuglsEc.exit17_crit_edge:                 ; preds = %54
+._ZN6QDebuglsEc.exit14_crit_edge:                 ; preds = %54
   %.pre = load ptr, ptr %1, align 8
-  br label %_ZN6QDebuglsEc.exit17
+  br label %_ZN6QDebuglsEc.exit14
 
-_ZN6QDebuglsEc.exit17:                            ; preds = %._ZN6QDebuglsEc.exit17_crit_edge, %.noexc15
-  %56 = phi ptr [ %.pre, %._ZN6QDebuglsEc.exit17_crit_edge ], [ %50, %.noexc15 ]
+_ZN6QDebuglsEc.exit14:                            ; preds = %._ZN6QDebuglsEc.exit14_crit_edge, %.noexc12
+  %56 = phi ptr [ %.pre, %._ZN6QDebuglsEc.exit14_crit_edge ], [ %50, %.noexc12 ]
   store ptr null, ptr %1, align 8
   store ptr %56, ptr %0, align 8
   call void @_ZN16QDebugStateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -1764,9 +1760,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %7, %_ZN17QArrayData
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i2 = icmp eq i8 %15, 0
-  br i1 %.not.i2, label %_ZN6QDebug10maybeSpaceEv.exit, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %_ZN6QDebug10maybeSpaceEv.exit
 
 16:                                               ; preds = %_ZN7QStringD2Ev.exit
   %17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 noundef signext 32)
@@ -1779,20 +1774,20 @@ _ZN6QDebug10maybeSpaceEv.exit:                    ; preds = %_ZN7QStringD2Ev.exi
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load ptr, ptr %3, align 8
-  %.not.i.i.i3 = icmp eq ptr %20, null
-  br i1 %.not.i.i.i3, label %_ZN7QStringD2Ev.exit6, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4
+  %.not.i.i.i2 = icmp eq ptr %20, null
+  br i1 %.not.i.i.i2, label %_ZN7QStringD2Ev.exit5, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4:     ; preds = %18
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3:     ; preds = %18
   %21 = atomicrmw sub ptr %20, i32 1 seq_cst, align 4
-  %.not.i.i5 = icmp eq i32 %21, 1
-  br i1 %.not.i.i5, label %22, label %_ZN7QStringD2Ev.exit6
+  %.not.i.i4 = icmp eq i32 %21, 1
+  br i1 %.not.i.i4, label %22, label %_ZN7QStringD2Ev.exit5
 
-22:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4
+22:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3
   %23 = load ptr, ptr %3, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %23, i64 noundef 2, i64 noundef 8) #18
-  br label %_ZN7QStringD2Ev.exit6
+  br label %_ZN7QStringD2Ev.exit5
 
-_ZN7QStringD2Ev.exit6:                            ; preds = %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4, %22
+_ZN7QStringD2Ev.exit5:                            ; preds = %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3, %22
   resume { ptr, i32 } %19
 }
 
@@ -3075,9 +3070,8 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #12
 define linkonce_odr void @_ZN11QScopeGuardIZN9QMetaType21registerConverterImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPKvPvEES0_S0_EUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %_ZZN9QMetaType21registerConverterImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPKvPvEES_S_ENKUlvE_clEv.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZZN9QMetaType21registerConverterImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPKvPvEES_S_ENKUlvE_clEv.exit
 
 5:                                                ; preds = %1
   %.sroa.01.0.copyload.i = load ptr, ptr %0, align 8
@@ -3745,9 +3739,8 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeIiLb1EE11deb
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsEi.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN6QDebuglsEi.exit
 
 11:                                               ; preds = %3
   %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 noundef signext 32)
@@ -4023,9 +4016,8 @@ declare noundef zeroext i1 @_ZN9QMetaType27registerMutableViewFunctionERKSt8func
 define linkonce_odr void @_ZN11QScopeGuardIZN9QMetaType23registerMutableViewImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPvS8_EES0_S0_EUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %_ZZN9QMetaType23registerMutableViewImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPvS7_EES_S_ENKUlvE_clEv.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZZN9QMetaType23registerMutableViewImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPvS7_EES_S_ENKUlvE_clEv.exit
 
 5:                                                ; preds = %1
   %.sroa.01.0.copyload.i = load ptr, ptr %0, align 8

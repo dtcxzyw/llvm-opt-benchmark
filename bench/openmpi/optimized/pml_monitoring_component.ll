@@ -146,22 +146,22 @@ define internal noundef i32 @mca_pml_monitoring_component_finish() #0 {
   br i1 %.b, label %43, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.014 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not1115 = icmp eq ptr %.014, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not1115, label %.loopexit, label %.lr.ph
+  %.013 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not1114 = icmp eq ptr %.013, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not1114, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %38
-  %.016 = phi ptr [ %7, %38 ], [ %.014, %.preheader ]
-  %3 = getelementptr inbounds i8, ptr %.016, i64 40
+  %.015 = phi ptr [ %7, %38 ], [ %.013, %.preheader ]
+  %3 = getelementptr inbounds i8, ptr %.015, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @mca_pml_monitoring_component
-  %6 = getelementptr inbounds i8, ptr %.016, i64 16
+  %6 = getelementptr inbounds i8, ptr %.015, i64 16
   %7 = load volatile ptr, ptr %6, align 8
   br i1 %5, label %8, label %38
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.016, i64 16
-  %10 = getelementptr inbounds i8, ptr %.016, i64 24
+  %9 = getelementptr inbounds i8, ptr %.015, i64 16
+  %10 = getelementptr inbounds i8, ptr %.015, i64 24
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store volatile ptr %7, ptr %12, align 8
@@ -173,11 +173,10 @@ define internal noundef i32 @mca_pml_monitoring_component_finish() #0 {
   %17 = add i64 %16, -1
   store volatile i64 %17, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_pml_base_framework, i64 0, i32 12, i32 2), align 8
   %18 = load volatile ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %.016, i64 8
+  %19 = getelementptr inbounds i8, ptr %.015, i64 8
   %20 = load i8, ptr @opal_uses_threads, align 1
-  %21 = and i8 %20, 1
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %25, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
 22:                                               ; preds = %8
   %23 = atomicrmw volatile add ptr %19, i32 -1 monotonic, align 4
@@ -197,7 +196,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %22, %25
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %31 = load ptr, ptr %.016, align 8
+  %31 = load ptr, ptr %.015, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
@@ -207,14 +206,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %22, %25
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
   %35 = phi ptr [ %37, %.lr.ph.i ], [ %34, %30 ]
   %.07.i = phi ptr [ %36, %.lr.ph.i ], [ %33, %30 ]
-  tail call void %35(ptr noundef nonnull %.016) #5
+  tail call void %35(ptr noundef nonnull %.015) #5
   %36 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %37 = load ptr, ptr %36, align 8
-  %.not.i12 = icmp eq ptr %37, null
-  br i1 %.not.i12, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
-  tail call void @free(ptr noundef %.016) #5
+  tail call void @free(ptr noundef %.015) #5
   br label %.loopexit
 
 38:                                               ; preds = %.lr.ph

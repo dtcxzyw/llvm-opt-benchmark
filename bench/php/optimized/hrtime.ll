@@ -32,59 +32,58 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 17:                                               ; preds = %13
   call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #4
-  br label %.thread102
+  br label %.thread101
 
 18:                                               ; preds = %13
   %19 = icmp eq i32 %15, 0
-  br i1 %19, label %.thread95.thread, label %20
+  br i1 %19, label %.thread94.thread, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 88
   %22 = load i8, ptr %21, align 8
   switch i8 %22, label %24 [
-    i8 3, label %.thread91
+    i8 3, label %.thread90
     i8 2, label %23
   ]
 
 23:                                               ; preds = %20
-  br label %.thread91
+  br label %.thread90
 
-.thread91:                                        ; preds = %23, %20
+.thread90:                                        ; preds = %23, %20
   %storemerge = phi i8 [ 0, %23 ], [ 1, %20 ]
   store i8 %storemerge, ptr %4, align 1
-  br label %.thread95
+  br label %.thread94
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 80
   %26 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %25, ptr noundef nonnull %4, i32 noundef 1) #4
   %.fr = freeze i1 %26
-  br i1 %.fr, label %..thread95_crit_edge, label %.thread102
+  br i1 %.fr, label %..thread94_crit_edge, label %.thread101
 
-..thread95_crit_edge:                             ; preds = %24
+..thread94_crit_edge:                             ; preds = %24
   %.pre = load i8, ptr %4, align 1
-  br label %.thread95
+  br label %.thread94
 
-.thread102:                                       ; preds = %24, %17
-  %.071111 = phi i32 [ 0, %17 ], [ 1, %24 ]
-  %.072110 = phi i32 [ 1, %17 ], [ 9, %24 ]
-  %.073109 = phi i32 [ 0, %17 ], [ 2, %24 ]
-  %.074108 = phi ptr [ null, %17 ], [ %25, %24 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.072110, i32 noundef %.071111, ptr noundef null, i32 noundef %.073109, ptr noundef %.074108) #4
+.thread101:                                       ; preds = %24, %17
+  %.071110 = phi i32 [ 0, %17 ], [ 1, %24 ]
+  %.072109 = phi i32 [ 1, %17 ], [ 9, %24 ]
+  %.073108 = phi i32 [ 0, %17 ], [ 2, %24 ]
+  %.074107 = phi ptr [ null, %17 ], [ %25, %24 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.072109, i32 noundef %.071110, ptr noundef null, i32 noundef %.073108, ptr noundef %.074107) #4
   br label %37
 
-.thread95:                                        ; preds = %..thread95_crit_edge, %.thread91
-  %27 = phi i8 [ %.pre, %..thread95_crit_edge ], [ %storemerge, %.thread91 ]
-  %28 = and i8 %27, 1
-  %.not77 = icmp eq i8 %28, 0
-  br i1 %.not77, label %.thread95.thread, label %29
+.thread94:                                        ; preds = %..thread94_crit_edge, %.thread90
+  %27 = phi i8 [ %.pre, %..thread94_crit_edge ], [ %storemerge, %.thread90 ]
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %.thread94.thread
 
-29:                                               ; preds = %.thread95
+29:                                               ; preds = %.thread94
   store i64 %.070, ptr %1, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %30, align 8
   br label %37
 
-.thread95.thread:                                 ; preds = %18, %.thread95
+.thread94.thread:                                 ; preds = %18, %.thread94
   %31 = call ptr @_zend_new_array_0() #4
   store ptr %31, ptr %1, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
@@ -96,7 +95,7 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %36 = call i32 @add_next_index_long(ptr noundef nonnull %1, i64 noundef %35) #4
   br label %37
 
-37:                                               ; preds = %.thread95.thread, %29, %.thread102
+37:                                               ; preds = %.thread94.thread, %29, %.thread101
   ret void
 }
 

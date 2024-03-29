@@ -145,9 +145,8 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
 12:                                               ; preds = %9, %4, %2
   fence acquire
   %13 = load i8, ptr @prte_event_base_active, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %42, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %42
 
 15:                                               ; preds = %12
   %16 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_rml_recv_request_t_class, i64 0, i32 8), align 8

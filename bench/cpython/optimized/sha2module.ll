@@ -1305,15 +1305,14 @@ if.end8.i:                                        ; preds = %if.else.i, %if.then
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i10.sink2.i) #3
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %5 = load i8, ptr %use_mutex.i, align 4
-  %6 = and i8 %5, 1
-  %tobool9.not.i = icmp eq i8 %6, 0
-  br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
+  %tobool9.i = trunc i8 %5 to i1
+  br i1 %tobool9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
-  %7 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %if.end11.i, label %if.then.i.i
+  %6 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  br i1 %7, label %if.end11.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
@@ -1321,24 +1320,23 @@ if.then.i.i:                                      ; preds = %if.then10.i
 
 if.end11.i:                                       ; preds = %if.then.i.i, %if.then10.i, %if.end8.i
   %digestsize.i.i = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load i32, ptr %digestsize.i.i, align 8
+  %8 = load i32, ptr %digestsize.i.i, align 8
   %digestsize1.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 16
-  store i32 %9, ptr %digestsize1.i.i, align 8
+  store i32 %8, ptr %digestsize1.i.i, align 8
   %state.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %10 = load ptr, ptr %state.i.i, align 8
-  %call.i15.i = tail call ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr noundef %10) #3
+  %9 = load ptr, ptr %state.i.i, align 8
+  %call.i15.i = tail call ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr noundef %9) #3
   %state2.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 24
   store ptr %call.i15.i, ptr %state2.i.i, align 8
-  %11 = load i8, ptr %use_mutex.i, align 4
-  %12 = and i8 %11, 1
-  %tobool13.not.i = icmp eq i8 %12, 0
-  br i1 %tobool13.not.i, label %return, label %if.then14.i
+  %10 = load i8, ptr %use_mutex.i, align 4
+  %tobool13.i = trunc i8 %10 to i1
+  br i1 %tobool13.i, label %if.then14.i, label %return
 
 if.then14.i:                                      ; preds = %if.end11.i
   %mutex15.i = getelementptr inbounds i8, ptr %self, i64 21
-  %13 = cmpxchg ptr %mutex15.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %14 = extractvalue { i8, i1 } %13, 1
-  br i1 %14, label %return, label %if.then.i16.i
+  %11 = cmpxchg ptr %mutex15.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %12 = extractvalue { i8, i1 } %11, 1
+  br i1 %12, label %return, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then14.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex15.i) #3
@@ -1356,15 +1354,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
@@ -1372,18 +1369,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
   %state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %4 = load ptr, ptr %state.i, align 8
-  call void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef %4, ptr noundef nonnull %digest.i) #3
-  %5 = load i8, ptr %use_mutex.i, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %SHA256Type_digest_impl.exit, label %if.then3.i
+  %3 = load ptr, ptr %state.i, align 8
+  call void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef %3, ptr noundef nonnull %digest.i) #3
+  %4 = load i8, ptr %use_mutex.i, align 4
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %SHA256Type_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %SHA256Type_digest_impl.exit, label %if.then.i6.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %SHA256Type_digest_impl.exit, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #3
@@ -1391,8 +1387,8 @@ if.then.i6.i:                                     ; preds = %if.then3.i
 
 SHA256Type_digest_impl.exit:                      ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
   %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load i32, ptr %digestsize.i, align 8
-  %conv.i = sext i32 %9 to i64
+  %7 = load i32, ptr %digestsize.i, align 8
+  %conv.i = sext i32 %7 to i64
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %digest.i)
   ret ptr %call.i
@@ -1405,15 +1401,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
@@ -1421,18 +1416,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
   %state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %4 = load ptr, ptr %state.i, align 8
-  call void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef %4, ptr noundef nonnull %digest.i) #3
-  %5 = load i8, ptr %use_mutex.i, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %SHA256Type_hexdigest_impl.exit, label %if.then3.i
+  %3 = load ptr, ptr %state.i, align 8
+  call void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef %3, ptr noundef nonnull %digest.i) #3
+  %4 = load i8, ptr %use_mutex.i, align 4
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %SHA256Type_hexdigest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %SHA256Type_hexdigest_impl.exit, label %if.then.i6.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %SHA256Type_hexdigest_impl.exit, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #3
@@ -1440,8 +1434,8 @@ if.then.i6.i:                                     ; preds = %if.then3.i
 
 SHA256Type_hexdigest_impl.exit:                   ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
   %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load i32, ptr %digestsize.i, align 8
-  %conv.i = sext i32 %9 to i64
+  %7 = load i32, ptr %digestsize.i, align 8
+  %conv.i = sext i32 %7 to i64
   %call.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %digest.i)
   ret ptr %call.i
@@ -1494,29 +1488,27 @@ if.then10:                                        ; preds = %if.end8
 do.end:                                           ; preds = %if.end8
   %use_mutex = getelementptr inbounds i8, ptr %self, i64 20
   %7 = load i8, ptr %use_mutex, align 4
-  %8 = and i8 %7, 1
-  %tobool12.not9 = icmp eq i8 %8, 0
+  %tobool12 = trunc i8 %7 to i1
   %len = getelementptr inbounds i8, ptr %buf, i64 16
-  %9 = load i64, ptr %len, align 8
-  %cmp13 = icmp sgt i64 %9, 2047
-  %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
-  br i1 %or.cond, label %if.end16.thread, label %if.end16
+  %8 = load i64, ptr %len, align 8
+  %cmp13 = icmp slt i64 %8, 2048
+  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
+  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %do.end
   store i8 1, ptr %use_mutex, align 4
   br label %if.then19
 
 if.end16:                                         ; preds = %do.end
-  %10 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %10, 0
-  br i1 %tobool18.not, label %if.else, label %if.then19
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #3
   %mutex = getelementptr inbounds i8, ptr %self, i64 21
-  %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
+  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
   call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #3
@@ -1524,62 +1516,62 @@ if.then.i:                                        ; preds = %if.then19
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
   %state = getelementptr inbounds i8, ptr %self, i64 24
-  %13 = load ptr, ptr %state, align 8
-  %14 = load ptr, ptr %buf, align 8
-  %15 = load i64, ptr %len, align 8
-  %cmp6.i = icmp sgt i64 %15, 4294967295
+  %11 = load ptr, ptr %state, align 8
+  %12 = load ptr, ptr %buf, align 8
+  %13 = load i64, ptr %len, align 8
+  %cmp6.i = icmp sgt i64 %13, 4294967295
   br i1 %cmp6.i, label %while.body.i, label %update_256.exit
 
 while.body.i:                                     ; preds = %PyMutex_Lock.exit, %while.body.i
-  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %15, %PyMutex_Lock.exit ]
-  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %14, %PyMutex_Lock.exit ]
-  %call.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %13, ptr noundef %buf.addr.07.i, i32 noundef -1) #3
+  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %13, %PyMutex_Lock.exit ]
+  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %12, %PyMutex_Lock.exit ]
+  %call.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %11, ptr noundef %buf.addr.07.i, i32 noundef -1) #3
   %sub.i = add nsw i64 %len.addr.08.i, -4294967295
   %add.ptr.i = getelementptr i8, ptr %buf.addr.07.i, i64 4294967295
   %cmp.i = icmp ugt i64 %len.addr.08.i, 8589934590
   br i1 %cmp.i, label %while.body.i, label %update_256.exit, !llvm.loop !4
 
 update_256.exit:                                  ; preds = %while.body.i, %PyMutex_Lock.exit
-  %buf.addr.0.lcssa.i = phi ptr [ %14, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
-  %len.addr.0.lcssa.i = phi i64 [ %15, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
-  %conv.i10 = trunc i64 %len.addr.0.lcssa.i to i32
-  %call1.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %13, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i10) #3
-  %16 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %PyMutex_Unlock.exit, label %if.then.i11
+  %buf.addr.0.lcssa.i = phi ptr [ %12, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
+  %len.addr.0.lcssa.i = phi i64 [ %13, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
+  %conv.i9 = trunc i64 %len.addr.0.lcssa.i to i32
+  %call1.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %11, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i9) #3
+  %14 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
+  %15 = extractvalue { i8, i1 } %14, 1
+  br i1 %15, label %PyMutex_Unlock.exit, label %if.then.i10
 
-if.then.i11:                                      ; preds = %update_256.exit
+if.then.i10:                                      ; preds = %update_256.exit
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #3
   br label %PyMutex_Unlock.exit
 
-PyMutex_Unlock.exit:                              ; preds = %update_256.exit, %if.then.i11
+PyMutex_Unlock.exit:                              ; preds = %update_256.exit, %if.then.i10
   call void @PyEval_RestoreThread(ptr noundef %call20) #3
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
   %state24 = getelementptr inbounds i8, ptr %self, i64 24
-  %18 = load ptr, ptr %state24, align 8
-  %19 = load ptr, ptr %buf, align 8
-  %cmp6.i12 = icmp sgt i64 %9, 4294967295
-  br i1 %cmp6.i12, label %while.body.i17, label %update_256.exit24
+  %16 = load ptr, ptr %state24, align 8
+  %17 = load ptr, ptr %buf, align 8
+  %cmp6.i11 = icmp sgt i64 %8, 4294967295
+  br i1 %cmp6.i11, label %while.body.i16, label %update_256.exit23
 
-while.body.i17:                                   ; preds = %if.else, %while.body.i17
-  %len.addr.08.i18 = phi i64 [ %sub.i21, %while.body.i17 ], [ %9, %if.else ]
-  %buf.addr.07.i19 = phi ptr [ %add.ptr.i22, %while.body.i17 ], [ %19, %if.else ]
-  %call.i20 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %18, ptr noundef %buf.addr.07.i19, i32 noundef -1) #3
-  %sub.i21 = add nsw i64 %len.addr.08.i18, -4294967295
-  %add.ptr.i22 = getelementptr i8, ptr %buf.addr.07.i19, i64 4294967295
-  %cmp.i23 = icmp ugt i64 %len.addr.08.i18, 8589934590
-  br i1 %cmp.i23, label %while.body.i17, label %update_256.exit24, !llvm.loop !4
+while.body.i16:                                   ; preds = %if.else, %while.body.i16
+  %len.addr.08.i17 = phi i64 [ %sub.i20, %while.body.i16 ], [ %8, %if.else ]
+  %buf.addr.07.i18 = phi ptr [ %add.ptr.i21, %while.body.i16 ], [ %17, %if.else ]
+  %call.i19 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %16, ptr noundef %buf.addr.07.i18, i32 noundef -1) #3
+  %sub.i20 = add nsw i64 %len.addr.08.i17, -4294967295
+  %add.ptr.i21 = getelementptr i8, ptr %buf.addr.07.i18, i64 4294967295
+  %cmp.i22 = icmp ugt i64 %len.addr.08.i17, 8589934590
+  br i1 %cmp.i22, label %while.body.i16, label %update_256.exit23, !llvm.loop !4
 
-update_256.exit24:                                ; preds = %while.body.i17, %if.else
-  %buf.addr.0.lcssa.i13 = phi ptr [ %19, %if.else ], [ %add.ptr.i22, %while.body.i17 ]
-  %len.addr.0.lcssa.i14 = phi i64 [ %9, %if.else ], [ %sub.i21, %while.body.i17 ]
-  %conv.i15 = trunc i64 %len.addr.0.lcssa.i14 to i32
-  %call1.i16 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %18, ptr noundef %buf.addr.0.lcssa.i13, i32 noundef %conv.i15) #3
+update_256.exit23:                                ; preds = %while.body.i16, %if.else
+  %buf.addr.0.lcssa.i12 = phi ptr [ %17, %if.else ], [ %add.ptr.i21, %while.body.i16 ]
+  %len.addr.0.lcssa.i13 = phi i64 [ %8, %if.else ], [ %sub.i20, %while.body.i16 ]
+  %conv.i14 = trunc i64 %len.addr.0.lcssa.i13 to i32
+  %call1.i15 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef %16, ptr noundef %buf.addr.0.lcssa.i12, i32 noundef %conv.i14) #3
   br label %if.end27
 
-if.end27:                                         ; preds = %update_256.exit24, %PyMutex_Unlock.exit
+if.end27:                                         ; preds = %update_256.exit23, %PyMutex_Unlock.exit
   call void @PyBuffer_Release(ptr noundef nonnull %buf) #3
   br label %return
 
@@ -1707,15 +1699,14 @@ if.end8.i:                                        ; preds = %if.else.i, %if.then
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i10.sink2.i) #3
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %6 = load i8, ptr %use_mutex.i, align 4
-  %7 = and i8 %6, 1
-  %tobool9.not.i = icmp eq i8 %7, 0
-  br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
+  %tobool9.i = trunc i8 %6 to i1
+  br i1 %tobool9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
-  %8 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %9 = extractvalue { i8, i1 } %8, 1
-  br i1 %9, label %if.end11.i, label %if.then.i.i
+  %7 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %8 = extractvalue { i8, i1 } %7, 1
+  br i1 %8, label %if.end11.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
@@ -1723,24 +1714,23 @@ if.then.i.i:                                      ; preds = %if.then10.i
 
 if.end11.i:                                       ; preds = %if.then.i.i, %if.then10.i, %if.end8.i
   %digestsize.i.i = getelementptr inbounds i8, ptr %self, i64 16
-  %10 = load i32, ptr %digestsize.i.i, align 8
+  %9 = load i32, ptr %digestsize.i.i, align 8
   %digestsize1.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 16
-  store i32 %10, ptr %digestsize1.i.i, align 8
+  store i32 %9, ptr %digestsize1.i.i, align 8
   %state.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %11 = load ptr, ptr %state.i.i, align 8
-  %call.i15.i = tail call ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr noundef %11) #3
+  %10 = load ptr, ptr %state.i.i, align 8
+  %call.i15.i = tail call ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr noundef %10) #3
   %state2.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 24
   store ptr %call.i15.i, ptr %state2.i.i, align 8
-  %12 = load i8, ptr %use_mutex.i, align 4
-  %13 = and i8 %12, 1
-  %tobool13.not.i = icmp eq i8 %13, 0
-  br i1 %tobool13.not.i, label %return, label %if.then14.i
+  %11 = load i8, ptr %use_mutex.i, align 4
+  %tobool13.i = trunc i8 %11 to i1
+  br i1 %tobool13.i, label %if.then14.i, label %return
 
 if.then14.i:                                      ; preds = %if.end11.i
   %mutex15.i = getelementptr inbounds i8, ptr %self, i64 21
-  %14 = cmpxchg ptr %mutex15.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %15 = extractvalue { i8, i1 } %14, 1
-  br i1 %15, label %return, label %if.then.i16.i
+  %12 = cmpxchg ptr %mutex15.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %13 = extractvalue { i8, i1 } %12, 1
+  br i1 %13, label %return, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then14.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex15.i) #3
@@ -1758,15 +1748,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
@@ -1774,18 +1763,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
   %state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %4 = load ptr, ptr %state.i, align 8
-  call void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef %4, ptr noundef nonnull %digest.i) #3
-  %5 = load i8, ptr %use_mutex.i, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %SHA512Type_digest_impl.exit, label %if.then3.i
+  %3 = load ptr, ptr %state.i, align 8
+  call void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef %3, ptr noundef nonnull %digest.i) #3
+  %4 = load i8, ptr %use_mutex.i, align 4
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %SHA512Type_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %SHA512Type_digest_impl.exit, label %if.then.i6.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %SHA512Type_digest_impl.exit, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #3
@@ -1793,8 +1781,8 @@ if.then.i6.i:                                     ; preds = %if.then3.i
 
 SHA512Type_digest_impl.exit:                      ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
   %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load i32, ptr %digestsize.i, align 8
-  %conv.i = sext i32 %9 to i64
+  %7 = load i32, ptr %digestsize.i, align 8
+  %conv.i = sext i32 %7 to i64
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   ret ptr %call.i
@@ -1807,15 +1795,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
@@ -1823,18 +1810,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
   %state.i = getelementptr inbounds i8, ptr %self, i64 24
-  %4 = load ptr, ptr %state.i, align 8
-  call void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef %4, ptr noundef nonnull %digest.i) #3
-  %5 = load i8, ptr %use_mutex.i, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %SHA512Type_hexdigest_impl.exit, label %if.then3.i
+  %3 = load ptr, ptr %state.i, align 8
+  call void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef %3, ptr noundef nonnull %digest.i) #3
+  %4 = load i8, ptr %use_mutex.i, align 4
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %SHA512Type_hexdigest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %SHA512Type_hexdigest_impl.exit, label %if.then.i6.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %SHA512Type_hexdigest_impl.exit, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #3
@@ -1842,8 +1828,8 @@ if.then.i6.i:                                     ; preds = %if.then3.i
 
 SHA512Type_hexdigest_impl.exit:                   ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
   %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load i32, ptr %digestsize.i, align 8
-  %conv.i = sext i32 %9 to i64
+  %7 = load i32, ptr %digestsize.i, align 8
+  %conv.i = sext i32 %7 to i64
   %call.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   ret ptr %call.i
@@ -1896,29 +1882,27 @@ if.then10:                                        ; preds = %if.end8
 do.end:                                           ; preds = %if.end8
   %use_mutex = getelementptr inbounds i8, ptr %self, i64 20
   %7 = load i8, ptr %use_mutex, align 4
-  %8 = and i8 %7, 1
-  %tobool12.not9 = icmp eq i8 %8, 0
+  %tobool12 = trunc i8 %7 to i1
   %len = getelementptr inbounds i8, ptr %buf, i64 16
-  %9 = load i64, ptr %len, align 8
-  %cmp13 = icmp sgt i64 %9, 2047
-  %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
-  br i1 %or.cond, label %if.end16.thread, label %if.end16
+  %8 = load i64, ptr %len, align 8
+  %cmp13 = icmp slt i64 %8, 2048
+  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
+  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %do.end
   store i8 1, ptr %use_mutex, align 4
   br label %if.then19
 
 if.end16:                                         ; preds = %do.end
-  %10 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %10, 0
-  br i1 %tobool18.not, label %if.else, label %if.then19
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #3
   %mutex = getelementptr inbounds i8, ptr %self, i64 21
-  %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
+  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
   call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #3
@@ -1926,62 +1910,62 @@ if.then.i:                                        ; preds = %if.then19
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
   %state = getelementptr inbounds i8, ptr %self, i64 24
-  %13 = load ptr, ptr %state, align 8
-  %14 = load ptr, ptr %buf, align 8
-  %15 = load i64, ptr %len, align 8
-  %cmp6.i = icmp sgt i64 %15, 4294967295
+  %11 = load ptr, ptr %state, align 8
+  %12 = load ptr, ptr %buf, align 8
+  %13 = load i64, ptr %len, align 8
+  %cmp6.i = icmp sgt i64 %13, 4294967295
   br i1 %cmp6.i, label %while.body.i, label %update_512.exit
 
 while.body.i:                                     ; preds = %PyMutex_Lock.exit, %while.body.i
-  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %15, %PyMutex_Lock.exit ]
-  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %14, %PyMutex_Lock.exit ]
-  %call.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %13, ptr noundef %buf.addr.07.i, i32 noundef -1) #3
+  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %13, %PyMutex_Lock.exit ]
+  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %12, %PyMutex_Lock.exit ]
+  %call.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %11, ptr noundef %buf.addr.07.i, i32 noundef -1) #3
   %sub.i = add nsw i64 %len.addr.08.i, -4294967295
   %add.ptr.i = getelementptr i8, ptr %buf.addr.07.i, i64 4294967295
   %cmp.i = icmp ugt i64 %len.addr.08.i, 8589934590
   br i1 %cmp.i, label %while.body.i, label %update_512.exit, !llvm.loop !6
 
 update_512.exit:                                  ; preds = %while.body.i, %PyMutex_Lock.exit
-  %buf.addr.0.lcssa.i = phi ptr [ %14, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
-  %len.addr.0.lcssa.i = phi i64 [ %15, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
-  %conv.i10 = trunc i64 %len.addr.0.lcssa.i to i32
-  %call1.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %13, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i10) #3
-  %16 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %PyMutex_Unlock.exit, label %if.then.i11
+  %buf.addr.0.lcssa.i = phi ptr [ %12, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
+  %len.addr.0.lcssa.i = phi i64 [ %13, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
+  %conv.i9 = trunc i64 %len.addr.0.lcssa.i to i32
+  %call1.i = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %11, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i9) #3
+  %14 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
+  %15 = extractvalue { i8, i1 } %14, 1
+  br i1 %15, label %PyMutex_Unlock.exit, label %if.then.i10
 
-if.then.i11:                                      ; preds = %update_512.exit
+if.then.i10:                                      ; preds = %update_512.exit
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #3
   br label %PyMutex_Unlock.exit
 
-PyMutex_Unlock.exit:                              ; preds = %update_512.exit, %if.then.i11
+PyMutex_Unlock.exit:                              ; preds = %update_512.exit, %if.then.i10
   call void @PyEval_RestoreThread(ptr noundef %call20) #3
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
   %state24 = getelementptr inbounds i8, ptr %self, i64 24
-  %18 = load ptr, ptr %state24, align 8
-  %19 = load ptr, ptr %buf, align 8
-  %cmp6.i12 = icmp sgt i64 %9, 4294967295
-  br i1 %cmp6.i12, label %while.body.i17, label %update_512.exit24
+  %16 = load ptr, ptr %state24, align 8
+  %17 = load ptr, ptr %buf, align 8
+  %cmp6.i11 = icmp sgt i64 %8, 4294967295
+  br i1 %cmp6.i11, label %while.body.i16, label %update_512.exit23
 
-while.body.i17:                                   ; preds = %if.else, %while.body.i17
-  %len.addr.08.i18 = phi i64 [ %sub.i21, %while.body.i17 ], [ %9, %if.else ]
-  %buf.addr.07.i19 = phi ptr [ %add.ptr.i22, %while.body.i17 ], [ %19, %if.else ]
-  %call.i20 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %18, ptr noundef %buf.addr.07.i19, i32 noundef -1) #3
-  %sub.i21 = add nsw i64 %len.addr.08.i18, -4294967295
-  %add.ptr.i22 = getelementptr i8, ptr %buf.addr.07.i19, i64 4294967295
-  %cmp.i23 = icmp ugt i64 %len.addr.08.i18, 8589934590
-  br i1 %cmp.i23, label %while.body.i17, label %update_512.exit24, !llvm.loop !6
+while.body.i16:                                   ; preds = %if.else, %while.body.i16
+  %len.addr.08.i17 = phi i64 [ %sub.i20, %while.body.i16 ], [ %8, %if.else ]
+  %buf.addr.07.i18 = phi ptr [ %add.ptr.i21, %while.body.i16 ], [ %17, %if.else ]
+  %call.i19 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %16, ptr noundef %buf.addr.07.i18, i32 noundef -1) #3
+  %sub.i20 = add nsw i64 %len.addr.08.i17, -4294967295
+  %add.ptr.i21 = getelementptr i8, ptr %buf.addr.07.i18, i64 4294967295
+  %cmp.i22 = icmp ugt i64 %len.addr.08.i17, 8589934590
+  br i1 %cmp.i22, label %while.body.i16, label %update_512.exit23, !llvm.loop !6
 
-update_512.exit24:                                ; preds = %while.body.i17, %if.else
-  %buf.addr.0.lcssa.i13 = phi ptr [ %19, %if.else ], [ %add.ptr.i22, %while.body.i17 ]
-  %len.addr.0.lcssa.i14 = phi i64 [ %9, %if.else ], [ %sub.i21, %while.body.i17 ]
-  %conv.i15 = trunc i64 %len.addr.0.lcssa.i14 to i32
-  %call1.i16 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %18, ptr noundef %buf.addr.0.lcssa.i13, i32 noundef %conv.i15) #3
+update_512.exit23:                                ; preds = %while.body.i16, %if.else
+  %buf.addr.0.lcssa.i12 = phi ptr [ %17, %if.else ], [ %add.ptr.i21, %while.body.i16 ]
+  %len.addr.0.lcssa.i13 = phi i64 [ %8, %if.else ], [ %sub.i20, %while.body.i16 ]
+  %conv.i14 = trunc i64 %len.addr.0.lcssa.i13 to i32
+  %call1.i15 = call zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef %16, ptr noundef %buf.addr.0.lcssa.i12, i32 noundef %conv.i14) #3
   br label %if.end27
 
-if.end27:                                         ; preds = %update_512.exit24, %PyMutex_Unlock.exit
+if.end27:                                         ; preds = %update_512.exit23, %PyMutex_Unlock.exit
   call void @PyBuffer_Release(ptr noundef nonnull %buf) #3
   br label %return
 

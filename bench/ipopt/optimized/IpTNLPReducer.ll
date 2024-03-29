@@ -882,11 +882,10 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer22get_scaling_parametersERdRbiP
 
 22:                                               ; preds = %8
   %23 = load i8, ptr %5, align 1
-  %24 = and i8 %23, 1
-  %.not = icmp ne i8 %24, 0
+  %24 = trunc i8 %23 to i1
   %25 = load i32, ptr %9, align 8
   %26 = icmp sgt i32 %25, 0
-  %or.cond = select i1 %.not, i1 %26, i1 false
+  %or.cond = select i1 %24, i1 %26, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %22

@@ -170,7 +170,7 @@ declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %2, label %._crit_edge
+  br i1 %or.cond, label %2, label %48
 
 2:                                                ; preds = %1
   %.b33 = load i1, ptr @backend_startup_complete, align 1
@@ -178,7 +178,7 @@ define dso_local i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %2
   store i32 %0, ptr @pending_client_encoding, align 4
-  br label %._crit_edge
+  br label %48
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @DatabaseEncoding, align 8
@@ -197,12 +197,12 @@ define dso_local i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
   store ptr %13, ptr @ClientEncoding, align 8
   store ptr null, ptr @ToServerConvProc, align 8
   store ptr null, ptr @ToClientConvProc, align 8
-  br label %._crit_edge
+  br label %48
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @ConvProcList, align 8
-  %.not39 = icmp eq ptr %15, null
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not37 = icmp eq ptr %15, null
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %16 = zext nneg i32 %0 to i64
@@ -210,18 +210,18 @@ define dso_local i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %.lr.ph, %43
-  %.sroa.0.042 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %43 ]
-  %.sroa.5.041 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
-  %.03040 = phi i8 [ 0, %.lr.ph ], [ %.1, %43 ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.042, i64 4
+  %.sroa.0.040 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %43 ]
+  %.sroa.5.039 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
+  %.03038 = phi i8 [ 0, %.lr.ph ], [ %.1, %43 ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.040, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %.sroa.5.041, %20
+  %21 = icmp slt i32 %.sroa.5.039, %20
   br i1 %21, label %22, label %._crit_edge.loopexit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.042, i64 16
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.040, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %.sroa.5.041 to i64
+  %25 = sext i32 %.sroa.5.039 to i64
   %26 = getelementptr %union.ListCell, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
@@ -235,9 +235,8 @@ define dso_local i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %33, label %34, label %43
 
 34:                                               ; preds = %30
-  %35 = and i8 %.03040, 1
-  %.not36 = icmp eq i8 %35, 0
-  br i1 %.not36, label %36, label %39
+  %35 = trunc i8 %.03038 to i1
+  br i1 %35, label %39, label %36
 
 36:                                               ; preds = %34
   store ptr %17, ptr @ClientEncoding, align 8
@@ -249,29 +248,34 @@ define dso_local i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr @ConvProcList, align 8
-  %41 = add i32 %.sroa.5.041, -1
-  %42 = tail call ptr @list_delete_nth_cell(ptr noundef %40, i32 noundef %.sroa.5.041) #13
+  %41 = add i32 %.sroa.5.039, -1
+  %42 = tail call ptr @list_delete_nth_cell(ptr noundef %40, i32 noundef %.sroa.5.039) #13
   store ptr %42, ptr @ConvProcList, align 8
   tail call void @pfree(ptr noundef nonnull %27) #13
   br label %43
 
 43:                                               ; preds = %22, %30, %39, %36
-  %.1 = phi i8 [ %.03040, %39 ], [ 1, %36 ], [ %.03040, %30 ], [ %.03040, %22 ]
-  %.sroa.5.1 = phi i32 [ %41, %39 ], [ %.sroa.5.041, %36 ], [ %.sroa.5.041, %30 ], [ %.sroa.5.041, %22 ]
-  %.sroa.0.1 = phi ptr [ %42, %39 ], [ %.sroa.0.042, %36 ], [ %.sroa.0.042, %30 ], [ %.sroa.0.042, %22 ]
+  %.1 = phi i8 [ %.03038, %39 ], [ 1, %36 ], [ %.03038, %30 ], [ %.03038, %22 ]
+  %.sroa.5.1 = phi i32 [ %41, %39 ], [ %.sroa.5.039, %36 ], [ %.sroa.5.039, %30 ], [ %.sroa.5.039, %22 ]
+  %.sroa.0.1 = phi ptr [ %42, %39 ], [ %.sroa.0.040, %36 ], [ %.sroa.0.040, %30 ], [ %.sroa.0.040, %22 ]
   %44 = add i32 %.sroa.5.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
   br i1 %.not, label %._crit_edge.loopexit, label %18, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %18, %43
-  %.030.lcssa.ph = phi i8 [ %.1, %43 ], [ %.03040, %18 ]
+  %.030.lcssa.ph = phi i8 [ %.1, %43 ], [ %.03038, %18 ]
   %45 = and i8 %.030.lcssa.ph, 1
-  %46 = add nsw i8 %45, -1
-  %47 = sext i8 %46 to i32
+  %46 = xor i8 %45, 1
+  %47 = zext nneg i8 %46 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit, %1, %11, %3
-  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ -1, %14 ], [ %47, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
+  %.030.lcssa = phi i32 [ 1, %14 ], [ %47, %._crit_edge.loopexit ]
+  %. = sub nsw i32 0, %.030.lcssa
+  br label %48
+
+48:                                               ; preds = %._crit_edge, %1, %11, %3
+  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %., %._crit_edge ]
   ret i32 %.0
 }
 

@@ -70,45 +70,45 @@ define hidden void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !noalias !4, !nonnull !4
   %16 = tail call noundef i8 %15(ptr noundef align 1 %13), !range !22, !noalias !23
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %21
+  br i1 %17, label %18, label %22
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %2, i64 32
   %20 = load i8, ptr %19, align 8, !range !26, !noundef !4
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %28, label %25
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %26, label %29
 
-21:                                               ; preds = %3
-  %22 = tail call noundef i8 %15(ptr noundef align 1 %13), !range !22, !noalias !27
-  %23 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError23unsupported_overlapping17hb3bb323cac127fd5E(i8 noundef %22)
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %23, ptr %24, align 8
+22:                                               ; preds = %3
+  %23 = tail call noundef i8 %15(ptr noundef align 1 %13), !range !22, !noalias !27
+  %24 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError23unsupported_overlapping17hb3bb323cac127fd5E(i8 noundef %23)
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %24, ptr %25, align 8
   store i64 2, ptr %0, align 8
-  br label %34
+  br label %35
 
-25:                                               ; preds = %18
-  %26 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError22invalid_input_anchored17h1c26780cb9b8bb2bE()
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %26, ptr %27, align 8
+26:                                               ; preds = %18
+  %27 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError22invalid_input_anchored17h1c26780cb9b8bb2bE()
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %27, ptr %28, align 8
   store i64 2, ptr %0, align 8
-  br label %34
+  br label %35
 
-28:                                               ; preds = %18
+29:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %29 = getelementptr inbounds i8, ptr %7, i64 24
-  %30 = load ptr, ptr %29, align 8, !invariant.load !4, !noalias !30, !nonnull !4
-  call void %30(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noundef align 1 %13, i1 noundef zeroext false), !noalias !34
-  %31 = load i32, ptr %4, align 8, !range !35, !noundef !4
-  %trunc.not = icmp eq i32 %31, 0
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load ptr, ptr %32, align 8, !nonnull !4, !align !36
+  %30 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = load ptr, ptr %30, align 8, !invariant.load !4, !noalias !30, !nonnull !4
+  call void %31(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noundef align 1 %13, i1 noundef zeroext false), !noalias !34
+  %32 = load i32, ptr %4, align 8, !range !35, !noundef !4
+  %trunc = trunc i32 %32 to i1
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = load ptr, ptr %33, align 8, !nonnull !4, !align !36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %trunc.not, label %35, label %36
+  br i1 %trunc, label %37, label %36
 
-34:                                               ; preds = %36, %35, %25, %21
+35:                                               ; preds = %37, %36, %26, %22
   ret void
 
-35:                                               ; preds = %28
+36:                                               ; preds = %29
   store i64 0, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.45.0..sroa_idx, align 8
@@ -120,13 +120,13 @@ define hidden void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %.sroa.10.0..sroa_idx, align 8
-  br label %34
+  br label %35
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %33, ptr %37, align 8
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %34, ptr %38, align 8
   store i64 2, ptr %0, align 8
-  br label %34
+  br label %35
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

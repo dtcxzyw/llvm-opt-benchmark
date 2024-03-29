@@ -44,15 +44,14 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %chain_frozen = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %chain_frozen, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end4, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end4
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end
   tail call void @bdrv_graph_rdlock_main_loop() #4
   store i8 0, ptr %chain_frozen, align 8
-  %3 = load ptr, ptr %0, align 8
-  tail call void @bdrv_unfreeze_backing_chain(ptr noundef nonnull %cor_filter_bs, ptr noundef %3) #4
+  %2 = load ptr, ptr %0, align 8
+  tail call void @bdrv_unfreeze_backing_chain(ptr noundef nonnull %cor_filter_bs, ptr noundef %2) #4
   tail call void @bdrv_graph_rdunlock_main_loop() #4
   br label %if.end4
 
@@ -160,9 +159,8 @@ if.then19:                                        ; preds = %if.end17
 if.end20:                                         ; preds = %if.end17
   %is_filter = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i8, ptr %is_filter, align 4
-  %8 = and i8 %7, 1
-  %tobool22.not = icmp eq i8 %8, 0
-  br i1 %tobool22.not, label %if.end24, label %if.then23
+  %tobool22 = trunc i8 %7 to i1
+  br i1 %tobool22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end20
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.cor_open, ptr noundef nonnull @.str.7, ptr noundef nonnull %call) #4
@@ -209,21 +207,20 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %chain_frozen = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %chain_frozen, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end3, label %if.then1
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %do.end
   tail call void @bdrv_graph_rdlock_main_loop() #4
   store i8 0, ptr %chain_frozen, align 8
-  %3 = load ptr, ptr %0, align 8
-  tail call void @bdrv_unfreeze_backing_chain(ptr noundef nonnull %bs, ptr noundef %3) #4
+  %2 = load ptr, ptr %0, align 8
+  tail call void @bdrv_unfreeze_backing_chain(ptr noundef nonnull %bs, ptr noundef %2) #4
   tail call void @bdrv_graph_rdunlock_main_loop() #4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %do.end
-  %4 = load ptr, ptr %0, align 8
-  tail call void @bdrv_unref(ptr noundef %4) #4
+  %3 = load ptr, ptr %0, align 8
+  tail call void @bdrv_unref(ptr noundef %3) #4
   ret void
 }
 

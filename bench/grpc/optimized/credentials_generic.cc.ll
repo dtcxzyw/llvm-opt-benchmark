@@ -60,9 +60,8 @@ entry:
   call void @_ZN9grpc_core6GetEnvB5cxx11EPKc(ptr nonnull sret(%"class.std::optional") align 8 %base, ptr noundef nonnull @.str)
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %base, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.then, label %invoke.cont9
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %invoke.cont9, label %if.then
 
 if.then:                                          ; preds = %entry
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 35, i32 noundef 2, ptr noundef nonnull @.str.2)
@@ -82,7 +81,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #8
   br label %lpad1.body
@@ -92,41 +91,40 @@ invoke.cont2:                                     ; preds = %.noexc
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont9, %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad1:                                            ; preds = %call.i.noexc, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %lpad1.body
 
 lpad1.body:                                       ; preds = %lpad.i, %lpad1
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad1 ], [ %2, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad1 ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   br label %ehcleanup
 
 invoke.cont9:                                     ; preds = %entry
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %base) #8
-  %5 = extractvalue { i64, ptr } %call.i, 0
-  store i64 %5, ptr %ref.tmp3, align 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  %7 = extractvalue { i64, ptr } %call.i, 1
-  store ptr %7, ptr %6, align 8
+  %4 = extractvalue { i64, ptr } %call.i, 0
+  store i64 %4, ptr %ref.tmp3, align 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %6 = extractvalue { i64, ptr } %call.i, 1
+  store ptr %6, ptr %5, align 8
   store i64 1, ptr %ref.tmp6, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  store ptr @.str.4, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  store ptr @.str.4, ptr %7, align 8
   store i64 51, ptr %ref.tmp8, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  store ptr @.str.5, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  store ptr @.str.5, ptr %8, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont2
-  %10 = load i8, ptr %_M_engaged.i.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i.i
+  %9 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %cleanup
   store i8 0, ptr %_M_engaged.i.i, align 8
@@ -137,11 +135,10 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   ret void
 
 ehcleanup:                                        ; preds = %lpad1.body, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %eh.lpad-body, %lpad1.body ]
-  %12 = load i8, ptr %_M_engaged.i.i, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i.i.i5 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i.i.i.i5, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit7, label %if.then.i.i.i.i6
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %eh.lpad-body, %lpad1.body ]
+  %10 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i5 = trunc i8 %10 to i1
+  br i1 %tobool.i.i.i.i5, label %if.then.i.i.i.i6, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit7
 
 if.then.i.i.i.i6:                                 ; preds = %ehcleanup
   store i8 0, ptr %_M_engaged.i.i, align 8

@@ -174,221 +174,209 @@ if.end:                                           ; preds = %entry
   %call5 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.7, i32 noundef %conv) #2
   %vhost_started = getelementptr inbounds i8, ptr %call1, i64 10
   %4 = load i8, ptr %vhost_started, align 2
-  %5 = and i8 %4, 1
-  %tobool6.not = icmp eq i8 %5, 0
-  %cond8 = select i1 %tobool6.not, ptr @.str.10, ptr @.str.9
+  %tobool6 = trunc i8 %4 to i1
+  %cond8 = select i1 %tobool6, ptr @.str.9, ptr @.str.10
   %call9 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.8, ptr noundef nonnull %cond8) #2
   %bus_name = getelementptr inbounds i8, ptr %call1, i64 80
-  %6 = load ptr, ptr %bus_name, align 8
-  %call10 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, ptr noundef %6) #2
+  %5 = load ptr, ptr %bus_name, align 8
+  %call10 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, ptr noundef %5) #2
   %broken = getelementptr inbounds i8, ptr %call1, i64 69
-  %7 = load i8, ptr %broken, align 1
-  %8 = and i8 %7, 1
-  %tobool11.not = icmp eq i8 %8, 0
-  %cond13 = select i1 %tobool11.not, ptr @.str.10, ptr @.str.9
+  %6 = load i8, ptr %broken, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %cond13 = select i1 %tobool11, ptr @.str.9, ptr @.str.10
   %call14 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.12, ptr noundef nonnull %cond13) #2
   %disabled = getelementptr inbounds i8, ptr %call1, i64 70
-  %9 = load i8, ptr %disabled, align 2
-  %10 = and i8 %9, 1
-  %tobool15.not = icmp eq i8 %10, 0
-  %cond17 = select i1 %tobool15.not, ptr @.str.10, ptr @.str.9
+  %7 = load i8, ptr %disabled, align 2
+  %tobool15 = trunc i8 %7 to i1
+  %cond17 = select i1 %tobool15, ptr @.str.9, ptr @.str.10
   %call18 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.13, ptr noundef nonnull %cond17) #2
   %disable_legacy_check = getelementptr inbounds i8, ptr %call1, i64 74
-  %11 = load i8, ptr %disable_legacy_check, align 2
-  %12 = and i8 %11, 1
-  %tobool19.not = icmp eq i8 %12, 0
-  %cond21 = select i1 %tobool19.not, ptr @.str.10, ptr @.str.9
+  %8 = load i8, ptr %disable_legacy_check, align 2
+  %tobool19 = trunc i8 %8 to i1
+  %cond21 = select i1 %tobool19, ptr @.str.9, ptr @.str.10
   %call22 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond21) #2
   %started = getelementptr inbounds i8, ptr %call1, i64 72
-  %13 = load i8, ptr %started, align 8
-  %14 = and i8 %13, 1
-  %tobool23.not = icmp eq i8 %14, 0
-  %cond25 = select i1 %tobool23.not, ptr @.str.10, ptr @.str.9
+  %9 = load i8, ptr %started, align 8
+  %tobool23 = trunc i8 %9 to i1
+  %cond25 = select i1 %tobool23, ptr @.str.9, ptr @.str.10
   %call26 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.15, ptr noundef nonnull %cond25) #2
   %use_started = getelementptr inbounds i8, ptr %call1, i64 71
-  %15 = load i8, ptr %use_started, align 1
-  %16 = and i8 %15, 1
-  %tobool27.not = icmp eq i8 %16, 0
-  %cond29 = select i1 %tobool27.not, ptr @.str.10, ptr @.str.9
+  %10 = load i8, ptr %use_started, align 1
+  %tobool27 = trunc i8 %10 to i1
+  %cond29 = select i1 %tobool27, ptr @.str.9, ptr @.str.10
   %call30 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.16, ptr noundef nonnull %cond29) #2
   %start_on_kick = getelementptr inbounds i8, ptr %call1, i64 73
-  %17 = load i8, ptr %start_on_kick, align 1
-  %18 = and i8 %17, 1
-  %tobool31.not = icmp eq i8 %18, 0
-  %cond33 = select i1 %tobool31.not, ptr @.str.10, ptr @.str.9
+  %11 = load i8, ptr %start_on_kick, align 1
+  %tobool31 = trunc i8 %11 to i1
+  %cond33 = select i1 %tobool31, ptr @.str.9, ptr @.str.10
   %call34 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.17, ptr noundef nonnull %cond33) #2
   %use_guest_notifier_mask = getelementptr inbounds i8, ptr %call1, i64 88
-  %19 = load i8, ptr %use_guest_notifier_mask, align 8
-  %20 = and i8 %19, 1
-  %tobool35.not = icmp eq i8 %20, 0
-  %cond37 = select i1 %tobool35.not, ptr @.str.10, ptr @.str.9
+  %12 = load i8, ptr %use_guest_notifier_mask, align 8
+  %tobool35 = trunc i8 %12 to i1
+  %cond37 = select i1 %tobool35, ptr @.str.9, ptr @.str.10
   %call38 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.18, ptr noundef nonnull %cond37) #2
   %vm_running = getelementptr inbounds i8, ptr %call1, i64 68
-  %21 = load i8, ptr %vm_running, align 4
-  %22 = and i8 %21, 1
-  %tobool39.not = icmp eq i8 %22, 0
-  %cond41 = select i1 %tobool39.not, ptr @.str.10, ptr @.str.9
+  %13 = load i8, ptr %vm_running, align 4
+  %tobool39 = trunc i8 %13 to i1
+  %cond41 = select i1 %tobool39, ptr @.str.9, ptr @.str.10
   %call42 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.19, ptr noundef nonnull %cond41) #2
   %num_vqs = getelementptr inbounds i8, ptr %call1, i64 48
-  %23 = load i64, ptr %num_vqs, align 8
-  %call43 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.20, i64 noundef %23) #2
+  %14 = load i64, ptr %num_vqs, align 8
+  %call43 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.20, i64 noundef %14) #2
   %queue_sel = getelementptr inbounds i8, ptr %call1, i64 66
-  %24 = load i16, ptr %queue_sel, align 2
-  %conv44 = zext i16 %24 to i32
+  %15 = load i16, ptr %queue_sel, align 2
+  %conv44 = zext i16 %15 to i32
   %call45 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i32 noundef %conv44) #2
   %isr = getelementptr inbounds i8, ptr %call1, i64 64
-  %25 = load i8, ptr %isr, align 8
-  %conv46 = zext i8 %25 to i32
+  %16 = load i8, ptr %isr, align 8
+  %conv46 = zext i8 %16 to i32
   %call47 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22, i32 noundef %conv46) #2
   %device_endian = getelementptr inbounds i8, ptr %call1, i64 16
-  %26 = load ptr, ptr %device_endian, align 8
-  %call48 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.23, ptr noundef %26) #2
+  %17 = load ptr, ptr %device_endian, align 8
+  %call48 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.23, ptr noundef %17) #2
   %call49 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.24) #2
   %status = getelementptr inbounds i8, ptr %call1, i64 56
-  %27 = load ptr, ptr %status, align 8
-  %28 = load ptr, ptr %27, align 8
-  %tobool.not9.i = icmp eq ptr %28, null
+  %18 = load ptr, ptr %status, align 8
+  %19 = load ptr, ptr %18, align 8
+  %tobool.not9.i = icmp eq ptr %19, null
   br i1 %tobool.not9.i, label %while.end.i, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end
-  %value.i90 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load ptr, ptr %value.i90, align 8
-  %call.i91 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %29) #2
-  %30 = load ptr, ptr %28, align 8
-  %cond.i92 = icmp eq ptr %30, null
+  %value.i90 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %value.i90, align 8
+  %call.i91 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %20) #2
+  %21 = load ptr, ptr %19, align 8
+  %cond.i92 = icmp eq ptr %21, null
   br i1 %cond.i92, label %while.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i.preheader, %if.then.i
-  %31 = phi ptr [ %33, %if.then.i ], [ %30, %while.body.i.preheader ]
+  %22 = phi ptr [ %24, %if.then.i ], [ %21, %while.body.i.preheader ]
   %call1.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.80) #2
-  %value.i = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load ptr, ptr %value.i, align 8
-  %call.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %32) #2
-  %33 = load ptr, ptr %31, align 8
-  %cond.i = icmp eq ptr %33, null
+  %value.i = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load ptr, ptr %value.i, align 8
+  %call.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %23) #2
+  %24 = load ptr, ptr %22, align 8
+  %cond.i = icmp eq ptr %24, null
   br i1 %cond.i, label %while.end.i, label %if.then.i
 
 while.end.i:                                      ; preds = %if.then.i, %while.body.i.preheader, %if.end
   %call2.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.81) #2
-  %has_unknown_statuses.i = getelementptr inbounds i8, ptr %27, i64 8
-  %34 = load i8, ptr %has_unknown_statuses.i, align 8
-  %35 = and i8 %34, 1
-  %tobool3.not.i = icmp eq i8 %35, 0
-  br i1 %tobool3.not.i, label %hmp_virtio_dump_status.exit, label %if.then4.i
+  %has_unknown_statuses.i = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = load i8, ptr %has_unknown_statuses.i, align 8
+  %tobool3.i = trunc i8 %25 to i1
+  br i1 %tobool3.i, label %if.then4.i, label %hmp_virtio_dump_status.exit
 
 if.then4.i:                                       ; preds = %while.end.i
-  %unknown_statuses.i = getelementptr inbounds i8, ptr %27, i64 9
-  %36 = load i8, ptr %unknown_statuses.i, align 1
-  %conv.i = zext i8 %36 to i32
+  %unknown_statuses.i = getelementptr inbounds i8, ptr %18, i64 9
+  %26 = load i8, ptr %unknown_statuses.i, align 1
+  %conv.i = zext i8 %26 to i32
   %call5.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.88, i32 noundef %conv.i) #2
   br label %hmp_virtio_dump_status.exit
 
 hmp_virtio_dump_status.exit:                      ; preds = %while.end.i, %if.then4.i
   %call50 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.25) #2
   %guest_features = getelementptr inbounds i8, ptr %call1, i64 24
-  %37 = load ptr, ptr %guest_features, align 8
-  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %37)
+  %27 = load ptr, ptr %guest_features, align 8
+  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %27)
   %call51 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26) #2
   %host_features = getelementptr inbounds i8, ptr %call1, i64 32
-  %38 = load ptr, ptr %host_features, align 8
-  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %38)
+  %28 = load ptr, ptr %host_features, align 8
+  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %28)
   %call52 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27) #2
   %backend_features = getelementptr inbounds i8, ptr %call1, i64 40
-  %39 = load ptr, ptr %backend_features, align 8
-  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %39)
-  %40 = load ptr, ptr %vhost_dev, align 8
-  %tobool54.not = icmp eq ptr %40, null
+  %29 = load ptr, ptr %backend_features, align 8
+  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %29)
+  %30 = load ptr, ptr %vhost_dev, align 8
+  %tobool54.not = icmp eq ptr %30, null
   br i1 %tobool54.not, label %if.end85, label %if.then55
 
 if.then55:                                        ; preds = %hmp_virtio_dump_status.exit
   %call56 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #2
+  %31 = load ptr, ptr %vhost_dev, align 8
+  %nvqs = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = load i32, ptr %nvqs, align 8
+  %call58 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.29, i32 noundef %32) #2
+  %33 = load ptr, ptr %vhost_dev, align 8
+  %vq_index = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = load i64, ptr %vq_index, align 8
+  %call60 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.30, i64 noundef %34) #2
+  %35 = load ptr, ptr %vhost_dev, align 8
+  %max_queues = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = load i64, ptr %max_queues, align 8
+  %call62 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.31, i64 noundef %36) #2
+  %37 = load ptr, ptr %vhost_dev, align 8
+  %38 = load i64, ptr %37, align 8
+  %call64 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.32, i64 noundef %38) #2
+  %39 = load ptr, ptr %vhost_dev, align 8
+  %n_tmp_sections = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = load i64, ptr %n_tmp_sections, align 8
+  %call66 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.33, i64 noundef %40) #2
   %41 = load ptr, ptr %vhost_dev, align 8
-  %nvqs = getelementptr inbounds i8, ptr %41, i64 16
-  %42 = load i32, ptr %nvqs, align 8
-  %call58 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.29, i32 noundef %42) #2
+  %backend_cap = getelementptr inbounds i8, ptr %41, i64 72
+  %42 = load i64, ptr %backend_cap, align 8
+  %call68 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, i64 noundef %42) #2
   %43 = load ptr, ptr %vhost_dev, align 8
-  %vq_index = getelementptr inbounds i8, ptr %43, i64 24
-  %44 = load i64, ptr %vq_index, align 8
-  %call60 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.30, i64 noundef %44) #2
-  %45 = load ptr, ptr %vhost_dev, align 8
-  %max_queues = getelementptr inbounds i8, ptr %45, i64 64
-  %46 = load i64, ptr %max_queues, align 8
-  %call62 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.31, i64 noundef %46) #2
-  %47 = load ptr, ptr %vhost_dev, align 8
-  %48 = load i64, ptr %47, align 8
-  %call64 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.32, i64 noundef %48) #2
-  %49 = load ptr, ptr %vhost_dev, align 8
-  %n_tmp_sections = getelementptr inbounds i8, ptr %49, i64 8
-  %50 = load i64, ptr %n_tmp_sections, align 8
-  %call66 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.33, i64 noundef %50) #2
-  %51 = load ptr, ptr %vhost_dev, align 8
-  %backend_cap = getelementptr inbounds i8, ptr %51, i64 72
-  %52 = load i64, ptr %backend_cap, align 8
-  %call68 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, i64 noundef %52) #2
-  %53 = load ptr, ptr %vhost_dev, align 8
-  %log_enabled = getelementptr inbounds i8, ptr %53, i64 80
-  %54 = load i8, ptr %log_enabled, align 8
-  %55 = and i8 %54, 1
-  %tobool70.not = icmp eq i8 %55, 0
-  %cond72 = select i1 %tobool70.not, ptr @.str.10, ptr @.str.9
+  %log_enabled = getelementptr inbounds i8, ptr %43, i64 80
+  %44 = load i8, ptr %log_enabled, align 8
+  %tobool70 = trunc i8 %44 to i1
+  %cond72 = select i1 %tobool70, ptr @.str.9, ptr @.str.10
   %call73 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35, ptr noundef nonnull %cond72) #2
-  %56 = load ptr, ptr %vhost_dev, align 8
-  %log_size = getelementptr inbounds i8, ptr %56, i64 88
-  %57 = load i64, ptr %log_size, align 8
-  %call75 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, i64 noundef %57) #2
+  %45 = load ptr, ptr %vhost_dev, align 8
+  %log_size = getelementptr inbounds i8, ptr %45, i64 88
+  %46 = load i64, ptr %log_size, align 8
+  %call75 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, i64 noundef %46) #2
   %call76 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.37) #2
-  %58 = load ptr, ptr %vhost_dev, align 8
-  %features = getelementptr inbounds i8, ptr %58, i64 32
-  %59 = load ptr, ptr %features, align 8
-  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %59)
+  %47 = load ptr, ptr %vhost_dev, align 8
+  %features = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = load ptr, ptr %features, align 8
+  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %48)
   %call78 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38) #2
-  %60 = load ptr, ptr %vhost_dev, align 8
-  %acked_features = getelementptr inbounds i8, ptr %60, i64 40
-  %61 = load ptr, ptr %acked_features, align 8
-  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %61)
+  %49 = load ptr, ptr %vhost_dev, align 8
+  %acked_features = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = load ptr, ptr %acked_features, align 8
+  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %50)
   %call80 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.39) #2
-  %62 = load ptr, ptr %vhost_dev, align 8
-  %backend_features82 = getelementptr inbounds i8, ptr %62, i64 48
-  %63 = load ptr, ptr %backend_features82, align 8
-  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %63)
+  %51 = load ptr, ptr %vhost_dev, align 8
+  %backend_features82 = getelementptr inbounds i8, ptr %51, i64 48
+  %52 = load ptr, ptr %backend_features82, align 8
+  call fastcc void @hmp_virtio_dump_features(ptr noundef %mon, ptr noundef %52)
   %call83 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.40) #2
-  %64 = load ptr, ptr %vhost_dev, align 8
-  %protocol_features = getelementptr inbounds i8, ptr %64, i64 56
-  %65 = load ptr, ptr %protocol_features, align 8
-  %66 = load ptr, ptr %65, align 8
-  %tobool.not9.i78 = icmp eq ptr %66, null
+  %53 = load ptr, ptr %vhost_dev, align 8
+  %protocol_features = getelementptr inbounds i8, ptr %53, i64 56
+  %54 = load ptr, ptr %protocol_features, align 8
+  %55 = load ptr, ptr %54, align 8
+  %tobool.not9.i78 = icmp eq ptr %55, null
   br i1 %tobool.not9.i78, label %while.end.i85, label %while.body.i79.preheader
 
 while.body.i79.preheader:                         ; preds = %if.then55
-  %value.i8093 = getelementptr inbounds i8, ptr %66, i64 8
-  %67 = load ptr, ptr %value.i8093, align 8
-  %call.i8194 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %67) #2
-  %68 = load ptr, ptr %66, align 8
-  %cond.i8295 = icmp eq ptr %68, null
+  %value.i8093 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = load ptr, ptr %value.i8093, align 8
+  %call.i8194 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %56) #2
+  %57 = load ptr, ptr %55, align 8
+  %cond.i8295 = icmp eq ptr %57, null
   br i1 %cond.i8295, label %while.end.i85, label %if.then.i83
 
 if.then.i83:                                      ; preds = %while.body.i79.preheader, %if.then.i83
-  %69 = phi ptr [ %71, %if.then.i83 ], [ %68, %while.body.i79.preheader ]
+  %58 = phi ptr [ %60, %if.then.i83 ], [ %57, %while.body.i79.preheader ]
   %call1.i84 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.80) #2
-  %value.i80 = getelementptr inbounds i8, ptr %69, i64 8
-  %70 = load ptr, ptr %value.i80, align 8
-  %call.i81 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %70) #2
-  %71 = load ptr, ptr %69, align 8
-  %cond.i82 = icmp eq ptr %71, null
+  %value.i80 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = load ptr, ptr %value.i80, align 8
+  %call.i81 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.87, ptr noundef %59) #2
+  %60 = load ptr, ptr %58, align 8
+  %cond.i82 = icmp eq ptr %60, null
   br i1 %cond.i82, label %while.end.i85, label %if.then.i83
 
 while.end.i85:                                    ; preds = %if.then.i83, %while.body.i79.preheader, %if.then55
   %call2.i86 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.81) #2
-  %has_unknown_protocols.i = getelementptr inbounds i8, ptr %65, i64 8
-  %72 = load i8, ptr %has_unknown_protocols.i, align 8
-  %73 = and i8 %72, 1
-  %tobool3.not.i87 = icmp eq i8 %73, 0
-  br i1 %tobool3.not.i87, label %if.end85, label %if.then4.i88
+  %has_unknown_protocols.i = getelementptr inbounds i8, ptr %54, i64 8
+  %61 = load i8, ptr %has_unknown_protocols.i, align 8
+  %tobool3.i87 = trunc i8 %61 to i1
+  br i1 %tobool3.i87, label %if.then4.i88, label %if.end85
 
 if.then4.i88:                                     ; preds = %while.end.i85
-  %unknown_protocols.i = getelementptr inbounds i8, ptr %65, i64 16
-  %74 = load i64, ptr %unknown_protocols.i, align 8
-  %call5.i89 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.90, i64 noundef %74) #2
+  %unknown_protocols.i = getelementptr inbounds i8, ptr %54, i64 16
+  %62 = load i64, ptr %unknown_protocols.i, align 8
+  %call5.i89 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.90, i64 noundef %62) #2
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then4.i88, %while.end.i85, %hmp_virtio_dump_status.exit
@@ -460,14 +448,13 @@ while.end15:                                      ; preds = %if.then12, %while.b
 if.end17:                                         ; preds = %while.end15, %while.end
   %has_unknown_dev_features = getelementptr inbounds i8, ptr %features, i64 24
   %12 = load i8, ptr %has_unknown_dev_features, align 8
-  %13 = and i8 %12, 1
-  %tobool18.not = icmp eq i8 %13, 0
-  br i1 %tobool18.not, label %if.end21, label %if.then19
+  %tobool18 = trunc i8 %12 to i1
+  br i1 %tobool18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end17
   %unknown_dev_features = getelementptr inbounds i8, ptr %features, i64 32
-  %14 = load i64, ptr %unknown_dev_features, align 8
-  %call20 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.89, i64 noundef %14) #2
+  %13 = load i64, ptr %unknown_dev_features, align 8
+  %call20 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.89, i64 noundef %13) #2
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end17
@@ -585,57 +572,54 @@ if.end:                                           ; preds = %entry
   %call14 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.60, i32 noundef %conv13) #2
   %signalled_used_valid = getelementptr inbounds i8, ptr %call3, i64 68
   %6 = load i8, ptr %signalled_used_valid, align 4
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  %cond = select i1 %tobool.not, ptr @.str.10, ptr @.str.9
+  %tobool = trunc i8 %6 to i1
+  %cond = select i1 %tobool, ptr @.str.9, ptr @.str.10
   %call16 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.61, ptr noundef nonnull %cond) #2
   %has_last_avail_idx = getelementptr inbounds i8, ptr %call3, i64 56
-  %8 = load i8, ptr %has_last_avail_idx, align 8
-  %9 = and i8 %8, 1
-  %tobool17.not = icmp eq i8 %9, 0
-  br i1 %tobool17.not, label %if.end21, label %if.then18
+  %7 = load i8, ptr %has_last_avail_idx, align 8
+  %tobool17 = trunc i8 %7 to i1
+  br i1 %tobool17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.end
   %last_avail_idx = getelementptr inbounds i8, ptr %call3, i64 58
-  %10 = load i16, ptr %last_avail_idx, align 2
-  %conv19 = zext i16 %10 to i32
+  %8 = load i16, ptr %last_avail_idx, align 2
+  %conv19 = zext i16 %8 to i32
   %call20 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.62, i32 noundef %conv19) #2
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %if.end
   %has_shadow_avail_idx = getelementptr inbounds i8, ptr %call3, i64 60
-  %11 = load i8, ptr %has_shadow_avail_idx, align 4
-  %12 = and i8 %11, 1
-  %tobool22.not = icmp eq i8 %12, 0
-  br i1 %tobool22.not, label %if.end26, label %if.then23
+  %9 = load i8, ptr %has_shadow_avail_idx, align 4
+  %tobool22 = trunc i8 %9 to i1
+  br i1 %tobool22, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %if.end21
   %shadow_avail_idx = getelementptr inbounds i8, ptr %call3, i64 62
-  %13 = load i16, ptr %shadow_avail_idx, align 2
-  %conv24 = zext i16 %13 to i32
+  %10 = load i16, ptr %shadow_avail_idx, align 2
+  %conv24 = zext i16 %10 to i32
   %call25 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.63, i32 noundef %conv24) #2
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %if.end21
   %call27 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.45) #2
   %vring_num = getelementptr inbounds i8, ptr %call3, i64 16
-  %14 = load i32, ptr %vring_num, align 8
-  %call28 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.64, i32 noundef %14) #2
+  %11 = load i32, ptr %vring_num, align 8
+  %call28 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.64, i32 noundef %11) #2
   %vring_num_default = getelementptr inbounds i8, ptr %call3, i64 20
-  %15 = load i32, ptr %vring_num_default, align 4
-  %call29 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.65, i32 noundef %15) #2
+  %12 = load i32, ptr %vring_num_default, align 4
+  %call29 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.65, i32 noundef %12) #2
   %vring_align = getelementptr inbounds i8, ptr %call3, i64 24
-  %16 = load i32, ptr %vring_align, align 8
-  %call30 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.66, i32 noundef %16) #2
+  %13 = load i32, ptr %vring_align, align 8
+  %call30 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.66, i32 noundef %13) #2
   %vring_desc = getelementptr inbounds i8, ptr %call3, i64 32
-  %17 = load i64, ptr %vring_desc, align 8
-  %call31 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.67, i64 noundef %17) #2
+  %14 = load i64, ptr %vring_desc, align 8
+  %call31 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.67, i64 noundef %14) #2
   %vring_avail = getelementptr inbounds i8, ptr %call3, i64 40
-  %18 = load i64, ptr %vring_avail, align 8
-  %call32 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68, i64 noundef %18) #2
+  %15 = load i64, ptr %vring_avail, align 8
+  %call32 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68, i64 noundef %15) #2
   %vring_used = getelementptr inbounds i8, ptr %call3, i64 48
-  %19 = load i64, ptr %vring_used, align 8
-  %call33 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.69, i64 noundef %19) #2
+  %16 = load i64, ptr %vring_used, align 8
+  %call33 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.69, i64 noundef %16) #2
   call void @qapi_free_VirtQueueStatus(ptr noundef nonnull %call3) #2
   br label %return
 

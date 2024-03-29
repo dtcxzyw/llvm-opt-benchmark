@@ -83,20 +83,20 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end3, %while.end
   %children = getelementptr inbounds i8, ptr %bus, i64 80
   %2 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %tobool7.not32 = icmp eq i64 %2, 0
-  br i1 %tobool7.not32, label %for.inc19, label %for.body8
+  %tobool7.not31 = icmp eq i64 %2, 0
+  br i1 %tobool7.not31, label %for.inc19, label %for.body8
 
 for.body8:                                        ; preds = %rcu_read_auto_lock.exit, %while.end17
-  %kid.033.in = phi i64 [ %4, %while.end17 ], [ %2, %rcu_read_auto_lock.exit ]
-  %kid.033 = inttoptr i64 %kid.033.in to ptr
-  %child = getelementptr inbounds i8, ptr %kid.033, i64 16
+  %kid.032.in = phi i64 [ %4, %while.end17 ], [ %2, %rcu_read_auto_lock.exit ]
+  %kid.032 = inttoptr i64 %kid.032.in to ptr
+  %child = getelementptr inbounds i8, ptr %kid.032, i64 16
   %3 = load ptr, ptr %child, align 8
   %call9 = tail call i32 @qdev_walk_children(ptr noundef %3, ptr noundef %pre_devfn, ptr noundef %pre_busfn, ptr noundef %post_devfn, ptr noundef %post_busfn, ptr noundef %opaque) #5
   %cmp = icmp slt i32 %call9, 0
   br i1 %cmp, label %if.then.i.i, label %while.end17
 
 while.end17:                                      ; preds = %for.body8
-  %sibling = getelementptr inbounds i8, ptr %kid.033, i64 32
+  %sibling = getelementptr inbounds i8, ptr %kid.032, i64 32
   %4 = load atomic i64, ptr %sibling monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %tobool7.not = icmp eq i64 %4, 0
@@ -125,9 +125,8 @@ while.end.i.i19:                                  ; preds = %if.end.i.i
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i16, i64 8
   %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i, label %for.end20, label %while.end21.i.i
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %while.end21.i.i, label %for.end20
 
 while.end21.i.i:                                  ; preds = %while.end.i.i19
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
@@ -137,8 +136,8 @@ while.end21.i.i:                                  ; preds = %while.end.i.i19
 if.then.i.i:                                      ; preds = %for.body8
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #5
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
-  %8 = load i32, ptr %depth.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %depth.i.i.i.i, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
@@ -146,7 +145,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
-  %dec.i.i.i.i = add i32 %8, -1
+  %dec.i.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %return
@@ -156,10 +155,9 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i.i.i.i, label %return, label %while.end21.i.i.i.i
+  %8 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
+  %tobool.i.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %return
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
@@ -458,8 +456,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
   %realized = getelementptr inbounds i8, ptr %call.i, i64 68
   %0 = load i8, ptr %realized, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -471,38 +468,37 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #5
   %realized = getelementptr inbounds i8, ptr %call.i, i64 68
   %0 = load i8, ptr %realized, align 4
-  %1 = and i8 %0, 1
-  %tobool2.not = icmp eq i8 %1, 0
+  %tobool2 = trunc i8 %0 to i1
   br i1 %value, label %land.lhs.true, label %land.lhs.true7
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 %tobool2.not, label %if.then, label %if.end30
+  br i1 %tobool2, label %if.end30, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %realize = getelementptr inbounds i8, ptr %call1.i, i64 136
-  %2 = load ptr, ptr %realize, align 8
-  %tobool3.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %realize, align 8
+  %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end30, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  tail call void %2(ptr noundef nonnull %call.i, ptr noundef %errp) #5
+  tail call void %1(ptr noundef nonnull %call.i, ptr noundef %errp) #5
   br label %if.end30
 
 land.lhs.true7:                                   ; preds = %entry
-  br i1 %tobool2.not, label %if.end30, label %if.then10
+  br i1 %tobool2, label %if.then10, label %if.end30
 
 if.then10:                                        ; preds = %land.lhs.true7
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #5
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
-  %3 = load i32, ptr %depth.i.i, align 4
-  %inc.i.i = add i32 %3, 1
+  %2 = load i32, ptr %depth.i.i, align 4
+  %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
-  %cmp.not.i.i = icmp eq i32 %3, 0
+  %cmp.not.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i.i, label %while.end.i.i, label %rcu_read_auto_lock.exit
 
 while.end.i.i:                                    ; preds = %if.then10
-  %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %conv8.i.i = and i64 %4, 4294967295
+  %3 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
+  %conv8.i.i = and i64 %3, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !5
   fence seq_cst
@@ -510,28 +506,28 @@ while.end.i.i:                                    ; preds = %if.then10
 
 rcu_read_auto_lock.exit:                          ; preds = %if.then10, %while.end.i.i
   %children = getelementptr inbounds i8, ptr %call.i, i64 80
-  %5 = load atomic i64, ptr %children monotonic, align 8
+  %4 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
-  %tobool14.not21 = icmp eq i64 %5, 0
-  br i1 %tobool14.not21, label %for.inc23, label %for.body15
+  %tobool14.not20 = icmp eq i64 %4, 0
+  br i1 %tobool14.not20, label %for.inc23, label %for.body15
 
 for.body15:                                       ; preds = %rcu_read_auto_lock.exit, %for.body15
-  %kid.0.in22 = phi i64 [ %7, %for.body15 ], [ %5, %rcu_read_auto_lock.exit ]
-  %kid.0 = inttoptr i64 %kid.0.in22 to ptr
+  %kid.0.in21 = phi i64 [ %6, %for.body15 ], [ %4, %rcu_read_auto_lock.exit ]
+  %kid.0 = inttoptr i64 %kid.0.in21 to ptr
   %child = getelementptr inbounds i8, ptr %kid.0, i64 16
-  %6 = load ptr, ptr %child, align 8
-  tail call void @qdev_unrealize(ptr noundef %6) #5
+  %5 = load ptr, ptr %child, align 8
+  tail call void @qdev_unrealize(ptr noundef %5) #5
   %sibling = getelementptr inbounds i8, ptr %kid.0, i64 32
-  %7 = load atomic i64, ptr %sibling monotonic, align 8
+  %6 = load atomic i64, ptr %sibling monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !13
-  %tobool14.not = icmp eq i64 %7, 0
+  %tobool14.not = icmp eq i64 %6, 0
   br i1 %tobool14.not, label %for.inc23, label %for.body15, !llvm.loop !14
 
 for.inc23:                                        ; preds = %for.body15, %rcu_read_auto_lock.exit
   %call.i.i16 = tail call ptr @get_ptr_rcu_reader() #5
   %depth.i.i17 = getelementptr inbounds i8, ptr %call.i.i16, i64 12
-  %8 = load i32, ptr %depth.i.i17, align 4
-  %cmp.not.i.i18 = icmp eq i32 %8, 0
+  %7 = load i32, ptr %depth.i.i17, align 4
+  %cmp.not.i.i18 = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i18, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc23
@@ -539,7 +535,7 @@ if.else.i.i:                                      ; preds = %for.inc23
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc23
-  %dec.i.i = add i32 %8, -1
+  %dec.i.i = add i32 %7, -1
   store i32 %dec.i.i, ptr %depth.i.i17, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp2.not.i.i, label %while.end.i.i19, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -549,10 +545,9 @@ while.end.i.i19:                                  ; preds = %if.end.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i16, i64 8
-  %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit, label %while.end21.i.i
+  %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
+  %tobool.i.i = trunc i8 %8 to i1
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i19
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
@@ -561,12 +556,12 @@ while.end21.i.i:                                  ; preds = %while.end.i.i19
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i19, %if.end.i.i
   %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 144
-  %11 = load ptr, ptr %unrealize, align 8
-  %tobool25.not = icmp eq ptr %11, null
+  %9 = load ptr, ptr %unrealize, align 8
+  %tobool25.not = icmp eq ptr %9, null
   br i1 %tobool25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit
-  tail call void %11(ptr noundef %call.i) #5
+  tail call void %9(ptr noundef %call.i) #5
   br label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true, %land.lhs.true7, %if.then26, %glib_autoptr_cleanup_RCUReadAuto.exit, %if.then, %if.then4
@@ -675,12 +670,12 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   %children = getelementptr inbounds i8, ptr %call.i, i64 80
   %2 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !16
-  %tobool3.not8 = icmp eq i64 %2, 0
-  br i1 %tobool3.not8, label %for.inc12, label %for.body4
+  %tobool3.not7 = icmp eq i64 %2, 0
+  br i1 %tobool3.not7, label %for.inc12, label %for.body4
 
 for.body4:                                        ; preds = %rcu_read_auto_lock.exit, %for.body4
-  %kid.0.in9 = phi i64 [ %4, %for.body4 ], [ %2, %rcu_read_auto_lock.exit ]
-  %kid.0 = inttoptr i64 %kid.0.in9 to ptr
+  %kid.0.in8 = phi i64 [ %4, %for.body4 ], [ %2, %rcu_read_auto_lock.exit ]
+  %kid.0 = inttoptr i64 %kid.0.in8 to ptr
   %child = getelementptr inbounds i8, ptr %kid.0, i64 16
   %3 = load ptr, ptr %child, align 8
   tail call void %cb(ptr noundef %3, ptr noundef %opaque, i32 noundef %type) #5
@@ -713,9 +708,8 @@ while.end.i.i6:                                   ; preds = %if.end.i.i
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 8
   %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit, label %while.end21.i.i
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i6
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8

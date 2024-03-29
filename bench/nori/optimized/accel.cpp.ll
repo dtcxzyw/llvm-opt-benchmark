@@ -220,15 +220,22 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %24 = getelementptr inbounds i8, ptr %23, i64 128
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 4294967295
-  %.not246 = icmp eq i64 %26, 0
-  br i1 %.not246, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %27 = getelementptr inbounds i8, ptr %2, i64 12
   %28 = getelementptr inbounds i8, ptr %2, i64 16
   %29 = getelementptr inbounds i8, ptr %2, i64 20
   %30 = getelementptr inbounds i8, ptr %2, i64 96
-  br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split.outer
+
+.lr.ph.split.outer:                               ; preds = %.lr.ph, %.thread
+  %.ph = phi ptr [ %51, %.thread ], [ %23, %.lr.ph ]
+  %.053243.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
+  %.054242.ph = phi i32 [ %.056241, %.thread ], [ -1, %.lr.ph ]
+  %.056241.ph = phi i32 [ %52, %.thread ], [ 0, %.lr.ph ]
+  br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
   %31 = phi ptr [ %35, %33 ], [ %23, %.lr.ph ]
@@ -245,48 +252,44 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %39 = icmp ult i32 %34, %38
   br i1 %39, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !8
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %47
-  %40 = phi ptr [ %48, %47 ], [ %23, %.lr.ph ]
-  %.053243 = phi i8 [ %.1, %47 ], [ 0, %.lr.ph ]
-  %.054242 = phi i32 [ %.155, %47 ], [ -1, %.lr.ph ]
-  %.056241 = phi i32 [ %49, %47 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.outer, %42
+  %40 = phi ptr [ %.pre, %42 ], [ %.ph, %.lr.ph.split.outer ]
+  %.056241 = phi i32 [ %43, %42 ], [ %.056241.ph, %.lr.ph.split.outer ]
   %41 = call noundef zeroext i1 @_ZNK4nori4Mesh12rayIntersectEjRKNS_4TRayINS_6TPointIfLi3EEENS_7TVectorIfLi3EEEEERfS9_S9_(ptr noundef nonnull align 8 dereferenceable(176) %40, i32 noundef %.056241, ptr noundef nonnull align 4 dereferenceable(44) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  br i1 %41, label %42, label %.lr.ph.split._crit_edge
-
-.lr.ph.split._crit_edge:                          ; preds = %.lr.ph.split
-  %.pre = load ptr, ptr %0, align 8
-  br label %47
+  br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = load float, ptr %8, align 4
-  store float %43, ptr %27, align 4
-  store float %43, ptr %21, align 4
-  %44 = load float, ptr %6, align 4
-  %45 = load float, ptr %7, align 4
-  store float %44, ptr %28, align 8
-  store float %45, ptr %29, align 4
-  %46 = load ptr, ptr %0, align 8
-  store ptr %46, ptr %30, align 8
-  br label %47
+  %.pre = load ptr, ptr %0, align 8
+  %43 = add nuw i32 %.056241, 1
+  %44 = getelementptr inbounds i8, ptr %.pre, i64 128
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = icmp ult i32 %43, %46
+  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
-47:                                               ; preds = %.lr.ph.split._crit_edge, %42
-  %48 = phi ptr [ %46, %42 ], [ %.pre, %.lr.ph.split._crit_edge ]
-  %.155 = phi i32 [ %.056241, %42 ], [ %.054242, %.lr.ph.split._crit_edge ]
-  %.1 = phi i8 [ 1, %42 ], [ %.053243, %.lr.ph.split._crit_edge ]
-  %49 = add nuw i32 %.056241, 1
-  %50 = getelementptr inbounds i8, ptr %48, i64 128
-  %51 = load i64, ptr %50, align 8
-  %52 = trunc i64 %51 to i32
-  %53 = icmp ult i32 %49, %52
-  br i1 %53, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+.thread:                                          ; preds = %.lr.ph.split
+  %48 = load float, ptr %8, align 4
+  store float %48, ptr %27, align 4
+  store float %48, ptr %21, align 4
+  %49 = load float, ptr %6, align 4
+  %50 = load float, ptr %7, align 4
+  store float %49, ptr %28, align 8
+  store float %50, ptr %29, align 4
+  %51 = load ptr, ptr %0, align 8
+  store ptr %51, ptr %30, align 8
+  %52 = add nuw i32 %.056241, 1
+  %53 = getelementptr inbounds i8, ptr %51, i64 128
+  %54 = load i64, ptr %53, align 8
+  %55 = trunc i64 %54 to i32
+  %56 = icmp ult i32 %52, %55
+  br i1 %56, label %.lr.ph.split.outer, label %._crit_edge.thread253, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %47
-  %54 = and i8 %.1, 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.loopexit, label %56
+._crit_edge:                                      ; preds = %42
+  br i1 %.053243.ph, label %._crit_edge.thread253, label %.loopexit
 
-56:                                               ; preds = %._crit_edge
-  %57 = zext i32 %.155 to i64
+._crit_edge.thread253:                            ; preds = %.thread, %._crit_edge
+  %.in = phi i32 [ %.054242.ph, %._crit_edge ], [ %.056241, %.thread ]
+  %57 = zext i32 %.in to i64
   %58 = getelementptr inbounds i8, ptr %2, i64 16
   %59 = load <2 x float>, ptr %58, align 8
   %60 = extractelement <2 x float> %59, i64 0
@@ -361,7 +364,7 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %126 = icmp sgt i64 %125, 0
   br i1 %126, label %127, label %156
 
-127:                                              ; preds = %56
+127:                                              ; preds = %._crit_edge.thread253
   %128 = getelementptr inbounds i8, ptr %2, i64 20
   %129 = getelementptr inbounds i8, ptr %65, i64 88
   %130 = load ptr, ptr %129, align 8, !noalias !10
@@ -394,15 +397,15 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   store float %155, ptr %128, align 4
   br label %156
 
-156:                                              ; preds = %127, %56
+156:                                              ; preds = %127, %._crit_edge.thread253
   %157 = fsub <2 x float> %93, %92
   %158 = insertelement <2 x float> poison, float %98, i64 0
   %159 = shufflevector <2 x float> %158, <2 x float> %99, <2 x i32> <i32 0, i32 2>
   %160 = insertelement <2 x float> poison, float %85, i64 1
   %161 = shufflevector <2 x float> %160, <2 x float> %92, <2 x i32> <i32 3, i32 1>
   %162 = fsub <2 x float> %159, %161
-  %shift250 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %163 = fsub <2 x float> %shift250, %92
+  %shift262 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %163 = fsub <2 x float> %shift262, %92
   %164 = extractelement <2 x float> %163, i64 0
   %165 = fsub float %90, %85
   %166 = shufflevector <2 x float> %157, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -956,25 +959,25 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %invariant.gep = getelementptr inbounds i8, ptr %8, i64 24
   store i32 0, ptr %5, align 4
   %21 = icmp sgt i32 %3, 0
-  br i1 %21, label %.preheader53, label %.preheader.preheader
+  br i1 %21, label %.preheader52, label %.preheader.preheader
 
-.preheader53:                                     ; preds = %4, %.preheader53.backedge
-  %.016.i = phi ptr [ %.016.i.be, %.preheader53.backedge ], [ %1, %4 ]
-  %.0.i = phi ptr [ %.0.i.be, %.preheader53.backedge ], [ %1, %4 ]
+.preheader52:                                     ; preds = %4, %.preheader52.backedge
+  %.016.i = phi ptr [ %.016.i.be, %.preheader52.backedge ], [ %1, %4 ]
+  %.0.i = phi ptr [ %.0.i.be, %.preheader52.backedge ], [ %1, %4 ]
   %22 = load i8, ptr %.0.i, align 1
   switch i8 %22, label %35 [
     i8 0, label %23
     i8 37, label %28
   ]
 
-23:                                               ; preds = %.preheader53
+23:                                               ; preds = %.preheader52
   %24 = ptrtoint ptr %.0.i to i64
   %25 = ptrtoint ptr %.016.i to i64
   %26 = sub i64 %24, %25
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i, i64 noundef %26)
   br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
 
-28:                                               ; preds = %.preheader53
+28:                                               ; preds = %.preheader52
   %29 = ptrtoint ptr %.0.i to i64
   %30 = ptrtoint ptr %.016.i to i64
   %31 = sub i64 %29, %30
@@ -984,16 +987,16 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %.not.i = icmp eq i8 %34, 37
   br i1 %.not.i, label %35, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
 
-35:                                               ; preds = %28, %.preheader53
-  %.117.i = phi ptr [ %.016.i, %.preheader53 ], [ %33, %28 ]
-  %.1.i = phi ptr [ %.0.i, %.preheader53 ], [ %33, %28 ]
+35:                                               ; preds = %28, %.preheader52
+  %.117.i = phi ptr [ %.016.i, %.preheader52 ], [ %33, %28 ]
+  %.1.i = phi ptr [ %.0.i, %.preheader52 ], [ %33, %28 ]
   %36 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  br label %.preheader53.backedge
+  br label %.preheader52.backedge
 
-.preheader53.backedge:                            ; preds = %35, %86
+.preheader52.backedge:                            ; preds = %35, %86
   %.016.i.be = phi ptr [ %.117.i, %35 ], [ %37, %86 ]
   %.0.i.be = phi ptr [ %36, %35 ], [ %37, %86 ]
-  br label %.preheader53, !llvm.loop !21
+  br label %.preheader52, !llvm.loop !21
 
 _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   store i8 0, ptr %6, align 1
@@ -1001,15 +1004,14 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %37 = call noundef ptr @_ZN10tinyformat6detail21streamStateFromFormatERSoRbRiPKcPKNS0_9FormatArgES3_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %.0.i, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %3)
   %38 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %38, %3
-  br i1 %.not, label %39, label %.loopexit54
+  br i1 %.not, label %39, label %.loopexit53
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
-  %43 = and i8 %42, 1
-  %.not45 = icmp eq i8 %43, 0
-  br i1 %.not45, label %44, label %49
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %49, label %44
 
 44:                                               ; preds = %39
   %45 = load i32, ptr %7, align 4
@@ -1053,12 +1055,12 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
 
 69:                                               ; preds = %_ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit
   %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  %.not66 = icmp eq i64 %70, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i64 %70, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %81
-  %.04064 = phi i64 [ %82, %81 ], [ 0, %69 ]
-  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04064)
+  %.04063 = phi i64 [ %82, %81 ], [ 0, %69 ]
+  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04063)
           to label %72 unwind label %.loopexit
 
 72:                                               ; preds = %.lr.ph
@@ -1067,7 +1069,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %72
-  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04064)
+  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04063)
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
@@ -1095,7 +1097,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   br label %85
 
 81:                                               ; preds = %72, %77
-  %82 = add nuw i64 %.04064, 1
+  %82 = add nuw i64 %.04063, 1
   %exitcond.not = icmp eq i64 %82, %70
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
@@ -1118,45 +1120,45 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %5, align 4
   %89 = icmp slt i32 %88, %3
-  br i1 %89, label %.preheader53.backedge, label %.preheader.preheader
+  br i1 %89, label %.preheader52.backedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %86, %4
-  %.0.i48.ph = phi ptr [ %1, %4 ], [ %37, %86 ]
+  %.0.i47.ph = phi ptr [ %1, %4 ], [ %37, %86 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %103
-  %.016.i47 = phi ptr [ %.117.i50, %103 ], [ %.0.i48.ph, %.preheader.preheader ]
-  %.0.i48 = phi ptr [ %104, %103 ], [ %.0.i48.ph, %.preheader.preheader ]
-  %90 = load i8, ptr %.0.i48, align 1
+  %.016.i46 = phi ptr [ %.117.i49, %103 ], [ %.0.i47.ph, %.preheader.preheader ]
+  %.0.i47 = phi ptr [ %104, %103 ], [ %.0.i47.ph, %.preheader.preheader ]
+  %90 = load i8, ptr %.0.i47, align 1
   switch i8 %90, label %103 [
     i8 0, label %91
     i8 37, label %96
   ]
 
 91:                                               ; preds = %.preheader
-  %92 = ptrtoint ptr %.0.i48 to i64
-  %93 = ptrtoint ptr %.016.i47 to i64
+  %92 = ptrtoint ptr %.0.i47 to i64
+  %93 = ptrtoint ptr %.016.i46 to i64
   %94 = sub i64 %92, %93
-  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i47, i64 noundef %94)
-  br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i46, i64 noundef %94)
+  br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
 
 96:                                               ; preds = %.preheader
-  %97 = ptrtoint ptr %.0.i48 to i64
-  %98 = ptrtoint ptr %.016.i47 to i64
+  %97 = ptrtoint ptr %.0.i47 to i64
+  %98 = ptrtoint ptr %.016.i46 to i64
   %99 = sub i64 %97, %98
-  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i47, i64 noundef %99)
-  %101 = getelementptr inbounds i8, ptr %.0.i48, i64 1
+  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i46, i64 noundef %99)
+  %101 = getelementptr inbounds i8, ptr %.0.i47, i64 1
   %102 = load i8, ptr %101, align 1
-  %.not.i49 = icmp eq i8 %102, 37
-  br i1 %.not.i49, label %103, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+  %.not.i48 = icmp eq i8 %102, 37
+  br i1 %.not.i48, label %103, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
 
 103:                                              ; preds = %96, %.preheader
-  %.117.i50 = phi ptr [ %.016.i47, %.preheader ], [ %101, %96 ]
-  %.1.i51 = phi ptr [ %.0.i48, %.preheader ], [ %101, %96 ]
-  %104 = getelementptr inbounds i8, ptr %.1.i51, i64 1
+  %.117.i49 = phi ptr [ %.016.i46, %.preheader ], [ %101, %96 ]
+  %.1.i50 = phi ptr [ %.0.i47, %.preheader ], [ %101, %96 ]
+  %104 = getelementptr inbounds i8, ptr %.1.i50, i64 1
   br label %.preheader, !llvm.loop !23
 
-_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52: ; preds = %96, %91
+_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51: ; preds = %96, %91
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr i8, ptr %105, i64 -24
   %107 = load i64, ptr %106, align 8
@@ -1180,9 +1182,9 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52: ; preds = %96, %
   %122 = load i64, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %0, i64 %122
   %124 = call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %123, i8 noundef signext %20)
-  br label %.loopexit54
+  br label %.loopexit53
 
-.loopexit54:                                      ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit, %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+.loopexit53:                                      ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit, %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
   ret void
 }
 

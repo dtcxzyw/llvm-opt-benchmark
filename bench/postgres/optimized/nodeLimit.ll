@@ -134,9 +134,8 @@ define internal ptr @ExecLimit(ptr noundef %0) #0 {
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %0, i64 240
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not120 = icmp eq i8 %26, 0
-  br i1 %.not120, label %27, label %28
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %28, label %27
 
 27:                                               ; preds = %23
   store i32 2, ptr %14, align 4
@@ -171,8 +170,8 @@ ExecProcNode.exit:                                ; preds = %36, %38
   %43 = getelementptr inbounds i8, ptr %40, i64 4
   %44 = load i16, ptr %43, align 4
   %45 = and i16 %44, 2
-  %.not121 = icmp eq i16 %45, 0
-  br i1 %.not121, label %47, label %46
+  %.not119 = icmp eq i16 %45, 0
+  br i1 %.not119, label %47, label %46
 
 46:                                               ; preds = %42, %ExecProcNode.exit
   store i32 2, ptr %14, align 4
@@ -181,12 +180,12 @@ ExecProcNode.exit:                                ; preds = %36, %38
 47:                                               ; preds = %42
   %48 = load i32, ptr %31, align 8
   %49 = icmp eq i32 %48, 1
-  %.pre138 = load i64, ptr %32, align 8
-  %.pre140 = load i64, ptr %33, align 8
+  %.pre136 = load i64, ptr %32, align 8
+  %.pre138 = load i64, ptr %33, align 8
   br i1 %49, label %50, label %61
 
 50:                                               ; preds = %47
-  %51 = sub i64 %.pre138, %.pre140
+  %51 = sub i64 %.pre136, %.pre138
   %52 = load i64, ptr %20, align 8
   %53 = add i64 %52, -1
   %54 = icmp eq i64 %51, %53
@@ -200,12 +199,12 @@ ExecProcNode.exit:                                ; preds = %36, %38
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef %56, ptr noundef nonnull %40) #6
   %.pre = load i64, ptr %32, align 8
-  %.pre139 = load i64, ptr %33, align 8
+  %.pre137 = load i64, ptr %33, align 8
   br label %61
 
 61:                                               ; preds = %55, %50, %47
-  %62 = phi i64 [ %.pre139, %55 ], [ %.pre140, %50 ], [ %.pre140, %47 ]
-  %63 = phi i64 [ %.pre, %55 ], [ %.pre138, %50 ], [ %.pre138, %47 ]
+  %62 = phi i64 [ %.pre137, %55 ], [ %.pre138, %50 ], [ %.pre138, %47 ]
+  %63 = phi i64 [ %.pre, %55 ], [ %.pre136, %50 ], [ %.pre136, %47 ]
   store ptr %40, ptr %35, align 8
   %64 = add i64 %63, 1
   store i64 %64, ptr %32, align 8
@@ -223,9 +222,8 @@ ExecProcNode.exit:                                ; preds = %36, %38
 69:                                               ; preds = %67
   %70 = getelementptr inbounds i8, ptr %0, i64 240
   %71 = load i8, ptr %70, align 8
-  %72 = and i8 %71, 1
-  %.not114 = icmp eq i8 %72, 0
-  br i1 %.not114, label %73, label %86
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %86, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %0, i64 248
@@ -235,8 +233,8 @@ ExecProcNode.exit:                                ; preds = %36, %38
   %78 = sub i64 %75, %77
   %79 = getelementptr inbounds i8, ptr %0, i64 232
   %80 = load i64, ptr %79, align 8
-  %.not115 = icmp slt i64 %78, %80
-  br i1 %.not115, label %86, label %81
+  %.not114 = icmp slt i64 %78, %80
+  br i1 %.not114, label %86, label %81
 
 81:                                               ; preds = %73
   %82 = getelementptr inbounds i8, ptr %0, i64 216
@@ -255,28 +253,28 @@ ExecProcNode.exit:                                ; preds = %36, %38
 86:                                               ; preds = %73, %69
   %87 = getelementptr inbounds i8, ptr %13, i64 104
   %88 = load ptr, ptr %87, align 8
-  %.not.i122 = icmp eq ptr %88, null
-  br i1 %.not.i122, label %ExecProcNode.exit123, label %89
+  %.not.i120 = icmp eq ptr %88, null
+  br i1 %.not.i120, label %ExecProcNode.exit121, label %89
 
 89:                                               ; preds = %86
   tail call void @ExecReScan(ptr noundef nonnull %13) #6
-  br label %ExecProcNode.exit123
+  br label %ExecProcNode.exit121
 
-ExecProcNode.exit123:                             ; preds = %86, %89
+ExecProcNode.exit121:                             ; preds = %86, %89
   %90 = getelementptr inbounds i8, ptr %13, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr %91(ptr noundef nonnull %13) #6
   %93 = icmp eq ptr %92, null
   br i1 %93, label %98, label %94
 
-94:                                               ; preds = %ExecProcNode.exit123
+94:                                               ; preds = %ExecProcNode.exit121
   %95 = getelementptr inbounds i8, ptr %92, i64 4
   %96 = load i16, ptr %95, align 4
   %97 = and i16 %96, 2
-  %.not119 = icmp eq i16 %97, 0
-  br i1 %.not119, label %99, label %98
+  %.not118 = icmp eq i16 %97, 0
+  br i1 %.not118, label %99, label %98
 
-98:                                               ; preds = %94, %ExecProcNode.exit123
+98:                                               ; preds = %94, %ExecProcNode.exit121
   store i32 5, ptr %14, align 4
   br label %269
 
@@ -333,28 +331,28 @@ ExecProcNode.exit123:                             ; preds = %86, %89
 132:                                              ; preds = %125
   %133 = getelementptr inbounds i8, ptr %13, i64 104
   %134 = load ptr, ptr %133, align 8
-  %.not.i124 = icmp eq ptr %134, null
-  br i1 %.not.i124, label %ExecProcNode.exit125, label %135
+  %.not.i122 = icmp eq ptr %134, null
+  br i1 %.not.i122, label %ExecProcNode.exit123, label %135
 
 135:                                              ; preds = %132
   tail call void @ExecReScan(ptr noundef nonnull %13) #6
-  br label %ExecProcNode.exit125
+  br label %ExecProcNode.exit123
 
-ExecProcNode.exit125:                             ; preds = %132, %135
+ExecProcNode.exit123:                             ; preds = %132, %135
   %136 = getelementptr inbounds i8, ptr %13, i64 24
   %137 = load ptr, ptr %136, align 8
   %138 = tail call ptr %137(ptr noundef nonnull %13) #6
   %139 = icmp eq ptr %138, null
   br i1 %139, label %144, label %140
 
-140:                                              ; preds = %ExecProcNode.exit125
+140:                                              ; preds = %ExecProcNode.exit123
   %141 = getelementptr inbounds i8, ptr %138, i64 4
   %142 = load i16, ptr %141, align 4
   %143 = and i16 %142, 2
   %.not113 = icmp eq i16 %143, 0
   br i1 %.not113, label %147, label %144
 
-144:                                              ; preds = %140, %ExecProcNode.exit125
+144:                                              ; preds = %140, %ExecProcNode.exit123
   %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %145)
   %146 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
@@ -376,28 +374,28 @@ ExecProcNode.exit125:                             ; preds = %132, %135
 153:                                              ; preds = %.thread, %151
   %154 = getelementptr inbounds i8, ptr %13, i64 104
   %155 = load ptr, ptr %154, align 8
-  %.not.i126 = icmp eq ptr %155, null
-  br i1 %.not.i126, label %ExecProcNode.exit127, label %156
+  %.not.i124 = icmp eq ptr %155, null
+  br i1 %.not.i124, label %ExecProcNode.exit125, label %156
 
 156:                                              ; preds = %153
   tail call void @ExecReScan(ptr noundef nonnull %13) #6
-  br label %ExecProcNode.exit127
+  br label %ExecProcNode.exit125
 
-ExecProcNode.exit127:                             ; preds = %153, %156
+ExecProcNode.exit125:                             ; preds = %153, %156
   %157 = getelementptr inbounds i8, ptr %13, i64 24
   %158 = load ptr, ptr %157, align 8
   %159 = tail call ptr %158(ptr noundef nonnull %13) #6
   %160 = icmp eq ptr %159, null
   br i1 %160, label %165, label %161
 
-161:                                              ; preds = %ExecProcNode.exit127
+161:                                              ; preds = %ExecProcNode.exit125
   %162 = getelementptr inbounds i8, ptr %159, i64 4
   %163 = load i16, ptr %162, align 4
   %164 = and i16 %163, 2
-  %.not118 = icmp eq i16 %164, 0
-  br i1 %.not118, label %166, label %165
+  %.not117 = icmp eq i16 %164, 0
+  br i1 %.not117, label %166, label %165
 
-165:                                              ; preds = %161, %ExecProcNode.exit127
+165:                                              ; preds = %161, %ExecProcNode.exit125
   store i32 5, ptr %14, align 4
   br label %269
 
@@ -430,11 +428,11 @@ ExecQualAndReset.exit:                            ; preds = %166
   %180 = load ptr, ptr %179, align 8
   %181 = call i64 %180(ptr noundef nonnull %172, ptr noundef nonnull %4, ptr noundef nonnull %2) #6
   store ptr %178, ptr @CurrentMemoryContext, align 8
-  %.not135 = icmp eq i64 %181, 0
+  %.not133 = icmp eq i64 %181, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %182 = load ptr, ptr %176, align 8
   call void @MemoryContextReset(ptr noundef %182) #6
-  br i1 %.not135, label %188, label %183
+  br i1 %.not133, label %188, label %183
 
 183:                                              ; preds = %ExecQualAndReset.exit.thread, %ExecQualAndReset.exit
   %184 = getelementptr inbounds i8, ptr %0, i64 256
@@ -455,8 +453,8 @@ ExecQualAndReset.exit:                            ; preds = %166
   %192 = getelementptr inbounds i8, ptr %0, i64 224
   %193 = load i64, ptr %192, align 8
   %194 = add i64 %193, 1
-  %.not116 = icmp sgt i64 %191, %194
-  br i1 %.not116, label %196, label %195
+  %.not115 = icmp sgt i64 %191, %194
+  br i1 %.not115, label %196, label %195
 
 195:                                              ; preds = %189
   store i32 7, ptr %14, align 4
@@ -465,28 +463,28 @@ ExecQualAndReset.exit:                            ; preds = %166
 196:                                              ; preds = %189
   %197 = getelementptr inbounds i8, ptr %13, i64 104
   %198 = load ptr, ptr %197, align 8
-  %.not.i128 = icmp eq ptr %198, null
-  br i1 %.not.i128, label %ExecProcNode.exit129, label %199
+  %.not.i126 = icmp eq ptr %198, null
+  br i1 %.not.i126, label %ExecProcNode.exit127, label %199
 
 199:                                              ; preds = %196
   tail call void @ExecReScan(ptr noundef nonnull %13) #6
-  br label %ExecProcNode.exit129
+  br label %ExecProcNode.exit127
 
-ExecProcNode.exit129:                             ; preds = %196, %199
+ExecProcNode.exit127:                             ; preds = %196, %199
   %200 = getelementptr inbounds i8, ptr %13, i64 24
   %201 = load ptr, ptr %200, align 8
   %202 = tail call ptr %201(ptr noundef nonnull %13) #6
   %203 = icmp eq ptr %202, null
   br i1 %203, label %208, label %204
 
-204:                                              ; preds = %ExecProcNode.exit129
+204:                                              ; preds = %ExecProcNode.exit127
   %205 = getelementptr inbounds i8, ptr %202, i64 4
   %206 = load i16, ptr %205, align 4
   %207 = and i16 %206, 2
-  %.not117 = icmp eq i16 %207, 0
-  br i1 %.not117, label %211, label %208
+  %.not116 = icmp eq i16 %207, 0
+  br i1 %.not116, label %211, label %208
 
-208:                                              ; preds = %204, %ExecProcNode.exit129
+208:                                              ; preds = %204, %ExecProcNode.exit127
   %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %209)
   %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
@@ -509,28 +507,28 @@ ExecProcNode.exit129:                             ; preds = %196, %199
 217:                                              ; preds = %215
   %218 = getelementptr inbounds i8, ptr %13, i64 104
   %219 = load ptr, ptr %218, align 8
-  %.not.i130 = icmp eq ptr %219, null
-  br i1 %.not.i130, label %ExecProcNode.exit131, label %220
+  %.not.i128 = icmp eq ptr %219, null
+  br i1 %.not.i128, label %ExecProcNode.exit129, label %220
 
 220:                                              ; preds = %217
   tail call void @ExecReScan(ptr noundef nonnull %13) #6
-  br label %ExecProcNode.exit131
+  br label %ExecProcNode.exit129
 
-ExecProcNode.exit131:                             ; preds = %217, %220
+ExecProcNode.exit129:                             ; preds = %217, %220
   %221 = getelementptr inbounds i8, ptr %13, i64 24
   %222 = load ptr, ptr %221, align 8
   %223 = tail call ptr %222(ptr noundef nonnull %13) #6
   %224 = icmp eq ptr %223, null
   br i1 %224, label %229, label %225
 
-225:                                              ; preds = %ExecProcNode.exit131
+225:                                              ; preds = %ExecProcNode.exit129
   %226 = getelementptr inbounds i8, ptr %223, i64 4
   %227 = load i16, ptr %226, align 4
   %228 = and i16 %227, 2
   %.not111 = icmp eq i16 %228, 0
   br i1 %.not111, label %232, label %229
 
-229:                                              ; preds = %225, %ExecProcNode.exit131
+229:                                              ; preds = %225, %ExecProcNode.exit129
   %230 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %230)
   %231 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
@@ -556,28 +554,28 @@ ExecProcNode.exit131:                             ; preds = %217, %220
 240:                                              ; preds = %236
   %241 = getelementptr inbounds i8, ptr %13, i64 104
   %242 = load ptr, ptr %241, align 8
-  %.not.i132 = icmp eq ptr %242, null
-  br i1 %.not.i132, label %ExecProcNode.exit133, label %243
+  %.not.i130 = icmp eq ptr %242, null
+  br i1 %.not.i130, label %ExecProcNode.exit131, label %243
 
 243:                                              ; preds = %240
   tail call void @ExecReScan(ptr noundef nonnull %13) #6
-  br label %ExecProcNode.exit133
+  br label %ExecProcNode.exit131
 
-ExecProcNode.exit133:                             ; preds = %240, %243
+ExecProcNode.exit131:                             ; preds = %240, %243
   %244 = getelementptr inbounds i8, ptr %13, i64 24
   %245 = load ptr, ptr %244, align 8
   %246 = tail call ptr %245(ptr noundef nonnull %13) #6
   %247 = icmp eq ptr %246, null
   br i1 %247, label %252, label %248
 
-248:                                              ; preds = %ExecProcNode.exit133
+248:                                              ; preds = %ExecProcNode.exit131
   %249 = getelementptr inbounds i8, ptr %246, i64 4
   %250 = load i16, ptr %249, align 4
   %251 = and i16 %250, 2
   %.not110 = icmp eq i16 %251, 0
   br i1 %.not110, label %255, label %252
 
-252:                                              ; preds = %248, %ExecProcNode.exit133
+252:                                              ; preds = %248, %ExecProcNode.exit131
   %253 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %253)
   %254 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
@@ -683,10 +681,9 @@ define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_
   %13 = call i64 %12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %2) #6
   store ptr %10, ptr @CurrentMemoryContext, align 8
   %14 = load i8, ptr %2, align 1
-  %15 = and i8 %14, 1
-  %.not25 = icmp eq i8 %15, 0
+  %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %0, i64 224
-  br i1 %.not25, label %17, label %.sink.split
+  br i1 %15, label %.sink.split, label %17
 
 17:                                               ; preds = %7
   store i64 %13, ptr %16, align 8
@@ -713,8 +710,8 @@ define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_
 25:                                               ; preds = %.sink.split, %17
   %26 = getelementptr inbounds i8, ptr %0, i64 208
   %27 = load ptr, ptr %26, align 8
-  %.not26 = icmp eq ptr %27, null
-  br i1 %.not26, label %44, label %28
+  %.not25 = icmp eq ptr %27, null
+  br i1 %.not25, label %44, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %4, i64 40
@@ -726,10 +723,9 @@ define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_
   %34 = call i64 %33(ptr noundef nonnull %27, ptr noundef %4, ptr noundef nonnull %2) #6
   store ptr %31, ptr @CurrentMemoryContext, align 8
   %35 = load i8, ptr %2, align 1
-  %36 = and i8 %35, 1
-  %.not27 = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %0, i64 232
-  br i1 %.not27, label %38, label %.thread
+  br i1 %36, label %.thread, label %38
 
 38:                                               ; preds = %28
   store i64 %34, ptr %37, align 8
@@ -749,8 +745,8 @@ define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_
   br label %.thread
 
 .thread:                                          ; preds = %28, %44
-  %.sink30 = phi ptr [ %45, %44 ], [ %37, %28 ]
-  store i64 0, ptr %.sink30, align 8
+  %.sink27 = phi ptr [ %45, %44 ], [ %37, %28 ]
+  store i64 0, ptr %.sink27, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 240
   store i8 1, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 248

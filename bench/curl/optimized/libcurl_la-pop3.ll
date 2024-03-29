@@ -628,7 +628,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.077 = phi i64 [ 0, %for.body.lr.ph ], [ %inc84, %for.inc ]
   %last.076 = phi i64 [ 0, %for.body.lr.ph ], [ %last.2, %for.inc ]
-  %strip_dot.075 = phi i8 [ 0, %for.body.lr.ph ], [ %strip_dot.2, %for.inc ]
+  %strip_dot.075 = phi i1 [ false, %for.body.lr.ph ], [ %strip_dot.2, %for.inc ]
   %1 = load i64, ptr %eob, align 8
   %arrayidx = getelementptr inbounds i8, ptr %str, i64 %i.077
   %2 = load i8, ptr %arrayidx, align 1
@@ -683,7 +683,7 @@ sw.epilog:                                        ; preds = %for.body, %sw.bb34,
   br i1 %tobool52.not, label %for.inc, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %sw.epilog, %if.then45
-  %strip_dot.160 = phi i8 [ %strip_dot.075, %sw.epilog ], [ 1, %if.then45 ]
+  %strip_dot.160 = phi i1 [ %strip_dot.075, %sw.epilog ], [ true, %if.then45 ]
   %strip.promoted = load i64, ptr %strip, align 8
   br label %land.rhs
 
@@ -701,9 +701,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool57.not, label %for.inc, label %land.rhs, !llvm.loop !9
 
 if.then62:                                        ; preds = %land.rhs
-  %3 = and i8 %strip_dot.160, 1
-  %tobool63.not = icmp eq i8 %3, 0
-  br i1 %tobool63.not, label %if.end78, label %land.lhs.true65
+  br i1 %strip_dot.160, label %land.lhs.true65, label %if.end78
 
 land.lhs.true65:                                  ; preds = %if.then62
   %sub66 = add i64 %prev.072, -1
@@ -722,7 +720,7 @@ for.inc.sink.split:                               ; preds = %sw.bb34, %sw.bb, %i
   br label %for.inc
 
 for.inc:                                          ; preds = %while.body, %for.inc.sink.split, %land.lhs.true65, %if.then, %if.then6, %if.end78, %sw.epilog
-  %strip_dot.2 = phi i8 [ %strip_dot.075, %sw.epilog ], [ 0, %if.end78 ], [ %strip_dot.075, %if.then6 ], [ %strip_dot.075, %if.then ], [ 0, %land.lhs.true65 ], [ %strip_dot.075, %for.inc.sink.split ], [ %strip_dot.160, %while.body ]
+  %strip_dot.2 = phi i1 [ %strip_dot.075, %sw.epilog ], [ false, %if.end78 ], [ %strip_dot.075, %if.then6 ], [ %strip_dot.075, %if.then ], [ false, %land.lhs.true65 ], [ %strip_dot.075, %for.inc.sink.split ], [ %strip_dot.160, %while.body ]
   %last.2 = phi i64 [ %last.076, %sw.epilog ], [ %i.077, %if.end78 ], [ %i.077, %if.then6 ], [ %last.076, %if.then ], [ %i.077, %land.lhs.true65 ], [ %last.076, %for.inc.sink.split ], [ %last.076, %while.body ]
   %inc84 = add nuw i64 %i.077, 1
   %exitcond.not = icmp eq i64 %inc84, %nread
@@ -731,8 +729,8 @@ for.inc:                                          ; preds = %while.body, %for.in
 for.end:                                          ; preds = %for.inc, %entry
   %last.0.lcssa = phi i64 [ 0, %entry ], [ %last.2, %for.inc ]
   %eob85 = getelementptr inbounds i8, ptr %0, i64 1000
-  %4 = load i64, ptr %eob85, align 8
-  switch i64 %4, label %return [
+  %3 = load i64, ptr %eob85, align 8
+  switch i64 %3, label %return [
     i64 5, label %if.then88
     i64 0, label %if.end95
   ]
@@ -740,8 +738,8 @@ for.end:                                          ; preds = %for.inc, %entry
 if.then88:                                        ; preds = %for.end
   %call89 = tail call i32 @Curl_client_write(ptr noundef %data, i32 noundef 1, ptr noundef nonnull @.str.2, i64 noundef 2) #7
   %keepon = getelementptr inbounds i8, ptr %data, i64 308
-  %5 = load i32, ptr %keepon, align 4
-  %and = and i32 %5, -2
+  %4 = load i32, ptr %keepon, align 4
+  %and = and i32 %4, -2
   store i32 %and, ptr %keepon, align 4
   store i64 0, ptr %eob85, align 8
   br label %return
@@ -1397,8 +1395,8 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %if.end3
   %0 = load i8, ptr %ssldone, align 1
-  %1 = and i8 %0, 1
   %ssldone8 = getelementptr inbounds i8, ptr %conn, i64 1058
+  %1 = and i8 %0, 1
   %bf.load = load i8, ptr %ssldone8, align 2
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %1

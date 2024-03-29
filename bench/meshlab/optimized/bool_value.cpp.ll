@@ -101,9 +101,8 @@ define linkonce_odr void @_ZN9BoolValueD0Ev(ptr noundef nonnull align 8 derefere
 define noundef zeroext i1 @_ZNK9BoolValue7getBoolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -244,9 +243,9 @@ define noundef zeroext i1 @_ZNK9BoolValueeqERK5Value(ptr nocapture noundef nonnu
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %14 = and i8 %9, 1
-  %15 = icmp eq i8 %14, 0
-  %16 = xor i1 %15, %13
+  %14 = trunc i8 %9 to i1
+  %15 = xor i1 %13, %14
+  %16 = xor i1 %15, true
   br label %17
 
 17:                                               ; preds = %2, %7
@@ -260,10 +259,9 @@ define void @_ZNK9BoolValue16fillToXMLElementER11QDomElement(ptr nocapture nound
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %8 = select i1 %.not, ptr @.str.5, ptr @.str.4
-  %9 = select i1 %.not, i32 5, i32 4
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, ptr @.str.4, ptr @.str.5
+  %9 = select i1 %7, i32 4, i32 5
   %10 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull %8, i32 noundef %9)
   store ptr %10, ptr %3, align 8
   %11 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.6, i32 noundef 5)

@@ -82,22 +82,21 @@ define internal void @native_finalize() #0 {
 define internal noundef i32 @native_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
-  br i1 %3, label %switch.hole_check, label %6
+  br i1 %3, label %switch.hole_check, label %5
 
 switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i16 3829, %switch.tableidx
-  %4 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %4, 0
-  br i1 %switch.lobit.not, label %6, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.native_get_max_size, i64 0, i64 %5
+  %4 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.native_get_max_size, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %1, align 8
-  br label %6
+  br label %5
 
-6:                                                ; preds = %switch.hole_check, %2, %switch.lookup
+5:                                                ; preds = %switch.hole_check, %2, %switch.lookup
   %.0 = phi i32 [ -27, %2 ], [ 0, %switch.lookup ], [ -27, %switch.hole_check ]
   ret i32 %.0
 }

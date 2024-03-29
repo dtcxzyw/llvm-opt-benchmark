@@ -22,9 +22,8 @@ define dso_local i32 @t_isdigit(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @database_ctype_is_c, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %1
   %9 = tail call ptr @__ctype_b_loc() #9
@@ -68,9 +67,8 @@ define dso_local i32 @t_isspace(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @database_ctype_is_c, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %1
   %9 = tail call ptr @__ctype_b_loc() #9
@@ -107,9 +105,8 @@ define dso_local i32 @t_isalpha(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @database_ctype_is_c, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %1
   %9 = tail call ptr @__ctype_b_loc() #9
@@ -146,9 +143,8 @@ define dso_local i32 @t_isalnum(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @database_ctype_is_c, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %1
   %9 = tail call ptr @__ctype_b_loc() #9
@@ -185,9 +181,8 @@ define dso_local i32 @t_isprint(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @database_ctype_is_c, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %1
   %9 = tail call ptr @__ctype_b_loc() #9
@@ -386,9 +381,8 @@ define dso_local ptr @lowerstr_with_len(ptr noundef %0, i32 noundef %1) local_un
 
 9:                                                ; preds = %6
   %10 = load i8, ptr @database_ctype_is_c, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %36
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %36, label %12
 
 12:                                               ; preds = %9
   %13 = add i32 %1, 1
@@ -399,20 +393,20 @@ define dso_local ptr @lowerstr_with_len(ptr noundef %0, i32 noundef %1) local_un
   %18 = tail call i64 @char2wchar(ptr noundef %16, i64 noundef %14, ptr noundef %0, i64 noundef %17, ptr noundef null) #8
   %19 = trunc i64 %18 to i32
   %20 = load i32, ptr %16, align 4
-  %.not3643 = icmp eq i32 %20, 0
-  br i1 %.not3643, label %._crit_edge, label %.lr.ph45
+  %.not38 = icmp eq i32 %20, 0
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-.lr.ph45:                                         ; preds = %12, %.lr.ph45
-  %21 = phi i32 [ %24, %.lr.ph45 ], [ %20, %12 ]
-  %.03144 = phi ptr [ %23, %.lr.ph45 ], [ %16, %12 ]
+.lr.ph:                                           ; preds = %12, %.lr.ph
+  %21 = phi i32 [ %24, %.lr.ph ], [ %20, %12 ]
+  %.03139 = phi ptr [ %23, %.lr.ph ], [ %16, %12 ]
   %22 = tail call i32 @towlower(i32 noundef %21) #8
-  store i32 %22, ptr %.03144, align 4
-  %23 = getelementptr i8, ptr %.03144, i64 4
+  store i32 %22, ptr %.03139, align 4
+  %23 = getelementptr i8, ptr %.03139, i64 4
   %24 = load i32, ptr %23, align 4
-  %.not36 = icmp eq i32 %24, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph45, !llvm.loop !5
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %.lr.ph45, %12
+._crit_edge:                                      ; preds = %.lr.ph, %12
   %25 = tail call i32 @pg_database_encoding_max_length() #8
   %26 = mul i32 %25, %19
   %27 = add i32 %26, 1
@@ -421,8 +415,8 @@ define dso_local ptr @lowerstr_with_len(ptr noundef %0, i32 noundef %1) local_un
   %30 = tail call i64 @wchar2char(ptr noundef %29, ptr noundef nonnull %16, i64 noundef %28, ptr noundef null) #8
   tail call void @pfree(ptr noundef nonnull %16) #8
   %31 = and i64 %30, 2147483648
-  %.not37 = icmp eq i64 %31, 0
-  br i1 %.not37, label %53, label %32
+  %.not36 = icmp eq i64 %31, 0
+  br i1 %.not36, label %53, label %32
 
 32:                                               ; preds = %._crit_edge
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -439,29 +433,29 @@ define dso_local ptr @lowerstr_with_len(ptr noundef %0, i32 noundef %1) local_un
   %40 = ptrtoint ptr %0 to i64
   %41 = sext i32 %1 to i64
   %42 = icmp sgt i32 %1, 0
-  br i1 %42, label %.lr.ph, label %.critedge
+  br i1 %42, label %.lr.ph43, label %.critedge
 
-.lr.ph:                                           ; preds = %36, %44
-  %.040 = phi ptr [ %48, %44 ], [ %39, %36 ]
-  %.03039 = phi ptr [ %49, %44 ], [ %0, %36 ]
-  %43 = load i8, ptr %.03039, align 1
-  %.not38 = icmp eq i8 %43, 0
-  br i1 %.not38, label %.critedge, label %44
+.lr.ph43:                                         ; preds = %36, %44
+  %.041 = phi ptr [ %48, %44 ], [ %39, %36 ]
+  %.03040 = phi ptr [ %49, %44 ], [ %0, %36 ]
+  %43 = load i8, ptr %.03040, align 1
+  %.not37 = icmp eq i8 %43, 0
+  br i1 %.not37, label %.critedge, label %44
 
-44:                                               ; preds = %.lr.ph
+44:                                               ; preds = %.lr.ph43
   %45 = zext i8 %43 to i32
   %46 = tail call i32 @tolower(i32 noundef %45) #10
   %47 = trunc i32 %46 to i8
-  %48 = getelementptr i8, ptr %.040, i64 1
-  store i8 %47, ptr %.040, align 1
-  %49 = getelementptr i8, ptr %.03039, i64 1
+  %48 = getelementptr i8, ptr %.041, i64 1
+  store i8 %47, ptr %.041, align 1
+  %49 = getelementptr i8, ptr %.03040, i64 1
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %50, %40
   %52 = icmp slt i64 %51, %41
-  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !7
+  br i1 %52, label %.lr.ph43, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %.lr.ph, %44, %36
-  %.0.lcssa = phi ptr [ %39, %36 ], [ %48, %44 ], [ %.040, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph43, %44, %36
+  %.0.lcssa = phi ptr [ %39, %36 ], [ %48, %44 ], [ %.041, %.lr.ph43 ]
   store i8 0, ptr %.0.lcssa, align 1
   br label %53
 

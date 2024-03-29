@@ -65,8 +65,8 @@ entry:
   %size.i.i = alloca i32, align 4
   %coded_output = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %0 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
-  %1 = and i8 %0, 1
   %cur_.i = getelementptr inbounds i8, ptr %coded_output, i64 64
+  %frombool.i.i = and i8 %0, 1
   %buffer_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 16
   store ptr %buffer_.i.i, ptr %coded_output, align 8
   %buffer_end_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 8
@@ -78,37 +78,37 @@ entry:
   %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
   %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 58
-  store i8 %1, ptr %is_serialization_deterministic_.i.i, align 2
+  store i8 %frombool.i.i, ptr %is_serialization_deterministic_.i.i, align 2
   %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %coded_output, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
   %start_count_.i = getelementptr inbounds i8, ptr %coded_output, i64 72
   %vtable.i = load ptr, ptr %output, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %2 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %output)
+  %1 = load ptr, ptr %vfn.i, align 8
+  %call2.i = call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %output)
   store i64 %call2.i, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
   %vtable.i.i = load ptr, ptr %output, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
-  %4 = load i32, ptr %size.i.i, align 4
-  %cmp.i.i = icmp sgt i32 %4, 0
-  %5 = select i1 %call.i.i, i1 %cmp.i.i, i1 false
-  br i1 %5, label %if.then.i.i, label %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit
+  %2 = load ptr, ptr %vfn.i.i, align 8
+  %call.i.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
+  %3 = load i32, ptr %size.i.i, align 4
+  %cmp.i.i = icmp sgt i32 %3, 0
+  %4 = select i1 %call.i.i, i1 %cmp.i.i, i1 false
+  br i1 %4, label %if.then.i.i, label %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %6 = load ptr, ptr %data.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %4, 16
-  %idx.ext.i.i.i = zext nneg i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i.i.i
+  %5 = load ptr, ptr %data.i.i, align 8
+  %cmp.i.i.i = icmp ugt i32 %3, 16
+  %idx.ext.i.i.i = zext nneg i32 %3 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %buffer_.i.i, i64 %idx.ext.i.i.i
   %add.ptr4.sink.i.i.i = select i1 %cmp.i.i.i, ptr %add.ptr2.i.i.i, ptr %add.ptr4.i.i.i
-  %data.sink.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %6
-  %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %6, ptr %buffer_.i.i
+  %data.sink.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %5
+  %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %5, ptr %buffer_.i.i
   store ptr %add.ptr4.sink.i.i.i, ptr %coded_output, align 8
   store ptr %data.sink.i.i.i, ptr %buffer_end_.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %cur_.i, align 8
@@ -125,10 +125,10 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   ret i1 %call
 
 lpad:                                             ; preds = %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %coded_output) #7
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -299,23 +299,22 @@ if.end8:                                          ; preds = %_ZN6google8protobuf
 if.end13:                                         ; preds = %if.end8
   %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
   %12 = load i8, ptr %legitimate_message_end_.i, align 4
-  %13 = and i8 %12, 1
-  %tobool.i.not = icmp eq i8 %13, 0
-  br i1 %tobool.i.not, label %return, label %if.end16
+  %tobool.i = trunc i8 %12 to i1
+  br i1 %tobool.i, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end13
-  %14 = load i32, ptr %total_bytes_read_.i, align 8
-  %15 = load ptr, ptr %buffer_end_.i.i, align 8
-  %16 = load ptr, ptr %input, align 8
-  %sub.ptr.lhs.cast.i.i32 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i33 = ptrtoint ptr %16 to i64
+  %13 = load i32, ptr %total_bytes_read_.i, align 8
+  %14 = load ptr, ptr %buffer_end_.i.i, align 8
+  %15 = load ptr, ptr %input, align 8
+  %sub.ptr.lhs.cast.i.i32 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i33 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.neg.i34 = sub i64 %sub.ptr.rhs.cast.i.i33, %sub.ptr.lhs.cast.i.i32
   %conv.i.neg1.i35 = trunc i64 %sub.ptr.sub.i.neg.i34 to i32
-  %17 = load i32, ptr %buffer_size_after_limit_.i, align 4
+  %16 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i37 = sub i32 %9, %11
   %sub.i38 = add i32 %add.neg.i37, %conv.i.neg1.i26.neg
-  %add.neg.i28.neg = add i32 %sub.i38, %14
-  %sub.i29.neg = sub i32 %add.neg.i28.neg, %17
+  %add.neg.i28.neg = add i32 %sub.i38, %13
+  %sub.i29.neg = sub i32 %add.neg.i28.neg, %16
   %sub = add i32 %sub.i29.neg, %conv.i.neg1.i35
   %cmp18.not = icmp eq i32 %sub, %size.042
   br i1 %cmp18.not, label %if.end20, label %return
@@ -402,9 +401,8 @@ if.else:                                          ; preds = %_ZN6google8protobuf
   store ptr %call.i11, ptr %cur_.i, align 8
   %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   %6 = load i8, ptr %had_error_.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.i.i.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.i.not, label %if.end9, label %return
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then4
   br label %return

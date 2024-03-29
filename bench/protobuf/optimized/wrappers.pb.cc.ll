@@ -2049,29 +2049,36 @@ entry:
   store i8 0, ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %from, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %1, align 8
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i, label %if.end.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %frombool.i.i = and i8 %3, 1
+  store i8 %frombool.i.i, ptr %1, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   %_internal_metadata_3.i.i = getelementptr inbounds i8, ptr %from, i64 8
-  %5 = load i64, ptr %_internal_metadata_3.i.i, align 8
-  %and.i8.i.i = and i64 %5, 1
+  %4 = load i64, ptr %_internal_metadata_3.i.i, align 8
+  %and.i8.i.i = and i64 %4, 1
   %tobool.i9.not.i.i = icmp eq i64 %and.i8.i.i, 0
   br i1 %tobool.i9.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %entry
-  %and.i.i.i = and i64 %5, -2
-  %6 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+if.then.i.i.i.i:                                  ; preds = %if.end.i.i
+  %and.i.i.i = and i64 %4, -2
+  %5 = inttoptr i64 %and.i.i.i to ptr
+  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %entry, %if.then.i.i.i.i
+invoke.cont:                                      ; preds = %if.end.i.i, %if.then.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google8protobuf9BoolValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #15
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2117,27 +2124,27 @@ define void @_ZN6google8protobuf9BoolValue9MergeImplERNS0_11MessageLiteERKS2_(pt
 entry:
   %0 = getelementptr inbounds i8, ptr %from_msg, i64 16
   %1 = load i8, ptr %0, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = getelementptr inbounds i8, ptr %to_msg, i64 16
-  store i8 %2, ptr %3, align 8
+  %2 = getelementptr inbounds i8, ptr %to_msg, i64 16
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %_internal_metadata_3 = getelementptr inbounds i8, ptr %from_msg, i64 8
-  %4 = load i64, ptr %_internal_metadata_3, align 8
-  %and.i8 = and i64 %4, 1
+  %3 = load i64, ptr %_internal_metadata_3, align 8
+  %and.i8 = and i64 %3, 1
   %tobool.i9.not = icmp eq i64 %and.i8, 0
   br i1 %tobool.i9.not, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %_internal_metadata_ = getelementptr inbounds i8, ptr %to_msg, i64 8
-  %and.i = and i64 %4, -2
-  %5 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %and.i = and i64 %3, -2
+  %4 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
@@ -2178,28 +2185,27 @@ define noundef ptr @_ZNK6google8protobuf9BoolValue18_InternalSerializeEPhPNS0_2i
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %0, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %3, %target
+  %2 = load ptr, ptr %stream, align 8
+  %cmp.not.i = icmp ugt ptr %2, %target
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then
   %call.i7 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %stream, ptr noundef %target)
   %.pre = load i8, ptr %0, align 8
-  %.pre10 = and i8 %.pre, 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.then, %if.then.i6
-  %.pre-phi = phi i8 [ 1, %if.then ], [ %.pre10, %if.then.i6 ]
-  %retval.0.i = phi ptr [ %target, %if.then ], [ %call.i7, %if.then.i6 ]
+  %3 = phi i8 [ %.pre, %if.then.i6 ], [ %1, %if.then ]
+  %retval.0.i = phi ptr [ %call.i7, %if.then.i6 ], [ %target, %if.then ]
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
   store i8 8, ptr %retval.0.i, align 1
+  %conv1.i.i = and i8 %3, 1
   %incdec.ptr2.i.i9 = getelementptr inbounds i8, ptr %retval.0.i, i64 2
-  store i8 %.pre-phi, ptr %incdec.ptr2.i.i, align 1
+  store i8 %conv1.i.i, ptr %incdec.ptr2.i.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %entry
@@ -2227,9 +2233,8 @@ define noundef i64 @_ZNK6google8protobuf9BoolValue12ByteSizeLongEv(ptr noundef n
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %0, align 8
-  %2 = shl i8 %1, 1
-  %3 = and i8 %2, 2
-  %spec.select = zext nneg i8 %3 to i64
+  %tobool.i = trunc i8 %1 to i1
+  %spec.select = select i1 %tobool.i, i64 2, i64 0
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
   %call2 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %spec.select, ptr noundef nonnull %_cached_size_)
   ret i64 %call2
@@ -2257,25 +2262,25 @@ if.then.i.i:                                      ; preds = %if.end
 _ZN6google8protobuf9BoolValue5ClearEv.exit:       ; preds = %if.end, %if.then.i.i
   %2 = getelementptr inbounds i8, ptr %from, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i.i, label %if.end.i.i, label %if.then.i.i2
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i2, label %if.end.i.i
 
 if.then.i.i2:                                     ; preds = %_ZN6google8protobuf9BoolValue5ClearEv.exit
-  store i8 %4, ptr %0, align 8
+  %frombool.i.i = and i8 %3, 1
+  store i8 %frombool.i.i, ptr %0, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i2, %_ZN6google8protobuf9BoolValue5ClearEv.exit
   %_internal_metadata_3.i.i = getelementptr inbounds i8, ptr %from, i64 8
-  %5 = load i64, ptr %_internal_metadata_3.i.i, align 8
-  %and.i8.i.i = and i64 %5, 1
+  %4 = load i64, ptr %_internal_metadata_3.i.i, align 8
+  %and.i8.i.i = and i64 %4, 1
   %tobool.i9.not.i.i = icmp eq i64 %and.i8.i.i, 0
   br i1 %tobool.i9.not.i.i, label %return, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %and.i.i.i = and i64 %5, -2
-  %6 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %and.i.i.i = and i64 %4, -2
+  %5 = inttoptr i64 %and.i.i.i to ptr
+  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
   br label %return
 
@@ -2301,11 +2306,11 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
   %4 = load i8, ptr %2, align 8
-  %5 = and i8 %4, 1
-  %6 = load i8, ptr %3, align 1
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %2, align 8
-  store i8 %5, ptr %3, align 1
+  %frombool.i = and i8 %4, 1
+  %5 = load i8, ptr %3, align 1
+  %frombool2.i = and i8 %5, 1
+  store i8 %frombool2.i, ptr %2, align 8
+  store i8 %frombool.i, ptr %3, align 1
   ret void
 }
 

@@ -59,24 +59,19 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %0 = load i64, ptr %nresaddrs, align 8
   %cmp27.not = icmp eq i64 %0, 0
-  br i1 %cmp27.not, label %for.end.thread, label %for.body
-
-for.end.thread:                                   ; preds = %for.cond.preheader
-  %1 = load ptr, ptr %resaddrs, align 8
-  call void @g_free(ptr noundef %1) #4
-  br label %if.else
+  br i1 %cmp27.not, label %if.else.critedge, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end7
-  %success.09 = phi i8 [ %success.1, %if.end7 ], [ 0, %for.cond.preheader ]
+  %success.09 = phi i1 [ %success.1, %if.end7 ], [ false, %for.cond.preheader ]
   %i.08 = phi i64 [ %inc, %if.end7 ], [ 0, %for.cond.preheader ]
   %call3 = call ptr @qio_channel_socket_new() #4
-  %2 = load ptr, ptr %resaddrs, align 8
-  %arrayidx = getelementptr ptr, ptr %2, i64 %i.08
-  %3 = load ptr, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %err, align 8
-  %tobool.not = icmp eq ptr %4, null
+  %1 = load ptr, ptr %resaddrs, align 8
+  %arrayidx = getelementptr ptr, ptr %1, i64 %i.08
+  %2 = load ptr, ptr %arrayidx, align 8
+  %3 = load ptr, ptr %err, align 8
+  %tobool.not = icmp eq ptr %3, null
   %.err = select i1 %tobool.not, ptr %err, ptr null
-  %call4 = call i32 @qio_channel_socket_listen_sync(ptr noundef %call3, ptr noundef %3, i32 noundef %num, ptr noundef %.err) #4
+  %call4 = call i32 @qio_channel_socket_listen_sync(ptr noundef %call3, ptr noundef %2, i32 noundef %num, ptr noundef %.err) #4
   %cmp5 = icmp eq i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -85,32 +80,35 @@ if.then6:                                         ; preds = %for.body
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %for.body
-  %success.1 = phi i8 [ 1, %if.then6 ], [ %success.09, %for.body ]
-  %5 = load ptr, ptr %resaddrs, align 8
-  %arrayidx8 = getelementptr ptr, ptr %5, i64 %i.08
-  %6 = load ptr, ptr %arrayidx8, align 8
-  call void @qapi_free_SocketAddress(ptr noundef %6) #4
+  %success.1 = phi i1 [ true, %if.then6 ], [ %success.09, %for.body ]
+  %4 = load ptr, ptr %resaddrs, align 8
+  %arrayidx8 = getelementptr ptr, ptr %4, i64 %i.08
+  %5 = load ptr, ptr %arrayidx8, align 8
+  call void @qapi_free_SocketAddress(ptr noundef %5) #4
   call void @object_unref(ptr noundef %call3) #4
   %inc = add nuw i64 %i.08, 1
-  %7 = load i64, ptr %nresaddrs, align 8
-  %cmp2 = icmp ult i64 %inc, %7
+  %6 = load i64, ptr %nresaddrs, align 8
+  %cmp2 = icmp ult i64 %inc, %6
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end7
-  %8 = and i8 %success.1, 1
-  %9 = icmp eq i8 %8, 0
-  %10 = load ptr, ptr %resaddrs, align 8
-  call void @g_free(ptr noundef %10) #4
-  br i1 %9, label %if.else, label %if.then10
+  %7 = load ptr, ptr %resaddrs, align 8
+  call void @g_free(ptr noundef %7) #4
+  %.pre = load ptr, ptr %err, align 8
+  br i1 %success.1, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %for.end
-  %11 = load ptr, ptr %err, align 8
-  call void @error_free(ptr noundef %11) #4
+  call void @error_free(ptr noundef %.pre) #4
   br label %return
 
-if.else:                                          ; preds = %for.end.thread, %for.end
-  %12 = load ptr, ptr %err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %12) #4
+if.else.critedge:                                 ; preds = %for.cond.preheader
+  %8 = load ptr, ptr %resaddrs, align 8
+  call void @g_free(ptr noundef %8) #4
+  br label %if.else
+
+if.else:                                          ; preds = %if.else.critedge, %for.end
+  %9 = phi ptr [ null, %if.else.critedge ], [ %.pre, %for.end ]
+  call void @error_propagate(ptr noundef %errp, ptr noundef %9) #4
   br label %return
 
 return:                                           ; preds = %entry, %if.else, %if.then10
@@ -515,14 +513,13 @@ define dso_local void @qio_net_listener_disconnect(ptr nocapture noundef %listen
 entry:
   %connected = getelementptr inbounds i8, ptr %listener, i64 72
   %0 = load i8, ptr %connected, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %for.cond.preheader
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
   %nsioc = getelementptr inbounds i8, ptr %listener, i64 64
-  %2 = load i64, ptr %nsioc, align 8
-  %cmp14.not = icmp eq i64 %2, 0
+  %1 = load i64, ptr %nsioc, align 8
+  %cmp14.not = icmp eq i64 %1, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -532,32 +529,32 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end9
   %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end9 ]
-  %3 = load ptr, ptr %io_source, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 %i.015
-  %4 = load ptr, ptr %arrayidx, align 8
-  %tobool1.not = icmp eq ptr %4, null
+  %2 = load ptr, ptr %io_source, align 8
+  %arrayidx = getelementptr ptr, ptr %2, i64 %i.015
+  %3 = load ptr, ptr %arrayidx, align 8
+  %tobool1.not = icmp eq ptr %3, null
   br i1 %tobool1.not, label %if.end9, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  tail call void @g_source_destroy(ptr noundef nonnull %4) #4
-  %5 = load ptr, ptr %io_source, align 8
-  %arrayidx6 = getelementptr ptr, ptr %5, i64 %i.015
-  %6 = load ptr, ptr %arrayidx6, align 8
-  tail call void @g_source_unref(ptr noundef %6) #4
-  %7 = load ptr, ptr %io_source, align 8
-  %arrayidx8 = getelementptr ptr, ptr %7, i64 %i.015
+  tail call void @g_source_destroy(ptr noundef nonnull %3) #4
+  %4 = load ptr, ptr %io_source, align 8
+  %arrayidx6 = getelementptr ptr, ptr %4, i64 %i.015
+  %5 = load ptr, ptr %arrayidx6, align 8
+  tail call void @g_source_unref(ptr noundef %5) #4
+  %6 = load ptr, ptr %io_source, align 8
+  %arrayidx8 = getelementptr ptr, ptr %6, i64 %i.015
   store ptr null, ptr %arrayidx8, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then2, %for.body
-  %8 = load ptr, ptr %sioc, align 8
-  %arrayidx10 = getelementptr ptr, ptr %8, i64 %i.015
-  %9 = load ptr, ptr %arrayidx10, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #4
+  %7 = load ptr, ptr %sioc, align 8
+  %arrayidx10 = getelementptr ptr, ptr %7, i64 %i.015
+  %8 = load ptr, ptr %arrayidx10, align 8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #4
   %call11 = tail call i32 @qio_channel_close(ptr noundef %call.i, ptr noundef null) #4
   %inc = add nuw i64 %i.015, 1
-  %10 = load i64, ptr %nsioc, align 8
-  %cmp = icmp ult i64 %inc, %10
+  %9 = load i64, ptr %nsioc, align 8
+  %cmp = icmp ult i64 %inc, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end9, %for.cond.preheader
@@ -575,8 +572,7 @@ define dso_local zeroext i1 @qio_net_listener_is_connected(ptr nocapture noundef
 entry:
   %connected = getelementptr inbounds i8, ptr %listener, i64 72
   %0 = load i8, ptr %connected, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -622,14 +618,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %connected.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %2 = load i8, ptr %connected.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  %nsioc.phi.trans.insert = getelementptr inbounds i8, ptr %call.i, i64 64
-  %.pre = load i64, ptr %nsioc.phi.trans.insert, align 8
-  br i1 %tobool.not.i, label %qio_net_listener_disconnect.exit, label %for.cond.preheader.i
+  %tobool.i = trunc i8 %2 to i1
+  %nsioc.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %3 = load i64, ptr %nsioc.i, align 8
+  br i1 %tobool.i, label %for.cond.preheader.i, label %qio_net_listener_disconnect.exit
 
 for.cond.preheader.i:                             ; preds = %if.end
-  %cmp14.not.i = icmp eq i64 %.pre, 0
+  %cmp14.not.i = icmp eq i64 %3, 0
   br i1 %cmp14.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
@@ -663,7 +658,7 @@ if.end9.i:                                        ; preds = %if.then2.i, %for.bo
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %10, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #4
   %call11.i = tail call i32 @qio_channel_close(ptr noundef %call.i.i, ptr noundef null) #4
   %inc.i = add nuw i64 %i.015.i, 1
-  %11 = load i64, ptr %nsioc.phi.trans.insert, align 8
+  %11 = load i64, ptr %nsioc.i, align 8
   %cmp.i = icmp ult i64 %inc.i, %11
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !13
 
@@ -673,7 +668,7 @@ for.end.i:                                        ; preds = %if.end9.i, %for.con
   br label %qio_net_listener_disconnect.exit
 
 qio_net_listener_disconnect.exit:                 ; preds = %if.end, %for.end.i
-  %13 = phi i64 [ %12, %for.end.i ], [ %.pre, %if.end ]
+  %13 = phi i64 [ %12, %for.end.i ], [ %3, %if.end ]
   %nsioc = getelementptr inbounds i8, ptr %call.i, i64 64
   %cmp11.not = icmp eq i64 %13, 0
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph

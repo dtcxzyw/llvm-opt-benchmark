@@ -443,8 +443,7 @@ define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_125SampleCountPickleIt
 entry:
   %is_done_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %is_done_, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

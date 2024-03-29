@@ -3360,34 +3360,33 @@ for.end:                                          ; preds = %for.inc, %entry
   %cmp.i.i.i13 = icmp ne ptr %18, null
   %m_inconsistent.i.i = getelementptr inbounds i8, ptr %this, i64 3248
   %19 = load i8, ptr %m_inconsistent.i.i, align 8
-  %20 = and i8 %19, 1
-  %tobool.i.i = icmp ne i8 %20, 0
-  %21 = select i1 %cmp.i.i.i13, i1 true, i1 %tobool.i.i
+  %tobool.i.i = trunc i8 %19 to i1
+  %20 = select i1 %cmp.i.i.i13, i1 true, i1 %tobool.i.i
   tail call void @_ZN3smt7context3popEj(ptr noundef nonnull align 8 dereferenceable(11616) %m_context, i32 noundef 2)
-  br i1 %21, label %if.then17, label %if.end20
+  br i1 %20, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %for.end
   %m_data.i.i14 = getelementptr inbounds i8, ptr %this, i64 12480
-  %22 = load ptr, ptr %m_data.i.i14, align 8
+  %21 = load ptr, ptr %m_data.i.i14, align 8
   %div1.i.i15 = lshr i32 %i, 5
   %idxprom.i.i16 = zext nneg i32 %div1.i.i15 to i64
-  %arrayidx.i.i17 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i.i16
-  %23 = load i32, ptr %arrayidx.i.i17, align 4
+  %arrayidx.i.i17 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i16
+  %22 = load i32, ptr %arrayidx.i.i17, align 4
   %rem.i.i18 = and i32 %i, 31
   %shl.i.i19 = shl nuw i32 1, %rem.i.i18
-  %xor4.i = or i32 %23, %shl.i.i19
+  %xor4.i = or i32 %22, %shl.i.i19
   store i32 %xor4.i, ptr %arrayidx.i.i17, align 4
   %m_deleted = getelementptr inbounds i8, ptr %this, i64 12488
-  %24 = load ptr, ptr %m_deleted, align 8
-  %cmp.i21 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %m_deleted, align 8
+  %cmp.i21 = icmp eq ptr %23, null
   br i1 %cmp.i21, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then17
-  %arrayidx.i = getelementptr inbounds i8, ptr %24, i64 -4
-  %25 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %24, i64 -8
-  %26 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %25, %26
+  %arrayidx.i = getelementptr inbounds i8, ptr %23, i64 -4
+  %24 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %23, i64 -8
+  %25 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %24, %25
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIjLb0EjE9push_backERKj.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then17
@@ -3398,15 +3397,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN6vectorIjLb0EjE9push_backERKj.exit
 
 _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %if.then.i
-  %27 = phi i32 [ %.pre1.i, %if.then.i ], [ %25, %lor.lhs.false.i ]
-  %28 = phi ptr [ %.pre.i, %if.then.i ], [ %24, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %27 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %28, i64 %idx.ext.i
+  %26 = phi i32 [ %.pre1.i, %if.then.i ], [ %24, %lor.lhs.false.i ]
+  %27 = phi ptr [ %.pre.i, %if.then.i ], [ %23, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %26 to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %27, i64 %idx.ext.i
   store i32 %i, ptr %add.ptr.i, align 4
-  %29 = load ptr, ptr %m_deleted, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %29, i64 -4
-  %30 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %30, 1
+  %28 = load ptr, ptr %m_deleted, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %28, i64 -4
+  %29 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %29, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %if.end20
 

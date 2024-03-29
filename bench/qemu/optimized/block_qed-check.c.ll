@@ -261,24 +261,23 @@ qed_check_table_offset.exit:                      ; preds = %if.end.i.i
 
 if.then5:                                         ; preds = %if.end.i.i, %if.end.i, %if.end, %qed_check_table_offset.exit
   %17 = load i8, ptr %fix.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.not = icmp eq i8 %18, 0
-  br i1 %tobool.not, label %if.else, label %if.then6
+  %tobool = trunc i8 %17 to i1
+  br i1 %tobool, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then5
   store i64 0, ptr %arrayidx, align 8
-  %19 = load ptr, ptr %result.i, align 8
-  %corruptions_fixed = getelementptr inbounds i8, ptr %19, i64 12
-  %20 = load i32, ptr %corruptions_fixed, align 4
-  %inc = add i32 %20, 1
+  %18 = load ptr, ptr %result.i, align 8
+  %corruptions_fixed = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = load i32, ptr %corruptions_fixed, align 4
+  %inc = add i32 %19, 1
   store i32 %inc, ptr %corruptions_fixed, align 4
   br label %if.end12
 
 if.else:                                          ; preds = %if.then5
-  %21 = load ptr, ptr %result.i, align 8
-  %22 = load i32, ptr %21, align 8
-  %inc11 = add i32 %22, 1
-  store i32 %inc11, ptr %21, align 8
+  %20 = load ptr, ptr %result.i, align 8
+  %21 = load i32, ptr %20, align 8
+  %inc11 = add i32 %21, 1
+  store i32 %inc11, ptr %20, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then6
@@ -290,9 +289,9 @@ if.end14:                                         ; preds = %qed_check_table_off
   br i1 %cmp.not12.i44, label %if.end19, label %while.body.lr.ph.i45
 
 while.body.lr.ph.i45:                             ; preds = %if.end14
-  %23 = load ptr, ptr %check, align 8
-  %24 = getelementptr i8, ptr %23, i64 12
-  %.val.i46 = load i32, ptr %24, align 4
+  %22 = load ptr, ptr %check, align 8
+  %23 = getelementptr i8, ptr %22, i64 12
+  %.val.i46 = load i32, ptr %23, align 4
   %sub.i.i47 = add i32 %.val.i46, -1
   %conv.i.i48 = zext i32 %sub.i.i47 to i64
   %add.i.i49 = add i64 %12, %conv.i.i48
@@ -306,27 +305,27 @@ while.body.i54:                                   ; preds = %while.body.i54, %wh
   %cluster.014.i56 = phi i64 [ %div.i.i52, %while.body.lr.ph.i45 ], [ %inc3.i66, %while.body.i54 ]
   %n.addr.013.i57 = phi i32 [ %13, %while.body.lr.ph.i45 ], [ %dec.i58, %while.body.i54 ]
   %dec.i58 = add i32 %n.addr.013.i57, -1
-  %25 = load ptr, ptr %used_clusters.i53, align 8
+  %24 = load ptr, ptr %used_clusters.i53, align 8
   %div2.i.i59 = lshr i64 %cluster.014.i56, 5
-  %arrayidx.i.i60 = getelementptr i32, ptr %25, i64 %div2.i.i59
-  %26 = load i32, ptr %arrayidx.i.i60, align 4
-  %27 = trunc i64 %cluster.014.i56 to i32
-  %sh_prom.i.i61 = and i32 %27, 31
+  %arrayidx.i.i60 = getelementptr i32, ptr %24, i64 %div2.i.i59
+  %25 = load i32, ptr %arrayidx.i.i60, align 4
+  %26 = trunc i64 %cluster.014.i56 to i32
+  %sh_prom.i.i61 = and i32 %26, 31
   %shl.i.i62 = shl nuw i32 1, %sh_prom.i.i61
-  %28 = lshr i32 %26, %sh_prom.i.i61
-  %inc.i63 = and i32 %28, 1
+  %27 = lshr i32 %25, %sh_prom.i.i61
+  %inc.i63 = and i32 %27, 1
   %spec.select.i64 = add i32 %inc.i63, %corruptions.015.i55
-  %or.i.i65 = or i32 %26, %shl.i.i62
+  %or.i.i65 = or i32 %25, %shl.i.i62
   store i32 %or.i.i65, ptr %arrayidx.i.i60, align 4
   %inc3.i66 = add i64 %cluster.014.i56, 1
   %cmp.not.i67 = icmp eq i32 %dec.i58, 0
   br i1 %cmp.not.i67, label %qed_set_used_clusters.exit72, label %while.body.i54, !llvm.loop !7
 
 qed_set_used_clusters.exit72:                     ; preds = %while.body.i54
-  %29 = load ptr, ptr %result.i, align 8
-  %30 = load i32, ptr %29, align 8
-  %add.i70 = add i32 %30, %spec.select.i64
-  store i32 %add.i70, ptr %29, align 8
+  %28 = load ptr, ptr %result.i, align 8
+  %29 = load i32, ptr %28, align 8
+  %add.i70 = add i32 %29, %spec.select.i64
+  store i32 %add.i70, ptr %28, align 8
   %cmp5.i71 = icmp eq i32 %spec.select.i64, 0
   br i1 %cmp5.i71, label %if.end19, label %for.inc
 
@@ -336,101 +335,100 @@ if.end19:                                         ; preds = %if.end14, %qed_set_
   br i1 %tobool21.not, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %31 = load ptr, ptr %result.i, align 8
-  %check_errors = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load i32, ptr %check_errors, align 8
-  %inc24 = add i32 %32, 1
+  %30 = load ptr, ptr %result.i, align 8
+  %check_errors = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i32, ptr %check_errors, align 8
+  %inc24 = add i32 %31, 1
   store i32 %inc24, ptr %check_errors, align 8
   br label %for.inc
 
 if.end25:                                         ; preds = %if.end19
-  %33 = load ptr, ptr %request, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %check, align 8
-  %table_nelems.i = getelementptr inbounds i8, ptr %35, i64 152
-  %36 = load i32, ptr %table_nelems.i, align 8
-  %cmp23.not.i = icmp eq i32 %36, 0
+  %32 = load ptr, ptr %request, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %check, align 8
+  %table_nelems.i = getelementptr inbounds i8, ptr %34, i64 152
+  %35 = load i32, ptr %table_nelems.i, align 8
+  %cmp23.not.i = icmp eq i32 %35, 0
   br i1 %cmp23.not.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end25
-  %cluster_size.i74 = getelementptr inbounds i8, ptr %35, i64 12
-  %header_size1.i.i75 = getelementptr inbounds i8, ptr %35, i64 20
-  %file_size.i.i76 = getelementptr inbounds i8, ptr %35, i64 168
+  %cluster_size.i74 = getelementptr inbounds i8, ptr %34, i64 12
+  %header_size1.i.i75 = getelementptr inbounds i8, ptr %34, i64 20
+  %file_size.i.i76 = getelementptr inbounds i8, ptr %34, i64 168
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %last_offset.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %last_offset.1.i, %for.inc.i ]
   %num_invalid.024.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %num_invalid.1.i, %for.inc.i ]
-  %arrayidx.i = getelementptr [0 x i64], ptr %34, i64 0, i64 %indvars.iv.i
-  %37 = load i64, ptr %arrayidx.i, align 8
-  %switch.i = icmp ult i64 %37, 2
+  %arrayidx.i = getelementptr [0 x i64], ptr %33, i64 0, i64 %indvars.iv.i
+  %36 = load i64, ptr %arrayidx.i, align 8
+  %switch.i = icmp ult i64 %36, 2
   br i1 %switch.i, label %for.inc.i, label %if.end.i77
 
 if.end.i77:                                       ; preds = %for.body.i
-  %38 = load ptr, ptr %result.i, align 8
-  %bfi.i = getelementptr inbounds i8, ptr %38, i64 32
-  %39 = load i64, ptr %bfi.i, align 8
-  %inc.i78 = add i64 %39, 1
+  %37 = load ptr, ptr %result.i, align 8
+  %bfi.i = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = load i64, ptr %bfi.i, align 8
+  %inc.i78 = add i64 %38, 1
   store i64 %inc.i78, ptr %bfi.i, align 8
   %tobool.not.i = icmp eq i64 %last_offset.025.i, 0
   %.pre28.i = load i32, ptr %cluster_size.i74, align 4
   %conv.i79 = zext i32 %.pre28.i to i64
   %add.i80 = add i64 %last_offset.025.i, %conv.i79
-  %cmp3.not.i = icmp eq i64 %add.i80, %37
+  %cmp3.not.i = icmp eq i64 %add.i80, %36
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %if.end9.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i77
-  %40 = load ptr, ptr %result.i, align 8
-  %fragmented_clusters.i = getelementptr inbounds i8, ptr %40, i64 48
-  %41 = load i64, ptr %fragmented_clusters.i, align 8
-  %inc8.i = add i64 %41, 1
+  %39 = load ptr, ptr %result.i, align 8
+  %fragmented_clusters.i = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = load i64, ptr %fragmented_clusters.i, align 8
+  %inc8.i = add i64 %40, 1
   store i64 %inc8.i, ptr %fragmented_clusters.i, align 8
   %.pre.i = load i32, ptr %cluster_size.i74, align 4
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then5.i, %if.end.i77
-  %42 = phi i32 [ %.pre.i, %if.then5.i ], [ %.pre28.i, %if.end.i77 ]
-  %sub.i.i81 = add i32 %42, -1
+  %41 = phi i32 [ %.pre.i, %if.then5.i ], [ %.pre28.i, %if.end.i77 ]
+  %sub.i.i81 = add i32 %41, -1
   %conv6.i.i82 = zext i32 %sub.i.i81 to i64
-  %and.i.i83 = and i64 %37, %conv6.i.i82
+  %and.i.i83 = and i64 %36, %conv6.i.i82
   %tobool.not.i.i84 = icmp eq i64 %and.i.i83, 0
   br i1 %tobool.not.i.i84, label %if.end.i.i86, label %if.then11.i
 
 if.end.i.i86:                                     ; preds = %if.end9.i
-  %43 = load i32, ptr %header_size1.i.i75, align 4
-  %conv.i.i87 = zext i32 %43 to i64
-  %conv3.i.i88 = zext i32 %42 to i64
+  %42 = load i32, ptr %header_size1.i.i75, align 4
+  %conv.i.i87 = zext i32 %42 to i64
+  %conv3.i.i88 = zext i32 %41 to i64
   %mul.i.i89 = mul nuw i64 %conv.i.i87, %conv3.i.i88
-  %cmp.not.i.i90 = icmp ugt i64 %mul.i.i89, %37
+  %cmp.not.i.i90 = icmp ugt i64 %mul.i.i89, %36
   br i1 %cmp.not.i.i90, label %if.then11.i, label %qed_check_cluster_offset.exit.i91
 
 qed_check_cluster_offset.exit.i91:                ; preds = %if.end.i.i86
-  %44 = load i64, ptr %file_size.i.i76, align 8
-  %cmp8.i.i92 = icmp ugt i64 %44, %37
+  %43 = load i64, ptr %file_size.i.i76, align 8
+  %cmp8.i.i92 = icmp ugt i64 %43, %36
   br i1 %cmp8.i.i92, label %if.end23.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %qed_check_cluster_offset.exit.i91, %if.end.i.i86, %if.end9.i
-  %45 = load i8, ptr %fix.i, align 8
-  %46 = and i8 %45, 1
-  %tobool12.not.i = icmp eq i8 %46, 0
-  br i1 %tobool12.not.i, label %if.else.i, label %if.then13.i
+  %44 = load i8, ptr %fix.i, align 8
+  %tobool12.i = trunc i8 %44 to i1
+  br i1 %tobool12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %if.then11.i
   store i64 0, ptr %arrayidx.i, align 8
-  %47 = load ptr, ptr %result.i, align 8
-  %corruptions_fixed.i = getelementptr inbounds i8, ptr %47, i64 12
-  %48 = load i32, ptr %corruptions_fixed.i, align 4
-  %inc18.i = add i32 %48, 1
+  %45 = load ptr, ptr %result.i, align 8
+  %corruptions_fixed.i = getelementptr inbounds i8, ptr %45, i64 12
+  %46 = load i32, ptr %corruptions_fixed.i, align 4
+  %inc18.i = add i32 %46, 1
   store i32 %inc18.i, ptr %corruptions_fixed.i, align 4
   br label %if.end21.i
 
 if.else.i:                                        ; preds = %if.then11.i
-  %49 = load ptr, ptr %result.i, align 8
-  %50 = load i32, ptr %49, align 8
-  %inc20.i = add i32 %50, 1
-  store i32 %inc20.i, ptr %49, align 8
+  %47 = load ptr, ptr %result.i, align 8
+  %48 = load i32, ptr %47, align 8
+  %inc20.i = add i32 %48, 1
+  store i32 %inc20.i, ptr %47, align 8
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then13.i
@@ -438,39 +436,39 @@ if.end21.i:                                       ; preds = %if.else.i, %if.then
   br label %for.inc.i
 
 if.end23.i:                                       ; preds = %qed_check_cluster_offset.exit.i91
-  %51 = load ptr, ptr %check, align 8
-  %52 = getelementptr i8, ptr %51, i64 12
-  %.val.i.i = load i32, ptr %52, align 4
+  %49 = load ptr, ptr %check, align 8
+  %50 = getelementptr i8, ptr %49, i64 12
+  %.val.i.i = load i32, ptr %50, align 4
   %sub.i.i.i = add i32 %.val.i.i, -1
   %conv.i.i.i = zext i32 %sub.i.i.i to i64
-  %add.i.i.i = add i64 %37, %conv.i.i.i
+  %add.i.i.i = add i64 %36, %conv.i.i.i
   %not.i.i.i.i = xor i64 %conv.i.i.i, -1
   %and.i.i.i.i = and i64 %add.i.i.i, %not.i.i.i.i
   %div.i.i.i = udiv i64 %and.i.i.i.i, %conv.i.i.i
-  %53 = load ptr, ptr %used_clusters.i53, align 8
+  %51 = load ptr, ptr %used_clusters.i53, align 8
   %div2.i.i.i = lshr i64 %div.i.i.i, 5
-  %arrayidx.i.i.i = getelementptr i32, ptr %53, i64 %div2.i.i.i
-  %54 = load i32, ptr %arrayidx.i.i.i, align 4
-  %55 = trunc i64 %div.i.i.i to i32
-  %sh_prom.i.i.i = and i32 %55, 31
+  %arrayidx.i.i.i = getelementptr i32, ptr %51, i64 %div2.i.i.i
+  %52 = load i32, ptr %arrayidx.i.i.i, align 4
+  %53 = trunc i64 %div.i.i.i to i32
+  %sh_prom.i.i.i = and i32 %53, 31
   %shl.i.i.i = shl nuw i32 1, %sh_prom.i.i.i
-  %56 = lshr i32 %54, %sh_prom.i.i.i
-  %inc.i.i = and i32 %56, 1
-  %or.i.i.i = or i32 %shl.i.i.i, %54
+  %54 = lshr i32 %52, %sh_prom.i.i.i
+  %inc.i.i = and i32 %54, 1
+  %or.i.i.i = or i32 %shl.i.i.i, %52
   store i32 %or.i.i.i, ptr %arrayidx.i.i.i, align 4
-  %57 = load ptr, ptr %result.i, align 8
-  %58 = load i32, ptr %57, align 8
-  %add.i.i93 = add i32 %58, %inc.i.i
-  store i32 %add.i.i93, ptr %57, align 8
+  %55 = load ptr, ptr %result.i, align 8
+  %56 = load i32, ptr %55, align 8
+  %add.i.i93 = add i32 %56, %inc.i.i
+  store i32 %add.i.i93, ptr %55, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end23.i, %if.end21.i, %for.body.i
   %num_invalid.1.i = phi i32 [ %num_invalid.024.i, %if.end23.i ], [ %inc22.i, %if.end21.i ], [ %num_invalid.024.i, %for.body.i ]
-  %last_offset.1.i = phi i64 [ %37, %if.end23.i ], [ %37, %if.end21.i ], [ %last_offset.025.i, %for.body.i ]
+  %last_offset.1.i = phi i64 [ %36, %if.end23.i ], [ %36, %if.end21.i ], [ %last_offset.025.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %59 = load i32, ptr %table_nelems.i, align 8
-  %60 = zext i32 %59 to i64
-  %cmp.i85 = icmp ult i64 %indvars.iv.next.i, %60
+  %57 = load i32, ptr %table_nelems.i, align 8
+  %58 = zext i32 %57 to i64
+  %cmp.i85 = icmp ult i64 %indvars.iv.next.i, %58
   br i1 %cmp.i85, label %for.body.i, label %qed_check_l2_table.exit, !llvm.loop !8
 
 qed_check_l2_table.exit:                          ; preds = %for.inc.i
@@ -478,22 +476,21 @@ qed_check_l2_table.exit:                          ; preds = %for.inc.i
   br i1 %cmp29.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %qed_check_l2_table.exit
-  %61 = load i8, ptr %fix.i, align 8
-  %62 = and i8 %61, 1
-  %tobool31.not = icmp eq i8 %62, 0
-  br i1 %tobool31.not, label %for.inc, label %if.then32
+  %59 = load i8, ptr %fix.i, align 8
+  %tobool31 = trunc i8 %59 to i1
+  br i1 %tobool31, label %if.then32, label %for.inc
 
 if.then32:                                        ; preds = %land.lhs.true
-  %63 = load i32, ptr %table_nelems, align 8
-  %call35 = tail call i32 @qed_write_l2_table_sync(ptr noundef %0, ptr noundef nonnull %request, i32 noundef 0, i32 noundef %63, i1 noundef zeroext false) #4
+  %60 = load i32, ptr %table_nelems, align 8
+  %call35 = tail call i32 @qed_write_l2_table_sync(ptr noundef %0, ptr noundef nonnull %request, i32 noundef 0, i32 noundef %60, i1 noundef zeroext false) #4
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %for.inc, label %if.then37
 
 if.then37:                                        ; preds = %if.then32
-  %64 = load ptr, ptr %result.i, align 8
-  %check_errors39 = getelementptr inbounds i8, ptr %64, i64 8
-  %65 = load i32, ptr %check_errors39, align 8
-  %inc40 = add i32 %65, 1
+  %61 = load ptr, ptr %result.i, align 8
+  %check_errors39 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = load i32, ptr %check_errors39, align 8
+  %inc40 = add i32 %62, 1
   store i32 %inc40, ptr %check_errors39, align 8
   br label %for.inc
 
@@ -501,37 +498,36 @@ for.inc:                                          ; preds = %if.end25, %qed_chec
   %last_error.1 = phi i32 [ %last_error.0101, %for.body ], [ %call20, %if.then22 ], [ %call35, %if.then37 ], [ %last_error.0101, %if.then32 ], [ %last_error.0101, %land.lhs.true ], [ %last_error.0101, %qed_check_l2_table.exit ], [ %last_error.0101, %qed_set_used_clusters.exit72 ], [ %last_error.0101, %if.end12 ], [ %last_error.0101, %if.end25 ]
   %num_invalid_l1.1 = phi i32 [ %num_invalid_l1.0102, %for.body ], [ %num_invalid_l1.0102, %if.then22 ], [ %num_invalid_l1.0102, %if.then37 ], [ %num_invalid_l1.0102, %if.then32 ], [ %num_invalid_l1.0102, %land.lhs.true ], [ %num_invalid_l1.0102, %qed_check_l2_table.exit ], [ %num_invalid_l1.0102, %qed_set_used_clusters.exit72 ], [ %inc13, %if.end12 ], [ %num_invalid_l1.0102, %if.end25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = load i32, ptr %table_nelems, align 8
-  %67 = zext i32 %66 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %67
+  %63 = load i32, ptr %table_nelems, align 8
+  %64 = zext i32 %63 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %64
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
-  %68 = icmp eq i32 %num_invalid_l1.1, 0
+  %65 = icmp eq i32 %num_invalid_l1.1, 0
   %request44 = getelementptr inbounds i8, ptr %check, i64 40
-  %69 = load ptr, ptr %request44, align 8
-  tail call void @qed_unref_l2_cache_entry(ptr noundef %69) #4
+  %66 = load ptr, ptr %request44, align 8
+  tail call void @qed_unref_l2_cache_entry(ptr noundef %66) #4
   store ptr null, ptr %request44, align 8
-  br i1 %68, label %if.end61, label %land.lhs.true49
+  br i1 %65, label %if.end61, label %land.lhs.true49
 
 land.lhs.true49:                                  ; preds = %for.end
   %fix50 = getelementptr inbounds i8, ptr %check, i64 16
-  %70 = load i8, ptr %fix50, align 8
-  %71 = and i8 %70, 1
-  %tobool51.not = icmp eq i8 %71, 0
-  br i1 %tobool51.not, label %if.end61, label %if.then52
+  %67 = load i8, ptr %fix50, align 8
+  %tobool51 = trunc i8 %67 to i1
+  br i1 %tobool51, label %if.then52, label %if.end61
 
 if.then52:                                        ; preds = %land.lhs.true49
-  %72 = load i32, ptr %table_nelems, align 8
-  %call54 = tail call i32 @qed_write_l1_table_sync(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %72) #4
+  %68 = load i32, ptr %table_nelems, align 8
+  %call54 = tail call i32 @qed_write_l1_table_sync(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %68) #4
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.end61, label %if.then56
 
 if.then56:                                        ; preds = %if.then52
-  %73 = load ptr, ptr %result.i, align 8
-  %check_errors58 = getelementptr inbounds i8, ptr %73, i64 8
-  %74 = load i32, ptr %check_errors58, align 8
-  %inc59 = add i32 %74, 1
+  %69 = load ptr, ptr %result.i, align 8
+  %check_errors58 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = load i32, ptr %check_errors58, align 8
+  %inc59 = add i32 %70, 1
   store i32 %inc59, ptr %check_errors58, align 8
   br label %if.end61
 

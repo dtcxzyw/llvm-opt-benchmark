@@ -73,9 +73,8 @@ define internal noundef i32 @ompi_hook_comm_method_component_register() #1 {
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %0
   %15 = atomicrmw volatile add ptr %11, i32 -1 monotonic, align 4
@@ -108,8 +107,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %14, %17
   call void %27(ptr noundef nonnull %10) #5
   %28 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8
-  %.not.i4 = icmp eq ptr %29, null
-  br i1 %.not.i4, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %1, align 8

@@ -637,9 +637,8 @@ define dso_local i64 @varchar_support(ptr nocapture noundef readonly %0) local_u
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %35
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %35, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %.val, align 8
@@ -654,8 +653,8 @@ define dso_local i64 @varchar_support(ptr nocapture noundef readonly %0) local_u
   %29 = add nsw i32 %26, -4
   %30 = add i32 %23, -4
   %31 = icmp slt i32 %23, 0
-  %.not18 = icmp sgt i32 %30, %29
-  %or.cond = or i1 %31, %.not18
+  %.not = icmp sgt i32 %30, %29
+  %or.cond = or i1 %31, %.not
   br i1 %or.cond, label %35, label %32
 
 32:                                               ; preds = %28, %21

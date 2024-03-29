@@ -17,9 +17,8 @@ $_ZN19canonical_termios_tD2Ev = comdat any
 define linkonce_odr void @_ZN19canonical_termios_tD2Ev(ptr noundef nonnull align 4 dereferenceable(61) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = tail call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #10

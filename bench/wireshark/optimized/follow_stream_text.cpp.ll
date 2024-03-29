@@ -218,9 +218,8 @@ define void @_ZN16FollowStreamText12addTruncatedEi(ptr noundef nonnull align 8 d
   %9 = alloca %class.QString, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %63, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %63
 
 13:                                               ; preds = %2
   call void @_ZNK14QPlainTextEdit17currentCharFormatEv(ptr dead_on_unwind nonnull writable sret(%class.QTextCharFormat) align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -464,9 +463,8 @@ define void @_ZN16FollowStreamText7addTextE7QStringbjb(ptr noundef nonnull align
   %24 = alloca %class.QTextCursor, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 40
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %28, label %125
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %125, label %28
 
 28:                                               ; preds = %5
   %29 = tail call noundef ptr @_ZNK14QPlainTextEdit8documentEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -1017,9 +1015,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14:    ; preds = %_ZN7QStringD2Ev.exi
 _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14, %24
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %39, label %78
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %78, label %39
 
 29:                                               ; preds = %2
   %30 = landingpad { ptr, i32 }

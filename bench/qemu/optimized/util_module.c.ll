@@ -96,9 +96,8 @@ entry:
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr [8 x i8], ptr @modules_init_done, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %.b.i.i = load i1, ptr @init_lists.inited, align 4
@@ -128,8 +127,8 @@ find_type.exit:                                   ; preds = %if.end, %do.body5.i
 
 for.body:                                         ; preds = %find_type.exit, %for.body
   %e.07 = phi ptr [ %e.0, %for.body ], [ %e.05, %find_type.exit ]
-  %2 = load ptr, ptr %e.07, align 8
-  tail call void %2() #4
+  %1 = load ptr, ptr %e.07, align 8
+  tail call void %1() #4
   %node = getelementptr inbounds i8, ptr %e.07, i64 8
   %e.0 = load ptr, ptr %node, align 8
   %tobool1.not = icmp eq ptr %e.0, null

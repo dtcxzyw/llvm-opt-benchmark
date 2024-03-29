@@ -609,12 +609,12 @@ define hidden void @"_ZN65_$LT$flate2..crc..CrcReader$LT$R$GT$$u20$as$u20$std..i
   %7 = getelementptr inbounds i8, ptr %1, i64 72
   call void @_ZN6flate23zio4read17hc35652f304a070acE.llvm.11417486217840573292(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %8 = load i64, ptr %5, align 8, !range !109, !noundef !10
-  %trunc.not = icmp eq i64 %8, 0
+  %trunc = trunc i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %.cast = ptrtoint ptr %10 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %trunc.not, label %11, label %15
+  br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %4
   %12 = icmp ugt i64 %.cast, %3

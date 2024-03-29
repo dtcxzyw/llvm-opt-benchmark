@@ -564,23 +564,21 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %9 = trunc i8 %.pre to i1
+  br i1 %9, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %11 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %11, 2
+if.then22:                                        ; preds = %if.then17, %if.end20
+  %10 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %10, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
@@ -596,8 +594,8 @@ if.else.i:                                        ; preds = %if.then22
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
-  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  %add.ptr.i = getelementptr inbounds float, ptr %12, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %11, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
@@ -609,7 +607,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
+if.end27:                                         ; preds = %if.then17, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
   ret void
 }
 
@@ -1192,69 +1190,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -1283,38 +1280,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -1475,23 +1471,21 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %9 = trunc i8 %.pre to i1
+  br i1 %9, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %11 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %11, 2
+if.then22:                                        ; preds = %if.then17, %if.end20
+  %10 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %10, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
@@ -1507,8 +1501,8 @@ if.else.i:                                        ; preds = %if.then22
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
-  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  %add.ptr.i = getelementptr inbounds float, ptr %12, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %11, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
@@ -1518,10 +1512,10 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 1
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -1537,15 +1531,15 @@ if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds i16, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds i16, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %if.end27, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
   store ptr %add.ptr.i18, ptr %_M_finish.i.i9, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
+if.end27:                                         ; preds = %if.then17, %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
   ret void
 }
 
@@ -2011,69 +2005,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -2100,38 +2093,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -2292,23 +2284,21 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %9 = trunc i8 %.pre to i1
+  br i1 %9, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %11 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %11, 2
+if.then22:                                        ; preds = %if.then17, %if.end20
+  %10 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %10, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
@@ -2324,8 +2314,8 @@ if.else.i:                                        ; preds = %if.then22
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
-  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  %add.ptr.i = getelementptr inbounds float, ptr %12, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %11, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
@@ -2335,10 +2325,10 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 1
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -2354,15 +2344,15 @@ if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds %"class.Imath_3_1::half", ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds %"class.Imath_3_1::half", ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %if.end27, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
   store ptr %add.ptr.i18, ptr %_M_finish.i.i9, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
+if.end27:                                         ; preds = %if.then17, %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
   ret void
 }
 
@@ -2828,69 +2818,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -2917,38 +2906,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -3109,23 +3097,21 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %9 = trunc i8 %.pre to i1
+  br i1 %9, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %11 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %11, 2
+if.then22:                                        ; preds = %if.then17, %if.end20
+  %10 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %10, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
@@ -3141,8 +3127,8 @@ if.else.i:                                        ; preds = %if.then22
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
-  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  %add.ptr.i = getelementptr inbounds float, ptr %12, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %11, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
@@ -3152,10 +3138,10 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -3171,15 +3157,15 @@ if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %if.end27, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
   store ptr %add.ptr.i18, ptr %_M_finish.i.i9, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
+if.end27:                                         ; preds = %if.then17, %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
   ret void
 }
 
@@ -3645,69 +3631,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -3734,38 +3719,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -3938,7 +3922,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -3951,23 +3936,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -3983,8 +3965,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -3996,7 +3978,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
   ret void
 }
 
@@ -4465,69 +4447,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -4556,38 +4537,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -4758,7 +4738,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -4771,23 +4752,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -4803,8 +4781,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -4814,10 +4792,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i23, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
   %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
@@ -4833,15 +4811,15 @@ if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds i16, ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
+  %add.ptr.i32 = getelementptr inbounds i16, ptr %16, i64 %mul26
+  %tobool.not.i.i33 = icmp eq ptr %15, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
 
 invoke.cont.i.i34:                                ; preds = %if.then5.i31
   store ptr %add.ptr.i32, ptr %_M_finish.i.i23, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
   ret void
 }
 
@@ -5335,69 +5313,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -5424,38 +5401,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -5626,7 +5602,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -5639,23 +5616,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -5671,8 +5645,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -5682,10 +5656,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i23, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
   %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
@@ -5701,15 +5675,15 @@ if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds %"class.Imath_3_1::half", ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
+  %add.ptr.i32 = getelementptr inbounds %"class.Imath_3_1::half", ptr %16, i64 %mul26
+  %tobool.not.i.i33 = icmp eq ptr %15, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
 
 invoke.cont.i.i34:                                ; preds = %if.then5.i31
   store ptr %add.ptr.i32, ptr %_M_finish.i.i23, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
   ret void
 }
 
@@ -6203,69 +6177,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -6292,38 +6265,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -6494,7 +6466,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -6507,23 +6480,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -6539,8 +6509,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -6550,10 +6520,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i23, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 2
   %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
@@ -6569,15 +6539,15 @@ if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds float, ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
+  %add.ptr.i32 = getelementptr inbounds float, ptr %16, i64 %mul26
+  %tobool.not.i.i33 = icmp eq ptr %15, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
 
 invoke.cont.i.i34:                                ; preds = %if.then5.i31
   store ptr %add.ptr.i32, ptr %_M_finish.i.i23, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
   ret void
 }
 
@@ -7071,69 +7041,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16GenericImageDescEPtPfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -7160,38 +7129,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -7362,7 +7330,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -7375,23 +7344,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -7407,8 +7373,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -7420,7 +7386,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
   ret void
 }
 
@@ -7889,69 +7855,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -7980,38 +7945,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -8182,7 +8146,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -8195,23 +8160,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -8227,8 +8189,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -8238,10 +8200,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i23, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
   %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
@@ -8257,15 +8219,15 @@ if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds i16, ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
+  %add.ptr.i32 = getelementptr inbounds i16, ptr %16, i64 %mul26
+  %tobool.not.i.i33 = icmp eq ptr %15, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
 
 invoke.cont.i.i34:                                ; preds = %if.then5.i31
   store ptr %add.ptr.i32, ptr %_M_finish.i.i23, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
   ret void
 }
 
@@ -8759,69 +8721,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -8848,38 +8809,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -9050,7 +9010,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -9063,23 +9024,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -9095,8 +9053,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -9106,10 +9064,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i23, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
   %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
@@ -9125,15 +9083,15 @@ if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds %"class.Imath_3_1::half", ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
+  %add.ptr.i32 = getelementptr inbounds %"class.Imath_3_1::half", ptr %16, i64 %mul26
+  %tobool.not.i.i33 = icmp eq ptr %15, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
 
 invoke.cont.i.i34:                                ; preds = %if.then5.i31
   store ptr %add.ptr.i32, ptr %_M_finish.i.i23, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
   ret void
 }
 
@@ -9627,69 +9585,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -9716,38 +9673,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -9918,7 +9874,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -9931,23 +9888,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -9963,8 +9917,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -9974,10 +9928,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i23, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 2
   %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
@@ -9993,15 +9947,15 @@ if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds float, ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
+  %add.ptr.i32 = getelementptr inbounds float, ptr %16, i64 %mul26
+  %tobool.not.i.i33 = icmp eq ptr %15, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
 
 invoke.cont.i.i34:                                ; preds = %if.then5.i31
   store ptr %add.ptr.i32, ptr %_M_finish.i.i23, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
   ret void
 }
 
@@ -10495,69 +10449,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromImageDescERKNS_16GenericImageDescEPS2_Pfil(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -10584,38 +10537,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -10786,7 +10738,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -10799,23 +10752,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -10831,8 +10781,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -10844,7 +10794,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, %if.end20
   ret void
 }
 
@@ -11313,69 +11263,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -11404,38 +11353,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPhil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -11606,7 +11554,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -11619,23 +11568,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -11651,8 +11597,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -11662,10 +11608,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i24 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i24, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i24, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = ashr exact i64 %sub.ptr.sub.i.i27, 1
   %cmp.i29 = icmp ult i64 %sub.ptr.div.i.i28, %mul26
@@ -11681,15 +11627,15 @@ if.else.i30:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i31, label %if.then5.i32, label %if.end27
 
 if.then5.i32:                                     ; preds = %if.else.i30
-  %add.ptr.i33 = getelementptr inbounds i16, ptr %17, i64 %mul26
-  %tobool.not.i.i34 = icmp eq ptr %16, %add.ptr.i33
+  %add.ptr.i33 = getelementptr inbounds i16, ptr %16, i64 %mul26
+  %tobool.not.i.i34 = icmp eq ptr %15, %add.ptr.i33
   br i1 %tobool.not.i.i34, label %if.end27, label %invoke.cont.i.i35
 
 invoke.cont.i.i35:                                ; preds = %if.then5.i32
   store ptr %add.ptr.i33, ptr %_M_finish.i.i24, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i35, %if.then5.i32, %if.else.i30, %if.then.i36, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i35, %if.then5.i32, %if.else.i30, %if.then.i36, %if.end20
   ret void
 }
 
@@ -12183,69 +12129,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -12272,38 +12217,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPtil(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -12474,7 +12418,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -12487,23 +12432,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -12519,8 +12461,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -12530,10 +12472,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i24 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i24, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i24, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = ashr exact i64 %sub.ptr.sub.i.i27, 1
   %cmp.i29 = icmp ult i64 %sub.ptr.div.i.i28, %mul26
@@ -12549,15 +12491,15 @@ if.else.i30:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i31, label %if.then5.i32, label %if.end27
 
 if.then5.i32:                                     ; preds = %if.else.i30
-  %add.ptr.i33 = getelementptr inbounds %"class.Imath_3_1::half", ptr %17, i64 %mul26
-  %tobool.not.i.i34 = icmp eq ptr %16, %add.ptr.i33
+  %add.ptr.i33 = getelementptr inbounds %"class.Imath_3_1::half", ptr %16, i64 %mul26
+  %tobool.not.i.i34 = icmp eq ptr %15, %add.ptr.i33
   br i1 %tobool.not.i.i34, label %if.end27, label %invoke.cont.i.i35
 
 invoke.cont.i.i35:                                ; preds = %if.then5.i32
   store ptr %add.ptr.i33, ptr %_M_finish.i.i24, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i35, %if.then5.i32, %if.else.i30, %if.then.i36, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i35, %if.then5.i32, %if.else.i30, %if.then.i36, %if.end20
   ret void
 }
 
@@ -13051,69 +12993,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -13140,38 +13081,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfPS2_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }
@@ -13342,7 +13282,8 @@ if.then.i8:                                       ; preds = %if.then17
   %sub.i = sub i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
-  br label %if.end20
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
@@ -13355,23 +13296,20 @@ if.then5.i:                                       ; preds = %if.else.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then22, label %if.end27
+if.end20:                                         ; preds = %if.then5.i, %if.else.i, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  br i1 %cmp13, label %if.end27, label %if.then22
 
-if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+if.then22:                                        ; preds = %if.then.i8, %invoke.cont.i.i, %if.end20
+  %12 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %12, 2
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i9, align 8
+  %14 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
   %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
@@ -13387,8 +13325,8 @@ if.else.i15:                                      ; preds = %if.then22
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
-  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  %add.ptr.i18 = getelementptr inbounds float, ptr %14, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %13, %add.ptr.i18
   br i1 %tobool.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, label %invoke.cont.i.i20
 
 invoke.cont.i.i20:                                ; preds = %if.then5.i17
@@ -13398,10 +13336,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i24 = getelementptr inbounds i8, ptr %this, i64 288
-  %16 = load ptr, ptr %_M_finish.i.i24, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %17 to i64
+  %15 = load ptr, ptr %_M_finish.i.i24, align 8
+  %16 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = ashr exact i64 %sub.ptr.sub.i.i27, 2
   %cmp.i29 = icmp ult i64 %sub.ptr.div.i.i28, %mul26
@@ -13417,15 +13355,15 @@ if.else.i30:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp4.i31, label %if.then5.i32, label %if.end27
 
 if.then5.i32:                                     ; preds = %if.else.i30
-  %add.ptr.i33 = getelementptr inbounds float, ptr %17, i64 %mul26
-  %tobool.not.i.i34 = icmp eq ptr %16, %add.ptr.i33
+  %add.ptr.i33 = getelementptr inbounds float, ptr %16, i64 %mul26
+  %tobool.not.i.i34 = icmp eq ptr %15, %add.ptr.i33
   br i1 %tobool.not.i.i34, label %if.end27, label %invoke.cont.i.i35
 
 invoke.cont.i.i35:                                ; preds = %if.then5.i32
   store ptr %add.ptr.i33, ptr %_M_finish.i.i24, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i35, %if.then5.i32, %if.else.i30, %if.then.i36, %if.end20
+if.end27:                                         ; preds = %if.then.i8, %invoke.cont.i.i, %invoke.cont.i.i35, %if.then5.i32, %if.else.i30, %if.then.i36, %if.end20
   ret void
 }
 
@@ -13919,69 +13857,68 @@ entry:
 if.end:                                           ; preds = %entry
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %m_rData = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load ptr, ptr %m_rData, align 8
+  %3 = load ptr, ptr %m_rData, align 8
   %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
-  %5 = load i64, ptr %m_yStrideBytes, align 8
-  %mul = mul nsw i64 %5, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
+  %4 = load i64, ptr %m_yStrideBytes, align 8
+  %mul = mul nsw i64 %4, %conv
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %5, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
   %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i32, ptr %m_inOptimizedMode, align 8
-  %and = and i32 %7, 1
+  %6 = load i32, ptr %m_inOptimizedMode, align 8
+  %and = and i32 %6, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
   %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
-  %8 = load ptr, ptr %m_rData8, align 8
+  %7 = load ptr, ptr %m_rData8, align 8
   %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %m_yStrideBytes10, align 8
-  %10 = load i32, ptr %m_yIndex, align 8
-  %conv12 = sext i32 %10 to i64
-  %mul13 = mul nsw i64 %9, %conv12
-  %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
+  %8 = load i64, ptr %m_yStrideBytes10, align 8
+  %9 = load i32, ptr %m_yIndex, align 8
+  %conv12 = sext i32 %9 to i64
+  %mul13 = mul nsw i64 %8, %conv12
+  %add.ptr14 = getelementptr inbounds i8, ptr %7, i64 %mul13
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
-  %11 = load ptr, ptr %m_bitDepthOp, align 8
-  %12 = load i64, ptr %m_dstImg, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %m_bitDepthOp, align 8
+  %11 = load i64, ptr %m_dstImg, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %11)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
   %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
   %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
-  %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %15 = load i64, ptr %m_dstImg, align 8
-  %conv22 = trunc i64 %15 to i32
-  %16 = load i32, ptr %m_yIndex, align 8
-  %conv24 = sext i32 %16 to i64
-  %mul27 = mul nsw i64 %15, %conv24
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %14, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
+  %13 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %14 = load i64, ptr %m_dstImg, align 8
+  %conv22 = trunc i64 %14 to i32
+  %15 = load i32, ptr %m_yIndex, align 8
+  %conv24 = sext i32 %15 to i64
+  %mul27 = mul nsw i64 %14, %conv24
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16GenericImageDescEPfS5_il(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg18, ptr noundef nonnull %13, ptr noundef %cond, i32 noundef %conv22, i64 noundef %mul27)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then7
-  %17 = load i64, ptr %m_dstImg, align 8
+  %16 = load i64, ptr %m_dstImg, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end28
-  %storemerge = phi i64 [ %17, %if.end28 ], [ 0, %entry ]
+  %storemerge = phi i64 [ %16, %if.end28 ], [ 0, %entry ]
   store i64 %storemerge, ptr %numPixels, align 8
   ret void
 }
@@ -14008,38 +13945,37 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
   %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
-  %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
+  %5 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %cond = select i1 %tobool, ptr %add.ptr, ptr %5
   %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load ptr, ptr %m_bitDepthOp, align 8
-  %8 = load i64, ptr %m_dstImg6, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %m_bitDepthOp, align 8
+  %7 = load i64, ptr %m_dstImg6, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
+  %9 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
   %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
-  %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %12 = load i64, ptr %m_dstImg6, align 8
-  %conv12 = trunc i64 %12 to i32
+  %10 = load ptr, ptr %m_outBitDepthBuffer, align 8
+  %11 = load i64, ptr %m_dstImg6, align 8
+  %conv12 = trunc i64 %11 to i32
   %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
-  %13 = load i32, ptr %m_yIndex13, align 8
-  %conv14 = sext i32 %13 to i64
-  %mul17 = mul nsw i64 %12, %conv14
-  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %conv12, i64 noundef %mul17)
+  %12 = load i32, ptr %m_yIndex13, align 8
+  %conv14 = sext i32 %12 to i64
+  %mul17 = mul nsw i64 %11, %conv14
+  tail call void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16GenericImageDescEPfS4_il(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg6, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %conv12, i64 noundef %mul17)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
-  %14 = load i32, ptr %m_yIndex18, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load i32, ptr %m_yIndex18, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %m_yIndex18, align 8
   ret void
 }

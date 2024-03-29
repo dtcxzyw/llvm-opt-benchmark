@@ -520,9 +520,8 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   call void @ParallelBackupEnd(ptr noundef nonnull %0, ptr noundef %24) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 576
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %32, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %5, align 8

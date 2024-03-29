@@ -24,9 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Win_get_errhandler(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %25, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %25
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -68,9 +67,8 @@ ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_inval
 
 25:                                               ; preds = %2, %17
   %26 = load i8, ptr @opal_uses_threads, align 1
-  %27 = and i8 %26, 1
-  %.not14 = icmp eq i8 %27, 0
-  br i1 %.not14, label %31, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 112
@@ -83,9 +81,8 @@ ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_inval
   %33 = getelementptr inbounds i8, ptr %0, i64 256
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = and i8 %32, 1
-  %.not.i = icmp eq i8 %36, 0
-  br i1 %.not.i, label %39, label %37
+  %36 = trunc i8 %32 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %31
   %38 = atomicrmw volatile add ptr %35, i32 1 monotonic, align 4
@@ -102,9 +99,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %37, %39
   %43 = load ptr, ptr %33, align 8
   store ptr %43, ptr %1, align 8
   %44 = load i8, ptr @opal_uses_threads, align 1
-  %45 = and i8 %44, 1
-  %.not15 = icmp eq i8 %45, 0
-  br i1 %.not15, label %49, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %49
 
 46:                                               ; preds = %opal_thread_add_fetch_32.exit
   %47 = getelementptr inbounds i8, ptr %0, i64 112

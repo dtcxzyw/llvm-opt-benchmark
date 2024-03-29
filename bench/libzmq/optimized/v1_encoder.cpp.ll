@@ -263,41 +263,40 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then9:                                         ; preds = %while.body
   %5 = load i8, ptr %_new_msg_flag, align 8
-  %6 = and i8 %5, 1
-  %tobool10.not = icmp eq i8 %6, 0
-  br i1 %tobool10.not, label %if.end34, label %if.then11
+  %tobool10 = trunc i8 %5 to i1
+  br i1 %tobool10, label %if.then11, label %if.end34
 
 if.then11:                                        ; preds = %if.then9
-  %7 = load ptr, ptr %_in_progress.i, align 8
-  %call12 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
+  %6 = load ptr, ptr %_in_progress.i, align 8
+  %call12 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %do.end, label %if.then14
 
 if.then14:                                        ; preds = %if.then11
   %call15 = tail call ptr @__errno_location() #17
-  %8 = load i32, ptr %call15, align 4
-  %call16 = tail call ptr @strerror(i32 noundef %8) #15
+  %7 = load i32, ptr %call15, align 4
+  %call16 = tail call ptr @strerror(i32 noundef %7) #15
+  %8 = load ptr, ptr @stderr, align 8
+  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 63) #14
   %9 = load ptr, ptr @stderr, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 63) #14
-  %10 = load ptr, ptr @stderr, align 8
-  %call18 = tail call i32 @fflush(ptr noundef %10)
+  %call18 = tail call i32 @fflush(ptr noundef %9)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call16)
   br label %do.end
 
 do.end:                                           ; preds = %if.then11, %if.then14
-  %11 = load ptr, ptr %_in_progress.i, align 8
-  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+  %10 = load ptr, ptr %_in_progress.i, align 8
+  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
   %cmp23.not = icmp eq i32 %call21, 0
   br i1 %cmp23.not, label %do.end32, label %if.then25
 
 if.then25:                                        ; preds = %do.end
   %call27 = tail call ptr @__errno_location() #17
-  %12 = load i32, ptr %call27, align 4
-  %call28 = tail call ptr @strerror(i32 noundef %12) #15
+  %11 = load i32, ptr %call27, align 4
+  %call28 = tail call ptr @strerror(i32 noundef %11) #15
+  %12 = load ptr, ptr @stderr, align 8
+  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %call28, ptr noundef nonnull @.str.1, i32 noundef 65) #14
   %13 = load ptr, ptr @stderr, align 8
-  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %call28, ptr noundef nonnull @.str.1, i32 noundef 65) #14
-  %14 = load ptr, ptr @stderr, align 8
-  %call30 = tail call i32 @fflush(ptr noundef %14)
+  %call30 = tail call i32 @fflush(ptr noundef %13)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call28)
   br label %do.end32
 
@@ -308,16 +307,16 @@ do.end32:                                         ; preds = %do.end, %if.then25
 if.end34:                                         ; preds = %if.then9
   %.unpack = load i64, ptr %_next, align 8
   %.unpack22 = load i64, ptr %.elt21, align 8
-  %15 = getelementptr inbounds i8, ptr %this, i64 %.unpack22
-  %16 = and i64 %.unpack, 1
-  %memptr.isvirtual.not = icmp eq i64 %16, 0
+  %14 = getelementptr inbounds i8, ptr %this, i64 %.unpack22
+  %15 = and i64 %.unpack, 1
+  %memptr.isvirtual.not = icmp eq i64 %15, 0
   br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
 
 memptr.virtual:                                   ; preds = %if.end34
-  %vtable = load ptr, ptr %15, align 8
-  %17 = getelementptr i8, ptr %vtable, i64 %.unpack
-  %18 = getelementptr i8, ptr %17, i64 -1
-  %memptr.virtualfn = load ptr, ptr %18, align 8, !nosanitize !4
+  %vtable = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %vtable, i64 %.unpack
+  %17 = getelementptr i8, ptr %16, i64 -1
+  %memptr.virtualfn = load ptr, ptr %17, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end34
@@ -325,8 +324,8 @@ memptr.nonvirtual:                                ; preds = %if.end34
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %19 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(88) %15)
+  %18 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(88) %14)
   %.pre32.pre = load i64, ptr %_to_write, align 8
   br label %if.end35
 
@@ -340,8 +339,8 @@ if.end35.if.end45_crit_edge:                      ; preds = %if.end35
   br label %if.end45
 
 land.lhs.true:                                    ; preds = %if.end35
-  %20 = load ptr, ptr %data_, align 8
-  %tobool37.not = icmp ne ptr %20, null
+  %19 = load ptr, ptr %data_, align 8
+  %tobool37.not = icmp ne ptr %19, null
   %cmp40.not = icmp ult i64 %.pre32, %cond6
   %or.cond = select i1 %tobool37.not, i1 true, i1 %cmp40.not
   %.pre34 = load ptr, ptr %_write_pos48, align 8
@@ -349,22 +348,22 @@ land.lhs.true:                                    ; preds = %if.end35
 
 if.then41:                                        ; preds = %land.lhs.true
   store ptr %.pre34, ptr %data_, align 8
-  %21 = load i64, ptr %_to_write, align 8
+  %20 = load i64, ptr %_to_write, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_write_pos48, i8 0, i64 16, i1 false)
   br label %return
 
 if.end45:                                         ; preds = %if.end35.if.end45_crit_edge, %land.lhs.true
-  %22 = phi ptr [ %.pre33, %if.end35.if.end45_crit_edge ], [ %.pre34, %land.lhs.true ]
+  %21 = phi ptr [ %.pre33, %if.end35.if.end45_crit_edge ], [ %.pre34, %land.lhs.true ]
   %sub = sub i64 %cond6, %pos.029
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %.pre32)
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %pos.029
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %22, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %21, i64 %.sroa.speculated, i1 false)
   %add = add i64 %.sroa.speculated, %pos.029
-  %23 = load ptr, ptr %_write_pos48, align 8
-  %add.ptr50 = getelementptr inbounds i8, ptr %23, i64 %.sroa.speculated
+  %22 = load ptr, ptr %_write_pos48, align 8
+  %add.ptr50 = getelementptr inbounds i8, ptr %22, i64 %.sroa.speculated
   store ptr %add.ptr50, ptr %_write_pos48, align 8
-  %24 = load i64, ptr %_to_write, align 8
-  %sub52 = sub i64 %24, %.sroa.speculated
+  %23 = load i64, ptr %_to_write, align 8
+  %sub52 = sub i64 %23, %.sroa.speculated
   store i64 %sub52, ptr %_to_write, align 8
   %cmp7 = icmp ult i64 %add, %cond6
   br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !5
@@ -375,7 +374,7 @@ while.end:                                        ; preds = %if.end45, %while.co
   br label %return
 
 return:                                           ; preds = %entry, %while.end, %if.then41
-  %retval.0 = phi i64 [ %21, %if.then41 ], [ %pos.026, %while.end ], [ 0, %entry ]
+  %retval.0 = phi i64 [ %20, %if.then41 ], [ %pos.026, %while.end ], [ 0, %entry ]
   ret i64 %retval.0
 }
 

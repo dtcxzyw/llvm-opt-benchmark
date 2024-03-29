@@ -10,20 +10,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.inode_search_s, align 8
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %93, label %8
+  br i1 %7, label %96, label %8
 
 8:                                                ; preds = %5
   %9 = and i32 %2, 4
@@ -72,161 +69,157 @@ define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 nound
   store i8 %35, ptr %32, align 8
   %36 = call i32 @inode_find(ptr noundef nonnull %6) #6
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %91, label %38
+  br i1 %37, label %94, label %38
 
 38:                                               ; preds = %26
   %39 = load ptr, ptr %29, align 8
   %40 = load i8, ptr %32, align 8
-  %41 = and i8 %40, 1
-  %.not50 = icmp ne i8 %41, 0
-  %.phi.trans.insert = getelementptr i8, ptr %39, i64 26
-  %.val.pre = load i16, ptr %.phi.trans.insert, align 2
-  %.pre = and i16 %.val.pre, 15
-  %42 = icmp eq i16 %.pre, 8
-  %or.cond = select i1 %.not50, i1 %42, i1 false
-  br i1 %or.cond, label %93, label %._crit_edge
+  %41 = trunc i8 %40 to i1
+  %42 = getelementptr i8, ptr %39, i64 26
+  %43 = load i16, ptr %42, align 2
+  %44 = and i16 %43, 15
+  %45 = icmp eq i16 %44, 8
+  %or.cond = select i1 %41, i1 %45, i1 false
+  br i1 %or.cond, label %96, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38
-  %43 = getelementptr i8, ptr %39, i64 26
-  %44 = getelementptr i8, ptr %39, i64 32
-  %.val56 = load ptr, ptr %44, align 8
-  %45 = icmp eq i16 %.pre, 0
-  br i1 %45, label %inode_checkflags.exit, label %46
+  %46 = getelementptr i8, ptr %39, i64 26
+  %47 = getelementptr i8, ptr %39, i64 32
+  %.val55 = load ptr, ptr %47, align 8
+  %48 = icmp eq i16 %44, 0
+  br i1 %48, label %inode_checkflags.exit, label %49
 
-46:                                               ; preds = %._crit_edge
-  %47 = icmp eq ptr %.val56, null
-  br i1 %47, label %inode_checkflags.exit.thread, label %48
+49:                                               ; preds = %._crit_edge
+  %50 = icmp eq ptr %.val55, null
+  br i1 %50, label %inode_checkflags.exit.thread, label %51
 
-48:                                               ; preds = %46
-  %49 = and i32 %2, 1
-  %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %56, label %50
+51:                                               ; preds = %49
+  %52 = and i32 %2, 1
+  %.not.i = icmp eq i32 %52, 0
+  br i1 %.not.i, label %59, label %53
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.val56, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %.not10.i = icmp eq ptr %52, null
-  br i1 %.not10.i, label %53, label %56
-
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %.val56, i64 40
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds i8, ptr %.val55, i64 16
   %55 = load ptr, ptr %54, align 8
-  %.not11.i = icmp eq ptr %55, null
-  br i1 %.not11.i, label %inode_checkflags.exit.thread, label %56
+  %.not10.i = icmp eq ptr %55, null
+  br i1 %.not10.i, label %56, label %59
 
-56:                                               ; preds = %53, %50, %48
-  %57 = and i32 %2, 2
-  %.not12.i = icmp eq i32 %57, 0
-  br i1 %.not12.i, label %inode_checkflags.exit, label %58
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %.val55, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %.not11.i = icmp eq ptr %58, null
+  br i1 %.not11.i, label %inode_checkflags.exit.thread, label %59
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %.val56, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %.not13.i = icmp eq ptr %60, null
-  br i1 %.not13.i, label %61, label %inode_checkflags.exit
+59:                                               ; preds = %56, %53, %51
+  %60 = and i32 %2, 2
+  %.not12.i = icmp eq i32 %60, 0
+  br i1 %.not12.i, label %inode_checkflags.exit, label %61
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %.val56, i64 40
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds i8, ptr %.val55, i64 24
   %63 = load ptr, ptr %62, align 8
-  %.not14.i = icmp eq ptr %63, null
+  %.not13.i = icmp eq ptr %63, null
+  br i1 %.not13.i, label %64, label %inode_checkflags.exit
+
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %.val55, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %.not14.i = icmp eq ptr %66, null
   br i1 %.not14.i, label %inode_checkflags.exit.thread, label %inode_checkflags.exit
 
-inode_checkflags.exit:                            ; preds = %56, %58, %61, %._crit_edge
+inode_checkflags.exit:                            ; preds = %59, %61, %64, %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %2, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %39, ptr %64, align 8
-  %65 = and i32 %2, 2048
-  %.not51 = icmp eq i32 %65, 0
-  br i1 %.not51, label %69, label %66
-
-66:                                               ; preds = %inode_checkflags.exit
-  %67 = load ptr, ptr %30, align 8
-  %68 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %67) #6
-  br label %83
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %39, ptr %67, align 8
+  %68 = and i32 %2, 2048
+  %.not50 = icmp eq i32 %68, 0
+  br i1 %.not50, label %72, label %69
 
 69:                                               ; preds = %inode_checkflags.exit
-  %70 = load i16, ptr %43, align 2
-  %71 = and i16 %70, 15
-  switch i16 %71, label %inode_checkflags.exit.thread [
-    i16 3, label %72
-    i16 1, label %78
-    i16 10, label %78
+  %70 = load ptr, ptr %30, align 8
+  %71 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %70) #6
+  br label %86
+
+72:                                               ; preds = %inode_checkflags.exit
+  %73 = load i16, ptr %46, align 2
+  %74 = and i16 %73, 15
+  switch i16 %74, label %inode_checkflags.exit.thread [
+    i16 3, label %75
+    i16 1, label %81
+    i16 10, label %81
   ]
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %44, align 8
-  %74 = load ptr, ptr %73, align 8
-  %.not53 = icmp eq ptr %74, null
-  br i1 %.not53, label %.thread.thread, label %75
-
 75:                                               ; preds = %72
-  %76 = load ptr, ptr %30, align 8
-  %77 = call i32 %74(ptr noundef nonnull %0, ptr noundef %76, i32 noundef %2, i32 noundef %28) #6
-  br label %83
+  %76 = load ptr, ptr %47, align 8
+  %77 = load ptr, ptr %76, align 8
+  %.not52 = icmp eq ptr %77, null
+  br i1 %.not52, label %.thread.thread, label %78
 
-78:                                               ; preds = %69, %69
-  %79 = load ptr, ptr %44, align 8
-  %80 = load ptr, ptr %79, align 8
-  %.not52 = icmp eq ptr %80, null
-  br i1 %.not52, label %.thread.thread, label %81
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %30, align 8
+  %80 = call i32 %77(ptr noundef nonnull %0, ptr noundef %79, i32 noundef %2, i32 noundef %28) #6
+  br label %86
 
-81:                                               ; preds = %78
-  %82 = call i32 %80(ptr noundef nonnull %0) #6
-  br label %83
+81:                                               ; preds = %72, %72
+  %82 = load ptr, ptr %47, align 8
+  %83 = load ptr, ptr %82, align 8
+  %.not51 = icmp eq ptr %83, null
+  br i1 %.not51, label %.thread.thread, label %84
 
-83:                                               ; preds = %75, %81, %66
-  %.0 = phi i32 [ %68, %66 ], [ %77, %75 ], [ %82, %81 ]
-  %84 = icmp eq i32 %.0, -21
-  br i1 %84, label %85, label %.thread
+84:                                               ; preds = %81
+  %85 = call i32 %83(ptr noundef nonnull %0) #6
+  br label %86
 
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %30, align 8
-  %87 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %86) #6
+86:                                               ; preds = %78, %84, %69
+  %.0 = phi i32 [ %71, %69 ], [ %80, %78 ], [ %85, %84 ]
+  %87 = icmp eq i32 %.0, -21
+  br i1 %87, label %88, label %.thread
+
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %30, align 8
+  %90 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %89) #6
   br label %.thread
 
-.thread:                                          ; preds = %85, %83
-  %.1 = phi i32 [ %87, %85 ], [ %.0, %83 ]
-  %88 = icmp slt i32 %.1, 0
-  br i1 %88, label %inode_checkflags.exit.thread, label %.thread.thread
+.thread:                                          ; preds = %88, %86
+  %.1 = phi i32 [ %90, %88 ], [ %.0, %86 ]
+  %91 = icmp slt i32 %.1, 0
+  br i1 %91, label %inode_checkflags.exit.thread, label %.thread.thread
 
-.thread.thread:                                   ; preds = %72, %78, %.thread
-  %89 = load ptr, ptr %31, align 8
-  %.not54 = icmp eq ptr %89, null
-  br i1 %.not54, label %93, label %.sink.split
-
-inode_checkflags.exit.thread:                     ; preds = %69, %53, %61, %46, %.thread
-  %.2 = phi i32 [ %.1, %.thread ], [ -13, %53 ], [ -13, %61 ], [ -6, %46 ], [ -6, %69 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %90, align 8
-  call void @inode_release(ptr noundef nonnull %39) #6
-  br label %91
-
-91:                                               ; preds = %26, %inode_checkflags.exit.thread
-  %.3 = phi i32 [ %36, %26 ], [ %.2, %inode_checkflags.exit.thread ]
+.thread.thread:                                   ; preds = %75, %81, %.thread
   %92 = load ptr, ptr %31, align 8
-  %.not55 = icmp eq ptr %92, null
-  br i1 %.not55, label %93, label %.sink.split
+  %.not53 = icmp eq ptr %92, null
+  br i1 %.not53, label %96, label %.sink.split
 
-.sink.split:                                      ; preds = %91, %.thread.thread
-  %.sink = phi ptr [ %89, %.thread.thread ], [ %92, %91 ]
-  %.039.ph = phi i32 [ 0, %.thread.thread ], [ %.3, %91 ]
+inode_checkflags.exit.thread:                     ; preds = %72, %56, %64, %49, %.thread
+  %.2 = phi i32 [ %.1, %.thread ], [ -13, %56 ], [ -13, %64 ], [ -6, %49 ], [ -6, %72 ]
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %93, align 8
+  call void @inode_release(ptr noundef nonnull %39) #6
+  br label %94
+
+94:                                               ; preds = %26, %inode_checkflags.exit.thread
+  %.3 = phi i32 [ %36, %26 ], [ %.2, %inode_checkflags.exit.thread ]
+  %95 = load ptr, ptr %31, align 8
+  %.not54 = icmp eq ptr %95, null
+  br i1 %.not54, label %96, label %.sink.split
+
+.sink.split:                                      ; preds = %94, %.thread.thread
+  %.sink = phi ptr [ %92, %.thread.thread ], [ %95, %94 ]
+  %.039.ph = phi i32 [ 0, %.thread.thread ], [ %.3, %94 ]
   call void @free(ptr noundef nonnull %.sink)
-  br label %93
+  br label %96
 
-93:                                               ; preds = %.sink.split, %38, %91, %.thread.thread, %5
-  %.039 = phi i32 [ -22, %5 ], [ 0, %.thread.thread ], [ %.3, %91 ], [ -40, %38 ], [ %.039.ph, %.sink.split ]
+96:                                               ; preds = %.sink.split, %38, %94, %.thread.thread, %5
+  %.039 = phi i32 [ -22, %5 ], [ 0, %.thread.thread ], [ %.3, %94 ], [ -40, %38 ], [ %.039.ph, %.sink.split ]
   ret i32 %.039
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @nx_open_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct.file, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %6 = call i32 @getumask() #6
   %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, i32 noundef %6, ptr noundef nonnull %5)
@@ -252,7 +245,7 @@ define i32 @nx_open_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...
 nx_vopen.exit:                                    ; preds = %3, %9, %19
   %.0.i = phi i32 [ %7, %3 ], [ %17, %19 ], [ %17, %9 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -260,7 +253,7 @@ nx_vopen.exit:                                    ; preds = %3, %9, %19
 define i32 @nx_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct.file, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call ptr @nxsched_self() #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = call i32 @getumask() #6
@@ -287,17 +280,17 @@ define i32 @nx_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
 nx_vopen.exit:                                    ; preds = %2, %9, %19
   %.0.i = phi i32 [ %7, %2 ], [ %17, %19 ], [ %17, %9 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
-declare ptr @nxsched_self() local_unnamed_addr #2
+declare ptr @nxsched_self() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct.file, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call ptr @nxsched_self() #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = call i32 @getumask() #6
@@ -323,13 +316,13 @@ define i32 @open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
 
 nx_vopen.exit:                                    ; preds = %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %24
 
 21:                                               ; preds = %2, %19
   %.0.i.ph = phi i32 [ %17, %19 ], [ %7, %2 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %22 = sub nsw i32 0, %.0.i.ph
   %23 = call ptr @__errno() #6
   store i32 %22, ptr %23, align 4
@@ -340,25 +333,31 @@ nx_vopen.exit:                                    ; preds = %9
   ret i32 %.0
 }
 
-declare ptr @__errno() local_unnamed_addr #2
+declare ptr @__errno() local_unnamed_addr #1
 
-declare i32 @inode_find(ptr noundef) local_unnamed_addr #2
+declare i32 @inode_find(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-declare i32 @dir_allocate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dir_allocate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
-declare void @inode_release(ptr noundef) local_unnamed_addr #2
+declare void @inode_release(ptr noundef) local_unnamed_addr #1
 
-declare i32 @getumask() local_unnamed_addr #2
+declare i32 @getumask() local_unnamed_addr #1
 
-declare i32 @file_allocate_from_tcb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @file_allocate_from_tcb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @file_close(ptr noundef) local_unnamed_addr #2
+declare i32 @file_close(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
@@ -367,10 +366,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 

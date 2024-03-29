@@ -377,14 +377,13 @@ if.end11:                                         ; preds = %for.end
 
 land.lhs.true15:                                  ; preds = %if.end11
   %4 = load i8, ptr @qtest_allowed, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %for.inc19.sink.split, label %for.inc19
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %for.inc19, label %for.inc19.sink.split
 
 for.inc19.sink.split:                             ; preds = %land.lhs.true15, %for.end
   %.str.9.sink = phi ptr [ @.str.9, %for.end ], [ @.str.10, %land.lhs.true15 ]
-  %6 = load i32, ptr %hub.023, align 8
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull %.str.9.sink, i32 noundef %6) #10
+  %5 = load i32, ptr %hub.023, align 8
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull %.str.9.sink, i32 noundef %5) #10
   br label %for.inc19
 
 for.inc19:                                        ; preds = %for.inc19.sink.split, %for.body, %if.end11, %land.lhs.true15

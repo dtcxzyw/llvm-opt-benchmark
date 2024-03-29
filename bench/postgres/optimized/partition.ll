@@ -59,8 +59,8 @@ get_partition_parent_worker.exit:                 ; preds = %2
   unreachable
 
 22:                                               ; preds = %get_partition_parent_worker.exit
-  %23 = and i8 %16, 1
-  %.not7 = icmp eq i8 %23, 0
+  %23 = trunc i8 %16 to i1
+  %.not7 = xor i1 %23, true
   %brmerge = or i1 %.not7, %1
   br i1 %brmerge, label %27, label %24
 
@@ -114,7 +114,7 @@ define internal fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 
 get_partition_parent_worker.exit.thread:          ; preds = %3
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  br label %24
+  br label %25
 
 get_partition_parent_worker.exit:                 ; preds = %3
   %9 = getelementptr inbounds i8, ptr %8, i64 16
@@ -125,24 +125,25 @@ get_partition_parent_worker.exit:                 ; preds = %3
   %14 = getelementptr i8, ptr %10, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
-  %19 = load i32, ptr %18, align 4
+  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  %20 = icmp ne i32 %19, 0
-  %.not = icmp eq i8 %17, 0
-  %or.cond = select i1 %20, i1 %.not, i1 false
-  br i1 %or.cond, label %21, label %24
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %25, label %20
 
-21:                                               ; preds = %get_partition_parent_worker.exit
-  %22 = load ptr, ptr %2, align 8
-  %23 = call ptr @lappend_oid(ptr noundef %22, i32 noundef %19) #5
-  store ptr %23, ptr %2, align 8
-  call fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %19, ptr noundef nonnull %2)
-  br label %24
+20:                                               ; preds = %get_partition_parent_worker.exit
+  %21 = trunc i8 %16 to i1
+  br i1 %21, label %25, label %22
 
-24:                                               ; preds = %get_partition_parent_worker.exit.thread, %get_partition_parent_worker.exit, %21
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %2, align 8
+  %24 = call ptr @lappend_oid(ptr noundef %23, i32 noundef %18) #5
+  store ptr %24, ptr %2, align 8
+  call fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %2)
+  br label %25
+
+25:                                               ; preds = %get_partition_parent_worker.exit.thread, %get_partition_parent_worker.exit, %20, %22
   ret void
 }
 
@@ -157,9 +158,9 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph35, label %._crit_edge
+  br i1 %7, label %.lr.ph34, label %._crit_edge
 
-.lr.ph35:                                         ; preds = %.lr.ph, %28
+.lr.ph34:                                         ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
@@ -169,14 +170,14 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   %.not24 = icmp eq ptr %12, null
   br i1 %.not24, label %.split, label %15
 
-.split:                                           ; preds = %.lr.ph35
+.split:                                           ; preds = %.lr.ph34
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %10) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.index_get_partition) #5
   unreachable
 
-15:                                               ; preds = %.lr.ph35
+15:                                               ; preds = %.lr.ph34
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 22
@@ -185,17 +186,16 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   %21 = getelementptr i8, ptr %17, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 127
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not25 = icmp eq i8 %24, 0
+  %24 = trunc i8 %23 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %12) #5
-  br i1 %.not25, label %28, label %25
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
   %26 = tail call i32 @get_partition_parent(i32 noundef %10, i1 noundef zeroext false), !range !5
   %27 = icmp eq i32 %26, %1
-  br i1 %27, label %.split32, label %28
+  br i1 %27, label %.split31, label %28
 
-.split32:                                         ; preds = %25
+.split31:                                         ; preds = %25
   tail call void @list_free(ptr noundef nonnull %3) #5
   br label %32
 
@@ -204,14 +204,14 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   %29 = load i32, ptr %4, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph35, label %._crit_edge
+  br i1 %31, label %.lr.ph34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %.lr.ph, %2
   tail call void @list_free(ptr noundef %3) #5
   br label %32
 
-32:                                               ; preds = %._crit_edge, %.split32
-  %.0 = phi i32 [ %10, %.split32 ], [ 0, %._crit_edge ]
+32:                                               ; preds = %._crit_edge, %.split31
+  %.0 = phi i32 [ %10, %.split31 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

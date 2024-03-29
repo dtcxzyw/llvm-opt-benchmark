@@ -596,7 +596,6 @@ land.lhs.true.i.loopexit.i:                       ; preds = %land.rhs.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true.i.loopexit.i, %land.rhs.preheader.i.i
   %begin.addr.046.i.lcssa20.pre-phi.i = phi i64 [ %.pre.i, %land.lhs.true.i.loopexit.i ], [ %begin55.i.i, %land.rhs.preheader.i.i ]
-  %valid.047.i.lcssa.i = phi i8 [ 0, %land.lhs.true.i.loopexit.i ], [ 1, %land.rhs.preheader.i.i ]
   %begin.addr.046.i.lcssa.i = phi ptr [ %incdec.ptr.i.i, %land.lhs.true.i.loopexit.i ], [ %call.i, %land.rhs.preheader.i.i ]
   %.lcssa.i = phi i8 [ %2, %land.lhs.true.i.loopexit.i ], [ %1, %land.rhs.preheader.i.i ]
   %cmp2.i.i = icmp eq i8 %.lcssa.i, 45
@@ -655,7 +654,7 @@ land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i.i
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %while.body.i.i, %land.lhs.true6.i.i, %entry
-  %valid.043.i.i = phi i8 [ %valid.047.i.lcssa.i, %land.lhs.true6.i.i ], [ 1, %entry ], [ 0, %while.body.i.i ]
+  %valid.043.i.i = phi i1 [ %cmp.i.i.not.i10.i, %land.lhs.true6.i.i ], [ true, %entry ], [ false, %while.body.i.i ]
   %begin.addr.1.i.i = phi ptr [ %spec.select15.i.i, %land.lhs.true6.i.i ], [ %call.i, %entry ], [ %scevgep.i.i, %while.body.i.i ]
   store i32 0, ptr %output, align 4
   %cmp.i19.i.i = icmp eq ptr %begin.addr.1.i.i, %call1.i
@@ -702,10 +701,8 @@ if.end15.sink.split.i.i:                          ; preds = %lor.lhs.false.i.i.i
   br label %_ZN4base12_GLOBAL__N_115StringToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_115StringToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_.exit: ; preds = %for.body.i.i.i, %if.end9.i.i.i, %for.body.i20.i.i, %if.end9.i34.i.i, %if.then.i.i, %if.end11.i.i, %if.end15.sink.split.i.i
-  %valid.1.i.i = phi i8 [ 0, %if.then.i.i ], [ 0, %if.end11.i.i ], [ 0, %if.end15.sink.split.i.i ], [ 0, %for.body.i20.i.i ], [ %valid.043.i.i, %if.end9.i34.i.i ], [ 0, %for.body.i.i.i ], [ %valid.047.i.lcssa.i, %if.end9.i.i.i ]
-  %12 = and i8 %valid.1.i.i, 1
-  %tobool.i.i = icmp ne i8 %12, 0
-  ret i1 %tobool.i.i
+  %valid.1.i.i = phi i1 [ false, %if.then.i.i ], [ false, %if.end11.i.i ], [ false, %if.end15.sink.split.i.i ], [ false, %for.body.i20.i.i ], [ %valid.043.i.i, %if.end9.i34.i.i ], [ false, %for.body.i.i.i ], [ %cmp.i.i.not.i10.i, %if.end9.i.i.i ]
+  ret i1 %valid.1.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -737,7 +734,6 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
   br i1 %cmp.not.i.i, label %if.end15.sink.split.i.i, label %land.rhs.i.i, !llvm.loop !41
 
 land.lhs.true.i.i:                                ; preds = %land.rhs.i.i, %land.rhs.i.preheader.i
-  %valid.049.i.lcssa.i = phi i8 [ 1, %land.rhs.i.preheader.i ], [ 0, %land.rhs.i.i ]
   %begin.addr.048.i.lcssa.i = phi ptr [ %call.i, %land.rhs.i.preheader.i ], [ %incdec.ptr.i.i, %land.rhs.i.i ]
   %2 = load i16, ptr %begin.addr.048.i.lcssa.i, align 2
   %cmp2.i.i = icmp eq i16 %2, 45
@@ -795,7 +791,7 @@ land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i.i
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %land.lhs.true6.i.i, %entry
-  %valid.045.i.i = phi i8 [ %valid.049.i.lcssa.i, %land.lhs.true6.i.i ], [ 1, %entry ]
+  %valid.045.i.i = phi i1 [ %cmp.i.i.not.i10.i, %land.lhs.true6.i.i ], [ true, %entry ]
   %begin.addr.1.i.i = phi ptr [ %spec.select15.i.i, %land.lhs.true6.i.i ], [ %call.i, %entry ]
   store i32 0, ptr %output, align 4
   %cmp.i19.i.i = icmp eq ptr %begin.addr.1.i.i, %call1.i
@@ -844,10 +840,8 @@ if.end15.sink.split.i.i:                          ; preds = %while.body.i.i, %lo
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit: ; preds = %for.body.i.i.i, %if.end9.i.i.i, %for.body.i20.i.i, %if.end9.i36.i.i, %if.then.i.i, %if.end11.i.i, %if.end15.sink.split.i.i
-  %valid.1.i.i = phi i8 [ 0, %if.then.i.i ], [ 0, %if.end11.i.i ], [ 0, %if.end15.sink.split.i.i ], [ 0, %for.body.i20.i.i ], [ %valid.045.i.i, %if.end9.i36.i.i ], [ 0, %for.body.i.i.i ], [ %valid.049.i.lcssa.i, %if.end9.i.i.i ]
-  %11 = and i8 %valid.1.i.i, 1
-  %tobool.i.i = icmp ne i8 %11, 0
-  ret i1 %tobool.i.i
+  %valid.1.i.i = phi i1 [ false, %if.then.i.i ], [ false, %if.end11.i.i ], [ false, %if.end15.sink.split.i.i ], [ false, %for.body.i20.i.i ], [ %valid.045.i.i, %if.end9.i36.i.i ], [ false, %for.body.i.i.i ], [ %cmp.i.i.not.i10.i, %if.end9.i.i.i ]
+  ret i1 %valid.1.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1097,7 +1091,6 @@ land.lhs.true.i.loopexit.i:                       ; preds = %land.rhs.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true.i.loopexit.i, %land.rhs.preheader.i.i
   %begin.addr.046.i.lcssa20.pre-phi.i = phi i64 [ %.pre.i, %land.lhs.true.i.loopexit.i ], [ %begin55.i.i, %land.rhs.preheader.i.i ]
-  %valid.047.i.lcssa.i = phi i8 [ 0, %land.lhs.true.i.loopexit.i ], [ 1, %land.rhs.preheader.i.i ]
   %begin.addr.046.i.lcssa.i = phi ptr [ %incdec.ptr.i.i, %land.lhs.true.i.loopexit.i ], [ %call.i, %land.rhs.preheader.i.i ]
   %.lcssa.i = phi i8 [ %2, %land.lhs.true.i.loopexit.i ], [ %1, %land.rhs.preheader.i.i ]
   %cmp2.i.i = icmp eq i8 %.lcssa.i, 45
@@ -1156,7 +1149,7 @@ land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i.i
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %while.body.i.i, %land.lhs.true6.i.i, %entry
-  %valid.043.i.i = phi i8 [ %valid.047.i.lcssa.i, %land.lhs.true6.i.i ], [ 1, %entry ], [ 0, %while.body.i.i ]
+  %valid.043.i.i = phi i1 [ %cmp.i.i.not.i10.i, %land.lhs.true6.i.i ], [ true, %entry ], [ false, %while.body.i.i ]
   %begin.addr.1.i.i = phi ptr [ %spec.select15.i.i, %land.lhs.true6.i.i ], [ %call.i, %entry ], [ %scevgep.i.i, %while.body.i.i ]
   store i64 0, ptr %output, align 8
   %cmp.i19.i.i = icmp eq ptr %begin.addr.1.i.i, %call1.i
@@ -1203,10 +1196,8 @@ if.end15.sink.split.i.i:                          ; preds = %lor.lhs.false.i.i.i
   br label %_ZN4base12_GLOBAL__N_115StringToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_115StringToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_.exit: ; preds = %for.body.i.i.i, %if.end9.i.i.i, %for.body.i20.i.i, %if.end9.i34.i.i, %if.then.i.i, %if.end11.i.i, %if.end15.sink.split.i.i
-  %valid.1.i.i = phi i8 [ 0, %if.then.i.i ], [ 0, %if.end11.i.i ], [ 0, %if.end15.sink.split.i.i ], [ 0, %for.body.i20.i.i ], [ %valid.043.i.i, %if.end9.i34.i.i ], [ 0, %for.body.i.i.i ], [ %valid.047.i.lcssa.i, %if.end9.i.i.i ]
-  %12 = and i8 %valid.1.i.i, 1
-  %tobool.i.i = icmp ne i8 %12, 0
-  ret i1 %tobool.i.i
+  %valid.1.i.i = phi i1 [ false, %if.then.i.i ], [ false, %if.end11.i.i ], [ false, %if.end15.sink.split.i.i ], [ false, %for.body.i20.i.i ], [ %valid.043.i.i, %if.end9.i34.i.i ], [ false, %for.body.i.i.i ], [ %cmp.i.i.not.i10.i, %if.end9.i.i.i ]
+  ret i1 %valid.1.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1238,7 +1229,6 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
   br i1 %cmp.not.i.i, label %if.end15.sink.split.i.i, label %land.rhs.i.i, !llvm.loop !51
 
 land.lhs.true.i.i:                                ; preds = %land.rhs.i.i, %land.rhs.i.preheader.i
-  %valid.049.i.lcssa.i = phi i8 [ 1, %land.rhs.i.preheader.i ], [ 0, %land.rhs.i.i ]
   %begin.addr.048.i.lcssa.i = phi ptr [ %call.i, %land.rhs.i.preheader.i ], [ %incdec.ptr.i.i, %land.rhs.i.i ]
   %2 = load i16, ptr %begin.addr.048.i.lcssa.i, align 2
   %cmp2.i.i = icmp eq i16 %2, 45
@@ -1296,7 +1286,7 @@ land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i.i
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %land.lhs.true6.i.i, %entry
-  %valid.045.i.i = phi i8 [ %valid.049.i.lcssa.i, %land.lhs.true6.i.i ], [ 1, %entry ]
+  %valid.045.i.i = phi i1 [ %cmp.i.i.not.i10.i, %land.lhs.true6.i.i ], [ true, %entry ]
   %begin.addr.1.i.i = phi ptr [ %spec.select15.i.i, %land.lhs.true6.i.i ], [ %call.i, %entry ]
   store i64 0, ptr %output, align 8
   %cmp.i19.i.i = icmp eq ptr %begin.addr.1.i.i, %call1.i
@@ -1345,10 +1335,8 @@ if.end15.sink.split.i.i:                          ; preds = %while.body.i.i, %lo
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 _ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit: ; preds = %for.body.i.i.i, %if.end9.i.i.i, %for.body.i20.i.i, %if.end9.i36.i.i, %if.then.i.i, %if.end11.i.i, %if.end15.sink.split.i.i
-  %valid.1.i.i = phi i8 [ 0, %if.then.i.i ], [ 0, %if.end11.i.i ], [ 0, %if.end15.sink.split.i.i ], [ 0, %for.body.i20.i.i ], [ %valid.045.i.i, %if.end9.i36.i.i ], [ 0, %for.body.i.i.i ], [ %valid.049.i.lcssa.i, %if.end9.i.i.i ]
-  %11 = and i8 %valid.1.i.i, 1
-  %tobool.i.i = icmp ne i8 %11, 0
-  ret i1 %tobool.i.i
+  %valid.1.i.i = phi i1 [ false, %if.then.i.i ], [ false, %if.end11.i.i ], [ false, %if.end15.sink.split.i.i ], [ false, %for.body.i20.i.i ], [ %valid.045.i.i, %if.end9.i36.i.i ], [ false, %for.body.i.i.i ], [ %cmp.i.i.not.i10.i, %if.end9.i.i.i ]
+  ret i1 %valid.1.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1794,7 +1782,6 @@ while.body.i:                                     ; preds = %land.rhs.preheader.
   br i1 %cmp.not.i, label %if.end11.i, label %land.rhs.i, !llvm.loop !59
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.rhs.preheader.i
-  %valid.066.i.lcssa = phi i8 [ 1, %land.rhs.preheader.i ], [ 0, %land.rhs.i ]
   %begin.addr.065.i.lcssa = phi ptr [ %call, %land.rhs.preheader.i ], [ %incdec.ptr.i, %land.rhs.i ]
   %.lcssa = phi i8 [ %1, %land.rhs.preheader.i ], [ %2, %land.rhs.i ]
   %cmp2.i = icmp eq i8 %.lcssa, 45
@@ -1895,7 +1882,7 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %while.body.i, %land.lhs.true6.i, %entry
-  %valid.062.i = phi i8 [ %valid.066.i.lcssa, %land.lhs.true6.i ], [ 1, %entry ], [ 0, %while.body.i ]
+  %valid.062.i = phi i1 [ %cmp.i.i.not.i10, %land.lhs.true6.i ], [ true, %entry ], [ false, %while.body.i ]
   %begin.addr.1.i = phi ptr [ %spec.select15.i, %land.lhs.true6.i ], [ %call, %entry ], [ %scevgep.i, %while.body.i ]
   store i32 0, ptr %output, align 4
   %cmp.i19.i = icmp eq ptr %begin.addr.1.i, %call1
@@ -1983,10 +1970,8 @@ if.end15.sink.split.i:                            ; preds = %lor.lhs.false.i.i.i
   br label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_31BaseHexIteratorRangeToIntTraitsIPKcEEE6InvokeES4_S4_Pi.exit
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_31BaseHexIteratorRangeToIntTraitsIPKcEEE6InvokeES4_S4_Pi.exit: ; preds = %if.else14.i.i.i.i, %if.end20.i.i, %if.else14.i.i.i33.i, %if.end20.i45.i, %if.then.i, %if.end11.i.i, %if.end11.i, %if.end11.i25.i, %if.end15.sink.split.i
-  %valid.1.i = phi i8 [ %valid.066.i.lcssa, %if.end11.i.i ], [ %valid.062.i, %if.end11.i25.i ], [ 0, %if.then.i ], [ 0, %if.end11.i ], [ 0, %if.end15.sink.split.i ], [ %valid.062.i, %if.end20.i45.i ], [ 0, %if.else14.i.i.i33.i ], [ %valid.066.i.lcssa, %if.end20.i.i ], [ 0, %if.else14.i.i.i.i ]
-  %19 = and i8 %valid.1.i, 1
-  %tobool.i = icmp ne i8 %19, 0
-  ret i1 %tobool.i
+  %valid.1.i = phi i1 [ %cmp.i.i.not.i10, %if.end11.i.i ], [ %valid.062.i, %if.end11.i25.i ], [ false, %if.then.i ], [ false, %if.end11.i ], [ false, %if.end15.sink.split.i ], [ %valid.062.i, %if.end20.i45.i ], [ false, %if.else14.i.i.i33.i ], [ %cmp.i.i.not.i10, %if.end20.i.i ], [ false, %if.else14.i.i.i.i ]
+  ret i1 %valid.1.i
 }
 
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
@@ -2171,7 +2156,6 @@ while.body.i:                                     ; preds = %land.rhs.preheader.
   br i1 %cmp.not.i, label %if.end11.i, label %land.rhs.i, !llvm.loop !64
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.rhs.preheader.i
-  %valid.066.i.lcssa = phi i8 [ 1, %land.rhs.preheader.i ], [ 0, %land.rhs.i ]
   %begin.addr.065.i.lcssa = phi ptr [ %call, %land.rhs.preheader.i ], [ %incdec.ptr.i, %land.rhs.i ]
   %.lcssa = phi i8 [ %1, %land.rhs.preheader.i ], [ %2, %land.rhs.i ]
   %cmp2.i = icmp eq i8 %.lcssa, 45
@@ -2272,7 +2256,7 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %while.body.i, %land.lhs.true6.i, %entry
-  %valid.062.i = phi i8 [ %valid.066.i.lcssa, %land.lhs.true6.i ], [ 1, %entry ], [ 0, %while.body.i ]
+  %valid.062.i = phi i1 [ %cmp.i.i.not.i10, %land.lhs.true6.i ], [ true, %entry ], [ false, %while.body.i ]
   %begin.addr.1.i = phi ptr [ %spec.select15.i, %land.lhs.true6.i ], [ %call, %entry ], [ %scevgep.i, %while.body.i ]
   store i64 0, ptr %output, align 8
   %cmp.i19.i = icmp eq ptr %begin.addr.1.i, %call1
@@ -2360,10 +2344,8 @@ if.end15.sink.split.i:                            ; preds = %lor.lhs.false.i.i.i
   br label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_33BaseHexIteratorRangeToInt64TraitsIPKcEEE6InvokeES4_S4_Pl.exit
 
 _ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_33BaseHexIteratorRangeToInt64TraitsIPKcEEE6InvokeES4_S4_Pl.exit: ; preds = %if.else14.i.i.i.i, %if.end20.i.i, %if.else14.i.i.i33.i, %if.end20.i45.i, %if.then.i, %if.end11.i.i, %if.end11.i, %if.end11.i25.i, %if.end15.sink.split.i
-  %valid.1.i = phi i8 [ %valid.066.i.lcssa, %if.end11.i.i ], [ %valid.062.i, %if.end11.i25.i ], [ 0, %if.then.i ], [ 0, %if.end11.i ], [ 0, %if.end15.sink.split.i ], [ %valid.062.i, %if.end20.i45.i ], [ 0, %if.else14.i.i.i33.i ], [ %valid.066.i.lcssa, %if.end20.i.i ], [ 0, %if.else14.i.i.i.i ]
-  %19 = and i8 %valid.1.i, 1
-  %tobool.i = icmp ne i8 %19, 0
-  ret i1 %tobool.i
+  %valid.1.i = phi i1 [ %cmp.i.i.not.i10, %if.end11.i.i ], [ %valid.062.i, %if.end11.i25.i ], [ false, %if.then.i ], [ false, %if.end11.i ], [ false, %if.end15.sink.split.i ], [ %valid.062.i, %if.end20.i45.i ], [ false, %if.else14.i.i.i33.i ], [ %cmp.i.i.not.i10, %if.end20.i.i ], [ false, %if.else14.i.i.i.i ]
+  ret i1 %valid.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2522,7 +2504,7 @@ entry:
   br i1 %or.cond.i, label %for.cond.preheader.i, label %_ZN4base12_GLOBAL__N_117HexStringToBytesTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_PSt6vectorIhSaIhEE.exit
 
 for.cond.preheader.i:                             ; preds = %entry
-  %div8.i = lshr i64 %call3.i, 1
+  %div8.i = lshr exact i64 %call3.i, 1
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %output, i64 16
   br label %for.body.i

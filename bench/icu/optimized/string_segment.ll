@@ -413,10 +413,10 @@ _ZNK6icu_7513StringSegment12getCodePointEv.exit:  ; preds = %if.then.i, %if.else
   %retval.0.i = phi i32 [ %call6.i, %if.then.i ], [ %.conv.i, %if.else.i ]
   %fFoldCase = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i8, ptr %fFoldCase, align 8
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
+  %tobool = trunc i8 %9 to i1
   %cmp.i1 = icmp eq i32 %retval.0.i, %otherCp
-  %brmerge.i = or i1 %cmp.i1, %tobool.not
+  %foldCase.not.i = xor i1 %tobool, true
+  %brmerge.i = or i1 %cmp.i1, %foldCase.not.i
   br i1 %brmerge.i, label %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit, label %if.end2.i
 
 if.end2.i:                                        ; preds = %_ZNK6icu_7513StringSegment12getCodePointEv.exit
@@ -585,10 +585,10 @@ _ZNK6icu_7513StringSegment12getCodePointEv.exit:  ; preds = %if.then.i, %if.else
   %call7 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %other, i32 noundef 0)
   %fFoldCase = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i8, ptr %fFoldCase, align 8
-  %13 = and i8 %12, 1
-  %tobool8.not = icmp eq i8 %13, 0
+  %tobool8 = trunc i8 %12 to i1
   %cmp.i5 = icmp eq i32 %retval.0.i, %call7
-  %brmerge.i = or i1 %cmp.i5, %tobool8.not
+  %foldCase.not.i = xor i1 %tobool8, true
+  %brmerge.i = or i1 %cmp.i5, %foldCase.not.i
   br i1 %brmerge.i, label %return, label %if.end2.i
 
 if.end2.i:                                        ; preds = %_ZNK6icu_7513StringSegment12getCodePointEv.exit
@@ -607,8 +607,7 @@ define noundef i32 @_ZN6icu_7513StringSegment21getCommonPrefixLengthERKNS_13Unic
 entry:
   %fFoldCase = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %fFoldCase, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %call = tail call noundef i32 @_ZN6icu_7513StringSegment23getPrefixLengthInternalERKNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(64) %other, i1 noundef zeroext %tobool)
   ret i32 %call
 }

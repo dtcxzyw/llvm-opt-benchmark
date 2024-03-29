@@ -303,7 +303,7 @@ if.else:                                          ; preds = %if.end
   br i1 %call11, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.else, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
-  %isConst.0.not = phi i1 [ %call10, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ true, %if.else ]
+  %isConst.0 = phi i1 [ %call10, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ true, %if.else ]
   %7 = load ptr, ptr %b, align 8
   store ptr %7, ptr %agg.tmp16, align 8
   %vtable17 = load ptr, ptr %this, align 8
@@ -329,15 +329,15 @@ if.then.i4:                                       ; preds = %if.then23
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5: ; preds = %if.then23, %if.then.i4
   %13 = phi ptr [ %11, %if.then23 ], [ %12, %if.then.i4 ]
-  br i1 %isConst.0.not, label %if.end41, label %if.end41.thread
+  br i1 %isConst.0, label %if.end41, label %if.end41.thread
 
 if.end41.thread:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5
   br i1 %call2, label %if.end49, label %return
 
 if.else36:                                        ; preds = %if.end15
   %call37 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %b)
-  %or.cond.not = and i1 %isConst.0.not, %call37
-  br i1 %or.cond.not, label %if.then43, label %return
+  %brmerge.demorgan = and i1 %call37, %isConst.0
+  br i1 %brmerge.demorgan, label %if.then43, label %return
 
 if.end41:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5
   %call34 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -366,7 +366,7 @@ if.end49:                                         ; preds = %if.else45.if.end49_
   %call57 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %17, ptr noundef nonnull %agg.tmp51, ptr noundef nonnull %agg.tmp52, i1 noundef zeroext false)
   br label %return
 
-return:                                           ; preds = %if.end49, %if.end41.thread, %if.else45, %if.else36, %if.else, %entry, %if.then43
+return:                                           ; preds = %if.else36, %if.end49, %if.end41.thread, %if.else45, %if.else, %entry, %if.then43
   %retval.0 = phi i1 [ %cmp.i6, %if.then43 ], [ false, %entry ], [ false, %if.else ], [ false, %if.else36 ], [ false, %if.else45 ], [ false, %if.end41.thread ], [ %call57, %if.end49 ]
   ret i1 %retval.0
 }
@@ -1432,8 +1432,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11TheoryState12isInCo
 entry:
   %d_data.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %d_data.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 
@@ -1596,8 +1595,8 @@ entry:
   %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %d_data2.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %d_data.i, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %d_data.i, align 8
   ret ptr %call.i
 }
 
@@ -1606,9 +1605,9 @@ define linkonce_odr hidden void @_ZN4cvc57context3CDOIbE7restoreEPNS0_10ContextO
 entry:
   %d_data = getelementptr inbounds i8, ptr %pContextObj, i64 40
   %0 = load i8, ptr %d_data, align 8
-  %1 = and i8 %0, 1
   %d_data2 = getelementptr inbounds i8, ptr %this, i64 40
-  store i8 %1, ptr %d_data2, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %d_data2, align 8
   ret void
 }
 

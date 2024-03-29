@@ -558,12 +558,11 @@ do.end15:                                         ; preds = %do.end, %if.then9
   store i32 -1, ptr %_s, align 8
   %_has_file = getelementptr inbounds i8, ptr %this, i64 1520
   %7 = load i8, ptr %_has_file, align 8
-  %8 = and i8 %7, 1
-  %tobool.not = icmp ne i8 %8, 0
+  %tobool = trunc i8 %7 to i1
   %use_fd = getelementptr inbounds i8, ptr %this, i64 980
-  %9 = load i32, ptr %use_fd, align 4
-  %cmp17 = icmp eq i32 %9, -1
-  %or.cond = select i1 %tobool.not, i1 %cmp17, i1 false
+  %8 = load i32, ptr %use_fd, align 4
+  %cmp17 = icmp eq i32 %8, -1
+  %or.cond = select i1 %tobool, i1 %cmp17, i1 false
   br i1 %or.cond, label %if.then18, label %if.end36
 
 if.then18:                                        ; preds = %do.end15
@@ -591,31 +590,31 @@ if.end30:                                         ; preds = %if.then24, %if.then
 
 if.then32:                                        ; preds = %if.then20, %if.end30
   %_socket = getelementptr inbounds i8, ptr %this, i64 1480
-  %10 = load ptr, ptr %_socket, align 8
+  %9 = load ptr, ptr %_socket, align 8
   %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
   %call33 = invoke i32 @zmq_errno()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then32
-  invoke void @_ZN3zmq13socket_base_t18event_close_failedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %10, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp, i32 noundef %call33)
+  invoke void @_ZN3zmq13socket_base_t18event_close_failedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %9, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp, i32 noundef %call33)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont, %if.then32
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end36:                                         ; preds = %if.end30, %do.end15
   %_socket37 = getelementptr inbounds i8, ptr %this, i64 1480
-  %12 = load ptr, ptr %_socket37, align 8
+  %11 = load ptr, ptr %_socket37, align 8
   %_endpoint39 = getelementptr inbounds i8, ptr %this, i64 1488
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint39)
-  invoke void @_ZN3zmq13socket_base_t12event_closedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %12, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp38, i32 noundef %3)
+  invoke void @_ZN3zmq13socket_base_t12event_closedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %11, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp38, i32 noundef %3)
           to label %return unwind label %lpad40
 
 lpad40:                                           ; preds = %if.end36
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -630,7 +629,7 @@ return:                                           ; preds = %if.end36, %invoke.c
 eh.resume:                                        ; preds = %lpad40, %lpad
   %ref.tmp38.sink12.sroa.phi = phi ptr [ %ref.tmp38.sink12.sroa.gep, %lpad40 ], [ %ref.tmp38.sink12.sroa.gep13, %lpad ]
   %ref.tmp38.sink12 = phi ptr [ %ref.tmp38, %lpad40 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %13, %lpad40 ], [ %11, %lpad ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad40 ], [ %10, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink12.sroa.phi) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink12) #11
   resume { ptr, i32 } %.pn

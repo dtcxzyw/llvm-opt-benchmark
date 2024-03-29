@@ -53,26 +53,25 @@ entry:
   %stringTable_.i = getelementptr inbounds i8, ptr %context, i64 72
   %strictMode_.i = getelementptr inbounds i8, ptr %context, i64 168
   %3 = load i8, ptr %strictMode_.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i = icmp ne i8 %4, 0
+  %tobool.i = trunc i8 %3 to i1
   call void @_ZN6hermes6parser7JSLexerC1EjRNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) %lexer, i32 noundef %bufferId, ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef nonnull align 8 dereferenceable(32) %context, ptr noundef nonnull %stringTable_.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext false) #7
   %storeComments_.i = getelementptr inbounds i8, ptr %lexer, i64 49
   store i8 1, ptr %storeComments_.i, align 1
   %call5 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer, i32 noundef 0) #7
   %commentStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 1080
-  %5 = load ptr, ptr %commentStorage_.i, align 8
+  %4 = load ptr, ptr %commentStorage_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 1088
-  %6 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
+  %5 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %call821 = call noundef zeroext i1 @_ZN6hermes6parser7JSLexer24isCurrentTokenADirectiveEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer) #7
   br i1 %call821, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end
   %call9 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer, i32 noundef 0) #7
-  %7 = load i32, ptr %call9, align 8
-  %cmp = icmp eq i32 %7, 60
+  %6 = load i32, ptr %call9, align 8
+  %cmp = icmp eq i32 %6, 60
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
@@ -80,14 +79,14 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %8 = load ptr, ptr %commentStorage_.i, align 8
-  %9 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %7 = load ptr, ptr %commentStorage_.i, align 8
+  %8 = load ptr, ptr %_M_finish.i.i.i, align 8
   %call8 = call noundef zeroext i1 @_ZN6hermes6parser7JSLexer24isCurrentTokenADirectiveEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer) #7
   br i1 %call8, label %while.body, label %while.cond.while.end_crit_edge, !llvm.loop !4
 
 while.cond.while.end_crit_edge:                   ; preds = %if.end
-  %sub.ptr.lhs.cast.i.i.i8.le = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i9.le = ptrtoint ptr %8 to i64
+  %sub.ptr.lhs.cast.i.i.i8.le = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i9.le = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i10.le = sub i64 %sub.ptr.lhs.cast.i.i.i8.le, %sub.ptr.rhs.cast.i.i.i9.le
   br label %while.end
 
@@ -96,16 +95,16 @@ while.end:                                        ; preds = %while.cond.while.en
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %10 = load ptr, ptr %commentStorage_.i, align 8, !noalias !6
-  store ptr %10, ptr %agg.result, align 8, !alias.scope !6
-  %11 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !6
-  store ptr %11, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !6
+  %9 = load ptr, ptr %commentStorage_.i, align 8, !noalias !6
+  store ptr %9, ptr %agg.result, align 8, !alias.scope !6
+  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !6
+  store ptr %10, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !6
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 1096
-  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !6
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !6
+  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !6
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commentStorage_.i, i8 0, i64 24, i1 false), !noalias !6
-  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %numComments.0.in.lcssa
-  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %11
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %numComments.0.in.lcssa
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %10
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end
@@ -114,12 +113,12 @@ if.then.i.i.i:                                    ; preds = %while.end
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %while.end, %if.then.i.i.i
   %tokenStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 1104
-  %13 = load ptr, ptr %tokenStorage_.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %tokenStorage_.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
-  call void @_ZdlPv(ptr noundef nonnull %13) #8
+  call void @_ZdlPv(ptr noundef nonnull %12) #8
   %.pre = load ptr, ptr %commentStorage_.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i1.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i, label %if.then.i.i.i2.i
@@ -130,37 +129,37 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN6herm
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, %if.then.i.i.i2.i, %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i
   %rawStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 440
-  %14 = load ptr, ptr %rawStorage_.i, align 8
+  %13 = load ptr, ptr %rawStorage_.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 456
-  %cmp.i.i.i.i.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit.i, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
-  call void @free(ptr noundef %14) #7
+  call void @free(ptr noundef %13) #7
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit.i:         ; preds = %if.then.i.i.i3.i, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
   %tmpStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 168
-  %15 = load ptr, ptr %tmpStorage_.i, align 8
+  %14 = load ptr, ptr %tmpStorage_.i, align 8
   %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %lexer, i64 184
-  %cmp.i.i.i.i5.i = icmp eq ptr %15, %add.ptr.i.i.i.i.i4.i
+  %cmp.i.i.i.i5.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i4.i
   br i1 %cmp.i.i.i.i5.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i, label %if.then.i.i.i6.i
 
 if.then.i.i.i6.i:                                 ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
-  call void @free(ptr noundef %15) #7
+  call void @free(ptr noundef %14) #7
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit7.i:        ; preds = %if.then.i.i.i6.i, %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
   %ownStrTab_.i = getelementptr inbounds i8, ptr %lexer, i64 24
-  %16 = load ptr, ptr %ownStrTab_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %ownStrTab_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i, label %_ZN6hermes6parser7JSLexerD2Ev.exit, label %_ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i: ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i
-  %strMap_.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load ptr, ptr %strMap_.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %17) #7
-  call void @_ZdlPv(ptr noundef nonnull %16) #8
+  %strMap_.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %strMap_.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %16) #7
+  call void @_ZdlPv(ptr noundef nonnull %15) #8
   br label %_ZN6hermes6parser7JSLexerD2Ev.exit
 
 _ZN6hermes6parser7JSLexerD2Ev.exit:               ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i, %_ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i

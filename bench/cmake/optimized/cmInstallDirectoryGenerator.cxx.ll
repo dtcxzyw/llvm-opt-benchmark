@@ -201,14 +201,14 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %20, %39, %52, %_ZNS
 71:                                               ; preds = %69, %67
   %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  br label %88
+  br label %87
 
 72:                                               ; preds = %_ZN19cmListFileBacktraceD2Ev.exit
   %73 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-.loopexit26:                                      ; preds = %.lr.ph
+.loopexit25:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %74
@@ -218,58 +218,57 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %20, %39, %52, %_ZNS
           cleanup
   br label %74
 
-74:                                               ; preds = %.loopexit.split-lp, %.loopexit26
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit26 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+74:                                               ; preds = %.loopexit.split-lp, %.loopexit25
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit25 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #13
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #13
-  br label %87
+  br label %86
 
 75:                                               ; preds = %66
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  %76 = and i8 %.pre, 1
-  %77 = icmp eq i8 %76, 0
-  %78 = getelementptr inbounds i8, ptr %0, i64 104
-  br i1 %77, label %79, label %.loopexit
+  %76 = trunc i8 %.pre to i1
+  %77 = getelementptr inbounds i8, ptr %0, i64 104
+  br i1 %76, label %.loopexit, label %78
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %.not2527 = icmp eq ptr %80, %82
-  br i1 %.not2527, label %.loopexit, label %.lr.ph
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %1, align 8
+  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %.not2426 = icmp eq ptr %79, %81
+  br i1 %.not2426, label %.loopexit, label %.lr.ph
 
-83:                                               ; preds = %86
-  %84 = getelementptr inbounds i8, ptr %.sroa.022.028, i64 32
-  %.not25 = icmp eq ptr %84, %82
-  br i1 %.not25, label %.loopexit, label %.lr.ph
+82:                                               ; preds = %85
+  %83 = getelementptr inbounds i8, ptr %.sroa.021.027, i64 32
+  %.not24 = icmp eq ptr %83, %81
+  br i1 %.not24, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %79, %83
-  %.sroa.022.028 = phi ptr [ %84, %83 ], [ %80, %79 ]
-  %85 = invoke noundef i64 @_ZN21cmGeneratorExpression4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.028)
-          to label %86 unwind label %.loopexit26
+.lr.ph:                                           ; preds = %78, %82
+  %.sroa.021.027 = phi ptr [ %83, %82 ], [ %79, %78 ]
+  %84 = invoke noundef i64 @_ZN21cmGeneratorExpression4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.027)
+          to label %85 unwind label %.loopexit25
 
-86:                                               ; preds = %.lr.ph
-  %.not21 = icmp eq i64 %85, -1
-  br i1 %.not21, label %83, label %.loopexit.sink.split
+85:                                               ; preds = %.lr.ph
+  %.not20 = icmp eq i64 %84, -1
+  br i1 %.not20, label %82, label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %86, %66
-  %.phi.trans.insert.sink = phi ptr [ %.phi.trans.insert, %66 ], [ %78, %86 ]
+.loopexit.sink.split:                             ; preds = %85, %66
+  %.phi.trans.insert.sink = phi ptr [ %.phi.trans.insert, %66 ], [ %77, %85 ]
   store i8 1, ptr %.phi.trans.insert.sink, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %.loopexit.sink.split, %79, %75
+.loopexit:                                        ; preds = %82, %.loopexit.sink.split, %78, %75
   ret void
 
-87:                                               ; preds = %74, %72
-  %.pn18 = phi { ptr, i32 } [ %lpad.phi, %74 ], [ %73, %72 ]
+86:                                               ; preds = %74, %72
+  %.pn17 = phi { ptr, i32 } [ %lpad.phi, %74 ], [ %73, %72 ]
   call void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %71
-  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %87 ], [ %.pn, %71 ]
-  resume { ptr, i32 } %.pn18.pn
+87:                                               ; preds = %86, %71
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %86 ], [ %.pn, %71 ]
+  resume { ptr, i32 } %.pn17.pn
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -606,17 +605,16 @@ define dso_local void @_ZNK27cmInstallDirectoryGenerator14GetDirectoriesERKNSt7_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 104
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
+  %11 = trunc i8 %10 to i1
   %12 = getelementptr inbounds i8, ptr %1, i64 208
-  br i1 %.not, label %34, label %13
+  br i1 %11, label %13, label %34
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 216
   %16 = load ptr, ptr %15, align 8
-  %.not1315 = icmp eq ptr %14, %16
-  br i1 %.not1315, label %_ZN6cmListD2Ev.exit, label %.lr.ph
+  %.not14 = icmp eq ptr %14, %16
+  br i1 %.not14, label %_ZN6cmListD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %17 = getelementptr inbounds i8, ptr %1, i64 200
@@ -624,9 +622,9 @@ define dso_local void @_ZNK27cmInstallDirectoryGenerator14GetDirectoriesERKNSt7_
   br label %19
 
 19:                                               ; preds = %.lr.ph, %27
-  %.sroa.010.016 = phi ptr [ %14, %.lr.ph ], [ %28, %27 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.016)
-          to label %20 unwind label %.loopexit14
+  %.sroa.010.015 = phi ptr [ %14, %.lr.ph ], [ %28, %27 ]
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.015)
+          to label %20 unwind label %.loopexit13
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr %17, align 8
@@ -656,11 +654,11 @@ define dso_local void @_ZNK27cmInstallDirectoryGenerator14GetDirectoriesERKNSt7_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
-  %28 = getelementptr inbounds i8, ptr %.sroa.010.016, i64 32
-  %.not13 = icmp eq ptr %28, %16
-  br i1 %.not13, label %_ZN6cmListD2Ev.exit, label %19
+  %28 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 32
+  %.not = icmp eq ptr %28, %16
+  br i1 %.not, label %_ZN6cmListD2Ev.exit, label %19
 
-.loopexit14:                                      ; preds = %19
+.loopexit13:                                      ; preds = %19
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -704,8 +702,8 @@ _ZN6cmListD2Ev.exit:                              ; preds = %27, %13, %34
   store ptr %39, ptr %37, align 8
   ret void
 
-40:                                               ; preds = %.loopexit14, %.loopexit.split-lp, %33
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %33 ], [ %lpad.loopexit, %.loopexit14 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+40:                                               ; preds = %.loopexit13, %.loopexit.split-lp, %33
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %33 ], [ %lpad.loopexit, %.loopexit13 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   resume { ptr, i32 } %.pn.pn
 }
@@ -827,9 +825,8 @@ define dso_local void @_ZN27cmInstallDirectoryGenerator21GenerateScriptActionsER
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %10, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
   tail call void @_ZN17cmScriptGenerator21GenerateScriptActionsERSo23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2)
@@ -892,26 +889,25 @@ define dso_local void @_ZN27cmInstallDirectoryGenerator23AddDirectoryInstallRule
   call void @_ZNK27cmInstallDirectoryGenerator14GetDestinationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(329) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 232
-  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 264
-  %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  %15 = getelementptr inbounds i8, ptr %0, i64 296
-  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  invoke void @_ZN18cmInstallGenerator14AddInstallRuleERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13cmInstallTypeRKSt6vectorIS6_SaIS6_EEbPKcSG_SG_SG_23cmScriptGeneratorIndentSG_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %10, ptr noundef %12, ptr noundef %14, ptr noundef null, ptr noundef %16, i32 %3, ptr noundef null)
-          to label %17 unwind label %18
+  %9 = trunc i8 %8 to i1
+  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  %12 = getelementptr inbounds i8, ptr %0, i64 264
+  %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  %14 = getelementptr inbounds i8, ptr %0, i64 296
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  invoke void @_ZN18cmInstallGenerator14AddInstallRuleERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13cmInstallTypeRKSt6vectorIS6_SaIS6_EEbPKcSG_SG_SG_23cmScriptGeneratorIndentSG_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %9, ptr noundef %11, ptr noundef %13, ptr noundef null, ptr noundef %15, i32 %3, ptr noundef null)
+          to label %16 unwind label %17
 
-17:                                               ; preds = %5
+16:                                               ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   ret void
 
-18:                                               ; preds = %5
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %5
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: nounwind

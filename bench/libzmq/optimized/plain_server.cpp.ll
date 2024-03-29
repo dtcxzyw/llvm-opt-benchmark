@@ -69,9 +69,8 @@ entry:
   store ptr %3, ptr %add.ptr, align 8
   %zap_enforce_domain = getelementptr inbounds i8, ptr %this, i64 1080
   %4 = load i8, ptr %zap_enforce_domain, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end11, label %do.body
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %do.body, label %if.end11
 
 do.body:                                          ; preds = %entry
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 80
@@ -82,18 +81,18 @@ invoke.cont:                                      ; preds = %do.body
   br i1 %call, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %invoke.cont
+  %5 = load ptr, ptr @stderr, align 8
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 27) #12
   %6 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 27) #12
-  %7 = load ptr, ptr @stderr, align 8
-  %call9 = tail call i32 @fflush(ptr noundef %7)
+  %call9 = tail call i32 @fflush(ptr noundef %6)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.1)
           to label %if.end11 unwind label %lpad
 
 lpad:                                             ; preds = %if.then5, %do.body
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3zmq29zap_client_common_handshake_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %0) #13
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
 if.end11:                                         ; preds = %invoke.cont, %if.then5, %entry
   ret void
@@ -145,9 +144,8 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq14plain_server_tE, i64 0, i32 1, i64 10), ptr %0, align 8
   %zap_enforce_domain = getelementptr inbounds i8, ptr %this, i64 1080
   %1 = load i8, ptr %zap_enforce_domain, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end12, label %do.body
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %do.body, label %if.end12
 
 do.body:                                          ; preds = %invoke.cont
   %call = invoke noundef zeroext i1 @_ZNK3zmq16mechanism_base_t12zap_requiredEv(ptr noundef nonnull align 8 dereferenceable(1496) %0)
@@ -157,20 +155,20 @@ invoke.cont5:                                     ; preds = %do.body
   br i1 %call, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %invoke.cont5
+  %2 = load ptr, ptr @stderr, align 8
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 27) #12
   %3 = load ptr, ptr @stderr, align 8
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 27) #12
-  %4 = load ptr, ptr @stderr, align 8
-  %call10 = tail call i32 @fflush(ptr noundef %4)
+  %call10 = tail call i32 @fflush(ptr noundef %3)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.1)
           to label %if.end12 unwind label %lpad4
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4:                                            ; preds = %if.then6, %do.body
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3zmq29zap_client_common_handshake_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3zmq14plain_server_tE, i64 0, i64 1)) #13
   br label %ehcleanup
@@ -179,7 +177,7 @@ if.end12:                                         ; preds = %invoke.cont5, %if.t
   ret void
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %5, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad4 ], [ %4, %lpad ]
   tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %0) #13
   resume { ptr, i32 } %.pn
 }

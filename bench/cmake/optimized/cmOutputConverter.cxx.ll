@@ -608,9 +608,8 @@ _ZNK17cmOutputConverter8GetStateEv.exit:          ; preds = %13
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %22, label %42
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %42, label %22
 
 22:                                               ; preds = %18
   %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18

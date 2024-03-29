@@ -1121,9 +1121,8 @@ define dso_local noundef i64 @network_sortsupport(ptr nocapture noundef readonly
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %19, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %4, align 8
@@ -1246,9 +1245,8 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr nocapture nounde
   store i64 %47, ptr %4, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 8
   %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, 1
-  %.not64 = icmp eq i8 %50, 0
-  br i1 %.not64, label %57, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %57
 
 51:                                               ; preds = %45
   %52 = lshr i64 %.1, 32
@@ -1278,9 +1276,8 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr noc
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %49, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %49
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1290,9 +1287,8 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr noc
 
 17:                                               ; preds = %13
   %18 = load i8, ptr @trace_sort, align 1
-  %19 = and i8 %18, 1
-  %.not23 = icmp eq i8 %19, 0
-  br i1 %.not23, label %25, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
   %21 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
@@ -1315,12 +1311,11 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr noc
   %30 = fadd double %29, 5.000000e-01
   %31 = fcmp olt double %15, %30
   %32 = load i8, ptr @trace_sort, align 1
-  %33 = and i8 %32, 1
-  %.not22 = icmp eq i8 %33, 0
+  %33 = trunc i8 %32 to i1
   br i1 %31, label %34, label %43
 
 34:                                               ; preds = %26
-  br i1 %.not22, label %49, label %35
+  br i1 %33, label %35, label %49
 
 35:                                               ; preds = %34
   %36 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
@@ -1336,7 +1331,7 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr noc
   br label %49
 
 43:                                               ; preds = %26
-  br i1 %.not22, label %49, label %44
+  br i1 %33, label %44, label %49
 
 44:                                               ; preds = %43
   %45 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
@@ -3830,15 +3825,14 @@ define internal fastcc ptr @match_network_subset(ptr noundef %0, ptr nocapture n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %43
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %43, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
-  %.not39 = icmp eq i32 %3, 1974
-  br i1 %.not39, label %14, label %43
+  %.not = icmp eq i32 %3, 1974
+  br i1 %.not, label %14, label %43
 
 14:                                               ; preds = %11
   br i1 %2, label %15, label %21

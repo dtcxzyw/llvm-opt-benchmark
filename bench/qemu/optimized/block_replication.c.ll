@@ -570,11 +570,11 @@ if.end44:                                         ; preds = %lor.lhs.false40
   %call50 = tail call i64 @bdrv_getlength(ptr noundef %12) #7
   %cmp51 = icmp sgt i64 %call46, -1
   %cmp53 = icmp sgt i64 %call48, -1
-  %or.cond.not = select i1 %cmp51, i1 %cmp53, i1 false
+  %or.cond.not104 = select i1 %cmp51, i1 %cmp53, i1 false
   %cmp55 = icmp sgt i64 %call50, -1
-  %or.cond1 = select i1 %or.cond.not, i1 %cmp55, i1 false
+  %or.cond1.not103 = select i1 %or.cond.not104, i1 %cmp55, i1 false
   %cmp57.not = icmp eq i64 %call46, %call48
-  %or.cond100 = select i1 %or.cond1, i1 %cmp57.not, i1 false
+  %or.cond100 = select i1 %or.cond1.not103, i1 %cmp57.not, i1 false
   %cmp59.not = icmp eq i64 %call48, %call50
   %or.cond101 = select i1 %or.cond100, i1 %cmp59.not, i1 false
   br i1 %or.cond101, label %if.end61, label %if.then60
@@ -948,32 +948,30 @@ if.then5:                                         ; preds = %do.end
 if.end12:                                         ; preds = %if.then5, %do.end
   %orig_hidden_read_only13 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i8, ptr %orig_hidden_read_only13, align 8
-  %8 = and i8 %7, 1
-  %tobool14.not = icmp eq i8 %8, 0
-  br i1 %tobool14.not, label %if.end20, label %if.then15
+  %tobool14 = trunc i8 %7 to i1
+  br i1 %tobool14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.end12
   %call16 = tail call ptr @qdict_new() #7
   %lnot = xor i1 %writable, true
   tail call void @qdict_put_bool(ptr noundef %call16, ptr noundef nonnull @.str.25, i1 noundef zeroext %lnot) #7
-  %9 = load ptr, ptr %3, align 8
-  %call19 = tail call ptr @bdrv_reopen_queue(ptr noundef null, ptr noundef %9, ptr noundef %call16, i1 noundef zeroext true) #7
+  %8 = load ptr, ptr %3, align 8
+  %call19 = tail call ptr @bdrv_reopen_queue(ptr noundef null, ptr noundef %8, ptr noundef %call16, i1 noundef zeroext true) #7
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then15, %if.end12
   %reopen_queue.0 = phi ptr [ %call19, %if.then15 ], [ null, %if.end12 ]
   %orig_secondary_read_only21 = getelementptr inbounds i8, ptr %0, i64 65
-  %10 = load i8, ptr %orig_secondary_read_only21, align 1
-  %11 = and i8 %10, 1
-  %tobool22.not = icmp eq i8 %11, 0
-  br i1 %tobool22.not, label %if.end30, label %if.then23
+  %9 = load i8, ptr %orig_secondary_read_only21, align 1
+  %tobool22 = trunc i8 %9 to i1
+  br i1 %tobool22, label %if.then23, label %if.end30
 
 if.then23:                                        ; preds = %if.end20
   %call25 = tail call ptr @qdict_new() #7
   %lnot27 = xor i1 %writable, true
   tail call void @qdict_put_bool(ptr noundef %call25, ptr noundef nonnull @.str.25, i1 noundef zeroext %lnot27) #7
-  %12 = load ptr, ptr %5, align 8
-  %call29 = tail call ptr @bdrv_reopen_queue(ptr noundef %reopen_queue.0, ptr noundef %12, ptr noundef %call25, i1 noundef zeroext true) #7
+  %10 = load ptr, ptr %5, align 8
+  %call29 = tail call ptr @bdrv_reopen_queue(ptr noundef %reopen_queue.0, ptr noundef %10, ptr noundef %call25, i1 noundef zeroext true) #7
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then23, %if.end20

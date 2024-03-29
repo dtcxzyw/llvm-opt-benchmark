@@ -9644,10 +9644,9 @@ accountingReportDiff.exit:                        ; preds = %for.body19.i, %for.
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
-  %27 = and i8 %switch.shifted, 1
-  %switch.lobit = icmp ne i8 %27, 0
+  %switch.lobit = trunc i8 %switch.shifted to i1
   %cmp = icmp eq i32 %account, 2
-  %or.cond = or i1 %switch.lobit, %cmp
+  %or.cond = or i1 %cmp, %switch.lobit
   br i1 %or.cond, label %return, label %while.cond.i.preheader
 
 return:                                           ; preds = %switch.hole_check, %lor.end, %accountingReportDiff.exit, %getRootParserOf.exit, %sw.epilog

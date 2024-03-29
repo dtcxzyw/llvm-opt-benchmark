@@ -459,13 +459,12 @@ virtio_crypto_started.exit.thr_comm.i:            ; preds = %land.lhs.true.i.i, 
 virtio_crypto_started.exit.i:                     ; preds = %land.lhs.true.i.i
   %vm_running.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 434
   %7 = load i8, ptr %vm_running.i.i, align 2
-  %8 = and i8 %7, 1
-  %tobool4.i.i = icmp ne i8 %8, 0
+  %tobool4.i.i = trunc i8 %7 to i1
   %vhost_started.i = getelementptr inbounds i8, ptr %call.i, i64 624
-  %9 = load i8, ptr %vhost_started.i, align 8
-  %tobool4.i = icmp ne i8 %9, 0
-  %10 = xor i1 %tobool4.i.i, %tobool4.i
-  br i1 %10, label %if.end8.i, label %virtio_crypto_vhost_status.exit
+  %8 = load i8, ptr %vhost_started.i, align 8
+  %tobool4.i = icmp ne i8 %8, 0
+  %9 = xor i1 %tobool4.i, %tobool4.i.i
+  br i1 %9, label %if.end8.i, label %virtio_crypto_vhost_status.exit
 
 if.end8.i:                                        ; preds = %virtio_crypto_started.exit.i
   br i1 %tobool4.i, label %if.else.i, label %if.then11.i
@@ -582,16 +581,15 @@ entry:
   %call1 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %vq) #11
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %1 = load i8, ptr %vm_running, align 2
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %idxprom = zext i16 %call1 to i64
   tail call void @virtio_queue_set_notification(ptr noundef %vq, i32 noundef 0) #11
   %dataq_bh = getelementptr %struct.VirtIOCryptoQueue, ptr %0, i64 %idxprom, i32 1
-  %3 = load ptr, ptr %dataq_bh, align 8
-  tail call void @qemu_bh_schedule(ptr noundef %3) #11
+  %2 = load ptr, ptr %dataq_bh, align 8
+  tail call void @qemu_bh_schedule(ptr noundef %2) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -614,15 +612,14 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %vm_running = getelementptr inbounds i8, ptr %call.i, i64 434
   %1 = load i8, ptr %vm_running, align 2
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %for.end, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
   %status = getelementptr inbounds i8, ptr %call.i, i64 168
-  %3 = load i8, ptr %status, align 8
-  %4 = and i8 %3, 4
-  %tobool2.not = icmp eq i8 %4, 0
+  %2 = load i8, ptr %status, align 8
+  %3 = and i8 %2, 4
+  %tobool2.not = icmp eq i8 %3, 0
   br i1 %tobool2.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
@@ -633,9 +630,9 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end14
-  %5 = load ptr, ptr %opaque, align 8
+  %4 = load ptr, ptr %opaque, align 8
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #11
-  %call.i449.i = call ptr @virtqueue_pop(ptr noundef %5, i64 noundef 176) #11
+  %call.i449.i = call ptr @virtqueue_pop(ptr noundef %4, i64 noundef 176) #11
   %tobool.not.i50.i = icmp eq ptr %call.i449.i, null
   br i1 %tobool.not.i50.i, label %virtio_crypto_handle_dataq.exit, label %while.body.lr.ph.i
 
@@ -648,7 +645,7 @@ while.body.i:                                     ; preds = %virtio_crypto_handl
   %vcrypto1.i.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 104
   store ptr %call.i.i, ptr %vcrypto1.i.i.i, align 8
   %vq2.i.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 96
-  store ptr %5, ptr %vq2.i.i.i, align 8
+  store ptr %4, ptr %vq2.i.i.i, align 8
   %in.i.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 64
   %in_len.i.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 88
   store i64 0, ptr %in_len.i.i.i, align 8
@@ -662,18 +659,18 @@ while.body.i:                                     ; preds = %virtio_crypto_handl
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %in_num.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out_num.i.i)
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
-  %6 = load ptr, ptr %vq2.i.i.i, align 8
-  %call3.i.i = call zeroext i16 @virtio_get_queue_index(ptr noundef %6) #11
+  %5 = load ptr, ptr %vq2.i.i.i, align 8
+  %call3.i.i = call zeroext i16 @virtio_get_queue_index(ptr noundef %5) #11
   %conv.i.i = zext i16 %call3.i.i to i32
   %out_num6.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 12
-  %7 = load i32, ptr %out_num6.i.i, align 4
-  %cmp.i.i = icmp eq i32 %7, 0
+  %6 = load i32, ptr %out_num6.i.i, align 4
+  %cmp.i.i = icmp eq i32 %6, 0
   br i1 %cmp.i.i, label %if.then.i5.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.body.i
   %in_num8.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 16
-  %8 = load i32, ptr %in_num8.i.i, align 8
-  %cmp9.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %in_num8.i.i, align 8
+  %cmp9.i.i = icmp eq i32 %7, 0
   br i1 %cmp9.i.i, label %if.then.i5.i, label %land.lhs.true2.i.i.i
 
 if.then.i5.i:                                     ; preds = %lor.lhs.false.i.i, %while.body.i
@@ -681,32 +678,32 @@ if.then.i5.i:                                     ; preds = %lor.lhs.false.i.i, 
   br label %if.then.critedge.i
 
 land.lhs.true2.i.i.i:                             ; preds = %lor.lhs.false.i.i
-  store i32 %7, ptr %out_num.i.i, align 4
+  store i32 %6, ptr %out_num.i.i, align 4
   %out_sg.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 48
-  %9 = load ptr, ptr %out_sg.i.i, align 8
-  %conv12.i.i = zext i32 %7 to i64
+  %8 = load ptr, ptr %out_sg.i.i, align 8
+  %conv12.i.i = zext i32 %6 to i64
   %mul.i.i = shl nuw nsw i64 %conv12.i.i, 4
-  %call.i43.i.i = call ptr @g_memdup2(ptr noundef %9, i64 noundef %mul.i.i) #14
+  %call.i43.i.i = call ptr @g_memdup2(ptr noundef %8, i64 noundef %mul.i.i) #14
   store ptr %call.i43.i.i, ptr %out_iov.i.i, align 8
-  %10 = load i32, ptr %in_num8.i.i, align 8
-  store i32 %10, ptr %in_num.i.i, align 4
+  %9 = load i32, ptr %in_num8.i.i, align 8
+  store i32 %9, ptr %in_num.i.i, align 4
   %in_sg.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 40
-  %11 = load ptr, ptr %in_sg.i.i, align 8
-  %conv15.i.i = zext i32 %10 to i64
+  %10 = load ptr, ptr %in_sg.i.i, align 8
+  %conv15.i.i = zext i32 %9 to i64
   %mul16.i.i = shl nuw nsw i64 %conv15.i.i, 4
-  %call.i44.i.i = call ptr @g_memdup2(ptr noundef %11, i64 noundef %mul16.i.i) #14
+  %call.i44.i.i = call ptr @g_memdup2(ptr noundef %10, i64 noundef %mul16.i.i) #14
   %iov_len.i.i.i = getelementptr inbounds i8, ptr %call.i43.i.i, i64 8
-  %12 = load i64, ptr %iov_len.i.i.i, align 8
-  %cmp5.not.i.i.i = icmp ult i64 %12, 72
+  %11 = load i64, ptr %iov_len.i.i.i, align 8
+  %cmp5.not.i.i.i = icmp ult i64 %11, 72
   br i1 %cmp5.not.i.i.i, label %iov_to_buf.exit.i.i, label %iov_to_buf.exit.thread.i.i
 
 iov_to_buf.exit.thread.i.i:                       ; preds = %land.lhs.true2.i.i.i
-  %13 = load ptr, ptr %call.i43.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %req.i.i, ptr noundef nonnull align 1 dereferenceable(72) %13, i64 72, i1 false)
+  %12 = load ptr, ptr %call.i43.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %req.i.i, ptr noundef nonnull align 1 dereferenceable(72) %12, i64 72, i1 false)
   br label %if.end24.i.i
 
 iov_to_buf.exit.i.i:                              ; preds = %land.lhs.true2.i.i.i
-  %call.i45.i.i = call i64 @iov_to_buf_full(ptr noundef nonnull %call.i43.i.i, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i.i, i64 noundef 72) #11
+  %call.i45.i.i = call i64 @iov_to_buf_full(ptr noundef nonnull %call.i43.i.i, i32 noundef %6, i64 noundef 0, ptr noundef nonnull %req.i.i, i64 noundef 72) #11
   %cmp19.not.i.i = icmp eq i64 %call.i45.i.i, 72
   br i1 %cmp19.not.i.i, label %if.end24.i.i, label %if.then23.i.i
 
@@ -716,11 +713,11 @@ if.then23.i.i:                                    ; preds = %iov_to_buf.exit.i.i
 
 if.end24.i.i:                                     ; preds = %iov_to_buf.exit.i.i, %iov_to_buf.exit.thread.i.i
   %call25.i.i = call i64 @iov_discard_front(ptr noundef nonnull %out_iov.i.i, ptr noundef nonnull %out_num.i.i, i64 noundef 72) #11
-  %sub.i.i = add i32 %10, -1
+  %sub.i.i = add i32 %9, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
   %iov_len.i.i = getelementptr %struct.iovec, ptr %call.i44.i.i, i64 %idxprom.i.i, i32 1
-  %14 = load i64, ptr %iov_len.i.i, align 8
-  %cmp26.i.i = icmp eq i64 %14, 0
+  %13 = load i64, ptr %iov_len.i.i, align 8
+  %cmp26.i.i = icmp eq i64 %13, 0
   br i1 %cmp26.i.i, label %if.then28.i.i, label %if.end29.i.i
 
 if.then28.i.i:                                    ; preds = %if.end24.i.i
@@ -728,19 +725,19 @@ if.then28.i.i:                                    ; preds = %if.end24.i.i
   br label %if.then.critedge.i
 
 if.end29.i.i:                                     ; preds = %if.end24.i.i
-  %call30.i.i = call i64 @iov_size(ptr noundef nonnull %call.i44.i.i, i32 noundef %10) #11
+  %call30.i.i = call i64 @iov_size(ptr noundef nonnull %call.i44.i.i, i32 noundef %9) #11
   store i64 %call30.i.i, ptr %in_len.i.i.i, align 8
   %arrayidx33.i.i = getelementptr %struct.iovec, ptr %call.i44.i.i, i64 %idxprom.i.i
-  %15 = load ptr, ptr %arrayidx33.i.i, align 8
+  %14 = load ptr, ptr %arrayidx33.i.i, align 8
   %iov_len37.i.i = getelementptr inbounds i8, ptr %arrayidx33.i.i, i64 8
-  %16 = load i64, ptr %iov_len37.i.i, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %15, i64 %16
+  %15 = load i64, ptr %iov_len37.i.i, align 8
+  %add.ptr.i.i = getelementptr i8, ptr %14, i64 %15
   %add.ptr38.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 -1
   store ptr %add.ptr38.i.i, ptr %in.i.i.i, align 8
   %call39.i.i = call i64 @iov_discard_back(ptr noundef nonnull %call.i44.i.i, ptr noundef nonnull %in_num.i.i, i64 noundef 1) #11
-  %17 = load i32, ptr %in_num.i.i, align 4
+  %16 = load i32, ptr %in_num.i.i, align 4
   %in_num40.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 80
-  store i32 %17, ptr %in_num40.i.i, align 8
+  store i32 %16, ptr %in_num40.i.i, align 8
   %in_iov41.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 72
   store ptr %call.i44.i.i, ptr %in_iov41.i.i, align 8
   %req.val.i.i = load i32, ptr %req.i.i, align 8
@@ -767,8 +764,8 @@ if.end29.i.i:                                     ; preds = %if.end24.i.i
 sw.bb.i.i:                                        ; preds = %if.end29.i.i, %if.end29.i.i
   store i32 0, ptr %flags.i.i.i, align 8
   store i32 0, ptr %op_info.i.i.i, align 8
-  %18 = load ptr, ptr %out_iov.i.i, align 8
-  %19 = load i32, ptr %out_num.i.i, align 4
+  %17 = load ptr, ptr %out_iov.i.i, align 8
+  %18 = load i32, ptr %out_num.i.i, align 4
   %call.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %op_type1.val.i.i.i = load i32, ptr %op_type1.i.i.i, align 8
   switch i32 %op_type1.val.i.i.i, label %if.then59.i.i [
@@ -777,12 +774,12 @@ sw.bb.i.i:                                        ; preds = %if.end29.i.i, %if.e
   ]
 
 if.then.i47.i.i:                                  ; preds = %sw.bb.i.i
-  %call3.i.i.i = call fastcc ptr @virtio_crypto_sym_op_helper(ptr noundef %call.i.i.i.i, ptr noundef nonnull %u52.i.i, ptr noundef null, ptr noundef %18, i32 noundef %19)
+  %call3.i.i.i = call fastcc ptr @virtio_crypto_sym_op_helper(ptr noundef %call.i.i.i.i, ptr noundef nonnull %u52.i.i, ptr noundef null, ptr noundef %17, i32 noundef %18)
   %tobool.not.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.then.critedge.i, label %check_result.thread58.i.i
 
 if.then6.i.i.i:                                   ; preds = %sw.bb.i.i
-  %call9.i.i.i = call fastcc ptr @virtio_crypto_sym_op_helper(ptr noundef %call.i.i.i.i, ptr noundef null, ptr noundef nonnull %u52.i.i, ptr noundef %18, i32 noundef %19)
+  %call9.i.i.i = call fastcc ptr @virtio_crypto_sym_op_helper(ptr noundef %call.i.i.i.i, ptr noundef null, ptr noundef nonnull %u52.i.i, ptr noundef %17, i32 noundef %18)
   %tobool10.not.i.i.i = icmp eq ptr %call9.i.i.i, null
   br i1 %tobool10.not.i.i.i, label %if.then.critedge.i, label %check_result.thread58.i.i
 
@@ -798,12 +795,12 @@ check_result.thread58.i.i:                        ; preds = %if.then6.i.i.i, %if
 sw.bb49.i.i:                                      ; preds = %if.end29.i.i, %if.end29.i.i, %if.end29.i.i, %if.end29.i.i
   store i32 1, ptr %flags.i.i.i, align 8
   store i32 1, ptr %op_info.i.i.i, align 8
-  %20 = load ptr, ptr %out_iov.i.i, align 8
-  %21 = load i32, ptr %out_num.i.i, align 4
+  %19 = load ptr, ptr %out_iov.i.i, align 8
+  %20 = load i32, ptr %out_num.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iov.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out_num.addr.i.i.i)
-  store ptr %20, ptr %iov.addr.i.i.i, align 8
-  store i32 %21, ptr %out_num.addr.i.i.i, align 4
+  store ptr %19, ptr %iov.addr.i.i.i, align 8
+  store i32 %20, ptr %out_num.addr.i.i.i, align 4
   %call.i.i48.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %call1.i.i.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #12
   %req.val.i.i.i = load i32, ptr %u52.i.i, align 8
@@ -814,13 +811,13 @@ sw.bb49.i.i:                                      ; preds = %if.end29.i.i, %if.e
 if.then.i49.i.i:                                  ; preds = %sw.bb49.i.i
   %conv.i50.i.i = zext i32 %req.val.i.i.i to i64
   %call5.i.i.i = call noalias ptr @g_malloc0(i64 noundef %conv.i50.i.i) #15
-  %call.i28.i.i.i = call i64 @iov_to_buf_full(ptr noundef %20, i32 noundef %21, i64 noundef 0, ptr noundef %call5.i.i.i, i64 noundef %conv.i50.i.i) #11
-  %22 = trunc i64 %call.i28.i.i.i to i32
-  %cmp9.not.i.i.i = icmp eq i32 %req.val.i.i.i, %22
+  %call.i28.i.i.i = call i64 @iov_to_buf_full(ptr noundef %19, i32 noundef %20, i64 noundef 0, ptr noundef %call5.i.i.i, i64 noundef %conv.i50.i.i) #11
+  %21 = trunc i64 %call.i28.i.i.i to i32
+  %cmp9.not.i.i.i = icmp eq i32 %req.val.i.i.i, %21
   br i1 %cmp9.not.i.i.i, label %if.end.i.i.i, label %if.then13.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then.i49.i.i
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i.i48.i.i, ptr noundef nonnull @.str.28, i32 noundef %req.val.i.i.i, i32 noundef %22) #11
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i.i48.i.i, ptr noundef nonnull @.str.28, i32 noundef %req.val.i.i.i, i32 noundef %21) #11
   br label %check_result.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i49.i.i
@@ -835,20 +832,20 @@ if.end16.i.i.i:                                   ; preds = %if.end.i.i.i, %sw.b
 if.then19.i.i.i:                                  ; preds = %if.end16.i.i.i
   %conv20.i.i.i = zext i32 %dst_data_len.val.i.i.i to i64
   %call21.i.i.i = call noalias ptr @g_malloc0(i64 noundef %conv20.i.i.i) #15
-  %23 = load i32, ptr %op_code.i.i, align 4
-  %cmp22.i.i.i = icmp eq i32 %23, 1027
+  %22 = load i32, ptr %op_code.i.i, align 4
+  %cmp22.i.i.i = icmp eq i32 %22, 1027
   br i1 %cmp22.i.i.i, label %iov_to_buf.exit38.i.i.i, label %check_result.thread62.i.i
 
 iov_to_buf.exit38.i.i.i:                          ; preds = %if.then19.i.i.i
-  %24 = load i32, ptr %out_num.addr.i.i.i, align 4
-  %25 = load ptr, ptr %iov.addr.i.i.i, align 8
-  %call.i32.i.i.i = call i64 @iov_to_buf_full(ptr noundef %25, i32 noundef %24, i64 noundef 0, ptr noundef %call21.i.i.i, i64 noundef %conv20.i.i.i) #11
-  %26 = trunc i64 %call.i32.i.i.i to i32
-  %cmp28.not.i.i.i = icmp eq i32 %dst_data_len.val.i.i.i, %26
+  %23 = load i32, ptr %out_num.addr.i.i.i, align 4
+  %24 = load ptr, ptr %iov.addr.i.i.i, align 8
+  %call.i32.i.i.i = call i64 @iov_to_buf_full(ptr noundef %24, i32 noundef %23, i64 noundef 0, ptr noundef %call21.i.i.i, i64 noundef %conv20.i.i.i) #11
+  %25 = trunc i64 %call.i32.i.i.i to i32
+  %cmp28.not.i.i.i = icmp eq i32 %dst_data_len.val.i.i.i, %25
   br i1 %cmp28.not.i.i.i, label %if.end37.i.i.i, label %if.then36.i.i.i
 
 if.then36.i.i.i:                                  ; preds = %iov_to_buf.exit38.i.i.i
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i.i48.i.i, ptr noundef nonnull @.str.29, i32 noundef %dst_data_len.val.i.i.i, i32 noundef %26) #11
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i.i48.i.i, ptr noundef nonnull @.str.29, i32 noundef %dst_data_len.val.i.i.i, i32 noundef %25) #11
   br label %check_result.i.i
 
 if.end37.i.i.i:                                   ; preds = %iov_to_buf.exit38.i.i.i
@@ -882,22 +879,22 @@ check_result.i.i:                                 ; preds = %if.then36.i.i.i, %i
 
 if.then59.i.i:                                    ; preds = %sw.bb.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.22) #11
-  %27 = load ptr, ptr %vcrypto1.i.i.i, align 8
-  %call.i.i52.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
-  %28 = load ptr, ptr %in.i.i.i, align 8
-  store i8 3, ptr %28, align 1
-  %29 = load ptr, ptr %vq2.i.i.i, align 8
-  %30 = load i64, ptr %in_len.i.i.i, align 8
-  %conv13.i.i.i = trunc i64 %30 to i32
-  call void @virtqueue_push(ptr noundef %29, ptr noundef nonnull %call.i451.i, i32 noundef %conv13.i.i.i) #11
-  %31 = load ptr, ptr %vq2.i.i.i, align 8
-  call void @virtio_notify(ptr noundef %call.i.i52.i.i, ptr noundef %31) #11
+  %26 = load ptr, ptr %vcrypto1.i.i.i, align 8
+  %call.i.i52.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %26, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %27 = load ptr, ptr %in.i.i.i, align 8
+  store i8 3, ptr %27, align 1
+  %28 = load ptr, ptr %vq2.i.i.i, align 8
+  %29 = load i64, ptr %in_len.i.i.i, align 8
+  %conv13.i.i.i = trunc i64 %29 to i32
+  call void @virtqueue_push(ptr noundef %28, ptr noundef nonnull %call.i451.i, i32 noundef %conv13.i.i.i) #11
+  %30 = load ptr, ptr %vq2.i.i.i, align 8
+  call void @virtio_notify(ptr noundef %call.i.i52.i.i, ptr noundef %30) #11
   call fastcc void @virtio_crypto_free_request(ptr noundef nonnull %call.i451.i)
   br label %virtio_crypto_handle_request.exit.i
 
 if.else60.i.i:                                    ; preds = %check_result.thread62.i.i, %check_result.thread58.i.i
-  %32 = load ptr, ptr %cryptodev.i.i, align 8
-  %call61.i.i = call i32 @cryptodev_backend_crypto_operation(ptr noundef %32, ptr noundef nonnull %op_info.i.i.i) #11
+  %31 = load ptr, ptr %cryptodev.i.i, align 8
+  %call61.i.i = call i32 @cryptodev_backend_crypto_operation(ptr noundef %31, ptr noundef nonnull %op_info.i.i.i) #11
   %cmp62.i.i = icmp slt i32 %call61.i.i, 0
   br i1 %cmp62.i.i, label %if.then64.i.i, label %virtio_crypto_handle_request.exit.i
 
@@ -907,16 +904,16 @@ if.then64.i.i:                                    ; preds = %if.else60.i.i
 
 sw.default.i.i:                                   ; preds = %if.end29.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, i32 noundef %req.val.i.i) #11
-  %33 = load ptr, ptr %vcrypto1.i.i.i, align 8
-  %call.i.i7.i = call ptr @object_dynamic_cast_assert(ptr noundef %33, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
-  %34 = load ptr, ptr %in.i.i.i, align 8
-  store i8 3, ptr %34, align 1
-  %35 = load ptr, ptr %vq2.i.i.i, align 8
-  %36 = load i64, ptr %in_len.i.i.i, align 8
-  %conv13.i.i = trunc i64 %36 to i32
-  call void @virtqueue_push(ptr noundef %35, ptr noundef nonnull %call.i451.i, i32 noundef %conv13.i.i) #11
-  %37 = load ptr, ptr %vq2.i.i.i, align 8
-  call void @virtio_notify(ptr noundef %call.i.i7.i, ptr noundef %37) #11
+  %32 = load ptr, ptr %vcrypto1.i.i.i, align 8
+  %call.i.i7.i = call ptr @object_dynamic_cast_assert(ptr noundef %32, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %33 = load ptr, ptr %in.i.i.i, align 8
+  store i8 3, ptr %33, align 1
+  %34 = load ptr, ptr %vq2.i.i.i, align 8
+  %35 = load i64, ptr %in_len.i.i.i, align 8
+  %conv13.i.i = trunc i64 %35 to i32
+  call void @virtqueue_push(ptr noundef %34, ptr noundef nonnull %call.i451.i, i32 noundef %conv13.i.i) #11
+  %36 = load ptr, ptr %vq2.i.i.i, align 8
+  call void @virtio_notify(ptr noundef %call.i.i7.i, ptr noundef %36) #11
   call fastcc void @virtio_crypto_free_request(ptr noundef nonnull %call.i451.i)
   br label %virtio_crypto_handle_request.exit.i
 
@@ -927,7 +924,7 @@ virtio_crypto_handle_request.exit.i:              ; preds = %sw.default.i.i, %if
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_iov.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %in_num.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out_num.i.i)
-  %call.i4.i = call ptr @virtqueue_pop(ptr noundef %5, i64 noundef 176) #11
+  %call.i4.i = call ptr @virtqueue_pop(ptr noundef %4, i64 noundef 176) #11
   %tobool.not.i.i = icmp eq ptr %call.i4.i, null
   br i1 %tobool.not.i.i, label %virtio_crypto_handle_dataq.exit, label %while.body.i, !llvm.loop !8
 
@@ -940,22 +937,22 @@ if.then.critedge.i:                               ; preds = %if.then6.i.i.i, %if
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_iov.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %in_num.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out_num.i.i)
-  %38 = load ptr, ptr %vq2.i.i.i, align 8
-  call void @virtqueue_detach_element(ptr noundef %38, ptr noundef nonnull %call.i451.i, i32 noundef 0) #11
+  %37 = load ptr, ptr %vq2.i.i.i, align 8
+  call void @virtqueue_detach_element(ptr noundef %37, ptr noundef nonnull %call.i451.i, i32 noundef 0) #11
   call fastcc void @virtio_crypto_free_request(ptr noundef nonnull %call.i451.i)
   br label %virtio_crypto_handle_dataq.exit
 
 virtio_crypto_handle_dataq.exit:                  ; preds = %virtio_crypto_handle_request.exit.i, %for.cond, %if.then.critedge.i
+  %38 = load ptr, ptr %opaque, align 8
+  call void @virtio_queue_set_notification(ptr noundef %38, i32 noundef 1) #11
   %39 = load ptr, ptr %opaque, align 8
-  call void @virtio_queue_set_notification(ptr noundef %39, i32 noundef 1) #11
-  %40 = load ptr, ptr %opaque, align 8
-  %call11 = call i32 @virtio_queue_empty(ptr noundef %40) #11
+  %call11 = call i32 @virtio_queue_empty(ptr noundef %39) #11
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end14, label %for.end
 
 if.end14:                                         ; preds = %virtio_crypto_handle_dataq.exit
-  %41 = load ptr, ptr %opaque, align 8
-  call void @virtio_queue_set_notification(ptr noundef %41, i32 noundef 0) #11
+  %40 = load ptr, ptr %opaque, align 8
+  call void @virtio_queue_set_notification(ptr noundef %40, i32 noundef 0) #11
   br label %for.cond
 
 for.end:                                          ; preds = %virtio_crypto_handle_dataq.exit, %if.end, %entry

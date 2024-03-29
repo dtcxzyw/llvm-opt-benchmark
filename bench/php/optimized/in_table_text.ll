@@ -15,8 +15,8 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_table_text(ptr noundef
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load i64, ptr %9, align 8
-  %.not66 = icmp eq i64 %10, 0
-  br i1 %.not66, label %12, label %11
+  %.not65 = icmp eq i64 %10, 0
+  br i1 %.not65, label %12, label %11
 
 11:                                               ; preds = %8
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 2) #2
@@ -62,8 +62,8 @@ lxb_html_tree_insertion_mode_in_table_text_erase.exit: ; preds = %lexbor_array_o
 
 32:                                               ; preds = %12
   %33 = load i64, ptr %9, align 8
-  %.not67 = icmp eq i64 %33, 0
-  br i1 %.not67, label %40, label %34
+  %.not66 = icmp eq i64 %33, 0
+  br i1 %.not66, label %40, label %34
 
 34:                                               ; preds = %32
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 2) #2
@@ -86,37 +86,37 @@ lxb_html_tree_insertion_mode_in_table_text_erase.exit: ; preds = %lexbor_array_o
   %.sink = phi i32 [ %45, %40 ], [ %39, %34 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %.sink, ptr %47, align 8
-  %.not68 = icmp eq i32 %.sink, 0
-  br i1 %.not68, label %64, label %48
+  %.not67 = icmp eq i32 %.sink, 0
+  br i1 %.not67, label %64, label %48
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %3, align 8
   %50 = getelementptr i8, ptr %49, i64 16
-  %.val7.i72 = load i64, ptr %50, align 8
-  %.not.i73 = icmp eq i64 %.val7.i72, 0
-  br i1 %.not.i73, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit78, label %lexbor_array_obj_get.exit.lr.ph.i74
+  %.val7.i70 = load i64, ptr %50, align 8
+  %.not.i71 = icmp eq i64 %.val7.i70, 0
+  br i1 %.not.i71, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit76, label %lexbor_array_obj_get.exit.lr.ph.i72
 
-lexbor_array_obj_get.exit.lr.ph.i74:              ; preds = %48
+lexbor_array_obj_get.exit.lr.ph.i72:              ; preds = %48
   %51 = getelementptr inbounds i8, ptr %49, i64 24
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %lexbor_array_obj_get.exit.i75
+  br label %lexbor_array_obj_get.exit.i73
 
-lexbor_array_obj_get.exit.i75:                    ; preds = %lexbor_array_obj_get.exit.i75, %lexbor_array_obj_get.exit.lr.ph.i74
-  %.08.i76 = phi i64 [ 0, %lexbor_array_obj_get.exit.lr.ph.i74 ], [ %61, %lexbor_array_obj_get.exit.i75 ]
+lexbor_array_obj_get.exit.i73:                    ; preds = %lexbor_array_obj_get.exit.i73, %lexbor_array_obj_get.exit.lr.ph.i72
+  %.08.i74 = phi i64 [ 0, %lexbor_array_obj_get.exit.lr.ph.i72 ], [ %61, %lexbor_array_obj_get.exit.i73 ]
   %53 = load ptr, ptr %49, align 8
   %54 = load i64, ptr %51, align 8
-  %55 = mul i64 %54, %.08.i76
+  %55 = mul i64 %54, %.08.i74
   %56 = getelementptr inbounds i8, ptr %53, i64 %55
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 192
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @lexbor_str_destroy(ptr noundef %56, ptr noundef %59, i1 noundef zeroext false) #2
-  %61 = add nuw i64 %.08.i76, 1
-  %.val.i77 = load i64, ptr %50, align 8
-  %62 = icmp ult i64 %61, %.val.i77
-  br i1 %62, label %lexbor_array_obj_get.exit.i75, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit78
+  %61 = add nuw i64 %.08.i74, 1
+  %.val.i75 = load i64, ptr %50, align 8
+  %62 = icmp ult i64 %61, %.val.i75
+  br i1 %62, label %lexbor_array_obj_get.exit.i73, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit76
 
-lxb_html_tree_insertion_mode_in_table_text_erase.exit78: ; preds = %lexbor_array_obj_get.exit.i75, %48
+lxb_html_tree_insertion_mode_in_table_text_erase.exit76: ; preds = %lexbor_array_obj_get.exit.i73, %48
   %63 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #2
   br label %145
 
@@ -138,15 +138,14 @@ lxb_html_tree_insertion_mode_in_table_text_erase.exit78: ; preds = %lexbor_array
 75:                                               ; preds = %64
   %76 = tail call i64 @lexbor_str_whitespace_from_begin(ptr noundef nonnull %13) #2
   %77 = load i64, ptr %65, align 8
-  %.not69 = icmp eq i64 %76, %77
-  br i1 %.not69, label %145, label %78
+  %.not68 = icmp eq i64 %76, %77
+  br i1 %.not68, label %145, label %78
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %0, i64 64
   %80 = load i8, ptr %79, align 8
-  %81 = and i8 %80, 1
-  %.not70 = icmp eq i8 %81, 0
-  br i1 %.not70, label %82, label %145
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %145, label %82
 
 82:                                               ; preds = %78
   store i8 1, ptr %79, align 8
@@ -155,20 +154,19 @@ lxb_html_tree_insertion_mode_in_table_text_erase.exit78: ; preds = %lexbor_array
 83:                                               ; preds = %2
   %84 = getelementptr inbounds i8, ptr %0, i64 64
   %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not = icmp eq i8 %86, 0
-  br i1 %.not, label %.preheader, label %90
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %90, label %.preheader
 
 .preheader:                                       ; preds = %83
   %87 = getelementptr i8, ptr %4, i64 16
-  %.val7199 = load i64, ptr %87, align 8
-  %.not102 = icmp eq i64 %.val7199, 0
-  br i1 %.not102, label %.loopexit, label %lexbor_array_obj_get.exit89.lr.ph
+  %.val6995 = load i64, ptr %87, align 8
+  %.not99 = icmp eq i64 %.val6995, 0
+  br i1 %.not99, label %.loopexit, label %lexbor_array_obj_get.exit87.lr.ph
 
-lexbor_array_obj_get.exit89.lr.ph:                ; preds = %.preheader
+lexbor_array_obj_get.exit87.lr.ph:                ; preds = %.preheader
   %88 = getelementptr inbounds i8, ptr %4, i64 24
   %89 = getelementptr inbounds i8, ptr %0, i64 112
-  br label %lexbor_array_obj_get.exit89
+  br label %lexbor_array_obj_get.exit87
 
 90:                                               ; preds = %83
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 29) #2
@@ -176,8 +174,8 @@ lexbor_array_obj_get.exit89.lr.ph:                ; preds = %.preheader
   store i8 1, ptr %91, align 8
   %92 = getelementptr i8, ptr %4, i64 16
   %.val97 = load i64, ptr %92, align 8
-  %.not101 = icmp eq i64 %.val97, 0
-  br i1 %.not101, label %._crit_edge, label %lexbor_array_obj_get.exit.lr.ph
+  %.not100 = icmp eq i64 %.val97, 0
+  br i1 %.not100, label %._crit_edge, label %lexbor_array_obj_get.exit.lr.ph
 
 lexbor_array_obj_get.exit.lr.ph:                  ; preds = %90
   %93 = getelementptr inbounds i8, ptr %4, i64 24
@@ -196,37 +194,37 @@ lexbor_array_obj_get.exit:                        ; preds = %lexbor_array_obj_ge
   %99 = mul i64 %98, %.06198
   %100 = getelementptr inbounds i8, ptr %97, i64 %99
   %101 = tail call i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef %0, ptr noundef %100) #2
-  %.not65 = icmp eq i32 %101, 0
-  br i1 %.not65, label %94, label %102
+  %.not64 = icmp eq i32 %101, 0
+  br i1 %.not64, label %94, label %102
 
 102:                                              ; preds = %lexbor_array_obj_get.exit
   %103 = load ptr, ptr %3, align 8
   %104 = getelementptr i8, ptr %103, i64 16
-  %.val7.i80 = load i64, ptr %104, align 8
-  %.not.i81 = icmp eq i64 %.val7.i80, 0
-  br i1 %.not.i81, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit86, label %lexbor_array_obj_get.exit.lr.ph.i82
+  %.val7.i78 = load i64, ptr %104, align 8
+  %.not.i79 = icmp eq i64 %.val7.i78, 0
+  br i1 %.not.i79, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit84, label %lexbor_array_obj_get.exit.lr.ph.i80
 
-lexbor_array_obj_get.exit.lr.ph.i82:              ; preds = %102
+lexbor_array_obj_get.exit.lr.ph.i80:              ; preds = %102
   %105 = getelementptr inbounds i8, ptr %103, i64 24
   %106 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %lexbor_array_obj_get.exit.i83
+  br label %lexbor_array_obj_get.exit.i81
 
-lexbor_array_obj_get.exit.i83:                    ; preds = %lexbor_array_obj_get.exit.i83, %lexbor_array_obj_get.exit.lr.ph.i82
-  %.08.i84 = phi i64 [ 0, %lexbor_array_obj_get.exit.lr.ph.i82 ], [ %115, %lexbor_array_obj_get.exit.i83 ]
+lexbor_array_obj_get.exit.i81:                    ; preds = %lexbor_array_obj_get.exit.i81, %lexbor_array_obj_get.exit.lr.ph.i80
+  %.08.i82 = phi i64 [ 0, %lexbor_array_obj_get.exit.lr.ph.i80 ], [ %115, %lexbor_array_obj_get.exit.i81 ]
   %107 = load ptr, ptr %103, align 8
   %108 = load i64, ptr %105, align 8
-  %109 = mul i64 %108, %.08.i84
+  %109 = mul i64 %108, %.08.i82
   %110 = getelementptr inbounds i8, ptr %107, i64 %109
   %111 = load ptr, ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 192
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr @lexbor_str_destroy(ptr noundef %110, ptr noundef %113, i1 noundef zeroext false) #2
-  %115 = add nuw i64 %.08.i84, 1
-  %.val.i85 = load i64, ptr %104, align 8
-  %116 = icmp ult i64 %115, %.val.i85
-  br i1 %116, label %lexbor_array_obj_get.exit.i83, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit86
+  %115 = add nuw i64 %.08.i82, 1
+  %.val.i83 = load i64, ptr %104, align 8
+  %116 = icmp ult i64 %115, %.val.i83
+  br i1 %116, label %lexbor_array_obj_get.exit.i81, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit84
 
-lxb_html_tree_insertion_mode_in_table_text_erase.exit86: ; preds = %lexbor_array_obj_get.exit.i83, %102
+lxb_html_tree_insertion_mode_in_table_text_erase.exit84: ; preds = %lexbor_array_obj_get.exit.i81, %102
   %117 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #2
   br label %145
 
@@ -234,51 +232,51 @@ lxb_html_tree_insertion_mode_in_table_text_erase.exit86: ; preds = %lexbor_array
   store i8 0, ptr %91, align 8
   br label %.loopexit
 
-118:                                              ; preds = %lexbor_array_obj_get.exit89
-  %119 = add nuw i64 %.0100, 1
-  %.val71 = load i64, ptr %87, align 8
-  %120 = icmp ult i64 %119, %.val71
-  br i1 %120, label %lexbor_array_obj_get.exit89, label %.loopexit
+118:                                              ; preds = %lexbor_array_obj_get.exit87
+  %119 = add nuw i64 %.096, 1
+  %.val69 = load i64, ptr %87, align 8
+  %120 = icmp ult i64 %119, %.val69
+  br i1 %120, label %lexbor_array_obj_get.exit87, label %.loopexit
 
-lexbor_array_obj_get.exit89:                      ; preds = %lexbor_array_obj_get.exit89.lr.ph, %118
-  %.0100 = phi i64 [ 0, %lexbor_array_obj_get.exit89.lr.ph ], [ %119, %118 ]
+lexbor_array_obj_get.exit87:                      ; preds = %lexbor_array_obj_get.exit87.lr.ph, %118
+  %.096 = phi i64 [ 0, %lexbor_array_obj_get.exit87.lr.ph ], [ %119, %118 ]
   %121 = load ptr, ptr %4, align 8
   %122 = load i64, ptr %88, align 8
-  %123 = mul i64 %122, %.0100
+  %123 = mul i64 %122, %.096
   %124 = getelementptr inbounds i8, ptr %121, i64 %123
   %125 = tail call i32 @lxb_html_tree_insert_character_for_data(ptr noundef nonnull %0, ptr noundef %124, ptr noundef null) #2
   store i32 %125, ptr %89, align 8
-  %.not64 = icmp eq i32 %125, 0
-  br i1 %.not64, label %118, label %126
+  %.not = icmp eq i32 %125, 0
+  br i1 %.not, label %118, label %126
 
-126:                                              ; preds = %lexbor_array_obj_get.exit89
+126:                                              ; preds = %lexbor_array_obj_get.exit87
   %127 = load ptr, ptr %3, align 8
   %128 = getelementptr i8, ptr %127, i64 16
-  %.val7.i90 = load i64, ptr %128, align 8
-  %.not.i91 = icmp eq i64 %.val7.i90, 0
-  br i1 %.not.i91, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit96, label %lexbor_array_obj_get.exit.lr.ph.i92
+  %.val7.i88 = load i64, ptr %128, align 8
+  %.not.i89 = icmp eq i64 %.val7.i88, 0
+  br i1 %.not.i89, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit94, label %lexbor_array_obj_get.exit.lr.ph.i90
 
-lexbor_array_obj_get.exit.lr.ph.i92:              ; preds = %126
+lexbor_array_obj_get.exit.lr.ph.i90:              ; preds = %126
   %129 = getelementptr inbounds i8, ptr %127, i64 24
   %130 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %lexbor_array_obj_get.exit.i93
+  br label %lexbor_array_obj_get.exit.i91
 
-lexbor_array_obj_get.exit.i93:                    ; preds = %lexbor_array_obj_get.exit.i93, %lexbor_array_obj_get.exit.lr.ph.i92
-  %.08.i94 = phi i64 [ 0, %lexbor_array_obj_get.exit.lr.ph.i92 ], [ %139, %lexbor_array_obj_get.exit.i93 ]
+lexbor_array_obj_get.exit.i91:                    ; preds = %lexbor_array_obj_get.exit.i91, %lexbor_array_obj_get.exit.lr.ph.i90
+  %.08.i92 = phi i64 [ 0, %lexbor_array_obj_get.exit.lr.ph.i90 ], [ %139, %lexbor_array_obj_get.exit.i91 ]
   %131 = load ptr, ptr %127, align 8
   %132 = load i64, ptr %129, align 8
-  %133 = mul i64 %132, %.08.i94
+  %133 = mul i64 %132, %.08.i92
   %134 = getelementptr inbounds i8, ptr %131, i64 %133
   %135 = load ptr, ptr %130, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 192
   %137 = load ptr, ptr %136, align 8
   %138 = tail call ptr @lexbor_str_destroy(ptr noundef %134, ptr noundef %137, i1 noundef zeroext false) #2
-  %139 = add nuw i64 %.08.i94, 1
-  %.val.i95 = load i64, ptr %128, align 8
-  %140 = icmp ult i64 %139, %.val.i95
-  br i1 %140, label %lexbor_array_obj_get.exit.i93, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit96
+  %139 = add nuw i64 %.08.i92, 1
+  %.val.i93 = load i64, ptr %128, align 8
+  %140 = icmp ult i64 %139, %.val.i93
+  br i1 %140, label %lexbor_array_obj_get.exit.i91, label %lxb_html_tree_insertion_mode_in_table_text_erase.exit94
 
-lxb_html_tree_insertion_mode_in_table_text_erase.exit96: ; preds = %lexbor_array_obj_get.exit.i93, %126
+lxb_html_tree_insertion_mode_in_table_text_erase.exit94: ; preds = %lexbor_array_obj_get.exit.i91, %126
   %141 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #2
   br label %145
 
@@ -289,8 +287,8 @@ lxb_html_tree_insertion_mode_in_table_text_erase.exit96: ; preds = %lexbor_array
   store ptr %143, ptr %144, align 8
   br label %145
 
-145:                                              ; preds = %75, %82, %78, %.loopexit, %lxb_html_tree_insertion_mode_in_table_text_erase.exit96, %lxb_html_tree_insertion_mode_in_table_text_erase.exit86, %68, %lxb_html_tree_insertion_mode_in_table_text_erase.exit78, %lxb_html_tree_insertion_mode_in_table_text_erase.exit
-  %.062 = phi i1 [ %31, %lxb_html_tree_insertion_mode_in_table_text_erase.exit ], [ %63, %lxb_html_tree_insertion_mode_in_table_text_erase.exit78 ], [ true, %68 ], [ %117, %lxb_html_tree_insertion_mode_in_table_text_erase.exit86 ], [ false, %.loopexit ], [ %141, %lxb_html_tree_insertion_mode_in_table_text_erase.exit96 ], [ true, %78 ], [ true, %82 ], [ true, %75 ]
+145:                                              ; preds = %75, %82, %78, %.loopexit, %lxb_html_tree_insertion_mode_in_table_text_erase.exit94, %lxb_html_tree_insertion_mode_in_table_text_erase.exit84, %68, %lxb_html_tree_insertion_mode_in_table_text_erase.exit76, %lxb_html_tree_insertion_mode_in_table_text_erase.exit
+  %.062 = phi i1 [ %31, %lxb_html_tree_insertion_mode_in_table_text_erase.exit ], [ %63, %lxb_html_tree_insertion_mode_in_table_text_erase.exit76 ], [ true, %68 ], [ %117, %lxb_html_tree_insertion_mode_in_table_text_erase.exit84 ], [ false, %.loopexit ], [ %141, %lxb_html_tree_insertion_mode_in_table_text_erase.exit94 ], [ true, %78 ], [ true, %82 ], [ true, %75 ]
   ret i1 %.062
 }
 

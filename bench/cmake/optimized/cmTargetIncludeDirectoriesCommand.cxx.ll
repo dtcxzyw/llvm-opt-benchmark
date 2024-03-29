@@ -223,9 +223,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 25:                                               ; preds = %20
   %26 = load i8, ptr %24, align 16
-  %27 = and i8 %26, 1
-  %.not.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt8optionalI19cmListFileBacktraceED2Ev.exit, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %_ZNSt8optionalI19cmListFileBacktraceED2Ev.exit
 
 28:                                               ; preds = %25
   store i8 0, ptr %24, align 16
@@ -1068,9 +1067,8 @@ declare void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind writable sret(
 define linkonce_odr dso_local void @_ZNSt8optionalI19cmListFileBacktraceED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %_ZNSt14_Optional_baseI19cmListFileBacktraceLb0ELb0EED2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZNSt14_Optional_baseI19cmListFileBacktraceLb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8

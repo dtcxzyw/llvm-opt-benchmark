@@ -854,16 +854,16 @@ while.body.i.i:                                   ; preds = %if.end36.i.i, %clea
   %22 = load <16 x i8>, ptr %add.ptr.i.i, align 1, !noalias !4
   %cmp.i.i.i.i17 = icmp eq <16 x i8> %vecinit15.i.i.i.i, %22
   %23 = bitcast <16 x i1> %cmp.i.i.i.i17 to i16
-  %cmp.i.not25.i.i = icmp eq i16 %23, 0
-  br i1 %cmp.i.not25.i.i, label %for.end.i.i, label %for.body.preheader.i.i
+  %cmp.i.not26.i.i = icmp eq i16 %23, 0
+  br i1 %cmp.i.not26.i.i, label %for.end.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.body.i.i
   %24 = zext i16 %23 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %__begin0.sroa.0.026.i.i = phi i32 [ %and.i10.i.i, %for.inc.i.i ], [ %24, %for.body.preheader.i.i ]
-  %25 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.026.i.i, i1 true), !range !10
+  %__begin0.sroa.0.027.i.i = phi i32 [ %and.i10.i.i, %for.inc.i.i ], [ %24, %for.body.preheader.i.i ]
+  %25 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i, i1 true), !range !10
   %conv.i.i = zext nneg i32 %25 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %18
@@ -873,8 +873,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %sub.i.i.i = add nsw i32 %__begin0.sroa.0.026.i.i, -1
-  %and.i10.i.i = and i32 %sub.i.i.i, %__begin0.sroa.0.026.i.i
+  %sub.i.i.i = add nsw i32 %__begin0.sroa.0.027.i.i, -1
+  %and.i10.i.i = and i32 %sub.i.i.i, %__begin0.sroa.0.027.i.i
   %cmp.i.not.i.i = icmp eq i32 %and.i10.i.i, 0
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -896,13 +896,13 @@ if.then.i:                                        ; preds = %for.end.i.i
   store ptr %field, ptr %add.ptr.i3.i, align 8, !noalias !4
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
-  %.pre17.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !4
+  %.pre20.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !4
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_.exit
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
-  %29 = phi ptr [ %.pre17.i, %if.then.i ], [ %21, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %29 = phi ptr [ %.pre20.i, %if.then.i ], [ %21, %for.body.i.i ]
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   store double %fraction, ptr %second.i.i, align 8
   %ref.tmp16.sroa.2.0.second.i.i.sroa_idx = getelementptr inbounds i8, ptr %second.i.i, i64 8
   store double %margin, ptr %ref.tmp16.sroa.2.0.second.i.i.sroa_idx, align 8
@@ -924,12 +924,11 @@ if.else:                                          ; preds = %entry
   %cmp2 = icmp eq i32 %0, 0
   %treat_nan_as_equal_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr %treat_nan_as_equal_, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp ne i8 %2, 0
-  %3 = fcmp uno double %value_1, 0.000000e+00
-  %or.cond28 = and i1 %3, %tobool.not
-  %4 = fcmp uno double %value_2, 0.000000e+00
-  %or.cond29 = and i1 %4, %or.cond28
+  %tobool = trunc i8 %1 to i1
+  %2 = fcmp uno double %value_1, 0.000000e+00
+  %or.cond28 = and i1 %2, %tobool
+  %3 = fcmp uno double %value_2, 0.000000e+00
+  %or.cond29 = and i1 %3, %or.cond28
   %brmerge = select i1 %cmp2, i1 true, i1 %or.cond29
   %not.cmp2 = xor i1 %cmp2, true
   %or.cond29.mux = select i1 %not.cmp2, i1 true, i1 %or.cond29
@@ -937,36 +936,35 @@ if.else:                                          ; preds = %entry
 
 if.end15:                                         ; preds = %if.else
   %has_default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 13
-  %5 = load i8, ptr %has_default_tolerance_, align 1
-  %6 = and i8 %5, 1
-  %tobool16.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %has_default_tolerance_, align 1
+  %tobool16 = trunc i8 %4 to i1
   %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
   %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
-  %7 = load ptr, ptr %map_tolerance_, align 8
-  tail call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1)
-  %8 = ptrtoint ptr %field to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %8, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
+  %5 = load ptr, ptr %map_tolerance_, align 8
+  tail call void @llvm.prefetch.p0(ptr %5, i32 0, i32 1, i32 1)
+  %6 = ptrtoint ptr %field to i64
+  %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %6, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i, %6
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %9 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !13
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !13
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
-  %10 = ptrtoint ptr %7 to i64
-  %shr.i.i.i.i.i.i = lshr i64 %10, 12
+  %8 = ptrtoint ptr %5 to i64
+  %shr.i.i.i.i.i.i = lshr i64 %8, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i.i.i
   %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %11 = load ptr, ptr %slots_.i.i.i.i, align 8
-  %12 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
-  %conv.i.i.i = and i8 %12, 127
+  %9 = load ptr, ptr %slots_.i.i.i.i, align 8
+  %10 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
+  %conv.i.i.i = and i8 %10, 127
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
@@ -974,31 +972,31 @@ if.end15:                                         ; preds = %if.else
 while.body.i.i:                                   ; preds = %if.end34.i.i, %if.end15
   %xor.i.i.i.pn.i.i = phi i64 [ %xor.i.i.i.i.i, %if.end15 ], [ %add3.i.i.i, %if.end34.i.i ]
   %seq.sroa.10.0.i.i = phi i64 [ 0, %if.end15 ], [ %add.i12.i.i, %if.end34.i.i ]
-  %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %9
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %seq.sroa.4.0.i.i
-  %13 = load <16 x i8>, ptr %add.ptr.i.i, align 1
-  %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %13
-  %14 = bitcast <16 x i1> %cmp.i.i.i.i to i16
-  %cmp.i.not23.i.i = icmp eq i16 %14, 0
+  %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %7
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %seq.sroa.4.0.i.i
+  %11 = load <16 x i8>, ptr %add.ptr.i.i, align 1
+  %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %11
+  %12 = bitcast <16 x i1> %cmp.i.i.i.i to i16
+  %cmp.i.not23.i.i = icmp eq i16 %12, 0
   br i1 %cmp.i.not23.i.i, label %for.end.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.body.i.i
-  %15 = zext i16 %14 to i32
+  %13 = zext i16 %12 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %15, %for.body.preheader.i.i ]
-  %16 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true), !range !10
-  %conv.i.i = zext nneg i32 %16 to i64
+  %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %13, %for.body.preheader.i.i ]
+  %14 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true), !range !10
+  %conv.i.i = zext nneg i32 %14 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
-  %and.i.i.i = and i64 %add.i.i.i, %9
-  %add.ptr19.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %11, i64 %and.i.i.i
-  %17 = load ptr, ptr %add.ptr19.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %17, %field
+  %and.i.i.i = and i64 %add.i.i.i, %7
+  %add.ptr19.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %and.i.i.i
+  %15 = load ptr, ptr %add.ptr19.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %15, %field
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %and.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %and.i.i.i
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %add.ptr19.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
@@ -1010,9 +1008,9 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %while.body.i.i
-  %cmp.i.i10.i.i = icmp eq <16 x i8> %13, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %18 = bitcast <16 x i1> %cmp.i.i10.i.i to i16
-  %cmp.i11.not.i.i = icmp eq i16 %18, 0
+  %cmp.i.i10.i.i = icmp eq <16 x i8> %11, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %16 = bitcast <16 x i1> %cmp.i.i10.i.i to i16
+  %cmp.i11.not.i.i = icmp eq i16 %16, 0
   br i1 %cmp.i11.not.i.i, label %if.end34.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
 
 if.end34.i.i:                                     ; preds = %for.end.i.i
@@ -1022,66 +1020,66 @@ if.end34.i.i:                                     ; preds = %for.end.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit: ; preds = %for.end.i.i, %if.then.i.i
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i ], [ { ptr null, ptr undef }, %for.end.i.i ]
-  %19 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
-  %cmp.i.i.not = icmp eq ptr %19, null
+  %17 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
+  %cmp.i.i.not = icmp eq ptr %17, null
   br i1 %cmp.i.i.not, label %if.end26, label %if.end26.thread
 
 if.end26.thread:                                  ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
-  %20 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
-  %second = getelementptr inbounds i8, ptr %20, i64 8
+  %18 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
+  %second = getelementptr inbounds i8, ptr %18, i64 8
   br label %if.then28
 
 if.end26:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
-  br i1 %tobool16.not, label %if.else30, label %if.then28
+  br i1 %tobool16, label %if.then28, label %if.else30
 
 if.then28:                                        ; preds = %if.end26.thread, %if.end26
   %tolerance.127 = phi ptr [ %second, %if.end26.thread ], [ %default_tolerance_, %if.end26 ]
-  %21 = load double, ptr %tolerance.127, align 8
+  %19 = load double, ptr %tolerance.127, align 8
   %margin = getelementptr inbounds i8, ptr %tolerance.127, i64 8
-  %22 = load double, ptr %margin, align 8
-  %23 = tail call double @llvm.fabs.f64(double %value_1)
-  %24 = fcmp ueq double %23, 0x7FF0000000000000
-  br i1 %24, label %return, label %lor.lhs.false.i
+  %20 = load double, ptr %margin, align 8
+  %21 = tail call double @llvm.fabs.f64(double %value_1)
+  %22 = fcmp ueq double %21, 0x7FF0000000000000
+  br i1 %22, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then28
-  %25 = tail call double @llvm.fabs.f64(double %value_2)
-  %26 = fcmp ueq double %25, 0x7FF0000000000000
-  br i1 %26, label %return, label %if.end.i
+  %23 = tail call double @llvm.fabs.f64(double %value_2)
+  %24 = fcmp ueq double %23, 0x7FF0000000000000
+  br i1 %24, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp.i.i13 = fcmp olt double %23, %25
-  %.sroa.speculated.i = select i1 %cmp.i.i13, double %25, double %23
-  %mul.i = fmul double %.sroa.speculated.i, %21
+  %cmp.i.i13 = fcmp olt double %21, %23
+  %.sroa.speculated.i = select i1 %cmp.i.i13, double %23, double %21
+  %mul.i = fmul double %.sroa.speculated.i, %19
   %sub.i = fsub double %value_1, %value_2
-  %27 = tail call double @llvm.fabs.f64(double %sub.i)
-  %cmp.i5.i = fcmp ogt double %mul.i, %22
-  %.sroa.speculated7.i = select i1 %cmp.i5.i, double %mul.i, double %22
-  %cmp.i = fcmp ole double %27, %.sroa.speculated7.i
+  %25 = tail call double @llvm.fabs.f64(double %sub.i)
+  %cmp.i5.i = fcmp ogt double %mul.i, %20
+  %.sroa.speculated7.i = select i1 %cmp.i5.i, double %mul.i, double %20
+  %cmp.i = fcmp ole double %25, %.sroa.speculated7.i
   br label %return
 
 if.else30:                                        ; preds = %if.end26
-  %28 = tail call double @llvm.fabs.f64(double %value_1)
-  %cmp31 = fcmp ugt double %28, 0x3D00000000000000
-  %29 = tail call double @llvm.fabs.f64(double %value_2)
-  %cmp33 = fcmp ugt double %29, 0x3D00000000000000
+  %26 = tail call double @llvm.fabs.f64(double %value_1)
+  %cmp31 = fcmp ugt double %26, 0x3D00000000000000
+  %27 = tail call double @llvm.fabs.f64(double %value_2)
+  %cmp33 = fcmp ugt double %27, 0x3D00000000000000
   %or.cond = or i1 %cmp31, %cmp33
   br i1 %or.cond, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.else30
-  %30 = fcmp ueq double %28, 0x7FF0000000000000
-  %31 = fcmp ueq double %29, 0x7FF0000000000000
-  %or.cond32 = or i1 %30, %31
+  %28 = fcmp ueq double %26, 0x7FF0000000000000
+  %29 = fcmp ueq double %27, 0x7FF0000000000000
+  %or.cond32 = or i1 %28, %29
   br i1 %or.cond32, label %return, label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.end35
-  %cmp.i.i16 = fcmp olt double %28, %29
-  %.sroa.speculated.i17 = select i1 %cmp.i.i16, double %29, double %28
+  %cmp.i.i16 = fcmp olt double %26, %27
+  %.sroa.speculated.i17 = select i1 %cmp.i.i16, double %27, double %26
   %mul.i18 = fmul double %.sroa.speculated.i17, 0x3D00000000000000
   %sub.i19 = fsub double %value_1, %value_2
-  %32 = tail call double @llvm.fabs.f64(double %sub.i19)
+  %30 = tail call double @llvm.fabs.f64(double %sub.i19)
   %cmp.i5.i20 = fcmp ogt double %mul.i18, 0x3D00000000000000
   %.sroa.speculated7.i21 = select i1 %cmp.i5.i20, double %mul.i18, double 0x3D00000000000000
-  %cmp.i22 = fcmp ole double %32, %.sroa.speculated7.i21
+  %cmp.i22 = fcmp ole double %30, %.sroa.speculated7.i21
   br label %return
 
 return:                                           ; preds = %if.else, %if.end.i15, %if.end35, %if.end.i, %lor.lhs.false.i, %if.then28, %if.else30, %entry
@@ -1101,12 +1099,11 @@ if.else:                                          ; preds = %entry
   %cmp2 = icmp eq i32 %0, 0
   %treat_nan_as_equal_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr %treat_nan_as_equal_, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp ne i8 %2, 0
-  %3 = fcmp uno float %value_1, 0.000000e+00
-  %or.cond = and i1 %3, %tobool.not
-  %4 = fcmp uno float %value_2, 0.000000e+00
-  %or.cond28 = and i1 %4, %or.cond
+  %tobool = trunc i8 %1 to i1
+  %2 = fcmp uno float %value_1, 0.000000e+00
+  %or.cond = and i1 %2, %tobool
+  %3 = fcmp uno float %value_2, 0.000000e+00
+  %or.cond28 = and i1 %3, %or.cond
   %brmerge = select i1 %cmp2, i1 true, i1 %or.cond28
   %not.cmp2 = xor i1 %cmp2, true
   %or.cond28.mux = select i1 %not.cmp2, i1 true, i1 %or.cond28
@@ -1114,36 +1111,35 @@ if.else:                                          ; preds = %entry
 
 if.end15:                                         ; preds = %if.else
   %has_default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 13
-  %5 = load i8, ptr %has_default_tolerance_, align 1
-  %6 = and i8 %5, 1
-  %tobool16.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %has_default_tolerance_, align 1
+  %tobool16 = trunc i8 %4 to i1
   %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
   %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
-  %7 = load ptr, ptr %map_tolerance_, align 8
-  tail call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1)
-  %8 = ptrtoint ptr %field to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %8, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
+  %5 = load ptr, ptr %map_tolerance_, align 8
+  tail call void @llvm.prefetch.p0(ptr %5, i32 0, i32 1, i32 1)
+  %6 = ptrtoint ptr %field to i64
+  %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %6, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i, %6
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %9 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !17
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !17
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
-  %10 = ptrtoint ptr %7 to i64
-  %shr.i.i.i.i.i.i = lshr i64 %10, 12
+  %8 = ptrtoint ptr %5 to i64
+  %shr.i.i.i.i.i.i = lshr i64 %8, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i.i.i
   %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %11 = load ptr, ptr %slots_.i.i.i.i, align 8
-  %12 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
-  %conv.i.i.i = and i8 %12, 127
+  %9 = load ptr, ptr %slots_.i.i.i.i, align 8
+  %10 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
+  %conv.i.i.i = and i8 %10, 127
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
@@ -1151,31 +1147,31 @@ if.end15:                                         ; preds = %if.else
 while.body.i.i:                                   ; preds = %if.end34.i.i, %if.end15
   %xor.i.i.i.pn.i.i = phi i64 [ %xor.i.i.i.i.i, %if.end15 ], [ %add3.i.i.i, %if.end34.i.i ]
   %seq.sroa.10.0.i.i = phi i64 [ 0, %if.end15 ], [ %add.i12.i.i, %if.end34.i.i ]
-  %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %9
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %seq.sroa.4.0.i.i
-  %13 = load <16 x i8>, ptr %add.ptr.i.i, align 1
-  %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %13
-  %14 = bitcast <16 x i1> %cmp.i.i.i.i to i16
-  %cmp.i.not23.i.i = icmp eq i16 %14, 0
+  %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %7
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %seq.sroa.4.0.i.i
+  %11 = load <16 x i8>, ptr %add.ptr.i.i, align 1
+  %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %11
+  %12 = bitcast <16 x i1> %cmp.i.i.i.i to i16
+  %cmp.i.not23.i.i = icmp eq i16 %12, 0
   br i1 %cmp.i.not23.i.i, label %for.end.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.body.i.i
-  %15 = zext i16 %14 to i32
+  %13 = zext i16 %12 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %15, %for.body.preheader.i.i ]
-  %16 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true), !range !10
-  %conv.i.i = zext nneg i32 %16 to i64
+  %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %13, %for.body.preheader.i.i ]
+  %14 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true), !range !10
+  %conv.i.i = zext nneg i32 %14 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
-  %and.i.i.i = and i64 %add.i.i.i, %9
-  %add.ptr19.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %11, i64 %and.i.i.i
-  %17 = load ptr, ptr %add.ptr19.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %17, %field
+  %and.i.i.i = and i64 %add.i.i.i, %7
+  %add.ptr19.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %and.i.i.i
+  %15 = load ptr, ptr %add.ptr19.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %15, %field
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %and.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %and.i.i.i
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %add.ptr19.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
@@ -1187,9 +1183,9 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %while.body.i.i
-  %cmp.i.i10.i.i = icmp eq <16 x i8> %13, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %18 = bitcast <16 x i1> %cmp.i.i10.i.i to i16
-  %cmp.i11.not.i.i = icmp eq i16 %18, 0
+  %cmp.i.i10.i.i = icmp eq <16 x i8> %11, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %16 = bitcast <16 x i1> %cmp.i.i10.i.i to i16
+  %cmp.i11.not.i.i = icmp eq i16 %16, 0
   br i1 %cmp.i11.not.i.i, label %if.end34.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
 
 if.end34.i.i:                                     ; preds = %for.end.i.i
@@ -1199,66 +1195,66 @@ if.end34.i.i:                                     ; preds = %for.end.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit: ; preds = %for.end.i.i, %if.then.i.i
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i ], [ { ptr null, ptr undef }, %for.end.i.i ]
-  %19 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
-  %cmp.i.i.not = icmp eq ptr %19, null
+  %17 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
+  %cmp.i.i.not = icmp eq ptr %17, null
   br i1 %cmp.i.i.not, label %if.end26, label %if.end26.thread
 
 if.end26.thread:                                  ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
-  %20 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
-  %second = getelementptr inbounds i8, ptr %20, i64 8
+  %18 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
+  %second = getelementptr inbounds i8, ptr %18, i64 8
   br label %if.then28
 
 if.end26:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
-  br i1 %tobool16.not, label %if.else31, label %if.then28
+  br i1 %tobool16, label %if.then28, label %if.else31
 
 if.then28:                                        ; preds = %if.end26.thread, %if.end26
   %tolerance.127 = phi ptr [ %second, %if.end26.thread ], [ %default_tolerance_, %if.end26 ]
-  %21 = tail call float @llvm.fabs.f32(float %value_1)
+  %19 = tail call float @llvm.fabs.f32(float %value_1)
+  %20 = fcmp one float %19, 0x7FF0000000000000
+  %21 = tail call float @llvm.fabs.f32(float %value_2)
   %22 = fcmp one float %21, 0x7FF0000000000000
-  %23 = tail call float @llvm.fabs.f32(float %value_2)
-  %24 = fcmp one float %23, 0x7FF0000000000000
-  %or.cond.i = and i1 %22, %24
+  %or.cond.i = and i1 %20, %22
   br i1 %or.cond.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then28
   %margin = getelementptr inbounds i8, ptr %tolerance.127, i64 8
-  %25 = load double, ptr %margin, align 8
-  %conv29 = fptrunc double %25 to float
-  %26 = load double, ptr %tolerance.127, align 8
-  %conv = fptrunc double %26 to float
-  %cmp.i.i13 = fcmp olt float %21, %23
-  %.sroa.speculated.i = select i1 %cmp.i.i13, float %23, float %21
+  %23 = load double, ptr %margin, align 8
+  %conv29 = fptrunc double %23 to float
+  %24 = load double, ptr %tolerance.127, align 8
+  %conv = fptrunc double %24 to float
+  %cmp.i.i13 = fcmp olt float %19, %21
+  %.sroa.speculated.i = select i1 %cmp.i.i13, float %21, float %19
   %mul.i = fmul float %.sroa.speculated.i, %conv
   %sub.i = fsub float %value_1, %value_2
-  %27 = tail call noundef float @llvm.fabs.f32(float %sub.i)
+  %25 = tail call noundef float @llvm.fabs.f32(float %sub.i)
   %cmp.i5.i = fcmp ogt float %mul.i, %conv29
   %.sroa.speculated7.i = select i1 %cmp.i5.i, float %mul.i, float %conv29
-  %cmp.i = fcmp ole float %27, %.sroa.speculated7.i
+  %cmp.i = fcmp ole float %25, %.sroa.speculated7.i
   br label %return
 
 if.else31:                                        ; preds = %if.end26
-  %28 = tail call noundef float @llvm.fabs.f32(float %value_1)
-  %cmp33 = fcmp ugt float %28, 0x3ED0000000000000
-  %29 = tail call float @llvm.fabs.f32(float %value_2)
-  %cmp36 = fcmp ugt float %29, 0x3ED0000000000000
+  %26 = tail call noundef float @llvm.fabs.f32(float %value_1)
+  %cmp33 = fcmp ugt float %26, 0x3ED0000000000000
+  %27 = tail call float @llvm.fabs.f32(float %value_2)
+  %cmp36 = fcmp ugt float %27, 0x3ED0000000000000
   %or.cond31 = or i1 %cmp33, %cmp36
   br i1 %or.cond31, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.else31
-  %30 = fcmp one float %28, 0x7FF0000000000000
-  %31 = fcmp one float %29, 0x7FF0000000000000
-  %or.cond.i14 = and i1 %30, %31
+  %28 = fcmp one float %26, 0x7FF0000000000000
+  %29 = fcmp one float %27, 0x7FF0000000000000
+  %or.cond.i14 = and i1 %28, %29
   br i1 %or.cond.i14, label %if.end.i16, label %return
 
 if.end.i16:                                       ; preds = %if.end38
-  %cmp.i.i17 = fcmp olt float %28, %29
-  %.sroa.speculated.i18 = select i1 %cmp.i.i17, float %29, float %28
+  %cmp.i.i17 = fcmp olt float %26, %27
+  %.sroa.speculated.i18 = select i1 %cmp.i.i17, float %27, float %26
   %mul.i19 = fmul float %.sroa.speculated.i18, 0x3ED0000000000000
   %sub.i20 = fsub float %value_1, %value_2
-  %32 = tail call noundef float @llvm.fabs.f32(float %sub.i20)
+  %30 = tail call noundef float @llvm.fabs.f32(float %sub.i20)
   %cmp.i5.i21 = fcmp ogt float %mul.i19, 0x3ED0000000000000
   %.sroa.speculated7.i22 = select i1 %cmp.i5.i21, float %mul.i19, float 0x3ED0000000000000
-  %cmp.i23 = fcmp ole float %32, %.sroa.speculated7.i22
+  %cmp.i23 = fcmp ole float %30, %.sroa.speculated7.i22
   br label %return
 
 return:                                           ; preds = %if.else, %if.else31, %if.end.i16, %if.end38, %if.end.i, %if.then28, %entry

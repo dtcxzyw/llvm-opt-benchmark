@@ -269,10 +269,9 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
   %9 = alloca %class.QBrush, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %0, i64 32
-  br i1 %.not, label %17, label %14
+  br i1 %12, label %14, label %17
 
 14:                                               ; preds = %4
   call void @_ZNK6QColor6darkerEi(ptr dead_on_unwind nonnull writable sret(%class.QColor) align 4 %6, ptr noundef nonnull align 4 dereferenceable(14) %13, i32 noundef 200) #12

@@ -144,9 +144,8 @@ define noundef i32 @ompi_group_incl_strided(ptr noundef %0, i32 noundef %1, ptr 
 7:                                                ; preds = %4
   store ptr @ompi_mpi_group_empty, ptr %3, align 8
   %8 = load i8, ptr @opal_uses_threads, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = atomicrmw volatile add ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), i32 1 monotonic, align 4
@@ -190,8 +189,8 @@ define noundef i32 @ompi_group_incl_strided(ptr noundef %0, i32 noundef %1, ptr 
   %29 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4
   %31 = sub nsw i32 %28, %30
-  %.not.i33 = icmp eq i32 %31, %.01317.i
-  br i1 %.not.i33, label %25, label %check_stride.exit, !llvm.loop !4
+  %.not.i = icmp eq i32 %31, %.01317.i
+  br i1 %.not.i, label %25, label %check_stride.exit, !llvm.loop !4
 
 check_stride.exit:                                ; preds = %25, %26, %18
   %.014.i = phi i32 [ -1, %18 ], [ -1, %26 ], [ %.01317.i, %25 ]
@@ -204,22 +203,21 @@ check_stride.exit:                                ; preds = %25, %26, %18
   store ptr %0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load i8, ptr @opal_uses_threads, align 1
-  %38 = and i8 %37, 1
-  %.not.i34 = icmp eq i8 %38, 0
-  br i1 %.not.i34, label %41, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %41
 
 39:                                               ; preds = %34
   %40 = atomicrmw volatile add ptr %36, i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit36
+  br label %opal_thread_add_fetch_32.exit34
 
 41:                                               ; preds = %34
   %42 = load volatile i32, ptr %36, align 4
   %43 = add nsw i32 %42, 1
   store volatile i32 %43, ptr %36, align 4
   %44 = load volatile i32, ptr %36, align 4
-  br label %opal_thread_add_fetch_32.exit36
+  br label %opal_thread_add_fetch_32.exit34
 
-opal_thread_add_fetch_32.exit36:                  ; preds = %39, %41
+opal_thread_add_fetch_32.exit34:                  ; preds = %39, %41
   %45 = load ptr, ptr %35, align 8
   tail call void @ompi_group_increment_proc_count(ptr noundef %45) #5
   %46 = getelementptr inbounds i8, ptr %32, i64 56
@@ -245,8 +243,8 @@ opal_thread_add_fetch_32.exit36:                  ; preds = %39, %41
   store ptr %32, ptr %3, align 8
   br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %12, %10, %check_stride.exit, %opal_thread_add_fetch_32.exit36
-  %.0 = phi i32 [ 0, %opal_thread_add_fetch_32.exit36 ], [ 9, %check_stride.exit ], [ 0, %10 ], [ 0, %12 ]
+opal_thread_add_fetch_32.exit:                    ; preds = %12, %10, %check_stride.exit, %opal_thread_add_fetch_32.exit34
+  %.0 = phi i32 [ 0, %opal_thread_add_fetch_32.exit34 ], [ 9, %check_stride.exit ], [ 0, %10 ], [ 0, %12 ]
   ret i32 %.0
 }
 

@@ -209,10 +209,9 @@ define internal fastcc noundef i32 @lre_case_conv_entry(ptr nocapture noundef wr
 
 35:                                               ; preds = %5
   %36 = sub i32 %1, %21
-  %37 = and i32 %36, 1
-  %38 = icmp ne i32 %37, 0
-  %.not85 = xor i1 %11, %38
-  br i1 %.not85, label %39, label %160
+  %37 = trunc i32 %36 to i1
+  %38 = xor i1 %11, %37
+  br i1 %38, label %39, label %160
 
 39:                                               ; preds = %35
   %40 = xor i32 %36, 1
@@ -3950,7 +3949,7 @@ cr_add_interval.exit:                             ; preds = %18, %82, %84, %86, 
 define internal noundef i32 @unicode_prop_ops(ptr nocapture noundef %0, ...) unnamed_addr #5 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca [4 x %struct.CharRange], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4871,7 +4870,7 @@ define internal i32 @point_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
+declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15

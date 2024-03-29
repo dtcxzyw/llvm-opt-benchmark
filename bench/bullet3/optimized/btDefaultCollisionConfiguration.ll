@@ -424,205 +424,203 @@ entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsCollisionAlgorithmPool = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_ownsCollisionAlgorithmPool, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_collisionAlgorithmPool = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load ptr, ptr %m_collisionAlgorithmPool, align 8
-  %m_pool.i = getelementptr inbounds i8, ptr %2, i64 24
-  %3 = load ptr, ptr %m_pool.i, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+  %1 = load ptr, ptr %m_collisionAlgorithmPool, align 8
+  %m_pool.i = getelementptr inbounds i8, ptr %1, i64 24
+  %2 = load ptr, ptr %m_pool.i, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
           to label %_ZN15btPoolAllocatorD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #8
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #8
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %if.then
-  %6 = load ptr, ptr %m_collisionAlgorithmPool, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
+  %5 = load ptr, ptr %m_collisionAlgorithmPool, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %_ZN15btPoolAllocatorD2Ev.exit, %entry
   %m_ownsPersistentManifoldPool = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load i8, ptr %m_ownsPersistentManifoldPool, align 8
-  %8 = and i8 %7, 1
-  %tobool3.not = icmp eq i8 %8, 0
-  br i1 %tobool3.not, label %if.end7, label %if.then4
+  %6 = load i8, ptr %m_ownsPersistentManifoldPool, align 8
+  %tobool3 = trunc i8 %6 to i1
+  br i1 %tobool3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
   %m_persistentManifoldPool = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load ptr, ptr %m_persistentManifoldPool, align 8
-  %m_pool.i1 = getelementptr inbounds i8, ptr %9, i64 24
-  %10 = load ptr, ptr %m_pool.i1, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %10)
+  %7 = load ptr, ptr %m_persistentManifoldPool, align 8
+  %m_pool.i1 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %m_pool.i1, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
           to label %_ZN15btPoolAllocatorD2Ev.exit3 unwind label %terminate.lpad.i2
 
 terminate.lpad.i2:                                ; preds = %if.then4
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #8
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #8
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit3:                   ; preds = %if.then4
-  %13 = load ptr, ptr %m_persistentManifoldPool, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %13)
+  %11 = load ptr, ptr %m_persistentManifoldPool, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %11)
           to label %if.end7 unwind label %terminate.lpad
 
 if.end7:                                          ; preds = %_ZN15btPoolAllocatorD2Ev.exit3, %if.end
   %m_convexConvexCreateFunc = getelementptr inbounds i8, ptr %this, i64 56
+  %12 = load ptr, ptr %m_convexConvexCreateFunc, align 8
+  %vtable = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %vtable, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %12) #9
   %14 = load ptr, ptr %m_convexConvexCreateFunc, align 8
-  %vtable = load ptr, ptr %14, align 8
-  %15 = load ptr, ptr %vtable, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(9) %14) #9
-  %16 = load ptr, ptr %m_convexConvexCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %16)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %14)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %if.end7
   %m_convexConcaveCreateFunc = getelementptr inbounds i8, ptr %this, i64 64
+  %15 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
+  %vtable10 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %vtable10, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(9) %15) #9
   %17 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
-  %vtable10 = load ptr, ptr %17, align 8
-  %18 = load ptr, ptr %vtable10, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(9) %17) #9
-  %19 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %19)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %17)
           to label %invoke.cont13 unwind label %terminate.lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %m_swappedConvexConcaveCreateFunc = getelementptr inbounds i8, ptr %this, i64 72
+  %18 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
+  %vtable14 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %vtable14, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(9) %18) #9
   %20 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
-  %vtable14 = load ptr, ptr %20, align 8
-  %21 = load ptr, ptr %vtable14, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(9) %20) #9
-  %22 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %22)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %20)
           to label %invoke.cont17 unwind label %terminate.lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont13
   %m_compoundCreateFunc = getelementptr inbounds i8, ptr %this, i64 80
+  %21 = load ptr, ptr %m_compoundCreateFunc, align 8
+  %vtable18 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %vtable18, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(9) %21) #9
   %23 = load ptr, ptr %m_compoundCreateFunc, align 8
-  %vtable18 = load ptr, ptr %23, align 8
-  %24 = load ptr, ptr %vtable18, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(9) %23) #9
-  %25 = load ptr, ptr %m_compoundCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %25)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %23)
           to label %invoke.cont21 unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont17
   %m_compoundCompoundCreateFunc = getelementptr inbounds i8, ptr %this, i64 88
+  %24 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
+  %vtable22 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %vtable22, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(9) %24) #9
   %26 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
-  %vtable22 = load ptr, ptr %26, align 8
-  %27 = load ptr, ptr %vtable22, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(9) %26) #9
-  %28 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %28)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %26)
           to label %invoke.cont25 unwind label %terminate.lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %m_swappedCompoundCreateFunc = getelementptr inbounds i8, ptr %this, i64 96
+  %27 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
+  %vtable26 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %vtable26, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(9) %27) #9
   %29 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
-  %vtable26 = load ptr, ptr %29, align 8
-  %30 = load ptr, ptr %vtable26, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(9) %29) #9
-  %31 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %31)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %29)
           to label %invoke.cont29 unwind label %terminate.lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont25
   %m_emptyCreateFunc = getelementptr inbounds i8, ptr %this, i64 104
+  %30 = load ptr, ptr %m_emptyCreateFunc, align 8
+  %vtable30 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %vtable30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(9) %30) #9
   %32 = load ptr, ptr %m_emptyCreateFunc, align 8
-  %vtable30 = load ptr, ptr %32, align 8
-  %33 = load ptr, ptr %vtable30, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(9) %32) #9
-  %34 = load ptr, ptr %m_emptyCreateFunc, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %34)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %32)
           to label %invoke.cont33 unwind label %terminate.lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont29
   %m_sphereSphereCF = getelementptr inbounds i8, ptr %this, i64 112
+  %33 = load ptr, ptr %m_sphereSphereCF, align 8
+  %vtable34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %vtable34, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(9) %33) #9
   %35 = load ptr, ptr %m_sphereSphereCF, align 8
-  %vtable34 = load ptr, ptr %35, align 8
-  %36 = load ptr, ptr %vtable34, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(9) %35) #9
-  %37 = load ptr, ptr %m_sphereSphereCF, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %37)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %35)
           to label %invoke.cont37 unwind label %terminate.lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont33
   %m_sphereTriangleCF = getelementptr inbounds i8, ptr %this, i64 144
+  %36 = load ptr, ptr %m_sphereTriangleCF, align 8
+  %vtable38 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %vtable38, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(9) %36) #9
   %38 = load ptr, ptr %m_sphereTriangleCF, align 8
-  %vtable38 = load ptr, ptr %38, align 8
-  %39 = load ptr, ptr %vtable38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(9) %38) #9
-  %40 = load ptr, ptr %m_sphereTriangleCF, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %40)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %38)
           to label %invoke.cont41 unwind label %terminate.lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   %m_triangleSphereCF = getelementptr inbounds i8, ptr %this, i64 152
+  %39 = load ptr, ptr %m_triangleSphereCF, align 8
+  %vtable42 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %vtable42, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(9) %39) #9
   %41 = load ptr, ptr %m_triangleSphereCF, align 8
-  %vtable42 = load ptr, ptr %41, align 8
-  %42 = load ptr, ptr %vtable42, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(9) %41) #9
-  %43 = load ptr, ptr %m_triangleSphereCF, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %43)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %41)
           to label %invoke.cont45 unwind label %terminate.lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont41
   %m_boxBoxCF = getelementptr inbounds i8, ptr %this, i64 136
+  %42 = load ptr, ptr %m_boxBoxCF, align 8
+  %vtable46 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %vtable46, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(9) %42) #9
   %44 = load ptr, ptr %m_boxBoxCF, align 8
-  %vtable46 = load ptr, ptr %44, align 8
-  %45 = load ptr, ptr %vtable46, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(9) %44) #9
-  %46 = load ptr, ptr %m_boxBoxCF, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %46)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %44)
           to label %invoke.cont49 unwind label %terminate.lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont45
   %m_convexPlaneCF = getelementptr inbounds i8, ptr %this, i64 168
+  %45 = load ptr, ptr %m_convexPlaneCF, align 8
+  %vtable50 = load ptr, ptr %45, align 8
+  %46 = load ptr, ptr %vtable50, align 8
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(9) %45) #9
   %47 = load ptr, ptr %m_convexPlaneCF, align 8
-  %vtable50 = load ptr, ptr %47, align 8
-  %48 = load ptr, ptr %vtable50, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(9) %47) #9
-  %49 = load ptr, ptr %m_convexPlaneCF, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %49)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %47)
           to label %invoke.cont53 unwind label %terminate.lpad
 
 invoke.cont53:                                    ; preds = %invoke.cont49
   %m_planeConvexCF = getelementptr inbounds i8, ptr %this, i64 160
+  %48 = load ptr, ptr %m_planeConvexCF, align 8
+  %vtable54 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %vtable54, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(9) %48) #9
   %50 = load ptr, ptr %m_planeConvexCF, align 8
-  %vtable54 = load ptr, ptr %50, align 8
-  %51 = load ptr, ptr %vtable54, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(9) %50) #9
-  %52 = load ptr, ptr %m_planeConvexCF, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %52)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %50)
           to label %invoke.cont57 unwind label %terminate.lpad
 
 invoke.cont57:                                    ; preds = %invoke.cont53
   %m_pdSolver = getelementptr inbounds i8, ptr %this, i64 48
+  %51 = load ptr, ptr %m_pdSolver, align 8
+  %vtable58 = load ptr, ptr %51, align 8
+  %52 = load ptr, ptr %vtable58, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %51) #9
   %53 = load ptr, ptr %m_pdSolver, align 8
-  %vtable58 = load ptr, ptr %53, align 8
-  %54 = load ptr, ptr %vtable58, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %53) #9
-  %55 = load ptr, ptr %m_pdSolver, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %55)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %53)
           to label %invoke.cont61 unwind label %terminate.lpad
 
 invoke.cont61:                                    ; preds = %invoke.cont57
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont57, %invoke.cont53, %invoke.cont49, %invoke.cont45, %invoke.cont41, %invoke.cont37, %invoke.cont33, %invoke.cont29, %invoke.cont25, %invoke.cont21, %invoke.cont17, %invoke.cont13, %invoke.cont9, %if.end7, %_ZN15btPoolAllocatorD2Ev.exit3, %_ZN15btPoolAllocatorD2Ev.exit
-  %56 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #8
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #8
   unreachable
 }
 
@@ -1047,8 +1045,7 @@ entry:
   %2 = load ptr, ptr %m_manifold, align 8
   %m_swapped = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %m_swapped, align 8
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %tobool = trunc i8 %3 to i1
   tail call void @_ZN34btSphereTriangleCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_b(ptr noundef nonnull align 8 dereferenceable(33) %call, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %tobool)
   ret ptr %call
 }
@@ -1105,13 +1102,12 @@ entry:
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 48)
   %m_swapped = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %m_swapped, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp ne i8 %3, 0
-  %m_numPerturbationIterations = getelementptr inbounds i8, ptr %this, i64 12
-  %4 = load i32, ptr %m_numPerturbationIterations, align 4
-  %m_minimumPointsPerturbationThreshold = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load i32, ptr %m_minimumPointsPerturbationThreshold, align 8
-  tail call void @_ZN31btConvexPlaneCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_bii(ptr noundef nonnull align 8 dereferenceable(44) %call, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %tobool.not, i32 noundef %4, i32 noundef %5)
+  %tobool = trunc i8 %2 to i1
+  %m_numPerturbationIterations2 = getelementptr inbounds i8, ptr %this, i64 12
+  %3 = load i32, ptr %m_numPerturbationIterations2, align 4
+  %m_minimumPointsPerturbationThreshold3 = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load i32, ptr %m_minimumPointsPerturbationThreshold3, align 8
+  tail call void @_ZN31btConvexPlaneCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_bii(ptr noundef nonnull align 8 dereferenceable(44) %call, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %tobool, i32 noundef %3, i32 noundef %4)
   ret ptr %call
 }
 

@@ -4468,8 +4468,8 @@ define internal noundef i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef 
   br i1 %14, label %42, label %15
 
 15:                                               ; preds = %13
-  %trunc.not = icmp eq i32 %7, 0
-  br i1 %trunc.not, label %16, label %30
+  %trunc = trunc i32 %7 to i1
+  br i1 %trunc, label %30, label %16
 
 16:                                               ; preds = %15
   %17 = tail call ptr @wmem_packet_scope() #7
@@ -4549,8 +4549,8 @@ define internal noundef i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %
   br i1 %14, label %32, label %15
 
 15:                                               ; preds = %13
-  %trunc.not = icmp eq i32 %7, 0
-  br i1 %trunc.not, label %16, label %21
+  %trunc = trunc i32 %7 to i1
+  br i1 %trunc, label %21, label %16
 
 16:                                               ; preds = %15
   %17 = load i32, ptr @hf_vts_dtmf, align 4

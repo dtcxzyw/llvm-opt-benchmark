@@ -1768,9 +1768,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp50.i.i.i.i.i)
   call fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias nonnull align 8 %prevUsage.i.i.i.i.i)
   %0 = load atomic i8, ptr @_ZN4pbrtL22shutdownLogUtilizationE.0 seq_cst, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not5.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not5.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit"
+  %tobool.i.i5.i.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i5.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit", label %while.body.lr.ph.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %entry
   %tv_nsec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rec.i.i.i.i.i.i, i64 8
@@ -1799,40 +1798,40 @@ while.body.i.i.i.i.i:                             ; preds = %land.end53.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rec.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rem.i.i.i.i.i.i)
   call fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias nonnull align 8 %currentUsage.i.i.i.i.i)
-  %2 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
-  %cmp.i.i.i.i.i = icmp slt i32 %2, 1
+  %1 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
+  %cmp.i.i.i.i.i = icmp slt i32 %1, 1
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %land.end53.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i
-  %3 = load <4 x i64>, ptr %currentUsage.i.i.i.i.i, align 8
-  %4 = load <4 x i64>, ptr %prevUsage.i.i.i.i.i, align 8
-  %5 = sub <4 x i64> %3, %4
-  %sub.i.i.i.i.i = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %5)
+  %2 = load <4 x i64>, ptr %currentUsage.i.i.i.i.i, align 8
+  %3 = load <4 x i64>, ptr %prevUsage.i.i.i.i.i, align 8
+  %4 = sub <4 x i64> %2, %3
+  %sub.i.i.i.i.i = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %4)
   %call11.i.i.i.i.i = call noundef i64 @_ZN4pbrt13GetCurrentRSSEv()
   %div4.i.i.i.i.i = lshr i64 %call11.i.i.i.i.i, 20
   store i64 %div4.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i, align 8
-  %6 = load i64, ptr %currentUsage.i.i.i.i.i, align 8
-  %7 = load i64, ptr %prevUsage.i.i.i.i.i, align 8
-  %sub15.i.i.i.i.i = sub nsw i64 %6, %7
+  %5 = load i64, ptr %currentUsage.i.i.i.i.i, align 8
+  %6 = load i64, ptr %prevUsage.i.i.i.i.i, align 8
+  %sub15.i.i.i.i.i = sub nsw i64 %5, %6
   %conv.i.i.i.i.i = sitofp i64 %sub15.i.i.i.i.i to double
   %conv16.i.i.i.i.i = sitofp i64 %sub.i.i.i.i.i to double
   %div17.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, %conv16.i.i.i.i.i
   store double %div17.i.i.i.i.i, ptr %ref.tmp12.i.i.i.i.i, align 8
-  %8 = load i64, ptr %nice.i.i.i.i.i, align 8
-  %9 = load i64, ptr %nice5.i.i.i.i.i, align 8
-  %sub21.i.i.i.i.i = sub nsw i64 %8, %9
+  %7 = load i64, ptr %nice.i.i.i.i.i, align 8
+  %8 = load i64, ptr %nice5.i.i.i.i.i, align 8
+  %sub21.i.i.i.i.i = sub nsw i64 %7, %8
   %conv22.i.i.i.i.i = sitofp i64 %sub21.i.i.i.i.i to double
   %div24.i.i.i.i.i = fdiv double %conv22.i.i.i.i.i, %conv16.i.i.i.i.i
   store double %div24.i.i.i.i.i, ptr %ref.tmp18.i.i.i.i.i, align 8
-  %10 = load i64, ptr %system.i.i.i.i.i, align 8
-  %11 = load i64, ptr %system7.i.i.i.i.i, align 8
-  %sub28.i.i.i.i.i = sub nsw i64 %10, %11
+  %9 = load i64, ptr %system.i.i.i.i.i, align 8
+  %10 = load i64, ptr %system7.i.i.i.i.i, align 8
+  %sub28.i.i.i.i.i = sub nsw i64 %9, %10
   %conv29.i.i.i.i.i = sitofp i64 %sub28.i.i.i.i.i to double
   %div31.i.i.i.i.i = fdiv double %conv29.i.i.i.i.i, %conv16.i.i.i.i.i
   store double %div31.i.i.i.i.i, ptr %ref.tmp25.i.i.i.i.i, align 8
-  %12 = load i64, ptr %idle.i.i.i.i.i, align 8
-  %13 = load i64, ptr %idle9.i.i.i.i.i, align 8
-  %sub35.i.i.i.i.i = sub nsw i64 %12, %13
+  %11 = load i64, ptr %idle.i.i.i.i.i, align 8
+  %12 = load i64, ptr %idle9.i.i.i.i.i, align 8
+  %sub35.i.i.i.i.i = sub nsw i64 %11, %12
   %conv36.i.i.i.i.i = sitofp i64 %sub35.i.i.i.i.i to double
   %div38.i.i.i.i.i = fdiv double %conv36.i.i.i.i.i, %conv16.i.i.i.i.i
   store double %div38.i.i.i.i.i, ptr %ref.tmp32.i.i.i.i.i, align 8
@@ -1843,12 +1842,12 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
 
 common.resume.i.i.i.i.i:                          ; preds = %lpad.i11.i.i.i.i.i, %lpad.i.i7.i.i.i.i.i, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i
   %s.i6.sink.i.i.i.i.i = phi ptr [ %s.i.i.i.i.i.i, %lpad.i.i.i.i.i.i ], [ %s.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i ], [ %s.i6.i.i.i.i.i, %lpad.i11.i.i.i.i.i ], [ %s.i6.i.i.i.i.i, %lpad.i.i7.i.i.i.i.i ]
-  %common.resume.op.i.i.i.i.i = phi { ptr, i32 } [ %15, %lpad.i.i.i.i.i.i ], [ %14, %lpad.i.i.i.i.i.i.i ], [ %25, %lpad.i11.i.i.i.i.i ], [ %24, %lpad.i.i7.i.i.i.i.i ]
+  %common.resume.op.i.i.i.i.i = phi { ptr, i32 } [ %14, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i.i.i ], [ %24, %lpad.i11.i.i.i.i.i ], [ %23, %lpad.i.i7.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i6.sink.i.i.i.i.i) #19
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i.i.i
 
@@ -1858,7 +1857,7 @@ _ZN4pbrt12StringPrintfIJmddddEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %land.end.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i:                                 ; preds = %_ZN4pbrt12StringPrintfIJmddddEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i.i.i.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i.i.i
 
@@ -1870,21 +1869,21 @@ land.end.i.i.i.i.i:                               ; preds = %_ZN4pbrt12StringPri
   br i1 %cmp39.i.i.i.i.i, label %land.rhs40.i.i.i.i.i, label %land.end53.i.i.i.i.i
 
 land.rhs40.i.i.i.i.i:                             ; preds = %land.end.i.i.i.i.i
-  %16 = load i64, ptr %readRequest.i.i.i.i.i, align 8
-  %17 = load i64, ptr %readRequest42.i.i.i.i.i, align 8
-  %sub43.i.i.i.i.i = sub nsw i64 %16, %17
+  %15 = load i64, ptr %readRequest.i.i.i.i.i, align 8
+  %16 = load i64, ptr %readRequest42.i.i.i.i.i, align 8
+  %sub43.i.i.i.i.i = sub nsw i64 %15, %16
   store i64 %sub43.i.i.i.i.i, ptr %ref.tmp41.i.i.i.i.i, align 8
-  %18 = load i64, ptr %readActual.i.i.i.i.i, align 8
-  %19 = load i64, ptr %readActual45.i.i.i.i.i, align 8
-  %sub46.i.i.i.i.i = sub nsw i64 %18, %19
+  %17 = load i64, ptr %readActual.i.i.i.i.i, align 8
+  %18 = load i64, ptr %readActual45.i.i.i.i.i, align 8
+  %sub46.i.i.i.i.i = sub nsw i64 %17, %18
   store i64 %sub46.i.i.i.i.i, ptr %ref.tmp44.i.i.i.i.i, align 8
-  %20 = load i64, ptr %writeRequest.i.i.i.i.i, align 8
-  %21 = load i64, ptr %writeRequest48.i.i.i.i.i, align 8
-  %sub49.i.i.i.i.i = sub nsw i64 %20, %21
+  %19 = load i64, ptr %writeRequest.i.i.i.i.i, align 8
+  %20 = load i64, ptr %writeRequest48.i.i.i.i.i, align 8
+  %sub49.i.i.i.i.i = sub nsw i64 %19, %20
   store i64 %sub49.i.i.i.i.i, ptr %ref.tmp47.i.i.i.i.i, align 8
-  %22 = load i64, ptr %writeActual.i.i.i.i.i, align 8
-  %23 = load i64, ptr %writeActual51.i.i.i.i.i, align 8
-  %sub52.i.i.i.i.i = sub nsw i64 %22, %23
+  %21 = load i64, ptr %writeActual.i.i.i.i.i, align 8
+  %22 = load i64, ptr %writeActual51.i.i.i.i.i, align 8
+  %sub52.i.i.i.i.i = sub nsw i64 %21, %22
   store i64 %sub52.i.i.i.i.i, ptr %ref.tmp50.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i6.i.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i6.i.i.i.i.i) #19
@@ -1892,7 +1891,7 @@ land.rhs40.i.i.i.i.i:                             ; preds = %land.end.i.i.i.i.i
           to label %_ZN4pbrt12StringPrintfIJllllEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i.i.i.i.i.i unwind label %lpad.i.i7.i.i.i.i.i
 
 lpad.i.i7.i.i.i.i.i:                              ; preds = %land.rhs40.i.i.i.i.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i.i.i
 
@@ -1902,7 +1901,7 @@ _ZN4pbrt12StringPrintfIJllllEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %_ZN4pbrt3LogIJllllEEEvNS_8LogLevelEPKciS3_DpOT_.exit.i.i.i.i.i unwind label %lpad.i11.i.i.i.i.i
 
 lpad.i11.i.i.i.i.i:                               ; preds = %_ZN4pbrt12StringPrintfIJllllEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i.i.i.i.i.i
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i.i.i
 
@@ -1913,10 +1912,9 @@ _ZN4pbrt3LogIJllllEEEvNS_8LogLevelEPKciS3_DpOT_.exit.i.i.i.i.i: ; preds = %_ZN4p
 
 land.end53.i.i.i.i.i:                             ; preds = %_ZN4pbrt3LogIJllllEEEvNS_8LogLevelEPKciS3_DpOT_.exit.i.i.i.i.i, %land.end.i.i.i.i.i, %while.body.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %prevUsage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %currentUsage.i.i.i.i.i, i64 64, i1 false)
-  %26 = load atomic i8, ptr @_ZN4pbrtL22shutdownLogUtilizationE.0 seq_cst, align 1
-  %27 = and i8 %26, 1
-  %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit", !llvm.loop !6
+  %25 = load atomic i8, ptr @_ZN4pbrtL22shutdownLogUtilizationE.0 seq_cst, align 1
+  %tobool.i.i.i.i.i.i.i = trunc i8 %25 to i1
+  br i1 %tobool.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit", label %while.body.i.i.i.i.i, !llvm.loop !6
 
 "_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit": ; preds = %land.end53.i.i.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %prevUsage.i.i.i.i.i)

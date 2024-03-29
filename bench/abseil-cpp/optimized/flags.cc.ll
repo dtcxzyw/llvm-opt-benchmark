@@ -322,14 +322,14 @@ invoke.cont4:                                     ; preds = %entry
 
 sw.bb5:                                           ; preds = %entry
   %0 = load i8, ptr %v1, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %v2, align 1
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %v2, align 1
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %2 = load i8, ptr %v1, align 1
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %v2, align 1
+  %1 = load i8, ptr %v1, align 1
+  %frombool8 = and i8 %1, 1
+  store i8 %frombool8, ptr %v2, align 1
   br label %return
 
 sw.bb10:                                          ; preds = %entry
@@ -339,9 +339,9 @@ sw.bb12:                                          ; preds = %entry
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %4 = load i8, ptr %v2, align 1
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %temp, align 1
+  %2 = load i8, ptr %v2, align 1
+  %frombool16 = and i8 %2, 1
+  store i8 %frombool16, ptr %temp, align 1
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %v1, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %v1, i64 8
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
@@ -349,15 +349,14 @@ sw.bb14:                                          ; preds = %entry
   br i1 %call.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %sw.bb14
-  %6 = load i8, ptr %temp, align 1
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %v2, align 1
+  %3 = load i8, ptr %temp, align 1
+  %frombool19 = and i8 %3, 1
+  store i8 %frombool19, ptr %v2, align 1
   br label %return
 
 sw.bb20:                                          ; preds = %entry
-  %8 = load i8, ptr %v1, align 1, !noalias !13
-  %9 = and i8 %8, 1
-  %tobool.i = icmp ne i8 %9, 0
+  %4 = load i8, ptr %v1, align 1, !noalias !13
+  %tobool.i = trunc i8 %4 to i1
   call void @_ZN4absl14flags_internal7UnparseB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i1 noundef zeroext %tobool.i)
   %call21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %v2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
@@ -731,8 +730,7 @@ entry:
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont.thread.i.i.i.i
 
 invoke.cont.thread.i.i.i.i:                       ; preds = %entry
-  %frombool.i4.i.i.i.i = and i64 %0, 1
-  %1 = icmp ne i64 %frombool.i4.i.i.i.i, 0
+  %tobool.i.i.i.i.i = trunc i64 %0 to i1
   br label %"_ZNK3$_3clEv.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -740,7 +738,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %"_ZNK3$_3clEv.exit"
 
 "_ZNK3$_3clEv.exit":                              ; preds = %invoke.cont.thread.i.i.i.i, %if.then.i.i.i.i
-  %u.sroa.0.1.i.i.i.i = phi i1 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %1, %invoke.cont.thread.i.i.i.i ]
+  %u.sroa.0.1.i.i.i.i = phi i1 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %tobool.i.i.i.i.i, %invoke.cont.thread.i.i.i.i ]
   tail call void @_ZN4absl12log_internal18RawEnableLogPrefixEb(i1 noundef zeroext %u.sroa.0.1.i.i.i.i)
   ret void
 }

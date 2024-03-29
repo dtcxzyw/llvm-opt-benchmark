@@ -851,10 +851,9 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %tobool.i147.in.in = phi i8 [ %8, %_ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %9, %if.end8.sink.split.i.i.i.i ]
-  %tobool.i147.in = and i8 %tobool.i147.in.in, 1
-  %tobool.i147.not = icmp eq i8 %tobool.i147.in, 0
-  br i1 %tobool.i147.not, label %if.end8, label %return
+  %tobool.i147.in = phi i8 [ %8, %_ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %9, %if.end8.sink.split.i.i.i.i ]
+  %tobool.i147 = trunc i8 %tobool.i147.in to i1
+  br i1 %tobool.i147, label %return, label %if.end8
 
 if.end8:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit, %land.end
   %20 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit ], [ true, %land.end ]
@@ -3901,8 +3900,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev30Dynami
 entry:
   %m_localBypass = getelementptr inbounds i8, ptr %this, i64 1200
   %0 = load i8, ptr %m_localBypass, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -11845,9 +11843,9 @@ entry:
   %__args = alloca [1 x %struct.__va_list_tag], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = alloca i8, i64 %__n, align 16
-  call void @llvm.va_start(ptr nonnull %__args)
+  call void @llvm.va_start.p0(ptr nonnull %__args)
   %call = call noundef i32 %__convf(ptr noundef nonnull %0, i64 noundef %__n, ptr noundef %__fmt, ptr noundef nonnull %__args)
-  call void @llvm.va_end(ptr nonnull %__args)
+  call void @llvm.va_end.p0(ptr nonnull %__args)
   %idx.ext = sext i32 %call to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
@@ -11887,12 +11885,6 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
@@ -23335,7 +23327,7 @@ ehcleanup1340:                                    ; preds = %ehcleanup1339, %lpa
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_GradingToneOpGPU.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_GradingToneOpGPU.cpp() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -23355,6 +23347,12 @@ __cxx_global_var_init.exit:                       ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
@@ -23376,8 +23374,8 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }

@@ -1968,13 +1968,13 @@ define dso_local void @_ZN5State5ResetEv(ptr nocapture noundef nonnull readonly 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 dereferenceable(264) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.012.018 = load ptr, ptr %2, align 8
-  %.not19 = icmp eq ptr %.sroa.012.018, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.sroa.012.017 = load ptr, ptr %2, align 8
+  %.not18 = icmp eq ptr %.sroa.012.017, null
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %12
-  %.sroa.012.020 = phi ptr [ %.sroa.012.0, %12 ], [ %.sroa.012.018, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.sroa.012.020, i64 24
+  %.sroa.012.019 = phi ptr [ %.sroa.012.0, %12 ], [ %.sroa.012.017, %1 ]
+  %3 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %6 = getelementptr inbounds i8, ptr %4, i64 48
@@ -1985,9 +1985,8 @@ define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 der
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %4, i64 52
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not17 = icmp eq i8 %11, 0
-  %.str.13..str.14 = select i1 %.not17, ptr @.str.14, ptr @.str.13
+  %11 = trunc i8 %10 to i1
+  %.str.13..str.14 = select i1 %11, ptr @.str.13, ptr @.str.14
   br label %12
 
 12:                                               ; preds = %.lr.ph, %8
@@ -1995,7 +1994,7 @@ define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 der
   %14 = getelementptr inbounds i8, ptr %4, i64 112
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %5, ptr noundef nonnull %13, i32 noundef %15)
-  %.sroa.012.0 = load ptr, ptr %.sroa.012.020, align 8
+  %.sroa.012.0 = load ptr, ptr %.sroa.012.019, align 8
   %.not = icmp eq ptr %.sroa.012.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
@@ -2010,17 +2009,17 @@ define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 der
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 64
-  %.not1521 = icmp eq ptr %22, %23
-  br i1 %.not1521, label %.loopexit, label %.lr.ph24
+  %.not1520 = icmp eq ptr %22, %23
+  br i1 %.not1520, label %.loopexit, label %.lr.ph23
 
-.lr.ph24:                                         ; preds = %20, %_ZNK4Pool4DumpEv.exit
-  %.sroa.07.022 = phi ptr [ %41, %_ZNK4Pool4DumpEv.exit ], [ %22, %20 ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.07.022, i64 64
+.lr.ph23:                                         ; preds = %20, %_ZNK4Pool4DumpEv.exit
+  %.sroa.07.021 = phi ptr [ %41, %_ZNK4Pool4DumpEv.exit ], [ %22, %20 ]
+  %24 = getelementptr inbounds i8, ptr %.sroa.07.021, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   br i1 %26, label %_ZNK4Pool4DumpEv.exit, label %27
 
-27:                                               ; preds = %.lr.ph24
+27:                                               ; preds = %.lr.ph23
   %28 = load ptr, ptr %24, align 8
   %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
   %30 = getelementptr inbounds i8, ptr %28, i64 32
@@ -2044,10 +2043,10 @@ define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 der
   %.not.i = icmp eq ptr %40, %37
   br i1 %.not.i, label %_ZNK4Pool4DumpEv.exit, label %.lr.ph.i, !llvm.loop !9
 
-_ZNK4Pool4DumpEv.exit:                            ; preds = %.lr.ph.i, %27, %.lr.ph24
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.022) #19
+_ZNK4Pool4DumpEv.exit:                            ; preds = %.lr.ph.i, %27, %.lr.ph23
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.021) #19
   %.not15 = icmp eq ptr %41, %23
-  br i1 %.not15, label %.loopexit, label %.lr.ph24, !llvm.loop !30
+  br i1 %.not15, label %.loopexit, label %.lr.ph23, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZNK4Pool4DumpEv.exit, %20, %._crit_edge
   ret void
@@ -3047,9 +3046,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableI11StringPieceSt4pairIKS0_P4
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

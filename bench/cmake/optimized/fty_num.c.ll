@@ -264,13 +264,12 @@ switch.early.test:                                ; preds = %2
 switch.lookup:                                    ; preds = %switch.early.test
   %switch.cast = zext nneg i32 %0 to i47
   %switch.downshift = lshr i47 -26388279066624, %switch.cast
-  %10 = and i47 %switch.downshift, 1
-  %switch.masked = icmp ne i47 %10, 0
+  %switch.masked = trunc i47 %switch.downshift to i1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.early.test, %switch.lookup, %2
-  %11 = phi i1 [ true, %2 ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
-  ret i1 %11
+  %10 = phi i1 [ true, %2 ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

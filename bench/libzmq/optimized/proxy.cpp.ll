@@ -1559,20 +1559,16 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   br i1 %cmp856, label %if.then857, label %if.end997
 
 if.then857:                                       ; preds = %for.end
-  %42 = and i8 %frontend_in.1.lcssa, 1
-  %tobool858.not = icmp eq i8 %42, 0
-  br i1 %tobool858.not, label %if.end895, label %land.lhs.true859
+  %tobool858 = trunc i8 %frontend_in.1.lcssa to i1
+  %tobool860 = trunc i8 %backend_out.1.lcssa to i1
+  %brmerge327 = or i1 %cmp24.not, %tobool860
+  %or.cond333 = select i1 %tobool858, i1 %brmerge327, i1 false
+  br i1 %or.cond333, label %if.then863, label %if.end895
 
-land.lhs.true859:                                 ; preds = %if.then857
-  %43 = and i8 %backend_out.1.lcssa, 1
-  %tobool860.not = icmp ne i8 %43, 0
-  %brmerge327 = or i1 %cmp24.not, %tobool860.not
-  br i1 %brmerge327, label %if.then863, label %if.end895
-
-if.then863:                                       ; preds = %land.lhs.true859
+if.then863:                                       ; preds = %if.then857
   %call864 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %frontend_, ptr noundef %backend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv.i, ptr noundef nonnull align 8 dereferenceable(16) %backend.i), !range !7
   %cmp866 = icmp slt i32 %call864, 0
-  br i1 %cmp866, label %delete.notnull870, label %if.end895.thread
+  br i1 %cmp866, label %delete.notnull870, label %if.end895
 
 delete.notnull870:                                ; preds = %if.then863
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
@@ -1618,26 +1614,17 @@ do.end890:                                        ; preds = %delete.end886, %del
   %call891 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %msg, i32 noundef -1)
   br label %return
 
-if.end895:                                        ; preds = %if.then857, %land.lhs.true859
-  %44 = and i8 %backend_in.1.lcssa, 1
-  %tobool896.not = icmp ne i8 %44, 0
-  %45 = and i8 %frontend_out.1.lcssa, 1
-  %tobool898.not = icmp ne i8 %45, 0
-  %or.cond328.not = select i1 %tobool896.not, i1 %tobool898.not, i1 false
-  br i1 %or.cond328.not, label %if.then899, label %if.else967
+if.end895:                                        ; preds = %if.then857, %if.then863
+  %backend_out.3 = phi i8 [ 0, %if.then863 ], [ %backend_out.1.lcssa, %if.then857 ]
+  %frontend_in.3 = phi i8 [ 0, %if.then863 ], [ %frontend_in.1.lcssa, %if.then857 ]
+  %tobool896 = trunc i8 %backend_in.1.lcssa to i1
+  br i1 %tobool896, label %land.lhs.true897, label %if.end935
 
-if.end895.thread:                                 ; preds = %if.then863
-  %46 = and i8 %backend_in.1.lcssa, 1
-  %tobool896.not412 = icmp ne i8 %46, 0
-  %47 = and i8 %frontend_out.1.lcssa, 1
-  %tobool898.not413 = icmp ne i8 %47, 0
-  %or.cond328.not414 = select i1 %tobool896.not412, i1 %tobool898.not413, i1 false
-  br i1 %or.cond328.not414, label %if.then899, label %if.then939.thread
+land.lhs.true897:                                 ; preds = %if.end895
+  %tobool898 = trunc i8 %frontend_out.1.lcssa to i1
+  br i1 %tobool898, label %if.then899, label %if.end935
 
-if.then899:                                       ; preds = %if.end895.thread, %if.end895
-  %request_processed.0423 = phi i1 [ true, %if.end895.thread ], [ false, %if.end895 ]
-  %frontend_in.3420 = phi i8 [ 0, %if.end895.thread ], [ %frontend_in.1.lcssa, %if.end895 ]
-  %backend_out.3417 = phi i8 [ 0, %if.end895.thread ], [ %backend_out.1.lcssa, %if.end895 ]
+if.then899:                                       ; preds = %land.lhs.true897
   %call904 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %backend_, ptr noundef %frontend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv21.i, ptr noundef nonnull align 8 dereferenceable(16) %stats), !range !7
   %cmp906 = icmp slt i32 %call904, 0
   br i1 %cmp906, label %delete.notnull910, label %if.then939
@@ -1686,60 +1673,61 @@ do.end930:                                        ; preds = %delete.end926, %del
   %call931 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %msg, i32 noundef -1)
   br label %return
 
+if.end935:                                        ; preds = %if.end895, %land.lhs.true897
+  br i1 %or.cond333, label %if.then939.thread, label %if.else967
+
 if.then939:                                       ; preds = %if.then899
   %cmp940.not = icmp eq ptr %poller_wait.0402, %call2
   br i1 %cmp940.not, label %if.end997, label %if.then941
 
-if.then939.thread:                                ; preds = %if.end895.thread
-  %cmp940.not437 = icmp eq ptr %poller_wait.0402, %call2
-  br i1 %cmp940.not437, label %if.end997, label %if.then943
+if.then939.thread:                                ; preds = %if.end935
+  %cmp940.not412 = icmp eq ptr %poller_wait.0402, %call2
+  br i1 %cmp940.not412, label %if.end997, label %if.then943.thread
 
 if.then941:                                       ; preds = %if.then939
-  br i1 %request_processed.0423, label %if.then943, label %if.then955
+  br i1 %or.cond333, label %if.then943, label %if.then955
 
-if.then943:                                       ; preds = %if.then939.thread, %if.then941
-  %or.cond328.not424438459 = phi i1 [ true, %if.then941 ], [ false, %if.then939.thread ]
-  %frontend_in.3419440457 = phi i8 [ %frontend_in.3420, %if.then941 ], [ 0, %if.then939.thread ]
-  %backend_out.3416441455 = phi i8 [ %backend_out.3417, %if.then941 ], [ 0, %if.then939.thread ]
-  %frontend_out.3367442453 = phi i8 [ 0, %if.then941 ], [ %frontend_out.1.lcssa, %if.then939.thread ]
-  %backend_in.3366443451 = phi i8 [ 0, %if.then941 ], [ %backend_in.1.lcssa, %if.then939.thread ]
+if.then943:                                       ; preds = %if.then941
   %cmp944 = icmp eq ptr %poller_wait.0402, %poller_both_blocked.0
-  br i1 %cmp944, label %if.end953, label %if.else946
+  br i1 %cmp944, label %if.then955, label %if.else946
+
+if.then943.thread:                                ; preds = %if.then939.thread
+  %cmp944435 = icmp eq ptr %poller_wait.0402, %poller_both_blocked.0
+  br i1 %cmp944435, label %if.end997, label %if.else946.thread
+
+if.else946.thread:                                ; preds = %if.then943.thread
+  %cmp947442 = icmp eq ptr %poller_wait.0402, %call13
+  %cmp949443 = icmp eq ptr %poller_wait.0402, %poller_frontend_only.0
+  %or.cond329444 = or i1 %cmp947442, %cmp949443
+  %spec.select334445 = select i1 %or.cond329444, ptr %call2, ptr %poller_wait.0402
+  br label %if.end997
 
 if.else946:                                       ; preds = %if.then943
   %cmp947 = icmp eq ptr %poller_wait.0402, %call13
   %cmp949 = icmp eq ptr %poller_wait.0402, %poller_frontend_only.0
-  %or.cond330 = or i1 %cmp947, %cmp949
-  %spec.select334 = select i1 %or.cond330, ptr %call2, ptr %poller_wait.0402
-  br i1 %or.cond328.not424438459, label %if.then955, label %if.end997
+  %or.cond329 = or i1 %cmp947, %cmp949
+  %spec.select334 = select i1 %or.cond329, ptr %call2, ptr %poller_wait.0402
+  br label %if.then955
 
-if.end953:                                        ; preds = %if.then943
-  br i1 %or.cond328.not424438459, label %if.then955, label %if.end997
-
-if.then955:                                       ; preds = %if.then941, %if.else946, %if.end953
-  %poller_wait.1470 = phi ptr [ %poller_send_blocked.0, %if.end953 ], [ %spec.select334, %if.else946 ], [ %poller_wait.0402, %if.then941 ]
-  %backend_in.3366443450469 = phi i8 [ %backend_in.3366443451, %if.end953 ], [ %backend_in.3366443451, %if.else946 ], [ 0, %if.then941 ]
-  %frontend_out.3367442452468 = phi i8 [ %frontend_out.3367442453, %if.end953 ], [ %frontend_out.3367442453, %if.else946 ], [ 0, %if.then941 ]
-  %backend_out.3416441454467 = phi i8 [ %backend_out.3416441455, %if.end953 ], [ %backend_out.3416441455, %if.else946 ], [ %backend_out.3417, %if.then941 ]
-  %frontend_in.3419440456466 = phi i8 [ %frontend_in.3419440457, %if.end953 ], [ %frontend_in.3419440457, %if.else946 ], [ %frontend_in.3420, %if.then941 ]
-  %cmp956 = icmp eq ptr %poller_wait.1470, %poller_both_blocked.0
+if.then955:                                       ; preds = %if.then943, %if.else946, %if.then941
+  %poller_wait.1431 = phi ptr [ %spec.select334, %if.else946 ], [ %poller_wait.0402, %if.then941 ], [ %poller_send_blocked.0, %if.then943 ]
+  %cmp956 = icmp eq ptr %poller_wait.1431, %poller_both_blocked.0
   br i1 %cmp956, label %if.end997, label %if.else958
 
 if.else958:                                       ; preds = %if.then955
-  %cmp959 = icmp eq ptr %poller_wait.1470, %poller_send_blocked.0
-  %cmp961 = icmp eq ptr %poller_wait.1470, %poller_backend_only.0
-  %or.cond331 = or i1 %cmp959, %cmp961
-  %spec.select335 = select i1 %or.cond331, ptr %call2, ptr %poller_wait.1470
+  %cmp959 = icmp eq ptr %poller_wait.1431, %poller_send_blocked.0
+  %cmp961 = icmp eq ptr %poller_wait.1431, %poller_backend_only.0
+  %or.cond330 = or i1 %cmp959, %cmp961
+  %spec.select335 = select i1 %or.cond330, ptr %call2, ptr %poller_wait.1431
   br label %if.end997
 
-if.else967:                                       ; preds = %if.end895
-  %48 = and i8 %frontend_in.1.lcssa, 1
-  %tobool968.not = icmp eq i8 %48, 0
-  br i1 %tobool968.not, label %if.end981, label %if.then969
+if.else967:                                       ; preds = %if.end935
+  %tobool968 = trunc i8 %frontend_in.3 to i1
+  br i1 %tobool968, label %if.then969, label %if.end981
 
 if.then969:                                       ; preds = %if.else967
-  %tobool970.not = icmp eq i8 %45, 0
-  br i1 %tobool970.not, label %if.else972, label %if.end981
+  %tobool970 = trunc i8 %frontend_out.1.lcssa to i1
+  br i1 %tobool970, label %if.end981, label %if.else972
 
 if.else972:                                       ; preds = %if.then969
   %cmp973 = icmp eq ptr %poller_wait.0402, %poller_send_blocked.0
@@ -1747,18 +1735,16 @@ if.else972:                                       ; preds = %if.then969
 
 if.else975:                                       ; preds = %if.else972
   %cmp976 = icmp eq ptr %poller_wait.0402, %call2
-  %spec.select332 = select i1 %cmp976, ptr %call13, ptr %poller_wait.0402
+  %spec.select331 = select i1 %cmp976, ptr %call13, ptr %poller_wait.0402
   br label %if.end981
 
 if.end981:                                        ; preds = %if.else975, %if.else972, %if.then969, %if.else967
-  %poller_wait.2 = phi ptr [ %poller_wait.0402, %if.else967 ], [ %poller_backend_only.0, %if.then969 ], [ %poller_both_blocked.0, %if.else972 ], [ %spec.select332, %if.else975 ]
-  %tobool982.not = icmp eq i8 %44, 0
-  br i1 %tobool982.not, label %if.end997, label %if.then983
+  %poller_wait.2 = phi ptr [ %poller_wait.0402, %if.else967 ], [ %poller_backend_only.0, %if.then969 ], [ %poller_both_blocked.0, %if.else972 ], [ %spec.select331, %if.else975 ]
+  br i1 %tobool896, label %if.then983, label %if.end997
 
 if.then983:                                       ; preds = %if.end981
-  %49 = and i8 %backend_out.1.lcssa, 1
-  %tobool984.not = icmp eq i8 %49, 0
-  br i1 %tobool984.not, label %if.else986, label %if.end997
+  %tobool984 = trunc i8 %backend_out.3 to i1
+  br i1 %tobool984, label %if.end997, label %if.else986
 
 if.else986:                                       ; preds = %if.then983
   %cmp987 = icmp eq ptr %poller_wait.2, %call13
@@ -1766,15 +1752,15 @@ if.else986:                                       ; preds = %if.then983
 
 if.else989:                                       ; preds = %if.else986
   %cmp990 = icmp eq ptr %poller_wait.2, %call2
-  %spec.select333 = select i1 %cmp990, ptr %poller_send_blocked.0, ptr %poller_wait.2
+  %spec.select332 = select i1 %cmp990, ptr %poller_send_blocked.0, ptr %poller_wait.2
   br label %if.end997
 
-if.end997:                                        ; preds = %if.else946, %if.then939.thread, %if.else958, %if.else989, %if.else986, %if.then983, %if.then955, %if.end953, %if.then939, %if.end981, %for.end
-  %backend_out.4 = phi i8 [ %backend_out.3416441455, %if.end953 ], [ %backend_out.3417, %if.then939 ], [ %backend_out.1.lcssa, %if.end981 ], [ %backend_out.1.lcssa, %for.end ], [ %backend_out.3416441454467, %if.then955 ], [ %backend_out.1.lcssa, %if.then983 ], [ %backend_out.1.lcssa, %if.else986 ], [ %backend_out.1.lcssa, %if.else989 ], [ %backend_out.3416441454467, %if.else958 ], [ 0, %if.then939.thread ], [ %backend_out.3416441455, %if.else946 ]
-  %backend_in.4 = phi i8 [ %backend_in.3366443451, %if.end953 ], [ 0, %if.then939 ], [ %backend_in.1.lcssa, %if.end981 ], [ %backend_in.1.lcssa, %for.end ], [ %backend_in.3366443450469, %if.then955 ], [ %backend_in.1.lcssa, %if.then983 ], [ %backend_in.1.lcssa, %if.else986 ], [ %backend_in.1.lcssa, %if.else989 ], [ %backend_in.3366443450469, %if.else958 ], [ %backend_in.1.lcssa, %if.then939.thread ], [ %backend_in.3366443451, %if.else946 ]
-  %frontend_out.4 = phi i8 [ %frontend_out.3367442453, %if.end953 ], [ 0, %if.then939 ], [ %frontend_out.1.lcssa, %if.end981 ], [ %frontend_out.1.lcssa, %for.end ], [ %frontend_out.3367442452468, %if.then955 ], [ %frontend_out.1.lcssa, %if.then983 ], [ %frontend_out.1.lcssa, %if.else986 ], [ %frontend_out.1.lcssa, %if.else989 ], [ %frontend_out.3367442452468, %if.else958 ], [ %frontend_out.1.lcssa, %if.then939.thread ], [ %frontend_out.3367442453, %if.else946 ]
-  %frontend_in.4 = phi i8 [ %frontend_in.3419440457, %if.end953 ], [ %frontend_in.3420, %if.then939 ], [ %frontend_in.1.lcssa, %if.end981 ], [ %frontend_in.1.lcssa, %for.end ], [ %frontend_in.3419440456466, %if.then955 ], [ %frontend_in.1.lcssa, %if.then983 ], [ %frontend_in.1.lcssa, %if.else986 ], [ %frontend_in.1.lcssa, %if.else989 ], [ %frontend_in.3419440456466, %if.else958 ], [ 0, %if.then939.thread ], [ %frontend_in.3419440457, %if.else946 ]
-  %poller_wait.3 = phi ptr [ %poller_send_blocked.0, %if.end953 ], [ %call2, %if.then939 ], [ %poller_wait.2, %if.end981 ], [ %poller_wait.0402, %for.end ], [ %call13, %if.then955 ], [ %poller_frontend_only.0, %if.then983 ], [ %poller_both_blocked.0, %if.else986 ], [ %spec.select333, %if.else989 ], [ %spec.select335, %if.else958 ], [ %call2, %if.then939.thread ], [ %spec.select334, %if.else946 ]
+if.end997:                                        ; preds = %if.then943.thread, %if.else946.thread, %if.then939.thread, %if.else958, %if.else989, %if.else986, %if.then983, %if.then955, %if.then939, %if.end981, %for.end
+  %backend_out.4 = phi i8 [ %backend_out.3, %if.then939 ], [ %backend_out.3, %if.end981 ], [ %backend_out.1.lcssa, %for.end ], [ %backend_out.3, %if.then955 ], [ %backend_out.3, %if.then983 ], [ %backend_out.3, %if.else986 ], [ %backend_out.3, %if.else989 ], [ %backend_out.3, %if.else958 ], [ %backend_out.3, %if.then939.thread ], [ %backend_out.3, %if.else946.thread ], [ %backend_out.3, %if.then943.thread ]
+  %backend_in.4 = phi i8 [ 0, %if.then939 ], [ %backend_in.1.lcssa, %if.end981 ], [ %backend_in.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %backend_in.1.lcssa, %if.then983 ], [ %backend_in.1.lcssa, %if.else986 ], [ %backend_in.1.lcssa, %if.else989 ], [ 0, %if.else958 ], [ %backend_in.1.lcssa, %if.then939.thread ], [ %backend_in.1.lcssa, %if.else946.thread ], [ %backend_in.1.lcssa, %if.then943.thread ]
+  %frontend_out.4 = phi i8 [ 0, %if.then939 ], [ %frontend_out.1.lcssa, %if.end981 ], [ %frontend_out.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %frontend_out.1.lcssa, %if.then983 ], [ %frontend_out.1.lcssa, %if.else986 ], [ %frontend_out.1.lcssa, %if.else989 ], [ 0, %if.else958 ], [ %frontend_out.1.lcssa, %if.then939.thread ], [ %frontend_out.1.lcssa, %if.else946.thread ], [ %frontend_out.1.lcssa, %if.then943.thread ]
+  %frontend_in.4 = phi i8 [ %frontend_in.3, %if.then939 ], [ %frontend_in.3, %if.end981 ], [ %frontend_in.1.lcssa, %for.end ], [ %frontend_in.3, %if.then955 ], [ %frontend_in.3, %if.then983 ], [ %frontend_in.3, %if.else986 ], [ %frontend_in.3, %if.else989 ], [ %frontend_in.3, %if.else958 ], [ %frontend_in.3, %if.then939.thread ], [ %frontend_in.3, %if.else946.thread ], [ %frontend_in.3, %if.then943.thread ]
+  %poller_wait.3 = phi ptr [ %call2, %if.then939 ], [ %poller_wait.2, %if.end981 ], [ %poller_wait.0402, %for.end ], [ %call13, %if.then955 ], [ %poller_frontend_only.0, %if.then983 ], [ %poller_both_blocked.0, %if.else986 ], [ %spec.select332, %if.else989 ], [ %spec.select335, %if.else958 ], [ %call2, %if.then939.thread ], [ %spec.select334445, %if.else946.thread ], [ %poller_send_blocked.0, %if.then943.thread ]
   %cmp707.not = icmp eq i32 %state.1.lcssa, 2
   br i1 %cmp707.not, label %delete.notnull1000, label %while.body, !llvm.loop !8
 

@@ -52,9 +52,8 @@ define dso_local void @pgstat_init_function_usage(ptr nocapture noundef readonly
   %14 = load i32, ptr %13, align 8
   %15 = call ptr @pgstat_prep_pending_entry(i32 noundef 3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %4) #6
   %16 = load i8, ptr %4, align 1
-  %17 = and i8 %16, 1
-  %.not12 = icmp eq i8 %17, 0
-  br i1 %.not12, label %33, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %33
 
 18:                                               ; preds = %11
   call void @AcceptInvalidationMessages() #6

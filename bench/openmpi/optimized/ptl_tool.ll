@@ -56,14 +56,13 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
 
 6:                                                ; preds = %2
   %7 = load i8, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 17), align 8
-  %8 = and i8 %7, 1
-  %.not10 = icmp eq i8 %8, 0
-  br i1 %.not10, label %24, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %24
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 17), align 8
-  %.not11 = icmp eq ptr %10, null
-  br i1 %.not11, label %13, label %11
+  %.not10 = icmp eq ptr %10, null
+  br i1 %.not10, label %13, label %11
 
 11:                                               ; preds = %9
   %12 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef nonnull %10) #3
@@ -71,8 +70,8 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
 
 13:                                               ; preds = %11, %9
   %14 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 16), align 8
-  %.not12 = icmp eq ptr %14, null
-  br i1 %.not12, label %17, label %15
+  %.not11 = icmp eq ptr %14, null
+  br i1 %.not11, label %17, label %15
 
 15:                                               ; preds = %13
   %16 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef nonnull %14) #3
@@ -80,8 +79,8 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr %3, align 8
-  %.not13 = icmp eq ptr %18, null
-  br i1 %.not13, label %24, label %19
+  %.not12 = icmp eq ptr %18, null
+  br i1 %.not12, label %24, label %19
 
 19:                                               ; preds = %17
   %20 = call ptr @PMIx_Argv_join(ptr noundef nonnull %18, i32 noundef 44) #3

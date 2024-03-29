@@ -430,129 +430,128 @@ Min_LitIsNode.exit:                               ; preds = %8
   %20 = load i32, ptr %19, align 4
   %21 = tail call signext i8 @Min_LitVerify_rec(ptr noundef nonnull %0, i32 noundef %16), !range !10
   %22 = tail call signext i8 @Min_LitVerify_rec(ptr noundef nonnull %0, i32 noundef %20), !range !10
-  %23 = icmp sgt i32 %16, %20
-  %24 = and i32 %1, 1
-  %25 = icmp eq i32 %24, 0
-  %.not31 = xor i1 %25, %23
-  br i1 %.not31, label %29, label %26
+  %23 = trunc i32 %1 to i1
+  %24 = icmp sle i32 %16, %20
+  %.not31 = xor i1 %24, %23
+  br i1 %.not31, label %28, label %25
 
-26:                                               ; preds = %13
-  %27 = or i8 %22, %21
-  %or.cond.i = icmp ult i8 %27, 2
-  %28 = xor i8 %22, %21
+25:                                               ; preds = %13
+  %26 = or i8 %22, %21
+  %or.cond.i = icmp ult i8 %26, 2
+  %27 = xor i8 %22, %21
   br i1 %or.cond.i, label %select.unfold, label %.thread41
 
-29:                                               ; preds = %13
-  %30 = icmp eq i8 %21, 0
-  %31 = icmp eq i8 %22, 0
-  %or.cond.i35 = or i1 %30, %31
-  %32 = icmp eq i8 %21, 1
-  %33 = icmp eq i8 %22, 1
-  %or.cond5.i = and i1 %32, %33
+28:                                               ; preds = %13
+  %29 = icmp eq i8 %21, 0
+  %30 = icmp eq i8 %22, 0
+  %or.cond.i35 = or i1 %29, %30
+  %31 = icmp eq i8 %21, 1
+  %32 = icmp eq i8 %22, 1
+  %or.cond5.i = and i1 %31, %32
   %..i = select i1 %or.cond5.i, i8 1, i8 2
   br i1 %or.cond.i35, label %.thread, label %select.unfold
 
-select.unfold:                                    ; preds = %26, %29
-  %.0 = phi i8 [ %..i, %29 ], [ %28, %26 ]
-  %34 = icmp ult i8 %.0, 2
-  br i1 %34, label %.thread, label %.thread41
+select.unfold:                                    ; preds = %25, %28
+  %.0 = phi i8 [ %..i, %28 ], [ %27, %25 ]
+  %33 = icmp ult i8 %.0, 2
+  br i1 %33, label %.thread, label %.thread41
 
-.thread:                                          ; preds = %29, %select.unfold
-  %.040 = phi i8 [ %.0, %select.unfold ], [ 0, %29 ]
-  %35 = trunc i32 %1 to i8
-  %36 = and i8 %35, 1
-  %37 = xor i8 %.040, %36
-  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %37)
+.thread:                                          ; preds = %28, %select.unfold
+  %.040 = phi i8 [ %.0, %select.unfold ], [ 0, %28 ]
+  %34 = trunc i32 %1 to i8
+  %35 = and i8 %34, 1
+  %36 = xor i8 %.040, %35
+  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %36)
   %.pre = ashr i32 %1, 1
-  br label %71
+  br label %70
 
-.thread41:                                        ; preds = %26, %select.unfold
-  %.043 = phi i8 [ %.0, %select.unfold ], [ 2, %26 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = ashr i32 %1, 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 68
-  %41 = load i32, ptr %40, align 4
-  %42 = load i32, ptr %38, align 8
-  %43 = icmp eq i32 %41, %42
-  br i1 %43, label %44, label %.Vec_IntGrow.exit10_crit_edge.i
+.thread41:                                        ; preds = %25, %select.unfold
+  %.043 = phi i8 [ %.0, %select.unfold ], [ 2, %25 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %38 = ashr i32 %1, 1
+  %39 = getelementptr inbounds i8, ptr %0, i64 68
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr %37, align 8
+  %42 = icmp eq i32 %40, %41
+  br i1 %42, label %43, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %.thread41
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 72
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-44:                                               ; preds = %.thread41
-  %45 = icmp slt i32 %41, 16
-  br i1 %45, label %46, label %54
+43:                                               ; preds = %.thread41
+  %44 = icmp slt i32 %40, 16
+  br i1 %44, label %45, label %53
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
-  %48 = load ptr, ptr %47, align 8
-  %.not9.i.i = icmp eq ptr %48, null
-  br i1 %.not9.i.i, label %51, label %49
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = load ptr, ptr %46, align 8
+  %.not9.i.i = icmp eq ptr %47, null
+  br i1 %.not9.i.i, label %50, label %48
 
-49:                                               ; preds = %46
-  %50 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %48, i64 noundef 64) #27
+48:                                               ; preds = %45
+  %49 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %47, i64 noundef 64) #27
   br label %Vec_IntGrow.exit.i
 
-51:                                               ; preds = %46
-  %52 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
+50:                                               ; preds = %45
+  %51 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %51, %49
-  %53 = phi ptr [ %50, %49 ], [ %52, %51 ]
-  store ptr %53, ptr %47, align 8
-  store i32 16, ptr %38, align 8
+Vec_IntGrow.exit.i:                               ; preds = %50, %48
+  %52 = phi ptr [ %49, %48 ], [ %51, %50 ]
+  store ptr %52, ptr %46, align 8
+  store i32 16, ptr %37, align 8
   br label %Vec_IntPush.exit
 
-54:                                               ; preds = %44
-  %55 = shl nuw nsw i32 %41, 1
-  %56 = getelementptr inbounds i8, ptr %0, i64 72
-  %57 = load ptr, ptr %56, align 8
-  %.not9.i9.i = icmp eq ptr %57, null
-  %58 = zext nneg i32 %55 to i64
-  %59 = shl nuw nsw i64 %58, 2
-  br i1 %.not9.i9.i, label %62, label %60
+53:                                               ; preds = %43
+  %54 = shl nuw nsw i32 %40, 1
+  %55 = getelementptr inbounds i8, ptr %0, i64 72
+  %56 = load ptr, ptr %55, align 8
+  %.not9.i9.i = icmp eq ptr %56, null
+  %57 = zext nneg i32 %54 to i64
+  %58 = shl nuw nsw i64 %57, 2
+  br i1 %.not9.i9.i, label %61, label %59
 
-60:                                               ; preds = %54
-  %61 = tail call ptr @realloc(ptr noundef nonnull %57, i64 noundef %59) #27
-  br label %64
+59:                                               ; preds = %53
+  %60 = tail call ptr @realloc(ptr noundef nonnull %56, i64 noundef %58) #27
+  br label %63
 
-62:                                               ; preds = %54
-  %63 = tail call noalias ptr @malloc(i64 noundef %59) #25
-  br label %64
+61:                                               ; preds = %53
+  %62 = tail call noalias ptr @malloc(i64 noundef %58) #25
+  br label %63
 
-64:                                               ; preds = %62, %60
-  %65 = phi ptr [ %61, %60 ], [ %63, %62 ]
-  store ptr %65, ptr %56, align 8
-  store i32 %55, ptr %38, align 8
+63:                                               ; preds = %61, %59
+  %64 = phi ptr [ %60, %59 ], [ %62, %61 ]
+  store ptr %64, ptr %55, align 8
+  store i32 %54, ptr %37, align 8
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %64
-  %66 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %65, %64 ], [ %53, %Vec_IntGrow.exit.i ]
-  %67 = load i32, ptr %40, align 4
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %40, align 4
-  %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i32, ptr %66, i64 %69
-  store i32 %39, ptr %70, align 4
-  br label %71
+Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %63
+  %65 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %64, %63 ], [ %52, %Vec_IntGrow.exit.i ]
+  %66 = load i32, ptr %39, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %39, align 4
+  %68 = sext i32 %66 to i64
+  %69 = getelementptr inbounds i32, ptr %65, i64 %68
+  store i32 %38, ptr %69, align 4
+  br label %70
 
-71:                                               ; preds = %Vec_IntPush.exit, %.thread
-  %.pre-phi = phi i32 [ %39, %Vec_IntPush.exit ], [ %.pre, %.thread ]
-  %.1 = phi i8 [ %.043, %Vec_IntPush.exit ], [ %37, %.thread ]
+70:                                               ; preds = %Vec_IntPush.exit, %.thread
+  %.pre-phi = phi i32 [ %38, %Vec_IntPush.exit ], [ %.pre, %.thread ]
+  %.1 = phi i8 [ %.043, %Vec_IntPush.exit ], [ %36, %.thread ]
   %.val34 = load ptr, ptr %3, align 8
-  %72 = sext i32 %.pre-phi to i64
-  %73 = getelementptr inbounds i16, ptr %.val34, i64 %72
-  %74 = load i16, ptr %73, align 2
-  %75 = or i16 %74, 2056
-  store i16 %75, ptr %73, align 2
+  %71 = sext i32 %.pre-phi to i64
+  %72 = getelementptr inbounds i16, ptr %.val34, i64 %71
+  %73 = load i16, ptr %72, align 2
+  %74 = or i16 %73, 2056
+  store i16 %74, ptr %72, align 2
   br label %Min_LitIsNode.exit.thread
 
-Min_LitIsNode.exit.thread:                        ; preds = %8, %71, %Min_LitIsNode.exit, %2
-  %.2 = phi i8 [ %.1, %71 ], [ 2, %Min_LitIsNode.exit ], [ %6, %2 ], [ 2, %8 ]
-  %76 = and i8 %.2, 3
-  ret i8 %76
+Min_LitIsNode.exit.thread:                        ; preds = %8, %70, %Min_LitIsNode.exit, %2
+  %.2 = phi i8 [ %.1, %70 ], [ 2, %Min_LitIsNode.exit ], [ %6, %2 ], [ 2, %8 ]
+  %75 = and i8 %.2, 3
+  ret i8 %75
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
@@ -1060,44 +1059,43 @@ Min_LitIsNode.exit59:                             ; preds = %32
 Min_LitIsNode.exit59.thread:                      ; preds = %32, %37, %Min_LitIsNode.exit59, %Min_LitIsNode.exit.thread
   %.145 = phi i8 [ %41, %37 ], [ %.044, %Min_LitIsNode.exit59 ], [ %.044, %Min_LitIsNode.exit.thread ], [ %.044, %32 ]
   %.1 = phi i8 [ %39, %37 ], [ 2, %Min_LitIsNode.exit59 ], [ %.0, %Min_LitIsNode.exit.thread ], [ 2, %32 ]
-  %42 = icmp sgt i32 %7, %11
-  %43 = and i32 %1, 1
-  %44 = icmp eq i32 %43, 0
-  %.not52 = xor i1 %44, %42
-  br i1 %.not52, label %49, label %45
+  %42 = trunc i32 %1 to i1
+  %43 = icmp sle i32 %7, %11
+  %.not52 = xor i1 %43, %42
+  br i1 %.not52, label %48, label %44
 
-45:                                               ; preds = %Min_LitIsNode.exit59.thread
-  %46 = icmp slt i8 %.145, 2
-  %47 = icmp slt i8 %.1, 2
-  %or.cond.i = and i1 %46, %47
-  %48 = xor i8 %.1, %.145
+44:                                               ; preds = %Min_LitIsNode.exit59.thread
+  %45 = icmp slt i8 %.145, 2
+  %46 = icmp slt i8 %.1, 2
+  %or.cond.i = and i1 %45, %46
+  %47 = xor i8 %.1, %.145
   br i1 %or.cond.i, label %select.unfold, label %.thread67
 
-49:                                               ; preds = %Min_LitIsNode.exit59.thread
-  %50 = icmp eq i8 %.145, 0
-  %51 = icmp eq i8 %.1, 0
-  %or.cond.i60 = or i1 %50, %51
-  %52 = icmp eq i8 %.145, 1
-  %53 = icmp eq i8 %.1, 1
-  %or.cond5.i = and i1 %52, %53
+48:                                               ; preds = %Min_LitIsNode.exit59.thread
+  %49 = icmp eq i8 %.145, 0
+  %50 = icmp eq i8 %.1, 0
+  %or.cond.i60 = or i1 %49, %50
+  %51 = icmp eq i8 %.145, 1
+  %52 = icmp eq i8 %.1, 1
+  %or.cond5.i = and i1 %51, %52
   %..i = select i1 %or.cond5.i, i8 1, i8 2
   br i1 %or.cond.i60, label %.thread, label %select.unfold
 
-select.unfold:                                    ; preds = %45, %49
-  %.046 = phi i8 [ %..i, %49 ], [ %48, %45 ]
-  %54 = icmp slt i8 %.046, 2
-  br i1 %54, label %.thread, label %.thread67
+select.unfold:                                    ; preds = %44, %48
+  %.046 = phi i8 [ %..i, %48 ], [ %47, %44 ]
+  %53 = icmp slt i8 %.046, 2
+  br i1 %53, label %.thread, label %.thread67
 
-.thread:                                          ; preds = %49, %select.unfold
-  %.04666 = phi i8 [ %.046, %select.unfold ], [ 0, %49 ]
-  %55 = trunc i32 %1 to i8
-  %56 = and i8 %55, 1
-  %57 = xor i8 %.04666, %56
-  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %57)
+.thread:                                          ; preds = %48, %select.unfold
+  %.04666 = phi i8 [ %.046, %select.unfold ], [ 0, %48 ]
+  %54 = trunc i32 %1 to i8
+  %55 = and i8 %54, 1
+  %56 = xor i8 %.04666, %55
+  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %56)
   br label %.thread67
 
-.thread67:                                        ; preds = %45, %.thread, %select.unfold
-  %.147 = phi i8 [ %57, %.thread ], [ %.046, %select.unfold ], [ 2, %45 ]
+.thread67:                                        ; preds = %44, %.thread, %select.unfold
+  %.147 = phi i8 [ %56, %.thread ], [ %.046, %select.unfold ], [ 2, %44 ]
   ret i8 %.147
 }
 
@@ -1215,208 +1213,209 @@ Min_LitIsCi.exit.thread:                          ; preds = %14, %Min_LitIsCi.ex
   %61 = sext i32 %57 to i64
   %62 = getelementptr inbounds i8, ptr %.val133, i64 %61
   %63 = load i8, ptr %62, align 1
-  %64 = icmp sgt i32 %53, %57
-  %.not120 = xor i1 %.not128, %64
-  br i1 %.not120, label %98, label %65
+  %64 = trunc i32 %1 to i1
+  %65 = icmp sle i32 %53, %57
+  %.not120 = xor i1 %65, %64
+  br i1 %.not120, label %99, label %66
 
-65:                                               ; preds = %Min_LitIsCi.exit.thread
-  %66 = sext i8 %60 to i32
-  %67 = icmp slt i8 %60, 2
-  %68 = sext i8 %63 to i32
-  %69 = icmp slt i8 %63, 2
-  %or.cond = select i1 %67, i1 %69, i1 false
-  br i1 %or.cond, label %70, label %74
+66:                                               ; preds = %Min_LitIsCi.exit.thread
+  %67 = sext i8 %60 to i32
+  %68 = icmp slt i8 %60, 2
+  %69 = sext i8 %63 to i32
+  %70 = icmp slt i8 %63, 2
+  %or.cond = select i1 %68, i1 %70, i1 false
+  br i1 %or.cond, label %71, label %75
 
-70:                                               ; preds = %65
-  %71 = xor i32 %68, %66
-  %72 = icmp eq i32 %4, %71
-  %73 = zext i1 %72 to i32
-  br label %156
+71:                                               ; preds = %66
+  %72 = xor i32 %69, %67
+  %73 = icmp eq i32 %4, %72
+  %74 = zext i1 %73 to i32
+  br label %157
 
-74:                                               ; preds = %65
-  br i1 %67, label %75, label %79
+75:                                               ; preds = %66
+  br i1 %68, label %76, label %80
 
-75:                                               ; preds = %74
-  %76 = xor i32 %57, %3
-  %77 = xor i32 %76, %66
-  %78 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %77), !range !15
-  br label %156
+76:                                               ; preds = %75
+  %77 = xor i32 %57, %3
+  %78 = xor i32 %77, %67
+  %79 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %78), !range !15
+  br label %157
 
-79:                                               ; preds = %74
-  br i1 %69, label %80, label %84
+80:                                               ; preds = %75
+  br i1 %70, label %81, label %85
 
-80:                                               ; preds = %79
-  %81 = xor i32 %53, %3
-  %82 = xor i32 %81, %68
-  %83 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %82), !range !15
-  br label %156
+81:                                               ; preds = %80
+  %82 = xor i32 %53, %3
+  %83 = xor i32 %82, %69
+  %84 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %83), !range !15
+  br label %157
 
-84:                                               ; preds = %79
-  %85 = tail call i32 @Abc_Random(i32 noundef 0) #26
-  %86 = and i32 %85, 1
-  %.not125 = icmp eq i32 %86, 0
-  br i1 %.not125, label %92, label %87
+85:                                               ; preds = %80
+  %86 = tail call i32 @Abc_Random(i32 noundef 0) #26
+  %87 = and i32 %86, 1
+  %.not125 = icmp eq i32 %87, 0
+  br i1 %.not125, label %93, label %88
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %53), !range !15
-  %.not127 = icmp eq i32 %88, 0
-  br i1 %.not127, label %.thread, label %89
+88:                                               ; preds = %85
+  %89 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %53), !range !15
+  %.not127 = icmp eq i32 %89, 0
+  br i1 %.not127, label %.thread, label %90
 
-89:                                               ; preds = %87
-  %90 = xor i32 %57, %4
-  %91 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %90), !range !15
-  br label %156
+90:                                               ; preds = %88
+  %91 = xor i32 %57, %4
+  %92 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %91), !range !15
+  br label %157
 
-92:                                               ; preds = %84
-  %93 = xor i32 %53, 1
-  %94 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %93), !range !15
-  %.not126 = icmp eq i32 %94, 0
-  br i1 %.not126, label %.thread, label %95
+93:                                               ; preds = %85
+  %94 = xor i32 %53, 1
+  %95 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %94), !range !15
+  %.not126 = icmp eq i32 %95, 0
+  br i1 %.not126, label %.thread, label %96
 
-95:                                               ; preds = %92
-  %96 = xor i32 %57, %3
-  %97 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %96), !range !15
-  br label %156
+96:                                               ; preds = %93
+  %97 = xor i32 %57, %3
+  %98 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %97), !range !15
+  br label %157
 
-98:                                               ; preds = %Min_LitIsCi.exit.thread
-  br i1 %.not128, label %99, label %113
+99:                                               ; preds = %Min_LitIsCi.exit.thread
+  br i1 %.not128, label %100, label %114
 
-99:                                               ; preds = %98
-  %100 = icmp eq i8 %60, 0
-  %101 = icmp eq i8 %63, 0
-  %or.cond5 = select i1 %100, i1 true, i1 %101
-  br i1 %or.cond5, label %.thread, label %102
+100:                                              ; preds = %99
+  %101 = icmp eq i8 %60, 0
+  %102 = icmp eq i8 %63, 0
+  %or.cond5 = select i1 %101, i1 true, i1 %102
+  br i1 %or.cond5, label %.thread, label %103
 
-102:                                              ; preds = %99
-  %103 = icmp eq i8 %60, 1
-  %104 = icmp eq i8 %63, 1
-  %or.cond8 = select i1 %103, i1 %104, i1 false
-  br i1 %or.cond8, label %.thread144, label %105
+103:                                              ; preds = %100
+  %104 = icmp eq i8 %60, 1
+  %105 = icmp eq i8 %63, 1
+  %or.cond8 = select i1 %104, i1 %105, i1 false
+  br i1 %or.cond8, label %.thread144, label %106
 
-105:                                              ; preds = %102
-  br i1 %103, label %106, label %108
+106:                                              ; preds = %103
+  br i1 %104, label %107, label %109
 
-106:                                              ; preds = %105
-  %107 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %57), !range !15
-  br label %156
+107:                                              ; preds = %106
+  %108 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %57), !range !15
+  br label %157
 
-108:                                              ; preds = %105
-  %109 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %53), !range !15
-  br i1 %104, label %156, label %110
+109:                                              ; preds = %106
+  %110 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %53), !range !15
+  br i1 %105, label %157, label %111
 
-110:                                              ; preds = %108
-  %.not124 = icmp eq i32 %109, 0
-  br i1 %.not124, label %.thread, label %111
+111:                                              ; preds = %109
+  %.not124 = icmp eq i32 %110, 0
+  br i1 %.not124, label %.thread, label %112
 
-111:                                              ; preds = %110
-  %112 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %57), !range !15
-  br label %156
+112:                                              ; preds = %111
+  %113 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %57), !range !15
+  br label %157
 
-113:                                              ; preds = %98
-  %114 = icmp eq i8 %60, 2
-  br i1 %114, label %115, label %Min_LitIsNode.exit.thread
+114:                                              ; preds = %99
+  %115 = icmp eq i8 %60, 2
+  br i1 %115, label %116, label %Min_LitIsNode.exit.thread
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  %117 = load i32, ptr %116, align 8
-  %.not.i = icmp sgt i32 %117, %53
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds i8, ptr %0, i64 8
+  %118 = load i32, ptr %117, align 8
+  %.not.i = icmp sgt i32 %118, %53
   br i1 %.not.i, label %Min_LitIsNode.exit.thread, label %Min_LitIsNode.exit
 
-Min_LitIsNode.exit:                               ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %0, i64 12
-  %119 = load i32, ptr %118, align 4
-  %.not148 = icmp sgt i32 %119, %53
-  br i1 %.not148, label %120, label %Min_LitIsNode.exit.thread
+Min_LitIsNode.exit:                               ; preds = %116
+  %119 = getelementptr inbounds i8, ptr %0, i64 12
+  %120 = load i32, ptr %119, align 4
+  %.not148 = icmp sgt i32 %120, %53
+  br i1 %.not148, label %121, label %Min_LitIsNode.exit.thread
 
-120:                                              ; preds = %Min_LitIsNode.exit
-  %121 = tail call fastcc signext i8 @Min_LitIsImplied3(ptr noundef nonnull %0, i32 noundef %53)
+121:                                              ; preds = %Min_LitIsNode.exit
+  %122 = tail call fastcc signext i8 @Min_LitIsImplied3(ptr noundef nonnull %0, i32 noundef %53)
   %.val130 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds i8, ptr %.val130, i64 %61
-  %123 = load i8, ptr %122, align 1
+  %123 = getelementptr inbounds i8, ptr %.val130, i64 %61
+  %124 = load i8, ptr %123, align 1
   br label %Min_LitIsNode.exit.thread
 
-Min_LitIsNode.exit.thread:                        ; preds = %115, %120, %Min_LitIsNode.exit, %113
-  %.0107 = phi i8 [ %121, %120 ], [ 2, %Min_LitIsNode.exit ], [ %60, %113 ], [ 2, %115 ]
-  %.0 = phi i8 [ %123, %120 ], [ %63, %Min_LitIsNode.exit ], [ %63, %113 ], [ %63, %115 ]
-  %124 = icmp eq i8 %.0, 2
-  br i1 %124, label %125, label %Min_LitIsNode.exit137.thread
+Min_LitIsNode.exit.thread:                        ; preds = %116, %121, %Min_LitIsNode.exit, %114
+  %.0107 = phi i8 [ %122, %121 ], [ 2, %Min_LitIsNode.exit ], [ %60, %114 ], [ 2, %116 ]
+  %.0 = phi i8 [ %124, %121 ], [ %63, %Min_LitIsNode.exit ], [ %63, %114 ], [ %63, %116 ]
+  %125 = icmp eq i8 %.0, 2
+  br i1 %125, label %126, label %Min_LitIsNode.exit137.thread
 
-125:                                              ; preds = %Min_LitIsNode.exit.thread
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
-  %127 = load i32, ptr %126, align 8
-  %.not.i136 = icmp sgt i32 %127, %57
+126:                                              ; preds = %Min_LitIsNode.exit.thread
+  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  %128 = load i32, ptr %127, align 8
+  %.not.i136 = icmp sgt i32 %128, %57
   br i1 %.not.i136, label %Min_LitIsNode.exit137.thread, label %Min_LitIsNode.exit137
 
-Min_LitIsNode.exit137:                            ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %0, i64 12
-  %129 = load i32, ptr %128, align 4
-  %.not149 = icmp sgt i32 %129, %57
-  br i1 %.not149, label %130, label %Min_LitIsNode.exit137.thread
+Min_LitIsNode.exit137:                            ; preds = %126
+  %129 = getelementptr inbounds i8, ptr %0, i64 12
+  %130 = load i32, ptr %129, align 4
+  %.not149 = icmp sgt i32 %130, %57
+  br i1 %.not149, label %131, label %Min_LitIsNode.exit137.thread
 
-130:                                              ; preds = %Min_LitIsNode.exit137
-  %131 = tail call fastcc signext i8 @Min_LitIsImplied3(ptr noundef nonnull %0, i32 noundef %57)
+131:                                              ; preds = %Min_LitIsNode.exit137
+  %132 = tail call fastcc signext i8 @Min_LitIsImplied3(ptr noundef nonnull %0, i32 noundef %57)
   %.val = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %.val, i64 %58
-  %133 = load i8, ptr %132, align 1
+  %133 = getelementptr inbounds i8, ptr %.val, i64 %58
+  %134 = load i8, ptr %133, align 1
   br label %Min_LitIsNode.exit137.thread
 
-Min_LitIsNode.exit137.thread:                     ; preds = %125, %130, %Min_LitIsNode.exit137, %Min_LitIsNode.exit.thread
-  %.1108 = phi i8 [ %133, %130 ], [ %.0107, %Min_LitIsNode.exit137 ], [ %.0107, %Min_LitIsNode.exit.thread ], [ %.0107, %125 ]
-  %.1 = phi i8 [ %131, %130 ], [ 2, %Min_LitIsNode.exit137 ], [ %.0, %Min_LitIsNode.exit.thread ], [ 2, %125 ]
-  %134 = icmp eq i8 %.1108, 0
-  %135 = icmp eq i8 %.1, 0
-  %or.cond11 = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond11, label %.thread144, label %136
+Min_LitIsNode.exit137.thread:                     ; preds = %126, %131, %Min_LitIsNode.exit137, %Min_LitIsNode.exit.thread
+  %.1108 = phi i8 [ %134, %131 ], [ %.0107, %Min_LitIsNode.exit137 ], [ %.0107, %Min_LitIsNode.exit.thread ], [ %.0107, %126 ]
+  %.1 = phi i8 [ %132, %131 ], [ 2, %Min_LitIsNode.exit137 ], [ %.0, %Min_LitIsNode.exit.thread ], [ 2, %126 ]
+  %135 = icmp eq i8 %.1108, 0
+  %136 = icmp eq i8 %.1, 0
+  %or.cond11 = select i1 %135, i1 true, i1 %136
+  br i1 %or.cond11, label %.thread144, label %137
 
-136:                                              ; preds = %Min_LitIsNode.exit137.thread
-  %137 = icmp eq i8 %.1108, 1
-  %138 = icmp eq i8 %.1, 1
-  %or.cond14 = select i1 %137, i1 %138, i1 false
-  br i1 %or.cond14, label %.thread, label %139
+137:                                              ; preds = %Min_LitIsNode.exit137.thread
+  %138 = icmp eq i8 %.1108, 1
+  %139 = icmp eq i8 %.1, 1
+  %or.cond14 = select i1 %138, i1 %139, i1 false
+  br i1 %or.cond14, label %.thread, label %140
 
-139:                                              ; preds = %136
-  br i1 %137, label %140, label %143
+140:                                              ; preds = %137
+  br i1 %138, label %141, label %144
 
-140:                                              ; preds = %139
-  %141 = xor i32 %57, 1
-  %142 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %141), !range !15
-  br label %156
+141:                                              ; preds = %140
+  %142 = xor i32 %57, 1
+  %143 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %142), !range !15
+  br label %157
 
-143:                                              ; preds = %139
-  br i1 %138, label %144, label %147
+144:                                              ; preds = %140
+  br i1 %139, label %145, label %148
 
-144:                                              ; preds = %143
-  %145 = xor i32 %53, 1
-  %146 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %145), !range !15
-  br label %156
+145:                                              ; preds = %144
+  %146 = xor i32 %53, 1
+  %147 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %146), !range !15
+  br label %157
 
-147:                                              ; preds = %143
-  %148 = tail call i32 @Abc_Random(i32 noundef 0) #26
-  %149 = and i32 %148, 1
-  %.not123 = icmp eq i32 %149, 0
-  br i1 %.not123, label %153, label %150
+148:                                              ; preds = %144
+  %149 = tail call i32 @Abc_Random(i32 noundef 0) #26
+  %150 = and i32 %149, 1
+  %.not123 = icmp eq i32 %150, 0
+  br i1 %.not123, label %154, label %151
 
-150:                                              ; preds = %147
-  %151 = xor i32 %53, 1
-  %152 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %151), !range !15
-  br label %156
+151:                                              ; preds = %148
+  %152 = xor i32 %53, 1
+  %153 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %152), !range !15
+  br label %157
 
-153:                                              ; preds = %147
-  %154 = xor i32 %57, 1
-  %155 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %154), !range !15
-  br label %156
+154:                                              ; preds = %148
+  %155 = xor i32 %57, 1
+  %156 = tail call i32 @Min_LitJustify_rec(ptr noundef nonnull %0, i32 noundef %155), !range !15
+  br label %157
 
-156:                                              ; preds = %108, %111, %95, %89, %75, %80, %70, %140, %150, %153, %144, %106
-  %.0110 = phi i32 [ %73, %70 ], [ %78, %75 ], [ %83, %80 ], [ %107, %106 ], [ %142, %140 ], [ %146, %144 ], [ %152, %150 ], [ %155, %153 ], [ %91, %89 ], [ %97, %95 ], [ %112, %111 ], [ %109, %108 ]
+157:                                              ; preds = %109, %112, %96, %90, %76, %81, %71, %141, %151, %154, %145, %107
+  %.0110 = phi i32 [ %74, %71 ], [ %79, %76 ], [ %84, %81 ], [ %108, %107 ], [ %143, %141 ], [ %147, %145 ], [ %153, %151 ], [ %156, %154 ], [ %92, %90 ], [ %98, %96 ], [ %113, %112 ], [ %110, %109 ]
   %.not129 = icmp eq i32 %.0110, 0
   br i1 %.not129, label %.thread, label %.thread144
 
-.thread144:                                       ; preds = %Min_LitIsNode.exit137.thread, %102, %Vec_IntPush.exit, %156
+.thread144:                                       ; preds = %Min_LitIsNode.exit137.thread, %103, %Vec_IntPush.exit, %157
   tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext 1)
   br label %.thread
 
-.thread:                                          ; preds = %136, %110, %99, %92, %87, %156, %.thread144, %10
-  %.0109 = phi i32 [ %13, %10 ], [ 1, %.thread144 ], [ 0, %156 ], [ 0, %87 ], [ 0, %92 ], [ 0, %99 ], [ 0, %110 ], [ 0, %136 ]
+.thread:                                          ; preds = %137, %111, %100, %93, %88, %157, %.thread144, %10
+  %.0109 = phi i32 [ %13, %10 ], [ 1, %.thread144 ], [ 0, %157 ], [ 0, %88 ], [ 0, %93 ], [ 0, %100 ], [ 0, %111 ], [ 0, %137 ]
   ret i32 %.0109
 }
 
@@ -1481,44 +1480,43 @@ Min_LitIsNode.exit40:                             ; preds = %27
 
 Min_LitIsNode.exit40.thread:                      ; preds = %27, %32, %Min_LitIsNode.exit40, %Min_LitIsNode.exit.thread
   %.0 = phi i8 [ %33, %32 ], [ 2, %Min_LitIsNode.exit40 ], [ %17, %Min_LitIsNode.exit.thread ], [ 2, %27 ]
-  %34 = icmp sgt i32 %6, %10
-  %35 = and i32 %1, 1
-  %36 = icmp eq i32 %35, 0
-  %.not35 = xor i1 %36, %34
-  br i1 %.not35, label %41, label %37
+  %34 = trunc i32 %1 to i1
+  %35 = icmp sle i32 %6, %10
+  %.not35 = xor i1 %35, %34
+  br i1 %.not35, label %40, label %36
 
-37:                                               ; preds = %Min_LitIsNode.exit40.thread
-  %38 = icmp slt i8 %.031, 2
-  %39 = icmp slt i8 %.0, 2
-  %or.cond.i = and i1 %38, %39
-  %40 = xor i8 %.0, %.031
+36:                                               ; preds = %Min_LitIsNode.exit40.thread
+  %37 = icmp slt i8 %.031, 2
+  %38 = icmp slt i8 %.0, 2
+  %or.cond.i = and i1 %37, %38
+  %39 = xor i8 %.0, %.031
   br i1 %or.cond.i, label %select.unfold, label %.thread48
 
-41:                                               ; preds = %Min_LitIsNode.exit40.thread
-  %42 = icmp eq i8 %.031, 0
-  %43 = icmp eq i8 %.0, 0
-  %or.cond.i41 = or i1 %42, %43
-  %44 = icmp eq i8 %.031, 1
-  %45 = icmp eq i8 %.0, 1
-  %or.cond5.i = and i1 %44, %45
+40:                                               ; preds = %Min_LitIsNode.exit40.thread
+  %41 = icmp eq i8 %.031, 0
+  %42 = icmp eq i8 %.0, 0
+  %or.cond.i41 = or i1 %41, %42
+  %43 = icmp eq i8 %.031, 1
+  %44 = icmp eq i8 %.0, 1
+  %or.cond5.i = and i1 %43, %44
   %..i = select i1 %or.cond5.i, i8 1, i8 2
   br i1 %or.cond.i41, label %.thread, label %select.unfold
 
-select.unfold:                                    ; preds = %37, %41
-  %.032 = phi i8 [ %..i, %41 ], [ %40, %37 ]
-  %46 = icmp slt i8 %.032, 2
-  br i1 %46, label %.thread, label %.thread48
+select.unfold:                                    ; preds = %36, %40
+  %.032 = phi i8 [ %..i, %40 ], [ %39, %36 ]
+  %45 = icmp slt i8 %.032, 2
+  br i1 %45, label %.thread, label %.thread48
 
-.thread:                                          ; preds = %41, %select.unfold
-  %.03247 = phi i8 [ %.032, %select.unfold ], [ 0, %41 ]
-  %47 = trunc i32 %1 to i8
-  %48 = and i8 %47, 1
-  %49 = xor i8 %.03247, %48
-  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %49)
+.thread:                                          ; preds = %40, %select.unfold
+  %.03247 = phi i8 [ %.032, %select.unfold ], [ 0, %40 ]
+  %46 = trunc i32 %1 to i8
+  %47 = and i8 %46, 1
+  %48 = xor i8 %.03247, %47
+  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %48)
   br label %.thread48
 
-.thread48:                                        ; preds = %37, %.thread, %select.unfold
-  %.1 = phi i8 [ %49, %.thread ], [ %.032, %select.unfold ], [ 2, %37 ]
+.thread48:                                        ; preds = %36, %.thread, %select.unfold
+  %.1 = phi i8 [ %48, %.thread ], [ %.032, %select.unfold ], [ 2, %36 ]
   ret i8 %.1
 }
 
@@ -8174,150 +8172,147 @@ Min_LitIsNode.exit:                               ; preds = %19
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds i8, ptr %.val36, i64 %34
   %36 = load i8, ptr %35, align 1
-  %37 = icmp sgt i32 %26, %30
-  %38 = and i32 %6, 1
-  %39 = icmp eq i32 %38, 0
-  %.not.i39 = xor i1 %39, %37
-  br i1 %.not.i39, label %44, label %40
+  %37 = trunc i32 %6 to i1
+  %38 = icmp sle i32 %26, %30
+  %.not.i39 = xor i1 %38, %37
+  br i1 %.not.i39, label %43, label %39
 
-40:                                               ; preds = %24
-  %41 = icmp slt i8 %33, 2
-  %42 = icmp slt i8 %36, 2
-  %or.cond.i.i = and i1 %41, %42
-  %43 = xor i8 %36, %33
+39:                                               ; preds = %24
+  %40 = icmp slt i8 %33, 2
+  %41 = icmp slt i8 %36, 2
+  %or.cond.i.i = and i1 %40, %41
+  %42 = xor i8 %36, %33
   br i1 %or.cond.i.i, label %select.unfold.i, label %Min_LitIsImplied1.exit
 
-44:                                               ; preds = %24
-  %45 = icmp eq i8 %33, 0
-  %46 = icmp eq i8 %36, 0
-  %or.cond.i25.i = or i1 %45, %46
-  %47 = icmp eq i8 %33, 1
-  %48 = icmp eq i8 %36, 1
-  %or.cond5.i.i = and i1 %47, %48
+43:                                               ; preds = %24
+  %44 = icmp eq i8 %33, 0
+  %45 = icmp eq i8 %36, 0
+  %or.cond.i25.i = or i1 %44, %45
+  %46 = icmp eq i8 %33, 1
+  %47 = icmp eq i8 %36, 1
+  %or.cond5.i.i = and i1 %46, %47
   %..i.i = select i1 %or.cond5.i.i, i8 1, i8 2
   br i1 %or.cond.i25.i, label %.thread.i, label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %44, %40
-  %.0.i = phi i8 [ %..i.i, %44 ], [ %43, %40 ]
-  %49 = icmp slt i8 %.0.i, 2
-  br i1 %49, label %.thread.i, label %Min_LitIsImplied1.exit
+select.unfold.i:                                  ; preds = %43, %39
+  %.0.i = phi i8 [ %..i.i, %43 ], [ %42, %39 ]
+  %48 = icmp slt i8 %.0.i, 2
+  br i1 %48, label %.thread.i, label %Min_LitIsImplied1.exit
 
-.thread.i:                                        ; preds = %select.unfold.i, %44
-  %.029.i = phi i8 [ %.0.i, %select.unfold.i ], [ 0, %44 ]
-  %50 = trunc i32 %6 to i8
-  %51 = and i8 %50, 1
-  %52 = xor i8 %.029.i, %51
-  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %6, i8 noundef signext %52)
+.thread.i:                                        ; preds = %select.unfold.i, %43
+  %.029.i = phi i8 [ %.0.i, %select.unfold.i ], [ 0, %43 ]
+  %49 = trunc i32 %6 to i8
+  %50 = and i8 %49, 1
+  %51 = xor i8 %.029.i, %50
+  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %6, i8 noundef signext %51)
   br label %Min_LitIsImplied1.exit
 
-Min_LitIsImplied1.exit:                           ; preds = %19, %.thread.i, %select.unfold.i, %40, %Min_LitIsNode.exit, %2
-  %.031 = phi i8 [ 2, %Min_LitIsNode.exit ], [ %14, %2 ], [ %52, %.thread.i ], [ %.0.i, %select.unfold.i ], [ 2, %40 ], [ 2, %19 ]
-  %53 = icmp eq i8 %17, 2
-  br i1 %53, label %54, label %Min_LitIsImplied1.exit54
+Min_LitIsImplied1.exit:                           ; preds = %19, %.thread.i, %select.unfold.i, %39, %Min_LitIsNode.exit, %2
+  %.031 = phi i8 [ 2, %Min_LitIsNode.exit ], [ %14, %2 ], [ %51, %.thread.i ], [ %.0.i, %select.unfold.i ], [ 2, %39 ], [ 2, %19 ]
+  %52 = icmp eq i8 %17, 2
+  br i1 %52, label %53, label %Min_LitIsImplied1.exit54
 
-54:                                               ; preds = %Min_LitIsImplied1.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load i32, ptr %55, align 8
-  %.not.i40 = icmp sgt i32 %56, %10
+53:                                               ; preds = %Min_LitIsImplied1.exit
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = load i32, ptr %54, align 8
+  %.not.i40 = icmp sgt i32 %55, %10
   br i1 %.not.i40, label %Min_LitIsImplied1.exit54, label %Min_LitIsNode.exit41
 
-Min_LitIsNode.exit41:                             ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %0, i64 12
-  %58 = load i32, ptr %57, align 4
-  %.not65 = icmp sgt i32 %58, %10
-  br i1 %.not65, label %59, label %Min_LitIsImplied1.exit54
+Min_LitIsNode.exit41:                             ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %0, i64 12
+  %57 = load i32, ptr %56, align 4
+  %.not65 = icmp sgt i32 %57, %10
+  br i1 %.not65, label %58, label %Min_LitIsImplied1.exit54
 
-59:                                               ; preds = %Min_LitIsNode.exit41
+58:                                               ; preds = %Min_LitIsNode.exit41
   %.val24.i42 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i32, ptr %.val24.i42, i64 %15
-  %61 = load i32, ptr %60, align 4
-  %62 = xor i32 %10, 1
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %.val24.i42, i64 %63
-  %65 = load i32, ptr %64, align 4
+  %59 = getelementptr inbounds i32, ptr %.val24.i42, i64 %15
+  %60 = load i32, ptr %59, align 4
+  %61 = xor i32 %10, 1
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i32, ptr %.val24.i42, i64 %62
+  %64 = load i32, ptr %63, align 4
   %.val22.i43 = load ptr, ptr %11, align 8
-  %66 = sext i32 %61 to i64
-  %67 = getelementptr inbounds i8, ptr %.val22.i43, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = sext i32 %65 to i64
-  %70 = getelementptr inbounds i8, ptr %.val22.i43, i64 %69
-  %71 = load i8, ptr %70, align 1
-  %72 = icmp sgt i32 %61, %65
-  %73 = and i32 %10, 1
-  %74 = icmp eq i32 %73, 0
-  %.not.i44 = xor i1 %74, %72
-  br i1 %.not.i44, label %79, label %75
+  %65 = sext i32 %60 to i64
+  %66 = getelementptr inbounds i8, ptr %.val22.i43, i64 %65
+  %67 = load i8, ptr %66, align 1
+  %68 = sext i32 %64 to i64
+  %69 = getelementptr inbounds i8, ptr %.val22.i43, i64 %68
+  %70 = load i8, ptr %69, align 1
+  %71 = trunc i32 %10 to i1
+  %72 = icmp sle i32 %60, %64
+  %.not.i44 = xor i1 %72, %71
+  br i1 %.not.i44, label %77, label %73
 
-75:                                               ; preds = %59
-  %76 = icmp slt i8 %68, 2
-  %77 = icmp slt i8 %71, 2
-  %or.cond.i.i45 = and i1 %76, %77
-  %78 = xor i8 %71, %68
+73:                                               ; preds = %58
+  %74 = icmp slt i8 %67, 2
+  %75 = icmp slt i8 %70, 2
+  %or.cond.i.i45 = and i1 %74, %75
+  %76 = xor i8 %70, %67
   br i1 %or.cond.i.i45, label %select.unfold.i47, label %Min_LitIsImplied1.exit54
 
-79:                                               ; preds = %59
-  %80 = icmp eq i8 %68, 0
-  %81 = icmp eq i8 %71, 0
-  %or.cond.i25.i51 = or i1 %80, %81
-  %82 = icmp eq i8 %68, 1
-  %83 = icmp eq i8 %71, 1
-  %or.cond5.i.i52 = and i1 %82, %83
+77:                                               ; preds = %58
+  %78 = icmp eq i8 %67, 0
+  %79 = icmp eq i8 %70, 0
+  %or.cond.i25.i51 = or i1 %78, %79
+  %80 = icmp eq i8 %67, 1
+  %81 = icmp eq i8 %70, 1
+  %or.cond5.i.i52 = and i1 %80, %81
   %..i.i53 = select i1 %or.cond5.i.i52, i8 1, i8 2
   br i1 %or.cond.i25.i51, label %.thread.i49, label %select.unfold.i47
 
-select.unfold.i47:                                ; preds = %79, %75
-  %.0.i48 = phi i8 [ %..i.i53, %79 ], [ %78, %75 ]
-  %84 = icmp slt i8 %.0.i48, 2
-  br i1 %84, label %.thread.i49, label %Min_LitIsImplied1.exit54
+select.unfold.i47:                                ; preds = %77, %73
+  %.0.i48 = phi i8 [ %..i.i53, %77 ], [ %76, %73 ]
+  %82 = icmp slt i8 %.0.i48, 2
+  br i1 %82, label %.thread.i49, label %Min_LitIsImplied1.exit54
 
-.thread.i49:                                      ; preds = %select.unfold.i47, %79
-  %.029.i50 = phi i8 [ %.0.i48, %select.unfold.i47 ], [ 0, %79 ]
-  %85 = trunc i32 %10 to i8
-  %86 = and i8 %85, 1
-  %87 = xor i8 %.029.i50, %86
-  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %10, i8 noundef signext %87)
+.thread.i49:                                      ; preds = %select.unfold.i47, %77
+  %.029.i50 = phi i8 [ %.0.i48, %select.unfold.i47 ], [ 0, %77 ]
+  %83 = trunc i32 %10 to i8
+  %84 = and i8 %83, 1
+  %85 = xor i8 %.029.i50, %84
+  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %10, i8 noundef signext %85)
   br label %Min_LitIsImplied1.exit54
 
-Min_LitIsImplied1.exit54:                         ; preds = %54, %.thread.i49, %select.unfold.i47, %75, %Min_LitIsNode.exit41, %Min_LitIsImplied1.exit
-  %.0 = phi i8 [ 2, %Min_LitIsNode.exit41 ], [ %17, %Min_LitIsImplied1.exit ], [ %87, %.thread.i49 ], [ %.0.i48, %select.unfold.i47 ], [ 2, %75 ], [ 2, %54 ]
-  %88 = icmp sgt i32 %6, %10
-  %89 = and i32 %1, 1
-  %90 = icmp eq i32 %89, 0
-  %.not35 = xor i1 %90, %88
-  br i1 %.not35, label %95, label %91
+Min_LitIsImplied1.exit54:                         ; preds = %53, %.thread.i49, %select.unfold.i47, %73, %Min_LitIsNode.exit41, %Min_LitIsImplied1.exit
+  %.0 = phi i8 [ 2, %Min_LitIsNode.exit41 ], [ %17, %Min_LitIsImplied1.exit ], [ %85, %.thread.i49 ], [ %.0.i48, %select.unfold.i47 ], [ 2, %73 ], [ 2, %53 ]
+  %86 = trunc i32 %1 to i1
+  %87 = icmp sle i32 %6, %10
+  %.not35 = xor i1 %87, %86
+  br i1 %.not35, label %92, label %88
 
-91:                                               ; preds = %Min_LitIsImplied1.exit54
-  %92 = icmp slt i8 %.031, 2
-  %93 = icmp slt i8 %.0, 2
-  %or.cond.i = and i1 %92, %93
-  %94 = xor i8 %.0, %.031
+88:                                               ; preds = %Min_LitIsImplied1.exit54
+  %89 = icmp slt i8 %.031, 2
+  %90 = icmp slt i8 %.0, 2
+  %or.cond.i = and i1 %89, %90
+  %91 = xor i8 %.0, %.031
   br i1 %or.cond.i, label %select.unfold, label %.thread63
 
-95:                                               ; preds = %Min_LitIsImplied1.exit54
-  %96 = icmp eq i8 %.031, 0
-  %97 = icmp eq i8 %.0, 0
-  %or.cond.i56 = or i1 %96, %97
-  %98 = icmp eq i8 %.031, 1
-  %99 = icmp eq i8 %.0, 1
-  %or.cond5.i = and i1 %98, %99
+92:                                               ; preds = %Min_LitIsImplied1.exit54
+  %93 = icmp eq i8 %.031, 0
+  %94 = icmp eq i8 %.0, 0
+  %or.cond.i56 = or i1 %93, %94
+  %95 = icmp eq i8 %.031, 1
+  %96 = icmp eq i8 %.0, 1
+  %or.cond5.i = and i1 %95, %96
   %..i = select i1 %or.cond5.i, i8 1, i8 2
   br i1 %or.cond.i56, label %.thread, label %select.unfold
 
-select.unfold:                                    ; preds = %91, %95
-  %.032 = phi i8 [ %..i, %95 ], [ %94, %91 ]
-  %100 = icmp slt i8 %.032, 2
-  br i1 %100, label %.thread, label %.thread63
+select.unfold:                                    ; preds = %88, %92
+  %.032 = phi i8 [ %..i, %92 ], [ %91, %88 ]
+  %97 = icmp slt i8 %.032, 2
+  br i1 %97, label %.thread, label %.thread63
 
-.thread:                                          ; preds = %95, %select.unfold
-  %.03262 = phi i8 [ %.032, %select.unfold ], [ 0, %95 ]
-  %101 = trunc i32 %1 to i8
-  %102 = and i8 %101, 1
-  %103 = xor i8 %.03262, %102
-  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %103)
+.thread:                                          ; preds = %92, %select.unfold
+  %.03262 = phi i8 [ %.032, %select.unfold ], [ 0, %92 ]
+  %98 = trunc i32 %1 to i8
+  %99 = and i8 %98, 1
+  %100 = xor i8 %.03262, %99
+  tail call fastcc void @Min_LitSetValL(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %100)
   br label %.thread63
 
-.thread63:                                        ; preds = %91, %.thread, %select.unfold
-  %.1 = phi i8 [ %103, %.thread ], [ %.032, %select.unfold ], [ 2, %91 ]
+.thread63:                                        ; preds = %88, %.thread, %select.unfold
+  %.1 = phi i8 [ %100, %.thread ], [ %.032, %select.unfold ], [ 2, %88 ]
   ret i8 %.1
 }
 
@@ -8347,7 +8342,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #26
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #26
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -8366,7 +8361,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -8377,22 +8372,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_addr #0 {
@@ -8567,14 +8556,20 @@ declare void @Gia_ManBuiltInSimPerform(ptr noundef, i32 noundef) local_unnamed_a
 declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #18
+declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #19
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
 
 declare void @sat_solver_set_var_activity(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i64 @Abc_RandomW(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #20
@@ -8615,11 +8610,11 @@ attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #20 = { nofree nounwind }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

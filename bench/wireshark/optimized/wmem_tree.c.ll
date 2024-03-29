@@ -124,9 +124,8 @@ define internal fastcc void @free_tree_node(ptr noundef %0, ptr noundef %1, i1 n
 10:                                               ; preds = %9, %6
   %11 = getelementptr inbounds i8, ptr %1, i64 44
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not25 = icmp eq i8 %13, 0
-  br i1 %.not25, label %31, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 32
@@ -166,8 +165,8 @@ wmem_tree_destroy.exit:                           ; preds = %25, %27
 31:                                               ; preds = %wmem_tree_destroy.exit, %10
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
-  %.not26 = icmp eq ptr %33, null
-  br i1 %.not26, label %35, label %34
+  %.not25 = icmp eq ptr %33, null
+  br i1 %.not25, label %35, label %34
 
 34:                                               ; preds = %31
   tail call fastcc void @free_tree_node(ptr noundef %0, ptr noundef nonnull %33, i1 noundef zeroext %2, i1 noundef zeroext %3)
@@ -2036,9 +2035,8 @@ define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture
 8:                                                ; preds = %6, %3
   %9 = getelementptr inbounds i8, ptr %0, i64 44
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not23 = icmp eq i8 %11, 0
-  br i1 %.not23, label %17, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2051,9 +2049,8 @@ define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %0, i64 45
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not24 = icmp eq i8 %20, 0
-  br i1 %.not24, label %21, label %.critedge
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2070,8 +2067,8 @@ wmem_tree_foreach.exit:                           ; preds = %12
 .critedge:                                        ; preds = %12, %21, %17, %wmem_tree_foreach.exit
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %.not25 = icmp eq ptr %29, null
-  br i1 %.not25, label %32, label %30
+  %.not23 = icmp eq ptr %29, null
+  br i1 %.not23, label %32, label %30
 
 30:                                               ; preds = %.critedge
   %31 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %29, ptr noundef %1, ptr noundef %2)
@@ -2113,118 +2110,115 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @wmem_tree_print_nodes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %.not39 = icmp eq ptr %3, null
-  %.not40 = icmp eq ptr %4, null
+  %.not38 = icmp eq ptr %3, null
+  %.not39 = icmp eq ptr %4, null
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %wmem_print_indent.exit.i, %5
   %.tr = phi ptr [ %0, %5 ], [ @.str.1, %wmem_print_indent.exit.i ]
-  %.tr57 = phi ptr [ %1, %5 ], [ %57, %wmem_print_indent.exit.i ]
-  %.tr58 = phi i32 [ %2, %5 ], [ %50, %wmem_print_indent.exit.i ]
-  %.not.i = icmp eq i32 %.tr58, 0
+  %.tr54 = phi ptr [ %1, %5 ], [ %57, %wmem_print_indent.exit.i ]
+  %.tr55 = phi i32 [ %2, %5 ], [ %50, %wmem_print_indent.exit.i ]
+  %.not.i = icmp eq i32 %.tr55, 0
   br i1 %.not.i, label %wmem_print_indent.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse, %.lr.ph.i
   %.03.i = phi i32 [ %7, %.lr.ph.i ], [ 0, %tailrecurse ]
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %7 = add nuw i32 %.03.i, 1
-  %exitcond.not.i = icmp eq i32 %7, %.tr58
+  %exitcond.not.i = icmp eq i32 %7, %.tr55
   br i1 %exitcond.not.i, label %wmem_print_indent.exit, label %.lr.ph.i, !llvm.loop !17
 
 wmem_print_indent.exit:                           ; preds = %.lr.ph.i, %tailrecurse
-  %8 = load ptr, ptr %.tr57, align 8
-  %9 = getelementptr inbounds i8, ptr %.tr57, i64 8
+  %8 = load ptr, ptr %.tr54, align 8
+  %9 = getelementptr inbounds i8, ptr %.tr54, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.tr57, i64 16
+  %11 = getelementptr inbounds i8, ptr %.tr54, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.tr57, i64 40
+  %13 = getelementptr inbounds i8, ptr %.tr54, i64 40
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   %15 = select i1 %.not, ptr @.str.5, ptr @.str.4
-  %16 = getelementptr inbounds i8, ptr %.tr57, i64 24
+  %16 = getelementptr inbounds i8, ptr %.tr54, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.tr57, i64 44
+  %18 = getelementptr inbounds i8, ptr %.tr54, i64 44
   %19 = load i8, ptr %18, align 4
-  %20 = and i8 %19, 1
-  %.not38 = icmp eq i8 %20, 0
-  %21 = select i1 %.not38, ptr @.str.7, ptr @.str.6
-  %22 = getelementptr inbounds i8, ptr %.tr57, i64 32
+  %20 = trunc i8 %19 to i1
+  %21 = select i1 %20, ptr @.str.6, ptr @.str.7
+  %22 = getelementptr inbounds i8, ptr %.tr54, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %.tr, ptr noundef nonnull %.tr57, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %15, ptr noundef %17, ptr noundef nonnull %21, ptr noundef %23)
-  br i1 %.not39, label %29, label %25
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %.tr, ptr noundef nonnull %.tr54, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %15, ptr noundef %17, ptr noundef nonnull %21, ptr noundef %23)
+  br i1 %.not38, label %29, label %25
 
 25:                                               ; preds = %wmem_print_indent.exit
-  br i1 %.not.i, label %wmem_print_indent.exit50, label %.lr.ph.i47
+  br i1 %.not.i, label %wmem_print_indent.exit47, label %.lr.ph.i44
 
-.lr.ph.i47:                                       ; preds = %25, %.lr.ph.i47
-  %.03.i48 = phi i32 [ %27, %.lr.ph.i47 ], [ 0, %25 ]
+.lr.ph.i44:                                       ; preds = %25, %.lr.ph.i44
+  %.03.i45 = phi i32 [ %27, %.lr.ph.i44 ], [ 0, %25 ]
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
-  %27 = add nuw i32 %.03.i48, 1
-  %exitcond.not.i49 = icmp eq i32 %27, %.tr58
-  br i1 %exitcond.not.i49, label %wmem_print_indent.exit50, label %.lr.ph.i47, !llvm.loop !17
+  %27 = add nuw i32 %.03.i45, 1
+  %exitcond.not.i46 = icmp eq i32 %27, %.tr55
+  br i1 %exitcond.not.i46, label %wmem_print_indent.exit47, label %.lr.ph.i44, !llvm.loop !17
 
-wmem_print_indent.exit50:                         ; preds = %.lr.ph.i47, %25
+wmem_print_indent.exit47:                         ; preds = %.lr.ph.i44, %25
   %28 = load ptr, ptr %16, align 8
   tail call void %3(ptr noundef %28) #9
   %putchar = tail call i32 @putchar(i32 10)
   br label %29
 
-29:                                               ; preds = %wmem_print_indent.exit50, %wmem_print_indent.exit
-  br i1 %.not40, label %37, label %30
+29:                                               ; preds = %wmem_print_indent.exit47, %wmem_print_indent.exit
+  br i1 %.not39, label %37, label %30
 
 30:                                               ; preds = %29
   %31 = load i8, ptr %18, align 4
-  %32 = and i8 %31, 1
-  %.not41 = icmp eq i8 %32, 0
-  br i1 %.not41, label %33, label %37
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %37, label %33
 
 33:                                               ; preds = %30
-  br i1 %.not.i, label %wmem_print_indent.exit55, label %.lr.ph.i52
+  br i1 %.not.i, label %wmem_print_indent.exit52, label %.lr.ph.i49
 
-.lr.ph.i52:                                       ; preds = %33, %.lr.ph.i52
-  %.03.i53 = phi i32 [ %35, %.lr.ph.i52 ], [ 0, %33 ]
+.lr.ph.i49:                                       ; preds = %33, %.lr.ph.i49
+  %.03.i50 = phi i32 [ %35, %.lr.ph.i49 ], [ 0, %33 ]
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
-  %35 = add nuw i32 %.03.i53, 1
-  %exitcond.not.i54 = icmp eq i32 %35, %.tr58
-  br i1 %exitcond.not.i54, label %wmem_print_indent.exit55, label %.lr.ph.i52, !llvm.loop !17
+  %35 = add nuw i32 %.03.i50, 1
+  %exitcond.not.i51 = icmp eq i32 %35, %.tr55
+  br i1 %exitcond.not.i51, label %wmem_print_indent.exit52, label %.lr.ph.i49, !llvm.loop !17
 
-wmem_print_indent.exit55:                         ; preds = %.lr.ph.i52, %33
+wmem_print_indent.exit52:                         ; preds = %.lr.ph.i49, %33
   %36 = load ptr, ptr %22, align 8
   tail call void %4(ptr noundef %36) #9
-  %putchar42 = tail call i32 @putchar(i32 10)
+  %putchar40 = tail call i32 @putchar(i32 10)
   br label %37
 
-37:                                               ; preds = %wmem_print_indent.exit55, %30, %29
+37:                                               ; preds = %wmem_print_indent.exit52, %30, %29
   %38 = load ptr, ptr %9, align 8
-  %.not43 = icmp eq ptr %38, null
-  br i1 %.not43, label %41, label %39
+  %.not41 = icmp eq ptr %38, null
+  br i1 %.not41, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = add i32 %.tr58, 1
+  %40 = add i32 %.tr55, 1
   tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.9, ptr noundef nonnull %38, i32 noundef %40, ptr noundef %3, ptr noundef %4)
   br label %41
 
 41:                                               ; preds = %39, %37
   %42 = load ptr, ptr %11, align 8
-  %.not44 = icmp eq ptr %42, null
-  br i1 %.not44, label %45, label %43
+  %.not42 = icmp eq ptr %42, null
+  br i1 %.not42, label %45, label %43
 
 43:                                               ; preds = %41
-  %44 = add i32 %.tr58, 1
+  %44 = add i32 %.tr55, 1
   tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.10, ptr noundef nonnull %42, i32 noundef %44, ptr noundef %3, ptr noundef %4)
   br label %45
 
 45:                                               ; preds = %43, %41
   %46 = load i8, ptr %18, align 4
-  %47 = and i8 %46, 1
-  %.not45 = icmp eq i8 %47, 0
-  br i1 %.not45, label %wmem_print_subtree.exit, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %wmem_print_subtree.exit
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %22, align 8
-  %50 = add i32 %.tr58, 1
-  %.not.i56 = icmp eq ptr %49, null
-  br i1 %.not.i56, label %wmem_print_subtree.exit, label %51
+  %50 = add i32 %.tr55, 1
+  %.not.i53 = icmp eq ptr %49, null
+  br i1 %.not.i53, label %wmem_print_subtree.exit, label %51
 
 51:                                               ; preds = %48
   %.not.i.i = icmp eq i32 %50, 0
@@ -2234,7 +2228,7 @@ wmem_print_indent.exit55:                         ; preds = %.lr.ph.i52, %33
   %.03.i.i = phi i32 [ %53, %.lr.ph.i.i ], [ 0, %51 ]
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %53 = add nuw i32 %.03.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %.03.i.i, %.tr58
+  %exitcond.not.i.i = icmp eq i32 %.03.i.i, %.tr55
   br i1 %exitcond.not.i.i, label %wmem_print_indent.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 wmem_print_indent.exit.i:                         ; preds = %.lr.ph.i.i, %51

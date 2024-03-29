@@ -484,30 +484,29 @@ define noundef zeroext i1 @_ZNK5Ipopt10DiagMatrix19HasValidNumbersImplEv(ptr noc
   %6 = getelementptr inbounds i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %5, %7
-  br i1 %.not.i, label %._crit_edge.i, label %8
+  br i1 %.not.i, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 204
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
+  %8 = trunc i8 %.pre.i to i1
   br label %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 216
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(205) %3)
-  %13 = getelementptr inbounds i8, ptr %3, i64 204
-  %14 = zext i1 %12 to i8
-  store i8 %14, ptr %13, align 4
-  %15 = load i32, ptr %6, align 8
-  store i32 %15, ptr %4, align 8
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 216
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(205) %3)
+  %14 = getelementptr inbounds i8, ptr %3, i64 204
+  %15 = zext i1 %13 to i8
+  store i8 %15, ptr %14, align 4
+  %16 = load i32, ptr %6, align 8
+  store i32 %16, ptr %4, align 8
   br label %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit
 
-_ZNK5Ipopt6Vector15HasValidNumbersEv.exit:        ; preds = %._crit_edge.i, %8
-  %16 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %14, %8 ]
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  ret i1 %18
+_ZNK5Ipopt6Vector15HasValidNumbersEv.exit:        ; preds = %._crit_edge.i, %9
+  %17 = phi i1 [ %8, %._crit_edge.i ], [ %13, %9 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress uwtable

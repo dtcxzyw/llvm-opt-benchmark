@@ -48,17 +48,16 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessio
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   store i8 1, ptr %hasValue.i.i.i.i, align 8
   br label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
-  %2 = ptrtoint ptr %timestampIn to i64
-  store i64 %2, ptr %this, align 8
+  %1 = ptrtoint ptr %timestampIn to i64
+  store i64 %1, ptr %this, align 8
   ret ptr %this
 }
 
@@ -67,9 +66,8 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessio
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   store i8 1, ptr %hasValue.i.i.i.i, align 8
@@ -77,8 +75,8 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit: ; preds = %entry, %if.else.i.i
   %maybeHTTPHeadersRef = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = ptrtoint ptr %headersIn to i64
-  store i64 %2, ptr %maybeHTTPHeadersRef, align 8
+  %1 = ptrtoint ptr %headersIn to i64
+  store i64 %1, ptr %maybeHTTPHeadersRef, align 8
   ret ptr %this
 }
 
@@ -96,25 +94,23 @@ entry:
   %ref.tmp4 = alloca ptr, align 8
   %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %builderFields
+  %tobool.i = trunc i8 %0 to i1
+  %cond.i = select i1 %tobool.i, ptr %builderFields, ptr null
   store ptr %cond.i, ptr %ref.tmp, align 8
   %call2 = call noundef ptr @_ZN6google12CheckNotNullIPKSt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEET_PKciSH_OSF_(ptr noundef nonnull @.str, i32 noundef 36, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %2 = load ptr, ptr %call2, align 8
-  %3 = load i64, ptr %2, align 8
-  store i64 %3, ptr %this, align 8
+  %1 = load ptr, ptr %call2, align 8
+  %2 = load i64, ptr %1, align 8
+  store i64 %2, ptr %this, align 8
   %requestHeaders = getelementptr inbounds i8, ptr %this, i64 8
   %maybeHTTPHeadersRef = getelementptr inbounds i8, ptr %builderFields, i64 16
   %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
-  %4 = load i8, ptr %hasValue.i2, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i3 = icmp eq i8 %5, 0
-  %cond.i4 = select i1 %tobool.not.i3, ptr null, ptr %maybeHTTPHeadersRef
+  %3 = load i8, ptr %hasValue.i2, align 8
+  %tobool.i3 = trunc i8 %3 to i1
+  %cond.i4 = select i1 %tobool.i3, ptr %maybeHTTPHeadersRef, ptr null
   store ptr %cond.i4, ptr %ref.tmp4, align 8
   %call6 = call noundef ptr @_ZN6google12CheckNotNullIPKSt17reference_wrapperIKN8proxygen11HTTPHeadersEEEET_PKciSA_OS8_(ptr noundef nonnull @.str, i32 noundef 38, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
-  %6 = load ptr, ptr %call6, align 8
-  store ptr %6, ptr %requestHeaders, align 8
+  %4 = load ptr, ptr %call6, align 8
+  store ptr %4, ptr %requestHeaders, align 8
   ret void
 }
 
@@ -215,17 +211,16 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessio
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   store i8 1, ptr %hasValue.i.i.i.i, align 8
   br label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %entry, %if.else.i.i
-  %2 = ptrtoint ptr %pendingEgressBytesIn to i64
-  store i64 %2, ptr %this, align 8
+  %1 = ptrtoint ptr %pendingEgressBytesIn to i64
+  store i64 %1, ptr %this, align 8
   ret ptr %this
 }
 
@@ -234,9 +229,8 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessio
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   store i8 1, ptr %hasValue.i.i.i.i, align 8
@@ -244,8 +238,8 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
   %maybeTimestampRef = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = ptrtoint ptr %timestampIn to i64
-  store i64 %2, ptr %maybeTimestampRef, align 8
+  %1 = ptrtoint ptr %timestampIn to i64
+  store i64 %1, ptr %maybeTimestampRef, align 8
   ret ptr %this
 }
 
@@ -263,26 +257,24 @@ entry:
   %ref.tmp4 = alloca ptr, align 8
   %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %builderFields
+  %tobool.i = trunc i8 %0 to i1
+  %cond.i = select i1 %tobool.i, ptr %builderFields, ptr null
   store ptr %cond.i, ptr %ref.tmp, align 8
   %call2 = call noundef ptr @_ZN6google12CheckNotNullIPSt17reference_wrapperIKmEEET_PKciS7_OS5_(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %2 = load ptr, ptr %call2, align 8
-  %3 = load i64, ptr %2, align 8
-  store i64 %3, ptr %this, align 8
+  %1 = load ptr, ptr %call2, align 8
+  %2 = load i64, ptr %1, align 8
+  store i64 %2, ptr %this, align 8
   %timestamp = getelementptr inbounds i8, ptr %this, i64 8
   %maybeTimestampRef = getelementptr inbounds i8, ptr %builderFields, i64 16
   %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
-  %4 = load i8, ptr %hasValue.i2, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i3 = icmp eq i8 %5, 0
-  %cond.i4 = select i1 %tobool.not.i3, ptr null, ptr %maybeTimestampRef
+  %3 = load i8, ptr %hasValue.i2, align 8
+  %tobool.i3 = trunc i8 %3 to i1
+  %cond.i4 = select i1 %tobool.i3, ptr %maybeTimestampRef, ptr null
   store ptr %cond.i4, ptr %ref.tmp4, align 8
   %call6 = call noundef ptr @_ZN6google12CheckNotNullIPSt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEET_PKciSG_OSE_(ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
-  %6 = load ptr, ptr %call6, align 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %timestamp, align 8
+  %4 = load ptr, ptr %call6, align 8
+  %5 = load i64, ptr %4, align 8
+  store i64 %5, ptr %timestamp, align 8
   ret void
 }
 
@@ -383,17 +375,16 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessio
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   store i8 1, ptr %hasValue.i.i.i.i, align 8
   br label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %entry, %if.else.i.i
-  %2 = ptrtoint ptr %IdIn to i64
-  store i64 %2, ptr %this, align 8
+  %1 = ptrtoint ptr %IdIn to i64
+  store i64 %1, ptr %this, align 8
   ret ptr %this
 }
 
@@ -402,9 +393,8 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessio
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   store i8 1, ptr %hasValue.i.i.i.i, align 8
@@ -412,8 +402,8 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
   %maybeTimestampRef = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = ptrtoint ptr %timestampIn to i64
-  store i64 %2, ptr %maybeTimestampRef, align 8
+  %1 = ptrtoint ptr %timestampIn to i64
+  store i64 %1, ptr %maybeTimestampRef, align 8
   ret ptr %this
 }
 
@@ -431,26 +421,24 @@ entry:
   %ref.tmp4 = alloca ptr, align 8
   %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %builderFields
+  %tobool.i = trunc i8 %0 to i1
+  %cond.i = select i1 %tobool.i, ptr %builderFields, ptr null
   store ptr %cond.i, ptr %ref.tmp, align 8
   %call2 = call noundef ptr @_ZN6google12CheckNotNullIPSt17reference_wrapperIKmEEET_PKciS7_OS5_(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %2 = load ptr, ptr %call2, align 8
-  %3 = load i64, ptr %2, align 8
-  store i64 %3, ptr %this, align 8
+  %1 = load ptr, ptr %call2, align 8
+  %2 = load i64, ptr %1, align 8
+  store i64 %2, ptr %this, align 8
   %timestamp = getelementptr inbounds i8, ptr %this, i64 8
   %maybeTimestampRef = getelementptr inbounds i8, ptr %builderFields, i64 16
   %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
-  %4 = load i8, ptr %hasValue.i2, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i3 = icmp eq i8 %5, 0
-  %cond.i4 = select i1 %tobool.not.i3, ptr null, ptr %maybeTimestampRef
+  %3 = load i8, ptr %hasValue.i2, align 8
+  %tobool.i3 = trunc i8 %3 to i1
+  %cond.i4 = select i1 %tobool.i3, ptr %maybeTimestampRef, ptr null
   store ptr %cond.i4, ptr %ref.tmp4, align 8
   %call6 = call noundef ptr @_ZN6google12CheckNotNullIPSt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEET_PKciSG_OSE_(ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
-  %6 = load ptr, ptr %call6, align 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %timestamp, align 8
+  %4 = load ptr, ptr %call6, align 8
+  %5 = load i64, ptr %4, align 8
+  store i64 %5, ptr %timestamp, align 8
   ret void
 }
 

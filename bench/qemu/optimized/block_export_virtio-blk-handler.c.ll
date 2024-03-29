@@ -105,43 +105,42 @@ sw.bb:                                            ; preds = %if.end11, %if.end11
 land.lhs.true:                                    ; preds = %sw.bb
   %writable = getelementptr inbounds i8, ptr %handler, i64 20
   %8 = load i8, ptr %writable, align 4
-  %9 = and i8 %8, 1
-  %tobool30.not = icmp eq i8 %9, 0
-  br i1 %tobool30.not, label %if.then31, label %if.then34
+  %tobool30 = trunc i8 %8 to i1
+  br i1 %tobool30, label %if.then34, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true
   store i8 1, ptr %add.ptr21, align 1
   br label %return
 
 if.then34:                                        ; preds = %land.lhs.true
-  %10 = load ptr, ptr %out_iov.addr, align 8
-  %11 = load i32, ptr %out_num.addr, align 4
-  call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef %10, i32 noundef %11) #6
+  %9 = load ptr, ptr %out_iov.addr, align 8
+  %10 = load i32, ptr %out_num.addr, align 4
+  call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef %9, i32 noundef %10) #6
   br label %if.end35
 
 if.else:                                          ; preds = %sw.bb
-  %12 = load i32, ptr %in_num.addr, align 4
-  call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef nonnull %in_iov, i32 noundef %12) #6
+  %11 = load i32, ptr %in_num.addr, align 4
+  call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef nonnull %in_iov, i32 noundef %11) #6
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %if.then34
   %logical_block_size = getelementptr inbounds i8, ptr %handler, i64 16
-  %13 = load i32, ptr %logical_block_size, align 8
+  %12 = load i32, ptr %logical_block_size, align 8
   %size = getelementptr inbounds i8, ptr %qiov, i64 32
-  %14 = load i64, ptr %size, align 8
+  %13 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
-  %rem.i = and i64 %14, 511
+  %rem.i = and i64 %13, 511
   %tobool.not.i36 = icmp eq i64 %rem.i, 0
   br i1 %tobool.not.i36, label %if.end.i, label %virtio_blk_sect_range_ok.exit.thread
 
 if.end.i:                                         ; preds = %if.end35
-  %shr.i = lshr exact i64 %14, 9
-  %cmp.i = icmp ugt i64 %14, 2147483136
+  %shr.i = lshr exact i64 %13, 9
+  %cmp.i = icmp ugt i64 %13, 2147483136
   br i1 %cmp.i, label %virtio_blk_sect_range_ok.exit.thread, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %shl.i = shl i64 %7, 9
-  %conv.i = zext i32 %13 to i64
+  %conv.i = zext i32 %12 to i64
   %rem3.i = urem i64 %shl.i, %conv.i
   %tobool4.not.i = icmp eq i64 %rem3.i, 0
   br i1 %tobool4.not.i, label %virtio_blk_sect_range_ok.exit, label %virtio_blk_sect_range_ok.exit.thread
@@ -152,9 +151,9 @@ virtio_blk_sect_range_ok.exit.thread:             ; preds = %if.end35, %if.end.i
 
 virtio_blk_sect_range_ok.exit:                    ; preds = %if.end2.i
   call void @blk_co_get_geometry(ptr noundef %0, ptr noundef nonnull %total_sectors.i) #6
-  %15 = load i64, ptr %total_sectors.i, align 8
-  %cmp7.i = icmp uge i64 %15, %7
-  %sub.i = sub i64 %15, %7
+  %14 = load i64, ptr %total_sectors.i, align 8
+  %cmp7.i = icmp uge i64 %14, %7
+  %sub.i = sub i64 %14, %7
   %cmp9.i = icmp ule i64 %shr.i, %sub.i
   %or.cond.not.i = select i1 %cmp7.i, i1 %cmp9.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
@@ -165,15 +164,15 @@ if.then45:                                        ; preds = %virtio_blk_sect_ran
   br label %return
 
 if.end47:                                         ; preds = %virtio_blk_sect_range_ok.exit
-  %16 = load i64, ptr %size, align 8
+  %15 = load i64, ptr %size, align 8
   br i1 %tobool26.not, label %if.else53, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  %call51 = call i32 @blk_co_pwritev(ptr noundef %0, i64 noundef %shl.i, i64 noundef %16, ptr noundef nonnull %qiov, i32 noundef 0) #6
+  %call51 = call i32 @blk_co_pwritev(ptr noundef %0, i64 noundef %shl.i, i64 noundef %15, ptr noundef nonnull %qiov, i32 noundef 0) #6
   br label %if.end57
 
 if.else53:                                        ; preds = %if.end47
-  %call55 = call i32 @blk_co_preadv(ptr noundef %0, i64 noundef %shl.i, i64 noundef %16, ptr noundef nonnull %qiov, i32 noundef 0) #6
+  %call55 = call i32 @blk_co_preadv(ptr noundef %0, i64 noundef %shl.i, i64 noundef %15, ptr noundef nonnull %qiov, i32 noundef 0) #6
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else53, %if.then49
@@ -204,34 +203,33 @@ if.else71:                                        ; preds = %sw.bb65
 
 sw.bb74:                                          ; preds = %if.end11
   %serial = getelementptr inbounds i8, ptr %handler, i64 8
-  %17 = load ptr, ptr %serial, align 8
-  %call76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #7
-  %18 = load i32, ptr %in_num.addr, align 4
-  %call77 = call i64 @iov_size(ptr noundef nonnull %in_iov, i32 noundef %18) #6
-  %19 = load ptr, ptr %serial, align 8
-  %20 = load i32, ptr %in_num.addr, align 4
+  %16 = load ptr, ptr %serial, align 8
+  %call76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #7
+  %17 = load i32, ptr %in_num.addr, align 4
+  %call77 = call i64 @iov_size(ptr noundef nonnull %in_iov, i32 noundef %17) #6
+  %18 = load ptr, ptr %serial, align 8
+  %19 = load i32, ptr %in_num.addr, align 4
   %add = add i64 %call76, 1
   %cond = call i64 @llvm.umin.i64(i64 %call77, i64 %add)
   %cond86 = call i64 @llvm.umin.i64(i64 %cond, i64 20)
-  %call.i39 = call i64 @iov_from_buf_full(ptr noundef nonnull %in_iov, i32 noundef %20, i64 noundef 0, ptr noundef %19, i64 noundef %cond86) #6
+  %call.i39 = call i64 @iov_from_buf_full(ptr noundef nonnull %in_iov, i32 noundef %19, i64 noundef 0, ptr noundef %18, i64 noundef %cond86) #6
   store i8 0, ptr %add.ptr21, align 1
   br label %return
 
 sw.bb90:                                          ; preds = %if.end11, %if.end11
   %writable91 = getelementptr inbounds i8, ptr %handler, i64 20
-  %21 = load i8, ptr %writable91, align 4
-  %22 = and i8 %21, 1
-  %tobool92.not = icmp eq i8 %22, 0
-  br i1 %tobool92.not, label %if.then93, label %if.end95
+  %20 = load i8, ptr %writable91, align 4
+  %tobool92 = trunc i8 %20 to i1
+  br i1 %tobool92, label %if.end95, label %if.then93
 
 if.then93:                                        ; preds = %sw.bb90
   store i8 1, ptr %add.ptr21, align 1
   br label %return
 
 if.end95:                                         ; preds = %sw.bb90
-  %23 = load ptr, ptr %out_iov.addr, align 8
-  %24 = load i32, ptr %out_num.addr, align 4
-  %call96 = call i32 @virtio_blk_discard_write_zeroes(ptr noundef nonnull %handler, ptr noundef %23, i32 noundef %24, i32 noundef %6), !range !5
+  %21 = load ptr, ptr %out_iov.addr, align 8
+  %22 = load i32, ptr %out_num.addr, align 4
+  %call96 = call i32 @virtio_blk_discard_write_zeroes(ptr noundef nonnull %handler, ptr noundef %21, i32 noundef %22, i32 noundef %6), !range !5
   %conv97 = trunc i32 %call96 to i8
   store i8 %conv97, ptr %add.ptr21, align 1
   br label %return

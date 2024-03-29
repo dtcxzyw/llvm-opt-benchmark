@@ -93,18 +93,17 @@ land.lhs.true5.i.i:                               ; preds = %if.end6
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
+  %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %dat_lines.0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i) #5
   br label %trace_sdbus_get_dat_lines.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -165,18 +164,17 @@ land.lhs.true5.i.i:                               ; preds = %if.end6
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
+  %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %cmd_line.0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val6, i32 noundef %conv12.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val6, i32 noundef %conv12.i.i) #5
   br label %trace_sdbus_get_cmd_line.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -224,18 +222,17 @@ land.lhs.true5.i.i:                               ; preds = %get_card.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
+  %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %millivolts to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i) #5
   br label %trace_sdbus_set_voltage.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -252,8 +249,8 @@ if.then:                                          ; preds = %trace_sdbus_set_vol
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %retval.0.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
   %set_voltage = getelementptr inbounds i8, ptr %call1.i, i64 216
-  %10 = load ptr, ptr %set_voltage, align 8
-  %tobool3.not = icmp eq ptr %10, null
+  %9 = load ptr, ptr %set_voltage, align 8
+  %tobool3.not = icmp eq ptr %9, null
   br i1 %tobool3.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.then
@@ -261,7 +258,7 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  tail call void %10(ptr noundef nonnull %retval.0.i, i16 noundef zeroext %millivolts) #5
+  tail call void %9(ptr noundef nonnull %retval.0.i, i16 noundef zeroext %millivolts) #5
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %trace_sdbus_set_voltage.exit
@@ -309,18 +306,17 @@ land.lhs.true5.i.i:                               ; preds = %get_card.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %10 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
+  %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %3 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i, i32 noundef %4) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i, i32 noundef %4) #5
   br label %trace_sdbus_command.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -337,8 +333,8 @@ if.then:                                          ; preds = %trace_sdbus_command
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %retval.0.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
   %do_command = getelementptr inbounds i8, ptr %call1.i, i64 176
-  %12 = load ptr, ptr %do_command, align 8
-  %call3 = tail call i32 %12(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %req, ptr noundef %response) #5
+  %11 = load ptr, ptr %do_command, align 8
+  %call3 = tail call i32 %11(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %req, ptr noundef %response) #5
   br label %return
 
 return:                                           ; preds = %trace_sdbus_command.exit, %if.then
@@ -381,18 +377,17 @@ land.lhs.true5.i.i:                               ; preds = %get_card.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
+  %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %value to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val5, i32 noundef %conv11.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %sdbus.val5, i32 noundef %conv11.i.i) #5
   br label %trace_sdbus_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -409,8 +404,8 @@ if.then:                                          ; preds = %trace_sdbus_write.e
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %retval.0.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
   %write_byte = getelementptr inbounds i8, ptr %call1.i, i64 184
-  %10 = load ptr, ptr %write_byte, align 8
-  tail call void %10(ptr noundef nonnull %retval.0.i, i8 noundef zeroext %value) #5
+  %9 = load ptr, ptr %write_byte, align 8
+  tail call void %9(ptr noundef nonnull %retval.0.i, i8 noundef zeroext %value) #5
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_sdbus_write.exit
@@ -466,17 +461,16 @@ land.lhs.true5.i.i:                               ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %9 = load i64, ptr %_now.i.i, align 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %3 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val8, i32 noundef %conv11.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val8, i32 noundef %conv11.i.i) #5
   br label %trace_sdbus_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -486,9 +480,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sdbus_write.exit:                           ; preds = %for.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %11 = load ptr, ptr %write_byte, align 8
-  %12 = load i8, ptr %arrayidx, align 1
-  tail call void %11(ptr noundef nonnull %call.i.i, i8 noundef zeroext %12) #5
+  %10 = load ptr, ptr %write_byte, align 8
+  %11 = load i8, ptr %arrayidx, align 1
+  tail call void %10(ptr noundef nonnull %call.i.i, i8 noundef zeroext %11) #5
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %length
   br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !5
@@ -541,18 +535,17 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
+  %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %value.0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val5, i32 noundef %conv11.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val5, i32 noundef %conv11.i.i) #5
   br label %trace_sdbus_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -616,17 +609,16 @@ land.lhs.true5.i.i:                               ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %9 = load i64, ptr %_now.i.i, align 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %call2 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val8, i32 noundef %conv11.i.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val8, i32 noundef %conv11.i.i) #5
   br label %trace_sdbus_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

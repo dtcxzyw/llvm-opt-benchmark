@@ -136,14 +136,13 @@ define internal noundef zeroext i1 @_listening_socket_readable(ptr nocapture nou
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %20, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %0, align 8
-  %.not7 = icmp eq i32 %10, -1
-  br i1 %.not7, label %16, label %11
+  %.not = icmp eq i32 %10, -1
+  br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %9
   %12 = icmp sgt i32 %10, 2
@@ -167,7 +166,8 @@ define internal noundef zeroext i1 @_listening_socket_readable(ptr nocapture nou
   br label %20
 
 20:                                               ; preds = %5, %16, %19
-  ret i1 %.not
+  %.0 = xor i1 %8, true
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -468,9 +468,8 @@ define internal noundef zeroext i1 @_server_readable(ptr nocapture noundef %0) #
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %3, i64 44
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
   %19 = tail call i32 @get_log_level() #10
@@ -496,9 +495,8 @@ define internal noundef zeroext i1 @_server_readable(ptr nocapture noundef %0) #
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %3, i64 12
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not17 = icmp eq i8 %33, 0
-  br i1 %.not17, label %45, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %45
 
 34:                                               ; preds = %30, %26, %22
   %35 = tail call i32 @get_log_level() #10
@@ -524,14 +522,13 @@ define internal noundef zeroext i1 @_server_readable(ptr nocapture noundef %0) #
 45:                                               ; preds = %30
   %46 = getelementptr inbounds i8, ptr %0, i64 24
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not18 = icmp eq i8 %48, 0
-  br i1 %.not18, label %61, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %61
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %0, align 8
-  %.not19 = icmp eq i32 %50, -1
-  br i1 %.not19, label %57, label %51
+  %.not = icmp eq i32 %50, -1
+  br i1 %.not, label %57, label %51
 
 51:                                               ; preds = %49
   %52 = icmp sgt i32 %50, 2
@@ -586,9 +583,8 @@ define internal noundef zeroext i1 @_server_writable(ptr nocapture noundef reado
 7:                                                ; preds = %6, %1
   %8 = getelementptr inbounds i8, ptr %3, i64 76
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %15, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
   %12 = tail call i32 @get_log_level() #10
@@ -602,9 +598,8 @@ define internal noundef zeroext i1 @_server_writable(ptr nocapture noundef reado
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not7 = icmp eq i8 %18, 0
-  br i1 %.not7, label %23, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
   %20 = tail call i32 @get_log_level() #10
@@ -618,15 +613,15 @@ define internal noundef zeroext i1 @_server_writable(ptr nocapture noundef reado
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %3, i64 64
   %25 = load ptr, ptr %24, align 8
-  %.not8 = icmp eq ptr %25, null
-  br i1 %.not8, label %26, label %30
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %26, label %30
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %3, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @list_is_empty(ptr noundef %28) #10
-  %.not9 = icmp eq i32 %29, 0
-  br i1 %.not9, label %30, label %37
+  %.not7 = icmp eq i32 %29, 0
+  br i1 %.not7, label %30, label %37
 
 30:                                               ; preds = %26, %23
   %31 = tail call i32 @get_log_level() #10
@@ -705,9 +700,8 @@ define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocaptur
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not96 = icmp eq i8 %33, 0
-  br i1 %.not96, label %38, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = tail call i32 @get_log_level() #10
@@ -732,8 +726,8 @@ define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocaptur
   %45 = load ptr, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 272
   %47 = load ptr, ptr %46, align 8
-  %.not97 = icmp eq ptr %47, null
-  br i1 %.not97, label %52, label %48
+  %.not95 = icmp eq ptr %47, null
+  br i1 %.not95, label %52, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %4, i64 8
@@ -773,8 +767,8 @@ define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocaptur
   %68 = load ptr, ptr %4, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 272
   %70 = load ptr, ptr %69, align 8
-  %.not95 = icmp eq ptr %70, null
-  br i1 %.not95, label %75, label %71
+  %.not94 = icmp eq ptr %70, null
+  br i1 %.not94, label %75, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %4, i64 8
@@ -941,8 +935,8 @@ define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocaptur
   %162 = load ptr, ptr %4, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 272
   %164 = load ptr, ptr %163, align 8
-  %.not94 = icmp eq ptr %164, null
-  br i1 %.not94, label %169, label %165
+  %.not93 = icmp eq ptr %164, null
+  br i1 %.not93, label %169, label %165
 
 165:                                              ; preds = %.thread
   %166 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1004,12 +998,11 @@ define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocaptur
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 36
   %200 = load i8, ptr %199, align 4
-  %201 = and i8 %200, 1
-  %.not93 = icmp eq i8 %201, 0
+  %201 = trunc i8 %200 to i1
   %202 = getelementptr inbounds i8, ptr %198, i64 8
   %203 = getelementptr inbounds i8, ptr %195, i64 256
-  %.sink108 = select i1 %.not93, ptr %202, ptr %203
-  %204 = load ptr, ptr %.sink108, align 8
+  %.sink106 = select i1 %201, ptr %203, ptr %202
+  %204 = load ptr, ptr %.sink106, align 8
   tail call void @list_enqueue(ptr noundef %204, ptr noundef nonnull %191) #10
   store ptr null, ptr %9, align 8
   br label %.loopexit
@@ -1258,9 +1251,8 @@ define internal noundef zeroext i1 @_file_writable(ptr nocapture noundef readonl
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %3, i64 36
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not6 = icmp eq i8 %24, 0
-  %25 = select i1 %.not6, ptr @.str.58, ptr @.str.57
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, ptr @.str.57, ptr @.str.58
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.56, ptr noundef nonnull %25) #10
   br label %26
 
@@ -1298,11 +1290,11 @@ define internal noundef i32 @_file_write(ptr nocapture noundef readonly %0, ptr 
 17:                                               ; preds = %12
   %18 = tail call i32 @get_log_level() #10
   %19 = icmp sgt i32 %18, 6
-  br i1 %19, label %20, label %92
+  br i1 %19, label %20, label %91
 
 20:                                               ; preds = %17
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__._file_write) #10
-  br label %92
+  br label %91
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds i8, ptr %15, i64 4
@@ -1323,14 +1315,13 @@ define internal noundef i32 @_file_write(ptr nocapture noundef readonly %0, ptr 
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %.not38 = icmp eq i32 %28, %32
-  br i1 %.not38, label %33, label %77
+  br i1 %.not38, label %33, label %76
 
 33:                                               ; preds = %29, %25
   %34 = getelementptr inbounds i8, ptr %4, i64 36
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %.not39 = icmp eq i8 %36, 0
-  br i1 %.not39, label %37, label %77
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %76, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %26, i64 8
@@ -1353,73 +1344,72 @@ define internal noundef i32 @_file_write(ptr nocapture noundef readonly %0, ptr 
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds i8, ptr %51, i64 8
   %57 = load i8, ptr %56, align 8
-  %58 = and i8 %57, 1
-  %59 = icmp ne i8 %58, 0
-  %60 = getelementptr inbounds i8, ptr %51, i64 12
-  %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 @write_labelled_message(i32 noundef %47, ptr noundef %46, i32 noundef %43, i32 noundef %50, i32 noundef %53, i32 noundef %55, i1 noundef zeroext %59, i32 noundef %61) #10
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %69
+  %58 = trunc i8 %57 to i1
+  %59 = getelementptr inbounds i8, ptr %51, i64 12
+  %60 = load i32, ptr %59, align 4
+  %61 = tail call i32 @write_labelled_message(i32 noundef %47, ptr noundef %46, i32 noundef %43, i32 noundef %50, i32 noundef %53, i32 noundef %55, i1 noundef zeroext %58, i32 noundef %60) #10
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %68
 
-64:                                               ; preds = %37
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 256
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %9, align 8
-  tail call void @list_enqueue(ptr noundef %67, ptr noundef %68) #10
+63:                                               ; preds = %37
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 256
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %9, align 8
+  tail call void @list_enqueue(ptr noundef %66, ptr noundef %67) #10
   store ptr null, ptr %9, align 8
   store i8 1, ptr %34, align 4
-  br label %92
+  br label %91
 
-69:                                               ; preds = %37
-  %70 = tail call i32 @get_log_level() #10
-  %71 = icmp sgt i32 %70, 6
-  br i1 %71, label %72, label %73
+68:                                               ; preds = %37
+  %69 = tail call i32 @get_log_level() #10
+  %70 = icmp sgt i32 %69, 6
+  br i1 %70, label %71, label %72
 
-72:                                               ; preds = %69
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.61, i32 noundef %62) #10
-  br label %73
+71:                                               ; preds = %68
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.61, i32 noundef %61) #10
+  br label %72
 
-73:                                               ; preds = %72, %69
-  %74 = load i32, ptr %42, align 8
-  %75 = sub nsw i32 %74, %62
-  store i32 %75, ptr %42, align 8
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %92, label %._crit_edge
+72:                                               ; preds = %71, %68
+  %73 = load i32, ptr %42, align 8
+  %74 = sub nsw i32 %73, %61
+  store i32 %74, ptr %42, align 8
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %91, label %._crit_edge
 
-._crit_edge:                                      ; preds = %73
+._crit_edge:                                      ; preds = %72
   %.pre = load ptr, ptr %9, align 8
-  br label %77
+  br label %76
 
-77:                                               ; preds = %._crit_edge, %33, %29
-  %78 = phi ptr [ %.pre, %._crit_edge ], [ %26, %33 ], [ %26, %29 ]
-  %79 = load i32, ptr %78, align 8
-  %80 = add nsw i32 %79, -1
-  store i32 %80, ptr %78, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %88
+76:                                               ; preds = %._crit_edge, %33, %29
+  %77 = phi ptr [ %.pre, %._crit_edge ], [ %26, %33 ], [ %26, %29 ]
+  %78 = load i32, ptr %77, align 8
+  %79 = add nsw i32 %78, -1
+  store i32 %79, ptr %77, align 8
+  %80 = load ptr, ptr %9, align 8
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %87
 
-84:                                               ; preds = %77
-  %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 256
-  %87 = load ptr, ptr %86, align 8
-  tail call void @list_enqueue(ptr noundef %87, ptr noundef nonnull %81) #10
-  br label %88
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 256
+  %86 = load ptr, ptr %85, align 8
+  tail call void @list_enqueue(ptr noundef %86, ptr noundef nonnull %80) #10
+  br label %87
 
-88:                                               ; preds = %84, %77
+87:                                               ; preds = %83, %76
   store ptr null, ptr %9, align 8
-  %89 = tail call i32 @get_log_level() #10
-  %90 = icmp sgt i32 %89, 5
-  br i1 %90, label %91, label %92
+  %88 = tail call i32 @get_log_level() #10
+  %89 = icmp sgt i32 %88, 5
+  br i1 %89, label %90, label %91
 
-91:                                               ; preds = %88
+90:                                               ; preds = %87
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__._file_write) #10
-  br label %92
+  br label %91
 
-92:                                               ; preds = %88, %91, %73, %17, %20, %64
-  %.0 = phi i32 [ -1, %64 ], [ 0, %20 ], [ 0, %17 ], [ 0, %73 ], [ 0, %91 ], [ 0, %88 ]
+91:                                               ; preds = %87, %90, %72, %17, %20, %63
+  %.0 = phi i32 [ -1, %63 ], [ 0, %20 ], [ 0, %17 ], [ 0, %72 ], [ 0, %90 ], [ 0, %87 ]
   ret i32 %.0
 }
 
@@ -1456,9 +1446,8 @@ define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %26, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %18
   %23 = tail call i32 @get_log_level() #10
@@ -1472,9 +1461,8 @@ define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not23 = icmp eq i8 %29, 0
-  br i1 %.not23, label %40, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26
   %31 = tail call i32 @get_log_level() #10
@@ -1502,8 +1490,8 @@ define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 
 40:                                               ; preds = %26
   %41 = getelementptr inbounds i8, ptr %8, i64 160
   %42 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %41) #10
-  %.not24 = icmp eq i32 %42, 0
-  br i1 %.not24, label %45, label %43
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %45, label %43
 
 43:                                               ; preds = %40
   %44 = tail call ptr @__errno_location() #11
@@ -1517,11 +1505,11 @@ define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 160
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #10
-  %.not26 = icmp eq i32 %50, 0
+  %.not24 = icmp eq i32 %50, 0
   br i1 %47, label %51, label %54
 
 51:                                               ; preds = %45
-  br i1 %.not26, label %61, label %52
+  br i1 %.not24, label %61, label %52
 
 52:                                               ; preds = %51
   %53 = tail call ptr @__errno_location() #11
@@ -1530,7 +1518,7 @@ define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 
   unreachable
 
 54:                                               ; preds = %45
-  br i1 %.not26, label %57, label %55
+  br i1 %.not24, label %57, label %55
 
 55:                                               ; preds = %54
   %56 = tail call ptr @__errno_location() #11
@@ -2483,9 +2471,8 @@ define void @client_io_handler_finish(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not17 = icmp eq i8 %15, 0
-  br i1 %.not17, label %25, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %25
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2508,8 +2495,8 @@ define void @client_io_handler_finish(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %16, %16, %12, %22
   %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #10
-  %.not18 = icmp eq i32 %26, 0
-  br i1 %.not18, label %29, label %27
+  %.not17 = icmp eq i32 %26, 0
+  br i1 %.not17, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = tail call ptr @__errno_location() #11
@@ -2849,9 +2836,8 @@ define noundef i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noun
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 76
   %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  %.not35 = icmp eq i8 %23, 0
-  br i1 %.not35, label %24, label %49
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %49, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %4, i64 4
@@ -2888,8 +2874,8 @@ define noundef i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noun
   %43 = getelementptr inbounds i8, ptr %0, i64 152
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @eio_signal_wakeup(ptr noundef %44) #10
-  %.not37 = icmp eq i32 %45, 0
-  br i1 %.not37, label %46, label %49
+  %.not36 = icmp eq i32 %45, 0
+  br i1 %.not36, label %46, label %49
 
 46:                                               ; preds = %29
   %47 = getelementptr inbounds i8, ptr %20, i64 12
@@ -2903,8 +2889,8 @@ define noundef i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noun
 49:                                               ; preds = %24, %29, %11, %18, %46, %48
   %.0 = phi i32 [ 0, %11 ], [ 0, %18 ], [ 0, %48 ], [ 0, %46 ], [ -1, %29 ], [ -1, %24 ]
   %50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #10
-  %.not38 = icmp eq i32 %50, 0
-  br i1 %.not38, label %53, label %51
+  %.not37 = icmp eq i32 %50, 0
+  br i1 %.not37, label %53, label %51
 
 51:                                               ; preds = %49
   %52 = tail call ptr @__errno_location() #11

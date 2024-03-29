@@ -287,7 +287,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %last_invalid_percent_index.063 = phi i32 [ -2147483648, %for.body.lr.ph ], [ %last_invalid_percent_index.1, %for.inc ]
-  %success.061 = phi i8 [ 1, %for.body.lr.ph ], [ %success.1, %for.inc ]
+  %success.061 = phi i1 [ true, %for.body.lr.ph ], [ %success.1, %for.inc ]
   %storemerge60 = phi i32 [ %path.0.val, %for.body.lr.ph ], [ %inc, %for.inc ]
   %idxprom = sext i32 %storemerge60 to i64
   %arrayidx = getelementptr inbounds i8, ptr %spec, i64 %idxprom
@@ -970,7 +970,7 @@ return.sink.split.i218:                           ; preds = %_ZN3url12CanonOutpu
 _ZN3url12CanonOutputTIcE9push_backEc.exit226:     ; preds = %do.body.i.i209, %return.sink.split.i218
   %and55 = and i32 %conv3873, 8
   %tobool56.not = icmp eq i32 %and55, 0
-  %spec.select = select i1 %tobool56.not, i8 %success.061, i8 0
+  %spec.select = select i1 %tobool56.not, i1 %success.061, i1 false
   br label %for.inc
 
 if.else60:                                        ; preds = %land.lhs.true.i, %lor.lhs.false14.i, %if.end.i111
@@ -1073,19 +1073,14 @@ return.sink.split.i267:                           ; preds = %if.else78, %if.end5
 
 for.inc:                                          ; preds = %do.body.i.i91, %do.body.i.i67.i, %do.body.i.i234, %do.body.i.i258, %return.sink.split.i267, %return.sink.split.i243, %if.end22.sink.split.i, %if.else.i, %if.then.i146, %return.sink.split.i100, %_ZN3url12CanonOutputTIcE9push_backEc.exit226, %if.then67, %if.then72, %if.else68, %_ZN3url12CanonOutputTIcE9push_backEc.exit138, %_ZN3url12CanonOutputTIcE9push_backEc.exit84, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %sw.bb16, %_ZN3url12CanonOutputTIcE9push_backEc.exit
   %i.1 = phi i32 [ %add23, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %add19, %sw.bb16 ], [ %add15, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %add25, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %storemerge60, %if.else68 ], [ %storemerge60, %if.then72 ], [ %storemerge60, %if.then67 ], [ %add23.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %add23.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %storemerge60, %return.sink.split.i100 ], [ %add23.i, %if.then.i146 ], [ %add23.i, %if.else.i ], [ %add23.i, %if.end22.sink.split.i ], [ %storemerge60, %return.sink.split.i243 ], [ %storemerge60, %return.sink.split.i267 ], [ %storemerge60, %do.body.i.i258 ], [ %storemerge60, %do.body.i.i234 ], [ %add23.i, %do.body.i.i67.i ], [ %storemerge60, %do.body.i.i91 ]
-  %success.1 = phi i8 [ %success.061, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %success.061, %sw.bb16 ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %success.061, %if.else68 ], [ %success.061, %if.then72 ], [ 0, %if.then67 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %success.061, %return.sink.split.i100 ], [ %success.061, %if.then.i146 ], [ %success.061, %if.else.i ], [ %success.061, %if.end22.sink.split.i ], [ %success.061, %return.sink.split.i243 ], [ %success.061, %return.sink.split.i267 ], [ %success.061, %do.body.i.i258 ], [ %success.061, %do.body.i.i234 ], [ %success.061, %do.body.i.i67.i ], [ %success.061, %do.body.i.i91 ]
+  %success.1 = phi i1 [ %success.061, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %success.061, %sw.bb16 ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %success.061, %if.else68 ], [ %success.061, %if.then72 ], [ false, %if.then67 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %success.061, %return.sink.split.i100 ], [ %success.061, %if.then.i146 ], [ %success.061, %if.else.i ], [ %success.061, %if.end22.sink.split.i ], [ %success.061, %return.sink.split.i243 ], [ %success.061, %return.sink.split.i267 ], [ %success.061, %do.body.i.i258 ], [ %success.061, %do.body.i.i234 ], [ %success.061, %do.body.i.i67.i ], [ %success.061, %do.body.i.i91 ]
   %last_invalid_percent_index.1 = phi i32 [ %last_invalid_percent_index.063, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %last_invalid_percent_index.063, %sw.bb16 ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %last_invalid_percent_index.063, %if.else68 ], [ %last_invalid_percent_index.063, %if.then72 ], [ %last_invalid_percent_index.063, %if.then67 ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %last_invalid_percent_index.063, %return.sink.split.i100 ], [ %last_invalid_percent_index.063, %if.then.i146 ], [ %last_invalid_percent_index.063, %if.else.i ], [ %last_invalid_percent_index.063, %if.end22.sink.split.i ], [ %96, %return.sink.split.i243 ], [ %last_invalid_percent_index.063, %return.sink.split.i267 ], [ %last_invalid_percent_index.063, %do.body.i.i258 ], [ %96, %do.body.i.i234 ], [ %last_invalid_percent_index.063, %do.body.i.i67.i ], [ %last_invalid_percent_index.063, %do.body.i.i91 ]
   %inc = add nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc, %add.i
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
-for.end.loopexit:                                 ; preds = %for.inc
-  %106 = and i8 %success.1, 1
-  %107 = icmp ne i8 %106, 0
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %entry
-  %success.0.lcssa = phi i1 [ true, %entry ], [ %107, %for.end.loopexit ]
+for.end:                                          ; preds = %for.inc, %entry
+  %success.0.lcssa = phi i1 [ true, %entry ], [ %success.1, %for.inc ]
   ret i1 %success.0.lcssa
 }
 
@@ -1957,12 +1952,11 @@ for.inc:                                          ; preds = %do.body.i.i97, %do.
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %113 = and i8 %success.1, 1
-  %114 = icmp ne i8 %113, 0
+  %113 = trunc i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %success.0.lcssa = phi i1 [ true, %entry ], [ %114, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %entry ], [ %113, %for.end.loopexit ]
   ret i1 %success.0.lcssa
 }
 

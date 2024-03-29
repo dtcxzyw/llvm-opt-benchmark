@@ -655,9 +655,8 @@ if.then7.i:                                       ; preds = %if.then.i
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.i
   %3 = load i8, ptr %m_endedStream.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.end12.i, label %_ZN4YAML7Scanner19EnsureTokensInQueueEv.exit
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %_ZN4YAML7Scanner19EnsureTokensInQueueEv.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end10.i
   tail call void @_ZN4YAML7Scanner13ScanNextTokenEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -701,9 +700,8 @@ while.body.backedge:                              ; preds = %if.then7, %if.end12
 
 if.end10:                                         ; preds = %if.then, %while.body
   %3 = load i8, ptr %m_endedStream, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end12, label %return
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end10
   tail call void @_ZN4YAML7Scanner13ScanNextTokenEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -741,15 +739,13 @@ if.then7.i:                                       ; preds = %if.then.i
 
 if.end10.i:                                       ; preds = %while.body.i
   %3 = load i8, ptr %m_endedStream.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.end12.i, label %if.end
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.end, label %if.end12.i
 
 if.end10.i.thread:                                ; preds = %if.then.i
-  %5 = load i8, ptr %m_endedStream.i, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i1 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i1, label %if.end12.i, label %if.then
+  %4 = load i8, ptr %m_endedStream.i, align 1
+  %tobool.i1 = trunc i8 %4 to i1
+  br i1 %tobool.i1, label %if.then, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end10.i.thread, %if.end10.i
   tail call void @_ZN4YAML7Scanner13ScanNextTokenEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -794,9 +790,8 @@ if.then7.i:                                       ; preds = %if.then.i
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.i
   %3 = load i8, ptr %m_endedStream.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.end12.i, label %_ZN4YAML7Scanner19EnsureTokensInQueueEv.exit
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %_ZN4YAML7Scanner19EnsureTokensInQueueEv.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end10.i
   tail call void @_ZN4YAML7Scanner13ScanNextTokenEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -834,16 +829,14 @@ entry:
   %ref.tmp131 = alloca %"class.std::allocator", align 1
   %m_endedStream = getelementptr inbounds i8, ptr %this, i64 209
   %0 = load i8, ptr %m_endedStream, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_startedStream = getelementptr inbounds i8, ptr %this, i64 208
-  %2 = load i8, ptr %m_startedStream, align 8
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end4
+  %1 = load i8, ptr %m_startedStream, align 8
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   tail call void @_ZN4YAML7Scanner11StartStreamEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -854,11 +847,11 @@ if.end4:                                          ; preds = %if.end
   tail call void @_ZN4YAML7Scanner15PopIndentToHereEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
   %call.i = tail call noundef zeroext i1 @_ZNK4YAML6StreamcvbEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
   %column.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i32, ptr %column.i, align 8
+  %2 = load i32, ptr %column.i, align 8
   br i1 %call.i, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
-  %cmp.i = icmp sgt i32 %4, 0
+  %cmp.i = icmp sgt i32 %2, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then5
@@ -868,17 +861,17 @@ if.then.i:                                        ; preds = %if.then5
 if.end.i:                                         ; preds = %if.then.i, %if.then5
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %_M_start.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
-  %5 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.not.i.i = icmp eq ptr %5, %6
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.not.i.i, label %while.cond.preheader.i.i, label %_ZN4YAML7Scanner9EndStreamEv.exit
 
 while.cond.preheader.i.i:                         ; preds = %if.end.i
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
   %_M_start.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %7 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %8 = load ptr, ptr %_M_start.i.i.i.i, align 8
-  %cmp.i.i.i3.i.i = icmp eq ptr %7, %8
+  %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %6 = load ptr, ptr %_M_start.i.i.i.i, align 8
+  %cmp.i.i.i3.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i3.i.i, label %_ZN4YAML7Scanner9EndStreamEv.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %while.cond.preheader.i.i
@@ -887,32 +880,32 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end6.i.i, %while.body.lr.ph.i.i
-  %9 = phi ptr [ %7, %while.body.lr.ph.i.i ], [ %16, %if.end6.i.i ]
-  %10 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !10
-  %cmp.i.i.i2.i.i = icmp eq ptr %9, %10
+  %7 = phi ptr [ %5, %while.body.lr.ph.i.i ], [ %14, %if.end6.i.i ]
+  %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !10
+  %cmp.i.i.i2.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i.i.i, label %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i
-  %11 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8, !noalias !10
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
-  %12 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 512
+  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8, !noalias !10
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %10 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 512
   br label %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit.i.i
 
 _ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit.i.i: ; preds = %if.then.i.i.i.i.i, %while.body.i.i
-  %13 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %9, %while.body.i.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -8
-  %14 = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
-  %type.i.i = getelementptr inbounds i8, ptr %14, i64 4
-  %15 = load i32, ptr %type.i.i, align 4
-  %cmp.i.i = icmp eq i32 %15, 2
+  %11 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %7, %while.body.i.i ]
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
+  %12 = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
+  %type.i.i = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = load i32, ptr %type.i.i, align 4
+  %cmp.i.i = icmp eq i32 %13, 2
   br i1 %cmp.i.i, label %_ZN4YAML7Scanner9EndStreamEv.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit.i.i
   tail call void @_ZN4YAML7Scanner9PopIndentEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
-  %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_start.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %16, %17
+  %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_start.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i.i.i, label %_ZN4YAML7Scanner9EndStreamEv.exit, label %while.body.i.i, !llvm.loop !13
 
 _ZN4YAML7Scanner9EndStreamEv.exit:                ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit.i.i, %if.end6.i.i, %if.end.i, %while.cond.preheader.i.i
@@ -923,7 +916,7 @@ _ZN4YAML7Scanner9EndStreamEv.exit:                ; preds = %_ZNSt5stackIPN4YAML
   br label %return
 
 if.end6:                                          ; preds = %if.end4
-  %cmp = icmp eq i32 %4, 0
+  %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %if.end6
@@ -949,27 +942,27 @@ land.lhs.true17:                                  ; preds = %if.end13
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_start.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_node.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %18 = load ptr, ptr %_M_node.i.i.i.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %_M_node.i.i.i.i.i.i.i.i, align 8
   %_M_node1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %19 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %19 to i64
+  %17 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 3
-  %tobool.i.i.i.i.i.i.i.i = icmp ne ptr %18, null
+  %tobool.i.i.i.i.i.i.i.i = icmp ne ptr %16, null
   %conv.neg.i.i.i.i.i.i.i.i = sext i1 %tobool.i.i.i.i.i.i.i.i to i64
   %sub.i.i.i.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i.i.i.i.i, %conv.neg.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i.i.i.i.i, 9
-  %20 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %_M_first.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %21 = load ptr, ptr %_M_first.i.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i.i = ptrtoint ptr %21 to i64
+  %19 = load ptr, ptr %_M_first.i.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i.i = ptrtoint ptr %19 to i64
   %_M_last.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %22 = load ptr, ptr %_M_last.i.i.i.i.i.i.i.i, align 8
-  %23 = load ptr, ptr %_M_start.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i.i = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i.i = ptrtoint ptr %23 to i64
+  %20 = load ptr, ptr %_M_last.i.i.i.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %_M_start.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i.i = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub9.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i.i.i.i.i
   %sub.ptr.sub5.i.i.i.i.i.i.i.i = add i64 %sub.ptr.sub9.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast7.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = add i64 %sub.ptr.sub5.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i
@@ -986,9 +979,9 @@ _ZNK4YAML5RegEx7MatchesERKNS_6StreamE.exit.thread: ; preds = %_ZNK4YAML5RegEx13I
 
 _ZNK4YAML5RegEx7MatchesERKNS_6StreamE.exit:       ; preds = %land.lhs.true17, %_ZNK4YAML5RegEx13IsValidSourceINS_16StreamCharSourceEEEbRKT_.exit.i.i.i
   %call2.i.i.i = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %call18, ptr noundef nonnull align 8 dereferenceable(16) %source.i.i)
-  %24 = icmp sgt i32 %call2.i.i.i, -1
+  %22 = icmp sgt i32 %call2.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %source.i.i)
-  br i1 %24, label %if.then21, label %if.end22
+  br i1 %22, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %_ZNK4YAML5RegEx7MatchesERKNS_6StreamE.exit
   call void @_ZN4YAML7Scanner12ScanDocStartEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -1005,24 +998,24 @@ land.lhs.true26:                                  ; preds = %if.end22
   store i64 0, ptr %source.i.i5, align 8
   %m_stream.i.i.i6 = getelementptr inbounds i8, ptr %source.i.i5, i64 8
   store ptr %this, ptr %m_stream.i.i.i6, align 8
-  %25 = load ptr, ptr %_M_node.i.i.i.i.i.i.i.i, align 8
-  %26 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i11 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i12 = ptrtoint ptr %26 to i64
+  %23 = load ptr, ptr %_M_node.i.i.i.i.i.i.i.i, align 8
+  %24 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i11 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i12 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i11, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i12
   %sub.ptr.div.i.i.i.i.i.i.i.i14 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i13, 3
-  %tobool.i.i.i.i.i.i.i.i15 = icmp ne ptr %25, null
+  %tobool.i.i.i.i.i.i.i.i15 = icmp ne ptr %23, null
   %conv.neg.i.i.i.i.i.i.i.i16 = sext i1 %tobool.i.i.i.i.i.i.i.i15 to i64
   %sub.i.i.i.i.i.i.i.i17 = add nsw i64 %sub.ptr.div.i.i.i.i.i.i.i.i14, %conv.neg.i.i.i.i.i.i.i.i16
   %mul.i.i.i.i.i.i.i.i18 = shl nsw i64 %sub.i.i.i.i.i.i.i.i17, 9
-  %27 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %28 = load ptr, ptr %_M_first.i.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i.i20 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i.i21 = ptrtoint ptr %28 to i64
-  %29 = load ptr, ptr %_M_last.i.i.i.i.i.i.i.i, align 8
-  %30 = load ptr, ptr %_M_start.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i.i23 = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i.i24 = ptrtoint ptr %30 to i64
+  %25 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %26 = load ptr, ptr %_M_first.i.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i.i20 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i.i21 = ptrtoint ptr %26 to i64
+  %27 = load ptr, ptr %_M_last.i.i.i.i.i.i.i.i, align 8
+  %28 = load ptr, ptr %_M_start.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i.i23 = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i.i24 = ptrtoint ptr %28 to i64
   %sub.ptr.sub9.i.i.i.i.i.i.i.i25 = sub i64 %sub.ptr.lhs.cast3.i.i.i.i.i.i.i.i20, %sub.ptr.rhs.cast4.i.i.i.i.i.i.i.i21
   %sub.ptr.sub5.i.i.i.i.i.i.i.i26 = add i64 %sub.ptr.sub9.i.i.i.i.i.i.i.i25, %sub.ptr.lhs.cast7.i.i.i.i.i.i.i.i23
   %add.i.i.i.i.i.i.i.i27 = add i64 %sub.ptr.sub5.i.i.i.i.i.i.i.i26, %mul.i.i.i.i.i.i.i.i18
@@ -1039,9 +1032,9 @@ _ZNK4YAML5RegEx7MatchesERKNS_6StreamE.exit34.thread: ; preds = %_ZNK4YAML5RegEx1
 
 _ZNK4YAML5RegEx7MatchesERKNS_6StreamE.exit34:     ; preds = %land.lhs.true26, %_ZNK4YAML5RegEx13IsValidSourceINS_16StreamCharSourceEEEbRKT_.exit.i.i.i32
   %call2.i.i.i30 = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %call27, ptr noundef nonnull align 8 dereferenceable(16) %source.i.i5)
-  %31 = icmp sgt i32 %call2.i.i.i30, -1
+  %29 = icmp sgt i32 %call2.i.i.i30, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %source.i.i5)
-  br i1 %31, label %if.then30, label %if.end31
+  br i1 %29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %_ZNK4YAML5RegEx7MatchesERKNS_6StreamE.exit34
   call void @_ZN4YAML7Scanner10ScanDocEndEv(ptr noundef nonnull align 8 dereferenceable(480) %this)
@@ -1096,9 +1089,9 @@ if.then62:                                        ; preds = %if.end58
 if.end63:                                         ; preds = %if.end58
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
-  %32 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %33 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %32, %33
+  %30 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %31 = load ptr, ptr %_M_start.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %30, %31
   br i1 %cmp.i.i.i.i, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end63
@@ -1151,9 +1144,9 @@ if.then91:                                        ; preds = %if.end86
   br label %return
 
 if.end92:                                         ; preds = %if.end86
-  %34 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %35 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i37 = icmp eq ptr %34, %35
+  %32 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %33 = load ptr, ptr %_M_start.i.i.i, align 8
+  %cmp.i.i.i.i37 = icmp eq ptr %32, %33
   br i1 %cmp.i.i.i.i37, label %land.lhs.true94, label %if.end105
 
 land.lhs.true94:                                  ; preds = %if.end92
@@ -1185,9 +1178,9 @@ if.then115:                                       ; preds = %lor.lhs.false110, %
   br label %return
 
 if.end116:                                        ; preds = %lor.lhs.false110
-  %36 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %37 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i40 = icmp eq ptr %36, %37
+  %34 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %35 = load ptr, ptr %_M_start.i.i.i, align 8
+  %cmp.i.i.i.i40 = icmp eq ptr %34, %35
   br i1 %cmp.i.i.i.i40, label %cond.true118, label %cond.false120
 
 cond.true118:                                     ; preds = %if.end116
@@ -1228,21 +1221,21 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup.thread:                                 ; preds = %if.end127
-  %38 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp131) #20
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont133, %invoke.cont135
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont135 ], [ true, %invoke.cont133 ]
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp131) #20
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn49 = phi { ptr, i32 } [ %38, %ehcleanup.thread ], [ %39, %ehcleanup ]
+  %.pn49 = phi { ptr, i32 } [ %36, %ehcleanup.thread ], [ %37, %ehcleanup ]
   call void @__cxa_free_exception(ptr %exception) #20
   br label %eh.resume
 
@@ -1250,7 +1243,7 @@ return:                                           ; preds = %entry, %if.then126,
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
-  %.pn48 = phi { ptr, i32 } [ %39, %ehcleanup ], [ %.pn49, %cleanup.action ]
+  %.pn48 = phi { ptr, i32 } [ %37, %ehcleanup ], [ %.pn49, %cleanup.action ]
   resume { ptr, i32 } %.pn48
 
 unreachable:                                      ; preds = %invoke.cont135
@@ -2485,18 +2478,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %m_canBeJSONFlow = getelementptr inbounds i8, ptr %this, i64 211
   %2 = load i8, ptr %m_canBeJSONFlow, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
-  %4 = load atomic i8, ptr @_ZGVZN4YAML3Exp15ValueInJSONFlowEvE1e acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %4, 0
+  %3 = load atomic i8, ptr @_ZGVZN4YAML3Exp15ValueInJSONFlowEvE1e acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %return, !prof !20
 
 init.check.i:                                     ; preds = %cond.true
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4YAML3Exp15ValueInJSONFlowEvE1e) #20
-  %tobool.not.i = icmp eq i32 %5, 0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4YAML3Exp15ValueInJSONFlowEvE1e) #20
+  %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %return, label %init.i
 
 init.i:                                           ; preds = %init.check.i
@@ -2504,15 +2496,15 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4YAML5RegExD2Ev, ptr nonnull @_ZZN4YAML3Exp15ValueInJSONFlowEvE1e, ptr nonnull @__dso_handle) #20
+  %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4YAML5RegExD2Ev, ptr nonnull @_ZZN4YAML3Exp15ValueInJSONFlowEvE1e, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4YAML3Exp15ValueInJSONFlowEvE1e) #20
   br label %return
 
 lpad.i:                                           ; preds = %init.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4YAML3Exp15ValueInJSONFlowEvE1e) #20
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 cond.false:                                       ; preds = %if.end
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4YAML3Exp11ValueInFlowEv()

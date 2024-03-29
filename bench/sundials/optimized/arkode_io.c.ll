@@ -349,8 +349,8 @@ define noundef i32 @arkSetInterpolantType(ptr noundef %0, i32 noundef %1) local_
   br label %15
 
 15:                                               ; preds = %14, %11
-  %trunc.not = icmp eq i32 %1, 0
-  br i1 %trunc.not, label %16, label %18
+  %trunc = trunc i32 %1 to i1
+  br i1 %trunc, label %18, label %16
 
 16:                                               ; preds = %15
   %17 = tail call ptr @arkInterpCreate_Hermite(ptr noundef nonnull %0, i32 noundef 5) #8
@@ -361,8 +361,8 @@ define noundef i32 @arkSetInterpolantType(ptr noundef %0, i32 noundef %1) local_
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.sink29 = phi ptr [ %17, %16 ], [ %19, %18 ]
-  %.sink = phi i32 [ 0, %16 ], [ 1, %18 ]
+  %.sink29 = phi ptr [ %19, %18 ], [ %17, %16 ]
+  %.sink = phi i32 [ 1, %18 ], [ 0, %16 ]
   store ptr %.sink29, ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 344
   store i32 %.sink, ptr %21, align 8

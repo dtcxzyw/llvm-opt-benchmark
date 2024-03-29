@@ -307,31 +307,29 @@ entry:
   %4 = load i32, ptr %m_at, align 8
   %and = and i32 %4, 256
   %tobool5.not = icmp eq i32 %and, 0
-  %5 = and i8 %3, 1
-  %6 = icmp ne i8 %5, 0
-  %tobool8 = xor i1 %tobool5.not, %6
+  %5 = trunc i8 %3 to i1
+  %tobool8 = xor i1 %tobool5.not, %5
   br i1 %tobool8, label %lor.lhs.false, label %if.then11
 
 lor.lhs.false:                                    ; preds = %entry
   %call9 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
   %success = getelementptr inbounds i8, ptr %call9, i64 108
-  %7 = load i8, ptr %success, align 4
-  %8 = and i8 %7, 1
-  %tobool10.not = icmp eq i8 %8, 0
-  br i1 %tobool10.not, label %if.end14, label %lor.lhs.false.if.then11_crit_edge
+  %6 = load i8, ptr %success, align 4
+  %tobool10 = trunc i8 %6 to i1
+  br i1 %tobool10, label %lor.lhs.false.if.then11_crit_edge, label %if.end14
 
 lor.lhs.false.if.then11_crit_edge:                ; preds = %lor.lhs.false
   %.pre = load ptr, ptr %this, align 8
   br label %if.then11
 
 if.then11:                                        ; preds = %lor.lhs.false.if.then11_crit_edge, %entry
-  %9 = phi ptr [ %.pre, %lor.lhs.false.if.then11_crit_edge ], [ %0, %entry ]
-  call void @_ZN7doctest6detail19stringifyBinaryExprIbbEENS_6StringERKT_PKcRKT0_(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %rhs)
+  %7 = phi ptr [ %.pre, %lor.lhs.false.if.then11_crit_edge ], [ %0, %entry ]
+  call void @_ZN7doctest6detail19stringifyBinaryExprIbbEENS_6StringERKT_PKcRKT0_(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %rhs)
   invoke void @_ZN7doctest6detail6ResultC1EbRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i1 noundef zeroext %tobool8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then11
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -341,7 +339,7 @@ if.end14:                                         ; preds = %lor.lhs.false
           to label %return unwind label %lpad17
 
 lpad17:                                           ; preds = %if.end14
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -352,7 +350,7 @@ return:                                           ; preds = %if.end14, %if.then1
 
 eh.resume:                                        ; preds = %lpad17, %lpad
   %ref.tmp16.sink6 = phi ptr [ %ref.tmp16, %lpad17 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %11, %lpad17 ], [ %10, %lpad ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad17 ], [ %8, %lpad ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16.sink6) #7
   resume { ptr, i32 } %.pn
 }
@@ -370,8 +368,7 @@ entry:
   %ref.tmp2 = alloca %"class.doctest::String", align 8
   %ref.tmp5 = alloca %"class.doctest::String", align 8
   %0 = load i8, ptr %lhs, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   call void @_ZN7doctest8toStringEb(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp1, i1 noundef zeroext %tobool)
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, ptr noundef %op)
           to label %invoke.cont unwind label %lpad
@@ -381,9 +378,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %2 = load i8, ptr %rhs, align 1
-  %3 = and i8 %2, 1
-  %tobool6 = icmp ne i8 %3, 0
+  %1 = load i8, ptr %rhs, align 1
+  %tobool6 = trunc i8 %1 to i1
   invoke void @_ZN7doctest8toStringEb(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp5, i1 noundef zeroext %tobool6)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -399,38 +395,38 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad7:                                            ; preds = %invoke.cont4
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5) #7
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad7
-  %.pn = phi { ptr, i32 } [ %7, %lpad9 ], [ %6, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad9 ], [ %4, %lpad7 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #7
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %ehcleanup, %lpad3
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad3 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad3 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2) #7
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %ehcleanup11, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup11 ], [ %4, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup11 ], [ %2, %lpad ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #7
   resume { ptr, i32 } %.pn.pn.pn
 }

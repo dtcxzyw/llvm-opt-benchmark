@@ -203,9 +203,8 @@ _ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4copyEiiPS
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4copyEiiPS1_.exit.i.i
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i.i, label %if.end.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %if.end.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -220,14 +219,14 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
   %m_data9.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = sext i32 %0 to i64
+  %6 = sext i32 %0 to i64
   %wide.trip.count.i = sext i32 %numSolvers to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
-  %indvars.iv.i = phi i64 [ %7, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
-  %8 = load ptr, ptr %m_data9.i, align 8
-  %arrayidx11.i = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %8, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %6, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
+  %7 = load ptr, ptr %m_data9.i, align 8
+  %arrayidx11.i = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %7, i64 %indvars.iv.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx11.i, i8 0, i64 128, i1 false)
@@ -246,10 +245,10 @@ for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjec
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %solvers, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %10, i64 %indvars.iv
-  store ptr %9, ptr %arrayidx.i, align 8
+  %8 = load ptr, ptr %arrayidx, align 8
+  %9 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %9, i64 %indvars.iv
+  store ptr %8, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
@@ -258,11 +257,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %11 = load ptr, ptr %solvers, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %solvers, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %12 = load ptr, ptr %vfn, align 8
-  %call5 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %11 = load ptr, ptr %vfn, align 8
+  %call5 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
   store i32 %call5, ptr %m_solverType, align 8
   br label %if.end
 
@@ -463,9 +462,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -482,10 +480,10 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #8
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #8
   unreachable
 }
 
@@ -500,9 +498,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -519,10 +516,10 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #8
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #8
   unreachable
 }
 
@@ -597,19 +594,18 @@ for.end:                                          ; preds = %delete.end, %entry
 if.then.i.i.i:                                    ; preds = %for.end
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool2.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %7 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %6)
           to label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #8
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #8
   unreachable
 
 _ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev.exit: ; preds = %for.end, %if.then.i.i.i, %if.then3.i.i.i
@@ -678,19 +674,18 @@ for.end.i:                                        ; preds = %delete.end.i, %entr
 if.then.i.i.i.i:                                  ; preds = %for.end.i
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool2.not.i.i.i.i, label %_ZN24btConstraintSolverPoolMtD2Ev.exit, label %if.then3.i.i.i.i
+  %tobool2.i.i.i.i = trunc i8 %7 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN24btConstraintSolverPoolMtD2Ev.exit
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %6)
           to label %_ZN24btConstraintSolverPoolMtD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #8
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #8
   unreachable
 
 _ZN24btConstraintSolverPoolMtD2Ev.exit:           ; preds = %for.end.i, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -783,25 +778,24 @@ entry:
   store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV25btDiscreteDynamicsWorldMt, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsIslandManager = getelementptr inbounds i8, ptr %this, i64 424
   %0 = load i8, ptr %m_ownsIslandManager, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_islandManager = getelementptr inbounds i8, ptr %this, i64 328
-  %2 = load ptr, ptr %m_islandManager, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %3 = load ptr, ptr %vtable, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(105) %2) #9
-  %4 = load ptr, ptr %m_islandManager, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
+  %1 = load ptr, ptr %m_islandManager, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %vtable, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(105) %1) #9
+  %3 = load ptr, ptr %m_islandManager, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont3, %if.end, %if.then
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508) %this) #9
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %if.then, %entry
   %call = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 264, i32 noundef 16)
@@ -813,9 +807,9 @@ invoke.cont3:                                     ; preds = %if.end
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   %m_minimumSolverBatchSize = getelementptr inbounds i8, ptr %this, i64 248
-  %6 = load i32, ptr %m_minimumSolverBatchSize, align 8
+  %5 = load i32, ptr %m_minimumSolverBatchSize, align 8
   %m_minimumSolverBatchSize.i = getelementptr inbounds i8, ptr %call, i64 248
-  store i32 %6, ptr %m_minimumSolverBatchSize.i, align 8
+  store i32 %5, ptr %m_minimumSolverBatchSize.i, align 8
   %m_islandManager6 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr %call, ptr %m_islandManager6, align 8
   %m_constraintSolverMt = getelementptr inbounds i8, ptr %this, i64 512

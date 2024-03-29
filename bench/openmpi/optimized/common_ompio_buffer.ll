@@ -53,9 +53,8 @@ define void @mca_common_ompio_check_gpu_buf(ptr nocapture noundef readnone %0, p
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_common_ompio_buffer_alloc_init() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_uses_threads, align 1
-  %2 = and i8 %1, 1
-  %.not.i = icmp eq i8 %2, 0
-  br i1 %.not.i, label %6, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
   %4 = atomicrmw volatile add ptr @mca_common_ompio_buffer_init, i32 1 monotonic, align 4
@@ -98,14 +97,13 @@ opal_thread_add_fetch_32.exit:                    ; preds = %3, %6
   tail call void %18(ptr noundef nonnull @mca_common_ompio_buffer_mutex) #5
   %19 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %.not.i7 = icmp eq ptr %20, null
-  br i1 %.not.i7, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   %21 = load i8, ptr @opal_uses_threads, align 1
-  %22 = and i8 %21, 1
-  %.not3 = icmp eq i8 %22, 0
-  br i1 %.not3, label %25, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %opal_obj_run_constructors.exit
   %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5
@@ -119,9 +117,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
 
 28:                                               ; preds = %25
   %29 = load i8, ptr @opal_uses_threads, align 1
-  %30 = and i8 %29, 1
-  %.not6 = icmp eq i8 %30, 0
-  br i1 %.not6, label %44, label %.sink.split
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %.sink.split, label %44
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %26, i64 264
@@ -133,17 +130,15 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
 
 36:                                               ; preds = %31
   %37 = load i8, ptr @opal_uses_threads, align 1
-  %38 = and i8 %37, 1
-  %.not5 = icmp eq i8 %38, 0
-  br i1 %.not5, label %44, label %.sink.split
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %.sink.split, label %44
 
 39:                                               ; preds = %31
   %40 = tail call i32 @opal_getpagesize() #5
   store i32 %40, ptr @mca_common_ompio_pagesize, align 4
   %41 = load i8, ptr @opal_uses_threads, align 1
-  %42 = and i8 %41, 1
-  %.not4 = icmp eq i8 %42, 0
-  br i1 %.not4, label %44, label %.sink.split
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.sink.split, label %44
 
 .sink.split:                                      ; preds = %39, %36, %28
   %.0.ph = phi i32 [ -30, %28 ], [ -30, %36 ], [ 0, %39 ]
@@ -231,9 +226,8 @@ define noundef i32 @mca_common_ompio_buffer_alloc_fini() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = load i8, ptr @opal_uses_threads, align 1
-  %4 = and i8 %3, 1
-  %.not1 = icmp eq i8 %4, 0
-  br i1 %.not1, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5
@@ -247,9 +241,8 @@ define noundef i32 @mca_common_ompio_buffer_alloc_fini() local_unnamed_addr #0 {
   %11 = tail call i32 %10(ptr noundef %8) #5
   store ptr null, ptr @mca_common_ompio_allocator, align 8
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not2 = icmp eq i8 %13, 0
-  br i1 %.not2, label %16, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %7
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5
@@ -288,9 +281,8 @@ define ptr @mca_common_ompio_alloc_buf(ptr nocapture noundef readnone %0, i64 no
 
 6:                                                ; preds = %2, %4
   %7 = load i8, ptr @opal_uses_threads, align 1
-  %8 = and i8 %7, 1
-  %.not1 = icmp eq i8 %8, 0
-  br i1 %.not1, label %11, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5
@@ -301,9 +293,8 @@ define ptr @mca_common_ompio_alloc_buf(ptr nocapture noundef readnone %0, i64 no
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %12, i64 noundef %1, i64 noundef 0) #5
   %15 = load i8, ptr @opal_uses_threads, align 1
-  %16 = and i8 %15, 1
-  %.not2 = icmp eq i8 %16, 0
-  br i1 %.not2, label %19, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %11
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5
@@ -325,9 +316,8 @@ define void @mca_common_ompio_release_buf(ptr nocapture noundef readnone %0, ptr
 
 5:                                                ; preds = %2, %4
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not1 = icmp eq i8 %7, 0
-  br i1 %.not1, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5
@@ -339,9 +329,8 @@ define void @mca_common_ompio_release_buf(ptr nocapture noundef readnone %0, ptr
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %11, ptr noundef %1) #5
   %14 = load i8, ptr @opal_uses_threads, align 1
-  %15 = and i8 %14, 1
-  %.not2 = icmp eq i8 %15, 0
-  br i1 %.not2, label %18, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %10
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_common_ompio_buffer_mutex, i64 0, i32 1)) #5

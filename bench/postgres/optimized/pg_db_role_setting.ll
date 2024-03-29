@@ -36,27 +36,26 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   %22 = getelementptr inbounds i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 5
-  %.not58 = icmp eq ptr %21, null
+  %.not57 = icmp eq ptr %21, null
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %3
-  br i1 %.not58, label %85, label %26
+  br i1 %.not57, label %85, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %16, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = call fastcc i64 @heap_getattr(ptr noundef nonnull %21, ptr noundef %28, ptr noundef nonnull %5)
   %30 = load i8, ptr %5, align 1
-  %31 = and i8 %30, 1
-  %.not59 = icmp eq i8 %31, 0
-  br i1 %.not59, label %32, label %.thread
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %26
   %33 = inttoptr i64 %29 to ptr
   %34 = call ptr @pg_detoast_datum(ptr noundef %33) #5
   %35 = call ptr @GUCArrayReset(ptr noundef %34) #5
-  %.not60 = icmp eq ptr %35, null
-  br i1 %.not60, label %.thread, label %36
+  %.not58 = icmp eq ptr %35, null
+  br i1 %.not58, label %.thread, label %36
 
 36:                                               ; preds = %32
   store i16 0, ptr %8, align 2
@@ -79,7 +78,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %85
 
 45:                                               ; preds = %3
-  br i1 %.not58, label %74, label %46
+  br i1 %.not57, label %74, label %46
 
 46:                                               ; preds = %45
   store i16 0, ptr %11, align 2
@@ -91,9 +90,8 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   %50 = load ptr, ptr %49, align 8
   %51 = call fastcc i64 @heap_getattr(ptr noundef nonnull %21, ptr noundef %50, ptr noundef nonnull %12)
   %52 = load i8, ptr %12, align 1
-  %53 = and i8 %52, 1
-  %.not55 = icmp eq i8 %53, 0
-  br i1 %.not55, label %54, label %57
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %57, label %54
 
 54:                                               ; preds = %46
   %55 = inttoptr i64 %51 to ptr
@@ -102,10 +100,10 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 57:                                               ; preds = %46, %54
   %58 = phi ptr [ %56, %54 ], [ null, %46 ]
-  %.not56 = icmp eq ptr %15, null
+  %.not55 = icmp eq ptr %15, null
   %59 = getelementptr inbounds i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8
-  br i1 %.not56, label %63, label %61
+  br i1 %.not55, label %63, label %61
 
 61:                                               ; preds = %57
   %62 = call ptr @GUCArrayAdd(ptr noundef %58, ptr noundef %60, ptr noundef nonnull %15) #5
@@ -117,8 +115,8 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 65:                                               ; preds = %63, %61
   %.050 = phi ptr [ %62, %61 ], [ %64, %63 ]
-  %.not57 = icmp eq ptr %.050, null
-  br i1 %.not57, label %72, label %66
+  %.not56 = icmp eq ptr %.050, null
+  br i1 %.not56, label %72, label %66
 
 66:                                               ; preds = %65
   %67 = ptrtoint ptr %.050 to i64
@@ -158,8 +156,8 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 85:                                               ; preds = %36, %.thread, %25, %74, %75, %66, %72
   %86 = load ptr, ptr @object_access_hook, align 8
-  %.not61 = icmp eq ptr %86, null
-  br i1 %.not61, label %88, label %87
+  %.not59 = icmp eq ptr %86, null
+  br i1 %.not59, label %88, label %87
 
 87:                                               ; preds = %85
   call void @RunObjectPostAlterHook(i32 noundef 2964, i32 noundef %0, i32 noundef 0, i32 noundef %1, i1 noundef zeroext false) #5
@@ -219,11 +217,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = getelementptr i8, ptr %25, i64 %26
   %28 = getelementptr i8, ptr %1, i64 318
   %29 = load i8, ptr %28, align 2
-  %30 = and i8 %29, 1
-  %.not20.i = icmp eq i8 %30, 0
+  %30 = trunc i8 %29 to i1
   %31 = getelementptr i8, ptr %1, i64 304
   %32 = load i16, ptr %31, align 4
-  br i1 %.not20.i, label %49, label %33
+  br i1 %30, label %33, label %49
 
 33:                                               ; preds = %21
   switch i16 %32, label %45 [
@@ -381,8 +378,8 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #5
   %11 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2965, i1 noundef zeroext true, ptr noundef %0, i32 noundef 2, ptr noundef nonnull %6) #5
   %12 = call ptr @systable_getnext(ptr noundef %11) #5
-  %.not11 = icmp eq ptr %12, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %12, null
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 64
@@ -393,9 +390,8 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
   %16 = load ptr, ptr %13, align 8
   %17 = call fastcc i64 @heap_getattr(ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %7)
   %18 = load i8, ptr %7, align 1
-  %19 = and i8 %18, 1
-  %.not10 = icmp eq i8 %19, 0
-  br i1 %.not10, label %20, label %23
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %23, label %20
 
 20:                                               ; preds = %14
   %21 = inttoptr i64 %17 to ptr

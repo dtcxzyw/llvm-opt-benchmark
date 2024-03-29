@@ -82,18 +82,17 @@ for.body:                                         ; preds = %entry, %_ZN4abslL24
   %or2.i = or i32 %0, 1073741828
   store i32 %or2.i, ptr %sa_flags.i, align 8
   %1 = load i8, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 1), align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
-  %3 = load atomic i8, ptr @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %3, 0
+  %2 = load atomic i8, ptr @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, !prof !5
 
 init.check.i.i:                                   ; preds = %if.then.i
-  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #13
-  %tobool.not.i.i = icmp eq i32 %4, 0
+  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #13
+  %tobool.not.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
@@ -105,22 +104,22 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
   br label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i
 
 lpad.i.i:                                         ; preds = %init.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #13
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 _ZN4abslL24MaybeSetupAlternateStackEv.exit.i:     ; preds = %invoke.cont.i.i, %init.check.i.i, %if.then.i
-  %6 = load i32, ptr %sa_flags.i, align 8
-  %or5.i = or i32 %6, 134217728
+  %5 = load i32, ptr %sa_flags.i, align 8
+  %or5.i = or i32 %5, 134217728
   store i32 %or5.i, ptr %sa_flags.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, %for.body
   store ptr @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv, ptr %act.i, align 8
-  %7 = load i32, ptr %__begin1.0.ptr, align 8
+  %6 = load i32, ptr %__begin1.0.ptr, align 8
   %previous_action.i = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 16
-  %call6.i = call i32 @sigaction(i32 noundef %7, ptr noundef nonnull %act.i, ptr noundef nonnull %previous_action.i) #13
+  %call6.i = call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %act.i, ptr noundef nonnull %previous_action.i) #13
   %cmp.not.i = icmp eq i32 %call6.i, 0
   br i1 %cmp.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit, label %do.body8.i
 
@@ -208,9 +207,8 @@ if.then14:                                        ; preds = %if.end11
 
 if.end15:                                         ; preds = %if.then14, %if.end11
   %9 = load i8, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i64 0, i32 3), align 8
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.else, label %for.body.i
+  %tobool = trunc i8 %9 to i1
+  br i1 %tobool, label %for.body.i, label %if.else
 
 for.cond.i:                                       ; preds = %for.body.i
   %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx8.i, 168
@@ -220,8 +218,8 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.end15, %for.cond.i
   %__begin1.0.idx8.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %if.end15 ]
   %__begin1.0.ptr9.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
-  %11 = load i32, ptr %__begin1.0.ptr9.i, align 8
-  %cmp2.i41 = icmp eq i32 %11, %signo
+  %10 = load i32, ptr %__begin1.0.ptr9.i, align 8
+  %cmp2.i41 = icmp eq i32 %10, %signo
   br i1 %cmp2.i41, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -404,15 +402,14 @@ _ZN4abslL18WriteSignalMessageEiiPFvPKcE.exit:     ; preds = %if.then4.i, %if.els
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %on_cpu.i)
   %3 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %tobool = trunc i8 %3 to i1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %stack.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %frame_sizes.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %min_dropped_frames.i)
   %call.i2 = call noundef i32 @_ZN4absl25GetStackFramesWithContextEPPvPiiiPKvS2_(ptr noundef nonnull %stack.i, ptr noundef nonnull %frame_sizes.i, i32 noundef 32, i32 noundef 1, ptr noundef %ucontext, ptr noundef nonnull %min_dropped_frames.i)
   %call2.i = call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %ucontext)
-  %5 = load i32, ptr %min_dropped_frames.i, align 4
-  call void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef %call2.i, ptr noundef nonnull %stack.i, ptr noundef nonnull %frame_sizes.i, i32 noundef %call.i2, i32 noundef %5, i1 noundef zeroext %tobool, ptr noundef nonnull @_ZN4abslL15WriterFnWrapperEPKcPv, ptr noundef nonnull %writerfn_struct)
+  %4 = load i32, ptr %min_dropped_frames.i, align 4
+  call void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef %call2.i, ptr noundef nonnull %stack.i, ptr noundef nonnull %frame_sizes.i, i32 noundef %call.i2, i32 noundef %4, i1 noundef zeroext %tobool, ptr noundef nonnull @_ZN4abslL15WriterFnWrapperEPKcPv, ptr noundef nonnull %writerfn_struct)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %stack.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %frame_sizes.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %min_dropped_frames.i)

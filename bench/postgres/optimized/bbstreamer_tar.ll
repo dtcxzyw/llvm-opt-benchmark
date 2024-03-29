@@ -336,9 +336,8 @@ define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %35, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %35
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %1, i64 1024

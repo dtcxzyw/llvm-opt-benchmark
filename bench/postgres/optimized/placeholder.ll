@@ -57,9 +57,8 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
 .thread:                                          ; preds = %2, %8
   %14 = getelementptr inbounds i8, ptr %0, i64 593
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not57 = icmp eq i8 %16, 0
-  br i1 %.not57, label %20, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.thread
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -116,8 +115,8 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   store ptr %51, ptr %49, align 8
   %52 = load i32, ptr %23, align 4
   %53 = load i32, ptr %5, align 8
-  %.not58 = icmp ult i32 %52, %53
-  br i1 %.not58, label %._crit_edge, label %54
+  %.not57 = icmp ult i32 %52, %53
+  br i1 %.not57, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %41
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 288
@@ -125,22 +124,22 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br label %72
 
 54:                                               ; preds = %41
-  %.not59 = icmp eq i32 %53, 0
+  %.not58 = icmp eq i32 %53, 0
   %55 = shl i32 %53, 1
-  %spec.select = select i1 %.not59, i32 8, i32 %55
+  %spec.select = select i1 %.not58, i32 8, i32 %55
   br label %56
 
 56:                                               ; preds = %56, %54
   %.0 = phi i32 [ %spec.select, %54 ], [ %57, %56 ]
-  %.not60 = icmp ult i32 %52, %.0
+  %.not59 = icmp ult i32 %52, %.0
   %57 = shl i32 %.0, 1
-  br i1 %.not60, label %58, label %56, !llvm.loop !5
+  br i1 %.not59, label %58, label %56, !llvm.loop !5
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds i8, ptr %0, i64 288
   %60 = load ptr, ptr %59, align 8
-  %.not61 = icmp eq ptr %60, null
-  br i1 %.not61, label %67, label %61
+  %.not60 = icmp eq ptr %60, null
+  br i1 %.not60, label %67, label %61
 
 61:                                               ; preds = %58
   %62 = sext i32 %53 to i64
@@ -160,11 +159,11 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %storemerge = phi ptr [ %70, %67 ], [ %66, %61 ]
   store ptr %storemerge, ptr %59, align 8
   store i32 %.0, ptr %5, align 8
-  %.pre72 = load i32, ptr %23, align 4
+  %.pre71 = load i32, ptr %23, align 4
   br label %72
 
 72:                                               ; preds = %._crit_edge, %71
-  %73 = phi i32 [ %52, %._crit_edge ], [ %.pre72, %71 ]
+  %73 = phi i32 [ %52, %._crit_edge ], [ %.pre71, %71 ]
   %74 = phi ptr [ %.pre, %._crit_edge ], [ %storemerge, %71 ]
   %75 = zext i32 %73 to i64
   %76 = getelementptr ptr, ptr %74, i64 %75
@@ -181,9 +180,9 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %82 = getelementptr inbounds i8, ptr %80, i64 16
   %83 = load i32, ptr %81, align 4
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph70, label %find_placeholders_in_expr.exit
+  br i1 %84, label %.lr.ph69, label %find_placeholders_in_expr.exit
 
-.lr.ph70:                                         ; preds = %.lr.ph, %93
+.lr.ph69:                                         ; preds = %.lr.ph, %93
   %85 = phi i32 [ %94, %93 ], [ %83, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.lr.ph ]
   %86 = load ptr, ptr %82, align 8
@@ -193,17 +192,17 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %90 = icmp eq i32 %89, 303
   br i1 %90, label %91, label %93
 
-91:                                               ; preds = %.lr.ph70
+91:                                               ; preds = %.lr.ph69
   %92 = tail call ptr @find_placeholder_info(ptr noundef %0, ptr noundef nonnull %88)
-  %.pre73 = load i32, ptr %81, align 4
+  %.pre72 = load i32, ptr %81, align 4
   br label %93
 
-93:                                               ; preds = %91, %.lr.ph70
-  %94 = phi i32 [ %.pre73, %91 ], [ %85, %.lr.ph70 ]
+93:                                               ; preds = %91, %.lr.ph69
+  %94 = phi i32 [ %.pre72, %91 ], [ %85, %.lr.ph69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph70, label %find_placeholders_in_expr.exit
+  br i1 %96, label %.lr.ph69, label %find_placeholders_in_expr.exit
 
 find_placeholders_in_expr.exit:                   ; preds = %93, %.lr.ph, %72
   tail call void @list_free(ptr noundef %80) #4

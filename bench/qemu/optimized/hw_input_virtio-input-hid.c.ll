@@ -155,18 +155,17 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vinput, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
   %active = getelementptr inbounds i8, ptr %vinput, i64 584
   %0 = load i8, ptr %active, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %hs1 = getelementptr inbounds i8, ptr %call.i, i64 616
-  %2 = load ptr, ptr %hs1, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 616
+  %1 = load ptr, ptr %hs, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @qemu_input_handler_activate(ptr noundef %2) #6
+  tail call void @qemu_input_handler_activate(ptr noundef %1) #6
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @qemu_input_handler_deactivate(ptr noundef %2) #6
+  tail call void @qemu_input_handler_deactivate(ptr noundef %1) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -365,42 +364,39 @@ if.then:                                          ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %sw.bb
   %down12 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %down12, align 8
-  %8 = and i8 %7, 1
-  %tobool13.not = icmp eq i8 %8, 0
-  br i1 %tobool13.not, label %sw.epilog, label %if.then14
+  %tobool13 = trunc i8 %7 to i1
+  br i1 %tobool13, label %if.then14, label %sw.epilog
 
 if.then14:                                        ; preds = %if.else
-  %9 = load ptr, ptr @stderr, align 8
+  %8 = load ptr, ptr @stderr, align 8
   %call15 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QKeyCode_lookup, i32 noundef %call3) #6
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.virtio_input_handle_event, i32 noundef %call3, ptr noundef %call15) #7
+  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.virtio_input_handle_event, i32 noundef %call3, ptr noundef %call15) #7
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
   %u19 = getelementptr inbounds i8, ptr %evt, i64 8
-  %10 = load ptr, ptr %u19, align 8
+  %9 = load ptr, ptr %u19, align 8
   %wheel_axis = getelementptr inbounds i8, ptr %call.i, i64 628
-  %11 = load i8, ptr %wheel_axis, align 4
-  %12 = and i8 %11, 1
-  %tobool21.not = icmp ne i8 %12, 0
-  %.pre = load i32, ptr %10, align 4
+  %10 = load i8, ptr %wheel_axis, align 4
+  %tobool21 = trunc i8 %10 to i1
+  %.pre = load i32, ptr %9, align 4
   %.off = add i32 %.pre, -3
   %switch = icmp ult i32 %.off, 2
-  %or.cond = select i1 %tobool21.not, i1 %switch, i1 false
+  %or.cond = select i1 %tobool21, i1 %switch, i1 false
   br i1 %or.cond, label %land.lhs.true29, label %if.else44
 
 land.lhs.true29:                                  ; preds = %sw.bb18
-  %down30 = getelementptr inbounds i8, ptr %10, i64 4
-  %13 = load i8, ptr %down30, align 4
-  %14 = and i8 %13, 1
-  %tobool31.not = icmp eq i8 %14, 0
-  br i1 %tobool31.not, label %if.then49, label %if.then33
+  %down30 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = load i8, ptr %down30, align 4
+  %tobool31 = trunc i8 %11 to i1
+  br i1 %tobool31, label %if.then33, label %if.then49
 
 if.then33:                                        ; preds = %land.lhs.true29
   store i16 2, ptr %event, align 4
   %code37 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 8, ptr %code37, align 2
-  %15 = load i32, ptr %10, align 4
-  %cmp39 = icmp eq i32 %15, 3
+  %12 = load i32, ptr %9, align 4
+  %cmp39 = icmp eq i32 %12, 3
   %cond41 = select i1 %cmp39, i32 1, i32 -1
   %value43 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %cond41, ptr %value43, align 4
@@ -408,53 +404,52 @@ if.then33:                                        ; preds = %land.lhs.true29
   br label %sw.epilog
 
 if.else44:                                        ; preds = %sw.bb18
-  %16 = add i32 %.pre, -7
-  %tobool48.not = icmp ult i32 %16, 2
+  %13 = add i32 %.pre, -7
+  %tobool48.not = icmp ult i32 %13, 2
   br i1 %tobool48.not, label %if.else63, label %if.then49
 
 if.then49:                                        ; preds = %land.lhs.true29, %if.else44
   store i16 1, ptr %event, align 4
-  %17 = load i32, ptr %10, align 4
-  %idxprom53 = zext i32 %17 to i64
+  %14 = load i32, ptr %9, align 4
+  %idxprom53 = zext i32 %14 to i64
   %arrayidx54 = getelementptr [10 x i16], ptr @keymap_button, i64 0, i64 %idxprom53
-  %18 = load i16, ptr %arrayidx54, align 2
+  %15 = load i16, ptr %arrayidx54, align 2
   %code56 = getelementptr inbounds i8, ptr %event, i64 2
-  store i16 %18, ptr %code56, align 2
-  %down57 = getelementptr inbounds i8, ptr %10, i64 4
-  %19 = load i8, ptr %down57, align 4
-  %20 = and i8 %19, 1
-  %cond60 = zext nneg i8 %20 to i32
+  store i16 %15, ptr %code56, align 2
+  %down57 = getelementptr inbounds i8, ptr %9, i64 4
+  %16 = load i8, ptr %down57, align 4
+  %17 = and i8 %16, 1
+  %cond60 = zext nneg i8 %17 to i32
   %value62 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %cond60, ptr %value62, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
 
 if.else63:                                        ; preds = %if.else44
-  %down64 = getelementptr inbounds i8, ptr %10, i64 4
-  %21 = load i8, ptr %down64, align 4
-  %22 = and i8 %21, 1
-  %tobool65.not = icmp eq i8 %22, 0
-  br i1 %tobool65.not, label %sw.epilog, label %if.then66
+  %down64 = getelementptr inbounds i8, ptr %9, i64 4
+  %18 = load i8, ptr %down64, align 4
+  %tobool65 = trunc i8 %18 to i1
+  br i1 %tobool65, label %if.then66, label %sw.epilog
 
 if.then66:                                        ; preds = %if.else63
-  %23 = load ptr, ptr @stderr, align 8
+  %19 = load ptr, ptr @stderr, align 8
   %call69 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @InputButton_lookup, i32 noundef %.pre) #6
-  %call70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.virtio_input_handle_event, i32 noundef %.pre, ptr noundef %call69) #7
+  %call70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.virtio_input_handle_event, i32 noundef %.pre, ptr noundef %call69) #7
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %entry
   %u75 = getelementptr inbounds i8, ptr %evt, i64 8
-  %24 = load ptr, ptr %u75, align 8
+  %20 = load ptr, ptr %u75, align 8
   store i16 2, ptr %event, align 4
-  %25 = load i32, ptr %24, align 8
-  %idxprom79 = zext i32 %25 to i64
+  %21 = load i32, ptr %20, align 8
+  %idxprom79 = zext i32 %21 to i64
   %arrayidx80 = getelementptr [2 x i16], ptr @axismap_abs, i64 0, i64 %idxprom79
-  %26 = load i16, ptr %arrayidx80, align 2
+  %22 = load i16, ptr %arrayidx80, align 2
   %code82 = getelementptr inbounds i8, ptr %event, i64 2
-  store i16 %26, ptr %code82, align 2
-  %value83 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i64, ptr %value83, align 8
-  %conv84 = trunc i64 %27 to i32
+  store i16 %22, ptr %code82, align 2
+  %value83 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = load i64, ptr %value83, align 8
+  %conv84 = trunc i64 %23 to i32
   %value86 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv84, ptr %value86, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
@@ -462,17 +457,17 @@ sw.bb74:                                          ; preds = %entry
 
 sw.bb87:                                          ; preds = %entry
   %u88 = getelementptr inbounds i8, ptr %evt, i64 8
-  %28 = load ptr, ptr %u88, align 8
+  %24 = load ptr, ptr %u88, align 8
   store i16 3, ptr %event, align 4
-  %29 = load i32, ptr %28, align 8
-  %idxprom93 = zext i32 %29 to i64
+  %25 = load i32, ptr %24, align 8
+  %idxprom93 = zext i32 %25 to i64
   %arrayidx94 = getelementptr [2 x i16], ptr @axismap_abs, i64 0, i64 %idxprom93
-  %30 = load i16, ptr %arrayidx94, align 2
+  %26 = load i16, ptr %arrayidx94, align 2
   %code96 = getelementptr inbounds i8, ptr %event, i64 2
-  store i16 %30, ptr %code96, align 2
-  %value97 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i64, ptr %value97, align 8
-  %conv98 = trunc i64 %31 to i32
+  store i16 %26, ptr %code96, align 2
+  %value97 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = load i64, ptr %value97, align 8
+  %conv98 = trunc i64 %27 to i32
   %value100 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv98, ptr %value100, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
@@ -480,23 +475,23 @@ sw.bb87:                                          ; preds = %entry
 
 sw.bb101:                                         ; preds = %entry
   %u102 = getelementptr inbounds i8, ptr %evt, i64 8
-  %32 = load ptr, ptr %u102, align 8
-  %33 = load i32, ptr %32, align 8
-  %cmp105 = icmp eq i32 %33, 4
+  %28 = load ptr, ptr %u102, align 8
+  %29 = load i32, ptr %28, align 8
+  %cmp105 = icmp eq i32 %29, 4
   store i16 3, ptr %event, align 4
   br i1 %cmp105, label %if.then107, label %if.else119
 
 if.then107:                                       ; preds = %sw.bb101
-  %axis110 = getelementptr inbounds i8, ptr %32, i64 24
-  %34 = load i32, ptr %axis110, align 8
-  %idxprom111 = zext i32 %34 to i64
+  %axis110 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = load i32, ptr %axis110, align 8
+  %idxprom111 = zext i32 %30 to i64
   %arrayidx112 = getelementptr [2 x i16], ptr @axismap_tch, i64 0, i64 %idxprom111
-  %35 = load i16, ptr %arrayidx112, align 2
+  %31 = load i16, ptr %arrayidx112, align 2
   %code114 = getelementptr inbounds i8, ptr %event, i64 2
-  store i16 %35, ptr %code114, align 2
-  %value115 = getelementptr inbounds i8, ptr %32, i64 32
-  %36 = load i64, ptr %value115, align 8
-  %conv116 = trunc i64 %36 to i32
+  store i16 %31, ptr %code114, align 2
+  %value115 = getelementptr inbounds i8, ptr %28, i64 32
+  %32 = load i64, ptr %value115, align 8
+  %conv116 = trunc i64 %32 to i32
   %value118 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv116, ptr %value118, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
@@ -505,17 +500,17 @@ if.then107:                                       ; preds = %sw.bb101
 if.else119:                                       ; preds = %sw.bb101
   %code123 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 47, ptr %code123, align 2
-  %slot = getelementptr inbounds i8, ptr %32, i64 8
-  %37 = load i64, ptr %slot, align 8
-  %conv124 = trunc i64 %37 to i32
+  %slot = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = load i64, ptr %slot, align 8
+  %conv124 = trunc i64 %33 to i32
   %value126 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv124, ptr %value126, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   store i16 3, ptr %event, align 4
   store i16 57, ptr %code123, align 2
-  %tracking_id = getelementptr inbounds i8, ptr %32, i64 16
-  %38 = load i64, ptr %tracking_id, align 8
-  %conv131 = trunc i64 %38 to i32
+  %tracking_id = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = load i64, ptr %tracking_id, align 8
+  %conv131 = trunc i64 %34 to i32
   store i32 %conv131, ptr %value126, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
@@ -555,9 +550,8 @@ entry:
   store ptr @virtio_mouse_handler, ptr %handler, align 8
   %wheel_axis = getelementptr inbounds i8, ptr %call.i, i64 628
   %0 = load i8, ptr %wheel_axis, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @virtio_mouse_config_v1, ptr @virtio_mouse_config_v2
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @virtio_mouse_config_v2, ptr @virtio_mouse_config_v1
   tail call void @virtio_input_init_config(ptr noundef %call.i4, ptr noundef nonnull %cond) #6
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i, i8 0, i64 136, i1 false)
@@ -568,21 +562,21 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %entry ]
   %bmax.012.i = phi i32 [ %bmax.1.i, %for.inc.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
-  %2 = load i16, ptr %arrayidx.i, align 2
-  %tobool.not.i = icmp eq i16 %2, 0
+  %1 = load i16, ptr %arrayidx.i, align 2
+  %tobool.not.i = icmp eq i16 %1, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %3 = lshr i16 %2, 3
-  %rem.i = and i16 %2, 7
+  %2 = lshr i16 %1, 3
+  %rem.i = and i16 %1, 7
   %shl.i = shl nuw nsw i16 1, %rem.i
-  %idxprom3.i = zext nneg i16 %3 to i64
+  %idxprom3.i = zext nneg i16 %2 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
-  %4 = load i8, ptr %arrayidx4.i, align 1
-  %5 = trunc i16 %shl.i to i8
-  %conv6.i = or i8 %4, %5
+  %3 = load i8, ptr %arrayidx4.i, align 1
+  %4 = trunc i16 %shl.i to i8
+  %conv6.i = or i8 %3, %4
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
-  %narrow.i = add nuw nsw i16 %3, 1
+  %narrow.i = add nuw nsw i16 %2, 1
   %add.i = zext nneg i16 %narrow.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %bmax.012.i, i32 %add.i)
   br label %for.inc.i
@@ -594,12 +588,12 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %exitcond.not, label %virtio_input_extend_config.exit, label %for.body.i, !llvm.loop !5
 
 virtio_input_extend_config.exit:                  ; preds = %for.inc.i
-  %6 = trunc i32 %bmax.1.i to i8
+  %5 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
   %subsel13.i = getelementptr inbounds i8, ptr %ext.i, i64 1
   store i8 1, ptr %subsel13.i, align 1
   %size.i = getelementptr inbounds i8, ptr %ext.i, i64 2
-  store i8 %6, ptr %size.i, align 2
+  store i8 %5, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i4, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
   ret void
@@ -623,9 +617,8 @@ entry:
   store ptr @virtio_tablet_handler, ptr %handler, align 8
   %wheel_axis = getelementptr inbounds i8, ptr %call.i, i64 628
   %0 = load i8, ptr %wheel_axis, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @virtio_tablet_config_v1, ptr @virtio_tablet_config_v2
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @virtio_tablet_config_v2, ptr @virtio_tablet_config_v1
   tail call void @virtio_input_init_config(ptr noundef %call.i4, ptr noundef nonnull %cond) #6
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i, i8 0, i64 136, i1 false)
@@ -636,21 +629,21 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %entry ]
   %bmax.012.i = phi i32 [ %bmax.1.i, %for.inc.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
-  %2 = load i16, ptr %arrayidx.i, align 2
-  %tobool.not.i = icmp eq i16 %2, 0
+  %1 = load i16, ptr %arrayidx.i, align 2
+  %tobool.not.i = icmp eq i16 %1, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %3 = lshr i16 %2, 3
-  %rem.i = and i16 %2, 7
+  %2 = lshr i16 %1, 3
+  %rem.i = and i16 %1, 7
   %shl.i = shl nuw nsw i16 1, %rem.i
-  %idxprom3.i = zext nneg i16 %3 to i64
+  %idxprom3.i = zext nneg i16 %2 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
-  %4 = load i8, ptr %arrayidx4.i, align 1
-  %5 = trunc i16 %shl.i to i8
-  %conv6.i = or i8 %4, %5
+  %3 = load i8, ptr %arrayidx4.i, align 1
+  %4 = trunc i16 %shl.i to i8
+  %conv6.i = or i8 %3, %4
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
-  %narrow.i = add nuw nsw i16 %3, 1
+  %narrow.i = add nuw nsw i16 %2, 1
   %add.i = zext nneg i16 %narrow.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %bmax.012.i, i32 %add.i)
   br label %for.inc.i
@@ -662,12 +655,12 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %exitcond.not, label %virtio_input_extend_config.exit, label %for.body.i, !llvm.loop !5
 
 virtio_input_extend_config.exit:                  ; preds = %for.inc.i
-  %6 = trunc i32 %bmax.1.i to i8
+  %5 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
   %subsel13.i = getelementptr inbounds i8, ptr %ext.i, i64 1
   store i8 1, ptr %subsel13.i, align 1
   %size.i = getelementptr inbounds i8, ptr %ext.i, i64 2
-  store i8 %6, ptr %size.i, align 2
+  store i8 %5, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i4, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
   ret void

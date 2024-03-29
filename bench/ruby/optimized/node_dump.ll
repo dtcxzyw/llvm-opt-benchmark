@@ -534,7 +534,7 @@ define internal fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 nound
 
 7:                                                ; preds = %4
   %8 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.3, i64 noundef 12) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %3, align 8
@@ -679,35 +679,35 @@ define internal fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 nound
   ]
 
 35:                                               ; preds = %9
-  %.not3892 = icmp eq i32 %2, 0
-  br i1 %.not3892, label %.critedge3899, label %.critedge3898
+  %.not3891 = icmp eq i32 %2, 0
+  br i1 %.not3891, label %.critedge3898, label %.critedge3897
 
-.critedge3898:                                    ; preds = %35
+.critedge3897:                                    ; preds = %35
   %36 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %37 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.7, i64 noundef 23) #4
   %38 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %39 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.8, i64 noundef 38) #4
   %40 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %41 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.9, i64 noundef 22) #4
-  br label %.critedge3899
+  br label %.critedge3898
 
-.critedge3899:                                    ; preds = %35, %.critedge3898
-  %42 = phi ptr [ @.str.6, %35 ], [ @.str.11, %.critedge3898 ]
+.critedge3898:                                    ; preds = %35, %.critedge3897
+  %42 = phi ptr [ @.str.6, %35 ], [ @.str.11, %.critedge3897 ]
   %43 = inttoptr i64 %1 to ptr
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   br label %45
 
-45:                                               ; preds = %58, %.critedge3899
-  %.03558 = phi ptr [ @default_indent, %.critedge3899 ], [ %spec.select, %58 ]
-  %.03557 = phi i32 [ 0, %.critedge3899 ], [ %47, %58 ]
-  %.0 = phi ptr [ %3, %.critedge3899 ], [ %57, %58 ]
+45:                                               ; preds = %58, %.critedge3898
+  %.03558 = phi ptr [ @default_indent, %.critedge3898 ], [ %spec.select, %58 ]
+  %.03557 = phi i32 [ 0, %.critedge3898 ], [ %47, %58 ]
+  %.0 = phi ptr [ %3, %.critedge3898 ], [ %57, %58 ]
   %46 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %47 = add i32 %.03557, 1
   %48 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %42, i32 noundef %47) #4
   %49 = getelementptr inbounds i8, ptr %.0, i64 48
   %50 = load ptr, ptr %49, align 8
-  %.not3893 = icmp eq ptr %50, null
-  %spec.select = select i1 %.not3893, ptr @.str.12, ptr %.03558
+  %.not3892 = icmp eq ptr %50, null
+  %spec.select = select i1 %.not3892, ptr @.str.12, ptr %.03558
   %51 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef %spec.select) #4
   %52 = getelementptr inbounds i8, ptr %.0, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -716,22 +716,22 @@ define internal fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 nound
   %55 = add i64 %54, -4
   %56 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %55) #4
   %57 = load ptr, ptr %49, align 8
-  %.not3894 = icmp eq ptr %57, null
-  br i1 %.not3894, label %common.ret4624, label %58
+  %.not3893 = icmp eq ptr %57, null
+  br i1 %.not3893, label %common.ret4623, label %58
 
 58:                                               ; preds = %45
   %.val = load i64, ptr %57, align 8
   %59 = and i64 %.val, 32512
   %60 = icmp eq i64 %59, 256
-  br i1 %60, label %45, label %.critedge3901, !llvm.loop !7
+  br i1 %60, label %45, label %.critedge3900, !llvm.loop !7
 
-common.ret4624:                                   ; preds = %2504, %2039, %2032, %2025, %2018, %1133, %1119, %446, %439, %.critedge4604, %.critedge4599, %.critedge4591, %.critedge4583, %.critedge4465, %.critedge4444, %.critedge4402, %.critedge4343, %.critedge4315, %.critedge4310, %.critedge4305, %.critedge4300, %.critedge4295, %.critedge4287, %.critedge4282, %.critedge4261, %.critedge4256, %.critedge4251, %.critedge4246, %.critedge4241, %.critedge4236, %.critedge4231, %.critedge4226, %.critedge4221, %.critedge4200, %.split, %.critedge4179, %.critedge4074, %.critedge4064, %.critedge4057, %2539, %2540, %.critedge4595, %.critedge4478, %.critedge4475, %.critedge4472, %.critedge4469, %rb_dump_literal.exit, %.critedge4266, %.critedge4202, %.critedge4197, %.critedge4005, %.critedge4002, %7, %45, %.critedge4593, %.critedge4581, %.critedge4569, %.critedge4555, %.critedge4543, %.critedge4526, %.critedge4513, %.critedge4506, %.critedge4501, %.critedge4492, %.critedge4487, %.critedge4482, %.critedge4449, %.critedge4437, %.critedge4430, %.critedge4423, %.critedge4414, %.critedge4409, %.critedge4395, %.critedge4386, %.critedge4379, %.critedge4372, %.critedge4367, %.critedge4360, %.critedge4353, %.critedge4348, %.critedge4338, %.critedge4320, %.critedge4275, %.critedge4272, %.critedge4216, %.critedge4213, %.critedge4193, %.critedge4184, %.critedge4172, %.critedge4163, %.critedge4154, %.critedge4145, %.critedge4135, %.critedge4130, %.critedge4113, %.critedge4110, %.critedge4093, %.critedge4086, %.critedge4079, %.critedge4076, %.critedge4066, %.critedge4055, %.critedge4046, %.critedge4032, %.critedge4023, %.critedge4014, %.critedge4009, %.critedge3998, %.critedge3993, %.critedge3988, %.critedge3983, %.critedge3973, %.critedge3961, %.critedge3952, %.critedge3943, %.critedge3936, %.critedge3929, %.critedge3922, %.critedge3913, %.critedge3904, %.critedge3901
+common.ret4623:                                   ; preds = %2504, %2039, %2032, %2025, %2018, %1133, %1119, %446, %439, %.critedge4603, %.critedge4598, %.critedge4590, %.critedge4582, %.critedge4464, %.critedge4443, %.critedge4401, %.critedge4342, %.critedge4314, %.critedge4309, %.critedge4304, %.critedge4299, %.critedge4294, %.critedge4286, %.critedge4281, %.critedge4260, %.critedge4255, %.critedge4250, %.critedge4245, %.critedge4240, %.critedge4235, %.critedge4230, %.critedge4225, %.critedge4220, %.critedge4199, %.split, %.critedge4178, %.critedge4073, %.critedge4063, %.critedge4056, %2539, %2540, %.critedge4594, %.critedge4477, %.critedge4474, %.critedge4471, %.critedge4468, %rb_dump_literal.exit, %.critedge4265, %.critedge4201, %.critedge4196, %.critedge4004, %.critedge4001, %7, %45, %.critedge4592, %.critedge4580, %.critedge4568, %.critedge4554, %.critedge4542, %.critedge4525, %.critedge4512, %.critedge4505, %.critedge4500, %.critedge4491, %.critedge4486, %.critedge4481, %.critedge4448, %.critedge4436, %.critedge4429, %.critedge4422, %.critedge4413, %.critedge4408, %.critedge4394, %.critedge4385, %.critedge4378, %.critedge4371, %.critedge4366, %.critedge4359, %.critedge4352, %.critedge4347, %.critedge4337, %.critedge4319, %.critedge4274, %.critedge4271, %.critedge4215, %.critedge4212, %.critedge4192, %.critedge4183, %.critedge4171, %.critedge4162, %.critedge4153, %.critedge4144, %.critedge4134, %.critedge4129, %.critedge4112, %.critedge4109, %.critedge4092, %.critedge4085, %.critedge4078, %.critedge4075, %.critedge4065, %.critedge4054, %.critedge4045, %.critedge4031, %.critedge4022, %.critedge4013, %.critedge4008, %.critedge3997, %.critedge3992, %.critedge3987, %.critedge3982, %.critedge3972, %.critedge3960, %.critedge3951, %.critedge3942, %.critedge3935, %.critedge3928, %.critedge3921, %.critedge3912, %.critedge3903, %.critedge3900
   ret void
 
-.critedge3901:                                    ; preds = %58
+.critedge3900:                                    ; preds = %58
   %61 = getelementptr inbounds i8, ptr %.0, i64 48
   %62 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %63 = select i1 %.not3892, i32 7, i32 20
+  %63 = select i1 %.not3891, i32 7, i32 20
   %64 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %63, ptr noundef nonnull @.str.14) #4
   %65 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %66 = load ptr, ptr %61, align 8
@@ -739,24 +739,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %67 = load i64, ptr %44, align 8
   %68 = add i64 %67, -4
   %69 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %68) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 70:                                               ; preds = %9
-  %.not3888 = icmp eq i32 %2, 0
-  br i1 %.not3888, label %.critedge3904, label %.critedge3903
+  %.not3887 = icmp eq i32 %2, 0
+  br i1 %.not3887, label %.critedge3903, label %.critedge3902
 
-.critedge3903:                                    ; preds = %70
+.critedge3902:                                    ; preds = %70
   %71 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %72 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.15, i64 noundef 17) #4
   %73 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %74 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.16, i64 noundef 59) #4
   %75 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %76 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.17, i64 noundef 45) #4
-  br label %.critedge3904
+  br label %.critedge3903
 
-.critedge3904:                                    ; preds = %70, %.critedge3903
-  %77 = phi i32 [ 21, %.critedge3903 ], [ 7, %70 ]
-  %78 = phi i32 [ 24, %.critedge3903 ], [ 7, %70 ]
+.critedge3903:                                    ; preds = %70, %.critedge3902
+  %77 = phi i32 [ 21, %.critedge3902 ], [ 7, %70 ]
+  %78 = phi i32 [ 24, %.critedge3902 ], [ 7, %70 ]
   %79 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %80 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %78, ptr noundef nonnull @.str.18) #4
   %81 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -786,24 +786,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %102 = load i64, ptr %85, align 8
   %103 = add i64 %102, -4
   %104 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %103) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 105:                                              ; preds = %9
-  %.not3884 = icmp eq i32 %2, 0
-  br i1 %.not3884, label %.critedge3913, label %.critedge3912
+  %.not3883 = icmp eq i32 %2, 0
+  br i1 %.not3883, label %.critedge3912, label %.critedge3911
 
-.critedge3912:                                    ; preds = %105
+.critedge3911:                                    ; preds = %105
   %106 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %107 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.21, i64 noundef 21) #4
   %108 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %109 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.22, i64 noundef 63) #4
   %110 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %111 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.23, i64 noundef 49) #4
-  br label %.critedge3913
+  br label %.critedge3912
 
-.critedge3913:                                    ; preds = %105, %.critedge3912
-  %112 = phi i32 [ 21, %.critedge3912 ], [ 7, %105 ]
-  %113 = phi i32 [ 24, %.critedge3912 ], [ 7, %105 ]
+.critedge3912:                                    ; preds = %105, %.critedge3911
+  %112 = phi i32 [ 21, %.critedge3911 ], [ 7, %105 ]
+  %113 = phi i32 [ 24, %.critedge3911 ], [ 7, %105 ]
   %114 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %115 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %113, ptr noundef nonnull @.str.18) #4
   %116 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -833,24 +833,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %137 = load i64, ptr %120, align 8
   %138 = add i64 %137, -4
   %139 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %138) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 140:                                              ; preds = %9
-  %.not3881 = icmp eq i32 %2, 0
-  br i1 %.not3881, label %.critedge3922, label %.critedge3921
+  %.not3880 = icmp eq i32 %2, 0
+  br i1 %.not3880, label %.critedge3921, label %.critedge3920
 
-.critedge3921:                                    ; preds = %140
+.critedge3920:                                    ; preds = %140
   %141 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %142 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 19) #4
   %143 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %144 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.25, i64 noundef 43) #4
   %145 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %146 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.26, i64 noundef 61) #4
-  br label %.critedge3922
+  br label %.critedge3921
 
-.critedge3922:                                    ; preds = %140, %.critedge3921
-  %147 = phi i32 [ 22, %.critedge3921 ], [ 7, %140 ]
-  %148 = phi i32 [ 19, %.critedge3921 ], [ 7, %140 ]
+.critedge3921:                                    ; preds = %140, %.critedge3920
+  %147 = phi i32 [ 22, %.critedge3920 ], [ 7, %140 ]
+  %148 = phi i32 [ 19, %.critedge3920 ], [ 7, %140 ]
   %149 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %150 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %148, ptr noundef nonnull @.str.27) #4
   %151 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -871,24 +871,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %164 = load i64, ptr %155, align 8
   %165 = add i64 %164, -4
   %166 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %165) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 167:                                              ; preds = %9
-  %.not3878 = icmp eq i32 %2, 0
-  br i1 %.not3878, label %.critedge3929, label %.critedge3928
+  %.not3877 = icmp eq i32 %2, 0
+  br i1 %.not3877, label %.critedge3928, label %.critedge3927
 
-.critedge3928:                                    ; preds = %167
+.critedge3927:                                    ; preds = %167
   %168 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %169 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.29, i64 noundef 32) #4
   %170 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %171 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.30, i64 noundef 33) #4
   %172 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %173 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.31, i64 noundef 59) #4
-  br label %.critedge3929
+  br label %.critedge3928
 
-.critedge3929:                                    ; preds = %167, %.critedge3928
-  %174 = phi i32 [ 22, %.critedge3928 ], [ 7, %167 ]
-  %175 = phi i32 [ 19, %.critedge3928 ], [ 7, %167 ]
+.critedge3928:                                    ; preds = %167, %.critedge3927
+  %174 = phi i32 [ 22, %.critedge3927 ], [ 7, %167 ]
+  %175 = phi i32 [ 19, %.critedge3927 ], [ 7, %167 ]
   %176 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %177 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %175, ptr noundef nonnull @.str.27) #4
   %178 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -909,24 +909,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %191 = load i64, ptr %182, align 8
   %192 = add i64 %191, -4
   %193 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %192) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 194:                                              ; preds = %9
-  %.not3875 = icmp eq i32 %2, 0
-  br i1 %.not3875, label %.critedge3936, label %.critedge3935
+  %.not3874 = icmp eq i32 %2, 0
+  br i1 %.not3874, label %.critedge3935, label %.critedge3934
 
-.critedge3935:                                    ; preds = %194
+.critedge3934:                                    ; preds = %194
   %195 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %196 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.32, i64 noundef 38) #4
   %197 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %198 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.25, i64 noundef 43) #4
   %199 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %200 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.33, i64 noundef 57) #4
-  br label %.critedge3936
+  br label %.critedge3935
 
-.critedge3936:                                    ; preds = %194, %.critedge3935
-  %201 = phi i32 [ 20, %.critedge3935 ], [ 7, %194 ]
-  %202 = phi i32 [ 19, %.critedge3935 ], [ 7, %194 ]
+.critedge3935:                                    ; preds = %194, %.critedge3934
+  %201 = phi i32 [ 20, %.critedge3934 ], [ 7, %194 ]
+  %202 = phi i32 [ 19, %.critedge3934 ], [ 7, %194 ]
   %203 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %204 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %202, ptr noundef nonnull @.str.27) #4
   %205 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -947,25 +947,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %218 = load i64, ptr %209, align 8
   %219 = add i64 %218, -4
   %220 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %219) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 221:                                              ; preds = %9
-  %.not3871 = icmp eq i32 %2, 0
-  br i1 %.not3871, label %.critedge3943, label %.critedge3942
+  %.not3870 = icmp eq i32 %2, 0
+  br i1 %.not3870, label %.critedge3942, label %.critedge3941
 
-.critedge3942:                                    ; preds = %221
+.critedge3941:                                    ; preds = %221
   %222 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %223 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.35, i64 noundef 16) #4
   %224 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %225 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.36, i64 noundef 64) #4
   %226 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %227 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.26, i64 noundef 61) #4
-  br label %.critedge3943
+  br label %.critedge3942
 
-.critedge3943:                                    ; preds = %221, %.critedge3942
-  %228 = phi i32 [ 26, %.critedge3942 ], [ 7, %221 ]
-  %229 = phi i32 [ 19, %.critedge3942 ], [ 7, %221 ]
-  %230 = phi i32 [ 20, %.critedge3942 ], [ 7, %221 ]
+.critedge3942:                                    ; preds = %221, %.critedge3941
+  %228 = phi i32 [ 26, %.critedge3941 ], [ 7, %221 ]
+  %229 = phi i32 [ 19, %.critedge3941 ], [ 7, %221 ]
+  %230 = phi i32 [ 20, %.critedge3941 ], [ 7, %221 ]
   %231 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %232 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %230, ptr noundef nonnull @.str.37) #4
   %233 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -995,25 +995,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %254 = load i64, ptr %237, align 8
   %255 = add i64 %254, -4
   %256 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %255) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 257:                                              ; preds = %9
-  %.not3867 = icmp eq i32 %2, 0
-  br i1 %.not3867, label %.critedge3952, label %.critedge3951
+  %.not3866 = icmp eq i32 %2, 0
+  br i1 %.not3866, label %.critedge3951, label %.critedge3950
 
-.critedge3951:                                    ; preds = %257
+.critedge3950:                                    ; preds = %257
   %258 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %259 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.40, i64 noundef 14) #4
   %260 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %261 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.41, i64 noundef 60) #4
   %262 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %263 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.33, i64 noundef 57) #4
-  br label %.critedge3952
+  br label %.critedge3951
 
-.critedge3952:                                    ; preds = %257, %.critedge3951
-  %264 = phi i32 [ 24, %.critedge3951 ], [ 7, %257 ]
-  %265 = phi i32 [ 17, %.critedge3951 ], [ 7, %257 ]
-  %266 = phi i32 [ 20, %.critedge3951 ], [ 7, %257 ]
+.critedge3951:                                    ; preds = %257, %.critedge3950
+  %264 = phi i32 [ 24, %.critedge3950 ], [ 7, %257 ]
+  %265 = phi i32 [ 17, %.critedge3950 ], [ 7, %257 ]
+  %266 = phi i32 [ 20, %.critedge3950 ], [ 7, %257 ]
   %267 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %268 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %266, ptr noundef nonnull @.str.42) #4
   %269 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1043,17 +1043,17 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %290 = load i64, ptr %273, align 8
   %291 = add i64 %290, -4
   %292 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %291) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 293:                                              ; preds = %9
-  %.not3862 = icmp eq i32 %2, 0
-  br i1 %.not3862, label %.critedge3961, label %.critedge3961.sink.split
+  %.not3861 = icmp eq i32 %2, 0
+  br i1 %.not3861, label %.critedge3960, label %.critedge3960.sink.split
 
 294:                                              ; preds = %9
-  %.not3861 = icmp eq i32 %2, 0
-  br i1 %.not3861, label %.critedge3961, label %.critedge3961.sink.split
+  %.not3860 = icmp eq i32 %2, 0
+  br i1 %.not3860, label %.critedge3960, label %.critedge3960.sink.split
 
-.critedge3961.sink.split:                         ; preds = %294, %293
+.critedge3960.sink.split:                         ; preds = %294, %293
   %.str.48.sink = phi ptr [ @.str.45, %293 ], [ @.str.48, %294 ]
   %.str.49.sink = phi ptr [ @.str.46, %293 ], [ @.str.49, %294 ]
   %.str.50.sink = phi ptr [ @.str.47, %293 ], [ @.str.50, %294 ]
@@ -1063,12 +1063,12 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %298 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.49.sink, i64 noundef 44) #4
   %299 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %300 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.50.sink, i64 noundef 36) #4
-  br label %.critedge3961
+  br label %.critedge3960
 
-.critedge3961:                                    ; preds = %.critedge3961.sink.split, %294, %293
+.critedge3960:                                    ; preds = %.critedge3960.sink.split, %294, %293
   %301 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %.not3863 = icmp eq i32 %2, 0
-  %302 = select i1 %.not3863, i32 8, i32 27
+  %.not3862 = icmp eq i32 %2, 0
+  %302 = select i1 %.not3862, i32 8, i32 27
   %303 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %302, ptr noundef nonnull @.str.52) #4
   %304 = getelementptr inbounds i8, ptr %3, i64 48
   %305 = load i64, ptr %304, align 8
@@ -1080,7 +1080,7 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %311 = tail call i64 @rb_str_cat_cstr(i64 noundef %0, ptr noundef nonnull %310) #4
   %312 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %313 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %314 = select i1 %.not3863, i32 7, i32 19
+  %314 = select i1 %.not3862, i32 7, i32 19
   %315 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %314, ptr noundef nonnull @.str.57) #4
   %316 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
   %317 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1092,7 +1092,7 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %322 = add i64 %321, -4
   %323 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %322) #4
   %324 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %325 = select i1 %.not3863, i32 7, i32 14
+  %325 = select i1 %.not3862, i32 7, i32 14
   %326 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %325, ptr noundef nonnull @.str.58) #4
   %327 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %328 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1101,38 +1101,38 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %330 = load i64, ptr %320, align 8
   %331 = add i64 %330, -4
   %332 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %331) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 333:                                              ; preds = %9
-  %.not3857 = icmp eq i32 %2, 0
-  br i1 %.not3857, label %.critedge3973, label %.critedge3972
+  %.not3856 = icmp eq i32 %2, 0
+  br i1 %.not3856, label %.critedge3972, label %.critedge3971
 
-.critedge3972:                                    ; preds = %333
+.critedge3971:                                    ; preds = %333
   %334 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %335 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.59, i64 noundef 27) #4
   %336 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %337 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.60, i64 noundef 36) #4
   %338 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %339 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.61, i64 noundef 29) #4
-  br label %.critedge3973
+  br label %.critedge3972
 
 340:                                              ; preds = %9
-  %.not3856 = icmp eq i32 %2, 0
-  br i1 %.not3856, label %.critedge3973, label %.critedge3975
+  %.not3855 = icmp eq i32 %2, 0
+  br i1 %.not3855, label %.critedge3972, label %.critedge3974
 
-.critedge3975:                                    ; preds = %340
+.critedge3974:                                    ; preds = %340
   %341 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %342 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.62, i64 noundef 18) #4
   %343 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %344 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.63, i64 noundef 48) #4
   %345 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %346 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.64, i64 noundef 38) #4
-  br label %.critedge3973
+  br label %.critedge3972
 
-.critedge3973:                                    ; preds = %340, %333, %.critedge3975, %.critedge3972
+.critedge3972:                                    ; preds = %340, %333, %.critedge3974, %.critedge3971
   %347 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %.not3858 = icmp eq i32 %2, 0
-  %348 = select i1 %.not3858, i32 7, i32 28
+  %.not3857 = icmp eq i32 %2, 0
+  %348 = select i1 %.not3857, i32 7, i32 28
   %349 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %348, ptr noundef nonnull @.str.65) #4
   %350 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
   %351 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1144,7 +1144,7 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %356 = add i64 %355, -4
   %357 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %356) #4
   %358 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %359 = select i1 %.not3858, i32 7, i32 14
+  %359 = select i1 %.not3857, i32 7, i32 14
   %360 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %359, ptr noundef nonnull @.str.58) #4
   %361 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %362 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1153,23 +1153,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %364 = load i64, ptr %354, align 8
   %365 = add i64 %364, -4
   %366 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %365) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 367:                                              ; preds = %9
-  %.not3854 = icmp eq i32 %2, 0
-  br i1 %.not3854, label %.critedge3983, label %.critedge3982
+  %.not3853 = icmp eq i32 %2, 0
+  br i1 %.not3853, label %.critedge3982, label %.critedge3981
 
-.critedge3982:                                    ; preds = %367
+.critedge3981:                                    ; preds = %367
   %368 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %369 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.66, i64 noundef 37) #4
   %370 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %371 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.67, i64 noundef 43) #4
   %372 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %373 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.68, i64 noundef 41) #4
-  br label %.critedge3983
+  br label %.critedge3982
 
-.critedge3983:                                    ; preds = %367, %.critedge3982
-  %374 = phi i32 [ 12, %.critedge3982 ], [ 6, %367 ]
+.critedge3982:                                    ; preds = %367, %.critedge3981
+  %374 = phi i32 [ 12, %.critedge3981 ], [ 6, %367 ]
   %375 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %376 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %374, ptr noundef nonnull @.str.69) #4
   %377 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -1181,23 +1181,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %382 = load i64, ptr %381, align 8
   %383 = add i64 %382, -4
   %384 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %383) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 385:                                              ; preds = %9
-  %.not3852 = icmp eq i32 %2, 0
-  br i1 %.not3852, label %.critedge3988, label %.critedge3987
+  %.not3851 = icmp eq i32 %2, 0
+  br i1 %.not3851, label %.critedge3987, label %.critedge3986
 
-.critedge3987:                                    ; preds = %385
+.critedge3986:                                    ; preds = %385
   %386 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %387 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.70, i64 noundef 20) #4
   %388 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %389 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.71, i64 noundef 28) #4
   %390 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %391 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.72, i64 noundef 21) #4
-  br label %.critedge3988
+  br label %.critedge3987
 
-.critedge3988:                                    ; preds = %385, %.critedge3987
-  %392 = phi i32 [ 15, %.critedge3987 ], [ 7, %385 ]
+.critedge3987:                                    ; preds = %385, %.critedge3986
+  %392 = phi i32 [ 15, %.critedge3986 ], [ 7, %385 ]
   %393 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %394 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %392, ptr noundef nonnull @.str.73) #4
   %395 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -1209,23 +1209,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %400 = load i64, ptr %399, align 8
   %401 = add i64 %400, -4
   %402 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %401) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 403:                                              ; preds = %9
-  %.not3850 = icmp eq i32 %2, 0
-  br i1 %.not3850, label %.critedge3993, label %.critedge3992
+  %.not3849 = icmp eq i32 %2, 0
+  br i1 %.not3849, label %.critedge3992, label %.critedge3991
 
-.critedge3992:                                    ; preds = %403
+.critedge3991:                                    ; preds = %403
   %404 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %405 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.74, i64 noundef 19) #4
   %406 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %407 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.75, i64 noundef 27) #4
   %408 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %409 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.76, i64 noundef 20) #4
-  br label %.critedge3993
+  br label %.critedge3992
 
-.critedge3993:                                    ; preds = %403, %.critedge3992
-  %410 = phi i32 [ 15, %.critedge3992 ], [ 7, %403 ]
+.critedge3992:                                    ; preds = %403, %.critedge3991
+  %410 = phi i32 [ 15, %.critedge3991 ], [ 7, %403 ]
   %411 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %412 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %410, ptr noundef nonnull @.str.73) #4
   %413 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -1237,23 +1237,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %418 = load i64, ptr %417, align 8
   %419 = add i64 %418, -4
   %420 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %419) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 421:                                              ; preds = %9
-  %.not3848 = icmp eq i32 %2, 0
-  br i1 %.not3848, label %.critedge3998, label %.critedge3997
+  %.not3847 = icmp eq i32 %2, 0
+  br i1 %.not3847, label %.critedge3997, label %.critedge3996
 
-.critedge3997:                                    ; preds = %421
+.critedge3996:                                    ; preds = %421
   %422 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %423 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.77, i64 noundef 21) #4
   %424 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %425 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.78, i64 noundef 29) #4
   %426 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %427 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.79, i64 noundef 22) #4
-  br label %.critedge3998
+  br label %.critedge3997
 
-.critedge3998:                                    ; preds = %421, %.critedge3997
-  %428 = phi i32 [ 15, %.critedge3997 ], [ 7, %421 ]
+.critedge3997:                                    ; preds = %421, %.critedge3996
+  %428 = phi i32 [ 15, %.critedge3996 ], [ 7, %421 ]
   %429 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %430 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %428, ptr noundef nonnull @.str.73) #4
   %431 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -1265,49 +1265,49 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %436 = load i64, ptr %435, align 8
   %437 = add i64 %436, -4
   %438 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %437) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 439:                                              ; preds = %9
-  %.not3847 = icmp eq i32 %2, 0
-  br i1 %.not3847, label %common.ret4624, label %.critedge4002
+  %.not3846 = icmp eq i32 %2, 0
+  br i1 %.not3846, label %common.ret4623, label %.critedge4001
 
-.critedge4002:                                    ; preds = %439
+.critedge4001:                                    ; preds = %439
   %440 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %441 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.80, i64 noundef 19) #4
   %442 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %443 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.81, i64 noundef 17) #4
   %444 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %445 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.82, i64 noundef 18) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 446:                                              ; preds = %9
-  %.not3846 = icmp eq i32 %2, 0
-  br i1 %.not3846, label %common.ret4624, label %.critedge4005
+  %.not3845 = icmp eq i32 %2, 0
+  br i1 %.not3845, label %common.ret4623, label %.critedge4004
 
-.critedge4005:                                    ; preds = %446
+.critedge4004:                                    ; preds = %446
   %447 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %448 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.83, i64 noundef 20) #4
   %449 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %450 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.84, i64 noundef 18) #4
   %451 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %452 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.85, i64 noundef 19) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 453:                                              ; preds = %9
-  %.not3844 = icmp eq i32 %2, 0
-  br i1 %.not3844, label %.critedge4009, label %.critedge4008
+  %.not3843 = icmp eq i32 %2, 0
+  br i1 %.not3843, label %.critedge4008, label %.critedge4007
 
-.critedge4008:                                    ; preds = %453
+.critedge4007:                                    ; preds = %453
   %454 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %455 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.86, i64 noundef 20) #4
   %456 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %457 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.87, i64 noundef 34) #4
   %458 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %459 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.88, i64 noundef 27) #4
-  br label %.critedge4009
+  br label %.critedge4008
 
-.critedge4009:                                    ; preds = %453, %.critedge4008
-  %460 = phi i32 [ 14, %.critedge4008 ], [ 7, %453 ]
+.critedge4008:                                    ; preds = %453, %.critedge4007
+  %460 = phi i32 [ 14, %.critedge4007 ], [ 7, %453 ]
   %461 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %462 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %460, ptr noundef nonnull @.str.58) #4
   %463 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -1319,24 +1319,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %468 = load i64, ptr %467, align 8
   %469 = add i64 %468, -4
   %470 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %469) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 471:                                              ; preds = %9
-  %.not3840 = icmp eq i32 %2, 0
-  br i1 %.not3840, label %.critedge4014, label %.critedge4013
+  %.not3839 = icmp eq i32 %2, 0
+  br i1 %.not3839, label %.critedge4013, label %.critedge4012
 
-.critedge4013:                                    ; preds = %471
+.critedge4012:                                    ; preds = %471
   %472 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %473 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.89, i64 noundef 18) #4
   %474 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %475 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.90, i64 noundef 70) #4
   %476 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %477 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.91, i64 noundef 53) #4
-  br label %.critedge4014
+  br label %.critedge4013
 
-.critedge4014:                                    ; preds = %471, %.critedge4013
-  %478 = phi i32 [ 28, %.critedge4013 ], [ 7, %471 ]
-  %479 = phi i32 [ 14, %.critedge4013 ], [ 7, %471 ]
+.critedge4013:                                    ; preds = %471, %.critedge4012
+  %478 = phi i32 [ 28, %.critedge4012 ], [ 7, %471 ]
+  %479 = phi i32 [ 14, %.critedge4012 ], [ 7, %471 ]
   %480 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %481 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %479, ptr noundef nonnull @.str.92) #4
   %482 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1366,25 +1366,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %503 = load i64, ptr %486, align 8
   %504 = add i64 %503, -4
   %505 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %504) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 506:                                              ; preds = %9
-  %.not3836 = icmp eq i32 %2, 0
-  br i1 %.not3836, label %.critedge4023, label %.critedge4022
+  %.not3835 = icmp eq i32 %2, 0
+  br i1 %.not3835, label %.critedge4022, label %.critedge4021
 
-.critedge4022:                                    ; preds = %506
+.critedge4021:                                    ; preds = %506
   %507 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %508 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.95, i64 noundef 27) #4
   %509 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %510 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.96, i64 noundef 60) #4
   %511 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %512 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.91, i64 noundef 53) #4
-  br label %.critedge4023
+  br label %.critedge4022
 
-.critedge4023:                                    ; preds = %506, %.critedge4022
-  %513 = phi i32 [ 28, %.critedge4022 ], [ 7, %506 ]
-  %514 = phi i32 [ 23, %.critedge4022 ], [ 7, %506 ]
-  %515 = phi i32 [ 27, %.critedge4022 ], [ 7, %506 ]
+.critedge4022:                                    ; preds = %506, %.critedge4021
+  %513 = phi i32 [ 28, %.critedge4021 ], [ 7, %506 ]
+  %514 = phi i32 [ 23, %.critedge4021 ], [ 7, %506 ]
+  %515 = phi i32 [ 27, %.critedge4021 ], [ 7, %506 ]
   %516 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %517 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %515, ptr noundef nonnull @.str.97) #4
   %518 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1414,24 +1414,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %539 = load i64, ptr %522, align 8
   %540 = add i64 %539, -4
   %541 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %540) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 542:                                              ; preds = %9
-  %.not3833 = icmp eq i32 %2, 0
-  br i1 %.not3833, label %.critedge4032, label %.critedge4031
+  %.not3832 = icmp eq i32 %2, 0
+  br i1 %.not3832, label %.critedge4031, label %.critedge4030
 
-.critedge4031:                                    ; preds = %542
+.critedge4030:                                    ; preds = %542
   %543 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %544 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.100, i64 noundef 18) #4
   %545 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %546 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.101, i64 noundef 53) #4
   %547 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %548 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.102, i64 noundef 42) #4
-  br label %.critedge4032
+  br label %.critedge4031
 
-.critedge4032:                                    ; preds = %542, %.critedge4031
-  %549 = phi i32 [ 23, %.critedge4031 ], [ 7, %542 ]
-  %550 = phi i32 [ 14, %.critedge4031 ], [ 7, %542 ]
+.critedge4031:                                    ; preds = %542, %.critedge4030
+  %549 = phi i32 [ 23, %.critedge4030 ], [ 7, %542 ]
+  %550 = phi i32 [ 14, %.critedge4030 ], [ 7, %542 ]
   %551 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %552 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %550, ptr noundef nonnull @.str.92) #4
   %553 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1452,17 +1452,17 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %566 = load i64, ptr %557, align 8
   %567 = add i64 %566, -4
   %568 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %567) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 569:                                              ; preds = %9
-  %.not3828 = icmp eq i32 %2, 0
-  br i1 %.not3828, label %.critedge4039, label %.critedge4039.sink.split
+  %.not3827 = icmp eq i32 %2, 0
+  br i1 %.not3827, label %.critedge4038, label %.critedge4038.sink.split
 
 570:                                              ; preds = %9
-  %.not3827 = icmp eq i32 %2, 0
-  br i1 %.not3827, label %.critedge4039, label %.critedge4039.sink.split
+  %.not3826 = icmp eq i32 %2, 0
+  br i1 %.not3826, label %.critedge4038, label %.critedge4038.sink.split
 
-.critedge4039.sink.split:                         ; preds = %570, %569
+.critedge4038.sink.split:                         ; preds = %570, %569
   %.str.107.sink = phi ptr [ @.str.104, %569 ], [ @.str.107, %570 ]
   %.str.108.sink = phi ptr [ @.str.105, %569 ], [ @.str.108, %570 ]
   %.str.109.sink = phi ptr [ @.str.106, %569 ], [ @.str.109, %570 ]
@@ -1472,17 +1472,17 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %574 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.108.sink, i64 noundef 33) #4
   %575 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %576 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.109.sink, i64 noundef 24) #4
-  br label %.critedge4039
+  br label %.critedge4038
 
-.critedge4039:                                    ; preds = %.critedge4039.sink.split, %570, %569
-  %.not3829 = icmp eq i32 %2, 0
-  %577 = select i1 %.not3829, i32 6, i32 18
+.critedge4038:                                    ; preds = %.critedge4038.sink.split, %570, %569
+  %.not3828 = icmp eq i32 %2, 0
+  %577 = select i1 %.not3828, i32 6, i32 18
   %578 = inttoptr i64 %1 to ptr
   %579 = getelementptr inbounds i8, ptr %578, i64 16
-  br label %.critedge4044
+  br label %.critedge4043
 
-.critedge4044:                                    ; preds = %590, %.critedge4039
-  %.1 = phi ptr [ %3, %.critedge4039 ], [ %589, %590 ]
+.critedge4043:                                    ; preds = %590, %.critedge4038
+  %.1 = phi ptr [ %3, %.critedge4038 ], [ %589, %590 ]
   %580 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %581 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %577, ptr noundef nonnull @.str.110) #4
   %582 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1494,21 +1494,21 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %587 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %586) #4
   %588 = getelementptr inbounds i8, ptr %.1, i64 40
   %589 = load ptr, ptr %588, align 8
-  %.not3831 = icmp eq ptr %589, null
-  br i1 %.not3831, label %.critedge4046, label %590
+  %.not3830 = icmp eq ptr %589, null
+  br i1 %.not3830, label %.critedge4045, label %590
 
-590:                                              ; preds = %.critedge4044
-  %.val4607 = load i64, ptr %589, align 8
-  %591 = trunc i64 %.val4607 to i32
+590:                                              ; preds = %.critedge4043
+  %.val4606 = load i64, ptr %589, align 8
+  %591 = trunc i64 %.val4606 to i32
   %592 = lshr i32 %591, 8
   %593 = and i32 %592, 127
   %594 = icmp eq i32 %593, %34
-  br i1 %594, label %.critedge4044, label %.critedge4046
+  br i1 %594, label %.critedge4043, label %.critedge4045
 
-.critedge4046:                                    ; preds = %.critedge4044, %590
+.critedge4045:                                    ; preds = %.critedge4043, %590
   %595 = getelementptr inbounds i8, ptr %.1, i64 40
   %596 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %597 = select i1 %.not3829, i32 6, i32 19
+  %597 = select i1 %.not3828, i32 6, i32 19
   %598 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %597, ptr noundef nonnull @.str.111) #4
   %599 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %600 = load ptr, ptr %595, align 8
@@ -1516,25 +1516,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %601 = load i64, ptr %579, align 8
   %602 = add i64 %601, -4
   %603 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %602) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 604:                                              ; preds = %9
-  %.not3821 = icmp eq i32 %2, 0
-  br i1 %.not3821, label %.critedge4049, label %.critedge4048
+  %.not3820 = icmp eq i32 %2, 0
+  br i1 %.not3820, label %.critedge4048, label %.critedge4047
 
-.critedge4048:                                    ; preds = %604
+.critedge4047:                                    ; preds = %604
   %605 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %606 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.112, i64 noundef 24) #4
   %607 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %608 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.113, i64 noundef 46) #4
   %609 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %610 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.114, i64 noundef 24) #4
-  br label %.critedge4049
+  br label %.critedge4048
 
-.critedge4049:                                    ; preds = %604, %.critedge4048
-  %611 = phi i32 [ 16, %.critedge4048 ], [ 7, %604 ]
-  %612 = phi i32 [ 14, %.critedge4048 ], [ 7, %604 ]
-  %613 = phi i32 [ 15, %.critedge4048 ], [ 8, %604 ]
+.critedge4048:                                    ; preds = %604, %.critedge4047
+  %611 = phi i32 [ 16, %.critedge4047 ], [ 7, %604 ]
+  %612 = phi i32 [ 14, %.critedge4047 ], [ 7, %604 ]
+  %613 = phi i32 [ 15, %.critedge4047 ], [ 8, %604 ]
   %614 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %615 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %613, ptr noundef nonnull @.str.115) #4
   %616 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1557,11 +1557,11 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %631 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %630) #4
   %632 = getelementptr inbounds i8, ptr %3, i64 48
   %633 = load ptr, ptr %632, align 8
-  %.not3824 = icmp eq ptr %633, inttoptr (i64 -1 to ptr)
+  %.not3823 = icmp eq ptr %633, inttoptr (i64 -1 to ptr)
   %634 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %.not3824, label %.critedge4057, label %.critedge4055
+  br i1 %.not3823, label %.critedge4056, label %.critedge4054
 
-.critedge4055:                                    ; preds = %.critedge4049
+.critedge4054:                                    ; preds = %.critedge4048
   %635 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %611, ptr noundef nonnull @.str.117) #4
   %636 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %637 = load ptr, ptr %632, align 8
@@ -1569,30 +1569,30 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %638 = load i64, ptr %620, align 8
   %639 = add i64 %638, -4
   %640 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %639) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
-.critedge4057:                                    ; preds = %.critedge4049
+.critedge4056:                                    ; preds = %.critedge4048
   %641 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %611, ptr noundef nonnull @.str.117) #4
   %642 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.118, i64 noundef 54) #4
   %643 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 644:                                              ; preds = %9
-  %.not3817 = icmp eq i32 %2, 0
-  br i1 %.not3817, label %.critedge4060, label %.critedge4059
+  %.not3816 = icmp eq i32 %2, 0
+  br i1 %.not3816, label %.critedge4059, label %.critedge4058
 
-.critedge4059:                                    ; preds = %644
+.critedge4058:                                    ; preds = %644
   %645 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %646 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.119, i64 noundef 30) #4
   %647 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %648 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.120, i64 noundef 40) #4
   %649 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %650 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.121, i64 noundef 21) #4
-  br label %.critedge4060
+  br label %.critedge4059
 
-.critedge4060:                                    ; preds = %644, %.critedge4059
-  %651 = phi i32 [ 17, %.critedge4059 ], [ 8, %644 ]
-  %652 = phi i32 [ 23, %.critedge4059 ], [ 6, %644 ]
+.critedge4059:                                    ; preds = %644, %.critedge4058
+  %651 = phi i32 [ 17, %.critedge4058 ], [ 8, %644 ]
+  %652 = phi i32 [ 23, %.critedge4058 ], [ 6, %644 ]
   %653 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %654 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %652, ptr noundef nonnull @.str.122) #4
   %655 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1603,15 +1603,15 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %659 = load ptr, ptr %658, align 8
   %660 = icmp eq ptr %659, inttoptr (i64 -1 to ptr)
   %661 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %660, label %.critedge4064, label %.critedge4066
+  br i1 %660, label %.critedge4063, label %.critedge4065
 
-.critedge4064:                                    ; preds = %.critedge4060
+.critedge4063:                                    ; preds = %.critedge4059
   %662 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %651, ptr noundef nonnull @.str.123) #4
   %663 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.124, i64 noundef 57) #4
   %664 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
-.critedge4066:                                    ; preds = %.critedge4060
+.critedge4065:                                    ; preds = %.critedge4059
   %665 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %651, ptr noundef nonnull @.str.123) #4
   %666 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %667 = load ptr, ptr %658, align 8
@@ -1621,13 +1621,13 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %670 = load i64, ptr %669, align 8
   %671 = add i64 %670, -4
   %672 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %671) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 673:                                              ; preds = %9
-  %.not3813 = icmp eq i32 %2, 0
-  br i1 %.not3813, label %.critedge4070, label %.critedge4068
+  %.not3812 = icmp eq i32 %2, 0
+  br i1 %.not3812, label %.critedge4069, label %.critedge4067
 
-.critedge4068:                                    ; preds = %673
+.critedge4067:                                    ; preds = %673
   %674 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %675 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.125, i64 noundef 32) #4
   %676 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
@@ -1636,11 +1636,11 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %679 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.127, i64 noundef 42) #4
   %680 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %681 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.128, i64 noundef 33) #4
-  br label %.critedge4070
+  br label %.critedge4069
 
-.critedge4070:                                    ; preds = %673, %.critedge4068
-  %682 = phi i32 [ 17, %.critedge4068 ], [ 8, %673 ]
-  %683 = phi i32 [ 23, %.critedge4068 ], [ 6, %673 ]
+.critedge4069:                                    ; preds = %673, %.critedge4067
+  %682 = phi i32 [ 17, %.critedge4067 ], [ 8, %673 ]
+  %683 = phi i32 [ 23, %.critedge4067 ], [ 6, %673 ]
   %684 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %685 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %683, ptr noundef nonnull @.str.122) #4
   %686 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1651,15 +1651,15 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %690 = load ptr, ptr %689, align 8
   %691 = icmp eq ptr %690, inttoptr (i64 -1 to ptr)
   %692 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %691, label %.critedge4074, label %.critedge4076
+  br i1 %691, label %.critedge4073, label %.critedge4075
 
-.critedge4074:                                    ; preds = %.critedge4070
+.critedge4073:                                    ; preds = %.critedge4069
   %693 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %682, ptr noundef nonnull @.str.123) #4
   %694 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.124, i64 noundef 57) #4
   %695 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
-.critedge4076:                                    ; preds = %.critedge4070
+.critedge4075:                                    ; preds = %.critedge4069
   %696 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %682, ptr noundef nonnull @.str.123) #4
   %697 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %698 = load ptr, ptr %689, align 8
@@ -1669,24 +1669,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %701 = load i64, ptr %700, align 8
   %702 = add i64 %701, -4
   %703 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %702) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 704:                                              ; preds = %9
-  %.not3810 = icmp eq i32 %2, 0
-  br i1 %.not3810, label %.critedge4079, label %.critedge4078
+  %.not3809 = icmp eq i32 %2, 0
+  br i1 %.not3809, label %.critedge4078, label %.critedge4077
 
-.critedge4078:                                    ; preds = %704
+.critedge4077:                                    ; preds = %704
   %705 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %706 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.129, i64 noundef 33) #4
   %707 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %708 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.130, i64 noundef 40) #4
   %709 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %710 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.131, i64 noundef 22) #4
-  br label %.critedge4079
+  br label %.critedge4078
 
-.critedge4079:                                    ; preds = %704, %.critedge4078
-  %711 = phi i32 [ 17, %.critedge4078 ], [ 8, %704 ]
-  %712 = phi i32 [ 26, %.critedge4078 ], [ 6, %704 ]
+.critedge4078:                                    ; preds = %704, %.critedge4077
+  %711 = phi i32 [ 17, %.critedge4077 ], [ 8, %704 ]
+  %712 = phi i32 [ 26, %.critedge4077 ], [ 6, %704 ]
   %713 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %714 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %712, ptr noundef nonnull @.str.132) #4
   %715 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1704,24 +1704,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %725 = load i64, ptr %724, align 8
   %726 = add i64 %725, -4
   %727 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %726) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 728:                                              ; preds = %9
-  %.not3807 = icmp eq i32 %2, 0
-  br i1 %.not3807, label %.critedge4086, label %.critedge4085
+  %.not3806 = icmp eq i32 %2, 0
+  br i1 %.not3806, label %.critedge4085, label %.critedge4084
 
-.critedge4085:                                    ; preds = %728
+.critedge4084:                                    ; preds = %728
   %729 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %730 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.133, i64 noundef 30) #4
   %731 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %732 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.134, i64 noundef 40) #4
   %733 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %734 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.135, i64 noundef 23) #4
-  br label %.critedge4086
+  br label %.critedge4085
 
-.critedge4086:                                    ; preds = %728, %.critedge4085
-  %735 = phi i32 [ 17, %.critedge4085 ], [ 8, %728 ]
-  %736 = phi i32 [ 23, %.critedge4085 ], [ 6, %728 ]
+.critedge4085:                                    ; preds = %728, %.critedge4084
+  %735 = phi i32 [ 17, %.critedge4084 ], [ 8, %728 ]
+  %736 = phi i32 [ 23, %.critedge4084 ], [ 6, %728 ]
   %737 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %738 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %736, ptr noundef nonnull @.str.136) #4
   %739 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1739,24 +1739,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %749 = load i64, ptr %748, align 8
   %750 = add i64 %749, -4
   %751 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %750) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 752:                                              ; preds = %9
-  %.not3804 = icmp eq i32 %2, 0
-  br i1 %.not3804, label %.critedge4093, label %.critedge4092
+  %.not3803 = icmp eq i32 %2, 0
+  br i1 %.not3803, label %.critedge4092, label %.critedge4091
 
-.critedge4092:                                    ; preds = %752
+.critedge4091:                                    ; preds = %752
   %753 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %754 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.137, i64 noundef 31) #4
   %755 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %756 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.138, i64 noundef 40) #4
   %757 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %758 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.139, i64 noundef 22) #4
-  br label %.critedge4093
+  br label %.critedge4092
 
-.critedge4093:                                    ; preds = %752, %.critedge4092
-  %759 = phi i32 [ 17, %.critedge4092 ], [ 8, %752 ]
-  %760 = phi i32 [ 24, %.critedge4092 ], [ 6, %752 ]
+.critedge4092:                                    ; preds = %752, %.critedge4091
+  %759 = phi i32 [ 17, %.critedge4091 ], [ 8, %752 ]
+  %760 = phi i32 [ 24, %.critedge4091 ], [ 6, %752 ]
   %761 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %762 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %760, ptr noundef nonnull @.str.140) #4
   %763 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1774,47 +1774,47 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %773 = load i64, ptr %772, align 8
   %774 = add i64 %773, -4
   %775 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %774) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 776:                                              ; preds = %9
-  %.not3797 = icmp eq i32 %2, 0
-  br i1 %.not3797, label %.critedge4100, label %.critedge4099
+  %.not3796 = icmp eq i32 %2, 0
+  br i1 %.not3796, label %.critedge4099, label %.critedge4098
 
-.critedge4099:                                    ; preds = %776
+.critedge4098:                                    ; preds = %776
   %777 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %778 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.141, i64 noundef 25) #4
   %779 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %780 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.142, i64 noundef 55) #4
   %781 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %782 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.143, i64 noundef 21) #4
-  br label %.critedge4100
+  br label %.critedge4099
 
-.critedge4100:                                    ; preds = %776, %.critedge4099
-  %783 = phi i32 [ 6, %776 ], [ 17, %.critedge4099 ]
+.critedge4099:                                    ; preds = %776, %.critedge4098
+  %783 = phi i32 [ 6, %776 ], [ 17, %.critedge4098 ]
   %784 = getelementptr inbounds i8, ptr %3, i64 32
   %785 = load i64, ptr %784, align 8
-  %.not3798 = icmp eq i64 %785, 0
+  %.not3797 = icmp eq i64 %785, 0
   %786 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %787 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %783, ptr noundef nonnull @.str.144) #4
-  br i1 %.not3798, label %.critedge4106, label %.critedge4102
+  br i1 %.not3797, label %.critedge4105, label %.critedge4101
 
-.critedge4102:                                    ; preds = %.critedge4100
+.critedge4101:                                    ; preds = %.critedge4099
   %788 = load i64, ptr %784, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %788)
   %789 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %790 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %791 = select i1 %.not3797, i32 7, i32 19
+  %791 = select i1 %.not3796, i32 7, i32 19
   %792 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %791, ptr noundef nonnull @.str.145) #4
   %793 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.146, i64 noundef 8) #4
   %794 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %.pre = inttoptr i64 %1 to ptr
-  br label %.critedge4110
+  br label %.critedge4109
 
-.critedge4106:                                    ; preds = %.critedge4100
+.critedge4105:                                    ; preds = %.critedge4099
   %795 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.147, i64 noundef 23) #4
   %796 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %797 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %798 = select i1 %.not3797, i32 7, i32 19
+  %798 = select i1 %.not3796, i32 7, i32 19
   %799 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %798, ptr noundef nonnull @.str.145) #4
   %800 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
   %801 = getelementptr inbounds i8, ptr %3, i64 48
@@ -1825,12 +1825,12 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %805 = load i64, ptr %804, align 8
   %806 = add i64 %805, -4
   %807 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %806) #4
-  br label %.critedge4110
+  br label %.critedge4109
 
-.critedge4110:                                    ; preds = %.critedge4106, %.critedge4102
-  %.pre-phi = phi ptr [ %803, %.critedge4106 ], [ %.pre, %.critedge4102 ]
+.critedge4109:                                    ; preds = %.critedge4105, %.critedge4101
+  %.pre-phi = phi ptr [ %803, %.critedge4105 ], [ %.pre, %.critedge4101 ]
   %808 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %809 = select i1 %.not3797, i32 8, i32 17
+  %809 = select i1 %.not3796, i32 8, i32 17
   %810 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %809, ptr noundef nonnull @.str.123) #4
   %811 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %812 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1840,26 +1840,26 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %815 = load i64, ptr %814, align 8
   %816 = add i64 %815, -4
   %817 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %816) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 818:                                              ; preds = %9
-  %.not3792 = icmp eq i32 %2, 0
-  br i1 %.not3792, label %.critedge4113, label %.critedge4112
+  %.not3791 = icmp eq i32 %2, 0
+  br i1 %.not3791, label %.critedge4112, label %.critedge4111
 
-.critedge4112:                                    ; preds = %818
+.critedge4111:                                    ; preds = %818
   %819 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %820 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.148, i64 noundef 35) #4
   %821 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %822 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.149, i64 noundef 59) #4
   %823 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %824 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.150, i64 noundef 27) #4
-  br label %.critedge4113
+  br label %.critedge4112
 
-.critedge4113:                                    ; preds = %818, %.critedge4112
-  %825 = phi i32 [ 18, %.critedge4112 ], [ 9, %818 ]
-  %826 = phi i32 [ 16, %.critedge4112 ], [ 8, %818 ]
-  %827 = phi i32 [ 17, %.critedge4112 ], [ 6, %818 ]
-  %828 = phi i32 [ 18, %.critedge4112 ], [ 7, %818 ]
+.critedge4112:                                    ; preds = %818, %.critedge4111
+  %825 = phi i32 [ 18, %.critedge4111 ], [ 9, %818 ]
+  %826 = phi i32 [ 16, %.critedge4111 ], [ 8, %818 ]
+  %827 = phi i32 [ 17, %.critedge4111 ], [ 6, %818 ]
+  %828 = phi i32 [ 18, %.critedge4111 ], [ 7, %818 ]
   %829 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %830 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %828, ptr noundef nonnull @.str.151) #4
   %831 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1895,24 +1895,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %857 = load i64, ptr %835, align 8
   %858 = add i64 %857, -4
   %859 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %858) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 860:                                              ; preds = %9
   %.not3786 = icmp eq i32 %2, 0
-  br i1 %.not3786, label %.critedge4124, label %.critedge4123
+  br i1 %.not3786, label %.critedge4123, label %.critedge4122
 
-.critedge4123:                                    ; preds = %860
+.critedge4122:                                    ; preds = %860
   %861 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %862 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.155, i64 noundef 34) #4
   %863 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %864 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.156, i64 noundef 52) #4
   %865 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %866 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.157, i64 noundef 33) #4
-  br label %.critedge4124
+  br label %.critedge4123
 
-.critedge4124:                                    ; preds = %860, %.critedge4123
-  %867 = phi i32 [ 13, %.critedge4123 ], [ 6, %860 ]
-  %868 = phi i32 [ 18, %.critedge4123 ], [ 7, %860 ]
+.critedge4123:                                    ; preds = %860, %.critedge4122
+  %867 = phi i32 [ 13, %.critedge4122 ], [ 6, %860 ]
+  %868 = phi i32 [ 18, %.critedge4122 ], [ 7, %860 ]
   %869 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %870 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %868, ptr noundef nonnull @.str.151) #4
   %871 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -1928,15 +1928,14 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %880 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %867, ptr noundef nonnull @.str.158) #4
   %881 = getelementptr inbounds i8, ptr %3, i64 64
   %882 = load i8, ptr %881, align 8
-  %883 = and i8 %882, 1
-  %.not3791 = icmp eq i8 %883, 0
-  br i1 %.not3791, label %.critedge4130, label %884
+  %883 = trunc i8 %882 to i1
+  br i1 %883, label %884, label %.critedge4129
 
-884:                                              ; preds = %.critedge4124
+884:                                              ; preds = %.critedge4123
   %885 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.159, i64 noundef 2) #4
-  br label %.critedge4130
+  br label %.critedge4129
 
-.critedge4130:                                    ; preds = %884, %.critedge4124
+.critedge4129:                                    ; preds = %884, %.critedge4123
   %886 = getelementptr inbounds i8, ptr %3, i64 48
   %887 = load i64, ptr %886, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %887)
@@ -1958,17 +1957,17 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %901 = load i64, ptr %875, align 8
   %902 = add i64 %901, -4
   %903 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %902) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 904:                                              ; preds = %9
   %.not3782 = icmp eq i32 %2, 0
-  br i1 %.not3782, label %.critedge4135, label %.critedge4135.sink.split
+  br i1 %.not3782, label %.critedge4134, label %.critedge4134.sink.split
 
 905:                                              ; preds = %9
   %.not3781 = icmp eq i32 %2, 0
-  br i1 %.not3781, label %.critedge4135, label %.critedge4135.sink.split
+  br i1 %.not3781, label %.critedge4134, label %.critedge4134.sink.split
 
-.critedge4135.sink.split:                         ; preds = %905, %904
+.critedge4134.sink.split:                         ; preds = %905, %904
   %.str.163.sink = phi ptr [ @.str.160, %904 ], [ @.str.163, %905 ]
   %.str.164.sink = phi ptr [ @.str.161, %904 ], [ @.str.164, %905 ]
   %.str.165.sink = phi ptr [ @.str.162, %904 ], [ @.str.165, %905 ]
@@ -1978,9 +1977,9 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %909 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.164.sink, i64 noundef 37) #4
   %910 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %911 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.165.sink, i64 noundef 25) #4
-  br label %.critedge4135
+  br label %.critedge4134
 
-.critedge4135:                                    ; preds = %.critedge4135.sink.split, %905, %904
+.critedge4134:                                    ; preds = %.critedge4134.sink.split, %905, %904
   %912 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not3783 = icmp eq i32 %2, 0
   %913 = select i1 %.not3783, i32 7, i32 18
@@ -2004,25 +2003,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %929 = load i64, ptr %919, align 8
   %930 = add i64 %929, -4
   %931 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %930) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 932:                                              ; preds = %9
   %.not3777 = icmp eq i32 %2, 0
-  br i1 %.not3777, label %.critedge4145, label %.critedge4144
+  br i1 %.not3777, label %.critedge4144, label %.critedge4143
 
-.critedge4144:                                    ; preds = %932
+.critedge4143:                                    ; preds = %932
   %933 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %934 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.167, i64 noundef 39) #4
   %935 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %936 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.168, i64 noundef 53) #4
   %937 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %938 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.169, i64 noundef 24) #4
-  br label %.critedge4145
+  br label %.critedge4144
 
-.critedge4145:                                    ; preds = %932, %.critedge4144
-  %939 = phi i32 [ 17, %.critedge4144 ], [ 8, %932 ]
-  %940 = phi i32 [ 17, %.critedge4144 ], [ 6, %932 ]
-  %941 = phi i32 [ 18, %.critedge4144 ], [ 7, %932 ]
+.critedge4144:                                    ; preds = %932, %.critedge4143
+  %939 = phi i32 [ 17, %.critedge4143 ], [ 8, %932 ]
+  %940 = phi i32 [ 17, %.critedge4143 ], [ 6, %932 ]
+  %941 = phi i32 [ 18, %.critedge4143 ], [ 7, %932 ]
   %942 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %943 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %941, ptr noundef nonnull @.str.170) #4
   %944 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -2049,25 +2048,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %962 = load i64, ptr %948, align 8
   %963 = add i64 %962, -4
   %964 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %963) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 965:                                              ; preds = %9
   %.not3773 = icmp eq i32 %2, 0
-  br i1 %.not3773, label %.critedge4154, label %.critedge4153
+  br i1 %.not3773, label %.critedge4153, label %.critedge4152
 
-.critedge4153:                                    ; preds = %965
+.critedge4152:                                    ; preds = %965
   %966 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %967 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.172, i64 noundef 22) #4
   %968 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %969 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.173, i64 noundef 42) #4
   %970 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %971 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.174, i64 noundef 24) #4
-  br label %.critedge4154
+  br label %.critedge4153
 
-.critedge4154:                                    ; preds = %965, %.critedge4153
-  %972 = phi i32 [ 19, %.critedge4153 ], [ 7, %965 ]
-  %973 = phi i32 [ 18, %.critedge4153 ], [ 7, %965 ]
-  %974 = phi i32 [ 18, %.critedge4153 ], [ 6, %965 ]
+.critedge4153:                                    ; preds = %965, %.critedge4152
+  %972 = phi i32 [ 19, %.critedge4152 ], [ 7, %965 ]
+  %973 = phi i32 [ 18, %.critedge4152 ], [ 7, %965 ]
+  %974 = phi i32 [ 18, %.critedge4152 ], [ 6, %965 ]
   %975 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %976 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %974, ptr noundef nonnull @.str.175) #4
   %977 = getelementptr inbounds i8, ptr %3, i64 40
@@ -2094,25 +2093,25 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %995 = load i64, ptr %986, align 8
   %996 = add i64 %995, -4
   %997 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %996) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 998:                                              ; preds = %9
   %.not3769 = icmp eq i32 %2, 0
-  br i1 %.not3769, label %.critedge4163, label %.critedge4162
+  br i1 %.not3769, label %.critedge4162, label %.critedge4161
 
-.critedge4162:                                    ; preds = %998
+.critedge4161:                                    ; preds = %998
   %999 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1000 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.172, i64 noundef 22) #4
   %1001 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1002 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.177, i64 noundef 41) #4
   %1003 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1004 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.178, i64 noundef 23) #4
-  br label %.critedge4163
+  br label %.critedge4162
 
-.critedge4163:                                    ; preds = %998, %.critedge4162
-  %1005 = phi i32 [ 19, %.critedge4162 ], [ 7, %998 ]
-  %1006 = phi i32 [ 18, %.critedge4162 ], [ 7, %998 ]
-  %1007 = phi i32 [ 18, %.critedge4162 ], [ 6, %998 ]
+.critedge4162:                                    ; preds = %998, %.critedge4161
+  %1005 = phi i32 [ 19, %.critedge4161 ], [ 7, %998 ]
+  %1006 = phi i32 [ 18, %.critedge4161 ], [ 7, %998 ]
+  %1007 = phi i32 [ 18, %.critedge4161 ], [ 6, %998 ]
   %1008 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1009 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1007, ptr noundef nonnull @.str.175) #4
   %1010 = getelementptr inbounds i8, ptr %3, i64 40
@@ -2139,24 +2138,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1028 = load i64, ptr %1019, align 8
   %1029 = add i64 %1028, -4
   %1030 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1029) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1031:                                             ; preds = %9
   %.not3766 = icmp eq i32 %2, 0
-  br i1 %.not3766, label %.critedge4172, label %.critedge4171
+  br i1 %.not3766, label %.critedge4171, label %.critedge4170
 
-.critedge4171:                                    ; preds = %1031
+.critedge4170:                                    ; preds = %1031
   %1032 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1033 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.179, i64 noundef 18) #4
   %1034 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1035 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.180, i64 noundef 32) #4
   %1036 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1037 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.181, i64 noundef 20) #4
-  br label %.critedge4172
+  br label %.critedge4171
 
-.critedge4172:                                    ; preds = %1031, %.critedge4171
-  %1038 = phi i32 [ 19, %.critedge4171 ], [ 7, %1031 ]
-  %1039 = phi i32 [ 18, %.critedge4171 ], [ 6, %1031 ]
+.critedge4171:                                    ; preds = %1031, %.critedge4170
+  %1038 = phi i32 [ 19, %.critedge4170 ], [ 7, %1031 ]
+  %1039 = phi i32 [ 18, %.critedge4170 ], [ 6, %1031 ]
   %1040 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1041 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1039, ptr noundef nonnull @.str.175) #4
   %1042 = getelementptr inbounds i8, ptr %3, i64 32
@@ -2174,48 +2173,48 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1052 = load i64, ptr %1051, align 8
   %1053 = add i64 %1052, -4
   %1054 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1053) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1055:                                             ; preds = %9
   %.not3764 = icmp eq i32 %2, 0
-  br i1 %.not3764, label %.critedge4179, label %.critedge4178
+  br i1 %.not3764, label %.critedge4178, label %.critedge4177
 
-.critedge4178:                                    ; preds = %1055
+.critedge4177:                                    ; preds = %1055
   %1056 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1057 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.182, i64 noundef 35) #4
   %1058 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1059 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.183, i64 noundef 21) #4
   %1060 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1061 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.184, i64 noundef 17) #4
-  br label %.critedge4179
+  br label %.critedge4178
 
-.critedge4179:                                    ; preds = %1055, %.critedge4178
-  %1062 = phi i32 [ 18, %.critedge4178 ], [ 6, %1055 ]
+.critedge4178:                                    ; preds = %1055, %.critedge4177
+  %1062 = phi i32 [ 18, %.critedge4177 ], [ 6, %1055 ]
   %1063 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1064 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1062, ptr noundef nonnull @.str.175) #4
   %1065 = getelementptr inbounds i8, ptr %3, i64 32
   %1066 = load i64, ptr %1065, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1066)
   %1067 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1068:                                             ; preds = %9
   %.not3760 = icmp eq i32 %2, 0
-  br i1 %.not3760, label %.critedge4184, label %.critedge4183
+  br i1 %.not3760, label %.critedge4183, label %.critedge4182
 
-.critedge4183:                                    ; preds = %1068
+.critedge4182:                                    ; preds = %1068
   %1069 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1070 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.185, i64 noundef 27) #4
   %1071 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1072 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.186, i64 noundef 43) #4
   %1073 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1074 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.187, i64 noundef 25) #4
-  br label %.critedge4184
+  br label %.critedge4183
 
-.critedge4184:                                    ; preds = %1068, %.critedge4183
-  %1075 = phi i32 [ 19, %.critedge4183 ], [ 7, %1068 ]
-  %1076 = phi i32 [ 18, %.critedge4183 ], [ 7, %1068 ]
-  %1077 = phi i32 [ 18, %.critedge4183 ], [ 6, %1068 ]
+.critedge4183:                                    ; preds = %1068, %.critedge4182
+  %1075 = phi i32 [ 19, %.critedge4182 ], [ 7, %1068 ]
+  %1076 = phi i32 [ 18, %.critedge4182 ], [ 7, %1068 ]
+  %1077 = phi i32 [ 18, %.critedge4182 ], [ 6, %1068 ]
   %1078 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1079 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1077, ptr noundef nonnull @.str.175) #4
   %1080 = getelementptr inbounds i8, ptr %3, i64 40
@@ -2242,23 +2241,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1098 = load i64, ptr %1089, align 8
   %1099 = add i64 %1098, -4
   %1100 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1099) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1101:                                             ; preds = %9
   %.not3758 = icmp eq i32 %2, 0
-  br i1 %.not3758, label %.critedge4193, label %.critedge4192
+  br i1 %.not3758, label %.critedge4192, label %.critedge4191
 
-.critedge4192:                                    ; preds = %1101
+.critedge4191:                                    ; preds = %1101
   %1102 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1103 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.188, i64 noundef 21) #4
   %1104 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1105 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.189, i64 noundef 28) #4
   %1106 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1107 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.190, i64 noundef 21) #4
-  br label %.critedge4193
+  br label %.critedge4192
 
-.critedge4193:                                    ; preds = %1101, %.critedge4192
-  %1108 = phi i32 [ 19, %.critedge4192 ], [ 7, %1101 ]
+.critedge4192:                                    ; preds = %1101, %.critedge4191
+  %1108 = phi i32 [ 19, %.critedge4191 ], [ 7, %1101 ]
   %1109 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1110 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1108, ptr noundef nonnull @.str.176) #4
   %1111 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -2270,26 +2269,26 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1116 = load i64, ptr %1115, align 8
   %1117 = add i64 %1116, -4
   %1118 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1117) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1119:                                             ; preds = %9
   %.not3757 = icmp eq i32 %2, 0
-  br i1 %.not3757, label %common.ret4624, label %.critedge4197
+  br i1 %.not3757, label %common.ret4623, label %.critedge4196
 
-.critedge4197:                                    ; preds = %1119
+.critedge4196:                                    ; preds = %1119
   %1120 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1121 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.191, i64 noundef 38) #4
   %1122 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1123 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.192, i64 noundef 18) #4
   %1124 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1125 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.193, i64 noundef 19) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1126:                                             ; preds = %9
   %.not3756 = icmp eq i32 %2, 0
-  br i1 %.not3756, label %.split, label %.critedge4200
+  br i1 %.not3756, label %.split, label %.critedge4199
 
-.critedge4200:                                    ; preds = %1126
+.critedge4199:                                    ; preds = %1126
   %1127 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1128 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.194, i64 noundef 21) #4
   %1129 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
@@ -2297,24 +2296,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1131 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1132 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.196, i64 noundef 23) #4
   tail call fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %3)
-  br label %common.ret4624
+  br label %common.ret4623
 
 .split:                                           ; preds = %1126
   tail call fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %3)
-  br label %common.ret4624
+  br label %common.ret4623
 
 1133:                                             ; preds = %9
   %.not3755 = icmp eq i32 %2, 0
-  br i1 %.not3755, label %common.ret4624, label %.critedge4202
+  br i1 %.not3755, label %common.ret4623, label %.critedge4201
 
-.critedge4202:                                    ; preds = %1133
+.critedge4201:                                    ; preds = %1133
   %1134 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1135 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.197, i64 noundef 27) #4
   %1136 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1137 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.198, i64 noundef 15) #4
   %1138 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1139 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.199, i64 noundef 16) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1140:                                             ; preds = %9
   %1141 = getelementptr inbounds i8, ptr %3, i64 40
@@ -2324,49 +2323,49 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   br i1 %.not3749, label %1143, label %1150
 
 1143:                                             ; preds = %1140
-  br i1 %.not3750, label %.critedge4206, label %.critedge4205
+  br i1 %.not3750, label %.critedge4205, label %.critedge4204
 
-.critedge4205:                                    ; preds = %1143
+.critedge4204:                                    ; preds = %1143
   %1144 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1145 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.200, i64 noundef 22) #4
   %1146 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1147 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.201, i64 noundef 22) #4
   %1148 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1149 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.202, i64 noundef 24) #4
-  br label %.critedge4206
+  br label %.critedge4205
 
 1150:                                             ; preds = %1140
-  br i1 %.not3750, label %.critedge4206, label %.critedge4208
+  br i1 %.not3750, label %.critedge4205, label %.critedge4207
 
-.critedge4208:                                    ; preds = %1150
+.critedge4207:                                    ; preds = %1150
   %1151 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1152 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.203, i64 noundef 21) #4
   %1153 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1154 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.204, i64 noundef 26) #4
   %1155 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1156 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.205, i64 noundef 32) #4
-  br label %.critedge4206
+  br label %.critedge4205
 
-.critedge4206:                                    ; preds = %1150, %1143, %.critedge4208, %.critedge4205
+.critedge4205:                                    ; preds = %1150, %1143, %.critedge4207, %.critedge4204
   %1157 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not3752 = icmp eq i32 %2, 0
   %1158 = select i1 %.not3752, i32 8, i32 44
   %1159 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1158, ptr noundef nonnull @.str.206) #4
   %1160 = load i64, ptr %1141, align 8
-  switch i64 %1160, label %.critedge4213 [
+  switch i64 %1160, label %.critedge4212 [
     i64 0, label %1161
     i64 1, label %1163
   ]
 
-1161:                                             ; preds = %.critedge4206
+1161:                                             ; preds = %.critedge4205
   %1162 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.207, i64 noundef 20) #4
-  br label %.critedge4213
+  br label %.critedge4212
 
-1163:                                             ; preds = %.critedge4206
+1163:                                             ; preds = %.critedge4205
   %1164 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #4
-  br label %.critedge4213
+  br label %.critedge4212
 
-.critedge4213:                                    ; preds = %.critedge4206, %1161, %1163
+.critedge4212:                                    ; preds = %.critedge4205, %1161, %1163
   %1165 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %1166 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1167 = select i1 %.not3752, i32 7, i32 18
@@ -2380,23 +2379,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1174 = load i64, ptr %1173, align 8
   %1175 = add i64 %1174, -4
   %1176 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1175) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1177:                                             ; preds = %9
   %.not3747 = icmp eq i32 %2, 0
-  br i1 %.not3747, label %.critedge4216, label %.critedge4215
+  br i1 %.not3747, label %.critedge4215, label %.critedge4214
 
-.critedge4215:                                    ; preds = %1177
+.critedge4214:                                    ; preds = %1177
   %1178 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1179 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.210, i64 noundef 21) #4
   %1180 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1181 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.211, i64 noundef 28) #4
   %1182 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1183 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.212, i64 noundef 21) #4
-  br label %.critedge4216
+  br label %.critedge4215
 
-.critedge4216:                                    ; preds = %1177, %.critedge4215
-  %1184 = phi i32 [ 19, %.critedge4215 ], [ 7, %1177 ]
+.critedge4215:                                    ; preds = %1177, %.critedge4214
+  %1184 = phi i32 [ 19, %.critedge4214 ], [ 7, %1177 ]
   %1185 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1186 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1184, ptr noundef nonnull @.str.213) #4
   %1187 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -2408,161 +2407,161 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1192 = load i64, ptr %1191, align 8
   %1193 = add i64 %1192, -4
   %1194 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1193) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1195:                                             ; preds = %9
   %.not3745 = icmp eq i32 %2, 0
-  br i1 %.not3745, label %.critedge4221, label %.critedge4220
+  br i1 %.not3745, label %.critedge4220, label %.critedge4219
 
-.critedge4220:                                    ; preds = %1195
+.critedge4219:                                    ; preds = %1195
   %1196 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1197 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.214, i64 noundef 29) #4
   %1198 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1199 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.215, i64 noundef 27) #4
   %1200 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1201 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.216, i64 noundef 15) #4
-  br label %.critedge4221
+  br label %.critedge4220
 
-.critedge4221:                                    ; preds = %1195, %.critedge4220
-  %1202 = phi i32 [ 23, %.critedge4220 ], [ 6, %1195 ]
+.critedge4220:                                    ; preds = %1195, %.critedge4219
+  %1202 = phi i32 [ 23, %.critedge4219 ], [ 6, %1195 ]
   %1203 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1204 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1202, ptr noundef nonnull @.str.122) #4
   %1205 = getelementptr inbounds i8, ptr %3, i64 32
   %1206 = load i64, ptr %1205, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1206)
   %1207 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1208:                                             ; preds = %9
   %.not3743 = icmp eq i32 %2, 0
-  br i1 %.not3743, label %.critedge4226, label %.critedge4225
+  br i1 %.not3743, label %.critedge4225, label %.critedge4224
 
-.critedge4225:                                    ; preds = %1208
+.critedge4224:                                    ; preds = %1208
   %1209 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1210 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.217, i64 noundef 31) #4
   %1211 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1212 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.218, i64 noundef 27) #4
   %1213 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1214 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.219, i64 noundef 34) #4
-  br label %.critedge4226
+  br label %.critedge4225
 
-.critedge4226:                                    ; preds = %1208, %.critedge4225
-  %1215 = phi i32 [ 23, %.critedge4225 ], [ 6, %1208 ]
+.critedge4225:                                    ; preds = %1208, %.critedge4224
+  %1215 = phi i32 [ 23, %.critedge4224 ], [ 6, %1208 ]
   %1216 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1217 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1215, ptr noundef nonnull @.str.122) #4
   %1218 = getelementptr inbounds i8, ptr %3, i64 32
   %1219 = load i64, ptr %1218, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1219)
   %1220 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1221:                                             ; preds = %9
   %.not3741 = icmp eq i32 %2, 0
-  br i1 %.not3741, label %.critedge4231, label %.critedge4230
+  br i1 %.not3741, label %.critedge4230, label %.critedge4229
 
-.critedge4230:                                    ; preds = %1221
+.critedge4229:                                    ; preds = %1221
   %1222 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1223 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.220, i64 noundef 32) #4
   %1224 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1225 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.221, i64 noundef 27) #4
   %1226 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1227 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.222, i64 noundef 16) #4
-  br label %.critedge4231
+  br label %.critedge4230
 
-.critedge4231:                                    ; preds = %1221, %.critedge4230
-  %1228 = phi i32 [ 26, %.critedge4230 ], [ 6, %1221 ]
+.critedge4230:                                    ; preds = %1221, %.critedge4229
+  %1228 = phi i32 [ 26, %.critedge4229 ], [ 6, %1221 ]
   %1229 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1230 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1228, ptr noundef nonnull @.str.132) #4
   %1231 = getelementptr inbounds i8, ptr %3, i64 32
   %1232 = load i64, ptr %1231, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1232)
   %1233 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1234:                                             ; preds = %9
   %.not3739 = icmp eq i32 %2, 0
-  br i1 %.not3739, label %.critedge4236, label %.critedge4235
+  br i1 %.not3739, label %.critedge4235, label %.critedge4234
 
-.critedge4235:                                    ; preds = %1234
+.critedge4234:                                    ; preds = %1234
   %1235 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1236 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.223, i64 noundef 23) #4
   %1237 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1238 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.224, i64 noundef 31) #4
   %1239 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1240 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.225, i64 noundef 15) #4
-  br label %.critedge4236
+  br label %.critedge4235
 
-.critedge4236:                                    ; preds = %1234, %.critedge4235
-  %1241 = phi i32 [ 17, %.critedge4235 ], [ 6, %1234 ]
+.critedge4235:                                    ; preds = %1234, %.critedge4234
+  %1241 = phi i32 [ 17, %.critedge4234 ], [ 6, %1234 ]
   %1242 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1243 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1241, ptr noundef nonnull @.str.144) #4
   %1244 = getelementptr inbounds i8, ptr %3, i64 32
   %1245 = load i64, ptr %1244, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1245)
   %1246 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1247:                                             ; preds = %9
   %.not3737 = icmp eq i32 %2, 0
-  br i1 %.not3737, label %.critedge4241, label %.critedge4240
+  br i1 %.not3737, label %.critedge4240, label %.critedge4239
 
-.critedge4240:                                    ; preds = %1247
+.critedge4239:                                    ; preds = %1247
   %1248 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1249 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.226, i64 noundef 29) #4
   %1250 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1251 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.227, i64 noundef 27) #4
   %1252 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1253 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.228, i64 noundef 17) #4
-  br label %.critedge4241
+  br label %.critedge4240
 
-.critedge4241:                                    ; preds = %1247, %.critedge4240
-  %1254 = phi i32 [ 23, %.critedge4240 ], [ 6, %1247 ]
+.critedge4240:                                    ; preds = %1247, %.critedge4239
+  %1254 = phi i32 [ 23, %.critedge4239 ], [ 6, %1247 ]
   %1255 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1256 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1254, ptr noundef nonnull @.str.136) #4
   %1257 = getelementptr inbounds i8, ptr %3, i64 32
   %1258 = load i64, ptr %1257, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1258)
   %1259 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1260:                                             ; preds = %9
   %.not3735 = icmp eq i32 %2, 0
-  br i1 %.not3735, label %.critedge4246, label %.critedge4245
+  br i1 %.not3735, label %.critedge4245, label %.critedge4244
 
-.critedge4245:                                    ; preds = %1260
+.critedge4244:                                    ; preds = %1260
   %1261 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1262 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.229, i64 noundef 30) #4
   %1263 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1264 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.230, i64 noundef 27) #4
   %1265 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1266 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.231, i64 noundef 16) #4
-  br label %.critedge4246
+  br label %.critedge4245
 
-.critedge4246:                                    ; preds = %1260, %.critedge4245
-  %1267 = phi i32 [ 24, %.critedge4245 ], [ 6, %1260 ]
+.critedge4245:                                    ; preds = %1260, %.critedge4244
+  %1267 = phi i32 [ 24, %.critedge4244 ], [ 6, %1260 ]
   %1268 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1269 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1267, ptr noundef nonnull @.str.140) #4
   %1270 = getelementptr inbounds i8, ptr %3, i64 32
   %1271 = load i64, ptr %1270, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1271)
   %1272 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1273:                                             ; preds = %9
   %.not3733 = icmp eq i32 %2, 0
-  br i1 %.not3733, label %.critedge4251, label %.critedge4250
+  br i1 %.not3733, label %.critedge4250, label %.critedge4249
 
-.critedge4250:                                    ; preds = %1273
+.critedge4249:                                    ; preds = %1273
   %1274 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1275 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.232, i64 noundef 35) #4
   %1276 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1277 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.233, i64 noundef 22) #4
   %1278 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1279 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.234, i64 noundef 24) #4
-  br label %.critedge4251
+  br label %.critedge4250
 
-.critedge4251:                                    ; preds = %1273, %.critedge4250
-  %1280 = phi i32 [ 17, %.critedge4250 ], [ 6, %1273 ]
+.critedge4250:                                    ; preds = %1273, %.critedge4249
+  %1280 = phi i32 [ 17, %.critedge4249 ], [ 6, %1273 ]
   %1281 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1282 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1280, ptr noundef nonnull @.str.235) #4
   %1283 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.236, i64 noundef 1) #4
@@ -2570,23 +2569,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1285 = load i64, ptr %1284, align 8
   %1286 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.237, i64 noundef %1285) #4
   %1287 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1288:                                             ; preds = %9
   %.not3731 = icmp eq i32 %2, 0
-  br i1 %.not3731, label %.critedge4256, label %.critedge4255
+  br i1 %.not3731, label %.critedge4255, label %.critedge4254
 
-.critedge4255:                                    ; preds = %1288
+.critedge4254:                                    ; preds = %1288
   %1289 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1290 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.238, i64 noundef 36) #4
   %1291 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1292 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.233, i64 noundef 22) #4
   %1293 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1294 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.239, i64 noundef 28) #4
-  br label %.critedge4256
+  br label %.critedge4255
 
-.critedge4256:                                    ; preds = %1288, %.critedge4255
-  %1295 = phi i32 [ 17, %.critedge4255 ], [ 6, %1288 ]
+.critedge4255:                                    ; preds = %1288, %.critedge4254
+  %1295 = phi i32 [ 17, %.critedge4254 ], [ 6, %1288 ]
   %1296 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1297 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1295, ptr noundef nonnull @.str.235) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const.dump_node.name, i64 3, i1 false)
@@ -2597,47 +2596,47 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   store i8 %1300, ptr %1301, align 1
   %1302 = call i64 @rb_str_cat_cstr(i64 noundef %0, ptr noundef nonnull %5) #4
   %1303 = call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1304:                                             ; preds = %9
   %.not3729 = icmp eq i32 %2, 0
-  br i1 %.not3729, label %.critedge4261, label %.critedge4260
+  br i1 %.not3729, label %.critedge4260, label %.critedge4259
 
-.critedge4260:                                    ; preds = %1304
+.critedge4259:                                    ; preds = %1304
   %1305 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1306 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.240, i64 noundef 45) #4
   %1307 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1308 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.241, i64 noundef 36) #4
   %1309 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1310 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.242, i64 noundef 32) #4
-  br label %.critedge4261
+  br label %.critedge4260
 
-.critedge4261:                                    ; preds = %1304, %.critedge4260
-  %1311 = phi i32 [ 15, %.critedge4260 ], [ 6, %1304 ]
+.critedge4260:                                    ; preds = %1304, %.critedge4259
+  %1311 = phi i32 [ 15, %.critedge4259 ], [ 6, %1304 ]
   %1312 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1313 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1311, ptr noundef nonnull @.str.243) #4
   %1314 = tail call i64 @rb_node_regx_string_val(ptr noundef nonnull %3) #4
   %1315 = tail call i64 @rb_dump_literal(i64 noundef %1314)
   %1316 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1315) #4
   %1317 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1318:                                             ; preds = %9
   %.not3723 = icmp eq i32 %2, 0
-  br i1 %.not3723, label %.critedge4266, label %.critedge4265
+  br i1 %.not3723, label %.critedge4265, label %.critedge4264
 
-.critedge4265:                                    ; preds = %1318
+.critedge4264:                                    ; preds = %1318
   %1319 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1320 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.244, i64 noundef 36) #4
   %1321 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1322 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.245, i64 noundef 36) #4
   %1323 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1324 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.246, i64 noundef 28) #4
-  br label %.critedge4266
+  br label %.critedge4265
 
-.critedge4266:                                    ; preds = %1318, %.critedge4265
-  %1325 = phi i32 [ 28, %.critedge4265 ], [ 8, %1318 ]
-  %1326 = phi i32 [ 27, %.critedge4265 ], [ 7, %1318 ]
+.critedge4265:                                    ; preds = %1318, %.critedge4264
+  %1325 = phi i32 [ 28, %.critedge4264 ], [ 8, %1318 ]
+  %1326 = phi i32 [ 27, %.critedge4264 ], [ 7, %1318 ]
   %1327 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1328 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1326, ptr noundef nonnull @.str.247) #4
   %1329 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -2664,9 +2663,9 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1346 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1345) #4
   %1347 = load ptr, ptr %1337, align 8
   %.not3727 = icmp eq ptr %1347, null
-  br i1 %.not3727, label %common.ret4624, label %.critedge4272
+  br i1 %.not3727, label %common.ret4623, label %.critedge4271
 
-.critedge4272:                                    ; preds = %.critedge4266
+.critedge4271:                                    ; preds = %.critedge4265
   %1348 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1349 = select i1 %.not3723, i32 7, i32 24
   %1350 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1349, ptr noundef nonnull @.str.249) #4
@@ -2676,24 +2675,24 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1353 = load i64, ptr %1333, align 8
   %1354 = add i64 %1353, -4
   %1355 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1354) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1356:                                             ; preds = %9
   %.not3720 = icmp eq i32 %2, 0
-  br i1 %.not3720, label %.critedge4275, label %.critedge4274
+  br i1 %.not3720, label %.critedge4274, label %.critedge4273
 
-.critedge4274:                                    ; preds = %1356
+.critedge4273:                                    ; preds = %1356
   %1357 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1358 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.250, i64 noundef 37) #4
   %1359 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1360 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.245, i64 noundef 36) #4
   %1361 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1362 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.251, i64 noundef 28) #4
-  br label %.critedge4275
+  br label %.critedge4274
 
-.critedge4275:                                    ; preds = %1356, %.critedge4274
-  %1363 = phi i32 [ 28, %.critedge4274 ], [ 8, %1356 ]
-  %1364 = phi i32 [ 27, %.critedge4274 ], [ 7, %1356 ]
+.critedge4274:                                    ; preds = %1356, %.critedge4273
+  %1363 = phi i32 [ 28, %.critedge4273 ], [ 8, %1356 ]
+  %1364 = phi i32 [ 27, %.critedge4273 ], [ 7, %1356 ]
   %1365 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1366 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1364, ptr noundef nonnull @.str.252) #4
   %1367 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -2714,23 +2713,23 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1380 = load i64, ptr %1371, align 8
   %1381 = add i64 %1380, -4
   %1382 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1381) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1383:                                             ; preds = %9
   %.not3718 = icmp eq i32 %2, 0
-  br i1 %.not3718, label %.critedge4282, label %.critedge4281
+  br i1 %.not3718, label %.critedge4281, label %.critedge4280
 
-.critedge4281:                                    ; preds = %1383
+.critedge4280:                                    ; preds = %1383
   %1384 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1385 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.254, i64 noundef 12) #4
   %1386 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1387 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.255, i64 noundef 21) #4
   %1388 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1389 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.256, i64 noundef 25) #4
-  br label %.critedge4282
+  br label %.critedge4281
 
-.critedge4282:                                    ; preds = %1383, %.critedge4281
-  %1390 = phi i32 [ 16, %.critedge4281 ], [ 6, %1383 ]
+.critedge4281:                                    ; preds = %1383, %.critedge4280
+  %1390 = phi i32 [ 16, %.critedge4280 ], [ 6, %1383 ]
   %1391 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1392 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1390, ptr noundef nonnull @.str.257) #4
   %1393 = getelementptr inbounds i8, ptr %3, i64 32
@@ -2738,35 +2737,35 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1395 = tail call i64 @rb_dump_literal(i64 noundef %1394)
   %1396 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1395) #4
   %1397 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1398:                                             ; preds = %9
   %.not3715 = icmp eq i32 %2, 0
-  br i1 %.not3715, label %.critedge4287, label %.critedge4286
+  br i1 %.not3715, label %.critedge4286, label %.critedge4285
 
-.critedge4286:                                    ; preds = %1398
+.critedge4285:                                    ; preds = %1398
   %1399 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1400 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.258, i64 noundef 19) #4
-  br label %.critedge4287.sink.split
+  br label %.critedge4286.sink.split
 
 1401:                                             ; preds = %9
   %.not3714 = icmp eq i32 %2, 0
-  br i1 %.not3714, label %.critedge4287, label %.critedge4289
+  br i1 %.not3714, label %.critedge4286, label %.critedge4288
 
-.critedge4289:                                    ; preds = %1401
+.critedge4288:                                    ; preds = %1401
   %1402 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1403 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.260, i64 noundef 20) #4
-  br label %.critedge4287.sink.split
+  br label %.critedge4286.sink.split
 
-.critedge4287.sink.split:                         ; preds = %.critedge4286, %.critedge4289
-  %.str.261.sink = phi ptr [ @.str.261, %.critedge4289 ], [ @.str.259, %.critedge4286 ]
+.critedge4286.sink.split:                         ; preds = %.critedge4285, %.critedge4288
+  %.str.261.sink = phi ptr [ @.str.261, %.critedge4288 ], [ @.str.259, %.critedge4285 ]
   %1404 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1405 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.255, i64 noundef 21) #4
   %1406 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1407 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %.str.261.sink, i64 noundef 19) #4
-  br label %.critedge4287
+  br label %.critedge4286
 
-.critedge4287:                                    ; preds = %.critedge4287.sink.split, %1401, %1398
+.critedge4286:                                    ; preds = %.critedge4286.sink.split, %1401, %1398
   %1408 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not3716 = icmp eq i32 %2, 0
   %1409 = select i1 %.not3716, i32 6, i32 16
@@ -2775,138 +2774,138 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1412 = tail call i64 @rb_dump_literal(i64 noundef %1411)
   %1413 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1412) #4
   %1414 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1415:                                             ; preds = %9
   %.not3712 = icmp eq i32 %2, 0
-  br i1 %.not3712, label %.critedge4295, label %.critedge4294
+  br i1 %.not3712, label %.critedge4294, label %.critedge4293
 
-.critedge4294:                                    ; preds = %1415
+.critedge4293:                                    ; preds = %1415
   %1416 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1417 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.263, i64 noundef 20) #4
   %1418 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1419 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.264, i64 noundef 18) #4
   %1420 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1421 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.265, i64 noundef 15) #4
-  br label %.critedge4295
+  br label %.critedge4294
 
-.critedge4295:                                    ; preds = %1415, %.critedge4294
-  %1422 = phi i32 [ 9, %.critedge4294 ], [ 3, %1415 ]
+.critedge4294:                                    ; preds = %1415, %.critedge4293
+  %1422 = phi i32 [ 9, %.critedge4293 ], [ 3, %1415 ]
   %1423 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1424 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1422, ptr noundef nonnull @.str.266) #4
   %1425 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %3) #4
   %1426 = tail call i64 @rb_dump_literal(i64 noundef %1425)
   %1427 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1426) #4
   %1428 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1429:                                             ; preds = %9
   %.not3710 = icmp eq i32 %2, 0
-  br i1 %.not3710, label %.critedge4300, label %.critedge4299
+  br i1 %.not3710, label %.critedge4299, label %.critedge4298
 
-.critedge4299:                                    ; preds = %1429
+.critedge4298:                                    ; preds = %1429
   %1430 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1431 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.267, i64 noundef 18) #4
   %1432 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1433 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.264, i64 noundef 18) #4
   %1434 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1435 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.268, i64 noundef 17) #4
-  br label %.critedge4300
+  br label %.critedge4299
 
-.critedge4300:                                    ; preds = %1429, %.critedge4299
-  %1436 = phi i32 [ 9, %.critedge4299 ], [ 3, %1429 ]
+.critedge4299:                                    ; preds = %1429, %.critedge4298
+  %1436 = phi i32 [ 9, %.critedge4298 ], [ 3, %1429 ]
   %1437 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1438 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1436, ptr noundef nonnull @.str.266) #4
   %1439 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %3) #4
   %1440 = tail call i64 @rb_dump_literal(i64 noundef %1439)
   %1441 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1440) #4
   %1442 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1443:                                             ; preds = %9
   %.not3708 = icmp eq i32 %2, 0
-  br i1 %.not3708, label %.critedge4305, label %.critedge4304
+  br i1 %.not3708, label %.critedge4304, label %.critedge4303
 
-.critedge4304:                                    ; preds = %1443
+.critedge4303:                                    ; preds = %1443
   %1444 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1445 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.269, i64 noundef 28) #4
   %1446 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1447 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.264, i64 noundef 18) #4
   %1448 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1449 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.270, i64 noundef 16) #4
-  br label %.critedge4305
+  br label %.critedge4304
 
-.critedge4305:                                    ; preds = %1443, %.critedge4304
-  %1450 = phi i32 [ 9, %.critedge4304 ], [ 3, %1443 ]
+.critedge4304:                                    ; preds = %1443, %.critedge4303
+  %1450 = phi i32 [ 9, %.critedge4303 ], [ 3, %1443 ]
   %1451 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1452 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1450, ptr noundef nonnull @.str.266) #4
   %1453 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %3) #4
   %1454 = tail call i64 @rb_dump_literal(i64 noundef %1453)
   %1455 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1454) #4
   %1456 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1457:                                             ; preds = %9
   %.not3706 = icmp eq i32 %2, 0
-  br i1 %.not3706, label %.critedge4310, label %.critedge4309
+  br i1 %.not3706, label %.critedge4309, label %.critedge4308
 
-.critedge4309:                                    ; preds = %1457
+.critedge4308:                                    ; preds = %1457
   %1458 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1459 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.271, i64 noundef 27) #4
   %1460 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1461 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.264, i64 noundef 18) #4
   %1462 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1463 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.272, i64 noundef 16) #4
-  br label %.critedge4310
+  br label %.critedge4309
 
-.critedge4310:                                    ; preds = %1457, %.critedge4309
-  %1464 = phi i32 [ 9, %.critedge4309 ], [ 3, %1457 ]
+.critedge4309:                                    ; preds = %1457, %.critedge4308
+  %1464 = phi i32 [ 9, %.critedge4308 ], [ 3, %1457 ]
   %1465 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1466 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1464, ptr noundef nonnull @.str.266) #4
   %1467 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %3) #4
   %1468 = tail call i64 @rb_dump_literal(i64 noundef %1467)
   %1469 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1468) #4
   %1470 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1471:                                             ; preds = %9
   %.not3704 = icmp eq i32 %2, 0
-  br i1 %.not3704, label %.critedge4315, label %.critedge4314
+  br i1 %.not3704, label %.critedge4314, label %.critedge4313
 
-.critedge4314:                                    ; preds = %1471
+.critedge4313:                                    ; preds = %1471
   %1472 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1473 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.273, i64 noundef 19) #4
   %1474 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1475 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.274, i64 noundef 21) #4
   %1476 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1477 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.275, i64 noundef 19) #4
-  br label %.critedge4315
+  br label %.critedge4314
 
-.critedge4315:                                    ; preds = %1471, %.critedge4314
-  %1478 = phi i32 [ 15, %.critedge4314 ], [ 6, %1471 ]
+.critedge4314:                                    ; preds = %1471, %.critedge4313
+  %1478 = phi i32 [ 15, %.critedge4313 ], [ 6, %1471 ]
   %1479 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1480 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1478, ptr noundef nonnull @.str.243) #4
   %1481 = tail call i64 @rb_node_regx_string_val(ptr noundef nonnull %3) #4
   %1482 = tail call i64 @rb_dump_literal(i64 noundef %1481)
   %1483 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1482) #4
   %1484 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1485:                                             ; preds = %9
   %.not3702 = icmp eq i32 %2, 0
-  br i1 %.not3702, label %.critedge4320, label %.critedge4319
+  br i1 %.not3702, label %.critedge4319, label %.critedge4318
 
-.critedge4319:                                    ; preds = %1485
+.critedge4318:                                    ; preds = %1485
   %1486 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1487 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.276, i64 noundef 20) #4
   %1488 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1489 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.277, i64 noundef 22) #4
   %1490 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1491 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.278, i64 noundef 31) #4
-  br label %.critedge4320
+  br label %.critedge4319
 
-.critedge4320:                                    ; preds = %1485, %.critedge4319
-  %1492 = phi i32 [ 14, %.critedge4319 ], [ 7, %1485 ]
+.critedge4319:                                    ; preds = %1485, %.critedge4318
+  %1492 = phi i32 [ 14, %.critedge4318 ], [ 7, %1485 ]
   %1493 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1494 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1492, ptr noundef nonnull @.str.58) #4
   %1495 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -2918,61 +2917,61 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1500 = load i64, ptr %1499, align 8
   %1501 = add i64 %1500, -4
   %1502 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1501) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1503:                                             ; preds = %9
   %.not3696 = icmp eq i32 %2, 0
-  br i1 %.not3696, label %.critedge4325, label %.critedge4324
+  br i1 %.not3696, label %.critedge4324, label %.critedge4323
 
-.critedge4324:                                    ; preds = %1503
+.critedge4323:                                    ; preds = %1503
   %1504 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1505 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.279, i64 noundef 38) #4
   %1506 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1507 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.255, i64 noundef 21) #4
   %1508 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1509 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.280, i64 noundef 30) #4
-  br label %.critedge4325
+  br label %.critedge4324
 
 1510:                                             ; preds = %9
   %.not3695 = icmp eq i32 %2, 0
-  br i1 %.not3695, label %.critedge4325, label %.critedge4327
+  br i1 %.not3695, label %.critedge4324, label %.critedge4326
 
-.critedge4327:                                    ; preds = %1510
+.critedge4326:                                    ; preds = %1510
   %1511 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1512 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.281, i64 noundef 39) #4
   %1513 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1514 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.255, i64 noundef 21) #4
   %1515 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1516 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.282, i64 noundef 30) #4
-  br label %.critedge4325
+  br label %.critedge4324
 
 1517:                                             ; preds = %9
   %.not3694 = icmp eq i32 %2, 0
-  br i1 %.not3694, label %.critedge4325, label %.critedge4330
+  br i1 %.not3694, label %.critedge4324, label %.critedge4329
 
-.critedge4330:                                    ; preds = %1517
+.critedge4329:                                    ; preds = %1517
   %1518 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1519 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.283, i64 noundef 38) #4
   %1520 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1521 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.255, i64 noundef 21) #4
   %1522 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1523 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.284, i64 noundef 30) #4
-  br label %.critedge4325
+  br label %.critedge4324
 
 1524:                                             ; preds = %9
   %.not3693 = icmp eq i32 %2, 0
-  br i1 %.not3693, label %.critedge4325, label %.critedge4333
+  br i1 %.not3693, label %.critedge4324, label %.critedge4332
 
-.critedge4333:                                    ; preds = %1524
+.critedge4332:                                    ; preds = %1524
   %1525 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1526 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.285, i64 noundef 38) #4
   %1527 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1528 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.255, i64 noundef 21) #4
   %1529 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1530 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.286, i64 noundef 31) #4
-  br label %.critedge4325
+  br label %.critedge4324
 
-.critedge4325:                                    ; preds = %1524, %1517, %1510, %1503, %.critedge4333, %.critedge4330, %.critedge4327, %.critedge4324
+.critedge4324:                                    ; preds = %1524, %1517, %1510, %1503, %.critedge4332, %.critedge4329, %.critedge4326, %.critedge4323
   %1531 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not3697 = icmp eq i32 %2, 0
   %1532 = select i1 %.not3697, i32 6, i32 25
@@ -2984,7 +2983,7 @@ common.ret4624:                                   ; preds = %2504, %2039, %2032,
   %1538 = or i1 %1537, %1536
   br i1 %1538, label %1551, label %1539
 
-1539:                                             ; preds = %.critedge4325
+1539:                                             ; preds = %.critedge4324
   %1540 = inttoptr i64 %1534 to ptr
   %1541 = load i64, ptr %1540, align 8
   %1542 = trunc i64 %1541 to i32
@@ -3009,7 +3008,7 @@ RB_FL_TEST.exit.i:                                ; preds = %1539, %1539, %1539
   %1550 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %1544) #4
   br label %rb_dump_literal.exit
 
-1551:                                             ; preds = %1539, %.critedge4325
+1551:                                             ; preds = %1539, %.critedge4324
   %1552 = tail call i64 @rb_inspect(i64 noundef %1534) #4
   br label %rb_dump_literal.exit
 
@@ -3020,9 +3019,9 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1555 = getelementptr inbounds i8, ptr %3, i64 48
   %1556 = load ptr, ptr %1555, align 8
   %.not3699 = icmp eq ptr %1556, null
-  br i1 %.not3699, label %common.ret4624, label %.critedge4338
+  br i1 %.not3699, label %common.ret4623, label %.critedge4337
 
-.critedge4338:                                    ; preds = %rb_dump_literal.exit
+.critedge4337:                                    ; preds = %rb_dump_literal.exit
   %1557 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1558 = select i1 %.not3697, i32 16, i32 32
   %1559 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1558, ptr noundef nonnull @.str.288) #4
@@ -3047,46 +3046,46 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1576 = load i64, ptr %1565, align 8
   %1577 = add i64 %1576, -4
   %1578 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1577) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1579:                                             ; preds = %9
   %.not3691 = icmp eq i32 %2, 0
-  br i1 %.not3691, label %.critedge4343, label %.critedge4342
+  br i1 %.not3691, label %.critedge4342, label %.critedge4341
 
-.critedge4342:                                    ; preds = %1579
+.critedge4341:                                    ; preds = %1579
   %1580 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1581 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.290, i64 noundef 19) #4
   %1582 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1583 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.274, i64 noundef 21) #4
   %1584 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1585 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.291, i64 noundef 18) #4
-  br label %.critedge4343
+  br label %.critedge4342
 
-.critedge4343:                                    ; preds = %1579, %.critedge4342
-  %1586 = phi i32 [ 15, %.critedge4342 ], [ 6, %1579 ]
+.critedge4342:                                    ; preds = %1579, %.critedge4341
+  %1586 = phi i32 [ 15, %.critedge4341 ], [ 6, %1579 ]
   %1587 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1588 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1586, ptr noundef nonnull @.str.243) #4
   %1589 = tail call i64 @rb_node_sym_string_val(ptr noundef nonnull %3) #4
   %1590 = tail call i64 @rb_dump_literal(i64 noundef %1589)
   %1591 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1590) #4
   %1592 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1593:                                             ; preds = %9
   %.not3689 = icmp eq i32 %2, 0
-  br i1 %.not3689, label %.critedge4348, label %.critedge4347
+  br i1 %.not3689, label %.critedge4347, label %.critedge4346
 
-.critedge4347:                                    ; preds = %1593
+.critedge4346:                                    ; preds = %1593
   %1594 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1595 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.292, i64 noundef 29) #4
   %1596 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1597 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.293, i64 noundef 33) #4
   %1598 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1599 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.280, i64 noundef 30) #4
-  br label %.critedge4348
+  br label %.critedge4347
 
-.critedge4348:                                    ; preds = %1593, %.critedge4347
-  %1600 = phi i32 [ 14, %.critedge4347 ], [ 7, %1593 ]
+.critedge4347:                                    ; preds = %1593, %.critedge4346
+  %1600 = phi i32 [ 14, %.critedge4346 ], [ 7, %1593 ]
   %1601 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1602 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1600, ptr noundef nonnull @.str.58) #4
   %1603 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -3098,23 +3097,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1608 = load i64, ptr %1607, align 8
   %1609 = add i64 %1608, -4
   %1610 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1609) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1611:                                             ; preds = %9
   %.not3686 = icmp eq i32 %2, 0
-  br i1 %.not3686, label %.critedge4353, label %.critedge4352
+  br i1 %.not3686, label %.critedge4352, label %.critedge4351
 
-.critedge4352:                                    ; preds = %1611
+.critedge4351:                                    ; preds = %1611
   %1612 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1613 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.294, i64 noundef 39) #4
   %1614 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1615 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.295, i64 noundef 40) #4
   %1616 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1617 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.296, i64 noundef 45) #4
-  br label %.critedge4353
+  br label %.critedge4352
 
-.critedge4353:                                    ; preds = %1611, %.critedge4352
-  %1618 = phi i32 [ 25, %.critedge4352 ], [ 7, %1611 ]
+.critedge4352:                                    ; preds = %1611, %.critedge4351
+  %1618 = phi i32 [ 25, %.critedge4351 ], [ 7, %1611 ]
   %1619 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1620 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1618, ptr noundef nonnull @.str.297) #4
   %1621 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3135,24 +3134,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1634 = load i64, ptr %1625, align 8
   %1635 = add i64 %1634, -4
   %1636 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1635) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1637:                                             ; preds = %9
   %.not3683 = icmp eq i32 %2, 0
-  br i1 %.not3683, label %.critedge4360, label %.critedge4359
+  br i1 %.not3683, label %.critedge4359, label %.critedge4358
 
-.critedge4359:                                    ; preds = %1637
+.critedge4358:                                    ; preds = %1637
   %1638 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1639 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.299, i64 noundef 42) #4
   %1640 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1641 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.300, i64 noundef 38) #4
   %1642 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1643 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.301, i64 noundef 33) #4
-  br label %.critedge4360
+  br label %.critedge4359
 
-.critedge4360:                                    ; preds = %1637, %.critedge4359
-  %1644 = phi i32 [ 27, %.critedge4359 ], [ 7, %1637 ]
-  %1645 = phi i32 [ 25, %.critedge4359 ], [ 7, %1637 ]
+.critedge4359:                                    ; preds = %1637, %.critedge4358
+  %1644 = phi i32 [ 27, %.critedge4358 ], [ 7, %1637 ]
+  %1645 = phi i32 [ 25, %.critedge4358 ], [ 7, %1637 ]
   %1646 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1647 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1645, ptr noundef nonnull @.str.297) #4
   %1648 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3173,23 +3172,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1661 = load i64, ptr %1652, align 8
   %1662 = add i64 %1661, -4
   %1663 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1662) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1664:                                             ; preds = %9
   %.not3681 = icmp eq i32 %2, 0
-  br i1 %.not3681, label %.critedge4367, label %.critedge4366
+  br i1 %.not3681, label %.critedge4366, label %.critedge4365
 
-.critedge4366:                                    ; preds = %1664
+.critedge4365:                                    ; preds = %1664
   %1665 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1666 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.303, i64 noundef 19) #4
   %1667 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1668 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.304, i64 noundef 23) #4
   %1669 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1670 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.305, i64 noundef 23) #4
-  br label %.critedge4367
+  br label %.critedge4366
 
-.critedge4367:                                    ; preds = %1664, %.critedge4366
-  %1671 = phi i32 [ 24, %.critedge4366 ], [ 7, %1664 ]
+.critedge4366:                                    ; preds = %1664, %.critedge4365
+  %1671 = phi i32 [ 24, %.critedge4365 ], [ 7, %1664 ]
   %1672 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1673 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1671, ptr noundef nonnull @.str.306) #4
   %1674 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -3201,24 +3200,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1679 = load i64, ptr %1678, align 8
   %1680 = add i64 %1679, -4
   %1681 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1680) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1682:                                             ; preds = %9
   %.not3678 = icmp eq i32 %2, 0
-  br i1 %.not3678, label %.critedge4372, label %.critedge4371
+  br i1 %.not3678, label %.critedge4371, label %.critedge4370
 
-.critedge4371:                                    ; preds = %1682
+.critedge4370:                                    ; preds = %1682
   %1683 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1684 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.307, i64 noundef 34) #4
   %1685 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1686 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.308, i64 noundef 38) #4
   %1687 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1688 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.309, i64 noundef 26) #4
-  br label %.critedge4372
+  br label %.critedge4371
 
-.critedge4372:                                    ; preds = %1682, %.critedge4371
-  %1689 = phi i32 [ 24, %.critedge4371 ], [ 7, %1682 ]
-  %1690 = phi i32 [ 25, %.critedge4371 ], [ 7, %1682 ]
+.critedge4371:                                    ; preds = %1682, %.critedge4370
+  %1689 = phi i32 [ 24, %.critedge4370 ], [ 7, %1682 ]
+  %1690 = phi i32 [ 25, %.critedge4370 ], [ 7, %1682 ]
   %1691 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1692 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1690, ptr noundef nonnull @.str.310) #4
   %1693 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3239,24 +3238,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1706 = load i64, ptr %1697, align 8
   %1707 = add i64 %1706, -4
   %1708 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1707) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1709:                                             ; preds = %9
   %.not3675 = icmp eq i32 %2, 0
-  br i1 %.not3675, label %.critedge4379, label %.critedge4378
+  br i1 %.not3675, label %.critedge4378, label %.critedge4377
 
-.critedge4378:                                    ; preds = %1709
+.critedge4377:                                    ; preds = %1709
   %1710 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1711 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.312, i64 noundef 22) #4
   %1712 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1713 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.313, i64 noundef 40) #4
   %1714 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1715 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.314, i64 noundef 31) #4
-  br label %.critedge4379
+  br label %.critedge4378
 
-.critedge4379:                                    ; preds = %1709, %.critedge4378
-  %1716 = phi i32 [ 27, %.critedge4378 ], [ 7, %1709 ]
-  %1717 = phi i32 [ 20, %.critedge4378 ], [ 6, %1709 ]
+.critedge4378:                                    ; preds = %1709, %.critedge4377
+  %1716 = phi i32 [ 27, %.critedge4377 ], [ 7, %1709 ]
+  %1717 = phi i32 [ 20, %.critedge4377 ], [ 6, %1709 ]
   %1718 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1719 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1717, ptr noundef nonnull @.str.315) #4
   %1720 = getelementptr inbounds i8, ptr %3, i64 32
@@ -3274,25 +3273,25 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1730 = load i64, ptr %1729, align 8
   %1731 = add i64 %1730, -4
   %1732 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1731) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1733:                                             ; preds = %9
   %.not3671 = icmp eq i32 %2, 0
-  br i1 %.not3671, label %.critedge4386, label %.critedge4385
+  br i1 %.not3671, label %.critedge4385, label %.critedge4384
 
-.critedge4385:                                    ; preds = %1733
+.critedge4384:                                    ; preds = %1733
   %1734 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1735 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.317, i64 noundef 32) #4
   %1736 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1737 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.318, i64 noundef 50) #4
   %1738 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1739 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.319, i64 noundef 35) #4
-  br label %.critedge4386
+  br label %.critedge4385
 
-.critedge4386:                                    ; preds = %1733, %.critedge4385
-  %1740 = phi i32 [ 27, %.critedge4385 ], [ 7, %1733 ]
-  %1741 = phi i32 [ 20, %.critedge4385 ], [ 6, %1733 ]
-  %1742 = phi i32 [ 18, %.critedge4385 ], [ 7, %1733 ]
+.critedge4385:                                    ; preds = %1733, %.critedge4384
+  %1740 = phi i32 [ 27, %.critedge4384 ], [ 7, %1733 ]
+  %1741 = phi i32 [ 20, %.critedge4384 ], [ 6, %1733 ]
+  %1742 = phi i32 [ 18, %.critedge4384 ], [ 7, %1733 ]
   %1743 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1744 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1742, ptr noundef nonnull @.str.151) #4
   %1745 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3319,23 +3318,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1763 = load i64, ptr %1749, align 8
   %1764 = add i64 %1763, -4
   %1765 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1764) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1766:                                             ; preds = %9
   %.not3668 = icmp eq i32 %2, 0
-  br i1 %.not3668, label %.critedge4395, label %.critedge4394
+  br i1 %.not3668, label %.critedge4394, label %.critedge4393
 
-.critedge4394:                                    ; preds = %1766
+.critedge4393:                                    ; preds = %1766
   %1767 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1768 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.320, i64 noundef 27) #4
   %1769 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1770 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.321, i64 noundef 36) #4
   %1771 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1772 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.322, i64 noundef 27) #4
-  br label %.critedge4395
+  br label %.critedge4394
 
-.critedge4395:                                    ; preds = %1766, %.critedge4394
-  %1773 = phi i32 [ 17, %.critedge4394 ], [ 6, %1766 ]
+.critedge4394:                                    ; preds = %1766, %.critedge4393
+  %1773 = phi i32 [ 17, %.critedge4393 ], [ 6, %1766 ]
   %1774 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1775 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1773, ptr noundef nonnull @.str.323) #4
   %1776 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3356,24 +3355,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1789 = load i64, ptr %1780, align 8
   %1790 = add i64 %1789, -4
   %1791 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1790) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1792:                                             ; preds = %9
   %.not3665 = icmp eq i32 %2, 0
-  br i1 %.not3665, label %.critedge4402, label %.critedge4401
+  br i1 %.not3665, label %.critedge4401, label %.critedge4400
 
-.critedge4401:                                    ; preds = %1792
+.critedge4400:                                    ; preds = %1792
   %1793 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1794 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.325, i64 noundef 36) #4
   %1795 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1796 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.326, i64 noundef 51) #4
   %1797 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1798 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.327, i64 noundef 25) #4
-  br label %.critedge4402
+  br label %.critedge4401
 
-.critedge4402:                                    ; preds = %1792, %.critedge4401
-  %1799 = phi i32 [ 18, %.critedge4401 ], [ 7, %1792 ]
-  %1800 = phi i32 [ 19, %.critedge4401 ], [ 8, %1792 ]
+.critedge4401:                                    ; preds = %1792, %.critedge4400
+  %1799 = phi i32 [ 18, %.critedge4400 ], [ 7, %1792 ]
+  %1800 = phi i32 [ 19, %.critedge4400 ], [ 8, %1792 ]
   %1801 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1802 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1800, ptr noundef nonnull @.str.328) #4
   %1803 = getelementptr inbounds i8, ptr %3, i64 32
@@ -3386,23 +3385,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1809 = load i64, ptr %1808, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1809)
   %1810 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1811:                                             ; preds = %9
   %.not3663 = icmp eq i32 %2, 0
-  br i1 %.not3663, label %.critedge4409, label %.critedge4408
+  br i1 %.not3663, label %.critedge4408, label %.critedge4407
 
-.critedge4408:                                    ; preds = %1811
+.critedge4407:                                    ; preds = %1811
   %1812 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1813 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.330, i64 noundef 27) #4
   %1814 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1815 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.331, i64 noundef 29) #4
   %1816 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1817 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.332, i64 noundef 23) #4
-  br label %.critedge4409
+  br label %.critedge4408
 
-.critedge4409:                                    ; preds = %1811, %.critedge4408
-  %1818 = phi i32 [ 19, %.critedge4408 ], [ 8, %1811 ]
+.critedge4408:                                    ; preds = %1811, %.critedge4407
+  %1818 = phi i32 [ 19, %.critedge4407 ], [ 8, %1811 ]
   %1819 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1820 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1818, ptr noundef nonnull @.str.333) #4
   %1821 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -3414,24 +3413,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1826 = load i64, ptr %1825, align 8
   %1827 = add i64 %1826, -4
   %1828 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1827) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1829:                                             ; preds = %9
   %.not3659 = icmp eq i32 %2, 0
-  br i1 %.not3659, label %.critedge4414, label %.critedge4413
+  br i1 %.not3659, label %.critedge4413, label %.critedge4412
 
-.critedge4413:                                    ; preds = %1829
+.critedge4412:                                    ; preds = %1829
   %1830 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1831 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.334, i64 noundef 21) #4
   %1832 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1833 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.335, i64 noundef 58) #4
   %1834 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1835 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.336, i64 noundef 35) #4
-  br label %.critedge4414
+  br label %.critedge4413
 
-.critedge4414:                                    ; preds = %1829, %.critedge4413
-  %1836 = phi i32 [ 26, %.critedge4413 ], [ 7, %1829 ]
-  %1837 = phi i32 [ 21, %.critedge4413 ], [ 8, %1829 ]
+.critedge4413:                                    ; preds = %1829, %.critedge4412
+  %1836 = phi i32 [ 26, %.critedge4412 ], [ 7, %1829 ]
+  %1837 = phi i32 [ 21, %.critedge4412 ], [ 8, %1829 ]
   %1838 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1839 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1837, ptr noundef nonnull @.str.337) #4
   %1840 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3461,24 +3460,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1861 = load i64, ptr %1844, align 8
   %1862 = add i64 %1861, -4
   %1863 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1862) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1864:                                             ; preds = %9
   %.not3656 = icmp eq i32 %2, 0
-  br i1 %.not3656, label %.critedge4423, label %.critedge4422
+  br i1 %.not3656, label %.critedge4422, label %.critedge4421
 
-.critedge4422:                                    ; preds = %1864
+.critedge4421:                                    ; preds = %1864
   %1865 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1866 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.340, i64 noundef 22) #4
   %1867 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1868 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.341, i64 noundef 46) #4
   %1869 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1870 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.342, i64 noundef 31) #4
-  br label %.critedge4423
+  br label %.critedge4422
 
-.critedge4423:                                    ; preds = %1864, %.critedge4422
-  %1871 = phi i32 [ 27, %.critedge4422 ], [ 7, %1864 ]
-  %1872 = phi i32 [ 22, %.critedge4422 ], [ 8, %1864 ]
+.critedge4422:                                    ; preds = %1864, %.critedge4421
+  %1871 = phi i32 [ 27, %.critedge4421 ], [ 7, %1864 ]
+  %1872 = phi i32 [ 22, %.critedge4421 ], [ 8, %1864 ]
   %1873 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1874 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1872, ptr noundef nonnull @.str.343) #4
   %1875 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3499,24 +3498,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1888 = load i64, ptr %1879, align 8
   %1889 = add i64 %1888, -4
   %1890 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1889) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1891:                                             ; preds = %9
   %.not3653 = icmp eq i32 %2, 0
-  br i1 %.not3653, label %.critedge4430, label %.critedge4429
+  br i1 %.not3653, label %.critedge4429, label %.critedge4428
 
-.critedge4429:                                    ; preds = %1891
+.critedge4428:                                    ; preds = %1891
   %1892 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1893 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.345, i64 noundef 31) #4
   %1894 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1895 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.346, i64 noundef 47) #4
   %1896 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1897 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.347, i64 noundef 35) #4
-  br label %.critedge4430
+  br label %.critedge4429
 
-.critedge4430:                                    ; preds = %1891, %.critedge4429
-  %1898 = phi i32 [ 36, %.critedge4429 ], [ 7, %1891 ]
-  %1899 = phi i32 [ 18, %.critedge4429 ], [ 7, %1891 ]
+.critedge4429:                                    ; preds = %1891, %.critedge4428
+  %1898 = phi i32 [ 36, %.critedge4428 ], [ 7, %1891 ]
+  %1899 = phi i32 [ 18, %.critedge4428 ], [ 7, %1891 ]
   %1900 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1901 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1899, ptr noundef nonnull @.str.151) #4
   %1902 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3537,24 +3536,24 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1915 = load i64, ptr %1906, align 8
   %1916 = add i64 %1915, -4
   %1917 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1916) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1918:                                             ; preds = %9
   %.not3650 = icmp eq i32 %2, 0
-  br i1 %.not3650, label %.critedge4437, label %.critedge4436
+  br i1 %.not3650, label %.critedge4436, label %.critedge4435
 
-.critedge4436:                                    ; preds = %1918
+.critedge4435:                                    ; preds = %1918
   %1919 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1920 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.349, i64 noundef 30) #4
   %1921 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1922 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.350, i64 noundef 32) #4
   %1923 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1924 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.351, i64 noundef 18) #4
-  br label %.critedge4437
+  br label %.critedge4436
 
-.critedge4437:                                    ; preds = %1918, %.critedge4436
-  %1925 = phi i32 [ 18, %.critedge4436 ], [ 7, %1918 ]
-  %1926 = phi i32 [ 22, %.critedge4436 ], [ 6, %1918 ]
+.critedge4436:                                    ; preds = %1918, %.critedge4435
+  %1925 = phi i32 [ 18, %.critedge4435 ], [ 7, %1918 ]
+  %1926 = phi i32 [ 22, %.critedge4435 ], [ 6, %1918 ]
   %1927 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1928 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1926, ptr noundef nonnull @.str.352) #4
   %1929 = getelementptr inbounds i8, ptr %3, i64 40
@@ -3572,84 +3571,84 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %1939 = load i64, ptr %1938, align 8
   %1940 = add i64 %1939, -4
   %1941 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1940) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1942:                                             ; preds = %9
   %.not3648 = icmp eq i32 %2, 0
-  br i1 %.not3648, label %.critedge4444, label %.critedge4443
+  br i1 %.not3648, label %.critedge4443, label %.critedge4442
 
-.critedge4443:                                    ; preds = %1942
+.critedge4442:                                    ; preds = %1942
   %1943 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1944 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.354, i64 noundef 33) #4
   %1945 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1946 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.355, i64 noundef 23) #4
   %1947 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1948 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.356, i64 noundef 22) #4
-  br label %.critedge4444
+  br label %.critedge4443
 
-.critedge4444:                                    ; preds = %1942, %.critedge4443
-  %1949 = phi i32 [ 22, %.critedge4443 ], [ 6, %1942 ]
+.critedge4443:                                    ; preds = %1942, %.critedge4442
+  %1949 = phi i32 [ 22, %.critedge4442 ], [ 6, %1942 ]
   %1950 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1951 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1949, ptr noundef nonnull @.str.352) #4
   %1952 = getelementptr inbounds i8, ptr %3, i64 32
   %1953 = load i64, ptr %1952, align 8
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %1953)
   %1954 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 1955:                                             ; preds = %9
   %.not3644 = icmp eq i32 %2, 0
-  br i1 %.not3644, label %.critedge4449, label %.critedge4448
+  br i1 %.not3644, label %.critedge4448, label %.critedge4447
 
-.critedge4448:                                    ; preds = %1955
+.critedge4447:                                    ; preds = %1955
   %1956 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1957 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.357, i64 noundef 30) #4
   %1958 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1959 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.358, i64 noundef 31) #4
   %1960 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1961 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.359, i64 noundef 18) #4
-  br label %.critedge4449
+  br label %.critedge4448
 
 1962:                                             ; preds = %9
   %.not3643 = icmp eq i32 %2, 0
-  br i1 %.not3643, label %.critedge4449, label %.critedge4451
+  br i1 %.not3643, label %.critedge4448, label %.critedge4450
 
-.critedge4451:                                    ; preds = %1962
+.critedge4450:                                    ; preds = %1962
   %1963 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1964 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.360, i64 noundef 30) #4
   %1965 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1966 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.361, i64 noundef 32) #4
   %1967 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1968 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.362, i64 noundef 19) #4
-  br label %.critedge4449
+  br label %.critedge4448
 
 1969:                                             ; preds = %9
   %.not3642 = icmp eq i32 %2, 0
-  br i1 %.not3642, label %.critedge4449, label %.critedge4454
+  br i1 %.not3642, label %.critedge4448, label %.critedge4453
 
-.critedge4454:                                    ; preds = %1969
+.critedge4453:                                    ; preds = %1969
   %1970 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1971 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.363, i64 noundef 32) #4
   %1972 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1973 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.358, i64 noundef 31) #4
   %1974 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1975 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.364, i64 noundef 41) #4
-  br label %.critedge4449
+  br label %.critedge4448
 
 1976:                                             ; preds = %9
   %.not3641 = icmp eq i32 %2, 0
-  br i1 %.not3641, label %.critedge4449, label %.critedge4457
+  br i1 %.not3641, label %.critedge4448, label %.critedge4456
 
-.critedge4457:                                    ; preds = %1976
+.critedge4456:                                    ; preds = %1976
   %1977 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1978 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.365, i64 noundef 32) #4
   %1979 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1980 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.361, i64 noundef 32) #4
   %1981 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1982 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.366, i64 noundef 42) #4
-  br label %.critedge4449
+  br label %.critedge4448
 
-.critedge4449:                                    ; preds = %1976, %1969, %1962, %1955, %.critedge4457, %.critedge4454, %.critedge4451, %.critedge4448
+.critedge4448:                                    ; preds = %1976, %1969, %1962, %1955, %.critedge4456, %.critedge4453, %.critedge4450, %.critedge4447
   %1983 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not3645 = icmp eq i32 %2, 0
   %1984 = select i1 %.not3645, i32 6, i32 14
@@ -3673,23 +3672,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2000 = load i64, ptr %1990, align 8
   %2001 = add i64 %2000, -4
   %2002 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2001) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2003:                                             ; preds = %9
   %.not3639 = icmp eq i32 %2, 0
-  br i1 %.not3639, label %.critedge4465, label %.critedge4464
+  br i1 %.not3639, label %.critedge4464, label %.critedge4463
 
-.critedge4464:                                    ; preds = %2003
+.critedge4463:                                    ; preds = %2003
   %2004 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2005 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.369, i64 noundef 9) #4
   %2006 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2007 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.370, i64 noundef 17) #4
   %2008 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2009 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.371, i64 noundef 18) #4
-  br label %.critedge4465
+  br label %.critedge4464
 
-.critedge4465:                                    ; preds = %2003, %.critedge4464
-  %2010 = phi i32 [ 19, %.critedge4464 ], [ 8, %2003 ]
+.critedge4464:                                    ; preds = %2003, %.critedge4463
+  %2010 = phi i32 [ 19, %.critedge4463 ], [ 8, %2003 ]
   %2011 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2012 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2010, ptr noundef nonnull @.str.372) #4
   %2013 = getelementptr inbounds i8, ptr %3, i64 32
@@ -3697,75 +3696,75 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2015 = trunc i64 %2014 to i32
   %2016 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.53, i32 noundef %2015) #4
   %2017 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2018:                                             ; preds = %9
   %.not3638 = icmp eq i32 %2, 0
-  br i1 %.not3638, label %common.ret4624, label %.critedge4469
+  br i1 %.not3638, label %common.ret4623, label %.critedge4468
 
-.critedge4469:                                    ; preds = %2018
+.critedge4468:                                    ; preds = %2018
   %2019 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2020 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.373, i64 noundef 8) #4
   %2021 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2022 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.374, i64 noundef 16) #4
   %2023 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2024 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.375, i64 noundef 17) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2025:                                             ; preds = %9
   %.not3637 = icmp eq i32 %2, 0
-  br i1 %.not3637, label %common.ret4624, label %.critedge4472
+  br i1 %.not3637, label %common.ret4623, label %.critedge4471
 
-.critedge4472:                                    ; preds = %2025
+.critedge4471:                                    ; preds = %2025
   %2026 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2027 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.376, i64 noundef 9) #4
   %2028 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2029 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.377, i64 noundef 17) #4
   %2030 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2031 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.378, i64 noundef 18) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2032:                                             ; preds = %9
   %.not3636 = icmp eq i32 %2, 0
-  br i1 %.not3636, label %common.ret4624, label %.critedge4475
+  br i1 %.not3636, label %common.ret4623, label %.critedge4474
 
-.critedge4475:                                    ; preds = %2032
+.critedge4474:                                    ; preds = %2032
   %2033 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2034 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.379, i64 noundef 10) #4
   %2035 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2036 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.380, i64 noundef 18) #4
   %2037 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2038 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.381, i64 noundef 19) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2039:                                             ; preds = %9
   %.not3635 = icmp eq i32 %2, 0
-  br i1 %.not3635, label %common.ret4624, label %.critedge4478
+  br i1 %.not3635, label %common.ret4623, label %.critedge4477
 
-.critedge4478:                                    ; preds = %2039
+.critedge4477:                                    ; preds = %2039
   %2040 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2041 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.382, i64 noundef 28) #4
   %2042 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2043 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.383, i64 noundef 25) #4
   %2044 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2045 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.384, i64 noundef 26) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2046:                                             ; preds = %9
   %.not3633 = icmp eq i32 %2, 0
-  br i1 %.not3633, label %.critedge4482, label %.critedge4481
+  br i1 %.not3633, label %.critedge4481, label %.critedge4480
 
-.critedge4481:                                    ; preds = %2046
+.critedge4480:                                    ; preds = %2046
   %2047 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2048 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.385, i64 noundef 24) #4
   %2049 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2050 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.386, i64 noundef 32) #4
   %2051 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2052 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.387, i64 noundef 27) #4
-  br label %.critedge4482
+  br label %.critedge4481
 
-.critedge4482:                                    ; preds = %2046, %.critedge4481
-  %2053 = phi i32 [ 14, %.critedge4481 ], [ 7, %2046 ]
+.critedge4481:                                    ; preds = %2046, %.critedge4480
+  %2053 = phi i32 [ 14, %.critedge4480 ], [ 7, %2046 ]
   %2054 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2055 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2053, ptr noundef nonnull @.str.388) #4
   %2056 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3777,23 +3776,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2061 = load i64, ptr %2060, align 8
   %2062 = add i64 %2061, -4
   %2063 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2062) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2064:                                             ; preds = %9
   %.not3631 = icmp eq i32 %2, 0
-  br i1 %.not3631, label %.critedge4487, label %.critedge4486
+  br i1 %.not3631, label %.critedge4486, label %.critedge4485
 
-.critedge4486:                                    ; preds = %2064
+.critedge4485:                                    ; preds = %2064
   %2065 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2066 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.389, i64 noundef 19) #4
   %2067 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2068 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.390, i64 noundef 30) #4
   %2069 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2070 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.391, i64 noundef 25) #4
-  br label %.critedge4487
+  br label %.critedge4486
 
-.critedge4487:                                    ; preds = %2064, %.critedge4486
-  %2071 = phi i32 [ 20, %.critedge4486 ], [ 7, %2064 ]
+.critedge4486:                                    ; preds = %2064, %.critedge4485
+  %2071 = phi i32 [ 20, %.critedge4485 ], [ 7, %2064 ]
   %2072 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2073 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2071, ptr noundef nonnull @.str.392) #4
   %2074 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -3805,25 +3804,25 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2079 = load i64, ptr %2078, align 8
   %2080 = add i64 %2079, -4
   %2081 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2080) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2082:                                             ; preds = %9
   %.not3627 = icmp eq i32 %2, 0
-  br i1 %.not3627, label %.critedge4492, label %.critedge4491
+  br i1 %.not3627, label %.critedge4491, label %.critedge4490
 
-.critedge4491:                                    ; preds = %2082
+.critedge4490:                                    ; preds = %2082
   %2083 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2084 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.393, i64 noundef 20) #4
   %2085 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2086 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.394, i64 noundef 43) #4
   %2087 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2088 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.395, i64 noundef 32) #4
-  br label %.critedge4492
+  br label %.critedge4491
 
-.critedge4492:                                    ; preds = %2082, %.critedge4491
-  %2089 = phi i32 [ 19, %.critedge4491 ], [ 7, %2082 ]
-  %2090 = phi i32 [ 20, %.critedge4491 ], [ 6, %2082 ]
-  %2091 = phi i32 [ 18, %.critedge4491 ], [ 7, %2082 ]
+.critedge4491:                                    ; preds = %2082, %.critedge4490
+  %2089 = phi i32 [ 19, %.critedge4490 ], [ 7, %2082 ]
+  %2090 = phi i32 [ 20, %.critedge4490 ], [ 6, %2082 ]
+  %2091 = phi i32 [ 18, %.critedge4490 ], [ 7, %2082 ]
   %2092 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2093 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2091, ptr noundef nonnull @.str.151) #4
   %2094 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3850,23 +3849,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2112 = load i64, ptr %2098, align 8
   %2113 = add i64 %2112, -4
   %2114 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2113) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2115:                                             ; preds = %9
   %.not3625 = icmp eq i32 %2, 0
-  br i1 %.not3625, label %.critedge4501, label %.critedge4500
+  br i1 %.not3625, label %.critedge4500, label %.critedge4499
 
-.critedge4500:                                    ; preds = %2115
+.critedge4499:                                    ; preds = %2115
   %2116 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2117 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.396, i64 noundef 22) #4
   %2118 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2119 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.397, i64 noundef 25) #4
   %2120 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2121 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.398, i64 noundef 24) #4
-  br label %.critedge4501
+  br label %.critedge4500
 
-.critedge4501:                                    ; preds = %2115, %.critedge4500
-  %2122 = phi i32 [ 23, %.critedge4500 ], [ 7, %2115 ]
+.critedge4500:                                    ; preds = %2115, %.critedge4499
+  %2122 = phi i32 [ 23, %.critedge4499 ], [ 7, %2115 ]
   %2123 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2124 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2122, ptr noundef nonnull @.str.399) #4
   %2125 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
@@ -3878,23 +3877,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2130 = load i64, ptr %2129, align 8
   %2131 = add i64 %2130, -4
   %2132 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2131) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2133:                                             ; preds = %9
   %.not3622 = icmp eq i32 %2, 0
-  br i1 %.not3622, label %.critedge4506, label %.critedge4505
+  br i1 %.not3622, label %.critedge4505, label %.critedge4504
 
-.critedge4505:                                    ; preds = %2133
+.critedge4504:                                    ; preds = %2133
   %2134 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2135 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.400, i64 noundef 23) #4
   %2136 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2137 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.401, i64 noundef 57) #4
   %2138 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2139 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.402, i64 noundef 37) #4
-  br label %.critedge4506
+  br label %.critedge4505
 
-.critedge4506:                                    ; preds = %2133, %.critedge4505
-  %2140 = phi i32 [ 14, %.critedge4505 ], [ 7, %2133 ]
+.critedge4505:                                    ; preds = %2133, %.critedge4504
+  %2140 = phi i32 [ 14, %.critedge4504 ], [ 7, %2133 ]
   %2141 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2142 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2140, ptr noundef nonnull @.str.58) #4
   %2143 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3915,23 +3914,23 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2156 = load i64, ptr %2147, align 8
   %2157 = add i64 %2156, -4
   %2158 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2157) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2159:                                             ; preds = %9
   %.not3619 = icmp eq i32 %2, 0
-  br i1 %.not3619, label %.critedge4513, label %.critedge4512
+  br i1 %.not3619, label %.critedge4512, label %.critedge4511
 
-.critedge4512:                                    ; preds = %2159
+.critedge4511:                                    ; preds = %2159
   %2160 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2161 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.200, i64 noundef 22) #4
   %2162 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2163 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.401, i64 noundef 57) #4
   %2164 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2165 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.404, i64 noundef 36) #4
-  br label %.critedge4513
+  br label %.critedge4512
 
-.critedge4513:                                    ; preds = %2159, %.critedge4512
-  %2166 = phi i32 [ 14, %.critedge4512 ], [ 7, %2159 ]
+.critedge4512:                                    ; preds = %2159, %.critedge4511
+  %2166 = phi i32 [ 14, %.critedge4511 ], [ 7, %2159 ]
   %2167 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2168 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2166, ptr noundef nonnull @.str.58) #4
   %2169 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
@@ -3952,30 +3951,30 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2182 = load i64, ptr %2173, align 8
   %2183 = add i64 %2182, -4
   %2184 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2183) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2185:                                             ; preds = %9
   %.not3614 = icmp eq i32 %2, 0
-  br i1 %.not3614, label %.critedge4520, label %.critedge4519
+  br i1 %.not3614, label %.critedge4519, label %.critedge4518
 
-.critedge4519:                                    ; preds = %2185
+.critedge4518:                                    ; preds = %2185
   %2186 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2187 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.405, i64 noundef 19) #4
   %2188 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2189 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.406, i64 noundef 39) #4
   %2190 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2191 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.407, i64 noundef 31) #4
-  br label %.critedge4520
+  br label %.critedge4519
 
-.critedge4520:                                    ; preds = %2185, %.critedge4519
-  %2192 = phi i32 [ 6, %2185 ], [ 22, %.critedge4519 ]
+.critedge4519:                                    ; preds = %2185, %.critedge4518
+  %2192 = phi i32 [ 6, %2185 ], [ 22, %.critedge4518 ]
   %2193 = getelementptr inbounds i8, ptr %3, i64 32
   %2194 = load ptr, ptr %2193, align 8
   %.not3615 = icmp eq ptr %2194, inttoptr (i64 -1 to ptr)
   %2195 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %.not3615, label %.critedge4524, label %.critedge4522
+  br i1 %.not3615, label %.critedge4523, label %.critedge4521
 
-.critedge4522:                                    ; preds = %.critedge4520
+.critedge4521:                                    ; preds = %.critedge4519
   %2196 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2192, ptr noundef nonnull @.str.408) #4
   %2197 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
   %2198 = load ptr, ptr %2193, align 8
@@ -3985,17 +3984,17 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2201 = load i64, ptr %2200, align 8
   %2202 = add i64 %2201, -4
   %2203 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2202) #4
-  br label %.critedge4526
+  br label %.critedge4525
 
-.critedge4524:                                    ; preds = %.critedge4520
+.critedge4523:                                    ; preds = %.critedge4519
   %2204 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2192, ptr noundef nonnull @.str.408) #4
   %2205 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.118, i64 noundef 54) #4
   %2206 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  %.pre4617 = inttoptr i64 %1 to ptr
-  br label %.critedge4526
+  %.pre4616 = inttoptr i64 %1 to ptr
+  br label %.critedge4525
 
-.critedge4526:                                    ; preds = %.critedge4524, %.critedge4522
-  %.pre-phi4618 = phi ptr [ %.pre4617, %.critedge4524 ], [ %2199, %.critedge4522 ]
+.critedge4525:                                    ; preds = %.critedge4523, %.critedge4521
+  %.pre-phi4617 = phi ptr [ %.pre4616, %.critedge4523 ], [ %2199, %.critedge4521 ]
   %2207 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2208 = select i1 %.not3614, i32 6, i32 23
   %2209 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2208, ptr noundef nonnull @.str.409) #4
@@ -4003,32 +4002,32 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2211 = getelementptr inbounds i8, ptr %3, i64 40
   %2212 = load ptr, ptr %2211, align 8
   tail call fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %2212)
-  %2213 = getelementptr inbounds i8, ptr %.pre-phi4618, i64 16
+  %2213 = getelementptr inbounds i8, ptr %.pre-phi4617, i64 16
   %2214 = load i64, ptr %2213, align 8
   %2215 = add i64 %2214, -4
   %2216 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2215) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2217:                                             ; preds = %9
   %.not3603 = icmp eq i32 %2, 0
-  br i1 %.not3603, label %.critedge4529, label %.critedge4528
+  br i1 %.not3603, label %.critedge4528, label %.critedge4527
 
-.critedge4528:                                    ; preds = %2217
+.critedge4527:                                    ; preds = %2217
   %2218 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2219 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.410, i64 noundef 22) #4
   %2220 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2221 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.411, i64 noundef 177) #4
   %2222 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2223 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.412, i64 noundef 84) #4
-  br label %.critedge4529
+  br label %.critedge4528
 
-.critedge4529:                                    ; preds = %2217, %.critedge4528
-  %2224 = phi i32 [ 33, %.critedge4528 ], [ 17, %2217 ]
-  %2225 = phi i32 [ 45, %.critedge4528 ], [ 23, %2217 ]
-  %2226 = phi i32 [ 53, %.critedge4528 ], [ 18, %2217 ]
-  %2227 = phi i32 [ 58, %.critedge4528 ], [ 22, %2217 ]
-  %2228 = phi i32 [ 53, %.critedge4528 ], [ 17, %2217 ]
-  %2229 = phi i32 [ 58, %.critedge4528 ], [ 21, %2217 ]
+.critedge4528:                                    ; preds = %2217, %.critedge4527
+  %2224 = phi i32 [ 33, %.critedge4527 ], [ 17, %2217 ]
+  %2225 = phi i32 [ 45, %.critedge4527 ], [ 23, %2217 ]
+  %2226 = phi i32 [ 53, %.critedge4527 ], [ 18, %2217 ]
+  %2227 = phi i32 [ 58, %.critedge4527 ], [ 22, %2217 ]
+  %2228 = phi i32 [ 53, %.critedge4527 ], [ 17, %2217 ]
+  %2229 = phi i32 [ 58, %.critedge4527 ], [ 21, %2217 ]
   %2230 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2231 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2229, ptr noundef nonnull @.str.413) #4
   %2232 = getelementptr inbounds i8, ptr %3, i64 48
@@ -4074,15 +4073,15 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2269 = icmp eq i64 %2268, 1
   br i1 %2269, label %2270, label %2272
 
-2270:                                             ; preds = %.critedge4529
+2270:                                             ; preds = %.critedge4528
   %2271 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.419, i64 noundef 18) #4
-  br label %.critedge4543
+  br label %.critedge4542
 
-2272:                                             ; preds = %.critedge4529
+2272:                                             ; preds = %.critedge4528
   tail call fastcc void @add_id(i64 noundef %0, i64 noundef %2268)
-  br label %.critedge4543
+  br label %.critedge4542
 
-.critedge4543:                                    ; preds = %2270, %2272
+.critedge4542:                                    ; preds = %2270, %2272
   %2273 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %2274 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2275 = select i1 %.not3603, i32 18, i32 35
@@ -4121,40 +4120,40 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   %2304 = load i64, ptr %2242, align 8
   %2305 = add i64 %2304, -4
   %2306 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2305) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2307:                                             ; preds = %9
   %.not3598 = icmp eq i32 %2, 0
-  br i1 %.not3598, label %.critedge4551, label %2308
+  br i1 %.not3598, label %.critedge4550, label %2308
 
 2308:                                             ; preds = %2307
   %2309 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2310 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.424, i64 noundef 14) #4
   %2311 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2312 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.425, i64 noundef 73) #4
-  br label %.critedge4551
+  br label %.critedge4550
 
-.critedge4551:                                    ; preds = %2307, %2308
+.critedge4550:                                    ; preds = %2307, %2308
   %2313 = phi i32 [ 20, %2308 ], [ 6, %2307 ]
   %2314 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2315 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2313, ptr noundef nonnull @.str.426) #4
   %2316 = getelementptr inbounds i8, ptr %3, i64 32
   %2317 = load ptr, ptr %2316, align 8
   %.not3602 = icmp eq ptr %2317, null
-  br i1 %.not3602, label %.thread4619, label %2318
+  br i1 %.not3602, label %.thread4618, label %2318
 
-2318:                                             ; preds = %.critedge4551
+2318:                                             ; preds = %.critedge4550
   %2319 = load i32, ptr %2317, align 8
   %2320 = icmp eq i32 %2319, 0
-  br i1 %2320, label %.thread4619, label %2322
+  br i1 %2320, label %.thread4618, label %2322
 
-.thread4619:                                      ; preds = %2318, %.critedge4551
+.thread4618:                                      ; preds = %2318, %.critedge4550
   %2321 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.427, i64 noundef 7) #4
-  br label %.critedge4555
+  br label %.critedge4554
 
 2322:                                             ; preds = %2318
   %2323 = icmp sgt i32 %2319, 0
-  br i1 %2323, label %.lr.ph, label %.critedge4555
+  br i1 %2323, label %.lr.ph, label %.critedge4554
 
 .lr.ph:                                           ; preds = %2322
   %2324 = getelementptr inbounds i8, ptr %2317, i64 8
@@ -4176,8 +4175,8 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
 
 2333:                                             ; preds = %2327
   %2334 = tail call i64 @rb_id2str(i64 noundef %2329) #4
-  %.not.i4608 = icmp eq i64 %2334, 0
-  br i1 %.not.i4608, label %2338, label %2335
+  %.not.i4607 = icmp eq i64 %2334, 0
+  br i1 %.not.i4607, label %2338, label %2335
 
 2335:                                             ; preds = %2333
   %2336 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.458, i64 noundef 1) #4
@@ -4199,9 +4198,9 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
 2343:                                             ; preds = %add_id.exit, %2341
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4555, label %2327, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge4554, label %2327, !llvm.loop !9
 
-.critedge4555:                                    ; preds = %2343, %.thread4619, %2322
+.critedge4554:                                    ; preds = %2343, %.thread4618, %2322
   %2344 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
   %2345 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2346 = select i1 %.not3598, i32 7, i32 19
@@ -4225,20 +4224,20 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2362 = load i64, ptr %2352, align 8
   %2363 = add i64 %2362, -4
   %2364 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2363) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2365:                                             ; preds = %9
   %.not3591 = icmp eq i32 %2, 0
-  br i1 %.not3591, label %.critedge4559, label %2366
+  br i1 %.not3591, label %.critedge4558, label %2366
 
 2366:                                             ; preds = %2365
   %2367 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2368 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.429, i64 noundef 18) #4
   %2369 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2370 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.430, i64 noundef 72) #4
-  br label %.critedge4559
+  br label %.critedge4558
 
-.critedge4559:                                    ; preds = %2365, %2366
+.critedge4558:                                    ; preds = %2365, %2366
   %2371 = phi i32 [ 24, %2366 ], [ 8, %2365 ]
   %2372 = phi i32 [ 20, %2366 ], [ 9, %2365 ]
   %2373 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
@@ -4265,9 +4264,9 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2392 = load ptr, ptr %2391, align 8
   %.not3594 = icmp eq ptr %2392, inttoptr (i64 -1 to ptr)
   %2393 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %.not3594, label %.critedge4567, label %.critedge4565
+  br i1 %.not3594, label %.critedge4566, label %.critedge4564
 
-.critedge4565:                                    ; preds = %.critedge4559
+.critedge4564:                                    ; preds = %.critedge4558
   %2394 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2371, ptr noundef nonnull @.str.433) #4
   %2395 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
   %2396 = load ptr, ptr %2391, align 8
@@ -4275,15 +4274,15 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2397 = load i64, ptr %2379, align 8
   %2398 = add i64 %2397, -4
   %2399 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2398) #4
-  br label %.critedge4569
+  br label %.critedge4568
 
-.critedge4567:                                    ; preds = %.critedge4559
+.critedge4566:                                    ; preds = %.critedge4558
   %2400 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2371, ptr noundef nonnull @.str.433) #4
   %2401 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.118, i64 noundef 54) #4
   %2402 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %.critedge4569
+  br label %.critedge4568
 
-.critedge4569:                                    ; preds = %.critedge4567, %.critedge4565
+.critedge4568:                                    ; preds = %.critedge4566, %.critedge4564
   %2403 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2404 = select i1 %.not3591, i32 9, i32 26
   %2405 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2404, ptr noundef nonnull @.str.434) #4
@@ -4294,20 +4293,20 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2409 = load i64, ptr %2379, align 8
   %2410 = add i64 %2409, -4
   %2411 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2410) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2412:                                             ; preds = %9
   %.not3582 = icmp eq i32 %2, 0
-  br i1 %.not3582, label %.critedge4571, label %2413
+  br i1 %.not3582, label %.critedge4570, label %2413
 
 2413:                                             ; preds = %2412
   %2414 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2415 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.435, i64 noundef 17) #4
   %2416 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2417 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.436, i64 noundef 70) #4
-  br label %.critedge4571
+  br label %.critedge4570
 
-.critedge4571:                                    ; preds = %2412, %2413
+.critedge4570:                                    ; preds = %2412, %2413
   %2418 = phi i32 [ 32, %2413 ], [ 12, %2412 ]
   %2419 = phi i32 [ 20, %2413 ], [ 9, %2412 ]
   %2420 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
@@ -4325,9 +4324,9 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2431 = load ptr, ptr %2430, align 8
   %.not3584 = icmp eq ptr %2431, inttoptr (i64 -1 to ptr)
   %2432 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %.not3584, label %.critedge4577, label %.critedge4575
+  br i1 %.not3584, label %.critedge4576, label %.critedge4574
 
-.critedge4575:                                    ; preds = %.critedge4571
+.critedge4574:                                    ; preds = %.critedge4570
   %2433 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2418, ptr noundef nonnull @.str.437) #4
   %2434 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
   %2435 = load ptr, ptr %2430, align 8
@@ -4335,15 +4334,15 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2436 = load i64, ptr %2426, align 8
   %2437 = add i64 %2436, -4
   %2438 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2437) #4
-  br label %.critedge4579
+  br label %.critedge4578
 
-.critedge4577:                                    ; preds = %.critedge4571
+.critedge4576:                                    ; preds = %.critedge4570
   %2439 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2418, ptr noundef nonnull @.str.437) #4
   %2440 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.118, i64 noundef 54) #4
   %2441 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %.critedge4579
+  br label %.critedge4578
 
-.critedge4579:                                    ; preds = %.critedge4577, %.critedge4575
+.critedge4578:                                    ; preds = %.critedge4576, %.critedge4574
   %2442 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2443 = select i1 %.not3582, i32 4, i32 16
   %2444 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2443, ptr noundef nonnull @.str.438) #4
@@ -4359,9 +4358,9 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %.not3588 = icmp eq ptr %2452, inttoptr (i64 -1 to ptr)
   %2453 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2454 = select i1 %.not3582, i32 13, i32 34
-  br i1 %.not3588, label %.critedge4583, label %.critedge4581
+  br i1 %.not3588, label %.critedge4582, label %.critedge4580
 
-.critedge4581:                                    ; preds = %.critedge4579
+.critedge4580:                                    ; preds = %.critedge4578
   %2455 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2454, ptr noundef nonnull @.str.439) #4
   %2456 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %2457 = load ptr, ptr %2451, align 8
@@ -4369,26 +4368,26 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2458 = load i64, ptr %2426, align 8
   %2459 = add i64 %2458, -4
   %2460 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2459) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
-.critedge4583:                                    ; preds = %.critedge4579
+.critedge4582:                                    ; preds = %.critedge4578
   %2461 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2454, ptr noundef nonnull @.str.439) #4
   %2462 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.118, i64 noundef 54) #4
   %2463 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2464:                                             ; preds = %9
   %.not3577 = icmp eq i32 %2, 0
-  br i1 %.not3577, label %.critedge4585, label %2465
+  br i1 %.not3577, label %.critedge4584, label %2465
 
 2465:                                             ; preds = %2464
   %2466 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2467 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.440, i64 noundef 17) #4
   %2468 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2469 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.441, i64 noundef 62) #4
-  br label %.critedge4585
+  br label %.critedge4584
 
-.critedge4585:                                    ; preds = %2464, %2465
+.critedge4584:                                    ; preds = %2464, %2465
   %2470 = phi i32 [ 37, %2465 ], [ 13, %2464 ]
   %2471 = phi i32 [ 30, %2465 ], [ 10, %2464 ]
   %2472 = phi i32 [ 20, %2465 ], [ 9, %2464 ]
@@ -4416,15 +4415,15 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2492 = load ptr, ptr %2491, align 8
   %2493 = icmp eq ptr %2492, inttoptr (i64 -1 to ptr)
   %2494 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  br i1 %2493, label %.critedge4591, label %.critedge4593
+  br i1 %2493, label %.critedge4590, label %.critedge4592
 
-.critedge4591:                                    ; preds = %.critedge4585
+.critedge4590:                                    ; preds = %.critedge4584
   %2495 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2470, ptr noundef nonnull @.str.443) #4
   %2496 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.444, i64 noundef 36) #4
   %2497 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
-.critedge4593:                                    ; preds = %.critedge4585
+.critedge4592:                                    ; preds = %.critedge4584
   %2498 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2470, ptr noundef nonnull @.str.443) #4
   %2499 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #4
   %2500 = load ptr, ptr %2491, align 8
@@ -4432,75 +4431,75 @@ add_id.exit:                                      ; preds = %2331, %2335, %2338
   %2501 = load i64, ptr %2479, align 8
   %2502 = add i64 %2501, -4
   %2503 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2502) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2504:                                             ; preds = %9
   %.not3576 = icmp eq i32 %2, 0
-  br i1 %.not3576, label %common.ret4624, label %.critedge4595
+  br i1 %.not3576, label %common.ret4623, label %.critedge4594
 
-.critedge4595:                                    ; preds = %2504
+.critedge4594:                                    ; preds = %2504
   %2505 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2506 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.445, i64 noundef 9) #4
   %2507 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2508 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.446, i64 noundef 21) #4
   %2509 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2510 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.447, i64 noundef 22) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2511:                                             ; preds = %9
   %.not3574 = icmp eq i32 %2, 0
-  br i1 %.not3574, label %.critedge4599, label %.critedge4598
+  br i1 %.not3574, label %.critedge4598, label %.critedge4597
 
-.critedge4598:                                    ; preds = %2511
+.critedge4597:                                    ; preds = %2511
   %2512 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2513 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.445, i64 noundef 9) #4
   %2514 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2515 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.448, i64 noundef 19) #4
   %2516 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2517 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.449, i64 noundef 22) #4
-  br label %.critedge4599
+  br label %.critedge4598
 
-.critedge4599:                                    ; preds = %2511, %.critedge4598
-  %2518 = phi i32 [ 11, %.critedge4598 ], [ 4, %2511 ]
+.critedge4598:                                    ; preds = %2511, %.critedge4597
+  %2518 = phi i32 [ 11, %.critedge4597 ], [ 4, %2511 ]
   %2519 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2520 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2518, ptr noundef nonnull @.str.450) #4
   %2521 = tail call i64 @rb_node_file_path_val(ptr noundef nonnull %3) #4
   %2522 = tail call i64 @rb_dump_literal(i64 noundef %2521)
   %2523 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2522) #4
   %2524 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2525:                                             ; preds = %9
   %.not3572 = icmp eq i32 %2, 0
-  br i1 %.not3572, label %.critedge4604, label %.critedge4603
+  br i1 %.not3572, label %.critedge4603, label %.critedge4602
 
-.critedge4603:                                    ; preds = %2525
+.critedge4602:                                    ; preds = %2525
   %2526 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2527 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.451, i64 noundef 13) #4
   %2528 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2529 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.452, i64 noundef 18) #4
   %2530 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2531 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.453, i64 noundef 26) #4
-  br label %.critedge4604
+  br label %.critedge4603
 
-.critedge4604:                                    ; preds = %2525, %.critedge4603
-  %2532 = phi i32 [ 9, %.critedge4603 ], [ 3, %2525 ]
+.critedge4603:                                    ; preds = %2525, %.critedge4602
+  %2532 = phi i32 [ 9, %.critedge4602 ], [ 3, %2525 ]
   %2533 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2534 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.51, i32 noundef %2532, ptr noundef nonnull @.str.454) #4
   %2535 = tail call i64 @rb_node_encoding_val(ptr noundef nonnull %3) #4
   %2536 = tail call i64 @rb_dump_literal(i64 noundef %2535)
   %2537 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2536) #4
   %2538 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.56, i64 noundef 1) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2539:                                             ; preds = %9
   %.not3571 = icmp eq i32 %2, 0
-  br i1 %.not3571, label %common.ret4624, label %2540
+  br i1 %.not3571, label %common.ret4623, label %2540
 
 2540:                                             ; preds = %2539
   %2541 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %2542 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.455, i64 noundef 50) #4
-  br label %common.ret4624
+  br label %common.ret4623
 
 2543:                                             ; preds = %9
   %2544 = tail call ptr @ruby_node_name(i32 noundef %34) #4

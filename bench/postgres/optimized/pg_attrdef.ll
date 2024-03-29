@@ -89,9 +89,8 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %51 = load i8, ptr %50, align 2
   %52 = getelementptr inbounds i8, ptr %49, i64 91
   %53 = load i8, ptr %52, align 1
-  %54 = and i8 %53, 1
-  %.not60 = icmp eq i8 %54, 0
-  br i1 %.not60, label %55, label %117
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %118, label %55
 
 55:                                               ; preds = %43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %9, i8 0, i64 208, i1 false)
@@ -111,7 +110,7 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %63 = icmp eq i8 %51, 0
   %64 = and i1 %62, %4
   %or.cond = select i1 %64, i1 %63, i1 false
-  br i1 %or.cond, label %65, label %107
+  br i1 %or.cond, label %65, label %108
 
 65:                                               ; preds = %55
   %66 = call ptr @expression_planner(ptr noundef %2) #5
@@ -134,9 +133,8 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   store i64 %77, ptr %12, align 8
   call void @FreeExecutorState(ptr noundef nonnull %67) #5
   %78 = load i8, ptr %13, align 1
-  %79 = and i8 %78, 1
-  %.not62 = icmp eq i8 %79, 0
-  br i1 %.not62, label %80, label %99
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %98, label %80
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds i8, ptr %0, i64 64
@@ -151,77 +149,75 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %90 = sext i16 %89 to i32
   %91 = getelementptr inbounds i8, ptr %85, i64 86
   %92 = load i8, ptr %91, align 2
-  %93 = and i8 %92, 1
-  %94 = icmp ne i8 %93, 0
-  %95 = getelementptr inbounds i8, ptr %85, i64 87
-  %96 = load i8, ptr %95, align 1
-  %97 = call ptr @construct_array(ptr noundef nonnull %12, i32 noundef 1, i32 noundef %87, i32 noundef %90, i1 noundef zeroext %94, i8 noundef signext %96) #5
-  %98 = ptrtoint ptr %97 to i64
+  %93 = trunc i8 %92 to i1
+  %94 = getelementptr inbounds i8, ptr %85, i64 87
+  %95 = load i8, ptr %94, align 1
+  %96 = call ptr @construct_array(ptr noundef nonnull %12, i32 noundef 1, i32 noundef %87, i32 noundef %90, i1 noundef zeroext %93, i8 noundef signext %95) #5
+  %97 = ptrtoint ptr %96 to i64
   %.pre = load i8, ptr %13, align 1
-  %.pre67 = and i8 %.pre, 1
-  br label %99
+  br label %98
 
-99:                                               ; preds = %73, %80
-  %.pre-phi = phi i8 [ 1, %73 ], [ %.pre67, %80 ]
-  %storemerge = phi i64 [ 0, %73 ], [ %98, %80 ]
+98:                                               ; preds = %73, %80
+  %99 = phi i8 [ %.pre, %80 ], [ %78, %73 ]
+  %storemerge = phi i64 [ %97, %80 ], [ 0, %73 ]
   store i64 %storemerge, ptr %12, align 8
-  %100 = xor i8 %.pre-phi, 1
-  %101 = zext nneg i8 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %9, i64 112
-  store i64 %101, ptr %102, align 16
-  %103 = getelementptr inbounds i8, ptr %11, i64 14
-  store i8 1, ptr %103, align 2
-  %104 = getelementptr inbounds i8, ptr %9, i64 200
-  store i64 %storemerge, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %11, i64 25
-  store i8 1, ptr %105, align 1
-  %106 = getelementptr inbounds i8, ptr %10, i64 25
-  store i8 %.pre-phi, ptr %106, align 1
-  br label %107
+  %100 = and i8 %99, 1
+  %101 = xor i8 %100, 1
+  %102 = zext nneg i8 %101 to i64
+  %103 = getelementptr inbounds i8, ptr %9, i64 112
+  store i64 %102, ptr %103, align 16
+  %104 = getelementptr inbounds i8, ptr %11, i64 14
+  store i8 1, ptr %104, align 2
+  %105 = getelementptr inbounds i8, ptr %9, i64 200
+  store i64 %storemerge, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %11, i64 25
+  store i8 1, ptr %106, align 1
+  %107 = getelementptr inbounds i8, ptr %10, i64 25
+  store i8 %100, ptr %107, align 1
+  br label %108
 
-107:                                              ; preds = %99, %55
-  %108 = getelementptr inbounds i8, ptr %34, i64 64
-  %109 = load ptr, ptr %108, align 8
-  %110 = call ptr @heap_modify_tuple(ptr noundef nonnull %37, ptr noundef %109, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %111, ptr noundef %110) #5
-  %112 = load i8, ptr %13, align 1
-  %113 = and i8 %112, 1
-  %.not64 = icmp eq i8 %113, 0
-  br i1 %.not64, label %114, label %117
+108:                                              ; preds = %98, %55
+  %109 = getelementptr inbounds i8, ptr %34, i64 64
+  %110 = load ptr, ptr %109, align 8
+  %111 = call ptr @heap_modify_tuple(ptr noundef nonnull %37, ptr noundef %110, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
+  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %112, ptr noundef %111) #5
+  %113 = load i8, ptr %13, align 1
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %118, label %115
 
-114:                                              ; preds = %107
-  %115 = load i64, ptr %12, align 8
-  %116 = inttoptr i64 %115 to ptr
-  call void @pfree(ptr noundef %116) #5
-  br label %117
+115:                                              ; preds = %108
+  %116 = load i64, ptr %12, align 8
+  %117 = inttoptr i64 %116 to ptr
+  call void @pfree(ptr noundef %117) #5
+  br label %118
 
-117:                                              ; preds = %107, %114, %43
-  %.0 = phi ptr [ %37, %43 ], [ %110, %107 ], [ %110, %114 ]
+118:                                              ; preds = %108, %115, %43
+  %.0 = phi ptr [ %37, %43 ], [ %111, %108 ], [ %111, %115 ]
   call void @table_close(ptr noundef %34, i32 noundef 3) #5
   call void @heap_freetuple(ptr noundef %.0) #5
   store i32 1259, ptr %7, align 4
-  %118 = load i32, ptr %18, align 8
-  %119 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %118, ptr %119, align 4
-  %120 = sext i16 %1 to i32
-  %121 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %120, ptr %121, align 4
-  %.not65 = icmp eq i8 %51, 0
-  %122 = select i1 %.not65, i32 97, i32 105
-  call void @recordDependencyOn(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %122) #5
-  %123 = load i32, ptr %18, align 8
-  call void @recordDependencyOnSingleRelExpr(ptr noundef nonnull %8, ptr noundef %2, i32 noundef %123, i32 noundef 110, i32 noundef 110, i1 noundef zeroext false) #5
-  %124 = load ptr, ptr @object_access_hook, align 8
-  %.not66 = icmp eq ptr %124, null
-  br i1 %.not66, label %127, label %125
+  %119 = load i32, ptr %18, align 8
+  %120 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %119, ptr %120, align 4
+  %121 = sext i16 %1 to i32
+  %122 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %121, ptr %122, align 4
+  %.not61 = icmp eq i8 %51, 0
+  %123 = select i1 %.not61, i32 97, i32 105
+  call void @recordDependencyOn(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %123) #5
+  %124 = load i32, ptr %18, align 8
+  call void @recordDependencyOnSingleRelExpr(ptr noundef nonnull %8, ptr noundef %2, i32 noundef %124, i32 noundef 110, i32 noundef 110, i1 noundef zeroext false) #5
+  %125 = load ptr, ptr @object_access_hook, align 8
+  %.not62 = icmp eq ptr %125, null
+  br i1 %.not62, label %128, label %126
 
-125:                                              ; preds = %117
-  %126 = load i32, ptr %18, align 8
-  call void @RunObjectPostCreateHook(i32 noundef 2604, i32 noundef %126, i32 noundef %120, i1 noundef zeroext %3) #5
-  br label %127
+126:                                              ; preds = %118
+  %127 = load i32, ptr %18, align 8
+  call void @RunObjectPostCreateHook(i32 noundef 2604, i32 noundef %127, i32 noundef %121, i1 noundef zeroext %3) #5
+  br label %128
 
-127:                                              ; preds = %117, %125
+128:                                              ; preds = %118, %126
   ret i32 %16
 }
 

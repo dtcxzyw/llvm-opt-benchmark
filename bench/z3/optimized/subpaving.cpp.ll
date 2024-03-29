@@ -750,8 +750,7 @@ entry:
   %idxprom.i.i = zext i32 %x to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -1651,8 +1650,7 @@ entry:
   %idxprom.i.i = zext i32 %x to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -2431,8 +2429,7 @@ entry:
   %idxprom.i.i = zext i32 %x to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -3102,8 +3099,7 @@ entry:
   %idxprom.i.i = zext i32 %x to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -3778,8 +3774,7 @@ entry:
   %idxprom.i.i = zext i32 %x to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 

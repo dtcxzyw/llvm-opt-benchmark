@@ -306,9 +306,9 @@ define dso_local zeroext i1 @bdrv_dirty_bitmap_enabled(ptr nocapture noundef rea
 entry:
   %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   %0 = load i8, ptr %disabled, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  ret i1 %tobool.not
+  %tobool = trunc i8 %0 to i1
+  %lnot = xor i1 %tobool, true
+  ret i1 %lnot
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -321,14 +321,13 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %bitmap, i64 16
   %bitmap.val = load i8, ptr %0, align 8
-  %1 = and i8 %bitmap.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %bitmap.val to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %name = getelementptr inbounds i8, ptr %bitmap, i64 32
-  %2 = load ptr, ptr %name, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %2) #14
+  %1 = load ptr, ptr %name, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %1) #14
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -338,15 +337,14 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 land.lhs.true3:                                   ; preds = %if.end
   %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
-  %3 = load i8, ptr %readonly.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i11.not = icmp eq i8 %4, 0
-  br i1 %tobool.i11.not, label %if.end7, label %if.then5
+  %2 = load i8, ptr %readonly.i, align 8
+  %tobool.i11 = trunc i8 %2 to i1
+  br i1 %tobool.i11, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %land.lhs.true3
   %name6 = getelementptr inbounds i8, ptr %bitmap, i64 32
-  %5 = load ptr, ptr %name6, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.7, ptr noundef %5) #14
+  %3 = load ptr, ptr %name6, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.7, ptr noundef %3) #14
   br label %return
 
 if.end7:                                          ; preds = %land.lhs.true3, %if.end
@@ -356,15 +354,14 @@ if.end7:                                          ; preds = %land.lhs.true3, %if
 
 land.lhs.true10:                                  ; preds = %if.end7
   %inconsistent.i = getelementptr inbounds i8, ptr %bitmap, i64 58
-  %6 = load i8, ptr %inconsistent.i, align 2
-  %7 = and i8 %6, 1
-  %tobool.i12.not = icmp eq i8 %7, 0
-  br i1 %tobool.i12.not, label %return, label %if.then12
+  %4 = load i8, ptr %inconsistent.i, align 2
+  %tobool.i12 = trunc i8 %4 to i1
+  br i1 %tobool.i12, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true10
   %name13 = getelementptr inbounds i8, ptr %bitmap, i64 32
-  %8 = load ptr, ptr %name13, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.8, ptr noundef %8) #14
+  %5 = load ptr, ptr %name13, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.8, ptr noundef %5) #14
   tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.9) #14
   br label %return
 
@@ -378,8 +375,7 @@ define dso_local zeroext i1 @bdrv_dirty_bitmap_readonly(ptr nocapture noundef re
 entry:
   %readonly = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -388,8 +384,7 @@ define dso_local zeroext i1 @bdrv_dirty_bitmap_inconsistent(ptr nocapture nounde
 entry:
   %inconsistent = getelementptr inbounds i8, ptr %bitmap, i64 58
   %0 = load i8, ptr %inconsistent, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -400,20 +395,19 @@ define dso_local noundef i32 @bdrv_dirty_bitmap_create_successor(ptr nocapture n
 entry:
   %0 = getelementptr i8, ptr %bitmap, i64 16
   %bitmap.val.i = load i8, ptr %0, align 8
-  %1 = and i8 %bitmap.val.i, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.end, label %bdrv_dirty_bitmap_check.exit
+  %tobool.i.i = trunc i8 %bitmap.val.i to i1
+  br i1 %tobool.i.i, label %bdrv_dirty_bitmap_check.exit, label %if.end
 
 bdrv_dirty_bitmap_check.exit:                     ; preds = %entry
   %name.i = getelementptr inbounds i8, ptr %bitmap, i64 32
-  %2 = load ptr, ptr %name.i, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %2) #14
+  %1 = load ptr, ptr %name.i, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %1) #14
   br label %return
 
 if.end:                                           ; preds = %entry
   %successor.i = getelementptr inbounds i8, ptr %bitmap, i64 24
-  %3 = load ptr, ptr %successor.i, align 8
-  %tobool.i.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %successor.i, align 8
+  %tobool.i.not = icmp eq ptr %2, null
   br i1 %tobool.i.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -422,20 +416,20 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %4 = load ptr, ptr %bitmap1.i, align 8
-  %call.i = tail call i32 @hbitmap_granularity(ptr noundef %4) #14
+  %3 = load ptr, ptr %bitmap1.i, align 8
+  %call.i = tail call i32 @hbitmap_granularity(ptr noundef %3) #14
   %shl.i = shl nuw i32 1, %call.i
-  %5 = load ptr, ptr %bitmap, align 8
-  %call6 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef %5, i32 noundef %shl.i, ptr noundef null, ptr noundef %errp)
+  %4 = load ptr, ptr %bitmap, align 8
+  %call6 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef %4, i32 noundef %shl.i, ptr noundef null, ptr noundef %errp)
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end3
   %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
-  %6 = load i8, ptr %disabled, align 8
-  %7 = and i8 %6, 1
+  %5 = load i8, ptr %disabled, align 8
   %disabled11 = getelementptr inbounds i8, ptr %call6, i64 48
-  store i8 %7, ptr %disabled11, align 8
+  %frombool = and i8 %5, 1
+  store i8 %frombool, ptr %disabled11, align 8
   store i8 1, ptr %disabled, align 8
   store ptr %call6, ptr %successor.i, align 8
   store i8 1, ptr %0, align 8
@@ -513,17 +507,17 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %successor1, align 8
   %persistent = getelementptr inbounds i8, ptr %bitmap, i64 57
   %2 = load i8, ptr %persistent, align 1
-  %3 = and i8 %2, 1
   %persistent6 = getelementptr inbounds i8, ptr %0, i64 57
-  store i8 %3, ptr %persistent6, align 1
+  %frombool = and i8 %2, 1
+  store i8 %frombool, ptr %persistent6, align 1
   store i8 0, ptr %persistent, align 1
   %busy = getelementptr inbounds i8, ptr %bitmap, i64 16
   store i8 0, ptr %busy, align 8
-  %4 = load ptr, ptr %bitmap, align 8
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %dirty_bitmap_mutex.i.i = getelementptr inbounds i8, ptr %4, i64 16904
-  tail call void %6(ptr noundef nonnull %dirty_bitmap_mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
+  %3 = load ptr, ptr %bitmap, align 8
+  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %dirty_bitmap_mutex.i.i = getelementptr inbounds i8, ptr %3, i64 16904
+  tail call void %5(ptr noundef nonnull %dirty_bitmap_mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %bitmap)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   br label %return
@@ -565,9 +559,9 @@ if.end:                                           ; preds = %entry
   tail call void @hbitmap_merge(ptr noundef %1, ptr noundef %2, ptr noundef %1) #14
   %disabled = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %disabled, align 8
-  %4 = and i8 %3, 1
   %disabled5 = getelementptr inbounds i8, ptr %parent, i64 48
-  store i8 %4, ptr %disabled5, align 8
+  %frombool = and i8 %3, 1
+  store i8 %frombool, ptr %disabled5, align 8
   %busy = getelementptr inbounds i8, ptr %parent, i64 16
   store i8 0, ptr %busy, align 8
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %0)
@@ -596,9 +590,8 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %bitmap, i64 16
   %bitmap.val = load i8, ptr %1, align 8
-  %2 = and i8 %bitmap.val, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end3, label %if.else2
+  %tobool.i = trunc i8 %bitmap.val to i1
+  br i1 %tobool.i, label %if.else2, label %if.end3
 
 if.else2:                                         ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 260, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_release_dirty_bitmap_locked) #15
@@ -606,8 +599,8 @@ if.else2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %successor.i = getelementptr inbounds i8, ptr %bitmap, i64 24
-  %3 = load ptr, ptr %successor.i, align 8
-  %tobool.i13.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %successor.i, align 8
+  %tobool.i13.not = icmp eq ptr %2, null
   br i1 %tobool.i13.not, label %do.body, label %if.else6
 
 if.else6:                                         ; preds = %if.end3
@@ -616,28 +609,28 @@ if.else6:                                         ; preds = %if.end3
 
 do.body:                                          ; preds = %if.end3
   %list = getelementptr inbounds i8, ptr %bitmap, i64 64
-  %4 = load ptr, ptr %list, align 8
-  %cmp.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %list, align 8
+  %cmp.not = icmp eq ptr %3, null
   %le_prev18.phi.trans.insert = getelementptr inbounds i8, ptr %bitmap, i64 72
   %.pre14 = load ptr, ptr %le_prev18.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end14, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %le_prev13 = getelementptr inbounds i8, ptr %4, i64 72
+  %le_prev13 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr %.pre14, ptr %le_prev13, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then8
-  %5 = phi ptr [ %.pre, %if.then8 ], [ null, %do.body ]
-  store ptr %5, ptr %.pre14, align 8
+  %4 = phi ptr [ %.pre, %if.then8 ], [ null, %do.body ]
+  store ptr %4, ptr %.pre14, align 8
   %bitmap23 = getelementptr inbounds i8, ptr %bitmap, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %bitmap23, align 8
-  tail call void @hbitmap_free(ptr noundef %6) #14
+  %5 = load ptr, ptr %bitmap23, align 8
+  tail call void @hbitmap_free(ptr noundef %5) #14
   %name = getelementptr inbounds i8, ptr %bitmap, i64 32
-  %7 = load ptr, ptr %name, align 8
-  tail call void @g_free(ptr noundef %7) #14
+  %6 = load ptr, ptr %name, align 8
+  tail call void @g_free(ptr noundef %6) #14
   tail call void @g_free(ptr noundef nonnull %bitmap) #14
   ret void
 }
@@ -667,9 +660,9 @@ if.end.i:                                         ; preds = %entry
   tail call void @hbitmap_merge(ptr noundef %4, ptr noundef %5, ptr noundef %4) #14
   %disabled.i = getelementptr inbounds i8, ptr %3, i64 48
   %6 = load i8, ptr %disabled.i, align 8
-  %7 = and i8 %6, 1
   %disabled5.i = getelementptr inbounds i8, ptr %parent, i64 48
-  store i8 %7, ptr %disabled5.i, align 8
+  %frombool.i = and i8 %6, 1
+  store i8 %frombool.i, ptr %disabled5.i, align 8
   %busy.i = getelementptr inbounds i8, ptr %parent, i64 16
   store i8 0, ptr %busy.i, align 8
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %3)
@@ -678,8 +671,8 @@ if.end.i:                                         ; preds = %entry
 
 bdrv_reclaim_dirty_bitmap_locked.exit:            ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %parent, %if.end.i ], [ null, %if.then.i ]
-  %8 = load ptr, ptr %parent, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %8, i64 16904
+  %7 = load ptr, ptr %parent, align 8
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %7, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret ptr %retval.0.i
 }
@@ -700,9 +693,8 @@ for.body:                                         ; preds = %entry, %if.end8
   %bitmap.014 = phi ptr [ %bitmap.0, %if.end8 ], [ %bitmap.012, %entry ]
   %2 = getelementptr i8, ptr %bitmap.014, i64 16
   %bitmap.0.val = load i8, ptr %2, align 8
-  %3 = and i8 %bitmap.0.val, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %bitmap.0.val to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %for.body
   tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_dirty_bitmap_truncate) #15
@@ -710,8 +702,8 @@ if.else:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %for.body
   %successor.i = getelementptr inbounds i8, ptr %bitmap.014, i64 24
-  %4 = load ptr, ptr %successor.i, align 8
-  %tobool.i10.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %successor.i, align 8
+  %tobool.i10.not = icmp eq ptr %3, null
   br i1 %tobool.i10.not, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
@@ -720,8 +712,8 @@ if.else3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %active_iterators = getelementptr inbounds i8, ptr %bitmap.014, i64 52
-  %5 = load i32, ptr %active_iterators, align 4
-  %tobool5.not = icmp eq i32 %5, 0
+  %4 = load i32, ptr %active_iterators, align 4
+  %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
@@ -730,8 +722,8 @@ if.else7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   %bitmap9 = getelementptr inbounds i8, ptr %bitmap.014, i64 8
-  %6 = load ptr, ptr %bitmap9, align 8
-  tail call void @hbitmap_truncate(ptr noundef %6, i64 noundef %bytes) #14
+  %5 = load ptr, ptr %bitmap9, align 8
+  tail call void @hbitmap_truncate(ptr noundef %5, i64 noundef %bytes) #14
   %size = getelementptr inbounds i8, ptr %bitmap.014, i64 40
   store i64 %bytes, ptr %size, align 8
   %list = getelementptr inbounds i8, ptr %bitmap.014, i64 64
@@ -916,15 +908,15 @@ entry:
   %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %1(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
-  %bm.025 = load ptr, ptr %dirty_bitmaps, align 8
-  %tobool.not26 = icmp eq ptr %bm.025, null
-  br i1 %tobool.not26, label %for.end, label %for.body
+  %bm.026 = load ptr, ptr %dirty_bitmaps, align 8
+  %tobool.not27 = icmp eq ptr %bm.026, null
+  br i1 %tobool.not27, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %bdrv_dirty_bitmap_recording.exit
-  %bm.028 = phi ptr [ %bm.0, %bdrv_dirty_bitmap_recording.exit ], [ %bm.025, %entry ]
-  %tail.027 = phi ptr [ %19, %bdrv_dirty_bitmap_recording.exit ], [ %list, %entry ]
+  %bm.029 = phi ptr [ %bm.0, %bdrv_dirty_bitmap_recording.exit ], [ %bm.026, %entry ]
+  %tail.028 = phi ptr [ %13, %bdrv_dirty_bitmap_recording.exit ], [ %list, %entry ]
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #18
-  %bitmap1.i = getelementptr inbounds i8, ptr %bm.028, i64 8
+  %bitmap1.i = getelementptr inbounds i8, ptr %bm.029, i64 8
   %2 = load ptr, ptr %bitmap1.i, align 8
   %call.i = tail call i64 @hbitmap_count(ptr noundef %2) #14
   %count = getelementptr inbounds i8, ptr %call, i64 8
@@ -934,59 +926,57 @@ for.body:                                         ; preds = %entry, %bdrv_dirty_
   %shl.i = shl nuw i32 1, %call.i23
   %granularity = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %shl.i, ptr %granularity, align 8
-  %name = getelementptr inbounds i8, ptr %bm.028, i64 32
+  %name = getelementptr inbounds i8, ptr %bm.029, i64 32
   %4 = load ptr, ptr %name, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %4) #14
   store ptr %call3, ptr %call, align 8
-  %disabled.i = getelementptr inbounds i8, ptr %bm.028, i64 48
+  %disabled.i = getelementptr inbounds i8, ptr %bm.029, i64 48
   %5 = load i8, ptr %disabled.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %bdrv_dirty_bitmap_recording.exit, label %lor.rhs.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %lor.rhs.i, label %bdrv_dirty_bitmap_recording.exit
 
 lor.rhs.i:                                        ; preds = %for.body
-  %successor.i = getelementptr inbounds i8, ptr %bm.028, i64 24
-  %7 = load ptr, ptr %successor.i, align 8
-  %tobool1.not.i = icmp eq ptr %7, null
+  %successor.i = getelementptr inbounds i8, ptr %bm.029, i64 24
+  %6 = load ptr, ptr %successor.i, align 8
+  %tobool1.not.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i, label %bdrv_dirty_bitmap_recording.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %disabled3.i = getelementptr inbounds i8, ptr %7, i64 48
-  %8 = load i8, ptr %disabled3.i, align 8
-  %9 = and i8 %8, 1
-  %tobool4.not.i = icmp eq i8 %9, 0
+  %disabled3.i = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = load i8, ptr %disabled3.i, align 8
+  %lnot.i = xor i8 %7, 1
   br label %bdrv_dirty_bitmap_recording.exit
 
 bdrv_dirty_bitmap_recording.exit:                 ; preds = %for.body, %lor.rhs.i, %land.rhs.i
-  %10 = phi i1 [ true, %for.body ], [ false, %lor.rhs.i ], [ %tobool4.not.i, %land.rhs.i ]
+  %8 = phi i8 [ 1, %for.body ], [ 0, %lor.rhs.i ], [ %lnot.i, %land.rhs.i ]
   %recording = getelementptr inbounds i8, ptr %call, i64 20
-  %frombool = zext i1 %10 to i8
+  %frombool = and i8 %8, 1
   store i8 %frombool, ptr %recording, align 4
-  %11 = getelementptr i8, ptr %bm.028, i64 16
-  %bm.0.val = load i8, ptr %11, align 8
-  %12 = and i8 %bm.0.val, 1
+  %9 = getelementptr i8, ptr %bm.029, i64 16
+  %bm.0.val = load i8, ptr %9, align 8
   %busy = getelementptr inbounds i8, ptr %call, i64 21
-  store i8 %12, ptr %busy, align 1
-  %persistent = getelementptr inbounds i8, ptr %bm.028, i64 57
-  %13 = load i8, ptr %persistent, align 1
-  %14 = and i8 %13, 1
+  %frombool7 = and i8 %bm.0.val, 1
+  store i8 %frombool7, ptr %busy, align 1
+  %persistent = getelementptr inbounds i8, ptr %bm.029, i64 57
+  %10 = load i8, ptr %persistent, align 1
   %persistent9 = getelementptr inbounds i8, ptr %call, i64 22
-  store i8 %14, ptr %persistent9, align 2
-  %inconsistent = getelementptr inbounds i8, ptr %bm.028, i64 58
-  %15 = load i8, ptr %inconsistent, align 2
-  %16 = and i8 %15, 1
+  %frombool10 = and i8 %10, 1
+  store i8 %frombool10, ptr %persistent9, align 2
+  %inconsistent = getelementptr inbounds i8, ptr %bm.029, i64 58
+  %11 = load i8, ptr %inconsistent, align 2
   %has_inconsistent = getelementptr inbounds i8, ptr %call, i64 23
-  store i8 %16, ptr %has_inconsistent, align 1
-  %17 = load i8, ptr %inconsistent, align 2
-  %18 = and i8 %17, 1
+  %frombool12 = and i8 %11, 1
+  store i8 %frombool12, ptr %has_inconsistent, align 1
+  %12 = load i8, ptr %inconsistent, align 2
   %inconsistent15 = getelementptr inbounds i8, ptr %call, i64 24
-  store i8 %18, ptr %inconsistent15, align 8
+  %frombool16 = and i8 %12, 1
+  store i8 %frombool16, ptr %inconsistent15, align 8
   %call17 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #19
-  store ptr %call17, ptr %tail.027, align 8
+  store ptr %call17, ptr %tail.028, align 8
   %value = getelementptr inbounds i8, ptr %call17, i64 8
   store ptr %call, ptr %value, align 8
-  %19 = load ptr, ptr %tail.027, align 8
-  %list18 = getelementptr inbounds i8, ptr %bm.028, i64 64
+  %13 = load ptr, ptr %tail.028, align 8
+  %list18 = getelementptr inbounds i8, ptr %bm.029, i64 64
   %bm.0 = load ptr, ptr %list18, align 8
   %tobool.not = icmp eq ptr %bm.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
@@ -1131,9 +1121,8 @@ define dso_local void @bdrv_set_dirty_bitmap_locked(ptr nocapture noundef readon
 entry:
   %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_set_dirty_bitmap_locked) #15
@@ -1141,8 +1130,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %2 = load ptr, ptr %bitmap1, align 8
-  tail call void @hbitmap_set(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #14
+  %1 = load ptr, ptr %bitmap1, align 8
+  tail call void @hbitmap_set(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #14
   ret void
 }
 
@@ -1158,9 +1147,8 @@ entry:
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %readonly.i.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %3 = load i8, ptr %readonly.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i, label %bdrv_set_dirty_bitmap_locked.exit, label %if.else.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.else.i, label %bdrv_set_dirty_bitmap_locked.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_set_dirty_bitmap_locked) #15
@@ -1168,10 +1156,10 @@ if.else.i:                                        ; preds = %entry
 
 bdrv_set_dirty_bitmap_locked.exit:                ; preds = %entry
   %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %5 = load ptr, ptr %bitmap1.i, align 8
-  tail call void @hbitmap_set(ptr noundef %5, i64 noundef %offset, i64 noundef %bytes) #14
-  %6 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %6, i64 16904
+  %4 = load ptr, ptr %bitmap1.i, align 8
+  tail call void @hbitmap_set(ptr noundef %4, i64 noundef %offset, i64 noundef %bytes) #14
+  %5 = load ptr, ptr %bitmap, align 8
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %5, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1181,9 +1169,8 @@ define dso_local void @bdrv_reset_dirty_bitmap_locked(ptr nocapture noundef read
 entry:
   %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_reset_dirty_bitmap_locked) #15
@@ -1191,8 +1178,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %2 = load ptr, ptr %bitmap1, align 8
-  tail call void @hbitmap_reset(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #14
+  %1 = load ptr, ptr %bitmap1, align 8
+  tail call void @hbitmap_reset(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #14
   ret void
 }
 
@@ -1208,9 +1195,8 @@ entry:
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %readonly.i.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %3 = load i8, ptr %readonly.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i, label %bdrv_reset_dirty_bitmap_locked.exit, label %if.else.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.else.i, label %bdrv_reset_dirty_bitmap_locked.exit
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_reset_dirty_bitmap_locked) #15
@@ -1218,10 +1204,10 @@ if.else.i:                                        ; preds = %entry
 
 bdrv_reset_dirty_bitmap_locked.exit:              ; preds = %entry
   %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %5 = load ptr, ptr %bitmap1.i, align 8
-  tail call void @hbitmap_reset(ptr noundef %5, i64 noundef %offset, i64 noundef %bytes) #14
-  %6 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %6, i64 16904
+  %4 = load ptr, ptr %bitmap1.i, align 8
+  tail call void @hbitmap_reset(ptr noundef %4, i64 noundef %offset, i64 noundef %bytes) #14
+  %5 = load ptr, ptr %bitmap, align 8
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %5, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1231,41 +1217,40 @@ define dso_local void @bdrv_clear_dirty_bitmap(ptr nocapture noundef %bitmap, pt
 entry:
   %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_clear_dirty_bitmap) #15
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bitmap, align 8
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %2, i64 16904
-  tail call void %4(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
+  %1 = load ptr, ptr %bitmap, align 8
+  %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %3 = inttoptr i64 %2 to ptr
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %1, i64 16904
+  tail call void %3(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %tobool.not = icmp eq ptr %out, null
   %bitmap2 = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %5 = load ptr, ptr %bitmap2, align 8
+  %4 = load ptr, ptr %bitmap2, align 8
   br i1 %tobool.not, label %if.then1, label %if.else3
 
 if.then1:                                         ; preds = %if.end
-  tail call void @hbitmap_reset_all(ptr noundef %5) #14
+  tail call void @hbitmap_reset_all(ptr noundef %4) #14
   br label %if.end8
 
 if.else3:                                         ; preds = %if.end
   %size = getelementptr inbounds i8, ptr %bitmap, i64 40
-  %6 = load i64, ptr %size, align 8
-  %call5 = tail call i32 @hbitmap_granularity(ptr noundef %5) #14
-  %call6 = tail call ptr @hbitmap_alloc(i64 noundef %6, i32 noundef %call5) #14
+  %5 = load i64, ptr %size, align 8
+  %call5 = tail call i32 @hbitmap_granularity(ptr noundef %4) #14
+  %call6 = tail call ptr @hbitmap_alloc(i64 noundef %5, i32 noundef %call5) #14
   store ptr %call6, ptr %bitmap2, align 8
-  store ptr %5, ptr %out, align 8
+  store ptr %4, ptr %out, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else3, %if.then1
-  %7 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i9 = getelementptr inbounds i8, ptr %7, i64 16904
+  %6 = load ptr, ptr %bitmap, align 8
+  %dirty_bitmap_mutex.i9 = getelementptr inbounds i8, ptr %6, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i9, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1279,9 +1264,8 @@ entry:
   %0 = load ptr, ptr %bitmap1, align 8
   %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %1 = load i8, ptr %readonly.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %do.body, label %if.else
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.else, label %do.body
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 593, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_restore_dirty_bitmap) #15
@@ -1419,37 +1403,35 @@ if.end:                                           ; preds = %entry
   %2 = inttoptr i64 %1 to ptr
   %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %bitmap.09 = load ptr, ptr %dirty_bitmaps, align 8
-  %tobool.not10 = icmp eq ptr %bitmap.09, null
-  br i1 %tobool.not10, label %for.end, label %for.body
+  %bitmap.010 = load ptr, ptr %dirty_bitmaps, align 8
+  %tobool.not11 = icmp eq ptr %bitmap.010, null
+  br i1 %tobool.not11, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %bitmap.011 = phi ptr [ %bitmap.0, %for.inc ], [ %bitmap.09, %if.end ]
-  %disabled.i = getelementptr inbounds i8, ptr %bitmap.011, i64 48
+  %bitmap.012 = phi ptr [ %bitmap.0, %for.inc ], [ %bitmap.010, %if.end ]
+  %disabled.i = getelementptr inbounds i8, ptr %bitmap.012, i64 48
   %3 = load i8, ptr %disabled.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.end4, label %for.inc
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %for.inc, label %if.end4
 
 if.end4:                                          ; preds = %for.body
-  %readonly.i = getelementptr inbounds i8, ptr %bitmap.011, i64 56
-  %5 = load i8, ptr %readonly.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.not, label %if.end7, label %if.else
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap.012, i64 56
+  %4 = load i8, ptr %readonly.i, align 8
+  %tobool.i8 = trunc i8 %4 to i1
+  br i1 %tobool.i8, label %if.else, label %if.end7
 
 if.else:                                          ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 670, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_set_dirty) #15
   unreachable
 
 if.end7:                                          ; preds = %if.end4
-  %bitmap8 = getelementptr inbounds i8, ptr %bitmap.011, i64 8
-  %7 = load ptr, ptr %bitmap8, align 8
-  tail call void @hbitmap_set(ptr noundef %7, i64 noundef %offset, i64 noundef %bytes) #14
+  %bitmap8 = getelementptr inbounds i8, ptr %bitmap.012, i64 8
+  %5 = load ptr, ptr %bitmap8, align 8
+  tail call void @hbitmap_set(ptr noundef %5, i64 noundef %offset, i64 noundef %bytes) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end7
-  %list = getelementptr inbounds i8, ptr %bitmap.011, i64 64
+  %list = getelementptr inbounds i8, ptr %bitmap.012, i64 64
   %bitmap.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %bitmap.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
@@ -1507,12 +1489,11 @@ for.body:                                         ; preds = %entry, %for.cond
   %bm.05 = phi ptr [ %bm.0, %for.cond ], [ %bm.03, %entry ]
   %readonly = getelementptr inbounds i8, ptr %bm.05, i64 56
   %0 = load i8, ptr %readonly, align 8
-  %1 = and i8 %0, 1
-  %tobool1.not.not = icmp ne i8 %1, 0
-  br i1 %tobool1.not.not, label %return, label %for.cond
+  %tobool1 = trunc i8 %0 to i1
+  br i1 %tobool1, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %for.cond, %entry
-  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool1.not.not, %for.cond ], [ %tobool1.not.not, %for.body ]
+  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool1, %for.cond ], [ %tobool1, %for.body ]
   ret i1 %tobool.not.lcssa
 }
 
@@ -1569,9 +1550,8 @@ entry:
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %persistent = getelementptr inbounds i8, ptr %bitmap, i64 57
   %3 = load i8, ptr %persistent, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 739, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_dirty_bitmap_set_inconsistent) #15
@@ -1582,8 +1562,8 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %inconsistent, align 2
   %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   store i8 1, ptr %disabled, align 8
-  %5 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i5 = getelementptr inbounds i8, ptr %5, i64 16904
+  %4 = load ptr, ptr %bitmap, align 8
+  %dirty_bitmap_mutex.i5 = getelementptr inbounds i8, ptr %4, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i5, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1610,20 +1590,19 @@ define dso_local zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr nocapture nou
 entry:
   %persistent = getelementptr inbounds i8, ptr %bitmap, i64 57
   %0 = load i8, ptr %persistent, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.end, label %land.rhs
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %skip_store = getelementptr inbounds i8, ptr %bitmap, i64 59
-  %2 = load i8, ptr %skip_store, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
+  %1 = load i8, ptr %skip_store, align 1
+  %tobool1 = trunc i8 %1 to i1
+  %lnot = xor i1 %tobool1, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %4 = phi i1 [ false, %entry ], [ %tobool1.not, %land.rhs ]
-  ret i1 %4
+  %2 = phi i1 [ false, %entry ], [ %lnot, %land.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1718,66 +1697,96 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call = tail call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %dest, i32 noundef 7, ptr noundef %errp), !range !14
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end5, label %out
-
-if.end5:                                          ; preds = %if.end
-  %7 = getelementptr i8, ptr %src, i64 16
+  %7 = getelementptr i8, ptr %dest, i64 16
   %bitmap.val.i = load i8, ptr %7, align 8
-  %8 = and i8 %bitmap.val.i, 1
-  %tobool.i.not.i = icmp eq i8 %8, 0
-  br i1 %tobool.i.not.i, label %if.end.i, label %if.then.i
+  %tobool.i.i = trunc i8 %bitmap.val.i to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %if.end5
-  %name.i = getelementptr inbounds i8, ptr %src, i64 32
-  %9 = load ptr, ptr %name.i, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %9) #14
+if.then.i:                                        ; preds = %if.end
+  %name.i = getelementptr inbounds i8, ptr %dest, i64 32
+  %8 = load ptr, ptr %name.i, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %8) #14
   br label %out
 
-if.end.i:                                         ; preds = %if.end5
-  %inconsistent.i.i = getelementptr inbounds i8, ptr %src, i64 58
-  %10 = load i8, ptr %inconsistent.i.i, align 2
-  %11 = and i8 %10, 1
-  %tobool.i12.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.i12.not.i, label %if.end9, label %if.then12.i
+if.end.i:                                         ; preds = %if.end
+  %readonly.i.i = getelementptr inbounds i8, ptr %dest, i64 56
+  %9 = load i8, ptr %readonly.i.i, align 8
+  %tobool.i11.i = trunc i8 %9 to i1
+  br i1 %tobool.i11.i, label %if.then5.i, label %if.end7.i
 
-if.then12.i:                                      ; preds = %if.end.i
-  %name13.i = getelementptr inbounds i8, ptr %src, i64 32
+if.then5.i:                                       ; preds = %if.end.i
+  %name6.i = getelementptr inbounds i8, ptr %dest, i64 32
+  %10 = load ptr, ptr %name6.i, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.7, ptr noundef %10) #14
+  br label %out
+
+if.end7.i:                                        ; preds = %if.end.i
+  %inconsistent.i.i = getelementptr inbounds i8, ptr %dest, i64 58
+  %11 = load i8, ptr %inconsistent.i.i, align 2
+  %tobool.i12.i = trunc i8 %11 to i1
+  br i1 %tobool.i12.i, label %if.then12.i, label %if.end5
+
+if.then12.i:                                      ; preds = %if.end7.i
+  %name13.i = getelementptr inbounds i8, ptr %dest, i64 32
   %12 = load ptr, ptr %name13.i, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.8, ptr noundef %12) #14
   tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.9) #14
   br label %out
 
-if.end9:                                          ; preds = %if.end.i
+if.end5:                                          ; preds = %if.end7.i
+  %13 = getelementptr i8, ptr %src, i64 16
+  %bitmap.val.i19 = load i8, ptr %13, align 8
+  %tobool.i.i20 = trunc i8 %bitmap.val.i19 to i1
+  br i1 %tobool.i.i20, label %if.then.i28, label %if.end.i21
+
+if.then.i28:                                      ; preds = %if.end5
+  %name.i29 = getelementptr inbounds i8, ptr %src, i64 32
+  %14 = load ptr, ptr %name.i29, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %14) #14
+  br label %out
+
+if.end.i21:                                       ; preds = %if.end5
+  %inconsistent.i.i23 = getelementptr inbounds i8, ptr %src, i64 58
+  %15 = load i8, ptr %inconsistent.i.i23, align 2
+  %tobool.i12.i24 = trunc i8 %15 to i1
+  br i1 %tobool.i12.i24, label %if.then12.i26, label %if.end9
+
+if.then12.i26:                                    ; preds = %if.end.i21
+  %name13.i27 = getelementptr inbounds i8, ptr %src, i64 32
+  %16 = load ptr, ptr %name13.i27, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.8, ptr noundef %16) #14
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.9) #14
+  br label %out
+
+if.end9:                                          ; preds = %if.end.i21
   %size.i = getelementptr inbounds i8, ptr %src, i64 40
-  %13 = load i64, ptr %size.i, align 8
-  %size.i19 = getelementptr inbounds i8, ptr %dest, i64 40
-  %14 = load i64, ptr %size.i19, align 8
-  %cmp12.not = icmp eq i64 %13, %14
+  %17 = load i64, ptr %size.i, align 8
+  %size.i31 = getelementptr inbounds i8, ptr %dest, i64 40
+  %18 = load i64, ptr %size.i31, align 8
+  %cmp12.not = icmp eq i64 %17, %18
   br i1 %cmp12.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 834, ptr noundef nonnull @__func__.bdrv_merge_dirty_bitmap, ptr noundef nonnull @.str.25, i64 noundef %14, i64 noundef %13) #14
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 834, ptr noundef nonnull @__func__.bdrv_merge_dirty_bitmap, ptr noundef nonnull @.str.25, i64 noundef %18, i64 noundef %17) #14
   br label %out
 
 if.end16:                                         ; preds = %if.end9
   tail call void @bdrv_dirty_bitmap_merge_internal(ptr noundef nonnull %dest, ptr noundef nonnull %src, ptr noundef %backup, i1 noundef zeroext false)
   br label %out
 
-out:                                              ; preds = %if.then12.i, %if.then.i, %if.end, %if.end16, %if.then13
-  %ret.0 = phi i1 [ false, %if.end ], [ false, %if.then13 ], [ true, %if.end16 ], [ false, %if.then.i ], [ false, %if.then12.i ]
-  %15 = load ptr, ptr %dest, align 8
-  %dirty_bitmap_mutex.i22 = getelementptr inbounds i8, ptr %15, i64 16904
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i22, ptr noundef nonnull @.str.1, i32 noundef 71) #14
-  %16 = load ptr, ptr %src, align 8
-  %17 = load ptr, ptr %dest, align 8
-  %cmp20.not = icmp eq ptr %16, %17
+out:                                              ; preds = %if.then12.i26, %if.then.i28, %if.then12.i, %if.then5.i, %if.then.i, %if.end16, %if.then13
+  %ret.0 = phi i1 [ false, %if.then13 ], [ true, %if.end16 ], [ false, %if.then.i ], [ false, %if.then5.i ], [ false, %if.then12.i ], [ false, %if.then.i28 ], [ false, %if.then12.i26 ]
+  %19 = load ptr, ptr %dest, align 8
+  %dirty_bitmap_mutex.i34 = getelementptr inbounds i8, ptr %19, i64 16904
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i34, ptr noundef nonnull @.str.1, i32 noundef 71) #14
+  %20 = load ptr, ptr %src, align 8
+  %21 = load ptr, ptr %dest, align 8
+  %cmp20.not = icmp eq ptr %20, %21
   br i1 %cmp20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %out
-  %dirty_bitmap_mutex.i23 = getelementptr inbounds i8, ptr %16, i64 16904
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i23, ptr noundef nonnull @.str.1, i32 noundef 71) #14
+  %dirty_bitmap_mutex.i35 = getelementptr inbounds i8, ptr %20, i64 16904
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i35, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %out
@@ -1789,9 +1798,8 @@ define dso_local void @bdrv_dirty_bitmap_merge_internal(ptr nocapture noundef %d
 entry:
   %readonly.i = getelementptr inbounds i8, ptr %dest, i64 56
   %0 = load i8, ptr %readonly.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 865, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_dirty_bitmap_merge_internal) #15
@@ -1799,10 +1807,9 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %inconsistent.i = getelementptr inbounds i8, ptr %dest, i64 58
-  %2 = load i8, ptr %inconsistent.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.i23.not = icmp eq i8 %3, 0
-  br i1 %tobool.i23.not, label %if.end4, label %if.else3
+  %1 = load i8, ptr %inconsistent.i, align 2
+  %tobool.i23 = trunc i8 %1 to i1
+  br i1 %tobool.i23, label %if.else3, label %if.end4
 
 if.else3:                                         ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 866, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_dirty_bitmap_merge_internal) #15
@@ -1810,10 +1817,9 @@ if.else3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %inconsistent.i24 = getelementptr inbounds i8, ptr %src, i64 58
-  %4 = load i8, ptr %inconsistent.i24, align 2
-  %5 = and i8 %4, 1
-  %tobool.i25.not = icmp eq i8 %5, 0
-  br i1 %tobool.i25.not, label %if.end8, label %if.else7
+  %2 = load i8, ptr %inconsistent.i24, align 2
+  %tobool.i25 = trunc i8 %2 to i1
+  br i1 %tobool.i25, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 867, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_dirty_bitmap_merge_internal) #15
@@ -1823,62 +1829,62 @@ if.end8:                                          ; preds = %if.end4
   br i1 %lock, label %if.then9, label %if.end15
 
 if.then9:                                         ; preds = %if.end8
-  %6 = load ptr, ptr %dest, align 8
-  %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %6, i64 16904
-  tail call void %8(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %9 = load ptr, ptr %src, align 8
-  %10 = load ptr, ptr %dest, align 8
-  %cmp.not = icmp eq ptr %9, %10
+  %3 = load ptr, ptr %dest, align 8
+  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %3, i64 16904
+  tail call void %5(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
+  %6 = load ptr, ptr %src, align 8
+  %7 = load ptr, ptr %dest, align 8
+  %cmp.not = icmp eq ptr %6, %7
   br i1 %cmp.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then9
-  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %dirty_bitmap_mutex.i26 = getelementptr inbounds i8, ptr %9, i64 16904
-  tail call void %12(ptr noundef nonnull %dirty_bitmap_mutex.i26, ptr noundef nonnull @.str.1, i32 noundef 66) #14
+  %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %dirty_bitmap_mutex.i26 = getelementptr inbounds i8, ptr %6, i64 16904
+  tail call void %9(ptr noundef nonnull %dirty_bitmap_mutex.i26, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then9, %if.then12, %if.end8
   %tobool16.not = icmp eq ptr %backup, null
   %bitmap24 = getelementptr inbounds i8, ptr %dest, i64 8
-  %13 = load ptr, ptr %bitmap24, align 8
+  %10 = load ptr, ptr %bitmap24, align 8
   br i1 %tobool16.not, label %if.else23, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  store ptr %13, ptr %backup, align 8
+  store ptr %10, ptr %backup, align 8
   %size = getelementptr inbounds i8, ptr %dest, i64 40
-  %14 = load i64, ptr %size, align 8
-  %call18 = tail call i32 @hbitmap_granularity(ptr noundef %13) #14
-  %call19 = tail call ptr @hbitmap_alloc(i64 noundef %14, i32 noundef %call18) #14
+  %11 = load i64, ptr %size, align 8
+  %call18 = tail call i32 @hbitmap_granularity(ptr noundef %10) #14
+  %call19 = tail call ptr @hbitmap_alloc(i64 noundef %11, i32 noundef %call18) #14
   store ptr %call19, ptr %bitmap24, align 8
-  %15 = load ptr, ptr %backup, align 8
+  %12 = load ptr, ptr %backup, align 8
   %bitmap21 = getelementptr inbounds i8, ptr %src, i64 8
-  %16 = load ptr, ptr %bitmap21, align 8
-  tail call void @hbitmap_merge(ptr noundef %15, ptr noundef %16, ptr noundef %call19) #14
+  %13 = load ptr, ptr %bitmap21, align 8
+  tail call void @hbitmap_merge(ptr noundef %12, ptr noundef %13, ptr noundef %call19) #14
   br label %if.end27
 
 if.else23:                                        ; preds = %if.end15
   %bitmap25 = getelementptr inbounds i8, ptr %src, i64 8
-  %17 = load ptr, ptr %bitmap25, align 8
-  tail call void @hbitmap_merge(ptr noundef %13, ptr noundef %17, ptr noundef %13) #14
+  %14 = load ptr, ptr %bitmap25, align 8
+  tail call void @hbitmap_merge(ptr noundef %10, ptr noundef %14, ptr noundef %10) #14
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else23, %if.then17
   br i1 %lock, label %if.then29, label %if.end37
 
 if.then29:                                        ; preds = %if.end27
-  %18 = load ptr, ptr %dest, align 8
-  %dirty_bitmap_mutex.i27 = getelementptr inbounds i8, ptr %18, i64 16904
+  %15 = load ptr, ptr %dest, align 8
+  %dirty_bitmap_mutex.i27 = getelementptr inbounds i8, ptr %15, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i27, ptr noundef nonnull @.str.1, i32 noundef 71) #14
-  %19 = load ptr, ptr %src, align 8
-  %20 = load ptr, ptr %dest, align 8
-  %cmp33.not = icmp eq ptr %19, %20
+  %16 = load ptr, ptr %src, align 8
+  %17 = load ptr, ptr %dest, align 8
+  %cmp33.not = icmp eq ptr %16, %17
   br i1 %cmp33.not, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %if.then29
-  %dirty_bitmap_mutex.i28 = getelementptr inbounds i8, ptr %19, i64 16904
+  %dirty_bitmap_mutex.i28 = getelementptr inbounds i8, ptr %16, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i28, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   br label %if.end37
 
@@ -1940,4 +1946,3 @@ attributes #19 = { nounwind allocsize(0) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -1, i32 1}

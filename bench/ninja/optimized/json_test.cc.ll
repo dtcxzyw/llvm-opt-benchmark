@@ -354,9 +354,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %27, label %49
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %49, label %27
 
 18:                                               ; preds = %.noexc, %1
   %19 = landingpad { ptr, i32 }
@@ -557,9 +556,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %27, label %49
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %49, label %27
 
 18:                                               ; preds = %.noexc, %1
   %19 = landingpad { ptr, i32 }
@@ -732,9 +730,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %27, label %49
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %49, label %27
 
 18:                                               ; preds = %.noexc, %1
   %19 = landingpad { ptr, i32 }
@@ -909,9 +906,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
   %17 = load i8, ptr %3, align 8
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %28, label %50
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %50, label %28
 
 19:                                               ; preds = %.noexc, %1
   %20 = landingpad { ptr, i32 }

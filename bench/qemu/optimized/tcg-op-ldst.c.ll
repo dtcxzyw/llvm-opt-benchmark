@@ -222,16 +222,15 @@ if.else4.i.i:                                     ; preds = %tcg_gen_req_mo.exit
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %tcg_gen_req_mo.exit
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %tcg_gen_req_mo.exit ]
   %3 = load i8, ptr @tcg_use_softmmu, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %5 = load ptr, ptr %0, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %5, i64 68
-  %6 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %6 to i32
+  %4 = load ptr, ptr %0, align 8
+  %page_bits.i.i = getelementptr inbounds i8, ptr %4, i64 68
+  %5 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %5 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -262,12 +261,12 @@ do.body.i:                                        ; preds = %check_max_alignment
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %sw.bb.i, %sw.bb6.i
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %and8.i, %sw.bb6.i ]
-  %7 = load ptr, ptr %0, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %8, i64 20
-  %9 = load i32, ptr %cflags.i, align 4
-  %and19.i = and i32 %9, 32768
+  %6 = load ptr, ptr %0, align 8
+  %gen_tb.i = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = load ptr, ptr %gen_tb.i, align 8
+  %cflags.i = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = load i32, ptr %cflags.i, align 4
+  %and19.i = and i32 %8, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   %and22.i = and i32 %op.addr.1.i, -1793
   %or23.i = or disjoint i32 %and22.i, 1280
@@ -295,10 +294,10 @@ if.then:                                          ; preds = %land.lhs.true
 if.end10:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
   %oi.0 = phi i32 [ %or.i19, %land.lhs.true ], [ %or.i21, %if.then ], [ %or.i19, %tcg_canonicalize_memop.exit ]
   %memop.addr.1 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %spec.select, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
-  %10 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %10, i64 224
-  %11 = load ptr, ptr %plugin_insn.i, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %9 = load ptr, ptr %0, align 8
+  %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
+  %10 = load ptr, ptr %plugin_insn.i, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.end10.plugin_maybe_preserve_addr.exit_crit_edge, label %if.then.i22
 
 if.end10.plugin_maybe_preserve_addr.exit_crit_edge: ; preds = %if.end10
@@ -307,37 +306,37 @@ if.end10.plugin_maybe_preserve_addr.exit_crit_edge: ; preds = %if.end10
 
 if.then.i22:                                      ; preds = %if.end10
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %12 = load ptr, ptr %0, align 8
-  %addr_type.i = getelementptr inbounds i8, ptr %12, i64 60
-  %13 = load i32, ptr %addr_type.i, align 4
-  %cmp1.i = icmp eq i32 %13, 0
+  %11 = load ptr, ptr %0, align 8
+  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %12 = load i32, ptr %addr_type.i, align 4
+  %cmp1.i = icmp eq i32 %12, 0
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %14 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  %13 = inttoptr i64 %sub.ptr.sub.i.i to ptr
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i22
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %14) #5
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
 if.else.i:                                        ; preds = %if.then.i22
-  tail call void @tcg_gen_mov_i64(ptr noundef %call.i, ptr noundef %14) #5
+  tail call void @tcg_gen_mov_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
 plugin_maybe_preserve_addr.exit:                  ; preds = %if.end10.plugin_maybe_preserve_addr.exit_crit_edge, %if.then2.i, %if.else.i
   %.pre-phi = phi i64 [ %.pre, %if.end10.plugin_maybe_preserve_addr.exit_crit_edge ], [ %sub.ptr.lhs.cast.i.i.i, %if.then2.i ], [ %sub.ptr.lhs.cast.i.i.i, %if.else.i ]
   %retval.0.i = phi ptr [ null, %if.end10.plugin_maybe_preserve_addr.exit_crit_edge ], [ %call.i, %if.then2.i ], [ %call.i, %if.else.i ]
-  %15 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %15, i64 60
-  %16 = load i32, ptr %addr_type, align 4
-  %cmp12 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %0, align 8
+  %addr_type = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = load i32, ptr %addr_type, align 4
+  %cmp12 = icmp eq i32 %15, 0
   %. = select i1 %cmp12, i32 135, i32 139
-  %17 = ptrtoint ptr %val to i64
-  %add.ptr.i = getelementptr i8, ptr %15, i64 %17
-  %18 = ptrtoint ptr %add.ptr.i to i64
+  %16 = ptrtoint ptr %val to i64
+  %add.ptr.i = getelementptr i8, ptr %14, i64 %16
+  %17 = ptrtoint ptr %add.ptr.i to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %18, i64 noundef %.pre-phi, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %.pre-phi, i64 noundef %conv5.i) #5
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i19, i32 noundef 1)
   %xor = xor i32 %memop.addr.1, %op.addr.3.i
   %and17 = and i32 %xor, 16
@@ -409,15 +408,14 @@ if.else4.i.i:                                     ; preds = %entry
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %entry
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %entry ]
   %2 = load i8, ptr @tcg_use_softmmu, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
-  %4 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %4 to i32
+  %3 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -446,10 +444,10 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %and17.i = and i32 %op.addr.1.i, -9
   %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
-  %5 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %5, i64 20
-  %6 = load i32, ptr %cflags.i, align 4
-  %and19.i = and i32 %6, 32768
+  %4 = load ptr, ptr %gen_tb.i, align 8
+  %cflags.i = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = load i32, ptr %cflags.i, align 4
+  %and19.i = and i32 %5, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   %and22.i = and i32 %op.addr.1.i, -1801
   %or23.i = or disjoint i32 %and22.i, 1280
@@ -494,46 +492,46 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %swap.0 = phi ptr [ null, %land.lhs.true ], [ %call3, %sw.epilog ], [ null, %tcg_canonicalize_memop.exit ]
   %val.addr.0 = phi ptr [ %val, %land.lhs.true ], [ %call3, %sw.epilog ], [ %val, %tcg_canonicalize_memop.exit ]
   %oi.0 = phi i32 [ %or.i15, %land.lhs.true ], [ %or.i17, %sw.epilog ], [ %or.i15, %tcg_canonicalize_memop.exit ]
-  %7 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %7, i64 60
-  %8 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %8, 0
+  %6 = load ptr, ptr %0, align 8
+  %addr_type = getelementptr inbounds i8, ptr %6, i64 60
+  %7 = load i32, ptr %addr_type, align 4
+  %cmp = icmp eq i32 %7, 0
   %. = select i1 %cmp, i32 136, i32 140
-  %9 = ptrtoint ptr %val.addr.0 to i64
-  %add.ptr.i = getelementptr i8, ptr %7, i64 %9
-  %10 = ptrtoint ptr %add.ptr.i to i64
-  %11 = ptrtoint ptr %addr to i64
+  %8 = ptrtoint ptr %val.addr.0 to i64
+  %add.ptr.i = getelementptr i8, ptr %6, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i to i64
+  %10 = ptrtoint ptr %addr to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %10, i64 noundef %11, i64 noundef %conv5.i) #5
-  %12 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %12, i64 224
-  %13 = load ptr, ptr %plugin_insn.i, align 8
-  %cmp.not.i = icmp eq ptr %13, null
+  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i) #5
+  %11 = load ptr, ptr %0, align 8
+  %plugin_insn.i = getelementptr inbounds i8, ptr %11, i64 224
+  %12 = load ptr, ptr %plugin_insn.i, align 8
+  %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %plugin_gen_mem_callbacks.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %or.i.i = or i32 %or.i15, 131072
-  %addr_type.i = getelementptr inbounds i8, ptr %12, i64 60
-  %14 = load i32, ptr %addr_type.i, align 4
-  %cmp1.i = icmp eq i32 %14, 0
+  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %13 = load i32, ptr %addr_type.i, align 4
+  %cmp1.i = icmp eq i32 %13, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %15 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i.i = sub i64 %11, %sub.ptr.rhs.cast.i.i
-  %16 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call4.i, ptr noundef %16) #5
+  %14 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.sub.i.i = sub i64 %10, %sub.ptr.rhs.cast.i.i
+  %15 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call4.i, ptr noundef %15) #5
   tail call void @plugin_gen_empty_mem_callback(ptr noundef %call4.i, i32 noundef %or.i.i) #5
   tail call void @tcg_temp_free_i64(ptr noundef %call4.i) #5
   br label %plugin_gen_mem_callbacks.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %11, %sub.ptr.rhs.cast.i.i.i
-  %17 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  tail call void @plugin_gen_empty_mem_callback(ptr noundef %17, i32 noundef %or.i.i) #5
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i.i.i = sub i64 %10, %sub.ptr.rhs.cast.i.i.i
+  %16 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  tail call void @plugin_gen_empty_mem_callback(ptr noundef %16, i32 noundef %or.i.i) #5
   br label %plugin_gen_mem_callbacks.exit
 
 plugin_gen_mem_callbacks.exit:                    ; preds = %if.end, %if.then2.i, %if.else.i
@@ -598,16 +596,15 @@ if.else4.i.i:                                     ; preds = %tcg_gen_req_mo.exit
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %tcg_gen_req_mo.exit
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %tcg_gen_req_mo.exit ]
   %3 = load i8, ptr @tcg_use_softmmu, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %5 = load ptr, ptr %0, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %5, i64 68
-  %6 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %6 to i32
+  %4 = load ptr, ptr %0, align 8
+  %page_bits.i.i = getelementptr inbounds i8, ptr %4, i64 68
+  %5 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %5 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -639,12 +636,12 @@ do.body.i:                                        ; preds = %check_max_alignment
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i, %sw.bb10.i
   %op.addr.1.i = phi i32 [ %and13.i, %sw.bb10.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
-  %7 = load ptr, ptr %0, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %8, i64 20
-  %9 = load i32, ptr %cflags.i, align 4
-  %and19.i = and i32 %9, 32768
+  %6 = load ptr, ptr %0, align 8
+  %gen_tb.i = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = load ptr, ptr %gen_tb.i, align 8
+  %cflags.i = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = load i32, ptr %cflags.i, align 4
+  %and19.i = and i32 %8, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   %and22.i = and i32 %op.addr.1.i, -1793
   %or23.i = or disjoint i32 %and22.i, 1280
@@ -675,45 +672,45 @@ if.then:                                          ; preds = %land.lhs.true
 if.end13:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
   %oi.0 = phi i32 [ %or.i23, %land.lhs.true ], [ %or.i25, %if.then ], [ %or.i23, %tcg_canonicalize_memop.exit ]
   %memop.addr.1 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %memop.addr.0, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
-  %10 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %10, i64 224
-  %11 = load ptr, ptr %plugin_insn.i, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %9 = load ptr, ptr %0, align 8
+  %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
+  %10 = load ptr, ptr %plugin_insn.i, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %plugin_maybe_preserve_addr.exit, label %if.then.i26
 
 if.then.i26:                                      ; preds = %if.end13
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %12 = load ptr, ptr %0, align 8
-  %addr_type.i = getelementptr inbounds i8, ptr %12, i64 60
-  %13 = load i32, ptr %addr_type.i, align 4
-  %cmp1.i = icmp eq i32 %13, 0
+  %11 = load ptr, ptr %0, align 8
+  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %12 = load i32, ptr %addr_type.i, align 4
+  %cmp1.i = icmp eq i32 %12, 0
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %14 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  %13 = inttoptr i64 %sub.ptr.sub.i.i to ptr
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i26
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %14) #5
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
 if.else.i:                                        ; preds = %if.then.i26
-  tail call void @tcg_gen_mov_i64(ptr noundef %call.i, ptr noundef %14) #5
+  tail call void @tcg_gen_mov_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
 plugin_maybe_preserve_addr.exit:                  ; preds = %if.end13, %if.then2.i, %if.else.i
   %retval.0.i = phi ptr [ %call.i, %if.else.i ], [ %call.i, %if.then2.i ], [ null, %if.end13 ]
-  %15 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %15, i64 60
-  %16 = load i32, ptr %addr_type, align 4
-  %cmp15 = icmp eq i32 %16, 0
-  %17 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %15, i64 %17
-  %18 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %19 = ptrtoint ptr %addr to i64
+  %14 = load ptr, ptr %0, align 8
+  %addr_type = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = load i32, ptr %addr_type, align 4
+  %cmp15 = icmp eq i32 %15, 0
+  %16 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %14, i64 %16
+  %17 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %18 = ptrtoint ptr %addr to i64
   %conv5.i.i = zext i32 %oi.0 to i64
   %. = select i1 %cmp15, i32 137, i32 141
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %18, i64 noundef %19, i64 noundef %conv5.i.i) #5
+  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %conv5.i.i) #5
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i23, i32 noundef 1)
   %xor = xor i32 %memop.addr.1, %op.addr.3.i
   %and19 = and i32 %xor, 16
@@ -790,15 +787,14 @@ if.else4.i.i:                                     ; preds = %entry
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %entry
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %entry ]
   %2 = load i8, ptr @tcg_use_softmmu, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
-  %4 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %4 to i32
+  %3 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -828,10 +824,10 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %and17.i = and i32 %op.addr.1.i, -9
   %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
-  %5 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %5, i64 20
-  %6 = load i32, ptr %cflags.i, align 4
-  %and19.i = and i32 %6, 32768
+  %4 = load ptr, ptr %gen_tb.i, align 8
+  %cflags.i = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = load i32, ptr %cflags.i, align 4
+  %and19.i = and i32 %5, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   %and22.i = and i32 %op.addr.1.i, -1801
   %or23.i = or disjoint i32 %and22.i, 1280
@@ -881,48 +877,48 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %swap.0 = phi ptr [ null, %land.lhs.true ], [ %call3, %sw.epilog ], [ null, %tcg_canonicalize_memop.exit ]
   %val.addr.0 = phi ptr [ %val, %land.lhs.true ], [ %call3, %sw.epilog ], [ %val, %tcg_canonicalize_memop.exit ]
   %oi.0 = phi i32 [ %or.i17, %land.lhs.true ], [ %or.i19, %sw.epilog ], [ %or.i17, %tcg_canonicalize_memop.exit ]
-  %7 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %7, i64 60
-  %8 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %8, 0
-  %9 = ptrtoint ptr %val.addr.0 to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %7, i64 %9
-  %10 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %11 = ptrtoint ptr %addr to i64
+  %6 = load ptr, ptr %0, align 8
+  %addr_type = getelementptr inbounds i8, ptr %6, i64 60
+  %7 = load i32, ptr %addr_type, align 4
+  %cmp = icmp eq i32 %7, 0
+  %8 = ptrtoint ptr %val.addr.0 to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %10 = ptrtoint ptr %addr to i64
   %conv5.i.i = zext i32 %oi.0 to i64
   %. = select i1 %cmp, i32 138, i32 142
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %10, i64 noundef %11, i64 noundef %conv5.i.i) #5
-  %12 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %12, i64 224
-  %13 = load ptr, ptr %plugin_insn.i, align 8
-  %cmp.not.i = icmp eq ptr %13, null
+  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i.i) #5
+  %11 = load ptr, ptr %0, align 8
+  %plugin_insn.i = getelementptr inbounds i8, ptr %11, i64 224
+  %12 = load ptr, ptr %plugin_insn.i, align 8
+  %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %plugin_gen_mem_callbacks.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %or.i.i = or i32 %or.i17, 131072
-  %addr_type.i = getelementptr inbounds i8, ptr %12, i64 60
-  %14 = load i32, ptr %addr_type.i, align 4
-  %cmp1.i = icmp eq i32 %14, 0
+  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %13 = load i32, ptr %addr_type.i, align 4
+  %cmp1.i = icmp eq i32 %13, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %15 = load ptr, ptr %0, align 8
+  %14 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %16 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call4.i, ptr noundef %16) #5
+  %15 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call4.i, ptr noundef %15) #5
   tail call void @plugin_gen_empty_mem_callback(ptr noundef %call4.i, i32 noundef %or.i.i) #5
   tail call void @tcg_temp_free_i64(ptr noundef %call4.i) #5
   br label %plugin_gen_mem_callbacks.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %17 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  tail call void @plugin_gen_empty_mem_callback(ptr noundef %17, i32 noundef %or.i.i) #5
+  %16 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  tail call void @plugin_gen_empty_mem_callback(ptr noundef %16, i32 noundef %or.i.i) #5
   br label %plugin_gen_mem_callbacks.exit
 
 plugin_gen_mem_callbacks.exit:                    ; preds = %if.end, %if.then2.i, %if.else.i
@@ -977,55 +973,54 @@ if.else4.i:                                       ; preds = %entry
 get_alignment_bits.exit:                          ; preds = %entry, %if.then2.i, %if.else4.i
   %a.0.i = phi i32 [ %and3.i, %if.then2.i ], [ %shr.i, %if.else4.i ], [ 0, %entry ]
   %0 = load i8, ptr @tcg_use_softmmu, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, label %do.body.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %do.body.i, label %get_alignment_bits.exit.check_max_alignment.exit_crit_edge
 
 get_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %get_alignment_bits.exit
-  %.pre103 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %.pre102 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %check_max_alignment.exit
 
 do.body.i:                                        ; preds = %get_alignment_bits.exit
   %add.i = add nuw nsw i32 %a.0.i, 5
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %page_bits.i = getelementptr inbounds i8, ptr %3, i64 68
-  %4 = load i8, ptr %page_bits.i, align 4
-  %conv.i = zext i8 %4 to i32
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %2 = load ptr, ptr %1, align 8
+  %page_bits.i = getelementptr inbounds i8, ptr %2, i64 68
+  %3 = load i8, ptr %page_bits.i, align 4
+  %conv.i = zext i8 %3 to i32
   %cmp.i = icmp ule i32 %add.i, %conv.i
   tail call void @llvm.assume(i1 %cmp.i)
   br label %check_max_alignment.exit
 
 check_max_alignment.exit:                         ; preds = %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, %do.body.i
-  %.pre-phi104 = phi ptr [ %.pre103, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %2, %do.body.i ]
-  %5 = load ptr, ptr %.pre-phi104, align 8
-  %guest_mo.i = getelementptr inbounds i8, ptr %5, i64 72
-  %6 = load i32, ptr %guest_mo.i, align 8
-  %and1.i = and i32 %6, 2
-  %tobool.not.i47 = icmp eq i32 %and1.i, 0
-  br i1 %tobool.not.i47, label %tcg_gen_req_mo.exit, label %if.then.i
+  %.pre-phi103 = phi ptr [ %.pre102, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
+  %4 = load ptr, ptr %.pre-phi103, align 8
+  %guest_mo.i = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = load i32, ptr %guest_mo.i, align 8
+  %and1.i = and i32 %5, 2
+  %tobool.not.i = icmp eq i32 %and1.i, 0
+  br i1 %tobool.not.i, label %tcg_gen_req_mo.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %check_max_alignment.exit
   tail call void @tcg_gen_mb(i32 noundef 50) #5
-  %.pre = load ptr, ptr %.pre-phi104, align 8
+  %.pre = load ptr, ptr %.pre-phi103, align 8
   br label %tcg_gen_req_mo.exit
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %if.then.i
-  %7 = phi ptr [ %5, %check_max_alignment.exit ], [ %.pre, %if.then.i ]
-  %gen_tb = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %8, i64 20
-  %9 = load i32, ptr %cflags, align 4
-  %and = and i32 %9, 32768
+  %6 = phi ptr [ %4, %check_max_alignment.exit ], [ %.pre, %if.then.i ]
+  %gen_tb = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = load ptr, ptr %gen_tb, align 8
+  %cflags = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = load i32, ptr %cflags, align 4
+  %and = and i32 %8, 32768
   %tobool.not = icmp eq i32 %and, 0
   %and1 = and i32 %memop, -1793
   %or = or disjoint i32 %and1, 1280
   %memop.addr.0 = select i1 %tobool.not, i32 %or, i32 %memop
   %conv = trunc i64 %idx to i32
   %shl.i = shl i32 %memop.addr.0, 4
-  %or.i48 = or i32 %shl.i, %conv
-  %10 = load i32, ptr @cpuinfo, align 4
-  %and3 = and i32 %10, 65536
+  %or.i47 = or i32 %shl.i, %conv
+  %9 = load i32, ptr @cpuinfo, align 4
+  %and3 = and i32 %9, 65536
   %tobool4.not = icmp eq i32 %and3, 0
   br i1 %tobool4.not, label %if.else27, label %if.then5
 
@@ -1036,64 +1031,64 @@ if.then5:                                         ; preds = %tcg_gen_req_mo.exit
 
 land.lhs.true:                                    ; preds = %if.then5
   %call8 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %memop.addr.0) #5
-  %.pre99 = load ptr, ptr %.pre-phi104, align 8
+  %.pre98 = load ptr, ptr %.pre-phi103, align 8
   br i1 %call8, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %11 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %.pre99, i64 %11
+  %10 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %.pre98, i64 %10
   %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 56
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre99 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre98 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  %shl.i49 = and i32 %shl.i, -272
-  %or.i50 = or i32 %shl.i49, %conv
+  %11 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  %shl.i48 = and i32 %shl.i, -272
+  %or.i49 = or i32 %shl.i48, %conv
   br label %if.end17
 
 if.else:                                          ; preds = %land.lhs.true, %if.then5
-  %13 = phi ptr [ %.pre99, %land.lhs.true ], [ %7, %if.then5 ]
-  %14 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i51 = getelementptr i8, ptr %13, i64 %14
-  %add.ptr.i52 = getelementptr i8, ptr %add.ptr.i.i.i51, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i53 = ptrtoint ptr %add.ptr.i52 to i64
-  %sub.ptr.rhs.cast.i.i.i54 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i.i.i53, %sub.ptr.rhs.cast.i.i.i54
-  %15 = inttoptr i64 %sub.ptr.sub.i.i.i55 to ptr
+  %12 = phi ptr [ %.pre98, %land.lhs.true ], [ %6, %if.then5 ]
+  %13 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i50 = getelementptr i8, ptr %12, i64 %13
+  %add.ptr.i51 = getelementptr i8, ptr %add.ptr.i.i.i50, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i52 = ptrtoint ptr %add.ptr.i51 to i64
+  %sub.ptr.rhs.cast.i.i.i53 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52, %sub.ptr.rhs.cast.i.i.i53
+  %14 = inttoptr i64 %sub.ptr.sub.i.i.i54 to ptr
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else, %if.then9
-  %.pre-phi102 = phi i64 [ %sub.ptr.sub.i.i.i55, %if.else ], [ %11, %if.then9 ]
-  %.pre-phi = phi i64 [ %14, %if.else ], [ %sub.ptr.sub.i.i.i, %if.then9 ]
-  %16 = phi ptr [ %13, %if.else ], [ %.pre99, %if.then9 ]
-  %lo.0 = phi ptr [ %val, %if.else ], [ %12, %if.then9 ]
-  %hi.0 = phi ptr [ %15, %if.else ], [ %val, %if.then9 ]
+  %.pre-phi101 = phi i64 [ %sub.ptr.sub.i.i.i54, %if.else ], [ %10, %if.then9 ]
+  %.pre-phi = phi i64 [ %13, %if.else ], [ %sub.ptr.sub.i.i.i, %if.then9 ]
+  %15 = phi ptr [ %12, %if.else ], [ %.pre98, %if.then9 ]
+  %lo.0 = phi ptr [ %val, %if.else ], [ %11, %if.then9 ]
+  %hi.0 = phi ptr [ %14, %if.else ], [ %val, %if.then9 ]
   %need_bswap.0 = phi i1 [ false, %if.else ], [ true, %if.then9 ]
-  %oi.0 = phi i32 [ %or.i48, %if.else ], [ %or.i50, %if.then9 ]
-  %addr_type = getelementptr inbounds i8, ptr %16, i64 60
-  %17 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %17, 0
+  %oi.0 = phi i32 [ %or.i47, %if.else ], [ %or.i49, %if.then9 ]
+  %addr_type = getelementptr inbounds i8, ptr %15, i64 60
+  %16 = load i32, ptr %addr_type, align 4
+  %cmp = icmp eq i32 %16, 0
   %. = select i1 %cmp, i32 145, i32 146
-  %add.ptr.i.i = getelementptr i8, ptr %16, i64 %.pre-phi
-  %add.ptr.i.i56 = getelementptr i8, ptr %16, i64 %.pre-phi102
-  %tobool.not.i57 = icmp eq ptr %add.ptr.i.i56, null
-  %18 = ptrtoint ptr %add.ptr.i.i to i64
-  br i1 %tobool.not.i57, label %if.else.i, label %if.then.i58
+  %add.ptr.i.i = getelementptr i8, ptr %15, i64 %.pre-phi
+  %add.ptr.i.i55 = getelementptr i8, ptr %15, i64 %.pre-phi101
+  %tobool.not.i56 = icmp eq ptr %add.ptr.i.i55, null
+  %17 = ptrtoint ptr %add.ptr.i.i to i64
+  br i1 %tobool.not.i56, label %if.else.i, label %if.then.i57
 
-if.then.i58:                                      ; preds = %if.end17
-  %19 = ptrtoint ptr %add.ptr.i.i56 to i64
-  %20 = ptrtoint ptr %addr to i64
-  %conv.i59 = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %18, i64 noundef %19, i64 noundef %20, i64 noundef %conv.i59) #5
+if.then.i57:                                      ; preds = %if.end17
+  %18 = ptrtoint ptr %add.ptr.i.i55 to i64
+  %19 = ptrtoint ptr %addr to i64
+  %conv.i58 = zext i32 %oi.0 to i64
+  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i58) #5
   br label %gen_ldst.exit
 
 if.else.i:                                        ; preds = %if.end17
-  %21 = ptrtoint ptr %addr to i64
+  %20 = ptrtoint ptr %addr to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %18, i64 noundef %21, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %20, i64 noundef %conv5.i) #5
   br label %gen_ldst.exit
 
-gen_ldst.exit:                                    ; preds = %if.then.i58, %if.else.i
+gen_ldst.exit:                                    ; preds = %if.then.i57, %if.else.i
   br i1 %need_bswap.0, label %if.then25, label %if.end86
 
 if.then25:                                        ; preds = %gen_ldst.exit
@@ -1102,15 +1097,14 @@ if.then25:                                        ; preds = %gen_ldst.exit
   br label %if.end86
 
 if.else27:                                        ; preds = %tcg_gen_req_mo.exit
-  %22 = load i8, ptr @tcg_use_softmmu, align 1
-  %23 = and i8 %22, 1
-  %tobool.not.i60 = icmp eq i8 %23, 0
-  br i1 %tobool.not.i60, label %if.end.i, label %if.else74
+  %21 = load i8, ptr @tcg_use_softmmu, align 1
+  %tobool.i59 = trunc i8 %21 to i1
+  br i1 %tobool.i59, label %if.else74, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else27
-  %and.i61 = lshr i32 %memop.addr.0, 8
-  %24 = and i32 %and.i61, 7
-  switch i32 %24, label %do.body.i62 [
+  %and.i60 = lshr i32 %memop.addr.0, 8
+  %22 = and i32 %and.i60, 7
+  switch i32 %22, label %do.body.i61 [
     i32 5, label %if.then29
     i32 1, label %if.then29
     i32 0, label %if.else74
@@ -1119,16 +1113,16 @@ if.end.i:                                         ; preds = %if.else27
     i32 3, label %if.else74
   ]
 
-do.body.i62:                                      ; preds = %if.end.i
+do.body.i61:                                      ; preds = %if.end.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @__func__.use_two_i64_for_i128, ptr noundef null) #6
   unreachable
 
 if.then29:                                        ; preds = %if.end.i, %if.end.i
-  %and.i63 = and i32 %memop.addr.0, -8
-  %or.i64 = or disjoint i32 %and.i63, 3
-  %and1.i65 = lshr i32 %memop.addr.0, 5
-  %25 = and i32 %and1.i65, 7
-  switch i32 %25, label %default.unreachable [
+  %and.i62 = and i32 %memop.addr.0, -8
+  %or.i63 = or disjoint i32 %and.i62, 3
+  %and1.i64 = lshr i32 %memop.addr.0, 5
+  %23 = and i32 %and1.i64, 7
+  switch i32 %23, label %default.unreachable [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.epilog.i
     i32 2, label %sw.epilog.i
@@ -1140,65 +1134,65 @@ if.then29:                                        ; preds = %if.end.i, %if.end.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.then29
-  %or4.i = or i32 %and.i63, 227
+  %or4.i = or i32 %and.i62, 227
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %if.then29
-  %and6.i = and i32 %or.i64, -229
+  %and6.i = and i32 %or.i63, -229
   %or7.i = or disjoint i32 %and6.i, 128
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.then29, %if.then29, %if.then29
-  %or10.i = or i32 %and.i63, 227
+  %or10.i = or i32 %and.i62, 227
   br label %sw.epilog.i
 
 default.unreachable:                              ; preds = %if.then29
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %if.then29, %if.then29, %if.then29
-  %mop_1.0.i = phi i32 [ %or.i64, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i64, %if.then29 ], [ %or.i64, %if.then29 ], [ %or.i64, %if.then29 ]
-  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i64, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i64, %if.then29 ], [ %or.i64, %if.then29 ], [ %or.i64, %if.then29 ]
+  %mop_1.0.i = phi i32 [ %or.i63, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ]
+  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i63, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ]
   %and11.i = and i32 %memop.addr.0, 16
-  %tobool.not.i66 = icmp eq i32 %and11.i, 0
-  br i1 %tobool.not.i66, label %canonicalize_memop_i128_as_i64.exit, label %land.lhs.true.i
+  %tobool.not.i65 = icmp eq i32 %and11.i, 0
+  br i1 %tobool.not.i65, label %canonicalize_memop_i128_as_i64.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %call.i = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %mop_1.0.i) #5
-  br i1 %call.i, label %canonicalize_memop_i128_as_i64.exit, label %if.then.i67
+  br i1 %call.i, label %canonicalize_memop_i128_as_i64.exit, label %if.then.i66
 
-if.then.i67:                                      ; preds = %land.lhs.true.i
+if.then.i66:                                      ; preds = %land.lhs.true.i
   %and12.i = and i32 %mop_1.0.i, -17
   %and13.i = and i32 %mop_2.0.i, -17
   br label %canonicalize_memop_i128_as_i64.exit
 
-canonicalize_memop_i128_as_i64.exit:              ; preds = %sw.epilog.i, %land.lhs.true.i, %if.then.i67
-  %mop_1.1.i = phi i32 [ %mop_1.0.i, %land.lhs.true.i ], [ %and12.i, %if.then.i67 ], [ %mop_1.0.i, %sw.epilog.i ]
-  %mop_2.1.i = phi i32 [ %mop_2.0.i, %land.lhs.true.i ], [ %and13.i, %if.then.i67 ], [ %mop_2.0.i, %sw.epilog.i ]
+canonicalize_memop_i128_as_i64.exit:              ; preds = %sw.epilog.i, %land.lhs.true.i, %if.then.i66
+  %mop_1.1.i = phi i32 [ %mop_1.0.i, %land.lhs.true.i ], [ %and12.i, %if.then.i66 ], [ %mop_1.0.i, %sw.epilog.i ]
+  %mop_2.1.i = phi i32 [ %mop_2.0.i, %land.lhs.true.i ], [ %and13.i, %if.then.i66 ], [ %mop_2.0.i, %sw.epilog.i ]
   %xor = xor i32 %mop_1.1.i, %memop.addr.0
   %and31 = and i32 %xor, 16
   %tobool32.not = icmp eq i32 %and31, 0
-  %26 = load ptr, ptr %.pre-phi104, align 8
-  %addr_type33 = getelementptr inbounds i8, ptr %26, i64 60
-  %27 = load i32, ptr %addr_type33, align 4
-  %cmp34 = icmp eq i32 %27, 0
+  %24 = load ptr, ptr %.pre-phi103, align 8
+  %addr_type33 = getelementptr inbounds i8, ptr %24, i64 60
+  %25 = load i32, ptr %addr_type33, align 4
+  %cmp34 = icmp eq i32 %25, 0
   %.46 = select i1 %cmp34, i32 137, i32 141
-  %28 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i69 = getelementptr i8, ptr %26, i64 %28
-  %add.ptr.i70 = getelementptr i8, ptr %add.ptr.i.i.i69, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i71 = ptrtoint ptr %add.ptr.i70 to i64
-  %sub.ptr.rhs.cast.i.i.i72 = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i.i.i71, %sub.ptr.rhs.cast.i.i.i72
-  %29 = inttoptr i64 %sub.ptr.sub.i.i.i73 to ptr
-  %x.0 = select i1 %tobool.not.i66, ptr %val, ptr %29
-  %y.0 = select i1 %tobool.not.i66, ptr %29, ptr %val
-  %shl.i79 = shl i32 %mop_1.1.i, 4
-  %or.i80 = or i32 %shl.i79, %conv
-  %30 = ptrtoint ptr %x.0 to i64
-  %add.ptr.i.i.i81 = getelementptr i8, ptr %26, i64 %30
-  %31 = ptrtoint ptr %add.ptr.i.i.i81 to i64
-  %32 = ptrtoint ptr %addr to i64
-  %conv5.i.i = zext i32 %or.i80 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %31, i64 noundef %32, i64 noundef %conv5.i.i) #5
+  %26 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i68 = getelementptr i8, ptr %24, i64 %26
+  %add.ptr.i69 = getelementptr i8, ptr %add.ptr.i.i.i68, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i70 = ptrtoint ptr %add.ptr.i69 to i64
+  %sub.ptr.rhs.cast.i.i.i71 = ptrtoint ptr %24 to i64
+  %sub.ptr.sub.i.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i.i.i70, %sub.ptr.rhs.cast.i.i.i71
+  %27 = inttoptr i64 %sub.ptr.sub.i.i.i72 to ptr
+  %x.0 = select i1 %tobool.not.i65, ptr %val, ptr %27
+  %y.0 = select i1 %tobool.not.i65, ptr %27, ptr %val
+  %shl.i78 = shl i32 %mop_1.1.i, 4
+  %or.i79 = or i32 %shl.i78, %conv
+  %28 = ptrtoint ptr %x.0 to i64
+  %add.ptr.i.i.i80 = getelementptr i8, ptr %24, i64 %28
+  %29 = ptrtoint ptr %add.ptr.i.i.i80 to i64
+  %30 = ptrtoint ptr %addr to i64
+  %conv5.i.i = zext i32 %or.i79 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %29, i64 noundef %30, i64 noundef %conv5.i.i) #5
   br i1 %tobool32.not, label %if.end54, label %if.then53
 
 if.then53:                                        ; preds = %canonicalize_memop_i128_as_i64.exit
@@ -1206,44 +1200,44 @@ if.then53:                                        ; preds = %canonicalize_memop_
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then53, %canonicalize_memop_i128_as_i64.exit
-  %33 = load ptr, ptr %.pre-phi104, align 8
-  %addr_type55 = getelementptr inbounds i8, ptr %33, i64 60
-  %34 = load i32, ptr %addr_type55, align 4
-  %cmp56 = icmp eq i32 %34, 0
+  %31 = load ptr, ptr %.pre-phi103, align 8
+  %addr_type55 = getelementptr inbounds i8, ptr %31, i64 60
+  %32 = load i32, ptr %addr_type55, align 4
+  %cmp56 = icmp eq i32 %32, 0
   br i1 %cmp56, label %if.then58, label %if.else62
 
 if.then58:                                        ; preds = %if.end54
   %call59 = tail call ptr @tcg_temp_ebb_new_i32() #5
-  %35 = load ptr, ptr %.pre-phi104, align 8
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i = sub i64 %32, %sub.ptr.rhs.cast.i
-  %36 = inttoptr i64 %sub.ptr.sub.i to ptr
-  tail call void @tcg_gen_addi_i32(ptr noundef %call59, ptr noundef %36, i32 noundef 8) #5
+  %33 = load ptr, ptr %.pre-phi103, align 8
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %33 to i64
+  %sub.ptr.sub.i = sub i64 %30, %sub.ptr.rhs.cast.i
+  %34 = inttoptr i64 %sub.ptr.sub.i to ptr
+  tail call void @tcg_gen_addi_i32(ptr noundef %call59, ptr noundef %34, i32 noundef 8) #5
   br label %if.end67
 
 if.else62:                                        ; preds = %if.end54
   %call64 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %37 = load ptr, ptr %.pre-phi104, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %37 to i64
-  %sub.ptr.sub.i.i = sub i64 %32, %sub.ptr.rhs.cast.i.i
-  %38 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_addi_i64(ptr noundef %call64, ptr noundef %38, i64 noundef 8) #5
+  %35 = load ptr, ptr %.pre-phi103, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %35 to i64
+  %sub.ptr.sub.i.i = sub i64 %30, %sub.ptr.rhs.cast.i.i
+  %36 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_addi_i64(ptr noundef %call64, ptr noundef %36, i64 noundef 8) #5
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else62, %if.then58
   %call64.sink = phi ptr [ %call64, %if.else62 ], [ %call59, %if.then58 ]
-  %.sink = load ptr, ptr %.pre-phi104, align 8
-  %39 = ptrtoint ptr %call64.sink to i64
-  %add.ptr.i.i83 = getelementptr i8, ptr %.sink, i64 %39
-  %shl.i84 = shl i32 %mop_2.1.i, 4
-  %or.i85 = or i32 %shl.i84, %conv
-  %40 = ptrtoint ptr %y.0 to i64
-  %add.ptr.i.i.i86 = getelementptr i8, ptr %.sink, i64 %40
-  %41 = ptrtoint ptr %add.ptr.i.i.i86 to i64
-  %42 = ptrtoint ptr %add.ptr.i.i83 to i64
-  %conv5.i.i87 = zext i32 %or.i85 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %41, i64 noundef %42, i64 noundef %conv5.i.i87) #5
-  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i83) #5
+  %.sink = load ptr, ptr %.pre-phi103, align 8
+  %37 = ptrtoint ptr %call64.sink to i64
+  %add.ptr.i.i82 = getelementptr i8, ptr %.sink, i64 %37
+  %shl.i83 = shl i32 %mop_2.1.i, 4
+  %or.i84 = or i32 %shl.i83, %conv
+  %38 = ptrtoint ptr %y.0 to i64
+  %add.ptr.i.i.i85 = getelementptr i8, ptr %.sink, i64 %38
+  %39 = ptrtoint ptr %add.ptr.i.i.i85 to i64
+  %40 = ptrtoint ptr %add.ptr.i.i82 to i64
+  %conv5.i.i86 = zext i32 %or.i84 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %39, i64 noundef %40, i64 noundef %conv5.i.i86) #5
+  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i82) #5
   br i1 %tobool32.not, label %if.end86, label %if.then72
 
 if.then72:                                        ; preds = %if.end67
@@ -1251,48 +1245,48 @@ if.then72:                                        ; preds = %if.end67
   br label %if.end86
 
 if.else74:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else27
-  %addr_type75 = getelementptr inbounds i8, ptr %7, i64 60
-  %43 = load i32, ptr %addr_type75, align 4
-  %cmp76 = icmp eq i32 %43, 0
+  %addr_type75 = getelementptr inbounds i8, ptr %6, i64 60
+  %41 = load i32, ptr %addr_type75, align 4
+  %cmp76 = icmp eq i32 %41, 0
   br i1 %cmp76, label %if.then78, label %if.end82
 
 if.then78:                                        ; preds = %if.else74
   %call79 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %44 = load ptr, ptr %.pre-phi104, align 8
-  %sub.ptr.lhs.cast.i.i88 = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i89 = ptrtoint ptr %44 to i64
-  %sub.ptr.sub.i90 = sub i64 %sub.ptr.lhs.cast.i.i88, %sub.ptr.rhs.cast.i89
-  %45 = inttoptr i64 %sub.ptr.sub.i90 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call79, ptr noundef %45) #5
-  %46 = load ptr, ptr %.pre-phi104, align 8
-  %47 = ptrtoint ptr %call79 to i64
-  %add.ptr.i.i91 = getelementptr i8, ptr %46, i64 %47
+  %42 = load ptr, ptr %.pre-phi103, align 8
+  %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %addr to i64
+  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %42 to i64
+  %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i.i87, %sub.ptr.rhs.cast.i88
+  %43 = inttoptr i64 %sub.ptr.sub.i89 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call79, ptr noundef %43) #5
+  %44 = load ptr, ptr %.pre-phi103, align 8
+  %45 = ptrtoint ptr %call79 to i64
+  %add.ptr.i.i90 = getelementptr i8, ptr %44, i64 %45
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then78, %if.else74
-  %48 = phi ptr [ %46, %if.then78 ], [ %7, %if.else74 ]
+  %46 = phi ptr [ %44, %if.then78 ], [ %6, %if.else74 ]
   %ext_addr.0 = phi ptr [ %call79, %if.then78 ], [ null, %if.else74 ]
-  %addr.addr.0 = phi ptr [ %add.ptr.i.i91, %if.then78 ], [ %addr, %if.else74 ]
-  %49 = load ptr, ptr @tcg_env, align 8
-  %sub.ptr.lhs.cast.i.i.i92 = ptrtoint ptr %addr.addr.0 to i64
-  %sub.ptr.rhs.cast.i.i93 = ptrtoint ptr %48 to i64
-  %sub.ptr.sub.i.i94 = sub i64 %sub.ptr.lhs.cast.i.i.i92, %sub.ptr.rhs.cast.i.i93
-  %call84 = tail call ptr @tcg_constant_i32(i32 noundef %or.i48) #5
-  %50 = load ptr, ptr %.pre-phi104, align 8
-  %51 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i95 = getelementptr i8, ptr %50, i64 %51
-  %52 = ptrtoint ptr %49 to i64
-  %add.ptr.i.i1.i = getelementptr i8, ptr %50, i64 %52
-  %add.ptr.i.i2.i = getelementptr i8, ptr %50, i64 %sub.ptr.sub.i.i94
-  %53 = ptrtoint ptr %call84 to i64
-  %add.ptr.i.i96 = getelementptr i8, ptr %50, i64 %53
-  tail call void @tcg_gen_call3(ptr noundef nonnull @helper_info_ld_i128, ptr noundef %add.ptr.i.i.i95, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i96) #5
+  %addr.addr.0 = phi ptr [ %add.ptr.i.i90, %if.then78 ], [ %addr, %if.else74 ]
+  %47 = load ptr, ptr @tcg_env, align 8
+  %sub.ptr.lhs.cast.i.i.i91 = ptrtoint ptr %addr.addr.0 to i64
+  %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %46 to i64
+  %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i91, %sub.ptr.rhs.cast.i.i92
+  %call84 = tail call ptr @tcg_constant_i32(i32 noundef %or.i47) #5
+  %48 = load ptr, ptr %.pre-phi103, align 8
+  %49 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i94 = getelementptr i8, ptr %48, i64 %49
+  %50 = ptrtoint ptr %47 to i64
+  %add.ptr.i.i1.i = getelementptr i8, ptr %48, i64 %50
+  %add.ptr.i.i2.i = getelementptr i8, ptr %48, i64 %sub.ptr.sub.i.i93
+  %51 = ptrtoint ptr %call84 to i64
+  %add.ptr.i.i95 = getelementptr i8, ptr %48, i64 %51
+  tail call void @tcg_gen_call3(ptr noundef nonnull @helper_info_ld_i128, ptr noundef %add.ptr.i.i.i94, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i95) #5
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end82, %if.then72, %if.end67, %gen_ldst.exit, %if.then25
   %ext_addr.1 = phi ptr [ null, %if.then25 ], [ null, %gen_ldst.exit ], [ null, %if.then72 ], [ null, %if.end67 ], [ %ext_addr.0, %if.end82 ]
   %addr.addr.1 = phi ptr [ %addr, %if.then25 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.then72 ], [ %addr, %if.end67 ], [ %addr.addr.0, %if.end82 ]
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.1, ptr noundef %addr.addr.1, i32 noundef %or.i48, i32 noundef 1)
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.1, ptr noundef %addr.addr.1, i32 noundef %or.i47, i32 noundef 1)
   ret void
 }
 
@@ -1336,55 +1330,54 @@ if.else4.i:                                       ; preds = %entry
 get_alignment_bits.exit:                          ; preds = %entry, %if.then2.i, %if.else4.i
   %a.0.i = phi i32 [ %and3.i, %if.then2.i ], [ %shr.i, %if.else4.i ], [ 0, %entry ]
   %0 = load i8, ptr @tcg_use_softmmu, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, label %do.body.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %do.body.i, label %get_alignment_bits.exit.check_max_alignment.exit_crit_edge
 
 get_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %get_alignment_bits.exit
-  %.pre124 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %.pre123 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %check_max_alignment.exit
 
 do.body.i:                                        ; preds = %get_alignment_bits.exit
   %add.i = add nuw nsw i32 %a.0.i, 5
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %page_bits.i = getelementptr inbounds i8, ptr %3, i64 68
-  %4 = load i8, ptr %page_bits.i, align 4
-  %conv.i = zext i8 %4 to i32
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %2 = load ptr, ptr %1, align 8
+  %page_bits.i = getelementptr inbounds i8, ptr %2, i64 68
+  %3 = load i8, ptr %page_bits.i, align 4
+  %conv.i = zext i8 %3 to i32
   %cmp.i = icmp ule i32 %add.i, %conv.i
   tail call void @llvm.assume(i1 %cmp.i)
   br label %check_max_alignment.exit
 
 check_max_alignment.exit:                         ; preds = %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, %do.body.i
-  %.pre-phi125 = phi ptr [ %.pre124, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %2, %do.body.i ]
-  %5 = load ptr, ptr %.pre-phi125, align 8
-  %guest_mo.i = getelementptr inbounds i8, ptr %5, i64 72
-  %6 = load i32, ptr %guest_mo.i, align 8
-  %and1.i = and i32 %6, 2
-  %tobool.not.i52 = icmp eq i32 %and1.i, 0
-  br i1 %tobool.not.i52, label %tcg_gen_req_mo.exit, label %if.then.i
+  %.pre-phi124 = phi ptr [ %.pre123, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
+  %4 = load ptr, ptr %.pre-phi124, align 8
+  %guest_mo.i = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = load i32, ptr %guest_mo.i, align 8
+  %and1.i = and i32 %5, 2
+  %tobool.not.i = icmp eq i32 %and1.i, 0
+  br i1 %tobool.not.i, label %tcg_gen_req_mo.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %check_max_alignment.exit
   tail call void @tcg_gen_mb(i32 noundef 50) #5
-  %.pre = load ptr, ptr %.pre-phi125, align 8
+  %.pre = load ptr, ptr %.pre-phi124, align 8
   br label %tcg_gen_req_mo.exit
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %if.then.i
-  %7 = phi ptr [ %5, %check_max_alignment.exit ], [ %.pre, %if.then.i ]
-  %gen_tb = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %8, i64 20
-  %9 = load i32, ptr %cflags, align 4
-  %and = and i32 %9, 32768
+  %6 = phi ptr [ %4, %check_max_alignment.exit ], [ %.pre, %if.then.i ]
+  %gen_tb = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = load ptr, ptr %gen_tb, align 8
+  %cflags = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = load i32, ptr %cflags, align 4
+  %and = and i32 %8, 32768
   %tobool.not = icmp eq i32 %and, 0
   %and1 = and i32 %memop, -1793
   %or = or disjoint i32 %and1, 1280
   %memop.addr.0 = select i1 %tobool.not, i32 %or, i32 %memop
   %conv = trunc i64 %idx to i32
   %shl.i = shl i32 %memop.addr.0, 4
-  %or.i53 = or i32 %shl.i, %conv
-  %10 = load i32, ptr @cpuinfo, align 4
-  %and3 = and i32 %10, 65536
+  %or.i52 = or i32 %shl.i, %conv
+  %9 = load i32, ptr @cpuinfo, align 4
+  %and3 = and i32 %9, 65536
   %tobool4.not = icmp eq i32 %and3, 0
   br i1 %tobool4.not, label %if.else29, label %if.then5
 
@@ -1398,71 +1391,71 @@ land.lhs.true:                                    ; preds = %if.then5
   br i1 %call8, label %land.lhs.true.if.else_crit_edge, label %if.then9
 
 land.lhs.true.if.else_crit_edge:                  ; preds = %land.lhs.true
-  %.pre120 = load ptr, ptr %.pre-phi125, align 8
+  %.pre119 = load ptr, ptr %.pre-phi124, align 8
   br label %if.else
 
 if.then9:                                         ; preds = %land.lhs.true
   %call10 = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call11 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %11 = load ptr, ptr %.pre-phi125, align 8
-  %12 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %11, i64 %12
+  %10 = load ptr, ptr %.pre-phi124, align 8
+  %11 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %10, i64 %11
   %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 56
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %13 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  tail call void @tcg_gen_bswap64_i64(ptr noundef %call10, ptr noundef %13) #5
+  %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  tail call void @tcg_gen_bswap64_i64(ptr noundef %call10, ptr noundef %12) #5
   tail call void @tcg_gen_bswap64_i64(ptr noundef %call11, ptr noundef %val) #5
-  %shl.i54 = and i32 %shl.i, -272
-  %or.i55 = or i32 %shl.i54, %conv
-  %.pre121 = load ptr, ptr %.pre-phi125, align 8
-  %.pre123 = ptrtoint ptr %call10 to i64
+  %shl.i53 = and i32 %shl.i, -272
+  %or.i54 = or i32 %shl.i53, %conv
+  %.pre120 = load ptr, ptr %.pre-phi124, align 8
+  %.pre122 = ptrtoint ptr %call10 to i64
   br label %if.end19
 
 if.else:                                          ; preds = %land.lhs.true.if.else_crit_edge, %if.then5
-  %14 = phi ptr [ %.pre120, %land.lhs.true.if.else_crit_edge ], [ %7, %if.then5 ]
-  %15 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i56 = getelementptr i8, ptr %14, i64 %15
-  %add.ptr.i57 = getelementptr i8, ptr %add.ptr.i.i.i56, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i58 = ptrtoint ptr %add.ptr.i57 to i64
-  %sub.ptr.rhs.cast.i.i.i59 = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i.i.i60 = sub i64 %sub.ptr.lhs.cast.i.i.i.i58, %sub.ptr.rhs.cast.i.i.i59
-  %16 = inttoptr i64 %sub.ptr.sub.i.i.i60 to ptr
+  %13 = phi ptr [ %.pre119, %land.lhs.true.if.else_crit_edge ], [ %6, %if.then5 ]
+  %14 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i55 = getelementptr i8, ptr %13, i64 %14
+  %add.ptr.i56 = getelementptr i8, ptr %add.ptr.i.i.i55, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i57 = ptrtoint ptr %add.ptr.i56 to i64
+  %sub.ptr.rhs.cast.i.i.i58 = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i.i.i57, %sub.ptr.rhs.cast.i.i.i58
+  %15 = inttoptr i64 %sub.ptr.sub.i.i.i59 to ptr
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then9
-  %.pre-phi = phi i64 [ %15, %if.else ], [ %.pre123, %if.then9 ]
-  %17 = phi ptr [ %14, %if.else ], [ %.pre121, %if.then9 ]
+  %.pre-phi = phi i64 [ %14, %if.else ], [ %.pre122, %if.then9 ]
+  %16 = phi ptr [ %13, %if.else ], [ %.pre120, %if.then9 ]
   %lo.0 = phi ptr [ %val, %if.else ], [ %call10, %if.then9 ]
-  %hi.0 = phi ptr [ %16, %if.else ], [ %call11, %if.then9 ]
-  %oi.0 = phi i32 [ %or.i53, %if.else ], [ %or.i55, %if.then9 ]
+  %hi.0 = phi ptr [ %15, %if.else ], [ %call11, %if.then9 ]
+  %oi.0 = phi i32 [ %or.i52, %if.else ], [ %or.i54, %if.then9 ]
   %need_bswap.0 = phi i1 [ false, %if.else ], [ true, %if.then9 ]
-  %addr_type = getelementptr inbounds i8, ptr %17, i64 60
-  %18 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %18, 0
+  %addr_type = getelementptr inbounds i8, ptr %16, i64 60
+  %17 = load i32, ptr %addr_type, align 4
+  %cmp = icmp eq i32 %17, 0
   %. = select i1 %cmp, i32 147, i32 148
-  %add.ptr.i.i = getelementptr i8, ptr %17, i64 %.pre-phi
-  %19 = ptrtoint ptr %hi.0 to i64
-  %add.ptr.i.i61 = getelementptr i8, ptr %17, i64 %19
-  %tobool.not.i62 = icmp eq ptr %add.ptr.i.i61, null
-  %20 = ptrtoint ptr %add.ptr.i.i to i64
-  br i1 %tobool.not.i62, label %if.else.i, label %if.then.i63
+  %add.ptr.i.i = getelementptr i8, ptr %16, i64 %.pre-phi
+  %18 = ptrtoint ptr %hi.0 to i64
+  %add.ptr.i.i60 = getelementptr i8, ptr %16, i64 %18
+  %tobool.not.i61 = icmp eq ptr %add.ptr.i.i60, null
+  %19 = ptrtoint ptr %add.ptr.i.i to i64
+  br i1 %tobool.not.i61, label %if.else.i, label %if.then.i62
 
-if.then.i63:                                      ; preds = %if.end19
-  %21 = ptrtoint ptr %add.ptr.i.i61 to i64
-  %22 = ptrtoint ptr %addr to i64
-  %conv.i64 = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %20, i64 noundef %21, i64 noundef %22, i64 noundef %conv.i64) #5
+if.then.i62:                                      ; preds = %if.end19
+  %20 = ptrtoint ptr %add.ptr.i.i60 to i64
+  %21 = ptrtoint ptr %addr to i64
+  %conv.i63 = zext i32 %oi.0 to i64
+  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %conv.i63) #5
   br label %gen_ldst.exit
 
 if.else.i:                                        ; preds = %if.end19
-  %23 = ptrtoint ptr %addr to i64
+  %22 = ptrtoint ptr %addr to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %20, i64 noundef %23, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %19, i64 noundef %22, i64 noundef %conv5.i) #5
   br label %gen_ldst.exit
 
-gen_ldst.exit:                                    ; preds = %if.then.i63, %if.else.i
+gen_ldst.exit:                                    ; preds = %if.then.i62, %if.else.i
   br i1 %need_bswap.0, label %if.then27, label %if.end91
 
 if.then27:                                        ; preds = %gen_ldst.exit
@@ -1471,15 +1464,14 @@ if.then27:                                        ; preds = %gen_ldst.exit
   br label %if.end91
 
 if.else29:                                        ; preds = %tcg_gen_req_mo.exit
-  %24 = load i8, ptr @tcg_use_softmmu, align 1
-  %25 = and i8 %24, 1
-  %tobool.not.i65 = icmp eq i8 %25, 0
-  br i1 %tobool.not.i65, label %if.end.i, label %if.else79
+  %23 = load i8, ptr @tcg_use_softmmu, align 1
+  %tobool.i64 = trunc i8 %23 to i1
+  br i1 %tobool.i64, label %if.else79, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else29
-  %and.i66 = lshr i32 %memop.addr.0, 8
-  %26 = and i32 %and.i66, 7
-  switch i32 %26, label %do.body.i67 [
+  %and.i65 = lshr i32 %memop.addr.0, 8
+  %24 = and i32 %and.i65, 7
+  switch i32 %24, label %do.body.i66 [
     i32 5, label %if.then31
     i32 1, label %if.then31
     i32 0, label %if.else79
@@ -1488,16 +1480,16 @@ if.end.i:                                         ; preds = %if.else29
     i32 3, label %if.else79
   ]
 
-do.body.i67:                                      ; preds = %if.end.i
+do.body.i66:                                      ; preds = %if.end.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @__func__.use_two_i64_for_i128, ptr noundef null) #6
   unreachable
 
 if.then31:                                        ; preds = %if.end.i, %if.end.i
-  %and.i68 = and i32 %memop.addr.0, -8
-  %or.i69 = or disjoint i32 %and.i68, 3
-  %and1.i70 = lshr i32 %memop.addr.0, 5
-  %27 = and i32 %and1.i70, 7
-  switch i32 %27, label %default.unreachable [
+  %and.i67 = and i32 %memop.addr.0, -8
+  %or.i68 = or disjoint i32 %and.i67, 3
+  %and1.i69 = lshr i32 %memop.addr.0, 5
+  %25 = and i32 %and1.i69, 7
+  switch i32 %25, label %default.unreachable [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.epilog.i
     i32 2, label %sw.epilog.i
@@ -1509,27 +1501,27 @@ if.then31:                                        ; preds = %if.end.i, %if.end.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.then31
-  %or4.i = or i32 %and.i68, 227
+  %or4.i = or i32 %and.i67, 227
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %if.then31
-  %and6.i = and i32 %or.i69, -229
+  %and6.i = and i32 %or.i68, -229
   %or7.i = or disjoint i32 %and6.i, 128
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.then31, %if.then31, %if.then31
-  %or10.i = or i32 %and.i68, 227
+  %or10.i = or i32 %and.i67, 227
   br label %sw.epilog.i
 
 default.unreachable:                              ; preds = %if.then31
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %if.then31, %if.then31, %if.then31
-  %mop_1.0.i = phi i32 [ %or.i69, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i69, %if.then31 ], [ %or.i69, %if.then31 ], [ %or.i69, %if.then31 ]
-  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i69, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i69, %if.then31 ], [ %or.i69, %if.then31 ], [ %or.i69, %if.then31 ]
+  %mop_1.0.i = phi i32 [ %or.i68, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ]
+  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i68, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ]
   %and11.i = and i32 %memop.addr.0, 16
-  %tobool.not.i71 = icmp eq i32 %and11.i, 0
-  br i1 %tobool.not.i71, label %if.then41, label %land.lhs.true.i
+  %tobool.not.i70 = icmp eq i32 %and11.i, 0
+  br i1 %tobool.not.i70, label %if.then41, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %call.i = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %mop_1.0.i) #5
@@ -1537,42 +1529,42 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %and13.i = and i32 %mop_2.0.i, -17
   %mop_1.1.i.ph = select i1 %call.i, i32 %mop_1.0.i, i32 %and12.i
   %mop_2.1.i.ph = select i1 %call.i, i32 %mop_2.0.i, i32 %and13.i
-  %28 = load ptr, ptr %.pre-phi125, align 8
-  %addr_type32111 = getelementptr inbounds i8, ptr %28, i64 60
-  %29 = load i32, ptr %addr_type32111, align 4
-  %cmp33112 = icmp eq i32 %29, 0
-  %.51113 = select i1 %cmp33112, i32 138, i32 142
-  %30 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i79 = getelementptr i8, ptr %28, i64 %30
-  %add.ptr.i80 = getelementptr i8, ptr %add.ptr.i.i.i79, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i81 = ptrtoint ptr %add.ptr.i80 to i64
-  %sub.ptr.rhs.cast.i.i.i82 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i.i81, %sub.ptr.rhs.cast.i.i.i82
-  %31 = inttoptr i64 %sub.ptr.sub.i.i.i83 to ptr
+  %26 = load ptr, ptr %.pre-phi124, align 8
+  %addr_type32110 = getelementptr inbounds i8, ptr %26, i64 60
+  %27 = load i32, ptr %addr_type32110, align 4
+  %cmp33111 = icmp eq i32 %27, 0
+  %.51112 = select i1 %cmp33111, i32 138, i32 142
+  %28 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i78 = getelementptr i8, ptr %26, i64 %28
+  %add.ptr.i79 = getelementptr i8, ptr %add.ptr.i.i.i78, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i80 = ptrtoint ptr %add.ptr.i79 to i64
+  %sub.ptr.rhs.cast.i.i.i81 = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i.i.i80, %sub.ptr.rhs.cast.i.i.i81
+  %29 = inttoptr i64 %sub.ptr.sub.i.i.i82 to ptr
   br label %if.end47
 
 if.then41:                                        ; preds = %sw.epilog.i
-  %addr_type32 = getelementptr inbounds i8, ptr %7, i64 60
-  %32 = load i32, ptr %addr_type32, align 4
-  %cmp33 = icmp eq i32 %32, 0
+  %addr_type32 = getelementptr inbounds i8, ptr %6, i64 60
+  %30 = load i32, ptr %addr_type32, align 4
+  %cmp33 = icmp eq i32 %30, 0
   %.51 = select i1 %cmp33, i32 138, i32 142
-  %33 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i74 = getelementptr i8, ptr %7, i64 %33
-  %add.ptr.i75 = getelementptr i8, ptr %add.ptr.i.i.i74, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i76 = ptrtoint ptr %add.ptr.i75 to i64
-  %sub.ptr.rhs.cast.i.i.i77 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i.i.i78 = sub i64 %sub.ptr.lhs.cast.i.i.i.i76, %sub.ptr.rhs.cast.i.i.i77
-  %34 = inttoptr i64 %sub.ptr.sub.i.i.i78 to ptr
+  %31 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i73 = getelementptr i8, ptr %6, i64 %31
+  %add.ptr.i74 = getelementptr i8, ptr %add.ptr.i.i.i73, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i75 = ptrtoint ptr %add.ptr.i74 to i64
+  %sub.ptr.rhs.cast.i.i.i76 = ptrtoint ptr %6 to i64
+  %sub.ptr.sub.i.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i.i.i75, %sub.ptr.rhs.cast.i.i.i76
+  %32 = inttoptr i64 %sub.ptr.sub.i.i.i77 to ptr
   br label %if.end47
 
 if.end47:                                         ; preds = %land.lhs.true.i, %if.then41
-  %35 = phi ptr [ %7, %if.then41 ], [ %28, %land.lhs.true.i ]
-  %.51118 = phi i32 [ %.51, %if.then41 ], [ %.51113, %land.lhs.true.i ]
-  %mop_2.1.i116 = phi i32 [ %mop_2.0.i, %if.then41 ], [ %mop_2.1.i.ph, %land.lhs.true.i ]
-  %mop_1.1.i114 = phi i32 [ %mop_1.0.i, %if.then41 ], [ %mop_1.1.i.ph, %land.lhs.true.i ]
-  %x.0 = phi ptr [ %val, %if.then41 ], [ %31, %land.lhs.true.i ]
-  %y.0 = phi ptr [ %34, %if.then41 ], [ %val, %land.lhs.true.i ]
-  %xor = xor i32 %mop_1.1.i114, %memop.addr.0
+  %33 = phi ptr [ %6, %if.then41 ], [ %26, %land.lhs.true.i ]
+  %.51117 = phi i32 [ %.51, %if.then41 ], [ %.51112, %land.lhs.true.i ]
+  %mop_2.1.i115 = phi i32 [ %mop_2.0.i, %if.then41 ], [ %mop_2.1.i.ph, %land.lhs.true.i ]
+  %mop_1.1.i113 = phi i32 [ %mop_1.0.i, %if.then41 ], [ %mop_1.1.i.ph, %land.lhs.true.i ]
+  %x.0 = phi ptr [ %val, %if.then41 ], [ %29, %land.lhs.true.i ]
+  %y.0 = phi ptr [ %32, %if.then41 ], [ %val, %land.lhs.true.i ]
+  %xor = xor i32 %mop_1.1.i113, %memop.addr.0
   %and48 = and i32 %xor, 16
   %tobool49.not = icmp eq i32 %and48, 0
   br i1 %tobool49.not, label %if.end52, label %if.then50
@@ -1580,125 +1572,125 @@ if.end47:                                         ; preds = %land.lhs.true.i, %i
 if.then50:                                        ; preds = %if.end47
   %call51 = tail call ptr @tcg_temp_ebb_new_i64() #5
   tail call void @tcg_gen_bswap64_i64(ptr noundef %call51, ptr noundef %x.0) #5
-  %.pre122 = load ptr, ptr %.pre-phi125, align 8
+  %.pre121 = load ptr, ptr %.pre-phi124, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.end47
-  %36 = phi ptr [ %.pre122, %if.then50 ], [ %35, %if.end47 ]
+  %34 = phi ptr [ %.pre121, %if.then50 ], [ %33, %if.end47 ]
   %x.1 = phi ptr [ %call51, %if.then50 ], [ %x.0, %if.end47 ]
   %b.0 = phi ptr [ %call51, %if.then50 ], [ null, %if.end47 ]
-  %shl.i84 = shl i32 %mop_1.1.i114, 4
-  %or.i85 = or i32 %shl.i84, %conv
-  %37 = ptrtoint ptr %x.1 to i64
-  %add.ptr.i.i.i86 = getelementptr i8, ptr %36, i64 %37
-  %38 = ptrtoint ptr %add.ptr.i.i.i86 to i64
-  %39 = ptrtoint ptr %addr to i64
-  %conv5.i.i = zext i32 %or.i85 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51118, i64 noundef %38, i64 noundef %39, i64 noundef %conv5.i.i) #5
-  %40 = load ptr, ptr %.pre-phi125, align 8
-  %addr_type56 = getelementptr inbounds i8, ptr %40, i64 60
-  %41 = load i32, ptr %addr_type56, align 4
-  %cmp57 = icmp eq i32 %41, 0
+  %shl.i83 = shl i32 %mop_1.1.i113, 4
+  %or.i84 = or i32 %shl.i83, %conv
+  %35 = ptrtoint ptr %x.1 to i64
+  %add.ptr.i.i.i85 = getelementptr i8, ptr %34, i64 %35
+  %36 = ptrtoint ptr %add.ptr.i.i.i85 to i64
+  %37 = ptrtoint ptr %addr to i64
+  %conv5.i.i = zext i32 %or.i84 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %36, i64 noundef %37, i64 noundef %conv5.i.i) #5
+  %38 = load ptr, ptr %.pre-phi124, align 8
+  %addr_type56 = getelementptr inbounds i8, ptr %38, i64 60
+  %39 = load i32, ptr %addr_type56, align 4
+  %cmp57 = icmp eq i32 %39, 0
   br i1 %cmp57, label %if.then59, label %if.else63
 
 if.then59:                                        ; preds = %if.end52
   %call60 = tail call ptr @tcg_temp_ebb_new_i32() #5
-  %42 = load ptr, ptr %.pre-phi125, align 8
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %42 to i64
-  %sub.ptr.sub.i = sub i64 %39, %sub.ptr.rhs.cast.i
-  %43 = inttoptr i64 %sub.ptr.sub.i to ptr
-  tail call void @tcg_gen_addi_i32(ptr noundef %call60, ptr noundef %43, i32 noundef 8) #5
+  %40 = load ptr, ptr %.pre-phi124, align 8
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
+  %sub.ptr.sub.i = sub i64 %37, %sub.ptr.rhs.cast.i
+  %41 = inttoptr i64 %sub.ptr.sub.i to ptr
+  tail call void @tcg_gen_addi_i32(ptr noundef %call60, ptr noundef %41, i32 noundef 8) #5
   br label %if.end68
 
 if.else63:                                        ; preds = %if.end52
   %call65 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %44 = load ptr, ptr %.pre-phi125, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %44 to i64
-  %sub.ptr.sub.i.i = sub i64 %39, %sub.ptr.rhs.cast.i.i
-  %45 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_addi_i64(ptr noundef %call65, ptr noundef %45, i64 noundef 8) #5
+  %42 = load ptr, ptr %.pre-phi124, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %42 to i64
+  %sub.ptr.sub.i.i = sub i64 %37, %sub.ptr.rhs.cast.i.i
+  %43 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_addi_i64(ptr noundef %call65, ptr noundef %43, i64 noundef 8) #5
   br label %if.end68
 
 if.end68:                                         ; preds = %if.else63, %if.then59
   %call65.sink = phi ptr [ %call65, %if.else63 ], [ %call60, %if.then59 ]
-  %.sink = load ptr, ptr %.pre-phi125, align 8
-  %46 = ptrtoint ptr %call65.sink to i64
-  %add.ptr.i.i88 = getelementptr i8, ptr %.sink, i64 %46
+  %.sink = load ptr, ptr %.pre-phi124, align 8
+  %44 = ptrtoint ptr %call65.sink to i64
+  %add.ptr.i.i87 = getelementptr i8, ptr %.sink, i64 %44
   %tobool69.not = icmp eq ptr %b.0, null
   br i1 %tobool69.not, label %if.else74, label %if.then70
 
 if.then70:                                        ; preds = %if.end68
   tail call void @tcg_gen_bswap64_i64(ptr noundef nonnull %b.0, ptr noundef %y.0) #5
-  %shl.i89 = shl i32 %mop_2.1.i116, 4
-  %or.i90 = or i32 %shl.i89, %conv
-  %47 = load ptr, ptr %.pre-phi125, align 8
-  %48 = ptrtoint ptr %b.0 to i64
-  %add.ptr.i.i.i91 = getelementptr i8, ptr %47, i64 %48
-  %49 = ptrtoint ptr %add.ptr.i.i.i91 to i64
-  %50 = ptrtoint ptr %add.ptr.i.i88 to i64
-  %conv5.i.i92 = zext i32 %or.i90 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51118, i64 noundef %49, i64 noundef %50, i64 noundef %conv5.i.i92) #5
+  %shl.i88 = shl i32 %mop_2.1.i115, 4
+  %or.i89 = or i32 %shl.i88, %conv
+  %45 = load ptr, ptr %.pre-phi124, align 8
+  %46 = ptrtoint ptr %b.0 to i64
+  %add.ptr.i.i.i90 = getelementptr i8, ptr %45, i64 %46
+  %47 = ptrtoint ptr %add.ptr.i.i.i90 to i64
+  %48 = ptrtoint ptr %add.ptr.i.i87 to i64
+  %conv5.i.i91 = zext i32 %or.i89 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %47, i64 noundef %48, i64 noundef %conv5.i.i91) #5
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %b.0) #5
   br label %if.end78
 
 if.else74:                                        ; preds = %if.end68
-  %shl.i93 = shl i32 %mop_2.1.i116, 4
-  %or.i94 = or i32 %shl.i93, %conv
-  %51 = ptrtoint ptr %y.0 to i64
-  %add.ptr.i.i.i95 = getelementptr i8, ptr %.sink, i64 %51
-  %52 = ptrtoint ptr %add.ptr.i.i.i95 to i64
-  %53 = ptrtoint ptr %add.ptr.i.i88 to i64
-  %conv5.i.i96 = zext i32 %or.i94 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51118, i64 noundef %52, i64 noundef %53, i64 noundef %conv5.i.i96) #5
+  %shl.i92 = shl i32 %mop_2.1.i115, 4
+  %or.i93 = or i32 %shl.i92, %conv
+  %49 = ptrtoint ptr %y.0 to i64
+  %add.ptr.i.i.i94 = getelementptr i8, ptr %.sink, i64 %49
+  %50 = ptrtoint ptr %add.ptr.i.i.i94 to i64
+  %51 = ptrtoint ptr %add.ptr.i.i87 to i64
+  %conv5.i.i95 = zext i32 %or.i93 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %50, i64 noundef %51, i64 noundef %conv5.i.i95) #5
   br label %if.end78
 
 if.end78:                                         ; preds = %if.else74, %if.then70
-  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i88) #5
+  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i87) #5
   br label %if.end91
 
 if.else79:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else29
-  %addr_type80 = getelementptr inbounds i8, ptr %7, i64 60
-  %54 = load i32, ptr %addr_type80, align 4
-  %cmp81 = icmp eq i32 %54, 0
+  %addr_type80 = getelementptr inbounds i8, ptr %6, i64 60
+  %52 = load i32, ptr %addr_type80, align 4
+  %cmp81 = icmp eq i32 %52, 0
   br i1 %cmp81, label %if.then83, label %if.end87
 
 if.then83:                                        ; preds = %if.else79
   %call84 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %55 = load ptr, ptr %.pre-phi125, align 8
-  %sub.ptr.lhs.cast.i.i97 = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i98 = ptrtoint ptr %55 to i64
-  %sub.ptr.sub.i99 = sub i64 %sub.ptr.lhs.cast.i.i97, %sub.ptr.rhs.cast.i98
-  %56 = inttoptr i64 %sub.ptr.sub.i99 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call84, ptr noundef %56) #5
-  %57 = load ptr, ptr %.pre-phi125, align 8
-  %58 = ptrtoint ptr %call84 to i64
-  %add.ptr.i.i100 = getelementptr i8, ptr %57, i64 %58
+  %53 = load ptr, ptr %.pre-phi124, align 8
+  %sub.ptr.lhs.cast.i.i96 = ptrtoint ptr %addr to i64
+  %sub.ptr.rhs.cast.i97 = ptrtoint ptr %53 to i64
+  %sub.ptr.sub.i98 = sub i64 %sub.ptr.lhs.cast.i.i96, %sub.ptr.rhs.cast.i97
+  %54 = inttoptr i64 %sub.ptr.sub.i98 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call84, ptr noundef %54) #5
+  %55 = load ptr, ptr %.pre-phi124, align 8
+  %56 = ptrtoint ptr %call84 to i64
+  %add.ptr.i.i99 = getelementptr i8, ptr %55, i64 %56
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then83, %if.else79
-  %59 = phi ptr [ %57, %if.then83 ], [ %7, %if.else79 ]
+  %57 = phi ptr [ %55, %if.then83 ], [ %6, %if.else79 ]
   %ext_addr.0 = phi ptr [ %call84, %if.then83 ], [ null, %if.else79 ]
-  %addr.addr.0 = phi ptr [ %add.ptr.i.i100, %if.then83 ], [ %addr, %if.else79 ]
-  %60 = load ptr, ptr @tcg_env, align 8
-  %sub.ptr.lhs.cast.i.i.i101 = ptrtoint ptr %addr.addr.0 to i64
-  %sub.ptr.rhs.cast.i.i102 = ptrtoint ptr %59 to i64
-  %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i.i101, %sub.ptr.rhs.cast.i.i102
-  %call89 = tail call ptr @tcg_constant_i32(i32 noundef %or.i53) #5
-  %61 = load ptr, ptr %.pre-phi125, align 8
-  %62 = ptrtoint ptr %60 to i64
-  %add.ptr.i.i.i104 = getelementptr i8, ptr %61, i64 %62
-  %add.ptr.i.i1.i = getelementptr i8, ptr %61, i64 %sub.ptr.sub.i.i103
-  %63 = ptrtoint ptr %val to i64
-  %add.ptr.i.i2.i = getelementptr i8, ptr %61, i64 %63
-  %64 = ptrtoint ptr %call89 to i64
-  %add.ptr.i.i105 = getelementptr i8, ptr %61, i64 %64
-  tail call void @tcg_gen_call4(ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %add.ptr.i.i.i104, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i105) #5
+  %addr.addr.0 = phi ptr [ %add.ptr.i.i99, %if.then83 ], [ %addr, %if.else79 ]
+  %58 = load ptr, ptr @tcg_env, align 8
+  %sub.ptr.lhs.cast.i.i.i100 = ptrtoint ptr %addr.addr.0 to i64
+  %sub.ptr.rhs.cast.i.i101 = ptrtoint ptr %57 to i64
+  %sub.ptr.sub.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i.i100, %sub.ptr.rhs.cast.i.i101
+  %call89 = tail call ptr @tcg_constant_i32(i32 noundef %or.i52) #5
+  %59 = load ptr, ptr %.pre-phi124, align 8
+  %60 = ptrtoint ptr %58 to i64
+  %add.ptr.i.i.i103 = getelementptr i8, ptr %59, i64 %60
+  %add.ptr.i.i1.i = getelementptr i8, ptr %59, i64 %sub.ptr.sub.i.i102
+  %61 = ptrtoint ptr %val to i64
+  %add.ptr.i.i2.i = getelementptr i8, ptr %59, i64 %61
+  %62 = ptrtoint ptr %call89 to i64
+  %add.ptr.i.i104 = getelementptr i8, ptr %59, i64 %62
+  tail call void @tcg_gen_call4(ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %add.ptr.i.i.i103, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i104) #5
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end78, %if.end87, %gen_ldst.exit, %if.then27
   %ext_addr.1 = phi ptr [ null, %if.then27 ], [ null, %gen_ldst.exit ], [ null, %if.end78 ], [ %ext_addr.0, %if.end87 ]
   %addr.addr.1 = phi ptr [ %addr, %if.then27 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.end78 ], [ %addr.addr.0, %if.end87 ]
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.1, ptr noundef %addr.addr.1, i32 noundef %or.i53, i32 noundef 2)
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.1, ptr noundef %addr.addr.1, i32 noundef %or.i52, i32 noundef 2)
   ret void
 }
 
@@ -1918,15 +1910,14 @@ if.else4.i.i:                                     ; preds = %if.end
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %if.end
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %if.end ]
   %4 = load i8, ptr @tcg_use_softmmu, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
-  %6 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %6 to i32
+  %5 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %5 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -1960,46 +1951,46 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %and1 = and i32 %op.addr.1.i, 23
   %idxprom = zext nneg i32 %and1 to i64
   %arrayidx = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  %8 = lshr i64 1966111, %idxprom
-  %9 = and i64 %8, 1
-  %cmp = icmp ne i64 %9, 0
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = lshr i64 1966111, %idxprom
+  %8 = and i64 %7, 1
+  %cmp = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %cmp)
   %conv = trunc i64 %idx to i32
   %and4 = shl i32 %op.addr.1.i, 4
   %shl.i = and i32 %and4, -144
   %or.i15 = or i32 %shl.i, %conv
   %addr_type.i = getelementptr inbounds i8, ptr %1, i64 60
-  %10 = load i32, ptr %addr_type.i, align 4
-  %cmp.i16 = icmp eq i32 %10, 0
+  %9 = load i32, ptr %addr_type.i, align 4
+  %cmp.i16 = icmp eq i32 %9, 0
   br i1 %cmp.i16, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %tcg_canonicalize_memop.exit
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %11 = load ptr, ptr %0, align 8
+  %10 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %12 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %12) #5
+  %11 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %11) #5
   br label %maybe_extend_addr64.exit
 
 if.end.i:                                         ; preds = %tcg_canonicalize_memop.exit
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %addr to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %13 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
   br label %maybe_extend_addr64.exit
 
 maybe_extend_addr64.exit:                         ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %13, %if.end.i ]
-  %14 = load ptr, ptr @tcg_env, align 8
+  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %12, %if.end.i ]
+  %13 = load ptr, ptr @tcg_env, align 8
   %call7 = tail call ptr @tcg_constant_i32(i32 noundef %or.i15) #5
-  tail call void %7(ptr noundef %retv, ptr noundef %14, ptr noundef %retval.0.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call7) #5
-  %15 = load ptr, ptr %0, align 8
-  %addr_type.i17 = getelementptr inbounds i8, ptr %15, i64 60
-  %16 = load i32, ptr %addr_type.i17, align 4
-  %cmp.i18 = icmp eq i32 %16, 0
+  tail call void %6(ptr noundef %retv, ptr noundef %13, ptr noundef %retval.0.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call7) #5
+  %14 = load ptr, ptr %0, align 8
+  %addr_type.i17 = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = load i32, ptr %addr_type.i17, align 4
+  %cmp.i18 = icmp eq i32 %15, 0
   br i1 %cmp.i18, label %if.then.i20, label %maybe_free_addr64.exit
 
 if.then.i20:                                      ; preds = %maybe_extend_addr64.exit
@@ -2111,15 +2102,14 @@ if.else4.i.i.i:                                   ; preds = %if.then2.i
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.then2.i
   %a.0.i.i.i = phi i32 [ 3, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.then2.i ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %sw.bb10.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %sw.bb10.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %1, i64 68
-  %7 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %7 to i32
+  %6 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %6 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %sw.bb10.i.i
@@ -2130,14 +2120,14 @@ sw.bb10.i.i:                                      ; preds = %do.body.i.i.i, %get
   %spec.select.i.i = select i1 %cmp.i.i, i32 %or.i.i, i32 %memop
   %and3.i = and i32 %spec.select.i.i, 19
   %idxprom.i = zext nneg i32 %and3.i to i64
-  %8 = lshr i64 14811104, %idxprom.i
-  %9 = and i64 %8, 1
-  %tobool4.not.not.i = icmp eq i64 %9, 0
+  %7 = lshr i64 14811104, %idxprom.i
+  %8 = and i64 %7, 1
+  %tobool4.not.not.i = icmp eq i64 %8, 0
   br i1 %tobool4.not.not.i, label %if.then5.i, label %if.end9.i
 
 if.then5.i:                                       ; preds = %sw.bb10.i.i
   %arrayidx.i = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
+  %9 = load ptr, ptr %arrayidx.i, align 8
   %conv.i = trunc i64 %idx to i32
   %and13.i.i = shl i32 %spec.select.i.i, 4
   %shl.i.i = and i32 %and13.i.i, -208
@@ -2147,30 +2137,30 @@ if.then5.i:                                       ; preds = %sw.bb10.i.i
 
 if.then.i.i:                                      ; preds = %if.then5.i
   %call.i.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %11 = load ptr, ptr %0, align 8
+  %10 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i.i, ptr noundef %12) #5
+  %11 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i.i, ptr noundef %11) #5
   br label %maybe_extend_addr64.exit.i
 
 if.end.i.i:                                       ; preds = %if.then5.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %addr to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %13 = inttoptr i64 %sub.ptr.sub.i.i.i.i to ptr
+  %12 = inttoptr i64 %sub.ptr.sub.i.i.i.i to ptr
   br label %maybe_extend_addr64.exit.i
 
 maybe_extend_addr64.exit.i:                       ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %13, %if.end.i.i ]
-  %14 = load ptr, ptr @tcg_env, align 8
+  %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %12, %if.end.i.i ]
+  %13 = load ptr, ptr @tcg_env, align 8
   %call8.i = tail call ptr @tcg_constant_i32(i32 noundef %or.i29.i) #5
-  tail call void %10(ptr noundef %retv, ptr noundef %14, ptr noundef %retval.0.i.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call8.i) #5
-  %15 = load ptr, ptr %0, align 8
-  %addr_type.i31.i = getelementptr inbounds i8, ptr %15, i64 60
-  %16 = load i32, ptr %addr_type.i31.i, align 4
-  %cmp.i32.i = icmp eq i32 %16, 0
+  tail call void %9(ptr noundef %retv, ptr noundef %13, ptr noundef %retval.0.i.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call8.i) #5
+  %14 = load ptr, ptr %0, align 8
+  %addr_type.i31.i = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = load i32, ptr %addr_type.i31.i, align 4
+  %cmp.i32.i = icmp eq i32 %15, 0
   br i1 %cmp.i32.i, label %if.then.i34.i, label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
 if.then.i34.i:                                    ; preds = %maybe_extend_addr64.exit.i
@@ -2178,9 +2168,9 @@ if.then.i34.i:                                    ; preds = %maybe_extend_addr64
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
 if.end9.i:                                        ; preds = %sw.bb10.i.i
-  %17 = load ptr, ptr @tcg_env, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %18
+  %16 = load ptr, ptr @tcg_env, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %17
   tail call void @tcg_gen_call1(ptr noundef nonnull @helper_info_exit_atomic, ptr noundef null, ptr noundef %add.ptr.i.i.i.i) #5
   tail call void @tcg_gen_movi_i64(ptr noundef %retv, i64 noundef 0) #5
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
@@ -2397,16 +2387,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -2436,12 +2425,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -2480,17 +2469,16 @@ if.else4.i.i:                                     ; preds = %entry
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %entry
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %entry ]
   %0 = load i8, ptr @tcg_use_softmmu, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %3, i64 68
-  %4 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %4 to i32
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %2 = load ptr, ptr %1, align 8
+  %page_bits.i.i = getelementptr inbounds i8, ptr %2, i64 68
+  %3 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -2521,13 +2509,13 @@ do.body.i:                                        ; preds = %check_max_alignment
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %sw.bb.i, %sw.bb6.i
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %and8.i, %sw.bb6.i ]
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %7, i64 20
-  %8 = load i32, ptr %cflags.i, align 4
-  %and19.i = and i32 %8, 32768
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %gen_tb.i = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = load ptr, ptr %gen_tb.i, align 8
+  %cflags.i = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = load i32, ptr %cflags.i, align 4
+  %and19.i = and i32 %7, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   %and22.i = and i32 %op.addr.1.i, -1793
   %or23.i = or disjoint i32 %and22.i, 1280
@@ -2535,42 +2523,42 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %and = and i32 %op.addr.3.i, 23
   %idxprom = zext nneg i32 %and to i64
   %arrayidx = getelementptr ptr, ptr %table, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8, !nonnull !5, !noundef !5
+  %8 = load ptr, ptr %arrayidx, align 8, !nonnull !5, !noundef !5
   %conv = trunc i64 %idx to i32
   %and1 = shl i32 %op.addr.3.i, 4
   %shl.i = and i32 %and1, -144
   %or.i9 = or i32 %shl.i, %conv
-  %addr_type.i = getelementptr inbounds i8, ptr %6, i64 60
-  %10 = load i32, ptr %addr_type.i, align 4
-  %cmp.i10 = icmp eq i32 %10, 0
+  %addr_type.i = getelementptr inbounds i8, ptr %5, i64 60
+  %9 = load i32, ptr %addr_type.i, align 4
+  %cmp.i10 = icmp eq i32 %9, 0
   br i1 %cmp.i10, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %tcg_canonicalize_memop.exit
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %11 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %4, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %12 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %12) #5
+  %11 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %11) #5
   br label %maybe_extend_addr64.exit
 
 if.end.i:                                         ; preds = %tcg_canonicalize_memop.exit
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %13 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
   br label %maybe_extend_addr64.exit
 
 maybe_extend_addr64.exit:                         ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %13, %if.end.i ]
-  %14 = load ptr, ptr @tcg_env, align 8
+  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %12, %if.end.i ]
+  %13 = load ptr, ptr @tcg_env, align 8
   %call4 = tail call ptr @tcg_constant_i32(i32 noundef %or.i9) #5
-  tail call void %9(ptr noundef %ret, ptr noundef %14, ptr noundef %retval.0.i, ptr noundef %val, ptr noundef %call4) #5
-  %15 = load ptr, ptr %5, align 8
-  %addr_type.i11 = getelementptr inbounds i8, ptr %15, i64 60
-  %16 = load i32, ptr %addr_type.i11, align 4
-  %cmp.i12 = icmp eq i32 %16, 0
+  tail call void %8(ptr noundef %ret, ptr noundef %13, ptr noundef %retval.0.i, ptr noundef %val, ptr noundef %call4) #5
+  %14 = load ptr, ptr %4, align 8
+  %addr_type.i11 = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = load i32, ptr %addr_type.i11, align 4
+  %cmp.i12 = icmp eq i32 %15, 0
   br i1 %cmp.i12, label %if.then.i14, label %maybe_free_addr64.exit
 
 if.then.i14:                                      ; preds = %maybe_extend_addr64.exit
@@ -2637,16 +2625,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -2677,12 +2664,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -2721,17 +2708,16 @@ if.else4.i.i:                                     ; preds = %entry
 get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.then2.i.i, %entry
   %a.0.i.i = phi i32 [ %and3.i.i, %if.then2.i.i ], [ %shr.i.i, %if.else4.i.i ], [ 0, %entry ]
   %0 = load i8, ptr @tcg_use_softmmu, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %check_max_alignment.exit.i, label %do.body.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %do.body.i.i, label %check_max_alignment.exit.i
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %3, i64 68
-  %4 = load i8, ptr %page_bits.i.i, align 4
-  %conv.i.i = zext i8 %4 to i32
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %2 = load ptr, ptr %1, align 8
+  %page_bits.i.i = getelementptr inbounds i8, ptr %2, i64 68
+  %3 = load i8, ptr %page_bits.i.i, align 4
+  %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
@@ -2763,13 +2749,13 @@ do.body.i:                                        ; preds = %check_max_alignment
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i, %sw.bb10.i
   %op.addr.1.i = phi i32 [ %and13.i, %sw.bb10.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %7, i64 20
-  %8 = load i32, ptr %cflags.i, align 4
-  %and19.i = and i32 %8, 32768
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %gen_tb.i = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = load ptr, ptr %gen_tb.i, align 8
+  %cflags.i = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = load i32, ptr %cflags.i, align 4
+  %and19.i = and i32 %7, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   %and22.i = and i32 %op.addr.1.i, -1793
   %or23.i = or disjoint i32 %and22.i, 1280
@@ -2782,8 +2768,8 @@ if.then:                                          ; preds = %tcg_canonicalize_me
   %and1 = and i32 %op.addr.3.i, 19
   %idxprom = zext nneg i32 %and1 to i64
   %arrayidx = getelementptr ptr, ptr %table, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %arrayidx, align 8
+  %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
@@ -2791,37 +2777,37 @@ if.then2:                                         ; preds = %if.then
   %and3 = shl i32 %op.addr.3.i, 4
   %shl.i = and i32 %and3, -208
   %or.i21 = or i32 %shl.i, %conv
-  %addr_type.i = getelementptr inbounds i8, ptr %6, i64 60
-  %10 = load i32, ptr %addr_type.i, align 4
-  %cmp.i22 = icmp eq i32 %10, 0
+  %addr_type.i = getelementptr inbounds i8, ptr %5, i64 60
+  %9 = load i32, ptr %addr_type.i, align 4
+  %cmp.i22 = icmp eq i32 %9, 0
   br i1 %cmp.i22, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %11 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %4, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %12 = inttoptr i64 %sub.ptr.sub.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %12) #5
+  %11 = inttoptr i64 %sub.ptr.sub.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %11) #5
   br label %maybe_extend_addr64.exit
 
 if.end.i:                                         ; preds = %if.then2
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %13 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
   br label %maybe_extend_addr64.exit
 
 maybe_extend_addr64.exit:                         ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %13, %if.end.i ]
-  %14 = load ptr, ptr @tcg_env, align 8
+  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %12, %if.end.i ]
+  %13 = load ptr, ptr @tcg_env, align 8
   %call6 = tail call ptr @tcg_constant_i32(i32 noundef %or.i21) #5
-  tail call void %9(ptr noundef %ret, ptr noundef %14, ptr noundef %retval.0.i, ptr noundef %val, ptr noundef %call6) #5
-  %15 = load ptr, ptr %5, align 8
-  %addr_type.i23 = getelementptr inbounds i8, ptr %15, i64 60
-  %16 = load i32, ptr %addr_type.i23, align 4
-  %cmp.i24 = icmp eq i32 %16, 0
+  tail call void %8(ptr noundef %ret, ptr noundef %13, ptr noundef %retval.0.i, ptr noundef %val, ptr noundef %call6) #5
+  %14 = load ptr, ptr %4, align 8
+  %addr_type.i23 = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = load i32, ptr %addr_type.i23, align 4
+  %cmp.i24 = icmp eq i32 %15, 0
   br i1 %cmp.i24, label %if.then.i26, label %if.end14
 
 if.then.i26:                                      ; preds = %maybe_extend_addr64.exit
@@ -2829,9 +2815,9 @@ if.then.i26:                                      ; preds = %maybe_extend_addr64
   br label %if.end14
 
 if.end:                                           ; preds = %if.then
-  %17 = load ptr, ptr @tcg_env, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 %18
+  %16 = load ptr, ptr @tcg_env, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %17
   tail call void @tcg_gen_call1(ptr noundef nonnull @helper_info_exit_atomic, ptr noundef null, ptr noundef %add.ptr.i.i.i) #5
   tail call void @tcg_gen_movi_i64(ptr noundef %ret, i64 noundef 0) #5
   br label %if.end14
@@ -2903,16 +2889,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -2942,12 +2927,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3012,16 +2997,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3052,12 +3036,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3121,16 +3105,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3160,12 +3143,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3230,16 +3213,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3270,12 +3252,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3339,16 +3321,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3378,12 +3359,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3448,16 +3429,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3488,12 +3468,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3557,16 +3537,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3596,12 +3575,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3666,16 +3645,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3706,12 +3684,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3775,16 +3753,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3814,12 +3791,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3884,16 +3861,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -3924,12 +3900,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -3993,16 +3969,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4032,12 +4007,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4102,16 +4077,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4142,12 +4116,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4211,16 +4185,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4250,12 +4223,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4320,16 +4293,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4360,12 +4332,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4429,16 +4401,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4468,12 +4439,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4536,16 +4507,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4576,12 +4546,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4643,16 +4613,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4682,12 +4651,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4750,16 +4719,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4790,12 +4758,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4857,16 +4825,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -4896,12 +4863,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -4964,16 +4931,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5004,12 +4970,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5071,16 +5037,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5110,12 +5075,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5178,16 +5143,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5218,12 +5182,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5285,16 +5249,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5324,12 +5287,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5392,16 +5355,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5432,12 +5394,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5499,16 +5461,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5538,12 +5499,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5606,16 +5567,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5646,12 +5606,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5713,16 +5673,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5752,12 +5711,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5820,16 +5779,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5860,12 +5818,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -5927,16 +5885,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -5966,12 +5923,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -6034,16 +5991,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -6074,12 +6030,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -6141,16 +6097,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -6180,12 +6135,12 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280
@@ -6248,16 +6203,15 @@ if.else4.i.i.i:                                   ; preds = %if.else
 get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %if.else
   %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.else ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %check_max_alignment.exit.i.i, label %do.body.i.i.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %check_max_alignment.exit.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %7 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %7, i64 68
-  %8 = load i8, ptr %page_bits.i.i.i, align 4
-  %conv.i.i.i = zext i8 %8 to i32
+  %6 = load ptr, ptr %0, align 8
+  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %7 = load i8, ptr %page_bits.i.i.i, align 4
+  %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
@@ -6288,12 +6242,12 @@ default.unreachable:                              ; preds = %check_max_alignment
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
-  %9 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %11 = load i32, ptr %cflags.i.i, align 4
-  %and19.i.i = and i32 %11, 32768
+  %8 = load ptr, ptr %0, align 8
+  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %gen_tb.i.i, align 8
+  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = load i32, ptr %cflags.i.i, align 4
+  %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %and22.i.i = and i32 %op.addr.1.i.i, -1793
   %or23.i.i = or disjoint i32 %and22.i.i, 1280

@@ -120,13 +120,12 @@ land.lhs.true.i:                                  ; preds = %entry
 lor.rhs.i:                                        ; preds = %land.lhs.true.i, %entry
   %m_suspend.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %m_suspend.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.i = icmp ne i8 %5, 0
+  %tobool.i = trunc i8 %4 to i1
   br label %_ZNK8reslimit12not_canceledEv.exit
 
 _ZNK8reslimit12not_canceledEv.exit:               ; preds = %land.lhs.true.i, %lor.rhs.i
-  %6 = phi i1 [ true, %land.lhs.true.i ], [ %tobool.i, %lor.rhs.i ]
-  ret i1 %6
+  %5 = phi i1 [ true, %land.lhs.true.i ], [ %tobool.i, %lor.rhs.i ]
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
@@ -151,13 +150,12 @@ land.lhs.true.i:                                  ; preds = %entry
 lor.rhs.i:                                        ; preds = %land.lhs.true.i, %entry
   %m_suspend.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %m_suspend.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.i = icmp ne i8 %5, 0
+  %tobool.i = trunc i8 %4 to i1
   br label %_ZNK8reslimit12not_canceledEv.exit
 
 _ZNK8reslimit12not_canceledEv.exit:               ; preds = %land.lhs.true.i, %lor.rhs.i
-  %6 = phi i1 [ true, %land.lhs.true.i ], [ %tobool.i, %lor.rhs.i ]
-  ret i1 %6
+  %5 = phi i1 [ true, %land.lhs.true.i ], [ %tobool.i, %lor.rhs.i ]
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable

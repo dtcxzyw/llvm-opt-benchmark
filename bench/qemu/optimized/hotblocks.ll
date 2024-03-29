@@ -120,9 +120,8 @@ if.end:                                           ; preds = %if.else, %if.then
   %cnt.0 = phi ptr [ %call2, %if.then ], [ %call3, %if.else ]
   tail call void @g_mutex_unlock(ptr noundef nonnull @lock) #7
   %4 = load i8, ptr @do_inline, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not = icmp eq i8 %5, 0
-  br i1 %tobool7.not, label %if.else9, label %if.then8
+  %tobool7 = trunc i8 %4 to i1
+  br i1 %tobool7, label %if.then8, label %if.else9
 
 if.then8:                                         ; preds = %if.end
   %exec_count = getelementptr inbounds i8, ptr %cnt.0, i64 8

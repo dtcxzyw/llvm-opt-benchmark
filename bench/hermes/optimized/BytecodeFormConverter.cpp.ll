@@ -424,9 +424,8 @@ _ZNSt10unique_ptrIVN6hermes17PageAccessTrackerESt14default_deleteIS2_EED2Ev.exit
   store ptr null, ptr %tracker_, align 8
   %hasVal.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
   %6 = load i8, ptr %hasVal.i.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i.i, label %_ZN4llvh8OptionalISt6threadED2Ev.exit, label %if.then.i.i.i1
+  %tobool.i.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i1, label %_ZN4llvh8OptionalISt6threadED2Ev.exit
 
 if.then.i.i.i1:                                   ; preds = %_ZNSt10unique_ptrIVN6hermes17PageAccessTrackerESt14default_deleteIS2_EED2Ev.exit
   %warmupThread_ = getelementptr inbounds i8, ptr %this, i64 336
@@ -444,15 +443,15 @@ _ZNSt6threadD2Ev.exit.i.i.i:                      ; preds = %if.then.i.i.i1
 
 _ZN4llvh8OptionalISt6threadED2Ev.exit:            ; preds = %_ZNSt10unique_ptrIVN6hermes17PageAccessTrackerESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6threadD2Ev.exit.i.i.i
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
-  %8 = load ptr, ptr %buffer_, align 8
-  %cmp.not.i3 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %buffer_, align 8
+  %cmp.not.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i: ; preds = %_ZN4llvh8OptionalISt6threadED2Ev.exit
-  %vtable.i.i = load ptr, ptr %8, align 8
+  %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %9 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %8 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   br label %_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvh8OptionalISt6threadED2Ev.exit, %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i

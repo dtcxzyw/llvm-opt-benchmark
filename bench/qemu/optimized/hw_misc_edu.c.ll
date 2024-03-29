@@ -284,8 +284,8 @@ declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef ptr @edu_fact_thread(ptr noundef %opaque) #0 {
 entry:
   %thr_mutex = getelementptr inbounds i8, ptr %opaque, i64 2888
-  %stopping = getelementptr inbounds i8, ptr %opaque, i64 2992
   %status = getelementptr inbounds i8, ptr %opaque, i64 3004
+  %stopping = getelementptr inbounds i8, ptr %opaque, i64 2992
   %thr_cond = getelementptr inbounds i8, ptr %opaque, i64 2936
   %fact = getelementptr inbounds i8, ptr %opaque, i64 3000
   %irq_status.i = getelementptr inbounds i8, ptr %opaque, i64 3008
@@ -302,37 +302,35 @@ while.body:                                       ; preds = %while.body.backedge
 
 land.rhs:                                         ; preds = %while.body, %while.end17
   %3 = load i8, ptr %stopping, align 16
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %while.end17, label %while.end21
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %while.end21, label %while.end17
 
 while.end17:                                      ; preds = %land.rhs
-  %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull %thr_cond, ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 329) #4
-  %7 = load atomic i32, ptr %status monotonic, align 4
-  %and = and i32 %7, 1
+  %4 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  tail call void %5(ptr noundef nonnull %thr_cond, ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 329) #4
+  %6 = load atomic i32, ptr %status monotonic, align 4
+  %and = and i32 %6, 1
   %cmp = icmp eq i32 %and, 0
   br i1 %cmp, label %land.rhs, label %while.end21, !llvm.loop !6
 
 while.end21:                                      ; preds = %land.rhs, %while.end17, %while.body
-  %8 = load i8, ptr %stopping, align 16
-  %9 = and i8 %8, 1
-  %tobool23.not = icmp eq i8 %9, 0
-  br i1 %tobool23.not, label %if.end, label %if.then
+  %7 = load i8, ptr %stopping, align 16
+  %tobool23 = trunc i8 %7 to i1
+  br i1 %tobool23, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end21
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 333) #4
   ret ptr null
 
 if.end:                                           ; preds = %while.end21
-  %10 = load i32, ptr %fact, align 8
+  %8 = load i32, ptr %fact, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 338) #4
-  %cmp27.not19 = icmp eq i32 %10, 0
+  %cmp27.not19 = icmp eq i32 %8, 0
   br i1 %cmp27.not19, label %while.end35, label %while.body28
 
 while.body28:                                     ; preds = %if.end, %while.body28
-  %val.021 = phi i32 [ %dec, %while.body28 ], [ %10, %if.end ]
+  %val.021 = phi i32 [ %dec, %while.body28 ], [ %8, %if.end ]
   %ret.020 = phi i32 [ %mul, %while.body28 ], [ 1, %if.end ]
   %dec = add i32 %val.021, -1
   %mul = mul i32 %val.021, %ret.020
@@ -341,22 +339,22 @@ while.body28:                                     ; preds = %if.end, %while.body
 
 while.end35:                                      ; preds = %while.body28, %if.end
   %ret.0.lcssa = phi i32 [ 1, %if.end ], [ %mul, %while.body28 ]
-  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
-  tail call void %12(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 349) #4
+  %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %10 = inttoptr i64 %9 to ptr
+  tail call void %10(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 349) #4
   store i32 %ret.0.lcssa, ptr %fact, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 351) #4
-  %13 = atomicrmw and ptr %status, i32 -2 seq_cst, align 4
+  %11 = atomicrmw and ptr %status, i32 -2 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
-  %14 = load atomic i32, ptr %status monotonic, align 4
-  %and51 = and i32 %14, 128
+  %12 = load atomic i32, ptr %status monotonic, align 4
+  %and51 = and i32 %12, 128
   %tobool52.not = icmp eq i32 %and51, 0
   br i1 %tobool52.not, label %while.body.backedge, label %if.then53
 
 if.then53:                                        ; preds = %while.end35
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.4, i32 noundef 358) #4
-  %15 = load i32, ptr %irq_status.i, align 16
-  %or.i = or i32 %15, 1
+  %13 = load i32, ptr %irq_status.i, align 16
+  %or.i = or i32 %13, 1
   store i32 %or.i, ptr %irq_status.i, align 16
   %call.i.i = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %opaque) #4
   br i1 %call.i.i, label %if.then2.i, label %if.else.i

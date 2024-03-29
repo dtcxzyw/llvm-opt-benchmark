@@ -39,9 +39,8 @@ define dso_local noundef i64 @pg_jit_available(ptr nocapture noundef readnone %0
 define internal fastcc noundef zeroext i1 @provider_init() unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = load i8, ptr @jit_enabled, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %24, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %24
 
 4:                                                ; preds = %0
   %.b23 = load i1, ptr @provider_failed_loading, align 1

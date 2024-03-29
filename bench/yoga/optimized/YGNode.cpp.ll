@@ -493,8 +493,7 @@ declare void @_ZN8facebook4yoga15calculateLayoutEPNS0_4NodeEffNS0_9DirectionE(pt
 define zeroext i1 @YGNodeGetHasNewLayout(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
   %bf.load.i = load i8, ptr %node, align 8
-  %0 = and i8 %bf.load.i, 1
-  %bf.cast.i = icmp ne i8 %0, 0
+  %bf.cast.i = trunc i8 %bf.load.i to i1
   ret i1 %bf.cast.i
 }
 

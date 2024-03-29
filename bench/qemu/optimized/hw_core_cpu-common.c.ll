@@ -230,17 +230,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #10
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #10
   br label %trace_cpu_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -524,15 +523,15 @@ if.then:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.then
   %ignore_memory_transaction_failures = getelementptr inbounds i8, ptr %call1.i, i64 265
   %0 = load i8, ptr %ignore_memory_transaction_failures, align 1
-  %1 = and i8 %0, 1
   %ignore_memory_transaction_failures6 = getelementptr inbounds i8, ptr %dev, i64 760
-  store i8 %1, ptr %ignore_memory_transaction_failures6, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %ignore_memory_transaction_failures6, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then4, %entry
   %hotplugged = getelementptr inbounds i8, ptr %dev, i64 80
-  %2 = load i32, ptr %hotplugged, align 8
-  %tobool8.not = icmp eq i32 %2, 0
+  %1 = load i32, ptr %hotplugged, align 8
+  %tobool8.not = icmp eq i32 %1, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
@@ -541,10 +540,9 @@ if.then9:                                         ; preds = %if.end7
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end7
-  %3 = load i8, ptr @tcg_allowed, align 1
-  %4 = and i8 %3, 1
-  %tobool11.not = icmp eq i8 %4, 0
-  br i1 %tobool11.not, label %if.end13, label %if.then12
+  %2 = load i8, ptr @tcg_allowed, align 1
+  %tobool11 = trunc i8 %2 to i1
+  br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
   tail call void @qemu_plugin_vcpu_init_hook(ptr noundef nonnull %dev) #10
@@ -558,9 +556,8 @@ if.end13:                                         ; preds = %if.then12, %if.end1
 define internal void @cpu_common_unrealizefn(ptr noundef %dev) #0 {
 entry:
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @qemu_plugin_vcpu_exit_hook(ptr noundef %dev) #10

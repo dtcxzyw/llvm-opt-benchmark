@@ -231,20 +231,18 @@ _ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10Statistics
   store ptr %5, ptr %statistics_.i, align 8
   %12 = load i32, ptr %stats_code_, align 8
   %cmp = icmp eq i32 %12, 52
-  %cmp.not.i = icmp ne ptr %5, null
-  %or.cond.i4.not = or i1 %cmp.not.i, %cmp.i1
-  %or.cond = and i1 %cmp, %or.cond.i4.not
+  %or.cond = and i1 %cmp, %or.cond.i2
   br i1 %or.cond, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit
-  %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 160
+  %vtable3.i.i = load ptr, ptr %11, align 8
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 160
   %13 = load ptr, ptr %vfn4.i.i, align 8
-  %call5.i.i6 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %call5.i.i5 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call5.i.i.noexc unwind label %lpad
 
 call5.i.i.noexc:                                  ; preds = %if.then.i
-  store i64 %call5.i.i6, ptr %start_.i, align 8
+  store i64 %call5.i.i5, ptr %start_.i, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %if.then.i
@@ -254,17 +252,17 @@ lpad:                                             ; preds = %if.end, %if.then.i
   resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %call5.i.i.noexc, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit
-  %15 = phi i64 [ %call5.i.i6, %call5.i.i.noexc ], [ 0, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit ]
+  %15 = phi i64 [ %call5.i.i5, %call5.i.i.noexc ], [ 0, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit ]
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %tobool.not.i.i7 = icmp eq i64 %15, 0
-  br i1 %tobool.not.i.i7, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
+  %tobool.not.i.i = icmp eq i64 %15, 0
+  br i1 %tobool.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont3
-  %vtable.i.i.i = load ptr, ptr %11, align 8
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
+  %vtable3.i.i.i = load ptr, ptr %11, align 8
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 160
   %16 = load ptr, ptr %vfn4.i.i.i, align 8
   %call5.i.i1.i = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call5.i.i.noexc.i unwind label %terminate.lpad.i
@@ -284,8 +282,8 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %call
   br i1 %cmp.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i: ; preds = %if.end.i.i
-  %vtable.i3.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 176
+  %vtable.i.i.i = load ptr, ptr %5, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 176
   %18 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef %6, i64 noundef %sub.i.i)
           to label %_ZN7rocksdb13PerfStepTimerD2Ev.exit unwind label %terminate.lpad.i
@@ -319,46 +317,44 @@ entry:
 if.then.i:                                        ; preds = %entry
   %use_cpu_time_.i.i = getelementptr inbounds i8, ptr %this, i64 1
   %1 = load i8, ptr %use_cpu_time_.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  %clock_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %clock_.i.i, align 8
-  %vtable.i.i = load ptr, ptr %3, align 8
-  %..i.i = select i1 %tobool.not.i.i, i64 160, i64 176
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 %..i.i
-  %4 = load ptr, ptr %vfn4.i.i, align 8
-  %call5.i.i1 = invoke noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %tobool.i.i = trunc i8 %1 to i1
+  %clock_2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load ptr, ptr %clock_2.i.i, align 8
+  %vtable3.i.i = load ptr, ptr %2, align 8
+  %..i.i = select i1 %tobool.i.i, i64 176, i64 160
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 %..i.i
+  %3 = load ptr, ptr %vfn4.i.i, align 8
+  %call5.i.i1 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %call5.i.i.noexc unwind label %terminate.lpad
 
 call5.i.i.noexc:                                  ; preds = %if.then.i
-  %5 = load i64, ptr %start_.i, align 8
-  %sub.i = sub i64 %call5.i.i1, %5
-  %6 = load i8, ptr %this, align 8
-  %7 = and i8 %6, 1
-  %tobool3.not.i = icmp eq i8 %7, 0
-  br i1 %tobool3.not.i, label %if.end.i, label %if.then4.i
+  %4 = load i64, ptr %start_.i, align 8
+  %sub.i = sub i64 %call5.i.i1, %4
+  %5 = load i8, ptr %this, align 8
+  %tobool3.i = trunc i8 %5 to i1
+  br i1 %tobool3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %call5.i.i.noexc
   %metric_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %metric_.i, align 8
-  %9 = load i64, ptr %8, align 8
-  %add.i = add i64 %9, %sub.i
-  store i64 %add.i, ptr %8, align 8
+  %6 = load ptr, ptr %metric_.i, align 8
+  %7 = load i64, ptr %6, align 8
+  %add.i = add i64 %7, %sub.i
+  store i64 %add.i, ptr %6, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then4.i, %call5.i.i.noexc
   %statistics_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %10 = load ptr, ptr %statistics_.i, align 8
-  %cmp.not.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %statistics_.i, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.end7.i, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i: ; preds = %if.end.i
   %ticker_type_.i = getelementptr inbounds i8, ptr %this, i64 4
-  %11 = load i32, ptr %ticker_type_.i, align 4
-  %vtable.i3.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i3.i, i64 176
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(33) %10, i32 noundef %11, i64 noundef %sub.i)
+  %9 = load i32, ptr %ticker_type_.i, align 4
+  %vtable.i.i = load ptr, ptr %8, align 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 176
+  %10 = load ptr, ptr %vfn.i.i, align 8
+  invoke void %10(ptr noundef nonnull align 8 dereferenceable(33) %8, i32 noundef %9, i64 noundef %sub.i)
           to label %if.end7.i unwind label %terminate.lpad
 
 if.end7.i:                                        ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i, %if.end.i
@@ -369,10 +365,10 @@ invoke.cont:                                      ; preds = %if.end7.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i, %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #12
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #12
   unreachable
 }
 
@@ -450,20 +446,18 @@ _ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10Statistics
   store ptr %5, ptr %statistics_.i, align 8
   %12 = load i32, ptr %stats_code_, align 8
   %cmp = icmp eq i32 %12, 52
-  %cmp.not.i = icmp ne ptr %5, null
-  %or.cond.i4.not = or i1 %cmp.not.i, %cmp.i1
-  %or.cond = and i1 %cmp, %or.cond.i4.not
+  %or.cond = and i1 %cmp, %or.cond.i2
   br i1 %or.cond, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit
-  %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 160
+  %vtable3.i.i = load ptr, ptr %11, align 8
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 160
   %13 = load ptr, ptr %vfn4.i.i, align 8
-  %call5.i.i6 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %call5.i.i5 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call5.i.i.noexc unwind label %lpad
 
 call5.i.i.noexc:                                  ; preds = %if.then.i
-  store i64 %call5.i.i6, ptr %start_.i, align 8
+  store i64 %call5.i.i5, ptr %start_.i, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %if.then.i
@@ -473,17 +467,17 @@ lpad:                                             ; preds = %if.end, %if.then.i
   resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %call5.i.i.noexc, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit
-  %15 = phi i64 [ %call5.i.i6, %call5.i.i.noexc ], [ 0, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit ]
+  %15 = phi i64 [ %call5.i.i5, %call5.i.i.noexc ], [ 0, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit ]
   invoke void @_ZN7rocksdb4port7CondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %tobool.not.i.i7 = icmp eq i64 %15, 0
-  br i1 %tobool.not.i.i7, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
+  %tobool.not.i.i = icmp eq i64 %15, 0
+  br i1 %tobool.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont3
-  %vtable.i.i.i = load ptr, ptr %11, align 8
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
+  %vtable3.i.i.i = load ptr, ptr %11, align 8
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 160
   %16 = load ptr, ptr %vfn4.i.i.i, align 8
   %call5.i.i1.i = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call5.i.i.noexc.i unwind label %terminate.lpad.i
@@ -503,8 +497,8 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %call
   br i1 %cmp.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i: ; preds = %if.end.i.i
-  %vtable.i3.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 176
+  %vtable.i.i.i = load ptr, ptr %5, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 176
   %18 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef %6, i64 noundef %sub.i.i)
           to label %_ZN7rocksdb13PerfStepTimerD2Ev.exit unwind label %terminate.lpad.i
@@ -601,20 +595,18 @@ _ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10Statistics
   store ptr %5, ptr %statistics_.i, align 8
   %12 = load i32, ptr %stats_code_, align 8
   %cmp = icmp eq i32 %12, 52
-  %cmp.not.i = icmp ne ptr %5, null
-  %or.cond.i4.not = or i1 %cmp.not.i, %cmp.i1
-  %or.cond = and i1 %cmp, %or.cond.i4.not
+  %or.cond = and i1 %cmp, %or.cond.i2
   br i1 %or.cond, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit
-  %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 160
+  %vtable3.i.i = load ptr, ptr %11, align 8
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 160
   %13 = load ptr, ptr %vfn4.i.i, align 8
-  %call5.i.i6 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %call5.i.i5 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call5.i.i.noexc unwind label %lpad
 
 call5.i.i.noexc:                                  ; preds = %if.then.i
-  store i64 %call5.i.i6, ptr %start_.i, align 8
+  store i64 %call5.i.i5, ptr %start_.i, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %if.then.i
@@ -624,17 +616,17 @@ lpad:                                             ; preds = %if.end, %if.then.i
   resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %call5.i.i.noexc, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit
-  %15 = phi i64 [ %call5.i.i6, %call5.i.i.noexc ], [ 0, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit ]
-  %call.i78 = invoke noundef zeroext i1 @_ZN7rocksdb4port7CondVar9TimedWaitEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %abs_time_us)
+  %15 = phi i64 [ %call5.i.i5, %call5.i.i.noexc ], [ 0, %_ZN7rocksdb13PerfStepTimerC2EPmPNS_11SystemClockEbNS_9PerfLevelEPNS_10StatisticsEj.exit ]
+  %call.i67 = invoke noundef zeroext i1 @_ZN7rocksdb4port7CondVar9TimedWaitEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %abs_time_us)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %tobool.not.i.i9 = icmp eq i64 %15, 0
-  br i1 %tobool.not.i.i9, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
+  %tobool.not.i.i = icmp eq i64 %15, 0
+  br i1 %tobool.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont3
-  %vtable.i.i.i = load ptr, ptr %11, align 8
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
+  %vtable3.i.i.i = load ptr, ptr %11, align 8
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 160
   %16 = load ptr, ptr %vfn4.i.i.i, align 8
   %call5.i.i1.i = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call5.i.i.noexc.i unwind label %terminate.lpad.i
@@ -654,8 +646,8 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %call
   br i1 %cmp.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i: ; preds = %if.end.i.i
-  %vtable.i3.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 176
+  %vtable.i.i.i = load ptr, ptr %5, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 176
   %18 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef %6, i64 noundef %sub.i.i)
           to label %_ZN7rocksdb13PerfStepTimerD2Ev.exit unwind label %terminate.lpad.i
@@ -668,7 +660,7 @@ terminate.lpad.i:                                 ; preds = %_ZN7rocksdb10Record
   unreachable
 
 _ZN7rocksdb13PerfStepTimerD2Ev.exit:              ; preds = %if.end.i.i, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit.i.i, %invoke.cont3
-  ret i1 %call.i78
+  ret i1 %call.i67
 }
 
 ; Function Attrs: mustprogress uwtable

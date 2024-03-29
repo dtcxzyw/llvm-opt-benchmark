@@ -1050,8 +1050,8 @@ if.end13:                                         ; preds = %if.then6, %if.then
   br label %return.sink.split
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.then69
-  %supported.0 = phi i8 [ %22, %if.then69 ], [ %1, %for.cond.preheader ]
-  %desired.0 = phi i8 [ %20, %if.then69 ], [ %0, %for.cond.preheader ]
+  %supported.0 = phi i8 [ %20, %if.then69 ], [ %1, %for.cond.preheader ]
+  %desired.0 = phi i8 [ %18, %if.then69 ], [ %0, %for.cond.preheader ]
   %regionDistance.0 = phi i32 [ %regionDistance.4, %if.then69 ], [ 0, %for.cond.preheader ]
   %star.0 = phi i8 [ %star.3, %if.then69 ], [ 0, %for.cond.preheader ]
   %desiredPartitions.addr.0 = phi ptr [ %incdec.ptr66, %if.then69 ], [ %incdec.ptr, %for.cond.preheader ]
@@ -1087,7 +1087,7 @@ cond.end:                                         ; preds = %if.then22, %cond.tr
   br label %for.cond25
 
 for.cond25:                                       ; preds = %if.then48, %cond.end
-  %supported.1 = phi i8 [ %supported.0, %cond.end ], [ %13, %if.then48 ]
+  %supported.1 = phi i8 [ %supported.0, %cond.end ], [ %12, %if.then48 ]
   %supportedPartitions.addr.1 = phi ptr [ %incdec.ptr1, %cond.end ], [ %incdec.ptr45, %if.then48 ]
   %regionDistance.1 = phi i32 [ %regionDistance.0, %cond.end ], [ %spec.select, %if.then48 ]
   %star.1 = phi i8 [ %star.0, %cond.end ], [ %star.2, %if.then48 ]
@@ -1098,25 +1098,24 @@ for.cond25:                                       ; preds = %if.then48, %cond.en
   br i1 %cmp29, label %if.end37.sink.split, label %if.else
 
 if.else:                                          ; preds = %for.cond25
-  %8 = and i8 %star.1, 1
-  %tobool32.not = icmp eq i8 %8, 0
-  br i1 %tobool32.not, label %if.else34, label %if.end37
+  %tobool32 = trunc i8 %star.1 to i1
+  br i1 %tobool32, label %if.end37, label %if.else34
 
 if.else34:                                        ; preds = %if.else
   store i32 %sub.i.i44, ptr %remainingMatchLength_.i, align 8
-  %9 = load ptr, ptr %bytes_.i, align 8
-  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %9, i64 %and.i.i47
+  %8 = load ptr, ptr %bytes_.i, align 8
+  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %8, i64 %and.i.i47
   store ptr %add.ptr.i.i48, ptr %pos_.i37, align 8
   %call1.i50 = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef 42)
   br label %if.end37.sink.split
 
 if.end37.sink.split:                              ; preds = %for.cond25, %if.else34
   %star.2.ph = phi i8 [ 1, %if.else34 ], [ %star.1, %for.cond25 ]
-  %10 = load ptr, ptr %pos_.i37, align 8
-  %incdec.ptr.i.i51 = getelementptr inbounds i8, ptr %10, i64 1
-  %11 = load i8, ptr %10, align 1
-  %12 = lshr i8 %11, 1
-  %shr.i3.i52 = zext nneg i8 %12 to i32
+  %9 = load ptr, ptr %pos_.i37, align 8
+  %incdec.ptr.i.i51 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = lshr i8 %10, 1
+  %shr.i3.i52 = zext nneg i8 %11 to i32
   %call.i.i53 = tail call noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr.i.i51, i32 noundef %shr.i3.i52)
   br label %if.end37
 
@@ -1128,34 +1127,33 @@ if.end37:                                         ; preds = %if.end37.sink.split
 
 if.else40:                                        ; preds = %if.end37
   %spec.select = tail call i32 @llvm.smax.i32(i32 %regionDistance.1, i32 %d.0)
-  %13 = load i8, ptr %supportedPartitions.addr.1, align 1
-  %cmp47.not = icmp eq i8 %13, 0
+  %12 = load i8, ptr %supportedPartitions.addr.1, align 1
+  %cmp47.not = icmp eq i8 %12, 0
   br i1 %cmp47.not, label %if.end65, label %if.then48
 
 if.then48:                                        ; preds = %if.else40
   %incdec.ptr45 = getelementptr inbounds i8, ptr %supportedPartitions.addr.1, i64 1
   store i32 %sub.i, ptr %remainingMatchLength_.i, align 8
-  %14 = load ptr, ptr %bytes_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %and.i
+  %13 = load ptr, ptr %bytes_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %and.i
   store ptr %add.ptr.i, ptr %pos_.i37, align 8
   br label %for.cond25, !llvm.loop !7
 
 if.else52:                                        ; preds = %for.cond
-  %15 = and i8 %star.0, 1
-  %tobool53.not = icmp eq i8 %15, 0
-  br i1 %tobool53.not, label %if.then54, label %if.end65
+  %tobool53 = trunc i8 %star.0 to i1
+  br i1 %tobool53, label %if.end65, label %if.then54
 
 if.then54:                                        ; preds = %if.else52
   store i32 %sub.i.i44, ptr %remainingMatchLength_.i, align 8
-  %16 = load ptr, ptr %bytes_.i, align 8
-  %add.ptr.i.i65 = getelementptr inbounds i8, ptr %16, i64 %and.i.i47
+  %14 = load ptr, ptr %bytes_.i, align 8
+  %add.ptr.i.i65 = getelementptr inbounds i8, ptr %14, i64 %and.i.i47
   store ptr %add.ptr.i.i65, ptr %pos_.i37, align 8
   %call1.i67 = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef 42)
-  %17 = load ptr, ptr %pos_.i37, align 8
-  %incdec.ptr.i.i68 = getelementptr inbounds i8, ptr %17, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = lshr i8 %18, 1
-  %shr.i3.i69 = zext nneg i8 %19 to i32
+  %15 = load ptr, ptr %pos_.i37, align 8
+  %incdec.ptr.i.i68 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = lshr i8 %16, 1
+  %shr.i3.i69 = zext nneg i8 %17 to i32
   %call.i.i70 = tail call noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr.i.i68, i32 noundef %shr.i3.i69)
   %cmp57 = icmp sgt i32 %call.i.i70, %threshold
   br i1 %cmp57, label %return, label %if.else59
@@ -1167,26 +1165,26 @@ if.else59:                                        ; preds = %if.then54
 if.end65:                                         ; preds = %if.else40, %if.else52, %if.else59
   %regionDistance.4 = phi i32 [ %regionDistance.0, %if.else52 ], [ %spec.select36, %if.else59 ], [ %spec.select, %if.else40 ]
   %star.3 = phi i8 [ %star.0, %if.else52 ], [ 1, %if.else59 ], [ %star.2, %if.else40 ]
-  %20 = load i8, ptr %desiredPartitions.addr.0, align 1
-  %cmp68.not = icmp eq i8 %20, 0
+  %18 = load i8, ptr %desiredPartitions.addr.0, align 1
+  %cmp68.not = icmp eq i8 %18, 0
   br i1 %cmp68.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %if.end65
   %incdec.ptr66 = getelementptr inbounds i8, ptr %desiredPartitions.addr.0, i64 1
   store i32 %sub.i.i44, ptr %remainingMatchLength_.i, align 8
-  %21 = load ptr, ptr %bytes_.i, align 8
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %21, i64 %and.i.i47
+  %19 = load ptr, ptr %bytes_.i, align 8
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %19, i64 %and.i.i47
   store ptr %add.ptr.i77, ptr %pos_.i37, align 8
-  %22 = load i8, ptr %supportedPartitions, align 1
+  %20 = load i8, ptr %supportedPartitions, align 1
   br label %for.cond, !llvm.loop !8
 
 return.sink.split:                                ; preds = %if.then11, %if.end13
   %pos_.i.sink = phi ptr [ %pos_.i, %if.then11 ], [ %pos_.i.i, %if.end13 ]
-  %23 = load ptr, ptr %pos_.i.sink, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %23, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = lshr i8 %24, 1
-  %shr.i3.i = zext nneg i8 %25 to i32
+  %21 = load ptr, ptr %pos_.i.sink, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = lshr i8 %22, 1
+  %shr.i3.i = zext nneg i8 %23 to i32
   %call.i.i = tail call noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr.i.i, i32 noundef %shr.i3.i)
   br label %return
 

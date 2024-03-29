@@ -151,7 +151,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
   %21 = tail call i32 @prte_plm_base_select() #10
   switch i32 %21, label %243 [
     i32 0, label %22
-    i32 -6, label %.thread.thread235
+    i32 -6, label %.thread.thread234
   ]
 
 22:                                               ; preds = %20
@@ -318,7 +318,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 119:                                              ; preds = %117
   %120 = tail call ptr @prte_strerror(i32 noundef %118) #10
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %120, ptr noundef nonnull @.str.17, i32 noundef 260) #10
-  br label %.thread224
+  br label %.thread223
 
 121:                                              ; preds = %117
   %122 = tail call i32 @prte_reachable_base_select() #10
@@ -330,7 +330,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 123:                                              ; preds = %121
   %124 = tail call ptr @prte_strerror(i32 noundef %122) #10
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %124, ptr noundef nonnull @.str.17, i32 noundef 265) #10
-  br label %.thread224
+  br label %.thread223
 
 125:                                              ; preds = %121
   %126 = tail call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_oob_base_framework, i32 noundef 0) #10
@@ -363,7 +363,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 
 138:                                              ; preds = %129, %136
   call void @PMIx_Value_destruct(ptr noundef nonnull %4) #10
-  br label %.thread224
+  br label %.thread223
 
 139:                                              ; preds = %129
   call void @PMIx_Value_destruct(ptr noundef nonnull %4) #10
@@ -378,7 +378,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 141:                                              ; preds = %139
   %142 = call ptr @prte_strerror(i32 noundef %140) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %142, ptr noundef nonnull @.str.17, i32 noundef 311) #10
-  br label %.thread224
+  br label %.thread223
 
 143:                                              ; preds = %139
   %144 = call i32 @prte_grpcomm_base_select() #10
@@ -390,7 +390,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 145:                                              ; preds = %143
   %146 = call ptr @prte_strerror(i32 noundef %144) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %146, ptr noundef nonnull @.str.17, i32 noundef 316) #10
-  br label %.thread224
+  br label %.thread223
 
 147:                                              ; preds = %143
   %148 = call i32 @prte_errmgr_base_select() #10
@@ -412,8 +412,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 
 .preheader:                                       ; preds = %153
   %156 = load ptr, ptr %155, align 8
-  %.not182238 = icmp eq ptr %156, null
-  br i1 %.not182238, label %.loopexit, label %.lr.ph
+  %.not182237 = icmp eq ptr %156, null
+  br i1 %.not182237, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
@@ -437,7 +437,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 163:                                              ; preds = %.loopexit
   %164 = call ptr @prte_strerror(i32 noundef %162) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %164, ptr noundef nonnull @.str.17, i32 noundef 342) #10
-  br label %.thread224
+  br label %.thread223
 
 165:                                              ; preds = %.loopexit
   %166 = call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_ras_base_framework, i32 noundef 0) #10
@@ -449,7 +449,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 167:                                              ; preds = %165
   %168 = call ptr @prte_strerror(i32 noundef %166) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %168, ptr noundef nonnull @.str.17, i32 noundef 355) #10
-  br label %.thread224
+  br label %.thread223
 
 169:                                              ; preds = %165
   %170 = call i32 @prte_ras_base_select() #10
@@ -461,7 +461,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 171:                                              ; preds = %169
   %172 = call ptr @prte_strerror(i32 noundef %170) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %172, ptr noundef nonnull @.str.17, i32 noundef 360) #10
-  br label %.thread224
+  br label %.thread223
 
 173:                                              ; preds = %169
   %174 = call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_rmaps_base_framework, i32 noundef 0) #10
@@ -473,7 +473,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 175:                                              ; preds = %173
   %176 = call ptr @prte_strerror(i32 noundef %174) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %176, ptr noundef nonnull @.str.17, i32 noundef 367) #10
-  br label %.thread224
+  br label %.thread223
 
 177:                                              ; preds = %173
   %178 = call i32 @prte_rmaps_base_select() #10
@@ -485,7 +485,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 179:                                              ; preds = %177
   %180 = call ptr @prte_strerror(i32 noundef %178) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %180, ptr noundef nonnull @.str.17, i32 noundef 372) #10
-  br label %.thread224
+  br label %.thread223
 
 181:                                              ; preds = %177
   %182 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_topology_t_class)
@@ -534,7 +534,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 206:                                              ; preds = %204
   %207 = call ptr @prte_strerror(i32 noundef %205) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %207, ptr noundef nonnull @.str.17, i32 noundef 398) #10
-  br label %.thread224
+  br label %.thread223
 
 208:                                              ; preds = %204
   %209 = call i32 @prte_odls_base_select() #10
@@ -546,7 +546,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 210:                                              ; preds = %208
   %211 = call ptr @prte_strerror(i32 noundef %209) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %211, ptr noundef nonnull @.str.17, i32 noundef 403) #10
-  br label %.thread224
+  br label %.thread223
 
 212:                                              ; preds = %208
   %213 = call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_rtc_base_framework, i32 noundef 0) #10
@@ -558,7 +558,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 214:                                              ; preds = %212
   %215 = call ptr @prte_strerror(i32 noundef %213) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %215, ptr noundef nonnull @.str.17, i32 noundef 411) #10
-  br label %.thread224
+  br label %.thread223
 
 216:                                              ; preds = %212
   %217 = call i32 @prte_rtc_base_select() #10
@@ -570,7 +570,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 218:                                              ; preds = %216
   %219 = call ptr @prte_strerror(i32 noundef %217) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %219, ptr noundef nonnull @.str.17, i32 noundef 416) #10
-  br label %.thread224
+  br label %.thread223
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds i8, ptr %26, i64 424
@@ -591,7 +591,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 229:                                              ; preds = %220
   %230 = call ptr @prte_strerror(i32 noundef %228) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %230, ptr noundef nonnull @.str.17, i32 noundef 432) #10
-  br label %.thread224
+  br label %.thread223
 
 231:                                              ; preds = %220
   %232 = call i32 @prte_iof_base_select() #10
@@ -603,7 +603,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 233:                                              ; preds = %231
   %234 = call ptr @prte_strerror(i32 noundef %232) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %234, ptr noundef nonnull @.str.17, i32 noundef 437) #10
-  br label %.thread224
+  br label %.thread223
 
 235:                                              ; preds = %231
   %236 = call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_filem_base_framework, i32 noundef 0) #10
@@ -615,49 +615,48 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 237:                                              ; preds = %235
   %238 = call ptr @prte_strerror(i32 noundef %236) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %238, ptr noundef nonnull @.str.17, i32 noundef 445) #10
-  br label %.thread224
+  br label %.thread223
 
 239:                                              ; preds = %235
   %240 = call i32 @prte_filem_base_select() #10
   switch i32 %240, label %241 [
-    i32 0, label %.thread.thread235
+    i32 0, label %.thread.thread234
     i32 -43, label %.thread.thread
   ]
 
 241:                                              ; preds = %239
   %242 = call ptr @prte_strerror(i32 noundef %240) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %242, ptr noundef nonnull @.str.17, i32 noundef 450) #10
-  br label %.thread224
+  br label %.thread223
 
 243:                                              ; preds = %20, %147, %127, %125, %113, %22, %18, %16, %14, %12, %10, %2
   %.0128 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %18 ], [ null, %22 ], [ %26, %113 ], [ %26, %125 ], [ %26, %127 ], [ %26, %147 ], [ null, %20 ]
   %.0127 = phi ptr [ @.str, %2 ], [ @.str.1, %10 ], [ @.str.2, %12 ], [ @.str.3, %14 ], [ @.str.4, %16 ], [ @.str.5, %18 ], [ @.str.7, %22 ], [ @.str.14, %113 ], [ @.str.20, %125 ], [ @.str.21, %127 ], [ @.str.27, %147 ], [ @.str.6, %20 ]
   %.0126 = phi i32 [ %6, %2 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %22 ], [ %114, %113 ], [ %126, %125 ], [ %128, %127 ], [ %148, %147 ], [ %21, %20 ]
   %.not214 = icmp eq i32 %.0126, -43
-  br i1 %.not214, label %.thread, label %.thread224
+  br i1 %.not214, label %.thread, label %.thread223
 
-.thread224:                                       ; preds = %241, %237, %233, %229, %218, %214, %210, %206, %179, %175, %171, %167, %163, %145, %141, %123, %119, %138, %243
-  %.0126231 = phi i32 [ %.0126, %243 ], [ %240, %241 ], [ %236, %237 ], [ %232, %233 ], [ %228, %229 ], [ %217, %218 ], [ %213, %214 ], [ %209, %210 ], [ %205, %206 ], [ %178, %179 ], [ %174, %175 ], [ %170, %171 ], [ %166, %167 ], [ %162, %163 ], [ %144, %145 ], [ %140, %141 ], [ %122, %123 ], [ %118, %119 ], [ -1, %138 ]
-  %.0127230 = phi ptr [ %.0127, %243 ], [ @.str.47, %241 ], [ @.str.46, %237 ], [ @.str.45, %233 ], [ @.str.44, %229 ], [ @.str.41, %218 ], [ @.str.40, %214 ], [ @.str.39, %210 ], [ @.str.38, %206 ], [ @.str.34, %179 ], [ @.str.33, %175 ], [ @.str.32, %171 ], [ @.str.31, %167 ], [ @.str.30, %163 ], [ @.str.26, %145 ], [ @.str.25, %141 ], [ @.str.19, %123 ], [ @.str.18, %119 ], [ @.str.24, %138 ]
-  %.0128229 = phi ptr [ %.0128, %243 ], [ %26, %241 ], [ %26, %237 ], [ %26, %233 ], [ %26, %229 ], [ %26, %218 ], [ %26, %214 ], [ %26, %210 ], [ %26, %206 ], [ %26, %179 ], [ %26, %175 ], [ %26, %171 ], [ %26, %167 ], [ %26, %163 ], [ %26, %145 ], [ %26, %141 ], [ %26, %123 ], [ %26, %119 ], [ %26, %138 ]
+.thread223:                                       ; preds = %241, %237, %233, %229, %218, %214, %210, %206, %179, %175, %171, %167, %163, %145, %141, %123, %119, %138, %243
+  %.0126230 = phi i32 [ %.0126, %243 ], [ %240, %241 ], [ %236, %237 ], [ %232, %233 ], [ %228, %229 ], [ %217, %218 ], [ %213, %214 ], [ %209, %210 ], [ %205, %206 ], [ %178, %179 ], [ %174, %175 ], [ %170, %171 ], [ %166, %167 ], [ %162, %163 ], [ %144, %145 ], [ %140, %141 ], [ %122, %123 ], [ %118, %119 ], [ -1, %138 ]
+  %.0127229 = phi ptr [ %.0127, %243 ], [ @.str.47, %241 ], [ @.str.46, %237 ], [ @.str.45, %233 ], [ @.str.44, %229 ], [ @.str.41, %218 ], [ @.str.40, %214 ], [ @.str.39, %210 ], [ @.str.38, %206 ], [ @.str.34, %179 ], [ @.str.33, %175 ], [ @.str.32, %171 ], [ @.str.31, %167 ], [ @.str.30, %163 ], [ @.str.26, %145 ], [ @.str.25, %141 ], [ @.str.19, %123 ], [ @.str.18, %119 ], [ @.str.24, %138 ]
+  %.0128228 = phi ptr [ %.0128, %243 ], [ %26, %241 ], [ %26, %237 ], [ %26, %233 ], [ %26, %229 ], [ %26, %218 ], [ %26, %214 ], [ %26, %210 ], [ %26, %206 ], [ %26, %179 ], [ %26, %175 ], [ %26, %171 ], [ %26, %167 ], [ %26, %163 ], [ %26, %145 ], [ %26, %141 ], [ %26, %123 ], [ %26, %119 ], [ %26, %138 ]
   %244 = load i8, ptr @prte_report_silent_errors, align 1
-  %245 = and i8 %244, 1
-  %.not215 = icmp eq i8 %245, 0
-  br i1 %.not215, label %246, label %.thread
+  %245 = trunc i8 %244 to i1
+  br i1 %245, label %.thread, label %246
 
-246:                                              ; preds = %.thread224
-  %247 = call ptr @prte_strerror(i32 noundef %.0126231) #10
-  %248 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1, ptr noundef nonnull %.0127230, ptr noundef %247, i32 noundef %.0126231) #10
+246:                                              ; preds = %.thread223
+  %247 = call ptr @prte_strerror(i32 noundef %.0126230) #10
+  %248 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1, ptr noundef nonnull %.0127229, ptr noundef %247, i32 noundef %.0126230) #10
   br label %.thread
 
-.thread:                                          ; preds = %216, %212, %208, %204, %177, %173, %169, %165, %.loopexit, %246, %.thread224, %243
-  %.0128222 = phi ptr [ %.0128229, %246 ], [ %.0128229, %.thread224 ], [ %.0128, %243 ], [ %26, %216 ], [ %26, %212 ], [ %26, %208 ], [ %26, %204 ], [ %26, %177 ], [ %26, %173 ], [ %26, %169 ], [ %26, %165 ], [ %26, %.loopexit ]
-  %.not216 = icmp eq ptr %.0128222, null
-  br i1 %.not216, label %.thread.thread235, label %.thread.thread
+.thread:                                          ; preds = %216, %212, %208, %204, %177, %173, %169, %165, %.loopexit, %246, %.thread223, %243
+  %.0128221 = phi ptr [ %.0128228, %246 ], [ %.0128228, %.thread223 ], [ %.0128, %243 ], [ %26, %216 ], [ %26, %212 ], [ %26, %208 ], [ %26, %204 ], [ %26, %177 ], [ %26, %173 ], [ %26, %169 ], [ %26, %165 ], [ %26, %.loopexit ]
+  %.not215 = icmp eq ptr %.0128221, null
+  br i1 %.not215, label %.thread.thread234, label %.thread.thread
 
 .thread.thread:                                   ; preds = %32, %115, %117, %121, %139, %143, %220, %231, %235, %239, %.thread
-  %.0128222234 = phi ptr [ %.0128222, %.thread ], [ %26, %239 ], [ %26, %235 ], [ %26, %231 ], [ %26, %220 ], [ %26, %143 ], [ %26, %139 ], [ %26, %121 ], [ %26, %117 ], [ %26, %115 ], [ %26, %32 ]
-  %249 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0128222234) #10
+  %.0128221233 = phi ptr [ %.0128221, %.thread ], [ %26, %239 ], [ %26, %235 ], [ %26, %231 ], [ %26, %220 ], [ %26, %143 ], [ %26, %139 ], [ %26, %121 ], [ %26, %117 ], [ %26, %115 ], [ %26, %32 ]
+  %249 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0128221233) #10
   %250 = icmp eq i32 %249, 35
   br i1 %250, label %251, label %253
 
@@ -669,16 +668,16 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
   unreachable
 
 253:                                              ; preds = %.thread.thread
-  %254 = getelementptr inbounds i8, ptr %.0128222234, i64 48
+  %254 = getelementptr inbounds i8, ptr %.0128221233, i64 48
   %255 = load i32, ptr %254, align 8
   %256 = add nsw i32 %255, -1
   store i32 %256, ptr %254, align 8
-  %257 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0128222234) #10
+  %257 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0128221233) #10
   %258 = icmp eq i32 %256, 0
-  br i1 %258, label %259, label %.thread.thread235
+  br i1 %258, label %259, label %.thread.thread234
 
 259:                                              ; preds = %253
-  %260 = getelementptr inbounds i8, ptr %.0128222234, i64 40
+  %260 = getelementptr inbounds i8, ptr %.0128221233, i64 40
   %261 = load ptr, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 48
   %263 = load ptr, ptr %262, align 8
@@ -689,28 +688,28 @@ define internal noundef i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 .lr.ph.i:                                         ; preds = %259, %.lr.ph.i
   %265 = phi ptr [ %267, %.lr.ph.i ], [ %264, %259 ]
   %.07.i = phi ptr [ %266, %.lr.ph.i ], [ %263, %259 ]
-  call void %265(ptr noundef %.0128222234) #10
+  call void %265(ptr noundef %.0128221233) #10
   %266 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %267 = load ptr, ptr %266, align 8
   %.not.i = icmp eq ptr %267, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %259
-  %268 = getelementptr inbounds i8, ptr %.0128222234, i64 96
+  %268 = getelementptr inbounds i8, ptr %.0128221233, i64 96
   %269 = load ptr, ptr %268, align 8
-  %.not217 = icmp eq ptr %269, null
-  br i1 %.not217, label %272, label %270
+  %.not216 = icmp eq ptr %269, null
+  br i1 %.not216, label %272, label %270
 
 270:                                              ; preds = %pmix_obj_run_destructors.exit
-  %271 = getelementptr inbounds i8, ptr %.0128222234, i64 56
-  call void %269(ptr noundef nonnull %271, ptr noundef nonnull %.0128222234) #10
-  br label %.thread.thread235
+  %271 = getelementptr inbounds i8, ptr %.0128221233, i64 56
+  call void %269(ptr noundef nonnull %271, ptr noundef nonnull %.0128221233) #10
+  br label %.thread.thread234
 
 272:                                              ; preds = %pmix_obj_run_destructors.exit
-  call void @free(ptr noundef nonnull %.0128222234) #10
-  br label %.thread.thread235
+  call void @free(ptr noundef nonnull %.0128221233) #10
+  br label %.thread.thread234
 
-.thread.thread235:                                ; preds = %20, %.thread, %253, %272, %270, %239
+.thread.thread234:                                ; preds = %20, %.thread, %253, %272, %270, %239
   %.0125 = phi i32 [ %240, %239 ], [ -43, %270 ], [ -43, %272 ], [ -43, %253 ], [ -43, %.thread ], [ -43, %20 ]
   ret i32 %.0125
 }
@@ -724,9 +723,8 @@ define internal noundef i32 @rte_finalize() #0 {
   %5 = tail call i32 @pmix_mca_base_framework_close(ptr noundef nonnull @prte_iof_base_framework) #10
   %6 = tail call i32 @pmix_mca_base_framework_close(ptr noundef nonnull @prte_plm_base_framework) #10
   %7 = load i8, ptr @prte_abnormal_term_ordered, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %12
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %0
   %10 = load ptr, ptr getelementptr inbounds (%struct.prte_odls_base_module_1_3_0_t, ptr @prte_odls, i64 0, i32 2), align 8

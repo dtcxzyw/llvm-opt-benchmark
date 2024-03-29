@@ -319,9 +319,8 @@ entry:
   %ref.tmp39 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %notified_yet_.i = getelementptr inbounds i8, ptr %notification, i64 8
   %0 = load atomic i8, ptr %notified_yet_.i acquire, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.i.i.not, label %cleanup.done, label %cond.false
+  %tobool.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 44, i64 32, ptr nonnull @.str.8) #17
@@ -333,16 +332,15 @@ cleanup.action:                                   ; preds = %cond.false
   unreachable
 
 lpad:                                             ; preds = %cond.false
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #14
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %3 = load i8, ptr %state, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.not = icmp eq i8 %4, 0
-  br i1 %tobool.not.not, label %cleanup.done27, label %cond.false13
+  %2 = load i8, ptr %state, align 1
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %cond.false13, label %cleanup.done27
 
 cond.false13:                                     ; preds = %cleanup.done
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 45, i64 7, ptr nonnull @.str.10) #17
@@ -354,7 +352,7 @@ cleanup.action26:                                 ; preds = %cond.false13
   unreachable
 
 lpad18:                                           ; preds = %cond.false13
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #14
   unreachable
@@ -365,10 +363,9 @@ cleanup.done27:                                   ; preds = %cleanup.done
           to label %invoke.cont33 unwind label %lpad31.loopexit.split-lp
 
 invoke.cont33:                                    ; preds = %cleanup.done27
-  %6 = load atomic i8, ptr %notified_yet_.i acquire, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.i.i.i9.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.i.i.i9.not, label %cond.false37, label %while.cond
+  %4 = load atomic i8, ptr %notified_yet_.i acquire, align 1
+  %tobool.i.i.i.i9 = trunc i8 %4 to i1
+  br i1 %tobool.i.i.i.i9, label %while.cond, label %cond.false37
 
 cond.false37:                                     ; preds = %invoke.cont33
   invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef nonnull @.str, i32 noundef 51, i64 31, ptr nonnull @.str.12) #17
@@ -398,25 +395,25 @@ lpad31:                                           ; preds = %lpad31.loopexit.spl
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad31
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #14
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #14
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %lpad31
   resume { ptr, i32 } %lpad.phi
 
 lpad43:                                           ; preds = %invoke.cont41
-  %10 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39) #14
   unreachable
 
 while.cond:                                       ; preds = %invoke.cont33, %while.body
-  %11 = load i8, ptr %state, align 1
-  %12 = and i8 %11, 1
-  %cmp = icmp eq i8 %12, 0
+  %8 = load i8, ptr %state, align 1
+  %9 = and i8 %8, 1
+  %cmp = icmp eq i8 %9, 0
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -428,10 +425,10 @@ while.end:                                        ; preds = %while.cond
           to label %_ZN4absl9MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %while.end
-  %13 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #14
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit16:                    ; preds = %while.end
@@ -444,9 +441,8 @@ entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %ref.tmp12 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %0 = load i8, ptr %state, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.not = icmp eq i8 %1, 0
-  br i1 %tobool.not.not, label %cleanup.done, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 61, i64 7, ptr nonnull @.str.10) #17
@@ -458,7 +454,7 @@ cleanup.action:                                   ; preds = %cond.false
   unreachable
 
 lpad:                                             ; preds = %cond.false
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #14
   unreachable
@@ -466,10 +462,9 @@ lpad:                                             ; preds = %cond.false
 cleanup.done:                                     ; preds = %entry
   tail call void @_ZNK4absl12Notification19WaitForNotificationEv(ptr noundef nonnull align 8 dereferenceable(9) %notification)
   %notified_yet_.i = getelementptr inbounds i8, ptr %notification, i64 8
-  %3 = load atomic i8, ptr %notified_yet_.i acquire, align 1
-  %4 = and i8 %3, 1
-  %tobool.i.i.i.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.i.i.i.not, label %cond.false10, label %cleanup.done22
+  %2 = load atomic i8, ptr %notified_yet_.i acquire, align 1
+  %tobool.i.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i.i, label %cleanup.done22, label %cond.false10
 
 cond.false10:                                     ; preds = %cleanup.done
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12, ptr noundef nonnull @.str, i32 noundef 65, i64 31, ptr nonnull @.str.12) #17
@@ -481,7 +476,7 @@ cleanup.action21:                                 ; preds = %cond.false10
   unreachable
 
 lpad16:                                           ; preds = %cond.false10
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12) #14
   unreachable
@@ -497,30 +492,30 @@ invoke.cont27:                                    ; preds = %cleanup.done22
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont27
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #14
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #14
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont27
   ret void
 
 lpad26:                                           ; preds = %cleanup.done22
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex)
           to label %_ZN4absl9MutexLockD2Ev.exit7 unwind label %terminate.lpad.i6
 
 terminate.lpad.i6:                                ; preds = %lpad26
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit7:                     ; preds = %lpad26
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %6
 }
 
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7

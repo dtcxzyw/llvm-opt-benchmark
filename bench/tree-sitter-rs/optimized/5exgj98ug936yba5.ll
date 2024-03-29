@@ -228,8 +228,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %4 = load ptr, ptr %0, align 8, !nonnull !7, !align !20, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %5 = load i64, ptr %4, align 8, !range !24, !alias.scope !21, !noalias !25, !noundef !7
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.58183ad5cd9afa59fa72c5c38150dad1.68, i64 noundef 4), !noalias !21
@@ -297,8 +297,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !7, !align !20, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %5 = load i64, ptr %4, align 8, !range !24, !alias.scope !38, !noalias !41, !noundef !7
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %9
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %9, label %6
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !43
@@ -3671,9 +3671,9 @@ define internal noundef zeroext i1 @"_ZN76_$LT$core..ffi..c_str..FromBytesWithNu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @"_ZN78_$LT$core..ffi..c_str..FromBytesWithNulError$u20$as$u20$core..error..Error$GT$11description17h46b1aef94b295923E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !24, !noundef !7
-  %trunc.not = icmp eq i64 %2, 0
-  %. = select i1 %trunc.not, i64 43, i64 35
-  %anon.58183ad5cd9afa59fa72c5c38150dad1.132.anon.58183ad5cd9afa59fa72c5c38150dad1.133 = select i1 %trunc.not, ptr @anon.58183ad5cd9afa59fa72c5c38150dad1.132, ptr @anon.58183ad5cd9afa59fa72c5c38150dad1.133
+  %trunc = trunc i64 %2 to i1
+  %. = select i1 %trunc, i64 35, i64 43
+  %anon.58183ad5cd9afa59fa72c5c38150dad1.132.anon.58183ad5cd9afa59fa72c5c38150dad1.133 = select i1 %trunc, ptr @anon.58183ad5cd9afa59fa72c5c38150dad1.133, ptr @anon.58183ad5cd9afa59fa72c5c38150dad1.132
   %3 = insertvalue { ptr, i64 } poison, ptr %anon.58183ad5cd9afa59fa72c5c38150dad1.132.anon.58183ad5cd9afa59fa72c5c38150dad1.133, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %., 1
   ret { ptr, i64 } %4
@@ -3882,13 +3882,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !439
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17hd44b0c348d24b1bdE.llvm.669709109315833292"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   %31 = load i8, ptr %5, align 8, !range !441, !noalias !439, !noundef !7
-  %trunc.not.i = icmp eq i8 %31, 0
-  br i1 %trunc.not.i, label %32, label %34
+  %trunc.i = trunc i8 %31 to i1
+  br i1 %trunc.i, label %34, label %32
 
 32:                                               ; preds = %30
   %33 = load i8, ptr %28, align 1, !range !441, !noalias !439, !noundef !7
-  %trunc5.not.i = icmp eq i8 %33, 0
-  br i1 %trunc5.not.i, label %37, label %39
+  %trunc5.i = trunc i8 %33 to i1
+  br i1 %trunc5.i, label %39, label %37
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4016,13 +4016,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !486
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17hd44b0c348d24b1bdE.llvm.669709109315833292"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   %31 = load i8, ptr %5, align 8, !range !441, !noalias !486, !noundef !7
-  %trunc.not.i = icmp eq i8 %31, 0
-  br i1 %trunc.not.i, label %32, label %34
+  %trunc.i = trunc i8 %31 to i1
+  br i1 %trunc.i, label %34, label %32
 
 32:                                               ; preds = %30
   %33 = load i8, ptr %28, align 1, !range !441, !noalias !486, !noundef !7
-  %trunc5.not.i = icmp eq i8 %33, 0
-  br i1 %trunc5.not.i, label %37, label %39
+  %trunc5.i = trunc i8 %33 to i1
+  br i1 %trunc5.i, label %39, label %37
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %5, i64 8

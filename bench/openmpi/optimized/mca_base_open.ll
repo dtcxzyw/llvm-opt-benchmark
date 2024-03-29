@@ -65,7 +65,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr @mca_base_opened, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %146
+  br i1 %.not, label %5, label %144
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i64 0, i32 15), align 8
@@ -100,7 +100,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   %23 = call i32 @mca_base_var_register_synonym(i32 noundef %22, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 1) #9
   %24 = call i32 @mca_base_show_load_errors_init() #9
   %.not13 = icmp eq i32 %24, 0
-  br i1 %.not13, label %25, label %146
+  br i1 %.not13, label %25, label %144
 
 25:                                               ; preds = %17
   store i8 0, ptr @mca_base_component_track_load_errors, align 1
@@ -128,12 +128,12 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %37 = load ptr, ptr @mca_base_verbose, align 8
   %.not15 = icmp eq ptr %37, null
-  br i1 %.not15, label %117, label %38
+  br i1 %.not15, label %115, label %38
 
 38:                                               ; preds = %34
   %39 = call noalias ptr @strdup(ptr noundef nonnull %37) #9
-  %.not52.i = icmp eq ptr %39, null
-  br i1 %.not52.i, label %.critedge.thread.i, label %.lr.ph.i
+  %.not51.i = icmp eq ptr %39, null
+  br i1 %.not51.i, label %.critedge58.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38
   %40 = getelementptr inbounds i8, ptr %2, i64 16
@@ -147,7 +147,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   %48 = getelementptr inbounds i8, ptr %2, i64 20
   %char0.i16 = load i8, ptr %39, align 1
   %.not49.i17 = icmp eq i8 %char0.i16, 0
-  br i1 %.not49.i17, label %.critedge.thread.i, label %.lr.ph
+  br i1 %.not49.i17, label %.critedge58.i, label %.lr.ph
 
 49:                                               ; preds = %113
   %50 = getelementptr inbounds i8, ptr %51, i64 1
@@ -156,9 +156,9 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br i1 %.not49.i, label %.critedge.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %49
-  %.04553.i19 = phi ptr [ %50, %49 ], [ %39, %.lr.ph.i ]
-  %.054.i18 = phi i8 [ %.1.i, %49 ], [ 0, %.lr.ph.i ]
-  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04553.i19, i32 noundef 44) #10
+  %.04552.i19 = phi ptr [ %50, %49 ], [ %39, %.lr.ph.i ]
+  %.053.i18 = phi i1 [ %.1.i, %49 ], [ false, %.lr.ph.i ]
+  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04552.i19, i32 noundef 44) #10
   %.not50.i = icmp eq ptr %51, null
   br i1 %.not50.i, label %53, label %52
 
@@ -167,7 +167,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %53
 
 53:                                               ; preds = %52, %.lr.ph
-  %54 = call i32 @strcasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.23) #10
+  %54 = call i32 @strcasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.23) #10
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %57
 
@@ -176,13 +176,13 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %113
 
 57:                                               ; preds = %53
-  %58 = call i32 @strncasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.24, i64 noundef 10) #10
+  %58 = call i32 @strncasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.24, i64 noundef 10) #10
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %73
 
 60:                                               ; preds = %57
   store i8 1, ptr %46, align 1
-  %61 = getelementptr inbounds i8, ptr %.04553.i19, i64 10
+  %61 = getelementptr inbounds i8, ptr %.04552.i19, i64 10
   %62 = call i32 @strcasecmp(ptr noundef nonnull %61, ptr noundef nonnull @.str.25) #10
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %65
@@ -210,18 +210,18 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %113
 
 73:                                               ; preds = %57
-  %74 = call i32 @strncasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.28, i64 noundef 9) #10
+  %74 = call i32 @strncasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.28, i64 noundef 9) #10
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
   store i8 1, ptr %46, align 1
-  %77 = getelementptr inbounds i8, ptr %.04553.i19, i64 9
+  %77 = getelementptr inbounds i8, ptr %.04552.i19, i64 9
   store ptr %77, ptr %47, align 8
   br label %113
 
 78:                                               ; preds = %73
-  %79 = call i32 @strcasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.15) #10
+  %79 = call i32 @strcasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.15) #10
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %82
 
@@ -230,7 +230,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %113
 
 82:                                               ; preds = %78
-  %83 = call i32 @strcasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.16) #10
+  %83 = call i32 @strcasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.16) #10
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %86
 
@@ -239,12 +239,12 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %113
 
 86:                                               ; preds = %82
-  %87 = call i32 @strcasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.29) #10
+  %87 = call i32 @strcasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.29) #10
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %92, label %89
 
 89:                                               ; preds = %86
-  %90 = call i32 @strcasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.30) #10
+  %90 = call i32 @strcasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.30) #10
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %93
 
@@ -253,19 +253,19 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %113
 
 93:                                               ; preds = %89
-  %94 = call i32 @strncasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.30, i64 noundef 5) #10
+  %94 = call i32 @strncasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.30, i64 noundef 5) #10
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %93
   store i8 1, ptr %41, align 4
-  %97 = getelementptr inbounds i8, ptr %.04553.i19, i64 5
+  %97 = getelementptr inbounds i8, ptr %.04552.i19, i64 5
   %98 = call noalias ptr @strdup(ptr noundef nonnull %97) #9
   store ptr %98, ptr %43, align 8
   br label %113
 
 99:                                               ; preds = %93
-  %100 = call i32 @strcasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.31) #10
+  %100 = call i32 @strcasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.31) #10
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %103
 
@@ -275,110 +275,108 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br label %113
 
 103:                                              ; preds = %99
-  %104 = call i32 @strncasecmp(ptr noundef nonnull %.04553.i19, ptr noundef nonnull @.str.32, i64 noundef 5) #10
+  %104 = call i32 @strncasecmp(ptr noundef nonnull %.04552.i19, ptr noundef nonnull @.str.32, i64 noundef 5) #10
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %113
 
 106:                                              ; preds = %103
   store i32 0, ptr %40, align 8
-  %107 = getelementptr inbounds i8, ptr %.04553.i19, i64 5
+  %107 = getelementptr inbounds i8, ptr %.04552.i19, i64 5
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %108, 58
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %.04553.i19, i64 6
+  %111 = getelementptr inbounds i8, ptr %.04552.i19, i64 6
   %112 = call i32 @atoi(ptr nocapture noundef nonnull %111) #10
   store i32 %112, ptr %40, align 8
   br label %113
 
 113:                                              ; preds = %110, %106, %103, %102, %96, %92, %85, %81, %76, %72, %69, %68, %64, %56
-  %.1.i = phi i8 [ 1, %56 ], [ 1, %64 ], [ 1, %68 ], [ 1, %72 ], [ 1, %69 ], [ %.054.i18, %76 ], [ 1, %81 ], [ 1, %85 ], [ 1, %92 ], [ 1, %96 ], [ 1, %102 ], [ %.054.i18, %110 ], [ %.054.i18, %106 ], [ %.054.i18, %103 ]
+  %.1.i = phi i1 [ true, %56 ], [ true, %64 ], [ true, %68 ], [ true, %72 ], [ true, %69 ], [ %.053.i18, %76 ], [ true, %81 ], [ true, %85 ], [ true, %92 ], [ true, %96 ], [ true, %102 ], [ %.053.i18, %110 ], [ %.053.i18, %106 ], [ %.053.i18, %103 ]
   br i1 %.not50.i, label %.critedge.i, label %49
 
 .critedge.i:                                      ; preds = %49, %113
-  %114 = and i8 %.1.i, 1
-  %115 = icmp eq i8 %114, 0
-  br i1 %115, label %.critedge.thread.i, label %parse_verbose.exit
+  br i1 %.1.i, label %parse_verbose.exit, label %.critedge58.i
 
-.critedge.thread.i:                               ; preds = %.lr.ph.i, %.critedge.i, %38
-  %116 = getelementptr inbounds i8, ptr %2, i64 51
-  store i8 1, ptr %116, align 1
+.critedge58.i:                                    ; preds = %.lr.ph.i, %.critedge.i, %38
+  %114 = getelementptr inbounds i8, ptr %2, i64 51
+  store i8 1, ptr %114, align 1
   br label %parse_verbose.exit
 
-parse_verbose.exit:                               ; preds = %.critedge.i, %.critedge.thread.i
+parse_verbose.exit:                               ; preds = %.critedge.i, %.critedge58.i
   call void @free(ptr noundef %39) #9
-  br label %131
+  br label %129
 
-117:                                              ; preds = %34
-  %118 = load i32, ptr @opal_class_init_epoch, align 4
-  %119 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 4), align 8
-  %.not.i = icmp eq i32 %118, %119
-  br i1 %.not.i, label %121, label %120
+115:                                              ; preds = %34
+  %116 = load i32, ptr @opal_class_init_epoch, align 4
+  %117 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 4), align 8
+  %.not.i = icmp eq i32 %116, %117
+  br i1 %.not.i, label %119, label %118
 
-120:                                              ; preds = %117
+118:                                              ; preds = %115
   call void @opal_class_initialize(ptr noundef nonnull @opal_output_stream_t_class) #9
-  br label %121
+  br label %119
 
-121:                                              ; preds = %120, %117
+119:                                              ; preds = %118, %115
   store ptr @opal_output_stream_t_class, ptr %2, align 8
-  %122 = getelementptr inbounds i8, ptr %2, i64 8
-  store volatile i32 1, ptr %122, align 8
-  %123 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 6), align 8
-  %124 = load ptr, ptr %123, align 8
-  %.not6.i.i = icmp eq ptr %124, null
+  %120 = getelementptr inbounds i8, ptr %2, i64 8
+  store volatile i32 1, ptr %120, align 8
+  %121 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i64 0, i32 6), align 8
+  %122 = load ptr, ptr %121, align 8
+  %.not6.i.i = icmp eq ptr %122, null
   br i1 %.not6.i.i, label %set_defaults.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %121, %.lr.ph.i.i
-  %125 = phi ptr [ %127, %.lr.ph.i.i ], [ %124, %121 ]
-  %.07.i.i = phi ptr [ %126, %.lr.ph.i.i ], [ %123, %121 ]
-  call void %125(ptr noundef nonnull %2) #9
-  %126 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %.not.i.i = icmp eq ptr %127, null
+.lr.ph.i.i:                                       ; preds = %119, %.lr.ph.i.i
+  %123 = phi ptr [ %125, %.lr.ph.i.i ], [ %122, %119 ]
+  %.07.i.i = phi ptr [ %124, %.lr.ph.i.i ], [ %121, %119 ]
+  call void %123(ptr noundef nonnull %2) #9
+  %124 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %.not.i.i = icmp eq ptr %125, null
   br i1 %.not.i.i, label %set_defaults.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-set_defaults.exit:                                ; preds = %.lr.ph.i.i, %121
-  %128 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 6, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr @.str.22, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %2, i64 51
-  store i8 1, ptr %130, align 1
-  br label %131
+set_defaults.exit:                                ; preds = %.lr.ph.i.i, %119
+  %126 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 6, ptr %126, align 4
+  %127 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr @.str.22, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %2, i64 51
+  store i8 1, ptr %128, align 1
+  br label %129
 
-131:                                              ; preds = %set_defaults.exit, %parse_verbose.exit
-  %132 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %134, label %opal_gethostname.exit
+129:                                              ; preds = %set_defaults.exit, %parse_verbose.exit
+  %130 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %132, label %opal_gethostname.exit
 
-134:                                              ; preds = %131
-  %135 = call i32 @opal_init_gethostname() #9
+132:                                              ; preds = %129
+  %133 = call i32 @opal_init_gethostname() #9
   %.pre.i = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
   br label %opal_gethostname.exit
 
-opal_gethostname.exit:                            ; preds = %131, %134
-  %136 = phi ptr [ %.pre.i, %134 ], [ %132, %131 ]
-  %137 = getelementptr inbounds i8, ptr %2, i64 32
-  %138 = call i32 @getpid() #9
-  %139 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %137, ptr noundef nonnull @.str.19, ptr noundef %136, i32 noundef %138) #9
-  %140 = call i32 @opal_output_reopen(i32 noundef 0, ptr noundef nonnull %2) #9
-  %141 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0) #9
-  br i1 %141, label %142, label %143
+opal_gethostname.exit:                            ; preds = %129, %132
+  %134 = phi ptr [ %.pre.i, %132 ], [ %130, %129 ]
+  %135 = getelementptr inbounds i8, ptr %2, i64 32
+  %136 = call i32 @getpid() #9
+  %137 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %135, ptr noundef nonnull @.str.19, ptr noundef %134, i32 noundef %136) #9
+  %138 = call i32 @opal_output_reopen(i32 noundef 0, ptr noundef nonnull %2) #9
+  %139 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0) #9
+  br i1 %139, label %140, label %141
 
-142:                                              ; preds = %opal_gethostname.exit
+140:                                              ; preds = %opal_gethostname.exit
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.20) #9
-  br label %143
+  br label %141
 
-143:                                              ; preds = %opal_gethostname.exit, %142
-  %144 = load ptr, ptr %137, align 8
-  call void @free(ptr noundef %144) #9
+141:                                              ; preds = %opal_gethostname.exit, %140
+  %142 = load ptr, ptr %135, align 8
+  call void @free(ptr noundef %142) #9
   call void @opal_finalize_append_cleanup(ptr noundef nonnull @mca_base_close, ptr noundef nonnull @.str.21, ptr noundef null) #9
-  %145 = call i32 @mca_base_component_repository_init() #9
-  br label %146
+  %143 = call i32 @mca_base_component_repository_init() #9
+  br label %144
 
-146:                                              ; preds = %17, %0, %143
-  %.0 = phi i32 [ %145, %143 ], [ 0, %0 ], [ %24, %17 ]
+144:                                              ; preds = %17, %0, %141
+  %.0 = phi i32 [ %143, %141 ], [ 0, %0 ], [ %24, %17 ]
   ret i32 %.0
 }
 

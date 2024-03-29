@@ -190,13 +190,12 @@ define noundef zeroext i1 @_ZN5Ipopt16SimpleBacksolver5SolveENS_8SmartPtrINS_14I
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(49) %5, double noundef 1.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(280) %6, ptr noundef nonnull align 8 dereferenceable(280) %7, i1 noundef zeroext %11, i1 noundef zeroext false)
-  ret i1 %15
+  %10 = trunc i8 %9 to i1
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(49) %5, double noundef 1.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(280) %6, ptr noundef nonnull align 8 dereferenceable(280) %7, i1 noundef zeroext %10, i1 noundef zeroext false)
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

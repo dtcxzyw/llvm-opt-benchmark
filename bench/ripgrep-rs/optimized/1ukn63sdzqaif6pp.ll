@@ -969,12 +969,12 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %277, %287
   %190 = load ptr, ptr %189, align 8, !noalias !110, !nonnull !4, !noundef !4
   %191 = getelementptr inbounds i8, ptr %190, i64 16
   %192 = load i64, ptr %191, align 8, !range !25, !noalias !110, !noundef !4
-  %trunc.not.i = icmp eq i64 %192, 0
+  %trunc.i = trunc i64 %192 to i1
   %193 = trunc i64 %76 to i32
   %194 = trunc i64 %75 to i32
   %195 = lshr i64 %75, 32
   %196 = trunc i64 %195 to i32
-  br i1 %trunc.not.i, label %.critedge.i, label %197
+  br i1 %trunc.i, label %197, label %.critedge.i
 
 197:                                              ; preds = %188
   %198 = getelementptr inbounds i8, ptr %190, i64 24
@@ -984,7 +984,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %277, %287
 
 .critedge.i:                                      ; preds = %206, %197, %188
   %201 = phi i32 [ %spec.select26.i, %206 ], [ %196, %197 ], [ %196, %188 ]
-  %202 = phi i32 [ 1, %206 ], [ %194, %197 ], [ %194, %188 ]
+  %202 = phi i32 [ %spec.select.i, %206 ], [ %194, %197 ], [ %194, %188 ]
   %203 = phi i32 [ %.0.sroa.speculated.i.i, %206 ], [ %193, %197 ], [ %193, %188 ]
   switch i32 %203, label %.thread.i [
     i32 0, label %210
@@ -1002,18 +1002,20 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %277, %287
   %.0.sroa.speculated.i.i = zext i1 %207 to i32
   store i32 %.0.sroa.speculated.i.i, ptr %.sroa.12.0..sroa_idx190, align 8, !alias.scope !108, !noalias !105
   %208 = getelementptr inbounds i8, ptr %21, i64 4
-  %trunc17.not.not.i = icmp eq i32 %194, 0
+  %trunc17.i = trunc i64 %75 to i1
   %209 = icmp ne i32 %196, 0
-  %narrow.i = select i1 %trunc17.not.not.i, i1 true, i1 %209
+  %spec.select.i = select i1 %trunc17.i, i32 %194, i32 1
+  %not.trunc17.i = xor i1 %trunc17.i, true
+  %narrow.i = select i1 %not.trunc17.i, i1 true, i1 %209
   %spec.select26.i = zext i1 %narrow.i to i32
-  store i32 1, ptr %21, align 8, !alias.scope !108, !noalias !105
+  store i32 %spec.select.i, ptr %21, align 8, !alias.scope !108, !noalias !105
   store i32 %spec.select26.i, ptr %208, align 4, !alias.scope !108, !noalias !105
   br label %.critedge.i
 
 210:                                              ; preds = %.critedge.i
-  %trunc19.not.i = icmp ne i32 %202, 0
+  %trunc19.i = trunc i32 %202 to i1
   %211 = icmp eq i32 %201, 0
-  %.014.i = select i1 %trunc19.not.i, i1 %211, i1 false
+  %.014.i = select i1 %trunc19.i, i1 %211, i1 false
   br i1 %.014.i, label %212, label %.thread.i
 
 212:                                              ; preds = %210
@@ -1058,9 +1060,9 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %277, %287
   unreachable
 
 224:                                              ; preds = %.critedge.i
-  %trunc20.not.i = icmp ne i32 %202, 0
+  %trunc20.i = trunc i32 %202 to i1
   %225 = icmp eq i32 %201, 1
-  %.015.i = select i1 %trunc20.not.i, i1 %225, i1 false
+  %.015.i = select i1 %trunc20.i, i1 %225, i1 false
   br i1 %.015.i, label %226, label %.thread.i
 
 226:                                              ; preds = %224

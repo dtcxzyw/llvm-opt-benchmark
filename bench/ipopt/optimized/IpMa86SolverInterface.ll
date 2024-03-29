@@ -2486,15 +2486,14 @@ define noundef i32 @_ZN5Ipopt19Ma86SolverInterface19InitializeStructureEiiPKiS2_
   store i32 %1, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  %.not39 = icmp eq ptr %14, null
-  br i1 %.not39, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %15
+  %.not38 = icmp eq ptr %14, null
+  br i1 %.not38, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %15
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %14, i64 1120
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZN5Ipopt9TimedTask5StartEv.exit
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %14, i64 1072
@@ -2672,15 +2671,14 @@ thread-pre-split:                                 ; preds = %44, %43
 
 104:                                              ; preds = %85, %92, %98
   %105 = load ptr, ptr %13, align 8
-  %.not40 = icmp eq ptr %105, null
-  br i1 %.not40, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %106
+  %.not39 = icmp eq ptr %105, null
+  br i1 %.not39, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %106
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds i8, ptr %105, i64 1120
   %108 = load i8, ptr %107, align 8
-  %109 = and i8 %108, 1
-  %.not.i38 = icmp eq i8 %109, 0
-  br i1 %.not.i38, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %110
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %_ZN5Ipopt9TimedTask3EndEv.exit
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %105, i64 1072
@@ -2752,22 +2750,20 @@ define noundef i32 @_ZN5Ipopt19Ma86SolverInterface10MultiSolveEbPKiS2_iPdbi(ptr 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %80, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %80
 
 14:                                               ; preds = %10, %8
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %.not21 = icmp eq ptr %16, null
-  br i1 %.not21, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %17
+  %.not17 = icmp eq ptr %16, null
+  br i1 %.not17, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %16, i64 1176
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i = icmp eq i8 %20, 0
-  br i1 %.not.i, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZN5Ipopt9TimedTask5StartEv.exit
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %16, i64 1128
@@ -2798,15 +2794,14 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %21, %17, %14
   %39 = getelementptr inbounds i8, ptr %0, i64 96
   call void %31(i32 noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef %35, ptr noundef %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %9, i32 noundef %4, i32 noundef %33, ptr noundef %5, ptr noundef null)
   %40 = load ptr, ptr %15, align 8
-  %.not22 = icmp eq ptr %40, null
-  br i1 %.not22, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %41
+  %.not18 = icmp eq ptr %40, null
+  br i1 %.not18, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %41
 
 41:                                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit
   %42 = getelementptr inbounds i8, ptr %40, i64 1176
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %.not.i14 = icmp eq i8 %44, 0
-  br i1 %.not.i14, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %_ZN5Ipopt9TimedTask3EndEv.exit
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %40, i64 1128
@@ -2843,38 +2838,37 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %45, %41, %_ZN5Ipopt
   %69 = getelementptr inbounds i8, ptr %9, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %_ZN5Ipopt9TimedTask3EndEv.exit18, label %72
+  br i1 %71, label %_ZN5Ipopt9TimedTask3EndEv.exit14, label %72
 
 72:                                               ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit
   %73 = icmp eq i32 %70, 2
-  br i1 %73, label %_ZN5Ipopt9TimedTask3EndEv.exit18, label %74
+  br i1 %73, label %_ZN5Ipopt9TimedTask3EndEv.exit14, label %74
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds i8, ptr %9, i64 48
   %76 = load i32, ptr %75, align 8
-  %.not11 = icmp ne i32 %76, %7
-  %or.cond.not = select i1 %6, i1 %.not11, i1 false
-  br i1 %or.cond.not, label %_ZN5Ipopt9TimedTask3EndEv.exit18, label %77
+  %.not = icmp ne i32 %76, %7
+  %or.cond.not = select i1 %6, i1 %.not, i1 false
+  br i1 %or.cond.not, label %_ZN5Ipopt9TimedTask3EndEv.exit14, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %76, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 0, ptr %79, align 8
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit18
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit14
 
 80:                                               ; preds = %10
   %81 = getelementptr inbounds i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8
-  %.not19 = icmp eq ptr %82, null
-  br i1 %.not19, label %_ZN5Ipopt9TimedTask5StartEv.exit16, label %83
+  %.not15 = icmp eq ptr %82, null
+  br i1 %.not15, label %_ZN5Ipopt9TimedTask5StartEv.exit13, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %82, i64 1232
   %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not.i15 = icmp eq i8 %86, 0
-  br i1 %.not.i15, label %_ZN5Ipopt9TimedTask5StartEv.exit16, label %87
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %_ZN5Ipopt9TimedTask5StartEv.exit13
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %82, i64 1184
@@ -2890,9 +2884,9 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %45, %41, %_ZN5Ipopt
   %94 = tail call noundef double @_ZN5Ipopt13WallclockTimeEv()
   %95 = getelementptr inbounds i8, ptr %82, i64 1216
   store double %94, ptr %95, align 8
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit16
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit13
 
-_ZN5Ipopt9TimedTask5StartEv.exit16:               ; preds = %87, %83, %80
+_ZN5Ipopt9TimedTask5StartEv.exit13:               ; preds = %87, %83, %80
   %96 = getelementptr inbounds i8, ptr %0, i64 232
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 52
@@ -2903,15 +2897,14 @@ _ZN5Ipopt9TimedTask5StartEv.exit16:               ; preds = %87, %83, %80
   %103 = getelementptr inbounds i8, ptr %0, i64 96
   call void %97(i32 noundef 0, i32 noundef %4, i32 noundef %99, ptr noundef %5, ptr noundef %101, ptr noundef nonnull %102, ptr noundef nonnull %103, ptr noundef nonnull %9, ptr noundef null)
   %104 = load ptr, ptr %81, align 8
-  %.not20 = icmp eq ptr %104, null
-  br i1 %.not20, label %_ZN5Ipopt9TimedTask3EndEv.exit18, label %105
+  %.not16 = icmp eq ptr %104, null
+  br i1 %.not16, label %_ZN5Ipopt9TimedTask3EndEv.exit14, label %105
 
-105:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit16
+105:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit13
   %106 = getelementptr inbounds i8, ptr %104, i64 1232
   %107 = load i8, ptr %106, align 8
-  %108 = and i8 %107, 1
-  %.not.i17 = icmp eq i8 %108, 0
-  br i1 %.not.i17, label %_ZN5Ipopt9TimedTask3EndEv.exit18, label %109
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %_ZN5Ipopt9TimedTask3EndEv.exit14
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds i8, ptr %104, i64 1184
@@ -2942,10 +2935,10 @@ _ZN5Ipopt9TimedTask5StartEv.exit16:               ; preds = %87, %83, %80
   %131 = load double, ptr %130, align 8
   %132 = fadd double %131, %129
   store double %132, ptr %130, align 8
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit18
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit14
 
-_ZN5Ipopt9TimedTask3EndEv.exit18:                 ; preds = %109, %105, %77, %_ZN5Ipopt9TimedTask5StartEv.exit16, %74, %72, %_ZN5Ipopt9TimedTask3EndEv.exit
-  %.0 = phi i32 [ 4, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 1, %72 ], [ 2, %74 ], [ 0, %_ZN5Ipopt9TimedTask5StartEv.exit16 ], [ 0, %77 ], [ 0, %105 ], [ 0, %109 ]
+_ZN5Ipopt9TimedTask3EndEv.exit14:                 ; preds = %109, %105, %77, %_ZN5Ipopt9TimedTask5StartEv.exit13, %74, %72, %_ZN5Ipopt9TimedTask3EndEv.exit
+  %.0 = phi i32 [ 4, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 1, %72 ], [ 2, %74 ], [ 0, %_ZN5Ipopt9TimedTask5StartEv.exit13 ], [ 0, %77 ], [ 0, %105 ], [ 0, %109 ]
   ret i32 %.0
 }
 

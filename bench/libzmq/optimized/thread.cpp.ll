@@ -27,8 +27,7 @@ define noundef zeroext i1 @_ZNK3zmq8thread_t11get_startedEv(ptr nocapture nounde
 entry:
   %_started = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_started, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -142,23 +141,22 @@ define void @_ZN3zmq8thread_t4stopEv(ptr nocapture noundef nonnull readonly alig
 entry:
   %_started = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_started, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end7, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
   %_descriptor = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load i64, ptr %_descriptor, align 8
-  %call = tail call i32 @pthread_join(i64 noundef %2, ptr noundef null)
+  %1 = load i64, ptr %_descriptor, align 8
+  %call = tail call i32 @pthread_join(i64 noundef %1, ptr noundef null)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.then
   %call4 = tail call ptr @strerror(i32 noundef %call) #14
+  %2 = load ptr, ptr @stderr, align 8
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 249) #15
   %3 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 249) #15
-  %4 = load ptr, ptr @stderr, align 8
-  %call6 = tail call i32 @fflush(ptr noundef %4)
+  %call6 = tail call i32 @fflush(ptr noundef %3)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
   br label %if.end7
 

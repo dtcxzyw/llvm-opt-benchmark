@@ -226,9 +226,8 @@ define dso_local void @WaitEventExtensionShmemInit() local_unnamed_addr #0 {
   %3 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 8, ptr noundef nonnull %1) #9
   store ptr %3, ptr @WaitEventExtensionCounter, align 8
   %4 = load i8, ptr %1, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %9
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %0
   store i32 1, ptr %3, align 4
@@ -281,9 +280,8 @@ define dso_local i32 @WaitEventExtensionNew(ptr noundef %0) local_unnamed_addr #
   %16 = getelementptr i8, ptr %15, i64 6144
   call void @LWLockRelease(ptr noundef %16) #9
   %17 = load i8, ptr %3, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %21, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds i8, ptr %14, i64 64
@@ -296,9 +294,8 @@ define dso_local i32 @WaitEventExtensionNew(ptr noundef %0) local_unnamed_addr #
   %25 = load ptr, ptr @WaitEventExtensionHashByName, align 8
   %26 = call ptr @hash_search(ptr noundef %25, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3) #9
   %27 = load i8, ptr %3, align 1
-  %28 = and i8 %27, 1
-  %.not10 = icmp eq i8 %28, 0
-  br i1 %.not10, label %33, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %33
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr @MainLWLockArray, align 8
@@ -311,8 +308,8 @@ define dso_local i32 @WaitEventExtensionNew(ptr noundef %0) local_unnamed_addr #
   %34 = load ptr, ptr @WaitEventExtensionCounter, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 4
   %36 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %35, i8 1, ptr nonnull elementtype(i8) %35) #9, !srcloc !6
-  %.not11 = icmp eq i8 %36, 0
-  br i1 %.not11, label %41, label %37
+  %.not = icmp eq i8 %36, 0
+  br i1 %.not, label %41, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @WaitEventExtensionCounter, align 8

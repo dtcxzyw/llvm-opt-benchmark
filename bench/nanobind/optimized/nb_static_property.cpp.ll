@@ -87,9 +87,8 @@ define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getE
   %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i64 0, i32 32), align 8

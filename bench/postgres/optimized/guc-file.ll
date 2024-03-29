@@ -2104,9 +2104,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessConfigFile(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsUnderPostmaster, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  %4 = select i1 %.not, i32 15, i32 13
+  %3 = trunc i8 %2 to i1
+  %4 = select i1 %3, i32 13, i32 15
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   %6 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %5, ptr noundef nonnull @.str.6, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #25
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2956,9 +2955,8 @@ GUC_yy_delete_buffer.exit:                        ; preds = %.loopexit, %225
   store i32 %12, ptr @ConfigFileLineno, align 4
   store ptr %13, ptr @GUC_flex_fatal_jmp, align 8
   %.0..0..0..0.84 = load volatile i8, ptr %9, align 1
-  %226 = and i8 %.0..0..0..0.84, 1
-  %227 = icmp ne i8 %226, 0
-  ret i1 %227
+  %226 = trunc i8 %.0..0..0..0.84 to i1
+  ret i1 %226
 }
 
 declare i32 @FreeFile(ptr noundef) local_unnamed_addr #12

@@ -187,52 +187,51 @@ define void @_ZNK5faiss15IndexBinaryFlat6searchElPKhlPiPlPKNS_16SearchParameters
 
 .lr.ph:                                           ; preds = %43
   %47 = getelementptr inbounds i8, ptr %0, i64 56
-  %48 = getelementptr inbounds i8, ptr %10, i64 8
-  %49 = getelementptr inbounds i8, ptr %10, i64 16
-  %50 = getelementptr inbounds i8, ptr %10, i64 24
-  %51 = getelementptr inbounds i8, ptr %0, i64 12
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds i8, ptr %0, i64 12
+  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds i8, ptr %10, i64 8
+  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  %53 = getelementptr inbounds i8, ptr %10, i64 24
   %54 = getelementptr inbounds i8, ptr %0, i64 72
   br label %55
 
 55:                                               ; preds = %.lr.ph, %82
-  %.03648 = phi i64 [ 0, %.lr.ph ], [ %56, %82 ]
-  %56 = add nsw i64 %.03648, %45
+  %.03647 = phi i64 [ 0, %.lr.ph ], [ %56, %82 ]
+  %56 = add nsw i64 %.03647, %45
   %57 = icmp sgt i64 %56, %1
-  %58 = sub nsw i64 %1, %.03648
+  %58 = sub nsw i64 %1, %.03647
   %spec.select = select i1 %57, i64 %58, i64 %45
   %59 = load i8, ptr %47, align 8
-  %60 = and i8 %59, 1
-  %.not44 = icmp eq i8 %60, 0
-  br i1 %.not44, label %72, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %72
 
 61:                                               ; preds = %55
   store i64 %spec.select, ptr %10, align 8
-  store i64 %3, ptr %48, align 8
-  %62 = mul nsw i64 %.03648, %3
+  store i64 %3, ptr %51, align 8
+  %62 = mul nsw i64 %.03647, %3
   %63 = getelementptr inbounds i64, ptr %5, i64 %62
-  store ptr %63, ptr %49, align 8
+  store ptr %63, ptr %52, align 8
   %64 = getelementptr inbounds i32, ptr %4, i64 %62
-  store ptr %64, ptr %50, align 8
-  %65 = load i32, ptr %51, align 4
+  store ptr %64, ptr %53, align 8
+  %65 = load i32, ptr %48, align 4
   %66 = sext i32 %65 to i64
-  %67 = mul nsw i64 %.03648, %66
+  %67 = mul nsw i64 %.03647, %66
   %68 = getelementptr inbounds i8, ptr %2, i64 %67
-  %69 = load ptr, ptr %52, align 8
-  %70 = load i64, ptr %53, align 8
+  %69 = load ptr, ptr %49, align 8
+  %70 = load i64, ptr %50, align 8
   %71 = load i32, ptr %54, align 8
   call void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noundef nonnull %10, ptr noundef %68, ptr noundef %69, i64 noundef %70, i64 noundef %66, i32 noundef 1, i32 noundef %71)
   br label %82
 
 72:                                               ; preds = %55
-  %73 = load i32, ptr %51, align 4
+  %73 = load i32, ptr %48, align 4
   %74 = sext i32 %73 to i64
-  %75 = mul nsw i64 %.03648, %74
+  %75 = mul nsw i64 %.03647, %74
   %76 = getelementptr inbounds i8, ptr %2, i64 %75
-  %77 = load ptr, ptr %52, align 8
-  %78 = load i64, ptr %53, align 8
-  %79 = mul nsw i64 %.03648, %3
+  %77 = load ptr, ptr %49, align 8
+  %78 = load i64, ptr %50, align 8
+  %79 = mul nsw i64 %.03647, %3
   %80 = getelementptr inbounds i32, ptr %4, i64 %79
   %81 = getelementptr inbounds i64, ptr %5, i64 %79
   call void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noundef %76, ptr noundef %77, i64 noundef %spec.select, i64 noundef %78, i64 noundef %3, i64 noundef %74, ptr noundef %80, ptr noundef %81)
@@ -247,9 +246,9 @@ define void @_ZNK5faiss15IndexBinaryFlat6searchElPKhlPiPlPKNS_16SearchParameters
 
 84:                                               ; preds = %39, %41, %22, %24
   %.sink = phi ptr [ %8, %24 ], [ %8, %22 ], [ %9, %41 ], [ %9, %39 ]
-  %.pn45.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ], [ %42, %41 ], [ %40, %39 ]
+  %.pn44.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ], [ %42, %41 ], [ %40, %39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #15
-  resume { ptr, i32 } %.pn45.pn
+  resume { ptr, i32 } %.pn44.pn
 
 85:                                               ; preds = %38, %21
   unreachable

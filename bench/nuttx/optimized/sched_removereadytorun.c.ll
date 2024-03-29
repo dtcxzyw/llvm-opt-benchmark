@@ -46,8 +46,8 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
 
 24:                                               ; preds = %18
   %25 = and i8 %8, 4
-  %.not28 = icmp eq i8 %25, 0
-  br i1 %.not28, label %.thread38, label %27
+  %.not28 = icmp ne i8 %25, 0
+  br i1 %.not28, label %27, label %.thread38
 
 .thread38:                                        ; preds = %24
   %26 = load ptr, ptr %0, align 8
@@ -64,20 +64,18 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
 
 31:                                               ; preds = %.thread38, %27
   %32 = phi ptr [ %26, %.thread38 ], [ %30, %27 ]
-  %.0.ph42 = phi i8 [ 0, %.thread38 ], [ 1, %27 ]
   store ptr %32, ptr %19, align 8
   br label %36
 
 33:                                               ; preds = %.thread, %27
   %34 = phi ptr [ %23, %.thread ], [ %30, %27 ]
-  %.036 = phi i8 [ 0, %.thread ], [ 1, %27 ]
   %35 = phi ptr [ %21, %.thread ], [ %.pr.pre, %27 ]
   store ptr %34, ptr %35, align 8
   br label %36
 
 36:                                               ; preds = %33, %31
   %37 = phi ptr [ %34, %33 ], [ %32, %31 ]
-  %.035 = phi i8 [ %.036, %33 ], [ %.0.ph42, %31 ]
+  %.035 = phi i1 [ %22, %33 ], [ %.not28, %31 ]
   %38 = phi ptr [ %35, %33 ], [ null, %31 ]
   %.not30 = icmp eq ptr %37, null
   %. = select i1 %.not30, ptr %19, ptr %37
@@ -88,18 +86,16 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
   %40 = load ptr, ptr @g_pendingtasks, align 8
   %.not31 = icmp ne ptr %40, null
   %brmerge.not = and i1 %.not31, %1
-  br i1 %brmerge.not, label %41, label %45
+  br i1 %brmerge.not, label %41, label %44
 
 41:                                               ; preds = %36
   %42 = tail call zeroext i1 @nxsched_merge_pending() #3
-  %43 = zext i1 %42 to i8
-  %44 = or i8 %.035, %43
-  br label %45
+  %43 = or i1 %.035, %42
+  br label %44
 
-45:                                               ; preds = %36, %41
-  %.1 = phi i8 [ %44, %41 ], [ %.035, %36 ]
-  %46 = icmp ne i8 %.1, 0
-  ret i1 %46
+44:                                               ; preds = %36, %41
+  %.1 = phi i1 [ %43, %41 ], [ %.035, %36 ]
+  ret i1 %.1
 }
 
 declare zeroext i1 @nxsched_merge_pending() local_unnamed_addr #1

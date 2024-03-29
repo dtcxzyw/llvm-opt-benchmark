@@ -309,14 +309,13 @@ if.end98:                                         ; preds = %if.end94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %perf108, ptr noundef nonnull align 8 dereferenceable(32) %perf, i64 32, i1 false)
   %use_copy_range = getelementptr inbounds i8, ptr %perf, i64 1
   %8 = load i8, ptr %use_copy_range, align 1
-  %9 = and i8 %8, 1
-  %tobool109 = icmp ne i8 %9, 0
+  %tobool109 = trunc i8 %8 to i1
   call void @block_copy_set_copy_opts(ptr noundef %7, i1 noundef zeroext %tobool109, i1 noundef zeroext %compress) #4
-  %10 = load ptr, ptr %bcs, align 8
+  %9 = load ptr, ptr %bcs, align 8
   %progress = getelementptr inbounds i8, ptr %call95, i64 48
-  call void @block_copy_set_progress_meter(ptr noundef %10, ptr noundef nonnull %progress) #4
-  %11 = load ptr, ptr %bcs, align 8
-  call void @block_copy_set_speed(ptr noundef %11, i64 noundef %speed) #4
+  call void @block_copy_set_progress_meter(ptr noundef %9, ptr noundef nonnull %progress) #4
+  %10 = load ptr, ptr %bcs, align 8
+  call void @block_copy_set_speed(ptr noundef %10, i64 noundef %speed) #4
   call void @bdrv_graph_wrlock(ptr noundef nonnull %target) #4
   %call113 = call i32 @block_job_add_bdrv(ptr noundef nonnull %call95, ptr noundef nonnull @.str.4, ptr noundef nonnull %target, i64 noundef 0, i64 noundef 15, ptr noundef nonnull @error_abort) #4
   call void @bdrv_graph_wrunlock(ptr noundef nonnull %target) #4
@@ -666,8 +665,8 @@ entry:
   %max_workers = getelementptr inbounds i8, ptr %job, i64 592
   %max_chunk = getelementptr inbounds i8, ptr %job, i64 608
   %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
-  %on_source_error.i = getelementptr inbounds i8, ptr %job, i64 560
   %on_target_error.i = getelementptr inbounds i8, ptr %job, i64 564
+  %on_source_error.i = getelementptr inbounds i8, ptr %job, i64 560
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -746,19 +745,18 @@ if.else34:                                        ; preds = %if.end31
 if.end35:                                         ; preds = %if.end31
   %call36 = call i32 @block_copy_call_status(ptr noundef %call, ptr noundef nonnull %error_is_read) #4
   %6 = load i8, ptr %error_is_read, align 1
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
+  %tobool = trunc i8 %6 to i1
   %sub37 = sub i32 0, %call36
-  br i1 %tobool.not, label %if.else.i, label %if.then.i
+  br i1 %tobool, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end35
-  %8 = load i32, ptr %on_source_error.i, align 8
-  %call.i = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %8, i32 noundef 1, i32 noundef %sub37) #4
+  %7 = load i32, ptr %on_source_error.i, align 8
+  %call.i = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %7, i32 noundef 1, i32 noundef %sub37) #4
   br label %backup_error_action.exit
 
 if.else.i:                                        ; preds = %if.end35
-  %9 = load i32, ptr %on_target_error.i, align 4
-  %call2.i = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %9, i32 noundef 0, i32 noundef %sub37) #4
+  %8 = load i32, ptr %on_target_error.i, align 4
+  %call2.i = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %8, i32 noundef 0, i32 noundef %sub37) #4
   br label %backup_error_action.exit
 
 backup_error_action.exit:                         ; preds = %if.then.i, %if.else.i
@@ -799,15 +797,14 @@ define internal void @backup_block_copy_callback(ptr noundef %opaque) #0 {
 entry:
   %wait = getelementptr inbounds i8, ptr %opaque, i64 624
   %0 = load i8, ptr %wait, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %wait, align 8
   %co = getelementptr inbounds i8, ptr %opaque, i64 16
-  %2 = load ptr, ptr %co, align 8
-  tail call void @aio_co_wake(ptr noundef %2) #4
+  %1 = load ptr, ptr %co, align 8
+  tail call void @aio_co_wake(ptr noundef %1) #4
   br label %if.end
 
 if.else:                                          ; preds = %entry

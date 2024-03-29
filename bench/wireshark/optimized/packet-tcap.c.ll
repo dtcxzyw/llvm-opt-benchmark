@@ -4007,29 +4007,28 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %66
-  %.065 = phi i32 [ %.1, %66 ], [ %3, %4 ]
-  %12 = call i32 @get_ber_identifier(ptr noundef %2, i32 noundef %.065, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %.063 = phi i32 [ %.1, %66 ], [ %3, %4 ]
+  %12 = call i32 @get_ber_identifier(ptr noundef %2, i32 noundef %.063, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %13 = call i32 @get_ber_length(ptr noundef %2, i32 noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
-  %14 = sub i32 %12, %.065
+  %14 = sub i32 %12, %.063
   %15 = sub i32 %13, %12
   %16 = load i8, ptr %6, align 1
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
+  %17 = trunc i8 %16 to i1
   %18 = load i32, ptr %8, align 4
-  %19 = sub i32 %13, %.065
+  %19 = sub i32 %13, %.063
   %20 = add i32 %19, %18
   %21 = load i32, ptr @ett_param, align 4
-  br i1 %.not, label %52, label %22
+  br i1 %17, label %22, label %52
 
 22:                                               ; preds = %.lr.ph
-  %23 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.065, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.230) #11
+  %23 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.063, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.230) #11
   %24 = load i32, ptr @hf_tcap_tag, align 4
   %25 = load i32, ptr %7, align 4
-  %26 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %23, i32 noundef %24, ptr noundef %2, i32 noundef %.065, i32 noundef %14, i32 noundef %25, ptr noundef nonnull @.str.231) #11
+  %26 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %23, i32 noundef %24, ptr noundef %2, i32 noundef %.063, i32 noundef %14, i32 noundef %25, ptr noundef nonnull @.str.231) #11
   %27 = load i32, ptr @hf_tcap_tag, align 4
   %28 = load i8, ptr %5, align 1
   %29 = sext i8 %28 to i32
-  %30 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %27, ptr noundef %2, i32 noundef %.065, i32 noundef %14, i32 noundef %29) #11
+  %30 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %27, ptr noundef %2, i32 noundef %.063, i32 noundef %14, i32 noundef %29) #11
   %31 = load i32, ptr @hf_tcap_length, align 4
   %32 = load i32, ptr %8, align 4
   %33 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %31, ptr noundef %2, i32 noundef %12, i32 noundef %15, i32 noundef %32) #11
@@ -4038,8 +4037,8 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %36 = shl i8 %35, 1
   %37 = and i8 %36, 2
   %38 = zext nneg i8 %37 to i32
-  %.not62 = icmp eq i32 %34, %38
-  br i1 %.not62, label %43, label %39
+  %.not61 = icmp eq i32 %34, %38
+  br i1 %.not61, label %43, label %39
 
 39:                                               ; preds = %22
   %40 = sub i32 %34, %38
@@ -4050,9 +4049,8 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
 
 43:                                               ; preds = %39, %22
   %44 = phi i8 [ %.pre, %39 ], [ %35, %22 ]
-  %45 = and i8 %44, 1
-  %.not63 = icmp eq i8 %45, 0
-  br i1 %.not63, label %66, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %66
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @hf_tcap_constructor_eoc, align 4
@@ -4064,16 +4062,16 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
 
 52:                                               ; preds = %.lr.ph
   %53 = load i32, ptr %7, align 4
-  %54 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef %.065, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.232, i32 noundef %53) #11
+  %54 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef %.063, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.232, i32 noundef %53) #11
   %55 = load i32, ptr @hf_tcap_tag, align 4
   %56 = load i32, ptr %7, align 4
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %55, ptr noundef %2, i32 noundef %.065, i32 noundef %14, i32 noundef %56) #11
+  %57 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %55, ptr noundef %2, i32 noundef %.063, i32 noundef %14, i32 noundef %56) #11
   %58 = load i32, ptr @hf_tcap_length, align 4
   %59 = load i32, ptr %8, align 4
   %60 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %58, ptr noundef %2, i32 noundef %12, i32 noundef %15, i32 noundef %59) #11
   %61 = load i32, ptr %8, align 4
-  %.not61 = icmp eq i32 %61, 0
-  br i1 %.not61, label %66, label %62
+  %.not = icmp eq i32 %61, 0
+  br i1 %.not, label %66, label %62
 
 62:                                               ; preds = %52
   %63 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %13, i32 noundef %61) #11

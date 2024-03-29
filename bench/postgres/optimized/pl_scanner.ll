@@ -106,7 +106,7 @@ push_back_token.exit:                             ; preds = %24
   %33 = add nsw i32 %25, 1
   store i32 %33, ptr @num_pushbacks, align 4
   %34 = icmp eq i32 %25, 3
-  br i1 %34, label %35, label %push_back_token.exit43
+  br i1 %34, label %35, label %push_back_token.exit42
 
 35:                                               ; preds = %push_back_token.exit
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
@@ -115,7 +115,7 @@ push_back_token.exit:                             ; preds = %24
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 357, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
-push_back_token.exit43:                           ; preds = %push_back_token.exit
+push_back_token.exit42:                           ; preds = %push_back_token.exit
   %38 = sext i32 %33 to i64
   %39 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %38
   store i32 46, ptr %39, align 4
@@ -126,13 +126,13 @@ push_back_token.exit43:                           ; preds = %push_back_token.exi
   %42 = load ptr, ptr %1, align 8
   %43 = load ptr, ptr %3, align 8
   %44 = call zeroext i1 @plpgsql_parse_dblword(ptr noundef %42, ptr noundef %43, ptr noundef nonnull %1, ptr noundef nonnull %1) #11
-  %.41 = select i1 %44, i32 277, i32 276
+  %.40 = select i1 %44, i32 277, i32 276
   br label %138
 
 45:                                               ; preds = %13
   %46 = load i32, ptr @num_pushbacks, align 4
   %47 = icmp sgt i32 %46, 3
-  br i1 %47, label %48, label %push_back_token.exit44
+  br i1 %47, label %48, label %push_back_token.exit43
 
 48:                                               ; preds = %45
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
@@ -141,7 +141,7 @@ push_back_token.exit43:                           ; preds = %push_back_token.exi
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 357, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
-push_back_token.exit44:                           ; preds = %45
+push_back_token.exit43:                           ; preds = %45
   %51 = sext i32 %46 to i64
   %52 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %51
   store i32 %14, ptr %52, align 4
@@ -152,13 +152,13 @@ push_back_token.exit44:                           ; preds = %45
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %3, align 8
   %57 = call zeroext i1 @plpgsql_parse_dblword(ptr noundef %55, ptr noundef %56, ptr noundef nonnull %1, ptr noundef nonnull %1) #11
-  %.42 = select i1 %57, i32 277, i32 276
+  %.41 = select i1 %57, i32 277, i32 276
   br label %138
 
 58:                                               ; preds = %10
   %59 = load i32, ptr @num_pushbacks, align 4
   %60 = icmp sgt i32 %59, 3
-  br i1 %60, label %61, label %push_back_token.exit45
+  br i1 %60, label %61, label %push_back_token.exit44
 
 61:                                               ; preds = %58
   %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
@@ -167,7 +167,7 @@ push_back_token.exit44:                           ; preds = %45
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 357, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
-push_back_token.exit45:                           ; preds = %58
+push_back_token.exit44:                           ; preds = %58
   %64 = sext i32 %59 to i64
   %65 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %64
   store i32 %11, ptr %65, align 4
@@ -176,16 +176,16 @@ push_back_token.exit45:                           ; preds = %58
   %67 = add nsw i32 %59, 1
   store i32 %67, ptr @num_pushbacks, align 4
   %68 = icmp eq i32 %59, 3
-  br i1 %68, label %69, label %push_back_token.exit46
+  br i1 %68, label %69, label %push_back_token.exit45
 
-69:                                               ; preds = %push_back_token.exit45
+69:                                               ; preds = %push_back_token.exit44
   %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
   call void @llvm.assume(i1 %70)
   %71 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 357, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
-push_back_token.exit46:                           ; preds = %push_back_token.exit45
+push_back_token.exit45:                           ; preds = %push_back_token.exit44
   %72 = sext i32 %67 to i64
   %73 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %72
   store i32 46, ptr %73, align 4
@@ -202,12 +202,11 @@ push_back_token.exit46:                           ; preds = %push_back_token.exi
   %82 = call zeroext i1 @plpgsql_parse_word(ptr noundef %76, ptr noundef %81, i1 noundef zeroext true, ptr noundef nonnull %1, ptr noundef nonnull %1) #11
   br i1 %82, label %138, label %83
 
-83:                                               ; preds = %push_back_token.exit46
+83:                                               ; preds = %push_back_token.exit45
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not40 = icmp eq i8 %86, 0
-  br i1 %.not40, label %87, label %138
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %138, label %87
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %1, align 8
@@ -230,7 +229,7 @@ push_back_token.exit46:                           ; preds = %push_back_token.exi
 100:                                              ; preds = %7
   %101 = load i32, ptr @num_pushbacks, align 4
   %102 = icmp sgt i32 %101, 3
-  br i1 %102, label %103, label %push_back_token.exit47
+  br i1 %102, label %103, label %push_back_token.exit46
 
 103:                                              ; preds = %100
   %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
@@ -239,7 +238,7 @@ push_back_token.exit46:                           ; preds = %push_back_token.exi
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 357, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
-push_back_token.exit47:                           ; preds = %100
+push_back_token.exit46:                           ; preds = %100
   %106 = sext i32 %101 to i64
   %107 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %106
   store i32 %8, ptr %107, align 4
@@ -262,7 +261,7 @@ push_back_token.exit47:                           ; preds = %100
     i32 59, label %117
   ]
 
-117:                                              ; preds = %push_back_token.exit47, %push_back_token.exit47, %push_back_token.exit47, %push_back_token.exit47, %push_back_token.exit47
+117:                                              ; preds = %push_back_token.exit46, %push_back_token.exit46, %push_back_token.exit46, %push_back_token.exit46, %push_back_token.exit46
   switch i32 %8, label %118 [
     i32 270, label %switch.edge
     i32 61, label %switch.edge
@@ -272,17 +271,16 @@ push_back_token.exit47:                           ; preds = %100
 118:                                              ; preds = %117
   br label %switch.edge
 
-switch.edge:                                      ; preds = %117, %117, %117, %push_back_token.exit47, %118
-  %119 = phi i1 [ true, %push_back_token.exit47 ], [ true, %117 ], [ false, %118 ], [ true, %117 ], [ true, %117 ]
+switch.edge:                                      ; preds = %117, %117, %117, %push_back_token.exit46, %118
+  %119 = phi i1 [ true, %push_back_token.exit46 ], [ true, %117 ], [ false, %118 ], [ true, %117 ], [ true, %117 ]
   %120 = call zeroext i1 @plpgsql_parse_word(ptr noundef %110, ptr noundef %115, i1 noundef zeroext %119, ptr noundef nonnull %1, ptr noundef nonnull %1) #11
   br i1 %120, label %138, label %121
 
 121:                                              ; preds = %switch.edge
   %122 = getelementptr inbounds i8, ptr %1, i64 8
   %123 = load i8, ptr %122, align 8
-  %124 = and i8 %123, 1
-  %.not = icmp eq i8 %124, 0
-  br i1 %.not, label %125, label %138
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %138, label %125
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %1, align 8
@@ -302,8 +300,8 @@ switch.edge:                                      ; preds = %117, %117, %117, %p
   %137 = zext i16 %136 to i32
   br label %138
 
-138:                                              ; preds = %121, %125, %switch.edge, %83, %87, %push_back_token.exit46, %push_back_token.exit44, %push_back_token.exit43, %19, %0, %91, %129
-  %.0 = phi i32 [ %99, %91 ], [ %137, %129 ], [ %6, %0 ], [ %., %19 ], [ %.41, %push_back_token.exit43 ], [ %.42, %push_back_token.exit44 ], [ 277, %push_back_token.exit46 ], [ 275, %87 ], [ 275, %83 ], [ 277, %switch.edge ], [ 275, %125 ], [ 275, %121 ]
+138:                                              ; preds = %121, %125, %switch.edge, %83, %87, %push_back_token.exit45, %push_back_token.exit43, %push_back_token.exit42, %19, %0, %91, %129
+  %.0 = phi i32 [ %99, %91 ], [ %137, %129 ], [ %6, %0 ], [ %., %19 ], [ %.40, %push_back_token.exit42 ], [ %.41, %push_back_token.exit43 ], [ 277, %push_back_token.exit45 ], [ 275, %87 ], [ 275, %83 ], [ 277, %switch.edge ], [ 275, %125 ], [ 275, %121 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @plpgsql_yylval, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %139 = getelementptr inbounds i8, ptr %1, i64 32
   %140 = load i32, ptr %139, align 8

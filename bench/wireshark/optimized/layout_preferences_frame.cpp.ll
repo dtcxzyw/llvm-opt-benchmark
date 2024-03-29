@@ -5083,18 +5083,17 @@ define void @_ZN22LayoutPreferencesFrame42on_packetListCachedRowsLineEdit_textEd
 
 _ZNK7QString6toUIntEPbi.exit:                     ; preds = %2
   %.pre = load i8, ptr %3, align 1
-  %9 = and i8 %.pre, 1
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %_ZNK7QString6toUIntEPbi.exit.thread, label %11
+  %9 = trunc i8 %.pre to i1
+  br i1 %9, label %10, label %_ZNK7QString6toUIntEPbi.exit.thread
 
-11:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit
-  %12 = trunc i64 %8 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 @prefs_set_uint_value(ptr noundef %14, i32 noundef %12, i32 noundef 1)
+10:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit
+  %11 = trunc i64 %8 to i32
+  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i32 @prefs_set_uint_value(ptr noundef %13, i32 noundef %11, i32 noundef 1)
   br label %_ZNK7QString6toUIntEPbi.exit.thread
 
-_ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %2, %11, %_ZNK7QString6toUIntEPbi.exit
+_ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %2, %10, %_ZNK7QString6toUIntEPbi.exit
   ret void
 }
 

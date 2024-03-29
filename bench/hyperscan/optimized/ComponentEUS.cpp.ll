@@ -39,11 +39,11 @@ entry:
   %utf8 = getelementptr inbounds i8, ptr %this, i64 20
   %utf82 = getelementptr inbounds i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf82, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %utf8, align 4
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %utf8, align 4
   %position = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
-  store i32 %2, ptr %position, align 8
+  %1 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
+  store i32 %1, ptr %position, align 8
   ret void
 }
 
@@ -86,12 +86,12 @@ invoke.cont:
   %utf8.i = getelementptr inbounds i8, ptr %call, i64 20
   %utf83.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i8, ptr %utf83.i, align 4
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %utf8.i, align 4
+  %frombool.i = and i8 %2, 1
+  store i8 %frombool.i, ptr %utf8.i, align 4
   %position.i = getelementptr inbounds i8, ptr %call, i64 24
   %position4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load i32, ptr %position4.i, align 8
-  store i32 %4, ptr %position.i, align 8
+  %3 = load i32, ptr %position4.i, align 8
+  store i32 %3, ptr %position.i, align 8
   ret ptr %call
 }
 
@@ -162,16 +162,15 @@ entry:
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %3, i32 noundef 0)
   %utf8 = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load i8, ptr %utf8, align 4
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %7 = load i32, ptr %position, align 8
+  %6 = load i32, ptr %position, align 8
   %vtable13 = load ptr, ptr %call, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 104
-  %8 = load ptr, ptr %vfn14, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %7, i32 noundef %7)
+  %7 = load ptr, ptr %vfn14, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %6, i32 noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

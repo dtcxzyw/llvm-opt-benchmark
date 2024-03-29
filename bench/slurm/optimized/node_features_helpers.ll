@@ -1811,9 +1811,8 @@ define internal noundef i32 @_build_valid_feature_set(ptr nocapture noundef read
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 10
   %10 = load i8, ptr %9, align 2
-  %11 = and i8 %10, 1
-  %.not9 = icmp eq i8 %11, 0
-  br i1 %.not9, label %24, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %24
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %1, align 8

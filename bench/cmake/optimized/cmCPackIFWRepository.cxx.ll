@@ -1583,9 +1583,8 @@ define linkonce_odr dso_local void @_ZN25cmCPackeIFWUpdatesPatcher10EndElementER
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %14
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1602,9 +1601,8 @@ define linkonce_odr dso_local void @_ZN25cmCPackeIFWUpdatesPatcher10EndElementER
   tail call void @_ZN11cmXMLWriter10EndElementEv(ptr noundef nonnull align 8 dereferenceable(83) %16)
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not3 = icmp eq i8 %19, 0
-  br i1 %.not3, label %20, label %27
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %27, label %20
 
 20:                                               ; preds = %14
   %21 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.36) #11

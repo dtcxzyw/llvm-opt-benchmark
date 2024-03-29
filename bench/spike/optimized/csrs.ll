@@ -714,9 +714,8 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 850
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %15, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9, %3
   %14 = trunc i64 %7 to i32
@@ -748,10 +747,10 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
   %29 = getelementptr inbounds i8, ptr %28, i64 968
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
-  %.sink.i.i9 = load i64, ptr %31, align 8
-  %32 = and i64 %.sink.i.i9, 128
-  %.0.i.i10.not = icmp eq i64 %32, 0
-  br i1 %.0.i.i10.not, label %33, label %.thread
+  %.sink.i.i7 = load i64, ptr %31, align 8
+  %32 = and i64 %.sink.i.i7, 128
+  %.0.i.i8.not = icmp eq i64 %32, 0
+  br i1 %.0.i.i8.not, label %33, label %.thread
 
 33:                                               ; preds = %19, %26
   %34 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -771,9 +770,8 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
 38:                                               ; preds = %.thread
   %39 = getelementptr inbounds i8, ptr %0, i64 36
   %40 = load i8, ptr %39, align 4
-  %41 = and i8 %40, 1
-  %.not6 = icmp eq i8 %41, 0
-  br i1 %.not6, label %47, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -794,10 +792,9 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
 49:                                               ; preds = %47
   %50 = getelementptr inbounds i8, ptr %5, i64 850
   %51 = load i8, ptr %50, align 2
-  %52 = and i8 %51, 1
-  %.not7 = icmp ne i8 %52, 0
+  %52 = trunc i8 %51 to i1
   %53 = icmp ult i32 %18, 3
-  %or.cond = and i1 %53, %.not7
+  %or.cond = and i1 %53, %52
   %54 = tail call ptr @__cxa_allocate_exception(i64 32) #26
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = getelementptr inbounds i8, ptr %54, i64 16
@@ -894,9 +891,8 @@ define void @_ZNK5csr_t17log_special_writeEmm(ptr nocapture noundef nonnull read
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 3801
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %36, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %36
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 3672
@@ -1716,7 +1712,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   %5 = getelementptr inbounds i8, ptr %4, i64 659624
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %116, label %8
+  br i1 %7, label %113, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1757,7 +1753,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %65
   %38 = phi ptr [ %66, %65 ], [ %31, %.lr.ph ]
-  %.03253.us = phi i8 [ %.1.us, %65 ], [ 0, %.lr.ph ]
+  %.03253.us = phi i1 [ %.1.us, %65 ], [ false, %.lr.ph ]
   %.03352.us = phi i64 [ %67, %65 ], [ %30, %.lr.ph ]
   %39 = getelementptr inbounds i8, ptr %38, i64 659624
   %40 = load i64, ptr %39, align 8
@@ -1802,7 +1798,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
 
 65:                                               ; preds = %50, %47, %.lr.ph.split.us
   %66 = phi ptr [ %38, %.lr.ph.split.us ], [ %.pre, %50 ], [ %38, %47 ]
-  %.1.us = phi i8 [ %.03253.us, %.lr.ph.split.us ], [ 1, %50 ], [ 1, %47 ]
+  %.1.us = phi i1 [ %.03253.us, %.lr.ph.split.us ], [ true, %50 ], [ true, %47 ]
   %67 = add nuw i64 %.03352.us, 1
   %68 = getelementptr inbounds i8, ptr %66, i64 3796
   %69 = load i32, ptr %68, align 4
@@ -1814,7 +1810,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %102
   %74 = phi ptr [ %103, %102 ], [ %31, %.lr.ph ]
-  %.03253.us56 = phi i8 [ %.1.us63, %102 ], [ 0, %.lr.ph ]
+  %.03253.us56 = phi i1 [ %.1.us63, %102 ], [ false, %.lr.ph ]
   %.03352.us57 = phi i64 [ %104, %102 ], [ %30, %.lr.ph ]
   %75 = getelementptr inbounds i8, ptr %74, i64 659624
   %76 = load i64, ptr %75, align 8
@@ -1867,7 +1863,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
 
 102:                                              ; preds = %101, %98, %78, %.lr.ph.split.split.us
   %103 = phi ptr [ %74, %.lr.ph.split.split.us ], [ %74, %98 ], [ %.pre88, %101 ], [ %74, %78 ]
-  %.1.us63 = phi i8 [ %.03253.us56, %.lr.ph.split.split.us ], [ 1, %98 ], [ 1, %101 ], [ 1, %78 ]
+  %.1.us63 = phi i1 [ %.03253.us56, %.lr.ph.split.split.us ], [ true, %98 ], [ true, %101 ], [ true, %78 ]
   %104 = add nuw i64 %.03352.us57, 1
   %105 = getelementptr inbounds i8, ptr %103, i64 3796
   %106 = load i32, ptr %105, align 4
@@ -1878,27 +1874,22 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   br i1 %110, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %65, %102, %8
-  %.032.lcssa = phi i8 [ 0, %8 ], [ %.1.us63, %102 ], [ %.1.us, %65 ]
+  %.032.lcssa = phi i1 [ false, %8 ], [ %.1.us63, %102 ], [ %.1.us, %65 ]
   %.lcssa = phi ptr [ %31, %8 ], [ %103, %102 ], [ %66, %65 ]
   %111 = getelementptr inbounds i8, ptr %.lcssa, i64 40
   %112 = load ptr, ptr %111, align 8
   invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %112)
-          to label %113 unwind label %117
+          to label %113 unwind label %114
 
-113:                                              ; preds = %._crit_edge
-  %114 = and i8 %.032.lcssa, 1
-  %115 = icmp ne i8 %114, 0
-  br label %116
-
-116:                                              ; preds = %2, %113
-  %.0 = phi i1 [ %115, %113 ], [ false, %2 ]
+113:                                              ; preds = %._crit_edge, %2
+  %.0 = phi i1 [ false, %2 ], [ %.032.lcssa, %._crit_edge ]
   ret i1 %.0
 
-117:                                              ; preds = %._crit_edge
-  %118 = landingpad { ptr, i32 }
+114:                                              ; preds = %._crit_edge
+  %115 = landingpad { ptr, i32 }
           catch ptr null
-  %119 = extractvalue { ptr, i32 } %118, 0
-  tail call void @__clang_call_terminate(ptr %119) #28
+  %116 = extractvalue { ptr, i32 } %115, 0
+  tail call void @__clang_call_terminate(ptr %116) #28
   unreachable
 }
 
@@ -2226,9 +2217,8 @@ define noundef i64 @_ZNK17virtualized_csr_t4readEv(ptr nocapture noundef nonnull
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 850
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  %..i = select i1 %.not, i64 40, i64 56
+  %6 = trunc i8 %5 to i1
+  %..i = select i1 %6, i64 56, i64 40
   %7 = getelementptr inbounds i8, ptr %0, i64 %..i
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -2256,9 +2246,8 @@ define noundef zeroext i1 @_ZN17virtualized_csr_t14unlogged_writeEm(ptr nocaptur
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 850
   %6 = load i8, ptr %5, align 2
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %15, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2468,21 +2457,21 @@ define void @_ZN17base_status_csr_tC2EP11processor_tm(ptr nocapture noundef nonn
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 262144
   %.0.i.i.not = icmp eq i64 %20, 0
-  br i1 %.0.i.i.not, label %28, label %21
+  br i1 %.0.i.i.not, label %27, label %21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 4096
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
-  %25 = trunc i64 %24 to i8
-  %26 = lshr i8 %25, 5
-  %27 = and i8 %26, 1
-  br label %28
+  %25 = and i64 %24, 32
+  %26 = icmp ne i64 %25, 0
+  br label %27
 
-28:                                               ; preds = %21, %3
-  %29 = phi i8 [ 0, %3 ], [ %27, %21 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 37
-  store i8 %29, ptr %30, align 1
+27:                                               ; preds = %21, %3
+  %28 = phi i1 [ false, %3 ], [ %26, %21 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 37
+  %30 = zext i1 %28 to i8
+  store i8 %30, ptr %29, align 1
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 40
   %.sink.i.i.i = load i64, ptr %32, align 8
@@ -2490,7 +2479,7 @@ define void @_ZN17base_status_csr_tC2EP11processor_tm(ptr nocapture noundef nonn
   %or.cond10.not.i = icmp eq i64 %33, 0
   br i1 %or.cond10.not.i, label %_ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit, label %34
 
-34:                                               ; preds = %28
+34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %1, i64 4152
   %.sink.i.i = load i64, ptr %35, align 8
   %36 = and i64 %.sink.i.i, 2
@@ -2498,20 +2487,19 @@ define void @_ZN17base_status_csr_tC2EP11processor_tm(ptr nocapture noundef nonn
   %37 = select i1 %.0.i.not.i, i64 24576, i64 0
   br label %_ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit
 
-_ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit: ; preds = %28, %34
-  %38 = phi i64 [ %37, %34 ], [ 0, %28 ]
+_ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit: ; preds = %27, %34
+  %38 = phi i64 [ %37, %34 ], [ 0, %27 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   %40 = and i64 %.sink.i.i.i, 262144
   %.0.i.i.not.i = icmp eq i64 %40, 0
   %41 = and i64 %.sink.i.i.i, 2097152
   %.0.i.i7.not.i = icmp eq i64 %41, 0
   %42 = select i1 %.0.i.i.not.i, i64 0, i64 290
-  %.not.i = icmp eq i8 %29, 0
-  %43 = select i1 %.not.i, i64 0, i64 786432
+  %43 = select i1 %28, i64 786432, i64 0
   %44 = getelementptr inbounds i8, ptr %1, i64 72
   %45 = load i64, ptr %44, align 8
-  %.not11.i = icmp eq i64 %45, 0
-  %46 = select i1 %.not11.i, i64 0, i64 98304
+  %.not.i = icmp eq i64 %45, 0
+  %46 = select i1 %.not.i, i64 0, i64 98304
   %47 = select i1 %.0.i.i7.not.i, i64 0, i64 1536
   %48 = or disjoint i64 %42, %43
   %49 = or disjoint i64 %48, %47
@@ -2558,13 +2546,12 @@ define noundef i64 @_ZNK17base_status_csr_t26compute_sstatus_write_maskEv(ptr no
   %16 = select i1 %.0.i.i.not, i64 0, i64 290
   %17 = getelementptr inbounds i8, ptr %0, i64 37
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  %20 = select i1 %.not, i64 0, i64 786432
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, i64 786432, i64 0
   %21 = getelementptr inbounds i8, ptr %3, i64 72
   %22 = load i64, ptr %21, align 8
-  %.not11 = icmp eq i64 %22, 0
-  %23 = select i1 %.not11, i64 0, i64 98304
+  %.not = icmp eq i64 %22, 0
+  %23 = select i1 %.not, i64 0, i64 98304
   %24 = select i1 %.0.i.i7.not, i64 0, i64 1536
   %25 = or disjoint i64 %24, %16
   %26 = or disjoint i64 %25, %13
@@ -2627,12 +2614,11 @@ define void @_ZN17base_status_csr_t15maybe_flush_tlbEm(ptr noundef nonnull align
   %7 = xor i64 %6, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 37
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  %11 = select i1 %.not, i64 137216, i64 923648
+  %10 = trunc i8 %9 to i1
+  %11 = select i1 %10, i64 923648, i64 137216
   %12 = and i64 %11, %7
-  %.not1 = icmp eq i64 %12, 0
-  br i1 %.not1, label %18, label %13
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2679,21 +2665,21 @@ define void @_ZN14vsstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 262144
   %.0.i.i.not.i = icmp eq i64 %20, 0
-  br i1 %.0.i.i.not.i, label %28, label %21
+  br i1 %.0.i.i.not.i, label %27, label %21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 4096
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
-  %25 = trunc i64 %24 to i8
-  %26 = lshr i8 %25, 5
-  %27 = and i8 %26, 1
-  br label %28
+  %25 = and i64 %24, 32
+  %26 = icmp ne i64 %25, 0
+  br label %27
 
-28:                                               ; preds = %21, %3
-  %29 = phi i8 [ 0, %3 ], [ %27, %21 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 37
-  store i8 %29, ptr %30, align 1
+27:                                               ; preds = %21, %3
+  %28 = phi i1 [ false, %3 ], [ %26, %21 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 37
+  %30 = zext i1 %28 to i8
+  store i8 %30, ptr %29, align 1
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 40
   %.sink.i.i.i.i = load i64, ptr %32, align 8
@@ -2701,7 +2687,7 @@ define void @_ZN14vsstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull
   %or.cond10.not.i.i = icmp eq i64 %33, 0
   br i1 %or.cond10.not.i.i, label %_ZN17base_status_csr_tC2EP11processor_tm.exit, label %34
 
-34:                                               ; preds = %28
+34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %1, i64 4152
   %.sink.i.i.i = load i64, ptr %35, align 8
   %36 = and i64 %.sink.i.i.i, 2
@@ -2709,20 +2695,19 @@ define void @_ZN14vsstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull
   %37 = select i1 %.0.i.not.i.i, i64 24576, i64 0
   br label %_ZN17base_status_csr_tC2EP11processor_tm.exit
 
-_ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %28, %34
-  %38 = phi i64 [ %37, %34 ], [ 0, %28 ]
+_ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %27, %34
+  %38 = phi i64 [ %37, %34 ], [ 0, %27 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   %40 = and i64 %.sink.i.i.i.i, 262144
   %.0.i.i.not.i.i = icmp eq i64 %40, 0
   %41 = and i64 %.sink.i.i.i.i, 2097152
   %.0.i.i7.not.i.i = icmp eq i64 %41, 0
   %42 = select i1 %.0.i.i.not.i.i, i64 0, i64 290
-  %.not.i.i = icmp eq i8 %29, 0
-  %43 = select i1 %.not.i.i, i64 0, i64 786432
+  %43 = select i1 %28, i64 786432, i64 0
   %44 = getelementptr inbounds i8, ptr %1, i64 72
   %45 = load i64, ptr %44, align 8
-  %.not11.i.i = icmp eq i64 %45, 0
-  %46 = select i1 %.not11.i.i, i64 0, i64 98304
+  %.not.i.i = icmp eq i64 %45, 0
+  %46 = select i1 %.not.i.i, i64 0, i64 98304
   %47 = select i1 %.0.i.i7.not.i.i, i64 0, i64 1536
   %48 = or disjoint i64 %42, %43
   %49 = or disjoint i64 %48, %47
@@ -2769,9 +2754,8 @@ define noundef zeroext i1 @_ZN14vsstatus_csr_t14unlogged_writeEm(ptr noundef non
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 850
   %14 = load i8, ptr %13, align 2
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %0, align 8
@@ -2781,12 +2765,11 @@ define noundef zeroext i1 @_ZN14vsstatus_csr_t14unlogged_writeEm(ptr noundef non
   %21 = xor i64 %20, %10
   %22 = getelementptr inbounds i8, ptr %0, i64 37
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not.i = icmp eq i8 %24, 0
-  %25 = select i1 %.not.i, i64 137216, i64 923648
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, i64 923648, i64 137216
   %26 = and i64 %25, %21
-  %.not1.i = icmp eq i64 %26, 0
-  br i1 %.not1.i, label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, label %27
+  %.not.i = icmp eq i64 %26, 0
+  br i1 %.not.i, label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2868,21 +2851,21 @@ define void @_ZN19sstatus_proxy_csr_tC2EP11processor_tmSt10shared_ptrI13mstatus_
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 262144
   %.0.i.i.not.i = icmp eq i64 %21, 0
-  br i1 %.0.i.i.not.i, label %29, label %22
+  br i1 %.0.i.i.not.i, label %28, label %22
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %1, i64 4096
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %26 = trunc i64 %25 to i8
-  %27 = lshr i8 %26, 5
-  %28 = and i8 %27, 1
-  br label %29
+  %26 = and i64 %25, 32
+  %27 = icmp ne i64 %26, 0
+  br label %28
 
-29:                                               ; preds = %22, %4
-  %30 = phi i8 [ 0, %4 ], [ %28, %22 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 37
-  store i8 %30, ptr %31, align 1
+28:                                               ; preds = %22, %4
+  %29 = phi i1 [ false, %4 ], [ %27, %22 ]
+  %30 = getelementptr inbounds i8, ptr %0, i64 37
+  %31 = zext i1 %29 to i8
+  store i8 %31, ptr %30, align 1
   %32 = load ptr, ptr %17, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 40
   %.sink.i.i.i.i = load i64, ptr %33, align 8
@@ -2890,7 +2873,7 @@ define void @_ZN19sstatus_proxy_csr_tC2EP11processor_tmSt10shared_ptrI13mstatus_
   %or.cond10.not.i.i = icmp eq i64 %34, 0
   br i1 %or.cond10.not.i.i, label %_ZN17base_status_csr_tC2EP11processor_tm.exit, label %35
 
-35:                                               ; preds = %29
+35:                                               ; preds = %28
   %36 = getelementptr inbounds i8, ptr %1, i64 4152
   %.sink.i.i.i = load i64, ptr %36, align 8
   %37 = and i64 %.sink.i.i.i, 2
@@ -2898,20 +2881,19 @@ define void @_ZN19sstatus_proxy_csr_tC2EP11processor_tmSt10shared_ptrI13mstatus_
   %38 = select i1 %.0.i.not.i.i, i64 24576, i64 0
   br label %_ZN17base_status_csr_tC2EP11processor_tm.exit
 
-_ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %29, %35
-  %39 = phi i64 [ %38, %35 ], [ 0, %29 ]
+_ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %28, %35
+  %39 = phi i64 [ %38, %35 ], [ 0, %28 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 40
   %41 = and i64 %.sink.i.i.i.i, 262144
   %.0.i.i.not.i.i = icmp eq i64 %41, 0
   %42 = and i64 %.sink.i.i.i.i, 2097152
   %.0.i.i7.not.i.i = icmp eq i64 %42, 0
   %43 = select i1 %.0.i.i.not.i.i, i64 0, i64 290
-  %.not.i.i = icmp eq i8 %30, 0
-  %44 = select i1 %.not.i.i, i64 0, i64 786432
+  %44 = select i1 %29, i64 786432, i64 0
   %45 = getelementptr inbounds i8, ptr %1, i64 72
   %46 = load i64, ptr %45, align 8
-  %.not11.i.i = icmp eq i64 %46, 0
-  %47 = select i1 %.not11.i.i, i64 0, i64 98304
+  %.not.i.i = icmp eq i64 %46, 0
+  %47 = select i1 %.not.i.i, i64 0, i64 98304
   %48 = select i1 %.0.i.i7.not.i.i, i64 0, i64 1536
   %49 = or disjoint i64 %43, %44
   %50 = or disjoint i64 %49, %48
@@ -3015,21 +2997,21 @@ define void @_ZN13mstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 262144
   %.0.i.i.not.i = icmp eq i64 %20, 0
-  br i1 %.0.i.i.not.i, label %28, label %21
+  br i1 %.0.i.i.not.i, label %27, label %21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 4096
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
-  %25 = trunc i64 %24 to i8
-  %26 = lshr i8 %25, 5
-  %27 = and i8 %26, 1
-  br label %28
+  %25 = and i64 %24, 32
+  %26 = icmp ne i64 %25, 0
+  br label %27
 
-28:                                               ; preds = %21, %3
-  %29 = phi i8 [ 0, %3 ], [ %27, %21 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 37
-  store i8 %29, ptr %30, align 1
+27:                                               ; preds = %21, %3
+  %28 = phi i1 [ false, %3 ], [ %26, %21 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 37
+  %30 = zext i1 %28 to i8
+  store i8 %30, ptr %29, align 1
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 40
   %.sink.i.i.i.i = load i64, ptr %32, align 8
@@ -3037,7 +3019,7 @@ define void @_ZN13mstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   %or.cond10.not.i.i = icmp eq i64 %33, 0
   br i1 %or.cond10.not.i.i, label %_ZN17base_status_csr_tC2EP11processor_tm.exit, label %34
 
-34:                                               ; preds = %28
+34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %1, i64 4152
   %.sink.i.i.i = load i64, ptr %35, align 8
   %36 = and i64 %.sink.i.i.i, 2
@@ -3045,20 +3027,19 @@ define void @_ZN13mstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   %37 = select i1 %.0.i.not.i.i, i64 24576, i64 0
   br label %_ZN17base_status_csr_tC2EP11processor_tm.exit
 
-_ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %28, %34
-  %38 = phi i64 [ %37, %34 ], [ 0, %28 ]
+_ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %27, %34
+  %38 = phi i64 [ %37, %34 ], [ 0, %27 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   %40 = and i64 %.sink.i.i.i.i, 262144
   %.0.i.i.not.i.i = icmp eq i64 %40, 0
   %41 = and i64 %.sink.i.i.i.i, 2097152
   %.0.i.i7.not.i.i = icmp eq i64 %41, 0
   %42 = select i1 %.0.i.i.not.i.i, i64 0, i64 290
-  %.not.i.i = icmp eq i8 %29, 0
-  %43 = select i1 %.not.i.i, i64 0, i64 786432
+  %43 = select i1 %28, i64 786432, i64 0
   %44 = getelementptr inbounds i8, ptr %1, i64 72
   %45 = load i64, ptr %44, align 8
-  %.not11.i.i = icmp eq i64 %45, 0
-  %46 = select i1 %.not11.i.i, i64 0, i64 98304
+  %.not.i.i = icmp eq i64 %45, 0
+  %46 = select i1 %.not.i.i, i64 0, i64 98304
   %47 = select i1 %.0.i.i7.not.i.i, i64 0, i64 1536
   %48 = or disjoint i64 %42, %43
   %49 = or disjoint i64 %48, %47
@@ -3196,7 +3177,7 @@ define noundef zeroext i1 @_ZN13mstatus_csr_t14unlogged_writeEm(ptr noundef nonn
   %12 = lshr i64 %1, 11
   %13 = and i64 %12, 3
   %14 = invoke noundef i64 @_ZN11processor_t18legalize_privilegeEm(ptr noundef nonnull align 8 dereferenceable(659880) %4, i64 noundef %13)
-          to label %15 unwind label %78
+          to label %15 unwind label %77
 
 15:                                               ; preds = %2
   %16 = and i64 %.sink.i.i, 128
@@ -3205,95 +3186,93 @@ define noundef zeroext i1 @_ZN13mstatus_csr_t14unlogged_writeEm(ptr noundef nonn
   %19 = and i64 %18, 131072
   %20 = shl i64 %.sink.i.i, 4
   %21 = and i64 %20, 4194304
-  %22 = and i8 %11, 1
-  %23 = zext nneg i8 %22 to i64
-  %24 = shl nuw nsw i64 %23, 20
-  %25 = shl nuw nsw i64 %16, 31
-  %26 = or i64 %9, %19
-  %27 = or i64 %26, %21
-  %28 = or i64 %27, %25
-  %29 = or i64 %28, %17
-  %30 = or i64 %29, %24
-  %31 = or i64 %30, 2103432
-  %32 = and i64 %1, -6145
-  %33 = shl i64 %14, 11
-  %34 = and i64 %33, 6144
-  %35 = or disjoint i64 %34, %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 56
-  %37 = load i64, ptr %36, align 8
-  %38 = xor i64 %31, -1
-  %39 = and i64 %37, %38
-  %40 = and i64 %31, %35
-  %41 = or i64 %39, %40
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(37) %0) #26
-  %46 = xor i64 %45, %41
-  %47 = load i8, ptr %10, align 1
-  %48 = and i8 %47, 1
-  %.not.i = icmp eq i8 %48, 0
-  %49 = select i1 %.not.i, i64 137216, i64 923648
-  %50 = and i64 %49, %46
-  %.not1.i = icmp eq i64 %50, 0
-  br i1 %.not1.i, label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, label %51
+  %22 = trunc i8 %11 to i1
+  %23 = select i1 %22, i64 1048576, i64 0
+  %24 = shl nuw nsw i64 %16, 31
+  %25 = or i64 %9, %19
+  %26 = or i64 %25, %21
+  %27 = or i64 %26, %24
+  %28 = or i64 %27, %17
+  %29 = or i64 %28, %23
+  %30 = or i64 %29, 2103432
+  %31 = and i64 %1, -6145
+  %32 = shl i64 %14, 11
+  %33 = and i64 %32, 6144
+  %34 = or disjoint i64 %33, %31
+  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %36 = load i64, ptr %35, align 8
+  %37 = xor i64 %30, -1
+  %38 = and i64 %36, %37
+  %39 = and i64 %30, %34
+  %40 = or i64 %38, %39
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(37) %0) #26
+  %45 = xor i64 %44, %40
+  %46 = load i8, ptr %10, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, i64 923648, i64 137216
+  %49 = and i64 %48, %45
+  %.not.i = icmp eq i64 %49, 0
+  br i1 %.not.i, label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, label %50
 
-51:                                               ; preds = %15
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
-  %54 = load ptr, ptr %53, align 8
-  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %54)
-          to label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit unwind label %55
+50:                                               ; preds = %15
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %53 = load ptr, ptr %52, align 8
+  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %53)
+          to label %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit unwind label %54
 
-55:                                               ; preds = %51
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %50
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #28
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #28
   unreachable
 
-_ZN17base_status_csr_t15maybe_flush_tlbEm.exit:   ; preds = %15, %51
-  %58 = load atomic i8, ptr @_ZGVZNK17base_status_csr_t9adjust_sdEmE6sd_bit acquire, align 8
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %60, label %_ZNK17base_status_csr_t9adjust_sdEm.exit, !prof !9
+_ZN17base_status_csr_t15maybe_flush_tlbEm.exit:   ; preds = %15, %50
+  %57 = load atomic i8, ptr @_ZGVZNK17base_status_csr_t9adjust_sdEmE6sd_bit acquire, align 8
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %59, label %_ZNK17base_status_csr_t9adjust_sdEm.exit, !prof !9
 
-60:                                               ; preds = %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit
-  %61 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK17base_status_csr_t9adjust_sdEmE6sd_bit) #26
-  %.not.i15 = icmp eq i32 %61, 0
-  br i1 %.not.i15, label %_ZNK17base_status_csr_t9adjust_sdEm.exit, label %62
+59:                                               ; preds = %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit
+  %60 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK17base_status_csr_t9adjust_sdEmE6sd_bit) #26
+  %.not.i15 = icmp eq i32 %60, 0
+  br i1 %.not.i15, label %_ZNK17base_status_csr_t9adjust_sdEm.exit, label %61
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 3796
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 64
-  %67 = select i1 %66, i64 -9223372036854775808, i64 2147483648
-  store i64 %67, ptr @_ZZNK17base_status_csr_t9adjust_sdEmE6sd_bit, align 8
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 3796
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %64, 64
+  %66 = select i1 %65, i64 -9223372036854775808, i64 2147483648
+  store i64 %66, ptr @_ZZNK17base_status_csr_t9adjust_sdEmE6sd_bit, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK17base_status_csr_t9adjust_sdEmE6sd_bit) #26
   br label %_ZNK17base_status_csr_t9adjust_sdEm.exit
 
-_ZNK17base_status_csr_t9adjust_sdEm.exit:         ; preds = %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, %60, %62
-  %68 = and i64 %41, 24576
-  %69 = icmp eq i64 %68, 24576
-  %70 = and i64 %41, 1536
-  %71 = icmp eq i64 %70, 1536
-  %or.cond.i = or i1 %69, %71
-  %72 = and i64 %41, 98304
-  %73 = icmp eq i64 %72, 98304
-  %or.cond8.i = or i1 %73, %or.cond.i
-  %74 = load i64, ptr @_ZZNK17base_status_csr_t9adjust_sdEmE6sd_bit, align 8
-  %75 = or i64 %74, %41
-  %76 = xor i64 %74, -1
-  %77 = and i64 %41, %76
-  %.0.i = select i1 %or.cond8.i, i64 %75, i64 %77
-  store i64 %.0.i, ptr %36, align 8
+_ZNK17base_status_csr_t9adjust_sdEm.exit:         ; preds = %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit, %59, %61
+  %67 = and i64 %40, 24576
+  %68 = icmp eq i64 %67, 24576
+  %69 = and i64 %40, 1536
+  %70 = icmp eq i64 %69, 1536
+  %or.cond.i = or i1 %68, %70
+  %71 = and i64 %40, 98304
+  %72 = icmp eq i64 %71, 98304
+  %or.cond8.i = or i1 %72, %or.cond.i
+  %73 = load i64, ptr @_ZZNK17base_status_csr_t9adjust_sdEmE6sd_bit, align 8
+  %74 = or i64 %73, %40
+  %75 = xor i64 %73, -1
+  %76 = and i64 %40, %75
+  %.0.i = select i1 %or.cond8.i, i64 %74, i64 %76
+  store i64 %.0.i, ptr %35, align 8
   ret i1 true
 
-78:                                               ; preds = %2
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %2
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #28
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #28
   unreachable
 }
 
@@ -3974,9 +3953,8 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr nocapture noundef nonnull readonly a
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 850
   %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %.critedge, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3996,9 +3974,8 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr nocapture noundef nonnull readonly a
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 850
   %32 = load i8, ptr %31, align 2
-  %33 = and i8 %32, 1
-  %.not4.i = icmp eq i8 %33, 0
-  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4006,15 +3983,15 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr nocapture noundef nonnull readonly a
   %37 = getelementptr inbounds i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, %1
-  %.not5.i = icmp eq i64 %39, 0
-  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
+  %.not4.i = icmp eq i64 %39, 0
+  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %27, %34
   %40 = getelementptr inbounds i8, ptr %4, i64 40
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %1
-  %.not6.i = icmp eq i64 %42, 0
-  br i1 %.not6.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %43
+  %.not5.i = icmp eq i64 %42, 0
+  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %43
 
 43:                                               ; preds = %_ZN13sstatus_csr_t7enabledEm.exit
   tail call void @abort() #28
@@ -4043,9 +4020,8 @@ _ZN5csr_t5writeEm.exit:                           ; preds = %_ZN13sstatus_csr_t7
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 850
   %59 = load i8, ptr %58, align 2
-  %60 = and i8 %59, 1
-  %.not7 = icmp eq i8 %60, 0
-  br i1 %.not7, label %.critedge, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %_ZN5csr_t5writeEm.exit
   %62 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4112,9 +4088,8 @@ define noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr nocapture noundef no
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 850
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not4 = icmp eq i8 %18, 0
-  br i1 %.not4, label %29, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %29
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4122,18 +4097,18 @@ define noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr nocapture noundef no
   %22 = getelementptr inbounds i8, ptr %21, i64 56
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, %1
-  %.not5 = icmp eq i64 %24, 0
-  br i1 %.not5, label %25, label %29
+  %.not4 = icmp eq i64 %24, 0
+  br i1 %.not4, label %25, label %29
 
 25:                                               ; preds = %19, %2
   %26 = getelementptr inbounds i8, ptr %4, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %1
-  %.not6 = icmp eq i64 %28, 0
+  %.not5 = icmp eq i64 %28, 0
   br label %29
 
 29:                                               ; preds = %25, %13, %19
-  %.0 = phi i1 [ true, %19 ], [ true, %13 ], [ %.not6, %25 ]
+  %.0 = phi i1 [ true, %19 ], [ true, %13 ], [ %.not5, %25 ]
   ret i1 %.0
 }
 
@@ -5389,9 +5364,8 @@ define noundef i64 @_ZNK22generic_int_accessor_t7ip_readEv(ptr nocapture noundef
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 33
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %23, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %23
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds i8, ptr %2, i64 1800
@@ -5406,9 +5380,8 @@ define noundef i64 @_ZNK22generic_int_accessor_t7ip_readEv(ptr nocapture noundef
   %24 = phi i64 [ %22, %16 ], [ -1, %1 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not2.i = icmp eq i8 %27, 0
-  br i1 %.not2.i, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %0, align 8
@@ -5439,9 +5412,8 @@ _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %23, %28
 define noundef i64 @_ZNK22generic_int_accessor_t10deleg_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 33
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
@@ -5457,9 +5429,8 @@ define noundef i64 @_ZNK22generic_int_accessor_t10deleg_maskEv(ptr nocapture nou
   %14 = phi i64 [ %12, %5 ], [ -1, %1 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not2 = icmp eq i8 %17, 0
-  br i1 %.not2, label %26, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %26
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8
@@ -5481,9 +5452,8 @@ define noundef i64 @_ZNK22generic_int_accessor_t10deleg_maskEv(ptr nocapture nou
 define void @_ZN22generic_int_accessor_t8ip_writeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 33
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %14, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
@@ -5499,9 +5469,8 @@ define void @_ZN22generic_int_accessor_t8ip_writeEm(ptr nocapture noundef nonnul
   %15 = phi i64 [ %13, %6 ], [ -1, %2 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not2.i = icmp eq i8 %18, 0
-  br i1 %.not2.i, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8
@@ -5554,9 +5523,8 @@ define noundef i64 @_ZNK22generic_int_accessor_t7ie_readEv(ptr nocapture noundef
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
   %9 = getelementptr inbounds i8, ptr %0, i64 33
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %20, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %0, align 8
@@ -5572,9 +5540,8 @@ define noundef i64 @_ZNK22generic_int_accessor_t7ie_readEv(ptr nocapture noundef
   %21 = phi i64 [ %19, %12 ], [ -1, %1 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not2.i = icmp eq i8 %24, 0
-  br i1 %.not2.i, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %0, align 8
@@ -5604,9 +5571,8 @@ _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %20, %25
 define void @_ZN22generic_int_accessor_t8ie_writeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 33
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %14, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
@@ -5622,9 +5588,8 @@ define void @_ZN22generic_int_accessor_t8ie_writeEm(ptr nocapture noundef nonnul
   %15 = phi i64 [ %13, %6 ], [ -1, %2 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not2.i = icmp eq i8 %18, 0
-  br i1 %.not2.i, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8
@@ -5733,9 +5698,8 @@ define noundef i64 @_ZNK15mip_proxy_csr_t4readEv(ptr nocapture noundef nonnull r
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 33
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i, label %25, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %25
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %4, i64 1800
@@ -5750,9 +5714,8 @@ define noundef i64 @_ZNK15mip_proxy_csr_t4readEv(ptr nocapture noundef nonnull r
   %26 = phi i64 [ %24, %18 ], [ -1, %1 ]
   %27 = getelementptr inbounds i8, ptr %3, i64 32
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not2.i.i = icmp eq i8 %29, 0
-  br i1 %.not2.i.i, label %_ZNK22generic_int_accessor_t7ip_readEv.exit, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %_ZNK22generic_int_accessor_t7ip_readEv.exit
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %3, align 8
@@ -5785,9 +5748,8 @@ define noundef zeroext i1 @_ZN15mip_proxy_csr_t14unlogged_writeEm(ptr nocapture 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 33
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i, label %16, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
@@ -5803,9 +5765,8 @@ define noundef zeroext i1 @_ZN15mip_proxy_csr_t14unlogged_writeEm(ptr nocapture 
   %17 = phi i64 [ %15, %8 ], [ -1, %2 ]
   %18 = getelementptr inbounds i8, ptr %4, i64 32
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not2.i.i = icmp eq i8 %20, 0
-  br i1 %.not2.i.i, label %_ZN22generic_int_accessor_t8ip_writeEm.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZN22generic_int_accessor_t8ip_writeEm.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %4, align 8
@@ -5910,9 +5871,8 @@ define noundef i64 @_ZNK15mie_proxy_csr_t4readEv(ptr nocapture noundef nonnull r
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(48) %6) #26
   %11 = getelementptr inbounds i8, ptr %3, i64 33
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i, label %22, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %3, align 8
@@ -5928,9 +5888,8 @@ define noundef i64 @_ZNK15mie_proxy_csr_t4readEv(ptr nocapture noundef nonnull r
   %23 = phi i64 [ %21, %14 ], [ -1, %1 ]
   %24 = getelementptr inbounds i8, ptr %3, i64 32
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not2.i.i = icmp eq i8 %26, 0
-  br i1 %.not2.i.i, label %_ZNK22generic_int_accessor_t7ie_readEv.exit, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %_ZNK22generic_int_accessor_t7ie_readEv.exit
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %3, align 8
@@ -5962,9 +5921,8 @@ define noundef zeroext i1 @_ZN15mie_proxy_csr_t14unlogged_writeEm(ptr nocapture 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 33
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i, label %16, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
@@ -5980,9 +5938,8 @@ define noundef zeroext i1 @_ZN15mie_proxy_csr_t14unlogged_writeEm(ptr nocapture 
   %17 = phi i64 [ %15, %8 ], [ -1, %2 ]
   %18 = getelementptr inbounds i8, ptr %4, i64 32
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not2.i.i = icmp eq i8 %20, 0
-  br i1 %.not2.i.i, label %_ZN22generic_int_accessor_t8ie_writeEm.exit, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZN22generic_int_accessor_t8ie_writeEm.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %4, align 8
@@ -6944,9 +6901,8 @@ define void @_ZNK22virtualized_satp_csr_t18verify_permissionsE6insn_tb(ptr nocap
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 850
   %7 = load i8, ptr %6, align 2
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %22, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 1784
@@ -6956,8 +6912,8 @@ define void @_ZNK22virtualized_satp_csr_t18verify_permissionsE6insn_tb(ptr nocap
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(37) %11) #26
   %16 = and i64 %15, 1048576
-  %.not5 = icmp eq i64 %16, 0
-  br i1 %.not5, label %27, label %17
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %27, label %17
 
 17:                                               ; preds = %9
   %18 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -7053,9 +7009,8 @@ _ZNK14base_atp_csr_t10satp_validEm.exit.thread:   ; preds = %17, %10, %24, %19, 
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 850
   %41 = load i8, ptr %40, align 2
-  %42 = and i8 %41, 1
-  %.not.i = icmp eq i8 %42, 0
-  br i1 %.not.i, label %50, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %50
 
 43:                                               ; preds = %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
   %44 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7155,72 +7110,67 @@ define void @_ZN18wide_counter_csr_t4bumpEm(ptr nocapture noundef nonnull align 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 848
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  %.in.v.i = select i1 %.not.i, i64 832, i64 840
+  %7 = trunc i8 %6 to i1
+  %.in.v.i = select i1 %7, i64 840, i64 832
   %.in.i = getelementptr inbounds i8, ptr %4, i64 %.in.v.i
   %8 = load i64, ptr %.in.i, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 849
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not6.i = icmp eq i8 %11, 0
-  %.in7.in.in.v.i = select i1 %.not6.i, i64 850, i64 851
-  %.in7.in.in.i = getelementptr inbounds i8, ptr %4, i64 %.in7.in.in.v.i
-  %.in7.in.i = load i8, ptr %.in7.in.in.i, align 1
-  %.in7.i = and i8 %.in7.in.i, 1
-  %.not8.i = icmp eq i8 %.in7.i, 0
+  %11 = trunc i8 %10 to i1
+  %.in6.in.v.i = select i1 %11, i64 851, i64 850
+  %.in6.in.i = getelementptr inbounds i8, ptr %4, i64 %.in6.in.v.i
+  %.in6.i = load i8, ptr %.in6.in.i, align 1
+  %12 = trunc i8 %.in6.i to i1
   switch i64 %8, label %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit [
-    i64 1, label %12
-    i64 0, label %14
+    i64 1, label %13
+    i64 0, label %15
   ]
 
-12:                                               ; preds = %2
-  %13 = select i1 %.not8.i, i64 2305843009213693952, i64 576460752303423488
+13:                                               ; preds = %2
+  %14 = select i1 %12, i64 576460752303423488, i64 2305843009213693952
   br label %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
 
-14:                                               ; preds = %2
-  %15 = select i1 %.not8.i, i64 1152921504606846976, i64 288230376151711744
+15:                                               ; preds = %2
+  %16 = select i1 %12, i64 288230376151711744, i64 1152921504606846976
   br label %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
 
-_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit: ; preds = %2, %12, %14
-  %.0.i = phi i64 [ %13, %12 ], [ %15, %14 ], [ 4611686018427387904, %2 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(48) %17) #26
-  %23 = getelementptr inbounds i8, ptr %17, i64 64
-  %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not.i.i.i = icmp eq i8 %25, 0
-  %.val2.i.i.i = load i64, ptr %18, align 8
-  %.0.i.i.i = select i1 %.not.i.i.i, i64 %22, i64 %.val2.i.i.i
-  %26 = and i64 %.0.i.i.i, %.0.i
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %32
+_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit: ; preds = %2, %13, %15
+  %.0.i = phi i64 [ %14, %13 ], [ %16, %15 ], [ 4611686018427387904, %2 ]
+  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = load ptr, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(48) %18) #26
+  %24 = getelementptr inbounds i8, ptr %18, i64 64
+  %25 = load i8, ptr %24, align 8
+  %26 = trunc i8 %25 to i1
+  %.val.i.i.i = load i64, ptr %19, align 8
+  %.0.i.i.i = select i1 %26, i64 %.val.i.i.i, i64 %23
+  %27 = and i64 %.0.i.i.i, %.0.i
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8
-  %31 = add i64 %30, %1
-  store i64 %31, ptr %29, align 8
-  br label %32
+29:                                               ; preds = %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = load i64, ptr %30, align 8
+  %32 = add i64 %31, %1
+  store i64 %32, ptr %30, align 8
+  br label %33
 
-32:                                               ; preds = %28, %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
-  %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
-  %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i.i, label %_ZN15smcntrpmf_csr_t10reset_prevEv.exit, label %37
+33:                                               ; preds = %29, %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
+  %34 = load ptr, ptr %17, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %36 = load i8, ptr %35, align 8
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %_ZN15smcntrpmf_csr_t10reset_prevEv.exit
 
-37:                                               ; preds = %32
-  store i8 0, ptr %34, align 8
+38:                                               ; preds = %33
+  store i8 0, ptr %35, align 8
   br label %_ZN15smcntrpmf_csr_t10reset_prevEv.exit
 
-_ZN15smcntrpmf_csr_t10reset_prevEv.exit:          ; preds = %32, %37
+_ZN15smcntrpmf_csr_t10reset_prevEv.exit:          ; preds = %33, %38
   ret void
 }
 
@@ -7230,60 +7180,55 @@ define noundef zeroext i1 @_ZNK18wide_counter_csr_t19is_counting_enabledEv(ptr n
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 848
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  %.in.v = select i1 %.not, i64 832, i64 840
+  %6 = trunc i8 %5 to i1
+  %.in.v = select i1 %6, i64 840, i64 832
   %.in = getelementptr inbounds i8, ptr %3, i64 %.in.v
   %7 = load i64, ptr %.in, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 849
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not6 = icmp eq i8 %10, 0
-  %.in7.in.in.v = select i1 %.not6, i64 850, i64 851
-  %.in7.in.in = getelementptr inbounds i8, ptr %3, i64 %.in7.in.in.v
-  %.in7.in = load i8, ptr %.in7.in.in, align 1
-  %.in7 = and i8 %.in7.in, 1
-  %.not8 = icmp eq i8 %.in7, 0
-  switch i64 %7, label %15 [
-    i64 1, label %11
-    i64 0, label %13
+  %10 = trunc i8 %9 to i1
+  %.in6.in.v = select i1 %10, i64 851, i64 850
+  %.in6.in = getelementptr inbounds i8, ptr %3, i64 %.in6.in.v
+  %.in6 = load i8, ptr %.in6.in, align 1
+  %11 = trunc i8 %.in6 to i1
+  switch i64 %7, label %16 [
+    i64 1, label %12
+    i64 0, label %14
   ]
 
-11:                                               ; preds = %1
-  %12 = select i1 %.not8, i64 2305843009213693952, i64 576460752303423488
-  br label %15
+12:                                               ; preds = %1
+  %13 = select i1 %11, i64 576460752303423488, i64 2305843009213693952
+  br label %16
 
-13:                                               ; preds = %1
-  %14 = select i1 %.not8, i64 1152921504606846976, i64 288230376151711744
-  br label %15
+14:                                               ; preds = %1
+  %15 = select i1 %11, i64 288230376151711744, i64 1152921504606846976
+  br label %16
 
-15:                                               ; preds = %1, %13, %11
-  %.0 = phi i64 [ %12, %11 ], [ %14, %13 ], [ 4611686018427387904, %1 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(48) %17) #26
-  %23 = getelementptr inbounds i8, ptr %17, i64 64
-  %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not.i.i = icmp eq i8 %25, 0
-  %.val2.i.i = load i64, ptr %18, align 8
-  %.0.i.i = select i1 %.not.i.i, i64 %22, i64 %.val2.i.i
-  %26 = and i64 %.0.i.i, %.0
-  %27 = icmp eq i64 %26, 0
-  ret i1 %27
+16:                                               ; preds = %1, %14, %12
+  %.0 = phi i64 [ %13, %12 ], [ %15, %14 ], [ 4611686018427387904, %1 ]
+  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = load ptr, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(48) %18) #26
+  %24 = getelementptr inbounds i8, ptr %18, i64 64
+  %25 = load i8, ptr %24, align 8
+  %26 = trunc i8 %25 to i1
+  %.val.i.i = load i64, ptr %19, align 8
+  %.0.i.i = select i1 %26, i64 %.val.i.i, i64 %23
+  %27 = and i64 %.0.i.i, %.0
+  %28 = icmp eq i64 %27, 0
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN15smcntrpmf_csr_t10reset_prevEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %_ZNSt8optionalImE5resetEv.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZNSt8optionalImE5resetEv.exit
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8
@@ -7301,59 +7246,55 @@ define noundef zeroext i1 @_ZN18wide_counter_csr_t14unlogged_writeEm(ptr nocaptu
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 848
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  %.in.v.i = select i1 %.not.i, i64 832, i64 840
+  %8 = trunc i8 %7 to i1
+  %.in.v.i = select i1 %8, i64 840, i64 832
   %.in.i = getelementptr inbounds i8, ptr %5, i64 %.in.v.i
   %9 = load i64, ptr %.in.i, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 849
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not6.i = icmp eq i8 %12, 0
-  %.in7.in.in.v.i = select i1 %.not6.i, i64 850, i64 851
-  %.in7.in.in.i = getelementptr inbounds i8, ptr %5, i64 %.in7.in.in.v.i
-  %.in7.in.i = load i8, ptr %.in7.in.in.i, align 1
-  %.in7.i = and i8 %.in7.in.i, 1
-  %.not8.i = icmp eq i8 %.in7.i, 0
+  %12 = trunc i8 %11 to i1
+  %.in6.in.v.i = select i1 %12, i64 851, i64 850
+  %.in6.in.i = getelementptr inbounds i8, ptr %5, i64 %.in6.in.v.i
+  %.in6.i = load i8, ptr %.in6.in.i, align 1
+  %13 = trunc i8 %.in6.i to i1
   switch i64 %9, label %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit [
-    i64 1, label %13
-    i64 0, label %15
+    i64 1, label %14
+    i64 0, label %16
   ]
 
-13:                                               ; preds = %2
-  %14 = select i1 %.not8.i, i64 2305843009213693952, i64 576460752303423488
+14:                                               ; preds = %2
+  %15 = select i1 %13, i64 576460752303423488, i64 2305843009213693952
   br label %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
 
-15:                                               ; preds = %2
-  %16 = select i1 %.not8.i, i64 1152921504606846976, i64 288230376151711744
+16:                                               ; preds = %2
+  %17 = select i1 %13, i64 288230376151711744, i64 1152921504606846976
   br label %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
 
-_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit: ; preds = %2, %13, %15
-  %.0.i = phi i64 [ %14, %13 ], [ %16, %15 ], [ 4611686018427387904, %2 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
-  %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(48) %18) #26
-  %24 = getelementptr inbounds i8, ptr %18, i64 64
-  %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not.i.i.i = icmp eq i8 %26, 0
-  %.val2.i.i.i = load i64, ptr %19, align 8
-  %.0.i.i.i = select i1 %.not.i.i.i, i64 %23, i64 %.val2.i.i.i
-  %27 = and i64 %.0.i.i.i, %.0.i
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %32
+_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit: ; preds = %2, %14, %16
+  %.0.i = phi i64 [ %15, %14 ], [ %17, %16 ], [ 4611686018427387904, %2 ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(48) %19) #26
+  %25 = getelementptr inbounds i8, ptr %19, i64 64
+  %26 = load i8, ptr %25, align 8
+  %27 = trunc i8 %26 to i1
+  %.val.i.i.i = load i64, ptr %20, align 8
+  %.0.i.i.i = select i1 %27, i64 %.val.i.i.i, i64 %24
+  %28 = and i64 %.0.i.i.i, %.0.i
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
-  %30 = load i64, ptr %3, align 8
-  %31 = add i64 %30, -1
-  store i64 %31, ptr %3, align 8
-  br label %32
+30:                                               ; preds = %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
+  %31 = load i64, ptr %3, align 8
+  %32 = add i64 %31, -1
+  store i64 %32, ptr %3, align 8
+  br label %33
 
-32:                                               ; preds = %29, %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
+33:                                               ; preds = %30, %_ZNK18wide_counter_csr_t19is_counting_enabledEv.exit
   ret i1 true
 }
 
@@ -7374,10 +7315,9 @@ define noundef i64 @_ZNK15smcntrpmf_csr_t9read_prevEv(ptr noundef nonnull align 
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  %.val2.i = load i64, ptr %2, align 8
-  %.0.i = select i1 %.not.i, i64 %6, i64 %.val2.i
+  %9 = trunc i8 %8 to i1
+  %.val.i = load i64, ptr %2, align 8
+  %.0.i = select i1 %9, i64 %.val.i, i64 %6
   ret i64 %.0.i
 }
 
@@ -7412,11 +7352,10 @@ define noundef i64 @_ZNK18time_counter_csr_t4readEv(ptr nocapture noundef nonnul
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 850
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  br i1 %.not, label %17, label %9
+  br i1 %6, label %9, label %17
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %3, i64 3456
@@ -7905,9 +7844,8 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
   %68 = load ptr, ptr %4, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 850
   %70 = load i8, ptr %69, align 2
-  %71 = and i8 %70, 1
-  %.not.not = icmp eq i8 %71, 0
-  br i1 %.not.not, label %_ZNSt10shared_ptrI5csr_tED2Ev.exit25, label %72
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %_ZNSt10shared_ptrI5csr_tED2Ev.exit25
 
 72:                                               ; preds = %_ZNSt10shared_ptrI5csr_tED2Ev.exit
   %73 = getelementptr inbounds i8, ptr %68, i64 1832
@@ -7933,7 +7871,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
   %84 = atomicrmw volatile add ptr %78, i32 1 acq_rel, align 4
   br label %85
 
-85:                                               ; preds = %72, %80, %83
+85:                                               ; preds = %83, %80, %72
   %86 = load ptr, ptr %74, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
@@ -8014,8 +7952,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %129(ptr noundef nonnull align 8 dereferenceable(16) %76) #26
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit25
 
-_ZNSt10shared_ptrI5csr_tED2Ev.exit25:             ; preds = %_ZNSt10shared_ptrI5csr_tED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24, %125, %112, %85
-  %130 = phi i1 [ %95, %85 ], [ %95, %112 ], [ %95, %125 ], [ %95, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ], [ true, %_ZNSt10shared_ptrI5csr_tED2Ev.exit ]
+_ZNSt10shared_ptrI5csr_tED2Ev.exit25:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24, %125, %112, %85, %_ZNSt10shared_ptrI5csr_tED2Ev.exit
+  %130 = phi i1 [ true, %_ZNSt10shared_ptrI5csr_tED2Ev.exit ], [ %95, %85 ], [ %95, %112 ], [ %95, %125 ], [ %95, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 968
@@ -8176,13 +8114,12 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit35:             ; preds = %_ZNSt10shared_ptrI5
   %214 = load ptr, ptr %4, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 850
   %216 = load i8, ptr %215, align 2
-  %217 = and i8 %216, 1
-  %.not = icmp eq i8 %217, 0
+  %217 = trunc i8 %216 to i1
   %218 = tail call ptr @__cxa_allocate_exception(i64 32) #26
   %219 = getelementptr inbounds i8, ptr %218, i64 8
   %220 = getelementptr inbounds i8, ptr %218, i64 16
   %221 = getelementptr inbounds i8, ptr %218, i64 24
-  br i1 %.not, label %223, label %222
+  br i1 %217, label %222, label %223
 
 222:                                              ; preds = %213
   store i64 22, ptr %219, align 8
@@ -8425,9 +8362,8 @@ define void @_ZNK11hgatp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 850
   %7 = load i8, ptr %6, align 2
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %24
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %24, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 872
@@ -8435,8 +8371,8 @@ define void @_ZNK11hgatp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   %12 = getelementptr inbounds i8, ptr %11, i64 56
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 1048576
-  %.not5 = icmp eq i64 %14, 0
-  br i1 %.not5, label %24, label %15
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %5, i64 832
@@ -8865,9 +8801,8 @@ define void @_ZNK16debug_mode_csr_t18verify_permissionsE6insn_tb(ptr nocapture n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2136
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %14
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
   %10 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -8917,9 +8852,8 @@ define void @_ZNK9dpc_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2136
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %14
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
   %10 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -8969,9 +8903,8 @@ define void @_ZNK10dcsr_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2136
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %14
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
   %10 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -9199,9 +9132,8 @@ define void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 850
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not4.i = icmp eq i8 %23, 0
-  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %7, i64 88
@@ -9209,15 +9141,15 @@ define void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   %27 = getelementptr inbounds i8, ptr %26, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 24576
-  %.not5.i = icmp eq i64 %29, 0
-  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
+  %.not4.i = icmp eq i64 %29, 0
+  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %3, %24
   %30 = getelementptr inbounds i8, ptr %9, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 24576
-  %.not6.i = icmp eq i64 %32, 0
-  br i1 %.not6.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %33
+  %.not5.i = icmp eq i64 %32, 0
+  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %33
 
 33:                                               ; preds = %_ZN13sstatus_csr_t7enabledEm.exit
   %34 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -9246,8 +9178,8 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   %45 = getelementptr inbounds i8, ptr %39, i64 4152
   %.sink.i = load i64, ptr %45, align 8
   %46 = and i64 %.sink.i, 2
-  %.0.i11.not = icmp eq i64 %46, 0
-  br i1 %.0.i11.not, label %47, label %52
+  %.0.i9.not = icmp eq i64 %46, 0
+  br i1 %.0.i9.not, label %47, label %52
 
 47:                                               ; preds = %44
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -9263,17 +9195,17 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
 
 52:                                               ; preds = %44, %_ZN13sstatus_csr_t7enabledEm.exit.thread
   %53 = getelementptr inbounds i8, ptr %39, i64 4144
-  %.sink.i12 = load i64, ptr %53, align 8
-  %54 = and i64 %.sink.i12, 36028797018963968
-  %.0.i13.not = icmp eq i64 %54, 0
-  br i1 %.0.i13.not, label %123, label %55
+  %.sink.i10 = load i64, ptr %53, align 8
+  %54 = and i64 %.sink.i10, 36028797018963968
+  %.0.i11.not = icmp eq i64 %54, 0
+  br i1 %.0.i11.not, label %123, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %39, i64 4152
-  %.sink.i14 = load i64, ptr %56, align 8
-  %57 = and i64 %.sink.i14, 2
-  %.0.i15.not = icmp eq i64 %57, 0
-  br i1 %.0.i15.not, label %123, label %58
+  %.sink.i12 = load i64, ptr %56, align 8
+  %57 = and i64 %.sink.i12, 2
+  %.0.i13.not = icmp eq i64 %57, 0
+  br i1 %.0.i13.not, label %123, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %5, i64 832
@@ -9312,9 +9244,8 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   %76 = phi ptr [ %.pre, %._crit_edge ], [ %5, %58 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 850
   %78 = load i8, ptr %77, align 2
-  %79 = and i8 %78, 1
-  %.not6 = icmp eq i8 %79, 0
-  br i1 %.not6, label %93, label %80
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %93
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds i8, ptr %76, i64 3392
@@ -9324,8 +9255,8 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   %85 = load ptr, ptr %84, align 8
   %86 = tail call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(37) %82) #26
   %87 = and i64 %86, 2
-  %.not7 = icmp eq i64 %87, 0
-  br i1 %.not7, label %88, label %93
+  %.not6 = icmp eq i64 %87, 0
+  br i1 %.not6, label %88, label %93
 
 88:                                               ; preds = %80
   %89 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -9344,10 +9275,10 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   %95 = getelementptr inbounds i8, ptr %94, i64 968
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 40
-  %.sink.i.i16 = load i64, ptr %97, align 8
-  %98 = and i64 %.sink.i.i16, 262144
-  %.0.i.i17.not = icmp eq i64 %98, 0
-  br i1 %.0.i.i17.not, label %123, label %99
+  %.sink.i.i14 = load i64, ptr %97, align 8
+  %98 = and i64 %.sink.i.i14, 262144
+  %.0.i.i15.not = icmp eq i64 %98, 0
+  br i1 %.0.i.i15.not, label %123, label %99
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %4, align 8
@@ -9364,20 +9295,19 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   %109 = load ptr, ptr %108, align 8
   %110 = tail call noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(37) %106) #26
   %111 = and i64 %110, 2
-  %.not8 = icmp eq i64 %111, 0
-  br i1 %.not8, label %112, label %123
+  %.not7 = icmp eq i64 %111, 0
+  br i1 %.not7, label %112, label %123
 
 112:                                              ; preds = %104
   %113 = load ptr, ptr %4, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 850
   %115 = load i8, ptr %114, align 2
-  %116 = and i8 %115, 1
-  %.not9 = icmp eq i8 %116, 0
+  %116 = trunc i8 %115 to i1
   %117 = tail call ptr @__cxa_allocate_exception(i64 32) #26
   %118 = getelementptr inbounds i8, ptr %117, i64 8
   %119 = getelementptr inbounds i8, ptr %117, i64 16
   %120 = getelementptr inbounds i8, ptr %117, i64 24
-  br i1 %.not9, label %122, label %121
+  br i1 %116, label %121, label %122
 
 121:                                              ; preds = %112
   store i64 22, ptr %118, align 8
@@ -9717,9 +9647,8 @@ define void @_ZNK12vector_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 850
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not4.i = icmp eq i8 %23, 0
-  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %7, i64 88
@@ -9727,15 +9656,15 @@ define void @_ZNK12vector_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   %27 = getelementptr inbounds i8, ptr %26, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 1536
-  %.not5.i = icmp eq i64 %29, 0
-  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
+  %.not4.i = icmp eq i64 %29, 0
+  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %3, %24
   %30 = getelementptr inbounds i8, ptr %9, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 1536
-  %.not6.i = icmp eq i64 %32, 0
-  br i1 %.not6.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %33
+  %.not5.i = icmp eq i64 %32, 0
+  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %33
 
 33:                                               ; preds = %_ZN13sstatus_csr_t7enabledEm.exit
   %34 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -9875,9 +9804,8 @@ define void @_ZNK11vxsat_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 850
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not4.i = icmp eq i8 %23, 0
-  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %7, i64 88
@@ -9885,15 +9813,15 @@ define void @_ZNK11vxsat_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   %27 = getelementptr inbounds i8, ptr %26, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 1536
-  %.not5.i = icmp eq i64 %29, 0
-  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
+  %.not4.i = icmp eq i64 %29, 0
+  br i1 %.not4.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %_ZN13sstatus_csr_t7enabledEm.exit.thread
 
 _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %3, %24
   %30 = getelementptr inbounds i8, ptr %9, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 1536
-  %.not6.i = icmp eq i64 %32, 0
-  br i1 %.not6.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %33
+  %.not5.i = icmp eq i64 %32, 0
+  br i1 %.not5.i, label %_ZN13sstatus_csr_t7enabledEm.exit.thread, label %33
 
 33:                                               ; preds = %_ZN13sstatus_csr_t7enabledEm.exit
   %34 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -10128,8 +10056,7 @@ define noundef i64 @_ZNK14sstateen_csr_t4readEv(ptr nocapture noundef nonnull re
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 850
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 3264
@@ -10143,7 +10070,7 @@ define noundef i64 @_ZNK14sstateen_csr_t4readEv(ptr nocapture noundef nonnull re
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(37) %14) #26
   %19 = and i64 %18, %8
-  br i1 %.not, label %32, label %20
+  br i1 %6, label %20, label %32
 
 20:                                               ; preds = %1
   %21 = load ptr, ptr %2, align 8
@@ -10170,12 +10097,11 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 850
   %6 = load i8, ptr %5, align 2
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
+  %7 = trunc i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i64
-  br i1 %.not, label %41, label %11
+  br i1 %7, label %11, label %41
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %4, i64 3392
@@ -10231,7 +10157,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   br label %60
 
 60:                                               ; preds = %41, %11
-  %.sink = phi i64 [ %59, %41 ], [ %40, %11 ]
+  %.sink = phi i64 [ %40, %11 ], [ %59, %41 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sink, ptr %61, align 8
   ret i1 true
@@ -10277,9 +10203,8 @@ _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 850
   %27 = load i8, ptr %26, align 2
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %45, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %45
 
 29:                                               ; preds = %_ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit
   %30 = getelementptr inbounds i8, ptr %25, i64 3392
@@ -10292,8 +10217,8 @@ _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(37) %35) #26
-  %.not3 = icmp sgt i64 %39, -1
-  br i1 %.not3, label %40, label %45
+  %.not = icmp sgt i64 %39, -1
+  br i1 %.not, label %40, label %45
 
 40:                                               ; preds = %29
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -10387,9 +10312,8 @@ define void @_ZNK13senvcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %10, %8 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 850
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not4 = icmp eq i8 %31, 0
-  br i1 %.not4, label %45, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %45
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds i8, ptr %28, i64 3392
@@ -10399,8 +10323,8 @@ define void @_ZNK13senvcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(37) %34) #26
   %39 = and i64 %38, 4611686018427387904
-  %.not5 = icmp eq i64 %39, 0
-  br i1 %.not5, label %40, label %45
+  %.not4 = icmp eq i64 %39, 0
+  br i1 %.not4, label %40, label %45
 
 40:                                               ; preds = %32
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -10836,9 +10760,8 @@ define void @_ZNK14stimecmp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   %26 = load ptr, ptr %4, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 850
   %28 = load i8, ptr %27, align 2
-  %29 = and i8 %28, 1
-  %.not5 = icmp eq i8 %29, 0
-  br i1 %.not5, label %42, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %42
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds i8, ptr %26, i64 3248
@@ -10847,8 +10770,8 @@ define void @_ZNK14stimecmp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(37) %32) #26
-  %.not6 = icmp sgt i64 %36, -1
-  br i1 %.not6, label %37, label %42
+  %.not5 = icmp sgt i64 %36, -1
+  br i1 %.not5, label %37, label %42
 
 37:                                               ; preds = %30
   %38 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -10966,9 +10889,8 @@ define noundef i64 @_ZNK15scountovf_csr_t4readEv(ptr nocapture noundef nonnull r
   %28 = load ptr, ptr %2, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 850
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %40, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %40
 
 32:                                               ; preds = %19
   %33 = getelementptr inbounds i8, ptr %28, i64 1832
@@ -11040,8 +10962,8 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
 
 13:                                               ; preds = %3
   %14 = and i64 %.sink.i, 36028797018963968
-  %.0.i10.not = icmp eq i64 %14, 0
-  br i1 %.0.i10.not, label %82, label %15
+  %.0.i8.not = icmp eq i64 %14, 0
+  br i1 %.0.i8.not, label %82, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11082,9 +11004,8 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   %35 = phi ptr [ %.pre, %._crit_edge ], [ %17, %15 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 850
   %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %.not4 = icmp eq i8 %38, 0
-  br i1 %.not4, label %52, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %52
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %35, i64 3392
@@ -11094,8 +11015,8 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(37) %41) #26
   %46 = and i64 %45, 4
-  %.not5 = icmp eq i64 %46, 0
-  br i1 %.not5, label %47, label %52
+  %.not4 = icmp eq i64 %46, 0
+  br i1 %.not4, label %47, label %52
 
 47:                                               ; preds = %39
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -11134,20 +11055,19 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef i64 %68(ptr noundef nonnull align 8 dereferenceable(37) %65) #26
   %70 = and i64 %69, 4
-  %.not6 = icmp eq i64 %70, 0
-  br i1 %.not6, label %71, label %82
+  %.not5 = icmp eq i64 %70, 0
+  br i1 %.not5, label %71, label %82
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %16, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 850
   %74 = load i8, ptr %73, align 2
-  %75 = and i8 %74, 1
-  %.not7 = icmp eq i8 %75, 0
+  %75 = trunc i8 %74 to i1
   %76 = tail call ptr @__cxa_allocate_exception(i64 32) #26
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = getelementptr inbounds i8, ptr %76, i64 16
   %79 = getelementptr inbounds i8, ptr %76, i64 24
-  br i1 %.not7, label %81, label %80
+  br i1 %75, label %80, label %81
 
 80:                                               ; preds = %71
   store i64 22, ptr %77, align 8
@@ -11432,9 +11352,8 @@ define void @_ZNK26virtualized_indirect_csr_t18verify_permissionsE6insn_tb(ptr n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 850
   %7 = load i8, ptr %6, align 2
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  %. = select i1 %.not, i64 40, i64 56
+  %8 = trunc i8 %7 to i1
+  %. = select i1 %8, i64 56, i64 40
   %9 = getelementptr inbounds i8, ptr %0, i64 %.
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -11529,21 +11448,20 @@ define void @_ZNK18sscsrind_reg_csr_t18verify_permissionsE6insn_tb(ptr noundef n
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 850
   %16 = load i8, ptr %15, align 2
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
+  %17 = trunc i8 %16 to i1
   %18 = tail call ptr @__cxa_allocate_exception(i64 32) #26
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %. = select i1 %.not, i64 2, i64 22
-  %.12 = select i1 %.not, ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2)
-  %_ZTI24trap_illegal_instruction._ZTI24trap_virtual_instruction = select i1 %.not, ptr @_ZTI24trap_illegal_instruction, ptr @_ZTI24trap_virtual_instruction
-  %_ZN24trap_illegal_instructionD2Ev._ZN24trap_virtual_instructionD2Ev = select i1 %.not, ptr @_ZN24trap_illegal_instructionD2Ev, ptr @_ZN24trap_virtual_instructionD2Ev
+  %. = select i1 %17, i64 22, i64 2
+  %.12 = select i1 %17, ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2)
+  %_ZTI24trap_virtual_instruction._ZTI24trap_illegal_instruction = select i1 %17, ptr @_ZTI24trap_virtual_instruction, ptr @_ZTI24trap_illegal_instruction
+  %_ZN24trap_virtual_instructionD2Ev._ZN24trap_illegal_instructionD2Ev = select i1 %17, ptr @_ZN24trap_virtual_instructionD2Ev, ptr @_ZN24trap_illegal_instructionD2Ev
   store i64 %., ptr %19, align 8
   store i8 0, ptr %20, align 8
   store i64 %1, ptr %21, align 8
   store ptr %.12, ptr %18, align 8
-  invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull %_ZTI24trap_illegal_instruction._ZTI24trap_virtual_instruction, ptr nonnull %_ZN24trap_illegal_instructionD2Ev._ZN24trap_virtual_instructionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull %_ZTI24trap_virtual_instruction._ZTI24trap_illegal_instruction, ptr nonnull %_ZN24trap_virtual_instructionD2Ev._ZN24trap_illegal_instructionD2Ev) #27
           to label %.cont unwind label %22
 
 22:                                               ; preds = %.invoke, %24
@@ -12244,10 +12162,10 @@ define void @_ZNK12srmcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %5, i64 4144
-  %.sink.i6 = load i64, ptr %14, align 8
-  %15 = and i64 %.sink.i6, 36028797018963968
-  %.0.i7.not = icmp eq i64 %15, 0
-  br i1 %.0.i7.not, label %35, label %16
+  %.sink.i5 = load i64, ptr %14, align 8
+  %15 = and i64 %.sink.i5, 36028797018963968
+  %.0.i6.not = icmp eq i64 %15, 0
+  br i1 %.0.i6.not, label %35, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12285,9 +12203,8 @@ define void @_ZNK12srmcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 850
   %39 = load i8, ptr %38, align 2
-  %40 = and i8 %39, 1
-  %.not4 = icmp eq i8 %40, 0
-  br i1 %.not4, label %46, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %35
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #26
@@ -15369,9 +15286,8 @@ define linkonce_odr void @_ZN13sstatus_csr_tD0Ev(ptr noundef nonnull align 8 der
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16059,9 +15975,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -16262,9 +16177,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaI
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

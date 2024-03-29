@@ -171,9 +171,8 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
 31:                                               ; preds = %19
   %32 = getelementptr inbounds i8, ptr %21, i64 20
   %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %35, label %36
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %36, label %35
 
 35:                                               ; preds = %31
   tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #5
@@ -298,9 +297,8 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
 29:                                               ; preds = %17
   %30 = getelementptr inbounds i8, ptr %19, i64 20
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %34
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %34, label %33
 
 33:                                               ; preds = %29
   tail call void @PredicateLockRelation(ptr noundef nonnull %0, ptr noundef %3) #5
@@ -418,21 +416,20 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %17, align 8
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 344
-  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert13 = getelementptr inbounds i8, ptr %.pre12, i64 168
-  %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %.pre11, i64 168
+  %.pre13 = load ptr, ptr %.phi.trans.insert12, align 8
   br label %25
 
 25:                                               ; preds = %19, %16
-  %26 = phi ptr [ %.pre14, %19 ], [ %7, %16 ]
+  %26 = phi ptr [ %.pre13, %19 ], [ %7, %16 ]
   tail call void %26(ptr noundef nonnull %0) #5
   %27 = load ptr, ptr %2, align 8
   tail call void @RelationDecrementReferenceCount(ptr noundef %27) #5
   %28 = getelementptr inbounds i8, ptr %0, i64 49
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not11 = icmp eq i8 %30, 0
-  br i1 %.not11, label %34, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %34
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %0, i64 16
@@ -737,19 +734,18 @@ define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_un
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %31, i64 468
   %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, 1
-  %.not18 = icmp eq i8 %37, 0
-  br i1 %.not18, label %44, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %44
 
 38:                                               ; preds = %34
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %31) #5
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
-  %.pre19 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
   br label %39
 
 39:                                               ; preds = %30, %38
-  %40 = phi ptr [ %33, %30 ], [ %.pre19, %38 ]
+  %40 = phi ptr [ %33, %30 ], [ %.pre18, %38 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 1
@@ -772,81 +768,78 @@ define dso_local noundef zeroext i1 @index_fetch_heap(ptr noundef %0, ptr nounde
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %4 = load i32, ptr @CheckXidAlive, align 4
-  %5 = icmp ne i32 %4, 0
+  %5 = icmp eq i32 %4, 0
   %6 = load i8, ptr @bsysscan, align 1
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  %8 = select i1 %5, i1 %.not.i, i1 false
-  br i1 %8, label %9, label %table_index_fetch_tuple.exit
+  %7 = trunc i8 %6 to i1
+  %.not7.i = select i1 %5, i1 true, i1 %7
+  br i1 %.not7.i, label %table_index_fetch_tuple.exit, label %8
 
-9:                                                ; preds = %2
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #5
+8:                                                ; preds = %2
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %9)
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #5
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 1248, ptr noundef nonnull @__func__.table_index_fetch_tuple) #5
   unreachable
 
 table_index_fetch_tuple.exit:                     ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 102
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds i8, ptr %0, i64 102
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 312
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 112
-  %22 = load ptr, ptr %21, align 8
-  %23 = call zeroext i1 %22(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef %14, ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %3) #5
-  br i1 %23, label %24, label %39
+  %18 = getelementptr inbounds i8, ptr %17, i64 312
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %21 = load ptr, ptr %20, align 8
+  %22 = call zeroext i1 %21(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %3) #5
+  br i1 %22, label %23, label %38
 
-24:                                               ; preds = %table_index_fetch_tuple.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 472
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %34
+23:                                               ; preds = %table_index_fetch_tuple.exit
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 472
+  %27 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %28, label %33
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %26, i64 468
-  %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not12 = icmp eq i8 %32, 0
-  br i1 %.not12, label %39, label %33
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %25, i64 468
+  %30 = load i8, ptr %29, align 4
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %38
 
-33:                                               ; preds = %29
-  call void @pgstat_assoc_relation(ptr noundef nonnull %26) #5
-  %.pre = load ptr, ptr %25, align 8
+32:                                               ; preds = %28
+  call void @pgstat_assoc_relation(ptr noundef nonnull %25) #5
+  %.pre = load ptr, ptr %24, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
-  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %34
+  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %33
 
-34:                                               ; preds = %24, %33
-  %35 = phi ptr [ %28, %24 ], [ %.pre14, %33 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, 1
-  store i64 %38, ptr %36, align 8
-  br label %39
+33:                                               ; preds = %23, %32
+  %34 = phi ptr [ %27, %23 ], [ %.pre12, %32 ]
+  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = load i64, ptr %35, align 8
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %35, align 8
+  br label %38
 
-39:                                               ; preds = %29, %34, %table_index_fetch_tuple.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 52
-  %41 = load i8, ptr %40, align 4
-  %42 = and i8 %41, 1
-  %.not13 = icmp eq i8 %42, 0
-  br i1 %.not13, label %43, label %47
+38:                                               ; preds = %28, %33, %table_index_fetch_tuple.exit
+  %39 = getelementptr inbounds i8, ptr %0, i64 52
+  %40 = load i8, ptr %39, align 4
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %46, label %42
 
-43:                                               ; preds = %39
-  %44 = load i8, ptr %3, align 1
-  %45 = and i8 %44, 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 50
-  store i8 %45, ptr %46, align 2
-  br label %47
+42:                                               ; preds = %38
+  %43 = load i8, ptr %3, align 1
+  %44 = getelementptr inbounds i8, ptr %0, i64 50
+  %45 = and i8 %43, 1
+  store i8 %45, ptr %44, align 2
+  br label %46
 
-47:                                               ; preds = %43, %39
-  ret i1 %23
+46:                                               ; preds = %42, %38
+  ret i1 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -856,9 +849,8 @@ define dso_local noundef zeroext i1 @index_getnext_slot(ptr noundef %0, i32 noun
 
 5:                                                ; preds = %11, %3
   %6 = load i8, ptr %4, align 2
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %11
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @index_getnext_tid(ptr noundef nonnull %0, i32 noundef %1)
@@ -912,19 +904,18 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
 26:                                               ; preds = %17
   %27 = getelementptr inbounds i8, ptr %23, i64 468
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %.not11 = icmp eq i8 %29, 0
-  br i1 %.not11, label %36, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %23) #5
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
-  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
   br label %31
 
 31:                                               ; preds = %17, %30
-  %32 = phi ptr [ %25, %17 ], [ %.pre12, %30 ]
+  %32 = phi ptr [ %25, %17 ], [ %.pre11, %30 ]
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %22
@@ -1158,14 +1149,14 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %.not39 = icmp eq ptr %2, null
+  %.not = icmp eq ptr %2, null
   %10 = getelementptr inbounds i8, ptr %0, i64 120
   %11 = getelementptr inbounds i8, ptr %0, i64 128
-  br i1 %.not39, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %20
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %20 ], [ 0, %.lr.ph ]
-  %12 = getelementptr i32, ptr %1, i64 %indvars.iv49
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %20 ], [ 0, %.lr.ph ]
+  %12 = getelementptr i32, ptr %1, i64 %indvars.iv45
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, -2
   %switch = icmp eq i32 %14, 700
@@ -1173,24 +1164,23 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
 
 15:                                               ; preds = %.lr.ph.split.us.split.us
   %16 = load i8, ptr %6, align 8
-  %17 = and i8 %16, 1
-  %.not.us.us = icmp eq i8 %17, 0
-  br i1 %.not.us.us, label %20, label %.split.us
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.split.us, label %20
 
 .sink.split:                                      ; preds = %.lr.ph.split.us.split.us
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr i64, ptr %18, i64 %indvars.iv49
+  %19 = getelementptr i64, ptr %18, i64 %indvars.iv45
   store i64 0, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %.sink.split, %15
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr i8, ptr %21, i64 %indvars.iv49
+  %22 = getelementptr i8, ptr %21, i64 %indvars.iv45
   store i8 1, ptr %22, align 1
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %23 = load i32, ptr %7, align 4
   %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next50, %24
+  %25 = icmp slt i64 %indvars.iv.next46, %24
   br i1 %25, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !5
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %52
@@ -1206,34 +1196,31 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
   %29 = getelementptr %struct.IndexOrderByDistance, ptr %2, i64 %indvars.iv
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not42 = icmp eq i8 %32, 0
-  br i1 %.not42, label %33, label %.sink.split59
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %.sink.split55, label %33
 
 33:                                               ; preds = %28
   %34 = load i64, ptr %29, align 8
-  br label %.sink.split59
+  br label %.sink.split55
 
 35:                                               ; preds = %.lr.ph.split.split
   %36 = getelementptr %struct.IndexOrderByDistance, ptr %2, i64 %indvars.iv
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  %.not40 = icmp eq i8 %39, 0
-  br i1 %.not40, label %40, label %.sink.split59
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %.sink.split55, label %40
 
 40:                                               ; preds = %35
   %41 = load double, ptr %36, align 8
   %42 = fptrunc double %41 to float
   %43 = bitcast float %42 to i32
   %44 = sext i32 %43 to i64
-  br label %.sink.split59
+  br label %.sink.split55
 
 45:                                               ; preds = %.lr.ph.split.split
   %46 = load i8, ptr %6, align 8
-  %47 = and i8 %46, 1
-  %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %52, label %.split.us
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %.split.us, label %52
 
 .split.us:                                        ; preds = %45, %15
   %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -1242,16 +1229,16 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 991, ptr noundef nonnull @__func__.index_store_float8_orderby_distances) #5
   unreachable
 
-.sink.split59:                                    ; preds = %35, %28, %40, %33
-  %.sink60 = phi i64 [ %34, %33 ], [ %44, %40 ], [ 0, %28 ], [ 0, %35 ]
+.sink.split55:                                    ; preds = %35, %28, %40, %33
+  %.sink56 = phi i64 [ %34, %33 ], [ %44, %40 ], [ 0, %28 ], [ 0, %35 ]
   %.sink.ph = phi i8 [ 0, %33 ], [ 0, %40 ], [ 1, %28 ], [ 1, %35 ]
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr i64, ptr %50, i64 %indvars.iv
-  store i64 %.sink60, ptr %51, align 8
+  store i64 %.sink56, ptr %51, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split59, %45
-  %.sink = phi i8 [ 1, %45 ], [ %.sink.ph, %.sink.split59 ]
+52:                                               ; preds = %.sink.split55, %45
+  %.sink = phi i8 [ 1, %45 ], [ %.sink.ph, %.sink.split55 ]
   %53 = load ptr, ptr %11, align 8
   %54 = getelementptr i8, ptr %53, i64 %indvars.iv
   store i8 %.sink, ptr %54, align 1

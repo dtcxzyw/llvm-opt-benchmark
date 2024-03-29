@@ -114,9 +114,8 @@ _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %for.body.i.i.i, %ca
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i.i, label %if.end.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %if.end.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -131,13 +130,13 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
   %m_data9.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = sext i32 %0 to i64
+  %6 = sext i32 %0 to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
-  %indvars.iv.i = phi i64 [ %7, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
-  %8 = load ptr, ptr %m_data9.i, align 8
-  %arrayidx11.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %6, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
+  %7 = load ptr, ptr %m_data9.i, align 8
+  %arrayidx11.i = getelementptr inbounds float, ptr %7, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx11.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -148,10 +147,10 @@ invoke.cont3:                                     ; preds = %for.body8.i, %invok
   ret void
 
 lpad:                                             ; preds = %if.then3.i.i.i, %if.then.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #12
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 }
 
 declare void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) unnamed_addr #1
@@ -238,9 +237,8 @@ _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %for.body.i.i.i, %ca
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i.i, label %if.end.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %if.end.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -255,13 +253,13 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
   %m_data9.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = sext i32 %0 to i64
+  %6 = sext i32 %0 to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
-  %indvars.iv.i = phi i64 [ %7, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
-  %8 = load ptr, ptr %m_data9.i, align 8
-  %arrayidx11.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %6, %for.body8.lr.ph.i ], [ %indvars.iv.next.i, %for.body8.i ]
+  %7 = load ptr, ptr %m_data9.i, align 8
+  %arrayidx11.i = getelementptr inbounds float, ptr %7, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx11.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -272,10 +270,10 @@ invoke.cont3:                                     ; preds = %for.body8.i, %invok
   ret void
 
 lpad:                                             ; preds = %if.then3.i.i.i, %if.then.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #12
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1147,9 +1145,8 @@ _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: 
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
   %349 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %350 = and i8 %349, 1
-  %tobool2.not.i.i.i = icmp eq i8 %350, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %349 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %348)
@@ -1163,43 +1160,43 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i:
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
 
 _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit: ; preds = %for.body107, %if.then.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
-  %351 = phi i32 [ %.pre3.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i ], [ %344, %if.then.i ], [ %344, %for.body107 ]
-  %inc.i = add nsw i32 %351, 1
+  %350 = phi i32 [ %.pre3.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i ], [ %344, %if.then.i ], [ %344, %for.body107 ]
+  %inc.i = add nsw i32 %350, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %352 = load ptr, ptr %m_data.i.i.i, align 8
+  %351 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i300 = sext i32 %344 to i64
-  %arrayidx.i301 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %352, i64 %idxprom.i300
+  %arrayidx.i301 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %351, i64 %idxprom.i300
   %m_orgConstraint = getelementptr inbounds i8, ptr %arrayidx.i301, i64 208
   store ptr %this, ptr %m_orgConstraint, align 8
   %m_orgDofIndex = getelementptr inbounds i8, ptr %arrayidx.i301, i64 216
-  %353 = trunc i64 %indvars.iv375 to i32
-  store i32 %353, ptr %m_orgDofIndex, align 8
+  %352 = trunc i64 %indvars.iv375 to i32
+  store i32 %352, ptr %m_orgDofIndex, align 8
   %m_relpos1CrossNormal = getelementptr inbounds i8, ptr %arrayidx.i301, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %m_relpos1CrossNormal, i8 0, i64 96, i1 false)
-  %354 = load i32, ptr %m_fixedBodyId, align 8
+  %353 = load i32, ptr %m_fixedBodyId, align 8
   %m_solverBodyIdA = getelementptr inbounds i8, ptr %arrayidx.i301, i64 168
-  store i32 %354, ptr %m_solverBodyIdA, align 8
+  store i32 %353, ptr %m_solverBodyIdA, align 8
   %m_solverBodyIdB = getelementptr inbounds i8, ptr %arrayidx.i301, i64 188
-  store i32 %354, ptr %m_solverBodyIdB, align 4
-  %355 = load ptr, ptr %m_rigidBodyA, align 8
-  %tobool129.not = icmp eq ptr %355, null
+  store i32 %353, ptr %m_solverBodyIdB, align 4
+  %354 = load ptr, ptr %m_rigidBodyA, align 8
+  %tobool129.not = icmp eq ptr %354, null
   br i1 %tobool129.not, label %if.end134, label %if.then130
 
 if.then130:                                       ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
-  %m_companionId.i = getelementptr inbounds i8, ptr %355, i64 232
-  %356 = load i32, ptr %m_companionId.i, align 8
-  store i32 %356, ptr %m_solverBodyIdA, align 8
+  %m_companionId.i = getelementptr inbounds i8, ptr %354, i64 232
+  %355 = load i32, ptr %m_companionId.i, align 8
+  store i32 %355, ptr %m_solverBodyIdA, align 8
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then130, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
-  %357 = load ptr, ptr %m_rigidBodyB, align 8
-  %tobool136.not = icmp eq ptr %357, null
+  %356 = load ptr, ptr %m_rigidBodyB, align 8
+  %tobool136.not = icmp eq ptr %356, null
   br i1 %tobool136.not, label %if.end141, label %if.then137
 
 if.then137:                                       ; preds = %if.end134
-  %m_companionId.i324 = getelementptr inbounds i8, ptr %357, i64 232
-  %358 = load i32, ptr %m_companionId.i324, align 8
-  store i32 %358, ptr %m_solverBodyIdB, align 4
+  %m_companionId.i324 = getelementptr inbounds i8, ptr %356, i64 232
+  %357 = load i32, ptr %m_companionId.i324, align 8
+  store i32 %357, ptr %m_solverBodyIdB, align 4
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then137, %if.end134
@@ -1211,45 +1208,45 @@ if.end141:                                        ; preds = %if.then137, %if.end
 if.then149:                                       ; preds = %if.end141
   %arrayidx150 = getelementptr inbounds [2 x %class.btVector3], ptr %constraintAxis, i64 0, i64 %indvars.iv375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx150, i64 16, i1 false)
-  %359 = load float, ptr %pivotAworld, align 8
-  %360 = load float, ptr %pivotBworld, align 8
-  %sub.i = fsub float %359, %360
-  %361 = load float, ptr %arrayidx5.i331, align 4
-  %362 = load float, ptr %arrayidx7.i332, align 4
-  %sub8.i = fsub float %361, %362
-  %363 = load float, ptr %arrayidx11.i333, align 8
-  %364 = load float, ptr %arrayidx13.i, align 8
-  %sub14.i = fsub float %363, %364
-  %365 = load float, ptr %constraintNormalLin, align 4
-  %366 = load float, ptr %arrayidx3.i325, align 4
-  %mul8.i = fmul float %sub8.i, %366
-  %367 = call float @llvm.fmuladd.f32(float %sub.i, float %365, float %mul8.i)
-  %368 = load float, ptr %arrayidx5.i326, align 4
-  %369 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %368, float %367)
-  %370 = load float, ptr %m_maxAppliedImpulse165, align 4
-  %fneg = fneg float %370
-  %call156 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i301, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, ptr noundef nonnull align 4 dereferenceable(16) %pivotAworld, ptr noundef nonnull align 4 dereferenceable(16) %pivotBworld, float noundef %369, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %fneg, float noundef %370, i1 noundef zeroext false, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  %358 = load float, ptr %pivotAworld, align 8
+  %359 = load float, ptr %pivotBworld, align 8
+  %sub.i = fsub float %358, %359
+  %360 = load float, ptr %arrayidx5.i331, align 4
+  %361 = load float, ptr %arrayidx7.i332, align 4
+  %sub8.i = fsub float %360, %361
+  %362 = load float, ptr %arrayidx11.i333, align 8
+  %363 = load float, ptr %arrayidx13.i, align 8
+  %sub14.i = fsub float %362, %363
+  %364 = load float, ptr %constraintNormalLin, align 4
+  %365 = load float, ptr %arrayidx3.i325, align 4
+  %mul8.i = fmul float %sub8.i, %365
+  %366 = call float @llvm.fmuladd.f32(float %sub.i, float %364, float %mul8.i)
+  %367 = load float, ptr %arrayidx5.i326, align 4
+  %368 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %367, float %366)
+  %369 = load float, ptr %m_maxAppliedImpulse165, align 4
+  %fneg = fneg float %369
+  %call156 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i301, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, ptr noundef nonnull align 4 dereferenceable(16) %pivotAworld, ptr noundef nonnull align 4 dereferenceable(16) %pivotBworld, float noundef %368, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %fneg, float noundef %369, i1 noundef zeroext false, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   br label %for.inc170
 
 if.else157:                                       ; preds = %if.end141
-  %rem = urem i32 %353, 3
+  %rem = urem i32 %352, 3
   %idxprom.i343 = zext nneg i32 %rem to i64
   %arrayidx2.i344 = getelementptr inbounds float, ptr %frameAworld, i64 %idxprom.i343
   %arrayidx7.i346 = getelementptr inbounds float, ptr %arrayidx8.i, i64 %idxprom.i343
   %arrayidx12.i348 = getelementptr inbounds float, ptr %arrayidx12.i, i64 %idxprom.i343
-  %371 = load float, ptr %arrayidx2.i344, align 4
-  %retval.sroa.0.0.vec.insert.i349 = insertelement <2 x float> poison, float %371, i64 0
-  %372 = load float, ptr %arrayidx7.i346, align 4
-  %retval.sroa.0.4.vec.insert.i350 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i349, float %372, i64 1
-  %373 = load float, ptr %arrayidx12.i348, align 4
-  %retval.sroa.3.12.vec.insert.i351 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %373, i64 0
+  %370 = load float, ptr %arrayidx2.i344, align 4
+  %retval.sroa.0.0.vec.insert.i349 = insertelement <2 x float> poison, float %370, i64 0
+  %371 = load float, ptr %arrayidx7.i346, align 4
+  %retval.sroa.0.4.vec.insert.i350 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i349, float %371, i64 1
+  %372 = load float, ptr %arrayidx12.i348, align 4
+  %retval.sroa.3.12.vec.insert.i351 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %372, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i350, ptr %constraintNormalAng, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i351, ptr %arrayidx5.i329, align 8
   %arrayidx164 = getelementptr inbounds float, ptr %angleDiff, i64 %idxprom.i343
-  %374 = load float, ptr %arrayidx164, align 4
-  %375 = load float, ptr %m_maxAppliedImpulse165, align 4
-  %fneg166 = fneg float %375
-  %call168 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i301, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, ptr noundef nonnull align 4 dereferenceable(16) %pivotAworld, ptr noundef nonnull align 4 dereferenceable(16) %pivotBworld, float noundef %374, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %fneg166, float noundef %375, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  %373 = load float, ptr %arrayidx164, align 4
+  %374 = load float, ptr %m_maxAppliedImpulse165, align 4
+  %fneg166 = fneg float %374
+  %call168 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i301, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, ptr noundef nonnull align 4 dereferenceable(16) %pivotAworld, ptr noundef nonnull align 4 dereferenceable(16) %pivotBworld, float noundef %373, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %fneg166, float noundef %374, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   br label %for.inc170
 
 for.inc170:                                       ; preds = %if.then149, %if.else157

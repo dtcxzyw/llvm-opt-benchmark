@@ -1203,22 +1203,21 @@ define hidden void @_ZN19OpenColorIO_v2_4dev23XmlReaderDescriptionElt3endEv(ptr 
 entry:
   %m_changed = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %m_changed, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_parent.i = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %m_parent.i, align 8
+  %1 = load ptr, ptr %m_parent.i, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %3 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr %3(ptr noundef nonnull align 8 dereferenceable(96) %this)
+  %2 = load ptr, ptr %vfn, align 8
+  %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr %2(ptr noundef nonnull align 8 dereferenceable(96) %this)
   %m_description = getelementptr inbounds i8, ptr %this, i64 96
-  %vtable4 = load ptr, ptr %2, align 8
+  %vtable4 = load ptr, ptr %1, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 64
-  %4 = load ptr, ptr %vfn5, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(32) %call3, ptr noundef nonnull align 8 dereferenceable(32) %m_description)
+  %3 = load ptr, ptr %vfn5, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %call3, ptr noundef nonnull align 8 dereferenceable(32) %m_description)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2692,7 +2691,7 @@ _ZN19OpenColorIO_v2_4dev14TruncateStringB5cxx11EPKcmm.exit: ; preds = %entry
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -4850,7 +4849,7 @@ attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { nofree nounwind memory(read) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

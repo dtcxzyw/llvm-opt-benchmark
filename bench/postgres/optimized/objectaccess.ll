@@ -60,9 +60,8 @@ define dso_local zeroext i1 @RunNamespaceSearchHook(i32 noundef %0, i1 noundef z
   %6 = load ptr, ptr @object_access_hook, align 8
   call void %6(i32 noundef 3, i32 noundef 2615, i32 noundef %0, i32 noundef 0, ptr noundef nonnull %3) #1
   %7 = load i8, ptr %5, align 1
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  ret i1 %9
+  %8 = trunc i8 %7 to i1
+  ret i1 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -121,9 +120,8 @@ define dso_local zeroext i1 @RunNamespaceSearchHookStr(ptr noundef %0, i1 nounde
   %6 = load ptr, ptr @object_access_hook_str, align 8
   call void %6(i32 noundef 3, i32 noundef 2615, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3) #1
   %7 = load i8, ptr %5, align 1
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  ret i1 %9
+  %8 = trunc i8 %7 to i1
+  ret i1 %8
 }
 
 ; Function Attrs: nounwind uwtable

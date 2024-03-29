@@ -1268,35 +1268,34 @@ define dso_local noundef i32 @uv_fileno(ptr nocapture noundef readonly %0, ptr n
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add i32 %4, -7
   %5 = icmp ult i32 %switch.tableidx, 9
-  br i1 %5, label %switch.hole_check, label %15
+  br i1 %5, label %switch.hole_check, label %14
 
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
-  %6 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %6, 0
-  br i1 %switch.lobit.not, label %15, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %14
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %7
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.0 = load i32, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = load i32, ptr %9, align 8
-  %11 = and i32 %10, 3
-  %12 = icmp ne i32 %11, 0
-  %13 = icmp eq i32 %.0, -1
-  %or.cond = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond, label %15, label %14
+  %7 = getelementptr inbounds i8, ptr %0, i64 %switch.load
+  %.0 = load i32, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = load i32, ptr %8, align 8
+  %10 = and i32 %9, 3
+  %11 = icmp ne i32 %10, 0
+  %12 = icmp eq i32 %.0, -1
+  %or.cond = select i1 %11, i1 true, i1 %12
+  br i1 %or.cond, label %14, label %13
 
-14:                                               ; preds = %switch.lookup
+13:                                               ; preds = %switch.lookup
   store i32 %.0, ptr %1, align 4
-  br label %15
+  br label %14
 
-15:                                               ; preds = %switch.hole_check, %2, %switch.lookup, %14
-  %.09 = phi i32 [ 0, %14 ], [ -22, %2 ], [ -9, %switch.lookup ], [ -22, %switch.hole_check ]
+14:                                               ; preds = %switch.hole_check, %2, %switch.lookup, %13
+  %.09 = phi i32 [ 0, %13 ], [ -22, %2 ], [ -9, %switch.lookup ], [ -22, %switch.hole_check ]
   ret i32 %.09
 }
 
@@ -2543,44 +2542,43 @@ define dso_local i32 @uv__getsockpeername(ptr nocapture noundef readonly %0, ptr
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
-  %9 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %9, 0
-  br i1 %switch.lobit.not, label %uv_fileno.exit.thread, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %uv_fileno.exit.thread
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %10
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.0.i = load i32, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 %13, 3
-  %15 = icmp ne i32 %14, 0
-  %16 = icmp eq i32 %.0.i, -1
-  %or.cond.i = select i1 %15, i1 true, i1 %16
+  %10 = getelementptr inbounds i8, ptr %0, i64 %switch.load
+  %.0.i = load i32, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = load i32, ptr %11, align 8
+  %13 = and i32 %12, 3
+  %14 = icmp ne i32 %13, 0
+  %15 = icmp eq i32 %.0.i, -1
+  %or.cond.i = select i1 %14, i1 true, i1 %15
   br i1 %or.cond.i, label %uv_fileno.exit.thread, label %uv_fileno.exit
 
 uv_fileno.exit:                                   ; preds = %switch.lookup
-  %17 = load i32, ptr %3, align 4
-  store i32 %17, ptr %5, align 4
-  %18 = call i32 %1(i32 noundef %.0.i, ptr noundef %2, ptr noundef nonnull %5) #22
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %23, label %19
+  %16 = load i32, ptr %3, align 4
+  store i32 %16, ptr %5, align 4
+  %17 = call i32 %1(i32 noundef %.0.i, ptr noundef %2, ptr noundef nonnull %5) #22
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %22, label %18
 
-19:                                               ; preds = %uv_fileno.exit
-  %20 = tail call ptr @__errno_location() #23
-  %21 = load i32, ptr %20, align 4
-  %22 = sub nsw i32 0, %21
+18:                                               ; preds = %uv_fileno.exit
+  %19 = tail call ptr @__errno_location() #23
+  %20 = load i32, ptr %19, align 4
+  %21 = sub nsw i32 0, %20
   br label %uv_fileno.exit.thread
 
-23:                                               ; preds = %uv_fileno.exit
-  %24 = load i32, ptr %5, align 4
-  store i32 %24, ptr %3, align 4
+22:                                               ; preds = %uv_fileno.exit
+  %23 = load i32, ptr %5, align 4
+  store i32 %23, ptr %3, align 4
   br label %uv_fileno.exit.thread
 
-uv_fileno.exit.thread:                            ; preds = %switch.hole_check, %4, %switch.lookup, %23, %19
-  %.0 = phi i32 [ %22, %19 ], [ 0, %23 ], [ -9, %switch.lookup ], [ -22, %4 ], [ -22, %switch.hole_check ]
+uv_fileno.exit.thread:                            ; preds = %switch.hole_check, %4, %switch.lookup, %22, %18
+  %.0 = phi i32 [ %21, %18 ], [ 0, %22 ], [ -9, %switch.lookup ], [ -22, %4 ], [ -22, %switch.hole_check ]
   ret i32 %.0
 }
 
@@ -2861,7 +2859,7 @@ attributes #25 = { noreturn nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i32 -3, i32 -4}
+!16 = !{i32 -2147483647, i32 -2147483648}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}

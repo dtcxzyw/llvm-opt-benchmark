@@ -796,24 +796,23 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
-  %carry.027 = phi i8 [ 0, %entry ], [ %frombool9, %if.end ]
+  %carry.027 = phi i1 [ false, %entry ], [ %5, %if.end ]
   %i.026 = phi i64 [ 0, %entry ], [ %add4, %if.end ]
-  %tobool.not = icmp eq i8 %carry.027, 0
-  %arrayidx3.phi.trans.insert = getelementptr inbounds [64 x i32], ptr %data_, i64 0, i64 %i.026
-  %.pre = load i32, ptr %arrayidx3.phi.trans.insert, align 4
-  br i1 %tobool.not, label %if.end, label %if.then
+  %arrayidx = getelementptr inbounds [64 x i32], ptr %data_, i64 0, i64 %i.026
+  %0 = load i32, ptr %arrayidx, align 4
+  br i1 %carry.027, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %shr.i.i.i = lshr i32 %.pre, 22
-  %xor.i.i.i = xor i32 %shr.i.i.i, %.pre
+  %shr.i.i.i = lshr i32 %0, 22
+  %xor.i.i.i = xor i32 %shr.i.i.i, %0
   %mul.i.i = mul i32 %xor.i.i.i, -1397199511
   %shr.i.i = lshr i32 %mul.i.i, 28
-  %0 = trunc i32 %shr.i.i to i8
-  %conv3.i.i = add nuw nsw i8 %0, 4
+  %1 = trunc i32 %shr.i.i to i8
+  %conv3.i.i = add nuw nsw i8 %1, 4
   %call4.i.i = tail call noundef i32 @_ZN10pcg_extras10unxorshiftIjEET_S1_hh(i32 noundef %mul.i.i, i8 noundef zeroext 32, i8 noundef zeroext %conv3.i.i)
   %mul.i = mul i32 %call4.i.i, 747796405
-  %1 = trunc i64 %i.026 to i32
-  %i.tr.i = shl nuw nsw i32 %1, 1
+  %2 = trunc i64 %i.026 to i32
+  %i.tr.i = shl nuw nsw i32 %2, 1
   %add.i = add nuw nsw i32 %i.tr.i, -1403630841
   %add4.i = add i32 %add.i, %mul.i
   %shr.i4.i = lshr i32 %add4.i, 28
@@ -823,21 +822,21 @@ if.then:                                          ; preds = %for.body
   %mul.i5.i = mul i32 %xor.i.i, 277803737
   %shr6.i.i = lshr i32 %mul.i5.i, 22
   %xor7.i.i = xor i32 %shr6.i.i, %mul.i5.i
-  store i32 %xor7.i.i, ptr %arrayidx3.phi.trans.insert, align 4
+  store i32 %xor7.i.i, ptr %arrayidx, align 4
   %cmp.i = icmp eq i32 %xor7.i.i, 0
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then
-  %2 = phi i32 [ %xor7.i.i, %if.then ], [ %.pre, %for.body ]
-  %carry.1 = phi i1 [ %cmp.i, %if.then ], [ false, %for.body ]
+  %tobool7.pre-phi = phi i1 [ %cmp.i, %if.then ], [ false, %for.body ]
+  %3 = phi i32 [ %xor7.i.i, %if.then ], [ %0, %for.body ]
   %arrayidx3 = getelementptr inbounds [64 x i32], ptr %data_, i64 0, i64 %i.026
   %add4 = add nuw nsw i64 %i.026, 1
-  %shr.i.i.i7 = lshr i32 %2, 22
-  %xor.i.i.i8 = xor i32 %shr.i.i.i7, %2
+  %shr.i.i.i7 = lshr i32 %3, 22
+  %xor.i.i.i8 = xor i32 %shr.i.i.i7, %3
   %mul.i.i9 = mul i32 %xor.i.i.i8, -1397199511
   %shr.i.i10 = lshr i32 %mul.i.i9, 28
-  %3 = trunc i32 %shr.i.i10 to i8
-  %conv3.i.i11 = add nuw nsw i8 %3, 4
+  %4 = trunc i32 %shr.i.i10 to i8
+  %conv3.i.i11 = add nuw nsw i8 %4, 4
   %call4.i.i12 = tail call noundef i32 @_ZN10pcg_extras10unxorshiftIjEET_S1_hh(i32 noundef %mul.i.i9, i8 noundef zeroext 32, i8 noundef zeroext %conv3.i.i11)
   %mul.i13 = mul i32 %call4.i.i12, 747796405
   %i.tr.i14 = trunc i64 %add4 to i32
@@ -853,8 +852,7 @@ if.end:                                           ; preds = %for.body, %if.then
   %xor7.i.i24 = xor i32 %shr6.i.i23, %mul.i5.i22
   store i32 %xor7.i.i24, ptr %arrayidx3, align 4
   %cmp.i25 = icmp eq i32 %xor7.i.i24, 0
-  %4 = or i1 %carry.1, %cmp.i25
-  %frombool9 = zext i1 %4 to i8
+  %5 = or i1 %cmp.i25, %tobool7.pre-phi
   %exitcond.not = icmp eq i64 %add4, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 

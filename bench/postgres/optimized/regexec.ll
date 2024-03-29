@@ -105,11 +105,11 @@ define dso_local i32 @pg_regexec(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %.not7.i, label %zapallsubs.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %47, %52
-  %.pn = phi ptr [ %10, %52 ], [ %49, %47 ]
-  %.sink225229.sroa.phi = getelementptr i8, ptr %.pn, i64 16
+  %.sink223227 = phi ptr [ %10, %52 ], [ %49, %47 ]
+  %scevgep.i = getelementptr i8, ptr %.sink223227, i64 16
   %54 = shl i64 %44, 4
   %55 = add i64 %54, -16
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink225229.sroa.phi, i8 -1, i64 %55, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 -1, i64 %55, i1 false)
   %.pre = load ptr, ptr %26, align 8
   br label %zapallsubs.exit
 
@@ -170,18 +170,18 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
 
 84:                                               ; preds = %zapallsubs.exit
   store ptr %11, ptr %72, align 8
-  %.not214 = icmp eq i32 %77, 0
-  br i1 %.not214, label %._crit_edge, label %.lr.ph.preheader
+  %.not212 = icmp eq i32 %77, 0
+  br i1 %.not212, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %80, %84
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0140203 = phi i64 [ %87, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0140201 = phi i64 [ %87, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %85 = load ptr, ptr %72, align 8
-  %86 = getelementptr ptr, ptr %85, i64 %.0140203
+  %86 = getelementptr ptr, ptr %85, i64 %.0140201
   store ptr null, ptr %86, align 8
-  %87 = add nuw i64 %.0140203, 1
+  %87 = add nuw i64 %.0140201, 1
   %exitcond.not = icmp eq i64 %87, %78
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -198,18 +198,18 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
   %94 = call ptr @palloc_extended(i64 noundef %93, i32 noundef 2) #10
   store ptr %94, ptr %73, align 8
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %zapallsubs.exit192, label %.preheader202
+  br i1 %95, label %zapallsubs.exit192, label %.preheader200
 
-.preheader202:                                    ; preds = %92, %.preheader202
-  %.1204 = phi i64 [ %98, %.preheader202 ], [ 0, %92 ]
+.preheader200:                                    ; preds = %92, %.preheader200
+  %.1202 = phi i64 [ %98, %.preheader200 ], [ 0, %92 ]
   %96 = load ptr, ptr %73, align 8
-  %97 = getelementptr ptr, ptr %96, i64 %.1204
+  %97 = getelementptr ptr, ptr %96, i64 %.1202
   store ptr null, ptr %97, align 8
-  %98 = add nuw i64 %.1204, 1
-  %exitcond217.not = icmp eq i64 %98, %91
-  br i1 %exitcond217.not, label %99, label %.preheader202, !llvm.loop !7
+  %98 = add nuw i64 %.1202, 1
+  %exitcond215.not = icmp eq i64 %98, %91
+  br i1 %exitcond215.not, label %99, label %.preheader200, !llvm.loop !7
 
-99:                                               ; preds = %.preheader202
+99:                                               ; preds = %.preheader200
   %100 = call ptr @palloc_extended(i64 noundef %93, i32 noundef 2) #10
   store ptr %100, ptr %74, align 8
   %101 = call ptr @palloc_extended(i64 noundef %93, i32 noundef 2) #10
@@ -221,16 +221,16 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
   br i1 %or.cond183, label %zapallsubs.exit192, label %.preheader
 
 .preheader:                                       ; preds = %99, %.preheader
-  %.2205 = phi i64 [ %109, %.preheader ], [ 0, %99 ]
+  %.2203 = phi i64 [ %109, %.preheader ], [ 0, %99 ]
   %105 = load ptr, ptr %74, align 8
-  %106 = getelementptr ptr, ptr %105, i64 %.2205
+  %106 = getelementptr ptr, ptr %105, i64 %.2203
   store ptr null, ptr %106, align 8
   %107 = load ptr, ptr %75, align 8
-  %108 = getelementptr ptr, ptr %107, i64 %.2205
+  %108 = getelementptr ptr, ptr %107, i64 %.2203
   store ptr null, ptr %108, align 8
-  %109 = add nuw i64 %.2205, 1
-  %exitcond218.not = icmp eq i64 %109, %91
-  br i1 %exitcond218.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  %109 = add nuw i64 %.2203, 1
+  %exitcond216.not = icmp eq i64 %109, %91
+  br i1 %exitcond216.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   %110 = load ptr, ptr %26, align 8
@@ -273,8 +273,8 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
   %131 = and i32 %130, 16
   %.not173 = icmp eq i32 %131, 0
   %.not7.i189 = icmp eq i64 %.1144, 1
-  %or.cond201 = select i1 %.not173, i1 true, i1 %.not7.i189
-  br i1 %or.cond201, label %zapallsubs.exit192, label %.lr.ph.preheader.i190
+  %or.cond199 = select i1 %.not173, i1 true, i1 %.not7.i189
+  br i1 %or.cond199, label %zapallsubs.exit192, label %.lr.ph.preheader.i190
 
 .lr.ph.preheader.i190:                            ; preds = %127
   %scevgep.i191 = getelementptr i8, ptr %6, i64 16
@@ -306,29 +306,28 @@ zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i1
   %141 = getelementptr inbounds i8, ptr %140, i64 96
   %142 = load i32, ptr %141, align 8
   %143 = sext i32 %142 to i64
-  %.not215 = icmp eq i32 %142, 0
-  br i1 %.not215, label %._crit_edge209, label %.lr.ph208
+  %.not213 = icmp eq i32 %142, 0
+  br i1 %.not213, label %._crit_edge207, label %.lr.ph206
 
-.lr.ph208:                                        ; preds = %139, %freedfa.exit
-  %.3206 = phi i64 [ %172, %freedfa.exit ], [ 0, %139 ]
+.lr.ph206:                                        ; preds = %139, %freedfa.exit
+  %.3204 = phi i64 [ %172, %freedfa.exit ], [ 0, %139 ]
   %144 = load ptr, ptr %72, align 8
-  %145 = getelementptr ptr, ptr %144, i64 %.3206
+  %145 = getelementptr ptr, ptr %144, i64 %.3204
   %146 = load ptr, ptr %145, align 8
   %.not182 = icmp eq ptr %146, null
   br i1 %.not182, label %freedfa.exit, label %147
 
-147:                                              ; preds = %.lr.ph208
+147:                                              ; preds = %.lr.ph206
   %148 = getelementptr inbounds i8, ptr %146, i64 113
   %149 = load i8, ptr %148, align 1
-  %150 = and i8 %149, 1
-  %.not.i = icmp eq i8 %150, 0
-  br i1 %.not.i, label %167, label %151
+  %150 = trunc i8 %149 to i1
+  br i1 %150, label %151, label %167
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds i8, ptr %146, i64 24
   %153 = load ptr, ptr %152, align 8
-  %.not14.i = icmp eq ptr %153, null
-  br i1 %.not14.i, label %155, label %154
+  %.not.i = icmp eq ptr %153, null
+  br i1 %.not.i, label %155, label %154
 
 154:                                              ; preds = %151
   call void @pfree(ptr noundef nonnull %153) #10
@@ -337,8 +336,8 @@ zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i1
 155:                                              ; preds = %154, %151
   %156 = getelementptr inbounds i8, ptr %146, i64 32
   %157 = load ptr, ptr %156, align 8
-  %.not15.i = icmp eq ptr %157, null
-  br i1 %.not15.i, label %159, label %158
+  %.not14.i = icmp eq ptr %157, null
+  br i1 %.not14.i, label %159, label %158
 
 158:                                              ; preds = %155
   call void @pfree(ptr noundef nonnull %157) #10
@@ -347,8 +346,8 @@ zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i1
 159:                                              ; preds = %158, %155
   %160 = getelementptr inbounds i8, ptr %146, i64 48
   %161 = load ptr, ptr %160, align 8
-  %.not16.i = icmp eq ptr %161, null
-  br i1 %.not16.i, label %163, label %162
+  %.not15.i = icmp eq ptr %161, null
+  br i1 %.not15.i, label %163, label %162
 
 162:                                              ; preds = %159
   call void @pfree(ptr noundef nonnull %161) #10
@@ -357,8 +356,8 @@ zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i1
 163:                                              ; preds = %162, %159
   %164 = getelementptr inbounds i8, ptr %146, i64 56
   %165 = load ptr, ptr %164, align 8
-  %.not17.i = icmp eq ptr %165, null
-  br i1 %.not17.i, label %167, label %166
+  %.not16.i = icmp eq ptr %165, null
+  br i1 %.not16.i, label %167, label %166
 
 166:                                              ; preds = %163
   call void @pfree(ptr noundef nonnull %165) #10
@@ -367,33 +366,32 @@ zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i1
 167:                                              ; preds = %166, %163, %147
   %168 = getelementptr inbounds i8, ptr %146, i64 112
   %169 = load i8, ptr %168, align 8
-  %170 = and i8 %169, 1
-  %.not18.i = icmp eq i8 %170, 0
-  br i1 %.not18.i, label %freedfa.exit, label %171
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %freedfa.exit
 
 171:                                              ; preds = %167
   call void @pfree(ptr noundef nonnull %146) #10
   br label %freedfa.exit
 
-freedfa.exit:                                     ; preds = %171, %167, %.lr.ph208
-  %172 = add nuw i64 %.3206, 1
-  %exitcond219.not = icmp eq i64 %172, %143
-  br i1 %exitcond219.not, label %._crit_edge209.loopexit, label %.lr.ph208, !llvm.loop !9
+freedfa.exit:                                     ; preds = %171, %167, %.lr.ph206
+  %172 = add nuw i64 %.3204, 1
+  %exitcond217.not = icmp eq i64 %172, %143
+  br i1 %exitcond217.not, label %._crit_edge207.loopexit, label %.lr.ph206, !llvm.loop !9
 
-._crit_edge209.loopexit:                          ; preds = %freedfa.exit
-  %.pre221 = load ptr, ptr %72, align 8
-  br label %._crit_edge209
+._crit_edge207.loopexit:                          ; preds = %freedfa.exit
+  %.pre219 = load ptr, ptr %72, align 8
+  br label %._crit_edge207
 
-._crit_edge209:                                   ; preds = %._crit_edge209.loopexit, %139
-  %173 = phi ptr [ %.pre221, %._crit_edge209.loopexit ], [ %138, %139 ]
+._crit_edge207:                                   ; preds = %._crit_edge207.loopexit, %139
+  %173 = phi ptr [ %.pre219, %._crit_edge207.loopexit ], [ %138, %139 ]
   %.not177 = icmp eq ptr %173, %11
   br i1 %.not177, label %175, label %174
 
-174:                                              ; preds = %._crit_edge209
+174:                                              ; preds = %._crit_edge207
   call void @pfree(ptr noundef %173) #10
   br label %175
 
-175:                                              ; preds = %._crit_edge209, %174, %137
+175:                                              ; preds = %._crit_edge207, %174, %137
   %176 = load ptr, ptr %73, align 8
   %.not178 = icmp eq ptr %176, null
   br i1 %.not178, label %212, label %177
@@ -403,29 +401,28 @@ freedfa.exit:                                     ; preds = %171, %167, %.lr.ph2
   %179 = getelementptr inbounds i8, ptr %178, i64 592
   %180 = load i32, ptr %179, align 8
   %181 = sext i32 %180 to i64
-  %.not216 = icmp eq i32 %180, 0
-  br i1 %.not216, label %._crit_edge213, label %.lr.ph212
+  %.not214 = icmp eq i32 %180, 0
+  br i1 %.not214, label %._crit_edge211, label %.lr.ph210
 
-.lr.ph212:                                        ; preds = %177, %freedfa.exit199
-  %.4210 = phi i64 [ %210, %freedfa.exit199 ], [ 0, %177 ]
+.lr.ph210:                                        ; preds = %177, %freedfa.exit197
+  %.4208 = phi i64 [ %210, %freedfa.exit197 ], [ 0, %177 ]
   %182 = load ptr, ptr %73, align 8
-  %183 = getelementptr ptr, ptr %182, i64 %.4210
+  %183 = getelementptr ptr, ptr %182, i64 %.4208
   %184 = load ptr, ptr %183, align 8
   %.not181 = icmp eq ptr %184, null
-  br i1 %.not181, label %freedfa.exit199, label %185
+  br i1 %.not181, label %freedfa.exit197, label %185
 
-185:                                              ; preds = %.lr.ph212
+185:                                              ; preds = %.lr.ph210
   %186 = getelementptr inbounds i8, ptr %184, i64 113
   %187 = load i8, ptr %186, align 1
-  %188 = and i8 %187, 1
-  %.not.i193 = icmp eq i8 %188, 0
-  br i1 %.not.i193, label %205, label %189
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %189, label %205
 
 189:                                              ; preds = %185
   %190 = getelementptr inbounds i8, ptr %184, i64 24
   %191 = load ptr, ptr %190, align 8
-  %.not14.i194 = icmp eq ptr %191, null
-  br i1 %.not14.i194, label %193, label %192
+  %.not.i193 = icmp eq ptr %191, null
+  br i1 %.not.i193, label %193, label %192
 
 192:                                              ; preds = %189
   call void @pfree(ptr noundef nonnull %191) #10
@@ -434,8 +431,8 @@ freedfa.exit:                                     ; preds = %171, %167, %.lr.ph2
 193:                                              ; preds = %192, %189
   %194 = getelementptr inbounds i8, ptr %184, i64 32
   %195 = load ptr, ptr %194, align 8
-  %.not15.i195 = icmp eq ptr %195, null
-  br i1 %.not15.i195, label %197, label %196
+  %.not14.i194 = icmp eq ptr %195, null
+  br i1 %.not14.i194, label %197, label %196
 
 196:                                              ; preds = %193
   call void @pfree(ptr noundef nonnull %195) #10
@@ -444,8 +441,8 @@ freedfa.exit:                                     ; preds = %171, %167, %.lr.ph2
 197:                                              ; preds = %196, %193
   %198 = getelementptr inbounds i8, ptr %184, i64 48
   %199 = load ptr, ptr %198, align 8
-  %.not16.i196 = icmp eq ptr %199, null
-  br i1 %.not16.i196, label %201, label %200
+  %.not15.i195 = icmp eq ptr %199, null
+  br i1 %.not15.i195, label %201, label %200
 
 200:                                              ; preds = %197
   call void @pfree(ptr noundef nonnull %199) #10
@@ -454,8 +451,8 @@ freedfa.exit:                                     ; preds = %171, %167, %.lr.ph2
 201:                                              ; preds = %200, %197
   %202 = getelementptr inbounds i8, ptr %184, i64 56
   %203 = load ptr, ptr %202, align 8
-  %.not17.i197 = icmp eq ptr %203, null
-  br i1 %.not17.i197, label %205, label %204
+  %.not16.i196 = icmp eq ptr %203, null
+  br i1 %.not16.i196, label %205, label %204
 
 204:                                              ; preds = %201
   call void @pfree(ptr noundef nonnull %203) #10
@@ -464,29 +461,28 @@ freedfa.exit:                                     ; preds = %171, %167, %.lr.ph2
 205:                                              ; preds = %204, %201, %185
   %206 = getelementptr inbounds i8, ptr %184, i64 112
   %207 = load i8, ptr %206, align 8
-  %208 = and i8 %207, 1
-  %.not18.i198 = icmp eq i8 %208, 0
-  br i1 %.not18.i198, label %freedfa.exit199, label %209
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %209, label %freedfa.exit197
 
 209:                                              ; preds = %205
   call void @pfree(ptr noundef nonnull %184) #10
-  br label %freedfa.exit199
+  br label %freedfa.exit197
 
-freedfa.exit199:                                  ; preds = %209, %205, %.lr.ph212
-  %210 = add nuw i64 %.4210, 1
-  %exitcond220.not = icmp eq i64 %210, %181
-  br i1 %exitcond220.not, label %._crit_edge213.loopexit, label %.lr.ph212, !llvm.loop !10
+freedfa.exit197:                                  ; preds = %209, %205, %.lr.ph210
+  %210 = add nuw i64 %.4208, 1
+  %exitcond218.not = icmp eq i64 %210, %181
+  br i1 %exitcond218.not, label %._crit_edge211.loopexit, label %.lr.ph210, !llvm.loop !10
 
-._crit_edge213.loopexit:                          ; preds = %freedfa.exit199
-  %.pre222 = load ptr, ptr %73, align 8
-  br label %._crit_edge213
+._crit_edge211.loopexit:                          ; preds = %freedfa.exit197
+  %.pre220 = load ptr, ptr %73, align 8
+  br label %._crit_edge211
 
-._crit_edge213:                                   ; preds = %._crit_edge213.loopexit, %177
-  %211 = phi ptr [ %.pre222, %._crit_edge213.loopexit ], [ %176, %177 ]
+._crit_edge211:                                   ; preds = %._crit_edge211.loopexit, %177
+  %211 = phi ptr [ %.pre220, %._crit_edge211.loopexit ], [ %176, %177 ]
   call void @pfree(ptr noundef %211) #10
   br label %212
 
-212:                                              ; preds = %._crit_edge213, %175
+212:                                              ; preds = %._crit_edge211, %175
   %213 = load ptr, ptr %74, align 8
   %.not179 = icmp eq ptr %213, null
   br i1 %.not179, label %215, label %214
@@ -539,15 +535,14 @@ define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %10, i64 113
   %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, 1
-  %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %39, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %39
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %10, i64 24
   %25 = load ptr, ptr %24, align 8
-  %.not14.i = icmp eq ptr %25, null
-  br i1 %.not14.i, label %27, label %26
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %27, label %26
 
 26:                                               ; preds = %23
   tail call void @pfree(ptr noundef nonnull %25) #10
@@ -556,8 +551,8 @@ define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2
 27:                                               ; preds = %26, %23
   %28 = getelementptr inbounds i8, ptr %10, i64 32
   %29 = load ptr, ptr %28, align 8
-  %.not15.i = icmp eq ptr %29, null
-  br i1 %.not15.i, label %31, label %30
+  %.not14.i = icmp eq ptr %29, null
+  br i1 %.not14.i, label %31, label %30
 
 30:                                               ; preds = %27
   tail call void @pfree(ptr noundef nonnull %29) #10
@@ -566,8 +561,8 @@ define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2
 31:                                               ; preds = %30, %27
   %32 = getelementptr inbounds i8, ptr %10, i64 48
   %33 = load ptr, ptr %32, align 8
-  %.not16.i = icmp eq ptr %33, null
-  br i1 %.not16.i, label %35, label %34
+  %.not15.i = icmp eq ptr %33, null
+  br i1 %.not15.i, label %35, label %34
 
 34:                                               ; preds = %31
   tail call void @pfree(ptr noundef nonnull %33) #10
@@ -576,8 +571,8 @@ define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2
 35:                                               ; preds = %34, %31
   %36 = getelementptr inbounds i8, ptr %10, i64 56
   %37 = load ptr, ptr %36, align 8
-  %.not17.i = icmp eq ptr %37, null
-  br i1 %.not17.i, label %39, label %38
+  %.not16.i = icmp eq ptr %37, null
+  br i1 %.not16.i, label %39, label %38
 
 38:                                               ; preds = %35
   tail call void @pfree(ptr noundef nonnull %37) #10
@@ -586,9 +581,8 @@ define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2
 39:                                               ; preds = %38, %35, %19
   %40 = getelementptr inbounds i8, ptr %10, i64 112
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not18.i = icmp eq i8 %42, 0
-  br i1 %.not18.i, label %freedfa.exit, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %freedfa.exit
 
 43:                                               ; preds = %39
   tail call void @pfree(ptr noundef nonnull %10) #10
@@ -806,20 +800,19 @@ freedfa.exit:                                     ; preds = %39, %43
 
 cfindloop.exit:                                   ; preds = %93, %._crit_edge.split.i, %.split43.i, %.split.i, %134, %60, %._crit_edge.split.us.us.i, %.split43.us.i, %.split.us.us.us.i, %85, %.split22.us.i, %115, %.split18.us.i
   %.0.i = phi i32 [ %.us-phi20.i, %.split18.us.i ], [ 0, %115 ], [ 0, %.split22.us.i ], [ %88, %85 ], [ %69, %.split.us.us.us.i ], [ 1, %60 ], [ 1, %._crit_edge.split.us.us.i ], [ %59, %.split43.us.i ], [ %137, %134 ], [ %99, %.split.i ], [ 1, %93 ], [ 1, %._crit_edge.split.i ], [ %92, %.split43.i ]
-  %.053 = load ptr, ptr %4, align 8
+  %.049 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %142 = getelementptr inbounds i8, ptr %17, i64 113
   %143 = load i8, ptr %142, align 1
-  %144 = and i8 %143, 1
-  %.not.i39 = icmp eq i8 %144, 0
-  br i1 %.not.i39, label %161, label %145
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %161
 
 145:                                              ; preds = %cfindloop.exit
   %146 = getelementptr inbounds i8, ptr %17, i64 24
   %147 = load ptr, ptr %146, align 8
-  %.not14.i40 = icmp eq ptr %147, null
-  br i1 %.not14.i40, label %149, label %148
+  %.not.i39 = icmp eq ptr %147, null
+  br i1 %.not.i39, label %149, label %148
 
 148:                                              ; preds = %145
   call void @pfree(ptr noundef nonnull %147) #10
@@ -828,8 +821,8 @@ cfindloop.exit:                                   ; preds = %93, %._crit_edge.sp
 149:                                              ; preds = %148, %145
   %150 = getelementptr inbounds i8, ptr %17, i64 32
   %151 = load ptr, ptr %150, align 8
-  %.not15.i41 = icmp eq ptr %151, null
-  br i1 %.not15.i41, label %153, label %152
+  %.not14.i40 = icmp eq ptr %151, null
+  br i1 %.not14.i40, label %153, label %152
 
 152:                                              ; preds = %149
   call void @pfree(ptr noundef nonnull %151) #10
@@ -838,8 +831,8 @@ cfindloop.exit:                                   ; preds = %93, %._crit_edge.sp
 153:                                              ; preds = %152, %149
   %154 = getelementptr inbounds i8, ptr %17, i64 48
   %155 = load ptr, ptr %154, align 8
-  %.not16.i42 = icmp eq ptr %155, null
-  br i1 %.not16.i42, label %157, label %156
+  %.not15.i41 = icmp eq ptr %155, null
+  br i1 %.not15.i41, label %157, label %156
 
 156:                                              ; preds = %153
   call void @pfree(ptr noundef nonnull %155) #10
@@ -848,8 +841,8 @@ cfindloop.exit:                                   ; preds = %93, %._crit_edge.sp
 157:                                              ; preds = %156, %153
   %158 = getelementptr inbounds i8, ptr %17, i64 56
   %159 = load ptr, ptr %158, align 8
-  %.not17.i43 = icmp eq ptr %159, null
-  br i1 %.not17.i43, label %161, label %160
+  %.not16.i42 = icmp eq ptr %159, null
+  br i1 %.not16.i42, label %161, label %160
 
 160:                                              ; preds = %157
   call void @pfree(ptr noundef nonnull %159) #10
@@ -858,26 +851,24 @@ cfindloop.exit:                                   ; preds = %93, %._crit_edge.sp
 161:                                              ; preds = %160, %157, %cfindloop.exit
   %162 = getelementptr inbounds i8, ptr %17, i64 112
   %163 = load i8, ptr %162, align 8
-  %164 = and i8 %163, 1
-  %.not18.i44 = icmp eq i8 %164, 0
-  br i1 %.not18.i44, label %freedfa.exit45, label %165
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %freedfa.exit43
 
 165:                                              ; preds = %161
   call void @pfree(ptr noundef nonnull %17) #10
-  br label %freedfa.exit45
+  br label %freedfa.exit43
 
-freedfa.exit45:                                   ; preds = %161, %165
+freedfa.exit43:                                   ; preds = %161, %165
   %166 = getelementptr inbounds i8, ptr %10, i64 113
   %167 = load i8, ptr %166, align 1
-  %168 = and i8 %167, 1
-  %.not.i46 = icmp eq i8 %168, 0
-  br i1 %.not.i46, label %185, label %169
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %169, label %185
 
-169:                                              ; preds = %freedfa.exit45
+169:                                              ; preds = %freedfa.exit43
   %170 = getelementptr inbounds i8, ptr %10, i64 24
   %171 = load ptr, ptr %170, align 8
-  %.not14.i47 = icmp eq ptr %171, null
-  br i1 %.not14.i47, label %173, label %172
+  %.not.i44 = icmp eq ptr %171, null
+  br i1 %.not.i44, label %173, label %172
 
 172:                                              ; preds = %169
   call void @pfree(ptr noundef nonnull %171) #10
@@ -886,8 +877,8 @@ freedfa.exit45:                                   ; preds = %161, %165
 173:                                              ; preds = %172, %169
   %174 = getelementptr inbounds i8, ptr %10, i64 32
   %175 = load ptr, ptr %174, align 8
-  %.not15.i48 = icmp eq ptr %175, null
-  br i1 %.not15.i48, label %177, label %176
+  %.not14.i45 = icmp eq ptr %175, null
+  br i1 %.not14.i45, label %177, label %176
 
 176:                                              ; preds = %173
   call void @pfree(ptr noundef nonnull %175) #10
@@ -896,8 +887,8 @@ freedfa.exit45:                                   ; preds = %161, %165
 177:                                              ; preds = %176, %173
   %178 = getelementptr inbounds i8, ptr %10, i64 48
   %179 = load ptr, ptr %178, align 8
-  %.not16.i49 = icmp eq ptr %179, null
-  br i1 %.not16.i49, label %181, label %180
+  %.not15.i46 = icmp eq ptr %179, null
+  br i1 %.not15.i46, label %181, label %180
 
 180:                                              ; preds = %177
   call void @pfree(ptr noundef nonnull %179) #10
@@ -906,30 +897,29 @@ freedfa.exit45:                                   ; preds = %161, %165
 181:                                              ; preds = %180, %177
   %182 = getelementptr inbounds i8, ptr %10, i64 56
   %183 = load ptr, ptr %182, align 8
-  %.not17.i50 = icmp eq ptr %183, null
-  br i1 %.not17.i50, label %185, label %184
+  %.not16.i47 = icmp eq ptr %183, null
+  br i1 %.not16.i47, label %185, label %184
 
 184:                                              ; preds = %181
   call void @pfree(ptr noundef nonnull %183) #10
   br label %185
 
-185:                                              ; preds = %184, %181, %freedfa.exit45
+185:                                              ; preds = %184, %181, %freedfa.exit43
   %186 = getelementptr inbounds i8, ptr %10, i64 112
   %187 = load i8, ptr %186, align 8
-  %188 = and i8 %187, 1
-  %.not18.i51 = icmp eq i8 %188, 0
-  br i1 %.not18.i51, label %freedfa.exit52, label %189
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %189, label %freedfa.exit48
 
 189:                                              ; preds = %185
   call void @pfree(ptr noundef nonnull %10) #10
-  br label %freedfa.exit52
+  br label %freedfa.exit48
 
-freedfa.exit52:                                   ; preds = %185, %189
+freedfa.exit48:                                   ; preds = %185, %189
   %190 = load i32, ptr %56, align 8
   %.not = icmp eq i32 %190, 0
   br i1 %.not, label %191, label %218
 
-191:                                              ; preds = %freedfa.exit52
+191:                                              ; preds = %freedfa.exit48
   %192 = load ptr, ptr %6, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4
@@ -938,7 +928,7 @@ freedfa.exit52:                                   ; preds = %185, %189
   br i1 %.not36, label %218, label %196
 
 196:                                              ; preds = %191
-  %.not37 = icmp eq ptr %.053, null
+  %.not37 = icmp eq ptr %.049, null
   br i1 %.not37, label %197, label %199
 
 197:                                              ; preds = %196
@@ -946,10 +936,10 @@ freedfa.exit52:                                   ; preds = %185, %189
   br label %199
 
 199:                                              ; preds = %196, %197
-  %.sink153 = phi ptr [ %198, %197 ], [ %.053, %196 ]
+  %.sink149 = phi ptr [ %198, %197 ], [ %.049, %196 ]
   %200 = getelementptr inbounds i8, ptr %0, i64 48
   %201 = load ptr, ptr %200, align 8
-  %202 = ptrtoint ptr %.sink153 to i64
+  %202 = ptrtoint ptr %.sink149 to i64
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
   %205 = ashr exact i64 %204, 2
@@ -969,8 +959,8 @@ freedfa.exit52:                                   ; preds = %185, %189
   store i64 %214, ptr %217, align 8
   br label %218
 
-218:                                              ; preds = %191, %199, %freedfa.exit52, %freedfa.exit, %12
-  %.0 = phi i32 [ %14, %12 ], [ %45, %freedfa.exit ], [ %190, %freedfa.exit52 ], [ %.0.i, %199 ], [ %.0.i, %191 ]
+218:                                              ; preds = %191, %199, %freedfa.exit48, %freedfa.exit, %12
+  %.0 = phi i32 [ %14, %12 ], [ %45, %freedfa.exit ], [ %190, %freedfa.exit48 ], [ %.0.i, %199 ], [ %.0.i, %191 ]
   ret i32 %.0
 }
 
@@ -1006,15 +996,14 @@ define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %25 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %22, ptr noundef %22, ptr noundef %24, ptr noundef nonnull %4, ptr noundef null)
   %26 = getelementptr inbounds i8, ptr %15, i64 113
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %45, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %45
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %15, i64 24
   %31 = load ptr, ptr %30, align 8
-  %.not14.i = icmp eq ptr %31, null
-  br i1 %.not14.i, label %33, label %32
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %33, label %32
 
 32:                                               ; preds = %29
   call void @pfree(ptr noundef nonnull %31) #10
@@ -1023,8 +1012,8 @@ define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 33:                                               ; preds = %32, %29
   %34 = getelementptr inbounds i8, ptr %15, i64 32
   %35 = load ptr, ptr %34, align 8
-  %.not15.i = icmp eq ptr %35, null
-  br i1 %.not15.i, label %37, label %36
+  %.not14.i = icmp eq ptr %35, null
+  br i1 %.not14.i, label %37, label %36
 
 36:                                               ; preds = %33
   call void @pfree(ptr noundef nonnull %35) #10
@@ -1033,8 +1022,8 @@ define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 37:                                               ; preds = %36, %33
   %38 = getelementptr inbounds i8, ptr %15, i64 48
   %39 = load ptr, ptr %38, align 8
-  %.not16.i = icmp eq ptr %39, null
-  br i1 %.not16.i, label %41, label %40
+  %.not15.i = icmp eq ptr %39, null
+  br i1 %.not15.i, label %41, label %40
 
 40:                                               ; preds = %37
   call void @pfree(ptr noundef nonnull %39) #10
@@ -1043,8 +1032,8 @@ define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 41:                                               ; preds = %40, %37
   %42 = getelementptr inbounds i8, ptr %15, i64 56
   %43 = load ptr, ptr %42, align 8
-  %.not17.i = icmp eq ptr %43, null
-  br i1 %.not17.i, label %45, label %44
+  %.not16.i = icmp eq ptr %43, null
+  br i1 %.not16.i, label %45, label %44
 
 44:                                               ; preds = %41
   call void @pfree(ptr noundef nonnull %43) #10
@@ -1053,9 +1042,8 @@ define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 45:                                               ; preds = %44, %41, %20
   %46 = getelementptr inbounds i8, ptr %15, i64 112
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not18.i = icmp eq i8 %48, 0
-  br i1 %.not18.i, label %freedfa.exit, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %freedfa.exit
 
 49:                                               ; preds = %45
   call void @pfree(ptr noundef nonnull %15) #10
@@ -1085,10 +1073,10 @@ freedfa.exit:                                     ; preds = %45, %49
   br label %61
 
 61:                                               ; preds = %57, %59
-  %.sink119 = phi ptr [ %60, %59 ], [ %58, %57 ]
+  %.sink117 = phi ptr [ %60, %59 ], [ %58, %57 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %.sink119 to i64
+  %64 = ptrtoint ptr %.sink117 to i64
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65
   %67 = ashr exact i64 %66, 2
@@ -1126,16 +1114,16 @@ freedfa.exit:                                     ; preds = %45, %49
   br i1 %89, label %102, label %.preheader
 
 .preheader:                                       ; preds = %86
-  %.not8497 = icmp ugt ptr %87, %25
-  br i1 %.not8497, label %._crit_edge, label %.lr.ph
+  %.not8495 = icmp ugt ptr %87, %25
+  br i1 %.not8495, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %100
-  %.07398.us = phi ptr [ %101, %100 ], [ %87, %.lr.ph ]
+  %.07396.us = phi ptr [ %101, %100 ], [ %87, %.lr.ph ]
   %90 = load ptr, ptr %23, align 8
-  %91 = call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef %.07398.us, ptr noundef %90, ptr noundef nonnull %5)
+  %91 = call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef %.07396.us, ptr noundef %90, ptr noundef nonnull %5)
   %92 = load i32, ptr %50, align 8
   %.not85.us = icmp eq i32 %92, 0
   br i1 %.not85.us, label %93, label %.split.us
@@ -1149,7 +1137,7 @@ freedfa.exit:                                     ; preds = %45, %49
   br i1 %or.cond.us, label %98, label %99
 
 98:                                               ; preds = %93
-  store ptr %.07398.us, ptr %4, align 8
+  store ptr %.07396.us, ptr %4, align 8
   br label %99
 
 99:                                               ; preds = %98, %93
@@ -1157,7 +1145,7 @@ freedfa.exit:                                     ; preds = %45, %49
   br i1 %.not86.us, label %100, label %._crit_edge
 
 100:                                              ; preds = %99
-  %101 = getelementptr i8, ptr %.07398.us, i64 4
+  %101 = getelementptr i8, ptr %.07396.us, i64 4
   %.not84.us = icmp ugt ptr %101, %25
   br i1 %.not84.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
@@ -1166,9 +1154,9 @@ freedfa.exit:                                     ; preds = %45, %49
   br label %189
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %115
-  %.07398 = phi ptr [ %116, %115 ], [ %87, %.lr.ph ]
+  %.07396 = phi ptr [ %116, %115 ], [ %87, %.lr.ph ]
   %104 = load ptr, ptr %23, align 8
-  %105 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef %.07398, ptr noundef %.07398, ptr noundef %104, ptr noundef null, ptr noundef nonnull %5)
+  %105 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef %.07396, ptr noundef %.07396, ptr noundef %104, ptr noundef null, ptr noundef nonnull %5)
   %106 = load i32, ptr %50, align 8
   %.not85 = icmp eq i32 %106, 0
   br i1 %.not85, label %108, label %.split.us
@@ -1187,7 +1175,7 @@ freedfa.exit:                                     ; preds = %45, %49
   br i1 %or.cond, label %113, label %114
 
 113:                                              ; preds = %108
-  store ptr %.07398, ptr %4, align 8
+  store ptr %.07396, ptr %4, align 8
   br label %114
 
 114:                                              ; preds = %113, %108
@@ -1195,24 +1183,23 @@ freedfa.exit:                                     ; preds = %45, %49
   br i1 %.not86, label %115, label %._crit_edge
 
 115:                                              ; preds = %114
-  %116 = getelementptr i8, ptr %.07398, i64 4
+  %116 = getelementptr i8, ptr %.07396, i64 4
   %.not84 = icmp ugt ptr %116, %25
   br i1 %.not84, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %115, %114, %100, %99, %.preheader
-  %.073.lcssa = phi ptr [ %87, %.preheader ], [ %.07398.us, %99 ], [ %101, %100 ], [ %.07398, %114 ], [ %116, %115 ]
+  %.073.lcssa = phi ptr [ %87, %.preheader ], [ %.07396.us, %99 ], [ %101, %100 ], [ %.07396, %114 ], [ %116, %115 ]
   %.2 = phi ptr [ null, %.preheader ], [ %91, %99 ], [ null, %100 ], [ %105, %114 ], [ null, %115 ]
   %117 = getelementptr inbounds i8, ptr %88, i64 113
   %118 = load i8, ptr %117, align 1
-  %119 = and i8 %118, 1
-  %.not.i89 = icmp eq i8 %119, 0
-  br i1 %.not.i89, label %136, label %120
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %136
 
 120:                                              ; preds = %._crit_edge
   %121 = getelementptr inbounds i8, ptr %88, i64 24
   %122 = load ptr, ptr %121, align 8
-  %.not14.i90 = icmp eq ptr %122, null
-  br i1 %.not14.i90, label %124, label %123
+  %.not.i89 = icmp eq ptr %122, null
+  br i1 %.not.i89, label %124, label %123
 
 123:                                              ; preds = %120
   call void @pfree(ptr noundef nonnull %122) #10
@@ -1221,8 +1208,8 @@ freedfa.exit:                                     ; preds = %45, %49
 124:                                              ; preds = %123, %120
   %125 = getelementptr inbounds i8, ptr %88, i64 32
   %126 = load ptr, ptr %125, align 8
-  %.not15.i91 = icmp eq ptr %126, null
-  br i1 %.not15.i91, label %128, label %127
+  %.not14.i90 = icmp eq ptr %126, null
+  br i1 %.not14.i90, label %128, label %127
 
 127:                                              ; preds = %124
   call void @pfree(ptr noundef nonnull %126) #10
@@ -1231,8 +1218,8 @@ freedfa.exit:                                     ; preds = %45, %49
 128:                                              ; preds = %127, %124
   %129 = getelementptr inbounds i8, ptr %88, i64 48
   %130 = load ptr, ptr %129, align 8
-  %.not16.i92 = icmp eq ptr %130, null
-  br i1 %.not16.i92, label %132, label %131
+  %.not15.i91 = icmp eq ptr %130, null
+  br i1 %.not15.i91, label %132, label %131
 
 131:                                              ; preds = %128
   call void @pfree(ptr noundef nonnull %130) #10
@@ -1241,8 +1228,8 @@ freedfa.exit:                                     ; preds = %45, %49
 132:                                              ; preds = %131, %128
   %133 = getelementptr inbounds i8, ptr %88, i64 56
   %134 = load ptr, ptr %133, align 8
-  %.not17.i93 = icmp eq ptr %134, null
-  br i1 %.not17.i93, label %136, label %135
+  %.not16.i92 = icmp eq ptr %134, null
+  br i1 %.not16.i92, label %136, label %135
 
 135:                                              ; preds = %132
   call void @pfree(ptr noundef nonnull %134) #10
@@ -1251,15 +1238,14 @@ freedfa.exit:                                     ; preds = %45, %49
 136:                                              ; preds = %135, %132, %._crit_edge
   %137 = getelementptr inbounds i8, ptr %88, i64 112
   %138 = load i8, ptr %137, align 8
-  %139 = and i8 %138, 1
-  %.not18.i94 = icmp eq i8 %139, 0
-  br i1 %.not18.i94, label %freedfa.exit95, label %140
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %140, label %freedfa.exit93
 
 140:                                              ; preds = %136
   call void @pfree(ptr noundef nonnull %88) #10
-  br label %freedfa.exit95
+  br label %freedfa.exit93
 
-freedfa.exit95:                                   ; preds = %136, %140
+freedfa.exit93:                                   ; preds = %136, %140
   %141 = getelementptr inbounds i8, ptr %0, i64 48
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %.073.lcssa to i64
@@ -1284,7 +1270,7 @@ freedfa.exit95:                                   ; preds = %136, %140
   %.not87 = icmp eq i32 %159, 0
   br i1 %.not87, label %181, label %160
 
-160:                                              ; preds = %freedfa.exit95
+160:                                              ; preds = %freedfa.exit93
   %161 = load ptr, ptr %4, align 8
   %.not88 = icmp eq ptr %161, null
   br i1 %.not88, label %162, label %164
@@ -1294,9 +1280,9 @@ freedfa.exit95:                                   ; preds = %136, %140
   br label %164
 
 164:                                              ; preds = %160, %162
-  %.sink125 = phi ptr [ %163, %162 ], [ %161, %160 ]
+  %.sink123 = phi ptr [ %163, %162 ], [ %161, %160 ]
   %165 = load ptr, ptr %141, align 8
-  %166 = ptrtoint ptr %.sink125 to i64
+  %166 = ptrtoint ptr %.sink123 to i64
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 2
@@ -1315,7 +1301,7 @@ freedfa.exit95:                                   ; preds = %136, %140
   store i64 %177, ptr %180, align 8
   br label %181
 
-181:                                              ; preds = %164, %freedfa.exit95
+181:                                              ; preds = %164, %freedfa.exit93
   %182 = load i64, ptr %83, align 8
   %183 = icmp eq i64 %182, 1
   br i1 %183, label %189, label %184
@@ -1341,15 +1327,14 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 113
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %21, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %21
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %.not14 = icmp eq ptr %7, null
-  br i1 %.not14, label %9, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
   tail call void @pfree(ptr noundef nonnull %7) #10
@@ -1358,8 +1343,8 @@ define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
 9:                                                ; preds = %8, %5
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %.not15 = icmp eq ptr %11, null
-  br i1 %.not15, label %13, label %12
+  %.not14 = icmp eq ptr %11, null
+  br i1 %.not14, label %13, label %12
 
 12:                                               ; preds = %9
   tail call void @pfree(ptr noundef nonnull %11) #10
@@ -1368,8 +1353,8 @@ define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
 13:                                               ; preds = %12, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %.not16 = icmp eq ptr %15, null
-  br i1 %.not16, label %17, label %16
+  %.not15 = icmp eq ptr %15, null
+  br i1 %.not15, label %17, label %16
 
 16:                                               ; preds = %13
   tail call void @pfree(ptr noundef nonnull %15) #10
@@ -1378,8 +1363,8 @@ define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
 17:                                               ; preds = %16, %13
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %.not17 = icmp eq ptr %19, null
-  br i1 %.not17, label %21, label %20
+  %.not16 = icmp eq ptr %19, null
+  br i1 %.not16, label %21, label %20
 
 20:                                               ; preds = %17
   tail call void @pfree(ptr noundef nonnull %19) #10
@@ -1388,9 +1373,8 @@ define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
 21:                                               ; preds = %17, %20, %1
   %22 = getelementptr inbounds i8, ptr %0, i64 112
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not18 = icmp eq i8 %24, 0
-  br i1 %.not18, label %26, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
   tail call void @pfree(ptr noundef nonnull %0) #10
@@ -1530,8 +1514,8 @@ define internal fastcc noundef ptr @newdfa(ptr nocapture noundef %0, ptr noundef
 
 83:                                               ; preds = %45, %82
   %84 = load ptr, ptr %54, align 8
-  %.not15.i = icmp eq ptr %84, null
-  br i1 %.not15.i, label %86, label %85
+  %.not14.i = icmp eq ptr %84, null
+  br i1 %.not14.i, label %86, label %85
 
 85:                                               ; preds = %83
   tail call void @pfree(ptr noundef nonnull %84) #10
@@ -1539,8 +1523,8 @@ define internal fastcc noundef ptr @newdfa(ptr nocapture noundef %0, ptr noundef
 
 86:                                               ; preds = %85, %83
   %87 = load ptr, ptr %64, align 8
-  %.not16.i = icmp eq ptr %87, null
-  br i1 %.not16.i, label %89, label %88
+  %.not15.i = icmp eq ptr %87, null
+  br i1 %.not15.i, label %89, label %88
 
 88:                                               ; preds = %86
   tail call void @pfree(ptr noundef nonnull %87) #10
@@ -1548,8 +1532,8 @@ define internal fastcc noundef ptr @newdfa(ptr nocapture noundef %0, ptr noundef
 
 89:                                               ; preds = %88, %86
   %90 = load ptr, ptr %70, align 8
-  %.not17.i = icmp eq ptr %90, null
-  br i1 %.not17.i, label %92, label %91
+  %.not16.i = icmp eq ptr %90, null
+  br i1 %.not16.i, label %92, label %91
 
 91:                                               ; preds = %89
   tail call void @pfree(ptr noundef nonnull %90) #10
@@ -1557,9 +1541,8 @@ define internal fastcc noundef ptr @newdfa(ptr nocapture noundef %0, ptr noundef
 
 92:                                               ; preds = %91, %89
   %93 = load i8, ptr %71, align 8
-  %94 = and i8 %93, 1
-  %.not18.i = icmp eq i8 %94, 0
-  br i1 %.not18.i, label %freedfa.exit, label %95
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %95, label %freedfa.exit
 
 95:                                               ; preds = %92
   tail call void @pfree(ptr noundef nonnull %40) #10

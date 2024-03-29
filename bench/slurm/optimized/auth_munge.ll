@@ -105,10 +105,9 @@ define noundef i32 @init() local_unnamed_addr #0 {
   store ptr %16, ptr %1, align 8
   %24 = getelementptr inbounds i8, ptr %16, i64 16
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not3.i = icmp eq i8 %26, 0
+  %26 = trunc i8 %25 to i1
   %27 = getelementptr inbounds i8, ptr %16, i64 8
-  br i1 %.not3.i, label %29, label %28
+  br i1 %26, label %28, label %29
 
 28:                                               ; preds = %23
   call void @slurm_xfree(ptr noundef nonnull %27) #12
@@ -116,8 +115,8 @@ define noundef i32 @init() local_unnamed_addr #0 {
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %27, align 8
-  %.not4.i = icmp eq ptr %30, null
-  br i1 %.not4.i, label %32, label %31
+  %.not3.i = icmp eq ptr %30, null
+  br i1 %.not3.i, label %32, label %31
 
 31:                                               ; preds = %29
   call void @free(ptr noundef nonnull %30) #12
@@ -126,8 +125,8 @@ define noundef i32 @init() local_unnamed_addr #0 {
 32:                                               ; preds = %31, %29, %28
   %33 = getelementptr inbounds i8, ptr %16, i64 40
   %34 = load ptr, ptr %33, align 8
-  %.not5.i = icmp eq ptr %34, null
-  br i1 %.not5.i, label %36, label %35
+  %.not4.i = icmp eq ptr %34, null
+  br i1 %.not4.i, label %36, label %35
 
 35:                                               ; preds = %32
   call void @free(ptr noundef nonnull %34) #12
@@ -331,9 +330,8 @@ define internal fastcc noundef i32 @_decode_cred(ptr noundef %0, ptr noundef %1,
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %83
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %83, label %10
 
 10:                                               ; preds = %3
   %11 = tail call ptr @munge_ctx_create() #12
@@ -345,13 +343,13 @@ define internal fastcc noundef i32 @_decode_cred(ptr noundef %0, ptr noundef %1,
   br label %83
 
 15:                                               ; preds = %10
-  %.not35 = icmp eq ptr %1, null
-  br i1 %.not35, label %20, label %16
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %15
   %17 = tail call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef nonnull %11, i32 noundef 8, ptr noundef nonnull %1) #12
-  %.not36 = icmp eq i32 %17, 0
-  br i1 %.not36, label %20, label %18
+  %.not35 = icmp eq i32 %17, 0
+  br i1 %.not35, label %20, label %18
 
 18:                                               ; preds = %16
   %19 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18) #12
@@ -366,22 +364,22 @@ define internal fastcc noundef i32 @_decode_cred(ptr noundef %0, ptr noundef %1,
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %21, align 8
   %27 = tail call i32 @munge_decode(ptr noundef %26, ptr noundef nonnull %11, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #12
-  %.not3752 = icmp eq i32 %27, 0
-  br i1 %.not3752, label %._crit_edge, label %.lr.ph
+  %.not3651 = icmp eq i32 %27, 0
+  br i1 %.not3651, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   br i1 %2, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
   %28 = phi i32 [ %40, %37 ], [ %27, %.lr.ph ]
-  %.03053 = phi i32 [ %31, %37 ], [ 20, %.lr.ph ]
+  %.03052 = phi i32 [ %31, %37 ], [ 20, %.lr.ph ]
   %29 = icmp eq i32 %28, 6
   br i1 %29, label %30, label %.critedge.loopexit
 
 30:                                               ; preds = %.lr.ph.split
-  %31 = add nsw i32 %.03053, -1
-  %.not39 = icmp eq i32 %.03053, 0
-  br i1 %.not39, label %41, label %32
+  %31 = add nsw i32 %.03052, -1
+  %.not38 = icmp eq i32 %.03052, 0
+  br i1 %.not38, label %41, label %32
 
 32:                                               ; preds = %30
   %33 = tail call i32 @slurm_get_log_level() #12
@@ -397,8 +395,8 @@ define internal fastcc noundef i32 @_decode_cred(ptr noundef %0, ptr noundef %1,
   %38 = tail call i32 @usleep(i32 noundef 100000) #12
   %39 = load ptr, ptr %21, align 8
   %40 = tail call i32 @munge_decode(ptr noundef %39, ptr noundef nonnull %11, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #12
-  %.not37 = icmp eq i32 %40, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph.split
+  %.not36 = icmp eq i32 %40, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph.split
 
 41:                                               ; preds = %30
   %42 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #12
@@ -479,8 +477,8 @@ _print_cred.exit:                                 ; preds = %60, %62, %64, %66
 ._crit_edge:                                      ; preds = %37, %20
   %71 = getelementptr inbounds i8, ptr %0, i64 20
   %72 = tail call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %71) #12
-  %.not38 = icmp eq i32 %72, 0
-  br i1 %.not38, label %76, label %73
+  %.not37 = icmp eq i32 %72, 0
+  br i1 %.not37, label %76, label %73
 
 73:                                               ; preds = %._crit_edge
   %74 = tail call ptr @munge_ctx_strerror(ptr noundef nonnull %11) #12
@@ -502,12 +500,12 @@ _print_cred.exit:                                 ; preds = %60, %62, %64, %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %79, %76, %82, %70
-  %not..not40 = phi i32 [ -1, %70 ], [ 0, %82 ], [ -1, %76 ], [ -1, %79 ], [ -1, %.lr.ph ]
+  %not..not39 = phi i32 [ -1, %70 ], [ 0, %82 ], [ -1, %76 ], [ -1, %79 ], [ -1, %.lr.ph ]
   call void @munge_ctx_destroy(ptr noundef nonnull %11) #12
   br label %83
 
 83:                                               ; preds = %3, %.loopexit, %18, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %18 ], [ %not..not40, %.loopexit ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %18 ], [ %not..not39, %.loopexit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -523,10 +521,9 @@ define void @auth_p_destroy(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not3 = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not3, label %9, label %8
+  br i1 %6, label %8, label %9
 
 8:                                                ; preds = %3
   tail call void @slurm_xfree(ptr noundef nonnull %7) #12
@@ -534,8 +531,8 @@ define void @auth_p_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %7, align 8
-  %.not4 = icmp eq ptr %10, null
-  br i1 %.not4, label %12, label %11
+  %.not3 = icmp eq ptr %10, null
+  br i1 %.not3, label %12, label %11
 
 11:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %10) #12
@@ -544,8 +541,8 @@ define void @auth_p_destroy(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %9, %11, %8
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %.not5 = icmp eq ptr %14, null
-  br i1 %.not5, label %16, label %15
+  %.not4 = icmp eq ptr %14, null
+  br i1 %.not4, label %16, label %15
 
 15:                                               ; preds = %12
   tail call void @free(ptr noundef nonnull %14) #12
@@ -610,9 +607,8 @@ define noundef i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) local_unnamed_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not6 = icmp eq i8 %8, 0
-  br i1 %.not6, label %9, label %12
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = tail call ptr @slurm_auth_opts_to_socket(ptr noundef %1) #12
@@ -634,9 +630,8 @@ define void @auth_p_get_ids(ptr noundef readonly %0, ptr nocapture noundef write
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not8 = icmp eq i8 %7, 0
-  br i1 %.not8, label %8, label %9
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
   store i32 99, ptr %1, align 4
@@ -665,9 +660,8 @@ define ptr @auth_p_get_host(ptr noundef readonly %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not19 = icmp eq i8 %6, 0
-  br i1 %.not19, label %7, label %8
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %1
   tail call void @slurm_seterrno(i32 noundef 6004) #12
@@ -685,18 +679,18 @@ define ptr @auth_p_get_host(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %8
-  %.not20 = icmp eq i32 %10, 0
-  br i1 %.not20, label %21, label %16
+  %.not19 = icmp eq i32 %10, 0
+  br i1 %.not19, label %21, label %16
 
 16:                                               ; preds = %15
   %17 = call ptr @xgetnameinfo(ptr noundef nonnull %2, i32 noundef 128) #12
-  %.not21 = icmp eq ptr %17, null
-  br i1 %.not21, label %21, label %18
+  %.not20 = icmp eq ptr %17, null
+  br i1 %.not20, label %21, label %18
 
 18:                                               ; preds = %16
   %19 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 46) #13
-  %.not22 = icmp eq ptr %19, null
-  br i1 %.not22, label %27, label %20
+  %.not21 = icmp eq ptr %19, null
+  br i1 %.not21, label %27, label %20
 
 20:                                               ; preds = %18
   store i8 0, ptr %19, align 1
@@ -707,8 +701,8 @@ define ptr @auth_p_get_host(ptr noundef readonly %0) local_unnamed_addr #0 {
   call void @slurm_get_ip_str(ptr noundef nonnull %2, ptr noundef %22, i32 noundef 16) #12
   %23 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 31), align 4
   %24 = and i32 %23, 128
-  %.not24 = icmp eq i32 %24, 0
-  br i1 %.not24, label %25, label %27
+  %.not23 = icmp eq i32 %24, 0
+  br i1 %.not23, label %25, label %27
 
 25:                                               ; preds = %21
   %26 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.auth_p_get_host, ptr noundef %22) #12
@@ -737,9 +731,8 @@ define noundef i32 @auth_p_get_data(ptr noundef readonly %0, ptr nocapture nound
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not15 = icmp eq i8 %7, 0
-  br i1 %.not15, label %8, label %9
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
   tail call void @slurm_seterrno(i32 noundef 6004) #12
@@ -748,14 +741,14 @@ define noundef i32 @auth_p_get_data(ptr noundef readonly %0, ptr nocapture nound
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %.not16 = icmp eq ptr %11, null
-  br i1 %.not16, label %22, label %12
+  %.not15 = icmp eq ptr %11, null
+  br i1 %.not15, label %22, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
-  %.not17 = icmp eq i32 %14, 0
-  br i1 %.not17, label %22, label %15
+  %.not16 = icmp eq i32 %14, 0
+  br i1 %.not16, label %22, label %15
 
 15:                                               ; preds = %12
   %16 = sext i32 %14 to i64
@@ -882,9 +875,8 @@ define ptr @auth_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %9, ptr %3, align 8
   %18 = load i8, ptr %12, align 8
-  %19 = and i8 %18, 1
-  %.not3.i = icmp eq i8 %19, 0
-  br i1 %.not3.i, label %21, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
   call void @slurm_xfree(ptr noundef nonnull %13) #12
@@ -892,8 +884,8 @@ define ptr @auth_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %13, align 8
-  %.not4.i = icmp eq ptr %22, null
-  br i1 %.not4.i, label %24, label %23
+  %.not3.i = icmp eq ptr %22, null
+  br i1 %.not3.i, label %24, label %23
 
 23:                                               ; preds = %21
   call void @free(ptr noundef nonnull %22) #12
@@ -902,8 +894,8 @@ define ptr @auth_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
 24:                                               ; preds = %23, %21, %20
   %25 = getelementptr inbounds i8, ptr %9, i64 40
   %26 = load ptr, ptr %25, align 8
-  %.not5.i = icmp eq ptr %26, null
-  br i1 %.not5.i, label %28, label %27
+  %.not4.i = icmp eq ptr %26, null
+  br i1 %.not4.i, label %28, label %27
 
 27:                                               ; preds = %24
   call void @free(ptr noundef nonnull %26) #12

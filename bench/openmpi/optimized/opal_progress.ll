@@ -169,14 +169,14 @@ define i32 @opal_progress() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
-  %.023 = phi i32 [ %6, %.lr.ph ], [ 0, %0 ]
-  %.01122 = phi i64 [ %7, %.lr.ph ], [ 0, %0 ]
+  %.022 = phi i32 [ %6, %.lr.ph ], [ 0, %0 ]
+  %.01121 = phi i64 [ %7, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr @callbacks, align 8
-  %3 = getelementptr inbounds ptr, ptr %2, i64 %.01122
+  %3 = getelementptr inbounds ptr, ptr %2, i64 %.01121
   %4 = load volatile ptr, ptr %3, align 8
   %5 = tail call i32 %4() #9
-  %6 = add nsw i32 %5, %.023
-  %7 = add nuw i64 %.01122, 1
+  %6 = add nsw i32 %5, %.022
+  %7 = add nuw i64 %.01121, 1
   %8 = load i64, ptr @callbacks_len, align 8
   %9 = icmp ult i64 %7, %8
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -192,33 +192,32 @@ define i32 @opal_progress() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %._crit_edge
   %14 = load i64, ptr @callbacks_lp_len, align 8
-  %.not29 = icmp eq i64 %14, 0
-  br i1 %.not29, label %._crit_edge27, label %.lr.ph26
+  %.not28 = icmp eq i64 %14, 0
+  br i1 %.not28, label %._crit_edge26, label %.lr.ph25
 
-.lr.ph26:                                         ; preds = %.preheader, %.lr.ph26
-  %.125 = phi i32 [ %19, %.lr.ph26 ], [ %.0.lcssa, %.preheader ]
-  %.11224 = phi i64 [ %20, %.lr.ph26 ], [ 0, %.preheader ]
+.lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
+  %.124 = phi i32 [ %19, %.lr.ph25 ], [ %.0.lcssa, %.preheader ]
+  %.11223 = phi i64 [ %20, %.lr.ph25 ], [ 0, %.preheader ]
   %15 = load ptr, ptr @callbacks_lp, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.11224
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %.11223
   %17 = load volatile ptr, ptr %16, align 8
   %18 = tail call i32 %17() #9
-  %19 = add nsw i32 %18, %.125
-  %20 = add nuw i64 %.11224, 1
+  %19 = add nsw i32 %18, %.124
+  %20 = add nuw i64 %.11223, 1
   %21 = load i64, ptr @callbacks_lp_len, align 8
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph26, label %._crit_edge27, !llvm.loop !9
+  br i1 %22, label %.lr.ph25, label %._crit_edge26, !llvm.loop !9
 
-._crit_edge27:                                    ; preds = %.lr.ph26, %.preheader
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %19, %.lr.ph26 ]
+._crit_edge26:                                    ; preds = %.lr.ph25, %.preheader
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %19, %.lr.ph25 ]
   %23 = load i32, ptr @opal_progress_event_flag, align 4
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %opal_progress_events.exit, label %24
 
-24:                                               ; preds = %._crit_edge27
+24:                                               ; preds = %._crit_edge26
   %25 = load i8, ptr @opal_uses_threads, align 1
-  %26 = and i8 %25, 1
-  %.not.i.i = icmp eq i8 %26, 0
-  br i1 %.not.i.i, label %29, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
   %28 = atomicrmw volatile xchg ptr @opal_progress_events.lock, i32 1 monotonic, align 4
@@ -248,30 +247,29 @@ opal_thread_swap_32.exit.i:                       ; preds = %29, %27
   %40 = icmp slt i32 %39, 1
   %41 = load i32, ptr @opal_progress_event_flag, align 4
   %.not.i13 = icmp eq i32 %41, 0
-  %or.cond21 = select i1 %40, i1 true, i1 %.not.i13
-  br i1 %or.cond21, label %opal_progress_events.exit, label %42
+  %or.cond20 = select i1 %40, i1 true, i1 %.not.i13
+  br i1 %or.cond20, label %opal_progress_events.exit, label %42
 
 42:                                               ; preds = %38
   %43 = load i8, ptr @opal_uses_threads, align 1
-  %44 = and i8 %43, 1
-  %.not.i.i14 = icmp eq i8 %44, 0
-  br i1 %.not.i.i14, label %47, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
   %46 = atomicrmw volatile xchg ptr @opal_progress_events.lock, i32 1 monotonic, align 4
-  br label %opal_thread_swap_32.exit.i15
+  br label %opal_thread_swap_32.exit.i14
 
 47:                                               ; preds = %42
   %48 = load i32, ptr @opal_progress_events.lock, align 4
   store i32 1, ptr @opal_progress_events.lock, align 4
-  br label %opal_thread_swap_32.exit.i15
+  br label %opal_thread_swap_32.exit.i14
 
-opal_thread_swap_32.exit.i15:                     ; preds = %47, %45
-  %.0.i.i16 = phi i32 [ %46, %45 ], [ %48, %47 ]
-  %.not5.i17 = icmp eq i32 %.0.i.i16, 0
-  br i1 %.not5.i17, label %49, label %opal_progress_events.exit
+opal_thread_swap_32.exit.i14:                     ; preds = %47, %45
+  %.0.i.i15 = phi i32 [ %46, %45 ], [ %48, %47 ]
+  %.not5.i16 = icmp eq i32 %.0.i.i15, 0
+  br i1 %.not5.i16, label %49, label %opal_progress_events.exit
 
-49:                                               ; preds = %opal_thread_swap_32.exit.i15
+49:                                               ; preds = %opal_thread_swap_32.exit.i14
   %50 = load ptr, ptr @opal_timer_base_get_cycles, align 8
   %51 = tail call i64 %50() #9
   %52 = load i64, ptr @event_progress_last_time, align 8
@@ -281,13 +279,13 @@ opal_thread_swap_32.exit.i15:                     ; preds = %47, %45
   br i1 %55, label %opal_progress_events.exit.sink.split.sink.split, label %opal_progress_events.exit.sink.split
 
 opal_progress_events.exit.sink.split.sink.split:  ; preds = %49, %31
-  %.sink35 = phi i64 [ %36, %31 ], [ %54, %49 ]
-  %.sink33 = phi i64 [ %33, %31 ], [ %51, %49 ]
+  %.sink34 = phi i64 [ %36, %31 ], [ %54, %49 ]
+  %.sink32 = phi i64 [ %33, %31 ], [ %51, %49 ]
   %.2.ph.ph = phi i32 [ %.1.lcssa, %31 ], [ %.0.lcssa, %49 ]
   %56 = load volatile i32, ptr @num_event_users, align 4
   %57 = icmp sgt i32 %56, 0
-  %58 = select i1 %57, i64 %.sink35, i64 0
-  %59 = sub i64 %.sink33, %58
+  %58 = select i1 %57, i64 %.sink34, i64 0
+  %59 = sub i64 %.sink32, %58
   store i64 %59, ptr @event_progress_last_time, align 8
   %60 = load ptr, ptr @opal_sync_event_base, align 8
   %61 = load i32, ptr @opal_progress_event_flag, align 4
@@ -299,21 +297,20 @@ opal_progress_events.exit.sink.split:             ; preds = %opal_progress_event
   store volatile i32 0, ptr @opal_progress_events.lock, align 4
   br label %opal_progress_events.exit
 
-opal_progress_events.exit:                        ; preds = %opal_progress_events.exit.sink.split, %opal_thread_swap_32.exit.i15, %opal_thread_swap_32.exit.i, %._crit_edge27, %38
-  %.2 = phi i32 [ %.0.lcssa, %38 ], [ %.1.lcssa, %._crit_edge27 ], [ %.1.lcssa, %opal_thread_swap_32.exit.i ], [ %.0.lcssa, %opal_thread_swap_32.exit.i15 ], [ %.2.ph, %opal_progress_events.exit.sink.split ]
+opal_progress_events.exit:                        ; preds = %opal_progress_events.exit.sink.split, %opal_thread_swap_32.exit.i14, %opal_thread_swap_32.exit.i, %._crit_edge26, %38
+  %.2 = phi i32 [ %.0.lcssa, %38 ], [ %.1.lcssa, %._crit_edge26 ], [ %.1.lcssa, %opal_thread_swap_32.exit.i ], [ %.0.lcssa, %opal_thread_swap_32.exit.i14 ], [ %.2.ph, %opal_progress_events.exit.sink.split ]
   %63 = load i8, ptr @opal_progress_yield_when_idle, align 1
-  %64 = and i8 %63, 1
-  %65 = icmp ne i8 %64, 0
-  %66 = icmp slt i32 %.2, 1
-  %or.cond = select i1 %65, i1 %66, i1 false
-  br i1 %or.cond, label %67, label %69
+  %64 = trunc i8 %63 to i1
+  %65 = icmp slt i32 %.2, 1
+  %or.cond = select i1 %64, i1 %65, i1 false
+  br i1 %or.cond, label %66, label %68
 
-67:                                               ; preds = %opal_progress_events.exit
-  %68 = load ptr, ptr @opal_threads_pthreads_yield_fn, align 8
-  tail call void %68() #9
-  br label %69
+66:                                               ; preds = %opal_progress_events.exit
+  %67 = load ptr, ptr @opal_threads_pthreads_yield_fn, align 8
+  tail call void %67() #9
+  br label %68
 
-69:                                               ; preds = %67, %opal_progress_events.exit
+68:                                               ; preds = %66, %opal_progress_events.exit
   ret i32 %.2
 }
 
@@ -344,10 +341,9 @@ define void @opal_progress_event_users_decrement() local_unnamed_addr #6 {
 define zeroext i1 @opal_progress_set_yield_when_idle(i1 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i1 %0 to i8
   %3 = load i8, ptr @opal_progress_yield_when_idle, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
+  %4 = trunc i8 %3 to i1
   store i8 %2, ptr @opal_progress_yield_when_idle, align 1
-  ret i1 %5
+  ret i1 %4
 }
 
 declare i64 @opal_timer_base_get_freq() local_unnamed_addr #4

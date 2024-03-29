@@ -51,33 +51,33 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %13 = load i16, ptr %6, align 2
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 1
-  %.not50 = icmp eq i32 %15, 0
-  %16 = select i1 %.not50, i32 70, i32 84
+  %.not48 = icmp eq i32 %15, 0
+  %16 = select i1 %.not48, i32 70, i32 84
   %17 = and i32 %14, 2
-  %.not51 = icmp eq i32 %17, 0
-  %18 = select i1 %.not51, i32 70, i32 84
+  %.not49 = icmp eq i32 %17, 0
+  %18 = select i1 %.not49, i32 70, i32 84
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %16, i32 noundef %18) #3
   %19 = load i16, ptr %6, align 2
   %20 = and i16 %19, 2
-  %.not52 = icmp eq i16 %20, 0
-  br i1 %.not52, label %21, label %34
+  %.not50 = icmp eq i16 %20, 0
+  br i1 %.not50, label %21, label %34
 
 21:                                               ; preds = %12
   %22 = getelementptr i8, ptr %6, i64 2
   %.val = load i16, ptr %22, align 2
   %23 = getelementptr i8, ptr %6, i64 4
-  %.val58 = load i16, ptr %23, align 2
+  %.val53 = load i16, ptr %23, align 2
   %24 = zext i16 %.val to i32
   %25 = shl nuw i32 %24, 16
-  %26 = zext i16 %.val58 to i32
+  %26 = zext i16 %.val53 to i32
   %27 = or disjoint i32 %25, %26
   %28 = getelementptr i8, ptr %6, i64 6
-  %.val59 = load i16, ptr %28, align 2
+  %.val54 = load i16, ptr %28, align 2
   %29 = getelementptr i8, ptr %6, i64 8
-  %.val60 = load i16, ptr %29, align 2
-  %30 = zext i16 %.val59 to i32
+  %.val55 = load i16, ptr %29, align 2
+  %30 = zext i16 %.val54 to i32
   %31 = shl nuw i32 %30, 16
-  %32 = zext i16 %.val60 to i32
+  %32 = zext i16 %.val55 to i32
   %33 = or disjoint i32 %31, %32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %27, i32 noundef %33) #3
   br label %34
@@ -86,16 +86,14 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 117
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not53 = icmp eq i8 %38, 0
-  br i1 %.not53, label %45, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %35, i64 118
   %41 = load i8, ptr %40, align 2
-  %42 = and i8 %41, 1
-  %.not57 = icmp eq i8 %42, 0
-  br i1 %.not57, label %44, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %44
 
 43:                                               ; preds = %39
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.2) #3
@@ -110,22 +108,21 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %47 = load i16, ptr %6, align 2
   %48 = zext i16 %47 to i32
   %49 = and i32 %48, 1
-  %.not54 = icmp eq i32 %49, 0
-  br i1 %.not54, label %50, label %55
+  %.not51 = icmp eq i32 %49, 0
+  br i1 %.not51, label %50, label %55
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %46, i64 2
   %52 = load i8, ptr %51, align 2
-  %53 = and i8 %52, 1
-  %.not55 = icmp eq i8 %53, 0
-  %54 = select i1 %.not55, i32 70, i32 84
+  %53 = trunc i8 %52 to i1
+  %54 = select i1 %53, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %54) #3
   br label %99
 
 55:                                               ; preds = %45
   %56 = and i32 %48, 2
-  %.not56 = icmp eq i32 %56, 0
-  br i1 %.not56, label %58, label %57
+  %.not52 = icmp eq i32 %56, 0
+  br i1 %.not52, label %58, label %57
 
 57:                                               ; preds = %55
   tail call fastcc void @desc_recompress_leaf(ptr noundef %0, ptr noundef %46)
@@ -133,24 +130,24 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %46, i64 2
-  %.val61 = load i16, ptr %59, align 2
+  %.val56 = load i16, ptr %59, align 2
   %60 = getelementptr i8, ptr %46, i64 4
-  %.val62 = load i16, ptr %60, align 2
-  %61 = zext i16 %.val61 to i32
+  %.val57 = load i16, ptr %60, align 2
+  %61 = zext i16 %.val56 to i32
   %62 = shl nuw i32 %61, 16
-  %63 = zext i16 %.val62 to i32
+  %63 = zext i16 %.val57 to i32
   %64 = or disjoint i32 %62, %63
   %65 = getelementptr inbounds i8, ptr %46, i64 6
-  %.val63 = load i16, ptr %65, align 2
+  %.val58 = load i16, ptr %65, align 2
   %66 = getelementptr i8, ptr %46, i64 8
-  %.val64 = load i16, ptr %66, align 2
-  %67 = zext i16 %.val63 to i32
+  %.val59 = load i16, ptr %66, align 2
+  %67 = zext i16 %.val58 to i32
   %68 = shl nuw i32 %67, 16
-  %69 = zext i16 %.val64 to i32
+  %69 = zext i16 %.val59 to i32
   %70 = or disjoint i32 %68, %69
   %71 = getelementptr i8, ptr %46, i64 10
-  %.val65 = load i16, ptr %71, align 2
-  %72 = zext i16 %.val65 to i32
+  %.val60 = load i16, ptr %71, align 2
+  %72 = zext i16 %.val60 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %64, i32 noundef %70, i32 noundef %72) #3
   br label %99
 
@@ -158,33 +155,31 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %74 = getelementptr inbounds i8, ptr %6, i64 24
   %75 = load i16, ptr %74, align 4
   %76 = and i16 %75, 4
-  %.not47 = icmp eq i16 %76, 0
-  %77 = select i1 %.not47, i32 70, i32 84
+  %.not = icmp eq i16 %76, 0
+  %77 = select i1 %.not, i32 70, i32 84
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %77) #3
   %78 = load i16, ptr %74, align 4
   %79 = zext i16 %78 to i32
   %80 = and i32 %79, 1
-  %.not48 = icmp eq i32 %80, 0
-  %81 = select i1 %.not48, i32 70, i32 84
+  %.not46 = icmp eq i32 %80, 0
+  %81 = select i1 %.not46, i32 70, i32 84
   %82 = and i32 %79, 2
-  %.not49 = icmp eq i32 %82, 0
-  %83 = select i1 %.not49, i32 70, i32 84
+  %.not47 = icmp eq i32 %82, 0
+  %83 = select i1 %.not47, i32 70, i32 84
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %81, i32 noundef %83) #3
   br label %99
 
 84:                                               ; preds = %2
   %85 = getelementptr inbounds i8, ptr %4, i64 117
   %86 = load i8, ptr %85, align 1
-  %87 = and i8 %86, 1
-  %.not = icmp eq i8 %87, 0
-  br i1 %.not, label %94, label %88
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %94
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %4, i64 118
   %90 = load i8, ptr %89, align 2
-  %91 = and i8 %90, 1
-  %.not46 = icmp eq i8 %91, 0
-  br i1 %.not46, label %93, label %92
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %92, label %93
 
 92:                                               ; preds = %88
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.2) #3

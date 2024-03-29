@@ -255,8 +255,7 @@ entry:
   %bufsize_.addr.i = alloca i32, align 4
   %ipv6 = getelementptr inbounds i8, ptr %options_, i64 360
   %0 = load i8, ptr %ipv6, align 8
-  %1 = and i8 %0, 1
-  %tobool2 = icmp ne i8 %1, 0
+  %tobool2 = trunc i8 %0 to i1
   %call = tail call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %out_tcp_addr_, ptr noundef %address_, i1 noundef zeroext %local_, i1 noundef zeroext %tobool2)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -276,15 +275,14 @@ land.lhs.true7:                                   ; preds = %if.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true7
   %call12 = tail call ptr @__errno_location() #8
-  %2 = load i32, ptr %call12, align 4
-  %cmp13 = icmp eq i32 %2, 97
+  %1 = load i32, ptr %call12, align 4
+  %cmp13 = icmp eq i32 %1, 97
   br i1 %cmp13, label %land.lhs.true14, label %return
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %3 = load i8, ptr %ipv6, align 8
-  %4 = and i8 %3, 1
-  %tobool16.not = icmp eq i8 %4, 0
-  br i1 %tobool16.not, label %return, label %if.then17
+  %2 = load i8, ptr %ipv6, align 8
+  %tobool16 = trunc i8 %2 to i1
+  br i1 %tobool16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %land.lhs.true14
   %call19 = tail call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %out_tcp_addr_, ptr noundef %address_, i1 noundef zeroext %local_, i1 noundef zeroext false)
@@ -311,22 +309,22 @@ if.then31:                                        ; preds = %if.end27
 
 if.end32:                                         ; preds = %if.then31, %if.end27
   %tos = getelementptr inbounds i8, ptr %options_, i64 300
-  %5 = load i32, ptr %tos, align 4
-  %cmp33.not = icmp eq i32 %5, 0
+  %3 = load i32, ptr %tos, align 4
+  %cmp33.not = icmp eq i32 %3, 0
   br i1 %cmp33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  tail call void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef %s.0, i32 noundef %5)
+  tail call void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef %s.0, i32 noundef %3)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.end32
   %priority = getelementptr inbounds i8, ptr %options_, i64 304
-  %6 = load i32, ptr %priority, align 8
-  %cmp37.not = icmp eq i32 %6, 0
+  %4 = load i32, ptr %priority, align 8
+  %cmp37.not = icmp eq i32 %4, 0
   br i1 %cmp37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
-  tail call void @_ZN3zmq19set_socket_priorityEii(i32 noundef %s.0, i32 noundef %6)
+  tail call void @_ZN3zmq19set_socket_priorityEii(i32 noundef %s.0, i32 noundef %4)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end36, %if.then38
@@ -341,13 +339,13 @@ if.then45:                                        ; preds = %if.end43
 
 if.end51:                                         ; preds = %if.then45, %if.end43
   %sndbuf = getelementptr inbounds i8, ptr %options_, i64 292
-  %7 = load i32, ptr %sndbuf, align 4
-  %cmp52 = icmp sgt i32 %7, -1
+  %5 = load i32, ptr %sndbuf, align 4
+  %cmp52 = icmp sgt i32 %5, -1
   br i1 %cmp52, label %if.then53, label %if.end56
 
 if.then53:                                        ; preds = %if.end51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bufsize_.addr.i)
-  store i32 %7, ptr %bufsize_.addr.i, align 4
+  store i32 %5, ptr %bufsize_.addr.i, align 4
   %call.i = call i32 @setsockopt(i32 noundef %s.0, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %bufsize_.addr.i, i32 noundef 4) #7
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %s.0, i32 noundef %call.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bufsize_.addr.i)
@@ -355,13 +353,13 @@ if.then53:                                        ; preds = %if.end51
 
 if.end56:                                         ; preds = %if.then53, %if.end51
   %rcvbuf = getelementptr inbounds i8, ptr %options_, i64 296
-  %8 = load i32, ptr %rcvbuf, align 8
-  %cmp57 = icmp sgt i32 %8, -1
+  %6 = load i32, ptr %rcvbuf, align 8
+  %cmp57 = icmp sgt i32 %6, -1
   br i1 %cmp57, label %if.then58, label %if.end61
 
 if.then58:                                        ; preds = %if.end56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bufsize_.addr.i39)
-  store i32 %8, ptr %bufsize_.addr.i39, align 4
+  store i32 %6, ptr %bufsize_.addr.i39, align 4
   %call.i40 = call i32 @setsockopt(i32 noundef %s.0, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %bufsize_.addr.i39, i32 noundef 4) #7
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %s.0, i32 noundef %call.i40)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bufsize_.addr.i39)
@@ -369,14 +367,14 @@ if.then58:                                        ; preds = %if.end56
 
 if.end61:                                         ; preds = %if.then58, %if.end56
   %busy_poll = getelementptr inbounds i8, ptr %options_, i64 1332
-  %9 = load i32, ptr %busy_poll, align 4
-  %tobool62.not = icmp eq i32 %9, 0
+  %7 = load i32, ptr %busy_poll, align 4
+  %tobool62.not = icmp eq i32 %7, 0
   br i1 %tobool62.not, label %return, label %if.then63
 
 if.then63:                                        ; preds = %if.end61
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %busy_poll_.addr.i)
-  store i32 %9, ptr %busy_poll_.addr.i, align 4
-  %cmp.i = icmp sgt i32 %9, 0
+  store i32 %7, ptr %busy_poll_.addr.i, align 4
+  %cmp.i = icmp sgt i32 %7, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN3zmq18tune_tcp_busy_pollEii.exit
 
 if.then.i:                                        ; preds = %if.then63
@@ -395,12 +393,12 @@ setsockopt_error:                                 ; preds = %if.then45
 
 if.then69:                                        ; preds = %setsockopt_error
   %call70 = tail call ptr @__errno_location() #8
-  %10 = load i32, ptr %call70, align 4
-  %call71 = tail call ptr @strerror(i32 noundef %10) #7
-  %11 = load ptr, ptr @stderr, align 8
-  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %call71, ptr noundef nonnull @.str.1, i32 noundef 400) #9
-  %12 = load ptr, ptr @stderr, align 8
-  %call73 = tail call i32 @fflush(ptr noundef %12)
+  %8 = load i32, ptr %call70, align 4
+  %call71 = tail call ptr @strerror(i32 noundef %8) #7
+  %9 = load ptr, ptr @stderr, align 8
+  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef %call71, ptr noundef nonnull @.str.1, i32 noundef 400) #9
+  %10 = load ptr, ptr @stderr, align 8
+  %call73 = tail call i32 @fflush(ptr noundef %10)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call71)
   br label %return
 

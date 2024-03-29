@@ -683,9 +683,8 @@ entry:
   tail call void @pci_default_write_config(ptr noundef %pdev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #11
   %call2 = tail call i32 @msix_enabled(ptr noundef %pdev) #11
   %0 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end11, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
   %tobool3 = icmp eq i32 %call1, 0
@@ -698,34 +697,34 @@ if.then5:                                         ; preds = %if.then
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %peers.i = getelementptr inbounds i8, ptr %call.i, i64 3264
   %vm_id.i = getelementptr inbounds i8, ptr %call.i, i64 2688
-  %2 = load ptr, ptr %peers.i, align 16
-  %3 = load i32, ptr %vm_id.i, align 16
-  %idxprom11.i = sext i32 %3 to i64
-  %arrayidx12.i = getelementptr %struct.Peer, ptr %2, i64 %idxprom11.i
-  %4 = load i32, ptr %arrayidx12.i, align 8
-  %cmp13.i = icmp sgt i32 %4, 0
+  %1 = load ptr, ptr %peers.i, align 16
+  %2 = load i32, ptr %vm_id.i, align 16
+  %idxprom11.i = sext i32 %2 to i64
+  %arrayidx12.i = getelementptr %struct.Peer, ptr %1, i64 %idxprom11.i
+  %3 = load i32, ptr %arrayidx12.i, align 8
+  %cmp13.i = icmp sgt i32 %3, 0
   br i1 %cmp13.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then5, %for.inc.i
   %i.014.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.then5 ]
   store ptr null, ptr %err.i, align 8
   call fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef nonnull %call.i, i32 noundef %i.014.i, ptr noundef nonnull %err.i)
-  %5 = load ptr, ptr %err.i, align 8
-  %tobool.not.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %err.i, align 8
+  %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  call void @error_report_err(ptr noundef nonnull %5) #11
+  call void @error_report_err(ptr noundef nonnull %4) #11
   br label %undo.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.014.i, 1
-  %6 = load ptr, ptr %peers.i, align 16
-  %7 = load i32, ptr %vm_id.i, align 16
-  %idxprom.i = sext i32 %7 to i64
-  %arrayidx.i = getelementptr %struct.Peer, ptr %6, i64 %idxprom.i
-  %8 = load i32, ptr %arrayidx.i, align 8
-  %cmp.i = icmp slt i32 %inc.i, %8
+  %5 = load ptr, ptr %peers.i, align 16
+  %6 = load i32, ptr %vm_id.i, align 16
+  %idxprom.i = sext i32 %6 to i64
+  %arrayidx.i = getelementptr %struct.Peer, ptr %5, i64 %idxprom.i
+  %7 = load i32, ptr %arrayidx.i, align 8
+  %cmp.i = icmp slt i32 %inc.i, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then5
@@ -746,24 +745,24 @@ undo.i:                                           ; preds = %if.then3.i, %if.the
 
 while.body.lr.ph.i:                               ; preds = %undo.i
   %msi_vectors.i.i = getelementptr inbounds i8, ptr %call.i, i64 3280
-  %9 = zext nneg i32 %dec15.i to i64
+  %8 = zext nneg i32 %dec15.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %ivshmem_remove_kvm_msi_virq.exit.i, %while.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %9, %while.body.lr.ph.i ], [ %indvars.iv.next.i, %ivshmem_remove_kvm_msi_virq.exit.i ]
-  %10 = load ptr, ptr %msi_vectors.i.i, align 16
-  %arrayidx.i.i = getelementptr %struct.MSIVector, ptr %10, i64 %indvars.iv.i
-  %11 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp.i.i = icmp eq ptr %11, null
+  %indvars.iv.i = phi i64 [ %8, %while.body.lr.ph.i ], [ %indvars.iv.next.i, %ivshmem_remove_kvm_msi_virq.exit.i ]
+  %9 = load ptr, ptr %msi_vectors.i.i, align 16
+  %arrayidx.i.i = getelementptr %struct.MSIVector, ptr %9, i64 %indvars.iv.i
+  %10 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i, label %ivshmem_remove_kvm_msi_virq.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
-  %12 = load ptr, ptr @kvm_state, align 8
+  %11 = load ptr, ptr @kvm_state, align 8
   %virq.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %13 = load i32, ptr %virq.i.i, align 8
-  call void @kvm_irqchip_release_virq(ptr noundef %12, i32 noundef %13) #11
-  %14 = load ptr, ptr %msi_vectors.i.i, align 16
-  %arrayidx6.i.i = getelementptr %struct.MSIVector, ptr %14, i64 %indvars.iv.i
+  %12 = load i32, ptr %virq.i.i, align 8
+  call void @kvm_irqchip_release_virq(ptr noundef %11, i32 noundef %12) #11
+  %13 = load ptr, ptr %msi_vectors.i.i, align 16
+  %arrayidx6.i.i = getelementptr %struct.MSIVector, ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx6.i.i, align 8
   br label %ivshmem_remove_kvm_msi_virq.exit.i
 
@@ -1161,17 +1160,16 @@ if.then8.i:                                       ; preds = %if.end.i24
   %17 = load ptr, ptr %eventfds.i.i, align 8
   %arrayidx2.i.i = getelementptr %struct.EventNotifier, ptr %17, i64 %idxprom3.i
   %18 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1
-  %19 = and i8 %18, 1
-  %tobool.not.i.i = icmp eq i8 %19, 0
-  br i1 %tobool.not.i.i, label %land.end.thread.i.i, label %land.end.i.i
+  %tobool.i.i = trunc i8 %18 to i1
+  br i1 %tobool.i.i, label %land.end.i.i, label %land.end.thread.i.i
 
 land.end.thread.i.i:                              ; preds = %if.then8.i
   %call.i14.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   br label %do.end7.i.i
 
 land.end.i.i:                                     ; preds = %if.then8.i
-  %20 = getelementptr i8, ptr %s, i64 2608
-  %s.val.i.i = load i32, ptr %20, align 16
+  %19 = getelementptr i8, ptr %s, i64 2608
+  %s.val.i.i = load i32, ptr %19, align 16
   %and.i.i.i = and i32 %s.val.i.i, 2
   %tobool3.not.i.i = icmp eq i32 %and.i.i.i, 0
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
@@ -1181,10 +1179,10 @@ land.end.i.i:                                     ; preds = %if.then8.i
 do.end7.i.i:                                      ; preds = %land.end.i.i, %land.end.thread.i.i
   %call.i13.i.i = tail call i32 @event_notifier_get_fd(ptr noundef %arrayidx2.i.i) #11
   %msi_vectors.i.i.i = getelementptr inbounds i8, ptr %s, i64 3280
-  %21 = load ptr, ptr %msi_vectors.i.i.i, align 16
-  %arrayidx.i.i.i = getelementptr %struct.MSIVector, ptr %21, i64 %idxprom3.i
-  %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %22, null
+  %20 = load ptr, ptr %msi_vectors.i.i.i, align 16
+  %arrayidx.i.i.i = getelementptr %struct.MSIVector, ptr %20, i64 %idxprom3.i
+  %21 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i, label %watch_vector_notifier.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %do.end7.i.i
@@ -1193,11 +1191,11 @@ if.else.i.i.i:                                    ; preds = %do.end7.i.i
 
 watch_vector_notifier.exit.i.i:                   ; preds = %do.end7.i.i
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %23 = load ptr, ptr %msi_vectors.i.i.i, align 16
-  %arrayidx4.i.i.i = getelementptr %struct.MSIVector, ptr %23, i64 %idxprom3.i
+  %22 = load ptr, ptr %msi_vectors.i.i.i, align 16
+  %arrayidx4.i.i.i = getelementptr %struct.MSIVector, ptr %22, i64 %idxprom3.i
   store ptr %call.i.i.i.i, ptr %arrayidx4.i.i.i, align 8
-  %24 = load ptr, ptr %msi_vectors.i.i.i, align 16
-  %arrayidx8.i.i.i = getelementptr %struct.MSIVector, ptr %24, i64 %idxprom3.i
+  %23 = load ptr, ptr %msi_vectors.i.i.i, align 16
+  %arrayidx8.i.i.i = getelementptr %struct.MSIVector, ptr %23, i64 %idxprom3.i
   tail call void @qemu_set_fd_handler(i32 noundef %call.i13.i.i, ptr noundef nonnull @ivshmem_vector_notify, ptr noundef null, ptr noundef %arrayidx8.i.i.i) #11
   br label %setup_interrupt.exit.i
 
@@ -1208,12 +1206,12 @@ if.else.i.i:                                      ; preds = %land.end.i.i
 
 do.end12.i.i:                                     ; preds = %if.else.i.i
   call fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef nonnull %s, i32 noundef %12, ptr noundef nonnull %err.i.i)
-  %25 = load ptr, ptr %err.i.i, align 8
-  %tobool13.not.i.i = icmp eq ptr %25, null
+  %24 = load ptr, ptr %err.i.i, align 8
+  %tobool13.not.i.i = icmp eq ptr %24, null
   br i1 %tobool13.not.i.i, label %if.end.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %do.end12.i.i
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %25) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %24) #11
   br label %setup_interrupt.exit.i
 
 if.end.i.i:                                       ; preds = %do.end12.i.i
@@ -1221,12 +1219,12 @@ if.end.i.i:                                       ; preds = %do.end12.i.i
   br i1 %call15.i.i, label %setup_interrupt.exit.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end.i.i
-  %26 = load ptr, ptr @kvm_state, align 8
+  %25 = load ptr, ptr @kvm_state, align 8
   %msi_vectors.i.i = getelementptr inbounds i8, ptr %s, i64 3280
-  %27 = load ptr, ptr %msi_vectors.i.i, align 16
-  %virq.i.i = getelementptr %struct.MSIVector, ptr %27, i64 %idxprom3.i, i32 1
-  %28 = load i32, ptr %virq.i.i, align 8
-  %call19.i.i = call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %26, ptr noundef %arrayidx2.i.i, ptr noundef null, i32 noundef %28) #11
+  %26 = load ptr, ptr %msi_vectors.i.i, align 16
+  %virq.i.i = getelementptr %struct.MSIVector, ptr %26, i64 %idxprom3.i, i32 1
+  %27 = load i32, ptr %virq.i.i, align 8
+  %call19.i.i = call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %25, ptr noundef %arrayidx2.i.i, ptr noundef null, i32 noundef %27) #11
   br label %setup_interrupt.exit.i
 
 setup_interrupt.exit.i:                           ; preds = %if.then16.i.i, %if.end.i.i, %if.then14.i.i, %if.else.i.i, %watch_vector_notifier.exit.i.i
@@ -1234,8 +1232,8 @@ setup_interrupt.exit.i:                           ; preds = %if.then16.i.i, %if.
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %setup_interrupt.exit.i, %if.end.i24
-  %29 = getelementptr i8, ptr %s, i64 2608
-  %s.val.i = load i32, ptr %29, align 16
+  %28 = getelementptr i8, ptr %s, i64 2608
+  %s.val.i = load i32, ptr %28, align 16
   %and.i.i = and i32 %s.val.i, 1
   %tobool.not.i27 = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i27, label %if.end15, label %if.then11.i
@@ -1245,24 +1243,24 @@ if.then11.i:                                      ; preds = %if.end9.i
   %shl.i.i = shl nuw i32 %conv.i26, 16
   %or.i.i = or i32 %12, %shl.i.i
   %conv.i.i = sext i32 %or.i.i to i64
-  %30 = load ptr, ptr %peers.i20, align 16
-  %eventfds.i19.i = getelementptr %struct.Peer, ptr %30, i64 %idxprom.i, i32 1
-  %31 = load ptr, ptr %eventfds.i19.i, align 8
-  %arrayidx2.i21.i = getelementptr %struct.EventNotifier, ptr %31, i64 %idxprom3.i
+  %29 = load ptr, ptr %peers.i20, align 16
+  %eventfds.i19.i = getelementptr %struct.Peer, ptr %29, i64 %idxprom.i, i32 1
+  %30 = load ptr, ptr %eventfds.i19.i, align 8
+  %arrayidx2.i21.i = getelementptr %struct.EventNotifier, ptr %30, i64 %idxprom3.i
   call void @memory_region_add_eventfd(ptr noundef nonnull %ivshmem_mmio.i.i, i64 noundef 12, i32 noundef 4, i1 noundef zeroext true, i64 noundef %conv.i.i, ptr noundef %arrayidx2.i21.i) #11
   br label %if.end15
 
 if.else:                                          ; preds = %if.end9
   %conv14 = trunc i64 %msg to i32
   %conv.i28 = and i32 %conv14, 65535
-  %32 = load i32, ptr %nb_peers, align 8
-  %cmp.not.i29 = icmp sgt i32 %32, %conv.i28
+  %31 = load i32, ptr %nb_peers, align 8
+  %cmp.not.i29 = icmp sgt i32 %31, %conv.i28
   br i1 %cmp.not.i29, label %lor.lhs.false.i, label %if.then.i30
 
 lor.lhs.false.i:                                  ; preds = %if.else
   %vm_id.i31 = getelementptr inbounds i8, ptr %s, i64 2688
-  %33 = load i32, ptr %vm_id.i31, align 16
-  %cmp3.i = icmp eq i32 %33, %conv.i28
+  %32 = load i32, ptr %vm_id.i31, align 16
+  %cmp3.i = icmp eq i32 %32, %conv.i28
   br i1 %cmp3.i, label %if.then.i30, label %if.end.i32
 
 if.then.i30:                                      ; preds = %lor.lhs.false.i, %if.else
@@ -1581,42 +1579,41 @@ for.body:                                         ; preds = %for.body.lr.ph, %iv
   %4 = load ptr, ptr %msi_vectors, align 16
   %unmasked = getelementptr %struct.MSIVector, ptr %4, i64 %indvars.iv, i32 2
   %5 = load i8, ptr %unmasked, align 4
-  %6 = and i8 %5, 1
-  %tobool3.not = icmp eq i8 %6, 0
-  br i1 %tobool3.not, label %if.end5, label %if.then4
+  %tobool3 = trunc i8 %5 to i1
+  br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %for.body
-  %7 = trunc i64 %indvars.iv to i32
-  tail call void @ivshmem_vector_mask(ptr noundef %call.i, i32 noundef %7)
+  %6 = trunc i64 %indvars.iv to i32
+  tail call void @ivshmem_vector_mask(ptr noundef %call.i, i32 noundef %6)
   %.pre = load ptr, ptr %msi_vectors, align 16
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %for.body
-  %8 = phi ptr [ %.pre, %if.then4 ], [ %4, %for.body ]
-  %arrayidx.i = getelementptr %struct.MSIVector, ptr %8, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i = icmp eq ptr %9, null
+  %7 = phi ptr [ %.pre, %if.then4 ], [ %4, %for.body ]
+  %arrayidx.i = getelementptr %struct.MSIVector, ptr %7, i64 %indvars.iv
+  %8 = load ptr, ptr %arrayidx.i, align 8
+  %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %ivshmem_remove_kvm_msi_virq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
-  %10 = load ptr, ptr @kvm_state, align 8
+  %9 = load ptr, ptr @kvm_state, align 8
   %virq.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %11 = load i32, ptr %virq.i, align 8
-  tail call void @kvm_irqchip_release_virq(ptr noundef %10, i32 noundef %11) #11
-  %12 = load ptr, ptr %msi_vectors, align 16
-  %arrayidx6.i = getelementptr %struct.MSIVector, ptr %12, i64 %indvars.iv
+  %10 = load i32, ptr %virq.i, align 8
+  tail call void @kvm_irqchip_release_virq(ptr noundef %9, i32 noundef %10) #11
+  %11 = load ptr, ptr %msi_vectors, align 16
+  %arrayidx6.i = getelementptr %struct.MSIVector, ptr %11, i64 %indvars.iv
   store ptr null, ptr %arrayidx6.i, align 8
   br label %ivshmem_remove_kvm_msi_virq.exit
 
 ivshmem_remove_kvm_msi_virq.exit:                 ; preds = %if.end5, %if.end.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load ptr, ptr %peers, align 16
-  %14 = load i32, ptr %vm_id, align 16
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr %struct.Peer, ptr %13, i64 %idxprom
-  %15 = load i32, ptr %arrayidx, align 8
-  %16 = sext i32 %15 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %16
+  %12 = load ptr, ptr %peers, align 16
+  %13 = load i32, ptr %vm_id, align 16
+  %idxprom = sext i32 %13 to i64
+  %arrayidx = getelementptr %struct.Peer, ptr %12, i64 %idxprom
+  %14 = load i32, ptr %arrayidx, align 8
+  %15 = sext i32 %14 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %15
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %ivshmem_remove_kvm_msi_virq.exit, %if.end, %entry
@@ -1652,28 +1649,27 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %unmasked = getelementptr inbounds i8, ptr %arrayidx4, i64 12
   %5 = load i8, ptr %unmasked, align 4
-  %6 = and i8 %5, 1
-  %tobool5.not = icmp eq i8 %6, 0
-  br i1 %tobool5.not, label %if.end7, label %if.else
+  %tobool5 = trunc i8 %5 to i1
+  br i1 %tobool5, label %if.else, label %if.end7
 
 if.else:                                          ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.7, i32 noundef 288, ptr noundef nonnull @__PRETTY_FUNCTION__.ivshmem_vector_unmask) #12
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr @kvm_state, align 8
+  %6 = load ptr, ptr @kvm_state, align 8
   %virq = getelementptr inbounds i8, ptr %arrayidx4, i64 8
-  %8 = load i32, ptr %virq, align 8
-  %call8 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %7, i32 noundef %8, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %dev) #11
+  %7 = load i32, ptr %virq, align 8
+  %call8 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %6, i32 noundef %7, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %dev) #11
   %cmp = icmp slt i32 %call8, 0
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
+  %8 = load ptr, ptr @kvm_state, align 8
+  tail call void @kvm_irqchip_commit_routes(ptr noundef %8) #11
   %9 = load ptr, ptr @kvm_state, align 8
-  tail call void @kvm_irqchip_commit_routes(ptr noundef %9) #11
-  %10 = load ptr, ptr @kvm_state, align 8
-  %11 = load i32, ptr %virq, align 8
-  %call12 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %10, ptr noundef %arrayidx2, ptr noundef null, i32 noundef %11) #11
+  %10 = load i32, ptr %virq, align 8
+  %call12 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %9, ptr noundef %arrayidx2, ptr noundef null, i32 noundef %10) #11
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %return, label %if.end15
 
@@ -1713,19 +1709,18 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %unmasked = getelementptr inbounds i8, ptr %arrayidx4, i64 12
   %5 = load i8, ptr %unmasked, align 4
-  %6 = and i8 %5, 1
-  %tobool5.not = icmp eq i8 %6, 0
-  br i1 %tobool5.not, label %if.else, label %if.end7
+  %tobool5 = trunc i8 %5 to i1
+  br i1 %tobool5, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.7, i32 noundef 317, ptr noundef nonnull @__PRETTY_FUNCTION__.ivshmem_vector_mask) #12
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr @kvm_state, align 8
+  %6 = load ptr, ptr @kvm_state, align 8
   %virq = getelementptr inbounds i8, ptr %arrayidx4, i64 8
-  %8 = load i32, ptr %virq, align 8
-  %call8 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %7, ptr noundef %arrayidx2, i32 noundef %8) #11
+  %7 = load i32, ptr %virq, align 8
+  %call8 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %6, ptr noundef %arrayidx2, i32 noundef %7) #11
   %cmp = icmp slt i32 %call8, 0
   br i1 %cmp, label %if.then9, label %if.end10
 

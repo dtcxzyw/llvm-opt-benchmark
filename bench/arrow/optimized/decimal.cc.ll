@@ -1874,7 +1874,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 common.resume.i:                                  ; preds = %lpad.i.i16.i, %lpad.i.i.i
   %ref.tmp.i.i15.sink.i = phi ptr [ %ref.tmp.i.i15.i, %lpad.i.i16.i ], [ %ref.tmp.i.i.i, %lpad.i.i.i ]
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %lpad.i.i16.i ], [ %1, %lpad.i.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %12, %lpad.i.i16.i ], [ %1, %lpad.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i15.sink.i) #19
   resume { ptr, i32 } %common.resume.op.i
 
@@ -1933,12 +1933,11 @@ if.end11.i:                                       ; preds = %if.then8.i, %_ZNKSt
   %conv.i = trunc i64 %significant_digits.0.i to i32
   %has_exponent.i = getelementptr inbounds i8, ptr %dec.i, i64 37
   %8 = load i8, ptr %has_exponent.i, align 1, !noalias !28
-  %9 = and i8 %8, 1
-  %tobool.not.i = icmp eq i8 %9, 0
+  %tobool.i = trunc i8 %8 to i1
   %exponent.i = getelementptr inbounds i8, ptr %dec.i, i64 32
-  %10 = load i32, ptr %exponent.i, align 8, !noalias !28
+  %9 = load i32, ptr %exponent.i, align 8, !noalias !28
   %conv16.i = trunc i64 %7 to i32
-  %add17.i = select i1 %tobool.not.i, i32 0, i32 %10
+  %add17.i = select i1 %tobool.i, i32 %9, i32 0
   %parsed_scale.0.i = sub nsw i32 %conv16.i, %add17.i
   %cmp22.not.i = icmp eq ptr %out, null
   br i1 %cmp22.not.i, label %if.end39.i, label %if.then23.i
@@ -1952,11 +1951,11 @@ if.then23.i:                                      ; preds = %if.end11.i
   %agg.tmp27.sroa.2.0.fractional_digits28.sroa_idx.i = getelementptr inbounds i8, ptr %dec.i, i64 24
   %agg.tmp27.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp27.sroa.2.0.fractional_digits28.sroa_idx.i, align 8, !noalias !28
   call fastcc void @_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm(i64 %agg.tmp27.sroa.0.0.copyload.i, ptr %agg.tmp27.sroa.2.0.copyload.i, ptr noundef nonnull %little_endian_array.i, i64 noundef 2), !noalias !28
-  %11 = load <2 x i64>, ptr %little_endian_array.i, align 16, !noalias !28
-  store <2 x i64> %11, ptr %out, align 8, !noalias !28
+  %10 = load <2 x i64>, ptr %little_endian_array.i, align 16, !noalias !28
+  store <2 x i64> %10, ptr %out, align 8, !noalias !28
   %sign.i = getelementptr inbounds i8, ptr %dec.i, i64 36
-  %12 = load i8, ptr %sign.i, align 4, !noalias !28
-  %cmp35.i = icmp eq i8 %12, 45
+  %11 = load i8, ptr %sign.i, align 4, !noalias !28
+  %cmp35.i = icmp eq i8 %11, 45
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then23.i
@@ -1979,7 +1978,7 @@ if.then44.i:                                      ; preds = %if.then41.i
           to label %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i unwind label %lpad.i.i16.i
 
 lpad.i.i16.i:                                     ; preds = %if.then44.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
@@ -3244,7 +3243,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 common.resume.i:                                  ; preds = %lpad.i.i17.i, %lpad.i.i.i
   %ref.tmp.i.i16.sink.i = phi ptr [ %ref.tmp.i.i16.i, %lpad.i.i17.i ], [ %ref.tmp.i.i.i, %lpad.i.i.i ]
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %lpad.i.i17.i ], [ %1, %lpad.i.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %11, %lpad.i.i17.i ], [ %1, %lpad.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i16.sink.i) #19
   resume { ptr, i32 } %common.resume.op.i
 
@@ -3303,12 +3302,11 @@ if.end11.i:                                       ; preds = %if.then8.i, %_ZNKSt
   %conv.i = trunc i64 %significant_digits.0.i to i32
   %has_exponent.i = getelementptr inbounds i8, ptr %dec.i, i64 37
   %8 = load i8, ptr %has_exponent.i, align 1, !noalias !87
-  %9 = and i8 %8, 1
-  %tobool.not.i = icmp eq i8 %9, 0
+  %tobool.i = trunc i8 %8 to i1
   %exponent.i = getelementptr inbounds i8, ptr %dec.i, i64 32
-  %10 = load i32, ptr %exponent.i, align 8, !noalias !87
+  %9 = load i32, ptr %exponent.i, align 8, !noalias !87
   %conv16.i = trunc i64 %7 to i32
-  %add17.i = select i1 %tobool.not.i, i32 0, i32 %10
+  %add17.i = select i1 %tobool.i, i32 %9, i32 0
   %parsed_scale.0.i = sub nsw i32 %conv16.i, %add17.i
   %cmp22.not.i = icmp eq ptr %out, null
   br i1 %cmp22.not.i, label %if.end38.i, label %if.then23.i
@@ -3324,8 +3322,8 @@ if.then23.i:                                      ; preds = %if.end11.i
   call fastcc void @_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm(i64 %agg.tmp27.sroa.0.0.copyload.i, ptr %agg.tmp27.sroa.2.0.copyload.i, ptr noundef nonnull %little_endian_array.i, i64 noundef 4), !noalias !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %little_endian_array.i, i64 32, i1 false), !noalias !87
   %sign.i = getelementptr inbounds i8, ptr %dec.i, i64 36
-  %11 = load i8, ptr %sign.i, align 4, !noalias !87
-  %cmp34.i = icmp eq i8 %11, 45
+  %10 = load i8, ptr %sign.i, align 4, !noalias !87
+  %cmp34.i = icmp eq i8 %10, 45
   br i1 %cmp34.i, label %if.then35.i, label %if.end38.i
 
 if.then35.i:                                      ; preds = %if.then23.i
@@ -3348,7 +3346,7 @@ if.then43.i:                                      ; preds = %if.then40.i
           to label %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i unwind label %lpad.i.i17.i
 
 lpad.i.i17.i:                                     ; preds = %if.then43.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 

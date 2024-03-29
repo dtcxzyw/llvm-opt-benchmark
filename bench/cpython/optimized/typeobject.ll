@@ -1918,13 +1918,12 @@ if.then3:                                         ; preds = %while.cond.i, %land
 switch.hole_check:                                ; preds = %if.then3
   %switch.maskindex = trunc i32 %4 to i16
   %switch.shifted = lshr i16 819, %switch.maskindex
-  %6 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %6, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._PyType_GetTextSignatureFromInternalDoc, i64 0, i64 %7
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._PyType_GetTextSignatureFromInternalDoc, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call7 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %switch.load) #20
   br label %return

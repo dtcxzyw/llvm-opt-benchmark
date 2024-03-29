@@ -304,9 +304,8 @@ define zeroext i1 @opal_str_to_bool(ptr noundef %0) local_unnamed_addr #8 {
   %2 = alloca i8, align 1
   %3 = call fastcc i32 @opal_str_to_bool_impl(ptr noundef %0, ptr noundef nonnull %2), !range !6
   %4 = load i8, ptr %2, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

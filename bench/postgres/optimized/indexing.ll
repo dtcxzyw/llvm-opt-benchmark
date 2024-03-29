@@ -89,27 +89,25 @@ define internal fastcc void @CatalogIndexInsert(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %15
   %27 = getelementptr inbounds i8, ptr %1, i64 4
-  %wide.trip.count38 = zext nneg i32 %13 to i64
+  %wide.trip.count35 = zext nneg i32 %13 to i64
   br i1 %6, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
-  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %47 ], [ 0, %.lr.ph ]
-  %28 = getelementptr ptr, ptr %19, i64 %indvars.iv35
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %47 ], [ 0, %.lr.ph ]
+  %28 = getelementptr ptr, ptr %19, i64 %indvars.iv32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr ptr, ptr %17, i64 %indvars.iv35
+  %30 = getelementptr ptr, ptr %17, i64 %indvars.iv32
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %29, i64 162
   %33 = load i8, ptr %32, align 2
-  %34 = and i8 %33, 1
-  %.not29.us = icmp eq i8 %34, 0
-  br i1 %.not29.us, label %47, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %47
 
 35:                                               ; preds = %.lr.ph.split.us
   %36 = getelementptr inbounds i8, ptr %29, i64 167
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not30.us = icmp eq i8 %38, 0
-  br i1 %.not30.us, label %47, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %47
 
 39:                                               ; preds = %35
   call void @FormIndexDatum(ptr noundef nonnull %29, ptr noundef %24, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #2
@@ -123,9 +121,9 @@ define internal fastcc void @CatalogIndexInsert(ptr nocapture noundef readonly %
   br label %47
 
 47:                                               ; preds = %39, %35, %.lr.ph.split.us
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
@@ -133,9 +131,8 @@ define internal fastcc void @CatalogIndexInsert(ptr nocapture noundef readonly %
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 162
   %51 = load i8, ptr %50, align 2
-  %52 = and i8 %51, 1
-  %.not29 = icmp eq i8 %52, 0
-  br i1 %.not29, label %63, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %63
 
 53:                                               ; preds = %.lr.ph.split
   %54 = getelementptr ptr, ptr %17, i64 %indvars.iv
@@ -152,7 +149,7 @@ define internal fastcc void @CatalogIndexInsert(ptr nocapture noundef readonly %
 
 63:                                               ; preds = %.lr.ph.split, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count38
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %63, %47, %15
@@ -194,9 +191,8 @@ define dso_local void @CatalogTuplesMultiInsertWithInfo(ptr noundef %0, ptr noun
   store i32 %15, ptr %16, align 4
   call fastcc void @CatalogIndexInsert(ptr noundef %3, ptr noundef %12, i32 noundef 1)
   %17 = load i8, ptr %5, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %20, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %9
   call void @heap_freetuple(ptr noundef nonnull %12) #2

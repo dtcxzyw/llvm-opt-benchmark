@@ -466,15 +466,14 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %use_mutex.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i8, ptr %use_mutex.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %mutex.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %3 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %4 = extractvalue { i8, i1 } %3, 1
-  br i1 %4, label %if.end.i.i, label %if.then.i.i.i
+  %2 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %3 = extractvalue { i8, i1 } %2, 1
+  br i1 %3, label %if.end.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i.i) #9
@@ -482,18 +481,17 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
   %ctx.i.i = getelementptr inbounds i8, ptr %self, i64 16
-  %5 = load ptr, ptr %ctx.i.i, align 8
-  %call.i.i = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %5) #9
-  %6 = load i8, ptr %use_mutex.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool2.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool2.not.i.i, label %locked_HMAC_CTX_copy.exit.i, label %if.then3.i.i
+  %4 = load ptr, ptr %ctx.i.i, align 8
+  %call.i.i = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %4) #9
+  %5 = load i8, ptr %use_mutex.i.i, align 8
+  %tobool2.i.i = trunc i8 %5 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %locked_HMAC_CTX_copy.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %8 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %9 = extractvalue { i8, i1 } %8, 1
-  br i1 %9, label %locked_HMAC_CTX_copy.exit.i, label %if.then.i5.i.i
+  %6 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %7 = extractvalue { i8, i1 } %6, 1
+  br i1 %7, label %locked_HMAC_CTX_copy.exit.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.then3.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i.i) #9
@@ -505,13 +503,13 @@ locked_HMAC_CTX_copy.exit.i:                      ; preds = %if.then.i5.i.i, %if
 
 if.then4.i:                                       ; preds = %locked_HMAC_CTX_copy.exit.i
   tail call void @HMAC_CTX_free(ptr noundef nonnull %call.i) #9
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %10, ptr noundef null)
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %_hashlib_HMAC_copy_impl.exit
 
 if.end6.i:                                        ; preds = %locked_HMAC_CTX_copy.exit.i
-  %11 = getelementptr i8, ptr %self, i64 8
-  %self.val.i = load ptr, ptr %11, align 8
+  %9 = getelementptr i8, ptr %self, i64 8
+  %self.val.i = load ptr, ptr %9, align 8
   %call8.i = tail call ptr @_PyObject_New(ptr noundef %self.val.i) #9
   %cmp9.i = icmp eq ptr %call8.i, null
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
@@ -584,29 +582,27 @@ if.then10:                                        ; preds = %if.end8
 do.end:                                           ; preds = %if.end8
   %use_mutex = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i8, ptr %use_mutex, align 8
-  %8 = and i8 %7, 1
-  %tobool12.not9 = icmp eq i8 %8, 0
+  %tobool12 = trunc i8 %7 to i1
   %len = getelementptr inbounds i8, ptr %view, i64 16
-  %9 = load i64, ptr %len, align 8
-  %cmp13 = icmp sgt i64 %9, 2047
-  %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
-  br i1 %or.cond, label %if.end16.thread, label %if.end16
+  %8 = load i64, ptr %len, align 8
+  %cmp13 = icmp slt i64 %8, 2048
+  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
+  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %do.end
   store i8 1, ptr %use_mutex, align 8
   br label %if.then19
 
 if.end16:                                         ; preds = %do.end
-  %10 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %10, 0
-  br i1 %tobool18.not, label %if.else, label %if.then19
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #9
   %mutex = getelementptr inbounds i8, ptr %self, i64 25
-  %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
+  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
   call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #9
@@ -614,27 +610,27 @@ if.then.i:                                        ; preds = %if.then19
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
   %ctx = getelementptr inbounds i8, ptr %self, i64 16
-  %13 = load ptr, ptr %ctx, align 8
-  %14 = load ptr, ptr %view, align 8
-  %15 = load i64, ptr %len, align 8
-  %call22 = call i32 @HMAC_Update(ptr noundef %13, ptr noundef %14, i64 noundef %15) #9
-  %16 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %PyMutex_Unlock.exit, label %if.then.i10
+  %11 = load ptr, ptr %ctx, align 8
+  %12 = load ptr, ptr %view, align 8
+  %13 = load i64, ptr %len, align 8
+  %call22 = call i32 @HMAC_Update(ptr noundef %11, ptr noundef %12, i64 noundef %13) #9
+  %14 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
+  %15 = extractvalue { i8, i1 } %14, 1
+  br i1 %15, label %PyMutex_Unlock.exit, label %if.then.i9
 
-if.then.i10:                                      ; preds = %PyMutex_Lock.exit
+if.then.i9:                                       ; preds = %PyMutex_Lock.exit
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #9
   br label %PyMutex_Unlock.exit
 
-PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, %if.then.i10
+PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, %if.then.i9
   call void @PyEval_RestoreThread(ptr noundef %call20) #9
   br label %if.end28
 
 if.else:                                          ; preds = %if.end16
   %ctx24 = getelementptr inbounds i8, ptr %self, i64 16
-  %18 = load ptr, ptr %ctx24, align 8
-  %19 = load ptr, ptr %view, align 8
-  %call27 = call i32 @HMAC_Update(ptr noundef %18, ptr noundef %19, i64 noundef %9) #9
+  %16 = load ptr, ptr %ctx24, align 8
+  %17 = load ptr, ptr %view, align 8
+  %call27 = call i32 @HMAC_Update(ptr noundef %16, ptr noundef %17, i64 noundef %8) #9
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %PyMutex_Unlock.exit
@@ -644,8 +640,8 @@ if.end28:                                         ; preds = %if.else, %PyMutex_U
   br i1 %cmp29, label %if.then30, label %return
 
 if.then30:                                        ; preds = %if.end28
-  %20 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException(ptr noundef %20, ptr noundef null)
+  %18 = load ptr, ptr @PyExc_ValueError, align 8
+  call void (ptr, ptr, ...) @_setException(ptr noundef %18, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.end5, %if.then30, %if.then10, %if.then4, %if.then
@@ -675,7 +671,7 @@ define internal void @_setException(ptr noundef %exc, ptr noundef %altmsg, ...) 
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call i64 @ERR_peek_last_error() #9
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %tobool.not = icmp eq i64 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end5
 
@@ -692,11 +688,11 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   br label %return
 
 if.end5:                                          ; preds = %entry
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   call void @ERR_clear_error() #9
   %call7 = call ptr @ERR_lib_error_string(i64 noundef %call) #9
   %call8 = call ptr @ERR_func_error_string(i64 noundef %call) #9
@@ -731,13 +727,7 @@ declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #1
 
 declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare ptr @PyErr_FormatV(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 declare void @ERR_clear_error() local_unnamed_addr #1
 
@@ -765,15 +755,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 25
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
@@ -781,18 +770,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %if.end
   %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call, ptr noundef %4) #9
-  %5 = load i8, ptr %use_mutex.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %locked_HMAC_CTX_copy.exit, label %if.then3.i
+  %3 = load ptr, ptr %ctx.i, align 8
+  %call.i = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call, ptr noundef %3) #9
+  %4 = load i8, ptr %use_mutex.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %locked_HMAC_CTX_copy.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 25
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %locked_HMAC_CTX_copy.exit, label %if.then.i5.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %locked_HMAC_CTX_copy.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %if.then3.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
@@ -803,8 +791,8 @@ locked_HMAC_CTX_copy.exit:                        ; preds = %if.end.i, %if.then3
   br i1 %tobool.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %locked_HMAC_CTX_copy.exit
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %9, ptr noundef null)
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %return
 
 if.end5:                                          ; preds = %locked_HMAC_CTX_copy.exit
@@ -814,8 +802,8 @@ if.end5:                                          ; preds = %locked_HMAC_CTX_cop
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end5
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException(ptr noundef %10, ptr noundef null)
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then8, %if.then3, %if.then
@@ -840,7 +828,7 @@ declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_hashlib_hmac_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
@@ -3219,7 +3207,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
@@ -3757,7 +3745,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @py_hashentry_t_compare_name(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #6 {
+define internal i32 @py_hashentry_t_compare_name(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #5 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #10
   %cmp = icmp eq i32 %call, 0
@@ -3816,7 +3804,7 @@ declare void @_Py_hashtable_destroy(ptr noundef) local_unnamed_addr #1
 declare i64 @_Py_HashBytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
@@ -3965,118 +3953,116 @@ if.then10:                                        ; preds = %if.end8
 do.end:                                           ; preds = %if.end8
   %use_mutex = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i8, ptr %use_mutex, align 8
-  %8 = and i8 %7, 1
-  %tobool12.not9 = icmp eq i8 %8, 0
+  %tobool12 = trunc i8 %7 to i1
   %len = getelementptr inbounds i8, ptr %view, i64 16
-  %9 = load i64, ptr %len, align 8
-  %cmp13 = icmp sgt i64 %9, 2047
-  %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
-  br i1 %or.cond, label %if.end16.thread, label %if.end16
+  %8 = load i64, ptr %len, align 8
+  %cmp13 = icmp slt i64 %8, 2048
+  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
+  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %do.end
   store i8 1, ptr %use_mutex, align 8
   br label %if.then19
 
 if.end16:                                         ; preds = %do.end
-  %10 = and i8 %7, 1
-  %tobool18.not = icmp eq i8 %10, 0
-  br i1 %tobool18.not, label %if.else, label %if.then19
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #9
   %mutex = getelementptr inbounds i8, ptr %self, i64 25
-  %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
+  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
   call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #9
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %13 = load i64, ptr %len, align 8
-  %cmp7.i = icmp sgt i64 %13, 0
+  %11 = load i64, ptr %len, align 8
+  %cmp7.i = icmp sgt i64 %11, 0
   br i1 %cmp7.i, label %while.body.lr.ph.i, label %EVP_hash.exit
 
 while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
-  %14 = load ptr, ptr %view, align 8
+  %12 = load ptr, ptr %view, align 8
   %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end5.i, %while.body.lr.ph.i
-  %cp.09.i = phi ptr [ %14, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end5.i ]
-  %len.addr.08.i = phi i64 [ %13, %while.body.lr.ph.i ], [ %sub.i, %if.end5.i ]
+  %cp.09.i = phi ptr [ %12, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end5.i ]
+  %len.addr.08.i = phi i64 [ %11, %while.body.lr.ph.i ], [ %sub.i, %if.end5.i ]
   %.len.addr.0.i = call i64 @llvm.umin.i64(i64 %len.addr.08.i, i64 2147483647)
-  %15 = load ptr, ptr %ctx.i, align 8
-  %call.i = call i32 @EVP_DigestUpdate(ptr noundef %15, ptr noundef %cp.09.i, i64 noundef %.len.addr.0.i) #9
+  %13 = load ptr, ptr %ctx.i, align 8
+  %call.i = call i32 @EVP_DigestUpdate(ptr noundef %13, ptr noundef %cp.09.i, i64 noundef %.len.addr.0.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %while.body.i
-  %16 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException(ptr noundef %16, ptr noundef null)
+  %14 = load ptr, ptr @PyExc_ValueError, align 8
+  call void (ptr, ptr, ...) @_setException(ptr noundef %14, ptr noundef null)
   br label %EVP_hash.exit
 
 if.end5.i:                                        ; preds = %while.body.i
   %sub.i = sub nsw i64 %len.addr.08.i, %.len.addr.0.i
   %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %.len.addr.0.i
-  %cmp.i10 = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i10, label %while.body.i, label %EVP_hash.exit, !llvm.loop !8
+  %cmp.i9 = icmp sgt i64 %sub.i, 0
+  br i1 %cmp.i9, label %while.body.i, label %EVP_hash.exit, !llvm.loop !8
 
 EVP_hash.exit:                                    ; preds = %if.end5.i, %PyMutex_Lock.exit, %if.then3.i
   %cmp28 = phi i1 [ true, %if.then3.i ], [ false, %PyMutex_Lock.exit ], [ false, %if.end5.i ]
-  %17 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %18 = extractvalue { i8, i1 } %17, 1
-  br i1 %18, label %if.end27, label %if.then.i11
+  %15 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
+  %16 = extractvalue { i8, i1 } %15, 1
+  br i1 %16, label %if.end27, label %if.then.i10
 
-if.then.i11:                                      ; preds = %EVP_hash.exit
+if.then.i10:                                      ; preds = %EVP_hash.exit
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #9
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
-  %cmp7.i12 = icmp sgt i64 %9, 0
-  br i1 %cmp7.i12, label %while.body.lr.ph.i14, label %if.end27.thread
+  %cmp7.i11 = icmp sgt i64 %8, 0
+  br i1 %cmp7.i11, label %while.body.lr.ph.i13, label %if.end27.thread
 
-while.body.lr.ph.i14:                             ; preds = %if.else
-  %19 = load ptr, ptr %view, align 8
-  %ctx.i15 = getelementptr inbounds i8, ptr %self, i64 16
-  br label %while.body.i16
+while.body.lr.ph.i13:                             ; preds = %if.else
+  %17 = load ptr, ptr %view, align 8
+  %ctx.i14 = getelementptr inbounds i8, ptr %self, i64 16
+  br label %while.body.i15
 
-while.body.i16:                                   ; preds = %if.end5.i22, %while.body.lr.ph.i14
-  %cp.09.i17 = phi ptr [ %19, %while.body.lr.ph.i14 ], [ %add.ptr.i24, %if.end5.i22 ]
-  %len.addr.08.i18 = phi i64 [ %9, %while.body.lr.ph.i14 ], [ %sub.i23, %if.end5.i22 ]
-  %.len.addr.0.i19 = call i64 @llvm.umin.i64(i64 %len.addr.08.i18, i64 2147483647)
-  %20 = load ptr, ptr %ctx.i15, align 8
-  %call.i20 = call i32 @EVP_DigestUpdate(ptr noundef %20, ptr noundef %cp.09.i17, i64 noundef %.len.addr.0.i19) #9
-  %tobool.not.i21 = icmp eq i32 %call.i20, 0
-  br i1 %tobool.not.i21, label %if.end27.thread31, label %if.end5.i22
+while.body.i15:                                   ; preds = %if.end5.i21, %while.body.lr.ph.i13
+  %cp.09.i16 = phi ptr [ %17, %while.body.lr.ph.i13 ], [ %add.ptr.i23, %if.end5.i21 ]
+  %len.addr.08.i17 = phi i64 [ %8, %while.body.lr.ph.i13 ], [ %sub.i22, %if.end5.i21 ]
+  %.len.addr.0.i18 = call i64 @llvm.umin.i64(i64 %len.addr.08.i17, i64 2147483647)
+  %18 = load ptr, ptr %ctx.i14, align 8
+  %call.i19 = call i32 @EVP_DigestUpdate(ptr noundef %18, ptr noundef %cp.09.i16, i64 noundef %.len.addr.0.i18) #9
+  %tobool.not.i20 = icmp eq i32 %call.i19, 0
+  br i1 %tobool.not.i20, label %if.end27.thread30, label %if.end5.i21
 
-if.end27.thread31:                                ; preds = %while.body.i16
-  %21 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException(ptr noundef %21, ptr noundef null)
+if.end27.thread30:                                ; preds = %while.body.i15
+  %19 = load ptr, ptr @PyExc_ValueError, align 8
+  call void (ptr, ptr, ...) @_setException(ptr noundef %19, ptr noundef null)
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
-  br label %22
+  br label %20
 
-if.end5.i22:                                      ; preds = %while.body.i16
-  %sub.i23 = sub nsw i64 %len.addr.08.i18, %.len.addr.0.i19
-  %add.ptr.i24 = getelementptr i8, ptr %cp.09.i17, i64 %.len.addr.0.i19
-  %cmp.i25 = icmp sgt i64 %sub.i23, 0
-  br i1 %cmp.i25, label %while.body.i16, label %if.end27.thread, !llvm.loop !8
+if.end5.i21:                                      ; preds = %while.body.i15
+  %sub.i22 = sub nsw i64 %len.addr.08.i17, %.len.addr.0.i18
+  %add.ptr.i23 = getelementptr i8, ptr %cp.09.i16, i64 %.len.addr.0.i18
+  %cmp.i24 = icmp sgt i64 %sub.i22, 0
+  br i1 %cmp.i24, label %while.body.i15, label %if.end27.thread, !llvm.loop !8
 
-if.end27.thread:                                  ; preds = %if.end5.i22, %if.else
+if.end27.thread:                                  ; preds = %if.end5.i21, %if.else
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
   br label %return
 
-if.end27:                                         ; preds = %if.then.i11, %EVP_hash.exit
+if.end27:                                         ; preds = %if.then.i10, %EVP_hash.exit
   call void @PyEval_RestoreThread(ptr noundef %call20) #9
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
-  br i1 %cmp28, label %22, label %return
+  br i1 %cmp28, label %20, label %return
 
-22:                                               ; preds = %if.end27.thread31, %if.end27
+20:                                               ; preds = %if.end27.thread30, %if.end27
   br label %return
 
-return:                                           ; preds = %22, %if.end27, %if.end27.thread, %if.end5, %if.then10, %if.then4, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ null, %if.then4 ], [ null, %if.end5 ], [ null, %22 ], [ @_Py_NoneStruct, %if.end27 ], [ @_Py_NoneStruct, %if.end27.thread ]
+return:                                           ; preds = %20, %if.end27, %if.end27.thread, %if.end5, %if.then10, %if.then4, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ null, %if.then4 ], [ null, %if.end5 ], [ null, %20 ], [ @_Py_NoneStruct, %if.end27 ], [ @_Py_NoneStruct, %if.end27.thread ]
   ret ptr %retval.0
 }
 
@@ -4096,15 +4082,14 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %use_mutex.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %mutex.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %2 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i.i, label %if.then.i.i.i
+  %1 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i.i) #9
@@ -4112,18 +4097,17 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
   %ctx.i.i = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load ptr, ptr %ctx.i.i, align 8
-  %call.i.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %4) #9
-  %5 = load i8, ptr %use_mutex.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then3.i.i
+  %3 = load ptr, ptr %ctx.i.i, align 8
+  %call.i.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %3) #9
+  %4 = load i8, ptr %use_mutex.i.i, align 8
+  %tobool2.i.i = trunc i8 %4 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %locked_EVP_MD_CTX_copy.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %7 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
+  %5 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.then3.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i.i) #9
@@ -4134,8 +4118,8 @@ locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %if.then.i5.i.i, %if
   br i1 %tobool.not.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %locked_EVP_MD_CTX_copy.exit.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %9, ptr noundef null)
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %EVP_digest_impl.exit
 
 if.end6.i:                                        ; preds = %locked_EVP_MD_CTX_copy.exit.i
@@ -4146,8 +4130,8 @@ if.end6.i:                                        ; preds = %locked_EVP_MD_CTX_c
   br i1 %tobool10.not.i, label %if.then11.i, label %if.end13.i
 
 if.then11.i:                                      ; preds = %if.end6.i
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException(ptr noundef %10, ptr noundef null)
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %EVP_digest_impl.exit
 
 if.end13.i:                                       ; preds = %if.end6.i
@@ -4178,15 +4162,14 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %use_mutex.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %mutex.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %2 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i.i, label %if.then.i.i.i
+  %1 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i.i) #9
@@ -4194,18 +4177,17 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
   %ctx.i.i = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load ptr, ptr %ctx.i.i, align 8
-  %call.i.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %4) #9
-  %5 = load i8, ptr %use_mutex.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i.i, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then3.i.i
+  %3 = load ptr, ptr %ctx.i.i, align 8
+  %call.i.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %3) #9
+  %4 = load i8, ptr %use_mutex.i.i, align 8
+  %tobool2.i.i = trunc i8 %4 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %locked_EVP_MD_CTX_copy.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %7 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
+  %5 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.then3.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i.i) #9
@@ -4216,8 +4198,8 @@ locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %if.then.i5.i.i, %if
   br i1 %tobool.not.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %locked_EVP_MD_CTX_copy.exit.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %9, ptr noundef null)
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %EVP_hexdigest_impl.exit
 
 if.end5.i:                                        ; preds = %locked_EVP_MD_CTX_copy.exit.i
@@ -4228,8 +4210,8 @@ if.end5.i:                                        ; preds = %locked_EVP_MD_CTX_c
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end5.i
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException(ptr noundef %10, ptr noundef null)
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %EVP_hexdigest_impl.exit
 
 if.end12.i:                                       ; preds = %if.end5.i
@@ -4287,51 +4269,49 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if
 if.end.i:                                         ; preds = %do.body.i.i
   %use_mutex.i7.i = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i8, ptr %use_mutex.i7.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.end.i9.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i8.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mutex.i8.i = getelementptr inbounds i8, ptr %self, i64 25
-  %5 = cmpxchg ptr %mutex.i8.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %6 = extractvalue { i8, i1 } %5, 1
-  br i1 %6, label %if.end.i9.i, label %if.then.i.i.i
+  %mutex.i11.i = getelementptr inbounds i8, ptr %self, i64 25
+  %4 = cmpxchg ptr %mutex.i11.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %5 = extractvalue { i8, i1 } %4, 1
+  br i1 %5, label %if.end.i8.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i8.i) #9
-  br label %if.end.i9.i
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i11.i) #9
+  br label %if.end.i8.i
 
-if.end.i9.i:                                      ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
-  %ctx.i10.i = getelementptr inbounds i8, ptr %self, i64 16
-  %7 = load ptr, ptr %ctx.i10.i, align 8
-  %call.i11.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call2.i.i, ptr noundef %7) #9
-  %8 = load i8, ptr %use_mutex.i7.i, align 8
-  %9 = and i8 %8, 1
-  %tobool2.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool2.not.i.i, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then3.i.i
+if.end.i8.i:                                      ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
+  %ctx.i9.i = getelementptr inbounds i8, ptr %self, i64 16
+  %6 = load ptr, ptr %ctx.i9.i, align 8
+  %call.i10.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call2.i.i, ptr noundef %6) #9
+  %7 = load i8, ptr %use_mutex.i7.i, align 8
+  %tobool2.i.i = trunc i8 %7 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %locked_EVP_MD_CTX_copy.exit.i
 
-if.then3.i.i:                                     ; preds = %if.end.i9.i
+if.then3.i.i:                                     ; preds = %if.end.i8.i
   %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
-  %10 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %11 = extractvalue { i8, i1 } %10, 1
-  br i1 %11, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
+  %8 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %9 = extractvalue { i8, i1 } %8, 1
+  br i1 %9, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.then3.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i.i) #9
   br label %locked_EVP_MD_CTX_copy.exit.i
 
-locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %if.then.i5.i.i, %if.then3.i.i, %if.end.i9.i
-  %tobool.not.i = icmp eq i32 %call.i11.i, 0
+locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %if.then.i5.i.i, %if.then3.i.i, %if.end.i8.i
+  %tobool.not.i = icmp eq i32 %call.i10.i, 0
   br i1 %tobool.not.i, label %if.then3.i, label %EVP_copy_impl.exit
 
 if.then3.i:                                       ; preds = %locked_EVP_MD_CTX_copy.exit.i
-  %12 = load i64, ptr %call.i.i, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i7.not.i = icmp eq i64 %13, 0
+  %10 = load i64, ptr %call.i.i, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i7.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i7.not.i, label %if.end.i.i, label %Py_DECREF.exit.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %dec.i.i = add i64 %12, -1
+  %dec.i.i = add i64 %10, -1
   store i64 %dec.i.i, ptr %call.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_DECREF.exit.i
@@ -4341,8 +4321,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then3.i
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %14, ptr noundef null)
+  %12 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %12, ptr noundef null)
   br label %EVP_copy_impl.exit
 
 EVP_copy_impl.exit:                               ; preds = %entry, %Py_DECREF.exit.i.i, %locked_EVP_MD_CTX_copy.exit.i, %Py_DECREF.exit.i
@@ -4577,15 +4557,14 @@ Py_DECREF.exit34:                                 ; preds = %if.then4, %if.then1
 if.end6:                                          ; preds = %if.end
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i8, ptr %use_mutex.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %if.end.i18, label %if.then.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i18
 
 if.then.i:                                        ; preds = %if.end6
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 25
-  %4 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %5 = extractvalue { i8, i1 } %4, 1
-  br i1 %5, label %if.end.i18, label %if.then.i.i
+  %3 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %4 = extractvalue { i8, i1 } %3, 1
+  br i1 %4, label %if.end.i18, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
@@ -4593,18 +4572,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i18:                                       ; preds = %if.then.i.i, %if.then.i, %if.end6
   %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
-  %6 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call2, ptr noundef %6) #9
-  %7 = load i8, ptr %use_mutex.i, align 8
-  %8 = and i8 %7, 1
-  %tobool2.not.i = icmp eq i8 %8, 0
-  br i1 %tobool2.not.i, label %locked_EVP_MD_CTX_copy.exit, label %if.then3.i
+  %5 = load ptr, ptr %ctx.i, align 8
+  %call.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call2, ptr noundef %5) #9
+  %6 = load i8, ptr %use_mutex.i, align 8
+  %tobool2.i = trunc i8 %6 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %locked_EVP_MD_CTX_copy.exit
 
 if.then3.i:                                       ; preds = %if.end.i18
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 25
-  %9 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %10 = extractvalue { i8, i1 } %9, 1
-  br i1 %10, label %locked_EVP_MD_CTX_copy.exit, label %if.then.i5.i
+  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %8 = extractvalue { i8, i1 } %7, 1
+  br i1 %8, label %locked_EVP_MD_CTX_copy.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %if.then3.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
@@ -4615,13 +4593,13 @@ locked_EVP_MD_CTX_copy.exit:                      ; preds = %if.end.i18, %if.the
   br i1 %tobool.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
-  %11 = load i64, ptr %call, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i39.not = icmp eq i64 %12, 0
+  %9 = load i64, ptr %call, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i39.not = icmp eq i64 %10, 0
   br i1 %cmp.i39.not, label %if.end.i20, label %Py_DECREF.exit25
 
 if.end.i20:                                       ; preds = %if.then8
-  %dec.i21 = add i64 %11, -1
+  %dec.i21 = add i64 %9, -1
   store i64 %dec.i21, ptr %call, align 8
   %cmp.i22 = icmp eq i64 %dec.i21, 0
   br i1 %cmp.i22, label %if.then1.i23, label %Py_DECREF.exit25
@@ -4632,8 +4610,8 @@ if.then1.i23:                                     ; preds = %if.end.i20
 
 Py_DECREF.exit25:                                 ; preds = %if.then8, %if.then1.i23, %if.end.i20
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call2) #9
-  %13 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %13, ptr noundef null)
+  %11 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %11, ptr noundef null)
   br label %return
 
 if.end10:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
@@ -4643,13 +4621,13 @@ if.end10:                                         ; preds = %locked_EVP_MD_CTX_c
   br i1 %tobool13.not, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end10
-  %14 = load i64, ptr %call, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i43.not = icmp eq i64 %15, 0
+  %12 = load i64, ptr %call, align 8
+  %13 = and i64 %12, 2147483648
+  %cmp.i43.not = icmp eq i64 %13, 0
   br i1 %cmp.i43.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then14
-  %dec.i = add i64 %14, -1
+  %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -4660,8 +4638,8 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.then14, %if.then1.i, %if.end.i
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call2) #9
-  %16 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %16, ptr noundef null)
+  %14 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %14, ptr noundef null)
   br label %return
 
 if.end16:                                         ; preds = %if.end10
@@ -4699,15 +4677,14 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end7
   %mutex.i = getelementptr inbounds i8, ptr %self, i64 25
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end.i, label %if.then.i.i
+  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
@@ -4715,18 +4692,17 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %if.end7
   %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call3, ptr noundef %4) #9
-  %5 = load i8, ptr %use_mutex.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %locked_EVP_MD_CTX_copy.exit, label %if.then3.i
+  %3 = load ptr, ptr %ctx.i, align 8
+  %call.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call3, ptr noundef %3) #9
+  %4 = load i8, ptr %use_mutex.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %locked_EVP_MD_CTX_copy.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %mutex4.i = getelementptr inbounds i8, ptr %self, i64 25
-  %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %locked_EVP_MD_CTX_copy.exit, label %if.then.i5.i
+  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
+  %6 = extractvalue { i8, i1 } %5, 1
+  br i1 %6, label %locked_EVP_MD_CTX_copy.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %if.then3.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
@@ -4739,8 +4715,8 @@ locked_EVP_MD_CTX_copy.exit:                      ; preds = %if.end.i, %if.then3
 if.then9:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
   tail call void @PyMem_Free(ptr noundef nonnull %call) #9
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call3) #9
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %9, ptr noundef null)
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %return
 
 if.end11:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
@@ -4751,8 +4727,8 @@ if.end11:                                         ; preds = %locked_EVP_MD_CTX_c
 if.then14:                                        ; preds = %if.end11
   tail call void @PyMem_Free(ptr noundef nonnull %call) #9
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call3) #9
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %10, ptr noundef null)
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %return
 
 if.end16:                                         ; preds = %if.end11
@@ -4866,7 +4842,7 @@ declare ptr @PyModule_GetDef(ptr noundef) local_unnamed_addr #1
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4877,6 +4853,12 @@ declare ptr @PyDictProxy_New(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #7
@@ -4893,10 +4875,10 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }

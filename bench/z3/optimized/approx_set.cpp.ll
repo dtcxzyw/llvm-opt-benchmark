@@ -30,27 +30,24 @@ entry:
 for.body:                                         ; preds = %entry, %if.end6
   %i.09 = phi i32 [ 0, %entry ], [ %inc, %if.end6 ]
   %s.08 = phi i64 [ %0, %entry ], [ %shr, %if.end6 ]
-  %first.07 = phi i8 [ 1, %entry ], [ %first.2, %if.end6 ]
+  %first.07 = phi i1 [ true, %entry ], [ %first.2, %if.end6 ]
   %and = and i64 %s.08, 1
   %cmp2.not = icmp eq i64 %and, 0
   br i1 %cmp2.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %1 = and i8 %first.07, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  br i1 %first.07, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.else
-  %first.1 = phi i8 [ %first.07, %if.else ], [ 0, %if.then ]
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %i.09)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %for.body
-  %first.2 = phi i8 [ %first.1, %if.end ], [ %first.07, %for.body ]
+  %first.2 = phi i1 [ false, %if.end ], [ %first.07, %for.body ]
   %shr = lshr i64 %s.08, 1
   %inc = add nuw nsw i32 %i.09, 1
   %exitcond.not = icmp eq i32 %inc, 64

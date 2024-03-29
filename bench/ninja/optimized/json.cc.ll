@@ -35,90 +35,89 @@ define dso_local void @_Z16EncodeJSONStringRKNSt7__cxx1112basic_stringIcSt11char
   %.not22 = icmp eq ptr %8, %9
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %36
-  %.sroa.019.023 = phi ptr [ %37, %36 ], [ %8, %7 ]
+.lr.ph:                                           ; preds = %7, %35
+  %.sroa.019.023 = phi ptr [ %36, %35 ], [ %8, %7 ]
   %10 = load i8, ptr %.sroa.019.023, align 1
   %11 = sext i8 %10 to i32
   %switch.tableidx = add i8 %10, -8
   %12 = icmp ult i8 %switch.tableidx, 6
-  br i1 %12, label %switch.hole_check, label %18
+  br i1 %12, label %switch.hole_check, label %17
 
 switch.hole_check:                                ; preds = %.lr.ph
   %switch.shifted = lshr i8 55, %switch.tableidx
-  %13 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %13, 0
-  br i1 %switch.lobit.not, label %18, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._Z16EncodeJSONStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %14
+  %13 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._Z16EncodeJSONStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %switch.lookup, %34, %35
-  %15 = phi ptr [ @.str.8, %35 ], [ @.str.7, %34 ], [ %switch.load, %switch.lookup ]
-  %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %15)
-          to label %36 unwind label %.loopexit
+.invoke:                                          ; preds = %switch.lookup, %33, %34
+  %14 = phi ptr [ @.str.8, %34 ], [ @.str.7, %33 ], [ %switch.load, %switch.lookup ]
+  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14)
+          to label %35 unwind label %.loopexit
 
-.loopexit:                                        ; preds = %.invoke24, %.invoke, %19, %21
+.loopexit:                                        ; preds = %.invoke24, %.invoke, %18, %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %16
 
 .loopexit.split-lp:                               ; preds = %2
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %16
 
-17:                                               ; preds = %.loopexit.split-lp, %.loopexit
+16:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #4
   resume { ptr, i32 } %lpad.phi
 
-18:                                               ; preds = %switch.hole_check, %.lr.ph
+17:                                               ; preds = %switch.hole_check, %.lr.ph
   %or.cond = icmp ult i8 %10, 32
-  br i1 %or.cond, label %19, label %34
+  br i1 %or.cond, label %18, label %33
 
-19:                                               ; preds = %18
-  %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6)
-          to label %21 unwind label %.loopexit
+18:                                               ; preds = %17
+  %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6)
+          to label %20 unwind label %.loopexit
 
-21:                                               ; preds = %19
-  %22 = lshr i32 %11, 4
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr @.str, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %25)
-          to label %27 unwind label %.loopexit
+20:                                               ; preds = %18
+  %21 = lshr i32 %11, 4
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr @.str, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %24)
+          to label %26 unwind label %.loopexit
 
-27:                                               ; preds = %21
-  %28 = and i32 %11, 15
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr @.str, i64 %29
-  %31 = load i8, ptr %30, align 1
+26:                                               ; preds = %20
+  %27 = and i32 %11, 15
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr @.str, i64 %28
+  %30 = load i8, ptr %29, align 1
   br label %.invoke24
 
-.invoke24:                                        ; preds = %34, %27
-  %32 = phi i8 [ %31, %27 ], [ %10, %34 ]
-  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %32)
-          to label %36 unwind label %.loopexit
+.invoke24:                                        ; preds = %33, %26
+  %31 = phi i8 [ %30, %26 ], [ %10, %33 ]
+  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %31)
+          to label %35 unwind label %.loopexit
 
-34:                                               ; preds = %18
+33:                                               ; preds = %17
   switch i8 %10, label %.invoke24 [
     i8 92, label %.invoke
-    i8 34, label %35
+    i8 34, label %34
   ]
 
-35:                                               ; preds = %34
+34:                                               ; preds = %33
   br label %.invoke
 
-36:                                               ; preds = %.invoke24, %.invoke
-  %37 = getelementptr inbounds i8, ptr %.sroa.019.023, i64 1
-  %38 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #4
-  %.not = icmp eq ptr %37, %38
+35:                                               ; preds = %.invoke24, %.invoke
+  %36 = getelementptr inbounds i8, ptr %.sroa.019.023, i64 1
+  %37 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #4
+  %.not = icmp eq ptr %36, %37
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %36, %7
+._crit_edge:                                      ; preds = %35, %7
   ret void
 }
 

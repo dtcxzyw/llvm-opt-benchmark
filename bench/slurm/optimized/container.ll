@@ -410,9 +410,8 @@ define dso_local i32 @setup_container(ptr noundef %0) local_unnamed_addr #0 {
   %26 = load ptr, ptr @oci_conf, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 264
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not20 = icmp eq i8 %29, 0
-  br i1 %.not20, label %30, label %58
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %58, label %30
 
 30:                                               ; preds = %25
   %.val = load ptr, ptr %5, align 8
@@ -471,21 +470,21 @@ _load_config.exit:                                ; preds = %52, %55
   %.03.i = phi i32 [ %48, %55 ], [ %53, %52 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not21 = icmp eq i32 %.03.i, 0
-  br i1 %.not21, label %56, label %.thread
+  %.not20 = icmp eq i32 %.03.i, 0
+  br i1 %.not20, label %56, label %.thread
 
 56:                                               ; preds = %_load_config.exit
   %57 = call fastcc i32 @_merge_step_config_env(ptr noundef nonnull %0), !range !11
-  %.not22 = icmp eq i32 %57, 0
-  br i1 %.not22, label %58, label %.thread
+  %.not21 = icmp eq i32 %57, 0
+  br i1 %.not21, label %58, label %.thread
 
 58:                                               ; preds = %56, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %59 = load ptr, ptr %5, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %.not.i24 = icmp eq ptr %61, null
-  br i1 %.not.i24, label %77, label %62
+  %.not.i23 = icmp eq ptr %61, null
+  br i1 %.not.i23, label %77, label %62
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %59, i64 32
@@ -496,11 +495,11 @@ _load_config.exit:                                ; preds = %52, %55
 65:                                               ; preds = %62
   %66 = call i32 @get_log_level() #9
   %67 = icmp sgt i32 %66, 4
-  br i1 %67, label %68, label %.thread29
+  br i1 %67, label %68, label %.thread28
 
 68:                                               ; preds = %65
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__._generate_container_paths) #9
-  br label %.thread29
+  br label %.thread28
 
 69:                                               ; preds = %62
   %70 = load ptr, ptr %63, align 8
@@ -570,7 +569,7 @@ _load_config.exit:                                ; preds = %52, %55
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._generate_container_paths, ptr noundef %105, ptr noundef %106) #10
   unreachable
 
-.thread29:                                        ; preds = %68, %65
+.thread28:                                        ; preds = %68, %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.thread
 
@@ -578,14 +577,14 @@ _load_config.exit:                                ; preds = %52, %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %110
 
-.thread:                                          ; preds = %56, %_load_config.exit, %22, %.thread29
-  %.027 = phi i32 [ %64, %.thread29 ], [ %57, %56 ], [ %.03.i, %_load_config.exit ], [ %21, %22 ]
-  %108 = call ptr @slurm_strerror(i32 noundef %.027) #9
+.thread:                                          ; preds = %56, %_load_config.exit, %22, %.thread28
+  %.026 = phi i32 [ %64, %.thread28 ], [ %57, %56 ], [ %.03.i, %_load_config.exit ], [ %21, %22 ]
+  %108 = call ptr @slurm_strerror(i32 noundef %.026) #9
   %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.setup_container, ptr noundef %108) #9
   br label %110
 
 110:                                              ; preds = %107, %.thread, %14, %17, %9
-  %.014 = phi i32 [ %7, %9 ], [ 10000, %17 ], [ 10000, %14 ], [ %.027, %.thread ], [ 0, %107 ]
+  %.014 = phi i32 [ %7, %9 ], [ 10000, %17 ], [ 10000, %14 ], [ %.026, %.thread ], [ 0, %107 ]
   ret i32 %.014
 }
 
@@ -647,9 +646,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %14, i64 88
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not44 = icmp eq i8 %24, 0
-  br i1 %.not44, label %30, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 272
@@ -662,8 +660,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
 30:                                               ; preds = %25, %21
   %31 = getelementptr inbounds i8, ptr %13, i64 16
   %32 = load ptr, ptr %31, align 8
-  %.not45 = icmp eq ptr %32, null
-  br i1 %.not45, label %341, label %33
+  %.not44 = icmp eq ptr %32, null
+  br i1 %.not44, label %341, label %33
 
 33:                                               ; preds = %30
   store ptr null, ptr %9, align 8
@@ -723,9 +721,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
 74:                                               ; preds = %58, %55
   %75 = getelementptr inbounds i8, ptr %0, i64 433
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not96.i = icmp eq i8 %77, 0
-  br i1 %.not96.i, label %172, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %172
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 472
@@ -734,8 +731,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %82 = getelementptr inbounds i8, ptr %81, i64 72
   %83 = load ptr, ptr %82, align 8
   %84 = call i32 @xstrcmp(ptr noundef %83, ptr noundef nonnull @.str.51) #9
-  %.not97.i = icmp eq i32 %84, 0
-  br i1 %.not97.i, label %102, label %85
+  %.not96.i = icmp eq i32 %84, 0
+  br i1 %.not96.i, label %102, label %85
 
 85:                                               ; preds = %78
   %86 = call ptr @data_list_append(ptr noundef %51) #9
@@ -762,8 +759,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %105 = getelementptr inbounds i8, ptr %104, i64 80
   %106 = load ptr, ptr %105, align 8
   %107 = call i32 @xstrcmp(ptr noundef %106, ptr noundef nonnull @.str.51) #9
-  %.not98.i = icmp eq i32 %107, 0
-  br i1 %.not98.i, label %125, label %108
+  %.not97.i = icmp eq i32 %107, 0
+  br i1 %.not97.i, label %125, label %108
 
 108:                                              ; preds = %102
   %109 = call ptr @data_list_append(ptr noundef %51) #9
@@ -790,8 +787,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %128 = getelementptr inbounds i8, ptr %127, i64 88
   %129 = load ptr, ptr %128, align 8
   %130 = call i32 @xstrcmp(ptr noundef %129, ptr noundef nonnull @.str.51) #9
-  %.not99.i = icmp eq i32 %130, 0
-  br i1 %.not99.i, label %148, label %131
+  %.not98.i = icmp eq i32 %130, 0
+  br i1 %.not98.i, label %148, label %131
 
 131:                                              ; preds = %125
   %132 = call ptr @data_list_append(ptr noundef %51) #9
@@ -843,8 +840,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %173 = load ptr, ptr @oci_conf, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  %.not100.i = icmp eq ptr %175, null
-  br i1 %.not100.i, label %.loopexit.i, label %176
+  %.not99.i = icmp eq ptr %175, null
+  br i1 %.not99.i, label %.loopexit.i, label %176
 
 176:                                              ; preds = %172
   %177 = load ptr, ptr %37, align 8
@@ -853,15 +850,15 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %180 = getelementptr inbounds i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8
   %182 = load ptr, ptr %181, align 8
-  %.not101106.i = icmp eq ptr %182, null
-  br i1 %.not101106.i, label %.loopexit.i, label %.lr.ph.i
+  %.not100105.i = icmp eq ptr %182, null
+  br i1 %.not100105.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %176, %223
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %223 ], [ 0, %176 ]
   %183 = phi ptr [ %228, %223 ], [ %182, %176 ]
   %184 = call ptr @data_key_get(ptr noundef %178, ptr noundef nonnull %183) #9
-  %.not105.i = icmp eq ptr %184, null
-  br i1 %.not105.i, label %214, label %185
+  %.not104.i = icmp eq ptr %184, null
+  br i1 %.not104.i, label %214, label %185
 
 185:                                              ; preds = %.lr.ph.i
   %186 = call i32 @data_get_type(ptr noundef nonnull %184) #9
@@ -927,8 +924,8 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds ptr, ptr %226, i64 %indvars.iv.next.i
   %228 = load ptr, ptr %227, align 8
-  %.not101.i = icmp eq ptr %228, null
-  br i1 %.not101.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
+  %.not100.i = icmp eq ptr %228, null
+  br i1 %.not100.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %223, %176, %172
   %229 = load ptr, ptr %37, align 8
@@ -937,27 +934,27 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %232 = getelementptr inbounds i8, ptr %0, i64 272
   %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr %233, align 8
-  %.not102108.i = icmp eq ptr %234, null
-  br i1 %.not102108.i, label %._crit_edge.i, label %.lr.ph110.i
+  %.not101107.i = icmp eq ptr %234, null
+  br i1 %.not101107.i, label %._crit_edge.i, label %.lr.ph109.i
 
-.lr.ph110.i:                                      ; preds = %.loopexit.i, %244
+.lr.ph109.i:                                      ; preds = %.loopexit.i, %244
   %235 = phi ptr [ %248, %244 ], [ %234, %.loopexit.i ]
-  %.088109.i = phi ptr [ %247, %244 ], [ %233, %.loopexit.i ]
+  %.088108.i = phi ptr [ %247, %244 ], [ %233, %.loopexit.i ]
   %236 = call ptr @xstrdup(ptr noundef nonnull %235) #9
   store ptr %236, ptr %8, align 8
   %237 = call ptr @xstrstr(ptr noundef %236, ptr noundef nonnull @.str.39) #9
-  %.not103.i = icmp eq ptr %237, null
-  br i1 %.not103.i, label %239, label %238
+  %.not102.i = icmp eq ptr %237, null
+  br i1 %.not102.i, label %239, label %238
 
-238:                                              ; preds = %.lr.ph110.i
+238:                                              ; preds = %.lr.ph109.i
   store i8 0, ptr %237, align 1
   br label %239
 
-239:                                              ; preds = %238, %.lr.ph110.i
+239:                                              ; preds = %238, %.lr.ph109.i
   %240 = load ptr, ptr %8, align 8
   %241 = call ptr @data_list_find_first(ptr noundef %231, ptr noundef nonnull @_match_env, ptr noundef %240) #9
-  %.not104.i = icmp eq ptr %241, null
-  br i1 %.not104.i, label %242, label %244
+  %.not103.i = icmp eq ptr %241, null
+  br i1 %.not103.i, label %242, label %244
 
 242:                                              ; preds = %239
   %243 = call ptr @data_list_append(ptr noundef %231) #9
@@ -965,13 +962,13 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
 
 244:                                              ; preds = %242, %239
   %.087.i = phi ptr [ %241, %239 ], [ %243, %242 ]
-  %245 = load ptr, ptr %.088109.i, align 8
+  %245 = load ptr, ptr %.088108.i, align 8
   %246 = call ptr @data_set_string(ptr noundef %.087.i, ptr noundef %245) #9
   call void @slurm_xfree(ptr noundef nonnull %8) #9
-  %247 = getelementptr inbounds i8, ptr %.088109.i, i64 8
+  %247 = getelementptr inbounds i8, ptr %.088108.i, i64 8
   %248 = load ptr, ptr %247, align 8
-  %.not102.i = icmp eq ptr %248, null
-  br i1 %.not102.i, label %._crit_edge.i, label %.lr.ph110.i, !llvm.loop !13
+  %.not101.i = icmp eq ptr %248, null
+  br i1 %.not101.i, label %._crit_edge.i, label %.lr.ph109.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %244, %.loopexit.i
   %249 = load ptr, ptr %37, align 8
@@ -979,34 +976,34 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %251 = call ptr @data_set_list(ptr noundef %250) #9
   %252 = getelementptr inbounds i8, ptr %1, i64 152
   %253 = load i32, ptr %252, align 8
-  %.not115.i = icmp eq i32 %253, 0
-  br i1 %.not115.i, label %_modify_config.exit, label %.lr.ph113.i
+  %.not114.i = icmp eq i32 %253, 0
+  br i1 %.not114.i, label %_modify_config.exit, label %.lr.ph112.i
 
-.lr.ph113.i:                                      ; preds = %._crit_edge.i
+.lr.ph112.i:                                      ; preds = %._crit_edge.i
   %254 = getelementptr inbounds i8, ptr %1, i64 160
   br label %255
 
-255:                                              ; preds = %255, %.lr.ph113.i
-  %indvars.iv117.i = phi i64 [ 0, %.lr.ph113.i ], [ %indvars.iv.next118.i, %255 ]
+255:                                              ; preds = %255, %.lr.ph112.i
+  %indvars.iv116.i = phi i64 [ 0, %.lr.ph112.i ], [ %indvars.iv.next117.i, %255 ]
   %256 = call ptr @data_list_append(ptr noundef %250) #9
   %257 = load ptr, ptr %254, align 8
-  %258 = getelementptr inbounds ptr, ptr %257, i64 %indvars.iv117.i
+  %258 = getelementptr inbounds ptr, ptr %257, i64 %indvars.iv116.i
   %259 = call ptr @_data_set_string_own(ptr noundef %256, ptr noundef %258) #9
   %260 = load ptr, ptr %254, align 8
-  %261 = getelementptr inbounds ptr, ptr %260, i64 %indvars.iv117.i
+  %261 = getelementptr inbounds ptr, ptr %260, i64 %indvars.iv116.i
   store ptr null, ptr %261, align 8
-  %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
+  %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %262 = load i32, ptr %252, align 8
   %263 = zext i32 %262 to i64
-  %264 = icmp ult i64 %indvars.iv.next118.i, %263
+  %264 = icmp ult i64 %indvars.iv.next117.i, %263
   br i1 %264, label %255, label %_modify_config.exit, !llvm.loop !14
 
 _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %265 = load ptr, ptr %31, align 8
   %266 = call i32 @serialize_g_data_to_string(ptr noundef nonnull %9, ptr noundef null, ptr noundef %265, ptr noundef nonnull @.str.9, i32 noundef 4) #9
-  %.not46 = icmp eq i32 %266, 0
-  br i1 %.not46, label %269, label %267
+  %.not45 = icmp eq i32 %266, 0
+  br i1 %.not45, label %269, label %267
 
 267:                                              ; preds = %_modify_config.exit
   %268 = call ptr @slurm_strerror(i32 noundef %266) #9
@@ -1015,8 +1012,8 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
 
 269:                                              ; preds = %_modify_config.exit
   %270 = load ptr, ptr %31, align 8
-  %.not47 = icmp eq ptr %270, null
-  br i1 %.not47, label %272, label %271
+  %.not46 = icmp eq ptr %270, null
+  br i1 %.not46, label %272, label %271
 
 271:                                              ; preds = %269
   call void @data_free(ptr noundef nonnull %270) #9
@@ -1102,8 +1099,8 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %.split.us.i, %279
   %309 = call i32 @fsync_and_close(i32 noundef %275, ptr noundef %273) #9
-  %.not.i53 = icmp eq i32 %309, 0
-  br i1 %.not.i53, label %313, label %310
+  %.not.i51 = icmp eq i32 %309, 0
+  br i1 %.not.i51, label %313, label %310
 
 310:                                              ; preds = %.outer._crit_edge.i
   %311 = call ptr @slurm_strerror(i32 noundef 0) #9
@@ -1142,8 +1139,8 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
 
 _write_config.exit:                               ; preds = %.thread.i, %327
   %.0.i = phi i32 [ %328, %327 ], [ %326, %.thread.i ]
-  %.not48 = icmp eq i32 %.0.i, 0
-  br i1 %.not48, label %_write_config.exit.thread, label %330
+  %.not47 = icmp eq i32 %.0.i, 0
+  br i1 %.not47, label %_write_config.exit.thread, label %330
 
 330:                                              ; preds = %_write_config.exit
   %331 = load ptr, ptr %10, align 8
@@ -1175,8 +1172,8 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   %342 = load ptr, ptr @oci_conf, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 8
   %344 = load i32, ptr %343, align 8
-  %.not49 = icmp eq i32 %344, 0
-  br i1 %.not49, label %377, label %345
+  %.not48 = icmp eq i32 %344, 0
+  br i1 %.not48, label %377, label %345
 
 345:                                              ; preds = %341
   store ptr null, ptr %11, align 8
@@ -1188,9 +1185,9 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   %350 = getelementptr inbounds i8, ptr %0, i64 272
   %351 = load ptr, ptr %350, align 8
   %352 = call i32 @env_array_to_file(ptr noundef %349, ptr noundef %351, i1 noundef zeroext %346) #9
-  %.not50 = icmp eq i32 %352, 0
+  %.not49 = icmp eq i32 %352, 0
   %353 = load ptr, ptr %11, align 8
-  br i1 %.not50, label %356, label %354
+  br i1 %.not49, label %356, label %354
 
 354:                                              ; preds = %345
   %355 = call ptr @slurm_strerror(i32 noundef %352) #9
@@ -1240,9 +1237,8 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   %378 = phi ptr [ %.pre, %376 ], [ %342, %341 ]
   %379 = getelementptr inbounds i8, ptr %378, i64 192
   %380 = load i8, ptr %379, align 8
-  %381 = and i8 %380, 1
-  %.not51 = icmp eq i8 %381, 0
-  br i1 %.not51, label %386, label %382
+  %381 = trunc i8 %380 to i1
+  br i1 %381, label %382, label %386
 
 382:                                              ; preds = %377
   %383 = load ptr, ptr @environ, align 8
@@ -1275,8 +1271,8 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   %399 = load ptr, ptr @oci_conf, align 8
   %400 = getelementptr inbounds i8, ptr %399, i64 208
   %401 = load ptr, ptr %400, align 8
-  %.not52 = icmp eq ptr %401, null
-  br i1 %.not52, label %411, label %402
+  %.not50 = icmp eq ptr %401, null
+  br i1 %.not50, label %411, label %402
 
 402:                                              ; preds = %394
   %403 = call i32 @get_log_level() #9
@@ -1309,9 +1305,8 @@ _write_config.exit.thread:                        ; preds = %320, %_write_config
   store ptr %3, ptr %413, align 8
   %414 = getelementptr inbounds i8, ptr %399, i64 264
   %415 = load i8, ptr %414, align 8
-  %416 = and i8 %415, 1
-  %.not.i54 = icmp eq i8 %416, 0
-  br i1 %.not.i54, label %418, label %417
+  %416 = trunc i8 %415 to i1
+  br i1 %416, label %417, label %418
 
 417:                                              ; preds = %411
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.83) #10
@@ -1378,8 +1373,8 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
   %.091.i = phi i32 [ 250, %443 ], [ %.2.i, %467 ]
   %445 = call fastcc ptr @_get_container_status()
   store ptr %445, ptr %6, align 8
-  %.not11.i = icmp eq ptr %445, null
-  br i1 %.not11.i, label %446, label %452
+  %.not.i52 = icmp eq ptr %445, null
+  br i1 %.not.i52, label %446, label %452
 
 446:                                              ; preds = %444
   %447 = icmp eq i32 %.02.i, 10
@@ -1408,8 +1403,8 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
 457:                                              ; preds = %455, %452
   %458 = load ptr, ptr %6, align 8
   %459 = call i32 @xstrcasecmp(ptr noundef %458, ptr noundef nonnull @.str.88) #9
-  %.not12.i = icmp eq i32 %459, 0
-  br i1 %.not12.i, label %460, label %461
+  %.not11.i = icmp eq i32 %459, 0
+  br i1 %.not11.i, label %460, label %461
 
 460:                                              ; preds = %457
   call void @slurm_xfree(ptr noundef nonnull %6) #9
@@ -1418,12 +1413,12 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
 461:                                              ; preds = %457
   %462 = load ptr, ptr %6, align 8
   %463 = call i32 @xstrcasecmp(ptr noundef %462, ptr noundef nonnull @.str.89) #9
-  %.not13.i = icmp eq i32 %463, 0
-  br i1 %.not13.i, label %464, label %465
+  %.not12.i = icmp eq i32 %463, 0
+  br i1 %.not12.i, label %464, label %465
 
 464:                                              ; preds = %461
   call void @slurm_xfree(ptr noundef nonnull %6) #9
-  br label %.loopexit.i55
+  br label %.loopexit.i53
 
 465:                                              ; preds = %461
   %466 = load ptr, ptr %6, align 8
@@ -1436,90 +1431,90 @@ _dump_command_args.exit.i:                        ; preds = %434, %.preheader.i.
   %468 = call i32 @usleep(i32 noundef %.sink.i) #9
   %469 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %469, 11
-  br i1 %exitcond.not.i, label %.loopexit.i55, label %444, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit.i53, label %444, !llvm.loop !17
 
-.loopexit.i55:                                    ; preds = %467, %464
+.loopexit.i53:                                    ; preds = %467, %464
   store ptr @start_argv, ptr %419, align 8
   %470 = load ptr, ptr @start_argv, align 16
   store ptr %470, ptr %421, align 8
   store ptr @.str.91, ptr %422, align 8
   %471 = call i32 @get_log_level() #9
   %472 = icmp slt i32 %471, 7
-  br i1 %472, label %_dump_command_args.exit22.i, label %.preheader.i16.i
+  br i1 %472, label %_dump_command_args.exit21.i, label %.preheader.i15.i
 
-.preheader.i16.i:                                 ; preds = %.loopexit.i55
+.preheader.i15.i:                                 ; preds = %.loopexit.i53
   %473 = load ptr, ptr %419, align 8
   %474 = load ptr, ptr %473, align 8
-  %.not6.i17.i = icmp eq ptr %474, null
-  br i1 %.not6.i17.i, label %_dump_command_args.exit22.i, label %.lr.ph.i18.i
+  %.not6.i16.i = icmp eq ptr %474, null
+  br i1 %.not6.i16.i, label %_dump_command_args.exit21.i, label %.lr.ph.i17.i
 
-.lr.ph.i18.i:                                     ; preds = %.preheader.i16.i, %482
-  %indvars.iv.i19.i = phi i64 [ %indvars.iv.next.i20.i, %482 ], [ 0, %.preheader.i16.i ]
+.lr.ph.i17.i:                                     ; preds = %.preheader.i15.i, %482
+  %indvars.iv.i18.i = phi i64 [ %indvars.iv.next.i19.i, %482 ], [ 0, %.preheader.i15.i ]
   %475 = call i32 @get_log_level() #9
   %476 = icmp sgt i32 %475, 6
   br i1 %476, label %477, label %482
 
-477:                                              ; preds = %.lr.ph.i18.i
+477:                                              ; preds = %.lr.ph.i17.i
   %478 = load ptr, ptr %419, align 8
-  %479 = getelementptr inbounds ptr, ptr %478, i64 %indvars.iv.i19.i
+  %479 = getelementptr inbounds ptr, ptr %478, i64 %indvars.iv.i18.i
   %480 = load ptr, ptr %479, align 8
-  %481 = trunc i64 %indvars.iv.i19.i to i32
+  %481 = trunc i64 %indvars.iv.i18.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._create_start, i32 noundef %481, ptr noundef %480) #9
   br label %482
 
-482:                                              ; preds = %477, %.lr.ph.i18.i
-  %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i19.i, 1
+482:                                              ; preds = %477, %.lr.ph.i17.i
+  %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i18.i, 1
   %483 = load ptr, ptr %419, align 8
-  %484 = getelementptr inbounds ptr, ptr %483, i64 %indvars.iv.next.i20.i
+  %484 = getelementptr inbounds ptr, ptr %483, i64 %indvars.iv.next.i19.i
   %485 = load ptr, ptr %484, align 8
-  %.not.i21.i = icmp eq ptr %485, null
-  br i1 %.not.i21.i, label %_dump_command_args.exit22.i, label %.lr.ph.i18.i, !llvm.loop !16
+  %.not.i20.i = icmp eq ptr %485, null
+  br i1 %.not.i20.i, label %_dump_command_args.exit21.i, label %.lr.ph.i17.i, !llvm.loop !16
 
-_dump_command_args.exit22.i:                      ; preds = %482, %.preheader.i16.i, %.loopexit.i55
+_dump_command_args.exit21.i:                      ; preds = %482, %.preheader.i15.i, %.loopexit.i53
   %486 = call ptr @run_command(ptr noundef nonnull %5) #9
   store ptr %486, ptr %4, align 8
   %487 = call i32 @get_log_level() #9
   %488 = icmp sgt i32 %487, 4
   br i1 %488, label %489, label %492
 
-489:                                              ; preds = %_dump_command_args.exit22.i
+489:                                              ; preds = %_dump_command_args.exit21.i
   %490 = load i32, ptr %3, align 4
   %491 = load ptr, ptr %4, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.92, ptr noundef nonnull @__func__._create_start, i32 noundef %490, ptr noundef %491) #9
   br label %492
 
-492:                                              ; preds = %489, %_dump_command_args.exit22.i
+492:                                              ; preds = %489, %_dump_command_args.exit21.i
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   %493 = call fastcc ptr @_get_container_status()
   store ptr %493, ptr %7, align 8
-  %.not143.i = icmp eq ptr %493, null
-  br i1 %.not143.i, label %._crit_edge.i57, label %.lr.ph.i56
+  %.not133.i = icmp eq ptr %493, null
+  br i1 %.not133.i, label %._crit_edge.i55, label %.lr.ph.i54
 
-.lr.ph.i56:                                       ; preds = %492, %502
+.lr.ph.i54:                                       ; preds = %492, %502
   %494 = phi ptr [ %506, %502 ], [ %493, %492 ]
   %.34.i = phi i32 [ %.4.i, %502 ], [ 2500, %492 ]
   %495 = call i32 @xstrcasecmp(ptr noundef nonnull %494, ptr noundef nonnull @.str.93) #9
-  %.not15.i = icmp eq i32 %495, 0
-  br i1 %.not15.i, label %502, label %._crit_edge.i57
+  %.not14.i = icmp eq i32 %495, 0
+  br i1 %.not14.i, label %502, label %._crit_edge.i55
 
-._crit_edge.i57:                                  ; preds = %502, %.lr.ph.i56, %492
+._crit_edge.i55:                                  ; preds = %502, %.lr.ph.i54, %492
   %496 = call i32 @get_log_level() #9
   %497 = icmp sgt i32 %496, 4
   br i1 %497, label %498, label %500
 
-498:                                              ; preds = %._crit_edge.i57
+498:                                              ; preds = %._crit_edge.i55
   %499 = load ptr, ptr %7, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.94, ptr noundef %499) #9
   br label %500
 
-500:                                              ; preds = %498, %._crit_edge.i57
+500:                                              ; preds = %498, %._crit_edge.i55
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   call fastcc void @_kill_container()
   %501 = load i32, ptr %3, align 4
   call void @_exit(i32 noundef %501) #10
   unreachable
 
-502:                                              ; preds = %.lr.ph.i56
+502:                                              ; preds = %.lr.ph.i54
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   %503 = icmp sgt i32 %.34.i, 1000000
   %504 = shl nsw i32 %.34.i, 1
@@ -1527,8 +1522,8 @@ _dump_command_args.exit22.i:                      ; preds = %482, %.preheader.i1
   %505 = call i32 @usleep(i32 noundef %.4.i) #9
   %506 = call fastcc ptr @_get_container_status()
   store ptr %506, ptr %7, align 8
-  %.not14.i = icmp eq ptr %506, null
-  br i1 %.not14.i, label %._crit_edge.i57, label %.lr.ph.i56
+  %.not13.i = icmp eq ptr %506, null
+  br i1 %.not13.i, label %._crit_edge.i55, label %.lr.ph.i54
 
 507:                                              ; preds = %15, %18
   ret void
@@ -1743,15 +1738,14 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr @oci_conf, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 240
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not26 = icmp eq i8 %17, 0
-  br i1 %.not26, label %18, label %.thread
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %0, i64 144
   %20 = load i32, ptr %19, align 8
-  %.not27 = icmp eq i32 %20, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph
+  %.not26 = icmp eq i32 %20, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %21 = getelementptr inbounds i8, ptr %5, i64 40
@@ -1773,9 +1767,8 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %31 = load ptr, ptr @oci_conf, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 264
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not30 = icmp eq i8 %34, 0
-  br i1 %.not30, label %35, label %47
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %47, label %35
 
 35:                                               ; preds = %23
   store ptr null, ptr %2, align 8
@@ -1789,8 +1782,8 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
 40:                                               ; preds = %35
   %41 = tail call ptr @__errno_location() #12
   %42 = load i32, ptr %41, align 4
-  %.not31 = icmp eq i32 %42, 2
-  br i1 %.not31, label %46, label %43
+  %.not29 = icmp eq i32 %42, 2
+  br i1 %.not29, label %46, label %43
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %2, align 8
@@ -1806,8 +1799,8 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %48 = phi ptr [ %.pre, %46 ], [ %31, %23 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
-  %.not32 = icmp eq i32 %50, 0
-  br i1 %.not32, label %62, label %51
+  %.not30 = icmp eq i32 %50, 0
+  br i1 %.not30, label %62, label %51
 
 51:                                               ; preds = %47
   store ptr null, ptr %3, align 8
@@ -1815,14 +1808,14 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef %52, ptr noundef nonnull @.str.14) #9
   %53 = load ptr, ptr %3, align 8
   %54 = call i32 @unlink(ptr noundef %53) #9
-  %.not33 = icmp eq i32 %54, 0
-  br i1 %.not33, label %61, label %55
+  %.not31 = icmp eq i32 %54, 0
+  br i1 %.not31, label %61, label %55
 
 55:                                               ; preds = %51
   %56 = tail call ptr @__errno_location() #12
   %57 = load i32, ptr %56, align 4
-  %.not34 = icmp eq i32 %57, 2
-  br i1 %.not34, label %61, label %58
+  %.not32 = icmp eq i32 %57, 2
+  br i1 %.not32, label %61, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %3, align 8
@@ -1836,14 +1829,14 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
 62:                                               ; preds = %61, %47
   %63 = load ptr, ptr %21, align 8
   %64 = call i32 @rmdir(ptr noundef %63) #9
-  %.not35 = icmp eq i32 %64, 0
-  br i1 %.not35, label %71, label %65
+  %.not33 = icmp eq i32 %64, 0
+  br i1 %.not33, label %71, label %65
 
 65:                                               ; preds = %62
   %66 = tail call ptr @__errno_location() #12
   %67 = load i32, ptr %66, align 4
-  %.not36 = icmp eq i32 %67, 2
-  br i1 %.not36, label %71, label %68
+  %.not34 = icmp eq i32 %67, 2
+  br i1 %.not34, label %71, label %68
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %21, align 8
@@ -1864,14 +1857,14 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %76 = call fastcc ptr @_generate_spooldir(ptr noundef nonnull %0, ptr noundef null)
   store ptr %76, ptr %75, align 8
   %77 = call i32 @rmdir(ptr noundef %76) #9
-  %.not28 = icmp eq i32 %77, 0
-  br i1 %.not28, label %84, label %78
+  %.not27 = icmp eq i32 %77, 0
+  br i1 %.not27, label %84, label %78
 
 78:                                               ; preds = %.loopexit
   %79 = tail call ptr @__errno_location() #12
   %80 = load i32, ptr %79, align 4
-  %.not29 = icmp eq i32 %80, 2
-  br i1 %.not29, label %84, label %81
+  %.not28 = icmp eq i32 %80, 2
+  br i1 %.not28, label %84, label %81
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %75, align 8
@@ -1880,8 +1873,8 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
 
 84:                                               ; preds = %81, %78, %.loopexit
   %.pr = load ptr, ptr @oci_conf, align 8
-  %.not37 = icmp eq ptr %.pr, null
-  br i1 %.not37, label %86, label %.thread
+  %.not35 = icmp eq ptr %.pr, null
+  br i1 %.not35, label %86, label %.thread
 
 .thread:                                          ; preds = %13, %84
   %85 = phi ptr [ %.pr, %84 ], [ %14, %13 ]
@@ -2474,15 +2467,14 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %8 = load ptr, ptr @oci_conf, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 264
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %18
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %18, label %12
 
 12:                                               ; preds = %0
   %13 = tail call fastcc ptr @_get_container_status()
   store ptr %13, ptr %1, align 8
-  %.not8 = icmp eq ptr %13, null
-  br i1 %.not8, label %14, label %18
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %14, label %18
 
 14:                                               ; preds = %12
   %15 = tail call i32 @get_log_level() #9
@@ -2496,8 +2488,8 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
 18:                                               ; preds = %12, %0
   %19 = phi ptr [ %13, %12 ], [ null, %0 ]
   %20 = tail call i32 @xstrcasecmp(ptr noundef %19, ptr noundef nonnull @.str.93) #9
-  %.not9 = icmp eq i32 %20, 0
-  br i1 %.not9, label %21, label %.loopexit
+  %.not8 = icmp eq i32 %20, 0
+  br i1 %.not8, label %21, label %.loopexit
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %2, i64 24
@@ -2511,8 +2503,8 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %21, %52
-  %.016 = phi i32 [ 0, %21 ], [ %56, %52 ]
-  %.0615 = phi i32 [ 2500, %21 ], [ %.1, %52 ]
+  %.013 = phi i32 [ 0, %21 ], [ %56, %52 ]
+  %.0612 = phi i32 [ 2500, %21 ], [ %.1, %52 ]
   store i32 -1, ptr %4, align 4
   store ptr %4, ptr %26, align 8
   call void @slurm_xfree(ptr noundef nonnull %1) #9
@@ -2521,18 +2513,17 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %29 = load ptr, ptr @oci_conf, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 264
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not10 = icmp eq i8 %32, 0
-  br i1 %.not10, label %33, label %36
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %36, label %33
 
 33:                                               ; preds = %27
-  %.not11 = icmp eq ptr %28, null
-  br i1 %.not11, label %.loopexit.loopexit, label %34
+  %.not9 = icmp eq ptr %28, null
+  br i1 %.not9, label %.loopexit.loopexit, label %34
 
 34:                                               ; preds = %33
   %35 = call i32 @xstrcasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.105) #9
-  %.not12 = icmp eq i32 %35, 0
-  br i1 %.not12, label %.loopexit.loopexit, label %36
+  %.not10 = icmp eq i32 %35, 0
+  br i1 %.not10, label %.loopexit.loopexit, label %36
 
 36:                                               ; preds = %34, %27
   %37 = call ptr @run_command(ptr noundef nonnull %2) #9
@@ -2552,9 +2543,8 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %44 = load ptr, ptr @oci_conf, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 264
   %46 = load i8, ptr %45, align 8
-  %47 = and i8 %46, 1
-  %.not13 = icmp eq i8 %47, 0
-  br i1 %.not13, label %48, label %.loopexit.loopexit
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %.loopexit.loopexit, label %48
 
 48:                                               ; preds = %43
   %49 = call i32 @get_log_level() #9
@@ -2562,15 +2552,15 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %48
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._kill_container, i32 noundef %.0615) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._kill_container, i32 noundef %.0612) #9
   br label %52
 
 52:                                               ; preds = %51, %48
-  %53 = call i32 @usleep(i32 noundef %.0615) #9
-  %54 = icmp sgt i32 %.0615, 1000000
-  %55 = shl nsw i32 %.0615, 1
+  %53 = call i32 @usleep(i32 noundef %.0612) #9
+  %54 = icmp sgt i32 %.0612, 1000000
+  %55 = shl nsw i32 %.0612, 1
   %.1 = select i1 %54, i32 1000000, i32 %55
-  %56 = add nuw nsw i32 %.016, 1
+  %56 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %56, 10
   br i1 %exitcond.not, label %.loopexit.loopexit, label %27, !llvm.loop !21
 
@@ -2580,8 +2570,8 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %18
   %57 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %19, %18 ]
-  %.not14 = icmp eq ptr %57, null
-  br i1 %.not14, label %.loopexit.thread, label %58
+  %.not11 = icmp eq ptr %57, null
+  br i1 %.not11, label %.loopexit.thread, label %58
 
 58:                                               ; preds = %.loopexit
   store i32 -1, ptr %5, align 4

@@ -127,9 +127,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_bfrop_close() #0 {
   %1 = load i8, ptr getelementptr inbounds (%struct.pmix_bfrops_globals_t, ptr @pmix_bfrops_globals, i64 0, i32 1), align 8
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %50, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %50
 
 3:                                                ; preds = %0
   store i8 0, ptr getelementptr inbounds (%struct.pmix_bfrops_globals_t, ptr @pmix_bfrops_globals, i64 0, i32 1), align 8
@@ -192,8 +191,8 @@ define internal i32 @pmix_bfrop_close() #0 {
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
   %34 = getelementptr inbounds i8, ptr %8, i64 96
   %35 = load ptr, ptr %34, align 8
-  %.not17 = icmp eq ptr %35, null
-  br i1 %.not17, label %38, label %36
+  %.not16 = icmp eq ptr %35, null
+  br i1 %.not16, label %38, label %36
 
 36:                                               ; preds = %pmix_obj_run_destructors.exit
   %37 = getelementptr inbounds i8, ptr %8, i64 56
@@ -214,24 +213,24 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
   %43 = getelementptr inbounds i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  %.not6.i18 = icmp eq ptr %45, null
-  br i1 %.not6.i18, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19
+  %.not6.i17 = icmp eq ptr %45, null
+  br i1 %.not6.i17, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18
 
-.lr.ph.i19:                                       ; preds = %._crit_edge, %.lr.ph.i19
-  %46 = phi ptr [ %48, %.lr.ph.i19 ], [ %45, %._crit_edge ]
-  %.07.i20 = phi ptr [ %47, %.lr.ph.i19 ], [ %44, %._crit_edge ]
+.lr.ph.i18:                                       ; preds = %._crit_edge, %.lr.ph.i18
+  %46 = phi ptr [ %48, %.lr.ph.i18 ], [ %45, %._crit_edge ]
+  %.07.i19 = phi ptr [ %47, %.lr.ph.i18 ], [ %44, %._crit_edge ]
   tail call void %46(ptr noundef nonnull @pmix_bfrops_globals) #10
-  %47 = getelementptr inbounds i8, ptr %.07.i20, i64 8
+  %47 = getelementptr inbounds i8, ptr %.07.i19, i64 8
   %48 = load ptr, ptr %47, align 8
-  %.not.i21 = icmp eq ptr %48, null
-  br i1 %.not.i21, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19, !llvm.loop !6
+  %.not.i20 = icmp eq ptr %48, null
+  br i1 %.not.i20, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18, !llvm.loop !6
 
-pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit_edge
+pmix_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %._crit_edge
   %49 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_bfrops_base_framework, ptr noundef null) #10
   br label %50
 
-50:                                               ; preds = %0, %pmix_obj_run_destructors.exit22
-  %.0 = phi i32 [ %49, %pmix_obj_run_destructors.exit22 ], [ 0, %0 ]
+50:                                               ; preds = %0, %pmix_obj_run_destructors.exit21
+  %.0 = phi i32 [ %49, %pmix_obj_run_destructors.exit21 ], [ 0, %0 ]
   ret i32 %.0
 }
 

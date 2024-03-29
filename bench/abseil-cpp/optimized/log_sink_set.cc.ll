@@ -53,8 +53,7 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal24ThreadIsLoggingToLo
 entry:
   %0 = tail call noundef nonnull align 1 dereferenceable(1) ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN4absl12log_internal12_GLOBAL__N_121ThreadIsLoggingStatusEvE17thread_is_logging)
   %1 = load i8, ptr %0, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -79,7 +78,7 @@ invoke.cont.i:                                    ; preds = %init.i
   br label %_ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit
 
 common.resume:                                    ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit17.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %17, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit17.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %16, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit17.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -110,41 +109,40 @@ _ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet11SendToSinksERKNS_8LogEnt
 if.then.i:                                        ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet11SendToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEE.exit.i
   %5 = tail call noundef nonnull align 1 dereferenceable(1) ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN4absl12log_internal12_GLOBAL__N_121ThreadIsLoggingStatusEvE17thread_is_logging)
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i, label %invoke.cont.i1, label %if.then3.i
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %if.then3.i, label %invoke.cont.i1
 
 if.then3.i:                                       ; preds = %if.then.i
   %text_message_with_prefix_and_newline_and_nul_.i.i = getelementptr inbounds i8, ptr %entry1, i64 64
-  %8 = load ptr, ptr %text_message_with_prefix_and_newline_and_nul_.i.i, align 8
+  %7 = load ptr, ptr %text_message_with_prefix_and_newline_and_nul_.i.i, align 8
   %len_.i.i.i = getelementptr inbounds i8, ptr %entry1, i64 72
-  %9 = load i64, ptr %len_.i.i.i, align 8
-  %sub.i.i = add i64 %9, -1
+  %8 = load i64, ptr %len_.i.i.i, align 8
+  %sub.i.i = add i64 %8, -1
   %severity_.i.i = getelementptr inbounds i8, ptr %entry1, i64 40
-  %10 = load i32, ptr %severity_.i.i, align 8
-  tail call void @_ZN4absl12log_internal13WriteToStderrESt17basic_string_viewIcSt11char_traitsIcEENS_11LogSeverityE(i64 %sub.i.i, ptr %8, i32 noundef %10)
+  %9 = load i32, ptr %severity_.i.i, align 8
+  tail call void @_ZN4absl12log_internal13WriteToStderrESt17basic_string_viewIcSt11char_traitsIcEENS_11LogSeverityE(i64 %sub.i.i, ptr %7, i32 noundef %9)
   br label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb.exit
 
 invoke.cont.i1:                                   ; preds = %if.then.i
   tail call void @_ZN4absl5Mutex10ReaderLockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
   store i8 1, ptr %5, align 1
-  %11 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
-  %cmp.not5.i6.i = icmp eq ptr %12, %11
+  %10 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
+  %cmp.not5.i6.i = icmp eq ptr %11, %10
   br i1 %cmp.not5.i6.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %for.body.i7.i
 
 for.body.i7.i:                                    ; preds = %invoke.cont.i1, %.noexc.i
-  %__begin3.06.i8.i = phi ptr [ %incdec.ptr.i11.i, %.noexc.i ], [ %11, %invoke.cont.i1 ]
-  %13 = load ptr, ptr %__begin3.06.i8.i, align 8
-  %vtable.i9.i = load ptr, ptr %13, align 8
+  %__begin3.06.i8.i = phi ptr [ %incdec.ptr.i11.i, %.noexc.i ], [ %10, %invoke.cont.i1 ]
+  %12 = load ptr, ptr %__begin3.06.i8.i, align 8
+  %vtable.i9.i = load ptr, ptr %12, align 8
   %vfn.i10.i = getelementptr inbounds i8, ptr %vtable.i9.i, i64 16
-  %14 = load ptr, ptr %vfn.i10.i, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(136) %entry1)
+  %13 = load ptr, ptr %vfn.i10.i, align 8
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(136) %entry1)
           to label %.noexc.i unwind label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit17.i
 
 .noexc.i:                                         ; preds = %for.body.i7.i
   %incdec.ptr.i11.i = getelementptr inbounds i8, ptr %__begin3.06.i8.i, i64 8
-  %cmp.not.i12.i = icmp eq ptr %incdec.ptr.i11.i, %12
+  %cmp.not.i12.i = icmp eq ptr %incdec.ptr.i11.i, %11
   br i1 %cmp.not.i12.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %for.body.i7.i
 
 _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i: ; preds = %.noexc.i, %invoke.cont.i1
@@ -153,24 +151,24 @@ _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116Glo
           to label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #18
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
 _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit17.i: ; preds = %for.body.i7.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   store i8 0, ptr %5, align 1
   invoke void @_ZN4absl5Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
           to label %common.resume unwind label %terminate.lpad.i18.i
 
 terminate.lpad.i18.i:                             ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit17.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #18
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #18
   unreachable
 
 _ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb.exit: ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet11SendToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEE.exit.i, %if.then3.i, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i
@@ -404,7 +402,7 @@ _ZN4absl15WriterMutexLockD2Ev.exit:               ; preds = %lpad
   resume { ptr, i32 } %13
 
 cleanup:                                          ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i, %invoke.cont
-  %cmp.i7 = phi i1 [ true, %invoke.cont ], [ false, %if.then.i ], [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %switch = phi i1 [ true, %invoke.cont ], [ false, %if.then.i ], [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
           to label %_ZN4absl15WriterMutexLockD2Ev.exit7 unwind label %terminate.lpad.i6
 
@@ -416,7 +414,7 @@ terminate.lpad.i6:                                ; preds = %cleanup
   unreachable
 
 _ZN4absl15WriterMutexLockD2Ev.exit7:              ; preds = %cleanup
-  br i1 %cmp.i7, label %do.body, label %do.end19
+  br i1 %switch, label %do.body, label %do.end19
 
 do.body:                                          ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit7
   store ptr @.str, ptr %absl_raw_log_internal_filename, align 8
@@ -588,7 +586,7 @@ _ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i, %invoke.cont.i1, %for.end.i.i.i.i
-  %cmp.i6.i = phi i1 [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i ], [ true, %invoke.cont.i1 ], [ true, %for.end.i.i.i.i ]
+  %switch.i = phi i1 [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i ], [ true, %invoke.cont.i1 ], [ true, %for.end.i.i.i.i ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
           to label %_ZN4absl15WriterMutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
@@ -600,7 +598,7 @@ terminate.lpad.i1.i:                              ; preds = %cleanup.i
   unreachable
 
 _ZN4absl15WriterMutexLockD2Ev.exit2.i:            ; preds = %cleanup.i
-  br i1 %cmp.i6.i, label %do.body.i, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13RemoveLogSinkEPNS_7LogSinkE.exit
+  br i1 %switch.i, label %do.body.i, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13RemoveLogSinkEPNS_7LogSinkE.exit
 
 do.body.i:                                        ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit2.i
   store ptr @.str, ptr %absl_raw_log_internal_filename.i, align 8
@@ -637,7 +635,7 @@ invoke.cont.i:                                    ; preds = %init.i
   br label %_ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit
 
 common.resume:                                    ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit13.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %16, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit13.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %15, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit13.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -649,48 +647,47 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   %3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN4absl12log_internal12_GLOBAL__N_121ThreadIsLoggingStatusEvE17thread_is_logging)
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i, label %invoke.cont.i1, label %if.then.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %invoke.cont.i1
 
 if.then.i:                                        ; preds = %_ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit
   tail call void @_ZNK4absl5Mutex16AssertReaderHeldEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
-  %6 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
-  %cmp.i.not3.i.i = icmp eq ptr %6, %7
+  %5 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
+  %cmp.i.not3.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.not3.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEv.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
-  %__begin3.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %6, %if.then.i ]
-  %8 = load ptr, ptr %__begin3.sroa.0.04.i.i, align 8
-  %vtable.i.i = load ptr, ptr %8, align 8
+  %__begin3.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %5, %if.then.i ]
+  %7 = load ptr, ptr %__begin3.sroa.0.04.i.i, align 8
+  %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %9 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %8 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.04.i.i, i64 8
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %7
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %6
   br i1 %cmp.i.not.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEv.exit, label %for.body.i.i
 
 invoke.cont.i1:                                   ; preds = %_ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit
   tail call void @_ZN4absl5Mutex10ReaderLockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
   store i8 1, ptr %3, align 1
-  %10 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
-  %cmp.i.not3.i2.i = icmp eq ptr %10, %11
+  %9 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
+  %cmp.i.not3.i2.i = icmp eq ptr %9, %10
   br i1 %cmp.i.not3.i2.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit.i, label %for.body.i3.i
 
 for.body.i3.i:                                    ; preds = %invoke.cont.i1, %.noexc.i
-  %__begin3.sroa.0.04.i4.i = phi ptr [ %incdec.ptr.i.i7.i, %.noexc.i ], [ %10, %invoke.cont.i1 ]
-  %12 = load ptr, ptr %__begin3.sroa.0.04.i4.i, align 8
-  %vtable.i5.i = load ptr, ptr %12, align 8
+  %__begin3.sroa.0.04.i4.i = phi ptr [ %incdec.ptr.i.i7.i, %.noexc.i ], [ %9, %invoke.cont.i1 ]
+  %11 = load ptr, ptr %__begin3.sroa.0.04.i4.i, align 8
+  %vtable.i5.i = load ptr, ptr %11, align 8
   %vfn.i6.i = getelementptr inbounds i8, ptr %vtable.i5.i, i64 24
-  %13 = load ptr, ptr %vfn.i6.i, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %12 = load ptr, ptr %vfn.i6.i, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %.noexc.i unwind label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit13.i
 
 .noexc.i:                                         ; preds = %for.body.i3.i
   %incdec.ptr.i.i7.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.04.i4.i, i64 8
-  %cmp.i.not.i8.i = icmp eq ptr %incdec.ptr.i.i7.i, %11
+  %cmp.i.not.i8.i = icmp eq ptr %incdec.ptr.i.i7.i, %10
   br i1 %cmp.i.not.i8.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit.i, label %for.body.i3.i
 
 _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit.i: ; preds = %.noexc.i, %invoke.cont.i1
@@ -699,24 +696,24 @@ _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116Glo
           to label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #18
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #18
   unreachable
 
 _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit13.i: ; preds = %for.body.i3.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   store i8 0, ptr %3, align 1
   invoke void @_ZN4absl5Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
           to label %common.resume unwind label %terminate.lpad.i14.i
 
 terminate.lpad.i14.i:                             ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit13.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #18
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #18
   unreachable
 
 _ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEv.exit: ; preds = %for.body.i.i, %if.then.i, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet13FlushLogSinksEvEUlvE_ED2Ev.exit.i

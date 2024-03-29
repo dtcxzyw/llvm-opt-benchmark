@@ -303,9 +303,8 @@ entry:
   %cpuId = alloca %"class.Imf_3_2::CpuId", align 1
   call void @_ZN7Imf_3_25CpuIdC1Ev(ptr noundef nonnull align 1 dereferenceable(7) %cpuId)
   %0 = load i8, ptr %cpuId, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store ptr @_ZN7Imf_3_212_GLOBAL__N_115interleave_sse2EPKcmPc, ptr @_ZN7Imf_3_212_GLOBAL__N_110interleaveE, align 8

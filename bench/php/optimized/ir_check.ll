@@ -70,7 +70,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
 
 15:                                               ; preds = %.lr.ph381, %424
   %.0252379 = phi i32 [ 1, %.lr.ph381 ], [ %427, %424 ]
-  %.0253378 = phi i8 [ 1, %.lr.ph381 ], [ %.11, %424 ]
+  %.0253378 = phi i1 [ true, %.lr.ph381 ], [ %.11, %424 ]
   %.0264377 = phi ptr [ %6, %.lr.ph381 ], [ %429, %424 ]
   %16 = load i8, ptr %.0264377, align 8
   %17 = icmp ugt i8 %16, 105
@@ -113,7 +113,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   br label %38
 
 38:                                               ; preds = %.lr.ph354, %.thread333
-  %.1254353 = phi i8 [ %.0253378, %.lr.ph354 ], [ %.7, %.thread333 ]
+  %.1254353 = phi i1 [ %.0253378, %.lr.ph354 ], [ %.7, %.thread333 ]
   %.0258352 = phi i32 [ 1, %.lr.ph354 ], [ %234, %.thread333 ]
   %.0261351 = phi ptr [ %33, %.lr.ph354 ], [ %235, %.thread333 ]
   %39 = load i32, ptr %.0261351, align 4
@@ -145,7 +145,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   br label %52
 
 52:                                               ; preds = %49, %47
-  %.2255 = phi i8 [ 0, %49 ], [ %.1254353, %47 ]
+  %.2255 = phi i1 [ false, %49 ], [ %.1254353, %47 ]
   %53 = load ptr, ptr %0, align 8
   %54 = zext nneg i32 %39 to i64
   %55 = getelementptr inbounds %struct._ir_insn, ptr %53, i64 %54
@@ -187,7 +187,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   br label %76
 
 76:                                               ; preds = %69, %73, %61
-  %.3256 = phi i8 [ %.2255, %61 ], [ 0, %73 ], [ %.2255, %69 ]
+  %.3256 = phi i1 [ %.2255, %61 ], [ false, %73 ], [ %.2255, %69 ]
   %.not308 = icmp slt i32 %39, %.0252379
   br i1 %.not308, label %93, label %77
 
@@ -217,7 +217,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   br label %93
 
 93:                                               ; preds = %90, %83, %80, %76
-  %.4257 = phi i8 [ %.3256, %83 ], [ 0, %90 ], [ %.3256, %80 ], [ %.3256, %76 ]
+  %.4257 = phi i1 [ %.3256, %83 ], [ false, %90 ], [ %.3256, %80 ], [ %.3256, %76 ]
   br i1 %.not310, label %122, label %94
 
 94:                                               ; preds = %93
@@ -303,7 +303,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   br label %122
 
 122:                                              ; preds = %112, %116, %116, %94, %96, %104, %117, %98, %93
-  %.5 = phi i8 [ %.4257, %94 ], [ %.4257, %104 ], [ %.4257, %116 ], [ 0, %117 ], [ %.4257, %98 ], [ %.4257, %96 ], [ %.4257, %93 ], [ %.4257, %116 ], [ %.4257, %112 ]
+  %.5 = phi i1 [ %.4257, %94 ], [ %.4257, %104 ], [ %.4257, %116 ], [ false, %117 ], [ %.4257, %98 ], [ %.4257, %96 ], [ %.4257, %93 ], [ %.4257, %116 ], [ %.4257, %112 ]
   %123 = load i32, ptr %7, align 4
   %124 = and i32 %123, 32
   %.not312 = icmp eq i32 %124, 0
@@ -481,7 +481,7 @@ ir_check_domination.exit:                         ; preds = %129
   br label %.thread333
 
 .thread330:                                       ; preds = %166, %._crit_edge.i, %173, %182, %188, %168, %179, %171, %158, %157, %162, %161, %122, %125, %127, %ir_check_domination.exit, %148, %191
-  %.6 = phi i8 [ 0, %191 ], [ %.2255, %182 ], [ 0, %188 ], [ 0, %179 ], [ %.2255, %171 ], [ 0, %168 ], [ %.2255, %157 ], [ 0, %158 ], [ 0, %162 ], [ %.2255, %161 ], [ %.5, %ir_check_domination.exit ], [ 0, %148 ], [ %.5, %127 ], [ %.5, %125 ], [ %.5, %122 ], [ %.2255, %173 ], [ %.5, %._crit_edge.i ], [ %.2255, %166 ]
+  %.6 = phi i1 [ false, %191 ], [ %.2255, %182 ], [ false, %188 ], [ false, %179 ], [ %.2255, %171 ], [ false, %168 ], [ %.2255, %157 ], [ false, %158 ], [ false, %162 ], [ %.2255, %161 ], [ %.5, %ir_check_domination.exit ], [ false, %148 ], [ %.5, %127 ], [ %.5, %125 ], [ %.5, %122 ], [ %.2255, %173 ], [ %.5, %._crit_edge.i ], [ %.2255, %166 ]
   %216 = load ptr, ptr %10, align 8
   %.not342 = icmp eq ptr %216, null
   br i1 %.not342, label %.thread333, label %217
@@ -525,7 +525,7 @@ ir_check_use_list.exit.thread:                    ; preds = %217, %ir_check_use_
   br label %.thread333
 
 .thread333:                                       ; preds = %.lr.ph.preheader.i, %42, %44, %202, %213, %205, %200, %197, %.thread330, %ir_check_use_list.exit, %ir_check_use_list.exit.thread
-  %.7 = phi i8 [ %.6, %ir_check_use_list.exit ], [ 0, %ir_check_use_list.exit.thread ], [ %.6, %.thread330 ], [ %.1254353, %197 ], [ %.1254353, %205 ], [ 0, %213 ], [ %.1254353, %202 ], [ %.1254353, %200 ], [ %.1254353, %42 ], [ 0, %44 ], [ %.6, %.lr.ph.preheader.i ]
+  %.7 = phi i1 [ %.6, %ir_check_use_list.exit ], [ false, %ir_check_use_list.exit.thread ], [ %.6, %.thread330 ], [ %.1254353, %197 ], [ %.1254353, %205 ], [ false, %213 ], [ %.1254353, %202 ], [ %.1254353, %200 ], [ %.1254353, %42 ], [ false, %44 ], [ %.6, %.lr.ph.preheader.i ]
   %234 = add nuw nsw i32 %.0258352, 1
   %235 = getelementptr inbounds i8, ptr %.0261351, i64 4
   %exitcond.not = icmp eq i32 %.0258352, %.0251
@@ -537,7 +537,7 @@ ir_check_use_list.exit.thread:                    ; preds = %217, %ir_check_use_
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %32
   %236 = phi i8 [ %16, %32 ], [ %.pre, %._crit_edge.loopexit ]
-  %.1254.lcssa = phi i8 [ %.0253378, %32 ], [ %.7, %._crit_edge.loopexit ]
+  %.1254.lcssa = phi i1 [ %.0253378, %32 ], [ %.7, %._crit_edge.loopexit ]
   switch i8 %236, label %307 [
     i8 59, label %237
     i8 78, label %252
@@ -655,7 +655,7 @@ ir_check_use_list.exit.thread:                    ; preds = %217, %ir_check_use_
   br label %307
 
 307:                                              ; preds = %299, %304, %294, %296, %270, %277, %252, %263, %._crit_edge390, %237, %249, %._crit_edge
-  %.8 = phi i8 [ %.1254.lcssa, %._crit_edge ], [ 0, %304 ], [ %.1254.lcssa, %299 ], [ 0, %296 ], [ %.1254.lcssa, %294 ], [ 0, %277 ], [ %.1254.lcssa, %270 ], [ 0, %._crit_edge390 ], [ %.1254.lcssa, %263 ], [ %.1254.lcssa, %252 ], [ 0, %249 ], [ %.1254.lcssa, %237 ]
+  %.8 = phi i1 [ %.1254.lcssa, %._crit_edge ], [ false, %304 ], [ %.1254.lcssa, %299 ], [ false, %296 ], [ %.1254.lcssa, %294 ], [ false, %277 ], [ %.1254.lcssa, %270 ], [ false, %._crit_edge390 ], [ %.1254.lcssa, %263 ], [ %.1254.lcssa, %252 ], [ false, %249 ], [ %.1254.lcssa, %237 ]
   %308 = load ptr, ptr %10, align 8
   %.not289 = icmp eq ptr %308, null
   br i1 %.not289, label %424, label %309
@@ -677,7 +677,7 @@ ir_check_use_list.exit.thread:                    ; preds = %217, %ir_check_use_
 
 .lr.ph366:                                        ; preds = %.lr.ph366.preheader, %.critedge
   %319 = phi i32 [ %341, %.critedge ], [ %313, %.lr.ph366.preheader ]
-  %.9364 = phi i8 [ %.10, %.critedge ], [ %.8, %.lr.ph366.preheader ]
+  %.9364 = phi i1 [ %.10, %.critedge ], [ %.8, %.lr.ph366.preheader ]
   %.1259363 = phi i32 [ %342, %.critedge ], [ 0, %.lr.ph366.preheader ]
   %.1262362 = phi ptr [ %343, %.critedge ], [ %318, %.lr.ph366.preheader ]
   %320 = load i32, ptr %.1262362, align 4
@@ -735,14 +735,14 @@ ir_check_input_list.exit.thread:                  ; preds = %333, %ir_check_inpu
 
 .critedge:                                        ; preds = %.lr.ph.i327.preheader, %ir_check_input_list.exit, %ir_check_input_list.exit.thread
   %341 = phi i32 [ %319, %ir_check_input_list.exit ], [ %.pre389, %ir_check_input_list.exit.thread ], [ %319, %.lr.ph.i327.preheader ]
-  %.10 = phi i8 [ %.9364, %ir_check_input_list.exit ], [ 0, %ir_check_input_list.exit.thread ], [ %.9364, %.lr.ph.i327.preheader ]
+  %.10 = phi i1 [ %.9364, %ir_check_input_list.exit ], [ false, %ir_check_input_list.exit.thread ], [ %.9364, %.lr.ph.i327.preheader ]
   %342 = add nuw nsw i32 %.1259363, 1
   %343 = getelementptr inbounds i8, ptr %.1262362, i64 4
   %344 = icmp slt i32 %342, %341
   br i1 %344, label %.lr.ph366, label %._crit_edge367
 
 ._crit_edge367:                                   ; preds = %.critedge, %309
-  %.9.lcssa = phi i8 [ %.8, %309 ], [ %.10, %.critedge ]
+  %.9.lcssa = phi i1 [ %.8, %309 ], [ %.10, %.critedge ]
   %.lcssa343 = phi i32 [ %313, %309 ], [ %341, %.critedge ]
   %345 = and i32 %25, 1536
   %or.cond317 = icmp eq i32 %345, 512
@@ -893,7 +893,7 @@ ir_check_input_list.exit.thread:                  ; preds = %333, %ir_check_inpu
   br label %424
 
 424:                                              ; preds = %357, %._crit_edge367, %._crit_edge375, %418, %402, %394, %369, %.thread338, %358, %353, %354, %348, %350, %307
-  %.11 = phi i8 [ %.9.lcssa, %394 ], [ %.9.lcssa, %402 ], [ 0, %418 ], [ %.9.lcssa, %._crit_edge375 ], [ 0, %.thread338 ], [ %.9.lcssa, %369 ], [ %.9.lcssa, %358 ], [ 0, %354 ], [ %.9.lcssa, %353 ], [ 0, %350 ], [ %.9.lcssa, %348 ], [ %.9.lcssa, %._crit_edge367 ], [ %.8, %307 ], [ %.9.lcssa, %357 ]
+  %.11 = phi i1 [ %.9.lcssa, %394 ], [ %.9.lcssa, %402 ], [ false, %418 ], [ %.9.lcssa, %._crit_edge375 ], [ false, %.thread338 ], [ %.9.lcssa, %369 ], [ %.9.lcssa, %358 ], [ false, %354 ], [ %.9.lcssa, %353 ], [ false, %350 ], [ %.9.lcssa, %348 ], [ %.9.lcssa, %._crit_edge367 ], [ %.8, %307 ], [ %.9.lcssa, %357 ]
   %425 = lshr i32 %.0251, 2
   %426 = add nuw nsw i32 %425, 1
   %427 = add nuw nsw i32 %426, %.0252379
@@ -901,15 +901,10 @@ ir_check_input_list.exit.thread:                  ; preds = %333, %ir_check_inpu
   %429 = getelementptr inbounds %struct._ir_insn, ptr %.0264377, i64 %428
   %430 = load i32, ptr %2, align 8
   %431 = icmp slt i32 %427, %430
-  br i1 %431, label %15, label %.loopexit.loopexit
+  br i1 %431, label %15, label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %424
-  %432 = and i8 %.11, 1
-  %433 = icmp ne i8 %432, 0
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %1, %18
-  %.12 = phi i1 [ false, %18 ], [ true, %1 ], [ %433, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %424, %1, %18
+  %.12 = phi i1 [ false, %18 ], [ true, %1 ], [ %.11, %424 ]
   ret i1 %.12
 }
 

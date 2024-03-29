@@ -52,9 +52,9 @@ qobject_check_type.exit:                          ; preds = %if.end
   %value = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i8, ptr %value, align 8
   %call4 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %rhs) #5
-  %3 = and i8 %2, 1
-  %4 = icmp eq i8 %3, 0
-  %cmp6 = xor i1 %call4, %4
+  %3 = trunc i8 %2 to i1
+  %4 = xor i1 %call4, %3
+  %cmp6 = xor i1 %4, true
   br label %return
 
 qobject_check_type.exit18:                        ; preds = %if.end
@@ -231,8 +231,7 @@ for.body50:                                       ; preds = %sw.bb44, %for.body5
 sw.bb65:                                          ; preds = %entry
   %value66 = getelementptr inbounds i8, ptr %qlit, i64 8
   %11 = load i8, ptr %value66, align 8
-  %12 = and i8 %11, 1
-  %tobool67 = icmp ne i8 %12, 0
+  %tobool67 = trunc i8 %11 to i1
   %call68 = tail call ptr @qbool_from_bool(i1 noundef zeroext %tobool67) #5
   br label %return
 

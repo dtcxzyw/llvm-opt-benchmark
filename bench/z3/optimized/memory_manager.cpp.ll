@@ -150,8 +150,7 @@ declare i32 @__gxx_personality_v0(...)
 define hidden noundef zeroext i1 @_ZN6memory16is_out_of_memoryEv() local_unnamed_addr #6 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZL22g_memory_out_of_memory.0 seq_cst, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   ret i1 %tobool.i.i
 }
 
@@ -497,13 +496,12 @@ define internal fastcc void @_ZL19throw_out_of_memoryv() unnamed_addr #12 person
 entry:
   store atomic i8 1, ptr @_ZL22g_memory_out_of_memory.0 seq_cst, align 1
   %0 = load i8, ptr @_ZL25g_exit_when_out_of_memory, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr @_ZL19g_out_of_memory_msg, align 8
-  %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %2)
+  %1 = load ptr, ptr @_ZL19g_out_of_memory_msg, align 8
+  %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %1)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @.str.4)
   tail call void @exit(i32 noundef 101) #24
   unreachable
@@ -518,10 +516,10 @@ invoke.cont:                                      ; preds = %if.else
   unreachable
 
 lpad:                                             ; preds = %if.else
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #22
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable

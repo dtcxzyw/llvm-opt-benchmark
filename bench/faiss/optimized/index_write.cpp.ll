@@ -4492,7 +4492,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %218 = alloca %"class.std::__cxx11::basic_string", align 8
   %219 = alloca %"class.std::allocator.0", align 1
   %220 = icmp eq ptr %0, null
-  br i1 %220, label %.thread2353, label %221
+  br i1 %220, label %.thread2352, label %221
 
 221:                                              ; preds = %2
   %222 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss9IndexFlatE, i64 0) #18
@@ -4557,9 +4557,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %257
 
 257:                                              ; preds = %255, %253
-  %.pn2225 = phi { ptr, i32 } [ %254, %253 ], [ %256, %255 ]
+  %.pn2224 = phi { ptr, i32 } [ %254, %253 ], [ %256, %255 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 258:                                              ; preds = %223
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -4609,9 +4609,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %283
 
 283:                                              ; preds = %281, %279
-  %.pn2227 = phi { ptr, i32 } [ %280, %279 ], [ %282, %281 ]
+  %.pn2226 = phi { ptr, i32 } [ %280, %279 ], [ %282, %281 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 284:                                              ; preds = %258
   %285 = lshr exact i64 %265, 2
@@ -4665,9 +4665,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %313
 
 313:                                              ; preds = %311, %309
-  %.pn2229 = phi { ptr, i32 } [ %310, %309 ], [ %312, %311 ]
+  %.pn2228 = phi { ptr, i32 } [ %310, %309 ], [ %312, %311 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 314:                                              ; preds = %284
   %315 = load ptr, ptr %259, align 8
@@ -4679,7 +4679,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %321 = load i64, ptr %6, align 8
   %322 = shl i64 %321, 2
   %323 = icmp eq i64 %320, %322
-  br i1 %323, label %.thread2317, label %324
+  br i1 %323, label %.thread2316, label %324
 
 324:                                              ; preds = %314
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
@@ -4728,9 +4728,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %351
 
 351:                                              ; preds = %349, %347
-  %.pn2231 = phi { ptr, i32 } [ %348, %347 ], [ %350, %349 ]
+  %.pn2230 = phi { ptr, i32 } [ %348, %347 ], [ %350, %349 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 352:                                              ; preds = %221
   %353 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss8IndexLSHE, i64 0) #18
@@ -4789,9 +4789,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %383
 
 383:                                              ; preds = %381, %379
-  %.pn2207 = phi { ptr, i32 } [ %380, %379 ], [ %382, %381 ]
+  %.pn2206 = phi { ptr, i32 } [ %380, %379 ], [ %382, %381 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 384:                                              ; preds = %354
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -4845,9 +4845,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %413
 
 413:                                              ; preds = %411, %409
-  %.pn2209 = phi { ptr, i32 } [ %410, %409 ], [ %412, %411 ]
+  %.pn2208 = phi { ptr, i32 } [ %410, %409 ], [ %412, %411 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 414:                                              ; preds = %384
   %415 = getelementptr inbounds i8, ptr %353, i64 76
@@ -4900,9 +4900,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %443
 
 443:                                              ; preds = %441, %439
-  %.pn2211 = phi { ptr, i32 } [ %440, %439 ], [ %442, %441 ]
+  %.pn2210 = phi { ptr, i32 } [ %440, %439 ], [ %442, %441 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 444:                                              ; preds = %414
   %445 = getelementptr inbounds i8, ptr %353, i64 77
@@ -4955,9 +4955,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %473
 
 473:                                              ; preds = %471, %469
-  %.pn2213 = phi { ptr, i32 } [ %470, %469 ], [ %472, %471 ]
+  %.pn2212 = phi { ptr, i32 } [ %470, %469 ], [ %472, %471 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 474:                                              ; preds = %444
   %475 = getelementptr inbounds i8, ptr %353, i64 160
@@ -5018,9 +5018,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %510
 
 510:                                              ; preds = %508, %506
-  %.pn2215 = phi { ptr, i32 } [ %507, %506 ], [ %509, %508 ]
+  %.pn2214 = phi { ptr, i32 } [ %507, %506 ], [ %509, %508 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 511:                                              ; preds = %474
   %512 = load ptr, ptr %475, align 8
@@ -5077,9 +5077,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %544
 
 544:                                              ; preds = %542, %540
-  %.pn2217 = phi { ptr, i32 } [ %541, %540 ], [ %543, %542 ]
+  %.pn2216 = phi { ptr, i32 } [ %541, %540 ], [ %543, %542 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 545:                                              ; preds = %511
   %546 = getelementptr inbounds i8, ptr %353, i64 40
@@ -5135,9 +5135,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %576
 
 576:                                              ; preds = %574, %572
-  %.pn2219 = phi { ptr, i32 } [ %573, %572 ], [ %575, %574 ]
+  %.pn2218 = phi { ptr, i32 } [ %573, %572 ], [ %575, %574 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 577:                                              ; preds = %545
   %578 = getelementptr inbounds i8, ptr %353, i64 80
@@ -5199,9 +5199,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %613
 
 613:                                              ; preds = %611, %609
-  %.pn2221 = phi { ptr, i32 } [ %610, %609 ], [ %612, %611 ]
+  %.pn2220 = phi { ptr, i32 } [ %610, %609 ], [ %612, %611 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 614:                                              ; preds = %577
   %615 = load ptr, ptr %579, align 8
@@ -5211,7 +5211,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %619 = call noundef i64 %618(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %615, i64 noundef 1, i64 noundef %616)
   %620 = load i64, ptr %19, align 8
   %621 = icmp eq i64 %619, %620
-  br i1 %621, label %.thread2317, label %622
+  br i1 %621, label %.thread2316, label %622
 
 622:                                              ; preds = %614
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
@@ -5258,9 +5258,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %647
 
 647:                                              ; preds = %645, %643
-  %.pn2223 = phi { ptr, i32 } [ %644, %643 ], [ %646, %645 ]
+  %.pn2222 = phi { ptr, i32 } [ %644, %643 ], [ %646, %645 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 648:                                              ; preds = %352
   %649 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss7IndexPQE, i64 0) #18
@@ -5319,9 +5319,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %679
 
 679:                                              ; preds = %677, %675
-  %.pn2195 = phi { ptr, i32 } [ %676, %675 ], [ %678, %677 ]
+  %.pn2194 = phi { ptr, i32 } [ %676, %675 ], [ %678, %677 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 680:                                              ; preds = %650
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -5384,9 +5384,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %716
 
 716:                                              ; preds = %714, %712
-  %.pn2197 = phi { ptr, i32 } [ %713, %712 ], [ %715, %714 ]
+  %.pn2196 = phi { ptr, i32 } [ %713, %712 ], [ %715, %714 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 717:                                              ; preds = %680
   %718 = load ptr, ptr %682, align 8
@@ -5443,9 +5443,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %750
 
 750:                                              ; preds = %748, %746
-  %.pn2199 = phi { ptr, i32 } [ %747, %746 ], [ %749, %748 ]
+  %.pn2198 = phi { ptr, i32 } [ %747, %746 ], [ %749, %748 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 751:                                              ; preds = %717
   %752 = getelementptr inbounds i8, ptr %649, i64 384
@@ -5498,9 +5498,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %780
 
 780:                                              ; preds = %778, %776
-  %.pn2201 = phi { ptr, i32 } [ %777, %776 ], [ %779, %778 ]
+  %.pn2200 = phi { ptr, i32 } [ %777, %776 ], [ %779, %778 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 781:                                              ; preds = %751
   %782 = getelementptr inbounds i8, ptr %649, i64 388
@@ -5553,9 +5553,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %810
 
 810:                                              ; preds = %808, %806
-  %.pn2203 = phi { ptr, i32 } [ %807, %806 ], [ %809, %808 ]
+  %.pn2202 = phi { ptr, i32 } [ %807, %806 ], [ %809, %808 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 811:                                              ; preds = %781
   %812 = getelementptr inbounds i8, ptr %649, i64 392
@@ -5563,7 +5563,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %814 = load ptr, ptr %813, align 8
   %815 = call noundef i64 %814(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %812, i64 noundef 4, i64 noundef 1)
   %816 = icmp eq i64 %815, 1
-  br i1 %816, label %.thread2317, label %817
+  br i1 %816, label %.thread2316, label %817
 
 817:                                              ; preds = %811
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
@@ -5608,9 +5608,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %840
 
 840:                                              ; preds = %838, %836
-  %.pn2205 = phi { ptr, i32 } [ %837, %836 ], [ %839, %838 ]
+  %.pn2204 = phi { ptr, i32 } [ %837, %836 ], [ %839, %838 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 841:                                              ; preds = %648
   %842 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss22IndexResidualQuantizerE, i64 0) #18
@@ -5669,9 +5669,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %872
 
 872:                                              ; preds = %870, %868
-  %.pn2187 = phi { ptr, i32 } [ %869, %868 ], [ %871, %870 ]
+  %.pn2186 = phi { ptr, i32 } [ %869, %868 ], [ %871, %870 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 873:                                              ; preds = %843
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -5727,9 +5727,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %903
 
 903:                                              ; preds = %901, %899
-  %.pn2189 = phi { ptr, i32 } [ %900, %899 ], [ %902, %901 ]
+  %.pn2188 = phi { ptr, i32 } [ %900, %899 ], [ %902, %901 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 904:                                              ; preds = %873
   %905 = getelementptr inbounds i8, ptr %842, i64 48
@@ -5789,9 +5789,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %939
 
 939:                                              ; preds = %937, %935
-  %.pn2191 = phi { ptr, i32 } [ %936, %935 ], [ %938, %937 ]
+  %.pn2190 = phi { ptr, i32 } [ %936, %935 ], [ %938, %937 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 940:                                              ; preds = %904
   %941 = load ptr, ptr %905, align 8
@@ -5801,7 +5801,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %945 = call noundef i64 %944(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %941, i64 noundef 1, i64 noundef %942)
   %946 = load i64, ptr %33, align 8
   %947 = icmp eq i64 %945, %946
-  br i1 %947, label %.thread2317, label %948
+  br i1 %947, label %.thread2316, label %948
 
 948:                                              ; preds = %940
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #18
@@ -5848,9 +5848,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %973
 
 973:                                              ; preds = %971, %969
-  %.pn2193 = phi { ptr, i32 } [ %970, %969 ], [ %972, %971 ]
+  %.pn2192 = phi { ptr, i32 } [ %970, %969 ], [ %972, %971 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 974:                                              ; preds = %841
   %975 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss25IndexLocalSearchQuantizerE, i64 0) #18
@@ -5909,9 +5909,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1005
 
 1005:                                             ; preds = %1003, %1001
-  %.pn2179 = phi { ptr, i32 } [ %1002, %1001 ], [ %1004, %1003 ]
+  %.pn2178 = phi { ptr, i32 } [ %1002, %1001 ], [ %1004, %1003 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1006:                                             ; preds = %976
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -5967,9 +5967,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1036
 
 1036:                                             ; preds = %1034, %1032
-  %.pn2181 = phi { ptr, i32 } [ %1033, %1032 ], [ %1035, %1034 ]
+  %.pn2180 = phi { ptr, i32 } [ %1033, %1032 ], [ %1035, %1034 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1037:                                             ; preds = %1006
   %1038 = getelementptr inbounds i8, ptr %975, i64 48
@@ -6029,9 +6029,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1072
 
 1072:                                             ; preds = %1070, %1068
-  %.pn2183 = phi { ptr, i32 } [ %1069, %1068 ], [ %1071, %1070 ]
+  %.pn2182 = phi { ptr, i32 } [ %1069, %1068 ], [ %1071, %1070 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1073:                                             ; preds = %1037
   %1074 = load ptr, ptr %1038, align 8
@@ -6041,7 +6041,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %1078 = call noundef i64 %1077(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %1074, i64 noundef 1, i64 noundef %1075)
   %1079 = load i64, ptr %39, align 8
   %1080 = icmp eq i64 %1078, %1079
-  br i1 %1080, label %.thread2317, label %1081
+  br i1 %1080, label %.thread2316, label %1081
 
 1081:                                             ; preds = %1073
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #18
@@ -6088,9 +6088,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1106
 
 1106:                                             ; preds = %1104, %1102
-  %.pn2185 = phi { ptr, i32 } [ %1103, %1102 ], [ %1105, %1104 ]
+  %.pn2184 = phi { ptr, i32 } [ %1103, %1102 ], [ %1105, %1104 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1107:                                             ; preds = %974
   %1108 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss29IndexProductResidualQuantizerE, i64 0) #18
@@ -6149,9 +6149,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1138
 
 1138:                                             ; preds = %1136, %1134
-  %.pn2171 = phi { ptr, i32 } [ %1135, %1134 ], [ %1137, %1136 ]
+  %.pn2170 = phi { ptr, i32 } [ %1135, %1134 ], [ %1137, %1136 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1139:                                             ; preds = %1109
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -6207,9 +6207,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1169
 
 1169:                                             ; preds = %1167, %1165
-  %.pn2173 = phi { ptr, i32 } [ %1166, %1165 ], [ %1168, %1167 ]
+  %.pn2172 = phi { ptr, i32 } [ %1166, %1165 ], [ %1168, %1167 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1170:                                             ; preds = %1139
   %1171 = getelementptr inbounds i8, ptr %1108, i64 48
@@ -6269,9 +6269,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1205
 
 1205:                                             ; preds = %1203, %1201
-  %.pn2175 = phi { ptr, i32 } [ %1202, %1201 ], [ %1204, %1203 ]
+  %.pn2174 = phi { ptr, i32 } [ %1202, %1201 ], [ %1204, %1203 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1206:                                             ; preds = %1170
   %1207 = load ptr, ptr %1171, align 8
@@ -6281,7 +6281,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %1211 = call noundef i64 %1210(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %1207, i64 noundef 1, i64 noundef %1208)
   %1212 = load i64, ptr %45, align 8
   %1213 = icmp eq i64 %1211, %1212
-  br i1 %1213, label %.thread2317, label %1214
+  br i1 %1213, label %.thread2316, label %1214
 
 1214:                                             ; preds = %1206
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #18
@@ -6328,9 +6328,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1239
 
 1239:                                             ; preds = %1237, %1235
-  %.pn2177 = phi { ptr, i32 } [ %1236, %1235 ], [ %1238, %1237 ]
+  %.pn2176 = phi { ptr, i32 } [ %1236, %1235 ], [ %1238, %1237 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1240:                                             ; preds = %1107
   %1241 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss32IndexProductLocalSearchQuantizerE, i64 0) #18
@@ -6389,9 +6389,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1271
 
 1271:                                             ; preds = %1269, %1267
-  %.pn2163 = phi { ptr, i32 } [ %1268, %1267 ], [ %1270, %1269 ]
+  %.pn2162 = phi { ptr, i32 } [ %1268, %1267 ], [ %1270, %1269 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1272:                                             ; preds = %1242
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -6447,9 +6447,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1302
 
 1302:                                             ; preds = %1300, %1298
-  %.pn2165 = phi { ptr, i32 } [ %1299, %1298 ], [ %1301, %1300 ]
+  %.pn2164 = phi { ptr, i32 } [ %1299, %1298 ], [ %1301, %1300 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1303:                                             ; preds = %1272
   %1304 = getelementptr inbounds i8, ptr %1241, i64 48
@@ -6509,9 +6509,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1338
 
 1338:                                             ; preds = %1336, %1334
-  %.pn2167 = phi { ptr, i32 } [ %1335, %1334 ], [ %1337, %1336 ]
+  %.pn2166 = phi { ptr, i32 } [ %1335, %1334 ], [ %1337, %1336 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1339:                                             ; preds = %1303
   %1340 = load ptr, ptr %1304, align 8
@@ -6521,7 +6521,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %1344 = call noundef i64 %1343(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %1340, i64 noundef 1, i64 noundef %1341)
   %1345 = load i64, ptr %51, align 8
   %1346 = icmp eq i64 %1344, %1345
-  br i1 %1346, label %.thread2317, label %1347
+  br i1 %1346, label %.thread2316, label %1347
 
 1347:                                             ; preds = %1339
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #18
@@ -6568,9 +6568,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1372
 
 1372:                                             ; preds = %1370, %1368
-  %.pn2169 = phi { ptr, i32 } [ %1369, %1368 ], [ %1371, %1370 ]
+  %.pn2168 = phi { ptr, i32 } [ %1369, %1368 ], [ %1371, %1370 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1373:                                             ; preds = %1240
   %1374 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss30IndexAdditiveQuantizerFastScanE, i64 0) #18
@@ -6626,9 +6626,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1399
 
 1399:                                             ; preds = %1397, %1395
-  %.pn2125 = phi { ptr, i32 } [ %1396, %1395 ], [ %1398, %1397 ]
+  %.pn2124 = phi { ptr, i32 } [ %1396, %1395 ], [ %1398, %1397 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1400:                                             ; preds = %1375
   br i1 %1380, label %1401, label %1431
@@ -6685,9 +6685,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1430
 
 1430:                                             ; preds = %1428, %1426
-  %.pn2133 = phi { ptr, i32 } [ %1427, %1426 ], [ %1429, %1428 ]
+  %.pn2132 = phi { ptr, i32 } [ %1427, %1426 ], [ %1429, %1428 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1431:                                             ; preds = %1400
   br i1 %1381, label %1432, label %1462
@@ -6744,9 +6744,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1461
 
 1461:                                             ; preds = %1459, %1457
-  %.pn2131 = phi { ptr, i32 } [ %1458, %1457 ], [ %1460, %1459 ]
+  %.pn2130 = phi { ptr, i32 } [ %1458, %1457 ], [ %1460, %1459 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1462:                                             ; preds = %1431
   br i1 %1382, label %1463, label %1493
@@ -6803,9 +6803,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1492
 
 1492:                                             ; preds = %1490, %1488
-  %.pn2129 = phi { ptr, i32 } [ %1489, %1488 ], [ %1491, %1490 ]
+  %.pn2128 = phi { ptr, i32 } [ %1489, %1488 ], [ %1491, %1490 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1493:                                             ; preds = %1462
   br i1 %1383, label %1494, label %1530
@@ -6862,9 +6862,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1523
 
 1523:                                             ; preds = %1521, %1519
-  %.pn2127 = phi { ptr, i32 } [ %1520, %1519 ], [ %1522, %1521 ]
+  %.pn2126 = phi { ptr, i32 } [ %1520, %1519 ], [ %1522, %1521 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1524:                                             ; preds = %1401
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %1374, ptr noundef nonnull %1)
@@ -6945,9 +6945,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1562
 
 1562:                                             ; preds = %1560, %1558
-  %.pn2135 = phi { ptr, i32 } [ %1559, %1558 ], [ %1561, %1560 ]
+  %.pn2134 = phi { ptr, i32 } [ %1559, %1558 ], [ %1561, %1560 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1563:                                             ; preds = %1533
   %1564 = getelementptr inbounds i8, ptr %1374, i64 44
@@ -7000,9 +7000,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1592
 
 1592:                                             ; preds = %1590, %1588
-  %.pn2137 = phi { ptr, i32 } [ %1589, %1588 ], [ %1591, %1590 ]
+  %.pn2136 = phi { ptr, i32 } [ %1589, %1588 ], [ %1591, %1590 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1593:                                             ; preds = %1563
   %1594 = getelementptr inbounds i8, ptr %1374, i64 48
@@ -7055,9 +7055,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1622
 
 1622:                                             ; preds = %1620, %1618
-  %.pn2139 = phi { ptr, i32 } [ %1619, %1618 ], [ %1621, %1620 ]
+  %.pn2138 = phi { ptr, i32 } [ %1619, %1618 ], [ %1621, %1620 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1623:                                             ; preds = %1593
   %1624 = getelementptr inbounds i8, ptr %1374, i64 56
@@ -7110,9 +7110,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1652
 
 1652:                                             ; preds = %1650, %1648
-  %.pn2141 = phi { ptr, i32 } [ %1649, %1648 ], [ %1651, %1650 ]
+  %.pn2140 = phi { ptr, i32 } [ %1649, %1648 ], [ %1651, %1650 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1653:                                             ; preds = %1623
   %1654 = getelementptr inbounds i8, ptr %1374, i64 64
@@ -7165,9 +7165,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1682
 
 1682:                                             ; preds = %1680, %1678
-  %.pn2143 = phi { ptr, i32 } [ %1679, %1678 ], [ %1681, %1680 ]
+  %.pn2142 = phi { ptr, i32 } [ %1679, %1678 ], [ %1681, %1680 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1683:                                             ; preds = %1653
   %1684 = getelementptr inbounds i8, ptr %1374, i64 72
@@ -7220,9 +7220,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1712
 
 1712:                                             ; preds = %1710, %1708
-  %.pn2145 = phi { ptr, i32 } [ %1709, %1708 ], [ %1711, %1710 ]
+  %.pn2144 = phi { ptr, i32 } [ %1709, %1708 ], [ %1711, %1710 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1713:                                             ; preds = %1683
   %1714 = getelementptr inbounds i8, ptr %1374, i64 80
@@ -7275,9 +7275,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1742
 
 1742:                                             ; preds = %1740, %1738
-  %.pn2147 = phi { ptr, i32 } [ %1739, %1738 ], [ %1741, %1740 ]
+  %.pn2146 = phi { ptr, i32 } [ %1739, %1738 ], [ %1741, %1740 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1743:                                             ; preds = %1713
   %1744 = getelementptr inbounds i8, ptr %1374, i64 88
@@ -7330,9 +7330,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1772
 
 1772:                                             ; preds = %1770, %1768
-  %.pn2149 = phi { ptr, i32 } [ %1769, %1768 ], [ %1771, %1770 ]
+  %.pn2148 = phi { ptr, i32 } [ %1769, %1768 ], [ %1771, %1770 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1773:                                             ; preds = %1743
   %1774 = getelementptr inbounds i8, ptr %1374, i64 96
@@ -7385,9 +7385,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1802
 
 1802:                                             ; preds = %1800, %1798
-  %.pn2151 = phi { ptr, i32 } [ %1799, %1798 ], [ %1801, %1800 ]
+  %.pn2150 = phi { ptr, i32 } [ %1799, %1798 ], [ %1801, %1800 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1803:                                             ; preds = %1773
   %1804 = getelementptr inbounds i8, ptr %1374, i64 144
@@ -7440,9 +7440,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1832
 
 1832:                                             ; preds = %1830, %1828
-  %.pn2153 = phi { ptr, i32 } [ %1829, %1828 ], [ %1831, %1830 ]
+  %.pn2152 = phi { ptr, i32 } [ %1829, %1828 ], [ %1831, %1830 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1833:                                             ; preds = %1803
   %1834 = getelementptr inbounds i8, ptr %1374, i64 148
@@ -7495,9 +7495,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1862
 
 1862:                                             ; preds = %1860, %1858
-  %.pn2155 = phi { ptr, i32 } [ %1859, %1858 ], [ %1861, %1860 ]
+  %.pn2154 = phi { ptr, i32 } [ %1859, %1858 ], [ %1861, %1860 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1863:                                             ; preds = %1833
   %1864 = getelementptr inbounds i8, ptr %1374, i64 152
@@ -7550,9 +7550,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1892
 
 1892:                                             ; preds = %1890, %1888
-  %.pn2157 = phi { ptr, i32 } [ %1889, %1888 ], [ %1891, %1890 ]
+  %.pn2156 = phi { ptr, i32 } [ %1889, %1888 ], [ %1891, %1890 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1893:                                             ; preds = %1863
   %1894 = getelementptr inbounds i8, ptr %1374, i64 120
@@ -7607,9 +7607,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1923
 
 1923:                                             ; preds = %1921, %1919
-  %.pn2159 = phi { ptr, i32 } [ %1920, %1919 ], [ %1922, %1921 ]
+  %.pn2158 = phi { ptr, i32 } [ %1920, %1919 ], [ %1922, %1921 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1924:                                             ; preds = %1893
   %1925 = getelementptr inbounds i8, ptr %1374, i64 104
@@ -7620,7 +7620,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %1930 = call noundef i64 %1929(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %1926, i64 noundef 1, i64 noundef %1927)
   %1931 = load i64, ptr %75, align 8
   %1932 = icmp eq i64 %1930, %1931
-  br i1 %1932, label %.thread2317, label %1933
+  br i1 %1932, label %.thread2316, label %1933
 
 1933:                                             ; preds = %1924
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #18
@@ -7667,9 +7667,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1958
 
 1958:                                             ; preds = %1956, %1954
-  %.pn2161 = phi { ptr, i32 } [ %1955, %1954 ], [ %1957, %1956 ]
+  %.pn2160 = phi { ptr, i32 } [ %1955, %1954 ], [ %1957, %1956 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1959:                                             ; preds = %1373
   %1960 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss33IndexIVFAdditiveQuantizerFastScanE, i64 0) #18
@@ -7725,9 +7725,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %1985
 
 1985:                                             ; preds = %1983, %1981
-  %.pn2089 = phi { ptr, i32 } [ %1982, %1981 ], [ %1984, %1983 ]
+  %.pn2088 = phi { ptr, i32 } [ %1982, %1981 ], [ %1984, %1983 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 1986:                                             ; preds = %1961
   br i1 %1966, label %1987, label %2017
@@ -7784,9 +7784,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2016
 
 2016:                                             ; preds = %2014, %2012
-  %.pn2097 = phi { ptr, i32 } [ %2013, %2012 ], [ %2015, %2014 ]
+  %.pn2096 = phi { ptr, i32 } [ %2013, %2012 ], [ %2015, %2014 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2017:                                             ; preds = %1986
   br i1 %1967, label %2018, label %2048
@@ -7843,9 +7843,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2047
 
 2047:                                             ; preds = %2045, %2043
-  %.pn2095 = phi { ptr, i32 } [ %2044, %2043 ], [ %2046, %2045 ]
+  %.pn2094 = phi { ptr, i32 } [ %2044, %2043 ], [ %2046, %2045 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2048:                                             ; preds = %2017
   br i1 %1968, label %2049, label %2079
@@ -7902,9 +7902,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2078
 
 2078:                                             ; preds = %2076, %2074
-  %.pn2093 = phi { ptr, i32 } [ %2075, %2074 ], [ %2077, %2076 ]
+  %.pn2092 = phi { ptr, i32 } [ %2075, %2074 ], [ %2077, %2076 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2079:                                             ; preds = %2048
   %2080 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.42)
@@ -7958,9 +7958,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2108
 
 2108:                                             ; preds = %2106, %2104
-  %.pn2091 = phi { ptr, i32 } [ %2105, %2104 ], [ %2107, %2106 ]
+  %.pn2090 = phi { ptr, i32 } [ %2105, %2104 ], [ %2107, %2106 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2109:                                             ; preds = %1987
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %1960, ptr noundef nonnull %1)
@@ -8037,9 +8037,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2146
 
 2146:                                             ; preds = %2144, %2142
-  %.pn2099 = phi { ptr, i32 } [ %2143, %2142 ], [ %2145, %2144 ]
+  %.pn2098 = phi { ptr, i32 } [ %2143, %2142 ], [ %2145, %2144 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %87) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2147:                                             ; preds = %2117
   %2148 = getelementptr inbounds i8, ptr %1960, i64 296
@@ -8092,9 +8092,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2176
 
 2176:                                             ; preds = %2174, %2172
-  %.pn2101 = phi { ptr, i32 } [ %2173, %2172 ], [ %2175, %2174 ]
+  %.pn2100 = phi { ptr, i32 } [ %2173, %2172 ], [ %2175, %2174 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2177:                                             ; preds = %2147
   %2178 = getelementptr inbounds i8, ptr %1960, i64 260
@@ -8147,9 +8147,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2206
 
 2206:                                             ; preds = %2204, %2202
-  %.pn2103 = phi { ptr, i32 } [ %2203, %2202 ], [ %2205, %2204 ]
+  %.pn2102 = phi { ptr, i32 } [ %2203, %2202 ], [ %2205, %2204 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %89) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2207:                                             ; preds = %2177
   %2208 = getelementptr inbounds i8, ptr %1960, i64 304
@@ -8202,9 +8202,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2236
 
 2236:                                             ; preds = %2234, %2232
-  %.pn2105 = phi { ptr, i32 } [ %2233, %2232 ], [ %2235, %2234 ]
+  %.pn2104 = phi { ptr, i32 } [ %2233, %2232 ], [ %2235, %2234 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2237:                                             ; preds = %2207
   %2238 = getelementptr inbounds i8, ptr %1960, i64 264
@@ -8257,9 +8257,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2266
 
 2266:                                             ; preds = %2264, %2262
-  %.pn2107 = phi { ptr, i32 } [ %2263, %2262 ], [ %2265, %2264 ]
+  %.pn2106 = phi { ptr, i32 } [ %2263, %2262 ], [ %2265, %2264 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2267:                                             ; preds = %2237
   %2268 = getelementptr inbounds i8, ptr %1960, i64 272
@@ -8312,9 +8312,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2296
 
 2296:                                             ; preds = %2294, %2292
-  %.pn2109 = phi { ptr, i32 } [ %2293, %2292 ], [ %2295, %2294 ]
+  %.pn2108 = phi { ptr, i32 } [ %2293, %2292 ], [ %2295, %2294 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2297:                                             ; preds = %2267
   %2298 = getelementptr inbounds i8, ptr %1960, i64 280
@@ -8367,9 +8367,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2326
 
 2326:                                             ; preds = %2324, %2322
-  %.pn2111 = phi { ptr, i32 } [ %2323, %2322 ], [ %2325, %2324 ]
+  %.pn2110 = phi { ptr, i32 } [ %2323, %2322 ], [ %2325, %2324 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2327:                                             ; preds = %2297
   %2328 = getelementptr inbounds i8, ptr %1960, i64 152
@@ -8422,9 +8422,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2356
 
 2356:                                             ; preds = %2354, %2352
-  %.pn2113 = phi { ptr, i32 } [ %2353, %2352 ], [ %2355, %2354 ]
+  %.pn2112 = phi { ptr, i32 } [ %2353, %2352 ], [ %2355, %2354 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2357:                                             ; preds = %2327
   %2358 = getelementptr inbounds i8, ptr %1960, i64 312
@@ -8477,9 +8477,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2386
 
 2386:                                             ; preds = %2384, %2382
-  %.pn2115 = phi { ptr, i32 } [ %2383, %2382 ], [ %2385, %2384 ]
+  %.pn2114 = phi { ptr, i32 } [ %2383, %2382 ], [ %2385, %2384 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %95) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2387:                                             ; preds = %2357
   %2388 = getelementptr inbounds i8, ptr %1960, i64 288
@@ -8532,9 +8532,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2416
 
 2416:                                             ; preds = %2414, %2412
-  %.pn2117 = phi { ptr, i32 } [ %2413, %2412 ], [ %2415, %2414 ]
+  %.pn2116 = phi { ptr, i32 } [ %2413, %2412 ], [ %2415, %2414 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2417:                                             ; preds = %2387
   %2418 = getelementptr inbounds i8, ptr %1960, i64 336
@@ -8587,9 +8587,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2446
 
 2446:                                             ; preds = %2444, %2442
-  %.pn2119 = phi { ptr, i32 } [ %2443, %2442 ], [ %2445, %2444 ]
+  %.pn2118 = phi { ptr, i32 } [ %2443, %2442 ], [ %2445, %2444 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2447:                                             ; preds = %2417
   %2448 = getelementptr inbounds i8, ptr %1960, i64 340
@@ -8642,9 +8642,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2476
 
 2476:                                             ; preds = %2474, %2472
-  %.pn2121 = phi { ptr, i32 } [ %2473, %2472 ], [ %2475, %2474 ]
+  %.pn2120 = phi { ptr, i32 } [ %2473, %2472 ], [ %2475, %2474 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2477:                                             ; preds = %2447
   %2478 = getelementptr inbounds i8, ptr %1960, i64 344
@@ -8697,15 +8697,15 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2506
 
 2506:                                             ; preds = %2504, %2502
-  %.pn2123 = phi { ptr, i32 } [ %2503, %2502 ], [ %2505, %2504 ]
+  %.pn2122 = phi { ptr, i32 } [ %2503, %2502 ], [ %2505, %2504 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2507:                                             ; preds = %2477
   %2508 = getelementptr inbounds i8, ptr %1960, i64 136
   %2509 = load ptr, ptr %2508, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %2509, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 2510:                                             ; preds = %1959
   %2511 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss23ResidualCoarseQuantizerE, i64 0) #18
@@ -8764,9 +8764,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2541
 
 2541:                                             ; preds = %2539, %2537
-  %.pn2085 = phi { ptr, i32 } [ %2538, %2537 ], [ %2540, %2539 ]
+  %.pn2084 = phi { ptr, i32 } [ %2538, %2537 ], [ %2540, %2539 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2542:                                             ; preds = %2512
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -8777,7 +8777,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %2546 = load ptr, ptr %2545, align 8
   %2547 = call noundef i64 %2546(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %2544, i64 noundef 4, i64 noundef 1)
   %2548 = icmp eq i64 %2547, 1
-  br i1 %2548, label %.thread2317, label %2549
+  br i1 %2548, label %.thread2316, label %2549
 
 2549:                                             ; preds = %2542
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #18
@@ -8822,9 +8822,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2572
 
 2572:                                             ; preds = %2570, %2568
-  %.pn2087 = phi { ptr, i32 } [ %2569, %2568 ], [ %2571, %2570 ]
+  %.pn2086 = phi { ptr, i32 } [ %2569, %2568 ], [ %2571, %2570 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2573:                                             ; preds = %2510
   %2574 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss11Index2LayerE, i64 0) #18
@@ -8883,9 +8883,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2604
 
 2604:                                             ; preds = %2602, %2600
-  %.pn2069 = phi { ptr, i32 } [ %2601, %2600 ], [ %2603, %2602 ]
+  %.pn2068 = phi { ptr, i32 } [ %2601, %2600 ], [ %2603, %2602 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2605:                                             ; preds = %2575
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -8942,9 +8942,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2636
 
 2636:                                             ; preds = %2634, %2632
-  %.pn2071 = phi { ptr, i32 } [ %2633, %2632 ], [ %2635, %2634 ]
+  %.pn2070 = phi { ptr, i32 } [ %2633, %2632 ], [ %2635, %2634 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2637:                                             ; preds = %2605
   %2638 = getelementptr inbounds i8, ptr %2574, i64 88
@@ -8997,9 +8997,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2666
 
 2666:                                             ; preds = %2664, %2662
-  %.pn2073 = phi { ptr, i32 } [ %2663, %2662 ], [ %2665, %2664 ]
+  %.pn2072 = phi { ptr, i32 } [ %2663, %2662 ], [ %2665, %2664 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2667:                                             ; preds = %2637
   %2668 = getelementptr inbounds i8, ptr %2574, i64 144
@@ -9054,9 +9054,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2697
 
 2697:                                             ; preds = %2695, %2693
-  %.pn2075 = phi { ptr, i32 } [ %2694, %2693 ], [ %2696, %2695 ]
+  %.pn2074 = phi { ptr, i32 } [ %2694, %2693 ], [ %2696, %2695 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2698:                                             ; preds = %2667
   %2699 = getelementptr inbounds i8, ptr %2574, i64 360
@@ -9109,9 +9109,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2727
 
 2727:                                             ; preds = %2725, %2723
-  %.pn2077 = phi { ptr, i32 } [ %2724, %2723 ], [ %2726, %2725 ]
+  %.pn2076 = phi { ptr, i32 } [ %2724, %2723 ], [ %2726, %2725 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2728:                                             ; preds = %2698
   %2729 = getelementptr inbounds i8, ptr %2574, i64 40
@@ -9164,9 +9164,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2757
 
 2757:                                             ; preds = %2755, %2753
-  %.pn2079 = phi { ptr, i32 } [ %2754, %2753 ], [ %2756, %2755 ]
+  %.pn2078 = phi { ptr, i32 } [ %2754, %2753 ], [ %2756, %2755 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2758:                                             ; preds = %2728
   %2759 = getelementptr inbounds i8, ptr %2574, i64 48
@@ -9226,9 +9226,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2793
 
 2793:                                             ; preds = %2791, %2789
-  %.pn2081 = phi { ptr, i32 } [ %2790, %2789 ], [ %2792, %2791 ]
+  %.pn2080 = phi { ptr, i32 } [ %2790, %2789 ], [ %2792, %2791 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %111) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2794:                                             ; preds = %2758
   %2795 = load ptr, ptr %2759, align 8
@@ -9238,7 +9238,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %2799 = call noundef i64 %2798(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2795, i64 noundef 1, i64 noundef %2796)
   %2800 = load i64, ptr %110, align 8
   %2801 = icmp eq i64 %2799, %2800
-  br i1 %2801, label %.thread2317, label %2802
+  br i1 %2801, label %.thread2316, label %2802
 
 2802:                                             ; preds = %2794
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #18
@@ -9285,9 +9285,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2827
 
 2827:                                             ; preds = %2825, %2823
-  %.pn2083 = phi { ptr, i32 } [ %2824, %2823 ], [ %2826, %2825 ]
+  %.pn2082 = phi { ptr, i32 } [ %2824, %2823 ], [ %2826, %2825 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2828:                                             ; preds = %2573
   %2829 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss20IndexScalarQuantizerE, i64 0) #18
@@ -9346,9 +9346,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2859
 
 2859:                                             ; preds = %2857, %2855
-  %.pn2063 = phi { ptr, i32 } [ %2856, %2855 ], [ %2858, %2857 ]
+  %.pn2062 = phi { ptr, i32 } [ %2856, %2855 ], [ %2858, %2857 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2860:                                             ; preds = %2830
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -9411,9 +9411,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2896
 
 2896:                                             ; preds = %2894, %2892
-  %.pn2065 = phi { ptr, i32 } [ %2893, %2892 ], [ %2895, %2894 ]
+  %.pn2064 = phi { ptr, i32 } [ %2893, %2892 ], [ %2895, %2894 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2897:                                             ; preds = %2860
   %2898 = load ptr, ptr %2862, align 8
@@ -9423,7 +9423,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %2902 = call noundef i64 %2901(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2898, i64 noundef 1, i64 noundef %2899)
   %2903 = load i64, ptr %115, align 8
   %2904 = icmp eq i64 %2902, %2903
-  br i1 %2904, label %.thread2317, label %2905
+  br i1 %2904, label %.thread2316, label %2905
 
 2905:                                             ; preds = %2897
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #18
@@ -9470,9 +9470,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2930
 
 2930:                                             ; preds = %2928, %2926
-  %.pn2067 = phi { ptr, i32 } [ %2927, %2926 ], [ %2929, %2928 ]
+  %.pn2066 = phi { ptr, i32 } [ %2927, %2926 ], [ %2929, %2928 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2931:                                             ; preds = %2828
   %2932 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss12IndexLatticeE, i64 0) #18
@@ -9531,9 +9531,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2962
 
 2962:                                             ; preds = %2960, %2958
-  %.pn2049 = phi { ptr, i32 } [ %2959, %2958 ], [ %2961, %2960 ]
+  %.pn2048 = phi { ptr, i32 } [ %2959, %2958 ], [ %2961, %2960 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2963:                                             ; preds = %2933
   %2964 = getelementptr inbounds i8, ptr %2932, i64 8
@@ -9586,9 +9586,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %2992
 
 2992:                                             ; preds = %2990, %2988
-  %.pn2051 = phi { ptr, i32 } [ %2989, %2988 ], [ %2991, %2990 ]
+  %.pn2050 = phi { ptr, i32 } [ %2989, %2988 ], [ %2991, %2990 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 2993:                                             ; preds = %2963
   %2994 = getelementptr inbounds i8, ptr %2932, i64 36
@@ -9641,9 +9641,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3022
 
 3022:                                             ; preds = %3020, %3018
-  %.pn2053 = phi { ptr, i32 } [ %3019, %3018 ], [ %3021, %3020 ]
+  %.pn2052 = phi { ptr, i32 } [ %3019, %3018 ], [ %3021, %3020 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3023:                                             ; preds = %2993
   %3024 = getelementptr inbounds i8, ptr %2932, i64 272
@@ -9696,9 +9696,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3052
 
 3052:                                             ; preds = %3050, %3048
-  %.pn2055 = phi { ptr, i32 } [ %3049, %3048 ], [ %3051, %3050 ]
+  %.pn2054 = phi { ptr, i32 } [ %3049, %3048 ], [ %3051, %3050 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3053:                                             ; preds = %3023
   %3054 = getelementptr inbounds i8, ptr %2932, i64 76
@@ -9751,9 +9751,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3082
 
 3082:                                             ; preds = %3080, %3078
-  %.pn2057 = phi { ptr, i32 } [ %3079, %3078 ], [ %3081, %3080 ]
+  %.pn2056 = phi { ptr, i32 } [ %3079, %3078 ], [ %3081, %3080 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3083:                                             ; preds = %3053
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -9815,9 +9815,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3119
 
 3119:                                             ; preds = %3117, %3115
-  %.pn2059 = phi { ptr, i32 } [ %3116, %3115 ], [ %3118, %3117 ]
+  %.pn2058 = phi { ptr, i32 } [ %3116, %3115 ], [ %3118, %3117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3120:                                             ; preds = %3083
   %3121 = load ptr, ptr %3084, align 8
@@ -9827,7 +9827,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %3125 = call noundef i64 %3124(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %3121, i64 noundef 4, i64 noundef %3122)
   %3126 = load i64, ptr %124, align 8
   %3127 = icmp eq i64 %3125, %3126
-  br i1 %3127, label %.thread2317, label %3128
+  br i1 %3127, label %.thread2316, label %3128
 
 3128:                                             ; preds = %3120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #18
@@ -9874,9 +9874,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3153
 
 3153:                                             ; preds = %3151, %3149
-  %.pn2061 = phi { ptr, i32 } [ %3150, %3149 ], [ %3152, %3151 ]
+  %.pn2060 = phi { ptr, i32 } [ %3150, %3149 ], [ %3152, %3151 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3154:                                             ; preds = %2931
   %3155 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss17IndexIVFFlatDedupE, i64 0) #18
@@ -9935,9 +9935,9 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3185
 
 3185:                                             ; preds = %3183, %3181
-  %.pn2042 = phi { ptr, i32 } [ %3182, %3181 ], [ %3184, %3183 ]
+  %.pn2041 = phi { ptr, i32 } [ %3182, %3181 ], [ %3184, %3183 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3186:                                             ; preds = %3156
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3155, ptr noundef nonnull %1)
@@ -9946,28 +9946,28 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   %3189 = shl i64 %3188, 1
   call void @_ZNSt6vectorIlSaIlEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %129, i64 noundef %3189, ptr noundef nonnull align 1 dereferenceable(1) %130)
   %3190 = getelementptr inbounds i8, ptr %3155, i64 280
-  %.sroa.02244.02360 = load ptr, ptr %3190, align 8
-  %.not23592361 = icmp eq ptr %.sroa.02244.02360, null
-  br i1 %.not23592361, label %._crit_edge, label %.lr.ph
+  %.sroa.02243.02359 = load ptr, ptr %3190, align 8
+  %.not23582360 = icmp eq ptr %.sroa.02243.02359, null
+  br i1 %.not23582360, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3186, %.lr.ph
-  %.sroa.02244.02363 = phi ptr [ %.sroa.02244.0, %.lr.ph ], [ %.sroa.02244.02360, %3186 ]
-  %.016292362 = phi i64 [ %3198, %.lr.ph ], [ 0, %3186 ]
-  %3191 = getelementptr inbounds i8, ptr %.sroa.02244.02363, i64 8
+  %.sroa.02243.02362 = phi ptr [ %.sroa.02243.0, %.lr.ph ], [ %.sroa.02243.02359, %3186 ]
+  %.016292361 = phi i64 [ %3198, %.lr.ph ], [ 0, %3186 ]
+  %3191 = getelementptr inbounds i8, ptr %.sroa.02243.02362, i64 8
   %3192 = load i64, ptr %3191, align 8
-  %3193 = or disjoint i64 %.016292362, 1
+  %3193 = or disjoint i64 %.016292361, 1
   %3194 = load ptr, ptr %129, align 8
-  %3195 = getelementptr inbounds i64, ptr %3194, i64 %.016292362
+  %3195 = getelementptr inbounds i64, ptr %3194, i64 %.016292361
   store i64 %3192, ptr %3195, align 8
-  %3196 = getelementptr inbounds i8, ptr %.sroa.02244.02363, i64 16
+  %3196 = getelementptr inbounds i8, ptr %.sroa.02243.02362, i64 16
   %3197 = load i64, ptr %3196, align 8
-  %3198 = add nuw nsw i64 %.016292362, 2
+  %3198 = add nuw nsw i64 %.016292361, 2
   %3199 = load ptr, ptr %129, align 8
   %3200 = getelementptr inbounds i64, ptr %3199, i64 %3193
   store i64 %3197, ptr %3200, align 8
-  %.sroa.02244.0 = load ptr, ptr %.sroa.02244.02363, align 8
-  %.not2359 = icmp eq ptr %.sroa.02244.0, null
-  br i1 %.not2359, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  %.sroa.02243.0 = load ptr, ptr %.sroa.02243.02362, align 8
+  %.not2358 = icmp eq ptr %.sroa.02243.0, null
+  br i1 %.not2358, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3186
   %3201 = getelementptr inbounds i8, ptr %129, i64 8
@@ -10035,7 +10035,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3238
 
 3238:                                             ; preds = %3236, %3234
-  %.pn2044 = phi { ptr, i32 } [ %3235, %3234 ], [ %3237, %3236 ]
+  %.pn2043 = phi { ptr, i32 } [ %3235, %3234 ], [ %3237, %3236 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #18
   br label %3279
 
@@ -10097,7 +10097,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %3273
 
 3273:                                             ; preds = %3271, %3269
-  %.pn2046 = phi { ptr, i32 } [ %3270, %3269 ], [ %3272, %3271 ]
+  %.pn2045 = phi { ptr, i32 } [ %3270, %3269 ], [ %3272, %3271 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #18
   br label %3279
 
@@ -10114,17 +10114,17 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %3277 = getelementptr inbounds i8, ptr %3155, i64 136
   %3278 = load ptr, ptr %3277, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3278, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 3279:                                             ; preds = %3273, %3238, %3232
-  %.pn2046.pn = phi { ptr, i32 } [ %.pn2046, %3273 ], [ %3233, %3232 ], [ %.pn2044, %3238 ]
+  %.pn2045.pn = phi { ptr, i32 } [ %.pn2045, %3273 ], [ %3233, %3232 ], [ %.pn2043, %3238 ]
   %3280 = load ptr, ptr %129, align 8
-  %.not.i.i.i2242 = icmp eq ptr %3280, null
-  br i1 %.not.i.i.i2242, label %_ZNSt6vectorIlSaIlEED2Ev.exit2243, label %3281
+  %.not.i.i.i2241 = icmp eq ptr %3280, null
+  br i1 %.not.i.i.i2241, label %_ZNSt6vectorIlSaIlEED2Ev.exit2242, label %3281
 
 3281:                                             ; preds = %3279
   call void @_ZdlPv(ptr noundef nonnull %3280) #23
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3282:                                             ; preds = %3154
   %3283 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss12IndexIVFFlatE, i64 0) #18
@@ -10183,16 +10183,16 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3313
 
 3313:                                             ; preds = %3311, %3309
-  %.pn2040 = phi { ptr, i32 } [ %3310, %3309 ], [ %3312, %3311 ]
+  %.pn2039 = phi { ptr, i32 } [ %3310, %3309 ], [ %3312, %3311 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3314:                                             ; preds = %3284
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3283, ptr noundef nonnull %1)
   %3315 = getelementptr inbounds i8, ptr %3283, i64 136
   %3316 = load ptr, ptr %3315, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3316, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 3317:                                             ; preds = %3282
   %3318 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss23IndexIVFScalarQuantizerE, i64 0) #18
@@ -10251,9 +10251,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3348
 
 3348:                                             ; preds = %3346, %3344
-  %.pn2034 = phi { ptr, i32 } [ %3345, %3344 ], [ %3347, %3346 ]
+  %.pn2033 = phi { ptr, i32 } [ %3345, %3344 ], [ %3347, %3346 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3349:                                             ; preds = %3319
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3318, ptr noundef nonnull %1)
@@ -10309,9 +10309,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3379
 
 3379:                                             ; preds = %3377, %3375
-  %.pn2036 = phi { ptr, i32 } [ %3376, %3375 ], [ %3378, %3377 ]
+  %.pn2035 = phi { ptr, i32 } [ %3376, %3375 ], [ %3378, %3377 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3380:                                             ; preds = %3349
   %3381 = getelementptr inbounds i8, ptr %3318, i64 256
@@ -10364,15 +10364,15 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3409
 
 3409:                                             ; preds = %3407, %3405
-  %.pn2038 = phi { ptr, i32 } [ %3406, %3405 ], [ %3408, %3407 ]
+  %.pn2037 = phi { ptr, i32 } [ %3406, %3405 ], [ %3408, %3407 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3410:                                             ; preds = %3380
   %3411 = getelementptr inbounds i8, ptr %3318, i64 136
   %3412 = load ptr, ptr %3411, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3412, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 3413:                                             ; preds = %3317
   %3414 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss25IndexIVFAdditiveQuantizerE, i64 0) #18
@@ -10381,12 +10381,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 
 3415:                                             ; preds = %3413
   %3416 = tail call ptr @__dynamic_cast(ptr nonnull %3414, ptr nonnull @_ZTIN5faiss25IndexIVFAdditiveQuantizerE, ptr nonnull @_ZTIN5faiss28IndexIVFLocalSearchQuantizerE, i64 0) #18
-  %.not2023 = icmp eq ptr %3416, null
+  %.not2022 = icmp eq ptr %3416, null
   %3417 = tail call ptr @__dynamic_cast(ptr nonnull %3414, ptr nonnull @_ZTIN5faiss25IndexIVFAdditiveQuantizerE, ptr nonnull @_ZTIN5faiss25IndexIVFResidualQuantizerE, i64 0) #18
-  %.not2024 = icmp eq ptr %3417, null
+  %.not2023 = icmp eq ptr %3417, null
   %3418 = tail call ptr @__dynamic_cast(ptr nonnull %3414, ptr nonnull @_ZTIN5faiss25IndexIVFAdditiveQuantizerE, ptr nonnull @_ZTIN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 0) #18
-  %.not2025 = icmp eq ptr %3418, null
-  br i1 %.not2023, label %3421, label %3419
+  %.not2024 = icmp eq ptr %3418, null
+  br i1 %.not2022, label %3421, label %3419
 
 3419:                                             ; preds = %3415
   %3420 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.50)
@@ -10394,7 +10394,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3429
 
 3421:                                             ; preds = %3415
-  br i1 %.not2024, label %3424, label %3422
+  br i1 %.not2023, label %3424, label %3422
 
 3422:                                             ; preds = %3421
   %3423 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.51)
@@ -10402,7 +10402,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3429
 
 3424:                                             ; preds = %3421
-  br i1 %.not2025, label %3427, label %3425
+  br i1 %.not2024, label %3427, label %3425
 
 3425:                                             ; preds = %3424
   %3426 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.52)
@@ -10464,9 +10464,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3457
 
 3457:                                             ; preds = %3455, %3453
-  %.pn2026 = phi { ptr, i32 } [ %3454, %3453 ], [ %3456, %3455 ]
+  %.pn2025 = phi { ptr, i32 } [ %3454, %3453 ], [ %3456, %3455 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %141) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3458:                                             ; preds = %3429
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3414, ptr noundef nonnull %1)
@@ -10520,28 +10520,28 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3487
 
 3487:                                             ; preds = %3485, %3483
-  %.pn2028 = phi { ptr, i32 } [ %3484, %3483 ], [ %3486, %3485 ]
+  %.pn2027 = phi { ptr, i32 } [ %3484, %3483 ], [ %3486, %3485 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %142) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3488:                                             ; preds = %3458
   %3489 = getelementptr inbounds i8, ptr %3414, i64 264
   %3490 = load ptr, ptr %3489, align 8
-  br i1 %.not2023, label %3492, label %3491
+  br i1 %.not2022, label %3492, label %3491
 
 3491:                                             ; preds = %3488
   call fastcc void @_ZN5faissL26write_LocalSearchQuantizerEPKNS_20LocalSearchQuantizerEPNS_8IOWriterE(ptr noundef %3490, ptr noundef nonnull %1)
   br label %3497
 
 3492:                                             ; preds = %3488
-  br i1 %.not2024, label %3494, label %3493
+  br i1 %.not2023, label %3494, label %3493
 
 3493:                                             ; preds = %3492
   call fastcc void @_ZN5faissL23write_ResidualQuantizerEPKNS_17ResidualQuantizerEPNS_8IOWriterE(ptr noundef %3490, ptr noundef nonnull %1)
   br label %3497
 
 3494:                                             ; preds = %3492
-  br i1 %.not2025, label %3496, label %3495
+  br i1 %.not2024, label %3496, label %3495
 
 3495:                                             ; preds = %3494
   call fastcc void @_ZN5faissL33write_ProductLocalSearchQuantizerEPKNS_27ProductLocalSearchQuantizerEPNS_8IOWriterE(ptr noundef %3490, ptr noundef nonnull %1)
@@ -10602,9 +10602,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3526
 
 3526:                                             ; preds = %3524, %3522
-  %.pn2030 = phi { ptr, i32 } [ %3523, %3522 ], [ %3525, %3524 ]
+  %.pn2029 = phi { ptr, i32 } [ %3523, %3522 ], [ %3525, %3524 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %143) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3527:                                             ; preds = %3497
   %3528 = getelementptr inbounds i8, ptr %3414, i64 272
@@ -10657,15 +10657,15 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3556
 
 3556:                                             ; preds = %3554, %3552
-  %.pn2032 = phi { ptr, i32 } [ %3553, %3552 ], [ %3555, %3554 ]
+  %.pn2031 = phi { ptr, i32 } [ %3553, %3552 ], [ %3555, %3554 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3557:                                             ; preds = %3527
   %3558 = getelementptr inbounds i8, ptr %3414, i64 136
   %3559 = load ptr, ptr %3558, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3559, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 3560:                                             ; preds = %3413
   %3561 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss20IndexIVFSpectralHashE, i64 0) #18
@@ -10724,9 +10724,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3591
 
 3591:                                             ; preds = %3589, %3587
-  %.pn2011 = phi { ptr, i32 } [ %3588, %3587 ], [ %3590, %3589 ]
+  %.pn2010 = phi { ptr, i32 } [ %3588, %3587 ], [ %3590, %3589 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3592:                                             ; preds = %3562
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3561, ptr noundef nonnull %1)
@@ -10783,9 +10783,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3623
 
 3623:                                             ; preds = %3621, %3619
-  %.pn2013 = phi { ptr, i32 } [ %3620, %3619 ], [ %3622, %3621 ]
+  %.pn2012 = phi { ptr, i32 } [ %3620, %3619 ], [ %3622, %3621 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %147) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3624:                                             ; preds = %3592
   %3625 = getelementptr inbounds i8, ptr %3561, i64 280
@@ -10838,9 +10838,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3653
 
 3653:                                             ; preds = %3651, %3649
-  %.pn2015 = phi { ptr, i32 } [ %3650, %3649 ], [ %3652, %3651 ]
+  %.pn2014 = phi { ptr, i32 } [ %3650, %3649 ], [ %3652, %3651 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %148) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3654:                                             ; preds = %3624
   %3655 = getelementptr inbounds i8, ptr %3561, i64 284
@@ -10893,9 +10893,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3683
 
 3683:                                             ; preds = %3681, %3679
-  %.pn2017 = phi { ptr, i32 } [ %3680, %3679 ], [ %3682, %3681 ]
+  %.pn2016 = phi { ptr, i32 } [ %3680, %3679 ], [ %3682, %3681 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %149) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3684:                                             ; preds = %3654
   %3685 = getelementptr inbounds i8, ptr %3561, i64 288
@@ -10956,9 +10956,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3720
 
 3720:                                             ; preds = %3718, %3716
-  %.pn2019 = phi { ptr, i32 } [ %3717, %3716 ], [ %3719, %3718 ]
+  %.pn2018 = phi { ptr, i32 } [ %3717, %3716 ], [ %3719, %3718 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %151) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3721:                                             ; preds = %3684
   %3722 = load ptr, ptr %3685, align 8
@@ -11015,15 +11015,15 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3754
 
 3754:                                             ; preds = %3752, %3750
-  %.pn2021 = phi { ptr, i32 } [ %3751, %3750 ], [ %3753, %3752 ]
+  %.pn2020 = phi { ptr, i32 } [ %3751, %3750 ], [ %3753, %3752 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3755:                                             ; preds = %3721
   %3756 = getelementptr inbounds i8, ptr %3561, i64 136
   %3757 = load ptr, ptr %3756, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3757, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 3758:                                             ; preds = %3560
   %3759 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss10IndexIVFPQE, i64 0) #18
@@ -11032,8 +11032,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 
 3760:                                             ; preds = %3758
   %3761 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss11IndexIVFPQRE, i64 0) #18
-  %.not1998 = icmp eq ptr %3761, null
-  %.str.55..str.56 = select i1 %.not1998, ptr @.str.56, ptr @.str.55
+  %.not1997 = icmp eq ptr %3761, null
+  %.str.55..str.56 = select i1 %.not1997, ptr @.str.56, ptr @.str.55
   %3762 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull %.str.55..str.56)
   store i32 %3762, ptr %153, align 4
   %3763 = load ptr, ptr %1, align 8
@@ -11085,9 +11085,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3790
 
 3790:                                             ; preds = %3788, %3786
-  %.pn1999 = phi { ptr, i32 } [ %3787, %3786 ], [ %3789, %3788 ]
+  %.pn1998 = phi { ptr, i32 } [ %3787, %3786 ], [ %3789, %3788 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3791:                                             ; preds = %3760
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3759, ptr noundef nonnull %1)
@@ -11141,9 +11141,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3820
 
 3820:                                             ; preds = %3818, %3816
-  %.pn2001 = phi { ptr, i32 } [ %3817, %3816 ], [ %3819, %3818 ]
+  %.pn2000 = phi { ptr, i32 } [ %3817, %3816 ], [ %3819, %3818 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %155) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3821:                                             ; preds = %3791
   %3822 = getelementptr inbounds i8, ptr %3759, i64 152
@@ -11196,9 +11196,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3850
 
 3850:                                             ; preds = %3848, %3846
-  %.pn2003 = phi { ptr, i32 } [ %3847, %3846 ], [ %3849, %3848 ]
+  %.pn2002 = phi { ptr, i32 } [ %3847, %3846 ], [ %3849, %3848 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3851:                                             ; preds = %3821
   %3852 = getelementptr inbounds i8, ptr %3759, i64 264
@@ -11206,7 +11206,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %3853 = getelementptr inbounds i8, ptr %3759, i64 136
   %3854 = load ptr, ptr %3853, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3854, ptr noundef nonnull %1)
-  br i1 %.not1998, label %.thread2317, label %3855
+  br i1 %.not1997, label %.thread2316, label %3855
 
 3855:                                             ; preds = %3851
   %3856 = getelementptr inbounds i8, ptr %3761, i64 528
@@ -11268,9 +11268,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3891
 
 3891:                                             ; preds = %3889, %3887
-  %.pn2005 = phi { ptr, i32 } [ %3888, %3887 ], [ %3890, %3889 ]
+  %.pn2004 = phi { ptr, i32 } [ %3888, %3887 ], [ %3890, %3889 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3892:                                             ; preds = %3855
   %3893 = load ptr, ptr %3857, align 8
@@ -11327,9 +11327,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3925
 
 3925:                                             ; preds = %3923, %3921
-  %.pn2007 = phi { ptr, i32 } [ %3922, %3921 ], [ %3924, %3923 ]
+  %.pn2006 = phi { ptr, i32 } [ %3922, %3921 ], [ %3924, %3923 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %159) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3926:                                             ; preds = %3892
   %3927 = getelementptr inbounds i8, ptr %3761, i64 760
@@ -11337,7 +11337,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %3929 = load ptr, ptr %3928, align 8
   %3930 = call noundef i64 %3929(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %3927, i64 noundef 4, i64 noundef 1)
   %3931 = icmp eq i64 %3930, 1
-  br i1 %3931, label %.thread2317, label %3932
+  br i1 %3931, label %.thread2316, label %3932
 
 3932:                                             ; preds = %3926
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #18
@@ -11382,9 +11382,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %3955
 
 3955:                                             ; preds = %3953, %3951
-  %.pn2009 = phi { ptr, i32 } [ %3952, %3951 ], [ %3954, %3953 ]
+  %.pn2008 = phi { ptr, i32 } [ %3952, %3951 ], [ %3954, %3953 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3956:                                             ; preds = %3758
   %3957 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss28IndexIVFIndependentQuantizerE, i64 0) #18
@@ -11445,7 +11445,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 3987:                                             ; preds = %3985, %3983
   %.pn1990 = phi { ptr, i32 } [ %3984, %3983 ], [ %3986, %3985 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 3988:                                             ; preds = %3958
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %3957, ptr noundef nonnull %1)
@@ -11508,13 +11508,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4022:                                             ; preds = %4020, %4018
   %.pn1992 = phi { ptr, i32 } [ %4019, %4018 ], [ %4021, %4020 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4023:                                             ; preds = %3988
   %4024 = load i8, ptr %163, align 1
-  %4025 = and i8 %4024, 1
-  %.not1994 = icmp eq i8 %4025, 0
-  br i1 %.not1994, label %4028, label %4026
+  %4025 = trunc i8 %4024 to i1
+  br i1 %4025, label %4026, label %4028
 
 4026:                                             ; preds = %4023
   %4027 = load ptr, ptr %3991, align 8
@@ -11527,12 +11526,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4030, ptr noundef nonnull %1)
   %4031 = load ptr, ptr %4029, align 8
   %4032 = icmp eq ptr %4031, null
-  br i1 %4032, label %.thread2317, label %4033
+  br i1 %4032, label %.thread2316, label %4033
 
 4033:                                             ; preds = %4028
   %4034 = call ptr @__dynamic_cast(ptr nonnull %4031, ptr nonnull @_ZTIN5faiss8IndexIVFE, ptr nonnull @_ZTIN5faiss10IndexIVFPQE, i64 0) #18
-  %.not1995 = icmp eq ptr %4034, null
-  br i1 %.not1995, label %.thread2317, label %4035
+  %.not1994 = icmp eq ptr %4034, null
+  br i1 %.not1994, label %.thread2316, label %4035
 
 4035:                                             ; preds = %4033
   %4036 = getelementptr inbounds i8, ptr %4034, i64 500
@@ -11540,7 +11539,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4038 = load ptr, ptr %4037, align 8
   %4039 = call noundef i64 %4038(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4036, i64 noundef 4, i64 noundef 1)
   %4040 = icmp eq i64 %4039, 1
-  br i1 %4040, label %.thread2317, label %4041
+  br i1 %4040, label %.thread2316, label %4041
 
 4041:                                             ; preds = %4035
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %165) #18
@@ -11585,9 +11584,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %4064
 
 4064:                                             ; preds = %4062, %4060
-  %.pn1996 = phi { ptr, i32 } [ %4061, %4060 ], [ %4063, %4062 ]
+  %.pn1995 = phi { ptr, i32 } [ %4061, %4060 ], [ %4063, %4062 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %165) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4065:                                             ; preds = %3956
   %4066 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss17IndexPreTransformE, i64 0) #18
@@ -11648,7 +11647,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4096:                                             ; preds = %4094, %4092
   %.pn1986 = phi { ptr, i32 } [ %4093, %4092 ], [ %4095, %4094 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %167) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4097:                                             ; preds = %4067
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4066, ptr noundef nonnull %1)
@@ -11671,7 +11670,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 .preheader:                                       ; preds = %4097
   %4111 = load i32, ptr %168, align 4
   %4112 = icmp sgt i32 %4111, 0
-  br i1 %4112, label %.lr.ph2365, label %._crit_edge2366
+  br i1 %4112, label %.lr.ph2364, label %._crit_edge2365
 
 4113:                                             ; preds = %4097
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %169) #18
@@ -11718,10 +11717,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4136:                                             ; preds = %4134, %4132
   %.pn1988 = phi { ptr, i32 } [ %4133, %4132 ], [ %4135, %4134 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %169) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
-.lr.ph2365:                                       ; preds = %.preheader, %.lr.ph2365
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph2365 ], [ 0, %.preheader ]
+.lr.ph2364:                                       ; preds = %.preheader, %.lr.ph2364
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph2364 ], [ 0, %.preheader ]
   %4137 = load ptr, ptr %4098, align 8
   %4138 = getelementptr inbounds ptr, ptr %4137, i64 %indvars.iv
   %4139 = load ptr, ptr %4138, align 8
@@ -11730,13 +11729,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4140 = load i32, ptr %168, align 4
   %4141 = sext i32 %4140 to i64
   %4142 = icmp slt i64 %indvars.iv.next, %4141
-  br i1 %4142, label %.lr.ph2365, label %._crit_edge2366, !llvm.loop !11
+  br i1 %4142, label %.lr.ph2364, label %._crit_edge2365, !llvm.loop !11
 
-._crit_edge2366:                                  ; preds = %.lr.ph2365, %.preheader
+._crit_edge2365:                                  ; preds = %.lr.ph2364, %.preheader
   %4143 = getelementptr inbounds i8, ptr %4066, i64 64
   %4144 = load ptr, ptr %4143, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4144, ptr noundef %1)
-  br label %.thread2317
+  br label %.thread2316
 
 4145:                                             ; preds = %4065
   %4146 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #18
@@ -11797,13 +11796,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4176:                                             ; preds = %4174, %4172
   %.pn1984 = phi { ptr, i32 } [ %4173, %4172 ], [ %4175, %4174 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %171) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4177:                                             ; preds = %4147
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4146, ptr noundef nonnull %1)
   %4178 = getelementptr inbounds i8, ptr %4146, i64 40
   call void @_ZN5faiss22write_ProductQuantizerEPKNS_16ProductQuantizerEPNS_8IOWriterE(ptr noundef nonnull %4178, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 4179:                                             ; preds = %4145
   %4180 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss11IndexRefineE, i64 0) #18
@@ -11864,7 +11863,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4210:                                             ; preds = %4208, %4206
   %.pn1980 = phi { ptr, i32 } [ %4207, %4206 ], [ %4209, %4208 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %173) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4211:                                             ; preds = %4181
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4180, ptr noundef nonnull %1)
@@ -11879,7 +11878,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4218 = load ptr, ptr %4217, align 8
   %4219 = call noundef i64 %4218(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4216, i64 noundef 4, i64 noundef 1)
   %4220 = icmp eq i64 %4219, 1
-  br i1 %4220, label %.thread2317, label %4221
+  br i1 %4220, label %.thread2316, label %4221
 
 4221:                                             ; preds = %4211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %174) #18
@@ -11926,7 +11925,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4244:                                             ; preds = %4242, %4240
   %.pn1982 = phi { ptr, i32 } [ %4241, %4240 ], [ %4243, %4242 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %174) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4245:                                             ; preds = %4179
   %4246 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss18IndexIDMapTemplateINS_5IndexEEE, i64 0) #18
@@ -11990,7 +11989,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4278:                                             ; preds = %4276, %4274
   %.pn1974 = phi { ptr, i32 } [ %4275, %4274 ], [ %4277, %4276 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4279:                                             ; preds = %4247
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4246, ptr noundef nonnull %1)
@@ -12057,7 +12056,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4317:                                             ; preds = %4315, %4313
   %.pn1976 = phi { ptr, i32 } [ %4314, %4313 ], [ %4316, %4315 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %178) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4318:                                             ; preds = %4279
   %4319 = load ptr, ptr %4282, align 8
@@ -12067,7 +12066,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4323 = call noundef i64 %4322(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %4319, i64 noundef 8, i64 noundef %4320)
   %4324 = load i64, ptr %177, align 8
   %4325 = icmp eq i64 %4323, %4324
-  br i1 %4325, label %.thread2317, label %4326
+  br i1 %4325, label %.thread2316, label %4326
 
 4326:                                             ; preds = %4318
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %179) #18
@@ -12116,7 +12115,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4351:                                             ; preds = %4349, %4347
   %.pn1978 = phi { ptr, i32 } [ %4348, %4347 ], [ %4350, %4349 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %179) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4352:                                             ; preds = %4245
   %4353 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss9IndexHNSWE, i64 0) #18
@@ -12126,31 +12125,31 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4354:                                             ; preds = %4352
   %4355 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss13IndexHNSWFlatE, i64 0) #18
   %.not1964 = icmp eq ptr %4355, null
-  br i1 %.not1964, label %4356, label %.critedge2239
+  br i1 %.not1964, label %4356, label %.critedge2238
 
 4356:                                             ; preds = %4354
   %4357 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss11IndexHNSWPQE, i64 0) #18
   %4358 = icmp eq ptr %4357, null
-  br i1 %4358, label %.critedge2236, label %.critedge2239
+  br i1 %4358, label %.critedge2235, label %.critedge2238
 
-.critedge2236:                                    ; preds = %4356
+.critedge2235:                                    ; preds = %4356
   %4359 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss11IndexHNSWSQE, i64 0) #18
   %4360 = icmp eq ptr %4359, null
-  br i1 %4360, label %.critedge2238, label %.critedge2239
+  br i1 %4360, label %.critedge2237, label %.critedge2238
 
-.critedge2238:                                    ; preds = %.critedge2236
+.critedge2237:                                    ; preds = %.critedge2235
   %4361 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss15IndexHNSW2LevelE, i64 0) #18
   %4362 = icmp eq ptr %4361, null
-  br i1 %4362, label %.critedge2239.thread, label %.critedge2239
+  br i1 %4362, label %.critedge2238.thread, label %.critedge2238
 
-.critedge2239:                                    ; preds = %.critedge2238, %.critedge2236, %4356, %4354
-  %.str.64.sink = phi ptr [ @.str.63, %4354 ], [ @.str.64, %4356 ], [ @.str.65, %.critedge2236 ], [ @.str.66, %.critedge2238 ]
+.critedge2238:                                    ; preds = %.critedge2237, %.critedge2235, %4356, %4354
+  %.str.64.sink = phi ptr [ @.str.63, %4354 ], [ @.str.64, %4356 ], [ @.str.65, %.critedge2235 ], [ @.str.66, %.critedge2237 ]
   %4363 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull %.str.64.sink)
   store i32 %4363, ptr %180, align 4
   %.not1968 = icmp eq i32 %4363, 0
-  br i1 %.not1968, label %.critedge2239.thread, label %4379
+  br i1 %.not1968, label %.critedge2238.thread, label %4379
 
-.critedge2239.thread:                             ; preds = %.critedge2238, %.critedge2239
+.critedge2238.thread:                             ; preds = %.critedge2237, %.critedge2238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %181) #18
   %4364 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.67) #18
   %4365 = add nsw i32 %4364, 1
@@ -12158,7 +12157,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %181, i64 noundef %4366)
           to label %4367 unwind label %4374
 
-4367:                                             ; preds = %.critedge2239.thread
+4367:                                             ; preds = %.critedge2238.thread
   %4368 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %181, i64 noundef 0)
           to label %4369 unwind label %4374
 
@@ -12173,7 +12172,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   invoke void @__cxa_throw(ptr nonnull %4372, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
           to label %5264 unwind label %4374
 
-4374:                                             ; preds = %4373, %4367, %.critedge2239.thread
+4374:                                             ; preds = %4373, %4367, %.critedge2238.thread
   %4375 = landingpad { ptr, i32 }
           cleanup
   br label %4378
@@ -12187,9 +12186,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4378:                                             ; preds = %4376, %4374
   %.pn1969 = phi { ptr, i32 } [ %4375, %4374 ], [ %4377, %4376 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %181) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
-4379:                                             ; preds = %.critedge2239
+4379:                                             ; preds = %.critedge2238
   %4380 = load ptr, ptr %1, align 8
   %4381 = load ptr, ptr %4380, align 8
   %4382 = call noundef i64 %4381(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %180, i64 noundef 4, i64 noundef 1)
@@ -12241,7 +12240,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4407:                                             ; preds = %4405, %4403
   %.pn1971 = phi { ptr, i32 } [ %4404, %4403 ], [ %4406, %4405 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4408:                                             ; preds = %4379
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4353, ptr noundef nonnull %1)
@@ -12250,7 +12249,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4410 = getelementptr inbounds i8, ptr %4353, i64 5200
   %4411 = load ptr, ptr %4410, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4411, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 4412:                                             ; preds = %4352
   %4413 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss8IndexNSGE, i64 0) #18
@@ -12270,9 +12269,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4418:                                             ; preds = %4416
   %4419 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss10IndexNSGSQE, i64 0) #18
   %.not1946 = icmp eq ptr %4419, null
-  br i1 %.not1946, label %.thread2338, label %4420
+  br i1 %.not1946, label %.thread2337, label %4420
 
-.thread2338:                                      ; preds = %4418
+.thread2337:                                      ; preds = %4418
   store i32 0, ptr %183, align 4
   br label %4422
 
@@ -12283,7 +12282,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %.not1947 = icmp eq i32 %4421, 0
   br i1 %.not1947, label %4422, label %4438
 
-4422:                                             ; preds = %.thread2338, %4420
+4422:                                             ; preds = %.thread2337, %4420
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %184) #18
   %4423 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.67) #18
   %4424 = add nsw i32 %4423, 1
@@ -12320,7 +12319,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4437:                                             ; preds = %4435, %4433
   %.pn1948 = phi { ptr, i32 } [ %4434, %4433 ], [ %4436, %4435 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %184) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4438:                                             ; preds = %4420
   %4439 = load ptr, ptr %1, align 8
@@ -12374,7 +12373,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4466:                                             ; preds = %4464, %4462
   %.pn1950 = phi { ptr, i32 } [ %4463, %4462 ], [ %4465, %4464 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %185) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4467:                                             ; preds = %4438
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4413, ptr noundef nonnull %1)
@@ -12430,7 +12429,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4496:                                             ; preds = %4494, %4492
   %.pn1952 = phi { ptr, i32 } [ %4493, %4492 ], [ %4495, %4494 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %186) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4497:                                             ; preds = %4467
   %4498 = getelementptr inbounds i8, ptr %4413, i64 5112
@@ -12485,7 +12484,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4526:                                             ; preds = %4524, %4522
   %.pn1954 = phi { ptr, i32 } [ %4523, %4522 ], [ %4525, %4524 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %187) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4527:                                             ; preds = %4497
   %4528 = getelementptr inbounds i8, ptr %4413, i64 5116
@@ -12540,7 +12539,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4556:                                             ; preds = %4554, %4552
   %.pn1956 = phi { ptr, i32 } [ %4553, %4552 ], [ %4555, %4554 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %188) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4557:                                             ; preds = %4527
   %4558 = getelementptr inbounds i8, ptr %4413, i64 5120
@@ -12595,7 +12594,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4586:                                             ; preds = %4584, %4582
   %.pn1958 = phi { ptr, i32 } [ %4583, %4582 ], [ %4585, %4584 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %189) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4587:                                             ; preds = %4557
   %4588 = getelementptr inbounds i8, ptr %4413, i64 5124
@@ -12650,7 +12649,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4616:                                             ; preds = %4614, %4612
   %.pn1960 = phi { ptr, i32 } [ %4613, %4612 ], [ %4615, %4614 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %190) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4617:                                             ; preds = %4587
   %4618 = getelementptr inbounds i8, ptr %4413, i64 5128
@@ -12705,7 +12704,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4646:                                             ; preds = %4644, %4642
   %.pn1962 = phi { ptr, i32 } [ %4643, %4642 ], [ %4645, %4644 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %191) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4647:                                             ; preds = %4617
   %4648 = getelementptr inbounds i8, ptr %4413, i64 40
@@ -12713,7 +12712,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4649 = getelementptr inbounds i8, ptr %4413, i64 5096
   %4650 = load ptr, ptr %4649, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4650, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 4651:                                             ; preds = %4412
   %4652 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss14IndexNNDescentE, i64 0) #18
@@ -12723,9 +12722,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4653:                                             ; preds = %4651
   %4654 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss18IndexNNDescentFlatE, i64 0) #18
   %4655 = icmp eq ptr %4654, null
-  br i1 %4655, label %.critedge2241, label %4671
+  br i1 %4655, label %.critedge2240, label %4671
 
-.critedge2241:                                    ; preds = %4653
+.critedge2240:                                    ; preds = %4653
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #18
   %4656 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.71) #18
   %4657 = add nsw i32 %4656, 1
@@ -12733,7 +12732,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %192, i64 noundef %4658)
           to label %4659 unwind label %4666
 
-4659:                                             ; preds = %.critedge2241
+4659:                                             ; preds = %.critedge2240
   %4660 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %192, i64 noundef 0)
           to label %4661 unwind label %4666
 
@@ -12748,7 +12747,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   invoke void @__cxa_throw(ptr nonnull %4664, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
           to label %5264 unwind label %4666
 
-4666:                                             ; preds = %4665, %4659, %.critedge2241
+4666:                                             ; preds = %4665, %4659, %.critedge2240
   %4667 = landingpad { ptr, i32 }
           cleanup
   br label %4670
@@ -12762,7 +12761,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4670:                                             ; preds = %4668, %4666
   %.pn1937 = phi { ptr, i32 } [ %4667, %4666 ], [ %4669, %4668 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4671:                                             ; preds = %4653
   %4672 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.72)
@@ -12807,7 +12806,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4688:                                             ; preds = %4686, %4684
   %.pn1940 = phi { ptr, i32 } [ %4685, %4684 ], [ %4687, %4686 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %194) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4689:                                             ; preds = %4671
   %4690 = load ptr, ptr %1, align 8
@@ -12861,7 +12860,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4717:                                             ; preds = %4715, %4713
   %.pn1942 = phi { ptr, i32 } [ %4714, %4713 ], [ %4716, %4715 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %195) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4718:                                             ; preds = %4689
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4652, ptr noundef nonnull %1)
@@ -12870,7 +12869,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4720 = getelementptr inbounds i8, ptr %4652, i64 136
   %4721 = load ptr, ptr %4720, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4721, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 4722:                                             ; preds = %4651
   %4723 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss15IndexPQFastScanE, i64 0) #18
@@ -12931,7 +12930,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4753:                                             ; preds = %4751, %4749
   %.pn1920 = phi { ptr, i32 } [ %4750, %4749 ], [ %4752, %4751 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %197) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4754:                                             ; preds = %4724
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4723, ptr noundef nonnull %1)
@@ -12989,7 +12988,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4784:                                             ; preds = %4782, %4780
   %.pn1922 = phi { ptr, i32 } [ %4781, %4780 ], [ %4783, %4782 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %198) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4785:                                             ; preds = %4754
   %4786 = getelementptr inbounds i8, ptr %4723, i64 44
@@ -13044,7 +13043,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4814:                                             ; preds = %4812, %4810
   %.pn1924 = phi { ptr, i32 } [ %4811, %4810 ], [ %4813, %4812 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %199) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4815:                                             ; preds = %4785
   %4816 = getelementptr inbounds i8, ptr %4723, i64 48
@@ -13099,7 +13098,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4844:                                             ; preds = %4842, %4840
   %.pn1926 = phi { ptr, i32 } [ %4841, %4840 ], [ %4843, %4842 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %200) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4845:                                             ; preds = %4815
   %4846 = getelementptr inbounds i8, ptr %4723, i64 88
@@ -13154,7 +13153,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4874:                                             ; preds = %4872, %4870
   %.pn1928 = phi { ptr, i32 } [ %4871, %4870 ], [ %4873, %4872 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %201) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4875:                                             ; preds = %4845
   %4876 = getelementptr inbounds i8, ptr %4723, i64 96
@@ -13209,7 +13208,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4904:                                             ; preds = %4902, %4900
   %.pn1930 = phi { ptr, i32 } [ %4901, %4900 ], [ %4903, %4902 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %202) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4905:                                             ; preds = %4875
   %4906 = getelementptr inbounds i8, ptr %4723, i64 120
@@ -13266,7 +13265,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4935:                                             ; preds = %4933, %4931
   %.pn1932 = phi { ptr, i32 } [ %4932, %4931 ], [ %4934, %4933 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %204) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4936:                                             ; preds = %4905
   %4937 = getelementptr inbounds i8, ptr %4723, i64 104
@@ -13277,7 +13276,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %4942 = call noundef i64 %4941(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %4938, i64 noundef 1, i64 noundef %4939)
   %4943 = load i64, ptr %203, align 8
   %4944 = icmp eq i64 %4942, %4943
-  br i1 %4944, label %.thread2317, label %4945
+  br i1 %4944, label %.thread2316, label %4945
 
 4945:                                             ; preds = %4936
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %205) #18
@@ -13326,7 +13325,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4970:                                             ; preds = %4968, %4966
   %.pn1934 = phi { ptr, i32 } [ %4967, %4966 ], [ %4969, %4968 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %205) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 4971:                                             ; preds = %4722
   %4972 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss18IndexIVFPQFastScanE, i64 0) #18
@@ -13387,7 +13386,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5002:                                             ; preds = %5000, %4998
   %.pn1906 = phi { ptr, i32 } [ %4999, %4998 ], [ %5001, %5000 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %207) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5003:                                             ; preds = %4973
   call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %4972, ptr noundef nonnull %1)
@@ -13443,7 +13442,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5032:                                             ; preds = %5030, %5028
   %.pn1908 = phi { ptr, i32 } [ %5029, %5028 ], [ %5031, %5030 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %208) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5033:                                             ; preds = %5003
   %5034 = getelementptr inbounds i8, ptr %4972, i64 152
@@ -13498,7 +13497,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5062:                                             ; preds = %5060, %5058
   %.pn1910 = phi { ptr, i32 } [ %5059, %5058 ], [ %5061, %5060 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %209) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5063:                                             ; preds = %5033
   %5064 = getelementptr inbounds i8, ptr %4972, i64 260
@@ -13553,7 +13552,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5092:                                             ; preds = %5090, %5088
   %.pn1912 = phi { ptr, i32 } [ %5089, %5088 ], [ %5091, %5090 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %210) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5093:                                             ; preds = %5063
   %5094 = getelementptr inbounds i8, ptr %4972, i64 288
@@ -13608,7 +13607,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5122:                                             ; preds = %5120, %5118
   %.pn1914 = phi { ptr, i32 } [ %5119, %5118 ], [ %5121, %5120 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %211) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5123:                                             ; preds = %5093
   %5124 = getelementptr inbounds i8, ptr %4972, i64 296
@@ -13663,7 +13662,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5152:                                             ; preds = %5150, %5148
   %.pn1916 = phi { ptr, i32 } [ %5149, %5148 ], [ %5151, %5150 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %212) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5153:                                             ; preds = %5123
   %5154 = getelementptr inbounds i8, ptr %4972, i64 312
@@ -13718,7 +13717,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5182:                                             ; preds = %5180, %5178
   %.pn1918 = phi { ptr, i32 } [ %5179, %5178 ], [ %5181, %5180 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %213) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5183:                                             ; preds = %5153
   %5184 = getelementptr inbounds i8, ptr %4972, i64 328
@@ -13726,7 +13725,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   %5185 = getelementptr inbounds i8, ptr %4972, i64 136
   %5186 = load ptr, ptr %5185, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %5186, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 5187:                                             ; preds = %4971
   %5188 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss18IndexRowwiseMinMaxE, i64 0) #18
@@ -13787,19 +13786,19 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5218:                                             ; preds = %5216, %5214
   %.pn1904 = phi { ptr, i32 } [ %5215, %5214 ], [ %5217, %5216 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %215) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5219:                                             ; preds = %5189
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %5188, ptr noundef nonnull %1)
   %5220 = getelementptr inbounds i8, ptr %5188, i64 40
   %5221 = load ptr, ptr %5220, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %5221, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
 5222:                                             ; preds = %5187
   %5223 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss22IndexRowwiseMinMaxFP16E, i64 0) #18
   %.not1900 = icmp eq ptr %5223, null
-  br i1 %.not1900, label %.thread2353, label %5224
+  br i1 %.not1900, label %.thread2352, label %5224
 
 5224:                                             ; preds = %5222
   %5225 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.76)
@@ -13855,22 +13854,22 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 5253:                                             ; preds = %5251, %5249
   %.pn1902 = phi { ptr, i32 } [ %5250, %5249 ], [ %5252, %5251 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %217) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
 5254:                                             ; preds = %5224
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %5223, ptr noundef nonnull %1)
   %5255 = getelementptr inbounds i8, ptr %5223, i64 40
   %5256 = load ptr, ptr %5255, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %5256, ptr noundef nonnull %1)
-  br label %.thread2317
+  br label %.thread2316
 
-.thread2353:                                      ; preds = %2, %5222
+.thread2352:                                      ; preds = %2, %5222
   %5257 = tail call ptr @__cxa_allocate_exception(i64 40) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %219) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull @.str.77, ptr noundef nonnull align 1 dereferenceable(1) %219)
-          to label %5258 unwind label %.thread2355
+          to label %5258 unwind label %.thread2354
 
-5258:                                             ; preds = %.thread2353
+5258:                                             ; preds = %.thread2352
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %5257, ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE, ptr noundef nonnull @.str.3, i32 noundef 840)
           to label %5259 unwind label %5261
 
@@ -13878,7 +13877,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   invoke void @__cxa_throw(ptr nonnull %5257, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
           to label %5264 unwind label %5261
 
-.thread2355:                                      ; preds = %.thread2353
+.thread2354:                                      ; preds = %.thread2352
   %5260 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %219) #18
@@ -13890,19 +13889,19 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %218) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %219) #18
-  br i1 %.0, label %5263, label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br i1 %.0, label %5263, label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
-5263:                                             ; preds = %.thread2355, %5261
-  %.pn2358 = phi { ptr, i32 } [ %5260, %.thread2355 ], [ %5262, %5261 ]
+5263:                                             ; preds = %.thread2354, %5261
+  %.pn2357 = phi { ptr, i32 } [ %5260, %.thread2354 ], [ %5262, %5261 ]
   call void @__cxa_free_exception(ptr %5257) #18
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2243
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit2242
 
-.thread2317:                                      ; preds = %4028, %614, %940, %1206, %1924, %2542, %2897, %_ZNSt6vectorIlSaIlEED2Ev.exit, %3410, %3755, %4035, %4033, %4177, %4318, %4647, %4936, %5219, %5254, %5183, %4718, %4408, %4211, %._crit_edge2366, %3851, %3926, %3557, %3314, %3120, %2794, %2507, %1339, %1073, %811, %314
+.thread2316:                                      ; preds = %4028, %614, %940, %1206, %1924, %2542, %2897, %_ZNSt6vectorIlSaIlEED2Ev.exit, %3410, %3755, %4035, %4033, %4177, %4318, %4647, %4936, %5219, %5254, %5183, %4718, %4408, %4211, %._crit_edge2365, %3851, %3926, %3557, %3314, %3120, %2794, %2507, %1339, %1073, %811, %314
   ret void
 
-_ZNSt6vectorIlSaIlEED2Ev.exit2243:                ; preds = %3281, %3279, %5261, %5263, %5253, %5218, %5182, %5152, %5122, %5092, %5062, %5032, %5002, %4970, %4935, %4904, %4874, %4844, %4814, %4784, %4753, %4717, %4688, %4670, %4646, %4616, %4586, %4556, %4526, %4496, %4466, %4437, %4407, %4378, %4351, %4317, %4278, %4244, %4210, %4176, %4136, %4096, %4064, %4022, %3987, %3955, %3925, %3891, %3850, %3820, %3790, %3754, %3720, %3683, %3653, %3623, %3591, %3556, %3526, %3487, %3457, %3409, %3379, %3348, %3313, %3185, %3153, %3119, %3082, %3052, %3022, %2992, %2962, %2930, %2896, %2859, %2827, %2793, %2757, %2727, %2697, %2666, %2636, %2604, %2572, %2541, %2506, %2476, %2446, %2416, %2386, %2356, %2326, %2296, %2266, %2236, %2206, %2176, %2146, %2108, %2078, %2047, %2016, %1985, %1958, %1923, %1892, %1862, %1832, %1802, %1772, %1742, %1712, %1682, %1652, %1622, %1592, %1562, %1523, %1492, %1461, %1430, %1399, %1372, %1338, %1302, %1271, %1239, %1205, %1169, %1138, %1106, %1072, %1036, %1005, %973, %939, %903, %872, %840, %810, %780, %750, %716, %679, %647, %613, %576, %544, %510, %473, %443, %413, %383, %351, %313, %283, %257
-  %.pn2231.pn = phi { ptr, i32 } [ %.pn2231, %351 ], [ %.pn2229, %313 ], [ %.pn2227, %283 ], [ %.pn2225, %257 ], [ %.pn2223, %647 ], [ %.pn2221, %613 ], [ %.pn2219, %576 ], [ %.pn2217, %544 ], [ %.pn2215, %510 ], [ %.pn2213, %473 ], [ %.pn2211, %443 ], [ %.pn2209, %413 ], [ %.pn2207, %383 ], [ %.pn2205, %840 ], [ %.pn2203, %810 ], [ %.pn2201, %780 ], [ %.pn2199, %750 ], [ %.pn2197, %716 ], [ %.pn2195, %679 ], [ %.pn2193, %973 ], [ %.pn2191, %939 ], [ %.pn2189, %903 ], [ %.pn2187, %872 ], [ %.pn2185, %1106 ], [ %.pn2183, %1072 ], [ %.pn2181, %1036 ], [ %.pn2179, %1005 ], [ %.pn2177, %1239 ], [ %.pn2175, %1205 ], [ %.pn2173, %1169 ], [ %.pn2171, %1138 ], [ %.pn2169, %1372 ], [ %.pn2167, %1338 ], [ %.pn2165, %1302 ], [ %.pn2163, %1271 ], [ %.pn2161, %1958 ], [ %.pn2159, %1923 ], [ %.pn2157, %1892 ], [ %.pn2155, %1862 ], [ %.pn2153, %1832 ], [ %.pn2151, %1802 ], [ %.pn2149, %1772 ], [ %.pn2147, %1742 ], [ %.pn2145, %1712 ], [ %.pn2143, %1682 ], [ %.pn2141, %1652 ], [ %.pn2139, %1622 ], [ %.pn2137, %1592 ], [ %.pn2135, %1562 ], [ %.pn2133, %1430 ], [ %.pn2131, %1461 ], [ %.pn2129, %1492 ], [ %.pn2127, %1523 ], [ %.pn2125, %1399 ], [ %.pn2123, %2506 ], [ %.pn2121, %2476 ], [ %.pn2119, %2446 ], [ %.pn2117, %2416 ], [ %.pn2115, %2386 ], [ %.pn2113, %2356 ], [ %.pn2111, %2326 ], [ %.pn2109, %2296 ], [ %.pn2107, %2266 ], [ %.pn2105, %2236 ], [ %.pn2103, %2206 ], [ %.pn2101, %2176 ], [ %.pn2099, %2146 ], [ %.pn2097, %2016 ], [ %.pn2095, %2047 ], [ %.pn2093, %2078 ], [ %.pn2091, %2108 ], [ %.pn2089, %1985 ], [ %.pn2087, %2572 ], [ %.pn2085, %2541 ], [ %.pn2083, %2827 ], [ %.pn2081, %2793 ], [ %.pn2079, %2757 ], [ %.pn2077, %2727 ], [ %.pn2075, %2697 ], [ %.pn2073, %2666 ], [ %.pn2071, %2636 ], [ %.pn2069, %2604 ], [ %.pn2067, %2930 ], [ %.pn2065, %2896 ], [ %.pn2063, %2859 ], [ %.pn2061, %3153 ], [ %.pn2059, %3119 ], [ %.pn2057, %3082 ], [ %.pn2055, %3052 ], [ %.pn2053, %3022 ], [ %.pn2051, %2992 ], [ %.pn2049, %2962 ], [ %.pn2042, %3185 ], [ %.pn2040, %3313 ], [ %.pn2038, %3409 ], [ %.pn2036, %3379 ], [ %.pn2034, %3348 ], [ %.pn2032, %3556 ], [ %.pn2030, %3526 ], [ %.pn2028, %3487 ], [ %.pn2026, %3457 ], [ %.pn2021, %3754 ], [ %.pn2019, %3720 ], [ %.pn2017, %3683 ], [ %.pn2015, %3653 ], [ %.pn2013, %3623 ], [ %.pn2011, %3591 ], [ %.pn2009, %3955 ], [ %.pn2007, %3925 ], [ %.pn2005, %3891 ], [ %.pn2003, %3850 ], [ %.pn2001, %3820 ], [ %.pn1999, %3790 ], [ %.pn1996, %4064 ], [ %.pn1992, %4022 ], [ %.pn1990, %3987 ], [ %.pn1988, %4136 ], [ %.pn1986, %4096 ], [ %.pn1984, %4176 ], [ %.pn1982, %4244 ], [ %.pn1980, %4210 ], [ %.pn1978, %4351 ], [ %.pn1976, %4317 ], [ %.pn1974, %4278 ], [ %.pn1971, %4407 ], [ %.pn1969, %4378 ], [ %.pn1962, %4646 ], [ %.pn1960, %4616 ], [ %.pn1958, %4586 ], [ %.pn1956, %4556 ], [ %.pn1954, %4526 ], [ %.pn1952, %4496 ], [ %.pn1950, %4466 ], [ %.pn1948, %4437 ], [ %.pn1942, %4717 ], [ %.pn1940, %4688 ], [ %.pn1937, %4670 ], [ %.pn1934, %4970 ], [ %.pn1932, %4935 ], [ %.pn1930, %4904 ], [ %.pn1928, %4874 ], [ %.pn1926, %4844 ], [ %.pn1924, %4814 ], [ %.pn1922, %4784 ], [ %.pn1920, %4753 ], [ %.pn1918, %5182 ], [ %.pn1916, %5152 ], [ %.pn1914, %5122 ], [ %.pn1912, %5092 ], [ %.pn1910, %5062 ], [ %.pn1908, %5032 ], [ %.pn1906, %5002 ], [ %.pn1904, %5218 ], [ %.pn1902, %5253 ], [ %.pn2358, %5263 ], [ %5262, %5261 ], [ %.pn2046.pn, %3279 ], [ %.pn2046.pn, %3281 ]
-  resume { ptr, i32 } %.pn2231.pn
+_ZNSt6vectorIlSaIlEED2Ev.exit2242:                ; preds = %3281, %3279, %5261, %5263, %5253, %5218, %5182, %5152, %5122, %5092, %5062, %5032, %5002, %4970, %4935, %4904, %4874, %4844, %4814, %4784, %4753, %4717, %4688, %4670, %4646, %4616, %4586, %4556, %4526, %4496, %4466, %4437, %4407, %4378, %4351, %4317, %4278, %4244, %4210, %4176, %4136, %4096, %4064, %4022, %3987, %3955, %3925, %3891, %3850, %3820, %3790, %3754, %3720, %3683, %3653, %3623, %3591, %3556, %3526, %3487, %3457, %3409, %3379, %3348, %3313, %3185, %3153, %3119, %3082, %3052, %3022, %2992, %2962, %2930, %2896, %2859, %2827, %2793, %2757, %2727, %2697, %2666, %2636, %2604, %2572, %2541, %2506, %2476, %2446, %2416, %2386, %2356, %2326, %2296, %2266, %2236, %2206, %2176, %2146, %2108, %2078, %2047, %2016, %1985, %1958, %1923, %1892, %1862, %1832, %1802, %1772, %1742, %1712, %1682, %1652, %1622, %1592, %1562, %1523, %1492, %1461, %1430, %1399, %1372, %1338, %1302, %1271, %1239, %1205, %1169, %1138, %1106, %1072, %1036, %1005, %973, %939, %903, %872, %840, %810, %780, %750, %716, %679, %647, %613, %576, %544, %510, %473, %443, %413, %383, %351, %313, %283, %257
+  %.pn2230.pn = phi { ptr, i32 } [ %.pn2230, %351 ], [ %.pn2228, %313 ], [ %.pn2226, %283 ], [ %.pn2224, %257 ], [ %.pn2222, %647 ], [ %.pn2220, %613 ], [ %.pn2218, %576 ], [ %.pn2216, %544 ], [ %.pn2214, %510 ], [ %.pn2212, %473 ], [ %.pn2210, %443 ], [ %.pn2208, %413 ], [ %.pn2206, %383 ], [ %.pn2204, %840 ], [ %.pn2202, %810 ], [ %.pn2200, %780 ], [ %.pn2198, %750 ], [ %.pn2196, %716 ], [ %.pn2194, %679 ], [ %.pn2192, %973 ], [ %.pn2190, %939 ], [ %.pn2188, %903 ], [ %.pn2186, %872 ], [ %.pn2184, %1106 ], [ %.pn2182, %1072 ], [ %.pn2180, %1036 ], [ %.pn2178, %1005 ], [ %.pn2176, %1239 ], [ %.pn2174, %1205 ], [ %.pn2172, %1169 ], [ %.pn2170, %1138 ], [ %.pn2168, %1372 ], [ %.pn2166, %1338 ], [ %.pn2164, %1302 ], [ %.pn2162, %1271 ], [ %.pn2160, %1958 ], [ %.pn2158, %1923 ], [ %.pn2156, %1892 ], [ %.pn2154, %1862 ], [ %.pn2152, %1832 ], [ %.pn2150, %1802 ], [ %.pn2148, %1772 ], [ %.pn2146, %1742 ], [ %.pn2144, %1712 ], [ %.pn2142, %1682 ], [ %.pn2140, %1652 ], [ %.pn2138, %1622 ], [ %.pn2136, %1592 ], [ %.pn2134, %1562 ], [ %.pn2132, %1430 ], [ %.pn2130, %1461 ], [ %.pn2128, %1492 ], [ %.pn2126, %1523 ], [ %.pn2124, %1399 ], [ %.pn2122, %2506 ], [ %.pn2120, %2476 ], [ %.pn2118, %2446 ], [ %.pn2116, %2416 ], [ %.pn2114, %2386 ], [ %.pn2112, %2356 ], [ %.pn2110, %2326 ], [ %.pn2108, %2296 ], [ %.pn2106, %2266 ], [ %.pn2104, %2236 ], [ %.pn2102, %2206 ], [ %.pn2100, %2176 ], [ %.pn2098, %2146 ], [ %.pn2096, %2016 ], [ %.pn2094, %2047 ], [ %.pn2092, %2078 ], [ %.pn2090, %2108 ], [ %.pn2088, %1985 ], [ %.pn2086, %2572 ], [ %.pn2084, %2541 ], [ %.pn2082, %2827 ], [ %.pn2080, %2793 ], [ %.pn2078, %2757 ], [ %.pn2076, %2727 ], [ %.pn2074, %2697 ], [ %.pn2072, %2666 ], [ %.pn2070, %2636 ], [ %.pn2068, %2604 ], [ %.pn2066, %2930 ], [ %.pn2064, %2896 ], [ %.pn2062, %2859 ], [ %.pn2060, %3153 ], [ %.pn2058, %3119 ], [ %.pn2056, %3082 ], [ %.pn2054, %3052 ], [ %.pn2052, %3022 ], [ %.pn2050, %2992 ], [ %.pn2048, %2962 ], [ %.pn2041, %3185 ], [ %.pn2039, %3313 ], [ %.pn2037, %3409 ], [ %.pn2035, %3379 ], [ %.pn2033, %3348 ], [ %.pn2031, %3556 ], [ %.pn2029, %3526 ], [ %.pn2027, %3487 ], [ %.pn2025, %3457 ], [ %.pn2020, %3754 ], [ %.pn2018, %3720 ], [ %.pn2016, %3683 ], [ %.pn2014, %3653 ], [ %.pn2012, %3623 ], [ %.pn2010, %3591 ], [ %.pn2008, %3955 ], [ %.pn2006, %3925 ], [ %.pn2004, %3891 ], [ %.pn2002, %3850 ], [ %.pn2000, %3820 ], [ %.pn1998, %3790 ], [ %.pn1995, %4064 ], [ %.pn1992, %4022 ], [ %.pn1990, %3987 ], [ %.pn1988, %4136 ], [ %.pn1986, %4096 ], [ %.pn1984, %4176 ], [ %.pn1982, %4244 ], [ %.pn1980, %4210 ], [ %.pn1978, %4351 ], [ %.pn1976, %4317 ], [ %.pn1974, %4278 ], [ %.pn1971, %4407 ], [ %.pn1969, %4378 ], [ %.pn1962, %4646 ], [ %.pn1960, %4616 ], [ %.pn1958, %4586 ], [ %.pn1956, %4556 ], [ %.pn1954, %4526 ], [ %.pn1952, %4496 ], [ %.pn1950, %4466 ], [ %.pn1948, %4437 ], [ %.pn1942, %4717 ], [ %.pn1940, %4688 ], [ %.pn1937, %4670 ], [ %.pn1934, %4970 ], [ %.pn1932, %4935 ], [ %.pn1930, %4904 ], [ %.pn1928, %4874 ], [ %.pn1926, %4844 ], [ %.pn1924, %4814 ], [ %.pn1922, %4784 ], [ %.pn1920, %4753 ], [ %.pn1918, %5182 ], [ %.pn1916, %5152 ], [ %.pn1914, %5122 ], [ %.pn1912, %5092 ], [ %.pn1910, %5062 ], [ %.pn1908, %5032 ], [ %.pn1906, %5002 ], [ %.pn1904, %5218 ], [ %.pn1902, %5253 ], [ %.pn2357, %5263 ], [ %5262, %5261 ], [ %.pn2045.pn, %3279 ], [ %.pn2045.pn, %3281 ]
+  resume { ptr, i32 } %.pn2230.pn
 
 5264:                                             ; preds = %5259, %5248, %5213, %5177, %5147, %5117, %5087, %5057, %5027, %4997, %4965, %4930, %4899, %4869, %4839, %4809, %4779, %4748, %4712, %4683, %4665, %4641, %4611, %4581, %4551, %4521, %4491, %4461, %4432, %4402, %4373, %4346, %4312, %4273, %4239, %4205, %4171, %4131, %4091, %4059, %4017, %3982, %3950, %3920, %3886, %3845, %3815, %3785, %3749, %3715, %3678, %3648, %3618, %3586, %3551, %3521, %3482, %3452, %3404, %3374, %3343, %3308, %3268, %3231, %3180, %3148, %3114, %3077, %3047, %3017, %2987, %2957, %2925, %2891, %2854, %2822, %2788, %2752, %2722, %2692, %2661, %2631, %2599, %2567, %2536, %2501, %2471, %2441, %2411, %2381, %2351, %2321, %2291, %2261, %2231, %2201, %2171, %2141, %2103, %2073, %2042, %2011, %1980, %1953, %1918, %1887, %1857, %1827, %1797, %1767, %1737, %1707, %1677, %1647, %1617, %1587, %1557, %1518, %1487, %1456, %1425, %1394, %1367, %1333, %1297, %1266, %1234, %1200, %1164, %1133, %1101, %1067, %1031, %1000, %968, %934, %898, %867, %835, %805, %775, %745, %711, %674, %642, %608, %571, %539, %505, %468, %438, %408, %378, %346, %308, %278, %252
   unreachable
@@ -16798,9 +16797,8 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
 
 218:                                              ; preds = %189
   %219 = load i8, ptr %190, align 8
-  %220 = and i8 %219, 1
-  %.not = icmp eq i8 %220, 0
-  br i1 %.not, label %.loopexit, label %221
+  %220 = trunc i8 %219 to i1
+  br i1 %220, label %221, label %.loopexit
 
 221:                                              ; preds = %218
   store i32 -1, ptr %10, align 4
@@ -16890,41 +16888,40 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
 263:                                              ; preds = %245
   %264 = getelementptr inbounds i8, ptr %223, i64 16
   %265 = load i8, ptr %264, align 8
-  %266 = and i8 %265, 1
-  %.not135 = icmp eq i8 %266, 0
-  br i1 %.not135, label %292, label %.preheader144
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %.preheader142, label %292
 
-.preheader144:                                    ; preds = %263
+.preheader142:                                    ; preds = %263
   %267 = icmp sgt i32 %227, 0
   br i1 %267, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.lr.ph:                                 ; preds = %.preheader144
+.preheader.lr.ph:                                 ; preds = %.preheader142
   %268 = icmp sgt i32 %225, 0
   br i1 %268, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %290
-  %.0105148.us = phi i32 [ %291, %290 ], [ 0, %.preheader.lr.ph ]
+  %.0105146.us = phi i32 [ %291, %290 ], [ 0, %.preheader.lr.ph ]
   br label %271
 
 269:                                              ; preds = %281
-  %270 = add nuw nsw i32 %.0106146.us, 1
-  %exitcond158.not = icmp eq i32 %270, %225
-  br i1 %exitcond158.not, label %._crit_edge.us, label %271, !llvm.loop !12
+  %270 = add nuw nsw i32 %.0106144.us, 1
+  %exitcond156.not = icmp eq i32 %270, %225
+  br i1 %exitcond156.not, label %._crit_edge.us, label %271, !llvm.loop !12
 
 271:                                              ; preds = %.preheader.us, %269
-  %.0106146.us = phi i32 [ 0, %.preheader.us ], [ %270, %269 ]
+  %.0106144.us = phi i32 [ 0, %.preheader.us ], [ %270, %269 ]
   %272 = load ptr, ptr %222, align 8
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %272, i64 8
   %275 = load i32, ptr %274, align 8
-  %276 = mul nsw i32 %275, %.0105148.us
-  %277 = add nsw i32 %276, %.0106146.us
+  %276 = mul nsw i32 %275, %.0105146.us
+  %277 = add nsw i32 %276, %.0106144.us
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i32, ptr %273, i64 %278
   %280 = load i32, ptr %279, align 4
   store i32 %280, ptr %14, align 4
-  %.not138.us = icmp eq i32 %280, -1
-  br i1 %.not138.us, label %._crit_edge.us, label %281
+  %.not.us = icmp eq i32 %280, -1
+  br i1 %.not.us, label %._crit_edge.us, label %281
 
 281:                                              ; preds = %271
   %282 = load ptr, ptr %1, align 8
@@ -16938,12 +16935,12 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   %287 = load ptr, ptr %286, align 8
   %288 = call noundef i64 %287(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1)
   %289 = icmp eq i64 %288, 1
-  br i1 %289, label %290, label %.split150.us
+  br i1 %289, label %290, label %.split148.us
 
 290:                                              ; preds = %._crit_edge.us
-  %291 = add nuw nsw i32 %.0105148.us, 1
-  %exitcond159.not = icmp eq i32 %291, %227
-  br i1 %exitcond159.not, label %.loopexit, label %.preheader.us, !llvm.loop !13
+  %291 = add nuw nsw i32 %.0105146.us, 1
+  %exitcond157.not = icmp eq i32 %291, %227
+  br i1 %exitcond157.not, label %.loopexit, label %.preheader.us, !llvm.loop !13
 
 292:                                              ; preds = %263
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
@@ -16980,17 +16977,17 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   br label %357
 
 307:                                              ; preds = %.preheader
-  %308 = add nuw nsw i32 %.0105148, 1
+  %308 = add nuw nsw i32 %.0105146, 1
   %exitcond.not = icmp eq i32 %308, %227
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %307
-  %.0105148 = phi i32 [ %308, %307 ], [ 0, %.preheader.lr.ph ]
+  %.0105146 = phi i32 [ %308, %307 ], [ 0, %.preheader.lr.ph ]
   %309 = load ptr, ptr %1, align 8
   %310 = load ptr, ptr %309, align 8
   %311 = call noundef i64 %310(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1)
   %312 = icmp eq i64 %311, 1
-  br i1 %312, label %307, label %.split150.us
+  br i1 %312, label %307, label %.split148.us
 
 .split.us:                                        ; preds = %281
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
@@ -17034,21 +17031,21 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   call void @__cxa_free_exception(ptr %329) #18
   br label %357
 
-.split150.us:                                     ; preds = %.preheader, %._crit_edge.us
-  %.us-phi151 = phi i64 [ %288, %._crit_edge.us ], [ %311, %.preheader ]
+.split148.us:                                     ; preds = %.preheader, %._crit_edge.us
+  %.us-phi149 = phi i64 [ %288, %._crit_edge.us ], [ %311, %.preheader ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   %335 = getelementptr inbounds i8, ptr %1, i64 8
   %336 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %335) #18
   %337 = tail call ptr @__errno_location() #19
   %338 = load i32, ptr %337, align 4
   %339 = call ptr @strerror(i32 noundef %338) #18
-  %340 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %336, i64 noundef %.us-phi151, i64 noundef 1, ptr noundef %339) #18
+  %340 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %336, i64 noundef %.us-phi149, i64 noundef 1, ptr noundef %339) #18
   %341 = add nsw i32 %340, 1
   %342 = sext i32 %341 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %342)
           to label %343 unwind label %353
 
-343:                                              ; preds = %.split150.us
+343:                                              ; preds = %.split148.us
   %344 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 0)
           to label %345 unwind label %353
 
@@ -17057,7 +17054,7 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   %347 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %335) #18
   %348 = load i32, ptr %337, align 4
   %349 = call ptr @strerror(i32 noundef %348) #18
-  %350 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %344, i64 noundef %346, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %347, i64 noundef %.us-phi151, i64 noundef 1, ptr noundef %349) #18
+  %350 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %344, i64 noundef %346, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %347, i64 noundef %.us-phi149, i64 noundef 1, ptr noundef %349) #18
   %351 = call ptr @__cxa_allocate_exception(i64 40) #18
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %351, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE, ptr noundef nonnull @.str.3, i32 noundef 350)
           to label %352 unwind label %355
@@ -17066,7 +17063,7 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   invoke void @__cxa_throw(ptr nonnull %351, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
           to label %358 unwind label %353
 
-353:                                              ; preds = %352, %343, %.split150.us
+353:                                              ; preds = %352, %343, %.split148.us
   %354 = landingpad { ptr, i32 }
           cleanup
   br label %357
@@ -17077,14 +17074,14 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   call void @__cxa_free_exception(ptr %351) #18
   br label %357
 
-.loopexit:                                        ; preds = %307, %290, %.preheader144, %218
+.loopexit:                                        ; preds = %307, %290, %.preheader142, %218
   ret void
 
 357:                                              ; preds = %353, %355, %331, %333, %303, %305, %259, %261, %241, %243, %214, %216, %185, %187, %156, %158, %127, %129, %98, %100, %69, %71, %40, %42
   %.sink = phi ptr [ %3, %42 ], [ %3, %40 ], [ %4, %71 ], [ %4, %69 ], [ %5, %100 ], [ %5, %98 ], [ %6, %129 ], [ %6, %127 ], [ %7, %158 ], [ %7, %156 ], [ %8, %187 ], [ %8, %185 ], [ %9, %216 ], [ %9, %214 ], [ %11, %243 ], [ %11, %241 ], [ %12, %261 ], [ %12, %259 ], [ %13, %305 ], [ %13, %303 ], [ %15, %333 ], [ %15, %331 ], [ %16, %355 ], [ %16, %353 ]
-  %.pn141.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ], [ %72, %71 ], [ %70, %69 ], [ %101, %100 ], [ %99, %98 ], [ %130, %129 ], [ %128, %127 ], [ %159, %158 ], [ %157, %156 ], [ %188, %187 ], [ %186, %185 ], [ %217, %216 ], [ %215, %214 ], [ %244, %243 ], [ %242, %241 ], [ %262, %261 ], [ %260, %259 ], [ %306, %305 ], [ %304, %303 ], [ %334, %333 ], [ %332, %331 ], [ %356, %355 ], [ %354, %353 ]
+  %.pn139.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ], [ %72, %71 ], [ %70, %69 ], [ %101, %100 ], [ %99, %98 ], [ %130, %129 ], [ %128, %127 ], [ %159, %158 ], [ %157, %156 ], [ %188, %187 ], [ %186, %185 ], [ %217, %216 ], [ %215, %214 ], [ %244, %243 ], [ %242, %241 ], [ %262, %261 ], [ %260, %259 ], [ %306, %305 ], [ %304, %303 ], [ %334, %333 ], [ %332, %331 ], [ %356, %355 ], [ %354, %353 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #18
-  resume { ptr, i32 } %.pn141.pn
+  resume { ptr, i32 } %.pn139.pn
 
 358:                                              ; preds = %352, %330, %302, %258, %240, %213, %184, %155, %126, %97, %68, %39
   unreachable

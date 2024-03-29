@@ -166,11 +166,10 @@ define void @_ZN7rocksdb16ThreadStatusUtil14RegisterThreadEPKNS_3EnvENS_12Thread
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_initialized_E)
   %1 = load i8, ptr %0, align 1
-  %2 = and i8 %1, 1
-  %tobool.not2.i = icmp eq i8 %2, 0
-  %cmp.i = icmp ne ptr %env, null
-  %or.cond.i = and i1 %cmp.i, %tobool.not2.i
-  br i1 %or.cond.i, label %if.then.i, label %entry.if.end_crit_edge.i
+  %tobool.i = trunc i8 %1 to i1
+  %cmp.i = icmp eq ptr %env, null
+  %or.cond.not.i = or i1 %cmp.i, %tobool.i
+  br i1 %or.cond.not.i, label %entry.if.end_crit_edge.i, label %if.then.i
 
 entry.if.end_crit_edge.i:                         ; preds = %entry
   %.pre.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
@@ -181,25 +180,25 @@ if.then.i:                                        ; preds = %entry
   store i8 1, ptr %0, align 1
   %vtable.i = load ptr, ptr %env, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 640
-  %3 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(72) %env)
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  store ptr %call.i, ptr %4, align 8
+  %2 = load ptr, ptr %vfn.i, align 8
+  %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %env)
+  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
+  store ptr %call.i, ptr %3, align 8
   br label %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
 
 _ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i
-  %5 = phi ptr [ %.pr, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
-  %cmp1.i.not = icmp eq ptr %5, null
+  %4 = phi ptr [ %.pr, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
+  %cmp1.i.not = icmp eq ptr %4, null
   br i1 %cmp1.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  %7 = load ptr, ptr %6, align 8
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
+  %6 = load ptr, ptr %5, align 8
   %vtable = load ptr, ptr %env, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 648
-  %8 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(72) %env)
-  tail call void @_ZN7rocksdb19ThreadStatusUpdater14RegisterThreadENS_12ThreadStatus10ThreadTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef %thread_type, i64 noundef %call1)
+  %7 = load ptr, ptr %vfn, align 8
+  %call1 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(72) %env)
+  tail call void @_ZN7rocksdb19ThreadStatusUpdater14RegisterThreadENS_12ThreadStatus10ThreadTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %thread_type, i64 noundef %call1)
   br label %return
 
 return:                                           ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit, %if.end
@@ -211,11 +210,10 @@ define noundef zeroext i1 @_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUp
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_initialized_E)
   %1 = load i8, ptr %0, align 1
-  %2 = and i8 %1, 1
-  %tobool.not2 = icmp eq i8 %2, 0
-  %cmp = icmp ne ptr %env, null
-  %or.cond = and i1 %cmp, %tobool.not2
-  br i1 %or.cond, label %if.then, label %entry.if.end_crit_edge
+  %tobool = trunc i8 %1 to i1
+  %cmp = icmp eq ptr %env, null
+  %or.cond.not = or i1 %cmp, %tobool
+  br i1 %or.cond.not, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
@@ -225,16 +223,16 @@ if.then:                                          ; preds = %entry
   store i8 1, ptr %0, align 1
   %vtable = load ptr, ptr %env, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 640
-  %3 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(72) %env)
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  store ptr %call, ptr %4, align 8
+  %2 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %env)
+  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
+  store ptr %call, ptr %3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
-  %.pre-phi = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %4, %if.then ]
-  %5 = load ptr, ptr %.pre-phi, align 8
-  %cmp1 = icmp ne ptr %5, null
+  %.pre-phi = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.then ]
+  %4 = load ptr, ptr %.pre-phi, align 8
+  %cmp1 = icmp ne ptr %4, null
   ret i1 %cmp1
 }
 
@@ -457,11 +455,10 @@ define void @_ZN7rocksdb16ThreadStatusUtil19NewColumnFamilyInfoEPKNS_2DBEPKNS_16
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_initialized_E)
   %1 = load i8, ptr %0, align 1
-  %2 = and i8 %1, 1
-  %tobool.not2.i = icmp eq i8 %2, 0
-  %cmp.i = icmp ne ptr %env, null
-  %or.cond.i = and i1 %cmp.i, %tobool.not2.i
-  br i1 %or.cond.i, label %if.then.i, label %entry.if.end_crit_edge.i
+  %tobool.i = trunc i8 %1 to i1
+  %cmp.i = icmp eq ptr %env, null
+  %or.cond.not.i = or i1 %cmp.i, %tobool.i
+  br i1 %or.cond.not.i, label %entry.if.end_crit_edge.i, label %if.then.i
 
 entry.if.end_crit_edge.i:                         ; preds = %entry
   %.pre.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
@@ -472,29 +469,29 @@ if.then.i:                                        ; preds = %entry
   store i8 1, ptr %0, align 1
   %vtable.i = load ptr, ptr %env, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 640
-  %3 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(72) %env)
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  store ptr %call.i, ptr %4, align 8
+  %2 = load ptr, ptr %vfn.i, align 8
+  %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %env)
+  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
+  store ptr %call.i, ptr %3, align 8
   br label %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
 
 _ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i
-  %5 = phi ptr [ %.pr, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
-  %cmp1.i.not = icmp eq ptr %5, null
+  %4 = phi ptr [ %.pr, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
+  %cmp1.i.not = icmp eq ptr %4, null
   br i1 %cmp1.i.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  %7 = load ptr, ptr %6, align 8
-  %tobool.not = icmp eq ptr %7, null
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
+  %6 = load ptr, ptr %5, align 8
+  %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %vtable = load ptr, ptr %db, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 744
-  %8 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %db)
-  tail call void @_ZN7rocksdb19ThreadStatusUpdater19NewColumnFamilyInfoEPKvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_SA_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull %db, ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(32) %cf_name)
+  %7 = load ptr, ptr %vfn, align 8
+  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %db)
+  tail call void @_ZN7rocksdb19ThreadStatusUpdater19NewColumnFamilyInfoEPKvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_SA_(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull %db, ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(32) %cf_name)
   br label %if.end3
 
 if.end3:                                          ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit, %if.then1, %if.end

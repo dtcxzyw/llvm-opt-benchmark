@@ -93,9 +93,8 @@ define internal i32 @pmix_psensor_base_open(i32 noundef %0) #1 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %11 = load i8, ptr @use_separate_thread, align 1
-  %12 = and i8 %11, 1
-  %.not2 = icmp eq i8 %12, 0
-  br i1 %.not2, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %pmix_obj_run_constructors.exit
   %14 = tail call ptr @pmix_progress_thread_init(ptr noundef nonnull @.str.7) #8
@@ -214,20 +213,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
 
 pmix_obj_run_destructors.exit20:                  ; preds = %.lr.ph.i17, %._crit_edge
   %46 = load i8, ptr @use_separate_thread, align 1
-  %47 = and i8 %46, 1
-  %48 = icmp ne i8 %47, 0
-  %49 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 1), align 8
-  %50 = icmp ne ptr %49, null
-  %or.cond = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %53
+  %47 = trunc i8 %46 to i1
+  %48 = load ptr, ptr getelementptr inbounds (%struct.pmix_psensor_base_t, ptr @pmix_psensor_base, i64 0, i32 1), align 8
+  %49 = icmp ne ptr %48, null
+  %or.cond = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond, label %50, label %52
 
-51:                                               ; preds = %pmix_obj_run_destructors.exit20
-  %52 = tail call i32 @pmix_progress_thread_stop(ptr noundef nonnull @.str.7) #8
-  br label %53
+50:                                               ; preds = %pmix_obj_run_destructors.exit20
+  %51 = tail call i32 @pmix_progress_thread_stop(ptr noundef nonnull @.str.7) #8
+  br label %52
 
-53:                                               ; preds = %51, %pmix_obj_run_destructors.exit20
-  %54 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_psensor_base_framework, ptr noundef null) #8
-  ret i32 %54
+52:                                               ; preds = %50, %pmix_obj_run_destructors.exit20
+  %53 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_psensor_base_framework, ptr noundef null) #8
+  ret i32 %53
 }
 
 declare i32 @pmix_mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

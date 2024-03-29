@@ -26,9 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Topo_test(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %._crit_edge, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 224
@@ -76,8 +75,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %10, %ompi_comm_inva
 25:                                               ; preds = %._crit_edge, %17
   %26 = phi i32 [ %.pre, %._crit_edge ], [ %14, %17 ]
   %27 = and i32 %26, 256
-  %.not13 = icmp eq i32 %27, 0
-  br i1 %.not13, label %29, label %28
+  %.not12 = icmp eq i32 %27, 0
+  br i1 %.not12, label %29, label %28
 
 28:                                               ; preds = %25
   store i32 1, ptr %1, align 4
@@ -85,8 +84,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %10, %ompi_comm_inva
 
 29:                                               ; preds = %25
   %30 = and i32 %26, 512
-  %.not14 = icmp eq i32 %30, 0
-  br i1 %.not14, label %32, label %31
+  %.not13 = icmp eq i32 %30, 0
+  br i1 %.not13, label %32, label %31
 
 31:                                               ; preds = %29
   store i32 2, ptr %1, align 4
@@ -94,8 +93,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %10, %ompi_comm_inva
 
 32:                                               ; preds = %29
   %33 = and i32 %26, 1024
-  %.not15 = icmp eq i32 %33, 0
-  br i1 %.not15, label %35, label %34
+  %.not14 = icmp eq i32 %33, 0
+  br i1 %.not14, label %35, label %34
 
 34:                                               ; preds = %32
   store i32 3, ptr %1, align 4

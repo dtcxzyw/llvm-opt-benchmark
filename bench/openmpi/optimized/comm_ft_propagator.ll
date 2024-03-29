@@ -28,15 +28,13 @@ declare i32 @mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_comm_failure_propagator_init() local_unnamed_addr #0 {
   %1 = load i8, ptr @comm_rbcast_enable, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %10, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %10
 
 3:                                                ; preds = %0
   %4 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %5 = and i8 %4, 1
-  %.not5 = icmp eq i8 %5, 0
-  br i1 %.not5, label %10, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
   %7 = tail call i32 @ompi_comm_rbcast_register_cb_type(ptr noundef nonnull @ompi_comm_failure_propagator_local) #2
@@ -61,9 +59,8 @@ define internal noundef i32 @ompi_comm_failure_propagator_local(ptr nocapture re
   %5 = tail call ptr @ompi_proc_for_name(i64 %4) #2
   %6 = getelementptr i8, ptr %5, i64 64
   %.val = load i8, ptr %6, align 8
-  %7 = and i8 %.val, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %12, label %8
+  %7 = trunc i8 %.val to i1
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 20

@@ -659,9 +659,8 @@ define noundef zeroext i1 @_ZN24InterfaceToolbarLineEdit7isValidEv(ptr noundef n
   %6 = alloca %class.QString, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not.not = icmp eq i8 %9, 0
-  br i1 %.not.not, label %_ZN7QStringD2Ev.exit.thread, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN7QStringD2Ev.exit.thread
 
 10:                                               ; preds = %1
   call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -690,7 +689,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN17QArrayDataPoin
   br label %_ZN7QStringD2Ev.exit.thread
 
 _ZN7QStringD2Ev.exit.thread:                      ; preds = %1, %16, %_ZN7QStringD2Ev.exit, %18
-  %19 = phi i8 [ 0, %18 ], [ 1, %_ZN7QStringD2Ev.exit ], [ 1, %16 ], [ 1, %1 ]
+  %19 = phi i1 [ false, %18 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %16 ], [ true, %1 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   call void @_ZNK18QRegularExpression7patternEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %20)
   %21 = getelementptr inbounds i8, ptr %3, i64 16
@@ -809,9 +808,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37:    ; preds = %56
   br i1 %.not.i.i38, label %_ZN7QStringD2Ev.exit35.sink.split, label %_ZN7QStringD2Ev.exit35
 
 59:                                               ; preds = %.critedge.thread, %.critedge, %46, %_ZN7QStringD2Ev.exit27
-  %.116 = phi i8 [ %19, %_ZN7QStringD2Ev.exit27 ], [ 0, %.critedge.thread ], [ %19, %.critedge ], [ %19, %46 ]
-  %60 = icmp ne i8 %.116, 0
-  ret i1 %60
+  %.116 = phi i1 [ %19, %_ZN7QStringD2Ev.exit27 ], [ false, %.critedge.thread ], [ %19, %.critedge ], [ %19, %46 ]
+  ret i1 %.116
 
 _ZN7QStringD2Ev.exit35.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33
   %.sink.in = phi ptr [ %3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37 ]
@@ -855,9 +853,8 @@ declare void @_ZN9QLineEdit13returnPressedEv(ptr noundef nonnull align 8 derefer
 define void @_ZN24InterfaceToolbarLineEdit15applyEditedTextEv(ptr noundef nonnull align 8 dereferenceable(58) %0) #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 57
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN24InterfaceToolbarLineEdit7isValidEv(ptr noundef nonnull align 8 dereferenceable(58) %0)

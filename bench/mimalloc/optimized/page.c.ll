@@ -664,7 +664,7 @@ entry:
   br i1 %cmp.old.not.i2, label %while.end, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %entry, %while.body
-  %1 = phi i64 [ %15, %while.body ], [ %0, %entry ]
+  %1 = phi i64 [ %14, %while.body ], [ %0, %entry ]
   %2 = inttoptr i64 %1 to ptr
   br label %land.rhs.i
 
@@ -681,11 +681,15 @@ land.rhs.i:                                       ; preds = %land.rhs.i, %land.r
   br i1 %or.cond.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %land.rhs.i
-  br i1 %cmp.i, label %while.end, label %while.body4.i
+  br i1 %cmp.i, label %while.end, label %while.body4.i.outer
 
-while.body4.i:                                    ; preds = %while.end.i, %if.end.i
-  %block.315.i = phi ptr [ %8, %if.end.i ], [ %block.1.i, %while.end.i ]
-  %all_freed.014.i = phi i8 [ %all_freed.1.i, %if.end.i ], [ 1, %while.end.i ]
+while.body4.i.outer:                              ; preds = %while.end.i, %if.end.i.thread
+  %block.315.i.ph = phi ptr [ %8, %if.end.i.thread ], [ %block.1.i, %while.end.i ]
+  %all_freed.014.i.ph = phi i1 [ false, %if.end.i.thread ], [ true, %while.end.i ]
+  br label %while.body4.i
+
+while.body4.i:                                    ; preds = %while.body4.i.outer, %if.end.i
+  %block.315.i = phi ptr [ %8, %if.end.i ], [ %block.315.i.ph, %while.body4.i.outer ]
   %block.3.val.i = load i64, ptr %block.315.i, align 8
   %8 = inttoptr i64 %block.3.val.i to ptr
   %call5.i = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %block.315.i) #12
@@ -702,22 +706,23 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %11 = cmpxchg weak ptr %thread_delayed_free.i, i64 %dfree.0.in.i, i64 %10 release monotonic, align 8
   %12 = extractvalue { i64, i1 } %11, 1
   %13 = extractvalue { i64, i1 } %11, 0
-  br i1 %12, label %if.end.i, label %do.body.i, !llvm.loop !15
+  br i1 %12, label %if.end.i.thread, label %do.body.i, !llvm.loop !15
 
-if.end.i:                                         ; preds = %do.body.i, %while.body4.i
-  %all_freed.1.i = phi i8 [ %all_freed.014.i, %while.body4.i ], [ 0, %do.body.i ]
+if.end.i:                                         ; preds = %while.body4.i
   %cmp3.not.i = icmp eq i64 %block.3.val.i, 0
   br i1 %cmp3.not.i, label %_mi_heap_delayed_free_partial.exit, label %while.body4.i, !llvm.loop !16
 
-_mi_heap_delayed_free_partial.exit:               ; preds = %if.end.i
-  %14 = and i8 %all_freed.1.i, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %while.body, label %while.end
+if.end.i.thread:                                  ; preds = %do.body.i
+  %cmp3.not.i4 = icmp eq i64 %block.3.val.i, 0
+  br i1 %cmp3.not.i4, label %while.body, label %while.body4.i.outer, !llvm.loop !16
 
-while.body:                                       ; preds = %_mi_heap_delayed_free_partial.exit
+_mi_heap_delayed_free_partial.exit:               ; preds = %if.end.i
+  br i1 %all_freed.014.i.ph, label %while.end, label %while.body
+
+while.body:                                       ; preds = %if.end.i.thread, %_mi_heap_delayed_free_partial.exit
   tail call void @llvm.x86.sse2.pause()
-  %15 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
-  %cmp.old.not.i = icmp eq i64 %15, 0
+  %14 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
+  %cmp.old.not.i = icmp eq i64 %14, 0
   br i1 %cmp.old.not.i, label %while.end, label %land.rhs.preheader.i, !llvm.loop !17
 
 while.end:                                        ; preds = %_mi_heap_delayed_free_partial.exit, %while.end.i, %while.body, %entry
@@ -754,7 +759,7 @@ while.end:                                        ; preds = %land.rhs
 
 while.body4:                                      ; preds = %while.end, %if.end
   %block.315 = phi ptr [ %7, %if.end ], [ %block.1, %while.end ]
-  %all_freed.014 = phi i8 [ %all_freed.1, %if.end ], [ 1, %while.end ]
+  %all_freed.014 = phi i1 [ %all_freed.1, %if.end ], [ true, %while.end ]
   %block.3.val = load i64, ptr %block.315, align 8
   %7 = inttoptr i64 %block.3.val to ptr
   %call5 = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %block.315) #12
@@ -774,17 +779,12 @@ do.body:                                          ; preds = %do.body, %if.then
   br i1 %11, label %if.end, label %do.body, !llvm.loop !15
 
 if.end:                                           ; preds = %do.body, %while.body4
-  %all_freed.1 = phi i8 [ %all_freed.014, %while.body4 ], [ 0, %do.body ]
+  %all_freed.1 = phi i1 [ %all_freed.014, %while.body4 ], [ false, %do.body ]
   %cmp3.not = icmp eq i64 %block.3.val, 0
-  br i1 %cmp3.not, label %while.end18.loopexit, label %while.body4, !llvm.loop !16
+  br i1 %cmp3.not, label %while.end18, label %while.body4, !llvm.loop !16
 
-while.end18.loopexit:                             ; preds = %if.end
-  %13 = and i8 %all_freed.1, 1
-  %14 = icmp ne i8 %13, 0
-  br label %while.end18
-
-while.end18:                                      ; preds = %entry, %while.end18.loopexit, %while.end
-  %all_freed.0.lcssa = phi i1 [ true, %while.end ], [ %14, %while.end18.loopexit ], [ true, %entry ]
+while.end18:                                      ; preds = %if.end, %entry, %while.end
+  %all_freed.0.lcssa = phi i1 [ true, %while.end ], [ true, %entry ], [ %all_freed.1, %if.end ]
   ret i1 %all_freed.0.lcssa
 }
 
@@ -1422,20 +1422,19 @@ land.lhs.true:                                    ; preds = %entry
   %3 = load ptr, ptr %heap, align 8
   %recurse = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr %recurse, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   store i8 1, ptr %recurse, align 8
-  %6 = load volatile ptr, ptr @deferred_free, align 8
-  %7 = load ptr, ptr %heap, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = load atomic i64, ptr @deferred_arg monotonic, align 8
-  %10 = inttoptr i64 %9 to ptr
-  tail call void %6(i1 noundef zeroext %force, i64 noundef %8, ptr noundef %10) #12
-  %11 = load ptr, ptr %heap, align 8
-  %recurse8 = getelementptr inbounds i8, ptr %11, i64 8
+  %5 = load volatile ptr, ptr @deferred_free, align 8
+  %6 = load ptr, ptr %heap, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load atomic i64, ptr @deferred_arg monotonic, align 8
+  %9 = inttoptr i64 %8 to ptr
+  tail call void %5(i1 noundef zeroext %force, i64 noundef %7, ptr noundef %9) #12
+  %10 = load ptr, ptr %heap, align 8
+  %recurse8 = getelementptr inbounds i8, ptr %10, i64 8
   store i8 0, ptr %recurse8, align 8
   br label %if.end
 
@@ -1478,67 +1477,66 @@ land.lhs.true.i:                                  ; preds = %if.end14
   %3 = load ptr, ptr %heap.addr.0, align 8
   %recurse.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr %recurse.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_mi_deferred_free.exit
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_mi_deferred_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 1, ptr %recurse.i, align 8
-  %6 = load volatile ptr, ptr @deferred_free, align 8
-  %7 = load ptr, ptr %heap.addr.0, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = load atomic i64, ptr @deferred_arg monotonic, align 8
-  %10 = inttoptr i64 %9 to ptr
-  tail call void %6(i1 noundef zeroext false, i64 noundef %8, ptr noundef %10) #12
-  %11 = load ptr, ptr %heap.addr.0, align 8
-  %recurse8.i = getelementptr inbounds i8, ptr %11, i64 8
+  %5 = load volatile ptr, ptr @deferred_free, align 8
+  %6 = load ptr, ptr %heap.addr.0, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load atomic i64, ptr @deferred_arg monotonic, align 8
+  %9 = inttoptr i64 %8 to ptr
+  tail call void %5(i1 noundef zeroext false, i64 noundef %7, ptr noundef %9) #12
+  %10 = load ptr, ptr %heap.addr.0, align 8
+  %recurse8.i = getelementptr inbounds i8, ptr %10, i64 8
   store i8 0, ptr %recurse8.i, align 8
   br label %_mi_deferred_free.exit
 
 _mi_deferred_free.exit:                           ; preds = %if.end14, %land.lhs.true.i, %if.then.i
   %thread_delayed_free.i = getelementptr inbounds i8, ptr %heap.addr.0, i64 2840
-  %12 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
-  %cmp.old.not.i = icmp eq i64 %12, 0
+  %11 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
+  %cmp.old.not.i = icmp eq i64 %11, 0
   br i1 %cmp.old.not.i, label %_mi_heap_delayed_free_partial.exit, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %_mi_deferred_free.exit
-  %13 = inttoptr i64 %12 to ptr
+  %12 = inttoptr i64 %11 to ptr
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i, %land.rhs.preheader.i
-  %block.0.i = phi ptr [ %block.1.i, %land.rhs.i ], [ %13, %land.rhs.preheader.i ]
-  %14 = ptrtoint ptr %block.0.i to i64
-  %15 = cmpxchg weak ptr %thread_delayed_free.i, i64 %14, i64 0 acq_rel acquire, align 8
-  %16 = extractvalue { i64, i1 } %15, 1
-  %17 = extractvalue { i64, i1 } %15, 0
-  %18 = inttoptr i64 %17 to ptr
-  %block.1.i = select i1 %16, ptr %block.0.i, ptr %18
+  %block.0.i = phi ptr [ %block.1.i, %land.rhs.i ], [ %12, %land.rhs.preheader.i ]
+  %13 = ptrtoint ptr %block.0.i to i64
+  %14 = cmpxchg weak ptr %thread_delayed_free.i, i64 %13, i64 0 acq_rel acquire, align 8
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %17 = inttoptr i64 %16 to ptr
+  %block.1.i = select i1 %15, ptr %block.0.i, ptr %17
   %cmp.i22 = icmp eq ptr %block.1.i, null
-  %or.cond.not.i = select i1 %16, i1 true, i1 %cmp.i22
+  %or.cond.not.i = select i1 %15, i1 true, i1 %cmp.i22
   br i1 %or.cond.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %land.rhs.i
   br i1 %cmp.i22, label %_mi_heap_delayed_free_partial.exit, label %while.body4.i
 
 while.body4.i:                                    ; preds = %while.end.i, %if.end.i
-  %block.315.i = phi ptr [ %19, %if.end.i ], [ %block.1.i, %while.end.i ]
+  %block.315.i = phi ptr [ %18, %if.end.i ], [ %block.1.i, %while.end.i ]
   %block.3.val.i = load i64, ptr %block.315.i, align 8
-  %19 = inttoptr i64 %block.3.val.i to ptr
+  %18 = inttoptr i64 %block.3.val.i to ptr
   %call5.i = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %block.315.i) #12
   br i1 %call5.i, label %if.end.i, label %if.then.i23
 
 if.then.i23:                                      ; preds = %while.body4.i
-  %20 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
-  %21 = ptrtoint ptr %block.315.i to i64
+  %19 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
+  %20 = ptrtoint ptr %block.315.i to i64
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i23
-  %dfree.0.in.i = phi i64 [ %20, %if.then.i23 ], [ %24, %do.body.i ]
+  %dfree.0.in.i = phi i64 [ %19, %if.then.i23 ], [ %23, %do.body.i ]
   store i64 %dfree.0.in.i, ptr %block.315.i, align 8
-  %22 = cmpxchg weak ptr %thread_delayed_free.i, i64 %dfree.0.in.i, i64 %21 release monotonic, align 8
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  br i1 %23, label %if.end.i, label %do.body.i, !llvm.loop !15
+  %21 = cmpxchg weak ptr %thread_delayed_free.i, i64 %dfree.0.in.i, i64 %20 release monotonic, align 8
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  br i1 %22, label %if.end.i, label %do.body.i, !llvm.loop !15
 
 if.end.i:                                         ; preds = %do.body.i, %while.body4.i
   %cmp3.not.i = icmp eq i64 %block.3.val.i, 0
@@ -1565,32 +1563,32 @@ if.end36:                                         ; preds = %_mi_heap_delayed_fr
 
 land.rhs:                                         ; preds = %if.end36
   %xblock_size = getelementptr inbounds i8, ptr %page.026, i64 28
-  %25 = load i32, ptr %xblock_size, align 4
-  %cmp39 = icmp eq i32 %25, 0
+  %24 = load i32, ptr %xblock_size, align 4
+  %cmp39 = icmp eq i32 %24, 0
   br i1 %cmp39, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %land.rhs
   %call48 = tail call ptr @_mi_page_malloc(ptr noundef nonnull %heap.addr.0, ptr noundef nonnull %page.026, i64 noundef %size, i1 noundef zeroext false) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i)
-  %26 = load i32, ptr %xblock_size, align 4
-  %cmp.i.i = icmp sgt i32 %26, -1
+  %25 = load i32, ptr %xblock_size, align 4
+  %cmp.i.i = icmp sgt i32 %25, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then47
-  %conv.i.i = zext nneg i32 %26 to i64
+  %conv.i.i = zext nneg i32 %25 to i64
   br label %mi_page_usable_block_size.exit
 
 if.else.i.i:                                      ; preds = %if.then47
-  %27 = ptrtoint ptr %page.026 to i64
-  %sub.i.i.i.i = add i64 %27, -1
+  %26 = ptrtoint ptr %page.026 to i64
+  %sub.i.i.i.i = add i64 %26, -1
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -33554432
-  %28 = inttoptr i64 %and.i.i.i.i to ptr
-  %call4.i.i = call ptr @_mi_segment_page_start(ptr noundef %28, ptr noundef nonnull %page.026, ptr noundef nonnull %psize.i.i) #12
-  %29 = load i64, ptr %psize.i.i, align 8
+  %27 = inttoptr i64 %and.i.i.i.i to ptr
+  %call4.i.i = call ptr @_mi_segment_page_start(ptr noundef %27, ptr noundef nonnull %page.026, ptr noundef nonnull %psize.i.i) #12
+  %28 = load i64, ptr %psize.i.i, align 8
   br label %mi_page_usable_block_size.exit
 
 mi_page_usable_block_size.exit:                   ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ %29, %if.else.i.i ]
+  %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ %28, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i)
   call void @llvm.assume(i1 true) [ "align"(ptr %call48, i64 8) ]
   call void @llvm.memset.p0.i64(ptr align 8 %call48, i8 0, i64 %retval.0.i.i, i1 false)

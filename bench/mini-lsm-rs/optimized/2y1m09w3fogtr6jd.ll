@@ -1219,8 +1219,8 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
 
 30:                                               ; preds = %31, %16
   %.020.i = phi i64 [ %29, %16 ], [ %34, %31 ]
-  %.not.i57 = icmp ult i64 %27, %.020.i
-  br i1 %.not.i57, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6743c796bff958e6E.exit", label %31
+  %.not.i55 = icmp ult i64 %27, %.020.i
+  br i1 %.not.i55, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6743c796bff958e6E.exit", label %31
 
 31:                                               ; preds = %30
   %32 = cmpxchg weak ptr %17, i64 %.020.i, i64 %.0.sroa.speculated.i.i monotonic monotonic, align 8
@@ -1240,7 +1240,7 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
   tail call fastcc void @_ZN15crossbeam_epoch6atomic14ensure_aligned17h46891d9d5f07e2e6E(i64 noundef %38)
   unreachable
 
-39:                                               ; preds = %.thread72, %51, %41
+39:                                               ; preds = %.thread75, %51, %41
   %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #48
@@ -1260,7 +1260,7 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !409, !noundef !4
   invoke void %45(ptr noalias noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %48, i64 noundef %50)
-          to label %.thread72 unwind label %39
+          to label %.thread75 unwind label %39
 
 51:                                               ; preds = %15
   %52 = landingpad { ptr, i32 }
@@ -1277,13 +1277,13 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
   %59 = getelementptr inbounds i8, ptr %2, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !419, !noundef !4
   invoke void %55(ptr noalias noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %58, i64 noundef %60)
-          to label %.thread72 unwind label %39
+          to label %.thread75 unwind label %39
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc52b48903511acadE.llvm.17312374178852649393.exit62": ; preds = %.thread72
-  resume { ptr, i32 } %.pn.pn76
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc52b48903511acadE.llvm.17312374178852649393.exit60": ; preds = %.thread75
+  resume { ptr, i32 } %.pn.pn74
 
-.thread72:                                        ; preds = %41, %51
-  %.pn.pn76 = phi { ptr, i32 } [ %52, %51 ], [ %42, %41 ]
+.thread75:                                        ; preds = %51, %41
+  %.pn.pn74 = phi { ptr, i32 } [ %42, %41 ], [ %52, %51 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !420)
   call void @llvm.experimental.noalias.scope.decl(metadata !423)
   %61 = load ptr, ptr %1, align 8, !alias.scope !426, !nonnull !4, !align !36, !noundef !4
@@ -1295,7 +1295,7 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
   %67 = getelementptr inbounds i8, ptr %1, i64 16
   %68 = load i64, ptr %67, align 8, !alias.scope !426, !noundef !4
   invoke void %63(ptr noalias noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %66, i64 noundef %68)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc52b48903511acadE.llvm.17312374178852649393.exit62" unwind label %39
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc52b48903511acadE.llvm.17312374178852649393.exit60" unwind label %39
 }
 
 ; Function Attrs: nonlazybind uwtable

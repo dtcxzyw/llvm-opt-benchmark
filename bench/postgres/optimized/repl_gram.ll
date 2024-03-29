@@ -339,9 +339,9 @@ define dso_local noundef i32 @replication_yyparse() local_unnamed_addr #0 {
   store ptr %112, ptr %113, align 8
   %114 = getelementptr i8, ptr %.2240, i64 -16
   %115 = load i8, ptr %114, align 8
-  %116 = and i8 %115, 1
-  %117 = getelementptr inbounds i8, ptr %109, i64 32
-  store i8 %116, ptr %117, align 8
+  %116 = getelementptr inbounds i8, ptr %109, i64 32
+  %117 = and i8 %115, 1
+  store i8 %117, ptr %116, align 8
   %118 = load ptr, ptr %.2240, align 8
   %119 = getelementptr inbounds i8, ptr %109, i64 40
   store ptr %118, ptr %119, align 8
@@ -358,9 +358,9 @@ define dso_local noundef i32 @replication_yyparse() local_unnamed_addr #0 {
   store ptr %124, ptr %125, align 8
   %126 = getelementptr i8, ptr %.2240, i64 -24
   %127 = load i8, ptr %126, align 8
-  %128 = and i8 %127, 1
-  %129 = getelementptr inbounds i8, ptr %121, i64 32
-  store i8 %128, ptr %129, align 8
+  %128 = getelementptr inbounds i8, ptr %121, i64 32
+  %129 = and i8 %127, 1
+  store i8 %129, ptr %128, align 8
   %130 = getelementptr i8, ptr %.2240, i64 -8
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %121, i64 24

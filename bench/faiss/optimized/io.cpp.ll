@@ -1101,16 +1101,15 @@ define void @_ZN5faiss12FileIOReaderD2Ev(ptr noundef nonnull align 8 dereference
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %17, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fclose(ptr noundef %7)
-  %.not1 = icmp eq i32 %8, 0
-  br i1 %.not1, label %17, label %9
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @stderr, align 8
@@ -1245,16 +1244,15 @@ define void @_ZN5faiss12FileIOWriterD2Ev(ptr noundef nonnull align 8 dereference
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %17, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fclose(ptr noundef %7)
-  %.not1 = icmp eq i32 %8, 0
-  br i1 %.not1, label %17, label %9
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @stderr, align 8

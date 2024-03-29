@@ -255,8 +255,8 @@ define dso_local void @LogicalTapeWrite(ptr nocapture noundef %0, ptr nocapture 
   br label %20
 
 20:                                               ; preds = %15, %11
-  %.not50 = icmp eq i64 %2, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i64 %2, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %21 = getelementptr inbounds i8, ptr %0, i64 64
@@ -267,16 +267,15 @@ define dso_local void @LogicalTapeWrite(ptr nocapture noundef %0, ptr nocapture 
 
 24:                                               ; preds = %.lr.ph, %56
   %25 = phi i32 [ %.pre, %.lr.ph ], [ %52, %56 ]
-  %.052 = phi ptr [ %1, %.lr.ph ], [ %57, %56 ]
-  %.04651 = phi i64 [ %2, %.lr.ph ], [ %58, %56 ]
+  %.051 = phi ptr [ %1, %.lr.ph ], [ %57, %56 ]
+  %.04650 = phi i64 [ %2, %.lr.ph ], [ %58, %56 ]
   %26 = icmp sgt i32 %25, 8175
   br i1 %26, label %27, label %44
 
 27:                                               ; preds = %24
   %28 = load i8, ptr %22, align 2
-  %29 = and i8 %28, 1
-  %.not49 = icmp eq i8 %29, 0
-  br i1 %.not49, label %30, label %33
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -308,10 +307,10 @@ define dso_local void @LogicalTapeWrite(ptr nocapture noundef %0, ptr nocapture 
   %45 = phi i32 [ 0, %33 ], [ %25, %24 ]
   %46 = sext i32 %45 to i64
   %47 = sub nsw i64 8176, %46
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %47, i64 %.04651)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %47, i64 %.04650)
   %48 = load ptr, ptr %5, align 8
   %49 = getelementptr i8, ptr %48, i64 %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %.052, i64 %spec.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %.051, i64 %spec.select, i1 false)
   store i8 1, ptr %22, align 2
   %50 = load i32, ptr %21, align 8
   %51 = trunc i64 %spec.select to i32
@@ -326,8 +325,8 @@ define dso_local void @LogicalTapeWrite(ptr nocapture noundef %0, ptr nocapture 
   br label %56
 
 56:                                               ; preds = %55, %44
-  %57 = getelementptr i8, ptr %.052, i64 %spec.select
-  %58 = sub i64 %.04651, %spec.select
+  %57 = getelementptr i8, ptr %.051, i64 %spec.select
+  %58 = sub i64 %.04650, %spec.select
   %.not = icmp eq i64 %58, 0
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !5
 
@@ -339,9 +338,8 @@ define dso_local void @LogicalTapeWrite(ptr nocapture noundef %0, ptr nocapture 
 define internal fastcc i64 @ltsGetBlock(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %79, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %79
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 80
@@ -630,9 +628,8 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %13
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %1, i64 8192)
@@ -648,16 +645,14 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   %.1 = phi i32 [ %12, %7 ], [ 8192, %2 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not34 = icmp eq i8 %16, 0
-  br i1 %.not34, label %34, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %34
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 10
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %.not35 = icmp eq i8 %20, 0
-  br i1 %.not35, label %33, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 68
@@ -682,8 +677,8 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
 34:                                               ; preds = %13, %33
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
-  %.not36 = icmp eq ptr %36, null
-  br i1 %.not36, label %38, label %37
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %34
   tail call void @pfree(ptr noundef nonnull %36) #9
@@ -695,8 +690,8 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   store i32 %.1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8
-  %.not37 = icmp eq ptr %41, null
-  br i1 %.not37, label %82, label %42
+  %.not34 = icmp eq ptr %41, null
+  br i1 %.not34, label %82, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %0, i64 80
@@ -719,17 +714,16 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i64, ptr %54, align 8
   %56 = load i8, ptr %46, align 8
-  %57 = and i8 %56, 1
-  %.not.i = icmp eq i8 %57, 0
-  br i1 %.not.i, label %58, label %ltsReleaseBlock.exit
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %ltsReleaseBlock.exit, label %58
 
 58:                                               ; preds = %51
   %59 = load i64, ptr %47, align 8
   %60 = load i64, ptr %48, align 8
-  %.not26.i = icmp ult i64 %59, %60
-  br i1 %.not26.i, label %._crit_edge32.i, label %61
+  %.not.i = icmp ult i64 %59, %60
+  br i1 %.not.i, label %._crit_edge31.i, label %61
 
-._crit_edge32.i:                                  ; preds = %58
+._crit_edge31.i:                                  ; preds = %58
   %.pre.i = load ptr, ptr %49, align 8
   br label %68
 
@@ -744,20 +738,20 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   %66 = load ptr, ptr %49, align 8
   %67 = tail call ptr @repalloc(ptr noundef %66, i64 noundef %62) #9
   store ptr %67, ptr %49, align 8
-  %.pre33.i = load i64, ptr %47, align 8
+  %.pre32.i = load i64, ptr %47, align 8
   br label %68
 
-68:                                               ; preds = %64, %._crit_edge32.i
-  %69 = phi i64 [ %59, %._crit_edge32.i ], [ %.pre33.i, %64 ]
-  %70 = phi ptr [ %.pre.i, %._crit_edge32.i ], [ %67, %64 ]
+68:                                               ; preds = %64, %._crit_edge31.i
+  %69 = phi i64 [ %59, %._crit_edge31.i ], [ %.pre32.i, %64 ]
+  %70 = phi ptr [ %.pre.i, %._crit_edge31.i ], [ %67, %64 ]
   %71 = add i64 %69, 1
   store i64 %71, ptr %47, align 8
-  %.not2728.i = icmp eq i64 %69, 0
-  br i1 %.not2728.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not2627.i = icmp eq i64 %69, 0
+  br i1 %.not2627.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %77
-  %.029.i = phi i64 [ %73, %77 ], [ %69, %68 ]
-  %72 = add i64 %.029.i, -1
+  %.028.i = phi i64 [ %73, %77 ], [ %69, %68 ]
+  %72 = add i64 %.028.i, -1
   %73 = lshr i64 %72, 1
   %74 = getelementptr i64, ptr %70, i64 %73
   %75 = load i64, ptr %74, align 8
@@ -765,13 +759,13 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   br i1 %76, label %._crit_edge.i, label %77
 
 77:                                               ; preds = %.lr.ph.i
-  %78 = getelementptr i64, ptr %70, i64 %.029.i
+  %78 = getelementptr i64, ptr %70, i64 %.028.i
   store i64 %75, ptr %78, align 8
-  %.not27.i = icmp ult i64 %72, 2
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  %.not26.i = icmp ult i64 %72, 2
+  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %77, %.lr.ph.i, %68
-  %.0.lcssa.i = phi i64 [ 0, %68 ], [ %73, %77 ], [ %.029.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %68 ], [ %73, %77 ], [ %.028.i, %.lr.ph.i ]
   %79 = getelementptr i64, ptr %70, i64 %.0.lcssa.i
   store i64 %55, ptr %79, align 8
   br label %ltsReleaseBlock.exit
@@ -917,27 +911,25 @@ ltsReadBlock.exit:                                ; preds = %17
   %27 = load ptr, ptr %20, align 8
   tail call void @BufFileReadExact(ptr noundef %27, ptr noundef %15, i64 noundef 8192) #9
   %28 = load i8, ptr %7, align 1
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %30, label %ltsReleaseBlock.exit
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %ltsReleaseBlock.exit, label %30
 
 30:                                               ; preds = %ltsReadBlock.exit
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 48
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not.i27 = icmp eq i8 %34, 0
-  br i1 %.not.i27, label %35, label %ltsReleaseBlock.exit
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %ltsReleaseBlock.exit, label %35
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %31, i64 64
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %31, i64 72
   %39 = load i64, ptr %38, align 8
-  %.not26.i = icmp ult i64 %37, %39
-  br i1 %.not26.i, label %._crit_edge32.i, label %40
+  %.not.i27 = icmp ult i64 %37, %39
+  br i1 %.not.i27, label %._crit_edge31.i, label %40
 
-._crit_edge32.i:                                  ; preds = %35
+._crit_edge31.i:                                  ; preds = %35
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %31, i64 56
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %48
@@ -954,20 +946,20 @@ ltsReadBlock.exit:                                ; preds = %17
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %41) #9
   store ptr %47, ptr %45, align 8
-  %.pre33.i = load i64, ptr %36, align 8
+  %.pre32.i = load i64, ptr %36, align 8
   br label %48
 
-48:                                               ; preds = %43, %._crit_edge32.i
-  %49 = phi i64 [ %37, %._crit_edge32.i ], [ %.pre33.i, %43 ]
-  %50 = phi ptr [ %.pre.i, %._crit_edge32.i ], [ %47, %43 ]
+48:                                               ; preds = %43, %._crit_edge31.i
+  %49 = phi i64 [ %37, %._crit_edge31.i ], [ %.pre32.i, %43 ]
+  %50 = phi ptr [ %.pre.i, %._crit_edge31.i ], [ %47, %43 ]
   %51 = add i64 %49, 1
   store i64 %51, ptr %36, align 8
-  %.not2728.i = icmp eq i64 %49, 0
-  br i1 %.not2728.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not2627.i = icmp eq i64 %49, 0
+  br i1 %.not2627.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %57
-  %.029.i = phi i64 [ %53, %57 ], [ %49, %48 ]
-  %52 = add i64 %.029.i, -1
+  %.028.i = phi i64 [ %53, %57 ], [ %49, %48 ]
+  %52 = add i64 %.028.i, -1
   %53 = lshr i64 %52, 1
   %54 = getelementptr i64, ptr %50, i64 %53
   %55 = load i64, ptr %54, align 8
@@ -975,13 +967,13 @@ ltsReadBlock.exit:                                ; preds = %17
   br i1 %56, label %._crit_edge.i, label %57
 
 57:                                               ; preds = %.lr.ph.i
-  %58 = getelementptr i64, ptr %50, i64 %.029.i
+  %58 = getelementptr i64, ptr %50, i64 %.028.i
   store i64 %55, ptr %58, align 8
-  %.not27.i = icmp ult i64 %52, 2
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  %.not26.i = icmp ult i64 %52, 2
+  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %57, %.lr.ph.i, %48
-  %.0.lcssa.i = phi i64 [ 0, %48 ], [ %53, %57 ], [ %.029.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %48 ], [ %53, %57 ], [ %.028.i, %.lr.ph.i ]
   %59 = getelementptr i64, ptr %50, i64 %.0.lcssa.i
   store i64 %19, ptr %59, align 8
   br label %ltsReleaseBlock.exit
@@ -1024,9 +1016,8 @@ define dso_local void @LogicalTapeFreeze(ptr nocapture noundef %0, ptr noundef w
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 10
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %19, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 68
@@ -1051,14 +1042,14 @@ define dso_local void @LogicalTapeFreeze(ptr nocapture noundef %0, ptr noundef w
   store i8 1, ptr %21, align 1
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
-  %.not38 = icmp eq ptr %23, null
-  br i1 %.not38, label %.thread, label %24
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %.thread, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 56
   %26 = load i32, ptr %25, align 8
-  %.not39 = icmp eq i32 %26, 8192
-  br i1 %.not39, label %30, label %27
+  %.not38 = icmp eq i32 %26, 8192
+  br i1 %.not38, label %30, label %27
 
 27:                                               ; preds = %24
   tail call void @pfree(ptr noundef nonnull %23) #9
@@ -1119,8 +1110,8 @@ ltsReadBlock.exit:                                ; preds = %40
   %56 = sub i32 0, %55
   %57 = select i1 %54, i32 %56, i32 8176
   store i32 %57, ptr %36, align 4
-  %.not41 = icmp eq ptr %1, null
-  br i1 %.not41, label %61, label %58
+  %.not40 = icmp eq ptr %1, null
+  br i1 %.not40, label %61, label %58
 
 58:                                               ; preds = %ltsReadBlock.exit
   %59 = load ptr, ptr %3, align 8

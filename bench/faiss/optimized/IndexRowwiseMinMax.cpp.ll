@@ -295,9 +295,8 @@ define linkonce_odr void @_ZN5faiss22IndexRowwiseMinMaxFP16D2Ev(ptr noundef nonn
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -326,9 +325,8 @@ define linkonce_odr void @_ZN5faiss22IndexRowwiseMinMaxFP16D0Ev(ptr noundef nonn
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %_ZN5faiss22IndexRowwiseMinMaxFP16D2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN5faiss22IndexRowwiseMinMaxFP16D2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1194,7 +1192,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   %27 = icmp sgt i32 %12, 0
   %28 = shl nsw i64 %26, 2
   %29 = mul i64 %28, %25
-  %30 = add i64 %24, 1
+  %30 = add nsw i64 %24, 1
   %31 = sub i64 %30, %25
   %32 = getelementptr i8, ptr %2, i64 %29
   br label %33
@@ -1436,9 +1434,8 @@ define linkonce_odr void @_ZN5faiss18IndexRowwiseMinMaxD2Ev(ptr noundef nonnull 
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1467,9 +1464,8 @@ define linkonce_odr void @_ZN5faiss18IndexRowwiseMinMaxD0Ev(ptr noundef nonnull 
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %_ZN5faiss18IndexRowwiseMinMaxD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN5faiss18IndexRowwiseMinMaxD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2291,7 +2287,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph110.i
   %28 = shl nuw nsw i64 %26, 2
   %29 = mul i64 %28, %25
-  %30 = add i64 %24, 1
+  %30 = add nsw i64 %24, 1
   %31 = sub i64 %30, %25
   %32 = getelementptr i8, ptr %2, i64 %29
   br label %.lr.ph.us.i
@@ -2493,9 +2489,8 @@ define void @_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev(ptr noundef nonnull align 8 d
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %14, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40

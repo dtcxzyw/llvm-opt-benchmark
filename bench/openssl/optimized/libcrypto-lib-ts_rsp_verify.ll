@@ -437,17 +437,19 @@ entry:
   %tobool = icmp ne i32 %and, 0
   %cmp = icmp ne ptr %0, null
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
-  %2 = and i32 %1, 129
-  %3 = icmp ne i32 %2, 0
-  %flags.0.narrow = or i1 %3, %or.cond
+  %and2 = and i32 %1, 128
+  %tobool3.not = icmp ne i32 %and2, 0
+  %.tr = trunc i32 %1 to i1
+  %2 = or i1 %tobool3.not, %.tr
+  %flags.0.narrow = or i1 %2, %or.cond
   br i1 %flags.0.narrow, label %land.lhs.true6, label %if.end9
 
 land.lhs.true6:                                   ; preds = %entry
   %certs = getelementptr inbounds i8, ptr %ctx, i64 16
-  %4 = load ptr, ptr %certs, align 8
+  %3 = load ptr, ptr %certs, align 8
   %store = getelementptr inbounds i8, ptr %ctx, i64 8
-  %5 = load ptr, ptr %store, align 8
-  %call = call i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %signer), !range !4
+  %4 = load ptr, ptr %store, align 8
+  %call = call i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %signer), !range !4
   %tobool7.not = icmp eq i32 %call, 0
   br i1 %tobool7.not, label %err, label %if.end9
 
@@ -474,10 +476,10 @@ if.end16:                                         ; preds = %land.lhs.true12, %i
 
 land.lhs.true19:                                  ; preds = %if.end16
   %policy = getelementptr inbounds i8, ptr %ctx, i64 24
-  %6 = load ptr, ptr %policy, align 8
-  %7 = getelementptr i8, ptr %tst_info, i64 8
-  %tst_info.val = load ptr, ptr %7, align 8
-  %call.i = call i32 @OBJ_cmp(ptr noundef %6, ptr noundef %tst_info.val) #7
+  %5 = load ptr, ptr %policy, align 8
+  %6 = getelementptr i8, ptr %tst_info, i64 8
+  %tst_info.val = load ptr, ptr %6, align 8
+  %call.i = call i32 @OBJ_cmp(ptr noundef %5, ptr noundef %tst_info.val) #7
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end23, label %ts_check_policy.exit.thread
 
@@ -494,14 +496,14 @@ if.end23:                                         ; preds = %land.lhs.true19, %i
 
 land.lhs.true26:                                  ; preds = %if.end23
   %md_alg27 = getelementptr inbounds i8, ptr %ctx, i64 32
-  %8 = load ptr, ptr %md_alg27, align 8
+  %7 = load ptr, ptr %md_alg27, align 8
   %imprint28 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %9 = load ptr, ptr %imprint28, align 8
+  %8 = load ptr, ptr %imprint28, align 8
   %imprint_len29 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %10 = load i32, ptr %imprint_len29, align 8
-  %11 = getelementptr i8, ptr %tst_info, i64 16
-  %tst_info.val30 = load ptr, ptr %11, align 8
-  %call30 = call fastcc i32 @ts_check_imprints(ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr %tst_info.val30)
+  %9 = load i32, ptr %imprint_len29, align 8
+  %10 = getelementptr i8, ptr %tst_info, i64 16
+  %tst_info.val30 = load ptr, ptr %10, align 8
+  %call30 = call fastcc i32 @ts_check_imprints(ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr %tst_info.val30)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end33
 
@@ -512,9 +514,9 @@ if.end33:                                         ; preds = %land.lhs.true26, %i
 
 land.lhs.true36:                                  ; preds = %if.end33
   %data = getelementptr inbounds i8, ptr %ctx, i64 56
-  %12 = load ptr, ptr %data, align 8
-  %13 = getelementptr i8, ptr %tst_info, i64 16
-  %tst_info.val32 = load ptr, ptr %13, align 8
+  %11 = load ptr, ptr %data, align 8
+  %12 = getelementptr i8, ptr %tst_info, i64 16
+  %tst_info.val32 = load ptr, ptr %12, align 8
   %tst_info.val32.val = load ptr, ptr %tst_info.val32, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buffer.i)
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %name.i)
@@ -523,8 +525,8 @@ land.lhs.true36:                                  ; preds = %if.end33
   br i1 %cmp.i, label %ts_compute_imprint.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true36
-  %14 = load ptr, ptr %tst_info.val32.val, align 8
-  %call2.i = call i32 @OBJ_obj2txt(ptr noundef nonnull %name.i, i32 noundef 50, ptr noundef %14, i32 noundef 0) #7
+  %13 = load ptr, ptr %tst_info.val32.val, align 8
+  %call2.i = call i32 @OBJ_obj2txt(ptr noundef nonnull %name.i, i32 noundef 50, ptr noundef %13, i32 noundef 0) #7
   %call3.i = call i32 @ERR_set_mark() #7
   %call5.i = call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull %name.i, ptr noundef null) #7
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -573,7 +575,7 @@ if.end32.i:                                       ; preds = %if.end29.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end32.i
-  %call34.i = call i32 @BIO_read(ptr noundef %12, ptr noundef nonnull %buffer.i, i32 noundef 4096) #7
+  %call34.i = call i32 @BIO_read(ptr noundef %11, ptr noundef nonnull %buffer.i, i32 noundef 4096) #7
   %cmp35.i = icmp sgt i32 %call34.i, 0
   br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
@@ -604,7 +606,7 @@ lor.lhs.false39:                                  ; preds = %while.end.i
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call25.i) #7
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %name.i)
-  %tst_info.val31 = load ptr, ptr %13, align 8
+  %tst_info.val31 = load ptr, ptr %12, align 8
   %call40 = call fastcc i32 @ts_check_imprints(ptr noundef nonnull %call.i34, ptr noundef nonnull %call20.i, i32 noundef %call16.i, ptr %tst_info.val31)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %if.end43
@@ -617,15 +619,15 @@ if.end43:                                         ; preds = %lor.lhs.false39, %i
   br i1 %tobool45.not, label %if.end50, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %if.end43
-  %15 = getelementptr i8, ptr %tst_info, i64 56
-  %tst_info.val33 = load ptr, ptr %15, align 8
+  %14 = getelementptr i8, ptr %tst_info, i64 56
+  %tst_info.val33 = load ptr, ptr %14, align 8
   %tobool.not.i36 = icmp eq ptr %tst_info.val33, null
   br i1 %tobool.not.i36, label %ts_check_nonces.exit.thread, label %if.end.i37
 
 if.end.i37:                                       ; preds = %land.lhs.true46
   %nonce = getelementptr inbounds i8, ptr %ctx, i64 64
-  %16 = load ptr, ptr %nonce, align 8
-  %call.i38 = call i32 @ASN1_INTEGER_cmp(ptr noundef %16, ptr noundef nonnull %tst_info.val33) #7
+  %15 = load ptr, ptr %nonce, align 8
+  %call.i38 = call i32 @ASN1_INTEGER_cmp(ptr noundef %15, ptr noundef nonnull %tst_info.val33) #7
   %cmp.not.i39 = icmp eq i32 %call.i38, 0
   br i1 %cmp.not.i39, label %if.end50, label %ts_check_nonces.exit.thread
 
@@ -641,8 +643,8 @@ if.end50:                                         ; preds = %if.end.i37, %if.end
   br i1 %or.cond, label %land.lhs.true55, label %if.end59
 
 land.lhs.true55:                                  ; preds = %if.end50
-  %17 = load ptr, ptr %signer, align 8
-  %call56 = call fastcc i32 @ts_check_signer_name(ptr noundef nonnull %0, ptr noundef %17), !range !4
+  %16 = load ptr, ptr %signer, align 8
+  %call56 = call fastcc i32 @ts_check_signer_name(ptr noundef nonnull %0, ptr noundef %16), !range !4
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %if.then58, label %if.end59
 
@@ -653,15 +655,14 @@ if.then58:                                        ; preds = %land.lhs.true55
   br label %err
 
 if.end59:                                         ; preds = %land.lhs.true55, %if.end50
-  %and60 = and i32 %1, 128
-  %tobool61.not = icmp eq i32 %and60, 0
+  %tobool61.not = icmp eq i32 %and2, 0
   br i1 %tobool61.not, label %err, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end59
   %tsa_name63 = getelementptr inbounds i8, ptr %ctx, i64 72
-  %18 = load ptr, ptr %tsa_name63, align 8
-  %19 = load ptr, ptr %signer, align 8
-  %call64 = call fastcc i32 @ts_check_signer_name(ptr noundef %18, ptr noundef %19), !range !4
+  %17 = load ptr, ptr %tsa_name63, align 8
+  %18 = load ptr, ptr %signer, align 8
+  %call64 = call fastcc i32 @ts_check_signer_name(ptr noundef %17, ptr noundef %18), !range !4
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.then66, label %err
 
@@ -675,8 +676,8 @@ err:                                              ; preds = %ts_check_nonces.exi
   %md_alg.2 = phi ptr [ %md_alg.1, %if.then58 ], [ %md_alg.1, %if.end59 ], [ %md_alg.1, %if.then66 ], [ %md_alg.1, %land.lhs.true62 ], [ %call.i34, %lor.lhs.false39 ], [ null, %land.lhs.true26 ], [ null, %if.then15 ], [ null, %land.lhs.true6 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %md_alg.1, %ts_check_nonces.exit.thread ]
   %imprint.3 = phi ptr [ %imprint.2, %if.then58 ], [ %imprint.2, %if.end59 ], [ %imprint.2, %if.then66 ], [ %imprint.2, %land.lhs.true62 ], [ %call20.i, %lor.lhs.false39 ], [ null, %land.lhs.true26 ], [ null, %if.then15 ], [ null, %land.lhs.true6 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %imprint.2, %ts_check_nonces.exit.thread ]
   %ret.0 = phi i32 [ 0, %if.then58 ], [ 1, %if.end59 ], [ 0, %if.then66 ], [ 1, %land.lhs.true62 ], [ 0, %lor.lhs.false39 ], [ 0, %land.lhs.true26 ], [ 0, %if.then15 ], [ 0, %land.lhs.true6 ], [ 0, %ts_check_policy.exit.thread ], [ 0, %ts_compute_imprint.exit.thread ], [ 0, %ts_check_nonces.exit.thread ]
-  %20 = load ptr, ptr %signer, align 8
-  call void @X509_free(ptr noundef %20) #7
+  %19 = load ptr, ptr %signer, align 8
+  call void @X509_free(ptr noundef %19) #7
   call void @X509_ALGOR_free(ptr noundef %md_alg.2) #7
   call void @CRYPTO_free(ptr noundef %imprint.3, ptr noundef nonnull @.str, i32 noundef 347) #7
   ret i32 %ret.0

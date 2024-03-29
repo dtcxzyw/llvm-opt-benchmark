@@ -250,8 +250,8 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %7 = load i32, ptr %5, align 8, !range !27, !alias.scope !22, !noalias !25, !noundef !17
-  %trunc.not.i = icmp eq i32 %7, 0
-  br i1 %trunc.not.i, label %10, label %.thread.i
+  %trunc.i = trunc i32 %7 to i1
+  br i1 %trunc.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %6
   %8 = getelementptr inbounds i8, ptr %5, i64 4
@@ -332,8 +332,8 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %7 = load i32, ptr %5, align 8, !range !27, !alias.scope !50, !noalias !53, !noundef !17
-  %trunc.not.i = icmp eq i32 %7, 0
-  br i1 %trunc.not.i, label %10, label %.thread.i
+  %trunc.i = trunc i32 %7 to i1
+  br i1 %trunc.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %6
   %8 = getelementptr inbounds i8, ptr %5, i64 4
@@ -414,8 +414,8 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %7 = load i32, ptr %5, align 8, !range !27, !alias.scope !75, !noalias !78, !noundef !17
-  %trunc.not.i = icmp eq i32 %7, 0
-  br i1 %trunc.not.i, label %10, label %.thread.i
+  %trunc.i = trunc i32 %7 to i1
+  br i1 %trunc.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %6
   %8 = getelementptr inbounds i8, ptr %5, i64 4
@@ -1434,8 +1434,8 @@ define hidden noundef i64 @"_ZN4core6result19Result$LT$T$C$E$GT$14unwrap_or_else
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [2 x i64] } }, align 8
   %6 = load i32, ptr %0, align 8, !range !27, !noundef !17
-  %trunc.not = icmp eq i32 %6, 0
-  br i1 %trunc.not, label %9, label %.thread
+  %trunc = trunc i32 %6 to i1
+  br i1 %trunc, label %.thread, label %9
 
 .thread:                                          ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1484,8 +1484,8 @@ define hidden noundef i64 @"_ZN4core6result19Result$LT$T$C$E$GT$14unwrap_or_else
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [2 x i64] } }, align 8
   %6 = load i32, ptr %0, align 8, !range !27, !noundef !17
-  %trunc.not = icmp eq i32 %6, 0
-  br i1 %trunc.not, label %9, label %.thread
+  %trunc = trunc i32 %6 to i1
+  br i1 %trunc, label %.thread, label %9
 
 .thread:                                          ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1534,8 +1534,8 @@ define hidden noundef i64 @"_ZN4core6result19Result$LT$T$C$E$GT$14unwrap_or_else
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [2 x i64] } }, align 8
   %6 = load i32, ptr %0, align 8, !range !27, !noundef !17
-  %trunc.not = icmp eq i32 %6, 0
-  br i1 %trunc.not, label %9, label %.thread
+  %trunc = trunc i32 %6 to i1
+  br i1 %trunc, label %.thread, label %9
 
 .thread:                                          ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 4

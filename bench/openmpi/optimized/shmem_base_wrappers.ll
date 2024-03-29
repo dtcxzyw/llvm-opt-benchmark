@@ -9,9 +9,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @opal_shmem_segment_create(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @opal_shmem_base_selected, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %11, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @opal_shmem_base_module, align 8
@@ -28,9 +27,8 @@ define i32 @opal_shmem_segment_create(ptr noundef %0, ptr noundef %1, i64 nounde
 ; Function Attrs: nounwind uwtable
 define i32 @opal_shmem_ds_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_shmem_base_selected, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @opal_shmem_base_module, align 8
@@ -47,9 +45,8 @@ define i32 @opal_shmem_ds_copy(ptr noundef %0, ptr noundef %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @opal_shmem_segment_attach(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_shmem_base_selected, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %9, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @opal_shmem_base_module, align 8
@@ -66,9 +63,8 @@ define ptr @opal_shmem_segment_attach(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @opal_shmem_segment_detach(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_shmem_base_selected, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %9, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @opal_shmem_base_module, align 8
@@ -85,9 +81,8 @@ define i32 @opal_shmem_segment_detach(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @opal_shmem_unlink(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_shmem_base_selected, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %9, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @opal_shmem_base_module, align 8

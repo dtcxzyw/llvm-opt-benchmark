@@ -387,11 +387,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %35 = getelementptr i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %25, i64 86
   %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %.not20.i = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %25, i64 72
   %40 = load i16, ptr %39, align 4
-  br i1 %.not20.i, label %57, label %41
+  br i1 %38, label %41, label %57
 
 41:                                               ; preds = %29
   switch i16 %40, label %53 [
@@ -485,9 +484,8 @@ define dso_local ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) loca
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not8 = icmp eq i8 %16, 0
-  br i1 %.not8, label %18, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %7
   tail call void @ReleaseCatCache(ptr noundef nonnull %6) #7
@@ -516,9 +514,8 @@ define dso_local ptr @SearchSysCacheCopyAttName(i32 noundef %0, ptr noundef %1) 
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not8.i = icmp eq i8 %16, 0
-  br i1 %.not8.i, label %SearchSysCacheAttName.exit, label %SearchSysCacheAttName.exit.thread.sink.split
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %SearchSysCacheAttName.exit.thread.sink.split, label %SearchSysCacheAttName.exit
 
 SearchSysCacheAttName.exit:                       ; preds = %7
   %17 = tail call ptr @heap_copytuple(ptr noundef nonnull %6) #7
@@ -552,13 +549,13 @@ define dso_local zeroext i1 @SearchSysCacheExistsAttName(i32 noundef %0, ptr nou
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not8.i = icmp eq i8 %16, 0
+  %16 = trunc i8 %15 to i1
   tail call void @ReleaseCatCache(ptr noundef nonnull %6) #7
+  %not. = xor i1 %16, true
   br label %SearchSysCacheAttName.exit.thread
 
 SearchSysCacheAttName.exit.thread:                ; preds = %7, %2
-  %.not7 = phi i1 [ false, %2 ], [ %.not8.i, %7 ]
+  %.not7 = phi i1 [ false, %2 ], [ %not., %7 ]
   ret i1 %.not7
 }
 
@@ -580,9 +577,8 @@ define dso_local ptr @SearchSysCacheAttNum(i32 noundef %0, i16 noundef signext %
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not8 = icmp eq i8 %16, 0
-  br i1 %.not8, label %18, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %7
   tail call void @ReleaseCatCache(ptr noundef nonnull %6) #7
@@ -611,9 +607,8 @@ define dso_local ptr @SearchSysCacheCopyAttNum(i32 noundef %0, i16 noundef signe
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not8.i = icmp eq i8 %16, 0
-  br i1 %.not8.i, label %SearchSysCacheAttNum.exit, label %SearchSysCacheAttNum.exit.thread.sink.split
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %SearchSysCacheAttNum.exit.thread.sink.split, label %SearchSysCacheAttNum.exit
 
 SearchSysCacheAttNum.exit:                        ; preds = %7
   %17 = tail call ptr @heap_copytuple(ptr noundef nonnull %6) #7
@@ -706,9 +701,8 @@ SysCacheGetAttr.exit:                             ; preds = %12, %15
   %17 = sext i16 %2 to i32
   %18 = call fastcc i64 @heap_getattr(ptr noundef %1, i32 noundef %17, ptr noundef %16, ptr noundef nonnull %4)
   %19 = load i8, ptr %4, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %34, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %34
 
 21:                                               ; preds = %SysCacheGetAttr.exit
   %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8

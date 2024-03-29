@@ -54,8 +54,8 @@ rb_num2ulong_inline.exit:                         ; preds = %4, %6
 
 BIGNUM_DIGITS.exit:                               ; preds = %12, %14
   %.0.i6 = phi ptr [ %13, %12 ], [ %16, %14 ]
-  %17 = icmp ult i64 %.0.i, 4611686018427387904
-  br i1 %17, label %rbimpl_size_mul_or_raise.exit, label %18
+  %17 = icmp ugt i64 %.0.i, 4611686018427387903
+  br i1 %17, label %18, label %rbimpl_size_mul_or_raise.exit
 
 18:                                               ; preds = %BIGNUM_DIGITS.exit
   tail call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %.0.i) #5
@@ -101,8 +101,8 @@ rb_num2ulong_inline.exit:                         ; preds = %4, %6
 
 BIGNUM_DIGITS.exit:                               ; preds = %12, %14
   %.0.i6 = phi ptr [ %13, %12 ], [ %16, %14 ]
-  %17 = icmp ult i64 %.0.i, 4611686018427387904
-  br i1 %17, label %rbimpl_size_mul_or_raise.exit, label %18
+  %17 = icmp ugt i64 %.0.i, 4611686018427387903
+  br i1 %17, label %18, label %rbimpl_size_mul_or_raise.exit
 
 18:                                               ; preds = %BIGNUM_DIGITS.exit
   tail call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %.0.i) #5

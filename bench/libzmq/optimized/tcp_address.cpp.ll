@@ -436,8 +436,7 @@ define noundef zeroext i1 @_ZNK3zmq13tcp_address_t12has_src_addrEv(ptr nocapture
 entry:
   %_has_src_addr = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %_has_src_addr, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

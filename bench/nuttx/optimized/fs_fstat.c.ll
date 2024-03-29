@@ -82,9 +82,8 @@ define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 41:                                               ; preds = %39, %31
   %42 = load i8, ptr %3, align 4
-  %43 = and i8 %42, 1
-  %.not17.i = icmp eq i8 %43, 0
-  br i1 %.not17.i, label %proxy_fstat.exit, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %proxy_fstat.exit
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %3, i64 4

@@ -9,14 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @MPIX_Query_rocm_support() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_built_with_rocm_support, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  %4 = load i8, ptr @opal_rocm_runtime_initialized, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  %7 = select i1 %3, i1 %6, i1 false
-  %8 = zext i1 %7 to i32
-  ret i32 %8
+  %2 = trunc i8 %1 to i1
+  %3 = load i8, ptr @opal_rocm_runtime_initialized, align 1
+  %4 = and i8 %3, 1
+  %5 = zext nneg i8 %4 to i32
+  %6 = select i1 %2, i32 %5, i32 0
+  ret i32 %6
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

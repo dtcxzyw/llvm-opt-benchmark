@@ -541,9 +541,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 -120
   %141 = load i8, ptr %140, align 8
-  %142 = and i8 %141, 1
-  %.not = icmp eq i8 %142, 0
-  br i1 %.not, label %143, label %147
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %147, label %143
 
 143:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull @.str.43) #18
@@ -720,9 +719,8 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
 82:                                               ; preds = %81
   %83 = getelementptr inbounds i8, ptr %0, i64 105
   %84 = load i8, ptr %83, align 1
-  %85 = and i8 %84, 1
-  %.not = icmp eq i8 %85, 0
-  br i1 %.not, label %99, label %86
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %99
 
 86:                                               ; preds = %82
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
@@ -770,7 +768,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %98
 
 98:                                               ; preds = %96, %94
-  %.pn44 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
+  %.pn42 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   br label %352
 
@@ -782,16 +780,14 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
 102:                                              ; preds = %99
   %103 = getelementptr inbounds i8, ptr %0, i64 249
   %104 = load i8, ptr %103, align 1
-  %105 = and i8 %104, 1
-  %.not38 = icmp eq i8 %105, 0
-  br i1 %.not38, label %106, label %110
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %110, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %0, i64 248
   %108 = load i8, ptr %107, align 8
-  %109 = and i8 %108, 1
-  %.not39 = icmp eq i8 %109, 0
-  br i1 %.not39, label %118, label %110
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %118
 
 110:                                              ; preds = %106, %102
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
@@ -822,7 +818,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %117
 
 117:                                              ; preds = %115, %113
-  %.pn42 = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
+  %.pn40 = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   br label %352
 
@@ -855,7 +851,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %125
 
 125:                                              ; preds = %123, %121
-  %.pn40 = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ]
+  %.pn38 = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #16
   br label %352
 
@@ -897,9 +893,8 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
 135:                                              ; preds = %134
   %136 = getelementptr inbounds i8, ptr %0, i64 105
   %137 = load i8, ptr %136, align 1
-  %138 = and i8 %137, 1
-  %.not48 = icmp eq i8 %138, 0
-  br i1 %.not48, label %151, label %139
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %151
 
 139:                                              ; preds = %135
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #16
@@ -924,7 +919,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %145
 
 145:                                              ; preds = %143, %141
-  %.pn46 = phi { ptr, i32 } [ %144, %143 ], [ %142, %141 ]
+  %.pn44 = phi { ptr, i32 } [ %144, %143 ], [ %142, %141 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #16
   br label %352
 
@@ -941,16 +936,15 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %150
 
 150:                                              ; preds = %148, %146
-  %.pn52 = phi { ptr, i32 } [ %149, %148 ], [ %147, %146 ]
+  %.pn48 = phi { ptr, i32 } [ %149, %148 ], [ %147, %146 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #16
   br label %352
 
 151:                                              ; preds = %135
   %152 = getelementptr inbounds i8, ptr %0, i64 250
   %153 = load i8, ptr %152, align 2
-  %154 = and i8 %153, 1
-  %.not49 = icmp eq i8 %154, 0
-  %155 = select i1 %.not49, ptr @.str.53, ptr @.str.52
+  %154 = trunc i8 %153 to i1
+  %155 = select i1 %154, ptr @.str.52, ptr @.str.53
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %155, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %156 unwind label %157
@@ -973,28 +967,26 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %161
 
 161:                                              ; preds = %159, %157
-  %.pn50 = phi { ptr, i32 } [ %160, %159 ], [ %158, %157 ]
+  %.pn46 = phi { ptr, i32 } [ %160, %159 ], [ %158, %157 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #16
   br label %352
 
 162:                                              ; preds = %156, %140
-  %.sink108 = phi ptr [ %21, %140 ], [ %24, %156 ]
-  %.sink107 = phi ptr [ %19, %140 ], [ %22, %156 ]
+  %.sink89 = phi ptr [ %21, %140 ], [ %24, %156 ]
+  %.sink88 = phi ptr [ %19, %140 ], [ %22, %156 ]
   %.sink = phi ptr [ %20, %140 ], [ %23, %156 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink108) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink107) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink89) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink88) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #16
   %163 = load i8, ptr %136, align 1
-  %164 = and i8 %163, 1
-  %.not54 = icmp eq i8 %164, 0
-  br i1 %.not54, label %165, label %169
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %169, label %165
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %0, i64 249
   %167 = load i8, ptr %166, align 1
-  %168 = and i8 %167, 1
-  %.not55 = icmp eq i8 %168, 0
-  br i1 %.not55, label %181, label %169
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %169, label %181
 
 169:                                              ; preds = %165, %162
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #16
@@ -1034,13 +1026,13 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %179
 
 179:                                              ; preds = %177, %175
-  %.pn56 = phi { ptr, i32 } [ %178, %177 ], [ %176, %175 ]
+  %.pn50 = phi { ptr, i32 } [ %178, %177 ], [ %176, %175 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #16
   br label %180
 
 180:                                              ; preds = %179, %173
-  %.pn56.pn = phi { ptr, i32 } [ %.pn56, %179 ], [ %174, %173 ]
+  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %179 ], [ %174, %173 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #16
   br label %352
 
@@ -1060,9 +1052,8 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #16
   %184 = getelementptr inbounds i8, ptr %0, i64 253
   %185 = load i8, ptr %184, align 1
-  %186 = and i8 %185, 1
-  %.not61 = icmp eq i8 %186, 0
-  %187 = select i1 %.not61, ptr @.str.58, ptr @.str.57
+  %186 = trunc i8 %185 to i1
+  %187 = select i1 %186, ptr @.str.57, ptr @.str.58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %187, ptr noundef nonnull align 1 dereferenceable(1) %33)
           to label %188 unwind label %212
@@ -1103,9 +1094,8 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #16
   %194 = load i8, ptr %184, align 1
-  %195 = and i8 %194, 1
-  %.not68 = icmp eq i8 %195, 0
-  %196 = select i1 %.not68, ptr @.str.62, ptr @.str.61
+  %195 = trunc i8 %194 to i1
+  %196 = select i1 %195, ptr @.str.61, ptr @.str.62
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull %196, ptr noundef nonnull align 1 dereferenceable(1) %42)
           to label %197 unwind label %227
@@ -1121,15 +1111,13 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #16
   %199 = getelementptr inbounds i8, ptr %0, i64 250
   %200 = load i8, ptr %199, align 2
-  %201 = and i8 %200, 1
-  %.not71 = icmp eq i8 %201, 0
-  br i1 %.not71, label %202, label %259
+  %201 = trunc i8 %200 to i1
+  br i1 %201, label %259, label %202
 
 202:                                              ; preds = %198
   %203 = load i8, ptr %136, align 1
-  %204 = and i8 %203, 1
-  %.not72 = icmp eq i8 %204, 0
-  br i1 %.not72, label %237, label %205
+  %204 = trunc i8 %203 to i1
+  br i1 %204, label %205, label %237
 
 205:                                              ; preds = %202
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #16
@@ -1154,7 +1142,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %211
 
 211:                                              ; preds = %209, %207
-  %.pn59 = phi { ptr, i32 } [ %210, %209 ], [ %208, %207 ]
+  %.pn53 = phi { ptr, i32 } [ %210, %209 ], [ %208, %207 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #16
   br label %352
 
@@ -1171,7 +1159,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %216
 
 216:                                              ; preds = %214, %212
-  %.pn62 = phi { ptr, i32 } [ %215, %214 ], [ %213, %212 ]
+  %.pn55 = phi { ptr, i32 } [ %215, %214 ], [ %213, %212 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #16
   br label %352
 
@@ -1188,7 +1176,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %221
 
 221:                                              ; preds = %219, %217
-  %.pn64 = phi { ptr, i32 } [ %220, %219 ], [ %218, %217 ]
+  %.pn57 = phi { ptr, i32 } [ %220, %219 ], [ %218, %217 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #16
   br label %352
 
@@ -1205,7 +1193,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %226
 
 226:                                              ; preds = %224, %222
-  %.pn66 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
+  %.pn59 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #16
   br label %352
 
@@ -1222,7 +1210,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %231
 
 231:                                              ; preds = %229, %227
-  %.pn69 = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ]
+  %.pn61 = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #16
   br label %352
 
@@ -1239,22 +1227,20 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %236
 
 236:                                              ; preds = %234, %232
-  %.pn80 = phi { ptr, i32 } [ %235, %234 ], [ %233, %232 ]
+  %.pn67 = phi { ptr, i32 } [ %235, %234 ], [ %233, %232 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #16
   br label %352
 
 237:                                              ; preds = %202
   %238 = load i8, ptr %184, align 1
-  %239 = and i8 %238, 1
-  %.not73 = icmp eq i8 %239, 0
+  %239 = trunc i8 %238 to i1
   %240 = getelementptr inbounds i8, ptr %0, i64 251
   %241 = load i8, ptr %240, align 1
-  %242 = and i8 %241, 1
-  %.not74 = icmp eq i8 %242, 0
-  br i1 %.not73, label %251, label %243
+  %242 = trunc i8 %241 to i1
+  br i1 %239, label %243, label %251
 
 243:                                              ; preds = %237
-  %244 = select i1 %.not74, ptr @.str.65, ptr @.str.64
+  %244 = select i1 %242, ptr @.str.64, ptr @.str.65
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull %244, ptr noundef nonnull align 1 dereferenceable(1) %48)
           to label %245 unwind label %246
@@ -1277,12 +1263,12 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %250
 
 250:                                              ; preds = %248, %246
-  %.pn78 = phi { ptr, i32 } [ %249, %248 ], [ %247, %246 ]
+  %.pn65 = phi { ptr, i32 } [ %249, %248 ], [ %247, %246 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #16
   br label %352
 
 251:                                              ; preds = %237
-  %252 = select i1 %.not74, ptr @.str.67, ptr @.str.66
+  %252 = select i1 %242, ptr @.str.66, ptr @.str.67
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull %252, ptr noundef nonnull align 1 dereferenceable(1) %51)
           to label %253 unwind label %254
@@ -1305,38 +1291,35 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %258
 
 258:                                              ; preds = %256, %254
-  %.pn75 = phi { ptr, i32 } [ %257, %256 ], [ %255, %254 ]
+  %.pn63 = phi { ptr, i32 } [ %257, %256 ], [ %255, %254 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #16
   br label %352
 
 .sink.split:                                      ; preds = %253, %245, %206
-  %.sink111 = phi ptr [ %46, %206 ], [ %49, %245 ], [ %52, %253 ]
-  %.sink110 = phi ptr [ %44, %206 ], [ %47, %245 ], [ %50, %253 ]
-  %.sink109 = phi ptr [ %45, %206 ], [ %48, %245 ], [ %51, %253 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink111) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink110) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink109) #16
+  %.sink92 = phi ptr [ %46, %206 ], [ %49, %245 ], [ %52, %253 ]
+  %.sink91 = phi ptr [ %44, %206 ], [ %47, %245 ], [ %50, %253 ]
+  %.sink90 = phi ptr [ %45, %206 ], [ %48, %245 ], [ %51, %253 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink92) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink91) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink90) #16
   br label %259
 
 259:                                              ; preds = %.sink.split, %198
   %260 = getelementptr inbounds i8, ptr %0, i64 252
   %261 = load i8, ptr %260, align 4
-  %262 = and i8 %261, 1
-  %.not82 = icmp eq i8 %262, 0
-  br i1 %.not82, label %263, label %316
+  %262 = trunc i8 %261 to i1
+  br i1 %262, label %316, label %263
 
 263:                                              ; preds = %259
   %264 = load i8, ptr %136, align 1
-  %265 = and i8 %264, 1
-  %.not83 = icmp eq i8 %265, 0
-  br i1 %.not83, label %266, label %270
+  %265 = trunc i8 %264 to i1
+  br i1 %265, label %270, label %266
 
 266:                                              ; preds = %263
   %267 = getelementptr inbounds i8, ptr %0, i64 254
   %268 = load i8, ptr %267, align 2
-  %269 = and i8 %268, 1
-  %.not84 = icmp eq i8 %269, 0
-  br i1 %.not84, label %282, label %270
+  %269 = trunc i8 %268 to i1
+  br i1 %269, label %270, label %282
 
 270:                                              ; preds = %266, %263
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #16
@@ -1377,28 +1360,26 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %280
 
 280:                                              ; preds = %278, %276
-  %.pn85 = phi { ptr, i32 } [ %279, %278 ], [ %277, %276 ]
+  %.pn69 = phi { ptr, i32 } [ %279, %278 ], [ %277, %276 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #16
   br label %281
 
 281:                                              ; preds = %280, %274
-  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %280 ], [ %275, %274 ]
+  %.pn69.pn = phi { ptr, i32 } [ %.pn69, %280 ], [ %275, %274 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #16
   br label %352
 
 282:                                              ; preds = %273, %266
   %283 = phi i8 [ %.pre, %273 ], [ %264, %266 ]
-  %284 = and i8 %283, 1
-  %.not88 = icmp eq i8 %284, 0
-  br i1 %.not88, label %285, label %289
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %289, label %285
 
 285:                                              ; preds = %282
   %286 = getelementptr inbounds i8, ptr %0, i64 251
   %287 = load i8, ptr %286, align 1
-  %288 = and i8 %287, 1
-  %.not89 = icmp eq i8 %288, 0
-  br i1 %.not89, label %301, label %289
+  %288 = trunc i8 %287 to i1
+  br i1 %288, label %289, label %301
 
 289:                                              ; preds = %285, %282
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #16
@@ -1438,13 +1419,13 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %299
 
 299:                                              ; preds = %297, %295
-  %.pn90 = phi { ptr, i32 } [ %298, %297 ], [ %296, %295 ]
+  %.pn72 = phi { ptr, i32 } [ %298, %297 ], [ %296, %295 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #16
   br label %300
 
 300:                                              ; preds = %299, %293
-  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %299 ], [ %294, %293 ]
+  %.pn72.pn = phi { ptr, i32 } [ %.pn72, %299 ], [ %294, %293 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #16
   br label %352
 
@@ -1490,7 +1471,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %310
 
 310:                                              ; preds = %308, %306
-  %.pn93 = phi { ptr, i32 } [ %309, %308 ], [ %307, %306 ]
+  %.pn75 = phi { ptr, i32 } [ %309, %308 ], [ %307, %306 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #16
   br label %352
 
@@ -1507,15 +1488,14 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %315
 
 315:                                              ; preds = %313, %311
-  %.pn95 = phi { ptr, i32 } [ %314, %313 ], [ %312, %311 ]
+  %.pn77 = phi { ptr, i32 } [ %314, %313 ], [ %312, %311 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #16
   br label %352
 
 316:                                              ; preds = %305, %259
   %317 = load i8, ptr %184, align 1
-  %318 = and i8 %317, 1
-  %.not97 = icmp eq i8 %318, 0
-  %319 = select i1 %.not97, ptr @.str.74, ptr @.str.73
+  %318 = trunc i8 %317 to i1
+  %319 = select i1 %318, ptr @.str.73, ptr @.str.74
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull %319, ptr noundef nonnull align 1 dereferenceable(1) %68)
           to label %320 unwind label %322
@@ -1544,7 +1524,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %326
 
 326:                                              ; preds = %324, %322
-  %.pn98 = phi { ptr, i32 } [ %325, %324 ], [ %323, %322 ]
+  %.pn79 = phi { ptr, i32 } [ %325, %324 ], [ %323, %322 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #16
   br label %352
 
@@ -1606,7 +1586,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %340
 
 340:                                              ; preds = %338, %336
-  %.pn100 = phi { ptr, i32 } [ %339, %338 ], [ %337, %336 ]
+  %.pn81 = phi { ptr, i32 } [ %339, %338 ], [ %337, %336 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #16
   br label %352
 
@@ -1623,7 +1603,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %345
 
 345:                                              ; preds = %343, %341
-  %.pn102 = phi { ptr, i32 } [ %344, %343 ], [ %342, %341 ]
+  %.pn83 = phi { ptr, i32 } [ %344, %343 ], [ %342, %341 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #16
   br label %352
 
@@ -1640,7 +1620,7 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   br label %350
 
 350:                                              ; preds = %348, %346
-  %.pn104 = phi { ptr, i32 } [ %349, %348 ], [ %347, %346 ]
+  %.pn85 = phi { ptr, i32 } [ %349, %348 ], [ %347, %346 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #16
   br label %352
 
@@ -1648,8 +1628,8 @@ define internal void @_ZN12_GLOBAL__N_18PrepPass6scriptEv(ptr noundef nonnull al
   ret void
 
 352:                                              ; preds = %350, %345, %340, %326, %315, %310, %300, %281, %258, %250, %236, %231, %226, %221, %216, %211, %180, %161, %150, %145, %129, %125, %117, %98, %93
-  %.pn104.pn = phi { ptr, i32 } [ %.pn104, %350 ], [ %.pn102, %345 ], [ %.pn100, %340 ], [ %.pn98, %326 ], [ %.pn95, %315 ], [ %.pn93, %310 ], [ %.pn90.pn, %300 ], [ %.pn85.pn, %281 ], [ %.pn80, %236 ], [ %.pn78, %250 ], [ %.pn75, %258 ], [ %.pn69, %231 ], [ %.pn66, %226 ], [ %.pn64, %221 ], [ %.pn62, %216 ], [ %.pn59, %211 ], [ %.pn56.pn, %180 ], [ %.pn52, %150 ], [ %.pn50, %161 ], [ %.pn46, %145 ], [ %.pn44, %98 ], [ %.pn42, %117 ], [ %.pn40, %125 ], [ %130, %129 ], [ %.pn, %93 ]
-  resume { ptr, i32 } %.pn104.pn
+  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %350 ], [ %.pn83, %345 ], [ %.pn81, %340 ], [ %.pn79, %326 ], [ %.pn77, %315 ], [ %.pn75, %310 ], [ %.pn72.pn, %300 ], [ %.pn69.pn, %281 ], [ %.pn67, %236 ], [ %.pn65, %250 ], [ %.pn63, %258 ], [ %.pn61, %231 ], [ %.pn59, %226 ], [ %.pn57, %221 ], [ %.pn55, %216 ], [ %.pn53, %211 ], [ %.pn50.pn, %180 ], [ %.pn48, %150 ], [ %.pn46, %161 ], [ %.pn44, %145 ], [ %.pn42, %98 ], [ %.pn40, %117 ], [ %.pn38, %125 ], [ %130, %129 ], [ %.pn, %93 ]
+  resume { ptr, i32 } %.pn85.pn
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -1889,14 +1869,14 @@ define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noali
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   invoke void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef %1, ptr noundef nonnull %3)
           to label %5 unwind label %7
 
 5:                                                ; preds = %2
   %6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 
 7:                                                ; preds = %2
@@ -1909,9 +1889,6 @@ define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noali
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca [128 x i8], align 16
@@ -1919,9 +1896,9 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca ptr, align 8
   store i8 0, ptr %4, align 16
-  call void @llvm.va_copy(ptr nonnull %5, ptr %2)
+  call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
   %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef %1, ptr noundef nonnull %5) #16
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = icmp slt i32 %8, 128
   br i1 %9, label %10, label %14
 
@@ -1975,14 +1952,8 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #10
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1990,10 +1961,10 @@ declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_prep.cc() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_prep.cc() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2060,6 +2031,15 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
@@ -2079,10 +2059,10 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }

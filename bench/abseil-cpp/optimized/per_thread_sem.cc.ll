@@ -49,8 +49,7 @@ entry:
   %1 = load atomic i32, ptr %wait_start2 monotonic, align 4
   %is_idle4 = getelementptr inbounds i8, ptr %identity, i64 336
   %2 = load atomic i8, ptr %is_idle4 monotonic, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i = icmp ne i8 %3, 0
+  %tobool.i.i = trunc i8 %2 to i1
   %tobool.not = icmp eq i32 %1, 0
   %sub = sub i32 %add, %1
   %cmp = icmp slt i32 %sub, 61

@@ -38,9 +38,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_File_set_view(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i8, ptr @ompi_mpi_param_check, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %56, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %56
 
 9:                                                ; preds = %6
   %10 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -61,8 +60,8 @@ ompi_file_invalid.exit:                           ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
-  %.not73 = icmp eq i32 %19, 0
-  br i1 %.not73, label %20, label %ompi_file_invalid.exit.thread
+  %.not72 = icmp eq i32 %19, 0
+  br i1 %.not72, label %20, label %ompi_file_invalid.exit.thread
 
 20:                                               ; preds = %ompi_file_invalid.exit
   %21 = icmp eq ptr %2, null
@@ -74,8 +73,8 @@ ompi_file_invalid.exit:                           ; preds = %14
   %24 = getelementptr i8, ptr %2, i64 16
   %.val = load i16, ptr %24, align 8
   %25 = and i16 %.val, 5
-  %or.cond74 = icmp eq i16 %25, 4
-  br i1 %or.cond74, label %26, label %ompi_file_invalid.exit.thread
+  %or.cond73 = icmp eq i16 %25, 4
+  br i1 %or.cond73, label %26, label %ompi_file_invalid.exit.thread
 
 26:                                               ; preds = %23
   %27 = and i16 %.val, 1024
@@ -95,8 +94,8 @@ ompi_file_invalid.exit:                           ; preds = %14
 32:                                               ; preds = %28, %26
   %33 = phi i16 [ %31, %28 ], [ %.val, %26 ]
   %34 = and i16 %33, 2048
-  %.not46.not = icmp eq i16 %34, 0
-  br i1 %.not46.not, label %ompi_file_invalid.exit.thread, label %35
+  %.not45.not = icmp eq i16 %34, 0
+  br i1 %.not45.not, label %ompi_file_invalid.exit.thread, label %35
 
 35:                                               ; preds = %32
   %36 = icmp eq ptr %3, null
@@ -106,52 +105,52 @@ ompi_file_invalid.exit:                           ; preds = %14
 
 38:                                               ; preds = %35
   %39 = getelementptr i8, ptr %3, i64 16
-  %.val56 = load i16, ptr %39, align 8
-  %40 = and i16 %.val56, 5
-  %or.cond75 = icmp eq i16 %40, 4
-  br i1 %or.cond75, label %41, label %ompi_file_invalid.exit.thread
+  %.val55 = load i16, ptr %39, align 8
+  %40 = and i16 %.val55, 5
+  %or.cond74 = icmp eq i16 %40, 4
+  br i1 %or.cond74, label %41, label %ompi_file_invalid.exit.thread
 
 41:                                               ; preds = %38
-  %42 = and i16 %.val56, 1024
-  %.not.i60 = icmp eq i16 %42, 0
-  br i1 %.not.i60, label %43, label %ompi_datatype_is_monotonic.exit64
+  %42 = and i16 %.val55, 1024
+  %.not.i59 = icmp eq i16 %42, 0
+  br i1 %.not.i59, label %43, label %ompi_datatype_is_monotonic.exit63
 
 43:                                               ; preds = %41
   %44 = tail call i32 @opal_datatype_is_monotonic(ptr noundef nonnull %3) #3
-  %.not5.i61 = icmp eq i32 %44, 0
-  %.pre.i62 = load i16, ptr %39, align 8
-  %45 = or i16 %.pre.i62, 2048
-  %spec.select.i63 = select i1 %.not5.i61, i16 %.pre.i62, i16 %45
-  %46 = or i16 %spec.select.i63, 1024
+  %.not5.i60 = icmp eq i32 %44, 0
+  %.pre.i61 = load i16, ptr %39, align 8
+  %45 = or i16 %.pre.i61, 2048
+  %spec.select.i62 = select i1 %.not5.i60, i16 %.pre.i61, i16 %45
+  %46 = or i16 %spec.select.i62, 1024
   store i16 %46, ptr %39, align 8
-  br label %ompi_datatype_is_monotonic.exit64
+  br label %ompi_datatype_is_monotonic.exit63
 
-ompi_datatype_is_monotonic.exit64:                ; preds = %41, %43
-  %47 = phi i16 [ %46, %43 ], [ %.val56, %41 ]
+ompi_datatype_is_monotonic.exit63:                ; preds = %41, %43
+  %47 = phi i16 [ %46, %43 ], [ %.val55, %41 ]
   %48 = and i16 %47, 2048
-  %.not49 = icmp eq i16 %48, 0
-  %spec.select53 = select i1 %.not49, i32 3, i32 0
+  %.not48 = icmp eq i16 %48, 0
+  %spec.select52 = select i1 %.not48, i32 3, i32 0
   br label %ompi_file_invalid.exit.thread
 
-ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi_datatype_is_monotonic.exit64, %38, %35, %ompi_file_invalid.exit, %32
-  %.140 = phi i32 [ 3, %32 ], [ 30, %ompi_file_invalid.exit ], [ 3, %35 ], [ 3, %38 ], [ %spec.select53, %ompi_datatype_is_monotonic.exit64 ], [ 30, %14 ], [ 3, %20 ], [ 3, %23 ]
-  %.038 = phi ptr [ %0, %32 ], [ @ompi_mpi_file_null, %ompi_file_invalid.exit ], [ %0, %35 ], [ %0, %38 ], [ %0, %ompi_datatype_is_monotonic.exit64 ], [ @ompi_mpi_file_null, %14 ], [ %0, %20 ], [ %0, %23 ]
+ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi_datatype_is_monotonic.exit63, %38, %35, %ompi_file_invalid.exit, %32
+  %.140 = phi i32 [ 3, %32 ], [ 30, %ompi_file_invalid.exit ], [ 3, %35 ], [ 3, %38 ], [ %spec.select52, %ompi_datatype_is_monotonic.exit63 ], [ 30, %14 ], [ 3, %20 ], [ 3, %23 ]
+  %.038 = phi ptr [ %0, %32 ], [ @ompi_mpi_file_null, %ompi_file_invalid.exit ], [ %0, %35 ], [ %0, %38 ], [ %0, %ompi_datatype_is_monotonic.exit63 ], [ @ompi_mpi_file_null, %14 ], [ %0, %20 ], [ %0, %23 ]
   %49 = icmp eq ptr %4, null
-  %spec.select54 = select i1 %49, i32 51, i32 %.140
-  %spec.select55 = select i1 %49, ptr @ompi_mpi_file_null, ptr %.038
-  %.not50 = icmp eq i32 %spec.select54, 0
-  br i1 %.not50, label %56, label %50
+  %spec.select53 = select i1 %49, i32 51, i32 %.140
+  %spec.select54 = select i1 %49, ptr @ompi_mpi_file_null, ptr %.038
+  %.not49 = icmp eq i32 %spec.select53, 0
+  br i1 %.not49, label %56, label %50
 
 50:                                               ; preds = %ompi_file_invalid.exit.thread
-  %51 = getelementptr inbounds i8, ptr %spec.select55, i64 128
+  %51 = getelementptr inbounds i8, ptr %spec.select54, i64 128
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %spec.select55, i64 136
+  %53 = getelementptr inbounds i8, ptr %spec.select54, i64 136
   %54 = load i32, ptr %53, align 8
-  %55 = tail call i32 @ompi_errhandler_invoke(ptr noundef %52, ptr noundef %spec.select55, i32 noundef %54, i32 noundef %spec.select54, ptr noundef nonnull @FUNC_NAME) #3
-  br label %98
+  %55 = tail call i32 @ompi_errhandler_invoke(ptr noundef %52, ptr noundef %spec.select54, i32 noundef %54, i32 noundef %spec.select53, ptr noundef nonnull @FUNC_NAME) #3
+  br label %97
 
 56:                                               ; preds = %ompi_file_invalid.exit.thread, %6
-  %.2 = phi ptr [ %spec.select55, %ompi_file_invalid.exit.thread ], [ %0, %6 ]
+  %.2 = phi ptr [ %spec.select54, %ompi_file_invalid.exit.thread ], [ %0, %6 ]
   %57 = getelementptr inbounds i8, ptr %.2, i64 140
   %58 = load i32, ptr %57, align 4
   %cond = icmp eq i32 %58, 1
@@ -161,8 +160,8 @@ ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi
   %60 = getelementptr inbounds i8, ptr %.2, i64 592
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 %61(ptr noundef nonnull %.2, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3
-  %.not51 = icmp eq i32 %62, 0
-  br i1 %.not51, label %98, label %63
+  %.not50 = icmp eq i32 %62, 0
+  br i1 %.not50, label %97, label %63
 
 63:                                               ; preds = %59
   %64 = icmp sgt i32 %62, -1
@@ -184,58 +183,54 @@ ompi_file_invalid.exit.thread:                    ; preds = %23, %20, %14, %ompi
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %67 ], [ 0, %.preheader.i ]
   %71 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
   %72 = sext i32 %71 to i64
-  %.not.i65 = icmp slt i64 %indvars.iv.i, %72
-  br i1 %.not.i65, label %73, label %opal_pointer_array_get_item.exit.i
+  %.not.i64 = icmp slt i64 %indvars.iv.i, %72
+  br i1 %.not.i64, label %73, label %opal_pointer_array_get_item.exit.i
 
 73:                                               ; preds = %.lr.ph.i
   %74 = load i8, ptr @opal_uses_threads, align 1
-  %75 = and i8 %74, 1
-  %.not.i.i = icmp eq i8 %75, 0
-  br i1 %.not.i.i, label %.thread.i.i, label %79
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-.thread.i.i:                                      ; preds = %73
-  %76 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv.i
-  %78 = load ptr, ptr %77, align 8
-  br label %opal_pointer_array_get_item.exit.i
-
-79:                                               ; preds = %73
-  %80 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+76:                                               ; preds = %73
+  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre1.i.i = and i8 %.pre.i.i, 1
-  %81 = icmp eq i8 %.pre1.i.i, 0
-  %82 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv.i
-  %84 = load ptr, ptr %83, align 8
-  br i1 %81, label %opal_pointer_array_get_item.exit.i, label %85
+  br label %78
 
-85:                                               ; preds = %79
-  %86 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+78:                                               ; preds = %76, %73
+  %79 = phi i8 [ %74, %73 ], [ %.pre.i.i, %76 ]
+  %80 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv.i
+  %82 = load ptr, ptr %81, align 8
+  %83 = trunc i8 %79 to i1
+  br i1 %83, label %84, label %opal_pointer_array_get_item.exit.i
+
+84:                                               ; preds = %78
+  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
   br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.exit.i:               ; preds = %85, %79, %.thread.i.i, %.lr.ph.i
-  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %84, %79 ], [ %84, %85 ], [ %78, %.thread.i.i ]
-  %87 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp eq i32 %88, %62
-  br i1 %89, label %90, label %67
+opal_pointer_array_get_item.exit.i:               ; preds = %84, %78, %.lr.ph.i
+  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %82, %78 ], [ %82, %84 ]
+  %86 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %87, %62
+  br i1 %88, label %89, label %67
 
-90:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %91 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
-  %92 = load i32, ptr %91, align 4
+89:                                               ; preds = %opal_pointer_array_get_item.exit.i
+  %90 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %91 = load i32, ptr %90, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
-ompi_errcode_get_mpi_code.exit:                   ; preds = %67, %56, %63, %.preheader.i, %90
-  %.0.i = phi i32 [ %62, %63 ], [ %92, %90 ], [ 14, %.preheader.i ], [ 17, %56 ], [ 14, %67 ]
-  %93 = getelementptr inbounds i8, ptr %.2, i64 128
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %.2, i64 136
-  %96 = load i32, ptr %95, align 8
-  %97 = tail call i32 @ompi_errhandler_invoke(ptr noundef %94, ptr noundef %.2, i32 noundef %96, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #3
-  br label %98
+ompi_errcode_get_mpi_code.exit:                   ; preds = %67, %56, %63, %.preheader.i, %89
+  %.0.i = phi i32 [ %62, %63 ], [ %91, %89 ], [ 14, %.preheader.i ], [ 17, %56 ], [ 14, %67 ]
+  %92 = getelementptr inbounds i8, ptr %.2, i64 128
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %.2, i64 136
+  %95 = load i32, ptr %94, align 8
+  %96 = tail call i32 @ompi_errhandler_invoke(ptr noundef %93, ptr noundef %.2, i32 noundef %95, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #3
+  br label %97
 
-98:                                               ; preds = %59, %ompi_errcode_get_mpi_code.exit, %50
-  %.0 = phi i32 [ %spec.select54, %50 ], [ %.0.i, %ompi_errcode_get_mpi_code.exit ], [ 0, %59 ]
+97:                                               ; preds = %59, %ompi_errcode_get_mpi_code.exit, %50
+  %.0 = phi i32 [ %spec.select53, %50 ], [ %.0.i, %ompi_errcode_get_mpi_code.exit ], [ 0, %59 ]
   ret i32 %.0
 }
 

@@ -1230,18 +1230,17 @@ for.end1054.i:                                    ; preds = %for.body1046.i
 if.end25:                                         ; preds = %if.then, %for.end1054.i
   %start_in_flash = getelementptr inbounds i8, ptr %call, i64 98916
   %67 = load i8, ptr %start_in_flash, align 4
-  %68 = and i8 %67, 1
-  %tobool26.not = icmp eq i8 %68, 0
-  %msel29.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 98920
-  %msel29 = getelementptr inbounds i8, ptr %call, i64 98920
-  br i1 %tobool26.not, label %if.end28, label %if.end28.thread
+  %tobool26 = trunc i8 %67 to i1
+  %msel = getelementptr inbounds i8, ptr %call, i64 98920
+  %msel2977 = getelementptr inbounds i8, ptr %call, i64 98920
+  br i1 %tobool26, label %if.end28.thread, label %if.end28
 
 if.end28.thread:                                  ; preds = %if.end25
-  store i32 1, ptr %msel29.phi.trans.insert, align 8
+  store i32 1, ptr %msel, align 8
   br label %sw.epilog
 
 if.end28:                                         ; preds = %if.end25
-  %.pre = load i32, ptr %msel29.phi.trans.insert, align 8
+  %.pre = load i32, ptr %msel, align 8
   switch i32 %.pre, label %sw.default [
     i32 1, label %sw.epilog
     i32 6, label %sw.bb32
@@ -1260,8 +1259,8 @@ sw.epilog:                                        ; preds = %if.end28.thread, %i
   %call39 = call ptr @riscv_default_firmware_name(ptr noundef nonnull %u_cpus38) #7
   %call40 = call i64 @riscv_find_and_load_firmware(ptr noundef %machine, ptr noundef %call39, i64 noundef %start_addr.0, ptr noundef null) #7
   %kernel_filename = getelementptr inbounds i8, ptr %machine, i64 240
-  %69 = load ptr, ptr %kernel_filename, align 8
-  %tobool41.not = icmp eq ptr %69, null
+  %68 = load ptr, ptr %kernel_filename, align 8
+  %tobool41.not = icmp eq ptr %68, null
   br i1 %tobool41.not, label %if.end50, label %if.then42
 
 if.then42:                                        ; preds = %sw.epilog
@@ -1275,11 +1274,11 @@ if.end50:                                         ; preds = %sw.epilog, %if.then
   %conv56 = trunc i64 %call55 to i32
   %conv57 = and i64 %call55, 4294967295
   %fdt58 = getelementptr inbounds i8, ptr %machine, i64 40
-  %70 = load ptr, ptr %fdt58, align 8
-  call void @riscv_load_fdt(i64 noundef %conv57, ptr noundef %70) #7
+  %69 = load ptr, ptr %fdt58, align 8
+  call void @riscv_load_fdt(i64 noundef %conv57, ptr noundef %69) #7
   %call61 = call zeroext i1 @riscv_is_32bit(ptr noundef nonnull %u_cpus38) #7
-  %71 = load i32, ptr %msel29, align 8
-  store i32 %71, ptr %reset_vec, align 16
+  %70 = load i32, ptr %msel2977, align 8
+  store i32 %70, ptr %reset_vec, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %reset_vec, i64 4
   store i32 663, ptr %arrayinit.element, align 4
   %arrayinit.element66 = getelementptr inbounds i8, ptr %reset_vec, i64 8
@@ -1321,16 +1320,16 @@ if.then103:                                       ; preds = %if.end50
 if.end106:                                        ; preds = %if.then103, %if.end50
   %spi0 = getelementptr inbounds i8, ptr %call, i64 40752
   %spi = getelementptr inbounds i8, ptr %call, i64 41864
-  %72 = load ptr, ptr %spi, align 8
-  %call.i63 = call ptr @object_dynamic_cast_assert(ptr noundef %72, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.26, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #7
+  %71 = load ptr, ptr %spi, align 8
+  %call.i63 = call ptr @object_dynamic_cast_assert(ptr noundef %71, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.26, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #7
   %call109 = call zeroext i1 @qdev_realize_and_unref(ptr noundef %call100, ptr noundef %call.i63, ptr noundef nonnull @error_fatal) #7
   %call110 = call ptr @qdev_get_gpio_in_named(ptr noundef %call100, ptr noundef nonnull @.str.21, i32 noundef 0) #7
   %call.i64 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %spi0, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   call void @sysbus_connect_irq(ptr noundef %call.i64, i32 noundef 1, ptr noundef %call110) #7
   %spi2 = getelementptr inbounds i8, ptr %call, i64 42048
   %spi115 = getelementptr inbounds i8, ptr %call, i64 43160
-  %73 = load ptr, ptr %spi115, align 8
-  %call116 = call ptr @ssi_create_peripheral(ptr noundef %73, ptr noundef nonnull @.str.22) #7
+  %72 = load ptr, ptr %spi115, align 8
+  %call116 = call ptr @ssi_create_peripheral(ptr noundef %72, ptr noundef nonnull @.str.22) #7
   %call117 = call ptr @qdev_get_gpio_in_named(ptr noundef %call116, ptr noundef nonnull @.str.21, i32 noundef 0) #7
   %call.i65 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %spi2, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   call void @sysbus_connect_irq(ptr noundef %call.i65, i32 noundef 1, ptr noundef %call117) #7
@@ -1359,8 +1358,7 @@ entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 686, ptr noundef nonnull @__func__.sifive_u_machine_get_start_in_flash) #7
   %start_in_flash = getelementptr inbounds i8, ptr %call, i64 98916
   %0 = load i8, ptr %start_in_flash, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

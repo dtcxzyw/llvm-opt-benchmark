@@ -229,8 +229,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 .preheader:                                       ; preds = %51
   %60 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %58)
-  %.not1201 = icmp eq ptr %60, null
-  br i1 %.not1201, label %._crit_edge, label %.lr.ph
+  %.not1130 = icmp eq ptr %60, null
+  br i1 %.not1130, label %._crit_edge.thread, label %.lr.ph
 
 61:                                               ; preds = %51
   %62 = tail call ptr @__errno_location() #10
@@ -240,10 +240,10 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %93
-  %.02811202 = phi i8 [ %.1282, %93 ], [ 0, %.preheader ]
+  %.02811131 = phi i1 [ %.1282, %93 ], [ false, %.preheader ]
   %65 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.13) #12
-  %.not483 = icmp eq ptr %65, null
-  br i1 %.not483, label %93, label %66
+  %.not442 = icmp eq ptr %65, null
+  br i1 %.not442, label %93, label %66
 
 66:                                               ; preds = %.lr.ph
   %67 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %65, i32 noundef 58) #12
@@ -290,8 +290,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 87:                                               ; preds = %80
   %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0328, ptr noundef nonnull dereferenceable(10) @.str.18) #12
-  %.not484 = icmp eq i32 %88, 0
-  br i1 %.not484, label %93, label %89
+  %.not443 = icmp eq i32 %88, 0
+  br i1 %.not443, label %93, label %89
 
 89:                                               ; preds = %87
   %90 = icmp eq ptr %0, @old_cluster
@@ -306,40 +306,43 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   unreachable
 
 93:                                               ; preds = %87, %.lr.ph
-  %.1282 = phi i8 [ %.02811202, %.lr.ph ], [ 1, %87 ]
+  %.1282 = phi i1 [ %.02811131, %.lr.ph ], [ true, %87 ]
   %94 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %58)
   %.not = icmp eq ptr %94, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %93, %.preheader
-  %.0281.lcssa = phi i8 [ 0, %.preheader ], [ %.1282, %93 ]
+._crit_edge:                                      ; preds = %93
   %95 = call i32 @pclose(ptr noundef nonnull %58)
   %.not404 = icmp eq i32 %95, 0
-  br i1 %.not404, label %98, label %96
+  br i1 %.not404, label %100, label %97
 
-96:                                               ; preds = %._crit_edge
-  %97 = call ptr @wait_result_to_str(i32 noundef %95) #9
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %3, ptr noundef %97) #11
+._crit_edge.thread:                               ; preds = %.preheader
+  %96 = call i32 @pclose(ptr noundef nonnull %58)
+  %.not4041188 = icmp eq i32 %96, 0
+  br i1 %.not4041188, label %.thread1190, label %97
+
+97:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %98 = phi i32 [ %96, %._crit_edge.thread ], [ %95, %._crit_edge ]
+  %99 = call ptr @wait_result_to_str(i32 noundef %98) #9
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %3, ptr noundef %99) #11
   unreachable
 
-98:                                               ; preds = %._crit_edge
-  %99 = and i8 %.0281.lcssa, 1
-  %.not405 = icmp eq i8 %99, 0
-  br i1 %.not405, label %100, label %104
+100:                                              ; preds = %._crit_edge
+  br i1 %.1282, label %104, label %.thread1190
 
-100:                                              ; preds = %98
+.thread1190:                                      ; preds = %._crit_edge.thread, %100
   %101 = icmp eq ptr %0, @old_cluster
   br i1 %101, label %102, label %103
 
-102:                                              ; preds = %100
+102:                                              ; preds = %.thread1190
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.21) #11
   unreachable
 
-103:                                              ; preds = %100
+103:                                              ; preds = %.thread1190
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.22) #11
   unreachable
 
-104:                                              ; preds = %98, %40
+104:                                              ; preds = %100, %40
   %105 = getelementptr inbounds i8, ptr %0, i64 248
   %106 = load i32, ptr %105, align 8
   %107 = icmp ult i32 %106, 90700
@@ -376,10 +379,10 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 127:                                              ; preds = %125, %121
   %.0283 = phi i8 [ 1, %125 ], [ 0, %121 ]
   %128 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %115)
-  %.not4061203 = icmp eq ptr %128, null
-  br i1 %.not4061203, label %._crit_edge1231, label %.lr.ph1230
+  %.not4051132 = icmp eq ptr %128, null
+  br i1 %.not4051132, label %._crit_edge1160, label %.lr.ph1159
 
-.lr.ph1230:                                       ; preds = %127
+.lr.ph1159:                                       ; preds = %127
   %129 = getelementptr inbounds i8, ptr %0, i64 4
   %130 = getelementptr inbounds i8, ptr %0, i64 40
   %131 = getelementptr inbounds i8, ptr %0, i64 36
@@ -403,37 +406,37 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   %149 = getelementptr inbounds i8, ptr %0, i64 104
   br label %150
 
-150:                                              ; preds = %.lr.ph1230, %464
-  %.02671228 = phi i32 [ 0, %.lr.ph1230 ], [ %.1, %464 ]
-  %.02681227 = phi i32 [ 0, %.lr.ph1230 ], [ %.1269, %464 ]
-  %.02701226 = phi i32 [ 0, %.lr.ph1230 ], [ %.1271, %464 ]
-  %.12841225 = phi i8 [ %.0283, %.lr.ph1230 ], [ %.2, %464 ]
-  %.02851224 = phi i8 [ 0, %.lr.ph1230 ], [ %.1286, %464 ]
-  %.02871223 = phi i8 [ 0, %.lr.ph1230 ], [ %.1288, %464 ]
-  %.02891222 = phi i8 [ 0, %.lr.ph1230 ], [ %.1290, %464 ]
-  %.02911221 = phi i8 [ 0, %.lr.ph1230 ], [ %.1292, %464 ]
-  %.02931220 = phi i8 [ 0, %.lr.ph1230 ], [ %.1294, %464 ]
-  %.02951219 = phi i8 [ 0, %.lr.ph1230 ], [ %.1296, %464 ]
-  %.02971218 = phi i8 [ 0, %.lr.ph1230 ], [ %.1298, %464 ]
-  %.02991217 = phi i8 [ 0, %.lr.ph1230 ], [ %.1300, %464 ]
-  %.03011216 = phi i8 [ 0, %.lr.ph1230 ], [ %.1302, %464 ]
-  %.03031215 = phi i8 [ 0, %.lr.ph1230 ], [ %.1304, %464 ]
-  %.03051214 = phi i8 [ 0, %.lr.ph1230 ], [ %.1306, %464 ]
-  %.03071213 = phi i8 [ 0, %.lr.ph1230 ], [ %.1308, %464 ]
-  %.03101212 = phi i8 [ 0, %.lr.ph1230 ], [ %.1311, %464 ]
-  %.03121211 = phi i8 [ 0, %.lr.ph1230 ], [ %.1313, %464 ]
-  %.03141210 = phi i8 [ 0, %.lr.ph1230 ], [ %.1315, %464 ]
-  %.03161209 = phi i8 [ 0, %.lr.ph1230 ], [ %.1317, %464 ]
-  %.03181208 = phi i8 [ 0, %.lr.ph1230 ], [ %.1319, %464 ]
-  %.03201207 = phi i8 [ 0, %.lr.ph1230 ], [ %.1321, %464 ]
-  %.03221206 = phi i8 [ 0, %.lr.ph1230 ], [ %.1323, %464 ]
-  %.03241205 = phi i8 [ 0, %.lr.ph1230 ], [ %.1325, %464 ]
-  %.03261204 = phi i8 [ 0, %.lr.ph1230 ], [ %.1327, %464 ]
+150:                                              ; preds = %.lr.ph1159, %464
+  %.02671157 = phi i32 [ 0, %.lr.ph1159 ], [ %.1, %464 ]
+  %.02681156 = phi i32 [ 0, %.lr.ph1159 ], [ %.1269, %464 ]
+  %.02701155 = phi i32 [ 0, %.lr.ph1159 ], [ %.1271, %464 ]
+  %.12841154 = phi i8 [ %.0283, %.lr.ph1159 ], [ %.2, %464 ]
+  %.02851153 = phi i8 [ 0, %.lr.ph1159 ], [ %.1286, %464 ]
+  %.02871152 = phi i8 [ 0, %.lr.ph1159 ], [ %.1288, %464 ]
+  %.02891151 = phi i8 [ 0, %.lr.ph1159 ], [ %.1290, %464 ]
+  %.02911150 = phi i8 [ 0, %.lr.ph1159 ], [ %.1292, %464 ]
+  %.02931149 = phi i8 [ 0, %.lr.ph1159 ], [ %.1294, %464 ]
+  %.02951148 = phi i8 [ 0, %.lr.ph1159 ], [ %.1296, %464 ]
+  %.02971147 = phi i8 [ 0, %.lr.ph1159 ], [ %.1298, %464 ]
+  %.02991146 = phi i8 [ 0, %.lr.ph1159 ], [ %.1300, %464 ]
+  %.03011145 = phi i8 [ 0, %.lr.ph1159 ], [ %.1302, %464 ]
+  %.03031144 = phi i8 [ 0, %.lr.ph1159 ], [ %.1304, %464 ]
+  %.03051143 = phi i8 [ 0, %.lr.ph1159 ], [ %.1306, %464 ]
+  %.03071142 = phi i8 [ 0, %.lr.ph1159 ], [ %.1308, %464 ]
+  %.03101141 = phi i8 [ 0, %.lr.ph1159 ], [ %.1311, %464 ]
+  %.03121140 = phi i8 [ 0, %.lr.ph1159 ], [ %.1313, %464 ]
+  %.03141139 = phi i8 [ 0, %.lr.ph1159 ], [ %.1315, %464 ]
+  %.03161138 = phi i8 [ 0, %.lr.ph1159 ], [ %.1317, %464 ]
+  %.03181137 = phi i8 [ 0, %.lr.ph1159 ], [ %.1319, %464 ]
+  %.03201136 = phi i1 [ false, %.lr.ph1159 ], [ %.1321, %464 ]
+  %.03221135 = phi i1 [ false, %.lr.ph1159 ], [ %.1323, %464 ]
+  %.03241134 = phi i1 [ false, %.lr.ph1159 ], [ %.1325, %464 ]
+  %.03261133 = phi i1 [ false, %.lr.ph1159 ], [ %.1327, %464 ]
   %151 = call i32 @pg_strip_crlf(ptr noundef nonnull %4) #9
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %4) #9
   %152 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.28) #12
-  %.not457 = icmp eq ptr %152, null
-  br i1 %.not457, label %163, label %153
+  %.not416 = icmp eq ptr %152, null
+  br i1 %.not416, label %163, label %153
 
 153:                                              ; preds = %150
   %154 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %152, i32 noundef 58) #12
@@ -457,8 +460,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 163:                                              ; preds = %150
   %164 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.30) #12
-  %.not458 = icmp eq ptr %164, null
-  br i1 %.not458, label %175, label %165
+  %.not417 = icmp eq ptr %164, null
+  br i1 %.not417, label %175, label %165
 
 165:                                              ; preds = %163
   %166 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %164, i32 noundef 58) #12
@@ -482,8 +485,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 175:                                              ; preds = %163
   %176 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.32) #12
-  %.not459 = icmp eq ptr %176, null
-  br i1 %.not459, label %187, label %177
+  %.not418 = icmp eq ptr %176, null
+  br i1 %.not418, label %187, label %177
 
 177:                                              ; preds = %175
   %178 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %176, i32 noundef 58) #12
@@ -506,8 +509,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 187:                                              ; preds = %175
   %188 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.33) #12
-  %.not460 = icmp eq ptr %188, null
-  br i1 %.not460, label %199, label %189
+  %.not419 = icmp eq ptr %188, null
+  br i1 %.not419, label %199, label %189
 
 189:                                              ; preds = %187
   %190 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %188, i32 noundef 58) #12
@@ -530,8 +533,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 199:                                              ; preds = %187
   %200 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.34) #12
-  %.not461 = icmp eq ptr %200, null
-  br i1 %.not461, label %211, label %201
+  %.not420 = icmp eq ptr %200, null
+  br i1 %.not420, label %211, label %201
 
 201:                                              ; preds = %199
   %202 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %200, i32 noundef 58) #12
@@ -554,8 +557,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 211:                                              ; preds = %199
   %212 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.35) #12
-  %.not462 = icmp eq ptr %212, null
-  br i1 %.not462, label %235, label %213
+  %.not421 = icmp eq ptr %212, null
+  br i1 %.not421, label %235, label %213
 
 213:                                              ; preds = %211
   %214 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %212, i32 noundef 58) #12
@@ -576,8 +579,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   %222 = call i32 @str2uint(ptr noundef %221) #9
   store i32 %222, ptr %130, align 8
   %223 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %221, i32 noundef 47) #12
-  %.not482 = icmp eq ptr %223, null
-  br i1 %.not482, label %224, label %.thread518
+  %.not441 = icmp eq ptr %223, null
+  br i1 %.not441, label %224, label %.thread445
 
 224:                                              ; preds = %220
   %225 = load i32, ptr %122, align 4
@@ -587,28 +590,28 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 227:                                              ; preds = %224
   %228 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %221, i32 noundef 58) #12
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %.thread, label %.thread518
+  br i1 %229, label %.thread, label %.thread445
 
-.thread518:                                       ; preds = %220, %227
-  %.1329520 = phi ptr [ %228, %227 ], [ %223, %220 ]
-  %230 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1329520) #12
+.thread445:                                       ; preds = %220, %227
+  %.1329447 = phi ptr [ %228, %227 ], [ %223, %220 ]
+  %230 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1329447) #12
   %231 = icmp ult i64 %230, 2
   br i1 %231, label %.thread, label %232
 
-.thread:                                          ; preds = %224, %.thread518, %227
+.thread:                                          ; preds = %224, %.thread445, %227
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.31, i32 noundef 294) #11
   unreachable
 
-232:                                              ; preds = %.thread518
-  %233 = getelementptr i8, ptr %.1329520, i64 1
+232:                                              ; preds = %.thread445
+  %233 = getelementptr i8, ptr %.1329447, i64 1
   %234 = call i32 @str2uint(ptr noundef %233) #9
   store i32 %234, ptr %131, align 4
   br label %464
 
 235:                                              ; preds = %211
   %236 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.36) #12
-  %.not463 = icmp eq ptr %236, null
-  br i1 %.not463, label %247, label %237
+  %.not422 = icmp eq ptr %236, null
+  br i1 %.not422, label %247, label %237
 
 237:                                              ; preds = %235
   %238 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %236, i32 noundef 58) #12
@@ -632,8 +635,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 247:                                              ; preds = %235
   %248 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.37) #12
-  %.not464 = icmp eq ptr %248, null
-  br i1 %.not464, label %259, label %249
+  %.not423 = icmp eq ptr %248, null
+  br i1 %.not423, label %259, label %249
 
 249:                                              ; preds = %247
   %250 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %248, i32 noundef 58) #12
@@ -657,8 +660,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 259:                                              ; preds = %247
   %260 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.38) #12
-  %.not465 = icmp eq ptr %260, null
-  br i1 %.not465, label %271, label %261
+  %.not424 = icmp eq ptr %260, null
+  br i1 %.not424, label %271, label %261
 
 261:                                              ; preds = %259
   %262 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %260, i32 noundef 58) #12
@@ -682,8 +685,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 271:                                              ; preds = %259
   %272 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.39) #12
-  %.not466 = icmp eq ptr %272, null
-  br i1 %.not466, label %283, label %273
+  %.not425 = icmp eq ptr %272, null
+  br i1 %.not425, label %283, label %273
 
 273:                                              ; preds = %271
   %274 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %272, i32 noundef 58) #12
@@ -707,8 +710,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 283:                                              ; preds = %271
   %284 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.40) #12
-  %.not467 = icmp eq ptr %284, null
-  br i1 %.not467, label %295, label %285
+  %.not426 = icmp eq ptr %284, null
+  br i1 %.not426, label %295, label %285
 
 285:                                              ; preds = %283
   %286 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %284, i32 noundef 58) #12
@@ -732,8 +735,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 295:                                              ; preds = %283
   %296 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.41) #12
-  %.not468 = icmp eq ptr %296, null
-  br i1 %.not468, label %316, label %297
+  %.not427 = icmp eq ptr %296, null
+  br i1 %.not427, label %316, label %297
 
 297:                                              ; preds = %295
   %298 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %296, i32 noundef 58) #12
@@ -765,8 +768,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 311:                                              ; preds = %307
   %312 = call i64 @strspn(ptr noundef nonnull %305, ptr noundef nonnull @.str.43) #12
-  %.not481 = icmp eq i64 %312, 24
-  br i1 %.not481, label %314, label %313
+  %.not440 = icmp eq i64 %312, 24
+  br i1 %.not440, label %314, label %313
 
 313:                                              ; preds = %311
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.31, i32 noundef 367) #11
@@ -778,8 +781,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 316:                                              ; preds = %295
   %317 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.44) #12
-  %.not469 = icmp eq ptr %317, null
-  br i1 %.not469, label %330, label %318
+  %.not428 = icmp eq ptr %317, null
+  br i1 %.not428, label %330, label %318
 
 318:                                              ; preds = %316
   %319 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %317, i32 noundef 58) #12
@@ -805,8 +808,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 330:                                              ; preds = %316
   %331 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.46) #12
-  %.not470 = icmp eq ptr %331, null
-  br i1 %.not470, label %342, label %332
+  %.not429 = icmp eq ptr %331, null
+  br i1 %.not429, label %342, label %332
 
 332:                                              ; preds = %330
   %333 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %331, i32 noundef 58) #12
@@ -830,8 +833,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 342:                                              ; preds = %330
   %343 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.47) #12
-  %.not471 = icmp eq ptr %343, null
-  br i1 %.not471, label %354, label %344
+  %.not430 = icmp eq ptr %343, null
+  br i1 %.not430, label %354, label %344
 
 344:                                              ; preds = %342
   %345 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %343, i32 noundef 58) #12
@@ -855,8 +858,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 354:                                              ; preds = %342
   %355 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.48) #12
-  %.not472 = icmp eq ptr %355, null
-  br i1 %.not472, label %366, label %356
+  %.not431 = icmp eq ptr %355, null
+  br i1 %.not431, label %366, label %356
 
 356:                                              ; preds = %354
   %357 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %355, i32 noundef 58) #12
@@ -880,8 +883,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 366:                                              ; preds = %354
   %367 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.49) #12
-  %.not473 = icmp eq ptr %367, null
-  br i1 %.not473, label %378, label %368
+  %.not432 = icmp eq ptr %367, null
+  br i1 %.not432, label %378, label %368
 
 368:                                              ; preds = %366
   %369 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %367, i32 noundef 58) #12
@@ -905,8 +908,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 378:                                              ; preds = %366
   %379 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.50) #12
-  %.not474 = icmp eq ptr %379, null
-  br i1 %.not474, label %390, label %380
+  %.not433 = icmp eq ptr %379, null
+  br i1 %.not433, label %390, label %380
 
 380:                                              ; preds = %378
   %381 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %379, i32 noundef 58) #12
@@ -930,8 +933,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 390:                                              ; preds = %378
   %391 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.51) #12
-  %.not475 = icmp eq ptr %391, null
-  br i1 %.not475, label %402, label %392
+  %.not434 = icmp eq ptr %391, null
+  br i1 %.not434, label %402, label %392
 
 392:                                              ; preds = %390
   %393 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %391, i32 noundef 58) #12
@@ -955,8 +958,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 402:                                              ; preds = %390
   %403 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.52) #12
-  %.not476 = icmp eq ptr %403, null
-  br i1 %.not476, label %414, label %404
+  %.not435 = icmp eq ptr %403, null
+  br i1 %.not435, label %414, label %404
 
 404:                                              ; preds = %402
   %405 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %403, i32 noundef 58) #12
@@ -980,8 +983,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 414:                                              ; preds = %402
   %415 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.53) #12
-  %.not477 = icmp eq ptr %415, null
-  br i1 %.not477, label %426, label %416
+  %.not436 = icmp eq ptr %415, null
+  br i1 %.not436, label %426, label %416
 
 416:                                              ; preds = %414
   %417 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %415, i32 noundef 58) #12
@@ -1005,8 +1008,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 426:                                              ; preds = %414
   %427 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.54) #12
-  %.not478 = icmp eq ptr %427, null
-  br i1 %.not478, label %438, label %428
+  %.not437 = icmp eq ptr %427, null
+  br i1 %.not437, label %438, label %428
 
 428:                                              ; preds = %426
   %429 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %427, i32 noundef 58) #12
@@ -1030,8 +1033,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 438:                                              ; preds = %426
   %439 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.55) #12
-  %.not479 = icmp eq ptr %439, null
-  br i1 %.not479, label %452, label %440
+  %.not438 = icmp eq ptr %439, null
+  br i1 %.not438, label %452, label %440
 
 440:                                              ; preds = %438
   %441 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %439, i32 noundef 58) #12
@@ -1057,8 +1060,8 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 452:                                              ; preds = %438
   %453 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.57) #12
-  %.not480 = icmp eq ptr %453, null
-  br i1 %.not480, label %464, label %454
+  %.not439 = icmp eq ptr %453, null
+  br i1 %.not439, label %464, label %454
 
 454:                                              ; preds = %452
   %455 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %453, i32 noundef 58) #12
@@ -1081,40 +1084,40 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %464
 
 464:                                              ; preds = %172, %196, %232, %256, %280, %314, %339, %363, %387, %411, %435, %452, %461, %447, %423, %399, %375, %351, %325, %292, %268, %244, %208, %184, %160
-  %.1327 = phi i8 [ %.03261204, %160 ], [ %.03261204, %172 ], [ 1, %184 ], [ %.03261204, %196 ], [ %.03261204, %208 ], [ %.03261204, %232 ], [ %.03261204, %244 ], [ %.03261204, %256 ], [ %.03261204, %268 ], [ %.03261204, %280 ], [ %.03261204, %292 ], [ %.03261204, %314 ], [ %.03261204, %325 ], [ %.03261204, %339 ], [ %.03261204, %351 ], [ %.03261204, %363 ], [ %.03261204, %375 ], [ %.03261204, %387 ], [ %.03261204, %399 ], [ %.03261204, %411 ], [ %.03261204, %423 ], [ %.03261204, %435 ], [ %.03261204, %447 ], [ %.03261204, %461 ], [ %.03261204, %452 ]
-  %.1325 = phi i8 [ %.03241205, %160 ], [ %.03241205, %172 ], [ %.03241205, %184 ], [ 1, %196 ], [ %.03241205, %208 ], [ %.03241205, %232 ], [ %.03241205, %244 ], [ %.03241205, %256 ], [ %.03241205, %268 ], [ %.03241205, %280 ], [ %.03241205, %292 ], [ %.03241205, %314 ], [ %.03241205, %325 ], [ %.03241205, %339 ], [ %.03241205, %351 ], [ %.03241205, %363 ], [ %.03241205, %375 ], [ %.03241205, %387 ], [ %.03241205, %399 ], [ %.03241205, %411 ], [ %.03241205, %423 ], [ %.03241205, %435 ], [ %.03241205, %447 ], [ %.03241205, %461 ], [ %.03241205, %452 ]
-  %.1323 = phi i8 [ %.03221206, %160 ], [ %.03221206, %172 ], [ %.03221206, %184 ], [ %.03221206, %196 ], [ 1, %208 ], [ %.03221206, %232 ], [ %.03221206, %244 ], [ %.03221206, %256 ], [ %.03221206, %268 ], [ %.03221206, %280 ], [ %.03221206, %292 ], [ %.03221206, %314 ], [ %.03221206, %325 ], [ %.03221206, %339 ], [ %.03221206, %351 ], [ %.03221206, %363 ], [ %.03221206, %375 ], [ %.03221206, %387 ], [ %.03221206, %399 ], [ %.03221206, %411 ], [ %.03221206, %423 ], [ %.03221206, %435 ], [ %.03221206, %447 ], [ %.03221206, %461 ], [ %.03221206, %452 ]
-  %.1321 = phi i8 [ %.03201207, %160 ], [ %.03201207, %172 ], [ %.03201207, %184 ], [ %.03201207, %196 ], [ %.03201207, %208 ], [ 1, %232 ], [ %.03201207, %244 ], [ %.03201207, %256 ], [ %.03201207, %268 ], [ %.03201207, %280 ], [ %.03201207, %292 ], [ %.03201207, %314 ], [ %.03201207, %325 ], [ %.03201207, %339 ], [ %.03201207, %351 ], [ %.03201207, %363 ], [ %.03201207, %375 ], [ %.03201207, %387 ], [ %.03201207, %399 ], [ %.03201207, %411 ], [ %.03201207, %423 ], [ %.03201207, %435 ], [ %.03201207, %447 ], [ %.03201207, %461 ], [ %.03201207, %452 ]
-  %.1319 = phi i8 [ %.03181208, %160 ], [ %.03181208, %172 ], [ %.03181208, %184 ], [ %.03181208, %196 ], [ %.03181208, %208 ], [ %.03181208, %232 ], [ 1, %244 ], [ %.03181208, %256 ], [ %.03181208, %268 ], [ %.03181208, %280 ], [ %.03181208, %292 ], [ %.03181208, %314 ], [ %.03181208, %325 ], [ %.03181208, %339 ], [ %.03181208, %351 ], [ %.03181208, %363 ], [ %.03181208, %375 ], [ %.03181208, %387 ], [ %.03181208, %399 ], [ %.03181208, %411 ], [ %.03181208, %423 ], [ %.03181208, %435 ], [ %.03181208, %447 ], [ %.03181208, %461 ], [ %.03181208, %452 ]
-  %.1317 = phi i8 [ %.03161209, %160 ], [ %.03161209, %172 ], [ %.03161209, %184 ], [ %.03161209, %196 ], [ %.03161209, %208 ], [ %.03161209, %232 ], [ %.03161209, %244 ], [ 1, %256 ], [ %.03161209, %268 ], [ %.03161209, %280 ], [ %.03161209, %292 ], [ %.03161209, %314 ], [ %.03161209, %325 ], [ %.03161209, %339 ], [ %.03161209, %351 ], [ %.03161209, %363 ], [ %.03161209, %375 ], [ %.03161209, %387 ], [ %.03161209, %399 ], [ %.03161209, %411 ], [ %.03161209, %423 ], [ %.03161209, %435 ], [ %.03161209, %447 ], [ %.03161209, %461 ], [ %.03161209, %452 ]
-  %.1315 = phi i8 [ %.03141210, %160 ], [ %.03141210, %172 ], [ %.03141210, %184 ], [ %.03141210, %196 ], [ %.03141210, %208 ], [ %.03141210, %232 ], [ %.03141210, %244 ], [ %.03141210, %256 ], [ %.03141210, %268 ], [ 1, %280 ], [ %.03141210, %292 ], [ %.03141210, %314 ], [ %.03141210, %325 ], [ %.03141210, %339 ], [ %.03141210, %351 ], [ %.03141210, %363 ], [ %.03141210, %375 ], [ %.03141210, %387 ], [ %.03141210, %399 ], [ %.03141210, %411 ], [ %.03141210, %423 ], [ %.03141210, %435 ], [ %.03141210, %447 ], [ %.03141210, %461 ], [ %.03141210, %452 ]
-  %.1313 = phi i8 [ %.03121211, %160 ], [ %.03121211, %172 ], [ %.03121211, %184 ], [ %.03121211, %196 ], [ %.03121211, %208 ], [ %.03121211, %232 ], [ %.03121211, %244 ], [ %.03121211, %256 ], [ 1, %268 ], [ %.03121211, %280 ], [ %.03121211, %292 ], [ %.03121211, %314 ], [ %.03121211, %325 ], [ %.03121211, %339 ], [ %.03121211, %351 ], [ %.03121211, %363 ], [ %.03121211, %375 ], [ %.03121211, %387 ], [ %.03121211, %399 ], [ %.03121211, %411 ], [ %.03121211, %423 ], [ %.03121211, %435 ], [ %.03121211, %447 ], [ %.03121211, %461 ], [ %.03121211, %452 ]
-  %.1311 = phi i8 [ %.03101212, %160 ], [ %.03101212, %172 ], [ %.03101212, %184 ], [ %.03101212, %196 ], [ %.03101212, %208 ], [ %.03101212, %232 ], [ %.03101212, %244 ], [ %.03101212, %256 ], [ %.03101212, %268 ], [ %.03101212, %280 ], [ 1, %292 ], [ %.03101212, %314 ], [ %.03101212, %325 ], [ %.03101212, %339 ], [ %.03101212, %351 ], [ %.03101212, %363 ], [ %.03101212, %375 ], [ %.03101212, %387 ], [ %.03101212, %399 ], [ %.03101212, %411 ], [ %.03101212, %423 ], [ %.03101212, %435 ], [ %.03101212, %447 ], [ %.03101212, %461 ], [ %.03101212, %452 ]
-  %.1308 = phi i8 [ %.03071213, %160 ], [ %.03071213, %172 ], [ %.03071213, %184 ], [ %.03071213, %196 ], [ %.03071213, %208 ], [ %.03071213, %232 ], [ %.03071213, %244 ], [ %.03071213, %256 ], [ %.03071213, %268 ], [ %.03071213, %280 ], [ %.03071213, %292 ], [ 1, %314 ], [ %.03071213, %325 ], [ %.03071213, %339 ], [ %.03071213, %351 ], [ %.03071213, %363 ], [ %.03071213, %375 ], [ %.03071213, %387 ], [ %.03071213, %399 ], [ %.03071213, %411 ], [ %.03071213, %423 ], [ %.03071213, %435 ], [ %.03071213, %447 ], [ %.03071213, %461 ], [ %.03071213, %452 ]
-  %.1306 = phi i8 [ %.03051214, %160 ], [ %.03051214, %172 ], [ %.03051214, %184 ], [ %.03051214, %196 ], [ %.03051214, %208 ], [ %.03051214, %232 ], [ %.03051214, %244 ], [ %.03051214, %256 ], [ %.03051214, %268 ], [ %.03051214, %280 ], [ %.03051214, %292 ], [ %.03051214, %314 ], [ 1, %325 ], [ %.03051214, %339 ], [ %.03051214, %351 ], [ %.03051214, %363 ], [ %.03051214, %375 ], [ %.03051214, %387 ], [ %.03051214, %399 ], [ %.03051214, %411 ], [ %.03051214, %423 ], [ %.03051214, %435 ], [ %.03051214, %447 ], [ %.03051214, %461 ], [ %.03051214, %452 ]
-  %.1304 = phi i8 [ %.03031215, %160 ], [ %.03031215, %172 ], [ %.03031215, %184 ], [ %.03031215, %196 ], [ %.03031215, %208 ], [ %.03031215, %232 ], [ %.03031215, %244 ], [ %.03031215, %256 ], [ %.03031215, %268 ], [ %.03031215, %280 ], [ %.03031215, %292 ], [ %.03031215, %314 ], [ %.03031215, %325 ], [ 1, %339 ], [ %.03031215, %351 ], [ %.03031215, %363 ], [ %.03031215, %375 ], [ %.03031215, %387 ], [ %.03031215, %399 ], [ %.03031215, %411 ], [ %.03031215, %423 ], [ %.03031215, %435 ], [ %.03031215, %447 ], [ %.03031215, %461 ], [ %.03031215, %452 ]
-  %.1302 = phi i8 [ %.03011216, %160 ], [ %.03011216, %172 ], [ %.03011216, %184 ], [ %.03011216, %196 ], [ %.03011216, %208 ], [ %.03011216, %232 ], [ %.03011216, %244 ], [ %.03011216, %256 ], [ %.03011216, %268 ], [ %.03011216, %280 ], [ %.03011216, %292 ], [ %.03011216, %314 ], [ %.03011216, %325 ], [ %.03011216, %339 ], [ 1, %351 ], [ %.03011216, %363 ], [ %.03011216, %375 ], [ %.03011216, %387 ], [ %.03011216, %399 ], [ %.03011216, %411 ], [ %.03011216, %423 ], [ %.03011216, %435 ], [ %.03011216, %447 ], [ %.03011216, %461 ], [ %.03011216, %452 ]
-  %.1300 = phi i8 [ %.02991217, %160 ], [ %.02991217, %172 ], [ %.02991217, %184 ], [ %.02991217, %196 ], [ %.02991217, %208 ], [ %.02991217, %232 ], [ %.02991217, %244 ], [ %.02991217, %256 ], [ %.02991217, %268 ], [ %.02991217, %280 ], [ %.02991217, %292 ], [ %.02991217, %314 ], [ %.02991217, %325 ], [ %.02991217, %339 ], [ %.02991217, %351 ], [ 1, %363 ], [ %.02991217, %375 ], [ %.02991217, %387 ], [ %.02991217, %399 ], [ %.02991217, %411 ], [ %.02991217, %423 ], [ %.02991217, %435 ], [ %.02991217, %447 ], [ %.02991217, %461 ], [ %.02991217, %452 ]
-  %.1298 = phi i8 [ %.02971218, %160 ], [ %.02971218, %172 ], [ %.02971218, %184 ], [ %.02971218, %196 ], [ %.02971218, %208 ], [ %.02971218, %232 ], [ %.02971218, %244 ], [ %.02971218, %256 ], [ %.02971218, %268 ], [ %.02971218, %280 ], [ %.02971218, %292 ], [ %.02971218, %314 ], [ %.02971218, %325 ], [ %.02971218, %339 ], [ %.02971218, %351 ], [ %.02971218, %363 ], [ 1, %375 ], [ %.02971218, %387 ], [ %.02971218, %399 ], [ %.02971218, %411 ], [ %.02971218, %423 ], [ %.02971218, %435 ], [ %.02971218, %447 ], [ %.02971218, %461 ], [ %.02971218, %452 ]
-  %.1296 = phi i8 [ %.02951219, %160 ], [ %.02951219, %172 ], [ %.02951219, %184 ], [ %.02951219, %196 ], [ %.02951219, %208 ], [ %.02951219, %232 ], [ %.02951219, %244 ], [ %.02951219, %256 ], [ %.02951219, %268 ], [ %.02951219, %280 ], [ %.02951219, %292 ], [ %.02951219, %314 ], [ %.02951219, %325 ], [ %.02951219, %339 ], [ %.02951219, %351 ], [ %.02951219, %363 ], [ %.02951219, %375 ], [ 1, %387 ], [ %.02951219, %399 ], [ %.02951219, %411 ], [ %.02951219, %423 ], [ %.02951219, %435 ], [ %.02951219, %447 ], [ %.02951219, %461 ], [ %.02951219, %452 ]
-  %.1294 = phi i8 [ %.02931220, %160 ], [ %.02931220, %172 ], [ %.02931220, %184 ], [ %.02931220, %196 ], [ %.02931220, %208 ], [ %.02931220, %232 ], [ %.02931220, %244 ], [ %.02931220, %256 ], [ %.02931220, %268 ], [ %.02931220, %280 ], [ %.02931220, %292 ], [ %.02931220, %314 ], [ %.02931220, %325 ], [ %.02931220, %339 ], [ %.02931220, %351 ], [ %.02931220, %363 ], [ %.02931220, %375 ], [ %.02931220, %387 ], [ 1, %399 ], [ %.02931220, %411 ], [ %.02931220, %423 ], [ %.02931220, %435 ], [ %.02931220, %447 ], [ %.02931220, %461 ], [ %.02931220, %452 ]
-  %.1292 = phi i8 [ %.02911221, %160 ], [ %.02911221, %172 ], [ %.02911221, %184 ], [ %.02911221, %196 ], [ %.02911221, %208 ], [ %.02911221, %232 ], [ %.02911221, %244 ], [ %.02911221, %256 ], [ %.02911221, %268 ], [ %.02911221, %280 ], [ %.02911221, %292 ], [ %.02911221, %314 ], [ %.02911221, %325 ], [ %.02911221, %339 ], [ %.02911221, %351 ], [ %.02911221, %363 ], [ %.02911221, %375 ], [ %.02911221, %387 ], [ %.02911221, %399 ], [ 1, %411 ], [ %.02911221, %423 ], [ %.02911221, %435 ], [ %.02911221, %447 ], [ %.02911221, %461 ], [ %.02911221, %452 ]
-  %.1290 = phi i8 [ %.02891222, %160 ], [ %.02891222, %172 ], [ %.02891222, %184 ], [ %.02891222, %196 ], [ %.02891222, %208 ], [ %.02891222, %232 ], [ %.02891222, %244 ], [ %.02891222, %256 ], [ %.02891222, %268 ], [ %.02891222, %280 ], [ %.02891222, %292 ], [ %.02891222, %314 ], [ %.02891222, %325 ], [ %.02891222, %339 ], [ %.02891222, %351 ], [ %.02891222, %363 ], [ %.02891222, %375 ], [ %.02891222, %387 ], [ %.02891222, %399 ], [ %.02891222, %411 ], [ 1, %423 ], [ %.02891222, %435 ], [ %.02891222, %447 ], [ %.02891222, %461 ], [ %.02891222, %452 ]
-  %.1288 = phi i8 [ %.02871223, %160 ], [ %.02871223, %172 ], [ %.02871223, %184 ], [ %.02871223, %196 ], [ %.02871223, %208 ], [ %.02871223, %232 ], [ %.02871223, %244 ], [ %.02871223, %256 ], [ %.02871223, %268 ], [ %.02871223, %280 ], [ %.02871223, %292 ], [ %.02871223, %314 ], [ %.02871223, %325 ], [ %.02871223, %339 ], [ %.02871223, %351 ], [ %.02871223, %363 ], [ %.02871223, %375 ], [ %.02871223, %387 ], [ %.02871223, %399 ], [ %.02871223, %411 ], [ %.02871223, %423 ], [ 1, %435 ], [ %.02871223, %447 ], [ %.02871223, %461 ], [ %.02871223, %452 ]
-  %.1286 = phi i8 [ %.02851224, %160 ], [ %.02851224, %172 ], [ %.02851224, %184 ], [ %.02851224, %196 ], [ %.02851224, %208 ], [ %.02851224, %232 ], [ %.02851224, %244 ], [ %.02851224, %256 ], [ %.02851224, %268 ], [ %.02851224, %280 ], [ %.02851224, %292 ], [ %.02851224, %314 ], [ %.02851224, %325 ], [ %.02851224, %339 ], [ %.02851224, %351 ], [ %.02851224, %363 ], [ %.02851224, %375 ], [ %.02851224, %387 ], [ %.02851224, %399 ], [ %.02851224, %411 ], [ %.02851224, %423 ], [ %.02851224, %435 ], [ 1, %447 ], [ %.02851224, %461 ], [ %.02851224, %452 ]
-  %.2 = phi i8 [ %.12841225, %160 ], [ %.12841225, %172 ], [ %.12841225, %184 ], [ %.12841225, %196 ], [ %.12841225, %208 ], [ %.12841225, %232 ], [ %.12841225, %244 ], [ %.12841225, %256 ], [ %.12841225, %268 ], [ %.12841225, %280 ], [ %.12841225, %292 ], [ %.12841225, %314 ], [ %.12841225, %325 ], [ %.12841225, %339 ], [ %.12841225, %351 ], [ %.12841225, %363 ], [ %.12841225, %375 ], [ %.12841225, %387 ], [ %.12841225, %399 ], [ %.12841225, %411 ], [ %.12841225, %423 ], [ %.12841225, %435 ], [ %.12841225, %447 ], [ 1, %461 ], [ %.12841225, %452 ]
-  %.1271 = phi i32 [ %.02701226, %160 ], [ %.02701226, %172 ], [ %186, %184 ], [ %.02701226, %196 ], [ %.02701226, %208 ], [ %.02701226, %232 ], [ %.02701226, %244 ], [ %.02701226, %256 ], [ %.02701226, %268 ], [ %.02701226, %280 ], [ %.02701226, %292 ], [ %.02701226, %314 ], [ %.02701226, %325 ], [ %.02701226, %339 ], [ %.02701226, %351 ], [ %.02701226, %363 ], [ %.02701226, %375 ], [ %.02701226, %387 ], [ %.02701226, %399 ], [ %.02701226, %411 ], [ %.02701226, %423 ], [ %.02701226, %435 ], [ %.02701226, %447 ], [ %.02701226, %461 ], [ %.02701226, %452 ]
-  %.1269 = phi i32 [ %.02681227, %160 ], [ %.02681227, %172 ], [ %.02681227, %184 ], [ %198, %196 ], [ %.02681227, %208 ], [ %.02681227, %232 ], [ %.02681227, %244 ], [ %.02681227, %256 ], [ %.02681227, %268 ], [ %.02681227, %280 ], [ %.02681227, %292 ], [ %.02681227, %314 ], [ %.02681227, %325 ], [ %.02681227, %339 ], [ %.02681227, %351 ], [ %.02681227, %363 ], [ %.02681227, %375 ], [ %.02681227, %387 ], [ %.02681227, %399 ], [ %.02681227, %411 ], [ %.02681227, %423 ], [ %.02681227, %435 ], [ %.02681227, %447 ], [ %.02681227, %461 ], [ %.02681227, %452 ]
-  %.1 = phi i32 [ %.02671228, %160 ], [ %.02671228, %172 ], [ %.02671228, %184 ], [ %.02671228, %196 ], [ %210, %208 ], [ %.02671228, %232 ], [ %.02671228, %244 ], [ %.02671228, %256 ], [ %.02671228, %268 ], [ %.02671228, %280 ], [ %.02671228, %292 ], [ %.02671228, %314 ], [ %.02671228, %325 ], [ %.02671228, %339 ], [ %.02671228, %351 ], [ %.02671228, %363 ], [ %.02671228, %375 ], [ %.02671228, %387 ], [ %.02671228, %399 ], [ %.02671228, %411 ], [ %.02671228, %423 ], [ %.02671228, %435 ], [ %.02671228, %447 ], [ %.02671228, %461 ], [ %.02671228, %452 ]
+  %.1327 = phi i1 [ %.03261133, %160 ], [ %.03261133, %172 ], [ true, %184 ], [ %.03261133, %196 ], [ %.03261133, %208 ], [ %.03261133, %232 ], [ %.03261133, %244 ], [ %.03261133, %256 ], [ %.03261133, %268 ], [ %.03261133, %280 ], [ %.03261133, %292 ], [ %.03261133, %314 ], [ %.03261133, %325 ], [ %.03261133, %339 ], [ %.03261133, %351 ], [ %.03261133, %363 ], [ %.03261133, %375 ], [ %.03261133, %387 ], [ %.03261133, %399 ], [ %.03261133, %411 ], [ %.03261133, %423 ], [ %.03261133, %435 ], [ %.03261133, %447 ], [ %.03261133, %461 ], [ %.03261133, %452 ]
+  %.1325 = phi i1 [ %.03241134, %160 ], [ %.03241134, %172 ], [ %.03241134, %184 ], [ true, %196 ], [ %.03241134, %208 ], [ %.03241134, %232 ], [ %.03241134, %244 ], [ %.03241134, %256 ], [ %.03241134, %268 ], [ %.03241134, %280 ], [ %.03241134, %292 ], [ %.03241134, %314 ], [ %.03241134, %325 ], [ %.03241134, %339 ], [ %.03241134, %351 ], [ %.03241134, %363 ], [ %.03241134, %375 ], [ %.03241134, %387 ], [ %.03241134, %399 ], [ %.03241134, %411 ], [ %.03241134, %423 ], [ %.03241134, %435 ], [ %.03241134, %447 ], [ %.03241134, %461 ], [ %.03241134, %452 ]
+  %.1323 = phi i1 [ %.03221135, %160 ], [ %.03221135, %172 ], [ %.03221135, %184 ], [ %.03221135, %196 ], [ true, %208 ], [ %.03221135, %232 ], [ %.03221135, %244 ], [ %.03221135, %256 ], [ %.03221135, %268 ], [ %.03221135, %280 ], [ %.03221135, %292 ], [ %.03221135, %314 ], [ %.03221135, %325 ], [ %.03221135, %339 ], [ %.03221135, %351 ], [ %.03221135, %363 ], [ %.03221135, %375 ], [ %.03221135, %387 ], [ %.03221135, %399 ], [ %.03221135, %411 ], [ %.03221135, %423 ], [ %.03221135, %435 ], [ %.03221135, %447 ], [ %.03221135, %461 ], [ %.03221135, %452 ]
+  %.1321 = phi i1 [ %.03201136, %160 ], [ %.03201136, %172 ], [ %.03201136, %184 ], [ %.03201136, %196 ], [ %.03201136, %208 ], [ true, %232 ], [ %.03201136, %244 ], [ %.03201136, %256 ], [ %.03201136, %268 ], [ %.03201136, %280 ], [ %.03201136, %292 ], [ %.03201136, %314 ], [ %.03201136, %325 ], [ %.03201136, %339 ], [ %.03201136, %351 ], [ %.03201136, %363 ], [ %.03201136, %375 ], [ %.03201136, %387 ], [ %.03201136, %399 ], [ %.03201136, %411 ], [ %.03201136, %423 ], [ %.03201136, %435 ], [ %.03201136, %447 ], [ %.03201136, %461 ], [ %.03201136, %452 ]
+  %.1319 = phi i8 [ %.03181137, %160 ], [ %.03181137, %172 ], [ %.03181137, %184 ], [ %.03181137, %196 ], [ %.03181137, %208 ], [ %.03181137, %232 ], [ 1, %244 ], [ %.03181137, %256 ], [ %.03181137, %268 ], [ %.03181137, %280 ], [ %.03181137, %292 ], [ %.03181137, %314 ], [ %.03181137, %325 ], [ %.03181137, %339 ], [ %.03181137, %351 ], [ %.03181137, %363 ], [ %.03181137, %375 ], [ %.03181137, %387 ], [ %.03181137, %399 ], [ %.03181137, %411 ], [ %.03181137, %423 ], [ %.03181137, %435 ], [ %.03181137, %447 ], [ %.03181137, %461 ], [ %.03181137, %452 ]
+  %.1317 = phi i8 [ %.03161138, %160 ], [ %.03161138, %172 ], [ %.03161138, %184 ], [ %.03161138, %196 ], [ %.03161138, %208 ], [ %.03161138, %232 ], [ %.03161138, %244 ], [ 1, %256 ], [ %.03161138, %268 ], [ %.03161138, %280 ], [ %.03161138, %292 ], [ %.03161138, %314 ], [ %.03161138, %325 ], [ %.03161138, %339 ], [ %.03161138, %351 ], [ %.03161138, %363 ], [ %.03161138, %375 ], [ %.03161138, %387 ], [ %.03161138, %399 ], [ %.03161138, %411 ], [ %.03161138, %423 ], [ %.03161138, %435 ], [ %.03161138, %447 ], [ %.03161138, %461 ], [ %.03161138, %452 ]
+  %.1315 = phi i8 [ %.03141139, %160 ], [ %.03141139, %172 ], [ %.03141139, %184 ], [ %.03141139, %196 ], [ %.03141139, %208 ], [ %.03141139, %232 ], [ %.03141139, %244 ], [ %.03141139, %256 ], [ %.03141139, %268 ], [ 1, %280 ], [ %.03141139, %292 ], [ %.03141139, %314 ], [ %.03141139, %325 ], [ %.03141139, %339 ], [ %.03141139, %351 ], [ %.03141139, %363 ], [ %.03141139, %375 ], [ %.03141139, %387 ], [ %.03141139, %399 ], [ %.03141139, %411 ], [ %.03141139, %423 ], [ %.03141139, %435 ], [ %.03141139, %447 ], [ %.03141139, %461 ], [ %.03141139, %452 ]
+  %.1313 = phi i8 [ %.03121140, %160 ], [ %.03121140, %172 ], [ %.03121140, %184 ], [ %.03121140, %196 ], [ %.03121140, %208 ], [ %.03121140, %232 ], [ %.03121140, %244 ], [ %.03121140, %256 ], [ 1, %268 ], [ %.03121140, %280 ], [ %.03121140, %292 ], [ %.03121140, %314 ], [ %.03121140, %325 ], [ %.03121140, %339 ], [ %.03121140, %351 ], [ %.03121140, %363 ], [ %.03121140, %375 ], [ %.03121140, %387 ], [ %.03121140, %399 ], [ %.03121140, %411 ], [ %.03121140, %423 ], [ %.03121140, %435 ], [ %.03121140, %447 ], [ %.03121140, %461 ], [ %.03121140, %452 ]
+  %.1311 = phi i8 [ %.03101141, %160 ], [ %.03101141, %172 ], [ %.03101141, %184 ], [ %.03101141, %196 ], [ %.03101141, %208 ], [ %.03101141, %232 ], [ %.03101141, %244 ], [ %.03101141, %256 ], [ %.03101141, %268 ], [ %.03101141, %280 ], [ 1, %292 ], [ %.03101141, %314 ], [ %.03101141, %325 ], [ %.03101141, %339 ], [ %.03101141, %351 ], [ %.03101141, %363 ], [ %.03101141, %375 ], [ %.03101141, %387 ], [ %.03101141, %399 ], [ %.03101141, %411 ], [ %.03101141, %423 ], [ %.03101141, %435 ], [ %.03101141, %447 ], [ %.03101141, %461 ], [ %.03101141, %452 ]
+  %.1308 = phi i8 [ %.03071142, %160 ], [ %.03071142, %172 ], [ %.03071142, %184 ], [ %.03071142, %196 ], [ %.03071142, %208 ], [ %.03071142, %232 ], [ %.03071142, %244 ], [ %.03071142, %256 ], [ %.03071142, %268 ], [ %.03071142, %280 ], [ %.03071142, %292 ], [ 1, %314 ], [ %.03071142, %325 ], [ %.03071142, %339 ], [ %.03071142, %351 ], [ %.03071142, %363 ], [ %.03071142, %375 ], [ %.03071142, %387 ], [ %.03071142, %399 ], [ %.03071142, %411 ], [ %.03071142, %423 ], [ %.03071142, %435 ], [ %.03071142, %447 ], [ %.03071142, %461 ], [ %.03071142, %452 ]
+  %.1306 = phi i8 [ %.03051143, %160 ], [ %.03051143, %172 ], [ %.03051143, %184 ], [ %.03051143, %196 ], [ %.03051143, %208 ], [ %.03051143, %232 ], [ %.03051143, %244 ], [ %.03051143, %256 ], [ %.03051143, %268 ], [ %.03051143, %280 ], [ %.03051143, %292 ], [ %.03051143, %314 ], [ 1, %325 ], [ %.03051143, %339 ], [ %.03051143, %351 ], [ %.03051143, %363 ], [ %.03051143, %375 ], [ %.03051143, %387 ], [ %.03051143, %399 ], [ %.03051143, %411 ], [ %.03051143, %423 ], [ %.03051143, %435 ], [ %.03051143, %447 ], [ %.03051143, %461 ], [ %.03051143, %452 ]
+  %.1304 = phi i8 [ %.03031144, %160 ], [ %.03031144, %172 ], [ %.03031144, %184 ], [ %.03031144, %196 ], [ %.03031144, %208 ], [ %.03031144, %232 ], [ %.03031144, %244 ], [ %.03031144, %256 ], [ %.03031144, %268 ], [ %.03031144, %280 ], [ %.03031144, %292 ], [ %.03031144, %314 ], [ %.03031144, %325 ], [ 1, %339 ], [ %.03031144, %351 ], [ %.03031144, %363 ], [ %.03031144, %375 ], [ %.03031144, %387 ], [ %.03031144, %399 ], [ %.03031144, %411 ], [ %.03031144, %423 ], [ %.03031144, %435 ], [ %.03031144, %447 ], [ %.03031144, %461 ], [ %.03031144, %452 ]
+  %.1302 = phi i8 [ %.03011145, %160 ], [ %.03011145, %172 ], [ %.03011145, %184 ], [ %.03011145, %196 ], [ %.03011145, %208 ], [ %.03011145, %232 ], [ %.03011145, %244 ], [ %.03011145, %256 ], [ %.03011145, %268 ], [ %.03011145, %280 ], [ %.03011145, %292 ], [ %.03011145, %314 ], [ %.03011145, %325 ], [ %.03011145, %339 ], [ 1, %351 ], [ %.03011145, %363 ], [ %.03011145, %375 ], [ %.03011145, %387 ], [ %.03011145, %399 ], [ %.03011145, %411 ], [ %.03011145, %423 ], [ %.03011145, %435 ], [ %.03011145, %447 ], [ %.03011145, %461 ], [ %.03011145, %452 ]
+  %.1300 = phi i8 [ %.02991146, %160 ], [ %.02991146, %172 ], [ %.02991146, %184 ], [ %.02991146, %196 ], [ %.02991146, %208 ], [ %.02991146, %232 ], [ %.02991146, %244 ], [ %.02991146, %256 ], [ %.02991146, %268 ], [ %.02991146, %280 ], [ %.02991146, %292 ], [ %.02991146, %314 ], [ %.02991146, %325 ], [ %.02991146, %339 ], [ %.02991146, %351 ], [ 1, %363 ], [ %.02991146, %375 ], [ %.02991146, %387 ], [ %.02991146, %399 ], [ %.02991146, %411 ], [ %.02991146, %423 ], [ %.02991146, %435 ], [ %.02991146, %447 ], [ %.02991146, %461 ], [ %.02991146, %452 ]
+  %.1298 = phi i8 [ %.02971147, %160 ], [ %.02971147, %172 ], [ %.02971147, %184 ], [ %.02971147, %196 ], [ %.02971147, %208 ], [ %.02971147, %232 ], [ %.02971147, %244 ], [ %.02971147, %256 ], [ %.02971147, %268 ], [ %.02971147, %280 ], [ %.02971147, %292 ], [ %.02971147, %314 ], [ %.02971147, %325 ], [ %.02971147, %339 ], [ %.02971147, %351 ], [ %.02971147, %363 ], [ 1, %375 ], [ %.02971147, %387 ], [ %.02971147, %399 ], [ %.02971147, %411 ], [ %.02971147, %423 ], [ %.02971147, %435 ], [ %.02971147, %447 ], [ %.02971147, %461 ], [ %.02971147, %452 ]
+  %.1296 = phi i8 [ %.02951148, %160 ], [ %.02951148, %172 ], [ %.02951148, %184 ], [ %.02951148, %196 ], [ %.02951148, %208 ], [ %.02951148, %232 ], [ %.02951148, %244 ], [ %.02951148, %256 ], [ %.02951148, %268 ], [ %.02951148, %280 ], [ %.02951148, %292 ], [ %.02951148, %314 ], [ %.02951148, %325 ], [ %.02951148, %339 ], [ %.02951148, %351 ], [ %.02951148, %363 ], [ %.02951148, %375 ], [ 1, %387 ], [ %.02951148, %399 ], [ %.02951148, %411 ], [ %.02951148, %423 ], [ %.02951148, %435 ], [ %.02951148, %447 ], [ %.02951148, %461 ], [ %.02951148, %452 ]
+  %.1294 = phi i8 [ %.02931149, %160 ], [ %.02931149, %172 ], [ %.02931149, %184 ], [ %.02931149, %196 ], [ %.02931149, %208 ], [ %.02931149, %232 ], [ %.02931149, %244 ], [ %.02931149, %256 ], [ %.02931149, %268 ], [ %.02931149, %280 ], [ %.02931149, %292 ], [ %.02931149, %314 ], [ %.02931149, %325 ], [ %.02931149, %339 ], [ %.02931149, %351 ], [ %.02931149, %363 ], [ %.02931149, %375 ], [ %.02931149, %387 ], [ 1, %399 ], [ %.02931149, %411 ], [ %.02931149, %423 ], [ %.02931149, %435 ], [ %.02931149, %447 ], [ %.02931149, %461 ], [ %.02931149, %452 ]
+  %.1292 = phi i8 [ %.02911150, %160 ], [ %.02911150, %172 ], [ %.02911150, %184 ], [ %.02911150, %196 ], [ %.02911150, %208 ], [ %.02911150, %232 ], [ %.02911150, %244 ], [ %.02911150, %256 ], [ %.02911150, %268 ], [ %.02911150, %280 ], [ %.02911150, %292 ], [ %.02911150, %314 ], [ %.02911150, %325 ], [ %.02911150, %339 ], [ %.02911150, %351 ], [ %.02911150, %363 ], [ %.02911150, %375 ], [ %.02911150, %387 ], [ %.02911150, %399 ], [ 1, %411 ], [ %.02911150, %423 ], [ %.02911150, %435 ], [ %.02911150, %447 ], [ %.02911150, %461 ], [ %.02911150, %452 ]
+  %.1290 = phi i8 [ %.02891151, %160 ], [ %.02891151, %172 ], [ %.02891151, %184 ], [ %.02891151, %196 ], [ %.02891151, %208 ], [ %.02891151, %232 ], [ %.02891151, %244 ], [ %.02891151, %256 ], [ %.02891151, %268 ], [ %.02891151, %280 ], [ %.02891151, %292 ], [ %.02891151, %314 ], [ %.02891151, %325 ], [ %.02891151, %339 ], [ %.02891151, %351 ], [ %.02891151, %363 ], [ %.02891151, %375 ], [ %.02891151, %387 ], [ %.02891151, %399 ], [ %.02891151, %411 ], [ 1, %423 ], [ %.02891151, %435 ], [ %.02891151, %447 ], [ %.02891151, %461 ], [ %.02891151, %452 ]
+  %.1288 = phi i8 [ %.02871152, %160 ], [ %.02871152, %172 ], [ %.02871152, %184 ], [ %.02871152, %196 ], [ %.02871152, %208 ], [ %.02871152, %232 ], [ %.02871152, %244 ], [ %.02871152, %256 ], [ %.02871152, %268 ], [ %.02871152, %280 ], [ %.02871152, %292 ], [ %.02871152, %314 ], [ %.02871152, %325 ], [ %.02871152, %339 ], [ %.02871152, %351 ], [ %.02871152, %363 ], [ %.02871152, %375 ], [ %.02871152, %387 ], [ %.02871152, %399 ], [ %.02871152, %411 ], [ %.02871152, %423 ], [ 1, %435 ], [ %.02871152, %447 ], [ %.02871152, %461 ], [ %.02871152, %452 ]
+  %.1286 = phi i8 [ %.02851153, %160 ], [ %.02851153, %172 ], [ %.02851153, %184 ], [ %.02851153, %196 ], [ %.02851153, %208 ], [ %.02851153, %232 ], [ %.02851153, %244 ], [ %.02851153, %256 ], [ %.02851153, %268 ], [ %.02851153, %280 ], [ %.02851153, %292 ], [ %.02851153, %314 ], [ %.02851153, %325 ], [ %.02851153, %339 ], [ %.02851153, %351 ], [ %.02851153, %363 ], [ %.02851153, %375 ], [ %.02851153, %387 ], [ %.02851153, %399 ], [ %.02851153, %411 ], [ %.02851153, %423 ], [ %.02851153, %435 ], [ 1, %447 ], [ %.02851153, %461 ], [ %.02851153, %452 ]
+  %.2 = phi i8 [ %.12841154, %160 ], [ %.12841154, %172 ], [ %.12841154, %184 ], [ %.12841154, %196 ], [ %.12841154, %208 ], [ %.12841154, %232 ], [ %.12841154, %244 ], [ %.12841154, %256 ], [ %.12841154, %268 ], [ %.12841154, %280 ], [ %.12841154, %292 ], [ %.12841154, %314 ], [ %.12841154, %325 ], [ %.12841154, %339 ], [ %.12841154, %351 ], [ %.12841154, %363 ], [ %.12841154, %375 ], [ %.12841154, %387 ], [ %.12841154, %399 ], [ %.12841154, %411 ], [ %.12841154, %423 ], [ %.12841154, %435 ], [ %.12841154, %447 ], [ 1, %461 ], [ %.12841154, %452 ]
+  %.1271 = phi i32 [ %.02701155, %160 ], [ %.02701155, %172 ], [ %186, %184 ], [ %.02701155, %196 ], [ %.02701155, %208 ], [ %.02701155, %232 ], [ %.02701155, %244 ], [ %.02701155, %256 ], [ %.02701155, %268 ], [ %.02701155, %280 ], [ %.02701155, %292 ], [ %.02701155, %314 ], [ %.02701155, %325 ], [ %.02701155, %339 ], [ %.02701155, %351 ], [ %.02701155, %363 ], [ %.02701155, %375 ], [ %.02701155, %387 ], [ %.02701155, %399 ], [ %.02701155, %411 ], [ %.02701155, %423 ], [ %.02701155, %435 ], [ %.02701155, %447 ], [ %.02701155, %461 ], [ %.02701155, %452 ]
+  %.1269 = phi i32 [ %.02681156, %160 ], [ %.02681156, %172 ], [ %.02681156, %184 ], [ %198, %196 ], [ %.02681156, %208 ], [ %.02681156, %232 ], [ %.02681156, %244 ], [ %.02681156, %256 ], [ %.02681156, %268 ], [ %.02681156, %280 ], [ %.02681156, %292 ], [ %.02681156, %314 ], [ %.02681156, %325 ], [ %.02681156, %339 ], [ %.02681156, %351 ], [ %.02681156, %363 ], [ %.02681156, %375 ], [ %.02681156, %387 ], [ %.02681156, %399 ], [ %.02681156, %411 ], [ %.02681156, %423 ], [ %.02681156, %435 ], [ %.02681156, %447 ], [ %.02681156, %461 ], [ %.02681156, %452 ]
+  %.1 = phi i32 [ %.02671157, %160 ], [ %.02671157, %172 ], [ %.02671157, %184 ], [ %.02671157, %196 ], [ %210, %208 ], [ %.02671157, %232 ], [ %.02671157, %244 ], [ %.02671157, %256 ], [ %.02671157, %268 ], [ %.02671157, %280 ], [ %.02671157, %292 ], [ %.02671157, %314 ], [ %.02671157, %325 ], [ %.02671157, %339 ], [ %.02671157, %351 ], [ %.02671157, %363 ], [ %.02671157, %375 ], [ %.02671157, %387 ], [ %.02671157, %399 ], [ %.02671157, %411 ], [ %.02671157, %423 ], [ %.02671157, %435 ], [ %.02671157, %447 ], [ %.02671157, %461 ], [ %.02671157, %452 ]
   %465 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %115)
-  %.not406 = icmp eq ptr %465, null
-  br i1 %.not406, label %._crit_edge1231, label %150, !llvm.loop !8
+  %.not405 = icmp eq ptr %465, null
+  br i1 %.not405, label %._crit_edge1160, label %150, !llvm.loop !8
 
-._crit_edge1231:                                  ; preds = %464, %127
-  %.0326.lcssa = phi i8 [ 0, %127 ], [ %.1327, %464 ]
-  %.0324.lcssa = phi i8 [ 0, %127 ], [ %.1325, %464 ]
-  %.0322.lcssa = phi i8 [ 0, %127 ], [ %.1323, %464 ]
-  %.0320.lcssa = phi i8 [ 0, %127 ], [ %.1321, %464 ]
+._crit_edge1160:                                  ; preds = %464, %127
+  %.0326.lcssa = phi i1 [ false, %127 ], [ %.1327, %464 ]
+  %.0324.lcssa = phi i1 [ false, %127 ], [ %.1325, %464 ]
+  %.0322.lcssa = phi i1 [ false, %127 ], [ %.1323, %464 ]
+  %.0320.lcssa = phi i1 [ false, %127 ], [ %.1321, %464 ]
   %.0318.lcssa = phi i8 [ 0, %127 ], [ %.1319, %464 ]
   %.0316.lcssa = phi i8 [ 0, %127 ], [ %.1317, %464 ]
   %.0314.lcssa = phi i8 [ 0, %127 ], [ %.1315, %464 ]
@@ -1137,57 +1140,57 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   %.0268.lcssa = phi i32 [ 0, %127 ], [ %.1269, %464 ]
   %.0267.lcssa = phi i32 [ 0, %127 ], [ %.1, %464 ]
   %466 = call i32 @pclose(ptr noundef nonnull %115)
-  %.not407 = icmp eq i32 %466, 0
-  br i1 %.not407, label %469, label %467
+  %.not406 = icmp eq i32 %466, 0
+  br i1 %.not406, label %469, label %467
 
-467:                                              ; preds = %._crit_edge1231
+467:                                              ; preds = %._crit_edge1160
   %468 = call ptr @wait_result_to_str(i32 noundef %466) #9
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %3, ptr noundef %468) #11
   unreachable
 
-469:                                              ; preds = %._crit_edge1231
-  %.not408 = icmp eq ptr %.0280, null
-  br i1 %.not408, label %472, label %470
+469:                                              ; preds = %._crit_edge1160
+  %.not407 = icmp eq ptr %.0280, null
+  br i1 %.not407, label %472, label %470
 
 470:                                              ; preds = %469
   %471 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef nonnull %.0280, i32 noundef 1) #9
   br label %472
 
 472:                                              ; preds = %470, %469
-  %.not409 = icmp eq ptr %.0279, null
-  br i1 %.not409, label %475, label %473
+  %.not408 = icmp eq ptr %.0279, null
+  br i1 %.not408, label %475, label %473
 
 473:                                              ; preds = %472
   %474 = call i32 @setenv(ptr noundef nonnull @.str.1, ptr noundef nonnull %.0279, i32 noundef 1) #9
   br label %475
 
 475:                                              ; preds = %473, %472
-  %.not410 = icmp eq ptr %.0278, null
-  br i1 %.not410, label %478, label %476
+  %.not409 = icmp eq ptr %.0278, null
+  br i1 %.not409, label %478, label %476
 
 476:                                              ; preds = %475
   %477 = call i32 @setenv(ptr noundef nonnull @.str.2, ptr noundef nonnull %.0278, i32 noundef 1) #9
   br label %478
 
 478:                                              ; preds = %476, %475
-  %.not411 = icmp eq ptr %.0277, null
-  br i1 %.not411, label %481, label %479
+  %.not410 = icmp eq ptr %.0277, null
+  br i1 %.not410, label %481, label %479
 
 479:                                              ; preds = %478
   %480 = call i32 @setenv(ptr noundef nonnull @.str.3, ptr noundef nonnull %.0277, i32 noundef 1) #9
   br label %481
 
 481:                                              ; preds = %479, %478
-  %.not412 = icmp eq ptr %.0276, null
-  br i1 %.not412, label %484, label %482
+  %.not411 = icmp eq ptr %.0276, null
+  br i1 %.not411, label %484, label %482
 
 482:                                              ; preds = %481
   %483 = call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull %.0276, i32 noundef 1) #9
   br label %484
 
 484:                                              ; preds = %482, %481
-  %.not413 = icmp eq ptr %.0275, null
-  br i1 %.not413, label %487, label %485
+  %.not412 = icmp eq ptr %.0275, null
+  br i1 %.not412, label %487, label %485
 
 485:                                              ; preds = %484
   %486 = call i32 @setenv(ptr noundef nonnull @.str.5, ptr noundef nonnull %.0275, i32 noundef 1) #9
@@ -1198,24 +1201,24 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %489
 
 489:                                              ; preds = %487, %485
-  %.not414 = icmp eq ptr %.0274, null
-  br i1 %.not414, label %492, label %490
+  %.not413 = icmp eq ptr %.0274, null
+  br i1 %.not413, label %492, label %490
 
 490:                                              ; preds = %489
   %491 = call i32 @setenv(ptr noundef nonnull @.str.6, ptr noundef nonnull %.0274, i32 noundef 1) #9
   br label %492
 
 492:                                              ; preds = %490, %489
-  %.not415 = icmp eq ptr %.0273, null
-  br i1 %.not415, label %495, label %493
+  %.not414 = icmp eq ptr %.0273, null
+  br i1 %.not414, label %495, label %493
 
 493:                                              ; preds = %492
   %494 = call i32 @setenv(ptr noundef nonnull @.str.7, ptr noundef nonnull %.0273, i32 noundef 1) #9
   br label %495
 
 495:                                              ; preds = %493, %492
-  %.not416 = icmp eq ptr %.0272, null
-  br i1 %.not416, label %498, label %496
+  %.not415 = icmp eq ptr %.0272, null
+  br i1 %.not415, label %498, label %496
 
 496:                                              ; preds = %495
   %497 = call i32 @setenv(ptr noundef nonnull @.str.8, ptr noundef nonnull %.0272, i32 noundef 1) #9
@@ -1236,297 +1239,286 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   call void @pg_free(ptr noundef %.0273) #9
   call void @pg_free(ptr noundef %.0272) #9
   %501 = load i32, ptr %122, align 4
-  %502 = icmp ugt i32 %501, 90299
-  %503 = and i8 %.0326.lcssa, 1
-  %.not417 = icmp eq i8 %503, 0
-  %or.cond = select i1 %502, i1 true, i1 %.not417
-  %504 = and i8 %.0324.lcssa, 1
-  %.not418 = icmp eq i8 %504, 0
-  %or.cond485 = select i1 %or.cond, i1 true, i1 %.not418
-  %505 = and i8 %.0322.lcssa, 1
-  %.not419 = icmp eq i8 %505, 0
-  %or.cond486 = select i1 %or.cond485, i1 true, i1 %.not419
-  br i1 %or.cond486, label %509, label %506
+  %502 = icmp ult i32 %501, 90300
+  %not.brmerge = select i1 %502, i1 %.0326.lcssa, i1 false
+  %brmerge449.not = select i1 %not.brmerge, i1 %.0324.lcssa, i1 false
+  %brmerge450.not = select i1 %brmerge449.not, i1 %.0322.lcssa, i1 false
+  br i1 %brmerge450.not, label %503, label %506
 
-506:                                              ; preds = %500
-  %507 = getelementptr inbounds i8, ptr %0, i64 8
-  %508 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %507, i64 noundef 25, ptr noundef nonnull @.str.58, i32 noundef %.0270.lcssa, i32 noundef %.0268.lcssa, i32 noundef %.0267.lcssa) #9
-  br label %509
+503:                                              ; preds = %500
+  %504 = getelementptr inbounds i8, ptr %0, i64 8
+  %505 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %504, i64 noundef 25, ptr noundef nonnull @.str.58, i32 noundef %.0270.lcssa, i32 noundef %.0268.lcssa, i32 noundef %.0267.lcssa) #9
+  br label %506
 
-509:                                              ; preds = %506, %500
-  %.2309 = phi i8 [ 1, %506 ], [ %.0307.lcssa, %500 ]
-  %510 = and i8 %.0320.lcssa, 1
-  %.not420 = icmp eq i8 %510, 0
-  %511 = and i8 %.0318.lcssa, 1
-  %.not421 = icmp eq i8 %511, 0
-  %or.cond487 = select i1 %.not420, i1 true, i1 %.not421
-  %512 = and i8 %.0316.lcssa, 1
-  %.not422 = icmp eq i8 %512, 0
-  %or.cond488 = select i1 %or.cond487, i1 true, i1 %.not422
-  %513 = and i8 %.0312.lcssa, 1
-  %.not423 = icmp eq i8 %513, 0
-  %or.cond489 = select i1 %or.cond488, i1 true, i1 %.not423
-  br i1 %or.cond489, label %542, label %514
+506:                                              ; preds = %500, %503
+  %.2309 = phi i8 [ 1, %503 ], [ %.0307.lcssa, %500 ]
+  br i1 %.0320.lcssa, label %507, label %.critedge
 
-514:                                              ; preds = %509
-  %515 = and i8 %.0314.lcssa, 1
-  %.not424 = icmp eq i8 %515, 0
-  br i1 %.not424, label %516, label %521
+507:                                              ; preds = %506
+  %508 = trunc i8 %.0318.lcssa to i1
+  br i1 %508, label %509, label %551
 
-516:                                              ; preds = %514
-  %517 = getelementptr inbounds i8, ptr %0, i64 4
-  %518 = load i32, ptr %517, align 4
-  %519 = icmp ugt i32 %518, 201301230
-  %520 = and i8 %.0310.lcssa, 1
-  %.not425 = icmp eq i8 %520, 0
-  %or.cond490 = select i1 %519, i1 true, i1 %.not425
-  br i1 %or.cond490, label %542, label %522
+509:                                              ; preds = %507
+  %510 = trunc i8 %.0316.lcssa to i1
+  br i1 %510, label %511, label %551
 
-521:                                              ; preds = %514
-  %.old = and i8 %.0310.lcssa, 1
-  %.not425.old = icmp eq i8 %.old, 0
-  br i1 %.not425.old, label %542, label %522
+511:                                              ; preds = %509
+  %512 = trunc i8 %.0312.lcssa to i1
+  br i1 %512, label %513, label %551
 
-522:                                              ; preds = %516, %521
-  %.not491 = xor i1 %1, true
-  %523 = and i8 %.2309, 1
-  %.not426 = icmp eq i8 %523, 0
-  %or.cond493 = select i1 %.not491, i1 %.not426, i1 false
-  %524 = and i8 %.0305.lcssa, 1
-  %.not427 = icmp eq i8 %524, 0
-  %or.cond495 = select i1 %or.cond493, i1 true, i1 %.not427
-  %525 = and i8 %.0303.lcssa, 1
-  %.not428 = icmp eq i8 %525, 0
-  %or.cond497 = select i1 %or.cond495, i1 true, i1 %.not428
-  %526 = and i8 %.0301.lcssa, 1
-  %.not429 = icmp eq i8 %526, 0
-  %or.cond499 = select i1 %or.cond497, i1 true, i1 %.not429
-  %527 = and i8 %.0299.lcssa, 1
-  %.not430 = icmp eq i8 %527, 0
-  %or.cond501 = select i1 %or.cond499, i1 true, i1 %.not430
-  %528 = and i8 %.0297.lcssa, 1
-  %.not431 = icmp eq i8 %528, 0
-  %or.cond503 = select i1 %or.cond501, i1 true, i1 %.not431
-  %529 = and i8 %.0295.lcssa, 1
-  %.not432 = icmp eq i8 %529, 0
-  %or.cond505 = select i1 %or.cond503, i1 true, i1 %.not432
-  %530 = and i8 %.0293.lcssa, 1
-  %.not433 = icmp eq i8 %530, 0
-  %or.cond507 = select i1 %or.cond505, i1 true, i1 %.not433
-  %531 = and i8 %.0291.lcssa, 1
-  %.not434 = icmp eq i8 %531, 0
-  %or.cond509 = select i1 %or.cond507, i1 true, i1 %.not434
-  %532 = and i8 %.0289.lcssa, 1
-  %.not435 = icmp eq i8 %532, 0
-  %or.cond511 = select i1 %or.cond509, i1 true, i1 %.not435
-  br i1 %or.cond511, label %542, label %533
+513:                                              ; preds = %511
+  %514 = trunc i8 %.0314.lcssa to i1
+  br i1 %514, label %519, label %515
 
-533:                                              ; preds = %522
-  %534 = and i8 %.0287.lcssa, 1
-  %.not436 = icmp eq i8 %534, 0
-  br i1 %.not436, label %535, label %539
+515:                                              ; preds = %513
+  %516 = getelementptr inbounds i8, ptr %0, i64 4
+  %517 = load i32, ptr %516, align 4
+  %518 = icmp ugt i32 %517, 201301230
+  br i1 %518, label %551, label %519
 
-535:                                              ; preds = %533
-  %536 = load i32, ptr %0, align 8
-  %537 = icmp ugt i32 %536, 941
-  %538 = and i8 %.0285.lcssa, 1
-  %.not437 = icmp eq i8 %538, 0
-  %or.cond513 = select i1 %537, i1 true, i1 %.not437
-  br i1 %or.cond513, label %542, label %540
+519:                                              ; preds = %515, %513
+  %520 = trunc i8 %.0310.lcssa to i1
+  br i1 %520, label %521, label %551
 
-539:                                              ; preds = %533
-  %.old512 = and i8 %.0285.lcssa, 1
-  %.not437.old = icmp eq i8 %.old512, 0
-  br i1 %.not437.old, label %542, label %540
+521:                                              ; preds = %519
+  br i1 %1, label %524, label %522
 
-540:                                              ; preds = %535, %539
-  %541 = and i8 %.1284.lcssa, 1
-  %.not438 = icmp eq i8 %541, 0
-  br i1 %.not438, label %542, label %604
+522:                                              ; preds = %521
+  %523 = trunc i8 %.2309 to i1
+  br i1 %523, label %524, label %551
 
-542:                                              ; preds = %522, %540, %539, %535, %521, %516, %509
-  %543 = icmp eq ptr %0, @old_cluster
-  %.str.59..str.60 = select i1 %543, ptr @.str.59, ptr @.str.60
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str.59..str.60) #9
-  br i1 %.not420, label %544, label %545
+524:                                              ; preds = %522, %521
+  %525 = trunc i8 %.0305.lcssa to i1
+  br i1 %525, label %526, label %551
+
+526:                                              ; preds = %524
+  %527 = trunc i8 %.0303.lcssa to i1
+  br i1 %527, label %528, label %551
+
+528:                                              ; preds = %526
+  %529 = trunc i8 %.0301.lcssa to i1
+  br i1 %529, label %530, label %551
+
+530:                                              ; preds = %528
+  %531 = trunc i8 %.0299.lcssa to i1
+  br i1 %531, label %532, label %551
+
+532:                                              ; preds = %530
+  %533 = trunc i8 %.0297.lcssa to i1
+  br i1 %533, label %534, label %551
+
+534:                                              ; preds = %532
+  %535 = trunc i8 %.0295.lcssa to i1
+  br i1 %535, label %536, label %551
+
+536:                                              ; preds = %534
+  %537 = trunc i8 %.0293.lcssa to i1
+  br i1 %537, label %538, label %551
+
+538:                                              ; preds = %536
+  %539 = trunc i8 %.0291.lcssa to i1
+  br i1 %539, label %540, label %551
+
+540:                                              ; preds = %538
+  %541 = trunc i8 %.0289.lcssa to i1
+  br i1 %541, label %542, label %551
+
+542:                                              ; preds = %540
+  %543 = trunc i8 %.0287.lcssa to i1
+  br i1 %543, label %547, label %544
 
 544:                                              ; preds = %542
+  %545 = load i32, ptr %0, align 8
+  %546 = icmp ugt i32 %545, 941
+  br i1 %546, label %551, label %547
+
+547:                                              ; preds = %544, %542
+  %548 = trunc i8 %.0285.lcssa to i1
+  br i1 %548, label %549, label %551
+
+549:                                              ; preds = %547
+  %550 = trunc i8 %.1284.lcssa to i1
+  br i1 %550, label %618, label %551
+
+551:                                              ; preds = %549, %547, %544, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %519, %515, %511, %509, %507
+  %552 = icmp eq ptr %0, @old_cluster
+  %.str.59..str.60 = select i1 %552, ptr @.str.59, ptr @.str.60
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str.59..str.60) #9
+  br i1 %.0320.lcssa, label %555, label %554
+
+.critedge:                                        ; preds = %506
+  %553 = icmp eq ptr %0, @old_cluster
+  %.str.59..str.60.c = select i1 %553, ptr @.str.59, ptr @.str.60
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str.59..str.60.c) #9
+  br label %554
+
+554:                                              ; preds = %.critedge, %551
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.61) #9
-  br label %545
+  br label %555
 
-545:                                              ; preds = %544, %542
-  br i1 %.not421, label %546, label %547
+555:                                              ; preds = %554, %551
+  %556 = trunc i8 %.0318.lcssa to i1
+  br i1 %556, label %558, label %557
 
-546:                                              ; preds = %545
+557:                                              ; preds = %555
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.62) #9
-  br label %547
-
-547:                                              ; preds = %546, %545
-  br i1 %.not422, label %548, label %549
-
-548:                                              ; preds = %547
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.63) #9
-  br label %549
-
-549:                                              ; preds = %548, %547
-  %550 = and i8 %.0314.lcssa, 1
-  %.not441 = icmp eq i8 %550, 0
-  br i1 %.not441, label %551, label %556
-
-551:                                              ; preds = %549
-  %552 = getelementptr inbounds i8, ptr %0, i64 4
-  %553 = load i32, ptr %552, align 4
-  %554 = icmp ugt i32 %553, 201301230
-  br i1 %554, label %555, label %556
-
-555:                                              ; preds = %551
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.64) #9
-  br label %556
-
-556:                                              ; preds = %555, %551, %549
-  br i1 %.not423, label %557, label %558
-
-557:                                              ; preds = %556
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.65) #9
   br label %558
 
-558:                                              ; preds = %557, %556
-  %559 = and i8 %.0310.lcssa, 1
-  %.not443 = icmp eq i8 %559, 0
-  br i1 %.not443, label %560, label %561
+558:                                              ; preds = %557, %555
+  %559 = trunc i8 %.0316.lcssa to i1
+  br i1 %559, label %561, label %560
 
 560:                                              ; preds = %558
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.66) #9
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.63) #9
   br label %561
 
 561:                                              ; preds = %560, %558
-  %562 = and i8 %.2309, 1
-  %.not444 = icmp ne i8 %562, 0
-  %or.cond516.not = select i1 %1, i1 true, i1 %.not444
-  br i1 %or.cond516.not, label %564, label %563
+  %562 = trunc i8 %.0314.lcssa to i1
+  br i1 %562, label %568, label %563
 
 563:                                              ; preds = %561
+  %564 = getelementptr inbounds i8, ptr %0, i64 4
+  %565 = load i32, ptr %564, align 4
+  %566 = icmp ugt i32 %565, 201301230
+  br i1 %566, label %567, label %568
+
+567:                                              ; preds = %563
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.64) #9
+  br label %568
+
+568:                                              ; preds = %567, %563, %561
+  %569 = trunc i8 %.0312.lcssa to i1
+  br i1 %569, label %571, label %570
+
+570:                                              ; preds = %568
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.65) #9
+  br label %571
+
+571:                                              ; preds = %570, %568
+  %572 = trunc i8 %.0310.lcssa to i1
+  br i1 %572, label %574, label %573
+
+573:                                              ; preds = %571
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.66) #9
+  br label %574
+
+574:                                              ; preds = %573, %571
+  br i1 %1, label %578, label %575
+
+575:                                              ; preds = %574
+  %576 = trunc i8 %.2309 to i1
+  br i1 %576, label %578, label %577
+
+577:                                              ; preds = %575
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.67) #9
-  br label %564
+  br label %578
 
-564:                                              ; preds = %563, %561
-  %565 = and i8 %.0305.lcssa, 1
-  %.not445 = icmp eq i8 %565, 0
-  br i1 %.not445, label %566, label %567
+578:                                              ; preds = %577, %575, %574
+  %579 = trunc i8 %.0305.lcssa to i1
+  br i1 %579, label %581, label %580
 
-566:                                              ; preds = %564
+580:                                              ; preds = %578
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.68) #9
-  br label %567
+  br label %581
 
-567:                                              ; preds = %566, %564
-  %568 = and i8 %.0303.lcssa, 1
-  %.not446 = icmp eq i8 %568, 0
-  br i1 %.not446, label %569, label %570
+581:                                              ; preds = %580, %578
+  %582 = trunc i8 %.0303.lcssa to i1
+  br i1 %582, label %584, label %583
 
-569:                                              ; preds = %567
+583:                                              ; preds = %581
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.69) #9
-  br label %570
+  br label %584
 
-570:                                              ; preds = %569, %567
-  %571 = and i8 %.0301.lcssa, 1
-  %.not447 = icmp eq i8 %571, 0
-  br i1 %.not447, label %572, label %573
+584:                                              ; preds = %583, %581
+  %585 = trunc i8 %.0301.lcssa to i1
+  br i1 %585, label %587, label %586
 
-572:                                              ; preds = %570
+586:                                              ; preds = %584
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.70) #9
-  br label %573
+  br label %587
 
-573:                                              ; preds = %572, %570
-  %574 = and i8 %.0299.lcssa, 1
-  %.not448 = icmp eq i8 %574, 0
-  br i1 %.not448, label %575, label %576
+587:                                              ; preds = %586, %584
+  %588 = trunc i8 %.0299.lcssa to i1
+  br i1 %588, label %590, label %589
 
-575:                                              ; preds = %573
+589:                                              ; preds = %587
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.71) #9
-  br label %576
+  br label %590
 
-576:                                              ; preds = %575, %573
-  %577 = and i8 %.0297.lcssa, 1
-  %.not449 = icmp eq i8 %577, 0
-  br i1 %.not449, label %578, label %579
+590:                                              ; preds = %589, %587
+  %591 = trunc i8 %.0297.lcssa to i1
+  br i1 %591, label %593, label %592
 
-578:                                              ; preds = %576
+592:                                              ; preds = %590
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.72) #9
-  br label %579
+  br label %593
 
-579:                                              ; preds = %578, %576
-  %580 = and i8 %.0295.lcssa, 1
-  %.not450 = icmp eq i8 %580, 0
-  br i1 %.not450, label %581, label %582
+593:                                              ; preds = %592, %590
+  %594 = trunc i8 %.0295.lcssa to i1
+  br i1 %594, label %596, label %595
 
-581:                                              ; preds = %579
+595:                                              ; preds = %593
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.73) #9
-  br label %582
+  br label %596
 
-582:                                              ; preds = %581, %579
-  %583 = and i8 %.0293.lcssa, 1
-  %.not451 = icmp eq i8 %583, 0
-  br i1 %.not451, label %584, label %585
+596:                                              ; preds = %595, %593
+  %597 = trunc i8 %.0293.lcssa to i1
+  br i1 %597, label %599, label %598
 
-584:                                              ; preds = %582
+598:                                              ; preds = %596
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.74) #9
-  br label %585
+  br label %599
 
-585:                                              ; preds = %584, %582
-  %586 = and i8 %.0291.lcssa, 1
-  %.not452 = icmp eq i8 %586, 0
-  br i1 %.not452, label %587, label %588
+599:                                              ; preds = %598, %596
+  %600 = trunc i8 %.0291.lcssa to i1
+  br i1 %600, label %602, label %601
 
-587:                                              ; preds = %585
+601:                                              ; preds = %599
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.75) #9
-  br label %588
+  br label %602
 
-588:                                              ; preds = %587, %585
-  %589 = and i8 %.0289.lcssa, 1
-  %.not453 = icmp eq i8 %589, 0
-  br i1 %.not453, label %590, label %591
+602:                                              ; preds = %601, %599
+  %603 = trunc i8 %.0289.lcssa to i1
+  br i1 %603, label %605, label %604
 
-590:                                              ; preds = %588
+604:                                              ; preds = %602
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.76) #9
-  br label %591
+  br label %605
 
-591:                                              ; preds = %590, %588
-  %592 = and i8 %.0287.lcssa, 1
-  %.not454 = icmp eq i8 %592, 0
-  br i1 %.not454, label %593, label %597
+605:                                              ; preds = %604, %602
+  %606 = trunc i8 %.0287.lcssa to i1
+  br i1 %606, label %611, label %607
 
-593:                                              ; preds = %591
-  %594 = load i32, ptr %0, align 8
-  %595 = icmp ugt i32 %594, 941
-  br i1 %595, label %596, label %597
+607:                                              ; preds = %605
+  %608 = load i32, ptr %0, align 8
+  %609 = icmp ugt i32 %608, 941
+  br i1 %609, label %610, label %611
 
-596:                                              ; preds = %593
+610:                                              ; preds = %607
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.77) #9
-  br label %597
+  br label %611
 
-597:                                              ; preds = %596, %593, %591
-  %598 = and i8 %.0285.lcssa, 1
-  %.not455 = icmp eq i8 %598, 0
-  br i1 %.not455, label %599, label %600
+611:                                              ; preds = %610, %607, %605
+  %612 = trunc i8 %.0285.lcssa to i1
+  br i1 %612, label %614, label %613
 
-599:                                              ; preds = %597
+613:                                              ; preds = %611
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.78) #9
-  br label %600
+  br label %614
 
-600:                                              ; preds = %599, %597
-  %601 = and i8 %.1284.lcssa, 1
-  %.not456 = icmp eq i8 %601, 0
-  br i1 %.not456, label %602, label %603
+614:                                              ; preds = %613, %611
+  %615 = trunc i8 %.1284.lcssa to i1
+  br i1 %615, label %617, label %616
 
-602:                                              ; preds = %600
+616:                                              ; preds = %614
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.79) #9
-  br label %603
+  br label %617
 
-603:                                              ; preds = %602, %600
+617:                                              ; preds = %616, %614
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.80) #11
   unreachable
 
-604:                                              ; preds = %540
+618:                                              ; preds = %549
   ret void
 }
 

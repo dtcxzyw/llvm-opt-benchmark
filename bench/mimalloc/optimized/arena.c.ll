@@ -49,10 +49,10 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %id, align 8
   %is_exclusive = getelementptr inbounds i8, ptr %memid, i64 12
   %2 = load i8, ptr %is_exclusive, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
+  %tobool = trunc i8 %2 to i1
+  %arena_is_exclusive.not.i = xor i1 %tobool, true
   %cmp.i = icmp eq i32 %request_arena_id, 0
-  %or.cond.i = and i1 %cmp.i, %tobool.not
+  %or.cond.i = and i1 %cmp.i, %arena_is_exclusive.not.i
   %cmp1.i = icmp eq i32 %1, %request_arena_id
   %spec.select.i = or i1 %cmp1.i, %or.cond.i
   br label %return
@@ -265,19 +265,18 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %is_large = getelementptr inbounds i8, ptr %1, i64 93
   %2 = load i8, ptr %is_large, align 1
-  %3 = and i8 %2, 1
-  %tobool4.not = icmp eq i8 %3, 0
-  br i1 %tobool4.not, label %if.end6, label %return
+  %tobool4 = trunc i8 %2 to i1
+  br i1 %tobool4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %4 = load i32, ptr %1, align 8
+  %3 = load i32, ptr %1, align 8
   %exclusive = getelementptr inbounds i8, ptr %1, i64 92
-  %5 = load i8, ptr %exclusive, align 4
-  %6 = and i8 %5, 1
-  %tobool7.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %exclusive, align 4
+  %tobool7 = trunc i8 %4 to i1
+  %arena_is_exclusive.not.i = xor i1 %tobool7, true
   %cmp.i12 = icmp eq i32 %req_arena_id, 0
-  %or.cond.i = and i1 %cmp.i12, %tobool7.not
-  %cmp1.i = icmp eq i32 %4, %req_arena_id
+  %or.cond.i = and i1 %cmp.i12, %arena_is_exclusive.not.i
+  %cmp1.i = icmp eq i32 %3, %req_arena_id
   %spec.select.i = or i1 %cmp1.i, %or.cond.i
   br i1 %spec.select.i, label %if.end10, label %return
 
@@ -290,9 +289,9 @@ if.then13:                                        ; preds = %if.end10
 
 lor.end:                                          ; preds = %if.then13
   %numa_node15 = getelementptr inbounds i8, ptr %1, i64 88
-  %7 = load i32, ptr %numa_node15, align 8
-  %cmp16 = icmp slt i32 %7, 0
-  %cmp18 = icmp eq i32 %7, %numa_node
+  %5 = load i32, ptr %numa_node15, align 8
+  %cmp16 = icmp slt i32 %5, 0
+  %cmp18 = icmp eq i32 %5, %numa_node
   %spec.select = or i1 %cmp16, %cmp18
   br i1 %match_numa_node, label %if.then21, label %if.else
 
@@ -311,65 +310,64 @@ if.end29:                                         ; preds = %lor.end.thread, %if
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %commit_zero.i)
   %blocks_inuse.i.i = getelementptr inbounds i8, ptr %1, i64 136
   %field_count.i.i = getelementptr inbounds i8, ptr %1, i64 48
-  %8 = load i64, ptr %field_count.i.i, align 8
-  %call.i.i = call zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef nonnull %blocks_inuse.i.i, i64 noundef %8, i64 noundef 0, i64 noundef %div.i1.i, ptr noundef nonnull %bitmap_index.i) #11
+  %6 = load i64, ptr %field_count.i.i, align 8
+  %call.i.i = call zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef nonnull %blocks_inuse.i.i, i64 noundef %6, i64 noundef 0, i64 noundef %div.i1.i, ptr noundef nonnull %bitmap_index.i) #11
   br i1 %call.i.i, label %if.end.i, label %mi_arena_try_alloc_at.exit
 
 if.end.i:                                         ; preds = %if.end29
   %search_idx.i.i = getelementptr inbounds i8, ptr %1, i64 96
-  %9 = load i64, ptr %bitmap_index.i, align 8
-  %div1.i.i.i = lshr i64 %9, 6
+  %7 = load i64, ptr %bitmap_index.i, align 8
+  %div1.i.i.i = lshr i64 %7, 6
   store atomic i64 %div1.i.i.i, ptr %search_idx.i.i monotonic, align 8
   %start.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %atomic-load.i.i = load atomic i64, ptr %start.i.i seq_cst, align 8
-  %10 = inttoptr i64 %atomic-load.i.i to ptr
-  %mul.i.i.i = shl i64 %9, 25
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %mul.i.i.i
-  %11 = load i32, ptr %1, align 8
-  %12 = load i8, ptr %exclusive, align 4
-  %13 = and i8 %12, 1
-  %14 = load i64, ptr %bitmap_index.i, align 8
-  store i64 %14, ptr %memid, align 8
+  %8 = inttoptr i64 %atomic-load.i.i to ptr
+  %mul.i.i.i = shl i64 %7, 25
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %mul.i.i.i
+  %9 = load i32, ptr %1, align 8
+  %10 = load i8, ptr %exclusive, align 4
+  %11 = load i64, ptr %bitmap_index.i, align 8
+  %frombool.i.i = and i8 %10, 1
+  store i64 %11, ptr %memid, align 8
   %tmp.sroa.2.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 8
-  store i32 %11, ptr %tmp.sroa.2.0.memid.sroa_idx.i, align 8
+  store i32 %9, ptr %tmp.sroa.2.0.memid.sroa_idx.i, align 8
   %tmp.sroa.4.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 12
-  store i8 %13, ptr %tmp.sroa.4.0.memid.sroa_idx.i, align 4
+  store i8 %frombool.i.i, ptr %tmp.sroa.4.0.memid.sroa_idx.i, align 4
   %tmp.sroa.5.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %tmp.sroa.5.0.memid.sroa_idx.i, i8 0, i64 7, i1 false)
   %tmp.sroa.532.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 20
   store i32 6, ptr %tmp.sroa.532.0.memid.sroa_idx.i, align 4
   %is_pinned.i = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load i8, ptr %is_pinned.i, align 8
-  %16 = and i8 %15, 1
+  %12 = load i8, ptr %is_pinned.i, align 8
   %is_pinned4.i = getelementptr inbounds i8, ptr %memid, i64 16
-  store i8 %16, ptr %is_pinned4.i, align 8
+  %frombool5.i = and i8 %12, 1
+  store i8 %frombool5.i, ptr %is_pinned4.i, align 8
   %blocks_purge.i = getelementptr inbounds i8, ptr %1, i64 128
-  %17 = load ptr, ptr %blocks_purge.i, align 8
-  %cmp.not.i = icmp eq ptr %17, null
+  %13 = load ptr, ptr %blocks_purge.i, align 8
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %if.end9.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %18 = load i64, ptr %field_count.i.i, align 8
-  %call8.i = call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef nonnull %17, i64 noundef %18, i64 noundef %div.i1.i, i64 noundef %14) #11
+  %14 = load i64, ptr %field_count.i.i, align 8
+  %call8.i = call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef nonnull %13, i64 noundef %14, i64 noundef %div.i1.i, i64 noundef %11) #11
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then6.i, %if.end.i
   %initially_zero.i = getelementptr inbounds i8, ptr %1, i64 26
-  %19 = load i8, ptr %initially_zero.i, align 2
-  %20 = and i8 %19, 1
-  %tobool11.not.i = icmp eq i8 %20, 0
-  br i1 %tobool11.not.i, label %if.end19.i, label %land.lhs.true.i
+  %15 = load i8, ptr %initially_zero.i, align 2
+  %tobool11.i = trunc i8 %15 to i1
+  br i1 %tobool11.i, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %if.end9.i
   %blocks_dirty.i = getelementptr inbounds i8, ptr %1, i64 112
-  %21 = load ptr, ptr %blocks_dirty.i, align 8
-  %cmp12.not.i = icmp eq ptr %21, null
+  %16 = load ptr, ptr %blocks_dirty.i, align 8
+  %cmp12.not.i = icmp eq ptr %16, null
   br i1 %cmp12.not.i, label %if.end19.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %22 = load i64, ptr %field_count.i.i, align 8
-  %23 = load i64, ptr %bitmap_index.i, align 8
-  %call16.i = call zeroext i1 @_mi_bitmap_claim_across(ptr noundef nonnull %21, i64 noundef %22, i64 noundef %div.i1.i, i64 noundef %23, ptr noundef null) #11
+  %17 = load i64, ptr %field_count.i.i, align 8
+  %18 = load i64, ptr %bitmap_index.i, align 8
+  %call16.i = call zeroext i1 @_mi_bitmap_claim_across(ptr noundef nonnull %16, i64 noundef %17, i64 noundef %div.i1.i, i64 noundef %18, ptr noundef null) #11
   %initially_zero17.i = getelementptr inbounds i8, ptr %memid, i64 18
   %frombool18.i = zext i1 %call16.i to i8
   store i8 %frombool18.i, ptr %initially_zero17.i, align 2
@@ -377,8 +375,8 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
 
 if.end19.i:                                       ; preds = %if.then13.i, %land.lhs.true.i, %if.end9.i
   %blocks_committed.i = getelementptr inbounds i8, ptr %1, i64 120
-  %24 = load ptr, ptr %blocks_committed.i, align 8
-  %cmp20.i = icmp eq ptr %24, null
+  %19 = load ptr, ptr %blocks_committed.i, align 8
+  %cmp20.i = icmp eq ptr %19, null
   br i1 %cmp20.i, label %if.then21.i, label %if.else.i
 
 if.then21.i:                                      ; preds = %if.end19.i
@@ -392,21 +390,20 @@ if.else.i:                                        ; preds = %if.end19.i
 if.then23.i:                                      ; preds = %if.else.i
   %initially_committed24.i = getelementptr inbounds i8, ptr %memid, i64 17
   store i8 1, ptr %initially_committed24.i, align 1
-  %25 = load ptr, ptr %blocks_committed.i, align 8
-  %26 = load i64, ptr %field_count.i.i, align 8
-  %27 = load i64, ptr %bitmap_index.i, align 8
-  %call27.i = call zeroext i1 @_mi_bitmap_claim_across(ptr noundef %25, i64 noundef %26, i64 noundef %div.i1.i, i64 noundef %27, ptr noundef nonnull %any_uncommitted.i) #11
-  %28 = load i8, ptr %any_uncommitted.i, align 1
-  %29 = and i8 %28, 1
-  %tobool28.not.i = icmp eq i8 %29, 0
-  br i1 %tobool28.not.i, label %mi_arena_try_alloc_at.exit, label %if.then29.i
+  %20 = load ptr, ptr %blocks_committed.i, align 8
+  %21 = load i64, ptr %field_count.i.i, align 8
+  %22 = load i64, ptr %bitmap_index.i, align 8
+  %call27.i = call zeroext i1 @_mi_bitmap_claim_across(ptr noundef %20, i64 noundef %21, i64 noundef %div.i1.i, i64 noundef %22, ptr noundef nonnull %any_uncommitted.i) #11
+  %23 = load i8, ptr %any_uncommitted.i, align 1
+  %tobool28.i = trunc i8 %23 to i1
+  br i1 %tobool28.i, label %if.then29.i, label %mi_arena_try_alloc_at.exit
 
 if.then29.i:                                      ; preds = %if.then23.i
   store i8 0, ptr %commit_zero.i, align 1
   %mul.i.i = and i64 %sub.i.i, -33554432
   %stats.i = getelementptr inbounds i8, ptr %tld, i64 8
-  %30 = load ptr, ptr %stats.i, align 8
-  %call31.i = call zeroext i1 @_mi_os_commit(ptr noundef %add.ptr.i.i, i64 noundef %mul.i.i, ptr noundef nonnull %commit_zero.i, ptr noundef %30) #11
+  %24 = load ptr, ptr %stats.i, align 8
+  %call31.i = call zeroext i1 @_mi_os_commit(ptr noundef %add.ptr.i.i, i64 noundef %mul.i.i, ptr noundef nonnull %commit_zero.i, ptr noundef %24) #11
   br i1 %call31.i, label %if.else34.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.then29.i
@@ -414,10 +411,9 @@ if.then32.i:                                      ; preds = %if.then29.i
   br label %mi_arena_try_alloc_at.exit
 
 if.else34.i:                                      ; preds = %if.then29.i
-  %31 = load i8, ptr %commit_zero.i, align 1
-  %32 = and i8 %31, 1
-  %tobool35.not.i = icmp eq i8 %32, 0
-  br i1 %tobool35.not.i, label %mi_arena_try_alloc_at.exit, label %if.then36.i
+  %25 = load i8, ptr %commit_zero.i, align 1
+  %tobool35.i = trunc i8 %25 to i1
+  br i1 %tobool35.i, label %if.then36.i, label %mi_arena_try_alloc_at.exit
 
 if.then36.i:                                      ; preds = %if.else34.i
   %initially_zero37.i = getelementptr inbounds i8, ptr %memid, i64 18
@@ -425,9 +421,9 @@ if.then36.i:                                      ; preds = %if.else34.i
   br label %mi_arena_try_alloc_at.exit
 
 if.else41.i:                                      ; preds = %if.else.i
-  %33 = load i64, ptr %field_count.i.i, align 8
-  %34 = load i64, ptr %bitmap_index.i, align 8
-  %call44.i = call zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef nonnull %24, i64 noundef %33, i64 noundef %div.i1.i, i64 noundef %34) #11
+  %26 = load i64, ptr %field_count.i.i, align 8
+  %27 = load i64, ptr %bitmap_index.i, align 8
+  %call44.i = call zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef nonnull %19, i64 noundef %26, i64 noundef %div.i1.i, i64 noundef %27) #11
   %initially_committed45.i = getelementptr inbounds i8, ptr %memid, i64 17
   %frombool46.i = zext i1 %call44.i to i8
   store i8 %frombool46.i, ptr %initially_committed45.i, align 1
@@ -575,21 +571,20 @@ if.then19:                                        ; preds = %if.end16
 if.end20:                                         ; preds = %if.end16
   %is_pinned = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i8, ptr %is_pinned, align 8
-  %7 = and i8 %6, 1
-  %tobool22.not = icmp eq i8 %7, 0
-  br i1 %tobool22.not, label %lor.lhs.false, label %if.end36
+  %tobool22 = trunc i8 %6 to i1
+  br i1 %tobool22, label %if.end36, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end20
   %blocks_committed = getelementptr inbounds i8, ptr %4, i64 120
-  %8 = load ptr, ptr %blocks_committed, align 8
-  %cmp23 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %blocks_committed, align 8
+  %cmp23 = icmp eq ptr %7, null
   br i1 %cmp23, label %if.end36, label %if.else25
 
 if.else25:                                        ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then27, label %if.end35
 
 if.then27:                                        ; preds = %if.else25
-  %call30 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef nonnull %8, i64 noundef %5, i64 noundef %div.i1.i, i64 noundef %memid32.sroa.0.0.copyload) #11
+  %call30 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef nonnull %7, i64 noundef %5, i64 noundef %div.i1.i, i64 noundef %memid32.sroa.0.0.copyload) #11
   %cmp31.not = icmp eq i64 %committed_size, 0
   br i1 %cmp31.not, label %if.end35, label %if.then32
 
@@ -604,9 +599,9 @@ if.end35:                                         ; preds = %if.then27, %if.then
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end20, %lor.lhs.false, %if.end35
-  %9 = phi i64 [ %5, %if.end20 ], [ %5, %lor.lhs.false ], [ %.pre, %if.end35 ]
+  %8 = phi i64 [ %5, %if.end20 ], [ %5, %lor.lhs.false ], [ %.pre, %if.end35 ]
   %blocks_inuse = getelementptr inbounds i8, ptr %4, i64 136
-  %call38 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef nonnull %blocks_inuse, i64 noundef %9, i64 noundef %div.i1.i, i64 noundef %memid32.sroa.0.0.copyload) #11
+  %call38 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef nonnull %blocks_inuse, i64 noundef %8, i64 noundef %div.i1.i, i64 noundef %memid32.sroa.0.0.copyload) #11
   br i1 %call38, label %if.end45, label %if.then41
 
 if.then41:                                        ; preds = %if.end36
@@ -718,30 +713,29 @@ if.then15:                                        ; preds = %for.body12
   %4 = inttoptr i64 %3 to ptr
   %is_pinned.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load i8, ptr %is_pinned.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %lor.lhs.false.i, label %for.inc
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %for.inc, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then15
   %blocks_purge.i = getelementptr inbounds i8, ptr %4, i64 128
-  %7 = load ptr, ptr %blocks_purge.i, align 8
-  %cmp.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %blocks_purge.i, align 8
+  %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %for.inc, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %purge_expire.i = getelementptr inbounds i8, ptr %4, i64 104
-  %8 = load atomic i64, ptr %purge_expire.i monotonic, align 8
-  %cmp1.i = icmp ne i64 %8, 0
-  %cmp5.i = icmp sle i64 %8, %call8
+  %7 = load atomic i64, ptr %purge_expire.i monotonic, align 8
+  %cmp1.i = icmp ne i64 %7, 0
+  %cmp5.i = icmp sle i64 %7, %call8
   %or.cond.not.i = or i1 %cmp5.i, %force
   %or.cond.i = and i1 %cmp1.i, %or.cond.not.i
   br i1 %or.cond.i, label %if.end7.i, label %for.inc
 
 if.end7.i:                                        ; preds = %if.end.i
-  %9 = cmpxchg ptr %purge_expire.i, i64 %8, i64 0 acq_rel acquire, align 8
+  %8 = cmpxchg ptr %purge_expire.i, i64 %7, i64 0 acq_rel acquire, align 8
   %field_count.i = getelementptr inbounds i8, ptr %4, i64 48
-  %10 = load i64, ptr %field_count.i, align 8
-  %cmp1155.not.i = icmp eq i64 %10, 0
+  %9 = load i64, ptr %field_count.i, align 8
+  %cmp1155.not.i = icmp eq i64 %9, 0
   br i1 %cmp1155.not.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
@@ -751,14 +745,14 @@ for.body.lr.ph.i:                                 ; preds = %if.end7.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %11 = phi i64 [ %10, %for.body.lr.ph.i ], [ %30, %for.inc.i ]
-  %any_purged.058.i = phi i8 [ 0, %for.body.lr.ph.i ], [ %any_purged.3.i, %for.inc.i ]
-  %full_purge.057.i = phi i8 [ 1, %for.body.lr.ph.i ], [ %full_purge.4.i, %for.inc.i ]
+  %10 = phi i64 [ %9, %for.body.lr.ph.i ], [ %28, %for.inc.i ]
+  %any_purged.058.i = phi i1 [ false, %for.body.lr.ph.i ], [ %any_purged.3.i, %for.inc.i ]
+  %full_purge.057.i = phi i1 [ true, %for.body.lr.ph.i ], [ %full_purge.4.i, %for.inc.i ]
   %i.056.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc47.i, %for.inc.i ]
-  %12 = load ptr, ptr %blocks_purge.i, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %12, i64 %i.056.i
-  %13 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %cmp14.not.i = icmp eq i64 %13, 0
+  %11 = load ptr, ptr %blocks_purge.i, align 8
+  %arrayidx.i = getelementptr inbounds i64, ptr %11, i64 %i.056.i
+  %12 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %cmp14.not.i = icmp eq i64 %12, 0
   br i1 %cmp14.not.i, label %for.inc.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %for.body.i
@@ -766,11 +760,11 @@ while.cond.preheader.i:                           ; preds = %for.body.i
   br label %while.cond17.preheader.i
 
 while.cond17.preheader.i:                         ; preds = %if.end42.i, %while.cond.preheader.i
-  %any_purged.154.i = phi i8 [ %any_purged.058.i, %while.cond.preheader.i ], [ %any_purged.2.i, %if.end42.i ]
-  %full_purge.153.i = phi i8 [ %full_purge.057.i, %while.cond.preheader.i ], [ %full_purge.3.i, %if.end42.i ]
+  %any_purged.154.i = phi i1 [ %any_purged.058.i, %while.cond.preheader.i ], [ %any_purged.2.i, %if.end42.i ]
+  %full_purge.153.i = phi i1 [ %full_purge.057.i, %while.cond.preheader.i ], [ %full_purge.3.i, %if.end42.i ]
   %bitidx.051.i = phi i64 [ 0, %while.cond.preheader.i ], [ %add44.i, %if.end42.i ]
-  %purge.050.i = phi i64 [ %13, %while.cond.preheader.i ], [ %purge.1.i, %if.end42.i ]
-  %14 = sub nuw nsw i64 64, %bitidx.051.i
+  %purge.050.i = phi i64 [ %12, %while.cond.preheader.i ], [ %purge.1.i, %if.end42.i ]
+  %13 = sub nuw nsw i64 64, %bitidx.051.i
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body21.i, %while.cond17.preheader.i
@@ -783,7 +777,7 @@ land.rhs.i:                                       ; preds = %while.body21.i, %wh
 
 while.body21.i:                                   ; preds = %land.rhs.i
   %inc.i = add nuw nsw i64 %bitlen.046.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %14
+  %exitcond.not.i = icmp eq i64 %inc.i, %13
   br i1 %exitcond.not.i, label %while.body24.preheader.i, label %land.rhs.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %land.rhs.i
@@ -791,14 +785,14 @@ while.end.i:                                      ; preds = %land.rhs.i
   br i1 %cmp23.not48.i, label %if.end42.i, label %while.body24.preheader.i
 
 while.body24.preheader.i:                         ; preds = %while.body21.i, %while.end.i
-  %bitlen.0.lcssa65.i = phi i64 [ %bitlen.046.i, %while.end.i ], [ %14, %while.body21.i ]
+  %bitlen.0.lcssa65.i = phi i64 [ %bitlen.046.i, %while.end.i ], [ %13, %while.body21.i ]
   %add.i66.i = or disjoint i64 %bitidx.051.i, %mul.i.i
   br label %while.body24.i
 
 while.body24.i:                                   ; preds = %if.end28.i, %while.body24.preheader.i
   %bitlen.149.i = phi i64 [ %dec.i, %if.end28.i ], [ %bitlen.0.lcssa65.i, %while.body24.preheader.i ]
-  %15 = load i64, ptr %field_count.i, align 8
-  %call26.i = tail call zeroext i1 @_mi_bitmap_try_claim(ptr noundef nonnull %blocks_inuse.i, i64 noundef %15, i64 noundef %bitlen.149.i, i64 noundef %add.i66.i) #11
+  %14 = load i64, ptr %field_count.i, align 8
+  %call26.i = tail call zeroext i1 @_mi_bitmap_try_claim(ptr noundef nonnull %blocks_inuse.i, i64 noundef %14, i64 noundef %bitlen.149.i, i64 noundef %add.i66.i) #11
   br i1 %call26.i, label %if.then31.i, label %if.end28.i
 
 if.end28.i:                                       ; preds = %while.body24.i
@@ -807,23 +801,23 @@ if.end28.i:                                       ; preds = %while.body24.i
   br i1 %cmp23.not.i, label %if.end42.i, label %while.body24.i, !llvm.loop !9
 
 if.then31.i:                                      ; preds = %while.body24.i
-  %16 = load ptr, ptr %blocks_purge.i, align 8
-  %arrayidx33.i = getelementptr inbounds i64, ptr %16, i64 %i.056.i
-  %17 = load atomic i64, ptr %arrayidx33.i acquire, align 8
+  %15 = load ptr, ptr %blocks_purge.i, align 8
+  %arrayidx33.i = getelementptr inbounds i64, ptr %15, i64 %i.056.i
+  %16 = load atomic i64, ptr %arrayidx33.i acquire, align 8
   %add.i38.i = add i64 %bitlen.149.i, %bitidx.051.i
   %cmp16.i.i = icmp ugt i64 %add.i38.i, %bitidx.051.i
   br i1 %cmp16.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.thread.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.then31.i, %if.end10.i.i
   %bitidx.018.i.i = phi i64 [ %add12.i.i, %if.end10.i.i ], [ %bitidx.051.i, %if.then31.i ]
-  %all_purged.017.i.i = phi i8 [ %all_purged.1.i.fr.i, %if.end10.i.i ], [ 0, %if.then31.i ]
+  %all_purged.017.i.i = phi i1 [ %cond.fr.i, %if.end10.i.i ], [ false, %if.then31.i ]
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body6.i.i, %while.cond1.preheader.i.i
   %count.014.i.i = phi i64 [ 0, %while.cond1.preheader.i.i ], [ %inc.i.i, %while.body6.i.i ]
   %add215.i.i = add i64 %count.014.i.i, %bitidx.018.i.i
   %shl.i.i = shl nuw i64 1, %add215.i.i
-  %and.i.i = and i64 %shl.i.i, %17
+  %and.i.i = and i64 %shl.i.i, %16
   %cmp5.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp5.not.i.i, label %while.end.i.i, label %while.body6.i.i
 
@@ -842,65 +836,63 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %add.i.i.i = add i64 %bitidx.018.i.i, %mul.i.i
   %mul.i.i40.i = shl i64 %count.0.lcssa.i.i, 25
   %atomic-load.i.i.i = load atomic i64, ptr %start.i.i.i seq_cst, align 8
-  %18 = inttoptr i64 %atomic-load.i.i.i to ptr
+  %17 = inttoptr i64 %atomic-load.i.i.i to ptr
   %mul.i.i.i.i = shl i64 %add.i.i.i, 25
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %mul.i.i.i.i
-  %19 = load ptr, ptr %blocks_committed.i.i, align 8
-  %20 = load i64, ptr %field_count.i, align 8
-  %call2.i.i = tail call zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef %19, i64 noundef %20, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 %mul.i.i.i.i
+  %18 = load ptr, ptr %blocks_committed.i.i, align 8
+  %19 = load i64, ptr %field_count.i, align 8
+  %call2.i.i = tail call zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef %18, i64 noundef %19, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
   br i1 %call2.i.i, label %if.then.i41.i, label %if.end.i.i
 
 if.then.i41.i:                                    ; preds = %if.then.i.i
   %call3.i.i = tail call zeroext i1 @_mi_os_purge(ptr noundef %add.ptr.i.i.i, i64 noundef %mul.i.i40.i, ptr noundef %stats) #11
-  %21 = load ptr, ptr %blocks_purge.i, align 8
-  %22 = load i64, ptr %field_count.i, align 8
-  %call719.i.i = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %21, i64 noundef %22, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
+  %20 = load ptr, ptr %blocks_purge.i, align 8
+  %21 = load i64, ptr %field_count.i, align 8
+  %call719.i.i = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %20, i64 noundef %21, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
   br i1 %call3.i.i, label %if.then8.i.i, label %mi_arena_purge.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
   %call4.i.i = tail call zeroext i1 @_mi_os_purge_ex(ptr noundef %add.ptr.i.i.i, i64 noundef %mul.i.i40.i, i1 noundef zeroext false, ptr noundef %stats) #11
   tail call void @_mi_stat_increase(ptr noundef nonnull %committed.i.i, i64 noundef %mul.i.i40.i) #11
-  %23 = load ptr, ptr %blocks_purge.i, align 8
-  %24 = load i64, ptr %field_count.i, align 8
-  %call7.i.i = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %23, i64 noundef %24, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
+  %22 = load ptr, ptr %blocks_purge.i, align 8
+  %23 = load i64, ptr %field_count.i, align 8
+  %call7.i.i = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %22, i64 noundef %23, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
   br i1 %call4.i.i, label %if.then8.i.i, label %mi_arena_purge.exit.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i, %if.then.i41.i
-  %25 = load ptr, ptr %blocks_committed.i.i, align 8
-  %26 = load i64, ptr %field_count.i, align 8
-  %call11.i.i = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %25, i64 noundef %26, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
+  %24 = load ptr, ptr %blocks_committed.i.i, align 8
+  %25 = load i64, ptr %field_count.i, align 8
+  %call11.i.i = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %24, i64 noundef %25, i64 noundef %count.0.lcssa.i.i, i64 noundef %add.i.i.i) #11
   br label %mi_arena_purge.exit.i
 
 mi_arena_purge.exit.i:                            ; preds = %if.then8.i.i, %if.end.i.i, %if.then.i41.i
   %cmp8.i.i = icmp eq i64 %count.0.lcssa.i.i, %bitlen.149.i
-  %spec.select.i.i = select i1 %cmp8.i.i, i8 1, i8 %all_purged.017.i.i
+  %spec.select.i.i = or i1 %all_purged.017.i.i, %cmp8.i.i
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %mi_arena_purge.exit.i, %while.end.i.i
-  %all_purged.1.i.i = phi i8 [ %all_purged.017.i.i, %while.end.i.i ], [ %spec.select.i.i, %mi_arena_purge.exit.i ]
-  %all_purged.1.i.fr.i = freeze i8 %all_purged.1.i.i
+  %all_purged.1.i.i = phi i1 [ %all_purged.017.i.i, %while.end.i.i ], [ %spec.select.i.i, %mi_arena_purge.exit.i ]
+  %cond.fr.i = freeze i1 %all_purged.1.i.i
   %add11.i.i = add i64 %bitidx.018.i.i, 1
   %add12.i.i = add i64 %add11.i.i, %count.0.lcssa.i.i
   %cmp.i.i = icmp ult i64 %add12.i.i, %add.i38.i
   br i1 %cmp.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !11
 
 mi_arena_purge_range.exit.i:                      ; preds = %if.end10.i.i
-  %27 = and i8 %all_purged.1.i.fr.i, 1
-  %.not.i = icmp eq i8 %27, 0
-  %spec.select.i = select i1 %.not.i, i8 0, i8 %full_purge.153.i
+  %spec.select.i = select i1 %cond.fr.i, i1 %full_purge.153.i, i1 false
   br label %mi_arena_purge_range.exit.thread.i
 
 mi_arena_purge_range.exit.thread.i:               ; preds = %mi_arena_purge_range.exit.i, %if.then31.i
-  %28 = phi i8 [ 0, %if.then31.i ], [ %spec.select.i, %mi_arena_purge_range.exit.i ]
-  %29 = load i64, ptr %field_count.i, align 8
-  %call41.i = tail call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %blocks_inuse.i, i64 noundef %29, i64 noundef %bitlen.149.i, i64 noundef %add.i66.i) #11
+  %26 = phi i1 [ false, %if.then31.i ], [ %spec.select.i, %mi_arena_purge_range.exit.i ]
+  %27 = load i64, ptr %field_count.i, align 8
+  %call41.i = tail call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %blocks_inuse.i, i64 noundef %27, i64 noundef %bitlen.149.i, i64 noundef %add.i66.i) #11
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end28.i, %mi_arena_purge_range.exit.thread.i, %while.end.i
   %bitlen.145.i = phi i64 [ %bitlen.149.i, %mi_arena_purge_range.exit.thread.i ], [ 0, %while.end.i ], [ 0, %if.end28.i ]
-  %purge.1.i = phi i64 [ %17, %mi_arena_purge_range.exit.thread.i ], [ %purge.050.i, %while.end.i ], [ %purge.050.i, %if.end28.i ]
-  %full_purge.3.i = phi i8 [ %28, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
-  %any_purged.2.i = phi i8 [ 1, %mi_arena_purge_range.exit.thread.i ], [ %any_purged.154.i, %while.end.i ], [ %any_purged.154.i, %if.end28.i ]
+  %purge.1.i = phi i64 [ %16, %mi_arena_purge_range.exit.thread.i ], [ %purge.050.i, %while.end.i ], [ %purge.050.i, %if.end28.i ]
+  %full_purge.3.i = phi i1 [ %26, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
+  %any_purged.2.i = phi i1 [ true, %mi_arena_purge_range.exit.thread.i ], [ %any_purged.154.i, %while.end.i ], [ %any_purged.154.i, %if.end28.i ]
   %add43.i = add nuw nsw i64 %bitidx.051.i, 1
   %add44.i = add i64 %add43.i, %bitlen.145.i
   %cmp16.i = icmp ult i64 %add44.i, 64
@@ -911,19 +903,15 @@ for.inc.loopexit.i:                               ; preds = %if.end42.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %for.body.i
-  %30 = phi i64 [ %11, %for.body.i ], [ %.pre.i, %for.inc.loopexit.i ]
-  %full_purge.4.i = phi i8 [ %full_purge.057.i, %for.body.i ], [ %full_purge.3.i, %for.inc.loopexit.i ]
-  %any_purged.3.i = phi i8 [ %any_purged.058.i, %for.body.i ], [ %any_purged.2.i, %for.inc.loopexit.i ]
+  %28 = phi i64 [ %10, %for.body.i ], [ %.pre.i, %for.inc.loopexit.i ]
+  %full_purge.4.i = phi i1 [ %full_purge.057.i, %for.body.i ], [ %full_purge.3.i, %for.inc.loopexit.i ]
+  %any_purged.3.i = phi i1 [ %any_purged.058.i, %for.body.i ], [ %any_purged.2.i, %for.inc.loopexit.i ]
   %inc47.i = add nuw i64 %i.056.i, 1
-  %cmp11.i = icmp ult i64 %inc47.i, %30
+  %cmp11.i = icmp ult i64 %inc47.i, %28
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.inc.i
-  %31 = and i8 %full_purge.4.i, 1
-  %32 = icmp eq i8 %31, 0
-  %33 = and i8 %any_purged.3.i, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %32, label %if.then49.i, label %mi_arena_try_purge.exit
+  br i1 %full_purge.4.i, label %mi_arena_try_purge.exit, label %if.then49.i
 
 if.then49.i:                                      ; preds = %for.end.i
   %call.i.i = tail call i64 @mi_option_get(i32 noundef 15) #11
@@ -931,11 +919,11 @@ if.then49.i:                                      ; preds = %for.end.i
   %mul.i39.i = mul nsw i64 %call1.i.i, %call.i.i
   %call53.i = tail call i64 @_mi_clock_now() #11
   %add54.i = add nsw i64 %call53.i, %mul.i39.i
-  %34 = cmpxchg ptr %purge_expire.i, i64 0, i64 %add54.i acq_rel acquire, align 8
-  br i1 %.not, label %for.inc, label %if.then18
+  %29 = cmpxchg ptr %purge_expire.i, i64 0, i64 %add54.i acq_rel acquire, align 8
+  br i1 %any_purged.3.i, label %if.then18, label %for.inc
 
 mi_arena_try_purge.exit:                          ; preds = %for.end.i
-  br i1 %.not, label %for.inc, label %if.then18
+  br i1 %any_purged.3.i, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %if.then49.i, %mi_arena_try_purge.exit
   %cmp19 = icmp ult i64 %max_purge_count.012, 2
@@ -1131,10 +1119,9 @@ if.end4:                                          ; preds = %if.end
   %div.i45 = lshr i64 %sub.i, 6
   %is_pinned = getelementptr inbounds i8, ptr %memid, i64 16
   %0 = load i8, ptr %is_pinned, align 8
-  %1 = and i8 %0, 1
-  %tobool8.not = icmp eq i8 %1, 0
-  %2 = select i1 %tobool8.not, i64 2, i64 1
-  %mul = shl nuw nsw i64 %div.i45, %2
+  %tobool8 = trunc i8 %0 to i1
+  %1 = select i1 %tobool8, i64 1, i64 2
+  %mul = shl nuw nsw i64 %div.i45, %1
   %mul9 = shl nuw nsw i64 %mul, 3
   %add = add nuw nsw i64 %mul9, 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meta_memid, i8 0, i64 24, i1 false)
@@ -1157,8 +1144,8 @@ if.end14:                                         ; preds = %if.end4
   %field_count = getelementptr inbounds i8, ptr %call1.i, i64 48
   store i64 %div.i45, ptr %field_count, align 8
   %start21 = getelementptr inbounds i8, ptr %call1.i, i64 32
-  %3 = ptrtoint ptr %start to i64
-  store atomic i64 %3, ptr %start21 seq_cst, align 8
+  %2 = ptrtoint ptr %start to i64
+  store atomic i64 %2, ptr %start21 seq_cst, align 8
   %numa_node22 = getelementptr inbounds i8, ptr %call1.i, i64 88
   store i32 %numa_node, ptr %numa_node22, align 8
   %is_large24 = getelementptr inbounds i8, ptr %call1.i, i64 93
@@ -1172,27 +1159,25 @@ if.end14:                                         ; preds = %if.end4
   %blocks_dirty = getelementptr inbounds i8, ptr %call1.i, i64 112
   store ptr %arrayidx, ptr %blocks_dirty, align 8
   %is_pinned27 = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %4 = load i8, ptr %is_pinned27, align 8
-  %5 = and i8 %4, 1
-  %tobool28.not.not = icmp eq i8 %5, 0
+  %3 = load i8, ptr %is_pinned27, align 8
+  %tobool28 = trunc i8 %3 to i1
   %mul31 = shl nuw nsw i64 %div.i45, 1
   %arrayidx32 = getelementptr inbounds [1 x i64], ptr %blocks_inuse, i64 0, i64 %mul31
-  %cond33 = select i1 %tobool28.not.not, ptr %arrayidx32, ptr null
+  %cond33 = select i1 %tobool28, ptr null, ptr %arrayidx32
   %blocks_committed = getelementptr inbounds i8, ptr %call1.i, i64 120
   store ptr %cond33, ptr %blocks_committed, align 8
   %mul41 = mul nuw nsw i64 %div.i45, 3
   %arrayidx42 = getelementptr inbounds [1 x i64], ptr %blocks_inuse, i64 0, i64 %mul41
-  %cond44 = select i1 %tobool28.not.not, ptr %arrayidx42, ptr null
+  %cond44 = select i1 %tobool28, ptr null, ptr %arrayidx42
   %blocks_purge = getelementptr inbounds i8, ptr %call1.i, i64 128
   store ptr %cond44, ptr %blocks_purge, align 8
-  br i1 %tobool28.not.not, label %land.lhs.true, label %if.end54
+  br i1 %tobool28, label %if.end54, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
   %initially_committed = getelementptr inbounds i8, ptr %call1.i, i64 25
-  %6 = load i8, ptr %initially_committed, align 1
-  %7 = and i8 %6, 1
-  %tobool49.not = icmp eq i8 %7, 0
-  br i1 %tobool49.not, label %if.end54, label %if.then51
+  %4 = load i8, ptr %initially_committed, align 1
+  %tobool49 = trunc i8 %4 to i1
+  br i1 %tobool49, label %if.then51, label %if.end54
 
 if.then51:                                        ; preds = %land.lhs.true
   %mul53 = shl nuw nsw i64 %div.i45, 3
@@ -1213,36 +1198,36 @@ if.end64:                                         ; preds = %if.then58, %if.end5
   br i1 %cmp.not, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %if.end64
-  %8 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
-  %cmp1.i = icmp ult i64 %8, 112
+  %5 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %cmp1.i = icmp ult i64 %5, 112
   br i1 %cmp1.i, label %if.end5.i, label %if.then2.i
 
 if.end.thread.i:                                  ; preds = %if.end64
   store i32 -1, ptr %arena_id, align 4
-  %9 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
-  %cmp18.i = icmp ult i64 %9, 112
+  %6 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %cmp18.i = icmp ult i64 %6, 112
   br i1 %cmp18.i, label %if.then8.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.thread.i, %if.end.i
-  %10 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %7 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
   br label %return
 
 if.end5.i:                                        ; preds = %if.end.i
-  %conv.i.i = trunc i64 %8 to i32
+  %conv.i.i = trunc i64 %5 to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 1
   store i32 %add.i.i, ptr %call1.i, align 8
-  %arrayidx.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %8
-  %11 = ptrtoint ptr %call1.i to i64
-  store atomic i64 %11, ptr %arrayidx.i release, align 8
+  %arrayidx.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %5
+  %8 = ptrtoint ptr %call1.i to i64
+  store atomic i64 %8, ptr %arrayidx.i release, align 8
   br label %return
 
 if.then8.i:                                       ; preds = %if.end.thread.i
-  %conv.i13.i = trunc i64 %9 to i32
+  %conv.i13.i = trunc i64 %6 to i32
   %add.i14.i = add nuw nsw i32 %conv.i13.i, 1
   store i32 %add.i14.i, ptr %call1.i, align 8
-  %arrayidx15.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %9
-  %12 = ptrtoint ptr %call1.i to i64
-  store atomic i64 %12, ptr %arrayidx15.i release, align 8
+  %arrayidx15.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %6
+  %9 = ptrtoint ptr %call1.i to i64
+  store atomic i64 %9, ptr %arrayidx15.i release, align 8
   store i32 %add.i14.i, ptr %arena_id, align 4
   br label %return
 
@@ -1272,8 +1257,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.end8:                                          ; preds = %if.end
   %is_pinned = getelementptr inbounds i8, ptr %memid, i64 16
   %0 = load i8, ptr %is_pinned, align 8
-  %1 = and i8 %0, 1
-  %tobool9 = icmp ne i8 %1, 0
+  %tobool9 = trunc i8 %0 to i1
   %call13 = call fastcc zeroext i1 @mi_manage_os_memory_ex2(ptr noundef nonnull %call5, i64 noundef %and1.i, i1 noundef zeroext %tobool9, i32 noundef -1, i1 noundef zeroext %exclusive, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr noundef %arena_id) #12
   br i1 %call13, label %if.end17, label %if.then14
 

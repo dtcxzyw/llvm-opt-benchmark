@@ -25,9 +25,8 @@ if.else.i:                                        ; preds = %entry
 trace_event_get_state_static.exit:                ; preds = %entry
   %sstate.i = getelementptr inbounds i8, ptr %ev, i64 16
   %0 = load i8, ptr %sstate.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.else, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %trace_event_get_state_static.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 20, ptr noundef nonnull @__PRETTY_FUNCTION__.trace_event_set_state_dynamic_init) #2
@@ -35,19 +34,19 @@ if.else:                                          ; preds = %trace_event_get_sta
 
 if.end:                                           ; preds = %trace_event_get_state_static.exit
   %dstate = getelementptr inbounds i8, ptr %ev, i64 24
-  %2 = load ptr, ptr %dstate, align 8
-  %3 = load i16, ptr %2, align 2
-  %4 = icmp eq i16 %3, 0
-  %cmp.not = xor i1 %4, %state
+  %1 = load ptr, ptr %dstate, align 8
+  %2 = load i16, ptr %1, align 2
+  %3 = icmp eq i16 %2, 0
+  %cmp.not = xor i1 %3, %state
   br i1 %cmp.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %5 = load i32, ptr @trace_events_enabled_count, align 4
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
   %. = select i1 %state, i32 1, i32 -1
   %.6 = zext i1 %state to i16
-  %inc = add i32 %5, %.
+  %inc = add i32 %4, %.
   store i32 %inc, ptr @trace_events_enabled_count, align 4
-  store i16 %.6, ptr %2, align 2
+  store i16 %.6, ptr %1, align 2
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then6, %if.end
@@ -70,9 +69,8 @@ if.else.i:                                        ; preds = %entry
 trace_event_get_state_static.exit:                ; preds = %entry
   %sstate.i = getelementptr inbounds i8, ptr %ev, i64 16
   %0 = load i8, ptr %sstate.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.else, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %trace_event_get_state_static.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 39, ptr noundef nonnull @__PRETTY_FUNCTION__.trace_event_set_state_dynamic) #2
@@ -80,19 +78,19 @@ if.else:                                          ; preds = %trace_event_get_sta
 
 if.end:                                           ; preds = %trace_event_get_state_static.exit
   %dstate = getelementptr inbounds i8, ptr %ev, i64 24
-  %2 = load ptr, ptr %dstate, align 8
-  %3 = load i16, ptr %2, align 2
-  %4 = icmp eq i16 %3, 0
-  %cmp.not = xor i1 %4, %state
+  %1 = load ptr, ptr %dstate, align 8
+  %2 = load i16, ptr %1, align 2
+  %3 = icmp eq i16 %2, 0
+  %cmp.not = xor i1 %3, %state
   br i1 %cmp.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %5 = load i32, ptr @trace_events_enabled_count, align 4
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
   %. = select i1 %state, i32 1, i32 -1
   %.6 = zext i1 %state to i16
-  %inc = add i32 %5, %.
+  %inc = add i32 %4, %.
   store i32 %inc, ptr @trace_events_enabled_count, align 4
-  store i16 %.6, ptr %2, align 2
+  store i16 %.6, ptr %1, align 2
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then6, %if.end

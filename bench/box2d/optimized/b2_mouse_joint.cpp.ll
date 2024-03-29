@@ -271,28 +271,27 @@ entry:
   %mul72 = fmul float %9, %cond.i
   %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
   %46 = load i8, ptr %warmStarting, align 4
-  %47 = and i8 %46, 1
-  %tobool.not = icmp eq i8 %47, 0
-  br i1 %tobool.not, label %if.else, label %if.then74
+  %tobool = trunc i8 %46 to i1
+  br i1 %tobool, label %if.then74, label %if.else
 
 if.then74:                                        ; preds = %entry
   %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
-  %48 = load <4 x float>, ptr %dtRatio, align 8
+  %47 = load <4 x float>, ptr %dtRatio, align 8
   %m_impulse = getelementptr inbounds i8, ptr %this, i64 156
-  %49 = load <2 x float>, ptr %m_impulse, align 4
-  %50 = shufflevector <4 x float> %48, <4 x float> poison, <2 x i32> zeroinitializer
-  %51 = fmul <2 x float> %50, %49
-  store <2 x float> %51, ptr %m_impulse, align 4
-  %52 = insertelement <2 x float> poison, float %30, i64 0
-  %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
-  %54 = fmul <2 x float> %53, %51
-  %55 = fadd <2 x float> %8, %54
-  %56 = fneg float %32
-  %57 = extractelement <2 x float> %51, i64 0
-  %neg.i46 = fmul float %57, %56
-  %58 = extractelement <2 x float> %51, i64 1
-  %59 = tail call noundef float @llvm.fmuladd.f32(float %34, float %58, float %neg.i46)
-  %60 = tail call float @llvm.fmuladd.f32(float %31, float %59, float %mul72)
+  %48 = load <2 x float>, ptr %m_impulse, align 4
+  %49 = shufflevector <4 x float> %47, <4 x float> poison, <2 x i32> zeroinitializer
+  %50 = fmul <2 x float> %49, %48
+  store <2 x float> %50, ptr %m_impulse, align 4
+  %51 = insertelement <2 x float> poison, float %30, i64 0
+  %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
+  %53 = fmul <2 x float> %52, %50
+  %54 = fadd <2 x float> %8, %53
+  %55 = fneg float %32
+  %56 = extractelement <2 x float> %50, i64 0
+  %neg.i46 = fmul float %56, %55
+  %57 = extractelement <2 x float> %50, i64 1
+  %58 = tail call noundef float @llvm.fmuladd.f32(float %34, float %57, float %neg.i46)
+  %59 = tail call float @llvm.fmuladd.f32(float %31, float %58, float %mul72)
   br label %if.end86
 
 if.else:                                          ; preds = %entry
@@ -301,17 +300,17 @@ if.else:                                          ; preds = %entry
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else, %if.then74
-  %wB.0 = phi float [ %mul72, %if.else ], [ %60, %if.then74 ]
-  %61 = phi <2 x float> [ %8, %if.else ], [ %55, %if.then74 ]
-  %62 = load ptr, ptr %velocities, align 8
-  %63 = load i32, ptr %m_indexB, align 8
-  %idxprom89 = sext i32 %63 to i64
-  %arrayidx90 = getelementptr inbounds %struct.b2Velocity, ptr %62, i64 %idxprom89
-  store <2 x float> %61, ptr %arrayidx90, align 4
-  %64 = load ptr, ptr %velocities, align 8
-  %65 = load i32, ptr %m_indexB, align 8
-  %idxprom94 = sext i32 %65 to i64
-  %w96 = getelementptr inbounds %struct.b2Velocity, ptr %64, i64 %idxprom94, i32 1
+  %wB.0 = phi float [ %59, %if.then74 ], [ %mul72, %if.else ]
+  %60 = phi <2 x float> [ %54, %if.then74 ], [ %8, %if.else ]
+  %61 = load ptr, ptr %velocities, align 8
+  %62 = load i32, ptr %m_indexB, align 8
+  %idxprom89 = sext i32 %62 to i64
+  %arrayidx90 = getelementptr inbounds %struct.b2Velocity, ptr %61, i64 %idxprom89
+  store <2 x float> %60, ptr %arrayidx90, align 4
+  %63 = load ptr, ptr %velocities, align 8
+  %64 = load i32, ptr %m_indexB, align 8
+  %idxprom94 = sext i32 %64 to i64
+  %w96 = getelementptr inbounds %struct.b2Velocity, ptr %63, i64 %idxprom94, i32 1
   store float %wB.0, ptr %w96, align 4
   ret void
 }
@@ -525,22 +524,22 @@ declare float @cosf(float noundef) local_unnamed_addr #14
 define linkonce_odr hidden void @_Z5b2LogPKcz(ptr noundef %string, ...) local_unnamed_addr #12 comdat {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @_Z13b2Log_DefaultPKcP13__va_list_tag(ptr noundef %string, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare void @_Z13b2Log_DefaultPKcP13__va_list_tag(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #17
@@ -563,8 +562,8 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }
 attributes #19 = { builtin nounwind }

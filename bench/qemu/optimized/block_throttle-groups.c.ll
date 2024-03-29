@@ -387,9 +387,8 @@ if.end.i28:                                       ; preds = %next_throttle_token
   %any_timer_armed.i = getelementptr i8, ptr %16, i64 280
   %arrayidx.i29 = getelementptr [2 x i8], ptr %any_timer_armed.i, i64 0, i64 %idxprom.i.i
   %18 = load i8, ptr %arrayidx.i29, align 1
-  %19 = and i8 %18, 1
-  %tobool2.not.i = icmp eq i8 %19, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.then8
+  %tobool2.i = trunc i8 %18 to i1
+  br i1 %tobool2.i, label %if.then8, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i28
   %call.i = tail call zeroext i1 @throttle_schedule_timer(ptr noundef nonnull %16, ptr noundef nonnull %throttle_timers.i, i32 noundef %direction) #7
@@ -408,13 +407,13 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %if.then8
 
 lor.lhs.false:                                    ; preds = %if.end4.i.lor.lhs.false_crit_edge, %next_throttle_token.exit
-  %20 = phi i32 [ %.pre34, %if.end4.i.lor.lhs.false_crit_edge ], [ %4, %next_throttle_token.exit ]
-  %tobool7.not = icmp eq i32 %20, 0
+  %19 = phi i32 [ %.pre34, %if.end4.i.lor.lhs.false_crit_edge ], [ %4, %next_throttle_token.exit ]
+  %tobool7.not = icmp eq i32 %19, 0
   br i1 %tobool7.not, label %if.end32, label %if.then8
 
 if.then8:                                         ; preds = %if.then6.i, %if.end.i28, %lor.lhs.false
-  %21 = phi i32 [ %.pre35, %if.then6.i ], [ %4, %if.end.i28 ], [ %20, %lor.lhs.false ]
-  %inc = add i32 %21, 1
+  %20 = phi i32 [ %.pre35, %if.then6.i ], [ %4, %if.end.i28 ], [ %19, %lor.lhs.false ]
+  %inc = add i32 %20, 1
   store i32 %inc, ptr %arrayidx.i.i, align 4
   tail call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 381) #7
   %throttled_reqs_lock = getelementptr inbounds i8, ptr %tgm, i64 8
@@ -428,17 +427,17 @@ if.then8:                                         ; preds = %if.then6.i, %if.end
   store ptr @qemu_co_mutex_unlock, ptr %unlock, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef %arrayidx14, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #7
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %throttled_reqs_lock) #7
-  %22 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %23 = inttoptr i64 %22 to ptr
-  call void %23(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 386) #7
-  %24 = load i32, ptr %arrayidx.i.i, align 4
-  %dec = add i32 %24, -1
+  %21 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %22 = inttoptr i64 %21 to ptr
+  call void %22(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 386) #7
+  %23 = load i32, ptr %arrayidx.i.i, align 4
+  %dec = add i32 %23, -1
   store i32 %dec, ptr %arrayidx.i.i, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then8, %lor.lhs.false
-  %25 = load ptr, ptr %throttle_state, align 8
-  call void @throttle_account(ptr noundef %25, i32 noundef %direction, i64 noundef %bytes) #7
+  %24 = load ptr, ptr %throttle_state, align 8
+  call void @throttle_account(ptr noundef %24, i32 noundef %direction, i64 noundef %bytes) #7
   call void @schedule_next_request(ptr noundef nonnull %tgm, i32 noundef %direction)
   call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 396) #7
   ret void
@@ -564,9 +563,8 @@ if.end.i20:                                       ; preds = %if.end
   %any_timer_armed.i = getelementptr i8, ptr %13, i64 280
   %arrayidx.i22 = getelementptr [2 x i8], ptr %any_timer_armed.i, i64 0, i64 %idxprom.i.i
   %15 = load i8, ptr %arrayidx.i22, align 1
-  %16 = and i8 %15, 1
-  %tobool2.not.i = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.end13
+  %tobool2.i = trunc i8 %15 to i1
+  br i1 %tobool2.i, label %if.end13, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i20
   %call.i = tail call zeroext i1 @throttle_schedule_timer(ptr noundef nonnull %13, ptr noundef nonnull %throttle_timers.i, i32 noundef %direction) #7
@@ -594,11 +592,11 @@ land.lhs.true:                                    ; preds = %if.then3
 
 if.else:                                          ; preds = %land.lhs.true, %if.then3
   %clock_type = getelementptr i8, ptr %0, i64 284
-  %17 = load i32, ptr %clock_type, align 4
-  %call7 = tail call i64 @qemu_clock_get_ns(i32 noundef %17) #7
+  %16 = load i32, ptr %clock_type, align 4
+  %call7 = tail call i64 @qemu_clock_get_ns(i32 noundef %16) #7
   %arrayidx = getelementptr [2 x ptr], ptr %throttle_timers.i, i64 0, i64 %idxprom.i.i
-  %18 = load ptr, ptr %arrayidx, align 8
-  tail call void @timer_mod(ptr noundef %18, i64 noundef %call7) #7
+  %17 = load ptr, ptr %arrayidx, align 8
+  tail call void @timer_mod(ptr noundef %17, i64 noundef %call7) #7
   %any_timer_armed = getelementptr i8, ptr %0, i64 280
   %arrayidx9 = getelementptr [2 x i8], ptr %any_timer_armed, i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx9, align 1
@@ -1039,7 +1037,7 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %if.end
-  br i1 %cmp, label %for.body, label %for.cond11.preheader.us, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond
   %cmp = phi i1 [ true, %entry ], [ false, %for.cond ]
@@ -1062,37 +1060,183 @@ if.else5:                                         ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 641, ptr noundef nonnull @__PRETTY_FUNCTION__.throttle_group_detach_aio_context) #8
   unreachable
 
-for.cond11.preheader.us:                          ; preds = %for.cond
+for.end:                                          ; preds = %for.cond
   %lock = getelementptr i8, ptr %0, i64 -48
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef %lock, ptr noundef nonnull @.str.12, i32 noundef 122) #7
   %any_timer_armed = getelementptr i8, ptr %0, i64 280
-  br label %for.body13.us
+  %io_limits_disabled.i.i = getelementptr inbounds i8, ptr %tgm, i64 88
+  %throttled_reqs_lock.i.i = getelementptr inbounds i8, ptr %tgm, i64 8
+  br label %for.body13
 
-qemu_lockable_auto_unlock.exit.us:                ; preds = %for.inc21.us
+for.body13:                                       ; preds = %for.end, %for.inc21
+  %cmp12 = phi i1 [ true, %for.end ], [ false, %for.inc21 ]
+  %indvars.iv27 = phi i64 [ 0, %for.end ], [ 1, %for.inc21 ]
+  %arrayidx15 = getelementptr [2 x ptr], ptr %throttle_timers, i64 0, i64 %indvars.iv27
+  %4 = load ptr, ptr %arrayidx15, align 8
+  %call16 = tail call zeroext i1 @timer_pending(ptr noundef %4) #7
+  br i1 %call16, label %if.then17, label %for.inc21
+
+if.then17:                                        ; preds = %for.body13
+  %arrayidx19 = getelementptr [2 x i8], ptr %any_timer_armed, i64 0, i64 %indvars.iv27
+  store i8 0, ptr %arrayidx19, align 1
+  %5 = load ptr, ptr %throttle_state, align 8
+  %arrayidx.i.i.i = getelementptr [2 x i32], ptr %pending_reqs, i64 0, i64 %indvars.iv27
+  %6 = load i32, ptr %arrayidx.i.i.i, align 4
+  %tobool.i.not.i.i = icmp eq i32 %6, 0
+  br i1 %tobool.i.not.i.i, label %if.end.i.i, label %while.end.i.i
+
+while.end.i.i:                                    ; preds = %if.then17
+  %7 = load atomic i32, ptr %io_limits_disabled.i.i monotonic, align 8
+  %tobool.not.i.i16 = icmp eq i32 %7, 0
+  br i1 %tobool.not.i.i16, label %if.end.i.i, label %if.end.i
+
+if.end.i.i:                                       ; preds = %while.end.i.i, %if.then17
+  %tokens.i.i = getelementptr i8, ptr %5, i64 264
+  %arrayidx.i.i = getelementptr [2 x ptr], ptr %tokens.i.i, i64 0, i64 %indvars.iv27
+  %8 = load ptr, ptr %arrayidx.i.i, align 8
+  %round_robin.i.i.i = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = load ptr, ptr %round_robin.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %throttle_group_next_tgm.exit.i.i
+
+if.then.i.i.i:                                    ; preds = %if.end.i.i
+  %throttle_state.i.i.i = getelementptr inbounds i8, ptr %8, i64 96
+  %10 = load ptr, ptr %throttle_state.i.i.i, align 8
+  %head.i.i.i = getelementptr i8, ptr %10, i64 256
+  %11 = load ptr, ptr %head.i.i.i, align 8
+  br label %throttle_group_next_tgm.exit.i.i
+
+throttle_group_next_tgm.exit.i.i:                 ; preds = %if.then.i.i.i, %if.end.i.i
+  %next.0.i.i.i = phi ptr [ %9, %if.end.i.i ], [ %11, %if.then.i.i.i ]
+  %cmp.not39.i.i = icmp eq ptr %next.0.i.i.i, %8
+  br i1 %cmp.not39.i.i, label %land.lhs.true9.i.i, label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %throttle_group_next_tgm.exit.i.i, %throttle_group_next_tgm.exit29.i.i
+  %token.040.i.i = phi ptr [ %next.0.i25.i.i, %throttle_group_next_tgm.exit29.i.i ], [ %next.0.i.i.i, %throttle_group_next_tgm.exit.i.i ]
+  %pending_reqs.i19.i.i = getelementptr inbounds i8, ptr %token.040.i.i, i64 152
+  %arrayidx.i21.i.i = getelementptr [2 x i32], ptr %pending_reqs.i19.i.i, i64 0, i64 %indvars.iv27
+  %12 = load i32, ptr %arrayidx.i21.i.i, align 4
+  %tobool.i22.not.i.i = icmp eq i32 %12, 0
+  br i1 %tobool.i22.not.i.i, label %while.body5.i.i, label %if.end12.i.i
+
+while.body5.i.i:                                  ; preds = %land.rhs.i.i
+  %round_robin.i23.i.i = getelementptr inbounds i8, ptr %token.040.i.i, i64 160
+  %13 = load ptr, ptr %round_robin.i23.i.i, align 8
+  %tobool.not.i24.i.i = icmp eq ptr %13, null
+  br i1 %tobool.not.i24.i.i, label %if.then.i26.i.i, label %throttle_group_next_tgm.exit29.i.i
+
+if.then.i26.i.i:                                  ; preds = %while.body5.i.i
+  %throttle_state.i27.i.i = getelementptr inbounds i8, ptr %token.040.i.i, i64 96
+  %14 = load ptr, ptr %throttle_state.i27.i.i, align 8
+  %head.i28.i.i = getelementptr i8, ptr %14, i64 256
+  %15 = load ptr, ptr %head.i28.i.i, align 8
+  br label %throttle_group_next_tgm.exit29.i.i
+
+throttle_group_next_tgm.exit29.i.i:               ; preds = %if.then.i26.i.i, %while.body5.i.i
+  %next.0.i25.i.i = phi ptr [ %13, %while.body5.i.i ], [ %15, %if.then.i26.i.i ]
+  %cmp.not.i.i = icmp eq ptr %next.0.i25.i.i, %8
+  br i1 %cmp.not.i.i, label %land.lhs.true9.i.i, label %land.rhs.i.i, !llvm.loop !7
+
+land.lhs.true9.i.i:                               ; preds = %throttle_group_next_tgm.exit29.i.i, %throttle_group_next_tgm.exit.i.i
+  %pending_reqs.i30.i.i = getelementptr inbounds i8, ptr %8, i64 152
+  %arrayidx.i32.i.i = getelementptr [2 x i32], ptr %pending_reqs.i30.i.i, i64 0, i64 %indvars.iv27
+  %16 = load i32, ptr %arrayidx.i32.i.i, align 4
+  %tobool.i33.not.i.i = icmp eq i32 %16, 0
+  %spec.select.i.i = select i1 %tobool.i33.not.i.i, ptr %tgm, ptr %8
+  br label %if.end12.i.i
+
+if.end12.i.i:                                     ; preds = %land.rhs.i.i, %land.lhs.true9.i.i
+  %token.1.i.i = phi ptr [ %spec.select.i.i, %land.lhs.true9.i.i ], [ %token.040.i.i, %land.rhs.i.i ]
+  %cmp13.i.i = icmp eq ptr %token.1.i.i, %tgm
+  br i1 %cmp13.i.i, label %next_throttle_token.exit.i, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %if.end12.i.i
+  %pending_reqs.i34.i.i = getelementptr inbounds i8, ptr %token.1.i.i, i64 152
+  %arrayidx.i36.i.i = getelementptr [2 x i32], ptr %pending_reqs.i34.i.i, i64 0, i64 %indvars.iv27
+  %17 = load i32, ptr %arrayidx.i36.i.i, align 4
+  %tobool.i37.not.i.i = icmp eq i32 %17, 0
+  br i1 %tobool.i37.not.i.i, label %if.else.i.i, label %lor.lhs.false.i.i.if.end.i_crit_edge
+
+lor.lhs.false.i.i.if.end.i_crit_edge:             ; preds = %lor.lhs.false.i.i
+  %throttle_state.i16.i.phi.trans.insert = getelementptr inbounds i8, ptr %token.1.i.i, i64 96
+  %.pre = load ptr, ptr %throttle_state.i16.i.phi.trans.insert, align 8
+  br label %if.end.i
+
+if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 252, ptr noundef nonnull @__PRETTY_FUNCTION__.next_throttle_token) #8
+  unreachable
+
+next_throttle_token.exit.i:                       ; preds = %if.end12.i.i
+  br i1 %tobool.i.not.i.i, label %for.inc21, label %if.end.i
+
+if.end.i:                                         ; preds = %lor.lhs.false.i.i.if.end.i_crit_edge, %next_throttle_token.exit.i, %while.end.i.i
+  %18 = phi ptr [ %5, %next_throttle_token.exit.i ], [ %.pre, %lor.lhs.false.i.i.if.end.i_crit_edge ], [ %5, %while.end.i.i ]
+  %retval.0.i32.i = phi ptr [ %tgm, %next_throttle_token.exit.i ], [ %token.1.i.i, %lor.lhs.false.i.i.if.end.i_crit_edge ], [ %tgm, %while.end.i.i ]
+  %throttle_timers.i.i = getelementptr inbounds i8, ptr %retval.0.i32.i, i64 104
+  %io_limits_disabled.i17.i = getelementptr inbounds i8, ptr %retval.0.i32.i, i64 88
+  %19 = load atomic i32, ptr %io_limits_disabled.i17.i monotonic, align 8
+  %tobool.not.i18.i = icmp eq i32 %19, 0
+  br i1 %tobool.not.i18.i, label %if.end.i20.i, label %if.then3.i
+
+if.end.i20.i:                                     ; preds = %if.end.i
+  %any_timer_armed.i.i = getelementptr i8, ptr %18, i64 280
+  %arrayidx.i22.i = getelementptr [2 x i8], ptr %any_timer_armed.i.i, i64 0, i64 %indvars.iv27
+  %20 = load i8, ptr %arrayidx.i22.i, align 1
+  %tobool2.i.i = trunc i8 %20 to i1
+  br i1 %tobool2.i.i, label %for.inc21, label %if.end4.i.i
+
+if.end4.i.i:                                      ; preds = %if.end.i20.i
+  %21 = trunc i64 %indvars.iv27 to i32
+  %call.i.i = tail call zeroext i1 @throttle_schedule_timer(ptr noundef nonnull %18, ptr noundef nonnull %throttle_timers.i.i, i32 noundef %21) #7
+  br i1 %call.i.i, label %if.then6.i.i, label %if.then3.i
+
+if.then6.i.i:                                     ; preds = %if.end4.i.i
+  %tokens.i23.i = getelementptr i8, ptr %18, i64 264
+  %arrayidx8.i.i = getelementptr [2 x ptr], ptr %tokens.i23.i, i64 0, i64 %indvars.iv27
+  store ptr %retval.0.i32.i, ptr %arrayidx8.i.i, align 8
+  store i8 1, ptr %arrayidx.i22.i, align 1
+  br label %for.inc21
+
+if.then3.i:                                       ; preds = %if.end4.i.i, %if.end.i
+  %call4.i = tail call zeroext i1 @qemu_in_coroutine() #7
+  br i1 %call4.i, label %land.lhs.true.i, label %if.else.i
+
+land.lhs.true.i:                                  ; preds = %if.then3.i
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %throttled_reqs_lock.i.i) #7
+  %arrayidx.i25.i = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %indvars.iv27
+  %call.i26.i = tail call zeroext i1 @qemu_co_queue_next(ptr noundef %arrayidx.i25.i) #7
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %throttled_reqs_lock.i.i) #7
+  br i1 %call.i26.i, label %if.end10.i, label %if.else.i
+
+if.else.i:                                        ; preds = %land.lhs.true.i, %if.then3.i
+  %clock_type.i = getelementptr i8, ptr %5, i64 284
+  %22 = load i32, ptr %clock_type.i, align 4
+  %call7.i = tail call i64 @qemu_clock_get_ns(i32 noundef %22) #7
+  %arrayidx.i = getelementptr [2 x ptr], ptr %throttle_timers.i.i, i64 0, i64 %indvars.iv27
+  %23 = load ptr, ptr %arrayidx.i, align 8
+  tail call void @timer_mod(ptr noundef %23, i64 noundef %call7.i) #7
+  %any_timer_armed.i = getelementptr i8, ptr %5, i64 280
+  %arrayidx9.i = getelementptr [2 x i8], ptr %any_timer_armed.i, i64 0, i64 %indvars.iv27
+  store i8 1, ptr %arrayidx9.i, align 1
+  br label %if.end10.i
+
+if.end10.i:                                       ; preds = %if.else.i, %land.lhs.true.i
+  %token.0.i = phi ptr [ %retval.0.i32.i, %if.else.i ], [ %tgm, %land.lhs.true.i ]
+  %tokens.i = getelementptr i8, ptr %5, i64 264
+  %arrayidx12.i = getelementptr [2 x ptr], ptr %tokens.i, i64 0, i64 %indvars.iv27
+  store ptr %token.0.i, ptr %arrayidx12.i, align 8
+  br label %for.inc21
+
+for.inc21:                                        ; preds = %if.end10.i, %if.then6.i.i, %if.end.i20.i, %next_throttle_token.exit.i, %for.body13
+  br i1 %cmp12, label %for.body13, label %qemu_lockable_auto_unlock.exit, !llvm.loop !14
+
+qemu_lockable_auto_unlock.exit:                   ; preds = %for.inc21
   tail call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef nonnull @.str.12, i32 noundef 132) #7
   tail call void @throttle_timers_detach_aio_context(ptr noundef nonnull %throttle_timers) #7
   store ptr null, ptr %tgm, align 8
   ret void
-
-for.body13.us:                                    ; preds = %for.inc21.us, %for.cond11.preheader.us
-  %cmp12.us = phi i1 [ false, %for.inc21.us ], [ true, %for.cond11.preheader.us ]
-  %indvars.iv22 = phi i64 [ 1, %for.inc21.us ], [ 0, %for.cond11.preheader.us ]
-  %arrayidx15.us = getelementptr [2 x ptr], ptr %throttle_timers, i64 0, i64 %indvars.iv22
-  %4 = load ptr, ptr %arrayidx15.us, align 8
-  %call16.us = tail call zeroext i1 @timer_pending(ptr noundef %4) #7
-  br i1 %call16.us, label %if.then17.us, label %for.inc21.us
-
-if.then17.us:                                     ; preds = %for.body13.us
-  %arrayidx19.us = getelementptr [2 x i8], ptr %any_timer_armed, i64 0, i64 %indvars.iv22
-  store i8 0, ptr %arrayidx19.us, align 1
-  %5 = trunc i64 %indvars.iv22 to i32
-  tail call void @schedule_next_request(ptr noundef nonnull %tgm, i32 noundef %5)
-  br label %for.inc21.us
-
-for.inc21.us:                                     ; preds = %if.then17.us, %for.body13.us
-  br i1 %cmp12.us, label %for.body13.us, label %qemu_lockable_auto_unlock.exit.us, !llvm.loop !14
 }
 
 declare void @throttle_timers_detach_aio_context(ptr noundef) local_unnamed_addr #1
@@ -1219,31 +1363,30 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
   %is_initialized = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %is_initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end16, label %do.body
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.body, label %if.end16
 
 do.body:                                          ; preds = %entry
   %list = getelementptr inbounds i8, ptr %call.i, i64 392
-  %2 = load ptr, ptr %list, align 8
-  %cmp.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %list, align 8
+  %cmp.not = icmp eq ptr %1, null
   %tql_prev7 = getelementptr inbounds i8, ptr %call.i, i64 400
-  %3 = load ptr, ptr %tql_prev7, align 8
+  %2 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  %tql_prev5 = getelementptr inbounds i8, ptr %2, i64 400
-  store ptr %3, ptr %tql_prev5, align 8
+  %tql_prev5 = getelementptr inbounds i8, ptr %1, i64 400
+  store ptr %2, ptr %tql_prev5, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end
 
 if.else:                                          ; preds = %do.body
-  store ptr %3, ptr getelementptr inbounds (%union.anon.3, ptr @throttle_groups, i64 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (%union.anon.3, ptr @throttle_groups, i64 0, i32 0, i32 1), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  %4 = phi ptr [ null, %if.else ], [ %.pre, %if.then1 ]
-  store ptr %4, ptr %3, align 8
+  %3 = phi ptr [ null, %if.else ], [ %.pre, %if.then1 ]
+  store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list, i8 0, i64 16, i1 false)
   br label %if.end16
 
@@ -1251,8 +1394,8 @@ if.end16:                                         ; preds = %if.end, %entry
   %lock = getelementptr inbounds i8, ptr %call.i, i64 56
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %lock) #7
   %name = getelementptr inbounds i8, ptr %call.i, i64 48
-  %5 = load ptr, ptr %name, align 8
-  tail call void @g_free(ptr noundef %5) #7
+  %4 = load ptr, ptr %name, align 8
+  tail call void @g_free(ptr noundef %4) #7
   ret void
 }
 
@@ -1359,9 +1502,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
   %is_initialized = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %is_initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 825, ptr noundef nonnull @__func__.throttle_group_set, ptr noundef nonnull @.str.39) #7
@@ -1372,8 +1514,8 @@ if.end:                                           ; preds = %entry
   br i1 %call1, label %if.end3, label %sw.epilog
 
 if.end3:                                          ; preds = %if.end
-  %2 = load i64, ptr %value, align 8
-  %cmp = icmp slt i64 %2, 0
+  %1 = load i64, ptr %value, align 8
+  %cmp = icmp slt i64 %1, 0
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end3
@@ -1383,8 +1525,8 @@ if.then4:                                         ; preds = %if.end3
 if.end5:                                          ; preds = %if.end3
   %ts = getelementptr inbounds i8, ptr %call.i, i64 104
   %category = getelementptr inbounds i8, ptr %opaque, i64 12
-  %3 = load i32, ptr %category, align 4
-  switch i32 %3, label %sw.epilog [
+  %2 = load i32, ptr %category, align 4
+  switch i32 %2, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb7
     i32 2, label %sw.bb12
@@ -1393,40 +1535,40 @@ if.end5:                                          ; preds = %if.end3
 
 sw.bb:                                            ; preds = %if.end5
   %type = getelementptr inbounds i8, ptr %opaque, i64 8
-  %4 = load i32, ptr %type, align 8
-  %idxprom = zext i32 %4 to i64
+  %3 = load i32, ptr %type, align 8
+  %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom
-  store i64 %2, ptr %arrayidx, align 8
+  store i64 %1, ptr %arrayidx, align 8
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end5
   %type9 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %5 = load i32, ptr %type9, align 8
-  %idxprom10 = zext i32 %5 to i64
+  %4 = load i32, ptr %type9, align 8
+  %idxprom10 = zext i32 %4 to i64
   %max = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom10, i32 1
-  store i64 %2, ptr %max, align 8
+  store i64 %1, ptr %max, align 8
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %if.end5
-  %cmp13 = icmp ugt i64 %2, 4294967295
+  %cmp13 = icmp ugt i64 %1, 4294967295
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %sw.bb12
-  %6 = load ptr, ptr %opaque, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 848, ptr noundef nonnull @__func__.throttle_group_set, ptr noundef nonnull @.str.41, ptr noundef %6, i32 noundef -1) #7
+  %5 = load ptr, ptr %opaque, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 848, ptr noundef nonnull @__func__.throttle_group_set, ptr noundef nonnull @.str.41, ptr noundef %5, i32 noundef -1) #7
   br label %sw.epilog
 
 if.end16:                                         ; preds = %sw.bb12
   %type18 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %7 = load i32, ptr %type18, align 8
-  %idxprom19 = zext i32 %7 to i64
+  %6 = load i32, ptr %type18, align 8
+  %idxprom19 = zext i32 %6 to i64
   %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom19, i32 4
-  store i64 %2, ptr %burst_length, align 8
+  store i64 %1, ptr %burst_length, align 8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end5
   %op_size = getelementptr inbounds i8, ptr %call.i, i64 344
-  store i64 %2, ptr %op_size, align 8
+  store i64 %1, ptr %op_size, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb21, %if.end16, %if.then14, %sw.bb7, %sw.bb, %if.end5, %if.then4, %if.then

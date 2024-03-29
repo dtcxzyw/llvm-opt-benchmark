@@ -68,9 +68,8 @@ declare i32 @opal_finalize_util() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @opal_warn_fork() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_warn_on_fork, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %6, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
   %.b1 = load i1, ptr @atfork_called, align 1

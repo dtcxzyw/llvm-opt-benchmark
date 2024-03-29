@@ -2860,9 +2860,8 @@ define internal void @cleanup_directories_atexit() #0 {
 
 4:                                                ; preds = %3
   %5 = load i8, ptr @made_new_pgdata, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %11, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @basedir, align 8
@@ -2873,9 +2872,8 @@ define internal void @cleanup_directories_atexit() #0 {
 
 11:                                               ; preds = %4
   %12 = load i8, ptr @found_existing_pgdata, align 1
-  %13 = and i8 %12, 1
-  %.not10 = icmp eq i8 %13, 0
-  br i1 %.not10, label %18, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @basedir, align 8
@@ -2891,9 +2889,8 @@ define internal void @cleanup_directories_atexit() #0 {
 
 18:                                               ; preds = %.sink.split, %11, %14, %7
   %19 = load i8, ptr @made_new_xlogdir, align 1
-  %20 = and i8 %19, 1
-  %.not11 = icmp eq i8 %20, 0
-  br i1 %.not11, label %26, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @xlog_dir, align 8
@@ -2908,9 +2905,8 @@ define internal void @cleanup_directories_atexit() #0 {
 
 26:                                               ; preds = %18
   %27 = load i8, ptr @found_existing_xlogdir, align 1
-  %28 = and i8 %27, 1
-  %.not12 = icmp eq i8 %28, 0
-  br i1 %.not12, label %51, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %51
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @xlog_dir, align 8
@@ -2925,19 +2921,17 @@ define internal void @cleanup_directories_atexit() #0 {
 
 34:                                               ; preds = %3, %2
   %35 = load i8, ptr @made_new_pgdata, align 1
-  %36 = and i8 %35, 1
-  %.not13 = icmp eq i8 %36, 0
-  br i1 %.not13, label %37, label %40
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
   %38 = load i8, ptr @found_existing_pgdata, align 1
-  %39 = and i8 %38, 1
-  %.not14 = icmp eq i8 %39, 0
-  br i1 %.not14, label %43, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37, %34
-  %.b415 = load i1, ptr @checksum_failure, align 1
-  br i1 %.b415, label %43, label %41
+  %.b410 = load i1, ptr @checksum_failure, align 1
+  br i1 %.b410, label %43, label %41
 
 41:                                               ; preds = %40
   %42 = load ptr, ptr @basedir, align 8
@@ -2946,15 +2940,13 @@ define internal void @cleanup_directories_atexit() #0 {
 
 43:                                               ; preds = %41, %40, %37
   %44 = load i8, ptr @made_new_xlogdir, align 1
-  %45 = and i8 %44, 1
-  %.not16 = icmp eq i8 %45, 0
-  br i1 %.not16, label %46, label %49
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %49, label %46
 
 46:                                               ; preds = %43
   %47 = load i8, ptr @found_existing_xlogdir, align 1
-  %48 = and i8 %47, 1
-  %.not17 = icmp eq i8 %48, 0
-  br i1 %.not17, label %51, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46, %43
   %50 = load ptr, ptr @xlog_dir, align 8
@@ -2963,19 +2955,17 @@ define internal void @cleanup_directories_atexit() #0 {
 
 51:                                               ; preds = %46, %49, %25, %21, %29, %33, %26
   %52 = load i8, ptr @made_tablespace_dirs, align 1
-  %53 = and i8 %52, 1
-  %.not18 = icmp eq i8 %53, 0
-  br i1 %.not18, label %54, label %57
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %57, label %54
 
 54:                                               ; preds = %51
   %55 = load i8, ptr @found_tablespace_dirs, align 1
-  %56 = and i8 %55, 1
-  %.not19 = icmp eq i8 %56, 0
-  br i1 %.not19, label %59, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54, %51
-  %.b320 = load i1, ptr @checksum_failure, align 1
-  br i1 %.b320, label %59, label %58
+  %.b311 = load i1, ptr @checksum_failure, align 1
+  br i1 %.b311, label %59, label %58
 
 58:                                               ; preds = %57
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.146) #17

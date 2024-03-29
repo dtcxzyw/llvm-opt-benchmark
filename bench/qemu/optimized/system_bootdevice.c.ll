@@ -534,8 +534,7 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %ignore_boot_device_suffixes = getelementptr inbounds i8, ptr %call1.i, i64 290
   %0 = load i8, ptr %ignore_boot_device_suffixes, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %i.025 = load ptr, ptr @fw_boot_order, align 8
   %tobool2.not26 = icmp eq ptr %i.025, null
   br i1 %tobool2.not26, label %for.end, label %for.body
@@ -545,10 +544,10 @@ for.body:                                         ; preds = %entry, %if.end
   %total.028 = phi i64 [ %add7, %if.end ], [ 0, %entry ]
   %list.027 = phi ptr [ %call8, %if.end ], [ null, %entry ]
   %dev = getelementptr inbounds i8, ptr %i.029, i64 24
-  %2 = load ptr, ptr %dev, align 8
+  %1 = load ptr, ptr %dev, align 8
   %suffix = getelementptr inbounds i8, ptr %i.029, i64 32
-  %3 = load ptr, ptr %suffix, align 8
-  %call4 = tail call fastcc ptr @get_boot_device_path(ptr noundef %2, i1 noundef zeroext %tobool, ptr noundef %3)
+  %2 = load ptr, ptr %suffix, align 8
+  %call4 = tail call fastcc ptr @get_boot_device_path(ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef %2)
   %tobool5.not = icmp eq i64 %total.028, 0
   br i1 %tobool5.not, label %if.end, label %if.then
 
@@ -574,21 +573,19 @@ for.end:                                          ; preds = %if.end, %entry
   %list.0.lcssa = phi ptr [ null, %entry ], [ %call8, %if.end ]
   %total.0.lcssa = phi i64 [ 0, %entry ], [ %add7, %if.end ]
   store i64 %total.0.lcssa, ptr %size, align 8
-  %4 = load ptr, ptr @current_machine, align 8
-  %has_strict = getelementptr inbounds i8, ptr %4, i64 232
-  %5 = load i8, ptr %has_strict, align 8
-  %6 = and i8 %5, 1
-  %tobool11.not = icmp eq i8 %6, 0
-  br i1 %tobool11.not, label %if.end22, label %land.lhs.true
+  %3 = load ptr, ptr @current_machine, align 8
+  %has_strict = getelementptr inbounds i8, ptr %3, i64 232
+  %4 = load i8, ptr %has_strict, align 8
+  %tobool11 = trunc i8 %4 to i1
+  br i1 %tobool11, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %for.end
-  %strict = getelementptr inbounds i8, ptr %4, i64 233
-  %7 = load i8, ptr %strict, align 1
-  %8 = and i8 %7, 1
-  %tobool13.not = icmp eq i8 %8, 0
-  %cmp.not = icmp eq i64 %total.0.lcssa, 0
-  %or.cond = or i1 %cmp.not, %tobool13.not
-  br i1 %or.cond, label %if.end22, label %if.then15
+  %strict = getelementptr inbounds i8, ptr %3, i64 233
+  %5 = load i8, ptr %strict, align 1
+  %tobool13 = trunc i8 %5 to i1
+  %cmp.not = icmp ne i64 %total.0.lcssa, 0
+  %or.cond.not = and i1 %cmp.not, %tobool13
+  br i1 %or.cond.not, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %land.lhs.true
   %sub16 = add i64 %total.0.lcssa, -1

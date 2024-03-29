@@ -3025,27 +3025,26 @@ _ZN10GPUProgram6enableEv.exit:                    ; preds = %.lr.ph.i, %_ZN29Rad
   %50 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %2)
   %51 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %50)
   %52 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %50)
-  %.not4142 = icmp eq ptr %51, %52
-  br i1 %.not4142, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq ptr %51, %52
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10GPUProgram6enableEv.exit
   %53 = getelementptr inbounds i8, ptr %4, i64 1560
   br label %54
 
 54:                                               ; preds = %.lr.ph, %65
-  %.sroa.036.043 = phi ptr [ %51, %.lr.ph ], [ %66, %65 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.036.043, i64 1240
+  %.sroa.036.042 = phi ptr [ %51, %.lr.ph ], [ %66, %65 ]
+  %55 = getelementptr inbounds i8, ptr %.sroa.036.042, i64 1240
   %56 = load i32, ptr %55, align 8
   store i32 %56, ptr %8, align 4
   %57 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4QMapIibEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %58 = load i8, ptr %57, align 1
-  %59 = and i8 %58, 1
-  %.not = icmp eq i8 %59, 0
-  br i1 %.not, label %65, label %60
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %65
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %55, align 8
-  %62 = getelementptr inbounds i8, ptr %.sroa.036.043, i64 1148
+  %62 = getelementptr inbounds i8, ptr %.sroa.036.042, i64 1148
   call void @_ZN26MLSceneGLSharedDataContext27setMeshTransformationMatrixEiRKN3vcg8Matrix44IfEE(ptr noundef nonnull align 8 dereferenceable(168) %16, i32 noundef %61, ptr noundef nonnull align 4 dereferenceable(64) %62)
   %63 = load i32, ptr %55, align 8
   %64 = call noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -3053,9 +3052,9 @@ _ZN10GPUProgram6enableEv.exit:                    ; preds = %.lr.ph.i, %_ZN29Rad
   br label %65
 
 65:                                               ; preds = %54, %60
-  %66 = load ptr, ptr %.sroa.036.043, align 8
-  %.not41 = icmp eq ptr %66, %52
-  br i1 %.not41, label %._crit_edge, label %54
+  %66 = load ptr, ptr %.sroa.036.042, align 8
+  %.not = icmp eq ptr %66, %52
+  br i1 %.not, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %65, %_ZN10GPUProgram6enableEv.exit
   %67 = load ptr, ptr %33, align 8
@@ -3222,7 +3221,7 @@ _ZN8QMapNodeIibE10lowerBoundERKi.exit.i:          ; preds = %12
   %17 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %11, %18
-  br i1 %19, label %20, label %_ZN4QMapIibE6insertERKiRKb.exit
+  br i1 %19, label %20, label %_ZNK8QMapDataIibE8findNodeERKi.exit
 
 20:                                               ; preds = %_ZN4QMapIibE6detachEv.exit, %_ZN8QMapNodeIibE10lowerBoundERKi.exit.i, %16
   %21 = load atomic i32, ptr %7 monotonic, align 4
@@ -3268,7 +3267,7 @@ _ZN4QMapIibE6detachEv.exit.i:                     ; preds = %23, %20
   %32 = getelementptr inbounds i8, ptr %.121.i, i64 24
   %33 = load i32, ptr %32, align 4
   %34 = icmp slt i32 %26, %33
-  br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIibE6insertERKiRKb.exit.sink.split
+  br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIibE6insertERKiRKb.exit
 
 ._crit_edge.thread.i:                             ; preds = %31, %._crit_edge.i, %_ZN4QMapIibE6detachEv.exit.i
   %.018.lcssa35.i = phi i1 [ %30, %31 ], [ %30, %._crit_edge.i ], [ true, %_ZN4QMapIibE6detachEv.exit.i ]
@@ -3277,17 +3276,20 @@ _ZN4QMapIibE6detachEv.exit.i:                     ; preds = %23, %20
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load i32, ptr %1, align 4
   store i32 %37, ptr %36, align 8
-  br label %_ZN4QMapIibE6insertERKiRKb.exit.sink.split
-
-_ZN4QMapIibE6insertERKiRKb.exit.sink.split:       ; preds = %31, %._crit_edge.thread.i
-  %.sink13 = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
-  %38 = getelementptr inbounds i8, ptr %.sink13, i64 28
-  store i8 0, ptr %38, align 4
   br label %_ZN4QMapIibE6insertERKiRKb.exit
 
-_ZN4QMapIibE6insertERKiRKb.exit:                  ; preds = %_ZN4QMapIibE6insertERKiRKb.exit.sink.split, %16
-  %.1.i.i.pn = phi ptr [ %.1.i.i, %16 ], [ %.sink13, %_ZN4QMapIibE6insertERKiRKb.exit.sink.split ]
-  %.0 = getelementptr inbounds i8, ptr %.1.i.i.pn, i64 28
+_ZN4QMapIibE6insertERKiRKb.exit:                  ; preds = %31, %._crit_edge.thread.i
+  %.sroa.0.0.i = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
+  %.sink36.i = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 28
+  store i8 0, ptr %.sink36.i, align 4
+  br label %39
+
+_ZNK8QMapDataIibE8findNodeERKi.exit:              ; preds = %16
+  %38 = getelementptr inbounds i8, ptr %.1.i.i, i64 28
+  br label %39
+
+39:                                               ; preds = %_ZNK8QMapDataIibE8findNodeERKi.exit, %_ZN4QMapIibE6insertERKiRKb.exit
+  %.0 = phi ptr [ %38, %_ZNK8QMapDataIibE8findNodeERKi.exit ], [ %.sink36.i, %_ZN4QMapIibE6insertERKiRKb.exit ]
   ret ptr %.0
 }
 

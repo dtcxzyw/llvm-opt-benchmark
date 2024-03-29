@@ -101,25 +101,20 @@ if.else:                                          ; preds = %invoke.cont3
   br i1 %cmp3.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
-  %success.04.i = phi i8 [ %success.1.i, %for.body.i ], [ 1, %if.else ]
+  %success.04.i = phi i1 [ %success.1.i, %for.body.i ], [ true, %if.else ]
   %call.i11 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKwiPiPj(ptr noundef %src, i32 noundef %conv.i, ptr noundef nonnull %i.i, ptr noundef nonnull %code_point.i)
   %2 = load i32, ptr %code_point.i, align 4
   %.sink.i = select i1 %call.i11, i32 %2, i32 65533
-  %success.1.i = select i1 %call.i11, i8 %success.04.i, i8 0
+  %success.1.i = select i1 %call.i11, i1 %success.04.i, i1 false
   %call1.i = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.sink.i, ptr noundef %output)
   %3 = load i32, ptr %i.i, align 4
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %i.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
+  br i1 %cmp.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit, !llvm.loop !5
 
-for.end.loopexit.i:                               ; preds = %for.body.i
-  %4 = and i8 %success.1.i, 1
-  %5 = icmp ne i8 %4, 0
-  br label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit
-
-_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit: ; preds = %if.else, %for.end.loopexit.i
-  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %5, %for.end.loopexit.i ]
+_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit: ; preds = %for.body.i, %if.else
+  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %success.1.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code_point.i)
   br label %return
@@ -301,25 +296,20 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
-  %success.04.i = phi i8 [ %success.1.i, %for.body.i ], [ 1, %if.else ]
+  %success.04.i = phi i1 [ %success.1.i, %for.body.i ], [ true, %if.else ]
   %call.i10 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %conv.i, ptr noundef nonnull %i.i, ptr noundef nonnull %code_point.i)
   %0 = load i32, ptr %code_point.i, align 4
   %.sink.i = select i1 %call.i10, i32 %0, i32 65533
-  %success.1.i = select i1 %call.i10, i8 %success.04.i, i8 0
+  %success.1.i = select i1 %call.i10, i1 %success.04.i, i1 false
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw(ptr noundef nonnull align 8 dereferenceable(32) %output, i32 noundef signext %.sink.i)
   %1 = load i32, ptr %i.i, align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %i.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !7
+  br i1 %cmp.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit, !llvm.loop !7
 
-for.end.loopexit.i:                               ; preds = %for.body.i
-  %2 = and i8 %success.1.i, 1
-  %3 = icmp ne i8 %2, 0
-  br label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit
-
-_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit: ; preds = %if.else, %for.end.loopexit.i
-  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %3, %for.end.loopexit.i ]
+_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit: ; preds = %for.body.i, %if.else
+  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %success.1.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code_point.i)
   br label %return
@@ -485,25 +475,20 @@ entry:
   br i1 %cmp3.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %success.04.i = phi i8 [ %success.1.i, %for.body.i ], [ 1, %entry ]
+  %success.04.i = phi i1 [ %success.1.i, %for.body.i ], [ true, %entry ]
   %call.i = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKwiPiPj(ptr noundef %src, i32 noundef %conv.i, ptr noundef nonnull %i.i, ptr noundef nonnull %code_point.i)
   %0 = load i32, ptr %code_point.i, align 4
   %.sink.i = select i1 %call.i, i32 %0, i32 65533
-  %success.1.i = select i1 %call.i, i8 %success.04.i, i8 0
+  %success.1.i = select i1 %call.i, i1 %success.04.i, i1 false
   %call1.i = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %.sink.i, ptr noundef nonnull %output)
   %1 = load i32, ptr %i.i, align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %i.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit, !llvm.loop !8
 
-for.end.loopexit.i:                               ; preds = %for.body.i
-  %2 = and i8 %success.1.i, 1
-  %3 = icmp ne i8 %2, 0
-  br label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit
-
-_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit: ; preds = %entry, %for.end.loopexit.i
-  %success.0.lcssa.i = phi i1 [ true, %entry ], [ %3, %for.end.loopexit.i ]
+_ZN4base12_GLOBAL__N_114ConvertUnicodeIwNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit: ; preds = %for.body.i, %entry
+  %success.0.lcssa.i = phi i1 [ true, %entry ], [ %success.1.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code_point.i)
   ret i1 %success.0.lcssa.i
@@ -593,25 +578,20 @@ entry:
   br i1 %cmp3.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %success.04.i = phi i8 [ %success.1.i, %for.body.i ], [ 1, %entry ]
+  %success.04.i = phi i1 [ %success.1.i, %for.body.i ], [ true, %entry ]
   %call.i = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %src, i32 noundef %conv.i, ptr noundef nonnull %i.i, ptr noundef nonnull %code_point.i)
   %0 = load i32, ptr %code_point.i, align 4
   %.sink.i = select i1 %call.i, i32 %0, i32 65533
-  %success.1.i = select i1 %call.i, i8 %success.04.i, i8 0
+  %success.1.i = select i1 %call.i, i1 %success.04.i, i1 false
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw(ptr noundef nonnull align 8 dereferenceable(32) %output, i32 noundef signext %.sink.i)
   %1 = load i32, ptr %i.i, align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %i.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit, !llvm.loop !9
 
-for.end.loopexit.i:                               ; preds = %for.body.i
-  %2 = and i8 %success.1.i, 1
-  %3 = icmp ne i8 %2, 0
-  br label %_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit
-
-_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit: ; preds = %entry, %for.end.loopexit.i
-  %success.0.lcssa.i = phi i1 [ true, %entry ], [ %3, %for.end.loopexit.i ]
+_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbPKT_mPT0_.exit: ; preds = %for.body.i, %entry
+  %success.0.lcssa.i = phi i1 [ true, %entry ], [ %success.1.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code_point.i)
   ret i1 %success.0.lcssa.i
@@ -713,25 +693,20 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
-  %success.04.i = phi i8 [ %success.1.i, %for.body.i ], [ 1, %if.else ]
+  %success.04.i = phi i1 [ %success.1.i, %for.body.i ], [ true, %if.else ]
   %call.i10 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %conv.i, ptr noundef nonnull %i.i, ptr noundef nonnull %code_point.i)
   %0 = load i32, ptr %code_point.i, align 4
   %.sink.i = select i1 %call.i10, i32 %0, i32 65533
-  %success.1.i = select i1 %call.i10, i8 %success.04.i, i8 0
+  %success.1.i = select i1 %call.i10, i1 %success.04.i, i1 false
   %call1.i = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %.sink.i, ptr noundef %output)
   %1 = load i32, ptr %i.i, align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %i.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit, !llvm.loop !10
 
-for.end.loopexit.i:                               ; preds = %for.body.i
-  %2 = and i8 %success.1.i, 1
-  %3 = icmp ne i8 %2, 0
-  br label %_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit
-
-_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit: ; preds = %if.else, %for.end.loopexit.i
-  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %3, %for.end.loopexit.i ]
+_ZN4base12_GLOBAL__N_114ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_.exit: ; preds = %for.body.i, %if.else
+  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %success.1.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code_point.i)
   br label %return
@@ -863,25 +838,20 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
-  %success.04.i = phi i8 [ %success.1.i, %for.body.i ], [ 1, %if.else ]
+  %success.04.i = phi i1 [ %success.1.i, %for.body.i ], [ true, %if.else ]
   %call.i10 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %src, i32 noundef %conv.i, ptr noundef nonnull %i.i, ptr noundef nonnull %code_point.i)
   %0 = load i32, ptr %code_point.i, align 4
   %.sink.i = select i1 %call.i10, i32 %0, i32 65533
-  %success.1.i = select i1 %call.i10, i8 %success.04.i, i8 0
+  %success.1.i = select i1 %call.i10, i1 %success.04.i, i1 false
   %call1.i = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.sink.i, ptr noundef %output)
   %1 = load i32, ptr %i.i, align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %i.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit, !llvm.loop !11
 
-for.end.loopexit.i:                               ; preds = %for.body.i
-  %2 = and i8 %success.1.i, 1
-  %3 = icmp ne i8 %2, 0
-  br label %_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit
-
-_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit: ; preds = %if.else, %for.end.loopexit.i
-  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %3, %for.end.loopexit.i ]
+_ZN4base12_GLOBAL__N_114ConvertUnicodeItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKT_mPT0_.exit: ; preds = %for.body.i, %if.else
+  %success.0.lcssa.i = phi i1 [ true, %if.else ], [ %success.1.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code_point.i)
   br label %return

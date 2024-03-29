@@ -472,9 +472,8 @@ define dso_local void @StrategyInitialize(i1 noundef zeroext %0) local_unnamed_a
   %5 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef 28, ptr noundef nonnull %2) #8
   store ptr %5, ptr @StrategyControl, align 8
   %6 = load i8, ptr %2, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %18
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %18, label %8
 
 8:                                                ; preds = %1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15

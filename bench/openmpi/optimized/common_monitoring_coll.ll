@@ -205,9 +205,8 @@ define internal fastcc void @mca_common_monitoring_coll_cache(ptr nocapture noun
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -304,7 +303,7 @@ thread-pre-split:                                 ; preds = %47
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %123 ]
-  %.02546 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %123 ]
+  %.02545 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %123 ]
   %76 = load ptr, ptr %61, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 256
   %78 = load ptr, ptr %77, align 8
@@ -334,9 +333,8 @@ thread-pre-split:                                 ; preds = %47
 95:                                               ; preds = %85
   %96 = getelementptr inbounds i8, ptr %89, i64 8
   %97 = load i8, ptr @opal_uses_threads, align 1
-  %98 = and i8 %97, 1
-  %.not.i.i.i.i38 = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i38, label %101, label %99
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %99, label %101
 
 99:                                               ; preds = %95
   %100 = atomicrmw volatile add ptr %96, i32 1 monotonic, align 4
@@ -373,9 +371,9 @@ ompi_group_get_proc_ptr.exit.i31:                 ; preds = %101, %99, %85, %.lr
   %113 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
   %114 = call i32 @opal_hash_table_get_value_uint64(ptr noundef %113, i64 noundef %.sroa.05.0.i36, ptr noundef nonnull %2) #14
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %mca_common_monitoring_get_world_rank.exit39
+  br i1 %115, label %116, label %mca_common_monitoring_get_world_rank.exit38
 
-mca_common_monitoring_get_world_rank.exit39:      ; preds = %112
+mca_common_monitoring_get_world_rank.exit38:      ; preds = %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %123
 
@@ -383,14 +381,14 @@ mca_common_monitoring_get_world_rank.exit39:      ; preds = %112
   %117 = load i64, ptr %2, align 8
   %118 = trunc i64 %117 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %119 = sext i32 %.02546 to i64
+  %119 = sext i32 %.02545 to i64
   %120 = getelementptr inbounds i8, ptr %72, i64 %119
   %121 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %118) #14
-  %122 = add nsw i32 %121, %.02546
+  %122 = add nsw i32 %121, %.02545
   br label %123
 
-123:                                              ; preds = %mca_common_monitoring_get_world_rank.exit39, %116
-  %.1 = phi i32 [ %122, %116 ], [ %.02546, %mca_common_monitoring_get_world_rank.exit39 ]
+123:                                              ; preds = %mca_common_monitoring_get_world_rank.exit38, %116
+  %.1 = phi i32 [ %122, %116 ], [ %.02545, %mca_common_monitoring_get_world_rank.exit38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
@@ -431,9 +429,8 @@ define void @mca_common_monitoring_coll_finalize() local_unnamed_addr #0 {
   %4 = load ptr, ptr @comm_data, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = atomicrmw volatile add ptr %5, i32 -1 monotonic, align 4
@@ -466,8 +463,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %8, %11
   tail call void %21(ptr noundef nonnull %4) #14
   %22 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %23 = load ptr, ptr %22, align 8
-  %.not.i1 = icmp eq ptr %23, null
-  br i1 %.not.i1, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr @comm_data, align 8
@@ -637,9 +634,8 @@ define internal fastcc void @mca_common_monitoring_coll_cond_release(ptr noundef
   tail call void @free(ptr noundef %12) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i8, ptr @opal_uses_threads, align 1
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %19, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %4
   %17 = atomicrmw volatile add ptr %13, i32 -1 monotonic, align 4
@@ -672,8 +668,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
   tail call void %29(ptr noundef nonnull %0) #14
   %30 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %31 = load ptr, ptr %30, align 8
-  %.not.i9 = icmp eq ptr %31, null
-  br i1 %.not.i9, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %24
   tail call void @free(ptr noundef %0) #14

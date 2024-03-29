@@ -127,9 +127,8 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %attached = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load i8, ptr %attached, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else3, label %if.end4
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_attach) #11
@@ -137,8 +136,8 @@ if.else3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %state = getelementptr inbounds i8, ptr %0, i64 268
-  %3 = load i32, ptr %state, align 4
-  %cmp5 = icmp eq i32 %3, 0
+  %2 = load i32, ptr %state, align 4
+  %cmp5 = icmp eq i32 %2, 0
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
@@ -147,28 +146,28 @@ if.else7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   %speedmask.i = getelementptr inbounds i8, ptr %0, i64 220
-  %4 = load i32, ptr %speedmask.i, align 4
+  %3 = load i32, ptr %speedmask.i, align 4
   %speedmask2.i = getelementptr inbounds i8, ptr %port, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end8
   %indvars.iv.i = phi i64 [ 0, %if.end8 ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [4 x i32], ptr @usb_pick_speed.speeds, i64 0, i64 %indvars.iv.i
-  %5 = load i32, ptr %arrayidx.i, align 4
-  %shl.i = shl nuw i32 1, %5
-  %and.i = and i32 %shl.i, %4
+  %4 = load i32, ptr %arrayidx.i, align 4
+  %shl.i = shl nuw i32 1, %4
+  %and.i = and i32 %shl.i, %3
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %6 = load i32, ptr %speedmask2.i, align 8
-  %and6.i = and i32 %6, %shl.i
+  %5 = load i32, ptr %speedmask2.i, align 8
+  %and6.i = and i32 %5, %shl.i
   %tobool7.not.i = icmp eq i32 %and6.i, 0
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %speed.i = getelementptr inbounds i8, ptr %0, i64 216
-  store i32 %5, ptr %speed.i, align 8
+  store i32 %4, ptr %speed.i, align 8
   br label %usb_pick_speed.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -178,9 +177,9 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 
 usb_pick_speed.exit:                              ; preds = %for.inc.i, %if.then.i
   %ops = getelementptr inbounds i8, ptr %port, i64 32
-  %7 = load ptr, ptr %ops, align 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull %port) #12
+  %6 = load ptr, ptr %ops, align 8
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7(ptr noundef nonnull %port) #12
   store i32 1, ptr %state, align 4
   tail call void @usb_device_handle_attach(ptr noundef nonnull %0) #12
   ret void
@@ -253,9 +252,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   tail call void @usb_attach(ptr noundef nonnull %port)
   %attached.i = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load i8, ptr %attached.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %usb_device_reset.exit, label %if.end.i4
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.end.i4, label %usb_device_reset.exit
 
 if.end.i4:                                        ; preds = %lor.lhs.false.i
   tail call void @usb_device_handle_reset(ptr noundef nonnull %0) #12
@@ -279,9 +277,8 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %attached = getelementptr inbounds i8, ptr %dev, i64 264
   %0 = load i8, ptr %attached, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @usb_device_handle_reset(ptr noundef nonnull %dev) #12
@@ -542,75 +539,74 @@ usb_packet_check_state.exit:                      ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %usb_packet_check_state.exit
   %halted = getelementptr inbounds i8, ptr %0, i64 13
-  %port = getelementptr inbounds i8, ptr %dev, i64 160
   %dev11 = getelementptr inbounds i8, ptr %0, i64 16
+  %port = getelementptr inbounds i8, ptr %dev, i64 160
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %9 = phi ptr [ %8, %while.body.lr.ph ], [ %15, %while.cond.backedge ]
+  %9 = phi ptr [ %8, %while.body.lr.ph ], [ %14, %while.cond.backedge ]
   %10 = load i8, ptr %halted, align 1
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %10 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %status = getelementptr inbounds i8, ptr %9, i64 84
   store i32 -8, ptr %status, align 4
-  %12 = load ptr, ptr %port, align 8
-  %ops = getelementptr inbounds i8, ptr %12, i64 32
-  %13 = load ptr, ptr %ops, align 8
-  %complete = getelementptr inbounds i8, ptr %13, i64 32
-  %14 = load ptr, ptr %complete, align 8
-  tail call void %14(ptr noundef %12, ptr noundef nonnull %9) #12
+  %11 = load ptr, ptr %port, align 8
+  %ops = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = load ptr, ptr %ops, align 8
+  %complete = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = load ptr, ptr %complete, align 8
+  tail call void %13(ptr noundef %11, ptr noundef nonnull %9) #12
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %if.end10
-  %15 = load ptr, ptr %queue, align 8
-  %cmp.not = icmp eq ptr %15, null
+  %14 = load ptr, ptr %queue, align 8
+  %cmp.not = icmp eq ptr %14, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
 if.end:                                           ; preds = %while.body
   %state = getelementptr inbounds i8, ptr %9, i64 92
-  %16 = load i32, ptr %state, align 4
-  switch i32 %16, label %if.end.i18 [
+  %15 = load i32, ptr %state, align 4
+  switch i32 %15, label %if.end.i18 [
     i32 3, label %while.end
     i32 2, label %usb_packet_check_state.exit32
   ]
 
 if.end.i18:                                       ; preds = %if.end
   %ep.i19 = getelementptr inbounds i8, ptr %9, i64 16
-  %17 = load ptr, ptr %ep.i19, align 8
-  %dev1.i20 = getelementptr inbounds i8, ptr %17, i64 16
-  %18 = load ptr, ptr %dev1.i20, align 8
-  %19 = getelementptr i8, ptr %18, i64 88
-  %.val.i21 = load ptr, ptr %19, align 8
+  %16 = load ptr, ptr %ep.i19, align 8
+  %dev1.i20 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load ptr, ptr %dev1.i20, align 8
+  %18 = getelementptr i8, ptr %17, i64 88
+  %.val.i21 = load ptr, ptr %18, align 8
   %busnr.i22 = getelementptr inbounds i8, ptr %.val.i21, i64 128
-  %20 = load i32, ptr %busnr.i22, align 8
-  %port.i23 = getelementptr inbounds i8, ptr %18, i64 160
-  %21 = load ptr, ptr %port.i23, align 8
-  %22 = load i8, ptr %17, align 8
-  %cmp.i.i24 = icmp ult i32 %16, 6
+  %19 = load i32, ptr %busnr.i22, align 8
+  %port.i23 = getelementptr inbounds i8, ptr %17, i64 160
+  %20 = load ptr, ptr %port.i23, align 8
+  %21 = load i8, ptr %16, align 8
+  %cmp.i.i24 = icmp ult i32 %15, 6
   br i1 %cmp.i.i24, label %if.then.i.i29, label %usb_packet_state_name.exit.i25
 
 if.then.i.i29:                                    ; preds = %if.end.i18
-  %conv.i.i30 = zext nneg i32 %16 to i64
+  %conv.i.i30 = zext nneg i32 %15 to i64
   %arrayidx.i.i31 = getelementptr [6 x ptr], ptr @usb_packet_state_name.name, i64 0, i64 %conv.i.i30
-  %23 = load ptr, ptr %arrayidx.i.i31, align 8
+  %22 = load ptr, ptr %arrayidx.i.i31, align 8
   br label %usb_packet_state_name.exit.i25
 
 usb_packet_state_name.exit.i25:                   ; preds = %if.then.i.i29, %if.end.i18
-  %retval.0.i.i26 = phi ptr [ %23, %if.then.i.i29 ], [ @.str.43, %if.end.i18 ]
-  %conv.i27 = zext i8 %22 to i32
-  %path.i28 = getelementptr inbounds i8, ptr %21, i64 16
-  tail call fastcc void @trace_usb_packet_state_fault(i32 noundef %20, ptr noundef nonnull %path.i28, i32 noundef %conv.i27, ptr noundef nonnull %9, ptr noundef %retval.0.i.i26, ptr noundef nonnull @.str.39)
+  %retval.0.i.i26 = phi ptr [ %22, %if.then.i.i29 ], [ @.str.43, %if.end.i18 ]
+  %conv.i27 = zext i8 %21 to i32
+  %path.i28 = getelementptr inbounds i8, ptr %20, i64 16
+  tail call fastcc void @trace_usb_packet_state_fault(i32 noundef %19, ptr noundef nonnull %path.i28, i32 noundef %conv.i27, ptr noundef nonnull %9, ptr noundef %retval.0.i.i26, ptr noundef nonnull @.str.39)
   tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_packet_check_state) #11
   unreachable
 
 usb_packet_check_state.exit32:                    ; preds = %if.end
   tail call fastcc void @usb_process_one(ptr noundef nonnull %9)
   %status7 = getelementptr inbounds i8, ptr %9, i64 84
-  %24 = load i32, ptr %status7, align 4
-  %cmp8 = icmp eq i32 %24, -6
+  %23 = load i32, ptr %status7, align 4
+  %cmp8 = icmp eq i32 %23, -6
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %usb_packet_check_state.exit32
@@ -618,8 +614,8 @@ if.then9:                                         ; preds = %usb_packet_check_st
   br label %while.end
 
 if.end10:                                         ; preds = %usb_packet_check_state.exit32
-  %25 = load ptr, ptr %dev11, align 8
-  tail call void @usb_packet_complete_one(ptr noundef %25, ptr noundef nonnull %9)
+  %24 = load ptr, ptr %dev11, align 8
+  tail call void @usb_packet_complete_one(ptr noundef %24, ptr noundef nonnull %9)
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end, %usb_packet_check_state.exit, %if.then9
@@ -636,20 +632,19 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %attached = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load i8, ptr %attached, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
   %state = getelementptr inbounds i8, ptr %0, i64 268
-  %3 = load i32, ptr %state, align 4
-  %cmp3.not = icmp eq i32 %3, 3
+  %2 = load i32, ptr %state, align 4
+  %cmp3.not = icmp eq i32 %2, 3
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
   %addr4 = getelementptr inbounds i8, ptr %0, i64 224
-  %4 = load i8, ptr %addr4, align 8
-  %cmp6 = icmp eq i8 %4, %addr
+  %3 = load i8, ptr %addr4, align 8
+  %cmp6 = icmp eq i8 %3, %addr
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
@@ -730,14 +725,13 @@ usb_packet_state_name.exit.i:                     ; preds = %if.then.i.i, %if.en
 if.end13:                                         ; preds = %if.end8
   %halted = getelementptr inbounds i8, ptr %0, i64 13
   %9 = load i8, ptr %halted, align 1
-  %10 = and i8 %9, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.end23, label %if.then15
+  %tobool = trunc i8 %9 to i1
+  br i1 %tobool, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.end13
   %queue = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load ptr, ptr %queue, align 8
-  %cmp17 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %queue, align 8
+  %cmp17 = icmp eq ptr %10, null
   br i1 %cmp17, label %if.end20, label %if.else19
 
 if.else19:                                        ; preds = %if.then15
@@ -750,39 +744,38 @@ if.end20:                                         ; preds = %if.then15
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end20, %if.end13
-  %12 = phi ptr [ %.pre, %if.end20 ], [ %0, %if.end13 ]
-  %queue25 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %queue25, align 8
-  %cmp26 = icmp eq ptr %13, null
+  %11 = phi ptr [ %.pre, %if.end20 ], [ %0, %if.end13 ]
+  %queue25 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = load ptr, ptr %queue25, align 8
+  %cmp26 = icmp eq ptr %12, null
   br i1 %cmp26, label %if.then31, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end23
-  %pipeline = getelementptr inbounds i8, ptr %12, i64 12
-  %14 = load i8, ptr %pipeline, align 4
-  %15 = and i8 %14, 1
-  %tobool28.not = icmp eq i8 %15, 0
-  br i1 %tobool28.not, label %lor.lhs.false29, label %if.then31
+  %pipeline = getelementptr inbounds i8, ptr %11, i64 12
+  %13 = load i8, ptr %pipeline, align 4
+  %tobool28 = trunc i8 %13 to i1
+  br i1 %tobool28, label %if.then31, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false
   %stream = getelementptr inbounds i8, ptr %p, i64 24
-  %16 = load i32, ptr %stream, align 8
-  %tobool30.not = icmp eq i32 %16, 0
+  %14 = load i32, ptr %stream, align 8
+  %tobool30.not = icmp eq i32 %14, 0
   br i1 %tobool30.not, label %if.else90, label %if.then31
 
 if.then31:                                        ; preds = %lor.lhs.false29, %lor.lhs.false, %if.end23
   tail call fastcc void @usb_process_one(ptr noundef nonnull %p)
   %status32 = getelementptr inbounds i8, ptr %p, i64 84
-  %17 = load i32, ptr %status32, align 4
-  switch i32 %17, label %if.else68 [
+  %15 = load i32, ptr %status32, align 4
+  switch i32 %15, label %if.else68 [
     i32 -6, label %if.then34
     i32 -7, label %if.then67
   ]
 
 if.then34:                                        ; preds = %if.then31
-  %18 = load ptr, ptr %ep, align 8
-  %type = getelementptr inbounds i8, ptr %18, i64 2
-  %19 = load i8, ptr %type, align 2
-  switch i8 %19, label %if.end50 [
+  %16 = load ptr, ptr %ep, align 8
+  %type = getelementptr inbounds i8, ptr %16, i64 2
+  %17 = load i8, ptr %type, align 2
+  switch i8 %17, label %if.end50 [
     i8 1, label %if.else39
     i8 3, label %lor.lhs.false46
   ]
@@ -793,8 +786,8 @@ if.else39:                                        ; preds = %if.then34
 
 lor.lhs.false46:                                  ; preds = %if.then34
   %flags = getelementptr inbounds i8, ptr %dev, i64 192
-  %20 = load i32, ptr %flags, align 8
-  %and = and i32 %20, 1
+  %18 = load i32, ptr %flags, align 8
+  %and = and i32 %18, 1
   %tobool47.not = icmp eq i32 %and, 0
   br i1 %tobool47.not, label %if.else49, label %if.end50
 
@@ -806,14 +799,14 @@ if.end50:                                         ; preds = %if.then34, %lor.lhs
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 3)
   %queue51 = getelementptr inbounds i8, ptr %p, i64 104
   store ptr null, ptr %queue51, align 8
-  %21 = load ptr, ptr %ep, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %21, i64 32
-  %22 = load ptr, ptr %tql_prev, align 8
+  %19 = load ptr, ptr %ep, align 8
+  %tql_prev = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = load ptr, ptr %tql_prev, align 8
   %tql_prev55 = getelementptr inbounds i8, ptr %p, i64 112
-  store ptr %22, ptr %tql_prev55, align 8
-  store ptr %p, ptr %22, align 8
-  %23 = load ptr, ptr %ep, align 8
-  %tql_prev62 = getelementptr inbounds i8, ptr %23, i64 32
+  store ptr %20, ptr %tql_prev55, align 8
+  store ptr %p, ptr %20, align 8
+  %21 = load ptr, ptr %ep, align 8
+  %tql_prev62 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %queue51, ptr %tql_prev62, align 8
   br label %if.end91
 
@@ -821,36 +814,35 @@ if.then67:                                        ; preds = %if.then31
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 2)
   %queue.i = getelementptr inbounds i8, ptr %p, i64 104
   store ptr null, ptr %queue.i, align 8
-  %24 = load ptr, ptr %ep, align 8
-  %tql_prev.i = getelementptr inbounds i8, ptr %24, i64 32
-  %25 = load ptr, ptr %tql_prev.i, align 8
+  %22 = load ptr, ptr %ep, align 8
+  %tql_prev.i = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = load ptr, ptr %tql_prev.i, align 8
   %tql_prev3.i = getelementptr inbounds i8, ptr %p, i64 112
-  store ptr %25, ptr %tql_prev3.i, align 8
-  store ptr %p, ptr %25, align 8
-  %26 = load ptr, ptr %ep, align 8
-  %tql_prev10.i = getelementptr inbounds i8, ptr %26, i64 32
+  store ptr %23, ptr %tql_prev3.i, align 8
+  store ptr %p, ptr %23, align 8
+  %24 = load ptr, ptr %ep, align 8
+  %tql_prev10.i = getelementptr inbounds i8, ptr %24, i64 32
   store ptr %queue.i, ptr %tql_prev10.i, align 8
   store i32 -6, ptr %status32, align 4
   br label %if.end91
 
 if.else68:                                        ; preds = %if.then31
   %stream69 = getelementptr inbounds i8, ptr %p, i64 24
-  %27 = load i32, ptr %stream69, align 8
-  %tobool70.not = icmp eq i32 %27, 0
+  %25 = load i32, ptr %stream69, align 8
+  %tobool70.not = icmp eq i32 %25, 0
   br i1 %tobool70.not, label %lor.lhs.false71, label %if.end82
 
 lor.lhs.false71:                                  ; preds = %if.else68
-  %28 = load ptr, ptr %ep, align 8
-  %pipeline73 = getelementptr inbounds i8, ptr %28, i64 12
-  %29 = load i8, ptr %pipeline73, align 4
-  %30 = and i8 %29, 1
-  %tobool74.not = icmp eq i8 %30, 0
-  br i1 %tobool74.not, label %if.end82, label %lor.lhs.false75
+  %26 = load ptr, ptr %ep, align 8
+  %pipeline73 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = load i8, ptr %pipeline73, align 4
+  %tobool74 = trunc i8 %27 to i1
+  br i1 %tobool74, label %lor.lhs.false75, label %if.end82
 
 lor.lhs.false75:                                  ; preds = %lor.lhs.false71
-  %queue77 = getelementptr inbounds i8, ptr %28, i64 24
-  %31 = load ptr, ptr %queue77, align 8
-  %cmp78 = icmp eq ptr %31, null
+  %queue77 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load ptr, ptr %queue77, align 8
+  %cmp78 = icmp eq ptr %28, null
   br i1 %cmp78, label %if.end82, label %if.else81
 
 if.else81:                                        ; preds = %lor.lhs.false75
@@ -858,7 +850,7 @@ if.else81:                                        ; preds = %lor.lhs.false75
   unreachable
 
 if.end82:                                         ; preds = %if.else68, %lor.lhs.false71, %lor.lhs.false75
-  %cmp84.not = icmp eq i32 %17, -2
+  %cmp84.not = icmp eq i32 %15, -2
   br i1 %cmp84.not, label %if.end91, label %if.then86
 
 if.then86:                                        ; preds = %if.end82
@@ -870,14 +862,14 @@ if.else90:                                        ; preds = %lor.lhs.false29
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 2)
   %queue.i36 = getelementptr inbounds i8, ptr %p, i64 104
   store ptr null, ptr %queue.i36, align 8
-  %32 = load ptr, ptr %ep, align 8
-  %tql_prev.i38 = getelementptr inbounds i8, ptr %32, i64 32
-  %33 = load ptr, ptr %tql_prev.i38, align 8
+  %29 = load ptr, ptr %ep, align 8
+  %tql_prev.i38 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = load ptr, ptr %tql_prev.i38, align 8
   %tql_prev3.i39 = getelementptr inbounds i8, ptr %p, i64 112
-  store ptr %33, ptr %tql_prev3.i39, align 8
-  store ptr %p, ptr %33, align 8
-  %34 = load ptr, ptr %ep, align 8
-  %tql_prev10.i40 = getelementptr inbounds i8, ptr %34, i64 32
+  store ptr %30, ptr %tql_prev3.i39, align 8
+  store ptr %p, ptr %30, align 8
+  %31 = load ptr, ptr %ep, align 8
+  %tql_prev10.i40 = getelementptr inbounds i8, ptr %31, i64 32
   store ptr %queue.i36, ptr %tql_prev10.i40, align 8
   %status.i41 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -6, ptr %status.i41, align 4
@@ -1402,17 +1394,16 @@ land.lhs.true5.i.i:                               ; preds = %usb_packet_state_na
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %12 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %14 = load i64, ptr %_now.i.i, align 8
+  %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %3, ptr noundef nonnull %path, i32 noundef %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i12) #12
+  %14 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %3, ptr noundef nonnull %path, i32 noundef %conv, ptr noundef nonnull %p, ptr noundef %retval.0.i, ptr noundef %retval.0.i12) #12
   br label %trace_usb_packet_state_change.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1425,63 +1416,62 @@ trace_usb_packet_state_change.exit:               ; preds = %usb_packet_state_na
 
 if.else:                                          ; preds = %entry
   %state7 = getelementptr inbounds i8, ptr %p, i64 92
-  %16 = load i32, ptr %state7, align 4
-  %cmp.i17 = icmp ult i32 %16, 6
+  %15 = load i32, ptr %state7, align 4
+  %cmp.i17 = icmp ult i32 %15, 6
   br i1 %cmp.i17, label %if.then.i19, label %usb_packet_state_name.exit22
 
 if.then.i19:                                      ; preds = %if.else
-  %conv.i20 = zext nneg i32 %16 to i64
+  %conv.i20 = zext nneg i32 %15 to i64
   %arrayidx.i21 = getelementptr [6 x ptr], ptr @usb_packet_state_name.name, i64 0, i64 %conv.i20
-  %17 = load ptr, ptr %arrayidx.i21, align 8
+  %16 = load ptr, ptr %arrayidx.i21, align 8
   br label %usb_packet_state_name.exit22
 
 usb_packet_state_name.exit22:                     ; preds = %if.else, %if.then.i19
-  %retval.0.i18 = phi ptr [ %17, %if.then.i19 ], [ @.str.43, %if.else ]
+  %retval.0.i18 = phi ptr [ %16, %if.then.i19 ], [ @.str.43, %if.else ]
   %cmp.i23 = icmp ult i32 %state, 6
   br i1 %cmp.i23, label %if.then.i25, label %usb_packet_state_name.exit28
 
 if.then.i25:                                      ; preds = %usb_packet_state_name.exit22
   %conv.i26 = zext nneg i32 %state to i64
   %arrayidx.i27 = getelementptr [6 x ptr], ptr @usb_packet_state_name.name, i64 0, i64 %conv.i26
-  %18 = load ptr, ptr %arrayidx.i27, align 8
+  %17 = load ptr, ptr %arrayidx.i27, align 8
   br label %usb_packet_state_name.exit28
 
 usb_packet_state_name.exit28:                     ; preds = %usb_packet_state_name.exit22, %if.then.i25
-  %retval.0.i24 = phi ptr [ %18, %if.then.i25 ], [ @.str.43, %usb_packet_state_name.exit22 ]
+  %retval.0.i24 = phi ptr [ %17, %if.then.i25 ], [ @.str.43, %usb_packet_state_name.exit22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i29)
-  %19 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i30 = icmp ne i32 %19, 0
-  %20 = load i16, ptr @_TRACE_USB_PACKET_STATE_CHANGE_DSTATE, align 2
-  %tobool4.i.i31 = icmp ne i16 %20, 0
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i30 = icmp ne i32 %18, 0
+  %19 = load i16, ptr @_TRACE_USB_PACKET_STATE_CHANGE_DSTATE, align 2
+  %tobool4.i.i31 = icmp ne i16 %19, 0
   %or.cond.i.i32 = select i1 %tobool.i.i30, i1 %tobool4.i.i31, i1 false
   br i1 %or.cond.i.i32, label %land.lhs.true5.i.i33, label %trace_usb_packet_state_change.exit43
 
 land.lhs.true5.i.i33:                             ; preds = %usb_packet_state_name.exit28
-  %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i34 = and i32 %21, 32768
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i34 = and i32 %20, 32768
   %cmp.i.not.i.i35 = icmp eq i32 %and.i.i.i34, 0
   br i1 %cmp.i.not.i.i35, label %trace_usb_packet_state_change.exit43, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %land.lhs.true5.i.i33
-  %22 = load i8, ptr @message_with_timestamp, align 1
-  %23 = and i8 %22, 1
-  %tobool7.not.i.i37 = icmp eq i8 %23, 0
-  br i1 %tobool7.not.i.i37, label %if.else.i.i42, label %if.then8.i.i38
+  %21 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i37 = trunc i8 %21 to i1
+  br i1 %tobool7.i.i37, label %if.then8.i.i39, label %if.else.i.i38
 
-if.then8.i.i38:                                   ; preds = %if.then.i.i36
-  %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #12
-  %call10.i.i40 = tail call i32 @qemu_get_thread_id() #12
-  %24 = load i64, ptr %_now.i.i29, align 8
-  %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i29, i64 8
-  %25 = load i64, ptr %tv_usec.i.i41, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i40, i64 noundef %24, i64 noundef %25, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #12
+if.then8.i.i39:                                   ; preds = %if.then.i.i36
+  %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #12
+  %call10.i.i41 = tail call i32 @qemu_get_thread_id() #12
+  %22 = load i64, ptr %_now.i.i29, align 8
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i29, i64 8
+  %23 = load i64, ptr %tv_usec.i.i42, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i41, i64 noundef %22, i64 noundef %23, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #12
   br label %trace_usb_packet_state_change.exit43
 
-if.else.i.i42:                                    ; preds = %if.then.i.i36
+if.else.i.i38:                                    ; preds = %if.then.i.i36
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef -1, ptr noundef nonnull @.str.16, i32 noundef -1, ptr noundef nonnull %p, ptr noundef %retval.0.i18, ptr noundef %retval.0.i24) #12
   br label %trace_usb_packet_state_change.exit43
 
-trace_usb_packet_state_change.exit43:             ; preds = %usb_packet_state_name.exit28, %land.lhs.true5.i.i33, %if.then8.i.i38, %if.else.i.i42
+trace_usb_packet_state_change.exit43:             ; preds = %usb_packet_state_name.exit28, %land.lhs.true5.i.i33, %if.then8.i.i39, %if.else.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i29)
   br label %if.end
 
@@ -1529,17 +1519,16 @@ if.else6:                                         ; preds = %if.end, %if.end
 lor.lhs.false10:                                  ; preds = %if.end
   %short_not_ok = getelementptr inbounds i8, ptr %p, i64 80
   %4 = load i8, ptr %short_not_ok, align 8
-  %5 = and i8 %4, 1
-  %tobool11.not = icmp eq i8 %5, 0
-  br i1 %tobool11.not, label %if.end16, label %land.lhs.true12
+  %tobool11 = trunc i8 %4 to i1
+  br i1 %tobool11, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %lor.lhs.false10
   %actual_length = getelementptr inbounds i8, ptr %p, i64 88
-  %6 = load i32, ptr %actual_length, align 8
-  %conv = sext i32 %6 to i64
+  %5 = load i32, ptr %actual_length, align 8
+  %conv = sext i32 %5 to i64
   %size = getelementptr inbounds i8, ptr %p, i64 64
-  %7 = load i64, ptr %size, align 8
-  %cmp13 = icmp ugt i64 %7, %conv
+  %6 = load i64, ptr %size, align 8
+  %cmp13 = icmp ugt i64 %6, %conv
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end, %land.lhs.true12
@@ -1551,24 +1540,24 @@ if.end16:                                         ; preds = %if.then15, %land.lh
   tail call void @usb_pcap_data(ptr noundef nonnull %p, i1 noundef zeroext false) #12
   tail call void @usb_packet_set_state(ptr noundef nonnull %p, i32 noundef 4)
   %queue17 = getelementptr inbounds i8, ptr %p, i64 104
-  %8 = load ptr, ptr %queue17, align 8
-  %cmp18.not = icmp eq ptr %8, null
+  %7 = load ptr, ptr %queue17, align 8
+  %cmp18.not = icmp eq ptr %7, null
   %tql_prev27 = getelementptr inbounds i8, ptr %p, i64 112
-  %9 = load ptr, ptr %tql_prev27, align 8
+  %8 = load ptr, ptr %tql_prev27, align 8
   %tql_prev29 = getelementptr inbounds i8, ptr %0, i64 32
-  %tql_prev24 = getelementptr inbounds i8, ptr %8, i64 112
+  %tql_prev24 = getelementptr inbounds i8, ptr %7, i64 112
   %tql_prev29.sink = select i1 %cmp18.not, ptr %tql_prev29, ptr %tql_prev24
-  store ptr %9, ptr %tql_prev29.sink, align 8
-  %10 = load ptr, ptr %queue17, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %8, ptr %tql_prev29.sink, align 8
+  %9 = load ptr, ptr %queue17, align 8
+  store ptr %9, ptr %8, align 8
   %port = getelementptr inbounds i8, ptr %dev, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queue17, i8 0, i64 16, i1 false)
-  %11 = load ptr, ptr %port, align 8
-  %ops = getelementptr inbounds i8, ptr %11, i64 32
-  %12 = load ptr, ptr %ops, align 8
-  %complete = getelementptr inbounds i8, ptr %12, i64 32
-  %13 = load ptr, ptr %complete, align 8
-  tail call void %13(ptr noundef %11, ptr noundef nonnull %p) #12
+  %10 = load ptr, ptr %port, align 8
+  %ops = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = load ptr, ptr %ops, align 8
+  %complete = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = load ptr, ptr %complete, align 8
+  tail call void %12(ptr noundef %10, ptr noundef nonnull %p) #12
   ret void
 }
 
@@ -1657,17 +1646,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, ptr noundef %port, i32 noundef %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) #12
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, ptr noundef %port, i32 noundef %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) #12
   br label %_nocheck__trace_usb_packet_state_fault.exit
 
 if.else.i:                                        ; preds = %if.then.i

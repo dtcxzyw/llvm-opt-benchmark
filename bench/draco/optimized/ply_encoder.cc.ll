@@ -597,7 +597,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit94: ; preds = %168, %167, %166
 
 174:                                              ; preds = %172, %117
   %175 = icmp sgt i32 %35, -1
-  br i1 %175, label %176, label %.thread140
+  br i1 %175, label %176, label %.thread137
 
 176:                                              ; preds = %174
   %177 = load ptr, ptr %17, align 8
@@ -609,7 +609,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit94: ; preds = %168, %167, %166
   %183 = getelementptr inbounds i8, ptr %182, i64 24
   %184 = load i8, ptr %183, align 8
   %.not80 = icmp eq i8 %184, 0
-  br i1 %.not80, label %.thread140, label %185
+  br i1 %.not80, label %.thread137, label %185
 
 185:                                              ; preds = %176
   %186 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.3)
@@ -654,7 +654,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit96: ; preds = %197, %196, %195
 203:                                              ; preds = %201
   %.pr = load i8, ptr %183, align 8
   %204 = icmp ugt i8 %.pr, 1
-  br i1 %204, label %205, label %.thread140
+  br i1 %204, label %205, label %.thread137
 
 205:                                              ; preds = %203
   %206 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.3)
@@ -697,9 +697,9 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit98: ; preds = %217, %216, %215
           to label %223 unwind label %38
 
 223:                                              ; preds = %221
-  %.pr136 = load i8, ptr %183, align 8
-  %224 = icmp ugt i8 %.pr136, 2
-  br i1 %224, label %225, label %.thread140
+  %.pr133 = load i8, ptr %183, align 8
+  %224 = icmp ugt i8 %.pr133, 2
+  br i1 %224, label %225, label %.thread137
 
 225:                                              ; preds = %223
   %226 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.3)
@@ -739,14 +739,14 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit100: ; preds = %237, %236, %23
 
 241:                                              ; preds = %239
   %242 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %240, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %.thread137 unwind label %38
+          to label %.thread134 unwind label %38
 
-.thread137:                                       ; preds = %241
-  %.pr139.pr = load i8, ptr %183, align 8
-  %243 = icmp ugt i8 %.pr139.pr, 3
-  br i1 %243, label %244, label %.thread140
+.thread134:                                       ; preds = %241
+  %.pr136.pr = load i8, ptr %183, align 8
+  %243 = icmp ugt i8 %.pr136.pr, 3
+  br i1 %243, label %244, label %.thread137
 
-244:                                              ; preds = %.thread137
+244:                                              ; preds = %.thread134
   %245 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.3)
           to label %246 unwind label %38
 
@@ -784,15 +784,15 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102: ; preds = %256, %255, %25
 
 260:                                              ; preds = %258
   %261 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %259, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %.thread140 unwind label %38
+          to label %.thread137 unwind label %38
 
-.thread140:                                       ; preds = %203, %176, %223, %.thread137, %260, %174
+.thread137:                                       ; preds = %203, %176, %223, %.thread134, %260, %174
   %262 = getelementptr inbounds i8, ptr %0, i64 16
   %263 = load ptr, ptr %262, align 8
   %.not81 = icmp eq ptr %263, null
   br i1 %.not81, label %305, label %264
 
-264:                                              ; preds = %.thread140
+264:                                              ; preds = %.thread137
   %265 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.14)
           to label %266 unwind label %38
 
@@ -867,7 +867,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit104: ; preds = %299, %298, %29
   %304 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %302, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %305 unwind label %38
 
-305:                                              ; preds = %284, %303, %.thread140
+305:                                              ; preds = %284, %303, %.thread137
   %306 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.18)
           to label %307 unwind label %38
 
@@ -904,8 +904,8 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
   %326 = load ptr, ptr %17, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 160
   %328 = load i32, ptr %327, align 8
-  %.not161 = icmp eq i32 %328, 0
-  br i1 %.not161, label %._crit_edge, label %.lr.ph
+  %.not158 = icmp eq i32 %328, 0
+  br i1 %.not158, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
   %329 = zext nneg i32 %.070 to i64
@@ -913,8 +913,8 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
   %wide.trip.count = zext i32 %328 to i64
   br label %331
 
-331:                                              ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116 ]
+331:                                              ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114 ]
   %332 = load ptr, ptr %17, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 16
   %334 = load ptr, ptr %333, align 8
@@ -923,10 +923,9 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
   %337 = load ptr, ptr %0, align 8
   %338 = getelementptr inbounds i8, ptr %336, i64 100
   %339 = load i8, ptr %338, align 4
-  %340 = and i8 %339, 1
-  %.not.i = icmp eq i8 %340, 0
+  %340 = trunc i8 %339 to i1
   %341 = trunc i64 %indvars.iv to i32
-  br i1 %.not.i, label %342, label %347
+  br i1 %340, label %347, label %342
 
 342:                                              ; preds = %331
   %343 = getelementptr inbounds i8, ptr %336, i64 72
@@ -965,7 +964,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit106 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit106:     ; preds = %347, %351
-  br i1 %118, label %370, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit111
+  br i1 %118, label %370, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110
 
 370:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit106
   %371 = load ptr, ptr %17, align 8
@@ -976,9 +975,8 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit106:     ; preds = %347, %351
   %376 = load ptr, ptr %0, align 8
   %377 = getelementptr inbounds i8, ptr %375, i64 100
   %378 = load i8, ptr %377, align 4
-  %379 = and i8 %378, 1
-  %.not.i107 = icmp eq i8 %379, 0
-  br i1 %.not.i107, label %380, label %385
+  %379 = trunc i8 %378 to i1
+  br i1 %379, label %385, label %380
 
 380:                                              ; preds = %370
   %381 = getelementptr inbounds i8, ptr %375, i64 72
@@ -988,18 +986,18 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit106:     ; preds = %347, %351
   br label %385
 
 385:                                              ; preds = %370, %380
-  %.sroa.02.0.i108 = phi i32 [ %384, %380 ], [ %341, %370 ]
+  %.sroa.02.0.i107 = phi i32 [ %384, %380 ], [ %341, %370 ]
   %386 = getelementptr inbounds i8, ptr %376, i64 32
   %387 = load i64, ptr %386, align 8
   %388 = icmp slt i64 %387, 1
-  br i1 %388, label %389, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit111
+  br i1 %388, label %389, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110
 
 389:                                              ; preds = %385
   %390 = load ptr, ptr %375, align 8
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds i8, ptr %375, i64 40
   %393 = load i64, ptr %392, align 8
-  %394 = zext i32 %.sroa.02.0.i108 to i64
+  %394 = zext i32 %.sroa.02.0.i107 to i64
   %395 = mul nsw i64 %393, %394
   %396 = getelementptr i8, ptr %391, i64 %395
   %397 = getelementptr inbounds i8, ptr %375, i64 48
@@ -1014,37 +1012,37 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit106:     ; preds = %347, %351
   %406 = sub i64 %404, %405
   %407 = getelementptr inbounds i8, ptr %403, i64 %406
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %376, ptr %407, ptr noundef %399, ptr noundef %402)
-          to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit.split-lp.loopexit.split:                ; preds = %586
-  %lpad.loopexit145 = landingpad { ptr, i32 }
+  %lpad.loopexit142 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split: ; preds = %565
-  %lpad.loopexit149 = landingpad { ptr, i32 }
+  %lpad.loopexit146 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %427, %389, %351
-  %lpad.loopexit151 = landingpad { ptr, i32 }
+  %lpad.loopexit148 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %317
-  %lpad.loopexit.split-lp152 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp149 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit143.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit143.split.us ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit145.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit149, %.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit149.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit151, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp152, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit140.split.us
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit140.split.us ], [ %lpad.loopexit142, %.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit142.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit146, %.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit146.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit148, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp149, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   br label %609
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit111:     ; preds = %385, %389, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit106
-  br i1 %175, label %408, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110:     ; preds = %385, %389, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit106
+  br i1 %175, label %408, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114
 
-408:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit111
+408:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110
   %409 = load ptr, ptr %17, align 8
   %410 = getelementptr inbounds i8, ptr %409, i64 16
   %411 = load ptr, ptr %410, align 8
@@ -1053,9 +1051,8 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit111:     ; preds = %385, %389, %_ZN5dra
   %414 = load ptr, ptr %0, align 8
   %415 = getelementptr inbounds i8, ptr %413, i64 100
   %416 = load i8, ptr %415, align 4
-  %417 = and i8 %416, 1
-  %.not.i112 = icmp eq i8 %417, 0
-  br i1 %.not.i112, label %418, label %423
+  %417 = trunc i8 %416 to i1
+  br i1 %417, label %423, label %418
 
 418:                                              ; preds = %408
   %419 = getelementptr inbounds i8, ptr %413, i64 72
@@ -1065,18 +1062,18 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit111:     ; preds = %385, %389, %_ZN5dra
   br label %423
 
 423:                                              ; preds = %408, %418
-  %.sroa.02.0.i113 = phi i32 [ %422, %418 ], [ %341, %408 ]
+  %.sroa.02.0.i111 = phi i32 [ %422, %418 ], [ %341, %408 ]
   %424 = getelementptr inbounds i8, ptr %414, i64 32
   %425 = load i64, ptr %424, align 8
   %426 = icmp slt i64 %425, 1
-  br i1 %426, label %427, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116
+  br i1 %426, label %427, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114
 
 427:                                              ; preds = %423
   %428 = load ptr, ptr %413, align 8
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds i8, ptr %413, i64 40
   %431 = load i64, ptr %430, align 8
-  %432 = zext i32 %.sroa.02.0.i113 to i64
+  %432 = zext i32 %.sroa.02.0.i111 to i64
   %433 = mul nsw i64 %431, %432
   %434 = getelementptr i8, ptr %429, i64 %433
   %435 = getelementptr inbounds i8, ptr %413, i64 48
@@ -1091,17 +1088,17 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit111:     ; preds = %385, %389, %_ZN5dra
   %444 = sub i64 %442, %443
   %445 = getelementptr inbounds i8, ptr %441, i64 %444
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %414, ptr %445, ptr noundef %437, ptr noundef %440)
-          to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116:     ; preds = %423, %427, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit111
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114:     ; preds = %423, %427, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %331, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit116, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
+._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
   %446 = load ptr, ptr %262, align 8
   %.not82 = icmp eq ptr %446, null
-  br i1 %.not82, label %.loopexit144, label %.preheader
+  br i1 %.not82, label %.loopexit141, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   %447 = getelementptr inbounds i8, ptr %446, i64 192
@@ -1113,19 +1110,19 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit116:     ; preds = %423, %427, %_ZN5dra
   %453 = sub i64 %451, %452
   %454 = sdiv exact i64 %453, 12
   %455 = and i64 %454, 4294967295
-  %.not162 = icmp eq i64 %455, 0
-  br i1 %.not162, label %.loopexit144, label %.lr.ph158
+  %.not159 = icmp eq i64 %455, 0
+  br i1 %.not159, label %.loopexit141, label %.lr.ph155
 
-.lr.ph158:                                        ; preds = %.preheader
+.lr.ph155:                                        ; preds = %.preheader
   %456 = getelementptr inbounds i8, ptr %4, i64 1
   %457 = icmp sgt i32 %.071.fr, -1
   %458 = getelementptr inbounds i8, ptr %5, i64 1
   %459 = zext nneg i32 %.071.fr to i64
-  br i1 %457, label %.lr.ph158.split.us, label %.lr.ph158.split
+  br i1 %457, label %.lr.ph155.split.us, label %.lr.ph155.split
 
-.lr.ph158.split.us:                               ; preds = %.lr.ph158, %.loopexit.us
-  %460 = phi ptr [ %549, %.loopexit.us ], [ %446, %.lr.ph158 ]
-  %.sroa.0.0157.us = phi i32 [ %548, %.loopexit.us ], [ 0, %.lr.ph158 ]
+.lr.ph155.split.us:                               ; preds = %.lr.ph155, %.loopexit.us
+  %460 = phi ptr [ %549, %.loopexit.us ], [ %446, %.lr.ph155 ]
+  %.sroa.0.0154.us = phi i32 [ %548, %.loopexit.us ], [ 0, %.lr.ph155 ]
   %461 = load ptr, ptr %0, align 8
   store i8 3, ptr %4, align 1
   %462 = getelementptr inbounds i8, ptr %461, i64 32
@@ -1133,7 +1130,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit116:     ; preds = %423, %427, %_ZN5dra
   %464 = icmp slt i64 %463, 1
   br i1 %464, label %465, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us
 
-465:                                              ; preds = %.lr.ph158.split.us
+465:                                              ; preds = %.lr.ph155.split.us
   %466 = getelementptr inbounds i8, ptr %461, i64 8
   %467 = load ptr, ptr %466, align 8
   %468 = load ptr, ptr %461, align 8
@@ -1145,13 +1142,13 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit116:     ; preds = %423, %427, %_ZN5dra
           to label %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 ._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge: ; preds = %465
-  %.pre179 = load ptr, ptr %262, align 8
+  %.pre176 = load ptr, ptr %262, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge, %.lr.ph158.split.us
-  %473 = phi ptr [ %.pre179, %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge ], [ %460, %.lr.ph158.split.us ]
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge, %.lr.ph155.split.us
+  %473 = phi ptr [ %.pre176, %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge ], [ %460, %.lr.ph155.split.us ]
   %474 = getelementptr inbounds i8, ptr %473, i64 192
-  %475 = zext i32 %.sroa.0.0157.us to i64
+  %475 = zext i32 %.sroa.0.0154.us to i64
   %476 = load ptr, ptr %474, align 8
   %477 = getelementptr inbounds %"struct.std::array", ptr %476, i64 %475
   br label %531
@@ -1162,7 +1159,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13Encoder
   %480 = getelementptr inbounds i8, ptr %479, i64 32
   %481 = load i64, ptr %480, align 8
   %482 = icmp slt i64 %481, 1
-  br i1 %482, label %483, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us
+  br i1 %482, label %483, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us
 
 483:                                              ; preds = %478
   %484 = getelementptr inbounds i8, ptr %479, i64 8
@@ -1173,9 +1170,9 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13Encoder
   %489 = sub i64 %487, %488
   %490 = getelementptr inbounds i8, ptr %486, i64 %489
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %479, ptr %490, ptr noundef nonnull %5, ptr noundef nonnull %458)
-          to label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
+          to label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us: ; preds = %483, %478
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us: ; preds = %483, %478
   %491 = load ptr, ptr %17, align 8
   %492 = getelementptr inbounds i8, ptr %491, i64 16
   %493 = load ptr, ptr %492, align 8
@@ -1187,15 +1184,14 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us: ; preds = %483, %478
   %499 = getelementptr inbounds i8, ptr %495, i64 48
   br label %500
 
-500:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us
-  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us ]
+500:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us ]
   %501 = load ptr, ptr %0, align 8
-  %502 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv175
+  %502 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv172
   %.sroa.0.0.copyload.us = load i32, ptr %502, align 4
   %503 = load i8, ptr %496, align 4
-  %504 = and i8 %503, 1
-  %.not.i121.us = icmp eq i8 %504, 0
-  br i1 %.not.i121.us, label %505, label %510
+  %504 = trunc i8 %503 to i1
+  br i1 %504, label %510, label %505
 
 505:                                              ; preds = %500
   %506 = zext i32 %.sroa.0.0.copyload.us to i64
@@ -1205,17 +1201,17 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us: ; preds = %483, %478
   br label %510
 
 510:                                              ; preds = %505, %500
-  %.sroa.02.0.i122.us = phi i32 [ %509, %505 ], [ %.sroa.0.0.copyload.us, %500 ]
+  %.sroa.02.0.i119.us = phi i32 [ %509, %505 ], [ %.sroa.0.0.copyload.us, %500 ]
   %511 = getelementptr inbounds i8, ptr %501, i64 32
   %512 = load i64, ptr %511, align 8
   %513 = icmp slt i64 %512, 1
-  br i1 %513, label %514, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us
+  br i1 %513, label %514, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us
 
 514:                                              ; preds = %510
   %515 = load ptr, ptr %495, align 8
   %516 = load ptr, ptr %515, align 8
   %517 = load i64, ptr %498, align 8
-  %518 = zext i32 %.sroa.02.0.i122.us to i64
+  %518 = zext i32 %.sroa.02.0.i119.us to i64
   %519 = mul nsw i64 %517, %518
   %520 = getelementptr i8, ptr %516, i64 %519
   %521 = load i64, ptr %499, align 8
@@ -1229,19 +1225,19 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit120.us: ; preds = %483, %478
   %529 = sub i64 %527, %528
   %530 = getelementptr inbounds i8, ptr %526, i64 %529
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %501, ptr %530, ptr noundef %522, ptr noundef %525)
-          to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us unwind label %.loopexit143.split.us
+          to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us unwind label %.loopexit140.split.us
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us:  ; preds = %514, %510
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond178.not = icmp eq i64 %indvars.iv.next176, 3
-  br i1 %exitcond178.not, label %.loopexit.us, label %500, !llvm.loop !6
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us:  ; preds = %514, %510
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond175.not = icmp eq i64 %indvars.iv.next173, 3
+  br i1 %exitcond175.not, label %.loopexit.us, label %500, !llvm.loop !6
 
 531:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us ]
-  %532 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv171
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us ]
+  %532 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv168
   %533 = load i32, ptr %532, align 4
-  %.not142.us = icmp ult i32 %533, %328
-  br i1 %.not142.us, label %534, label %.loopexit144
+  %.not139.us = icmp ult i32 %533, %328
+  br i1 %.not139.us, label %534, label %.loopexit141
 
 534:                                              ; preds = %531
   %535 = load ptr, ptr %0, align 8
@@ -1263,12 +1259,12 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us:  ; preds = %514, %510
           to label %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us unwind label %.loopexit.split-lp.loopexit.split.us
 
 _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us: ; preds = %539, %534
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond174.not = icmp eq i64 %indvars.iv.next172, 3
-  br i1 %exitcond174.not, label %478, label %531, !llvm.loop !7
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next169, 3
+  br i1 %exitcond171.not, label %478, label %531, !llvm.loop !7
 
-.loopexit.us:                                     ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit125.us
-  %548 = add nuw i32 %.sroa.0.0157.us, 1
+.loopexit.us:                                     ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us
+  %548 = add nuw i32 %.sroa.0.0154.us, 1
   %549 = load ptr, ptr %262, align 8
   %550 = getelementptr inbounds i8, ptr %549, i64 192
   %551 = getelementptr inbounds i8, ptr %549, i64 200
@@ -1280,26 +1276,26 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %557 = sdiv exact i64 %556, 12
   %558 = trunc i64 %557 to i32
   %559 = icmp ult i32 %548, %558
-  br i1 %559, label %.lr.ph158.split.us, label %.loopexit144, !llvm.loop !8
+  br i1 %559, label %.lr.ph155.split.us, label %.loopexit141, !llvm.loop !8
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %483, %465
-  %lpad.loopexit149.us = landingpad { ptr, i32 }
+  %lpad.loopexit146.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit143.split.us:                            ; preds = %514
+.loopexit140.split.us:                            ; preds = %514
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %539
-  %lpad.loopexit145.us = landingpad { ptr, i32 }
+  %lpad.loopexit142.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph158.split:                                  ; preds = %.lr.ph158, %595
-  %560 = phi ptr [ %597, %595 ], [ %446, %.lr.ph158 ]
-  %.sroa.0.0157 = phi i32 [ %596, %595 ], [ 0, %.lr.ph158 ]
+.lr.ph155.split:                                  ; preds = %.lr.ph155, %595
+  %560 = phi ptr [ %597, %595 ], [ %446, %.lr.ph155 ]
+  %.sroa.0.0154 = phi i32 [ %596, %595 ], [ 0, %.lr.ph155 ]
   %561 = load ptr, ptr %0, align 8
   store i8 3, ptr %4, align 1
   %562 = getelementptr inbounds i8, ptr %561, i64 32
@@ -1307,7 +1303,7 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %564 = icmp slt i64 %563, 1
   br i1 %564, label %565, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
-565:                                              ; preds = %.lr.ph158.split
+565:                                              ; preds = %.lr.ph155.split
   %566 = getelementptr inbounds i8, ptr %561, i64 8
   %567 = load ptr, ptr %566, align 8
   %568 = load ptr, ptr %561, align 8
@@ -1322,20 +1318,20 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %.pre = load ptr, ptr %262, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit_crit_edge, %.lr.ph158.split
-  %573 = phi ptr [ %.pre, %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit_crit_edge ], [ %560, %.lr.ph158.split ]
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit_crit_edge, %.lr.ph155.split
+  %573 = phi ptr [ %.pre, %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit_crit_edge ], [ %560, %.lr.ph155.split ]
   %574 = getelementptr inbounds i8, ptr %573, i64 192
-  %575 = zext i32 %.sroa.0.0157 to i64
+  %575 = zext i32 %.sroa.0.0154 to i64
   %576 = load ptr, ptr %574, align 8
   %577 = getelementptr inbounds %"struct.std::array", ptr %576, i64 %575
   br label %578
 
 578:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit
-  %indvars.iv167 = phi i64 [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %indvars.iv.next168, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit ]
-  %579 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %577, i64 0, i64 %indvars.iv167
+  %indvars.iv164 = phi i64 [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %indvars.iv.next165, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit ]
+  %579 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %577, i64 0, i64 %indvars.iv164
   %580 = load i32, ptr %579, align 4
-  %.not142 = icmp ult i32 %580, %328
-  br i1 %.not142, label %581, label %.loopexit144
+  %.not139 = icmp ult i32 %580, %328
+  br i1 %.not139, label %581, label %.loopexit141
 
 581:                                              ; preds = %578
   %582 = load ptr, ptr %0, align 8
@@ -1357,12 +1353,12 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %._ZN5draco13Encoder
           to label %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit unwind label %.loopexit.split-lp.loopexit.split
 
 _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit: ; preds = %581, %586
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next168, 3
-  br i1 %exitcond170.not, label %595, label %578, !llvm.loop !7
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next165, 3
+  br i1 %exitcond167.not, label %595, label %578, !llvm.loop !7
 
 595:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit
-  %596 = add nuw i32 %.sroa.0.0157, 1
+  %596 = add nuw i32 %.sroa.0.0154, 1
   %597 = load ptr, ptr %262, align 8
   %598 = getelementptr inbounds i8, ptr %597, i64 192
   %599 = getelementptr inbounds i8, ptr %597, i64 200
@@ -1374,15 +1370,15 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %605 = sdiv exact i64 %604, 12
   %606 = trunc i64 %605 to i32
   %607 = icmp ult i32 %596, %606
-  br i1 %607, label %.lr.ph158.split, label %.loopexit144, !llvm.loop !8
+  br i1 %607, label %.lr.ph155.split, label %.loopexit141, !llvm.loop !8
 
-.loopexit144:                                     ; preds = %595, %578, %.loopexit.us, %531, %.preheader, %._crit_edge
+.loopexit141:                                     ; preds = %595, %578, %.loopexit.us, %531, %.preheader, %._crit_edge
   %.0 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %531 ], [ true, %.loopexit.us ], [ false, %578 ], [ true, %595 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   br label %608
 
-608:                                              ; preds = %36, %.loopexit144
-  %.1 = phi i1 [ %.0, %.loopexit144 ], [ false, %36 ]
+608:                                              ; preds = %36, %.loopexit141
+  %.1 = phi i1 [ %.0, %.loopexit141 ], [ false, %36 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #14
   ret i1 %.1
 

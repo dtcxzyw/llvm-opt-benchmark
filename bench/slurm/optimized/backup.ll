@@ -42,59 +42,58 @@ define dso_local void @run_dbd_backup() local_unnamed_addr #0 {
   %.not68 = icmp eq i64 %14, 0
   br i1 %.not68, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %0, %35
+.lr.ph:                                           ; preds = %0, %34
   %15 = call i32 @slurm_persist_conn_writeable(ptr noundef nonnull %1) #3
   %16 = load i8, ptr @have_control, align 1
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = icmp eq i32 %15, 1
-  %or.cond = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %25
+  %17 = trunc i8 %16 to i1
+  %18 = icmp eq i32 %15, 1
+  %or.cond = select i1 %17, i1 %18, i1 false
+  br i1 %or.cond, label %19, label %24
 
-20:                                               ; preds = %.lr.ph
-  %21 = call i32 @get_log_level() #3
-  %22 = icmp sgt i32 %21, 2
-  br i1 %22, label %23, label %24
+19:                                               ; preds = %.lr.ph
+  %20 = call i32 @get_log_level() #3
+  %21 = icmp sgt i32 %20, 2
+  br i1 %21, label %22, label %23
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.1) #3
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %20
+23:                                               ; preds = %22, %19
   store i8 1, ptr @primary_resumed, align 1
   call void @shutdown_threads() #3
   store i8 0, ptr @have_control, align 1
   br label %.loopexit
 
-25:                                               ; preds = %.lr.ph
-  %26 = icmp sgt i32 %15, 0
-  %or.cond3.not = select i1 %18, i1 true, i1 %26
-  br i1 %or.cond3.not, label %31, label %27
+24:                                               ; preds = %.lr.ph
+  %25 = icmp sgt i32 %15, 0
+  %or.cond3.not = select i1 %17, i1 true, i1 %25
+  br i1 %or.cond3.not, label %30, label %26
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   store i8 1, ptr @have_control, align 1
-  %28 = call i32 @get_log_level() #3
-  %29 = icmp sgt i32 %28, 2
-  br i1 %29, label %30, label %.loopexit
+  %27 = call i32 @get_log_level() #3
+  %28 = icmp sgt i32 %27, 2
+  br i1 %28, label %29, label %.loopexit
 
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.2) #3
   br label %.loopexit
 
-31:                                               ; preds = %25
-  %32 = call i32 @sleep(i32 noundef 1) #3
-  br i1 %26, label %35, label %33
+30:                                               ; preds = %24
+  %31 = call i32 @sleep(i32 noundef 1) #3
+  br i1 %25, label %34, label %32
 
-33:                                               ; preds = %31
-  %34 = call i32 @slurm_persist_conn_reopen(ptr noundef nonnull %1, i1 noundef zeroext false) #3
-  br label %35
+32:                                               ; preds = %30
+  %33 = call i32 @slurm_persist_conn_reopen(ptr noundef nonnull %1, i1 noundef zeroext false) #3
+  br label %34
 
-35:                                               ; preds = %33, %31
-  %36 = load i64, ptr @shutdown_time, align 8
-  %.not6 = icmp eq i64 %36, 0
+34:                                               ; preds = %32, %30
+  %35 = load i64, ptr @shutdown_time, align 8
+  %.not6 = icmp eq i64 %35, 0
   br i1 %.not6, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %35, %0, %27, %30, %24
+.loopexit:                                        ; preds = %34, %0, %26, %29, %23
   call void @slurm_persist_conn_close(ptr noundef nonnull %1) #3
   ret void
 }

@@ -132,11 +132,10 @@ define noundef i64 @_Z16fast_rv32i_ecallP11processor_t6insn_tm(ptr nocapture nou
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -213,11 +212,10 @@ define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr nocapture nou
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -265,11 +263,10 @@ define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr nocapture n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -317,11 +314,10 @@ define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr nocapture n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -369,11 +365,10 @@ define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr nocapture nou
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -421,11 +416,10 @@ define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr nocapture nou
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -473,11 +467,10 @@ define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr nocapture n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
@@ -525,11 +518,10 @@ define noundef i64 @_Z18logged_rv64e_ecallP11processor_t6insn_tm(ptr nocapture n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 962
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  br i1 %.not, label %16, label %15
+  br i1 %12, label %15, label %16
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8

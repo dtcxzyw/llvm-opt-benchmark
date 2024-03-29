@@ -36,9 +36,6 @@ if.then17:                                        ; preds = %if.then
   br i1 %tobool18.not, label %uiZ190, label %propagateNaN
 
 if.end21:                                         ; preds = %if.then
-  %4 = lshr i64 %uiA, 15
-  %5 = trunc i64 %4 to i8
-  %frombool = and i8 %5, 1
   %add26 = or disjoint i64 %and3, 2048
   %add27 = add nuw nsw i64 %add26, %and9
   %and28 = and i64 %add27, 1
@@ -48,18 +45,18 @@ if.end21:                                         ; preds = %if.then
   br i1 %or.cond, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end21
-  %shr34 = lshr i64 %add27, 1
+  %shr34 = lshr exact i64 %add27, 1
+  %4 = and i64 %uiA, 8355840
   br label %pack
 
 if.end35:                                         ; preds = %if.end21
   %shl = shl nuw nsw i64 %add27, 3
+  %5 = and i64 %uiA, 32768
   br label %if.end143
 
 if.else:                                          ; preds = %entry
   %sub = sub nsw i8 %conv2, %conv8
   %6 = and i64 %uiA, 32768
-  %.lobit = lshr exact i64 %6, 15
-  %frombool40 = trunc i64 %.lobit to i8
   %cmp42 = icmp slt i8 %sub, 0
   br i1 %cmp42, label %if.then44, label %if.else87
 
@@ -152,14 +149,14 @@ if.else132:                                       ; preds = %if.end117
   br i1 %or.cond1, label %if.then139, label %if.end143
 
 if.then139:                                       ; preds = %if.else132
-  %shr140 = lshr i64 %sig32Z.0, 20
+  %shr140 = lshr exact i64 %sig32Z.0, 20
   br label %pack
 
 if.end143:                                        ; preds = %if.then130, %if.else132, %if.end35
-  %signZ.0 = phi i8 [ %frombool40, %if.then130 ], [ %frombool40, %if.else132 ], [ %frombool, %if.end35 ]
+  %signZ.0.in.in = phi i64 [ %6, %if.then130 ], [ %6, %if.else132 ], [ %5, %if.end35 ]
   %expZ.2 = phi i8 [ %expZ.1, %if.then130 ], [ %expZ.1, %if.else132 ], [ %conv2, %if.end35 ]
   %sigZ.0 = phi i64 [ %or131, %if.then130 ], [ %shr127, %if.else132 ], [ %shl, %if.end35 ]
-  %tobool144 = icmp ne i8 %signZ.0, 0
+  %tobool144 = icmp ne i64 %signZ.0.in.in, 0
   %conv145 = sext i8 %expZ.2 to i64
   %call = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool144, i64 noundef %conv145, i64 noundef %sigZ.0) #2
   br label %return
@@ -206,15 +203,13 @@ if.end176:                                        ; preds = %if.else168, %if.the
   br label %uiZ190
 
 pack:                                             ; preds = %if.then139, %if.then33
-  %signZ.1 = phi i8 [ %frombool40, %if.then139 ], [ %frombool, %if.then33 ]
+  %signZ.1 = phi i64 [ %6, %if.then139 ], [ %4, %if.then33 ]
   %expZ.3 = phi i8 [ %expZ.1, %if.then139 ], [ %conv2, %if.then33 ]
   %sigZ.1 = phi i64 [ %shr140, %if.then139 ], [ %shr34, %if.then33 ]
-  %tobool180.not = icmp eq i8 %signZ.1, 0
-  %shl183 = select i1 %tobool180.not, i64 0, i64 32768
   %conv184 = sext i8 %expZ.3 to i64
   %conv185 = shl nsw i64 %conv184, 10
   %shl186 = and i64 %conv185, 67107840
-  %add187 = add nuw nsw i64 %sigZ.1, %shl183
+  %add187 = add nuw nsw i64 %sigZ.1, %signZ.1
   %add189 = add nuw nsw i64 %add187, %shl186
   br label %uiZ190
 

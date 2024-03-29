@@ -72,17 +72,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %creds, ptr noundef nonnull %cond) #5
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %creds, ptr noundef nonnull %cond) #5
   br label %trace_qcrypto_tls_creds_load_dh.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -104,14 +103,14 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %7 = load ptr, ptr %dh_params, align 8
-  %call4 = tail call i32 @gnutls_dh_params_generate2(ptr noundef %7, i32 noundef 2048) #5
+  %6 = load ptr, ptr %dh_params, align 8
+  %call4 = tail call i32 @gnutls_dh_params_generate2(ptr noundef %6, i32 noundef 2048) #5
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
-  %8 = load ptr, ptr %dh_params, align 8
-  tail call void @gnutls_dh_params_deinit(ptr noundef %8) #5
+  %7 = load ptr, ptr %dh_params, align 8
+  tail call void @gnutls_dh_params_deinit(ptr noundef %7) #5
   store ptr null, ptr %dh_params, align 8
   %call7 = tail call ptr @gnutls_strerror(i32 noundef %call4) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 53, ptr noundef nonnull @__func__.qcrypto_tls_creds_get_dh_params_file, ptr noundef nonnull @.str.3, ptr noundef %call7) #5
@@ -124,19 +123,19 @@ if.else:                                          ; preds = %trace_qcrypto_tls_c
   br i1 %tobool10.not, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.else
-  %9 = load ptr, ptr %gerr, align 8
-  %message = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load ptr, ptr %message, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.qcrypto_tls_creds_get_dh_params_file, ptr noundef nonnull @.str.4, ptr noundef %10) #5
-  %11 = load ptr, ptr %gerr, align 8
-  call void @g_error_free(ptr noundef %11) #5
+  %8 = load ptr, ptr %gerr, align 8
+  %message = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %message, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.qcrypto_tls_creds_get_dh_params_file, ptr noundef nonnull @.str.4, ptr noundef %9) #5
+  %10 = load ptr, ptr %gerr, align 8
+  call void @g_error_free(ptr noundef %10) #5
   br label %return
 
 if.end12:                                         ; preds = %if.else
-  %12 = load ptr, ptr %contents, align 8
-  store ptr %12, ptr %data, align 8
-  %13 = load i64, ptr %len, align 8
-  %conv = trunc i64 %13 to i32
+  %11 = load ptr, ptr %contents, align 8
+  store ptr %11, ptr %data, align 8
+  %12 = load i64, ptr %len, align 8
+  %conv = trunc i64 %12 to i32
   %size = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %conv, ptr %size, align 8
   %call14 = call i32 @gnutls_dh_params_init(ptr noundef %dh_params) #5
@@ -144,23 +143,23 @@ if.end12:                                         ; preds = %if.else
   br i1 %cmp15, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end12
-  %14 = load ptr, ptr %contents, align 8
-  call void @g_free(ptr noundef %14) #5
+  %13 = load ptr, ptr %contents, align 8
+  call void @g_free(ptr noundef %13) #5
   %call18 = call ptr @gnutls_strerror(i32 noundef %call14) #6
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @__func__.qcrypto_tls_creds_get_dh_params_file, ptr noundef nonnull @.str.2, ptr noundef %call18) #5
   br label %return
 
 if.end19:                                         ; preds = %if.end12
-  %15 = load ptr, ptr %dh_params, align 8
-  %call20 = call i32 @gnutls_dh_params_import_pkcs3(ptr noundef %15, ptr noundef nonnull %data, i32 noundef 1) #5
-  %16 = load ptr, ptr %contents, align 8
-  call void @g_free(ptr noundef %16) #5
+  %14 = load ptr, ptr %dh_params, align 8
+  %call20 = call i32 @gnutls_dh_params_import_pkcs3(ptr noundef %14, ptr noundef nonnull %data, i32 noundef 1) #5
+  %15 = load ptr, ptr %contents, align 8
+  call void @g_free(ptr noundef %15) #5
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end19
-  %17 = load ptr, ptr %dh_params, align 8
-  call void @gnutls_dh_params_deinit(ptr noundef %17) #5
+  %16 = load ptr, ptr %dh_params, align 8
+  call void @gnutls_dh_params_deinit(ptr noundef %16) #5
   store ptr null, ptr %dh_params, align 8
   %call24 = call ptr @gnutls_strerror(i32 noundef %call20) #6
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @__func__.qcrypto_tls_creds_get_dh_params_file, ptr noundef nonnull @.str.5, ptr noundef nonnull %filename, ptr noundef %call24) #5
@@ -258,17 +257,16 @@ land.lhs.true5.i.i:                               ; preds = %cleanup
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %10 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %creds, ptr noundef %filename, ptr noundef nonnull %spec.select) #5
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %creds, ptr noundef %filename, ptr noundef nonnull %spec.select) #5
   br label %trace_qcrypto_tls_creds_get_path.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -380,8 +378,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %verifyPeer = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load i8, ptr %verifyPeer, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

@@ -206,11 +206,11 @@ entry:
   %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
   %enabled1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %0 = load i8, ptr %enabled1, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   store i8 %frombool, ptr %enabled1, align 4
-  %2 = select i1 %enabled, i1 %tobool.not, i1 false
-  br i1 %2, label %if.then, label %if.else
+  %enabled.not = xor i1 %enabled, true
+  %brmerge = select i1 %enabled.not, i1 true, i1 %tobool
+  br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %timer_list.03.i = load ptr, ptr %arrayidx.i, align 16
@@ -220,17 +220,17 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %if.then, %timerlist_notify.exit.i
   %timer_list.05.i = phi ptr [ %timer_list.0.i, %timerlist_notify.exit.i ], [ %timer_list.03.i, %if.then ]
   %notify_cb.i.i = getelementptr inbounds i8, ptr %timer_list.05.i, i64 80
-  %3 = load ptr, ptr %notify_cb.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %3, null
+  %1 = load ptr, ptr %notify_cb.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %notify_opaque.i.i = getelementptr inbounds i8, ptr %timer_list.05.i, i64 88
-  %4 = load ptr, ptr %notify_opaque.i.i, align 8
-  %5 = load ptr, ptr %timer_list.05.i, align 8
-  %type.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load i32, ptr %type.i.i, align 8
-  tail call void %3(ptr noundef %4, i32 noundef %6) #17
+  %2 = load ptr, ptr %notify_opaque.i.i, align 8
+  %3 = load ptr, ptr %timer_list.05.i, align 8
+  %type.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load i32, ptr %type.i.i, align 8
+  tail call void %1(ptr noundef %2, i32 noundef %4) #17
   br label %timerlist_notify.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
@@ -244,6 +244,7 @@ timerlist_notify.exit.i:                          ; preds = %if.else.i.i, %if.th
   br i1 %tobool.not.i, label %if.end13, label %for.body.i, !llvm.loop !5
 
 if.else:                                          ; preds = %entry
+  %tobool.not = xor i1 %tobool, true
   %brmerge9 = select i1 %enabled, i1 true, i1 %tobool.not
   br i1 %brmerge9, label %if.end13, label %for.cond.preheader
 
@@ -261,7 +262,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %tobool12.not = icmp eq ptr %tl.0, null
   br i1 %tobool12.not, label %if.end13, label %for.body, !llvm.loop !7
 
-if.end13:                                         ; preds = %for.body, %timerlist_notify.exit.i, %for.cond.preheader, %if.then, %if.else
+if.end13:                                         ; preds = %timerlist_notify.exit.i, %for.body, %for.cond.preheader, %if.then, %if.else
   ret void
 }
 
@@ -480,27 +481,26 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %timer_list, align 8
   %enabled = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i8, ptr %enabled, align 4
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  br i1 %tobool1.not, label %return, label %for.body.us
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %for.body.us, label %return
 
 for.body.us:                                      ; preds = %if.end
   %active_timers_lock = getelementptr inbounds i8, ptr %timer_list, i64 8
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
-  tail call void %5(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #17
-  %6 = load ptr, ptr %active_timers, align 8
-  %tobool6.not.us = icmp eq ptr %6, null
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
+  tail call void %4(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #17
+  %5 = load ptr, ptr %active_timers, align 8
+  %tobool6.not.us = icmp eq ptr %5, null
   br i1 %tobool6.not.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
-  %7 = load i64, ptr %6, align 8
+  %6 = load i64, ptr %5, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #17
-  %8 = load ptr, ptr %timer_list, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load i32, ptr %type, align 8
-  %call12 = tail call i64 @qemu_clock_get_ns(i32 noundef %9)
-  %sub = sub i64 %7, %call12
+  %7 = load ptr, ptr %timer_list, align 8
+  %type = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load i32, ptr %type, align 8
+  %call12 = tail call i64 @qemu_clock_get_ns(i32 noundef %8)
+  %sub = sub i64 %6, %call12
   %.sub = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   br label %return
 
@@ -520,9 +520,8 @@ entry:
   %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
   %enabled = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %0 = load i8, ptr %enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %for.cond.preheader
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
   %timer_list.019 = load ptr, ptr %arrayidx.i, align 16
@@ -537,15 +536,15 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
   %timer_list.022 = phi ptr [ %timer_list.019, %while.end.lr.ph ], [ %timer_list.0, %for.inc ]
   %deadline.021 = phi i64 [ -1, %while.end.lr.ph ], [ %deadline.1, %for.inc ]
   %active_timers = getelementptr inbounds i8, ptr %timer_list.022, i64 56
-  %2 = load atomic i64, ptr %active_timers monotonic, align 8
-  %tobool2.not = icmp eq i64 %2, 0
+  %1 = load atomic i64, ptr %active_timers monotonic, align 8
+  %tobool2.not = icmp eq i64 %1, 0
   br i1 %tobool2.not, label %for.inc, label %while.end9
 
 while.end9:                                       ; preds = %while.end
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %4 = inttoptr i64 %3 to ptr
+  %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %3 = inttoptr i64 %2 to ptr
   %active_timers_lock = getelementptr inbounds i8, ptr %timer_list.022, i64 8
-  tail call void %4(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 267) #17
+  tail call void %3(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 267) #17
   %ts.016 = load ptr, ptr %active_timers, align 8
   %tobool14.not17 = icmp eq ptr %ts.016, null
   br i1 %tobool14.not17, label %if.then19, label %land.rhs
@@ -553,8 +552,8 @@ while.end9:                                       ; preds = %while.end
 land.rhs:                                         ; preds = %while.end9, %while.body16
   %ts.018 = phi ptr [ %ts.0, %while.body16 ], [ %ts.016, %while.end9 ]
   %attributes = getelementptr inbounds i8, ptr %ts.018, i64 40
-  %5 = load i32, ptr %attributes, align 8
-  %and = and i32 %5, %not
+  %4 = load i32, ptr %attributes, align 8
+  %and = and i32 %4, %not
   %tobool15.not = icmp eq i32 %and, 0
   br i1 %tobool15.not, label %if.end21, label %while.body16
 
@@ -569,10 +568,10 @@ if.then19:                                        ; preds = %while.body16, %whil
   br label %for.inc
 
 if.end21:                                         ; preds = %land.rhs
-  %6 = load i64, ptr %ts.018, align 8
+  %5 = load i64, ptr %ts.018, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 278) #17
   %call24 = tail call i64 @qemu_clock_get_ns(i32 noundef %type)
-  %sub = sub i64 %6, %call24
+  %sub = sub i64 %5, %call24
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %deadline.021, i64 %spec.store.select)
   br label %for.inc
@@ -1066,14 +1065,13 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %timer_list, align 8
   %enabled = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i8, ptr %enabled, align 4
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  br i1 %tobool1.not, label %out, label %if.end3
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %if.end3, label %out
 
 if.end3:                                          ; preds = %if.end
   %type = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load i32, ptr %type, align 8
-  switch i32 %4, label %sw.epilog [
+  %3 = load i32, ptr %type, align 8
+  switch i32 %3, label %sw.epilog [
     i32 3, label %sw.bb9
     i32 2, label %sw.bb6
   ]
@@ -1087,46 +1085,46 @@ sw.bb9:                                           ; preds = %if.end3
   br i1 %call10, label %sw.epilog, label %out
 
 sw.epilog:                                        ; preds = %sw.bb9, %sw.bb6, %if.end3
-  %5 = load ptr, ptr %timer_list, align 8
-  %type14 = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load i32, ptr %type14, align 8
-  %call15 = tail call i64 @qemu_clock_get_ns(i32 noundef %6)
-  %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %4 = load ptr, ptr %timer_list, align 8
+  %type14 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load i32, ptr %type14, align 8
+  %call15 = tail call i64 @qemu_clock_get_ns(i32 noundef %5)
+  %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %7 = inttoptr i64 %6 to ptr
   %active_timers_lock = getelementptr inbounds i8, ptr %timer_list, i64 8
-  tail call void %8(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 547) #17
-  %9 = load ptr, ptr %active_timers, align 8
-  %tobool25.not21 = icmp eq ptr %9, null
+  tail call void %7(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 547) #17
+  %8 = load ptr, ptr %active_timers, align 8
+  %tobool25.not21 = icmp eq ptr %8, null
   br i1 %tobool25.not21, label %out.sink.split, label %timer_expired_ns.exit.preheader
 
 timer_expired_ns.exit.preheader:                  ; preds = %sw.epilog
-  %10 = load i64, ptr %9, align 8
-  %cmp.i.not26 = icmp sgt i64 %10, %call15
+  %9 = load i64, ptr %8, align 8
+  %cmp.i.not26 = icmp sgt i64 %9, %call15
   br i1 %cmp.i.not26, label %out.sink.split, label %if.end29
 
 timer_expired_ns.exit:                            ; preds = %if.end39
-  %11 = load i64, ptr %23, align 8
-  %cmp.i.not = icmp sgt i64 %11, %call15
+  %10 = load i64, ptr %21, align 8
+  %cmp.i.not = icmp sgt i64 %10, %call15
   br i1 %cmp.i.not, label %out.sink.split, label %if.end29, !llvm.loop !10
 
 if.end29:                                         ; preds = %timer_expired_ns.exit.preheader, %timer_expired_ns.exit
-  %12 = phi i1 [ true, %timer_expired_ns.exit ], [ false, %timer_expired_ns.exit.preheader ]
-  %13 = phi ptr [ %23, %timer_expired_ns.exit ], [ %9, %timer_expired_ns.exit.preheader ]
-  %14 = load i32, ptr @replay_mode, align 4
-  %cmp.not = icmp eq i32 %14, 0
+  %progress.02227 = phi i1 [ true, %timer_expired_ns.exit ], [ false, %timer_expired_ns.exit.preheader ]
+  %11 = phi ptr [ %21, %timer_expired_ns.exit ], [ %8, %timer_expired_ns.exit.preheader ]
+  %12 = load i32, ptr @replay_mode, align 4
+  %cmp.not = icmp eq i32 %12, 0
   br i1 %cmp.not, label %if.end39, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end29
-  %15 = load ptr, ptr %timer_list, align 8
-  %type31 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load i32, ptr %type31, align 8
-  %cmp32 = icmp eq i32 %16, 1
+  %13 = load ptr, ptr %timer_list, align 8
+  %type31 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i32, ptr %type31, align 8
+  %cmp32 = icmp eq i32 %14, 1
   br i1 %cmp32, label %land.lhs.true33, label %if.end39
 
 land.lhs.true33:                                  ; preds = %land.lhs.true
-  %attributes = getelementptr inbounds i8, ptr %13, i64 40
-  %17 = load i32, ptr %attributes, align 8
-  %and = and i32 %17, 1
+  %attributes = getelementptr inbounds i8, ptr %11, i64 40
+  %15 = load i32, ptr %attributes, align 8
+  %and = and i32 %15, 1
   %tobool34.not = icmp eq i32 %and, 0
   br i1 %tobool34.not, label %land.lhs.true35, label %if.end39
 
@@ -1135,27 +1133,27 @@ land.lhs.true35:                                  ; preds = %land.lhs.true33
   br i1 %call36, label %if.end39, label %out.sink.split
 
 if.end39:                                         ; preds = %land.lhs.true35, %land.lhs.true33, %land.lhs.true, %if.end29
-  %next = getelementptr inbounds i8, ptr %13, i64 32
-  %18 = load ptr, ptr %next, align 8
-  store ptr %18, ptr %active_timers, align 8
+  %next = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = load ptr, ptr %next, align 8
+  store ptr %16, ptr %active_timers, align 8
   store ptr null, ptr %next, align 8
-  store i64 -1, ptr %13, align 8
-  %cb42 = getelementptr inbounds i8, ptr %13, i64 16
-  %19 = load ptr, ptr %cb42, align 8
-  %opaque43 = getelementptr inbounds i8, ptr %13, i64 24
-  %20 = load ptr, ptr %opaque43, align 8
+  store i64 -1, ptr %11, align 8
+  %cb42 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = load ptr, ptr %cb42, align 8
+  %opaque43 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = load ptr, ptr %opaque43, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 575) #17
-  tail call void %19(ptr noundef %20) #17
-  %21 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %22 = inttoptr i64 %21 to ptr
-  tail call void %22(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 577) #17
-  %23 = load ptr, ptr %active_timers, align 8
-  %tobool25.not = icmp eq ptr %23, null
+  tail call void %17(ptr noundef %18) #17
+  %19 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %20 = inttoptr i64 %19 to ptr
+  tail call void %20(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 577) #17
+  %21 = load ptr, ptr %active_timers, align 8
+  %tobool25.not = icmp eq ptr %21, null
   br i1 %tobool25.not, label %out.sink.split, label %timer_expired_ns.exit, !llvm.loop !10
 
 out.sink.split:                                   ; preds = %land.lhs.true35, %if.end39, %timer_expired_ns.exit, %timer_expired_ns.exit.preheader, %sw.epilog
   %.sink = phi i32 [ 581, %sw.epilog ], [ 581, %timer_expired_ns.exit.preheader ], [ 581, %timer_expired_ns.exit ], [ 581, %if.end39 ], [ 563, %land.lhs.true35 ]
-  %progress.1.ph = phi i1 [ false, %sw.epilog ], [ false, %timer_expired_ns.exit.preheader ], [ true, %timer_expired_ns.exit ], [ true, %if.end39 ], [ %12, %land.lhs.true35 ]
+  %progress.1.ph = phi i1 [ false, %sw.epilog ], [ false, %timer_expired_ns.exit.preheader ], [ true, %timer_expired_ns.exit ], [ true, %if.end39 ], [ %progress.02227, %land.lhs.true35 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef %.sink) #17
   br label %out
 
@@ -1329,27 +1327,26 @@ if.end.i:                                         ; preds = %if.then
   %3 = load ptr, ptr %1, align 8
   %enabled.i = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i8, ptr %enabled.i, align 4
-  %5 = and i8 %4, 1
-  %tobool1.not.i = icmp eq i8 %5, 0
-  br i1 %tobool1.not.i, label %timerlist_deadline_ns.exit, label %for.body.us.i
+  %tobool1.i = trunc i8 %4 to i1
+  br i1 %tobool1.i, label %for.body.us.i, label %timerlist_deadline_ns.exit
 
 for.body.us.i:                                    ; preds = %if.end.i
   %active_timers_lock.i = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %7 = inttoptr i64 %6 to ptr
-  tail call void %7(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 122) #17
-  %8 = load ptr, ptr %active_timers.i, align 8
-  %tobool6.not.us.i = icmp eq ptr %8, null
+  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %6 = inttoptr i64 %5 to ptr
+  tail call void %6(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 122) #17
+  %7 = load ptr, ptr %active_timers.i, align 8
+  %tobool6.not.us.i = icmp eq ptr %7, null
   br i1 %tobool6.not.us.i, label %glib_autoptr_cleanup_QemuLockable.exit.i, label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
-  %9 = load i64, ptr %8, align 8
+  %8 = load i64, ptr %7, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 132) #17
-  %10 = load ptr, ptr %1, align 8
-  %type.i = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i32, ptr %type.i, align 8
-  %call12.i = tail call i64 @qemu_clock_get_ns(i32 noundef %11)
-  %sub.i = sub i64 %9, %call12.i
+  %9 = load ptr, ptr %1, align 8
+  %type.i = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load i32, ptr %type.i, align 8
+  %call12.i = tail call i64 @qemu_clock_get_ns(i32 noundef %10)
+  %sub.i = sub i64 %8, %call12.i
   %.sub.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   br label %timerlist_deadline_ns.exit
 
@@ -1461,9 +1458,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %0 = phi i32 [ %.pre7, %entry ], [ %4, %for.inc ]
+  %0 = phi i32 [ %.pre7, %entry ], [ %3, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %progress.05 = phi i8 [ 0, %entry ], [ %progress.1, %for.inc ]
+  %progress.05 = phi i1 [ false, %entry ], [ %progress.1, %for.inc ]
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp ne i64 %indvars.iv, 1
   %.not.i = or i1 %cmp.i, %tobool.i
@@ -1473,22 +1470,19 @@ if.then:                                          ; preds = %for.body
   %arrayidx.i = getelementptr [4 x ptr], ptr @main_loop_tlg, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call noundef zeroext i1 @timerlist_run_timers(ptr noundef %1)
-  %2 = zext i1 %call.i to i8
-  %3 = or i8 %progress.05, %2
+  %2 = or i1 %progress.05, %call.i
   %.pre = load i32, ptr @use_icount, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %4 = phi i32 [ %.pre, %if.then ], [ %0, %for.body ]
-  %progress.1 = phi i8 [ %3, %if.then ], [ %progress.05, %for.body ]
+  %3 = phi i32 [ %.pre, %if.then ], [ %0, %for.body ]
+  %progress.1 = phi i1 [ %2, %if.then ], [ %progress.05, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
-  %5 = and i8 %progress.1, 1
-  %tobool4 = icmp ne i8 %5, 0
-  ret i1 %tobool4
+  ret i1 %progress.1
 }
 
 declare void @icount_start_warp_timer() local_unnamed_addr #2

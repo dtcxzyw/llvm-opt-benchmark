@@ -247,46 +247,42 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #4
   %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %entry.virtio_device_should_start.exit_crit_edge, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %entry.virtio_device_should_start.exit_crit_edge
 
 entry.virtio_device_should_start.exit_crit_edge:  ; preds = %entry
-  %2 = getelementptr i8, ptr %call.i, i64 1280
-  %vhost_dev.val29 = load i8, ptr %2, align 8
-  %3 = and i8 %vhost_dev.val29, 1
-  %tobool.i30.not = icmp eq i8 %3, 0
-  br i1 %tobool.i30.not, label %if.end22, label %if.else
+  %1 = getelementptr i8, ptr %call.i, i64 1280
+  %vhost_dev.val29 = load i8, ptr %1, align 8
+  %tobool.i1230 = trunc i8 %vhost_dev.val29 to i1
+  br i1 %tobool.i1230, label %if.else, label %if.end22
 
 if.end.i:                                         ; preds = %entry
   %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
-  %4 = load i8, ptr %use_started.i.i, align 2
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %2 = load i8, ptr %use_started.i.i, align 2
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
-  %6 = load i8, ptr %started.i.i, align 1
-  %7 = and i8 %6, 1
+  %3 = load i8, ptr %started.i.i, align 1
+  %tobool1.i.i = trunc i8 %3 to i1
   br label %virtio_device_should_start.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %8 = and i8 %status, 4
+  %4 = and i8 %status, 4
+  %tobool2.i.i = icmp ne i8 %4, 0
   br label %virtio_device_should_start.exit
 
 virtio_device_should_start.exit:                  ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.i.i = phi i8 [ %7, %if.then.i.i ], [ %8, %if.end.i.i ]
-  %retval.0.i.i = icmp ne i8 %retval.0.in.i.i, 0
-  %9 = getelementptr i8, ptr %call.i, i64 1280
-  %vhost_dev.val = load i8, ptr %9, align 8
-  %10 = and i8 %vhost_dev.val, 1
-  %tobool.i = icmp ne i8 %10, 0
-  %11 = xor i1 %retval.0.i.i, %tobool.i
-  br i1 %11, label %if.end, label %if.end22
+  %retval.0.i = phi i1 [ %tobool1.i.i, %if.then.i.i ], [ %tobool2.i.i, %if.end.i.i ]
+  %5 = getelementptr i8, ptr %call.i, i64 1280
+  %vhost_dev.val = load i8, ptr %5, align 8
+  %tobool.i12 = trunc i8 %vhost_dev.val to i1
+  %6 = xor i1 %retval.0.i, %tobool.i12
+  br i1 %6, label %if.end, label %if.end22
 
 if.end:                                           ; preds = %virtio_device_should_start.exit
-  br i1 %retval.0.i.i, label %if.then6, label %if.else
+  br i1 %retval.0.i, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
   %call7 = tail call i32 @vhost_vsock_common_start(ptr noundef nonnull %vdev) #4
@@ -296,27 +292,27 @@ if.then6:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.then6
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #4
   %vhost_ops1.i = getelementptr inbounds i8, ptr %call.i.i, i64 1304
-  %12 = load ptr, ptr %vhost_ops1.i, align 8
-  %vhost_vsock_set_running.i = getelementptr inbounds i8, ptr %12, i64 248
-  %13 = load ptr, ptr %vhost_vsock_set_running.i, align 8
-  %tobool.not.i12 = icmp eq ptr %13, null
-  br i1 %tobool.not.i12, label %if.then15, label %if.end.i13
+  %7 = load ptr, ptr %vhost_ops1.i, align 8
+  %vhost_vsock_set_running.i = getelementptr inbounds i8, ptr %7, i64 248
+  %8 = load ptr, ptr %vhost_vsock_set_running.i, align 8
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %if.then15, label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.end11
   %vhost_dev.i = getelementptr inbounds i8, ptr %call.i.i, i64 776
-  %call4.i = tail call i32 %13(ptr noundef nonnull %vhost_dev.i, i32 noundef 1) #4
+  %call4.i = tail call i32 %8(ptr noundef nonnull %vhost_dev.i, i32 noundef 1) #4
   %cmp.i = icmp slt i32 %call4.i, 0
   br i1 %cmp.i, label %vhost_vsock_set_running.exit, label %if.end22
 
 vhost_vsock_set_running.exit:                     ; preds = %if.end.i13
   %call6.i = tail call ptr @__errno_location() #5
-  %14 = load i32, ptr %call6.i, align 4
-  %notsub = add i32 %14, -1
+  %9 = load i32, ptr %call6.i, align 4
+  %notsub = add i32 %9, -1
   %cmp13 = icmp sgt i32 %notsub, -1
   br i1 %cmp13, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %if.end11, %vhost_vsock_set_running.exit
-  %retval.0.i1435.neg = phi i32 [ %14, %vhost_vsock_set_running.exit ], [ 38, %if.end11 ]
+  %retval.0.i1435.neg = phi i32 [ %9, %vhost_vsock_set_running.exit ], [ 38, %if.end11 ]
   tail call void @vhost_vsock_common_stop(ptr noundef nonnull %vdev) #4
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, i32 noundef %retval.0.i1435.neg) #4
   br label %if.end22
@@ -324,22 +320,22 @@ if.then15:                                        ; preds = %if.end11, %vhost_vs
 if.else:                                          ; preds = %entry.virtio_device_should_start.exit_crit_edge, %if.end
   %call.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #4
   %vhost_ops1.i16 = getelementptr inbounds i8, ptr %call.i.i15, i64 1304
-  %15 = load ptr, ptr %vhost_ops1.i16, align 8
-  %vhost_vsock_set_running.i17 = getelementptr inbounds i8, ptr %15, i64 248
-  %16 = load ptr, ptr %vhost_vsock_set_running.i17, align 8
-  %tobool.not.i18 = icmp eq ptr %16, null
+  %10 = load ptr, ptr %vhost_ops1.i16, align 8
+  %vhost_vsock_set_running.i17 = getelementptr inbounds i8, ptr %10, i64 248
+  %11 = load ptr, ptr %vhost_vsock_set_running.i17, align 8
+  %tobool.not.i18 = icmp eq ptr %11, null
   br i1 %tobool.not.i18, label %if.then20, label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.else
   %vhost_dev.i20 = getelementptr inbounds i8, ptr %call.i.i15, i64 776
-  %call4.i21 = tail call i32 %16(ptr noundef nonnull %vhost_dev.i20, i32 noundef 0) #4
+  %call4.i21 = tail call i32 %11(ptr noundef nonnull %vhost_dev.i20, i32 noundef 0) #4
   %cmp.i22 = icmp slt i32 %call4.i21, 0
   br i1 %cmp.i22, label %vhost_vsock_set_running.exit27, label %if.end21
 
 vhost_vsock_set_running.exit27:                   ; preds = %if.end.i19
   %call6.i25 = tail call ptr @__errno_location() #5
-  %17 = load i32, ptr %call6.i25, align 4
-  %sub.i26 = sub i32 0, %17
+  %12 = load i32, ptr %call6.i25, align 4
+  %sub.i26 = sub i32 0, %12
   %cmp18 = icmp slt i32 %sub.i26, 0
   br i1 %cmp18, label %if.then20, label %if.end21
 

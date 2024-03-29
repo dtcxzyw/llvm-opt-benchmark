@@ -202,11 +202,11 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 6:                                                ; preds = %2
   %7 = call i32 @get_log_level() #7
   %8 = icmp sgt i32 %7, 6
-  br i1 %8, label %9, label %75
+  br i1 %8, label %9, label %74
 
 9:                                                ; preds = %6
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i64 noundef %0) #7
-  br label %75
+  br label %74
 
 10:                                               ; preds = %2
   switch i32 %1, label %.thread [
@@ -217,7 +217,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 11:                                               ; preds = %10
   call void @slurm_xfree(ptr noundef nonnull %3) #7
   %12 = call i32 @cgroup_g_step_suspend() #7
-  br label %75
+  br label %74
 
 13:                                               ; preds = %10
   %14 = call i32 @cgroup_g_step_resume() #7
@@ -227,7 +227,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 ._crit_edge.thread:                               ; preds = %13
   call void @slurm_xfree(ptr noundef nonnull %3) #7
-  br label %75
+  br label %74
 
 .thread:                                          ; preds = %10
   %17 = load i32, ptr %4, align 4
@@ -281,61 +281,60 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %44 = icmp slt i64 %indvars.iv.next28, %43
   br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !7
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %68 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %67 ]
   %45 = load ptr, ptr %3, align 8
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, %19
-  br i1 %48, label %68, label %49
+  br i1 %48, label %67, label %49
 
 49:                                               ; preds = %.lr.ph.split
   %50 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %47), !range !6
   %51 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 16), align 1
-  %52 = and i8 %51, 1
-  %53 = icmp ne i8 %52, 0
-  %54 = icmp eq i32 %50, 1
-  %or.cond = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond, label %55, label %68
+  %52 = trunc i8 %51 to i1
+  %53 = icmp eq i32 %50, 1
+  %or.cond = select i1 %52, i1 true, i1 %53
+  br i1 %or.cond, label %54, label %67
 
-55:                                               ; preds = %49
-  %56 = call i32 @get_log_level() #7
-  %57 = icmp sgt i32 %56, 5
-  br i1 %57, label %58, label %63
+54:                                               ; preds = %49
+  %55 = call i32 @get_log_level() #7
+  %56 = icmp sgt i32 %55, 5
+  br i1 %56, label %57, label %62
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
-  %61 = load i32, ptr %60, align 4
-  %62 = select i1 %54, ptr @.str.8, ptr @.str.9
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i32 noundef %61, ptr noundef nonnull %62, i32 noundef %1) #7
-  br label %63
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
+  %60 = load i32, ptr %59, align 4
+  %61 = select i1 %53, ptr @.str.8, ptr @.str.9
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i32 noundef %60, ptr noundef nonnull %61, i32 noundef %1) #7
+  br label %62
 
-63:                                               ; preds = %58, %55
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4
-  %67 = call i32 @kill(i32 noundef %66, i32 noundef %1) #7
-  br label %68
+62:                                               ; preds = %57, %54
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv
+  %65 = load i32, ptr %64, align 4
+  %66 = call i32 @kill(i32 noundef %65, i32 noundef %1) #7
+  br label %67
 
-68:                                               ; preds = %63, %49, %.lr.ph.split
+67:                                               ; preds = %62, %49, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = load i32, ptr %4, align 4
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
+  %68 = load i32, ptr %4, align 4
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %41, %68, %.thread
+._crit_edge:                                      ; preds = %41, %67, %.thread
   call void @slurm_xfree(ptr noundef nonnull %3) #7
-  %72 = icmp eq i32 %1, 18
-  br i1 %72, label %73, label %75
+  %71 = icmp eq i32 %1, 18
+  br i1 %71, label %72, label %74
 
-73:                                               ; preds = %._crit_edge
-  %74 = call i32 @cgroup_g_step_resume() #7
-  br label %75
+72:                                               ; preds = %._crit_edge
+  %73 = call i32 @cgroup_g_step_resume() #7
+  br label %74
 
-75:                                               ; preds = %._crit_edge.thread, %._crit_edge, %6, %9, %73, %11
-  %.0 = phi i32 [ %12, %11 ], [ %74, %73 ], [ 0, %9 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
+74:                                               ; preds = %._crit_edge.thread, %._crit_edge, %6, %9, %72, %11
+  %.0 = phi i32 [ %12, %11 ], [ %73, %72 ], [ 0, %9 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
   ret i32 %.0
 }
 

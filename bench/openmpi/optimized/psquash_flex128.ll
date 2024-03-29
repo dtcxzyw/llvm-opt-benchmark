@@ -88,24 +88,23 @@ define internal noundef i32 @flex128_get_max_size(i16 noundef zeroext %0, ptr no
 ._crit_edge:                                      ; preds = %switch.hole_check, %2
   %.pre = load i64, ptr %1, align 8
   %4 = add i64 %.pre, 1
-  br label %7
+  br label %6
 
 switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i16 3829, %switch.tableidx
-  %5 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %5, 0
-  br i1 %switch.lobit.not, label %._crit_edge, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %._crit_edge
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.flex128_get_max_size, i64 0, i64 %6
+  %5 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.flex128_get_max_size, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %7
+  br label %6
 
-7:                                                ; preds = %switch.lookup, %._crit_edge
-  %8 = phi i64 [ %4, %._crit_edge ], [ %switch.load, %switch.lookup ]
+6:                                                ; preds = %switch.lookup, %._crit_edge
+  %7 = phi i64 [ %4, %._crit_edge ], [ %switch.load, %switch.lookup ]
   %.0 = phi i32 [ -27, %._crit_edge ], [ 0, %switch.lookup ]
-  store i64 %8, ptr %1, align 8
+  store i64 %7, ptr %1, align 8
   ret i32 %.0
 }
 
@@ -231,150 +230,149 @@ define internal noundef i32 @flex128_decode_int(i16 noundef zeroext %0, ptr noca
 
 switch.hole_check:                                ; preds = %5
   %switch.shifted = lshr i16 3829, %switch.tableidx
-  %9 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %9, 0
-  br i1 %switch.lobit.not, label %7, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %10 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.flex128_decode_int, i64 0, i64 %10
+  %9 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.flex128_decode_int, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 9)
-  %11 = add nsw i64 %spec.store.select.i, -1
-  br label %12
+  %10 = add nsw i64 %spec.store.select.i, -1
+  br label %11
 
-12:                                               ; preds = %12, %switch.lookup
-  %.038.i = phi i64 [ 0, %switch.lookup ], [ %19, %12 ]
-  %.037.i = phi i64 [ 0, %switch.lookup ], [ %20, %12 ]
-  %.034.i = phi i64 [ 0, %switch.lookup ], [ %13, %12 ]
-  %13 = add nuw i64 %.034.i, 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 %.034.i
-  %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 127
-  %17 = zext nneg i8 %16 to i64
-  %18 = shl i64 %17, %.037.i
-  %19 = add i64 %18, %.038.i
-  %20 = add i64 %.037.i, 7
-  %21 = icmp slt i8 %15, 0
-  %22 = icmp ult i64 %13, %11
-  %23 = select i1 %21, i1 %22, i1 false
-  br i1 %23, label %12, label %24, !llvm.loop !6
+11:                                               ; preds = %11, %switch.lookup
+  %.038.i = phi i64 [ 0, %switch.lookup ], [ %18, %11 ]
+  %.037.i = phi i64 [ 0, %switch.lookup ], [ %19, %11 ]
+  %.034.i = phi i64 [ 0, %switch.lookup ], [ %12, %11 ]
+  %12 = add nuw i64 %.034.i, 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.034.i
+  %14 = load i8, ptr %13, align 1
+  %15 = and i8 %14, 127
+  %16 = zext nneg i8 %15 to i64
+  %17 = shl i64 %16, %.037.i
+  %18 = add i64 %17, %.038.i
+  %19 = add i64 %.037.i, 7
+  %20 = icmp slt i8 %14, 0
+  %21 = icmp ult i64 %12, %10
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %11, label %23, !llvm.loop !6
 
-24:                                               ; preds = %12
-  %25 = icmp eq i64 %11, %13
-  %26 = and i1 %25, %21
-  br i1 %26, label %27, label %34
+23:                                               ; preds = %11
+  %24 = icmp eq i64 %10, %12
+  %25 = and i1 %24, %20
+  br i1 %25, label %26, label %33
 
-27:                                               ; preds = %24
-  %28 = add i64 %.034.i, 2
-  %29 = getelementptr inbounds i8, ptr %1, i64 %11
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i64
-  %32 = shl i64 %31, %20
-  %33 = add i64 %32, %19
-  br label %34
+26:                                               ; preds = %23
+  %27 = add i64 %.034.i, 2
+  %28 = getelementptr inbounds i8, ptr %1, i64 %10
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i64
+  %31 = shl i64 %30, %19
+  %32 = add i64 %31, %18
+  br label %33
 
-34:                                               ; preds = %27, %24
-  %.139.i = phi i64 [ %33, %27 ], [ %19, %24 ]
-  %.036.i = phi i64 [ %20, %27 ], [ %.037.i, %24 ]
-  %.135.i = phi i64 [ %28, %27 ], [ %13, %24 ]
-  %.033.i = phi i8 [ %30, %27 ], [ %15, %24 ]
+33:                                               ; preds = %26, %23
+  %.139.i = phi i64 [ %32, %26 ], [ %18, %23 ]
+  %.036.i = phi i64 [ %19, %26 ], [ %.037.i, %23 ]
+  %.135.i = phi i64 [ %27, %26 ], [ %12, %23 ]
+  %.033.i = phi i8 [ %29, %26 ], [ %14, %23 ]
   %.not47.i = icmp eq i8 %.033.i, 0
   br i1 %.not47.i, label %flex_unpack_integer.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %.lr.ph.i
-  %.049.i = phi i8 [ %36, %.lr.ph.i ], [ 0, %34 ]
-  %.148.i = phi i8 [ %35, %.lr.ph.i ], [ %.033.i, %34 ]
-  %35 = lshr i8 %.148.i, 1
-  %36 = add nuw nsw i8 %.049.i, 1
+.lr.ph.i:                                         ; preds = %33, %.lr.ph.i
+  %.049.i = phi i8 [ %35, %.lr.ph.i ], [ 0, %33 ]
+  %.148.i = phi i8 [ %34, %.lr.ph.i ], [ %.033.i, %33 ]
+  %34 = lshr i8 %.148.i, 1
+  %35 = add nuw nsw i8 %.049.i, 1
   %.not.i = icmp ult i8 %.148.i, 2
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %37 = zext nneg i8 %36 to i64
+  %36 = zext nneg i8 %35 to i64
   br label %flex_unpack_integer.exit
 
-flex_unpack_integer.exit:                         ; preds = %34, %._crit_edge.loopexit.i
-  %.0.lcssa.i = phi i64 [ 0, %34 ], [ %37, %._crit_edge.loopexit.i ]
-  %38 = add i64 %.0.lcssa.i, %.036.i
-  %39 = lshr i64 %38, 3
-  %40 = and i64 %38, 7
-  %41 = icmp ne i64 %40, 0
-  %42 = zext i1 %41 to i64
-  %43 = add nuw nsw i64 %39, %42
+flex_unpack_integer.exit:                         ; preds = %33, %._crit_edge.loopexit.i
+  %.0.lcssa.i = phi i64 [ 0, %33 ], [ %36, %._crit_edge.loopexit.i ]
+  %37 = add i64 %.0.lcssa.i, %.036.i
+  %38 = lshr i64 %37, 3
+  %39 = and i64 %37, 7
+  %40 = icmp ne i64 %39, 0
+  %41 = zext i1 %40 to i64
+  %42 = add nuw nsw i64 %38, %41
   store i64 %.135.i, ptr %4, align 8
-  %44 = icmp ult i64 %switch.load, %43
-  br i1 %44, label %45, label %47
+  %43 = icmp ult i64 %switch.load, %42
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %flex_unpack_integer.exit
-  %46 = tail call ptr @PMIx_Error_string(i32 noundef -20) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %46, ptr noundef nonnull @.str.4, i32 noundef 287) #5
+44:                                               ; preds = %flex_unpack_integer.exit
+  %45 = tail call ptr @PMIx_Error_string(i32 noundef -20) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %45, ptr noundef nonnull @.str.4, i32 noundef 287) #5
   br label %.thread69
 
-47:                                               ; preds = %flex_unpack_integer.exit
-  switch i16 %0, label %65 [
-    i16 8, label %48
-    i16 13, label %52
-    i16 6, label %54
-    i16 9, label %54
-    i16 11, label %58
-    i16 14, label %58
-    i16 10, label %60
-    i16 4, label %63
-    i16 15, label %64
+46:                                               ; preds = %flex_unpack_integer.exit
+  switch i16 %0, label %64 [
+    i16 8, label %47
+    i16 13, label %51
+    i16 6, label %53
+    i16 9, label %53
+    i16 11, label %57
+    i16 14, label %57
+    i16 10, label %59
+    i16 4, label %62
+    i16 15, label %63
   ]
 
-48:                                               ; preds = %47
-  %49 = lshr i64 %.139.i, 1
-  %50 = and i64 %.139.i, 1
-  %sext73 = sub nsw i64 0, %50
-  %spec.select = xor i64 %49, %sext73
-  %51 = trunc i64 %spec.select to i16
-  store i16 %51, ptr %3, align 1
+47:                                               ; preds = %46
+  %48 = lshr i64 %.139.i, 1
+  %49 = and i64 %.139.i, 1
+  %sext73 = sub nsw i64 0, %49
+  %spec.select = xor i64 %48, %sext73
+  %50 = trunc i64 %spec.select to i16
+  store i16 %50, ptr %3, align 1
   br label %.thread69
 
-52:                                               ; preds = %47
-  %53 = trunc i64 %.139.i to i16
-  store i16 %53, ptr %3, align 1
+51:                                               ; preds = %46
+  %52 = trunc i64 %.139.i to i16
+  store i16 %52, ptr %3, align 1
   br label %.thread69
 
-54:                                               ; preds = %47, %47
-  %55 = lshr i64 %.139.i, 1
-  %56 = and i64 %.139.i, 1
-  %sext72 = sub nsw i64 0, %56
-  %spec.select55 = xor i64 %55, %sext72
-  %57 = trunc i64 %spec.select55 to i32
-  store i32 %57, ptr %3, align 1
+53:                                               ; preds = %46, %46
+  %54 = lshr i64 %.139.i, 1
+  %55 = and i64 %.139.i, 1
+  %sext72 = sub nsw i64 0, %55
+  %spec.select55 = xor i64 %54, %sext72
+  %56 = trunc i64 %spec.select55 to i32
+  store i32 %56, ptr %3, align 1
   br label %.thread69
 
-58:                                               ; preds = %47, %47
-  %59 = trunc i64 %.139.i to i32
-  store i32 %59, ptr %3, align 1
+57:                                               ; preds = %46, %46
+  %58 = trunc i64 %.139.i to i32
+  store i32 %58, ptr %3, align 1
   br label %.thread69
 
-60:                                               ; preds = %47
-  %61 = lshr i64 %.139.i, 1
-  %62 = and i64 %.139.i, 1
-  %sext = sub nsw i64 0, %62
-  %spec.select56 = xor i64 %61, %sext
+59:                                               ; preds = %46
+  %60 = lshr i64 %.139.i, 1
+  %61 = and i64 %.139.i, 1
+  %sext = sub nsw i64 0, %61
+  %spec.select56 = xor i64 %60, %sext
   store i64 %spec.select56, ptr %3, align 1
   br label %.thread69
 
-63:                                               ; preds = %47
+62:                                               ; preds = %46
   store i64 %.139.i, ptr %3, align 1
   br label %.thread69
 
-64:                                               ; preds = %47
+63:                                               ; preds = %46
   store i64 %.139.i, ptr %3, align 1
   br label %.thread69
 
-65:                                               ; preds = %47
-  %66 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %66, ptr noundef nonnull @.str.4, i32 noundef 292) #5
+64:                                               ; preds = %46
+  %65 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #5
   br label %.thread69
 
-.thread69:                                        ; preds = %48, %52, %54, %58, %60, %63, %64, %65, %45, %7
-  %.0 = phi i32 [ -27, %7 ], [ -20, %45 ], [ -27, %65 ], [ 0, %64 ], [ 0, %63 ], [ 0, %60 ], [ 0, %58 ], [ 0, %54 ], [ 0, %52 ], [ 0, %48 ]
+.thread69:                                        ; preds = %47, %51, %53, %57, %59, %62, %63, %64, %44, %7
+  %.0 = phi i32 [ -27, %7 ], [ -20, %44 ], [ -27, %64 ], [ 0, %63 ], [ 0, %62 ], [ 0, %59 ], [ 0, %57 ], [ 0, %53 ], [ 0, %51 ], [ 0, %47 ]
   ret i32 %.0
 }
 

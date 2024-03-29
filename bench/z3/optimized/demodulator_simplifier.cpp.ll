@@ -2324,7 +2324,7 @@ for.bodythread-pre-split:                         ; preds = %for.inc
 for.body:                                         ; preds = %_ZNK8uint_set12get_max_elemEv.exit, %for.bodythread-pre-split
   %6 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %4, %_ZNK8uint_set12get_max_elemEv.exit ]
   %i.012 = phi i32 [ %inc, %for.bodythread-pre-split ], [ 0, %_ZNK8uint_set12get_max_elemEv.exit ]
-  %first.011 = phi i8 [ %first.2, %for.bodythread-pre-split ], [ 1, %_ZNK8uint_set12get_max_elemEv.exit ]
+  %first.011 = phi i1 [ %first.2, %for.bodythread-pre-split ], [ true, %_ZNK8uint_set12get_max_elemEv.exit ]
   %shr.i = lshr i32 %i.012, 5
   %cmp.i.i9 = icmp eq ptr %6, null
   br i1 %cmp.i.i9, label %for.inc, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -2346,21 +2346,18 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %cmp4.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %_ZNK8uint_set8containsEj.exit
-  %9 = and i8 %first.011, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  br i1 %first.011, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %target, ptr noundef nonnull @.str.7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.else
-  %first.1 = phi i8 [ %first.011, %if.else ], [ 0, %if.then ]
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %target, i32 noundef %i.012)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK8uint_set8containsEj.exit, %if.end
-  %first.2 = phi i8 [ %first.1, %if.end ], [ %first.011, %_ZNK8uint_set8containsEj.exit ], [ %first.011, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %first.011, %for.body ]
+  %first.2 = phi i1 [ false, %if.end ], [ %first.011, %_ZNK8uint_set8containsEj.exit ], [ %first.011, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %first.011, %for.body ]
   %inc = add nuw i32 %i.012, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i.i
   br i1 %exitcond.not, label %for.end, label %for.bodythread-pre-split, !llvm.loop !17

@@ -133,8 +133,8 @@ if.end34:                                         ; preds = %if.end28
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end44.i, %if.end34
-  %9 = phi i32 [ 0, %if.end34 ], [ %21, %if.end44.i ]
-  %candidate.sroa.0.0.i = phi i8 [ 0, %if.end34 ], [ %20, %if.end44.i ]
+  %9 = phi i32 [ 0, %if.end34 ], [ %20, %if.end44.i ]
+  %candidate.sroa.0.0.i = phi i8 [ 0, %if.end34 ], [ %19, %if.end44.i ]
   %candidate.sroa.6.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.6.1.i, %if.end44.i ]
   %candidate.sroa.8.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.8.1.i, %if.end44.i ]
   %candidate.sroa.9.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.9.1.i, %if.end44.i ]
@@ -145,48 +145,47 @@ for.cond.i:                                       ; preds = %if.end44.i, %if.end
 
 if.end.i:                                         ; preds = %for.cond.i
   %10 = load i8, ptr %seq_valid.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %if.end44.i, label %if.then3.i
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %if.then3.i, label %if.end44.i
 
 if.then3.i:                                       ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(16) %curr_log.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %current.sroa.11.i, ptr noundef nonnull align 8 dereferenceable(32) %current.sroa.11.8.curr_log.sroa_idx.i, i64 32, i1 false)
-  %12 = load i32, ptr %read.i, align 4
+  %11 = load i32, ptr %read.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current.sroa.11.64.hdr10.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(16) %hdr.i, i64 16, i1 false)
   %current.sroa.12.64.copyload.i = load i64, ptr %current.sroa.12.64.hdr.sroa_idx.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %current.sroa.13.i, ptr noundef nonnull align 1 dereferenceable(40) %current.sroa.13.64.hdr.sroa_idx.i, i64 40, i1 false)
-  %call1232.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef 0, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
-  %cmp1333.i = icmp slt i32 %call1232.i, 0
-  br i1 %cmp1333.i, label %vhdx_log_search.exit.thread, label %if.end16.i.preheader
+  %call1239.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef 0, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
+  %cmp1340.i = icmp slt i32 %call1239.i, 0
+  br i1 %cmp1340.i, label %vhdx_log_search.exit.thread, label %if.end16.i.preheader
 
 if.end16.i.preheader:                             ; preds = %if.then3.i
-  %13 = load i8, ptr %seq_valid.i, align 1
-  %14 = and i8 %13, 1
-  %cmp19.i32 = icmp eq i8 %14, 0
+  %12 = load i8, ptr %seq_valid.i, align 1
+  %13 = and i8 %12, 1
+  %cmp19.i32 = icmp eq i8 %13, 0
   br i1 %cmp19.i32, label %if.then30.i, label %if.end22.i
 
 if.end16.i:                                       ; preds = %if.end22.i
-  %inc.i = add i32 %current.sroa.41.134.i33, 1
-  %15 = load i8, ptr %seq_valid.i, align 1
-  %16 = and i8 %15, 1
-  %cmp19.i = icmp eq i8 %16, 0
+  %inc.i = add i32 %current.sroa.41.141.i33, 1
+  %14 = load i8, ptr %seq_valid.i, align 1
+  %15 = and i8 %14, 1
+  %cmp19.i = icmp eq i8 %15, 0
   br i1 %cmp19.i, label %if.then30.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end16.i.preheader, %if.end16.i
-  %current.sroa.41.134.i33 = phi i32 [ %inc.i, %if.end16.i ], [ 1, %if.end16.i.preheader ]
-  %17 = load i32, ptr %read.i, align 4
-  %18 = load i64, ptr %current.sroa.12.64.hdr.sroa_idx.i, align 1
-  %call12.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef %18, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
+  %current.sroa.41.141.i33 = phi i32 [ %inc.i, %if.end16.i ], [ 1, %if.end16.i.preheader ]
+  %16 = load i32, ptr %read.i, align 4
+  %17 = load i64, ptr %current.sroa.12.64.hdr.sroa_idx.i, align 1
+  %call12.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef %17, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %vhdx_log_search.exit.thread, label %if.end16.i
 
 if.then30.i:                                      ; preds = %if.end16.i, %if.end16.i.preheader
-  %call1236.i.lcssa = phi i32 [ %call1232.i, %if.end16.i.preheader ], [ %call12.i, %if.end16.i ]
-  %current.sroa.8.135.i.lcssa = phi i32 [ %12, %if.end16.i.preheader ], [ %17, %if.end16.i ]
-  %current.sroa.41.134.i.lcssa = phi i32 [ 1, %if.end16.i.preheader ], [ %inc.i, %if.end16.i ]
-  %19 = and i8 %candidate.sroa.0.0.i, 1
-  %cmp34.i = icmp eq i8 %19, 0
+  %call1243.i.lcssa = phi i32 [ %call1239.i, %if.end16.i.preheader ], [ %call12.i, %if.end16.i ]
+  %current.sroa.8.142.i.lcssa = phi i32 [ %11, %if.end16.i.preheader ], [ %16, %if.end16.i ]
+  %current.sroa.41.141.i.lcssa = phi i32 [ 1, %if.end16.i.preheader ], [ %inc.i, %if.end16.i ]
+  %18 = and i8 %candidate.sroa.0.0.i, 1
+  %cmp34.i = icmp eq i8 %18, 0
   %cmp40.i = icmp ugt i64 %current.sroa.12.64.copyload.i, %candidate.sroa.11.0.i
   %or.cond.i = select i1 %cmp34.i, i1 true, i1 %cmp40.i
   br i1 %or.cond.i, label %if.then42.i, label %if.end44.i
@@ -199,18 +198,18 @@ if.then42.i:                                      ; preds = %if.then30.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then42.i, %if.then30.i, %if.end.i
-  %ret.025.i = phi i32 [ %call1236.i.lcssa, %if.then42.i ], [ %call1236.i.lcssa, %if.then30.i ], [ %call.i, %if.end.i ]
-  %20 = phi i8 [ 1, %if.then42.i ], [ %candidate.sroa.0.0.i, %if.then30.i ], [ %candidate.sroa.0.0.i, %if.end.i ]
-  %candidate.sroa.6.1.i = phi i32 [ %current.sroa.41.134.i.lcssa, %if.then42.i ], [ %candidate.sroa.6.0.i, %if.then30.i ], [ %candidate.sroa.6.0.i, %if.end.i ]
-  %candidate.sroa.8.1.i = phi i32 [ %current.sroa.8.135.i.lcssa, %if.then42.i ], [ %candidate.sroa.8.0.i, %if.then30.i ], [ %candidate.sroa.8.0.i, %if.end.i ]
+  %ret.026.i = phi i32 [ %call1243.i.lcssa, %if.then42.i ], [ %call1243.i.lcssa, %if.then30.i ], [ %call.i, %if.end.i ]
+  %19 = phi i8 [ 1, %if.then42.i ], [ %candidate.sroa.0.0.i, %if.then30.i ], [ %candidate.sroa.0.0.i, %if.end.i ]
+  %candidate.sroa.6.1.i = phi i32 [ %current.sroa.41.141.i.lcssa, %if.then42.i ], [ %candidate.sroa.6.0.i, %if.then30.i ], [ %candidate.sroa.6.0.i, %if.end.i ]
+  %candidate.sroa.8.1.i = phi i32 [ %current.sroa.8.142.i.lcssa, %if.then42.i ], [ %candidate.sroa.8.0.i, %if.then30.i ], [ %candidate.sroa.8.0.i, %if.end.i ]
   %candidate.sroa.9.1.i = phi i32 [ %9, %if.then42.i ], [ %candidate.sroa.9.0.i, %if.then30.i ], [ %candidate.sroa.9.0.i, %if.end.i ]
   %candidate.sroa.11.1.i = phi i64 [ %current.sroa.12.64.copyload.i, %if.then42.i ], [ %candidate.sroa.11.0.i, %if.then30.i ], [ %candidate.sroa.11.0.i, %if.end.i ]
-  %21 = load i32, ptr %read.i, align 4
-  %cmp46.i = icmp ult i32 %21, %9
+  %20 = load i32, ptr %read.i, align 4
+  %cmp46.i = icmp ult i32 %20, %9
   br i1 %cmp46.i, label %for.end50.i, label %for.cond.i
 
 for.end50.i:                                      ; preds = %if.end44.i
-  store i8 %20, ptr %logs, align 8
+  store i8 %19, ptr %logs, align 8
   %candidate.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.i, i64 3, i1 false)
   %candidate.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 4
@@ -227,11 +226,11 @@ for.end50.i:                                      ; preds = %if.end44.i
   store i64 %candidate.sroa.11.1.i, ptr %candidate.sroa.11.0..sroa_idx.i, align 8
   %candidate.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.i, i64 40, i1 false)
-  %22 = and i8 %20, 1
-  %tobool52.not.i = icmp eq i8 %22, 0
-  br i1 %tobool52.not.i, label %if.end39.thread, label %if.then41
+  %tobool52.i = trunc i8 %19 to i1
+  br i1 %tobool52.i, label %if.then41, label %if.end39
 
-if.end39.thread:                                  ; preds = %for.end50.i
+vhdx_log_search.exit.thread:                      ; preds = %if.then3.i, %for.cond.i, %if.end22.i
+  %ret.1.i.ph = phi i32 [ %call12.i, %if.end22.i ], [ %call1239.i, %if.then3.i ], [ %call.i, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seq_valid.i)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %candidate.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %candidate.sroa.7.i)
@@ -244,8 +243,7 @@ if.end39.thread:                                  ; preds = %for.end50.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %current.sroa.13.i)
   br label %exit
 
-vhdx_log_search.exit.thread:                      ; preds = %if.then3.i, %for.cond.i, %if.end22.i
-  %ret.1.i.ph = phi i32 [ %call12.i, %if.end22.i ], [ %call1232.i, %if.then3.i ], [ %call.i, %for.cond.i ]
+if.end39:                                         ; preds = %for.end50.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seq_valid.i)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %candidate.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %candidate.sroa.7.i)
@@ -291,8 +289,8 @@ if.end51:                                         ; preds = %if.end46
   store i8 1, ptr %flushed, align 1
   br label %exit
 
-exit:                                             ; preds = %if.end39.thread, %vhdx_log_search.exit.thread, %if.end28, %if.end13, %if.end, %if.end51, %if.end46, %if.end23, %if.end18, %if.then43
-  %ret.0 = phi i32 [ 0, %if.end18 ], [ 0, %if.end23 ], [ -1, %if.then43 ], [ %call47, %if.end46 ], [ %call47, %if.end51 ], [ -22, %if.end ], [ -22, %if.end13 ], [ -22, %if.end28 ], [ %ret.1.i.ph, %vhdx_log_search.exit.thread ], [ %ret.025.i, %if.end39.thread ]
+exit:                                             ; preds = %if.end39, %vhdx_log_search.exit.thread, %if.end28, %if.end13, %if.end, %if.end51, %if.end46, %if.end23, %if.end18, %if.then43
+  %ret.0 = phi i32 [ 0, %if.end18 ], [ 0, %if.end23 ], [ -1, %if.then43 ], [ %call47, %if.end46 ], [ %call47, %if.end51 ], [ %ret.026.i, %if.end39 ], [ -22, %if.end ], [ -22, %if.end13 ], [ -22, %if.end28 ], [ %ret.1.i.ph, %vhdx_log_search.exit.thread ]
   ret i32 %ret.0
 }
 

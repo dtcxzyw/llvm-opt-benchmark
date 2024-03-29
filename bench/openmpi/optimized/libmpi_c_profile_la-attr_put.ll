@@ -26,9 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Attr_put(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %18, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %18
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -59,8 +58,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
 18:                                               ; preds = %ompi_comm_invalid.exit, %3
   %19 = getelementptr inbounds i8, ptr %0, i64 272
   %20 = tail call i32 @ompi_attr_set_c(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %19, i32 noundef %1, ptr noundef %2, i1 noundef zeroext false) #2
-  %.not12 = icmp eq i32 %20, 0
-  br i1 %.not12, label %27, label %21
+  %.not11 = icmp eq i32 %20, 0
+  br i1 %.not11, label %27, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 296

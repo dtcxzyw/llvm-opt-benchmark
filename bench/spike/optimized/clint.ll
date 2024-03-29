@@ -817,9 +817,8 @@ define void @_ZN7clint_t4tickEm(ptr noundef nonnull align 8 dereferenceable(104)
   %3 = alloca %struct.timeval, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %25, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %2
   %8 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #18
@@ -868,9 +867,9 @@ define void @_ZN7clint_t4tickEm(ptr noundef nonnull align 8 dereferenceable(104)
   br label %42
 
 42:                                               ; preds = %.lr.ph, %42
-  %.sroa.010.013 = phi ptr [ %37, %.lr.ph ], [ %56, %42 ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.010.013, i64 32
-  %44 = getelementptr inbounds i8, ptr %.sroa.010.013, i64 40
+  %.sroa.09.012 = phi ptr [ %37, %.lr.ph ], [ %56, %42 ]
+  %43 = getelementptr inbounds i8, ptr %.sroa.09.012, i64 32
+  %44 = getelementptr inbounds i8, ptr %.sroa.09.012, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 3584
   %47 = load ptr, ptr %46, align 8
@@ -882,10 +881,10 @@ define void @_ZN7clint_t4tickEm(ptr noundef nonnull align 8 dereferenceable(104)
   %52 = load i64, ptr %40, align 8
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %43)
   %54 = load i64, ptr %53, align 8
-  %.not9 = icmp ult i64 %52, %54
-  %55 = select i1 %.not9, i64 0, i64 128
+  %.not = icmp ult i64 %52, %54
+  %55 = select i1 %.not, i64 0, i64 128
   tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %51, i64 noundef 128, i64 noundef %55) #18
-  %56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.010.013) #23
+  %56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.09.012) #23
   %57 = icmp eq ptr %56, %38
   br i1 %57, label %._crit_edge, label %42
 
@@ -905,7 +904,7 @@ define noundef ptr @_Z20clint_parse_from_fdtPKvPK5sim_tPmRKSt6vectorINSt7__cxx11
 7:                                                ; preds = %4
   %8 = tail call noundef i32 @_Z15fdt_parse_clintPKvPmPKc(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.1)
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %7, %4
   %11 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
@@ -913,24 +912,23 @@ define noundef ptr @_Z20clint_parse_from_fdtPKvPK5sim_tPmRKSt6vectorINSt7__cxx11
   %13 = getelementptr inbounds i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(152) ptr %14(ptr noundef nonnull align 8 dereferenceable(2888) %1)
-          to label %16 unwind label %22
+          to label %16 unwind label %21
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %1, i64 696
   %18 = getelementptr inbounds i8, ptr %15, i64 137
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  invoke void @_ZN7clint_tC1EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull %17, i64 noundef 10000000, i1 noundef zeroext %21)
-          to label %24 unwind label %22
+  %20 = trunc i8 %19 to i1
+  invoke void @_ZN7clint_tC1EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull %17, i64 noundef 10000000, i1 noundef zeroext %20)
+          to label %23 unwind label %21
 
-22:                                               ; preds = %16, %10
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %16, %10
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %11) #22
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 
-24:                                               ; preds = %7, %16
+23:                                               ; preds = %7, %16
   %.0 = phi ptr [ %11, %16 ], [ null, %7 ]
   ret ptr %.0
 }
@@ -1136,9 +1134,8 @@ define linkonce_odr void @_ZN15clint_factory_tC2Ev(ptr noundef nonnull align 8 d
 
 12:                                               ; preds = %10
   %13 = extractvalue { ptr, i8 } %11, 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %29
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %29, label %15
 
 15:                                               ; preds = %12
   %16 = call ptr @__cxa_allocate_exception(i64 16) #18
@@ -1763,22 +1760,21 @@ define linkonce_odr noundef ptr @_ZNK15clint_factory_t14parse_from_fdtEPKvPK5sim
   %13 = getelementptr inbounds i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(152) ptr %14(ptr noundef nonnull align 8 dereferenceable(2888) %2)
-          to label %16 unwind label %22
+          to label %16 unwind label %21
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %2, i64 696
   %18 = getelementptr inbounds i8, ptr %15, i64 137
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  invoke void @_ZN7clint_tC1EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull %17, i64 noundef 10000000, i1 noundef zeroext %21)
-          to label %_Z20clint_parse_from_fdtPKvPK5sim_tPmRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.exit unwind label %22
+  %20 = trunc i8 %19 to i1
+  invoke void @_ZN7clint_tC1EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull %17, i64 noundef 10000000, i1 noundef zeroext %20)
+          to label %_Z20clint_parse_from_fdtPKvPK5sim_tPmRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.exit unwind label %21
 
-22:                                               ; preds = %16, %10
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %16, %10
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %11) #22
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 
 _Z20clint_parse_from_fdtPKvPK5sim_tPmRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.exit: ; preds = %7, %16
   %.0.i = phi ptr [ %11, %16 ], [ null, %7 ]

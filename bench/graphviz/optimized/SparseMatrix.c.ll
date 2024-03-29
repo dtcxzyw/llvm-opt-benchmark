@@ -2352,7 +2352,7 @@ define void @SparseMatrix_export(ptr nocapture noundef %0, ptr nocapture noundef
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %SparseMatrix_export_csr.exit [
     i32 0, label %5
-    i32 1, label %101
+    i32 1, label %100
   ]
 
 5:                                                ; preds = %2
@@ -2366,339 +2366,337 @@ define void @SparseMatrix_export(ptr nocapture noundef %0, ptr nocapture noundef
 switch.hole_check:                                ; preds = %5
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
-  %10 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %10, 0
-  br i1 %switch.lobit.not, label %SparseMatrix_export_csr.exit, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %SparseMatrix_export_csr.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.SparseMatrix_export.1, i64 0, i64 %11
+  %10 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.SparseMatrix_export.1, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load) #16
-  %13 = load i32, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load i32, ptr %16, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %13, i32 noundef %15, i32 noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
-  %24 = load i32, ptr %7, align 8
-  switch i32 %24, label %SparseMatrix_export_csr.exit [
-    i32 1, label %26
-    i32 2, label %45
-    i32 4, label %68
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load) #16
+  %12 = load i32, ptr %1, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %12, i32 noundef %14, i32 noundef %16) #16
+  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = load i32, ptr %7, align 8
+  switch i32 %23, label %SparseMatrix_export_csr.exit [
+    i32 1, label %25
+    i32 2, label %44
+    i32 4, label %67
     i32 8, label %.preheader.i
   ]
 
 .preheader.i:                                     ; preds = %switch.lookup
-  %25 = icmp sgt i32 %6, 0
-  br i1 %25, label %.lr.ph92.preheader.i, label %SparseMatrix_export_csr.exit
+  %24 = icmp sgt i32 %6, 0
+  br i1 %24, label %.lr.ph92.preheader.i, label %SparseMatrix_export_csr.exit
 
 .lr.ph92.preheader.i:                             ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %6 to i64
-  %.pre.i = load i32, ptr %20, align 4
+  %.pre.i = load i32, ptr %19, align 4
   br label %.lr.ph92.i
 
-26:                                               ; preds = %switch.lookup
-  %27 = load ptr, ptr %23, align 8
-  %28 = icmp sgt i32 %6, 0
-  br i1 %28, label %.lr.ph104.preheader.i, label %SparseMatrix_export_csr.exit
+25:                                               ; preds = %switch.lookup
+  %26 = load ptr, ptr %22, align 8
+  %27 = icmp sgt i32 %6, 0
+  br i1 %27, label %.lr.ph104.preheader.i, label %SparseMatrix_export_csr.exit
 
-.lr.ph104.preheader.i:                            ; preds = %26
+.lr.ph104.preheader.i:                            ; preds = %25
   %wide.trip.count134.i = zext nneg i32 %6 to i64
-  %.pre138.i = load i32, ptr %20, align 4
+  %.pre138.i = load i32, ptr %19, align 4
   br label %.lr.ph104.i
 
 .loopexit.i:                                      ; preds = %.lr.ph102.i, %.lr.ph104.i
-  %29 = phi i32 [ %32, %.lr.ph104.i ], [ %42, %.lr.ph102.i ]
+  %28 = phi i32 [ %31, %.lr.ph104.i ], [ %41, %.lr.ph102.i ]
   %exitcond135.not.i = icmp eq i64 %indvars.iv.next132.i, %wide.trip.count134.i
   br i1 %exitcond135.not.i, label %SparseMatrix_export_csr.exit, label %.lr.ph104.i
 
 .lr.ph104.i:                                      ; preds = %.loopexit.i, %.lr.ph104.preheader.i
-  %30 = phi i32 [ %.pre138.i, %.lr.ph104.preheader.i ], [ %29, %.loopexit.i ]
+  %29 = phi i32 [ %.pre138.i, %.lr.ph104.preheader.i ], [ %28, %.loopexit.i ]
   %indvars.iv131.i = phi i64 [ 0, %.lr.ph104.preheader.i ], [ %indvars.iv.next132.i, %.loopexit.i ]
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
-  %31 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.next132.i
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %30, %32
-  br i1 %33, label %.lr.ph102.preheader.i, label %.loopexit.i
+  %30 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next132.i
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp slt i32 %29, %31
+  br i1 %32, label %.lr.ph102.preheader.i, label %.loopexit.i
 
 .lr.ph102.preheader.i:                            ; preds = %.lr.ph104.i
-  %34 = sext i32 %30 to i64
-  %35 = trunc i64 %indvars.iv.next132.i to i32
+  %33 = sext i32 %29 to i64
+  %34 = trunc i64 %indvars.iv.next132.i to i32
   br label %.lr.ph102.i
 
 .lr.ph102.i:                                      ; preds = %.lr.ph102.i, %.lr.ph102.preheader.i
-  %indvars.iv128.i = phi i64 [ %34, %.lr.ph102.preheader.i ], [ %indvars.iv.next129.i, %.lr.ph102.i ]
-  %36 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv128.i
-  %37 = load i32, ptr %36, align 4
-  %38 = add nsw i32 %37, 1
-  %39 = getelementptr inbounds double, ptr %27, i64 %indvars.iv128.i
-  %40 = load double, ptr %39, align 8
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %35, i32 noundef %38, double noundef %40) #16
+  %indvars.iv128.i = phi i64 [ %33, %.lr.ph102.preheader.i ], [ %indvars.iv.next129.i, %.lr.ph102.i ]
+  %35 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv128.i
+  %36 = load i32, ptr %35, align 4
+  %37 = add nsw i32 %36, 1
+  %38 = getelementptr inbounds double, ptr %26, i64 %indvars.iv128.i
+  %39 = load double, ptr %38, align 8
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %34, i32 noundef %37, double noundef %39) #16
   %indvars.iv.next129.i = add nsw i64 %indvars.iv128.i, 1
-  %42 = load i32, ptr %31, align 4
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next129.i, %43
-  br i1 %44, label %.lr.ph102.i, label %.loopexit.i
+  %41 = load i32, ptr %30, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next129.i, %42
+  br i1 %43, label %.lr.ph102.i, label %.loopexit.i
 
-45:                                               ; preds = %switch.lookup
-  %46 = load ptr, ptr %23, align 8
-  %47 = icmp sgt i32 %6, 0
-  br i1 %47, label %.lr.ph100.preheader.i, label %SparseMatrix_export_csr.exit
+44:                                               ; preds = %switch.lookup
+  %45 = load ptr, ptr %22, align 8
+  %46 = icmp sgt i32 %6, 0
+  br i1 %46, label %.lr.ph100.preheader.i, label %SparseMatrix_export_csr.exit
 
-.lr.ph100.preheader.i:                            ; preds = %45
+.lr.ph100.preheader.i:                            ; preds = %44
   %wide.trip.count126.i = zext nneg i32 %6 to i64
-  %.pre137.i = load i32, ptr %20, align 4
+  %.pre137.i = load i32, ptr %19, align 4
   br label %.lr.ph100.i
 
 .loopexit81.i:                                    ; preds = %.lr.ph98.i, %.lr.ph100.i
-  %48 = phi i32 [ %51, %.lr.ph100.i ], [ %65, %.lr.ph98.i ]
+  %47 = phi i32 [ %50, %.lr.ph100.i ], [ %64, %.lr.ph98.i ]
   %exitcond127.not.i = icmp eq i64 %indvars.iv.next124.i, %wide.trip.count126.i
   br i1 %exitcond127.not.i, label %SparseMatrix_export_csr.exit, label %.lr.ph100.i
 
 .lr.ph100.i:                                      ; preds = %.loopexit81.i, %.lr.ph100.preheader.i
-  %49 = phi i32 [ %.pre137.i, %.lr.ph100.preheader.i ], [ %48, %.loopexit81.i ]
+  %48 = phi i32 [ %.pre137.i, %.lr.ph100.preheader.i ], [ %47, %.loopexit81.i ]
   %indvars.iv123.i = phi i64 [ 0, %.lr.ph100.preheader.i ], [ %indvars.iv.next124.i, %.loopexit81.i ]
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
-  %50 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.next124.i
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp slt i32 %49, %51
-  br i1 %52, label %.lr.ph98.preheader.i, label %.loopexit81.i
+  %49 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next124.i
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp slt i32 %48, %50
+  br i1 %51, label %.lr.ph98.preheader.i, label %.loopexit81.i
 
 .lr.ph98.preheader.i:                             ; preds = %.lr.ph100.i
-  %53 = sext i32 %49 to i64
-  %54 = trunc i64 %indvars.iv.next124.i to i32
+  %52 = sext i32 %48 to i64
+  %53 = trunc i64 %indvars.iv.next124.i to i32
   br label %.lr.ph98.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.i, %.lr.ph98.preheader.i
-  %indvars.iv120.i = phi i64 [ %53, %.lr.ph98.preheader.i ], [ %indvars.iv.next121.i, %.lr.ph98.i ]
-  %55 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv120.i
-  %56 = load i32, ptr %55, align 4
-  %57 = add nsw i32 %56, 1
-  %58 = shl nsw i64 %indvars.iv120.i, 1
-  %59 = getelementptr inbounds double, ptr %46, i64 %58
-  %60 = load double, ptr %59, align 8
-  %61 = or disjoint i64 %58, 1
-  %62 = getelementptr inbounds double, ptr %46, i64 %61
-  %63 = load double, ptr %62, align 8
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %54, i32 noundef %57, double noundef %60, double noundef %63) #16
+  %indvars.iv120.i = phi i64 [ %52, %.lr.ph98.preheader.i ], [ %indvars.iv.next121.i, %.lr.ph98.i ]
+  %54 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv120.i
+  %55 = load i32, ptr %54, align 4
+  %56 = add nsw i32 %55, 1
+  %57 = shl nsw i64 %indvars.iv120.i, 1
+  %58 = getelementptr inbounds double, ptr %45, i64 %57
+  %59 = load double, ptr %58, align 8
+  %60 = or disjoint i64 %57, 1
+  %61 = getelementptr inbounds double, ptr %45, i64 %60
+  %62 = load double, ptr %61, align 8
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %53, i32 noundef %56, double noundef %59, double noundef %62) #16
   %indvars.iv.next121.i = add nsw i64 %indvars.iv120.i, 1
-  %65 = load i32, ptr %50, align 4
-  %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next121.i, %66
-  br i1 %67, label %.lr.ph98.i, label %.loopexit81.i
+  %64 = load i32, ptr %49, align 4
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next121.i, %65
+  br i1 %66, label %.lr.ph98.i, label %.loopexit81.i
 
-68:                                               ; preds = %switch.lookup
-  %69 = load ptr, ptr %23, align 8
-  %70 = icmp sgt i32 %6, 0
-  br i1 %70, label %.lr.ph96.preheader.i, label %SparseMatrix_export_csr.exit
+67:                                               ; preds = %switch.lookup
+  %68 = load ptr, ptr %22, align 8
+  %69 = icmp sgt i32 %6, 0
+  br i1 %69, label %.lr.ph96.preheader.i, label %SparseMatrix_export_csr.exit
 
-.lr.ph96.preheader.i:                             ; preds = %68
+.lr.ph96.preheader.i:                             ; preds = %67
   %wide.trip.count118.i = zext nneg i32 %6 to i64
-  %.pre136.i = load i32, ptr %20, align 4
+  %.pre136.i = load i32, ptr %19, align 4
   br label %.lr.ph96.i
 
 .loopexit83.i:                                    ; preds = %.lr.ph94.i, %.lr.ph96.i
-  %71 = phi i32 [ %74, %.lr.ph96.i ], [ %84, %.lr.ph94.i ]
+  %70 = phi i32 [ %73, %.lr.ph96.i ], [ %83, %.lr.ph94.i ]
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next116.i, %wide.trip.count118.i
   br i1 %exitcond119.not.i, label %SparseMatrix_export_csr.exit, label %.lr.ph96.i
 
 .lr.ph96.i:                                       ; preds = %.loopexit83.i, %.lr.ph96.preheader.i
-  %72 = phi i32 [ %.pre136.i, %.lr.ph96.preheader.i ], [ %71, %.loopexit83.i ]
+  %71 = phi i32 [ %.pre136.i, %.lr.ph96.preheader.i ], [ %70, %.loopexit83.i ]
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph96.preheader.i ], [ %indvars.iv.next116.i, %.loopexit83.i ]
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
-  %73 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.next116.i
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp slt i32 %72, %74
-  br i1 %75, label %.lr.ph94.preheader.i, label %.loopexit83.i
+  %72 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next116.i
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp slt i32 %71, %73
+  br i1 %74, label %.lr.ph94.preheader.i, label %.loopexit83.i
 
 .lr.ph94.preheader.i:                             ; preds = %.lr.ph96.i
-  %76 = sext i32 %72 to i64
-  %77 = trunc i64 %indvars.iv.next116.i to i32
+  %75 = sext i32 %71 to i64
+  %76 = trunc i64 %indvars.iv.next116.i to i32
   br label %.lr.ph94.i
 
 .lr.ph94.i:                                       ; preds = %.lr.ph94.i, %.lr.ph94.preheader.i
-  %indvars.iv112.i = phi i64 [ %76, %.lr.ph94.preheader.i ], [ %indvars.iv.next113.i, %.lr.ph94.i ]
-  %78 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv112.i
-  %79 = load i32, ptr %78, align 4
-  %80 = add nsw i32 %79, 1
-  %81 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv112.i
-  %82 = load i32, ptr %81, align 4
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %77, i32 noundef %80, i32 noundef %82) #16
+  %indvars.iv112.i = phi i64 [ %75, %.lr.ph94.preheader.i ], [ %indvars.iv.next113.i, %.lr.ph94.i ]
+  %77 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv112.i
+  %78 = load i32, ptr %77, align 4
+  %79 = add nsw i32 %78, 1
+  %80 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv112.i
+  %81 = load i32, ptr %80, align 4
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %76, i32 noundef %79, i32 noundef %81) #16
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
-  %84 = load i32, ptr %73, align 4
-  %85 = sext i32 %84 to i64
-  %86 = icmp slt i64 %indvars.iv.next113.i, %85
-  br i1 %86, label %.lr.ph94.i, label %.loopexit83.i
+  %83 = load i32, ptr %72, align 4
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next113.i, %84
+  br i1 %85, label %.lr.ph94.i, label %.loopexit83.i
 
 .loopexit85.i:                                    ; preds = %.lr.ph.i, %.lr.ph92.i
-  %87 = phi i32 [ %90, %.lr.ph92.i ], [ %98, %.lr.ph.i ]
+  %86 = phi i32 [ %89, %.lr.ph92.i ], [ %97, %.lr.ph.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %SparseMatrix_export_csr.exit, label %.lr.ph92.i
 
 .lr.ph92.i:                                       ; preds = %.loopexit85.i, %.lr.ph92.preheader.i
-  %88 = phi i32 [ %.pre.i, %.lr.ph92.preheader.i ], [ %87, %.loopexit85.i ]
+  %87 = phi i32 [ %.pre.i, %.lr.ph92.preheader.i ], [ %86, %.loopexit85.i ]
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph92.preheader.i ], [ %indvars.iv.next110.i, %.loopexit85.i ]
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
-  %89 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.next110.i
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp slt i32 %88, %90
-  br i1 %91, label %.lr.ph.preheader.i, label %.loopexit85.i
+  %88 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next110.i
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp slt i32 %87, %89
+  br i1 %90, label %.lr.ph.preheader.i, label %.loopexit85.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph92.i
-  %92 = sext i32 %88 to i64
-  %93 = trunc i64 %indvars.iv.next110.i to i32
+  %91 = sext i32 %87 to i64
+  %92 = trunc i64 %indvars.iv.next110.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %92, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %94 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.i
-  %95 = load i32, ptr %94, align 4
-  %96 = add nsw i32 %95, 1
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %93, i32 noundef %96) #16
+  %indvars.iv.i = phi i64 [ %91, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %93 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i
+  %94 = load i32, ptr %93, align 4
+  %95 = add nsw i32 %94, 1
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %92, i32 noundef %95) #16
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %98 = load i32, ptr %89, align 4
-  %99 = sext i32 %98 to i64
-  %100 = icmp slt i64 %indvars.iv.next.i, %99
-  br i1 %100, label %.lr.ph.i, label %.loopexit85.i
+  %97 = load i32, ptr %88, align 4
+  %98 = sext i32 %97 to i64
+  %99 = icmp slt i64 %indvars.iv.next.i, %98
+  br i1 %99, label %.lr.ph.i, label %.loopexit85.i
 
-101:                                              ; preds = %2
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
-  %103 = load i32, ptr %102, align 8
-  %switch.tableidx52 = add i32 %103, -1
-  %104 = icmp ult i32 %switch.tableidx52, 8
-  br i1 %104, label %switch.hole_check53, label %SparseMatrix_export_csr.exit
+100:                                              ; preds = %2
+  %101 = getelementptr inbounds i8, ptr %1, i64 16
+  %102 = load i32, ptr %101, align 8
+  %switch.tableidx52 = add i32 %102, -1
+  %103 = icmp ult i32 %switch.tableidx52, 8
+  br i1 %103, label %switch.hole_check53, label %SparseMatrix_export_csr.exit
 
-switch.hole_check53:                              ; preds = %101
+switch.hole_check53:                              ; preds = %100
   %switch.maskindex55 = trunc i32 %switch.tableidx52 to i8
   %switch.shifted56 = lshr i8 -117, %switch.maskindex55
-  %105 = and i8 %switch.shifted56, 1
-  %switch.lobit57.not = icmp eq i8 %105, 0
-  br i1 %switch.lobit57.not, label %SparseMatrix_export_csr.exit, label %switch.lookup54
+  %switch.lobit57 = trunc i8 %switch.shifted56 to i1
+  br i1 %switch.lobit57, label %switch.lookup54, label %SparseMatrix_export_csr.exit
 
 switch.lookup54:                                  ; preds = %switch.hole_check53
-  %106 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep58 = getelementptr inbounds [8 x ptr], ptr @switch.table.SparseMatrix_export.1, i64 0, i64 %106
+  %104 = zext nneg i32 %switch.tableidx52 to i64
+  %switch.gep58 = getelementptr inbounds [8 x ptr], ptr @switch.table.SparseMatrix_export.1, i64 0, i64 %104
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load59) #16
-  %108 = load i32, ptr %1, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 4
-  %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
-  %112 = load i32, ptr %111, align 8
-  %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %108, i32 noundef %110, i32 noundef %112) #16
-  %114 = getelementptr inbounds i8, ptr %1, i64 24
+  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load59) #16
+  %106 = load i32, ptr %1, align 8
+  %107 = getelementptr inbounds i8, ptr %1, i64 4
+  %108 = load i32, ptr %107, align 4
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %110 = load i32, ptr %109, align 8
+  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %106, i32 noundef %108, i32 noundef %110) #16
+  %112 = getelementptr inbounds i8, ptr %1, i64 24
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %1, i64 32
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 32
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %1, i64 40
-  %119 = load i32, ptr %102, align 8
-  switch i32 %119, label %SparseMatrix_export_csr.exit [
-    i32 1, label %122
-    i32 2, label %138
-    i32 4, label %158
+  %116 = getelementptr inbounds i8, ptr %1, i64 40
+  %117 = load i32, ptr %101, align 8
+  switch i32 %117, label %SparseMatrix_export_csr.exit [
+    i32 1, label %120
+    i32 2, label %136
+    i32 4, label %156
     i32 8, label %.preheader.i6
   ]
 
 .preheader.i6:                                    ; preds = %switch.lookup54
-  %120 = load i32, ptr %111, align 8
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph.i8, label %SparseMatrix_export_csr.exit
+  %118 = load i32, ptr %109, align 8
+  %119 = icmp sgt i32 %118, 0
+  br i1 %119, label %.lr.ph.i8, label %SparseMatrix_export_csr.exit
 
-122:                                              ; preds = %switch.lookup54
-  %123 = load ptr, ptr %118, align 8
-  %124 = load i32, ptr %111, align 8
-  %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph64.i, label %SparseMatrix_export_csr.exit
+120:                                              ; preds = %switch.lookup54
+  %121 = load ptr, ptr %116, align 8
+  %122 = load i32, ptr %109, align 8
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph64.i, label %SparseMatrix_export_csr.exit
 
-.lr.ph64.i:                                       ; preds = %122, %.lr.ph64.i
-  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %.lr.ph64.i ], [ 0, %122 ]
-  %126 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv75.i
-  %127 = load i32, ptr %126, align 4
-  %128 = add nsw i32 %127, 1
-  %129 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv75.i
-  %130 = load i32, ptr %129, align 4
-  %131 = add nsw i32 %130, 1
-  %132 = getelementptr inbounds double, ptr %123, i64 %indvars.iv75.i
-  %133 = load double, ptr %132, align 8
-  %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %128, i32 noundef %131, double noundef %133) #16
+.lr.ph64.i:                                       ; preds = %120, %.lr.ph64.i
+  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %.lr.ph64.i ], [ 0, %120 ]
+  %124 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv75.i
+  %125 = load i32, ptr %124, align 4
+  %126 = add nsw i32 %125, 1
+  %127 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv75.i
+  %128 = load i32, ptr %127, align 4
+  %129 = add nsw i32 %128, 1
+  %130 = getelementptr inbounds double, ptr %121, i64 %indvars.iv75.i
+  %131 = load double, ptr %130, align 8
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %126, i32 noundef %129, double noundef %131) #16
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %135 = load i32, ptr %111, align 8
-  %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next76.i, %136
-  br i1 %137, label %.lr.ph64.i, label %SparseMatrix_export_csr.exit
+  %133 = load i32, ptr %109, align 8
+  %134 = sext i32 %133 to i64
+  %135 = icmp slt i64 %indvars.iv.next76.i, %134
+  br i1 %135, label %.lr.ph64.i, label %SparseMatrix_export_csr.exit
 
-138:                                              ; preds = %switch.lookup54
-  %139 = load ptr, ptr %118, align 8
-  %140 = load i32, ptr %111, align 8
-  %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph62.i, label %SparseMatrix_export_csr.exit
+136:                                              ; preds = %switch.lookup54
+  %137 = load ptr, ptr %116, align 8
+  %138 = load i32, ptr %109, align 8
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.lr.ph62.i, label %SparseMatrix_export_csr.exit
 
-.lr.ph62.i:                                       ; preds = %138, %.lr.ph62.i
-  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %.lr.ph62.i ], [ 0, %138 ]
-  %142 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv72.i
-  %143 = load i32, ptr %142, align 4
-  %144 = add nsw i32 %143, 1
-  %145 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv72.i
-  %146 = load i32, ptr %145, align 4
-  %147 = add nsw i32 %146, 1
-  %148 = shl nuw nsw i64 %indvars.iv72.i, 1
-  %149 = getelementptr inbounds double, ptr %139, i64 %148
-  %150 = load double, ptr %149, align 8
-  %151 = or disjoint i64 %148, 1
-  %152 = getelementptr inbounds double, ptr %139, i64 %151
-  %153 = load double, ptr %152, align 8
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %144, i32 noundef %147, double noundef %150, double noundef %153) #16
+.lr.ph62.i:                                       ; preds = %136, %.lr.ph62.i
+  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %.lr.ph62.i ], [ 0, %136 ]
+  %140 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv72.i
+  %141 = load i32, ptr %140, align 4
+  %142 = add nsw i32 %141, 1
+  %143 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv72.i
+  %144 = load i32, ptr %143, align 4
+  %145 = add nsw i32 %144, 1
+  %146 = shl nuw nsw i64 %indvars.iv72.i, 1
+  %147 = getelementptr inbounds double, ptr %137, i64 %146
+  %148 = load double, ptr %147, align 8
+  %149 = or disjoint i64 %146, 1
+  %150 = getelementptr inbounds double, ptr %137, i64 %149
+  %151 = load double, ptr %150, align 8
+  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %142, i32 noundef %145, double noundef %148, double noundef %151) #16
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %155 = load i32, ptr %111, align 8
-  %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next73.i, %156
-  br i1 %157, label %.lr.ph62.i, label %SparseMatrix_export_csr.exit
+  %153 = load i32, ptr %109, align 8
+  %154 = sext i32 %153 to i64
+  %155 = icmp slt i64 %indvars.iv.next73.i, %154
+  br i1 %155, label %.lr.ph62.i, label %SparseMatrix_export_csr.exit
 
-158:                                              ; preds = %switch.lookup54
-  %159 = load ptr, ptr %118, align 8
-  %160 = load i32, ptr %111, align 8
-  %161 = icmp sgt i32 %160, 0
-  br i1 %161, label %.lr.ph60.i, label %SparseMatrix_export_csr.exit
+156:                                              ; preds = %switch.lookup54
+  %157 = load ptr, ptr %116, align 8
+  %158 = load i32, ptr %109, align 8
+  %159 = icmp sgt i32 %158, 0
+  br i1 %159, label %.lr.ph60.i, label %SparseMatrix_export_csr.exit
 
-.lr.ph60.i:                                       ; preds = %158, %.lr.ph60.i
-  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.lr.ph60.i ], [ 0, %158 ]
-  %162 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv69.i
-  %163 = load i32, ptr %162, align 4
-  %164 = add nsw i32 %163, 1
-  %165 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv69.i
-  %166 = load i32, ptr %165, align 4
-  %167 = add nsw i32 %166, 1
-  %168 = getelementptr inbounds i32, ptr %159, i64 %indvars.iv69.i
-  %169 = load i32, ptr %168, align 4
-  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %164, i32 noundef %167, i32 noundef %169) #16
+.lr.ph60.i:                                       ; preds = %156, %.lr.ph60.i
+  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.lr.ph60.i ], [ 0, %156 ]
+  %160 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv69.i
+  %161 = load i32, ptr %160, align 4
+  %162 = add nsw i32 %161, 1
+  %163 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv69.i
+  %164 = load i32, ptr %163, align 4
+  %165 = add nsw i32 %164, 1
+  %166 = getelementptr inbounds i32, ptr %157, i64 %indvars.iv69.i
+  %167 = load i32, ptr %166, align 4
+  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %162, i32 noundef %165, i32 noundef %167) #16
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %171 = load i32, ptr %111, align 8
-  %172 = sext i32 %171 to i64
-  %173 = icmp slt i64 %indvars.iv.next70.i, %172
-  br i1 %173, label %.lr.ph60.i, label %SparseMatrix_export_csr.exit
+  %169 = load i32, ptr %109, align 8
+  %170 = sext i32 %169 to i64
+  %171 = icmp slt i64 %indvars.iv.next70.i, %170
+  br i1 %171, label %.lr.ph60.i, label %SparseMatrix_export_csr.exit
 
 .lr.ph.i8:                                        ; preds = %.preheader.i6, %.lr.ph.i8
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i10, %.lr.ph.i8 ], [ 0, %.preheader.i6 ]
-  %174 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv.i9
-  %175 = load i32, ptr %174, align 4
-  %176 = add nsw i32 %175, 1
-  %177 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv.i9
-  %178 = load i32, ptr %177, align 4
-  %179 = add nsw i32 %178, 1
-  %180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %176, i32 noundef %179) #16
+  %172 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv.i9
+  %173 = load i32, ptr %172, align 4
+  %174 = add nsw i32 %173, 1
+  %175 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv.i9
+  %176 = load i32, ptr %175, align 4
+  %177 = add nsw i32 %176, 1
+  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %174, i32 noundef %177) #16
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
-  %181 = load i32, ptr %111, align 8
-  %182 = sext i32 %181 to i64
-  %183 = icmp slt i64 %indvars.iv.next.i10, %182
-  br i1 %183, label %.lr.ph.i8, label %SparseMatrix_export_csr.exit
+  %179 = load i32, ptr %109, align 8
+  %180 = sext i32 %179 to i64
+  %181 = icmp slt i64 %indvars.iv.next.i10, %180
+  br i1 %181, label %.lr.ph.i8, label %SparseMatrix_export_csr.exit
 
-SparseMatrix_export_csr.exit:                     ; preds = %.lr.ph.i8, %.lr.ph60.i, %.lr.ph62.i, %.lr.ph64.i, %.loopexit85.i, %.loopexit83.i, %.loopexit81.i, %.loopexit.i, %switch.hole_check53, %101, %switch.hole_check, %5, %158, %138, %122, %.preheader.i6, %switch.lookup54, %68, %45, %26, %.preheader.i, %switch.lookup, %2
+SparseMatrix_export_csr.exit:                     ; preds = %.lr.ph.i8, %.lr.ph60.i, %.lr.ph62.i, %.lr.ph64.i, %.loopexit85.i, %.loopexit83.i, %.loopexit81.i, %.loopexit.i, %switch.hole_check53, %100, %switch.hole_check, %5, %156, %136, %120, %.preheader.i6, %switch.lookup54, %67, %44, %25, %.preheader.i, %switch.lookup, %2
   ret void
 }
 

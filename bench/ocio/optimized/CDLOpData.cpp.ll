@@ -1143,13 +1143,12 @@ land.rhs:                                         ; preds = %entry
 switch.lookup:                                    ; preds = %land.rhs
   %switch.cast = trunc i32 %1 to i4
   %switch.downshift = lshr i4 -4, %switch.cast
-  %3 = and i4 %switch.downshift, 1
-  %switch.masked = icmp ne i4 %3, 0
+  %switch.masked = trunc i4 %switch.downshift to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %switch.lookup, %entry
-  %4 = phi i1 [ false, %entry ], [ %switch.masked, %switch.lookup ], [ true, %land.rhs ]
-  ret i1 %4
+  %3 = phi i1 [ false, %entry ], [ %switch.masked, %switch.lookup ], [ true, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1160,8 +1159,7 @@ entry:
   %1 = icmp ult i32 %0, 4
   %switch.cast = trunc i32 %0 to i4
   %switch.downshift = lshr i4 3, %switch.cast
-  %2 = and i4 %switch.downshift, 1
-  %switch.masked = icmp ne i4 %2, 0
+  %switch.masked = trunc i4 %switch.downshift to i1
   %retval.0 = select i1 %1, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }

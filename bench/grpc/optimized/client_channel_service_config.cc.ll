@@ -845,35 +845,34 @@ lpad58:                                           ; preds = %invoke.cont56
 
 if.else61:                                        ; preds = %invoke.cont44
   %45 = load i8, ptr %requires_config, align 1
-  %46 = and i8 %45, 1
-  %tobool.not = icmp eq i8 %46, 0
-  br i1 %tobool.not, label %if.end78, label %invoke.cont71
+  %tobool = trunc i8 %45 to i1
+  br i1 %tobool, label %invoke.cont71, label %if.end78
 
 invoke.cont71:                                    ; preds = %if.else61
   store i64 11, ptr %ref.tmp65, align 8
-  %47 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
-  store ptr @.str.8, ptr %47, align 8
+  %46 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  store ptr @.str.8, ptr %46, align 8
   %call.i49 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_) #12
-  %48 = extractvalue { i64, ptr } %call.i49, 0
-  store i64 %48, ptr %ref.tmp67, align 8
-  %49 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
-  %50 = extractvalue { i64, ptr } %call.i49, 1
-  store ptr %50, ptr %49, align 8
+  %47 = extractvalue { i64, ptr } %call.i49, 0
+  store i64 %47, ptr %ref.tmp67, align 8
+  %48 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
+  %49 = extractvalue { i64, ptr } %call.i49, 1
+  store ptr %49, ptr %48, align 8
   store i64 60, ptr %ref.tmp70, align 8
-  %51 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
-  store ptr @.str.9, ptr %51, align 8
+  %50 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
+  store ptr @.str.9, ptr %50, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp70)
           to label %invoke.cont72 unwind label %lpad39
 
 invoke.cont72:                                    ; preds = %invoke.cont71
   %call73 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #12
-  %52 = extractvalue { i64, ptr } %call73, 0
-  %53 = extractvalue { i64, ptr } %call73, 1
-  invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %52, ptr %53)
+  %51 = extractvalue { i64, ptr } %call73, 0
+  %52 = extractvalue { i64, ptr } %call73, 1
+  invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %51, ptr %52)
           to label %if.end78.sink.split unwind label %lpad74
 
 lpad74:                                           ; preds = %invoke.cont72
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #12
   br label %eh.resume
@@ -884,19 +883,19 @@ if.end78.sink.split:                              ; preds = %invoke.cont72, %inv
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end78.sink.split, %if.else61
-  %55 = load ptr, ptr %field36, align 8
-  %cmp.not.i52 = icmp eq ptr %55, null
+  %54 = load ptr, ptr %field36, align 8
+  %cmp.not.i52 = icmp eq ptr %54, null
   br i1 %cmp.not.i52, label %if.end80, label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.end78
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %55)
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %54)
           to label %if.end80 unwind label %terminate.lpad.i54
 
 terminate.lpad.i54:                               ; preds = %if.then.i53
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #14
   unreachable
 
 if.end80:                                         ; preds = %if.then.i53, %if.end78, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit
@@ -904,7 +903,7 @@ if.end80:                                         ; preds = %if.then.i53, %if.en
 
 eh.resume:                                        ; preds = %lpad39, %lpad58, %lpad74, %lpad, %ehcleanup, %lpad18
   %field36.sink = phi ptr [ %field, %lpad18 ], [ %field, %ehcleanup ], [ %field, %lpad ], [ %field36, %lpad74 ], [ %field36, %lpad58 ], [ %field36, %lpad39 ]
-  %.pn10.pn = phi { ptr, i32 } [ %18, %lpad18 ], [ %.pn, %ehcleanup ], [ %16, %lpad ], [ %54, %lpad74 ], [ %44, %lpad58 ], [ %43, %lpad39 ]
+  %.pn10.pn = phi { ptr, i32 } [ %18, %lpad18 ], [ %.pn, %ehcleanup ], [ %16, %lpad ], [ %53, %lpad74 ], [ %44, %lpad58 ], [ %43, %lpad39 ]
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field36.sink) #12
   resume { ptr, i32 } %.pn10.pn
 }
@@ -1556,9 +1555,8 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt8opti
 entry:
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -1576,9 +1574,8 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalINS
 entry:
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
@@ -1694,9 +1691,8 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalIbE
 entry:
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 1
   %0 = load i8, ptr %_M_engaged.i.i.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i, label %_ZNSt8optionalIbE5resetEv.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIbE5resetEv.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 1
@@ -1837,9 +1833,8 @@ entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8internal31ClientChannelGlobalParsedConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit, label %if.then.i.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %health_check_config_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1851,21 +1846,21 @@ _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.e
   %parsed_deprecated_lb_policy_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_) #12
   %parsed_lb_config_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %parsed_lb_config_, align 8
-  %cmp.not.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %parsed_lb_config_, align 8
+  %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit
-  %refs_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i = icmp eq i64 %3, 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %vtable.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  %3 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit: ; preds = %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit, %if.then.i, %if.then.i.i
@@ -1878,9 +1873,8 @@ entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8internal31ClientChannelGlobalParsedConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i, label %if.then.i.i.i.i.i.i
+  %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %health_check_config_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1892,21 +1886,21 @@ _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.e
   %parsed_deprecated_lb_policy_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_.i) #12
   %parsed_lb_config_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %parsed_lb_config_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %parsed_lb_config_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i
-  %refs_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %3, 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  %3 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   br label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit
 
 _ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit: ; preds = %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i, %if.then.i.i, %if.then.i.i.i

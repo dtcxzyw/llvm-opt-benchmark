@@ -2816,25 +2816,25 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %invariant.gep = getelementptr inbounds i8, ptr %8, i64 24
   store i32 0, ptr %5, align 4
   %21 = icmp sgt i32 %3, 0
-  br i1 %21, label %.preheader53, label %.preheader.preheader
+  br i1 %21, label %.preheader52, label %.preheader.preheader
 
-.preheader53:                                     ; preds = %4, %.preheader53.backedge
-  %.016.i = phi ptr [ %.016.i.be, %.preheader53.backedge ], [ %1, %4 ]
-  %.0.i = phi ptr [ %.0.i.be, %.preheader53.backedge ], [ %1, %4 ]
+.preheader52:                                     ; preds = %4, %.preheader52.backedge
+  %.016.i = phi ptr [ %.016.i.be, %.preheader52.backedge ], [ %1, %4 ]
+  %.0.i = phi ptr [ %.0.i.be, %.preheader52.backedge ], [ %1, %4 ]
   %22 = load i8, ptr %.0.i, align 1
   switch i8 %22, label %35 [
     i8 0, label %23
     i8 37, label %28
   ]
 
-23:                                               ; preds = %.preheader53
+23:                                               ; preds = %.preheader52
   %24 = ptrtoint ptr %.0.i to i64
   %25 = ptrtoint ptr %.016.i to i64
   %26 = sub i64 %24, %25
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i, i64 noundef %26)
   br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
 
-28:                                               ; preds = %.preheader53
+28:                                               ; preds = %.preheader52
   %29 = ptrtoint ptr %.0.i to i64
   %30 = ptrtoint ptr %.016.i to i64
   %31 = sub i64 %29, %30
@@ -2844,16 +2844,16 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %.not.i = icmp eq i8 %34, 37
   br i1 %.not.i, label %35, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
 
-35:                                               ; preds = %28, %.preheader53
-  %.117.i = phi ptr [ %.016.i, %.preheader53 ], [ %33, %28 ]
-  %.1.i = phi ptr [ %.0.i, %.preheader53 ], [ %33, %28 ]
+35:                                               ; preds = %28, %.preheader52
+  %.117.i = phi ptr [ %.016.i, %.preheader52 ], [ %33, %28 ]
+  %.1.i = phi ptr [ %.0.i, %.preheader52 ], [ %33, %28 ]
   %36 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  br label %.preheader53.backedge
+  br label %.preheader52.backedge
 
-.preheader53.backedge:                            ; preds = %35, %86
+.preheader52.backedge:                            ; preds = %35, %86
   %.016.i.be = phi ptr [ %.117.i, %35 ], [ %37, %86 ]
   %.0.i.be = phi ptr [ %36, %35 ], [ %37, %86 ]
-  br label %.preheader53, !llvm.loop !52
+  br label %.preheader52, !llvm.loop !52
 
 _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   store i8 0, ptr %6, align 1
@@ -2861,15 +2861,14 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %37 = call noundef ptr @_ZN10tinyformat6detail21streamStateFromFormatERSoRbRiPKcPKNS0_9FormatArgES3_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %.0.i, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %3)
   %38 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %38, %3
-  br i1 %.not, label %39, label %.loopexit54
+  br i1 %.not, label %39, label %.loopexit53
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
-  %43 = and i8 %42, 1
-  %.not45 = icmp eq i8 %43, 0
-  br i1 %.not45, label %44, label %49
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %49, label %44
 
 44:                                               ; preds = %39
   %45 = load i32, ptr %7, align 4
@@ -2913,12 +2912,12 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
 
 69:                                               ; preds = %_ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit
   %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  %.not66 = icmp eq i64 %70, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i64 %70, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %81
-  %.04064 = phi i64 [ %82, %81 ], [ 0, %69 ]
-  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04064)
+  %.04063 = phi i64 [ %82, %81 ], [ 0, %69 ]
+  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04063)
           to label %72 unwind label %.loopexit
 
 72:                                               ; preds = %.lr.ph
@@ -2927,7 +2926,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %72
-  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04064)
+  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04063)
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
@@ -2955,7 +2954,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   br label %85
 
 81:                                               ; preds = %72, %77
-  %82 = add nuw i64 %.04064, 1
+  %82 = add nuw i64 %.04063, 1
   %exitcond.not = icmp eq i64 %82, %70
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
@@ -2978,45 +2977,45 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %5, align 4
   %89 = icmp slt i32 %88, %3
-  br i1 %89, label %.preheader53.backedge, label %.preheader.preheader
+  br i1 %89, label %.preheader52.backedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %86, %4
-  %.0.i48.ph = phi ptr [ %1, %4 ], [ %37, %86 ]
+  %.0.i47.ph = phi ptr [ %1, %4 ], [ %37, %86 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %103
-  %.016.i47 = phi ptr [ %.117.i50, %103 ], [ %.0.i48.ph, %.preheader.preheader ]
-  %.0.i48 = phi ptr [ %104, %103 ], [ %.0.i48.ph, %.preheader.preheader ]
-  %90 = load i8, ptr %.0.i48, align 1
+  %.016.i46 = phi ptr [ %.117.i49, %103 ], [ %.0.i47.ph, %.preheader.preheader ]
+  %.0.i47 = phi ptr [ %104, %103 ], [ %.0.i47.ph, %.preheader.preheader ]
+  %90 = load i8, ptr %.0.i47, align 1
   switch i8 %90, label %103 [
     i8 0, label %91
     i8 37, label %96
   ]
 
 91:                                               ; preds = %.preheader
-  %92 = ptrtoint ptr %.0.i48 to i64
-  %93 = ptrtoint ptr %.016.i47 to i64
+  %92 = ptrtoint ptr %.0.i47 to i64
+  %93 = ptrtoint ptr %.016.i46 to i64
   %94 = sub i64 %92, %93
-  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i47, i64 noundef %94)
-  br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i46, i64 noundef %94)
+  br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
 
 96:                                               ; preds = %.preheader
-  %97 = ptrtoint ptr %.0.i48 to i64
-  %98 = ptrtoint ptr %.016.i47 to i64
+  %97 = ptrtoint ptr %.0.i47 to i64
+  %98 = ptrtoint ptr %.016.i46 to i64
   %99 = sub i64 %97, %98
-  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i47, i64 noundef %99)
-  %101 = getelementptr inbounds i8, ptr %.0.i48, i64 1
+  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i46, i64 noundef %99)
+  %101 = getelementptr inbounds i8, ptr %.0.i47, i64 1
   %102 = load i8, ptr %101, align 1
-  %.not.i49 = icmp eq i8 %102, 37
-  br i1 %.not.i49, label %103, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+  %.not.i48 = icmp eq i8 %102, 37
+  br i1 %.not.i48, label %103, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
 
 103:                                              ; preds = %96, %.preheader
-  %.117.i50 = phi ptr [ %.016.i47, %.preheader ], [ %101, %96 ]
-  %.1.i51 = phi ptr [ %.0.i48, %.preheader ], [ %101, %96 ]
-  %104 = getelementptr inbounds i8, ptr %.1.i51, i64 1
+  %.117.i49 = phi ptr [ %.016.i46, %.preheader ], [ %101, %96 ]
+  %.1.i50 = phi ptr [ %.0.i47, %.preheader ], [ %101, %96 ]
+  %104 = getelementptr inbounds i8, ptr %.1.i50, i64 1
   br label %.preheader, !llvm.loop !54
 
-_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52: ; preds = %96, %91
+_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51: ; preds = %96, %91
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr i8, ptr %105, i64 -24
   %107 = load i64, ptr %106, align 8
@@ -3040,9 +3039,9 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52: ; preds = %96, %
   %122 = load i64, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %0, i64 %122
   %124 = call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %123, i8 noundef signext %20)
-  br label %.loopexit54
+  br label %.loopexit53
 
-.loopexit54:                                      ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit, %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+.loopexit53:                                      ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit, %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
   ret void
 }
 
@@ -3680,9 +3679,9 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112bas
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca i8, i64 %2, align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %8 = call noundef i32 %1(ptr noundef nonnull %7, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
@@ -3722,12 +3721,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_.exit: ; 
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #14
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -3841,7 +3834,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -4019,10 +4012,10 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionD0Ev(ptr noundef nonnull
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #17
+declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #17
+declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10tinyformat6detail9FormatArg10formatImplIlEEvRSoPKcS5_iPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #5 comdat align 2 {
@@ -4108,11 +4101,17 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIlEEvRSo
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_mesh.cpp() #18 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_mesh.cpp() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #19
@@ -4144,10 +4143,10 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind }

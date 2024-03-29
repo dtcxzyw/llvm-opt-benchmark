@@ -902,8 +902,8 @@ define internal fastcc i32 @epoll_teardown(ptr noundef %0, ptr nocapture noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %.not65 = icmp eq ptr %8, %6
-  br i1 %.not65, label %._crit_edge, label %.lr.ph
+  %.not64 = icmp eq ptr %8, %6
+  br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -911,66 +911,65 @@ define internal fastcc i32 @epoll_teardown(ptr noundef %0, ptr nocapture noundef
   br label %11
 
 11:                                               ; preds = %.lr.ph, %40
-  %.05867 = phi ptr [ %8, %.lr.ph ], [ %.069, %40 ]
-  %.05966 = phi i32 [ 0, %.lr.ph ], [ %.1, %40 ]
-  %.0.in68 = getelementptr inbounds i8, ptr %.05867, i64 8
-  %.069 = load ptr, ptr %.0.in68, align 8
-  %12 = getelementptr inbounds i8, ptr %.05867, i64 24
+  %.05866 = phi ptr [ %8, %.lr.ph ], [ %.068, %40 ]
+  %.05965 = phi i32 [ 0, %.lr.ph ], [ %.1, %40 ]
+  %.0.in67 = getelementptr inbounds i8, ptr %.05866, i64 8
+  %.068 = load ptr, ptr %.0.in67, align 8
+  %12 = getelementptr inbounds i8, ptr %.05866, i64 24
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not60 = icmp eq i8 %14, 0
-  br i1 %.not60, label %40, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.05867, i64 32
+  %16 = getelementptr inbounds i8, ptr %.05866, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @poll_fdsetup(i32 noundef %17, ptr noundef nonnull %16, i1 noundef zeroext false) #9
-  %19 = load ptr, ptr %.05867, align 8
-  %20 = load ptr, ptr %.0.in68, align 8
+  %19 = load ptr, ptr %.05866, align 8
+  %20 = load ptr, ptr %.0.in67, align 8
   store ptr %19, ptr %20, align 8
-  %21 = load ptr, ptr %.0.in68, align 8
+  %21 = load ptr, ptr %.0.in67, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.05867, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.05867, i8 0, i64 16, i1 false)
+  %23 = getelementptr inbounds i8, ptr %.05866, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.05866, i8 0, i64 16, i1 false)
   %24 = load i32, ptr %23, align 8
-  %.not61 = icmp ne i32 %24, 0
-  %25 = icmp slt i32 %.05966, %2
-  %or.cond = select i1 %.not61, i1 %25, i1 false
+  %.not60 = icmp ne i32 %24, 0
+  %25 = icmp slt i32 %.05965, %2
+  %or.cond = select i1 %.not60, i1 %25, i1 false
   br i1 %or.cond, label %26, label %.sink.split
 
 26:                                               ; preds = %15
-  %27 = sext i32 %.05966 to i64
+  %27 = sext i32 %.05965 to i64
   %28 = getelementptr inbounds %struct.epoll_event, ptr %1, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = getelementptr inbounds i8, ptr %.05867, i64 16
+  %30 = getelementptr inbounds i8, ptr %.05866, i64 16
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %29, align 8
   %32 = load i32, ptr %23, align 8
-  %33 = add nsw i32 %.05966, 1
+  %33 = add nsw i32 %.05965, 1
   store i32 %32, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %.05867, i64 36
+  %34 = getelementptr inbounds i8, ptr %.05866, i64 36
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1073741824
-  %.not62 = icmp eq i32 %36, 0
-  %. = select i1 %.not62, ptr %9, ptr %10
+  %.not61 = icmp eq i32 %36, 0
+  %. = select i1 %.not61, ptr %9, ptr %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %26
-  %.sink75 = phi ptr [ %., %26 ], [ %9, %15 ]
-  %.1.ph = phi i32 [ %33, %26 ], [ %.05966, %15 ]
-  %37 = load ptr, ptr %.sink75, align 8
-  store ptr %37, ptr %.05867, align 8
-  store ptr %.sink75, ptr %.0.in68, align 8
-  %38 = load ptr, ptr %.sink75, align 8
+  %.sink74 = phi ptr [ %., %26 ], [ %9, %15 ]
+  %.1.ph = phi i32 [ %33, %26 ], [ %.05965, %15 ]
+  %37 = load ptr, ptr %.sink74, align 8
+  store ptr %37, ptr %.05866, align 8
+  store ptr %.sink74, ptr %.0.in67, align 8
+  %38 = load ptr, ptr %.sink74, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %.05867, ptr %39, align 8
-  store ptr %.05867, ptr %.sink75, align 8
+  store ptr %.05866, ptr %39, align 8
+  store ptr %.05866, ptr %.sink74, align 8
   br label %40
 
 40:                                               ; preds = %.sink.split, %11
-  %.1 = phi i32 [ %.05966, %11 ], [ %.1.ph, %.sink.split ]
-  %.not = icmp eq ptr %.069, %6
+  %.1 = phi i32 [ %.05965, %11 ], [ %.1.ph, %.sink.split ]
+  %.not = icmp eq ptr %.068, %6
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %40, %3

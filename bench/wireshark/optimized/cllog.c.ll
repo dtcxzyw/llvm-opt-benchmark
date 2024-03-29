@@ -98,19 +98,19 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %13, i8 0, i64 68, i1 false)
   %15 = load ptr, ptr %0, align 8
   %16 = call ptr @file_gets(ptr noundef nonnull %4, i32 noundef 200, ptr noundef %15) #10
-  %.not79 = icmp eq ptr %16, null
-  br i1 %.not79, label %._crit_edge.preheader, label %.lr.ph
+  %.not84 = icmp eq ptr %16, null
+  br i1 %.not84, label %._crit_edge.preheader, label %.lr.ph
 
-._crit_edge.preheader:                            ; preds = %.backedge, %22, %3
+._crit_edge.preheader:                            ; preds = %.backedge79, %22, %3
   br label %._crit_edge
 
-.backedge:                                        ; preds = %.preheader74, %42
+.backedge79:                                      ; preds = %.preheader77, %42
   %17 = load ptr, ptr %0, align 8
   %18 = call ptr @file_gets(ptr noundef nonnull %4, i32 noundef 200, ptr noundef %17) #10
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %.backedge
+.lr.ph:                                           ; preds = %3, %.backedge79
   %19 = load i32, ptr %1, align 4
   switch i32 %19, label %20 [
     i32 0, label %22
@@ -119,37 +119,37 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
 
 20:                                               ; preds = %.lr.ph
   call void @g_free(ptr noundef %5) #10
-  br label %94
+  br label %92
 
 21:                                               ; preds = %.lr.ph
   call void @g_free(ptr noundef %5) #10
-  br label %94
+  br label %92
 
 22:                                               ; preds = %.lr.ph
   %23 = load i8, ptr %4, align 16
   %.not70 = icmp eq i8 %23, 35
-  br i1 %.not70, label %.preheader74, label %._crit_edge.preheader
+  br i1 %.not70, label %.preheader77, label %._crit_edge.preheader
 
-.preheader74:                                     ; preds = %22, %.preheader74.backedge
-  %.pn = phi ptr [ %.063, %.preheader74.backedge ], [ %4, %22 ]
+.preheader77:                                     ; preds = %22, %.preheader77.backedge
+  %.pn = phi ptr [ %.063, %.preheader77.backedge ], [ %4, %22 ]
   %.063 = getelementptr i8, ptr %.pn, i64 1
   %24 = load i8, ptr %.063, align 1
   switch i8 %24, label %.preheader [
-    i8 32, label %.preheader74.backedge
-    i8 9, label %.preheader74.backedge
-    i8 0, label %.backedge
+    i8 32, label %.preheader77.backedge
+    i8 9, label %.preheader77.backedge
+    i8 0, label %.backedge79
   ]
 
-.preheader74.backedge:                            ; preds = %.preheader74, %.preheader74
-  br label %.preheader74, !llvm.loop !4
+.preheader77.backedge:                            ; preds = %.preheader77, %.preheader77
+  br label %.preheader77, !llvm.loop !4
 
-.preheader:                                       ; preds = %.preheader74, %42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader74 ]
-  %.178 = phi ptr [ %.2, %42 ], [ %.063, %.preheader74 ]
+.preheader:                                       ; preds = %.preheader77, %42
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader77 ]
+  %.183 = phi ptr [ %.2, %42 ], [ %.063, %.preheader77 ]
   %25 = getelementptr [16 x %struct.headerLineParseMapping_t], ptr @headerLineParseMapping, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 16
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #11
-  %28 = call i32 @strncmp(ptr noundef %.178, ptr noundef %26, i64 noundef %27) #11
+  %28 = call i32 @strncmp(ptr noundef %.183, ptr noundef %26, i64 noundef %27) #11
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %42
 
@@ -160,7 +160,7 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   br i1 %.not71, label %42, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %.178, i64 %27
+  %34 = getelementptr i8, ptr %.183, i64 %27
   br label %35
 
 35:                                               ; preds = %39, %33
@@ -183,18 +183,18 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
 
 41:                                               ; preds = %37
   call void @g_free(ptr noundef %5) #10
-  br label %94
+  br label %92
 
 42:                                               ; preds = %.preheader, %30, %37
-  %.2 = phi ptr [ %34, %37 ], [ %.178, %30 ], [ %.178, %.preheader ]
+  %.2 = phi ptr [ %34, %37 ], [ %.183, %30 ], [ %.183, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !6
+  br i1 %exitcond.not, label %.backedge79, label %.preheader, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %._crit_edge.preheader, %79
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %._crit_edge.preheader ]
-  %.03035.i = phi ptr [ %80, %79 ], [ %4, %._crit_edge.preheader ]
-  %.03134.i = phi i8 [ %.6.i, %79 ], [ 0, %._crit_edge.preheader ]
+._crit_edge:                                      ; preds = %._crit_edge.preheader, %.backedge
+  %indvars.iv.i = phi i64 [ %indvars.iv.i.be, %.backedge ], [ 0, %._crit_edge.preheader ]
+  %.03035.i = phi ptr [ %.03035.i.be, %.backedge ], [ %4, %._crit_edge.preheader ]
+  %.03134.i = phi i1 [ %.03134.i.be, %.backedge ], [ false, %._crit_edge.preheader ]
   %43 = load i8, ptr %12, align 4
   %44 = sext i8 %43 to i32
   %45 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03035.i, i32 noundef %44) #11
@@ -218,7 +218,7 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   br label %54
 
 54:                                               ; preds = %52, %49
-  %.132.i = phi i8 [ 1, %52 ], [ %.03134.i, %49 ]
+  %.132.i = phi i1 [ true, %52 ], [ %.03134.i, %49 ]
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.41) #11
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
@@ -229,7 +229,7 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   br label %59
 
 59:                                               ; preds = %57, %54
-  %.2.i = phi i8 [ 1, %57 ], [ %.132.i, %54 ]
+  %.2.i = phi i1 [ true, %57 ], [ %.132.i, %54 ]
   %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.42) #11
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %64
@@ -240,7 +240,7 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   br label %64
 
 64:                                               ; preds = %62, %59
-  %.3.i = phi i8 [ 1, %62 ], [ %.2.i, %59 ]
+  %.3.i = phi i1 [ true, %62 ], [ %.2.i, %59 ]
   %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(3) @.str.23) #11
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %69
@@ -251,7 +251,7 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   br label %69
 
 69:                                               ; preds = %67, %64
-  %.4.i = phi i8 [ 1, %67 ], [ %.3.i, %64 ]
+  %.4.i = phi i1 [ true, %67 ], [ %.3.i, %64 ]
   %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(7) @.str.43) #11
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %74
@@ -262,53 +262,56 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   br label %74
 
 74:                                               ; preds = %72, %69
-  %.5.i = phi i8 [ 1, %72 ], [ %.4.i, %69 ]
+  %.5.i = phi i1 [ true, %72 ], [ %.4.i, %69 ]
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.44) #11
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %79
+  br i1 %76, label %.thread, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldData, ptr %78, align 8
-  br label %79
+  %78 = icmp ult i64 %indvars.iv.i, 6
+  %79 = and i1 %78, %46
+  br i1 %79, label %.backedge, label %parseColumnHeaderFields.exit
 
-79:                                               ; preds = %77, %74
-  %.6.i = phi i8 [ 1, %77 ], [ %.5.i, %74 ]
-  %80 = getelementptr i8, ptr %.0.i, i64 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+.backedge:                                        ; preds = %77, %.thread
+  %.03134.i.be = phi i1 [ %.5.i, %77 ], [ true, %.thread ]
+  %.03035.i.be = getelementptr i8, ptr %.0.i, i64 1
+  %indvars.iv.i.be = add nuw nsw i64 %indvars.iv.i, 1
+  br label %._crit_edge, !llvm.loop !7
+
+.thread:                                          ; preds = %74
+  %80 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldData, ptr %80, align 8
   %81 = icmp ult i64 %indvars.iv.i, 6
   %82 = and i1 %81, %46
-  br i1 %82, label %._crit_edge, label %parseColumnHeaderFields.exit, !llvm.loop !7
+  br i1 %82, label %.backedge, label %parseColumnHeaderFields.exit.thread
 
-parseColumnHeaderFields.exit:                     ; preds = %79
-  %83 = and i8 %.6.i, 1
-  %.not73 = icmp eq i8 %83, 0
-  br i1 %.not73, label %84, label %85
+parseColumnHeaderFields.exit:                     ; preds = %77
+  br i1 %.5.i, label %parseColumnHeaderFields.exit.thread, label %83
 
-84:                                               ; preds = %parseColumnHeaderFields.exit
+83:                                               ; preds = %parseColumnHeaderFields.exit
   call void @g_free(ptr noundef nonnull %5) #10
-  br label %94
+  br label %92
 
-85:                                               ; preds = %parseColumnHeaderFields.exit
-  %86 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %5, ptr %86, align 8
-  %87 = load i32, ptr @cllog_file_type_subtype, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %87, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 125, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @cllog_read, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @cllog_seek_read, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 3, ptr %93, align 4
-  br label %94
+parseColumnHeaderFields.exit.thread:              ; preds = %.thread, %parseColumnHeaderFields.exit
+  %84 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %5, ptr %84, align 8
+  %85 = load i32, ptr @cllog_file_type_subtype, align 4
+  %86 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %85, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 125, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @cllog_read, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @cllog_seek_read, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 3, ptr %91, align 4
+  br label %92
 
-94:                                               ; preds = %85, %84, %41, %21, %20
-  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %85 ], [ 0, %84 ], [ -1, %41 ]
+92:                                               ; preds = %parseColumnHeaderFields.exit.thread, %83, %41, %21, %20
+  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %83 ], [ -1, %41 ]
   ret i32 %.062
 }
 

@@ -2648,33 +2648,29 @@ define void @_ZN18SaveSnapshotDialog9setValuesERK15SnapshotSetting(ptr noundef n
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 84
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %37 = icmp ne i8 %36, 0
-  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %33, i1 noundef zeroext %37)
-  %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 120
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 85
-  %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %44 = icmp ne i8 %43, 0
-  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %40, i1 noundef zeroext %44)
-  %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 136
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 86
-  %49 = load i8, ptr %48, align 2
-  %50 = and i8 %49, 1
-  %51 = icmp ne i8 %50, 0
-  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %47, i1 noundef zeroext %51)
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 208
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 87
-  %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %58 = icmp ne i8 %57, 0
-  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %54, i1 noundef zeroext %58)
+  %36 = trunc i8 %35 to i1
+  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %33, i1 noundef zeroext %36)
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 120
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 85
+  %41 = load i8, ptr %40, align 1
+  %42 = trunc i8 %41 to i1
+  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %39, i1 noundef zeroext %42)
+  %43 = load ptr, ptr %10, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 136
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 86
+  %47 = load i8, ptr %46, align 2
+  %48 = trunc i8 %47 to i1
+  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %45, i1 noundef zeroext %48)
+  %49 = load ptr, ptr %10, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 208
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 87
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %51, i1 noundef zeroext %54)
   ret void
 }
 

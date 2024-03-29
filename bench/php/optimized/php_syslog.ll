@@ -298,9 +298,8 @@ declare void @closelog() local_unnamed_addr #2
 define void @php_syslog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 72), align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %10
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 74), align 8
@@ -311,15 +310,15 @@ define void @php_syslog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr 
   br label %10
 
 10:                                               ; preds = %6, %2
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %11 = call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #6
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   call void @php_syslog_str(i32 noundef %0, ptr noundef %11)
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 64
-  %.not12 = icmp eq i32 %14, 0
-  br i1 %.not12, label %15, label %24
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %24
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %11, align 4
@@ -332,8 +331,8 @@ define void @php_syslog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr 
 
 20:                                               ; preds = %15
   %21 = and i32 %13, 128
-  %.not13 = icmp eq i32 %21, 0
-  br i1 %.not13, label %23, label %22
+  %.not12 = icmp eq i32 %21, 0
+  br i1 %.not12, label %23, label %22
 
 22:                                               ; preds = %20
   call void @free(ptr noundef nonnull %11) #6
@@ -347,30 +346,30 @@ define void @php_syslog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare ptr @zend_vstrpprintf(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 declare void @_smart_string_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

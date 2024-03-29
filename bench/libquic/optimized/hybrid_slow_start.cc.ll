@@ -75,15 +75,14 @@ entry:
 define dso_local noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8QuicTime5DeltaES2_m(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 %latest_rtt.coerce0, i64 %latest_rtt.coerce1, i64 %min_rtt.coerce0, i64 %min_rtt.coerce1, i64 noundef %congestion_window) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %last_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i64, ptr %last_sent_packet_number_, align 8
+  %1 = load i64, ptr %last_sent_packet_number_, align 8
   %end_packet_number_.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i64 %2, ptr %end_packet_number_.i, align 8
+  store i64 %1, ptr %end_packet_number_.i, align 8
   %current_min_rtt_.i = getelementptr inbounds i8, ptr %this, i64 32
   %rtt_sample_count_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %rtt_sample_count_.i, align 8
@@ -93,23 +92,23 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %hystart_found_ = getelementptr inbounds i8, ptr %this, i64 4
-  %3 = load i32, ptr %hystart_found_, align 4
-  %cmp.not = icmp eq i32 %3, 0
+  %2 = load i32, ptr %hystart_found_, align 4
+  %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
   %rtt_sample_count_ = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load i32, ptr %rtt_sample_count_, align 8
-  %inc = add i32 %4, 1
+  %3 = load i32, ptr %rtt_sample_count_, align 8
+  %inc = add i32 %3, 1
   store i32 %inc, ptr %rtt_sample_count_, align 8
   %cmp5 = icmp ult i32 %inc, 9
   br i1 %cmp5, label %if.then6, label %if.end32
 
 if.then6:                                         ; preds = %if.end3
   %time_offset_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %5 = load i64, ptr %time_offset_.i, align 8
-  %cmp.i = icmp eq i64 %5, 0
-  %cmp.i.i = icmp sgt i64 %5, %latest_rtt.coerce1
+  %4 = load i64, ptr %time_offset_.i, align 8
+  %cmp.i = icmp eq i64 %4, 0
+  %cmp.i.i = icmp sgt i64 %4, %latest_rtt.coerce1
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i.i
   br i1 %or.cond, label %if.then10, label %if.end14
 
@@ -120,7 +119,7 @@ if.then10:                                        ; preds = %if.then6
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then6, %if.then10
-  %agg.tmp22.sroa.2.0.copyload = phi i64 [ %5, %if.then6 ], [ %latest_rtt.coerce1, %if.then10 ]
+  %agg.tmp22.sroa.2.0.copyload = phi i64 [ %4, %if.then6 ], [ %latest_rtt.coerce1, %if.then10 ]
   %cmp16 = icmp eq i32 %inc, 8
   br i1 %cmp16, label %if.then17, label %if.end32
 
@@ -139,11 +138,11 @@ if.then29:                                        ; preds = %if.then17
 if.end32:                                         ; preds = %if.end3, %if.then17, %if.then29, %if.end14
   %cmp35 = phi i1 [ false, %if.end3 ], [ false, %if.then17 ], [ true, %if.then29 ], [ false, %if.end14 ]
   %cmp33 = icmp ugt i64 %congestion_window, 15
-  %6 = and i1 %cmp33, %cmp35
+  %5 = and i1 %cmp33, %cmp35
   br label %return
 
 return:                                           ; preds = %if.end, %if.end32
-  %retval.0 = phi i1 [ %6, %if.end32 ], [ true, %if.end ]
+  %retval.0 = phi i1 [ %5, %if.end32 ], [ true, %if.end ]
   ret i1 %retval.0
 }
 

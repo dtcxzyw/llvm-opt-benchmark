@@ -1589,14 +1589,13 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %23 = icmp ne i32 %22, 0
   %24 = and i32 %3, 128
   %.not257 = icmp eq i32 %24, 0
-  %or.cond263 = or i1 %.not257, %23
-  br i1 %or.cond263, label %29, label %25
+  %or.cond262 = or i1 %.not257, %23
+  br i1 %or.cond262, label %29, label %25
 
 25:                                               ; preds = %18
   %26 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 70), align 1
-  %27 = and i8 %26, 1
-  %.not258 = icmp eq i8 %27, 0
-  br i1 %.not258, label %28, label %29
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
   store i8 1, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 71), align 4
@@ -1710,9 +1709,9 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %86 = icmp ne i32 %85, 0
   %87 = getelementptr inbounds i8, ptr %7, i64 8
   %88 = load i8, ptr %87, align 8
-  %.not259 = icmp eq i8 %88, 0
-  %or.cond265 = select i1 %86, i1 true, i1 %.not259
-  br i1 %or.cond265, label %121, label %90
+  %.not258 = icmp eq i8 %88, 0
+  %or.cond264 = select i1 %86, i1 true, i1 %.not258
+  br i1 %or.cond264, label %121, label %90
 
 89:                                               ; preds = %40
   store ptr %81, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
@@ -1722,8 +1721,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
 
 90:                                               ; preds = %84
   %91 = call i32 @zend_is_true(ptr noundef nonnull %7) #11
-  %.not260 = icmp eq i32 %91, 0
-  br i1 %.not260, label %121, label %92
+  %.not259 = icmp eq i32 %91, 0
+  br i1 %.not259, label %121, label %92
 
 92:                                               ; preds = %90
   %93 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_userspace_ops, ptr noundef nonnull %30, ptr noundef null, ptr noundef %2) #11
@@ -1746,8 +1745,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %105 = getelementptr inbounds i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 64
-  %.not261 = icmp eq i32 %107, 0
-  br i1 %.not261, label %108, label %111
+  %.not260 = icmp eq i32 %107, 0
+  br i1 %.not260, label %108, label %111
 
 108:                                              ; preds = %102
   %109 = load i32, ptr %104, align 4
@@ -1767,8 +1766,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %116 = getelementptr inbounds i8, ptr %93, i64 88
   store i32 %115, ptr %116, align 8
   %117 = and i32 %115, 65280
-  %.not262 = icmp eq i32 %117, 0
-  br i1 %.not262, label %.thread, label %118
+  %.not261 = icmp eq i32 %117, 0
+  br i1 %.not261, label %.thread, label %118
 
 118:                                              ; preds = %112
   %119 = load i32, ptr %114, align 4
@@ -1794,7 +1793,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %112, %118, %121
-  %.0251268 = phi ptr [ null, %121 ], [ %93, %118 ], [ %93, %112 ]
+  %.0251267 = phi ptr [ null, %121 ], [ %93, %118 ], [ %93, %112 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %72) #11
@@ -1806,7 +1805,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br label %132
 
 132:                                              ; preds = %.thread, %39, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %39 ], [ %.0251268, %.thread ]
+  %.0 = phi ptr [ null, %17 ], [ null, %39 ], [ %.0251267, %.thread ]
   ret ptr %.0
 }
 

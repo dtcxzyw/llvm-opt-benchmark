@@ -150,17 +150,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end9
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = call i32 @qemu_get_thread_id() #9
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %call13) #9
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call13) #9
   br label %trace_dbus_clipboard_register.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -169,13 +168,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_clipboard_register.exit:               ; preds = %if.end9, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load ptr, ptr %clipboard_proxy, align 8
-  %call15 = call ptr (ptr, ptr, ...) @g_object_connect(ptr noundef %10, ptr noundef nonnull @.str.11, ptr noundef nonnull @dbus_clipboard_unregister_proxy, ptr noundef nonnull %dpy, ptr noundef null) #9
+  %9 = load ptr, ptr %clipboard_proxy, align 8
+  %call15 = call ptr (ptr, ptr, ...) @g_object_connect(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef nonnull @dbus_clipboard_unregister_proxy, ptr noundef nonnull %dpy, ptr noundef null) #9
   %call16 = call ptr (ptr, ptr, ...) @g_object_connect(ptr noundef %call, ptr noundef nonnull @.str.12, ptr noundef nonnull @dbus_clipboard_unregister_proxy, ptr noundef nonnull %dpy, ptr noundef null) #9
   call void @qemu_clipboard_reset_serial() #9
   %clipboard = getelementptr inbounds i8, ptr %dpy, i64 152
-  %11 = load ptr, ptr %clipboard, align 8
-  call void @qemu_dbus_display1_clipboard_complete_register(ptr noundef %11, ptr noundef %invocation) #9
+  %10 = load ptr, ptr %clipboard, align 8
+  call void @qemu_dbus_display1_clipboard_complete_register(ptr noundef %10, ptr noundef %invocation) #9
   br label %cleanup
 
 cleanup:                                          ; preds = %trace_dbus_clipboard_register.exit, %if.then7, %if.then
@@ -297,17 +296,16 @@ land.lhs.true5.i.i:                               ; preds = %if.else
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #9
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
   br label %trace_dbus_clipboard_grab_failed.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -320,8 +318,8 @@ trace_dbus_clipboard_grab_failed.exit:            ; preds = %if.else, %land.lhs.
 
 if.then.i.i7:                                     ; preds = %trace_dbus_clipboard_grab_failed.exit, %if.then10
   %clipboard = getelementptr inbounds i8, ptr %dpy, i64 152
-  %8 = load ptr, ptr %clipboard, align 8
-  tail call void @qemu_dbus_display1_clipboard_complete_grab(ptr noundef %8, ptr noundef %invocation) #9
+  %7 = load ptr, ptr %clipboard, align 8
+  tail call void @qemu_dbus_display1_clipboard_complete_grab(ptr noundef %7, ptr noundef %invocation) #9
   tail call void @qemu_clipboard_info_unref(ptr noundef nonnull %call4) #9
   br label %glib_autoptr_cleanup_QemuClipboardInfo.exit
 
@@ -434,9 +432,8 @@ if.end17:                                         ; preds = %lor.lhs.false
 lor.lhs.false20:                                  ; preds = %if.end17
   %types = getelementptr inbounds i8, ptr %call9, i64 32
   %3 = load i8, ptr %types, align 8
-  %4 = and i8 %3, 1
-  %tobool23.not = icmp eq i8 %4, 0
-  br i1 %tobool23.not, label %if.then24, label %if.end26
+  %tobool23 = trunc i8 %3 to i1
+  br i1 %tobool23, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %lor.lhs.false20, %if.end17
   %call25 = tail call i32 @dbus_display_error_quark() #9
@@ -445,8 +442,8 @@ if.then24:                                        ; preds = %lor.lhs.false20, %i
 
 if.end26:                                         ; preds = %lor.lhs.false20
   %data = getelementptr inbounds i8, ptr %call9, i64 48
-  %5 = load ptr, ptr %data, align 8
-  %tobool30.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %data, align 8
+  %tobool30.not = icmp eq ptr %4, null
   br i1 %tobool30.not, label %if.else, label %if.then31
 
 if.then31:                                        ; preds = %if.end26
@@ -520,76 +517,74 @@ if.end5.i:                                        ; preds = %sw.bb
 lor.lhs.false.i:                                  ; preds = %if.end5.i
   %has_serial.i = getelementptr inbounds i8, ptr %2, i64 20
   %6 = load i8, ptr %has_serial.i, align 4
-  %7 = and i8 %6, 1
-  %tobool7.not.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i, label %dbus_clipboard_update_info.exit, label %if.end9.i
+  %tobool7.i = trunc i8 %6 to i1
+  br i1 %tobool7.i, label %if.end9.i, label %dbus_clipboard_update_info.exit
 
 if.end9.i:                                        ; preds = %lor.lhs.false.i
   %clipboard_request.i = getelementptr i8, ptr %notifier, i64 48
   %selection10.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load i32, ptr %selection10.i, align 8
-  %idxprom.i = zext i32 %8 to i64
+  %7 = load i32, ptr %selection10.i, align 8
+  %idxprom.i = zext i32 %7 to i64
   %arrayidx.i = getelementptr [3 x %struct.DBusClipboardRequest], ptr %clipboard_request.i, i64 0, i64 %idxprom.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %tobool11.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %arrayidx.i, align 8
+  %tobool11.not.i = icmp eq ptr %8, null
   br i1 %tobool11.not.i, label %if.end23.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end9.i
   %types.i = getelementptr inbounds i8, ptr %2, i64 32
   %type.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %10 = load i32, ptr %type.i, align 8
-  %idxprom12.i = zext i32 %10 to i64
+  %9 = load i32, ptr %type.i, align 8
+  %idxprom12.i = zext i32 %9 to i64
   %data.i = getelementptr [1 x %struct.anon.1], ptr %types.i, i64 0, i64 %idxprom12.i, i32 3
-  %11 = load ptr, ptr %data.i, align 8
-  %tobool14.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %data.i, align 8
+  %tobool14.not.i = icmp eq ptr %10, null
   br i1 %tobool14.not.i, label %if.end23.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %land.lhs.true.i
   %call.i.i = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.26) #9
   %arrayidx.i.i = getelementptr [1 x %struct.anon.1], ptr %types.i, i64 0, i64 %idxprom12.i
   %data.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %12 = load ptr, ptr %data.i.i, align 8
+  %11 = load ptr, ptr %data.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %13 = load i64, ptr %size.i.i, align 8
+  %12 = load i64, ptr %size.i.i, align 8
   %call4.i.i = tail call ptr @qemu_clipboard_info_ref(ptr noundef nonnull %2) #9
-  %call5.i.i = tail call ptr @g_variant_new_from_data(ptr noundef %call.i.i, ptr noundef %12, i64 noundef %13, i32 noundef 1, ptr noundef nonnull @qemu_clipboard_info_unref, ptr noundef %call4.i.i) #9
+  %call5.i.i = tail call ptr @g_variant_new_from_data(ptr noundef %call.i.i, ptr noundef %11, i64 noundef %12, i32 noundef 1, ptr noundef nonnull @qemu_clipboard_info_unref, ptr noundef %call4.i.i) #9
   %clipboard.i.i = getelementptr i8, ptr %notifier, i64 32
-  %14 = load ptr, ptr %clipboard.i.i, align 8
-  tail call void @qemu_dbus_display1_clipboard_complete_request(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull @.str.20, ptr noundef %call5.i.i) #9
-  %15 = load ptr, ptr %arrayidx.i, align 8
-  %tobool19.not.i = icmp eq ptr %15, null
+  %13 = load ptr, ptr %clipboard.i.i, align 8
+  tail call void @qemu_dbus_display1_clipboard_complete_request(ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull @.str.20, ptr noundef %call5.i.i) #9
+  %14 = load ptr, ptr %arrayidx.i, align 8
+  %tobool19.not.i = icmp eq ptr %14, null
   br i1 %tobool19.not.i, label %do.end.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.then15.i
   store ptr null, ptr %arrayidx.i, align 8
-  tail call void @g_object_unref(ptr noundef nonnull %15) #9
+  tail call void @g_object_unref(ptr noundef nonnull %14) #9
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then20.i, %if.then15.i
   %timeout_id.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  %16 = load i32, ptr %timeout_id.i, align 4
-  %call.i = tail call i32 @g_source_remove(i32 noundef %16) #9
+  %15 = load i32, ptr %timeout_id.i, align 4
+  %call.i = tail call i32 @g_source_remove(i32 noundef %15) #9
   store i32 0, ptr %timeout_id.i, align 4
   br label %dbus_clipboard_update_info.exit
 
 if.end23.i:                                       ; preds = %land.lhs.true.i, %if.end9.i
   %types24.i = getelementptr inbounds i8, ptr %2, i64 32
-  %17 = load i8, ptr %types24.i, align 8
-  %18 = and i8 %17, 1
-  %tobool26.not.not.i = icmp eq i8 %18, 0
-  br i1 %tobool26.not.not.i, label %dbus_clipboard_update_info.exit, label %if.then27.i
+  %16 = load i8, ptr %types24.i, align 8
+  %tobool26.i = trunc i8 %16 to i1
+  br i1 %tobool26.i, label %if.then27.i, label %dbus_clipboard_update_info.exit
 
 if.then27.i:                                      ; preds = %if.end23.i
   store ptr @.str.20, ptr %mime.i, align 16
   %clipboard_proxy33.i = getelementptr i8, ptr %notifier, i64 40
-  %19 = load ptr, ptr %clipboard_proxy33.i, align 8
-  %tobool34.not.i = icmp eq ptr %19, null
+  %17 = load ptr, ptr %clipboard_proxy33.i, align 8
+  %tobool34.not.i = icmp eq ptr %17, null
   br i1 %tobool34.not.i, label %dbus_clipboard_update_info.exit, label %if.then35.i
 
 if.then35.i:                                      ; preds = %if.then27.i
   %serial.i = getelementptr inbounds i8, ptr %2, i64 24
-  %20 = load i32, ptr %serial.i, align 8
-  call void @qemu_dbus_display1_clipboard_call_grab(ptr noundef nonnull %19, i32 noundef %8, i32 noundef %20, ptr noundef nonnull %mime.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #9
+  %18 = load i32, ptr %serial.i, align 8
+  call void @qemu_dbus_display1_clipboard_call_grab(ptr noundef nonnull %17, i32 noundef %7, i32 noundef %18, ptr noundef nonnull %mime.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #9
   br label %dbus_clipboard_update_info.exit
 
 dbus_clipboard_update_info.exit:                  ; preds = %if.then.i, %if.then3.i, %if.end5.i, %lor.lhs.false.i, %do.end.i, %if.end23.i, %if.then27.i, %if.then35.i
@@ -597,8 +592,8 @@ dbus_clipboard_update_info.exit:                  ; preds = %if.then.i, %if.then
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %21 = getelementptr i8, ptr %notifier, i64 40
-  %add.ptr.val = load ptr, ptr %21, align 8
+  %19 = getelementptr i8, ptr %notifier, i64 40
+  %add.ptr.val = load ptr, ptr %19, align 8
   %tobool.not.i3 = icmp eq ptr %add.ptr.val, null
   br i1 %tobool.not.i3, label %sw.epilog, label %if.then.i4
 
@@ -773,17 +768,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %call4) #9
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %call4) #9
   br label %trace_dbus_clipboard_unregister.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -792,13 +786,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_clipboard_unregister.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %11 = load ptr, ptr %clipboard_proxy, align 8
-  %tobool6.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %clipboard_proxy, align 8
+  %tobool6.not = icmp eq ptr %10, null
   br i1 %tobool6.not, label %do.end, label %if.then7
 
 if.then7:                                         ; preds = %trace_dbus_clipboard_unregister.exit
   store ptr null, ptr %clipboard_proxy, align 8
-  tail call void @g_object_unref(ptr noundef nonnull %11) #9
+  tail call void @g_object_unref(ptr noundef nonnull %10) #9
   br label %do.end
 
 do.end:                                           ; preds = %trace_dbus_clipboard_unregister.exit, %if.then7, %for.end

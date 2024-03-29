@@ -2623,8 +2623,8 @@ define void @_ZN35AStringListListSortFilterProxyModel18setColumnsToFilterE5QList
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit: ; preds = %2, %10
   %12 = getelementptr i32, ptr %7, i64 %9
   %.idx.mask = and i64 %9, 4611686018427387903
-  %.not1519 = icmp eq i64 %.idx.mask, 0
-  br i1 %.not1519, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i64 %.idx.mask, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
   %13 = getelementptr inbounds i8, ptr %4, i64 4
@@ -2632,113 +2632,108 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5deca
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 56
-  br label %26
+  br label %24
 
-._crit_edge.loopexit:                             ; preds = %.critedge
-  %18 = and i8 %.1, 1
-  %19 = icmp eq i8 %18, 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
-  %.0.lcssa = phi i1 [ true, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ], [ %19, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.critedge, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
+  %.0.lcssa = phi i1 [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ], [ %.1, %.critedge ]
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %._crit_edge
-  %20 = atomicrmw sub ptr %5, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %20, 1
-  br i1 %.not.i.i.i, label %21, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
+  %18 = atomicrmw sub ptr %5, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %18, 1
+  br i1 %.not.i.i.i, label %19, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
 
-21:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
+19:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 8) #19
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
 
-_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit: ; preds = %._crit_edge, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %21
-  br i1 %.0.lcssa, label %51, label %50
+_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit: ; preds = %._crit_edge, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %19
+  br i1 %.0.lcssa, label %48, label %49
 
-22:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, %26
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, %24
+  %21 = landingpad { ptr, i32 }
           cleanup
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit6, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4
 
-_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4:    ; preds = %22
-  %24 = atomicrmw sub ptr %5, i32 1 seq_cst, align 4
-  %.not.i.i.i5 = icmp eq i32 %24, 1
-  br i1 %.not.i.i.i5, label %25, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit6
+_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4:    ; preds = %20
+  %22 = atomicrmw sub ptr %5, i32 1 seq_cst, align 4
+  %.not.i.i.i5 = icmp eq i32 %22, 1
+  br i1 %.not.i.i.i5, label %23, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit6
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4
+23:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 8) #19
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit6
 
-_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit6: ; preds = %22, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4, %25
-  resume { ptr, i32 } %23
+_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit6: ; preds = %20, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i4, %23
+  resume { ptr, i32 } %21
 
-26:                                               ; preds = %.lr.ph, %.critedge
-  %.021 = phi i8 [ 0, %.lr.ph ], [ %.1, %.critedge ]
-  %.sroa.9.020 = phi ptr [ %7, %.lr.ph ], [ %49, %.critedge ]
-  %27 = load i32, ptr %.sroa.9.020, align 4
+24:                                               ; preds = %.lr.ph, %.critedge
+  %.020 = phi i1 [ false, %.lr.ph ], [ %.1, %.critedge ]
+  %.sroa.9.019 = phi ptr [ %7, %.lr.ph ], [ %47, %.critedge ]
+  %25 = load i32, ptr %.sroa.9.019, align 4
   store i32 -1, ptr %4, align 8
   store i32 -1, ptr %13, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 128
-  %30 = load ptr, ptr %29, align 8
-  %31 = invoke noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %32 unwind label %22
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 128
+  %28 = load ptr, ptr %27, align 8
+  %29 = invoke noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %30 unwind label %20
 
-32:                                               ; preds = %26
-  %33 = icmp slt i32 %27, %31
-  br i1 %33, label %34, label %.critedge
+30:                                               ; preds = %24
+  %31 = icmp slt i32 %25, %29
+  br i1 %31, label %32, label %.critedge
 
-34:                                               ; preds = %32
-  %35 = load i64, ptr %16, align 8
-  %36 = icmp sgt i64 %35, 0
-  br i1 %36, label %37, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
+32:                                               ; preds = %30
+  %33 = load i64, ptr %16, align 8
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %35, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %17, align 8
-  %39 = getelementptr i8, ptr %38, i64 -4
-  %40 = getelementptr i32, ptr %38, i64 %35
-  br label %41
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %17, align 8
+  %37 = getelementptr i8, ptr %36, i64 -4
+  %38 = getelementptr i32, ptr %36, i64 %33
+  br label %39
 
-41:                                               ; preds = %43, %37
-  %.sroa.015.0.i.i.i = phi ptr [ %39, %37 ], [ %42, %43 ]
-  %42 = getelementptr i8, ptr %.sroa.015.0.i.i.i, i64 4
-  %.not.i.i.i7 = icmp eq ptr %42, %40
-  br i1 %.not.i.i.i7, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %43
+39:                                               ; preds = %41, %35
+  %.sroa.015.0.i.i.i = phi ptr [ %37, %35 ], [ %40, %41 ]
+  %40 = getelementptr i8, ptr %.sroa.015.0.i.i.i, i64 4
+  %.not.i.i.i7 = icmp eq ptr %40, %38
+  br i1 %.not.i.i.i7, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %41
 
-43:                                               ; preds = %41
-  %44 = load i32, ptr %42, align 4
-  %45 = icmp eq i32 %44, %27
-  br i1 %45, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %41, !llvm.loop !15
+41:                                               ; preds = %39
+  %42 = load i32, ptr %40, align 4
+  %43 = icmp eq i32 %42, %25
+  br i1 %43, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %39, !llvm.loop !15
 
-_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %43
-  %46 = ptrtoint ptr %42 to i64
-  %47 = ptrtoint ptr %38 to i64
-  %48 = sub i64 %46, %47
-  %.not16 = icmp eq i64 %48, -4
-  br i1 %.not16, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %.critedge
+_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %41
+  %44 = ptrtoint ptr %40 to i64
+  %45 = ptrtoint ptr %36 to i64
+  %46 = sub i64 %44, %45
+  %.not15 = icmp eq i64 %46, -4
+  br i1 %.not15, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %.critedge
 
-_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %41, %34, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
+_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %39, %32, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store i32 %27, ptr %3, align 4
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIiE7emplaceIJRiEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN5QListIiE6appendEi.exit unwind label %22
+  store i32 %25, ptr %3, align 4
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIiE7emplaceIJRiEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %_ZN5QListIiE6appendEi.exit unwind label %20
 
 _ZN5QListIiE6appendEi.exit:                       ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN5QListIiE6appendEi.exit, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %32
-  %.1 = phi i8 [ %.021, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %.021, %32 ], [ 1, %_ZN5QListIiE6appendEi.exit ]
-  %49 = getelementptr i8, ptr %.sroa.9.020, i64 4
-  %.not15 = icmp eq ptr %49, %12
-  br i1 %.not15, label %._crit_edge.loopexit, label %26, !llvm.loop !50
+.critedge:                                        ; preds = %_ZN5QListIiE6appendEi.exit, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %30
+  %.1 = phi i1 [ %.020, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %.020, %30 ], [ true, %_ZN5QListIiE6appendEi.exit ]
+  %47 = getelementptr i8, ptr %.sroa.9.019, i64 4
+  %.not = icmp eq ptr %47, %12
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !50
 
-50:                                               ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
+48:                                               ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
   call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %51
+  br label %49
 
-51:                                               ; preds = %50, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
+49:                                               ; preds = %48, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
   ret void
 }
 
@@ -3779,9 +3774,8 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeI7QStringLb1
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsERK7QString.exit, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %_ZN6QDebuglsERK7QString.exit
 
 13:                                               ; preds = %3
   %14 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 noundef signext 32)

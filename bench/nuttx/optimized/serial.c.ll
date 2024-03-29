@@ -12,9 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @uart_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %15, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 12
@@ -157,7 +156,7 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
 
 14:                                               ; preds = %10
   %15 = icmp eq i8 %11, 0
-  br i1 %15, label %16, label %up_irq_restore.exit38
+  br i1 %15, label %16, label %up_irq_restore.exit37
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -167,9 +166,8 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %18 = getelementptr inbounds i8, ptr %6, i64 2
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %30
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %6, i64 272
@@ -199,9 +197,8 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
 
 37:                                               ; preds = %30
   %38 = load i8, ptr %18, align 2
-  %39 = and i8 %38, 1
-  %.not34 = icmp eq i8 %39, 0
-  br i1 %.not34, label %40, label %44
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %31, align 8
@@ -212,8 +209,8 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
 
 44:                                               ; preds = %40, %37
   %45 = and i64 %17, 512
-  %.not.i35 = icmp eq i64 %45, 0
-  br i1 %.not.i35, label %up_irq_restore.exit, label %46
+  %.not.i34 = icmp eq i64 %45, 0
+  br i1 %.not.i34, label %up_irq_restore.exit, label %46
 
 46:                                               ; preds = %44
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
@@ -225,20 +222,20 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull %6, i1 noundef zeroext true) #5
   %51 = and i64 %17, 512
-  %.not.i37 = icmp eq i64 %51, 0
-  br i1 %.not.i37, label %up_irq_restore.exit38, label %52
+  %.not.i36 = icmp eq i64 %51, 0
+  br i1 %.not.i36, label %up_irq_restore.exit37, label %52
 
 52:                                               ; preds = %47
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit38
+  br label %up_irq_restore.exit37
 
-up_irq_restore.exit38:                            ; preds = %52, %47, %14
+up_irq_restore.exit37:                            ; preds = %52, %47, %14
   %.027 = phi i32 [ %8, %14 ], [ %35, %47 ], [ %35, %52 ]
   store i8 %12, ptr %6, align 8
   br label %up_irq_restore.exit
 
-up_irq_restore.exit:                              ; preds = %46, %44, %29, %27, %10, %up_irq_restore.exit38
-  %.1 = phi i32 [ %.027, %up_irq_restore.exit38 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
+up_irq_restore.exit:                              ; preds = %46, %44, %29, %27, %10, %up_irq_restore.exit37
+  %.1 = phi i32 [ %.027, %up_irq_restore.exit37 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
   %53 = call i32 @nxmutex_unlock(ptr noundef nonnull %7) #5
   br label %54
 
@@ -295,9 +292,8 @@ define internal noundef i32 @uart_close(ptr nocapture noundef readonly %0) #0 {
   call void %29(ptr noundef nonnull %7) #5
   %30 = getelementptr inbounds i8, ptr %7, i64 2
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %37
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %37, label %33
 
 33:                                               ; preds = %25
   %34 = load ptr, ptr %16, align 8
@@ -373,8 +369,8 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %14, label %29, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not278 = icmp eq i64 %2, 0
-  br i1 %.not278, label %.loopexit.thread, label %.lr.ph.lr.ph.lr.ph
+  %.not277 = icmp eq i64 %2, 0
+  br i1 %.not277, label %.loopexit.thread, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %11, i64 258
@@ -394,14 +390,14 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %uart_putxmitchar.exit
-  %.073.ph.ph235 = phi i8 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.174, %uart_putxmitchar.exit ]
-  %.075.ph.ph234 = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.176, %uart_putxmitchar.exit ]
-  %.078.ph.ph233 = phi ptr [ %1, %.lr.ph.lr.ph.lr.ph ], [ %.179, %uart_putxmitchar.exit ]
+  %.073.ph.ph234 = phi i1 [ false, %.lr.ph.lr.ph.lr.ph ], [ %.174, %uart_putxmitchar.exit ]
+  %.075.ph.ph233 = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.176, %uart_putxmitchar.exit ]
+  %.078.ph.ph232 = phi ptr [ %1, %.lr.ph.lr.ph.lr.ph ], [ %.179, %uart_putxmitchar.exit ]
   br label %.lr.ph
 
 29:                                               ; preds = %3
   %30 = sext i32 %13 to i64
-  br label %220
+  br label %219
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split.backedge
   %31 = load volatile i16, ptr %15, align 2
@@ -416,46 +412,46 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   %37 = load i8, ptr %36, align 1
   %38 = add i16 %31, 1
   %39 = load i16, ptr %18, align 4
-  %.not88 = icmp slt i16 %38, %39
-  %spec.store.select = select i1 %.not88, i16 %38, i16 0
+  %.not87 = icmp slt i16 %38, %39
+  %spec.store.select = select i1 %.not87, i16 %38, i16 0
   store volatile i16 %spec.store.select, ptr %15, align 2
   %40 = load i32, ptr %19, align 4
   %41 = and i32 %40, 448
-  %.not89 = icmp eq i32 %41, 0
-  br i1 %.not89, label %.split171, label %42
+  %.not88 = icmp eq i32 %41, 0
+  br i1 %.not88, label %.split170, label %42
 
 42:                                               ; preds = %33
   %43 = icmp ne i8 %37, 10
   %44 = and i32 %40, 64
-  %.not90 = icmp eq i32 %44, 0
-  %or.cond95 = or i1 %43, %.not90
-  br i1 %or.cond95, label %45, label %select.unfold
+  %.not89 = icmp eq i32 %44, 0
+  %or.cond94 = or i1 %43, %.not89
+  br i1 %or.cond94, label %45, label %select.unfold
 
 45:                                               ; preds = %42
   %46 = icmp eq i8 %37, 13
-  br i1 %46, label %47, label %.split171
+  br i1 %46, label %47, label %.split170
 
 47:                                               ; preds = %45
   %48 = and i32 %40, 256
-  %.not91 = icmp eq i32 %48, 0
-  br i1 %.not91, label %select.unfold, label %.split171
+  %.not90 = icmp eq i32 %48, 0
+  br i1 %.not90, label %select.unfold, label %.split170
 
 select.unfold:                                    ; preds = %47, %42
   %49 = and i32 %40, 128
-  %.not92 = icmp eq i32 %49, 0
-  br i1 %.not92, label %.split171, label %.lr.ph.split.backedge
+  %.not91 = icmp eq i32 %49, 0
+  br i1 %.not91, label %.split170, label %.lr.ph.split.backedge
 
-.split171:                                        ; preds = %33, %select.unfold, %47, %45, %select.unfold.us.us, %75, %73, %.lr.ph218
-  %.us-phi = phi i8 [ 13, %select.unfold.us.us ], [ %66, %.lr.ph218 ], [ %66, %73 ], [ 10, %75 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ], [ 10, %47 ]
-  %50 = getelementptr inbounds i8, ptr %.078.ph224, i64 1
-  store i8 %.us-phi, ptr %.078.ph224, align 1
-  %51 = add i64 %.075.ph226, 1
+.split170:                                        ; preds = %33, %select.unfold, %47, %45, %select.unfold.us.us, %75, %73, %.lr.ph217
+  %.us-phi = phi i8 [ 13, %select.unfold.us.us ], [ %66, %.lr.ph217 ], [ %66, %73 ], [ 10, %75 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ], [ 10, %47 ]
+  %50 = getelementptr inbounds i8, ptr %.078.ph223, i64 1
+  store i8 %.us-phi, ptr %.078.ph223, align 1
+  %51 = add i64 %.075.ph225, 1
   %52 = load i32, ptr %21, align 4
   %53 = and i32 %52, 8
-  %.not93 = icmp eq i32 %53, 0
-  br i1 %.not93, label %uart_putxmitchar.exit, label %54
+  %.not92 = icmp eq i32 %53, 0
+  br i1 %.not92, label %uart_putxmitchar.exit, label %54
 
-54:                                               ; preds = %.split171
+54:                                               ; preds = %.split170
   %55 = icmp eq i8 %.us-phi, 27
   br i1 %55, label %.outer.backedge, label %78
 
@@ -463,65 +459,65 @@ select.unfold:                                    ; preds = %47, %42
   %storemerge = phi i8 [ %85, %84 ], [ 2, %54 ]
   store i8 %storemerge, ptr %22, align 1
   %56 = icmp ult i64 %51, %2
-  br i1 %56, label %.lr.ph, label %.loopexit.loopexit287.split.loop.exit320, !llvm.loop !11
+  br i1 %56, label %.lr.ph, label %.loopexit.loopexit286.split.loop.exit319, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %.075.ph226 = phi i64 [ %.075.ph.ph234, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
-  %.078.ph224 = phi ptr [ %.078.ph.ph233, %.lr.ph.lr.ph ], [ %50, %.outer.backedge ]
-  %57 = icmp sgt i64 %.075.ph226, 0
+  %.075.ph225 = phi i64 [ %.075.ph.ph233, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
+  %.078.ph223 = phi ptr [ %.078.ph.ph232, %.lr.ph.lr.ph ], [ %50, %.outer.backedge ]
+  %57 = icmp sgt i64 %.075.ph225, 0
   br i1 %57, label %.lr.ph.split.us.split.us, label %.lr.ph.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %58 = load volatile i16, ptr %15, align 2
   %59 = load volatile i16, ptr %16, align 8
-  %.not.us.us217 = icmp eq i16 %59, %58
-  br i1 %.not.us.us217, label %.loopexit, label %.lr.ph218.preheader
+  %.not.us.us216 = icmp eq i16 %59, %58
+  br i1 %.not.us.us216, label %.loopexit, label %.lr.ph217.preheader
 
-.lr.ph218.preheader:                              ; preds = %.lr.ph.split.us.split.us
+.lr.ph217.preheader:                              ; preds = %.lr.ph.split.us.split.us
   %.pre = load ptr, ptr %17, align 8
-  %.pre275 = load i16, ptr %18, align 4
-  br label %.lr.ph218
+  %.pre274 = load i16, ptr %18, align 4
+  br label %.lr.ph217
 
 60:                                               ; preds = %select.unfold.us.us
   %61 = load volatile i16, ptr %15, align 2
   %62 = load volatile i16, ptr %16, align 8
   %.not.us.us = icmp eq i16 %62, %61
-  br i1 %.not.us.us, label %.loopexit, label %.lr.ph218
+  br i1 %.not.us.us, label %.loopexit, label %.lr.ph217
 
-.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %60
-  %63 = phi i16 [ %61, %60 ], [ %58, %.lr.ph218.preheader ]
+.lr.ph217:                                        ; preds = %.lr.ph217.preheader, %60
+  %63 = phi i16 [ %61, %60 ], [ %58, %.lr.ph217.preheader ]
   %64 = sext i16 %63 to i64
   %65 = getelementptr inbounds i8, ptr %.pre, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = add i16 %63, 1
-  %.not88.us.us = icmp slt i16 %67, %.pre275
-  %spec.store.select.us.us = select i1 %.not88.us.us, i16 %67, i16 0
+  %.not87.us.us = icmp slt i16 %67, %.pre274
+  %spec.store.select.us.us = select i1 %.not87.us.us, i16 %67, i16 0
   store volatile i16 %spec.store.select.us.us, ptr %15, align 2
   %68 = load i32, ptr %19, align 4
   %69 = and i32 %68, 448
-  %.not89.us.us = icmp eq i32 %69, 0
-  br i1 %.not89.us.us, label %.split171, label %70
+  %.not88.us.us = icmp eq i32 %69, 0
+  br i1 %.not88.us.us, label %.split170, label %70
 
-70:                                               ; preds = %.lr.ph218
+70:                                               ; preds = %.lr.ph217
   %71 = icmp ne i8 %66, 10
   %72 = and i32 %68, 64
-  %.not90.us.us = icmp eq i32 %72, 0
-  %or.cond95.us.us = or i1 %71, %.not90.us.us
-  br i1 %or.cond95.us.us, label %73, label %select.unfold.us.us
+  %.not89.us.us = icmp eq i32 %72, 0
+  %or.cond94.us.us = or i1 %71, %.not89.us.us
+  br i1 %or.cond94.us.us, label %73, label %select.unfold.us.us
 
 73:                                               ; preds = %70
   %74 = icmp eq i8 %66, 13
-  br i1 %74, label %75, label %.split171
+  br i1 %74, label %75, label %.split170
 
 75:                                               ; preds = %73
   %76 = and i32 %68, 256
-  %.not91.us.us = icmp eq i32 %76, 0
-  br i1 %.not91.us.us, label %select.unfold.us.us, label %.split171
+  %.not90.us.us = icmp eq i32 %76, 0
+  br i1 %.not90.us.us, label %select.unfold.us.us, label %.split170
 
 select.unfold.us.us:                              ; preds = %75, %70
   %77 = and i32 %68, 128
-  %.not92.us.us = icmp eq i32 %77, 0
-  br i1 %.not92.us.us, label %.split171, label %60
+  %.not91.us.us = icmp eq i32 %77, 0
+  br i1 %.not91.us.us, label %.split170, label %60
 
 78:                                               ; preds = %54
   %79 = load i8, ptr %22, align 1
@@ -532,17 +528,17 @@ select.unfold.us.us:                              ; preds = %75, %70
 
 82:                                               ; preds = %78
   store i8 0, ptr %22, align 1
-  br label %.loopexit128
+  br label %.loopexit127
 
 83:                                               ; preds = %78
-  %.not94 = icmp eq i8 %79, 0
-  br i1 %.not94, label %.loopexit128, label %84
+  %.not93 = icmp eq i8 %79, 0
+  br i1 %.not93, label %.loopexit127, label %84
 
 84:                                               ; preds = %83
   %85 = add i8 %79, -1
   br label %.outer.backedge
 
-.loopexit128:                                     ; preds = %83, %82
+.loopexit127:                                     ; preds = %83, %82
   %86 = zext i8 %.us-phi to i32
   %87 = call i32 @iscntrl(i32 noundef %86) #6
   %88 = icmp eq i32 %87, 0
@@ -550,20 +546,20 @@ select.unfold.us.us:                              ; preds = %75, %70
   %or.cond5 = select i1 %88, i1 true, i1 %89
   br i1 %or.cond5, label %90, label %uart_putxmitchar.exit
 
-90:                                               ; preds = %.loopexit128
+90:                                               ; preds = %.loopexit127
   %91 = load volatile i16, ptr %24, align 8
   %92 = sext i16 %91 to i32
   %93 = add nsw i32 %92, 1
   %94 = load i16, ptr %25, align 4
   %95 = sext i16 %94 to i32
-  %.not.i97 = icmp slt i32 %93, %95
-  %spec.store.select.i98 = select i1 %.not.i97, i32 %93, i32 0
-  br i1 %89, label %.split.us.i99, label %.split.us.i
+  %.not.i96 = icmp slt i32 %93, %95
+  %spec.store.select.i97 = select i1 %.not.i96, i32 %93, i32 0
+  br i1 %89, label %.split.us.i98, label %.split.us.i
 
 .split.us.i:                                      ; preds = %90, %up_irq_restore.exit.us.i
   %96 = load volatile i16, ptr %26, align 2
   %97 = sext i16 %96 to i32
-  %.not21.us.i = icmp eq i32 %spec.store.select.i98, %97
+  %.not21.us.i = icmp eq i32 %spec.store.select.i97, %97
   br i1 %.not21.us.i, label %98, label %.split24.us.i
 
 98:                                               ; preds = %.split.us.i
@@ -574,7 +570,7 @@ select.unfold.us.us:                              ; preds = %75, %70
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %100 = load volatile i16, ptr %26, align 2
   %101 = sext i16 %100 to i32
-  %.not22.us.i = icmp eq i32 %spec.store.select.i98, %101
+  %.not22.us.i = icmp eq i32 %spec.store.select.i97, %101
   br i1 %.not22.us.i, label %102, label %110
 
 102:                                              ; preds = %98
@@ -609,17 +605,17 @@ up_irq_restore.exit.us.i:                         ; preds = %112, %110
   %116 = sext i16 %115 to i64
   %117 = getelementptr inbounds i8, ptr %114, i64 %116
   store i8 %.us-phi, ptr %117, align 1
-  %118 = trunc i32 %spec.store.select.i98 to i16
+  %118 = trunc i32 %spec.store.select.i97 to i16
   store volatile i16 %118, ptr %24, align 8
   br label %uart_putxmitchar.exit
 
-.split.us.i99:                                    ; preds = %90, %up_irq_restore.exit.us.i106
+.split.us.i98:                                    ; preds = %90, %up_irq_restore.exit.us.i105
   %119 = load volatile i16, ptr %26, align 2
   %120 = sext i16 %119 to i32
-  %.not21.us.i100 = icmp eq i32 %spec.store.select.i98, %120
-  br i1 %.not21.us.i100, label %121, label %.split24.us.i101
+  %.not21.us.i99 = icmp eq i32 %spec.store.select.i97, %120
+  br i1 %.not21.us.i99, label %121, label %.split24.us.i100
 
-121:                                              ; preds = %.split.us.i99
+121:                                              ; preds = %.split.us.i98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %122 = load i64, ptr %6, align 8
@@ -627,8 +623,8 @@ up_irq_restore.exit.us.i:                         ; preds = %112, %110
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %123 = load volatile i16, ptr %26, align 2
   %124 = sext i16 %123 to i32
-  %.not22.us.i103 = icmp eq i32 %spec.store.select.i98, %124
-  br i1 %.not22.us.i103, label %125, label %133
+  %.not22.us.i102 = icmp eq i32 %spec.store.select.i97, %124
+  br i1 %.not22.us.i102, label %125, label %133
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %20, align 8
@@ -643,46 +639,46 @@ up_irq_restore.exit.us.i:                         ; preds = %112, %110
   br label %133
 
 133:                                              ; preds = %125, %121
-  %.0.us.i104 = phi i32 [ %129, %125 ], [ 0, %121 ]
+  %.0.us.i103 = phi i32 [ %129, %125 ], [ 0, %121 ]
   %134 = and i64 %122, 512
-  %.not.i.us.i105 = icmp eq i64 %134, 0
-  br i1 %.not.i.us.i105, label %up_irq_restore.exit.us.i106, label %135
+  %.not.i.us.i104 = icmp eq i64 %134, 0
+  br i1 %.not.i.us.i104, label %up_irq_restore.exit.us.i105, label %135
 
 135:                                              ; preds = %133
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i106
+  br label %up_irq_restore.exit.us.i105
 
-up_irq_restore.exit.us.i106:                      ; preds = %135, %133
-  %136 = icmp slt i32 %.0.us.i104, 0
-  br i1 %136, label %uart_putxmitchar.exit107, label %.split.us.i99
+up_irq_restore.exit.us.i105:                      ; preds = %135, %133
+  %136 = icmp slt i32 %.0.us.i103, 0
+  br i1 %136, label %uart_putxmitchar.exit106, label %.split.us.i98
 
-.split24.us.i101:                                 ; preds = %.split.us.i99
+.split24.us.i100:                                 ; preds = %.split.us.i98
   %137 = load ptr, ptr %28, align 8
   %138 = load volatile i16, ptr %24, align 8
   %139 = sext i16 %138 to i64
   %140 = getelementptr inbounds i8, ptr %137, i64 %139
   store i8 13, ptr %140, align 1
-  %141 = trunc i32 %spec.store.select.i98 to i16
+  %141 = trunc i32 %spec.store.select.i97 to i16
   store volatile i16 %141, ptr %24, align 8
-  br label %uart_putxmitchar.exit107
+  br label %uart_putxmitchar.exit106
 
-uart_putxmitchar.exit107:                         ; preds = %up_irq_restore.exit.us.i106, %.split24.us.i101
+uart_putxmitchar.exit106:                         ; preds = %up_irq_restore.exit.us.i105, %.split24.us.i100
   %142 = load volatile i16, ptr %24, align 8
   %143 = sext i16 %142 to i32
   %144 = add nsw i32 %143, 1
   %145 = load i16, ptr %25, align 4
   %146 = sext i16 %145 to i32
-  %.not.i108 = icmp slt i32 %144, %146
-  %spec.store.select.i109 = select i1 %.not.i108, i32 %144, i32 0
-  br label %.split.us.i110
+  %.not.i107 = icmp slt i32 %144, %146
+  %spec.store.select.i108 = select i1 %.not.i107, i32 %144, i32 0
+  br label %.split.us.i109
 
-.split.us.i110:                                   ; preds = %up_irq_restore.exit.us.i117, %uart_putxmitchar.exit107
+.split.us.i109:                                   ; preds = %up_irq_restore.exit.us.i116, %uart_putxmitchar.exit106
   %147 = load volatile i16, ptr %26, align 2
   %148 = sext i16 %147 to i32
-  %.not21.us.i111 = icmp eq i32 %spec.store.select.i109, %148
-  br i1 %.not21.us.i111, label %149, label %.split24.us.i112
+  %.not21.us.i110 = icmp eq i32 %spec.store.select.i108, %148
+  br i1 %.not21.us.i110, label %149, label %.split24.us.i111
 
-149:                                              ; preds = %.split.us.i110
+149:                                              ; preds = %.split.us.i109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %150 = load i64, ptr %5, align 8
@@ -690,8 +686,8 @@ uart_putxmitchar.exit107:                         ; preds = %up_irq_restore.exit
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %151 = load volatile i16, ptr %26, align 2
   %152 = sext i16 %151 to i32
-  %.not22.us.i114 = icmp eq i32 %spec.store.select.i109, %152
-  br i1 %.not22.us.i114, label %153, label %161
+  %.not22.us.i113 = icmp eq i32 %spec.store.select.i108, %152
+  br i1 %.not22.us.i113, label %153, label %161
 
 153:                                              ; preds = %149
   %154 = load ptr, ptr %20, align 8
@@ -706,26 +702,26 @@ uart_putxmitchar.exit107:                         ; preds = %up_irq_restore.exit
   br label %161
 
 161:                                              ; preds = %153, %149
-  %.0.us.i115 = phi i32 [ %157, %153 ], [ 0, %149 ]
+  %.0.us.i114 = phi i32 [ %157, %153 ], [ 0, %149 ]
   %162 = and i64 %150, 512
-  %.not.i.us.i116 = icmp eq i64 %162, 0
-  br i1 %.not.i.us.i116, label %up_irq_restore.exit.us.i117, label %163
+  %.not.i.us.i115 = icmp eq i64 %162, 0
+  br i1 %.not.i.us.i115, label %up_irq_restore.exit.us.i116, label %163
 
 163:                                              ; preds = %161
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i117
+  br label %up_irq_restore.exit.us.i116
 
-up_irq_restore.exit.us.i117:                      ; preds = %163, %161
-  %164 = icmp slt i32 %.0.us.i115, 0
-  br i1 %164, label %uart_putxmitchar.exit, label %.split.us.i110
+up_irq_restore.exit.us.i116:                      ; preds = %163, %161
+  %164 = icmp slt i32 %.0.us.i114, 0
+  br i1 %164, label %uart_putxmitchar.exit, label %.split.us.i109
 
-.split24.us.i112:                                 ; preds = %.split.us.i110
+.split24.us.i111:                                 ; preds = %.split.us.i109
   %165 = load ptr, ptr %28, align 8
   %166 = load volatile i16, ptr %24, align 8
   %167 = sext i16 %166 to i64
   %168 = getelementptr inbounds i8, ptr %165, i64 %167
   store i8 10, ptr %168, align 1
-  %169 = trunc i32 %spec.store.select.i109 to i16
+  %169 = trunc i32 %spec.store.select.i108 to i16
   store volatile i16 %169, ptr %24, align 8
   br label %uart_putxmitchar.exit
 
@@ -767,8 +763,8 @@ up_irq_restore.exit.us.i117:                      ; preds = %163, %161
 
 190:                                              ; preds = %184
   %191 = and i64 %177, 512
-  %.not.i119 = icmp eq i64 %191, 0
-  br i1 %.not.i119, label %.lr.ph.split.backedge, label %192
+  %.not.i118 = icmp eq i64 %191, 0
+  br i1 %.not.i118, label %.lr.ph.split.backedge, label %192
 
 192:                                              ; preds = %190
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
@@ -780,78 +776,77 @@ up_irq_restore.exit.us.i117:                      ; preds = %163, %161
 193:                                              ; preds = %184
   %194 = call i32 @nxsem_wait(ptr noundef nonnull %23) #5
   %195 = and i64 %177, 512
-  %.not.i120 = icmp eq i64 %195, 0
-  br i1 %.not.i120, label %up_irq_restore.exit121, label %196
+  %.not.i119 = icmp eq i64 %195, 0
+  br i1 %.not.i119, label %up_irq_restore.exit120, label %196
 
 196:                                              ; preds = %193
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit121
+  br label %up_irq_restore.exit120
 
-up_irq_restore.exit121:                           ; preds = %193, %196
+up_irq_restore.exit120:                           ; preds = %193, %196
   %197 = icmp slt i32 %194, 0
   br i1 %197, label %198, label %uart_putxmitchar.exit
 
-198:                                              ; preds = %up_irq_restore.exit121
-  %199 = icmp eq i64 %.075.ph226, 0
+198:                                              ; preds = %up_irq_restore.exit120
+  %199 = icmp eq i64 %.075.ph225, 0
   %200 = sext i32 %194 to i64
-  %spec.select96 = select i1 %199, i64 %200, i64 %.075.ph226
-  br label %.loopexit
+  %spec.select95 = select i1 %199, i64 %200, i64 %.075.ph225
+  br i1 %.073.ph.ph234, label %209, label %.loopexit.thread
 
 201:                                              ; preds = %176
   %202 = and i64 %177, 512
-  %.not.i122 = icmp eq i64 %202, 0
-  br i1 %.not.i122, label %up_irq_restore.exit123, label %203
+  %.not.i121 = icmp eq i64 %202, 0
+  br i1 %.not.i121, label %up_irq_restore.exit122, label %203
 
 203:                                              ; preds = %201
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit123
+  br label %up_irq_restore.exit122
 
-up_irq_restore.exit123:                           ; preds = %201, %203
+up_irq_restore.exit122:                           ; preds = %201, %203
   %204 = load ptr, ptr %20, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 48
   %206 = load ptr, ptr %205, align 8
   call void %206(ptr noundef nonnull %11, i1 noundef zeroext true) #5
   br label %uart_putxmitchar.exit
 
-uart_putxmitchar.exit:                            ; preds = %.split171, %up_irq_restore.exit.us.i, %up_irq_restore.exit.us.i117, %.split24.us.i112, %.split24.us.i, %up_irq_restore.exit121, %up_irq_restore.exit123, %.loopexit128
-  %.179 = phi ptr [ %50, %.loopexit128 ], [ %.078.ph224, %up_irq_restore.exit121 ], [ %.078.ph224, %up_irq_restore.exit123 ], [ %50, %.split24.us.i ], [ %50, %.split24.us.i112 ], [ %50, %up_irq_restore.exit.us.i117 ], [ %50, %up_irq_restore.exit.us.i ], [ %50, %.split171 ]
-  %.176 = phi i64 [ %51, %.loopexit128 ], [ %.075.ph226, %up_irq_restore.exit121 ], [ %.075.ph226, %up_irq_restore.exit123 ], [ %51, %.split24.us.i ], [ %51, %.split24.us.i112 ], [ %51, %up_irq_restore.exit.us.i117 ], [ %51, %up_irq_restore.exit.us.i ], [ %51, %.split171 ]
-  %.174 = phi i8 [ %.073.ph.ph235, %.loopexit128 ], [ %.073.ph.ph235, %up_irq_restore.exit121 ], [ %.073.ph.ph235, %up_irq_restore.exit123 ], [ 1, %.split24.us.i ], [ 1, %.split24.us.i112 ], [ 1, %up_irq_restore.exit.us.i117 ], [ 1, %up_irq_restore.exit.us.i ], [ %.073.ph.ph235, %.split171 ]
+uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_restore.exit.us.i, %up_irq_restore.exit.us.i116, %.split24.us.i111, %.split24.us.i, %up_irq_restore.exit120, %up_irq_restore.exit122, %.loopexit127
+  %.179 = phi ptr [ %50, %.loopexit127 ], [ %.078.ph223, %up_irq_restore.exit120 ], [ %.078.ph223, %up_irq_restore.exit122 ], [ %50, %.split24.us.i ], [ %50, %.split24.us.i111 ], [ %50, %up_irq_restore.exit.us.i116 ], [ %50, %up_irq_restore.exit.us.i ], [ %50, %.split170 ]
+  %.176 = phi i64 [ %51, %.loopexit127 ], [ %.075.ph225, %up_irq_restore.exit120 ], [ %.075.ph225, %up_irq_restore.exit122 ], [ %51, %.split24.us.i ], [ %51, %.split24.us.i111 ], [ %51, %up_irq_restore.exit.us.i116 ], [ %51, %up_irq_restore.exit.us.i ], [ %51, %.split170 ]
+  %.174 = phi i1 [ %.073.ph.ph234, %.loopexit127 ], [ %.073.ph.ph234, %up_irq_restore.exit120 ], [ %.073.ph.ph234, %up_irq_restore.exit122 ], [ true, %.split24.us.i ], [ true, %.split24.us.i111 ], [ true, %up_irq_restore.exit.us.i116 ], [ true, %up_irq_restore.exit.us.i ], [ %.073.ph.ph234, %.split170 ]
   %207 = icmp ult i64 %.176, %2
   br i1 %207, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
-.loopexit.loopexit287.split.loop.exit320:         ; preds = %.outer.backedge
-  %208 = add nuw i64 %.075.ph.ph234, 1
+.loopexit.loopexit286.split.loop.exit319:         ; preds = %.outer.backedge
+  %208 = add nuw i64 %.075.ph.ph233, 1
   %umax.le = call i64 @llvm.umax.i64(i64 %2, i64 %208)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %170, %173, %60, %.loopexit.loopexit287.split.loop.exit320, %198
-  %.073.ph.ph157 = phi i8 [ %.073.ph.ph235, %198 ], [ %.073.ph.ph235, %.loopexit.loopexit287.split.loop.exit320 ], [ %.073.ph.ph235, %60 ], [ %.073.ph.ph235, %173 ], [ %.073.ph.ph235, %170 ], [ %.073.ph.ph235, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
-  %.2 = phi i64 [ %spec.select96, %198 ], [ %umax.le, %.loopexit.loopexit287.split.loop.exit320 ], [ %.075.ph226, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph226, %.lr.ph.split.us.split.us ], [ %.176, %uart_putxmitchar.exit ]
-  %209 = and i8 %.073.ph.ph157, 1
-  %.not87 = icmp eq i8 %209, 0
-  br i1 %.not87, label %.loopexit.thread, label %210
+.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %170, %173, %60, %.loopexit.loopexit286.split.loop.exit319
+  %.073.ph.ph156 = phi i1 [ %.073.ph.ph234, %.loopexit.loopexit286.split.loop.exit319 ], [ %.073.ph.ph234, %60 ], [ %.073.ph.ph234, %173 ], [ %.073.ph.ph234, %170 ], [ %.073.ph.ph234, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
+  %.2 = phi i64 [ %umax.le, %.loopexit.loopexit286.split.loop.exit319 ], [ %.075.ph225, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph225, %.lr.ph.split.us.split.us ], [ %.176, %uart_putxmitchar.exit ]
+  br i1 %.073.ph.ph156, label %209, label %.loopexit.thread
 
-210:                                              ; preds = %.loopexit
-  %211 = getelementptr inbounds i8, ptr %11, i64 272
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 72
-  %214 = load ptr, ptr %213, align 8
-  call void %214(ptr noundef %11, i1 noundef zeroext true) #5
+209:                                              ; preds = %198, %.loopexit
+  %.2281 = phi i64 [ %spec.select95, %198 ], [ %.2, %.loopexit ]
+  %210 = getelementptr inbounds i8, ptr %11, i64 272
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 72
+  %213 = load ptr, ptr %212, align 8
+  call void %213(ptr noundef nonnull %11, i1 noundef zeroext true) #5
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.preheader, %210, %.loopexit
-  %.2282 = phi i64 [ %.2, %210 ], [ %.2, %.loopexit ], [ 0, %.preheader ]
-  %215 = getelementptr inbounds i8, ptr %11, i64 272
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 48
-  %218 = load ptr, ptr %217, align 8
-  call void %218(ptr noundef %11, i1 noundef zeroext true) #5
-  %219 = call i32 @nxmutex_unlock(ptr noundef nonnull %12) #5
-  br label %220
+.loopexit.thread:                                 ; preds = %.preheader, %198, %209, %.loopexit
+  %.2280 = phi i64 [ %.2281, %209 ], [ %.2, %.loopexit ], [ %spec.select95, %198 ], [ 0, %.preheader ]
+  %214 = getelementptr inbounds i8, ptr %11, i64 272
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 48
+  %217 = load ptr, ptr %216, align 8
+  call void %217(ptr noundef %11, i1 noundef zeroext true) #5
+  %218 = call i32 @nxmutex_unlock(ptr noundef nonnull %12) #5
+  br label %219
 
-220:                                              ; preds = %.loopexit.thread, %29
-  %.077 = phi i64 [ %30, %29 ], [ %.2282, %.loopexit.thread ]
+219:                                              ; preds = %.loopexit.thread, %29
+  %.077 = phi i64 [ %30, %29 ], [ %.2280, %.loopexit.thread ]
   ret i64 %.077
 }
 

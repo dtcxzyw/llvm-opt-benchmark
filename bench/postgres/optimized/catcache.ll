@@ -53,8 +53,8 @@ define dso_local void @CatCacheInvalidate(ptr noundef %0, i32 noundef %1) local_
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  %.not334051 = icmp eq ptr %5, %3
-  %.not3340 = select i1 %.not, i1 true, i1 %.not334051
+  %.not334052 = icmp eq ptr %5, %3
+  %.not3340 = select i1 %.not, i1 true, i1 %.not334052
   br i1 %.not3340, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %13
@@ -92,52 +92,119 @@ define dso_local void @CatCacheInvalidate(ptr noundef %0, i32 noundef %1) local_
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not34 = icmp eq ptr %23, null
-  %.not354552 = icmp eq ptr %23, %21
-  %.not3545 = or i1 %.not34, %.not354552
+  %.not354551 = icmp eq ptr %23, %21
+  %.not3545 = or i1 %.not34, %.not354551
   br i1 %.not3545, label %._crit_edge50, label %.lr.ph49
 
-.lr.ph49:                                         ; preds = %._crit_edge, %42
-  %.sroa.0.146 = phi ptr [ %.sroa.12.147, %42 ], [ %23, %._crit_edge ]
-  %.sroa.12.147.in = getelementptr inbounds i8, ptr %.sroa.0.146, i64 8
+.lr.ph49:                                         ; preds = %._crit_edge
+  %24 = getelementptr inbounds i8, ptr %0, i64 124
+  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  br label %28
+
+28:                                               ; preds = %.lr.ph49, %CatCacheRemoveCTup.exit
+  %.sroa.0.146 = phi ptr [ %23, %.lr.ph49 ], [ %.sroa.12.147, %CatCacheRemoveCTup.exit ]
+  %.sroa.12.147.in = getelementptr i8, ptr %.sroa.0.146, i64 8
   %.sroa.12.147 = load ptr, ptr %.sroa.12.147.in, align 8
-  %24 = getelementptr i8, ptr %.sroa.0.146, i64 -40
-  %25 = getelementptr i8, ptr %.sroa.0.146, i64 -36
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, %1
-  br i1 %27, label %28, label %42
+  %29 = getelementptr i8, ptr %.sroa.0.146, i64 -40
+  %30 = getelementptr i8, ptr %.sroa.0.146, i64 -36
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, %1
+  br i1 %32, label %33, label %CatCacheRemoveCTup.exit
 
-28:                                               ; preds = %.lr.ph49
-  %29 = getelementptr i8, ptr %.sroa.0.146, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %39, label %32
+33:                                               ; preds = %28
+  %34 = getelementptr i8, ptr %.sroa.0.146, i64 16
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %44, label %37
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %.sroa.0.146, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %.not36 = icmp eq ptr %34, null
-  br i1 %.not36, label %41, label %35
+37:                                               ; preds = %33
+  %38 = getelementptr i8, ptr %.sroa.0.146, i64 48
+  %39 = load ptr, ptr %38, align 8
+  %.not36 = icmp eq ptr %39, null
+  br i1 %.not36, label %48, label %40
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 56
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %41
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %39, i64 56
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %44, label %46
 
-39:                                               ; preds = %35, %28
-  %40 = getelementptr i8, ptr %.sroa.0.146, i64 20
-  store i8 1, ptr %40, align 4
-  br label %42
+44:                                               ; preds = %40, %33
+  %45 = getelementptr i8, ptr %.sroa.0.146, i64 20
+  store i8 1, ptr %45, align 4
+  br label %CatCacheRemoveCTup.exit
 
-41:                                               ; preds = %35, %32
-  tail call fastcc void @CatCacheRemoveCTup(ptr noundef %0, ptr noundef %24)
-  br label %42
+46:                                               ; preds = %40
+  %47 = getelementptr i8, ptr %.sroa.0.146, i64 20
+  store i8 1, ptr %47, align 4
+  tail call fastcc void @CatCacheRemoveCList(ptr noundef %0, ptr noundef nonnull %39)
+  br label %CatCacheRemoveCTup.exit
 
-42:                                               ; preds = %.lr.ph49, %41, %39
+48:                                               ; preds = %37
+  %49 = load ptr, ptr %.sroa.0.146, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  store ptr %.sroa.12.147, ptr %50, align 8
+  %51 = load ptr, ptr %.sroa.0.146, align 8
+  store ptr %51, ptr %.sroa.12.147, align 8
+  %52 = getelementptr i8, ptr %.sroa.0.146, i64 21
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %CatCacheFreeKeys.exit.i
+
+55:                                               ; preds = %48
+  %56 = load i32, ptr %24, align 4
+  %57 = getelementptr i8, ptr %.sroa.0.146, i64 -32
+  %58 = icmp sgt i32 %56, 0
+  br i1 %58, label %.lr.ph.i.i, label %CatCacheFreeKeys.exit.i
+
+.lr.ph.i.i:                                       ; preds = %55
+  %59 = load ptr, ptr %26, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %wide.trip.count.i.i = zext nneg i32 %56 to i64
+  br label %61
+
+61:                                               ; preds = %73, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %73 ]
+  %62 = getelementptr i32, ptr %25, i64 %indvars.iv.i.i
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, -1
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %60, i64 0, i64 %65, i32 8
+  %67 = load i8, ptr %66, align 2
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %73, label %69
+
+69:                                               ; preds = %61
+  %70 = getelementptr i64, ptr %57, i64 %indvars.iv.i.i
+  %71 = load i64, ptr %70, align 8
+  %72 = inttoptr i64 %71 to ptr
+  tail call void @pfree(ptr noundef %72) #12
+  br label %73
+
+73:                                               ; preds = %69, %61
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %61, !llvm.loop !7
+
+CatCacheFreeKeys.exit.i:                          ; preds = %73, %55, %48
+  tail call void @pfree(ptr noundef %29) #12
+  %74 = load i32, ptr %27, align 8
+  %75 = add i32 %74, -1
+  store i32 %75, ptr %27, align 8
+  %76 = load ptr, ptr @CacheHdr, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = load i32, ptr %77, align 8
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %77, align 8
+  br label %CatCacheRemoveCTup.exit
+
+CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %46, %28, %44
   %.not35 = icmp eq ptr %.sroa.12.147, %21
-  br i1 %.not35, label %._crit_edge50, label %.lr.ph49, !llvm.loop !7
+  br i1 %.not35, label %._crit_edge50, label %28, !llvm.loop !8
 
-._crit_edge50:                                    ; preds = %42, %._crit_edge
+._crit_edge50:                                    ; preds = %CatCacheRemoveCTup.exit, %._crit_edge
   ret void
 }
 
@@ -166,9 +233,8 @@ define internal fastcc void @CatCacheRemoveCList(ptr nocapture noundef %0, ptr n
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 60
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %59, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %59
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %15, i64 56
@@ -187,45 +253,43 @@ define internal fastcc void @CatCacheRemoveCList(ptr nocapture noundef %0, ptr n
   store ptr %30, ptr %27, align 8
   %31 = getelementptr inbounds i8, ptr %15, i64 61
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not12.i = icmp eq i8 %33, 0
-  br i1 %.not12.i, label %CatCacheRemoveCTup.exit, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %CatCacheRemoveCTup.exit
 
 34:                                               ; preds = %24
   %35 = load i32, ptr %8, align 4
   %36 = getelementptr inbounds i8, ptr %15, i64 8
   %37 = icmp sgt i32 %35, 0
-  br i1 %37, label %.lr.ph.i16, label %CatCacheRemoveCTup.exit
+  br i1 %37, label %.lr.ph.i15, label %CatCacheRemoveCTup.exit
 
-.lr.ph.i16:                                       ; preds = %34
+.lr.ph.i15:                                       ; preds = %34
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %wide.trip.count.i17 = zext nneg i32 %35 to i64
+  %wide.trip.count.i16 = zext nneg i32 %35 to i64
   br label %40
 
-40:                                               ; preds = %52, %.lr.ph.i16
-  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i20, %52 ]
-  %41 = getelementptr i32, ptr %9, i64 %indvars.iv.i18
+40:                                               ; preds = %52, %.lr.ph.i15
+  %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i18, %52 ]
+  %41 = getelementptr i32, ptr %9, i64 %indvars.iv.i17
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, -1
   %44 = sext i32 %43 to i64
   %45 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %39, i64 0, i64 %44, i32 8
   %46 = load i8, ptr %45, align 2
-  %47 = and i8 %46, 1
-  %.not.i19 = icmp eq i8 %47, 0
-  br i1 %.not.i19, label %48, label %52
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %52, label %48
 
 48:                                               ; preds = %40
-  %49 = getelementptr i64, ptr %36, i64 %indvars.iv.i18
+  %49 = getelementptr i64, ptr %36, i64 %indvars.iv.i17
   %50 = load i64, ptr %49, align 8
   %51 = inttoptr i64 %50 to ptr
   tail call void @pfree(ptr noundef %51) #12
   br label %52
 
 52:                                               ; preds = %48, %40
-  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i17
-  br i1 %exitcond.not.i21, label %CatCacheRemoveCTup.exit, label %40, !llvm.loop !8
+  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
+  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i16
+  br i1 %exitcond.not.i19, label %CatCacheRemoveCTup.exit, label %40, !llvm.loop !7
 
 CatCacheRemoveCTup.exit:                          ; preds = %52, %24, %34
   tail call void @pfree(ptr noundef %15) #12
@@ -275,9 +339,8 @@ CatCacheRemoveCTup.exit:                          ; preds = %52, %24, %34
   %79 = sext i32 %78 to i64
   %80 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %74, i64 0, i64 %79, i32 8
   %81 = load i8, ptr %80, align 2
-  %82 = and i8 %81, 1
-  %.not.i15 = icmp eq i8 %82, 0
-  br i1 %.not.i15, label %83, label %87
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %87, label %83
 
 83:                                               ; preds = %75
   %84 = getelementptr i64, ptr %70, i64 %indvars.iv.i
@@ -289,94 +352,10 @@ CatCacheRemoveCTup.exit:                          ; preds = %52, %24, %34
 87:                                               ; preds = %83, %75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %CatCacheFreeKeys.exit, label %75, !llvm.loop !8
+  br i1 %exitcond.not.i, label %CatCacheFreeKeys.exit, label %75, !llvm.loop !7
 
 CatCacheFreeKeys.exit:                            ; preds = %87, %._crit_edge
   tail call void @pfree(ptr noundef %1) #12
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @CatCacheRemoveCTup(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
-  %4 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %7, label %5
-
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 60
-  store i8 1, ptr %6, align 4
-  tail call fastcc void @CatCacheRemoveCList(ptr noundef %0, ptr noundef nonnull %4)
-  br label %46
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %10, ptr %12, align 8
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 61
-  %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not12 = icmp eq i8 %16, 0
-  br i1 %.not12, label %CatCacheFreeKeys.exit, label %17
-
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 124
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = icmp sgt i32 %19, 0
-  br i1 %22, label %.lr.ph.i, label %CatCacheFreeKeys.exit
-
-.lr.ph.i:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %wide.trip.count.i = zext nneg i32 %19 to i64
-  br label %26
-
-26:                                               ; preds = %38, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %27 = getelementptr i32, ptr %20, i64 %indvars.iv.i
-  %28 = load i32, ptr %27, align 4
-  %29 = add i32 %28, -1
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %25, i64 0, i64 %30, i32 8
-  %32 = load i8, ptr %31, align 2
-  %33 = and i8 %32, 1
-  %.not.i = icmp eq i8 %33, 0
-  br i1 %.not.i, label %34, label %38
-
-34:                                               ; preds = %26
-  %35 = getelementptr i64, ptr %21, i64 %indvars.iv.i
-  %36 = load i64, ptr %35, align 8
-  %37 = inttoptr i64 %36 to ptr
-  tail call void @pfree(ptr noundef %37) #12
-  br label %38
-
-38:                                               ; preds = %34, %26
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %CatCacheFreeKeys.exit, label %26, !llvm.loop !8
-
-CatCacheFreeKeys.exit:                            ; preds = %38, %17, %7
-  tail call void @pfree(ptr noundef %1) #12
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
-  %40 = load i32, ptr %39, align 8
-  %41 = add i32 %40, -1
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr @CacheHdr, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = add i32 %44, -1
-  store i32 %45, ptr %43, align 8
-  br label %46
-
-46:                                               ; preds = %CatCacheFreeKeys.exit, %5
   ret void
 }
 
@@ -423,17 +402,17 @@ define internal fastcc void @ResetCatalogCache(ptr noundef %0) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.not344861 = icmp eq ptr %4, %2
-  %.not3448 = select i1 %.not, i1 true, i1 %.not344861
-  br i1 %.not3448, label %.preheader, label %.lr.ph
+  %.not344760 = icmp eq ptr %4, %2
+  %.not3447 = select i1 %.not, i1 true, i1 %.not344760
+  br i1 %.not3447, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %20, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph58, label %._crit_edge59
+  br i1 %7, label %.lr.ph57, label %._crit_edge58
 
-.lr.ph58:                                         ; preds = %.preheader
+.lr.ph57:                                         ; preds = %.preheader
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 124
   %10 = getelementptr inbounds i8, ptr %0, i64 88
@@ -442,52 +421,52 @@ define internal fastcc void @ResetCatalogCache(ptr noundef %0) unnamed_addr #0 {
   br label %21
 
 .lr.ph:                                           ; preds = %1, %20
-  %.sroa.0.049 = phi ptr [ %.sroa.12.050, %20 ], [ %4, %1 ]
-  %.sroa.12.050.in = getelementptr inbounds i8, ptr %.sroa.0.049, i64 8
-  %.sroa.12.050 = load ptr, ptr %.sroa.12.050.in, align 8
-  %13 = getelementptr i8, ptr %.sroa.0.049, i64 48
+  %.sroa.0.048 = phi ptr [ %.sroa.12.049, %20 ], [ %4, %1 ]
+  %.sroa.12.049.in = getelementptr inbounds i8, ptr %.sroa.0.048, i64 8
+  %.sroa.12.049 = load ptr, ptr %.sroa.12.049.in, align 8
+  %13 = getelementptr i8, ptr %.sroa.0.048, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr i8, ptr %.sroa.0.049, i64 52
+  %17 = getelementptr i8, ptr %.sroa.0.048, i64 52
   store i8 1, ptr %17, align 4
   br label %20
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %.sroa.0.049, i64 -8
+  %19 = getelementptr i8, ptr %.sroa.0.048, i64 -8
   tail call fastcc void @CatCacheRemoveCList(ptr noundef %0, ptr noundef %19)
   br label %20
 
 20:                                               ; preds = %16, %18
-  %.not34 = icmp eq ptr %.sroa.12.050, %2
+  %.not34 = icmp eq ptr %.sroa.12.049, %2
   br i1 %.not34, label %.preheader, label %.lr.ph, !llvm.loop !11
 
-21:                                               ; preds = %.lr.ph58, %._crit_edge
-  %22 = phi i32 [ %6, %.lr.ph58 ], [ %153, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %._crit_edge ]
+21:                                               ; preds = %.lr.ph57, %._crit_edge
+  %22 = phi i32 [ %6, %.lr.ph57 ], [ %153, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next, %._crit_edge ]
   %23 = load ptr, ptr %8, align 8
   %24 = getelementptr %struct.dlist_head, ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not35 = icmp eq ptr %26, null
-  %.not365362 = icmp eq ptr %26, %24
-  %.not3653 = or i1 %.not35, %.not365362
-  br i1 %.not3653, label %._crit_edge, label %.lr.ph56
+  %.not365261 = icmp eq ptr %26, %24
+  %.not3652 = or i1 %.not35, %.not365261
+  br i1 %.not3652, label %._crit_edge, label %.lr.ph55
 
-.lr.ph56:                                         ; preds = %21, %CatCacheRemoveCTup.exit
-  %.sroa.0.154 = phi ptr [ %.sroa.12.155, %CatCacheRemoveCTup.exit ], [ %26, %21 ]
-  %.sroa.12.155.in = getelementptr i8, ptr %.sroa.0.154, i64 8
-  %.sroa.12.155 = load ptr, ptr %.sroa.12.155.in, align 8
-  %27 = getelementptr i8, ptr %.sroa.0.154, i64 -40
-  %28 = getelementptr i8, ptr %.sroa.0.154, i64 16
+.lr.ph55:                                         ; preds = %21, %CatCacheRemoveCTup.exit
+  %.sroa.0.153 = phi ptr [ %.sroa.12.154, %CatCacheRemoveCTup.exit ], [ %26, %21 ]
+  %.sroa.12.154.in = getelementptr i8, ptr %.sroa.0.153, i64 8
+  %.sroa.12.154 = load ptr, ptr %.sroa.12.154.in, align 8
+  %27 = getelementptr i8, ptr %.sroa.0.153, i64 -40
+  %28 = getelementptr i8, ptr %.sroa.0.153, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %38, label %31
 
-31:                                               ; preds = %.lr.ph56
-  %32 = getelementptr i8, ptr %.sroa.0.154, i64 48
+31:                                               ; preds = %.lr.ph55
+  %32 = getelementptr i8, ptr %.sroa.0.153, i64 48
   %33 = load ptr, ptr %32, align 8
   %.not37 = icmp eq ptr %33, null
   br i1 %.not37, label %121, label %34
@@ -498,13 +477,13 @@ define internal fastcc void @ResetCatalogCache(ptr noundef %0) unnamed_addr #0 {
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %40
 
-38:                                               ; preds = %34, %.lr.ph56
-  %39 = getelementptr i8, ptr %.sroa.0.154, i64 20
+38:                                               ; preds = %34, %.lr.ph55
+  %39 = getelementptr i8, ptr %.sroa.0.153, i64 20
   store i8 1, ptr %39, align 4
   br label %CatCacheRemoveCTup.exit
 
 40:                                               ; preds = %34
-  %41 = getelementptr i8, ptr %.sroa.0.154, i64 20
+  %41 = getelementptr i8, ptr %.sroa.0.153, i64 20
   store i8 1, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %33, i64 64
   %43 = load i32, ptr %42, align 8
@@ -525,9 +504,8 @@ define internal fastcc void @ResetCatalogCache(ptr noundef %0) unnamed_addr #0 {
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %50, i64 60
   %53 = load i8, ptr %52, align 4
-  %54 = and i8 %53, 1
-  %.not.i45 = icmp eq i8 %54, 0
-  br i1 %.not.i45, label %94, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %94
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %50, i64 56
@@ -546,45 +524,43 @@ define internal fastcc void @ResetCatalogCache(ptr noundef %0) unnamed_addr #0 {
   store ptr %65, ptr %62, align 8
   %66 = getelementptr inbounds i8, ptr %50, i64 61
   %67 = load i8, ptr %66, align 1
-  %68 = and i8 %67, 1
-  %.not12.i.i = icmp eq i8 %68, 0
-  br i1 %.not12.i.i, label %CatCacheRemoveCTup.exit.i, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %CatCacheRemoveCTup.exit.i
 
 69:                                               ; preds = %59
   %70 = load i32, ptr %9, align 4
   %71 = getelementptr inbounds i8, ptr %50, i64 8
   %72 = icmp sgt i32 %70, 0
-  br i1 %72, label %.lr.ph.i16.i, label %CatCacheRemoveCTup.exit.i
+  br i1 %72, label %.lr.ph.i15.i, label %CatCacheRemoveCTup.exit.i
 
-.lr.ph.i16.i:                                     ; preds = %69
+.lr.ph.i15.i:                                     ; preds = %69
   %73 = load ptr, ptr %11, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 24
-  %wide.trip.count.i17.i = zext nneg i32 %70 to i64
+  %wide.trip.count.i16.i = zext nneg i32 %70 to i64
   br label %75
 
-75:                                               ; preds = %87, %.lr.ph.i16.i
-  %indvars.iv.i18.i = phi i64 [ 0, %.lr.ph.i16.i ], [ %indvars.iv.next.i20.i, %87 ]
-  %76 = getelementptr i32, ptr %10, i64 %indvars.iv.i18.i
+75:                                               ; preds = %87, %.lr.ph.i15.i
+  %indvars.iv.i17.i = phi i64 [ 0, %.lr.ph.i15.i ], [ %indvars.iv.next.i18.i, %87 ]
+  %76 = getelementptr i32, ptr %10, i64 %indvars.iv.i17.i
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, -1
   %79 = sext i32 %78 to i64
   %80 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %74, i64 0, i64 %79, i32 8
   %81 = load i8, ptr %80, align 2
-  %82 = and i8 %81, 1
-  %.not.i19.i = icmp eq i8 %82, 0
-  br i1 %.not.i19.i, label %83, label %87
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %87, label %83
 
 83:                                               ; preds = %75
-  %84 = getelementptr i64, ptr %71, i64 %indvars.iv.i18.i
+  %84 = getelementptr i64, ptr %71, i64 %indvars.iv.i17.i
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
   tail call void @pfree(ptr noundef %86) #12
   br label %87
 
 87:                                               ; preds = %83, %75
-  %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i18.i, 1
-  %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, %wide.trip.count.i17.i
-  br i1 %exitcond.not.i21.i, label %CatCacheRemoveCTup.exit.i, label %75, !llvm.loop !8
+  %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 1
+  %exitcond.not.i19.i = icmp eq i64 %indvars.iv.next.i18.i, %wide.trip.count.i16.i
+  br i1 %exitcond.not.i19.i, label %CatCacheRemoveCTup.exit.i, label %75, !llvm.loop !7
 
 CatCacheRemoveCTup.exit.i:                        ; preds = %87, %69, %59
   tail call void @pfree(ptr noundef %50) #12
@@ -632,9 +608,8 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %87, %69, %59
   %112 = sext i32 %111 to i64
   %113 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %107, i64 0, i64 %112, i32 8
   %114 = load i8, ptr %113, align 2
-  %115 = and i8 %114, 1
-  %.not.i15.i = icmp eq i8 %115, 0
-  br i1 %.not.i15.i, label %116, label %120
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %120, label %116
 
 116:                                              ; preds = %108
   %117 = getelementptr i64, ptr %104, i64 %indvars.iv.i.i42
@@ -646,27 +621,26 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %87, %69, %59
 120:                                              ; preds = %116, %108
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i42, 1
   %exitcond.not.i.i44 = icmp eq i64 %indvars.iv.next.i.i43, %wide.trip.count.i.i41
-  br i1 %exitcond.not.i.i44, label %CatCacheRemoveCList.exit, label %108, !llvm.loop !8
+  br i1 %exitcond.not.i.i44, label %CatCacheRemoveCList.exit, label %108, !llvm.loop !7
 
 CatCacheRemoveCList.exit:                         ; preds = %120, %._crit_edge.i
   tail call void @pfree(ptr noundef nonnull %33) #12
   br label %CatCacheRemoveCTup.exit
 
 121:                                              ; preds = %31
-  %122 = load ptr, ptr %.sroa.0.154, align 8
+  %122 = load ptr, ptr %.sroa.0.153, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 8
-  store ptr %.sroa.12.155, ptr %123, align 8
-  %124 = load ptr, ptr %.sroa.0.154, align 8
-  store ptr %124, ptr %.sroa.12.155, align 8
-  %125 = getelementptr i8, ptr %.sroa.0.154, i64 21
+  store ptr %.sroa.12.154, ptr %123, align 8
+  %124 = load ptr, ptr %.sroa.0.153, align 8
+  store ptr %124, ptr %.sroa.12.154, align 8
+  %125 = getelementptr i8, ptr %.sroa.0.153, i64 21
   %126 = load i8, ptr %125, align 1
-  %127 = and i8 %126, 1
-  %.not12.i = icmp eq i8 %127, 0
-  br i1 %.not12.i, label %CatCacheFreeKeys.exit.i, label %128
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %128, label %CatCacheFreeKeys.exit.i
 
 128:                                              ; preds = %121
   %129 = load i32, ptr %9, align 4
-  %130 = getelementptr i8, ptr %.sroa.0.154, i64 -32
+  %130 = getelementptr i8, ptr %.sroa.0.153, i64 -32
   %131 = icmp sgt i32 %129, 0
   br i1 %131, label %.lr.ph.i.i, label %CatCacheFreeKeys.exit.i
 
@@ -684,9 +658,8 @@ CatCacheRemoveCList.exit:                         ; preds = %120, %._crit_edge.i
   %138 = sext i32 %137 to i64
   %139 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %133, i64 0, i64 %138, i32 8
   %140 = load i8, ptr %139, align 2
-  %141 = and i8 %140, 1
-  %.not.i.i = icmp eq i8 %141, 0
-  br i1 %.not.i.i, label %142, label %146
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %146, label %142
 
 142:                                              ; preds = %134
   %143 = getelementptr i64, ptr %130, i64 %indvars.iv.i.i
@@ -698,7 +671,7 @@ CatCacheRemoveCList.exit:                         ; preds = %120, %._crit_edge.i
 146:                                              ; preds = %142, %134
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %134, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %134, !llvm.loop !7
 
 CatCacheFreeKeys.exit.i:                          ; preds = %146, %128, %121
   tail call void @pfree(ptr noundef %27) #12
@@ -713,8 +686,8 @@ CatCacheFreeKeys.exit.i:                          ; preds = %146, %128, %121
   br label %CatCacheRemoveCTup.exit
 
 CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %CatCacheRemoveCList.exit, %38
-  %.not36 = icmp eq ptr %.sroa.12.155, %24
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph56, !llvm.loop !12
+  %.not36 = icmp eq ptr %.sroa.12.154, %24
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph55, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %CatCacheRemoveCTup.exit
   %.pre = load i32, ptr %5, align 4
@@ -725,9 +698,9 @@ CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next, %154
-  br i1 %155, label %21, label %._crit_edge59, !llvm.loop !13
+  br i1 %155, label %21, label %._crit_edge58, !llvm.loop !13
 
-._crit_edge59:                                    ; preds = %._crit_edge, %.preheader
+._crit_edge58:                                    ; preds = %._crit_edge, %.preheader
   ret void
 }
 
@@ -905,9 +878,9 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef %0) unnamed
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 113
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
-  store i8 %18, ptr %19, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = and i8 %17, 1
+  store i8 %19, ptr %18, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
   tail call void @table_close(ptr noundef %4, i32 noundef 1) #12
   %20 = getelementptr inbounds i8, ptr %0, i64 124
@@ -1124,39 +1097,38 @@ CatalogCacheComputeHashValue.exit:                ; preds = %14, %29
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
-  %.not445458 = icmp eq ptr %51, %49
-  %.not4454 = or i1 %.not, %.not445458
-  br i1 %.not4454, label %._crit_edge, label %.lr.ph56.split.preheader
+  %.not445256 = icmp eq ptr %51, %49
+  %.not4452 = or i1 %.not, %.not445256
+  br i1 %.not4452, label %._crit_edge, label %.lr.ph54.split.preheader
 
-.lr.ph56.split.preheader:                         ; preds = %CatalogCacheComputeHashValue.exit
+.lr.ph54.split.preheader:                         ; preds = %CatalogCacheComputeHashValue.exit
   %52 = getelementptr inbounds i8, ptr %0, i64 56
   %53 = zext nneg i32 %1 to i64
-  br label %.lr.ph56.split
+  br label %.lr.ph54.split
 
-.lr.ph56.split:                                   ; preds = %.lr.ph56.split.preheader, %.critedge
-  %.sroa.0.055 = phi ptr [ %94, %.critedge ], [ %51, %.lr.ph56.split.preheader ]
-  %54 = getelementptr i8, ptr %.sroa.0.055, i64 20
+.lr.ph54.split:                                   ; preds = %.lr.ph54.split.preheader, %.critedge
+  %.sroa.0.053 = phi ptr [ %94, %.critedge ], [ %51, %.lr.ph54.split.preheader ]
+  %54 = getelementptr i8, ptr %.sroa.0.053, i64 20
   %55 = load i8, ptr %54, align 4
-  %56 = and i8 %55, 1
-  %.not45 = icmp eq i8 %56, 0
-  br i1 %.not45, label %57, label %.critedge
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %.critedge, label %57
 
-57:                                               ; preds = %.lr.ph56.split
-  %58 = getelementptr i8, ptr %.sroa.0.055, i64 -36
+57:                                               ; preds = %.lr.ph54.split
+  %58 = getelementptr i8, ptr %.sroa.0.053, i64 -36
   %59 = load i32, ptr %58, align 4
-  %.not46 = icmp eq i32 %59, %41
-  br i1 %.not46, label %.lr.ph.preheader.i, label %.critedge
+  %.not45 = icmp eq i32 %59, %41
+  br i1 %.not45, label %.lr.ph.preheader.i, label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %57
-  %60 = getelementptr i8, ptr %.sroa.0.055, i64 -32
+  %60 = getelementptr i8, ptr %.sroa.0.053, i64 -32
   %61 = load ptr, ptr %52, align 8
   %62 = load i64, ptr %60, align 8
   %63 = tail call zeroext i1 %61(i64 noundef %62, i64 noundef %2) #12
   br i1 %63, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i52, 1
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %53
   br i1 %exitcond.i, label %CatalogCacheCompareTuple.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -1171,21 +1143,21 @@ CatalogCacheComputeHashValue.exit:                ; preds = %14, %29
   br i1 %70, label %.lr.ph, label %CatalogCacheCompareTuple.exit, !llvm.loop !17
 
 CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %.lr.ph
-  %.not59.le = icmp ult i64 %indvars.iv.next.i, %53
-  br i1 %.not59.le, label %.critedge, label %CatalogCacheCompareTuple.exit.thread.loopexit
+  %.not57.le = icmp ult i64 %indvars.iv.next.i, %53
+  br i1 %.not57.le, label %.critedge, label %CatalogCacheCompareTuple.exit.thread.loopexit
 
 CatalogCacheCompareTuple.exit.thread.loopexit:    ; preds = %CatalogCacheCompareTuple.exit
   %.pre = load ptr, ptr %50, align 8
-  %71 = icmp eq ptr %.pre, %.sroa.0.055
+  %71 = icmp eq ptr %.pre, %.sroa.0.053
   br i1 %71, label %dlist_move_head.exit, label %72
 
 72:                                               ; preds = %CatalogCacheCompareTuple.exit.thread.loopexit
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.055, i64 8
+  %73 = getelementptr inbounds i8, ptr %.sroa.0.053, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %.sroa.0.055, align 8
+  %75 = load ptr, ptr %.sroa.0.053, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %74, ptr %76, align 8
-  %77 = load ptr, ptr %.sroa.0.055, align 8
+  %77 = load ptr, ptr %.sroa.0.053, align 8
   store ptr %77, ptr %74, align 8
   %78 = load ptr, ptr %50, align 8
   %79 = icmp eq ptr %78, null
@@ -1198,36 +1170,35 @@ CatalogCacheCompareTuple.exit.thread.loopexit:    ; preds = %CatalogCacheCompare
 dlist_push_head.exit.i:                           ; preds = %80, %72
   %81 = phi ptr [ %49, %80 ], [ %78, %72 ]
   store ptr %81, ptr %73, align 8
-  store ptr %49, ptr %.sroa.0.055, align 8
-  store ptr %.sroa.0.055, ptr %81, align 8
-  store ptr %.sroa.0.055, ptr %50, align 8
+  store ptr %49, ptr %.sroa.0.053, align 8
+  store ptr %.sroa.0.053, ptr %81, align 8
+  store ptr %.sroa.0.053, ptr %50, align 8
   br label %dlist_move_head.exit
 
 dlist_move_head.exit:                             ; preds = %CatalogCacheCompareTuple.exit.thread.loopexit, %dlist_push_head.exit.i
-  %82 = getelementptr i8, ptr %.sroa.0.055, i64 21
+  %82 = getelementptr i8, ptr %.sroa.0.053, i64 21
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not47 = icmp eq i8 %84, 0
-  br i1 %.not47, label %85, label %140
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %140, label %85
 
 85:                                               ; preds = %dlist_move_head.exit
   %86 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %86) #12
-  %87 = getelementptr i8, ptr %.sroa.0.055, i64 16
+  %87 = getelementptr i8, ptr %.sroa.0.053, i64 16
   %88 = load i32, ptr %87, align 8
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 8
   %90 = load ptr, ptr @CurrentResourceOwner, align 8
-  %91 = getelementptr i8, ptr %.sroa.0.055, i64 24
+  %91 = getelementptr i8, ptr %.sroa.0.053, i64 24
   %92 = ptrtoint ptr %91 to i64
   tail call void @ResourceOwnerRemember(ptr noundef %90, i64 noundef %92, ptr noundef nonnull @catcache_resowner_desc) #12
   br label %140
 
-.critedge:                                        ; preds = %.lr.ph.preheader.i, %CatalogCacheCompareTuple.exit, %57, %.lr.ph56.split
-  %93 = getelementptr inbounds i8, ptr %.sroa.0.055, i64 8
+.critedge:                                        ; preds = %.lr.ph.preheader.i, %CatalogCacheCompareTuple.exit, %57, %.lr.ph54.split
+  %93 = getelementptr inbounds i8, ptr %.sroa.0.053, i64 8
   %94 = load ptr, ptr %93, align 8
   %.not44 = icmp eq ptr %94, %49
-  br i1 %.not44, label %._crit_edge, label %.lr.ph56.split, !llvm.loop !18
+  br i1 %.not44, label %._crit_edge, label %.lr.ph54.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %CatalogCacheComputeHashValue.exit
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %7)
@@ -1272,15 +1243,13 @@ dlist_move_head.exit:                             ; preds = %CatalogCacheCompare
 
 111:                                              ; preds = %109
   %112 = load i8, ptr @criticalRelcachesBuilt, align 1
-  %113 = and i8 %112, 1
-  %.not2.i.i = icmp eq i8 %113, 0
-  br i1 %.not2.i.i, label %IndexScanOK.exit.i, label %117
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %117, label %IndexScanOK.exit.i
 
 114:                                              ; preds = %109, %109, %109, %109
   %115 = load i8, ptr @criticalSharedRelcachesBuilt, align 1
-  %116 = and i8 %115, 1
-  %.not.i.i = icmp eq i8 %116, 0
-  br i1 %.not.i.i, label %IndexScanOK.exit.i, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %IndexScanOK.exit.i
 
 117:                                              ; preds = %114, %111, %109
   br label %IndexScanOK.exit.i
@@ -1372,51 +1341,124 @@ define dso_local ptr @SearchCatCache4(ptr noundef %0, i64 noundef %1, i64 nounde
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReleaseCatCache(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
+  tail call fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 -64
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -1
   store i32 %6, ptr %4, align 8
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %10, label %7
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %10, label %7
 
-7:                                                ; preds = %1
+7:                                                ; preds = %2
   %8 = load ptr, ptr @CurrentResourceOwner, align 8
   %9 = ptrtoint ptr %0 to i64
   tail call void @ResourceOwnerForget(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @catcache_resowner_desc) #12
   br label %10
 
-10:                                               ; preds = %7, %1
+10:                                               ; preds = %7, %2
   %11 = getelementptr i8, ptr %0, i64 -4
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not10.i = icmp eq i8 %13, 0
-  br i1 %.not10.i, label %ReleaseCatCacheWithOwner.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %CatCacheRemoveCTup.exit
 
 14:                                               ; preds = %10
   %15 = load i32, ptr %4, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %ReleaseCatCacheWithOwner.exit
+  br i1 %16, label %17, label %CatCacheRemoveCTup.exit
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %25, label %21
+  br i1 %20, label %28, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %19, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %ReleaseCatCacheWithOwner.exit
+  br i1 %24, label %25, label %CatCacheRemoveCTup.exit
 
-25:                                               ; preds = %21, %17
+25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  tail call fastcc void @CatCacheRemoveCTup(ptr noundef %27, ptr noundef %3)
-  br label %ReleaseCatCacheWithOwner.exit
+  store i8 1, ptr %11, align 4
+  tail call fastcc void @CatCacheRemoveCList(ptr noundef %27, ptr noundef nonnull %19)
+  br label %CatCacheRemoveCTup.exit
 
-ReleaseCatCacheWithOwner.exit:                    ; preds = %10, %14, %21, %25
+28:                                               ; preds = %17
+  %29 = getelementptr i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %0, i64 -24
+  %32 = getelementptr i8, ptr %0, i64 -16
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %31, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %31, align 8
+  store ptr %36, ptr %33, align 8
+  %37 = getelementptr i8, ptr %0, i64 -3
+  %38 = load i8, ptr %37, align 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %CatCacheFreeKeys.exit.i
+
+40:                                               ; preds = %28
+  %41 = getelementptr inbounds i8, ptr %30, i64 124
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %30, i64 88
+  %44 = getelementptr i8, ptr %0, i64 -56
+  %45 = icmp sgt i32 %42, 0
+  br i1 %45, label %.lr.ph.i.i, label %CatCacheFreeKeys.exit.i
+
+.lr.ph.i.i:                                       ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %30, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %wide.trip.count.i.i = zext nneg i32 %42 to i64
+  br label %49
+
+49:                                               ; preds = %61, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %61 ]
+  %50 = getelementptr i32, ptr %43, i64 %indvars.iv.i.i
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, -1
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %48, i64 0, i64 %53, i32 8
+  %55 = load i8, ptr %54, align 2
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %61, label %57
+
+57:                                               ; preds = %49
+  %58 = getelementptr i64, ptr %44, i64 %indvars.iv.i.i
+  %59 = load i64, ptr %58, align 8
+  %60 = inttoptr i64 %59 to ptr
+  tail call void @pfree(ptr noundef %60) #12
+  br label %61
+
+61:                                               ; preds = %57, %49
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %49, !llvm.loop !7
+
+CatCacheFreeKeys.exit.i:                          ; preds = %61, %40, %28
+  tail call void @pfree(ptr noundef %3) #12
+  %62 = getelementptr inbounds i8, ptr %30, i64 120
+  %63 = load i32, ptr %62, align 8
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %62, align 8
+  %65 = load ptr, ptr @CacheHdr, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = add i32 %67, -1
+  store i32 %68, ptr %66, align 8
+  br label %CatCacheRemoveCTup.exit
+
+CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %25, %21, %14, %10
   ret void
 }
 
@@ -1555,46 +1597,45 @@ CatalogCacheComputeHashValue.exit:                ; preds = %15, %30
   %44 = getelementptr inbounds i8, ptr %0, i64 112
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
-  %.not162208250 = icmp eq ptr %45, %43
-  %.not162208 = select i1 %.not, i1 true, i1 %.not162208250
-  br i1 %.not162208, label %._crit_edge, label %.lr.ph210.split.preheader
+  %.not162204244 = icmp eq ptr %45, %43
+  %.not162204 = select i1 %.not, i1 true, i1 %.not162204244
+  br i1 %.not162204, label %._crit_edge, label %.lr.ph206.split.preheader
 
-.lr.ph210.split.preheader:                        ; preds = %CatalogCacheComputeHashValue.exit
+.lr.ph206.split.preheader:                        ; preds = %CatalogCacheComputeHashValue.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 56
   %47 = zext nneg i32 %1 to i64
-  br label %.lr.ph210.split
+  br label %.lr.ph206.split
 
-.lr.ph210.split:                                  ; preds = %.lr.ph210.split.preheader, %.critedge
-  %.sroa.092.0209 = phi ptr [ %84, %.critedge ], [ %45, %.lr.ph210.split.preheader ]
-  %48 = getelementptr i8, ptr %.sroa.092.0209, i64 52
+.lr.ph206.split:                                  ; preds = %.lr.ph206.split.preheader, %.critedge
+  %.sroa.092.0205 = phi ptr [ %84, %.critedge ], [ %45, %.lr.ph206.split.preheader ]
+  %48 = getelementptr i8, ptr %.sroa.092.0205, i64 52
   %49 = load i8, ptr %48, align 4
-  %50 = and i8 %49, 1
-  %.not178 = icmp eq i8 %50, 0
-  br i1 %.not178, label %51, label %.critedge
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %.critedge, label %51
 
-51:                                               ; preds = %.lr.ph210.split
-  %52 = getelementptr i8, ptr %.sroa.092.0209, i64 -4
+51:                                               ; preds = %.lr.ph206.split
+  %52 = getelementptr i8, ptr %.sroa.092.0205, i64 -4
   %53 = load i32, ptr %52, align 4
-  %.not179 = icmp eq i32 %53, %42
-  br i1 %.not179, label %54, label %.critedge
+  %.not174 = icmp eq i32 %53, %42
+  br i1 %.not174, label %54, label %.critedge
 
 54:                                               ; preds = %51
-  %55 = getelementptr i8, ptr %.sroa.092.0209, i64 54
+  %55 = getelementptr i8, ptr %.sroa.092.0205, i64 54
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
-  %.not180 = icmp eq i32 %57, %1
-  br i1 %.not180, label %.lr.ph.preheader.i, label %.critedge
+  %.not175 = icmp eq i32 %57, %1
+  br i1 %.not175, label %.lr.ph.preheader.i, label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %54
-  %58 = getelementptr i8, ptr %.sroa.092.0209, i64 16
+  %58 = getelementptr i8, ptr %.sroa.092.0205, i64 16
   %59 = load ptr, ptr %46, align 8
   %60 = load i64, ptr %58, align 8
   %61 = call zeroext i1 %59(i64 noundef %60, i64 noundef %2) #12
   br i1 %61, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i206 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i206, 1
+  %indvars.iv.i202 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i202, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %47
   br i1 %exitcond.i, label %CatalogCacheCompareTuple.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -1609,22 +1650,22 @@ CatalogCacheComputeHashValue.exit:                ; preds = %15, %30
   br i1 %68, label %.lr.ph, label %CatalogCacheCompareTuple.exit, !llvm.loop !17
 
 CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %.lr.ph
-  %.not251.le = icmp ult i64 %indvars.iv.next.i, %47
-  br i1 %.not251.le, label %.critedge, label %CatalogCacheCompareTuple.exit.thread.loopexit
+  %.not245.le = icmp ult i64 %indvars.iv.next.i, %47
+  br i1 %.not245.le, label %.critedge, label %CatalogCacheCompareTuple.exit.thread.loopexit
 
 CatalogCacheCompareTuple.exit.thread.loopexit:    ; preds = %CatalogCacheCompareTuple.exit
   %.pre = load ptr, ptr %44, align 8
-  %69 = getelementptr i8, ptr %.sroa.092.0209, i64 -8
-  %70 = icmp eq ptr %.pre, %.sroa.092.0209
+  %69 = getelementptr i8, ptr %.sroa.092.0205, i64 -8
+  %70 = icmp eq ptr %.pre, %.sroa.092.0205
   br i1 %70, label %dlist_move_head.exit, label %71
 
 71:                                               ; preds = %CatalogCacheCompareTuple.exit.thread.loopexit
-  %72 = getelementptr inbounds i8, ptr %.sroa.092.0209, i64 8
+  %72 = getelementptr inbounds i8, ptr %.sroa.092.0205, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %.sroa.092.0209, align 8
+  %74 = load ptr, ptr %.sroa.092.0205, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %73, ptr %75, align 8
-  %76 = load ptr, ptr %.sroa.092.0209, align 8
+  %76 = load ptr, ptr %.sroa.092.0205, align 8
   store ptr %76, ptr %73, align 8
   %77 = load ptr, ptr %44, align 8
   %78 = icmp eq ptr %77, null
@@ -1637,22 +1678,22 @@ CatalogCacheCompareTuple.exit.thread.loopexit:    ; preds = %CatalogCacheCompare
 dlist_push_head.exit.i:                           ; preds = %79, %71
   %80 = phi ptr [ %43, %79 ], [ %77, %71 ]
   store ptr %80, ptr %72, align 8
-  store ptr %43, ptr %.sroa.092.0209, align 8
-  store ptr %.sroa.092.0209, ptr %80, align 8
-  store ptr %.sroa.092.0209, ptr %44, align 8
+  store ptr %43, ptr %.sroa.092.0205, align 8
+  store ptr %.sroa.092.0205, ptr %80, align 8
+  store ptr %.sroa.092.0205, ptr %44, align 8
   br label %dlist_move_head.exit
 
 dlist_move_head.exit:                             ; preds = %CatalogCacheCompareTuple.exit.thread.loopexit, %dlist_push_head.exit.i
   %81 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %81) #12
-  %82 = getelementptr i8, ptr %.sroa.092.0209, i64 48
-  br label %276
+  %82 = getelementptr i8, ptr %.sroa.092.0205, i64 48
+  br label %312
 
-.critedge:                                        ; preds = %.lr.ph.preheader.i, %CatalogCacheCompareTuple.exit, %54, %51, %.lr.ph210.split
-  %83 = getelementptr inbounds i8, ptr %.sroa.092.0209, i64 8
+.critedge:                                        ; preds = %.lr.ph.preheader.i, %CatalogCacheCompareTuple.exit, %54, %51, %.lr.ph206.split
+  %83 = getelementptr inbounds i8, ptr %.sroa.092.0205, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not162 = icmp eq ptr %84, %43
-  br i1 %.not162, label %._crit_edge, label %.lr.ph210.split, !llvm.loop !20
+  br i1 %.not162, label %._crit_edge, label %.lr.ph206.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge, %CatalogCacheComputeHashValue.exit
   store volatile ptr null, ptr %8, align 8
@@ -1660,7 +1701,7 @@ dlist_move_head.exit:                             ; preds = %CatalogCacheCompare
   %86 = load ptr, ptr @error_context_stack, align 8
   %87 = call i32 @__sigsetjmp(ptr noundef nonnull %9, i32 noundef 0) #14
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %226
+  br i1 %88, label %89, label %225
 
 89:                                               ; preds = %._crit_edge
   store ptr %9, ptr @PG_exception_stack, align 8
@@ -1678,7 +1719,7 @@ dlist_move_head.exit:                             ; preds = %CatalogCacheCompare
   %101 = getelementptr inbounds i8, ptr %0, i64 16
   br label %102
 
-102:                                              ; preds = %._crit_edge235, %89
+102:                                              ; preds = %._crit_edge229, %89
   %103 = load i32, ptr %94, align 4
   %104 = sext i32 %103 to i64
   %105 = mul nsw i64 %104, 72
@@ -1701,29 +1742,27 @@ dlist_move_head.exit:                             ; preds = %CatalogCacheCompare
 
 107:                                              ; preds = %102
   %108 = load i8, ptr @criticalRelcachesBuilt, align 1
-  %109 = and i8 %108, 1
-  %.not2.i = icmp eq i8 %109, 0
-  br i1 %.not2.i, label %IndexScanOK.exit, label %113
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %113, label %IndexScanOK.exit
 
 110:                                              ; preds = %102, %102, %102, %102
   %111 = load i8, ptr @criticalSharedRelcachesBuilt, align 1
-  %112 = and i8 %111, 1
-  %.not.i = icmp eq i8 %112, 0
-  br i1 %.not.i, label %IndexScanOK.exit, label %113
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %IndexScanOK.exit
 
 113:                                              ; preds = %110, %107, %102
   br label %IndexScanOK.exit
 
 IndexScanOK.exit:                                 ; preds = %102, %102, %107, %110, %113
-  %.0.i182 = phi i1 [ true, %113 ], [ false, %107 ], [ false, %102 ], [ false, %102 ], [ false, %110 ]
-  %114 = call ptr @systable_beginscan(ptr noundef %92, i32 noundef %106, i1 noundef zeroext %.0.i182, ptr noundef null, i32 noundef %1, ptr noundef nonnull %10) #12
+  %.0.i177 = phi i1 [ true, %113 ], [ false, %107 ], [ false, %102 ], [ false, %102 ], [ false, %110 ]
+  %114 = call ptr @systable_beginscan(ptr noundef %92, i32 noundef %106, i1 noundef zeroext %.0.i177, ptr noundef null, i32 noundef %1, ptr noundef nonnull %10) #12
   %115 = getelementptr inbounds i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = call ptr @systable_getnext(ptr noundef %114) #12
-  %.not166.not225 = icmp eq ptr %117, null
-  br i1 %.not166.not225, label %IndexScanOK.exit._crit_edge, label %.lr.ph226
+  %.not165.not219 = icmp eq ptr %117, null
+  br i1 %.not165.not219, label %IndexScanOK.exit._crit_edge, label %.lr.ph220
 
-.lr.ph226:                                        ; preds = %IndexScanOK.exit, %167
+.lr.ph220:                                        ; preds = %IndexScanOK.exit, %167
   %118 = phi ptr [ %172, %167 ], [ %117, %IndexScanOK.exit ]
   %119 = load i32, ptr %94, align 4
   %120 = call fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef nonnull %0, i32 noundef %119, ptr noundef nonnull %118)
@@ -1735,96 +1774,94 @@ IndexScanOK.exit:                                 ; preds = %102, %102, %107, %1
   %126 = getelementptr %struct.dlist_head, ptr %124, i64 %125
   %127 = getelementptr inbounds i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  %.not167 = icmp eq ptr %128, null
-  %.not168.not220252 = icmp eq ptr %128, %126
-  %.not168.not220 = or i1 %.not167, %.not168.not220252
-  br i1 %.not168.not220, label %._crit_edge224, label %.lr.ph223
+  %.not166 = icmp eq ptr %128, null
+  %.not167.not214246 = icmp eq ptr %128, %126
+  %.not167.not214 = or i1 %.not166, %.not167.not214246
+  br i1 %.not167.not214, label %._crit_edge218, label %.lr.ph217
 
-.lr.ph223:                                        ; preds = %.lr.ph226
+.lr.ph217:                                        ; preds = %.lr.ph220
   %129 = getelementptr inbounds i8, ptr %118, i64 4
   br label %130
 
-130:                                              ; preds = %.lr.ph223, %147
-  %.sroa.092.1221 = phi ptr [ %128, %.lr.ph223 ], [ %149, %147 ]
-  %131 = getelementptr i8, ptr %.sroa.092.1221, i64 20
+130:                                              ; preds = %.lr.ph217, %147
+  %.sroa.092.1215 = phi ptr [ %128, %.lr.ph217 ], [ %149, %147 ]
+  %131 = getelementptr i8, ptr %.sroa.092.1215, i64 20
   %132 = load i8, ptr %131, align 4
-  %133 = and i8 %132, 1
-  %.not169 = icmp eq i8 %133, 0
-  br i1 %.not169, label %134, label %147
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %147, label %134
 
 134:                                              ; preds = %130
-  %135 = getelementptr i8, ptr %.sroa.092.1221, i64 21
+  %135 = getelementptr i8, ptr %.sroa.092.1215, i64 21
   %136 = load i8, ptr %135, align 1
-  %137 = and i8 %136, 1
-  %.not170 = icmp eq i8 %137, 0
-  br i1 %.not170, label %138, label %147
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %147, label %138
 
 138:                                              ; preds = %134
-  %139 = getelementptr i8, ptr %.sroa.092.1221, i64 -36
+  %139 = getelementptr i8, ptr %.sroa.092.1215, i64 -36
   %140 = load i32, ptr %139, align 4
-  %.not171 = icmp eq i32 %140, %120
-  br i1 %.not171, label %141, label %147
+  %.not168 = icmp eq i32 %140, %120
+  br i1 %.not168, label %141, label %147
 
 141:                                              ; preds = %138
-  %142 = getelementptr i8, ptr %.sroa.092.1221, i64 28
+  %142 = getelementptr i8, ptr %.sroa.092.1215, i64 28
   %143 = call zeroext i1 @ItemPointerEquals(ptr noundef %142, ptr noundef nonnull %129) #12
   br i1 %143, label %144, label %147
 
 144:                                              ; preds = %141
-  %145 = getelementptr i8, ptr %.sroa.092.1221, i64 48
+  %145 = getelementptr i8, ptr %.sroa.092.1215, i64 48
   %146 = load ptr, ptr %145, align 8
-  %.not172 = icmp eq ptr %146, null
-  br i1 %.not172, label %.loopexit, label %147
+  %.not169 = icmp eq ptr %146, null
+  br i1 %.not169, label %.loopexit, label %147
 
 147:                                              ; preds = %144, %141, %138, %130, %134
-  %148 = getelementptr inbounds i8, ptr %.sroa.092.1221, i64 8
+  %148 = getelementptr inbounds i8, ptr %.sroa.092.1215, i64 8
   %149 = load ptr, ptr %148, align 8
-  %.not168.not = icmp eq ptr %149, %126
-  br i1 %.not168.not, label %._crit_edge224, label %130, !llvm.loop !21
+  %.not167.not = icmp eq ptr %149, %126
+  br i1 %.not167.not, label %._crit_edge218, label %130, !llvm.loop !21
 
-._crit_edge224:                                   ; preds = %147, %.lr.ph226
+._crit_edge218:                                   ; preds = %147, %.lr.ph220
   %150 = call fastcc ptr @CatalogCacheCreateEntry(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef %114, ptr noundef null, i32 noundef %120, i32 noundef %123)
   %151 = icmp eq ptr %150, null
   br i1 %151, label %152, label %167
 
-152:                                              ; preds = %._crit_edge224
+152:                                              ; preds = %._crit_edge218
   %.0..0..0..0.45 = load volatile ptr, ptr %8, align 8
   %153 = getelementptr inbounds i8, ptr %.0..0..0..0.45, i64 4
-  %.not173 = icmp eq ptr %.0..0..0..0.45, null
-  br i1 %.not173, label %._crit_edge235, label %.lr.ph234
+  %.not170 = icmp eq ptr %.0..0..0..0.45, null
+  br i1 %.not170, label %._crit_edge229, label %.lr.ph228
 
-.lr.ph234:                                        ; preds = %152
+.lr.ph228:                                        ; preds = %152
   %154 = getelementptr inbounds i8, ptr %.0..0..0..0.45, i64 16
   %155 = load i32, ptr %153, align 4
   %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %.lr.ph238, label %._crit_edge235
+  br i1 %156, label %.lr.ph232, label %._crit_edge229
 
-.lr.ph238:                                        ; preds = %.lr.ph234, %.lr.ph238
-  %indvars.iv261 = phi i64 [ %indvars.iv.next262, %.lr.ph238 ], [ 0, %.lr.ph234 ]
+.lr.ph232:                                        ; preds = %.lr.ph228, %.lr.ph232
+  %indvars.iv255 = phi i64 [ %indvars.iv.next256, %.lr.ph232 ], [ 0, %.lr.ph228 ]
   %157 = load ptr, ptr %154, align 8
-  %158 = getelementptr %union.ListCell, ptr %157, i64 %indvars.iv261
+  %158 = getelementptr %union.ListCell, ptr %157, i64 %indvars.iv255
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 56
   %161 = load i32, ptr %160, align 8
   %162 = add i32 %161, -1
   store i32 %162, ptr %160, align 8
-  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %163 = load i32, ptr %153, align 4
   %164 = sext i32 %163 to i64
-  %165 = icmp slt i64 %indvars.iv.next262, %164
-  br i1 %165, label %.lr.ph238, label %._crit_edge235
+  %165 = icmp slt i64 %indvars.iv.next256, %164
+  br i1 %165, label %.lr.ph232, label %._crit_edge229
 
-._crit_edge235:                                   ; preds = %.lr.ph238, %.lr.ph234, %152
+._crit_edge229:                                   ; preds = %.lr.ph232, %.lr.ph228, %152
   store volatile ptr null, ptr %8, align 8
   call void @systable_endscan(ptr noundef %114) #12
   br label %102, !llvm.loop !22
 
 .loopexit:                                        ; preds = %144
-  %166 = getelementptr i8, ptr %.sroa.092.1221, i64 -40
+  %166 = getelementptr i8, ptr %.sroa.092.1215, i64 -40
   br label %167
 
-167:                                              ; preds = %.loopexit, %._crit_edge224
-  %.2 = phi ptr [ %150, %._crit_edge224 ], [ %166, %.loopexit ]
+167:                                              ; preds = %.loopexit, %._crit_edge218
+  %.2 = phi ptr [ %150, %._crit_edge218 ], [ %166, %.loopexit ]
   %.0..0..0..0.46 = load volatile ptr, ptr %8, align 8
   %168 = call ptr @lappend(ptr noundef %.0..0..0..0.46, ptr noundef %.2) #12
   store volatile ptr %168, ptr %8, align 8
@@ -1833,12 +1870,12 @@ IndexScanOK.exit:                                 ; preds = %102, %102, %107, %1
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 8
   %172 = call ptr @systable_getnext(ptr noundef %114) #12
-  %.not166.not = icmp eq ptr %172, null
-  br i1 %.not166.not, label %IndexScanOK.exit._crit_edge, label %.lr.ph226, !llvm.loop !23
+  %.not165.not = icmp eq ptr %172, null
+  br i1 %.not165.not, label %IndexScanOK.exit._crit_edge, label %.lr.ph220, !llvm.loop !23
 
 IndexScanOK.exit._crit_edge:                      ; preds = %IndexScanOK.exit, %167
-  %.lcssa202.in = icmp ne ptr %116, null
-  %.lcssa202 = zext i1 %.lcssa202.in to i8
+  %.lcssa198.in = icmp ne ptr %116, null
+  %.lcssa198 = zext i1 %.lcssa198.in to i8
   call void @systable_endscan(ptr noundef %114) #12
   call void @table_close(ptr noundef %92, i32 noundef 1) #12
   %173 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -1847,8 +1884,8 @@ IndexScanOK.exit._crit_edge:                      ; preds = %IndexScanOK.exit, %
   %175 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %174, ptr @CurrentMemoryContext, align 8
   %.0..0..0..0.47 = load volatile ptr, ptr %8, align 8
-  %.not.i183 = icmp eq ptr %.0..0..0..0.47, null
-  br i1 %.not.i183, label %list_length.exit, label %176
+  %.not.i = icmp eq ptr %.0..0..0..0.47, null
+  br i1 %.not.i, label %list_length.exit, label %176
 
 176:                                              ; preds = %IndexScanOK.exit._crit_edge
   %177 = getelementptr inbounds i8, ptr %.0..0..0..0.47, i64 4
@@ -1866,22 +1903,22 @@ list_length.exit:                                 ; preds = %IndexScanOK.exit._c
   %186 = getelementptr inbounds i8, ptr %183, i64 24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %187 = icmp sgt i32 %1, 0
-  br i1 %187, label %.lr.ph.i184, label %CatCacheCopyKeys.exit
+  br i1 %187, label %.lr.ph.i178, label %CatCacheCopyKeys.exit
 
-.lr.ph.i184:                                      ; preds = %list_length.exit
+.lr.ph.i178:                                      ; preds = %list_length.exit
   %188 = getelementptr inbounds i8, ptr %184, i64 24
   %189 = ptrtoint ptr %6 to i64
-  %wide.trip.count.i185 = zext nneg i32 %1 to i64
+  %wide.trip.count.i179 = zext nneg i32 %1 to i64
   br label %190
 
-190:                                              ; preds = %203, %.lr.ph.i184
-  %indvars.iv.i186 = phi i64 [ 0, %.lr.ph.i184 ], [ %indvars.iv.next.i188, %203 ]
-  %191 = getelementptr i32, ptr %185, i64 %indvars.iv.i186
+190:                                              ; preds = %203, %.lr.ph.i178
+  %indvars.iv.i180 = phi i64 [ 0, %.lr.ph.i178 ], [ %indvars.iv.next.i182, %203 ]
+  %191 = getelementptr i32, ptr %185, i64 %indvars.iv.i180
   %192 = load i32, ptr %191, align 4
   %193 = add i32 %192, -1
   %194 = sext i32 %193 to i64
   %195 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %188, i64 0, i64 %194
-  %196 = getelementptr i64, ptr %7, i64 %indvars.iv.i186
+  %196 = getelementptr i64, ptr %7, i64 %indvars.iv.i180
   %197 = load i64, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %195, i64 68
   %199 = load i32, ptr %198, align 4
@@ -1894,19 +1931,18 @@ list_length.exit:                                 ; preds = %IndexScanOK.exit._c
   br label %203
 
 203:                                              ; preds = %201, %190
-  %.0.i187 = phi i64 [ %189, %201 ], [ %197, %190 ]
+  %.0.i181 = phi i64 [ %189, %201 ], [ %197, %190 ]
   %204 = getelementptr inbounds i8, ptr %195, i64 86
   %205 = load i8, ptr %204, align 2
-  %206 = and i8 %205, 1
-  %207 = icmp ne i8 %206, 0
-  %208 = getelementptr inbounds i8, ptr %195, i64 72
-  %209 = load i16, ptr %208, align 4
-  %210 = sext i16 %209 to i32
-  %211 = call i64 @datumCopy(i64 noundef %.0.i187, i1 noundef zeroext %207, i32 noundef %210) #12
-  %212 = getelementptr i64, ptr %186, i64 %indvars.iv.i186
-  store i64 %211, ptr %212, align 8
-  %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i186, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i188, %wide.trip.count.i185
+  %206 = trunc i8 %205 to i1
+  %207 = getelementptr inbounds i8, ptr %195, i64 72
+  %208 = load i16, ptr %207, align 4
+  %209 = sext i16 %208 to i32
+  %210 = call i64 @datumCopy(i64 noundef %.0.i181, i1 noundef zeroext %206, i32 noundef %209) #12
+  %211 = getelementptr i64, ptr %186, i64 %indvars.iv.i180
+  store i64 %210, ptr %211, align 8
+  %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i180, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i182, %wide.trip.count.i179
   br i1 %exitcond.not.i, label %CatCacheCopyKeys.exit, label %190, !llvm.loop !24
 
 CatCacheCopyKeys.exit:                            ; preds = %203, %list_length.exit
@@ -1915,150 +1951,213 @@ CatCacheCopyKeys.exit:                            ; preds = %203, %list_length.e
   store ptr %85, ptr @PG_exception_stack, align 8
   store ptr %86, ptr @error_context_stack, align 8
   store i32 1383485699, ptr %183, align 8
-  %213 = getelementptr inbounds i8, ptr %183, i64 72
-  store ptr %0, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %183, i64 56
-  store i32 0, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %183, i64 60
-  store i8 0, ptr %215, align 4
-  %216 = getelementptr inbounds i8, ptr %183, i64 61
-  store i8 %.lcssa202, ptr %216, align 1
-  %217 = trunc i32 %1 to i16
-  %218 = getelementptr inbounds i8, ptr %183, i64 62
-  store i16 %217, ptr %218, align 2
-  %219 = getelementptr inbounds i8, ptr %183, i64 4
-  store i32 %42, ptr %219, align 4
-  %220 = getelementptr inbounds i8, ptr %183, i64 64
-  store i32 %179, ptr %220, align 8
+  %212 = getelementptr inbounds i8, ptr %183, i64 72
+  store ptr %0, ptr %212, align 8
+  %213 = getelementptr inbounds i8, ptr %183, i64 56
+  store i32 0, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %183, i64 60
+  store i8 0, ptr %214, align 4
+  %215 = getelementptr inbounds i8, ptr %183, i64 61
+  store i8 %.lcssa198, ptr %215, align 1
+  %216 = trunc i32 %1 to i16
+  %217 = getelementptr inbounds i8, ptr %183, i64 62
+  store i16 %216, ptr %217, align 2
+  %218 = getelementptr inbounds i8, ptr %183, i64 4
+  store i32 %42, ptr %218, align 4
+  %219 = getelementptr inbounds i8, ptr %183, i64 64
+  store i32 %179, ptr %219, align 8
   %.0..0..0..0.49 = load volatile ptr, ptr %8, align 8
-  %221 = getelementptr inbounds i8, ptr %.0..0..0..0.49, i64 4
-  %.not175 = icmp eq ptr %.0..0..0..0.49, null
-  br i1 %.not175, label %._crit_edge245, label %.lr.ph244
+  %220 = getelementptr inbounds i8, ptr %.0..0..0..0.49, i64 4
+  %.not172 = icmp eq ptr %.0..0..0..0.49, null
+  br i1 %.not172, label %._crit_edge239, label %.lr.ph238
 
-.lr.ph244:                                        ; preds = %CatCacheCopyKeys.exit
-  %222 = getelementptr inbounds i8, ptr %.0..0..0..0.49, i64 16
-  %223 = getelementptr inbounds i8, ptr %183, i64 80
-  %224 = load i32, ptr %221, align 4
-  %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %.lr.ph249, label %._crit_edge245
+.lr.ph238:                                        ; preds = %CatCacheCopyKeys.exit
+  %221 = getelementptr inbounds i8, ptr %.0..0..0..0.49, i64 16
+  %222 = getelementptr inbounds i8, ptr %183, i64 80
+  %223 = load i32, ptr %220, align 4
+  %224 = icmp sgt i32 %223, 0
+  br i1 %224, label %.lr.ph243, label %._crit_edge239
 
-226:                                              ; preds = %._crit_edge
+225:                                              ; preds = %._crit_edge
   store ptr %85, ptr @PG_exception_stack, align 8
   store ptr %86, ptr @error_context_stack, align 8
   %.0..0..0..0.48 = load volatile ptr, ptr %8, align 8
-  %227 = getelementptr inbounds i8, ptr %.0..0..0..0.48, i64 4
+  %226 = getelementptr inbounds i8, ptr %.0..0..0..0.48, i64 4
   %.not163 = icmp eq ptr %.0..0..0..0.48, null
-  br i1 %.not163, label %._crit_edge216, label %.lr.ph215
+  br i1 %.not163, label %._crit_edge212, label %.lr.ph211
 
-.lr.ph215:                                        ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %.0..0..0..0.48, i64 16
-  %229 = load i32, ptr %227, align 4
-  %230 = icmp sgt i32 %229, 0
-  br i1 %230, label %.lr.ph219, label %._crit_edge216
+.lr.ph211:                                        ; preds = %225
+  %227 = getelementptr inbounds i8, ptr %.0..0..0..0.48, i64 16
+  %228 = getelementptr inbounds i8, ptr %0, i64 124
+  %229 = getelementptr inbounds i8, ptr %0, i64 88
+  %230 = getelementptr inbounds i8, ptr %0, i64 120
+  %231 = load i32, ptr %226, align 4
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %.lr.ph280, label %._crit_edge212
 
-.lr.ph219:                                        ; preds = %.lr.ph215, %250
-  %indvars.iv = phi i64 [ %indvars.iv.next, %250 ], [ 0, %.lr.ph215 ]
-  %231 = load ptr, ptr %228, align 8
-  %232 = getelementptr %union.ListCell, ptr %231, i64 %indvars.iv
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 56
-  %235 = load i32, ptr %234, align 8
-  %236 = add i32 %235, -1
-  store i32 %236, ptr %234, align 8
-  %237 = getelementptr inbounds i8, ptr %233, i64 60
-  %238 = load i8, ptr %237, align 4
-  %239 = and i8 %238, 1
-  %.not165 = icmp ne i8 %239, 0
-  %240 = icmp eq i32 %236, 0
-  %or.cond = select i1 %.not165, i1 %240, i1 false
-  br i1 %or.cond, label %241, label %250
+.lr.ph280:                                        ; preds = %.lr.ph211, %CatCacheRemoveCTup.exit
+  %indvars.iv279 = phi i64 [ %indvars.iv.next, %CatCacheRemoveCTup.exit ], [ 0, %.lr.ph211 ]
+  %233 = load ptr, ptr %227, align 8
+  %234 = getelementptr %union.ListCell, ptr %233, i64 %indvars.iv279
+  %235 = load ptr, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 56
+  %237 = load i32, ptr %236, align 8
+  %238 = add i32 %237, -1
+  store i32 %238, ptr %236, align 8
+  %239 = getelementptr inbounds i8, ptr %235, i64 60
+  %240 = load i8, ptr %239, align 4
+  %241 = trunc i8 %240 to i1
+  %242 = icmp eq i32 %238, 0
+  %or.cond = select i1 %241, i1 %242, i1 false
+  br i1 %or.cond, label %243, label %CatCacheRemoveCTup.exit
 
-241:                                              ; preds = %.lr.ph219
-  %242 = getelementptr inbounds i8, ptr %233, i64 88
-  %243 = load ptr, ptr %242, align 8
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %249, label %245
+243:                                              ; preds = %.lr.ph280
+  %244 = getelementptr inbounds i8, ptr %235, i64 88
+  %245 = load ptr, ptr %244, align 8
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %252, label %247
 
-245:                                              ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %243, i64 56
-  %247 = load i32, ptr %246, align 8
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %250
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds i8, ptr %245, i64 56
+  %249 = load i32, ptr %248, align 8
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %251, label %CatCacheRemoveCTup.exit
 
-249:                                              ; preds = %245, %241
-  call fastcc void @CatCacheRemoveCTup(ptr noundef %0, ptr noundef nonnull %233)
-  br label %250
+251:                                              ; preds = %247
+  store i8 1, ptr %239, align 4
+  call fastcc void @CatCacheRemoveCList(ptr noundef %0, ptr noundef nonnull %245)
+  br label %CatCacheRemoveCTup.exit
 
-250:                                              ; preds = %.lr.ph219, %245, %249
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %251 = load i32, ptr %227, align 4
-  %252 = sext i32 %251 to i64
-  %253 = icmp slt i64 %indvars.iv.next, %252
-  br i1 %253, label %.lr.ph219, label %._crit_edge216
+252:                                              ; preds = %243
+  %253 = getelementptr inbounds i8, ptr %235, i64 40
+  %254 = getelementptr inbounds i8, ptr %235, i64 48
+  %255 = load ptr, ptr %254, align 8
+  %256 = load ptr, ptr %253, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  store ptr %255, ptr %257, align 8
+  %258 = load ptr, ptr %253, align 8
+  store ptr %258, ptr %255, align 8
+  %259 = getelementptr inbounds i8, ptr %235, i64 61
+  %260 = load i8, ptr %259, align 1
+  %261 = trunc i8 %260 to i1
+  br i1 %261, label %262, label %CatCacheFreeKeys.exit.i
 
-._crit_edge216:                                   ; preds = %250, %.lr.ph215, %226
+262:                                              ; preds = %252
+  %263 = load i32, ptr %228, align 4
+  %264 = getelementptr inbounds i8, ptr %235, i64 8
+  %265 = icmp sgt i32 %263, 0
+  br i1 %265, label %.lr.ph.i.i, label %CatCacheFreeKeys.exit.i
+
+.lr.ph.i.i:                                       ; preds = %262
+  %266 = load ptr, ptr %11, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 24
+  %wide.trip.count.i.i = zext nneg i32 %263 to i64
+  br label %268
+
+268:                                              ; preds = %280, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %280 ]
+  %269 = getelementptr i32, ptr %229, i64 %indvars.iv.i.i
+  %270 = load i32, ptr %269, align 4
+  %271 = add i32 %270, -1
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %267, i64 0, i64 %272, i32 8
+  %274 = load i8, ptr %273, align 2
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %280, label %276
+
+276:                                              ; preds = %268
+  %277 = getelementptr i64, ptr %264, i64 %indvars.iv.i.i
+  %278 = load i64, ptr %277, align 8
+  %279 = inttoptr i64 %278 to ptr
+  call void @pfree(ptr noundef %279) #12
+  br label %280
+
+280:                                              ; preds = %276, %268
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %268, !llvm.loop !7
+
+CatCacheFreeKeys.exit.i:                          ; preds = %280, %262, %252
+  call void @pfree(ptr noundef %235) #12
+  %281 = load i32, ptr %230, align 8
+  %282 = add i32 %281, -1
+  store i32 %282, ptr %230, align 8
+  %283 = load ptr, ptr @CacheHdr, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 8
+  %285 = load i32, ptr %284, align 8
+  %286 = add i32 %285, -1
+  store i32 %286, ptr %284, align 8
+  br label %CatCacheRemoveCTup.exit
+
+CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %251, %.lr.ph280, %247
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv279, 1
+  %287 = load i32, ptr %226, align 4
+  %288 = sext i32 %287 to i64
+  %289 = icmp slt i64 %indvars.iv.next, %288
+  br i1 %289, label %.lr.ph280, label %._crit_edge212
+
+._crit_edge212:                                   ; preds = %CatCacheRemoveCTup.exit, %.lr.ph211, %225
   call void @pg_re_throw() #15
   unreachable
 
-.lr.ph249:                                        ; preds = %.lr.ph244, %266
-  %indvars.iv264 = phi i64 [ %indvars.iv.next265, %266 ], [ 0, %.lr.ph244 ]
-  %254 = load ptr, ptr %222, align 8
-  %255 = getelementptr %union.ListCell, ptr %254, i64 %indvars.iv264
-  %256 = load ptr, ptr %255, align 8
-  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %257 = getelementptr [0 x ptr], ptr %223, i64 0, i64 %indvars.iv264
-  store ptr %256, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %256, i64 88
-  store ptr %183, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %256, i64 56
-  %260 = load i32, ptr %259, align 8
-  %261 = add i32 %260, -1
-  store i32 %261, ptr %259, align 8
-  %262 = getelementptr inbounds i8, ptr %256, i64 60
-  %263 = load i8, ptr %262, align 4
-  %264 = and i8 %263, 1
-  %.not177 = icmp eq i8 %264, 0
-  br i1 %.not177, label %266, label %265
+.lr.ph243:                                        ; preds = %.lr.ph238, %302
+  %indvars.iv258 = phi i64 [ %indvars.iv.next259, %302 ], [ 0, %.lr.ph238 ]
+  %290 = load ptr, ptr %221, align 8
+  %291 = getelementptr %union.ListCell, ptr %290, i64 %indvars.iv258
+  %292 = load ptr, ptr %291, align 8
+  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
+  %293 = getelementptr [0 x ptr], ptr %222, i64 0, i64 %indvars.iv258
+  store ptr %292, ptr %293, align 8
+  %294 = getelementptr inbounds i8, ptr %292, i64 88
+  store ptr %183, ptr %294, align 8
+  %295 = getelementptr inbounds i8, ptr %292, i64 56
+  %296 = load i32, ptr %295, align 8
+  %297 = add i32 %296, -1
+  store i32 %297, ptr %295, align 8
+  %298 = getelementptr inbounds i8, ptr %292, i64 60
+  %299 = load i8, ptr %298, align 4
+  %300 = trunc i8 %299 to i1
+  br i1 %300, label %301, label %302
 
-265:                                              ; preds = %.lr.ph249
-  store i8 1, ptr %215, align 4
-  br label %266
+301:                                              ; preds = %.lr.ph243
+  store i8 1, ptr %214, align 4
+  br label %302
 
-266:                                              ; preds = %.lr.ph249, %265
-  %267 = load i32, ptr %221, align 4
-  %268 = sext i32 %267 to i64
-  %269 = icmp slt i64 %indvars.iv.next265, %268
-  br i1 %269, label %.lr.ph249, label %._crit_edge245
+302:                                              ; preds = %.lr.ph243, %301
+  %303 = load i32, ptr %220, align 4
+  %304 = sext i32 %303 to i64
+  %305 = icmp slt i64 %indvars.iv.next259, %304
+  br i1 %305, label %.lr.ph243, label %._crit_edge239
 
-._crit_edge245:                                   ; preds = %266, %.lr.ph244, %CatCacheCopyKeys.exit
-  %270 = getelementptr inbounds i8, ptr %183, i64 8
-  %271 = load ptr, ptr %44, align 8
-  %272 = icmp eq ptr %271, null
-  br i1 %272, label %273, label %dlist_push_head.exit
+._crit_edge239:                                   ; preds = %302, %.lr.ph238, %CatCacheCopyKeys.exit
+  %306 = getelementptr inbounds i8, ptr %183, i64 8
+  %307 = load ptr, ptr %44, align 8
+  %308 = icmp eq ptr %307, null
+  br i1 %308, label %309, label %dlist_push_head.exit
 
-273:                                              ; preds = %._crit_edge245
+309:                                              ; preds = %._crit_edge239
   store ptr %43, ptr %43, align 8
   br label %dlist_push_head.exit
 
-dlist_push_head.exit:                             ; preds = %._crit_edge245, %273
-  %274 = phi ptr [ %43, %273 ], [ %271, %._crit_edge245 ]
-  %275 = getelementptr inbounds i8, ptr %183, i64 16
-  store ptr %274, ptr %275, align 8
-  store ptr %43, ptr %270, align 8
-  store ptr %270, ptr %274, align 8
-  store ptr %270, ptr %44, align 8
-  br label %276
+dlist_push_head.exit:                             ; preds = %._crit_edge239, %309
+  %310 = phi ptr [ %43, %309 ], [ %307, %._crit_edge239 ]
+  %311 = getelementptr inbounds i8, ptr %183, i64 16
+  store ptr %310, ptr %311, align 8
+  store ptr %43, ptr %306, align 8
+  store ptr %306, ptr %310, align 8
+  store ptr %306, ptr %44, align 8
+  br label %312
 
-276:                                              ; preds = %dlist_push_head.exit, %dlist_move_head.exit
-  %.sink = phi ptr [ %214, %dlist_push_head.exit ], [ %82, %dlist_move_head.exit ]
-  %.sink276 = phi ptr [ %183, %dlist_push_head.exit ], [ %69, %dlist_move_head.exit ]
-  %277 = load i32, ptr %.sink, align 8
-  %278 = add i32 %277, 1
-  store i32 %278, ptr %.sink, align 8
-  %279 = load ptr, ptr @CurrentResourceOwner, align 8
-  %280 = ptrtoint ptr %.sink276 to i64
-  call void @ResourceOwnerRemember(ptr noundef %279, i64 noundef %280, ptr noundef nonnull @catlistref_resowner_desc) #12
-  ret ptr %.sink276
+312:                                              ; preds = %dlist_push_head.exit, %dlist_move_head.exit
+  %.sink = phi ptr [ %213, %dlist_push_head.exit ], [ %82, %dlist_move_head.exit ]
+  %.sink270 = phi ptr [ %183, %dlist_push_head.exit ], [ %69, %dlist_move_head.exit ]
+  %313 = load i32, ptr %.sink, align 8
+  %314 = add i32 %313, 1
+  store i32 %314, ptr %.sink, align 8
+  %315 = load ptr, ptr @CurrentResourceOwner, align 8
+  %316 = ptrtoint ptr %.sink270 to i64
+  call void @ResourceOwnerRemember(ptr noundef %315, i64 noundef %316, ptr noundef nonnull @catlistref_resowner_desc) #12
+  ret ptr %.sink270
 }
 
 declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #1
@@ -2202,7 +2301,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
 
 20:                                               ; preds = %15
   tail call void @heap_freetuple(ptr noundef %18) #12
-  br label %183
+  br label %182
 
 21:                                               ; preds = %9, %15
   %.059 = phi ptr [ %18, %15 ], [ %1, %9 ]
@@ -2338,14 +2437,13 @@ heap_getattr.exit:                                ; preds = %65, %67, %69
   %.0.i64 = phi i64 [ %87, %99 ], [ %95, %88 ]
   %102 = getelementptr inbounds i8, ptr %93, i64 86
   %103 = load i8, ptr %102, align 2
-  %104 = and i8 %103, 1
-  %105 = icmp ne i8 %104, 0
-  %106 = getelementptr inbounds i8, ptr %93, i64 72
-  %107 = load i16, ptr %106, align 4
-  %108 = sext i16 %107 to i32
-  %109 = call i64 @datumCopy(i64 noundef %.0.i64, i1 noundef zeroext %105, i32 noundef %108) #12
-  %110 = getelementptr i64, ptr %84, i64 %indvars.iv.i
-  store i64 %109, ptr %110, align 8
+  %104 = trunc i8 %103 to i1
+  %105 = getelementptr inbounds i8, ptr %93, i64 72
+  %106 = load i16, ptr %105, align 4
+  %107 = sext i16 %106 to i32
+  %108 = call i64 @datumCopy(i64 noundef %.0.i64, i1 noundef zeroext %104, i32 noundef %107) #12
+  %109 = getelementptr i64, ptr %84, i64 %indvars.iv.i
+  store i64 %108, ptr %109, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %CatCacheCopyKeys.exit, label %88, !llvm.loop !24
@@ -2358,148 +2456,148 @@ CatCacheCopyKeys.exit:                            ; preds = %101, %75
 .loopexit:                                        ; preds = %heap_getattr.exit, %46, %CatCacheCopyKeys.exit
   %.060 = phi ptr [ %78, %CatCacheCopyKeys.exit ], [ %27, %46 ], [ %27, %heap_getattr.exit ]
   store i32 1462113538, ptr %.060, align 8
-  %111 = getelementptr inbounds i8, ptr %.060, i64 96
-  store ptr %0, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %.060, i64 88
-  store ptr null, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %.060, i64 56
-  store i32 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %.060, i64 60
-  store i8 0, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %.060, i64 61
-  %116 = zext i1 %.not to i8
-  store i8 %116, ptr %115, align 1
-  %117 = getelementptr inbounds i8, ptr %.060, i64 4
-  store i32 %4, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = zext i32 %5 to i64
-  %121 = getelementptr %struct.dlist_head, ptr %119, i64 %120
-  %122 = getelementptr inbounds i8, ptr %.060, i64 40
-  %123 = getelementptr inbounds i8, ptr %121, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %126, label %dlist_push_head.exit
+  %110 = getelementptr inbounds i8, ptr %.060, i64 96
+  store ptr %0, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %.060, i64 88
+  store ptr null, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %.060, i64 56
+  store i32 0, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %.060, i64 60
+  store i8 0, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %.060, i64 61
+  %115 = zext i1 %.not to i8
+  store i8 %115, ptr %114, align 1
+  %116 = getelementptr inbounds i8, ptr %.060, i64 4
+  store i32 %4, ptr %116, align 4
+  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = zext i32 %5 to i64
+  %120 = getelementptr %struct.dlist_head, ptr %118, i64 %119
+  %121 = getelementptr inbounds i8, ptr %.060, i64 40
+  %122 = getelementptr inbounds i8, ptr %120, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %dlist_push_head.exit
 
-126:                                              ; preds = %.loopexit
-  store ptr %121, ptr %121, align 8
+125:                                              ; preds = %.loopexit
+  store ptr %120, ptr %120, align 8
   br label %dlist_push_head.exit
 
-dlist_push_head.exit:                             ; preds = %.loopexit, %126
-  %127 = phi ptr [ %121, %126 ], [ %124, %.loopexit ]
-  %128 = getelementptr inbounds i8, ptr %.060, i64 48
-  store ptr %127, ptr %128, align 8
+dlist_push_head.exit:                             ; preds = %.loopexit, %125
+  %126 = phi ptr [ %120, %125 ], [ %123, %.loopexit ]
+  %127 = getelementptr inbounds i8, ptr %.060, i64 48
+  store ptr %126, ptr %127, align 8
+  store ptr %120, ptr %121, align 8
+  store ptr %121, ptr %126, align 8
   store ptr %121, ptr %122, align 8
-  store ptr %122, ptr %127, align 8
-  store ptr %122, ptr %123, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 120
-  %130 = load i32, ptr %129, align 8
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %129, align 8
-  %132 = load ptr, ptr @CacheHdr, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
-  %134 = load i32, ptr %133, align 8
-  %135 = add i32 %134, 1
-  store i32 %135, ptr %133, align 8
-  %136 = load i32, ptr %129, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 4
-  %138 = load i32, ptr %137, align 4
-  %139 = shl i32 %138, 1
-  %140 = icmp sgt i32 %136, %139
-  br i1 %140, label %141, label %183
+  %128 = getelementptr inbounds i8, ptr %0, i64 120
+  %129 = load i32, ptr %128, align 8
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %128, align 8
+  %131 = load ptr, ptr @CacheHdr, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %133 = load i32, ptr %132, align 8
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %132, align 8
+  %135 = load i32, ptr %128, align 8
+  %136 = getelementptr inbounds i8, ptr %0, i64 4
+  %137 = load i32, ptr %136, align 4
+  %138 = shl i32 %137, 1
+  %139 = icmp sgt i32 %135, %138
+  br i1 %139, label %140, label %182
 
-141:                                              ; preds = %dlist_push_head.exit
-  %142 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #12
-  br i1 %142, label %143, label %150
+140:                                              ; preds = %dlist_push_head.exit
+  %141 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #12
+  br i1 %141, label %142, label %149
 
-143:                                              ; preds = %141
-  %144 = load i32, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 128
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %129, align 8
-  %148 = load i32, ptr %137, align 4
-  %149 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %144, ptr noundef %146, i32 noundef %147, i32 noundef %148) #12
+142:                                              ; preds = %140
+  %143 = load i32, ptr %0, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 128
+  %145 = load ptr, ptr %144, align 8
+  %146 = load i32, ptr %128, align 8
+  %147 = load i32, ptr %136, align 4
+  %148 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %143, ptr noundef %145, i32 noundef %146, i32 noundef %147) #12
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 917, ptr noundef nonnull @__func__.RehashCatCache) #12
-  br label %150
+  br label %149
 
-150:                                              ; preds = %143, %141
-  %151 = load i32, ptr %137, align 4
-  %152 = shl i32 %151, 1
-  %153 = load ptr, ptr @CacheMemoryContext, align 8
-  %154 = sext i32 %152 to i64
-  %155 = shl nsw i64 %154, 4
-  %156 = call ptr @MemoryContextAllocZero(ptr noundef %153, i64 noundef %155) #12
-  %157 = load i32, ptr %137, align 4
-  %158 = icmp sgt i32 %157, 0
-  br i1 %158, label %.lr.ph33.i, label %RehashCatCache.exit
+149:                                              ; preds = %142, %140
+  %150 = load i32, ptr %136, align 4
+  %151 = shl i32 %150, 1
+  %152 = load ptr, ptr @CacheMemoryContext, align 8
+  %153 = sext i32 %151 to i64
+  %154 = shl nsw i64 %153, 4
+  %155 = call ptr @MemoryContextAllocZero(ptr noundef %152, i64 noundef %154) #12
+  %156 = load i32, ptr %136, align 4
+  %157 = icmp sgt i32 %156, 0
+  br i1 %157, label %.lr.ph33.i, label %RehashCatCache.exit
 
-.lr.ph33.i:                                       ; preds = %150
-  %159 = add i32 %152, -1
-  br label %160
+.lr.ph33.i:                                       ; preds = %149
+  %158 = add i32 %151, -1
+  br label %159
 
-160:                                              ; preds = %._crit_edge.i, %.lr.ph33.i
-  %161 = phi i32 [ %157, %.lr.ph33.i ], [ %179, %._crit_edge.i ]
+159:                                              ; preds = %._crit_edge.i, %.lr.ph33.i
+  %160 = phi i32 [ %156, %.lr.ph33.i ], [ %178, %._crit_edge.i ]
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i67, %._crit_edge.i ]
-  %162 = load ptr, ptr %118, align 8
-  %163 = getelementptr %struct.dlist_head, ptr %162, i64 %indvars.iv.i65
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %.not.i = icmp eq ptr %165, null
-  %.not282936.i = icmp eq ptr %165, %163
+  %161 = load ptr, ptr %117, align 8
+  %162 = getelementptr %struct.dlist_head, ptr %161, i64 %indvars.iv.i65
+  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %.not.i = icmp eq ptr %164, null
+  %.not282936.i = icmp eq ptr %164, %162
   %.not2829.i = or i1 %.not.i, %.not282936.i
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i66
 
-.lr.ph.i66:                                       ; preds = %160, %dlist_push_head.exit.i
-  %.sroa.0.030.i = phi ptr [ %.sroa.7.0.i, %dlist_push_head.exit.i ], [ %165, %160 ]
+.lr.ph.i66:                                       ; preds = %159, %dlist_push_head.exit.i
+  %.sroa.0.030.i = phi ptr [ %.sroa.7.0.i, %dlist_push_head.exit.i ], [ %164, %159 ]
   %.sroa.7.0.in.i = getelementptr inbounds i8, ptr %.sroa.0.030.i, i64 8
   %.sroa.7.0.i = load ptr, ptr %.sroa.7.0.in.i, align 8
-  %166 = getelementptr i8, ptr %.sroa.0.030.i, i64 -36
-  %167 = load i32, ptr %166, align 4
-  %168 = and i32 %167, %159
-  %169 = load ptr, ptr %.sroa.0.030.i, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
-  store ptr %.sroa.7.0.i, ptr %170, align 8
-  %171 = load ptr, ptr %.sroa.0.030.i, align 8
-  store ptr %171, ptr %.sroa.7.0.i, align 8
-  %172 = sext i32 %168 to i64
-  %173 = getelementptr %struct.dlist_head, ptr %156, i64 %172
-  %174 = getelementptr inbounds i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %dlist_push_head.exit.i
+  %165 = getelementptr i8, ptr %.sroa.0.030.i, i64 -36
+  %166 = load i32, ptr %165, align 4
+  %167 = and i32 %166, %158
+  %168 = load ptr, ptr %.sroa.0.030.i, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  store ptr %.sroa.7.0.i, ptr %169, align 8
+  %170 = load ptr, ptr %.sroa.0.030.i, align 8
+  store ptr %170, ptr %.sroa.7.0.i, align 8
+  %171 = sext i32 %167 to i64
+  %172 = getelementptr %struct.dlist_head, ptr %155, i64 %171
+  %173 = getelementptr inbounds i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %176, label %dlist_push_head.exit.i
 
-177:                                              ; preds = %.lr.ph.i66
-  store ptr %173, ptr %173, align 8
+176:                                              ; preds = %.lr.ph.i66
+  store ptr %172, ptr %172, align 8
   br label %dlist_push_head.exit.i
 
-dlist_push_head.exit.i:                           ; preds = %177, %.lr.ph.i66
-  %178 = phi ptr [ %173, %177 ], [ %175, %.lr.ph.i66 ]
-  store ptr %178, ptr %.sroa.7.0.in.i, align 8
-  store ptr %173, ptr %.sroa.0.030.i, align 8
-  store ptr %.sroa.0.030.i, ptr %178, align 8
-  store ptr %.sroa.0.030.i, ptr %174, align 8
-  %.not28.i = icmp eq ptr %.sroa.7.0.i, %163
+dlist_push_head.exit.i:                           ; preds = %176, %.lr.ph.i66
+  %177 = phi ptr [ %172, %176 ], [ %174, %.lr.ph.i66 ]
+  store ptr %177, ptr %.sroa.7.0.in.i, align 8
+  store ptr %172, ptr %.sroa.0.030.i, align 8
+  store ptr %.sroa.0.030.i, ptr %177, align 8
+  store ptr %.sroa.0.030.i, ptr %173, align 8
+  %.not28.i = icmp eq ptr %.sroa.7.0.i, %162
   br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i66, !llvm.loop !26
 
 ._crit_edge.loopexit.i:                           ; preds = %dlist_push_head.exit.i
-  %.pre.i = load i32, ptr %137, align 4
+  %.pre.i = load i32, ptr %136, align 4
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %160
-  %179 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %161, %160 ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %159
+  %178 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %160, %159 ]
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i65, 1
-  %180 = sext i32 %179 to i64
-  %181 = icmp slt i64 %indvars.iv.next.i67, %180
-  br i1 %181, label %160, label %RehashCatCache.exit, !llvm.loop !27
+  %179 = sext i32 %178 to i64
+  %180 = icmp slt i64 %indvars.iv.next.i67, %179
+  br i1 %180, label %159, label %RehashCatCache.exit, !llvm.loop !27
 
-RehashCatCache.exit:                              ; preds = %._crit_edge.i, %150
-  %182 = load ptr, ptr %118, align 8
-  call void @pfree(ptr noundef %182) #12
-  store i32 %152, ptr %137, align 4
-  store ptr %156, ptr %118, align 8
-  br label %183
+RehashCatCache.exit:                              ; preds = %._crit_edge.i, %149
+  %181 = load ptr, ptr %117, align 8
+  call void @pfree(ptr noundef %181) #12
+  store i32 %151, ptr %136, align 4
+  store ptr %155, ptr %117, align 8
+  br label %182
 
-183:                                              ; preds = %dlist_push_head.exit, %RehashCatCache.exit, %20
+182:                                              ; preds = %dlist_push_head.exit, %RehashCatCache.exit, %20
   %.0 = phi ptr [ null, %20 ], [ %.060, %RehashCatCache.exit ], [ %.060, %dlist_push_head.exit ]
   ret ptr %.0
 }
@@ -2531,9 +2629,8 @@ define dso_local void @ReleaseCatCacheList(ptr noundef %0) local_unnamed_addr #0
 8:                                                ; preds = %6, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 60
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not7.i = icmp eq i8 %11, 0
-  br i1 %.not7.i, label %ReleaseCatCacheListWithOwner.exit, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %ReleaseCatCacheListWithOwner.exit
 
 12:                                               ; preds = %8
   %13 = load i32, ptr %3, align 8
@@ -2555,24 +2652,24 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr nocapture noundef reado
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr @CacheHdr, align 8
-  %.sroa.0.029 = load ptr, ptr %7, align 8
-  %.not30 = icmp eq ptr %.sroa.0.029, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.sroa.0.028 = load ptr, ptr %7, align 8
+  %.not29 = icmp eq ptr %.sroa.0.028, null
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.not27 = icmp eq ptr %2, null
-  br i1 %.not27, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not26 = icmp eq ptr %2, null
+  br i1 %.not26, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %26
-  %.sroa.0.031.us = phi ptr [ %.sroa.0.0.us, %26 ], [ %.sroa.0.029, %.lr.ph ]
-  %8 = getelementptr i8, ptr %.sroa.0.031.us, i64 -152
-  %9 = getelementptr i8, ptr %.sroa.0.031.us, i64 -16
+  %.sroa.0.030.us = phi ptr [ %.sroa.0.0.us, %26 ], [ %.sroa.0.028, %.lr.ph ]
+  %8 = getelementptr i8, ptr %.sroa.0.030.us, i64 -152
+  %9 = getelementptr i8, ptr %.sroa.0.030.us, i64 -16
   %10 = load i32, ptr %9, align 8
   %.not25.us = icmp eq i32 %10, %6
   br i1 %.not25.us, label %11, label %26
 
 11:                                               ; preds = %.lr.ph.split.us
-  %12 = getelementptr i8, ptr %.sroa.0.031.us, i64 -144
+  %12 = getelementptr i8, ptr %.sroa.0.030.us, i64 -144
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
@@ -2582,34 +2679,33 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr nocapture noundef reado
   br label %16
 
 16:                                               ; preds = %15, %11
-  %17 = getelementptr i8, ptr %.sroa.0.031.us, i64 -28
+  %17 = getelementptr i8, ptr %.sroa.0.030.us, i64 -28
   %18 = load i32, ptr %17, align 4
   %19 = tail call fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef %8, i32 noundef %18, ptr noundef %1)
-  %20 = getelementptr i8, ptr %.sroa.0.031.us, i64 -8
+  %20 = getelementptr i8, ptr %.sroa.0.030.us, i64 -8
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not26.us = icmp eq i8 %22, 0
+  %22 = trunc i8 %21 to i1
   %23 = load i32, ptr @MyDatabaseId, align 4
-  %24 = select i1 %.not26.us, i32 %23, i32 0
+  %24 = select i1 %22, i32 0, i32 %23
   %25 = load i32, ptr %8, align 8
   tail call void %3(i32 noundef %25, i32 noundef %19, i32 noundef %24) #12
   br label %26
 
 26:                                               ; preds = %16, %.lr.ph.split.us
-  %.sroa.0.0.us = load ptr, ptr %.sroa.0.031.us, align 8
+  %.sroa.0.0.us = load ptr, ptr %.sroa.0.030.us, align 8
   %.not.us = icmp eq ptr %.sroa.0.0.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
-  %.sroa.0.031 = phi ptr [ %.sroa.0.0, %49 ], [ %.sroa.0.029, %.lr.ph ]
-  %27 = getelementptr i8, ptr %.sroa.0.031, i64 -152
-  %28 = getelementptr i8, ptr %.sroa.0.031, i64 -16
+  %.sroa.0.030 = phi ptr [ %.sroa.0.0, %49 ], [ %.sroa.0.028, %.lr.ph ]
+  %27 = getelementptr i8, ptr %.sroa.0.030, i64 -152
+  %28 = getelementptr i8, ptr %.sroa.0.030, i64 -16
   %29 = load i32, ptr %28, align 8
   %.not25 = icmp eq i32 %29, %6
   br i1 %.not25, label %30, label %49
 
 30:                                               ; preds = %.lr.ph.split
-  %31 = getelementptr i8, ptr %.sroa.0.031, i64 -144
+  %31 = getelementptr i8, ptr %.sroa.0.030, i64 -144
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -2619,21 +2715,20 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr nocapture noundef reado
   br label %35
 
 35:                                               ; preds = %34, %30
-  %36 = getelementptr i8, ptr %.sroa.0.031, i64 -28
+  %36 = getelementptr i8, ptr %.sroa.0.030, i64 -28
   %37 = load i32, ptr %36, align 4
   %38 = tail call fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef %27, i32 noundef %37, ptr noundef %1)
-  %39 = getelementptr i8, ptr %.sroa.0.031, i64 -8
+  %39 = getelementptr i8, ptr %.sroa.0.030, i64 -8
   %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %.not26 = icmp eq i8 %41, 0
+  %41 = trunc i8 %40 to i1
   %42 = load i32, ptr @MyDatabaseId, align 4
-  %43 = select i1 %.not26, i32 %42, i32 0
+  %43 = select i1 %41, i32 0, i32 %42
   %44 = load i32, ptr %27, align 8
   tail call void %3(i32 noundef %44, i32 noundef %38, i32 noundef %43) #12
   %45 = load i32, ptr %36, align 4
   %46 = tail call fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef nonnull %27, i32 noundef %45, ptr noundef nonnull %2)
-  %.not28 = icmp eq i32 %46, %38
-  br i1 %.not28, label %49, label %47
+  %.not27 = icmp eq i32 %46, %38
+  br i1 %.not27, label %49, label %47
 
 47:                                               ; preds = %35
   %48 = load i32, ptr %27, align 8
@@ -2641,7 +2736,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr nocapture noundef reado
   br label %49
 
 49:                                               ; preds = %47, %35, %.lr.ph.split
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.031, align 8
+  %.sroa.0.0 = load ptr, ptr %.sroa.0.030, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
@@ -2807,38 +2902,7 @@ declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal void @ResOwnerReleaseCatCache(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr i8, ptr %2, i64 -64
-  %4 = getelementptr i8, ptr %2, i64 -8
-  %5 = load i32, ptr %4, align 8
-  %6 = add i32 %5, -1
-  store i32 %6, ptr %4, align 8
-  %7 = getelementptr i8, ptr %2, i64 -4
-  %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not10.i = icmp ne i8 %9, 0
-  %10 = icmp eq i32 %6, 0
-  %or.cond = select i1 %.not10.i, i1 %10, i1 false
-  br i1 %or.cond, label %11, label %ReleaseCatCacheWithOwner.exit
-
-11:                                               ; preds = %1
-  %12 = getelementptr i8, ptr %2, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 56
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %ReleaseCatCacheWithOwner.exit
-
-19:                                               ; preds = %15, %11
-  %20 = getelementptr i8, ptr %2, i64 32
-  %21 = load ptr, ptr %20, align 8
-  tail call fastcc void @CatCacheRemoveCTup(ptr noundef %21, ptr noundef %3)
-  br label %ReleaseCatCacheWithOwner.exit
-
-ReleaseCatCacheWithOwner.exit:                    ; preds = %1, %15, %19
+  tail call fastcc void @ReleaseCatCacheWithOwner(ptr noundef %2, ptr noundef null)
   ret void
 }
 
@@ -2880,10 +2944,9 @@ define internal void @ResOwnerReleaseCatCacheList(i64 noundef %0) #0 {
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 60
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not7.i = icmp ne i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = icmp eq i32 %5, 0
-  %or.cond = select i1 %.not7.i, i1 %9, i1 false
+  %or.cond = select i1 %8, i1 %9, i1 false
   br i1 %or.cond, label %10, label %ReleaseCatCacheListWithOwner.exit
 
 10:                                               ; preds = %1
@@ -2940,11 +3003,10 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %24 = getelementptr i8, ptr %22, i64 %23
   %25 = getelementptr inbounds i8, ptr %14, i64 86
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not20 = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds i8, ptr %14, i64 72
   %29 = load i16, ptr %28, align 4
-  br i1 %.not20, label %46, label %30
+  br i1 %27, label %30, label %46
 
 30:                                               ; preds = %18
   switch i16 %29, label %42 [

@@ -10736,8 +10736,8 @@ for.body149:                                      ; preds = %for.cond144.prehead
 if.end157:                                        ; preds = %for.body149, %if.end14, %for.cond144.preheader, %if.end115
   %cmp159278 = icmp slt i32 %spec.store.select3, %j1.0
   %cmp162276 = icmp slt i32 %spec.store.select, %spec.select
-  %or.cond319 = select i1 %cmp159278, i1 %cmp162276, i1 false
-  br i1 %or.cond319, label %for.cond161.preheader.us, label %for.end181
+  %or.cond316 = select i1 %cmp159278, i1 %cmp162276, i1 false
+  br i1 %or.cond316, label %for.cond161.preheader.us, label %for.end181
 
 for.cond161.preheader.us:                         ; preds = %if.end157, %for.cond161.for.inc179_crit_edge.us
   %j.3279.us = phi i32 [ %inc180.us, %for.cond161.for.inc179_crit_edge.us ], [ %spec.store.select3, %if.end157 ]
@@ -10978,8 +10978,8 @@ if.end281:                                        ; preds = %if.then270, %land.l
 
 sw.epilog:                                        ; preds = %if.end281, %sw.bb260, %sw.bb255, %sw.bb250, %if.end245, %stbte__hittest.exit
   %cmp294 = icmp eq i64 %indvars.iv, 0
-  %delta_height = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %side318 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %delta_height = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br i1 %cmp294, label %for.inc326, label %for.body293.preheader
 
 for.body293.preheader:                            ; preds = %sw.epilog
@@ -10987,7 +10987,7 @@ for.body293.preheader:                            ; preds = %sw.epilog
   br label %for.body293
 
 for.body293:                                      ; preds = %for.body293.preheader, %for.inc323
-  %trunc.not = phi i1 [ false, %for.inc323 ], [ true, %for.body293.preheader ]
+  %cmp292 = phi i1 [ false, %for.inc323 ], [ true, %for.body293.preheader ]
   %j.4280 = phi i32 [ 1, %for.inc323 ], [ 0, %for.body293.preheader ]
   %157 = load i32, ptr %x0224, align 4
   %158 = load i32, ptr %width227, align 4
@@ -11007,7 +11007,8 @@ for.body293:                                      ; preds = %for.body293.prehead
   br i1 %tobool313.not, label %for.inc323, label %if.then314
 
 if.then314:                                       ; preds = %for.body293
-  br i1 %trunc.not, label %sw.bb315, label %for.inc323.thread
+  %trunc = trunc i32 %j.4280 to i1
+  br i1 %trunc, label %sw.bb319, label %sw.bb315
 
 sw.bb315:                                         ; preds = %if.then314
   %cmp316 = icmp slt i32 %call312, 1
@@ -11015,16 +11016,16 @@ sw.bb315:                                         ; preds = %if.then314
   store i32 %cond317, ptr %side318, align 8
   br label %for.inc323
 
-for.inc323.thread:                                ; preds = %if.then314
+sw.bb319:                                         ; preds = %if.then314
   %161 = load i32, ptr %delta_height, align 4
   %add320 = add nsw i32 %161, %call312
   store i32 %add320, ptr %delta_height, align 4
-  br label %for.inc326
+  br label %for.inc323
 
-for.inc323:                                       ; preds = %for.body293, %sw.bb315
-  br i1 %trunc.not, label %for.body293, label %for.inc326, !llvm.loop !74
+for.inc323:                                       ; preds = %for.body293, %sw.bb319, %sw.bb315
+  br i1 %cmp292, label %for.body293, label %for.inc326, !llvm.loop !74
 
-for.inc326:                                       ; preds = %for.inc323, %for.inc323.thread, %sw.epilog
+for.inc326:                                       ; preds = %for.inc323, %sw.epilog
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond294.not, label %for.end328, label %for.body214, !llvm.loop !75

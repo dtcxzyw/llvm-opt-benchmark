@@ -502,16 +502,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #22
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -590,7 +590,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1068,126 +1068,125 @@ strview.exit:                                     ; preds = %6, %10
   %16 = getelementptr inbounds i8, ptr %2, i64 %.sroa.3.0.i
   %17 = load i8, ptr %16, align 1
   %18 = icmp ne i8 %17, 58
-  %.not3356 = icmp eq ptr %15, null
-  %or.cond66 = select i1 %18, i1 true, i1 %.not3356
-  br i1 %or.cond66, label %.loopexit55, label %.lr.ph
+  %.not3354 = icmp eq ptr %15, null
+  %or.cond64 = select i1 %18, i1 true, i1 %.not3354
+  br i1 %or.cond64, label %.loopexit53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %strview.exit
   %19 = icmp eq i64 %.sroa.3.0.i, 0
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02758.us = phi ptr [ %26, %.lr.ph.split.us ], [ %15, %.lr.ph ]
-  %20 = getelementptr inbounds i8, ptr %.02758.us, i64 8
+  %.02756.us = phi ptr [ %26, %.lr.ph.split.us ], [ %15, %.lr.ph ]
+  %20 = getelementptr inbounds i8, ptr %.02756.us, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.02758.us, i64 24
+  %22 = getelementptr inbounds i8, ptr %.02756.us, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.16, ptr noundef %21, ptr noundef %25)
-  %26 = load ptr, ptr %.02758.us, align 8
+  %26 = load ptr, ptr %.02756.us, align 8
   %.not33.us = icmp eq ptr %26, null
   br i1 %.not33.us, label %agxbsizeof.exit.i.i, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %strview_case_eq.exit.thread
-  %.02758 = phi ptr [ %43, %strview_case_eq.exit.thread ], [ %15, %.lr.ph ]
-  %.02957 = phi i8 [ %.130, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.02758, i64 8
+  %.02756 = phi ptr [ %43, %strview_case_eq.exit.thread ], [ %15, %.lr.ph ]
+  %.02955 = phi i8 [ %.130, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
+  %27 = getelementptr inbounds i8, ptr %.02756, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 58) #21
-  %.not.i38 = icmp eq ptr %29, null
-  br i1 %.not.i38, label %34, label %30
+  %.not.i36 = icmp eq ptr %29, null
+  br i1 %.not.i36, label %34, label %30
 
 30:                                               ; preds = %.lr.ph.split
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %28 to i64
   %33 = sub i64 %31, %32
-  br label %strview.exit42
+  br label %strview.exit40
 
 34:                                               ; preds = %.lr.ph.split
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #21
-  br label %strview.exit42
+  br label %strview.exit40
 
-strview.exit42:                                   ; preds = %30, %34
-  %.sroa.3.0.i39 = phi i64 [ %33, %30 ], [ %35, %34 ]
-  %.not.i43 = icmp eq i64 %.sroa.3.0.i, %.sroa.3.0.i39
-  br i1 %.not.i43, label %strview_case_eq.exit, label %strview_case_eq.exit.thread
+strview.exit40:                                   ; preds = %30, %34
+  %.sroa.3.0.i37 = phi i64 [ %33, %30 ], [ %35, %34 ]
+  %.not.i41 = icmp eq i64 %.sroa.3.0.i, %.sroa.3.0.i37
+  br i1 %.not.i41, label %strview_case_eq.exit, label %strview_case_eq.exit.thread
 
-strview_case_eq.exit:                             ; preds = %strview.exit42
+strview_case_eq.exit:                             ; preds = %strview.exit40
   %36 = tail call i32 @strncasecmp(ptr noundef nonnull %2, ptr noundef %28, i64 noundef %.sroa.3.0.i) #21
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %strview_case_eq.exit.thread
 
 38:                                               ; preds = %strview_case_eq.exit
-  %39 = getelementptr inbounds i8, ptr %.02758, i64 24
+  %39 = getelementptr inbounds i8, ptr %.02756, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.16, ptr noundef %28, ptr noundef %42)
   br label %strview_case_eq.exit.thread
 
-strview_case_eq.exit.thread:                      ; preds = %strview.exit42, %strview_case_eq.exit, %38
-  %.130 = phi i8 [ 0, %38 ], [ %.02957, %strview_case_eq.exit ], [ %.02957, %strview.exit42 ]
-  %43 = load ptr, ptr %.02758, align 8
+strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %strview_case_eq.exit, %38
+  %.130 = phi i8 [ 0, %38 ], [ %.02955, %strview_case_eq.exit ], [ %.02955, %strview.exit40 ]
+  %43 = load ptr, ptr %.02756, align 8
   %.not33 = icmp eq ptr %43, null
-  br i1 %.not33, label %.loopexit55, label %.lr.ph.split
+  br i1 %.not33, label %.loopexit53, label %.lr.ph.split
 
-.loopexit55:                                      ; preds = %strview_case_eq.exit.thread, %strview.exit
+.loopexit53:                                      ; preds = %strview_case_eq.exit.thread, %strview.exit
   %.2 = phi i8 [ 1, %strview.exit ], [ %.130, %strview_case_eq.exit.thread ]
-  %44 = and i8 %.2, 1
-  %.not34 = icmp eq i8 %44, 0
-  %or.cond67 = select i1 %.not34, i1 true, i1 %.not3356
-  br i1 %or.cond67, label %.loopexit, label %.lr.ph64
+  %44 = trunc i8 %.2 to i1
+  %.not3457 = icmp ne ptr %15, null
+  %or.cond66.not = select i1 %44, i1 %.not3457, i1 false
+  br i1 %or.cond66.not, label %.lr.ph62, label %.loopexit
 
-.lr.ph64:                                         ; preds = %.loopexit55, %57
-  %.163 = phi ptr [ %58, %57 ], [ %15, %.loopexit55 ]
-  %.sroa.45.062 = phi i64 [ %.sroa.3.0.i45, %57 ], [ 0, %.loopexit55 ]
-  %.sroa.03.061 = phi ptr [ %46, %57 ], [ null, %.loopexit55 ]
-  %.360 = phi i8 [ %.4, %57 ], [ %.2, %.loopexit55 ]
-  %45 = getelementptr inbounds i8, ptr %.163, i64 8
+.lr.ph62:                                         ; preds = %.loopexit53, %57
+  %.161 = phi ptr [ %58, %57 ], [ %15, %.loopexit53 ]
+  %.sroa.45.060 = phi i64 [ %.sroa.3.0.i43, %57 ], [ 0, %.loopexit53 ]
+  %.sroa.03.059 = phi ptr [ %46, %57 ], [ null, %.loopexit53 ]
+  %.358 = phi i8 [ %.4, %57 ], [ %.2, %.loopexit53 ]
+  %45 = getelementptr inbounds i8, ptr %.161, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 58) #21
-  %.not.i44 = icmp eq ptr %47, null
-  br i1 %.not.i44, label %52, label %48
+  %.not.i42 = icmp eq ptr %47, null
+  br i1 %.not.i42, label %52, label %48
 
-48:                                               ; preds = %.lr.ph64
+48:                                               ; preds = %.lr.ph62
   %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %46 to i64
   %51 = sub i64 %49, %50
-  br label %strview.exit48
+  br label %strview.exit46
 
-52:                                               ; preds = %.lr.ph64
+52:                                               ; preds = %.lr.ph62
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #21
-  br label %strview.exit48
+  br label %strview.exit46
 
-strview.exit48:                                   ; preds = %48, %52
-  %.sroa.3.0.i45 = phi i64 [ %51, %48 ], [ %53, %52 ]
-  %.not37 = icmp ne ptr %.sroa.03.061, null
-  %.not.i49 = icmp eq i64 %.sroa.45.062, %.sroa.3.0.i45
-  %or.cond = select i1 %.not37, i1 %.not.i49, i1 false
-  br i1 %or.cond, label %strview_case_eq.exit51, label %strview_case_eq.exit51.thread
+strview.exit46:                                   ; preds = %48, %52
+  %.sroa.3.0.i43 = phi i64 [ %51, %48 ], [ %53, %52 ]
+  %.not35 = icmp ne ptr %.sroa.03.059, null
+  %.not.i47 = icmp eq i64 %.sroa.45.060, %.sroa.3.0.i43
+  %or.cond = select i1 %.not35, i1 %.not.i47, i1 false
+  br i1 %or.cond, label %strview_case_eq.exit49, label %strview_case_eq.exit49.thread
 
-strview_case_eq.exit51:                           ; preds = %strview.exit48
-  %54 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.03.061, ptr noundef %46, i64 noundef %.sroa.45.062) #21
+strview_case_eq.exit49:                           ; preds = %strview.exit46
+  %54 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.03.059, ptr noundef %46, i64 noundef %.sroa.45.060) #21
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %57, label %strview_case_eq.exit51.thread
+  br i1 %55, label %57, label %strview_case_eq.exit49.thread
 
-strview_case_eq.exit51.thread:                    ; preds = %strview_case_eq.exit51, %strview.exit48
-  %56 = trunc i64 %.sroa.3.0.i45 to i32
+strview_case_eq.exit49.thread:                    ; preds = %strview_case_eq.exit49, %strview.exit46
+  %56 = trunc i64 %.sroa.3.0.i43 to i32
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %56, ptr noundef %46)
   br label %57
 
-57:                                               ; preds = %strview_case_eq.exit51.thread, %strview_case_eq.exit51
-  %.4 = phi i8 [ %.360, %strview_case_eq.exit51 ], [ 0, %strview_case_eq.exit51.thread ]
-  %58 = load ptr, ptr %.163, align 8
-  %.not35 = icmp eq ptr %58, null
-  br i1 %.not35, label %.loopexit, label %.lr.ph64
+57:                                               ; preds = %strview_case_eq.exit49.thread, %strview_case_eq.exit49
+  %.4 = phi i8 [ %.358, %strview_case_eq.exit49 ], [ 0, %strview_case_eq.exit49.thread ]
+  %58 = load ptr, ptr %.161, align 8
+  %.not34 = icmp eq ptr %58, null
+  br i1 %.not34, label %.loopexit, label %.lr.ph62
 
-.loopexit:                                        ; preds = %57, %.loopexit55
-  %.5 = phi i8 [ %.2, %.loopexit55 ], [ %.4, %57 ]
-  %59 = and i8 %.5, 1
-  %.not36 = icmp eq i8 %59, 0
-  br i1 %.not36, label %agxbsizeof.exit.i.i, label %agxbuse.exit
+.loopexit:                                        ; preds = %57, %.loopexit53
+  %.5 = phi i8 [ %.2, %.loopexit53 ], [ %.4, %57 ]
+  %59 = trunc i8 %.5 to i1
+  br i1 %59, label %agxbuse.exit, label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.loopexit
   %.val.i.i.i = load i8, ptr getelementptr inbounds (%struct.agxbuf, ptr @gvplugin_list.xb, i64 0, i32 0, i32 0, i32 4), align 1
@@ -1406,10 +1405,9 @@ define void @gvplugin_write_status(ptr nocapture noundef readonly %0) local_unna
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.20, ptr noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %0, i64 80
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not11 = icmp eq i8 %11, 0
+  %11 = trunc i8 %10 to i1
   %12 = load ptr, ptr @stderr, align 8
-  br i1 %.not11, label %15, label %13
+  br i1 %11, label %13, label %15
 
 13:                                               ; preds = %5
   %14 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 27, i64 1, ptr %12) #27
@@ -2175,15 +2173,6 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #16
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
@@ -2191,10 +2180,19 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #17
+declare ptr @strerror(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
@@ -2227,8 +2225,8 @@ attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-ve
 attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nofree nounwind }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

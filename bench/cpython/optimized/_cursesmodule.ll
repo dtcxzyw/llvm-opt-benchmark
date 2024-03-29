@@ -9328,16 +9328,15 @@ do.body.i:                                        ; preds = %entry
 cond.true.i:                                      ; preds = %do.body.i
   %_leaveok.i = getelementptr inbounds i8, ptr %1, i64 26
   %2 = load i8, ptr %_leaveok.i, align 2
-  %3 = and i8 %2, 1
-  %tobool3.not.i = icmp eq i8 %3, 0
-  br i1 %tobool3.not.i, label %cond.true10.i, label %do.end.i
+  %tobool3.i = trunc i8 %2 to i1
+  br i1 %tobool3.i, label %do.end.i, label %cond.true10.i
 
 cond.true10.i:                                    ; preds = %cond.true.i
-  %4 = load i16, ptr %1, align 8
-  %conv.i = sext i16 %4 to i32
+  %3 = load i16, ptr %1, align 8
+  %conv.i = sext i16 %3 to i32
   %_curx.i = getelementptr inbounds i8, ptr %1, i64 2
-  %5 = load i16, ptr %_curx.i, align 2
-  %conv11.i = sext i16 %5 to i32
+  %4 = load i16, ptr %_curx.i, align 2
+  %conv11.i = sext i16 %4 to i32
   br label %do.end.i
 
 do.end.i:                                         ; preds = %cond.true10.i, %cond.true.i, %do.body.i

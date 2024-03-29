@@ -138,14 +138,13 @@ define dso_local void @_ZN16btITaskScheduler8activateEv(ptr nocapture noundef no
 entry:
   %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i32, ptr %m_savedThreadCounter, align 8
-  store i32 %2, ptr @_ZL14gThreadCounter.0, align 4
+  %1 = load i32, ptr %m_savedThreadCounter, align 8
+  store i32 %1, ptr @_ZL14gThreadCounter.0, align 4
   store i8 1, ptr %m_isActive, align 4
   br label %if.end
 
@@ -158,14 +157,13 @@ define dso_local void @_ZN16btITaskScheduler10deactivateEv(ptr nocapture noundef
 entry:
   %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr @_ZL14gThreadCounter.0, align 4
+  %1 = load i32, ptr @_ZL14gThreadCounter.0, align 4
   %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %2, ptr %m_savedThreadCounter, align 8
+  store i32 %1, ptr %m_savedThreadCounter, align 8
   store i8 0, ptr %m_isActive, align 4
   br label %if.end
 

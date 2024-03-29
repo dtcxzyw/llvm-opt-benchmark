@@ -1964,163 +1964,156 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN13DfgRegularize20getCanoni
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 98
   %7 = load i8, ptr %6, align 2
-  %8 = and i8 %7, 1
-  %.not2.i = icmp eq i8 %8, 0
-  br i1 %.not2.i, label %9, label %_ZNK12DfgVertexVar4keepEv.exit.thread
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %_ZNK12DfgVertexVar4keepEv.exit.thread, label %9
 
 9:                                                ; preds = %3
   %10 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 85), align 1
-  %11 = and i8 %10, 1
-  %.not3.i = icmp eq i8 %11, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 88
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br i1 %.not3.i, label %._crit_edge.i, label %12
+  %11 = trunc i8 %10 to i1
+  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  %13 = load ptr, ptr %12, align 8
+  br i1 %11, label %14, label %._crit_edge.i
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.pre.i, i64 260
-  %14 = load i64, ptr %13, align 4
-  %15 = and i64 %14, 274877906944
-  %.not4.i = icmp eq i64 %15, 0
-  br i1 %.not4.i, label %._crit_edge.i, label %_ZNK12DfgVertexVar4keepEv.exit.thread
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %13, i64 260
+  %16 = load i64, ptr %15, align 4
+  %17 = and i64 %16, 274877906944
+  %.not2.i = icmp eq i64 %17, 0
+  br i1 %.not2.i, label %._crit_edge.i, label %_ZNK12DfgVertexVar4keepEv.exit.thread
 
-._crit_edge.i:                                    ; preds = %12, %9
-  %16 = tail call noundef zeroext i1 @_ZNK6AstVar11isSigPublicEv(ptr noundef nonnull align 8 dereferenceable(280) %.pre.i)
-  br i1 %16, label %_ZNK12DfgVertexVar4keepEv.exit.thread, label %_ZNK12DfgVertexVar4keepEv.exit
+._crit_edge.i:                                    ; preds = %14, %9
+  %18 = tail call noundef zeroext i1 @_ZNK6AstVar11isSigPublicEv(ptr noundef nonnull align 8 dereferenceable(280) %13)
+  br i1 %18, label %_ZNK12DfgVertexVar4keepEv.exit.thread, label %_ZNK12DfgVertexVar4keepEv.exit
 
 _ZNK12DfgVertexVar4keepEv.exit:                   ; preds = %._crit_edge.i
-  %17 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 136
-  %19 = load i32, ptr %18, align 8
-  %20 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %21 = icmp eq i32 %19, %20
-  %22 = getelementptr inbounds i8, ptr %17, i64 128
-  %23 = load i64, ptr %22, align 8
-  %24 = and i64 %23, 4294967295
-  %.not5.i = icmp ne i64 %24, 0
-  %.not.not.i = select i1 %21, i1 %.not5.i, i1 false
-  br i1 %.not.not.i, label %_ZNK12DfgVertexVar4keepEv.exit.thread, label %25
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 136
+  %21 = load i32, ptr %20, align 8
+  %22 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
+  %23 = icmp eq i32 %21, %22
+  %24 = getelementptr inbounds i8, ptr %19, i64 128
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 4294967295
+  %.not3.i = icmp ne i64 %26, 0
+  %.not.not.i = select i1 %23, i1 %.not3.i, i1 false
+  br i1 %.not.not.i, label %_ZNK12DfgVertexVar4keepEv.exit.thread, label %27
 
-25:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 96
-  %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %29 = icmp ne i8 %28, 0
+27:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit
+  %28 = getelementptr inbounds i8, ptr %1, i64 96
+  %29 = load i8, ptr %28, align 8
+  %30 = trunc i8 %29 to i1
   br label %_ZNK12DfgVertexVar4keepEv.exit.thread
 
-_ZNK12DfgVertexVar4keepEv.exit.thread:            ; preds = %._crit_edge.i, %12, %3, %25, %_ZNK12DfgVertexVar4keepEv.exit
-  %30 = phi i1 [ true, %_ZNK12DfgVertexVar4keepEv.exit ], [ %29, %25 ], [ true, %3 ], [ true, %12 ], [ true, %._crit_edge.i ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 98
-  %32 = load i8, ptr %31, align 2
-  %33 = and i8 %32, 1
-  %.not2.i23 = icmp eq i8 %33, 0
-  br i1 %.not2.i23, label %34, label %_ZNK12DfgVertexVar4keepEv.exit32.thread
+_ZNK12DfgVertexVar4keepEv.exit.thread:            ; preds = %._crit_edge.i, %14, %3, %27, %_ZNK12DfgVertexVar4keepEv.exit
+  %31 = phi i1 [ true, %_ZNK12DfgVertexVar4keepEv.exit ], [ %30, %27 ], [ true, %3 ], [ true, %14 ], [ true, %._crit_edge.i ]
+  %32 = getelementptr inbounds i8, ptr %2, i64 98
+  %33 = load i8, ptr %32, align 2
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %_ZNK12DfgVertexVar4keepEv.exit28.thread, label %35
 
-34:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit.thread
-  %35 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 85), align 1
-  %36 = and i8 %35, 1
-  %.not3.i25 = icmp eq i8 %36, 0
-  %.phi.trans.insert.i26 = getelementptr inbounds i8, ptr %2, i64 88
-  %.pre.i27 = load ptr, ptr %.phi.trans.insert.i26, align 8
-  br i1 %.not3.i25, label %._crit_edge.i29, label %37
+35:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit.thread
+  %36 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 85), align 1
+  %37 = trunc i8 %36 to i1
+  %38 = getelementptr inbounds i8, ptr %2, i64 88
+  %39 = load ptr, ptr %38, align 8
+  br i1 %37, label %40, label %._crit_edge.i23
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.pre.i27, i64 260
-  %39 = load i64, ptr %38, align 4
-  %40 = and i64 %39, 274877906944
-  %.not4.i28 = icmp eq i64 %40, 0
-  br i1 %.not4.i28, label %._crit_edge.i29, label %_ZNK12DfgVertexVar4keepEv.exit32.thread
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %39, i64 260
+  %42 = load i64, ptr %41, align 4
+  %43 = and i64 %42, 274877906944
+  %.not2.i27 = icmp eq i64 %43, 0
+  br i1 %.not2.i27, label %._crit_edge.i23, label %_ZNK12DfgVertexVar4keepEv.exit28.thread
 
-._crit_edge.i29:                                  ; preds = %37, %34
-  %41 = tail call noundef zeroext i1 @_ZNK6AstVar11isSigPublicEv(ptr noundef nonnull align 8 dereferenceable(280) %.pre.i27)
-  br i1 %41, label %_ZNK12DfgVertexVar4keepEv.exit32.thread, label %_ZNK12DfgVertexVar4keepEv.exit32
+._crit_edge.i23:                                  ; preds = %40, %35
+  %44 = tail call noundef zeroext i1 @_ZNK6AstVar11isSigPublicEv(ptr noundef nonnull align 8 dereferenceable(280) %39)
+  br i1 %44, label %_ZNK12DfgVertexVar4keepEv.exit28.thread, label %_ZNK12DfgVertexVar4keepEv.exit28
 
-_ZNK12DfgVertexVar4keepEv.exit32:                 ; preds = %._crit_edge.i29
-  %42 = load ptr, ptr %.phi.trans.insert.i26, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 136
-  %44 = load i32, ptr %43, align 8
-  %45 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %46 = icmp eq i32 %44, %45
-  %47 = getelementptr inbounds i8, ptr %42, i64 128
-  %48 = load i64, ptr %47, align 8
-  %49 = and i64 %48, 4294967295
-  %.not5.i30 = icmp ne i64 %49, 0
-  %.not.not.i31 = select i1 %46, i1 %.not5.i30, i1 false
-  br i1 %.not.not.i31, label %_ZNK12DfgVertexVar4keepEv.exit32.thread, label %50
+_ZNK12DfgVertexVar4keepEv.exit28:                 ; preds = %._crit_edge.i23
+  %45 = load ptr, ptr %38, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 136
+  %47 = load i32, ptr %46, align 8
+  %48 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
+  %49 = icmp eq i32 %47, %48
+  %50 = getelementptr inbounds i8, ptr %45, i64 128
+  %51 = load i64, ptr %50, align 8
+  %52 = and i64 %51, 4294967295
+  %.not3.i24 = icmp ne i64 %52, 0
+  %.not.not.i25 = select i1 %49, i1 %.not3.i24, i1 false
+  br i1 %.not.not.i25, label %_ZNK12DfgVertexVar4keepEv.exit28.thread, label %53
 
-50:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit32
-  %51 = getelementptr inbounds i8, ptr %2, i64 96
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %54 = zext nneg i8 %53 to i32
-  br label %_ZNK12DfgVertexVar4keepEv.exit32.thread
+53:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit28
+  %54 = getelementptr inbounds i8, ptr %2, i64 96
+  %55 = load i8, ptr %54, align 8
+  %56 = and i8 %55, 1
+  %57 = zext nneg i8 %56 to i32
+  br label %_ZNK12DfgVertexVar4keepEv.exit28.thread
 
-_ZNK12DfgVertexVar4keepEv.exit32.thread:          ; preds = %._crit_edge.i29, %37, %_ZNK12DfgVertexVar4keepEv.exit.thread, %50, %_ZNK12DfgVertexVar4keepEv.exit32
-  %55 = phi i32 [ 1, %_ZNK12DfgVertexVar4keepEv.exit32 ], [ %54, %50 ], [ 1, %_ZNK12DfgVertexVar4keepEv.exit.thread ], [ 1, %37 ], [ 1, %._crit_edge.i29 ]
-  %56 = zext i1 %30 to i32
-  %.not = icmp eq i32 %55, %56
-  br i1 %.not, label %57, label %89
+_ZNK12DfgVertexVar4keepEv.exit28.thread:          ; preds = %._crit_edge.i23, %40, %_ZNK12DfgVertexVar4keepEv.exit.thread, %53, %_ZNK12DfgVertexVar4keepEv.exit28
+  %58 = phi i32 [ 1, %_ZNK12DfgVertexVar4keepEv.exit28 ], [ %57, %53 ], [ 1, %_ZNK12DfgVertexVar4keepEv.exit.thread ], [ 1, %40 ], [ 1, %._crit_edge.i23 ]
+  %59 = zext i1 %31 to i32
+  %.not = icmp eq i32 %58, %59
+  br i1 %.not, label %60, label %90
 
-57:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit32.thread
-  %58 = getelementptr inbounds i8, ptr %1, i64 97
-  %59 = load i8, ptr %58, align 1
-  %60 = and i8 %59, 1
-  %61 = icmp ne i8 %60, 0
-  %62 = getelementptr inbounds i8, ptr %2, i64 97
-  %63 = load i8, ptr %62, align 1
-  %64 = and i8 %63, 1
-  %65 = icmp ne i8 %64, 0
-  %66 = xor i1 %61, %65
-  br i1 %66, label %89, label %67
+60:                                               ; preds = %_ZNK12DfgVertexVar4keepEv.exit28.thread
+  %61 = getelementptr inbounds i8, ptr %1, i64 97
+  %62 = load i8, ptr %61, align 1
+  %63 = trunc i8 %62 to i1
+  %64 = getelementptr inbounds i8, ptr %2, i64 97
+  %65 = load i8, ptr %64, align 1
+  %66 = xor i8 %65, %62
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %90, label %68
 
-67:                                               ; preds = %57
-  %68 = getelementptr inbounds i8, ptr %1, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef i32 @_ZNK8FileLine15operatorCompareERKS_(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %71)
-  %.not22 = icmp eq i32 %72, 0
-  br i1 %.not22, label %75, label %73
+68:                                               ; preds = %60
+  %69 = getelementptr inbounds i8, ptr %1, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %2, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef i32 @_ZNK8FileLine15operatorCompareERKS_(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %72)
+  %.not22 = icmp eq i32 %73, 0
+  br i1 %.not22, label %76, label %74
 
-73:                                               ; preds = %67
-  %74 = icmp slt i32 %72, 0
-  br label %89
+74:                                               ; preds = %68
+  %75 = icmp slt i32 %73, 0
+  br label %90
 
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %1, i64 88
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 152
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %78)
-  %79 = getelementptr inbounds i8, ptr %2, i64 88
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 152
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %81)
-          to label %_ZNK6AstVar4nameB5cxx11Ev.exit unwind label %87
+76:                                               ; preds = %68
+  %77 = getelementptr inbounds i8, ptr %1, i64 88
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 152
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %79)
+  %80 = getelementptr inbounds i8, ptr %2, i64 88
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 152
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %82)
+          to label %_ZNK6AstVar4nameB5cxx11Ev.exit unwind label %88
 
-_ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %75
-  %82 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit unwind label %83
+_ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %76
+  %83 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit unwind label %84
 
-83:                                               ; preds = %_ZNK6AstVar4nameB5cxx11Ev.exit
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %_ZNK6AstVar4nameB5cxx11Ev.exit
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #21
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #21
   unreachable
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNK6AstVar4nameB5cxx11Ev.exit
-  %86 = icmp slt i32 %82, 0
+  %87 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  br label %89
+  br label %90
 
-87:                                               ; preds = %75
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %76
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  resume { ptr, i32 } %88
+  resume { ptr, i32 } %89
 
-89:                                               ; preds = %57, %_ZNK12DfgVertexVar4keepEv.exit32.thread, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %73
-  %.0 = phi i1 [ %74, %73 ], [ %86, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %30, %_ZNK12DfgVertexVar4keepEv.exit32.thread ], [ %61, %57 ]
+90:                                               ; preds = %60, %_ZNK12DfgVertexVar4keepEv.exit28.thread, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %74
+  %.0 = phi i1 [ %75, %74 ], [ %87, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %31, %_ZNK12DfgVertexVar4keepEv.exit28.thread ], [ %63, %60 ]
   ret i1 %.0
 }
 
@@ -4737,9 +4730,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

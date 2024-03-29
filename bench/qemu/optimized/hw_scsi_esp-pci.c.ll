@@ -276,17 +276,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then1
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #5
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #5
   br label %trace_esp_pci_error_invalid_dma_direction.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -299,14 +298,14 @@ trace_esp_pci_error_invalid_dma_direction.exit:   ; preds = %if.then1, %land.lhs
 
 if.end2:                                          ; preds = %entry
   %arrayidx4 = getelementptr i8, ptr %pci, i64 2900
-  %8 = load i32, ptr %arrayidx4, align 4
-  %and5 = and i32 %8, 16
+  %7 = load i32, ptr %arrayidx4, align 4
+  %and5 = and i32 %7, 16
   %tobool6.not = icmp eq i32 %and5, 0
   br i1 %tobool6.not, label %if.end12, label %do.body
 
 do.body:                                          ; preds = %if.end2
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %9, 1024
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %8, 1024
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end12, label %if.then10
 
@@ -316,11 +315,11 @@ if.then10:                                        ; preds = %do.body
 
 if.end12:                                         ; preds = %if.then10, %do.body, %if.end2
   %arrayidx14 = getelementptr i8, ptr %pci, i64 2888
-  %10 = load i32, ptr %arrayidx14, align 8
-  %conv15 = zext i32 %10 to i64
+  %9 = load i32, ptr %arrayidx14, align 8
+  %conv15 = zext i32 %9 to i64
   %arrayidx17 = getelementptr i8, ptr %pci, i64 2892
-  %11 = load i32, ptr %arrayidx17, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %11, i32 %len)
+  %10 = load i32, ptr %arrayidx17, align 4
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %10, i32 %len)
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #5
   %conv25 = sext i32 %spec.select to i64
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
@@ -328,19 +327,19 @@ if.end12:                                         ; preds = %if.then10, %do.body
   fence seq_cst
   %cmp.i.i.i = icmp eq i32 %dir, 1
   %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %conv15, i32 1, ptr noundef %buf, i64 noundef %conv25, i1 noundef zeroext %cmp.i.i.i) #5
-  %12 = load i32, ptr %arrayidx17, align 4
-  %sub = sub i32 %12, %spec.select
+  %11 = load i32, ptr %arrayidx17, align 4
+  %sub = sub i32 %11, %spec.select
   store i32 %sub, ptr %arrayidx17, align 4
   %arrayidx57 = getelementptr i8, ptr %pci, i64 2896
-  %13 = load i32, ptr %arrayidx57, align 16
-  %add = add i32 %13, %spec.select
+  %12 = load i32, ptr %arrayidx57, align 16
+  %add = add i32 %12, %spec.select
   store i32 %add, ptr %arrayidx57, align 16
-  %cmp60 = icmp eq i32 %12, %spec.select
+  %cmp60 = icmp eq i32 %11, %spec.select
   br i1 %cmp60, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %if.end12
-  %14 = load i32, ptr %arrayidx4, align 4
-  %or = or i32 %14, 8
+  %13 = load i32, ptr %arrayidx4, align 4
+  %or = or i32 %13, 8
   store i32 %or, ptr %arrayidx4, align 4
   br label %if.end65
 
@@ -426,17 +425,16 @@ land.lhs.true5.i.i.i:                             ; preds = %if.end10.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #5
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #5
-  %9 = load i64, ptr %_now.i.i.i, align 8
+  %8 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %conv6, i32 noundef %val.1.i) #5
+  %9 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv6, i32 noundef %val.1.i) #5
   br label %esp_pci_dma_read.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -453,96 +451,94 @@ if.else8:                                         ; preds = %if.else
 
 if.then11:                                        ; preds = %if.else8
   %sbac = getelementptr inbounds i8, ptr %opaque, i64 2912
-  %11 = load i32, ptr %sbac, align 16
+  %10 = load i32, ptr %sbac, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %12 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %12, 0
-  %13 = load i16, ptr @_TRACE_ESP_PCI_SBAC_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %13, 0
+  %11 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %11, 0
+  %12 = load i16, ptr @_TRACE_ESP_PCI_SBAC_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %12, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_esp_pci_sbac_read.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then11
-  %14 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %14, 32768
+  %13 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %13, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_esp_pci_sbac_read.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %15 = load i8, ptr @message_with_timestamp, align 1
-  %16 = and i8 %15, 1
-  %tobool7.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %14 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %14 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %17 = load i64, ptr %_now.i.i, align 8
+  %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %18 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %11) #5
+  %16 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %10) #5
   br label %trace_esp_pci_sbac_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %11) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %10) #5
   br label %trace_esp_pci_sbac_read.exit
 
 trace_esp_pci_sbac_read.exit:                     ; preds = %if.then11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %19 = load i32, ptr %sbac, align 16
+  %17 = load i32, ptr %sbac, align 16
   br label %if.end16
 
 if.else13:                                        ; preds = %if.else8
   %conv14 = trunc i64 %addr to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i12)
-  %20 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i13 = icmp ne i32 %20, 0
-  %21 = load i16, ptr @_TRACE_ESP_PCI_ERROR_INVALID_READ_DSTATE, align 2
-  %tobool4.i.i14 = icmp ne i16 %21, 0
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i13 = icmp ne i32 %18, 0
+  %19 = load i16, ptr @_TRACE_ESP_PCI_ERROR_INVALID_READ_DSTATE, align 2
+  %tobool4.i.i14 = icmp ne i16 %19, 0
   %or.cond.i.i15 = select i1 %tobool.i.i13, i1 %tobool4.i.i14, i1 false
   br i1 %or.cond.i.i15, label %land.lhs.true5.i.i16, label %trace_esp_pci_error_invalid_read.exit
 
 land.lhs.true5.i.i16:                             ; preds = %if.else13
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i17 = and i32 %22, 32768
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i17 = and i32 %20, 32768
   %cmp.i.not.i.i18 = icmp eq i32 %and.i.i.i17, 0
   br i1 %cmp.i.not.i.i18, label %trace_esp_pci_error_invalid_read.exit, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %land.lhs.true5.i.i16
-  %23 = load i8, ptr @message_with_timestamp, align 1
-  %24 = and i8 %23, 1
-  %tobool7.not.i.i20 = icmp eq i8 %24, 0
-  br i1 %tobool7.not.i.i20, label %if.else.i.i25, label %if.then8.i.i21
+  %21 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i20 = trunc i8 %21 to i1
+  br i1 %tobool7.i.i20, label %if.then8.i.i22, label %if.else.i.i21
 
-if.then8.i.i21:                                   ; preds = %if.then.i.i19
-  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #5
-  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #5
-  %25 = load i64, ptr %_now.i.i12, align 8
-  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
-  %26 = load i64, ptr %tv_usec.i.i24, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i23, i64 noundef %25, i64 noundef %26, i32 noundef %conv14) #5
+if.then8.i.i22:                                   ; preds = %if.then.i.i19
+  %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #5
+  %call10.i.i24 = tail call i32 @qemu_get_thread_id() #5
+  %22 = load i64, ptr %_now.i.i12, align 8
+  %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
+  %23 = load i64, ptr %tv_usec.i.i25, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i24, i64 noundef %22, i64 noundef %23, i32 noundef %conv14) #5
   br label %trace_esp_pci_error_invalid_read.exit
 
-if.else.i.i25:                                    ; preds = %if.then.i.i19
+if.else.i.i21:                                    ; preds = %if.then.i.i19
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %conv14) #5
   br label %trace_esp_pci_error_invalid_read.exit
 
-trace_esp_pci_error_invalid_read.exit:            ; preds = %if.else13, %land.lhs.true5.i.i16, %if.then8.i.i21, %if.else.i.i25
+trace_esp_pci_error_invalid_read.exit:            ; preds = %if.else13, %land.lhs.true5.i.i16, %if.then8.i.i22, %if.else.i.i21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i12)
   br label %if.end16
 
 if.end16:                                         ; preds = %esp_pci_dma_read.exit, %trace_esp_pci_error_invalid_read.exit, %trace_esp_pci_sbac_read.exit, %if.then
-  %ret.0 = phi i32 [ %conv1, %if.then ], [ %val.1.i, %esp_pci_dma_read.exit ], [ %19, %trace_esp_pci_sbac_read.exit ], [ 0, %trace_esp_pci_error_invalid_read.exit ]
+  %ret.0 = phi i32 [ %conv1, %if.then ], [ %val.1.i, %esp_pci_dma_read.exit ], [ %17, %trace_esp_pci_sbac_read.exit ], [ 0, %trace_esp_pci_error_invalid_read.exit ]
   %addr.tr = trunc i64 %addr to i32
-  %27 = shl i32 %addr.tr, 3
-  %sh_prom = and i32 %27, 24
+  %24 = shl i32 %addr.tr, 3
+  %sh_prom = and i32 %24, 24
   %shr17 = lshr i32 %ret.0, %sh_prom
   %mul18 = shl i32 %size, 3
   %sh_prom19 = zext nneg i32 %mul18 to i64
   %shl = shl nsw i64 -1, %sh_prom19
-  %28 = trunc i64 %shl to i32
-  %29 = xor i32 %28, -1
-  %conv22 = and i32 %shr17, %29
+  %25 = trunc i64 %shl to i32
+  %26 = xor i32 %25, -1
+  %conv22 = and i32 %shr17, %26
   %conv23 = zext i32 %conv22 to i64
   ret i64 %conv23
 }
@@ -657,17 +653,16 @@ land.lhs.true5.i.i.i:                             ; preds = %if.then40
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %11 = load i8, ptr @message_with_timestamp, align 1
-  %12 = and i8 %11, 1
-  %tobool7.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #5
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #5
-  %13 = load i64, ptr %_now.i.i.i, align 8
+  %12 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %14 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv43, i32 noundef %7, i32 noundef %conv44) #5
+  %13 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv43, i32 noundef %7, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_write.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -696,32 +691,31 @@ sw.bb.i:                                          ; preds = %trace_esp_pci_dma_w
 
 sw.bb4.i:                                         ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %15 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i = icmp ne i32 %15, 0
-  %16 = load i16, ptr @_TRACE_ESP_PCI_DMA_IDLE_DSTATE, align 2
-  %tobool4.i.i.i.i = icmp ne i16 %16, 0
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i = icmp ne i32 %14, 0
+  %15 = load i16, ptr @_TRACE_ESP_PCI_DMA_IDLE_DSTATE, align 2
+  %tobool4.i.i.i.i = icmp ne i16 %15, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %esp_pci_handle_idle.exit.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %sw.bb4.i
-  %17 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i = and i32 %17, 32768
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i = and i32 %16, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %esp_pci_handle_idle.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
-  %18 = load i8, ptr @message_with_timestamp, align 1
-  %19 = and i8 %18, 1
-  %tobool7.not.i.i.i.i = icmp eq i8 %19, 0
-  br i1 %tobool7.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then8.i.i.i.i
+  %17 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i = trunc i8 %17 to i1
+  br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #5
   %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #5
-  %20 = load i64, ptr %_now.i.i.i.i, align 8
+  %18 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %21 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv44) #5
+  %19 = load i64, ptr %tv_usec.i.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i.i.i, i64 noundef %18, i64 noundef %19, i32 noundef %conv44) #5
   br label %esp_pci_handle_idle.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -735,42 +729,41 @@ esp_pci_handle_idle.exit.i:                       ; preds = %if.else.i.i.i.i, %i
 
 sw.bb5.i:                                         ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i23.i)
-  %22 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i24.i = icmp ne i32 %22, 0
-  %23 = load i16, ptr @_TRACE_ESP_PCI_DMA_BLAST_DSTATE, align 2
-  %tobool4.i.i.i25.i = icmp ne i16 %23, 0
+  %20 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i24.i = icmp ne i32 %20, 0
+  %21 = load i16, ptr @_TRACE_ESP_PCI_DMA_BLAST_DSTATE, align 2
+  %tobool4.i.i.i25.i = icmp ne i16 %21, 0
   %or.cond.i.i.i26.i = select i1 %tobool.i.i.i24.i, i1 %tobool4.i.i.i25.i, i1 false
   br i1 %or.cond.i.i.i26.i, label %land.lhs.true5.i.i.i27.i, label %trace_esp_pci_dma_blast.exit.i.i
 
 land.lhs.true5.i.i.i27.i:                         ; preds = %sw.bb5.i
-  %24 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i28.i = and i32 %24, 32768
+  %22 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i28.i = and i32 %22, 32768
   %cmp.i.not.i.i.i29.i = icmp eq i32 %and.i.i.i.i28.i, 0
   br i1 %cmp.i.not.i.i.i29.i, label %trace_esp_pci_dma_blast.exit.i.i, label %if.then.i.i.i30.i
 
 if.then.i.i.i30.i:                                ; preds = %land.lhs.true5.i.i.i27.i
-  %25 = load i8, ptr @message_with_timestamp, align 1
-  %26 = and i8 %25, 1
-  %tobool7.not.i.i.i31.i = icmp eq i8 %26, 0
-  br i1 %tobool7.not.i.i.i31.i, label %if.else.i.i.i36.i, label %if.then8.i.i.i32.i
+  %23 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i31.i = trunc i8 %23 to i1
+  br i1 %tobool7.i.i.i31.i, label %if.then8.i.i.i33.i, label %if.else.i.i.i32.i
 
-if.then8.i.i.i32.i:                               ; preds = %if.then.i.i.i30.i
-  %call9.i.i.i33.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i23.i, ptr noundef null) #5
-  %call10.i.i.i34.i = tail call i32 @qemu_get_thread_id() #5
-  %27 = load i64, ptr %_now.i.i.i23.i, align 8
-  %tv_usec.i.i.i35.i = getelementptr inbounds i8, ptr %_now.i.i.i23.i, i64 8
-  %28 = load i64, ptr %tv_usec.i.i.i35.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i34.i, i64 noundef %27, i64 noundef %28, i32 noundef %conv44) #5
+if.then8.i.i.i33.i:                               ; preds = %if.then.i.i.i30.i
+  %call9.i.i.i34.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i23.i, ptr noundef null) #5
+  %call10.i.i.i35.i = tail call i32 @qemu_get_thread_id() #5
+  %24 = load i64, ptr %_now.i.i.i23.i, align 8
+  %tv_usec.i.i.i36.i = getelementptr inbounds i8, ptr %_now.i.i.i23.i, i64 8
+  %25 = load i64, ptr %tv_usec.i.i.i36.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i35.i, i64 noundef %24, i64 noundef %25, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_blast.exit.i.i
 
-if.else.i.i.i36.i:                                ; preds = %if.then.i.i.i30.i
+if.else.i.i.i32.i:                                ; preds = %if.then.i.i.i30.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_blast.exit.i.i
 
-trace_esp_pci_dma_blast.exit.i.i:                 ; preds = %if.else.i.i.i36.i, %if.then8.i.i.i32.i, %land.lhs.true5.i.i.i27.i, %sw.bb5.i
+trace_esp_pci_dma_blast.exit.i.i:                 ; preds = %if.else.i.i.i32.i, %if.then8.i.i.i33.i, %land.lhs.true5.i.i.i27.i, %sw.bb5.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i23.i)
-  %29 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %29, 1024
+  %26 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %26, 1024
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end57, label %if.then.i.i
 
@@ -780,96 +773,94 @@ if.then.i.i:                                      ; preds = %trace_esp_pci_dma_b
 
 sw.bb6.i:                                         ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i37.i)
-  %30 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i38.i = icmp ne i32 %30, 0
-  %31 = load i16, ptr @_TRACE_ESP_PCI_DMA_ABORT_DSTATE, align 2
-  %tobool4.i.i.i39.i = icmp ne i16 %31, 0
+  %27 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i38.i = icmp ne i32 %27, 0
+  %28 = load i16, ptr @_TRACE_ESP_PCI_DMA_ABORT_DSTATE, align 2
+  %tobool4.i.i.i39.i = icmp ne i16 %28, 0
   %or.cond.i.i.i40.i = select i1 %tobool.i.i.i38.i, i1 %tobool4.i.i.i39.i, i1 false
   br i1 %or.cond.i.i.i40.i, label %land.lhs.true5.i.i.i42.i, label %trace_esp_pci_dma_abort.exit.i.i
 
 land.lhs.true5.i.i.i42.i:                         ; preds = %sw.bb6.i
-  %32 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i43.i = and i32 %32, 32768
+  %29 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i43.i = and i32 %29, 32768
   %cmp.i.not.i.i.i44.i = icmp eq i32 %and.i.i.i.i43.i, 0
   br i1 %cmp.i.not.i.i.i44.i, label %trace_esp_pci_dma_abort.exit.i.i, label %if.then.i.i.i45.i
 
 if.then.i.i.i45.i:                                ; preds = %land.lhs.true5.i.i.i42.i
-  %33 = load i8, ptr @message_with_timestamp, align 1
-  %34 = and i8 %33, 1
-  %tobool7.not.i.i.i46.i = icmp eq i8 %34, 0
-  br i1 %tobool7.not.i.i.i46.i, label %if.else.i.i.i51.i, label %if.then8.i.i.i47.i
+  %30 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i46.i = trunc i8 %30 to i1
+  br i1 %tobool7.i.i.i46.i, label %if.then8.i.i.i48.i, label %if.else.i.i.i47.i
 
-if.then8.i.i.i47.i:                               ; preds = %if.then.i.i.i45.i
-  %call9.i.i.i48.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i37.i, ptr noundef null) #5
-  %call10.i.i.i49.i = tail call i32 @qemu_get_thread_id() #5
-  %35 = load i64, ptr %_now.i.i.i37.i, align 8
-  %tv_usec.i.i.i50.i = getelementptr inbounds i8, ptr %_now.i.i.i37.i, i64 8
-  %36 = load i64, ptr %tv_usec.i.i.i50.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i.i49.i, i64 noundef %35, i64 noundef %36, i32 noundef %conv44) #5
+if.then8.i.i.i48.i:                               ; preds = %if.then.i.i.i45.i
+  %call9.i.i.i49.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i37.i, ptr noundef null) #5
+  %call10.i.i.i50.i = tail call i32 @qemu_get_thread_id() #5
+  %31 = load i64, ptr %_now.i.i.i37.i, align 8
+  %tv_usec.i.i.i51.i = getelementptr inbounds i8, ptr %_now.i.i.i37.i, i64 8
+  %32 = load i64, ptr %tv_usec.i.i.i51.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i.i50.i, i64 noundef %31, i64 noundef %32, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_abort.exit.i.i
 
-if.else.i.i.i51.i:                                ; preds = %if.then.i.i.i45.i
+if.else.i.i.i47.i:                                ; preds = %if.then.i.i.i45.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_abort.exit.i.i
 
-trace_esp_pci_dma_abort.exit.i.i:                 ; preds = %if.else.i.i.i51.i, %if.then8.i.i.i47.i, %land.lhs.true5.i.i.i42.i, %sw.bb6.i
+trace_esp_pci_dma_abort.exit.i.i:                 ; preds = %if.else.i.i.i47.i, %if.then8.i.i.i48.i, %land.lhs.true5.i.i.i42.i, %sw.bb6.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i37.i)
   %current_req.i.i = getelementptr inbounds i8, ptr %opaque, i64 3320
-  %37 = load ptr, ptr %current_req.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %37, null
+  %33 = load ptr, ptr %current_req.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i, label %if.end57, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %trace_esp_pci_dma_abort.exit.i.i
-  tail call void @scsi_req_cancel(ptr noundef nonnull %37) #5
+  tail call void @scsi_req_cancel(ptr noundef nonnull %33) #5
   br label %if.end57
 
 sw.bb7.i:                                         ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i52.i)
-  %38 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i53.i = icmp ne i32 %38, 0
-  %39 = load i16, ptr @_TRACE_ESP_PCI_DMA_START_DSTATE, align 2
-  %tobool4.i.i.i54.i = icmp ne i16 %39, 0
+  %34 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i53.i = icmp ne i32 %34, 0
+  %35 = load i16, ptr @_TRACE_ESP_PCI_DMA_START_DSTATE, align 2
+  %tobool4.i.i.i54.i = icmp ne i16 %35, 0
   %or.cond.i.i.i55.i = select i1 %tobool.i.i.i53.i, i1 %tobool4.i.i.i54.i, i1 false
   br i1 %or.cond.i.i.i55.i, label %land.lhs.true5.i.i.i57.i, label %esp_pci_handle_start.exit.i
 
 land.lhs.true5.i.i.i57.i:                         ; preds = %sw.bb7.i
-  %40 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i58.i = and i32 %40, 32768
+  %36 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i58.i = and i32 %36, 32768
   %cmp.i.not.i.i.i59.i = icmp eq i32 %and.i.i.i.i58.i, 0
   br i1 %cmp.i.not.i.i.i59.i, label %esp_pci_handle_start.exit.i, label %if.then.i.i.i60.i
 
 if.then.i.i.i60.i:                                ; preds = %land.lhs.true5.i.i.i57.i
-  %41 = load i8, ptr @message_with_timestamp, align 1
-  %42 = and i8 %41, 1
-  %tobool7.not.i.i.i61.i = icmp eq i8 %42, 0
-  br i1 %tobool7.not.i.i.i61.i, label %if.else.i.i.i66.i, label %if.then8.i.i.i62.i
+  %37 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i61.i = trunc i8 %37 to i1
+  br i1 %tobool7.i.i.i61.i, label %if.then8.i.i.i63.i, label %if.else.i.i.i62.i
 
-if.then8.i.i.i62.i:                               ; preds = %if.then.i.i.i60.i
-  %call9.i.i.i63.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i52.i, ptr noundef null) #5
-  %call10.i.i.i64.i = tail call i32 @qemu_get_thread_id() #5
-  %43 = load i64, ptr %_now.i.i.i52.i, align 8
-  %tv_usec.i.i.i65.i = getelementptr inbounds i8, ptr %_now.i.i.i52.i, i64 8
-  %44 = load i64, ptr %tv_usec.i.i.i65.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i.i64.i, i64 noundef %43, i64 noundef %44, i32 noundef %conv44) #5
+if.then8.i.i.i63.i:                               ; preds = %if.then.i.i.i60.i
+  %call9.i.i.i64.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i52.i, ptr noundef null) #5
+  %call10.i.i.i65.i = tail call i32 @qemu_get_thread_id() #5
+  %38 = load i64, ptr %_now.i.i.i52.i, align 8
+  %tv_usec.i.i.i66.i = getelementptr inbounds i8, ptr %_now.i.i.i52.i, i64 8
+  %39 = load i64, ptr %tv_usec.i.i.i66.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i.i65.i, i64 noundef %38, i64 noundef %39, i32 noundef %conv44) #5
   br label %esp_pci_handle_start.exit.i
 
-if.else.i.i.i66.i:                                ; preds = %if.then.i.i.i60.i
+if.else.i.i.i62.i:                                ; preds = %if.then.i.i.i60.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv44) #5
   br label %esp_pci_handle_start.exit.i
 
-esp_pci_handle_start.exit.i:                      ; preds = %if.else.i.i.i66.i, %if.then8.i.i.i62.i, %land.lhs.true5.i.i.i57.i, %sw.bb7.i
+esp_pci_handle_start.exit.i:                      ; preds = %if.else.i.i.i62.i, %if.then8.i.i.i63.i, %land.lhs.true5.i.i.i57.i, %sw.bb7.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i52.i)
   %arrayidx.i.i = getelementptr i8, ptr %opaque, i64 2884
   %arrayidx2.i.i = getelementptr i8, ptr %opaque, i64 2892
-  %45 = load <2 x i32>, ptr %arrayidx.i.i, align 4
-  store <2 x i32> %45, ptr %arrayidx2.i.i, align 4
+  %40 = load <2 x i32>, ptr %arrayidx.i.i, align 4
+  store <2 x i32> %40, ptr %arrayidx2.i.i, align 4
   %arrayidx8.i.i = getelementptr i8, ptr %opaque, i64 2904
-  %46 = load i32, ptr %arrayidx8.i.i, align 8
+  %41 = load i32, ptr %arrayidx8.i.i, align 8
   %arrayidx10.i.i = getelementptr i8, ptr %opaque, i64 2908
-  store i32 %46, ptr %arrayidx10.i.i, align 4
+  store i32 %41, ptr %arrayidx10.i.i, align 4
   %arrayidx12.i.i = getelementptr i8, ptr %opaque, i64 2900
-  %47 = load i32, ptr %arrayidx12.i.i, align 4
-  %and.i.i = and i32 %47, -64
+  %42 = load i32, ptr %arrayidx12.i.i, align 4
+  %and.i.i = and i32 %42, -64
   store i32 %and.i.i, ptr %arrayidx12.i.i, align 4
   tail call void @esp_dma_enable(ptr noundef nonnull %esp, i32 noundef 0, i32 noundef 1) #5
   br label %if.end57
@@ -883,8 +874,8 @@ sw.bb8.i:                                         ; preds = %trace_esp_pci_dma_w
 
 sw.bb12.i:                                        ; preds = %trace_esp_pci_dma_write.exit.i
   %sbac.i = getelementptr inbounds i8, ptr %opaque, i64 2912
-  %48 = load i32, ptr %sbac.i, align 16
-  %and13.i = and i32 %48, 16777216
+  %43 = load i32, ptr %sbac.i, align 16
+  %and13.i = and i32 %43, 16777216
   %tobool.not.i = icmp eq i32 %and13.i, 0
   br i1 %tobool.not.i, label %if.end57, label %if.then.i
 
@@ -892,46 +883,45 @@ if.then.i:                                        ; preds = %sw.bb12.i
   %and14.i = and i32 %conv44, 14
   %not.i = xor i32 %and14.i, -1
   %arrayidx16.i = getelementptr i8, ptr %opaque, i64 2900
-  %49 = load i32, ptr %arrayidx16.i, align 4
-  %and17.i = and i32 %49, %not.i
+  %44 = load i32, ptr %arrayidx16.i, align 4
+  %and17.i = and i32 %44, %not.i
   store i32 %and17.i, ptr %arrayidx16.i, align 4
   br label %if.end57
 
 sw.default18.i:                                   ; preds = %trace_esp_pci_dma_write.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i67.i)
-  %50 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i68.i = icmp ne i32 %50, 0
-  %51 = load i16, ptr @_TRACE_ESP_PCI_ERROR_INVALID_WRITE_DMA_DSTATE, align 2
-  %tobool4.i.i69.i = icmp ne i16 %51, 0
+  %45 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i68.i = icmp ne i32 %45, 0
+  %46 = load i16, ptr @_TRACE_ESP_PCI_ERROR_INVALID_WRITE_DMA_DSTATE, align 2
+  %tobool4.i.i69.i = icmp ne i16 %46, 0
   %or.cond.i.i70.i = select i1 %tobool.i.i68.i, i1 %tobool4.i.i69.i, i1 false
   br i1 %or.cond.i.i70.i, label %land.lhs.true5.i.i71.i, label %trace_esp_pci_error_invalid_write_dma.exit.i
 
 land.lhs.true5.i.i71.i:                           ; preds = %sw.default18.i
-  %52 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i72.i = and i32 %52, 32768
+  %47 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i72.i = and i32 %47, 32768
   %cmp.i.not.i.i73.i = icmp eq i32 %and.i.i.i72.i, 0
   br i1 %cmp.i.not.i.i73.i, label %trace_esp_pci_error_invalid_write_dma.exit.i, label %if.then.i.i74.i
 
 if.then.i.i74.i:                                  ; preds = %land.lhs.true5.i.i71.i
-  %53 = load i8, ptr @message_with_timestamp, align 1
-  %54 = and i8 %53, 1
-  %tobool7.not.i.i75.i = icmp eq i8 %54, 0
-  br i1 %tobool7.not.i.i75.i, label %if.else.i.i80.i, label %if.then8.i.i76.i
+  %48 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i75.i = trunc i8 %48 to i1
+  br i1 %tobool7.i.i75.i, label %if.then8.i.i77.i, label %if.else.i.i76.i
 
-if.then8.i.i76.i:                                 ; preds = %if.then.i.i74.i
-  %call9.i.i77.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i67.i, ptr noundef null) #5
-  %call10.i.i78.i = tail call i32 @qemu_get_thread_id() #5
-  %55 = load i64, ptr %_now.i.i67.i, align 8
-  %tv_usec.i.i79.i = getelementptr inbounds i8, ptr %_now.i.i67.i, i64 8
-  %56 = load i64, ptr %tv_usec.i.i79.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i78.i, i64 noundef %55, i64 noundef %56, i32 noundef %conv44, i32 noundef %conv43) #5
+if.then8.i.i77.i:                                 ; preds = %if.then.i.i74.i
+  %call9.i.i78.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i67.i, ptr noundef null) #5
+  %call10.i.i79.i = tail call i32 @qemu_get_thread_id() #5
+  %49 = load i64, ptr %_now.i.i67.i, align 8
+  %tv_usec.i.i80.i = getelementptr inbounds i8, ptr %_now.i.i67.i, i64 8
+  %50 = load i64, ptr %tv_usec.i.i80.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i79.i, i64 noundef %49, i64 noundef %50, i32 noundef %conv44, i32 noundef %conv43) #5
   br label %trace_esp_pci_error_invalid_write_dma.exit.i
 
-if.else.i.i80.i:                                  ; preds = %if.then.i.i74.i
+if.else.i.i76.i:                                  ; preds = %if.then.i.i74.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %conv44, i32 noundef %conv43) #5
   br label %trace_esp_pci_error_invalid_write_dma.exit.i
 
-trace_esp_pci_error_invalid_write_dma.exit.i:     ; preds = %if.else.i.i80.i, %if.then8.i.i76.i, %land.lhs.true5.i.i71.i, %sw.default18.i
+trace_esp_pci_error_invalid_write_dma.exit.i:     ; preds = %if.else.i.i76.i, %if.then8.i.i77.i, %land.lhs.true5.i.i71.i, %sw.default18.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i67.i)
   br label %if.end57
 
@@ -941,39 +931,38 @@ if.else45:                                        ; preds = %if.else37
 
 if.then48:                                        ; preds = %if.else45
   %sbac49 = getelementptr inbounds i8, ptr %opaque, i64 2912
-  %57 = load i32, ptr %sbac49, align 16
+  %51 = load i32, ptr %sbac49, align 16
   %conv50 = trunc i64 %val.addr.0 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %58 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %58, 0
-  %59 = load i16, ptr @_TRACE_ESP_PCI_SBAC_WRITE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %59, 0
+  %52 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %52, 0
+  %53 = load i16, ptr @_TRACE_ESP_PCI_SBAC_WRITE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %53, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_esp_pci_sbac_write.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then48
-  %60 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i30 = and i32 %60, 32768
+  %54 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i30 = and i32 %54, 32768
   %cmp.i.not.i.i31 = icmp eq i32 %and.i.i.i30, 0
   br i1 %cmp.i.not.i.i31, label %trace_esp_pci_sbac_write.exit, label %if.then.i.i32
 
 if.then.i.i32:                                    ; preds = %land.lhs.true5.i.i
-  %61 = load i8, ptr @message_with_timestamp, align 1
-  %62 = and i8 %61, 1
-  %tobool7.not.i.i = icmp eq i8 %62, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %55 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %55 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i32
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %63 = load i64, ptr %_now.i.i, align 8
+  %56 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %64 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %63, i64 noundef %64, i32 noundef %57, i32 noundef %conv50) #5
+  %57 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %56, i64 noundef %57, i32 noundef %51, i32 noundef %conv50) #5
   br label %trace_esp_pci_sbac_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %57, i32 noundef %conv50) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %51, i32 noundef %conv50) #5
   br label %trace_esp_pci_sbac_write.exit
 
 trace_esp_pci_sbac_write.exit:                    ; preds = %if.then48, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -984,39 +973,38 @@ trace_esp_pci_sbac_write.exit:                    ; preds = %if.then48, %land.lh
 if.else53:                                        ; preds = %if.else45
   %conv54 = trunc i64 %addr.addr.0 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i33)
-  %65 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i34 = icmp ne i32 %65, 0
-  %66 = load i16, ptr @_TRACE_ESP_PCI_ERROR_INVALID_WRITE_DSTATE, align 2
-  %tobool4.i.i35 = icmp ne i16 %66, 0
+  %58 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i34 = icmp ne i32 %58, 0
+  %59 = load i16, ptr @_TRACE_ESP_PCI_ERROR_INVALID_WRITE_DSTATE, align 2
+  %tobool4.i.i35 = icmp ne i16 %59, 0
   %or.cond.i.i36 = select i1 %tobool.i.i34, i1 %tobool4.i.i35, i1 false
   br i1 %or.cond.i.i36, label %land.lhs.true5.i.i37, label %trace_esp_pci_error_invalid_write.exit
 
 land.lhs.true5.i.i37:                             ; preds = %if.else53
-  %67 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i38 = and i32 %67, 32768
+  %60 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i38 = and i32 %60, 32768
   %cmp.i.not.i.i39 = icmp eq i32 %and.i.i.i38, 0
   br i1 %cmp.i.not.i.i39, label %trace_esp_pci_error_invalid_write.exit, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %land.lhs.true5.i.i37
-  %68 = load i8, ptr @message_with_timestamp, align 1
-  %69 = and i8 %68, 1
-  %tobool7.not.i.i41 = icmp eq i8 %69, 0
-  br i1 %tobool7.not.i.i41, label %if.else.i.i46, label %if.then8.i.i42
+  %61 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i41 = trunc i8 %61 to i1
+  br i1 %tobool7.i.i41, label %if.then8.i.i43, label %if.else.i.i42
 
-if.then8.i.i42:                                   ; preds = %if.then.i.i40
-  %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #5
-  %call10.i.i44 = tail call i32 @qemu_get_thread_id() #5
-  %70 = load i64, ptr %_now.i.i33, align 8
-  %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
-  %71 = load i64, ptr %tv_usec.i.i45, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i44, i64 noundef %70, i64 noundef %71, i32 noundef %conv54) #5
+if.then8.i.i43:                                   ; preds = %if.then.i.i40
+  %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #5
+  %call10.i.i45 = tail call i32 @qemu_get_thread_id() #5
+  %62 = load i64, ptr %_now.i.i33, align 8
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
+  %63 = load i64, ptr %tv_usec.i.i46, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i45, i64 noundef %62, i64 noundef %63, i32 noundef %conv54) #5
   br label %trace_esp_pci_error_invalid_write.exit
 
-if.else.i.i46:                                    ; preds = %if.then.i.i40
+if.else.i.i42:                                    ; preds = %if.then.i.i40
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %conv54) #5
   br label %trace_esp_pci_error_invalid_write.exit
 
-trace_esp_pci_error_invalid_write.exit:           ; preds = %if.else53, %land.lhs.true5.i.i37, %if.then8.i.i42, %if.else.i.i46
+trace_esp_pci_error_invalid_write.exit:           ; preds = %if.else53, %land.lhs.true5.i.i37, %if.then8.i.i43, %if.else.i.i42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i33)
   br label %if.end57
 

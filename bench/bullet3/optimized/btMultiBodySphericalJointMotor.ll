@@ -247,8 +247,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(204) %this)
   %.pre = load i32, ptr %m_numDofsFinalized, align 8
-  %.pre59 = load i32, ptr %m_jacSizeBoth, align 4
-  %cmp4.not = icmp eq i32 %.pre, %.pre59
+  %.pre61 = load i32, ptr %m_jacSizeBoth, align 4
+  %cmp4.not = icmp eq i32 %.pre, %.pre61
   br i1 %cmp4.not, label %if.end6, label %for.end
 
 if.end6:                                          ; preds = %entry, %if.end
@@ -380,8 +380,8 @@ if.end9:                                          ; preds = %if.end6
   %call41 = call noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXYZERK11btMatrix3x3R9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp40, ptr noundef nonnull align 4 dereferenceable(16) %angleDiff)
   %m_numRows.i = getelementptr inbounds i8, ptr %this, i64 36
   %64 = load i32, ptr %m_numRows.i, align 4
-  %cmp4357 = icmp sgt i32 %64, 0
-  br i1 %cmp4357, label %for.body.lr.ph, label %for.end
+  %cmp4359 = icmp sgt i32 %64, 0
+  br i1 %cmp4359, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end9
   %m_size.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 4
@@ -398,13 +398,13 @@ for.body.lr.ph:                                   ; preds = %if.end9
   %arrayidx11.i36 = getelementptr inbounds i8, ptr %frameAworld, i64 32
   %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
   %65 = getelementptr inbounds i8, ptr %constraintNormalAng, i64 8
-  %m_kp = getelementptr inbounds i8, ptr %this, i64 148
+  %m_kp79 = getelementptr inbounds i8, ptr %this, i64 148
   %m_maxAppliedImpulseMultiDof = getelementptr inbounds i8, ptr %this, i64 172
   %m_damping = getelementptr inbounds i8, ptr %this, i64 188
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %row.058 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %row.060 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %66 = load i32, ptr %m_size.i.i, align 4
   %67 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %66, %67
@@ -455,9 +455,8 @@ _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: 
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
   %71 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %72 = and i8 %71, 1
-  %tobool2.not.i.i.i = icmp eq i8 %72, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %71 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %70)
@@ -471,90 +470,89 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i:
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
 
 _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit: ; preds = %for.body, %if.then.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
-  %73 = phi i32 [ %.pre3.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i ], [ %66, %if.then.i ], [ %66, %for.body ]
-  %inc.i = add nsw i32 %73, 1
+  %72 = phi i32 [ %.pre3.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i ], [ %66, %if.then.i ], [ %66, %for.body ]
+  %inc.i = add nsw i32 %72, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %74 = load ptr, ptr %m_data.i.i.i, align 8
+  %73 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i = sext i32 %66 to i64
-  %arrayidx.i = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %74, i64 %idxprom.i
-  %75 = load ptr, ptr %m_bodyA, align 8
-  %76 = load i32, ptr %m_linkA, align 8
-  %call47 = call noundef ptr @_ZN11btMultiBody19getJointVelMultiDofEi(ptr noundef nonnull align 8 dereferenceable(640) %75, i32 noundef %76)
+  %arrayidx.i = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %73, i64 %idxprom.i
+  %74 = load ptr, ptr %m_bodyA, align 8
+  %75 = load i32, ptr %m_linkA, align 8
+  %call47 = call noundef ptr @_ZN11btMultiBody19getJointVelMultiDofEi(ptr noundef nonnull align 8 dereferenceable(640) %74, i32 noundef %75)
   store float 1.000000e+00, ptr %frameAworld, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i33, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx3.i1.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i2.i.i, i8 0, i64 16, i1 false)
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx5.i5.i.i, align 4
-  %77 = load ptr, ptr %m_bodyA, align 8
-  %78 = load i32, ptr %m_linkA, align 8
-  call void @_ZNK11btMultiBody17localFrameToWorldEiRK11btMatrix3x3(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(640) %77, i32 noundef %78, ptr noundef nonnull align 4 dereferenceable(48) %frameAworld)
+  %76 = load ptr, ptr %m_bodyA, align 8
+  %77 = load i32, ptr %m_linkA, align 8
+  call void @_ZNK11btMultiBody17localFrameToWorldEiRK11btMatrix3x3(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(640) %76, i32 noundef %77, ptr noundef nonnull align 4 dereferenceable(48) %frameAworld)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %frameAworld, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp60, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i35, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i34, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i36, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
-  %79 = load ptr, ptr %m_bodyA, align 8
-  %80 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %79, i64 192
-  %81 = load ptr, ptr %m_data.i.i, align 8
-  %idxprom.i.i = sext i32 %80 to i64
-  %m_jointType = getelementptr inbounds %struct.btMultibodyLink, ptr %81, i64 %idxprom.i.i, i32 26
-  %82 = load i32, ptr %m_jointType, align 4
-  %cond1 = icmp eq i32 %82, 2
+  %78 = load ptr, ptr %m_bodyA, align 8
+  %79 = load i32, ptr %m_linkA, align 8
+  %m_data.i.i = getelementptr inbounds i8, ptr %78, i64 192
+  %80 = load ptr, ptr %m_data.i.i, align 8
+  %idxprom.i.i = sext i32 %79 to i64
+  %m_jointType = getelementptr inbounds %struct.btMultibodyLink, ptr %80, i64 %idxprom.i.i, i32 26
+  %81 = load i32, ptr %m_jointType, align 4
+  %cond1 = icmp eq i32 %81, 2
   br i1 %cond1, label %sw.bb, label %for.inc
 
 sw.bb:                                            ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
-  %rem68 = urem i32 %row.058, 3
+  %rem68 = urem i32 %row.060, 3
   %idxprom.i38 = zext nneg i32 %rem68 to i64
   %arrayidx2.i = getelementptr inbounds float, ptr %frameAworld, i64 %idxprom.i38
   %arrayidx7.i40 = getelementptr inbounds float, ptr %arrayidx7.i35, i64 %idxprom.i38
   %arrayidx12.i = getelementptr inbounds float, ptr %arrayidx11.i36, i64 %idxprom.i38
-  %83 = load float, ptr %arrayidx2.i, align 4
-  %retval.sroa.0.0.vec.insert.i42 = insertelement <2 x float> poison, float %83, i64 0
-  %84 = load float, ptr %arrayidx7.i40, align 4
-  %retval.sroa.0.4.vec.insert.i43 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i42, float %84, i64 1
-  %85 = load float, ptr %arrayidx12.i, align 4
-  %retval.sroa.3.12.vec.insert.i44 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %85, i64 0
+  %82 = load float, ptr %arrayidx2.i, align 4
+  %retval.sroa.0.0.vec.insert.i42 = insertelement <2 x float> poison, float %82, i64 0
+  %83 = load float, ptr %arrayidx7.i40, align 4
+  %retval.sroa.0.4.vec.insert.i43 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i42, float %83, i64 1
+  %84 = load float, ptr %arrayidx12.i, align 4
+  %retval.sroa.3.12.vec.insert.i44 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %84, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i43, ptr %constraintNormalAng, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i44, ptr %65, align 8
-  %86 = load i8, ptr %m_use_multi_dof_params, align 8
-  %87 = and i8 %86, 1
-  %tobool72.not = icmp eq i8 %87, 0
-  br i1 %tobool72.not, label %cond.end82.thread, label %cond.true94
+  %85 = load i8, ptr %m_use_multi_dof_params, align 8
+  %tobool72 = trunc i8 %85 to i1
+  br i1 %tobool72, label %cond.true94, label %cond.end82
 
-cond.end82.thread:                                ; preds = %sw.bb
-  %cond831551 = load float, ptr %m_kp, align 4
-  %arrayidx8853 = getelementptr inbounds float, ptr %angleDiff, i64 %idxprom.i38
-  %88 = load float, ptr %arrayidx8853, align 4
-  %conv9154 = fmul float %cond831551, %88
+cond.end82:                                       ; preds = %sw.bb
+  %cond8315 = load float, ptr %m_kp79, align 4
+  %arrayidx88 = getelementptr inbounds float, ptr %angleDiff, i64 %idxprom.i38
+  %86 = load float, ptr %arrayidx88, align 4
+  %conv91 = fmul float %cond8315, %86
   br label %cond.end101
 
 cond.true94:                                      ; preds = %sw.bb
-  %arrayidx77 = getelementptr inbounds float, ptr %m_kp, i64 %idxprom.i38
-  %cond8315 = load float, ptr %arrayidx77, align 4
-  %arrayidx88 = getelementptr inbounds float, ptr %angleDiff, i64 %idxprom.i38
-  %89 = load float, ptr %arrayidx88, align 4
-  %conv91 = fmul float %cond8315, %89
+  %arrayidx77 = getelementptr inbounds float, ptr %m_kp79, i64 %idxprom.i38
+  %cond831551 = load float, ptr %arrayidx77, align 4
+  %arrayidx8853 = getelementptr inbounds float, ptr %angleDiff, i64 %idxprom.i38
+  %87 = load float, ptr %arrayidx8853, align 4
+  %conv9154 = fmul float %cond831551, %87
   %arrayidx98 = getelementptr inbounds float, ptr %m_maxAppliedImpulseMultiDof, i64 %idxprom.i38
   br label %cond.end101
 
-cond.end101:                                      ; preds = %cond.end82.thread, %cond.true94
-  %conv9156 = phi float [ %conv91, %cond.true94 ], [ %conv9154, %cond.end82.thread ]
-  %cond102.in = phi ptr [ %arrayidx98, %cond.true94 ], [ %m_maxAppliedImpulse, %cond.end82.thread ]
+cond.end101:                                      ; preds = %cond.end82, %cond.true94
+  %conv9157 = phi float [ %conv9154, %cond.true94 ], [ %conv91, %cond.end82 ]
+  %cond102.in = phi ptr [ %arrayidx98, %cond.true94 ], [ %m_maxAppliedImpulse, %cond.end82 ]
   %cond102 = load float, ptr %cond102.in, align 4
   %conv108 = fneg float %cond102
   %arrayidx113 = getelementptr inbounds float, ptr %m_damping, i64 %idxprom.i38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp104, i8 0, i64 16, i1 false)
-  %90 = load float, ptr %arrayidx113, align 4
-  %call114 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp104, ptr noundef nonnull align 4 dereferenceable(16) %dummy, ptr noundef nonnull align 4 dereferenceable(16) %dummy, float noundef %conv9156, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %conv108, float noundef %cond102, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %90)
+  %88 = load float, ptr %arrayidx113, align 4
+  %call114 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp104, ptr noundef nonnull align 4 dereferenceable(16) %dummy, ptr noundef nonnull align 4 dereferenceable(16) %dummy, float noundef %conv9157, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %conv108, float noundef %cond102, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %88)
   %m_orgConstraint = getelementptr inbounds i8, ptr %arrayidx.i, i64 208
   store ptr %this, ptr %m_orgConstraint, align 8
   %m_orgDofIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 216
-  store i32 %row.058, ptr %m_orgDofIndex, align 8
+  store i32 %row.060, ptr %m_orgDofIndex, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end101, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
-  %inc = add nuw nsw i32 %row.058, 1
-  %91 = load i32, ptr %m_numRows.i, align 4
-  %cmp43 = icmp slt i32 %inc, %91
+  %inc = add nuw nsw i32 %row.060, 1
+  %89 = load i32, ptr %m_numRows.i, align 4
+  %cmp43 = icmp slt i32 %inc, %89
   br i1 %cmp43, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end9, %if.end6, %if.end

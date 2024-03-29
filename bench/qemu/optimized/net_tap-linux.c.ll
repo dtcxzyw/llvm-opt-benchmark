@@ -218,42 +218,40 @@ entry:
   %sndbuf = alloca i32, align 4
   %has_sndbuf = getelementptr inbounds i8, ptr %tap, i64 56
   %0 = load i8, ptr %has_sndbuf, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.end5.thread, label %cond.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.false, label %cond.end5.thread
 
 cond.false:                                       ; preds = %entry
   %sndbuf1 = getelementptr inbounds i8, ptr %tap, i64 64
-  %2 = load i64, ptr %sndbuf1, align 8
-  %.fr11 = freeze i64 %2
+  %1 = load i64, ptr %sndbuf1, align 8
+  %.fr11 = freeze i64 %1
   %cmp = icmp ugt i64 %.fr11, 2147483647
   br i1 %cmp, label %cond.end5.thread7, label %cond.end5
 
 cond.end5:                                        ; preds = %cond.false
-  %3 = trunc i64 %.fr11 to i32
-  %tobool7.not = icmp eq i32 %3, 0
+  %2 = trunc i64 %.fr11 to i32
+  %tobool7.not = icmp eq i32 %2, 0
   br i1 %tobool7.not, label %cond.end5.thread, label %cond.end5.thread7
 
 cond.end5.thread:                                 ; preds = %entry, %cond.end5
   br label %cond.end5.thread7
 
 cond.end5.thread7:                                ; preds = %cond.false, %cond.end5, %cond.end5.thread
-  %4 = phi i32 [ 2147483647, %cond.end5.thread ], [ %3, %cond.end5 ], [ 2147483647, %cond.false ]
-  store i32 %4, ptr %sndbuf, align 4
+  %3 = phi i32 [ 2147483647, %cond.end5.thread ], [ %2, %cond.end5 ], [ 2147483647, %cond.false ]
+  store i32 %3, ptr %sndbuf, align 4
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025684, ptr noundef nonnull %sndbuf) #8
   %cmp8 = icmp eq i32 %call, -1
   br i1 %cmp8, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %cond.end5.thread7
-  %5 = load i8, ptr %has_sndbuf, align 8
-  %6 = and i8 %5, 1
-  %tobool11.not = icmp eq i8 %6, 0
-  br i1 %tobool11.not, label %if.end15, label %if.then13
+  %4 = load i8, ptr %has_sndbuf, align 8
+  %tobool11 = trunc i8 %4 to i1
+  br i1 %tobool11, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %land.lhs.true
   %call14 = tail call ptr @__errno_location() #9
-  %7 = load i32, ptr %call14, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.tap_set_sndbuf, i32 noundef %7, ptr noundef nonnull @.str.9) #8
+  %5 = load i32, ptr %call14, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.tap_set_sndbuf, i32 noundef %5, ptr noundef nonnull @.str.9) #8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %land.lhs.true, %cond.end5.thread7

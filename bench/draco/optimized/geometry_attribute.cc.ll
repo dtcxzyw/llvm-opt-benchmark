@@ -67,9 +67,9 @@ define noundef zeroext i1 @_ZN5draco17GeometryAttribute8CopyFromERKS0_(ptr nocap
   store i32 %7, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 %11, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = and i8 %10, 1
+  store i8 %12, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40

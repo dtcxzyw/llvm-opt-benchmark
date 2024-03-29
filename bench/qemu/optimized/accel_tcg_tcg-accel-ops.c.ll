@@ -59,9 +59,8 @@ declare void @cpu_thread_signal_destroyed(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @tcg_cpus_exec(ptr noundef %cpu) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 74, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_cpus_exec) #8
@@ -154,24 +153,23 @@ entry:
 define internal void @tcg_accel_ops_init(ptr nocapture noundef writeonly %ops) #5 {
 entry:
   %0 = load i8, ptr @mttcg_enabled, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %create_vcpu_thread1 = getelementptr inbounds i8, ptr %ops, i64 120
-  %kick_vcpu_thread2 = getelementptr inbounds i8, ptr %ops, i64 128
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %create_vcpu_thread = getelementptr inbounds i8, ptr %ops, i64 120
+  %kick_vcpu_thread = getelementptr inbounds i8, ptr %ops, i64 128
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr @mttcg_start_vcpu_thread, ptr %create_vcpu_thread1, align 8
-  store ptr @mttcg_kick_vcpu_thread, ptr %kick_vcpu_thread2, align 8
+  store ptr @mttcg_start_vcpu_thread, ptr %create_vcpu_thread, align 8
+  store ptr @mttcg_kick_vcpu_thread, ptr %kick_vcpu_thread, align 8
   %handle_interrupt = getelementptr inbounds i8, ptr %ops, i64 184
   store ptr @tcg_handle_interrupt, ptr %handle_interrupt, align 8
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  store ptr @rr_start_vcpu_thread, ptr %create_vcpu_thread1, align 8
-  store ptr @rr_kick_vcpu_thread, ptr %kick_vcpu_thread2, align 8
-  %2 = load i32, ptr @use_icount, align 4
-  %tobool3.not = icmp eq i32 %2, 0
+  store ptr @rr_start_vcpu_thread, ptr %create_vcpu_thread, align 8
+  store ptr @rr_kick_vcpu_thread, ptr %kick_vcpu_thread, align 8
+  %1 = load i32, ptr @use_icount, align 4
+  %tobool3.not = icmp eq i32 %1, 0
   %handle_interrupt7 = getelementptr inbounds i8, ptr %ops, i64 184
   br i1 %tobool3.not, label %if.else6, label %if.then4
 
@@ -272,26 +270,25 @@ for.body17.lr.ph:                                 ; preds = %while.end13
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %while.end28
-  %cpu.116.in = phi i64 [ %2, %for.body17.lr.ph ], [ %8, %while.end28 ]
+  %cpu.116.in = phi i64 [ %2, %for.body17.lr.ph ], [ %5, %while.end28 ]
   %cpu.116 = inttoptr i64 %cpu.116.in to ptr
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.116) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #7
   %3 = load i32, ptr %arrayidx.i, align 4
   %gdb_stop_before_watchpoint.i = getelementptr inbounds i8, ptr %call1.i.i, i64 352
   %4 = load i8, ptr %gdb_stop_before_watchpoint.i, align 8
-  %5 = shl i8 %4, 2
-  %6 = and i8 %5, 4
-  %7 = zext nneg i8 %6 to i32
-  %spec.select.i = or i32 %3, %7
+  %tobool.i = trunc i8 %4 to i1
+  %or.i = or i32 %3, 4
+  %spec.select.i = select i1 %tobool.i, i32 %or.i, i32 %3
   %call19 = tail call i32 @cpu_watchpoint_insert(ptr noundef nonnull %cpu.116, i64 noundef %addr, i64 noundef %len, i32 noundef %spec.select.i, ptr noundef null) #7
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %while.end28, label %return
 
 while.end28:                                      ; preds = %for.body17
   %node29 = getelementptr inbounds i8, ptr %cpu.116, i64 568
-  %8 = load atomic i64, ptr %node29 monotonic, align 8
+  %5 = load atomic i64, ptr %node29 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
-  %tobool16.not = icmp eq i64 %8, 0
+  %tobool16.not = icmp eq i64 %5, 0
   br i1 %tobool16.not, label %return, label %for.body17, !llvm.loop !11
 
 return:                                           ; preds = %for.body17, %while.end28, %for.body, %while.end6, %while.end13, %while.end, %entry
@@ -342,26 +339,25 @@ for.body17.lr.ph:                                 ; preds = %while.end13
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %while.end28
-  %cpu.116.in = phi i64 [ %2, %for.body17.lr.ph ], [ %8, %while.end28 ]
+  %cpu.116.in = phi i64 [ %2, %for.body17.lr.ph ], [ %5, %while.end28 ]
   %cpu.116 = inttoptr i64 %cpu.116.in to ptr
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.116) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #7
   %3 = load i32, ptr %arrayidx.i, align 4
   %gdb_stop_before_watchpoint.i = getelementptr inbounds i8, ptr %call1.i.i, i64 352
   %4 = load i8, ptr %gdb_stop_before_watchpoint.i, align 8
-  %5 = shl i8 %4, 2
-  %6 = and i8 %5, 4
-  %7 = zext nneg i8 %6 to i32
-  %spec.select.i = or i32 %3, %7
+  %tobool.i = trunc i8 %4 to i1
+  %or.i = or i32 %3, 4
+  %spec.select.i = select i1 %tobool.i, i32 %or.i, i32 %3
   %call19 = tail call i32 @cpu_watchpoint_remove(ptr noundef nonnull %cpu.116, i64 noundef %addr, i64 noundef %len, i32 noundef %spec.select.i) #7
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %while.end28, label %return
 
 while.end28:                                      ; preds = %for.body17
   %node29 = getelementptr inbounds i8, ptr %cpu.116, i64 568
-  %8 = load atomic i64, ptr %node29 monotonic, align 8
+  %5 = load atomic i64, ptr %node29 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
-  %tobool16.not = icmp eq i64 %8, 0
+  %tobool16.not = icmp eq i64 %5, 0
   br i1 %tobool16.not, label %return, label %for.body17, !llvm.loop !17
 
 return:                                           ; preds = %for.body17, %while.end28, %for.body, %while.end6, %while.end13, %while.end, %entry

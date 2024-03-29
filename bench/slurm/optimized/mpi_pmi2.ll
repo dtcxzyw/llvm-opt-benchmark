@@ -40,14 +40,13 @@ define i32 @mpi_p_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
 6:                                                ; preds = %5, %2
   %7 = getelementptr inbounds i8, ptr %0, i64 433
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %17
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %17, label %10
 
 10:                                               ; preds = %6
   %11 = tail call i32 @pmi2_setup_stepd(ptr noundef nonnull %0, ptr noundef %1) #3
-  %.not6 = icmp eq i32 %11, 0
-  br i1 %.not6, label %12, label %17
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %10
   %13 = tail call i32 @pmi2_start_agent() #3

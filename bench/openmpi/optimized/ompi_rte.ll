@@ -868,28 +868,28 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not233, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %104, %107
-  %.0114300 = phi ptr [ %108, %107 ], [ %105, %104 ]
-  %109 = call i32 @atoi(ptr nocapture noundef nonnull %.0114300) #21
+  %.0114296 = phi ptr [ %108, %107 ], [ %105, %104 ]
+  %109 = call i32 @atoi(ptr nocapture noundef nonnull %.0114296) #21
   %110 = icmp sgt i32 %109, 1
   br i1 %110, label %111, label %.critedge
 
 111:                                              ; preds = %.thread
   %112 = call ptr @getenv(ptr noundef nonnull @.str.17) #19
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %.thread302
+  br i1 %113, label %114, label %.thread298
 
 114:                                              ; preds = %111
   %115 = call ptr @getenv(ptr noundef nonnull @.str.18) #19
   %.not234 = icmp eq ptr %115, null
-  br i1 %.not234, label %.thread306, label %.thread302
+  br i1 %.not234, label %.thread302, label %.thread298
 
-.thread302:                                       ; preds = %111, %114
-  %.0112305 = phi ptr [ %115, %114 ], [ %112, %111 ]
-  %116 = call i32 @atoi(ptr nocapture noundef nonnull %.0112305) #21
+.thread298:                                       ; preds = %111, %114
+  %.0112301 = phi ptr [ %115, %114 ], [ %112, %111 ]
+  %116 = call i32 @atoi(ptr nocapture noundef nonnull %.0112301) #21
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %.thread306, label %.critedge
+  br i1 %117, label %.thread302, label %.critedge
 
-.thread306:                                       ; preds = %114, %.thread302
+.thread302:                                       ; preds = %114, %.thread298
   %118 = load ptr, ptr @opal_show_help, align 8
   %119 = call i32 (ptr, ptr, i32, ...) %118(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef %109) #19
   br label %.critedge
@@ -898,20 +898,20 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %121 = load ptr, ptr @opal_show_help, align 8
   %122 = call ptr @PMIx_Error_string(i32 noundef %99) #19
   %123 = call i32 (ptr, ptr, i32, ...) %121(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef %122) #19
-  br label %.thread573
+  br label %.thread569
 
-.critedge:                                        ; preds = %100, %107, %.thread302, %.thread306, %.thread, %98, %96
-  %.0117 = phi i8 [ 0, %96 ], [ 0, %98 ], [ 1, %.thread ], [ 1, %.thread306 ], [ 1, %.thread302 ], [ 1, %107 ], [ 1, %100 ]
+.critedge:                                        ; preds = %100, %107, %.thread298, %.thread302, %.thread, %98, %96
+  %.0117 = phi i8 [ 0, %96 ], [ 0, %98 ], [ 1, %.thread ], [ 1, %.thread302 ], [ 1, %.thread298 ], [ 1, %107 ], [ 1, %100 ]
   %124 = call i32 @opal_pmix_convert_nspace(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1)) #19
   %cond = icmp eq i32 %124, 0
-  br i1 %cond, label %125, label %.thread573
+  br i1 %cond, label %125, label %.thread569
 
 125:                                              ; preds = %.critedge
   %126 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 1, i32 1), align 8
   %127 = getelementptr inbounds i8, ptr %3, i64 4
-  %cond730 = icmp eq i32 %126, -4
-  %spec.select731 = select i1 %cond730, i32 -1, i32 %126
-  store i32 %spec.select731, ptr %127, align 4
+  %cond726 = icmp eq i32 %126, -4
+  %spec.select727 = select i1 %cond726, i32 -1, i32 %126
+  store i32 %spec.select727, ptr %127, align 4
   %128 = load i32, ptr %3, align 4
   %129 = call ptr @opal_proc_local_get() #19
   %130 = getelementptr inbounds i8, ptr %129, i64 40
@@ -956,45 +956,45 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %158
 
 158:                                              ; preds = %149, %125, %154
-  %.sink699 = phi i32 [ %157, %154 ], [ -2, %125 ], [ -4, %149 ]
+  %.sink695 = phi i32 [ %157, %154 ], [ -2, %125 ], [ -4, %149 ]
   %159 = getelementptr inbounds i8, ptr %12, i64 256
-  store i32 %.sink699, ptr %159, align 4
+  store i32 %.sink695, ptr %159, align 4
   %160 = call i32 @PMIx_Info_load(ptr noundef nonnull %14, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %161 = call i32 @PMIx_Get(ptr noundef nonnull %12, ptr noundef nonnull @.str.23, ptr noundef nonnull %14, i64 noundef 1, ptr noundef nonnull %13) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %14) #19
   %162 = load ptr, ptr %13, align 8
   %163 = icmp eq ptr %162, null
-  br i1 %163, label %.thread315, label %164
+  br i1 %163, label %.thread311, label %164
 
 164:                                              ; preds = %158
   %165 = load i16, ptr %162, align 8
   %.not236 = icmp eq i16 %165, 3
-  br i1 %.not236, label %166, label %.thread311
+  br i1 %.not236, label %166, label %.thread307
 
 166:                                              ; preds = %164
   %167 = icmp eq i32 %161, 0
-  br i1 %167, label %168, label %.thread311
+  br i1 %167, label %168, label %.thread307
 
 168:                                              ; preds = %166
   %169 = call i32 @PMIx_Value_unload(ptr noundef nonnull %162, ptr noundef nonnull %9, ptr noundef nonnull %15) #19
   %.pr.pre = load ptr, ptr %13, align 8
   %.not237 = icmp eq ptr %.pr.pre, null
-  br i1 %.not237, label %171, label %.thread311
+  br i1 %.not237, label %171, label %.thread307
 
-.thread311:                                       ; preds = %166, %164, %168
-  %.0113314 = phi i32 [ %169, %168 ], [ -18, %164 ], [ %161, %166 ]
+.thread307:                                       ; preds = %166, %164, %168
+  %.0113310 = phi i32 [ %169, %168 ], [ -18, %164 ], [ %161, %166 ]
   %170 = phi ptr [ %.pr.pre, %168 ], [ %162, %164 ], [ %162, %166 ]
   call void @PMIx_Value_free(ptr noundef nonnull %170, i64 noundef 1) #19
   store ptr null, ptr %13, align 8
   br label %171
 
-171:                                              ; preds = %168, %.thread311
-  %.0113310 = phi i32 [ %169, %168 ], [ %.0113314, %.thread311 ]
-  %172 = icmp eq i32 %.0113310, 0
+171:                                              ; preds = %168, %.thread307
+  %.0113306 = phi i32 [ %169, %168 ], [ %.0113310, %.thread307 ]
+  %172 = icmp eq i32 %.0113306, 0
   %173 = load ptr, ptr %9, align 8
   %174 = icmp ne ptr %173, null
   %or.cond = select i1 %172, i1 %174, i1 false
-  br i1 %or.cond, label %175, label %.thread315
+  br i1 %or.cond, label %175, label %.thread311
 
 175:                                              ; preds = %171
   %176 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
@@ -1010,137 +1010,135 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %179 = phi ptr [ %.pre, %177 ], [ %173, %175 ]
   store ptr %179, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
   store ptr null, ptr %9, align 8
-  br label %.thread315
+  br label %.thread311
 
-.thread315:                                       ; preds = %158, %171, %178
-  %.0113310318 = phi i32 [ %.0113310, %171 ], [ 0, %178 ], [ -46, %158 ]
+.thread311:                                       ; preds = %158, %171, %178
+  %.0113306314 = phi i32 [ %.0113306, %171 ], [ 0, %178 ], [ -46, %158 ]
   store ptr null, ptr %17, align 8
   %180 = load i32, ptr @opal_process_info, align 8
   %181 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %16, i32 noundef %180) #19
   %182 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
   %183 = getelementptr inbounds i8, ptr %16, i64 256
-  %cond732 = icmp eq i32 %182, -1
-  %spec.select733 = select i1 %cond732, i32 -4, i32 %182
-  store i32 %spec.select733, ptr %183, align 4
+  %cond728 = icmp eq i32 %182, -1
+  %spec.select729 = select i1 %cond728, i32 -4, i32 %182
+  store i32 %spec.select729, ptr %183, align 4
   %184 = call i32 @PMIx_Info_load(ptr noundef nonnull %18, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %185 = call i32 @PMIx_Get(ptr noundef nonnull %16, ptr noundef nonnull @.str.24, ptr noundef nonnull %18, i64 noundef 1, ptr noundef nonnull %17) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %18) #19
   %186 = load ptr, ptr %17, align 8
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %.thread329, label %188
+  br i1 %187, label %.thread325, label %188
 
-188:                                              ; preds = %.thread315
+188:                                              ; preds = %.thread311
   %189 = load i16, ptr %186, align 8
   %.not239 = icmp eq i16 %189, 13
-  br i1 %.not239, label %190, label %.thread325
+  br i1 %.not239, label %190, label %.thread321
 
 190:                                              ; preds = %188
   %191 = icmp eq i32 %185, 0
-  br i1 %191, label %192, label %.thread325
+  br i1 %191, label %192, label %.thread321
 
 192:                                              ; preds = %190
   %193 = call i32 @PMIx_Value_unload(ptr noundef nonnull %186, ptr noundef nonnull %8, ptr noundef nonnull %19) #19
-  %.pr320.pre = load ptr, ptr %17, align 8
-  %.not240 = icmp eq ptr %.pr320.pre, null
-  br i1 %.not240, label %195, label %.thread325
+  %.pr316.pre = load ptr, ptr %17, align 8
+  %.not240 = icmp eq ptr %.pr316.pre, null
+  br i1 %.not240, label %195, label %.thread321
 
-.thread325:                                       ; preds = %190, %188, %192
-  %.0119328 = phi i32 [ %193, %192 ], [ -18, %188 ], [ %185, %190 ]
-  %194 = phi ptr [ %.pr320.pre, %192 ], [ %186, %188 ], [ %186, %190 ]
+.thread321:                                       ; preds = %190, %188, %192
+  %.0119324 = phi i32 [ %193, %192 ], [ -18, %188 ], [ %185, %190 ]
+  %194 = phi ptr [ %.pr316.pre, %192 ], [ %186, %188 ], [ %186, %190 ]
   call void @PMIx_Value_free(ptr noundef nonnull %194, i64 noundef 1) #19
   store ptr null, ptr %17, align 8
   br label %195
 
-195:                                              ; preds = %192, %.thread325
-  %.0119324 = phi i32 [ %193, %192 ], [ %.0119328, %.thread325 ]
-  %.not241 = icmp eq i32 %.0119324, 0
-  br i1 %.not241, label %._crit_edge591, label %.thread329
+195:                                              ; preds = %192, %.thread321
+  %.0119320 = phi i32 [ %193, %192 ], [ %.0119324, %.thread321 ]
+  %.not241 = icmp eq i32 %.0119320, 0
+  br i1 %.not241, label %._crit_edge587, label %.thread325
 
-._crit_edge591:                                   ; preds = %195
-  %.pre592 = load i16, ptr %7, align 2
+._crit_edge587:                                   ; preds = %195
+  %.pre588 = load i16, ptr %7, align 2
   br label %201
 
-.thread329:                                       ; preds = %.thread315, %195
-  %.0119324332 = phi i32 [ %.0119324, %195 ], [ -46, %.thread315 ]
+.thread325:                                       ; preds = %.thread311, %195
+  %.0119320328 = phi i32 [ %.0119320, %195 ], [ -46, %.thread311 ]
   %196 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %197 = and i8 %196, 1
-  %.not242 = icmp eq i8 %197, 0
-  br i1 %.not242, label %199, label %198
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %198, label %199
 
-198:                                              ; preds = %.thread329
+198:                                              ; preds = %.thread325
   store i16 0, ptr %7, align 2
   br label %201
 
-199:                                              ; preds = %.thread329
-  %200 = call i32 @opal_pmix_convert_status(i32 noundef %.0119324332) #19
+199:                                              ; preds = %.thread325
+  %200 = call i32 @opal_pmix_convert_status(i32 noundef %.0119320328) #19
   br label %680
 
-201:                                              ; preds = %._crit_edge591, %198
-  %202 = phi i16 [ %.pre592, %._crit_edge591 ], [ 0, %198 ]
+201:                                              ; preds = %._crit_edge587, %198
+  %202 = phi i16 [ %.pre588, %._crit_edge587 ], [ 0, %198 ]
   store i16 %202, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
   store ptr null, ptr %21, align 8
   %203 = load i32, ptr @opal_process_info, align 8
   %204 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %20, i32 noundef %203) #19
   %205 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
   %206 = getelementptr inbounds i8, ptr %20, i64 256
-  %cond734 = icmp eq i32 %205, -1
-  %spec.select735 = select i1 %cond734, i32 -4, i32 %205
-  store i32 %spec.select735, ptr %206, align 4
+  %cond730 = icmp eq i32 %205, -1
+  %spec.select731 = select i1 %cond730, i32 -4, i32 %205
+  store i32 %spec.select731, ptr %206, align 4
   %207 = call i32 @PMIx_Info_load(ptr noundef nonnull %22, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %208 = call i32 @PMIx_Get(ptr noundef nonnull %20, ptr noundef nonnull @.str.26, ptr noundef nonnull %22, i64 noundef 1, ptr noundef nonnull %21) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %22) #19
   %209 = load ptr, ptr %21, align 8
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %.thread343, label %211
+  br i1 %210, label %.thread339, label %211
 
 211:                                              ; preds = %201
   %212 = load i16, ptr %209, align 8
-  %.not243 = icmp eq i16 %212, 13
-  br i1 %.not243, label %213, label %.thread339
+  %.not242 = icmp eq i16 %212, 13
+  br i1 %.not242, label %213, label %.thread335
 
 213:                                              ; preds = %211
   %214 = icmp eq i32 %208, 0
-  br i1 %214, label %215, label %.thread339
+  br i1 %214, label %215, label %.thread335
 
 215:                                              ; preds = %213
   %216 = call i32 @PMIx_Value_unload(ptr noundef nonnull %209, ptr noundef nonnull %8, ptr noundef nonnull %23) #19
-  %.pr334.pre = load ptr, ptr %21, align 8
-  %.not244 = icmp eq ptr %.pr334.pre, null
-  br i1 %.not244, label %218, label %.thread339
+  %.pr330.pre = load ptr, ptr %21, align 8
+  %.not243 = icmp eq ptr %.pr330.pre, null
+  br i1 %.not243, label %218, label %.thread335
 
-.thread339:                                       ; preds = %213, %211, %215
-  %.1120342 = phi i32 [ %216, %215 ], [ -18, %211 ], [ %208, %213 ]
-  %217 = phi ptr [ %.pr334.pre, %215 ], [ %209, %211 ], [ %209, %213 ]
+.thread335:                                       ; preds = %213, %211, %215
+  %.1120338 = phi i32 [ %216, %215 ], [ -18, %211 ], [ %208, %213 ]
+  %217 = phi ptr [ %.pr330.pre, %215 ], [ %209, %211 ], [ %209, %213 ]
   call void @PMIx_Value_free(ptr noundef nonnull %217, i64 noundef 1) #19
   store ptr null, ptr %21, align 8
   br label %218
 
-218:                                              ; preds = %215, %.thread339
-  %.1120338 = phi i32 [ %216, %215 ], [ %.1120342, %.thread339 ]
-  %.not245 = icmp eq i32 %.1120338, 0
-  br i1 %.not245, label %._crit_edge594, label %.thread343
+218:                                              ; preds = %215, %.thread335
+  %.1120334 = phi i32 [ %216, %215 ], [ %.1120338, %.thread335 ]
+  %.not244 = icmp eq i32 %.1120334, 0
+  br i1 %.not244, label %._crit_edge590, label %.thread339
 
-._crit_edge594:                                   ; preds = %218
-  %.pre595 = load i16, ptr %7, align 2
+._crit_edge590:                                   ; preds = %218
+  %.pre591 = load i16, ptr %7, align 2
   br label %224
 
-.thread343:                                       ; preds = %201, %218
+.thread339:                                       ; preds = %201, %218
   %219 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %220 = and i8 %219, 1
-  %.not246 = icmp eq i8 %220, 0
-  br i1 %.not246, label %222, label %221
+  %220 = trunc i8 %219 to i1
+  br i1 %220, label %221, label %222
 
-221:                                              ; preds = %.thread343
+221:                                              ; preds = %.thread339
   store i16 0, ptr %7, align 2
   br label %224
 
-222:                                              ; preds = %.thread343
+222:                                              ; preds = %.thread339
   %223 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
   store i16 %223, ptr %7, align 2
   br label %224
 
-224:                                              ; preds = %._crit_edge594, %221, %222
-  %225 = phi i16 [ %.pre595, %._crit_edge594 ], [ 0, %221 ], [ %223, %222 ]
+224:                                              ; preds = %._crit_edge590, %221, %222
+  %225 = phi i16 [ %.pre591, %._crit_edge590 ], [ 0, %221 ], [ %223, %222 ]
   store i16 %225, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 9), align 2
   %226 = load i32, ptr @opal_process_info, align 8
   store i32 %226, ptr %3, align 4
@@ -1149,128 +1147,126 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %227 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %24, i32 noundef %226) #19
   %228 = load i32, ptr %131, align 4
   %229 = getelementptr inbounds i8, ptr %24, i64 256
-  %cond736 = icmp eq i32 %228, -1
-  %spec.select737 = select i1 %cond736, i32 -4, i32 %228
-  store i32 %spec.select737, ptr %229, align 4
+  %cond732 = icmp eq i32 %228, -1
+  %spec.select733 = select i1 %cond732, i32 -4, i32 %228
+  store i32 %spec.select733, ptr %229, align 4
   %230 = call i32 @PMIx_Info_load(ptr noundef nonnull %26, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %231 = call i32 @PMIx_Get(ptr noundef nonnull %24, ptr noundef nonnull @.str.27, ptr noundef nonnull %26, i64 noundef 1, ptr noundef nonnull %25) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %26) #19
   %232 = load ptr, ptr %25, align 8
   %233 = icmp eq ptr %232, null
-  br i1 %233, label %.thread356, label %234
+  br i1 %233, label %.thread352, label %234
 
 234:                                              ; preds = %224
   %235 = load i16, ptr %232, align 8
-  %.not247 = icmp eq i16 %235, 14
-  br i1 %.not247, label %236, label %.thread352
+  %.not245 = icmp eq i16 %235, 14
+  br i1 %.not245, label %236, label %.thread348
 
 236:                                              ; preds = %234
   %237 = icmp eq i32 %231, 0
-  br i1 %237, label %238, label %.thread352
+  br i1 %237, label %238, label %.thread348
 
 238:                                              ; preds = %236
   %239 = call i32 @PMIx_Value_unload(ptr noundef nonnull %232, ptr noundef nonnull %6, ptr noundef nonnull %27) #19
-  %.pr347.pre = load ptr, ptr %25, align 8
-  %.not248 = icmp eq ptr %.pr347.pre, null
-  br i1 %.not248, label %241, label %.thread352
+  %.pr343.pre = load ptr, ptr %25, align 8
+  %.not246 = icmp eq ptr %.pr343.pre, null
+  br i1 %.not246, label %241, label %.thread348
 
-.thread352:                                       ; preds = %236, %234, %238
-  %.2121355 = phi i32 [ %239, %238 ], [ -18, %234 ], [ %231, %236 ]
-  %240 = phi ptr [ %.pr347.pre, %238 ], [ %232, %234 ], [ %232, %236 ]
+.thread348:                                       ; preds = %236, %234, %238
+  %.2121351 = phi i32 [ %239, %238 ], [ -18, %234 ], [ %231, %236 ]
+  %240 = phi ptr [ %.pr343.pre, %238 ], [ %232, %234 ], [ %232, %236 ]
   call void @PMIx_Value_free(ptr noundef nonnull %240, i64 noundef 1) #19
   store ptr null, ptr %25, align 8
   br label %241
 
-241:                                              ; preds = %238, %.thread352
-  %.2121351 = phi i32 [ %239, %238 ], [ %.2121355, %.thread352 ]
-  %.not249 = icmp eq i32 %.2121351, 0
-  br i1 %.not249, label %._crit_edge597, label %.thread356
+241:                                              ; preds = %238, %.thread348
+  %.2121347 = phi i32 [ %239, %238 ], [ %.2121351, %.thread348 ]
+  %.not247 = icmp eq i32 %.2121347, 0
+  br i1 %.not247, label %._crit_edge593, label %.thread352
 
-._crit_edge597:                                   ; preds = %241
-  %.pre598 = load i32, ptr %5, align 4
+._crit_edge593:                                   ; preds = %241
+  %.pre594 = load i32, ptr %5, align 4
   br label %247
 
-.thread356:                                       ; preds = %224, %241
-  %.2121351359 = phi i32 [ %.2121351, %241 ], [ -46, %224 ]
+.thread352:                                       ; preds = %224, %241
+  %.2121347355 = phi i32 [ %.2121347, %241 ], [ -46, %224 ]
   %242 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %243 = and i8 %242, 1
-  %.not250 = icmp eq i8 %243, 0
-  br i1 %.not250, label %245, label %244
+  %243 = trunc i8 %242 to i1
+  br i1 %243, label %244, label %245
 
-244:                                              ; preds = %.thread356
+244:                                              ; preds = %.thread352
   store i32 1, ptr %5, align 4
   br label %247
 
-245:                                              ; preds = %.thread356
-  %246 = call i32 @opal_pmix_convert_status(i32 noundef %.2121351359) #19
+245:                                              ; preds = %.thread352
+  %246 = call i32 @opal_pmix_convert_status(i32 noundef %.2121347355) #19
   br label %680
 
-247:                                              ; preds = %._crit_edge597, %244
-  %248 = phi i32 [ %.pre598, %._crit_edge597 ], [ 1, %244 ]
+247:                                              ; preds = %._crit_edge593, %244
+  %248 = phi i32 [ %.pre594, %._crit_edge593 ], [ 1, %244 ]
   store i32 %248, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
   store ptr null, ptr %29, align 8
   %249 = load i32, ptr %3, align 4
   %250 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %28, i32 noundef %249) #19
   %251 = load i32, ptr %131, align 4
   %252 = getelementptr inbounds i8, ptr %28, i64 256
-  %cond738 = icmp eq i32 %251, -1
-  %spec.select739 = select i1 %cond738, i32 -4, i32 %251
-  store i32 %spec.select739, ptr %252, align 4
+  %cond734 = icmp eq i32 %251, -1
+  %spec.select735 = select i1 %cond734, i32 -4, i32 %251
+  store i32 %spec.select735, ptr %252, align 4
   %253 = call i32 @PMIx_Info_load(ptr noundef nonnull %30, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %254 = call i32 @PMIx_Get(ptr noundef nonnull %28, ptr noundef nonnull @.str.29, ptr noundef nonnull %30, i64 noundef 1, ptr noundef nonnull %29) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %30) #19
   %255 = load ptr, ptr %29, align 8
   %256 = icmp eq ptr %255, null
-  br i1 %256, label %.thread370, label %257
+  br i1 %256, label %.thread366, label %257
 
 257:                                              ; preds = %247
   %258 = load i16, ptr %255, align 8
-  %.not251 = icmp eq i16 %258, 14
-  br i1 %.not251, label %259, label %.thread366
+  %.not248 = icmp eq i16 %258, 14
+  br i1 %.not248, label %259, label %.thread362
 
 259:                                              ; preds = %257
   %260 = icmp eq i32 %254, 0
-  br i1 %260, label %261, label %.thread366
+  br i1 %260, label %261, label %.thread362
 
 261:                                              ; preds = %259
   %262 = call i32 @PMIx_Value_unload(ptr noundef nonnull %255, ptr noundef nonnull %6, ptr noundef nonnull %31) #19
-  %.pr361.pre = load ptr, ptr %29, align 8
-  %.not252 = icmp eq ptr %.pr361.pre, null
-  br i1 %.not252, label %264, label %.thread366
+  %.pr357.pre = load ptr, ptr %29, align 8
+  %.not249 = icmp eq ptr %.pr357.pre, null
+  br i1 %.not249, label %264, label %.thread362
 
-.thread366:                                       ; preds = %259, %257, %261
-  %.3369 = phi i32 [ %262, %261 ], [ -18, %257 ], [ %254, %259 ]
-  %263 = phi ptr [ %.pr361.pre, %261 ], [ %255, %257 ], [ %255, %259 ]
+.thread362:                                       ; preds = %259, %257, %261
+  %.3365 = phi i32 [ %262, %261 ], [ -18, %257 ], [ %254, %259 ]
+  %263 = phi ptr [ %.pr357.pre, %261 ], [ %255, %257 ], [ %255, %259 ]
   call void @PMIx_Value_free(ptr noundef nonnull %263, i64 noundef 1) #19
   store ptr null, ptr %29, align 8
   br label %264
 
-264:                                              ; preds = %261, %.thread366
-  %.3365 = phi i32 [ %262, %261 ], [ %.3369, %.thread366 ]
-  %.not253 = icmp eq i32 %.3365, 0
-  br i1 %.not253, label %._crit_edge600, label %.thread370
+264:                                              ; preds = %261, %.thread362
+  %.3361 = phi i32 [ %262, %261 ], [ %.3365, %.thread362 ]
+  %.not250 = icmp eq i32 %.3361, 0
+  br i1 %.not250, label %._crit_edge596, label %.thread366
 
-._crit_edge600:                                   ; preds = %264
-  %.pre601 = load i32, ptr %5, align 4
+._crit_edge596:                                   ; preds = %264
+  %.pre597 = load i32, ptr %5, align 4
   br label %270
 
-.thread370:                                       ; preds = %247, %264
+.thread366:                                       ; preds = %247, %264
   %265 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 25), align 8
-  %266 = and i8 %265, 1
-  %.not254 = icmp eq i8 %266, 0
-  br i1 %.not254, label %268, label %267
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %267, label %268
 
-267:                                              ; preds = %.thread370
+267:                                              ; preds = %.thread366
   store i32 1, ptr %5, align 4
   br label %270
 
-268:                                              ; preds = %.thread370
+268:                                              ; preds = %.thread366
   %269 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
   store i32 %269, ptr %5, align 4
   br label %270
 
-270:                                              ; preds = %._crit_edge600, %267, %268
-  %271 = phi i32 [ %.pre601, %._crit_edge600 ], [ 1, %267 ], [ %269, %268 ]
+270:                                              ; preds = %._crit_edge596, %267, %268
+  %271 = phi i32 [ %.pre597, %._crit_edge596 ], [ 1, %267 ], [ %269, %268 ]
   store i32 %271, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 16), align 4
   %272 = load i32, ptr @opal_process_info, align 8
   store i32 %272, ptr %3, align 4
@@ -1279,156 +1275,156 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %273 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %32, i32 noundef %272) #19
   %274 = load i32, ptr %131, align 4
   %275 = getelementptr inbounds i8, ptr %32, i64 256
-  %cond740 = icmp eq i32 %274, -1
-  %spec.select741 = select i1 %cond740, i32 -4, i32 %274
-  store i32 %spec.select741, ptr %275, align 4
+  %cond736 = icmp eq i32 %274, -1
+  %spec.select737 = select i1 %cond736, i32 -4, i32 %274
+  store i32 %spec.select737, ptr %275, align 4
   %276 = call i32 @PMIx_Info_load(ptr noundef nonnull %34, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %277 = call i32 @PMIx_Get(ptr noundef nonnull %32, ptr noundef nonnull @.str.30, ptr noundef nonnull %34, i64 noundef 1, ptr noundef nonnull %33) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %34) #19
   %278 = load ptr, ptr %33, align 8
   %279 = icmp eq ptr %278, null
-  br i1 %279, label %.thread383, label %280
+  br i1 %279, label %.thread379, label %280
 
 280:                                              ; preds = %270
   %281 = load i16, ptr %278, align 8
-  %.not255 = icmp eq i16 %281, 14
-  br i1 %.not255, label %282, label %.thread379
+  %.not251 = icmp eq i16 %281, 14
+  br i1 %.not251, label %282, label %.thread375
 
 282:                                              ; preds = %280
   %283 = icmp eq i32 %277, 0
-  br i1 %283, label %284, label %.thread379
+  br i1 %283, label %284, label %.thread375
 
 284:                                              ; preds = %282
   %285 = call i32 @PMIx_Value_unload(ptr noundef nonnull %278, ptr noundef nonnull %6, ptr noundef nonnull %35) #19
-  %.pr374.pre = load ptr, ptr %33, align 8
-  %.not256 = icmp eq ptr %.pr374.pre, null
-  br i1 %.not256, label %287, label %.thread379
+  %.pr370.pre = load ptr, ptr %33, align 8
+  %.not252 = icmp eq ptr %.pr370.pre, null
+  br i1 %.not252, label %287, label %.thread375
 
-.thread379:                                       ; preds = %282, %280, %284
-  %.4382 = phi i32 [ %285, %284 ], [ -18, %280 ], [ %277, %282 ]
-  %286 = phi ptr [ %.pr374.pre, %284 ], [ %278, %280 ], [ %278, %282 ]
+.thread375:                                       ; preds = %282, %280, %284
+  %.4378 = phi i32 [ %285, %284 ], [ -18, %280 ], [ %277, %282 ]
+  %286 = phi ptr [ %.pr370.pre, %284 ], [ %278, %280 ], [ %278, %282 ]
   call void @PMIx_Value_free(ptr noundef nonnull %286, i64 noundef 1) #19
   store ptr null, ptr %33, align 8
   br label %287
 
-287:                                              ; preds = %284, %.thread379
-  %.4378 = phi i32 [ %285, %284 ], [ %.4382, %.thread379 ]
-  %.4378.fr = freeze i32 %.4378
-  %288 = icmp eq i32 %.4378.fr, 0
+287:                                              ; preds = %284, %.thread375
+  %.4374 = phi i32 [ %285, %284 ], [ %.4378, %.thread375 ]
+  %.4374.fr = freeze i32 %.4374
+  %288 = icmp eq i32 %.4374.fr, 0
   %289 = load i32, ptr %5, align 4
-  %spec.select582 = select i1 %288, i32 %289, i32 1
-  br label %.thread383
+  %spec.select578 = select i1 %288, i32 %289, i32 1
+  br label %.thread379
 
-.thread383:                                       ; preds = %287, %270
-  %290 = phi i32 [ 1, %270 ], [ %spec.select582, %287 ]
+.thread379:                                       ; preds = %287, %270
+  %290 = phi i32 [ 1, %270 ], [ %spec.select578, %287 ]
   store i32 %290, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 20), align 8
   store ptr null, ptr %37, align 8
   %291 = load i32, ptr @opal_process_info, align 8
   %292 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %36, i32 noundef %291) #19
   %293 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
   %294 = getelementptr inbounds i8, ptr %36, i64 256
-  %cond742 = icmp eq i32 %293, -1
-  %spec.select743 = select i1 %cond742, i32 -4, i32 %293
-  store i32 %spec.select743, ptr %294, align 4
+  %cond738 = icmp eq i32 %293, -1
+  %spec.select739 = select i1 %cond738, i32 -4, i32 %293
+  store i32 %spec.select739, ptr %294, align 4
   %295 = call i32 @PMIx_Info_load(ptr noundef nonnull %38, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %296 = call i32 @PMIx_Get(ptr noundef nonnull %36, ptr noundef nonnull @.str.31, ptr noundef nonnull %38, i64 noundef 1, ptr noundef nonnull %37) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %38) #19
   %297 = load ptr, ptr %37, align 8
   %298 = icmp eq ptr %297, null
-  br i1 %298, label %.thread397, label %299
+  br i1 %298, label %.thread393, label %299
 
-299:                                              ; preds = %.thread383
+299:                                              ; preds = %.thread379
   %300 = load i16, ptr %297, align 8
-  %.not258 = icmp eq i16 %300, 14
-  br i1 %.not258, label %301, label %.thread392
+  %.not254 = icmp eq i16 %300, 14
+  br i1 %.not254, label %301, label %.thread388
 
 301:                                              ; preds = %299
   %302 = icmp eq i32 %296, 0
-  br i1 %302, label %303, label %.thread392
+  br i1 %302, label %303, label %.thread388
 
 303:                                              ; preds = %301
   %304 = call i32 @PMIx_Value_unload(ptr noundef nonnull %297, ptr noundef nonnull %6, ptr noundef nonnull %39) #19
-  %.pr387.pre = load ptr, ptr %37, align 8
-  %.not259 = icmp eq ptr %.pr387.pre, null
-  br i1 %.not259, label %306, label %.thread392
+  %.pr383.pre = load ptr, ptr %37, align 8
+  %.not255 = icmp eq ptr %.pr383.pre, null
+  br i1 %.not255, label %306, label %.thread388
 
-.thread392:                                       ; preds = %301, %299, %303
-  %.5395 = phi i32 [ %304, %303 ], [ -18, %299 ], [ %296, %301 ]
-  %305 = phi ptr [ %.pr387.pre, %303 ], [ %297, %299 ], [ %297, %301 ]
+.thread388:                                       ; preds = %301, %299, %303
+  %.5391 = phi i32 [ %304, %303 ], [ -18, %299 ], [ %296, %301 ]
+  %305 = phi ptr [ %.pr383.pre, %303 ], [ %297, %299 ], [ %297, %301 ]
   call void @PMIx_Value_free(ptr noundef nonnull %305, i64 noundef 1) #19
   store ptr null, ptr %37, align 8
   br label %306
 
-306:                                              ; preds = %303, %.thread392
-  %.5391 = phi i32 [ %304, %303 ], [ %.5395, %.thread392 ]
-  %.5391.fr = freeze i32 %.5391
-  %307 = icmp eq i32 %.5391.fr, 0
+306:                                              ; preds = %303, %.thread388
+  %.5387 = phi i32 [ %304, %303 ], [ %.5391, %.thread388 ]
+  %.5387.fr = freeze i32 %.5387
+  %307 = icmp eq i32 %.5387.fr, 0
   %308 = load i32, ptr %5, align 4
-  %spec.select583 = select i1 %307, i32 %308, i32 0
-  br label %.thread397
+  %spec.select579 = select i1 %307, i32 %308, i32 0
+  br label %.thread393
 
-.thread397:                                       ; preds = %306, %.thread383
-  %309 = phi i32 [ 0, %.thread383 ], [ %spec.select583, %306 ]
+.thread393:                                       ; preds = %306, %.thread379
+  %309 = phi i32 [ 0, %.thread379 ], [ %spec.select579, %306 ]
   store i32 %309, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 15), align 8
   %310 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 20), align 8
   %311 = icmp eq i32 %310, 1
   br i1 %311, label %312, label %316
 
-312:                                              ; preds = %.thread397
+312:                                              ; preds = %.thread393
   %313 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.32) #19
   store ptr %313, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
   %314 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
   %315 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), ptr noundef nonnull @.str.33, i32 noundef %314) #19
   br label %361
 
-316:                                              ; preds = %.thread397
+316:                                              ; preds = %.thread393
   store ptr null, ptr %10, align 8
   store ptr null, ptr %41, align 8
   %317 = load i32, ptr %3, align 4
   %318 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %40, i32 noundef %317) #19
   %319 = load i32, ptr %131, align 4
   %320 = getelementptr inbounds i8, ptr %40, i64 256
-  %cond744 = icmp eq i32 %319, -1
-  %spec.select745 = select i1 %cond744, i32 -4, i32 %319
-  store i32 %spec.select745, ptr %320, align 4
+  %cond740 = icmp eq i32 %319, -1
+  %spec.select741 = select i1 %cond740, i32 -4, i32 %319
+  store i32 %spec.select741, ptr %320, align 4
   %321 = call i32 @PMIx_Info_load(ptr noundef nonnull %42, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %322 = call i32 @PMIx_Get(ptr noundef nonnull %40, ptr noundef nonnull @.str.34, ptr noundef nonnull %42, i64 noundef 1, ptr noundef nonnull %41) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %42) #19
   %323 = load ptr, ptr %41, align 8
   %324 = icmp eq ptr %323, null
-  br i1 %324, label %.thread410, label %325
+  br i1 %324, label %.thread406, label %325
 
 325:                                              ; preds = %316
   %326 = load i16, ptr %323, align 8
-  %.not261 = icmp eq i16 %326, 3
-  br i1 %.not261, label %327, label %.thread406
+  %.not257 = icmp eq i16 %326, 3
+  br i1 %.not257, label %327, label %.thread402
 
 327:                                              ; preds = %325
   %328 = icmp eq i32 %322, 0
-  br i1 %328, label %329, label %.thread406
+  br i1 %328, label %329, label %.thread402
 
 329:                                              ; preds = %327
   %330 = call i32 @PMIx_Value_unload(ptr noundef nonnull %323, ptr noundef nonnull %10, ptr noundef nonnull %43) #19
-  %.pr401.pre = load ptr, ptr %41, align 8
-  %.not262 = icmp eq ptr %.pr401.pre, null
-  br i1 %.not262, label %332, label %.thread406
+  %.pr397.pre = load ptr, ptr %41, align 8
+  %.not258 = icmp eq ptr %.pr397.pre, null
+  br i1 %.not258, label %332, label %.thread402
 
-.thread406:                                       ; preds = %327, %325, %329
-  %.6409 = phi i32 [ %330, %329 ], [ -18, %325 ], [ %322, %327 ]
-  %331 = phi ptr [ %.pr401.pre, %329 ], [ %323, %325 ], [ %323, %327 ]
+.thread402:                                       ; preds = %327, %325, %329
+  %.6405 = phi i32 [ %330, %329 ], [ -18, %325 ], [ %322, %327 ]
+  %331 = phi ptr [ %.pr397.pre, %329 ], [ %323, %325 ], [ %323, %327 ]
   call void @PMIx_Value_free(ptr noundef nonnull %331, i64 noundef 1) #19
   store ptr null, ptr %41, align 8
   br label %332
 
-332:                                              ; preds = %329, %.thread406
-  %.6405 = phi i32 [ %330, %329 ], [ %.6409, %.thread406 ]
-  %333 = icmp ne i32 %.6405, 0
+332:                                              ; preds = %329, %.thread402
+  %.6401 = phi i32 [ %330, %329 ], [ %.6405, %.thread402 ]
+  %333 = icmp ne i32 %.6401, 0
   %334 = load ptr, ptr %10, align 8
   %335 = icmp eq ptr %334, null
   %or.cond3 = select i1 %333, i1 true, i1 %335
-  br i1 %or.cond3, label %.thread410, label %338
+  br i1 %or.cond3, label %.thread406, label %338
 
-.thread410:                                       ; preds = %316, %332
+.thread406:                                       ; preds = %316, %332
   %336 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 14), align 4
   %337 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), ptr noundef nonnull @.str.33, i32 noundef %336) #19
   br label %339
@@ -1437,54 +1433,54 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store ptr %334, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 17), align 8
   br label %339
 
-339:                                              ; preds = %338, %.thread410
+339:                                              ; preds = %338, %.thread406
   store ptr null, ptr %10, align 8
   store ptr null, ptr %45, align 8
   %340 = load i32, ptr %3, align 4
   %341 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %44, i32 noundef %340) #19
   %342 = load i32, ptr %131, align 4
   %343 = getelementptr inbounds i8, ptr %44, i64 256
-  %cond746 = icmp eq i32 %342, -1
-  %spec.select747 = select i1 %cond746, i32 -4, i32 %342
-  store i32 %spec.select747, ptr %343, align 4
+  %cond742 = icmp eq i32 %342, -1
+  %spec.select743 = select i1 %cond742, i32 -4, i32 %342
+  store i32 %spec.select743, ptr %343, align 4
   %344 = call i32 @PMIx_Info_load(ptr noundef nonnull %46, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %345 = call i32 @PMIx_Get(ptr noundef nonnull %44, ptr noundef nonnull @.str.35, ptr noundef nonnull %46, i64 noundef 1, ptr noundef nonnull %45) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %46) #19
   %346 = load ptr, ptr %45, align 8
   %347 = icmp eq ptr %346, null
-  br i1 %347, label %.thread423, label %348
+  br i1 %347, label %.thread419, label %348
 
 348:                                              ; preds = %339
   %349 = load i16, ptr %346, align 8
-  %.not263 = icmp eq i16 %349, 3
-  br i1 %.not263, label %350, label %.thread419
+  %.not259 = icmp eq i16 %349, 3
+  br i1 %.not259, label %350, label %.thread415
 
 350:                                              ; preds = %348
   %351 = icmp eq i32 %345, 0
-  br i1 %351, label %352, label %.thread419
+  br i1 %351, label %352, label %.thread415
 
 352:                                              ; preds = %350
   %353 = call i32 @PMIx_Value_unload(ptr noundef nonnull %346, ptr noundef nonnull %10, ptr noundef nonnull %47) #19
-  %.pr414.pre = load ptr, ptr %45, align 8
-  %.not264 = icmp eq ptr %.pr414.pre, null
-  br i1 %.not264, label %355, label %.thread419
+  %.pr410.pre = load ptr, ptr %45, align 8
+  %.not260 = icmp eq ptr %.pr410.pre, null
+  br i1 %.not260, label %355, label %.thread415
 
-.thread419:                                       ; preds = %350, %348, %352
-  %.7422 = phi i32 [ %353, %352 ], [ -18, %348 ], [ %345, %350 ]
-  %354 = phi ptr [ %.pr414.pre, %352 ], [ %346, %348 ], [ %346, %350 ]
+.thread415:                                       ; preds = %350, %348, %352
+  %.7418 = phi i32 [ %353, %352 ], [ -18, %348 ], [ %345, %350 ]
+  %354 = phi ptr [ %.pr410.pre, %352 ], [ %346, %348 ], [ %346, %350 ]
   call void @PMIx_Value_free(ptr noundef nonnull %354, i64 noundef 1) #19
   store ptr null, ptr %45, align 8
   br label %355
 
-355:                                              ; preds = %352, %.thread419
-  %.7418 = phi i32 [ %353, %352 ], [ %.7422, %.thread419 ]
-  %356 = icmp ne i32 %.7418, 0
+355:                                              ; preds = %352, %.thread415
+  %.7414 = phi i32 [ %353, %352 ], [ %.7418, %.thread415 ]
+  %356 = icmp ne i32 %.7414, 0
   %357 = load ptr, ptr %10, align 8
   %358 = icmp eq ptr %357, null
   %or.cond5 = select i1 %356, i1 true, i1 %358
-  br i1 %or.cond5, label %.thread423, label %360
+  br i1 %or.cond5, label %.thread419, label %360
 
-.thread423:                                       ; preds = %339, %355
+.thread419:                                       ; preds = %339, %355
   %359 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.32) #19
   store ptr %359, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 18), align 8
   br label %361
@@ -1494,73 +1490,73 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store ptr null, ptr %10, align 8
   br label %361
 
-361:                                              ; preds = %.thread423, %360, %312
+361:                                              ; preds = %.thread419, %360, %312
   store ptr null, ptr %9, align 8
   store ptr null, ptr %49, align 8
   %362 = load i32, ptr %3, align 4
   %363 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %48, i32 noundef %362) #19
   %364 = load i32, ptr %131, align 4
   %365 = getelementptr inbounds i8, ptr %48, i64 256
-  %cond748 = icmp eq i32 %364, -1
-  %spec.select749 = select i1 %cond748, i32 -4, i32 %364
-  store i32 %spec.select749, ptr %365, align 4
+  %cond744 = icmp eq i32 %364, -1
+  %spec.select745 = select i1 %cond744, i32 -4, i32 %364
+  store i32 %spec.select745, ptr %365, align 4
   %366 = call i32 @PMIx_Info_load(ptr noundef nonnull %50, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %367 = call i32 @PMIx_Get(ptr noundef nonnull %48, ptr noundef nonnull @.str.36, ptr noundef nonnull %50, i64 noundef 1, ptr noundef nonnull %49) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %50) #19
   %368 = load ptr, ptr %49, align 8
   %369 = icmp eq ptr %368, null
-  br i1 %369, label %.thread436, label %370
+  br i1 %369, label %.thread432, label %370
 
 370:                                              ; preds = %361
   %371 = load i16, ptr %368, align 8
-  %.not265 = icmp eq i16 %371, 3
-  br i1 %.not265, label %372, label %.thread432
+  %.not261 = icmp eq i16 %371, 3
+  br i1 %.not261, label %372, label %.thread428
 
 372:                                              ; preds = %370
   %373 = icmp eq i32 %367, 0
-  br i1 %373, label %374, label %.thread432
+  br i1 %373, label %374, label %.thread428
 
 374:                                              ; preds = %372
   %375 = call i32 @PMIx_Value_unload(ptr noundef nonnull %368, ptr noundef nonnull %9, ptr noundef nonnull %51) #19
-  %.pr427.pre = load ptr, ptr %49, align 8
-  %.not266 = icmp eq ptr %.pr427.pre, null
-  br i1 %.not266, label %377, label %.thread432
+  %.pr423.pre = load ptr, ptr %49, align 8
+  %.not262 = icmp eq ptr %.pr423.pre, null
+  br i1 %.not262, label %377, label %.thread428
 
-.thread432:                                       ; preds = %372, %370, %374
-  %.8435 = phi i32 [ %375, %374 ], [ -18, %370 ], [ %367, %372 ]
-  %376 = phi ptr [ %.pr427.pre, %374 ], [ %368, %370 ], [ %368, %372 ]
+.thread428:                                       ; preds = %372, %370, %374
+  %.8431 = phi i32 [ %375, %374 ], [ -18, %370 ], [ %367, %372 ]
+  %376 = phi ptr [ %.pr423.pre, %374 ], [ %368, %370 ], [ %368, %372 ]
   call void @PMIx_Value_free(ptr noundef nonnull %376, i64 noundef 1) #19
   store ptr null, ptr %49, align 8
   br label %377
 
-377:                                              ; preds = %374, %.thread432
-  %.8431 = phi i32 [ %375, %374 ], [ %.8435, %.thread432 ]
-  %378 = icmp eq i32 %.8431, 0
+377:                                              ; preds = %374, %.thread428
+  %.8427 = phi i32 [ %375, %374 ], [ %.8431, %.thread428 ]
+  %378 = icmp eq i32 %.8427, 0
   %379 = load ptr, ptr %9, align 8
   %380 = icmp ne ptr %379, null
   %or.cond7 = select i1 %378, i1 %380, i1 false
-  br i1 %or.cond7, label %381, label %.thread436
+  br i1 %or.cond7, label %381, label %.thread432
 
 381:                                              ; preds = %377
   store ptr %379, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 19), align 8
   store ptr null, ptr %9, align 8
   br label %386
 
-.thread436:                                       ; preds = %361, %377
-  %.not267 = icmp eq ptr %1, null
-  br i1 %.not267, label %386, label %382
+.thread432:                                       ; preds = %361, %377
+  %.not263 = icmp eq ptr %1, null
+  br i1 %.not263, label %386, label %382
 
-382:                                              ; preds = %.thread436
+382:                                              ; preds = %.thread432
   %383 = load ptr, ptr %1, align 8
-  %.not268 = icmp eq ptr %383, null
-  br i1 %.not268, label %386, label %384
+  %.not264 = icmp eq ptr %383, null
+  br i1 %.not264, label %386, label %384
 
 384:                                              ; preds = %382
   %385 = call noalias ptr @opal_argv_join(ptr noundef nonnull %383, i32 noundef 32) #19
   store ptr %385, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 19), align 8
   br label %386
 
-386:                                              ; preds = %381, %382, %384, %.thread436
+386:                                              ; preds = %381, %382, %384, %.thread432
   store ptr null, ptr %53, align 8
   %387 = call ptr @opal_proc_local_get() #19
   %388 = getelementptr inbounds i8, ptr %387, i64 40
@@ -1586,209 +1582,209 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %404
 
 404:                                              ; preds = %395, %386, %400
-  %.sink710 = phi i32 [ %403, %400 ], [ -2, %386 ], [ -4, %395 ]
+  %.sink706 = phi i32 [ %403, %400 ], [ -2, %386 ], [ -4, %395 ]
   %405 = getelementptr inbounds i8, ptr %52, i64 256
-  store i32 %.sink710, ptr %405, align 4
+  store i32 %.sink706, ptr %405, align 4
   %406 = call i32 @PMIx_Info_load(ptr noundef nonnull %54, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %407 = call i32 @PMIx_Get(ptr noundef nonnull %52, ptr noundef nonnull @.str.37, ptr noundef nonnull %54, i64 noundef 1, ptr noundef nonnull %53) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %54) #19
   %408 = load ptr, ptr %53, align 8
   %409 = icmp eq ptr %408, null
-  br i1 %409, label %.thread449, label %410
+  br i1 %409, label %.thread445, label %410
 
 410:                                              ; preds = %404
   %411 = load i16, ptr %408, align 8
-  %.not269 = icmp eq i16 %411, 14
-  br i1 %.not269, label %412, label %.thread445
+  %.not265 = icmp eq i16 %411, 14
+  br i1 %.not265, label %412, label %.thread441
 
 412:                                              ; preds = %410
   %413 = icmp eq i32 %407, 0
-  br i1 %413, label %414, label %.thread445
+  br i1 %413, label %414, label %.thread441
 
 414:                                              ; preds = %412
   %415 = call i32 @PMIx_Value_unload(ptr noundef nonnull %408, ptr noundef nonnull %6, ptr noundef nonnull %55) #19
-  %.pr440.pre = load ptr, ptr %53, align 8
-  %.not270 = icmp eq ptr %.pr440.pre, null
-  br i1 %.not270, label %417, label %.thread445
+  %.pr436.pre = load ptr, ptr %53, align 8
+  %.not266 = icmp eq ptr %.pr436.pre, null
+  br i1 %.not266, label %417, label %.thread441
 
-.thread445:                                       ; preds = %412, %410, %414
-  %.9448 = phi i32 [ %415, %414 ], [ -18, %410 ], [ %407, %412 ]
-  %416 = phi ptr [ %.pr440.pre, %414 ], [ %408, %410 ], [ %408, %412 ]
+.thread441:                                       ; preds = %412, %410, %414
+  %.9444 = phi i32 [ %415, %414 ], [ -18, %410 ], [ %407, %412 ]
+  %416 = phi ptr [ %.pr436.pre, %414 ], [ %408, %410 ], [ %408, %412 ]
   call void @PMIx_Value_free(ptr noundef nonnull %416, i64 noundef 1) #19
   store ptr null, ptr %53, align 8
   br label %417
 
-417:                                              ; preds = %414, %.thread445
-  %.9444 = phi i32 [ %415, %414 ], [ %.9448, %.thread445 ]
-  %418 = icmp eq i32 %.9444, 0
-  br i1 %418, label %419, label %.thread449
+417:                                              ; preds = %414, %.thread441
+  %.9440 = phi i32 [ %415, %414 ], [ %.9444, %.thread441 ]
+  %418 = icmp eq i32 %.9440, 0
+  br i1 %418, label %419, label %.thread445
 
 419:                                              ; preds = %417
   %420 = load i32, ptr %5, align 4
   store i32 %420, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 22), align 8
-  br label %.thread449
+  br label %.thread445
 
-.thread449:                                       ; preds = %404, %417, %419
+.thread445:                                       ; preds = %404, %417, %419
   store ptr null, ptr %57, align 8
   %421 = load i32, ptr %3, align 4
   %422 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %56, i32 noundef %421) #19
   %423 = load i32, ptr %131, align 4
   %424 = getelementptr inbounds i8, ptr %56, i64 256
-  %cond750 = icmp eq i32 %423, -1
-  %spec.select751 = select i1 %cond750, i32 -4, i32 %423
-  store i32 %spec.select751, ptr %424, align 4
+  %cond746 = icmp eq i32 %423, -1
+  %spec.select747 = select i1 %cond746, i32 -4, i32 %423
+  store i32 %spec.select747, ptr %424, align 4
   %425 = call i32 @PMIx_Info_load(ptr noundef nonnull %58, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %426 = call i32 @PMIx_Get(ptr noundef nonnull %56, ptr noundef nonnull @.str.38, ptr noundef nonnull %58, i64 noundef 1, ptr noundef nonnull %57) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %58) #19
   %427 = load ptr, ptr %57, align 8
   %428 = icmp eq ptr %427, null
-  br i1 %428, label %.thread461, label %429
+  br i1 %428, label %.thread457, label %429
 
-429:                                              ; preds = %.thread449
+429:                                              ; preds = %.thread445
   %430 = load i16, ptr %427, align 8
-  %.not271 = icmp eq i16 %430, 14
-  br i1 %.not271, label %431, label %.thread457
+  %.not267 = icmp eq i16 %430, 14
+  br i1 %.not267, label %431, label %.thread453
 
 431:                                              ; preds = %429
   %432 = icmp eq i32 %426, 0
-  br i1 %432, label %433, label %.thread457
+  br i1 %432, label %433, label %.thread453
 
 433:                                              ; preds = %431
   %434 = call i32 @PMIx_Value_unload(ptr noundef nonnull %427, ptr noundef nonnull %6, ptr noundef nonnull %59) #19
-  %.pr452.pre = load ptr, ptr %57, align 8
-  %.not272 = icmp eq ptr %.pr452.pre, null
-  br i1 %.not272, label %436, label %.thread457
+  %.pr448.pre = load ptr, ptr %57, align 8
+  %.not268 = icmp eq ptr %.pr448.pre, null
+  br i1 %.not268, label %436, label %.thread453
 
-.thread457:                                       ; preds = %431, %429, %433
-  %.10460 = phi i32 [ %434, %433 ], [ -18, %429 ], [ %426, %431 ]
-  %435 = phi ptr [ %.pr452.pre, %433 ], [ %427, %429 ], [ %427, %431 ]
+.thread453:                                       ; preds = %431, %429, %433
+  %.10456 = phi i32 [ %434, %433 ], [ -18, %429 ], [ %426, %431 ]
+  %435 = phi ptr [ %.pr448.pre, %433 ], [ %427, %429 ], [ %427, %431 ]
   call void @PMIx_Value_free(ptr noundef nonnull %435, i64 noundef 1) #19
   store ptr null, ptr %57, align 8
   br label %436
 
-436:                                              ; preds = %433, %.thread457
-  %.10456 = phi i32 [ %434, %433 ], [ %.10460, %.thread457 ]
-  %437 = icmp eq i32 %.10456, 0
-  br i1 %437, label %438, label %.thread461
+436:                                              ; preds = %433, %.thread453
+  %.10452 = phi i32 [ %434, %433 ], [ %.10456, %.thread453 ]
+  %437 = icmp eq i32 %.10452, 0
+  br i1 %437, label %438, label %.thread457
 
 438:                                              ; preds = %436
   %439 = load i32, ptr %5, align 4
   %440 = add i32 %439, -1
   store i32 %440, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
-  br label %.thread461
+  br label %.thread457
 
-.thread461:                                       ; preds = %.thread449, %438, %436
+.thread457:                                       ; preds = %.thread445, %438, %436
   store ptr null, ptr %10, align 8
   store ptr null, ptr %61, align 8
   %441 = load i32, ptr %3, align 4
   %442 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %60, i32 noundef %441) #19
   %443 = load i32, ptr %131, align 4
   %444 = getelementptr inbounds i8, ptr %60, i64 256
-  %cond752 = icmp eq i32 %443, -1
-  %spec.select753 = select i1 %cond752, i32 -4, i32 %443
-  store i32 %spec.select753, ptr %444, align 4
+  %cond748 = icmp eq i32 %443, -1
+  %spec.select749 = select i1 %cond748, i32 -4, i32 %443
+  store i32 %spec.select749, ptr %444, align 4
   %445 = call i32 @PMIx_Info_load(ptr noundef nonnull %62, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %446 = call i32 @PMIx_Get(ptr noundef nonnull %60, ptr noundef nonnull @.str.39, ptr noundef nonnull %62, i64 noundef 1, ptr noundef nonnull %61) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %62) #19
   %447 = load ptr, ptr %61, align 8
   %448 = icmp eq ptr %447, null
-  br i1 %448, label %.thread473, label %449
+  br i1 %448, label %.thread469, label %449
 
-449:                                              ; preds = %.thread461
+449:                                              ; preds = %.thread457
   %450 = load i16, ptr %447, align 8
-  %.not273 = icmp eq i16 %450, 3
-  br i1 %.not273, label %451, label %.thread469
+  %.not269 = icmp eq i16 %450, 3
+  br i1 %.not269, label %451, label %.thread465
 
 451:                                              ; preds = %449
   %452 = icmp eq i32 %446, 0
-  br i1 %452, label %453, label %.thread469
+  br i1 %452, label %453, label %.thread465
 
 453:                                              ; preds = %451
   %454 = call i32 @PMIx_Value_unload(ptr noundef nonnull %447, ptr noundef nonnull %10, ptr noundef nonnull %63) #19
-  %.pr464.pre = load ptr, ptr %61, align 8
-  %.not274 = icmp eq ptr %.pr464.pre, null
-  br i1 %.not274, label %456, label %.thread469
+  %.pr460.pre = load ptr, ptr %61, align 8
+  %.not270 = icmp eq ptr %.pr460.pre, null
+  br i1 %.not270, label %456, label %.thread465
 
-.thread469:                                       ; preds = %451, %449, %453
-  %.11472 = phi i32 [ %454, %453 ], [ -18, %449 ], [ %446, %451 ]
-  %455 = phi ptr [ %.pr464.pre, %453 ], [ %447, %449 ], [ %447, %451 ]
+.thread465:                                       ; preds = %451, %449, %453
+  %.11468 = phi i32 [ %454, %453 ], [ -18, %449 ], [ %446, %451 ]
+  %455 = phi ptr [ %.pr460.pre, %453 ], [ %447, %449 ], [ %447, %451 ]
   call void @PMIx_Value_free(ptr noundef nonnull %455, i64 noundef 1) #19
   store ptr null, ptr %61, align 8
   br label %456
 
-456:                                              ; preds = %453, %.thread469
-  %.11468 = phi i32 [ %454, %453 ], [ %.11472, %.thread469 ]
-  %457 = icmp eq i32 %.11468, 0
+456:                                              ; preds = %453, %.thread465
+  %.11464 = phi i32 [ %454, %453 ], [ %.11468, %.thread465 ]
+  %457 = icmp eq i32 %.11464, 0
   %458 = load ptr, ptr %10, align 8
   %459 = icmp ne ptr %458, null
   %or.cond9 = select i1 %457, i1 %459, i1 false
-  br i1 %or.cond9, label %460, label %.thread473
+  br i1 %or.cond9, label %460, label %.thread469
 
 460:                                              ; preds = %456
   store ptr %458, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
   br label %461
 
-.thread473:                                       ; preds = %.thread461, %456
+.thread469:                                       ; preds = %.thread457, %456
   call fastcc void @_setup_top_session_dir()
   br label %461
 
-461:                                              ; preds = %.thread473, %460
+461:                                              ; preds = %.thread469, %460
   store ptr null, ptr %10, align 8
   store ptr null, ptr %65, align 8
   %462 = load i32, ptr %3, align 4
   %463 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %64, i32 noundef %462) #19
   %464 = load i32, ptr %131, align 4
   %465 = getelementptr inbounds i8, ptr %64, i64 256
-  %cond754 = icmp eq i32 %464, -1
-  %spec.select755 = select i1 %cond754, i32 -4, i32 %464
-  store i32 %spec.select755, ptr %465, align 4
+  %cond750 = icmp eq i32 %464, -1
+  %spec.select751 = select i1 %cond750, i32 -4, i32 %464
+  store i32 %spec.select751, ptr %465, align 4
   %466 = call i32 @PMIx_Info_load(ptr noundef nonnull %66, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %467 = call i32 @PMIx_Get(ptr noundef nonnull %64, ptr noundef nonnull @.str.41, ptr noundef nonnull %66, i64 noundef 1, ptr noundef nonnull %65) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %66) #19
   %468 = load ptr, ptr %65, align 8
   %469 = icmp eq ptr %468, null
-  br i1 %469, label %.thread486, label %470
+  br i1 %469, label %.thread482, label %470
 
 470:                                              ; preds = %461
   %471 = load i16, ptr %468, align 8
-  %.not275 = icmp eq i16 %471, 3
-  br i1 %.not275, label %472, label %.thread482
+  %.not271 = icmp eq i16 %471, 3
+  br i1 %.not271, label %472, label %.thread478
 
 472:                                              ; preds = %470
   %473 = icmp eq i32 %467, 0
-  br i1 %473, label %474, label %.thread482
+  br i1 %473, label %474, label %.thread478
 
 474:                                              ; preds = %472
   %475 = call i32 @PMIx_Value_unload(ptr noundef nonnull %468, ptr noundef nonnull %10, ptr noundef nonnull %67) #19
-  %.pr477.pre = load ptr, ptr %65, align 8
-  %.not276 = icmp eq ptr %.pr477.pre, null
-  br i1 %.not276, label %477, label %.thread482
+  %.pr473.pre = load ptr, ptr %65, align 8
+  %.not272 = icmp eq ptr %.pr473.pre, null
+  br i1 %.not272, label %477, label %.thread478
 
-.thread482:                                       ; preds = %472, %470, %474
-  %.12485 = phi i32 [ %475, %474 ], [ -18, %470 ], [ %467, %472 ]
-  %476 = phi ptr [ %.pr477.pre, %474 ], [ %468, %470 ], [ %468, %472 ]
+.thread478:                                       ; preds = %472, %470, %474
+  %.12481 = phi i32 [ %475, %474 ], [ -18, %470 ], [ %467, %472 ]
+  %476 = phi ptr [ %.pr473.pre, %474 ], [ %468, %470 ], [ %468, %472 ]
   call void @PMIx_Value_free(ptr noundef nonnull %476, i64 noundef 1) #19
   store ptr null, ptr %65, align 8
   br label %477
 
-477:                                              ; preds = %474, %.thread482
-  %.12481 = phi i32 [ %475, %474 ], [ %.12485, %.thread482 ]
-  %478 = icmp eq i32 %.12481, 0
+477:                                              ; preds = %474, %.thread478
+  %.12477 = phi i32 [ %475, %474 ], [ %.12481, %.thread478 ]
+  %478 = icmp eq i32 %.12477, 0
   %479 = load ptr, ptr %10, align 8
   %480 = icmp ne ptr %479, null
   %or.cond11 = select i1 %478, i1 %480, i1 false
-  br i1 %or.cond11, label %481, label %.thread486
+  br i1 %or.cond11, label %481, label %.thread482
 
 481:                                              ; preds = %477
   store ptr %479, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
   br label %483
 
-.thread486:                                       ; preds = %461, %477
+.thread482:                                       ; preds = %461, %477
   %482 = call fastcc i32 @_setup_job_session_dir()
-  %.not277 = icmp eq i32 %482, 0
-  br i1 %.not277, label %483, label %680
+  %.not273 = icmp eq i32 %482, 0
+  br i1 %.not273, label %483, label %680
 
-483:                                              ; preds = %.thread486, %481
+483:                                              ; preds = %.thread482, %481
   store ptr null, ptr %10, align 8
   store ptr null, ptr %69, align 8
   %484 = call ptr @opal_proc_local_get() #19
@@ -1815,280 +1811,280 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %501
 
 501:                                              ; preds = %492, %483, %497
-  %.sink715 = phi i32 [ %500, %497 ], [ -2, %483 ], [ -4, %492 ]
+  %.sink711 = phi i32 [ %500, %497 ], [ -2, %483 ], [ -4, %492 ]
   %502 = getelementptr inbounds i8, ptr %68, i64 256
-  store i32 %.sink715, ptr %502, align 4
+  store i32 %.sink711, ptr %502, align 4
   %503 = call i32 @PMIx_Info_load(ptr noundef nonnull %70, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %504 = call i32 @PMIx_Get(ptr noundef nonnull %68, ptr noundef nonnull @.str.43, ptr noundef nonnull %70, i64 noundef 1, ptr noundef nonnull %69) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %70) #19
   %505 = load ptr, ptr %69, align 8
   %506 = icmp eq ptr %505, null
-  br i1 %506, label %.thread499, label %507
+  br i1 %506, label %.thread495, label %507
 
 507:                                              ; preds = %501
   %508 = load i16, ptr %505, align 8
-  %.not278 = icmp eq i16 %508, 3
-  br i1 %.not278, label %509, label %.thread495
+  %.not274 = icmp eq i16 %508, 3
+  br i1 %.not274, label %509, label %.thread491
 
 509:                                              ; preds = %507
   %510 = icmp eq i32 %504, 0
-  br i1 %510, label %511, label %.thread495
+  br i1 %510, label %511, label %.thread491
 
 511:                                              ; preds = %509
   %512 = call i32 @PMIx_Value_unload(ptr noundef nonnull %505, ptr noundef nonnull %10, ptr noundef nonnull %71) #19
-  %.pr490.pre = load ptr, ptr %69, align 8
-  %.not279 = icmp eq ptr %.pr490.pre, null
-  br i1 %.not279, label %514, label %.thread495
+  %.pr486.pre = load ptr, ptr %69, align 8
+  %.not275 = icmp eq ptr %.pr486.pre, null
+  br i1 %.not275, label %514, label %.thread491
 
-.thread495:                                       ; preds = %509, %507, %511
-  %.13498 = phi i32 [ %512, %511 ], [ -18, %507 ], [ %504, %509 ]
-  %513 = phi ptr [ %.pr490.pre, %511 ], [ %505, %507 ], [ %505, %509 ]
+.thread491:                                       ; preds = %509, %507, %511
+  %.13494 = phi i32 [ %512, %511 ], [ -18, %507 ], [ %504, %509 ]
+  %513 = phi ptr [ %.pr486.pre, %511 ], [ %505, %507 ], [ %505, %509 ]
   call void @PMIx_Value_free(ptr noundef nonnull %513, i64 noundef 1) #19
   store ptr null, ptr %69, align 8
   br label %514
 
-514:                                              ; preds = %511, %.thread495
-  %.13494 = phi i32 [ %512, %511 ], [ %.13498, %.thread495 ]
-  %515 = icmp eq i32 %.13494, 0
+514:                                              ; preds = %511, %.thread491
+  %.13490 = phi i32 [ %512, %511 ], [ %.13494, %.thread491 ]
+  %515 = icmp eq i32 %.13490, 0
   %516 = load ptr, ptr %10, align 8
   %517 = icmp ne ptr %516, null
   %or.cond13 = select i1 %515, i1 %517, i1 false
-  br i1 %or.cond13, label %518, label %.thread499
+  br i1 %or.cond13, label %518, label %.thread495
 
 518:                                              ; preds = %514
   store ptr %516, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), align 8
   br label %520
 
-.thread499:                                       ; preds = %501, %514
+.thread495:                                       ; preds = %501, %514
   %519 = call fastcc i32 @_setup_proc_session_dir()
-  %.not280 = icmp eq i32 %519, 0
-  br i1 %.not280, label %520, label %680
+  %.not276 = icmp eq i32 %519, 0
+  br i1 %.not276, label %520, label %680
 
-520:                                              ; preds = %.thread499, %518
+520:                                              ; preds = %.thread495, %518
   store ptr null, ptr %10, align 8
   store ptr null, ptr %73, align 8
   %521 = load i32, ptr %3, align 4
   %522 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %72, i32 noundef %521) #19
   %523 = load i32, ptr %131, align 4
   %524 = getelementptr inbounds i8, ptr %72, i64 256
-  %cond756 = icmp eq i32 %523, -1
-  %spec.select757 = select i1 %cond756, i32 -4, i32 %523
-  store i32 %spec.select757, ptr %524, align 4
+  %cond752 = icmp eq i32 %523, -1
+  %spec.select753 = select i1 %cond752, i32 -4, i32 %523
+  store i32 %spec.select753, ptr %524, align 4
   %525 = call i32 @PMIx_Info_load(ptr noundef nonnull %74, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %526 = call i32 @PMIx_Get(ptr noundef nonnull %72, ptr noundef nonnull @.str.45, ptr noundef nonnull %74, i64 noundef 1, ptr noundef nonnull %73) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %74) #19
   %527 = load ptr, ptr %73, align 8
   %528 = icmp eq ptr %527, null
-  br i1 %528, label %.thread512, label %529
+  br i1 %528, label %.thread508, label %529
 
 529:                                              ; preds = %520
   %530 = load i16, ptr %527, align 8
-  %.not281 = icmp eq i16 %530, 3
-  br i1 %.not281, label %531, label %.thread508
+  %.not277 = icmp eq i16 %530, 3
+  br i1 %.not277, label %531, label %.thread504
 
 531:                                              ; preds = %529
   %532 = icmp eq i32 %526, 0
-  br i1 %532, label %533, label %.thread508
+  br i1 %532, label %533, label %.thread504
 
 533:                                              ; preds = %531
   %534 = call i32 @PMIx_Value_unload(ptr noundef nonnull %527, ptr noundef nonnull %10, ptr noundef nonnull %75) #19
-  %.pr503.pre = load ptr, ptr %73, align 8
-  %.not282 = icmp eq ptr %.pr503.pre, null
-  br i1 %.not282, label %536, label %.thread508
+  %.pr499.pre = load ptr, ptr %73, align 8
+  %.not278 = icmp eq ptr %.pr499.pre, null
+  br i1 %.not278, label %536, label %.thread504
 
-.thread508:                                       ; preds = %531, %529, %533
-  %.14511 = phi i32 [ %534, %533 ], [ -18, %529 ], [ %526, %531 ]
-  %535 = phi ptr [ %.pr503.pre, %533 ], [ %527, %529 ], [ %527, %531 ]
+.thread504:                                       ; preds = %531, %529, %533
+  %.14507 = phi i32 [ %534, %533 ], [ -18, %529 ], [ %526, %531 ]
+  %535 = phi ptr [ %.pr499.pre, %533 ], [ %527, %529 ], [ %527, %531 ]
   call void @PMIx_Value_free(ptr noundef nonnull %535, i64 noundef 1) #19
   store ptr null, ptr %73, align 8
   br label %536
 
-536:                                              ; preds = %533, %.thread508
-  %.14507 = phi i32 [ %534, %533 ], [ %.14511, %.thread508 ]
-  %537 = icmp eq i32 %.14507, 0
+536:                                              ; preds = %533, %.thread504
+  %.14503 = phi i32 [ %534, %533 ], [ %.14507, %.thread504 ]
+  %537 = icmp eq i32 %.14503, 0
   %538 = load ptr, ptr %10, align 8
   %539 = icmp ne ptr %538, null
   %or.cond15 = select i1 %537, i1 %539, i1 false
-  br i1 %or.cond15, label %540, label %.thread512
+  br i1 %or.cond15, label %540, label %.thread508
 
 540:                                              ; preds = %536
   store ptr %538, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 21), align 8
   br label %543
 
-.thread512:                                       ; preds = %520, %536
+.thread508:                                       ; preds = %520, %536
   %541 = call noalias dereferenceable_or_null(4098) ptr @calloc(i64 noundef 1, i64 noundef 4098) #22
   store ptr %541, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 21), align 8
   %542 = call i32 @opal_getcwd(ptr noundef %541, i64 noundef 4097) #19
   br label %543
 
-543:                                              ; preds = %.thread512, %540
+543:                                              ; preds = %.thread508, %540
   store ptr null, ptr %10, align 8
   store ptr null, ptr %77, align 8
   %544 = load i32, ptr @opal_process_info, align 8
   %545 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %76, i32 noundef %544) #19
   %546 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
   %547 = getelementptr inbounds i8, ptr %76, i64 256
-  %cond758 = icmp eq i32 %546, -1
-  %spec.select759 = select i1 %cond758, i32 -4, i32 %546
-  store i32 %spec.select759, ptr %547, align 4
+  %cond754 = icmp eq i32 %546, -1
+  %spec.select755 = select i1 %cond754, i32 -4, i32 %546
+  store i32 %spec.select755, ptr %547, align 4
   %548 = call i32 @PMIx_Info_load(ptr noundef nonnull %78, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %549 = call i32 @PMIx_Get(ptr noundef nonnull %76, ptr noundef nonnull @.str.46, ptr noundef nonnull %78, i64 noundef 1, ptr noundef nonnull %77) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %78) #19
   %550 = load ptr, ptr %77, align 8
   %551 = icmp eq ptr %550, null
-  br i1 %551, label %.thread525, label %552
+  br i1 %551, label %.thread521, label %552
 
 552:                                              ; preds = %543
   %553 = load i16, ptr %550, align 8
-  %.not283 = icmp eq i16 %553, 3
-  br i1 %.not283, label %554, label %.thread521
+  %.not279 = icmp eq i16 %553, 3
+  br i1 %.not279, label %554, label %.thread517
 
 554:                                              ; preds = %552
   %555 = icmp eq i32 %549, 0
-  br i1 %555, label %556, label %.thread521
+  br i1 %555, label %556, label %.thread517
 
 556:                                              ; preds = %554
   %557 = call i32 @PMIx_Value_unload(ptr noundef nonnull %550, ptr noundef nonnull %10, ptr noundef nonnull %79) #19
-  %.pr516.pre = load ptr, ptr %77, align 8
-  %.not284 = icmp eq ptr %.pr516.pre, null
-  br i1 %.not284, label %559, label %.thread521
+  %.pr512.pre = load ptr, ptr %77, align 8
+  %.not280 = icmp eq ptr %.pr512.pre, null
+  br i1 %.not280, label %559, label %.thread517
 
-.thread521:                                       ; preds = %554, %552, %556
-  %.15524 = phi i32 [ %557, %556 ], [ -18, %552 ], [ %549, %554 ]
-  %558 = phi ptr [ %.pr516.pre, %556 ], [ %550, %552 ], [ %550, %554 ]
+.thread517:                                       ; preds = %554, %552, %556
+  %.15520 = phi i32 [ %557, %556 ], [ -18, %552 ], [ %549, %554 ]
+  %558 = phi ptr [ %.pr512.pre, %556 ], [ %550, %552 ], [ %550, %554 ]
   call void @PMIx_Value_free(ptr noundef nonnull %558, i64 noundef 1) #19
   store ptr null, ptr %77, align 8
   br label %559
 
-559:                                              ; preds = %556, %.thread521
-  %.15520 = phi i32 [ %557, %556 ], [ %.15524, %.thread521 ]
-  %560 = icmp eq i32 %.15520, 0
+559:                                              ; preds = %556, %.thread517
+  %.15516 = phi i32 [ %557, %556 ], [ %.15520, %.thread517 ]
+  %560 = icmp eq i32 %.15516, 0
   %561 = load ptr, ptr %10, align 8
   %562 = icmp ne ptr %561, null
   %or.cond17 = select i1 %560, i1 %562, i1 false
-  br i1 %or.cond17, label %563, label %.thread525
+  br i1 %or.cond17, label %563, label %.thread521
 
-.thread525:                                       ; preds = %543, %559
+.thread521:                                       ; preds = %543, %559
   br label %563
 
-563:                                              ; preds = %559, %.thread525
-  %.sink720 = phi ptr [ null, %.thread525 ], [ %561, %559 ]
-  %.sink719 = phi i8 [ 0, %.thread525 ], [ 1, %559 ]
-  store ptr %.sink720, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 11), align 8
-  store i8 %.sink719, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 23), align 4
+563:                                              ; preds = %559, %.thread521
+  %.sink716 = phi ptr [ null, %.thread521 ], [ %561, %559 ]
+  %.sink715 = phi i8 [ 0, %.thread521 ], [ 1, %559 ]
+  store ptr %.sink716, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 11), align 8
+  store i8 %.sink715, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 23), align 4
   store ptr null, ptr %10, align 8
   store ptr null, ptr %81, align 8
   %564 = load i32, ptr @opal_process_info, align 8
   %565 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %80, i32 noundef %564) #19
   %566 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
-  %cond760 = icmp eq i32 %566, -1
-  %spec.select761 = select i1 %cond760, i32 -4, i32 %566
+  %cond756 = icmp eq i32 %566, -1
+  %spec.select757 = select i1 %cond756, i32 -4, i32 %566
   %567 = getelementptr inbounds i8, ptr %80, i64 256
-  store i32 %spec.select761, ptr %567, align 4
+  store i32 %spec.select757, ptr %567, align 4
   %568 = call i32 @PMIx_Info_load(ptr noundef nonnull %82, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %569 = call i32 @PMIx_Get(ptr noundef nonnull %80, ptr noundef nonnull @.str.47, ptr noundef nonnull %82, i64 noundef 1, ptr noundef nonnull %81) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %82) #19
   %570 = load ptr, ptr %81, align 8
   %571 = icmp eq ptr %570, null
-  br i1 %571, label %.thread538, label %572
+  br i1 %571, label %.thread534, label %572
 
 572:                                              ; preds = %563
   %573 = load i16, ptr %570, align 8
-  %.not285 = icmp eq i16 %573, 3
-  br i1 %.not285, label %574, label %.thread534
+  %.not281 = icmp eq i16 %573, 3
+  br i1 %.not281, label %574, label %.thread530
 
 574:                                              ; preds = %572
   %575 = icmp eq i32 %569, 0
-  br i1 %575, label %576, label %.thread534
+  br i1 %575, label %576, label %.thread530
 
 576:                                              ; preds = %574
   %577 = call i32 @PMIx_Value_unload(ptr noundef nonnull %570, ptr noundef nonnull %10, ptr noundef nonnull %83) #19
-  %.pr529.pre = load ptr, ptr %81, align 8
-  %.not286 = icmp eq ptr %.pr529.pre, null
-  br i1 %.not286, label %579, label %.thread534
+  %.pr525.pre = load ptr, ptr %81, align 8
+  %.not282 = icmp eq ptr %.pr525.pre, null
+  br i1 %.not282, label %579, label %.thread530
 
-.thread534:                                       ; preds = %574, %572, %576
-  %.16537 = phi i32 [ %577, %576 ], [ -18, %572 ], [ %569, %574 ]
-  %578 = phi ptr [ %.pr529.pre, %576 ], [ %570, %572 ], [ %570, %574 ]
+.thread530:                                       ; preds = %574, %572, %576
+  %.16533 = phi i32 [ %577, %576 ], [ -18, %572 ], [ %569, %574 ]
+  %578 = phi ptr [ %.pr525.pre, %576 ], [ %570, %572 ], [ %570, %574 ]
   call void @PMIx_Value_free(ptr noundef nonnull %578, i64 noundef 1) #19
   store ptr null, ptr %81, align 8
   br label %579
 
-579:                                              ; preds = %576, %.thread534
-  %.16533 = phi i32 [ %577, %576 ], [ %.16537, %.thread534 ]
-  %580 = icmp eq i32 %.16533, 0
+579:                                              ; preds = %576, %.thread530
+  %.16529 = phi i32 [ %577, %576 ], [ %.16533, %.thread530 ]
+  %580 = icmp eq i32 %.16529, 0
   %581 = load ptr, ptr %10, align 8
   %582 = icmp ne ptr %581, null
   %or.cond19 = select i1 %580, i1 %582, i1 false
-  br i1 %or.cond19, label %583, label %.thread538
+  br i1 %or.cond19, label %583, label %.thread534
 
-.thread538:                                       ; preds = %563, %579
+.thread534:                                       ; preds = %563, %579
   br label %583
 
-583:                                              ; preds = %579, %.thread538
-  %.sink723 = phi ptr [ null, %.thread538 ], [ %581, %579 ]
-  store ptr %.sink723, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 12), align 8
+583:                                              ; preds = %579, %.thread534
+  %.sink719 = phi ptr [ null, %.thread534 ], [ %581, %579 ]
+  store ptr %.sink719, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 12), align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %85, align 8
   %584 = load i32, ptr %3, align 4
   %585 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %84, i32 noundef %584) #19
   %586 = load i32, ptr %131, align 4
-  %cond762 = icmp eq i32 %586, -1
-  %spec.select763 = select i1 %cond762, i32 -4, i32 %586
+  %cond758 = icmp eq i32 %586, -1
+  %spec.select759 = select i1 %cond758, i32 -4, i32 %586
   %587 = getelementptr inbounds i8, ptr %84, i64 256
-  store i32 %spec.select763, ptr %587, align 4
+  store i32 %spec.select759, ptr %587, align 4
   %588 = call i32 @PMIx_Info_load(ptr noundef nonnull %86, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %589 = call i32 @PMIx_Get(ptr noundef nonnull %84, ptr noundef nonnull @.str.48, ptr noundef nonnull %86, i64 noundef 1, ptr noundef nonnull %85) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %86) #19
   %590 = load ptr, ptr %85, align 8
   %591 = icmp eq ptr %590, null
-  br i1 %591, label %.thread551, label %592
+  br i1 %591, label %.thread547, label %592
 
 592:                                              ; preds = %583
   %593 = load i16, ptr %590, align 8
-  %.not287 = icmp eq i16 %593, 3
-  br i1 %.not287, label %594, label %.thread547
+  %.not283 = icmp eq i16 %593, 3
+  br i1 %.not283, label %594, label %.thread543
 
 594:                                              ; preds = %592
   %595 = icmp eq i32 %589, 0
-  br i1 %595, label %596, label %.thread547
+  br i1 %595, label %596, label %.thread543
 
 596:                                              ; preds = %594
   %597 = call i32 @PMIx_Value_unload(ptr noundef nonnull %590, ptr noundef nonnull %10, ptr noundef nonnull %87) #19
-  %.pr542.pre = load ptr, ptr %85, align 8
-  %.not288 = icmp eq ptr %.pr542.pre, null
-  br i1 %.not288, label %599, label %.thread547
+  %.pr538.pre = load ptr, ptr %85, align 8
+  %.not284 = icmp eq ptr %.pr538.pre, null
+  br i1 %.not284, label %599, label %.thread543
 
-.thread547:                                       ; preds = %594, %592, %596
-  %.17550 = phi i32 [ %597, %596 ], [ -18, %592 ], [ %589, %594 ]
-  %598 = phi ptr [ %.pr542.pre, %596 ], [ %590, %592 ], [ %590, %594 ]
+.thread543:                                       ; preds = %594, %592, %596
+  %.17546 = phi i32 [ %597, %596 ], [ -18, %592 ], [ %589, %594 ]
+  %598 = phi ptr [ %.pr538.pre, %596 ], [ %590, %592 ], [ %590, %594 ]
   call void @PMIx_Value_free(ptr noundef nonnull %598, i64 noundef 1) #19
   store ptr null, ptr %85, align 8
   br label %599
 
-599:                                              ; preds = %596, %.thread547
-  %.17546 = phi i32 [ %597, %596 ], [ %.17550, %.thread547 ]
-  %600 = icmp eq i32 %.17546, 0
+599:                                              ; preds = %596, %.thread543
+  %.17542 = phi i32 [ %597, %596 ], [ %.17546, %.thread543 ]
+  %600 = icmp eq i32 %.17542, 0
   %601 = load ptr, ptr %10, align 8
   %602 = icmp ne ptr %601, null
   %or.cond21 = select i1 %600, i1 %602, i1 false
-  br i1 %or.cond21, label %603, label %.thread551
+  br i1 %or.cond21, label %603, label %.thread547
 
 603:                                              ; preds = %599
   %604 = call noalias ptr @opal_argv_split(ptr noundef nonnull %601, i32 noundef 44) #19
   %605 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %605) #19
-  br label %.thread551
+  br label %.thread547
 
-.thread551:                                       ; preds = %583, %599, %603
+.thread547:                                       ; preds = %583, %599, %603
   %.0123 = phi ptr [ %604, %603 ], [ null, %599 ], [ null, %583 ]
   %606 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
   %607 = icmp eq i32 %606, 0
   br i1 %607, label %608, label %612
 
-608:                                              ; preds = %.thread551
-  %.not289 = icmp eq ptr %.0123, null
-  br i1 %.not289, label %.thread554, label %609
+608:                                              ; preds = %.thread547
+  %.not285 = icmp eq ptr %.0123, null
+  br i1 %.not285, label %.thread550, label %609
 
 609:                                              ; preds = %608
   %610 = call i32 @opal_argv_count(ptr noundef nonnull %.0123) #19
@@ -2096,29 +2092,29 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store i32 %611, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
   br label %612
 
-612:                                              ; preds = %609, %.thread551
-  %613 = phi i32 [ %611, %609 ], [ %606, %.thread551 ]
+612:                                              ; preds = %609, %.thread547
+  %613 = phi i32 [ %611, %609 ], [ %606, %.thread547 ]
   %614 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
   %615 = zext i16 %614 to i32
   %616 = icmp ult i32 %613, %615
-  br i1 %616, label %.thread575, label %619
+  br i1 %616, label %.thread571, label %619
 
-.thread554:                                       ; preds = %608
+.thread550:                                       ; preds = %608
   store i32 1, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
   %617 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 8), align 4
   %618 = icmp ugt i16 %617, 1
-  br i1 %618, label %.thread575, label %.thread555
+  br i1 %618, label %.thread571, label %.thread551
 
 619:                                              ; preds = %612
-  %.not290 = icmp eq ptr %.0123, null
-  br i1 %.not290, label %.thread555, label %620
+  %.not286 = icmp eq ptr %.0123, null
+  br i1 %.not286, label %.thread551, label %620
 
 620:                                              ; preds = %619
   %621 = load i32, ptr @opal_process_info, align 8
   store i32 %621, ptr %3, align 4
   %622 = load ptr, ptr %.0123, align 8
-  %.not291585 = icmp eq ptr %622, null
-  br i1 %.not291585, label %._crit_edge, label %.lr.ph
+  %.not287581 = icmp eq ptr %622, null
+  br i1 %.not287581, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %620
   %623 = getelementptr inbounds i8, ptr %88, i64 256
@@ -2127,15 +2123,15 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %630
 
 626:                                              ; preds = %660
-  %627 = add i64 %.0122586, 1
+  %627 = add i64 %.0122582, 1
   %628 = getelementptr inbounds ptr, ptr %.0123, i64 %627
   %629 = load ptr, ptr %628, align 8
-  %.not291 = icmp eq ptr %629, null
-  br i1 %.not291, label %._crit_edge, label %630, !llvm.loop !8
+  %.not287 = icmp eq ptr %629, null
+  br i1 %.not287, label %._crit_edge, label %630, !llvm.loop !8
 
 630:                                              ; preds = %.lr.ph, %626
   %631 = phi ptr [ %622, %.lr.ph ], [ %629, %626 ]
-  %.0122586 = phi i64 [ 0, %.lr.ph ], [ %627, %626 ]
+  %.0122582 = phi i64 [ 0, %.lr.ph ], [ %627, %626 ]
   %632 = call i64 @strtoul(ptr nocapture noundef nonnull %631, ptr noundef null, i32 noundef 10) #19
   %633 = trunc i64 %632 to i32
   store i32 %633, ptr %131, align 4
@@ -2153,45 +2149,45 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %638 = load i32, ptr %3, align 4
   %639 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %88, i32 noundef %638) #19
   %640 = load i32, ptr %131, align 4
-  %cond764 = icmp eq i32 %640, -1
-  %spec.select765 = select i1 %cond764, i32 -4, i32 %640
-  store i32 %spec.select765, ptr %623, align 4
+  %cond760 = icmp eq i32 %640, -1
+  %spec.select761 = select i1 %cond760, i32 -4, i32 %640
+  store i32 %spec.select761, ptr %623, align 4
   %641 = call i32 @PMIx_Info_load(ptr noundef nonnull %90, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %642 = call i32 @PMIx_Get(ptr noundef nonnull %88, ptr noundef nonnull @.str.47, ptr noundef nonnull %90, i64 noundef 1, ptr noundef nonnull %89) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %90) #19
   %643 = load ptr, ptr %89, align 8
   %644 = icmp eq ptr %643, null
-  br i1 %644, label %.thread567, label %645
+  br i1 %644, label %.thread563, label %645
 
 645:                                              ; preds = %637
   %646 = load i16, ptr %643, align 8
-  %.not294 = icmp eq i16 %646, 3
-  br i1 %.not294, label %647, label %.thread563
+  %.not290 = icmp eq i16 %646, 3
+  br i1 %.not290, label %647, label %.thread559
 
 647:                                              ; preds = %645
   %648 = icmp eq i32 %642, 0
-  br i1 %648, label %649, label %.thread563
+  br i1 %648, label %649, label %.thread559
 
 649:                                              ; preds = %647
   %650 = call i32 @PMIx_Value_unload(ptr noundef nonnull %643, ptr noundef nonnull %10, ptr noundef nonnull %91) #19
-  %.pr558.pre = load ptr, ptr %89, align 8
-  %.not295 = icmp eq ptr %.pr558.pre, null
-  br i1 %.not295, label %652, label %.thread563
+  %.pr554.pre = load ptr, ptr %89, align 8
+  %.not291 = icmp eq ptr %.pr554.pre, null
+  br i1 %.not291, label %652, label %.thread559
 
-.thread563:                                       ; preds = %647, %645, %649
-  %.18566 = phi i32 [ %650, %649 ], [ -18, %645 ], [ %642, %647 ]
-  %651 = phi ptr [ %.pr558.pre, %649 ], [ %643, %645 ], [ %643, %647 ]
+.thread559:                                       ; preds = %647, %645, %649
+  %.18562 = phi i32 [ %650, %649 ], [ -18, %645 ], [ %642, %647 ]
+  %651 = phi ptr [ %.pr554.pre, %649 ], [ %643, %645 ], [ %643, %647 ]
   call void @PMIx_Value_free(ptr noundef nonnull %651, i64 noundef 1) #19
   store ptr null, ptr %89, align 8
   br label %652
 
-652:                                              ; preds = %649, %.thread563
-  %.18562 = phi i32 [ %650, %649 ], [ %.18566, %.thread563 ]
-  %653 = icmp eq i32 %.18562, 0
+652:                                              ; preds = %649, %.thread559
+  %.18558 = phi i32 [ %650, %649 ], [ %.18562, %.thread559 ]
+  %653 = icmp eq i32 %.18558, 0
   %654 = load ptr, ptr %10, align 8
   %655 = icmp ne ptr %654, null
   %or.cond23 = select i1 %653, i1 %655, i1 false
-  br i1 %or.cond23, label %656, label %.thread567
+  br i1 %or.cond23, label %656, label %.thread563
 
 656:                                              ; preds = %652
   %657 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 12), align 8
@@ -2199,26 +2195,26 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store i16 %658, ptr %7, align 2
   %659 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %659) #19
-  %.pre617 = load i16, ptr %7, align 2
+  %.pre613 = load i16, ptr %7, align 2
   br label %660
 
-.thread567:                                       ; preds = %637, %652
+.thread563:                                       ; preds = %637, %652
   store i16 15, ptr %7, align 2
   br label %660
 
-660:                                              ; preds = %656, %.thread567, %636
-  %661 = phi i16 [ %.pre617, %656 ], [ 15, %.thread567 ], [ 4095, %636 ]
+660:                                              ; preds = %656, %.thread563, %636
+  %661 = phi i16 [ %.pre613, %656 ], [ 15, %.thread563 ], [ 4095, %636 ]
   store i16 13, ptr %11, align 8
   store i16 %661, ptr %624, align 8
   %662 = load i32, ptr %3, align 4
   %663 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %662) #19
   %664 = load i32, ptr %131, align 4
-  %cond766 = icmp eq i32 %664, -1
-  %spec.select767 = select i1 %cond766, i32 -4, i32 %664
-  store i32 %spec.select767, ptr %625, align 4
+  %cond762 = icmp eq i32 %664, -1
+  %spec.select763 = select i1 %cond762, i32 -4, i32 %664
+  store i32 %spec.select763, ptr %625, align 4
   %665 = call i32 @PMIx_Store_internal(ptr noundef nonnull %4, ptr noundef nonnull @.str.50, ptr noundef nonnull %11) #19
-  %.not296 = icmp eq i32 %665, 0
-  br i1 %.not296, label %626, label %666
+  %.not292 = icmp eq i32 %665, 0
+  br i1 %.not292, label %626, label %666
 
 666:                                              ; preds = %660
   %667 = call i32 @opal_pmix_convert_status(i32 noundef %665) #19
@@ -2227,9 +2223,9 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %626, %620
   call void @opal_argv_free(ptr noundef nonnull %.0123) #19
-  br label %.thread555
+  br label %.thread551
 
-.thread555:                                       ; preds = %.thread554, %._crit_edge, %619
+.thread551:                                       ; preds = %.thread550, %._crit_edge, %619
   %668 = load i32, ptr @opal_process_info, align 8
   store i32 %668, ptr %3, align 4
   store i32 -2, ptr %131, align 4
@@ -2237,49 +2233,49 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %669 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %92, i32 noundef %668) #19
   %670 = load i32, ptr %131, align 4
   %671 = getelementptr inbounds i8, ptr %92, i64 256
-  %cond768 = icmp eq i32 %670, -1
-  %spec.select769 = select i1 %cond768, i32 -4, i32 %670
-  store i32 %spec.select769, ptr %671, align 4
+  %cond764 = icmp eq i32 %670, -1
+  %spec.select765 = select i1 %cond764, i32 -4, i32 %670
+  store i32 %spec.select765, ptr %671, align 4
   %672 = call i32 @PMIx_Info_load(ptr noundef nonnull %94, ptr noundef nonnull @.str.22, ptr noundef null, i16 noundef zeroext 1) #19
   %673 = call i32 @PMIx_Get(ptr noundef nonnull %92, ptr noundef nonnull @.str.52, ptr noundef nonnull %94, i64 noundef 1, ptr noundef nonnull %93) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %94) #19
   %674 = load ptr, ptr %93, align 8
   %675 = icmp eq ptr %674, null
-  br i1 %675, label %.thread573, label %676
+  br i1 %675, label %.thread569, label %676
 
-676:                                              ; preds = %.thread555
+676:                                              ; preds = %.thread551
   %677 = load i16, ptr %674, align 8
-  %.not292 = icmp eq i16 %677, 1
+  %.not288 = icmp eq i16 %677, 1
   %678 = icmp eq i32 %673, 0
-  %spec.select = select i1 %.not292, i1 %678, i1 false
+  %spec.select = select i1 %.not288, i1 %678, i1 false
   call void @PMIx_Value_free(ptr noundef nonnull %674, i64 noundef 1) #19
-  br i1 %spec.select, label %679, label %.thread573
+  br i1 %spec.select, label %679, label %.thread569
 
 679:                                              ; preds = %676
   store i8 1, ptr @ompi_mpi_oversubscribed, align 1
-  br label %.thread573
+  br label %.thread569
 
-680:                                              ; preds = %.thread499, %.thread486, %2, %666, %245, %199
-  %.0118 = phi ptr [ @.str.51, %666 ], [ @.str.28, %245 ], [ @.str.25, %199 ], [ @.str.14, %2 ], [ @.str.42, %.thread486 ], [ @.str.44, %.thread499 ]
-  %.2 = phi i32 [ %667, %666 ], [ %246, %245 ], [ %200, %199 ], [ %95, %2 ], [ %.0113310318, %.thread486 ], [ %.0113310318, %.thread499 ]
-  %.not297 = icmp eq i32 %.2, -43
-  br i1 %.not297, label %684, label %.thread575
+680:                                              ; preds = %.thread495, %.thread482, %2, %666, %245, %199
+  %.0118 = phi ptr [ @.str.51, %666 ], [ @.str.28, %245 ], [ @.str.25, %199 ], [ @.str.14, %2 ], [ @.str.42, %.thread482 ], [ @.str.44, %.thread495 ]
+  %.2 = phi i32 [ %667, %666 ], [ %246, %245 ], [ %200, %199 ], [ %95, %2 ], [ %.0113306314, %.thread482 ], [ %.0113306314, %.thread495 ]
+  %.not293 = icmp eq i32 %.2, -43
+  br i1 %.not293, label %684, label %.thread571
 
-.thread575:                                       ; preds = %.thread554, %612, %680
-  %.2580 = phi i32 [ %.2, %680 ], [ -5, %612 ], [ -5, %.thread554 ]
-  %.0118579 = phi ptr [ %.0118, %680 ], [ @.str.49, %612 ], [ @.str.49, %.thread554 ]
+.thread571:                                       ; preds = %.thread550, %612, %680
+  %.2576 = phi i32 [ %.2, %680 ], [ -5, %612 ], [ -5, %.thread550 ]
+  %.0118575 = phi ptr [ %.0118, %680 ], [ @.str.49, %612 ], [ @.str.49, %.thread550 ]
   %681 = load ptr, ptr @opal_show_help, align 8
-  %682 = call ptr @opal_strerror(i32 noundef %.2580) #19
-  %683 = call i32 (ptr, ptr, i32, ...) %681(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.53, i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %.0118579, ptr noundef %682, i32 noundef %.2580) #19
+  %682 = call ptr @opal_strerror(i32 noundef %.2576) #19
+  %683 = call i32 (ptr, ptr, i32, ...) %681(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.53, i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %.0118575, ptr noundef %682, i32 noundef %.2576) #19
   br label %684
 
-684:                                              ; preds = %.thread575, %680
-  %.2581 = phi i32 [ %.2580, %.thread575 ], [ -43, %680 ]
+684:                                              ; preds = %.thread571, %680
+  %.2577 = phi i32 [ %.2576, %.thread571 ], [ -43, %680 ]
   %685 = call i32 @opal_finalize() #19
-  br label %.thread573
+  br label %.thread569
 
-.thread573:                                       ; preds = %.thread555, %.critedge, %676, %679, %684, %120
-  %.0 = phi i32 [ %.2581, %684 ], [ -43, %120 ], [ %124, %.critedge ], [ 0, %679 ], [ 0, %676 ], [ 0, %.thread555 ]
+.thread569:                                       ; preds = %.thread551, %.critedge, %676, %679, %684, %120
+  %.0 = phi i32 [ %.2577, %684 ], [ -43, %120 ], [ %124, %.critedge ], [ 0, %679 ], [ 0, %676 ], [ 0, %.thread551 ]
   ret i32 %.0
 }
 
@@ -2724,7 +2720,7 @@ define void @ompi_rte_abort(i32 noundef %0, ptr noundef %1, ...) local_unnamed_a
   %5 = alloca %struct.timespec, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @__const.ompi_rte_abort.tp, i64 16, i1 false)
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -2733,7 +2729,7 @@ define void @ompi_rte_abort(i32 noundef %0, ptr noundef %1, ...) local_unnamed_a
   br label %8
 
 8:                                                ; preds = %6, %2
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %9 = load ptr, ptr %4, align 8
   %10 = call i32 @PMIx_Abort(i32 noundef %0, ptr noundef %9, ptr noundef null, i64 noundef 0) #19
   %11 = load ptr, ptr %4, align 8
@@ -2753,20 +2749,14 @@ define void @ompi_rte_abort(i32 noundef %0, ptr noundef %1, ...) local_unnamed_a
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare i32 @opal_vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
 
 declare i32 @PMIx_Abort(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #16
+declare void @_exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @ompi_rte_abort_peers(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
@@ -2793,7 +2783,7 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
 10:                                               ; preds = %8
   %11 = tail call i32 @strcasecmp(ptr noundef nonnull %9, ptr noundef nonnull %0) #21
   %.not11 = icmp eq i32 %11, 0
-  br i1 %.not11, label %12, label %.thread18
+  br i1 %.not11, label %12, label %.thread17
 
 12:                                               ; preds = %10, %8, %1
   %13 = load i32, ptr @opal_process_info, align 8
@@ -2806,7 +2796,7 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
   call void @PMIx_Info_destruct(ptr noundef nonnull %7) #19
   %18 = load ptr, ptr %6, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread18, label %20
+  br i1 %19, label %.thread17, label %20
 
 20:                                               ; preds = %12
   %21 = load i16, ptr %18, align 8
@@ -2815,7 +2805,7 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
   %spec.select = select i1 %.not12, i1 %22, i1 false
   call void @PMIx_Value_free(ptr noundef nonnull %18, i64 noundef 1) #19
   store ptr null, ptr %6, align 8
-  br i1 %spec.select, label %23, label %.thread18
+  br i1 %spec.select, label %23, label %.thread17
 
 23:                                               ; preds = %20
   %24 = call i32 @PMIx_Info_load(ptr noundef nonnull %2, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i16 noundef zeroext 3) #19
@@ -2828,22 +2818,20 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
   call void @PMIx_Info_destruct(ptr noundef nonnull %4) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %27) #19
   %30 = load volatile i8, ptr @debugger_event_active, align 1
-  %31 = and i8 %30, 1
-  %.not1520 = icmp eq i8 %31, 0
-  br i1 %.not1520, label %._crit_edge, label %.lr.ph
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %32 = call i32 @opal_progress() #19
   %33 = load volatile i8, ptr @debugger_event_active, align 1
-  %34 = and i8 %33, 1
-  %.not15 = icmp eq i8 %34, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %35 = call i32 @PMIx_Deregister_event_handler(i64 noundef -1, ptr noundef null, ptr noundef null) #19
-  br label %.thread18
+  br label %.thread17
 
-.thread18:                                        ; preds = %12, %20, %10, %._crit_edge
+.thread17:                                        ; preds = %12, %20, %10, %._crit_edge
   ret void
 }
 
@@ -2923,12 +2911,12 @@ define internal void @buffer_cleanup(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 declare i32 @opal_tsd_tracked_key_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #18
+declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #17
 
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2941,7 +2929,13 @@ declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #1
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @geteuid() local_unnamed_addr #18
+declare i32 @geteuid() local_unnamed_addr #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2958,10 +2952,10 @@ attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(0) }
 attributes #21 = { nounwind willreturn memory(read) }

@@ -443,12 +443,11 @@ define noundef zeroext i1 @_Z18grpc_error_get_intN4absl12lts_202308026StatusEN9g
 entry:
   %call = tail call { i64, i8 } @_ZN9grpc_core12StatusGetIntERKN4absl12lts_202308026StatusENS_17StatusIntPropertyE(ptr noundef nonnull align 8 dereferenceable(8) %error, i32 noundef %which)
   %0 = extractvalue { i64, i8 } %call, 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.else, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = extractvalue { i64, i8 } %call, 0
+  %1 = extractvalue { i64, i8 } %call, 0
   br label %return.sink.split
 
 if.else:                                          ; preds = %entry
@@ -470,7 +469,7 @@ sw.bb7:                                           ; preds = %if.then4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then4, %if.then, %sw.bb6, %sw.bb7
-  %.sink = phi i64 [ 1, %sw.bb7 ], [ 8, %sw.bb6 ], [ %2, %if.then ], [ 0, %if.then4 ]
+  %.sink = phi i64 [ 1, %sw.bb7 ], [ 8, %sw.bb6 ], [ %1, %if.then ], [ 0, %if.then4 ]
   store i64 %.sink, ptr %p, align 8
   br label %return
 
@@ -640,9 +639,8 @@ if.else5:                                         ; preds = %entry
   call void @_ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202308026StatusENS_17StatusStrPropertyE(ptr nonnull sret(%"class.std::optional.3") align 8 %value, ptr noundef nonnull align 8 dereferenceable(8) %error, i32 noundef %which)
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %11 = load i8, ptr %_M_engaged.i.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.i.i.not = icmp eq i8 %12, 0
-  br i1 %tobool.i.i.not, label %if.else10, label %if.then7
+  %tobool.i.i = trunc i8 %11 to i1
+  br i1 %tobool.i.i, label %if.then7, label %if.else10
 
 if.then7:                                         ; preds = %if.else5
   %call9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %value) #14
@@ -663,12 +661,11 @@ invoke.cont14:                                    ; preds = %if.then12
   ]
 
 lpad13:                                           ; preds = %sw.bb18.invoke, %if.then12
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %14 = load i8, ptr %_M_engaged.i.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %eh.resume, label %if.then.i.i.i.i
+  %13 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %eh.resume
 
 if.then.i.i.i.i:                                  ; preds = %lpad13
   store i8 0, ptr %_M_engaged.i.i, align 8
@@ -679,16 +676,15 @@ sw.bb18:                                          ; preds = %invoke.cont14
   br label %sw.bb18.invoke
 
 sw.bb18.invoke:                                   ; preds = %invoke.cont14, %sw.bb18
-  %16 = phi ptr [ @.str.1, %sw.bb18 ], [ @.str, %invoke.cont14 ]
-  %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %16)
+  %14 = phi ptr [ @.str.1, %sw.bb18 ], [ @.str, %invoke.cont14 ]
+  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %14)
           to label %cleanup unwind label %lpad13
 
 cleanup:                                          ; preds = %sw.bb18.invoke, %if.else10, %invoke.cont14, %if.then7
   %retval.0 = phi i1 [ true, %if.then7 ], [ false, %invoke.cont14 ], [ false, %if.else10 ], [ true, %sw.bb18.invoke ]
-  %18 = load i8, ptr %_M_engaged.i.i, align 8
-  %19 = and i8 %18, 1
-  %tobool.not.i.i.i.i8 = icmp eq i8 %19, 0
-  br i1 %tobool.not.i.i.i.i8, label %return, label %if.then.i.i.i.i9
+  %16 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i8 = trunc i8 %16 to i1
+  br i1 %tobool.i.i.i.i8, label %if.then.i.i.i.i9, label %return
 
 if.then.i.i.i.i9:                                 ; preds = %cleanup
   store i8 0, ptr %_M_engaged.i.i, align 8
@@ -700,7 +696,7 @@ return:                                           ; preds = %cond.false.i, %if.t
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %13, %lpad13 ], [ %13, %if.then.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %12, %lpad13 ], [ %12, %if.then.i.i.i.i ]
   resume { ptr, i32 } %.pn
 }
 

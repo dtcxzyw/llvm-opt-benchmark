@@ -155,9 +155,8 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
 83:                                               ; preds = %73
   %84 = getelementptr inbounds i8, ptr %77, i64 8
   %85 = load i8, ptr @opal_uses_threads, align 1
-  %86 = and i8 %85, 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %86, 0
-  br i1 %.not.i.i.i.i.i.i, label %89, label %87
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %89
 
 87:                                               ; preds = %83
   %88 = atomicrmw volatile add ptr %84, i32 1 monotonic, align 4

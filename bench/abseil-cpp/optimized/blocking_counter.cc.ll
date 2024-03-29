@@ -141,8 +141,7 @@ _ZN4absl9MutexLockD2Ev.exit3:                     ; preds = %invoke.cont11
 define internal noundef zeroext i1 @_ZN4absl12_GLOBAL__N_16IsDoneEPv(ptr nocapture noundef readonly %arg) #2 {
 entry:
   %0 = load i8, ptr %arg, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

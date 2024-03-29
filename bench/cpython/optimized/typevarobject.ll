@@ -3360,46 +3360,43 @@ define internal ptr @typevar_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %infer_variance = getelementptr inbounds i8, ptr %self, i64 58
   %0 = load i8, ptr %infer_variance, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %name = getelementptr inbounds i8, ptr %self, i64 16
-  %2 = load ptr, ptr %name, align 8
-  %3 = load i32, ptr %2, align 8
-  %add.i.i = add i32 %3, 1
+  %1 = load ptr, ptr %name, align 8
+  %2 = load i32, ptr %1, align 8
+  %add.i.i = add i32 %2, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  store i32 %add.i.i, ptr %2, align 8
+  store i32 %add.i.i, ptr %1, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %covariant = getelementptr inbounds i8, ptr %self, i64 56
-  %4 = load i8, ptr %covariant, align 8
-  %5 = and i8 %4, 1
-  %tobool1.not = icmp eq i8 %5, 0
-  br i1 %tobool1.not, label %cond.false, label %cond.end
+  %3 = load i8, ptr %covariant, align 8
+  %tobool1 = trunc i8 %3 to i1
+  br i1 %tobool1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
   %contravariant = getelementptr inbounds i8, ptr %self, i64 57
-  %6 = load i8, ptr %contravariant, align 1
-  %7 = and i8 %6, 1
-  %tobool2.not = icmp eq i8 %7, 0
-  %8 = select i1 %tobool2.not, i32 126, i32 45
+  %4 = load i8, ptr %contravariant, align 1
+  %tobool2 = trunc i8 %4 to i1
+  %5 = select i1 %tobool2, i32 45, i32 126
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
-  %cond3 = phi i32 [ %8, %cond.false ], [ 43, %if.end ]
+  %cond3 = phi i32 [ %5, %cond.false ], [ 43, %if.end ]
   %name5 = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load ptr, ptr %name5, align 8
-  %call6 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.29, i32 noundef %cond3, ptr noundef %9) #7
+  %6 = load ptr, ptr %name5, align 8
+  %call6 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.29, i32 noundef %cond3, ptr noundef %6) #7
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then, %cond.end
-  %retval.0 = phi ptr [ %call6, %cond.end ], [ %2, %if.then ], [ %2, %if.end.i.i ]
+  %retval.0 = phi ptr [ %call6, %cond.end ], [ %1, %if.then ], [ %1, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -4441,46 +4438,43 @@ define internal ptr @paramspec_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %infer_variance = getelementptr inbounds i8, ptr %self, i64 34
   %0 = load i8, ptr %infer_variance, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %name = getelementptr inbounds i8, ptr %self, i64 16
-  %2 = load ptr, ptr %name, align 8
-  %3 = load i32, ptr %2, align 8
-  %add.i.i = add i32 %3, 1
+  %1 = load ptr, ptr %name, align 8
+  %2 = load i32, ptr %1, align 8
+  %add.i.i = add i32 %2, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  store i32 %add.i.i, ptr %2, align 8
+  store i32 %add.i.i, ptr %1, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %covariant = getelementptr inbounds i8, ptr %self, i64 32
-  %4 = load i8, ptr %covariant, align 8
-  %5 = and i8 %4, 1
-  %tobool1.not = icmp eq i8 %5, 0
-  br i1 %tobool1.not, label %cond.false, label %cond.end
+  %3 = load i8, ptr %covariant, align 8
+  %tobool1 = trunc i8 %3 to i1
+  br i1 %tobool1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
   %contravariant = getelementptr inbounds i8, ptr %self, i64 33
-  %6 = load i8, ptr %contravariant, align 1
-  %7 = and i8 %6, 1
-  %tobool2.not = icmp eq i8 %7, 0
-  %8 = select i1 %tobool2.not, i32 126, i32 45
+  %4 = load i8, ptr %contravariant, align 1
+  %tobool2 = trunc i8 %4 to i1
+  %5 = select i1 %tobool2, i32 45, i32 126
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
-  %cond3 = phi i32 [ %8, %cond.false ], [ 43, %if.end ]
+  %cond3 = phi i32 [ %5, %cond.false ], [ 43, %if.end ]
   %name5 = getelementptr inbounds i8, ptr %self, i64 16
-  %9 = load ptr, ptr %name5, align 8
-  %call6 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.29, i32 noundef %cond3, ptr noundef %9) #7
+  %6 = load ptr, ptr %name5, align 8
+  %call6 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.29, i32 noundef %cond3, ptr noundef %6) #7
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then, %cond.end
-  %retval.0 = phi ptr [ %call6, %cond.end ], [ %2, %if.then ], [ %2, %if.end.i.i ]
+  %retval.0 = phi ptr [ %call6, %cond.end ], [ %1, %if.then ], [ %1, %if.end.i.i ]
   ret ptr %retval.0
 }
 

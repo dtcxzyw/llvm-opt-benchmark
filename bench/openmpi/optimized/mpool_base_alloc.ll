@@ -31,9 +31,8 @@ define ptr @mca_mpool_base_alloc(i64 noundef %0, ptr noundef %1, ptr noundef %2)
   %14 = call i64 @atoll(ptr nocapture noundef nonnull %13) #6
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @opal_uses_threads, align 1
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %21, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %11
   %19 = atomicrmw volatile add ptr %15, i32 -1 monotonic, align 4
@@ -66,8 +65,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %18, %21
   call void %31(ptr noundef nonnull %12) #5
   %32 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %33 = load ptr, ptr %32, align 8
-  %.not.i36 = icmp eq ptr %33, null
-  br i1 %.not.i36, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %4, align 8

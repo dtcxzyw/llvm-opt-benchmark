@@ -163,9 +163,8 @@ entry:
   call void @_ZN4GURLC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(120) %url, ptr %0, i64 %2)
   %is_valid_.i = getelementptr inbounds i8, ptr %url, i64 32
   %3 = load i8, ptr %is_valid_.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %if.then, label %if.end
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN3net12HostPortPairC1Ev(ptr noundef nonnull align 8 dereferenceable(34) %agg.result)
@@ -177,7 +176,7 @@ _ZN3net12QuicServerIdC2Ev.exit:                   ; preds = %if.then
   br label %cleanup
 
 lpad:                                             ; preds = %if.then, %if.end
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup10
 
@@ -187,8 +186,8 @@ if.end:                                           ; preds = %entry
 
 invoke.cont2:                                     ; preds = %if.end
   %len.i.i = getelementptr inbounds i8, ptr %url, i64 84
-  %6 = load i32, ptr %len.i.i, align 4, !noalias !11
-  %cmp.i.i = icmp slt i32 %6, 1
+  %5 = load i32, ptr %len.i.i, align 4, !noalias !11
+  %cmp.i.i = icmp slt i32 %5, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2
@@ -197,9 +196,9 @@ if.then.i.i:                                      ; preds = %invoke.cont2
 
 if.end.i.i:                                       ; preds = %invoke.cont2
   %path.i = getelementptr inbounds i8, ptr %url, i64 80
-  %7 = load i32, ptr %path.i, align 8, !noalias !11
-  %conv.i.i = sext i32 %7 to i64
-  %conv3.i.i = zext nneg i32 %6 to i64
+  %6 = load i32, ptr %path.i, align 8, !noalias !11
+  %conv.i.i = sext i32 %6 to i64
+  %conv3.i.i = zext nneg i32 %5 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %url, i64 noundef %conv.i.i, i64 noundef %conv3.i.i)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -213,8 +212,8 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   %cond = zext i1 %cmp.i to i32
   %port_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %port_3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %8 = load i16, ptr %port_3.i.i, align 8
-  store i16 %8, ptr %port_.i.i, align 8
+  %7 = load i16, ptr %port_3.i.i, align 8
+  store i16 %7, ptr %port_.i.i, align 8
   %privacy_mode_.i3 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %cond, ptr %privacy_mode_.i3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #6
@@ -222,18 +221,18 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   br label %cleanup
 
 lpad4:                                            ; preds = %if.end.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #6
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad4
-  %.pn = phi { ptr, i32 } [ %10, %lpad6 ], [ %9, %lpad4 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad4 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
   br label %ehcleanup10
 
@@ -242,7 +241,7 @@ cleanup:                                          ; preds = %_ZN3net12QuicServer
   ret void
 
 ehcleanup10:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ]
   call void @_ZN4GURLD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %url) #6
   resume { ptr, i32 } %.pn.pn
 }

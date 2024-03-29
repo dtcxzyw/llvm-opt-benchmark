@@ -177,15 +177,14 @@ entry:
   br i1 %tobool.not34, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %do.body
-  %el.036 = phi ptr [ %13, %do.body ], [ %call, %entry ]
+  %el.036 = phi ptr [ %10, %do.body ], [ %call, %entry ]
   %mach_list.035 = phi ptr [ %call38, %do.body ], [ null, %entry ]
   %0 = load ptr, ptr %el.036, align 8
   %call1 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #8
   %is_default = getelementptr inbounds i8, ptr %0, i64 189
   %1 = load i8, ptr %is_default, align 1
-  %2 = and i8 %1, 1
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.end, label %if.then
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   %has_is_default = getelementptr inbounds i8, ptr %call1, i64 16
@@ -196,40 +195,40 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %alias = getelementptr inbounds i8, ptr %0, i64 112
-  %3 = load ptr, ptr %alias, align 8
-  %tobool4.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %alias, align 8
+  %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %3) #7
+  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %2) #7
   %alias8 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call7, ptr %alias8, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %if.end
   %name = getelementptr inbounds i8, ptr %0, i64 104
-  %4 = load ptr, ptr %name, align 8
-  %call10 = tail call noalias ptr @g_strdup(ptr noundef %4) #7
+  %3 = load ptr, ptr %name, align 8
+  %call10 = tail call noalias ptr @g_strdup(ptr noundef %3) #7
   store ptr %call10, ptr %call1, align 8
   %max_cpus = getelementptr inbounds i8, ptr %0, i64 176
-  %5 = load i32, ptr %max_cpus, align 8
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
+  %4 = load i32, ptr %max_cpus, align 8
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
   %conv = sext i32 %spec.select to i64
   %cpu_max = getelementptr inbounds i8, ptr %call1, i64 24
   store i64 %conv, ptr %cpu_max, align 8
   %has_hotpluggable_cpus = getelementptr inbounds i8, ptr %0, i64 264
-  %6 = load i8, ptr %has_hotpluggable_cpus, align 8
-  %7 = and i8 %6, 1
+  %5 = load i8, ptr %has_hotpluggable_cpus, align 8
   %hotpluggable_cpus = getelementptr inbounds i8, ptr %call1, i64 32
-  store i8 %7, ptr %hotpluggable_cpus, align 8
+  %frombool = and i8 %5, 1
+  store i8 %frombool, ptr %hotpluggable_cpus, align 8
   %numa_mem_supported = getelementptr inbounds i8, ptr %0, i64 293
-  %8 = load i8, ptr %numa_mem_supported, align 1
-  %9 = and i8 %8, 1
+  %6 = load i8, ptr %numa_mem_supported, align 1
   %numa_mem_supported16 = getelementptr inbounds i8, ptr %call1, i64 33
-  store i8 %9, ptr %numa_mem_supported16, align 1
+  %frombool17 = and i8 %6, 1
+  store i8 %frombool17, ptr %numa_mem_supported16, align 1
   %deprecation_reason = getelementptr inbounds i8, ptr %0, i64 128
-  %10 = load ptr, ptr %deprecation_reason, align 8
-  %tobool18 = icmp ne ptr %10, null
+  %7 = load ptr, ptr %deprecation_reason, align 8
+  %tobool18 = icmp ne ptr %7, null
   %deprecated = getelementptr inbounds i8, ptr %call1, i64 34
   %frombool20 = zext i1 %tobool18 to i8
   store i8 %frombool20, ptr %deprecated, align 2
@@ -239,24 +238,24 @@ if.end9:                                          ; preds = %if.then5, %if.end
   %frombool25 = zext i1 %tobool22 to i8
   store i8 %frombool25, ptr %acpi, align 8
   %default_cpu_type = getelementptr inbounds i8, ptr %0, i64 248
-  %11 = load ptr, ptr %default_cpu_type, align 8
-  %tobool26.not = icmp eq ptr %11, null
+  %8 = load ptr, ptr %default_cpu_type, align 8
+  %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end31, label %if.then27
 
 if.then27:                                        ; preds = %if.end9
-  %call29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %11) #7
+  %call29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %8) #7
   %default_cpu_type30 = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %call29, ptr %default_cpu_type30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %if.end9
   %default_ram_id = getelementptr inbounds i8, ptr %0, i64 304
-  %12 = load ptr, ptr %default_ram_id, align 8
-  %tobool32.not = icmp eq ptr %12, null
+  %9 = load ptr, ptr %default_ram_id, align 8
+  %tobool32.not = icmp eq ptr %9, null
   br i1 %tobool32.not, label %do.body, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  %call35 = tail call noalias ptr @g_strdup(ptr noundef nonnull %12) #7
+  %call35 = tail call noalias ptr @g_strdup(ptr noundef nonnull %9) #7
   %default_ram_id36 = getelementptr inbounds i8, ptr %call1, i64 48
   store ptr %call35, ptr %default_ram_id36, align 8
   br label %do.body
@@ -267,8 +266,8 @@ do.body:                                          ; preds = %if.end31, %if.then3
   store ptr %call1, ptr %value, align 8
   store ptr %mach_list.035, ptr %call38, align 8
   %next39 = getelementptr inbounds i8, ptr %el.036, i64 8
-  %13 = load ptr, ptr %next39, align 8
-  %tobool.not = icmp eq ptr %13, null
+  %10 = load ptr, ptr %next39, align 8
+  %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %do.body, %entry
@@ -319,9 +318,8 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #7
   %has_hotpluggable_cpus = getelementptr inbounds i8, ptr %call1.i, i64 264
   %0 = load i8, ptr %has_hotpluggable_cpus, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @__func__.qmp_query_hotpluggable_cpus, ptr noundef nonnull @.str.3) #7
@@ -533,7 +531,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body, %for.inc
-  %cpu.032 = phi ptr [ %call5.fr, %for.body ], [ %12, %for.inc ]
+  %cpu.032 = phi ptr [ %call5.fr, %for.body ], [ %11, %for.inc ]
   %value = getelementptr inbounds i8, ptr %cpu.032, i64 8
   %6 = load ptr, ptr %value, align 8
   %props = getelementptr inbounds i8, ptr %6, i64 24
@@ -543,35 +541,34 @@ for.body10:                                       ; preds = %for.body, %for.inc
 
 land.lhs.true:                                    ; preds = %for.body10
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %tobool14.not = icmp eq i8 %9, 0
-  br i1 %tobool14.not, label %for.inc, label %land.lhs.true16
+  %tobool14 = trunc i8 %8 to i1
+  br i1 %tobool14, label %land.lhs.true16, label %for.inc
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
   %node_id = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i64, ptr %node_id, align 8
-  %cmp20 = icmp eq i64 %10, %indvars.iv
+  %9 = load i64, ptr %node_id, align 8
+  %cmp20 = icmp eq i64 %9, %indvars.iv
   br i1 %cmp20, label %if.then22, label %for.inc
 
 if.then22:                                        ; preds = %land.lhs.true16
-  %11 = load i64, ptr %6, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.8, i64 noundef %11) #7
+  %10 = load i64, ptr %6, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.8, i64 noundef %10) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body10, %land.lhs.true, %land.lhs.true16, %if.then22
-  %12 = load ptr, ptr %cpu.032, align 8
-  %tobool9.not = icmp eq ptr %12, null
+  %11 = load ptr, ptr %cpu.032, align 8
+  %tobool9.not = icmp eq ptr %11, null
   br i1 %tobool9.not, label %for.cond8.for.end_crit_edge, label %for.body10, !llvm.loop !11
 
 for.cond8.for.end_crit_edge:                      ; preds = %for.inc
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.9) #7
   %arrayidx = getelementptr %struct.NumaNodeMem, ptr %call6, i64 %indvars.iv
-  %13 = load i64, ptr %arrayidx, align 8
-  %shr = lshr i64 %13, 20
+  %12 = load i64, ptr %arrayidx, align 8
+  %shr = lshr i64 %12, 20
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.10, i32 noundef %5, i64 noundef %shr) #7
   %node_plugged_mem = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %14 = load i64, ptr %node_plugged_mem, align 8
-  %shr28 = lshr i64 %14, 20
+  %13 = load i64, ptr %node_plugged_mem, align 8
+  %shr28 = lshr i64 %13, 20
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %5, i64 noundef %shr28) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
@@ -615,8 +612,8 @@ define dso_local noalias noundef ptr @qmp_query_kvm(ptr nocapture noundef readno
 entry:
   %call = tail call noalias dereferenceable_or_null(2) ptr @g_malloc0(i64 noundef 2) #8
   %0 = load i8, ptr @kvm_allowed, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %call, align 1
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %call, align 1
   %call1 = tail call ptr @accel_find(ptr noundef nonnull @.str.12) #7
   %tobool2 = icmp ne ptr %call1, null
   %present = getelementptr inbounds i8, ptr %call, i64 1

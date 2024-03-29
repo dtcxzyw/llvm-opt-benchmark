@@ -34,24 +34,23 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %mmu = getelementptr i8, ptr %call, i64 8976
   %0 = load i8, ptr %mmu, align 8
-  %1 = and i8 %0, 1
-  %tobool3.not = icmp eq i8 %1, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end6
+  %tobool3 = trunc i8 %0 to i1
+  br i1 %tobool3, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.1) #4
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %2 = getelementptr i8, ptr %call, i64 5008
-  %call.val = load i32, ptr %2, align 16
+  %1 = getelementptr i8, ptr %call, i64 5008
+  %call.val = load i32, ptr %1, align 16
   %cmp = icmp eq i32 %call.val, 1
   %satp = getelementptr inbounds i8, ptr %call, i64 5152
-  %3 = load i64, ptr %satp, align 16
+  %2 = load i64, ptr %satp, align 16
   br i1 %cmp, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end6
-  %and = and i64 %3, 2147483648
+  %and = and i64 %2, 2147483648
   %tobool9.not = icmp eq i64 %and, 0
   br i1 %tobool9.not, label %if.then10, label %if.end19
 
@@ -60,7 +59,7 @@ if.then10:                                        ; preds = %if.then8
   br label %return
 
 if.else:                                          ; preds = %if.end6
-  %tobool15.not = icmp ult i64 %3, 1152921504606846976
+  %tobool15.not = icmp ult i64 %2, 1152921504606846976
   br i1 %tobool15.not, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.else
@@ -74,16 +73,16 @@ if.end19:                                         ; preds = %if.else, %if.then8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %last_paddr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %last_size.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %last_attr.i)
-  %and.i = shl i64 %3, 12
-  %4 = trunc i64 %3 to i32
-  %5 = lshr i32 %4, 31
-  %div1010.i = lshr i64 %3, 60
+  %and.i = shl i64 %2, 12
+  %3 = trunc i64 %2 to i32
+  %4 = lshr i32 %3, 31
+  %div1010.i = lshr i64 %2, 60
   %conv11.i = trunc i64 %div1010.i to i32
-  %vm.0.i = select i1 %cmp, i32 %5, i32 %conv11.i
+  %vm.0.i = select i1 %cmp, i32 %4, i32 %conv11.i
   %base.0.i = and i64 %and.i, %base.0.v.i
   %switch.tableidx = add nsw i32 %vm.0.i, -1
-  %6 = icmp ult i32 %switch.tableidx, 10
-  br i1 %6, label %switch.hole_check, label %do.body.i
+  %5 = icmp ult i32 %switch.tableidx, 10
+  br i1 %5, label %switch.hole_check, label %do.body.i
 
 do.body.i:                                        ; preds = %switch.hole_check, %if.end19
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 186, ptr noundef nonnull @__func__.mem_info_svxx, ptr noundef null) #5
@@ -92,19 +91,18 @@ do.body.i:                                        ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %if.end19
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 897, %switch.maskindex
-  %7 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %7, 0
-  br i1 %switch.lobit.not, label %do.body.i, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %do.body.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem, i64 0, i64 %8
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
-  %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep11 = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem.2, i64 0, i64 %9
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep11 = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem.2, i64 0, i64 %7
   %switch.load12 = load i32, ptr %switch.gep11, align 4
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem.3, i64 0, i64 %10
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep13 = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem.3, i64 0, i64 %8
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   %mul.i = mul nuw nsw i32 %switch.load14, %switch.load
   %add.i = add nuw nsw i32 %mul.i, 12
@@ -117,51 +115,51 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 0, ptr %last_attr.i, align 4
   %sub.i = add nsw i32 %switch.load14, -1
   call fastcc void @walk_pte(ptr noundef %mon, i64 noundef %base.0.i, i64 noundef 0, i32 noundef %sub.i, i32 noundef %switch.load, i32 noundef %switch.load12, i32 noundef %add.i, ptr noundef nonnull %vbase.i, ptr noundef nonnull %pbase.i, ptr noundef nonnull %last_paddr.i, ptr noundef nonnull %last_size.i, ptr noundef nonnull %last_attr.i)
-  %11 = load i64, ptr %vbase.i, align 8
-  %12 = load i64, ptr %pbase.i, align 8
-  %13 = load i64, ptr %last_paddr.i, align 8
-  %14 = load i64, ptr %last_size.i, align 8
-  %add15.i = add i64 %14, %13
+  %9 = load i64, ptr %vbase.i, align 8
+  %10 = load i64, ptr %pbase.i, align 8
+  %11 = load i64, ptr %last_paddr.i, align 8
+  %12 = load i64, ptr %last_size.i, align 8
+  %add15.i = add i64 %12, %11
   %sh_prom.i.i = zext nneg i32 %add.i to i64
-  %vaddr.highbits.i.i = lshr i64 %11, %sh_prom.i.i
+  %vaddr.highbits.i.i = lshr i64 %9, %sh_prom.i.i
   %cmp.i.i = icmp eq i64 %vaddr.highbits.i.i, 0
-  %tobool.i.i = icmp ne i64 %add15.i, %12
+  %tobool.i.i = icmp ne i64 %add15.i, %10
   %or.cond.i.i = and i1 %cmp.i.i, %tobool.i.i
   br i1 %or.cond.i.i, label %if.end2.i.i, label %mem_info_svxx.exit
 
 if.end2.i.i:                                      ; preds = %switch.lookup
-  %sub16.i = sub i64 %add15.i, %12
-  %15 = load i32, ptr %last_attr.i, align 4
+  %sub16.i = sub i64 %add15.i, %10
+  %13 = load i32, ptr %last_attr.i, align 4
   %sub.i.i.i = add nuw nsw i32 %mul.i, 11
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i.i to i64
   %shl.i.i.i = shl nuw nsw i64 1, %sh_prom.i.i.i
-  %and.i.i.i = and i64 %11, %shl.i.i.i
+  %and.i.i.i = and i64 %9, %shl.i.i.i
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   %shl2.neg.i.i.i = shl nsw i64 -1, %sh_prom.i.i
   %or.i.i.i = select i1 %tobool.not.i.i.i, i64 0, i64 %shl2.neg.i.i.i
-  %addr.addr.0.i.i.i = or i64 %or.i.i.i, %11
-  %and.i.i = and i32 %15, 2
+  %addr.addr.0.i.i.i = or i64 %or.i.i.i, %9
+  %and.i.i = and i32 %13, 2
   %tobool3.not.i.i = icmp eq i32 %and.i.i, 0
   %cond.i.i = select i1 %tobool3.not.i.i, i32 45, i32 114
-  %and4.i.i = and i32 %15, 4
+  %and4.i.i = and i32 %13, 4
   %tobool5.not.i.i = icmp eq i32 %and4.i.i, 0
   %cond6.i.i = select i1 %tobool5.not.i.i, i32 45, i32 119
-  %and7.i.i = and i32 %15, 8
+  %and7.i.i = and i32 %13, 8
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
   %cond9.i.i = select i1 %tobool8.not.i.i, i32 45, i32 120
-  %and10.i.i = and i32 %15, 16
+  %and10.i.i = and i32 %13, 16
   %tobool11.not.i.i = icmp eq i32 %and10.i.i, 0
   %cond12.i.i = select i1 %tobool11.not.i.i, i32 45, i32 117
-  %and13.i.i = and i32 %15, 32
+  %and13.i.i = and i32 %13, 32
   %tobool14.not.i.i = icmp eq i32 %and13.i.i, 0
   %cond15.i.i = select i1 %tobool14.not.i.i, i32 45, i32 103
-  %and16.i.i = and i32 %15, 64
+  %and16.i.i = and i32 %13, 64
   %tobool17.not.i.i = icmp eq i32 %and16.i.i, 0
   %cond18.i.i = select i1 %tobool17.not.i.i, i32 45, i32 97
-  %and19.i.i = and i32 %15, 128
+  %and19.i.i = and i32 %13, 128
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
   %cond21.i.i = select i1 %tobool20.not.i.i, i32 45, i32 100
-  %call22.i.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.6, i64 noundef %addr.addr.0.i.i.i, i64 noundef %12, i64 noundef %sub16.i, i32 noundef %cond.i.i, i32 noundef %cond6.i.i, i32 noundef %cond9.i.i, i32 noundef %cond12.i.i, i32 noundef %cond15.i.i, i32 noundef %cond18.i.i, i32 noundef %cond21.i.i) #4
+  %call22.i.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.6, i64 noundef %addr.addr.0.i.i.i, i64 noundef %10, i64 noundef %sub16.i, i32 noundef %cond.i.i, i32 noundef %cond6.i.i, i32 noundef %cond9.i.i, i32 noundef %cond12.i.i, i32 noundef %cond15.i.i, i32 noundef %cond18.i.i, i32 noundef %cond21.i.i) #4
   br label %mem_info_svxx.exit
 
 mem_info_svxx.exit:                               ; preds = %switch.lookup, %if.end2.i.i

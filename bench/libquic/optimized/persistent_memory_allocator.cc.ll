@@ -223,7 +223,7 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %entry
-  %last.0 = phi i32 [ %1, %entry ], [ %25, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ]
+  %last.0 = phi i32 [ %1, %entry ], [ %24, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ]
   %2 = load ptr, ptr %this, align 8
   %rem.i = and i32 %last.0, 7
   %cmp.not.i = icmp eq i32 %rem.i, 0
@@ -343,33 +343,32 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
   store atomic i8 1, ptr %corrupt_.i monotonic, align 1
   %readonly_.i = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load i8, ptr %readonly_.i, align 8
-  %16 = and i8 %15, 1
-  %tobool.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %tobool.i = trunc i8 %15 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %mem_base_.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = load ptr, ptr %mem_base_.i.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %17, i64 28
-  %18 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %16 = load ptr, ptr %mem_base_.i.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %16, i64 28
+  %17 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %18, %if.then.i ], [ %21, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %17, %if.then.i ], [ %20, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %19 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %20 = extractvalue { i32, i1 } %19, 1
-  %21 = extractvalue { i32, i1 } %19, 0
-  br i1 %20, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %18 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %19 = extractvalue { i32, i1 } %18, 1
+  %20 = extractvalue { i32, i1 } %18, 0
+  br i1 %19, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
 common.resume:                                    ; preds = %lpad.i95, %lpad.i
   %ref.tmp2.i80.sink = phi ptr [ %ref.tmp2.i80, %lpad.i95 ], [ %ref.tmp2.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %39, %lpad.i95 ], [ %22, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %lpad.i95 ], [ %21, %lpad.i ]
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i80.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %cond.false.i
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -378,25 +377,25 @@ _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__at
   br label %return
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %land.lhs.true.i72
-  %23 = cmpxchg ptr %last_record_, i32 %last.0, i32 %8 seq_cst seq_cst, align 4
-  %24 = extractvalue { i32, i1 } %23, 1
-  %25 = extractvalue { i32, i1 } %23, 0
-  br i1 %24, label %if.then16, label %while.body, !llvm.loop !7
+  %22 = cmpxchg ptr %last_record_, i32 %last.0, i32 %8 seq_cst seq_cst, align 4
+  %23 = extractvalue { i32, i1 } %22, 1
+  %24 = extractvalue { i32, i1 } %22, 0
+  br i1 %23, label %if.then16, label %while.body, !llvm.loop !7
 
 if.then16:                                        ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   %type_id = getelementptr inbounds i8, ptr %add.ptr.i65, i64 8
-  %26 = load atomic volatile i32, ptr %type_id monotonic, align 4
-  store i32 %26, ptr %type_return, align 4
-  %27 = load ptr, ptr %this, align 8
-  %mem_base_.i = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load ptr, ptr %mem_base_.i, align 8
-  %freeptr21 = getelementptr inbounds i8, ptr %28, i64 32
-  %29 = load atomic volatile i32, ptr %freeptr21 monotonic, align 4
-  %mem_size_ = getelementptr inbounds i8, ptr %27, i64 16
-  %30 = load i32, ptr %mem_size_, align 4
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %30, i32 %29)
-  %31 = udiv i32 %.sroa.speculated, 24
-  %cmp26 = icmp ugt i32 %0, %31
+  %25 = load atomic volatile i32, ptr %type_id monotonic, align 4
+  store i32 %25, ptr %type_return, align 4
+  %26 = load ptr, ptr %this, align 8
+  %mem_base_.i = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load ptr, ptr %mem_base_.i, align 8
+  %freeptr21 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = load atomic volatile i32, ptr %freeptr21 monotonic, align 4
+  %mem_size_ = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = load i32, ptr %mem_size_, align 4
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %29, i32 %28)
+  %30 = udiv i32 %.sroa.speculated, 24
+  %cmp26 = icmp ugt i32 %0, %30
   br i1 %cmp26, label %if.then27, label %release.i
 
 if.then27:                                        ; preds = %if.then16
@@ -415,39 +414,38 @@ cleanup.action.i96:                               ; preds = %cond.false.i92
   br label %cleanup.done.i81
 
 cleanup.done.i81:                                 ; preds = %cleanup.action.i96, %if.then27
-  %corrupt_.i82 = getelementptr inbounds i8, ptr %27, i64 25
+  %corrupt_.i82 = getelementptr inbounds i8, ptr %26, i64 25
   store atomic i8 1, ptr %corrupt_.i82 monotonic, align 1
-  %readonly_.i83 = getelementptr inbounds i8, ptr %27, i64 24
-  %32 = load i8, ptr %readonly_.i83, align 8
-  %33 = and i8 %32, 1
-  %tobool.not.i84 = icmp eq i8 %33, 0
-  br i1 %tobool.not.i84, label %if.then.i86, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97
+  %readonly_.i83 = getelementptr inbounds i8, ptr %26, i64 24
+  %31 = load i8, ptr %readonly_.i83, align 8
+  %tobool.i84 = trunc i8 %31 to i1
+  br i1 %tobool.i84, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97, label %if.then.i85
 
-if.then.i86:                                      ; preds = %cleanup.done.i81
-  %34 = load ptr, ptr %mem_base_.i, align 8
-  %flags.i88 = getelementptr inbounds i8, ptr %34, i64 28
-  %35 = load atomic volatile i32, ptr %flags.i88 monotonic, align 4
-  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i89
+if.then.i85:                                      ; preds = %cleanup.done.i81
+  %32 = load ptr, ptr %mem_base_.i, align 8
+  %flags.i87 = getelementptr inbounds i8, ptr %32, i64 28
+  %33 = load atomic volatile i32, ptr %flags.i87 monotonic, align 4
+  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i88
 
-_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i89: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i89, %if.then.i86
-  %loaded_flags.0.i.i90 = phi i32 [ %35, %if.then.i86 ], [ %38, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i89 ]
-  %or.i.i91 = or i32 %loaded_flags.0.i.i90, 1
-  %36 = cmpxchg weak volatile ptr %flags.i88, i32 %loaded_flags.0.i.i90, i32 %or.i.i91 seq_cst seq_cst, align 4
-  %37 = extractvalue { i32, i1 } %36, 1
-  %38 = extractvalue { i32, i1 } %36, 0
-  br i1 %37, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i89, !llvm.loop !5
+_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i88: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i88, %if.then.i85
+  %loaded_flags.0.i.i89 = phi i32 [ %33, %if.then.i85 ], [ %36, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i88 ]
+  %or.i.i90 = or i32 %loaded_flags.0.i.i89, 1
+  %34 = cmpxchg weak volatile ptr %flags.i87, i32 %loaded_flags.0.i.i89, i32 %or.i.i90 seq_cst seq_cst, align 4
+  %35 = extractvalue { i32, i1 } %34, 1
+  %36 = extractvalue { i32, i1 } %34, 0
+  br i1 %35, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i88, !llvm.loop !5
 
 lpad.i95:                                         ; preds = %cond.false.i92
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i89, %cleanup.done.i81
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i88, %cleanup.done.i81
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i80)
   br label %return
 
 release.i:                                        ; preds = %if.then16
-  %40 = atomicrmw add ptr %record_count_, i32 1 release, align 4
+  %38 = atomicrmw add ptr %record_count_, i32 1 release, align 4
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end25.i, %if.end21.i, %if.end11.i, %if.end5.i, %if.end.i, %while.body, %if.end, %release.i, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit97, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
@@ -477,30 +475,29 @@ cleanup.done:                                     ; preds = %entry, %cleanup.act
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
   %readonly_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %readonly_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done
   %mem_base_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %mem_base_.i, align 8
-  %flags = getelementptr inbounds i8, ptr %2, i64 28
-  %3 = load atomic volatile i32, ptr %flags monotonic, align 4
+  %1 = load ptr, ptr %mem_base_.i, align 8
+  %flags = getelementptr inbounds i8, ptr %1, i64 28
+  %2 = load atomic volatile i32, ptr %flags monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i, %if.then
-  %loaded_flags.0.i = phi i32 [ %3, %if.then ], [ %6, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i ]
+  %loaded_flags.0.i = phi i32 [ %2, %if.then ], [ %5, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i ]
   %or.i = or i32 %loaded_flags.0.i, 1
-  %4 = cmpxchg weak volatile ptr %flags, i32 %loaded_flags.0.i, i32 %or.i seq_cst seq_cst, align 4
-  %5 = extractvalue { i32, i1 } %4, 1
-  %6 = extractvalue { i32, i1 } %4, 0
-  br i1 %5, label %if.end, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i, !llvm.loop !5
+  %3 = cmpxchg weak volatile ptr %flags, i32 %loaded_flags.0.i, i32 %or.i seq_cst seq_cst, align 4
+  %4 = extractvalue { i32, i1 } %3, 1
+  %5 = extractvalue { i32, i1 } %3, 0
+  br i1 %4, label %if.end, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i, !llvm.loop !5
 
 lpad:                                             ; preds = %cond.false
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2) #16
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i, %cleanup.done
   ret void
@@ -563,9 +560,9 @@ land.end:                                         ; preds = %lor.lhs.false10, %l
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %base, i64 noundef %size, i64 noundef %page_size, i64 noundef %id, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %name, i1 noundef zeroext %readonly) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp2.i126 = alloca %"class.logging::LogMessage", align 8
-  %ref.tmp2.i91 = alloca %"class.logging::LogMessage", align 8
-  %ref.tmp2.i52 = alloca %"class.logging::LogMessage", align 8
+  %ref.tmp2.i125 = alloca %"class.logging::LogMessage", align 8
+  %ref.tmp2.i90 = alloca %"class.logging::LogMessage", align 8
+  %ref.tmp2.i51 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %ref.tmp8 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp19 = alloca %"class.logging::LogMessage", align 8
@@ -705,32 +702,31 @@ cleanup.action.i:                                 ; preds = %cond.false.i
 cleanup.done.i:                                   ; preds = %cleanup.action.i, %if.then86
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
   %11 = load i8, ptr %readonly_, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i41 = icmp eq i8 %12, 0
-  br i1 %tobool.not.i41, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %tobool.i = trunc i8 %11 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
-  %13 = load ptr, ptr %mem_base_, align 8
-  %flags.i = getelementptr inbounds i8, ptr %13, i64 28
-  %14 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %12 = load ptr, ptr %mem_base_, align 8
+  %flags.i = getelementptr inbounds i8, ptr %12, i64 28
+  %13 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %14, %if.then.i ], [ %17, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %13, %if.then.i ], [ %16, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %15 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %16 = extractvalue { i32, i1 } %15, 1
-  %17 = extractvalue { i32, i1 } %15, 0
-  br i1 %16, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %14 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %15 = extractvalue { i32, i1 } %14, 1
+  %16 = extractvalue { i32, i1 } %14, 0
+  br i1 %15, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
-common.resume:                                    ; preds = %lpad.i141, %lpad.i105, %lpad.i67, %lpad.i
-  %ref.tmp2.i126.sink = phi ptr [ %ref.tmp2.i126, %lpad.i141 ], [ %ref.tmp2.i91, %lpad.i105 ], [ %ref.tmp2.i52, %lpad.i67 ], [ %ref.tmp2.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %98, %lpad.i141 ], [ %77, %lpad.i105 ], [ %40, %lpad.i67 ], [ %18, %lpad.i ]
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i126.sink) #16
+common.resume:                                    ; preds = %lpad.i140, %lpad.i104, %lpad.i66, %lpad.i
+  %ref.tmp2.i125.sink = phi ptr [ %ref.tmp2.i125, %lpad.i140 ], [ %ref.tmp2.i90, %lpad.i104 ], [ %ref.tmp2.i51, %lpad.i66 ], [ %ref.tmp2.i, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %94, %lpad.i140 ], [ %74, %lpad.i104 ], [ %38, %lpad.i66 ], [ %17, %lpad.i ]
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i125.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %cond.false.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -745,158 +741,157 @@ if.end:                                           ; preds = %if.then
 
 lor.lhs.false:                                    ; preds = %if.end
   %size92 = getelementptr inbounds i8, ptr %9, i64 4
-  %19 = load i32, ptr %size92, align 4
-  %cmp93.not = icmp eq i32 %19, 0
+  %18 = load i32, ptr %size92, align 4
+  %cmp93.not = icmp eq i32 %18, 0
   br i1 %cmp93.not, label %lor.lhs.false94, label %if.then139
 
 lor.lhs.false94:                                  ; preds = %lor.lhs.false
   %version = getelementptr inbounds i8, ptr %9, i64 12
-  %20 = load i32, ptr %version, align 4
-  %cmp96.not = icmp eq i32 %20, 0
+  %19 = load i32, ptr %version, align 4
+  %cmp96.not = icmp eq i32 %19, 0
   br i1 %cmp96.not, label %lor.lhs.false97, label %if.then139
 
 lor.lhs.false97:                                  ; preds = %lor.lhs.false94
   %freeptr = getelementptr inbounds i8, ptr %9, i64 32
-  %21 = load atomic volatile i32, ptr %freeptr monotonic, align 4
-  %cmp100.not = icmp eq i32 %21, 0
+  %20 = load atomic volatile i32, ptr %freeptr monotonic, align 4
+  %cmp100.not = icmp eq i32 %20, 0
   br i1 %cmp100.not, label %lor.lhs.false101, label %if.then139
 
 lor.lhs.false101:                                 ; preds = %lor.lhs.false97
   %flags = getelementptr inbounds i8, ptr %9, i64 28
-  %22 = load atomic volatile i32, ptr %flags monotonic, align 4
-  %cmp104.not = icmp eq i32 %22, 0
+  %21 = load atomic volatile i32, ptr %flags monotonic, align 4
+  %cmp104.not = icmp eq i32 %21, 0
   br i1 %cmp104.not, label %lor.lhs.false105, label %if.then139
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false101
   %id107 = getelementptr inbounds i8, ptr %9, i64 16
-  %23 = load i64, ptr %id107, align 8
-  %cmp108.not = icmp eq i64 %23, 0
+  %22 = load i64, ptr %id107, align 8
+  %cmp108.not = icmp eq i64 %22, 0
   br i1 %cmp108.not, label %lor.lhs.false109, label %if.then139
 
 lor.lhs.false109:                                 ; preds = %lor.lhs.false105
   %name111 = getelementptr inbounds i8, ptr %9, i64 24
-  %24 = load i32, ptr %name111, align 8
-  %cmp112.not = icmp eq i32 %24, 0
+  %23 = load i32, ptr %name111, align 8
+  %cmp112.not = icmp eq i32 %23, 0
   br i1 %cmp112.not, label %lor.lhs.false113, label %if.then139
 
 lor.lhs.false113:                                 ; preds = %lor.lhs.false109
   %tailptr = getelementptr inbounds i8, ptr %9, i64 36
-  %25 = load atomic volatile i32, ptr %tailptr seq_cst, align 4
-  %cmp116.not = icmp eq i32 %25, 0
+  %24 = load atomic volatile i32, ptr %tailptr seq_cst, align 4
+  %cmp116.not = icmp eq i32 %24, 0
   br i1 %cmp116.not, label %lor.lhs.false117, label %if.then139
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false113
-  %26 = load ptr, ptr %mem_base_, align 8
-  %cookie119 = getelementptr inbounds i8, ptr %26, i64 44
-  %27 = load volatile i32, ptr %cookie119, align 4
-  %cmp120.not = icmp eq i32 %27, 0
+  %25 = load ptr, ptr %mem_base_, align 8
+  %cookie119 = getelementptr inbounds i8, ptr %25, i64 44
+  %26 = load volatile i32, ptr %cookie119, align 4
+  %cmp120.not = icmp eq i32 %26, 0
   br i1 %cmp120.not, label %lor.lhs.false121, label %if.then139
 
 lor.lhs.false121:                                 ; preds = %lor.lhs.false117
-  %next = getelementptr inbounds i8, ptr %26, i64 52
-  %28 = load atomic volatile i32, ptr %next monotonic, align 4
-  %cmp125.not = icmp eq i32 %28, 0
+  %next = getelementptr inbounds i8, ptr %25, i64 52
+  %27 = load atomic volatile i32, ptr %next monotonic, align 4
+  %cmp125.not = icmp eq i32 %27, 0
   br i1 %cmp125.not, label %lor.lhs.false126, label %if.then139
 
 lor.lhs.false126:                                 ; preds = %lor.lhs.false121
-  %29 = load volatile i32, ptr %add.ptr, align 4
-  %cmp128.not = icmp eq i32 %29, 0
+  %28 = load volatile i32, ptr %add.ptr, align 4
+  %cmp128.not = icmp eq i32 %28, 0
   br i1 %cmp128.not, label %lor.lhs.false129, label %if.then139
 
 lor.lhs.false129:                                 ; preds = %lor.lhs.false126
   %cookie130 = getelementptr inbounds i8, ptr %9, i64 60
-  %30 = load volatile i32, ptr %cookie130, align 4
-  %cmp131.not = icmp eq i32 %30, 0
+  %29 = load volatile i32, ptr %cookie130, align 4
+  %cmp131.not = icmp eq i32 %29, 0
   br i1 %cmp131.not, label %lor.lhs.false132, label %if.then139
 
 lor.lhs.false132:                                 ; preds = %lor.lhs.false129
   %type_id = getelementptr inbounds i8, ptr %9, i64 64
-  %31 = load atomic volatile i32, ptr %type_id monotonic, align 4
-  %cmp134.not = icmp eq i32 %31, 0
+  %30 = load atomic volatile i32, ptr %type_id monotonic, align 4
+  %cmp134.not = icmp eq i32 %30, 0
   br i1 %cmp134.not, label %lor.lhs.false135, label %if.then139
 
 lor.lhs.false135:                                 ; preds = %lor.lhs.false132
   %next136 = getelementptr inbounds i8, ptr %9, i64 68
-  %32 = load atomic volatile i32, ptr %next136 seq_cst, align 4
-  %cmp138.not = icmp eq i32 %32, 0
+  %31 = load atomic volatile i32, ptr %next136 seq_cst, align 4
+  %cmp138.not = icmp eq i32 %31, 0
   br i1 %cmp138.not, label %if.end140, label %if.then139
 
 if.then139:                                       ; preds = %lor.lhs.false135, %lor.lhs.false132, %lor.lhs.false129, %lor.lhs.false126, %lor.lhs.false121, %lor.lhs.false117, %lor.lhs.false113, %lor.lhs.false109, %lor.lhs.false105, %lor.lhs.false101, %lor.lhs.false97, %lor.lhs.false94, %lor.lhs.false, %if.end
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i52)
-  %call.i53 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %call.i53, label %cond.false.i64, label %cleanup.done.i54
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i51)
+  %call.i52 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %call.i52, label %cond.false.i63, label %cleanup.done.i53
 
-cond.false.i64:                                   ; preds = %if.then139
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i52, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
-  %stream_.i.i65 = getelementptr inbounds i8, ptr %ref.tmp2.i52, i64 8
-  %call5.i66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i65, ptr noundef nonnull @.str.10)
-          to label %cleanup.action.i68 unwind label %lpad.i67
+cond.false.i63:                                   ; preds = %if.then139
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i51, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
+  %stream_.i.i64 = getelementptr inbounds i8, ptr %ref.tmp2.i51, i64 8
+  %call5.i65 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i64, ptr noundef nonnull @.str.10)
+          to label %cleanup.action.i67 unwind label %lpad.i66
 
-cleanup.action.i68:                               ; preds = %cond.false.i64
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i52) #16
-  br label %cleanup.done.i54
+cleanup.action.i67:                               ; preds = %cond.false.i63
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i51) #16
+  br label %cleanup.done.i53
 
-cleanup.done.i54:                                 ; preds = %cleanup.action.i68, %if.then139
+cleanup.done.i53:                                 ; preds = %cleanup.action.i67, %if.then139
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
-  %33 = load i8, ptr %readonly_, align 8
-  %34 = and i8 %33, 1
-  %tobool.not.i57 = icmp eq i8 %34, 0
-  br i1 %tobool.not.i57, label %if.then.i58, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit69
+  %32 = load i8, ptr %readonly_, align 8
+  %tobool.i56 = trunc i8 %32 to i1
+  br i1 %tobool.i56, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit68, label %if.then.i57
 
-if.then.i58:                                      ; preds = %cleanup.done.i54
-  %35 = load ptr, ptr %mem_base_, align 8
-  %flags.i60 = getelementptr inbounds i8, ptr %35, i64 28
-  %36 = load atomic volatile i32, ptr %flags.i60 monotonic, align 4
-  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i61
+if.then.i57:                                      ; preds = %cleanup.done.i53
+  %33 = load ptr, ptr %mem_base_, align 8
+  %flags.i59 = getelementptr inbounds i8, ptr %33, i64 28
+  %34 = load atomic volatile i32, ptr %flags.i59 monotonic, align 4
+  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60
 
-_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i61: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i61, %if.then.i58
-  %loaded_flags.0.i.i62 = phi i32 [ %36, %if.then.i58 ], [ %39, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i61 ]
-  %or.i.i63 = or i32 %loaded_flags.0.i.i62, 1
-  %37 = cmpxchg weak volatile ptr %flags.i60, i32 %loaded_flags.0.i.i62, i32 %or.i.i63 seq_cst seq_cst, align 4
-  %38 = extractvalue { i32, i1 } %37, 1
-  %39 = extractvalue { i32, i1 } %37, 0
-  br i1 %38, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit69, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i61, !llvm.loop !5
+_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60, %if.then.i57
+  %loaded_flags.0.i.i61 = phi i32 [ %34, %if.then.i57 ], [ %37, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60 ]
+  %or.i.i62 = or i32 %loaded_flags.0.i.i61, 1
+  %35 = cmpxchg weak volatile ptr %flags.i59, i32 %loaded_flags.0.i.i61, i32 %or.i.i62 seq_cst seq_cst, align 4
+  %36 = extractvalue { i32, i1 } %35, 1
+  %37 = extractvalue { i32, i1 } %35, 0
+  br i1 %36, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit68, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60, !llvm.loop !5
 
-lpad.i67:                                         ; preds = %cond.false.i64
-  %40 = landingpad { ptr, i32 }
+lpad.i66:                                         ; preds = %cond.false.i63
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit69: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i61, %cleanup.done.i54
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i52)
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit68: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60, %cleanup.done.i53
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i51)
   br label %if.end140
 
-if.end140:                                        ; preds = %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit69, %lor.lhs.false135
+if.end140:                                        ; preds = %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit68, %lor.lhs.false135
+  %39 = load ptr, ptr %mem_base_, align 8
+  store i32 1082328540, ptr %39, align 8
+  %40 = load i32, ptr %mem_size_, align 8
   %41 = load ptr, ptr %mem_base_, align 8
-  store i32 1082328540, ptr %41, align 8
-  %42 = load i32, ptr %mem_size_, align 8
+  %size145 = getelementptr inbounds i8, ptr %41, i64 4
+  store i32 %40, ptr %size145, align 4
+  %42 = load i32, ptr %mem_page_, align 4
   %43 = load ptr, ptr %mem_base_, align 8
-  %size145 = getelementptr inbounds i8, ptr %43, i64 4
-  store i32 %42, ptr %size145, align 4
-  %44 = load i32, ptr %mem_page_, align 4
-  %45 = load ptr, ptr %mem_base_, align 8
-  %page_size148 = getelementptr inbounds i8, ptr %45, i64 8
-  store i32 %44, ptr %page_size148, align 8
-  %46 = load ptr, ptr %mem_base_, align 8
-  %version150 = getelementptr inbounds i8, ptr %46, i64 12
+  %page_size148 = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 %42, ptr %page_size148, align 8
+  %44 = load ptr, ptr %mem_base_, align 8
+  %version150 = getelementptr inbounds i8, ptr %44, i64 12
   store i32 1, ptr %version150, align 4
-  %47 = load ptr, ptr %mem_base_, align 8
-  %id152 = getelementptr inbounds i8, ptr %47, i64 16
+  %45 = load ptr, ptr %mem_base_, align 8
+  %id152 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %id, ptr %id152, align 8
-  %48 = load ptr, ptr %mem_base_, align 8
-  %freeptr154 = getelementptr inbounds i8, ptr %48, i64 32
+  %46 = load ptr, ptr %mem_base_, align 8
+  %freeptr154 = getelementptr inbounds i8, ptr %46, i64 32
   store atomic volatile i32 56, ptr %freeptr154 release, align 4
-  %49 = load ptr, ptr %mem_base_, align 8
-  %queue156 = getelementptr inbounds i8, ptr %49, i64 40
+  %47 = load ptr, ptr %mem_base_, align 8
+  %queue156 = getelementptr inbounds i8, ptr %47, i64 40
   store volatile i32 16, ptr %queue156, align 8
-  %50 = load ptr, ptr %mem_base_, align 8
-  %cookie160 = getelementptr inbounds i8, ptr %50, i64 44
+  %48 = load ptr, ptr %mem_base_, align 8
+  %cookie160 = getelementptr inbounds i8, ptr %48, i64 44
   store volatile i32 1, ptr %cookie160, align 4
-  %51 = load ptr, ptr %mem_base_, align 8
-  %next163 = getelementptr inbounds i8, ptr %51, i64 52
+  %49 = load ptr, ptr %mem_base_, align 8
+  %next163 = getelementptr inbounds i8, ptr %49, i64 52
   store atomic volatile i32 40, ptr %next163 release, align 4
-  %52 = load ptr, ptr %mem_base_, align 8
-  %tailptr165 = getelementptr inbounds i8, ptr %52, i64 36
+  %50 = load ptr, ptr %mem_base_, align 8
+  %tailptr165 = getelementptr inbounds i8, ptr %50, i64 36
   store atomic volatile i32 40, ptr %tailptr165 release, align 4
   %call166 = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
   br i1 %call166, label %if.end240, label %if.then167
@@ -904,16 +899,16 @@ if.end140:                                        ; preds = %_ZNK4base25Persiste
 if.then167:                                       ; preds = %if.end140
   %call168 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
   %add = add i64 %call168, 1
-  %call.i80 = call noundef i32 @_ZN4base25PersistentMemoryAllocator12AllocateImplEmj(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %add, i32 noundef 0)
-  %tobool.not.i81 = icmp eq i32 %call.i80, 0
-  %53 = load ptr, ptr %allocs_histogram_, align 8
-  %tobool6.not.i = icmp eq ptr %53, null
-  br i1 %tobool.not.i81, label %if.else.i, label %if.then.i82
+  %call.i79 = call noundef i32 @_ZN4base25PersistentMemoryAllocator12AllocateImplEmj(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %add, i32 noundef 0)
+  %tobool.not.i80 = icmp eq i32 %call.i79, 0
+  %51 = load ptr, ptr %allocs_histogram_, align 8
+  %tobool6.not.i = icmp eq ptr %51, null
+  br i1 %tobool.not.i80, label %if.else.i, label %if.then.i81
 
-if.then.i82:                                      ; preds = %if.then167
+if.then.i81:                                      ; preds = %if.then167
   br i1 %tobool6.not.i, label %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.then.i82
+if.then3.i:                                       ; preds = %if.then.i81
   %conv.i = trunc i64 %add to i32
   br label %if.end12.sink.split.i
 
@@ -922,57 +917,57 @@ if.else.i:                                        ; preds = %if.then167
 
 if.end12.sink.split.i:                            ; preds = %if.else.i, %if.then3.i
   %.sink.i = phi i32 [ %conv.i, %if.then3.i ], [ 0, %if.else.i ]
-  %vtable9.i = load ptr, ptr %53, align 8
+  %vtable9.i = load ptr, ptr %51, align 8
   %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 40
-  %54 = load ptr, ptr %vfn10.i, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(44) %53, i32 noundef %.sink.i)
+  %52 = load ptr, ptr %vfn10.i, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(44) %51, i32 noundef %.sink.i)
   br label %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit
 
-_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit: ; preds = %if.then.i82, %if.else.i, %if.end12.sink.split.i
-  %55 = load ptr, ptr %mem_base_, align 8
-  %name171 = getelementptr inbounds i8, ptr %55, i64 24
-  store i32 %call.i80, ptr %name171, align 8
-  %56 = load ptr, ptr %mem_base_, align 8
-  %name173 = getelementptr inbounds i8, ptr %56, i64 24
-  %57 = load i32, ptr %name173, align 8
-  %rem.i.i.i.i = and i32 %57, 7
+_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit: ; preds = %if.then.i81, %if.else.i, %if.end12.sink.split.i
+  %53 = load ptr, ptr %mem_base_, align 8
+  %name171 = getelementptr inbounds i8, ptr %53, i64 24
+  store i32 %call.i79, ptr %name171, align 8
+  %54 = load ptr, ptr %mem_base_, align 8
+  %name173 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = load i32, ptr %name173, align 8
+  %rem.i.i.i.i = and i32 %55, 7
   %cmp.not.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.end240
 
 if.end.i.i.i.i:                                   ; preds = %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit
-  %conv.i.i.i.i = zext i32 %57 to i64
-  %cmp3.i.i.i.i = icmp ult i32 %57, 56
+  %conv.i.i.i.i = zext i32 %55 to i64
+  %cmp3.i.i.i.i = icmp ult i32 %55, 56
   br i1 %cmp3.i.i.i.i, label %if.end240, label %if.end5.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %add8.i.i.i.i = add i32 %57, 17
-  %58 = load i32, ptr %mem_size_, align 8
-  %cmp9.i.i.i.i = icmp ugt i32 %add8.i.i.i.i, %58
+  %add8.i.i.i.i = add i32 %55, 17
+  %56 = load i32, ptr %mem_size_, align 8
+  %cmp9.i.i.i.i = icmp ugt i32 %add8.i.i.i.i, %56
   br i1 %cmp9.i.i.i.i, label %if.end240, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  %freeptr14.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 32
-  %59 = load atomic volatile i32, ptr %freeptr14.i.i.i.i monotonic, align 4
-  %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %58, i32 %59)
-  %cmp19.i.i.i.i = icmp ult i32 %59, %add8.i.i.i.i
+  %freeptr14.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 32
+  %57 = load atomic volatile i32, ptr %freeptr14.i.i.i.i monotonic, align 4
+  %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %56, i32 %57)
+  %cmp19.i.i.i.i = icmp ult i32 %57, %add8.i.i.i.i
   br i1 %cmp19.i.i.i.i, label %if.end240, label %if.end21.i.i.i.i
 
 if.end21.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 %conv.i.i.i.i
-  %60 = load volatile i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp23.i.i.i.i = icmp ult i32 %60, 17
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 %conv.i.i.i.i
+  %58 = load volatile i32, ptr %add.ptr.i.i.i.i, align 4
+  %cmp23.i.i.i.i = icmp ult i32 %58, 17
   br i1 %cmp23.i.i.i.i, label %if.end240, label %if.end25.i.i.i.i
 
 if.end25.i.i.i.i:                                 ; preds = %if.end21.i.i.i.i
-  %61 = load volatile i32, ptr %add.ptr.i.i.i.i, align 4
-  %add27.i.i.i.i = add i32 %61, %57
+  %59 = load volatile i32, ptr %add.ptr.i.i.i.i, align 4
+  %add27.i.i.i.i = add i32 %59, %55
   %cmp28.i.i.i.i = icmp ugt i32 %add27.i.i.i.i, %.sroa.speculated.i.i.i.i
   br i1 %cmp28.i.i.i.i, label %if.end240, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end25.i.i.i.i
   %cookie.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
-  %62 = load volatile i32, ptr %cookie.i.i.i.i, align 4
-  %cmp32.not.i.i.i.i = icmp eq i32 %62, -931556759
+  %60 = load volatile i32, ptr %cookie.i.i.i.i, align 4
+  %cmp32.not.i.i.i.i = icmp eq i32 %60, -931556759
   br i1 %cmp32.not.i.i.i.i, label %if.then176, label %if.end240
 
 if.then176:                                       ; preds = %land.lhs.true.i.i.i.i
@@ -984,183 +979,181 @@ if.then176:                                       ; preds = %land.lhs.true.i.i.i
 
 if.else:                                          ; preds = %cleanup.done80
   %size182 = getelementptr inbounds i8, ptr %9, i64 4
-  %63 = load i32, ptr %size182, align 4
-  %cmp183 = icmp eq i32 %63, 0
+  %61 = load i32, ptr %size182, align 4
+  %cmp183 = icmp eq i32 %61, 0
   br i1 %cmp183, label %if.then209, label %lor.lhs.false184
 
 lor.lhs.false184:                                 ; preds = %if.else
   %version186 = getelementptr inbounds i8, ptr %9, i64 12
-  %64 = load i32, ptr %version186, align 4
-  %cmp187 = icmp eq i32 %64, 0
+  %62 = load i32, ptr %version186, align 4
+  %cmp187 = icmp eq i32 %62, 0
   br i1 %cmp187, label %if.then209, label %lor.lhs.false188
 
 lor.lhs.false188:                                 ; preds = %lor.lhs.false184
   %freeptr190 = getelementptr inbounds i8, ptr %9, i64 32
-  %65 = load atomic volatile i32, ptr %freeptr190 monotonic, align 4
-  %cmp192 = icmp eq i32 %65, 0
+  %63 = load atomic volatile i32, ptr %freeptr190 monotonic, align 4
+  %cmp192 = icmp eq i32 %63, 0
   br i1 %cmp192, label %if.then209, label %lor.lhs.false193
 
 lor.lhs.false193:                                 ; preds = %lor.lhs.false188
   %tailptr195 = getelementptr inbounds i8, ptr %9, i64 36
-  %66 = load atomic volatile i32, ptr %tailptr195 seq_cst, align 4
-  %cmp197 = icmp eq i32 %66, 0
+  %64 = load atomic volatile i32, ptr %tailptr195 seq_cst, align 4
+  %cmp197 = icmp eq i32 %64, 0
   br i1 %cmp197, label %if.then209, label %lor.lhs.false198
 
 lor.lhs.false198:                                 ; preds = %lor.lhs.false193
-  %67 = load ptr, ptr %mem_base_, align 8
-  %cookie201 = getelementptr inbounds i8, ptr %67, i64 44
-  %68 = load volatile i32, ptr %cookie201, align 4
-  %cmp202 = icmp eq i32 %68, 0
+  %65 = load ptr, ptr %mem_base_, align 8
+  %cookie201 = getelementptr inbounds i8, ptr %65, i64 44
+  %66 = load volatile i32, ptr %cookie201, align 4
+  %cmp202 = icmp eq i32 %66, 0
   br i1 %cmp202, label %if.then209, label %lor.lhs.false203
 
 lor.lhs.false203:                                 ; preds = %lor.lhs.false198
-  %next206 = getelementptr inbounds i8, ptr %67, i64 52
-  %69 = load atomic volatile i32, ptr %next206 monotonic, align 4
-  %cmp208 = icmp eq i32 %69, 0
+  %next206 = getelementptr inbounds i8, ptr %65, i64 52
+  %67 = load atomic volatile i32, ptr %next206 monotonic, align 4
+  %cmp208 = icmp eq i32 %67, 0
   br i1 %cmp208, label %if.then209, label %if.end210
 
 if.then209:                                       ; preds = %lor.lhs.false203, %lor.lhs.false198, %lor.lhs.false193, %lor.lhs.false188, %lor.lhs.false184, %if.else
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i91)
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i90)
   %call.i = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %call.i, label %cond.false.i102, label %cleanup.done.i92
+  br i1 %call.i, label %cond.false.i101, label %cleanup.done.i91
 
-cond.false.i102:                                  ; preds = %if.then209
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i91, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
-  %stream_.i.i103 = getelementptr inbounds i8, ptr %ref.tmp2.i91, i64 8
-  %call5.i104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i103, ptr noundef nonnull @.str.10)
-          to label %cleanup.action.i106 unwind label %lpad.i105
+cond.false.i101:                                  ; preds = %if.then209
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i90, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
+  %stream_.i.i102 = getelementptr inbounds i8, ptr %ref.tmp2.i90, i64 8
+  %call5.i103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i102, ptr noundef nonnull @.str.10)
+          to label %cleanup.action.i105 unwind label %lpad.i104
 
-cleanup.action.i106:                              ; preds = %cond.false.i102
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i91) #16
-  br label %cleanup.done.i92
+cleanup.action.i105:                              ; preds = %cond.false.i101
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i90) #16
+  br label %cleanup.done.i91
 
-cleanup.done.i92:                                 ; preds = %cleanup.action.i106, %if.then209
+cleanup.done.i91:                                 ; preds = %cleanup.action.i105, %if.then209
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
-  %70 = load i8, ptr %readonly_, align 8
-  %71 = and i8 %70, 1
-  %tobool.not.i95 = icmp eq i8 %71, 0
-  br i1 %tobool.not.i95, label %if.then.i96, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit107
+  %68 = load i8, ptr %readonly_, align 8
+  %tobool.i94 = trunc i8 %68 to i1
+  br i1 %tobool.i94, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit106, label %if.then.i95
 
-if.then.i96:                                      ; preds = %cleanup.done.i92
-  %72 = load ptr, ptr %mem_base_, align 8
-  %flags.i98 = getelementptr inbounds i8, ptr %72, i64 28
-  %73 = load atomic volatile i32, ptr %flags.i98 monotonic, align 4
-  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i99
+if.then.i95:                                      ; preds = %cleanup.done.i91
+  %69 = load ptr, ptr %mem_base_, align 8
+  %flags.i97 = getelementptr inbounds i8, ptr %69, i64 28
+  %70 = load atomic volatile i32, ptr %flags.i97 monotonic, align 4
+  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i98
 
-_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i99: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i99, %if.then.i96
-  %loaded_flags.0.i.i100 = phi i32 [ %73, %if.then.i96 ], [ %76, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i99 ]
-  %or.i.i101 = or i32 %loaded_flags.0.i.i100, 1
-  %74 = cmpxchg weak volatile ptr %flags.i98, i32 %loaded_flags.0.i.i100, i32 %or.i.i101 seq_cst seq_cst, align 4
-  %75 = extractvalue { i32, i1 } %74, 1
-  %76 = extractvalue { i32, i1 } %74, 0
-  br i1 %75, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit107, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i99, !llvm.loop !5
+_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i98: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i98, %if.then.i95
+  %loaded_flags.0.i.i99 = phi i32 [ %70, %if.then.i95 ], [ %73, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i98 ]
+  %or.i.i100 = or i32 %loaded_flags.0.i.i99, 1
+  %71 = cmpxchg weak volatile ptr %flags.i97, i32 %loaded_flags.0.i.i99, i32 %or.i.i100 seq_cst seq_cst, align 4
+  %72 = extractvalue { i32, i1 } %71, 1
+  %73 = extractvalue { i32, i1 } %71, 0
+  br i1 %72, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit106, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i98, !llvm.loop !5
 
-lpad.i105:                                        ; preds = %cond.false.i102
-  %77 = landingpad { ptr, i32 }
+lpad.i104:                                        ; preds = %cond.false.i101
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit107: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i99, %cleanup.done.i92
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i91)
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit106: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i98, %cleanup.done.i91
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i90)
   br label %if.end210
 
-if.end210:                                        ; preds = %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit107, %lor.lhs.false203
+if.end210:                                        ; preds = %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit106, %lor.lhs.false203
   br i1 %readonly, label %if.end240, label %if.then212
 
 if.then212:                                       ; preds = %if.end210
-  %78 = load ptr, ptr %mem_base_, align 8
-  %size214 = getelementptr inbounds i8, ptr %78, i64 4
-  %79 = load i32, ptr %size214, align 4
-  %80 = load i32, ptr %mem_size_, align 8
-  %cmp216 = icmp ult i32 %79, %80
+  %75 = load ptr, ptr %mem_base_, align 8
+  %size214 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = load i32, ptr %size214, align 4
+  %77 = load i32, ptr %mem_size_, align 8
+  %cmp216 = icmp ult i32 %76, %77
   br i1 %cmp216, label %if.then217, label %if.end221
 
 if.then217:                                       ; preds = %if.then212
-  store i32 %79, ptr %mem_size_, align 8
+  store i32 %76, ptr %mem_size_, align 8
   br label %if.end221
 
 if.end221:                                        ; preds = %if.then217, %if.then212
-  %81 = phi i32 [ %79, %if.then217 ], [ %80, %if.then212 ]
-  %page_size223 = getelementptr inbounds i8, ptr %78, i64 8
-  %82 = load i32, ptr %page_size223, align 8
-  %83 = load i32, ptr %mem_page_, align 4
-  %cmp225 = icmp ult i32 %82, %83
+  %78 = phi i32 [ %76, %if.then217 ], [ %77, %if.then212 ]
+  %page_size223 = getelementptr inbounds i8, ptr %75, i64 8
+  %79 = load i32, ptr %page_size223, align 8
+  %80 = load i32, ptr %mem_page_, align 4
+  %cmp225 = icmp ult i32 %79, %80
   br i1 %cmp225, label %if.then226, label %if.end230
 
 if.then226:                                       ; preds = %if.end221
-  store i32 %82, ptr %mem_page_, align 4
+  store i32 %79, ptr %mem_page_, align 4
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then226, %if.end221
-  %84 = phi i32 [ %82, %if.then226 ], [ %83, %if.end221 ]
-  br i1 %tobool.not.i, label %if.then237, label %land.lhs.true.i113
+  %81 = phi i32 [ %79, %if.then226 ], [ %80, %if.end221 ]
+  br i1 %tobool.not.i, label %if.then237, label %land.lhs.true.i112
 
-land.lhs.true.i113:                               ; preds = %if.end230
-  %conv232 = zext i32 %81 to i64
-  %85 = ptrtoint ptr %base to i64
-  %86 = add nsw i64 %conv232, -56
-  %87 = icmp ult i64 %86, 1073741769
-  %88 = or i64 %85, %conv232
-  %89 = and i64 %88, 7
-  %90 = icmp eq i64 %89, 0
-  %or.cond = and i1 %90, %87
-  br i1 %or.cond, label %land.rhs.i120, label %if.then237
+land.lhs.true.i112:                               ; preds = %if.end230
+  %conv232 = zext i32 %78 to i64
+  %82 = ptrtoint ptr %base to i64
+  %83 = add nsw i64 %conv232, -56
+  %84 = icmp ult i64 %83, 1073741769
+  %85 = or i64 %82, %conv232
+  %86 = and i64 %85, 7
+  %87 = icmp eq i64 %86, 0
+  %or.cond = and i1 %87, %84
+  br i1 %or.cond, label %land.rhs.i119, label %if.then237
 
-land.rhs.i120:                                    ; preds = %land.lhs.true.i113
-  %cmp9.i121 = icmp eq i32 %84, 0
-  br i1 %cmp9.i121, label %if.end240, label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit125
+land.rhs.i119:                                    ; preds = %land.lhs.true.i112
+  %cmp9.i120 = icmp eq i32 %81, 0
+  br i1 %cmp9.i120, label %if.end240, label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124
 
-_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit125: ; preds = %land.rhs.i120
-  %rem11.i123150 = urem i32 %81, %84
-  %cmp12.i124 = icmp eq i32 %rem11.i123150, 0
-  br i1 %cmp12.i124, label %if.end240, label %if.then237
+_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124: ; preds = %land.rhs.i119
+  %rem11.i122149 = urem i32 %78, %81
+  %cmp12.i123 = icmp eq i32 %rem11.i122149, 0
+  br i1 %cmp12.i123, label %if.end240, label %if.then237
 
-if.then237:                                       ; preds = %if.end230, %land.lhs.true.i113, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit125
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i126)
-  %call.i127 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %call.i127, label %cond.false.i138, label %cleanup.done.i128
+if.then237:                                       ; preds = %if.end230, %land.lhs.true.i112, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i125)
+  %call.i126 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %call.i126, label %cond.false.i137, label %cleanup.done.i127
 
-cond.false.i138:                                  ; preds = %if.then237
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i126, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
-  %stream_.i.i139 = getelementptr inbounds i8, ptr %ref.tmp2.i126, i64 8
-  %call5.i140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i139, ptr noundef nonnull @.str.10)
-          to label %cleanup.action.i142 unwind label %lpad.i141
+cond.false.i137:                                  ; preds = %if.then237
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i125, ptr noundef nonnull @.str, i32 noundef 644, i32 noundef 2)
+  %stream_.i.i138 = getelementptr inbounds i8, ptr %ref.tmp2.i125, i64 8
+  %call5.i139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i138, ptr noundef nonnull @.str.10)
+          to label %cleanup.action.i141 unwind label %lpad.i140
 
-cleanup.action.i142:                              ; preds = %cond.false.i138
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i126) #16
-  br label %cleanup.done.i128
+cleanup.action.i141:                              ; preds = %cond.false.i137
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i125) #16
+  br label %cleanup.done.i127
 
-cleanup.done.i128:                                ; preds = %cleanup.action.i142, %if.then237
+cleanup.done.i127:                                ; preds = %cleanup.action.i141, %if.then237
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
-  %91 = load i8, ptr %readonly_, align 8
-  %92 = and i8 %91, 1
-  %tobool.not.i131 = icmp eq i8 %92, 0
-  br i1 %tobool.not.i131, label %if.then.i132, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit143
+  %88 = load i8, ptr %readonly_, align 8
+  %tobool.i130 = trunc i8 %88 to i1
+  br i1 %tobool.i130, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142, label %if.then.i131
 
-if.then.i132:                                     ; preds = %cleanup.done.i128
-  %93 = load ptr, ptr %mem_base_, align 8
-  %flags.i134 = getelementptr inbounds i8, ptr %93, i64 28
-  %94 = load atomic volatile i32, ptr %flags.i134 monotonic, align 4
-  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i135
+if.then.i131:                                     ; preds = %cleanup.done.i127
+  %89 = load ptr, ptr %mem_base_, align 8
+  %flags.i133 = getelementptr inbounds i8, ptr %89, i64 28
+  %90 = load atomic volatile i32, ptr %flags.i133 monotonic, align 4
+  br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134
 
-_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i135: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i135, %if.then.i132
-  %loaded_flags.0.i.i136 = phi i32 [ %94, %if.then.i132 ], [ %97, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i135 ]
-  %or.i.i137 = or i32 %loaded_flags.0.i.i136, 1
-  %95 = cmpxchg weak volatile ptr %flags.i134, i32 %loaded_flags.0.i.i136, i32 %or.i.i137 seq_cst seq_cst, align 4
-  %96 = extractvalue { i32, i1 } %95, 1
-  %97 = extractvalue { i32, i1 } %95, 0
-  br i1 %96, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit143, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i135, !llvm.loop !5
+_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134, %if.then.i131
+  %loaded_flags.0.i.i135 = phi i32 [ %90, %if.then.i131 ], [ %93, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134 ]
+  %or.i.i136 = or i32 %loaded_flags.0.i.i135, 1
+  %91 = cmpxchg weak volatile ptr %flags.i133, i32 %loaded_flags.0.i.i135, i32 %or.i.i136 seq_cst seq_cst, align 4
+  %92 = extractvalue { i32, i1 } %91, 1
+  %93 = extractvalue { i32, i1 } %91, 0
+  br i1 %92, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134, !llvm.loop !5
 
-lpad.i141:                                        ; preds = %cond.false.i138
-  %98 = landingpad { ptr, i32 }
+lpad.i140:                                        ; preds = %cond.false.i137
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit143: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i135, %cleanup.done.i128
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i126)
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i134, %cleanup.done.i127
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i125)
   br label %if.end240
 
-if.end240:                                        ; preds = %land.rhs.i120, %land.lhs.true.i.i.i.i, %if.end25.i.i.i.i, %if.end21.i.i.i.i, %if.end11.i.i.i.i, %if.end5.i.i.i.i, %if.end.i.i.i.i, %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, %if.end210, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit143, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit125, %if.end140, %if.then176, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+if.end240:                                        ; preds = %land.rhs.i119, %land.lhs.true.i.i.i.i, %if.end25.i.i.i.i, %if.end21.i.i.i.i, %if.end11.i.i.i.i, %if.end5.i.i.i.i, %if.end.i.i.i.i, %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, %if.end210, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit142, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit124, %if.end140, %if.then176, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
   ret void
 }
 
@@ -1316,29 +1309,28 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
   store atomic i8 1, ptr %corrupt_.i monotonic, align 1
   %readonly_.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i8, ptr %readonly_.i, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
-  %11 = load ptr, ptr %mem_base_.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %11, i64 28
-  %12 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %10 = load ptr, ptr %mem_base_.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %10, i64 28
+  %11 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %12, %if.then.i ], [ %15, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %11, %if.then.i ], [ %14, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %13 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %14 = extractvalue { i32, i1 } %13, 1
-  %15 = extractvalue { i32, i1 } %13, 0
-  br i1 %14, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %12 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %13 = extractvalue { i32, i1 } %12, 1
+  %14 = extractvalue { i32, i1 } %12, 0
+  br i1 %13, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
 lpad.i:                                           ; preds = %cond.false.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #16
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %15
 
 _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %cleanup.done.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
@@ -1424,29 +1416,28 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
   store atomic i8 1, ptr %corrupt_.i monotonic, align 1
   %readonly_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %readonly_.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
-  %8 = load ptr, ptr %mem_base_43.phi.trans.insert.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %8, i64 28
-  %9 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %7 = load ptr, ptr %mem_base_43.phi.trans.insert.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %7, i64 28
+  %8 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %9, %if.then.i ], [ %12, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %8, %if.then.i ], [ %11, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %10 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %11 = extractvalue { i32, i1 } %10, 1
-  %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %9 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %10 = extractvalue { i32, i1 } %9, 1
+  %11 = extractvalue { i32, i1 } %9, 0
+  br i1 %10, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
 lpad.i:                                           ; preds = %cond.false.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #16
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 
 _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %cleanup.done.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
@@ -1480,9 +1471,8 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %readonly_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %readonly_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name_string, ptr noundef nonnull align 8 dereferenceable(16) %name)
@@ -1527,44 +1517,44 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret void
 
 lpad:                                             ; preds = %invoke.cont6, %if.end
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup18
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad3
-  %.pn = phi { ptr, i32 } [ %5, %lpad5 ], [ %4, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad5 ], [ %3, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
   br label %ehcleanup18
 
 lpad11:                                           ; preds = %invoke.cont10
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup17
 
 lpad13:                                           ; preds = %invoke.cont12
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #16
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad13, %lpad11
-  %.pn2 = phi { ptr, i32 } [ %7, %lpad13 ], [ %6, %lpad11 ]
+  %.pn2 = phi { ptr, i32 } [ %6, %lpad13 ], [ %5, %lpad11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #16
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %ehcleanup17, %ehcleanup, %lpad
-  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup17 ], [ %3, %lpad ], [ %.pn, %ehcleanup ]
+  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup17 ], [ %2, %lpad ], [ %.pn, %ehcleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_string) #16
   resume { ptr, i32 } %.pn2.pn
 }
@@ -1768,13 +1758,13 @@ if.end7:                                          ; preds = %lor.lhs.false
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196, %if.end7
-  %freeptr.0.ph = phi i32 [ %24, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196 ], [ %3, %if.end7 ]
+  %freeptr.0.ph = phi i32 [ %23, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196 ], [ %3, %if.end7 ]
   %size.0.ph = phi i32 [ %spec.select97, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196 ], [ %and, %if.end7 ]
   %call10120 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   br i1 %call10120, label %return, label %if.end12
 
 if.end12:                                         ; preds = %for.cond.outer, %if.end35
-  %freeptr.0121 = phi i32 [ %21, %if.end35 ], [ %freeptr.0.ph, %for.cond.outer ]
+  %freeptr.0121 = phi i32 [ %20, %if.end35 ], [ %freeptr.0.ph, %for.cond.outer ]
   %add13 = add i32 %size.0.ph, %freeptr.0121
   %4 = load i32, ptr %mem_size_, align 8
   %cmp14 = icmp ugt i32 %add13, %4
@@ -1833,38 +1823,37 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
   store atomic i8 1, ptr %corrupt_.i monotonic, align 1
   %readonly_.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load i8, ptr %readonly_.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
-  %12 = load ptr, ptr %mem_base_.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %12, i64 28
-  %13 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %11 = load ptr, ptr %mem_base_.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %11, i64 28
+  %12 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %13, %if.then.i ], [ %16, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %12, %if.then.i ], [ %15, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %14 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %15 = extractvalue { i32, i1 } %14, 1
-  %16 = extractvalue { i32, i1 } %14, 0
-  br i1 %15, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %13 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %14 = extractvalue { i32, i1 } %13, 1
+  %15 = extractvalue { i32, i1 } %13, 0
+  br i1 %14, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
 lpad.i:                                           ; preds = %cond.false.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #16
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %16
 
 _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %cleanup.done.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end20:                                         ; preds = %_ZN4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
-  %18 = load i32, ptr %mem_page_, align 4
-  %rem = urem i32 %freeptr.0121, %18
-  %sub = sub i32 %18, %rem
+  %17 = load i32, ptr %mem_page_, align 4
+  %rem = urem i32 %freeptr.0121, %17
+  %sub = sub i32 %17, %rem
   %cmp23 = icmp ugt i32 %size.0.ph, %sub
   br i1 %cmp23, label %if.then24, label %if.end36
 
@@ -1879,10 +1868,10 @@ if.then27:                                        ; preds = %if.then24
 _ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %if.then24
   %add29 = add i32 %sub, %freeptr.0121
   %freeptr31 = getelementptr inbounds i8, ptr %.pre.i.i, i64 32
-  %19 = cmpxchg volatile ptr %freeptr31, i32 %freeptr.0121, i32 %add29 seq_cst seq_cst, align 4
-  %20 = extractvalue { i32, i1 } %19, 1
-  %21 = extractvalue { i32, i1 } %19, 0
-  br i1 %20, label %if.then33, label %if.end35
+  %18 = cmpxchg volatile ptr %freeptr31, i32 %freeptr.0121, i32 %add29 seq_cst seq_cst, align 4
+  %19 = extractvalue { i32, i1 } %18, 1
+  %20 = extractvalue { i32, i1 } %18, 0
+  br i1 %19, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   store volatile i32 %sub, ptr %add.ptr45.i.i, align 4
@@ -1908,32 +1897,32 @@ if.then46:                                        ; preds = %if.end36
 
 _ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196: ; preds = %if.end36
   %freeptr49 = getelementptr inbounds i8, ptr %.pre.i.i, i64 32
-  %22 = cmpxchg volatile ptr %freeptr49, i32 %freeptr.0121, i32 %add43 seq_cst seq_cst, align 4
-  %23 = extractvalue { i32, i1 } %22, 1
-  %24 = extractvalue { i32, i1 } %22, 0
-  br i1 %23, label %if.end52, label %for.cond.outer, !llvm.loop !11
+  %21 = cmpxchg volatile ptr %freeptr49, i32 %freeptr.0121, i32 %add43 seq_cst seq_cst, align 4
+  %22 = extractvalue { i32, i1 } %21, 1
+  %23 = extractvalue { i32, i1 } %21, 0
+  br i1 %22, label %if.end52, label %for.cond.outer, !llvm.loop !11
 
 if.end52:                                         ; preds = %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit196
-  %25 = load volatile i32, ptr %add.ptr45.i.i, align 4
-  %cmp54.not = icmp eq i32 %25, 0
+  %24 = load volatile i32, ptr %add.ptr45.i.i, align 4
+  %cmp54.not = icmp eq i32 %24, 0
   br i1 %cmp54.not, label %lor.lhs.false55, label %if.then65
 
 lor.lhs.false55:                                  ; preds = %if.end52
   %cookie56 = getelementptr inbounds i8, ptr %add.ptr45.i.i, i64 4
-  %26 = load volatile i32, ptr %cookie56, align 4
-  %cmp57.not = icmp eq i32 %26, 0
+  %25 = load volatile i32, ptr %cookie56, align 4
+  %cmp57.not = icmp eq i32 %25, 0
   br i1 %cmp57.not, label %lor.lhs.false58, label %if.then65
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
   %type_id59 = getelementptr inbounds i8, ptr %add.ptr45.i.i, i64 8
-  %27 = load atomic volatile i32, ptr %type_id59 monotonic, align 4
-  %cmp61.not = icmp eq i32 %27, 0
+  %26 = load atomic volatile i32, ptr %type_id59 monotonic, align 4
+  %cmp61.not = icmp eq i32 %26, 0
   br i1 %cmp61.not, label %lor.lhs.false62, label %if.then65
 
 lor.lhs.false62:                                  ; preds = %lor.lhs.false58
   %next = getelementptr inbounds i8, ptr %add.ptr45.i.i, i64 12
-  %28 = load atomic volatile i32, ptr %next monotonic, align 4
-  %cmp64.not = icmp eq i32 %28, 0
+  %27 = load atomic volatile i32, ptr %next monotonic, align 4
+  %cmp64.not = icmp eq i32 %27, 0
   br i1 %cmp64.not, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %lor.lhs.false62, %lor.lhs.false58, %lor.lhs.false55, %if.end52
@@ -1957,16 +1946,15 @@ entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %corrupt_ = getelementptr inbounds i8, ptr %this, i64 25
   %0 = load atomic i8, ptr %corrupt_ monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %lor.lhs.false, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %mem_base_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %mem_base_.i, align 8
-  %flags = getelementptr inbounds i8, ptr %2, i64 28
-  %3 = load atomic volatile i32, ptr %flags monotonic, align 4
-  %and.i = and i32 %3, 1
+  %1 = load ptr, ptr %mem_base_.i, align 8
+  %flags = getelementptr inbounds i8, ptr %1, i64 28
+  %2 = load atomic volatile i32, ptr %flags monotonic, align 4
+  %and.i = and i32 %2, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then
 
@@ -1988,31 +1976,30 @@ cleanup.action.i:                                 ; preds = %cond.false.i
 cleanup.done.i:                                   ; preds = %cleanup.action.i, %if.then
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
   %readonly_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load i8, ptr %readonly_.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %3 = load i8, ptr %readonly_.i, align 8
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %mem_base_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load ptr, ptr %mem_base_.i.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %6, i64 28
-  %7 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %4 = load ptr, ptr %mem_base_.i.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %4, i64 28
+  %5 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %7, %if.then.i ], [ %10, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %5, %if.then.i ], [ %8, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %8 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 1
-  %10 = extractvalue { i32, i1 } %8, 0
-  br i1 %9, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %6 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %7 = extractvalue { i32, i1 } %6, 1
+  %8 = extractvalue { i32, i1 } %6, 0
+  br i1 %7, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
 lpad.i:                                           ; preds = %cond.false.i
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #16
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %9
 
 _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %cleanup.done.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
@@ -2110,7 +2097,7 @@ if.end7:                                          ; preds = %if.end4
   br i1 %cmp.not.i.i100137, label %if.end.i.i102, label %if.then13
 
 if.end.i.i102:                                    ; preds = %if.end7, %if.else
-  %tail.0138 = phi i32 [ %28, %if.else ], [ %7, %if.end7 ]
+  %tail.0138 = phi i32 [ %27, %if.else ], [ %7, %if.end7 ]
   %conv.i.i103 = zext i32 %tail.0138 to i64
   %cmp3.i.i104 = icmp ult i32 %tail.0138, 40
   br i1 %cmp3.i.i104, label %if.then13, label %if.end5.i.i105
@@ -2171,29 +2158,28 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
   store atomic i8 1, ptr %corrupt_.i monotonic, align 1
   %readonly_.i = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load i8, ptr %readonly_.i, align 8
-  %14 = and i8 %13, 1
-  %tobool.not.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
+  %tobool.i = trunc i8 %13 to i1
+  br i1 %tobool.i, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done.i
-  %15 = load ptr, ptr %mem_base_43.phi.trans.insert.i.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %15, i64 28
-  %16 = load atomic volatile i32, ptr %flags.i monotonic, align 4
+  %14 = load ptr, ptr %mem_base_43.phi.trans.insert.i.i, align 8
+  %flags.i = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = load atomic volatile i32, ptr %flags.i monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %if.then.i
-  %loaded_flags.0.i.i = phi i32 [ %16, %if.then.i ], [ %19, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+  %loaded_flags.0.i.i = phi i32 [ %15, %if.then.i ], [ %18, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   %or.i.i = or i32 %loaded_flags.0.i.i, 1
-  %17 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
-  %18 = extractvalue { i32, i1 } %17, 1
-  %19 = extractvalue { i32, i1 } %17, 0
-  br i1 %18, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
+  %16 = cmpxchg weak volatile ptr %flags.i, i32 %loaded_flags.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
+  %17 = extractvalue { i32, i1 } %16, 1
+  %18 = extractvalue { i32, i1 } %16, 0
+  br i1 %17, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !5
 
 lpad.i:                                           ; preds = %cond.false.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #16
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
 _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %cleanup.done.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
@@ -2201,23 +2187,23 @@ _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__at
 
 if.end14:                                         ; preds = %land.lhs.true.i.i123, %if.end30.i.i121
   %next16 = getelementptr inbounds i8, ptr %add.ptr.i.i116, i64 12
-  %21 = cmpxchg volatile ptr %next16, i32 40, i32 %ref acq_rel acquire, align 4
-  %22 = extractvalue { i32, i1 } %21, 1
-  br i1 %22, label %if.then18, label %if.else
+  %20 = cmpxchg volatile ptr %next16, i32 40, i32 %ref acq_rel acquire, align 4
+  %21 = extractvalue { i32, i1 } %20, 1
+  br i1 %21, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end14
-  %23 = load ptr, ptr %mem_base_43.phi.trans.insert.i.i, align 8
-  %tailptr20 = getelementptr inbounds i8, ptr %23, i64 36
-  %24 = cmpxchg volatile ptr %tailptr20, i32 %tail.0138, i32 %ref release monotonic, align 4
+  %22 = load ptr, ptr %mem_base_43.phi.trans.insert.i.i, align 8
+  %tailptr20 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = cmpxchg volatile ptr %tailptr20, i32 %tail.0138, i32 %ref release monotonic, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end14
-  %25 = extractvalue { i32, i1 } %21, 0
-  %26 = load ptr, ptr %mem_base_43.phi.trans.insert.i.i, align 8
-  %tailptr23 = getelementptr inbounds i8, ptr %26, i64 36
-  %27 = cmpxchg volatile ptr %tailptr23, i32 %tail.0138, i32 %25 acq_rel acquire, align 4
-  %28 = extractvalue { i32, i1 } %27, 0
-  %rem.i.i99 = and i32 %28, 7
+  %24 = extractvalue { i32, i1 } %20, 0
+  %25 = load ptr, ptr %mem_base_43.phi.trans.insert.i.i, align 8
+  %tailptr23 = getelementptr inbounds i8, ptr %25, i64 36
+  %26 = cmpxchg volatile ptr %tailptr23, i32 %tail.0138, i32 %24 acq_rel acquire, align 4
+  %27 = extractvalue { i32, i1 } %26, 0
+  %rem.i.i99 = and i32 %27, 7
   %cmp.not.i.i100 = icmp eq i32 %rem.i.i99, 0
   br i1 %cmp.not.i.i100, label %if.end.i.i102, label %if.then13, !llvm.loop !12
 

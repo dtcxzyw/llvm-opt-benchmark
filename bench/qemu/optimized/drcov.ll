@@ -184,13 +184,12 @@ define internal void @count_block(ptr nocapture noundef readonly %data, ptr noca
 entry:
   %exec = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i8, ptr %exec, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %user_data, align 8
-  %add = add i64 %2, 1
+  %1 = load i64, ptr %user_data, align 8
+  %add = add i64 %1, 1
   store i64 %add, ptr %user_data, align 8
   br label %if.end
 
@@ -206,30 +205,29 @@ entry:
   %data.addr.i = alloca i32, align 4
   %exec = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i8, ptr %exec, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %data, align 4
+  %1 = load i32, ptr %data, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i)
-  store i32 %2, ptr %data.addr.i, align 4
-  %3 = load ptr, ptr @fp, align 8
-  %call.i = call i64 @fwrite(ptr noundef nonnull %data.addr.i, i64 noundef 1, i64 noundef 4, ptr noundef %3)
+  store i32 %1, ptr %data.addr.i, align 4
+  %2 = load ptr, ptr @fp, align 8
+  %call.i = call i64 @fwrite(ptr noundef nonnull %data.addr.i, i64 noundef 1, i64 noundef 4, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
   %size = getelementptr inbounds i8, ptr %data, i64 4
-  %4 = load i16, ptr %size, align 4
+  %3 = load i16, ptr %size, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %data.addr.i5)
-  store i16 %4, ptr %data.addr.i5, align 2
-  %5 = load ptr, ptr @fp, align 8
-  %call.i6 = call i64 @fwrite(ptr noundef nonnull %data.addr.i5, i64 noundef 1, i64 noundef 2, ptr noundef %5)
+  store i16 %3, ptr %data.addr.i5, align 2
+  %4 = load ptr, ptr @fp, align 8
+  %call.i6 = call i64 @fwrite(ptr noundef nonnull %data.addr.i5, i64 noundef 1, i64 noundef 2, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %data.addr.i5)
   %mod_id = getelementptr inbounds i8, ptr %data, i64 6
-  %6 = load i16, ptr %mod_id, align 2
+  %5 = load i16, ptr %mod_id, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %data.addr.i7)
-  store i16 %6, ptr %data.addr.i7, align 2
-  %7 = load ptr, ptr @fp, align 8
-  %call.i8 = call i64 @fwrite(ptr noundef nonnull %data.addr.i7, i64 noundef 1, i64 noundef 2, ptr noundef %7)
+  store i16 %5, ptr %data.addr.i7, align 2
+  %6 = load ptr, ptr @fp, align 8
+  %call.i8 = call i64 @fwrite(ptr noundef nonnull %data.addr.i7, i64 noundef 1, i64 noundef 2, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %data.addr.i7)
   br label %if.end
 

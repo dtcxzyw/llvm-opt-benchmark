@@ -81,31 +81,30 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
 13:                                               ; preds = %.critedge
   %14 = getelementptr inbounds i8, ptr %.033, i64 1
   %15 = load i8, ptr %14, align 1
-  %.fr64 = freeze i8 %15
-  %16 = icmp eq i8 %.fr64, 34
+  %.fr62 = freeze i8 %15
+  %16 = icmp eq i8 %.fr62, 34
   %17 = getelementptr inbounds i8, ptr %.033, i64 2
   %spec.select = select i1 %16, ptr %17, ptr %14
   %18 = load i8, ptr %spec.select, align 1
-  %.not4148 = icmp eq i8 %18, 0
-  br i1 %.not4148, label %.critedge2.thread, label %.lr.ph
+  %.not4146 = icmp eq i8 %18, 0
+  br i1 %.not4146, label %.critedge2.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %27
   %19 = phi i8 [ %29, %27 ], [ %18, %.lr.ph ]
-  %.052.us = phi i8 [ %.1.us, %27 ], [ 0, %.lr.ph ]
-  %.12851.us = phi i32 [ %.2.us, %27 ], [ 1023, %.lr.ph ]
-  %.03050.us = phi ptr [ %.131.us, %27 ], [ %2, %.lr.ph ]
-  %.23549.us = phi ptr [ %28, %27 ], [ %17, %.lr.ph ]
-  %20 = add nsw i32 %.12851.us, -1
-  %.not42.us = icmp eq i32 %.12851.us, 0
+  %.050.us = phi i8 [ %.1.us, %27 ], [ 0, %.lr.ph ]
+  %.12849.us = phi i32 [ %.2.us, %27 ], [ 1023, %.lr.ph ]
+  %.03048.us = phi ptr [ %.131.us, %27 ], [ %2, %.lr.ph ]
+  %.23547.us = phi ptr [ %28, %27 ], [ %17, %.lr.ph ]
+  %20 = add nsw i32 %.12849.us, -1
+  %.not42.us = icmp eq i32 %.12849.us, 0
   br i1 %.not42.us, label %.critedge2, label %21
 
 21:                                               ; preds = %.lr.ph.split.us
-  %22 = and i8 %.052.us, 1
-  %.not44.us = icmp eq i8 %22, 0
-  br i1 %.not44.us, label %23, label %25
+  %22 = trunc i8 %.050.us to i1
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %21
   switch i8 %19, label %25 [
@@ -119,26 +118,26 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   br label %27
 
 25:                                               ; preds = %23, %21
-  %26 = getelementptr inbounds i8, ptr %.03050.us, i64 1
-  store i8 %19, ptr %.03050.us, align 1
+  %26 = getelementptr inbounds i8, ptr %.03048.us, i64 1
+  store i8 %19, ptr %.03048.us, align 1
   br label %27
 
 27:                                               ; preds = %23, %24, %25
-  %.131.us = phi ptr [ %26, %25 ], [ %.03050.us, %24 ], [ %.03050.us, %23 ]
+  %.131.us = phi ptr [ %26, %25 ], [ %.03048.us, %24 ], [ %.03048.us, %23 ]
   %.2.us = phi i32 [ %20, %25 ], [ %20, %24 ], [ 0, %23 ]
-  %.1.us = phi i8 [ 0, %25 ], [ 1, %24 ], [ %.052.us, %23 ]
-  %28 = getelementptr inbounds i8, ptr %.23549.us, i64 1
+  %.1.us = phi i8 [ 0, %25 ], [ 1, %24 ], [ %.050.us, %23 ]
+  %28 = getelementptr inbounds i8, ptr %.23547.us, i64 1
   %29 = load i8, ptr %28, align 1
   %.not41.us = icmp eq i8 %29, 0
   br i1 %.not41.us, label %.critedge2, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %35
   %30 = phi i8 [ %37, %35 ], [ %18, %.lr.ph ]
-  %.12851 = phi i32 [ %.2, %35 ], [ 1023, %.lr.ph ]
-  %.03050 = phi ptr [ %.131, %35 ], [ %2, %.lr.ph ]
-  %.23549 = phi ptr [ %36, %35 ], [ %14, %.lr.ph ]
-  %31 = add nsw i32 %.12851, -1
-  %.not42 = icmp eq i32 %.12851, 0
+  %.12849 = phi i32 [ %.2, %35 ], [ 1023, %.lr.ph ]
+  %.03048 = phi ptr [ %.131, %35 ], [ %2, %.lr.ph ]
+  %.23547 = phi ptr [ %36, %35 ], [ %14, %.lr.ph ]
+  %31 = add nsw i32 %.12849, -1
+  %.not42 = icmp eq i32 %.12849, 0
   br i1 %.not42, label %.critedge2.thread, label %32
 
 32:                                               ; preds = %.lr.ph.split.split
@@ -150,31 +149,30 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %.03050, i64 1
-  store i8 %30, ptr %.03050, align 1
+  %34 = getelementptr inbounds i8, ptr %.03048, i64 1
+  store i8 %30, ptr %.03048, align 1
   br label %35
 
 35:                                               ; preds = %32, %32, %32, %33
-  %.131 = phi ptr [ %34, %33 ], [ %.03050, %32 ], [ %.03050, %32 ], [ %.03050, %32 ]
+  %.131 = phi ptr [ %34, %33 ], [ %.03048, %32 ], [ %.03048, %32 ], [ %.03048, %32 ]
   %.2 = phi i32 [ %31, %33 ], [ 0, %32 ], [ 0, %32 ], [ 0, %32 ]
-  %36 = getelementptr inbounds i8, ptr %.23549, i64 1
+  %36 = getelementptr inbounds i8, ptr %.23547, i64 1
   %37 = load i8, ptr %36, align 1
   %.not41 = icmp eq i8 %37, 0
   br i1 %.not41, label %.critedge2.thread, label %.lr.ph.split.split, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph.split.us, %27
-  %.235.lcssa.ph = phi ptr [ %.23549.us, %.lr.ph.split.us ], [ %28, %27 ]
-  %.030.lcssa.ph = phi ptr [ %.03050.us, %.lr.ph.split.us ], [ %.131.us, %27 ]
-  %.0.lcssa.ph = phi i8 [ %.052.us, %.lr.ph.split.us ], [ %.1.us, %27 ]
-  %38 = and i8 %.0.lcssa.ph, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %.critedge2.thread, label %.loopexit
+  %.235.lcssa.ph = phi ptr [ %.23547.us, %.lr.ph.split.us ], [ %28, %27 ]
+  %.030.lcssa.ph = phi ptr [ %.03048.us, %.lr.ph.split.us ], [ %.131.us, %27 ]
+  %.0.lcssa.ph = phi i8 [ %.050.us, %.lr.ph.split.us ], [ %.1.us, %27 ]
+  %38 = trunc i8 %.0.lcssa.ph to i1
+  br i1 %38, label %.loopexit, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.lr.ph.split.split, %35, %13, %.critedge2
-  %.030.lcssa75 = phi ptr [ %.030.lcssa.ph, %.critedge2 ], [ %2, %13 ], [ %.03050, %.lr.ph.split.split ], [ %.131, %35 ]
-  %.235.lcssa74 = phi ptr [ %.235.lcssa.ph, %.critedge2 ], [ %spec.select, %13 ], [ %.23549, %.lr.ph.split.split ], [ %36, %35 ]
-  store i8 0, ptr %.030.lcssa75, align 1
-  store ptr %.235.lcssa74, ptr %3, align 8
+  %.030.lcssa73 = phi ptr [ %.030.lcssa.ph, %.critedge2 ], [ %2, %13 ], [ %.03048, %.lr.ph.split.split ], [ %.131, %35 ]
+  %.235.lcssa72 = phi ptr [ %.235.lcssa.ph, %.critedge2 ], [ %spec.select, %13 ], [ %.23547, %.lr.ph.split.split ], [ %36, %35 ]
+  store i8 0, ptr %.030.lcssa73, align 1
+  store ptr %.235.lcssa72, ptr %3, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %23, %23, %.critedge2, %.critedge, %.critedge2.thread
@@ -653,8 +651,8 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
 
 29:                                               ; preds = %.loopexit, %2
   %.promoted = phi ptr [ %0, %2 ], [ %storemerge, %.loopexit ]
-  %.058 = phi i8 [ 0, %2 ], [ %.361, %.loopexit ]
-  %.056 = phi i8 [ 0, %2 ], [ %.3, %.loopexit ]
+  %.058 = phi i1 [ false, %2 ], [ %.361, %.loopexit ]
+  %.056 = phi i1 [ false, %2 ], [ %.3, %.loopexit ]
   br label %30
 
 30:                                               ; preds = %.critedge2, %29
@@ -672,7 +670,7 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
 .critedge:                                        ; preds = %30
   store ptr %31, ptr %3, align 8
   %34 = call zeroext i1 @Curl_auth_digest_get_pair(ptr noundef nonnull %31, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3)
-  br i1 %34, label %35, label %131
+  br i1 %34, label %35, label %129
 
 35:                                               ; preds = %.critedge
   %36 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #10
@@ -686,8 +684,8 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
   %40 = load ptr, ptr @Curl_cstrdup, align 8
   %41 = call ptr %40(ptr noundef nonnull %5) #10
   store ptr %41, ptr %1, align 8
-  %.not99 = icmp eq ptr %41, null
-  br i1 %.not99, label %.loopexit101, label %124
+  %.not97 = icmp eq ptr %41, null
+  br i1 %.not97, label %.loopexit99, label %122
 
 42:                                               ; preds = %35
   %43 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #10
@@ -696,15 +694,15 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
 
 44:                                               ; preds = %42
   %45 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #10
-  %.not98 = icmp eq i32 %45, 0
-  br i1 %.not98, label %124, label %46
+  %.not96 = icmp eq i32 %45, 0
+  br i1 %.not96, label %122, label %46
 
 46:                                               ; preds = %44
   %47 = load i8, ptr %26, align 1
   %48 = or i8 %47, 1
   store i8 %48, ptr %26, align 1
   store i32 1, ptr %24, align 8
-  br label %124
+  br label %122
 
 49:                                               ; preds = %42
   %50 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.7) #10
@@ -718,8 +716,8 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
   %54 = load ptr, ptr @Curl_cstrdup, align 8
   %55 = call ptr %54(ptr noundef nonnull %5) #10
   store ptr %55, ptr %13, align 8
-  %.not97 = icmp eq ptr %55, null
-  br i1 %.not97, label %.loopexit101, label %124
+  %.not95 = icmp eq ptr %55, null
+  br i1 %.not95, label %.loopexit99, label %122
 
 56:                                               ; preds = %49
   %57 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.8) #10
@@ -733,34 +731,34 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
   %61 = load ptr, ptr @Curl_cstrdup, align 8
   %62 = call ptr %61(ptr noundef nonnull %5) #10
   store ptr %62, ptr %16, align 8
-  %.not96 = icmp eq ptr %62, null
-  br i1 %.not96, label %.loopexit101, label %124
+  %.not94 = icmp eq ptr %62, null
+  br i1 %.not94, label %.loopexit99, label %122
 
 63:                                               ; preds = %56
   %64 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.9) #10
   %.not76 = icmp eq i32 %64, 0
-  br i1 %.not76, label %92, label %65
+  br i1 %.not76, label %90, label %65
 
 65:                                               ; preds = %63
   store ptr null, ptr %6, align 8
   %66 = load ptr, ptr @Curl_cstrdup, align 8
   %67 = call ptr %66(ptr noundef nonnull %5) #10
   %.not87 = icmp eq ptr %67, null
-  br i1 %.not87, label %.loopexit101, label %68
+  br i1 %.not87, label %.loopexit99, label %68
 
 68:                                               ; preds = %65
   %69 = call ptr @strtok_r(ptr noundef nonnull %67, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #10
-  %.not88105 = icmp eq ptr %69, null
-  br i1 %.not88105, label %._crit_edge, label %.preheader
+  %.not88103 = icmp eq ptr %69, null
+  br i1 %.not88103, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %68, %76
-  %.0108 = phi ptr [ %77, %76 ], [ %69, %68 ]
-  %.157107 = phi i8 [ %.2, %76 ], [ %.056, %68 ]
-  %.159106 = phi i8 [ %.260, %76 ], [ %.058, %68 ]
+  %.0106 = phi ptr [ %77, %76 ], [ %69, %68 ]
+  %.157105 = phi i1 [ %.2, %76 ], [ %.056, %68 ]
+  %.159104 = phi i1 [ %.260, %76 ], [ %.058, %68 ]
   br label %70
 
 70:                                               ; preds = %.preheader, %.critedge6
-  %.1 = phi ptr [ %72, %.critedge6 ], [ %.0108, %.preheader ]
+  %.1 = phi ptr [ %72, %.critedge6 ], [ %.0106, %.preheader ]
   %71 = load i8, ptr %.1, align 1
   switch i8 %71, label %.critedge4 [
     i8 9, label %.critedge6
@@ -773,199 +771,195 @@ define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %
 
 .critedge4:                                       ; preds = %70
   %73 = call i32 @curl_strequal(ptr noundef nonnull %.1, ptr noundef nonnull @.str.11) #10
-  %.not94 = icmp eq i32 %73, 0
-  br i1 %.not94, label %74, label %76
+  %.not92 = icmp eq i32 %73, 0
+  br i1 %.not92, label %74, label %76
 
 74:                                               ; preds = %.critedge4
   %75 = call i32 @curl_strequal(ptr noundef nonnull %.1, ptr noundef nonnull @.str.12) #10
-  %.not95 = icmp eq i32 %75, 0
-  %spec.select = select i1 %.not95, i8 %.157107, i8 1
+  %.not93 = icmp ne i32 %75, 0
+  %spec.select = select i1 %.not93, i1 true, i1 %.157105
   br label %76
 
 76:                                               ; preds = %74, %.critedge4
-  %.260 = phi i8 [ 1, %.critedge4 ], [ %.159106, %74 ]
-  %.2 = phi i8 [ %.157107, %.critedge4 ], [ %spec.select, %74 ]
+  %.260 = phi i1 [ true, %.critedge4 ], [ %.159104, %74 ]
+  %.2 = phi i1 [ %.157105, %.critedge4 ], [ %spec.select, %74 ]
   %77 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #10
   %.not88 = icmp eq ptr %77, null
   br i1 %.not88, label %._crit_edge, label %.preheader, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %76, %68
-  %.159.lcssa = phi i8 [ %.058, %68 ], [ %.260, %76 ]
-  %.157.lcssa = phi i8 [ %.056, %68 ], [ %.2, %76 ]
+  %.159.lcssa = phi i1 [ %.058, %68 ], [ %.260, %76 ]
+  %.157.lcssa = phi i1 [ %.056, %68 ], [ %.2, %76 ]
   %78 = load ptr, ptr @Curl_cfree, align 8
   call void %78(ptr noundef nonnull %67) #10
-  %79 = and i8 %.159.lcssa, 1
-  %.not89 = icmp eq i8 %79, 0
-  br i1 %.not89, label %85, label %80
+  br i1 %.159.lcssa, label %79, label %84
 
-80:                                               ; preds = %._crit_edge
-  %81 = load ptr, ptr @Curl_cfree, align 8
-  %82 = load ptr, ptr %19, align 8
-  call void %81(ptr noundef %82) #10
-  %83 = load ptr, ptr @Curl_cstrdup, align 8
-  %84 = call ptr %83(ptr noundef nonnull @.str.11) #10
-  store ptr %84, ptr %19, align 8
-  %.not92 = icmp eq ptr %84, null
-  br i1 %.not92, label %.loopexit101, label %124
+79:                                               ; preds = %._crit_edge
+  %80 = load ptr, ptr @Curl_cfree, align 8
+  %81 = load ptr, ptr %19, align 8
+  call void %80(ptr noundef %81) #10
+  %82 = load ptr, ptr @Curl_cstrdup, align 8
+  %83 = call ptr %82(ptr noundef nonnull @.str.11) #10
+  store ptr %83, ptr %19, align 8
+  %.not90 = icmp eq ptr %83, null
+  br i1 %.not90, label %.loopexit99, label %122
 
-85:                                               ; preds = %._crit_edge
-  %86 = and i8 %.157.lcssa, 1
-  %.not90 = icmp eq i8 %86, 0
-  br i1 %.not90, label %124, label %87
+84:                                               ; preds = %._crit_edge
+  br i1 %.157.lcssa, label %85, label %122
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr @Curl_cfree, align 8
-  %89 = load ptr, ptr %19, align 8
-  call void %88(ptr noundef %89) #10
-  %90 = load ptr, ptr @Curl_cstrdup, align 8
-  %91 = call ptr %90(ptr noundef nonnull @.str.12) #10
-  store ptr %91, ptr %19, align 8
-  %.not91 = icmp eq ptr %91, null
-  br i1 %.not91, label %.loopexit101, label %124
+85:                                               ; preds = %84
+  %86 = load ptr, ptr @Curl_cfree, align 8
+  %87 = load ptr, ptr %19, align 8
+  call void %86(ptr noundef %87) #10
+  %88 = load ptr, ptr @Curl_cstrdup, align 8
+  %89 = call ptr %88(ptr noundef nonnull @.str.12) #10
+  store ptr %89, ptr %19, align 8
+  %.not89 = icmp eq ptr %89, null
+  br i1 %.not89, label %.loopexit99, label %122
 
-92:                                               ; preds = %63
-  %93 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.13) #10
-  %.not77 = icmp eq i32 %93, 0
-  br i1 %.not77, label %117, label %94
+90:                                               ; preds = %63
+  %91 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.13) #10
+  %.not77 = icmp eq i32 %91, 0
+  br i1 %.not77, label %115, label %92
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr @Curl_cfree, align 8
-  %96 = load ptr, ptr %22, align 8
-  call void %95(ptr noundef %96) #10
-  %97 = load ptr, ptr @Curl_cstrdup, align 8
-  %98 = call ptr %97(ptr noundef nonnull %5) #10
-  store ptr %98, ptr %22, align 8
-  %.not80 = icmp eq ptr %98, null
-  br i1 %.not80, label %.loopexit101, label %99
+92:                                               ; preds = %90
+  %93 = load ptr, ptr @Curl_cfree, align 8
+  %94 = load ptr, ptr %22, align 8
+  call void %93(ptr noundef %94) #10
+  %95 = load ptr, ptr @Curl_cstrdup, align 8
+  %96 = call ptr %95(ptr noundef nonnull %5) #10
+  store ptr %96, ptr %22, align 8
+  %.not80 = icmp eq ptr %96, null
+  br i1 %.not80, label %.loopexit99, label %97
 
-99:                                               ; preds = %94
-  %100 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #10
-  %.not81 = icmp eq i32 %100, 0
-  br i1 %.not81, label %102, label %101
+97:                                               ; preds = %92
+  %98 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #10
+  %.not81 = icmp eq i32 %98, 0
+  br i1 %.not81, label %100, label %99
 
-101:                                              ; preds = %99
+99:                                               ; preds = %97
   store i8 1, ptr %25, align 4
-  br label %124
+  br label %122
 
-102:                                              ; preds = %99
-  %103 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.15) #10
-  %.not82 = icmp eq i32 %103, 0
-  br i1 %.not82, label %105, label %104
+100:                                              ; preds = %97
+  %101 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.15) #10
+  %.not82 = icmp eq i32 %101, 0
+  br i1 %.not82, label %103, label %102
 
-104:                                              ; preds = %102
+102:                                              ; preds = %100
   store i8 0, ptr %25, align 4
-  br label %124
+  br label %122
 
-105:                                              ; preds = %102
-  %106 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #10
-  %.not83 = icmp eq i32 %106, 0
-  br i1 %.not83, label %108, label %107
+103:                                              ; preds = %100
+  %104 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #10
+  %.not83 = icmp eq i32 %104, 0
+  br i1 %.not83, label %106, label %105
 
-107:                                              ; preds = %105
+105:                                              ; preds = %103
   store i8 2, ptr %25, align 4
-  br label %124
+  br label %122
 
-108:                                              ; preds = %105
-  %109 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #10
-  %.not84 = icmp eq i32 %109, 0
-  br i1 %.not84, label %111, label %110
+106:                                              ; preds = %103
+  %107 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #10
+  %.not84 = icmp eq i32 %107, 0
+  br i1 %.not84, label %109, label %108
 
-110:                                              ; preds = %108
+108:                                              ; preds = %106
   store i8 3, ptr %25, align 4
-  br label %124
+  br label %122
 
-111:                                              ; preds = %108
-  %112 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #10
-  %.not85 = icmp eq i32 %112, 0
-  br i1 %.not85, label %114, label %113
+109:                                              ; preds = %106
+  %110 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #10
+  %.not85 = icmp eq i32 %110, 0
+  br i1 %.not85, label %112, label %111
 
-113:                                              ; preds = %111
+111:                                              ; preds = %109
   store i8 4, ptr %25, align 4
-  br label %124
+  br label %122
 
-114:                                              ; preds = %111
-  %115 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #10
-  %.not86 = icmp eq i32 %115, 0
-  br i1 %.not86, label %.loopexit101, label %116
+112:                                              ; preds = %109
+  %113 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #10
+  %.not86 = icmp eq i32 %113, 0
+  br i1 %.not86, label %.loopexit99, label %114
 
-116:                                              ; preds = %114
+114:                                              ; preds = %112
   store i8 5, ptr %25, align 4
-  br label %124
+  br label %122
 
-117:                                              ; preds = %92
-  %118 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.20) #10
-  %.not78 = icmp eq i32 %118, 0
-  br i1 %.not78, label %124, label %119
+115:                                              ; preds = %90
+  %116 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.20) #10
+  %.not78 = icmp eq i32 %116, 0
+  br i1 %.not78, label %122, label %117
+
+117:                                              ; preds = %115
+  %118 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #10
+  %.not79 = icmp eq i32 %118, 0
+  br i1 %.not79, label %122, label %119
 
 119:                                              ; preds = %117
-  %120 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #10
-  %.not79 = icmp eq i32 %120, 0
-  br i1 %.not79, label %124, label %121
+  %120 = load i8, ptr %26, align 1
+  %121 = or i8 %120, 2
+  store i8 %121, ptr %26, align 1
+  br label %122
 
-121:                                              ; preds = %119
-  %122 = load i8, ptr %26, align 1
-  %123 = or i8 %122, 2
-  store i8 %123, ptr %26, align 1
-  br label %124
+122:                                              ; preds = %37, %51, %84, %85, %79, %119, %117, %115, %99, %105, %111, %114, %108, %102, %58, %44, %46
+  %.361 = phi i1 [ %.058, %37 ], [ %.058, %46 ], [ %.058, %44 ], [ %.058, %51 ], [ %.058, %58 ], [ true, %79 ], [ false, %85 ], [ false, %84 ], [ %.058, %99 ], [ %.058, %102 ], [ %.058, %105 ], [ %.058, %108 ], [ %.058, %111 ], [ %.058, %114 ], [ %.058, %119 ], [ %.058, %117 ], [ %.058, %115 ]
+  %.3 = phi i1 [ %.056, %37 ], [ %.056, %46 ], [ %.056, %44 ], [ %.056, %51 ], [ %.056, %58 ], [ %.157.lcssa, %79 ], [ true, %85 ], [ false, %84 ], [ %.056, %99 ], [ %.056, %102 ], [ %.056, %105 ], [ %.056, %108 ], [ %.056, %111 ], [ %.056, %114 ], [ %.056, %119 ], [ %.056, %117 ], [ %.056, %115 ]
+  %.promoted108 = load ptr, ptr %3, align 8
+  br label %123
 
-124:                                              ; preds = %37, %51, %85, %87, %80, %121, %119, %117, %101, %107, %113, %116, %110, %104, %58, %44, %46
-  %.361 = phi i8 [ %.058, %37 ], [ %.058, %46 ], [ %.058, %44 ], [ %.058, %51 ], [ %.058, %58 ], [ %.159.lcssa, %80 ], [ %.159.lcssa, %87 ], [ %.159.lcssa, %85 ], [ %.058, %101 ], [ %.058, %104 ], [ %.058, %107 ], [ %.058, %110 ], [ %.058, %113 ], [ %.058, %116 ], [ %.058, %121 ], [ %.058, %119 ], [ %.058, %117 ]
-  %.3 = phi i8 [ %.056, %37 ], [ %.056, %46 ], [ %.056, %44 ], [ %.056, %51 ], [ %.056, %58 ], [ %.157.lcssa, %80 ], [ %.157.lcssa, %87 ], [ %.157.lcssa, %85 ], [ %.056, %101 ], [ %.056, %104 ], [ %.056, %107 ], [ %.056, %110 ], [ %.056, %113 ], [ %.056, %116 ], [ %.056, %121 ], [ %.056, %119 ], [ %.056, %117 ]
-  %.promoted110 = load ptr, ptr %3, align 8
-  br label %125
-
-125:                                              ; preds = %.critedge10, %124
-  %126 = phi ptr [ %128, %.critedge10 ], [ %.promoted110, %124 ]
-  %127 = load i8, ptr %126, align 1
-  switch i8 %127, label %.loopexit [
+123:                                              ; preds = %.critedge10, %122
+  %124 = phi ptr [ %126, %.critedge10 ], [ %.promoted108, %122 ]
+  %125 = load i8, ptr %124, align 1
+  switch i8 %125, label %.loopexit [
     i8 9, label %.critedge10
     i8 32, label %.critedge10
-    i8 44, label %129
+    i8 44, label %127
   ]
 
-.critedge10:                                      ; preds = %125, %125
-  %128 = getelementptr inbounds i8, ptr %126, i64 1
-  br label %125, !llvm.loop !15
+.critedge10:                                      ; preds = %123, %123
+  %126 = getelementptr inbounds i8, ptr %124, i64 1
+  br label %123, !llvm.loop !15
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %126, i64 1
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds i8, ptr %124, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %125, %129
-  %storemerge = phi ptr [ %130, %129 ], [ %126, %125 ]
+.loopexit:                                        ; preds = %123, %127
+  %storemerge = phi ptr [ %128, %127 ], [ %124, %123 ]
   store ptr %storemerge, ptr %3, align 8
   br label %29
 
-131:                                              ; preds = %.critedge
-  br i1 %.not.not, label %135, label %132
+129:                                              ; preds = %.critedge
+  br i1 %.not.not, label %133, label %130
 
-132:                                              ; preds = %131
-  %133 = load i8, ptr %26, align 1
-  %134 = and i8 %133, 1
-  %.not = icmp eq i8 %134, 0
-  br i1 %.not, label %.loopexit101, label %135
+130:                                              ; preds = %129
+  %131 = load i8, ptr %26, align 1
+  %132 = and i8 %131, 1
+  %.not = icmp eq i8 %132, 0
+  br i1 %.not, label %.loopexit99, label %133
 
-135:                                              ; preds = %132, %131
-  %136 = load ptr, ptr %1, align 8
-  %.not69 = icmp eq ptr %136, null
-  br i1 %.not69, label %.loopexit101, label %137
+133:                                              ; preds = %130, %129
+  %134 = load ptr, ptr %1, align 8
+  %.not69 = icmp eq ptr %134, null
+  br i1 %.not69, label %.loopexit99, label %135
+
+135:                                              ; preds = %133
+  %136 = load ptr, ptr %19, align 8
+  %.not70 = icmp eq ptr %136, null
+  br i1 %.not70, label %137, label %140
 
 137:                                              ; preds = %135
-  %138 = load ptr, ptr %19, align 8
-  %.not70 = icmp eq ptr %138, null
-  br i1 %.not70, label %139, label %142
+  %138 = load i8, ptr %25, align 4
+  %139 = and i8 %138, 1
+  %.not71 = icmp eq i8 %139, 0
+  br i1 %.not71, label %140, label %.loopexit99
 
-139:                                              ; preds = %137
-  %140 = load i8, ptr %25, align 4
-  %141 = and i8 %140, 1
-  %.not71 = icmp eq i8 %141, 0
-  br i1 %.not71, label %142, label %.loopexit101
+140:                                              ; preds = %137, %135
+  br label %.loopexit99
 
-142:                                              ; preds = %139, %137
-  br label %.loopexit101
-
-.loopexit101:                                     ; preds = %114, %94, %87, %80, %65, %58, %51, %37, %139, %135, %132, %142
-  %.063 = phi i32 [ 0, %142 ], [ 61, %132 ], [ 61, %135 ], [ 61, %139 ], [ 61, %114 ], [ 27, %94 ], [ 27, %87 ], [ 27, %80 ], [ 27, %65 ], [ 27, %58 ], [ 27, %51 ], [ 27, %37 ]
+.loopexit99:                                      ; preds = %112, %92, %85, %79, %65, %58, %51, %37, %137, %133, %130, %140
+  %.063 = phi i32 [ 0, %140 ], [ 61, %130 ], [ 61, %133 ], [ 61, %137 ], [ 61, %112 ], [ 27, %92 ], [ 27, %85 ], [ 27, %79 ], [ 27, %65 ], [ 27, %58 ], [ 27, %51 ], [ 27, %37 ]
   ret i32 %.063
 }
 

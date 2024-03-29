@@ -152,45 +152,39 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 16, ptr noundef nonnull @__func__.VHOST_USER_I2C) #4
   %vm_running.i.i = getelementptr inbounds i8, ptr %call.i, i64 434
   %1 = load i8, ptr %vm_running.i.i, align 2
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %entry.virtio_device_should_start.exit_crit_edge.i, label %if.end.i.i
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %entry.virtio_device_should_start.exit_crit_edge.i
 
 entry.virtio_device_should_start.exit_crit_edge.i: ; preds = %entry
-  %3 = getelementptr i8, ptr %call.i.i, i64 1088
-  %vhost_dev.val6.i = load i8, ptr %3, align 8
-  %4 = and i8 %vhost_dev.val6.i, 1
-  %tobool.i7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.i7.not.i, label %vu_i2c_set_status.exit, label %if.else.i
+  %2 = getelementptr i8, ptr %call.i.i, i64 1088
+  %vhost_dev.val7.i = load i8, ptr %2, align 8
+  %tobool.i58.i = trunc i8 %vhost_dev.val7.i to i1
+  br i1 %tobool.i58.i, label %if.else.i, label %vu_i2c_set_status.exit
 
 if.end.i.i:                                       ; preds = %entry
   %use_started.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 438
-  %5 = load i8, ptr %use_started.i.i.i, align 2
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %if.end.i.i.virtio_device_should_start.exit.i_crit_edge, label %virtio_device_should_start.exit.i
+  %3 = load i8, ptr %use_started.i.i.i, align 2
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %virtio_device_should_start.exit.i, label %if.end.i.i.virtio_device_should_start.exit.i_crit_edge
 
 if.end.i.i.virtio_device_should_start.exit.i_crit_edge: ; preds = %if.end.i.i
-  %7 = getelementptr i8, ptr %call.i.i, i64 1088
-  %vhost_dev.val.i6 = load i8, ptr %7, align 8
-  %8 = and i8 %vhost_dev.val.i6, 1
-  %tobool.i.i7.not = icmp eq i8 %8, 0
-  br i1 %tobool.i.i7.not, label %vu_i2c_set_status.exit, label %if.else.i
+  %4 = getelementptr i8, ptr %call.i.i, i64 1088
+  %vhost_dev.val.i6 = load i8, ptr %4, align 8
+  %tobool.i5.i7 = trunc i8 %vhost_dev.val.i6 to i1
+  br i1 %tobool.i5.i7, label %if.else.i, label %vu_i2c_set_status.exit
 
 virtio_device_should_start.exit.i:                ; preds = %if.end.i.i
   %started.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 439
-  %9 = load i8, ptr %started.i.i.i, align 1
-  %10 = and i8 %9, 1
-  %retval.0.i.i.i = icmp ne i8 %10, 0
-  %11 = getelementptr i8, ptr %call.i.i, i64 1088
-  %vhost_dev.val.i = load i8, ptr %11, align 8
-  %12 = and i8 %vhost_dev.val.i, 1
-  %tobool.i.i = icmp ne i8 %12, 0
-  %13 = xor i1 %retval.0.i.i.i, %tobool.i.i
-  br i1 %13, label %if.end.i, label %vu_i2c_set_status.exit
+  %5 = load i8, ptr %started.i.i.i, align 1
+  %6 = getelementptr i8, ptr %call.i.i, i64 1088
+  %vhost_dev.val.i = load i8, ptr %6, align 8
+  %7 = xor i8 %vhost_dev.val.i, %5
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %if.end.i, label %vu_i2c_set_status.exit
 
 if.end.i:                                         ; preds = %virtio_device_should_start.exit.i
-  br i1 %retval.0.i.i.i, label %if.then6.i, label %if.else.i
+  %tobool1.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool1.i.i.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end.i
   tail call fastcc void @vu_i2c_start(ptr noundef nonnull %call.i)
@@ -207,8 +201,8 @@ vu_i2c_set_status.exit:                           ; preds = %if.end.i.i.virtio_d
   %vhost_user.i = getelementptr inbounds i8, ptr %call.i5, i64 1224
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user.i) #4
   %vq.i = getelementptr inbounds i8, ptr %call.i5, i64 1248
-  %14 = load ptr, ptr %vq.i, align 8
-  tail call void @virtio_delete_queue(ptr noundef %14) #4
+  %9 = load ptr, ptr %vq.i, align 8
+  tail call void @virtio_delete_queue(ptr noundef %9) #4
   tail call void @virtio_cleanup(ptr noundef nonnull %call.i) #4
   ret void
 }
@@ -229,46 +223,42 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 16, ptr noundef nonnull @__func__.VHOST_USER_I2C) #4
   %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %entry.virtio_device_should_start.exit_crit_edge, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %entry.virtio_device_should_start.exit_crit_edge
 
 entry.virtio_device_should_start.exit_crit_edge:  ; preds = %entry
-  %2 = getelementptr i8, ptr %call.i, i64 1088
-  %vhost_dev.val6 = load i8, ptr %2, align 8
-  %3 = and i8 %vhost_dev.val6, 1
-  %tobool.i7.not = icmp eq i8 %3, 0
-  br i1 %tobool.i7.not, label %if.end7, label %if.else
+  %1 = getelementptr i8, ptr %call.i, i64 1088
+  %vhost_dev.val7 = load i8, ptr %1, align 8
+  %tobool.i58 = trunc i8 %vhost_dev.val7 to i1
+  br i1 %tobool.i58, label %if.else, label %if.end7
 
 if.end.i:                                         ; preds = %entry
   %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
-  %4 = load i8, ptr %use_started.i.i, align 2
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %2 = load i8, ptr %use_started.i.i, align 2
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
-  %6 = load i8, ptr %started.i.i, align 1
-  %7 = and i8 %6, 1
+  %3 = load i8, ptr %started.i.i, align 1
+  %tobool1.i.i = trunc i8 %3 to i1
   br label %virtio_device_should_start.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %8 = and i8 %status, 4
+  %4 = and i8 %status, 4
+  %tobool2.i.i = icmp ne i8 %4, 0
   br label %virtio_device_should_start.exit
 
 virtio_device_should_start.exit:                  ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.i.i = phi i8 [ %7, %if.then.i.i ], [ %8, %if.end.i.i ]
-  %retval.0.i.i = icmp ne i8 %retval.0.in.i.i, 0
-  %9 = getelementptr i8, ptr %call.i, i64 1088
-  %vhost_dev.val = load i8, ptr %9, align 8
-  %10 = and i8 %vhost_dev.val, 1
-  %tobool.i = icmp ne i8 %10, 0
-  %11 = xor i1 %retval.0.i.i, %tobool.i
-  br i1 %11, label %if.end, label %if.end7
+  %retval.0.i = phi i1 [ %tobool1.i.i, %if.then.i.i ], [ %tobool2.i.i, %if.end.i.i ]
+  %5 = getelementptr i8, ptr %call.i, i64 1088
+  %vhost_dev.val = load i8, ptr %5, align 8
+  %tobool.i5 = trunc i8 %vhost_dev.val to i1
+  %6 = xor i1 %retval.0.i, %tobool.i5
+  br i1 %6, label %if.end, label %if.end7
 
 if.end:                                           ; preds = %virtio_device_should_start.exit
-  br i1 %retval.0.i.i, label %if.then6, label %if.else
+  br i1 %retval.0.i, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
   tail call fastcc void @vu_i2c_start(ptr noundef nonnull %vdev)
@@ -355,36 +345,30 @@ sw.bb:                                            ; preds = %entry
   %call.i5.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 16, ptr noundef nonnull @__func__.VHOST_USER_I2C) #4
   %connected.i = getelementptr inbounds i8, ptr %call.i5.i, i64 1256
   %0 = load i8, ptr %connected.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %sw.epilog
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
   store i8 1, ptr %connected.i, align 8
   %use_started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 438
-  %2 = load i8, ptr %use_started.i.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %1 = load i8, ptr %use_started.i.i, align 2
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %virtio_device_started.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 439
-  %4 = load i8, ptr %started.i.i, align 1
-  %5 = and i8 %4, 1
-  br label %virtio_device_started.exit.i
+  %2 = load i8, ptr %started.i.i, align 1
+  %tobool1.i.i = trunc i8 %2 to i1
+  br i1 %tobool1.i.i, label %if.then4.i, label %sw.epilog
 
-if.end.i.i:                                       ; preds = %if.end.i
+virtio_device_started.exit.i:                     ; preds = %if.end.i
   %status.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
-  %6 = load i8, ptr %status.i, align 8
-  %7 = and i8 %6, 4
-  br label %virtio_device_started.exit.i
+  %3 = load i8, ptr %status.i, align 8
+  %4 = and i8 %3, 4
+  %tobool2.i.not.i = icmp eq i8 %4, 0
+  br i1 %tobool2.i.not.i, label %sw.epilog, label %if.then4.i
 
-virtio_device_started.exit.i:                     ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.in.i.i = phi i8 [ %5, %if.then.i.i ], [ %7, %if.end.i.i ]
-  %retval.0.i.not.i = icmp eq i8 %retval.0.in.i.i, 0
-  br i1 %retval.0.i.not.i, label %sw.epilog, label %if.then4.i
-
-if.then4.i:                                       ; preds = %virtio_device_started.exit.i
+if.then4.i:                                       ; preds = %virtio_device_started.exit.i, %if.then.i.i
   tail call fastcc void @vu_i2c_start(ptr noundef nonnull %call.i.i)
   br label %sw.epilog
 
@@ -392,24 +376,22 @@ sw.bb3:                                           ; preds = %entry
   %call.i.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #4
   %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 16, ptr noundef nonnull @__func__.VHOST_USER_I2C) #4
   %connected.i5 = getelementptr inbounds i8, ptr %call.i4.i, i64 1256
-  %8 = load i8, ptr %connected.i5, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i6 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i6, label %sw.epilog, label %if.end.i7
+  %5 = load i8, ptr %connected.i5, align 8
+  %tobool.i6 = trunc i8 %5 to i1
+  br i1 %tobool.i6, label %if.end.i7, label %sw.epilog
 
 if.end.i7:                                        ; preds = %sw.bb3
   store i8 0, ptr %connected.i5, align 8
-  %10 = getelementptr i8, ptr %call.i4.i, i64 1088
-  %vhost_dev.val.i = load i8, ptr %10, align 8
-  %11 = and i8 %vhost_dev.val.i, 1
-  %tobool.i.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.not.i, label %sw.epilog, label %if.then4.i8
+  %6 = getelementptr i8, ptr %call.i4.i, i64 1088
+  %vhost_dev.val.i = load i8, ptr %6, align 8
+  %tobool.i.i8 = trunc i8 %vhost_dev.val.i to i1
+  br i1 %tobool.i.i8, label %if.then4.i9, label %sw.epilog
 
-if.then4.i8:                                      ; preds = %if.end.i7
+if.then4.i9:                                      ; preds = %if.end.i7
   tail call fastcc void @vu_i2c_stop(ptr noundef %call.i.i4)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then4.i8, %if.end.i7, %sw.bb3, %if.then4.i, %virtio_device_started.exit.i, %sw.bb, %entry
+sw.epilog:                                        ; preds = %if.then4.i9, %if.end.i7, %sw.bb3, %if.then4.i, %virtio_device_started.exit.i, %if.then.i.i, %sw.bb, %entry
   ret void
 }
 

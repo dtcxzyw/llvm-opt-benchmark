@@ -945,13 +945,12 @@ sw.bb31.i:                                        ; preds = %for.cond.i
 
 switch.hole_check:                                ; preds = %sw.bb31.i
   %switch.shifted = lshr i8 23, %switch.tableidx
-  %12 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %12, 0
-  br i1 %switch.lobit.not, label %if.end47.i, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %if.end47.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.test_tx_script, i64 0, i64 %13
+  %12 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.test_tx_script, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %call37.i = call i64 @ossl_qtx_get_max_epoch_pkt_count(ptr noundef %call.i, i32 noundef %switch.load) #10
   %call38.i = call i32 @test_uint64_t_lt(ptr noundef nonnull @.str.3, i32 noundef 3637, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, i64 noundef %call37.i, i64 noundef -1) #10
@@ -969,11 +968,11 @@ if.end41.if.end47_crit_edge.i:                    ; preds = %if.end41.i
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %switch.hole_check, %sw.bb31.i, %if.end41.if.end47_crit_edge.i
-  %14 = phi ptr [ %.pre.i, %if.end41.if.end47_crit_edge.i ], [ %9, %sw.bb31.i ], [ %9, %switch.hole_check ]
+  %13 = phi ptr [ %.pre.i, %if.end41.if.end47_crit_edge.i ], [ %9, %sw.bb31.i ], [ %9, %switch.hole_check ]
   %cmp3434.i = phi i1 [ true, %if.end41.if.end47_crit_edge.i ], [ false, %sw.bb31.i ], [ false, %switch.hole_check ]
   %retval.0.i32.i = phi i32 [ %switch.load, %if.end41.if.end47_crit_edge.i ], [ 4, %sw.bb31.i ], [ 4, %switch.hole_check ]
   %old_value.0.i = phi i64 [ %call42.i, %if.end41.if.end47_crit_edge.i ], [ 0, %sw.bb31.i ], [ 0, %switch.hole_check ]
-  %call49.i = call i32 @ossl_qtx_write_pkt(ptr noundef %call.i, ptr noundef %14) #10
+  %call49.i = call i32 @ossl_qtx_write_pkt(ptr noundef %call.i, ptr noundef %13) #10
   %cmp50.i = icmp ne i32 %call49.i, 0
   %conv51.i = zext i1 %cmp50.i to i32
   %call52.i = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3645, ptr noundef nonnull @.str.133, i32 noundef %conv51.i) #10
@@ -999,13 +998,13 @@ sw.bb65.i:                                        ; preds = %for.cond.i
   br i1 %tobool70.not.i, label %err.i, label %if.end72.i
 
 if.end72.i:                                       ; preds = %sw.bb65.i
-  %15 = load ptr, ptr %msg.i, align 8
-  %16 = load i64, ptr %data_len.i, align 8
+  %14 = load ptr, ptr %msg.i, align 8
+  %15 = load i64, ptr %data_len.i, align 8
   %buf73.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %17 = load ptr, ptr %buf73.i, align 8
+  %16 = load ptr, ptr %buf73.i, align 8
   %buf_len74.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %18 = load i64, ptr %buf_len74.i, align 8
-  %call75.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 3659, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.14, ptr noundef %15, i64 noundef %16, ptr noundef %17, i64 noundef %18) #10
+  %17 = load i64, ptr %buf_len74.i, align 8
+  %call75.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 3659, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.14, ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17) #10
   %tobool76.not.i = icmp eq i32 %call75.i, 0
   br i1 %tobool76.not.i, label %err.i, label %for.inc.i
 

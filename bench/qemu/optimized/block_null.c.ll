@@ -169,9 +169,8 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %read_zeroes, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef 0, i32 noundef 0, i64 noundef %bytes) #8
@@ -179,16 +178,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %latency_ns.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load i64, ptr %latency_ns.i, align 8
-  %tobool.not.i = icmp eq i64 %4, 0
+  %2 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
+  %latency_ns.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load i64, ptr %latency_ns.i, align 8
+  %tobool.not.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i, label %null_co_common.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %w.i.i)
   store i64 0, ptr %w.i.i, align 8
-  call void @qemu_co_sleep_ns_wakeable(ptr noundef nonnull %w.i.i, i32 noundef 0, i64 noundef %4) #8
+  call void @qemu_co_sleep_ns_wakeable(ptr noundef nonnull %w.i.i, i32 noundef 0, i64 noundef %3) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %w.i.i)
   br label %null_co_common.exit
 
@@ -228,9 +227,8 @@ entry:
   store ptr %bs, ptr %file, align 8
   %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %read_zeroes, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %spec.select = select i1 %tobool.not, i32 4, i32 6
+  %tobool = trunc i8 %1 to i1
+  %spec.select = select i1 %tobool, i32 6, i32 4
   ret i32 %spec.select
 }
 
@@ -354,9 +352,8 @@ entry:
   %0 = load ptr, ptr %opaque1, align 8
   %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %read_zeroes, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef 0, i32 noundef 0, i64 noundef %bytes) #8

@@ -654,14 +654,13 @@ define weak_odr dso_local void @_ZN4mold3elf19release_global_lockINS0_7PPC64V1EE
 entry:
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %ctx, i64 1196
   %0 = load i8, ptr %_M_engaged.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %global_lock_fd = getelementptr inbounds i8, ptr %ctx, i64 1192
-  %2 = load i32, ptr %global_lock_fd, align 8
-  %call3 = tail call i32 @close(i32 noundef %2) #18
+  %1 = load i32, ptr %global_lock_fd, align 8
+  %call3 = tail call i32 @close(i32 noundef %1) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

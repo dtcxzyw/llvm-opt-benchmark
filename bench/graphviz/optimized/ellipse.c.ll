@@ -221,20 +221,19 @@ gv_alloc.exit.preheader.i.preheader:              ; preds = %initEllipse.exit
   unreachable
 
 gv_alloc.exit.preheader.i:                        ; preds = %gv_alloc.exit.preheader.i.preheader, %gv_alloc.exit.i
-  %.0114130.i = phi i32 [ %187, %gv_alloc.exit.i ], [ 1, %gv_alloc.exit.preheader.i.preheader ]
-  %.0116129.i = phi i8 [ %.2.i, %gv_alloc.exit.i ], [ 0, %gv_alloc.exit.preheader.i.preheader ]
-  %160 = sitofp i32 %.0114130.i to double
+  %.0114131.i = phi i32 [ %186, %gv_alloc.exit.i ], [ 1, %gv_alloc.exit.preheader.i.preheader ]
+  %160 = sitofp i32 %.0114131.i to double
   %161 = fdiv double %86, %160
   %162 = fcmp ugt double %161, 0x3FF921FB54442D18
   br i1 %162, label %gv_alloc.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %gv_alloc.exit.preheader.i, %.lr.ph.i
-  %.0113128.i = phi double [ %163, %.lr.ph.i ], [ %11, %gv_alloc.exit.preheader.i ]
-  %.0115127.i = phi i32 [ %183, %.lr.ph.i ], [ 0, %gv_alloc.exit.preheader.i ]
-  %163 = fadd double %161, %.0113128.i
-  %164 = fadd double %.0113128.i, %163
+  %.0113129.i = phi double [ %163, %.lr.ph.i ], [ %11, %gv_alloc.exit.preheader.i ]
+  %.0115128.i = phi i32 [ %183, %.lr.ph.i ], [ 0, %gv_alloc.exit.preheader.i ]
+  %163 = fadd double %161, %.0113129.i
+  %164 = fadd double %.0113129.i, %163
   %165 = fmul double %164, 5.000000e-01
-  %166 = fsub double %163, %.0113128.i
+  %166 = fsub double %163, %.0113129.i
   %167 = fmul double %165, 2.000000e+00
   %168 = tail call double @cos(double noundef %167) #9
   %169 = fmul double %165, 4.000000e+00
@@ -251,217 +250,211 @@ gv_alloc.exit.preheader.i:                        ; preds = %gv_alloc.exit.prehe
   %180 = tail call double @exp(double noundef %179) #9
   %181 = fmul double %156, %180
   %182 = fcmp ole double %181, 1.000000e-05
-  %183 = add nuw nsw i32 %.0115127.i, 1
-  %184 = icmp ult i32 %183, %.0114130.i
+  %183 = add nuw nsw i32 %.0115128.i, 1
+  %184 = icmp ult i32 %183, %.0114131.i
   %185 = select i1 %182, i1 %184, i1 false
-  br i1 %185, label %.lr.ph.i, label %gv_alloc.exit.loopexit.i
+  br i1 %185, label %.lr.ph.i, label %gv_alloc.exit.i
 
-gv_alloc.exit.loopexit.i:                         ; preds = %.lr.ph.i
-  %186 = zext i1 %182 to i8
-  br label %gv_alloc.exit.i
+gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %gv_alloc.exit.preheader.i
+  %.2.i = phi i1 [ false, %gv_alloc.exit.preheader.i ], [ %182, %.lr.ph.i ]
+  %186 = shl i32 %.0114131.i, 1
+  %187 = icmp sgt i32 %186, 1023
+  %.not123.i = or i1 %187, %.2.i
+  br i1 %.not123.i, label %188, label %gv_alloc.exit.preheader.i
 
-gv_alloc.exit.i:                                  ; preds = %gv_alloc.exit.loopexit.i, %gv_alloc.exit.preheader.i
-  %.2.i = phi i8 [ %.0116129.i, %gv_alloc.exit.preheader.i ], [ %186, %gv_alloc.exit.loopexit.i ]
-  %187 = shl i32 %.0114130.i, 1
-  %188 = and i8 %.2.i, 1
-  %.not.i = icmp eq i8 %188, 0
-  %189 = icmp slt i32 %187, 1024
-  %190 = and i1 %189, %.not.i
-  br i1 %190, label %gv_alloc.exit.preheader.i, label %191
-
-191:                                              ; preds = %gv_alloc.exit.i
-  %192 = sitofp i32 %187 to double
-  %193 = fdiv double %86, %192
-  %194 = tail call double @cos(double noundef %11) #9
-  %195 = tail call double @sin(double noundef %11) #9
+188:                                              ; preds = %gv_alloc.exit.i
+  %189 = sitofp i32 %186 to double
+  %190 = fdiv double %86, %189
+  %191 = tail call double @cos(double noundef %11) #9
+  %192 = tail call double @sin(double noundef %11) #9
   store i32 100, ptr @bufsize, align 4
-  %196 = tail call noalias dereferenceable_or_null(1600) ptr @calloc(i64 noundef 100, i64 noundef 16) #10
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %198, label %lineTo.exit.i
+  %193 = tail call noalias dereferenceable_or_null(1600) ptr @calloc(i64 noundef 100, i64 noundef 16) #10
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %195, label %lineTo.exit.i
 
-198:                                              ; preds = %191
-  %199 = load ptr, ptr @stderr, align 8
-  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.1, i64 noundef 1600) #11
+195:                                              ; preds = %188
+  %196 = load ptr, ptr @stderr, align 8
+  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.1, i64 noundef 1600) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
-lineTo.exit.i:                                    ; preds = %191
-  %201 = fmul double %195, %3
-  %202 = fmul double %194, %2
-  %203 = tail call double @llvm.fmuladd.f64(double %202, double 0.000000e+00, double %1)
-  %204 = fadd double %201, %203
-  %205 = fneg double %201
-  %206 = fadd double %202, %0
-  %207 = tail call double @llvm.fmuladd.f64(double %205, double 0.000000e+00, double %206)
-  store ptr %196, ptr %84, align 8
-  store double %0, ptr %196, align 8
-  %208 = getelementptr inbounds i8, ptr %196, i64 8
+lineTo.exit.i:                                    ; preds = %188
+  %198 = fmul double %192, %3
+  %199 = fmul double %191, %2
+  %200 = tail call double @llvm.fmuladd.f64(double %199, double 0.000000e+00, double %1)
+  %201 = fadd double %198, %200
+  %202 = fneg double %198
+  %203 = fadd double %199, %0
+  %204 = tail call double @llvm.fmuladd.f64(double %202, double 0.000000e+00, double %203)
+  store ptr %193, ptr %84, align 8
+  store double %0, ptr %193, align 8
+  %205 = getelementptr inbounds i8, ptr %193, i64 8
+  store double %1, ptr %205, align 8
+  %206 = getelementptr inbounds i8, ptr %84, i64 8
+  %207 = getelementptr inbounds i8, ptr %193, i64 16
+  store double %0, ptr %207, align 8
+  %208 = getelementptr inbounds i8, ptr %193, i64 24
   store double %1, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %84, i64 8
-  %210 = getelementptr inbounds i8, ptr %196, i64 16
-  store double %0, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %196, i64 24
-  store double %1, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %196, i64 32
-  store double %207, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %196, i64 40
-  store double %204, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %196, i64 48
-  store double %207, ptr %214, align 8
-  store i32 4, ptr %209, align 8
-  %215 = getelementptr inbounds i8, ptr %196, i64 56
-  store double %204, ptr %215, align 8
-  %216 = fmul double %193, 5.000000e-01
-  %217 = tail call double @tan(double noundef %216) #9
-  %218 = tail call double @sin(double noundef %193) #9
-  %219 = fmul double %217, 3.000000e+00
-  %220 = tail call double @llvm.fmuladd.f64(double %219, double %217, double 4.000000e+00)
-  %221 = tail call double @sqrt(double noundef %220) #9
-  %222 = fadd double %221, -1.000000e+00
-  %223 = fmul double %218, %222
-  %224 = fdiv double %223, 3.000000e+00
-  %225 = icmp sgt i32 %187, 0
-  br i1 %225, label %.lr.ph137.i, label %lineTo.exit._crit_edge.i
+  %209 = getelementptr inbounds i8, ptr %193, i64 32
+  store double %204, ptr %209, align 8
+  %210 = getelementptr inbounds i8, ptr %193, i64 40
+  store double %201, ptr %210, align 8
+  %211 = getelementptr inbounds i8, ptr %193, i64 48
+  store double %204, ptr %211, align 8
+  store i32 4, ptr %206, align 8
+  %212 = getelementptr inbounds i8, ptr %193, i64 56
+  store double %201, ptr %212, align 8
+  %213 = fmul double %190, 5.000000e-01
+  %214 = tail call double @tan(double noundef %213) #9
+  %215 = tail call double @sin(double noundef %190) #9
+  %216 = fmul double %214, 3.000000e+00
+  %217 = tail call double @llvm.fmuladd.f64(double %216, double %214, double 4.000000e+00)
+  %218 = tail call double @sqrt(double noundef %217) #9
+  %219 = fadd double %218, -1.000000e+00
+  %220 = fmul double %215, %219
+  %221 = fdiv double %220, 3.000000e+00
+  %222 = icmp sgt i32 %186, 0
+  br i1 %222, label %.lr.ph138.i, label %lineTo.exit._crit_edge.i
 
 lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
   %.pre.i = load i32, ptr @bufsize, align 4
-  br label %285
+  br label %282
 
-.lr.ph137.i:                                      ; preds = %lineTo.exit.i
-  %226 = fneg double %2
-  %227 = fmul double %195, %226
-  %228 = fmul double %194, %3
-  %229 = fmul double %228, 0.000000e+00
-  %230 = fsub double %227, %229
-  %231 = tail call double @llvm.fmuladd.f64(double %227, double 0.000000e+00, double %228)
-  %232 = fneg double %224
-  %233 = insertelement <2 x double> poison, double %224, i64 0
-  %234 = insertelement <2 x double> %233, double %232, i64 1
-  %235 = insertelement <2 x double> poison, double %232, i64 0
-  %236 = insertelement <2 x double> poison, double %3, i64 0
-  %237 = insertelement <2 x double> %236, double %2, i64 1
-  br label %238
+.lr.ph138.i:                                      ; preds = %lineTo.exit.i
+  %223 = fneg double %2
+  %224 = fmul double %192, %223
+  %225 = fmul double %191, %3
+  %226 = fmul double %225, 0.000000e+00
+  %227 = fsub double %224, %226
+  %228 = tail call double @llvm.fmuladd.f64(double %224, double 0.000000e+00, double %225)
+  %229 = fneg double %221
+  %230 = insertelement <2 x double> poison, double %221, i64 0
+  %231 = insertelement <2 x double> %230, double %229, i64 1
+  %232 = insertelement <2 x double> poison, double %229, i64 0
+  %233 = insertelement <2 x double> poison, double %3, i64 0
+  %234 = insertelement <2 x double> %233, double %2, i64 1
+  br label %235
 
-238:                                              ; preds = %curveTo.exit.i, %.lr.ph137.i
-  %indvars.iv.i = phi i64 [ 4, %.lr.ph137.i ], [ %indvars.iv.next.i, %curveTo.exit.i ]
-  %239 = phi ptr [ %196, %.lr.ph137.i ], [ %274, %curveTo.exit.i ]
-  %.0136.i = phi double [ %11, %.lr.ph137.i ], [ %240, %curveTo.exit.i ]
-  %.1135.i = phi i32 [ 0, %.lr.ph137.i ], [ %282, %curveTo.exit.i ]
-  %.0118134.i = phi double [ %207, %.lr.ph137.i ], [ %283, %curveTo.exit.i ]
-  %.0119133.i = phi double [ %204, %.lr.ph137.i ], [ %281, %curveTo.exit.i ]
-  %.0120132.i = phi double [ %231, %.lr.ph137.i ], [ %247, %curveTo.exit.i ]
-  %.0121131.i = phi double [ %230, %.lr.ph137.i ], [ %246, %curveTo.exit.i ]
-  %240 = fadd double %193, %.0136.i
-  %241 = tail call double @cos(double noundef %240) #9
-  %242 = tail call double @sin(double noundef %240) #9
-  %243 = fmul double %241, %3
-  %244 = fmul double %242, %226
-  %245 = fmul double %243, 0.000000e+00
-  %246 = fsub double %244, %245
-  %247 = tail call double @llvm.fmuladd.f64(double %244, double 0.000000e+00, double %243)
-  %248 = tail call double @llvm.fmuladd.f64(double %224, double %.0121131.i, double %.0118134.i)
-  %249 = insertelement <2 x double> poison, double %.0120132.i, i64 0
-  %250 = insertelement <2 x double> %249, double %246, i64 1
-  %251 = insertelement <2 x double> poison, double %242, i64 0
-  %252 = insertelement <2 x double> %251, double %241, i64 1
-  %253 = fmul <2 x double> %252, %237
-  %254 = extractelement <2 x double> %253, i64 0
-  %255 = fneg double %254
-  %256 = extractelement <2 x double> %253, i64 1
-  %257 = tail call double @llvm.fmuladd.f64(double %256, double 0.000000e+00, double %1)
-  %258 = insertelement <2 x double> poison, double %257, i64 0
-  %259 = insertelement <2 x double> %258, double %0, i64 1
-  %260 = fadd <2 x double> %253, %259
-  %261 = insertelement <2 x double> %235, double %255, i64 1
-  %262 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %247, i64 0
-  %263 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %261, <2 x double> %262, <2 x double> %260)
-  %264 = insertelement <2 x double> %263, double %.0119133.i, i64 0
-  %265 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %234, <2 x double> %250, <2 x double> %264)
+235:                                              ; preds = %curveTo.exit.i, %.lr.ph138.i
+  %indvars.iv.i = phi i64 [ 4, %.lr.ph138.i ], [ %indvars.iv.next.i, %curveTo.exit.i ]
+  %236 = phi ptr [ %193, %.lr.ph138.i ], [ %271, %curveTo.exit.i ]
+  %.0137.i = phi double [ %11, %.lr.ph138.i ], [ %237, %curveTo.exit.i ]
+  %.1136.i = phi i32 [ 0, %.lr.ph138.i ], [ %279, %curveTo.exit.i ]
+  %.0118135.i = phi double [ %204, %.lr.ph138.i ], [ %280, %curveTo.exit.i ]
+  %.0119134.i = phi double [ %201, %.lr.ph138.i ], [ %278, %curveTo.exit.i ]
+  %.0120133.i = phi double [ %228, %.lr.ph138.i ], [ %244, %curveTo.exit.i ]
+  %.0121132.i = phi double [ %227, %.lr.ph138.i ], [ %243, %curveTo.exit.i ]
+  %237 = fadd double %190, %.0137.i
+  %238 = tail call double @cos(double noundef %237) #9
+  %239 = tail call double @sin(double noundef %237) #9
+  %240 = fmul double %238, %3
+  %241 = fmul double %239, %223
+  %242 = fmul double %240, 0.000000e+00
+  %243 = fsub double %241, %242
+  %244 = tail call double @llvm.fmuladd.f64(double %241, double 0.000000e+00, double %240)
+  %245 = tail call double @llvm.fmuladd.f64(double %221, double %.0121132.i, double %.0118135.i)
+  %246 = insertelement <2 x double> poison, double %.0120133.i, i64 0
+  %247 = insertelement <2 x double> %246, double %243, i64 1
+  %248 = insertelement <2 x double> poison, double %239, i64 0
+  %249 = insertelement <2 x double> %248, double %238, i64 1
+  %250 = fmul <2 x double> %249, %234
+  %251 = extractelement <2 x double> %250, i64 0
+  %252 = fneg double %251
+  %253 = extractelement <2 x double> %250, i64 1
+  %254 = tail call double @llvm.fmuladd.f64(double %253, double 0.000000e+00, double %1)
+  %255 = insertelement <2 x double> poison, double %254, i64 0
+  %256 = insertelement <2 x double> %255, double %0, i64 1
+  %257 = fadd <2 x double> %250, %256
+  %258 = insertelement <2 x double> %232, double %252, i64 1
+  %259 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %244, i64 0
+  %260 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %258, <2 x double> %259, <2 x double> %257)
+  %261 = insertelement <2 x double> %260, double %.0119134.i, i64 0
+  %262 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %231, <2 x double> %247, <2 x double> %261)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %266 = load i32, ptr @bufsize, align 4
-  %267 = sext i32 %266 to i64
-  %.not.i.i = icmp slt i64 %indvars.iv.next.i, %267
-  br i1 %.not.i.i, label %curveTo.exit.i, label %268
+  %263 = load i32, ptr @bufsize, align 4
+  %264 = sext i32 %263 to i64
+  %.not.i.i = icmp slt i64 %indvars.iv.next.i, %264
+  br i1 %.not.i.i, label %curveTo.exit.i, label %265
 
-268:                                              ; preds = %238
-  %269 = shl nsw i32 %266, 1
-  store i32 %269, ptr @bufsize, align 4
-  %270 = sext i32 %269 to i64
-  %271 = shl nsw i64 %270, 4
-  %272 = tail call ptr @realloc(ptr noundef nonnull %239, i64 noundef %271) #13
+265:                                              ; preds = %235
+  %266 = shl nsw i32 %263, 1
+  store i32 %266, ptr @bufsize, align 4
+  %267 = sext i32 %266 to i64
+  %268 = shl nsw i64 %267, 4
+  %269 = tail call ptr @realloc(ptr noundef nonnull %236, i64 noundef %268) #13
   br label %curveTo.exit.i
 
-curveTo.exit.i:                                   ; preds = %268, %238
-  %273 = phi i32 [ %269, %268 ], [ %266, %238 ]
-  %274 = phi ptr [ %272, %268 ], [ %239, %238 ]
-  %275 = getelementptr inbounds %struct.pointf_s, ptr %274, i64 %indvars.iv.i
-  store double %248, ptr %275, align 8
-  %276 = add nuw nsw i64 %indvars.iv.i, 1
-  %277 = getelementptr inbounds %struct.pointf_s, ptr %274, i64 %indvars.iv.i, i32 1
-  store <2 x double> %265, ptr %277, align 8
-  %278 = add nuw nsw i64 %indvars.iv.i, 2
-  %279 = getelementptr inbounds %struct.pointf_s, ptr %274, i64 %276, i32 1
-  store <2 x double> %263, ptr %279, align 8
-  %280 = getelementptr inbounds %struct.pointf_s, ptr %274, i64 %278, i32 1
-  %281 = extractelement <2 x double> %260, i64 0
-  store double %281, ptr %280, align 8
-  %282 = add nuw nsw i32 %.1135.i, 1
-  %exitcond.not.i = icmp eq i32 %282, %187
-  %283 = extractelement <2 x double> %263, i64 1
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %238
+curveTo.exit.i:                                   ; preds = %265, %235
+  %270 = phi i32 [ %266, %265 ], [ %263, %235 ]
+  %271 = phi ptr [ %269, %265 ], [ %236, %235 ]
+  %272 = getelementptr inbounds %struct.pointf_s, ptr %271, i64 %indvars.iv.i
+  store double %245, ptr %272, align 8
+  %273 = add nuw nsw i64 %indvars.iv.i, 1
+  %274 = getelementptr inbounds %struct.pointf_s, ptr %271, i64 %indvars.iv.i, i32 1
+  store <2 x double> %262, ptr %274, align 8
+  %275 = add nuw nsw i64 %indvars.iv.i, 2
+  %276 = getelementptr inbounds %struct.pointf_s, ptr %271, i64 %273, i32 1
+  store <2 x double> %260, ptr %276, align 8
+  %277 = getelementptr inbounds %struct.pointf_s, ptr %271, i64 %275, i32 1
+  %278 = extractelement <2 x double> %257, i64 0
+  store double %278, ptr %277, align 8
+  %279 = add nuw nsw i32 %.1136.i, 1
+  %exitcond.not.i = icmp eq i32 %279, %186
+  %280 = extractelement <2 x double> %260, i64 1
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %235
 
 ._crit_edge.i:                                    ; preds = %curveTo.exit.i
-  %284 = trunc i64 %indvars.iv.next.i to i32
-  store i32 %284, ptr %209, align 8
-  store ptr %274, ptr %84, align 8
-  br label %285
+  %281 = trunc i64 %indvars.iv.next.i to i32
+  store i32 %281, ptr %206, align 8
+  store ptr %271, ptr %84, align 8
+  br label %282
 
-285:                                              ; preds = %._crit_edge.i, %lineTo.exit._crit_edge.i
-  %286 = phi i32 [ %273, %._crit_edge.i ], [ %.pre.i, %lineTo.exit._crit_edge.i ]
-  %287 = phi i32 [ %284, %._crit_edge.i ], [ 4, %lineTo.exit._crit_edge.i ]
-  %288 = phi ptr [ %274, %._crit_edge.i ], [ %196, %lineTo.exit._crit_edge.i ]
-  %289 = load <2 x double>, ptr %288, align 8
-  %290 = sext i32 %287 to i64
-  %291 = getelementptr %struct.pointf_s, ptr %288, i64 %290
-  %292 = getelementptr i8, ptr %291, i64 -16
-  %.sroa.0.0.copyload.i.i.i = load double, ptr %292, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %291, i64 -8
+282:                                              ; preds = %._crit_edge.i, %lineTo.exit._crit_edge.i
+  %283 = phi i32 [ %270, %._crit_edge.i ], [ %.pre.i, %lineTo.exit._crit_edge.i ]
+  %284 = phi i32 [ %281, %._crit_edge.i ], [ 4, %lineTo.exit._crit_edge.i ]
+  %285 = phi ptr [ %271, %._crit_edge.i ], [ %193, %lineTo.exit._crit_edge.i ]
+  %286 = load <2 x double>, ptr %285, align 8
+  %287 = sext i32 %284 to i64
+  %288 = getelementptr %struct.pointf_s, ptr %285, i64 %287
+  %289 = getelementptr i8, ptr %288, i64 -16
+  %.sroa.0.0.copyload.i.i.i = load double, ptr %289, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %288, i64 -8
   %.sroa.2.0.copyload.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %293 = add nsw i32 %287, 3
-  %.not.i.i.i.i = icmp slt i32 %293, %286
-  br i1 %.not.i.i.i.i, label %genEllipticPath.exit, label %294
+  %290 = add nsw i32 %284, 3
+  %.not.i.i.i.i = icmp slt i32 %290, %283
+  br i1 %.not.i.i.i.i, label %genEllipticPath.exit, label %291
 
-294:                                              ; preds = %285
-  %295 = shl nsw i32 %286, 1
-  %296 = sext i32 %295 to i64
-  %297 = shl nsw i64 %296, 4
-  %298 = tail call ptr @realloc(ptr noundef nonnull %288, i64 noundef %297) #13
-  store ptr %298, ptr %84, align 8
+291:                                              ; preds = %282
+  %292 = shl nsw i32 %283, 1
+  %293 = sext i32 %292 to i64
+  %294 = shl nsw i64 %293, 4
+  %295 = tail call ptr @realloc(ptr noundef nonnull %285, i64 noundef %294) #13
+  store ptr %295, ptr %84, align 8
   br label %genEllipticPath.exit
 
-genEllipticPath.exit:                             ; preds = %285, %294
-  %299 = phi ptr [ %288, %285 ], [ %298, %294 ]
-  %300 = getelementptr inbounds %struct.pointf_s, ptr %299, i64 %290
-  store double %.sroa.0.0.copyload.i.i.i, ptr %300, align 8
-  %301 = load ptr, ptr %84, align 8
-  %302 = load i32, ptr %209, align 8
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds %struct.pointf_s, ptr %301, i64 %303, i32 1
-  store double %.sroa.2.0.copyload.i.i.i, ptr %304, align 8
-  %305 = sext i32 %302 to i64
-  %306 = getelementptr %struct.pointf_s, ptr %301, i64 %305
-  %307 = getelementptr i8, ptr %306, i64 16
-  store <2 x double> %289, ptr %307, align 8
-  %308 = sext i32 %302 to i64
-  %309 = getelementptr %struct.pointf_s, ptr %301, i64 %308
-  %310 = getelementptr i8, ptr %309, i64 32
-  %311 = add nsw i32 %302, 3
-  store i32 %311, ptr %209, align 8
-  store <2 x double> %289, ptr %310, align 8
-  %312 = sext i32 %311 to i64
-  %313 = shl nsw i64 %312, 4
-  %314 = tail call ptr @realloc(ptr noundef %301, i64 noundef %313) #13
-  store ptr %314, ptr %84, align 8
+genEllipticPath.exit:                             ; preds = %282, %291
+  %296 = phi ptr [ %285, %282 ], [ %295, %291 ]
+  %297 = getelementptr inbounds %struct.pointf_s, ptr %296, i64 %287
+  store double %.sroa.0.0.copyload.i.i.i, ptr %297, align 8
+  %298 = load ptr, ptr %84, align 8
+  %299 = load i32, ptr %206, align 8
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds %struct.pointf_s, ptr %298, i64 %300, i32 1
+  store double %.sroa.2.0.copyload.i.i.i, ptr %301, align 8
+  %302 = sext i32 %299 to i64
+  %303 = getelementptr %struct.pointf_s, ptr %298, i64 %302
+  %304 = getelementptr i8, ptr %303, i64 16
+  store <2 x double> %286, ptr %304, align 8
+  %305 = sext i32 %299 to i64
+  %306 = getelementptr %struct.pointf_s, ptr %298, i64 %305
+  %307 = getelementptr i8, ptr %306, i64 32
+  %308 = add nsw i32 %299, 3
+  store i32 %308, ptr %206, align 8
+  store <2 x double> %286, ptr %307, align 8
+  %309 = sext i32 %308 to i64
+  %310 = shl nsw i64 %309, 4
+  %311 = tail call ptr @realloc(ptr noundef %298, i64 noundef %310) #13
+  store ptr %311, ptr %84, align 8
   store i32 0, ptr @bufsize, align 4
   ret ptr %84
 }

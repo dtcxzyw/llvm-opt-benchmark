@@ -372,13 +372,13 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %22 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %22, 0
   %23 = load i32, ptr %5, align 8
-  br i1 %.not, label %42, label %.preheader152
+  br i1 %.not, label %42, label %.preheader147
 
-.preheader152:                                    ; preds = %21
+.preheader147:                                    ; preds = %21
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.preheader152
+.lr.ph.preheader:                                 ; preds = %.preheader147
   %.pre = load ptr, ptr %8, align 8
   br label %.lr.ph
 
@@ -387,16 +387,16 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %26 = load i32, ptr %5, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.loopexit150, !llvm.loop !8
+  br i1 %28, label %.lr.ph, label %.loopexit145, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %29 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %36, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %.0128182 = phi i64 [ %22, %.lr.ph.preheader ], [ %38, %25 ]
+  %.0128177 = phi i64 [ %22, %.lr.ph.preheader ], [ %38, %25 ]
   %30 = load ptr, ptr %7, align 8
   %31 = getelementptr inbounds %struct.iovec, ptr %30, i64 %indvars.iv, i32 1
   %32 = load i64, ptr %31, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0128182, i64 %32)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0128177, i64 %32)
   %33 = getelementptr inbounds %struct.iovec, ptr %30, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %29, i64 %spec.select, i1 false)
@@ -412,7 +412,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 40:                                               ; preds = %.lr.ph
   %41 = load ptr, ptr %9, align 8
   store ptr %41, ptr %8, align 8
-  br label %.loopexit150thread-pre-split
+  br label %.loopexit145thread-pre-split
 
 42:                                               ; preds = %21
   %43 = load ptr, ptr %8, align 8
@@ -434,7 +434,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %55 = load ptr, ptr %7, align 8
   %56 = tail call i64 @readv(i32 noundef %1, ptr noundef %55, i32 noundef %53) #12
   %57 = icmp sgt i64 %56, 0
-  br i1 %57, label %.loopexit150thread-pre-split, label %58
+  br i1 %57, label %.loopexit145thread-pre-split, label %58
 
 58:                                               ; preds = %54
   %59 = icmp eq i64 %56, 0
@@ -442,9 +442,8 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 60:                                               ; preds = %58
   %61 = load i8, ptr @opal_uses_threads, align 1
-  %62 = and i8 %61, 1
-  %.not146 = icmp eq i8 %62, 0
-  br i1 %.not146, label %66, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %4, i64 200
@@ -464,21 +463,20 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 71:                                               ; preds = %70, %66
   tail call void @mca_btl_tcp_endpoint_close(ptr noundef nonnull %4) #12
   %72 = load i8, ptr @opal_uses_threads, align 1
-  %73 = and i8 %72, 1
-  %.not147 = icmp eq i8 %73, 0
-  br i1 %.not147, label %.loopexit151, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %.loopexit146
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %4, i64 200
   %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #12
-  br label %.loopexit151
+  br label %.loopexit146
 
 77:                                               ; preds = %58
   %78 = tail call ptr @__errno_location() #13
   %79 = load i32, ptr %78, align 4
   switch i32 %79, label %114 [
     i32 4, label %54
-    i32 11, label %.loopexit151
+    i32 11, label %.loopexit146
     i32 14, label %80
     i32 104, label %98
   ]
@@ -566,9 +564,8 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 142:                                              ; preds = %80, %98, %103, %136, %114
   %143 = load i8, ptr @opal_uses_threads, align 1
-  %144 = and i8 %143, 1
-  %.not144 = icmp eq i8 %144, 0
-  br i1 %.not144, label %148, label %145
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %148
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %4, i64 200
@@ -580,53 +577,52 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   store i32 3, ptr %149, align 8
   tail call void @mca_btl_tcp_endpoint_close(ptr noundef %4) #12
   %150 = load i8, ptr @opal_uses_threads, align 1
-  %151 = and i8 %150, 1
-  %.not145 = icmp eq i8 %151, 0
-  br i1 %.not145, label %.loopexit151, label %152
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %152, label %.loopexit146
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds i8, ptr %4, i64 200
   %154 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %153) #12
-  br label %.loopexit151
+  br label %.loopexit146
 
-.loopexit150thread-pre-split:                     ; preds = %54, %40
+.loopexit145thread-pre-split:                     ; preds = %54, %40
   %.0129.ph = phi i64 [ %22, %40 ], [ %56, %54 ]
   %.pr = load i32, ptr %5, align 8
-  br label %.loopexit150
+  br label %.loopexit145
 
-.loopexit150:                                     ; preds = %25, %.loopexit150thread-pre-split
-  %155 = phi i32 [ %.pr, %.loopexit150thread-pre-split ], [ %26, %25 ]
-  %.0129 = phi i64 [ %.0129.ph, %.loopexit150thread-pre-split ], [ %22, %25 ]
+.loopexit145:                                     ; preds = %25, %.loopexit145thread-pre-split
+  %155 = phi i32 [ %.pr, %.loopexit145thread-pre-split ], [ %26, %25 ]
+  %.0129 = phi i64 [ %.0129.ph, %.loopexit145thread-pre-split ], [ %22, %25 ]
   %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %.lr.ph185, label %.loopexit
+  br i1 %156, label %.lr.ph180, label %.loopexit
 
-.lr.ph185:                                        ; preds = %.loopexit150
+.lr.ph180:                                        ; preds = %.loopexit145
   %.promoted = load ptr, ptr %7, align 8
   br label %157
 
-157:                                              ; preds = %.lr.ph185, %170
-  %158 = phi i32 [ %155, %.lr.ph185 ], [ %175, %170 ]
-  %159 = phi ptr [ %.promoted, %.lr.ph185 ], [ %174, %170 ]
-  %.1130184 = phi i64 [ %.0129, %.lr.ph185 ], [ %171, %170 ]
-  %.1132183 = phi i32 [ 0, %.lr.ph185 ], [ %176, %170 ]
+157:                                              ; preds = %.lr.ph180, %170
+  %158 = phi i32 [ %155, %.lr.ph180 ], [ %175, %170 ]
+  %159 = phi ptr [ %.promoted, %.lr.ph180 ], [ %174, %170 ]
+  %.1130179 = phi i64 [ %.0129, %.lr.ph180 ], [ %171, %170 ]
+  %.1132178 = phi i32 [ 0, %.lr.ph180 ], [ %176, %170 ]
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   %161 = load i64, ptr %160, align 8
-  %162 = icmp slt i64 %.1130184, %161
+  %162 = icmp slt i64 %.1130179, %161
   br i1 %162, label %163, label %170
 
 163:                                              ; preds = %157
   %164 = load ptr, ptr %159, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 %.1130184
+  %165 = getelementptr inbounds i8, ptr %164, i64 %.1130179
   store ptr %165, ptr %159, align 8
   %166 = load ptr, ptr %7, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = load i64, ptr %167, align 8
-  %169 = sub i64 %168, %.1130184
+  %169 = sub i64 %168, %.1130179
   store i64 %169, ptr %167, align 8
   br label %.loopexit
 
 170:                                              ; preds = %157
-  %171 = sub i64 %.1130184, %161
+  %171 = sub i64 %.1130179, %161
   %172 = load i32, ptr %10, align 4
   %173 = add i32 %172, 1
   store i32 %173, ptr %10, align 4
@@ -634,22 +630,21 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   store ptr %174, ptr %7, align 8
   %175 = add i32 %158, -1
   store i32 %175, ptr %5, align 8
-  %176 = add nuw nsw i32 %.1132183, 1
+  %176 = add nuw nsw i32 %.1132178, 1
   %exitcond.not = icmp eq i32 %176, %155
   br i1 %exitcond.not, label %.loopexit, label %157, !llvm.loop !9
 
-.loopexit:                                        ; preds = %170, %.preheader152, %.loopexit150, %163
-  %.2 = phi i64 [ 0, %163 ], [ %.0129, %.loopexit150 ], [ %22, %.preheader152 ], [ %171, %170 ]
+.loopexit:                                        ; preds = %170, %.preheader147, %.loopexit145, %163
+  %.2 = phi i64 [ 0, %163 ], [ %.0129, %.loopexit145 ], [ %22, %.preheader147 ], [ %171, %170 ]
   store i64 %.2, ptr %6, align 8
   %177 = load i32, ptr %5, align 8
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %.loopexit151
+  br i1 %178, label %179, label %.loopexit146
 
 179:                                              ; preds = %.loopexit
   %180 = load i8, ptr %11, align 8
-  %181 = and i8 %180, 1
-  %.not148 = icmp eq i8 %181, 0
-  br i1 %.not148, label %190, label %182
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %182, label %190
 
 182:                                              ; preds = %179
   %183 = load i32, ptr %10, align 4
@@ -667,7 +662,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 190:                                              ; preds = %185, %182, %179
   %191 = load i8, ptr %14, align 1
-  switch i8 %191, label %.loopexit151 [
+  switch i8 %191, label %.loopexit146 [
     i8 4, label %192
     i8 1, label %196
     i8 2, label %203
@@ -679,17 +674,17 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   store i32 2, ptr %194, align 8
   %195 = load ptr, ptr %3, align 8
   tail call void @mca_btl_tcp_endpoint_close(ptr noundef %195) #12
-  br label %.loopexit151
+  br label %.loopexit146
 
 196:                                              ; preds = %190
   %197 = load i32, ptr %10, align 4
   %198 = icmp eq i32 %197, 1
-  br i1 %198, label %199, label %.loopexit151
+  br i1 %198, label %199, label %.loopexit146
 
 199:                                              ; preds = %196
   %200 = load i32, ptr %13, align 4
-  %.not149 = icmp eq i32 %200, 0
-  br i1 %.not149, label %.loopexit151, label %201
+  %.not144 = icmp eq i32 %200, 0
+  br i1 %.not144, label %.loopexit146, label %201
 
 201:                                              ; preds = %199
   store ptr %19, ptr %15, align 8
@@ -706,7 +701,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 203:                                              ; preds = %190
   %204 = load i32, ptr %10, align 4
-  switch i32 %204, label %.loopexit151 [
+  switch i32 %204, label %.loopexit146 [
     i32 1, label %207
     i32 2, label %.preheader
   ]
@@ -714,12 +709,12 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 .preheader:                                       ; preds = %203
   %205 = load i16, ptr %12, align 2
   %206 = zext i16 %205 to i32
-  %.not189 = icmp eq i16 %205, 0
-  br i1 %.not189, label %._crit_edge, label %.lr.ph187.preheader
+  %.not184 = icmp eq i16 %205, 0
+  br i1 %.not184, label %._crit_edge, label %.lr.ph182.preheader
 
-.lr.ph187.preheader:                              ; preds = %.preheader
+.lr.ph182.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext i16 %205 to i64
-  br label %.lr.ph187
+  br label %.lr.ph182
 
 207:                                              ; preds = %203
   store ptr %15, ptr %17, align 8
@@ -729,31 +724,31 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   store i64 %210, ptr %18, align 8
   br label %.backedge
 
-.lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
-  %indvars.iv206 = phi i64 [ 0, %.lr.ph187.preheader ], [ %indvars.iv.next207, %.lr.ph187 ]
-  %211 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %15, i64 0, i64 %indvars.iv206
+.lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
+  %indvars.iv201 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next202, %.lr.ph182 ]
+  %211 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %15, i64 0, i64 %indvars.iv201
   %212 = load ptr, ptr %211, align 8
-  %213 = add nuw nsw i64 %indvars.iv206, 2
+  %213 = add nuw nsw i64 %indvars.iv201, 2
   %214 = getelementptr inbounds [5 x %struct.iovec], ptr %16, i64 0, i64 %213
   store ptr %212, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %211, i64 8
   %216 = load i64, ptr %215, align 8
   %217 = getelementptr inbounds i8, ptr %214, i64 8
   store i64 %216, ptr %217, align 8
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count
-  br i1 %exitcond209.not, label %._crit_edge.loopexit, label %.lr.ph187, !llvm.loop !10
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %exitcond204.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count
+  br i1 %exitcond204.not, label %._crit_edge.loopexit, label %.lr.ph182, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph187
-  %.pre210 = load i32, ptr %5, align 8
+._crit_edge.loopexit:                             ; preds = %.lr.ph182
+  %.pre205 = load i32, ptr %5, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %218 = phi i32 [ %.pre210, %._crit_edge.loopexit ], [ 0, %.preheader ]
+  %218 = phi i32 [ %.pre205, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %219 = add i32 %218, %206
   br label %.backedge
 
-.loopexit151:                                     ; preds = %.loopexit, %199, %196, %190, %203, %77, %192, %152, %148, %74, %71
+.loopexit146:                                     ; preds = %.loopexit, %199, %196, %190, %203, %77, %192, %152, %148, %74, %71
   %.0 = phi i1 [ false, %71 ], [ false, %74 ], [ false, %148 ], [ false, %152 ], [ true, %192 ], [ false, %77 ], [ %178, %203 ], [ %178, %190 ], [ %178, %196 ], [ %178, %199 ], [ %178, %.loopexit ]
   ret i1 %.0
 }

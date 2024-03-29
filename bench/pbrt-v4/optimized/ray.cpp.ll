@@ -100,9 +100,8 @@ entry:
   %ref.tmp = alloca ptr, align 8
   %hasDifferentials = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %hasDifferentials, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.4, ptr @.str.3
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.3, ptr @.str.4
   store ptr %cond, ptr %ref.tmp, align 8
   %rxOrigin = getelementptr inbounds i8, ptr %this, i64 44
   %rxDirection = getelementptr inbounds i8, ptr %this, i64 68
@@ -113,10 +112,10 @@ entry:
           to label %_ZN4pbrt12StringPrintfIJRKNS_3RayEPKcRKNS_6Point3IfEERKNS_7Vector3IfEES9_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_DpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
 _ZN4pbrt12StringPrintfIJRKNS_3RayEPKcRKNS_6Point3IfEERKNS_7Vector3IfEES9_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_DpOT_.exit: ; preds = %entry
   ret void

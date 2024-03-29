@@ -634,10 +634,9 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit: ; preds = %cleanup.thread, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %tobool.i.i1418.in.in = phi i8 [ %5, %cleanup.thread ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %9, %if.end8.sink.split.i.i.i.i ]
-  %tobool.i.i1418.in = and i8 %tobool.i.i1418.in.in, 1
-  %tobool.i.i1418.not = icmp eq i8 %tobool.i.i1418.in, 0
-  br i1 %tobool.i.i1418.not, label %if.end8, label %return
+  %tobool.i.i1418.in = phi i8 [ %5, %cleanup.thread ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %9, %if.end8.sink.split.i.i.i.i ]
+  %tobool.i.i1418 = trunc i8 %tobool.i.i1418.in to i1
+  br i1 %tobool.i.i1418, label %return, label %if.end8
 
 if.end8:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit, %land.end
   %20 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit ], [ true, %land.end ]
@@ -8691,8 +8690,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev33Dynami
 entry:
   %m_localBypass.i = getelementptr inbounds i8, ptr %this, i64 385
   %0 = load i8, ptr %m_localBypass.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 

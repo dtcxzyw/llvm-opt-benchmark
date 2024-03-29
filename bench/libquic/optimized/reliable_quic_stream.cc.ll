@@ -171,33 +171,32 @@ invoke.cont16:                                    ; preds = %call.i.noexc12
   %5 = load ptr, ptr %session_, align 8
   %auto_tune_receive_window_.i = getelementptr inbounds i8, ptr %5, i64 2016
   %6 = load i8, ptr %auto_tune_receive_window_.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.i = icmp ne i8 %7, 0
+  %tobool.i = trunc i8 %6 to i1
   invoke void @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, ptr noundef %4, i32 noundef %id, i32 noundef %3, i64 noundef %retval.0.i, i64 noundef %conv.i11, i1 noundef zeroext %tobool.i)
           to label %invoke.cont23 unwind label %lpad6
 
 invoke.cont23:                                    ; preds = %invoke.cont16
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
-  %8 = load ptr, ptr %session_, align 8
-  %flow_controller_.i16 = getelementptr inbounds i8, ptr %8, i64 1944
+  %7 = load ptr, ptr %session_, align 8
+  %flow_controller_.i16 = getelementptr inbounds i8, ptr %7, i64 1944
   store ptr %flow_controller_.i16, ptr %connection_flow_controller_, align 8
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   store i8 1, ptr %stream_contributes_to_connection_flow_control_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
 lpad6:                                            ; preds = %call.i.noexc12, %invoke.cont14, %call2.i.noexc, %if.then.i, %call.i.noexc, %invoke.cont7, %invoke.cont16
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3net19QuicStreamSequencerD1Ev(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_) #15
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad6 ], [ %9, %lpad ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad ]
   tail call void @_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %queued_data_) #15
   resume { ptr, i32 } %.pn
 }
@@ -318,73 +317,69 @@ if.end:
   %ref.tmp19 = alloca %"class.std::allocator", align 1
   %fin = getelementptr inbounds i8, ptr %frame, i64 4
   %0 = load i8, ptr %fin, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end8, label %if.then4
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
   %fin_received_ = getelementptr inbounds i8, ptr %this, i64 260
   store i8 1, ptr %fin_received_, align 4
   %fin_sent_ = getelementptr inbounds i8, ptr %this, i64 259
-  %2 = load i8, ptr %fin_sent_, align 1
-  %3 = and i8 %2, 1
-  %tobool5.not = icmp eq i8 %3, 0
-  br i1 %tobool5.not, label %if.end8, label %if.then6
+  %1 = load i8, ptr %fin_sent_, align 1
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then4
   %session_ = getelementptr inbounds i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_, align 8
+  %2 = load ptr, ptr %session_, align 8
   %id_ = getelementptr inbounds i8, ptr %this, i64 216
-  %5 = load i32, ptr %id_, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %3 = load i32, ptr %id_, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
-  %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
+  %4 = load ptr, ptr %vfn, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(2044) %2, i32 noundef %3)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.then6, %if.end
   %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
-  %7 = load i8, ptr %read_side_closed_, align 8
-  %8 = and i8 %7, 1
-  %tobool9.not = icmp eq i8 %8, 0
-  br i1 %tobool9.not, label %if.end11, label %return
+  %5 = load i8, ptr %read_side_closed_, align 8
+  %tobool9 = trunc i8 %5 to i1
+  br i1 %tobool9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
   %data_length = getelementptr inbounds i8, ptr %frame, i64 6
-  %9 = load i16, ptr %data_length, align 2
-  %conv = zext i16 %9 to i64
+  %6 = load i16, ptr %data_length, align 2
+  %conv = zext i16 %6 to i64
   %stream_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load i64, ptr %stream_bytes_read_, align 8
-  %add = add i64 %10, %conv
+  %7 = load i64, ptr %stream_bytes_read_, align 8
+  %add = add i64 %7, %conv
   store i64 %add, ptr %stream_bytes_read_, align 8
-  %cmp.not = icmp eq i16 %9, 0
+  %cmp.not = icmp eq i16 %6, 0
   br i1 %cmp.not, label %if.end27, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end11
   %offset = getelementptr inbounds i8, ptr %frame, i64 16
-  %11 = load i64, ptr %offset, align 8
-  %add12 = add i64 %11, %conv
+  %8 = load i64, ptr %offset, align 8
+  %add12 = add i64 %8, %conv
   %flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 272
   %highest_received_byte_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %12 = load i64, ptr %highest_received_byte_offset_.i.i, align 8
-  %sub.i = sub i64 %add12, %12
+  %9 = load i64, ptr %highest_received_byte_offset_.i.i, align 8
+  %sub.i = sub i64 %add12, %9
   %call3.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_.i, i64 noundef %add12)
   br i1 %call3.i, label %if.end.i, label %if.end27
 
 if.end.i:                                         ; preds = %land.lhs.true
   %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
-  %13 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
-  %14 = and i8 %13, 1
-  %tobool.not.i7 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i7, label %if.then14, label %if.then4.i
+  %10 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %if.then4.i, label %if.then14
 
 if.then4.i:                                       ; preds = %if.end.i
   %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
-  %15 = load ptr, ptr %connection_flow_controller_.i, align 8
-  %highest_received_byte_offset_.i2.i = getelementptr inbounds i8, ptr %15, i64 40
-  %16 = load i64, ptr %highest_received_byte_offset_.i2.i, align 8
-  %add.i = add i64 %sub.i, %16
-  %call7.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 noundef %add.i)
+  %11 = load ptr, ptr %connection_flow_controller_.i, align 8
+  %highest_received_byte_offset_.i2.i = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = load i64, ptr %highest_received_byte_offset_.i2.i, align 8
+  %add.i = add i64 %sub.i, %12
+  %call7.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 noundef %add.i)
   br label %if.then14
 
 if.then14:                                        ; preds = %if.end.i, %if.then4.i
@@ -393,17 +388,17 @@ if.then14:                                        ; preds = %if.end.i, %if.then4
 
 lor.lhs.false:                                    ; preds = %if.then14
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
-  %17 = load ptr, ptr %connection_flow_controller_, align 8
-  %call16 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr noundef nonnull align 8 dereferenceable(96) %17)
+  %13 = load ptr, ptr %connection_flow_controller_, align 8
+  %call16 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
   br i1 %call16, label %if.then17, label %if.end27
 
 if.then17:                                        ; preds = %lor.lhs.false, %if.then14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #15
-  %call.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
+  %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %call.i.noexc unwind label %lpad20
 
 call.i.noexc:                                     ; preds = %if.then17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
           to label %.noexc unwind label %lpad20
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -411,7 +406,7 @@ call.i.noexc:                                     ; preds = %if.then17
           to label %invoke.cont21 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %18 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #15
   br label %ehcleanup
@@ -419,8 +414,8 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont21:                                    ; preds = %.noexc
   %vtable22 = load ptr, ptr %this, align 8
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 72
-  %19 = load ptr, ptr %vfn23, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
+  %15 = load ptr, ptr %vfn23, align 8
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont21
@@ -429,18 +424,18 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   br label %return
 
 lpad20:                                           ; preds = %call.i.noexc, %if.then17
-  %20 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad24:                                           ; preds = %invoke.cont21
-  %21 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad20, %lpad.i, %lpad24
-  %.pn = phi { ptr, i32 } [ %21, %lpad24 ], [ %20, %lpad20 ], [ %18, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad24 ], [ %16, %lpad20 ], [ %14, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #15
   resume { ptr, i32 } %.pn
 
@@ -469,17 +464,16 @@ entry:
 if.end:                                           ; preds = %entry
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %1 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %if.then4
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
-  %3 = load ptr, ptr %connection_flow_controller_, align 8
-  %highest_received_byte_offset_.i2 = getelementptr inbounds i8, ptr %3, i64 40
-  %4 = load i64, ptr %highest_received_byte_offset_.i2, align 8
-  %add = add i64 %sub, %4
-  %call7 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %add)
+  %2 = load ptr, ptr %connection_flow_controller_, align 8
+  %highest_received_byte_offset_.i2 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = load i64, ptr %highest_received_byte_offset_.i2, align 8
+  %add = add i64 %sub, %3
+  %call7 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 noundef %add)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then4, %entry
@@ -529,53 +523,50 @@ entry:
 if.end.i:                                         ; preds = %entry
   %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
   %2 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit, label %if.then4.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then4.i, label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
 
 if.then4.i:                                       ; preds = %if.end.i
   %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
-  %4 = load ptr, ptr %connection_flow_controller_.i, align 8
-  %highest_received_byte_offset_.i2.i = getelementptr inbounds i8, ptr %4, i64 40
-  %5 = load i64, ptr %highest_received_byte_offset_.i2.i, align 8
-  %add.i = add i64 %sub.i, %5
-  %call7.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef %add.i)
+  %3 = load ptr, ptr %connection_flow_controller_.i, align 8
+  %highest_received_byte_offset_.i2.i = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = load i64, ptr %highest_received_byte_offset_.i2.i, align 8
+  %add.i = add i64 %sub.i, %4
+  %call7.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %add.i)
   br label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
 
 _ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit: ; preds = %entry, %if.end.i, %if.then4.i
   %error_code = getelementptr inbounds i8, ptr %frame, i64 4
-  %6 = load i32, ptr %error_code, align 4
+  %5 = load i32, ptr %error_code, align 4
   %stream_error_ = getelementptr inbounds i8, ptr %this, i64 248
-  store i32 %6, ptr %stream_error_, align 8
+  store i32 %5, ptr %stream_error_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
-  %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(377) %this)
+  %6 = load ptr, ptr %vfn, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(377) %this)
   %read_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 256
-  %8 = load i8, ptr %read_side_closed_.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i2 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i2, label %if.end.i3, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
+  %7 = load i8, ptr %read_side_closed_.i, align 8
+  %tobool.i2 = trunc i8 %7 to i1
+  br i1 %tobool.i2, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
   store i8 1, ptr %read_side_closed_.i, align 8
   %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
-  %10 = load i8, ptr %write_side_closed_.i, align 1
-  %11 = and i8 %10, 1
-  %tobool3.not.i = icmp eq i8 %11, 0
-  br i1 %tobool3.not.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.then4.i4
+  %8 = load i8, ptr %write_side_closed_.i, align 1
+  %tobool3.i = trunc i8 %8 to i1
+  br i1 %tobool3.i, label %if.then4.i4, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 if.then4.i4:                                      ; preds = %if.end.i3
   %session_.i = getelementptr inbounds i8, ptr %this, i64 224
-  %12 = load ptr, ptr %session_.i, align 8
+  %9 = load ptr, ptr %session_.i, align 8
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %13 = load i32, ptr %id_.i.i, align 8
-  %vtable.i = load ptr, ptr %12, align 8
+  %10 = load i32, ptr %id_.i.i, align 8
+  %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
-  %14 = load ptr, ptr %vfn.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(2044) %12, i32 noundef %13)
+  %11 = load ptr, ptr %vfn.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(2044) %9, i32 noundef %10)
   br label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit, %if.end.i3, %if.then4.i4
@@ -587,29 +578,27 @@ define dso_local void @_ZN3net18ReliableQuicStream13CloseReadSideEv(ptr noundef 
 entry:
   %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.end5
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %read_side_closed_, align 8
   %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_)
   %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
-  %2 = load i8, ptr %write_side_closed_, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.end5, label %if.then4
+  %1 = load i8, ptr %write_side_closed_, align 1
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   %session_ = getelementptr inbounds i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_, align 8
+  %2 = load ptr, ptr %session_, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 216
-  %5 = load i32, ptr %id_.i, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %3 = load i32, ptr %id_.i, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
-  %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
+  %4 = load ptr, ptr %vfn, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(2044) %2, i32 noundef %3)
   br label %if.end5
 
 if.end5:                                          ; preds = %entry, %if.then4, %if.end
@@ -621,16 +610,14 @@ define dso_local void @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13Quic
 entry:
   %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load i8, ptr %read_side_closed_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
-  %3 = load i8, ptr %write_side_closed_, align 1
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  br i1 %tobool2.not, label %if.end, label %return
+  %2 = load i8, ptr %write_side_closed_, align 1
+  %tobool2 = trunc i8 %2 to i1
+  br i1 %tobool2, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %cmp.not = icmp eq i32 %error, 0
@@ -646,32 +633,30 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.then3, %if.end
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %6 = load i8, ptr %read_side_closed_, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %if.end.i, label %return
+  %3 = load ptr, ptr %vfn, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(377) %this)
+  %4 = load i8, ptr %read_side_closed_, align 8
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
   store i8 1, ptr %read_side_closed_, align 8
   %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
-  %8 = load i8, ptr %write_side_closed_.i, align 1
-  %9 = and i8 %8, 1
-  %tobool3.not.i = icmp eq i8 %9, 0
-  br i1 %tobool3.not.i, label %return, label %if.then4.i
+  %5 = load i8, ptr %write_side_closed_.i, align 1
+  %tobool3.i = trunc i8 %5 to i1
+  br i1 %tobool3.i, label %if.then4.i, label %return
 
 if.then4.i:                                       ; preds = %if.end.i
   %session_.i = getelementptr inbounds i8, ptr %this, i64 224
-  %10 = load ptr, ptr %session_.i, align 8
+  %6 = load ptr, ptr %session_.i, align 8
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %11 = load i32, ptr %id_.i.i, align 8
-  %vtable.i = load ptr, ptr %10, align 8
+  %7 = load i32, ptr %id_.i.i, align 8
+  %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
-  %12 = load ptr, ptr %vfn.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(2044) %10, i32 noundef %11)
+  %8 = load ptr, ptr %vfn.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(2044) %6, i32 noundef %7)
   br label %return
 
 return:                                           ; preds = %if.then4.i, %if.end.i, %if.end4, %land.lhs.true
@@ -685,29 +670,27 @@ entry:
   store i8 1, ptr %fin_received_, align 4
   %read_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   store i8 1, ptr %read_side_closed_.i, align 8
   %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
-  %2 = load i8, ptr %write_side_closed_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not.i = icmp eq i8 %3, 0
-  br i1 %tobool3.not.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.then4.i
+  %1 = load i8, ptr %write_side_closed_.i, align 1
+  %tobool3.i = trunc i8 %1 to i1
+  br i1 %tobool3.i, label %if.then4.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 if.then4.i:                                       ; preds = %if.end.i
   %session_.i = getelementptr inbounds i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_.i, align 8
+  %2 = load ptr, ptr %session_.i, align 8
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %5 = load i32, ptr %id_.i.i, align 8
-  %vtable.i = load ptr, ptr %4, align 8
+  %3 = load i32, ptr %id_.i.i, align 8
+  %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
+  %4 = load ptr, ptr %vfn.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(2044) %2, i32 noundef %3)
   br label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %entry, %if.end.i, %if.then4.i
@@ -792,9 +775,8 @@ lpad:                                             ; preds = %cond.false
 if.end:                                           ; preds = %entry
   %fin_buffered_ = getelementptr inbounds i8, ptr %this, i64 258
   %2 = load i8, ptr %fin_buffered_, align 2
-  %3 = and i8 %2, 1
-  %tobool11.not = icmp eq i8 %3, 0
-  br i1 %tobool11.not, label %if.end32, label %if.then12
+  %tobool11 = trunc i8 %2 to i1
+  br i1 %tobool11, label %if.then12, label %if.end32
 
 if.then12:                                        ; preds = %if.end
   %call13 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -811,24 +793,23 @@ cleanup.action27:                                 ; preds = %cond.false15
   br label %if.end67
 
 lpad19:                                           ; preds = %cond.false15
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp17) #15
   br label %eh.resume
 
 if.end32:                                         ; preds = %if.end
   %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
-  %5 = load i8, ptr %write_side_closed_, align 1
-  %6 = and i8 %5, 1
-  %tobool33.not = icmp eq i8 %6, 0
-  br i1 %tobool33.not, label %if.end35, label %if.end67
+  %4 = load i8, ptr %write_side_closed_, align 1
+  %tobool33 = trunc i8 %4 to i1
+  br i1 %tobool33, label %if.end67, label %if.end35
 
 if.end35:                                         ; preds = %if.end32
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %consumed_data, i64 noundef 0, i1 noundef zeroext false)
   store i8 %frombool, ptr %fin_buffered_, align 2
   %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %queued_data_, align 8
-  %cmp.i = icmp eq ptr %7, %queued_data_
+  %5 = load ptr, ptr %queued_data_, align 8
+  %cmp.i = icmp eq ptr %5, %queued_data_
   br i1 %cmp.i, label %if.then40, label %if.end35.if.end53_crit_edge
 
 if.end35.if.end53_crit_edge:                      ; preds = %if.end35
@@ -840,26 +821,26 @@ if.then40:                                        ; preds = %if.end35
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %data.i, align 8
-  %8 = getelementptr inbounds i8, ptr %data.i, i64 8
-  store i64 %agg.tmp.sroa.2.0.copyload, ptr %8, align 8
+  %6 = getelementptr inbounds i8, ptr %data.i, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %6, align 8
   %call.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data.i)
   %call1.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   store ptr %call.i, ptr %iov, align 8
-  %9 = getelementptr inbounds i8, ptr %iov, i64 8
-  store i64 %call1.i, ptr %9, align 8
+  %7 = getelementptr inbounds i8, ptr %iov, i64 8
+  store i64 %call1.i, ptr %7, align 8
   %call44 = call { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull %iov, i32 noundef 1, i1 noundef zeroext %fin, ptr noundef %ack_listener)
-  %10 = extractvalue { i64, i8 } %call44, 0
-  %11 = extractvalue { i64, i8 } %call44, 1
-  store i64 %10, ptr %consumed_data, align 8
+  %8 = extractvalue { i64, i8 } %call44, 0
+  %9 = extractvalue { i64, i8 } %call44, 1
+  store i64 %8, ptr %consumed_data, align 8
   %ref.tmp42.sroa.2.0.consumed_data.sroa_idx = getelementptr inbounds i8, ptr %consumed_data, i64 8
-  store i8 %11, ptr %ref.tmp42.sroa.2.0.consumed_data.sroa_idx, align 8
+  store i8 %9, ptr %ref.tmp42.sroa.2.0.consumed_data.sroa_idx, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end35.if.end53_crit_edge, %if.then40
-  %12 = phi i64 [ %.pre, %if.end35.if.end53_crit_edge ], [ %10, %if.then40 ]
+  %10 = phi i64 [ %.pre, %if.end35.if.end53_crit_edge ], [ %8, %if.then40 ]
   %call54 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
-  %cmp = icmp ult i64 %12, %call54
+  %cmp = icmp ult i64 %10, %call54
   br i1 %cmp, label %if.then58, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end53
@@ -867,23 +848,22 @@ lor.lhs.false:                                    ; preds = %if.end53
 
 land.lhs.true56:                                  ; preds = %lor.lhs.false
   %fin_consumed = getelementptr inbounds i8, ptr %consumed_data, i64 8
-  %13 = load i8, ptr %fin_consumed, align 8
-  %14 = and i8 %13, 1
-  %tobool57.not = icmp eq i8 %14, 0
-  br i1 %tobool57.not, label %if.then58, label %if.end67
+  %11 = load i8, ptr %fin_consumed, align 8
+  %tobool57 = trunc i8 %11 to i1
+  br i1 %tobool57, label %if.end67, label %if.then58
 
 if.then58:                                        ; preds = %land.lhs.true56, %if.end53
-  %15 = load i64, ptr %consumed_data, align 8
-  %call60 = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %15, i64 noundef -1)
-  %16 = extractvalue { ptr, i64 } %call60, 0
-  store ptr %16, ptr %remainder, align 8
-  %17 = getelementptr inbounds i8, ptr %remainder, i64 8
-  %18 = extractvalue { ptr, i64 } %call60, 1
-  store i64 %18, ptr %17, align 8
+  %12 = load i64, ptr %consumed_data, align 8
+  %call60 = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %12, i64 noundef -1)
+  %13 = extractvalue { ptr, i64 } %call60, 0
+  store ptr %13, ptr %remainder, align 8
+  %14 = getelementptr inbounds i8, ptr %remainder, i64 8
+  %15 = extractvalue { ptr, i64 } %call60, 1
+  store i64 %15, ptr %14, align 8
   %call61 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %remainder)
   %queued_data_bytes_ = getelementptr inbounds i8, ptr %this, i64 32
-  %19 = load i64, ptr %queued_data_bytes_, align 8
-  %add = add i64 %19, %call61
+  %16 = load i64, ptr %queued_data_bytes_, align 8
+  %add = add i64 %16, %call61
   store i64 %add, ptr %queued_data_bytes_, align 8
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(16) %remainder)
   %call5.i.i.i.i.i.i8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
@@ -903,8 +883,8 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then58
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %call5.i.i.i.i.i.i.noexc
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ack_listener, i64 8
-  %20 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
-  %inc.i.i.i.i.i.i.i.i.i.i = add nsw i32 %20, 1
+  %17 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
+  %inc.i.i.i.i.i.i.i.i.i.i = add nsw i32 %17, 1
   store i32 %inc.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
   br label %invoke.cont65
 
@@ -913,14 +893,14 @@ invoke.cont65:                                    ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull %queued_data_) #15
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %21 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %21, 1
+  %18 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %18, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #15
   br label %if.end67
 
 lpad64:                                           ; preds = %if.then58
-  %22 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #15
   br label %eh.resume
@@ -929,7 +909,7 @@ if.end67:                                         ; preds = %if.then12, %if.then
   ret void
 
 eh.resume:                                        ; preds = %lpad19, %lpad, %lpad64
-  %.pn = phi { ptr, i32 } [ %4, %lpad19 ], [ %22, %lpad64 ], [ %1, %lpad ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad19 ], [ %19, %lpad64 ], [ %1, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -950,9 +930,8 @@ entry:
   %agg.tmp = alloca %"struct.net::QuicIOVector", align 8
   %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %0 = load i8, ptr %write_side_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %retval, i64 noundef 0, i1 noundef zeroext false)
@@ -969,8 +948,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end ]
   %length.06.i = phi i64 [ %add.i, %for.body.i ], [ 0, %if.end ]
   %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 %i.07.i, i32 1
-  %2 = load i64, ptr %iov_len.i, align 8
-  %add.i = add i64 %2, %length.06.i
+  %1 = load i64, ptr %iov_len.i, align 8
+  %add.i = add i64 %1, %length.06.i
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv
   br i1 %exitcond.not.i, label %_ZN3net16TotalIovecLengthEPK5iovecm.exit, label %for.body.i, !llvm.loop !7
@@ -978,56 +957,54 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 _ZN3net16TotalIovecLengthEPK5iovecm.exit:         ; preds = %for.body.i, %if.end
   %length.1.i = phi i64 [ 0, %if.end ], [ %add.i, %for.body.i ]
   %cmp = icmp eq i64 %length.1.i, 0
-  %3 = and i1 %cmp, %fin
+  %2 = and i1 %cmp, %fin
   %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   %call4 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
-  %4 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %5 = and i8 %4, 1
-  %tobool5.not = icmp eq i8 %5, 0
-  br i1 %tobool5.not, label %if.end9, label %if.then6
+  %3 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
+  %tobool5 = trunc i8 %3 to i1
+  br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %_ZN3net16TotalIovecLengthEPK5iovecm.exit
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
-  %6 = load ptr, ptr %connection_flow_controller_, align 8
-  %call7 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+  %4 = load ptr, ptr %connection_flow_controller_, align 8
+  %call7 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %call7, i64 %call4)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %_ZN3net16TotalIovecLengthEPK5iovecm.exit
-  %send_window.0 = phi i64 [ %call4, %_ZN3net16TotalIovecLengthEPK5iovecm.exit ], [ %.sroa.speculated, %if.then6 ]
+  %send_window.0 = phi i64 [ %.sroa.speculated, %if.then6 ], [ %call4, %_ZN3net16TotalIovecLengthEPK5iovecm.exit ]
   %session_ = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load ptr, ptr %session_, align 8
+  %5 = load ptr, ptr %session_, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 216
-  %8 = load i32, ptr %id_.i, align 8
-  %call11 = tail call noundef zeroext i1 @_ZN3net11QuicSession11ShouldYieldEj(ptr noundef nonnull align 8 dereferenceable(2044) %7, i32 noundef %8)
+  %6 = load i32, ptr %id_.i, align 8
+  %call11 = tail call noundef zeroext i1 @_ZN3net11QuicSession11ShouldYieldEj(ptr noundef nonnull align 8 dereferenceable(2044) %5, i32 noundef %6)
   br i1 %call11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.end9
-  %9 = load ptr, ptr %session_, align 8
-  %10 = load i32, ptr %id_.i, align 8
-  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %9, i32 noundef %10)
+  %7 = load ptr, ptr %session_, align 8
+  %8 = load i32, ptr %id_.i, align 8
+  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %7, i32 noundef %8)
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %retval, i64 noundef 0, i1 noundef zeroext false)
   br label %return
 
 if.end15:                                         ; preds = %if.end9
   %cmp16 = icmp ne i64 %send_window.0, 0
-  %brmerge = or i1 %3, %cmp16
+  %brmerge = or i1 %2, %cmp16
   br i1 %brmerge, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
   tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
-  %11 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i, label %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit, label %if.end.i
+  %9 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.end.i, label %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit
 
 if.end.i:                                         ; preds = %if.then18
   %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
-  %13 = load ptr, ptr %connection_flow_controller_.i, align 8
-  tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
-  %14 = load ptr, ptr %connection_flow_controller_.i, align 8
-  %call.i = tail call noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %14)
+  %10 = load ptr, ptr %connection_flow_controller_.i, align 8
+  tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
+  %11 = load ptr, ptr %connection_flow_controller_.i, align 8
+  %call.i = tail call noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %11)
   br i1 %call.i, label %land.lhs.true.i, label %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -1035,9 +1012,9 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %call4.i, label %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %15 = load ptr, ptr %session_, align 8
-  %16 = load i32, ptr %id_.i, align 8
-  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %15, i32 noundef %16)
+  %12 = load ptr, ptr %session_, align 8
+  %13 = load i32, ptr %id_.i, align 8
+  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %12, i32 noundef %13)
   br label %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit
 
 _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %if.then18, %if.end.i, %land.lhs.true.i, %if.then5.i
@@ -1054,43 +1031,41 @@ if.end19:                                         ; preds = %if.end15
   %total_length4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %spec.select, ptr %total_length4.i, align 8
   %stream_bytes_written_ = getelementptr inbounds i8, ptr %this, i64 240
-  %17 = load i64, ptr %stream_bytes_written_, align 8
+  %14 = load i64, ptr %stream_bytes_written_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
-  %18 = load ptr, ptr %vfn, align 8
-  %call24 = tail call { i64, i8 } %18(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %agg.tmp, i64 noundef %17, i1 noundef zeroext %spec.select10, ptr noundef %ack_listener)
-  %19 = extractvalue { i64, i8 } %call24, 0
-  store i64 %19, ptr %retval, align 8
-  %20 = getelementptr inbounds i8, ptr %retval, i64 8
-  %21 = extractvalue { i64, i8 } %call24, 1
-  store i8 %21, ptr %20, align 8
-  %22 = load i64, ptr %stream_bytes_written_, align 8
-  %add = add i64 %22, %19
+  %15 = load ptr, ptr %vfn, align 8
+  %call24 = tail call { i64, i8 } %15(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %agg.tmp, i64 noundef %14, i1 noundef zeroext %spec.select10, ptr noundef %ack_listener)
+  %16 = extractvalue { i64, i8 } %call24, 0
+  store i64 %16, ptr %retval, align 8
+  %17 = getelementptr inbounds i8, ptr %retval, i64 8
+  %18 = extractvalue { i64, i8 } %call24, 1
+  store i8 %18, ptr %17, align 8
+  %19 = load i64, ptr %stream_bytes_written_, align 8
+  %add = add i64 %19, %16
   store i64 %add, ptr %stream_bytes_written_, align 8
-  tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %19)
-  %23 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %24 = and i8 %23, 1
-  %tobool.not.i14 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i14, label %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit, label %if.then.i
+  tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %16)
+  %20 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
+  %tobool.i14 = trunc i8 %20 to i1
+  br i1 %tobool.i14, label %if.then.i, label %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit
 
 if.then.i:                                        ; preds = %if.end19
-  %connection_flow_controller_.i15 = getelementptr inbounds i8, ptr %this, i64 368
-  %25 = load ptr, ptr %connection_flow_controller_.i15, align 8
-  tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %25, i64 noundef %19)
+  %connection_flow_controller_.i16 = getelementptr inbounds i8, ptr %this, i64 368
+  %21 = load ptr, ptr %connection_flow_controller_.i16, align 8
+  tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %21, i64 noundef %16)
   br label %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit
 
 _ZN3net18ReliableQuicStream12AddBytesSentEm.exit: ; preds = %if.end19, %if.then.i
-  %26 = load i8, ptr %write_side_closed_, align 1
-  %27 = and i8 %26, 1
-  %tobool28.not = icmp eq i8 %27, 0
-  br i1 %tobool28.not, label %if.end30, label %return
+  %22 = load i8, ptr %write_side_closed_, align 1
+  %tobool28 = trunc i8 %22 to i1
+  br i1 %tobool28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit
-  %cmp32 = icmp eq i64 %19, %spec.select
+  %cmp32 = icmp eq i64 %16, %spec.select
   br i1 %cmp32, label %if.then33, label %if.else58
 
 if.then33:                                        ; preds = %if.end30
-  br i1 %3, label %if.end36, label %if.then35
+  br i1 %2, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %if.then33
   tail call void @_ZN3net18ReliableQuicStream16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
@@ -1100,45 +1075,43 @@ if.end36:                                         ; preds = %if.then35, %if.then
   br i1 %spec.select10, label %land.lhs.true38, label %return
 
 land.lhs.true38:                                  ; preds = %if.end36
-  %28 = and i8 %21, 1
-  %tobool39.not = icmp eq i8 %28, 0
-  br i1 %tobool39.not, label %if.then53, label %if.then40
+  %tobool39 = trunc i8 %18 to i1
+  br i1 %tobool39, label %if.then40, label %if.then53
 
 if.then40:                                        ; preds = %land.lhs.true38
   %fin_sent_ = getelementptr inbounds i8, ptr %this, i64 259
   store i8 1, ptr %fin_sent_, align 1
   %fin_received_ = getelementptr inbounds i8, ptr %this, i64 260
-  %29 = load i8, ptr %fin_received_, align 4
-  %30 = and i8 %29, 1
-  %tobool41.not = icmp eq i8 %30, 0
-  br i1 %tobool41.not, label %if.end46, label %if.then42
+  %23 = load i8, ptr %fin_received_, align 4
+  %tobool41 = trunc i8 %23 to i1
+  br i1 %tobool41, label %if.then42, label %if.end46
 
 if.then42:                                        ; preds = %if.then40
-  %31 = load ptr, ptr %session_, align 8
-  %32 = load i32, ptr %id_.i, align 8
-  %vtable44 = load ptr, ptr %31, align 8
+  %24 = load ptr, ptr %session_, align 8
+  %25 = load i32, ptr %id_.i, align 8
+  %vtable44 = load ptr, ptr %24, align 8
   %vfn45 = getelementptr inbounds i8, ptr %vtable44, i64 264
-  %33 = load ptr, ptr %vfn45, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(2044) %31, i32 noundef %32)
+  %26 = load ptr, ptr %vfn45, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(2044) %24, i32 noundef %25)
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then42, %if.then40
   %vtable47 = load ptr, ptr %this, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 112
-  %34 = load ptr, ptr %vfn48, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(377) %this)
+  %27 = load ptr, ptr %vfn48, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(377) %this)
   br label %return
 
 if.then53:                                        ; preds = %land.lhs.true38
-  %35 = load ptr, ptr %session_, align 8
-  %36 = load i32, ptr %id_.i, align 8
-  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %35, i32 noundef %36)
+  %28 = load ptr, ptr %session_, align 8
+  %29 = load i32, ptr %id_.i, align 8
+  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %28, i32 noundef %29)
   br label %return
 
 if.else58:                                        ; preds = %if.end30
-  %37 = load ptr, ptr %session_, align 8
-  %38 = load i32, ptr %id_.i, align 8
-  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %37, i32 noundef %38)
+  %30 = load ptr, ptr %session_, align 8
+  %31 = load i32, ptr %id_.i, align 8
+  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %30, i32 noundef %31)
   br label %return
 
 return:                                           ; preds = %if.end36, %if.else58, %if.then53, %if.end46, %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit, %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit, %if.then12, %if.then
@@ -1165,8 +1138,8 @@ entry:
   %iov = alloca %struct.iovec, align 8
   %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queued_data_, align 8
-  %cmp.i22 = icmp eq ptr %0, %queued_data_
-  br i1 %cmp.i22, label %while.end, label %while.body.lr.ph
+  %cmp.i21 = icmp eq ptr %0, %queued_data_
+  br i1 %cmp.i21, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1177,17 +1150,16 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %21, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
-  %fin.023 = phi i8 [ 0, %while.body.lr.ph ], [ %fin.1, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
+  %fin.022 = phi i8 [ 0, %while.body.lr.ph ], [ %fin.1, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %ack_listener4 = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %ack_listener4, align 8
   %3 = load i64, ptr %_M_size.i.i.i, align 8
   %cmp = icmp eq i64 %3, 1
   %4 = load i8, ptr %fin_buffered_, align 2
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  %spec.select = select i1 %tobool.not, i8 %fin.023, i8 1
-  %fin.1 = select i1 %cmp, i8 %spec.select, i8 %fin.023
+  %tobool = trunc i8 %4 to i1
+  %5 = select i1 %cmp, i1 %tobool, i1 false
+  %fin.1 = select i1 %5, i8 1, i8 %fin.022
   %offset = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i64, ptr %offset, align 8
   %cmp8.not = icmp eq i64 %6, 0
@@ -1241,21 +1213,23 @@ if.end32:                                         ; preds = %land.lhs.true9, %wh
   %add.ptr = getelementptr inbounds i8, ptr %call37, i64 %10
   store ptr %add.ptr, ptr %iov, align 8
   store i64 %sub, ptr %iov_len, align 8
-  %11 = and i8 %fin.1, 1
-  %tobool39 = icmp ne i8 %11, 0
+  %tobool39 = trunc i8 %fin.1 to i1
   %call40 = call { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull %iov, i32 noundef 1, i1 noundef zeroext %tobool39, ptr noundef %2)
-  %12 = extractvalue { i64, i8 } %call40, 0
-  %13 = load i64, ptr %queued_data_bytes_, align 8
-  %sub41 = sub i64 %13, %12
+  %11 = extractvalue { i64, i8 } %call40, 0
+  %12 = load i64, ptr %queued_data_bytes_, align 8
+  %sub41 = sub i64 %12, %11
   store i64 %sub41, ptr %queued_data_bytes_, align 8
-  %cmp43 = icmp eq i64 %12, %sub
-  %14 = extractvalue { i64, i8 } %call40, 1
-  %15 = and i8 %14, 1
-  %cmp48 = icmp eq i8 %11, %15
-  %or.cond = select i1 %cmp43, i1 %cmp48, i1 false
-  br i1 %or.cond, label %if.then49, label %if.else
+  %cmp43 = icmp eq i64 %11, %sub
+  br i1 %cmp43, label %land.lhs.true44, label %if.else
 
-if.then49:                                        ; preds = %if.end32
+land.lhs.true44:                                  ; preds = %if.end32
+  %13 = extractvalue { i64, i8 } %call40, 1
+  %14 = xor i8 %13, %fin.1
+  %15 = and i8 %14, 1
+  %cmp48 = icmp eq i8 %15, 0
+  br i1 %cmp48, label %if.then49, label %if.else
+
+if.then49:                                        ; preds = %land.lhs.true44
   %16 = load ptr, ptr %queued_data_, align 8
   %17 = load i64, ptr %_M_size.i.i.i, align 8
   %sub.i.i.i = add i64 %17, -1
@@ -1282,20 +1256,21 @@ delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
 
 _ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit: ; preds = %if.then49, %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i.i
-  %_M_storage.i.i.i19 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i19) #15
+  %_M_storage.i.i.i18 = getelementptr inbounds i8, ptr %16, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i18) #15
   call void @_ZdlPv(ptr noundef nonnull %16) #16
   %21 = load ptr, ptr %queued_data_, align 8
   %cmp.i = icmp eq ptr %21, %queued_data_
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !8
 
-if.else:                                          ; preds = %if.end32
-  %cmp52.not = icmp eq i64 %12, 0
+if.else:                                          ; preds = %land.lhs.true44, %if.end32
+  %.lcssa = phi i64 [ %sub, %land.lhs.true44 ], [ %11, %if.end32 ]
+  %cmp52.not = icmp eq i64 %.lcssa, 0
   br i1 %cmp52.not, label %while.end, label %if.then53
 
 if.then53:                                        ; preds = %if.else
   %22 = load i64, ptr %offset, align 8
-  %add = add i64 %22, %12
+  %add = add i64 %22, %.lcssa
   store i64 %add, ptr %offset, align 8
   br label %while.end
 
@@ -1318,16 +1293,15 @@ entry:
   tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end7, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.end7
 
 if.end:                                           ; preds = %entry
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
+  %1 = load ptr, ptr %connection_flow_controller_, align 8
+  tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
   %2 = load ptr, ptr %connection_flow_controller_, align 8
-  tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
-  %3 = load ptr, ptr %connection_flow_controller_, align 8
-  %call = tail call noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
+  %call = tail call noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
   br i1 %call, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
@@ -1336,10 +1310,10 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then5:                                         ; preds = %land.lhs.true
   %session_ = getelementptr inbounds i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_, align 8
+  %3 = load ptr, ptr %session_, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 216
-  %5 = load i32, ptr %id_.i, align 8
-  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
+  %4 = load i32, ptr %id_.i, align 8
+  tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %3, i32 noundef %4)
   br label %if.end7
 
 if.end7:                                          ; preds = %entry, %if.then5, %land.lhs.true, %if.end
@@ -1363,14 +1337,13 @@ entry:
   tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %bytes)
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
-  %2 = load ptr, ptr %connection_flow_controller_, align 8
-  tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 noundef %bytes)
+  %1 = load ptr, ptr %connection_flow_controller_, align 8
+  tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 noundef %bytes)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1398,27 +1371,25 @@ define dso_local void @_ZN3net18ReliableQuicStream14CloseWriteSideEv(ptr nocaptu
 entry:
   %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %0 = load i8, ptr %write_side_closed_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.end5
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %write_side_closed_, align 1
   %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
-  %2 = load i8, ptr %read_side_closed_, align 8
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.end5, label %if.then4
+  %1 = load i8, ptr %read_side_closed_, align 8
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   %session_ = getelementptr inbounds i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_, align 8
+  %2 = load ptr, ptr %session_, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 216
-  %5 = load i32, ptr %id_.i, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %3 = load i32, ptr %id_.i, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
-  %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
+  %4 = load ptr, ptr %vfn, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(2044) %2, i32 noundef %3)
   br label %if.end5
 
 if.end5:                                          ; preds = %entry, %if.then4, %if.end
@@ -1472,73 +1443,68 @@ define dso_local void @_ZN3net18ReliableQuicStream7OnCloseEv(ptr noundef nonnull
 entry:
   %read_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   store i8 1, ptr %read_side_closed_.i, align 8
   %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
-  %2 = load i8, ptr %write_side_closed_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not.i = icmp eq i8 %3, 0
-  br i1 %tobool3.not.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.then4.i
+  %1 = load i8, ptr %write_side_closed_.i, align 1
+  %tobool3.i = trunc i8 %1 to i1
+  br i1 %tobool3.i, label %if.then4.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 if.then4.i:                                       ; preds = %if.end.i
   %session_.i = getelementptr inbounds i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_.i, align 8
+  %2 = load ptr, ptr %session_.i, align 8
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %5 = load i32, ptr %id_.i.i, align 8
-  %vtable.i = load ptr, ptr %4, align 8
+  %3 = load i32, ptr %id_.i.i, align 8
+  %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
+  %4 = load ptr, ptr %vfn.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(2044) %2, i32 noundef %3)
   br label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %entry, %if.end.i, %if.then4.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
-  %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(377) %this)
+  %5 = load ptr, ptr %vfn, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(377) %this)
   %fin_sent_ = getelementptr inbounds i8, ptr %this, i64 259
-  %8 = load i8, ptr %fin_sent_, align 1
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
+  %6 = load i8, ptr %fin_sent_, align 1
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
   %rst_sent_ = getelementptr inbounds i8, ptr %this, i64 261
-  %10 = load i8, ptr %rst_sent_, align 1
-  %11 = and i8 %10, 1
-  %tobool2.not = icmp eq i8 %11, 0
-  br i1 %tobool2.not, label %if.then, label %if.end
+  %7 = load i8, ptr %rst_sent_, align 1
+  %tobool2 = trunc i8 %7 to i1
+  br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %session_ = getelementptr inbounds i8, ptr %this, i64 224
-  %12 = load ptr, ptr %session_, align 8
+  %8 = load ptr, ptr %session_, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 216
-  %13 = load i32, ptr %id_.i, align 8
+  %9 = load i32, ptr %id_.i, align 8
   %stream_bytes_written_ = getelementptr inbounds i8, ptr %this, i64 240
-  %14 = load i64, ptr %stream_bytes_written_, align 8
-  %vtable3 = load ptr, ptr %12, align 8
+  %10 = load i64, ptr %stream_bytes_written_, align 8
+  %vtable3 = load ptr, ptr %8, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 168
-  %15 = load ptr, ptr %vfn4, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(2044) %12, i32 noundef %13, i32 noundef 7, i64 noundef %14)
+  %11 = load ptr, ptr %vfn4, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(2044) %8, i32 noundef %9, i32 noundef 7, i64 noundef %10)
   store i8 1, ptr %rst_sent_, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
   %highest_received_byte_offset_.i = getelementptr inbounds i8, ptr %this, i64 312
-  %16 = load i64, ptr %highest_received_byte_offset_.i, align 8
+  %12 = load i64, ptr %highest_received_byte_offset_.i, align 8
   %bytes_consumed_.i = getelementptr inbounds i8, ptr %this, i64 304
-  %17 = load i64, ptr %bytes_consumed_.i, align 8
-  %sub = sub i64 %16, %17
-  %18 = load i8, ptr %read_side_closed_.i, align 8
-  %19 = and i8 %18, 1
-  %tobool.not.i2 = icmp eq i8 %19, 0
-  br i1 %tobool.not.i2, label %if.then.i, label %if.end.i3
+  %13 = load i64, ptr %bytes_consumed_.i, align 8
+  %sub = sub i64 %12, %13
+  %14 = load i8, ptr %read_side_closed_.i, align 8
+  %tobool.i2 = trunc i8 %14 to i1
+  br i1 %tobool.i2, label %if.end.i3, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
@@ -1547,15 +1513,14 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i3:                                        ; preds = %if.then.i, %if.end
   %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
-  %20 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
-  %21 = and i8 %20, 1
-  %tobool2.not.i = icmp eq i8 %21, 0
-  br i1 %tobool2.not.i, label %_ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit, label %if.then3.i
+  %15 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
+  %tobool2.i = trunc i8 %15 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit
 
 if.then3.i:                                       ; preds = %if.end.i3
   %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
-  %22 = load ptr, ptr %connection_flow_controller_.i, align 8
-  tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %22, i64 noundef %sub)
+  %16 = load ptr, ptr %connection_flow_controller_.i, align 8
+  tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %16, i64 noundef %sub)
   br label %_ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit
 
 _ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit: ; preds = %if.end.i3, %if.then3.i
@@ -1567,9 +1532,8 @@ define dso_local void @_ZN3net18ReliableQuicStream16AddBytesConsumedEm(ptr nound
 entry:
   %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
@@ -1578,15 +1542,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
-  %2 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end4, label %if.then3
+  %1 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
   %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
-  %4 = load ptr, ptr %connection_flow_controller_, align 8
-  tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef %bytes)
+  %2 = load ptr, ptr %connection_flow_controller_, align 8
+  tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 noundef %bytes)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end

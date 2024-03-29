@@ -2992,9 +2992,8 @@ _ZNSt5dequeIN23ExtractCyclicComponents11VertexStateESaIS1_EED2Ev.exit: ; preds =
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options10debugCheckEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3316,17 +3315,17 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents17extractCompone
   %9 = load i64, ptr %8, align 8
   tail call void @_ZNSt6vectorISt10unique_ptrI8DfgGraphSt14default_deleteIS1_EESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9)
   %10 = load i64, ptr %8, align 8
-  %.not89 = icmp eq i64 %10, 0
-  br i1 %.not89, label %._crit_edge, label %.lr.ph
+  %.not87 = icmp eq i64 %10, 0
+  br i1 %.not87, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit
-  %storemerge77 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit ]
+  %storemerge75 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %13, i64 %storemerge77
+  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %13, i64 %storemerge75
   %15 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 64
@@ -3336,7 +3335,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents17extractCompone
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %12
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %storemerge77)
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %storemerge75)
           to label %20 unwind label %21, !noalias !39
 
 20:                                               ; preds = %.noexc
@@ -3374,7 +3373,7 @@ _ZNKSt14default_deleteI8DfgGraphEclEPS0_.exit.i.i: ; preds = %26
 _ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %26, %_ZNKSt14default_deleteI8DfgGraphEclEPS0_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  %28 = add nuw i64 %storemerge77, 1
+  %28 = add nuw i64 %storemerge75, 1
   %29 = load i64, ptr %8, align 8
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %12, label %._crit_edge, !llvm.loop !42
@@ -3434,8 +3433,8 @@ common.resume:                                    ; preds = %144, %147, %122, %1
 47:                                               ; preds = %42, %41
   %48 = load ptr, ptr %0, align 8
   %49 = load ptr, ptr %48, align 8
-  %.not.i.i42 = icmp eq ptr %49, null
-  br i1 %.not.i.i42, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, label %.lr.ph.i
+  %.not.i.i40 = icmp eq ptr %49, null
+  br i1 %.not.i.i40, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47, %74
   %.sink47.i = phi ptr [ %51, %74 ], [ %49, %47 ]
@@ -3494,82 +3493,81 @@ _ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit: ; preds = %74, %47
   %75 = load ptr, ptr %7, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 176
   %77 = load ptr, ptr %76, align 8
-  %.not6878 = icmp eq ptr %75, %77
-  br i1 %.not6878, label %._crit_edge81, label %.lr.ph80
+  %.not6676 = icmp eq ptr %75, %77
+  br i1 %.not6676, label %._crit_edge79, label %.lr.ph78
 
-.lr.ph80:                                         ; preds = %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit51
-  %.sroa.064.079 = phi ptr [ %105, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit51 ], [ %75, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit ]
-  %78 = load ptr, ptr %.sroa.064.079, align 8
+.lr.ph78:                                         ; preds = %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49
+  %.sroa.062.077 = phi ptr [ %105, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49 ], [ %75, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit ]
+  %78 = load ptr, ptr %.sroa.062.077, align 8
   %79 = load ptr, ptr %78, align 8
-  %.not.i.i43 = icmp eq ptr %79, null
-  br i1 %.not.i.i43, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit51, label %.lr.ph.i44
+  %.not.i.i41 = icmp eq ptr %79, null
+  br i1 %.not.i.i41, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49, label %.lr.ph.i42
 
-.lr.ph.i44:                                       ; preds = %.lr.ph80, %104
-  %.sink47.i45 = phi ptr [ %81, %104 ], [ %79, %.lr.ph80 ]
-  %80 = getelementptr inbounds i8, ptr %.sink47.i45, i64 8
+.lr.ph.i42:                                       ; preds = %.lr.ph78, %104
+  %.sink47.i43 = phi ptr [ %81, %104 ], [ %79, %.lr.ph78 ]
+  %80 = getelementptr inbounds i8, ptr %.sink47.i43, i64 8
   %81 = load ptr, ptr %80, align 8
-  %.not32.i46 = icmp eq ptr %81, null
-  %82 = select i1 %.not32.i46, ptr %.sink47.i45, ptr %81
+  %.not32.i44 = icmp eq ptr %81, null
+  %82 = select i1 %.not32.i44, ptr %.sink47.i43, ptr %81
   call void @llvm.prefetch.p0(ptr nonnull %82, i32 1, i32 3, i32 1)
-  %83 = getelementptr inbounds i8, ptr %.sink47.i45, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i47 = load i16, ptr %83, align 8
-  switch i16 %.sroa.0.0.copyload.i.i.i.i.i47, label %104 [
+  %83 = getelementptr inbounds i8, ptr %.sink47.i43, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i45 = load i16, ptr %83, align 8
+  switch i16 %.sroa.0.0.copyload.i.i.i.i.i45, label %104 [
     i16 153, label %84
     i16 152, label %94
   ]
 
-84:                                               ; preds = %.lr.ph.i44
-  call void @_ZN12DfgVarPacked11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i45)
-  %85 = getelementptr inbounds i8, ptr %.sink47.i45, i64 24
+84:                                               ; preds = %.lr.ph.i42
+  call void @_ZN12DfgVarPacked11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i43)
+  %85 = getelementptr inbounds i8, ptr %.sink47.i43, i64 24
   %86 = load ptr, ptr %85, align 8
-  %.not39.i50 = icmp eq ptr %86, null
-  br i1 %.not39.i50, label %87, label %104
+  %.not39.i48 = icmp eq ptr %86, null
+  br i1 %.not39.i48, label %87, label %104
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr %.sink47.i45, align 8
+  %88 = load ptr, ptr %.sink47.i43, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 48
   %90 = load ptr, ptr %89, align 8
-  %91 = call { ptr, i64 } %90(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i45)
+  %91 = call { ptr, i64 } %90(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i43)
   %92 = extractvalue { ptr, i64 } %91, 1
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %.sink.split.i49, label %104
+  br i1 %93, label %.sink.split.i47, label %104
 
-94:                                               ; preds = %.lr.ph.i44
-  call void @_ZN11DfgVarArray11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i45)
-  %95 = getelementptr inbounds i8, ptr %.sink47.i45, i64 24
+94:                                               ; preds = %.lr.ph.i42
+  call void @_ZN11DfgVarArray11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i43)
+  %95 = getelementptr inbounds i8, ptr %.sink47.i43, i64 24
   %96 = load ptr, ptr %95, align 8
-  %.not42.i48 = icmp eq ptr %96, null
-  br i1 %.not42.i48, label %97, label %104
+  %.not42.i46 = icmp eq ptr %96, null
+  br i1 %.not42.i46, label %97, label %104
 
 97:                                               ; preds = %94
-  %98 = load ptr, ptr %.sink47.i45, align 8
+  %98 = load ptr, ptr %.sink47.i43, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 48
   %100 = load ptr, ptr %99, align 8
-  %101 = call { ptr, i64 } %100(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i45)
+  %101 = call { ptr, i64 } %100(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i43)
   %102 = extractvalue { ptr, i64 } %101, 1
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %.sink.split.i49, label %104
+  br i1 %103, label %.sink.split.i47, label %104
 
-.sink.split.i49:                                  ; preds = %97, %87
-  call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i45, ptr noundef nonnull align 8 dereferenceable(104) %78)
+.sink.split.i47:                                  ; preds = %97, %87
+  call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i43, ptr noundef nonnull align 8 dereferenceable(104) %78)
   br label %104
 
-104:                                              ; preds = %.sink.split.i49, %97, %94, %87, %84, %.lr.ph.i44
-  br i1 %.not32.i46, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit51, label %.lr.ph.i44
+104:                                              ; preds = %.sink.split.i47, %97, %94, %87, %84, %.lr.ph.i42
+  br i1 %.not32.i44, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49, label %.lr.ph.i42
 
-_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit51: ; preds = %104, %.lr.ph80
-  %105 = getelementptr inbounds i8, ptr %.sroa.064.079, i64 8
-  %.not68 = icmp eq ptr %105, %77
-  br i1 %.not68, label %._crit_edge81, label %.lr.ph80
+_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49: ; preds = %104, %.lr.ph78
+  %105 = getelementptr inbounds i8, ptr %.sroa.062.077, i64 8
+  %.not66 = icmp eq ptr %105, %77
+  br i1 %.not66, label %._crit_edge79, label %.lr.ph78
 
-._crit_edge81:                                    ; preds = %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit51, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit
+._crit_edge79:                                    ; preds = %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit
   %106 = getelementptr inbounds i8, ptr %0, i64 128
   %107 = load i8, ptr %106, align 8
-  %108 = and i8 %107, 1
-  %.not37 = icmp eq i8 %108, 0
-  br i1 %.not37, label %.loopexit71, label %109
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %.loopexit69
 
-109:                                              ; preds = %._crit_edge81
+109:                                              ; preds = %._crit_edge79
   %110 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %111 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3621,18 +3619,18 @@ _ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit: ; preds = %115, %117
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %130 = load ptr, ptr %7, align 8
   %131 = load ptr, ptr %76, align 8
-  %.not6982 = icmp eq ptr %130, %131
-  br i1 %.not6982, label %.loopexit71, label %.lr.ph84
+  %.not6780 = icmp eq ptr %130, %131
+  br i1 %.not6780, label %.loopexit69, label %.lr.ph82
 
-.lr.ph84:                                         ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit
+.lr.ph82:                                         ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit
   %132 = getelementptr inbounds i8, ptr %2, i64 16
   %133 = getelementptr inbounds i8, ptr %2, i64 24
   %134 = getelementptr inbounds i8, ptr %2, i64 8
   br label %135
 
-135:                                              ; preds = %.lr.ph84, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55
-  %.sroa.060.083 = phi ptr [ %130, %.lr.ph84 ], [ %152, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55 ]
-  %136 = load ptr, ptr %.sroa.060.083, align 8
+135:                                              ; preds = %.lr.ph82, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53
+  %.sroa.058.081 = phi ptr [ %130, %.lr.ph82 ], [ %152, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53 ]
+  %136 = load ptr, ptr %.sroa.058.081, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store i64 0, ptr %134, align 8
   store i64 %114, ptr %2, align 8
@@ -3643,12 +3641,12 @@ _ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit: ; preds = %115, %117
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %132, align 8
-  %.not.i.i.i54 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i54, label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55, label %139
+  %.not.i.i.i52 = icmp eq ptr %138, null
+  br i1 %.not.i.i.i52, label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53, label %139
 
 139:                                              ; preds = %137
   %140 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
-          to label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55 unwind label %141
+          to label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53 unwind label %141
 
 141:                                              ; preds = %139
   %142 = landingpad { ptr, i32 }
@@ -3661,8 +3659,8 @@ _ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit: ; preds = %115, %117
   %145 = landingpad { ptr, i32 }
           cleanup
   %146 = load ptr, ptr %132, align 8
-  %.not.i.i3.i52 = icmp eq ptr %146, null
-  br i1 %.not.i.i3.i52, label %common.resume, label %147
+  %.not.i.i3.i50 = icmp eq ptr %146, null
+  br i1 %.not.i.i3.i50, label %common.resume, label %147
 
 147:                                              ; preds = %144
   %148 = invoke noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
@@ -3675,13 +3673,13 @@ _ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit: ; preds = %115, %117
   call void @__clang_call_terminate(ptr %151) #24
   unreachable
 
-_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55: ; preds = %137, %139
+_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53: ; preds = %137, %139
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %152 = getelementptr inbounds i8, ptr %.sroa.060.083, i64 8
-  %.not69 = icmp eq ptr %152, %131
-  br i1 %.not69, label %.loopexit71, label %135
+  %152 = getelementptr inbounds i8, ptr %.sroa.058.081, i64 8
+  %.not67 = icmp eq ptr %152, %131
+  br i1 %.not67, label %.loopexit69, label %135
 
-.loopexit71:                                      ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit, %._crit_edge81
+.loopexit69:                                      ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit, %._crit_edge79
   %153 = load ptr, ptr %0, align 8
   call void @_ZN23ExtractCyclicComponents12moveVerticesI12DfgVertexVarEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %153)
   %154 = load ptr, ptr %0, align 8
@@ -3691,27 +3689,26 @@ _ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit55: ; preds = %137, %13
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   call void @_ZN23ExtractCyclicComponents12moveVerticesI9DfgVertexEEvR6V3ListIS1_XadL_ZNS1_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %157)
   %158 = load i8, ptr %106, align 8
-  %159 = and i8 %158, 1
-  %.not38 = icmp eq i8 %159, 0
-  br i1 %.not38, label %.loopexit, label %160
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %.loopexit
 
-160:                                              ; preds = %.loopexit71
+160:                                              ; preds = %.loopexit69
   %161 = load ptr, ptr %0, align 8
   call void @_ZNK23ExtractCyclicComponents10checkGraphER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(104) %161)
   %162 = load ptr, ptr %7, align 8
   %163 = load ptr, ptr %76, align 8
-  %.not7085 = icmp eq ptr %162, %163
-  br i1 %.not7085, label %.loopexit, label %.lr.ph88
+  %.not6883 = icmp eq ptr %162, %163
+  br i1 %.not6883, label %.loopexit, label %.lr.ph86
 
-.lr.ph88:                                         ; preds = %160, %.lr.ph88
-  %.sroa.056.086 = phi ptr [ %165, %.lr.ph88 ], [ %162, %160 ]
-  %164 = load ptr, ptr %.sroa.056.086, align 8
+.lr.ph86:                                         ; preds = %160, %.lr.ph86
+  %.sroa.054.084 = phi ptr [ %165, %.lr.ph86 ], [ %162, %160 ]
+  %164 = load ptr, ptr %.sroa.054.084, align 8
   call void @_ZNK23ExtractCyclicComponents10checkGraphER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(104) %164)
-  %165 = getelementptr inbounds i8, ptr %.sroa.056.086, i64 8
-  %.not70 = icmp eq ptr %165, %163
-  br i1 %.not70, label %.loopexit, label %.lr.ph88
+  %165 = getelementptr inbounds i8, ptr %.sroa.054.084, i64 8
+  %.not68 = icmp eq ptr %165, %163
+  br i1 %.not68, label %.loopexit, label %.lr.ph86
 
-.loopexit:                                        ; preds = %.lr.ph88, %160, %.loopexit71
+.loopexit:                                        ; preds = %.lr.ph86, %160, %.loopexit69
   ret void
 }
 
@@ -4936,9 +4933,8 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents14visitMergeSCCs
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit22
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit22, label %11
 
 11:                                               ; preds = %3
   store i8 1, ptr %8, align 8
@@ -6633,9 +6629,8 @@ _ZNSt13unordered_mapImP12DfgVertexVarSt4hashImESt8equal_toImESaISt4pairIKmS1_EEE
   store ptr %107, ptr %.0.i.i, align 8
   %108 = getelementptr inbounds i8, ptr %1, i64 97
   %109 = load i8, ptr %108, align 1
-  %110 = and i8 %109, 1
-  %.not42 = icmp eq i8 %110, 0
-  br i1 %.not42, label %113, label %111
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %113
 
 111:                                              ; preds = %.thread
   %112 = getelementptr inbounds i8, ptr %107, i64 97
@@ -6645,9 +6640,8 @@ _ZNSt13unordered_mapImP12DfgVertexVarSt4hashImESt8equal_toImESaISt4pairIKmS1_EEE
 113:                                              ; preds = %111, %.thread
   %114 = getelementptr inbounds i8, ptr %1, i64 98
   %115 = load i8, ptr %114, align 2
-  %116 = and i8 %115, 1
-  %.not43 = icmp eq i8 %116, 0
-  br i1 %.not43, label %119, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %119
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds i8, ptr %107, i64 98
@@ -6663,11 +6657,11 @@ _ZNSt13unordered_mapImP12DfgVertexVarSt4hashImESt8equal_toImESaISt4pairIKmS1_EEE
   %123 = load ptr, ptr %.0.i.i, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 96
   store i8 1, ptr %124, align 8
-  %.pre48 = load ptr, ptr %.0.i.i, align 8
+  %.pre46 = load ptr, ptr %.0.i.i, align 8
   br label %125
 
 125:                                              ; preds = %119, %_ZNSt13unordered_mapImP12DfgVertexVarSt4hashImESt8equal_toImESaISt4pairIKmS1_EEEixERS7_.exit
-  %126 = phi ptr [ %.pre48, %119 ], [ %70, %_ZNSt13unordered_mapImP12DfgVertexVarSt4hashImESt8equal_toImESaISt4pairIKmS1_EEEixERS7_.exit ]
+  %126 = phi ptr [ %.pre46, %119 ], [ %70, %_ZNSt13unordered_mapImP12DfgVertexVarSt4hashImESt8equal_toImESaISt4pairIKmS1_EEEixERS7_.exit ]
   ret ptr %126
 }
 
@@ -6829,9 +6823,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIPK12DfgVertexVarSt4pairIKS2
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -7079,9 +7072,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableImSt4pairIKmP12DfgVertexVarE
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -10107,9 +10099,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIPK9DfgVertexS2_SaIS2_ENSt8_
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

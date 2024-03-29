@@ -452,9 +452,8 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %0, i64 576
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not19 = icmp eq i8 %32, 0
-  br i1 %.not19, label %41, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %41
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %4, align 8
@@ -464,8 +463,8 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %0, i64 480
   %38 = load ptr, ptr %37, align 8
-  %.not20 = icmp eq ptr %38, null
-  br i1 %.not20, label %41, label %39
+  %.not19 = icmp eq ptr %38, null
+  br i1 %.not19, label %41, label %39
 
 39:                                               ; preds = %36
   %40 = tail call i32 @fsync_fname(ptr noundef nonnull %38, i1 noundef zeroext false) #7

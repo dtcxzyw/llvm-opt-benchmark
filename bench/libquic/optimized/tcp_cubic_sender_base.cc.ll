@@ -565,9 +565,8 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
 
 if.then.i:                                        ; preds = %for.body30
   %16 = load i8, ptr %no_prr_.i, align 4
-  %17 = and i8 %16, 1
-  %tobool.not.i = icmp eq i8 %17, 0
-  br i1 %tobool.not.i, label %if.then4.i, label %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit
+  %tobool.i = trunc i8 %16 to i1
+  br i1 %tobool.i, label %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
   tail call void @_ZN3net9PrrSender13OnPacketAckedEm(ptr noundef nonnull align 8 dereferenceable(32) %prr_.i, i64 noundef %conv35)
@@ -576,12 +575,12 @@ if.then4.i:                                       ; preds = %if.then.i
 if.end5.i:                                        ; preds = %for.body30
   %vtable6.i = load ptr, ptr %this, align 8
   %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 200
-  %18 = load ptr, ptr %vfn7.i, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %12, i64 noundef %conv35, i64 noundef %bytes_in_flight)
+  %17 = load ptr, ptr %vfn7.i, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %12, i64 noundef %conv35, i64 noundef %bytes_in_flight)
   %vtable8.i = load ptr, ptr %this, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 104
-  %19 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %18 = load ptr, ptr %vfn9.i, align 8
+  %call10.i = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call10.i, label %if.then11.i, label %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit
 
 if.then11.i:                                      ; preds = %if.end5.i
@@ -590,8 +589,8 @@ if.then11.i:                                      ; preds = %if.end5.i
 
 _ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit: ; preds = %if.then.i, %if.then4.i, %if.end5.i, %if.then11.i
   %incdec.ptr.i10 = getelementptr inbounds i8, ptr %it22.sroa.0.020, i64 16
-  %20 = load ptr, ptr %_M_finish.i8, align 8
-  %cmp.i9.not = icmp eq ptr %incdec.ptr.i10, %20
+  %19 = load ptr, ptr %_M_finish.i8, align 8
+  %cmp.i9.not = icmp eq ptr %incdec.ptr.i10, %19
   br i1 %cmp.i9.not, label %for.end38, label %for.body30, !llvm.loop !7
 
 for.end38:                                        ; preds = %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit, %for.end
@@ -616,9 +615,8 @@ entry:
 if.then:                                          ; preds = %entry
   %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   %2 = load i8, ptr %no_prr_, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.then4, label %if.end12
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %prr_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -628,12 +626,12 @@ if.then4:                                         ; preds = %if.then
 if.end5:                                          ; preds = %entry
   %vtable6 = load ptr, ptr %this, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 200
-  %4 = load ptr, ptr %vfn7, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %acked_packet_number, i64 noundef %acked_bytes, i64 noundef %bytes_in_flight)
+  %3 = load ptr, ptr %vfn7, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %acked_packet_number, i64 noundef %acked_bytes, i64 noundef %bytes_in_flight)
   %vtable8 = load ptr, ptr %this, align 8
   %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 104
-  %5 = load ptr, ptr %vfn9, align 8
-  %call10 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %4 = load ptr, ptr %vfn9, align 8
+  %call10 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end5
@@ -703,59 +701,56 @@ define dso_local { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8Q
 entry:
   %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i8, ptr %no_prr_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
-  %2 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %1 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 96
-  %3 = load ptr, ptr %vfn3, align 8
-  %call4 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %2 = load ptr, ptr %vfn3, align 8
+  %call4 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %vtable5 = load ptr, ptr %this, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 120
-  %4 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %3 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call8 = tail call { i64, i64 } @_ZNK3net9PrrSender13TimeUntilSendEmmm(ptr noundef nonnull align 8 dereferenceable(32) %prr_, i64 noundef %call4, i64 noundef %bytes_in_flight, i64 noundef %call7)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %vtable9 = load ptr, ptr %this, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 96
-  %5 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %4 = load ptr, ptr %vfn10, align 8
+  %call11 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp = icmp ugt i64 %call11, %bytes_in_flight
   br i1 %cmp, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %min4_mode_ = getelementptr inbounds i8, ptr %this, i64 136
-  %6 = load i8, ptr %min4_mode_, align 8
-  %7 = and i8 %6, 1
-  %tobool15 = icmp ne i8 %7, 0
+  %5 = load i8, ptr %min4_mode_, align 8
+  %tobool15 = trunc i8 %5 to i1
   %cmp17 = icmp ult i64 %bytes_in_flight, 5840
   %or.cond = and i1 %cmp17, %tobool15
   br i1 %or.cond, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
   %rate_based_sending_ = getelementptr inbounds i8, ptr %this, i64 139
-  %8 = load i8, ptr %rate_based_sending_, align 1
-  %9 = and i8 %8, 1
-  %tobool21.not = icmp eq i8 %9, 0
-  br i1 %tobool21.not, label %if.end30, label %land.lhs.true22
+  %6 = load i8, ptr %rate_based_sending_, align 1
+  %tobool21 = trunc i8 %6 to i1
+  br i1 %tobool21, label %land.lhs.true22, label %if.end30
 
 land.lhs.true22:                                  ; preds = %if.end20
   %vtable23 = load ptr, ptr %this, align 8
   %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 96
-  %10 = load ptr, ptr %vfn24, align 8
-  %call25 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %7 = load ptr, ptr %vfn24, align 8
+  %call25 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %conv = uitofp i64 %call25 to float
   %mul = fmul float %conv, 1.500000e+00
   %conv26 = uitofp i64 %bytes_in_flight to float
@@ -801,15 +796,14 @@ if.end:                                           ; preds = %if.then, %entry
   %call8 = tail call i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(i64 noundef %call7, i64 %srtt.sroa.0.0, i64 %srtt.sroa.3.0)
   %rate_based_sending_ = getelementptr inbounds i8, ptr %this, i64 139
   %3 = load i8, ptr %rate_based_sending_, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end17, label %land.lhs.true
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end
   %vtable9 = load ptr, ptr %this, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 96
-  %5 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %4 = load ptr, ptr %vfn10, align 8
+  %call11 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp = icmp ult i64 %call11, %bytes_in_flight
   br i1 %cmp, label %if.then12, label %if.end17
 
@@ -819,45 +813,44 @@ if.then12:                                        ; preds = %land.lhs.true
   %mul.i.i = fmul float %conv.i.i, 7.500000e-01
   %call.i.i.i = tail call noundef i64 @llroundf(float noundef %mul.i.i) #18
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i, i64 noundef %call.i.i.i)
-  %6 = load i64, ptr %retval.i.i, align 8
+  %5 = load i64, ptr %retval.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i)
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end
   %vtable19 = load ptr, ptr %this, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 104
-  %7 = load ptr, ptr %vfn20, align 8
-  %call21 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %6 = load ptr, ptr %vfn20, align 8
+  %call21 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call21, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end17
   %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
-  %8 = load i8, ptr %no_prr_, align 4
-  %9 = and i8 %8, 1
-  %tobool22.not = icmp eq i8 %9, 0
-  br i1 %tobool22.not, label %cond.end, label %land.rhs
+  %7 = load i8, ptr %no_prr_, align 4
+  %tobool22 = trunc i8 %7 to i1
+  br i1 %tobool22, label %land.rhs, label %cond.end
 
 land.rhs:                                         ; preds = %cond.false
   %vtable23 = load ptr, ptr %this, align 8
   %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 112
-  %10 = load ptr, ptr %vfn24, align 8
-  %call25 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(141) %this)
-  %11 = select i1 %call25, float 1.000000e+00, float 1.250000e+00
+  %8 = load ptr, ptr %vfn24, align 8
+  %call25 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(141) %this)
+  %9 = select i1 %call25, float 1.000000e+00, float 1.250000e+00
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %land.rhs, %if.end17
-  %cond26 = phi float [ 2.000000e+00, %if.end17 ], [ 1.250000e+00, %cond.false ], [ %11, %land.rhs ]
+  %cond26 = phi float [ 2.000000e+00, %if.end17 ], [ 1.250000e+00, %cond.false ], [ %9, %land.rhs ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
   %conv.i = sitofp i64 %call8 to float
   %mul.i = fmul float %cond26, %conv.i
   %call.i.i = tail call noundef i64 @llroundf(float noundef %mul.i) #18
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i, i64 noundef %call.i.i)
-  %12 = load i64, ptr %retval.i, align 8
+  %10 = load i64, ptr %retval.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i)
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then12
-  %retval.sroa.0.0 = phi i64 [ %6, %if.then12 ], [ %12, %cond.end ]
+  %retval.sroa.0.0 = phi i64 [ %5, %if.then12 ], [ %10, %cond.end ]
   ret i64 %retval.sroa.0.0
 }
 

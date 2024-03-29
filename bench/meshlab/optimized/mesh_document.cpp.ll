@@ -1762,9 +1762,8 @@ _ZN12MeshDocument8nextMeshEP9MeshModel.exit.us:   ; preds = %.split.us
   %7 = getelementptr inbounds i8, ptr %0, i64 1300
   %.0.i.us = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not.us = icmp eq i8 %9, 0
-  %spec.select = select i1 %.not.us, ptr null, ptr %.0.i.us
+  %9 = trunc i8 %8 to i1
+  %spec.select = select i1 %9, ptr %.0.i.us, ptr null
   br label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread
 
 .split:                                           ; preds = %2
@@ -1790,14 +1789,13 @@ _ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us: ; preds = %.lr.ph.i.us
   %.0.i.us18 = getelementptr inbounds i8, ptr %.sroa.07.0.pre.i.us, i64 16
   %13 = getelementptr inbounds i8, ptr %.sroa.07.0.pre.i.us, i64 1220
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %.not.us19 = icmp eq i8 %15, 0
-  br i1 %.not.us19, label %tailrecurse.us13, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %tailrecurse.us13
 
 tailrecurse:                                      ; preds = %.split, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit
   %.tr10 = phi ptr [ %.0.i, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit ], [ %1, %.split ]
-  %.not24 = icmp eq ptr %.tr10, null
-  br i1 %.not24, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit, label %.lr.ph.i
+  %.not = icmp eq ptr %.tr10, null
+  br i1 %.not, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse, %18
   %.sroa.07.015.i = phi ptr [ %.sroa.07.0.pre.i, %18 ], [ %.sroa.07.013.i.fr, %tailrecurse ]
@@ -1816,9 +1814,8 @@ _ZN12MeshDocument8nextMeshEP9MeshModel.exit:      ; preds = %.lr.ph.i, %tailrecu
   %.0.i = getelementptr inbounds i8, ptr %.sroa.07.013.i.pn, i64 16
   %19 = getelementptr inbounds i8, ptr %.sroa.07.013.i.pn, i64 1220
   %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %tailrecurse, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %tailrecurse
 
 _ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread: ; preds = %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us, %12, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit, %18, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us, %.split.us
   %.0 = phi ptr [ null, %.split.us ], [ %spec.select, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us ], [ null, %18 ], [ %.0.i, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit ], [ null, %12 ], [ %.0.i.us18, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us ]
@@ -2024,9 +2021,8 @@ define noundef i32 @_ZNK12MeshDocument12rasterNumberEv(ptr nocapture noundef non
 define noundef zeroext i1 @_ZN12MeshDocument6isBusyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

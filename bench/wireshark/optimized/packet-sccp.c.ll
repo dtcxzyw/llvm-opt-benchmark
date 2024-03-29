@@ -721,14 +721,14 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_captured_length(ptr noundef %1) #9
   %5 = icmp ult i32 %4, 5
-  br i1 %5, label %225, label %6
+  br i1 %5, label %223, label %6
 
 6:                                                ; preds = %3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #9
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @sccp_message_type_acro_values) #9
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %225, label %10
+  br i1 %.not, label %223, label %10
 
 10:                                               ; preds = %6
   switch i8 %7, label %179 [
@@ -746,12 +746,12 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
     i8 15, label %157
     i8 6, label %162
     i8 16, label %175
-    i8 8, label %225
-    i8 7, label %225
-    i8 12, label %225
-    i8 11, label %225
-    i8 14, label %225
-    i8 13, label %225
+    i8 8, label %223
+    i8 7, label %223
+    i8 12, label %223
+    i8 11, label %223
+    i8 14, label %223
+    i8 13, label %223
   ]
 
 11:                                               ; preds = %10, %10, %10, %10, %10, %10
@@ -759,7 +759,7 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
   %or.cond = icmp ult i8 %12, 2
   %13 = icmp ult i32 %4, 7
   %or.cond70 = and i1 %13, %or.cond
-  br i1 %or.cond70, label %225, label %14
+  br i1 %or.cond70, label %223, label %14
 
 14:                                               ; preds = %11
   %15 = add nsw i8 %7, -19
@@ -768,7 +768,7 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %14
   %17 = icmp ult i32 %4, 11
-  br i1 %17, label %225, label %18
+  br i1 %17, label %223, label %18
 
 18:                                               ; preds = %16, %14
   %.0316 = phi i8 [ 1, %14 ], [ 2, %16 ]
@@ -782,7 +782,7 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #9
   %21 = and i8 %20, 14
   %.not348 = icmp eq i8 %21, 0
-  br i1 %.not348, label %22, label %225
+  br i1 %.not348, label %22, label %223
 
 22:                                               ; preds = %19, %18
   %.0309 = phi i32 [ 1, %18 ], [ 2, %19 ]
@@ -808,7 +808,7 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
   %28 = zext i8 %27 to i32
   %29 = tail call ptr @try_val_to_str(i32 noundef %28, ptr noundef nonnull @sccp_return_cause_values) #9
   %.not349 = icmp eq ptr %29, null
-  br i1 %.not349, label %225, label %30
+  br i1 %.not349, label %223, label %30
 
 30:                                               ; preds = %26
   %31 = add nuw nsw i32 %.1, 1
@@ -832,26 +832,26 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 36:                                               ; preds = %35
   %37 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.3) #9
   %38 = icmp eq i16 %37, 0
-  br i1 %38, label %225, label %41
+  br i1 %38, label %223, label %41
 
 .thread:                                          ; preds = %35
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.3) #9
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %225, label %.thread367
+  br i1 %40, label %223, label %.thread367
 
 41:                                               ; preds = %36
   %42 = zext nneg i8 %.0316 to i32
   %43 = add nuw nsw i32 %.3, %42
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %43) #9
   %45 = icmp eq i16 %44, 0
-  br i1 %45, label %225, label %50
+  br i1 %45, label %223, label %50
 
 .thread367:                                       ; preds = %.thread
   %46 = zext nneg i8 %.0316 to i32
   %47 = add nuw nsw i32 %.3, %46
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %47) #9
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %225, label %57
+  br i1 %49, label %223, label %57
 
 50:                                               ; preds = %41
   %51 = zext i16 %44 to i32
@@ -879,7 +879,7 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
   %.0321 = phi i32 [ %56, %50 ], [ %63, %57 ]
   %68 = add nuw nsw i32 %.pn, %.3
   %69 = icmp eq i32 %.0321, 0
-  br i1 %69, label %225, label %70
+  br i1 %69, label %223, label %70
 
 70:                                               ; preds = %64
   %71 = add nuw nsw i32 %.0321, %65
@@ -923,21 +923,21 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
   %or.cond360 = select i1 %86, i1 true, i1 %87
   %88 = icmp ugt i32 %.1322, %4
   %or.cond361 = select i1 %or.cond360, i1 true, i1 %88
-  br i1 %or.cond361, label %225, label %89
+  br i1 %or.cond361, label %223, label %89
 
 89:                                               ; preds = %.thread378
   %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1311) #9
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %.1311, %91
   %93 = icmp ugt i32 %92, %4
-  br i1 %93, label %225, label %94
+  br i1 %93, label %223, label %94
 
 94:                                               ; preds = %89
   %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1314) #9
   %96 = zext i8 %95 to i32
   %97 = add nuw nsw i32 %.1314, %96
   %98 = icmp ugt i32 %97, %4
-  br i1 %98, label %225, label %99
+  br i1 %98, label %223, label %99
 
 99:                                               ; preds = %94
   br i1 %or.cond5, label %100, label %105
@@ -947,33 +947,33 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
   %102 = zext i16 %101 to i32
   %103 = add nuw nsw i32 %.1322, %102
   %104 = icmp ugt i32 %103, %4
-  br i1 %104, label %225, label %180
+  br i1 %104, label %223, label %180
 
 105:                                              ; preds = %99
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1322) #9
   %107 = zext i8 %106 to i32
   %108 = add nuw nsw i32 %.1322, %107
   %109 = icmp ugt i32 %108, %4
-  br i1 %109, label %225, label %180
+  br i1 %109, label %223, label %180
 
 110:                                              ; preds = %10
   %111 = icmp ult i32 %4, 7
-  br i1 %111, label %225, label %112
+  br i1 %111, label %223, label %112
 
 112:                                              ; preds = %110
   %113 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %.not347 = icmp eq i8 %113, 2
-  br i1 %.not347, label %114, label %225
+  br i1 %.not347, label %114, label %223
 
 114:                                              ; preds = %112
   %115 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 5) #9
   %116 = icmp eq i8 %115, 0
-  br i1 %116, label %225, label %117
+  br i1 %116, label %223, label %117
 
 117:                                              ; preds = %114
   %118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 6) #9
   %119 = icmp eq i8 %118, 0
-  br i1 %119, label %225, label %120
+  br i1 %119, label %223, label %120
 
 120:                                              ; preds = %117
   %121 = zext i8 %118 to i32
@@ -981,17 +981,17 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 
 122:                                              ; preds = %10
   %123 = icmp ult i32 %4, 9
-  br i1 %123, label %225, label %124
+  br i1 %123, label %223, label %124
 
 124:                                              ; preds = %122
   %125 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 7) #9
   %.not345 = icmp eq i8 %125, 2
-  br i1 %.not345, label %126, label %225
+  br i1 %.not345, label %126, label %223
 
 126:                                              ; preds = %124
   %127 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 8) #9
   %128 = icmp ugt i8 %127, 1
-  br i1 %128, label %225, label %129
+  br i1 %128, label %223, label %129
 
 129:                                              ; preds = %126
   %130 = icmp eq i8 %127, 0
@@ -999,23 +999,23 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 
 131:                                              ; preds = %129
   %.not346 = icmp eq i32 %4, 9
-  br i1 %.not346, label %.thread392.thread, label %225
+  br i1 %.not346, label %.thread392.thread, label %223
 
 132:                                              ; preds = %10
   %133 = icmp eq i32 %4, 5
-  br i1 %133, label %225, label %134
+  br i1 %133, label %223, label %134
 
 134:                                              ; preds = %132
   %135 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %136 = zext i8 %135 to i32
   %137 = tail call ptr @try_val_to_str(i32 noundef %136, ptr noundef nonnull @sccp_refusal_cause_values) #9
   %.not343 = icmp eq ptr %137, null
-  br i1 %.not343, label %225, label %138
+  br i1 %.not343, label %223, label %138
 
 138:                                              ; preds = %134
   %139 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 5) #9
   %140 = icmp ugt i8 %139, 1
-  br i1 %140, label %225, label %141
+  br i1 %140, label %223, label %141
 
 141:                                              ; preds = %138
   %142 = icmp eq i8 %139, 0
@@ -1023,23 +1023,23 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 
 143:                                              ; preds = %141
   %.not344 = icmp eq i32 %4, 6
-  br i1 %.not344, label %.thread392.thread, label %225
+  br i1 %.not344, label %.thread392.thread, label %223
 
 144:                                              ; preds = %10
   %145 = icmp ult i32 %4, 9
-  br i1 %145, label %225, label %146
+  br i1 %145, label %223, label %146
 
 146:                                              ; preds = %144
   %147 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 7) #9
   %148 = zext i8 %147 to i32
   %149 = tail call ptr @try_val_to_str(i32 noundef %148, ptr noundef nonnull @sccp_release_cause_values) #9
   %.not341 = icmp eq ptr %149, null
-  br i1 %.not341, label %225, label %150
+  br i1 %.not341, label %223, label %150
 
 150:                                              ; preds = %146
   %151 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 8) #9
   %152 = icmp ugt i8 %151, 1
-  br i1 %152, label %225, label %153
+  br i1 %152, label %223, label %153
 
 153:                                              ; preds = %150
   %154 = icmp eq i8 %151, 0
@@ -1047,54 +1047,54 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 
 155:                                              ; preds = %153
   %.not342 = icmp eq i32 %4, 9
-  br i1 %.not342, label %.thread392.thread, label %225
+  br i1 %.not342, label %.thread392.thread, label %223
 
 156:                                              ; preds = %10
   %.not340 = icmp eq i32 %4, 7
-  br i1 %.not340, label %.thread392.thread, label %225
+  br i1 %.not340, label %.thread392.thread, label %223
 
 157:                                              ; preds = %10
   %.not338 = icmp eq i32 %4, 5
-  br i1 %.not338, label %158, label %225
+  br i1 %.not338, label %158, label %223
 
 158:                                              ; preds = %157
   %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %160 = zext i8 %159 to i32
   %161 = tail call ptr @try_val_to_str(i32 noundef %160, ptr noundef nonnull @sccp_error_cause_values) #9
   %.not339 = icmp eq ptr %161, null
-  br i1 %.not339, label %225, label %.thread392.thread
+  br i1 %.not339, label %223, label %.thread392.thread
 
 162:                                              ; preds = %10
   %163 = icmp ult i32 %4, 8
-  br i1 %163, label %225, label %164
+  br i1 %163, label %223, label %164
 
 164:                                              ; preds = %162
   %165 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %.not336 = icmp ult i8 %165, 2
-  br i1 %.not336, label %166, label %225
+  br i1 %.not336, label %166, label %223
 
 166:                                              ; preds = %164
   %167 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 5) #9
   %168 = zext i8 %167 to i32
   %169 = add nuw nsw i32 %168, 5
   %170 = icmp ugt i32 %169, %4
-  br i1 %170, label %225, label %171
+  br i1 %170, label %223, label %171
 
 171:                                              ; preds = %166
   %172 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %169) #9
   %173 = zext i8 %172 to i32
   %174 = add nuw nsw i32 %173, 7
   %.not337 = icmp eq i32 %174, %4
-  br i1 %.not337, label %.thread392.thread, label %225
+  br i1 %.not337, label %.thread392.thread, label %223
 
 175:                                              ; preds = %10
   %176 = icmp ult i32 %4, 11
-  br i1 %176, label %225, label %177
+  br i1 %176, label %223, label %177
 
 177:                                              ; preds = %175
   %178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 7) #9
   %.not335 = icmp eq i8 %178, 2
-  br i1 %.not335, label %.thread392.thread, label %225
+  br i1 %.not335, label %.thread392.thread, label %223
 
 179:                                              ; preds = %10
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 1386) #10
@@ -1103,7 +1103,7 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 180:                                              ; preds = %105, %100
   %181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1311) #9
   %182 = icmp eq i8 %181, 0
-  br i1 %182, label %225, label %183
+  br i1 %182, label %223, label %183
 
 183:                                              ; preds = %180
   %184 = zext i8 %181 to i32
@@ -1121,46 +1121,44 @@ define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1,
 switch.hole_check:                                ; preds = %183
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 1795, %switch.maskindex
-  %191 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %191, 0
-  br i1 %switch.lobit.not, label %188, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %188
 
 switch.lookup:                                    ; preds = %switch.hole_check, %188
-  %192 = phi i32 [ %190, %188 ], [ 0, %switch.hole_check ]
-  %193 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %186, i8 noundef zeroext %2, i32 noundef %192)
-  %.not352 = icmp eq i32 %193, 0
-  br i1 %.not352, label %225, label %194
+  %191 = phi i32 [ %190, %188 ], [ 0, %switch.hole_check ]
+  %192 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %186, i8 noundef zeroext %2, i32 noundef %191)
+  %.not352 = icmp eq i32 %192, 0
+  br i1 %.not352, label %223, label %193
 
-194:                                              ; preds = %switch.lookup
-  %195 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1314) #9
-  %196 = icmp eq i8 %195, 0
-  br i1 %196, label %225, label %197
+193:                                              ; preds = %switch.lookup
+  %194 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1314) #9
+  %195 = icmp eq i8 %194, 0
+  br i1 %195, label %223, label %196
 
-197:                                              ; preds = %194
-  %198 = zext i8 %195 to i32
-  %199 = add nuw nsw i32 %.1314, 1
-  %200 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %199, i32 noundef %198) #9
+196:                                              ; preds = %193
+  %197 = zext i8 %194 to i32
+  %198 = add nuw nsw i32 %.1314, 1
+  %199 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %198, i32 noundef %197) #9
   %switch.tableidx415 = add i8 %7, -9
-  %201 = icmp ult i8 %switch.tableidx415, 11
-  br i1 %201, label %switch.hole_check416, label %202
+  %200 = icmp ult i8 %switch.tableidx415, 11
+  br i1 %200, label %switch.hole_check416, label %201
 
-202:                                              ; preds = %switch.hole_check416, %197
-  %203 = icmp ne i8 %7, 20
-  %204 = zext i1 %203 to i32
+201:                                              ; preds = %switch.hole_check416, %196
+  %202 = icmp ne i8 %7, 20
+  %203 = zext i1 %202 to i32
   br label %switch.lookup417
 
-switch.hole_check416:                             ; preds = %197
+switch.hole_check416:                             ; preds = %196
   %switch.maskindex418 = zext nneg i8 %switch.tableidx415 to i16
   %switch.shifted419 = lshr i16 1795, %switch.maskindex418
-  %205 = and i16 %switch.shifted419, 1
-  %switch.lobit420.not = icmp eq i16 %205, 0
-  br i1 %switch.lobit420.not, label %202, label %switch.lookup417
+  %switch.lobit420 = trunc i16 %switch.shifted419 to i1
+  br i1 %switch.lobit420, label %switch.lookup417, label %201
 
-switch.lookup417:                                 ; preds = %switch.hole_check416, %202
-  %206 = phi i32 [ %204, %202 ], [ 0, %switch.hole_check416 ]
-  %207 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %200, i8 noundef zeroext %2, i32 noundef %206)
-  %.not354 = icmp eq i32 %207, 0
-  br i1 %.not354, label %225, label %.thread392
+switch.lookup417:                                 ; preds = %switch.hole_check416, %201
+  %204 = phi i32 [ %203, %201 ], [ 0, %switch.hole_check416 ]
+  %205 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %199, i8 noundef zeroext %2, i32 noundef %204)
+  %.not354 = icmp eq i32 %205, 0
+  br i1 %.not354, label %223, label %.thread392
 
 .thread392:                                       ; preds = %switch.lookup417
   %.not355 = icmp eq i32 %.1319, 0
@@ -1170,45 +1168,45 @@ switch.lookup417:                                 ; preds = %switch.hole_check41
   %.5391398413 = phi i32 [ %.4376, %.thread392 ], [ 9, %153 ], [ 6, %141 ], [ 9, %129 ], [ 7, %120 ]
   %.1317389399412 = phi i8 [ %.0316, %.thread392 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ 1, %120 ]
   %.2320388400411 = phi i32 [ %.1319, %.thread392 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ %121, %120 ]
-  %208 = zext nneg i8 %.1317389399412 to i32
-  %209 = sub nuw nsw i32 %.5391398413, %208
-  %210 = add nuw nsw i32 %209, %.2320388400411
-  %211 = icmp ugt i32 %210, %4
-  br i1 %211, label %225, label %212
+  %206 = zext nneg i8 %.1317389399412 to i32
+  %207 = sub nuw nsw i32 %.5391398413, %206
+  %208 = add nuw nsw i32 %207, %.2320388400411
+  %209 = icmp ugt i32 %208, %4
+  br i1 %209, label %223, label %210
 
-212:                                              ; preds = %.thread392.thread406
-  %213 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %210) #9
-  %214 = zext i8 %213 to i32
-  %215 = tail call ptr @try_val_to_str(i32 noundef %214, ptr noundef nonnull @sccp_parameter_values) #9
-  %.not356 = icmp eq ptr %215, null
-  br i1 %.not356, label %225, label %216
+210:                                              ; preds = %.thread392.thread406
+  %211 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %208) #9
+  %212 = zext i8 %211 to i32
+  %213 = tail call ptr @try_val_to_str(i32 noundef %212, ptr noundef nonnull @sccp_parameter_values) #9
+  %.not356 = icmp eq ptr %213, null
+  br i1 %.not356, label %223, label %214
 
-216:                                              ; preds = %212
-  %cond = icmp eq i8 %213, 0
-  br i1 %cond, label %224, label %217
+214:                                              ; preds = %210
+  %cond = icmp eq i8 %211, 0
+  br i1 %cond, label %222, label %215
 
-217:                                              ; preds = %216
-  %.not358.not = icmp ult i32 %210, %4
-  br i1 %.not358.not, label %218, label %.thread392.thread
+215:                                              ; preds = %214
+  %.not358.not = icmp ult i32 %208, %4
+  br i1 %.not358.not, label %216, label %.thread392.thread
 
-218:                                              ; preds = %217
-  %219 = add nuw nsw i32 %210, 1
-  %220 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %219) #9
-  %221 = zext i8 %220 to i32
-  %222 = add nuw nsw i32 %.5391398413, %221
-  %223 = icmp ugt i32 %222, %4
-  br i1 %223, label %225, label %.thread392.thread
+216:                                              ; preds = %215
+  %217 = add nuw nsw i32 %208, 1
+  %218 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %217) #9
+  %219 = zext i8 %218 to i32
+  %220 = add nuw nsw i32 %.5391398413, %219
+  %221 = icmp ugt i32 %220, %4
+  br i1 %221, label %223, label %.thread392.thread
 
-224:                                              ; preds = %216
-  %.old = add nuw nsw i32 %210, 1
+222:                                              ; preds = %214
+  %.old = add nuw nsw i32 %208, 1
   %.not359.old = icmp eq i32 %.old, %4
-  br i1 %.not359.old, label %.thread392.thread, label %225
+  br i1 %.not359.old, label %.thread392.thread, label %223
 
-.thread392.thread:                                ; preds = %217, %218, %171, %158, %156, %155, %143, %131, %177, %224, %.thread392
-  br label %225
+.thread392.thread:                                ; preds = %215, %216, %171, %158, %156, %155, %143, %131, %177, %222, %.thread392
+  br label %223
 
-225:                                              ; preds = %.thread367, %.thread, %224, %218, %212, %.thread392.thread406, %switch.lookup417, %194, %switch.lookup, %180, %10, %10, %10, %10, %10, %10, %177, %175, %171, %166, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread378, %64, %41, %36, %26, %19, %16, %11, %6, %3, %.thread392.thread
-  %.0 = phi i32 [ 1, %.thread392.thread ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ 0, %16 ], [ 0, %19 ], [ 0, %26 ], [ 0, %36 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.thread378 ], [ 0, %89 ], [ 0, %94 ], [ 0, %100 ], [ 0, %105 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ], [ 0, %117 ], [ 0, %122 ], [ 0, %124 ], [ 0, %126 ], [ 0, %131 ], [ 0, %132 ], [ 0, %134 ], [ 0, %138 ], [ 0, %143 ], [ 0, %144 ], [ 0, %146 ], [ 0, %150 ], [ 0, %155 ], [ 0, %156 ], [ 0, %157 ], [ 0, %158 ], [ 0, %162 ], [ 0, %164 ], [ 0, %166 ], [ 0, %171 ], [ 0, %175 ], [ 0, %177 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %180 ], [ 0, %switch.lookup ], [ 0, %194 ], [ 0, %switch.lookup417 ], [ 0, %.thread392.thread406 ], [ 0, %212 ], [ 0, %218 ], [ 0, %224 ], [ 0, %.thread ], [ 0, %.thread367 ]
+223:                                              ; preds = %.thread367, %.thread, %222, %216, %210, %.thread392.thread406, %switch.lookup417, %193, %switch.lookup, %180, %10, %10, %10, %10, %10, %10, %177, %175, %171, %166, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread378, %64, %41, %36, %26, %19, %16, %11, %6, %3, %.thread392.thread
+  %.0 = phi i32 [ 1, %.thread392.thread ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ 0, %16 ], [ 0, %19 ], [ 0, %26 ], [ 0, %36 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.thread378 ], [ 0, %89 ], [ 0, %94 ], [ 0, %100 ], [ 0, %105 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ], [ 0, %117 ], [ 0, %122 ], [ 0, %124 ], [ 0, %126 ], [ 0, %131 ], [ 0, %132 ], [ 0, %134 ], [ 0, %138 ], [ 0, %143 ], [ 0, %144 ], [ 0, %146 ], [ 0, %150 ], [ 0, %155 ], [ 0, %156 ], [ 0, %157 ], [ 0, %158 ], [ 0, %162 ], [ 0, %164 ], [ 0, %166 ], [ 0, %171 ], [ 0, %175 ], [ 0, %177 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %180 ], [ 0, %switch.lookup ], [ 0, %193 ], [ 0, %switch.lookup417 ], [ 0, %.thread392.thread406 ], [ 0, %210 ], [ 0, %216 ], [ 0, %222 ], [ 0, %.thread ], [ 0, %.thread367 ]
   ret i32 %.0
 }
 

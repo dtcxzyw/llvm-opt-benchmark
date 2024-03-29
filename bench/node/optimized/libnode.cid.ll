@@ -494,9 +494,8 @@ entry:
 do.body.i:                                        ; preds = %entry
   %pool_.i = getelementptr inbounds i8, ptr %this, i64 12
   %call.i = tail call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %pool_.i, i64 noundef 4096) #12
-  %1 = and i8 %call.i, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %do.body7.i, label %_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit
+  %tobool.i.i = trunc i8 %call.i to i1
+  br i1 %tobool.i.i, label %_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit, label %do.body7.i
 
 do.body7.i:                                       ; preds = %do.body.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEmE4args) #12
@@ -504,12 +503,12 @@ do.body7.i:                                       ; preds = %do.body.i
   unreachable
 
 _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; preds = %do.body.i, %entry
-  %2 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
+  %1 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
   %pool_ = getelementptr inbounds i8, ptr %this, i64 12
-  %idx.ext = sext i32 %2 to i64
+  %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %pool_, i64 %idx.ext
-  %3 = trunc i64 %length_hint to i32
-  %conv3 = add i32 %2, %3
+  %2 = trunc i64 %length_hint to i32
+  %conv3 = add i32 %1, %2
   store i32 %conv3, ptr %pos_.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
@@ -536,9 +535,8 @@ entry:
 do.body.i:                                        ; preds = %entry
   %pool_.i = getelementptr inbounds i8, ptr %this, i64 12
   %call.i = tail call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %pool_.i, i64 noundef 4096) #12
-  %1 = and i8 %call.i, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %do.body7.i, label %_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit
+  %tobool.i.i = trunc i8 %call.i to i1
+  br i1 %tobool.i.i, label %_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit, label %do.body7.i
 
 do.body7.i:                                       ; preds = %do.body.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEmE4args) #12
@@ -546,12 +544,12 @@ do.body7.i:                                       ; preds = %do.body.i
   unreachable
 
 _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; preds = %do.body.i, %entry
-  %2 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
+  %1 = phi i32 [ %0, %entry ], [ 0, %do.body.i ]
   %pool_ = getelementptr inbounds i8, ptr %this, i64 12
-  %idx.ext = sext i32 %2 to i64
+  %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %pool_, i64 %idx.ext
-  %3 = trunc i64 %length_hint to i32
-  %conv3 = add i32 %2, %3
+  %2 = trunc i64 %length_hint to i32
+  %conv3 = add i32 %1, %2
   store i32 %conv3, ptr %pos_.i, align 8
   tail call void @ngtcp2_cid_init(ptr noundef %cid, ptr noundef nonnull %add.ptr, i64 noundef %length_hint) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #12

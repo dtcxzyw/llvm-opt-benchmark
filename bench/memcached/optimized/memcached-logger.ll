@@ -268,11 +268,11 @@ if.end:                                           ; preds = %entry
   store i16 %6, ptr %eflags11, align 2
   %tv = getelementptr inbounds i8, ptr %call5, i64 16
   %call12 = tail call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef null) #18
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %log_cb = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %log_cb, align 8
   call void %7(ptr noundef nonnull %call5, ptr noundef nonnull %arrayidx, ptr noundef %entry1, ptr noundef nonnull %ap) #18
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %size = getelementptr inbounds i8, ptr %call5, i64 32
   %8 = load i32, ptr %size, align 8
   %add16 = add i32 %8, 40
@@ -312,12 +312,6 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 declare i32 @bipbuf_push(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -488,7 +482,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 for.body:                                         ; preds = %if.end5, %logger_thread_read.exit
   %l.027 = phi ptr [ %l.0, %logger_thread_read.exit ], [ %l.022, %if.end5 ]
   %found_logs.026 = phi i32 [ %add, %logger_thread_read.exit ], [ 0, %if.end5 ]
-  %2 = phi <2 x i64> [ %44, %logger_thread_read.exit ], [ zeroinitializer, %if.end5 ]
+  %2 = phi <2 x i64> [ %41, %logger_thread_read.exit ], [ zeroinitializer, %if.end5 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %scratch.i)
   %mutex.i = getelementptr inbounds i8, ptr %l.027, i64 16
@@ -558,18 +552,17 @@ while.cond.preheader.i.i:                         ; preds = %lor.lhs.false6.i.i
   %buf.i.i = getelementptr inbounds i8, ptr %12, i64 48
   %failed_flush.i.i = getelementptr inbounds i8, ptr %12, i64 32
   %17 = load i8, ptr %failed_flush.i.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.not25.i.i = icmp eq i8 %18, 0
-  br i1 %tobool.not25.i.i, label %land.rhs.preheader.i.i, label %while.end.i.i
+  %tobool25.i.i = trunc i8 %17 to i1
+  br i1 %tobool25.i.i, label %while.end.i.i, label %land.rhs.preheader.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %while.cond.preheader.i.i
-  %19 = trunc i64 %indvars.iv.i.i to i32
+  %18 = trunc i64 %indvars.iv.i.i to i32
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end16.i.i, %land.rhs.preheader.i.i
-  %20 = load ptr, ptr %buf.i.i, align 8
-  %call.i21.i = call ptr @bipbuf_request(ptr noundef %20, i32 noundef %add.i.i) #18
-  %cmp9.i.i = icmp eq ptr %call.i21.i, null
+  %19 = load ptr, ptr %buf.i.i, align 8
+  %call.i20.i = call ptr @bipbuf_request(ptr noundef %19, i32 noundef %add.i.i) #18
+  %cmp9.i.i = icmp eq ptr %call.i20.i, null
   br i1 %cmp9.i.i, label %while.body.i.i, label %land.rhs.while.end.loopexit_crit_edge.i.i
 
 land.rhs.while.end.loopexit_crit_edge.i.i:        ; preds = %land.rhs.i.i
@@ -577,7 +570,7 @@ land.rhs.while.end.loopexit_crit_edge.i.i:        ; preds = %land.rhs.i.i
   br label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %call11.i.i = call fastcc i32 @logger_thread_poll_watchers(i32 noundef 0, i32 noundef %19)
+  %call11.i.i = call fastcc i32 @logger_thread_poll_watchers(i32 noundef 0, i32 noundef %18)
   %cmp12.i.i = icmp slt i32 %call11.i.i, 1
   br i1 %cmp12.i.i, label %while.end.thread.i.i, label %if.end16.i.i
 
@@ -587,57 +580,55 @@ while.end.thread.i.i:                             ; preds = %while.body.i.i
 
 if.end16.i.i:                                     ; preds = %while.body.i.i
   %.pre.i.i = load i8, ptr %failed_flush.i.i, align 8
-  %21 = and i8 %.pre.i.i, 1
-  %tobool.not.i.i = icmp eq i8 %21, 0
-  br i1 %tobool.not.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !9
+  %tobool.i.i = trunc i8 %.pre.i.i to i1
+  br i1 %tobool.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %if.end16.i.i, %land.rhs.while.end.loopexit_crit_edge.i.i, %while.cond.preheader.i.i
-  %22 = phi i8 [ %17, %while.cond.preheader.i.i ], [ %.pre31.pre.i.i, %land.rhs.while.end.loopexit_crit_edge.i.i ], [ %.pre.i.i, %if.end16.i.i ]
-  %skip_scr.1.i.i = phi ptr [ null, %while.cond.preheader.i.i ], [ %call.i21.i, %land.rhs.while.end.loopexit_crit_edge.i.i ], [ null, %if.end16.i.i ]
-  %23 = and i8 %22, 1
-  %tobool18.not.i.i = icmp eq i8 %23, 0
-  br i1 %tobool18.not.i.i, label %if.end21.i.i, label %if.then19.i.i
+  %20 = phi i8 [ %17, %while.cond.preheader.i.i ], [ %.pre31.pre.i.i, %land.rhs.while.end.loopexit_crit_edge.i.i ], [ %.pre.i.i, %if.end16.i.i ]
+  %skip_scr.1.i.i = phi ptr [ null, %while.cond.preheader.i.i ], [ %call.i20.i, %land.rhs.while.end.loopexit_crit_edge.i.i ], [ null, %if.end16.i.i ]
+  %tobool18.i.i = trunc i8 %20 to i1
+  br i1 %tobool18.i.i, label %if.then19.i.i, label %if.end21.i.i
 
 if.then19.i.i:                                    ; preds = %while.end.i.i, %while.end.thread.i.i
   %skipped.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %24 = load i64, ptr %skipped.i.i, align 8
-  %inc.i.i = add i64 %24, 1
+  %21 = load i64, ptr %skipped.i.i, align 8
+  %inc.i.i = add i64 %21, 1
   store i64 %inc.i.i, ptr %skipped.i.i, align 8
   br label %for.inc.sink.split.i.i
 
 if.end21.i.i:                                     ; preds = %while.end.i.i
   %skipped22.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %25 = load i64, ptr %skipped22.i.i, align 8
-  %cmp23.not.i.i = icmp eq i64 %25, 0
+  %22 = load i64, ptr %skipped22.i.i, align 8
+  %cmp23.not.i.i = icmp eq i64 %22, 0
   br i1 %cmp23.not.i.i, label %if.end42.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.end21.i.i
-  %call27.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %skip_scr.1.i.i, i64 noundef 128, ptr noundef nonnull @.str.6, i64 noundef %25) #18
-  %26 = add i32 %call27.i.i, -128
-  %or.cond.i20.i = icmp ult i32 %26, -127
-  br i1 %or.cond.i20.i, label %if.then33.i.i, label %if.end38.i.i
+  %call27.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %skip_scr.1.i.i, i64 noundef 128, ptr noundef nonnull @.str.6, i64 noundef %22) #18
+  %23 = add i32 %call27.i.i, -128
+  %or.cond.i21.i = icmp ult i32 %23, -127
+  br i1 %or.cond.i21.i, label %if.then33.i.i, label %if.end38.i.i
 
 if.then33.i.i:                                    ; preds = %if.then25.i.i
-  %27 = load i64, ptr %skipped22.i.i, align 8
-  %inc35.i.i = add i64 %27, 1
+  %24 = load i64, ptr %skipped22.i.i, align 8
+  %inc35.i.i = add i64 %24, 1
   store i64 %inc35.i.i, ptr %skipped22.i.i, align 8
   br label %for.inc.sink.split.i.i
 
 if.end38.i.i:                                     ; preds = %if.then25.i.i
-  %28 = load ptr, ptr %buf.i.i, align 8
-  %call40.i.i = call i32 @bipbuf_push(ptr noundef %28, i32 noundef %call27.i.i) #18
+  %25 = load ptr, ptr %buf.i.i, align 8
+  %call40.i.i = call i32 @bipbuf_push(ptr noundef %25, i32 noundef %call27.i.i) #18
   store i64 0, ptr %skipped22.i.i, align 8
   br label %if.end42.i.i
 
 if.end42.i.i:                                     ; preds = %if.end38.i.i, %if.end21.i.i
-  %29 = load ptr, ptr %buf.i.i, align 8
-  %call44.i.i = call i32 @bipbuf_offer(ptr noundef %29, ptr noundef nonnull %scratch.i, i32 noundef %call.i.i) #18
+  %26 = load ptr, ptr %buf.i.i, align 8
+  %call44.i.i = call i32 @bipbuf_offer(ptr noundef %26, ptr noundef nonnull %scratch.i, i32 noundef %call.i.i) #18
   br label %for.inc.sink.split.i.i
 
 for.inc.sink.split.i.i:                           ; preds = %if.end42.i.i, %if.then33.i.i, %if.then19.i.i
   %watcher_sent.sink38.i.i = phi ptr [ %ls.sroa.10, %if.end42.i.i ], [ %ls.sroa.7, %if.then33.i.i ], [ %ls.sroa.7, %if.then19.i.i ]
-  %30 = load i64, ptr %watcher_sent.sink38.i.i, align 8
-  %inc45.i.i = add i64 %30, 1
+  %27 = load i64, ptr %watcher_sent.sink38.i.i, align 8
+  %inc45.i.i = add i64 %27, 1
   store i64 %inc45.i.i, ptr %watcher_sent.sink38.i.i, align 8
   br label %for.inc.i.i
 
@@ -648,46 +639,46 @@ for.inc.i.i:                                      ; preds = %for.inc.sink.split.
 
 if.end11.i:                                       ; preds = %for.inc.i.i, %if.then8.i
   %size12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
-  %31 = load i32, ptr %size12.i, align 8
+  %28 = load i32, ptr %size12.i, align 8
   %pad.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  %32 = load i8, ptr %pad.i, align 4
-  %conv13.i = zext i8 %32 to i32
+  %29 = load i8, ptr %pad.i, align 4
+  %conv13.i = zext i8 %29 to i32
   %add.i = add i32 %pos.030.i, 40
-  %add14.i = add i32 %add.i, %31
+  %add14.i = add i32 %add.i, %28
   %add16.i = add i32 %add14.i, %conv13.i
-  %33 = load i32, ptr %size.i, align 4
-  %cmp4.i = icmp ult i32 %add16.i, %33
-  %34 = load i32, ptr @watcher_count, align 4
-  %cmp5.i = icmp sgt i32 %34, 0
-  %35 = select i1 %cmp4.i, i1 %cmp5.i, i1 false
-  br i1 %35, label %while.body.i, label %while.end.i, !llvm.loop !11
+  %30 = load i32, ptr %size.i, align 4
+  %cmp4.i = icmp ult i32 %add16.i, %30
+  %31 = load i32, ptr @watcher_count, align 4
+  %cmp5.i = icmp sgt i32 %31, 0
+  %32 = select i1 %cmp4.i, i1 %cmp5.i, i1 false
+  br i1 %32, label %while.body.i, label %while.end.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %if.end11.i, %while.cond.preheader.i
   %call19.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #18
-  %36 = load ptr, ptr %buf.i, align 8
-  %37 = load i32, ptr %size.i, align 4
-  %call21.i = call ptr @bipbuf_poll(ptr noundef %36, i32 noundef %37) #18
+  %33 = load ptr, ptr %buf.i, align 8
+  %34 = load i32, ptr %size.i, align 4
+  %call21.i = call ptr @bipbuf_poll(ptr noundef %33, i32 noundef %34) #18
   %written.i = getelementptr inbounds i8, ptr %l.027, i64 56
-  %38 = load <2 x i64>, ptr %written.i, align 8
-  %39 = shufflevector <2 x i64> %38, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %40 = add <2 x i64> %39, %2
+  %35 = load <2 x i64>, ptr %written.i, align 8
+  %36 = shufflevector <2 x i64> %35, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %37 = add <2 x i64> %36, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %written.i, i8 0, i64 16, i1 false)
   %call27.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #18
   %cmp28.i = icmp eq ptr %call21.i, null
   br i1 %cmp28.i, label %if.then30.i, label %if.end32.i
 
 if.then30.i:                                      ; preds = %while.end.i
-  %41 = load ptr, ptr @stderr, align 8
-  %42 = call i64 @fwrite(ptr nonnull @.str.5, i64 50, i64 1, ptr %41) #19
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = call i64 @fwrite(ptr nonnull @.str.5, i64 50, i64 1, ptr %38) #19
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then30.i, %while.end.i
-  %43 = load i32, ptr %size.i, align 4
+  %40 = load i32, ptr %size.i, align 4
   br label %logger_thread_read.exit
 
 logger_thread_read.exit:                          ; preds = %for.body, %if.end32.i
-  %retval.0.i = phi i32 [ 0, %for.body ], [ %43, %if.end32.i ]
-  %44 = phi <2 x i64> [ %2, %for.body ], [ %40, %if.end32.i ]
+  %retval.0.i = phi i32 [ 0, %for.body ], [ %40, %if.end32.i ]
+  %41 = phi <2 x i64> [ %2, %for.body ], [ %37, %if.end32.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %scratch.i)
   %add = add nsw i32 %retval.0.i, %found_logs.026
@@ -698,9 +689,9 @@ logger_thread_read.exit:                          ; preds = %for.body, %if.end32
 
 for.end:                                          ; preds = %logger_thread_read.exit, %if.end5
   %found_logs.0.lcssa = phi i32 [ 0, %if.end5 ], [ %add, %logger_thread_read.exit ]
-  %45 = phi <2 x i64> [ zeroinitializer, %if.end5 ], [ %44, %logger_thread_read.exit ]
+  %42 = phi <2 x i64> [ zeroinitializer, %if.end5 ], [ %41, %logger_thread_read.exit ]
   %call8 = call fastcc i32 @logger_thread_poll_watchers(i32 noundef 1, i32 noundef -1)
-  %46 = load i32, ptr @watcher_count, align 4
+  %43 = load i32, ptr @watcher_count, align 4
   %call9 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @logger_stack_lock) #18
   %tobool10.not = icmp eq i32 %found_logs.0.lcssa, 0
   br i1 %tobool10.not, label %if.then11, label %if.else
@@ -721,21 +712,21 @@ if.else:                                          ; preds = %for.end
 if.end26:                                         ; preds = %if.else, %if.then11
   %to_sleep.2 = phi i32 [ %spec.store.select1, %if.else ], [ %spec.store.select, %if.then11 ]
   call void @STATS_LOCK() #18
-  %47 = load <2 x i64>, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 15), align 8
-  %48 = add <2 x i64> %47, %45
-  store <2 x i64> %48, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 15), align 8
+  %44 = load <2 x i64>, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 15), align 8
+  %45 = add <2 x i64> %44, %42
+  store <2 x i64> %45, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 15), align 8
   %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16. = load i64, ptr %ls.sroa.7, align 8
-  %49 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 17), align 8
-  %add2.i = add i64 %49, %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16.
+  %46 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 17), align 8
+  %add2.i = add i64 %46, %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16.
   store i64 %add2.i, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 17), align 8
   %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24. = load i64, ptr %ls.sroa.10, align 8
-  %50 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 18), align 8
-  %add3.i = add i64 %50, %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24.
+  %47 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 18), align 8
+  %add3.i = add i64 %47, %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24.
   store i64 %add3.i, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 18), align 8
-  store i32 %46, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 7), align 4
+  store i32 %43, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i64 0, i32 7), align 4
   call void @STATS_UNLOCK() #18
-  %51 = load volatile i32, ptr @do_run_logger_thread, align 4
-  %tobool.not = icmp eq i32 %51, 0
+  %48 = load volatile i32, ptr @do_run_logger_thread, align 4
+  %tobool.not = icmp eq i32 %48, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end26, %entry
@@ -748,7 +739,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare void @thread_setname(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare i32 @usleep(i32 noundef) local_unnamed_addr #5
 
@@ -1049,7 +1040,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @logger_thread_close_watcher(ptr nocapture noundef %w) unnamed_addr #1 {
@@ -1125,7 +1116,7 @@ declare void @STATS_UNLOCK() local_unnamed_addr #5
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_logger_log_text(ptr nocapture noundef %e, ptr nocapture noundef readonly %d, ptr nocapture readnone %entry1, ptr noundef %ap) #11 {
+define internal void @_logger_log_text(ptr nocapture noundef %e, ptr nocapture noundef readonly %d, ptr nocapture readnone %entry1, ptr noundef %ap) #10 {
 entry:
   %0 = load i32, ptr %d, align 8
   %data = getelementptr inbounds i8, ptr %e, i64 36
@@ -1149,7 +1140,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @_logger_parse_text(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #11 {
+define internal noundef i32 @_logger_parse_text(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #10 {
 entry:
   %tv = getelementptr inbounds i8, ptr %e, i64 16
   %0 = load i64, ptr %tv, align 8
@@ -1164,7 +1155,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_evictions(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture readnone %ap) #12 {
+define internal void @_logger_log_evictions(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture readnone %ap) #11 {
 entry:
   %exptime = getelementptr inbounds i8, ptr %entry1, i64 28
   %0 = load i32, ptr %exptime, align 4
@@ -1259,7 +1250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_item_get(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #13 {
+define internal void @_logger_log_item_get(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1456,7 +1447,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_item_store(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
+define internal void @_logger_log_item_store(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #11 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1690,7 +1681,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_conn_event(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #13 {
+define internal void @_logger_log_conn_event(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1935,7 +1926,7 @@ _logger_util_addr_endpoint.exit:                  ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_item_deleted(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #14 {
+define internal void @_logger_log_item_deleted(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #13 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -2036,7 +2027,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_ext_write(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #12 {
+define internal void @_logger_log_ext_write(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #11 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -2154,7 +2145,7 @@ entry:
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 declare zeroext i1 @uriencode(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
@@ -2162,7 +2153,13 @@ declare zeroext i1 @uriencode(ptr noundef, ptr noundef, i64 noundef, i64 noundef
 declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #10
+declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
@@ -2184,14 +2181,14 @@ attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }

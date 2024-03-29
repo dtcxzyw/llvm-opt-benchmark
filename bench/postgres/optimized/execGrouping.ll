@@ -322,9 +322,8 @@ slot_getattr.exit:                                ; preds = %23, %slot_getsomeat
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %36, label %47
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %47, label %36
 
 36:                                               ; preds = %slot_getattr.exit
   %37 = load ptr, ptr %21, align 8
@@ -962,9 +961,8 @@ define dso_local ptr @tuplehash_iterate(ptr nocapture noundef readonly %0, ptr n
 
 7:                                                ; preds = %24, %2
   %8 = phi i8 [ %25, %24 ], [ %.promoted, %2 ]
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %29
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
@@ -1370,9 +1368,8 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %36, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 1
-  %.not.i = icmp eq i8 %41, 0
-  br i1 %.not.i, label %42, label %53
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %53, label %42
 
 42:                                               ; preds = %slot_getattr.exit.i
   %43 = load ptr, ptr %27, align 8
@@ -1409,15 +1406,14 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   %61 = lshr i32 %60, 16
   %62 = xor i32 %61, %60
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %.not.i16 = icmp eq ptr %2, null
-  br i1 %.not.i16, label %77, label %63
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %77, label %63
 
 63:                                               ; preds = %TupleHashTableHash_internal.exit
   %64 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %54, ptr noundef null, i32 noundef %62, ptr noundef nonnull %5)
   %65 = load i8, ptr %5, align 1
-  %66 = and i8 %65, 1
-  %.not14.i = icmp eq i8 %66, 0
-  br i1 %.not14.i, label %68, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %68
 
 67:                                               ; preds = %63
   store i8 0, ptr %2, align 1
@@ -1514,9 +1510,8 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %35
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not.i = icmp eq i8 %38, 0
-  br i1 %.not.i, label %39, label %50
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %50, label %39
 
 39:                                               ; preds = %slot_getattr.exit.i
   %40 = load ptr, ptr %24, align 8
@@ -1572,9 +1567,8 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr nou
 14:                                               ; preds = %4
   %15 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %13, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
   %16 = load i8, ptr %5, align 1
-  %17 = and i8 %16, 1
-  %.not14.i = icmp eq i8 %17, 0
-  br i1 %.not14.i, label %19, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
   store i8 0, ptr %2, align 1
@@ -1663,9 +1657,8 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not.i = icmp eq i8 %39, 0
-  br i1 %.not.i, label %40, label %51
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %51, label %40
 
 40:                                               ; preds = %slot_getattr.exit.i
   %41 = load ptr, ptr %25, align 8

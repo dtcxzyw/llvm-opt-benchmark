@@ -21,9 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Op_free(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %._crit_edge, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.pre = load ptr, ptr %0, align 8
@@ -47,8 +46,8 @@ define i32 @PMPI_Op_free(ptr noundef %0) #0 {
   %13 = getelementptr i8, ptr %12, i64 84
   %.val = load i32, ptr %13, align 4
   %14 = and i32 %.val, 1
-  %.not11 = icmp eq i32 %14, 0
-  br i1 %.not11, label %17, label %15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %11, %9
   %16 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 10, ptr noundef nonnull @FUNC_NAME) #3
@@ -58,9 +57,8 @@ define i32 @PMPI_Op_free(ptr noundef %0) #0 {
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %12, %11 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @opal_uses_threads, align 1
-  %21 = and i8 %20, 1
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %25, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
   %23 = atomicrmw volatile add ptr %19, i32 -1 monotonic, align 4
@@ -94,15 +92,15 @@ opal_thread_add_fetch_32.exit:                    ; preds = %22, %25
   tail call void %36(ptr noundef nonnull %31) #3
   %37 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %38 = load ptr, ptr %37, align 8
-  %.not.i10 = icmp eq ptr %38, null
-  br i1 %.not.i10, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
-  %.pre12 = load ptr, ptr %0, align 8
+  %.pre10 = load ptr, ptr %0, align 8
   br label %opal_obj_run_destructors.exit
 
 opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destructors.exit.loopexit, %30
-  %39 = phi ptr [ %.pre12, %opal_obj_run_destructors.exit.loopexit ], [ %31, %30 ]
+  %39 = phi ptr [ %.pre10, %opal_obj_run_destructors.exit.loopexit ], [ %31, %30 ]
   tail call void @free(ptr noundef %39) #3
   br label %40
 

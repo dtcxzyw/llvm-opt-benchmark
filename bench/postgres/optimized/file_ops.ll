@@ -47,14 +47,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @open_target_file(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @dry_run, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %24
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %24, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @dstfd, align 4
-  %.not5 = icmp eq i32 %6, -1
-  %brmerge = or i1 %.not5, %1
+  %.not = icmp eq i32 %6, -1
+  %brmerge = or i1 %.not, %1
   br i1 %brmerge, label %14, label %7
 
 7:                                                ; preds = %5
@@ -67,7 +66,7 @@ define dso_local void @open_target_file(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %13, label %24, label %.thread
 
 14:                                               ; preds = %5
-  br i1 %.not5, label %close_target_file.exit, label %.thread
+  br i1 %.not, label %close_target_file.exit, label %.thread
 
 .thread:                                          ; preds = %7, %14
   %15 = tail call i32 @close(i32 noundef %6) #11
@@ -151,9 +150,8 @@ define dso_local void @write_target_range(ptr nocapture noundef readonly %0, i64
   store i64 %5, ptr @fetch_done, align 8
   tail call void @progress_report(i1 noundef zeroext false) #11
   %6 = load i8, ptr @dry_run, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %.loopexit
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr @dstfd, align 4
@@ -162,8 +160,8 @@ define dso_local void @write_target_range(ptr nocapture noundef readonly %0, i64
   br i1 %11, label %13, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %.not1314 = icmp eq i64 %2, 0
-  br i1 %.not1314, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq i64 %2, 0
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = tail call ptr @__errno_location() #13
@@ -175,11 +173,11 @@ define dso_local void @write_target_range(ptr nocapture noundef readonly %0, i64
   unreachable
 
 14:                                               ; preds = %.lr.ph, %23
-  %.016 = phi i64 [ %2, %.lr.ph ], [ %25, %23 ]
-  %.01115 = phi ptr [ %0, %.lr.ph ], [ %24, %23 ]
+  %.015 = phi i64 [ %2, %.lr.ph ], [ %25, %23 ]
+  %.01114 = phi ptr [ %0, %.lr.ph ], [ %24, %23 ]
   store i32 0, ptr %12, align 4
   %15 = load i32, ptr @dstfd, align 4
-  %16 = tail call i64 @write(i32 noundef %15, ptr noundef %.01115, i64 noundef %.016) #11
+  %16 = tail call i64 @write(i32 noundef %15, ptr noundef %.01114, i64 noundef %.015) #11
   %17 = icmp slt i64 %16, 0
   br i1 %17, label %18, label %23
 
@@ -198,10 +196,10 @@ define dso_local void @write_target_range(ptr nocapture noundef readonly %0, i64
   unreachable
 
 23:                                               ; preds = %14
-  %24 = getelementptr i8, ptr %.01115, i64 %16
-  %25 = sub i64 %.016, %16
-  %.not13 = icmp eq i64 %25, 0
-  br i1 %.not13, label %.loopexit, label %14, !llvm.loop !5
+  %24 = getelementptr i8, ptr %.01114, i64 %16
+  %25 = sub i64 %.015, %16
+  %.not = icmp eq i64 %25, 0
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !5
 
 .loopexit:                                        ; preds = %23, %.preheader, %3
   ret void
@@ -237,16 +235,15 @@ define dso_local void @remove_target(ptr nocapture noundef readonly %0) local_un
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   %10 = load i8, ptr @dry_run, align 1
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %12, label %remove_target_dir.exit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %remove_target_dir.exit, label %12
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr @datadir_target, align 8
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %13, ptr noundef %9) #11
   %15 = call i32 @rmdir(ptr noundef nonnull %4) #11
-  %.not1.i = icmp eq i32 %15, 0
-  br i1 %.not1.i, label %remove_target_dir.exit, label %16
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %remove_target_dir.exit, label %16
 
 16:                                               ; preds = %12
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #11
@@ -262,16 +259,15 @@ remove_target_dir.exit:                           ; preds = %7, %12
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %20 = load i8, ptr @dry_run, align 1
-  %21 = and i8 %20, 1
-  %.not.i5 = icmp eq i8 %21, 0
-  br i1 %.not.i5, label %22, label %remove_target_file.exit
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %remove_target_file.exit, label %22
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr @datadir_target, align 8
   %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %23, ptr noundef %19) #11
   %25 = call i32 @unlink(ptr noundef nonnull %3) #11
-  %.not1.i6 = icmp eq i32 %25, 0
-  br i1 %.not1.i6, label %remove_target_file.exit, label %26
+  %.not.i5 = icmp eq i32 %25, 0
+  br i1 %.not.i5, label %remove_target_file.exit, label %26
 
 26:                                               ; preds = %22
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #11
@@ -287,16 +283,15 @@ remove_target_file.exit:                          ; preds = %17, %22
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   %30 = load i8, ptr @dry_run, align 1
-  %31 = and i8 %30, 1
-  %.not.i7 = icmp eq i8 %31, 0
-  br i1 %.not.i7, label %32, label %remove_target_symlink.exit
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %remove_target_symlink.exit, label %32
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr @datadir_target, align 8
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %33, ptr noundef %29) #11
   %35 = call i32 @unlink(ptr noundef nonnull %2) #11
-  %.not1.i8 = icmp eq i32 %35, 0
-  br i1 %.not1.i8, label %remove_target_symlink.exit, label %36
+  %.not.i6 = icmp eq i32 %35, 0
+  br i1 %.not.i6, label %remove_target_symlink.exit, label %36
 
 36:                                               ; preds = %32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #11
@@ -322,16 +317,15 @@ remove_target_symlink.exit:                       ; preds = %27, %32
 define dso_local void @remove_target_file(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = load i8, ptr @dry_run, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %15
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @datadir_target, align 8
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %7, ptr noundef %0) #11
   %9 = call i32 @unlink(ptr noundef nonnull %3) #11
-  %.not1 = icmp eq i32 %9, 0
-  br i1 %.not1, label %15, label %10
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %6
   %11 = tail call ptr @__errno_location() #13
@@ -367,17 +361,16 @@ define dso_local void @create_target(ptr nocapture noundef readonly %0) local_un
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %9 = load i8, ptr @dry_run, align 1
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %11, label %create_target_dir.exit
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %create_target_dir.exit, label %11
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @datadir_target, align 8
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %12, ptr noundef %8) #11
   %14 = load i32, ptr @pg_dir_create_mode, align 4
   %15 = call i32 @mkdir(ptr noundef nonnull %3, i32 noundef %14) #11
-  %.not1.i = icmp eq i32 %15, 0
-  br i1 %.not1.i, label %create_target_dir.exit, label %16
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %create_target_dir.exit, label %16
 
 16:                                               ; preds = %11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
@@ -395,16 +388,15 @@ create_target_dir.exit:                           ; preds = %6, %11
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   %22 = load i8, ptr @dry_run, align 1
-  %23 = and i8 %22, 1
-  %.not.i5 = icmp eq i8 %23, 0
-  br i1 %.not.i5, label %24, label %create_target_symlink.exit
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %create_target_symlink.exit, label %24
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr @datadir_target, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %25, ptr noundef %19) #11
   %27 = call i32 @symlink(ptr noundef %21, ptr noundef nonnull %2) #11
-  %.not2.i = icmp eq i32 %27, 0
-  br i1 %.not2.i, label %create_target_symlink.exit, label %28
+  %.not.i5 = icmp eq i32 %27, 0
+  br i1 %.not.i5, label %create_target_symlink.exit, label %28
 
 28:                                               ; preds = %24
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %2) #11
@@ -438,9 +430,8 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 define dso_local void @truncate_target_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = load i8, ptr @dry_run, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %19
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @datadir_target, align 8
@@ -457,8 +448,8 @@ define dso_local void @truncate_target_file(ptr noundef %0, i64 noundef %1) loca
 
 13:                                               ; preds = %6
   %14 = call i32 @ftruncate(i32 noundef %10, i64 noundef %1) #11
-  %.not5 = icmp eq i32 %14, 0
-  br i1 %.not5, label %17, label %15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %13
   %16 = trunc i64 %1 to i32
@@ -480,15 +471,13 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @sync_target_dir() local_unnamed_addr #0 {
   %1 = load i8, ptr @do_sync, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %9, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %9
 
 3:                                                ; preds = %0
   %4 = load i8, ptr @dry_run, align 1
-  %5 = and i8 %4, 1
-  %.not1 = icmp eq i8 %5, 0
-  br i1 %.not1, label %6, label %9
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @datadir_target, align 8

@@ -206,9 +206,8 @@ define hidden noundef i32 @resolve_column(i32 noundef %0, ptr noundef readonly %
 switch.hole_check:                                ; preds = %27
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 4295098367, %switch.maskindex
-  %31 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %31, 0
-  br i1 %switch.lobit.not, label %29, label %.loopexit
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %20, %20, %20, %20, %20, %20, %20, %29, %switch.hole_check, %9, %3, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ 0, %9 ], [ 1, %switch.hole_check ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 0, %29 ]

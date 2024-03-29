@@ -1267,61 +1267,59 @@ switch.hole_check:
   %3 = and i32 %2, 7
   %switch.maskindex = trunc i32 %3 to i8
   %switch.shifted = lshr i8 -15, %switch.maskindex
-  %4 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %4, 0
-  br i1 %switch.lobit.not, label %5, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %4
 
-5:                                                ; preds = %switch.hole_check
-  %6 = lshr i32 %1, 4
-  %7 = and i32 %6, 15
-  %8 = icmp ult i32 %7, 8
-  br i1 %8, label %switch.hole_check8, label %9
+4:                                                ; preds = %switch.hole_check
+  %5 = lshr i32 %1, 4
+  %6 = and i32 %5, 15
+  %7 = icmp ult i32 %6, 8
+  br i1 %7, label %switch.hole_check8, label %8
 
-9:                                                ; preds = %switch.hole_check8, %5
-  %10 = and i32 %1, 248
-  %cond = icmp eq i32 %10, 96
-  br i1 %cond, label %19, label %11
+8:                                                ; preds = %switch.hole_check8, %4
+  %9 = and i32 %1, 248
+  %cond = icmp eq i32 %9, 96
+  br i1 %cond, label %17, label %10
 
-11:                                               ; preds = %9
-  %12 = trunc i32 %1 to i8
-  %trunc = and i8 %12, -4
-  switch i8 %trunc, label %14 [
-    i8 104, label %19
-    i8 108, label %13
+10:                                               ; preds = %8
+  %11 = trunc i32 %1 to i8
+  %trunc = and i8 %11, -4
+  switch i8 %trunc, label %13 [
+    i8 104, label %17
+    i8 108, label %12
   ]
 
-13:                                               ; preds = %11
-  br label %19
+12:                                               ; preds = %10
+  br label %17
 
-14:                                               ; preds = %11
-  %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.485, i32 noundef %1) #5
-  br label %21
+13:                                               ; preds = %10
+  %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.485, i32 noundef %1) #5
+  br label %19
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %16 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert, i64 0, i64 %16
+  %15 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %19
+  br label %17
 
-switch.hole_check8:                               ; preds = %5
-  %switch.maskindex10 = trunc i32 %7 to i8
+switch.hole_check8:                               ; preds = %4
+  %switch.maskindex10 = trunc i32 %6 to i8
   %switch.shifted11 = lshr i8 -65, %switch.maskindex10
-  %17 = and i8 %switch.shifted11, 1
-  %switch.lobit12.not = icmp eq i8 %17, 0
-  br i1 %switch.lobit12.not, label %9, label %switch.lookup9
+  %switch.lobit12 = trunc i8 %switch.shifted11 to i1
+  br i1 %switch.lobit12, label %switch.lookup9, label %8
 
 switch.lookup9:                                   ; preds = %switch.hole_check8
-  %18 = zext nneg i32 %7 to i64
-  %switch.gep13 = getelementptr inbounds [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert.55, i64 0, i64 %18
+  %16 = zext nneg i32 %6 to i64
+  %switch.gep13 = getelementptr inbounds [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert.55, i64 0, i64 %16
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
+  br label %17
+
+17:                                               ; preds = %switch.lookup9, %switch.lookup, %10, %8, %12
+  %.0 = phi ptr [ @.str.484, %12 ], [ @.str.482, %8 ], [ @.str.483, %10 ], [ %switch.load, %switch.lookup ], [ %switch.load14, %switch.lookup9 ]
+  %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.486, ptr noundef nonnull %.0) #5
   br label %19
 
-19:                                               ; preds = %switch.lookup9, %switch.lookup, %11, %9, %13
-  %.0 = phi ptr [ @.str.484, %13 ], [ @.str.482, %9 ], [ @.str.483, %11 ], [ %switch.load, %switch.lookup ], [ %switch.load14, %switch.lookup9 ]
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.486, ptr noundef nonnull %.0) #5
-  br label %21
-
-21:                                               ; preds = %19, %14
+19:                                               ; preds = %17, %13
   ret void
 }
 

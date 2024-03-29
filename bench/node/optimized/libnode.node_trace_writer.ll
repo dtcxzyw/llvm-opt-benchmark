@@ -313,9 +313,8 @@ if.end10:                                         ; preds = %do.end9, %_ZN4node7
   call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
   %exited_ = getelementptr inbounds i8, ptr %this, i64 1408
   %3 = load i8, ptr %exited_, align 8
-  %4 = and i8 %3, 1
-  %tobool.not2 = icmp eq i8 %4, 0
-  br i1 %tobool.not2, label %while.body.lr.ph, label %while.end
+  %tobool2 = trunc i8 %3 to i1
+  br i1 %tobool2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end10
   %exit_cond_ = getelementptr inbounds i8, ptr %this, i64 400
@@ -323,23 +322,22 @@ while.body.lr.ph:                                 ; preds = %if.end10
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   call void @uv_cond_wait(ptr noundef nonnull %exit_cond_, ptr noundef nonnull %request_mutex_) #12
-  %5 = load i8, ptr %exited_, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !5
+  %4 = load i8, ptr %exited_, align 8
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %if.end10
   call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_) #12
   %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
-  %7 = load ptr, ptr %json_trace_writer_, align 8
-  %cmp.not.i = icmp eq ptr %7, null
+  %5 = load ptr, ptr %json_trace_writer_, align 8
+  %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i: ; preds = %while.end
-  %vtable.i.i = load ptr, ptr %7, align 8
+  %vtable.i.i = load ptr, ptr %5, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %6 = load ptr, ptr %vfn.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   br label %_ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2Ev.exit: ; preds = %while.end, %_ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i

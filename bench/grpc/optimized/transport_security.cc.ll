@@ -207,24 +207,22 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %frame_protector_created = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i8, ptr %frame_protector_created, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end7, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %handshake_shutdown = getelementptr inbounds i8, ptr %self, i64 10
-  %3 = load i8, ptr %handshake_shutdown, align 2
-  %4 = and i8 %3, 1
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.end10, label %return
+  %2 = load i8, ptr %handshake_shutdown, align 2
+  %tobool8 = trunc i8 %2 to i1
+  br i1 %tobool8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %5 = load ptr, ptr %0, align 8
-  %cmp12 = icmp eq ptr %5, null
+  %3 = load ptr, ptr %0, align 8
+  %cmp12 = icmp eq ptr %3, null
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %call = tail call noundef i32 %5(ptr noundef nonnull %self, ptr noundef nonnull %bytes, ptr noundef nonnull %bytes_size)
+  %call = tail call noundef i32 %3(ptr noundef nonnull %self, ptr noundef nonnull %bytes, ptr noundef nonnull %bytes_size)
   br label %return
 
 return:                                           ; preds = %if.end10, %if.end7, %if.end, %entry, %lor.lhs.false, %if.end14
@@ -250,25 +248,23 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %frame_protector_created = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i8, ptr %frame_protector_created, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end7, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %handshake_shutdown = getelementptr inbounds i8, ptr %self, i64 10
-  %3 = load i8, ptr %handshake_shutdown, align 2
-  %4 = and i8 %3, 1
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.end10, label %return
+  %2 = load i8, ptr %handshake_shutdown, align 2
+  %tobool8 = trunc i8 %2 to i1
+  br i1 %tobool8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
   %process_bytes_from_peer = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load ptr, ptr %process_bytes_from_peer, align 8
-  %cmp12 = icmp eq ptr %5, null
+  %3 = load ptr, ptr %process_bytes_from_peer, align 8
+  %cmp12 = icmp eq ptr %3, null
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %call = tail call noundef i32 %5(ptr noundef nonnull %self, ptr noundef nonnull %bytes, ptr noundef nonnull %bytes_size)
+  %call = tail call noundef i32 %3(ptr noundef nonnull %self, ptr noundef nonnull %bytes, ptr noundef nonnull %bytes_size)
   br label %return
 
 return:                                           ; preds = %if.end10, %if.end7, %if.end, %entry, %lor.lhs.false, %if.end14
@@ -290,25 +286,23 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %frame_protector_created = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i8, ptr %frame_protector_created, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end3, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   %handshake_shutdown = getelementptr inbounds i8, ptr %self, i64 10
-  %3 = load i8, ptr %handshake_shutdown, align 2
-  %4 = and i8 %3, 1
-  %tobool4.not = icmp eq i8 %4, 0
-  br i1 %tobool4.not, label %if.end6, label %return
+  %2 = load i8, ptr %handshake_shutdown, align 2
+  %tobool4 = trunc i8 %2 to i1
+  br i1 %tobool4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
   %get_result = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %get_result, align 8
-  %cmp8 = icmp eq ptr %5, null
+  %3 = load ptr, ptr %get_result, align 8
+  %cmp8 = icmp eq ptr %3, null
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %call = tail call noundef i32 %5(ptr noundef nonnull %self)
+  %call = tail call noundef i32 %3(ptr noundef nonnull %self)
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end3, %if.end, %entry, %lor.lhs.false, %if.end10
@@ -333,42 +327,40 @@ if.end:                                           ; preds = %lor.lhs.false
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %peer, i8 0, i64 16, i1 false)
   %frame_protector_created = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i8, ptr %frame_protector_created, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end5, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %handshake_shutdown = getelementptr inbounds i8, ptr %self, i64 10
-  %3 = load i8, ptr %handshake_shutdown, align 2
-  %4 = and i8 %3, 1
-  %tobool6.not = icmp eq i8 %4, 0
-  br i1 %tobool6.not, label %lor.lhs.false.i, label %return
+  %2 = load i8, ptr %handshake_shutdown, align 2
+  %tobool6 = trunc i8 %2 to i1
+  br i1 %tobool6, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end5
-  %5 = load ptr, ptr %self, align 8
-  %cmp1.i = icmp eq ptr %5, null
+  %3 = load ptr, ptr %self, align 8
+  %cmp1.i = icmp eq ptr %3, null
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %lor.lhs.false.i
-  %get_result.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load ptr, ptr %get_result.i, align 8
-  %cmp8.i = icmp eq ptr %6, null
+  %get_result.i = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %get_result.i, align 8
+  %cmp8.i = icmp eq ptr %4, null
   br i1 %cmp8.i, label %return, label %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit
 
 _Z25tsi_handshaker_get_resultP14tsi_handshaker.exit: ; preds = %if.end6.i
-  %call.i = tail call noundef i32 %6(ptr noundef nonnull %self)
+  %call.i = tail call noundef i32 %4(ptr noundef nonnull %self)
   %cmp9.not = icmp eq i32 %call.i, 0
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit
-  %7 = load ptr, ptr %self, align 8
-  %extract_peer = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %extract_peer, align 8
-  %cmp13 = icmp eq ptr %8, null
+  %5 = load ptr, ptr %self, align 8
+  %extract_peer = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = load ptr, ptr %extract_peer, align 8
+  %cmp13 = icmp eq ptr %6, null
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %call18 = tail call noundef i32 %8(ptr noundef nonnull %self, ptr noundef nonnull %peer)
+  %call18 = tail call noundef i32 %6(ptr noundef nonnull %self, ptr noundef nonnull %peer)
   br label %return
 
 return:                                           ; preds = %if.end6.i, %lor.lhs.false.i, %if.end11, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit, %if.end5, %if.end, %entry, %lor.lhs.false, %if.end15
@@ -395,37 +387,35 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %frame_protector_created = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i8, ptr %frame_protector_created, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end5, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %handshake_shutdown = getelementptr inbounds i8, ptr %self, i64 10
-  %3 = load i8, ptr %handshake_shutdown, align 2
-  %4 = and i8 %3, 1
-  %tobool6.not = icmp eq i8 %4, 0
-  br i1 %tobool6.not, label %if.end6.i, label %return
+  %2 = load i8, ptr %handshake_shutdown, align 2
+  %tobool6 = trunc i8 %2 to i1
+  br i1 %tobool6, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end5
   %get_result.i = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %get_result.i, align 8
-  %cmp8.i = icmp eq ptr %5, null
+  %3 = load ptr, ptr %get_result.i, align 8
+  %cmp8.i = icmp eq ptr %3, null
   br i1 %cmp8.i, label %return, label %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit
 
 _Z25tsi_handshaker_get_resultP14tsi_handshaker.exit: ; preds = %if.end6.i
-  %call.i = tail call noundef i32 %5(ptr noundef nonnull %self)
+  %call.i = tail call noundef i32 %3(ptr noundef nonnull %self)
   %cmp9.not = icmp eq i32 %call.i, 0
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit
-  %6 = load ptr, ptr %self, align 8
-  %create_frame_protector = getelementptr inbounds i8, ptr %6, i64 32
-  %7 = load ptr, ptr %create_frame_protector, align 8
-  %cmp13 = icmp eq ptr %7, null
+  %4 = load ptr, ptr %self, align 8
+  %create_frame_protector = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = load ptr, ptr %create_frame_protector, align 8
+  %cmp13 = icmp eq ptr %5, null
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %call18 = tail call noundef i32 %7(ptr noundef nonnull %self, ptr noundef %max_output_protected_frame_size, ptr noundef nonnull %protector)
+  %call18 = tail call noundef i32 %5(ptr noundef nonnull %self, ptr noundef %max_output_protected_frame_size, ptr noundef nonnull %protector)
   %cmp19 = icmp eq i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %return
 
@@ -460,9 +450,8 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %lor.lhs.false
   %handshaker_result_created = getelementptr inbounds i8, ptr %self, i64 9
   %1 = load i8, ptr %handshaker_result_created, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end10, label %if.then5
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end4
   %cmp6.not = icmp eq ptr %error, null
@@ -474,10 +463,9 @@ if.then7:                                         ; preds = %if.then5
 
 if.end10:                                         ; preds = %if.end4
   %handshake_shutdown = getelementptr inbounds i8, ptr %self, i64 10
-  %3 = load i8, ptr %handshake_shutdown, align 2
-  %4 = and i8 %3, 1
-  %tobool11.not = icmp eq i8 %4, 0
-  br i1 %tobool11.not, label %if.end17, label %if.then12
+  %2 = load i8, ptr %handshake_shutdown, align 2
+  %tobool11 = trunc i8 %2 to i1
+  br i1 %tobool11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
   %cmp13.not = icmp eq ptr %error, null
@@ -489,8 +477,8 @@ if.then14:                                        ; preds = %if.then12
 
 if.end17:                                         ; preds = %if.end10
   %next = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load ptr, ptr %next, align 8
-  %cmp19 = icmp eq ptr %5, null
+  %3 = load ptr, ptr %next, align 8
+  %cmp19 = icmp eq ptr %3, null
   br i1 %cmp19, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %if.end17
@@ -502,7 +490,7 @@ if.then22:                                        ; preds = %if.then20
   br label %return
 
 if.end25:                                         ; preds = %if.end17
-  %call28 = tail call noundef i32 %5(ptr noundef nonnull %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef %bytes_to_send, ptr noundef %bytes_to_send_size, ptr noundef %handshaker_result, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error)
+  %call28 = tail call noundef i32 %3(ptr noundef nonnull %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef %bytes_to_send, ptr noundef %bytes_to_send_size, ptr noundef %handshaker_result, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error)
   br label %return
 
 return:                                           ; preds = %if.then20, %if.then22, %if.then12, %if.then14, %if.then5, %if.then7, %if.then, %if.then3, %if.end25

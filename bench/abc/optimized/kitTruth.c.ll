@@ -6456,13 +6456,13 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   store i32 %65, ptr %61, align 4
   store i32 %62, ptr %64, align 4
   %66 = trunc i64 %indvars.iv149 to i32
-  %67 = shl nuw i32 2, %66
-  %68 = and i32 %.4126.us, %67
-  %69 = icmp ne i32 %68, 0
-  %70 = shl nuw i32 1, %66
-  %71 = and i32 %.4126.us, %70
-  %72 = icmp eq i32 %71, 0
-  %.not99.us = xor i1 %69, %72
+  %67 = lshr i32 %.4126.us, %66
+  %68 = shl nuw i32 2, %66
+  %69 = and i32 %.4126.us, %68
+  %70 = trunc i32 %67 to i1
+  %71 = icmp eq i32 %69, 0
+  %.not99.us = xor i1 %71, %70
+  %72 = shl nuw i32 1, %66
   %73 = shl i32 3, %66
   %74 = select i1 %.not99.us, i32 0, i32 %73
   %.5.us = xor i32 %.4126.us, %74
@@ -6597,10 +6597,10 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, %128
   %137 = and i32 %135, %130
-  %138 = shl i32 %137, %70
+  %138 = shl i32 %137, %72
   %139 = or i32 %138, %136
   %140 = and i32 %135, %132
-  %141 = lshr i32 %140, %70
+  %141 = lshr i32 %140, %72
   %142 = or i32 %139, %141
   %143 = getelementptr inbounds i32, ptr %.192121.us, i64 %indvars.iv167.i.us
   store i32 %142, ptr %143, align 4
@@ -6765,9 +6765,9 @@ define i32 @Kit_TruthCountMinterms(ptr noundef readonly %0, i32 noundef %1, ptr 
   br label %.preheader64.us
 
 .preheader64.us:                                  ; preds = %58, %._crit_edge72.us
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %._crit_edge72.us ], [ 3, %58 ]
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %._crit_edge72.us ], [ 3, %58 ]
   %.05774.us = phi i32 [ %60, %._crit_edge72.us ], [ 1, %58 ]
-  %59 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv77
+  %59 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv76
   %60 = shl nsw i32 %.05774.us, 1
   %61 = sext i32 %60 to i64
   %62 = sext i32 %.05774.us to i64
@@ -6791,13 +6791,13 @@ define i32 @Kit_TruthCountMinterms(ptr noundef readonly %0, i32 noundef %1, ptr 
   br i1 %71, label %63, label %._crit_edge72.us, !llvm.loop !165
 
 ._crit_edge72.us:                                 ; preds = %63
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %72 = icmp slt i32 %60, %10
   br i1 %72, label %.preheader64.us, label %.preheader, !llvm.loop !166
 
 .preheader:                                       ; preds = %._crit_edge72.us, %4
-  %.284 = phi i32 [ 0, %4 ], [ %.2, %._crit_edge72.us ]
-  ret i32 %.284
+  %.283 = phi i32 [ 0, %4 ], [ %.2, %._crit_edge72.us ]
+  ret i32 %.283
 }
 
 ; Function Attrs: nofree nounwind uwtable

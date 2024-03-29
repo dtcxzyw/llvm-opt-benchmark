@@ -651,12 +651,13 @@ do.body:                                          ; preds = %if.end44
   store ptr %add.ptr, ptr %call45, align 8
   %idx.ext = zext i16 %6 to i64
   %add.ptr51 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
+  %trunc = trunc i32 %valueBits to i1
   %11 = extractelement <2 x i16> %8, i64 1
-  %idxprom = zext i16 %11 to i64
-  br i1 %cmp26, label %sw.bb, label %sw.bb58
+  %idxprom63 = zext i16 %11 to i64
+  br i1 %trunc, label %sw.bb58, label %sw.bb
 
 sw.bb:                                            ; preds = %do.body
-  %arrayidx = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom
+  %arrayidx = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom63
   %12 = load i16, ptr %arrayidx, align 2
   %conv54 = zext i16 %12 to i32
   %arrayidx56 = getelementptr inbounds i8, ptr %add.ptr51, i64 256
@@ -665,24 +666,24 @@ sw.bb:                                            ; preds = %do.body
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %do.body
-  %arrayidx64 = getelementptr inbounds i32, ptr %add.ptr51, i64 %idxprom
+  %arrayidx64 = getelementptr inbounds i32, ptr %add.ptr51, i64 %idxprom63
   %14 = load i32, ptr %arrayidx64, align 4
   %arrayidx67 = getelementptr inbounds i8, ptr %add.ptr51, i64 512
   %15 = load i32, ptr %arrayidx67, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb58, %sw.bb
-  %.sink65 = phi ptr [ %add.ptr51, %sw.bb ], [ null, %sw.bb58 ]
-  %add.ptr51.sink = phi ptr [ null, %sw.bb ], [ %add.ptr51, %sw.bb58 ]
-  %.sink64 = phi i32 [ %conv54, %sw.bb ], [ %14, %sw.bb58 ]
-  %.sink = phi i32 [ %conv57, %sw.bb ], [ %15, %sw.bb58 ]
+  %add.ptr51.sink = phi ptr [ null, %sw.bb58 ], [ %add.ptr51, %sw.bb ]
+  %.sink = phi ptr [ %add.ptr51, %sw.bb58 ], [ null, %sw.bb ]
+  %conv54.sink = phi i32 [ %14, %sw.bb58 ], [ %conv54, %sw.bb ]
+  %conv57.sink = phi i32 [ %15, %sw.bb58 ], [ %conv57, %sw.bb ]
   %16 = getelementptr inbounds i8, ptr %call45, i64 8
-  store ptr %.sink65, ptr %16, align 8
+  store ptr %add.ptr51.sink, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %call45, i64 16
-  store ptr %add.ptr51.sink, ptr %17, align 8
-  store i32 %.sink64, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
+  store ptr %.sink, ptr %17, align 8
+  store i32 %conv54.sink, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
   %18 = getelementptr inbounds i8, ptr %call45, i64 40
-  store i32 %.sink, ptr %18, align 8
+  store i32 %conv57.sink, ptr %18, align 8
   %cmp69.not = icmp eq ptr %pActualLength, null
   br i1 %cmp69.not, label %return, label %if.then70
 
@@ -809,13 +810,14 @@ for.body53:                                       ; preds = %for.body44, %for.bo
   br i1 %exitcond110.not, label %for.end58, label %for.body53, !llvm.loop !7
 
 for.end58:                                        ; preds = %for.body53
-  %data16 = getelementptr inbounds i8, ptr %call11, i64 8
-  %data32 = getelementptr inbounds i8, ptr %call11, i64 16
-  br i1 %cmp4, label %sw.bb, label %sw.bb83
+  %trunc = trunc i32 %valueBits to i1
+  %data1684 = getelementptr inbounds i8, ptr %call11, i64 8
+  %data3285 = getelementptr inbounds i8, ptr %call11, i64 16
+  br i1 %trunc, label %sw.bb83, label %sw.bb
 
 sw.bb:                                            ; preds = %for.end58
-  store ptr %incdec.ptr55, ptr %data16, align 8
-  store ptr null, ptr %data32, align 8
+  store ptr %incdec.ptr55, ptr %data1684, align 8
+  store ptr null, ptr %data3285, align 8
   %conv62 = trunc i32 %initialValue to i16
   br label %for.body61
 
@@ -824,71 +826,71 @@ for.body69.lr.ph:                                 ; preds = %for.body61
   br label %for.body69
 
 for.body61:                                       ; preds = %sw.bb, %for.body61
-  %i.3102 = phi i32 [ 0, %sw.bb ], [ %inc65, %for.body61 ]
-  %dest16.3101 = phi ptr [ %incdec.ptr55, %sw.bb ], [ %incdec.ptr63, %for.body61 ]
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %dest16.3101, i64 2
-  store i16 %conv62, ptr %dest16.3101, align 2
-  %inc65 = add nuw nsw i32 %i.3102, 1
-  %exitcond114.not = icmp eq i32 %inc65, 128
-  br i1 %exitcond114.not, label %for.body69.lr.ph, label %for.body61, !llvm.loop !8
+  %i.395 = phi i32 [ 0, %sw.bb ], [ %inc65, %for.body61 ]
+  %dest16.394 = phi ptr [ %incdec.ptr55, %sw.bb ], [ %incdec.ptr63, %for.body61 ]
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %dest16.394, i64 2
+  store i16 %conv62, ptr %dest16.394, align 2
+  %inc65 = add nuw nsw i32 %i.395, 1
+  %exitcond111.not = icmp eq i32 %inc65, 128
+  br i1 %exitcond111.not, label %for.body69.lr.ph, label %for.body61, !llvm.loop !8
 
 for.body69:                                       ; preds = %for.body69.lr.ph, %for.body69
-  %i.4105 = phi i32 [ 128, %for.body69.lr.ph ], [ %inc73, %for.body69 ]
-  %dest16.4104 = phi ptr [ %incdec.ptr63, %for.body69.lr.ph ], [ %incdec.ptr71, %for.body69 ]
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %dest16.4104, i64 2
-  store i16 %conv70, ptr %dest16.4104, align 2
-  %inc73 = add nuw nsw i32 %i.4105, 1
-  %exitcond115.not = icmp eq i32 %inc73, 192
-  br i1 %exitcond115.not, label %for.body77, label %for.body69, !llvm.loop !9
+  %i.498 = phi i32 [ 128, %for.body69.lr.ph ], [ %inc73, %for.body69 ]
+  %dest16.497 = phi ptr [ %incdec.ptr63, %for.body69.lr.ph ], [ %incdec.ptr71, %for.body69 ]
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %dest16.497, i64 2
+  store i16 %conv70, ptr %dest16.497, align 2
+  %inc73 = add nuw nsw i32 %i.498, 1
+  %exitcond112.not = icmp eq i32 %inc73, 192
+  br i1 %exitcond112.not, label %for.body77, label %for.body69, !llvm.loop !9
 
 for.body77:                                       ; preds = %for.body69, %for.body77
-  %i.5108 = phi i32 [ %inc81, %for.body77 ], [ 0, %for.body69 ]
-  %dest16.5107 = phi ptr [ %incdec.ptr79, %for.body77 ], [ %incdec.ptr71, %for.body69 ]
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %dest16.5107, i64 2
-  store i16 %conv62, ptr %dest16.5107, align 2
-  %inc81 = add nuw nsw i32 %i.5108, 1
-  %exitcond116.not = icmp eq i32 %inc81, 4
-  br i1 %exitcond116.not, label %return, label %for.body77, !llvm.loop !10
+  %i.5100 = phi i32 [ %inc81, %for.body77 ], [ 0, %for.body69 ]
+  %dest16.599 = phi ptr [ %incdec.ptr79, %for.body77 ], [ %incdec.ptr71, %for.body69 ]
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %dest16.599, i64 2
+  store i16 %conv62, ptr %dest16.599, align 2
+  %inc81 = add nuw nsw i32 %i.5100, 1
+  %exitcond113.not = icmp eq i32 %inc81, 4
+  br i1 %exitcond113.not, label %return, label %for.body77, !llvm.loop !10
 
 sw.bb83:                                          ; preds = %for.end58
-  store ptr null, ptr %data16, align 8
-  store ptr %incdec.ptr55, ptr %data32, align 8
+  store ptr null, ptr %data1684, align 8
+  store ptr %incdec.ptr55, ptr %data3285, align 8
   br label %for.body88
 
 for.body88:                                       ; preds = %sw.bb83, %for.body88
-  %i.695 = phi i32 [ 0, %sw.bb83 ], [ %inc91, %for.body88 ]
-  %p.094 = phi ptr [ %incdec.ptr55, %sw.bb83 ], [ %incdec.ptr89, %for.body88 ]
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %p.094, i64 4
-  store i32 %initialValue, ptr %p.094, align 4
-  %inc91 = add nuw nsw i32 %i.695, 1
-  %exitcond111.not = icmp eq i32 %inc91, 128
-  br i1 %exitcond111.not, label %for.body95, label %for.body88, !llvm.loop !11
+  %i.6102 = phi i32 [ 0, %sw.bb83 ], [ %inc91, %for.body88 ]
+  %p.0101 = phi ptr [ %incdec.ptr55, %sw.bb83 ], [ %incdec.ptr89, %for.body88 ]
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %p.0101, i64 4
+  store i32 %initialValue, ptr %p.0101, align 4
+  %inc91 = add nuw nsw i32 %i.6102, 1
+  %exitcond114.not = icmp eq i32 %inc91, 128
+  br i1 %exitcond114.not, label %for.body95, label %for.body88, !llvm.loop !11
 
 for.body95:                                       ; preds = %for.body88, %for.body95
-  %i.798 = phi i32 [ %inc98, %for.body95 ], [ 128, %for.body88 ]
-  %p.197 = phi ptr [ %incdec.ptr96, %for.body95 ], [ %incdec.ptr89, %for.body88 ]
-  %incdec.ptr96 = getelementptr inbounds i8, ptr %p.197, i64 4
-  store i32 %errorValue, ptr %p.197, align 4
-  %inc98 = add nuw nsw i32 %i.798, 1
-  %exitcond112.not = icmp eq i32 %inc98, 192
-  br i1 %exitcond112.not, label %for.body102, label %for.body95, !llvm.loop !12
+  %i.7105 = phi i32 [ %inc98, %for.body95 ], [ 128, %for.body88 ]
+  %p.1104 = phi ptr [ %incdec.ptr96, %for.body95 ], [ %incdec.ptr89, %for.body88 ]
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %p.1104, i64 4
+  store i32 %errorValue, ptr %p.1104, align 4
+  %inc98 = add nuw nsw i32 %i.7105, 1
+  %exitcond115.not = icmp eq i32 %inc98, 192
+  br i1 %exitcond115.not, label %for.body102, label %for.body95, !llvm.loop !12
 
 for.body102:                                      ; preds = %for.body95, %for.body102
-  %i.8100 = phi i32 [ %inc105, %for.body102 ], [ 0, %for.body95 ]
-  %p.299 = phi ptr [ %incdec.ptr103, %for.body102 ], [ %incdec.ptr96, %for.body95 ]
-  %incdec.ptr103 = getelementptr inbounds i8, ptr %p.299, i64 4
-  store i32 %initialValue, ptr %p.299, align 4
-  %inc105 = add nuw nsw i32 %i.8100, 1
-  %exitcond113.not = icmp eq i32 %inc105, 4
-  br i1 %exitcond113.not, label %return, label %for.body102, !llvm.loop !13
+  %i.8108 = phi i32 [ %inc105, %for.body102 ], [ 0, %for.body95 ]
+  %p.2107 = phi ptr [ %incdec.ptr103, %for.body102 ], [ %incdec.ptr96, %for.body95 ]
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %p.2107, i64 4
+  store i32 %initialValue, ptr %p.2107, align 4
+  %inc105 = add nuw nsw i32 %i.8108, 1
+  %exitcond116.not = icmp eq i32 %inc105, 4
+  br i1 %exitcond116.not, label %return, label %for.body102, !llvm.loop !13
 
 return.sink.split:                                ; preds = %if.end3, %if.end, %if.then18
   %.sink = phi i32 [ 7, %if.then18 ], [ 1, %if.end ], [ 7, %if.end3 ]
   store i32 %.sink, ptr %pErrorCode, align 4
   br label %return
 
-return:                                           ; preds = %for.body102, %for.body77, %return.sink.split, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %return.sink.split ], [ %call11, %for.body77 ], [ %call11, %for.body102 ]
+return:                                           ; preds = %for.body77, %for.body102, %return.sink.split, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %return.sink.split ], [ %call11, %for.body102 ], [ %call11, %for.body77 ]
   ret ptr %retval.0
 }
 

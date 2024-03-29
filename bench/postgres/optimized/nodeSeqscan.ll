@@ -240,28 +240,27 @@ define internal ptr @SeqNext(ptr nocapture noundef %0) #0 {
   %25 = getelementptr inbounds i8, ptr %9, i64 56
   store i32 %24, ptr %25, align 8
   %26 = load i32, ptr @CheckXidAlive, align 4
-  %27 = icmp ne i32 %26, 0
+  %27 = icmp eq i32 %26, 0
   %28 = load i8, ptr @bsysscan, align 1
-  %29 = and i8 %28, 1
-  %.not.i = icmp eq i8 %29, 0
-  %30 = select i1 %27, i1 %.not.i, i1 false
-  br i1 %30, label %31, label %table_scan_getnextslot.exit
+  %29 = trunc i8 %28 to i1
+  %.not5.i = select i1 %27, i1 true, i1 %29
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %30
 
-31:                                               ; preds = %21
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+30:                                               ; preds = %21
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %31)
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1064, ptr noundef nonnull @__func__.table_scan_getnextslot) #5
   unreachable
 
 table_scan_getnextslot.exit:                      ; preds = %21
-  %34 = load ptr, ptr %.013, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 312
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call zeroext i1 %38(ptr noundef nonnull %.013, i32 noundef %7, ptr noundef nonnull %9) #5
-  %. = select i1 %39, ptr %9, ptr null
+  %33 = load ptr, ptr %.013, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 312
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call zeroext i1 %37(ptr noundef nonnull %.013, i32 noundef %7, ptr noundef nonnull %9) #5
+  %. = select i1 %38, ptr %9, ptr null
   ret ptr %.
 }
 

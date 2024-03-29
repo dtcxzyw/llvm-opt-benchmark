@@ -73,9 +73,8 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %15 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 24), align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %408, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %408
 
 17:                                               ; preds = %0
   %18 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 26), align 8
@@ -146,22 +145,22 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %51 = call noalias ptr @malloc(i64 noundef %50) #8
   store ptr %51, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 27, i32 1), align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %.lr.ph314
+  br i1 %52, label %53, label %.lr.ph312
 
 53:                                               ; preds = %48
   store i32 0, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 27), align 8
   br label %388
 
-.lr.ph314:                                        ; preds = %48, %.loopexit219
-  %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.loopexit219 ], [ 0, %48 ]
-  %.0179313 = phi i32 [ %.6, %.loopexit219 ], [ 0, %48 ]
-  %54 = getelementptr inbounds %struct.collective_rule_s, ptr %51, i64 %indvars.iv366
+.lr.ph312:                                        ; preds = %48, %.loopexit217
+  %indvars.iv364 = phi i64 [ %indvars.iv.next365, %.loopexit217 ], [ 0, %48 ]
+  %.0179311 = phi i32 [ %.6, %.loopexit217 ], [ 0, %48 ]
+  %54 = getelementptr inbounds %struct.collective_rule_s, ptr %51, i64 %indvars.iv364
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   store i32 0, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr null, ptr %56, align 8
-  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
-  %57 = trunc i64 %indvars.iv.next367 to i32
+  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
+  %57 = trunc i64 %indvars.iv.next365 to i32
   store i32 %57, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 27), align 8
   %58 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %58) #7
@@ -169,7 +168,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %67
 
-61:                                               ; preds = %.lr.ph314
+61:                                               ; preds = %.lr.ph312
   %62 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %63 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %62) #7
   br i1 %63, label %64, label %398
@@ -180,7 +179,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   call void (i32, ptr, ...) @opal_output(i32 noundef %65, ptr noundef nonnull @.str.4, i32 noundef %66) #7
   br label %398
 
-67:                                               ; preds = %.lr.ph314
+67:                                               ; preds = %.lr.ph312
   %68 = load ptr, ptr %2, align 8
   %69 = call i32 @mca_coll_base_name_to_colltype(ptr noundef %68) #7
   %70 = icmp ugt i32 %69, 21
@@ -263,43 +262,43 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 113:                                              ; preds = %110
   %114 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %115 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %114) #7
-  br i1 %115, label %116, label %.loopexit219
+  br i1 %115, label %116, label %.loopexit217
 
 116:                                              ; preds = %113
   %117 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %118 = load i32, ptr @fileline, align 4
   %119 = load i64, ptr %5, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %117, ptr noundef nonnull @.str.8, ptr noundef %18, i32 noundef %118, i64 noundef %119) #7
-  br label %.loopexit219
+  br label %.loopexit217
 
 120:                                              ; preds = %110
   %121 = mul i64 %101, 24
   %122 = call noalias ptr @malloc(i64 noundef %121) #8
   store ptr %122, ptr %56, align 8
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %124, label %.lr.ph310
+  br i1 %123, label %124, label %.lr.ph308
 
 124:                                              ; preds = %120
   store i32 0, ptr %55, align 4
   br label %388
 
-.lr.ph310:                                        ; preds = %120, %.loopexit217
-  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %.loopexit217 ], [ 0, %120 ]
-  %.1309 = phi i32 [ %.5, %.loopexit217 ], [ %.0179313, %120 ]
-  %125 = getelementptr inbounds %struct.topologic_rule_s, ptr %122, i64 %indvars.iv363
+.lr.ph308:                                        ; preds = %120, %.loopexit215
+  %indvars.iv361 = phi i64 [ %indvars.iv.next362, %.loopexit215 ], [ 0, %120 ]
+  %.1307 = phi i32 [ %.5, %.loopexit215 ], [ %.0179311, %120 ]
+  %125 = getelementptr inbounds %struct.topologic_rule_s, ptr %122, i64 %indvars.iv361
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   store i32 0, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %125, i64 16
   store ptr null, ptr %127, align 8
-  %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %128 = trunc i64 %indvars.iv.next364 to i32
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %128 = trunc i64 %indvars.iv.next362 to i32
   store i32 %128, ptr %55, align 4
   store ptr null, ptr %11, align 8
   %129 = call i32 @ompi_coll_base_file_getnext_string(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %11) #7
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %131, label %137
 
-131:                                              ; preds = %.lr.ph310
+131:                                              ; preds = %.lr.ph308
   %132 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %133 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %132) #7
   br i1 %133, label %134, label %398
@@ -310,7 +309,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   call void (i32, ptr, ...) @opal_output(i32 noundef %135, ptr noundef nonnull @.str.9, ptr noundef %18, i32 noundef %136) #7
   br label %398
 
-137:                                              ; preds = %.lr.ph310
+137:                                              ; preds = %.lr.ph308
   %138 = load ptr, ptr %11, align 8
   %139 = call i32 @mca_coll_han_topo_lvl_name_to_id(ptr noundef %138) #7
   %140 = zext nneg i32 %139 to i64
@@ -386,40 +385,40 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 178:                                              ; preds = %173
   %179 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %180 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %179) #7
-  br i1 %180, label %181, label %.loopexit217
+  br i1 %180, label %181, label %.loopexit215
 
 181:                                              ; preds = %178
   %182 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %183 = load i32, ptr @fileline, align 4
   %184 = load i64, ptr %6, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %182, ptr noundef nonnull @.str.12, ptr noundef %18, i32 noundef %183, i64 noundef %184) #7
-  br label %.loopexit217
+  br label %.loopexit215
 
 185:                                              ; preds = %173
   %186 = mul i64 %164, 24
   %187 = call noalias ptr @malloc(i64 noundef %186) #8
   store ptr %187, ptr %127, align 8
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %189, label %.lr.ph306
+  br i1 %188, label %189, label %.lr.ph304
 
-.lr.ph306:                                        ; preds = %185
-  %.not213 = icmp eq i64 %.0182, 0
+.lr.ph304:                                        ; preds = %185
+  %.not211 = icmp eq i64 %.0182, 0
   br label %190
 
 189:                                              ; preds = %185
   store i32 0, ptr %126, align 8
   br label %388
 
-190:                                              ; preds = %.lr.ph306, %.loopexit215
-  %indvars.iv360 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next361, %.loopexit215 ]
-  %.2305 = phi i32 [ %.1309, %.lr.ph306 ], [ %.4, %.loopexit215 ]
-  %191 = getelementptr inbounds %struct.configuration_rule_s, ptr %187, i64 %indvars.iv360
+190:                                              ; preds = %.lr.ph304, %.loopexit213
+  %indvars.iv358 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next359, %.loopexit213 ]
+  %.2303 = phi i32 [ %.1307, %.lr.ph304 ], [ %.4, %.loopexit213 ]
+  %191 = getelementptr inbounds %struct.configuration_rule_s, ptr %187, i64 %indvars.iv358
   %192 = getelementptr inbounds i8, ptr %191, i64 12
   store i32 0, ptr %192, align 4
   %193 = getelementptr inbounds i8, ptr %191, i64 16
   store ptr null, ptr %193, align 8
-  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %194 = trunc i64 %indvars.iv.next361 to i32
+  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
+  %194 = trunc i64 %indvars.iv.next359 to i32
   store i32 %194, ptr %126, align 8
   %195 = call i32 @ompi_coll_base_file_getnext_long(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %7) #7
   %196 = icmp slt i32 %195, 0
@@ -429,7 +428,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   br i1 %or.cond17, label %202, label %199
 
 199:                                              ; preds = %190
-  %200 = icmp eq i64 %indvars.iv360, 0
+  %200 = icmp eq i64 %indvars.iv358, 0
   %201 = icmp ugt i64 %197, 1
   %or.cond19 = select i1 %200, i1 %201, i1 false
   br i1 %or.cond19, label %202, label %209
@@ -482,14 +481,14 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 228:                                              ; preds = %221
   %229 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %230 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %229) #7
-  br i1 %230, label %231, label %.loopexit215
+  br i1 %230, label %231, label %.loopexit213
 
 231:                                              ; preds = %228
   %232 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
   %233 = load i32, ptr @fileline, align 4
   %234 = load i64, ptr %8, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %232, ptr noundef nonnull @.str.15, ptr noundef %18, i32 noundef %233, i64 noundef %234) #7
-  br label %.loopexit215
+  br label %.loopexit213
 
 235:                                              ; preds = %221
   %236 = shl i64 %212, 5
@@ -504,7 +503,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %235, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %235 ]
-  %.3303 = phi i32 [ %328, %.loopexit ], [ %.2305, %235 ]
+  %.3301 = phi i32 [ %328, %.loopexit ], [ %.2303, %235 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %240 = trunc i64 %indvars.iv.next to i32
   store i32 %240, ptr %192, align 4
@@ -606,14 +605,14 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   %296 = call i64 @strtol(ptr noundef %295, ptr noundef nonnull %13, i32 noundef 10) #7
   %297 = load ptr, ptr %13, align 8
   %298 = load i8, ptr %297, align 1
-  %.not211 = icmp eq i8 %298, 0
-  br i1 %.not211, label %299, label %302
+  %.not = icmp eq i8 %298, 0
+  br i1 %.not, label %299, label %302
 
 299:                                              ; preds = %294
   %300 = trunc i64 %296 to i32
   %301 = call i32 @mca_coll_han_algorithm_id_is_valid(i32 noundef %.0186, i32 noundef %300) #7
-  %.not212 = icmp eq i32 %301, 0
-  br i1 %.not212, label %302, label %310
+  %.not210 = icmp eq i32 %301, 0
+  br i1 %.not210, label %302, label %310
 
 302:                                              ; preds = %294, %299
   %303 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
@@ -659,7 +658,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   store i32 %266, ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %319, i64 28
   store i32 %.1185, ptr %327, align 4
-  %328 = add nsw i32 %.3303, 1
+  %328 = add nsw i32 %.3301, 1
   %329 = call i32 @ompi_coll_base_file_peek_next_char_is(ptr noundef nonnull %27, ptr noundef nonnull @fileline, i32 noundef 91) #7
   %330 = icmp eq i32 %329, 1
   br i1 %330, label %331, label %.loopexit
@@ -675,7 +674,7 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
   br label %336
 
 336:                                              ; preds = %331, %334
-  br i1 %.not213, label %.preheader, label %337
+  br i1 %.not211, label %.preheader, label %337
 
 337:                                              ; preds = %336
   %338 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
@@ -700,8 +699,8 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 
 348:                                              ; preds = %345
   %349 = call i32 @ompi_coll_base_file_getnext_long(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %14) #7
-  %.not214 = icmp eq i32 %349, 0
-  br i1 %.not214, label %345, label %350, !llvm.loop !4
+  %.not212 = icmp eq i32 %349, 0
+  br i1 %.not212, label %345, label %350, !llvm.loop !4
 
 350:                                              ; preds = %348
   %351 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
@@ -719,27 +718,27 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %345, %318
   %358 = load i64, ptr %8, align 8
   %359 = icmp sgt i64 %358, %indvars.iv.next
-  br i1 %359, label %.lr.ph, label %.loopexit215, !llvm.loop !6
+  br i1 %359, label %.lr.ph, label %.loopexit213, !llvm.loop !6
 
-.loopexit215:                                     ; preds = %.loopexit, %231, %228
-  %.4 = phi i32 [ %.2305, %231 ], [ %.2305, %228 ], [ %328, %.loopexit ]
+.loopexit213:                                     ; preds = %.loopexit, %231, %228
+  %.4 = phi i32 [ %.2303, %231 ], [ %.2303, %228 ], [ %328, %.loopexit ]
   %360 = load i64, ptr %6, align 8
-  %361 = icmp sgt i64 %360, %indvars.iv.next361
-  br i1 %361, label %190, label %.loopexit217, !llvm.loop !7
+  %361 = icmp sgt i64 %360, %indvars.iv.next359
+  br i1 %361, label %190, label %.loopexit215, !llvm.loop !7
 
-.loopexit217:                                     ; preds = %.loopexit215, %181, %178
-  %.5 = phi i32 [ %.1309, %181 ], [ %.1309, %178 ], [ %.4, %.loopexit215 ]
+.loopexit215:                                     ; preds = %.loopexit213, %181, %178
+  %.5 = phi i32 [ %.1307, %181 ], [ %.1307, %178 ], [ %.4, %.loopexit213 ]
   %362 = load i64, ptr %5, align 8
-  %363 = icmp sgt i64 %362, %indvars.iv.next364
-  br i1 %363, label %.lr.ph310, label %.loopexit219, !llvm.loop !8
+  %363 = icmp sgt i64 %362, %indvars.iv.next362
+  br i1 %363, label %.lr.ph308, label %.loopexit217, !llvm.loop !8
 
-.loopexit219:                                     ; preds = %.loopexit217, %116, %113
-  %.6 = phi i32 [ %.0179313, %116 ], [ %.0179313, %113 ], [ %.5, %.loopexit217 ]
+.loopexit217:                                     ; preds = %.loopexit215, %116, %113
+  %.6 = phi i32 [ %.0179311, %116 ], [ %.0179311, %113 ], [ %.5, %.loopexit215 ]
   %364 = load i64, ptr %1, align 8
-  %365 = icmp sgt i64 %364, %indvars.iv.next367
-  br i1 %365, label %.lr.ph314, label %._crit_edge, !llvm.loop !9
+  %365 = icmp sgt i64 %364, %indvars.iv.next365
+  br i1 %365, label %.lr.ph312, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.loopexit219
+._crit_edge:                                      ; preds = %.loopexit217
   %366 = call i32 @ompi_coll_base_file_getnext_long(ptr noundef nonnull %27, ptr noundef nonnull @fileline, ptr noundef nonnull %1) #7
   %367 = icmp sgt i32 %366, 0
   br i1 %367, label %368, label %374
@@ -767,9 +766,8 @@ define noundef i32 @mca_coll_han_init_dynamic_rules() local_unnamed_addr #0 {
 
 379:                                              ; preds = %374, %377
   %380 = load i8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 25), align 1
-  %381 = and i8 %380, 1
-  %.not210 = icmp eq i8 %381, 0
-  br i1 %.not210, label %383, label %382
+  %381 = trunc i8 %380 to i1
+  br i1 %381, label %382, label %383
 
 382:                                              ; preds = %379
   call void @mca_coll_han_dump_dynamic_rules()

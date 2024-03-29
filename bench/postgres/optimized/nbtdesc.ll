@@ -100,9 +100,8 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 135
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not67 = icmp eq i8 %36, 0
-  br i1 %.not67, label %109, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %109
 
 37:                                               ; preds = %27
   %38 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
@@ -121,16 +120,14 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds i8, ptr %6, i64 8
   %50 = load i8, ptr %49, align 4
-  %51 = and i8 %50, 1
-  %.not65 = icmp eq i8 %51, 0
-  %52 = select i1 %.not65, i32 70, i32 84
+  %51 = trunc i8 %50 to i1
+  %52 = select i1 %51, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %52) #3
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 135
   %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 1
-  %.not66 = icmp eq i8 %56, 0
-  br i1 %.not66, label %109, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %109
 
 57:                                               ; preds = %41
   %58 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
@@ -191,9 +188,8 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %100 = trunc i64 %97 to i32
   %101 = getelementptr inbounds i8, ptr %6, i64 24
   %102 = load i8, ptr %101, align 8
-  %103 = and i8 %102, 1
-  %.not = icmp eq i8 %103, 0
-  %104 = select i1 %.not, i32 70, i32 84
+  %103 = trunc i8 %102 to i1
+  %104 = select i1 %103, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %91, i32 noundef %93, i32 noundef %95, i32 noundef %99, i32 noundef %100, i32 noundef %104) #3
   br label %109
 

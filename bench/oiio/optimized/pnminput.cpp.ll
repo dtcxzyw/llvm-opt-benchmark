@@ -210,7 +210,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %good.0168 = phi i8 [ 1, %for.body.lr.ph ], [ %good.1, %for.inc ]
   %buf.sroa.16.0167 = phi ptr [ null, %for.body.lr.ph ], [ %buf.sroa.16.2, %for.inc ]
   %buf.sroa.10.0166 = phi ptr [ null, %for.body.lr.ph ], [ %buf.sroa.10.2, %for.inc ]
   %buf.sroa.0.0165 = phi ptr [ null, %for.body.lr.ph ], [ %buf.sroa.0.2, %for.inc ]
@@ -482,7 +481,7 @@ for.body13.i:                                     ; preds = %if.end.i31, %for.bo
   br i1 %exitcond26.not.i, label %invoke.cont70, label %for.body13.i, !llvm.loop !11
 
 invoke.cont70:                                    ; preds = %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i, %for.body13.i, %for.body27.preheader.i, %for.cond25.preheader.i, %for.cond.preheader.i
-  %retval.0.i = phi i8 [ 1, %for.cond25.preheader.i ], [ 1, %for.body27.preheader.i ], [ 1, %for.cond.preheader.i ], [ 1, %for.body13.i ], [ 0, %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i ]
+  %retval.0.i = phi i1 [ true, %for.cond25.preheader.i ], [ true, %for.body27.preheader.i ], [ true, %for.cond.preheader.i ], [ true, %for.body13.i ], [ false, %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i)
   br label %for.inc
 
@@ -542,7 +541,7 @@ if.end.i51:                                       ; preds = %_ZN18OpenImageIO_v2
   br i1 %exitcond.not.i58, label %invoke.cont85, label %for.body.i43, !llvm.loop !12
 
 invoke.cont85:                                    ; preds = %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i48, %if.end.i51, %for.body27.preheader.i63, %for.cond25.preheader.i62, %for.cond.preheader.i38
-  %retval.0.i50 = phi i8 [ 1, %for.cond25.preheader.i62 ], [ 1, %for.body27.preheader.i63 ], [ 1, %for.cond.preheader.i38 ], [ 1, %if.end.i51 ], [ 0, %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i48 ]
+  %retval.0.i50 = phi i1 [ true, %for.cond25.preheader.i62 ], [ true, %for.body27.preheader.i63 ], [ true, %for.cond.preheader.i38 ], [ %call.i.i.i49, %if.end.i51 ], [ %call.i.i.i49, %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i48 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i35)
   br label %for.inc
 
@@ -597,7 +596,7 @@ if.end.i81:                                       ; preds = %_ZN18OpenImageIO_v2
   br i1 %exitcond.not.i88, label %invoke.cont97, label %for.body.i73, !llvm.loop !10
 
 invoke.cont97:                                    ; preds = %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i78, %if.end.i81, %for.body27.preheader.i93, %for.cond25.preheader.i92, %for.cond.preheader.i68
-  %retval.0.i80 = phi i8 [ 1, %for.cond25.preheader.i92 ], [ 1, %for.body27.preheader.i93 ], [ 1, %for.cond.preheader.i68 ], [ 1, %if.end.i81 ], [ 0, %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i78 ]
+  %retval.0.i80 = phi i1 [ true, %for.cond25.preheader.i92 ], [ true, %for.body27.preheader.i93 ], [ true, %for.cond.preheader.i68 ], [ %call.i.i.i79, %if.end.i81 ], [ %call.i.i.i79, %_ZN18OpenImageIO_v2_6_08PNMInput7nextValIiEEbRT_.exit.i78 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i65)
   br label %for.inc
 
@@ -760,19 +759,17 @@ for.body.i134:                                    ; preds = %if.end.i133, %for.b
   br i1 %exitcond.not.i138, label %for.inc, label %for.body.i134, !llvm.loop !18
 
 for.inc:                                          ; preds = %for.body.i134, %for.body.i121, %for.body.i110, %if.end.i96, %if.end.i133, %for.body10.preheader.i131, %for.cond8.preheader.i130, %for.cond.preheader.i119, %for.body10.preheader.i, %for.cond8.preheader.i, %for.cond.preheader.i108, %sw.bb106, %invoke.cont70, %invoke.cont97, %invoke.cont85
-  %good.1 = phi i8 [ %retval.0.i50, %invoke.cont85 ], [ %retval.0.i80, %invoke.cont97 ], [ %retval.0.i, %invoke.cont70 ], [ %good.0168, %sw.bb106 ], [ %good.0168, %for.cond.preheader.i108 ], [ %good.0168, %for.cond8.preheader.i ], [ %good.0168, %for.body10.preheader.i ], [ %good.0168, %for.cond.preheader.i119 ], [ %good.0168, %for.cond8.preheader.i130 ], [ %good.0168, %for.body10.preheader.i131 ], [ %good.0168, %if.end.i133 ], [ %good.0168, %if.end.i96 ], [ %good.0168, %for.body.i110 ], [ %good.0168, %for.body.i121 ], [ %good.0168, %for.body.i134 ]
+  %good.1 = phi i1 [ %retval.0.i50, %invoke.cont85 ], [ %retval.0.i80, %invoke.cont97 ], [ %retval.0.i, %invoke.cont70 ], [ true, %sw.bb106 ], [ true, %for.cond.preheader.i108 ], [ true, %for.cond8.preheader.i ], [ true, %for.body10.preheader.i ], [ true, %for.cond.preheader.i119 ], [ true, %for.cond8.preheader.i130 ], [ true, %for.body10.preheader.i131 ], [ true, %if.end.i133 ], [ true, %if.end.i96 ], [ true, %for.body.i110 ], [ true, %for.body.i121 ], [ true, %for.body.i134 ]
   %54 = load i32, ptr %m_y_next, align 8
   %inc = add nsw i32 %54, 1
   store i32 %inc, ptr %m_y_next, align 8
-  %55 = and i8 %good.1, 1
-  %tobool = icmp ne i8 %55, 0
   %cmp5.not = icmp slt i32 %54, %y
-  %or.cond.not = select i1 %tobool, i1 %cmp5.not, i1 false
+  %or.cond.not = select i1 %good.1, i1 %cmp5.not, i1 false
   br i1 %or.cond.not, label %for.body, label %cleanup, !llvm.loop !19
 
 cleanup:                                          ; preds = %if.end53, %if.end66, %for.inc
   %buf.sroa.0.3 = phi ptr [ %buf.sroa.0.0165, %if.end53 ], [ %buf.sroa.0.2, %if.end66 ], [ %buf.sroa.0.2, %for.inc ]
-  %retval.0 = phi i1 [ false, %if.end53 ], [ false, %if.end66 ], [ %tobool, %for.inc ]
+  %retval.0 = phi i1 [ false, %if.end53 ], [ false, %if.end66 ], [ %good.1, %for.inc ]
   %tobool.not.i.i.i140 = icmp eq ptr %buf.sroa.0.3, null
   br i1 %tobool.not.i.i.i140, label %_ZNSt6vectorIhSaIhEED2Ev.exit142, label %if.then.i.i.i141
 
@@ -2545,11 +2542,10 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv.i.i.i.i.i.i.i = zext i8 %18 to i32
   %m_nonlocal.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 38
   %19 = load i8, ptr %m_nonlocal.i.i.i.i.i.i.i, align 2
-  %20 = and i8 %19, 1
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  %tobool.i.i.i.i.i.i.i = trunc i8 %19 to i1
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
-  %21 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
-  %cond.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr %m_data.i.i.i.i.i.i.i, ptr %21
+  %20 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
+  %cond.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i, ptr %20, ptr %m_data.i.i.i.i.i.i.i
   call void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %__cur.07.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i, i32 noundef %17, i32 noundef %conv.i.i.i.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i, i8 1, i8 1) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
@@ -2559,8 +2555,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp.not.i.i.i.i, label %if.end69, label %for.body.i.i.i.i, !llvm.loop !37
 
 if.end69:                                         ; preds = %for.body.i.i.i26, %for.body.i.i.i.i, %_ZSt4copyIPN18OpenImageIO_v2_6_010ParamValueES2_ET0_T_S4_S3_.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_010ParamValueESaIS1_EE13_M_deallocateEPS1_m.exit
-  %22 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub.i
+  %21 = load ptr, ptr %this, align 8
+  %add.ptr72 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -2645,11 +2641,10 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv.i.i.i.i.i.i.i = zext i8 %6 to i32
   %m_nonlocal.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 38
   %7 = load i8, ptr %m_nonlocal.i.i.i.i.i.i.i, align 2
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %8, 0
+  %tobool.i.i.i.i.i.i.i = trunc i8 %7 to i1
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
-  %9 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
-  %cond.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr %m_data.i.i.i.i.i.i.i, ptr %9
+  %8 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
+  %cond.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i, ptr %8, ptr %m_data.i.i.i.i.i.i.i
   call void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %__cur.07.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i, i32 noundef %5, i32 noundef %conv.i.i.i.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i, i8 1, i8 1) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)

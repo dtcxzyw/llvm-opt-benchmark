@@ -60,9 +60,8 @@ if.then.i:                                        ; preds = %if.then7
   %call4.i = call i32 @buferror(i32 noundef %1, ptr noundef nonnull %buf.i, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i) #8
   %2 = load i8, ptr @opt_abort, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %os_pages_unmap.exit, label %if.then6.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then6.i, label %os_pages_unmap.exit
 
 if.then6.i:                                       ; preds = %if.then.i
   call void @abort() #10
@@ -71,8 +70,8 @@ if.then6.i:                                       ; preds = %if.then.i
 os_pages_unmap.exit:                              ; preds = %if.then7, %if.then.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   %add.i = add i64 %alignment, %size
-  %4 = load i64, ptr @os_page, align 8
-  %sub.i = sub i64 %add.i, %4
+  %3 = load i64, ptr @os_page, align 8
+  %sub.i = sub i64 %add.i, %3
   %cmp.i11 = icmp ult i64 %sub.i, %size
   br i1 %cmp.i11, label %return, label %do.body.preheader.i
 
@@ -81,16 +80,14 @@ do.body.preheader.i:                              ; preds = %os_pages_unmap.exit
   br label %do.body.i
 
 do.body.i:                                        ; preds = %os_pages_trim.exit.i, %do.body.preheader.i
-  %5 = load i8, ptr @os_overcommits, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %entry.if.end_crit_edge.i.i, label %if.then.i.i
+  %4 = load i8, ptr @os_overcommits, align 1
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %entry.if.end_crit_edge.i.i
 
 entry.if.end_crit_edge.i.i:                       ; preds = %do.body.i
   %.pre.i.i = load i8, ptr %commit, align 1
-  %7 = and i8 %.pre.i.i, 1
-  %8 = icmp eq i8 %7, 0
-  %9 = select i1 %8, i32 0, i32 3
+  %5 = trunc i8 %.pre.i.i to i1
+  %6 = select i1 %5, i32 3, i32 0
   br label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %do.body.i
@@ -98,9 +95,9 @@ if.then.i.i:                                      ; preds = %do.body.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry.if.end_crit_edge.i.i
-  %tobool5.not.i.i = phi i32 [ %9, %entry.if.end_crit_edge.i.i ], [ 3, %if.then.i.i ]
-  %10 = load i32, ptr @mmap_flags, align 4
-  %call.i.i12 = call ptr @mmap(ptr noundef null, i64 noundef %sub.i, i32 noundef %tobool5.not.i.i, i32 noundef %10, i32 noundef -1, i64 noundef 0) #8
+  %tobool5.i.i = phi i32 [ %6, %entry.if.end_crit_edge.i.i ], [ 3, %if.then.i.i ]
+  %7 = load i32, ptr @mmap_flags, align 4
+  %call.i.i12 = call ptr @mmap(ptr noundef null, i64 noundef %sub.i, i32 noundef %tobool5.i.i, i32 noundef %7, i32 noundef -1, i64 noundef 0) #8
   %magicptr.i = ptrtoint ptr %call.i.i12 to i64
   switch i64 %magicptr.i, label %if.end3.i [
     i64 -1, label %return
@@ -111,8 +108,8 @@ if.end3.i:                                        ; preds = %if.end.i.i
   %add5.i = add i64 %sub, %magicptr.i
   %and.i = and i64 %add5.i, %add6.i
   %sub7.i = sub i64 %and.i, %magicptr.i
-  %11 = add i64 %sub7.i, %size
-  %sub1.i.i = sub i64 %sub.i, %11
+  %8 = add i64 %sub7.i, %size
+  %sub1.i.i = sub i64 %sub.i, %8
   %cmp.not.i.i = icmp eq i64 %and.i, %magicptr.i
   br i1 %cmp.not.i.i, label %if.end.i14.i, label %if.then.i13.i
 
@@ -124,13 +121,12 @@ if.then.i13.i:                                    ; preds = %if.end3.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i13.i
   %call.i.i.i.i = tail call ptr @__errno_location() #9
-  %12 = load i32, ptr %call.i.i.i.i, align 4
-  %call4.i.i.i = call i32 @buferror(i32 noundef %12, ptr noundef nonnull %buf.i.i.i, i64 noundef 64) #8
+  %9 = load i32, ptr %call.i.i.i.i, align 4
+  %call4.i.i.i = call i32 @buferror(i32 noundef %9, ptr noundef nonnull %buf.i.i.i, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i.i) #8
-  %13 = load i8, ptr @opt_abort, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i.i.i, label %os_pages_unmap.exit.i.i, label %if.then6.i.i.i
+  %10 = load i8, ptr @opt_abort, align 1
+  %tobool.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool.i.i.i, label %if.then6.i.i.i, label %os_pages_unmap.exit.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i
   call void @abort() #10
@@ -141,26 +137,25 @@ os_pages_unmap.exit.i.i:                          ; preds = %if.then.i.i.i, %if.
   br label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %os_pages_unmap.exit.i.i, %if.end3.i
-  %cmp2.not.i.i = icmp eq i64 %11, %sub.i
+  %cmp2.not.i.i = icmp eq i64 %8, %sub.i
   br i1 %cmp2.not.i.i, label %os_pages_trim.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i14.i
   %add4.i.i = add i64 %and.i, %size
-  %15 = inttoptr i64 %add4.i.i to ptr
+  %11 = inttoptr i64 %add4.i.i to ptr
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i8.i.i)
-  %call.i9.i.i = call i32 @munmap(ptr noundef %15, i64 noundef %sub1.i.i) #8
+  %call.i9.i.i = call i32 @munmap(ptr noundef %11, i64 noundef %sub1.i.i) #8
   %cmp.i10.i.i = icmp eq i32 %call.i9.i.i, -1
   br i1 %cmp.i10.i.i, label %if.then.i11.i.i, label %os_pages_unmap.exit16.i.i
 
 if.then.i11.i.i:                                  ; preds = %if.then3.i.i
   %call.i.i12.i.i = tail call ptr @__errno_location() #9
-  %16 = load i32, ptr %call.i.i12.i.i, align 4
-  %call4.i13.i.i = call i32 @buferror(i32 noundef %16, ptr noundef nonnull %buf.i8.i.i, i64 noundef 64) #8
+  %12 = load i32, ptr %call.i.i12.i.i, align 4
+  %call4.i13.i.i = call i32 @buferror(i32 noundef %12, ptr noundef nonnull %buf.i8.i.i, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i8.i.i) #8
-  %17 = load i8, ptr @opt_abort, align 1
-  %18 = and i8 %17, 1
-  %tobool.not.i14.i.i = icmp eq i8 %18, 0
-  br i1 %tobool.not.i14.i.i, label %os_pages_unmap.exit16.i.i, label %if.then6.i15.i.i
+  %13 = load i8, ptr @opt_abort, align 1
+  %tobool.i14.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i14.i.i, label %if.then6.i15.i.i, label %os_pages_unmap.exit16.i.i
 
 if.then6.i15.i.i:                                 ; preds = %if.then.i11.i.i
   call void @abort() #10
@@ -175,11 +170,11 @@ os_pages_trim.exit.i:                             ; preds = %os_pages_unmap.exit
   br i1 %cmp9.i, label %do.body.i, label %return.loopexit.split.loop.exit.i, !llvm.loop !5
 
 return.loopexit.split.loop.exit.i:                ; preds = %os_pages_trim.exit.i
-  %19 = inttoptr i64 %and.i to ptr
+  %14 = inttoptr i64 %and.i to ptr
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end.i.i, %return.loopexit.split.loop.exit.i, %os_pages_unmap.exit, %do.end5, %entry
-  %retval.0 = phi ptr [ %call, %entry ], [ %call, %do.end5 ], [ null, %os_pages_unmap.exit ], [ %19, %return.loopexit.split.loop.exit.i ], [ null, %if.end.i.i ], [ null, %if.end.i.i ]
+  %retval.0 = phi ptr [ %call, %entry ], [ %call, %do.end5 ], [ null, %os_pages_unmap.exit ], [ %14, %return.loopexit.split.loop.exit.i ], [ null, %if.end.i.i ], [ null, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -188,15 +183,13 @@ define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, p
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %.pre = load i8, ptr %commit, align 1
-  %2 = and i8 %.pre, 1
-  %3 = icmp eq i8 %2, 0
-  %4 = select i1 %3, i32 0, i32 3
+  %1 = trunc i8 %.pre to i1
+  %2 = select i1 %1, i32 3, i32 0
   br label %if.end
 
 if.then:                                          ; preds = %entry
@@ -204,9 +197,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
-  %tobool5.not = phi i32 [ %4, %entry.if.end_crit_edge ], [ 3, %if.then ]
-  %5 = load i32, ptr @mmap_flags, align 4
-  %call = tail call ptr @mmap(ptr noundef %addr, i64 noundef %size, i32 noundef %tobool5.not, i32 noundef %5, i32 noundef -1, i64 noundef 0) #8
+  %tobool5 = phi i32 [ %2, %entry.if.end_crit_edge ], [ 3, %if.then ]
+  %3 = load i32, ptr @mmap_flags, align 4
+  %call = tail call ptr @mmap(ptr noundef %addr, i64 noundef %size, i32 noundef %tobool5, i32 noundef %3, i32 noundef -1, i64 noundef 0) #8
   %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   br i1 %cmp, label %do.end15, label %if.else
 
@@ -224,13 +217,12 @@ if.then11:                                        ; preds = %if.else
 
 if.then.i:                                        ; preds = %if.then11
   %call.i.i = tail call ptr @__errno_location() #9
-  %6 = load i32, ptr %call.i.i, align 4
-  %call4.i = call i32 @buferror(i32 noundef %6, ptr noundef nonnull %buf.i, i64 noundef 64) #8
+  %4 = load i32, ptr %call.i.i, align 4
+  %call4.i = call i32 @buferror(i32 noundef %4, ptr noundef nonnull %buf.i, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i) #8
-  %7 = load i8, ptr @opt_abort, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i, label %os_pages_unmap.exit, label %if.then6.i
+  %5 = load i8, ptr @opt_abort, align 1
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then6.i, label %os_pages_unmap.exit
 
 if.then6.i:                                       ; preds = %if.then.i
   call void @abort() #10
@@ -260,9 +252,8 @@ if.then.i:                                        ; preds = %entry
   %call4.i = call i32 @buferror(i32 noundef %0, ptr noundef nonnull %buf.i, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i) #8
   %1 = load i8, ptr @opt_abort, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %os_pages_unmap.exit, label %if.then6.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then6.i, label %os_pages_unmap.exit
 
 if.then6.i:                                       ; preds = %if.then.i
   call void @abort() #10
@@ -285,14 +276,13 @@ define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %addr, 
 entry:
   %buf.i.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %cond.i = select i1 %commit, i32 3, i32 0
-  %2 = load i32, ptr @mmap_flags, align 4
-  %or.i = or i32 %2, 16
+  %1 = load i32, ptr @mmap_flags, align 4
+  %or.i = or i32 %1, 16
   %call.i = tail call ptr @mmap(ptr noundef %addr, i64 noundef %size, i32 noundef %cond.i, i32 noundef %or.i, i32 noundef -1, i64 noundef 0) #8
   %cmp.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i, label %return, label %if.end.i
@@ -309,13 +299,12 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
   %call.i.i.i = tail call ptr @__errno_location() #9
-  %3 = load i32, ptr %call.i.i.i, align 4
-  %call4.i.i = call i32 @buferror(i32 noundef %3, ptr noundef nonnull %buf.i.i, i64 noundef 64) #8
+  %2 = load i32, ptr %call.i.i.i, align 4
+  %call4.i.i = call i32 @buferror(i32 noundef %2, ptr noundef nonnull %buf.i.i, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i) #8
-  %4 = load i8, ptr @opt_abort, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %os_pages_unmap.exit.i, label %if.then6.i.i
+  %3 = load i8, ptr @opt_abort, align 1
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then6.i.i, label %os_pages_unmap.exit.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
   call void @abort() #10
@@ -514,19 +503,17 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @malloc_write(ptr noundef nonnull @.str.4) #8
   %0 = load i8, ptr @opt_abort, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.then1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.then
   tail call void @abort() #10
   unreachable
 
 if.end2:                                          ; preds = %entry
-  %2 = load i8, ptr @opt_trust_madvise, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.then4, label %if.else
+  %1 = load i8, ptr @opt_trust_madvise, align 1
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
   %call.i3 = tail call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
@@ -535,10 +522,9 @@ if.then4:                                         ; preds = %if.end2
 
 if.then.i:                                        ; preds = %if.then4
   tail call void @malloc_write(ptr noundef nonnull @.str.8) #8
-  %4 = load i8, ptr @opt_abort, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.end2.i, label %if.then1.i
+  %2 = load i8, ptr @opt_abort, align 1
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.then.i
   tail call void @abort() #10
@@ -564,10 +550,9 @@ if.end8.i:                                        ; preds = %if.then5.i, %if.end
 
 if.then12.i:                                      ; preds = %if.end8.i
   tail call void @malloc_write(ptr noundef nonnull @.str.9) #8
-  %6 = load i8, ptr @opt_abort, align 1
-  %7 = and i8 %6, 1
-  %tobool13.not.i = icmp eq i8 %7, 0
-  br i1 %tobool13.not.i, label %madvise_MADV_DONTNEED_zeroes_pages.exit, label %if.then14.i
+  %3 = load i8, ptr @opt_abort, align 1
+  %tobool13.i = trunc i8 %3 to i1
+  br i1 %tobool13.i, label %if.then14.i, label %madvise_MADV_DONTNEED_zeroes_pages.exit
 
 if.then14.i:                                      ; preds = %if.then12.i
   tail call void @abort() #10
@@ -608,17 +593,17 @@ os_overcommits_proc.exit.thread:                  ; preds = %if.end10, %if.end.i
   br label %if.end14
 
 os_overcommits_proc.exit:                         ; preds = %if.end.i
-  %8 = load i8, ptr %buf.i, align 1
-  %9 = and i8 %8, -2
-  %10 = icmp eq i8 %9, 48
+  %4 = load i8, ptr %buf.i, align 1
+  %5 = and i8 %4, -2
+  %6 = icmp eq i8 %5, 48
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i)
-  %frombool = zext i1 %10 to i8
+  %frombool = zext i1 %6 to i8
   store i8 %frombool, ptr @os_overcommits, align 1
-  br i1 %10, label %if.then13, label %if.end14
+  br i1 %6, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %os_overcommits_proc.exit
-  %11 = load i32, ptr @mmap_flags, align 4
-  %or = or i32 %11, 16384
+  %7 = load i32, ptr @mmap_flags, align 4
+  %or = or i32 %7, 16384
   store i32 %or, ptr @mmap_flags, align 4
   br label %if.end14
 
@@ -669,13 +654,12 @@ label_error.i:                                    ; preds = %if.else17.i, %if.en
 
 init_thp_state.exit:                              ; preds = %if.then11.i, %if.then16.i, %if.then22.i, %label_error.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i10)
-  %12 = load i8, ptr @os_overcommits, align 1
-  %13 = and i8 %12, 1
-  %tobool.not.i19 = icmp eq i8 %13, 0
-  %spec.select = select i1 %tobool.not.i19, i32 0, i32 3
-  %14 = load i32, ptr @mmap_flags, align 4
-  %call.i22 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %spec.select, i32 noundef %14, i32 noundef -1, i64 noundef 0) #8
-  %magicptr = ptrtoint ptr %call.i22 to i64
+  %8 = load i8, ptr @os_overcommits, align 1
+  %tobool.i19 = trunc i8 %8 to i1
+  %spec.select = select i1 %tobool.i19, i32 3, i32 0
+  %9 = load i32, ptr @mmap_flags, align 4
+  %call.i21 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %spec.select, i32 noundef %9, i32 noundef -1, i64 noundef 0) #8
+  %magicptr = ptrtoint ptr %call.i21 to i64
   switch i64 %magicptr, label %do.end [
     i64 -1, label %return
     i64 0, label %return
@@ -686,7 +670,7 @@ do.end:                                           ; preds = %init_thp_state.exit
   br i1 %.b.i, label %if.then20, label %pages_purge_lazy.exit
 
 pages_purge_lazy.exit:                            ; preds = %do.end
-  %call.i27 = call i32 @madvise(ptr noundef nonnull %call.i22, i64 noundef 4096, i32 noundef 8) #8
+  %call.i27 = call i32 @madvise(ptr noundef nonnull %call.i21, i64 noundef 4096, i32 noundef 8) #8
   %cmp.i28.not = icmp eq i32 %call.i27, 0
   br i1 %cmp.i28.not, label %if.end21, label %if.then20
 
@@ -696,19 +680,18 @@ if.then20:                                        ; preds = %do.end, %pages_purg
 
 if.end21:                                         ; preds = %if.then20, %pages_purge_lazy.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i30)
-  %call.i31 = call i32 @munmap(ptr noundef nonnull %call.i22, i64 noundef 4096) #8
+  %call.i31 = call i32 @munmap(ptr noundef nonnull %call.i21, i64 noundef 4096) #8
   %cmp.i32 = icmp eq i32 %call.i31, -1
   br i1 %cmp.i32, label %if.then.i34, label %os_pages_unmap.exit
 
 if.then.i34:                                      ; preds = %if.end21
   %call.i.i35 = tail call ptr @__errno_location() #9
-  %15 = load i32, ptr %call.i.i35, align 4
-  %call4.i = call i32 @buferror(i32 noundef %15, ptr noundef nonnull %buf.i30, i64 noundef 64) #8
+  %10 = load i32, ptr %call.i.i35, align 4
+  %call4.i = call i32 @buferror(i32 noundef %10, ptr noundef nonnull %buf.i30, i64 noundef 64) #8
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i30) #8
-  %16 = load i8, ptr @opt_abort, align 1
-  %17 = and i8 %16, 1
-  %tobool.not.i36 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i36, label %os_pages_unmap.exit, label %if.then6.i
+  %11 = load i8, ptr @opt_abort, align 1
+  %tobool.i36 = trunc i8 %11 to i1
+  br i1 %tobool.i36, label %if.then6.i, label %os_pages_unmap.exit
 
 if.then6.i:                                       ; preds = %if.then.i34
   call void @abort() #10

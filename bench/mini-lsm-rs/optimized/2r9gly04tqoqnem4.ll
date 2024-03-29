@@ -1076,13 +1076,13 @@ _ZN3std2fs5write17hb2f3c8da206d7a86E.exit:        ; preds = %4
 23:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !112
   %24 = load i32, ptr %10, align 8, !range !116, !noundef !4
-  %trunc.not = icmp eq i32 %24, 0
+  %trunc = trunc i32 %24 to i1
   %25 = getelementptr inbounds i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !4
   %27 = getelementptr inbounds i8, ptr %10, i64 4
   %28 = load i32, ptr %27, align 4, !range !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br i1 %trunc.not, label %29, label %31
+  br i1 %trunc, label %31, label %29
 
 29:                                               ; preds = %23
   store i32 %28, ptr %11, align 4
@@ -1127,13 +1127,13 @@ _ZN3std2fs5write17hb2f3c8da206d7a86E.exit:        ; preds = %4
 
 _ZN3std2fs11OpenOptions4open17h78ab9373126e1239E.exit: ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3b0204370fbdd58E.exit40"
   %43 = load i32, ptr %9, align 8, !range !116, !noundef !4
-  %trunc30.not = icmp eq i32 %43, 0
+  %trunc30 = trunc i32 %43 to i1
   %44 = getelementptr inbounds i8, ptr %9, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !4
   %46 = getelementptr inbounds i8, ptr %9, i64 4
   %47 = load i32, ptr %46, align 4, !range !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %trunc30.not, label %48, label %58
+  br i1 %trunc30, label %58, label %48
 
 48:                                               ; preds = %_ZN3std2fs11OpenOptions4open17h78ab9373126e1239E.exit
   %49 = load i64, ptr %14, align 8, !noundef !4
@@ -1245,13 +1245,13 @@ define void @_ZN16mini_lsm_starter5table10FileObject4open17h9c8721e136a50174E(pt
   store i8 1, ptr %.sroa.518.0..sroa_idx, align 4
   call void @_ZN3std2fs11OpenOptions5_open17h6c5b835fc2afb736E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %8 = load i32, ptr %6, align 8, !range !116, !noundef !4
-  %trunc.not = icmp eq i32 %8, 0
+  %trunc = trunc i32 %8 to i1
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4
   %11 = getelementptr inbounds i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4, !range !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %trunc.not, label %13, label %14
+  br i1 %trunc, label %14, label %13
 
 13:                                               ; preds = %3
   store i32 %12, ptr %7, align 4

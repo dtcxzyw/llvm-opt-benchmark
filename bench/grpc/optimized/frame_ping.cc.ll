@@ -340,67 +340,62 @@ do.end:                                           ; preds = %do.body
 
 if.then36:                                        ; preds = %do.end
   %10 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_ping_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %11 = and i8 %10, 1
-  %tobool.i.i.i.not = icmp eq i8 %11, 0
-  br i1 %tobool.i.i.i.not, label %if.end44, label %if.then37
+  %tobool.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool.i.i.i, label %if.then37, label %if.end44
 
 if.then37:                                        ; preds = %if.then36
   %is_client = getelementptr inbounds i8, ptr %t, i64 3376
-  %12 = load i8, ptr %is_client, align 8
-  %13 = and i8 %12, 1
-  %tobool38.not = icmp eq i8 %13, 0
-  %.str.4..str.5 = select i1 %tobool38.not, ptr @.str.5, ptr @.str.4
+  %11 = load i8, ptr %is_client, align 8
+  %tobool38 = trunc i8 %11 to i1
+  %.str.4..str.5 = select i1 %tobool38, ptr @.str.4, ptr @.str.5
   %opaque_8bytes43 = getelementptr inbounds i8, ptr %parser, i64 8
-  %14 = load i64, ptr %opaque_8bytes43, align 8
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 100, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.4..str.5, ptr noundef %t, i64 noundef %14)
+  %12 = load i64, ptr %opaque_8bytes43, align 8
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 100, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.4..str.5, ptr noundef %t, i64 noundef %12)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then37, %if.then36
   %opaque_8bytes45 = getelementptr inbounds i8, ptr %parser, i64 8
-  %15 = load i64, ptr %opaque_8bytes45, align 8
-  tail call void @_Z20grpc_chttp2_ack_pingP21grpc_chttp2_transportm(ptr noundef %t, i64 noundef %15)
+  %13 = load i64, ptr %opaque_8bytes45, align 8
+  tail call void @_Z20grpc_chttp2_ack_pingP21grpc_chttp2_transportm(ptr noundef %t, i64 noundef %13)
   br label %if.end95
 
 if.else:                                          ; preds = %do.end
   %is_client46 = getelementptr inbounds i8, ptr %t, i64 3376
-  %16 = load i8, ptr %is_client46, align 8
-  %17 = and i8 %16, 1
-  %tobool47.not = icmp eq i8 %17, 0
-  br i1 %tobool47.not, label %if.then48, label %if.else67
+  %14 = load i8, ptr %is_client46, align 8
+  %tobool47 = trunc i8 %14 to i1
+  br i1 %tobool47, label %if.else67, label %if.then48
 
 if.then48:                                        ; preds = %if.else
   %keepalive_permit_without_calls = getelementptr inbounds i8, ptr %t, i64 3373
-  %18 = load i8, ptr %keepalive_permit_without_calls, align 1
-  %19 = and i8 %18, 1
-  %cmp51 = icmp eq i8 %19, 0
+  %15 = load i8, ptr %keepalive_permit_without_calls, align 1
+  %16 = and i8 %15, 1
+  %cmp51 = icmp eq i8 %16, 0
   br i1 %cmp51, label %land.rhs52, label %land.end54
 
 land.rhs52:                                       ; preds = %if.then48
   %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %t, i64 584
-  %20 = load i64, ptr %compressed_tuple_.i.i.i, align 8
-  %tobool.not.i = icmp eq i64 %20, 0
+  %17 = load i64, ptr %compressed_tuple_.i.i.i, align 8
+  %tobool.not.i = icmp eq i64 %17, 0
   br label %land.end54
 
 land.end54:                                       ; preds = %land.rhs52, %if.then48
-  %21 = phi i1 [ false, %if.then48 ], [ %tobool.not.i, %land.rhs52 ]
-  %22 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_keepalive_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %23 = and i8 %22, 1
-  %tobool.i.i.i45.not = icmp eq i8 %23, 0
-  br i1 %tobool.i.i.i45.not, label %lor.lhs.false, label %if.then57
+  %18 = phi i1 [ false, %if.then48 ], [ %tobool.not.i, %land.rhs52 ]
+  %19 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_keepalive_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i45 = trunc i8 %19 to i1
+  br i1 %tobool.i.i.i45, label %if.then57, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end54
-  %24 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %25 = and i8 %24, 1
-  %tobool.i.i.i46.not = icmp eq i8 %25, 0
-  br i1 %tobool.i.i.i46.not, label %if.end61, label %if.then57
+  %20 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i46 = trunc i8 %20 to i1
+  br i1 %tobool.i.i.i46, label %if.then57, label %if.end61
 
 if.then57:                                        ; preds = %lor.lhs.false, %land.end54
   %opaque_8bytes58 = getelementptr inbounds i8, ptr %parser, i64 8
-  %26 = load i64, ptr %opaque_8bytes58, align 8
+  %21 = load i64, ptr %opaque_8bytes58, align 8
   %ping_abuse_policy = getelementptr inbounds i8, ptr %t, i64 2120
-  call void @_ZNK9grpc_core21Chttp2PingAbusePolicy14GetDebugStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ping_abuse_policy, i1 noundef zeroext %21)
+  call void @_ZNK9grpc_core21Chttp2PingAbusePolicy14GetDebugStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ping_abuse_policy, i1 noundef zeroext %18)
   %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 109, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i64 noundef %26, ptr noundef %call60)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 109, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i64 noundef %21, ptr noundef %call60)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then57
@@ -408,14 +403,14 @@ invoke.cont:                                      ; preds = %if.then57
   br label %if.end61
 
 lpad:                                             ; preds = %if.then57
-  %27 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %22
 
 if.end61:                                         ; preds = %invoke.cont, %lor.lhs.false
   %ping_abuse_policy62 = getelementptr inbounds i8, ptr %t, i64 2120
-  %call64 = call noundef zeroext i1 @_ZN9grpc_core21Chttp2PingAbusePolicy15ReceivedOnePingEb(ptr noundef nonnull align 8 dereferenceable(24) %ping_abuse_policy62, i1 noundef zeroext %21)
+  %call64 = call noundef zeroext i1 @_ZN9grpc_core21Chttp2PingAbusePolicy15ReceivedOnePingEb(ptr noundef nonnull align 8 dereferenceable(24) %ping_abuse_policy62, i1 noundef zeroext %18)
   br i1 %call64, label %if.then65, label %if.end72
 
 if.then65:                                        ; preds = %if.end61
@@ -423,30 +418,28 @@ if.then65:                                        ; preds = %if.end61
   br label %if.end72
 
 if.else67:                                        ; preds = %if.else
-  %28 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_ping_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %29 = and i8 %28, 1
-  %tobool.i.i.i47.not = icmp eq i8 %29, 0
-  br i1 %tobool.i.i.i47.not, label %if.end72, label %if.then69
+  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_ping_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i47 = trunc i8 %23 to i1
+  br i1 %tobool.i.i.i47, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %if.else67
   %opaque_8bytes70 = getelementptr inbounds i8, ptr %parser, i64 8
-  %30 = load i64, ptr %opaque_8bytes70, align 8
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 117, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull %t, i64 noundef %30)
+  %24 = load i64, ptr %opaque_8bytes70, align 8
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 117, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull %t, i64 noundef %24)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else67, %if.then69, %if.end61, %if.then65
   %ack_pings = getelementptr inbounds i8, ptr %t, i64 3380
-  %31 = load i8, ptr %ack_pings, align 4
-  %32 = and i8 %31, 1
-  %tobool73.not = icmp eq i8 %32, 0
-  br i1 %tobool73.not, label %if.end95, label %if.then74
+  %25 = load i8, ptr %ack_pings, align 4
+  %tobool73 = trunc i8 %25 to i1
+  br i1 %tobool73, label %if.then74, label %if.end95
 
 if.then74:                                        ; preds = %if.end72
   %ping_ack_count = getelementptr inbounds i8, ptr %t, i64 2328
-  %33 = load i64, ptr %ping_ack_count, align 8
+  %26 = load i64, ptr %ping_ack_count, align 8
   %ping_ack_capacity = getelementptr inbounds i8, ptr %t, i64 2336
-  %34 = load i64, ptr %ping_ack_capacity, align 8
-  %cmp75 = icmp eq i64 %33, %34
+  %27 = load i64, ptr %ping_ack_capacity, align 8
+  %cmp75 = icmp eq i64 %26, %27
   br i1 %cmp75, label %if.then76, label %if.then74.if.end87_crit_edge
 
 if.then74.if.end87_crit_edge:                     ; preds = %if.then74
@@ -455,31 +448,31 @@ if.then74.if.end87_crit_edge:                     ; preds = %if.then74
   br label %if.end87
 
 if.then76:                                        ; preds = %if.then74
-  %mul79 = mul i64 %33, 3
+  %mul79 = mul i64 %26, 3
   %div44 = lshr i64 %mul79, 1
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %div44, i64 3)
   store i64 %.sroa.speculated, ptr %ping_ack_capacity, align 8
   %ping_acks = getelementptr inbounds i8, ptr %t, i64 2344
-  %35 = load ptr, ptr %ping_acks, align 8
+  %28 = load ptr, ptr %ping_acks, align 8
   %mul84 = shl i64 %.sroa.speculated, 3
-  %call85 = call ptr @gpr_realloc(ptr noundef %35, i64 noundef %mul84)
+  %call85 = call ptr @gpr_realloc(ptr noundef %28, i64 noundef %mul84)
   store ptr %call85, ptr %ping_acks, align 8
   %.pre53 = load i64, ptr %ping_ack_count, align 8
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then74.if.end87_crit_edge, %if.then76
-  %36 = phi i64 [ %33, %if.then74.if.end87_crit_edge ], [ %.pre53, %if.then76 ]
-  %37 = phi ptr [ %.pre, %if.then74.if.end87_crit_edge ], [ %call85, %if.then76 ]
+  %29 = phi i64 [ %26, %if.then74.if.end87_crit_edge ], [ %.pre53, %if.then76 ]
+  %30 = phi ptr [ %.pre, %if.then74.if.end87_crit_edge ], [ %call85, %if.then76 ]
   %num_pending_induced_frames = getelementptr inbounds i8, ptr %t, i64 3292
-  %38 = load i32, ptr %num_pending_induced_frames, align 4
-  %inc88 = add i32 %38, 1
+  %31 = load i32, ptr %num_pending_induced_frames, align 4
+  %inc88 = add i32 %31, 1
   store i32 %inc88, ptr %num_pending_induced_frames, align 4
   %opaque_8bytes89 = getelementptr inbounds i8, ptr %parser, i64 8
-  %39 = load i64, ptr %opaque_8bytes89, align 8
-  %inc92 = add i64 %36, 1
+  %32 = load i64, ptr %opaque_8bytes89, align 8
+  %inc92 = add i64 %29, 1
   store i64 %inc92, ptr %ping_ack_count, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %37, i64 %36
-  store i64 %39, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds i64, ptr %30, i64 %29
+  store i64 %32, ptr %arrayidx, align 8
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %t, i32 noundef 20)
   br label %if.end95
 

@@ -43,9 +43,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias ptr @pmix_gds_base_get_available_modules() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 1), align 8
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %6, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 3), align 8
@@ -64,18 +63,17 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 1), align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %.01217 = load ptr, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not1618 = icmp eq ptr %.01217, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
-  %or.cond = select i1 %.not, i1 true, i1 %.not1618
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  %5 = trunc i8 %4 to i1
+  %.01216 = load ptr, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1, i32 1), align 8
+  %.not17 = icmp ne ptr %.01216, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
+  %or.cond.not = select i1 %5, i1 %.not17, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %25
-  %.01221 = phi ptr [ %.012, %25 ], [ %.01217, %2 ]
-  %.020 = phi i32 [ %.1, %25 ], [ -1, %2 ]
-  %.01019 = phi ptr [ %.111, %25 ], [ null, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.01221, i64 152
+  %.01220 = phi ptr [ %.012, %25 ], [ %.01216, %2 ]
+  %.019 = phi i32 [ %.1, %25 ], [ -1, %2 ]
+  %.01018 = phi ptr [ %.111, %25 ], [ null, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.01220, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -93,14 +91,14 @@ define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_un
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.01221, i64 144
+  %18 = getelementptr inbounds i8, ptr %.01220, i64 144
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %3, align 4
   br label %20
 
 20:                                               ; preds = %17, %14
   %21 = phi i32 [ %19, %17 ], [ %15, %14 ]
-  %22 = icmp slt i32 %.020, %21
+  %22 = icmp slt i32 %.019, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
@@ -108,12 +106,12 @@ define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_un
   br label %25
 
 25:                                               ; preds = %11, %23, %20, %.lr.ph
-  %.111 = phi ptr [ %.01019, %.lr.ph ], [ %24, %23 ], [ %.01019, %20 ], [ %.01019, %11 ]
-  %.1 = phi i32 [ %.020, %.lr.ph ], [ %21, %23 ], [ %.020, %20 ], [ %.020, %11 ]
-  %26 = getelementptr inbounds i8, ptr %.01221, i64 120
+  %.111 = phi ptr [ %.01018, %.lr.ph ], [ %24, %23 ], [ %.01018, %20 ], [ %.01018, %11 ]
+  %.1 = phi i32 [ %.019, %.lr.ph ], [ %21, %23 ], [ %.019, %20 ], [ %.019, %11 ]
+  %26 = getelementptr inbounds i8, ptr %.01220, i64 120
   %.012 = load ptr, ptr %26, align 8
-  %.not16 = icmp eq ptr %.012, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  %.not = icmp eq ptr %.012, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %25, %2
   %.013 = phi ptr [ null, %2 ], [ %.111, %25 ]
@@ -123,18 +121,17 @@ define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_un
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_gds_base_setup_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load i8, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 1), align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %.01014 = load ptr, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not1315 = icmp eq ptr %.01014, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
-  br i1 %.not1315, label %.loopexit, label %.lr.ph
+  %.01013 = load ptr, ptr getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1, i32 1), align 8
+  %.not14 = icmp eq ptr %.01013, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
+  br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %12
-  %.01016 = phi ptr [ %.010, %12 ], [ %.01014, %.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.01016, i64 152
+  %.01015 = phi ptr [ %.010, %12 ], [ %.01013, %.preheader ]
+  %5 = getelementptr inbounds i8, ptr %.01015, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 88
   %8 = load ptr, ptr %7, align 8
@@ -149,10 +146,10 @@ define noundef i32 @pmix_gds_base_setup_fork(ptr noundef %0, ptr noundef %1) loc
   ]
 
 12:                                               ; preds = %10, %10, %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.01016, i64 120
+  %13 = getelementptr inbounds i8, ptr %.01015, i64 120
   %.010 = load ptr, ptr %13, align 8
-  %.not13 = icmp eq ptr %.010, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  %.not = icmp eq ptr %.010, getelementptr inbounds (%struct.pmix_gds_globals_t, ptr @pmix_gds_globals, i64 0, i32 0, i32 1)
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %10, %12, %.preheader, %2
   %.0 = phi i32 [ -31, %2 ], [ 0, %.preheader ], [ %11, %10 ], [ 0, %12 ]

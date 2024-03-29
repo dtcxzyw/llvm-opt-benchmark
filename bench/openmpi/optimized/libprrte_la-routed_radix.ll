@@ -130,17 +130,16 @@ define noundef i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %8, %3, %1
   %12 = load i8, ptr @prte_finalizing, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
+  %13 = trunc i8 %12 to i1
   %14 = load i32, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 5), align 8
-  %15 = icmp eq i32 %14, %0
-  %or.cond31 = select i1 %.not, i1 %15, i1 false
-  br i1 %or.cond31, label %16, label %.preheader
+  %15 = icmp ne i32 %14, %0
+  %or.cond31.not = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond31.not, label %.preheader, label %16
 
 .preheader:                                       ; preds = %11
-  %.033 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 1, i32 1), align 8
-  %.not2834 = icmp eq ptr %.033, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 1)
-  br i1 %.not2834, label %.loopexit, label %.lr.ph
+  %.034 = load ptr, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 1, i32 1), align 8
+  %.not35 = icmp eq ptr %.034, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 1)
+  br i1 %.not35, label %.loopexit, label %.lr.ph
 
 16:                                               ; preds = %11
   %17 = load i32, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 1), align 4
@@ -162,16 +161,16 @@ define noundef i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %64
-  %.035 = phi ptr [ %31, %64 ], [ %.033, %.preheader ]
-  %27 = getelementptr inbounds i8, ptr %.035, i64 144
+  %.036 = phi ptr [ %31, %64 ], [ %.034, %.preheader ]
+  %27 = getelementptr inbounds i8, ptr %.036, i64 144
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %0
-  %30 = getelementptr inbounds i8, ptr %.035, i64 120
+  %30 = getelementptr inbounds i8, ptr %.036, i64 120
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %64
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %.035, i64 128
+  %33 = getelementptr inbounds i8, ptr %.036, i64 128
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 120
   store volatile ptr %31, ptr %35, align 8
@@ -181,7 +180,7 @@ define noundef i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_addr #0 {
   %38 = load volatile i64, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 2), align 8
   %39 = add i64 %38, -1
   store volatile i64 %39, ptr getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 2), align 8
-  %40 = tail call i32 @pthread_mutex_lock(ptr noundef %.035) #9
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef %.036) #9
   %41 = icmp eq i32 %40, 35
   br i1 %41, label %42, label %44
 
@@ -193,16 +192,16 @@ define noundef i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %.035, i64 48
+  %45 = getelementptr inbounds i8, ptr %.036, i64 48
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %45, align 8
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef %.035) #9
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef %.036) #9
   %49 = icmp eq i32 %47, 0
   br i1 %49, label %50, label %.loopexit
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %.035, i64 40
+  %51 = getelementptr inbounds i8, ptr %.036, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
@@ -213,30 +212,30 @@ define noundef i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
   %56 = phi ptr [ %58, %.lr.ph.i ], [ %55, %50 ]
   %.07.i = phi ptr [ %57, %.lr.ph.i ], [ %54, %50 ]
-  tail call void %56(ptr noundef %.035) #9
+  tail call void %56(ptr noundef %.036) #9
   %57 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %50
-  %59 = getelementptr inbounds i8, ptr %.035, i64 96
+  %59 = getelementptr inbounds i8, ptr %.036, i64 96
   %60 = load ptr, ptr %59, align 8
-  %.not29 = icmp eq ptr %60, null
-  br i1 %.not29, label %63, label %61
+  %.not28 = icmp eq ptr %60, null
+  br i1 %.not28, label %63, label %61
 
 61:                                               ; preds = %pmix_obj_run_destructors.exit
-  %62 = getelementptr inbounds i8, ptr %.035, i64 56
-  tail call void %60(ptr noundef nonnull %62, ptr noundef nonnull %.035) #9
+  %62 = getelementptr inbounds i8, ptr %.036, i64 56
+  tail call void %60(ptr noundef nonnull %62, ptr noundef nonnull %.036) #9
   br label %.loopexit
 
 63:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.035) #9
+  tail call void @free(ptr noundef nonnull %.036) #9
   br label %.loopexit
 
 64:                                               ; preds = %.lr.ph
-  %.not28 = icmp eq ptr %31, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 1)
-  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  %.not = icmp eq ptr %31, getelementptr inbounds (%struct.prte_rml_base_t, ptr @prte_rml_base, i64 0, i32 6, i32 1)
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %64, %.preheader, %44, %63, %61, %16, %18, %23
   %.024 = phi i32 [ -6, %23 ], [ -6, %18 ], [ -6, %16 ], [ 0, %61 ], [ 0, %63 ], [ 0, %44 ], [ 0, %.preheader ], [ 0, %64 ]

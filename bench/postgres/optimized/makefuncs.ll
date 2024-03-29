@@ -130,8 +130,8 @@ define dso_local noundef ptr @makeWholeRowVar(ptr nocapture noundef readonly %0,
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @get_rel_type_id(i32 noundef %9) #6
-  %.not28 = icmp eq i32 %10, 0
-  br i1 %.not28, label %11, label %list_length.exit.thread
+  %.not27 = icmp eq i32 %10, 0
+  br i1 %.not27, label %11, label %list_length.exit.thread
 
 11:                                               ; preds = %7
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -146,9 +146,8 @@ define dso_local noundef ptr @makeWholeRowVar(ptr nocapture noundef readonly %0,
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %list_length.exit.thread
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %list_length.exit.thread, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 96
@@ -159,8 +158,8 @@ define dso_local noundef ptr @makeWholeRowVar(ptr nocapture noundef readonly %0,
 list_length.exit:                                 ; preds = %21
   %24 = getelementptr inbounds i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
-  %.not27 = icmp eq i32 %25, 1
-  br i1 %.not27, label %26, label %list_length.exit.thread
+  %.not = icmp eq i32 %25, 1
+  br i1 %.not, label %26, label %list_length.exit.thread
 
 26:                                               ; preds = %list_length.exit
   %27 = getelementptr i8, ptr %23, i64 16
@@ -170,8 +169,8 @@ list_length.exit:                                 ; preds = %21
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @exprType(ptr noundef %30) #6
   %32 = tail call zeroext i1 @type_is_rowtype(i32 noundef %31) #6
-  %.not53 = xor i1 %3, true
-  %brmerge = or i1 %32, %.not53
+  %.not52 = xor i1 %3, true
+  %brmerge = or i1 %32, %.not52
   %.mux = select i1 %32, i32 %31, i32 2249
   br i1 %brmerge, label %list_length.exit.thread, label %33
 
@@ -180,21 +179,21 @@ list_length.exit:                                 ; preds = %21
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %26, %4, %17, %list_length.exit, %21, %7, %33
-  %.sink47 = phi i16 [ 1, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
-  %.sink44 = phi i32 [ %31, %33 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ], [ 2249, %17 ], [ %.mux, %26 ], [ 2249, %4 ]
-  %.sink39 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
+  %.sink46 = phi i16 [ 1, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
+  %.sink43 = phi i32 [ %31, %33 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ], [ 2249, %17 ], [ %.mux, %26 ], [ 2249, %4 ]
+  %.sink38 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 6, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %35, i64 4
   store i32 %1, ptr %36, align 4
   %37 = getelementptr inbounds i8, ptr %35, i64 8
-  store i16 %.sink47, ptr %37, align 8
+  store i16 %.sink46, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 12
-  store i32 %.sink44, ptr %38, align 4
+  store i32 %.sink43, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %35, i64 16
   store i32 -1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %35, i64 20
-  store i32 %.sink39, ptr %40, align 4
+  store i32 %.sink38, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %35, i64 32
   store i32 %2, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %35, i64 24
@@ -202,7 +201,7 @@ list_length.exit.thread:                          ; preds = %26, %4, %17, %list_
   %43 = getelementptr inbounds i8, ptr %35, i64 36
   store i32 %1, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %35, i64 40
-  store i16 %.sink47, ptr %44, align 8
+  store i16 %.sink46, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %35, i64 44
   store i32 -1, ptr %45, align 4
   ret ptr %35
@@ -314,26 +313,26 @@ define dso_local noundef ptr @makeNullConst(i32 noundef %0, i32 noundef %1, i32 
   %6 = load i16, ptr %4, align 2
   %7 = sext i16 %6 to i32
   %8 = load i8, ptr %5, align 1
-  %9 = and i8 %8, 1
-  %10 = call noundef ptr @palloc0(i64 noundef 40) #6
-  store i32 7, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %9 = call noundef ptr @palloc0(i64 noundef 40) #6
+  store i32 7, ptr %9, align 4
+  %10 = and i8 %8, 1
+  %11 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %2, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds i8, ptr %9, i64 32
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 33
-  store i8 %9, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %10, i64 36
+  %17 = getelementptr inbounds i8, ptr %9, i64 33
+  store i8 %10, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %9, i64 36
   store i32 -1, ptr %18, align 4
-  ret ptr %10
+  ret ptr %9
 }
 
 declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -758,15 +757,14 @@ is_andclause.exit:                                ; preds = %3
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
-  %.not9 = icmp eq i64 %17, 0
-  br i1 %.not9, label %.thread, label %19
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %.thread, label %19
 
 .thread:                                          ; preds = %3, %is_andclause.exit, %15, %11
   %18 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #6

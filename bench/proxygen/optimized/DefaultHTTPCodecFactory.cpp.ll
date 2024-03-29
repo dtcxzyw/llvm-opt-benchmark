@@ -171,7 +171,7 @@ if.then:                                          ; preds = %land.rhs.i33, %land
           to label %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !4
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit47, %lpad13, %lpad.i56, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %15, %lpad.i56 ], [ %8, %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit47 ], [ %10, %lpad13 ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %14, %lpad.i56 ], [ %8, %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit47 ], [ %10, %lpad13 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -276,13 +276,12 @@ _ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit54: ; preds = %if.end
   %call2.i.i = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i51)
   %call.i55 = call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #15, !noalias !7
   %13 = load i8, ptr %forceHTTP1xCodecTo1_1_, align 8, !noalias !7
-  %14 = and i8 %13, 1
-  %tobool.i = icmp ne i8 %14, 0
+  %tobool.i = trunc i8 %13 to i1
   invoke void @_ZN8proxygen11HTTP1xCodecC1ENS_18TransportDirectionEbb(ptr noundef nonnull align 8 dereferenceable(428) %call.i55, i8 noundef zeroext %direction, i1 noundef zeroext %tobool.i, i1 noundef zeroext %call2.i.i)
           to label %return unwind label %lpad.i56, !noalias !7
 
 lpad.i56:                                         ; preds = %_ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit54
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i55) #16, !noalias !7
   br label %common.resume

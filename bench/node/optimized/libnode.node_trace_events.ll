@@ -427,25 +427,24 @@ do.end19:                                         ; preds = %_ZN4node10BaseObjec
   %categories_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
   %enabled_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load i8, ptr %enabled_, align 8
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end25
+  %tobool = trunc i8 %10 to i1
+  br i1 %tobool, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end19
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 80
-  %12 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i6 = icmp eq i64 %12, 0
+  %11 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i6 = icmp eq i64 %11, 0
   br i1 %cmp.i.i6, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true
   tail call void @_ZN4node10V8Platform17StartTracingAgentEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN4node11per_process11v8_platformE)
-  %13 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 0), align 8
-  %cmp.not.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 0), align 8
+  %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %_ZN4node7tracing17AgentWriterHandle6EnableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then22
-  %14 = load i32, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 1), align 8
-  tail call void @_ZN4node7tracing5Agent6EnableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
+  %13 = load i32, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 1), align 8
+  tail call void @_ZN4node7tracing5Agent6EnableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
   br label %_ZN4node7tracing17AgentWriterHandle6EnableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit
 
 _ZN4node7tracing17AgentWriterHandle6EnableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit: ; preds = %if.then22, %if.then.i
@@ -494,24 +493,23 @@ do.end19:                                         ; preds = %_ZN4node10BaseObjec
   %categories_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
   %enabled_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load i8, ptr %enabled_, align 8
-  %11 = and i8 %10, 1
-  %tobool.not = icmp eq i8 %11, 0
-  br i1 %tobool.not, label %if.end25, label %land.lhs.true
+  %tobool = trunc i8 %10 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %do.end19
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 80
-  %12 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i6 = icmp eq i64 %12, 0
+  %11 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i6 = icmp eq i64 %11, 0
   br i1 %cmp.i.i6, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true
-  %13 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 0), align 8
-  %cmp.not.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 0), align 8
+  %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %_ZN4node7tracing17AgentWriterHandle7DisableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then22
-  %14 = load i32, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 1), align 8
-  tail call void @_ZN4node7tracing5Agent7DisableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
+  %13 = load i32, ptr getelementptr inbounds (%"struct.node::V8Platform", ptr @_ZN4node11per_process11v8_platformE, i64 0, i32 3, i32 1), align 8
+  tail call void @_ZN4node7tracing5Agent7DisableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
   br label %_ZN4node7tracing17AgentWriterHandle7DisableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit
 
 _ZN4node7tracing17AgentWriterHandle7DisableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit: ; preds = %if.then22, %if.then.i
@@ -687,9 +685,8 @@ if.then.i204:                                     ; preds = %_ZN4node21FIXED_ONE
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit205: ; preds = %if.then.i204, %_ZN4node21FIXED_ONE_BYTE_STRINGILi6EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
   %call123 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i15, ptr %call105) #16
-  %13 = and i16 %call123, 1
-  %tobool.i.not = icmp eq i16 %13, 0
-  br i1 %tobool.i.not, label %if.then.i216, label %_ZNK2v85MaybeIbE5CheckEv.exit217
+  %tobool.i = trunc i16 %call123 to i1
+  br i1 %tobool.i, label %_ZNK2v85MaybeIbE5CheckEv.exit217, label %if.then.i216
 
 if.then.i216:                                     ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit205
   tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #16
@@ -706,9 +703,8 @@ if.then.i:                                        ; preds = %_ZNK2v85MaybeIbE5Ch
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %_ZNK2v85MaybeIbE5CheckEv.exit217
   %call165 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i17, ptr %call147) #16
-  %14 = and i16 %call165, 1
-  %tobool.i276.not = icmp eq i16 %14, 0
-  br i1 %tobool.i276.not, label %if.then.i210, label %_ZNK2v85MaybeIbE5CheckEv.exit
+  %tobool.i276 = trunc i16 %call165 to i1
+  br i1 %tobool.i276, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i210
 
 if.then.i210:                                     ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #16
@@ -1282,24 +1278,22 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
-  %6 = load i8, ptr %is_detached.i, align 1
-  %.fr6 = freeze i8 %6
-  %7 = and i8 %.fr6, 1
-  %tobool6.i.not = icmp eq i8 %7, 0
-  br i1 %tobool6.i.not, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %5 = load i8, ptr %is_detached.i, align 1
+  %.fr = freeze i8 %5
+  %tobool6.i = trunc i8 %.fr to i1
+  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %8 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
-  ret i8 %8
+  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+  ret i8 %6
 }
 
 declare noundef zeroext i1 @_ZNK4node10BaseObject18IsDoneInitializingEv(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -1697,8 +1691,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %is_root_node_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %is_root_node_, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2192,7 +2185,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   %_M_storage.i.i.i.i3 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 32
   %call.i.i4.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #16
   %cmp.i.i5.i = icmp slt i32 %call.i.i4.i, 0
-  br i1 %cmp.i.i5.i, label %if.then, label %if.then.i8
+  br i1 %cmp.i.i5.i, label %if.then, label %if.then.i9
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa26.i, %if.end12.i ]
@@ -2214,16 +2207,16 @@ cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.th
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit
 
-if.then.i8:                                       ; preds = %if.end12.i
+if.then.i9:                                       ; preds = %if.end12.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #16
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #19
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %if.then.i8
-  %retval.sroa.3.024 = phi i8 [ 1, %cleanup.thread ], [ 0, %if.then.i8 ]
-  %retval.sroa.0.023 = phi ptr [ %call5.i.i.i.i.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %if.then.i8 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.023, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.024, 1
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %if.then.i9
+  %retval.sroa.3.025 = phi i8 [ 1, %cleanup.thread ], [ 0, %if.then.i9 ]
+  %retval.sroa.0.024 = phi ptr [ %call5.i.i.i.i.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %if.then.i9 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.024, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.025, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -2332,18 +2325,18 @@ cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.th
 
 cleanup:                                          ; preds = %if.end12.i
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit, label %if.then.i7
+  br i1 %tobool.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit, label %if.then.i8
 
-if.then.i7:                                       ; preds = %cleanup
+if.then.i8:                                       ; preds = %cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #19
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i7
-  %retval.sroa.3.023 = phi i8 [ 1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then.i7 ]
-  %retval.sroa.0.022 = phi ptr [ %call.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %cleanup ], [ %__j.sroa.0.0.i, %if.then.i7 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.022, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.023, 1
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i8
+  %retval.sroa.3.024 = phi i8 [ 1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then.i8 ]
+  %retval.sroa.0.023 = phi ptr [ %call.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %cleanup ], [ %__j.sroa.0.0.i, %if.then.i8 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.023, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.024, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

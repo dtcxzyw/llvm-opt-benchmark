@@ -97,25 +97,24 @@ entry:
   call void @_ZN6hermes8oscompat18vm_reserve_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %result.i.i, i64 noundef %div1.i.i.i, i64 noundef 4194304, ptr noundef %call4.i.i) #18, !noalias !4
   %HasError.i.i.i = getelementptr inbounds i8, ptr %result.i.i, i64 16
   %bf.load.i.i.i = load i8, ptr %HasError.i.i.i, align 8, !noalias !4
-  %0 = and i8 %bf.load.i.i.i, 1
-  %bf.cast.not.i.i.i = icmp eq i8 %0, 0
-  br i1 %bf.cast.not.i.i.i, label %_ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14default_deleteIS3_EED2Ev.exit, label %_ZN4llvh9StringRefC2EPKc.exit.i.i
+  %bf.cast.i.i.i = trunc i8 %bf.load.i.i.i to i1
+  br i1 %bf.cast.i.i.i, label %_ZN4llvh9StringRefC2EPKc.exit.i.i, label %_ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14default_deleteIS3_EED2Ev.exit
 
 _ZN4llvh9StringRefC2EPKc.exit.i.i:                ; preds = %entry
   %call7.i.i = call { i32, ptr } @_ZNK4llvh7ErrorOrIPvE8getErrorEv(ptr noundef nonnull align 8 dereferenceable(17) %result.i.i), !noalias !4
-  %1 = extractvalue { i32, ptr } %call7.i.i, 0
-  %2 = extractvalue { i32, ptr } %call7.i.i, 1
-  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr nonnull @.str.3, i64 37, i32 %1, ptr %2) #16
+  %0 = extractvalue { i32, ptr } %call7.i.i, 0
+  %1 = extractvalue { i32, ptr } %call7.i.i, 1
+  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr nonnull @.str.3, i64 37, i32 %0, ptr %1) #16
   unreachable
 
 _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry
-  %3 = load ptr, ptr %result.i.i, align 8, !noalias !4
+  %2 = load ptr, ptr %result.i.i, align 8, !noalias !4
   %start_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  store ptr %3, ptr %start_.i.i, align 8, !noalias !4
+  store ptr %2, ptr %start_.i.i, align 8, !noalias !4
   %level_.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  store ptr %3, ptr %level_.i.i, align 8, !noalias !4
-  %4 = load i64, ptr %size_.i.i, align 8, !noalias !4
-  call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str.4) #18, !noalias !4
+  store ptr %2, ptr %level_.i.i, align 8, !noalias !4
+  %3 = load i64, ptr %size_.i.i, align 8, !noalias !4
+  call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.4) #18, !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i.i), !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -143,12 +142,11 @@ entry:
   tail call void %0(ptr sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %name) #18
   %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
-  %1 = and i8 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i8 %1, 0
-  %. = select i1 %bf.cast.not.i, i64 8, i64 16
+  %bf.cast.i = trunc i8 %bf.load.i to i1
+  %. = select i1 %bf.cast.i, i64 16, i64 8
   %numSucceededAllocs_ = getelementptr inbounds i8, ptr %this, i64 %.
-  %2 = load i64, ptr %numSucceededAllocs_, align 8
-  %inc = add i64 %2, 1
+  %1 = load i64, ptr %numSucceededAllocs_, align 8
+  %inc = add i64 %1, 1
   store i64 %inc, ptr %numSucceededAllocs_, align 8
   ret void
 }
@@ -186,63 +184,61 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %HasError.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %call49 = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
-  call void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ref.tmp, i64 noundef %sz, i64 noundef %alignment, ptr noundef %call49) #18
-  %bf.load.i.i.i.i50 = load i8, ptr %HasError.i.i.i.i, align 8
-  %0 = and i8 %bf.load.i.i.i.i50, 1
-  %bf.cast.not.i.i.i.i51 = icmp eq i8 %0, 0
-  br i1 %bf.cast.not.i.i.i.i51, label %if.then, label %if.end
+  %call50 = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
+  call void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ref.tmp, i64 noundef %sz, i64 noundef %alignment, ptr noundef %call50) #18
+  %bf.load.i.i.i.i51 = load i8, ptr %HasError.i.i.i.i, align 8
+  %bf.cast.i.i.i.i52 = trunc i8 %bf.load.i.i.i.i51 to i1
+  br i1 %bf.cast.i.i.i.i52, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end9, %while.body.lr.ph
   %sz.addr.036.lcssa = phi i64 [ %sz, %while.body.lr.ph ], [ %.sroa.speculated, %if.end9 ]
-  %1 = load ptr, ptr %ref.tmp, align 8
+  %0 = load ptr, ptr %ref.tmp, align 8
   %HasError.i7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i8 = load i8, ptr %HasError.i7, align 8
   %bf.clear.i = and i8 %bf.load.i8, -2
   store i8 %bf.clear.i, ptr %HasError.i7, align 8
-  store ptr %1, ptr %agg.result, align 8
+  store ptr %0, ptr %agg.result, align 8
   %ref.tmp3.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sz.addr.036.lcssa, ptr %ref.tmp3.sroa.2.0.agg.result.sroa_idx, align 8
   br label %cleanup
 
 if.end:                                           ; preds = %while.body.lr.ph, %if.end9
-  %result.sroa.0.03353 = phi i64 [ %result.sroa.0.0.insert.insert22, %if.end9 ], [ 0, %while.body.lr.ph ]
-  %sz.addr.03652 = phi i64 [ %.sroa.speculated, %if.end9 ], [ %sz, %while.body.lr.ph ]
+  %result.sroa.0.03354 = phi i64 [ %result.sroa.0.0.insert.insert22, %if.end9 ], [ 0, %while.body.lr.ph ]
+  %sz.addr.03653 = phi i64 [ %.sroa.speculated, %if.end9 ], [ %sz, %while.body.lr.ph ]
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %ref.tmp, align 8
-  %cmp6 = icmp ult i64 %sz.addr.03652, %div4
-  %cmp7 = icmp eq i64 %sz.addr.03652, %minSz
+  %cmp6 = icmp ult i64 %sz.addr.03653, %div4
+  %cmp7 = icmp eq i64 %sz.addr.03653, %minSz
   %or.cond = or i1 %cmp6, %cmp7
   br i1 %or.cond, label %while.end.loopexit, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %result.sroa.0.0.insert.ext20 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i.i to i64
-  %result.sroa.0.0.insert.mask21 = and i64 %result.sroa.0.03353, -4294967296
+  %result.sroa.0.0.insert.mask21 = and i64 %result.sroa.0.03354, -4294967296
   %result.sroa.0.0.insert.insert22 = or disjoint i64 %result.sroa.0.0.insert.mask21, %result.sroa.0.0.insert.ext20
-  %sub = sub i64 %sz.addr.03652, %div4
-  %2 = urem i64 %sub, %alignment
-  %add.i = sub i64 %sub, %2
+  %sub = sub i64 %sz.addr.03653, %div4
+  %1 = urem i64 %sub, %alignment
+  %add.i = sub i64 %sub, %1
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %add.i, i64 %minSz)
   %call = call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
   call void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ref.tmp, i64 noundef %.sroa.speculated, i64 noundef %alignment, ptr noundef %call) #18
   %bf.load.i.i.i.i = load i8, ptr %HasError.i.i.i.i, align 8
-  %3 = and i8 %bf.load.i.i.i.i, 1
-  %bf.cast.not.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %bf.cast.not.i.i.i.i, label %if.then, label %if.end
+  %bf.cast.i.i.i.i = trunc i8 %bf.load.i.i.i.i to i1
+  br i1 %bf.cast.i.i.i.i, label %if.end, label %if.then
 
 while.end.loopexit:                               ; preds = %if.end
   %retval.sroa.31.0.copyload.i.i.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
   br label %while.end
 
 while.end:                                        ; preds = %entry, %while.end.loopexit
+  %2 = phi ptr [ %retval.sroa.31.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ %call.i, %entry ]
   %result.sroa.0.2 = phi i32 [ %retval.sroa.0.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ 0, %entry ]
-  %result.sroa.5.2 = phi ptr [ %retval.sroa.31.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ %call.i, %entry ]
   %HasError.i14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i15 = load i8, ptr %HasError.i14, align 8
   %bf.set.i16 = or i8 %bf.load.i15, 1
   store i8 %bf.set.i16, ptr %HasError.i14, align 8
   store i32 %result.sroa.0.2, ptr %agg.result, align 8
   %EC.sroa.21.0.call.sroa_idx.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %result.sroa.5.2, ptr %EC.sroa.21.0.call.sroa_idx.i17, align 8
+  store ptr %2, ptr %EC.sroa.21.0.call.sroa_idx.i17, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %while.end, %if.then
@@ -308,9 +304,8 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvh7ErrorOrIPvE8getErrorEv(ptr no
 entry:
   %HasError = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %HasError, align 8
-  %0 = and i8 %bf.load, 1
-  %bf.cast.not = icmp eq i8 %0, 0
-  br i1 %bf.cast.not, label %cond.false, label %cond.true
+  %bf.cast = trunc i8 %bf.load to i1
+  br i1 %bf.cast, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   %retval.sroa.0.0.copyload = load i32, ptr %this, align 8
@@ -323,8 +318,8 @@ cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %retval.sroa.31.0 = phi ptr [ %call.i, %cond.false ], [ %retval.sroa.31.0.copyload, %cond.true ]
-  %retval.sroa.0.0 = phi i32 [ 0, %cond.false ], [ %retval.sroa.0.0.copyload, %cond.true ]
+  %retval.sroa.31.0 = phi ptr [ %retval.sroa.31.0.copyload, %cond.true ], [ %call.i, %cond.false ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload, %cond.true ], [ 0, %cond.false ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.31.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -389,34 +384,33 @@ entry:
   call void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %result, i64 noundef 4194304, i64 noundef 4194304, ptr noundef %call3) #18
   %HasError.i = getelementptr inbounds i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
-  %0 = and i8 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i8 %0, 0
-  br i1 %bf.cast.not.i, label %if.end, label %_ZN4llvh7ErrorOrIPvEC2EOS2_.exit
+  %bf.cast.i = trunc i8 %bf.load.i to i1
+  br i1 %bf.cast.i, label %if.then, label %if.end
 
-_ZN4llvh7ErrorOrIPvEC2EOS2_.exit:                 ; preds = %entry
-  %HasError2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %bf.load3.i.i = load i8, ptr %HasError2.i.i, align 8
-  %bf.set9.i.i = or i8 %bf.load3.i.i, 1
-  store i8 %bf.set9.i.i, ptr %HasError2.i.i, align 8
+if.then:                                          ; preds = %entry
+  %HasError6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bf.load7.i.i = load i8, ptr %HasError6.i.i, align 8
+  %bf.set9.i.i = or i8 %bf.load7.i.i, 1
+  store i8 %bf.set9.i.i, ptr %HasError6.i.i, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %result, align 8
   %retval.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %retval.sroa.31.0.copyload.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %agg.result, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %retval.sroa.31.0.copyload.i.i.i, ptr %1, align 8
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %retval.sroa.31.0.copyload.i.i.i, ptr %0, align 8
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %result, align 8
-  call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %2, i64 noundef 4194304, ptr noundef %name) #18
+  %1 = load ptr, ptr %result, align 8
+  call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %1, i64 noundef 4194304, ptr noundef %name) #18
   %HasError.i1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i2 = load i8, ptr %HasError.i1, align 8
   %bf.clear.i = and i8 %bf.load.i2, -2
   store i8 %bf.clear.i, ptr %HasError.i1, align 8
-  store ptr %2, ptr %agg.result, align 8
+  store ptr %1, ptr %agg.result, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end, %_ZN4llvh7ErrorOrIPvEC2EOS2_.exit
+cleanup:                                          ; preds = %if.then, %if.end
   ret void
 }
 
@@ -1095,9 +1089,8 @@ if.end13:                                         ; preds = %if.then5, %if.then
   tail call void @_ZN6hermes8oscompat9vm_commitEPvm(ptr sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef %storage.0, i64 noundef 4194304) #18
   %HasError.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i4 = load i8, ptr %HasError.i3, align 8
-  %8 = and i8 %bf.load.i4, 1
-  %bf.cast.not.i = icmp eq i8 %8, 0
-  br i1 %bf.cast.not.i, label %if.then16, label %return
+  %bf.cast.i = trunc i8 %bf.load.i4 to i1
+  br i1 %bf.cast.i, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
   tail call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %storage.0, i64 noundef 4194304, ptr noundef %name) #18

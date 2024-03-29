@@ -62,9 +62,8 @@ define dso_local void @CreateSharedInvalidationState() local_unnamed_addr #0 {
   %12 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %11, ptr noundef nonnull %1) #8
   store ptr %12, ptr @shmInvalBuffer, align 8
   %13 = load i8, ptr %1, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %36
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %36, label %15
 
 15:                                               ; preds = %0
   store i32 0, ptr %12, align 8
@@ -425,9 +424,9 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 
 23:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.067 = phi i32 [ %13, %.lr.ph ], [ %.2, %47 ]
-  %.05166 = phi i32 [ %19, %.lr.ph ], [ %.152, %47 ]
-  %.05564 = phi ptr [ null, %.lr.ph ], [ %.156, %47 ]
+  %.064 = phi i32 [ %13, %.lr.ph ], [ %.2, %47 ]
+  %.05163 = phi i32 [ %19, %.lr.ph ], [ %.152, %47 ]
+  %.05561 = phi ptr [ null, %.lr.ph ], [ %.156, %47 ]
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr i32, ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
@@ -437,16 +436,14 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %28, i64 8
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not59 = icmp eq i8 %33, 0
-  br i1 %.not59, label %34, label %47
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %47, label %34
 
 34:                                               ; preds = %23
   %35 = getelementptr inbounds i8, ptr %28, i64 11
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not60 = icmp eq i8 %37, 0
-  br i1 %.not60, label %38, label %47
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %47, label %38
 
 38:                                               ; preds = %34
   %39 = icmp slt i32 %30, %15
@@ -457,23 +454,22 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   br label %47
 
 41:                                               ; preds = %38
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.067)
-  %42 = icmp slt i32 %30, %.05166
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.064)
+  %42 = icmp slt i32 %30, %.05163
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %28, i64 9
   %45 = load i8, ptr %44, align 1
-  %46 = and i8 %45, 1
-  %.not61 = icmp eq i8 %46, 0
-  %spec.select62 = select i1 %.not61, ptr %28, ptr %.05564
-  %spec.select63 = select i1 %.not61, i32 %30, i32 %.05166
+  %46 = trunc i8 %45 to i1
+  %spec.select59 = select i1 %46, ptr %.05561, ptr %28
+  %spec.select60 = select i1 %46, i32 %.05163, i32 %30
   br label %47
 
 47:                                               ; preds = %43, %41, %23, %34, %40
-  %.156 = phi ptr [ %.05564, %23 ], [ %.05564, %34 ], [ %.05564, %40 ], [ %.05564, %41 ], [ %spec.select62, %43 ]
-  %.152 = phi i32 [ %.05166, %23 ], [ %.05166, %34 ], [ %.05166, %40 ], [ %.05166, %41 ], [ %spec.select63, %43 ]
-  %.2 = phi i32 [ %.067, %23 ], [ %.067, %34 ], [ %.067, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
+  %.156 = phi ptr [ %.05561, %23 ], [ %.05561, %34 ], [ %.05561, %40 ], [ %.05561, %41 ], [ %spec.select59, %43 ]
+  %.152 = phi i32 [ %.05163, %23 ], [ %.05163, %34 ], [ %.05163, %40 ], [ %.05163, %41 ], [ %spec.select60, %43 ]
+  %.2 = phi i32 [ %.064, %23 ], [ %.064, %34 ], [ %.064, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp ult i64 %indvars.iv.next, %22
   br i1 %48, label %23, label %._crit_edge, !llvm.loop !14
@@ -500,36 +496,36 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   store i32 %54, ptr %3, align 8
   %55 = add i32 %13, -1073741824
   store i32 %55, ptr %12, align 4
-  br i1 %18, label %.lr.ph71, label %.loopexit
+  br i1 %18, label %.lr.ph68, label %.loopexit
 
-.lr.ph71:                                         ; preds = %53
+.lr.ph68:                                         ; preds = %53
   %56 = getelementptr inbounds i8, ptr %3, i64 65568
   %57 = getelementptr inbounds i8, ptr %3, i64 65560
   %.pre = load ptr, ptr %57, align 8
   %58 = zext nneg i32 %17 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph71, %59
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next74, %59 ]
-  %60 = getelementptr i32, ptr %.pre, i64 %indvars.iv73
+59:                                               ; preds = %.lr.ph68, %59
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next71, %59 ]
+  %60 = getelementptr i32, ptr %.pre, i64 %indvars.iv70
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
   %63 = getelementptr [0 x %struct.ProcState], ptr %56, i64 0, i64 %62, i32 1
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, -1073741824
   store i32 %65, ptr %63, align 4
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %66 = icmp ult i64 %indvars.iv.next74, %58
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %66 = icmp ult i64 %indvars.iv.next71, %58
   br i1 %66, label %59, label %.loopexit.loopexit, !llvm.loop !15
 
 .loopexit.loopexit:                               ; preds = %59
-  %.pre76 = load i32, ptr %12, align 4
+  %.pre73 = load i32, ptr %12, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %._crit_edge.thread, %.loopexit.loopexit, %53, %._crit_edge
-  %.055.lcssa79 = phi ptr [ %.156, %.loopexit.loopexit ], [ %.156, %53 ], [ %.156, %._crit_edge ], [ null, %._crit_edge.thread ], [ null, %.thread ]
+  %.055.lcssa76 = phi ptr [ %.156, %.loopexit.loopexit ], [ %.156, %53 ], [ %.156, %._crit_edge ], [ null, %._crit_edge.thread ], [ null, %.thread ]
   %67 = phi i32 [ %54, %.loopexit.loopexit ], [ %54, %53 ], [ %.2, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %51, %.thread ]
-  %68 = phi i32 [ %.pre76, %.loopexit.loopexit ], [ %55, %53 ], [ %13, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %52, %.thread ]
+  %68 = phi i32 [ %.pre73, %.loopexit.loopexit ], [ %55, %53 ], [ %13, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %52, %.thread ]
   %69 = sub i32 %68, %67
   %70 = icmp slt i32 %69, 2048
   %71 = and i32 %69, 2147483392
@@ -537,18 +533,18 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %.sink = select i1 %70, i32 2048, i32 %72
   %73 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %.sink, ptr %73, align 8
-  %.not = icmp eq ptr %.055.lcssa79, null
+  %.not = icmp eq ptr %.055.lcssa76, null
   br i1 %.not, label %96, label %74
 
 74:                                               ; preds = %.loopexit
-  %75 = load i32, ptr %.055.lcssa79, align 4
+  %75 = load i32, ptr %.055.lcssa76, align 4
   %76 = getelementptr inbounds i8, ptr %3, i64 65568
-  %77 = ptrtoint ptr %.055.lcssa79 to i64
+  %77 = ptrtoint ptr %.055.lcssa76 to i64
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = lshr exact i64 %79, 4
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %.055.lcssa79, i64 9
+  %82 = getelementptr inbounds i8, ptr %.055.lcssa76, i64 9
   store i8 1, ptr %82, align 1
   %83 = load ptr, ptr @MainLWLockArray, align 8
   %84 = getelementptr i8, ptr %83, i64 640
@@ -604,9 +600,8 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
   %7 = getelementptr [0 x %struct.ProcState], ptr %4, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 10
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %47, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %47
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @MainLWLockArray, align 8
@@ -615,8 +610,8 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
   store i8 0, ptr %8, align 2
   %15 = getelementptr inbounds i8, ptr %3, i64 12
   %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #8, !srcloc !10
-  %.not28 = icmp eq i8 %16, 0
-  br i1 %.not28, label %19, label %17
+  %.not = icmp eq i8 %16, 0
+  br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %11
   %18 = tail call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef 511, ptr noundef nonnull @__func__.SIGetDataEntries) #8
@@ -629,14 +624,13 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
   store i8 0, ptr %15, align 4
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not29 = icmp eq i8 %24, 0
+  %24 = trunc i8 %23 to i1
   %25 = getelementptr inbounds i8, ptr %7, i64 4
-  br i1 %.not29, label %.preheader, label %28
+  br i1 %24, label %28, label %.preheader
 
 .preheader:                                       ; preds = %19
   %26 = icmp sgt i32 %1, 0
-  %.pre35 = load i32, ptr %25, align 4
+  %.pre33 = load i32, ptr %25, align 4
   br i1 %26, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -652,10 +646,10 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
   br label %.sink.split
 
 30:                                               ; preds = %.lr.ph, %33
-  %31 = phi i32 [ %.pre35, %.lr.ph ], [ %39, %33 ]
+  %31 = phi i32 [ %.pre33, %.lr.ph ], [ %39, %33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %32 = icmp slt i32 %31, %21
-  br i1 %32, label %33, label %.critedge.loopexit.split.loop.exit36
+  br i1 %32, label %33, label %.critedge.loopexit.split.loop.exit34
 
 33:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -670,15 +664,15 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !17
 
-.critedge.loopexit.split.loop.exit36:             ; preds = %30
+.critedge.loopexit.split.loop.exit34:             ; preds = %30
   %40 = trunc i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit36, %.preheader
-  %41 = phi i32 [ %.pre35, %.preheader ], [ %31, %.critedge.loopexit.split.loop.exit36 ], [ %39, %33 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %40, %.critedge.loopexit.split.loop.exit36 ], [ %1, %33 ]
-  %.not30 = icmp slt i32 %41, %21
-  br i1 %.not30, label %44, label %42
+.critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit34, %.preheader
+  %41 = phi i32 [ %.pre33, %.preheader ], [ %31, %.critedge.loopexit.split.loop.exit34 ], [ %39, %33 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %40, %.critedge.loopexit.split.loop.exit34 ], [ %1, %33 ]
+  %.not28 = icmp slt i32 %41, %21
+  br i1 %.not28, label %44, label %42
 
 42:                                               ; preds = %.critedge
   %43 = getelementptr inbounds i8, ptr %7, i64 9

@@ -516,116 +516,113 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit99: ; preds = %_ZNS
 206:                                              ; preds = %203
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %207 = icmp slt i64 %spec.select, 0
-  %.071.lobit = lshr i64 %spec.select, 63
-  %208 = trunc i64 %.071.lobit to i8
-  %209 = getelementptr inbounds i8, ptr %159, i64 1
-  %210 = load i8, ptr %209, align 1
-  switch i8 %210, label %212 [
-    i8 115, label %211
-    i8 83, label %211
+  %208 = getelementptr inbounds i8, ptr %159, i64 1
+  %209 = load i8, ptr %208, align 1
+  switch i8 %209, label %211 [
+    i8 115, label %210
+    i8 83, label %210
   ]
 
-211:                                              ; preds = %206, %206
-  store ptr %209, ptr %6, align 8
+210:                                              ; preds = %206, %206
+  store ptr %208, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %159, i64 2
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %212
+  br label %211
 
-212:                                              ; preds = %206, %211
-  %213 = phi i8 [ %.pre, %211 ], [ %210, %206 ]
-  %214 = phi ptr [ %209, %211 ], [ %159, %206 ]
-  %.070 = phi i1 [ true, %211 ], [ false, %206 ]
-  %215 = getelementptr inbounds i8, ptr %214, i64 1
-  switch i8 %213, label %226 [
+211:                                              ; preds = %206, %210
+  %212 = phi i8 [ %.pre, %210 ], [ %209, %206 ]
+  %213 = phi ptr [ %208, %210 ], [ %159, %206 ]
+  %.070 = phi i1 [ true, %210 ], [ false, %206 ]
+  %214 = getelementptr inbounds i8, ptr %213, i64 1
+  switch i8 %212, label %225 [
     i8 98, label %.invoke160
     i8 66, label %.invoke160
-    i8 111, label %220
-    i8 79, label %220
-    i8 100, label %221
-    i8 68, label %221
-    i8 104, label %222
-    i8 72, label %222
+    i8 111, label %219
+    i8 79, label %219
+    i8 100, label %220
+    i8 68, label %220
+    i8 104, label %221
+    i8 72, label %221
   ]
 
-216:                                              ; preds = %.invoke160, %241, %240, %232
-  %217 = landingpad { ptr, i32 }
+215:                                              ; preds = %.invoke160, %240, %239, %231
+  %216 = landingpad { ptr, i32 }
           cleanup
-  %218 = load ptr, ptr %8, align 8
-  %.not.i.i.i104 = icmp eq ptr %218, null
-  br i1 %.not.i.i.i104, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit, label %219
+  %217 = load ptr, ptr %8, align 8
+  %.not.i.i.i104 = icmp eq ptr %217, null
+  br i1 %.not.i.i.i104, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit, label %218
 
-219:                                              ; preds = %216
-  call void @_ZdlPv(ptr noundef nonnull %218) #18
+218:                                              ; preds = %215
+  call void @_ZdlPv(ptr noundef nonnull %217) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
-220:                                              ; preds = %212, %212
+219:                                              ; preds = %211, %211
   br label %.invoke160
 
-221:                                              ; preds = %212, %212
+220:                                              ; preds = %211, %211
   br label %.invoke160
 
-222:                                              ; preds = %212, %212
+221:                                              ; preds = %211, %211
   br label %.invoke160
 
-.invoke160:                                       ; preds = %212, %212, %220, %221, %222
-  %223 = phi i32 [ 16, %222 ], [ 10, %221 ], [ 8, %220 ], [ 2, %212 ], [ 2, %212 ]
-  %224 = getelementptr inbounds i8, ptr %214, i64 2
-  %225 = trunc i64 %spec.select to i32
-  invoke fastcc void @_ZN5YosysL11my_strtobinERSt6vectorINS_5RTLIL5StateESaIS2_EEPKciicb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %224, i32 noundef %225, i32 noundef %223, i8 noundef signext %1, i1 noundef zeroext %207)
-          to label %233 unwind label %216
+.invoke160:                                       ; preds = %211, %211, %219, %220, %221
+  %222 = phi i32 [ 16, %221 ], [ 10, %220 ], [ 8, %219 ], [ 2, %211 ], [ 2, %211 ]
+  %223 = getelementptr inbounds i8, ptr %213, i64 2
+  %224 = trunc i64 %spec.select to i32
+  invoke fastcc void @_ZN5YosysL11my_strtobinERSt6vectorINS_5RTLIL5StateESaIS2_EEPKciicb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %223, i32 noundef %224, i32 noundef %222, i8 noundef signext %1, i1 noundef zeroext %207)
+          to label %232 unwind label %215
 
-226:                                              ; preds = %212
-  %227 = sext i8 %213 to i32
-  %228 = tail call i32 @tolower(i32 noundef %227) #15
-  %229 = and i32 %228, 254
-  %or.cond = icmp eq i32 %229, 48
-  %230 = and i32 %228, 253
-  %231 = icmp eq i32 %230, 120
-  %or.cond8 = or i1 %or.cond, %231
-  br i1 %or.cond8, label %232, label %.critedge
+225:                                              ; preds = %211
+  %226 = sext i8 %212 to i32
+  %227 = tail call i32 @tolower(i32 noundef %226) #15
+  %228 = and i32 %227, 254
+  %or.cond = icmp eq i32 %228, 48
+  %229 = and i32 %227, 253
+  %230 = icmp eq i32 %229, 120
+  %or.cond8 = or i1 %or.cond, %230
+  br i1 %or.cond8, label %231, label %.critedge
 
-232:                                              ; preds = %226
-  invoke fastcc void @_ZN5YosysL11my_strtobinERSt6vectorINS_5RTLIL5StateESaIS2_EEPKciicb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %215, i32 noundef 1, i32 noundef 2, i8 noundef signext %1, i1 noundef zeroext true)
-          to label %233 unwind label %216
+231:                                              ; preds = %225
+  invoke fastcc void @_ZN5YosysL11my_strtobinERSt6vectorINS_5RTLIL5StateESaIS2_EEPKciicb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %214, i32 noundef 1, i32 noundef 2, i8 noundef signext %1, i1 noundef zeroext true)
+          to label %232 unwind label %215
 
-233:                                              ; preds = %.invoke160, %232
-  %.069 = phi i8 [ 1, %232 ], [ %208, %.invoke160 ]
+232:                                              ; preds = %.invoke160, %231
+  %.069 = phi i1 [ true, %231 ], [ %207, %.invoke160 ]
   %brmerge.demorgan = and i1 %207, %.070
-  br i1 %brmerge.demorgan, label %234, label %241
+  br i1 %brmerge.demorgan, label %233, label %240
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds i8, ptr %8, i64 8
-  %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 -1
-  %238 = load i8, ptr %237, align 1
-  %239 = icmp eq i8 %238, 1
-  br i1 %239, label %240, label %241
+233:                                              ; preds = %232
+  %234 = getelementptr inbounds i8, ptr %8, i64 8
+  %235 = load ptr, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 -1
+  %237 = load i8, ptr %236, align 1
+  %238 = icmp eq i8 %237, 1
+  br i1 %238, label %239, label %240
 
-240:                                              ; preds = %234
+239:                                              ; preds = %233
   store i8 0, ptr %9, align 1
   invoke void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %241 unwind label %216
+          to label %240 unwind label %215
 
-241:                                              ; preds = %233, %234, %240
-  %242 = icmp ne i8 %.069, 0
-  %243 = invoke noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext %.070, i1 noundef zeroext %242)
-          to label %244 unwind label %216
+240:                                              ; preds = %232, %233, %239
+  %241 = invoke noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5StateESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext %.070, i1 noundef zeroext %.069)
+          to label %242 unwind label %215
 
-244:                                              ; preds = %241
+242:                                              ; preds = %240
   %.pre144 = load ptr, ptr %8, align 8
   %.not.i.i.i106 = icmp eq ptr %.pre144, null
-  br i1 %.not.i.i.i106, label %.critedge, label %245
+  br i1 %.not.i.i.i106, label %.critedge, label %243
 
-245:                                              ; preds = %244
+243:                                              ; preds = %242
   call void @_ZdlPv(ptr noundef nonnull %.pre144) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %226, %._crit_edge.i.i.i, %245, %244, %202, %200, %128, %126, %203, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, %58, %12
-  %.1 = phi ptr [ null, %12 ], [ %11, %58 ], [ %11, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ null, %203 ], [ %122, %126 ], [ %122, %128 ], [ %199, %200 ], [ %199, %202 ], [ %243, %244 ], [ %243, %245 ], [ %11, %._crit_edge.i.i.i ], [ null, %226 ]
+.critedge:                                        ; preds = %225, %._crit_edge.i.i.i, %243, %242, %202, %200, %128, %126, %203, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, %58, %12
+  %.1 = phi ptr [ null, %12 ], [ %11, %58 ], [ %11, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ null, %203 ], [ %122, %126 ], [ %122, %128 ], [ %199, %200 ], [ %199, %202 ], [ %241, %242 ], [ %241, %243 ], [ %11, %._crit_edge.i.i.i ], [ null, %225 ]
   ret ptr %.1
 
-_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %219, %216, %198, %195, %120, %118, %62
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %lpad.phi, %118 ], [ %lpad.phi, %120 ], [ %196, %195 ], [ %196, %198 ], [ %217, %216 ], [ %217, %219 ]
+_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %218, %215, %198, %195, %120, %118, %62
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %lpad.phi, %118 ], [ %lpad.phi, %120 ], [ %196, %195 ], [ %196, %198 ], [ %216, %215 ], [ %216, %218 ]
   resume { ptr, i32 } %.pn
 }
 

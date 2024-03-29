@@ -73,9 +73,8 @@ pthread_notifywaiters.exit:                       ; preds = %30, %33
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 9
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not18 = icmp eq i8 %44, 0
-  br i1 %.not18, label %65, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %65
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %41, i64 12

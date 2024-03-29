@@ -62,32 +62,31 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN14StatementBreak11make_randomER9CGContext(ptr noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
-  %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %.critedge, label %.lr.ph
+  %.not17 = icmp eq ptr %2, null
+  br i1 %.not17, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
-  %.01419 = phi ptr [ %8, %6 ], [ %2, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.01419, i64 152
+  %.01418 = phi ptr [ %8, %6 ], [ %2, %1 ]
+  %3 = getelementptr inbounds i8, ptr %.01418, i64 152
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not15 = icmp eq i8 %5, 0
-  br i1 %.not15, label %6, label %.critedge
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.01419, i64 24
+  %7 = getelementptr inbounds i8, ptr %.01418, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !5
 
 .critedge:                                        ; preds = %.lr.ph, %6, %1
-  %.014.lcssa = phi ptr [ null, %1 ], [ null, %6 ], [ %.01419, %.lr.ph ]
+  %.014.lcssa = phi ptr [ null, %1 ], [ null, %6 ], [ %.01418, %.lr.ph ]
   %9 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZN6Effect5clearEv(ptr noundef nonnull align 8 dereferenceable(74) %9)
   %10 = tail call noundef ptr @_Z12get_int_typev()
   %11 = tail call noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK12CVQualifiersbb9eTermType(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %10, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 1)
   %12 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not16 = icmp eq i32 %12, 0
-  br i1 %.not16, label %13, label %_ZNSt6vectorIPK9StatementSaIS2_EE9push_backEOS2_.exit
+  %.not15 = icmp eq i32 %12, 0
+  br i1 %.not15, label %13, label %_ZNSt6vectorIPK9StatementSaIS2_EE9push_backEOS2_.exit
 
 13:                                               ; preds = %.critedge
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14

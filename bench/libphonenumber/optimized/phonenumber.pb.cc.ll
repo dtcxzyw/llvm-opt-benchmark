@@ -121,8 +121,7 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers37PhoneNumber_Country
   %2 = icmp ult i32 %0, 21
   %switch.cast = trunc i32 %0 to i21
   %switch.downshift = lshr i21 -1047517, %switch.cast
-  %3 = and i21 %switch.downshift, 1
-  %switch.masked = icmp ne i21 %3, 0
+  %switch.masked = trunc i21 %switch.downshift to i1
   %.0 = select i1 %2, i1 %switch.masked, i1 false
   ret i1 %.0
 }
@@ -644,9 +643,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %19
   %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.086, i32 noundef %16)
   %28 = extractvalue { ptr, i8 } %27, 0
   %29 = extractvalue { ptr, i8 } %27, 1
-  %30 = and i8 %29, 1
-  %.not104 = icmp eq i8 %30, 0
-  br i1 %.not104, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
   %.192 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.086, %.backedge ]
@@ -1336,10 +1334,10 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121: ; preds = %
   %.0.i120 = phi ptr [ %92, %91 ], [ %.2, %89 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 60
   %94 = load i8, ptr %93, align 4
-  %95 = and i8 %94, 1
   store i8 32, ptr %.0.i120, align 1
-  %96 = getelementptr inbounds i8, ptr %.0.i120, i64 1
-  store i8 %95, ptr %96, align 1
+  %95 = getelementptr inbounds i8, ptr %.0.i120, i64 1
+  %96 = and i8 %94, 1
+  store i8 %96, ptr %95, align 1
   %97 = getelementptr inbounds i8, ptr %.0.i120, i64 2
   br label %98
 
@@ -2113,9 +2111,9 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
 99:                                               ; preds = %97
   %100 = getelementptr inbounds i8, ptr %1, i64 60
   %101 = load i8, ptr %100, align 4
-  %102 = and i8 %101, 1
-  %103 = getelementptr inbounds i8, ptr %0, i64 60
-  store i8 %102, ptr %103, align 4
+  %102 = getelementptr inbounds i8, ptr %0, i64 60
+  %103 = and i8 %101, 1
+  store i8 %103, ptr %102, align 4
   br label %104
 
 104:                                              ; preds = %99, %97

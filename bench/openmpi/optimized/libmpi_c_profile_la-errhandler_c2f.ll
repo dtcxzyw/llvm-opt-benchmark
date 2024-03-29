@@ -10,19 +10,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @PMPI_Errhandler_c2f(ptr noundef readonly %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = icmp eq ptr %0, null
-  %or.cond = and i1 %5, %4
-  br i1 %or.cond, label %9, label %6
+  %3 = trunc i8 %2 to i1
+  %4 = icmp eq ptr %0, null
+  %or.cond = and i1 %4, %3
+  br i1 %or.cond, label %8, label %5
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = load i32, ptr %7, align 8
-  br label %9
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = load i32, ptr %6, align 8
+  br label %8
 
-9:                                                ; preds = %1, %6
-  %.0 = phi i32 [ %8, %6 ], [ -1, %1 ]
+8:                                                ; preds = %1, %5
+  %.0 = phi i32 [ %7, %5 ], [ -1, %1 ]
   ret i32 %.0
 }
 

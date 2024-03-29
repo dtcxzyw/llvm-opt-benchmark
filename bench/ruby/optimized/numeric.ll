@@ -9443,9 +9443,8 @@ define internal i64 @num_eql(i64 noundef %0, i64 noundef %1) #2 {
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
-  %20 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %20, 0
-  br i1 %switch.lobit.not, label %15, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %13
@@ -9454,72 +9453,71 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 rb_type.exit:                                     ; preds = %switch.lookup, %7, %15, %17
   %.0.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i, %17 ], [ %switch.load, %switch.lookup ]
-  %21 = and i64 %1, 7
-  %22 = icmp ne i64 %21, 0
-  %23 = icmp eq i64 %1, 0
-  %24 = or i1 %23, %22
-  br i1 %24, label %30, label %25
+  %20 = and i64 %1, 7
+  %21 = icmp ne i64 %20, 0
+  %22 = icmp eq i64 %1, 0
+  %23 = or i1 %22, %21
+  br i1 %23, label %29, label %24
 
-25:                                               ; preds = %rb_type.exit
-  %26 = inttoptr i64 %1 to ptr
-  %27 = load i64, ptr %26, align 8
-  %28 = trunc i64 %27 to i32
-  %29 = and i32 %28, 31
+24:                                               ; preds = %rb_type.exit
+  %25 = inttoptr i64 %1 to ptr
+  %26 = load i64, ptr %25, align 8
+  %27 = trunc i64 %26 to i32
+  %28 = and i32 %27, 31
   br label %rb_type.exit29
 
-30:                                               ; preds = %rb_type.exit
-  %31 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 62)
-  %32 = icmp ult i64 %31, 10
-  br i1 %32, label %switch.hole_check31, label %33
+29:                                               ; preds = %rb_type.exit
+  %30 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 62)
+  %31 = icmp ult i64 %30, 10
+  br i1 %31, label %switch.hole_check31, label %32
 
-33:                                               ; preds = %switch.hole_check31, %30
-  %34 = and i64 %1, 1
-  %.not.i27 = icmp eq i64 %34, 0
-  br i1 %.not.i27, label %35, label %rb_type.exit29
+32:                                               ; preds = %switch.hole_check31, %29
+  %33 = and i64 %1, 1
+  %.not.i27 = icmp eq i64 %33, 0
+  br i1 %.not.i27, label %34, label %rb_type.exit29
 
-35:                                               ; preds = %33
-  %36 = and i64 %1, 254
-  %37 = icmp eq i64 %36, 12
-  %spec.select.i28 = select i1 %37, i32 20, i32 4
+34:                                               ; preds = %32
+  %35 = and i64 %1, 254
+  %36 = icmp eq i64 %35, 12
+  %spec.select.i28 = select i1 %36, i32 20, i32 4
   br label %rb_type.exit29
 
-switch.hole_check31:                              ; preds = %30
-  %switch.maskindex33 = trunc i64 %31 to i16
+switch.hole_check31:                              ; preds = %29
+  %switch.maskindex33 = trunc i64 %30 to i16
   %switch.shifted34 = lshr i16 547, %switch.maskindex33
-  %38 = and i16 %switch.shifted34, 1
-  %switch.lobit35.not = icmp eq i16 %38, 0
-  br i1 %switch.lobit35.not, label %33, label %switch.lookup32
+  %switch.lobit35 = trunc i16 %switch.shifted34 to i1
+  br i1 %switch.lobit35, label %switch.lookup32, label %32
 
 switch.lookup32:                                  ; preds = %switch.hole_check31
-  %switch.gep36 = getelementptr inbounds [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %31
+  %switch.gep36 = getelementptr inbounds [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %30
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   br label %rb_type.exit29
 
-rb_type.exit29:                                   ; preds = %switch.lookup32, %25, %33, %35
-  %.0.i26 = phi i32 [ %29, %25 ], [ 21, %33 ], [ %spec.select.i28, %35 ], [ %switch.load37, %switch.lookup32 ]
+rb_type.exit29:                                   ; preds = %switch.lookup32, %24, %32, %34
+  %.0.i26 = phi i32 [ %28, %24 ], [ 21, %32 ], [ %spec.select.i28, %34 ], [ %switch.load37, %switch.lookup32 ]
   %.not = icmp eq i32 %.0.i, %.0.i26
-  br i1 %.not, label %39, label %48
+  br i1 %.not, label %37, label %46
 
-39:                                               ; preds = %rb_type.exit29
-  br i1 %6, label %.critedge, label %40
+37:                                               ; preds = %rb_type.exit29
+  br i1 %6, label %.critedge, label %38
 
-40:                                               ; preds = %39
-  %41 = inttoptr i64 %0 to ptr
-  %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, 31
-  %44 = icmp eq i64 %43, 10
-  br i1 %44, label %45, label %.critedge
+38:                                               ; preds = %37
+  %39 = inttoptr i64 %0 to ptr
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, 31
+  %42 = icmp eq i64 %41, 10
+  br i1 %42, label %43, label %.critedge
 
-45:                                               ; preds = %40
-  %46 = tail call i64 @rb_big_eql(i64 noundef %0, i64 noundef %1) #23
-  br label %48
+43:                                               ; preds = %38
+  %44 = tail call i64 @rb_big_eql(i64 noundef %0, i64 noundef %1) #23
+  br label %46
 
-.critedge:                                        ; preds = %39, %40
-  %47 = tail call i64 @rb_equal(i64 noundef %0, i64 noundef %1) #23
-  br label %48
+.critedge:                                        ; preds = %37, %38
+  %45 = tail call i64 @rb_equal(i64 noundef %0, i64 noundef %1) #23
+  br label %46
 
-48:                                               ; preds = %rb_type.exit29, %.critedge, %45
-  %.025 = phi i64 [ %46, %45 ], [ %47, %.critedge ], [ 0, %rb_type.exit29 ]
+46:                                               ; preds = %rb_type.exit29, %.critedge, %43
+  %.025 = phi i64 [ %44, %43 ], [ %45, %.critedge ], [ 0, %rb_type.exit29 ]
   ret i64 %.025
 }
 

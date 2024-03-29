@@ -2921,8 +2921,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic7
 entry:
   %m_updated = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i8, ptr %m_updated, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -3097,8 +3096,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_t
 entry:
   %m_updated.i = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load i8, ptr %m_updated.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 

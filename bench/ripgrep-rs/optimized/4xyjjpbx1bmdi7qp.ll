@@ -89,8 +89,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !7, !align !11, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %5 = load i64, ptr %4, align 8, !range !21, !alias.scope !18, !noalias !22, !noundef !7
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.016ba5849671e662eca29f359f3ab3de.44, i64 noundef 4), !noalias !18

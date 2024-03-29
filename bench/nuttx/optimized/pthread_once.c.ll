@@ -12,17 +12,15 @@ define noundef i32 @pthread_once(ptr noundef %0, ptr noundef readonly %1) local_
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %16
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #2
   %11 = load i8, ptr %0, align 8
-  %12 = and i8 %11, 1
-  %.not11 = icmp eq i8 %12, 0
-  br i1 %.not11, label %13, label %14
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %8
   tail call void %1() #2

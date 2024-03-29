@@ -56,8 +56,8 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907(ptr noalias noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !range !23, !noalias !24, !noundef !4
-  %trunc.not.i = icmp eq i64 %2, 0
-  br i1 %trunc.not.i, label %3, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hcd21977a8240d813E.exit"
+  %trunc.i = trunc i64 %2 to i1
+  br i1 %trunc.i, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hcd21977a8240d813E.exit", label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc35bd307aca5481aE.llvm.5475833252656655467"(ptr noundef nonnull align 8 @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, ptr noalias noundef align 8 dereferenceable_or_null(24) %0)
@@ -209,8 +209,8 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46e738e7e92f875E.llvm.1732485287810365907"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = load i64, ptr %0, align 8, !range !23, !noundef !4
-  %trunc.not = icmp eq i64 %6, 0
-  br i1 %trunc.not, label %7, label %14
+  %trunc = trunc i64 %6 to i1
+  br i1 %trunc, label %14, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -235,8 +235,8 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..default..De
 define hidden { i64, i64 } @"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.llvm.1732485287810365907"() unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   %2 = load i64, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !range !23, !noalias !67, !noundef !4
-  %trunc.not.i.i = icmp eq i64 %2, 0
-  br i1 %trunc.not.i.i, label %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907.exit, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46e738e7e92f875E.llvm.1732485287810365907.exit"
+  %trunc.i.i = trunc i64 %2 to i1
+  br i1 %trunc.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46e738e7e92f875E.llvm.1732485287810365907.exit", label %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907.exit
 
 _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907.exit: ; preds = %0
   %3 = tail call noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc35bd307aca5481aE.llvm.5475833252656655467"(ptr noundef nonnull align 8 @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !75
@@ -266,8 +266,8 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
 define hidden void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h7b134d6920dca11eE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = load i64, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !range !23, !noalias !79, !noundef !4
-  %trunc.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %trunc.not.i.i.i, label %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907.exit.i, label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.llvm.1732485287810365907.exit"
+  %trunc.i.i.i = trunc i64 %3 to i1
+  br i1 %trunc.i.i.i, label %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17h208ae8a393deb0e1E.llvm.1732485287810365907.exit", label %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907.exit.i
 
 _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.llvm.1732485287810365907.exit.i: ; preds = %1
   %4 = tail call noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc35bd307aca5481aE.llvm.5475833252656655467"(ptr noundef nonnull align 8 @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !87

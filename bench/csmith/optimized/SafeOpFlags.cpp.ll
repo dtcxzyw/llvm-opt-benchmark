@@ -199,11 +199,10 @@ switch.lookup4:                                   ; preds = %5
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN11SafeOpFlags12get_lhs_typeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load i8, ptr %0, align 4
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
+  %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  br i1 %.not, label %8, label %6
+  br i1 %3, label %6, label %8
 
 6:                                                ; preds = %1
   %7 = icmp ult i32 %5, 5
@@ -240,11 +239,10 @@ declare noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_t
 define dso_local noundef nonnull ptr @_ZN11SafeOpFlags12get_rhs_typeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  br i1 %.not, label %9, label %7
+  br i1 %4, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = icmp ult i32 %6, 5
@@ -603,9 +601,8 @@ define dso_local noalias noundef nonnull ptr @_ZNK11SafeOpFlags5cloneEv(ptr noca
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11SafeOpFlags10OutputSizeERSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = load i8, ptr %0, align 4
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %7
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str)
@@ -634,10 +631,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define dso_local void @_ZNK11SafeOpFlags17OutputFuncOrMacroERSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %.str.8..str.7 = select i1 %.not, ptr @.str.8, ptr @.str.7
-  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.8..str.7)
+  %5 = trunc i8 %4 to i1
+  %.str.7..str.8 = select i1 %5, ptr @.str.7, ptr @.str.8
+  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.7..str.8)
   ret void
 }
 
@@ -651,9 +647,8 @@ define dso_local void @_ZNK11SafeOpFlags10OutputSignERSob(ptr nocapture noundef 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11SafeOpFlags9OutputOp1ERSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = load i8, ptr %0, align 4
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  %.str.9..str.10.i = select i1 %.not, ptr @.str.10, ptr @.str.9
+  %4 = trunc i8 %3 to i1
+  %.str.9..str.10.i = select i1 %4, ptr @.str.9, ptr @.str.10
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.9..str.10.i)
   ret void
 }
@@ -662,9 +657,8 @@ define dso_local void @_ZNK11SafeOpFlags9OutputOp1ERSo(ptr nocapture noundef non
 define dso_local void @_ZNK11SafeOpFlags9OutputOp2ERSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %.str.9..str.10.i = select i1 %.not, ptr @.str.10, ptr @.str.9
+  %5 = trunc i8 %4 to i1
+  %.str.9..str.10.i = select i1 %5, ptr @.str.9, ptr @.str.10
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.9..str.10.i)
   ret void
 }
@@ -792,17 +786,15 @@ switch.lookup:                                    ; preds = %9
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %1, i64 2
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  %.str.8..str.7.i = select i1 %.not.i, ptr @.str.8, ptr @.str.7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.8..str.7.i)
+  %32 = trunc i8 %31 to i1
+  %.str.7..str.8.i = select i1 %32, ptr @.str.7, ptr @.str.8
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.7..str.8.i)
           to label %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit unwind label %54
 
 _ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit:    ; preds = %29
   %34 = load i8, ptr %1, align 4
-  %35 = and i8 %34, 1
-  %.not.i12 = icmp eq i8 %35, 0
-  br i1 %.not.i12, label %36, label %.noexc
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %.noexc, label %36
 
 36:                                               ; preds = %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str)
@@ -811,20 +803,19 @@ _ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit:    ; preds = %29
 .noexc:                                           ; preds = %36, %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit
   %38 = load i32, ptr %6, align 4
   %39 = icmp ult i32 %38, 5
-  br i1 %39, label %switch.lookup25, label %_ZNK11SafeOpFlags10OutputSizeERSo.exit
+  br i1 %39, label %switch.lookup21, label %_ZNK11SafeOpFlags10OutputSizeERSo.exit
 
-switch.lookup25:                                  ; preds = %.noexc
+switch.lookup21:                                  ; preds = %.noexc
   %40 = zext nneg i32 %38 to i64
-  %switch.gep26 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK11SafeOpFlags9to_stringB5cxx11E9eUnaryOps, i64 0, i64 %40
-  %switch.load27 = load ptr, ptr %switch.gep26, align 8
-  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %switch.load27)
+  %switch.gep22 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK11SafeOpFlags9to_stringB5cxx11E9eUnaryOps, i64 0, i64 %40
+  %switch.load23 = load ptr, ptr %switch.gep22, align 8
+  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %switch.load23)
           to label %_ZNK11SafeOpFlags10OutputSizeERSo.exit unwind label %54
 
-_ZNK11SafeOpFlags10OutputSizeERSo.exit:           ; preds = %.noexc, %switch.lookup25
+_ZNK11SafeOpFlags10OutputSizeERSo.exit:           ; preds = %.noexc, %switch.lookup21
   %42 = load i8, ptr %1, align 4
-  %43 = and i8 %42, 1
-  %.not.i14 = icmp eq i8 %43, 0
-  %.str.9..str.10.i.i = select i1 %.not.i14, ptr @.str.10, ptr @.str.9
+  %43 = trunc i8 %42 to i1
+  %.str.9..str.10.i.i = select i1 %43, ptr @.str.9, ptr @.str.10
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.9..str.10.i.i)
           to label %_ZNK11SafeOpFlags9OutputOp1ERSo.exit unwind label %54
 
@@ -834,11 +825,10 @@ _ZNK11SafeOpFlags9OutputOp1ERSo.exit:             ; preds = %_ZNK11SafeOpFlags10
   %46 = getelementptr inbounds i8, ptr %1, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = load i8, ptr %1, align 4
-  %.sink24 = select i1 %or.cond, i8 %47, i8 %48
-  %49 = and i8 %.sink24, 1
-  %.not.i16 = icmp eq i8 %49, 0
-  %.str.9..str.10.i.i17 = select i1 %.not.i16, ptr @.str.10, ptr @.str.9
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.9..str.10.i.i17)
+  %.sink20 = select i1 %or.cond, i8 %47, i8 %48
+  %49 = trunc i8 %.sink20 to i1
+  %.str.9..str.10.i.i14 = select i1 %49, ptr @.str.9, ptr @.str.10
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.9..str.10.i.i14)
           to label %_ZNK11SafeOpFlags9OutputOp2ERSo.exit unwind label %54
 
 _ZNK11SafeOpFlags9OutputOp2ERSo.exit:             ; preds = %_ZNK11SafeOpFlags9OutputOp1ERSo.exit
@@ -854,7 +844,7 @@ _ZNK11SafeOpFlags9OutputOp2ERSo.exit:             ; preds = %_ZNK11SafeOpFlags9O
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #16
   br label %_ZNK11SafeOpFlags22safe_float_func_stringB5cxx11E10eBinaryOps.exit
 
-54:                                               ; preds = %_ZNK11SafeOpFlags9OutputOp1ERSo.exit, %_ZNK11SafeOpFlags10OutputSizeERSo.exit, %switch.lookup25, %36, %29, %_ZNK11SafeOpFlags9OutputOp2ERSo.exit
+54:                                               ; preds = %_ZNK11SafeOpFlags9OutputOp1ERSo.exit, %_ZNK11SafeOpFlags10OutputSizeERSo.exit, %switch.lookup21, %36, %29, %_ZNK11SafeOpFlags9OutputOp2ERSo.exit
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %58
@@ -912,17 +902,15 @@ define dso_local void @_ZNK11SafeOpFlags9to_stringB5cxx11E9eUnaryOps(ptr dead_on
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %1, i64 2
   %13 = load i8, ptr %12, align 2
-  %14 = and i8 %13, 1
-  %.not.i = icmp eq i8 %14, 0
-  %.str.8..str.7.i = select i1 %.not.i, ptr @.str.8, ptr @.str.7
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.8..str.7.i)
+  %14 = trunc i8 %13 to i1
+  %.str.7..str.8.i = select i1 %14, ptr @.str.7, ptr @.str.8
+  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.7..str.8.i)
           to label %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit unwind label %31
 
 _ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit:    ; preds = %11
   %16 = load i8, ptr %1, align 4
-  %17 = and i8 %16, 1
-  %.not.i8 = icmp eq i8 %17, 0
-  br i1 %.not.i8, label %18, label %.noexc
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.noexc, label %18
 
 18:                                               ; preds = %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str)
@@ -943,9 +931,8 @@ switch.lookup:                                    ; preds = %.noexc
 
 _ZNK11SafeOpFlags10OutputSizeERSo.exit:           ; preds = %.noexc, %switch.lookup
   %25 = load i8, ptr %1, align 4
-  %26 = and i8 %25, 1
-  %.not.i10 = icmp eq i8 %26, 0
-  %.str.9..str.10.i.i = select i1 %.not.i10, ptr @.str.10, ptr @.str.9
+  %26 = trunc i8 %25 to i1
+  %.str.9..str.10.i.i = select i1 %26, ptr @.str.9, ptr @.str.10
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.9..str.10.i.i)
           to label %_ZNK11SafeOpFlags9OutputOp1ERSo.exit unwind label %31
 

@@ -341,9 +341,8 @@ define void @wmem_leave_scope(ptr noundef %0) local_unnamed_addr #0 {
 define zeroext i1 @wmem_in_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 declare hidden void @wmem_call_callbacks(ptr noundef, i32 noundef) local_unnamed_addr #3

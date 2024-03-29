@@ -140,10 +140,9 @@ entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_S2_(ptr noundef %fileName, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
   %0 = load i8, ptr %tiled, align 1
-  %1 = and i8 %0, 1
-  %tobool1 = icmp ne i8 %1, 0
-  %2 = select i1 %call, i1 %tobool1, i1 false
-  ret i1 %2
+  %tobool1 = trunc i8 %0 to i1
+  %1 = select i1 %call, i1 %tobool1, i1 false
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -154,10 +153,9 @@ entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_S2_(ptr noundef %fileName, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
   %0 = load i8, ptr %deep, align 1
-  %1 = and i8 %0, 1
-  %tobool1 = icmp ne i8 %1, 0
-  %2 = select i1 %call, i1 %tobool1, i1 false
-  ret i1 %2
+  %tobool1 = trunc i8 %0 to i1
+  %1 = select i1 %call, i1 %tobool1, i1 false
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -168,10 +166,9 @@ entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_S2_(ptr noundef %fileName, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
   %0 = load i8, ptr %multiPart, align 1
-  %1 = and i8 %0, 1
-  %tobool1 = icmp ne i8 %1, 0
-  %2 = select i1 %call, i1 %tobool1, i1 false
-  ret i1 %2
+  %tobool1 = trunc i8 %0 to i1
+  %1 = select i1 %call, i1 %tobool1, i1 false
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -320,10 +317,9 @@ entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileERNS_7IStreamERbS2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
   %0 = load i8, ptr %tiled, align 1
-  %1 = and i8 %0, 1
-  %tobool1 = icmp ne i8 %1, 0
-  %2 = select i1 %call, i1 %tobool1, i1 false
-  ret i1 %2
+  %tobool1 = trunc i8 %0 to i1
+  %1 = select i1 %call, i1 %tobool1, i1 false
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -334,10 +330,9 @@ entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileERNS_7IStreamERbS2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
   %0 = load i8, ptr %deep, align 1
-  %1 = and i8 %0, 1
-  %tobool1 = icmp ne i8 %1, 0
-  %2 = select i1 %call, i1 %tobool1, i1 false
-  ret i1 %2
+  %tobool1 = trunc i8 %0 to i1
+  %1 = select i1 %call, i1 %tobool1, i1 false
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -348,10 +343,9 @@ entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileERNS_7IStreamERbS2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
   %0 = load i8, ptr %multiPart, align 1
-  %1 = and i8 %0, 1
-  %tobool1 = icmp ne i8 %1, 0
-  %2 = select i1 %call, i1 %tobool1, i1 false
-  ret i1 %2
+  %tobool1 = trunc i8 %0 to i1
+  %1 = select i1 %call, i1 %tobool1, i1 false
+  ret i1 %1
 }
 
 ; Function Attrs: uwtable

@@ -58,56 +58,55 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 1
-  br i1 %8, label %.thread123, label %9
+  br i1 %8, label %.thread122, label %9
 
-.thread123:                                       ; preds = %3
+.thread122:                                       ; preds = %3
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #6
-  br label %.thread136
+  br label %.thread135
 
 9:                                                ; preds = %3
   %10 = icmp eq i32 %7, 0
-  br i1 %10, label %.thread117, label %11
+  br i1 %10, label %.thread116, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   switch i8 %13, label %15 [
-    i8 3, label %.thread113
+    i8 3, label %.thread112
     i8 2, label %14
   ]
 
 14:                                               ; preds = %11
-  br label %.thread113
+  br label %.thread112
 
-.thread113:                                       ; preds = %14, %11
+.thread112:                                       ; preds = %14, %11
   %storemerge = phi i8 [ 0, %14 ], [ 1, %11 ]
   store i8 %storemerge, ptr %4, align 1
-  br label %.thread117
+  br label %.thread116
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 1) #6
   %.fr = freeze i1 %17
-  br i1 %.fr, label %.thread117, label %.thread136
+  br i1 %.fr, label %.thread116, label %.thread135
 
-.thread136:                                       ; preds = %15, %.thread123
-  %.091132 = phi i32 [ 0, %.thread123 ], [ 1, %15 ]
-  %.092131 = phi ptr [ null, %.thread123 ], [ %16, %15 ]
-  %.093130 = phi i32 [ 0, %.thread123 ], [ 2, %15 ]
-  %.094129 = phi i32 [ 1, %.thread123 ], [ 9, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.094129, i32 noundef %.091132, ptr noundef null, i32 noundef %.093130, ptr noundef %.092131) #6
+.thread135:                                       ; preds = %15, %.thread122
+  %.091131 = phi i32 [ 0, %.thread122 ], [ 1, %15 ]
+  %.092130 = phi ptr [ null, %.thread122 ], [ %16, %15 ]
+  %.093129 = phi i32 [ 0, %.thread122 ], [ 2, %15 ]
+  %.094128 = phi i32 [ 1, %.thread122 ], [ 9, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.094128, i32 noundef %.091131, ptr noundef null, i32 noundef %.093129, ptr noundef %.092130) #6
   br label %53
 
-.thread117:                                       ; preds = %15, %.thread113, %9
+.thread116:                                       ; preds = %15, %.thread112, %9
   %18 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #6
   %.not97 = icmp eq i32 %18, 0
   call void @llvm.assume(i1 %.not97)
   %19 = load i8, ptr %4, align 1
-  %20 = and i8 %19, 1
-  %.not98 = icmp eq i8 %20, 0
-  br i1 %.not98, label %30, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %30
 
-21:                                               ; preds = %.thread117
+21:                                               ; preds = %.thread116
   %22 = load i64, ptr %5, align 8
   %23 = sitofp i64 %22 to double
   %24 = getelementptr inbounds i8, ptr %5, i64 8
@@ -120,9 +119,9 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   store i32 5, ptr %29, align 8
   br label %53
 
-30:                                               ; preds = %.thread117
-  %.not99 = icmp eq i32 %2, 0
-  br i1 %.not99, label %45, label %31
+30:                                               ; preds = %.thread116
+  %.not98 = icmp eq i32 %2, 0
+  br i1 %.not98, label %45, label %31
 
 31:                                               ; preds = %30
   %32 = load i64, ptr %5, align 8
@@ -159,7 +158,7 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   store i32 262, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %45, %31, %21, %.thread136
+53:                                               ; preds = %45, %31, %21, %.thread135
   ret void
 }
 

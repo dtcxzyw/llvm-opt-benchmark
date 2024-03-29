@@ -1756,11 +1756,10 @@ _convert_cpu_spec_list.exit.i:                    ; preds = %115, %._crit_edge.i
   store ptr %125, ptr %126, align 8
   tail call void @bit_set_all(ptr noundef %125) #15
   %127 = load i8, ptr @spec_cores_first, align 1
-  %128 = and i8 %127, 1
-  %.not.i57.i = icmp eq i8 %128, 0
+  %128 = trunc i8 %127 to i1
   %129 = load i16, ptr %55, align 2
   %130 = zext i16 %129 to i32
-  br i1 %.not.i57.i, label %134, label %131
+  br i1 %128, label %131, label %134
 
 131:                                              ; preds = %118
   %132 = load i16, ptr %73, align 2
@@ -1781,22 +1780,22 @@ _convert_cpu_spec_list.exit.i:                    ; preds = %115, %._crit_edge.i
   %.035.i.i = phi i32 [ %133, %131 ], [ -1, %134 ]
   %.034.i.i = phi i32 [ 1, %131 ], [ -1, %134 ]
   %.not58.i = icmp eq i32 %.039.i.i, %.038.i.i
-  %.not48.i.i = icmp eq i32 %.036.i.i, %.035.i.i
-  %or.cond.i = select i1 %.not58.i, i1 true, i1 %.not48.i.i
-  br i1 %or.cond.i, label %._crit_edge47.i.i, label %.preheader.us.i.i
+  %.not47.i.i = icmp eq i32 %.036.i.i, %.035.i.i
+  %or.cond.i = select i1 %.not58.i, i1 true, i1 %.not47.i.i
+  br i1 %or.cond.i, label %._crit_edge46.i.i, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %139, %._crit_edge.us.i.i
-  %.046.us.i.i = phi i32 [ %158, %._crit_edge.us.i.i ], [ %119, %139 ]
-  %.04045.us.i.i = phi i32 [ %163, %._crit_edge.us.i.i ], [ %.039.i.i, %139 ]
+  %.045.us.i.i = phi i32 [ %158, %._crit_edge.us.i.i ], [ %119, %139 ]
+  %.04044.us.i.i = phi i32 [ %163, %._crit_edge.us.i.i ], [ %.039.i.i, %139 ]
   br label %140
 
 140:                                              ; preds = %140, %.preheader.us.i.i
-  %.144.us.i.i = phi i32 [ %.046.us.i.i, %.preheader.us.i.i ], [ %158, %140 ]
-  %.04143.us.i.i = phi i32 [ %.036.i.i, %.preheader.us.i.i ], [ %159, %140 ]
+  %.143.us.i.i = phi i32 [ %.045.us.i.i, %.preheader.us.i.i ], [ %158, %140 ]
+  %.04142.us.i.i = phi i32 [ %.036.i.i, %.preheader.us.i.i ], [ %159, %140 ]
   %141 = load i16, ptr %55, align 2
   %142 = zext i16 %141 to i32
-  %143 = mul nsw i32 %.04143.us.i.i, %142
-  %144 = add nsw i32 %143, %.04045.us.i.i
+  %143 = mul nsw i32 %.04142.us.i.i, %142
+  %144 = add nsw i32 %143, %.04044.us.i.i
   %145 = load i16, ptr %84, align 8
   %146 = zext i16 %145 to i32
   %147 = mul nsw i32 %144, %146
@@ -1807,35 +1806,35 @@ _convert_cpu_spec_list.exit.i:                    ; preds = %115, %._crit_edge.i
   tail call void @bit_nset(ptr noundef %122, i64 noundef %148, i64 noundef %151) #15
   %152 = load i16, ptr %55, align 2
   %153 = zext i16 %152 to i32
-  %154 = mul nsw i32 %.04143.us.i.i, %153
-  %155 = add nsw i32 %154, %.04045.us.i.i
+  %154 = mul nsw i32 %.04142.us.i.i, %153
+  %155 = add nsw i32 %154, %.04044.us.i.i
   %156 = load ptr, ptr %126, align 8
   %157 = sext i32 %155 to i64
   tail call void @bit_clear(ptr noundef %156, i64 noundef %157) #15
-  %158 = add nsw i32 %.144.us.i.i, -1
-  %159 = add nsw i32 %.04143.us.i.i, %.034.i.i
+  %158 = add nsw i32 %.143.us.i.i, -1
+  %159 = add nsw i32 %.04142.us.i.i, %.034.i.i
   %160 = icmp ne i32 %158, 0
   %161 = icmp ne i32 %159, %.035.i.i
   %162 = select i1 %160, i1 %161, i1 false
   br i1 %162, label %140, label %._crit_edge.us.i.i, !llvm.loop !21
 
 ._crit_edge.us.i.i:                               ; preds = %140
-  %163 = add nsw i32 %.04045.us.i.i, %.034.i.i
+  %163 = add nsw i32 %.04044.us.i.i, %.034.i.i
   %164 = icmp ne i32 %163, %.038.i.i
   %165 = select i1 %160, i1 %164, i1 false
-  br i1 %165, label %.preheader.us.i.i, label %._crit_edge47.i.i, !llvm.loop !22
+  br i1 %165, label %.preheader.us.i.i, label %._crit_edge46.i.i, !llvm.loop !22
 
-._crit_edge47.i.i:                                ; preds = %._crit_edge.us.i.i, %139
+._crit_edge46.i.i:                                ; preds = %._crit_edge.us.i.i, %139
   %166 = tail call ptr @bit_fmt_full(ptr noundef %122) #15
   store ptr %166, ptr %88, align 8
-  %.not42.i.i = icmp eq ptr %122, null
-  br i1 %.not42.i.i, label %_select_spec_cores.exit.i, label %167
+  %.not.i57.i = icmp eq ptr %122, null
+  br i1 %.not.i57.i, label %_select_spec_cores.exit.i, label %167
 
-167:                                              ; preds = %._crit_edge47.i.i
+167:                                              ; preds = %._crit_edge46.i.i
   call void @slurm_bit_free(ptr noundef nonnull %4) #15
   br label %_select_spec_cores.exit.i
 
-_select_spec_cores.exit.i:                        ; preds = %167, %._crit_edge47.i.i
+_select_spec_cores.exit.i:                        ; preds = %167, %._crit_edge46.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_init_node_record.exit
 

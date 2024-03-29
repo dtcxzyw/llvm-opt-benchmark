@@ -1177,22 +1177,20 @@ for.end:                                          ; preds = %_ZN5array6solver10e
   %11 = load ptr, ptr %ctx, align 8
   %m_enabled.i.i = getelementptr inbounds i8, ptr %11, i64 160
   %12 = load i8, ptr %m_enabled.i.i, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool.not.i.i, label %if.then13, label %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit
+  %tobool.i.i = trunc i8 %12 to i1
+  br i1 %tobool.i.i, label %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit, label %if.then13
 
 _ZNK3euf6solver11is_relevantEPNS_5enodeE.exit:    ; preds = %for.end
   %m_is_relevant.i.i.i = getelementptr inbounds i8, ptr %n.0, i64 16
-  %14 = load i8, ptr %m_is_relevant.i.i.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.i.i.i.not = icmp eq i8 %15, 0
-  br i1 %tobool.i.i.i.not, label %if.end16, label %if.then13
+  %13 = load i8, ptr %m_is_relevant.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %for.end, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit
   %vtable14 = load ptr, ptr %this, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 440
-  %16 = load ptr, ptr %vfn15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %n.0)
+  %14 = load ptr, ptr %vfn15, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %n.0)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit

@@ -188,8 +188,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKN
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %0, i64 264
   %11 = getelementptr inbounds i8, ptr %0, i64 272
   br label %12
@@ -228,7 +227,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKN
   store i32 3, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.4)
-  br i1 %.not, label %32, label %.critedge40
+  br i1 %9, label %.critedge40, label %32
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal__, align 8
@@ -267,7 +266,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKN
   store i32 4, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   %51 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.6)
-  br i1 %.not, label %52, label %.critedge40
+  br i1 %9, label %.critedge40, label %52
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal___0, align 8
@@ -464,14 +463,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7Options4InitERKNS_
   store double %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 352
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 %29, ptr %30, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = and i8 %28, 1
+  store i8 %30, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 96
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 81
-  store i8 %33, ptr %34, align 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 81
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 1
   %35 = getelementptr inbounds i8, ptr %1, i64 100
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %0, i64 84
@@ -512,9 +511,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7Options4InitERKNS_
   store i32 %63, ptr %64, align 4
   %65 = getelementptr inbounds i8, ptr %1, i64 20
   %66 = load i8, ptr %65, align 4
-  %67 = and i8 %66, 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 %67, ptr %68, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 184
+  %68 = and i8 %66, 1
+  store i8 %68, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 188

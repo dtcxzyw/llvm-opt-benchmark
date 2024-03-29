@@ -100,17 +100,16 @@ land.lhs.true:                                    ; preds = %if.then10
 
 if.then16:                                        ; preds = %land.lhs.true
   %5 = load i8, ptr %_use_signaler, align 1
-  %6 = and i8 %5, 1
-  %tobool18.not = icmp eq i8 %6, 0
-  br i1 %tobool18.not, label %if.then19, label %for.inc
+  %tobool18 = trunc i8 %5 to i1
+  br i1 %tobool18, label %for.inc, label %if.then19
 
 if.then19:                                        ; preds = %if.then16
   store i8 1, ptr %_use_signaler, align 1
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then10, %land.lhs.true, %if.then19
-  %7 = load i32, ptr %_pollset_size, align 4
-  %inc = add nsw i32 %7, 1
+  %6 = load i32, ptr %_pollset_size, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %_pollset_size, align 4
   br label %for.inc
 
@@ -120,12 +119,12 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %8 = load i32, ptr %_pollset_size, align 4
-  %cmp = icmp eq i32 %8, 0
+  %7 = load i32, ptr %_pollset_size, align 4
+  %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %return, label %if.end30
 
 if.end30:                                         ; preds = %for.end
-  %conv = sext i32 %8 to i64
+  %conv = sext i32 %7 to i64
   %mul = shl nsw i64 %conv, 3
   %call32 = tail call noalias ptr @malloc(i64 noundef %mul) #22
   store ptr %call32, ptr %_pollfds, align 8
@@ -139,88 +138,87 @@ if.then36:                                        ; preds = %if.end30
   br label %return
 
 if.end39:                                         ; preds = %if.end30
-  %9 = load i8, ptr %_use_signaler, align 1
-  %10 = and i8 %9, 1
-  %tobool41.not = icmp eq i8 %10, 0
-  br i1 %tobool41.not, label %if.end48, label %if.then42
+  %8 = load i8, ptr %_use_signaler, align 1
+  %tobool41 = trunc i8 %8 to i1
+  br i1 %tobool41, label %if.then42, label %if.end48
 
 if.then42:                                        ; preds = %if.end39
   %_signaler = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = load ptr, ptr %_signaler, align 8
-  %call43 = tail call noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %11)
-  %12 = load ptr, ptr %_pollfds, align 8
-  store i32 %call43, ptr %12, align 4
-  %13 = load ptr, ptr %_pollfds, align 8
-  %events47 = getelementptr inbounds i8, ptr %13, i64 4
+  %9 = load ptr, ptr %_signaler, align 8
+  %call43 = tail call noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %9)
+  %10 = load ptr, ptr %_pollfds, align 8
+  store i32 %call43, ptr %10, align 4
+  %11 = load ptr, ptr %_pollfds, align 8
+  %events47 = getelementptr inbounds i8, ptr %11, i64 4
   store i16 1, ptr %events47, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then42, %if.end39
   %item_nbr.0 = phi i32 [ 1, %if.then42 ], [ 0, %if.end39 ]
-  %14 = load ptr, ptr %_items, align 8
-  %15 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i11.not30 = icmp eq ptr %14, %15
+  %12 = load ptr, ptr %_items, align 8
+  %13 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i11.not30 = icmp eq ptr %12, %13
   br i1 %cmp.i11.not30, label %return, label %for.body59
 
 for.body59:                                       ; preds = %if.end48, %for.inc123
   %item_nbr.132 = phi i32 [ %item_nbr.2, %for.inc123 ], [ %item_nbr.0, %if.end48 ]
-  %it49.sroa.0.031 = phi ptr [ %incdec.ptr.i13, %for.inc123 ], [ %14, %if.end48 ]
+  %it49.sroa.0.031 = phi ptr [ %incdec.ptr.i13, %for.inc123 ], [ %12, %if.end48 ]
   %events61 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 24
-  %16 = load i16, ptr %events61, align 8
-  %tobool62.not = icmp eq i16 %16, 0
+  %14 = load i16, ptr %events61, align 8
+  %tobool62.not = icmp eq i16 %14, 0
   br i1 %tobool62.not, label %for.inc123, label %if.then63
 
 if.then63:                                        ; preds = %for.body59
-  %17 = load ptr, ptr %it49.sroa.0.031, align 8
-  %tobool66.not = icmp eq ptr %17, null
+  %15 = load ptr, ptr %it49.sroa.0.031, align 8
+  %tobool66.not = icmp eq ptr %15, null
   br i1 %tobool66.not, label %if.else90, label %if.then67
 
 if.then67:                                        ; preds = %if.then63
-  %call.i12 = call noundef zeroext i1 @_ZNK3zmq13socket_base_t14is_thread_safeEv(ptr noundef nonnull align 8 dereferenceable(1825) %17)
+  %call.i12 = call noundef zeroext i1 @_ZNK3zmq13socket_base_t14is_thread_safeEv(ptr noundef nonnull align 8 dereferenceable(1825) %15)
   br i1 %call.i12, label %for.inc123, label %if.then71
 
 if.then71:                                        ; preds = %if.then67
   store i64 4, ptr %fd_size, align 8
-  %18 = load ptr, ptr %it49.sroa.0.031, align 8
-  %19 = load ptr, ptr %_pollfds, align 8
+  %16 = load ptr, ptr %it49.sroa.0.031, align 8
+  %17 = load ptr, ptr %_pollfds, align 8
   %idxprom = sext i32 %item_nbr.132 to i64
-  %arrayidx75 = getelementptr inbounds %struct.pollfd, ptr %19, i64 %idxprom
-  %call77 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %18, i32 noundef 14, ptr noundef %arrayidx75, ptr noundef nonnull %fd_size)
+  %arrayidx75 = getelementptr inbounds %struct.pollfd, ptr %17, i64 %idxprom
+  %call77 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %16, i32 noundef 14, ptr noundef %arrayidx75, ptr noundef nonnull %fd_size)
   %cmp78.not = icmp eq i32 %call77, 0
   br i1 %cmp78.not, label %do.end, label %if.then80
 
 if.then80:                                        ; preds = %if.then71
-  %20 = load ptr, ptr @stderr, align 8
-  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 288) #24
-  %21 = load ptr, ptr @stderr, align 8
-  %call82 = call i32 @fflush(ptr noundef %21)
+  %18 = load ptr, ptr @stderr, align 8
+  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 288) #24
+  %19 = load ptr, ptr @stderr, align 8
+  %call82 = call i32 @fflush(ptr noundef %19)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.1)
   br label %do.end
 
 do.end:                                           ; preds = %if.then71, %if.then80
-  %22 = load ptr, ptr %_pollfds, align 8
-  %events87 = getelementptr inbounds %struct.pollfd, ptr %22, i64 %idxprom, i32 1
+  %20 = load ptr, ptr %_pollfds, align 8
+  %events87 = getelementptr inbounds %struct.pollfd, ptr %20, i64 %idxprom, i32 1
   store i16 1, ptr %events87, align 4
   %inc88 = add nsw i32 %item_nbr.132, 1
   br label %for.inc123
 
 if.else90:                                        ; preds = %if.then63
   %fd92 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 8
-  %23 = load i32, ptr %fd92, align 8
-  %24 = load ptr, ptr %_pollfds, align 8
+  %21 = load i32, ptr %fd92, align 8
+  %22 = load ptr, ptr %_pollfds, align 8
   %idxprom94 = sext i32 %item_nbr.132 to i64
-  %arrayidx95 = getelementptr inbounds %struct.pollfd, ptr %24, i64 %idxprom94
-  store i32 %23, ptr %arrayidx95, align 4
-  %25 = load i16, ptr %events61, align 8
-  %26 = and i16 %25, 1
-  %27 = shl i16 %25, 1
-  %28 = and i16 %27, 4
-  %or8 = or disjoint i16 %28, %26
-  %29 = lshr i16 %25, 2
-  %30 = and i16 %29, 2
-  %or1139 = or disjoint i16 %or8, %30
-  %31 = load ptr, ptr %_pollfds, align 8
-  %events118 = getelementptr inbounds %struct.pollfd, ptr %31, i64 %idxprom94, i32 1
+  %arrayidx95 = getelementptr inbounds %struct.pollfd, ptr %22, i64 %idxprom94
+  store i32 %21, ptr %arrayidx95, align 4
+  %23 = load i16, ptr %events61, align 8
+  %24 = and i16 %23, 1
+  %25 = shl i16 %23, 1
+  %26 = and i16 %25, 4
+  %or8 = or disjoint i16 %26, %24
+  %27 = lshr i16 %23, 2
+  %28 = and i16 %27, 2
+  %or1139 = or disjoint i16 %or8, %28
+  %29 = load ptr, ptr %_pollfds, align 8
+  %events118 = getelementptr inbounds %struct.pollfd, ptr %29, i64 %idxprom94, i32 1
   store i16 %or1139, ptr %events118, align 4
   %pollfd_index = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 28
   store i32 %item_nbr.132, ptr %pollfd_index, align 4
@@ -230,7 +228,7 @@ if.else90:                                        ; preds = %if.then63
 for.inc123:                                       ; preds = %for.body59, %if.then67, %do.end, %if.else90
   %item_nbr.2 = phi i32 [ %item_nbr.132, %if.then67 ], [ %inc88, %do.end ], [ %inc120, %if.else90 ], [ %item_nbr.132, %for.body59 ]
   %incdec.ptr.i13 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 32
-  %cmp.i11.not = icmp eq ptr %incdec.ptr.i13, %15
+  %cmp.i11.not = icmp eq ptr %incdec.ptr.i13, %13
   br i1 %cmp.i11.not, label %return, label %for.body59, !llvm.loop !7
 
 return:                                           ; preds = %for.inc123, %if.end48, %for.end, %if.then36
@@ -1171,9 +1169,8 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %0 = load i8, ptr %first_pass_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.then3
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.then2
   store i8 0, ptr %first_pass_, align 1
@@ -1182,10 +1179,9 @@ if.then3:                                         ; preds = %if.then2
 if.end5:                                          ; preds = %if.end
   %call = tail call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %clock_)
   store i64 %call, ptr %now_, align 8
-  %2 = load i8, ptr %first_pass_, align 1
-  %3 = and i8 %2, 1
-  %tobool6.not = icmp eq i8 %3, 0
-  br i1 %tobool6.not, label %if.end8, label %if.then7
+  %1 = load i8, ptr %first_pass_, align 1
+  %tobool6 = trunc i8 %1 to i1
+  br i1 %tobool6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end5
   %add = add i64 %call, %timeout_
@@ -1194,8 +1190,8 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %4 = load i64, ptr %end_, align 8
-  %cmp9.not = icmp ult i64 %call, %4
+  %2 = load i64, ptr %end_, align 8
+  %cmp9.not = icmp ult i64 %call, %2
   %. = zext i1 %cmp9.not to i32
   br label %return
 
@@ -1227,9 +1223,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i8, ptr %_need_rebuild, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end8, label %if.then3
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noundef nonnull align 8 dereferenceable(56) %this), !range !4
@@ -1238,8 +1233,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then3, %if.end
   %_pollset_size = getelementptr inbounds i8, ptr %this, i64 44
-  %4 = load i32, ptr %_pollset_size, align 4
-  %cmp9 = icmp eq i32 %4, 0
+  %3 = load i32, ptr %_pollset_size, align 4
+  %cmp9 = icmp eq i32 %3, 0
   br i1 %cmp9, label %if.then10, label %if.end20
 
 if.then10:                                        ; preds = %if.end8
@@ -1256,8 +1251,8 @@ if.end14:                                         ; preds = %if.then10
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %5 = trunc i64 %timeout_ to i32
-  %conv = mul i32 %5, 1000
+  %4 = trunc i64 %timeout_ to i32
+  %conv = mul i32 %4, 1000
   %call19 = tail call i32 @usleep(i32 noundef %conv)
   br label %return
 
@@ -1270,29 +1265,27 @@ if.end20:                                         ; preds = %if.end8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit, %if.end20
-  %first_pass.0 = phi i8 [ 1, %if.end20 ], [ %first_pass.1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
+  %first_pass.0 = phi i1 [ true, %if.end20 ], [ false, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
   %end.0 = phi i64 [ 0, %if.end20 ], [ %end.1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
   %now.0 = phi i64 [ 0, %if.end20 ], [ %now.1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
-  %6 = and i8 %first_pass.0, 1
-  %tobool21.not = icmp ne i8 %6, 0
-  %brmerge = or i1 %cmp, %tobool21.not
-  %not.tobool21.not = xor i1 %tobool21.not, true
-  %.mux = sext i1 %not.tobool21.not to i32
+  %brmerge = or i1 %cmp, %first_pass.0
+  %not.tobool21 = xor i1 %first_pass.0, true
+  %.mux = sext i1 %not.tobool21 to i32
   %sub = sub i64 %end.0, %now.0
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
   %conv28 = trunc i64 %.sroa.speculated to i32
   %timeout.0 = select i1 %brmerge, i32 %.mux, i32 %conv28
-  %7 = load ptr, ptr %_pollfds, align 8
-  %8 = load i32, ptr %_pollset_size, align 4
-  %conv33 = sext i32 %8 to i64
-  %call34 = call i32 @poll(ptr noundef %7, i64 noundef %conv33, i32 noundef %timeout.0)
+  %5 = load ptr, ptr %_pollfds, align 8
+  %6 = load i32, ptr %_pollset_size, align 4
+  %conv33 = sext i32 %6 to i64
+  %call34 = call i32 @poll(ptr noundef %5, i64 noundef %conv33, i32 noundef %timeout.0)
   %cmp35 = icmp eq i32 %call34, -1
   br i1 %cmp35, label %land.lhs.true36, label %do.body
 
 land.lhs.true36:                                  ; preds = %while.body
   %call37 = tail call ptr @__errno_location() #23
-  %9 = load i32, ptr %call37, align 4
-  %cmp38 = icmp eq i32 %9, 4
+  %7 = load i32, ptr %call37, align 4
+  %cmp38 = icmp eq i32 %7, 4
   br i1 %cmp38, label %return, label %if.then43
 
 do.body:                                          ; preds = %while.body
@@ -1305,32 +1298,31 @@ do.body.if.then43_crit_edge:                      ; preds = %do.body
 
 if.then43:                                        ; preds = %do.body.if.then43_crit_edge, %land.lhs.true36
   %call44.pre-phi = phi ptr [ %.pre, %do.body.if.then43_crit_edge ], [ %call37, %land.lhs.true36 ]
-  %10 = load i32, ptr %call44.pre-phi, align 4
-  %call45 = call ptr @strerror(i32 noundef %10) #21
-  %11 = load ptr, ptr @stderr, align 8
-  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.4, ptr noundef %call45, ptr noundef nonnull @.str.2, i32 noundef 570) #24
-  %12 = load ptr, ptr @stderr, align 8
-  %call47 = call i32 @fflush(ptr noundef %12)
+  %8 = load i32, ptr %call44.pre-phi, align 4
+  %call45 = call ptr @strerror(i32 noundef %8) #21
+  %9 = load ptr, ptr @stderr, align 8
+  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %call45, ptr noundef nonnull @.str.2, i32 noundef 570) #24
+  %10 = load ptr, ptr @stderr, align 8
+  %call47 = call i32 @fflush(ptr noundef %10)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call45)
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then43
-  %13 = load i8, ptr %_use_signaler, align 1
-  %14 = and i8 %13, 1
-  %tobool49.not = icmp eq i8 %14, 0
-  br i1 %tobool49.not, label %if.end55, label %land.lhs.true50
+  %11 = load i8, ptr %_use_signaler, align 1
+  %tobool49 = trunc i8 %11 to i1
+  br i1 %tobool49, label %land.lhs.true50, label %if.end55
 
 land.lhs.true50:                                  ; preds = %do.end
-  %15 = load ptr, ptr %_pollfds, align 8
-  %revents = getelementptr inbounds i8, ptr %15, i64 6
-  %16 = load i16, ptr %revents, align 2
-  %17 = and i16 %16, 1
-  %tobool53.not = icmp eq i16 %17, 0
+  %12 = load ptr, ptr %_pollfds, align 8
+  %revents = getelementptr inbounds i8, ptr %12, i64 6
+  %13 = load i16, ptr %revents, align 2
+  %14 = and i16 %13, 1
+  %tobool53.not = icmp eq i16 %14, 0
   br i1 %tobool53.not, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true50
-  %18 = load ptr, ptr %_signaler, align 8
-  call void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull align 4 dereferenceable(12) %18)
+  %15 = load ptr, ptr %_signaler, align 8
+  call void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull align 4 dereferenceable(12) %15)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then54, %land.lhs.true50, %do.end
@@ -1345,12 +1337,12 @@ if.then58:                                        ; preds = %if.end55
   br i1 %or.cond25, label %for.body.preheader.i, label %return
 
 for.body.preheader.i:                             ; preds = %if.then58
-  %19 = zext nneg i32 %call56 to i64
+  %16 = zext nneg i32 %call56 to i64
   %wide.trip.count.i = zext nneg i32 %n_events_ to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %19, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %indvars.iv.i = phi i64 [ %16, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx.i, align 8
   %fd.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -1367,15 +1359,11 @@ if.end62:                                         ; preds = %if.end55
   br i1 %cmp.i13, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end62
-  br i1 %cmp, label %if.then2.i, label %if.end5.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  %spec.select = select i1 %tobool21.not, i8 0, i8 %first_pass.0
-  br label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
+  br i1 %cmp, label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %call.i = call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %clock)
-  br i1 %tobool21.not, label %if.then7.i, label %if.end8.i
+  br i1 %first_pass.0, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   %add.i = add i64 %call.i, %timeout_
@@ -1386,11 +1374,10 @@ if.end8.i:                                        ; preds = %if.end5.i
   %..i = zext i1 %cmp9.not.i to i32
   br label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
 
-_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit: ; preds = %if.then2.i, %if.then7.i, %if.end8.i
-  %first_pass.1 = phi i8 [ %first_pass.0, %if.end8.i ], [ 0, %if.then7.i ], [ %spec.select, %if.then2.i ]
-  %end.1 = phi i64 [ %end.0, %if.end8.i ], [ %add.i, %if.then7.i ], [ %end.0, %if.then2.i ]
-  %now.1 = phi i64 [ %call.i, %if.end8.i ], [ %call.i, %if.then7.i ], [ %now.0, %if.then2.i ]
-  %retval.0.i = phi i32 [ %..i, %if.end8.i ], [ 1, %if.then7.i ], [ 1, %if.then2.i ]
+_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit: ; preds = %if.end.i, %if.then7.i, %if.end8.i
+  %end.1 = phi i64 [ %add.i, %if.then7.i ], [ %end.0, %if.end8.i ], [ %end.0, %if.end.i ]
+  %now.1 = phi i64 [ %call.i, %if.then7.i ], [ %call.i, %if.end8.i ], [ %now.0, %if.end.i ]
+  %retval.0.i = phi i32 [ 1, %if.then7.i ], [ %..i, %if.end8.i ], [ 1, %if.end.i ]
   %cmp64 = icmp eq i32 %retval.0.i, 0
   br i1 %cmp64, label %while.end, label %while.body, !llvm.loop !14
 

@@ -210,9 +210,8 @@ wmem_array_grow.exit:                             ; preds = %.wmem_array_grow.ex
   store i32 %34, ptr %6, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not.i = icmp eq i8 %37, 0
-  br i1 %.not.i, label %wmem_array_write_null_terminator.exit, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %wmem_array_write_null_terminator.exit
 
 38:                                               ; preds = %wmem_array_grow.exit
   %39 = load i32, ptr %4, align 4
@@ -356,11 +355,11 @@ define noalias ptr @wmem_array_finalize(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8
-  %9 = zext nneg i8 %6 to i32
-  %.sink = add i32 %8, %9
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load i32, ptr %6, align 8
+  %8 = and i8 %5, 1
+  %9 = zext nneg i8 %8 to i32
+  %.sink = add i32 %7, %9
   %10 = zext i32 %.sink to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8

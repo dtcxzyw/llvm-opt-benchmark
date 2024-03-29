@@ -162,11 +162,10 @@ if.end:                                           ; preds = %entry
   tail call void @memory_region_add_subregion(ptr noundef %call2, i64 noundef 2147483648, ptr noundef %2) #3
   %revb = getelementptr inbounds i8, ptr %call1, i64 4736
   %3 = load i8, ptr %revb, align 16
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  %spec.select = select i1 %tobool.not, i32 541065911, i32 536937143
-  %5 = getelementptr inbounds i8, ptr %reset_vec, i64 4
-  store i32 %spec.select, ptr %5, align 4
+  %tobool = trunc i8 %3 to i1
+  %spec.select = select i1 %tobool, i32 536937143, i32 541065911
+  %4 = getelementptr inbounds i8, ptr %reset_vec, i64 4
+  store i32 %spec.select, ptr %4, align 4
   %arrayidx12 = getelementptr inbounds i8, ptr %reset_vec, i64 8
   store i32 163943, ptr %arrayidx12, align 8
   %arrayidx13 = getelementptr inbounds i8, ptr %reset_vec, i64 12
@@ -174,8 +173,8 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %reset_vec, align 16
   %call23 = call ptr @rom_add_blob(ptr noundef nonnull @.str.12, ptr noundef nonnull %reset_vec, i64 noundef 16, i64 noundef 16, i64 noundef 4096, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #3
   %kernel_filename = getelementptr inbounds i8, ptr %machine, i64 240
-  %6 = load ptr, ptr %kernel_filename, align 8
-  %tobool24.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %kernel_filename, align 8
+  %tobool24.not = icmp eq ptr %5, null
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end
@@ -195,8 +194,7 @@ entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.sifive_e_machine_get_revb) #3
   %revb = getelementptr inbounds i8, ptr %call, i64 4736
   %0 = load i8, ptr %revb, align 16
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

@@ -117,13 +117,13 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %bHas.06 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %bHas.06 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %for.body ]
   %1 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = trunc i64 %indvars.iv to i32
   %call2 = tail call noundef zeroext i1 @_ZN6Assimp19CalcTangentsProcess11ProcessMeshEP6aiMeshj(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %2, i32 noundef %3)
-  %spec.select = select i1 %call2, i8 1, i8 %bHas.06
+  %spec.select = select i1 %call2, i1 true, i1 %bHas.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %mNumMeshes, align 8
   %5 = zext i32 %4 to i64
@@ -131,9 +131,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %6 = and i8 %spec.select, 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %if.else, label %if.then3
+  br i1 %spec.select, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %for.end
   %call4 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()

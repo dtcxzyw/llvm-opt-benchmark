@@ -41,9 +41,8 @@ define dso_local void @RemoveRewriteRuleById(i32 noundef %0) local_unnamed_addr 
   %18 = load i32, ptr %17, align 4
   %19 = call ptr @table_open(i32 noundef %18, i32 noundef 8) #4
   %20 = load i8, ptr @allowSystemTableMods, align 1
-  %21 = and i8 %20, 1
-  %.not15 = icmp eq i8 %21, 0
-  br i1 %.not15, label %22, label %31
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %31, label %22
 
 22:                                               ; preds = %10
   %23 = call zeroext i1 @IsSystemRelation(ptr noundef %19) #4

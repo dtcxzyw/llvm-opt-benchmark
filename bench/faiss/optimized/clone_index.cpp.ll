@@ -1356,9 +1356,9 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
   store i64 %140, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %132, i64 25
   %143 = load i8, ptr %142, align 1
-  %144 = and i8 %143, 1
-  %145 = getelementptr inbounds i8, ptr %134, i64 25
-  store i8 %144, ptr %145, align 1
+  %144 = getelementptr inbounds i8, ptr %134, i64 25
+  %145 = and i8 %143, 1
+  store i8 %145, ptr %144, align 1
   %146 = getelementptr inbounds i8, ptr %132, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr inbounds i8, ptr %134, i64 28
@@ -12715,9 +12715,8 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5faiss3nsg5GraphIiEESa
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5faiss3nsg5GraphIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN5faiss3nsg5GraphIiEEEEvRS0_PT_.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZNSt16allocator_traitsISaIvEE7destroyIN5faiss3nsg5GraphIiEEEEvRS0_PT_.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16

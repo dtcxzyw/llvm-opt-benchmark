@@ -731,7 +731,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %135
-  %140 = add nsw i32 %.1.i, %.043
+  %140 = add nuw nsw i32 %.1.i, %.043
   br label %51, !llvm.loop !21
 
 141:                                              ; preds = %135
@@ -946,7 +946,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
 
 .outer.backedge:                                  ; preds = %236, %258, %.thread68, %230, %223, %226
   %.042.ph.be = phi i32 [ -1, %226 ], [ -1, %223 ], [ %.1, %258 ], [ %.042.ph, %.thread68 ], [ %.042.ph, %230 ], [ %.042.ph, %236 ]
-  %.043.ph.be = add nsw i32 %.1.i, %.043
+  %.043.ph.be = add nuw nsw i32 %.1.i, %.043
   %.pre.pre = load ptr, ptr %14, align 8
   br label %.outer, !llvm.loop !21
 
@@ -2199,13 +2199,13 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %13 = alloca i32, align 4
   %14 = alloca i8, align 1
   %15 = load ptr, ptr %1, align 8
-  %.not71 = icmp eq ptr %15, null
-  br i1 %.not71, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp eq ptr %15, null
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %168
   %16 = phi ptr [ %170, %168 ], [ %15, %2 ]
-  %.072 = phi ptr [ %169, %168 ], [ %1, %2 ]
-  %17 = getelementptr inbounds i8, ptr %.072, i64 8
+  %.071 = phi ptr [ %169, %168 ], [ %1, %2 ]
+  %17 = getelementptr inbounds i8, ptr %.071, i64 8
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %168 [
     i32 1, label %19
@@ -2226,16 +2226,16 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
 
 19:                                               ; preds = %.lr.ph, %.lr.ph
   %20 = call i32 @s_p_get_string(ptr noundef nonnull %10, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not70 = icmp eq i32 %20, 0
+  %.not69 = icmp eq i32 %20, 0
   %21 = call i32 @get_log_level() #14
   %22 = icmp sgt i32 %21, 3
-  br i1 %.not70, label %28, label %23
+  br i1 %.not69, label %28, label %23
 
 23:                                               ; preds = %19
   br i1 %22, label %24, label %27
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %.072, align 8
+  %25 = load ptr, ptr %.071, align 8
   %26 = load ptr, ptr %10, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef %25, ptr noundef %26) #14
   br label %27
@@ -2248,22 +2248,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %22, label %29, label %168
 
 29:                                               ; preds = %28
-  %30 = load ptr, ptr %.072, align 8
+  %30 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %30) #14
   br label %168
 
 31:                                               ; preds = %.lr.ph
   %32 = call i32 @s_p_get_long(ptr noundef nonnull %3, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not69 = icmp eq i32 %32, 0
+  %.not68 = icmp eq i32 %32, 0
   %33 = call i32 @get_log_level() #14
   %34 = icmp sgt i32 %33, 3
-  br i1 %.not69, label %39, label %35
+  br i1 %.not68, label %39, label %35
 
 35:                                               ; preds = %31
   br i1 %34, label %36, label %168
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr %.072, align 8
+  %37 = load ptr, ptr %.071, align 8
   %38 = load i64, ptr %3, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef %37, i64 noundef %38) #14
   br label %168
@@ -2272,22 +2272,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %34, label %40, label %168
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %.072, align 8
+  %41 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %41) #14
   br label %168
 
 42:                                               ; preds = %.lr.ph
   %43 = call i32 @s_p_get_uint16(ptr noundef nonnull %4, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not68 = icmp eq i32 %43, 0
+  %.not67 = icmp eq i32 %43, 0
   %44 = call i32 @get_log_level() #14
   %45 = icmp sgt i32 %44, 3
-  br i1 %.not68, label %51, label %46
+  br i1 %.not67, label %51, label %46
 
 46:                                               ; preds = %42
   br i1 %45, label %47, label %168
 
 47:                                               ; preds = %46
-  %48 = load ptr, ptr %.072, align 8
+  %48 = load ptr, ptr %.071, align 8
   %49 = load i16, ptr %4, align 2
   %50 = zext i16 %49 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef %48, i32 noundef %50) #14
@@ -2297,22 +2297,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %45, label %52, label %168
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr %.072, align 8
+  %53 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %53) #14
   br label %168
 
 54:                                               ; preds = %.lr.ph
   %55 = call i32 @s_p_get_uint32(ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not67 = icmp eq i32 %55, 0
+  %.not66 = icmp eq i32 %55, 0
   %56 = call i32 @get_log_level() #14
   %57 = icmp sgt i32 %56, 3
-  br i1 %.not67, label %62, label %58
+  br i1 %.not66, label %62, label %58
 
 58:                                               ; preds = %54
   br i1 %57, label %59, label %168
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr %.072, align 8
+  %60 = load ptr, ptr %.071, align 8
   %61 = load i32, ptr %5, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %60, i32 noundef %61) #14
   br label %168
@@ -2321,22 +2321,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %57, label %63, label %168
 
 63:                                               ; preds = %62
-  %64 = load ptr, ptr %.072, align 8
+  %64 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %64) #14
   br label %168
 
 65:                                               ; preds = %.lr.ph
   %66 = call i32 @s_p_get_uint64(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not66 = icmp eq i32 %66, 0
+  %.not65 = icmp eq i32 %66, 0
   %67 = call i32 @get_log_level() #14
   %68 = icmp sgt i32 %67, 3
-  br i1 %.not66, label %73, label %69
+  br i1 %.not65, label %73, label %69
 
 69:                                               ; preds = %65
   br i1 %68, label %70, label %168
 
 70:                                               ; preds = %69
-  %71 = load ptr, ptr %.072, align 8
+  %71 = load ptr, ptr %.071, align 8
   %72 = load i64, ptr %6, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef %71, i64 noundef %72) #14
   br label %168
@@ -2345,22 +2345,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %68, label %74, label %168
 
 74:                                               ; preds = %73
-  %75 = load ptr, ptr %.072, align 8
+  %75 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %75) #14
   br label %168
 
 76:                                               ; preds = %.lr.ph
   %77 = call i32 @s_p_get_pointer(ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not65 = icmp eq i32 %77, 0
+  %.not64 = icmp eq i32 %77, 0
   %78 = call i32 @get_log_level() #14
   %79 = icmp sgt i32 %78, 3
-  br i1 %.not65, label %85, label %80
+  br i1 %.not64, label %85, label %80
 
 80:                                               ; preds = %76
   br i1 %79, label %81, label %168
 
 81:                                               ; preds = %80
-  %82 = load ptr, ptr %.072, align 8
+  %82 = load ptr, ptr %.071, align 8
   %83 = load ptr, ptr %11, align 8
   %84 = ptrtoint ptr %83 to i64
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef %82, i64 noundef %84) #14
@@ -2370,22 +2370,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %79, label %86, label %168
 
 86:                                               ; preds = %85
-  %87 = load ptr, ptr %.072, align 8
+  %87 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %87) #14
   br label %168
 
 88:                                               ; preds = %.lr.ph
   %89 = call i32 @s_p_get_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not64 = icmp eq i32 %89, 0
+  %.not63 = icmp eq i32 %89, 0
   %90 = call i32 @get_log_level() #14
   %91 = icmp sgt i32 %90, 3
-  br i1 %.not64, label %96, label %92
+  br i1 %.not63, label %96, label %92
 
 92:                                               ; preds = %88
   br i1 %91, label %93, label %168
 
 93:                                               ; preds = %92
-  %94 = load ptr, ptr %.072, align 8
+  %94 = load ptr, ptr %.071, align 8
   %95 = load i32, ptr %13, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %94, i32 noundef %95) #14
   br label %168
@@ -2394,22 +2394,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %91, label %97, label %168
 
 97:                                               ; preds = %96
-  %98 = load ptr, ptr %.072, align 8
+  %98 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %98) #14
   br label %168
 
 99:                                               ; preds = %.lr.ph
   %100 = call i32 @s_p_get_expline(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not63 = icmp eq i32 %100, 0
+  %.not62 = icmp eq i32 %100, 0
   %101 = call i32 @get_log_level() #14
   %102 = icmp sgt i32 %101, 3
-  br i1 %.not63, label %107, label %103
+  br i1 %.not62, label %107, label %103
 
 103:                                              ; preds = %99
   br i1 %102, label %104, label %168
 
 104:                                              ; preds = %103
-  %105 = load ptr, ptr %.072, align 8
+  %105 = load ptr, ptr %.071, align 8
   %106 = load i32, ptr %13, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %105, i32 noundef %106) #14
   br label %168
@@ -2418,22 +2418,22 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %102, label %108, label %168
 
 108:                                              ; preds = %107
-  %109 = load ptr, ptr %.072, align 8
+  %109 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %109) #14
   br label %168
 
 110:                                              ; preds = %.lr.ph
   %111 = call i32 @s_p_get_array(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %0), !range !12
-  %.not62 = icmp eq i32 %111, 0
+  %.not61 = icmp eq i32 %111, 0
   %112 = call i32 @get_log_level() #14
   %113 = icmp sgt i32 %112, 3
-  br i1 %.not62, label %118, label %114
+  br i1 %.not61, label %118, label %114
 
 114:                                              ; preds = %110
   br i1 %113, label %115, label %168
 
 115:                                              ; preds = %114
-  %116 = load ptr, ptr %.072, align 8
+  %116 = load ptr, ptr %.071, align 8
   %117 = load i32, ptr %13, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %116, i32 noundef %117) #14
   br label %168
@@ -2442,7 +2442,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %113, label %119, label %168
 
 119:                                              ; preds = %118
-  %120 = load ptr, ptr %.072, align 8
+  %120 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %120) #14
   br label %168
 
@@ -2457,11 +2457,10 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %124, label %126, label %168
 
 126:                                              ; preds = %125
-  %127 = load ptr, ptr %.072, align 8
+  %127 = load ptr, ptr %.071, align 8
   %128 = load i8, ptr %14, align 1
-  %129 = and i8 %128, 1
-  %.not61 = icmp eq i8 %129, 0
-  %130 = select i1 %.not61, ptr @.str.28, ptr @.str.27
+  %129 = trunc i8 %128 to i1
+  %130 = select i1 %129, ptr @.str.27, ptr @.str.28
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef %127, ptr noundef nonnull %130) #14
   br label %168
 
@@ -2469,7 +2468,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %124, label %132, label %168
 
 132:                                              ; preds = %131
-  %133 = load ptr, ptr %.072, align 8
+  %133 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %133) #14
   br label %168
 
@@ -2484,7 +2483,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %137, label %139, label %168
 
 139:                                              ; preds = %138
-  %140 = load ptr, ptr %.072, align 8
+  %140 = load ptr, ptr %.071, align 8
   %141 = load float, ptr %7, align 4
   %142 = fpext float %141 to double
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.29, ptr noundef %140, double noundef %142) #14
@@ -2494,7 +2493,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %137, label %144, label %168
 
 144:                                              ; preds = %143
-  %145 = load ptr, ptr %.072, align 8
+  %145 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %145) #14
   br label %168
 
@@ -2509,7 +2508,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %149, label %151, label %168
 
 151:                                              ; preds = %150
-  %152 = load ptr, ptr %.072, align 8
+  %152 = load ptr, ptr %.071, align 8
   %153 = load double, ptr %8, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.29, ptr noundef %152, double noundef %153) #14
   br label %168
@@ -2518,7 +2517,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %149, label %155, label %168
 
 155:                                              ; preds = %154
-  %156 = load ptr, ptr %.072, align 8
+  %156 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %156) #14
   br label %168
 
@@ -2533,7 +2532,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %160, label %162, label %168
 
 162:                                              ; preds = %161
-  %163 = load ptr, ptr %.072, align 8
+  %163 = load ptr, ptr %.071, align 8
   %164 = load x86_fp80, ptr %9, align 16
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %163, x86_fp80 noundef %164) #14
   br label %168
@@ -2542,12 +2541,12 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %160, label %166, label %168
 
 166:                                              ; preds = %165
-  %167 = load ptr, ptr %.072, align 8
+  %167 = load ptr, ptr %.071, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %167) #14
   br label %168
 
 168:                                              ; preds = %.lr.ph, %28, %29, %27, %39, %40, %35, %36, %51, %52, %46, %47, %62, %63, %58, %59, %73, %74, %69, %70, %85, %86, %80, %81, %96, %97, %92, %93, %107, %108, %103, %104, %118, %119, %114, %115, %131, %132, %125, %126, %143, %144, %138, %139, %154, %155, %150, %151, %165, %166, %161, %162
-  %169 = getelementptr inbounds i8, ptr %.072, i64 56
+  %169 = getelementptr inbounds i8, ptr %.071, i64 56
   %170 = load ptr, ptr %169, align 8
   %.not = icmp eq ptr %170, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
@@ -2827,12 +2826,12 @@ define internal fastcc noundef i32 @_keyvalue_regex(ptr noundef %0, ptr noundef 
   %8 = call i32 @regexec(ptr noundef %0, ptr noundef %1, i64 noundef 8, ptr noundef nonnull %7, i32 noundef 0) #14
   switch i32 %8, label %9 [
     i32 0, label %10
-    i32 1, label %60
+    i32 1, label %59
   ]
 
 9:                                                ; preds = %6
   call void (i32, ptr, ptr, ...) @dump_regex_error(i32 noundef %8, ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %1) #14
-  br label %60
+  br label %59
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2852,7 +2851,7 @@ define internal fastcc noundef i32 @_keyvalue_regex(ptr noundef %0, ptr noundef 
   %23 = load i32, ptr %22, align 4
   %.not37 = icmp eq i32 %21, %23
   %or.cond = select i1 %.not36, i1 true, i1 %.not37
-  br i1 %or.cond, label %31, label %24
+  br i1 %or.cond, label %30, label %24
 
 24:                                               ; preds = %10
   %25 = sext i32 %21 to i64
@@ -2860,69 +2859,68 @@ define internal fastcc noundef i32 @_keyvalue_regex(ptr noundef %0, ptr noundef 
   %27 = load i8, ptr %26, align 1
   %switch.tableidx = add i8 %27, -42
   %28 = icmp ult i8 %switch.tableidx, 6
-  br i1 %28, label %switch.hole_check, label %31
+  br i1 %28, label %switch.hole_check, label %30
 
 switch.hole_check:                                ; preds = %24
   %switch.shifted = lshr i8 43, %switch.tableidx
-  %29 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %29, 0
-  br i1 %switch.lobit.not, label %31, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %30
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._keyvalue_regex, i64 0, i64 %30
+  %29 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._keyvalue_regex, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %5, align 4
-  br label %31
+  br label %30
 
-31:                                               ; preds = %switch.hole_check, %24, %switch.lookup, %10
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  %33 = load i32, ptr %32, align 8
-  %.not38 = icmp eq i32 %33, -1
-  br i1 %.not38, label %42, label %34
+30:                                               ; preds = %switch.hole_check, %24, %switch.lookup, %10
+  %31 = getelementptr inbounds i8, ptr %7, i64 40
+  %32 = load i32, ptr %31, align 8
+  %.not38 = icmp eq i32 %32, -1
+  br i1 %.not38, label %41, label %33
 
-34:                                               ; preds = %31
-  %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
-  %37 = getelementptr inbounds i8, ptr %7, i64 44
-  %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %38, %33
-  %40 = sext i32 %39 to i64
-  %41 = call ptr @xstrndup(ptr noundef %36, i64 noundef %40) #14
-  br label %55
+33:                                               ; preds = %30
+  %34 = sext i32 %32 to i64
+  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  %36 = getelementptr inbounds i8, ptr %7, i64 44
+  %37 = load i32, ptr %36, align 4
+  %38 = sub nsw i32 %37, %32
+  %39 = sext i32 %38 to i64
+  %40 = call ptr @xstrndup(ptr noundef %35, i64 noundef %39) #14
+  br label %54
 
-42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %7, i64 48
-  %44 = load i32, ptr %43, align 16
-  %.not39 = icmp eq i32 %44, -1
-  br i1 %.not39, label %53, label %45
+41:                                               ; preds = %30
+  %42 = getelementptr inbounds i8, ptr %7, i64 48
+  %43 = load i32, ptr %42, align 16
+  %.not39 = icmp eq i32 %43, -1
+  br i1 %.not39, label %52, label %44
 
-45:                                               ; preds = %42
-  %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i8, ptr %1, i64 %46
-  %48 = getelementptr inbounds i8, ptr %7, i64 52
-  %49 = load i32, ptr %48, align 4
-  %50 = sub nsw i32 %49, %44
-  %51 = sext i32 %50 to i64
-  %52 = call ptr @xstrndup(ptr noundef %47, i64 noundef %51) #14
-  br label %55
+44:                                               ; preds = %41
+  %45 = sext i32 %43 to i64
+  %46 = getelementptr inbounds i8, ptr %1, i64 %45
+  %47 = getelementptr inbounds i8, ptr %7, i64 52
+  %48 = load i32, ptr %47, align 4
+  %49 = sub nsw i32 %48, %43
+  %50 = sext i32 %49 to i64
+  %51 = call ptr @xstrndup(ptr noundef %46, i64 noundef %50) #14
+  br label %54
 
-53:                                               ; preds = %42
-  %54 = call ptr @xstrdup(ptr noundef nonnull @.str.35) #14
-  br label %55
+52:                                               ; preds = %41
+  %53 = call ptr @xstrdup(ptr noundef nonnull @.str.35) #14
+  br label %54
 
-55:                                               ; preds = %45, %53, %34
-  %.sink42 = phi ptr [ %52, %45 ], [ %54, %53 ], [ %41, %34 ]
+54:                                               ; preds = %44, %52, %33
+  %.sink42 = phi ptr [ %51, %44 ], [ %53, %52 ], [ %40, %33 ]
   store ptr %.sink42, ptr %3, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 28
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %1, i64 %58
-  store ptr %59, ptr %4, align 8
-  br label %60
+  %55 = getelementptr inbounds i8, ptr %7, i64 28
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %1, i64 %57
+  store ptr %58, ptr %4, align 8
+  br label %59
 
-60:                                               ; preds = %9, %6, %55
-  %.0 = phi i32 [ 0, %55 ], [ -1, %6 ], [ -1, %9 ]
+59:                                               ; preds = %9, %6, %54
+  %.0 = phi i32 [ 0, %54 ], [ -1, %6 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -4693,7 +4691,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
 
 41:                                               ; preds = %34
   %42 = load i32, ptr %26, align 8
-  switch i32 %42, label %95 [
+  switch i32 %42, label %94 [
     i32 7, label %43
     i32 1, label %57
     i32 11, label %57
@@ -4702,9 +4700,9 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
     i32 3, label %69
     i32 5, label %73
     i32 8, label %77
-    i32 12, label %83
-    i32 13, label %87
-    i32 14, label %91
+    i32 12, label %82
+    i32 13, label %86
+    i32 14, label %90
     i32 0, label %.loopexit
   ]
 
@@ -4776,37 +4774,36 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
   %78 = getelementptr inbounds i8, ptr %.09.i, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = load i8, ptr %79, align 1
-  %81 = and i8 %80, 1
-  %82 = icmp ne i8 %81, 0
-  tail call void @packbool(i1 noundef zeroext %82, ptr noundef %4) #14
+  %81 = trunc i8 %80 to i1
+  tail call void @packbool(i1 noundef zeroext %81, ptr noundef %4) #14
   br label %.loopexit
 
-83:                                               ; preds = %41
-  %84 = getelementptr inbounds i8, ptr %.09.i, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = load float, ptr %85, align 4
-  tail call void @packfloat(float noundef %86, ptr noundef %4) #14
+82:                                               ; preds = %41
+  %83 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %84 = load ptr, ptr %83, align 8
+  %85 = load float, ptr %84, align 4
+  tail call void @packfloat(float noundef %85, ptr noundef %4) #14
   br label %.loopexit
 
-87:                                               ; preds = %41
-  %88 = getelementptr inbounds i8, ptr %.09.i, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %90 = load double, ptr %89, align 8
-  tail call void @packdouble(double noundef %90, ptr noundef %4) #14
+86:                                               ; preds = %41
+  %87 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = load double, ptr %88, align 8
+  tail call void @packdouble(double noundef %89, ptr noundef %4) #14
   br label %.loopexit
 
-91:                                               ; preds = %41
-  %92 = getelementptr inbounds i8, ptr %.09.i, i64 24
-  %93 = load ptr, ptr %92, align 8
-  %94 = load x86_fp80, ptr %93, align 16
-  tail call void @packlongdouble(x86_fp80 noundef %94, ptr noundef %4) #14
+90:                                               ; preds = %41
+  %91 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %92 = load ptr, ptr %91, align 8
+  %93 = load x86_fp80, ptr %92, align 16
+  tail call void @packlongdouble(x86_fp80 noundef %93, ptr noundef %4) #14
   br label %.loopexit
 
-95:                                               ; preds = %41
+94:                                               ; preds = %41
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.s_p_pack_hashtbl, i32 noundef %42) #17
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph, %46, %64, %65, %69, %73, %77, %83, %87, %91, %43, %41, %34
+.loopexit:                                        ; preds = %.lr.ph, %46, %64, %65, %69, %73, %77, %82, %86, %90, %43, %41, %34
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !57

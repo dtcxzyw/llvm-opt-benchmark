@@ -919,8 +919,8 @@ define void @_ZN4ring4aead7aes_gcm12aes_gcm_seal17h973d2aed269bad6eE(ptr noalias
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   call void @_ZN4ring4aead3gcm7Context3new17h5c45cd819d1f2c2aE(ptr noalias nocapture noundef nonnull sret({ i8, [303 x i8] }) align 16 dereferenceable(304) %26, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %31, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %6)
   %32 = load i8, ptr %26, align 16, !range !108, !noundef !4
-  %trunc.not = icmp eq i8 %32, 0
-  br i1 %trunc.not, label %34, label %43
+  %trunc = trunc i8 %32 to i1
+  br i1 %trunc, label %43, label %34
 
 33:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5e9ac13353a974eaad2bf76d6c3f9f95.44, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5e9ac13353a974eaad2bf76d6c3f9f95.45) #19
@@ -1212,8 +1212,8 @@ define void @_ZN4ring4aead7aes_gcm12aes_gcm_open17h3238ac7367a98f89E(ptr noalias
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   call void @_ZN4ring4aead3gcm7Context3new17h5c45cd819d1f2c2aE(ptr noalias nocapture noundef nonnull sret({ i8, [303 x i8] }) align 16 dereferenceable(304) %22, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %27)
   %31 = load i8, ptr %22, align 16, !range !108, !noundef !4
-  %trunc.not = icmp eq i8 %31, 0
-  br i1 %trunc.not, label %33, label %42
+  %trunc = trunc i8 %31 to i1
+  br i1 %trunc, label %42, label %33
 
 32:                                               ; preds = %26
   store i8 1, ptr %0, align 1

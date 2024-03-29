@@ -2194,16 +2194,16 @@ while.body.i.i.i.i.i.i.i.i:                       ; preds = %if.end36.i.i.i.i.i.
   %6 = load <16 x i8>, ptr %add.ptr.i.i.i.i.i.i.i.i, align 1, !noalias !43
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i.i.i.i.i.i, %6
   %7 = bitcast <16 x i1> %cmp.i.i.i.i.i.i.i.i.i.i to i16
-  %cmp.i.not32.i.i.i.i.i.i.i.i = icmp eq i16 %7, 0
-  br i1 %cmp.i.not32.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i
+  %cmp.i.not33.i.i.i.i.i.i.i.i = icmp eq i16 %7, 0
+  br i1 %cmp.i.not33.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i.i:               ; preds = %while.body.i.i.i.i.i.i.i.i
   %8 = zext i16 %7 to i32
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.inc.i.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i
-  %__begin0.sroa.0.033.i.i.i.i.i.i.i.i = phi i32 [ %and.i12.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %8, %for.body.preheader.i.i.i.i.i.i.i.i ]
-  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.033.i.i.i.i.i.i.i.i, i1 true), !range !31
+  %__begin0.sroa.0.034.i.i.i.i.i.i.i.i = phi i32 [ %and.i12.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %8, %for.body.preheader.i.i.i.i.i.i.i.i ]
+  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.034.i.i.i.i.i.i.i.i, i1 true), !range !31
   %conv.i.i.i.i.i.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i.i.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   %and.i.i.i.i.i.i.i.i.i = and i64 %add.i.i.i.i.i.i.i.i.i, %2
@@ -2231,8 +2231,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; pr
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %for.inc.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i = add nsw i32 %__begin0.sroa.0.033.i.i.i.i.i.i.i.i, -1
-  %and.i12.i.i.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i.i.i.i, %__begin0.sroa.0.033.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i = add nsw i32 %__begin0.sroa.0.034.i.i.i.i.i.i.i.i, -1
+  %and.i12.i.i.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i.i.i.i, %__begin0.sroa.0.034.i.i.i.i.i.i.i.i
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %and.i12.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
@@ -2482,16 +2482,16 @@ while.body.i.i.i:                                 ; preds = %if.end36.i.i.i, %en
   %6 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1, !noalias !61
   %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %6
   %7 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
-  %cmp.i.not25.i.i.i = icmp eq i16 %7, 0
-  br i1 %cmp.i.not25.i.i.i, label %for.end.i.i.i, label %for.body.preheader.i.i.i
+  %cmp.i.not26.i.i.i = icmp eq i16 %7, 0
+  br i1 %cmp.i.not26.i.i.i, label %for.end.i.i.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %while.body.i.i.i
   %8 = zext i16 %7 to i32
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
-  %__begin0.sroa.0.026.i.i.i = phi i32 [ %and.i10.i.i.i, %for.inc.i.i.i ], [ %8, %for.body.preheader.i.i.i ]
-  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.026.i.i.i, i1 true), !range !31
+  %__begin0.sroa.0.027.i.i.i = phi i32 [ %and.i10.i.i.i, %for.inc.i.i.i ], [ %8, %for.body.preheader.i.i.i ]
+  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i.i, i1 true), !range !31
   %conv.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %add.i.i.i.i, %2
@@ -2501,8 +2501,8 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory12RegisterTypeEPKNS0_10DescriptorEPKNS0_7MessageE.exit, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %sub.i.i.i.i = add nsw i32 %__begin0.sroa.0.026.i.i.i, -1
-  %and.i10.i.i.i = and i32 %sub.i.i.i.i, %__begin0.sroa.0.026.i.i.i
+  %sub.i.i.i.i = add nsw i32 %__begin0.sroa.0.027.i.i.i, -1
+  %and.i10.i.i.i = and i32 %sub.i.i.i.i, %__begin0.sroa.0.027.i.i.i
   %cmp.i.not.i.i.i = icmp eq i32 %and.i10.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
@@ -3139,16 +3139,16 @@ while.body.i.i:                                   ; preds = %if.end36.i.i, %if.t
   %8 = load <16 x i8>, ptr %add.ptr.i.i, align 1, !noalias !68
   %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %8
   %9 = bitcast <16 x i1> %cmp.i.i.i.i to i16
-  %cmp.i.not25.i.i = icmp eq i16 %9, 0
-  br i1 %cmp.i.not25.i.i, label %for.end.i.i, label %for.body.preheader.i.i
+  %cmp.i.not26.i.i = icmp eq i16 %9, 0
+  br i1 %cmp.i.not26.i.i, label %for.end.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.body.i.i
   %10 = zext i16 %9 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %__begin0.sroa.0.026.i.i = phi i32 [ %and.i10.i.i, %for.inc.i.i ], [ %10, %for.body.preheader.i.i ]
-  %11 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.026.i.i, i1 true), !range !31
+  %__begin0.sroa.0.027.i.i = phi i32 [ %and.i10.i.i, %for.inc.i.i ], [ %10, %for.body.preheader.i.i ]
+  %11 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i, i1 true), !range !31
   %conv.i.i = zext nneg i32 %11 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %4
@@ -3158,8 +3158,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %sub.i.i.i = add nsw i32 %__begin0.sroa.0.026.i.i, -1
-  %and.i10.i.i = and i32 %sub.i.i.i, %__begin0.sroa.0.026.i.i
+  %sub.i.i.i = add nsw i32 %__begin0.sroa.0.027.i.i, -1
+  %and.i10.i.i = and i32 %sub.i.i.i, %__begin0.sroa.0.027.i.i
   %cmp.i.not.i.i = icmp eq i32 %and.i10.i.i, 0
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -3184,13 +3184,13 @@ call38.i.i.noexc:                                 ; preds = %if.then.i
   store ptr %type, ptr %add.ptr.i3.i, align 8, !noalias !68
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i, i64 8
   store ptr null, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !68
-  %.pre17.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !68
+  %.pre20.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !68
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.body.i.i, %call38.i.i.noexc
-  %15 = phi ptr [ %.pre17.i, %call38.i.i.noexc ], [ %7, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i6, %call38.i.i.noexc ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %15 = phi ptr [ %.pre20.i, %call38.i.i.noexc ], [ %7, %for.body.i.i ]
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i6, %call38.i.i.noexc ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   store ptr %call6, ptr %second.i.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %if.end unwind label %terminate.lpad.i
@@ -6817,11 +6817,11 @@ entry:
   %idxprom3.i = sext i32 %index2 to i64
   %arrayidx4.i = getelementptr inbounds i8, ptr %0, i64 %idxprom3.i
   %1 = load i8, ptr %arrayidx.i, align 1
-  %2 = and i8 %1, 1
-  %3 = load i8, ptr %arrayidx4.i, align 1
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %arrayidx.i, align 1
-  store i8 %2, ptr %arrayidx4.i, align 1
+  %frombool.i.i = and i8 %1, 1
+  %2 = load i8, ptr %arrayidx4.i, align 1
+  %frombool2.i.i = and i8 %2, 1
+  store i8 %frombool2.i.i, ptr %arrayidx.i, align 1
+  store i8 %frombool.i.i, ptr %arrayidx4.i, align 1
   ret void
 }
 
@@ -6846,8 +6846,7 @@ cleanup.done:                                     ; preds = %entry
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIbE10ConvertToTEPKv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %value) unnamed_addr #7 comdat align 2 {
 entry:
   %0 = load i8, ptr %value, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

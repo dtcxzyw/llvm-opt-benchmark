@@ -324,8 +324,8 @@ sw.bb14:                                          ; preds = %if.end6, %if.end6
 sw.epilog:                                        ; preds = %if.end6, %sw.bb14, %sw.bb11, %sw.bb
   %max_digits.0 = phi i32 [ %div13, %sw.bb11 ], [ %div19, %sw.bb14 ], [ %div, %sw.bb ], [ 0, %if.end6 ]
   %wsize.addr.0 = phi i32 [ %wsize, %sw.bb11 ], [ %wsize, %sw.bb14 ], [ %wsize, %sw.bb ], [ 1, %if.end6 ]
-  %cmp2193 = icmp sgt i32 %mul, 0
-  br i1 %cmp2193, label %while.body.lr.ph, label %while.end122
+  %cmp2192 = icmp sgt i32 %mul, 0
+  br i1 %cmp2192, label %while.body.lr.ph, label %while.end122
 
 while.body.lr.ph:                                 ; preds = %sw.epilog
   %tobool22.not = icmp eq i32 %is_physical, 0
@@ -333,11 +333,11 @@ while.body.lr.ph:                                 ; preds = %sw.epilog
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %.compoundliteral.sroa.0.096 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral.sroa.0.1, %while.end ]
-  %addr.addr.095 = phi i64 [ %addr, %while.body.lr.ph ], [ %add120, %while.end ]
-  %len.094 = phi i32 [ %mul, %while.body.lr.ph ], [ %sub121, %while.end ]
-  %call26 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i64 noundef %addr.addr.095) #7
-  %spec.select87 = call i32 @llvm.smin.i32(i32 %len.094, i32 %.)
+  %.compoundliteral.sroa.0.095 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral.sroa.0.1, %while.end ]
+  %addr.addr.094 = phi i64 [ %addr, %while.body.lr.ph ], [ %add120, %while.end ]
+  %len.093 = phi i32 [ %mul, %while.body.lr.ph ], [ %sub121, %while.end ]
+  %call26 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i64 noundef %addr.addr.094) #7
+  %spec.select86 = call i32 @llvm.smin.i32(i32 %len.093, i32 %.)
   br i1 %tobool22.not, label %if.else68, label %if.then32
 
 if.then32:                                        ; preds = %while.body
@@ -349,10 +349,10 @@ cond.true:                                        ; preds = %if.then32
 
 cond.end:                                         ; preds = %if.then32, %cond.true
   %cond = phi ptr [ %0, %cond.true ], [ @address_space_memory, %if.then32 ]
-  %bf.set = and i32 %.compoundliteral.sroa.0.096, -67108864
+  %bf.set = and i32 %.compoundliteral.sroa.0.095, -67108864
   %bf.clear36 = or disjoint i32 %bf.set, 1
-  %conv = zext nneg i32 %spec.select87 to i64
-  %call13.i = call i32 @address_space_read_full(ptr noundef %cond, i64 noundef %addr.addr.095, i32 %bf.clear36, ptr noundef nonnull %buf, i64 noundef %conv) #7
+  %conv = zext nneg i32 %spec.select86 to i64
+  %call13.i = call i32 @address_space_read_full(ptr noundef %cond, i64 noundef %addr.addr.094, i32 %bf.clear36, ptr noundef nonnull %buf, i64 noundef %conv) #7
   %cmp63.not = icmp eq i32 %call13.i, 0
   br i1 %cmp63.not, label %if.end77, label %if.then65
 
@@ -361,8 +361,8 @@ if.then65:                                        ; preds = %cond.end
   br label %while.end122
 
 if.else68:                                        ; preds = %while.body
-  %conv70 = zext nneg i32 %spec.select87 to i64
-  %call71 = call i32 @cpu_memory_rw_debug(ptr noundef %call.i82, i64 noundef %addr.addr.095, ptr noundef nonnull %buf, i64 noundef %conv70, i1 noundef zeroext false) #7
+  %conv70 = zext nneg i32 %spec.select86 to i64
+  %call71 = call i32 @cpu_memory_rw_debug(ptr noundef %call.i82, i64 noundef %addr.addr.094, ptr noundef nonnull %buf, i64 noundef %conv70, i1 noundef zeroext false) #7
   %cmp72 = icmp slt i32 %call71, 0
   br i1 %cmp72, label %if.then74, label %if.end77
 
@@ -371,13 +371,13 @@ if.then74:                                        ; preds = %if.else68
   br label %while.end122
 
 if.end77:                                         ; preds = %if.else68, %cond.end
-  %.compoundliteral.sroa.0.1 = phi i32 [ %bf.clear36, %cond.end ], [ %.compoundliteral.sroa.0.096, %if.else68 ]
-  %cmp7991 = icmp sgt i32 %len.094, 0
-  br i1 %cmp7991, label %while.body81, label %while.end
+  %.compoundliteral.sroa.0.1 = phi i32 [ %bf.clear36, %cond.end ], [ %.compoundliteral.sroa.0.095, %if.else68 ]
+  %cmp7990 = icmp sgt i32 %len.093, 0
+  br i1 %cmp7990, label %while.body81, label %while.end
 
 while.body81:                                     ; preds = %if.end77, %sw.epilog116
-  %i.092 = phi i32 [ %add117, %sw.epilog116 ], [ 0, %if.end77 ]
-  %idx.ext = sext i32 %i.092 to i64
+  %i.091 = phi i32 [ %add117, %sw.epilog116 ], [ 0, %if.end77 ]
+  %idx.ext = sext i32 %i.091 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
   switch i32 %wsize.addr.0, label %sw.bb83 [
     i32 8, label %sw.bb99
@@ -437,15 +437,15 @@ sw.bb114:                                         ; preds = %sw.epilog104
   br label %sw.epilog116
 
 sw.epilog116:                                     ; preds = %sw.bb114, %sw.bb112, %sw.bb110, %sw.bb108, %sw.bb106, %sw.epilog104
-  %add117 = add i32 %i.092, %wsize.addr.0
-  %cmp79 = icmp slt i32 %add117, %spec.select87
+  %add117 = add i32 %i.091, %wsize.addr.0
+  %cmp79 = icmp slt i32 %add117, %spec.select86
   br i1 %cmp79, label %while.body81, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %sw.epilog116, %if.end77
   %call118 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #7
-  %conv119 = zext nneg i32 %spec.select87 to i64
-  %add120 = add i64 %addr.addr.095, %conv119
-  %sub121 = sub nsw i32 %len.094, %spec.select87
+  %conv119 = zext nneg i32 %spec.select86 to i64
+  %add120 = add i64 %addr.addr.094, %conv119
+  %sub121 = sub nsw i32 %len.093, %spec.select86
   %cmp21 = icmp sgt i32 %sub121, 0
   br i1 %cmp21, label %while.body, label %while.end122, !llvm.loop !13
 
@@ -485,49 +485,46 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 41
   %.val = load i8, ptr %1, align 1
-  %2 = and i8 %.val, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %land.lhs.true, label %if.end7
+  %tobool.i = trunc i8 %.val to i1
+  br i1 %tobool.i, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %rom_device.i = getelementptr inbounds i8, ptr %0, i64 45
-  %3 = load i8, ptr %rom_device.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.then5, label %memory_region_is_romd.exit
+  %2 = load i8, ptr %rom_device.i, align 1
+  %tobool.i7 = trunc i8 %2 to i1
+  br i1 %tobool.i7, label %memory_region_is_romd.exit, label %if.then5
 
 memory_region_is_romd.exit:                       ; preds = %land.lhs.true
   %romd_mode.i = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = load i8, ptr %romd_mode.i, align 8
-  %6 = and i8 %5, 1
-  %tobool1.i.not = icmp eq i8 %6, 0
-  br i1 %tobool1.i.not, label %if.then5, label %if.end7
+  %3 = load i8, ptr %romd_mode.i, align 8
+  %tobool1.i = trunc i8 %3 to i1
+  br i1 %tobool1.i, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true, %memory_region_is_romd.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 263, ptr noundef nonnull @__func__.gpa2hva, ptr noundef nonnull @.str.11, i64 noundef %addr) #7
-  %7 = load ptr, ptr %mr, align 16
-  call void @memory_region_unref(ptr noundef %7) #7
+  %4 = load ptr, ptr %mr, align 16
+  call void @memory_region_unref(ptr noundef %4) #7
   br label %return
 
 if.end7:                                          ; preds = %memory_region_is_romd.exit, %if.end
-  %8 = load i128, ptr %mrs, align 16
+  %5 = load i128, ptr %mrs, align 16
   %b.sroa.0.0.insert.ext.i = zext i64 %size to i128
-  %cmp.i = icmp slt i128 %8, %b.sroa.0.0.insert.ext.i
+  %cmp.i = icmp slt i128 %5, %b.sroa.0.0.insert.ext.i
   br i1 %cmp.i, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end7
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 271, ptr noundef nonnull @__func__.gpa2hva, ptr noundef nonnull @.str.12, i64 noundef %addr) #7
-  %9 = load ptr, ptr %mr, align 16
-  call void @memory_region_unref(ptr noundef %9) #7
+  %6 = load ptr, ptr %mr, align 16
+  call void @memory_region_unref(ptr noundef %6) #7
   br label %return
 
 if.end15:                                         ; preds = %if.end7
   store ptr %0, ptr %p_mr, align 8
   %ram_block = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = load ptr, ptr %ram_block, align 8
+  %7 = load ptr, ptr %ram_block, align 8
   %offset_within_region = getelementptr inbounds i8, ptr %mrs, i64 32
-  %11 = load i64, ptr %offset_within_region, align 16
-  %call18 = call ptr @qemu_map_ram_ptr(ptr noundef %10, i64 noundef %11) #7
+  %8 = load i64, ptr %offset_within_region, align 16
+  %call18 = call ptr @qemu_map_ram_ptr(ptr noundef %7, i64 noundef %8) #7
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then13, %if.then5, %if.then

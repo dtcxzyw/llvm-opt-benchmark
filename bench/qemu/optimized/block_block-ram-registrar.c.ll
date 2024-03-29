@@ -26,19 +26,18 @@ entry:
   store ptr null, ptr %err, align 8
   %ok = getelementptr i8, ptr %n, i64 40
   %0 = load i8, ptr %ok, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end3, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.end3
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr i8, ptr %n, i64 -8
-  %2 = load ptr, ptr %add.ptr, align 8
-  %call = call zeroext i1 @blk_register_buf(ptr noundef %2, ptr noundef %host, i64 noundef %max_size, ptr noundef nonnull %err) #3
+  %1 = load ptr, ptr %add.ptr, align 8
+  %call = call zeroext i1 @blk_register_buf(ptr noundef %1, ptr noundef %host, i64 noundef %max_size, ptr noundef nonnull %err) #3
   br i1 %call, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr %err, align 8
-  call void @error_report_err(ptr noundef %3) #3
+  %2 = load ptr, ptr %err, align 8
+  call void @error_report_err(ptr noundef %2) #3
   call void @ram_block_notifier_remove(ptr noundef nonnull %n) #3
   store i8 0, ptr %ok, align 8
   br label %if.end3
@@ -66,9 +65,8 @@ define dso_local void @blk_ram_registrar_destroy(ptr noundef %r) local_unnamed_a
 entry:
   %ok = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load i8, ptr %ok, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %notifier = getelementptr inbounds i8, ptr %r, i64 8

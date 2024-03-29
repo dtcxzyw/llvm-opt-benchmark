@@ -654,17 +654,15 @@ entry:
   %0 = load ptr, ptr %outer_, align 8
   %use_new_methods_.i = getelementptr inbounds i8, ptr %0, i64 258
   %1 = load i8, ptr %use_new_methods_.i, align 2
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
   %use_new_methods_.i2 = getelementptr inbounds i8, ptr %this, i64 290
-  %3 = load i8, ptr %use_new_methods_.i2, align 2
-  %4 = and i8 %3, 1
-  %tobool.i3 = icmp ne i8 %4, 0
-  %5 = xor i1 %tobool.i, %tobool.i3
-  br i1 %5, label %if.then, label %if.end
+  %2 = load i8, ptr %use_new_methods_.i2, align 2
+  %3 = xor i8 %2, %1
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i8 %2, ptr %use_new_methods_.i2, align 2
+  %frombool.i = and i8 %1, 1
+  store i8 %frombool.i, ptr %use_new_methods_.i2, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

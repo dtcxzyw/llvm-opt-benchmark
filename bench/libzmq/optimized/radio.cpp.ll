@@ -767,9 +767,8 @@ for.body20:                                       ; preds = %for.end, %for.body2
 for.end25:                                        ; preds = %for.body20, %for.end
   %_lossy = getelementptr inbounds i8, ptr %this, i64 1960
   %9 = load i8, ptr %_lossy, align 8
-  %10 = and i8 %9, 1
-  %tobool26.not = icmp eq i8 %10, 0
-  br i1 %tobool26.not, label %lor.lhs.false, label %if.then29
+  %tobool26 = trunc i8 %9 to i1
+  br i1 %tobool26, label %if.then29, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end25
   %call28 = call noundef zeroext i1 @_ZN3zmq6dist_t9check_hwmEv(ptr noundef nonnull align 8 dereferenceable(49) %_dist)

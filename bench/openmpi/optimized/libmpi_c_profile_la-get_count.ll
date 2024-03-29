@@ -19,9 +19,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %18, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %18
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -42,8 +41,8 @@ define noundef i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, ptr nounde
   %15 = getelementptr i8, ptr %1, i64 16
   %.val = load i16, ptr %15, align 8
   %16 = and i16 %.val, 5
-  %or.cond33 = icmp eq i16 %16, 4
-  br i1 %or.cond33, label %18, label %.thread
+  %or.cond32 = icmp eq i16 %16, 4
+  br i1 %or.cond32, label %18, label %.thread
 
 .thread:                                          ; preds = %14, %11
   %17 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 3, ptr noundef nonnull @FUNC_NAME) #2
@@ -51,8 +50,8 @@ define noundef i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, ptr nounde
 
 18:                                               ; preds = %14, %3
   %19 = getelementptr i8, ptr %1, i64 24
-  %.val29 = load i64, ptr %19, align 8
-  %20 = icmp eq i64 %.val29, 0
+  %.val28 = load i64, ptr %19, align 8
+  %20 = icmp eq i64 %.val28, 0
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %18
@@ -62,8 +61,8 @@ define noundef i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, ptr nounde
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = udiv i64 %24, %.val29
-  %26 = mul i64 %25, %.val29
+  %25 = udiv i64 %24, %.val28
+  %26 = mul i64 %25, %.val28
   %27 = icmp ne i64 %26, %24
   %28 = icmp ugt i64 %25, 2147483647
   %or.cond3 = or i1 %28, %27

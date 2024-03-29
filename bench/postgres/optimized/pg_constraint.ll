@@ -672,32 +672,32 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
   %13 = zext i32 %3 to i64
   br i1 %.not, label %.split.us, label %.lr.ph
 
-.split.us:                                        ; preds = %5, %.thread32.us
-  %.0.us = phi i32 [ %18, %.thread32.us ], [ 0, %5 ]
+.split.us:                                        ; preds = %5, %.thread29.us
+  %.0.us = phi i32 [ %18, %.thread29.us ], [ 0, %5 ]
   %14 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #10
   %15 = ptrtoint ptr %14 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %15) #10
   call void @ScanKeyInit(ptr noundef nonnull %12, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #10
   %16 = call ptr @systable_beginscan(ptr noundef %8, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %7) #10
   %17 = call ptr @systable_getnext(ptr noundef %16) #10
-  %.not34.us = icmp eq ptr %17, null
+  %.not31.us = icmp eq ptr %17, null
   call void @systable_endscan(ptr noundef %16) #10
-  br i1 %.not34.us, label %.split40.us, label %.thread32.us
+  br i1 %.not31.us, label %.split37.us, label %.thread29.us
 
-.thread32.us:                                     ; preds = %.split.us
+.thread29.us:                                     ; preds = %.split.us
   call void @pfree(ptr noundef %14) #10
   %18 = add i32 %.0.us, 1
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %18) #10
   br label %.split.us
 
-.lr.ph:                                           ; preds = %5, %.thread32
-  %.0 = phi i32 [ %33, %.thread32 ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %.thread29
+  %.0 = phi i32 [ %33, %.thread29 ], [ 0, %5 ]
   %20 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #10
   %21 = load i32, ptr %10, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph38, label %._crit_edge36.split
+  br i1 %22, label %.lr.ph35, label %._crit_edge.split
 
-.lr.ph38:                                         ; preds = %.lr.ph
+.lr.ph35:                                         ; preds = %.lr.ph
   %23 = load ptr, ptr %11, align 8
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %25
@@ -705,34 +705,34 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 24:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge36.split, label %25
+  br i1 %exitcond.not, label %._crit_edge.split, label %25
 
-25:                                               ; preds = %.lr.ph38, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %24 ]
+25:                                               ; preds = %.lr.ph35, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next, %24 ]
   %26 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %20) #11
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.thread32, label %24
+  br i1 %29, label %.thread29, label %24
 
-._crit_edge36.split:                              ; preds = %24, %.lr.ph
+._crit_edge.split:                                ; preds = %24, %.lr.ph
   %30 = ptrtoint ptr %20 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %30) #10
   call void @ScanKeyInit(ptr noundef nonnull %12, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #10
   %31 = call ptr @systable_beginscan(ptr noundef %8, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %7) #10
   %32 = call ptr @systable_getnext(ptr noundef %31) #10
-  %.not34 = icmp eq ptr %32, null
+  %.not31 = icmp eq ptr %32, null
   call void @systable_endscan(ptr noundef %31) #10
-  br i1 %.not34, label %.split40.us, label %.thread32
+  br i1 %.not31, label %.split37.us, label %.thread29
 
-.thread32:                                        ; preds = %25, %._crit_edge36.split
+.thread29:                                        ; preds = %25, %._crit_edge.split
   call void @pfree(ptr noundef %20) #10
   %33 = add i32 %.0, 1
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %33) #10
   br label %.lr.ph
 
-.split40.us:                                      ; preds = %._crit_edge36.split, %.split.us
-  %.us-phi = phi ptr [ %14, %.split.us ], [ %20, %._crit_edge36.split ]
+.split37.us:                                      ; preds = %._crit_edge.split, %.split.us
+  %.us-phi = phi ptr [ %14, %.split.us ], [ %20, %._crit_edge.split ]
   call void @table_close(ptr noundef %8, i32 noundef 1) #10
   ret ptr %.us-phi
 }
@@ -757,8 +757,8 @@ define dso_local ptr @findNotNullConstraintAttnum(i32 noundef %0, i16 noundef si
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 8, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #10
   %6 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #10
   %7 = call ptr @systable_getnext(ptr noundef %6) #10
-  %.not18 = icmp eq ptr %7, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq ptr %7, null
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
   %8 = phi ptr [ %17, %.backedge ], [ %7, %2 ]
@@ -781,14 +781,13 @@ define dso_local ptr @findNotNullConstraintAttnum(i32 noundef %0, i16 noundef si
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %14, i64 75
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not15 = icmp eq i8 %21, 0
-  br i1 %.not15, label %.backedge, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %.backedge
 
 22:                                               ; preds = %18
   %23 = call signext i16 @extractNotNullColumn(ptr noundef nonnull %8)
-  %.not16 = icmp eq i16 %23, %1
-  br i1 %.not16, label %24, label %.backedge
+  %.not15 = icmp eq i16 %23, %1
+  br i1 %.not15, label %24, label %.backedge
 
 24:                                               ; preds = %22
   %25 = call ptr @heap_copytuple(ptr noundef nonnull %8) #10
@@ -891,10 +890,9 @@ define dso_local noundef zeroext i1 @AdjustNotNullInheritance1(i32 noundef %0, i
   %13 = getelementptr i8, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 102
   %15 = load i8, ptr %14, align 2
-  %16 = and i8 %15, 1
-  %17 = icmp eq i8 %16, 0
-  %.not25 = xor i1 %17, %3
-  br i1 %.not25, label %24, label %18
+  %16 = trunc i8 %15 to i1
+  %17 = xor i1 %16, %3
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %6
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1048,15 +1046,15 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 8, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #10
   %6 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #10
   %7 = call ptr @systable_getnext(ptr noundef %6) #10
-  %.not4345 = icmp eq ptr %7, null
-  br i1 %.not4345, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not4244 = icmp eq ptr %7, null
+  br i1 %.not4244, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %2
   br i1 %1, label %.lr.ph.us, label %.lr.ph
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.outer.us
   %8 = phi ptr [ %38, %.outer.us ], [ %7, %.lr.ph.lr.ph ]
-  %.0.ph46.us = phi ptr [ %37, %.outer.us ], [ null, %.lr.ph.lr.ph ]
+  %.0.ph45.us = phi ptr [ %37, %.outer.us ], [ null, %.lr.ph.lr.ph ]
   br label %9
 
 9:                                                ; preds = %.backedge.us, %.lr.ph.us
@@ -1075,9 +1073,8 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
 19:                                               ; preds = %9
   %20 = getelementptr inbounds i8, ptr %16, i64 102
   %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %.not39.us = icmp eq i8 %22, 0
-  br i1 %.not39.us, label %.outer.us, label %.backedge.us
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %.backedge.us, label %.outer.us
 
 .outer.us:                                        ; preds = %19
   %23 = getelementptr inbounds i8, ptr %16, i64 102
@@ -1099,13 +1096,13 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
   %33 = getelementptr inbounds i8, ptr %25, i64 36
   store i32 0, ptr %33, align 4
   %34 = load i8, ptr %23, align 2
-  %35 = and i8 %34, 1
-  %36 = getelementptr inbounds i8, ptr %25, i64 40
-  store i8 %35, ptr %36, align 8
-  %37 = call ptr @lappend(ptr noundef %.0.ph46.us, ptr noundef nonnull %25) #10
+  %35 = getelementptr inbounds i8, ptr %25, i64 40
+  %36 = and i8 %34, 1
+  store i8 %36, ptr %35, align 8
+  %37 = call ptr @lappend(ptr noundef %.0.ph45.us, ptr noundef nonnull %25) #10
   %38 = call ptr @systable_getnext(ptr noundef %6) #10
-  %.not43.us = icmp eq ptr %38, null
-  br i1 %.not43.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !18
+  %.not42.us = icmp eq ptr %38, null
+  br i1 %.not42.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !18
 
 .backedge.us:                                     ; preds = %19, %9
   %39 = call ptr @systable_getnext(ptr noundef %6) #10
@@ -1114,7 +1111,7 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %40 = phi ptr [ %72, %.outer ], [ %7, %.lr.ph.lr.ph ]
-  %.0.ph46 = phi ptr [ %71, %.outer ], [ null, %.lr.ph.lr.ph ]
+  %.0.ph45 = phi ptr [ %71, %.outer ], [ null, %.lr.ph.lr.ph ]
   br label %41
 
 41:                                               ; preds = %.lr.ph, %.backedge
@@ -1138,9 +1135,8 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
 52:                                               ; preds = %41
   %53 = getelementptr inbounds i8, ptr %48, i64 102
   %54 = load i8, ptr %53, align 2
-  %55 = and i8 %54, 1
-  %.not39 = icmp eq i8 %55, 0
-  br i1 %.not39, label %.outer, label %.backedge
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %.backedge, label %.outer
 
 .outer:                                           ; preds = %52
   %56 = call signext i16 @extractNotNullColumn(ptr noundef nonnull %42)
@@ -1167,13 +1163,13 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
   store i8 0, ptr %69, align 2
   %70 = getelementptr inbounds i8, ptr %57, i64 19
   store i8 1, ptr %70, align 1
-  %71 = call ptr @lappend(ptr noundef %.0.ph46, ptr noundef nonnull %57) #10
+  %71 = call ptr @lappend(ptr noundef %.0.ph45, ptr noundef nonnull %57) #10
   %72 = call ptr @systable_getnext(ptr noundef %6) #10
-  %.not43 = icmp eq ptr %72, null
-  br i1 %.not43, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
+  %.not42 = icmp eq ptr %72, null
+  br i1 %.not42, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us, %2
-  %.0.ph.lcssa = phi ptr [ null, %2 ], [ %.0.ph46.us, %.backedge.us ], [ %37, %.outer.us ], [ %.0.ph46, %.backedge ], [ %71, %.outer ]
+  %.0.ph.lcssa = phi ptr [ null, %2 ], [ %.0.ph45.us, %.backedge.us ], [ %37, %.outer.us ], [ %.0.ph45, %.backedge ], [ %71, %.outer ]
   call void @systable_endscan(ptr noundef %6) #10
   call void @table_close(ptr noundef %4, i32 noundef 1) #10
   ret ptr %.0.ph.lcssa
@@ -1718,9 +1714,8 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
   %23 = load ptr, ptr %22, align 8
   %24 = call fastcc i64 @heap_getattr(ptr noundef nonnull %13, ptr noundef %23, ptr noundef nonnull %6)
   %25 = load i8, ptr %6, align 1
-  %26 = and i8 %25, 1
-  %.not38 = icmp eq i8 %26, 0
-  br i1 %.not38, label %27, label %.loopexit
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %14
   %28 = inttoptr i64 %24 to ptr
@@ -1737,14 +1732,14 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 36:                                               ; preds = %27
   %37 = getelementptr inbounds i8, ptr %29, i64 8
   %38 = load i32, ptr %37, align 4
-  %.not39 = icmp eq i32 %38, 0
-  br i1 %.not39, label %39, label %42
+  %.not38 = icmp eq i32 %38, 0
+  br i1 %.not38, label %39, label %42
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %29, i64 12
   %41 = load i32, ptr %40, align 4
-  %.not40 = icmp eq i32 %41, 21
-  br i1 %.not40, label %45, label %42
+  %.not39 = icmp eq i32 %41, 21
+  br i1 %.not39, label %45, label %42
 
 42:                                               ; preds = %39, %36, %27
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1755,8 +1750,8 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 45:                                               ; preds = %39
   %46 = getelementptr i8, ptr %29, i64 24
-  %.not45 = icmp eq i32 %31, 0
-  br i1 %.not45, label %.loopexit, label %.lr.ph.preheader
+  %.not44 = icmp eq i32 %31, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %45
   %wide.trip.count = zext nneg i32 %31 to i64
@@ -1764,12 +1759,12 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03342 = phi ptr [ null, %.lr.ph.preheader ], [ %51, %.lr.ph ]
+  %.03341 = phi ptr [ null, %.lr.ph.preheader ], [ %51, %.lr.ph ]
   %47 = getelementptr i16, ptr %46, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %49, 7
-  %51 = call ptr @bms_add_member(ptr noundef %.03342, i32 noundef %50) #10
+  %51 = call ptr @bms_add_member(ptr noundef %.03341, i32 noundef %50) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
@@ -1778,8 +1773,8 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
   %.1 = phi ptr [ null, %14 ], [ null, %4 ], [ null, %45 ], [ %51, %.lr.ph ]
   call void @systable_endscan(ptr noundef %12) #10
   %52 = load i32, ptr %3, align 4
-  %.not41 = icmp ne i32 %52, 0
-  %brmerge = or i1 %.not41, %2
+  %.not40 = icmp ne i32 %52, 0
+  %brmerge = or i1 %.not40, %2
   br i1 %brmerge, label %58, label %53
 
 53:                                               ; preds = %.loopexit
@@ -1834,11 +1829,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = getelementptr i8, ptr %25, i64 %26
   %28 = getelementptr i8, ptr %1, i64 2086
   %29 = load i8, ptr %28, align 2
-  %30 = and i8 %29, 1
-  %.not20.i = icmp eq i8 %30, 0
+  %30 = trunc i8 %29 to i1
   %31 = getelementptr i8, ptr %1, i64 2072
   %32 = load i16, ptr %31, align 4
-  br i1 %.not20.i, label %49, label %33
+  br i1 %30, label %33, label %49
 
 33:                                               ; preds = %21
   switch i16 %32, label %45 [
@@ -2033,9 +2027,9 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   %21 = getelementptr inbounds i8, ptr %10, i64 16
   %22 = getelementptr inbounds i8, ptr %17, i64 73
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not41 = icmp eq i8 %24, 0
-  %brmerge = or i1 %.not41, %1
+  %24 = trunc i8 %23 to i1
+  %.not43 = xor i1 %24, true
+  %brmerge = or i1 %.not43, %1
   br i1 %brmerge, label %25, label %.loopexit
 
 25:                                               ; preds = %20
@@ -2043,9 +2037,8 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   %27 = load ptr, ptr %26, align 8
   %28 = call fastcc i64 @heap_getattr(ptr noundef nonnull %10, ptr noundef %27, ptr noundef nonnull %5)
   %29 = load i8, ptr %5, align 1
-  %30 = and i8 %29, 1
-  %.not42 = icmp eq i8 %30, 0
-  br i1 %.not42, label %40, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %40
 
 31:                                               ; preds = %25
   %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2075,14 +2068,14 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %42, i64 8
   %51 = load i32, ptr %50, align 4
-  %.not43 = icmp eq i32 %51, 0
-  br i1 %.not43, label %52, label %55
+  %.not41 = icmp eq i32 %51, 0
+  br i1 %.not41, label %52, label %55
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %42, i64 12
   %54 = load i32, ptr %53, align 4
-  %.not44 = icmp eq i32 %54, 21
-  br i1 %.not44, label %58, label %55
+  %.not42 = icmp eq i32 %54, 21
+  br i1 %.not42, label %58, label %55
 
 55:                                               ; preds = %52, %49, %40
   %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2093,8 +2086,8 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 
 58:                                               ; preds = %52
   %59 = getelementptr i8, ptr %42, i64 24
-  %.not59 = icmp eq i32 %44, 0
-  br i1 %.not59, label %._crit_edge, label %.lr.ph.preheader
+  %.not58 = icmp eq i32 %44, 0
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %58
   %wide.trip.count = zext nneg i32 %44 to i64
@@ -2102,12 +2095,12 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03548 = phi ptr [ null, %.lr.ph.preheader ], [ %64, %.lr.ph ]
+  %.03547 = phi ptr [ null, %.lr.ph.preheader ], [ %64, %.lr.ph ]
   %60 = getelementptr i16, ptr %59, i64 %indvars.iv
   %61 = load i16, ptr %60, align 2
   %62 = sext i16 %61 to i32
   %63 = add nsw i32 %62, 7
-  %64 = call ptr @bms_add_member(ptr noundef %.03548, i32 noundef %63) #10
+  %64 = call ptr @bms_add_member(ptr noundef %.03547, i32 noundef %63) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -2384,29 +2377,28 @@ define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr nocapture 
 128:                                              ; preds = %127
   %129 = call i64 @SysCacheGetAttr(i32 noundef 19, ptr noundef %0, i16 noundef signext 25, ptr noundef nonnull %10) #10
   %130 = load i8, ptr %10, align 1
-  %131 = and i8 %130, 1
-  %.not155 = icmp eq i8 %131, 0
-  br i1 %.not155, label %132, label %.sink.split
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %.sink.split, label %132
 
 132:                                              ; preds = %128
   %133 = inttoptr i64 %129 to ptr
   %134 = call ptr @pg_detoast_datum(ptr noundef %133) #10
   %135 = getelementptr inbounds i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4
-  %.not156 = icmp eq i32 %136, 1
-  br i1 %.not156, label %137, label %143
+  %.not155 = icmp eq i32 %136, 1
+  br i1 %.not155, label %137, label %143
 
 137:                                              ; preds = %132
   %138 = getelementptr inbounds i8, ptr %134, i64 8
   %139 = load i32, ptr %138, align 4
-  %.not157 = icmp eq i32 %139, 0
-  br i1 %.not157, label %140, label %143
+  %.not156 = icmp eq i32 %139, 0
+  br i1 %.not156, label %140, label %143
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds i8, ptr %134, i64 12
   %142 = load i32, ptr %141, align 4
-  %.not158 = icmp eq i32 %142, 21
-  br i1 %.not158, label %146, label %143
+  %.not157 = icmp eq i32 %142, 21
+  br i1 %.not157, label %146, label %143
 
 143:                                              ; preds = %140, %137, %132
   %144 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2422,8 +2414,8 @@ define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr nocapture 
   %150 = sext i32 %148 to i64
   %151 = shl nsw i64 %150, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %8, ptr align 1 %149, i64 %151, i1 false)
-  %.not159 = icmp eq ptr %134, %133
-  br i1 %.not159, label %.sink.split, label %152
+  %.not158 = icmp eq ptr %134, %133
+  br i1 %.not158, label %.sink.split, label %152
 
 152:                                              ; preds = %146
   call void @pfree(ptr noundef nonnull %134) #10

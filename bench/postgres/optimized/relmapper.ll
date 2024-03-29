@@ -1040,13 +1040,12 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
 
 .lr.ph.i:                                         ; preds = %10
   %14 = load i8, ptr @allowSystemTableMods, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
+  %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = getelementptr inbounds i8, ptr %3, i64 4
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %19 = zext nneg i32 %12 to i64
-  br i1 %.not, label %.lr.ph.split.i, label %.lr.ph.split.us.i
+  br i1 %15, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %apply_map_update.exit.us.i
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %apply_map_update.exit.us.i ], [ 0, %.lr.ph.i ]
@@ -1096,8 +1095,8 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
 
 apply_map_update.exit.us.i:                       ; preds = %37, %._crit_edge.i.us.thread.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next23.i, %19
-  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
+  %exitcond18.not = icmp eq i64 %indvars.iv.next23.i, %19
+  br i1 %exitcond18.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %apply_map_update.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %apply_map_update.exit.i ], [ 0, %.lr.ph.i ]
@@ -1129,8 +1128,8 @@ apply_map_update.exit.i:                          ; preds = %46
   %50 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %indvars.iv.i.i, i32 1
   store i32 %42, ptr %50, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond18.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond18.not, label %merge_map_updates.exit, label %.lr.ph.split.i, !llvm.loop !18
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
+  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.i, !llvm.loop !18
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.i, %45
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1146,7 +1145,7 @@ apply_map_update.exit.i:                          ; preds = %46
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
-merge_map_updates.exit:                           ; preds = %apply_map_update.exit.us.i, %apply_map_update.exit.i, %10
+merge_map_updates.exit:                           ; preds = %apply_map_update.exit.i, %apply_map_update.exit.us.i, %10
   %55 = load i32, ptr @MyDatabaseId, align 4
   %56 = select i1 %0, i32 0, i32 %55
   %57 = load i32, ptr @MyDatabaseTableSpace, align 4

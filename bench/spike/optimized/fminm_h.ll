@@ -169,11 +169,11 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.049.0210 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.046.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.049.0210, i16 %.sroa.046.0)
-  %.sink.i137.pre227 = load i64, ptr %20, align 8
+  %.sink.i137.pre231 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i137.pre227, 2
+  %53 = and i64 %.sink.i137.pre231, 2
   %.0.i126.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -261,7 +261,7 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i137 = phi i64 [ %.sink.i137.pre227, %50 ], [ %.sink.i137.pre, %82 ], [ %.sink.i137.pre, %101 ]
+  %.sink.i137 = phi i64 [ %.sink.i137.pre231, %50 ], [ %.sink.i137.pre, %82 ], [ %.sink.i137.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i137, 2
   %.0.i138.not = icmp eq i64 %105, 0
@@ -276,8 +276,8 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not231 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not231
+  %.not235 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not235
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread216:                                       ; preds = %103
@@ -288,12 +288,12 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.233.0.copyload = load i64, ptr %.sroa.233.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.233.0.copyload, -1
   %118 = icmp ult i64 %.sroa.032.0.copyload, -4294967296
-  %or.cond.i139.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i139.not226 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.032.0.copyload, -65536
-  %or.cond4.i140 = select i1 %or.cond.i139.not, i1 true, i1 %119
+  %or.cond4.i140.not = select i1 %or.cond.i139.not226, i1 true, i1 %119
   %120 = and i64 %.sroa.032.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i140, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i140.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread220
 
 123:                                              ; preds = %.thread216
@@ -303,8 +303,8 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %126 = icmp ugt i64 %.sroa.032.0.copyload, -65537
   %or.cond4.i144 = select i1 %or.cond.i143, i1 %126, i1 false
   %127 = and i64 %.sroa.032.0.copyload, 1023
-  %.not247 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i144, i1 %.not247, i1 false
+  %.not251 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i144, i1 %.not251, i1 false
   br i1 %.not, label %.thread220, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -316,9 +316,9 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not114236 = icmp eq i64 %135, 0
-  %or.cond241 = or i1 %134, %.not114236
-  br i1 %or.cond241, label %.critedge2.thread233, label %.critedge.thread
+  %.not114240 = icmp eq i64 %135, 0
+  %or.cond245 = or i1 %134, %.not114240
+  br i1 %or.cond245, label %.critedge2.thread237, label %.critedge.thread
 
 .thread220:                                       ; preds = %123, %.thread216
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -330,12 +330,12 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.227.0.copyload = load i64, ptr %.sroa.227.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.227.0.copyload, -1
   %141 = icmp ult i64 %.sroa.026.0.copyload, -4294967296
-  %or.cond.i147.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i147.not230 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.026.0.copyload, -65536
-  %or.cond4.i148 = select i1 %or.cond.i147.not, i1 true, i1 %142
+  %or.cond4.i148.not = select i1 %or.cond.i147.not230, i1 true, i1 %142
   %143 = and i64 %.sroa.026.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i148, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i148.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread220
@@ -345,8 +345,8 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %149 = icmp ugt i64 %.sroa.026.0.copyload, -65537
   %or.cond4.i152 = select i1 %or.cond.i151, i1 %149, i1 false
   %150 = and i64 %.sroa.026.0.copyload, 1023
-  %.not114248 = icmp eq i64 %150, 0
-  %.not114 = select i1 %or.cond4.i152, i1 %.not114248, i1 false
+  %.not114252 = icmp eq i64 %150, 0
+  %.not114 = select i1 %or.cond4.i152, i1 %.not114252, i1 false
   br i1 %.not114, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -378,15 +378,15 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i138.not, label %.critedge2.thread, label %.critedge2.thread233
+  br i1 %.0.i138.not, label %.critedge2.thread, label %.critedge2.thread237
 
-.critedge2.thread233:                             ; preds = %.thread, %.critedge2
+.critedge2.thread237:                             ; preds = %.thread, %.critedge2
   %163 = lshr i64 %1, 7
   %164 = and i64 %163, 31
   %.not.i165 = icmp eq i64 %164, 0
   br i1 %.not.i165, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %165
 
-165:                                              ; preds = %.critedge2.thread233
+165:                                              ; preds = %.critedge2.thread237
   %166 = getelementptr inbounds i8, ptr %0, i64 120
   %167 = lshr i64 %1, 15
   %168 = and i64 %167, 31
@@ -430,7 +430,7 @@ define noundef i64 @_Z18fast_rv32i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %189, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %165, %.critedge2.thread233, %153, %.critedge.thread, %.critedge2.thread, %156
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %165, %.critedge2.thread237, %153, %.critedge.thread, %.critedge2.thread, %156
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
   %.not115 = icmp eq i8 %190, 0
   br i1 %.not115, label %197, label %191
@@ -569,11 +569,11 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.049.0210 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.046.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.049.0210, i16 %.sroa.046.0)
-  %.sink.i137.pre227 = load i64, ptr %20, align 8
+  %.sink.i137.pre231 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i137.pre227, 2
+  %53 = and i64 %.sink.i137.pre231, 2
   %.0.i126.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -661,7 +661,7 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i137 = phi i64 [ %.sink.i137.pre227, %50 ], [ %.sink.i137.pre, %82 ], [ %.sink.i137.pre, %101 ]
+  %.sink.i137 = phi i64 [ %.sink.i137.pre231, %50 ], [ %.sink.i137.pre, %82 ], [ %.sink.i137.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i137, 2
   %.0.i138.not = icmp eq i64 %105, 0
@@ -676,8 +676,8 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not231 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not231
+  %.not235 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not235
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread216:                                       ; preds = %103
@@ -688,12 +688,12 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.233.0.copyload = load i64, ptr %.sroa.233.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.233.0.copyload, -1
   %118 = icmp ult i64 %.sroa.032.0.copyload, -4294967296
-  %or.cond.i139.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i139.not226 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.032.0.copyload, -65536
-  %or.cond4.i140 = select i1 %or.cond.i139.not, i1 true, i1 %119
+  %or.cond4.i140.not = select i1 %or.cond.i139.not226, i1 true, i1 %119
   %120 = and i64 %.sroa.032.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i140, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i140.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread220
 
 123:                                              ; preds = %.thread216
@@ -703,8 +703,8 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %126 = icmp ugt i64 %.sroa.032.0.copyload, -65537
   %or.cond4.i144 = select i1 %or.cond.i143, i1 %126, i1 false
   %127 = and i64 %.sroa.032.0.copyload, 1023
-  %.not247 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i144, i1 %.not247, i1 false
+  %.not251 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i144, i1 %.not251, i1 false
   br i1 %.not, label %.thread220, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -716,9 +716,9 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not114236 = icmp eq i64 %135, 0
-  %or.cond241 = or i1 %134, %.not114236
-  br i1 %or.cond241, label %.critedge2.thread233, label %.critedge.thread
+  %.not114240 = icmp eq i64 %135, 0
+  %or.cond245 = or i1 %134, %.not114240
+  br i1 %or.cond245, label %.critedge2.thread237, label %.critedge.thread
 
 .thread220:                                       ; preds = %123, %.thread216
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -730,12 +730,12 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.227.0.copyload = load i64, ptr %.sroa.227.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.227.0.copyload, -1
   %141 = icmp ult i64 %.sroa.026.0.copyload, -4294967296
-  %or.cond.i147.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i147.not230 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.026.0.copyload, -65536
-  %or.cond4.i148 = select i1 %or.cond.i147.not, i1 true, i1 %142
+  %or.cond4.i148.not = select i1 %or.cond.i147.not230, i1 true, i1 %142
   %143 = and i64 %.sroa.026.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i148, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i148.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread220
@@ -745,8 +745,8 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %149 = icmp ugt i64 %.sroa.026.0.copyload, -65537
   %or.cond4.i152 = select i1 %or.cond.i151, i1 %149, i1 false
   %150 = and i64 %.sroa.026.0.copyload, 1023
-  %.not114248 = icmp eq i64 %150, 0
-  %.not114 = select i1 %or.cond4.i152, i1 %.not114248, i1 false
+  %.not114252 = icmp eq i64 %150, 0
+  %.not114 = select i1 %or.cond4.i152, i1 %.not114252, i1 false
   br i1 %.not114, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -778,15 +778,15 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i138.not, label %.critedge2.thread, label %.critedge2.thread233
+  br i1 %.0.i138.not, label %.critedge2.thread, label %.critedge2.thread237
 
-.critedge2.thread233:                             ; preds = %.thread, %.critedge2
+.critedge2.thread237:                             ; preds = %.thread, %.critedge2
   %163 = lshr i64 %1, 7
   %164 = and i64 %163, 31
   %.not.i165 = icmp eq i64 %164, 0
   br i1 %.not.i165, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %165
 
-165:                                              ; preds = %.critedge2.thread233
+165:                                              ; preds = %.critedge2.thread237
   %166 = getelementptr inbounds i8, ptr %0, i64 120
   %167 = lshr i64 %1, 15
   %168 = and i64 %167, 31
@@ -830,7 +830,7 @@ define noundef i64 @_Z18fast_rv64i_fminm_hP11processor_t6insn_tm(ptr nocapture n
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %189, i64 noundef 24576)
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %165, %.critedge2.thread233, %153, %.critedge.thread, %.critedge2.thread, %156
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %165, %.critedge2.thread237, %153, %.critedge.thread, %.critedge2.thread, %156
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
   %.not115 = icmp eq i8 %190, 0
   br i1 %.not115, label %197, label %191
@@ -942,11 +942,11 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.054.0256 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.051.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.054.0256, i16 %.sroa.051.0)
-  %.sink.i146.pre281 = load i64, ptr %20, align 8
+  %.sink.i146.pre285 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i146.pre281, 2
+  %53 = and i64 %.sink.i146.pre285, 2
   %.0.i135.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -1034,7 +1034,7 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i146 = phi i64 [ %.sink.i146.pre281, %50 ], [ %.sink.i146.pre, %82 ], [ %.sink.i146.pre, %101 ]
+  %.sink.i146 = phi i64 [ %.sink.i146.pre285, %50 ], [ %.sink.i146.pre, %82 ], [ %.sink.i146.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i146, 2
   %.0.i147.not = icmp eq i64 %105, 0
@@ -1049,8 +1049,8 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not285 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not285
+  %.not289 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not289
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread262:                                       ; preds = %103
@@ -1061,12 +1061,12 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.238.0.copyload = load i64, ptr %.sroa.238.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.238.0.copyload, -1
   %118 = icmp ult i64 %.sroa.037.0.copyload, -4294967296
-  %or.cond.i148.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i148.not272 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.037.0.copyload, -65536
-  %or.cond4.i149 = select i1 %or.cond.i148.not, i1 true, i1 %119
+  %or.cond4.i149.not = select i1 %or.cond.i148.not272, i1 true, i1 %119
   %120 = and i64 %.sroa.037.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i149, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i149.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread266
 
 123:                                              ; preds = %.thread262
@@ -1076,8 +1076,8 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %126 = icmp ugt i64 %.sroa.037.0.copyload, -65537
   %or.cond4.i153 = select i1 %or.cond.i152, i1 %126, i1 false
   %127 = and i64 %.sroa.037.0.copyload, 1023
-  %.not310 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i153, i1 %.not310, i1 false
+  %.not314 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i153, i1 %.not314, i1 false
   br i1 %.not, label %.thread266, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -1089,9 +1089,9 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not123290 = icmp eq i64 %135, 0
-  %or.cond299 = or i1 %134, %.not123290
-  br i1 %or.cond299, label %.critedge2.thread287, label %.critedge.thread
+  %.not123294 = icmp eq i64 %135, 0
+  %or.cond303 = or i1 %134, %.not123294
+  br i1 %or.cond303, label %.critedge2.thread291, label %.critedge.thread
 
 .thread266:                                       ; preds = %123, %.thread262
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -1103,12 +1103,12 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.232.0.copyload = load i64, ptr %.sroa.232.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.232.0.copyload, -1
   %141 = icmp ult i64 %.sroa.031.0.copyload, -4294967296
-  %or.cond.i156.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i156.not276 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.031.0.copyload, -65536
-  %or.cond4.i157 = select i1 %or.cond.i156.not, i1 true, i1 %142
+  %or.cond4.i157.not = select i1 %or.cond.i156.not276, i1 true, i1 %142
   %143 = and i64 %.sroa.031.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i157, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i157.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread266
@@ -1118,8 +1118,8 @@ define noundef i64 @_Z20logged_rv32i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %149 = icmp ugt i64 %.sroa.031.0.copyload, -65537
   %or.cond4.i161 = select i1 %or.cond.i160, i1 %149, i1 false
   %150 = and i64 %.sroa.031.0.copyload, 1023
-  %.not123311 = icmp eq i64 %150, 0
-  %.not123 = select i1 %or.cond4.i161, i1 %.not123311, i1 false
+  %.not123315 = icmp eq i64 %150, 0
+  %.not123 = select i1 %or.cond4.i161, i1 %.not123315, i1 false
   br i1 %.not123, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -1270,9 +1270,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i147.not, label %.critedge2.thread, label %.critedge2.thread287
+  br i1 %.0.i147.not, label %.critedge2.thread, label %.critedge2.thread291
 
-.critedge2.thread287:                             ; preds = %.thread, %.critedge2
+.critedge2.thread291:                             ; preds = %.thread, %.critedge2
   %214 = getelementptr inbounds i8, ptr %0, i64 120
   %215 = lshr i64 %1, 15
   %216 = and i64 %215, 31
@@ -1297,7 +1297,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not.i.i.i.i184 = icmp eq ptr %231, null
   br i1 %.not.i.i.i.i184, label %.loopexit.i.i189, label %232
 
-232:                                              ; preds = %.critedge2.thread287
+232:                                              ; preds = %.critedge2.thread291
   %233 = load ptr, ptr %231, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 8
   %235 = load i64, ptr %234, align 8
@@ -1321,7 +1321,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not17.i.i.i.i188 = icmp eq i64 %243, %228
   br i1 %.not17.i.i.i.i188, label %237, label %.loopexit.i.i189, !llvm.loop !4
 
-.loopexit.i.i189:                                 ; preds = %240, %.lr.ph.i.i.i.i185, %.critedge2.thread287
+.loopexit.i.i189:                                 ; preds = %240, %.lr.ph.i.i.i.i185, %.critedge2.thread291
   %244 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   store ptr null, ptr %244, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 8
@@ -1549,11 +1549,11 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.054.0256 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.051.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.054.0256, i16 %.sroa.051.0)
-  %.sink.i146.pre281 = load i64, ptr %20, align 8
+  %.sink.i146.pre285 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i146.pre281, 2
+  %53 = and i64 %.sink.i146.pre285, 2
   %.0.i135.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -1641,7 +1641,7 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i146 = phi i64 [ %.sink.i146.pre281, %50 ], [ %.sink.i146.pre, %82 ], [ %.sink.i146.pre, %101 ]
+  %.sink.i146 = phi i64 [ %.sink.i146.pre285, %50 ], [ %.sink.i146.pre, %82 ], [ %.sink.i146.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i146, 2
   %.0.i147.not = icmp eq i64 %105, 0
@@ -1656,8 +1656,8 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not285 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not285
+  %.not289 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not289
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread262:                                       ; preds = %103
@@ -1668,12 +1668,12 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.238.0.copyload = load i64, ptr %.sroa.238.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.238.0.copyload, -1
   %118 = icmp ult i64 %.sroa.037.0.copyload, -4294967296
-  %or.cond.i148.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i148.not272 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.037.0.copyload, -65536
-  %or.cond4.i149 = select i1 %or.cond.i148.not, i1 true, i1 %119
+  %or.cond4.i149.not = select i1 %or.cond.i148.not272, i1 true, i1 %119
   %120 = and i64 %.sroa.037.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i149, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i149.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread266
 
 123:                                              ; preds = %.thread262
@@ -1683,8 +1683,8 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %126 = icmp ugt i64 %.sroa.037.0.copyload, -65537
   %or.cond4.i153 = select i1 %or.cond.i152, i1 %126, i1 false
   %127 = and i64 %.sroa.037.0.copyload, 1023
-  %.not310 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i153, i1 %.not310, i1 false
+  %.not314 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i153, i1 %.not314, i1 false
   br i1 %.not, label %.thread266, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -1696,9 +1696,9 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not123290 = icmp eq i64 %135, 0
-  %or.cond299 = or i1 %134, %.not123290
-  br i1 %or.cond299, label %.critedge2.thread287, label %.critedge.thread
+  %.not123294 = icmp eq i64 %135, 0
+  %or.cond303 = or i1 %134, %.not123294
+  br i1 %or.cond303, label %.critedge2.thread291, label %.critedge.thread
 
 .thread266:                                       ; preds = %123, %.thread262
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -1710,12 +1710,12 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.232.0.copyload = load i64, ptr %.sroa.232.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.232.0.copyload, -1
   %141 = icmp ult i64 %.sroa.031.0.copyload, -4294967296
-  %or.cond.i156.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i156.not276 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.031.0.copyload, -65536
-  %or.cond4.i157 = select i1 %or.cond.i156.not, i1 true, i1 %142
+  %or.cond4.i157.not = select i1 %or.cond.i156.not276, i1 true, i1 %142
   %143 = and i64 %.sroa.031.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i157, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i157.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread266
@@ -1725,8 +1725,8 @@ define noundef i64 @_Z20logged_rv64i_fminm_hP11processor_t6insn_tm(ptr noundef %
   %149 = icmp ugt i64 %.sroa.031.0.copyload, -65537
   %or.cond4.i161 = select i1 %or.cond.i160, i1 %149, i1 false
   %150 = and i64 %.sroa.031.0.copyload, 1023
-  %.not123311 = icmp eq i64 %150, 0
-  %.not123 = select i1 %or.cond4.i161, i1 %.not123311, i1 false
+  %.not123315 = icmp eq i64 %150, 0
+  %.not123 = select i1 %or.cond4.i161, i1 %.not123315, i1 false
   br i1 %.not123, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -1877,9 +1877,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i147.not, label %.critedge2.thread, label %.critedge2.thread287
+  br i1 %.0.i147.not, label %.critedge2.thread, label %.critedge2.thread291
 
-.critedge2.thread287:                             ; preds = %.thread, %.critedge2
+.critedge2.thread291:                             ; preds = %.thread, %.critedge2
   %214 = getelementptr inbounds i8, ptr %0, i64 120
   %215 = lshr i64 %1, 15
   %216 = and i64 %215, 31
@@ -1904,7 +1904,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not.i.i.i.i184 = icmp eq ptr %231, null
   br i1 %.not.i.i.i.i184, label %.loopexit.i.i189, label %232
 
-232:                                              ; preds = %.critedge2.thread287
+232:                                              ; preds = %.critedge2.thread291
   %233 = load ptr, ptr %231, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 8
   %235 = load i64, ptr %234, align 8
@@ -1928,7 +1928,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not17.i.i.i.i188 = icmp eq i64 %243, %228
   br i1 %.not17.i.i.i.i188, label %237, label %.loopexit.i.i189, !llvm.loop !4
 
-.loopexit.i.i189:                                 ; preds = %240, %.lr.ph.i.i.i.i185, %.critedge2.thread287
+.loopexit.i.i189:                                 ; preds = %240, %.lr.ph.i.i.i.i185, %.critedge2.thread291
   %244 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   store ptr null, ptr %244, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 8
@@ -2154,11 +2154,11 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.052.0218 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.049.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.052.0218, i16 %.sroa.049.0)
-  %.sink.i141.pre235 = load i64, ptr %20, align 8
+  %.sink.i141.pre239 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i141.pre235, 2
+  %53 = and i64 %.sink.i141.pre239, 2
   %.0.i130.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -2246,7 +2246,7 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i141 = phi i64 [ %.sink.i141.pre235, %50 ], [ %.sink.i141.pre, %82 ], [ %.sink.i141.pre, %101 ]
+  %.sink.i141 = phi i64 [ %.sink.i141.pre239, %50 ], [ %.sink.i141.pre, %82 ], [ %.sink.i141.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i141, 2
   %.0.i142.not = icmp eq i64 %105, 0
@@ -2261,8 +2261,8 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not239 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not239
+  %.not243 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not243
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread224:                                       ; preds = %103
@@ -2273,12 +2273,12 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.236.0.copyload = load i64, ptr %.sroa.236.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.236.0.copyload, -1
   %118 = icmp ult i64 %.sroa.035.0.copyload, -4294967296
-  %or.cond.i143.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i143.not234 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.035.0.copyload, -65536
-  %or.cond4.i144 = select i1 %or.cond.i143.not, i1 true, i1 %119
+  %or.cond4.i144.not = select i1 %or.cond.i143.not234, i1 true, i1 %119
   %120 = and i64 %.sroa.035.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i144, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i144.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread228
 
 123:                                              ; preds = %.thread224
@@ -2288,8 +2288,8 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %126 = icmp ugt i64 %.sroa.035.0.copyload, -65537
   %or.cond4.i148 = select i1 %or.cond.i147, i1 %126, i1 false
   %127 = and i64 %.sroa.035.0.copyload, 1023
-  %.not255 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i148, i1 %.not255, i1 false
+  %.not259 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i148, i1 %.not259, i1 false
   br i1 %.not, label %.thread228, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -2301,9 +2301,9 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not118244 = icmp eq i64 %135, 0
-  %or.cond249 = or i1 %134, %.not118244
-  br i1 %or.cond249, label %.critedge2.thread241, label %.critedge.thread
+  %.not118248 = icmp eq i64 %135, 0
+  %or.cond253 = or i1 %134, %.not118248
+  br i1 %or.cond253, label %.critedge2.thread245, label %.critedge.thread
 
 .thread228:                                       ; preds = %123, %.thread224
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -2315,12 +2315,12 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.230.0.copyload = load i64, ptr %.sroa.230.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.230.0.copyload, -1
   %141 = icmp ult i64 %.sroa.029.0.copyload, -4294967296
-  %or.cond.i151.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i151.not238 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.029.0.copyload, -65536
-  %or.cond4.i152 = select i1 %or.cond.i151.not, i1 true, i1 %142
+  %or.cond4.i152.not = select i1 %or.cond.i151.not238, i1 true, i1 %142
   %143 = and i64 %.sroa.029.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i152, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i152.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread228
@@ -2330,8 +2330,8 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %149 = icmp ugt i64 %.sroa.029.0.copyload, -65537
   %or.cond4.i156 = select i1 %or.cond.i155, i1 %149, i1 false
   %150 = and i64 %.sroa.029.0.copyload, 1023
-  %.not118256 = icmp eq i64 %150, 0
-  %.not118 = select i1 %or.cond4.i156, i1 %.not118256, i1 false
+  %.not118260 = icmp eq i64 %150, 0
+  %.not118 = select i1 %or.cond4.i156, i1 %.not118260, i1 false
   br i1 %.not118, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -2379,9 +2379,9 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i142.not, label %.critedge2.thread, label %.critedge2.thread241
+  br i1 %.0.i142.not, label %.critedge2.thread, label %.critedge2.thread245
 
-.critedge2.thread241:                             ; preds = %.thread, %.critedge2
+.critedge2.thread245:                             ; preds = %.thread, %.critedge2
   %170 = getelementptr inbounds i8, ptr %0, i64 120
   %171 = lshr i64 %1, 15
   %172 = and i64 %171, 31
@@ -2395,7 +2395,7 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %179 = icmp ugt i64 %178, 15
   br i1 %179, label %180, label %185
 
-180:                                              ; preds = %.critedge2.thread241
+180:                                              ; preds = %.critedge2.thread245
   %181 = tail call ptr @__cxa_allocate_exception(i64 32) #13
   %182 = getelementptr inbounds i8, ptr %181, i64 8
   store i64 2, ptr %182, align 8
@@ -2407,7 +2407,7 @@ define noundef i64 @_Z18fast_rv32e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   tail call void @__cxa_throw(ptr nonnull %181, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #14
   unreachable
 
-185:                                              ; preds = %.critedge2.thread241
+185:                                              ; preds = %.critedge2.thread245
   %.not.i169 = icmp eq i64 %178, 0
   br i1 %.not.i169, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %186
 
@@ -2561,11 +2561,11 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.052.0218 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.049.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.052.0218, i16 %.sroa.049.0)
-  %.sink.i141.pre235 = load i64, ptr %20, align 8
+  %.sink.i141.pre239 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i141.pre235, 2
+  %53 = and i64 %.sink.i141.pre239, 2
   %.0.i130.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -2653,7 +2653,7 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i141 = phi i64 [ %.sink.i141.pre235, %50 ], [ %.sink.i141.pre, %82 ], [ %.sink.i141.pre, %101 ]
+  %.sink.i141 = phi i64 [ %.sink.i141.pre239, %50 ], [ %.sink.i141.pre, %82 ], [ %.sink.i141.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i141, 2
   %.0.i142.not = icmp eq i64 %105, 0
@@ -2668,8 +2668,8 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not239 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not239
+  %.not243 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not243
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread224:                                       ; preds = %103
@@ -2680,12 +2680,12 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.236.0.copyload = load i64, ptr %.sroa.236.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.236.0.copyload, -1
   %118 = icmp ult i64 %.sroa.035.0.copyload, -4294967296
-  %or.cond.i143.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i143.not234 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.035.0.copyload, -65536
-  %or.cond4.i144 = select i1 %or.cond.i143.not, i1 true, i1 %119
+  %or.cond4.i144.not = select i1 %or.cond.i143.not234, i1 true, i1 %119
   %120 = and i64 %.sroa.035.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i144, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i144.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread228
 
 123:                                              ; preds = %.thread224
@@ -2695,8 +2695,8 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %126 = icmp ugt i64 %.sroa.035.0.copyload, -65537
   %or.cond4.i148 = select i1 %or.cond.i147, i1 %126, i1 false
   %127 = and i64 %.sroa.035.0.copyload, 1023
-  %.not255 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i148, i1 %.not255, i1 false
+  %.not259 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i148, i1 %.not259, i1 false
   br i1 %.not, label %.thread228, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -2708,9 +2708,9 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not118244 = icmp eq i64 %135, 0
-  %or.cond249 = or i1 %134, %.not118244
-  br i1 %or.cond249, label %.critedge2.thread241, label %.critedge.thread
+  %.not118248 = icmp eq i64 %135, 0
+  %or.cond253 = or i1 %134, %.not118248
+  br i1 %or.cond253, label %.critedge2.thread245, label %.critedge.thread
 
 .thread228:                                       ; preds = %123, %.thread224
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -2722,12 +2722,12 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %.sroa.230.0.copyload = load i64, ptr %.sroa.230.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.230.0.copyload, -1
   %141 = icmp ult i64 %.sroa.029.0.copyload, -4294967296
-  %or.cond.i151.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i151.not238 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.029.0.copyload, -65536
-  %or.cond4.i152 = select i1 %or.cond.i151.not, i1 true, i1 %142
+  %or.cond4.i152.not = select i1 %or.cond.i151.not238, i1 true, i1 %142
   %143 = and i64 %.sroa.029.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i152, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i152.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread228
@@ -2737,8 +2737,8 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %149 = icmp ugt i64 %.sroa.029.0.copyload, -65537
   %or.cond4.i156 = select i1 %or.cond.i155, i1 %149, i1 false
   %150 = and i64 %.sroa.029.0.copyload, 1023
-  %.not118256 = icmp eq i64 %150, 0
-  %.not118 = select i1 %or.cond4.i156, i1 %.not118256, i1 false
+  %.not118260 = icmp eq i64 %150, 0
+  %.not118 = select i1 %or.cond4.i156, i1 %.not118260, i1 false
   br i1 %.not118, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -2786,9 +2786,9 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i142.not, label %.critedge2.thread, label %.critedge2.thread241
+  br i1 %.0.i142.not, label %.critedge2.thread, label %.critedge2.thread245
 
-.critedge2.thread241:                             ; preds = %.thread, %.critedge2
+.critedge2.thread245:                             ; preds = %.thread, %.critedge2
   %170 = getelementptr inbounds i8, ptr %0, i64 120
   %171 = lshr i64 %1, 15
   %172 = and i64 %171, 31
@@ -2802,7 +2802,7 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   %179 = icmp ugt i64 %178, 15
   br i1 %179, label %180, label %185
 
-180:                                              ; preds = %.critedge2.thread241
+180:                                              ; preds = %.critedge2.thread245
   %181 = tail call ptr @__cxa_allocate_exception(i64 32) #13
   %182 = getelementptr inbounds i8, ptr %181, i64 8
   store i64 2, ptr %182, align 8
@@ -2814,7 +2814,7 @@ define noundef i64 @_Z18fast_rv64e_fminm_hP11processor_t6insn_tm(ptr nocapture n
   tail call void @__cxa_throw(ptr nonnull %181, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #14
   unreachable
 
-185:                                              ; preds = %.critedge2.thread241
+185:                                              ; preds = %.critedge2.thread245
   %.not.i169 = icmp eq i64 %178, 0
   br i1 %.not.i169, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %186
 
@@ -2966,11 +2966,11 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.057.0264 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.054.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.057.0264, i16 %.sroa.054.0)
-  %.sink.i150.pre289 = load i64, ptr %20, align 8
+  %.sink.i150.pre293 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i150.pre289, 2
+  %53 = and i64 %.sink.i150.pre293, 2
   %.0.i139.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -3058,7 +3058,7 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i150 = phi i64 [ %.sink.i150.pre289, %50 ], [ %.sink.i150.pre, %82 ], [ %.sink.i150.pre, %101 ]
+  %.sink.i150 = phi i64 [ %.sink.i150.pre293, %50 ], [ %.sink.i150.pre, %82 ], [ %.sink.i150.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i150, 2
   %.0.i151.not = icmp eq i64 %105, 0
@@ -3073,8 +3073,8 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not293 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not293
+  %.not297 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not297
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread270:                                       ; preds = %103
@@ -3085,12 +3085,12 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.241.0.copyload = load i64, ptr %.sroa.241.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.241.0.copyload, -1
   %118 = icmp ult i64 %.sroa.040.0.copyload, -4294967296
-  %or.cond.i152.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i152.not280 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.040.0.copyload, -65536
-  %or.cond4.i153 = select i1 %or.cond.i152.not, i1 true, i1 %119
+  %or.cond4.i153.not = select i1 %or.cond.i152.not280, i1 true, i1 %119
   %120 = and i64 %.sroa.040.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i153, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i153.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread274
 
 123:                                              ; preds = %.thread270
@@ -3100,8 +3100,8 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %126 = icmp ugt i64 %.sroa.040.0.copyload, -65537
   %or.cond4.i157 = select i1 %or.cond.i156, i1 %126, i1 false
   %127 = and i64 %.sroa.040.0.copyload, 1023
-  %.not318 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i157, i1 %.not318, i1 false
+  %.not322 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i157, i1 %.not322, i1 false
   br i1 %.not, label %.thread274, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -3113,9 +3113,9 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not127298 = icmp eq i64 %135, 0
-  %or.cond307 = or i1 %134, %.not127298
-  br i1 %or.cond307, label %.critedge2.thread295, label %.critedge.thread
+  %.not127302 = icmp eq i64 %135, 0
+  %or.cond311 = or i1 %134, %.not127302
+  br i1 %or.cond311, label %.critedge2.thread299, label %.critedge.thread
 
 .thread274:                                       ; preds = %123, %.thread270
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -3127,12 +3127,12 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.235.0.copyload = load i64, ptr %.sroa.235.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.235.0.copyload, -1
   %141 = icmp ult i64 %.sroa.034.0.copyload, -4294967296
-  %or.cond.i160.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i160.not284 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.034.0.copyload, -65536
-  %or.cond4.i161 = select i1 %or.cond.i160.not, i1 true, i1 %142
+  %or.cond4.i161.not = select i1 %or.cond.i160.not284, i1 true, i1 %142
   %143 = and i64 %.sroa.034.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i161, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i161.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread274
@@ -3142,8 +3142,8 @@ define noundef i64 @_Z20logged_rv32e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %149 = icmp ugt i64 %.sroa.034.0.copyload, -65537
   %or.cond4.i165 = select i1 %or.cond.i164, i1 %149, i1 false
   %150 = and i64 %.sroa.034.0.copyload, 1023
-  %.not127319 = icmp eq i64 %150, 0
-  %.not127 = select i1 %or.cond4.i165, i1 %.not127319, i1 false
+  %.not127323 = icmp eq i64 %150, 0
+  %.not127 = select i1 %or.cond4.i165, i1 %.not127323, i1 false
   br i1 %.not127, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -3310,9 +3310,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i151.not, label %.critedge2.thread, label %.critedge2.thread295
+  br i1 %.0.i151.not, label %.critedge2.thread, label %.critedge2.thread299
 
-.critedge2.thread295:                             ; preds = %.thread, %.critedge2
+.critedge2.thread299:                             ; preds = %.thread, %.critedge2
   %221 = getelementptr inbounds i8, ptr %0, i64 120
   %222 = lshr i64 %1, 15
   %223 = and i64 %222, 31
@@ -3337,7 +3337,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not.i.i.i.i188 = icmp eq ptr %238, null
   br i1 %.not.i.i.i.i188, label %.loopexit.i.i193, label %239
 
-239:                                              ; preds = %.critedge2.thread295
+239:                                              ; preds = %.critedge2.thread299
   %240 = load ptr, ptr %238, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 8
   %242 = load i64, ptr %241, align 8
@@ -3361,7 +3361,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not17.i.i.i.i192 = icmp eq i64 %250, %235
   br i1 %.not17.i.i.i.i192, label %244, label %.loopexit.i.i193, !llvm.loop !4
 
-.loopexit.i.i193:                                 ; preds = %247, %.lr.ph.i.i.i.i189, %.critedge2.thread295
+.loopexit.i.i193:                                 ; preds = %247, %.lr.ph.i.i.i.i189, %.critedge2.thread299
   %251 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   store ptr null, ptr %251, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 8
@@ -3605,11 +3605,11 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.057.0264 = phi i16 [ %28, %24 ], [ %41, %34 ]
   %.sroa.054.0 = phi i16 [ %33, %24 ], [ %49, %34 ]
   %51 = tail call zeroext i1 @f16_lt_quiet(i16 %.sroa.057.0264, i16 %.sroa.054.0)
-  %.sink.i150.pre289 = load i64, ptr %20, align 8
+  %.sink.i150.pre293 = load i64, ptr %20, align 8
   br i1 %51, label %103, label %52
 
 52:                                               ; preds = %50
-  %53 = and i64 %.sink.i150.pre289, 2
+  %53 = and i64 %.sink.i150.pre293, 2
   %.0.i139.not = icmp eq i64 %53, 0
   %54 = lshr i64 %1, 20
   %55 = and i64 %54, 31
@@ -3697,7 +3697,7 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   br label %103
 
 103:                                              ; preds = %82, %101, %50
-  %.sink.i150 = phi i64 [ %.sink.i150.pre289, %50 ], [ %.sink.i150.pre, %82 ], [ %.sink.i150.pre, %101 ]
+  %.sink.i150 = phi i64 [ %.sink.i150.pre293, %50 ], [ %.sink.i150.pre, %82 ], [ %.sink.i150.pre, %101 ]
   %104 = phi i1 [ true, %50 ], [ false, %82 ], [ %102, %101 ]
   %105 = and i64 %.sink.i150, 2
   %.0.i151.not = icmp eq i64 %105, 0
@@ -3712,8 +3712,8 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %112 = and i64 %111, 31744
   %113 = icmp ne i64 %112, 31744
   %114 = and i64 %111, 1023
-  %.not293 = icmp eq i64 %114, 0
-  %or.cond = or i1 %113, %.not293
+  %.not297 = icmp eq i64 %114, 0
+  %or.cond = or i1 %113, %.not297
   br i1 %or.cond, label %.thread, label %.critedge.thread
 
 .thread270:                                       ; preds = %103
@@ -3724,12 +3724,12 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.241.0.copyload = load i64, ptr %.sroa.241.0..sroa_idx, align 8
   %117 = icmp ne i64 %.sroa.241.0.copyload, -1
   %118 = icmp ult i64 %.sroa.040.0.copyload, -4294967296
-  %or.cond.i152.not = select i1 %117, i1 true, i1 %118
+  %or.cond.i152.not280 = select i1 %117, i1 true, i1 %118
   %119 = icmp ult i64 %.sroa.040.0.copyload, -65536
-  %or.cond4.i153 = select i1 %or.cond.i152.not, i1 true, i1 %119
+  %or.cond4.i153.not = select i1 %or.cond.i152.not280, i1 true, i1 %119
   %120 = and i64 %.sroa.040.0.copyload, 31744
   %121 = icmp eq i64 %120, 31744
-  %122 = select i1 %or.cond4.i153, i1 true, i1 %121
+  %122 = select i1 %or.cond4.i153.not, i1 true, i1 %121
   br i1 %122, label %123, label %.thread274
 
 123:                                              ; preds = %.thread270
@@ -3739,8 +3739,8 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %126 = icmp ugt i64 %.sroa.040.0.copyload, -65537
   %or.cond4.i157 = select i1 %or.cond.i156, i1 %126, i1 false
   %127 = and i64 %.sroa.040.0.copyload, 1023
-  %.not318 = icmp eq i64 %127, 0
-  %.not = select i1 %or.cond4.i157, i1 %.not318, i1 false
+  %.not322 = icmp eq i64 %127, 0
+  %.not = select i1 %or.cond4.i157, i1 %.not322, i1 false
   br i1 %.not, label %.thread274, label %.critedge
 
 .thread:                                          ; preds = %108
@@ -3752,9 +3752,9 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %133 = and i64 %132, 31744
   %134 = icmp ne i64 %133, 31744
   %135 = and i64 %132, 1023
-  %.not127298 = icmp eq i64 %135, 0
-  %or.cond307 = or i1 %134, %.not127298
-  br i1 %or.cond307, label %.critedge2.thread295, label %.critedge.thread
+  %.not127302 = icmp eq i64 %135, 0
+  %or.cond311 = or i1 %134, %.not127302
+  br i1 %or.cond311, label %.critedge2.thread299, label %.critedge.thread
 
 .thread274:                                       ; preds = %123, %.thread270
   %136 = getelementptr inbounds i8, ptr %0, i64 376
@@ -3766,12 +3766,12 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %.sroa.235.0.copyload = load i64, ptr %.sroa.235.0..sroa_idx, align 8
   %140 = icmp ne i64 %.sroa.235.0.copyload, -1
   %141 = icmp ult i64 %.sroa.034.0.copyload, -4294967296
-  %or.cond.i160.not = select i1 %140, i1 true, i1 %141
+  %or.cond.i160.not284 = select i1 %140, i1 true, i1 %141
   %142 = icmp ult i64 %.sroa.034.0.copyload, -65536
-  %or.cond4.i161 = select i1 %or.cond.i160.not, i1 true, i1 %142
+  %or.cond4.i161.not = select i1 %or.cond.i160.not284, i1 true, i1 %142
   %143 = and i64 %.sroa.034.0.copyload, 31744
   %144 = icmp eq i64 %143, 31744
-  %145 = select i1 %or.cond4.i161, i1 true, i1 %144
+  %145 = select i1 %or.cond4.i161.not, i1 true, i1 %144
   br i1 %145, label %146, label %.critedge2.thread
 
 146:                                              ; preds = %.thread274
@@ -3781,8 +3781,8 @@ define noundef i64 @_Z20logged_rv64e_fminm_hP11processor_t6insn_tm(ptr noundef %
   %149 = icmp ugt i64 %.sroa.034.0.copyload, -65537
   %or.cond4.i165 = select i1 %or.cond.i164, i1 %149, i1 false
   %150 = and i64 %.sroa.034.0.copyload, 1023
-  %.not127319 = icmp eq i64 %150, 0
-  %.not127 = select i1 %or.cond4.i165, i1 %.not127319, i1 false
+  %.not127323 = icmp eq i64 %150, 0
+  %.not127 = select i1 %or.cond4.i165, i1 %.not127323, i1 false
   br i1 %.not127, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %123, %146
@@ -3949,9 +3949,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 .critedge2:                                       ; preds = %146
-  br i1 %.0.i151.not, label %.critedge2.thread, label %.critedge2.thread295
+  br i1 %.0.i151.not, label %.critedge2.thread, label %.critedge2.thread299
 
-.critedge2.thread295:                             ; preds = %.thread, %.critedge2
+.critedge2.thread299:                             ; preds = %.thread, %.critedge2
   %221 = getelementptr inbounds i8, ptr %0, i64 120
   %222 = lshr i64 %1, 15
   %223 = and i64 %222, 31
@@ -3976,7 +3976,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not.i.i.i.i188 = icmp eq ptr %238, null
   br i1 %.not.i.i.i.i188, label %.loopexit.i.i193, label %239
 
-239:                                              ; preds = %.critedge2.thread295
+239:                                              ; preds = %.critedge2.thread299
   %240 = load ptr, ptr %238, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 8
   %242 = load i64, ptr %241, align 8
@@ -4000,7 +4000,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.not17.i.i.i.i192 = icmp eq i64 %250, %235
   br i1 %.not17.i.i.i.i192, label %244, label %.loopexit.i.i193, !llvm.loop !4
 
-.loopexit.i.i193:                                 ; preds = %247, %.lr.ph.i.i.i.i189, %.critedge2.thread295
+.loopexit.i.i193:                                 ; preds = %247, %.lr.ph.i.i.i.i189, %.critedge2.thread299
   %251 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   store ptr null, ptr %251, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 8
@@ -4154,9 +4154,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %263, %262, %185, %1
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4355,9 +4354,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

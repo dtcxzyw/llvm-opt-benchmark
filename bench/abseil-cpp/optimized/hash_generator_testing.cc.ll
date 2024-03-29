@@ -119,17 +119,16 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %call, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %1 = and i8 %__zero.015.i.i, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %for.inc24.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %cmp11.i.i = icmp eq i64 %__i.016.i.i, 0
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else.i.i
 
 if.then12.i.i:                                    ; preds = %if.then.i.i
-  %2 = load i64, ptr %call, align 8
-  %cmp15.not.i.i = icmp ult i64 %2, 2147483648
+  %1 = load i64, ptr %call, align 8
+  %cmp15.not.i.i = icmp ult i64 %1, 2147483648
   %spec.select.i.i = select i1 %cmp15.not.i.i, i8 %__zero.015.i.i, i8 0
   br label %for.inc24.i.i
 
@@ -145,9 +144,8 @@ for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !9
 
 for.end26.i.i:                                    ; preds = %for.inc24.i.i
-  %3 = and i8 %__zero.1.i.i, 1
-  %tobool27.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool27.not.i.i, label %invoke.cont3, label %if.then28.i.i
+  %tobool27.i.i = trunc i8 %__zero.1.i.i to i1
+  br i1 %tobool27.i.i, label %if.then28.i.i, label %invoke.cont3
 
 if.then28.i.i:                                    ; preds = %for.end26.i.i
   store i64 -9223372036854775808, ptr %call, align 8
@@ -161,36 +159,36 @@ invoke.cont3:                                     ; preds = %if.then28.i.i, %for
           to label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont3
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #15
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 _ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit: ; preds = %invoke.cont3
   ret ptr %call
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %while.body.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad2 ], [ %4, %lpad ]
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %seed_seq)
           to label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit4 unwind label %terminate.lpad.i.i3
 
 terminate.lpad.i.i3:                              ; preds = %ehcleanup
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #15
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #15
   unreachable
 
 _ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit4: ; preds = %ehcleanup

@@ -3546,13 +3546,13 @@ define internal fastcc i32 @dissect_h265_profile_tier_level(ptr noundef %0, ptr 
   %wide.trip.count31 = zext nneg i32 %3 to i64
   br label %.lr.ph13
 
-.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %324
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next29, %324 ]
-  %.410 = phi i32 [ %.3, %.lr.ph13.preheader ], [ %.7, %324 ]
+.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %323
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next29, %323 ]
+  %.410 = phi i32 [ %.3, %.lr.ph13.preheader ], [ %.7, %323 ]
   %169 = getelementptr [32 x i32], ptr %9, i64 0, i64 %indvars.iv28
   %170 = load i32, ptr %169, align 4
   %.not363 = icmp eq i32 %170, 0
-  br i1 %.not363, label %316, label %171
+  br i1 %.not363, label %315, label %171
 
 171:                                              ; preds = %.lr.ph13
   %172 = load i32, ptr @hf_h265_sub_layer_profile_space, align 4
@@ -3776,41 +3776,40 @@ define internal fastcc i32 @dissect_h265_profile_tier_level(ptr noundef %0, ptr 
 switch.hole_check:                                ; preds = %291
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 287, %switch.maskindex
-  %312 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %312, 0
-  br i1 %switch.lobit.not, label %293, label %.sink.split
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %.sink.split, label %293
 
 .sink.split:                                      ; preds = %switch.hole_check, %309, %293, %297, %300, %303, %306
   %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %306 ], [ @hf_h265_sub_layer_inbld_flag, %303 ], [ @hf_h265_sub_layer_inbld_flag, %300 ], [ @hf_h265_sub_layer_inbld_flag, %297 ], [ @hf_h265_sub_layer_inbld_flag, %293 ], [ %spec.select, %309 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check ]
-  %313 = load i32, ptr %hf_h265_sub_layer_inbld_flag.sink, align 4
-  %314 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %313, ptr noundef %1, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #8
-  %315 = add i32 %.410, 88
-  br label %316
+  %312 = load i32, ptr %hf_h265_sub_layer_inbld_flag.sink, align 4
+  %313 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %312, ptr noundef %1, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #8
+  %314 = add i32 %.410, 88
+  br label %315
 
-316:                                              ; preds = %.sink.split, %.lr.ph13
-  %.6 = phi i32 [ %.410, %.lr.ph13 ], [ %315, %.sink.split ]
-  %317 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv28
-  %318 = load i32, ptr %317, align 4
-  %.not380 = icmp eq i32 %318, 0
-  br i1 %.not380, label %324, label %319
+315:                                              ; preds = %.sink.split, %.lr.ph13
+  %.6 = phi i32 [ %.410, %.lr.ph13 ], [ %314, %.sink.split ]
+  %316 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv28
+  %317 = load i32, ptr %316, align 4
+  %.not380 = icmp eq i32 %317, 0
+  br i1 %.not380, label %323, label %318
 
-319:                                              ; preds = %316
-  %320 = load i32, ptr @hf_h265_sub_layer_level_idc, align 4
-  %321 = ashr i32 %.6, 3
-  %322 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %320, ptr noundef %1, i32 noundef %321, i32 noundef 1, i32 noundef 0) #8
-  %323 = add i32 %.6, 8
-  br label %324
+318:                                              ; preds = %315
+  %319 = load i32, ptr @hf_h265_sub_layer_level_idc, align 4
+  %320 = ashr i32 %.6, 3
+  %321 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %319, ptr noundef %1, i32 noundef %320, i32 noundef 1, i32 noundef 0) #8
+  %322 = add i32 %.6, 8
+  br label %323
 
-324:                                              ; preds = %316, %319
-  %.7 = phi i32 [ %323, %319 ], [ %.6, %316 ]
+323:                                              ; preds = %315, %318
+  %.7 = phi i32 [ %322, %318 ], [ %.6, %315 ]
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
   br i1 %exitcond32.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !36
 
-._crit_edge14:                                    ; preds = %324, %129, %.loopexit
-  %.4.lcssa = phi i32 [ %.3, %.loopexit ], [ %154, %129 ], [ %.7, %324 ]
-  %325 = ashr i32 %.4.lcssa, 3
-  ret i32 %325
+._crit_edge14:                                    ; preds = %323, %129, %.loopexit
+  %.4.lcssa = phi i32 [ %.3, %.loopexit ], [ %154, %129 ], [ %.7, %323 ]
+  %324 = ashr i32 %.4.lcssa, 3
+  ret i32 %324
 }
 
 ; Function Attrs: nounwind uwtable

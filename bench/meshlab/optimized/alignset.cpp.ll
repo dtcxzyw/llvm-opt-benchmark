@@ -3510,7 +3510,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
 47:                                               ; preds = %14, %13, %4
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %339
+  br label %335
 
 49:                                               ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
   %50 = load i32, ptr %0, align 8
@@ -3564,580 +3564,582 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit: ; preds = %.no
   %60 = getelementptr inbounds [9 x i32], ptr %56, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp ult i32 %58, 8
-  br i1 %62, label %switch.lookup, label %67
+  br i1 %62, label %switch.lookup, label %63
 
 .loopexit93:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %338
+  br label %334
 
-.loopexit.split-lp:                               ; preds = %switch.lookup108, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %49, %52, %67, %68, %72, %73, %77, %78, %79, %82, %86, %87, %89, %93, %94, %96, %99, %102, %105, %107, %110, %112, %114, %117, %119, %122, %125, %128, %132, %135, %140, %143, %148, %151, %156, %159, %161, %164, %166, %168, %171, %173, %176, %179, %183, %186, %188, %191, %193, %195, %198, %200, %203, %206, %210, %213, %215, %218, %220, %222, %225, %227, %230, %251, %254, %256, %257, %259, %261, %263, %264, %266, %267, %269, %270, %272, %273, %275, %276, %278, %284, %290, %291, %297, %299, %301, %302, %304, %308, %309, %312, %330, %_ZN7QStringD2Ev.exit, %53, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %311, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80
+.loopexit.split-lp:                               ; preds = %switch.lookup108, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %49, %52, %63, %64, %68, %69, %73, %74, %75, %78, %82, %83, %85, %89, %90, %92, %95, %98, %101, %103, %106, %108, %110, %113, %115, %118, %121, %124, %128, %131, %136, %139, %144, %147, %152, %155, %157, %160, %162, %164, %167, %169, %172, %175, %179, %182, %184, %187, %189, %191, %194, %196, %199, %202, %206, %209, %211, %214, %216, %218, %221, %223, %226, %247, %250, %252, %253, %255, %257, %259, %260, %262, %263, %265, %266, %268, %269, %271, %272, %274, %280, %286, %287, %293, %295, %297, %298, %300, %304, %305, %308, %326, %_ZN7QStringD2Ev.exit, %53, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %307, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %338
+  br label %334
 
 switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit
   %switch.cast = trunc i32 %58 to i8
   %switch.downshift = lshr i8 -27, %switch.cast
-  %63 = and i8 %switch.downshift, 1
-  %switch.masked = icmp ne i8 %63, 0
+  %switch.masked = trunc i8 %switch.downshift to i1
   %switch.cast96 = trunc i32 %58 to i8
   %switch.downshift98 = lshr i8 -21, %switch.cast96
-  %64 = and i8 %switch.downshift98, 1
-  %switch.masked99 = icmp ne i8 %64, 0
-  %65 = icmp eq i32 %58, 6
-  %66 = icmp eq i32 %58, 7
-  br label %67
+  %switch.masked99 = trunc i8 %switch.downshift98 to i1
+  %switch.cast100 = trunc i32 %58 to i8
+  %switch.downshift102 = lshr i8 64, %switch.cast100
+  %switch.masked103 = trunc i8 %switch.downshift102 to i1
+  %switch.cast104 = trunc i32 %58 to i8
+  %switch.downshift106 = lshr exact i8 -128, %switch.cast104
+  %switch.masked107 = trunc i8 %switch.downshift106 to i1
+  br label %63
 
-67:                                               ; preds = %switch.lookup, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit
+63:                                               ; preds = %switch.lookup, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit
   %.059 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked, %switch.lookup ]
   %.058 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked99, %switch.lookup ]
-  %.057 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %65, %switch.lookup ]
-  %.056 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %66, %switch.lookup ]
+  %.057 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked103, %switch.lookup ]
+  %.056 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked107, %switch.lookup ]
   invoke void @glDisable(i32 noundef 2896)
+          to label %64 unwind label %.loopexit.split-lp
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr @__glewBindBufferARB, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 580
+  %67 = load i32, ptr %66, align 4
+  invoke void %65(i32 noundef 34963, i32 noundef %67)
           to label %68 unwind label %.loopexit.split-lp
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr @__glewBindBufferARB, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 580
-  %71 = load i32, ptr %70, align 4
-  invoke void %69(i32 noundef 34963, i32 noundef %71)
-          to label %72 unwind label %.loopexit.split-lp
-
-72:                                               ; preds = %68
+68:                                               ; preds = %64
   invoke void @glEnable(i32 noundef 2903)
+          to label %69 unwind label %.loopexit.split-lp
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr @__glewBindBufferARB, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 568
+  %72 = load i32, ptr %71, align 8
+  invoke void %70(i32 noundef 34962, i32 noundef %72)
           to label %73 unwind label %.loopexit.split-lp
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr @__glewBindBufferARB, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 568
-  %76 = load i32, ptr %75, align 8
-  invoke void %74(i32 noundef 34962, i32 noundef %76)
+73:                                               ; preds = %69
+  invoke void @glEnableClientState(i32 noundef 32884)
+          to label %74 unwind label %.loopexit.split-lp
+
+74:                                               ; preds = %73
+  invoke void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 0, ptr noundef null)
+          to label %75 unwind label %.loopexit.split-lp
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %76(i32 noundef %61)
           to label %77 unwind label %.loopexit.split-lp
 
-77:                                               ; preds = %73
-  invoke void @glEnableClientState(i32 noundef 32884)
-          to label %78 unwind label %.loopexit.split-lp
+77:                                               ; preds = %75
+  br i1 %.059, label %78, label %84
 
 78:                                               ; preds = %77
-  invoke void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 0, ptr noundef null)
-          to label %79 unwind label %.loopexit.split-lp
+  %79 = load ptr, ptr @__glewBindBufferARB, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 576
+  %81 = load i32, ptr %80, align 8
+  invoke void %79(i32 noundef 34962, i32 noundef %81)
+          to label %82 unwind label %.loopexit.split-lp
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %80(i32 noundef %61)
-          to label %81 unwind label %.loopexit.split-lp
-
-81:                                               ; preds = %79
-  br i1 %.059, label %82, label %88
-
-82:                                               ; preds = %81
-  %83 = load ptr, ptr @__glewBindBufferARB, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 576
-  %85 = load i32, ptr %84, align 8
-  invoke void %83(i32 noundef 34962, i32 noundef %85)
-          to label %86 unwind label %.loopexit.split-lp
-
-86:                                               ; preds = %82
+82:                                               ; preds = %78
   invoke void @glEnableClientState(i32 noundef 32886)
-          to label %87 unwind label %.loopexit.split-lp
+          to label %83 unwind label %.loopexit.split-lp
 
-87:                                               ; preds = %86
+83:                                               ; preds = %82
   invoke void @glColorPointer(i32 noundef 4, i32 noundef 5121, i32 noundef 0, ptr noundef null)
-          to label %88 unwind label %.loopexit.split-lp
+          to label %84 unwind label %.loopexit.split-lp
 
-88:                                               ; preds = %87, %81
-  br i1 %.058, label %89, label %95
+84:                                               ; preds = %83, %77
+  br i1 %.058, label %85, label %91
 
-89:                                               ; preds = %88
-  %90 = load ptr, ptr @__glewBindBufferARB, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 572
-  %92 = load i32, ptr %91, align 4
-  invoke void %90(i32 noundef 34962, i32 noundef %92)
-          to label %93 unwind label %.loopexit.split-lp
+85:                                               ; preds = %84
+  %86 = load ptr, ptr @__glewBindBufferARB, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 572
+  %88 = load i32, ptr %87, align 4
+  invoke void %86(i32 noundef 34962, i32 noundef %88)
+          to label %89 unwind label %.loopexit.split-lp
 
-93:                                               ; preds = %89
+89:                                               ; preds = %85
   invoke void @glEnableClientState(i32 noundef 32885)
-          to label %94 unwind label %.loopexit.split-lp
+          to label %90 unwind label %.loopexit.split-lp
 
-94:                                               ; preds = %93
+90:                                               ; preds = %89
   invoke void @glNormalPointer(i32 noundef 5126, i32 noundef 0, ptr noundef null)
+          to label %91 unwind label %.loopexit.split-lp
+
+91:                                               ; preds = %90, %84
+  br i1 %.057, label %92, label %120
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %94 = invoke i32 %93(i32 noundef %61, ptr noundef nonnull @.str.24)
           to label %95 unwind label %.loopexit.split-lp
 
-95:                                               ; preds = %94, %88
-  br i1 %.057, label %96, label %124
+95:                                               ; preds = %92
+  %96 = load ptr, ptr @__glewUniformMatrix4fv, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 328
+  invoke void %96(i32 noundef %94, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %97)
+          to label %98 unwind label %.loopexit.split-lp
 
-96:                                               ; preds = %95
-  %97 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %98 = invoke i32 %97(i32 noundef %61, ptr noundef nonnull @.str.24)
-          to label %99 unwind label %.loopexit.split-lp
+98:                                               ; preds = %95
+  %99 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %100 = invoke i32 %99(i32 noundef %61, ptr noundef nonnull @.str.25)
+          to label %101 unwind label %.loopexit.split-lp
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr @__glewUniformMatrix4fv, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke void %100(i32 noundef %98, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %101)
-          to label %102 unwind label %.loopexit.split-lp
+101:                                              ; preds = %98
+  %102 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %102(i32 noundef %100, i32 noundef 0)
+          to label %103 unwind label %.loopexit.split-lp
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %104 = invoke i32 %103(i32 noundef %61, ptr noundef nonnull @.str.25)
-          to label %105 unwind label %.loopexit.split-lp
+103:                                              ; preds = %101
+  %104 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %105 = invoke i32 %104(i32 noundef %61, ptr noundef nonnull @.str.26)
+          to label %106 unwind label %.loopexit.split-lp
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %106(i32 noundef %104, i32 noundef 0)
-          to label %107 unwind label %.loopexit.split-lp
+106:                                              ; preds = %103
+  %107 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %107(i32 noundef %105, i32 noundef 1)
+          to label %108 unwind label %.loopexit.split-lp
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %109 = invoke i32 %108(i32 noundef %61, ptr noundef nonnull @.str.26)
+108:                                              ; preds = %106
+  %109 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %109(i32 noundef 33984)
           to label %110 unwind label %.loopexit.split-lp
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %111(i32 noundef %109, i32 noundef 1)
-          to label %112 unwind label %.loopexit.split-lp
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds i8, ptr %0, i64 644
+  %112 = load i32, ptr %111, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %112)
+          to label %113 unwind label %.loopexit.split-lp
 
-112:                                              ; preds = %110
-  %113 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %113(i32 noundef 33984)
-          to label %114 unwind label %.loopexit.split-lp
+113:                                              ; preds = %110
+  %114 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %114(i32 noundef 33985)
+          to label %115 unwind label %.loopexit.split-lp
 
-114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %0, i64 644
-  %116 = load i32, ptr %115, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %116)
-          to label %117 unwind label %.loopexit.split-lp
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds i8, ptr %0, i64 648
+  %117 = load i32, ptr %116, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %117)
+          to label %118 unwind label %.loopexit.split-lp
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %118(i32 noundef 33985)
-          to label %119 unwind label %.loopexit.split-lp
+118:                                              ; preds = %115
+  %119 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %119(i32 noundef 33984)
+          to label %120 unwind label %.loopexit.split-lp
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 648
-  %121 = load i32, ptr %120, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %121)
-          to label %122 unwind label %.loopexit.split-lp
+120:                                              ; preds = %118, %91
+  br i1 %.056, label %121, label %228
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %123(i32 noundef 33984)
+121:                                              ; preds = %120
+  %122 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %123 = invoke i32 %122(i32 noundef %61, ptr noundef nonnull @.str.24)
           to label %124 unwind label %.loopexit.split-lp
 
-124:                                              ; preds = %122, %95
-  br i1 %.056, label %125, label %232
-
-125:                                              ; preds = %124
-  %126 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %127 = invoke i32 %126(i32 noundef %61, ptr noundef nonnull @.str.24)
+124:                                              ; preds = %121
+  %125 = load ptr, ptr @__glewUniformMatrix4fv, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 544
+  %127 = load ptr, ptr %126, align 8
+  invoke void %125(i32 noundef %123, i32 noundef 1, i8 noundef zeroext 0, ptr noundef %127)
           to label %128 unwind label %.loopexit.split-lp
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr @__glewUniformMatrix4fv, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 544
-  %131 = load ptr, ptr %130, align 8
-  invoke void %129(i32 noundef %127, i32 noundef 1, i8 noundef zeroext 0, ptr noundef %131)
-          to label %132 unwind label %.loopexit.split-lp
+128:                                              ; preds = %124
+  %129 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %130 = invoke i32 %129(i32 noundef %61, ptr noundef nonnull @.str.27)
+          to label %131 unwind label %.loopexit.split-lp
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %134 = invoke i32 %133(i32 noundef %61, ptr noundef nonnull @.str.27)
-          to label %135 unwind label %.loopexit.split-lp
+131:                                              ; preds = %128
+  %132 = load ptr, ptr @__glewUniform1f, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 520
+  %134 = load ptr, ptr %133, align 8
+  %135 = load float, ptr %134, align 4
+  invoke void %132(i32 noundef %130, float noundef %135)
+          to label %136 unwind label %.loopexit.split-lp
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr @__glewUniform1f, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 520
-  %138 = load ptr, ptr %137, align 8
-  %139 = load float, ptr %138, align 4
-  invoke void %136(i32 noundef %134, float noundef %139)
-          to label %140 unwind label %.loopexit.split-lp
+136:                                              ; preds = %131
+  %137 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %138 = invoke i32 %137(i32 noundef %61, ptr noundef nonnull @.str.28)
+          to label %139 unwind label %.loopexit.split-lp
 
-140:                                              ; preds = %135
-  %141 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %142 = invoke i32 %141(i32 noundef %61, ptr noundef nonnull @.str.28)
-          to label %143 unwind label %.loopexit.split-lp
+139:                                              ; preds = %136
+  %140 = load ptr, ptr @__glewUniform1f, align 8
+  %141 = load ptr, ptr %133, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 4
+  %143 = load float, ptr %142, align 4
+  invoke void %140(i32 noundef %138, float noundef %143)
+          to label %144 unwind label %.loopexit.split-lp
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr @__glewUniform1f, align 8
-  %145 = load ptr, ptr %137, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
-  %147 = load float, ptr %146, align 4
-  invoke void %144(i32 noundef %142, float noundef %147)
-          to label %148 unwind label %.loopexit.split-lp
+144:                                              ; preds = %139
+  %145 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %146 = invoke i32 %145(i32 noundef %61, ptr noundef nonnull @.str.29)
+          to label %147 unwind label %.loopexit.split-lp
 
-148:                                              ; preds = %143
-  %149 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %150 = invoke i32 %149(i32 noundef %61, ptr noundef nonnull @.str.29)
-          to label %151 unwind label %.loopexit.split-lp
+147:                                              ; preds = %144
+  %148 = load ptr, ptr @__glewUniform1f, align 8
+  %149 = load ptr, ptr %133, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %151 = load float, ptr %150, align 4
+  invoke void %148(i32 noundef %146, float noundef %151)
+          to label %152 unwind label %.loopexit.split-lp
 
-151:                                              ; preds = %148
-  %152 = load ptr, ptr @__glewUniform1f, align 8
-  %153 = load ptr, ptr %137, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
-  %155 = load float, ptr %154, align 4
-  invoke void %152(i32 noundef %150, float noundef %155)
-          to label %156 unwind label %.loopexit.split-lp
+152:                                              ; preds = %147
+  %153 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %154 = invoke i32 %153(i32 noundef %61, ptr noundef nonnull @.str.25)
+          to label %155 unwind label %.loopexit.split-lp
 
-156:                                              ; preds = %151
-  %157 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %158 = invoke i32 %157(i32 noundef %61, ptr noundef nonnull @.str.25)
-          to label %159 unwind label %.loopexit.split-lp
+155:                                              ; preds = %152
+  %156 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %156(i32 noundef %154, i32 noundef 0)
+          to label %157 unwind label %.loopexit.split-lp
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %160(i32 noundef %158, i32 noundef 0)
-          to label %161 unwind label %.loopexit.split-lp
+157:                                              ; preds = %155
+  %158 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %159 = invoke i32 %158(i32 noundef %61, ptr noundef nonnull @.str.26)
+          to label %160 unwind label %.loopexit.split-lp
 
-161:                                              ; preds = %159
-  %162 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %163 = invoke i32 %162(i32 noundef %61, ptr noundef nonnull @.str.26)
+160:                                              ; preds = %157
+  %161 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %161(i32 noundef %159, i32 noundef 1)
+          to label %162 unwind label %.loopexit.split-lp
+
+162:                                              ; preds = %160
+  %163 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %163(i32 noundef 33984)
           to label %164 unwind label %.loopexit.split-lp
 
-164:                                              ; preds = %161
-  %165 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %165(i32 noundef %163, i32 noundef 1)
-          to label %166 unwind label %.loopexit.split-lp
+164:                                              ; preds = %162
+  %165 = getelementptr inbounds i8, ptr %0, i64 644
+  %166 = load i32, ptr %165, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %166)
+          to label %167 unwind label %.loopexit.split-lp
 
-166:                                              ; preds = %164
-  %167 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %167(i32 noundef 33984)
-          to label %168 unwind label %.loopexit.split-lp
+167:                                              ; preds = %164
+  %168 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %168(i32 noundef 33985)
+          to label %169 unwind label %.loopexit.split-lp
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds i8, ptr %0, i64 644
-  %170 = load i32, ptr %169, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %170)
-          to label %171 unwind label %.loopexit.split-lp
+169:                                              ; preds = %167
+  %170 = getelementptr inbounds i8, ptr %0, i64 648
+  %171 = load i32, ptr %170, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %171)
+          to label %172 unwind label %.loopexit.split-lp
 
-171:                                              ; preds = %168
-  %172 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %172(i32 noundef 33985)
-          to label %173 unwind label %.loopexit.split-lp
+172:                                              ; preds = %169
+  %173 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %174 = invoke i32 %173(i32 noundef %61, ptr noundef nonnull @.str.30)
+          to label %175 unwind label %.loopexit.split-lp
 
-173:                                              ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %0, i64 648
-  %175 = load i32, ptr %174, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %175)
-          to label %176 unwind label %.loopexit.split-lp
-
-176:                                              ; preds = %173
-  %177 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %178 = invoke i32 %177(i32 noundef %61, ptr noundef nonnull @.str.30)
+175:                                              ; preds = %172
+  %176 = load ptr, ptr @__glewUniformMatrix4fv, align 8
+  %177 = load ptr, ptr %126, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 64
+  invoke void %176(i32 noundef %174, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %178)
           to label %179 unwind label %.loopexit.split-lp
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr @__glewUniformMatrix4fv, align 8
-  %181 = load ptr, ptr %130, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 64
-  invoke void %180(i32 noundef %178, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %182)
-          to label %183 unwind label %.loopexit.split-lp
+179:                                              ; preds = %175
+  %180 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %181 = invoke i32 %180(i32 noundef %61, ptr noundef nonnull @.str.31)
+          to label %182 unwind label %.loopexit.split-lp
 
-183:                                              ; preds = %179
-  %184 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %185 = invoke i32 %184(i32 noundef %61, ptr noundef nonnull @.str.31)
-          to label %186 unwind label %.loopexit.split-lp
+182:                                              ; preds = %179
+  %183 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %183(i32 noundef %181, i32 noundef 2)
+          to label %184 unwind label %.loopexit.split-lp
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %187(i32 noundef %185, i32 noundef 2)
-          to label %188 unwind label %.loopexit.split-lp
+184:                                              ; preds = %182
+  %185 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %186 = invoke i32 %185(i32 noundef %61, ptr noundef nonnull @.str.32)
+          to label %187 unwind label %.loopexit.split-lp
 
-188:                                              ; preds = %186
-  %189 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %190 = invoke i32 %189(i32 noundef %61, ptr noundef nonnull @.str.32)
+187:                                              ; preds = %184
+  %188 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %188(i32 noundef %186, i32 noundef 3)
+          to label %189 unwind label %.loopexit.split-lp
+
+189:                                              ; preds = %187
+  %190 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %190(i32 noundef 33986)
           to label %191 unwind label %.loopexit.split-lp
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %192(i32 noundef %190, i32 noundef 3)
-          to label %193 unwind label %.loopexit.split-lp
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds i8, ptr %0, i64 656
+  %193 = load i32, ptr %192, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %193)
+          to label %194 unwind label %.loopexit.split-lp
 
-193:                                              ; preds = %191
-  %194 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %194(i32 noundef 33986)
-          to label %195 unwind label %.loopexit.split-lp
+194:                                              ; preds = %191
+  %195 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %195(i32 noundef 33987)
+          to label %196 unwind label %.loopexit.split-lp
 
-195:                                              ; preds = %193
-  %196 = getelementptr inbounds i8, ptr %0, i64 656
-  %197 = load i32, ptr %196, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %197)
-          to label %198 unwind label %.loopexit.split-lp
+196:                                              ; preds = %194
+  %197 = getelementptr inbounds i8, ptr %0, i64 660
+  %198 = load i32, ptr %197, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %198)
+          to label %199 unwind label %.loopexit.split-lp
 
-198:                                              ; preds = %195
-  %199 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %199(i32 noundef 33987)
-          to label %200 unwind label %.loopexit.split-lp
+199:                                              ; preds = %196
+  %200 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %201 = invoke i32 %200(i32 noundef %61, ptr noundef nonnull @.str.33)
+          to label %202 unwind label %.loopexit.split-lp
 
-200:                                              ; preds = %198
-  %201 = getelementptr inbounds i8, ptr %0, i64 660
-  %202 = load i32, ptr %201, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %202)
-          to label %203 unwind label %.loopexit.split-lp
-
-203:                                              ; preds = %200
-  %204 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %205 = invoke i32 %204(i32 noundef %61, ptr noundef nonnull @.str.33)
+202:                                              ; preds = %199
+  %203 = load ptr, ptr @__glewUniformMatrix4fv, align 8
+  %204 = load ptr, ptr %126, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 128
+  invoke void %203(i32 noundef %201, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %205)
           to label %206 unwind label %.loopexit.split-lp
 
-206:                                              ; preds = %203
-  %207 = load ptr, ptr @__glewUniformMatrix4fv, align 8
-  %208 = load ptr, ptr %130, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 128
-  invoke void %207(i32 noundef %205, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %209)
-          to label %210 unwind label %.loopexit.split-lp
+206:                                              ; preds = %202
+  %207 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %208 = invoke i32 %207(i32 noundef %61, ptr noundef nonnull @.str.34)
+          to label %209 unwind label %.loopexit.split-lp
 
-210:                                              ; preds = %206
-  %211 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %212 = invoke i32 %211(i32 noundef %61, ptr noundef nonnull @.str.34)
-          to label %213 unwind label %.loopexit.split-lp
+209:                                              ; preds = %206
+  %210 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %210(i32 noundef %208, i32 noundef 4)
+          to label %211 unwind label %.loopexit.split-lp
 
-213:                                              ; preds = %210
-  %214 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %214(i32 noundef %212, i32 noundef 4)
-          to label %215 unwind label %.loopexit.split-lp
+211:                                              ; preds = %209
+  %212 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %213 = invoke i32 %212(i32 noundef %61, ptr noundef nonnull @.str.35)
+          to label %214 unwind label %.loopexit.split-lp
 
-215:                                              ; preds = %213
-  %216 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %217 = invoke i32 %216(i32 noundef %61, ptr noundef nonnull @.str.35)
+214:                                              ; preds = %211
+  %215 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %215(i32 noundef %213, i32 noundef 5)
+          to label %216 unwind label %.loopexit.split-lp
+
+216:                                              ; preds = %214
+  %217 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %217(i32 noundef 33988)
           to label %218 unwind label %.loopexit.split-lp
 
-218:                                              ; preds = %215
-  %219 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %219(i32 noundef %217, i32 noundef 5)
-          to label %220 unwind label %.loopexit.split-lp
+218:                                              ; preds = %216
+  %219 = getelementptr inbounds i8, ptr %0, i64 668
+  %220 = load i32, ptr %219, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %220)
+          to label %221 unwind label %.loopexit.split-lp
 
-220:                                              ; preds = %218
-  %221 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %221(i32 noundef 33988)
-          to label %222 unwind label %.loopexit.split-lp
+221:                                              ; preds = %218
+  %222 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %222(i32 noundef 33989)
+          to label %223 unwind label %.loopexit.split-lp
 
-222:                                              ; preds = %220
-  %223 = getelementptr inbounds i8, ptr %0, i64 668
-  %224 = load i32, ptr %223, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %224)
-          to label %225 unwind label %.loopexit.split-lp
+223:                                              ; preds = %221
+  %224 = getelementptr inbounds i8, ptr %0, i64 672
+  %225 = load i32, ptr %224, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %225)
+          to label %226 unwind label %.loopexit.split-lp
 
-225:                                              ; preds = %222
-  %226 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %226(i32 noundef 33989)
-          to label %227 unwind label %.loopexit.split-lp
+226:                                              ; preds = %223
+  %227 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %227(i32 noundef 33984)
+          to label %228 unwind label %.loopexit.split-lp
 
-227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %0, i64 672
-  %229 = load i32, ptr %228, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %229)
-          to label %230 unwind label %.loopexit.split-lp
+228:                                              ; preds = %226, %120
+  %229 = load ptr, ptr %16, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 584
+  %231 = load i32, ptr %230, align 8
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %.lr.ph, label %247
 
-230:                                              ; preds = %227
-  %231 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %231(i32 noundef 33984)
-          to label %232 unwind label %.loopexit.split-lp
+.lr.ph:                                           ; preds = %228, %238
+  %.095 = phi i32 [ %spec.select, %238 ], [ 30000, %228 ]
+  %.05394 = phi i32 [ %239, %238 ], [ 0, %228 ]
+  %233 = mul nsw i32 %.095, 3
+  %234 = mul nsw i32 %.05394, 3
+  %235 = sext i32 %234 to i64
+  %236 = shl nsw i64 %235, 2
+  %237 = inttoptr i64 %236 to ptr
+  invoke void @glDrawElements(i32 noundef 4, i32 noundef %233, i32 noundef 5125, ptr noundef %237)
+          to label %238 unwind label %.loopexit93
 
-232:                                              ; preds = %230, %124
-  %233 = load ptr, ptr %16, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 584
-  %235 = load i32, ptr %234, align 8
-  %236 = icmp sgt i32 %235, 0
-  br i1 %236, label %.lr.ph, label %251
+238:                                              ; preds = %.lr.ph
+  %239 = add nsw i32 %.095, %.05394
+  %240 = add nsw i32 %239, %.095
+  %241 = load ptr, ptr %16, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 584
+  %243 = load i32, ptr %242, align 8
+  %244 = icmp sgt i32 %240, %243
+  %245 = sub nsw i32 %243, %239
+  %spec.select = select i1 %244, i32 %245, i32 %.095
+  %246 = icmp slt i32 %239, %243
+  br i1 %246, label %.lr.ph, label %.loopexit, !llvm.loop !72
 
-.lr.ph:                                           ; preds = %232, %242
-  %.095 = phi i32 [ %spec.select, %242 ], [ 30000, %232 ]
-  %.05394 = phi i32 [ %243, %242 ], [ 0, %232 ]
-  %237 = mul nsw i32 %.095, 3
-  %238 = mul nsw i32 %.05394, 3
-  %239 = sext i32 %238 to i64
-  %240 = shl nsw i64 %239, 2
-  %241 = inttoptr i64 %240 to ptr
-  invoke void @glDrawElements(i32 noundef 4, i32 noundef %237, i32 noundef 5125, ptr noundef %241)
-          to label %242 unwind label %.loopexit93
-
-242:                                              ; preds = %.lr.ph
-  %243 = add nsw i32 %.095, %.05394
-  %244 = add nsw i32 %243, %.095
-  %245 = load ptr, ptr %16, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 584
-  %247 = load i32, ptr %246, align 8
-  %248 = icmp sgt i32 %244, %247
-  %249 = sub nsw i32 %247, %243
-  %spec.select = select i1 %248, i32 %249, i32 %.095
-  %250 = icmp slt i32 %243, %247
-  br i1 %250, label %.lr.ph, label %.loopexit, !llvm.loop !72
-
-251:                                              ; preds = %232
-  %252 = getelementptr inbounds i8, ptr %233, i64 264
-  %253 = load i32, ptr %252, align 8
-  invoke void @glDrawArrays(i32 noundef 0, i32 noundef 0, i32 noundef %253)
+247:                                              ; preds = %228
+  %248 = getelementptr inbounds i8, ptr %229, i64 264
+  %249 = load i32, ptr %248, align 8
+  invoke void @glDrawArrays(i32 noundef 0, i32 noundef 0, i32 noundef %249)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %242, %251
-  br i1 %.057, label %254, label %260
+.loopexit:                                        ; preds = %238, %247
+  br i1 %.057, label %250, label %256
 
-254:                                              ; preds = %.loopexit
-  %255 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %255(i32 noundef 33985)
+250:                                              ; preds = %.loopexit
+  %251 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %251(i32 noundef 33985)
+          to label %252 unwind label %.loopexit.split-lp
+
+252:                                              ; preds = %250
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+          to label %253 unwind label %.loopexit.split-lp
+
+253:                                              ; preds = %252
+  %254 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %254(i32 noundef 33984)
+          to label %255 unwind label %.loopexit.split-lp
+
+255:                                              ; preds = %253
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %256 unwind label %.loopexit.split-lp
 
-256:                                              ; preds = %254
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %257 unwind label %.loopexit.split-lp
+256:                                              ; preds = %255, %.loopexit
+  br i1 %.056, label %257, label %275
 
 257:                                              ; preds = %256
   %258 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %258(i32 noundef 33984)
+  invoke void %258(i32 noundef 33989)
           to label %259 unwind label %.loopexit.split-lp
 
 259:                                              ; preds = %257
   invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %260 unwind label %.loopexit.split-lp
 
-260:                                              ; preds = %259, %.loopexit
-  br i1 %.056, label %261, label %279
+260:                                              ; preds = %259
+  %261 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %261(i32 noundef 33988)
+          to label %262 unwind label %.loopexit.split-lp
 
-261:                                              ; preds = %260
-  %262 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %262(i32 noundef 33989)
+262:                                              ; preds = %260
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %263 unwind label %.loopexit.split-lp
 
-263:                                              ; preds = %261
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %264 unwind label %.loopexit.split-lp
+263:                                              ; preds = %262
+  %264 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %264(i32 noundef 33987)
+          to label %265 unwind label %.loopexit.split-lp
 
-264:                                              ; preds = %263
-  %265 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %265(i32 noundef 33988)
+265:                                              ; preds = %263
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %266 unwind label %.loopexit.split-lp
 
-266:                                              ; preds = %264
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %267 unwind label %.loopexit.split-lp
+266:                                              ; preds = %265
+  %267 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %267(i32 noundef 33986)
+          to label %268 unwind label %.loopexit.split-lp
 
-267:                                              ; preds = %266
-  %268 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %268(i32 noundef 33987)
+268:                                              ; preds = %266
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %269 unwind label %.loopexit.split-lp
 
-269:                                              ; preds = %267
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %270 unwind label %.loopexit.split-lp
+269:                                              ; preds = %268
+  %270 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %270(i32 noundef 33985)
+          to label %271 unwind label %.loopexit.split-lp
 
-270:                                              ; preds = %269
-  %271 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %271(i32 noundef 33986)
+271:                                              ; preds = %269
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %272 unwind label %.loopexit.split-lp
 
-272:                                              ; preds = %270
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %273 unwind label %.loopexit.split-lp
+272:                                              ; preds = %271
+  %273 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %273(i32 noundef 33984)
+          to label %274 unwind label %.loopexit.split-lp
 
-273:                                              ; preds = %272
-  %274 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %274(i32 noundef 33985)
+274:                                              ; preds = %272
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
           to label %275 unwind label %.loopexit.split-lp
 
-275:                                              ; preds = %273
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %276 unwind label %.loopexit.split-lp
+275:                                              ; preds = %274, %256
+  %276 = getelementptr inbounds i8, ptr %0, i64 632
+  %277 = load ptr, ptr %276, align 8
+  %278 = icmp eq ptr %277, null
+  br i1 %278, label %280, label %279
 
-276:                                              ; preds = %275
-  %277 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %277(i32 noundef 33984)
-          to label %278 unwind label %.loopexit.split-lp
+279:                                              ; preds = %275
+  call void @_ZdaPv(ptr noundef nonnull %277) #20
+  br label %280
 
-278:                                              ; preds = %276
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %279 unwind label %.loopexit.split-lp
+280:                                              ; preds = %279, %275
+  %281 = load i32, ptr %0, align 8
+  %282 = load i32, ptr %11, align 4
+  %283 = mul nsw i32 %282, %281
+  %284 = sext i32 %283 to i64
+  %285 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %284) #24
+          to label %286 unwind label %.loopexit.split-lp
 
-279:                                              ; preds = %278, %260
-  %280 = getelementptr inbounds i8, ptr %0, i64 632
-  %281 = load ptr, ptr %280, align 8
-  %282 = icmp eq ptr %281, null
-  br i1 %282, label %284, label %283
-
-283:                                              ; preds = %279
-  call void @_ZdaPv(ptr noundef nonnull %281) #20
-  br label %284
-
-284:                                              ; preds = %283, %279
-  %285 = load i32, ptr %0, align 8
-  %286 = load i32, ptr %11, align 4
-  %287 = mul nsw i32 %286, %285
-  %288 = sext i32 %287 to i64
-  %289 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %288) #24
-          to label %290 unwind label %.loopexit.split-lp
-
-290:                                              ; preds = %284
-  store ptr %289, ptr %280, align 8
+286:                                              ; preds = %280
+  store ptr %285, ptr %276, align 8
   invoke void @glPixelStorei(i32 noundef 3317, i32 noundef 1)
-          to label %291 unwind label %.loopexit.split-lp
+          to label %287 unwind label %.loopexit.split-lp
 
-291:                                              ; preds = %290
+287:                                              ; preds = %286
   invoke void @glPixelStorei(i32 noundef 3333, i32 noundef 1)
-          to label %292 unwind label %.loopexit.split-lp
+          to label %288 unwind label %.loopexit.split-lp
 
-292:                                              ; preds = %291
-  %293 = icmp ult i32 %2, 4
-  br i1 %293, label %switch.lookup108, label %297
+288:                                              ; preds = %287
+  %289 = icmp ult i32 %2, 4
+  br i1 %289, label %switch.lookup108, label %293
 
-switch.lookup108:                                 ; preds = %292
+switch.lookup108:                                 ; preds = %288
   %switch.offset = add nuw nsw i32 %2, 6403
-  %294 = load i32, ptr %0, align 8
-  %295 = load i32, ptr %11, align 4
-  %296 = load ptr, ptr %280, align 8
-  invoke void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %294, i32 noundef %295, i32 noundef %switch.offset, i32 noundef 5121, ptr noundef %296)
-          to label %297 unwind label %.loopexit.split-lp
+  %290 = load i32, ptr %0, align 8
+  %291 = load i32, ptr %11, align 4
+  %292 = load ptr, ptr %276, align 8
+  invoke void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %290, i32 noundef %291, i32 noundef %switch.offset, i32 noundef 5121, ptr noundef %292)
+          to label %293 unwind label %.loopexit.split-lp
 
-297:                                              ; preds = %292, %switch.lookup108
+293:                                              ; preds = %288, %switch.lookup108
   invoke void @glDisableClientState(i32 noundef 32884)
+          to label %294 unwind label %.loopexit.split-lp
+
+294:                                              ; preds = %293
+  br i1 %.059, label %295, label %296
+
+295:                                              ; preds = %294
+  invoke void @glDisableClientState(i32 noundef 32886)
+          to label %296 unwind label %.loopexit.split-lp
+
+296:                                              ; preds = %295, %294
+  br i1 %.058, label %297, label %298
+
+297:                                              ; preds = %296
+  invoke void @glDisableClientState(i32 noundef 32885)
           to label %298 unwind label %.loopexit.split-lp
 
-298:                                              ; preds = %297
-  br i1 %.059, label %299, label %300
-
-299:                                              ; preds = %298
-  invoke void @glDisableClientState(i32 noundef 32886)
+298:                                              ; preds = %297, %296
+  %299 = load ptr, ptr @__glewBindBufferARB, align 8
+  invoke void %299(i32 noundef 34962, i32 noundef 0)
           to label %300 unwind label %.loopexit.split-lp
 
-300:                                              ; preds = %299, %298
-  br i1 %.058, label %301, label %302
-
-301:                                              ; preds = %300
-  invoke void @glDisableClientState(i32 noundef 32885)
+300:                                              ; preds = %298
+  %301 = load ptr, ptr @__glewBindBufferARB, align 8
+  invoke void %301(i32 noundef 34963, i32 noundef 0)
           to label %302 unwind label %.loopexit.split-lp
 
-302:                                              ; preds = %301, %300
-  %303 = load ptr, ptr @__glewBindBufferARB, align 8
-  invoke void %303(i32 noundef 34962, i32 noundef 0)
-          to label %304 unwind label %.loopexit.split-lp
-
-304:                                              ; preds = %302
-  %305 = load ptr, ptr @__glewBindBufferARB, align 8
-  invoke void %305(i32 noundef 34963, i32 noundef 0)
-          to label %306 unwind label %.loopexit.split-lp
-
-306:                                              ; preds = %304
-  %307 = load i32, ptr %57, align 8
-  switch i32 %307, label %309 [
-    i32 4, label %308
-    i32 2, label %308
-    i32 0, label %308
-    i32 1, label %308
+302:                                              ; preds = %300
+  %303 = load i32, ptr %57, align 8
+  switch i32 %303, label %305 [
+    i32 4, label %304
+    i32 2, label %304
+    i32 0, label %304
+    i32 1, label %304
   ]
 
-308:                                              ; preds = %306, %306, %306, %306
+304:                                              ; preds = %302, %302, %302, %302
   invoke void @glEnable(i32 noundef 2896)
-          to label %309 unwind label %.loopexit.split-lp
+          to label %305 unwind label %.loopexit.split-lp
 
-309:                                              ; preds = %306, %308
-  %310 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %310(i32 noundef 0)
-          to label %311 unwind label %.loopexit.split-lp
+305:                                              ; preds = %302, %304
+  %306 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %306(i32 noundef 0)
+          to label %307 unwind label %.loopexit.split-lp
 
-311:                                              ; preds = %309
+307:                                              ; preds = %305
   invoke void @glPushAttrib(i32 noundef 4096)
           to label %.noexc76 unwind label %.loopexit.split-lp
 
-.noexc76:                                         ; preds = %311
+.noexc76:                                         ; preds = %307
   invoke void @glMatrixMode(i32 noundef 5888)
           to label %.noexc77 unwind label %.loopexit.split-lp
 
@@ -4158,95 +4160,95 @@ switch.lookup108:                                 ; preds = %292
           to label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit unwind label %.loopexit.split-lp
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit: ; preds = %.noexc80
-  br i1 %3, label %312, label %330
+  br i1 %3, label %308, label %326
 
-312:                                              ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit
+308:                                              ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit
   invoke void @_ZNK20QGLFramebufferObject7toImageEv(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %313 unwind label %.loopexit.split-lp
+          to label %309 unwind label %.loopexit.split-lp
 
-313:                                              ; preds = %312
-  %314 = getelementptr inbounds i8, ptr %0, i64 408
-  %315 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %316 unwind label %325
+309:                                              ; preds = %308
+  %310 = getelementptr inbounds i8, ptr %0, i64 408
+  %311 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %312 unwind label %321
 
-316:                                              ; preds = %313
-  %317 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.36, i32 noundef 13)
-          to label %318 unwind label %325
+312:                                              ; preds = %309
+  %313 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.36, i32 noundef 13)
+          to label %314 unwind label %321
 
-318:                                              ; preds = %316
-  store ptr %317, ptr %9, align 8
-  %319 = invoke noundef zeroext i1 @_ZNK6QImage4saveERK7QStringPKci(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null, i32 noundef -1)
-          to label %320 unwind label %327
+314:                                              ; preds = %312
+  store ptr %313, ptr %9, align 8
+  %315 = invoke noundef zeroext i1 @_ZNK6QImage4saveERK7QStringPKci(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null, i32 noundef -1)
+          to label %316 unwind label %323
 
-320:                                              ; preds = %318
-  %321 = load ptr, ptr %9, align 8
-  %322 = load atomic i32, ptr %321 monotonic, align 4
-  switch i32 %322, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
+316:                                              ; preds = %314
+  %317 = load ptr, ptr %9, align 8
+  %318 = load atomic i32, ptr %317 monotonic, align 4
+  switch i32 %318, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN7QStringD2Ev.exit
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %320
-  %323 = atomicrmw sub ptr %321, i32 1 seq_cst, align 4
-  %.not.i = icmp eq i32 %323, 1
+_ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %316
+  %319 = atomicrmw sub ptr %317, i32 1 seq_cst, align 4
+  %.not.i = icmp eq i32 %319, 1
   br i1 %.not.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, label %_ZN7QStringD2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i
   %.pre.i = load ptr, ptr %9, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %320
-  %324 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %321, %320 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %324, i64 noundef 2, i64 noundef 8) #21
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %316
+  %320 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %317, %316 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %320, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit
 
-325:                                              ; preds = %316, %313
-  %326 = landingpad { ptr, i32 }
+321:                                              ; preds = %312, %309
+  %322 = landingpad { ptr, i32 }
           cleanup
-  br label %329
+  br label %325
 
-327:                                              ; preds = %318
-  %328 = landingpad { ptr, i32 }
+323:                                              ; preds = %314
+  %324 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
-  br label %329
+  br label %325
 
-329:                                              ; preds = %327, %325
-  %.pn = phi { ptr, i32 } [ %328, %327 ], [ %326, %325 ]
+325:                                              ; preds = %323, %321
+  %.pn = phi { ptr, i32 } [ %324, %323 ], [ %322, %321 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
-  br label %338
+  br label %334
 
-330:                                              ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit
+326:                                              ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit
   invoke void @_ZNK20QGLFramebufferObject7toImageEv(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %331 unwind label %.loopexit.split-lp
+          to label %327 unwind label %.loopexit.split-lp
 
-331:                                              ; preds = %330
-  %332 = getelementptr inbounds i8, ptr %0, i64 432
-  %333 = getelementptr inbounds i8, ptr %10, i64 24
-  %334 = load ptr, ptr %332, align 8
-  %335 = load ptr, ptr %333, align 8
-  store ptr %335, ptr %332, align 8
-  store ptr %334, ptr %333, align 8
+327:                                              ; preds = %326
+  %328 = getelementptr inbounds i8, ptr %0, i64 432
+  %329 = getelementptr inbounds i8, ptr %10, i64 24
+  %330 = load ptr, ptr %328, align 8
+  %331 = load ptr, ptr %329, align 8
+  store ptr %331, ptr %328, align 8
+  store ptr %330, ptr %329, align 8
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %320, %331
-  %.sink = phi ptr [ %10, %331 ], [ %8, %320 ], [ %8, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i ]
+_ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %316, %327
+  %.sink = phi ptr [ %10, %327 ], [ %8, %316 ], [ %8, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #21
-  %336 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject7releaseEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %337 unwind label %.loopexit.split-lp
+  %332 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject7releaseEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %333 unwind label %.loopexit.split-lp
 
-337:                                              ; preds = %_ZN7QStringD2Ev.exit
+333:                                              ; preds = %_ZN7QStringD2Ev.exit
   call void @_ZN20QGLFramebufferObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @_ZN26QGLFramebufferObjectFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   ret void
 
-338:                                              ; preds = %.loopexit93, %.loopexit.split-lp, %329
-  %.pn66 = phi { ptr, i32 } [ %.pn, %329 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+334:                                              ; preds = %.loopexit93, %.loopexit.split-lp, %325
+  %.pn66 = phi { ptr, i32 } [ %.pn, %325 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN20QGLFramebufferObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  br label %339
+  br label %335
 
-339:                                              ; preds = %338, %47
-  %.pn66.pn = phi { ptr, i32 } [ %.pn66, %338 ], [ %48, %47 ]
+335:                                              ; preds = %334, %47
+  %.pn66.pn = phi { ptr, i32 } [ %.pn66, %334 ], [ %48, %47 ]
   call void @_ZN26QGLFramebufferObjectFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   resume { ptr, i32 } %.pn66.pn
 }

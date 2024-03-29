@@ -13,9 +13,8 @@ entry:
   %validator = alloca %"class.hermes::sem::SemanticValidator", align 8
   %enableBlockScoping = getelementptr inbounds i8, ptr %astContext, i64 249
   %0 = load i8, ptr %enableBlockScoping, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN6hermes3sem27canonicalizeForBlockScopingERNS_7ContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef %root) #2
@@ -23,10 +22,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %convertES6Classes_.i = getelementptr inbounds i8, ptr %astContext, i64 193
-  %2 = load i8, ptr %convertES6Classes_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %if.end3, label %if.then2
+  %1 = load i8, ptr %convertES6Classes_.i, align 1
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   tail call void @_ZN6hermes19transformES6ClassesERNS_7ContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef %root) #2
@@ -36,8 +34,8 @@ if.end3:                                          ; preds = %if.then2, %if.end
   call void @_ZN6hermes3sem17SemanticValidatorC1ERNS_7ContextERNS0_10SemContextEb(ptr noundef nonnull align 8 dereferenceable(168) %validator, ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, i1 noundef zeroext true) #2
   %call4 = call noundef zeroext i1 @_ZN6hermes3sem17SemanticValidator4doItEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %validator, ptr noundef %root) #2
   %bufferMessages_.i = getelementptr inbounds i8, ptr %validator, i64 16
-  %4 = load ptr, ptr %bufferMessages_.i, align 8
-  call void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %4) #2
+  %2 = load ptr, ptr %bufferMessages_.i, align 8
+  call void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %2) #2
   ret i1 %call4
 }
 
@@ -55,9 +53,8 @@ entry:
   %validator = alloca %"class.hermes::sem::SemanticValidator", align 8
   %enableBlockScoping = getelementptr inbounds i8, ptr %astContext, i64 249
   %0 = load i8, ptr %enableBlockScoping, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN6hermes3sem27canonicalizeForBlockScopingERNS_7ContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef %root) #2
@@ -67,8 +64,8 @@ if.end:                                           ; preds = %if.then, %entry
   call void @_ZN6hermes3sem17SemanticValidatorC1ERNS_7ContextERNS0_10SemContextEb(ptr noundef nonnull align 8 dereferenceable(168) %validator, ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, i1 noundef zeroext false) #2
   %call1 = call noundef zeroext i1 @_ZN6hermes3sem17SemanticValidator4doItEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %validator, ptr noundef %root) #2
   %bufferMessages_.i = getelementptr inbounds i8, ptr %validator, i64 16
-  %2 = load ptr, ptr %bufferMessages_.i, align 8
-  call void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %2) #2
+  %1 = load ptr, ptr %bufferMessages_.i, align 8
+  call void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %1) #2
   ret i1 %call1
 }
 
@@ -78,9 +75,8 @@ entry:
   %validator = alloca %"class.hermes::sem::SemanticValidator", align 8
   %enableBlockScoping = getelementptr inbounds i8, ptr %astContext, i64 249
   %0 = load i8, ptr %enableBlockScoping, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN6hermes3sem27canonicalizeForBlockScopingERNS_7ContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef %function) #2
@@ -90,8 +86,8 @@ if.end:                                           ; preds = %if.then, %entry
   call void @_ZN6hermes3sem17SemanticValidatorC1ERNS_7ContextERNS0_10SemContextEb(ptr noundef nonnull align 8 dereferenceable(168) %validator, ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, i1 noundef zeroext true) #2
   %call2 = call noundef zeroext i1 @_ZN6hermes3sem17SemanticValidator10doFunctionEPNS_6ESTree4NodeEb(ptr noundef nonnull align 8 dereferenceable(168) %validator, ptr noundef %function, i1 noundef zeroext %strict) #2
   %bufferMessages_.i = getelementptr inbounds i8, ptr %validator, i64 16
-  %2 = load ptr, ptr %bufferMessages_.i, align 8
-  call void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %2) #2
+  %1 = load ptr, ptr %bufferMessages_.i, align 8
+  call void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %1) #2
   ret i1 %call2
 }
 

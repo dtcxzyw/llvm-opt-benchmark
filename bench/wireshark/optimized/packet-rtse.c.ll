@@ -940,9 +940,8 @@ declare i32 @dissect_ber_external_type(i1 noundef zeroext, ptr noundef, ptr noun
 define internal i32 @call_rtse_external_type_callback(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 62
   %8 = load i8, ptr %7, align 2
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %21, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %21
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 16
@@ -950,8 +949,8 @@ define internal i32 @call_rtse_external_type_callback(i1 zeroext %0, ptr noundef
   %13 = getelementptr inbounds i8, ptr %3, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %12, i32 noundef %14) #3
-  %.not23 = icmp eq ptr %15, null
-  br i1 %.not23, label %16, label %.thread28
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %16, label %.thread26
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %11, align 8
@@ -963,30 +962,29 @@ define internal i32 @call_rtse_external_type_callback(i1 zeroext %0, ptr noundef
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %3, i64 61
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not22 = icmp eq i8 %24, 0
-  br i1 %.not22, label %.thread, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %3, i64 72
   %27 = load ptr, ptr %26, align 8
-  %.not24 = icmp eq ptr %27, null
-  br i1 %.not24, label %.thread, label %.thread28
+  %.not22 = icmp eq ptr %27, null
+  br i1 %.not22, label %.thread, label %.thread26
 
-.thread28:                                        ; preds = %10, %25
-  %.031 = phi ptr [ %27, %25 ], [ %15, %10 ]
+.thread26:                                        ; preds = %10, %25
+  %.029 = phi ptr [ %27, %25 ], [ %15, %10 ]
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @top_tree, align 8
-  %.not25 = icmp eq ptr %30, null
-  %31 = select i1 %.not25, ptr %4, ptr %30
+  %.not23 = icmp eq ptr %30, null
+  %31 = select i1 %.not23, ptr %4, ptr %30
   %32 = getelementptr inbounds i8, ptr %3, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call fastcc i32 @call_rtse_oid_callback(ptr noundef nonnull %.031, ptr noundef %1, i32 noundef %2, ptr noundef %29, ptr noundef %31, ptr noundef %33)
+  %34 = tail call fastcc i32 @call_rtse_oid_callback(ptr noundef nonnull %.029, ptr noundef %1, i32 noundef %2, ptr noundef %29, ptr noundef %31, ptr noundef %33)
   br label %.thread
 
-.thread:                                          ; preds = %21, %16, %.thread28, %25
-  %.020 = phi i32 [ %34, %.thread28 ], [ %2, %25 ], [ %2, %16 ], [ %2, %21 ]
+.thread:                                          ; preds = %21, %16, %.thread26, %25
+  %.020 = phi i32 [ %34, %.thread26 ], [ %2, %25 ], [ %2, %16 ], [ %2, %21 ]
   ret i32 %.020
 }
 
